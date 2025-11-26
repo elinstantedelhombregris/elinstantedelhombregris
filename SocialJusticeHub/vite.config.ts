@@ -37,7 +37,7 @@ export default defineConfig({
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
     commonjsOptions: {
-      include: [/scheduler/, /react-reconciler/, /wouter/],
+      include: [/node_modules/],
       transformMixedEsModules: true,
     },
     rollupOptions: {
