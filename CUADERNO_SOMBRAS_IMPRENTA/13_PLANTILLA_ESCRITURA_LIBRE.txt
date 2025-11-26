@@ -1,0 +1,35 @@
+PLANTILLA DE PÁGINA DE ESCRITURA LIBRE
+(Usar para la mayoría de páginas: 19-34, 39-54, 59-74, 79-94, 99-114, 119-134, 139-154, 159-174)
+
+==========================================
+[Encabezado superior]
+
+Fecha: _______________    Hora: _______________
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[Área de escritura con líneas guía]
+- Espaciado entre líneas: 7mm
+- Márgenes: 15mm superior, 20mm inferior, 15mm laterales
+- Líneas en gris 10% (muy sutiles)
+- Mínimo 25 líneas de escritura
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[Pie de página opcional]
+Símbolo de sombra pequeño (opcional para marcar)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ESPECIFICACIONES DE DISEÑO:
+- Encabezado: Sans-serif regular, 10pt, Gris 50%
+- Líneas guía: Gris 10%, muy sutiles, no intrusivas
+- Diseño: Limpio, minimalista, que invite a escribir
+- Sin elementos decorativos que distraigan
+- Espacio amplio y respirable
+
+VARIACIONES:
+- Algunas páginas pueden tener un prompt sutil al inicio
+- Algunas pueden tener espacio para dibujo o collage
+- Mantener consistencia visual pero permitir variedad
+

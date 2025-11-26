@@ -1,0 +1,141 @@
+Quiero que me crees una página web de inicio para un movimiento social llamado “¡BASTA!”, diseñado para impulsar un cambio profundo y positivo en la Argentina. Esta página no es solo informativa: es una plataforma de participación ciudadana que busca unir a la gente desde su lugar en el país para expresar lo que sueñan, lo que valoran, lo que necesitan y cómo están dispuestos a actuar para transformar su realidad.
+
+🎯 Objetivo principal del sitio:
+Crear una plataforma digital interactiva que funcione como un centro de conexión social, guía de acción colectiva e individual, y motor de transformación nacional.
+
+🧩 Estructura general de la web (secciones que debe incluir):
+1. Encabezado (Header)
+Logo de “¡BASTA!”
+
+Frase central: "El cambio empieza en vos. La nueva Argentina la creamos entre todos."
+
+Menú con accesos a:
+
+Sobre ¡BASTA!
+
+Participá
+
+Comunidad
+
+Herramientas
+
+Registro / Iniciar sesión
+
+2. Bloque inicial (Hero Section)
+Imagen impactante de Argentina diversa (norte-sur, campo-ciudad, pueblos originarios, jóvenes, mayores).
+
+Llamado a la acción claro:
+
+Botón: "Contanos qué soñás"
+
+Botón: "Sumate al cambio"
+
+3. Formulario interactivo / mapa de sueños
+Un mapa de Argentina interactivo donde los usuarios puedan dejar:
+
+Qué sueñan para el país
+
+Qué valoran
+
+Qué necesitan
+
+Geolocalización opcional
+
+Se visualiza un "mapa de sueños y necesidades de la Argentina" en tiempo real.
+
+4. Comunidad en acción
+Sección donde las personas pueden:
+
+Publicar y ver ofertas de empleo, colaboración, trueque o donaciones
+
+Crear o unirse a causas locales (huertas comunitarias, cooperativas, redes de ayuda)
+
+Compartir recursos, saberes o servicios
+
+5. Guía para el cambio: De vos al país
+Explicación didáctica y visual del proceso de diseño idealizado, mostrando cómo el cambio va:
+
+Del individuo → a la familia → al barrio → a la provincia → a la Nación
+
+Sugerencias de acciones simples con impacto positivo en:
+
+Salud, consumo, alimentación, economía circular, participación política
+
+6. Historias que inspiran
+Testimonios reales de personas comunes que están transformando su entorno
+
+Videos, frases y casos de éxito
+
+7. Blog / recursos educativos
+Artículos sobre:
+
+Pensamiento sistémico
+
+Cambio de hábitos
+
+Proyectos ciudadanos
+
+Diseño idealizado aplicado al país
+
+Material descargable y videos explicativos
+
+8. Call to Action final
+Frase: “Si vos cambiás, Argentina cambia”
+
+Botones:
+
+Registrate y empezá a construir
+
+Descargá la guía del cambio
+
+Invitá a tus vecinos y amigos
+
+9. Pie de página (footer)
+Redes sociales
+
+Contacto
+
+Preguntas frecuentes
+
+Transparencia / misión del movimiento
+
+Licencia Creative Commons para uso libre del contenido
+
+🛠️ Funcionalidades clave:
+Registro con geolocalización opcional
+
+Plataforma colaborativa tipo marketplace
+
+Sistema de publicación de sueños y necesidades
+
+Herramientas para compartir habilidades y conocimientos
+
+Algoritmo de conexión: conectar gente con intereses y necesidades similares
+
+Dashboard de impacto colectivo
+
+Notificaciones personalizadas según el lugar y temática de interés
+
+🎨 Estética y diseño sugerido:
+Minimalista, cálida y humana
+
+Colores tierra + celeste y blanco (identidad argentina)
+
+Tipografía clara, amigable
+
+Íconos ilustrativos y visualizaciones dinámicas (mapas, conexiones, progreso)
+
+Totalmente responsiva (PC, tablet, celular)
+
+🧠 Inspiración y tono:
+Pensamiento sistémico (Russell Ackoff)
+
+Diseño idealizado
+
+Espiritualidad práctica (El Kybalion, Joseph Murphy, Napoleon Hill)
+
+Activismo social
+
+Cultura argentina popular (lenguaje cercano y motivador)
+
+Este sitio debe ser más que una página web: debe ser el punto de partida de una revolución pacífica, profunda, organizada y positiva. Tiene que invitar a la acción, al diálogo, al aprendizaje, a la introspección y a la colaboración entre argentinos.

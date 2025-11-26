@@ -1,0 +1,66 @@
+PÁGINAS 12-13: SÍMBOLOS DEL CUADERNO
+
+==========================================
+SÍMBOLOS DEL CUADERNO
+==========================================
+
+Usa estos símbolos para marcar entradas especiales y navegar tu proceso:
+
+⭐ ESTRELLA
+Momento de claridad o revelación
+Úsalo cuando algo se hace claro, cuando tienes un insight,
+cuando sientes que algo importante se revela.
+
+⭕ CÍRCULO
+Duda o pregunta abierta
+Marca las preguntas que te acompañan, las dudas que persisten,
+los temas que necesitan más exploración.
+
+➖ LÍNEA
+Conexión o relación
+Úsalo cuando conectas ideas, cuando ves relaciones entre
+conceptos, cuando algo se relaciona con otra entrada.
+
+🌙 MEDIA LUNA
+Reflexión nocturna
+Marca las entradas escritas de noche, cuando la oscuridad
+te invita a profundizar de manera diferente.
+
+☀️ SOL
+Iluminación o revelación
+Similar a la estrella pero más intenso. Úsalo para momentos
+de gran claridad o transformación profunda.
+
+💧 GOTA
+Emoción o sentimiento intenso
+Marca las entradas donde las emociones son protagonistas,
+donde sientes algo profundamente.
+
+🔗 ENLACE
+Conexión con otra entrada
+Úsalo para referenciar otras páginas del cuaderno,
+creando un mapa de conexiones internas.
+
+❓ INTERROGACIÓN
+Pregunta que persiste
+Marca las preguntas importantes que quieres explorar más,
+las que te acompañan en el proceso.
+
+✓ CHECK
+Compromiso cumplido
+Marca cuando completas un ritual, cuando mantienes
+tu compromiso, cuando honras el proceso.
+
+💭 NUBE
+Pensamiento en desarrollo
+Úsalo para ideas que están germinando, pensamientos
+incompletos que quieres desarrollar más adelante.
+
+ESPECIFICACIONES DE DISEÑO:
+- Título: Sans-serif bold, 16pt, Gris sabio
+- Símbolos: Tamaño grande (18-20pt), centrados
+- Nombres: Sans-serif bold, 12pt, Negro
+- Descripciones: Sans-serif regular, 9pt, Gris 70%
+- Diseño: Grid de 2 columnas, símbolos destacados
+- Espaciado: Generoso entre símbolos (mínimo 10mm)
+

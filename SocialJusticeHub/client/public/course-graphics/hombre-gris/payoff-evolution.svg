@@ -1,0 +1,36 @@
+<svg width="840" height="420" viewBox="0 0 840 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title>Transición de equilibrio: del castigo al juego cooperativo</title>
+  <desc>El gráfico muestra cómo la estrategia Tit for Tat desplaza el equilibrio desde la desconfianza hacia un juego de suma positiva.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+    <linearGradient id="cooperate" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#22d3ee" />
+    </linearGradient>
+    <linearGradient id="defect" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fb7185" />
+      <stop offset="100%" stop-color="#f97316" />
+    </linearGradient>
+  </defs>
+  <rect width="840" height="420" rx="24" fill="url(#bg)" />
+  <g transform="translate(70,40)">
+    <text x="0" y="-10" fill="#e2e8f0" font-size="18" font-weight="bold">Evolución de payoffs acumulados</text>
+    <text x="0" y="10" fill="#94a3b8" font-size="13">Simulación iterada de 50 rondas</text>
+    <line x1="0" y1="300" x2="700" y2="300" stroke="#475569" stroke-width="2" />
+    <line x1="0" y1="0" x2="0" y2="300" stroke="#475569" stroke-width="2" />
+    <polyline fill="none" stroke="url(#defect)" stroke-width="4" stroke-linecap="round" points="0,260 70,250 140,230 210,215 280,205 350,210 420,220 490,235 560,255 630,275 700,290" />
+    <polyline fill="none" stroke="url(#cooperate)" stroke-width="4" stroke-linecap="round" points="0,260 70,240 140,210 210,170 280,140 350,110 420,90 490,75 560,65 630,60 700,55" />
+    <circle cx="420" cy="90" r="32" fill="#1d4ed8" opacity="0.85" />
+    <text x="420" y="95" text-anchor="middle" fill="#f8fafc" font-size="12" font-weight="bold">TFT</text>
+    <text x="560" y="40" fill="#bae6fd" font-size="13">Payoff cooperativo domina</text>
+    <text x="520" y="260" fill="#fed7aa" font-size="13">Equilibrio punitivo</text>
+    <rect x="480" y="140" width="210" height="110" rx="12" fill="#020617" opacity="0.55" />
+    <text x="495" y="165" fill="#f0fdf4" font-size="14" font-weight="bold">Claves</text>
+    <text x="495" y="185" fill="#a5b4fc" font-size="12">1. Señal inicial cooperativa</text>
+    <text x="495" y="205" fill="#a5b4fc" font-size="12">2. Castigo proporcional</text>
+    <text x="495" y="225" fill="#a5b4fc" font-size="12">3. Perdón condicionado</text>
+  </g>
+</svg>

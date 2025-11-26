@@ -1,0 +1,599 @@
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Link } from "wouter";
+import {
+  Eye,
+  Users,
+  Heart,
+  Shield,
+  AlertTriangle,
+  Sparkles,
+  ArrowRight,
+  Globe,
+  Clock,
+  Target,
+  Zap,
+  Lightbulb,
+  Quote,
+  TrendingUp,
+  Award,
+  Flame,
+  Star,
+  CheckCircle,
+  XCircle,
+  BookOpen,
+  Hammer,
+  Brain,
+  MapPin,
+  Navigation,
+  Rocket,
+  ArrowDown,
+  Building2,
+  Scale,
+  Handshake,
+  Scan,
+  Activity
+} from 'lucide-react';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import UrgencyTimer from '@/components/UrgencyTimer';
+import ShockStats from '@/components/ShockStats';
+import PowerCTA, { PredefinedCTAs } from '@/components/PowerCTA';
+import CommitmentModal from '@/components/CommitmentModal';
+import NextStepCard from '@/components/NextStepCard';
+import RelatedPages from '@/components/RelatedPages';
+
+const LaVision = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [showCommitmentModal, setShowCommitmentModal] = useState(false);
+  const [activePillar, setActivePillar] = useState<number | null>(null);
+
+  const handleCommitment = (commitmentData: any) => {
+    console.log('Commitment made:', commitmentData);
+    setShowCommitmentModal(false);
+    // Here you would typically save the commitment to the backend
+  };
+
+  useEffect(() => {
+    setIsVisible(true);
+    window.scrollTo(0, 0);
+    document.title = 'La Visión - ¡BASTA! | Transformar Argentina Juntos';
+  }, []);
+
+  const processSteps = [
+    {
+      step: 1,
+      title: "DIAGNOSTICAR LO REAL",
+      subtitle: "Escuchar la vida cotidiana en vivo",
+      description: "Recolectamos datos voluntarios sobre cómo viven, sienten y sueñan las personas. La nación se mira en el espejo de su gente.",
+      icon: <Eye className="w-8 h-8" />,
+      color: "text-blue-400",
+      border: "border-blue-500/30",
+      bg: "bg-blue-500/10",
+      details: [
+        "Mapeamos bienestar financiero, mental, relacional y territorial",
+        "Detectamos tensiones recurrentes y capacidades disponibles",
+        "Convertimos testimonios en datos accionables",
+        "Regresamos a cada persona un diagnóstico útil"
+      ]
+    },
+    {
+      step: 2,
+      title: "SINCRONIZAR LA VISIÓN",
+      subtitle: "Un mismo horizonte compartido",
+      description: "Traducimos los diagnósticos en relatos deseados. La visión se vuelve inevitable porque nace de millones de coincidencias.",
+      icon: <Sparkles className="w-8 h-8" />,
+      color: "text-purple-400",
+      border: "border-purple-500/30",
+      bg: "bg-purple-500/10",
+      details: [
+        "Identificamos principios comunes y aspiraciones repetidas",
+        "Diseñamos un lenguaje de país sin ideologías",
+        "Priorizamos bienestar integral y dignidad económica",
+        "Publicamos metas claras y verificables"
+      ]
+    },
+    {
+      step: 3,
+      title: "CARTOGRAFIAR CONEXIONES",
+      subtitle: "Del dato al mapa vivo",
+      description: "Construimos tableros que muestran interdependencias entre personas, comunidades y gobiernos.",
+      icon: <MapPin className="w-8 h-8" />,
+      color: "text-green-400",
+      border: "border-green-500/30",
+      bg: "bg-green-500/10",
+      details: [
+        "Detectamos puntos de apalancamiento locales",
+        "Coordinamos recursos entre actores públicos y civiles",
+        "Generamos alertas tempranas para territorios críticos",
+        "Diseñamos rutas de acción que cualquier nivel puede replicar"
+      ]
+    },
+    {
+      step: 4,
+      title: "EJECUTAR CON COHERENCIA",
+      subtitle: "Micro y macro alineados",
+      description: "Cada compromiso individual alimenta políticas, proyectos y alianzas. Medimos en tiempo real y ajustamos.",
+      icon: <Rocket className="w-8 h-8" />,
+      color: "text-orange-400",
+      border: "border-orange-500/30",
+      bg: "bg-orange-500/10",
+      details: [
+        "Acompañamos proyectos ciudadanos con herramientas concretas",
+        "Compartimos métricas abiertas para aprender rápido",
+        "Escalamos lo que funciona y cuidamos lo emergente",
+        "Celebramos y difundimos cada avance colectivo"
+      ]
+    }
+  ];
+
+  const visionStats = [
+    {
+      id: 'diagnostics',
+      label: 'Diagnósticos activos',
+      value: 18240,
+      unit: '',
+      trend: 'up' as const,
+      color: 'blue' as const,
+      icon: <Brain className="w-6 h-6" />,
+      description: 'Personas que mapearon su vida'
+    },
+    {
+      id: 'patterns',
+      label: 'Patrones detectados',
+      value: 612,
+      unit: '',
+      trend: 'up' as const,
+      color: 'green' as const,
+      icon: <Lightbulb className="w-6 h-6" />,
+      description: 'Tendencias que revelan interdependencias'
+    },
+    {
+      id: 'alliances',
+      label: 'Acciones coordinadas',
+      value: 128,
+      unit: '',
+      trend: 'up' as const,
+      color: 'orange' as const,
+      icon: <Handshake className="w-6 h-6" />,
+      description: 'Proyectos que conectan micro y macro'
+    }
+  ];
+
+  const diagnosticPillars = [
+    {
+      title: "Diagnosticar el estado real",
+      description: "Escuchamos la vida cotidiana sin filtros para entender qué tan lejos estamos de la Argentina deseada.",
+      detail: "Lo cotidiano se convierte en información estratégica.",
+      icon: <AlertTriangle className="w-6 h-6 text-amber-500" />,
+      stats: "85% Cobertura"
+    },
+    {
+      title: "Revelar patrones invisibles",
+      description: "Analizamos datos y relatos para mostrar dinámicas que los modelos tradicionales no ven.",
+      detail: "Mostramos cómo se concatenan los problemas.",
+      icon: <Scan className="w-6 h-6 text-indigo-500" />,
+      stats: "124 Patrones"
+    },
+    {
+      title: "Mostrar interdependencia",
+      description: "Traducimos cómo decisiones personales y públicas se afectan mutuamente.",
+      detail: "Historias y métricas en una sola narrativa.",
+      icon: <Globe className="w-6 h-6 text-emerald-500" />,
+      stats: "Global & Local"
+    },
+    {
+      title: "Detectar brechas sistémicas",
+      description: "Identificamos nodos donde falta articulación, inversión o acompañamiento.",
+      detail: "El mapa señala dónde intervenir primero.",
+      icon: <Activity className="w-6 h-6 text-blue-500" />,
+      stats: "Alta Precisión"
+    }
+  ];
+
+  const pulseStats = [
+    {
+      id: 'localCells',
+      label: 'Células locales activas',
+      value: 342,
+      unit: '',
+      trend: 'up' as const,
+      color: 'purple' as const,
+      icon: <Award className="w-6 h-6" />,
+      description: 'Comunidades diseñando soluciones'
+    },
+    {
+      id: 'leverage',
+      label: 'Palancas identificadas',
+      value: 57,
+      unit: '',
+      trend: 'up' as const,
+      color: 'green' as const,
+      icon: <Zap className="w-6 h-6" />,
+      description: 'Puntos sistémicos listos para intervenir'
+    },
+    {
+      id: 'policies',
+      label: 'Políticas alineadas',
+      value: 23,
+      unit: '',
+      trend: 'up' as const,
+      color: 'orange' as const,
+      icon: <Hammer className="w-6 h-6" />,
+      description: 'Gestiones públicas basadas en datos ciudadanos'
+    }
+  ];
+
+  return (
+    <div className={`min-h-screen bg-[#0a0a0a] text-slate-200 selection:bg-blue-500/30 transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+      <Header />
+      <main className="overflow-hidden">
+
+        {/* Hero Section: Chaos to Order */}
+        <section className="relative min-h-screen flex items-center justify-center bg-[#0a0a0a] overflow-hidden pt-20">
+          {/* Blueprint Grid Background */}
+          <div className="absolute inset-0 opacity-20" 
+               style={{ backgroundImage: 'linear-gradient(#1e293b 1px, transparent 1px), linear-gradient(90deg, #1e293b 1px, transparent 1px)', backgroundSize: '40px 40px' }}>
+          </div>
+          
+          {/* Floating Particles (Simulated Chaos) */}
+          <div className="absolute inset-0 pointer-events-none">
+            {[...Array(20)].map((_, i) => (
+              <motion.div
+                key={i}
+                className="absolute w-1 h-1 bg-blue-500/50 rounded-full"
+                initial={{ 
+                  x: Math.random() * 100 + "%", 
+                  y: Math.random() * 100 + "%",
+                  opacity: 0
+                }}
+                animate={{ 
+                  x: Math.random() * 100 + "%", 
+                  y: Math.random() * 100 + "%",
+                  opacity: [0, 1, 0],
+                  scale: [0, 1.5, 0]
+                }}
+                transition={{ 
+                  duration: Math.random() * 10 + 10, 
+                  repeat: Infinity,
+                  ease: "linear" 
+                }}
+              />
+            ))}
+          </div>
+
+          <div className="container-content relative z-10">
+            <div className="max-w-5xl mx-auto text-center">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1 }}
+              >
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-900/20 border border-blue-500/30 text-blue-400 text-sm font-mono mb-8 tracking-widest uppercase">
+                  <Scan className="w-4 h-4 animate-pulse" />
+                  Protocolo de Diseño Activo
+                </div>
+                
+                <h1 className="heading-hero mb-8">
+                  <span className="block text-transparent bg-clip-text bg-gradient-to-b from-white via-slate-200 to-slate-500">
+                    Del Caos al Orden
+                  </span>
+                  <span className="block text-2xl md:text-4xl font-sans font-light text-slate-400 mt-4 tracking-wide">
+                    Diseñando la Argentina del Futuro
+                  </span>
+                </h1>
+
+                <p className="text-xl md:text-2xl text-slate-400/80 max-w-3xl mx-auto mb-12 leading-relaxed">
+                  Argentina no es un problema sin solución. Es un sistema mal diseñado.
+                  <br/>
+                  Nuestra plataforma convierte el ruido de millones de voces en un plano maestro de acción colectiva.
+                </p>
+
+                <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
+                  <PowerCTA
+                    text="MAPEAR MI VIDA"
+                    variant="primary"
+                    onClick={() => setShowCommitmentModal(true)}
+                    size="lg"
+                    animate={true}
+                  />
+                  <PowerCTA
+                    text="VER EL BLUEPRINT"
+                    variant="secondary"
+                    onClick={() => window.scrollTo({ top: 1000, behavior: 'smooth' })}
+                    size="lg"
+                    animate={true}
+                  />
+                </div>
+
+                {/* Stats Bar */}
+                <div className="grid grid-cols-3 gap-4 max-w-3xl mx-auto border-t border-white/10 pt-8">
+                  {visionStats.map((stat) => (
+                    <div key={stat.id} className="text-center">
+                      <div className="text-2xl md:text-3xl font-bold text-white font-mono">
+                        {stat.value.toLocaleString()}
+                      </div>
+                      <div className="text-xs text-slate-500 uppercase tracking-wider mt-1">
+                        {stat.label}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* Interactive Diagnostic Scanner */}
+        <section className="section-spacing bg-[#0f1116] border-t border-white/5">
+          <div className="container-content">
+            <div className="max-w-6xl mx-auto">
+              <div className="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                  <span className="text-blue-500 font-mono text-sm tracking-widest uppercase mb-4 block">Fase 1: Diagnóstico</span>
+                  <h2 className="heading-section mb-6">La vida cotidiana se vuelve mapa nacional</h2>
+                  <p className="text-body mb-8">
+                    Cada diagnóstico personal alimenta un modelo que permite detectar brechas sistémicas, visibilizar patrones invisibles y diseñar soluciones que incluyen a todos.
+                  </p>
+                  
+                  <div className="space-y-4">
+                    {diagnosticPillars.map((pillar, index) => (
+                      <motion.div 
+                        key={index}
+                        className={`p-4 rounded-xl border transition-all cursor-pointer ${activePillar === index ? 'bg-blue-900/20 border-blue-500/50' : 'bg-white/5 border-white/10 hover:bg-white/10'}`}
+                        onMouseEnter={() => setActivePillar(index)}
+                        onMouseLeave={() => setActivePillar(null)}
+                      >
+                        <div className="flex items-center gap-4">
+                          <div className={`p-2 rounded-lg ${activePillar === index ? 'bg-blue-500/20 text-blue-400' : 'bg-white/10 text-slate-400'}`}>
+                            {pillar.icon}
+                          </div>
+                          <div>
+                            <h3 className={`font-bold ${activePillar === index ? 'text-white' : 'text-slate-300'}`}>{pillar.title}</h3>
+                            <AnimatePresence>
+                              {activePillar === index && (
+                                <motion.p 
+                                  initial={{ height: 0, opacity: 0 }}
+                                  animate={{ height: 'auto', opacity: 1 }}
+                                  exit={{ height: 0, opacity: 0 }}
+                                  className="text-sm text-blue-200 mt-2"
+                                >
+                                  {pillar.description}
+                                </motion.p>
+                              )}
+                            </AnimatePresence>
+                          </div>
+                          <div className="ml-auto font-mono text-xs text-slate-500">
+                            {pillar.stats}
+                          </div>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Scanner Visual */}
+                <div className="relative aspect-square bg-blue-900/5 rounded-full border border-blue-500/20 flex items-center justify-center overflow-hidden">
+                  <div className="absolute inset-0 border border-blue-500/10 rounded-full m-12"></div>
+                  <div className="absolute inset-0 border border-blue-500/10 rounded-full m-24"></div>
+                  <div className="absolute inset-0 border border-blue-500/10 rounded-full m-36"></div>
+                  
+                  {/* Scanning Line */}
+                  <motion.div 
+                    className="absolute w-full h-[2px] bg-blue-500/50 shadow-[0_0_15px_rgba(59,130,246,0.8)]"
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                  />
+                  
+                  {/* Central Node */}
+                  <div className="relative z-10 bg-[#0a0a0a] p-8 rounded-full border border-blue-500/30 shadow-[0_0_50px_rgba(59,130,246,0.2)]">
+                    <Brain className="w-12 h-12 text-blue-400" />
+                  </div>
+
+                  {/* Floating Data Points */}
+                  {[...Array(8)].map((_, i) => (
+                    <motion.div
+                      key={i}
+                      className="absolute w-2 h-2 bg-blue-400 rounded-full"
+                      style={{
+                        top: '50%',
+                        left: '50%',
+                      }}
+                      animate={{
+                        x: Math.cos(i * 45 * (Math.PI / 180)) * 140,
+                        y: Math.sin(i * 45 * (Math.PI / 180)) * 140,
+                        opacity: [0.2, 1, 0.2],
+                        scale: [1, 1.2, 1]
+                      }}
+                      transition={{ duration: 2, repeat: Infinity, delay: i * 0.2 }}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* The Blueprint Timeline */}
+        <section className="section-spacing bg-[#0a0a0a] relative">
+          {/* Energy Line Connector */}
+          <div className="absolute top-0 bottom-0 left-8 md:left-1/2 w-px bg-gradient-to-b from-transparent via-blue-900 to-transparent -z-10" />
+
+          <div className="container-content">
+            <div className="max-w-5xl mx-auto">
+              <div className="text-center mb-20">
+                <h2 className="heading-section mb-6">
+                  El <span className="text-blue-500">Blueprint</span> de Transformación
+                </h2>
+                <p className="text-body max-w-2xl mx-auto">
+                  Cuatro fases secuenciales para rediseñar el sistema operativo de la nación.
+                </p>
+              </div>
+
+              <div className="space-y-24">
+                {processSteps.map((step, index) => (
+                  <motion.div 
+                    key={step.step}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    className={`flex flex-col md:flex-row gap-8 items-center ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}
+                  >
+                    {/* Content Card */}
+                    <div className="flex-1">
+                      <div className={`card-unified p-8 border-l-4 ${step.border.replace('border', 'border-l')}`}>
+                        <div className="flex items-center gap-4 mb-6">
+                          <div className={`w-12 h-12 rounded-xl ${step.bg} flex items-center justify-center ${step.color} border ${step.border}`}>
+                            {step.icon}
+                          </div>
+                          <div className="text-sm font-mono text-slate-500 uppercase tracking-widest">
+                            Fase 0{step.step}
+                          </div>
+                        </div>
+                        <h3 className="text-2xl font-bold text-white mb-2">{step.title}</h3>
+                        <p className="text-blue-200 font-medium mb-4">{step.subtitle}</p>
+                        <p className="text-slate-400 mb-6 leading-relaxed">{step.description}</p>
+                        
+                        <ul className="space-y-3">
+                          {step.details.map((detail, idx) => (
+                            <li key={idx} className="flex items-start gap-3 text-sm text-slate-300">
+                              <div className={`w-1.5 h-1.5 rounded-full mt-2 ${step.bg.replace('bg-', 'bg-')}`} />
+                              {detail}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+
+                    {/* Timeline Node */}
+                    <div className="relative flex items-center justify-center w-16 h-16">
+                      <div className={`w-4 h-4 rounded-full ${step.bg.replace('bg-', 'bg-')} shadow-[0_0_20px_currentColor] z-10`} />
+                      <div className="absolute w-16 h-16 border border-white/10 rounded-full animate-ping opacity-20" />
+                    </div>
+
+                    {/* Empty Spacer for grid balance */}
+                    <div className="flex-1 hidden md:block" />
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Living Pulse Metrics */}
+        <section className="section-spacing bg-gradient-to-b from-[#0a0a0a] via-blue-900/10 to-[#0a0a0a]">
+          <div className="container-content">
+            <div className="max-content-width text-center mb-10">
+              <p className="text-blue-500 font-mono text-sm tracking-widest uppercase mb-4">Pulso en Tiempo Real</p>
+              <h2 className="heading-section mb-4">Datos que se transforman en decisiones</h2>
+              <p className="text-body max-w-3xl mx-auto">
+                Cada aporte ciudadano alimenta tableros que muestran señales sistémicas, proyectos articulados y políticas alineadas con la visión compartida.
+              </p>
+            </div>
+
+            <ShockStats
+              stats={pulseStats}
+              title="IMPACTO DEL MODELO VIVO"
+              variant="dark"
+            />
+          </div>
+        </section>
+
+        {/* Call to Action */}
+        <section className="section-spacing relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/20 to-purple-900/20" />
+          <div className="container-content relative z-10">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="heading-section mb-8">
+                Activa tu diagnóstico y alimenta la visión compartida
+              </h2>
+              <p className="text-body text-blue-100 mb-12 max-w-3xl mx-auto">
+                Cuando completas tu mapa personal, fortaleces el diagnóstico vivo del país, detectas tus propios patrones y ofreces información que ayuda a diseñar políticas coherentes.
+              </p>
+
+              <div className="card-unified p-10 backdrop-blur-xl border-blue-500/20">
+                <h3 className="text-2xl font-bold text-white mb-4">
+                  Únete al proceso de construcción colectiva
+                </h3>
+                <p className="text-slate-300 mb-8">
+                  Sube tu diagnóstico, conecta con otros y observa en tiempo real cómo tus datos se entrelazan con los de miles de argentinos.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <PowerCTA
+                    text="SUBIR MI DIAGNÓSTICO"
+                    variant="primary"
+                    onClick={() => setShowCommitmentModal(true)}
+                    size="lg"
+                    animate={true}
+                  />
+                  <Link href="/el-mapa">
+                    <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10 h-14 px-8 rounded-full">
+                      VER INSIGHTS NACIONALES
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Next Step */}
+        <NextStepCard
+          title="Visualiza el Cambio en el Mapa"
+          description="Ahora que conoces la visión, explora cómo se está transformando Argentina en tiempo real. Cada punto en el mapa representa una persona que decidió actuar."
+          href="/el-mapa"
+          gradient="from-green-900 to-blue-900"
+          icon={<MapPin className="w-5 h-5" />}
+        />
+
+        {/* Related Pages */}
+        <RelatedPages
+          title="Explora Más del Viaje"
+          pages={[
+            {
+              title: "El Hombre Gris",
+              description: "Descubre la filosofía del despertar individual y cómo cada persona puede ser protagonista del cambio.",
+              href: "/el-instante-del-hombre-gris",
+              color: "journey-hombre-gris"
+            },
+            {
+              title: "La Semilla",
+              description: "Conoce cómo sembrar tu compromiso personal para nutrir la visión colectiva.",
+              href: "/la-semilla-de-basta",
+              color: "journey-semilla"
+            },
+            {
+              title: "La Tribu",
+              description: "Únete a la comunidad de transformadores y conecta con otros que están actuando.",
+              href: "/community",
+              color: "journey-tribu"
+            }
+          ]}
+        />
+
+      </main>
+      <Footer />
+
+      {/* Commitment Modal */}
+      <CommitmentModal
+        isOpen={showCommitmentModal}
+        onClose={() => setShowCommitmentModal(false)}
+        onCommit={handleCommitment}
+        type="intermediate"
+        title="CONTRIBUIR MI VISIÓN PARA ARGENTINA"
+      />
+    </div>
+  );
+};
+
+export default LaVision;

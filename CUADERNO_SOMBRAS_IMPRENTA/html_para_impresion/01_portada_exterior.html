@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuaderno de Sombras - Portada</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .cover-symbol {
+            width: 100mm;
+            height: 100mm;
+            margin: 30mm auto;
+            position: relative;
+        }
+        .symbol-circle {
+            width: 60mm;
+            height: 60mm;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(116, 172, 223, 0.3) 0%, transparent 70%);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            filter: blur(15px);
+        }
+        .symbol-circle::before {
+            content: '';
+            position: absolute;
+            width: 40mm;
+            height: 40mm;
+            border-radius: 50%;
+            background: radial-gradient(circle at 40% 40%, rgba(116, 172, 223, 0.2) 0%, transparent 80%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            filter: blur(10px);
+        }
+    </style>
+</head>
+<body>
+    <div class="page cover">
+        <div class="cover-content">
+            <div class="cover-title">
+                <h1>CUADERNO DE SOMBRAS</h1>
+                <p class="subtitle">Un registro de la zona gris</p>
+            </div>
+            
+            <div class="cover-symbol">
+                <div class="symbol-circle"></div>
+            </div>
+        </div>
+        
+        <p class="cover-footer">El Instante del Hombre Gris</p>
+    </div>
+</body>
+</html>
+

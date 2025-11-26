@@ -1,0 +1,68 @@
+PÁGINA 7: ÍNDICE
+
+==========================================
+ÍNDICE
+==========================================
+
+INICIO
+  Portada interior .................... 3
+  Pacto de Sombra .................... 4
+  Glosario ............................ 5
+  Guía de uso ......................... 8
+  Plantillas iniciales ............... 10
+  Primera entrada .................... 16
+
+SEMANA 1: Reconocimiento de la sombra
+  Prompt guiado ...................... 17
+  Escritura libre .................... 19-34
+  Reflexión semanal .................. 35
+
+SEMANA 2: Reconocimiento de la sombra
+  Prompt guiado ...................... 37
+  Escritura libre .................... 39-54
+  Reflexión semanal .................. 55
+
+SEMANA 3: Exploración
+  Prompt guiado ...................... 57
+  Escritura libre .................... 59-74
+  Reflexión semanal .................. 75
+
+SEMANA 4: Exploración
+  Prompt guiado ...................... 77
+  Escritura libre .................... 79-94
+  Reflexión semanal .................. 95
+
+SEMANA 5: Habitación de la penumbra
+  Prompt guiado ...................... 97
+  Escritura libre .................... 99-114
+  Reflexión semanal .................. 115
+
+SEMANA 6: Habitación de la penumbra
+  Prompt guiado ...................... 117
+  Escritura libre .................... 119-134
+  Reflexión semanal .................. 135
+
+SEMANA 7: Iluminación desde dentro
+  Prompt guiado ...................... 137
+  Escritura libre .................... 139-154
+  Reflexión semanal .................. 155
+
+SEMANA 8: Iluminación desde dentro
+  Prompt guiado ...................... 157
+  Escritura libre .................... 159-174
+  Reflexión semanal .................. 175
+
+CIERRE
+  Carta al yo del inicio ............ 177
+  Síntesis de aprendizajes .......... 179
+  Decisión sobre legado .............. 181
+  Contactos .......................... 183
+  Páginas libres ..................... 185
+
+ESPECIFICACIONES DE DISEÑO:
+- Título: Sans-serif bold, 16pt, Gris sabio
+- Secciones: Sans-serif bold, 11pt, Negro
+- Páginas: Sans-serif regular, 10pt, Gris 50%
+- Diseño: Lista numerada, alineación clara
+- Puntos guía: Gris 30%
+

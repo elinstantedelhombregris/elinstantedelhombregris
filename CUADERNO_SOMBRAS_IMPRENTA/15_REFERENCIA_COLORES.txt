@@ -1,0 +1,70 @@
+REFERENCIA DE COLORES PARA IMPRENTA
+
+==========================================
+COLORES PRINCIPALES
+==========================================
+
+GRIS SABIO
+- Hex: #6B7280
+- RGB: R:107 G:114 B:128
+- CMYK: C:30% M:25% Y:25% K:45%
+- Pantone: 424 C (aproximado)
+- Uso: Portada principal, títulos importantes
+
+CELESTE ARGENTINO
+- Hex: #74ACDF
+- RGB: R:116 G:172 B:223
+- CMYK: C:50% M:20% Y:0% K:10%
+- Pantone: 279 C (aproximado)
+- Uso: Acentos, subtítulos, elementos destacados
+
+BLANCO PURO
+- Hex: #FFFFFF
+- RGB: R:255 G:255 B:255
+- CMYK: C:0% M:0% Y:0% K:0%
+- Uso: Fondos, texto sobre fondos oscuros
+
+NEGRO TEXTO
+- Hex: #000000
+- RGB: R:0 G:0 B:0
+- CMYK: C:0% M:0% Y:0% K:100%
+- Uso: Texto principal, elementos de alto contraste
+
+==========================================
+ESCALAS DE GRIS PARA INTERIORES
+==========================================
+
+GRIS 10%
+- CMYK: C:0% M:0% Y:0% K:10%
+- Uso: Líneas guía de escritura (muy sutiles)
+
+GRIS 30%
+- CMYK: C:0% M:0% Y:0% K:30%
+- Uso: Elementos decorativos, bordes sutiles, separadores
+
+GRIS 50%
+- CMYK: C:0% M:0% Y:0% K:50%
+- Uso: Subtítulos, texto secundario, números de página
+
+GRIS 70%
+- CMYK: C:0% M:0% Y:0% K:70%
+- Uso: Texto de apoyo, descripciones, notas
+
+==========================================
+NOTAS IMPORTANTES
+==========================================
+
+- Mantener paleta monocromática con acentos celestes
+- No usar colores saturados o brillantes
+- Los grises deben ser sutiles y elegantes
+- El celeste debe usarse con moderación, como acento
+- Verificar colores con prueba física antes de impresión masiva
+- Asegurar que el contraste sea suficiente para legibilidad
+
+==========================================
+MUESTRA DE COLORES
+==========================================
+
+[Incluir en archivo PDF una muestra física de cada color
+para referencia de la imprenta]
+

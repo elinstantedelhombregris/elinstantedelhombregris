@@ -1,0 +1,19 @@
+PÁGINA 1: PORTADA EXTERIOR
+
+==========================================
+CUADERNO DE SOMBRAS
+==========================================
+
+Subtítulo: "Un registro de la zona gris"
+
+Elemento gráfico: Símbolo abstracto de sombra (silueta minimalista, minimalista)
+
+Texto inferior: "El Instante del Hombre Gris"
+
+ESPECIFICACIONES DE DISEÑO:
+- Fondo: Gris sabio (#6B7280) mate
+- Título: Sans-serif bold, 24pt, Blanco puro (#FFFFFF), centrado superior
+- Subtítulo: Sans-serif regular, 12pt, Celeste argentino (#74ACDF)
+- Elemento gráfico: Celeste argentino al 30% opacidad, centro de página
+- Texto inferior: Sans-serif italic, 10pt, Blanco 70% opacidad, margen inferior derecho
+

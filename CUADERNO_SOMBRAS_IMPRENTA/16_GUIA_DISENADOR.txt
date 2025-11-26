@@ -1,0 +1,191 @@
+GUÍA PARA EL DISEÑADOR GRÁFICO
+
+==========================================
+INSTRUCCIONES GENERALES
+==========================================
+
+Este documento contiene todo el contenido y las especificaciones
+necesarias para crear los archivos finales de imprenta del
+"Cuaderno de Sombras".
+
+ESTRUCTURA DE ARCHIVOS:
+- 00_ESPECIFICACIONES_TECNICAS.md: Especificaciones completas
+- 01-16: Archivos de contenido por sección
+- 15_REFERENCIA_COLORES.txt: Referencia de colores
+
+==========================================
+PROCESO DE TRABAJO RECOMENDADO
+==========================================
+
+1. REVISAR ESPECIFICACIONES TÉCNICAS
+   - Leer completamente 00_ESPECIFICACIONES_TECNICAS.md
+   - Entender formato, dimensiones, encuadernación
+   - Verificar colores y tipografías
+
+2. CREAR PLANTILLA BASE
+   - Configurar documento A5 (148 × 210 mm)
+   - Establecer márgenes (15mm superior, 20mm inferior, 15mm laterales)
+   - Configurar sangrado (3mm)
+   - Crear estilos de párrafo base
+
+3. DISEÑAR PORTADA
+   - Seguir especificaciones de 01_PORTADA_EXTERIOR.txt
+   - Crear elemento gráfico de sombra (minimalista)
+   - Diseñar solapas según especificaciones
+
+4. CREAR PÁGINAS INICIALES (1-16)
+   - Seguir contenido de archivos 02-10
+   - Mantener consistencia visual
+   - Aplicar estilos tipográficos establecidos
+
+5. CREAR PLANTILLAS DE ESCRITURA
+   - Plantilla de escritura libre (mayoría de páginas)
+   - Plantilla de prompt guiado (2 por semana)
+   - Plantilla de reflexión semanal (2 por semana)
+
+6. GENERAR CONTENIDO SEMANAL
+   - Semanas 1-8 usando prompts de 11_PROMPTS_SEMANALES.txt
+   - Aplicar plantillas de escritura libre
+   - Insertar reflexiones semanales
+
+7. CREAR PÁGINAS FINALES
+   - Seguir contenido de 14_PAGINAS_FINALES.txt
+   - Diseñar contraportadas
+
+8. REVISIÓN FINAL
+   - Verificar numeración de páginas
+   - Revisar consistencia visual
+   - Verificar colores en CMYK
+   - Asegurar sangrados y márgenes
+
+==========================================
+ESTILOS TIPOGRÁFICOS SUGERIDOS
+==========================================
+
+TÍTULOS PRINCIPALES
+- Fuente: Montserrat Bold o similar sans-serif bold
+- Tamaño: 16-18pt
+- Color: Gris sabio (#6B7280) o Negro
+- Interlineado: 1.2
+
+SUBTÍTULOS
+- Fuente: Montserrat Medium o similar sans-serif medium
+- Tamaño: 12-14pt
+- Color: Gris sabio o Negro
+- Interlineado: 1.3
+
+TEXTO CUERPO
+- Fuente: Montserrat Regular o Open Sans Regular
+- Tamaño: 10-11pt
+- Color: Negro
+- Interlineado: 1.5
+
+CITAS Y TEXTOS ESPECIALES
+- Fuente: Lora Italic o similar serif italic
+- Tamaño: 11-12pt
+- Color: Gris 70% o Negro
+- Interlineado: 1.6
+
+NOTAS Y TEXTOS SECUNDARIOS
+- Fuente: Montserrat Regular
+- Tamaño: 8-9pt
+- Color: Gris 50-70%
+- Interlineado: 1.4
+
+==========================================
+ELEMENTOS GRÁFICOS
+==========================================
+
+SÍMBOLO DE SOMBRA (Portada)
+- Diseño minimalista y abstracto
+- Silueta sutil, no literal
+- Color: Celeste argentino al 30% opacidad
+- Tamaño: Grande pero no dominante
+- Posición: Centro de portada
+
+LÍNEAS SEPARADORAS
+- Grosor: 0.5pt
+- Color: Gris 30%
+- Estilo: Sólido o punteado sutil
+
+BORDES Y MARCOS
+- Grosor: 1pt máximo
+- Color: Gris 30% o 50%
+- Estilo: Sólido, muy sutil
+
+SÍMBOLOS DE NAVEGACIÓN
+- Tamaño: 12-14pt
+- Color: Gris 50% o Negro
+- Estilo: Minimalista, fácil de reconocer
+
+==========================================
+CONSIDERACIONES DE DISEÑO
+==========================================
+
+MINIMALISMO
+- Menos es más
+- Espacios en blanco son importantes
+- No sobrecargar visualmente
+
+LEGIBILIDAD
+- Contraste suficiente entre texto y fondo
+- Tamaños de fuente apropiados
+- Espaciado generoso
+
+FUNCIONALIDAD
+- El cuaderno debe invitar a escribir
+- No intimidar con diseño complejo
+- Facilitar la escritura, no competir con ella
+
+ELEGANCIA
+- Diseño sofisticado pero accesible
+- Paleta de colores restringida
+- Tipografía clara y moderna
+
+==========================================
+CHECKLIST DE ENTREGA
+==========================================
+
+ANTES DE ENTREGAR A IMPRENTA:
+
+[ ] Todos los archivos en PDF/X-4
+[ ] Resolución mínima 300 DPI
+[ ] Sangrados de 3mm incluidos
+[ ] Marcas de corte visibles
+[ ] Tipografías embebidas o convertidas a curvas
+[ ] Colores en CMYK verificados
+[ ] Numeración de páginas correcta (1-192)
+[ ] Márgenes y áreas seguras respetadas
+[ ] Archivo maestro creado (todas las páginas en orden)
+[ ] Archivos individuales organizados (opcional)
+[ ] Prueba de color física realizada
+[ ] Revisión de contenido completa
+[ ] Sin errores tipográficos
+[ ] Consistencia visual verificada
+
+==========================================
+CONTACTO Y PREGUNTAS
+==========================================
+
+Si tienes dudas sobre:
+- Contenido: Revisar archivos de contenido correspondientes
+- Especificaciones técnicas: Ver 00_ESPECIFICACIONES_TECNICAS.md
+- Colores: Ver 15_REFERENCIA_COLORES.txt
+- Diseño: Seguir principios de minimalismo y elegancia
+
+==========================================
+NOTAS FINALES
+==========================================
+
+Este cuaderno es más que un producto, es un artefacto de
+transformación. El diseño debe reflejar la profundidad y
+elegancia del proceso que acompaña. Cada elemento debe servir
+al propósito: facilitar la exploración de las sombras y la
+transformación personal.
+
+El diseño debe ser invisible en el mejor sentido: debe facilitar
+la escritura sin distraer, debe invitar sin intimidar, debe
+guiar sin imponer.
+
+¡Gracias por ayudar a dar vida a este proyecto!
+

@@ -1,0 +1,622 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Marker Cluster Styles */
+.marker-cluster {
+  background-color: rgba(125, 91, 222, 0.12);
+  border-radius: 9999px;
+  color: #2F3545;
+  font-weight: 600;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(100, 119, 192, 0.6);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+.marker-cluster-small {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(100, 119, 192, 0.15);
+}
+
+.marker-cluster-medium {
+  width: 52px;
+  height: 52px;
+  background-color: rgba(100, 119, 192, 0.22);
+}
+
+.marker-cluster-large {
+  width: 64px;
+  height: 64px;
+  background-color: rgba(100, 119, 192, 0.28);
+}
+
+.marker-cluster div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.marker-cluster-medium div {
+  font-size: 16px;
+}
+
+.marker-cluster-large div {
+  font-size: 18px;
+}
+
+@layer base {
+  :root {
+    /* Cinematic Activism Palette */
+    --mist-white: 218 33% 97%;
+    --cloud-gray: 220 24% 91%;
+    --lavender-steel: 222 14% 60%;
+    --slate-ink: 226 22% 21%;
+    --steel-blue: 226 39% 57%;
+    --iris-violet: 261 65% 61%;
+    
+    /* Deep Void Theme */
+    --background: 222 47% 11%; /* #0a0a0a equivalent in HSL */
+    --foreground: 210 40% 98%;
+    
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+    
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+    
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+    
+    --primary: 210 40% 98%;
+    --primary-foreground: 222 47% 11%;
+    
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+    
+    --accent: var(--iris-violet);
+    --accent-foreground: 210 40% 98%;
+    
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --ring: 212 100% 50%;
+    
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    
+    --radius: 0.625rem;
+  }
+  
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply font-sans antialiased bg-[#0a0a0a] text-slate-200 selection:bg-blue-500/30;
+  }
+}
+
+/* Sistema de Diseño Unificado - Clases Reutilizables */
+@layer components {
+  /* Fluid Typography */
+  .heading-hero {
+    font-size: clamp(2.5rem, 5vw, 5rem);
+    @apply font-serif font-bold tracking-tight leading-tight text-white;
+  }
+  
+  .heading-hero-subtitle {
+    font-size: clamp(1.125rem, 2vw, 1.5rem);
+    @apply text-slate-300 leading-relaxed max-w-3xl mx-auto font-light;
+  }
+  
+  .heading-section {
+    font-size: clamp(1.8rem, 3vw, 3rem);
+    @apply font-serif font-bold tracking-tight text-white;
+  }
+  
+  .text-body {
+    font-size: clamp(1rem, 1vw + 0.5rem, 1.125rem);
+    @apply leading-relaxed text-slate-400;
+  }
+  
+  .section-spacing {
+    @apply py-20 md:py-32;
+  }
+  
+  .container-content {
+    @apply container mx-auto px-4 md:px-6 relative z-10;
+  }
+  
+  .max-content-width {
+    @apply max-w-6xl mx-auto;
+  }
+  
+  /* Cinematic Gradients */
+  .hero-gradient-default {
+    @apply bg-gradient-to-b from-[#0a0a0a] via-[#11141d] to-[#0a0a0a];
+  }
+  
+  .hero-gradient-map {
+    @apply bg-gradient-to-br from-[#0a0a0a] via-[#0f172a] to-[#1e1b4b];
+  }
+  
+  .hero-gradient-dark {
+    @apply bg-gradient-to-b from-[#000000] via-[#0a0a0a] to-[#111111];
+  }
+  
+  .hero-gradient-warm {
+    @apply bg-gradient-to-br from-[#0a0a0a] via-[#1c1917] to-[#2a1b15];
+  }
+  
+  .section-bg-light {
+    @apply bg-white;
+  }
+  
+  /* Glassmorphism 2.0 */
+  .card-unified {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl transition-all duration-500 hover:bg-white/10 hover:border-white/20 hover:shadow-[0_0_30px_rgba(255,255,255,0.05)];
+  }
+  
+  .card-unified-light {
+    @apply bg-white/80 backdrop-blur-md border border-slate-200 rounded-2xl transition-all duration-300 hover:shadow-lg;
+  }
+  
+  .card-unified-gradient {
+    @apply bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md border border-white/10 rounded-2xl transition-all duration-500 hover:border-blue-500/30;
+  }
+  
+  .hover-lift {
+    @apply transition-all duration-300 ease-out hover:-translate-y-1;
+  }
+  
+  .gap-buttons {
+    @apply gap-4;
+  }
+  
+  .gap-grid {
+    @apply gap-6;
+  }
+  
+  .gap-sections {
+    @apply gap-10;
+  }
+}
+
+.argentina-map-container {
+  height: 450px;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Leaflet Map Styles - Ensure map renders correctly */
+#argentina-map {
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 0 !important;
+  position: relative;
+}
+
+#argentina-map .leaflet-container {
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 0 !important;
+}
+
+#argentina-map .leaflet-tile-container {
+  z-index: 0;
+}
+
+#argentina-map .leaflet-pane {
+  z-index: 0;
+}
+
+#argentina-map .leaflet-map-pane {
+  z-index: 0;
+}
+
+/* Leaflet popup styling */
+.dream-popup {
+  padding: 8px 4px;
+  font-family: 'Inter', sans-serif;
+}
+
+.dream-popup p {
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.dream-popup p:last-child {
+  margin-bottom: 0;
+}
+
+.dream-popup strong {
+  font-weight: 600;
+}
+
+.custom-marker-icon {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.custom-marker-icon div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.custom-marker-icon div:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.slider-container {
+  overflow-x: auto;
+}
+
+/* Blog Content Typography Enhancements */
+.blog-content {
+  @apply text-slate-300;
+  font-feature-settings: "kern" 1, "liga" 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Improved paragraph spacing and readability */
+.blog-content p {
+  @apply mb-6 leading-7;
+  max-width: 70ch;
+  @apply mx-auto;
+}
+
+.blog-content > div {
+  @apply max-w-4xl mx-auto;
+}
+
+.blog-content p:first-of-type {
+  @apply text-lg text-slate-200;
+  @apply font-medium;
+}
+
+/* Better list styling */
+.blog-content ul,
+.blog-content ol {
+  @apply my-8 space-y-3;
+  padding-left: 1.5rem;
+}
+
+.blog-content ul {
+  list-style-type: disc;
+}
+
+.blog-content ol {
+  list-style-type: decimal;
+}
+
+.blog-content li {
+  @apply leading-relaxed;
+  @apply pl-2;
+}
+
+.blog-content li::marker {
+  @apply text-blue-400;
+}
+
+/* Enhanced blockquote styling */
+.blog-content blockquote {
+  @apply border-l-4 border-blue-500 pl-6 pr-4 py-4 my-8;
+  @apply bg-blue-900/20 rounded-r-lg;
+  @apply italic text-slate-300;
+  @apply font-serif;
+  position: relative;
+}
+
+.blog-content blockquote::before {
+  content: '"';
+  @apply text-4xl text-blue-400 absolute -left-2 -top-2;
+  font-family: Georgia, serif;
+}
+
+/* Code block improvements */
+.blog-content code {
+  @apply bg-slate-800 text-slate-200;
+  @apply px-2 py-1 rounded;
+  @apply font-mono text-sm;
+  @apply border border-slate-700;
+}
+
+.blog-content pre {
+  @apply bg-slate-900 text-slate-100;
+  @apply rounded-lg p-6;
+  @apply overflow-x-auto;
+  @apply my-8;
+  @apply shadow-lg;
+  @apply border border-slate-800;
+}
+
+.blog-content pre code {
+  @apply bg-transparent text-slate-100;
+  @apply p-0 border-0;
+  @apply text-sm;
+}
+
+/* Image styling */
+.blog-content img {
+  @apply rounded-xl shadow-xl;
+  @apply my-10;
+  @apply w-full;
+  @apply object-cover;
+  @apply transition-transform duration-300;
+}
+
+.blog-content img:hover {
+  @apply scale-[1.02];
+}
+
+/* Table improvements */
+.blog-content table {
+  @apply w-full my-8;
+  @apply border-collapse;
+  @apply shadow-md;
+  @apply rounded-lg overflow-hidden;
+}
+
+.blog-content thead {
+  @apply bg-slate-800;
+}
+
+.blog-content th {
+  @apply px-4 py-3;
+  @apply text-left font-semibold;
+  @apply text-slate-200;
+  @apply border-b-2 border-slate-700;
+}
+
+.blog-content td {
+  @apply px-4 py-3;
+  @apply border-b border-slate-800;
+  @apply text-slate-300;
+}
+
+.blog-content tbody tr:hover {
+  @apply bg-slate-800/50;
+}
+
+/* Link improvements */
+.blog-content a {
+  @apply text-blue-400;
+  @apply font-semibold;
+  @apply no-underline;
+  @apply transition-colors duration-200;
+  @apply border-b-2 border-transparent;
+}
+
+.blog-content a:hover {
+  @apply text-blue-300;
+  @apply border-b-2 border-blue-400;
+}
+
+/* Heading improvements with better hierarchy */
+.blog-content h1 {
+  @apply font-serif font-bold;
+  @apply text-white;
+  @apply mt-12 mb-6;
+  @apply leading-tight;
+  @apply tracking-tight;
+}
+
+.blog-content h2 {
+  @apply font-serif font-bold;
+  @apply text-white;
+  @apply mt-10 mb-5;
+  @apply leading-tight;
+  @apply tracking-tight;
+  @apply border-b border-slate-800 pb-2;
+}
+
+.blog-content h3 {
+  @apply font-semibold;
+  @apply text-white;
+  @apply mt-8 mb-4;
+  @apply leading-snug;
+}
+
+.blog-content h4 {
+  @apply font-semibold;
+  @apply text-slate-200;
+  @apply mt-6 mb-3;
+}
+
+/* Horizontal rule styling */
+.blog-content hr {
+  @apply my-10;
+  @apply border-t-2 border-slate-800;
+  @apply border-dashed;
+}
+
+/* Better emphasis */
+.blog-content strong {
+  @apply font-bold text-white;
+}
+
+.blog-content em {
+  @apply italic text-slate-300;
+}
+
+/* First paragraph drop cap effect */
+.blog-content > div > p:first-of-type::first-letter {
+  @apply float-left;
+  @apply text-6xl;
+  @apply font-serif;
+  @apply text-blue-500;
+  @apply leading-none;
+  @apply mr-2;
+  @apply mt-1;
+  font-weight: 700;
+}
+
+/* Improve readability on mobile */
+@media (max-width: 768px) {
+  .blog-content {
+    @apply text-base;
+  }
+  
+  .blog-content p {
+    @apply mb-5 leading-6;
+  }
+  
+  .blog-content h1 {
+    @apply text-3xl mt-8 mb-4;
+  }
+  
+  .blog-content h2 {
+    @apply text-2xl mt-6 mb-4;
+  }
+  
+  .blog-content h3 {
+    @apply text-xl mt-5 mb-3;
+  }
+  
+  .blog-content > div > p:first-of-type::first-letter {
+    @apply text-4xl;
+  }
+}
+
+.slider-container {
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.slider-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* ============================================
+   SISTEMA DE DISEÑO UNIFICADO - HILO CONDUCTOR
+   ============================================ */
+
+@layer components {
+  .page-bg-light {
+    @apply bg-white text-slate-900;
+  }
+
+  .journey-landing {
+    @apply text-blue-400 bg-blue-500/10 border border-blue-500/20;
+  }
+
+  .journey-hombre-gris {
+    @apply text-purple-400 bg-purple-500/10 border border-purple-500/20;
+  }
+
+  .journey-semilla {
+    @apply text-emerald-400 bg-emerald-500/10 border border-emerald-500/20;
+  }
+
+  .journey-vision {
+    @apply text-indigo-400 bg-indigo-500/10 border border-indigo-500/20;
+  }
+
+  .journey-mapa {
+    @apply text-cyan-400 bg-cyan-500/10 border border-cyan-500/20;
+  }
+
+  .journey-tribu {
+    @apply text-orange-400 bg-orange-500/10 border border-orange-500/20;
+  }
+
+  .transition-smooth {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  .pattern-dots {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%236477C0' fill-opacity='0.08'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .pattern-dots-light {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232F3545' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+}
+
+/* Animaciones del Hilo Conductor */
+@keyframes journey-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-journey-pulse {
+  animation: journey-pulse 2s ease-in-out infinite;
+}
+
+/* Scroll Indicator Unificado */
+.scroll-indicator {
+  @apply absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-20;
+}
+
+.scroll-indicator-inner {
+  @apply w-8 h-12 border-2 border-white/30 rounded-full flex justify-center p-2;
+}
+
+.scroll-indicator-dot {
+  @apply w-2 h-3 bg-white rounded-full animate-pulse;
+}
+
+/* Rich Text overrides for lesson content */
+.lesson-rich-text {
+  color: hsl(var(--foreground));
+}
+
+.lesson-rich-text p,
+.lesson-rich-text li,
+.lesson-rich-text span {
+  color: hsl(var(--foreground));
+  opacity: 0.92;
+}
+
+.lesson-rich-text [style*="background"] {
+  border-radius: 1rem;
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
+  border: 1px solid hsla(220, 16%, 86%, 0.8);
+  position: relative;
+}
+
+.lesson-rich-text [style*="linear-gradient"] {
+  background-image: none !important;
+  background-color: hsla(226, 39%, 57%, 0.1) !important;
+  color: hsl(var(--foreground)) !important;
+}
+
+.lesson-rich-text [style*="color: white"],
+.lesson-rich-text [style*="color:#fff"],
+.lesson-rich-text [style*="color: #fff"],
+.lesson-rich-text [style*="color:#FFFFFF"],
+.lesson-rich-text [style*="color: #FFFFFF"] {
+  color: hsl(var(--foreground)) !important;
+}
+
+.lesson-rich-text h2,
+.lesson-rich-text h3,
+.lesson-rich-text h4 {
+  color: hsl(var(--foreground));
+}

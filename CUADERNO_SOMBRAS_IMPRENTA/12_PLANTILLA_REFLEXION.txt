@@ -1,0 +1,53 @@
+PLANTILLA DE REFLEXIÓN SEMANAL
+(Usar para páginas 35, 55, 75, 95, 115, 135, 155, 175)
+
+==========================================
+REFLEXIÓN SEMANAL
+SEMANA [X]
+==========================================
+
+Fecha: _______________
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+LO QUE APRENDÍ ESTA SEMANA:
+
+[Área de escritura - mínimo 10 líneas]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+MOMENTOS DE CLARIDAD:
+
+[Área de escritura - mínimo 8 líneas]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+DUDAS QUE PERSISTEN:
+
+[Área de escritura - mínimo 8 líneas]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PRÓXIMOS PASOS:
+
+[Área de escritura - mínimo 8 líneas]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SÍMBOLOS QUE MARQUÉ ESTA SEMANA:
+_____ _____ _____ _____
+
+NOTAS ADICIONALES:
+
+[Área de escritura libre - mínimo 10 líneas]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ESPECIFICACIONES DE DISEÑO:
+- Encabezado: "REFLEXIÓN SEMANAL - SEMANA [X]"
+- Título: Sans-serif bold, 16pt, Gris sabio
+- Secciones: Sans-serif bold, 12pt, Negro
+- Áreas de escritura: Líneas guía en gris 10%, espaciado 7mm
+- Separadores: Líneas sutiles en gris 30%
+- Diseño: Estructurado pero con espacio para libertad
+

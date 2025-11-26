@@ -1,0 +1,49 @@
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import path from "path";
+
+export default defineConfig({
+  plugins: [
+    react({
+      // Fix for Vite React plugin preamble detection
+      // Remove jsxRuntime and babel config to use defaults
+    }),
+  ],
+  resolve: {
+    alias: {
+      "@": path.resolve(import.meta.dirname, "client", "src"),
+      "@shared": path.resolve(import.meta.dirname, "shared"),
+      "@assets": path.resolve(import.meta.dirname, "attached_assets"),
+      // Force single instance of scheduler and react-reconciler
+      "scheduler": path.resolve(import.meta.dirname, "node_modules", "scheduler"),
+      "react-reconciler": path.resolve(import.meta.dirname, "node_modules", "react-reconciler"),
+    },
+  },
+  optimizeDeps: {
+    include: [
+      "react",
+      "react-dom",
+      "scheduler",
+      "react-reconciler",
+    ],
+    force: true, // Force re-optimization
+  },
+  root: path.resolve(import.meta.dirname, "client"),
+  build: {
+    outDir: path.resolve(import.meta.dirname, "dist/public"),
+    emptyOutDir: true,
+    commonjsOptions: {
+      include: [/scheduler/, /react-reconciler/],
+    },
+  },
+  server: {
+    port: 5173,
+    proxy: {
+      '/api': {
+        target: process.env.VITE_API_PROXY_TARGET || 'http://localhost:5000',
+        changeOrigin: true,
+        secure: false,
+      },
+    },
+  },
+});

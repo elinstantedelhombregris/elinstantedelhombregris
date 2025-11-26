@@ -1,0 +1,44 @@
+PÁGINA 16: PRIMERA ENTRADA GUIADA
+
+==========================================
+PRIMERA ENTRADA
+==========================================
+
+Fecha: _______________
+Hora: _______________
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PROMPT INICIAL
+
+¿Qué señal te trajo hasta aquí? ¿Qué te hizo decidir
+que era momento de comenzar este viaje hacia las sombras?
+
+Escribe libremente. No hay formato correcto. Solo tu
+honestidad y curiosidad.
+
+[Área de escritura con líneas guía - mínimo 15 líneas]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+¿Qué esperas descubrir en este proceso?
+
+[Área de escritura - mínimo 8 líneas]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+¿Qué sombra reconoces ya, antes de comenzar?
+
+[Área de escritura - mínimo 8 líneas]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Marca esta entrada con un símbolo: _____
+
+ESPECIFICACIONES DE DISEÑO:
+- Título: Sans-serif bold, 16pt, Gris sabio
+- Separadores: Líneas sutiles en gris 30%
+- Prompts: Sans-serif regular, 11pt, Negro
+- Áreas de escritura: Líneas guía en gris 10%, espaciado 7mm
+- Diseño: Espaciado generoso, fácil de leer y completar
+

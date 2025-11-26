@@ -1,0 +1,27 @@
+PÁGINA 2: EN BLANCO (forro interno)
+- Sin contenido, solo fondo blanco
+
+---
+
+PÁGINA 3: PORTADA INTERIOR
+
+==========================================
+MI CUADERNO DE SOMBRAS
+==========================================
+
+Propiedad de: _______________
+
+Fecha de inicio: _______________
+
+[Espacio para diseño personal]
+Marco de 100 × 80 mm con texto:
+"Diseña tu portada aquí"
+
+Elementos decorativos sutiles: Bordes en gris claro
+
+ESPECIFICACIONES:
+- Título: Sans-serif bold, 18pt, Gris sabio
+- Campos: Líneas para completar
+- Marco: Gris 30%, bordes sutiles
+- Diseño: Centrado, espacio amplio para personalización
+

@@ -1,0 +1,405 @@
+/* CUADERNO DE SOMBRAS - Estilos Minimalistas para Impresión */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Crimson+Text:ital@0;1&display=swap');
+
+/* Variables de Color */
+:root {
+  --gris-sabio: #6B7280;
+  --celeste-argentino: #74ACDF;
+  --blanco: #FFFFFF;
+  --negro: #000000;
+  --gris-10: rgba(0, 0, 0, 0.1);
+  --gris-30: rgba(0, 0, 0, 0.3);
+  --gris-50: rgba(0, 0, 0, 0.5);
+  --gris-70: rgba(0, 0, 0, 0.7);
+}
+
+/* Reset y Configuración Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@page {
+  size: A5;
+  margin: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--negro);
+  background: var(--blanco);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Tipografía */
+h1 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 24pt;
+  line-height: 1.2;
+  color: var(--blanco);
+  margin-bottom: 0.5em;
+}
+
+h2 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 16pt;
+  line-height: 1.3;
+  color: var(--gris-sabio);
+  margin-bottom: 1em;
+}
+
+h3 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 14pt;
+  line-height: 1.4;
+  color: var(--negro);
+  margin-bottom: 0.75em;
+}
+
+p {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 10pt;
+  line-height: 1.6;
+  color: var(--negro);
+  margin-bottom: 0.8em;
+}
+
+.quote {
+  font-family: 'Crimson Text', serif;
+  font-style: italic;
+  font-size: 11pt;
+  line-height: 1.7;
+  color: var(--gris-70);
+}
+
+.subtitle {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 12pt;
+  color: var(--celeste-argentino);
+  margin-top: 0.3em;
+}
+
+.text-secondary {
+  font-size: 9pt;
+  color: var(--gris-70);
+  line-height: 1.5;
+}
+
+.text-small {
+  font-size: 8pt;
+  color: var(--gris-50);
+}
+
+/* Página Base */
+.page {
+  width: 148mm;
+  height: 210mm;
+  padding: 15mm 15mm 20mm 15mm;
+  page-break-after: always;
+  position: relative;
+  background: var(--blanco);
+}
+
+.page.cover {
+  background: var(--gris-sabio);
+  padding: 40mm 20mm 20mm 20mm;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.page.blank {
+  background: var(--blanco);
+}
+
+/* Portada */
+.cover-content {
+  text-align: center;
+  width: 100%;
+}
+
+.cover-title {
+  margin-bottom: 1em;
+}
+
+.cover-subtitle {
+  margin-top: 0.5em;
+}
+
+.shadow-symbol {
+  width: 80mm;
+  height: 80mm;
+  margin: 20mm auto;
+  opacity: 0.3;
+  background: radial-gradient(circle, var(--celeste-argentino) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(20px);
+}
+
+.cover-footer {
+  position: absolute;
+  bottom: 15mm;
+  right: 20mm;
+  font-size: 10pt;
+  color: rgba(255, 255, 255, 0.7);
+  font-style: italic;
+}
+
+/* Contenido Estructurado */
+.content-section {
+  margin-bottom: 2em;
+}
+
+.section-title {
+  border-bottom: 1pt solid var(--gris-30);
+  padding-bottom: 0.5em;
+  margin-bottom: 1.5em;
+}
+
+/* Listas */
+ul, ol {
+  margin-left: 1.5em;
+  margin-bottom: 1em;
+}
+
+li {
+  margin-bottom: 0.8em;
+  font-size: 10pt;
+  line-height: 1.6;
+}
+
+.list-numbered {
+  list-style: none;
+  margin-left: 0;
+  counter-reset: item;
+}
+
+.list-numbered li {
+  counter-increment: item;
+  margin-bottom: 1.5em;
+  padding-left: 2em;
+  position: relative;
+}
+
+.list-numbered li::before {
+  content: counter(item);
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: 600;
+  font-size: 12pt;
+  color: var(--celeste-argentino);
+}
+
+/* Formularios y Campos */
+.form-field {
+  margin-bottom: 1.5em;
+}
+
+.form-label {
+  font-size: 10pt;
+  color: var(--gris-70);
+  margin-bottom: 0.3em;
+  display: block;
+}
+
+.form-line {
+  border-bottom: 1pt solid var(--gris-30);
+  min-height: 1.2em;
+  margin-top: 0.3em;
+}
+
+.form-textarea {
+  border: none;
+  border-bottom: 1pt solid var(--gris-10);
+  width: 100%;
+  min-height: 3em;
+  font-family: inherit;
+  font-size: 10pt;
+  padding: 0.3em 0;
+  background: transparent;
+}
+
+/* Líneas de Escritura */
+.writing-lines {
+  margin-top: 1em;
+}
+
+.writing-line {
+  border-bottom: 0.5pt solid var(--gris-10);
+  height: 7mm;
+  margin-bottom: 0;
+}
+
+/* Separadores */
+.divider {
+  border: none;
+  border-top: 0.5pt solid var(--gris-30);
+  margin: 1.5em 0;
+}
+
+.divider-thick {
+  border-top: 1pt solid var(--gris-30);
+  margin: 2em 0;
+}
+
+/* Glosario */
+.glossary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5em;
+  margin-top: 1.5em;
+}
+
+.glossary-item {
+  margin-bottom: 1.5em;
+}
+
+.glossary-term {
+  font-weight: 600;
+  font-size: 12pt;
+  color: var(--negro);
+  margin-bottom: 0.3em;
+}
+
+.glossary-definition {
+  font-size: 10pt;
+  color: var(--gris-70);
+  line-height: 1.5;
+}
+
+/* Símbolos */
+.symbols-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5em;
+  margin-top: 1.5em;
+}
+
+.symbol-item {
+  text-align: center;
+  padding: 1em;
+}
+
+.symbol-icon {
+  font-size: 24pt;
+  margin-bottom: 0.5em;
+  display: block;
+}
+
+.symbol-name {
+  font-weight: 600;
+  font-size: 11pt;
+  color: var(--negro);
+  margin-bottom: 0.3em;
+}
+
+.symbol-description {
+  font-size: 9pt;
+  color: var(--gris-70);
+  line-height: 1.4;
+}
+
+/* Timeline */
+.timeline {
+  margin-top: 2em;
+}
+
+.timeline-item {
+  margin-bottom: 2em;
+  padding-left: 2em;
+  border-left: 2pt solid var(--gris-30);
+  padding-bottom: 1em;
+}
+
+.timeline-title {
+  font-weight: 600;
+  font-size: 12pt;
+  color: var(--negro);
+  margin-bottom: 0.5em;
+}
+
+.timeline-content {
+  font-size: 10pt;
+  color: var(--gris-70);
+  line-height: 1.6;
+}
+
+/* Reflexión Semanal */
+.reflection-section {
+  margin-bottom: 2em;
+}
+
+.reflection-label {
+  font-weight: 600;
+  font-size: 11pt;
+  color: var(--negro);
+  margin-bottom: 0.5em;
+  display: block;
+}
+
+/* Centrado Vertical */
+.centered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+}
+
+/* Espaciado */
+.spacer {
+  flex: 1;
+}
+
+.mt-1 { margin-top: 1em; }
+.mt-2 { margin-top: 2em; }
+.mb-1 { margin-bottom: 1em; }
+.mb-2 { margin-bottom: 2em; }
+
+/* Impresión */
+@media print {
+  .page {
+    page-break-after: always;
+  }
+  
+  .no-print {
+    display: none;
+  }
+}
+
+/* Utilidades */
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.border-box {
+  border: 1pt solid var(--gris-30);
+  padding: 1.5em;
+  margin: 1em 0;
+}
+
+.drawing-area {
+  border: 1pt dashed var(--gris-30);
+  min-height: 80mm;
+  margin: 1em 0;
+  padding: 1em;
+  text-align: center;
+  color: var(--gris-50);
+  font-size: 9pt;
+}
+
