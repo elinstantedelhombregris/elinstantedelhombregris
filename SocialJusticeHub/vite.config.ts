@@ -17,8 +17,10 @@ export default defineConfig({
       // Force single instance of scheduler and react-reconciler
       "scheduler": path.resolve(import.meta.dirname, "node_modules", "scheduler"),
       "react-reconciler": path.resolve(import.meta.dirname, "node_modules", "react-reconciler"),
+      // Ensure proper resolution of use-sync-external-store
+      "use-sync-external-store/shim": path.resolve(import.meta.dirname, "node_modules", "use-sync-external-store", "shim", "index.js"),
     },
-    dedupe: ["react", "react-dom"],
+    dedupe: ["react", "react-dom", "use-sync-external-store"],
   },
   optimizeDeps: {
     include: [
@@ -27,6 +29,7 @@ export default defineConfig({
       "scheduler",
       "react-reconciler",
       "wouter",
+      "use-sync-external-store",
       "use-sync-external-store/shim",
     ],
     force: true, // Force re-optimization
