@@ -18,6 +18,7 @@ export default defineConfig({
       "scheduler": path.resolve(import.meta.dirname, "node_modules", "scheduler"),
       "react-reconciler": path.resolve(import.meta.dirname, "node_modules", "react-reconciler"),
     },
+    dedupe: ["react", "react-dom"],
   },
   optimizeDeps: {
     include: [
@@ -25,6 +26,8 @@ export default defineConfig({
       "react-dom",
       "scheduler",
       "react-reconciler",
+      "wouter",
+      "use-sync-external-store/shim",
     ],
     force: true, // Force re-optimization
   },
@@ -33,7 +36,8 @@ export default defineConfig({
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
     commonjsOptions: {
-      include: [/scheduler/, /react-reconciler/],
+      include: [/scheduler/, /react-reconciler/, /wouter/],
+      transformMixedEsModules: true,
     },
   },
   server: {
