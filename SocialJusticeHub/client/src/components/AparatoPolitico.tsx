@@ -12,55 +12,6 @@ import {
 } from 'lucide-react';
 import { Link } from 'wouter';
 import { Button } from '@/components/ui/button';
-import { ChartContainer, ChartTooltip } from '@/components/ui/chart';
-import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer } from 'recharts';
-
-const CustomBar = (props: any) => {
-  const { fill, x, y, width, height, payload } = props;
-  
-  // Determine if this is a "Delegación" bar (first in the dataset)
-  // We can infer this by checking if the payload is the first item in our data array logic,
-  // but here custom shape is rendered for each bar.
-  // The payload contains the data object ({name: "Delegación...", ...}).
-  const isDelegacion = payload.name === 'Delegación Tradicional';
-
-  if (isDelegacion) {
-    return (
-      <motion.rect
-        x={x}
-        y={y}
-        width={width}
-        height={height}
-        fill={fill}
-        rx={6}
-        ry={6}
-        animate={{
-          x: [x, x - 2, x + 2, x - 1, x + 1, x]
-        }}
-        transition={{
-          duration: 0.5,
-          repeat: Infinity,
-          repeatDelay: 2 + Math.random(), // Randomize shake timing
-          ease: "easeInOut"
-        }}
-        filter="url(#glow)"
-      />
-    );
-  }
-
-  return (
-    <rect
-      x={x}
-      y={y}
-      width={width}
-      height={height}
-      fill={fill}
-      rx={6}
-      ry={6}
-      filter="url(#glow)"
-    />
-  );
-};
 
 const AparatoPolitico = () => {
   const containerVariants = {
@@ -83,7 +34,9 @@ const AparatoPolitico = () => {
   };
 
   // Datos para el gráfico comparativo mejorado
-  const comparisonData = [
+  type MetricKey = 'participacion' | 'vision' | 'coordinacion' | 'ejecucion';
+
+  const comparisonData: Array<{ name: string } & Record<MetricKey, number>> = [
     { 
       name: 'Delegación Tradicional', 
       participacion: 15, 
@@ -100,12 +53,48 @@ const AparatoPolitico = () => {
     }
   ];
 
-  const chartConfig = {
+  const chartConfig: Record<MetricKey, { label: string; color: string }> = {
     participacion: { label: 'Participación Ciudadana', color: '#60a5fa' },
     vision: { label: 'Visión Compartida', color: '#34d399' },
     coordinacion: { label: 'Coordinación', color: '#f59e0b' },
     ejecucion: { label: 'Ejecución Técnica', color: '#a78bfa' },
   };
+
+  const gradientByMetric: Record<MetricKey, string> = {
+    participacion: 'from-blue-500 to-cyan-500',
+    vision: 'from-emerald-500 to-green-500',
+    coordinacion: 'from-amber-500 to-orange-500',
+    ejecucion: 'from-purple-500 to-violet-500'
+  };
+
+  const metricDetails: Array<{ key: MetricKey; title: string; sub: string }> = [
+    { key: 'participacion', title: 'Participación', sub: 'Ciudadana' },
+    { key: 'vision', title: 'Visión', sub: 'Compartida' },
+    { key: 'coordinacion', title: 'Coordinación', sub: 'Sistémica' },
+    { key: 'ejecucion', title: 'Ejecución', sub: 'Técnica' }
+  ];
+
+  const metricNarrative: Record<MetricKey, string> = {
+    participacion: 'De votar cada 2 años a co-diseñar políticas cada semana.',
+    vision: 'De agendas opacas a una visión compartida y trazable.',
+    coordinacion: 'De silos y favores a coordinación abierta por datos.',
+    ejecucion: 'De discrecionalidad técnica a mandatos claros y medibles.'
+  };
+
+  const baselineModel = comparisonData[0];
+  const coordinationModel = comparisonData[1];
+
+  const segments = metricDetails.map((metric) => ({
+    key: metric.key,
+    title: metric.title,
+    sub: metric.sub,
+    color: chartConfig[metric.key].color,
+    gradient: gradientByMetric[metric.key],
+    delegacion: baselineModel[metric.key],
+    coordinacion: coordinationModel[metric.key],
+    diff: coordinationModel[metric.key] - baselineModel[metric.key],
+    narrative: metricNarrative[metric.key]
+  }));
 
   const sections = [
     {
@@ -249,162 +238,119 @@ const AparatoPolitico = () => {
                   Visualización del cambio de paradigma: de la entrega pasiva de poder a la construcción activa de realidad.
                 </p>
               </div>
+
+              {/* Leyenda fija y visible en mobile */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-4 mb-6 relative z-10">
+                {metricDetails.map((metric) => (
+                  <div key={metric.key} className="flex items-center gap-3 rounded-xl bg-white/5 border border-white/10 px-3 py-2">
+                    <span
+                      className="h-3 w-3 rounded-full shadow-[0_0_10px_rgba(0,0,0,0.35)]"
+                      style={{ background: chartConfig[metric.key].color }}
+                    />
+                    <div className="leading-tight">
+                      <p className="text-[11px] uppercase text-slate-400 tracking-widest">{metric.title}</p>
+                      <p className="text-xs text-slate-200">{chartConfig[metric.key].label}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
               
-              {/* Gráfico de barras agrupadas mejorado */}
-              <div className="h-[500px] w-full mb-12 relative z-10">
-                
-                {/* Lighting Transfer Effect */}
+              {/* Comparador compacto */}
+              <div className="w-full mb-12 relative z-10">
                 <motion.div 
-                  className="absolute inset-0 pointer-events-none z-20 overflow-hidden rounded-xl"
+                  className="absolute inset-0 pointer-events-none z-20 overflow-hidden rounded-2xl"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                 >
                   <motion.div
                     className="h-full w-32 absolute top-0 bg-gradient-to-r from-transparent via-white/10 to-transparent blur-xl transform skew-x-12"
-                    animate={{
-                      left: ['-20%', '120%']
-                    }}
-                    transition={{
-                      duration: 3,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      repeatDelay: 1
-                    }}
+                    animate={{ left: ['-20%', '120%'] }}
+                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", repeatDelay: 1 }}
                   />
                 </motion.div>
 
-                <ChartContainer config={chartConfig}>
-                  <ResponsiveContainer width="100%" height="100%">
-                    <BarChart
-                      data={comparisonData}
-                      margin={{ top: 30, right: 20, left: 0, bottom: 60 }}
-                      barGap={8}
-                    >
-                      <defs>
-                        {/* Gradientes Neón */}
-                        <linearGradient id="gradParticipacion" x1="0" y1="0" x2="0" y2="1">
-                          <stop offset="0%" stopColor="#60a5fa" stopOpacity={1} />
-                          <stop offset="100%" stopColor="#2563eb" stopOpacity={0.8} />
-                        </linearGradient>
-                        <linearGradient id="gradVision" x1="0" y1="0" x2="0" y2="1">
-                          <stop offset="0%" stopColor="#34d399" stopOpacity={1} />
-                          <stop offset="100%" stopColor="#059669" stopOpacity={0.8} />
-                        </linearGradient>
-                        <linearGradient id="gradCoordinacion" x1="0" y1="0" x2="0" y2="1">
-                          <stop offset="0%" stopColor="#fbbf24" stopOpacity={1} />
-                          <stop offset="100%" stopColor="#d97706" stopOpacity={0.8} />
-                        </linearGradient>
-                        <linearGradient id="gradEjecucion" x1="0" y1="0" x2="0" y2="1">
-                          <stop offset="0%" stopColor="#a78bfa" stopOpacity={1} />
-                          <stop offset="100%" stopColor="#7c3aed" stopOpacity={0.8} />
-                        </linearGradient>
-                        
-                        <filter id="glow" height="130%">
-                          <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur" />
-                          <feOffset in="blur" dx="0" dy="0" result="offsetBlur" />
-                          <feMerge>
-                              <feMergeNode in="offsetBlur" />
-                              <feMergeNode in="SourceGraphic" />
-                          </feMerge>
-                        </filter>
-                      </defs>
-                      
-                      <XAxis 
-                        dataKey="name" 
-                        stroke="#94a3b8"
-                        fontSize={14}
-                        fontWeight={700}
-                        tickLine={false}
-                        axisLine={false}
-                        tick={{ fill: '#e2e8f0' }}
-                        dy={30}
-                        angle={-10}
-                        textAnchor="middle"
-                        height={80}
-                      />
-                      <YAxis 
-                        stroke="#94a3b8"
-                        fontSize={12}
-                        tickLine={false}
-                        axisLine={false}
-                        tick={{ fill: '#64748b' }}
-                        dx={-10}
-                      />
-                      <ChartTooltip 
-                        cursor={{ fill: 'rgba(255,255,255,0.03)' }}
-                        content={({ active, payload }) => {
-                          if (!active || !payload || !payload.length) return null;
-                          return (
-                            <div className="bg-black/90 backdrop-blur-xl border border-white/10 p-4 rounded-xl shadow-2xl ring-1 ring-white/10">
-                              <p className="text-slate-400 text-xs font-mono mb-2 uppercase tracking-wider">Métricas</p>
-                              {payload.map((entry: any, i: number) => (
-                                <div key={i} className="flex items-center gap-3 mb-1">
-                                  <div className="w-2 h-2 rounded-full shadow-[0_0_8px_rgba(0,0,0,0.5)]" style={{ backgroundColor: entry.color }} />
-                                  <span className="text-slate-300 text-sm font-medium">{entry.name}:</span>
-                                  <span className="text-white font-bold font-mono">{entry.value}%</span>
-                                </div>
-                              ))}
+                <div className="flex flex-col gap-4">
+                  {/* Leyenda compacta */}
+                  <div className="flex flex-wrap items-center gap-3">
+                    <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10">
+                      <span className="w-2 h-2 rounded-full bg-red-400 shadow-[0_0_10px_rgba(248,113,113,0.7)]" />
+                      <span className="text-xs font-bold uppercase tracking-wider text-slate-200">Delegación Tradicional</span>
+                    </div>
+                    <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10">
+                      <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.7)]" />
+                      <span className="text-xs font-bold uppercase tracking-wider text-slate-200">Coordinación Nueva</span>
+                    </div>
+                    <span className="text-[11px] text-slate-500 font-mono uppercase tracking-[0.2em]">Comparación directa sin hover</span>
+                  </div>
+
+                  {/* Tarjetas por métrica */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                    {segments.map((segment, idx) => (
+                      <motion.div
+                        key={segment.key}
+                        initial={{ opacity: 0, y: 12 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: idx * 0.05 }}
+                        className="relative p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md overflow-hidden shadow-[0_0_30px_rgba(0,0,0,0.35)]"
+                      >
+                        <div className={`absolute inset-0 opacity-20 bg-gradient-to-br ${segment.gradient}`} />
+                        <div className="relative z-10 space-y-3">
+                          <div className="flex items-start justify-between">
+                            <div>
+                              <p className="text-[11px] uppercase tracking-widest text-slate-400">VARIABLE</p>
+                              <h4 className="text-lg font-bold text-white">{segment.title}</h4>
+                              <p className="text-xs text-slate-400">{segment.sub}</p>
                             </div>
-                          );
-                        }}
-                      />
-                      
-                      <Bar 
-                        dataKey="participacion" 
-                        fill="url(#gradParticipacion)" 
-                        radius={[6, 6, 2, 2]}
-                        shape={<CustomBar />}
-                        animationDuration={1500}
-                        animationBegin={200}
-                      />
-                      <Bar 
-                        dataKey="vision" 
-                        fill="url(#gradVision)" 
-                        radius={[6, 6, 2, 2]}
-                        shape={<CustomBar />}
-                        animationDuration={1500}
-                        animationBegin={400}
-                      />
-                      <Bar 
-                        dataKey="coordinacion" 
-                        fill="url(#gradCoordinacion)" 
-                        radius={[6, 6, 2, 2]}
-                        shape={<CustomBar />}
-                        animationDuration={1500}
-                        animationBegin={600}
-                      />
-                      <Bar 
-                        dataKey="ejecucion" 
-                        fill="url(#gradEjecucion)" 
-                        radius={[6, 6, 2, 2]}
-                        shape={<CustomBar />}
-                        animationDuration={1500}
-                        animationBegin={800}
-                      />
-                    </BarChart>
-                  </ResponsiveContainer>
-                </ChartContainer>
-              </div>
-              
-              {/* Stats Grid */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-12">
-                {[
-                  { label: "Participación", sub: "Ciudadana", color: "blue", grad: "from-blue-500 to-cyan-500" },
-                  { label: "Visión", sub: "Compartida", color: "emerald", grad: "from-emerald-500 to-green-500" },
-                  { label: "Coordinación", sub: "Sistémica", color: "amber", grad: "from-amber-500 to-orange-500" },
-                  { label: "Ejecución", sub: "Técnica", color: "purple", grad: "from-purple-500 to-violet-500" }
-                ].map((stat, i) => (
-                  <motion.div 
-                    key={i}
-                    whileHover={{ scale: 1.05, backgroundColor: 'rgba(255,255,255,0.08)' }}
-                    className="relative group p-4 rounded-2xl bg-white/5 border border-white/5 backdrop-blur-sm transition-all duration-300 overflow-hidden"
-                  >
-                    <div className={`absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r ${stat.grad} opacity-50 group-hover:opacity-100 transition-opacity`} />
-                    <div className={`w-3 h-3 rounded-full bg-gradient-to-r ${stat.grad} mb-3 shadow-[0_0_10px_rgba(0,0,0,0.3)]`} />
-                    <h4 className="text-sm font-bold text-slate-200 uppercase tracking-wide mb-1">{stat.label}</h4>
-                    <p className="text-xs text-slate-500 font-medium">{stat.sub}</p>
-                  </motion.div>
-                ))}
+                            <div className="text-right">
+                              <p className="text-[11px] uppercase tracking-widest text-slate-400">Brecha</p>
+                              <p className={`text-xl font-black ${segment.diff >= 0 ? 'text-emerald-200' : 'text-red-200'} drop-shadow-sm`}>
+                                {segment.diff >= 0 ? '+' : ''}{segment.diff} pts
+                              </p>
+                            </div>
+                          </div>
+
+                          <div className="space-y-2">
+                            <div className="flex items-center justify-between text-[11px] uppercase tracking-widest text-slate-400">
+                              <span>Delegación</span>
+                              <span className="text-slate-200 font-black text-sm">{segment.delegacion}%</span>
+                            </div>
+                            <div className="h-3 bg-white/5 rounded-full border border-white/10 overflow-hidden">
+                              <motion.div
+                                initial={{ width: 0 }}
+                                animate={{ width: `${segment.delegacion}%` }}
+                                transition={{ duration: 1, delay: 0.1 + idx * 0.05, ease: "easeOut" }}
+                                className={`h-full bg-gradient-to-r ${segment.gradient} opacity-80`}
+                              />
+                            </div>
+
+                            <div className="flex items-center justify-between text-[11px] uppercase tracking-widest text-slate-400">
+                              <span className="flex items-center gap-2">
+                                Coordinación 
+                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.6)]" />
+                              </span>
+                              <span className="text-emerald-200 font-black text-sm">{segment.coordinacion}%</span>
+                            </div>
+                            <div className="h-3 bg-white/5 rounded-full border border-white/10 overflow-hidden">
+                              <motion.div
+                                initial={{ width: 0 }}
+                                animate={{ width: `${segment.coordinacion}%` }}
+                                transition={{ duration: 1, delay: 0.15 + idx * 0.05, ease: "easeOut" }}
+                                className={`h-full bg-gradient-to-r ${segment.gradient} from-emerald-400 to-emerald-500`}
+                              />
+                            </div>
+                          </div>
+
+                          <div className="flex items-start justify-between gap-3">
+                            <p className="text-sm text-slate-300 leading-relaxed">{segment.narrative}</p>
+                            <div className="px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider border border-white/10 bg-white/5 text-slate-200">
+                              Cambio clave
+                            </div>
+                          </div>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
               </div>
               
               {/* Insights del gráfico - Futuristic Cards */}
@@ -499,4 +445,3 @@ const AparatoPolitico = () => {
 };
 
 export default AparatoPolitico;
-

@@ -202,11 +202,10 @@ const ElMapa = () => {
             <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
               <div className="max-w-2xl">
                 <h2 className="text-3xl font-bold text-white mb-6">
-                  La Política ya no tiene excusas
+                  Imaginen qué pasaría si dejamos las cosas en claro
                 </h2>
                 <p className="text-slate-400 text-lg">
-                  El mapa se ha convertido en la herramienta de consulta #1 para concejales 
-                  y nuevos líderes que entienden que la legitimidad nace de los datos, no de los discursos.
+                  La política ya no tiene excusas; imaginen cuando escenarios como estos sean moneda corriente. Cuanta más gente alimente el mapa, más preciso se vuelve, y toda la base de datos quedará disponible para que cualquiera pueda usarla.
                 </p>
               </div>
               <div className="flex items-center gap-2 text-blue-400 font-mono text-sm border-b border-blue-500/30 pb-1">
