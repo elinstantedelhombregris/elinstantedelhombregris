@@ -159,13 +159,13 @@ const MarkdownRenderer = ({ content, className = '' }: MarkdownRendererProps) =>
         prose-h1:text-4xl prose-h1:mb-6 prose-h1:mt-8 prose-h1:leading-tight
         prose-h2:text-3xl prose-h2:mb-5 prose-h2:mt-8 prose-h2:leading-tight
         prose-h3:text-2xl prose-h3:mb-4 prose-h3:mt-6 prose-h3:leading-snug
-        prose-p:text-base prose-p:leading-relaxed prose-p:mb-6 prose-p:text-gray-700
+        prose-p:text-base prose-p:leading-relaxed prose-p:mb-6 prose-p:text-slate-900
         prose-a:text-blue-600 prose-a:no-underline prose-a:font-semibold hover:prose-a:text-blue-800 hover:prose-a:underline
         prose-strong:text-gray-900 prose-strong:font-bold
-        prose-em:text-gray-700 prose-em:italic
+        prose-em:text-slate-800 prose-em:italic
         prose-ul:my-6 prose-ul:space-y-2
         prose-ol:my-6 prose-ol:space-y-2
-        prose-li:text-gray-700 prose-li:leading-relaxed
+        prose-li:text-slate-900 prose-li:leading-relaxed
         prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:bg-gradient-to-r prose-blockquote:from-blue-50 prose-blockquote:to-indigo-50 prose-blockquote:rounded-2xl prose-blockquote:shadow-sm prose-blockquote:px-6 prose-blockquote:py-4 prose-blockquote:text-gray-800 prose-blockquote:my-8
         prose-code:text-sm prose-code:bg-gray-100 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:font-mono prose-code:text-gray-800
         prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-pre:rounded-lg prose-pre:p-6 prose-pre:overflow-x-auto

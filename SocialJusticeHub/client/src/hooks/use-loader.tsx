@@ -15,6 +15,20 @@ export function useLoader(src: string, globalName: string): boolean {
       return;
     }
 
+    // Check if script is already in the DOM
+    const existingScript = document.querySelector(`script[src="${src}"]`);
+    if (existingScript) {
+      // Script is already in DOM, wait for it to load
+      const checkInterval = setInterval(() => {
+        if (window[globalName as keyof Window]) {
+          setLoaded(true);
+          clearInterval(checkInterval);
+        }
+      }, 100);
+      
+      return () => clearInterval(checkInterval);
+    }
+
     // Create script element
     const script = document.createElement('script');
     script.src = src;
@@ -22,24 +36,29 @@ export function useLoader(src: string, globalName: string): boolean {
     
     // Set onload handler
     script.onload = () => {
-      setLoaded(true);
+      // Double check that the global is available
+      if (window[globalName as keyof Window]) {
+        setLoaded(true);
+      } else {
+        console.warn(`Script loaded but global ${globalName} not found`);
+      }
     };
     
     // Handle loading errors
     script.onerror = () => {
       console.error(`Failed to load script: ${src}`);
-      document.body.removeChild(script);
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
     };
     
-    // Add script to document body
-    document.body.appendChild(script);
+    // Add script to document head (better practice than body)
+    document.head.appendChild(script);
     
     // Cleanup function
     return () => {
-      // Only remove the script if it hasn't loaded yet
-      if (!loaded && document.body.contains(script)) {
-        document.body.removeChild(script);
-      }
+      // Don't remove script on cleanup - it should persist
+      // Only remove if there was an error
     };
   }, [src, globalName]);
 

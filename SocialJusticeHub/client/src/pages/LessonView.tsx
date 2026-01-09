@@ -113,7 +113,15 @@ const LessonView = () => {
   });
 
   const course: Course | undefined = courseData?.course;
-  const lessons: Lesson[] = courseData?.lessons ?? [];
+  // Deduplicate lessons by ID to prevent duplicates
+  const lessonsRaw: Lesson[] = courseData?.lessons ?? [];
+  const lessonsMap = new Map<number, Lesson>();
+  lessonsRaw.forEach(lesson => {
+    if (!lessonsMap.has(lesson.id)) {
+      lessonsMap.set(lesson.id, lesson);
+    }
+  });
+  const lessons: Lesson[] = Array.from(lessonsMap.values()).sort((a, b) => a.orderIndex - b.orderIndex);
   const currentLesson: Lesson | undefined = lessons.find(l => l.id === parseInt(lessonId || '0'));
   const userProgress = courseData?.userProgress;
   const responseCompletedLessons = parseCompletedLessons(courseData?.completedLessons);

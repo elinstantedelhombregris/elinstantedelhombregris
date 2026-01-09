@@ -62,6 +62,11 @@ import {
 import { nlpService } from './nlp-service';
 import { blockchainService } from './blockchain-service';
 import { arService } from './ar-service';
+import {
+  getOrCreateEmbedding,
+  calculateCosineSimilarity,
+  batchGenerateEmbeddings,
+} from './services/embedding-service';
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Apply middleware
@@ -129,6 +134,445 @@ export async function registerRoutes(app: Express): Promise<Server> {
       } else {
         res.status(500).json({ message: "Failed to create dream" });
       }
+    }
+  });
+
+  // In-memory cache for graph structure (5-minute TTL)
+  let graphCache: {
+    data: any;
+    timestamp: number;
+  } | null = null;
+  const CACHE_TTL = 5 * 60 * 1000; // 5 minutes
+
+  // Generate 3D positions for people (distributed in space)
+  function generatePersonPosition(
+    index: number,
+    total: number
+  ): [number, number, number] {
+    // Distribute people in a spherical arrangement
+    const radius = 8 + (total > 10 ? Math.min(4, Math.floor(total / 5)) : 0);
+    const theta = (index / total) * Math.PI * 2; // Angle around the sphere
+    const phi = Math.acos((index * 2) / total - 1); // Angle from top
+
+    return [
+      radius * Math.sin(phi) * Math.cos(theta),
+      radius * Math.sin(phi) * Math.sin(theta),
+      radius * Math.cos(phi),
+    ];
+  }
+
+  // Generate position for concept near its person
+  function generateConceptPosition(
+    personPos: [number, number, number],
+    conceptType: 'dream' | 'value' | 'need' | 'basta',
+    indexInType: number,
+    totalOfType: number
+  ): [number, number, number] {
+    // Type-specific offsets (spherical arrangement around person)
+    const typeOffsets: Record<string, { angle: number; elevation: number }> = {
+      dream: { angle: 0, elevation: Math.PI / 4 }, // Up and forward
+      value: { angle: Math.PI / 2, elevation: Math.PI / 4 }, // Up and right
+      need: { angle: Math.PI, elevation: Math.PI / 4 }, // Up and back
+      basta: { angle: (3 * Math.PI) / 2, elevation: Math.PI / 4 }, // Up and left
+    };
+
+    const offset = typeOffsets[conceptType] || { angle: 0, elevation: 0 };
+    const distance = 2.5 + (indexInType * 0.5); // Distance from person
+    const spreadAngle = (indexInType / Math.max(1, totalOfType - 1)) * Math.PI * 0.5; // Spread within type group
+
+    // Calculate position relative to person
+    const relativeX =
+      distance *
+      Math.sin(offset.elevation) *
+      Math.cos(offset.angle + spreadAngle);
+    const relativeY =
+      distance *
+      Math.sin(offset.elevation) *
+      Math.sin(offset.angle + spreadAngle);
+    const relativeZ = distance * Math.cos(offset.elevation);
+
+    return [
+      personPos[0] + relativeX,
+      personPos[1] + relativeY,
+      personPos[2] + relativeZ,
+    ];
+  }
+
+  // Group contributions by user
+  function groupContributionsByUser(
+    contributions: Array<{
+      id: number;
+      userId?: number | null;
+      dream?: string | null;
+      value?: string | null;
+      need?: string | null;
+      basta?: string | null;
+      type: string;
+    }>
+  ): Map<number, Array<{
+    id: number;
+    type: 'dream' | 'value' | 'need' | 'basta';
+    text: string;
+    originalContrib: any;
+  }>> {
+    const userMap = new Map<number, Array<{
+      id: number;
+      type: 'dream' | 'value' | 'need' | 'basta';
+      text: string;
+      originalContrib: any;
+    }>>();
+
+    contributions.forEach((contrib) => {
+      if (!contrib.userId) return;
+
+      const text =
+        contrib.dream || contrib.value || contrib.need || contrib.basta || '';
+      if (!text.trim()) return;
+
+      const type = (contrib.type || 'dream') as 'dream' | 'value' | 'need' | 'basta';
+      
+      if (!userMap.has(contrib.userId)) {
+        userMap.set(contrib.userId, []);
+      }
+
+      userMap.get(contrib.userId)!.push({
+        id: contrib.id,
+        type,
+        text: text.trim(),
+        originalContrib: contrib,
+      });
+    });
+
+    return userMap;
+  }
+
+  // Neural Network Graph API - People-Centered Structure
+  app.get("/api/neural-network/graph", optionalAuth, async (req: AuthRequest, res) => {
+    try {
+      const minSimilarity = parseFloat((req.query.minSimilarity as string) || '0.3');
+      const maxConnections = parseInt((req.query.maxConnections as string) || '10');
+      const useCache = req.query.cache !== 'false';
+
+      // Check cache
+      if (useCache && graphCache && Date.now() - graphCache.timestamp < CACHE_TTL) {
+        return res.json(graphCache.data);
+      }
+
+      // Fetch all contributions
+      const allContributions = await storage.getDreams();
+      
+      if (!Array.isArray(allContributions) || allContributions.length === 0) {
+        return res.json({
+          people: [],
+          crossConnections: [],
+          metadata: {
+            totalPeople: 0,
+            totalConcepts: 0,
+            totalConnections: 0,
+            avgSimilarity: 0,
+            generatedAt: new Date().toISOString(),
+          },
+        });
+      }
+
+      // Group contributions by user
+      const userContributionsMap = groupContributionsByUser(allContributions);
+      
+      if (userContributionsMap.size === 0) {
+        return res.json({
+          people: [],
+          crossConnections: [],
+          metadata: {
+            totalPeople: 0,
+            totalConcepts: 0,
+            totalConnections: 0,
+            avgSimilarity: 0,
+            generatedAt: new Date().toISOString(),
+          },
+        });
+      }
+
+      // Fetch user information for all users
+      const userIds = Array.from(userContributionsMap.keys());
+      const userPromises = userIds.map(userId => storage.getUser(userId));
+      const users = (await Promise.all(userPromises)).filter((u): u is NonNullable<typeof u> => u !== undefined);
+
+      // Generate positions for people
+      const peoplePositions = new Map<number, [number, number, number]>();
+      users.forEach((user, index) => {
+        peoplePositions.set(user.id, generatePersonPosition(index, users.length));
+      });
+
+      // Type colors for concepts
+      const typeColors: Record<string, string> = {
+        dream: '#3b82f6', // blue
+        value: '#ec4899', // pink
+        need: '#f59e0b', // amber
+        basta: '#ef4444', // red
+      };
+
+      // Build people structure with concepts
+      const people: Array<{
+        id: number;
+        name: string;
+        username: string;
+        position: [number, number, number];
+        concepts: {
+          dreams: Array<{
+            id: number;
+            text: string;
+            position: [number, number, number];
+            color: string;
+            size: number;
+          }>;
+          values: Array<{
+            id: number;
+            text: string;
+            position: [number, number, number];
+            color: string;
+            size: number;
+          }>;
+          needs: Array<{
+            id: number;
+            text: string;
+            position: [number, number, number];
+            color: string;
+            size: number;
+          }>;
+          basta: Array<{
+            id: number;
+            text: string;
+            position: [number, number, number];
+            color: string;
+            size: number;
+          }>;
+        };
+      }> = [];
+
+      // Collect all concepts for embedding generation
+      const allConceptsForEmbedding: Array<{
+        id: number;
+        text: string;
+        type: 'dream' | 'value' | 'need' | 'basta';
+        personId: number;
+      }> = [];
+
+      // Process each user
+      for (const user of users) {
+        const contributions = userContributionsMap.get(user.id) || [];
+        const personPos = peoplePositions.get(user.id)!;
+
+        // Organize concepts by type
+        const conceptsByType: Record<string, typeof contributions> = {
+          dream: [],
+          value: [],
+          need: [],
+          basta: [],
+        };
+
+        contributions.forEach(contrib => {
+          conceptsByType[contrib.type].push(contrib);
+        });
+
+        // Generate concept nodes for each type
+        const concepts = {
+          dreams: conceptsByType.dream.map((contrib, idx) => {
+            allConceptsForEmbedding.push({
+              id: contrib.id,
+              text: contrib.text,
+              type: 'dream',
+              personId: user.id,
+            });
+            return {
+              id: contrib.id,
+              text: contrib.text.substring(0, 200),
+              position: generateConceptPosition(personPos, 'dream', idx, conceptsByType.dream.length),
+              color: typeColors.dream,
+              size: 1,
+            };
+          }),
+          values: conceptsByType.value.map((contrib, idx) => {
+            allConceptsForEmbedding.push({
+              id: contrib.id,
+              text: contrib.text,
+              type: 'value',
+              personId: user.id,
+            });
+            return {
+              id: contrib.id,
+              text: contrib.text.substring(0, 200),
+              position: generateConceptPosition(personPos, 'value', idx, conceptsByType.value.length),
+              color: typeColors.value,
+              size: 1,
+            };
+          }),
+          needs: conceptsByType.need.map((contrib, idx) => {
+            allConceptsForEmbedding.push({
+              id: contrib.id,
+              text: contrib.text,
+              type: 'need',
+              personId: user.id,
+            });
+            return {
+              id: contrib.id,
+              text: contrib.text.substring(0, 200),
+              position: generateConceptPosition(personPos, 'need', idx, conceptsByType.need.length),
+              color: typeColors.need,
+              size: 1,
+            };
+          }),
+          basta: conceptsByType.basta.map((contrib, idx) => {
+            allConceptsForEmbedding.push({
+              id: contrib.id,
+              text: contrib.text,
+              type: 'basta',
+              personId: user.id,
+            });
+            return {
+              id: contrib.id,
+              text: contrib.text.substring(0, 200),
+              position: generateConceptPosition(personPos, 'basta', idx, conceptsByType.basta.length),
+              color: typeColors.basta,
+              size: 1,
+            };
+          }),
+        };
+
+        people.push({
+          id: user.id,
+          name: user.name || 'Usuario',
+          username: user.username || `user${user.id}`,
+          position: personPos,
+          concepts,
+        });
+      }
+
+      if (allConceptsForEmbedding.length === 0) {
+        return res.json({
+          people,
+          crossConnections: [],
+          metadata: {
+            totalPeople: people.length,
+            totalConcepts: 0,
+            totalConnections: 0,
+            avgSimilarity: 0,
+            generatedAt: new Date().toISOString(),
+          },
+        });
+      }
+
+      // Generate embeddings for all concepts
+      const embeddingMap = await batchGenerateEmbeddings(
+        allConceptsForEmbedding.map((c) => ({
+          id: c.id,
+          text: c.text,
+          type: c.type,
+        })),
+        20 // Batch size
+      );
+
+      // Find cross-connections between concepts from different people
+      const crossConnections: Array<{
+        from: { personId: number; conceptId: number; type: string };
+        to: { personId: number; conceptId: number; type: string };
+        strength: number;
+        similarity: number;
+      }> = [];
+
+      const conceptArray = allConceptsForEmbedding;
+      const conceptEmbeddings = Array.from(embeddingMap.entries());
+      let totalSimilarity = 0;
+      let similarityCount = 0;
+
+      // Create a map for quick concept lookup
+      const conceptMap = new Map<number, typeof allConceptsForEmbedding[0]>();
+      conceptArray.forEach(c => conceptMap.set(c.id, c));
+
+      // Find similarities between concepts from different people
+      for (let i = 0; i < conceptEmbeddings.length; i++) {
+        const [sourceConceptId, sourceEmbedding] = conceptEmbeddings[i];
+        const sourceConcept = conceptMap.get(sourceConceptId);
+        if (!sourceConcept) continue;
+
+        const connections: Array<{
+          targetConceptId: number;
+          similarity: number;
+        }> = [];
+
+        for (let j = i + 1; j < conceptEmbeddings.length; j++) {
+          const [targetConceptId, targetEmbedding] = conceptEmbeddings[j];
+          const targetConcept = conceptMap.get(targetConceptId);
+          if (!targetConcept) continue;
+
+          // Only connect concepts from different people
+          if (sourceConcept.personId === targetConcept.personId) continue;
+
+          const similarity = calculateCosineSimilarity(sourceEmbedding, targetEmbedding);
+
+          if (similarity >= minSimilarity) {
+            connections.push({ targetConceptId, similarity });
+            totalSimilarity += similarity;
+            similarityCount++;
+          }
+        }
+
+        // Keep only top N connections per concept
+        connections
+          .sort((a, b) => b.similarity - a.similarity)
+          .slice(0, maxConnections)
+          .forEach((conn) => {
+            const targetConcept = conceptMap.get(conn.targetConceptId);
+            if (targetConcept) {
+              crossConnections.push({
+                from: {
+                  personId: sourceConcept.personId,
+                  conceptId: sourceConceptId,
+                  type: sourceConcept.type,
+                },
+                to: {
+                  personId: targetConcept.personId,
+                  conceptId: conn.targetConceptId,
+                  type: targetConcept.type,
+                },
+                strength: conn.similarity,
+                similarity: conn.similarity,
+              });
+            }
+          });
+      }
+
+      const avgSimilarity =
+        similarityCount > 0 ? totalSimilarity / similarityCount : 0;
+
+      const totalConcepts = allConceptsForEmbedding.length;
+
+      const graphData = {
+        people,
+        crossConnections,
+        metadata: {
+          totalPeople: people.length,
+          totalConcepts,
+          totalConnections: crossConnections.length,
+          avgSimilarity,
+          generatedAt: new Date().toISOString(),
+        },
+      };
+
+      // Update cache
+      if (useCache) {
+        graphCache = {
+          data: graphData,
+          timestamp: Date.now(),
+        };
+      }
+
+      res.json(graphData);
+    } catch (error) {
+      console.error('Neural network graph error:', error);
+      res.status(500).json({
+        error: 'Failed to generate graph',
+        message: error instanceof Error ? error.message : 'Unknown error',
+      });
     }
   });
 

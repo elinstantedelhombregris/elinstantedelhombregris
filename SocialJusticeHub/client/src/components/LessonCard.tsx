@@ -70,7 +70,7 @@ const LessonCard = ({ lesson, isCompleted, isCurrent, isLocked, order, courseSlu
                 <div className="p-1.5 rounded-full border border-border/40 bg-white text-foreground">
                   {getTypeIcon(lesson.type)}
                 </div>
-                <h3 className="font-semibold text-foreground line-clamp-2">
+                <h3 className="font-semibold text-slate-900 line-clamp-2">
                   {lesson.title}
                 </h3>
               </div>
@@ -83,13 +83,13 @@ const LessonCard = ({ lesson, isCompleted, isCurrent, isLocked, order, courseSlu
             </div>
 
             {lesson.description && (
-              <p className="text-sm text-foreground/70 line-clamp-2 mb-2">
+              <p className="text-sm text-slate-700 line-clamp-2 mb-2">
                 {lesson.description}
               </p>
             )}
 
-            <div className="flex items-center gap-4 text-sm text-foreground/60">
-              <Badge variant="outline" className="border border-border/50 text-xs tracking-[0.2em] uppercase text-foreground/70">
+            <div className="flex items-center gap-4 text-sm text-slate-600">
+              <Badge variant="outline" className="border border-border/50 text-xs tracking-[0.2em] uppercase text-slate-700">
                 {lesson.type === 'text' ? 'Texto' :
                  lesson.type === 'video' ? 'Video' :
                  lesson.type === 'interactive' ? 'Interactivo' :

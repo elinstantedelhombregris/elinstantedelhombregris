@@ -156,7 +156,15 @@ const CourseDetail = () => {
   }
 
   const course: Course = data.course;
-  const lessons: Lesson[] = data.lessons || [];
+  // Deduplicate lessons by ID to prevent duplicates
+  const lessonsRaw: Lesson[] = data.lessons || [];
+  const lessonsMap = new Map<number, Lesson>();
+  lessonsRaw.forEach(lesson => {
+    if (!lessonsMap.has(lesson.id)) {
+      lessonsMap.set(lesson.id, lesson);
+    }
+  });
+  const lessons: Lesson[] = Array.from(lessonsMap.values()).sort((a, b) => a.orderIndex - b.orderIndex);
   const quiz: Quiz | null = data.quiz;
   const userProgress = data.userProgress;
   const completedLessons = data.completedLessons 

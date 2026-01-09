@@ -44,12 +44,20 @@ const SovereignMap = () => {
 
   // Add Leaflet CSS
   useEffect(() => {
+    // Check if CSS is already loaded
+    const existingLink = document.querySelector('link[href*="leaflet.css"]');
+    if (existingLink) {
+      return;
+    }
+
     const link = document.createElement('link');
     link.rel = 'stylesheet';
     link.href = 'https://unpkg.com/leaflet@1.7.1/dist/leaflet.css';
     document.head.appendChild(link);
+    
+    // Don't remove on cleanup - CSS should persist
     return () => {
-      document.head.removeChild(link);
+      // Keep CSS loaded
     };
   }, []);
 
@@ -88,15 +96,20 @@ const SovereignMap = () => {
   useEffect(() => {
     if (!leafletLoaded || !mapRef.current || mapInstanceRef.current) return;
 
+    let resizeHandler: (() => void) | null = null;
+
     const timer = setTimeout(() => {
       const L = window.L;
-      if (!L) return;
+      if (!L) {
+        console.warn('Leaflet not loaded yet');
+        return;
+      }
 
       try {
         // Dark matter map style
         const map = L.map(mapRef.current, {
-          zoomControl: false,
-          attributionControl: false
+          zoomControl: true,
+          attributionControl: true
         }).setView([-38.416097, -63.616672], 4);
 
         L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
@@ -106,12 +119,39 @@ const SovereignMap = () => {
         }).addTo(map);
 
         mapInstanceRef.current = map;
+
+        // Force map to recalculate size after initialization
+        // Use multiple timeouts to ensure the container has rendered
+        setTimeout(() => {
+          if (mapInstanceRef.current) {
+            mapInstanceRef.current.invalidateSize();
+          }
+        }, 200);
+        
+        setTimeout(() => {
+          if (mapInstanceRef.current) {
+            mapInstanceRef.current.invalidateSize();
+          }
+        }, 500);
+
+        // Also invalidate size when window resizes
+        resizeHandler = () => {
+          if (mapInstanceRef.current) {
+            mapInstanceRef.current.invalidateSize();
+          }
+        };
+        window.addEventListener('resize', resizeHandler);
       } catch (error) {
         console.error('Map init error:', error);
       }
     }, 100);
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      if (resizeHandler) {
+        window.removeEventListener('resize', resizeHandler);
+      }
+    };
   }, [leafletLoaded]);
 
   // Clustering Logic
@@ -287,7 +327,21 @@ const SovereignMap = () => {
     <div className="relative w-full h-[80vh] md:h-[90vh] bg-slate-950 rounded-3xl overflow-hidden border border-slate-800 shadow-2xl group">
       
       {/* Map Container */}
-      <div ref={mapRef} className="absolute inset-0 z-0 bg-slate-950" />
+      <div 
+        ref={mapRef} 
+        className="absolute inset-0 z-0 bg-slate-950"
+        style={{ minHeight: '400px' }}
+      />
+      
+      {/* Loading State */}
+      {!leafletLoaded && (
+        <div className="absolute inset-0 z-[500] flex items-center justify-center bg-slate-950/90">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto mb-4"></div>
+            <p className="text-slate-400 text-sm">Cargando mapa...</p>
+          </div>
+        </div>
+      )}
 
       {/* Overlay: Header / Stats */}
       <div className="absolute top-6 left-6 z-[400] flex flex-col gap-4 pointer-events-none">

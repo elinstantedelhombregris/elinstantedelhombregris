@@ -52,6 +52,7 @@ import PowerCTA, { PredefinedCTAs } from '@/components/PowerCTA';
 import CommitmentModal from '@/components/CommitmentModal';
 import NextStepCard from '@/components/NextStepCard';
 import RelatedPages from '@/components/RelatedPages';
+import SystemHierarchy from '@/components/SystemHierarchy';
 
 const LaVision = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -420,6 +421,40 @@ const LaVision = () => {
                   ))}
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* MANIFESTO II: System Engineering */}
+        <section className="py-24 bg-[#0a0a0a] relative overflow-hidden">
+          {/* Grid Background */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f0a_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f0a_1px,transparent_1px)] bg-[size:14px_24px]" />
+          
+          <div className="container-content relative z-10">
+            <div className="max-w-5xl mx-auto mb-16 text-center">
+              <h2 className="text-3xl md:text-5xl font-bold text-white mb-8">
+                Ingeniería de Sistemas Humanos
+              </h2>
+              <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
+                El problema argentino es un error de diseño: dejamos que un subsistema (la política) 
+                decida el propósito de todo el sistema (el país). Es hora de invertir la pirámide.
+              </p>
+            </div>
+
+            <SystemHierarchy />
+
+            <div className="mt-20 grid md:grid-cols-3 gap-8 text-center">
+              {[
+                { title: "El Ciudadano", action: "DEFINE", desc: "Establece el propósito y el 'qué'." },
+                { title: "El Estado", action: "ADMINISTRA", desc: "Gestiona los recursos para ese fin." },
+                { title: "La Política", action: "EJECUTA", desc: "Implementa las soluciones técnicas." }
+              ].map((item, i) => (
+                <div key={i} className="p-6 rounded-2xl bg-white/5 border border-white/10">
+                  <h3 className="text-slate-500 text-sm uppercase tracking-widest mb-2">{item.title}</h3>
+                  <p className="text-2xl font-bold text-white mb-2">{item.action}</p>
+                  <p className="text-slate-400 text-sm">{item.desc}</p>
+                </div>
+              ))}
             </div>
           </div>
         </section>

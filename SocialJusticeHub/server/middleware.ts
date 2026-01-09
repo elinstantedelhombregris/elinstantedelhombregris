@@ -17,13 +17,19 @@ export function securityHeaders() {
     contentSecurityPolicy: {
       directives: {
         defaultSrc: ["'self'"],
-        styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+        styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://unpkg.com"],
+        // Always allow unpkg.com for Leaflet in both dev and production
         scriptSrc: isDevelopment 
-          ? ["'self'", "'unsafe-inline'", "'unsafe-eval'"] // Required for Vite HMR in dev
-          : ["'self'"], // Stricter in production
+          ? ["'self'", "'unsafe-inline'", "'unsafe-eval'", "https://unpkg.com"] // Required for Vite HMR in dev + Leaflet
+          : ["'self'", "https://unpkg.com"], // Allow Leaflet in production
+        scriptSrcElem: isDevelopment 
+          ? ["'self'", "'unsafe-inline'", "'unsafe-eval'", "https://unpkg.com"] // Explicit script-src-elem for <script> tags
+          : ["'self'", "https://unpkg.com"], // Allow Leaflet in production
+        styleSrcElem: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://unpkg.com"], // Explicit style-src-elem for <style> and <link> tags
         imgSrc: ["'self'", "data:", "https:"],
-        connectSrc: ["'self'", backendOrigin, frontendOrigin, "http://localhost:*", "ws://localhost:*"],
+        connectSrc: ["'self'", backendOrigin, frontendOrigin, "http://localhost:*", "ws://localhost:*", "https://cdn.jsdelivr.net", "https://unpkg.com"],
         fontSrc: ["'self'", "https://fonts.gstatic.com", "data:"],
+        workerSrc: ["'self'", "blob:", "https://unpkg.com"], // Allow blob URLs for workers (troika-worker-utils) and unpkg
         objectSrc: ["'none'"],
         mediaSrc: ["'self'"],
         frameSrc: ["'none'"],

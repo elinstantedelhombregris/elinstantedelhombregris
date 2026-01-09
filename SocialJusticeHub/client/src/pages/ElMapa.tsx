@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SovereignMap from '@/components/SovereignMap';
-import SystemHierarchy from '@/components/SystemHierarchy';
+import NeuralNetwork3D from '@/components/NeuralNetwork3D';
 import ImpactCaseStudy from '@/components/ImpactCaseStudy';
 import MapPulseAnalytics from '@/components/MapPulseAnalytics';
 import PowerCTA from '@/components/PowerCTA';
@@ -14,7 +14,8 @@ import {
   Target, 
   ShieldCheck, 
   Brain, 
-  Map as MapIcon
+  Map as MapIcon,
+  Network
 } from 'lucide-react';
 
 const ElMapa = () => {
@@ -147,6 +148,41 @@ const ElMapa = () => {
           </div>
         </section>
 
+        {/* NEURAL NETWORK: Semantic Connections */}
+        <section id="red-neuronal" className="py-24 bg-gradient-to-b from-[#0a0a0a] via-[#0f1116] to-[#0a0a0a] relative overflow-hidden">
+          <div className="container-content">
+            <div className="text-center mb-12">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <span className="text-purple-500 font-mono text-xs tracking-[0.3em] uppercase">
+                  Inteligencia Colectiva
+                </span>
+                <h2 className="text-4xl font-bold text-white mt-4 mb-6">
+                  La Red de Significados
+                </h2>
+                <p className="text-slate-400 max-w-2xl mx-auto">
+                  Cada contribución se conecta con otras por significado. 
+                  Explora cómo tus sueños, valores, necesidades y declaraciones de ¡BASTA! 
+                  se entrelazan en una red de transformación.
+                </p>
+              </motion.div>
+            </div>
+            
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <NeuralNetwork3D />
+            </motion.div>
+          </div>
+        </section>
+
         {/* PULSE ANALYTICS: Intelligence Dashboard */}
         <section className="py-24 bg-[#0f1116] border-y border-white/5">
           <div className="container-content">
@@ -159,40 +195,6 @@ const ElMapa = () => {
               </p>
             </div>
             <MapPulseAnalytics />
-          </div>
-        </section>
-
-        {/* MANIFESTO II: System Engineering */}
-        <section className="py-24 bg-[#0a0a0a] relative overflow-hidden">
-          {/* Grid Background */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f0a_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f0a_1px,transparent_1px)] bg-[size:14px_24px]" />
-          
-          <div className="container-content relative z-10">
-            <div className="max-w-5xl mx-auto mb-16 text-center">
-              <h2 className="text-3xl md:text-5xl font-bold text-white mb-8">
-                Ingeniería de Sistemas Humanos
-              </h2>
-              <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
-                El problema argentino es un error de diseño: dejamos que un subsistema (la política) 
-                decida el propósito de todo el sistema (el país). Es hora de invertir la pirámide.
-              </p>
-            </div>
-
-            <SystemHierarchy />
-
-            <div className="mt-20 grid md:grid-cols-3 gap-8 text-center">
-              {[
-                { title: "El Ciudadano", action: "DEFINE", desc: "Establece el propósito y el 'qué'." },
-                { title: "El Estado", action: "ADMINISTRA", desc: "Gestiona los recursos para ese fin." },
-                { title: "La Política", action: "EJECUTA", desc: "Implementa las soluciones técnicas." }
-              ].map((item, i) => (
-                <div key={i} className="p-6 rounded-2xl bg-white/5 border border-white/10">
-                  <h3 className="text-slate-500 text-sm uppercase tracking-widest mb-2">{item.title}</h3>
-                  <p className="text-2xl font-bold text-white mb-2">{item.action}</p>
-                  <p className="text-slate-400 text-sm">{item.desc}</p>
-                </div>
-              ))}
-            </div>
           </div>
         </section>
 

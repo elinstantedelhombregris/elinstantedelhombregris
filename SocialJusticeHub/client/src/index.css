@@ -230,6 +230,27 @@
   z-index: 0;
 }
 
+/* Sovereign Map Styles - Ensure map renders correctly */
+.leaflet-container {
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 0 !important;
+  position: relative !important;
+  background-color: #1e293b !important;
+}
+
+.leaflet-container .leaflet-tile-container {
+  z-index: 0;
+}
+
+.leaflet-container .leaflet-pane {
+  z-index: 0;
+}
+
+.leaflet-container .leaflet-map-pane {
+  z-index: 0;
+}
+
 /* Leaflet popup styling */
 .dream-popup {
   padding: 8px 4px;
