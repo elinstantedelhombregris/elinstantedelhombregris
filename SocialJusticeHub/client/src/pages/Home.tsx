@@ -120,7 +120,7 @@ const Home = () => {
         </section>
 
         {/* 6. THE SOLUTION: The Journey Grid */}
-        <section className="py-32 bg-[#0a0a0a] relative">
+        <section id="plan-transformacion" className="py-32 bg-[#0a0a0a] relative">
           <div className="container mx-auto px-4">
             <div className="max-w-7xl mx-auto">
               <motion.div 

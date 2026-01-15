@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SovereignMap from '@/components/SovereignMap';
-import NeuralNetwork3D from '@/components/NeuralNetwork3D';
+import MeaningNetwork from '@/components/MeaningNetwork';
 import ImpactCaseStudy from '@/components/ImpactCaseStudy';
 import MapPulseAnalytics from '@/components/MapPulseAnalytics';
 import PowerCTA from '@/components/PowerCTA';
@@ -14,8 +14,7 @@ import {
   Target, 
   ShieldCheck, 
   Brain, 
-  Map as MapIcon,
-  Network
+  Map as MapIcon
 } from 'lucide-react';
 
 const ElMapa = () => {
@@ -148,7 +147,7 @@ const ElMapa = () => {
           </div>
         </section>
 
-        {/* NEURAL NETWORK: Semantic Connections */}
+        {/* MEANING NETWORK: Semantic Connections */}
         <section id="red-neuronal" className="py-24 bg-gradient-to-b from-[#0a0a0a] via-[#0f1116] to-[#0a0a0a] relative overflow-hidden">
           <div className="container-content">
             <div className="text-center mb-12">
@@ -162,12 +161,11 @@ const ElMapa = () => {
                   Inteligencia Colectiva
                 </span>
                 <h2 className="text-4xl font-bold text-white mt-4 mb-6">
-                  La Red de Significados
+                  La Red que Nos Une
                 </h2>
                 <p className="text-slate-400 max-w-2xl mx-auto">
-                  Cada contribución se conecta con otras por significado. 
-                  Explora cómo tus sueños, valores, necesidades y declaraciones de ¡BASTA! 
-                  se entrelazan en una red de transformación.
+                  Todos buscamos lo mismo. Esta red muestra las palabras que compartimos,
+                  los puentes entre capas y las conexiones que sostienen una visión común.
                 </p>
               </motion.div>
             </div>
@@ -178,7 +176,7 @@ const ElMapa = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <NeuralNetwork3D />
+              <MeaningNetwork />
             </motion.div>
           </div>
         </section>

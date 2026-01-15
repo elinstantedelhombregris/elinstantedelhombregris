@@ -361,30 +361,30 @@ const LessonView = () => {
             </div>
 
             {/* Lesson Header */}
-            <Card className="mb-6 rounded-3xl border border-border/60 bg-white/95">
+            <Card className="mb-6 rounded-3xl border border-slate-200 bg-white shadow-sm">
               <CardContent className="p-6">
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-2">
                       {getTypeIcon(currentLesson.type)}
-                      <Badge variant="outline" className="border border-border/60 text-foreground/70 tracking-[0.15em] uppercase text-[10px]">
+                      <Badge variant="outline" className="border border-slate-300 text-slate-700 tracking-[0.15em] uppercase text-[10px] bg-white">
                         {currentLesson.type === 'text' ? 'Texto' :
                          currentLesson.type === 'video' ? 'Video' :
                          currentLesson.type === 'interactive' ? 'Interactivo' :
                          'Documento'}
                       </Badge>
                       {currentLesson.duration && (
-                        <div className="flex items-center gap-1 text-sm text-foreground/60">
+                        <div className="flex items-center gap-1 text-sm text-slate-600">
                           <Clock className="w-4 h-4" />
                           {currentLesson.duration} min
                         </div>
                       )}
                     </div>
-                    <h1 className="text-3xl font-semibold text-foreground mb-2">
+                    <h1 className="text-3xl font-semibold text-slate-900 mb-2">
                       {currentLesson.title}
                     </h1>
                     {currentLesson.description && (
-                      <p className="text-foreground/70">{currentLesson.description}</p>
+                      <p className="text-slate-700">{currentLesson.description}</p>
                     )}
                   </div>
                 </div>
@@ -392,7 +392,7 @@ const LessonView = () => {
             </Card>
 
             {/* Lesson Content */}
-            <Card className="mb-6 rounded-3xl border border-border/60 bg-white/95" ref={lessonContentRef}>
+            <Card className="mb-6 rounded-3xl border border-slate-200 bg-white shadow-sm" ref={lessonContentRef}>
               <CardContent className="p-6">
                 {currentLesson.type === 'text' && (
                   <MarkdownRenderer content={currentLesson.content} className="lesson-rich-text" />
@@ -410,11 +410,11 @@ const LessonView = () => {
                   <MarkdownRenderer content={currentLesson.content} className="lesson-rich-text" />
                 )}
                 {currentLesson.type === 'interactive' && (
-                  <div className="bg-white/80 border border-border/60 rounded-2xl p-6">
-                    <p className="text-foreground mb-4">
+                  <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
+                    <p className="text-slate-900 mb-4">
                       Contenido interactivo: {currentLesson.content}
                     </p>
-                    <p className="text-sm text-foreground/60">
+                    <p className="text-sm text-slate-600">
                       Los contenidos interactivos se implementarán próximamente
                     </p>
                   </div>
@@ -440,7 +440,7 @@ const LessonView = () => {
 
             {/* Complete Lesson */}
             {userContext?.isLoggedIn && (
-              <Card className="rounded-3xl border border-border/60 bg-white/95">
+              <Card className="rounded-3xl border border-slate-200 bg-white shadow-sm">
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
@@ -456,7 +456,7 @@ const LessonView = () => {
                       />
                       <label 
                         htmlFor="complete-lesson"
-                        className="text-sm font-medium cursor-pointer select-none"
+                        className="text-sm font-medium text-slate-900 cursor-pointer select-none"
                       >
                         Marcar como completada
                       </label>
@@ -480,7 +480,7 @@ const LessonView = () => {
                     )}
                   </div>
                     {userContext?.isLoggedIn && (
-                    <p className="text-xs text-foreground/50 mt-2">
+                    <p className="text-xs text-slate-500 mt-2">
                       Tu progreso se guarda automáticamente
                     </p>
                   )}
@@ -492,9 +492,9 @@ const LessonView = () => {
           {/* Sidebar */}
           <div className="lg:col-span-1">
             <div className="sticky top-24">
-              <Card className="rounded-3xl border border-border/60 bg-white/95">
+              <Card className="rounded-3xl border border-slate-200 bg-white shadow-sm">
                 <CardContent className="p-4">
-                  <h3 className="font-semibold mb-4">Lecciones del Curso</h3>
+                  <h3 className="font-semibold mb-4 text-slate-900">Lecciones del Curso</h3>
                   <div className="space-y-2 max-h-[600px] overflow-y-auto">
                     {lessons.map((lesson, index) => {
                       const lessonCompleted = completedLessons.includes(lesson.id);
@@ -509,18 +509,21 @@ const LessonView = () => {
                         >
                           <div
                             className={cn(
-                              "p-3 rounded-2xl border border-transparent cursor-pointer transition-all",
-                              lessonCurrent && "border-accent/50 bg-accent/5",
-                              lessonCompleted && !lessonCurrent && "border-secondary/40 bg-secondary/10",
-                              lessonLocked ? "opacity-50 cursor-not-allowed" : "hover:border-border/60 hover:bg-white"
+                              "p-3 rounded-2xl border cursor-pointer transition-all",
+                              lessonCurrent && "border-blue-500 bg-blue-50",
+                              lessonCompleted && !lessonCurrent && "border-emerald-300 bg-emerald-50",
+                              lessonLocked ? "opacity-50 cursor-not-allowed border-slate-200 bg-slate-50" : "border-slate-200 hover:border-slate-300 hover:bg-slate-50"
                             )}
                           >
                             <div className="flex items-center gap-2">
-                              <span className="text-sm font-medium">
+                              <span className={cn(
+                                "text-sm font-medium",
+                                lessonCurrent ? "text-blue-900" : lessonCompleted ? "text-emerald-900" : "text-slate-900"
+                              )}>
                                 {index + 1}. {lesson.title}
                               </span>
                               {lessonCompleted && (
-                                <CheckCircle2 className="w-4 h-4 text-secondary flex-shrink-0" />
+                                <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
                               )}
                             </div>
                           </div>

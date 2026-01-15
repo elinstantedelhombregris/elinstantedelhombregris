@@ -74,11 +74,23 @@ const AparatoPolitico = () => {
     { key: 'ejecucion', title: 'Ejecución', sub: 'Técnica' }
   ];
 
-  const metricNarrative: Record<MetricKey, string> = {
-    participacion: 'De votar cada 2 años a co-diseñar políticas cada semana.',
-    vision: 'De agendas opacas a una visión compartida y trazable.',
-    coordinacion: 'De silos y favores a coordinación abierta por datos.',
-    ejecucion: 'De discrecionalidad técnica a mandatos claros y medibles.'
+  const metricNarrative: Record<MetricKey, { before: string; after: string }> = {
+    participacion: {
+      before: 'Votar cada 2 años y esperar.',
+      after: 'Co-diseñar políticas cada semana.'
+    },
+    vision: {
+      before: 'Agendas opacas y sin trazabilidad.',
+      after: 'Visión compartida y verificable.'
+    },
+    coordinacion: {
+      before: 'Silos, favores y decisiones aisladas.',
+      after: 'Coordinación abierta guiada por datos.'
+    },
+    ejecucion: {
+      before: 'Discrecionalidad técnica sin control.',
+      after: 'Mandatos claros y medibles.'
+    }
   };
 
   const baselineModel = comparisonData[0];
@@ -93,7 +105,8 @@ const AparatoPolitico = () => {
     delegacion: baselineModel[metric.key],
     coordinacion: coordinationModel[metric.key],
     diff: coordinationModel[metric.key] - baselineModel[metric.key],
-    narrative: metricNarrative[metric.key]
+    before: metricNarrative[metric.key].before,
+    after: metricNarrative[metric.key].after
   }));
 
   const sections = [
@@ -237,6 +250,78 @@ const AparatoPolitico = () => {
                 <p className="text-slate-400 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
                   Visualización del cambio de paradigma: de la entrega pasiva de poder a la construcción activa de realidad.
                 </p>
+
+                <div className="mt-10 grid gap-4 md:grid-cols-2 text-left max-w-5xl mx-auto">
+                  <motion.div 
+                    whileHover={{ y: -5 }}
+                    className="p-6 rounded-2xl bg-gradient-to-br from-red-500/5 to-red-900/10 border border-red-500/20 relative overflow-hidden"
+                  >
+                    <div className="absolute top-0 right-0 p-3 opacity-20">
+                       <div className="w-16 h-16 rounded-full bg-red-500 blur-2xl" />
+                    </div>
+                    <div className="relative z-10">
+                      <div className="flex items-center justify-between gap-4 mb-4">
+                        <div className="flex items-center gap-3">
+                          <span className="flex items-center justify-center w-8 h-8 rounded-full bg-red-500/20 text-red-300 text-xs font-bold">✕</span>
+                          <div>
+                            <p className="text-[10px] uppercase tracking-[0.2em] text-red-300/70">Delegación tradicional</p>
+                            <h4 className="text-lg font-bold text-red-400">Paradigma de Delegación</h4>
+                          </div>
+                        </div>
+                        <span className="text-[11px] uppercase tracking-widest text-red-300/70">Caja negra</span>
+                      </div>
+                      <ul className="space-y-2 text-sm text-slate-300">
+                        <li className="flex gap-2">
+                          <span className="mt-2 h-1.5 w-1.5 rounded-full bg-red-400/80 flex-shrink-0" />
+                          <span><span className="text-slate-200 font-semibold">Ciudadano:</span> entrega soberanía y participa esporádicamente.</span>
+                        </li>
+                        <li className="flex gap-2">
+                          <span className="mt-2 h-1.5 w-1.5 rounded-full bg-red-400/80 flex-shrink-0" />
+                          <span><span className="text-slate-200 font-semibold">Decisión:</span> opaca, cerrada, sin trazabilidad pública.</span>
+                        </li>
+                        <li className="flex gap-2">
+                          <span className="mt-2 h-1.5 w-1.5 rounded-full bg-red-400/80 flex-shrink-0" />
+                          <span><span className="text-slate-200 font-semibold">Resultado:</span> desconexión, corrupción y sin propósito compartido.</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </motion.div>
+
+                  <motion.div 
+                    whileHover={{ y: -5 }}
+                    className="p-6 rounded-2xl bg-gradient-to-br from-emerald-500/5 to-emerald-900/10 border border-emerald-500/20 relative overflow-hidden"
+                  >
+                    <div className="absolute top-0 right-0 p-3 opacity-20">
+                       <div className="w-16 h-16 rounded-full bg-emerald-500 blur-2xl" />
+                    </div>
+                    <div className="relative z-10">
+                      <div className="flex items-center justify-between gap-4 mb-4">
+                        <div className="flex items-center gap-3">
+                          <span className="flex items-center justify-center w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold">✓</span>
+                          <div>
+                            <p className="text-[10px] uppercase tracking-[0.2em] text-emerald-300/70">Coordinación nueva</p>
+                            <h4 className="text-lg font-bold text-emerald-400">Paradigma de Coordinación</h4>
+                          </div>
+                        </div>
+                        <span className="text-[11px] uppercase tracking-widest text-emerald-300/70">Red distribuida</span>
+                      </div>
+                      <ul className="space-y-2 text-sm text-slate-300">
+                        <li className="flex gap-2">
+                          <span className="mt-2 h-1.5 w-1.5 rounded-full bg-emerald-400/80 flex-shrink-0" />
+                          <span><span className="text-slate-200 font-semibold">Ciudadano:</span> aporta datos, visión y control continuo.</span>
+                        </li>
+                        <li className="flex gap-2">
+                          <span className="mt-2 h-1.5 w-1.5 rounded-full bg-emerald-400/80 flex-shrink-0" />
+                          <span><span className="text-slate-200 font-semibold">Decisión:</span> trazable, abierta y verificable.</span>
+                        </li>
+                        <li className="flex gap-2">
+                          <span className="mt-2 h-1.5 w-1.5 rounded-full bg-emerald-400/80 flex-shrink-0" />
+                          <span><span className="text-slate-200 font-semibold">Resultado:</span> inteligencia colectiva, transparencia y mandato claro.</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </motion.div>
+                </div>
               </div>
 
               {/* Leyenda fija y visible en mobile */}
@@ -291,59 +376,62 @@ const AparatoPolitico = () => {
                         initial={{ opacity: 0, y: 12 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: idx * 0.05 }}
-                        className="relative p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md overflow-hidden shadow-[0_0_30px_rgba(0,0,0,0.35)]"
+                        className="relative p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md overflow-hidden shadow-[0_0_30px_rgba(0,0,0,0.35)]"
                       >
                         <div className={`absolute inset-0 opacity-20 bg-gradient-to-br ${segment.gradient}`} />
-                        <div className="relative z-10 space-y-3">
-                          <div className="flex items-start justify-between">
+                        <div className="relative z-10 space-y-4">
+                          <div className="flex flex-wrap items-start justify-between gap-3">
                             <div>
-                              <p className="text-[11px] uppercase tracking-widest text-slate-400">VARIABLE</p>
-                              <h4 className="text-lg font-bold text-white">{segment.title}</h4>
+                              <h4 className="text-lg md:text-xl font-bold text-white">{segment.title}</h4>
                               <p className="text-xs text-slate-400">{segment.sub}</p>
                             </div>
-                            <div className="text-right">
-                              <p className="text-[11px] uppercase tracking-widest text-slate-400">Brecha</p>
-                              <p className={`text-xl font-black ${segment.diff >= 0 ? 'text-emerald-200' : 'text-red-200'} drop-shadow-sm`}>
+                            <div className="flex items-center gap-2 rounded-full border border-white/10 bg-black/20 px-3 py-1 text-[11px] uppercase tracking-widest text-slate-400">
+                              <span>Brecha</span>
+                              <span className={`font-bold ${segment.diff >= 0 ? 'text-emerald-200' : 'text-red-200'}`}>
                                 {segment.diff >= 0 ? '+' : ''}{segment.diff} pts
-                              </p>
-                            </div>
-                          </div>
-
-                          <div className="space-y-2">
-                            <div className="flex items-center justify-between text-[11px] uppercase tracking-widest text-slate-400">
-                              <span>Delegación</span>
-                              <span className="text-slate-200 font-black text-sm">{segment.delegacion}%</span>
-                            </div>
-                            <div className="h-3 bg-white/5 rounded-full border border-white/10 overflow-hidden">
-                              <motion.div
-                                initial={{ width: 0 }}
-                                animate={{ width: `${segment.delegacion}%` }}
-                                transition={{ duration: 1, delay: 0.1 + idx * 0.05, ease: "easeOut" }}
-                                className={`h-full bg-gradient-to-r ${segment.gradient} opacity-80`}
-                              />
-                            </div>
-
-                            <div className="flex items-center justify-between text-[11px] uppercase tracking-widest text-slate-400">
-                              <span className="flex items-center gap-2">
-                                Coordinación 
-                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.6)]" />
                               </span>
-                              <span className="text-emerald-200 font-black text-sm">{segment.coordinacion}%</span>
-                            </div>
-                            <div className="h-3 bg-white/5 rounded-full border border-white/10 overflow-hidden">
-                              <motion.div
-                                initial={{ width: 0 }}
-                                animate={{ width: `${segment.coordinacion}%` }}
-                                transition={{ duration: 1, delay: 0.15 + idx * 0.05, ease: "easeOut" }}
-                                className={`h-full bg-gradient-to-r ${segment.gradient} from-emerald-400 to-emerald-500`}
-                              />
                             </div>
                           </div>
 
-                          <div className="flex items-start justify-between gap-3">
-                            <p className="text-sm text-slate-300 leading-relaxed">{segment.narrative}</p>
-                            <div className="px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider border border-white/10 bg-white/5 text-slate-200">
-                              Cambio clave
+                          <div className="grid gap-3 sm:grid-cols-2">
+                            <div className="rounded-xl border border-white/10 bg-black/20 p-3">
+                              <div className="flex items-center justify-between">
+                                <div className="flex items-center gap-2">
+                                  <span className="h-2 w-2 rounded-full bg-red-400 shadow-[0_0_8px_rgba(248,113,113,0.6)]" />
+                                  <span className="text-[11px] uppercase tracking-widest text-slate-400">Antes</span>
+                                </div>
+                                <span className="text-sm font-bold text-slate-100">{segment.delegacion}%</span>
+                              </div>
+                              <p className="text-[11px] text-slate-500 mt-1">Delegación</p>
+                              <div className="mt-2 h-2 bg-white/5 rounded-full border border-white/10 overflow-hidden">
+                                <motion.div
+                                  initial={{ width: 0 }}
+                                  animate={{ width: `${segment.delegacion}%` }}
+                                  transition={{ duration: 1, delay: 0.1 + idx * 0.05, ease: "easeOut" }}
+                                  className={`h-full bg-gradient-to-r ${segment.gradient} opacity-60`}
+                                />
+                              </div>
+                              <p className="mt-2 text-xs text-slate-400 leading-relaxed">{segment.before}</p>
+                            </div>
+
+                            <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/5 p-3">
+                              <div className="flex items-center justify-between">
+                                <div className="flex items-center gap-2">
+                                  <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.6)]" />
+                                  <span className="text-[11px] uppercase tracking-widest text-emerald-200">Después</span>
+                                </div>
+                                <span className="text-sm font-bold text-emerald-100">{segment.coordinacion}%</span>
+                              </div>
+                              <p className="text-[11px] text-emerald-200/70 mt-1">Coordinación</p>
+                              <div className="mt-2 h-2 bg-white/5 rounded-full border border-white/10 overflow-hidden">
+                                <motion.div
+                                  initial={{ width: 0 }}
+                                  animate={{ width: `${segment.coordinacion}%` }}
+                                  transition={{ duration: 1, delay: 0.15 + idx * 0.05, ease: "easeOut" }}
+                                  className={`h-full bg-gradient-to-r ${segment.gradient} from-emerald-400 to-emerald-500`}
+                                />
+                              </div>
+                              <p className="mt-2 text-xs text-slate-200 leading-relaxed">{segment.after}</p>
                             </div>
                           </div>
                         </div>
@@ -353,40 +441,6 @@ const AparatoPolitico = () => {
                 </div>
               </div>
               
-              {/* Insights del gráfico - Futuristic Cards */}
-              <div className="grid md:grid-cols-2 gap-6">
-                <motion.div 
-                  whileHover={{ y: -5 }}
-                  className="p-6 rounded-2xl bg-gradient-to-br from-red-500/5 to-red-900/10 border border-red-500/20 relative overflow-hidden"
-                >
-                  <div className="absolute top-0 right-0 p-3 opacity-20">
-                     <div className="w-16 h-16 rounded-full bg-red-500 blur-2xl" />
-                  </div>
-                  <h4 className="text-lg font-bold text-red-400 mb-3 flex items-center gap-2">
-                    <span className="flex items-center justify-center w-6 h-6 rounded-full bg-red-500/20 text-red-400 text-xs">✕</span>
-                    Paradigma de Delegación
-                  </h4>
-                  <p className="text-sm text-slate-400 leading-relaxed">
-                    Modelo obsoleto de "caja negra". El ciudadano entrega su soberanía y espera resultados pasivamente. Genera desconexión, corrupción y falta de propósito compartido. Es la política del siglo XX.
-                  </p>
-                </motion.div>
-
-                <motion.div 
-                  whileHover={{ y: -5 }}
-                  className="p-6 rounded-2xl bg-gradient-to-br from-emerald-500/5 to-emerald-900/10 border border-emerald-500/20 relative overflow-hidden"
-                >
-                  <div className="absolute top-0 right-0 p-3 opacity-20">
-                     <div className="w-16 h-16 rounded-full bg-emerald-500 blur-2xl" />
-                  </div>
-                  <h4 className="text-lg font-bold text-emerald-400 mb-3 flex items-center gap-2">
-                    <span className="flex items-center justify-center w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 text-xs">✓</span>
-                    Paradigma de Coordinación
-                  </h4>
-                  <p className="text-sm text-slate-400 leading-relaxed">
-                    Modelo de "red distribuida". El ciudadano aporta datos, visión y control. El político ejecuta técnicamente bajo mandato claro. Maximiza la inteligencia colectiva y la transparencia.
-                  </p>
-                </motion.div>
-              </div>
             </div>
           </motion.div>
 

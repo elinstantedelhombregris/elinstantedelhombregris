@@ -603,41 +603,195 @@
   @apply w-2 h-3 bg-white rounded-full animate-pulse;
 }
 
-/* Rich Text overrides for lesson content */
+/* Rich Text overrides for lesson content - Enhanced for readability */
 .lesson-rich-text {
-  color: hsl(var(--foreground));
+  color: #1e293b !important; /* Dark slate for excellent readability */
 }
 
+/* Base text elements - ensure dark, readable colors */
 .lesson-rich-text p,
 .lesson-rich-text li,
-.lesson-rich-text span {
-  color: hsl(var(--foreground));
-  opacity: 0.92;
+.lesson-rich-text span,
+.lesson-rich-text div,
+.lesson-rich-text section,
+.lesson-rich-text article {
+  color: #1e293b !important; /* Dark slate */
+  opacity: 1 !important;
 }
 
-.lesson-rich-text [style*="background"] {
-  border-radius: 1rem;
-  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
-  border: 1px solid hsla(220, 16%, 86%, 0.8);
-  position: relative;
+/* Headings - bold and dark */
+.lesson-rich-text h1,
+.lesson-rich-text h2,
+.lesson-rich-text h3,
+.lesson-rich-text h4,
+.lesson-rich-text h5,
+.lesson-rich-text h6 {
+  color: #0f172a !important; /* Very dark for headings */
+  font-weight: 700 !important;
 }
 
-.lesson-rich-text [style*="linear-gradient"] {
-  background-image: none !important;
-  background-color: hsla(226, 39%, 57%, 0.1) !important;
-  color: hsl(var(--foreground)) !important;
-}
-
+/* Override any white text colors - comprehensive matching */
 .lesson-rich-text [style*="color: white"],
 .lesson-rich-text [style*="color:#fff"],
 .lesson-rich-text [style*="color: #fff"],
 .lesson-rich-text [style*="color:#FFFFFF"],
-.lesson-rich-text [style*="color: #FFFFFF"] {
-  color: hsl(var(--foreground)) !important;
+.lesson-rich-text [style*="color: #FFFFFF"],
+.lesson-rich-text [style*="color:white"],
+.lesson-rich-text [style*="color:rgb(255,255,255)"],
+.lesson-rich-text [style*="color:rgb(255, 255, 255)"],
+.lesson-rich-text [style*="color:rgba(255,255,255"],
+.lesson-rich-text [style*="color:rgba(255, 255, 255"] {
+  color: #0f172a !important; /* Very dark text */
 }
 
-.lesson-rich-text h2,
-.lesson-rich-text h3,
-.lesson-rich-text h4 {
-  color: hsl(var(--foreground));
+/* Elements with gradients - ensure readable text */
+.lesson-rich-text [style*="linear-gradient"],
+.lesson-rich-text [style*="gradient"] {
+  background-image: none !important;
+  background-color: #f1f5f9 !important; /* Light slate background */
+  color: #0f172a !important; /* Dark text */
+  border-radius: 1rem !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+  border: 1px solid #e2e8f0 !important;
+  padding: 1.5rem !important;
+  position: relative !important;
+}
+
+/* Elements with background colors - ensure contrast */
+.lesson-rich-text [style*="background"] {
+  border-radius: 1rem !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+  border: 1px solid #e2e8f0 !important;
+  position: relative !important;
+}
+
+/* Ensure text inside background elements is dark */
+.lesson-rich-text [style*="background"] * {
+  color: #0f172a !important;
+}
+
+.lesson-rich-text [style*="background"] h1,
+.lesson-rich-text [style*="background"] h2,
+.lesson-rich-text [style*="background"] h3,
+.lesson-rich-text [style*="background"] h4,
+.lesson-rich-text [style*="background"] h5,
+.lesson-rich-text [style*="background"] h6 {
+  color: #0f172a !important;
+}
+
+/* Links - maintain visibility */
+.lesson-rich-text a {
+  color: #2563eb !important; /* Blue for links */
+  text-decoration: underline !important;
+}
+
+.lesson-rich-text a:hover {
+  color: #1d4ed8 !important; /* Darker blue on hover */
+}
+
+/* Lists - ensure readability */
+.lesson-rich-text ul,
+.lesson-rich-text ol {
+  color: #1e293b !important;
+}
+
+.lesson-rich-text li {
+  color: #1e293b !important;
+  margin-bottom: 0.5rem !important;
+}
+
+/* Blockquotes - styled for readability */
+.lesson-rich-text blockquote {
+  border-left: 4px solid #3b82f6 !important;
+  background-color: #eff6ff !important;
+  color: #1e40af !important;
+  padding: 1rem 1.5rem !important;
+  border-radius: 0.5rem !important;
+  margin: 1.5rem 0 !important;
+}
+
+.lesson-rich-text blockquote * {
+  color: #1e40af !important;
+}
+
+/* Code blocks */
+.lesson-rich-text code {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+  padding: 0.25rem 0.5rem !important;
+  border-radius: 0.25rem !important;
+  font-family: 'Courier New', monospace !important;
+}
+
+.lesson-rich-text pre {
+  background-color: #1e293b !important;
+  color: #f1f5f9 !important;
+  padding: 1rem !important;
+  border-radius: 0.5rem !important;
+  overflow-x: auto !important;
+}
+
+.lesson-rich-text pre code {
+  background-color: transparent !important;
+  color: #f1f5f9 !important;
+}
+
+/* Tables */
+.lesson-rich-text table {
+  border-collapse: collapse !important;
+  width: 100% !important;
+  margin: 1.5rem 0 !important;
+}
+
+.lesson-rich-text th {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+  padding: 0.75rem !important;
+  text-align: left !important;
+  border: 1px solid #e2e8f0 !important;
+  font-weight: 700 !important;
+}
+
+.lesson-rich-text td {
+  color: #1e293b !important;
+  padding: 0.75rem !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+.lesson-rich-text tr:nth-child(even) {
+  background-color: #f8fafc !important;
+}
+
+/* Images */
+.lesson-rich-text img {
+  border-radius: 0.5rem !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+/* Horizontal rules */
+.lesson-rich-text hr {
+  border: none !important;
+  border-top: 2px solid #e2e8f0 !important;
+  margin: 2rem 0 !important;
+}
+
+@keyframes meaning-flow {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -60;
+  }
+}
+
+.meaning-flow {
+  stroke-dasharray: 4 8;
+  animation: meaning-flow 14s linear infinite;
+}
+
+.meaning-flow--active {
+  stroke-dasharray: none;
+  animation: none;
 }

@@ -37,7 +37,6 @@ const SovereignMap = () => {
   const [activeLayer, setActiveLayer] = useState<'all' | 'dream' | 'value' | 'need' | 'basta'>('all');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
-  const [pulseFeed, setPulseFeed] = useState<Dream[]>([]);
 
   // Load Leaflet
   const leafletLoaded = useLoader('https://unpkg.com/leaflet@1.7.1/dist/leaflet.js', 'L');
@@ -80,16 +79,14 @@ const SovereignMap = () => {
     });
   }, [dreams, activeLayer]);
 
-  // Update pulse feed (last 5 entries)
-  useEffect(() => {
-    if (Array.isArray(dreams)) {
-      const sorted = [...dreams].sort((a, b) => {
-        const dateA = new Date(a.createdAt || 0).getTime();
-        const dateB = new Date(b.createdAt || 0).getTime();
-        return dateB - dateA;
-      });
-      setPulseFeed(sorted.slice(0, 5));
-    }
+  const pulseFeed = useMemo(() => {
+    if (!Array.isArray(dreams)) return [];
+    const sorted = [...dreams].sort((a, b) => {
+      const dateA = new Date(a.createdAt || 0).getTime();
+      const dateB = new Date(b.createdAt || 0).getTime();
+      return dateB - dateA;
+    });
+    return sorted.slice(0, 5);
   }, [dreams]);
 
   // Initialize Map
@@ -440,4 +437,3 @@ const SovereignMap = () => {
 };
 
 export default SovereignMap;
-

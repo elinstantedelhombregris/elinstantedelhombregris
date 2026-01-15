@@ -45,9 +45,9 @@ const LessonCard = ({ lesson, isCompleted, isCurrent, isLocked, order, courseSlu
   const content = (
     <Card 
       className={cn(
-        "rounded-2xl border border-border/60 bg-white/90 transition-all",
-        isLocked ? "opacity-60 cursor-not-allowed" : "hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-[0_20px_50px_rgba(17,24,39,0.08)] cursor-pointer",
-        isCurrent && "border-accent/50 shadow-[0_20px_45px_rgba(125,91,222,0.2)]"
+        "rounded-2xl border border-slate-200 bg-white transition-all shadow-sm",
+        isLocked ? "opacity-60 cursor-not-allowed" : "hover:-translate-y-0.5 hover:border-blue-400 hover:shadow-lg cursor-pointer",
+        isCurrent && "border-blue-500 shadow-md"
       )}
     >
       <CardContent className="p-4">
@@ -55,9 +55,10 @@ const LessonCard = ({ lesson, isCompleted, isCurrent, isLocked, order, courseSlu
           {/* Order Number */}
           <div
             className={cn(
-              "flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-semibold text-sm border border-border/60 bg-white text-foreground",
-              isCurrent && "border-accent/60 text-accent",
-              isCompleted && "bg-secondary/20 text-secondary border-secondary/30"
+              "flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-semibold text-sm border bg-white",
+              isCurrent && "border-blue-500 text-blue-700 bg-blue-50",
+              isCompleted && "bg-emerald-50 text-emerald-700 border-emerald-300",
+              !isCurrent && !isCompleted && "border-slate-300 text-slate-700"
             )}
           >
             {order}
@@ -67,18 +68,24 @@ const LessonCard = ({ lesson, isCompleted, isCurrent, isLocked, order, courseSlu
           <div className="flex-1 min-w-0">
             <div className="flex items-start justify-between gap-2 mb-2">
               <div className="flex items-center gap-2">
-                <div className="p-1.5 rounded-full border border-border/40 bg-white text-foreground">
+                <div className={cn(
+                  "p-1.5 rounded-full border bg-white",
+                  isCurrent ? "border-blue-300 text-blue-600" : "border-slate-300 text-slate-600"
+                )}>
                   {getTypeIcon(lesson.type)}
                 </div>
-                <h3 className="font-semibold text-slate-900 line-clamp-2">
+                <h3 className={cn(
+                  "font-semibold line-clamp-2",
+                  isCurrent ? "text-blue-900" : isCompleted ? "text-emerald-900" : "text-slate-900"
+                )}>
                   {lesson.title}
                 </h3>
               </div>
               {isCompleted && (
-                <CheckCircle2 className="w-5 h-5 text-secondary flex-shrink-0" />
+                <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0" />
               )}
               {isLocked && (
-                <Lock className="w-5 h-5 text-foreground/30 flex-shrink-0" />
+                <Lock className="w-5 h-5 text-slate-400 flex-shrink-0" />
               )}
             </div>
 
@@ -89,20 +96,20 @@ const LessonCard = ({ lesson, isCompleted, isCurrent, isLocked, order, courseSlu
             )}
 
             <div className="flex items-center gap-4 text-sm text-slate-600">
-              <Badge variant="outline" className="border border-border/50 text-xs tracking-[0.2em] uppercase text-slate-700">
+              <Badge variant="outline" className="border border-slate-300 text-xs tracking-[0.2em] uppercase text-slate-700 bg-white">
                 {lesson.type === 'text' ? 'Texto' :
                  lesson.type === 'video' ? 'Video' :
                  lesson.type === 'interactive' ? 'Interactivo' :
                  'Documento'}
               </Badge>
               {lesson.duration && (
-                <div className="flex items-center gap-1">
+                <div className="flex items-center gap-1 text-slate-600">
                   <Clock className="w-4 h-4" />
                   <span>{lesson.duration} min</span>
                 </div>
               )}
               {lesson.isRequired && (
-                <Badge variant="outline" className="text-xs border border-accent/40 text-accent">
+                <Badge variant="outline" className="text-xs border border-blue-400 text-blue-700 bg-blue-50">
                   Requerida
                 </Badge>
               )}

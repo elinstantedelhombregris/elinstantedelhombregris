@@ -51,7 +51,6 @@ import ShockStats from '@/components/ShockStats';
 import PowerCTA, { PredefinedCTAs } from '@/components/PowerCTA';
 import CommitmentModal from '@/components/CommitmentModal';
 import NextStepCard from '@/components/NextStepCard';
-import RelatedPages from '@/components/RelatedPages';
 import SystemHierarchy from '@/components/SystemHierarchy';
 
 const LaVision = () => {
@@ -589,31 +588,6 @@ const LaVision = () => {
           href="/el-mapa"
           gradient="from-green-900 to-blue-900"
           icon={<MapPin className="w-5 h-5" />}
-        />
-
-        {/* Related Pages */}
-        <RelatedPages
-          title="Explora Más del Viaje"
-          pages={[
-            {
-              title: "El Hombre Gris",
-              description: "Descubre la filosofía del despertar individual y cómo cada persona puede ser protagonista del cambio.",
-              href: "/el-instante-del-hombre-gris",
-              color: "journey-hombre-gris"
-            },
-            {
-              title: "La Semilla",
-              description: "Conoce cómo sembrar tu compromiso personal para nutrir la visión colectiva.",
-              href: "/la-semilla-de-basta",
-              color: "journey-semilla"
-            },
-            {
-              title: "La Tribu",
-              description: "Únete a la comunidad de transformadores y conecta con otros que están actuando.",
-              href: "/community",
-              color: "journey-tribu"
-            }
-          ]}
         />
 
       </main>

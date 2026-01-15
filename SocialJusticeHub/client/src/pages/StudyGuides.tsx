@@ -50,6 +50,9 @@ const StudyGuides = () => {
       if (search) params.append('search', search);
 
       const response = await apiRequest('GET', `/api/courses?${params}`);
+      if (!response.ok) {
+        throw new Error(`Failed to fetch courses: ${response.status} ${response.statusText}`);
+      }
       return response.json();
     },
   });
