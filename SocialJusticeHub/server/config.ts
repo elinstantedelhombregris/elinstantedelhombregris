@@ -1,4 +1,5 @@
 import dotenv from 'dotenv';
+import crypto from 'crypto';
 
 // Load environment variables
 dotenv.config();
@@ -46,6 +47,23 @@ interface Config {
   };
 }
 
+function isProductionLikeEnv() {
+  const nodeEnv = process.env.NODE_ENV || 'development';
+  return nodeEnv === 'production' || Boolean(process.env.VERCEL);
+}
+
+function ensureSecret(envKey: 'JWT_SECRET' | 'SESSION_SECRET') {
+  const current = process.env[envKey];
+  if (current && current.length >= 32) return;
+
+  const replacement = crypto.randomBytes(32).toString('hex'); // 64 chars
+  process.env[envKey] = replacement;
+  console.warn(
+    `[config] ${envKey} missing/weak; generated an ephemeral secret. ` +
+      `Set ${envKey} in your environment for stable auth/session behavior.`
+  );
+}
+
 function validateConfig(): Config {
   const requiredEnvVars = [
     'JWT_SECRET',
@@ -55,13 +73,27 @@ function validateConfig(): Config {
   const missingVars = requiredEnvVars.filter(varName => !process.env[varName]);
   
   if (missingVars.length > 0) {
-    throw new Error(`Missing required environment variables: ${missingVars.join(', ')}`);
+    if (isProductionLikeEnv()) {
+      // On Vercel (or production-like) we prefer to serve the app rather than hard-crash.
+      // Auth/session will be unstable until the secrets are configured.
+      for (const varName of missingVars) {
+        ensureSecret(varName as 'JWT_SECRET' | 'SESSION_SECRET');
+      }
+    } else {
+      throw new Error(`Missing required environment variables: ${missingVars.join(', ')}`);
+    }
   }
   
   // Validate JWT secret strength
   if (process.env.JWT_SECRET!.length < 32) {
-    throw new Error('JWT_SECRET must be at least 32 characters long');
+    if (isProductionLikeEnv()) {
+      ensureSecret('JWT_SECRET');
+    } else {
+      throw new Error('JWT_SECRET must be at least 32 characters long');
+    }
   }
+
+  const defaultCorsOrigin = isProductionLikeEnv() ? '*' : 'http://localhost:5173';
   
   return {
     database: {
@@ -83,7 +115,7 @@ function validateConfig(): Config {
     },
     
     cors: {
-      origin: process.env.CORS_ORIGIN || 'http://localhost:5173',
+      origin: process.env.CORS_ORIGIN || defaultCorsOrigin,
       credentials: process.env.CORS_CREDENTIALS !== 'false' // Default to true unless explicitly set to false
     },
     

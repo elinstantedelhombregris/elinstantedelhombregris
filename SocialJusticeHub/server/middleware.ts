@@ -12,6 +12,19 @@ export function securityHeaders() {
   
   // In development, we need to allow unsafe-inline for Vite HMR and React Fast Refresh
   const isDevelopment = config.server.nodeEnv === 'development';
+  const connectSrc = [
+    "'self'",
+    backendOrigin,
+    "http://localhost:*",
+    "ws://localhost:*",
+    "https://cdn.jsdelivr.net",
+    "https://unpkg.com",
+  ];
+
+  // Only add an explicit frontend origin if it's a concrete origin (not wildcard)
+  if (frontendOrigin && frontendOrigin !== '*') {
+    connectSrc.splice(2, 0, frontendOrigin);
+  }
   
   return helmet({
     contentSecurityPolicy: {
@@ -27,7 +40,7 @@ export function securityHeaders() {
           : ["'self'", "https://unpkg.com"], // Allow Leaflet in production
         styleSrcElem: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://unpkg.com"], // Explicit style-src-elem for <style> and <link> tags
         imgSrc: ["'self'", "data:", "https:"],
-        connectSrc: ["'self'", backendOrigin, frontendOrigin, "http://localhost:*", "ws://localhost:*", "https://cdn.jsdelivr.net", "https://unpkg.com"],
+        connectSrc,
         fontSrc: ["'self'", "https://fonts.gstatic.com", "data:"],
         workerSrc: ["'self'", "blob:", "https://unpkg.com"], // Allow blob URLs for workers (troika-worker-utils) and unpkg
         objectSrc: ["'none'"],
