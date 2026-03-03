@@ -20,9 +20,25 @@ const defaultImages = [
 const InspiringStories = () => {
   const sliderRef = useRef<HTMLDivElement>(null);
   
+  const fetchStories = async (): Promise<Story[]> => {
+    const response = await fetch('/api/stories');
+    if (!response.ok) {
+      throw new Error(`Error fetching stories (${response.status})`);
+    }
+    const payload = await response.json();
+    if (Array.isArray(payload)) {
+      return payload as Story[];
+    }
+    if (payload && typeof payload === 'object' && Array.isArray((payload as { data?: unknown }).data)) {
+      return (payload as { data: Story[] }).data;
+    }
+    return [];
+  };
+
   // Fetch stories from API
   const { data: stories = [] } = useQuery<Story[]>({
     queryKey: ['/api/stories'],
+    queryFn: fetchStories,
     staleTime: 60000, // 1 minute
   });
   

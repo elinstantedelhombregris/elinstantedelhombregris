@@ -108,9 +108,9 @@ const Register = () => {
       <div className="flex-1 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-[hsl(var(--argentina-white))]">
         <Card className="w-full max-w-md">
           <CardHeader>
-            <CardTitle className="text-2xl font-bold text-center">Crear cuenta</CardTitle>
+            <CardTitle className="text-2xl font-bold text-center">Crear tu espacio</CardTitle>
             <CardDescription className="text-center">
-              Sumate al movimiento ¡BASTA! y empezá a construir la Argentina que soñamos
+              Sumate a ¡BASTA! para transformar intención en acción sostenida junto a la comunidad.
             </CardDescription>
           </CardHeader>
           
@@ -215,7 +215,7 @@ const Register = () => {
                 className="w-full bg-[hsl(var(--accent))]" 
                 disabled={isLoading}
               >
-                {isLoading ? 'Creando cuenta...' : 'Crear cuenta'}
+                {isLoading ? 'Creando cuenta...' : 'Crear y continuar'}
               </Button>
             </form>
           </CardContent>

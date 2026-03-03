@@ -87,8 +87,8 @@ const BastaPrincipio = () => {
     {
       title: 'El Inicio',
       subtitle: 'El momento del quiebre',
-      description: 'El momento cuando el argentino reconoce que el sistema actual no funciona y decide que ¡BASTA!. Cuando el camello que cargó durante años con expectativas ajenas se convierte en león que ruge su negación. Este es el acto de negación creativa que limpia el terreno, que despeja el espacio para construir.',
-      quote: 'Cada nuevo comienzo comienza con un ¡BASTA!',
+      description: 'El momento en que una persona deja de normalizar lo que la daña y nombra el límite con claridad. No es solo rechazo: es el inicio de una responsabilidad nueva.',
+      quote: 'Nombrar el límite es recuperar dirección.',
       icon: <Target className="w-10 h-10" />,
       color: 'blue',
       gradient: 'from-blue-500/20 to-blue-600/5',
@@ -100,8 +100,8 @@ const BastaPrincipio = () => {
     {
       title: 'El Proceso',
       subtitle: 'La construcción',
-      description: 'El momento cuando quien decidió que ¡BASTA! deja de rugir y comienza a construir. Cuando se crean los componentes del sistema nacional que Argentina jamás tuvo. Cuando el mapa emocional y estratégico del país real se hace visible, cuando lo evidente se vuelve imposible de ignorar y el aparato político debe alinearse.',
-      quote: 'Hacer visible lo que soñamos, para ordenar lo que nos gobierna',
+      description: 'La etapa donde la energía del quiebre se convierte en método: diagnóstico compartido, prioridades y decisiones coordinadas. Menos reacción, más diseño.',
+      quote: 'Lo que no se ordena, se dispersa.',
       icon: <Cog className="w-10 h-10" />,
       color: 'purple',
       gradient: 'from-purple-500/20 to-purple-600/5',
@@ -113,8 +113,8 @@ const BastaPrincipio = () => {
     {
       title: 'El Fin',
       subtitle: 'La transformación',
-      description: 'El momento cuando los componentes funcionan. Cuando el aparato político trabaja para el pueblo porque la visión compartida es evidente. Cuando el sistema se ordena solo, cuando quien antes era camello, luego león, ahora es niño: mira con ojos frescos y juega con posibilidades nuevas. El Hombre Gris desaparece como individuo porque vive multiplicado en cada ciudadano.',
-      quote: 'Cuando el pueblo piensa, la política ejecuta.',
+      description: 'La fase en que el trabajo sostenido produce resultados verificables. La ciudadanía marca rumbo y las instituciones ejecutan con trazabilidad.',
+      quote: 'Cuando la ciudadanía coordina, la política responde.',
       icon: <Building2 className="w-10 h-10" />,
       color: 'emerald',
       gradient: 'from-emerald-500/20 to-emerald-600/5',
@@ -162,11 +162,11 @@ const BastaPrincipio = () => {
               variants={itemVariants}
               className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto leading-relaxed font-light"
             >
-              No es solo un grito. Es un <span className="text-blue-400 font-semibold">pozo tallado en tiempo</span> que decidió desbordarse.
+              No es solo un grito. Es una <span className="text-blue-400 font-semibold">decisión de madurez cívica</span>.
               <br className="hidden md:block" />
-              Un principio con <span className="text-blue-400 font-semibold">inicio</span>, proceso y <span className="text-purple-400 font-semibold">fin</span>. 
+              Un principio con <span className="text-blue-400 font-semibold">inicio</span>, proceso y <span className="text-purple-400 font-semibold">resultado</span>.
               <br className="hidden md:block" />
-              Cada ciclo completa el anterior y prepara el siguiente.
+              Cada ciclo convierte indignación en capacidad de transformación.
             </motion.p>
           </motion.div>
 
@@ -460,10 +460,10 @@ const BastaPrincipio = () => {
           >
             <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-12">
               <p className="text-2xl md:text-3xl font-serif italic text-slate-200 mb-6 leading-relaxed">
-                "Cuando quien decide hacer evidente lo que quiere construye con elegancia, el sistema se ordena solo."
+                "Sin diagnóstico compartido no hay estrategia; sin estrategia no hay transformación."
               </p>
               <p className="text-slate-400 text-lg leading-relaxed">
-                El objetivo no es destruir, sino crear componentes del sistema nacional tan elegantes, tan inevitables, que vuelvan obsoleto todo lo anterior. Como el ingeniero que optimiza procesos, quien transforma no repara lo irreparable: crea herramientas que hacen irrelevantes los problemas.
+                El objetivo no es repetir consignas, sino crear capacidades públicas nuevas: claridad para decidir, coordinación para ejecutar y continuidad para sostener resultados.
               </p>
             </div>
           </motion.div>
@@ -474,4 +474,3 @@ const BastaPrincipio = () => {
 };
 
 export default BastaPrincipio;
-

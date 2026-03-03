@@ -37,6 +37,7 @@ const SovereignMap = () => {
   const [activeLayer, setActiveLayer] = useState<'all' | 'dream' | 'value' | 'need' | 'basta'>('all');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [mapReady, setMapReady] = useState(false);
 
   // Load Leaflet
   const leafletLoaded = useLoader('https://unpkg.com/leaflet@1.7.1/dist/leaflet.js', 'L');
@@ -61,7 +62,7 @@ const SovereignMap = () => {
   }, []);
 
   // Fetch data
-  const { data: dreams = [] } = useQuery({
+  const { data: dreams = [] } = useQuery<Dream[]>({
     queryKey: ['/api/dreams'],
     staleTime: 60000,
   });
@@ -116,6 +117,7 @@ const SovereignMap = () => {
         }).addTo(map);
 
         mapInstanceRef.current = map;
+        setMapReady(true);
 
         // Force map to recalculate size after initialization
         // Use multiple timeouts to ensure the container has rendered
@@ -237,7 +239,7 @@ const SovereignMap = () => {
         plainMarkersLayerRef.current = null;
       }
     };
-  }, [leafletLoaded, filteredDreams, clusterReady]);
+  }, [leafletLoaded, filteredDreams, clusterReady, mapReady]);
 
   const handleCreate = async (data: any) => {
     setIsSubmitting(true);

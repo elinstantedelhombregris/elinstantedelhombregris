@@ -111,36 +111,36 @@ const AparatoPolitico = () => {
 
   const sections = [
     {
-      title: "El país real somos nosotros",
+      title: "El país real se organiza desde abajo",
       icon: <Users className="w-8 h-8" />,
-      content: "Este país no es el Congreso. No es la Casa Rosada. El país real es el mate que el argentino comparte en su casa. Es la palabra que honra. Es el trabajo que ofrece. Es la familia que protege. Es el barrio que construye. El país real es quien lee esto, quien decide que ya es suficiente, quien elige construir.",
+      content: "El centro de gravedad no está en los edificios del poder: está en hogares, trabajos, escuelas y barrios. La política se vuelve útil cuando escucha y ejecuta sobre esa realidad concreta.",
       color: "blue",
       textColor: "text-blue-400",
       borderColor: "border-blue-500/20",
       bgColor: "bg-blue-500/10"
     },
     {
-      title: "El mundo cambia cuando lo evidente se vuelve imposible de ignorar",
+      title: "Lo que se mide con claridad se puede priorizar",
       icon: <Eye className="w-8 h-8" />,
-      content: "Cuando quien decide hacer evidente lo que quiere construye con claridad, el sistema se ordena solo. Cuando el mapa emocional y estratégico del país real se vuelve visible, cuando millones de sueños, valores y necesidades se convierten en datos imposibles de ignorar, la política pierde margen para desviarse.",
+      content: "Cuando las prioridades ciudadanas se vuelven visibles y trazables, baja la discrecionalidad y sube la responsabilidad pública. La evidencia reemplaza al relato vacío.",
       color: "purple",
       textColor: "text-purple-400",
       borderColor: "border-purple-500/20",
       bgColor: "bg-purple-500/10"
     },
     {
-      title: "La primera infraestructura política que Argentina jamás tuvo",
+      title: "Infraestructura cívica para decidir mejor",
       icon: <Map className="w-8 h-8" />,
-      content: "Un mapa emocional y estratégico de la Argentina real. Un mapa vivo donde quien sueña, quien valora, quien necesita puede hacer visible su visión. Un mapa preciso que ordena el aparato político porque lo evidente se vuelve imposible de ignorar. Ese mapa, construido por millones, se convierte en política pública porque la verdad compartida vence a la mentira administrada.",
+      content: "Un mapa vivo que integra necesidades, propuestas y consensos. No reemplaza la democracia representativa: la fortalece con información abierta para orientar decisiones y monitorear cumplimiento.",
       color: "emerald",
       textColor: "text-emerald-400",
       borderColor: "border-emerald-500/20",
       bgColor: "bg-emerald-500/10"
     },
     {
-      title: "Repensar la democracia: de la delegación a la coordinación",
+      title: "De delegar todo a coordinar en serio",
       icon: <Target className="w-8 h-8" />,
-      content: "La democracia madura no es un sistema donde el pueblo vota cada dos años y delega todo, incluida la visión. Es un sistema donde el pueblo piensa, diseña, sueña, prioriza y delega solo la ejecución técnica. Donde quien decide participa en la construcción del futuro, no solo en la elección de administradores.",
+      content: "La ciudadanía no solo elige representantes: también aporta dirección estratégica. Las instituciones ejecutan, rinden cuentas y corrigen con base en prioridades públicas explícitas.",
       color: "orange",
       textColor: "text-orange-400",
       borderColor: "border-orange-500/20",
@@ -188,15 +188,15 @@ const AparatoPolitico = () => {
               variants={itemVariants}
               className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed font-light"
             >
-              Quien lee esto no necesita que le pidan nada. Quien lee esto ya sabe algo que el ruido del mundo intentó hacerle olvidar:
+              La transformación no depende de esperar un salvador: depende de construir una ciudadanía que piense, priorice y exija ejecución.
             </motion.p>
             
             <motion.p 
               variants={itemVariants}
               className="text-2xl md:text-3xl font-bold text-white mt-6 max-w-3xl mx-auto leading-relaxed"
             >
-              El poder nunca estuvo allá arriba.<br />
-              El poder siempre estuvo acá: en el argentino que decide recordarlo.
+              Del desorden a la coordinación.<br />
+              Del enojo aislado a la acción con rumbo.
             </motion.p>
           </motion.div>
 
@@ -210,10 +210,10 @@ const AparatoPolitico = () => {
               <div className="relative z-10">
                 <Quote className="w-12 h-12 text-purple-400 mb-6 opacity-50" />
                 <p className="text-2xl md:text-3xl font-serif italic text-slate-200 leading-relaxed mb-6">
-                  Durante demasiados años el argentino miró al aparato político como si fuera un padre autoritario que debía guiarlo, protegerlo, resolverle la vida.
+                  Durante años confundimos representación con delegación total. Votamos, esperamos y perdimos capacidad de orientar el rumbo.
                 </p>
                 <p className="text-xl text-slate-300 leading-relaxed">
-                  Y ese error, esa renuncia silenciosa, permitió que un subsistema minúsculo e incompetente intentara definir el destino de todos. Permitió que quienes deberían servir se convirtieran en quienes esperan ser servidos.
+                  Recuperar esa capacidad es pasar de la queja crónica a la coordinación pública: prioridades claras, seguimiento ciudadano y ejecución verificable.
                 </p>
               </div>
             </div>
@@ -475,19 +475,17 @@ const AparatoPolitico = () => {
           >
             <Lightbulb className="w-16 h-16 text-yellow-400 mx-auto mb-6" />
             <h3 className="text-3xl font-bold text-white mb-4">
-              Hacer visible lo que soñamos, para ordenar lo que nos gobierna
+              Del diagnóstico a la coordinación pública
             </h3>
             <p className="text-xl text-slate-300 mb-8 max-w-2xl mx-auto leading-relaxed">
-              La pregunta no es "¿Quién va a salvarnos?". 
-              La pregunta es "¿Cuándo quien decide que ya es suficiente va a mostrar claramente qué país quiere construir?" 
-              Cuando eso ocurra, cuando el mapa emocional y estratégico sea evidente, el aparato político deberá alinearse o volverse obsoleto.
+              La pregunta no es quién promete más. La pregunta es cómo convertimos prioridades ciudadanas en decisiones trazables y resultados sostenidos.
             </p>
             <Link href="/el-mapa">
               <Button 
                 size="lg"
                 className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white px-10 py-7 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all hover:-translate-y-1"
               >
-                CREAR EL MAPA
+                ENTRAR AL MAPA CIUDADANO
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </Link>

@@ -1,17 +1,9 @@
 import React, { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 import { 
-  Heart, 
-  Share2, 
-  Eye, 
-  MapPin, 
-  Calendar, 
   Star,
-  ChevronLeft,
-  ChevronRight,
   Sparkles,
   Users,
   Briefcase,
@@ -21,7 +13,6 @@ import {
   Link
 } from 'lucide-react';
 import { InspiringStoryCard } from './InspiringStoryCard';
-import { StoryFilters } from './StoryFilters';
 import { apiRequest } from '@/lib/queryClient';
 
 interface InspiringStory {
@@ -67,62 +58,57 @@ const categoryIcons = {
   connection: Link
 };
 
-const categoryLabels = {
-  employment: 'Empleo',
-  volunteering: 'Voluntariado',
-  community_project: 'Proyecto Comunitario',
-  personal_growth: 'Crecimiento Personal',
-  resource_sharing: 'Compartir Recursos',
-  connection: 'Conexión'
+const parseStoriesResponse = (payload: unknown): InspiringStory[] => {
+  if (Array.isArray(payload)) {
+    return payload as InspiringStory[];
+  }
+  if (
+    payload &&
+    typeof payload === 'object' &&
+    'data' in payload &&
+    Array.isArray((payload as { data?: unknown }).data)
+  ) {
+    return (payload as { data: InspiringStory[] }).data;
+  }
+  return [];
 };
 
-const impactIcons = {
-  job_created: Briefcase,
-  lives_changed: Heart,
-  hours_volunteered: HandHeart,
-  people_helped: Users,
-  project_completed: Star,
-  resource_shared: Gift
+const fetchStories = async (url: string): Promise<InspiringStory[]> => {
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(`Failed to fetch stories (${response.status})`);
+  }
+  const payload = await response.json();
+  return parseStoriesResponse(payload);
 };
 
 export function InspiringStoriesSection() {
-  const [currentPage, setCurrentPage] = useState(0);
-  const [filters, setFilters] = useState<StoryFilters>({});
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
 
   // Fetch featured stories
-  const { data: featuredStories = [], isLoading: isLoadingFeatured } = useQuery({
+  const { data: featuredStories = [] } = useQuery<InspiringStory[]>({
     queryKey: ['inspiring-stories', 'featured'],
-    queryFn: async () => {
-      const response = await apiRequest('/api/stories/featured?limit=3');
-      return response.data;
-    }
+    queryFn: () => fetchStories('/api/stories/featured?limit=3'),
   });
 
   // Fetch stories by category
-  const { data: categoryStories = [], isLoading: isLoadingCategory } = useQuery({
+  const { data: categoryStories = [], isLoading: isLoadingCategory } = useQuery<InspiringStory[]>({
     queryKey: ['inspiring-stories', 'category', selectedCategory],
     queryFn: async () => {
       if (selectedCategory === 'all') {
-        const response = await apiRequest('/api/stories?status=approved&limit=6');
-        return response.data;
+        return fetchStories('/api/stories?status=approved&limit=6');
       }
-      const response = await apiRequest(`/api/stories/category/${selectedCategory}?limit=6`);
-      return response.data;
+      return fetchStories(`/api/stories/category/${selectedCategory}?limit=6`);
     },
-    enabled: true
   });
 
   const handleCategoryChange = (category: string) => {
     setSelectedCategory(category);
-    setCurrentPage(0);
   };
 
   const handleLikeStory = async (storyId: number) => {
     try {
-      await apiRequest(`/api/stories/${storyId}/like`, {
-        method: 'POST'
-      });
+      await apiRequest('POST', `/api/stories/${storyId}/like`);
       // Optimistic update could be added here
     } catch (error) {
       console.error('Error liking story:', error);
@@ -131,9 +117,7 @@ export function InspiringStoriesSection() {
 
   const handleShareStory = async (storyId: number) => {
     try {
-      await apiRequest(`/api/stories/${storyId}/share`, {
-        method: 'POST'
-      });
+      await apiRequest('POST', `/api/stories/${storyId}/share`);
       
       // Share to social media
       if (navigator.share) {

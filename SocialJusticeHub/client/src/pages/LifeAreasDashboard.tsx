@@ -449,8 +449,8 @@ const LifeAreasDashboard = () => {
       const delta = change.delta ?? 0;
       entries.push({
         id: `score-${change.id}`,
-        title: `${areaName}: ${delta >= 0 ? "+" : ""}${delta} Sincronía`,
-        subtitle: `Nuevo Nivel Operativo: ${clampScore(change.value ?? (change.delta ?? 0))}`,
+        title: `${areaName}: ${delta >= 0 ? "+" : ""}${delta} puntos`,
+        subtitle: `Nuevo valor: ${clampScore(change.value ?? (change.delta ?? 0))}`,
         timestamp: change.recordedAt,
         icon: delta >= 0 ? TrendingUp : TrendingDown,
         tone: delta >= 0 ? "positive" : "alert",
@@ -462,7 +462,7 @@ const LifeAreasDashboard = () => {
       const areaName = areaNameById.get(action.lifeAreaId) ?? "Área";
       entries.push({
         id: `action-${progress.id}`,
-        title: `Protocolo completado: ${action.title}`,
+        title: `Acción completada: ${action.title}`,
         subtitle: `${areaName} · Estado: ${progress.status}`,
         timestamp,
         icon: CheckCircle2,
@@ -539,14 +539,14 @@ const LifeAreasDashboard = () => {
         <div className="flex items-center justify-center min-h-[60vh]">
           <Card className="max-w-md border-white/10 shadow-2xl bg-[#0f1115] backdrop-blur-sm">
             <CardHeader>
-              <CardTitle className="font-serif text-white">Credenciales Requeridas</CardTitle>
+              <CardTitle className="font-serif text-white">Acceso requerido</CardTitle>
               <CardDescription className="text-slate-400">
-                El sistema de ingeniería personal requiere autenticación.
+                Iniciá sesión para abrir tu panel de áreas de vida.
               </CardDescription>
             </CardHeader>
             <CardContent>
               <Link href="/login">
-                <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-900/50">Iniciar Protocolo de Acceso</Button>
+                <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-900/50">Iniciar sesión</Button>
               </Link>
             </CardContent>
           </Card>
@@ -563,7 +563,7 @@ const LifeAreasDashboard = () => {
         <div className="flex items-center justify-center min-h-[60vh]">
           <div className="text-center">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto"></div>
-            <p className="mt-4 text-blue-400 font-mono text-sm tracking-widest">CALIBRANDO SISTEMA...</p>
+            <p className="mt-4 text-blue-400 font-mono text-sm tracking-widest">Cargando panel...</p>
           </div>
         </div>
         <Footer />
@@ -578,9 +578,9 @@ const LifeAreasDashboard = () => {
         <div className="flex items-center justify-center min-h-[60vh]">
           <Card className="max-w-md border-red-900/50 bg-red-950/10">
             <CardHeader>
-              <CardTitle className="text-red-400">Fallo del Sistema</CardTitle>
+              <CardTitle className="text-red-400">Error de conexión</CardTitle>
               <CardDescription className="text-red-300/70">
-                No se pudo establecer conexión con el núcleo de datos.
+                No se pudo cargar la información del panel.
               </CardDescription>
             </CardHeader>
           </Card>
@@ -633,7 +633,7 @@ const LifeAreasDashboard = () => {
               animate={{ opacity: 1, y: 0 }}
               className="text-4xl md:text-6xl font-bold text-white mb-4 font-serif tracking-tight drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]"
             >
-              Radar de Consciencia Sistémica
+              Mapa de Áreas de Vida
             </motion.h1>
             <motion.p 
               initial={{ opacity: 0 }}
@@ -641,7 +641,7 @@ const LifeAreasDashboard = () => {
               transition={{ delay: 0.2 }}
               className="text-lg text-slate-400 font-light max-w-2xl mx-auto leading-relaxed"
             >
-              Panel de Control de Ingeniería Existencial. Diagnostica, diseña y optimiza los subsistemas de tu realidad.
+              Visualizá tu estado actual, definí objetivos y sostené mejoras concretas en cada dimensión personal.
             </motion.p>
           </div>
 
@@ -651,7 +651,7 @@ const LifeAreasDashboard = () => {
               <CardHeader className="pb-3">
                 <CardTitle className="text-[10px] uppercase tracking-widest font-bold text-blue-400 flex items-center gap-2">
                   <Activity className="w-4 h-4" />
-                  Sincronización Global
+                  Avance global
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -667,7 +667,7 @@ const LifeAreasDashboard = () => {
               <CardHeader className="pb-3">
                 <CardTitle className="text-[10px] uppercase tracking-widest font-bold text-amber-400 flex items-center gap-2">
                   <Flame className="w-4 h-4" />
-                  Constancia Operativa
+                  Constancia
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -689,7 +689,7 @@ const LifeAreasDashboard = () => {
               <CardHeader className="pb-3">
                 <CardTitle className="text-[10px] uppercase tracking-widest font-bold text-purple-400 flex items-center gap-2">
                   <Award className="w-4 h-4" />
-                  Hitos Alcanzados
+                  Hitos logrados
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -706,7 +706,7 @@ const LifeAreasDashboard = () => {
               <CardHeader className="pb-3">
                 <CardTitle className="text-[10px] uppercase tracking-widest font-bold text-emerald-400 flex items-center gap-2">
                   <Coins className="w-4 h-4" />
-                  Recursos Disponibles
+                  Recursos disponibles
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -720,10 +720,10 @@ const LifeAreasDashboard = () => {
             </Card>
           </div>
 
-          {/* Main System View: The Radar */}
+          {/* Vista principal: rueda de áreas */}
           <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] gap-8 items-start">
             
-            {/* Left Column: Radar & Grid */}
+            {/* Columna izquierda: rueda y controles */}
             <div className="space-y-8">
               <Card className="border-white/10 shadow-2xl bg-[#0f1115] relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
@@ -731,10 +731,10 @@ const LifeAreasDashboard = () => {
                   <div className="space-y-1">
                     <CardTitle className="text-xl font-serif text-white flex items-center gap-2">
                       <Radar className="w-5 h-5 text-blue-500 animate-pulse" />
-                      Matriz de Equilibrio
+                      Rueda de Equilibrio
                     </CardTitle>
                     <CardDescription className="font-mono text-[10px] tracking-widest text-blue-400/60 uppercase">
-                      Visualización de Datos Biométricos y Psicosociales
+                      Visualización comparada: situación actual vs objetivo
                     </CardDescription>
                   </div>
                   <div className="flex items-center gap-3 bg-white/5 px-3 py-1.5 rounded-full border border-white/10">
@@ -745,7 +745,7 @@ const LifeAreasDashboard = () => {
                       className="data-[state=checked]:bg-blue-600"
                     />
                     <label htmlFor="show-wheel-targets" className="text-[10px] uppercase font-bold text-slate-400 cursor-pointer hover:text-white transition-colors">
-                      Ver Diseño Idealizado
+                      Ver objetivo
                     </label>
                   </div>
                 </CardHeader>
@@ -772,15 +772,15 @@ const LifeAreasDashboard = () => {
                     <div className="text-center py-20 px-4">
                       <Compass className="w-16 h-16 text-slate-700 mx-auto mb-4 animate-pulse" />
                       <h3 className="text-lg font-serif text-white mb-2">
-                        Matriz sin calibrar
+                        Rueda sin datos
                       </h3>
                       <p className="text-slate-400 max-w-md mx-auto mb-8 font-light leading-relaxed">
-                        "La verdad que estás evitando es que estás listo. El sistema espera tus inputs para comenzar el proceso de diseño."
+                        Completá tu primer diagnóstico para obtener una base clara de progreso y prioridades.
                       </p>
                       <Link href="/life-areas/1/quiz">
                         <Button className="bg-blue-600 text-white hover:bg-blue-500 px-8 shadow-[0_0_20px_rgba(37,99,235,0.4)] transition-all hover:scale-105">
                           <PlayCircle className="w-4 h-4 mr-2" />
-                          INICIAR DIAGNÓSTICO
+                          Iniciar diagnóstico
                         </Button>
                       </Link>
                     </div>
@@ -803,7 +803,7 @@ const LifeAreasDashboard = () => {
                       <div className="flex flex-col items-end gap-2">
                         <Link href={`/life-areas/${area.id}/quiz`}>
                           <Button variant="ghost" size="sm" className="h-7 text-[9px] uppercase tracking-wider text-slate-500 hover:text-white hover:bg-white/5">
-                            Recalibrar (Quiz)
+                            Actualizar (Quiz)
                           </Button>
                         </Link>
                         <Link href={`/life-areas/${area.id}`}>
@@ -826,7 +826,7 @@ const LifeAreasDashboard = () => {
                 <CardHeader className="pb-3 border-b border-white/5">
                   <CardTitle className="text-sm font-bold uppercase tracking-wider text-slate-300 flex items-center gap-2">
                     <Cpu className="h-4 w-4 text-blue-400" />
-                    Registro de Eventos
+                    Historial reciente
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="pt-4 max-h-[400px] overflow-y-auto custom-scrollbar">
@@ -860,7 +860,7 @@ const LifeAreasDashboard = () => {
                       ))
                     ) : (
                       <div className="text-center py-8 text-slate-600 font-mono text-xs">
-                        NO SE REGISTRAN EVENTOS RECIENTES
+                        SIN MOVIMIENTOS RECIENTES
                       </div>
                     )}
                   </div>
@@ -872,7 +872,7 @@ const LifeAreasDashboard = () => {
                 <CardHeader className="pb-3 border-b border-white/5">
                   <CardTitle className="text-sm font-bold uppercase tracking-wider text-slate-300 flex items-center gap-2">
                     <Target className="h-4 w-4 text-amber-400" />
-                    Focos de Intervención
+                    Áreas prioritarias
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="pt-4 space-y-5">
@@ -914,7 +914,7 @@ const LifeAreasDashboard = () => {
                   <div className="pt-4 border-t border-white/5">
                     <div className="flex items-center justify-between mb-3">
                       <p className="text-[9px] uppercase tracking-widest text-slate-500 font-bold">
-                        Protocolos Activos
+                        Acciones activas
                       </p>
                       <Link href="/challenges">
                         <Button 
@@ -936,7 +936,7 @@ const LifeAreasDashboard = () => {
                             <div className="min-w-0 flex-1 mr-2">
                               <p className="text-xs font-semibold text-slate-300 truncate group-hover:text-white">{item.action.title}</p>
                               <p className="text-[9px] text-slate-500 truncate font-mono uppercase">
-                                {areaNameById.get(item.action.lifeAreaId) ?? "SISTEMA"}
+                                {areaNameById.get(item.action.lifeAreaId) ?? "ÁREA"}
                               </p>
                             </div>
                             <Link href={`/life-areas/${item.action.lifeAreaId}`}>
@@ -950,7 +950,7 @@ const LifeAreasDashboard = () => {
                     ) : (
                       <div className="text-center py-4">
                         <p className="text-[10px] text-slate-600 font-mono mb-3 border border-dashed border-white/5 rounded p-2">
-                          SIN PROTOCOLOS EN EJECUCIÓN
+                          SIN ACCIONES EN CURSO
                         </p>
                         <Link href="/challenges">
                           <Button 
@@ -959,7 +959,7 @@ const LifeAreasDashboard = () => {
                             className="text-[10px] border-purple-500/30 text-purple-400 hover:bg-purple-500/10 uppercase tracking-wider font-bold"
                           >
                             <Target className="h-3 w-3 mr-1" />
-                            Explorar Misiones
+                            Explorar desafíos
                           </Button>
                         </Link>
                       </div>
@@ -968,24 +968,24 @@ const LifeAreasDashboard = () => {
                 </CardContent>
               </Card>
 
-              {/* Protocolos de Misión - Link to Challenges */}
+              {/* Desafíos - acceso directo */}
               <Card className="bg-gradient-to-br from-purple-900/20 to-blue-900/20 border border-purple-500/30 shadow-lg overflow-hidden relative group cursor-pointer">
                 <div className="absolute inset-0 bg-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                 <Link href="/challenges">
                   <CardHeader className="relative z-10">
                     <CardTitle className="text-purple-100 flex items-center gap-2 text-sm uppercase tracking-wider">
                       <Target className="w-4 h-4 text-purple-400 animate-pulse" />
-                      Protocolos de Misión
+                      Desafíos de práctica
                     </CardTitle>
                     <CardDescription className="text-purple-200/70 text-xs mt-1">
-                      Accede a la base de datos completa de protocolos de entrenamiento y misiones disponibles.
+                      Accedé al catálogo completo de desafíos para sostener tu progreso.
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="relative z-10">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2 text-[10px] font-mono text-purple-300/80">
                         <Zap className="w-3 h-3" />
-                        <span>EXPANDE TU INFLUENCIA SISTÉMICA</span>
+                        <span>CONSTRUÍ CONSTANCIA</span>
                       </div>
                       <ArrowRight className="w-4 h-4 text-purple-400 group-hover:translate-x-1 transition-transform" />
                     </div>
@@ -993,17 +993,17 @@ const LifeAreasDashboard = () => {
                 </Link>
               </Card>
 
-              {/* Quick Actions for Uncalibrated Areas */}
+              {/* Acciones rápidas para áreas pendientes */}
               {areasWithoutQuiz.length > 0 && (
                 <Card className="bg-blue-900/20 border border-blue-500/30 shadow-lg overflow-hidden relative">
                   <div className="absolute inset-0 bg-blue-500/5 animate-pulse pointer-events-none" />
                   <CardHeader>
                     <CardTitle className="text-blue-100 flex items-center gap-2 text-sm uppercase tracking-wider">
                       <AlertCircle className="w-4 h-4 text-blue-400" />
-                      Áreas Sin Datos
+                      Áreas sin datos
                     </CardTitle>
                     <CardDescription className="text-blue-200/60 text-xs">
-                      Detectados {areasWithoutQuiz.length} sectores sin calibración.
+                      Detectamos {areasWithoutQuiz.length} áreas pendientes de diagnóstico.
                     </CardDescription>
                   </CardHeader>
                   <CardContent>

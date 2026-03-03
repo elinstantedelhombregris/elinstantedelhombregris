@@ -5,7 +5,7 @@ import { useEffect, useState, useMemo, useRef, useCallback } from 'react';
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
-import { Calendar, Clock, Play, FileText, User, Search, X, Loader2, ArrowUpRight } from 'lucide-react';
+import { Calendar, Clock, Play, FileText, User, Search, X, Loader2, ArrowUpRight, Sparkles } from 'lucide-react';
 // Animation handled by SmoothReveal component
 import { Link, useLocation } from 'wouter';
 import LikeButton from '@/components/LikeButton';
@@ -215,18 +215,18 @@ const BlogVlog = () => {
 
   const FeaturedCard = ({ post }: { post: BlogPost }) => (
     <Link href={`/blog-vlog/${post.slug}`}>
-      <GlassCard className="group relative overflow-hidden min-h-[500px] flex items-end p-8 md:p-12 cursor-pointer border-0" intensity="high">
+      <div className="group relative overflow-hidden min-h-[500px] flex items-end p-8 md:p-12 cursor-pointer bg-white rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
         {post.imageUrl && (
             <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-105">
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-10" />
                 <img
                 src={post.imageUrl}
                 alt={post.title}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover rounded-3xl"
                 />
             </div>
         )}
-        
+
         <div className="relative z-20 w-full max-w-4xl">
           <div className="flex items-center gap-3 mb-4">
             <Badge className={`px-3 py-1 text-sm font-medium tracking-wide ${
@@ -238,15 +238,15 @@ const BlogVlog = () => {
                 {post.category}
             </span>
           </div>
-          
+
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight group-hover:text-blue-200 transition-colors">
             {post.title}
           </h2>
-          
+
           <p className="text-lg md:text-xl text-white/80 mb-8 line-clamp-2 max-w-2xl">
             {post.excerpt}
           </p>
-          
+
           <div className="flex items-center gap-6 text-white/70 text-sm">
             <div className="flex items-center gap-2">
                 <User className="w-4 h-4" />
@@ -262,16 +262,14 @@ const BlogVlog = () => {
             </div>
           </div>
         </div>
-      </GlassCard>
+      </div>
     </Link>
   );
 
   const GridCard = ({ post, index }: { post: BlogPost, index: number }) => (
     <Link href={`/blog-vlog/${post.slug}`}>
-      <GlassCard 
-        intensity="low"
-        className={`group h-full flex flex-col cursor-pointer hover:border-blue-500/30 ${
-             // Make every 3rd card span 2 columns on large screens for a "bento" feel, if it's not a vlog
+      <div
+        className={`group h-full flex flex-col cursor-pointer bg-white rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 overflow-hidden ${
              index % 3 === 0 && post.type !== 'vlog' ? 'md:col-span-2' : ''
         }`}
       >
@@ -287,7 +285,7 @@ const BlogVlog = () => {
                 {post.type === 'vlog' ? <Play className="w-12 h-12 text-slate-400" /> : <FileText className="w-12 h-12 text-slate-400" />}
              </div>
           )}
-          
+
           <div className="absolute top-4 left-4">
              <Badge className={post.type === 'vlog' ? 'bg-red-500' : 'bg-blue-500'}>
                 {post.type === 'vlog' ? <Play className="w-3 h-3 mr-1" /> : <FileText className="w-3 h-3 mr-1" />}
@@ -306,7 +304,7 @@ const BlogVlog = () => {
           <h3 className="text-2xl font-bold text-slate-900 mb-3 leading-tight group-hover:text-blue-600 transition-colors">
             {post.title}
           </h3>
-          
+
           <p className="text-slate-600 mb-6 line-clamp-3 flex-grow">
             {post.excerpt}
           </p>
@@ -323,38 +321,42 @@ const BlogVlog = () => {
                     showCount
                 />
              </div>
-             
+
              <span className="inline-flex items-center text-sm font-medium text-blue-600 group-hover:translate-x-1 transition-transform">
                 Leer más <ArrowUpRight className="w-4 h-4 ml-1" />
              </span>
           </div>
         </div>
-      </GlassCard>
+      </div>
     </Link>
   );
 
   return (
-    <div className="min-h-screen bg-slate-50/50 font-sans">
-      <FluidBackground />
+    <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
+      <FluidBackground className="opacity-30" />
       <Header />
-      
-      <main className="pt-24 pb-20">
-        <div className="container mx-auto px-4">
-            
+
+      <main className="relative z-10 container mx-auto px-4 pt-24 pb-20">
+
             {/* Hero Header */}
-            <div className="mb-12 text-center max-w-4xl mx-auto">
-                <SmoothReveal>
-                    <h1 className="text-5xl md:text-7xl font-black tracking-tight text-slate-900 mb-6">
-                        CRÓNICAS DEL<br/>
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">DESPERTAR</span>
+            <section className="min-h-[40vh] flex flex-col justify-center items-center text-center mb-20">
+                <SmoothReveal direction="up" className="mb-6">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200 shadow-sm mb-8">
+                        <FileText className="w-4 h-4 text-blue-600" />
+                        <span className="text-sm font-semibold text-slate-600 uppercase tracking-wider">Blog & Vlog</span>
+                    </div>
+                </SmoothReveal>
+                <SmoothReveal direction="up" delay={0.1}>
+                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold tracking-tight mb-6 text-slate-900">
+                        Crónicas del <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Despertar</span>
                     </h1>
                 </SmoothReveal>
-                <SmoothReveal delay={0.1}>
-                    <p className="text-xl text-slate-600">
-                        Explora las ideas que están rediseñando Argentina. Pensamiento sistémico, acción directa y consciencia colectiva.
+                <SmoothReveal direction="up" delay={0.2} className="max-w-2xl">
+                    <p className="text-xl md:text-2xl text-slate-600 leading-relaxed font-light">
+                        Ideas para entender el presente, diseñar mejores decisiones y sostener acción colectiva con sentido.
                     </p>
                 </SmoothReveal>
-            </div>
+            </section>
 
             {/* Floating Filters Bar */}
             <div className="sticky top-24 z-40 mb-12 py-4">
@@ -392,7 +394,7 @@ const BlogVlog = () => {
                         <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 w-4 h-4" />
                         <input 
                             type="text"
-                            placeholder="Buscar..."
+                            placeholder="Buscar tema, autor o categoría..."
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
                             className="w-full bg-transparent border-none focus:ring-0 pl-10 pr-4 text-sm text-slate-800 placeholder-slate-400 h-10"
@@ -435,7 +437,7 @@ const BlogVlog = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
                 {loading && posts.length === 0 ? (
                     [...Array(6)].map((_, i) => (
-                        <div key={i} className="h-96 bg-slate-200 rounded-2xl animate-pulse" />
+                        <div key={i} className="h-96 bg-slate-200 rounded-3xl animate-pulse" />
                     ))
                 ) : (
                     gridPosts.map((post, index) => (
@@ -460,7 +462,6 @@ const BlogVlog = () => {
                 </div>
             )}
 
-        </div>
       </main>
       <Footer />
     </div>

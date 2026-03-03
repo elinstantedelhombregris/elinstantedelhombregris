@@ -93,16 +93,16 @@ const TerrenoLimpio = () => {
               className="space-y-8 mb-10"
             >
               <h2 className="text-3xl md:text-5xl font-serif italic text-slate-50 leading-relaxed font-light">
-                Terreno limpio: la analítica del sistema se vuelve plan de transformación.
+                El límite ya se nombró. Ahora toca diseñar el siguiente paso.
               </h2>
               
               <div className="flex items-center gap-4 justify-center text-xs md:text-sm uppercase tracking-[0.25em] text-slate-400">
                 <span className="px-4 py-2 rounded-full border border-white/10 bg-white/5">
-                  Analítica del sistema real
+                  Diagnóstico ciudadano
                 </span>
                 <div className="flex-1 h-px bg-gradient-to-r from-blue-500/40 via-slate-500/40 to-emerald-500/40 max-w-[140px] md:max-w-[200px]" />
                 <span className="px-4 py-2 rounded-full border border-white/10 bg-white/5">
-                  Plan de transformación
+                  Hoja de ruta compartida
                 </span>
               </div>
             </motion.div>
@@ -120,7 +120,7 @@ const TerrenoLimpio = () => {
                   variant="ghost"
                   className="bg-white/5 border border-white/10 text-slate-100 hover:bg-blue-500/10 hover:text-white hover:border-blue-400/40 px-8 py-6 rounded-full text-lg transition-all duration-300 group shadow-[0_20px_80px_rgba(56,189,248,0.10)]"
                 >
-                  Ver la visión que ordena
+                  Ver la visión completa
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
@@ -130,7 +130,7 @@ const TerrenoLimpio = () => {
                 className="border border-blue-500/30 text-blue-200 bg-transparent hover:bg-blue-500/10 hover:text-white px-8 py-6 rounded-full text-lg transition-all duration-300 group"
               >
                 <a href="#plan-transformacion">
-                  Ir al plan de transformación
+                  Revisar la hoja de ruta
                   <ArrowRight className="ml-2 w-5 h-5 inline group-hover:translate-x-1 transition-transform" />
                 </a>
               </Button>

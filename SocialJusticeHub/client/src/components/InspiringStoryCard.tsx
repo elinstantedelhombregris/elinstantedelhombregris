@@ -138,10 +138,14 @@ export function InspiringStoryCard({ story, onLike, onShare, featured = false }:
                 {categoryLabel}
               </Badge>
               {story.verified && (
-                <CheckCircle className="h-4 w-4 text-green-500" title="Historia verificada" />
+                <span title="Historia verificada">
+                  <CheckCircle className="h-4 w-4 text-green-500" />
+                </span>
               )}
               {featured && (
-                <Star className="h-4 w-4 text-yellow-500" title="Historia destacada" />
+                <span title="Historia destacada">
+                  <Star className="h-4 w-4 text-yellow-500" />
+                </span>
               )}
             </div>
             

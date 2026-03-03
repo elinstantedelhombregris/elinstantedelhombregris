@@ -9,7 +9,7 @@ import {
 } from 'lucide-react';
 
 type PowerVariant = 'primary' | 'secondary' | 'accent' | 'outline';
-type PowerSize = 'sm' | 'md' | 'lg';
+type PowerSize = 'sm' | 'md' | 'lg' | 'xl';
 
 interface PowerCTAProps {
   text: string;
@@ -37,7 +37,8 @@ const VARIANT_STYLES: Record<PowerVariant, string> = {
 const SIZE_STYLES: Record<PowerSize, string> = {
   sm: 'px-4 py-2 text-sm',
   md: 'px-6 py-3 text-base',
-  lg: 'px-7 py-3.5 text-lg'
+  lg: 'px-7 py-3.5 text-lg',
+  xl: 'px-8 py-4 text-xl'
 };
 
 export default function PowerCTA({

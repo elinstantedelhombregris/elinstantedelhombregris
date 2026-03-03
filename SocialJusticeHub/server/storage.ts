@@ -53,7 +53,7 @@ import {
   courseCertificates, type CourseCertificate, type InsertCourseCertificate
 } from "@shared/schema-sqlite";
 import { db } from "./db";
-import { eq, desc, and, sql, asc, gte, or, like, inArray, ilike } from "drizzle-orm";
+import { eq, desc, and, sql, asc, gte, or, like, inArray, ilike, isNotNull } from "drizzle-orm";
 import { PasswordManager, type AuthUser } from './auth';
 import Database from 'better-sqlite3';
 import path from 'path';
@@ -144,16 +144,16 @@ export interface IStorage {
   getLocationByName(name: string, type?: string): Promise<GeographicLocation | undefined>;
   createLocation(location: InsertGeographicLocation): Promise<GeographicLocation>;
   
-  // Post likes and views
+  // Community post likes and views
   likePost(postId: number, userId: number): Promise<CommunityPostLike>;
   unlikePost(postId: number, userId: number): Promise<boolean>;
   isPostLikedByUser(postId: number, userId: number): Promise<boolean>;
-  getPostLikes(postId: number): Promise<CommunityPostLike[]>;
-  getPostLikesCount(postId: number): Promise<number>;
+  getCommunityPostLikes(postId: number): Promise<CommunityPostLike[]>;
+  getCommunityPostLikesCount(postId: number): Promise<number>;
   
-  recordPostView(postId: number, userId: number | null, ipAddress?: string, userAgent?: string): Promise<CommunityPostView>;
-  getPostViews(postId: number): Promise<CommunityPostView[]>;
-  getPostViewsCount(postId: number): Promise<number>;
+  recordCommunityPostView(postId: number, userId: number | null, ipAddress?: string, userAgent?: string): Promise<CommunityPostView>;
+  getCommunityPostViews(postId: number): Promise<CommunityPostView[]>;
+  getCommunityPostViewsCount(postId: number): Promise<number>;
   
   // Geographic search
   searchPostsByLocation(province?: string, city?: string, radiusKm?: number, userLat?: number, userLng?: number): Promise<CommunityPost[]>;
@@ -183,7 +183,27 @@ export interface IStorage {
   moderateStory(id: number, status: string, moderatorId: number, notes?: string): Promise<InspiringStory>;
 
   // Gamification ¡BASTA!
-  saveCommitment(userId: number, commitmentText: string, commitmentType: string): Promise<any>;
+  saveCommitment(
+    userId: number,
+    commitmentText: string,
+    commitmentType: string,
+    location?: {
+      latitude?: number | null;
+      longitude?: number | null;
+      province?: string | null;
+      city?: string | null;
+    }
+  ): Promise<any>;
+  getRecentCommitments(limit: number): Promise<any[]>;
+  getCommitmentStats(): Promise<{
+    total: number;
+    last24h: number;
+    byType: { type: string; total: number }[];
+  }>;
+  resolveLocationFromCoordinates(latitude: number, longitude: number): Promise<{
+    province: string | null;
+    city: string | null;
+  }>;
   getUserBadges(userId: number): Promise<any[]>;
   getLeaderboard(type: string, limit: number): Promise<any[]>;
   recordAction(userId: number, actionType: string, metadata?: any): Promise<any>;
@@ -714,17 +734,17 @@ export class MemStorage implements Partial<IStorage> {
       .some(like => like.postId === postId && like.userId === userId);
   }
 
-  async getPostLikes(postId: number): Promise<CommunityPostLike[]> {
+  async getCommunityPostLikes(postId: number): Promise<CommunityPostLike[]> {
     return Array.from(this.communityPostLikes.values())
       .filter(like => like.postId === postId);
   }
 
-  async getPostLikesCount(postId: number): Promise<number> {
+  async getCommunityPostLikesCount(postId: number): Promise<number> {
     return Array.from(this.communityPostLikes.values())
       .filter(like => like.postId === postId).length;
   }
 
-  async recordPostView(postId: number, userId: number | null, ipAddress?: string, userAgent?: string): Promise<CommunityPostView> {
+  async recordCommunityPostView(postId: number, userId: number | null, ipAddress?: string, userAgent?: string): Promise<CommunityPostView> {
     const id = this.currentViewId++;
     const viewedAt = new Date().toISOString();
     const view: CommunityPostView = {
@@ -739,12 +759,12 @@ export class MemStorage implements Partial<IStorage> {
     return view;
   }
 
-  async getPostViews(postId: number): Promise<CommunityPostView[]> {
+  async getCommunityPostViews(postId: number): Promise<CommunityPostView[]> {
     return Array.from(this.communityPostViews.values())
       .filter(view => view.postId === postId);
   }
 
-  async getPostViewsCount(postId: number): Promise<number> {
+  async getCommunityPostViewsCount(postId: number): Promise<number> {
     return Array.from(this.communityPostViews.values())
       .filter(view => view.postId === postId).length;
   }
@@ -1008,6 +1028,30 @@ export class MemStorage implements Partial<IStorage> {
 }
 
 export class DatabaseStorage implements IStorage {
+  private userCommitmentsLocationColumnsEnsured = false;
+
+  private async ensureUserCommitmentsLocationColumns(): Promise<void> {
+    if (this.userCommitmentsLocationColumnsEnsured) return;
+
+    const tableInfo = await db.all(sql`PRAGMA table_info(user_commitments)`);
+    const existingColumns = new Set(
+      (Array.isArray(tableInfo) ? tableInfo : []).map((col: any) => col?.name)
+    );
+
+    const missingColumns = [
+      { name: 'province', sql: sql`ALTER TABLE user_commitments ADD COLUMN province TEXT` },
+      { name: 'city', sql: sql`ALTER TABLE user_commitments ADD COLUMN city TEXT` },
+      { name: 'latitude', sql: sql`ALTER TABLE user_commitments ADD COLUMN latitude REAL` },
+      { name: 'longitude', sql: sql`ALTER TABLE user_commitments ADD COLUMN longitude REAL` }
+    ].filter((column) => !existingColumns.has(column.name));
+
+    for (const column of missingColumns) {
+      await db.run(column.sql);
+    }
+
+    this.userCommitmentsLocationColumnsEnsured = true;
+  }
+
   // User methods
   async getUser(id: number): Promise<User | undefined> {
     const [user] = await db.select().from(users).where(eq(users.id, id));
@@ -2475,11 +2519,23 @@ export class DatabaseStorage implements IStorage {
   }
 
   async recordPostView(postId: number, userId?: number, sessionId?: string): Promise<void> {
-    await db.insert(postViews).values({
-      postId,
-      userId,
-      sessionId
-    });
+    try {
+      await db.insert(postViews).values({
+        postId,
+        userId,
+        sessionId
+      });
+    } catch (error) {
+      // Backward-compatible fallback for local DBs created before session_id existed.
+      const message = error instanceof Error ? error.message : "";
+      if (!message.includes("no column named session_id")) {
+        throw error;
+      }
+
+      await db.run(
+        sql`INSERT INTO post_views (post_id, user_id) VALUES (${postId}, ${userId ?? null})`
+      );
+    }
 
     // Increment view count
     await db.update(blogPosts)
@@ -2625,19 +2681,19 @@ export class DatabaseStorage implements IStorage {
     return !!like;
   }
 
-  async getPostLikes(postId: number): Promise<CommunityPostLike[]> {
+  async getCommunityPostLikes(postId: number): Promise<CommunityPostLike[]> {
     return await db.select().from(communityPostLikes)
       .where(eq(communityPostLikes.postId, postId));
   }
 
-  async getPostLikesCount(postId: number): Promise<number> {
+  async getCommunityPostLikesCount(postId: number): Promise<number> {
     const result = await db.select({ count: sql<number>`count(*)` })
       .from(communityPostLikes)
       .where(eq(communityPostLikes.postId, postId));
     return result[0]?.count || 0;
   }
 
-  async recordPostView(postId: number, userId: number | null, ipAddress?: string, userAgent?: string): Promise<CommunityPostView> {
+  async recordCommunityPostView(postId: number, userId: number | null, ipAddress?: string, userAgent?: string): Promise<CommunityPostView> {
     const [view] = await db.insert(communityPostViews)
       .values({
         postId,
@@ -2649,12 +2705,12 @@ export class DatabaseStorage implements IStorage {
     return view;
   }
 
-  async getPostViews(postId: number): Promise<CommunityPostView[]> {
+  async getCommunityPostViews(postId: number): Promise<CommunityPostView[]> {
     return await db.select().from(communityPostViews)
       .where(eq(communityPostViews.postId, postId));
   }
 
-  async getPostViewsCount(postId: number): Promise<number> {
+  async getCommunityPostViewsCount(postId: number): Promise<number> {
     const result = await db.select({ count: sql<number>`count(*)` })
       .from(communityPostViews)
       .where(eq(communityPostViews.postId, postId));
@@ -2828,11 +2884,42 @@ export class DatabaseStorage implements IStorage {
 
   // ==================== GAMIFICATION ¡BASTA! METHODS ====================
 
-  async saveCommitment(userId: number, commitmentText: string, commitmentType: string): Promise<any> {
+  async saveCommitment(
+    userId: number,
+    commitmentText: string,
+    commitmentType: string,
+    location?: {
+      latitude?: number | null;
+      longitude?: number | null;
+      province?: string | null;
+      city?: string | null;
+    }
+  ): Promise<any> {
+    await this.ensureUserCommitmentsLocationColumns();
+
+    const rawLatitude = location?.latitude;
+    const rawLongitude = location?.longitude;
+
+    const latitude = Number.isFinite(rawLatitude as number) ? Number(rawLatitude) : null;
+    const longitude = Number.isFinite(rawLongitude as number) ? Number(rawLongitude) : null;
+
+    let province = location?.province?.trim() || null;
+    let city = location?.city?.trim() || null;
+
+    if ((!province || !city) && latitude !== null && longitude !== null) {
+      const resolved = await this.resolveLocationFromCoordinates(latitude, longitude);
+      province = province || resolved.province;
+      city = city || resolved.city;
+    }
+
     const [commitment] = await db.insert(userCommitments).values({
       userId,
       commitmentText,
       commitmentType,
+      province,
+      city,
+      latitude,
+      longitude,
       status: 'active',
       pointsAwarded: 100 // Award 100 points for making a commitment
     }).returning();
@@ -2843,28 +2930,123 @@ export class DatabaseStorage implements IStorage {
     return commitment;
   }
 
-  async getUserBadges(userId: number): Promise<any[]> {
-    const userBadgesResult = await db
+  async getRecentCommitments(limit: number): Promise<any[]> {
+    await this.ensureUserCommitmentsLocationColumns();
+
+    const safeLimit = Number.isFinite(limit) ? Math.max(1, Math.min(limit, 100)) : 20;
+
+    return await db
       .select({
-        id: userBadges.id,
-        badgeId: userBadges.badgeId,
-        earnedAt: userBadges.earnedAt,
-        seen: userBadges.seen,
-        badge: {
-          id: badges.id,
-          name: badges.name,
-          description: badges.description,
-          iconName: badges.iconName,
-          category: badges.category,
-          rarity: badges.rarity,
-          experienceReward: badges.experienceReward
+        id: userCommitments.id,
+        commitmentText: userCommitments.commitmentText,
+        commitmentType: userCommitments.commitmentType,
+        province: userCommitments.province,
+        city: userCommitments.city,
+        latitude: userCommitments.latitude,
+        longitude: userCommitments.longitude,
+        status: userCommitments.status,
+        pointsAwarded: userCommitments.pointsAwarded,
+        createdAt: userCommitments.createdAt,
+        completedAt: userCommitments.completedAt,
+        user: {
+          id: users.id,
+          name: users.name,
+          username: users.username
         }
       })
-      .from(userBadges)
-      .innerJoin(badges, eq(userBadges.badgeId, badges.id))
-      .where(eq(userBadges.userId, userId));
+      .from(userCommitments)
+      .innerJoin(users, eq(userCommitments.userId, users.id))
+      .where(eq(userCommitments.status, 'active'))
+      .orderBy(desc(userCommitments.createdAt))
+      .limit(safeLimit);
+  }
 
-    return userBadgesResult;
+  async getCommitmentStats(): Promise<{
+    total: number;
+    last24h: number;
+    byType: { type: string; total: number }[];
+  }> {
+    await this.ensureUserCommitmentsLocationColumns();
+
+    const [summary] = await db
+      .select({
+        total: sql<number>`count(*)`,
+        last24h: sql<number>`sum(case when datetime(${userCommitments.createdAt}) >= datetime('now', '-1 day') then 1 else 0 end)`
+      })
+      .from(userCommitments)
+      .where(eq(userCommitments.status, 'active'));
+
+    const byTypeRows = await db
+      .select({
+        type: userCommitments.commitmentType,
+        total: sql<number>`count(*)`
+      })
+      .from(userCommitments)
+      .where(eq(userCommitments.status, 'active'))
+      .groupBy(userCommitments.commitmentType)
+      .orderBy(desc(sql`count(*)`));
+
+    return {
+      total: Number(summary?.total ?? 0),
+      last24h: Number(summary?.last24h ?? 0),
+      byType: byTypeRows.map((row) => ({
+        type: row.type ?? 'intermediate',
+        total: Number(row.total ?? 0)
+      }))
+    };
+  }
+
+  async resolveLocationFromCoordinates(latitude: number, longitude: number): Promise<{
+    province: string | null;
+    city: string | null;
+  }> {
+    const locations = await db
+      .select({
+        id: geographicLocations.id,
+        name: geographicLocations.name,
+        type: geographicLocations.type,
+        parentId: geographicLocations.parentId,
+        latitude: geographicLocations.latitude,
+        longitude: geographicLocations.longitude
+      })
+      .from(geographicLocations)
+      .where(and(
+        inArray(geographicLocations.type, ['province', 'city']),
+        isNotNull(geographicLocations.latitude),
+        isNotNull(geographicLocations.longitude)
+      ));
+
+    if (!locations.length) {
+      return { province: null, city: null };
+    }
+
+    const provinces = locations.filter((location) => location.type === 'province');
+    const cities = locations.filter((location) => location.type === 'city');
+    const provinceById = new Map(provinces.map((province) => [province.id, province.name]));
+
+    const nearestProvince = provinces.reduce<{ distance: number; name: string | null }>((closest, province) => {
+      const distance = this.calculateDistance(latitude, longitude, province.latitude, province.longitude);
+      if (distance < closest.distance) return { distance, name: province.name };
+      return closest;
+    }, { distance: Number.POSITIVE_INFINITY, name: null });
+
+    const nearestCity = cities.reduce<{ distance: number; name: string | null; parentId: number | null }>((closest, city) => {
+      const distance = this.calculateDistance(latitude, longitude, city.latitude, city.longitude);
+      if (distance < closest.distance) {
+        return { distance, name: city.name, parentId: city.parentId ?? null };
+      }
+      return closest;
+    }, { distance: Number.POSITIVE_INFINITY, name: null, parentId: null });
+
+    const cityThresholdKm = 180;
+    const provinceThresholdKm = 300;
+
+    const city = nearestCity.distance <= cityThresholdKm ? nearestCity.name : null;
+    const provinceFromCity = city && nearestCity.parentId ? provinceById.get(nearestCity.parentId) ?? null : null;
+    const provinceDirect = nearestProvince.distance <= provinceThresholdKm ? nearestProvince.name : null;
+    const province = provinceFromCity || provinceDirect;
+
+    return { province, city };
   }
 
   async getLeaderboard(type: string, limit: number): Promise<any[]> {
@@ -2975,41 +3157,6 @@ export class DatabaseStorage implements IStorage {
     }
 
     return progress;
-  }
-
-  async awardBadge(userId: number, badgeId: number): Promise<any> {
-    // Check if user already has this badge
-    const existingBadge = await db
-      .select()
-      .from(userBadges)
-      .where(and(
-        eq(userBadges.userId, userId),
-        eq(userBadges.badgeId, badgeId)
-      ));
-
-    if (existingBadge.length > 0) {
-      return existingBadge[0];
-    }
-
-    // Award the badge
-    const [userBadge] = await db.insert(userBadges).values({
-      userId,
-      badgeId,
-      seen: false
-    }).returning();
-
-    // Get badge details
-    const [badge] = await db
-      .select()
-      .from(badges)
-      .where(eq(badges.id, badgeId));
-
-    // Award points for badge
-    if (badge) {
-      await this.recordAction(userId, 'badge_earned', { badgeId, badgeName: badge.name });
-    }
-
-    return { ...userBadge, badge };
   }
 
   async getAllBadges(): Promise<any[]> {
@@ -3478,25 +3625,25 @@ export class DatabaseStorage implements IStorage {
     const sqliteDb = new Database(dbPath, { readonly: true });
     
     try {
-      // Build WHERE clause parts
-      const whereParts: string[] = ['is_published = 1'];
+      // Build WHERE clause parts (prefixed with c. for aliased query)
+      const whereParts: string[] = ['c.is_published = 1'];
       const params: any[] = [];
 
       if (filters?.category) {
-        whereParts.push('category = ?');
+        whereParts.push('c.category = ?');
         params.push(filters.category);
       }
       if (filters?.level) {
-        whereParts.push('level = ?');
+        whereParts.push('c.level = ?');
         params.push(filters.level);
       }
       // Only filter by featured if explicitly set to true (not false or undefined)
       if (filters?.featured === true) {
-        whereParts.push('is_featured = 1');
+        whereParts.push('c.is_featured = 1');
       }
       // If featured is false or undefined, don't filter by featured status
       if (filters?.search) {
-        whereParts.push('(title LIKE ? OR description LIKE ?)');
+        whereParts.push('(c.title LIKE ? OR c.description LIKE ?)');
         const searchTerm = `%${filters.search}%`;
         params.push(searchTerm, searchTerm);
       }
@@ -3504,22 +3651,24 @@ export class DatabaseStorage implements IStorage {
       const whereClause = whereParts.join(' AND ');
 
       // Get total count
-      const countStmt = sqliteDb.prepare(`SELECT COUNT(*) as count FROM courses WHERE ${whereClause}`);
+      const countStmt = sqliteDb.prepare(`SELECT COUNT(*) as count FROM courses c WHERE ${whereClause}`);
       const totalResult = countStmt.get(...params) as { count: number };
       const total = totalResult?.count || 0;
 
       // Apply sorting
-      let orderBy = 'ORDER BY order_index DESC, created_at DESC';
+      let orderBy = 'ORDER BY c.order_index DESC, c.created_at DESC';
       if (filters?.sortBy === 'popular') {
-        orderBy = 'ORDER BY view_count DESC';
+        orderBy = 'ORDER BY c.view_count DESC';
       } else if (filters?.sortBy === 'recent') {
-        orderBy = 'ORDER BY created_at DESC';
+        orderBy = 'ORDER BY c.created_at DESC';
       } else if (filters?.sortBy === 'duration') {
-        orderBy = 'ORDER BY duration ASC';
+        orderBy = 'ORDER BY c.duration ASC';
+      } else if (filters?.sortBy === 'level') {
+        orderBy = "ORDER BY CASE c.level WHEN 'beginner' THEN 1 WHEN 'intermediate' THEN 2 WHEN 'advanced' THEN 3 ELSE 4 END, c.order_index ASC";
       }
 
-      // Get courses
-      const coursesSql = `SELECT * FROM courses WHERE ${whereClause} ${orderBy} LIMIT ? OFFSET ?`;
+      // Get courses with lesson count and quiz indicator
+      const coursesSql = `SELECT c.*, (SELECT COUNT(*) FROM course_lessons WHERE course_id = c.id) as lesson_count, (SELECT COUNT(*) FROM course_quizzes WHERE course_id = c.id) as has_quiz FROM courses c WHERE ${whereClause} ${orderBy} LIMIT ? OFFSET ?`;
       const coursesStmt = sqliteDb.prepare(coursesSql);
       const courseRows = coursesStmt.all(...params, limit, offset) as any[];
       
@@ -3541,6 +3690,8 @@ export class DatabaseStorage implements IStorage {
         requiresAuth: row.requires_auth === 1,
         authorId: row.author_id,
         viewCount: row.view_count || 0,
+        lessonCount: row.lesson_count || 0,
+        hasQuiz: (row.has_quiz || 0) > 0,
         createdAt: row.created_at,
         updatedAt: row.updated_at,
       })) as Course[];

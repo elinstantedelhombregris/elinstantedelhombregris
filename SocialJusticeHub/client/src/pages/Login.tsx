@@ -80,9 +80,9 @@ const Login = () => {
       <div className="flex-1 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-[hsl(var(--argentina-white))]">
         <Card className="w-full max-w-md">
           <CardHeader>
-            <CardTitle className="text-2xl font-bold text-center">Iniciar sesión</CardTitle>
+            <CardTitle className="text-2xl font-bold text-center">Ingresar a tu espacio</CardTitle>
             <CardDescription className="text-center">
-              Ingresá tus datos para acceder a tu cuenta de ¡BASTA!
+              Continuá tu proceso en ¡BASTA! con tus avances, desafíos y comunidad.
             </CardDescription>
           </CardHeader>
           
@@ -122,7 +122,7 @@ const Login = () => {
                 className="w-full" 
                 disabled={isLoading}
               >
-                {isLoading ? 'Iniciando sesión...' : 'Iniciar sesión'}
+                {isLoading ? 'Ingresando...' : 'Entrar al panel'}
               </Button>
             </form>
           </CardContent>
@@ -131,12 +131,12 @@ const Login = () => {
             <div className="text-sm text-center">
               ¿No tenés una cuenta? {' '}
               <Link href="/register" className="text-[hsl(var(--primary))] hover:underline font-medium">
-                Registrate
+                Crear cuenta
               </Link>
             </div>
             
             <div className="text-xs text-center text-gray-500">
-              Al iniciar sesión, aceptás nuestros <span className="underline cursor-pointer hover:text-blue-600" onClick={() => {/* TODO: Open terms */}}>Términos y Condiciones</span> y nuestra <span className="underline cursor-pointer hover:text-blue-600" onClick={() => {/* TODO: Open privacy */}}>Política de Privacidad</span>.
+              Al ingresar aceptás nuestros <span className="underline cursor-pointer hover:text-blue-600" onClick={() => {/* TODO: Open terms */}}>Términos y Condiciones</span> y nuestra <span className="underline cursor-pointer hover:text-blue-600" onClick={() => {/* TODO: Open privacy */}}>Política de Privacidad</span>.
             </div>
           </CardFooter>
         </Card>

@@ -47,10 +47,9 @@ router.post('/send-verification', authenticateToken, async (req: AuthRequest, re
       });
     } catch (emailError) {
       console.error('Failed to send email:', emailError);
-      res.json({
-        message: 'Token generado (email no configurado en desarrollo)',
-        token, // Solo en desarrollo
-        verifyUrl: `http://localhost:5173/verify-email?token=${token}`
+      res.status(503).json({
+        error: 'Email service unavailable',
+        message: 'No se pudo enviar el email de verificación en este momento. Intenta nuevamente más tarde.'
       });
     }
   } catch (error) {
@@ -150,9 +149,7 @@ router.post('/forgot-password', async (req, res) => {
     } catch (emailError) {
       console.error('Failed to send email:', emailError);
       res.json({
-        message: 'Token generado (email no configurado en desarrollo)',
-        token, // Solo en desarrollo
-        resetUrl: `http://localhost:5173/reset-password?token=${token}`
+        message: 'Si el email existe, recibirás instrucciones para restablecer tu contraseña'
       });
     }
   } catch (error) {
@@ -451,4 +448,3 @@ router.post('/2fa/disable', authenticateToken, async (req: AuthRequest, res) => 
 });
 
 export default router;
-

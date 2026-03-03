@@ -7,6 +7,37 @@ import { securityHeaders, corsConfig } from './middleware';
 
 const app = express();
 
+const SENSITIVE_RESPONSE_KEYS = new Set([
+  "password",
+  "passwordHash",
+  "token",
+  "accessToken",
+  "refreshToken",
+  "secret",
+  "twoFactorSecret",
+  "backupCodes",
+  "emailVerificationToken",
+  "passwordResetToken",
+]);
+
+function redactSensitive(value: any): any {
+  if (Array.isArray(value)) {
+    return value.map(redactSensitive);
+  }
+  if (value && typeof value === "object") {
+    const redacted: Record<string, any> = {};
+    for (const [key, nestedValue] of Object.entries(value)) {
+      if (SENSITIVE_RESPONSE_KEYS.has(key)) {
+        redacted[key] = "[REDACTED]";
+      } else {
+        redacted[key] = redactSensitive(nestedValue);
+      }
+    }
+    return redacted;
+  }
+  return value;
+}
+
 // Security middleware
 app.use(securityHeaders());
 app.use(corsConfig());
@@ -31,7 +62,12 @@ app.use((req, res, next) => {
     if (path.startsWith("/api")) {
       let logLine = `${req.method} ${path} ${res.statusCode} in ${duration}ms`;
       if (capturedJsonResponse) {
-        logLine += ` :: ${JSON.stringify(capturedJsonResponse)}`;
+        const isAuthPath = path.startsWith("/api/auth") || path === "/api/login" || path === "/api/register";
+        if (isAuthPath) {
+          logLine += " :: [AUTH_RESPONSE_REDACTED]";
+        } else {
+          logLine += ` :: ${JSON.stringify(redactSensitive(capturedJsonResponse))}`;
+        }
       }
 
       if (logLine.length > 80) {

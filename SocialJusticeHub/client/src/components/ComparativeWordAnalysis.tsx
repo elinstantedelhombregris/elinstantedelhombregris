@@ -109,7 +109,7 @@ const ComparativeWordAnalysis = () => {
     });
 
     return Array.from(topWords).map(word => {
-      const row: Record<string, number> = { word };
+      const row: Record<string, string | number> = { word };
       typeConfig.forEach(config => {
         const words = wordAnalysis[config.type as keyof typeof wordAnalysis] || [];
         const found = words.find(w => w.word === word);
@@ -117,8 +117,8 @@ const ComparativeWordAnalysis = () => {
       });
       return row;
     }).sort((a, b) => {
-      const totalA = typeConfig.reduce((sum, c) => sum + (a[c.type] || 0), 0);
-      const totalB = typeConfig.reduce((sum, c) => sum + (b[c.type] || 0), 0);
+      const totalA = typeConfig.reduce((sum, c) => sum + Number(a[c.type] || 0), 0);
+      const totalB = typeConfig.reduce((sum, c) => sum + Number(b[c.type] || 0), 0);
       return totalB - totalA;
     }).slice(0, 20);
   }, [wordAnalysis]);
@@ -349,7 +349,7 @@ const ComparativeWordAnalysis = () => {
               </thead>
               <tbody>
                 {heatmapData.map((row, index) => {
-                  const maxInRow = Math.max(...typeConfig.map(c => row[c.type] || 0));
+                  const maxInRow = Math.max(...typeConfig.map(c => Number(row[c.type] || 0)));
                   return (
                     <tr
                       key={row.word}
@@ -357,7 +357,7 @@ const ComparativeWordAnalysis = () => {
                     >
                       <td className="py-3 px-4 text-sm font-medium text-white">{row.word}</td>
                       {typeConfig.map(config => {
-                        const value = row[config.type] || 0;
+                        const value = Number(row[config.type] || 0);
                         const intensity = maxInRow > 0 ? value / maxInRow : 0;
                         return (
                           <td key={config.type} className="py-3 px-4 text-center">
@@ -391,4 +391,3 @@ const ComparativeWordAnalysis = () => {
 };
 
 export default ComparativeWordAnalysis;
-

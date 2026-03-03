@@ -138,10 +138,10 @@ const UserDashboard = () => {
         <div className="min-h-screen bg-[#0a0a0a] text-slate-200 flex items-center justify-center">
           <div className="text-center">
             <ShieldCheck className="h-16 w-16 mx-auto mb-4 text-blue-500/50 animate-pulse" />
-            <h2 className="text-xl font-serif text-slate-100">ACCESO RESTRINGIDO</h2>
-            <p className="text-slate-500 mt-2 font-mono text-sm">IDENTIFICACIÓN REQUERIDA PARA INGRESAR AL SISTEMA.</p>
+            <h2 className="text-xl font-serif text-slate-100">Acceso restringido</h2>
+            <p className="text-slate-500 mt-2 font-mono text-sm">Iniciá sesión para entrar a tu panel de progreso.</p>
             <Button className="mt-6 bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-900/50" onClick={() => window.location.href = '/login'}>
-              INICIAR PROTOCOLO DE ACCESO
+              Iniciar sesión
             </Button>
           </div>
         </div>
@@ -151,7 +151,7 @@ const UserDashboard = () => {
       <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto mb-4 shadow-[0_0_15px_rgba(59,130,246,0.5)]"></div>
-          <p className="text-blue-400 font-mono text-sm tracking-widest">VERIFICANDO CREDENCIALES...</p>
+          <p className="text-blue-400 font-mono text-sm tracking-widest">Verificando acceso...</p>
         </div>
       </div>
     );
@@ -162,11 +162,11 @@ const UserDashboard = () => {
     return (
       <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center">
         <div className="text-center">
-          <h2 className="text-xl font-bold text-red-400">SESIÓN EXPIRADA</h2>
+          <h2 className="text-xl font-bold text-red-400">Sesión expirada</h2>
           <Button className="mt-4 bg-slate-800 hover:bg-slate-700 text-white" onClick={() => {
             localStorage.removeItem('authToken');
             window.location.href = '/login';
-          }}>RECONECTAR</Button>
+          }}>Reconectar</Button>
         </div>
       </div>
     );
@@ -178,7 +178,7 @@ const UserDashboard = () => {
       <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto mb-4 shadow-[0_0_15px_rgba(59,130,246,0.5)]"></div>
-          <p className="text-blue-400 font-mono text-sm tracking-widest">CARGANDO TORRE DE CONTROL...</p>
+          <p className="text-blue-400 font-mono text-sm tracking-widest">Cargando panel...</p>
         </div>
       </div>
     );
@@ -254,14 +254,14 @@ const UserDashboard = () => {
               <div>
                 <div className="flex items-center gap-3 mb-2">
                   <h1 className="text-3xl md:text-4xl font-bold text-white font-serif tracking-tight">
-                    AGENTE {user.name.toUpperCase()}
+                    PANEL DE {user.name.toUpperCase()}
                   </h1>
                   <Badge variant="outline" className="border-emerald-500/30 text-emerald-400 bg-emerald-500/10 text-[10px] uppercase tracking-wider backdrop-blur-sm">
-                    OPERATIVO
+                    ACTIVO
                   </Badge>
                 </div>
                 <p className="text-blue-400/80 font-mono text-xs uppercase tracking-[0.2em] mb-4">
-                  SESIÓN DE CONTROL INICIADA // {new Date().toLocaleTimeString()}
+                  Última actualización // {new Date().toLocaleTimeString()}
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-colors">
@@ -289,7 +289,7 @@ const UserDashboard = () => {
                <Link href="/life-areas">
                 <Button className="w-full md:w-auto h-12 bg-blue-600 hover:bg-blue-500 text-white border-0 shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_30px_rgba(37,99,235,0.5)] transition-all duration-300 font-bold tracking-wide">
                   <Activity className="mr-2 h-4 w-4 animate-pulse" />
-                  PANEL DE INGENIERÍA
+                  VER ÁREAS DE VIDA
                 </Button>
                </Link>
             </motion.div>
@@ -308,14 +308,14 @@ const UserDashboard = () => {
           {/* Columna Principal: Sistemas Críticos */}
           <div className="lg:col-span-2 space-y-8">
             
-            {/* Estado de Sincronización */}
+            {/* Estado de progreso */}
             <motion.div variants={itemVariants} whileHover={{ y: -2 }} className="transition-all">
               <Card className="bg-white/5 backdrop-blur-md border-white/10 shadow-2xl overflow-hidden relative group">
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                 <CardHeader className="pb-4 border-b border-white/5 relative z-10">
                   <CardTitle className="flex items-center text-lg font-bold text-slate-100 uppercase tracking-wider">
                     <Cpu className="h-5 w-5 mr-3 text-blue-400" />
-                    Sincronización Sistémica
+                    Estado de Progreso
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="pt-6 relative z-10">
@@ -354,7 +354,7 @@ const UserDashboard = () => {
               </Card>
             </motion.div>
 
-            {/* Matriz de Ingeniería Existencial (Link to Dashboard) */}
+            {/* Mapa personal de áreas de vida */}
             <motion.div variants={itemVariants} whileHover={{ scale: 1.01 }} className="transition-all">
               <Card className="border-0 shadow-[0_0_40px_rgba(0,0,0,0.5)] bg-[#0f1115] text-white rounded-xl relative overflow-hidden group cursor-pointer border-l-4 border-l-emerald-500">
                 {/* Animated Background */}
@@ -367,17 +367,17 @@ const UserDashboard = () => {
                 <CardHeader className="relative z-10 pb-2">
                   <CardTitle className="flex items-center text-lg font-bold uppercase tracking-wider text-emerald-100">
                     <Radar className="h-5 w-5 mr-3 text-emerald-400 animate-[spin_10s_linear_infinite]" />
-                    Matriz de Ingeniería Existencial
+                    Mapa Personal de Áreas de Vida
                   </CardTitle>
                   <CardDescription className="text-emerald-400/60 text-xs font-mono mt-1 tracking-widest">
-                    ESTADO: EN ESPERA DE ANÁLISIS
+                    ESTADO: LISTO PARA DIAGNÓSTICO
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="relative z-10 pt-4">
                   <div className="flex flex-col md:flex-row gap-6 items-center">
                     <div className="flex-1 space-y-4">
                       <p className="text-slate-300 text-sm font-light leading-relaxed max-w-xl">
-                        Accede al panel de diagnóstico para calibrar las <strong className="text-white font-medium">12 variables fundamentales</strong> de tu realidad. Detecta fugas de energía y optimiza tus procesos vitales.
+                        Revisá tu diagnóstico para calibrar las <strong className="text-white font-medium">12 áreas fundamentales</strong> de tu vida. Identificá brechas, definí objetivos y ejecutá mejoras concretas.
                       </p>
                       <div className="flex gap-3">
                         <div className="bg-emerald-500/10 rounded px-3 py-1.5 border border-emerald-500/20 backdrop-blur-sm">
@@ -386,14 +386,14 @@ const UserDashboard = () => {
                         </div>
                         <div className="bg-amber-500/10 rounded px-3 py-1.5 border border-amber-500/20 backdrop-blur-sm">
                           <span className="block text-[9px] text-amber-300/70 uppercase tracking-wider">Diagnóstico</span>
-                          <span className="text-base font-mono text-amber-300 font-bold">PENDIENTE</span>
+                          <span className="text-base font-mono text-amber-300 font-bold">DISPONIBLE</span>
                         </div>
                       </div>
                     </div>
                     <div className="w-full md:w-auto">
                       <Link href="/life-areas">
                         <Button className="w-full md:w-auto bg-white text-slate-950 hover:bg-emerald-50 font-bold tracking-wide shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all group-hover:scale-105 h-12 px-8 rounded-lg">
-                          ACCEDER AL SISTEMA
+                          ABRIR PANEL
                           <ArrowRight className="ml-2 h-4 w-4" />
                         </Button>
                       </Link>
@@ -411,10 +411,10 @@ const UserDashboard = () => {
                     <div>
                       <CardTitle className="flex items-center text-lg font-bold text-slate-100 uppercase tracking-wider">
                         <Target className="h-5 w-5 mr-3 text-purple-400" />
-                        Misiones Disponibles
+                        Desafíos Disponibles
                       </CardTitle>
                       <CardDescription className="font-mono text-xs text-slate-500 mt-1">
-                        PROTOCOLOS DE ENTRENAMIENTO ACTIVOS
+                        PRÁCTICAS DISPONIBLES SEGÚN TU NIVEL
                       </CardDescription>
                     </div>
                     <Link href="/challenges">
@@ -433,7 +433,7 @@ const UserDashboard = () => {
                   <div className="space-y-4">
                     {challengesLoading ? (
                       <div className="text-center py-8">
-                        <div className="animate-pulse text-slate-500 font-mono text-xs">ESCANEANDO FRECUENCIAS...</div>
+                        <div className="animate-pulse text-slate-500 font-mono text-xs">CARGANDO DESAFÍOS...</div>
                       </div>
                     ) : availableChallenges.length > 0 ? (
                       <>
@@ -460,7 +460,7 @@ const UserDashboard = () => {
                               </div>
                               <Link href={`/challenges/${challenge.id}`}>
                                 <Button size="sm" variant="outline" className="bg-transparent border-white/20 text-slate-300 hover:bg-purple-500/20 hover:text-purple-200 hover:border-purple-500/50 text-xs uppercase font-bold tracking-wider">
-                                  EJECUTAR
+                                  Empezar
                                 </Button>
                               </Link>
                             </div>
@@ -479,10 +479,10 @@ const UserDashboard = () => {
                                   </div>
                                   <div>
                                     <p className="text-sm font-bold text-slate-200 uppercase tracking-wide group-hover:text-purple-300 transition-colors">
-                                      {availableChallenges.length - 3} MISIONES ADICIONALES DISPONIBLES
+                                      {availableChallenges.length - 3} DESAFÍOS ADICIONALES DISPONIBLES
                                     </p>
                                     <p className="text-[10px] text-slate-500 font-mono mt-0.5">
-                                      Acceder a la base de datos completa de protocolos
+                                      Ver catálogo completo de desafíos
                                     </p>
                                   </div>
                                 </div>
@@ -495,10 +495,10 @@ const UserDashboard = () => {
                     ) : (
                       <div className="text-center py-10 border border-dashed border-white/10 rounded-lg bg-white/5">
                         <Target className="h-8 w-8 text-slate-600 mx-auto mb-3" />
-                        <p className="text-slate-500 font-mono text-xs mb-4">SIN MISIONES PENDIENTES</p>
+                        <p className="text-slate-500 font-mono text-xs mb-4">SIN DESAFÍOS PENDIENTES</p>
                         <Link href="/challenges">
                           <Button variant="outline" className="border-purple-500/30 text-purple-400 hover:bg-purple-500/10 text-xs uppercase tracking-wider">
-                            EXPLORAR PROTOCOLOS
+                            EXPLORAR DESAFÍOS
                           </Button>
                         </Link>
                       </div>
@@ -509,22 +509,22 @@ const UserDashboard = () => {
             </motion.div>
           </div>
 
-          {/* Columna Lateral: Telemetría */}
+          {/* Columna lateral: indicadores */}
           <div className="space-y-8">
             
-            {/* Telemetría del Agente */}
+            {/* Indicadores personales */}
             <motion.div variants={itemVariants} whileHover={{ y: -2 }} className="transition-all">
               <Card className="bg-white/5 backdrop-blur-md border-white/10 shadow-lg">
                 <CardHeader className="pb-4 border-b border-white/5 bg-white/5">
                   <CardTitle className="flex items-center text-sm font-bold text-slate-200 uppercase tracking-wider">
                     <BarChart3 className="h-4 w-4 mr-2 text-blue-400" />
-                    Telemetría del Agente
+                    Indicadores Personales
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="pt-6 space-y-4">
                   <div className="bg-[#0a0a0a] border border-white/10 p-4 rounded-xl flex items-center justify-between shadow-inner group hover:border-amber-500/30 transition-colors">
                     <div>
-                      <p className="text-[10px] uppercase tracking-widest text-slate-500 font-bold mb-1">Racha Operativa</p>
+                      <p className="text-[10px] uppercase tracking-widest text-slate-500 font-bold mb-1">Racha activa</p>
                       <p className="text-3xl font-mono font-bold text-white group-hover:text-amber-400 transition-colors">{userStats?.streak || 0}</p>
                     </div>
                     <div className="w-10 h-10 rounded-full bg-amber-500/10 flex items-center justify-center border border-amber-500/20">
@@ -535,7 +535,7 @@ const UserDashboard = () => {
                   <div className="grid grid-cols-2 gap-4">
                     <div className="bg-[#0a0a0a] border border-white/10 p-3 rounded-xl text-center hover:border-blue-500/30 transition-colors group">
                       <Target className="h-4 w-4 text-blue-500 mx-auto mb-2 group-hover:scale-110 transition-transform" />
-                      <p className="text-[9px] uppercase text-slate-500 mb-1">Misiones</p>
+                      <p className="text-[9px] uppercase text-slate-500 mb-1">Desafíos</p>
                       <p className="text-xl font-mono font-bold text-slate-200">{userStats?.completedChallenges || 0}</p>
                     </div>
                     <div className="bg-[#0a0a0a] border border-white/10 p-3 rounded-xl text-center hover:border-yellow-500/30 transition-colors group">
@@ -554,13 +554,13 @@ const UserDashboard = () => {
                 <CardHeader className="pb-4 border-b border-white/5">
                   <CardTitle className="flex items-center text-sm font-bold text-slate-200 uppercase tracking-wider">
                     <Award className="h-4 w-4 mr-2 text-yellow-400" />
-                    Condecoraciones
+                    Logros recientes
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="pt-6">
                   {badgesLoading ? (
                     <div className="text-center py-4">
-                      <p className="text-slate-500 font-mono text-xs animate-pulse">CARGANDO ARCHIVO CLASIFICADO...</p>
+                      <p className="text-slate-500 font-mono text-xs animate-pulse">Cargando logros...</p>
                     </div>
                   ) : userBadges.length > 0 ? (
                     <div className="space-y-4">
@@ -593,7 +593,7 @@ const UserDashboard = () => {
                   ) : (
                     <div className="text-center py-8 bg-white/5 rounded-lg border border-dashed border-white/10">
                       <p className="text-slate-500 font-mono text-xs px-4">
-                        EL AGENTE AÚN NO POSEE CONDECORACIONES REGISTRADAS.
+                        Aún no registrás logros en este ciclo.
                       </p>
                     </div>
                   )}

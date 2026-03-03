@@ -9,7 +9,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 export NODE_ENV=development
-export PORT=5173
+export PORT=5000
 export JWT_SECRET="test-secret-key-for-development-only-minimum-32-characters-required"
 export JWT_EXPIRES_IN="7d"
 export JWT_REFRESH_EXPIRES_IN="30d"
@@ -32,4 +32,3 @@ echo "🔐 Autenticación JWT habilitada"
 echo ""
 
 npm run dev
-

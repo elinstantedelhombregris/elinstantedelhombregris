@@ -14,7 +14,7 @@ import { Progress } from '@/components/ui/progress';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { ArrowLeft, PlayCircle, TrendingUp, Target, Award, CheckCircle } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import * as LucideIcons from 'lucide-react';
+import { getLifeAreaIcon } from '@/lib/lucide-icon-registry';
 
 const LifeAreaDetail = () => {
   const [, params] = useRoute('/life-areas/:areaId');
@@ -149,7 +149,7 @@ const LifeAreaDetail = () => {
             </CardHeader>
             <CardContent>
               <Button onClick={() => setLocation('/life-areas')}>
-                Volver al Dashboard
+                Volver al panel
               </Button>
             </CardContent>
           </Card>
@@ -164,13 +164,7 @@ const LifeAreaDetail = () => {
   const desiredScore = areaScore?.desiredScore ?? 0;
   const gap = areaScore?.gap ?? 0;
 
-  const getIcon = (iconName: string | null) => {
-    if (!iconName) return LucideIcons.Circle;
-    const IconComponent = (LucideIcons as any)[iconName] || LucideIcons.Circle;
-    return IconComponent;
-  };
-
-  const IconComponent = getIcon(area.iconName);
+  const IconComponent = getLifeAreaIcon(area.iconName);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
@@ -179,14 +173,14 @@ const LifeAreaDetail = () => {
       <div className="max-w-7xl mx-auto px-4 py-8">
         {/* Header */}
         <div className="mb-6">
-          <Button
-            variant="ghost"
-            onClick={() => setLocation('/life-areas')}
-            className="mb-4"
-          >
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Volver al Dashboard
-          </Button>
+            <Button
+              variant="ghost"
+              onClick={() => setLocation('/life-areas')}
+              className="mb-4"
+            >
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Volver al panel
+            </Button>
           
           <div className="flex items-center gap-4 mb-4">
             <div className="p-4 bg-white rounded-lg shadow-md">
@@ -450,4 +444,3 @@ const LifeAreaDetail = () => {
 };
 
 export default LifeAreaDetail;
-

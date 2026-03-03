@@ -7,8 +7,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
   Sheet,
   SheetContent,
+  SheetTitle,
+  SheetDescription,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { VisuallyHidden } from "@/components/ui/visually-hidden";
 import { 
   Menu, Award, Star, Crown, Trophy, Target, Shield, X, LogOut, User, LayoutDashboard
 } from 'lucide-react';
@@ -164,6 +167,10 @@ const Header = () => {
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-80 bg-slate-950 border-l-slate-800 text-white p-0">
+                <VisuallyHidden>
+                  <SheetTitle>Menú de navegación</SheetTitle>
+                  <SheetDescription>Navegación principal del sitio</SheetDescription>
+                </VisuallyHidden>
                 <div className="p-6 border-b border-slate-800">
                   <h2 className="text-xl font-bold font-serif">Menú</h2>
                 </div>
@@ -190,7 +197,7 @@ const Header = () => {
                         onClick={() => setIsMenuOpen(false)}
                         className="flex items-center gap-3 px-4 py-3 text-slate-300 hover:text-white"
                       >
-                        <LayoutDashboard className="w-5 h-5" /> Dashboard
+                        <LayoutDashboard className="w-5 h-5" /> Panel
                       </Link>
                       <Link 
                         href="/profile" 

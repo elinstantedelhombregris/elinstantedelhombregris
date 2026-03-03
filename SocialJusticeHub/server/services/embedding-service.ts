@@ -40,7 +40,7 @@ async function generateEmbedding(text: string): Promise<number[]> {
     });
 
     // Convert tensor to array
-    const embedding = Array.from(output.data);
+    const embedding = Array.from(output.data as Iterable<number>);
     return embedding;
   } catch (error) {
     console.error('Error generating embedding:', error);
@@ -202,6 +202,5 @@ export async function batchGenerateEmbeddings(
 
   return results;
 }
-
 
 

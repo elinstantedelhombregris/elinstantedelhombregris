@@ -1,8 +1,9 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
-import { useEffect, useState, useRef } from 'react';
-import { Link } from 'wouter';
+import { useContext, useEffect, useState, useRef } from 'react';
+import { Link, useLocation } from 'wouter';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import {
   Heart,
@@ -24,7 +25,6 @@ import {
   Droplets,
   Sunrise,
   HandHeart,
-  MapPin,
   Leaf,
   Wind,
   Sun
@@ -33,8 +33,147 @@ import ShockStats from '@/components/ShockStats';
 import PowerCTA from '@/components/PowerCTA';
 import CommitmentModal from '@/components/CommitmentModal';
 import NextStepCard from '@/components/NextStepCard';
+import SemilleroTerritoryMap from '@/components/SemilleroTerritoryMap';
+import { apiRequest } from '@/lib/queryClient';
+import { useToast } from '@/hooks/use-toast';
+import { UserContext } from '@/App';
+
+type CommitmentType = 'initial' | 'intermediate' | 'public';
+
+type CommitmentSubmission = {
+  type: CommitmentType;
+  data: {
+    personalCommitment: string;
+    actionType: string;
+    communityCommitment: string;
+  };
+  timestamp: string;
+};
+
+type SemilleroCommitment = {
+  id: number;
+  commitmentText: string;
+  commitmentType: CommitmentType;
+  province?: string | null;
+  city?: string | null;
+  latitude?: number | null;
+  longitude?: number | null;
+  createdAt: string | null;
+  user: {
+    id: number;
+    name: string;
+    username: string;
+  };
+};
+
+type SemilleroData = {
+  commitments: SemilleroCommitment[];
+  stats: {
+    total: number;
+    last24h: number;
+    byType: Array<{ type: string; total: number }>;
+  };
+};
+
+const semilleroQueryKey = ['semilla-commitments'] as const;
+
+const emptySemilleroData: SemilleroData = {
+  commitments: [],
+  stats: {
+    total: 0,
+    last24h: 0,
+    byType: []
+  }
+};
+
+const commitmentTypeLabels: Record<string, string> = {
+  initial: 'Despertar',
+  intermediate: 'Crecimiento',
+  public: 'Acción pública'
+};
+
+const actionTypeLabels: Record<string, string> = {
+  community: 'Participar en mi comunidad local',
+  education: 'Educar a otros sobre temas importantes',
+  volunteer: 'Voluntariado en organizaciones',
+  advocacy: 'Defender causas que me importan',
+  environment: 'Cuidar el medio ambiente',
+  transparency: 'Promover transparencia y honestidad',
+  other: 'Otra acción específica'
+};
+
+const buildAlias = (name?: string, username?: string) => {
+  if (name?.trim()) {
+    const words = name.trim().split(/\s+/);
+    if (words.length === 1) return words[0];
+    return `${words[0]} ${words[1].charAt(0).toUpperCase()}.`;
+  }
+
+  if (username?.trim()) {
+    return `@${username}`;
+  }
+
+  return 'Sembrador/a';
+};
+
+const getCommitmentSnippet = (text?: string) => {
+  if (!text) return 'Semilla en crecimiento...';
+  const firstLine = text.split('\n').find((line) => line.trim().length > 0) ?? text;
+  const cleaned = firstLine.replace(/^Compromiso(?:\s+personal)?\s*:\s*/i, '').trim();
+  return cleaned.length > 170 ? `${cleaned.slice(0, 167)}...` : cleaned;
+};
+
+const formatCommitmentDate = (date?: string | null) => {
+  if (!date) return 'Sin fecha';
+  const parsed = new Date(date);
+  if (Number.isNaN(parsed.getTime())) return 'Fecha no disponible';
+  return parsed.toLocaleString('es-AR', {
+    day: '2-digit',
+    month: 'short',
+    hour: '2-digit',
+    minute: '2-digit'
+  });
+};
+
+const getBrowserCoordinates = async (): Promise<{ latitude: number; longitude: number } | null> => {
+  if (typeof window === 'undefined' || !('geolocation' in navigator)) {
+    return null;
+  }
+
+  try {
+    if ('permissions' in navigator && navigator.permissions?.query) {
+      const geolocationStatus = await navigator.permissions.query({ name: 'geolocation' as PermissionName });
+      if (geolocationStatus.state === 'denied') {
+        return null;
+      }
+    }
+  } catch {
+    // Ignore permissions API errors; fallback to geolocation request.
+  }
+
+  return new Promise((resolve) => {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        resolve({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude
+        });
+      },
+      () => resolve(null),
+      {
+        enableHighAccuracy: false,
+        timeout: 8000,
+        maximumAge: 300000
+      }
+    );
+  });
+};
 
 const LaSemillaDeBasta = () => {
+  const userContext = useContext(UserContext);
+  const [, setLocation] = useLocation();
+  const queryClient = useQueryClient();
+  const { toast } = useToast();
   const [showCommitmentModal, setShowCommitmentModal] = useState(false);
   const [activeStep, setActiveStep] = useState(0);
   const containerRef = useRef(null);
@@ -46,9 +185,108 @@ const LaSemillaDeBasta = () => {
 
   const rootPathLength = useTransform(scrollYProgress, [0, 0.8], [0, 1]);
 
-  const handleCommitment = (commitmentData: any) => {
-    console.log('Commitment made:', commitmentData);
-    setShowCommitmentModal(false);
+  const { data: semilleroData = emptySemilleroData, isLoading: semilleroLoading } = useQuery({
+    queryKey: semilleroQueryKey,
+    queryFn: async (): Promise<SemilleroData> => {
+      try {
+        const response = await apiRequest('GET', '/api/commitments?limit=80');
+        if (!response.ok) return emptySemilleroData;
+
+        const payload = await response.json().catch(() => null);
+        if (!payload?.data) return emptySemilleroData;
+        return payload.data as SemilleroData;
+      } catch (error) {
+        return emptySemilleroData;
+      }
+    },
+  });
+
+  const commitmentStatsByType = semilleroData.stats.byType.reduce<Record<string, number>>((acc, row) => {
+    acc[row.type] = row.total;
+    return acc;
+  }, {});
+
+  const semillaGoal = Math.max(100, Math.ceil((semilleroData.stats.total + 25) / 50) * 50);
+  const visibleSemilleroCommitments = semilleroData.commitments.slice(0, 24);
+
+  const handleCommitment = async (commitmentData: CommitmentSubmission) => {
+    const personalCommitment = commitmentData.data.personalCommitment.trim();
+    const communityCommitment = commitmentData.data.communityCommitment.trim();
+
+    if (!personalCommitment) {
+      toast({
+        title: 'Compromiso incompleto',
+        description: 'Escribí tu compromiso personal para sembrarlo en el semillero.',
+        variant: 'destructive'
+      });
+      throw new Error('MISSING_PERSONAL_COMMITMENT');
+    }
+
+    if (!userContext?.isLoggedIn) {
+      toast({
+        title: 'Iniciá sesión para sembrar',
+        description: 'Necesitás iniciar sesión para registrar tu compromiso en el semillero.',
+        variant: 'destructive'
+      });
+      setLocation('/login');
+      throw new Error('AUTH_REQUIRED');
+    }
+
+    const actionLabel = actionTypeLabels[commitmentData.data.actionType] ?? commitmentData.data.actionType;
+    const commitmentText = [
+      personalCommitment,
+      actionLabel ? `Acción semilla: ${actionLabel}` : '',
+      communityCommitment ? `Plan de riego: ${communityCommitment}` : ''
+    ].filter(Boolean).join('\n');
+
+    const coordinates = await getBrowserCoordinates();
+
+    const commitmentPayload: {
+      commitmentText: string;
+      commitmentType: CommitmentType;
+      latitude?: number;
+      longitude?: number;
+    } = {
+      commitmentText,
+      commitmentType: commitmentData.type
+    };
+
+    if (coordinates) {
+      commitmentPayload.latitude = coordinates.latitude;
+      commitmentPayload.longitude = coordinates.longitude;
+    }
+
+    const response = await apiRequest('POST', '/api/commitment', {
+      ...commitmentPayload
+    });
+
+    if (response.status === 401 || response.status === 403) {
+      toast({
+        title: 'Sesión requerida',
+        description: 'Tu sesión no está activa. Volvé a iniciar para registrar tu compromiso.',
+        variant: 'destructive'
+      });
+      setLocation('/login');
+      throw new Error('AUTH_REQUIRED');
+    }
+
+    if (!response.ok) {
+      const errorBody = await response.json().catch(() => null);
+      const message = errorBody?.message ?? 'No se pudo registrar el compromiso.';
+      toast({
+        title: 'Error al registrar',
+        description: message,
+        variant: 'destructive'
+      });
+      throw new Error(message);
+    }
+
+    await queryClient.invalidateQueries({ queryKey: semilleroQueryKey });
+
+    toast({
+      title: 'Semilla registrada',
+      description: 'Tu compromiso ya forma parte del semillero vivo.'
+    });
   };
 
   useEffect(() => {
@@ -60,17 +298,17 @@ const LaSemillaDeBasta = () => {
     {
       id: 'semillas',
       label: 'Semillas activadas',
-      value: 3400,
+      value: semilleroData.stats.total,
       unit: '',
       trend: 'up' as const,
       color: 'green' as const,
       icon: <Sprout className="w-6 h-6" />,
-      description: 'Personas que sembraron compromisos personales conscientes'
+      description: 'Compromisos registrados en el semillero en tiempo real'
     },
     {
       id: 'redes',
       label: 'Redes enraizadas',
-      value: 8900,
+      value: semilleroData.stats.total * 3,
       unit: '',
       trend: 'up' as const,
       color: 'blue' as const,
@@ -80,7 +318,7 @@ const LaSemillaDeBasta = () => {
     {
       id: 'comunidades',
       label: 'Comunidades floreciendo',
-      value: 15600,
+      value: semilleroData.stats.total * 5,
       unit: '',
       trend: 'up' as const,
       color: 'purple' as const,
@@ -92,9 +330,9 @@ const LaSemillaDeBasta = () => {
   const germinationSteps = [
     {
       step: 1,
-      title: "PREPARAR LA TIERRA",
+      title: "Preparar la Tierra",
       subtitle: "Ver lo que no vimos",
-      description: "Así como Parravicini anunció que “Argentina verá lo que no vio”, el primer paso es cultivar conciencia. Removemos el terreno interno para reconocer patrones, dolores y mandatos que aún nos secan.",
+      description: "El primer paso es cultivar conciencia. Removemos el terreno interno para reconocer patrones, dolores y mandatos que aún nos secan.",
       icon: <TreePine className="w-12 h-12" />,
       gradient: "from-amber-900/80 to-orange-900/80",
       details: [
@@ -106,7 +344,7 @@ const LaSemillaDeBasta = () => {
     },
     {
       step: 2,
-      title: "SEMBRAR HÁBITOS",
+      title: "Sembrar Hábitos",
       subtitle: "Acciones pequeñas, lluvias constantes",
       description: "“El árbol seco sabrá de una era de nueva lluvia.” Cada hábito noble es una gota que despierta la semilla. Definimos prácticas diarias que nos conecten con propósito y servicio.",
       icon: <Droplets className="w-12 h-12" />,
@@ -120,9 +358,9 @@ const LaSemillaDeBasta = () => {
     },
     {
       step: 3,
-      title: "CUIDAR EL BROTE",
+      title: "Cuidar el Brote",
       subtitle: "Relaciones que evitan la violencia",
-      description: "Parravicini advirtió: “Puede ver sangre en las calles si no ve el instante”. Cuidar nuestras relaciones es garantizar que la revolución sea consciente y no sanguinaria.",
+      description: "Si no reconocemos el instante, el conflicto escala. Cuidar nuestras relaciones garantiza que la transformación sea consciente y no sanguinaria.",
       icon: <Shield className="w-12 h-12" />,
       gradient: "from-emerald-600/80 to-green-600/80",
       details: [
@@ -134,7 +372,7 @@ const LaSemillaDeBasta = () => {
     },
     {
       step: 4,
-      title: "MULTIPLICAR LA COSECHA",
+      title: "Multiplicar la Cosecha",
       subtitle: "Del individuo al país ejemplo",
       description: "“Argentina sufrirá la tormenta en pequeña, la que luego azotará al mundo. ¡Será ejemplo!” Cuando nuestra semilla madura inspira a otros, comenzamos a rediseñar el sistema.",
       icon: <Sun className="w-12 h-12" />,
@@ -257,7 +495,7 @@ const LaSemillaDeBasta = () => {
 
               <div className="flex flex-col sm:flex-row gap-6 justify-center mb-20">
                 <PowerCTA
-                  text="SEMBRAR MI SEMILLA"
+                  text="REGISTRAR MI COMPROMISO"
                   variant="primary"
                   onClick={() => setShowCommitmentModal(true)}
                   size="lg"
@@ -296,6 +534,139 @@ const LaSemillaDeBasta = () => {
           </div>
         </section>
 
+        {/* Semillero Vivo */}
+        <section className="section-spacing bg-gradient-to-b from-[#050a05] via-[#071208] to-[#050a05] border-y border-emerald-900/30">
+          <div className="container-content">
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-14">
+                <h2 className="heading-section mb-4">
+                  Semillero <span className="text-emerald-400">Vivo</span>
+                </h2>
+                <p className="text-body max-w-3xl mx-auto">
+                  Cada compromiso deja de ser un formulario aislado y se convierte en semilla visible. Acá vemos cómo se planta sobre el territorio y cómo cada voz empieza a germinar.
+                </p>
+              </div>
+
+              <div className="grid lg:grid-cols-[320px_1fr] gap-8 lg:gap-12 items-start">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8 }}
+                  className="relative"
+                >
+                  <div className="absolute -inset-6 bg-emerald-500/10 blur-3xl rounded-[50%]" />
+                  <SemilleroTerritoryMap
+                    commitments={semilleroData.commitments}
+                    totalCommitments={semilleroData.stats.total}
+                    commitmentGoal={semillaGoal}
+                    commitmentTypeTotals={commitmentStatsByType}
+                  />
+                </motion.div>
+
+                <div className="space-y-5">
+                  <div className="grid md:grid-cols-3 gap-3">
+                    <div className="rounded-2xl border border-emerald-500/25 bg-emerald-900/15 p-4">
+                      <p className="text-xs uppercase tracking-widest text-emerald-300/70 mb-2">Últimas 24h</p>
+                      <p className="text-2xl font-bold text-white font-mono">{semilleroData.stats.last24h.toLocaleString()}</p>
+                      <p className="text-sm text-emerald-100/60">semillas nuevas</p>
+                    </div>
+                    <div className="rounded-2xl border border-cyan-500/25 bg-cyan-900/10 p-4">
+                      <p className="text-xs uppercase tracking-widest text-cyan-300/70 mb-2">Crecimiento</p>
+                      <p className="text-2xl font-bold text-white font-mono">{(commitmentStatsByType.intermediate ?? 0).toLocaleString()}</p>
+                      <p className="text-sm text-emerald-100/60">etapa intermedia</p>
+                    </div>
+                    <div className="rounded-2xl border border-orange-500/25 bg-orange-900/10 p-4">
+                      <p className="text-xs uppercase tracking-widest text-orange-300/70 mb-2">Acción pública</p>
+                      <p className="text-2xl font-bold text-white font-mono">{(commitmentStatsByType.public ?? 0).toLocaleString()}</p>
+                      <p className="text-sm text-emerald-100/60">compromisos visibles</p>
+                    </div>
+                  </div>
+
+                  <div className="rounded-3xl border border-emerald-500/25 bg-[#07110a]/80 p-6">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
+                      <h3 className="text-xl font-bold text-white">Voces del Semillero</h3>
+                      <Link href="/community" className="inline-flex items-center gap-2 text-sm text-emerald-300 hover:text-emerald-100 transition-colors">
+                        Llevar semilla a la Tribu
+                        <ArrowRight className="w-4 h-4" />
+                      </Link>
+                    </div>
+
+                    {semilleroLoading ? (
+                      <div className="space-y-3">
+                        {[...Array(4)].map((_, index) => (
+                          <div key={`skeleton-${index}`} className="rounded-2xl border border-emerald-900/40 bg-emerald-900/10 p-4 animate-pulse h-24" />
+                        ))}
+                      </div>
+                    ) : semilleroData.commitments.length === 0 ? (
+                      <div className="rounded-2xl border border-dashed border-emerald-700/40 bg-emerald-900/10 p-6 text-center">
+                        <p className="text-emerald-100/70 mb-2">Todavía no hay semillas visibles.</p>
+                        <p className="text-sm text-emerald-200/50">Registrá tu compromiso y abrí la primera raíz del semillero.</p>
+                      </div>
+                    ) : (
+                      <div className="space-y-3 max-h-[420px] overflow-y-auto pr-1">
+                        {visibleSemilleroCommitments.map((commitment, index) => {
+                          const alias = buildAlias(commitment.user?.name, commitment.user?.username);
+                          const aliasInitial = alias.replace('@', '').charAt(0).toUpperCase() || 'S';
+                          const commitmentLabel = commitmentTypeLabels[commitment.commitmentType] ?? commitment.commitmentType;
+
+                          return (
+                            <motion.article
+                              key={commitment.id}
+                              initial={{ opacity: 0, y: 8 }}
+                              whileInView={{ opacity: 1, y: 0 }}
+                              viewport={{ once: true }}
+                              transition={{ duration: 0.35, delay: index * 0.04 }}
+                              className="rounded-2xl border border-emerald-500/20 bg-emerald-900/10 p-4"
+                            >
+                              <div className="flex items-center justify-between gap-3 mb-3">
+                                <div className="flex items-center gap-3">
+                                  <div className="w-9 h-9 rounded-full border border-emerald-400/30 bg-emerald-950/60 text-emerald-300 flex items-center justify-center text-sm font-bold">
+                                    {aliasInitial}
+                                  </div>
+                                  <div>
+                                    <p className="text-sm font-semibold text-emerald-50">{alias}</p>
+                                    <p className="text-xs text-emerald-100/50">{formatCommitmentDate(commitment.createdAt)}</p>
+                                  </div>
+                                </div>
+                                <span className="text-[10px] uppercase tracking-widest px-2 py-1 rounded-full border border-emerald-500/30 text-emerald-300/80">
+                                  {commitmentLabel}
+                                </span>
+                              </div>
+
+                              <p className="text-emerald-100/80 leading-relaxed">
+                                "{getCommitmentSnippet(commitment.commitmentText)}"
+                              </p>
+                            </motion.article>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="grid md:grid-cols-3 gap-3">
+                    <div className="rounded-2xl border border-emerald-500/20 bg-emerald-900/10 p-4">
+                      <Leaf className="w-5 h-5 text-emerald-300 mb-2" />
+                      <p className="text-sm text-emerald-100/80">Sembrar</p>
+                      <p className="text-xs text-emerald-200/60">Nombrar con claridad el compromiso personal.</p>
+                    </div>
+                    <div className="rounded-2xl border border-cyan-500/20 bg-cyan-900/10 p-4">
+                      <Droplets className="w-5 h-5 text-cyan-300 mb-2" />
+                      <p className="text-sm text-emerald-100/80">Regar</p>
+                      <p className="text-xs text-emerald-200/60">Traducirlo en una acción concreta y repetible.</p>
+                    </div>
+                    <div className="rounded-2xl border border-amber-500/20 bg-amber-900/10 p-4">
+                      <Wind className="w-5 h-5 text-amber-300 mb-2" />
+                      <p className="text-sm text-emerald-100/80">Multiplicar</p>
+                      <p className="text-xs text-emerald-200/60">Compartir aprendizajes para que otros también planten.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Germination Cycle Interactive */}
         <section className="section-spacing bg-[#050a05] relative border-t border-emerald-900/20">
           <div className="container-content">
@@ -303,7 +674,7 @@ const LaSemillaDeBasta = () => {
               <div className="text-center mb-16">
                 <h2 className="heading-section mb-6">El Ciclo de Germinación</h2>
                 <p className="text-body max-w-2xl mx-auto">
-                  Parravicini habló de “luchas serias” antes de la bendición. Este ciclo te guía para preparar la tierra y sembrar consciencia.
+                  Todo proceso de cambio atraviesa tensiones antes del florecimiento. Este ciclo te guía para preparar la tierra y sembrar consciencia.
                 </p>
               </div>
 
@@ -488,7 +859,7 @@ const LaSemillaDeBasta = () => {
         onClose={() => setShowCommitmentModal(false)}
         onCommit={handleCommitment}
         type="intermediate"
-        title="SEMBRAR MI SEMILLA"
+        title="REGISTRAR MI COMPROMISO"
       />
     </div>
   );

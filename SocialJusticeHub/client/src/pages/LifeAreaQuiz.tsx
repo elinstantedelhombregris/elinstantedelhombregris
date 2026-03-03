@@ -204,7 +204,7 @@ const LifeAreaQuiz = () => {
             </CardHeader>
             <CardContent>
               <Button onClick={() => setLocation('/life-areas')}>
-                Volver al Dashboard
+                Volver al panel
               </Button>
             </CardContent>
           </Card>
@@ -293,7 +293,7 @@ const LifeAreaQuiz = () => {
             className="mb-4"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
-            Volver al Dashboard
+            Volver al panel
           </Button>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">{quiz.title}</h1>
           {quiz.description && (
@@ -439,4 +439,3 @@ const LifeAreaQuiz = () => {
 };
 
 export default LifeAreaQuiz;
-

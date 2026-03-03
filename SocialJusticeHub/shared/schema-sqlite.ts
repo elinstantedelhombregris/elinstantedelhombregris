@@ -1,4 +1,4 @@
-import { sqliteTable, integer, text, real, blob } from "drizzle-orm/sqlite-core";
+import { sqliteTable, integer, text, real, blob, type AnySQLiteColumn } from "drizzle-orm/sqlite-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 import { relations } from "drizzle-orm";
@@ -159,7 +159,7 @@ export const geographicLocations = sqliteTable("geographic_locations", {
   id: integer("id").primaryKey({ autoIncrement: true }),
   name: text("name").notNull(),
   type: text("type").notNull().$type<'province' | 'city' | 'neighborhood'>(),
-  parentId: integer("parent_id").references(() => geographicLocations.id),
+  parentId: integer("parent_id").references((): AnySQLiteColumn => geographicLocations.id),
   latitude: real("latitude"),
   longitude: real("longitude"),
   postalCode: text("postal_code"),
@@ -341,7 +341,7 @@ export const postComments = sqliteTable("post_comments", {
   id: integer("id").primaryKey({ autoIncrement: true }),
   postId: integer("post_id").references(() => blogPosts.id),
   userId: integer("user_id").references(() => users.id),
-  parentId: integer("parent_id").references(() => postComments.id), // Para replies
+  parentId: integer("parent_id").references((): AnySQLiteColumn => postComments.id), // Para replies
   content: text("content").notNull(),
   createdAt: text("created_at").default("CURRENT_TIMESTAMP"),
   updatedAt: text("updated_at").default("CURRENT_TIMESTAMP"),
@@ -373,7 +373,7 @@ export const courses = sqliteTable("courses", {
   slug: text("slug").notNull().unique(),
   description: text("description").notNull(),
   excerpt: text("excerpt"), // Resumen corto para cards
-  category: text("category").notNull().$type<'vision' | 'action' | 'community' | 'reflection' | 'hombre-gris'>(),
+  category: text("category").notNull().$type<'vision' | 'action' | 'community' | 'reflection' | 'hombre-gris' | 'economia' | 'comunicacion' | 'civica'>(),
   level: text("level").notNull().$type<'beginner' | 'intermediate' | 'advanced'>(),
   duration: integer("duration"), // Duración estimada en minutos
   thumbnailUrl: text("thumbnail_url"),
@@ -598,6 +598,10 @@ export const userCommitments = sqliteTable("user_commitments", {
   userId: integer("user_id").references(() => users.id),
   commitmentText: text("commitment_text").notNull(),
   commitmentType: text("commitment_type").notNull(), // 'initial', 'intermediate', 'public'
+  province: text("province"),
+  city: text("city"),
+  latitude: real("latitude"),
+  longitude: real("longitude"),
   status: text("status").notNull().default('active'), // 'active', 'completed', 'broken'
   pointsAwarded: integer("points_awarded").default(0),
   createdAt: text("created_at").default("CURRENT_TIMESTAMP"),

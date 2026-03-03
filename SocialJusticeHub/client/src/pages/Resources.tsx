@@ -50,7 +50,7 @@ const Resources = () => {
     {
       title: 'Blog',
       subtitle: 'REFLEXIONES',
-      description: 'Artículos profundos sobre la visión, el movimiento y las ideas detrás de El Hombre Gris. Teoría política y espiritualidad aplicada.',
+      description: 'Análisis extensos sobre visión de país, cultura cívica y pensamiento sistémico aplicado a la realidad argentina.',
       icon: FileText,
       href: '/recursos/blog',
       count: blogCount,
@@ -62,7 +62,7 @@ const Resources = () => {
     {
       title: 'Vlog',
       subtitle: 'MULTIMEDIA',
-      description: 'Contenido audiovisual dinámico para absorber las ideas de una manera más directa. Entrevistas, documentales y clips virales.',
+      description: 'Conversaciones, cápsulas y piezas audiovisuales para bajar ideas complejas a ejemplos concretos y accionables.',
       icon: PlayCircle,
       href: '/recursos/vlog',
       count: vlogCount,
@@ -74,7 +74,7 @@ const Resources = () => {
     {
       title: 'Guías de Estudio',
       subtitle: 'FORMACIÓN',
-      description: 'Cursos interactivos y guías estructuradas para profundizar tu comprensión y práctica. Conviértete en un experto del modelo.',
+      description: 'Recorridos estructurados para pasar de la comprensión teórica a la práctica personal y comunitaria.',
       icon: GraduationCap,
       href: '/recursos/guias-estudio',
       count: coursesCount,
@@ -103,13 +103,13 @@ const Resources = () => {
           
           <SmoothReveal direction="up" delay={0.1}>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold tracking-tight mb-6 text-slate-900">
-              Explora el <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Futuro</span>
+              Recursos para <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Pasar a la Acción</span>
             </h1>
           </SmoothReveal>
           
           <SmoothReveal direction="up" delay={0.2} className="max-w-2xl">
             <p className="text-xl md:text-2xl text-slate-600 leading-relaxed font-light">
-              Herramientas, historias y guías para navegar la transformación de Argentina desde la consciencia y la acción.
+              Herramientas, historias y guías para entender mejor la realidad y convertir visión en práctica sostenida.
             </p>
           </SmoothReveal>
         </section>
@@ -176,16 +176,16 @@ const Resources = () => {
 
             <div className="relative z-10 max-w-4xl mx-auto space-y-8">
               <h2 className="text-4xl md:text-6xl font-serif font-bold tracking-tight leading-tight">
-                El Conocimiento es Poder,<br />
-                <span className="text-blue-300">La Acción es Transformación</span>
+                Comprender, practicar, compartir.<br />
+                <span className="text-blue-300">Ese es el ciclo de transformación</span>
               </h2>
               <p className="text-xl md:text-2xl text-slate-300 leading-relaxed font-light max-w-2xl mx-auto">
-                No te quedes solo con la teoría. Únete a la comunidad donde estas ideas se ponen a prueba todos los días.
+                No te quedes solo con la teoría. Sumate a la comunidad donde estas ideas se traducen en acciones reales.
               </p>
               
               <div className="flex flex-col sm:flex-row justify-center gap-6 pt-8">
                  <PowerCTA 
-                   text="UNIRSE A LA TRIBU" 
+                   text="SUMARME A LA COMUNIDAD" 
                    variant="primary" 
                    onClick={() => window.location.href = '/community'} 
                    size="lg" 

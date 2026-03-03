@@ -30,6 +30,19 @@ const projectSchema = z.object({
 
 type ProjectFormData = z.infer<typeof projectSchema>;
 
+interface EditableProjectPost {
+  id: number;
+  title?: string | null;
+  organizer?: string | null;
+  location?: string | null;
+  description?: string | null;
+  participants?: number | null;
+  contactEmail?: string | null;
+  contactPhone?: string | null;
+  expiresAt?: string | null;
+  status?: 'active' | 'paused' | 'closed' | null;
+}
+
 const EditProject = () => {
   const [_, setLocation] = useLocation();
   const { id } = useParams();
@@ -52,7 +65,7 @@ const EditProject = () => {
   });
 
   // Fetch the existing project post
-  const { data: projectPost, isLoading } = useQuery({
+  const { data: projectPost, isLoading } = useQuery<EditableProjectPost>({
     queryKey: [`/api/community/${id}`],
     enabled: !!id,
     staleTime: 60000,

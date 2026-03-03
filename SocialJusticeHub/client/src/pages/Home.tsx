@@ -16,7 +16,7 @@ const Home = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = '¡BASTA! - Cada nuevo comienzo comienza con un ¡BASTA!';
+    document.title = '¡BASTA! - Todo nuevo comienzo empieza con un ¡BASTA!';
 
     const handleScroll = () => {
       if (window.scrollY > 600) {
@@ -56,12 +56,12 @@ const Home = () => {
                 ¡BASTA!
               </span>
               <span className="block text-[clamp(1.5rem,4vw,3rem)] font-serif italic text-blue-200 font-light">
-                Cada nuevo comienzo comienza con un ¡BASTA!
+                Todo nuevo comienzo empieza con un ¡BASTA!
               </span>
             </span>
           }
-          subtitle="Quien lee esto ya sabe que algo debe cambiar. El poder nunca estuvo allá arriba. El poder siempre estuvo aquí: en el argentino que decide que ya es suficiente. En quien elige construir lo nuevo en lugar de administrar ruinas. En el Hombre Gris que despierta."
-          ctaText="VER HACIA DÓNDE VAMOS"
+          subtitle="No venimos a pedir permiso: venimos a coordinar poder ciudadano, barrio por barrio."
+          ctaText="VER LA VISIÓN"
           ctaLink="/la-vision"
           backgroundImage="https://images.unsplash.com/photo-1532186651327-6ac23687d078?q=80&w=2669&auto=format&fit=crop"
           onScrollDown={scrollToContent}
@@ -99,18 +99,19 @@ const Home = () => {
                 <Eye className="w-16 h-16 text-blue-400 mx-auto mb-8 animate-pulse" />
                 
                 <h2 className="heading-section mb-8">
-                  Ahora, ver hacia dónde vamos
+                  Primero entender, después avanzar
                 </h2>
-                
+
                 <p className="text-xl md:text-2xl text-slate-300 leading-relaxed mb-10 font-light">
-                  El terreno está limpio. El espacio está preparado. Ahora quien decide que ¡BASTA! necesita ver. <strong className="text-white font-medium">La Visión</strong> no es una promesa política vacía. Es un diseño claro, basado en datos reales de millones de argentinos, que muestra exactamente hacia dónde va el país después del quiebre. Es el mapa emocional y estratégico que ordena el aparato político.
+                  El punto de partida no es una consigna: es un diagnóstico compartido.
+                  <strong className="text-white font-medium"> La Visión</strong> traduce datos reales, prioridades ciudadanas y escenarios de futuro en una hoja de ruta clara para orientar decisiones públicas.
                 </p>
 
                 <Link href="/la-vision">
                   <Button 
                     className="bg-transparent border border-blue-500/30 text-blue-300 hover:bg-blue-500/10 hover:text-white hover:border-blue-400 px-8 py-6 rounded-full text-lg transition-all duration-300"
                   >
-                    EXPLORAR LA VISIÓN
+                    VER LA VISIÓN COMPLETA
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </Button>
                 </Link>
@@ -130,9 +131,9 @@ const Home = () => {
                 className="text-center mb-24"
               >
                 <span className="text-blue-500 tracking-[0.3em] text-sm font-bold uppercase mb-4 block">El Camino</span>
-                <h2 className="heading-section mb-6">El Plan de Transformación</h2>
+                <h2 className="heading-section mb-6">Hoja de Ruta de Transformación</h2>
                 <p className="text-slate-400 text-lg max-w-2xl mx-auto leading-relaxed">
-                  Después del quiebre y la limpieza, quien decidió que ¡BASTA! construye paso a paso. Desde la visión que ordena hasta la organización colectiva que transforma. Cada paso es una metamorfosis: del camello que cargó, al león que rugió, al niño que crea.
+                  Este recorrido ordena el proceso completo: entender la realidad, formar criterio, pasar a la acción, coordinar esfuerzos y sostener comunidad.
                 </p>
               </motion.div>
 
@@ -154,10 +155,10 @@ const Home = () => {
                         <Eye className="w-6 h-6" />
                       </div>
                       <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-blue-300 transition-colors">La Visión</h3>
-                      <p className="text-slate-400 mb-2 text-sm font-semibold uppercase tracking-wider text-blue-400/80">Hacia dónde vamos</p>
-                      <p className="text-slate-400 text-base mb-6 leading-relaxed">Después de limpiar el terreno con ¡BASTA!, quien decide define hacia dónde va el país. El mapa emocional y estratégico de la Argentina real se hace visible. Lo evidente se vuelve imposible de ignorar.</p>
+                      <p className="text-slate-400 mb-2 text-sm font-semibold uppercase tracking-wider text-blue-400/80">Diagnóstico compartido</p>
+                      <p className="text-slate-400 text-base mb-6 leading-relaxed">Una lectura clara de la Argentina real para alinear prioridades, evitar improvisación y orientar decisiones con evidencia.</p>
                       <div className="flex items-center text-blue-400 font-medium tracking-wide uppercase text-xs group-hover:translate-x-2 transition-transform">
-                        Explorar <ArrowRight className="w-4 h-4 ml-2" />
+                        Ver diagnóstico <ArrowRight className="w-4 h-4 ml-2" />
                       </div>
                     </div>
                   </motion.div>
@@ -180,10 +181,10 @@ const Home = () => {
                         <Brain className="w-6 h-6" />
                       </div>
                       <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-purple-300 transition-colors">El Hombre Gris</h3>
-                      <p className="text-slate-400 mb-2 text-sm font-semibold uppercase tracking-wider text-purple-400/80">La filosofía para alcanzar</p>
-                      <p className="text-slate-400 text-base mb-6 leading-relaxed">No solo se sabe hacia dónde va el país. Se sabe quién necesita ser el argentino para llegar. El Hombre Gris no es una persona, es una idea que cobra vida en quien decide ser arquitecto de su destino.</p>
+                      <p className="text-slate-400 mb-2 text-sm font-semibold uppercase tracking-wider text-purple-400/80">Cambio cultural</p>
+                      <p className="text-slate-400 text-base mb-6 leading-relaxed">Un marco ético y práctico para pasar del enojo disperso a una forma madura de participación y liderazgo ciudadano.</p>
                       <div className="flex items-center text-purple-400 font-medium tracking-wide uppercase text-xs group-hover:translate-x-2 transition-transform">
-                        Despertar <ArrowRight className="w-4 h-4 ml-2" />
+                        Profundizar <ArrowRight className="w-4 h-4 ml-2" />
                       </div>
                     </div>
                   </motion.div>
@@ -206,10 +207,10 @@ const Home = () => {
                         <Sprout className="w-6 h-6" />
                       </div>
                       <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-emerald-300 transition-colors">La Semilla</h3>
-                      <p className="text-slate-400 mb-2 text-sm font-semibold uppercase tracking-wider text-emerald-400/80">El primer acto</p>
-                      <p className="text-slate-400 text-base mb-6 leading-relaxed">La filosofía sin acción es vacía. La Semilla es el primer acto concreto de quien decidió que ¡BASTA!. El hábito inicial que genera momentum, que transforma intención en realidad tangible.</p>
+                      <p className="text-slate-400 mb-2 text-sm font-semibold uppercase tracking-wider text-emerald-400/80">Primer movimiento</p>
+                      <p className="text-slate-400 text-base mb-6 leading-relaxed">Convertir visión en hábito: una acción concreta, repetible y medible para generar tracción real desde el primer día.</p>
                       <div className="flex items-center text-emerald-400 font-medium tracking-wide uppercase text-xs group-hover:translate-x-2 transition-transform">
-                        Sembrar <ArrowRight className="w-4 h-4 ml-2" />
+                        Activar <ArrowRight className="w-4 h-4 ml-2" />
                       </div>
                     </div>
                   </motion.div>
@@ -232,10 +233,10 @@ const Home = () => {
                         <MapPin className="w-6 h-6" />
                       </div>
                       <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-orange-300 transition-colors">El Mapa</h3>
-                      <p className="text-slate-400 mb-2 text-sm font-semibold uppercase tracking-wider text-orange-400/80">La coordinación</p>
-                      <p className="text-slate-400 text-base mb-6 leading-relaxed">Individual no basta. Quien decide necesita coordinarse con quien también decidió. El Mapa es la primera infraestructura política que Argentina jamás tuvo: el mapa emocional y estratégico que ordena el aparato político.</p>
+                      <p className="text-slate-400 mb-2 text-sm font-semibold uppercase tracking-wider text-orange-400/80">Coordinación territorial</p>
+                      <p className="text-slate-400 text-base mb-6 leading-relaxed">Una infraestructura abierta para conectar personas, causas y acciones locales con foco en impacto colectivo.</p>
                       <div className="flex items-center text-orange-400 font-medium tracking-wide uppercase text-xs group-hover:translate-x-2 transition-transform">
-                        Ver Mapa <ArrowRight className="w-4 h-4 ml-2" />
+                        Entrar al mapa <ArrowRight className="w-4 h-4 ml-2" />
                       </div>
                     </div>
                   </motion.div>
@@ -258,10 +259,10 @@ const Home = () => {
                         <Users className="w-6 h-6" />
                       </div>
                       <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-pink-300 transition-colors">La Tribu</h3>
-                      <p className="text-slate-400 mb-2 text-sm font-semibold uppercase tracking-wider text-pink-400/80">La organización</p>
-                      <p className="text-slate-400 text-base mb-6 leading-relaxed">El movimiento cobra vida cuando quienes decidieron se organizan. La Tribu es la comunidad donde el Hombre Gris se multiplica, donde quienes eligieron construir se encuentran para transformar Argentina.</p>
+                      <p className="text-slate-400 mb-2 text-sm font-semibold uppercase tracking-wider text-pink-400/80">Comunidad activa</p>
+                      <p className="text-slate-400 text-base mb-6 leading-relaxed">Un espacio para sostener aprendizaje, colaboración y ejecución. La transformación se consolida cuando nadie trabaja solo.</p>
                       <div className="flex items-center text-pink-400 font-medium tracking-wide uppercase text-xs group-hover:translate-x-2 transition-transform">
-                        Unirse <ArrowRight className="w-4 h-4 ml-2" />
+                        Sumarme <ArrowRight className="w-4 h-4 ml-2" />
                       </div>
                     </div>
                   </motion.div>
@@ -273,8 +274,8 @@ const Home = () => {
 
         {/* 5. FINAL CALL: The Hook */}
         <NextStepCard
-          title="El primer paso es Ver"
-          description="Quien decide cambiar debe primero ver. Quien decide transformar debe primero entender. Descubre el plan maestro que muestra hacia dónde va el país después del quiebre."
+          title="El primer paso es comprender"
+          description="Antes de actuar, necesitamos una lectura común de la realidad. Entrá a La Visión y revisá la hoja de ruta completa."
           href="/la-vision"
           gradient="from-[#1a1f2c] to-[#32244f]"
           icon={<Eye className="w-5 h-5" />}

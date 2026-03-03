@@ -110,7 +110,7 @@ export default function InitiativeDetail() {
   const userContext = useContext(UserContext);
   const queryClient = useQueryClient();
   
-  const [activeTab, setActiveTab] = useState('overview');
+  const [activeTab, setActiveTab] = useState('resumen');
   const [newMessage, setNewMessage] = useState('');
   const [showJoinModal, setShowJoinModal] = useState(false);
   const [joinMessage, setJoinMessage] = useState('');
@@ -401,15 +401,15 @@ export default function InitiativeDetail() {
           {/* Tabs */}
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
             <TabsList className="grid w-full grid-cols-5 mb-6">
-              <TabsTrigger value="overview">Overview</TabsTrigger>
-              <TabsTrigger value="chat">Chat</TabsTrigger>
+              <TabsTrigger value="resumen">Resumen</TabsTrigger>
+              <TabsTrigger value="chat">Mensajes</TabsTrigger>
               <TabsTrigger value="tasks">Tareas</TabsTrigger>
               <TabsTrigger value="milestones">Hitos</TabsTrigger>
               <TabsTrigger value="members">Miembros</TabsTrigger>
             </TabsList>
 
-            {/* Overview Tab */}
-            <TabsContent value="overview" className="space-y-6">
+            {/* Tab de resumen */}
+            <TabsContent value="resumen" className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <Card className="bg-white/5 border-white/10">
                   <CardHeader>

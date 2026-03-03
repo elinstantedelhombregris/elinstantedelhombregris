@@ -2,7 +2,7 @@ import { pipeline, env } from '@xenova/transformers';
 
 // Configurar entorno para ejecutar en Node.js
 env.allowLocalModels = false;
-env.allowRemoteModels = true;
+env.allowRemoteModels = process.env.ENABLE_NLP_MODELS === 'true';
 
 export interface NLPAnalysisResult {
   sentiment: {
@@ -29,9 +29,15 @@ export class NLPService {
   private emotionPipeline: any = null;
   private summarizationPipeline: any = null;
   private nerPipeline: any = null;
+  private readonly modelsEnabled: boolean;
 
   constructor() {
-    this.initializePipelines();
+    this.modelsEnabled = process.env.ENABLE_NLP_MODELS === 'true';
+    if (this.modelsEnabled) {
+      this.initializePipelines();
+    } else {
+      console.log('ℹ️ NLP model pipelines disabled (set ENABLE_NLP_MODELS=true to enable remote model loading)');
+    }
   }
 
   private async initializePipelines() {

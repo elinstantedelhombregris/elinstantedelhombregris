@@ -934,9 +934,15 @@ export async function registerRoutes(app: Express): Promise<Server> {
       };
       
       const validatedData = insertCommunityPostActivitySchema.parse(activityData);
-      await storage.recordPostActivity(validatedData);
+      const ipAddress = req.ip;
+      const userAgent = req.get('User-Agent');
+
+      const [activity, view] = await Promise.all([
+        storage.recordPostActivity(validatedData),
+        storage.recordCommunityPostView(postId, req.user?.userId || null, ipAddress, userAgent),
+      ]);
       
-      res.json({ message: "View recorded" });
+      res.status(201).json({ message: "View recorded", activity, view });
     } catch (error) {
       res.status(500).json({ message: "Failed to record view" });
     }
@@ -1059,7 +1065,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(400).json({ message: "Invalid post ID" });
       }
 
-      const count = await storage.getPostLikesCount(postId);
+      const count = await storage.getCommunityPostLikesCount(postId);
       res.json({ count });
     } catch (error) {
       res.status(500).json({ message: "Failed to get likes count" });
@@ -1067,27 +1073,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // ==================== POST VIEWS ENDPOINTS ====================
-
-  // Record a post view
-  app.post("/api/community/:id/view", async (req, res) => {
-    try {
-      const { id } = req.params;
-      const postId = parseInt(id);
-      
-      if (isNaN(postId)) {
-        return res.status(400).json({ message: "Invalid post ID" });
-      }
-
-      const userId = (req as any).user?.userId || null;
-      const ipAddress = req.ip;
-      const userAgent = req.get('User-Agent');
-
-      const view = await storage.recordPostView(postId, userId, ipAddress, userAgent);
-      res.status(201).json(view);
-    } catch (error) {
-      res.status(500).json({ message: "Failed to record view" });
-    }
-  });
 
   // Get post views count
   app.get("/api/community/:id/views", async (req, res) => {
@@ -1099,7 +1084,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(400).json({ message: "Invalid post ID" });
       }
 
-      const count = await storage.getPostViewsCount(postId);
+      const count = await storage.getCommunityPostViewsCount(postId);
       res.json({ count });
     } catch (error) {
       res.status(500).json({ message: "Failed to get views count" });
@@ -1568,31 +1553,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.json(resources);
     } catch (error) {
       res.status(500).json({ message: "Failed to fetch resources" });
-    }
-  });
-
-  // Get all stories
-  app.get("/api/stories", async (_req, res) => {
-    try {
-      const stories = await storage.getStories();
-      res.json(stories);
-    } catch (error) {
-      res.status(500).json({ message: "Failed to fetch stories" });
-    }
-  });
-
-  // Create a new story
-  app.post("/api/stories", async (req, res) => {
-    try {
-      const validatedData = createStorySchema.parse(req.body);
-      const story = await storage.createStory(validatedData);
-      res.status(201).json(story);
-    } catch (error) {
-      if (error instanceof z.ZodError) {
-        res.status(400).json({ message: "Invalid story data", errors: error.errors });
-      } else {
-        res.status(500).json({ message: "Failed to create story" });
-      }
     }
   });
 
@@ -3086,18 +3046,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Leaderboard (optional)
-  app.get("/api/leaderboard", async (req, res) => {
-    try {
-      // This would require a more complex query to get top users by level/experience
-      // For now, return empty array
-      res.json([]);
-    } catch (error) {
-      console.error('Get leaderboard error:', error);
-      res.status(500).json({ message: "Error al obtener leaderboard" });
-    }
-  });
-
   // ==================== BLOG & VLOG ENDPOINTS ====================
 
   // Get all blog posts with optional filters
@@ -3177,7 +3125,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const validatedData = insertBlogPostSchema.parse(req.body);
       const post = await storage.createBlogPost({
         ...validatedData,
-        authorId: (req.user as any)!.id
+        authorId: req.user!.userId
       });
       
       res.status(201).json(post);
@@ -3197,7 +3145,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const { id } = req.params;
       const validatedData = insertBlogPostSchema.parse(req.body);
       
-      const post = await storage.updateBlogPost(parseInt(id), validatedData, (req.user as any)!.id);
+      const post = await storage.updateBlogPost(parseInt(id), validatedData, req.user!.userId);
       
       if (!post) {
         return res.status(404).json({ message: "Post no encontrado o sin permisos" });
@@ -3218,7 +3166,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.delete("/api/blog/posts/:id", authenticateToken, async (req: AuthRequest, res) => {
     try {
       const { id } = req.params;
-      const success = await storage.deleteBlogPost(parseInt(id), (req.user as any)!.id);
+      const success = await storage.deleteBlogPost(parseInt(id), req.user!.userId);
       
       if (!success) {
         return res.status(404).json({ message: "Post no encontrado o sin permisos" });
@@ -3237,7 +3185,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.post("/api/blog/posts/:id/like", authenticateToken, async (req: AuthRequest, res) => {
     try {
       const { id } = req.params;
-      const result = await storage.togglePostLike(parseInt(id), (req.user as any)!.id);
+      const result = await storage.togglePostLike(parseInt(id), req.user!.userId);
       
       res.json(result);
     } catch (error) {
@@ -3269,7 +3217,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(400).json({ message: "El comentario debe tener al menos 10 caracteres" });
       }
       
-      const comment = await storage.createPostComment(parseInt(id), (req.user as any)!.id, content, parentId);
+      const comment = await storage.createPostComment(parseInt(id), req.user!.userId, content, parentId);
       
       res.status(201).json(comment);
     } catch (error) {
@@ -3301,7 +3249,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(400).json({ message: "El comentario debe tener al menos 10 caracteres" });
       }
       
-      const comment = await storage.updatePostComment(parseInt(id), content, (req.user as any)!.id);
+      const comment = await storage.updatePostComment(parseInt(id), content, req.user!.userId);
       
       if (!comment) {
         return res.status(404).json({ message: "Comentario no encontrado o sin permisos" });
@@ -3318,7 +3266,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.delete("/api/blog/comments/:id", authenticateToken, async (req: AuthRequest, res) => {
     try {
       const { id } = req.params;
-      const success = await storage.deletePostComment(parseInt(id), (req.user as any)!.id);
+      const success = await storage.deletePostComment(parseInt(id), req.user!.userId);
       
       if (!success) {
         return res.status(404).json({ message: "Comentario no encontrado o sin permisos" });
@@ -3335,7 +3283,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.post("/api/blog/posts/:id/bookmark", authenticateToken, async (req: AuthRequest, res) => {
     try {
       const { id } = req.params;
-      const result = await storage.togglePostBookmark(parseInt(id), (req.user as any)!.id);
+      const result = await storage.togglePostBookmark(parseInt(id), req.user!.userId);
       
       res.json(result);
     } catch (error) {
@@ -3347,7 +3295,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Get user bookmarks
   app.get("/api/blog/bookmarks", authenticateToken, async (req: AuthRequest, res) => {
     try {
-      const bookmarks = await storage.getUserBookmarks((req.user as any)!.id);
+      const bookmarks = await storage.getUserBookmarks(req.user!.userId);
       
       res.json(bookmarks);
     } catch (error) {
@@ -3554,7 +3502,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Create story
       const story = await storage.createInspiringStory({
         ...validatedData,
-        authorId: user?.id || null,
+        authorId: user?.userId || null,
         status: 'pending', // New stories need moderation
         publishedAt: new Date().toISOString(),
       });
@@ -3812,11 +3760,38 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   // ==================== GAMIFICATION ENDPOINTS ====================
 
+  // Get recent commitments + semillero stats
+  app.get("/api/commitments", optionalAuth, async (req: AuthRequest, res) => {
+    try {
+      const rawLimit = Number(req.query.limit);
+      const limit = Number.isFinite(rawLimit) ? Math.max(1, Math.min(rawLimit, 100)) : 20;
+
+      const [commitments, stats] = await Promise.all([
+        storage.getRecentCommitments(limit),
+        storage.getCommitmentStats()
+      ]);
+
+      res.json({
+        success: true,
+        data: {
+          commitments,
+          stats
+        }
+      });
+    } catch (error) {
+      console.error("Error fetching commitments:", error);
+      res.status(500).json({
+        error: "Internal Server Error",
+        message: "Error fetching commitments"
+      });
+    }
+  });
+
   // Save user commitment
   app.post("/api/commitment", authenticateToken, sanitizeInput, async (req: AuthRequest, res) => {
     try {
       const user = req.user!;
-      const { commitmentText, commitmentType } = req.body;
+      const { commitmentText, commitmentType, latitude, longitude, province, city } = req.body;
       
       if (!commitmentText || !commitmentType) {
         return res.status(400).json({
@@ -3825,7 +3800,44 @@ export async function registerRoutes(app: Express): Promise<Server> {
         });
       }
 
-      const commitment = await storage.saveCommitment(user.userId, commitmentText, commitmentType);
+      const parsedLatitude = latitude !== undefined && latitude !== null && latitude !== ''
+        ? Number(latitude)
+        : null;
+      const parsedLongitude = longitude !== undefined && longitude !== null && longitude !== ''
+        ? Number(longitude)
+        : null;
+
+      if ((parsedLatitude !== null && !Number.isFinite(parsedLatitude)) || (parsedLongitude !== null && !Number.isFinite(parsedLongitude))) {
+        return res.status(400).json({
+          error: "Bad Request",
+          message: "latitude and longitude must be valid numbers when provided"
+        });
+      }
+
+      if ((parsedLatitude === null) !== (parsedLongitude === null)) {
+        return res.status(400).json({
+          error: "Bad Request",
+          message: "latitude and longitude must be provided together"
+        });
+      }
+
+      if (
+        parsedLatitude !== null &&
+        parsedLongitude !== null &&
+        (parsedLatitude < -90 || parsedLatitude > 90 || parsedLongitude < -180 || parsedLongitude > 180)
+      ) {
+        return res.status(400).json({
+          error: "Bad Request",
+          message: "latitude must be between -90 and 90 and longitude between -180 and 180"
+        });
+      }
+
+      const commitment = await storage.saveCommitment(user.userId, commitmentText, commitmentType, {
+        latitude: parsedLatitude,
+        longitude: parsedLongitude,
+        province: typeof province === 'string' ? province : null,
+        city: typeof city === 'string' ? city : null
+      });
       
       res.json({
         success: true,
@@ -3992,24 +4004,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.status(500).json({
         error: "Internal Server Error",
         message: "Error awarding badge"
-      });
-    }
-  });
-
-  // Get all available badges
-  app.get("/api/badges", optionalAuth, async (req: AuthRequest, res) => {
-    try {
-      const badges = await storage.getAllBadges();
-      
-      res.json({
-        success: true,
-        data: badges
-      });
-    } catch (error) {
-      console.error("Error fetching badges:", error);
-      res.status(500).json({
-        error: "Internal Server Error",
-        message: "Error fetching badges"
       });
     }
   });

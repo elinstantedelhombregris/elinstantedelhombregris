@@ -70,7 +70,7 @@ const ElInstanteDelHombreGris = () => {
 
   const awakeningSteps = [
     {
-      title: "ENTRAR EN MODO OBSERVADOR",
+      title: "Entrar en Modo Observador",
       description: "Cambiar la forma de mirar: leer patrones, no titulares. Detectar lo que vibra en los bordes.",
       icon: <Eye className="w-8 h-8" />,
       panel: "bg-indigo-500/10",
@@ -78,7 +78,7 @@ const ElInstanteDelHombreGris = () => {
       accent: "text-indigo-400"
     },
     {
-      title: "DISEÑAR LA JUGADA",
+      title: "Diseñar la Jugada",
       description: "Pensar como ingeniero de sistemas humanos: reescribir procesos en lugar de maquillar síntomas.",
       icon: <Brain className="w-8 h-8" />,
       panel: "bg-purple-500/10",
@@ -86,7 +86,7 @@ const ElInstanteDelHombreGris = () => {
       accent: "text-purple-400"
     },
     {
-      title: "INFLUIR SIN RUIDO",
+      title: "Influir sin Ruido",
       description: "Moverse en gris: liderar sin altar, actuar con amabilidad radical y precisión quirúrgica.",
       icon: <Shield className="w-8 h-8" />,
       panel: "bg-fuchsia-500/10",
@@ -331,16 +331,19 @@ const ElInstanteDelHombreGris = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
                     transition={{ delay: index * 0.15 }}
-                    className={`card-unified p-8 border ${frame.border} bg-white/5 backdrop-blur-md hover:border-white/40 transition-all duration-500`}
+                    className="group relative"
                   >
-                    <div className="flex items-center justify-between mb-6">
-                      <div className={`w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center ${frame.accent.replace('text', 'bg')} bg-opacity-10`}>
-                        <div className={`${frame.accent}`}>{frame.icon}</div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-blue-600/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="relative h-full bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8 hover:border-white/20 transition-all duration-500 flex flex-col">
+                      <div className="flex items-center justify-between mb-6">
+                        <div className={`w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center ${frame.accent.replace('text', 'bg')} bg-opacity-10`}>
+                          <div className={frame.accent}>{frame.icon}</div>
+                        </div>
+                        <Sparkles className="w-5 h-5 text-slate-500" />
                       </div>
-                      <Sparkles className="w-5 h-5 text-slate-500" />
+                      <h3 className="text-xl font-bold text-white mb-3">{frame.title}</h3>
+                      <p className="text-slate-400 leading-relaxed flex-grow">{frame.description}</p>
                     </div>
-                    <h3 className="text-xl font-bold text-white mb-3">{frame.title}</h3>
-                    <p className="text-slate-400 leading-relaxed">{frame.description}</p>
                   </motion.div>
                 ))}
               </div>
@@ -350,31 +353,34 @@ const ElInstanteDelHombreGris = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="card-unified p-10 border border-purple-500/30 bg-gradient-to-r from-purple-900/20 to-indigo-900/10 backdrop-blur-md"
+                className="group relative"
               >
-                <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
-                  <div className="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center border border-white/20">
-                    <Quote className="w-7 h-7 text-purple-200" />
-                  </div>
-                  <div className="flex-1">
-                    <p className="text-lg text-slate-200 leading-relaxed">
-                      "Esto no es un manual de juego: es fuego en la mente. Es la proclama de que otro país es posible,
-                      no por decreto sino por diseño. Si estás leyendo, ya sabes que no podemos seguir así: es hora de
-                      dejar de delegar la conciencia y convertir el cansancio en sagrado."
-                    </p>
-                    <p className="text-sm text-purple-200/80 mt-3 font-mono uppercase tracking-[0.25em]">
-                      Manifiesto del Hombre Gris
-                    </p>
-                  </div>
-                  <div className="w-full md:w-auto">
-                    <Link href="/manifiesto">
-                      <Button 
-                        variant="outline"
-                        className="bg-white/5 border-purple-400/40 text-purple-200 hover:bg-purple-500/10 hover:text-white"
-                      >
-                        LEER EL MANIFIESTO
-                      </Button>
-                    </Link>
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-blue-600/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative h-full bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-10 hover:border-white/20 transition-all duration-500">
+                  <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
+                    <div className="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center border border-white/20">
+                      <Quote className="w-7 h-7 text-purple-200" />
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-lg text-slate-200 leading-relaxed">
+                        "Esto no es un manual de juego: es fuego en la mente. Es la proclama de que otro país es posible,
+                        no por decreto sino por diseño. Si estás leyendo, ya sabes que no podemos seguir así: es hora de
+                        dejar de delegar la conciencia y convertir el cansancio en sagrado."
+                      </p>
+                      <p className="text-sm text-purple-200/80 mt-3 font-mono uppercase tracking-[0.25em]">
+                        Manifiesto del Hombre Gris
+                      </p>
+                    </div>
+                    <div className="w-full md:w-auto">
+                      <Link href="/manifiesto">
+                        <Button 
+                          variant="outline"
+                          className="bg-white/5 border-purple-400/40 text-purple-200 hover:bg-purple-500/10 hover:text-white"
+                        >
+                          LEER EL MANIFIESTO
+                        </Button>
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -406,16 +412,16 @@ const ElInstanteDelHombreGris = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.15 }}
-                    className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md p-8 hover:border-white/20 transition-all duration-500"
+                    className="group relative"
                   >
-                    <div className={`absolute inset-0 bg-gradient-to-br ${card.accent} opacity-40`} />
-                    <div className="relative z-10 flex flex-col gap-4">
-                      <div className="w-14 h-14 rounded-2xl bg-black/40 border border-white/10 flex items-center justify-center">
+                    <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-blue-600/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="relative h-full bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8 hover:border-white/20 transition-all duration-500 flex flex-col gap-4">
+                      <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${card.accent} border border-white/10 flex items-center justify-center`}>
                         {card.icon}
                       </div>
                       <h3 className="text-2xl font-bold text-white">{card.title}</h3>
-                      <p className="text-slate-300 leading-relaxed">{card.description}</p>
-                      <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-slate-500">
+                      <p className="text-slate-300 leading-relaxed flex-grow">{card.description}</p>
+                      <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-slate-500 pt-2 border-t border-white/5">
                         <MapPin className="w-3 h-3" />
                         <span>ZONA GRIS</span>
                       </div>
@@ -554,7 +560,7 @@ const ElInstanteDelHombreGris = () => {
                     <div className="w-20 h-20 mx-auto bg-purple-500/20 rounded-full flex items-center justify-center mb-8 text-purple-300">
                       <Crown className="w-10 h-10" />
                     </div>
-                    <h3 className="text-3xl font-bold text-white mb-4">¿Eres tú?</h3>
+                    <h3 className="text-3xl font-bold text-white mb-4">¿Sos vos?</h3>
                     <p className="text-slate-300 mb-8 text-lg">
                       "Argentina no necesita un nuevo líder político. Necesita millones de miradas grises capaces de refinar la realidad."
                     </p>

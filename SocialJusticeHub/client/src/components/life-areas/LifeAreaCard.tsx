@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { TrendingUp, PlayCircle, ArrowRight } from 'lucide-react';
-import * as LucideIcons from 'lucide-react';
+import { getLifeAreaIcon } from '@/lib/lucide-icon-registry';
 
 interface LifeAreaCardProps {
   area: {
@@ -27,13 +27,7 @@ const LifeAreaCard: React.FC<LifeAreaCardProps> = ({ area }) => {
   const score = area.score?.currentScore || 0;
   const gap = area.score?.gap || 0;
 
-  const getIcon = (iconName: string | null) => {
-    if (!iconName) return LucideIcons.Circle;
-    const IconComponent = (LucideIcons as any)[iconName] || LucideIcons.Circle;
-    return IconComponent;
-  };
-
-  const IconComponent = getIcon(area.iconName);
+  const IconComponent = getLifeAreaIcon(area.iconName);
 
   const getScoreColor = (score: number) => {
     if (score >= 80) return 'text-green-600';
@@ -127,7 +121,6 @@ const LifeAreaCard: React.FC<LifeAreaCardProps> = ({ area }) => {
 };
 
 export default LifeAreaCard;
-
 
 
 

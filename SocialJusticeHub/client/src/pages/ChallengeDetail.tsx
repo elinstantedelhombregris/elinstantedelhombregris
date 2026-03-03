@@ -575,7 +575,7 @@ const ChallengeDetail = () => {
                       </Link>
                       <Link href="/dashboard">
                         <Button>
-                          Ir al Dashboard
+                          Ir al panel
                         </Button>
                       </Link>
                     </div>

@@ -20,7 +20,7 @@ export default function EnergyFlow({
   toConcept,
   isVisible,
 }: EnergyFlowProps) {
-  const lineRef = useRef<THREE.Line>(null);
+  const lineRef = useRef<any>(null);
   const particlesRef = useRef<THREE.Points>(null);
   const pulseRef = useRef<THREE.Mesh>(null);
 
@@ -222,6 +222,4 @@ export default function EnergyFlow({
     </group>
   );
 }
-
-
 

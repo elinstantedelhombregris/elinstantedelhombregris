@@ -6,9 +6,7 @@ El entorno de ejecución automática no tiene acceso a Node.js/npm. Necesitas ej
 
 ---
 
-## 📋 PASO 1: Abre DOS terminales separadas
-
-### Terminal 1 - Backend (Puerto 5000)
+## 📋 PASO 1: Iniciar aplicación (una terminal)
 
 ```bash
 cd /Users/juanb/Desktop/ElInstantedelHombreGris/SocialJusticeHub
@@ -19,6 +17,7 @@ source ~/.nvm/nvm.sh
 # Variables de entorno
 export NODE_ENV=development
 export PORT=5000
+export ENABLE_NLP_MODELS=false
 export JWT_SECRET="test-secret-key-for-development-only-minimum-32-characters-required"
 export JWT_EXPIRES_IN="7d"
 export JWT_REFRESH_EXPIRES_IN="30d"
@@ -39,41 +38,31 @@ export SESSION_COOKIE_MAX_AGE=86400000
 npm run dev
 ```
 
-### Terminal 2 - Frontend (Puerto 5173)
-
-```bash
-cd /Users/juanb/Desktop/ElInstantedelHombreGris/SocialJusticeHub
-
-# Cargar nvm (si lo usas)
-source ~/.nvm/nvm.sh
-
-# Iniciar frontend
-npm run dev
-```
-
-**NOTA:** Si el comando `npm run dev` no funciona para el frontend, usa:
-```bash
-cd client
-npm run dev
-```
-
-O ejecuta vite directamente:
-```bash
-npx vite
-```
-
 ---
 
 ## ✅ VERIFICACIÓN
 
-Una vez que ambos servicios estén corriendo, deberías ver:
+Una vez que el servicio esté corriendo, deberías ver:
 
-1. **Backend**: Mensajes como "serving on port 5000" o similar
-2. **Frontend**: Mensajes como "Local: http://localhost:5173" o similar
+1. **Backend + Frontend integrado**: Mensaje `serving on port 5000`
 
 Luego verifica en el navegador:
 - ✅ http://localhost:5000/api/health → Debe responder `{"status":"ok",...}`
-- ✅ http://localhost:5173 → Debe mostrar la aplicación
+- ✅ http://localhost:5000 → Debe mostrar la aplicación
+
+### Verificación automática (calidad)
+
+En otra terminal, dentro de `SocialJusticeHub`, puedes ejecutar:
+
+```bash
+npm run verify
+```
+
+Para validación completa (incluye arranque en producción + smoke tests API):
+
+```bash
+npm run verify:full
+```
 
 ---
 
@@ -87,16 +76,14 @@ Una vez que todo esté corriendo:
 
 ## 🐛 SI ALGO FALLA
 
-1. Verifica que los puertos 5000 y 5173 estén libres:
+1. Verifica que el puerto 5000 esté libre:
    ```bash
    lsof -i :5000
-   lsof -i :5173
    ```
 
 2. Si están ocupados, mata los procesos:
    ```bash
    kill -9 $(lsof -ti:5000)
-   kill -9 $(lsof -ti:5173)
    ```
 
 3. Verifica que Node.js esté instalado:
@@ -116,5 +103,4 @@ Una vez que todo esté corriendo:
 ## 📊 LOGS
 
 Si necesitas ver los logs:
-- Backend: Los verás directamente en la Terminal 1
-- Frontend: Los verás directamente en la Terminal 2
+- Backend + Frontend integrado: los verás directamente en la terminal donde ejecutaste `npm run dev`.

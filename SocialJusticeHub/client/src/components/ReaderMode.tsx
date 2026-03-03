@@ -12,6 +12,7 @@ import {
   Type,
   Palette,
   Eye,
+  Clock,
   Maximize2,
   Minimize2,
   RotateCcw

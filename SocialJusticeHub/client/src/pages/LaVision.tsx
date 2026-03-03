@@ -73,7 +73,7 @@ const LaVision = () => {
   const processSteps = [
     {
       step: 1,
-      title: "DIAGNOSTICAR LO REAL",
+      title: "Diagnosticar lo Real",
       subtitle: "Escuchar la vida cotidiana en vivo",
       description: "Recolectamos datos voluntarios sobre cómo viven, sienten y sueñan las personas. La nación se mira en el espejo de su gente.",
       icon: <Eye className="w-8 h-8" />,
@@ -89,7 +89,7 @@ const LaVision = () => {
     },
     {
       step: 2,
-      title: "SINCRONIZAR LA VISIÓN",
+      title: "Sincronizar la Visión",
       subtitle: "Un mismo horizonte compartido",
       description: "Traducimos los diagnósticos en relatos deseados. La visión se vuelve inevitable porque nace de millones de coincidencias.",
       icon: <Sparkles className="w-8 h-8" />,
@@ -105,7 +105,7 @@ const LaVision = () => {
     },
     {
       step: 3,
-      title: "CARTOGRAFIAR CONEXIONES",
+      title: "Cartografiar Conexiones",
       subtitle: "Del dato al mapa vivo",
       description: "Construimos tableros que muestran interdependencias entre personas, comunidades y gobiernos.",
       icon: <MapPin className="w-8 h-8" />,
@@ -121,7 +121,7 @@ const LaVision = () => {
     },
     {
       step: 4,
-      title: "EJECUTAR CON COHERENCIA",
+      title: "Ejecutar con Coherencia",
       subtitle: "Micro y macro alineados",
       description: "Cada compromiso individual alimenta políticas, proyectos y alianzas. Medimos en tiempo real y ajustamos.",
       icon: <Rocket className="w-8 h-8" />,
@@ -281,7 +281,7 @@ const LaVision = () => {
               >
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-900/20 border border-blue-500/30 text-blue-400 text-sm font-mono mb-8 tracking-widest uppercase">
                   <Scan className="w-4 h-4 animate-pulse" />
-                  Protocolo de Diseño Activo
+                  El diseño que Argentina necesita
                 </div>
                 
                 <h1 className="heading-hero mb-8">
@@ -301,14 +301,14 @@ const LaVision = () => {
 
                 <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
                   <PowerCTA
-                    text="MAPEAR MI VIDA"
+                    text="EMPEZAR MI DIAGNÓSTICO"
                     variant="primary"
                     onClick={() => setShowCommitmentModal(true)}
                     size="lg"
                     animate={true}
                   />
                   <PowerCTA
-                    text="VER EL BLUEPRINT"
+                    text="VER LAS 4 FASES"
                     variant="secondary"
                     onClick={() => window.scrollTo({ top: 1000, behavior: 'smooth' })}
                     size="lg"
@@ -537,7 +537,7 @@ const LaVision = () => {
 
             <ShockStats
               stats={pulseStats}
-              title="IMPACTO DEL MODELO VIVO"
+              title="Impacto del Modelo Vivo"
               variant="dark"
             />
           </div>
@@ -564,7 +564,7 @@ const LaVision = () => {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <PowerCTA
-                    text="SUBIR MI DIAGNÓSTICO"
+                    text="REGISTRAR MI DIAGNÓSTICO"
                     variant="primary"
                     onClick={() => setShowCommitmentModal(true)}
                     size="lg"

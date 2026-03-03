@@ -106,8 +106,8 @@ const IMPACT_CERTIFICATE_ABI = [
 ];
 
 export class BlockchainService {
-  private web3: Web3;
-  private ethersProvider: ethers.JsonRpcProvider;
+  private web3!: Web3;
+  private ethersProvider!: ethers.JsonRpcProvider;
   private votingContract: any;
   private impactContract: any;
   private isConnected: boolean = false;

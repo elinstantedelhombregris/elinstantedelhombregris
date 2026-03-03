@@ -27,6 +27,7 @@ import { useContext } from 'react';
 import { UserContext } from '@/App';
 import { useToast } from '@/hooks/use-toast';
 import { apiRequest } from '@/lib/queryClient';
+import { getCategoryLabel, getLevelLabel } from '@/lib/course-utils';
 
 interface Course {
   id: number;
@@ -173,26 +174,6 @@ const CourseDetail = () => {
   const isInProgress = userProgress?.status === 'in_progress';
   const isCompleted = userProgress?.status === 'completed';
   const progress = userProgress?.progress || 0;
-
-  const getCategoryLabel = (category: string) => {
-    switch (category) {
-      case 'vision': return 'Visión';
-      case 'action': return 'Acción';
-      case 'community': return 'Comunidad';
-      case 'reflection': return 'Reflexión';
-      case 'hombre-gris': return 'Hombre Gris';
-      default: return category;
-    }
-  };
-
-  const getLevelLabel = (level: string) => {
-    switch (level) {
-      case 'beginner': return 'Principiante';
-      case 'intermediate': return 'Intermedio';
-      case 'advanced': return 'Avanzado';
-      default: return level;
-    }
-  };
 
   const handleStartCourse = () => {
     if (!safeUserContext.isLoggedIn) {

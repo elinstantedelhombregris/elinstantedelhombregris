@@ -35,11 +35,11 @@ const TemporalTrends = () => {
     
     const range = timeRange === '7d' ? 7 : 30;
     return temporalData.slice(-range).map(item => ({
-      date: new Date(item.date).toLocaleDateString('es-AR', { 
-        month: 'short', 
-        day: 'numeric' 
+      ...item,
+      date: new Date(item.date).toLocaleDateString('es-AR', {
+        month: 'short',
+        day: 'numeric',
       }),
-      ...item
     }));
   }, [temporalData, timeRange]);
 
@@ -279,4 +279,3 @@ const TemporalTrends = () => {
 };
 
 export default TemporalTrends;
-

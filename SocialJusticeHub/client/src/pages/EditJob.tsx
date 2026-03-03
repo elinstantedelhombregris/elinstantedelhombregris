@@ -30,6 +30,19 @@ const jobSchema = z.object({
 
 type JobFormData = z.infer<typeof jobSchema>;
 
+interface EditableJobPost {
+  id: number;
+  title?: string | null;
+  organization?: string | null;
+  location?: string | null;
+  description?: string | null;
+  participants?: number | null;
+  contactEmail?: string | null;
+  contactPhone?: string | null;
+  expiresAt?: string | null;
+  status?: 'active' | 'paused' | 'closed' | null;
+}
+
 const EditJob = () => {
   const [_, setLocation] = useLocation();
   const { id } = useParams();
@@ -52,7 +65,7 @@ const EditJob = () => {
   });
 
   // Fetch the existing job post
-  const { data: jobPost, isLoading } = useQuery({
+  const { data: jobPost, isLoading } = useQuery<EditableJobPost>({
     queryKey: [`/api/community/${id}`],
     enabled: !!id,
     staleTime: 60000,

@@ -88,7 +88,7 @@ function validateConfig(): Config {
     },
     
     server: {
-      port: parseInt(process.env.PORT || '5173'),
+      port: parseInt(process.env.PORT || '5000'),
       nodeEnv: process.env.NODE_ENV || 'development'
     },
     

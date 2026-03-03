@@ -4,14 +4,15 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
-import { 
-  Clock, 
-  GraduationCap, 
-  CheckCircle2, 
+import {
+  Clock,
+  GraduationCap,
+  CheckCircle2,
   PlayCircle,
   ArrowRight,
   BookOpen
 } from 'lucide-react';
+import { getCategoryLabel, getLevelLabel } from '@/lib/course-utils';
 
 interface Course {
   id: number;
@@ -36,26 +37,6 @@ interface CourseCardProps {
 }
 
 const CourseCard = ({ course, userProgress }: CourseCardProps) => {
-  const getLevelLabel = (level: string) => {
-    switch (level) {
-      case 'beginner': return 'Principiante';
-      case 'intermediate': return 'Intermedio';
-      case 'advanced': return 'Avanzado';
-      default: return level;
-    }
-  };
-
-  const getCategoryLabel = (category: string) => {
-    switch (category) {
-      case 'vision': return 'Visión';
-      case 'action': return 'Acción';
-      case 'community': return 'Comunidad';
-      case 'reflection': return 'Reflexión';
-      case 'hombre-gris': return 'Hombre Gris';
-      default: return category;
-    }
-  };
-
   const isCompleted = userProgress?.status === 'completed';
   const isInProgress = userProgress?.status === 'in_progress';
   const progress = userProgress?.progress || 0;

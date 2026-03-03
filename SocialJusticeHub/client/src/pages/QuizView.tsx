@@ -50,7 +50,7 @@ type QuizState = 'instructions' | 'taking' | 'results';
 const QuizView = () => {
   const { courseSlug } = useParams();
   const { toast } = useToast();
-  const userContext = useContext(UserContext);
+  const userContext = useContext(UserContext)!;
   const [state, setState] = useState<QuizState>('instructions');
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<Record<number, any>>({});
@@ -588,4 +588,3 @@ const QuizView = () => {
 };
 
 export default QuizView;
-
