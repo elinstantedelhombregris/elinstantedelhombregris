@@ -4,16 +4,10 @@
   "buildCommand": "cd SocialJusticeHub && npm run build",
   "outputDirectory": "SocialJusticeHub/dist/public",
   "framework": null,
-  "functions": {
-    "api/index.ts": {
-      "runtime": "nodejs20.x"
-    }
-  },
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/api/index"
-    }
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/api/(.*)", "dest": "/api/index" },
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
 
