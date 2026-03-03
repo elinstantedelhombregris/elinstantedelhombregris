@@ -9,6 +9,19 @@ import { securityHeaders, corsConfig } from '../server/middleware';
 
 let app: Express | null = null;
 
+function maybeRestoreOriginalApiPath(req: VercelRequest) {
+  const raw = (req.query as any)?.path;
+  const pathPart = Array.isArray(raw) ? raw[0] : raw;
+  if (typeof pathPart !== 'string' || !pathPart) return;
+
+  const currentUrl = new URL(req.url || '/', 'http://localhost');
+  currentUrl.searchParams.delete('path');
+  const remainingQuery = currentUrl.searchParams.toString();
+
+  const normalized = pathPart.startsWith('/') ? pathPart : `/${pathPart}`;
+  req.url = `/api${normalized}${remainingQuery ? `?${remainingQuery}` : ''}`;
+}
+
 async function getApp(): Promise<Express> {
   if (app) {
     return app;
@@ -55,6 +68,7 @@ export default async function handler(
   req: VercelRequest,
   res: VercelResponse,
 ) {
+  maybeRestoreOriginalApiPath(req);
   const expressApp = await getApp();
   return expressApp(req, res);
 }
