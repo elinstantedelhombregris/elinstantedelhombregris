@@ -60,9 +60,6 @@ export default defineConfig({
           if (packageName === "@react-three/fiber" || packageName === "@react-three/drei" || packageName === "three" || packageName === "@types/three") {
             return "vendor-3d";
           }
-          if (packageName === "recharts" || packageName.startsWith("d3")) {
-            return "vendor-charts";
-          }
           if (packageName.startsWith("@radix-ui/")) {
             return "vendor-radix";
           }
