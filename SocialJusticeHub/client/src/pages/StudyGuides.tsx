@@ -235,7 +235,7 @@ const StudyGuides = () => {
   });
 
   useEffect(() => {
-    document.title = 'Guías de Estudio - Catálogo de Cursos';
+    document.title = 'Guías de Estudio - Rutas de Transformación';
     window.scrollTo(0, 0);
   }, []);
 
@@ -301,7 +301,7 @@ const StudyGuides = () => {
             </SmoothReveal>
             <SmoothReveal direction="up" delay={0.1}>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-slate-900 mb-6 tracking-tight">
-                Catálogo de <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-cyan-600">Cursos</span>
+                Rutas de <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-cyan-600">Transformación</span>
               </h1>
             </SmoothReveal>
             <SmoothReveal direction="up" delay={0.2} className="max-w-2xl">
