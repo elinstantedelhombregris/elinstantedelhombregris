@@ -1,7 +1,7 @@
 import { drizzle } from "drizzle-orm/better-sqlite3";
 import Database from "better-sqlite3";
 import { sql } from "drizzle-orm";
-import { inspiringStories } from "../shared/schema-sqlite.js";
+import { inspiringStories } from "../shared/schema.js";
 
 const dbPath = "./local.db";
 const sqlite = new Database(dbPath);

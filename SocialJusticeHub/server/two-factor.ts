@@ -1,5 +1,6 @@
 import * as speakeasy from 'speakeasy';
 import * as QRCode from 'qrcode';
+import crypto from 'crypto';
 
 export class TwoFactorAuth {
   /**
@@ -48,8 +49,7 @@ export class TwoFactorAuth {
   static generateBackupCodes(count: number = 10): string[] {
     const codes: string[] = [];
     for (let i = 0; i < count; i++) {
-      // Genera códigos de 8 caracteres alfanuméricos
-      const code = Math.random().toString(36).substring(2, 10).toUpperCase();
+      const code = crypto.randomBytes(5).toString('hex').toUpperCase();
       codes.push(code);
     }
     return codes;

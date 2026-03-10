@@ -1,4 +1,4 @@
-import type { BlogPost } from "@shared/schema-sqlite";
+import type { BlogPost } from "@shared/schema";
 import { blogContentUpdates } from "@shared/blogContent";
 
 type PostWithContent = Pick<BlogPost, "slug" | "content" | "excerpt"> & Record<string, any>;

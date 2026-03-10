@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { insertUserSchema } from '@shared/schema-sqlite';
+import { insertUserSchema } from '@shared/schema';
 
 // Enhanced user registration schema
 export const registerUserSchema = z.object({

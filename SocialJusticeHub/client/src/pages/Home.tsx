@@ -5,57 +5,136 @@ import Footer from '@/components/Footer';
 import HeroCinema from '@/components/HeroCinema';
 import BastaPrincipio from '@/components/BastaPrincipio';
 import AparatoPolitico from '@/components/AparatoPolitico';
-import TerrenoLimpio from '@/components/TerrenoLimpio';
-import NextStepCard from '@/components/NextStepCard';
-import { Eye, Sprout, Users, Target, ArrowRight, Share2, Brain, MapPin } from 'lucide-react';
+import { Eye, Sprout, Users, Brain, MapPin, ArrowRight, Share2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
 
+/* ── Journey step data ─────────────────────────────────── */
+const steps = [
+  {
+    num: '01',
+    title: 'La Visión',
+    subtitle: 'Diagnóstico compartido',
+    description: 'Una lectura clara de la Argentina real para alinear prioridades, evitar improvisación y orientar decisiones con evidencia.',
+    href: '/la-vision',
+    cta: 'Ver diagnóstico',
+    icon: <Eye className="w-6 h-6" />,
+    accent: 'from-blue-400 to-blue-600',
+    text: 'text-blue-400',
+    bg: 'bg-blue-500/10',
+    border: 'border-blue-500/15',
+    hoverBorder: 'hover:border-blue-500/30',
+    hoverBg: 'hover:bg-blue-500/[0.04]',
+    glow: 'hover:shadow-[0_8px_40px_rgba(59,130,246,0.08)]',
+    numColor: 'text-blue-500/[0.06]',
+  },
+  {
+    num: '02',
+    title: 'El Hombre Gris',
+    subtitle: 'Cambio cultural',
+    description: 'Un marco ético y práctico para pasar del enojo disperso a una forma madura de participación y liderazgo ciudadano.',
+    href: '/el-instante-del-hombre-gris',
+    cta: 'Profundizar',
+    icon: <Brain className="w-6 h-6" />,
+    accent: 'from-purple-400 to-purple-600',
+    text: 'text-purple-400',
+    bg: 'bg-purple-500/10',
+    border: 'border-purple-500/15',
+    hoverBorder: 'hover:border-purple-500/30',
+    hoverBg: 'hover:bg-purple-500/[0.04]',
+    glow: 'hover:shadow-[0_8px_40px_rgba(139,92,246,0.08)]',
+    numColor: 'text-purple-500/[0.06]',
+  },
+  {
+    num: '03',
+    title: 'La Semilla',
+    subtitle: 'Primer movimiento',
+    description: 'Convertir visión en hábito: una acción concreta, repetible y medible para generar tracción real desde el primer día.',
+    href: '/la-semilla-de-basta',
+    cta: 'Activar',
+    icon: <Sprout className="w-6 h-6" />,
+    accent: 'from-emerald-400 to-emerald-600',
+    text: 'text-emerald-400',
+    bg: 'bg-emerald-500/10',
+    border: 'border-emerald-500/15',
+    hoverBorder: 'hover:border-emerald-500/30',
+    hoverBg: 'hover:bg-emerald-500/[0.04]',
+    glow: 'hover:shadow-[0_8px_40px_rgba(16,185,129,0.08)]',
+    numColor: 'text-emerald-500/[0.06]',
+  },
+  {
+    num: '04',
+    title: 'El Mapa',
+    subtitle: 'Coordinación territorial',
+    description: 'Una infraestructura abierta para conectar personas, causas y acciones locales con foco en impacto colectivo.',
+    href: '/el-mapa',
+    cta: 'Entrar al mapa',
+    icon: <MapPin className="w-6 h-6" />,
+    accent: 'from-amber-400 to-orange-500',
+    text: 'text-amber-400',
+    bg: 'bg-amber-500/10',
+    border: 'border-amber-500/15',
+    hoverBorder: 'hover:border-amber-500/30',
+    hoverBg: 'hover:bg-amber-500/[0.04]',
+    glow: 'hover:shadow-[0_8px_40px_rgba(245,158,11,0.08)]',
+    numColor: 'text-amber-500/[0.06]',
+  },
+  {
+    num: '05',
+    title: 'La Tribu',
+    subtitle: 'Comunidad activa',
+    description: 'Un espacio para sostener aprendizaje, colaboración y ejecución. La transformación se consolida cuando nadie trabaja solo.',
+    href: '/community',
+    cta: 'Sumarme',
+    icon: <Users className="w-6 h-6" />,
+    accent: 'from-pink-400 to-rose-500',
+    text: 'text-pink-400',
+    bg: 'bg-pink-500/10',
+    border: 'border-pink-500/15',
+    hoverBorder: 'hover:border-pink-500/30',
+    hoverBg: 'hover:bg-pink-500/[0.04]',
+    glow: 'hover:shadow-[0_8px_40px_rgba(236,72,153,0.08)]',
+    numColor: 'text-pink-500/[0.06]',
+  },
+] as const;
+
+/* ── Component ─────────────────────────────────────────── */
 const Home = () => {
   const [showStickyShare, setShowStickyShare] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = '¡BASTA! - Todo nuevo comienzo empieza con un ¡BASTA!';
+    document.title = '¡BASTA! — Todo nuevo comienzo empieza con un ¡BASTA!';
 
-    const handleScroll = () => {
-      if (window.scrollY > 600) {
-        setShowStickyShare(true);
-      } else {
-        setShowStickyShare(false);
-      }
-    };
-
+    const handleScroll = () => setShowStickyShare(window.scrollY > 600);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const scrollToContent = () => {
-    const element = document.getElementById('narrative-start');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    document.getElementById('narrative-start')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const handleShare = () => {
-    const shareText = encodeURIComponent(
-      `¡BASTA! No es solo un grito, es un movimiento. Argentina despierta. El cambio empieza en cada uno de nosotros. ${window.location.origin}`
+    const text = encodeURIComponent(
+      `¡BASTA! No es solo un grito, es un movimiento. Argentina despierta. ${window.location.origin}`
     );
-    window.open(`https://twitter.com/intent/tweet?text=${shareText}`, '_blank');
+    window.open(`https://twitter.com/intent/tweet?text=${text}`, '_blank');
   };
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-slate-200 selection:bg-blue-500/30 font-sans">
       <Header />
+
       <main>
-        {/* 1. HERO: The Call to Adventure */}
-        <HeroCinema 
+        {/* ═══ 1. HERO ═══════════════════════════════════ */}
+        <HeroCinema
           title={
             <span className="flex flex-col items-center">
               <span className="block text-[clamp(4rem,12vw,9rem)] font-black tracking-tighter leading-none text-transparent bg-clip-text bg-gradient-to-b from-white via-slate-200 to-slate-400 mb-4 filter drop-shadow-2xl">
                 ¡BASTA!
               </span>
-              <span className="block text-[clamp(1.5rem,4vw,3rem)] font-serif italic text-blue-200 font-light">
+              <span className="block text-[clamp(1.4rem,3.5vw,2.6rem)] font-serif italic text-blue-200/90 font-light">
                 Todo nuevo comienzo empieza con un ¡BASTA!
               </span>
             </span>
@@ -63,227 +142,177 @@ const Home = () => {
           subtitle="No venimos a pedir permiso: venimos a coordinar poder ciudadano, barrio por barrio."
           ctaText="VER LA VISIÓN"
           ctaLink="/la-vision"
-          backgroundImage="https://images.unsplash.com/photo-1532186651327-6ac23687d078?q=80&w=2669&auto=format&fit=crop"
           onScrollDown={scrollToContent}
         />
 
+        {/* ═══ 2 & 3. NARRATIVE ══════════════════════════ */}
         <div id="narrative-start">
-          {/* 2. ¡BASTA! Como Principio */}
           <BastaPrincipio />
-
-          {/* 3. Cómo poner al aparato político a trabajar para el pueblo */}
           <AparatoPolitico />
-
-          {/* 4. Terreno Limpio - Transición */}
-          <TerrenoLimpio />
         </div>
 
-        {/* 5. BRIDGE TO VISION: The Why */}
-        <section className="py-32 relative overflow-hidden">
-          {/* Background Effects */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#111] to-[#0a0a0a]" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900/10 via-transparent to-transparent opacity-50" />
-          
+        {/* ═══ 4. THE JOURNEY ════════════════════════════ */}
+        <section className="py-28 md:py-36 bg-[#0a0a0a] relative overflow-hidden">
+          {/* Multi-color ambient glow */}
+          <div className="absolute inset-0 pointer-events-none" style={{
+            backgroundImage:
+              'radial-gradient(at 20% 30%, hsla(220,80%,50%,0.04) 0px, transparent 50%),' +
+              'radial-gradient(at 80% 60%, hsla(280,80%,50%,0.04) 0px, transparent 50%),' +
+              'radial-gradient(at 50% 90%, hsla(150,80%,50%,0.03) 0px, transparent 50%)',
+          }} />
+
           <div className="container mx-auto px-4 relative z-10">
-            <div className="max-w-4xl mx-auto text-center">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                className="relative"
-              >
-                {/* Portal Effect */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/5 rounded-full blur-[100px] pointer-events-none" />
-                
-                <Eye className="w-16 h-16 text-blue-400 mx-auto mb-8 animate-pulse" />
-                
-                <h2 className="heading-section mb-8">
-                  Primero entender, después avanzar
-                </h2>
-
-                <p className="text-xl md:text-2xl text-slate-300 leading-relaxed mb-10 font-light">
-                  El punto de partida no es una consigna: es un diagnóstico compartido.
-                  <strong className="text-white font-medium"> La Visión</strong> traduce datos reales, prioridades ciudadanas y escenarios de futuro en una hoja de ruta clara para orientar decisiones públicas.
-                </p>
-
-                <Link href="/la-vision">
-                  <Button 
-                    className="bg-transparent border border-blue-500/30 text-blue-300 hover:bg-blue-500/10 hover:text-white hover:border-blue-400 px-8 py-6 rounded-full text-lg transition-all duration-300"
-                  >
-                    VER LA VISIÓN COMPLETA
-                    <ArrowRight className="ml-2 w-5 h-5" />
-                  </Button>
-                </Link>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* 6. THE SOLUTION: The Journey Grid */}
-        <section id="plan-transformacion" className="py-32 bg-[#0a0a0a] relative">
-          <div className="container mx-auto px-4">
             <div className="max-w-7xl mx-auto">
-              <motion.div 
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
+              {/* Section Header */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-center mb-24"
+                transition={{ duration: 0.7 }}
+                className="text-center mb-16 md:mb-20"
               >
-                <span className="text-blue-500 tracking-[0.3em] text-sm font-bold uppercase mb-4 block">El Camino</span>
-                <h2 className="heading-section mb-6">Hoja de Ruta de Transformación</h2>
-                <p className="text-slate-400 text-lg max-w-2xl mx-auto leading-relaxed">
-                  Este recorrido ordena el proceso completo: entender la realidad, formar criterio, pasar a la acción, coordinar esfuerzos y sostener comunidad.
+                <span className="text-slate-500 tracking-[0.3em] text-xs font-bold uppercase mb-6 block">
+                  El camino
+                </span>
+                <h2 className="text-4xl md:text-[3.5rem] lg:text-6xl font-black text-white mb-6 tracking-tight leading-[0.95]">
+                  Cinco pasos hacia
+                  <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400">
+                    la transformación
+                  </span>
+                </h2>
+                <p className="text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
+                  Entender la realidad, formar criterio, generar tracción,
+                  coordinar territorio y sostener comunidad.
                 </p>
               </motion.div>
 
-              {/* Journey Grid - 5 Steps */}
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 relative">
-                {/* Step 1 - La Visión */}
-                <Link href="/la-vision">
-                  <motion.div 
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="group cursor-pointer relative"
-                  >
-                    <div className="h-full bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 hover:bg-white/[0.07] hover:border-blue-500/30 transition-all duration-500 overflow-hidden">
-                      <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
-                        <span className="text-7xl font-serif font-bold text-white">01</span>
-                      </div>
-                      <div className="w-12 h-12 rounded-2xl bg-blue-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform border border-blue-500/20 text-blue-400">
-                        <Eye className="w-6 h-6" />
-                      </div>
-                      <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-blue-300 transition-colors">La Visión</h3>
-                      <p className="text-slate-400 mb-2 text-sm font-semibold uppercase tracking-wider text-blue-400/80">Diagnóstico compartido</p>
-                      <p className="text-slate-400 text-base mb-6 leading-relaxed">Una lectura clara de la Argentina real para alinear prioridades, evitar improvisación y orientar decisiones con evidencia.</p>
-                      <div className="flex items-center text-blue-400 font-medium tracking-wide uppercase text-xs group-hover:translate-x-2 transition-transform">
-                        Ver diagnóstico <ArrowRight className="w-4 h-4 ml-2" />
-                      </div>
-                    </div>
-                  </motion.div>
-                </Link>
+              {/* Step Grid — 3 + 2 layout */}
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
+                {steps.map((step, i) => (
+                  <Link key={i} href={step.href}>
+                    <motion.div
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: i * 0.08 }}
+                      className={`group cursor-pointer relative h-full ${
+                        i >= 3 ? 'md:col-span-1 lg:col-span-1' : ''
+                      } ${i === 4 ? 'md:col-span-2 lg:col-span-1' : ''}`}
+                    >
+                      <div className={`
+                        h-full relative rounded-2xl bg-white/[0.02] border ${step.border}
+                        ${step.hoverBorder} ${step.hoverBg} ${step.glow}
+                        transition-all duration-500 hover:-translate-y-1 overflow-hidden
+                      `}>
+                        {/* Top accent line */}
+                        <div className={`h-[3px] bg-gradient-to-r ${step.accent} opacity-60 group-hover:opacity-100 transition-opacity duration-500`} />
 
-                {/* Step 2 - El Hombre Gris */}
-                <Link href="/el-instante-del-hombre-gris">
-                  <motion.div 
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.1 }}
-                    className="group cursor-pointer relative"
-                  >
-                    <div className="h-full bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 hover:bg-white/[0.07] hover:border-purple-500/30 transition-all duration-500 overflow-hidden">
-                      <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
-                        <span className="text-7xl font-serif font-bold text-white">02</span>
-                      </div>
-                      <div className="w-12 h-12 rounded-2xl bg-purple-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform border border-purple-500/20 text-purple-400">
-                        <Brain className="w-6 h-6" />
-                      </div>
-                      <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-purple-300 transition-colors">El Hombre Gris</h3>
-                      <p className="text-slate-400 mb-2 text-sm font-semibold uppercase tracking-wider text-purple-400/80">Cambio cultural</p>
-                      <p className="text-slate-400 text-base mb-6 leading-relaxed">Un marco ético y práctico para pasar del enojo disperso a una forma madura de participación y liderazgo ciudadano.</p>
-                      <div className="flex items-center text-purple-400 font-medium tracking-wide uppercase text-xs group-hover:translate-x-2 transition-transform">
-                        Profundizar <ArrowRight className="w-4 h-4 ml-2" />
-                      </div>
-                    </div>
-                  </motion.div>
-                </Link>
+                        <div className="p-7 relative">
+                          {/* Ghost number */}
+                          <span className={`absolute -top-2 right-3 text-[5.5rem] font-black ${step.numColor} leading-none select-none pointer-events-none transition-all duration-500 group-hover:opacity-150`}>
+                            {step.num}
+                          </span>
 
-                {/* Step 3 - La Semilla */}
-                <Link href="/la-semilla-de-basta">
-                  <motion.div 
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.2 }}
-                    className="group cursor-pointer relative"
-                  >
-                    <div className="h-full bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 hover:bg-white/[0.07] hover:border-emerald-500/30 transition-all duration-500 overflow-hidden">
-                      <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
-                        <span className="text-7xl font-serif font-bold text-white">03</span>
-                      </div>
-                      <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform border border-emerald-500/20 text-emerald-400">
-                        <Sprout className="w-6 h-6" />
-                      </div>
-                      <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-emerald-300 transition-colors">La Semilla</h3>
-                      <p className="text-slate-400 mb-2 text-sm font-semibold uppercase tracking-wider text-emerald-400/80">Primer movimiento</p>
-                      <p className="text-slate-400 text-base mb-6 leading-relaxed">Convertir visión en hábito: una acción concreta, repetible y medible para generar tracción real desde el primer día.</p>
-                      <div className="flex items-center text-emerald-400 font-medium tracking-wide uppercase text-xs group-hover:translate-x-2 transition-transform">
-                        Activar <ArrowRight className="w-4 h-4 ml-2" />
-                      </div>
-                    </div>
-                  </motion.div>
-                </Link>
+                          {/* Icon */}
+                          <div className={`w-11 h-11 rounded-xl ${step.bg} flex items-center justify-center mb-5 ${step.text} border ${step.border} group-hover:scale-110 transition-transform duration-500`}>
+                            {step.icon}
+                          </div>
 
-                {/* Step 4 - El Mapa */}
-                <Link href="/el-mapa">
-                  <motion.div 
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.3 }}
-                    className="group cursor-pointer relative"
-                  >
-                    <div className="h-full bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 hover:bg-white/[0.07] hover:border-orange-500/30 transition-all duration-500 overflow-hidden">
-                      <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
-                        <span className="text-7xl font-serif font-bold text-white">04</span>
-                      </div>
-                      <div className="w-12 h-12 rounded-2xl bg-orange-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform border border-orange-500/20 text-orange-400">
-                        <MapPin className="w-6 h-6" />
-                      </div>
-                      <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-orange-300 transition-colors">El Mapa</h3>
-                      <p className="text-slate-400 mb-2 text-sm font-semibold uppercase tracking-wider text-orange-400/80">Coordinación territorial</p>
-                      <p className="text-slate-400 text-base mb-6 leading-relaxed">Una infraestructura abierta para conectar personas, causas y acciones locales con foco en impacto colectivo.</p>
-                      <div className="flex items-center text-orange-400 font-medium tracking-wide uppercase text-xs group-hover:translate-x-2 transition-transform">
-                        Entrar al mapa <ArrowRight className="w-4 h-4 ml-2" />
-                      </div>
-                    </div>
-                  </motion.div>
-                </Link>
+                          {/* Subtitle */}
+                          <p className={`text-[11px] font-semibold uppercase tracking-[0.2em] ${step.text} mb-1.5 opacity-80`}>
+                            {step.subtitle}
+                          </p>
 
-                {/* Step 5 - La Tribu */}
-                <Link href="/community">
-                  <motion.div 
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.4 }}
-                    className="group cursor-pointer relative md:col-span-2 lg:col-span-1"
-                  >
-                    <div className="h-full bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 hover:bg-white/[0.07] hover:border-pink-500/30 transition-all duration-500 overflow-hidden">
-                      <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
-                        <span className="text-7xl font-serif font-bold text-white">05</span>
+                          {/* Title */}
+                          <h3 className="text-[1.35rem] font-bold text-white mb-3 group-hover:text-slate-50 transition-colors">
+                            {step.title}
+                          </h3>
+
+                          {/* Description */}
+                          <p className="text-slate-400 text-[15px] leading-relaxed mb-6">
+                            {step.description}
+                          </p>
+
+                          {/* CTA link */}
+                          <div className={`flex items-center ${step.text} text-xs font-semibold uppercase tracking-wider group-hover:translate-x-1 transition-transform duration-300`}>
+                            {step.cta}
+                            <ArrowRight className="w-3.5 h-3.5 ml-2" />
+                          </div>
+                        </div>
                       </div>
-                      <div className="w-12 h-12 rounded-2xl bg-pink-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform border border-pink-500/20 text-pink-400">
-                        <Users className="w-6 h-6" />
-                      </div>
-                      <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-pink-300 transition-colors">La Tribu</h3>
-                      <p className="text-slate-400 mb-2 text-sm font-semibold uppercase tracking-wider text-pink-400/80">Comunidad activa</p>
-                      <p className="text-slate-400 text-base mb-6 leading-relaxed">Un espacio para sostener aprendizaje, colaboración y ejecución. La transformación se consolida cuando nadie trabaja solo.</p>
-                      <div className="flex items-center text-pink-400 font-medium tracking-wide uppercase text-xs group-hover:translate-x-2 transition-transform">
-                        Sumarme <ArrowRight className="w-4 h-4 ml-2" />
-                      </div>
-                    </div>
-                  </motion.div>
-                </Link>
+                    </motion.div>
+                  </Link>
+                ))}
               </div>
             </div>
           </div>
         </section>
 
-        {/* 5. FINAL CALL: The Hook */}
-        <NextStepCard
-          title="El primer paso es comprender"
-          description="Antes de actuar, necesitamos una lectura común de la realidad. Entrá a La Visión y revisá la hoja de ruta completa."
-          href="/la-vision"
-          gradient="from-[#1a1f2c] to-[#32244f]"
-          icon={<Eye className="w-5 h-5" />}
-        />
+        {/* ═══ 5. FINAL CTA ══════════════════════════════ */}
+        <section className="relative py-28 md:py-36 overflow-hidden">
+          {/* Full-width gradient atmosphere */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#10132a] to-[#0a0a0a]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-blue-600/[0.06] rounded-full blur-[130px] pointer-events-none" />
+          <div className="absolute top-1/3 right-1/4 w-[300px] h-[300px] bg-purple-600/[0.04] rounded-full blur-[100px] pointer-events-none" />
+
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="max-w-3xl mx-auto text-center">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+              >
+                <span className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/[0.08] text-[11px] uppercase tracking-[0.3em] text-blue-300/70 mb-8">
+                  Tu turno
+                </span>
+
+                <h2 className="text-4xl md:text-[3.5rem] font-black text-white mb-6 tracking-tight leading-[0.95]">
+                  El camino ya está trazado.
+                  <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+                    Solo falta que empieces.
+                  </span>
+                </h2>
+
+                <p className="text-lg text-slate-400 mb-10 max-w-xl mx-auto leading-relaxed">
+                  Elegí por dónde entrar: diagnosticá la realidad, formá tu criterio
+                  o sumá tu acción al mapa. Cada paso cuenta.
+                </p>
+
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Link href="/la-vision">
+                    <Button
+                      size="lg"
+                      className="relative group bg-blue-600 hover:bg-blue-500 text-white px-9 py-6 rounded-full text-base font-semibold shadow-[0_0_30px_rgba(37,99,235,0.25)] hover:shadow-[0_0_50px_rgba(37,99,235,0.35)] transition-all duration-500 hover:-translate-y-0.5 overflow-hidden"
+                    >
+                      <span className="relative z-10 flex items-center">
+                        Empezar por La Visión
+                        <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </span>
+                      <div className="absolute inset-0 rounded-full bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-md" />
+                    </Button>
+                  </Link>
+                  <Link href="/el-mapa">
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      className="border-white/10 text-slate-300 bg-white/[0.03] hover:bg-white/[0.07] hover:text-white hover:border-white/20 px-9 py-6 rounded-full text-base font-semibold transition-all duration-300 hover:-translate-y-0.5"
+                    >
+                      Ir al Mapa Ciudadano
+                      <MapPin className="ml-2 w-4 h-4" />
+                    </Button>
+                  </Link>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
 
         <Footer />
 
-        {/* Sticky Share Button */}
+        {/* Sticky Share */}
         <AnimatePresence>
           {showStickyShare && (
             <motion.div
@@ -294,10 +323,10 @@ const Home = () => {
             >
               <Button
                 onClick={handleShare}
-                className="rounded-full h-14 px-6 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white shadow-2xl shadow-blue-900/50 flex items-center gap-3 transition-transform hover:scale-105"
+                className="rounded-full h-12 px-5 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white shadow-2xl shadow-blue-900/40 flex items-center gap-2.5 transition-transform hover:scale-105"
               >
-                <Share2 className="w-5 h-5" />
-                <span className="font-bold tracking-wide hidden md:inline">COMPARTIR EL DESPERTAR</span>
+                <Share2 className="w-4 h-4" />
+                <span className="font-semibold tracking-wide text-sm hidden md:inline">COMPARTIR</span>
               </Button>
             </motion.div>
           )}

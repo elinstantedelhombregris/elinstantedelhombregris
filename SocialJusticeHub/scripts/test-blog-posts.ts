@@ -1,7 +1,7 @@
 import { drizzle } from "drizzle-orm/better-sqlite3";
 import Database from "better-sqlite3";
 import { eq, desc, and, or, like } from "drizzle-orm";
-import { blogPosts, postTags, users } from "../shared/schema-sqlite";
+import { blogPosts, postTags, users } from "../shared/schema";
 
 const sqlite = new Database("./local.db");
 const db = drizzle(sqlite);

@@ -8,13 +8,10 @@ declare global {
 
 export const useMapClustering = (
   mapInstance: any,
-  markers: any[],
   leafletLoaded: boolean,
-  markerDeps: unknown
 ) => {
   const clusterGroupRef = useRef<any>(null);
   const [markerClusterLoaded, setMarkerClusterLoaded] = useState(false);
-  const [clusterReady, setClusterReady] = useState(false);
 
   // Load MarkerCluster library and CSS
   useEffect(() => {
@@ -44,35 +41,19 @@ export const useMapClustering = (
     }
   }, [leafletLoaded]);
 
+  // Create the cluster group once the library is loaded
   useEffect(() => {
-    if (!leafletLoaded || !mapInstance) {
-      setClusterReady(false);
-      return;
-    }
-
-    if (
-      !markerClusterLoaded ||
-      !window.L?.markerClusterGroup ||
-      !markers.length
-    ) {
-      if (clusterGroupRef.current && mapInstance) {
-        mapInstance.removeLayer(clusterGroupRef.current);
-        clusterGroupRef.current = null;
-      }
-      setClusterReady(false);
+    if (!leafletLoaded || !mapInstance || !markerClusterLoaded) {
       return;
     }
 
     const L = window.L;
-
-    if (!L.markerClusterGroup) {
-      setClusterReady(false);
+    if (!L?.markerClusterGroup) {
       return;
     }
 
     if (clusterGroupRef.current) {
-      mapInstance.removeLayer(clusterGroupRef.current);
-      clusterGroupRef.current = null;
+      return; // Already created
     }
 
     clusterGroupRef.current = L.markerClusterGroup({
@@ -102,24 +83,16 @@ export const useMapClustering = (
       }
     });
 
-    markers.forEach(({ marker }) => {
-      if (marker) {
-        clusterGroupRef.current.addLayer(marker);
-      }
-    });
-
     mapInstance.addLayer(clusterGroupRef.current);
-    setClusterReady(true);
 
     return () => {
       if (clusterGroupRef.current && mapInstance) {
         mapInstance.removeLayer(clusterGroupRef.current);
         clusterGroupRef.current = null;
       }
-      setClusterReady(false);
     };
-  }, [markerClusterLoaded, leafletLoaded, mapInstance, markerDeps]);
+  }, [markerClusterLoaded, leafletLoaded, mapInstance]);
 
-  return { clusterReady };
+  return { clusterGroup: clusterGroupRef };
 };
 

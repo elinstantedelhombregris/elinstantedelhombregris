@@ -6,6 +6,7 @@ import SovereignMap from '@/components/SovereignMap';
 import MeaningNetwork from '@/components/MeaningNetwork';
 import ImpactCaseStudy from '@/components/ImpactCaseStudy';
 import MapPulseAnalytics from '@/components/MapPulseAnalytics';
+import ConstellationGraph from '@/components/ConstellationGraph';
 import PowerCTA from '@/components/PowerCTA';
 import NextStepCard from '@/components/NextStepCard';
 import { 
@@ -181,15 +182,22 @@ const ElMapa = () => {
           </div>
         </section>
 
+        {/* CONSTELLATION: Interactive Knowledge Graph */}
+        <section id="constelacion" className="py-24 relative">
+          <div className="container-content">
+            <ConstellationGraph />
+          </div>
+        </section>
+
         {/* PULSE ANALYTICS: Intelligence Dashboard */}
         <section className="py-24 bg-[#0f1116] border-y border-white/5">
           <div className="container-content">
             <div className="text-center mb-16">
-              <span className="text-blue-500 font-mono text-xs tracking-[0.3em] uppercase">Inteligencia en Tiempo Real</span>
+              <span className="text-blue-500 font-mono text-xs tracking-[0.3em] uppercase">Inteligencia Colectiva</span>
               <h2 className="text-4xl font-bold text-white mt-4 mb-6">El Pulso del Territorio</h2>
               <p className="text-slate-400 max-w-2xl mx-auto">
-                Cada contribución genera datos. Cada dato revela patrones. 
-                Cada patrón es una orden para la acción política.
+                Lo que pensás, lo piensa tu vecino. Lo que soñás, lo sueña tu país.
+                Esta es la prueba.
               </p>
             </div>
             <MapPulseAnalytics />

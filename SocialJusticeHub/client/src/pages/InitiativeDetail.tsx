@@ -361,15 +361,17 @@ export default function InitiativeDetail() {
                         )}
                       </div>
                     </div>
-                    <Button 
-                      variant="ghost" 
-                      size="sm"
-                      className="text-blue-400 hover:text-blue-300 hover:bg-blue-500/10"
-                      onClick={() => setLocation(`/user/${(initiative.impulsor || initiative.user).id}`)}
-                    >
-                      Ver perfil
-                      <ExternalLink className="w-3 h-3 ml-1" />
-                    </Button>
+                    {userContext?.user?.id === (initiative.impulsor || initiative.user).id && (
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        className="text-blue-400 hover:text-blue-300 hover:bg-blue-500/10"
+                        onClick={() => setLocation('/profile')}
+                      >
+                        Ver perfil
+                        <ExternalLink className="w-3 h-3 ml-1" />
+                      </Button>
+                    )}
                   </div>
                 )}
               </div>

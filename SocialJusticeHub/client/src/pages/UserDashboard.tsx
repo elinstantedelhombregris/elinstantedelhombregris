@@ -30,6 +30,8 @@ import {
 import { useQuery } from '@tanstack/react-query';
 import { apiRequest } from '@/lib/queryClient';
 import { Link } from 'wouter';
+import EmailVerificationBanner from '@/components/EmailVerificationBanner';
+import GettingStartedChecklist from '@/components/GettingStartedChecklist';
 
 interface UserStats {
   level: number;
@@ -224,7 +226,8 @@ const UserDashboard = () => {
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-slate-200 font-sans selection:bg-blue-500/30">
       <Header />
-      
+      <EmailVerificationBanner variant="dark" />
+
       {/* Hero Section: Control Tower Header - Cinematic */}
       <div className="relative overflow-hidden border-b border-white/5 bg-[#0a0a0a]">
         {/* Background Effects */}
@@ -494,8 +497,9 @@ const UserDashboard = () => {
                       </>
                     ) : (
                       <div className="text-center py-10 border border-dashed border-white/10 rounded-lg bg-white/5">
-                        <Target className="h-8 w-8 text-slate-600 mx-auto mb-3" />
-                        <p className="text-slate-500 font-mono text-xs mb-4">SIN DESAFÍOS PENDIENTES</p>
+                        <Target className="h-8 w-8 text-purple-500/50 mx-auto mb-3" />
+                        <p className="text-slate-400 text-sm mb-1">Explorá tu primer desafío y ganá XP</p>
+                        <p className="text-slate-600 font-mono text-xs mb-4">Cada desafío te acerca a tu próximo nivel</p>
                         <Link href="/challenges">
                           <Button variant="outline" className="border-purple-500/30 text-purple-400 hover:bg-purple-500/10 text-xs uppercase tracking-wider">
                             EXPLORAR DESAFÍOS
@@ -511,7 +515,12 @@ const UserDashboard = () => {
 
           {/* Columna lateral: indicadores */}
           <div className="space-y-8">
-            
+
+            {/* Getting Started Checklist for new users */}
+            {((userStats?.level || 1) === 1 && (userStats?.experience || 0) === 0 && (userStats?.completedChallenges || 0) === 0) && (
+              <GettingStartedChecklist />
+            )}
+
             {/* Indicadores personales */}
             <motion.div variants={itemVariants} whileHover={{ y: -2 }} className="transition-all">
               <Card className="bg-white/5 backdrop-blur-md border-white/10 shadow-lg">
@@ -592,8 +601,12 @@ const UserDashboard = () => {
                     </div>
                   ) : (
                     <div className="text-center py-8 bg-white/5 rounded-lg border border-dashed border-white/10">
-                      <p className="text-slate-500 font-mono text-xs px-4">
-                        Aún no registrás logros en este ciclo.
+                      <Award className="h-8 w-8 text-yellow-500/30 mx-auto mb-3" />
+                      <p className="text-slate-400 text-sm mb-1 px-4">
+                        Completá desafíos para desbloquear tus primeros logros
+                      </p>
+                      <p className="text-slate-600 font-mono text-xs px-4">
+                        Cada logro otorga XP y te destaca en la comunidad
                       </p>
                     </div>
                   )}

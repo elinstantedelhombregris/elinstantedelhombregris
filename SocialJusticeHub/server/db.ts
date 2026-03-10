@@ -1,15 +1,15 @@
-import { drizzle } from 'drizzle-orm/better-sqlite3';
-import Database from 'better-sqlite3';
-import * as schema from "@shared/schema-sqlite";
+import { neon } from '@neondatabase/serverless';
+import { drizzle } from 'drizzle-orm/neon-http';
+import * as schema from "@shared/schema";
 
-// Para desarrollo local, usar SQLite si no hay PostgreSQL configurado
 const databaseUrl = process.env.DATABASE_URL;
 
-let db: ReturnType<typeof drizzle>;
+if (!databaseUrl) {
+  throw new Error("DATABASE_URL is required. Set it to your Neon connection string.");
+}
 
-// Always use SQLite for this project
-console.log("📦 Using SQLite for local development");
-const sqlite = new Database('./local.db');
-db = drizzle(sqlite, { schema });
+console.log("Connecting to Neon Postgres...");
+const sql = neon(databaseUrl);
+const db = drizzle(sql, { schema });
 
 export { db };

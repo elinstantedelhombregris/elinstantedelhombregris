@@ -266,9 +266,9 @@ const QuizView = () => {
   const answeredCount = Object.keys(answers).length;
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 theme-light">
       <Header />
-      
+
       <main className="container mx-auto px-4 py-8">
         <Link href={`/recursos/guias-estudio/${courseSlug}`}>
           <Button variant="ghost" size="sm" className="mb-6 gap-2">

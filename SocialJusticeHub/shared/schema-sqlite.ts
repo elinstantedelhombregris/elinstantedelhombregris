@@ -26,6 +26,9 @@ export const users = sqliteTable("users", {
   passwordResetToken: text("password_reset_token"),
   passwordResetExpires: text("password_reset_expires"),
   
+  // Onboarding
+  onboardingCompleted: integer("onboarding_completed", { mode: 'boolean' }).default(false),
+
   // 2FA
   twoFactorEnabled: integer("two_factor_enabled", { mode: 'boolean' }).default(false),
   twoFactorSecret: text("two_factor_secret"),
@@ -1103,6 +1106,13 @@ export const usersRelations = relations(users, ({ many, one }) => ({
   lifeAreaMastery: many(lifeAreaMastery),
   lifeAreaNotifications: many(lifeAreaNotifications),
   lifeAreaSocialInteractions: many(lifeAreaSocialInteractions),
+  // Civic Assessment & Personal Development relations
+  civicAssessments: many(civicAssessments),
+  civicProfiles: many(civicProfiles),
+  civicGoals: many(civicGoals),
+  weeklyCheckins: many(weeklyCheckins),
+  coachingSessions: many(coachingSessions),
+  coachingPrompts: many(coachingPrompts),
 }));
 
 export const dreamsRelations = relations(dreams, ({ one }) => ({
@@ -1817,6 +1827,103 @@ export const lifeAreaSocialInteractionsRelations = relations(lifeAreaSocialInter
   }),
 }));
 
+// ==================== CIVIC ASSESSMENT & PERSONAL DEVELOPMENT TABLES ====================
+
+// Civic assessment sessions
+export const civicAssessments = sqliteTable("civic_assessments", {
+  id: integer("id").primaryKey({ autoIncrement: true }),
+  userId: integer("user_id").references(() => users.id),
+  status: text("status").notNull().default('in_progress').$type<'in_progress' | 'completed'>(),
+  version: integer("version").default(1),
+  startedAt: text("started_at").default("CURRENT_TIMESTAMP"),
+  completedAt: text("completed_at"),
+  createdAt: text("created_at").default("CURRENT_TIMESTAMP"),
+});
+
+// Individual question responses
+export const civicAssessmentResponses = sqliteTable("civic_assessment_responses", {
+  id: integer("id").primaryKey({ autoIncrement: true }),
+  assessmentId: integer("assessment_id").references(() => civicAssessments.id),
+  questionKey: text("question_key").notNull(),
+  dimensionKey: text("dimension_key").notNull(),
+  responseType: text("response_type").notNull().$type<'scale' | 'choice' | 'rank'>(),
+  responseValue: integer("response_value"), // For scale questions (1-10)
+  responseChoice: text("response_choice"), // For choice questions
+  responseRank: text("response_rank"), // JSON array for rank questions
+  createdAt: text("created_at").default("CURRENT_TIMESTAMP"),
+});
+
+// Computed civic profiles
+export const civicProfiles = sqliteTable("civic_profiles", {
+  id: integer("id").primaryKey({ autoIncrement: true }),
+  userId: integer("user_id").references(() => users.id),
+  assessmentId: integer("assessment_id").references(() => civicAssessments.id),
+  archetype: text("archetype").notNull(), // e.g. 'el_puente', 'el_catalizador'
+  dimensionScores: text("dimension_scores").notNull(), // JSON: { motivacion_civica: 75, ... }
+  topStrengths: text("top_strengths").notNull(), // JSON array of dimension keys
+  growthAreas: text("growth_areas").notNull(), // JSON array of dimension keys
+  recommendedActions: text("recommended_actions").notNull(), // JSON array of action objects
+  createdAt: text("created_at").default("CURRENT_TIMESTAMP"),
+  updatedAt: text("updated_at").default("CURRENT_TIMESTAMP"),
+});
+
+// Civic goals
+export const civicGoals = sqliteTable("civic_goals", {
+  id: integer("id").primaryKey({ autoIncrement: true }),
+  userId: integer("user_id").references(() => users.id),
+  title: text("title").notNull(),
+  description: text("description"),
+  category: text("category").notNull().$type<'civic_participation' | 'personal_growth' | 'community_building' | 'accountability' | 'learning'>(),
+  targetDate: text("target_date"),
+  status: text("status").notNull().default('active').$type<'active' | 'completed' | 'paused' | 'abandoned'>(),
+  progress: integer("progress").default(0), // 0-100
+  milestones: text("milestones"), // JSON array of { title, done, doneAt }
+  linkedLifeAreaId: integer("linked_life_area_id").references(() => lifeAreas.id),
+  linkedChallengeId: integer("linked_challenge_id").references(() => challenges.id),
+  createdAt: text("created_at").default("CURRENT_TIMESTAMP"),
+  updatedAt: text("updated_at").default("CURRENT_TIMESTAMP"),
+});
+
+// Weekly check-ins
+export const weeklyCheckins = sqliteTable("weekly_checkins", {
+  id: integer("id").primaryKey({ autoIncrement: true }),
+  userId: integer("user_id").references(() => users.id),
+  weekOf: text("week_of").notNull(), // ISO date string of week start (Monday)
+  mood: integer("mood").notNull(), // 1-5
+  progressRating: integer("progress_rating").notNull(), // 1-5
+  highlight: text("highlight"),
+  challenge: text("challenge"),
+  nextWeekIntention: text("next_week_intention"),
+  goalsReviewed: text("goals_reviewed"), // JSON array of { goalId, status }
+  createdAt: text("created_at").default("CURRENT_TIMESTAMP"),
+});
+
+// Coaching sessions
+export const coachingSessions = sqliteTable("coaching_sessions", {
+  id: integer("id").primaryKey({ autoIncrement: true }),
+  userId: integer("user_id").references(() => users.id),
+  sessionType: text("session_type").notNull().$type<'weekly_reflection' | 'goal_review' | 'assessment_debrief' | 'growth_prompt' | 'ad_hoc'>(),
+  status: text("status").notNull().default('active').$type<'active' | 'completed'>(),
+  messages: text("messages").notNull().default('[]'), // JSON array of { role, content, timestamp }
+  insights: text("insights"), // JSON array of extracted insights
+  suggestedActions: text("suggested_actions"), // JSON array of action items
+  createdAt: text("created_at").default("CURRENT_TIMESTAMP"),
+  updatedAt: text("updated_at").default("CURRENT_TIMESTAMP"),
+});
+
+// Coaching prompts (scheduled nudges)
+export const coachingPrompts = sqliteTable("coaching_prompts", {
+  id: integer("id").primaryKey({ autoIncrement: true }),
+  userId: integer("user_id").references(() => users.id),
+  promptType: text("prompt_type").notNull().$type<'weekly_reflection' | 'goal_reminder' | 'assessment_retake' | 'growth_nudge'>(),
+  title: text("title").notNull(),
+  content: text("content").notNull(),
+  context: text("context"), // JSON with archetype, dimension, etc.
+  isRead: integer("is_read", { mode: 'boolean' }).default(false),
+  scheduledFor: text("scheduled_for"),
+  createdAt: text("created_at").default("CURRENT_TIMESTAMP"),
+});
+
 // Insert schemas
 export const insertUserSchema = createInsertSchema(users).omit({
   id: true,
@@ -2474,4 +2581,130 @@ export type InsertLifeAreaNotification = z.infer<typeof insertLifeAreaNotificati
 export type LifeAreaNotification = typeof lifeAreaNotifications.$inferSelect;
 
 export type InsertLifeAreaSocialInteraction = z.infer<typeof insertLifeAreaSocialInteractionSchema>;
+
+// ==================== CIVIC ASSESSMENT & PERSONAL DEVELOPMENT RELATIONS ====================
+
+export const civicAssessmentsRelations = relations(civicAssessments, ({ one, many }) => ({
+  user: one(users, {
+    fields: [civicAssessments.userId],
+    references: [users.id],
+  }),
+  responses: many(civicAssessmentResponses),
+  profile: one(civicProfiles),
+}));
+
+export const civicAssessmentResponsesRelations = relations(civicAssessmentResponses, ({ one }) => ({
+  assessment: one(civicAssessments, {
+    fields: [civicAssessmentResponses.assessmentId],
+    references: [civicAssessments.id],
+  }),
+}));
+
+export const civicProfilesRelations = relations(civicProfiles, ({ one }) => ({
+  user: one(users, {
+    fields: [civicProfiles.userId],
+    references: [users.id],
+  }),
+  assessment: one(civicAssessments, {
+    fields: [civicProfiles.assessmentId],
+    references: [civicAssessments.id],
+  }),
+}));
+
+export const civicGoalsRelations = relations(civicGoals, ({ one }) => ({
+  user: one(users, {
+    fields: [civicGoals.userId],
+    references: [users.id],
+  }),
+  lifeArea: one(lifeAreas, {
+    fields: [civicGoals.linkedLifeAreaId],
+    references: [lifeAreas.id],
+  }),
+  challenge: one(challenges, {
+    fields: [civicGoals.linkedChallengeId],
+    references: [challenges.id],
+  }),
+}));
+
+export const weeklyCheckinsRelations = relations(weeklyCheckins, ({ one }) => ({
+  user: one(users, {
+    fields: [weeklyCheckins.userId],
+    references: [users.id],
+  }),
+}));
+
+export const coachingSessionsRelations = relations(coachingSessions, ({ one }) => ({
+  user: one(users, {
+    fields: [coachingSessions.userId],
+    references: [users.id],
+  }),
+}));
+
+export const coachingPromptsRelations = relations(coachingPrompts, ({ one }) => ({
+  user: one(users, {
+    fields: [coachingPrompts.userId],
+    references: [users.id],
+  }),
+}));
+
+// Civic Assessment Insert Schemas
+export const insertCivicAssessmentSchema = createInsertSchema(civicAssessments).omit({
+  id: true,
+  createdAt: true,
+});
+
+export const insertCivicAssessmentResponseSchema = createInsertSchema(civicAssessmentResponses).omit({
+  id: true,
+  createdAt: true,
+});
+
+export const insertCivicProfileSchema = createInsertSchema(civicProfiles).omit({
+  id: true,
+  createdAt: true,
+  updatedAt: true,
+});
+
+export const insertCivicGoalSchema = createInsertSchema(civicGoals).omit({
+  id: true,
+  createdAt: true,
+  updatedAt: true,
+});
+
+export const insertWeeklyCheckinSchema = createInsertSchema(weeklyCheckins).omit({
+  id: true,
+  createdAt: true,
+});
+
+export const insertCoachingSessionSchema = createInsertSchema(coachingSessions).omit({
+  id: true,
+  createdAt: true,
+  updatedAt: true,
+});
+
+export const insertCoachingPromptSchema = createInsertSchema(coachingPrompts).omit({
+  id: true,
+  createdAt: true,
+});
+
+// Civic Assessment Types
+export type InsertCivicAssessment = z.infer<typeof insertCivicAssessmentSchema>;
+export type CivicAssessment = typeof civicAssessments.$inferSelect;
+
+export type InsertCivicAssessmentResponse = z.infer<typeof insertCivicAssessmentResponseSchema>;
+export type CivicAssessmentResponse = typeof civicAssessmentResponses.$inferSelect;
+
+export type InsertCivicProfile = z.infer<typeof insertCivicProfileSchema>;
+export type CivicProfile = typeof civicProfiles.$inferSelect;
+
+export type InsertCivicGoal = z.infer<typeof insertCivicGoalSchema>;
+export type CivicGoal = typeof civicGoals.$inferSelect;
+
+export type InsertWeeklyCheckin = z.infer<typeof insertWeeklyCheckinSchema>;
+export type WeeklyCheckin = typeof weeklyCheckins.$inferSelect;
+
+export type InsertCoachingSession = z.infer<typeof insertCoachingSessionSchema>;
+export type CoachingSession = typeof coachingSessions.$inferSelect;
+
+export type InsertCoachingPrompt = z.infer<typeof insertCoachingPromptSchema>;
+export type CoachingPrompt = typeof coachingPrompts.$inferSelect;
 export type LifeAreaSocialInteraction = typeof lifeAreaSocialInteractions.$inferSelect;

@@ -51,7 +51,7 @@ const EditResource = () => {
   });
 
   // Fetch the existing resource post
-  const { data: resourcePost, isLoading } = useQuery({
+  const { data: resourcePost, isLoading, isError, error } = useQuery({
     queryKey: [`/api/community/${id}`],
     enabled: !!id,
     staleTime: 60000,
@@ -83,7 +83,7 @@ const EditResource = () => {
         title: '¡Recurso actualizado!',
         description: 'Tu publicación de recurso ha sido actualizada exitosamente.',
       });
-      queryClient.invalidateQueries({ queryKey: ['/api/community'] });
+      queryClient.invalidateQueries({ queryKey: ['community-posts'] });
       queryClient.invalidateQueries({ queryKey: [`/api/community/${id}`] });
       setLocation('/community');
     },
@@ -116,6 +116,25 @@ const EditResource = () => {
           <div className="text-center">
             <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-pink-600 mx-auto"></div>
             <p className="mt-4 text-gray-600">Cargando recurso...</p>
+          </div>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
+
+  if (isError) {
+    return (
+      <div className="min-h-screen bg-gray-50">
+        <Header />
+        <div className="container mx-auto px-4 py-8 max-w-4xl">
+          <div className="text-center">
+            <h1 className="text-2xl font-bold text-gray-900 mb-4">Error al cargar</h1>
+            <p className="text-gray-600 mb-6">{error?.message || 'Ocurrió un error al cargar el recurso.'}</p>
+            <Button onClick={() => setLocation('/community')}>
+              <ArrowLeft className="h-4 w-4 mr-2" />
+              Volver a la Comunidad
+            </Button>
           </div>
         </div>
         <Footer />

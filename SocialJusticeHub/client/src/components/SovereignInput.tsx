@@ -4,19 +4,20 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
-import { 
-  Eye, 
-  Heart, 
-  AlertCircle, 
-  Zap, 
-  MapPin, 
-  Send, 
+import {
+  Eye,
+  Heart,
+  AlertCircle,
+  Zap,
+  MapPin,
+  Send,
   Loader2,
-  Check
+  Check,
+  Handshake
 } from 'lucide-react';
 import { cn } from "@/lib/utils";
 
-type InputType = 'dream' | 'value' | 'need' | 'basta';
+type InputType = 'dream' | 'value' | 'need' | 'basta' | 'compromiso';
 
 interface SovereignInputProps {
   onSubmit: (data: any) => Promise<void>;
@@ -45,12 +46,19 @@ const types: { id: InputType; label: string; icon: any; color: string; desc: str
     color: 'text-amber-400 border-amber-500/30 bg-amber-500/10',
     desc: '¿Qué falta para prosperar?' 
   },
-  { 
-    id: 'basta', 
-    label: '¡BASTA!', 
-    icon: Zap, 
+  {
+    id: 'basta',
+    label: '¡BASTA!',
+    icon: Zap,
     color: 'text-red-400 border-red-500/30 bg-red-500/10',
-    desc: '¿Qué límite ponés hoy?' 
+    desc: '¿Qué límite ponés hoy?'
+  },
+  {
+    id: 'compromiso',
+    label: 'Compromiso',
+    icon: Handshake,
+    color: 'text-emerald-400 border-emerald-500/30 bg-emerald-500/10',
+    desc: '¿Qué te comprometés a hacer?'
   }
 ];
 
@@ -94,7 +102,7 @@ const SovereignInput = ({ onSubmit, isSubmitting }: SovereignInputProps) => {
   return (
     <div className="w-full max-w-md bg-slate-900/90 backdrop-blur-xl border border-slate-800 rounded-3xl overflow-hidden shadow-2xl shadow-black/50">
       {/* Header / Type Selector */}
-      <div className="p-2 grid grid-cols-4 gap-1 bg-black/20 border-b border-white/5">
+      <div className="p-2 grid grid-cols-5 gap-1 bg-black/20 border-b border-white/5">
         {types.map((type) => (
           <button
             key={type.id}

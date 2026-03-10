@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
 
@@ -17,7 +17,7 @@ interface HeroCinemaProps {
 const HeroCinema: React.FC<HeroCinemaProps> = ({
   title,
   subtitle,
-  backgroundImage = "url('/hero-bg-default.jpg')", // Fallback
+  backgroundImage,
   overlayGradient = "bg-gradient-to-b from-[#0a0a0a]/80 via-[#1a1f2e]/60 to-[#0a0a0a]",
   ctaText,
   ctaLink,
@@ -27,15 +27,17 @@ const HeroCinema: React.FC<HeroCinemaProps> = ({
     <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-[#0a0a0a]">
       {/* Background Layer */}
       <div className="absolute inset-0 z-0">
-        <motion.div 
-          initial={{ scale: 1.1 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 10, ease: "easeOut" }}
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ 
-            backgroundImage: backgroundImage.startsWith('url') ? backgroundImage : `url(${backgroundImage})`,
-          }} 
-        />
+        {backgroundImage && (
+          <motion.div
+            initial={{ scale: 1.1 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 10, ease: "easeOut" }}
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: backgroundImage.startsWith('url') ? backgroundImage : `url(${backgroundImage})`,
+            }}
+          />
+        )}
         {/* Cinematic Vignette */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#0a0a0a_90%)] opacity-80" />
         <div className={`absolute inset-0 ${overlayGradient}`} />

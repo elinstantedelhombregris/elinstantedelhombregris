@@ -9,14 +9,18 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import SovereignInput from './SovereignInput';
 import EnhancedPopup from './EnhancedPopup';
-import { 
-  Maximize2, 
-  Minimize2, 
-  Locate, 
-  Layers, 
+import {
+  Maximize2,
+  Minimize2,
+  Locate,
+  Layers,
   Activity,
   Radio,
-  Filter
+  Eye,
+  Heart,
+  AlertCircle,
+  Zap,
+  Handshake
 } from 'lucide-react';
 import { cn } from "@/lib/utils";
 
@@ -33,11 +37,12 @@ const SovereignMap = () => {
   const plainMarkersLayerRef = useRef<any>(null);
   const { toast } = useToast();
   const queryClient = useQueryClient();
-  
-  const [activeLayer, setActiveLayer] = useState<'all' | 'dream' | 'value' | 'need' | 'basta'>('all');
+
+  const [activeLayer, setActiveLayer] = useState<'all' | 'dream' | 'value' | 'need' | 'basta' | 'compromiso'>('all');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [mapReady, setMapReady] = useState(false);
+  const [showMobileInput, setShowMobileInput] = useState(false);
 
   // Load Leaflet
   const leafletLoaded = useLoader('https://unpkg.com/leaflet@1.7.1/dist/leaflet.js', 'L');
@@ -67,28 +72,55 @@ const SovereignMap = () => {
     staleTime: 60000,
   });
 
-  // Filter dreams
+  const { data: commitmentsResponse } = useQuery({
+    queryKey: ['/api/commitments'],
+    queryFn: async () => {
+      const res = await fetch('/api/commitments?limit=100');
+      if (!res.ok) return { data: { commitments: [] } };
+      return res.json();
+    },
+    staleTime: 60000,
+  });
+
+  // Merge dreams + compromisos into a unified array
+  const allMapItems = useMemo(() => {
+    const dreamItems = Array.isArray(dreams) ? dreams : [];
+    const commitments = commitmentsResponse?.data?.commitments || [];
+    const mappedCompromisos = commitments
+      .filter((c: any) => c.latitude && c.longitude)
+      .map((c: any) => ({
+        id: c.id + 1_000_000,
+        type: 'compromiso' as const,
+        compromiso: c.commitmentText,
+        dream: null, value: null, need: null, basta: null,
+        location: [c.city, c.province].filter(Boolean).join(', ') || 'Argentina',
+        latitude: String(c.latitude),
+        longitude: String(c.longitude),
+        createdAt: c.createdAt,
+      }));
+    return [...dreamItems, ...mappedCompromisos];
+  }, [dreams, commitmentsResponse]);
+
+  // Filter items by active layer
   const filteredDreams = useMemo(() => {
-    if (!Array.isArray(dreams)) return [];
-    return dreams.filter((dream: Dream) => {
-      const hasCoords = dream.latitude && dream.longitude && 
-                       !isNaN(parseFloat(dream.latitude)) && 
-                       !isNaN(parseFloat(dream.longitude));
+    return allMapItems.filter((item: any) => {
+      const hasCoords = item.latitude && item.longitude &&
+                       !isNaN(parseFloat(item.latitude)) &&
+                       !isNaN(parseFloat(item.longitude));
       if (!hasCoords) return false;
       if (activeLayer === 'all') return true;
-      return dream.type === activeLayer;
+      return item.type === activeLayer;
     });
-  }, [dreams, activeLayer]);
+  }, [allMapItems, activeLayer]);
 
   const pulseFeed = useMemo(() => {
-    if (!Array.isArray(dreams)) return [];
-    const sorted = [...dreams].sort((a, b) => {
+    const sorted = [...allMapItems].sort((a: any, b: any) => {
       const dateA = new Date(a.createdAt || 0).getTime();
       const dateB = new Date(b.createdAt || 0).getTime();
       return dateB - dateA;
     });
     return sorted.slice(0, 5);
-  }, [dreams]);
+  }, [allMapItems]);
 
   // Initialize Map
   useEffect(() => {
@@ -153,20 +185,23 @@ const SovereignMap = () => {
     };
   }, [leafletLoaded]);
 
-  // Clustering Logic
-  const { clusterReady } = useMapClustering(
+  // Clustering Logic — only manages the cluster group lifecycle
+  const { clusterGroup } = useMapClustering(
     mapInstanceRef.current,
-    markersRef.current,
     leafletLoaded,
-    filteredDreams
   );
 
-  // Update Markers
+  // Update Markers — single effect that creates markers and adds them to cluster or plain layer
   useEffect(() => {
     if (!leafletLoaded || !mapInstanceRef.current) return;
     const L = window.L;
     const map = mapInstanceRef.current;
+    const cluster = clusterGroup.current;
 
+    // Clear previous markers from both layers
+    if (cluster) {
+      cluster.clearLayers();
+    }
     if (plainMarkersLayerRef.current) {
       plainMarkersLayerRef.current.clearLayers();
     }
@@ -192,29 +227,26 @@ const SovereignMap = () => {
       dream: createIcon('bg-blue-500', '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>'),
       value: createIcon('bg-pink-500', '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>'),
       need: createIcon('bg-amber-500', '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>'),
-      basta: createIcon('bg-red-500', '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>')
+      basta: createIcon('bg-red-500', '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>'),
+      compromiso: createIcon('bg-emerald-500', '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></svg>')
     };
 
     const newMarkers: any[] = [];
     filteredDreams.forEach((dream: Dream) => {
       const lat = parseFloat(dream.latitude!);
       const lng = parseFloat(dream.longitude!);
-      
-      // Use type casting or specific check to ensure valid key
-      const typeKey = (dream.type as keyof typeof icons) || 'dream';
+
+      const typeKey = (dream.type && dream.type in icons)
+        ? (dream.type as keyof typeof icons)
+        : 'dream';
       const icon = icons[typeKey];
 
       const marker = L.marker([lat, lng], { icon });
-      
-      // Use EnhancedPopup but styled for dark mode? 
-      // EnhancedPopup returns HTML string, we might need to adjust its style via CSS or create a Dark version.
-      // For now, we use the existing one but wrap it in a dark-mode container class if possible, 
-      // or we rely on the component's internal styling.
-      // Let's assume EnhancedPopup works or we might update it later.
-      marker.bindPopup(EnhancedPopup({ 
-        dream, 
-        onViewDetails: () => {}, 
-        onShare: () => {} 
+
+      marker.bindPopup(EnhancedPopup({
+        dream,
+        onViewDetails: () => {},
+        onShare: () => {}
       }));
 
       newMarkers.push({ marker, dream });
@@ -222,14 +254,19 @@ const SovereignMap = () => {
 
     markersRef.current = newMarkers;
 
-    if (!clusterReady) {
+    // Add markers to cluster group if available, otherwise use plain layer
+    if (cluster) {
+      // Remove plain layer if it exists — cluster takes over
+      if (plainMarkersLayerRef.current) {
+        map.removeLayer(plainMarkersLayerRef.current);
+        plainMarkersLayerRef.current = null;
+      }
+      newMarkers.forEach(({ marker }) => cluster.addLayer(marker));
+    } else {
       if (!plainMarkersLayerRef.current) {
         plainMarkersLayerRef.current = L.layerGroup().addTo(map);
       }
       newMarkers.forEach(({ marker }) => plainMarkersLayerRef.current.addLayer(marker));
-    } else if (plainMarkersLayerRef.current) {
-      map.removeLayer(plainMarkersLayerRef.current);
-      plainMarkersLayerRef.current = null;
     }
 
     return () => {
@@ -239,7 +276,7 @@ const SovereignMap = () => {
         plainMarkersLayerRef.current = null;
       }
     };
-  }, [leafletLoaded, filteredDreams, clusterReady, mapReady]);
+  }, [leafletLoaded, filteredDreams, clusterGroup, mapReady]);
 
   const handleCreate = async (data: any) => {
     setIsSubmitting(true);
@@ -265,17 +302,50 @@ const SovereignMap = () => {
         }
       }
 
-      const payload = {
-        type: data.type,
-        [data.type]: data.content,
-        latitude: lat,
-        longitude: lng,
-        location: loc
-      };
+      let res: Response;
 
-      await apiRequest('POST', '/api/dreams', payload);
-      queryClient.invalidateQueries({ queryKey: ['/api/dreams'] });
-      
+      if (data.type === 'compromiso') {
+        const payload = {
+          commitmentText: data.content,
+          commitmentType: 'public',
+          latitude: parseFloat(lat),
+          longitude: parseFloat(lng),
+        };
+        res = await apiRequest('POST', '/api/commitment', payload);
+      } else {
+        const payload = {
+          type: data.type,
+          [data.type]: data.content,
+          latitude: lat,
+          longitude: lng,
+          location: loc
+        };
+        res = await apiRequest('POST', '/api/dreams', payload);
+      }
+
+      if (!res.ok) {
+        if (res.status === 401 || res.status === 403) {
+          toast({
+            title: "Sesión requerida",
+            description: "Tenés que iniciar sesión para declarar tu visión.",
+            variant: "destructive"
+          });
+        } else {
+          toast({
+            title: "Error",
+            description: "No se pudo registrar la declaración.",
+            variant: "destructive"
+          });
+        }
+        return;
+      }
+
+      if (data.type === 'compromiso') {
+        queryClient.invalidateQueries({ queryKey: ['/api/commitments'] });
+      } else {
+        queryClient.invalidateQueries({ queryKey: ['/api/dreams'] });
+      }
+
       toast({
         title: "¡Comando Recibido!",
         description: "Tu declaración ha sido registrada en el mapa soberano.",
@@ -312,7 +382,7 @@ const SovereignMap = () => {
     if (navigator.geolocation && mapInstanceRef.current) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
-          mapInstanceRef.current.setView(
+          mapInstanceRef.current?.setView(
             [position.coords.latitude, position.coords.longitude],
             12, { animate: true }
           );
@@ -349,34 +419,37 @@ const SovereignMap = () => {
             <Activity className="w-4 h-4 text-green-400 animate-pulse" />
             <span className="text-xs font-mono uppercase tracking-widest text-slate-300">Señales en Vivo</span>
           </div>
-          <div className="text-3xl font-bold text-white font-mono">{dreams.length}</div>
+          <div className="text-3xl font-bold text-white font-mono">{allMapItems.length}</div>
           <div className="text-xs text-slate-500">Nodos activos</div>
         </div>
 
         {/* Layer Controls */}
         <div className="pointer-events-auto bg-slate-900/80 backdrop-blur-md border border-slate-700 rounded-2xl p-2 shadow-xl flex flex-col gap-1">
           {[
-            { id: 'all', icon: Layers, color: 'text-slate-300' },
-            { id: 'dream', icon: Radio, color: 'text-blue-400' },
-            { id: 'value', icon: Radio, color: 'text-pink-400' },
-            { id: 'need', icon: Radio, color: 'text-amber-400' },
-            { id: 'basta', icon: Radio, color: 'text-red-400' }
+            { id: 'all', label: 'Todos', icon: Layers, color: 'text-slate-300' },
+            { id: 'dream', label: 'Visiones', icon: Eye, color: 'text-blue-400' },
+            { id: 'value', label: 'Valores', icon: Heart, color: 'text-pink-400' },
+            { id: 'need', label: 'Necesidades', icon: AlertCircle, color: 'text-amber-400' },
+            { id: 'basta', label: '¡Basta!', icon: Zap, color: 'text-red-400' },
+            { id: 'compromiso', label: 'Compromisos', icon: Handshake, color: 'text-emerald-400' }
           ].map((layer) => (
             <button
               key={layer.id}
               onClick={() => setActiveLayer(layer.id as any)}
               className={cn(
-                "p-2 rounded-lg transition-colors flex items-center justify-center relative group/btn",
+                "p-2 rounded-lg transition-colors flex items-center gap-2 relative group/btn",
                 activeLayer === layer.id ? "bg-white/10" : "hover:bg-white/5"
               )}
-              title={layer.id.toUpperCase()}
+              title={layer.label}
+              aria-label={`Filtrar por ${layer.label}`}
             >
               <layer.icon className={cn("w-4 h-4", layer.color)} />
-              {activeLayer === layer.id && (
-                <span className="absolute left-full ml-2 px-2 py-1 bg-black/90 text-white text-xs rounded whitespace-nowrap">
-                  {layer.id.toUpperCase()}
-                </span>
-              )}
+              <span className={cn(
+                "text-[10px] font-bold uppercase tracking-wider hidden sm:inline",
+                activeLayer === layer.id ? layer.color : "text-slate-500"
+              )}>
+                {layer.label}
+              </span>
             </button>
           ))}
         </div>
@@ -397,9 +470,29 @@ const SovereignMap = () => {
         <SovereignInput onSubmit={handleCreate} isSubmitting={isSubmitting} />
       </div>
       
-      {/* Mobile Input Trigger */}
-      <div className="absolute bottom-20 right-6 z-[400] md:hidden">
-         {/* Mobile input would be a modal trigger here, simplified for this step */}
+      {/* Mobile Input */}
+      <div className="md:hidden">
+        <AnimatePresence>
+          {showMobileInput && (
+            <motion.div
+              initial={{ opacity: 0, y: 100 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 100 }}
+              className="absolute bottom-0 left-0 right-0 z-[400] p-4"
+            >
+              <SovereignInput onSubmit={async (data) => { await handleCreate(data); setShowMobileInput(false); }} isSubmitting={isSubmitting} />
+            </motion.div>
+          )}
+        </AnimatePresence>
+        {!showMobileInput && (
+          <button
+            onClick={() => setShowMobileInput(true)}
+            className="absolute bottom-6 right-6 z-[400] w-14 h-14 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-xl shadow-blue-500/25 flex items-center justify-center"
+            aria-label="Declarar"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+        )}
       </div>
 
       {/* Overlay: Pulse Feed */}
@@ -421,12 +514,17 @@ const SovereignMap = () => {
                     "font-bold uppercase block mb-1",
                     item.type === 'dream' ? "text-blue-400" :
                     item.type === 'basta' ? "text-red-400" :
-                    item.type === 'value' ? "text-pink-400" : "text-amber-400"
+                    item.type === 'value' ? "text-pink-400" :
+                    item.type === 'compromiso' ? "text-emerald-400" : "text-amber-400"
                   )}>
-                    {item.type}
+                    {item.type === 'dream' ? 'Visión' :
+                     item.type === 'value' ? 'Valor' :
+                     item.type === 'need' ? 'Necesidad' :
+                     item.type === 'basta' ? '¡Basta!' :
+                     item.type === 'compromiso' ? 'Compromiso' : item.type}
                   </span>
                   <p className="text-slate-300 line-clamp-2 font-mono opacity-80">
-                    {item.dream || item.value || item.need || item.basta}
+                    {item.dream || item.value || item.need || item.basta || item.compromiso}
                   </p>
                 </motion.div>
               ))}

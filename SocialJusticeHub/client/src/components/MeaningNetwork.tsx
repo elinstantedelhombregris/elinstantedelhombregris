@@ -18,13 +18,14 @@ import {
 
 // ─── Constants ───
 
-const DREAM_TYPES: DreamType[] = ['dream', 'value', 'need', 'basta'];
+const DREAM_TYPES: DreamType[] = ['dream', 'value', 'need', 'basta', 'compromiso'];
 
 const TYPE_VERB: Record<DreamType, string> = {
   dream: 'soñamos',
   value: 'valoramos',
   need:  'necesitamos',
   basta: 'rechazamos',
+  compromiso: 'nos comprometemos con',
 };
 
 const ICON_MAP: Record<string, React.FC<{ className?: string }>> = {
@@ -133,7 +134,7 @@ const ConvergenceDots: React.FC<{ presentTypes: DreamType[] }> = ({ presentTypes
 
 const ThemeCardComponent: React.FC<{ card: ThemeCard; index: number }> = ({ card, index }) => {
   const IconComp = ICON_MAP[card.icon];
-  const is4 = card.convergenceCount === 4;
+  const isFullConvergence = card.convergenceCount === DREAM_TYPES.length;
 
   return (
     <motion.div
@@ -142,15 +143,15 @@ const ThemeCardComponent: React.FC<{ card: ThemeCard; index: number }> = ({ card
       viewport={{ once: true, margin: '-40px' }}
       transition={{ duration: 0.5, delay: index * 0.08 }}
       className={`relative rounded-2xl bg-white/5 backdrop-blur-sm border overflow-hidden ${
-        is4
+        isFullConvergence
           ? 'border-transparent'
           : 'border-white/10'
       }`}
       style={
-        is4
+        isFullConvergence
           ? {
               backgroundImage:
-                'linear-gradient(#0b0f1a, #0b0f1a), linear-gradient(135deg, #3b82f6, #ec4899, #f59e0b, #ef4444)',
+                'linear-gradient(#0b0f1a, #0b0f1a), linear-gradient(135deg, #3b82f6, #ec4899, #f59e0b, #ef4444, #10b981)',
               backgroundOrigin: 'border-box',
               backgroundClip: 'padding-box, border-box',
               border: '1.5px solid transparent',
@@ -178,7 +179,7 @@ const ThemeCardComponent: React.FC<{ card: ThemeCard; index: number }> = ({ card
               <span className="block text-[10px] uppercase tracking-wider mb-0.5" style={{ color: TYPE_COLORS[t] }}>
                 {TYPE_LABELS[t]}
               </span>
-              {card.quotes[t]![0]}
+              {card.quotes[t]?.[0]}
             </div>
           ))}
         </div>
@@ -339,7 +340,7 @@ const FlowDiagram: React.FC<{ links: StreamLink[]; cards: ThemeCard[] }> = ({ li
             </div>
             <span className="text-sm text-white font-medium">{card.label}</span>
             <span className="ml-auto text-xs text-slate-500 font-mono">
-              {card.convergenceCount}/4
+              {card.convergenceCount}/{DREAM_TYPES.length}
             </span>
           </div>
         ))}
@@ -353,18 +354,20 @@ const FlowDiagram: React.FC<{ links: StreamLink[]; cards: ThemeCard[] }> = ({ li
 const ConceptsCloud: React.FC<{ concepts: SharedConcept[] }> = ({ concepts }) => {
   if (concepts.length === 0) return null;
 
-  // Size / glow tiers based on typeCount (1-4)
+  // Size / glow tiers based on typeCount (1-5)
   const sizeMap: Record<number, string> = {
     1: 'text-xs',
     2: 'text-sm',
     3: 'text-base font-semibold',
     4: 'text-lg font-bold',
+    5: 'text-xl font-black',
   };
   const glowMap: Record<number, string> = {
     1: 'opacity-50',
-    2: 'opacity-70',
-    3: 'opacity-90',
-    4: 'opacity-100',
+    2: 'opacity-60',
+    3: 'opacity-70',
+    4: 'opacity-85',
+    5: 'opacity-100',
   };
 
   return (
@@ -380,11 +383,11 @@ const ConceptsCloud: React.FC<{ concepts: SharedConcept[] }> = ({ concepts }) =>
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: i * 0.03, type: 'spring', stiffness: 200 }}
-            className={`inline-flex flex-col items-center gap-1 px-3 py-2 rounded-xl border border-white/10 bg-white/5 ${glowMap[c.typeCount]} ${
-              c.typeCount === 4 ? 'ring-1 ring-purple-500/30' : ''
+            className={`inline-flex flex-col items-center gap-1 px-3 py-2 rounded-xl border border-white/10 bg-white/5 ${glowMap[c.typeCount] || 'opacity-100'} ${
+              c.typeCount === DREAM_TYPES.length ? 'ring-1 ring-purple-500/30' : ''
             }`}
             style={
-              c.typeCount === 4
+              c.typeCount === DREAM_TYPES.length
                 ? { animation: 'radiantPulse 3s ease-in-out infinite' }
                 : undefined
             }

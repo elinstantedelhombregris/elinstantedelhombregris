@@ -1,6 +1,6 @@
 import { drizzle } from 'drizzle-orm/better-sqlite3';
 import Database from 'better-sqlite3';
-import * as schema from '../shared/schema-sqlite';
+import * as schema from '../shared/schema';
 import { eq, and } from 'drizzle-orm';
 
 // Importar la función de generación de preguntas del seed

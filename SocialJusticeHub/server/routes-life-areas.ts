@@ -26,7 +26,7 @@ import {
   lifeAreaNotifications,
   lifeAreaSocialInteractions,
   users
-} from "@shared/schema-sqlite";
+} from "@shared/schema";
 import { eq, and, desc, sql, gte, lte } from "drizzle-orm";
 import { randomUUID } from 'crypto';
 
@@ -748,26 +748,118 @@ export function registerLifeAreasRoutes(app: Express) {
 
       if (existing.length > 0) continue;
 
-      // Verificar requisitos específicos según requirementData
-      let shouldAward = false;
-      if (requirementType === 'quiz_complete') {
-        // Verificar si completó el quiz del área
-        const quiz = await db.select()
-          .from(lifeAreaQuizzes)
-          .where(eq(lifeAreaQuizzes.lifeAreaId, areaId))
-          .limit(1);
+      // Parse requirementData JSON
+      let reqData: any = {};
+      try { reqData = badge.requirementData ? JSON.parse(badge.requirementData) : {}; } catch { /* ignore */ }
 
-        if (quiz.length > 0) {
-          const responses = await db.select()
+      let shouldAward = false;
+
+      if (requirementType === 'quiz_complete') {
+        if (reqData.areaCount) {
+          // Multi-area badge: user must have completed quizzes in N different areas
+          const completedAreas = await db.select({ areaId: lifeAreaQuizzes.lifeAreaId })
             .from(lifeAreaQuizResponses)
+            .innerJoin(lifeAreaQuizzes, eq(lifeAreaQuizResponses.quizId, lifeAreaQuizzes.id))
+            .where(eq(lifeAreaQuizResponses.userId, userId))
+            .groupBy(lifeAreaQuizzes.lifeAreaId);
+          shouldAward = completedAreas.length >= reqData.areaCount;
+        } else {
+          // Single area quiz completion
+          const quiz = await db.select()
+            .from(lifeAreaQuizzes)
+            .where(eq(lifeAreaQuizzes.lifeAreaId, areaId))
+            .limit(1);
+          if (quiz.length > 0) {
+            const responses = await db.select()
+              .from(lifeAreaQuizResponses)
+              .where(
+                and(
+                  eq(lifeAreaQuizResponses.userId, userId),
+                  eq(lifeAreaQuizResponses.quizId, quiz[0].id)
+                )
+              );
+            shouldAward = responses.length > 0;
+          }
+        }
+      } else if (requirementType === 'score_reach') {
+        const threshold = reqData.threshold || 70;
+        if (reqData.allAreas) {
+          // All 12 areas must reach threshold
+          const qualifyingAreas = await db.select({ cnt: sql<number>`COUNT(*)` })
+            .from(lifeAreaScores)
             .where(
               and(
-                eq(lifeAreaQuizResponses.userId, userId),
-                eq(lifeAreaQuizResponses.quizId, quiz[0].id)
+                eq(lifeAreaScores.userId, userId),
+                sql`${lifeAreaScores.subcategoryId} IS NULL`,
+                gte(lifeAreaScores.currentScore, threshold)
               )
             );
-
-          shouldAward = responses.length > 0;
+          shouldAward = (qualifyingAreas[0]?.cnt || 0) >= 12;
+        } else {
+          // Single area score threshold
+          const score = await db.select()
+            .from(lifeAreaScores)
+            .where(
+              and(
+                eq(lifeAreaScores.userId, userId),
+                eq(lifeAreaScores.lifeAreaId, areaId),
+                sql`${lifeAreaScores.subcategoryId} IS NULL`
+              )
+            )
+            .limit(1);
+          shouldAward = score.length > 0 && score[0].currentScore >= threshold;
+        }
+      } else if (requirementType === 'actions_complete') {
+        const required = reqData.count || 1;
+        const completedCount = await db.select({ cnt: sql<number>`COUNT(*)` })
+          .from(userLifeAreaProgress)
+          .where(
+            and(
+              eq(userLifeAreaProgress.userId, userId),
+              eq(userLifeAreaProgress.status, 'completed')
+            )
+          );
+        shouldAward = (completedCount[0]?.cnt || 0) >= required;
+      } else if (requirementType === 'streak') {
+        const requiredDays = reqData.days || 7;
+        const streak = await db.select()
+          .from(lifeAreaStreaks)
+          .where(
+            and(
+              eq(lifeAreaStreaks.userId, userId),
+              eq(lifeAreaStreaks.streakType, 'daily')
+            )
+          )
+          .limit(1);
+        if (streak.length > 0) {
+          const best = Math.max(streak[0].currentStreak || 0, streak[0].longestStreak || 0);
+          shouldAward = best >= requiredDays;
+        }
+      } else if (requirementType === 'mastery') {
+        const requiredPct = reqData.percentage || 25;
+        if (reqData.anyArea) {
+          const mastery = await db.select()
+            .from(lifeAreaMastery)
+            .where(
+              and(
+                eq(lifeAreaMastery.userId, userId),
+                gte(lifeAreaMastery.masteryPercentage, requiredPct)
+              )
+            )
+            .limit(1);
+          shouldAward = mastery.length > 0;
+        } else {
+          const mastery = await db.select()
+            .from(lifeAreaMastery)
+            .where(
+              and(
+                eq(lifeAreaMastery.userId, userId),
+                eq(lifeAreaMastery.lifeAreaId, areaId),
+                gte(lifeAreaMastery.masteryPercentage, requiredPct)
+              )
+            )
+            .limit(1);
+          shouldAward = mastery.length > 0;
         }
       }
 
@@ -1853,6 +1945,635 @@ export function registerLifeAreasRoutes(app: Express) {
     } catch (error) {
       console.error("Error fetching trends:", error);
       res.status(500).json({ message: "Error fetching trends" });
+    }
+  });
+
+  // ==================== QUIZ HISTORY ENDPOINT ====================
+
+  // GET /api/life-areas/:areaId/quiz/history - Historial de evaluaciones
+  app.get("/api/life-areas/:areaId(\\d+)/quiz/history", authenticateToken, async (req: AuthRequest, res) => {
+    try {
+      const areaId = parseInt(req.params.areaId);
+      if (isNaN(areaId) || areaId <= 0) {
+        return res.status(400).json({ message: "Invalid area ID" });
+      }
+      const userId = req.user!.userId;
+
+      const quiz = await db.select()
+        .from(lifeAreaQuizzes)
+        .where(eq(lifeAreaQuizzes.lifeAreaId, areaId))
+        .limit(1);
+
+      if (quiz.length === 0) {
+        return res.json({ sessions: [] });
+      }
+
+      const responses = await db.select({
+        id: lifeAreaQuizResponses.id,
+        questionId: lifeAreaQuizResponses.questionId,
+        currentValue: lifeAreaQuizResponses.currentValue,
+        desiredValue: lifeAreaQuizResponses.desiredValue,
+        answeredAt: lifeAreaQuizResponses.answeredAt,
+      })
+        .from(lifeAreaQuizResponses)
+        .where(
+          and(
+            eq(lifeAreaQuizResponses.userId, userId),
+            eq(lifeAreaQuizResponses.quizId, quiz[0].id)
+          )
+        )
+        .orderBy(desc(lifeAreaQuizResponses.answeredAt));
+
+      // Group responses by answeredAt date to identify sessions
+      const sessionMap = new Map<string, typeof responses>();
+      for (const r of responses) {
+        const dateKey = r.answeredAt ? r.answeredAt.split('T')[0] : 'unknown';
+        if (!sessionMap.has(dateKey)) sessionMap.set(dateKey, []);
+        sessionMap.get(dateKey)!.push(r);
+      }
+
+      // Get questions with subcategory info
+      const questions = await db.select({
+        id: lifeAreaQuizQuestions.id,
+        subcategoryId: lifeAreaQuizQuestions.subcategoryId,
+        category: lifeAreaQuizQuestions.category,
+      })
+        .from(lifeAreaQuizQuestions)
+        .where(eq(lifeAreaQuizQuestions.quizId, quiz[0].id));
+
+      const questionMap = new Map(questions.map(q => [q.id, q]));
+
+      const sessions = Array.from(sessionMap.entries()).map(([date, resps]) => {
+        const subcatScores: Record<number, { current?: number; desired?: number }> = {};
+        for (const r of resps) {
+          const q = questionMap.get(r.questionId!);
+          if (!q || !q.subcategoryId) continue;
+          if (!subcatScores[q.subcategoryId]) subcatScores[q.subcategoryId] = {};
+          if (q.category === 'current') subcatScores[q.subcategoryId].current = r.currentValue ?? undefined;
+          else if (q.category === 'desired') subcatScores[q.subcategoryId].desired = r.desiredValue ?? undefined;
+        }
+        const scores = Object.values(subcatScores);
+        const avgCurrent = scores.length > 0
+          ? Math.round(scores.reduce((s, v) => s + (v.current || 0), 0) / scores.length)
+          : 0;
+        return { date, subcatScores, avgCurrent, responseCount: resps.length };
+      });
+
+      res.json({ sessions });
+    } catch (error) {
+      console.error("Error fetching quiz history:", error);
+      res.status(500).json({ message: "Error fetching quiz history" });
+    }
+  });
+
+  // ==================== CHALLENGES ENDPOINTS ====================
+
+  // GET /api/life-areas/challenges - Listar challenges activos
+  app.get("/api/life-areas/challenges", authenticateToken, async (req: AuthRequest, res) => {
+    try {
+      const userId = req.user!.userId;
+      const challenges = await db.select()
+        .from(lifeAreaChallenges)
+        .where(eq(lifeAreaChallenges.isActive, true))
+        .orderBy(desc(lifeAreaChallenges.createdAt));
+
+      // Get user participation
+      const userChallenges = await db.select()
+        .from(userLifeAreaChallenges)
+        .where(eq(userLifeAreaChallenges.userId, userId));
+
+      const userChallengeMap = new Map(
+        userChallenges.map(uc => [uc.challengeId, uc])
+      );
+
+      const result = challenges.map(c => ({
+        ...c,
+        requirements: c.requirements ? JSON.parse(c.requirements) : null,
+        rewards: c.rewards ? JSON.parse(c.rewards) : null,
+        userStatus: userChallengeMap.get(c.id) || null,
+      }));
+
+      res.json(result);
+    } catch (error) {
+      console.error("Error fetching challenges:", error);
+      res.status(500).json({ message: "Error fetching challenges" });
+    }
+  });
+
+  // GET /api/life-areas/challenges/:id - Detalle de un challenge
+  app.get("/api/life-areas/challenges/:id(\\d+)", authenticateToken, async (req: AuthRequest, res) => {
+    try {
+      const challengeId = parseInt(req.params.id);
+      if (isNaN(challengeId) || challengeId <= 0) {
+        return res.status(400).json({ message: "Invalid challenge ID" });
+      }
+      const userId = req.user!.userId;
+
+      const challenge = await db.select()
+        .from(lifeAreaChallenges)
+        .where(eq(lifeAreaChallenges.id, challengeId))
+        .limit(1);
+
+      if (challenge.length === 0) {
+        return res.status(404).json({ message: "Challenge not found" });
+      }
+
+      const userChallenge = await db.select()
+        .from(userLifeAreaChallenges)
+        .where(
+          and(
+            eq(userLifeAreaChallenges.userId, userId),
+            eq(userLifeAreaChallenges.challengeId, challengeId)
+          )
+        )
+        .limit(1);
+
+      // Get participant count
+      const participants = await db.select({ cnt: sql<number>`COUNT(*)` })
+        .from(userLifeAreaChallenges)
+        .where(eq(userLifeAreaChallenges.challengeId, challengeId));
+
+      res.json({
+        ...challenge[0],
+        requirements: challenge[0].requirements ? JSON.parse(challenge[0].requirements) : null,
+        rewards: challenge[0].rewards ? JSON.parse(challenge[0].rewards) : null,
+        userStatus: userChallenge[0] || null,
+        participantCount: participants[0]?.cnt || 0,
+      });
+    } catch (error) {
+      console.error("Error fetching challenge:", error);
+      res.status(500).json({ message: "Error fetching challenge" });
+    }
+  });
+
+  // POST /api/life-areas/challenges/:id/join - Unirse a un challenge
+  app.post("/api/life-areas/challenges/:id(\\d+)/join", authenticateToken, async (req: AuthRequest, res) => {
+    try {
+      const challengeId = parseInt(req.params.id);
+      if (isNaN(challengeId) || challengeId <= 0) {
+        return res.status(400).json({ message: "Invalid challenge ID" });
+      }
+      const userId = req.user!.userId;
+
+      // Check challenge exists and is active
+      const challenge = await db.select()
+        .from(lifeAreaChallenges)
+        .where(and(eq(lifeAreaChallenges.id, challengeId), eq(lifeAreaChallenges.isActive, true)))
+        .limit(1);
+
+      if (challenge.length === 0) {
+        return res.status(404).json({ message: "Challenge not found or inactive" });
+      }
+
+      // Check if already joined
+      const existing = await db.select()
+        .from(userLifeAreaChallenges)
+        .where(
+          and(
+            eq(userLifeAreaChallenges.userId, userId),
+            eq(userLifeAreaChallenges.challengeId, challengeId)
+          )
+        )
+        .limit(1);
+
+      if (existing.length > 0) {
+        return res.status(400).json({ message: "Already joined this challenge" });
+      }
+
+      await db.insert(userLifeAreaChallenges).values({
+        userId,
+        challengeId,
+        status: 'joined',
+        progress: JSON.stringify({ current: 0, target: 1 }),
+      });
+
+      // Update participant count
+      await db.update(lifeAreaChallenges)
+        .set({ participantCount: sql`${lifeAreaChallenges.participantCount} + 1` })
+        .where(eq(lifeAreaChallenges.id, challengeId));
+
+      res.json({ message: "Joined challenge successfully" });
+    } catch (error) {
+      console.error("Error joining challenge:", error);
+      res.status(500).json({ message: "Error joining challenge" });
+    }
+  });
+
+  // PUT /api/life-areas/challenges/:id/progress - Actualizar progreso
+  app.put("/api/life-areas/challenges/:id(\\d+)/progress", authenticateToken, async (req: AuthRequest, res) => {
+    try {
+      const challengeId = parseInt(req.params.id);
+      if (isNaN(challengeId) || challengeId <= 0) {
+        return res.status(400).json({ message: "Invalid challenge ID" });
+      }
+      const userId = req.user!.userId;
+      const { progress } = req.body;
+
+      const userChallenge = await db.select()
+        .from(userLifeAreaChallenges)
+        .where(
+          and(
+            eq(userLifeAreaChallenges.userId, userId),
+            eq(userLifeAreaChallenges.challengeId, challengeId)
+          )
+        )
+        .limit(1);
+
+      if (userChallenge.length === 0) {
+        return res.status(404).json({ message: "Not joined this challenge" });
+      }
+
+      await db.update(userLifeAreaChallenges)
+        .set({
+          progress: JSON.stringify(progress),
+          status: 'in_progress',
+          updatedAt: new Date().toISOString(),
+        })
+        .where(eq(userLifeAreaChallenges.id, userChallenge[0].id));
+
+      res.json({ message: "Progress updated" });
+    } catch (error) {
+      console.error("Error updating challenge progress:", error);
+      res.status(500).json({ message: "Error updating challenge progress" });
+    }
+  });
+
+  // POST /api/life-areas/challenges/:id/complete - Completar challenge
+  app.post("/api/life-areas/challenges/:id(\\d+)/complete", authenticateToken, async (req: AuthRequest, res) => {
+    try {
+      const challengeId = parseInt(req.params.id);
+      if (isNaN(challengeId) || challengeId <= 0) {
+        return res.status(400).json({ message: "Invalid challenge ID" });
+      }
+      const userId = req.user!.userId;
+
+      const userChallenge = await db.select()
+        .from(userLifeAreaChallenges)
+        .where(
+          and(
+            eq(userLifeAreaChallenges.userId, userId),
+            eq(userLifeAreaChallenges.challengeId, challengeId)
+          )
+        )
+        .limit(1);
+
+      if (userChallenge.length === 0) {
+        return res.status(404).json({ message: "Not joined this challenge" });
+      }
+
+      if (userChallenge[0].status === 'completed') {
+        return res.status(400).json({ message: "Challenge already completed" });
+      }
+
+      // Get challenge rewards
+      const challenge = await db.select()
+        .from(lifeAreaChallenges)
+        .where(eq(lifeAreaChallenges.id, challengeId))
+        .limit(1);
+
+      if (challenge.length === 0) {
+        return res.status(404).json({ message: "Challenge not found" });
+      }
+
+      const rewards = challenge[0].rewards ? JSON.parse(challenge[0].rewards) : {};
+
+      await db.update(userLifeAreaChallenges)
+        .set({
+          status: 'completed',
+          completedAt: new Date().toISOString(),
+          rewardsClaimed: true,
+          updatedAt: new Date().toISOString(),
+        })
+        .where(eq(userLifeAreaChallenges.id, userChallenge[0].id));
+
+      // Award rewards
+      if (rewards.xp) {
+        // Award XP to first area or general (areaId=1 as fallback)
+        await awardXP(userId, rewards.areaId || 1, rewards.xp, 'challenge', challengeId);
+      }
+      if (rewards.seeds) {
+        await awardSeeds(userId, rewards.seeds);
+      }
+
+      // Create notification
+      await db.insert(lifeAreaNotifications).values({
+        userId,
+        type: 'challenge',
+        title: '¡Desafio completado!',
+        message: `Completaste el desafio: ${challenge[0].title}`,
+        actionUrl: `/life-areas/challenges`,
+      });
+
+      res.json({ message: "Challenge completed", rewards });
+    } catch (error) {
+      console.error("Error completing challenge:", error);
+      res.status(500).json({ message: "Error completing challenge" });
+    }
+  });
+
+  // ==================== REWARD CHESTS ENDPOINTS ====================
+
+  // GET /api/life-areas/chests - Cofres disponibles
+  app.get("/api/life-areas/chests", authenticateToken, async (req: AuthRequest, res) => {
+    try {
+      const userId = req.user!.userId;
+
+      const chests = await db.select()
+        .from(lifeAreaRewardChests)
+        .where(
+          and(
+            eq(lifeAreaRewardChests.userId, userId),
+            sql`${lifeAreaRewardChests.openedAt} IS NULL`
+          )
+        )
+        .orderBy(desc(lifeAreaRewardChests.createdAt));
+
+      // Check if daily chest should be granted
+      const today = new Date().toISOString().split('T')[0];
+      const todayChest = await db.select()
+        .from(lifeAreaRewardChests)
+        .where(
+          and(
+            eq(lifeAreaRewardChests.userId, userId),
+            eq(lifeAreaRewardChests.chestType, 'daily'),
+            sql`${lifeAreaRewardChests.createdAt}::date = ${today}::date`
+          )
+        )
+        .limit(1);
+
+      if (todayChest.length === 0) {
+        // Grant daily chest
+        const dailyChest = await db.insert(lifeAreaRewardChests).values({
+          userId,
+          chestType: 'daily',
+          rarity: 'common',
+          expiresAt: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(),
+        }).returning();
+
+        chests.unshift(dailyChest[0]);
+      }
+
+      // Also check opened chests (last 10)
+      const openedChests = await db.select()
+        .from(lifeAreaRewardChests)
+        .where(
+          and(
+            eq(lifeAreaRewardChests.userId, userId),
+            sql`${lifeAreaRewardChests.openedAt} IS NOT NULL`
+          )
+        )
+        .orderBy(desc(lifeAreaRewardChests.openedAt))
+        .limit(10);
+
+      res.json({
+        available: chests.map(c => ({
+          ...c,
+          rewards: c.rewards ? JSON.parse(c.rewards) : null,
+        })),
+        recent: openedChests.map(c => ({
+          ...c,
+          rewards: c.rewards ? JSON.parse(c.rewards) : null,
+        })),
+      });
+    } catch (error) {
+      console.error("Error fetching chests:", error);
+      res.status(500).json({ message: "Error fetching chests" });
+    }
+  });
+
+  // POST /api/life-areas/chests/:id/open - Abrir cofre
+  app.post("/api/life-areas/chests/:id(\\d+)/open", authenticateToken, async (req: AuthRequest, res) => {
+    try {
+      const chestId = parseInt(req.params.id);
+      if (isNaN(chestId) || chestId <= 0) {
+        return res.status(400).json({ message: "Invalid chest ID" });
+      }
+      const userId = req.user!.userId;
+
+      const chest = await db.select()
+        .from(lifeAreaRewardChests)
+        .where(
+          and(
+            eq(lifeAreaRewardChests.id, chestId),
+            eq(lifeAreaRewardChests.userId, userId),
+            sql`${lifeAreaRewardChests.openedAt} IS NULL`
+          )
+        )
+        .limit(1);
+
+      if (chest.length === 0) {
+        return res.status(404).json({ message: "Chest not found or already opened" });
+      }
+
+      // Generate random rewards based on rarity
+      const rarityMultiplier: Record<string, number> = {
+        common: 1, rare: 2, epic: 3, legendary: 5,
+      };
+      const mult = rarityMultiplier[chest[0].rarity || 'common'] || 1;
+      const xp = Math.round((10 + Math.random() * 40) * mult);
+      const seeds = Math.round((5 + Math.random() * 20) * mult);
+
+      const rewards = { xp, seeds };
+
+      await db.update(lifeAreaRewardChests)
+        .set({
+          openedAt: new Date().toISOString(),
+          rewards: JSON.stringify(rewards),
+        })
+        .where(eq(lifeAreaRewardChests.id, chestId));
+
+      // Award the rewards
+      await awardXP(userId, 1, xp, 'chest', chestId);
+      await awardSeeds(userId, seeds);
+
+      res.json({ rewards, rarity: chest[0].rarity });
+    } catch (error) {
+      console.error("Error opening chest:", error);
+      res.status(500).json({ message: "Error opening chest" });
+    }
+  });
+
+  // ==================== SOCIAL INTERACTION ENDPOINTS ====================
+
+  // GET /api/life-areas/social/feed - Feed de actividad social
+  app.get("/api/life-areas/social/feed", authenticateToken, async (req: AuthRequest, res) => {
+    try {
+      // Get recent shared milestones and social interactions
+      const recentMilestones = await db.select({
+        id: lifeAreaMilestones.id,
+        userId: lifeAreaMilestones.userId,
+        title: lifeAreaMilestones.title,
+        description: lifeAreaMilestones.description,
+        createdAt: lifeAreaMilestones.createdAt,
+        lifeAreaId: lifeAreaMilestones.lifeAreaId,
+        username: users.username,
+        name: users.name,
+      })
+        .from(lifeAreaMilestones)
+        .innerJoin(users, eq(lifeAreaMilestones.userId, users.id))
+        .where(sql`${lifeAreaMilestones.sharedAt} IS NOT NULL`)
+        .orderBy(desc(lifeAreaMilestones.createdAt))
+        .limit(20);
+
+      // Get interaction counts for each milestone
+      const feedItems = await Promise.all(
+        recentMilestones.map(async (m) => {
+          const likes = await db.select({ cnt: sql<number>`COUNT(*)` })
+            .from(lifeAreaSocialInteractions)
+            .where(
+              and(
+                eq(lifeAreaSocialInteractions.targetType, 'milestone'),
+                eq(lifeAreaSocialInteractions.targetId, m.id),
+                eq(lifeAreaSocialInteractions.interactionType, 'like')
+              )
+            );
+          const comments = await db.select({
+            id: lifeAreaSocialInteractions.id,
+            content: lifeAreaSocialInteractions.content,
+            createdAt: lifeAreaSocialInteractions.createdAt,
+            username: users.username,
+            name: users.name,
+          })
+            .from(lifeAreaSocialInteractions)
+            .innerJoin(users, eq(lifeAreaSocialInteractions.userId, users.id))
+            .where(
+              and(
+                eq(lifeAreaSocialInteractions.targetType, 'milestone'),
+                eq(lifeAreaSocialInteractions.targetId, m.id),
+                eq(lifeAreaSocialInteractions.interactionType, 'comment')
+              )
+            )
+            .orderBy(lifeAreaSocialInteractions.createdAt)
+            .limit(5);
+
+          return {
+            ...m,
+            likeCount: likes[0]?.cnt || 0,
+            comments,
+          };
+        })
+      );
+
+      res.json(feedItems);
+    } catch (error) {
+      console.error("Error fetching social feed:", error);
+      res.status(500).json({ message: "Error fetching social feed" });
+    }
+  });
+
+  // POST /api/life-areas/social/like - Like a milestone/accion
+  app.post("/api/life-areas/social/like", authenticateToken, async (req: AuthRequest, res) => {
+    try {
+      const userId = req.user!.userId;
+      const { targetType, targetId } = req.body;
+
+      if (!targetType || !targetId) {
+        return res.status(400).json({ message: "targetType and targetId required" });
+      }
+
+      // Check if already liked
+      const existing = await db.select()
+        .from(lifeAreaSocialInteractions)
+        .where(
+          and(
+            eq(lifeAreaSocialInteractions.userId, userId),
+            eq(lifeAreaSocialInteractions.targetType, targetType),
+            eq(lifeAreaSocialInteractions.targetId, targetId),
+            eq(lifeAreaSocialInteractions.interactionType, 'like')
+          )
+        )
+        .limit(1);
+
+      if (existing.length > 0) {
+        // Unlike
+        await db.delete(lifeAreaSocialInteractions)
+          .where(eq(lifeAreaSocialInteractions.id, existing[0].id));
+        return res.json({ liked: false });
+      }
+
+      // Find target owner for notification
+      let targetUserId: number | null = null;
+      if (targetType === 'milestone') {
+        const milestone = await db.select({ userId: lifeAreaMilestones.userId })
+          .from(lifeAreaMilestones)
+          .where(eq(lifeAreaMilestones.id, targetId))
+          .limit(1);
+        targetUserId = milestone[0]?.userId ?? null;
+      }
+
+      await db.insert(lifeAreaSocialInteractions).values({
+        userId,
+        targetUserId,
+        interactionType: 'like',
+        targetType,
+        targetId,
+      });
+
+      // Notify target user
+      if (targetUserId && targetUserId !== userId) {
+        await db.insert(lifeAreaNotifications).values({
+          userId: targetUserId,
+          type: 'social',
+          title: '¡Nuevo like!',
+          message: 'A alguien le gusto tu logro',
+          actionUrl: '/life-areas',
+        });
+      }
+
+      res.json({ liked: true });
+    } catch (error) {
+      console.error("Error toggling like:", error);
+      res.status(500).json({ message: "Error toggling like" });
+    }
+  });
+
+  // POST /api/life-areas/social/comment - Comentar en milestone
+  app.post("/api/life-areas/social/comment", authenticateToken, async (req: AuthRequest, res) => {
+    try {
+      const userId = req.user!.userId;
+      const { targetType, targetId, content } = req.body;
+
+      if (!targetType || !targetId || !content || typeof content !== 'string' || content.trim().length === 0) {
+        return res.status(400).json({ message: "targetType, targetId, and content required" });
+      }
+
+      // Sanitize content (max 500 chars)
+      const sanitizedContent = content.trim().slice(0, 500);
+
+      // Find target owner
+      let targetUserId: number | null = null;
+      if (targetType === 'milestone') {
+        const milestone = await db.select({ userId: lifeAreaMilestones.userId })
+          .from(lifeAreaMilestones)
+          .where(eq(lifeAreaMilestones.id, targetId))
+          .limit(1);
+        targetUserId = milestone[0]?.userId ?? null;
+      }
+
+      const comment = await db.insert(lifeAreaSocialInteractions).values({
+        userId,
+        targetUserId,
+        interactionType: 'comment',
+        targetType,
+        targetId,
+        content: sanitizedContent,
+      }).returning();
+
+      // Notify target user
+      if (targetUserId && targetUserId !== userId) {
+        await db.insert(lifeAreaNotifications).values({
+          userId: targetUserId,
+          type: 'social',
+          title: '¡Nuevo comentario!',
+          message: sanitizedContent.slice(0, 100),
+          actionUrl: '/life-areas',
+        });
+      }
+
+      res.json(comment[0]);
+    } catch (error) {
+      console.error("Error posting comment:", error);
+      res.status(500).json({ message: "Error posting comment" });
     }
   });
 }

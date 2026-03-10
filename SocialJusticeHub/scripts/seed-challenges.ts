@@ -1,6 +1,6 @@
-import { drizzle } from 'drizzle-orm/better-sqlite3';
-import Database from 'better-sqlite3';
-import * as schema from '@shared/schema-sqlite';
+// replaced
+import { db } from './db-neon';
+import * as schema from '@shared/schema';
 
 interface ChallengeData {
   level: number;
@@ -26,8 +26,8 @@ async function seedChallenges() {
   console.log('🌱 Iniciando seed de desafíos...');
 
   // Conectar a la base de datos
-  const sqlite = new Database('./local.db');
-  const db = drizzle(sqlite, { schema });
+  // removed sqlite
+  // using db from db-neon
 
   try {
     // Limpiar desafíos existentes
@@ -552,7 +552,7 @@ async function seedChallenges() {
     console.error('❌ Error durante el seed:', error);
     throw error;
   } finally {
-    sqlite.close();
+    console.log('Done.');
   }
 }
 

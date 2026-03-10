@@ -40,12 +40,23 @@ const QuizView = React.lazy(() => import("@/pages/QuizView"));
 const LifeAreasDashboard = React.lazy(() => import("@/pages/LifeAreasDashboard"));
 const LifeAreaQuiz = React.lazy(() => import("@/pages/LifeAreaQuiz"));
 const LifeAreaDetail = React.lazy(() => import("@/pages/LifeAreaDetail"));
+// LifeAreaResults removed — absorbed into quiz completion + detail page
+const Bienvenida = React.lazy(() => import("@/pages/Bienvenida"));
+const CivicAssessment = React.lazy(() => import("@/pages/CivicAssessment"));
+const InsightDashboard = React.lazy(() => import("@/pages/InsightDashboard"));
+const Goals = React.lazy(() => import("@/pages/Goals"));
+const WeeklyCheckin = React.lazy(() => import("@/pages/WeeklyCheckin"));
+const CoachingChat = React.lazy(() => import("@/pages/CoachingChat"));
 
 type User = {
   id: number;
   username: string;
   name: string;
   email: string;
+  location?: string | null;
+  emailVerified?: boolean;
+  onboardingCompleted?: boolean;
+  createdAt?: string | null;
 } | null;
 
 export type UserContextType = {
@@ -79,6 +90,7 @@ function Router() {
       <Route path="/recursos/guias-estudio/:courseSlug/quiz" component={QuizView} />
       <Route path="/login" component={Login} />
       <Route path="/register" component={Register} />
+      <Route path="/bienvenida" component={Bienvenida} />
       <Route path="/community" component={Community} />
       <Route path="/community/job/create" component={CreateJob} />
       <Route path="/community/project/create" component={CreateProject} />
@@ -90,15 +102,20 @@ function Router() {
       <Route path="/community/:id" component={InitiativeDetail} />
 
       {/* Nuevas rutas de usuario */}
-      <Route path="/dashboard" component={UserDashboard} />
+      <Route path="/dashboard" component={InsightDashboard} />
+      <Route path="/dashboard-legacy" component={UserDashboard} />
       <Route path="/profile" component={UserProfile} />
       <Route path="/challenges" component={Challenges} />
       <Route path="/challenges/:id" component={ChallengeDetail} />
+      <Route path="/evaluacion" component={CivicAssessment} />
+      <Route path="/metas" component={Goals} />
+      <Route path="/checkin-semanal" component={WeeklyCheckin} />
+      <Route path="/coaching" component={CoachingChat} />
 
       {/* Life Areas routes */}
       <Route path="/life-areas" component={LifeAreasDashboard} />
-      <Route path="/life-areas/:areaId" component={LifeAreaDetail} />
       <Route path="/life-areas/:areaId/quiz" component={LifeAreaQuiz} />
+      <Route path="/life-areas/:areaId" component={LifeAreaDetail} />
 
       <Route component={NotFound} />
     </Switch>

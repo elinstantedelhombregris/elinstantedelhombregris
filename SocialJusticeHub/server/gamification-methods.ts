@@ -7,7 +7,7 @@ import {
   badges,
   userBadges,
   userDailyActivity
-} from "@shared/schema-sqlite";
+} from "@shared/schema";
 
 export const gamificationMethods = {
   // User Levels

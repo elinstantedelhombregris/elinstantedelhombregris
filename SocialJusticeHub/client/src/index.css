@@ -4,34 +4,34 @@
 
 /* Marker Cluster Styles */
 .marker-cluster {
-  background-color: rgba(125, 91, 222, 0.12);
+  background-color: rgba(125, 91, 222, 0.25);
   border-radius: 9999px;
-  color: #2F3545;
+  color: #e2e8f0;
   font-weight: 600;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
   border: 2px solid rgba(100, 119, 192, 0.6);
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.4);
 }
 
 .marker-cluster-small {
   width: 40px;
   height: 40px;
-  background-color: rgba(100, 119, 192, 0.15);
+  background-color: rgba(100, 119, 192, 0.3);
 }
 
 .marker-cluster-medium {
   width: 52px;
   height: 52px;
-  background-color: rgba(100, 119, 192, 0.22);
+  background-color: rgba(100, 119, 192, 0.4);
 }
 
 .marker-cluster-large {
   width: 64px;
   height: 64px;
-  background-color: rgba(100, 119, 192, 0.28);
+  background-color: rgba(100, 119, 192, 0.5);
 }
 
 .marker-cluster div {
@@ -218,37 +218,13 @@
   z-index: 0 !important;
 }
 
-#argentina-map .leaflet-tile-container {
-  z-index: 0;
-}
-
-#argentina-map .leaflet-pane {
-  z-index: 0;
-}
-
-#argentina-map .leaflet-map-pane {
-  z-index: 0;
-}
-
 /* Sovereign Map Styles - Ensure map renders correctly */
 .leaflet-container {
   width: 100% !important;
   height: 100% !important;
   z-index: 0 !important;
   position: relative !important;
-  background-color: #1e293b !important;
-}
-
-.leaflet-container .leaflet-tile-container {
-  z-index: 0;
-}
-
-.leaflet-container .leaflet-pane {
-  z-index: 0;
-}
-
-.leaflet-container .leaflet-map-pane {
-  z-index: 0;
+  background-color: #0a0a0a !important;
 }
 
 /* Leaflet popup styling */
@@ -537,6 +513,30 @@
 @layer components {
   .page-bg-light {
     @apply bg-white text-slate-900;
+  }
+
+  .page-bg-light,
+  .theme-light {
+    /* Light-theme CSS variable overrides for shadcn components */
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 221 83% 53%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 261 65% 61%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 221 83% 53%;
   }
 
   .journey-landing {

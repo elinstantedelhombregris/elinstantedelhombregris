@@ -1,9 +1,6 @@
-import Database from 'better-sqlite3';
 import { db } from '../server/db';
-import { courses, courseLessons, courseQuizzes, quizQuestions, users, userLessonProgress, userCourseProgress } from '../shared/schema-sqlite';
+import { courses, courseLessons, courseQuizzes, quizQuestions, users, userLessonProgress, userCourseProgress } from '../shared/schema';
 import { eq, inArray } from 'drizzle-orm';
-
-const sqlite = new Database('local.db');
 
 async function main() {
   console.log('Seeding courses...');
@@ -11866,7 +11863,7 @@ Maquillada (M) | +5 / +1 (A captura)                | +2 / +2 (sobreprecio, sanc
 
 main().finally(() => {
   console.log('Closing database connection...');
-  sqlite.close();
+  console.log('Done.');
   console.log('Database connection closed.');
 });
 

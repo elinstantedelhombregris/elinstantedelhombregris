@@ -45,6 +45,7 @@ interface Course {
   id: number;
   title: string;
   slug: string;
+  requiresAuth?: boolean;
 }
 
 interface CourseProgress {
@@ -499,7 +500,8 @@ const LessonView = () => {
                     {lessons.map((lesson, index) => {
                       const lessonCompleted = completedLessons.includes(lesson.id);
                       const lessonCurrent = lesson.id === currentLesson.id;
-                      const lessonLocked = !userContext?.isLoggedIn || 
+                      const requiresLogin = course.requiresAuth !== false;
+                      const lessonLocked = (requiresLogin && !userContext?.isLoggedIn) ||
                         (index > 0 && !completedLessons.includes(lessons[index - 1]?.id) && lessons[index - 1]?.isRequired);
 
                       return (
@@ -510,9 +512,13 @@ const LessonView = () => {
                           <div
                             className={cn(
                               "p-3 rounded-2xl border cursor-pointer transition-all",
-                              lessonCurrent && "border-blue-500 bg-blue-50",
-                              lessonCompleted && !lessonCurrent && "border-emerald-300 bg-emerald-50",
-                              lessonLocked ? "opacity-50 cursor-not-allowed border-slate-200 bg-slate-50" : "border-slate-200 hover:border-slate-300 hover:bg-slate-50"
+                              lessonLocked
+                                ? "opacity-50 cursor-not-allowed border-slate-200 bg-slate-50"
+                                : lessonCurrent
+                                  ? "border-blue-500 bg-blue-50"
+                                  : lessonCompleted
+                                    ? "border-emerald-300 bg-emerald-50"
+                                    : "border-slate-200 hover:border-slate-300 hover:bg-slate-50"
                             )}
                           >
                             <div className="flex items-center gap-2">

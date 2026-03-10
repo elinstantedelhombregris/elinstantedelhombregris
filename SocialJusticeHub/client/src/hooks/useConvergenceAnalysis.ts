@@ -4,7 +4,7 @@ import { Dream } from '@shared/schema';
 
 // --- Reuse patterns from useMapPulseAnalysis / useWordCloudAnalysis ---
 
-const STOP_WORDS = new Set([
+export const STOP_WORDS = new Set([
   'el', 'la', 'los', 'las', 'un', 'una', 'unos', 'unas',
   'de', 'que', 'y', 'a', 'en', 'ser', 'se', 'no', 'haber',
   'por', 'con', 'su', 'para', 'como', 'estar', 'tener', 'le',
@@ -26,7 +26,7 @@ const STOP_WORDS = new Set([
   'tras', 'sin',
 ]);
 
-const normalizeWord = (word: string): string =>
+export const normalizeWord = (word: string): string =>
   word
     .toLowerCase()
     .normalize('NFD')
@@ -34,7 +34,7 @@ const normalizeWord = (word: string): string =>
     .replace(/[.,;:¡!¿?()[\]{}«»""'/\\-]/g, '')
     .trim();
 
-const extractWords = (text: string | null): string[] => {
+export const extractWords = (text: string | null): string[] => {
   if (!text) return [];
   return text
     .split(/\s+/)
@@ -55,7 +55,7 @@ export type ThemeKey =
   | 'community'
   | 'future';
 
-export type DreamType = 'dream' | 'value' | 'need' | 'basta';
+export type DreamType = 'dream' | 'value' | 'need' | 'basta' | 'compromiso';
 
 export const THEME_KEYWORDS: Record<ThemeKey, string[]> = {
   systemic: [
@@ -121,6 +121,7 @@ export const TYPE_COLORS: Record<DreamType, string> = {
   value: '#ec4899',
   need:  '#f59e0b',
   basta: '#ef4444',
+  compromiso: '#10b981',
 };
 
 export const TYPE_LABELS: Record<DreamType, string> = {
@@ -128,9 +129,10 @@ export const TYPE_LABELS: Record<DreamType, string> = {
   value: 'Valores',
   need:  'Necesidades',
   basta: '¡BASTA!',
+  compromiso: 'Compromisos',
 };
 
-const DREAM_TYPES: DreamType[] = ['dream', 'value', 'need', 'basta'];
+const DREAM_TYPES: DreamType[] = ['dream', 'value', 'need', 'basta', 'compromiso'];
 
 // --- Interfaces ---
 
@@ -181,8 +183,33 @@ export const useConvergenceAnalysis = (): ConvergenceData => {
     staleTime: 30000,
   });
 
+  const { data: commitmentsResponse } = useQuery({
+    queryKey: ['/api/commitments'],
+    queryFn: async () => {
+      const res = await fetch('/api/commitments?limit=100');
+      if (!res.ok) return { data: { commitments: [] } };
+      return res.json();
+    },
+    staleTime: 30000,
+  });
+
+  const allEntries = useMemo(() => {
+    const commitments = commitmentsResponse?.data?.commitments || [];
+    const mappedCompromisos = commitments.map((c: any) => ({
+      id: c.id + 1_000_000,
+      type: 'compromiso' as const,
+      compromiso: c.commitmentText,
+      dream: null, value: null, need: null, basta: null,
+      location: [c.city, c.province].filter(Boolean).join(', ') || null,
+      latitude: c.latitude?.toString() || null,
+      longitude: c.longitude?.toString() || null,
+      createdAt: c.createdAt,
+    }));
+    return [...dreams, ...mappedCompromisos];
+  }, [dreams, commitmentsResponse]);
+
   return useMemo(() => {
-    if (!dreams.length) {
+    if (!allEntries.length) {
       return {
         convergencePercentage: 0,
         sharedThemeCount: 0,
@@ -205,15 +232,15 @@ export const useConvergenceAnalysis = (): ConvergenceData => {
 
     const themeKeys = Object.keys(THEME_KEYWORDS) as ThemeKey[];
     for (const tk of themeKeys) {
-      themePresence[tk] = { dream: new Set(), value: new Set(), need: new Set(), basta: new Set() };
-      themeQuotes[tk] = { dream: [], value: [], need: [], basta: [] };
-      themeHits[tk] = { dream: 0, value: 0, need: 0, basta: 0 };
+      themePresence[tk] = { dream: new Set(), value: new Set(), need: new Set(), basta: new Set(), compromiso: new Set() };
+      themeQuotes[tk] = { dream: [], value: [], need: [], basta: [], compromiso: [] };
+      themeHits[tk] = { dream: 0, value: 0, need: 0, basta: 0, compromiso: 0 };
     }
 
     // word-level cross-type tracking
     const wordByType: Record<string, Record<DreamType, number>> = {};
 
-    dreams.forEach((entry, idx) => {
+    allEntries.forEach((entry: any, idx: number) => {
       for (const type of DREAM_TYPES) {
         const text = entry[type] as string | null;
         if (!text) continue;
@@ -223,7 +250,7 @@ export const useConvergenceAnalysis = (): ConvergenceData => {
 
         for (const w of words) {
           // track word-level stats
-          if (!wordByType[w]) wordByType[w] = { dream: 0, value: 0, need: 0, basta: 0 };
+          if (!wordByType[w]) wordByType[w] = { dream: 0, value: 0, need: 0, basta: 0, compromiso: 0 };
           wordByType[w][type]++;
 
           // classify into themes
@@ -315,8 +342,8 @@ export const useConvergenceAnalysis = (): ConvergenceData => {
       themeCards: sortedCards,
       sharedConcepts,
       streamLinks,
-      totalContributions: dreams.length,
+      totalContributions: allEntries.length,
       isLoading,
     };
-  }, [dreams, isLoading]);
+  }, [allEntries, isLoading]);
 };

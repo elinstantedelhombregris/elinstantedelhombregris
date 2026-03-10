@@ -29,8 +29,13 @@ export default defineConfig({
       "wouter",
       "use-sync-external-store",
       "use-sync-external-store/shim",
+      "recharts",
+      "sigma",
+      "sigma/settings",
+      "sigma/types",
+      "graphology",
+      "graphology-layout-forceatlas2",
     ],
-    force: true, // Force re-optimization
   },
   root: path.resolve(import.meta.dirname, "client"),
   build: {
@@ -42,10 +47,12 @@ export default defineConfig({
     },
   },
   server: {
+    host: true,
     port: 5173,
+    allowedHosts: true,
     proxy: {
       '/api': {
-        target: process.env.VITE_API_PROXY_TARGET || 'http://localhost:5000',
+        target: process.env.VITE_API_PROXY_TARGET || 'http://localhost:3001',
         changeOrigin: true,
         secure: false,
       },

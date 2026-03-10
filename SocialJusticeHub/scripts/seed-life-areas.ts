@@ -1,6 +1,6 @@
-import { drizzle } from 'drizzle-orm/better-sqlite3';
-import Database from 'better-sqlite3';
-import * as schema from '../shared/schema-sqlite';
+// replaced
+import { db } from './db-neon';
+import * as schema from '../shared/schema';
 
 // Definición de las 12 áreas de vida con sus subcategorías
 const lifeAreasData = [
@@ -575,8 +575,8 @@ const actionsByArea: Record<string, Array<{
 async function seedLifeAreas() {
   console.log('🌱 Iniciando seed de áreas de vida...');
 
-  const sqlite = new Database('./local.db');
-  const db = drizzle(sqlite, { schema });
+  // removed sqlite
+  // using db from db-neon
 
   try {
     // Limpiar datos existentes (opcional, comentar si no se desea)
@@ -681,7 +681,7 @@ async function seedLifeAreas() {
     console.error('❌ Error en el seed:', error);
     throw error;
   } finally {
-    sqlite.close();
+    console.log('Done.');
   }
 }
 

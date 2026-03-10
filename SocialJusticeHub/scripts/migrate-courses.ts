@@ -1,5 +1,5 @@
 import Database from 'better-sqlite3';
-import * as schema from '../shared/schema-sqlite';
+import * as schema from '../shared/schema';
 
 const sqlite = new Database('local.db');
 

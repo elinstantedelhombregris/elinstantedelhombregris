@@ -5,7 +5,7 @@ import { useEffect, useState, useMemo, useRef, useCallback } from 'react';
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
-import { Calendar, Clock, Play, FileText, User, Search, X, Loader2, ArrowUpRight, Sparkles } from 'lucide-react';
+import { Calendar, Clock, Play, FileText, User, Search, X, Loader2, ArrowUpRight, Sparkles, Video } from 'lucide-react';
 // Animation handled by SmoothReveal component
 import { Link, useLocation } from 'wouter';
 import LikeButton from '@/components/LikeButton';
@@ -332,7 +332,7 @@ const BlogVlog = () => {
   );
 
   return (
-    <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
+    <div className="min-h-screen bg-slate-50 font-sans text-slate-900 theme-light">
       <FluidBackground className="opacity-30" />
       <Header />
 
@@ -426,40 +426,62 @@ const BlogVlog = () => {
                 </GlassCard>
             </div>
 
-            {/* Featured Post */}
-            {!loading && featuredPost && !searchQuery && page === 1 && (
-                <SmoothReveal className="mb-12">
-                    <FeaturedCard post={featuredPost} />
+            {activeTab === 'vlog' ? (
+                /* Vlog Coming Soon */
+                <SmoothReveal direction="up" className="mb-12">
+                    <div className="max-w-2xl mx-auto text-center py-24">
+                        <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-purple-100 to-blue-100 mb-8">
+                            <Video className="w-12 h-12 text-purple-600" />
+                        </div>
+                        <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-900 mb-6">
+                            Próximamente
+                        </h2>
+                        <p className="text-xl text-slate-600 leading-relaxed mb-4">
+                            Estamos preparando los primeros videos del movimiento.
+                        </p>
+                        <p className="text-lg text-slate-500">
+                            Muy pronto compartiremos contenido audiovisual para acompañar el despertar colectivo.
+                        </p>
+                    </div>
                 </SmoothReveal>
-            )}
-
-            {/* Main Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-                {loading && posts.length === 0 ? (
-                    [...Array(6)].map((_, i) => (
-                        <div key={i} className="h-96 bg-slate-200 rounded-3xl animate-pulse" />
-                    ))
-                ) : (
-                    gridPosts.map((post, index) => (
-                        <SmoothReveal key={post.id} delay={index * 0.05}>
-                            <GridCard post={post} index={index} />
+            ) : (
+                <>
+                    {/* Featured Post */}
+                    {!loading && featuredPost && !searchQuery && page === 1 && (
+                        <SmoothReveal className="mb-12">
+                            <FeaturedCard post={featuredPost} />
                         </SmoothReveal>
-                    ))
-                )}
-            </div>
+                    )}
 
-            {/* Infinite Scroll Loader */}
-            <div ref={loadMoreRef} className="h-20 flex items-center justify-center">
-                {isLoadingMore && <Loader2 className="w-8 h-8 animate-spin text-slate-400" />}
-            </div>
+                    {/* Main Grid */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                        {loading && posts.length === 0 ? (
+                            [...Array(6)].map((_, i) => (
+                                <div key={i} className="h-96 bg-slate-200 rounded-3xl animate-pulse" />
+                            ))
+                        ) : (
+                            gridPosts.map((post, index) => (
+                                <SmoothReveal key={post.id} delay={index * 0.05}>
+                                    <GridCard post={post} index={index} />
+                                </SmoothReveal>
+                            ))
+                        )}
+                    </div>
 
-            {!loading && posts.length === 0 && (
-                <div className="text-center py-20">
-                    <p className="text-slate-500 text-lg">No se encontraron publicaciones.</p>
-                    <Button variant="link" onClick={() => { setSearchQuery(''); setSelectedCategory('all'); }}>
-                        Limpiar filtros
-                    </Button>
-                </div>
+                    {/* Infinite Scroll Loader */}
+                    <div ref={loadMoreRef} className="h-20 flex items-center justify-center">
+                        {isLoadingMore && <Loader2 className="w-8 h-8 animate-spin text-slate-400" />}
+                    </div>
+
+                    {!loading && posts.length === 0 && (
+                        <div className="text-center py-20">
+                            <p className="text-slate-500 text-lg">No se encontraron publicaciones.</p>
+                            <Button variant="link" onClick={() => { setSearchQuery(''); setSelectedCategory('all'); }}>
+                                Limpiar filtros
+                            </Button>
+                        </div>
+                    )}
+                </>
             )}
 
       </main>

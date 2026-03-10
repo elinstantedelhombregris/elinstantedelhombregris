@@ -17,6 +17,7 @@ export const useLessonTracker = ({
   const [timeSpent, setTimeSpent] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const startTimeRef = useRef<Date | null>(null);
+  const timeSpentRef = useRef(0);
 
   const updateTimeMutation = useMutation({
     mutationFn: async (seconds: number) => {
@@ -48,6 +49,7 @@ export const useLessonTracker = ({
           (new Date().getTime() - startTimeRef.current.getTime()) / 1000
         );
         setTimeSpent(elapsed);
+        timeSpentRef.current = elapsed;
 
         // Update every 30 seconds
         if (elapsed % 30 === 0 && elapsed > 0) {
@@ -66,11 +68,19 @@ export const useLessonTracker = ({
   // Save time when component unmounts
   useEffect(() => {
     return () => {
-      if (timeSpent > 0 && courseId && lessonId) {
-        updateTimeMutation.mutate(timeSpent);
+      if (timeSpentRef.current > 0 && courseId && lessonId) {
+        // Use sendBeacon for reliable delivery on page unload
+        const token = localStorage.getItem('authToken');
+        navigator.sendBeacon(
+          `/api/courses/${courseId}/lessons/${lessonId}/track-time`,
+          new Blob(
+            [JSON.stringify({ timeSpent: timeSpentRef.current })],
+            { type: 'application/json' }
+          )
+        );
       }
     };
-  }, []);
+  }, [courseId, lessonId]);
 
   return {
     timeSpent,

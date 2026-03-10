@@ -83,7 +83,7 @@ const CreateJob = () => {
     },
     onSuccess: () => {
       // Actualizar cache de consulta
-      queryClient.invalidateQueries({ queryKey: ['/api/community'] });
+      queryClient.invalidateQueries({ queryKey: ['community-posts'] });
       
       // Mostrar mensaje de éxito
       toast({

@@ -2,38 +2,31 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { useContext, useEffect, useState, useRef } from 'react';
-import { Link, useLocation } from 'wouter';
+import { useLocation } from 'wouter';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import {
   Heart,
   Users,
-  ArrowRight,
-  Quote,
   Target,
   Eye,
   Brain,
-  Crown,
-  Star,
   Shield,
   Lightbulb,
   CheckCircle,
   TreePine,
   Globe,
-  BookOpen,
   Sprout,
   Droplets,
   Sunrise,
   HandHeart,
-  Leaf,
-  Wind,
-  Sun
+  Sun,
+  Flame
 } from 'lucide-react';
 import ShockStats from '@/components/ShockStats';
 import PowerCTA from '@/components/PowerCTA';
 import CommitmentModal from '@/components/CommitmentModal';
 import NextStepCard from '@/components/NextStepCard';
-import SemilleroTerritoryMap from '@/components/SemilleroTerritoryMap';
 import { apiRequest } from '@/lib/queryClient';
 import { useToast } from '@/hooks/use-toast';
 import { UserContext } from '@/App';
@@ -86,12 +79,6 @@ const emptySemilleroData: SemilleroData = {
   }
 };
 
-const commitmentTypeLabels: Record<string, string> = {
-  initial: 'Despertar',
-  intermediate: 'Crecimiento',
-  public: 'Acción pública'
-};
-
 const actionTypeLabels: Record<string, string> = {
   community: 'Participar en mi comunidad local',
   education: 'Educar a otros sobre temas importantes',
@@ -100,39 +87,6 @@ const actionTypeLabels: Record<string, string> = {
   environment: 'Cuidar el medio ambiente',
   transparency: 'Promover transparencia y honestidad',
   other: 'Otra acción específica'
-};
-
-const buildAlias = (name?: string, username?: string) => {
-  if (name?.trim()) {
-    const words = name.trim().split(/\s+/);
-    if (words.length === 1) return words[0];
-    return `${words[0]} ${words[1].charAt(0).toUpperCase()}.`;
-  }
-
-  if (username?.trim()) {
-    return `@${username}`;
-  }
-
-  return 'Sembrador/a';
-};
-
-const getCommitmentSnippet = (text?: string) => {
-  if (!text) return 'Semilla en crecimiento...';
-  const firstLine = text.split('\n').find((line) => line.trim().length > 0) ?? text;
-  const cleaned = firstLine.replace(/^Compromiso(?:\s+personal)?\s*:\s*/i, '').trim();
-  return cleaned.length > 170 ? `${cleaned.slice(0, 167)}...` : cleaned;
-};
-
-const formatCommitmentDate = (date?: string | null) => {
-  if (!date) return 'Sin fecha';
-  const parsed = new Date(date);
-  if (Number.isNaN(parsed.getTime())) return 'Fecha no disponible';
-  return parsed.toLocaleString('es-AR', {
-    day: '2-digit',
-    month: 'short',
-    hour: '2-digit',
-    minute: '2-digit'
-  });
 };
 
 const getBrowserCoordinates = async (): Promise<{ latitude: number; longitude: number } | null> => {
@@ -185,7 +139,7 @@ const LaSemillaDeBasta = () => {
 
   const rootPathLength = useTransform(scrollYProgress, [0, 0.8], [0, 1]);
 
-  const { data: semilleroData = emptySemilleroData, isLoading: semilleroLoading } = useQuery({
+  const { data: semilleroData = emptySemilleroData } = useQuery({
     queryKey: semilleroQueryKey,
     queryFn: async (): Promise<SemilleroData> => {
       try {
@@ -200,14 +154,6 @@ const LaSemillaDeBasta = () => {
       }
     },
   });
-
-  const commitmentStatsByType = semilleroData.stats.byType.reduce<Record<string, number>>((acc, row) => {
-    acc[row.type] = row.total;
-    return acc;
-  }, {});
-
-  const semillaGoal = Math.max(100, Math.ceil((semilleroData.stats.total + 25) / 50) * 50);
-  const visibleSemilleroCommitments = semilleroData.commitments.slice(0, 24);
 
   const handleCommitment = async (commitmentData: CommitmentSubmission) => {
     const personalCommitment = commitmentData.data.personalCommitment.trim();
@@ -313,7 +259,7 @@ const LaSemillaDeBasta = () => {
       trend: 'up' as const,
       color: 'blue' as const,
       icon: <Droplets className="w-6 h-6" />,
-      description: 'Relaciones cuidadas para evitar “sangre en las calles”'
+      description: 'Relaciones cuidadas para evitar "sangre en las calles"'
     },
     {
       id: 'comunidades',
@@ -339,14 +285,14 @@ const LaSemillaDeBasta = () => {
         "Nombrar las crisis personales sin negarlas",
         "Practicar autoobservación y silencio",
         "Registrar qué produce hastío",
-        "Identificar el instante antes del “basta”"
+        'Identificar el instante antes del "basta"'
       ]
     },
     {
       step: 2,
       title: "Sembrar Hábitos",
       subtitle: "Acciones pequeñas, lluvias constantes",
-      description: "“El árbol seco sabrá de una era de nueva lluvia.” Cada hábito noble es una gota que despierta la semilla. Definimos prácticas diarias que nos conecten con propósito y servicio.",
+      description: '"El árbol seco sabrá de una era de nueva lluvia." Cada hábito noble es una gota que despierta la semilla. Definimos prácticas diarias que nos conecten con propósito y servicio.',
       icon: <Droplets className="w-12 h-12" />,
       gradient: "from-blue-600/80 to-cyan-600/80",
       details: [
@@ -374,39 +320,89 @@ const LaSemillaDeBasta = () => {
       step: 4,
       title: "Multiplicar la Cosecha",
       subtitle: "Del individuo al país ejemplo",
-      description: "“Argentina sufrirá la tormenta en pequeña, la que luego azotará al mundo. ¡Será ejemplo!” Cuando nuestra semilla madura inspira a otros, comenzamos a rediseñar el sistema.",
+      description: '"Argentina sufrirá la tormenta en pequeña, la que luego azotará al mundo. ¡Será ejemplo!" Cuando nuestra semilla madura inspira a otros, comenzamos a rediseñar el sistema.',
       icon: <Sun className="w-12 h-12" />,
       gradient: "from-yellow-500/80 to-orange-500/80",
       details: [
         "Compartir aprendizajes en la Tribu",
         "Crear proyectos colectivos",
         "Mentorear a nuevos despiertos",
-        "Ser la “Argentina samaritana”"
+        'Ser la "Argentina samaritana"'
       ]
     }
   ];
 
-  const timelineEvents = [
+  const momentosBasta = [
     {
-      year: "1937",
-      title: "Plazas despiertas",
-      description: "“Momento llega a las plazas de B.A...” anunció la movilización popular.",
-      quote: "Convoca tu semillero en la plaza más cercana.",
-      action: "Organiza asambleas barriales conscientes."
+      titulo: "La Factura",
+      escena: "Mirás el ticket del supermercado. Los números suben, tu salario no. Pero esta vez no suspirás — esta vez VES. Ves el sistema detrás del precio. Ves las decisiones que nadie te consultó. Ves la cadena de incompetencia y cinismo que llega hasta tu mesa.",
+      pregunta: "¿Cuántas facturas más vas a pagar en silencio?",
+      icon: <Target className="w-8 h-8" />,
+      gradient: "from-red-600/80 to-orange-600/80"
     },
     {
-      year: "1938",
-      title: "Nuevo sol, nueva lluvia",
-      description: "“El árbol seco sabrá de una era de nueva lluvia.” La crisis es preámbulo del renacimiento.",
-      quote: "Registra tu compromiso para ser esa lluvia.",
-      action: "Documenta tus hábitos y súbelos a La Semilla."
+      titulo: "El Espejo",
+      escena: "Tu hijo te pregunta por qué hay gente durmiendo en la calle. Te mirás adentro buscando una respuesta digna y no la encontrás. Porque no existe una respuesta digna para la indignidad normalizada. En ese silencio, algo se rompe.",
+      pregunta: "¿Qué Argentina vas a dejarle a quien viene después?",
+      icon: <Eye className="w-8 h-8" />,
+      gradient: "from-blue-600/80 to-indigo-600/80"
     },
     {
-      year: "1941 / 1971",
-      title: "Revolución interna",
-      description: "“Puede ver sangre en las calles si no ve el instante.” Reconocer el momento es tarea ciudadana.",
-      quote: "Cada conversación evita violencia.",
-      action: "Acompaña a otra persona a despertar."
+      titulo: "La Noticia",
+      escena: "Otro escándalo. Otro funcionario. Otra promesa rota. Siempre cambiabas de canal. Pero hoy no cambiás de canal — cambiás de actitud. No es bronca. No es resignación. Es algo más peligroso para el sistema: es claridad.",
+      pregunta: "¿Y si el problema no es 'ellos' sino que vos todavía no actuaste?",
+      icon: <Lightbulb className="w-8 h-8" />,
+      gradient: "from-amber-600/80 to-yellow-600/80"
+    },
+    {
+      titulo: "El Silencio",
+      escena: "Son las 3 de la mañana. El pensamiento llega sin invitación: 'Este no es el país que merecemos.' No es nuevo ese pensamiento. Lo que es nuevo es que esta vez no te das vuelta y volvés a dormir. Esta vez te levantás.",
+      pregunta: "¿Qué estás esperando que no sea tu propia decisión?",
+      icon: <Brain className="w-8 h-8" />,
+      gradient: "from-purple-600/80 to-violet-600/80"
+    }
+  ];
+
+  const propagacion = [
+    {
+      nivel: "01",
+      titulo: "Vos",
+      subtitulo: "Una decisión irreversible",
+      descripcion: "Todo empieza con una persona que se rehúsa a seguir durmiendo. No necesitás un título, un partido, ni permiso. Necesitás una convicción que no se negocia.",
+      alcance: "1 persona",
+      icon: <Sprout className="w-6 h-6" />
+    },
+    {
+      nivel: "02",
+      titulo: "Tu Casa",
+      subtitulo: "El cambio se siente antes de explicarse",
+      descripcion: "Cuando actuás distinto, tu familia lo nota. No hace falta dar discursos — tu ejemplo habla. Los hábitos nuevos son contagiosos cuando son genuinos.",
+      alcance: "5–10 personas",
+      icon: <Heart className="w-6 h-6" />
+    },
+    {
+      nivel: "03",
+      titulo: "Tu Barrio",
+      subtitulo: "Las preguntas correctas son virales",
+      descripcion: "Un vecino que actúa diferente genera curiosidad. Curiosidad genera conversación. Conversación genera conciencia. Conciencia genera acción.",
+      alcance: "50–200 personas",
+      icon: <Users className="w-6 h-6" />
+    },
+    {
+      nivel: "04",
+      titulo: "Tu Ciudad",
+      subtitulo: "El movimiento se vuelve innegable",
+      descripcion: "Miles de semillas despiertas transforman barrios en comunidades vivas. Los sistemas obsoletos no se derrumban — se vuelven irrelevantes cuando los nuevos funcionan mejor.",
+      alcance: "Miles",
+      icon: <Globe className="w-6 h-6" />
+    },
+    {
+      nivel: "05",
+      titulo: "Tu País",
+      subtitulo: "Argentina samaritana — el destino profetizado",
+      descripcion: "No se trata de reformar lo viejo. Se trata de crear lo nuevo con tal fuerza que lo viejo quede obsoleto. Argentina no será ejemplo por decreto — será ejemplo por contagio.",
+      alcance: "46 millones",
+      icon: <Sun className="w-6 h-6" />
     }
   ];
 
@@ -489,7 +485,7 @@ const LaSemillaDeBasta = () => {
               </h1>
 
               <p className="text-xl md:text-2xl text-emerald-100/60 max-w-3xl mx-auto mb-12 leading-relaxed font-light">
-                “El árbol seco de la Argentina sabrá de una era de nueva lluvia.” <br />
+                "El árbol seco de la Argentina sabrá de una era de nueva lluvia." <br />
                 Hoy sembramos los hábitos que impedirán que la tormenta termine en violencia.
               </p>
 
@@ -534,135 +530,80 @@ const LaSemillaDeBasta = () => {
           </div>
         </section>
 
-        {/* Semillero Vivo */}
-        <section className="section-spacing bg-gradient-to-b from-[#050a05] via-[#071208] to-[#050a05] border-y border-emerald-900/30">
+        {/* El Momento ¡BASTA! */}
+        <section className="section-spacing bg-gradient-to-b from-[#050a05] via-[#0a0808] to-[#050a05] border-y border-red-900/20">
           <div className="container-content">
-            <div className="max-w-6xl mx-auto">
-              <div className="text-center mb-14">
-                <h2 className="heading-section mb-4">
-                  Semillero <span className="text-emerald-400">Vivo</span>
+            <div className="max-w-5xl mx-auto">
+              <div className="text-center mb-16">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-900/20 border border-red-500/20 text-red-400 text-sm font-mono mb-6 tracking-widest uppercase">
+                  <Flame className="w-4 h-4" />
+                  El Instante Irreversible
+                </div>
+                <h2 className="heading-section mb-6">
+                  El Momento <span className="text-red-400">¡BASTA!</span>
                 </h2>
-                <p className="text-body max-w-3xl mx-auto">
-                  Cada compromiso deja de ser un formulario aislado y se convierte en semilla visible. Acá vemos cómo se planta sobre el territorio y cómo cada voz empieza a germinar.
+                <p className="text-body max-w-3xl mx-auto text-lg">
+                  No es una fecha en el calendario. No es un discurso político. Es ese instante
+                  silencioso, privado, irreversible, en el que algo se quiebra dentro tuyo —
+                  y lo que nace ya no puede morir.
                 </p>
               </div>
 
-              <div className="grid lg:grid-cols-[320px_1fr] gap-8 lg:gap-12 items-start">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8 }}
-                  className="relative"
-                >
-                  <div className="absolute -inset-6 bg-emerald-500/10 blur-3xl rounded-[50%]" />
-                  <SemilleroTerritoryMap
-                    commitments={semilleroData.commitments}
-                    totalCommitments={semilleroData.stats.total}
-                    commitmentGoal={semillaGoal}
-                    commitmentTypeTotals={commitmentStatsByType}
-                  />
-                </motion.div>
-
-                <div className="space-y-5">
-                  <div className="grid md:grid-cols-3 gap-3">
-                    <div className="rounded-2xl border border-emerald-500/25 bg-emerald-900/15 p-4">
-                      <p className="text-xs uppercase tracking-widest text-emerald-300/70 mb-2">Últimas 24h</p>
-                      <p className="text-2xl font-bold text-white font-mono">{semilleroData.stats.last24h.toLocaleString()}</p>
-                      <p className="text-sm text-emerald-100/60">semillas nuevas</p>
-                    </div>
-                    <div className="rounded-2xl border border-cyan-500/25 bg-cyan-900/10 p-4">
-                      <p className="text-xs uppercase tracking-widest text-cyan-300/70 mb-2">Crecimiento</p>
-                      <p className="text-2xl font-bold text-white font-mono">{(commitmentStatsByType.intermediate ?? 0).toLocaleString()}</p>
-                      <p className="text-sm text-emerald-100/60">etapa intermedia</p>
-                    </div>
-                    <div className="rounded-2xl border border-orange-500/25 bg-orange-900/10 p-4">
-                      <p className="text-xs uppercase tracking-widest text-orange-300/70 mb-2">Acción pública</p>
-                      <p className="text-2xl font-bold text-white font-mono">{(commitmentStatsByType.public ?? 0).toLocaleString()}</p>
-                      <p className="text-sm text-emerald-100/60">compromisos visibles</p>
-                    </div>
-                  </div>
-
-                  <div className="rounded-3xl border border-emerald-500/25 bg-[#07110a]/80 p-6">
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
-                      <h3 className="text-xl font-bold text-white">Voces del Semillero</h3>
-                      <Link href="/community" className="inline-flex items-center gap-2 text-sm text-emerald-300 hover:text-emerald-100 transition-colors">
-                        Llevar semilla a la Tribu
-                        <ArrowRight className="w-4 h-4" />
-                      </Link>
-                    </div>
-
-                    {semilleroLoading ? (
-                      <div className="space-y-3">
-                        {[...Array(4)].map((_, index) => (
-                          <div key={`skeleton-${index}`} className="rounded-2xl border border-emerald-900/40 bg-emerald-900/10 p-4 animate-pulse h-24" />
-                        ))}
+              <div className="space-y-6">
+                {momentosBasta.map((momento, idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ opacity: 0, x: idx % 2 === 0 ? -30 : 30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.7, delay: idx * 0.1 }}
+                    className="group"
+                  >
+                    <div className="rounded-3xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-500 overflow-hidden">
+                      <div className="grid md:grid-cols-[auto_1fr]">
+                        <div className={`bg-gradient-to-br ${momento.gradient} p-8 flex items-center justify-center md:w-32`}>
+                          <div className="text-white">{momento.icon}</div>
+                        </div>
+                        <div className="p-8">
+                          <h3 className="text-xl font-bold text-white mb-4 tracking-wide">{momento.titulo}</h3>
+                          <p className="text-emerald-100/70 leading-relaxed mb-6 text-lg">
+                            {momento.escena}
+                          </p>
+                          <div className="bg-red-900/15 border border-red-500/20 rounded-xl px-6 py-4">
+                            <p className="text-red-300 font-semibold italic text-lg">
+                              {momento.pregunta}
+                            </p>
+                          </div>
+                        </div>
                       </div>
-                    ) : semilleroData.commitments.length === 0 ? (
-                      <div className="rounded-2xl border border-dashed border-emerald-700/40 bg-emerald-900/10 p-6 text-center">
-                        <p className="text-emerald-100/70 mb-2">Todavía no hay semillas visibles.</p>
-                        <p className="text-sm text-emerald-200/50">Registrá tu compromiso y abrí la primera raíz del semillero.</p>
-                      </div>
-                    ) : (
-                      <div className="space-y-3 max-h-[420px] overflow-y-auto pr-1">
-                        {visibleSemilleroCommitments.map((commitment, index) => {
-                          const alias = buildAlias(commitment.user?.name, commitment.user?.username);
-                          const aliasInitial = alias.replace('@', '').charAt(0).toUpperCase() || 'S';
-                          const commitmentLabel = commitmentTypeLabels[commitment.commitmentType] ?? commitment.commitmentType;
-
-                          return (
-                            <motion.article
-                              key={commitment.id}
-                              initial={{ opacity: 0, y: 8 }}
-                              whileInView={{ opacity: 1, y: 0 }}
-                              viewport={{ once: true }}
-                              transition={{ duration: 0.35, delay: index * 0.04 }}
-                              className="rounded-2xl border border-emerald-500/20 bg-emerald-900/10 p-4"
-                            >
-                              <div className="flex items-center justify-between gap-3 mb-3">
-                                <div className="flex items-center gap-3">
-                                  <div className="w-9 h-9 rounded-full border border-emerald-400/30 bg-emerald-950/60 text-emerald-300 flex items-center justify-center text-sm font-bold">
-                                    {aliasInitial}
-                                  </div>
-                                  <div>
-                                    <p className="text-sm font-semibold text-emerald-50">{alias}</p>
-                                    <p className="text-xs text-emerald-100/50">{formatCommitmentDate(commitment.createdAt)}</p>
-                                  </div>
-                                </div>
-                                <span className="text-[10px] uppercase tracking-widest px-2 py-1 rounded-full border border-emerald-500/30 text-emerald-300/80">
-                                  {commitmentLabel}
-                                </span>
-                              </div>
-
-                              <p className="text-emerald-100/80 leading-relaxed">
-                                "{getCommitmentSnippet(commitment.commitmentText)}"
-                              </p>
-                            </motion.article>
-                          );
-                        })}
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="grid md:grid-cols-3 gap-3">
-                    <div className="rounded-2xl border border-emerald-500/20 bg-emerald-900/10 p-4">
-                      <Leaf className="w-5 h-5 text-emerald-300 mb-2" />
-                      <p className="text-sm text-emerald-100/80">Sembrar</p>
-                      <p className="text-xs text-emerald-200/60">Nombrar con claridad el compromiso personal.</p>
                     </div>
-                    <div className="rounded-2xl border border-cyan-500/20 bg-cyan-900/10 p-4">
-                      <Droplets className="w-5 h-5 text-cyan-300 mb-2" />
-                      <p className="text-sm text-emerald-100/80">Regar</p>
-                      <p className="text-xs text-emerald-200/60">Traducirlo en una acción concreta y repetible.</p>
-                    </div>
-                    <div className="rounded-2xl border border-amber-500/20 bg-amber-900/10 p-4">
-                      <Wind className="w-5 h-5 text-amber-300 mb-2" />
-                      <p className="text-sm text-emerald-100/80">Multiplicar</p>
-                      <p className="text-xs text-emerald-200/60">Compartir aprendizajes para que otros también planten.</p>
-                    </div>
-                  </div>
-                </div>
+                  </motion.div>
+                ))}
               </div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="mt-16 text-center"
+              >
+                <div className="rounded-3xl border border-emerald-500/20 bg-emerald-900/10 p-12">
+                  <p className="text-3xl font-bold text-white mb-4">
+                    ¿Ya sentiste ese momento?
+                  </p>
+                  <p className="text-emerald-200/60 mb-8 max-w-2xl mx-auto text-lg leading-relaxed">
+                    Si estás leyendo esto, es porque algo ya se movió adentro tuyo. La semilla ya germinó.
+                    Ahora solo queda una pregunta: ¿vas a dejarla morir o vas a regarla?
+                  </p>
+                  <PowerCTA
+                    text="REGISTRAR MI COMPROMISO"
+                    variant="primary"
+                    onClick={() => setShowCommitmentModal(true)}
+                    size="lg"
+                    animate={true}
+                  />
+                </div>
+              </motion.div>
             </div>
           </div>
         </section>
@@ -755,34 +696,86 @@ const LaSemillaDeBasta = () => {
           </div>
         </section>
 
-        {/* Prophetic Timeline - Organic Style */}
+        {/* La Chispa Se Propaga */}
         <section className="section-spacing bg-[#081008]">
           <div className="container-content">
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-5xl mx-auto">
               <div className="text-center mb-16">
-                <h2 className="heading-section mb-6">Cronología Viva</h2>
-                <p className="text-body">Hitos que marcan el crecimiento del nuevo árbol argentino.</p>
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-900/20 border border-amber-500/20 text-amber-400 text-sm font-mono mb-6 tracking-widest uppercase">
+                  <Flame className="w-4 h-4" />
+                  Efecto Contagio
+                </div>
+                <h2 className="heading-section mb-6">
+                  La Chispa <span className="text-amber-400">Se Propaga</span>
+                </h2>
+                <p className="text-body max-w-2xl mx-auto">
+                  Un incendio forestal comienza con una brasa. Un despertar nacional
+                  comienza con una persona que dice "basta" — y lo cumple.
+                </p>
               </div>
 
-              <div className="relative border-l border-emerald-900/50 pl-8 space-y-16">
-                {timelineEvents.map((event, idx) => (
-                  <div key={idx} className="relative">
-                    <div className="absolute -left-[39px] top-0 w-6 h-6 rounded-full bg-[#081008] border-2 border-emerald-500 flex items-center justify-center">
-                      <div className="w-2 h-2 bg-emerald-500 rounded-full" />
-                    </div>
-                    <div>
-                      <span className="text-emerald-500 font-mono text-sm tracking-widest uppercase mb-2 block">{event.year}</span>
-                      <h3 className="text-xl font-bold text-white mb-3">{event.title}</h3>
-                      <p className="text-emerald-100/60 mb-4 text-lg">"{event.description}"</p>
-                      <div className="bg-emerald-900/20 p-4 rounded-xl border border-emerald-500/20">
-                        <p className="text-sm text-emerald-300">
-                          <strong className="text-emerald-400 block mb-1">Acción Semillero:</strong>
-                          {event.action}
-                        </p>
+              <div className="relative">
+                <div className="space-y-0">
+                  {propagacion.map((nivel, idx) => (
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: idx * 0.12 }}
+                    >
+                      <div className="relative pl-20 md:pl-24 pb-12 last:pb-0">
+                        {/* Connector dot */}
+                        <div className="absolute left-6 md:left-8 top-2 w-5 h-5 rounded-full bg-[#081008] border-2 border-emerald-500 z-10 shadow-[0_0_15px_rgba(16,185,129,0.3)]">
+                          <div className="absolute inset-0.5 rounded-full bg-emerald-400/30 animate-ping" style={{ animationDuration: `${3 + idx}s` }} />
+                        </div>
+
+                        {/* Vertical line */}
+                        {idx < propagacion.length - 1 && (
+                          <div className="absolute left-[30px] md:left-[38px] top-7 w-px bg-gradient-to-b from-emerald-500/40 to-emerald-500/10 h-full" />
+                        )}
+
+                        {/* Card */}
+                        <div className="bg-white/[0.03] rounded-2xl p-8 border border-white/5 hover:border-emerald-500/20 transition-all duration-300 group">
+                          <div className="flex items-center gap-4 mb-4">
+                            <div className="w-11 h-11 rounded-xl bg-emerald-900/30 border border-emerald-500/20 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform">
+                              {nivel.icon}
+                            </div>
+                            <div className="flex-1">
+                              <div className="flex items-center gap-3">
+                                <span className="text-emerald-500 font-mono text-xs">{nivel.nivel}</span>
+                                <h3 className="text-xl font-bold text-white">{nivel.titulo}</h3>
+                              </div>
+                              <p className="text-emerald-400/70 text-sm">{nivel.subtitulo}</p>
+                            </div>
+                            <span className="text-xs uppercase tracking-widest text-amber-400/70 px-3 py-1.5 rounded-full border border-amber-500/20 bg-amber-900/10 hidden sm:block font-mono">
+                              {nivel.alcance}
+                            </span>
+                          </div>
+                          <p className="text-emerald-100/60 leading-relaxed pl-[60px]">{nivel.descripcion}</p>
+                        </div>
                       </div>
-                    </div>
+                    </motion.div>
+                  ))}
+                </div>
+
+                {/* Final crescendo */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  className="mt-12 text-center relative z-10"
+                >
+                  <div className="inline-block bg-gradient-to-r from-amber-900/20 to-orange-900/20 rounded-3xl p-10 border border-amber-500/20">
+                    <p className="text-2xl md:text-3xl font-bold text-white mb-4">
+                      46 millones de semillas.
+                    </p>
+                    <p className="text-amber-200/70 text-lg max-w-2xl mx-auto leading-relaxed">
+                      "Argentina sufrirá la tormenta en pequeña, la que luego azotará al mundo.
+                      <strong className="text-amber-300"> ¡Será ejemplo!</strong>"
+                    </p>
                   </div>
-                ))}
+                </motion.div>
               </div>
             </div>
           </div>

@@ -1,9 +1,9 @@
-import { drizzle } from 'drizzle-orm/better-sqlite3';
-import Database from 'better-sqlite3';
-import { communityPosts } from '../shared/schema-sqlite.js';
+// replaced
+import { db } from './db-neon';
+import { communityPosts } from '../shared/schema.js';
 
-const sqlite = new Database('local.db');
-const db = drizzle(sqlite);
+// removed sqlite
+// using db from db-neon
 
 const samplePosts = [
   {
@@ -141,7 +141,7 @@ async function seedCommunityPosts() {
   } catch (error) {
     console.error('❌ Error seeding community posts:', error);
   } finally {
-    sqlite.close();
+    console.log('Done.');
   }
 }
 

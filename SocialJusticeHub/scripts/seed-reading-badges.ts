@@ -1,9 +1,9 @@
-import { drizzle } from "drizzle-orm/better-sqlite3";
-import Database from "better-sqlite3";
-import { badges } from "@shared/schema-sqlite";
+// replaced
+import { db } from './db-neon';
+import { badges } from "@shared/schema";
 
-const sqlite = new Database("local.db");
-const db = drizzle(sqlite);
+// removed sqlite
+// using db from db-neon
 
 // Badges específicos para lectura y blog
 const readingBadges = [
@@ -165,6 +165,6 @@ async function seedReadingBadges() {
 }
 
 seedReadingBadges().then(() => {
-  sqlite.close();
+  console.log('Done.');
   process.exit(0);
 });

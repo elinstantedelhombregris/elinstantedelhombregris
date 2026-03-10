@@ -2,7 +2,7 @@ import type { Express } from "express";
 import { storage } from "./storage";
 import { authenticateToken, optionalAuth, type AuthRequest } from './auth';
 import { eq } from "drizzle-orm";
-import { courses, courseLessons } from "@shared/schema-sqlite";
+import { courses, courseLessons } from "@shared/schema";
 import { db } from "./db";
 
 export function registerCourseRoutes(app: Express) {

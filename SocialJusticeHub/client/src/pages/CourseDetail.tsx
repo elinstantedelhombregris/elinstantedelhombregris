@@ -42,6 +42,7 @@ interface Course {
   videoUrl?: string;
   viewCount: number;
   isFeatured?: boolean;
+  requiresAuth?: boolean;
   author?: {
     id: number;
     name: string;
@@ -296,8 +297,8 @@ const CourseDetail = () => {
                       )}
                     </div>
                   ) : (
-                    <Button 
-                      size="lg" 
+                    <Button
+                      size="lg"
                       onClick={handleStartCourse}
                       disabled={startCourseMutation.isPending}
                       className="gap-2"
@@ -306,6 +307,13 @@ const CourseDetail = () => {
                       {startCourseMutation.isPending ? 'Iniciando...' : 'Comenzar Curso'}
                     </Button>
                   )
+                ) : course.requiresAuth === false && lessons.length > 0 ? (
+                  <Link href={`/recursos/guias-estudio/${course.slug}/leccion/${lessons[0]?.id}`}>
+                    <Button size="lg" className="gap-2">
+                      <PlayCircle className="w-5 h-5" />
+                      Comenzar Curso
+                    </Button>
+                  </Link>
                 ) : (
                   <div className="space-y-2">
                     <Button size="lg" disabled className="gap-2">
@@ -348,7 +356,8 @@ const CourseDetail = () => {
                     lessons.map((lesson, index) => {
                       const isCompleted = completedLessons.includes(lesson.id);
                       const isCurrent = userProgress?.currentLessonId === lesson.id;
-                      const isLocked = !safeUserContext.isLoggedIn || 
+                      const requiresLogin = course.requiresAuth !== false;
+                      const isLocked = (requiresLogin && !safeUserContext.isLoggedIn) ||
                         (index > 0 && !completedLessons.includes(lessons[index - 1]?.id) && lessons[index - 1]?.isRequired);
 
                       return (

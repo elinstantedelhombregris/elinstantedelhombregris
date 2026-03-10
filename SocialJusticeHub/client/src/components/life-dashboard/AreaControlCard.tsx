@@ -1,25 +1,23 @@
 import { useMemo } from "react";
 import { motion } from "framer-motion";
 import { LifeAreaModel } from "./types";
-import { Slider } from "@/components/ui/slider";
-import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { Activity, Lock, Unlock, Settings, Database } from "lucide-react";
+import { Activity, Lock, Unlock } from "lucide-react";
 
 interface AreaControlCardProps {
   area: LifeAreaModel;
-  onValueChange: (value: number) => void;
-  onTargetChange: (value: number) => void;
-  onNoteChange: (note: string) => void;
+  onValueChange?: (value: number) => void;
+  onTargetChange?: (value: number) => void;
+  onNoteChange?: (note: string) => void;
   onHoverChange?: (hovering: boolean) => void;
   isActive?: boolean;
   actions?: React.ReactNode;
 }
 
 const STATUS_CONFIG = [
-  { label: "Crítico", threshold: 40, className: "bg-red-500/10 text-red-400 border-red-500/20 shadow-[0_0_10px_rgba(220,38,38,0.1)]" },
+  { label: "Critico", threshold: 40, className: "bg-red-500/10 text-red-400 border-red-500/20 shadow-[0_0_10px_rgba(220,38,38,0.1)]" },
   { label: "Inestable", threshold: 70, className: "bg-amber-500/10 text-amber-400 border-amber-500/20 shadow-[0_0_10px_rgba(245,158,11,0.1)]" },
   { label: "Estable", threshold: 86, className: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20 shadow-[0_0_10px_rgba(16,185,129,0.1)]" },
   { label: "Optimizado", threshold: 101, className: "bg-blue-500/10 text-blue-400 border-blue-500/20 shadow-[0_0_10px_rgba(59,130,246,0.1)]" },
@@ -43,9 +41,6 @@ const historyPath = (history: number[], width = 128, height = 36) => {
 
 export function AreaControlCard({
   area,
-  onValueChange,
-  onTargetChange,
-  onNoteChange,
   onHoverChange,
   isActive = false,
   actions,
@@ -70,7 +65,7 @@ export function AreaControlCard({
     >
       {/* Holographic Hover Effect */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-      
+
       {/* Tech Corners */}
       <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/20 rounded-tl-md opacity-50 group-hover:border-blue-400 group-hover:opacity-100 transition-all" />
       <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/20 rounded-tr-md opacity-50 group-hover:border-blue-400 group-hover:opacity-100 transition-all" />
@@ -105,37 +100,56 @@ export function AreaControlCard({
         </div>
       </div>
 
-      <div className="space-y-6 relative z-10">
-        {/* Control Sliders - Futuristic */}
-        <div className="grid grid-cols-1 gap-6 relative">
+      <div className="space-y-5 relative z-10">
+        {/* Read-only Score Bars */}
+        <div className="space-y-4">
+          {/* Current score bar */}
           <div className="bg-black/20 p-4 rounded-lg border border-white/5 group-hover:border-white/10 transition-colors">
             <div className="flex items-center justify-between text-[10px] uppercase tracking-[0.2em] text-slate-500 mb-3 font-bold">
-              <span className="flex items-center gap-2"><Database className="w-3 h-3" /> Realidad</span>
-              <span className="font-mono text-blue-400 text-sm text-shadow-blue">{area.value}</span>
+              <span>Realidad</span>
+              <span className="font-mono text-blue-400 text-sm">{area.value}</span>
             </div>
-            <Slider
-              min={1}
-              max={100}
-              step={1}
-              value={[area.value]}
-              onValueChange={(value) => onValueChange(value[0])}
-              className="py-2"
-            />
+            <div className="relative h-2.5 rounded-full bg-white/5 overflow-hidden">
+              <motion.div
+                className="absolute left-0 top-0 h-full rounded-full bg-blue-500"
+                style={{
+                  width: `${area.value}%`,
+                  boxShadow: '0 0 10px rgba(59,130,246,0.4)',
+                }}
+                initial={false}
+                animate={{ width: `${area.value}%` }}
+                transition={{ duration: 0.5 }}
+              />
+            </div>
           </div>
 
+          {/* Target score bar with marker */}
           <div className="bg-black/20 p-4 rounded-lg border border-white/5 group-hover:border-white/10 transition-colors">
             <div className="flex items-center justify-between text-[10px] uppercase tracking-[0.2em] text-slate-500 mb-3 font-bold">
-              <span className="flex items-center gap-2"><Settings className="w-3 h-3" /> Objetivo</span>
-              <span className="font-mono text-purple-400 text-sm text-shadow-purple">{area.target}</span>
+              <span>Objetivo</span>
+              <span className="font-mono text-purple-400 text-sm">{area.target}</span>
             </div>
-            <Slider
-              min={1}
-              max={100}
-              step={1}
-              value={[area.target]}
-              onValueChange={(value) => onTargetChange(value[0])}
-              className="py-2"
-            />
+            <div className="relative h-2.5 rounded-full bg-white/5 overflow-hidden">
+              {/* Current fill for context */}
+              <motion.div
+                className="absolute left-0 top-0 h-full rounded-full bg-blue-500/30"
+                style={{ width: `${area.value}%` }}
+                initial={false}
+                animate={{ width: `${area.value}%` }}
+                transition={{ duration: 0.5 }}
+              />
+              {/* Target marker */}
+              <motion.div
+                className="absolute top-1/2 -translate-y-1/2 w-1 h-4 rounded-full bg-purple-400"
+                style={{
+                  left: `${area.target}%`,
+                  boxShadow: '0 0 6px rgba(168,85,247,0.5)',
+                }}
+                initial={false}
+                animate={{ left: `${area.target}%` }}
+                transition={{ duration: 0.5 }}
+              />
+            </div>
             <div className="mt-3 flex items-center justify-between text-xs border-t border-white/5 pt-2">
               <span className={cn(
                 "font-mono flex items-center gap-1.5 text-[10px] uppercase tracking-wider",
@@ -149,21 +163,6 @@ export function AreaControlCard({
               </span>
             </div>
           </div>
-        </div>
-
-        {/* Bitácora - Dark Terminal Style */}
-        <div className="relative">
-          <div className="absolute -top-2.5 left-3 px-1 bg-[#0f1115] text-[9px] uppercase tracking-widest font-bold text-slate-500 group-hover:text-blue-400/80 transition-colors">
-            Bitácora del Sistema
-          </div>
-          <Textarea
-            value={area.note}
-            onChange={(event) => onNoteChange(event.target.value.slice(0, 200))}
-            placeholder="> Ingresar observaciones del subsistema..."
-            className="min-h-[80px] resize-none rounded-lg border-white/10 bg-black/20 text-sm font-mono text-slate-300 placeholder:text-slate-700 focus:border-blue-500/50 focus:ring-blue-500/20 transition-all"
-            maxLength={200}
-          />
-          <div className="mt-1 text-right text-[9px] font-mono text-slate-600">{area.note.length}/200</div>
         </div>
 
         {/* Footer & History */}
@@ -185,7 +184,7 @@ export function AreaControlCard({
           </div>
           {actions ?? (
             <Button variant="outline" size="sm" className="rounded border-white/10 text-slate-400 hover:bg-white/5 hover:text-white hover:border-white/20 text-[10px] uppercase tracking-widest font-bold h-7">
-              Configurar
+              Evaluar
             </Button>
           )}
         </div>

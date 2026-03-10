@@ -12,8 +12,9 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { VisuallyHidden } from "@/components/ui/visually-hidden";
-import { 
-  Menu, Award, Star, Crown, Trophy, Target, Shield, X, LogOut, User, LayoutDashboard
+import {
+  Menu, Award, Star, Crown, Trophy, Target, Shield, X, LogOut, User, LayoutDashboard,
+  ClipboardCheck, Crosshair, MessageCircle
 } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
 import { NotificationBell } from '@/components/NotificationBell';
@@ -24,6 +25,23 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const userContext = useContext(UserContext);
   const [location] = useLocation();
+
+  // Determine if current page has a dark hero background
+  const darkHeroRoutes = [
+    '/', '/la-vision', '/el-instante-del-hombre-gris',
+    '/la-semilla-de-basta', '/el-mapa', '/manifiesto',
+    '/bienvenida', '/dashboard', '/profile', '/challenges',
+    '/life-areas', '/evaluacion', '/metas', '/checkin-semanal',
+    '/coaching',
+  ];
+  const isDarkPage = darkHeroRoutes.includes(location) ||
+    (location.startsWith('/community') &&
+      !location.includes('/job/') &&
+      !location.includes('/project/') &&
+      !location.includes('/resource/'));
+
+  // On light pages, always show the "scrolled" (white bg + dark text) style
+  const showSolid = scrolled || !isDarkPage;
 
   // Effect to handle scroll transparency
   useEffect(() => {
@@ -73,8 +91,8 @@ const Header = () => {
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${
-          scrolled 
-            ? 'bg-white/90 backdrop-blur-md border-slate-200 shadow-sm py-3' 
+          showSolid
+            ? 'bg-white/90 backdrop-blur-md border-slate-200 shadow-sm py-3'
             : 'bg-transparent border-transparent py-5'
         }`}
       >
@@ -86,7 +104,7 @@ const Header = () => {
               <div className="relative w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center text-white font-bold text-lg shadow-lg group-hover:scale-105 transition-transform">
                 HG
               </div>
-              <div className={`font-serif font-bold text-lg md:text-xl leading-none transition-colors ${scrolled ? 'text-slate-900' : 'text-white'}`}>
+              <div className={`font-serif font-bold text-lg md:text-xl leading-none transition-colors ${showSolid ? 'text-slate-900' : 'text-white'}`}>
                 El Instante<br/>
                 <span className="text-blue-500 font-sans text-sm tracking-widest uppercase">del Hombre Gris</span>
               </div>
@@ -101,8 +119,8 @@ const Header = () => {
                 href={item.href}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                   location === item.href 
-                    ? 'bg-blue-500/10 text-blue-500' 
-                    : scrolled ? 'text-slate-600 hover:text-blue-600 hover:bg-slate-50' : 'text-slate-200 hover:text-white hover:bg-white/10'
+                    ? 'bg-blue-500/10 text-blue-500'
+                    : showSolid ? 'text-slate-600 hover:text-blue-600 hover:bg-slate-50' : 'text-slate-200 hover:text-white hover:bg-white/10'
                 }`}
               >
                 {item.label}
@@ -118,8 +136,8 @@ const Header = () => {
                 
                 <Link href="/dashboard">
                   <div className={`hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full border transition-all cursor-pointer ${
-                    scrolled 
-                      ? 'border-slate-200 bg-slate-50 hover:bg-white' 
+                    showSolid
+                      ? 'border-slate-200 bg-slate-50 hover:bg-white text-slate-700'
                       : 'border-white/20 bg-white/10 text-white hover:bg-white/20'
                   }`}>
                     <Avatar className="h-6 w-6 border border-white/20">
@@ -127,7 +145,7 @@ const Header = () => {
                       <AvatarFallback>U</AvatarFallback>
                     </Avatar>
                     <span className="text-xs font-medium pr-1">
-                      {userProgress?.data?.points || 0} XP
+                      Mi Panel
                     </span>
                   </div>
                 </Link>
@@ -139,7 +157,7 @@ const Header = () => {
                   }}
                   variant="ghost" 
                   size="icon"
-                  className={scrolled ? 'text-slate-500 hover:text-red-500' : 'text-white/70 hover:text-white'}
+                  className={showSolid ? 'text-slate-500 hover:text-red-500' : 'text-white/70 hover:text-white'}
                 >
                   <LogOut className="w-5 h-5" />
                 </Button>
@@ -147,7 +165,7 @@ const Header = () => {
             ) : (
               <div className="hidden md:flex items-center gap-3">
                 <Link href="/login">
-                  <Button variant="ghost" className={scrolled ? 'text-slate-700' : 'text-white hover:bg-white/10'}>
+                  <Button variant="ghost" className={showSolid ? 'text-slate-700' : 'text-white hover:bg-white/10'}>
                     Ingresar
                   </Button>
                 </Link>
@@ -162,7 +180,7 @@ const Header = () => {
             {/* Mobile Menu Toggle */}
             <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className={`lg:hidden ${scrolled ? 'text-slate-900' : 'text-white'}`}>
+                <Button variant="ghost" size="icon" className={`lg:hidden ${showSolid ? 'text-slate-900' : 'text-white'}`}>
                   <Menu className="w-6 h-6" />
                 </Button>
               </SheetTrigger>
@@ -192,15 +210,36 @@ const Header = () => {
                   
                   {userContext?.isLoggedIn ? (
                     <>
-                      <Link 
-                        href="/dashboard" 
+                      <Link
+                        href="/dashboard"
                         onClick={() => setIsMenuOpen(false)}
                         className="flex items-center gap-3 px-4 py-3 text-slate-300 hover:text-white"
                       >
                         <LayoutDashboard className="w-5 h-5" /> Panel
                       </Link>
-                      <Link 
-                        href="/profile" 
+                      <Link
+                        href="/evaluacion"
+                        onClick={() => setIsMenuOpen(false)}
+                        className="flex items-center gap-3 px-4 py-3 text-slate-300 hover:text-white"
+                      >
+                        <ClipboardCheck className="w-5 h-5" /> Evaluación
+                      </Link>
+                      <Link
+                        href="/metas"
+                        onClick={() => setIsMenuOpen(false)}
+                        className="flex items-center gap-3 px-4 py-3 text-slate-300 hover:text-white"
+                      >
+                        <Crosshair className="w-5 h-5" /> Mis Metas
+                      </Link>
+                      <Link
+                        href="/coaching"
+                        onClick={() => setIsMenuOpen(false)}
+                        className="flex items-center gap-3 px-4 py-3 text-slate-300 hover:text-white"
+                      >
+                        <MessageCircle className="w-5 h-5" /> Coaching
+                      </Link>
+                      <Link
+                        href="/profile"
                         onClick={() => setIsMenuOpen(false)}
                         className="flex items-center gap-3 px-4 py-3 text-slate-300 hover:text-white"
                       >

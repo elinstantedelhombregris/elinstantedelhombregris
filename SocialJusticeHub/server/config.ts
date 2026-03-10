@@ -9,14 +9,14 @@ interface Config {
   database: {
     url: string;
   };
-  
+
   // JWT
   jwt: {
     secret: string;
     expiresIn: string;
     refreshExpiresIn: string;
   };
-  
+
   // Security
   security: {
     bcryptRounds: number;
@@ -25,25 +25,33 @@ interface Config {
     loginRateLimitMax: number;
     loginRateLimitWindowMs: number;
   };
-  
+
   // CORS
   cors: {
     origin: string;
     credentials: boolean;
   };
-  
+
   // Server
   server: {
     port: number;
     nodeEnv: string;
   };
-  
+
   // Session
   session: {
     secret: string;
     cookieSecure: boolean;
     cookieHttpOnly: boolean;
     cookieMaxAge: number;
+  };
+
+  // AI Coaching
+  ai: {
+    anthropicApiKey: string | null;
+    model: string;
+    maxTokens: number;
+    enabled: boolean;
   };
 }
 
@@ -93,7 +101,9 @@ function validateConfig(): Config {
     }
   }
 
-  const defaultCorsOrigin = isProductionLikeEnv() ? '*' : 'http://localhost:5173';
+  const defaultCorsOrigin = isProductionLikeEnv()
+    ? (process.env.CORS_ORIGIN || 'https://elinstantedelhombregris.com')
+    : 'http://localhost:5173';
   
   return {
     database: {
@@ -129,6 +139,13 @@ function validateConfig(): Config {
       cookieSecure: process.env.SESSION_COOKIE_SECURE === 'true',
       cookieHttpOnly: process.env.SESSION_COOKIE_HTTP_ONLY !== 'false',
       cookieMaxAge: parseInt(process.env.SESSION_COOKIE_MAX_AGE || '86400000') // 24 hours
+    },
+
+    ai: {
+      anthropicApiKey: process.env.ANTHROPIC_API_KEY || null,
+      model: process.env.AI_MODEL || 'claude-sonnet-4-20250514',
+      maxTokens: parseInt(process.env.AI_MAX_TOKENS || '512'),
+      enabled: !!process.env.ANTHROPIC_API_KEY,
     }
   };
 }

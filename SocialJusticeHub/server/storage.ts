@@ -50,12 +50,12 @@ import {
   userLessonProgress, type UserLessonProgress, type InsertUserLessonProgress,
   quizAttempts, type QuizAttempt, type InsertQuizAttempt,
   quizAttemptAnswers, type QuizAttemptAnswer, type InsertQuizAttemptAnswer,
-  courseCertificates, type CourseCertificate, type InsertCourseCertificate
-} from "@shared/schema-sqlite";
+  courseCertificates, type CourseCertificate, type InsertCourseCertificate,
+  userProfiles, type UserProfile, type InsertUserProfile
+} from "@shared/schema";
 import { db } from "./db";
 import { eq, desc, and, sql, asc, gte, or, like, inArray, ilike, isNotNull } from "drizzle-orm";
 import { PasswordManager, type AuthUser } from './auth';
-import Database from 'better-sqlite3';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { applyBlogContentEnhancements, applyEnhancementsToList } from "./blogContentEnhancements";
@@ -1031,24 +1031,7 @@ export class DatabaseStorage implements IStorage {
   private userCommitmentsLocationColumnsEnsured = false;
 
   private async ensureUserCommitmentsLocationColumns(): Promise<void> {
-    if (this.userCommitmentsLocationColumnsEnsured) return;
-
-    const tableInfo = await db.all(sql`PRAGMA table_info(user_commitments)`);
-    const existingColumns = new Set(
-      (Array.isArray(tableInfo) ? tableInfo : []).map((col: any) => col?.name)
-    );
-
-    const missingColumns = [
-      { name: 'province', sql: sql`ALTER TABLE user_commitments ADD COLUMN province TEXT` },
-      { name: 'city', sql: sql`ALTER TABLE user_commitments ADD COLUMN city TEXT` },
-      { name: 'latitude', sql: sql`ALTER TABLE user_commitments ADD COLUMN latitude REAL` },
-      { name: 'longitude', sql: sql`ALTER TABLE user_commitments ADD COLUMN longitude REAL` }
-    ].filter((column) => !existingColumns.has(column.name));
-
-    for (const column of missingColumns) {
-      await db.run(column.sql);
-    }
-
+    // Schema is managed by drizzle-kit push for Postgres - no runtime migration needed
     this.userCommitmentsLocationColumnsEnsured = true;
   }
 
@@ -1123,9 +1106,9 @@ export class DatabaseStorage implements IStorage {
     await db.update(users)
       .set({ 
         loginAttempts: sql`login_attempts + 1`,
-        lockedUntil: sql`CASE 
-          WHEN login_attempts + 1 >= 5 THEN datetime('now', '+15 minutes')
-          ELSE locked_until 
+        lockedUntil: sql`CASE
+          WHEN login_attempts + 1 >= 5 THEN (NOW() + INTERVAL '15 minutes')::text
+          ELSE locked_until
         END`,
         updatedAt: new Date().toISOString()
       })
@@ -2526,15 +2509,8 @@ export class DatabaseStorage implements IStorage {
         sessionId
       });
     } catch (error) {
-      // Backward-compatible fallback for local DBs created before session_id existed.
-      const message = error instanceof Error ? error.message : "";
-      if (!message.includes("no column named session_id")) {
-        throw error;
-      }
-
-      await db.run(
-        sql`INSERT INTO post_views (post_id, user_id) VALUES (${postId}, ${userId ?? null})`
-      );
+      console.error('[recordPostView] Error:', error);
+      throw error;
     }
 
     // Increment view count
@@ -2971,7 +2947,7 @@ export class DatabaseStorage implements IStorage {
     const [summary] = await db
       .select({
         total: sql<number>`count(*)`,
-        last24h: sql<number>`sum(case when datetime(${userCommitments.createdAt}) >= datetime('now', '-1 day') then 1 else 0 end)`
+        last24h: sql<number>`sum(case when ${userCommitments.createdAt}::timestamp >= NOW() - INTERVAL '1 day' then 1 else 0 end)`
       })
       .from(userCommitments)
       .where(eq(userCommitments.status, 'active'));
@@ -3620,84 +3596,57 @@ export class DatabaseStorage implements IStorage {
     const limit = filters?.limit || 12;
     const offset = (page - 1) * limit;
 
-    // Use direct SQLite connection - use the same path as db.ts
-    const dbPath = './local.db';
-    const sqliteDb = new Database(dbPath, { readonly: true });
-    
     try {
-      // Build WHERE clause parts (prefixed with c. for aliased query)
-      const whereParts: string[] = ['c.is_published = 1'];
-      const params: any[] = [];
+      // Build conditions array
+      const conditions = [eq(courses.isPublished, true)];
 
       if (filters?.category) {
-        whereParts.push('c.category = ?');
-        params.push(filters.category);
+        conditions.push(eq(courses.category, filters.category as any));
       }
       if (filters?.level) {
-        whereParts.push('c.level = ?');
-        params.push(filters.level);
+        conditions.push(eq(courses.level, filters.level as any));
       }
-      // Only filter by featured if explicitly set to true (not false or undefined)
       if (filters?.featured === true) {
-        whereParts.push('c.is_featured = 1');
+        conditions.push(eq(courses.isFeatured, true));
       }
-      // If featured is false or undefined, don't filter by featured status
       if (filters?.search) {
-        whereParts.push('(c.title LIKE ? OR c.description LIKE ?)');
         const searchTerm = `%${filters.search}%`;
-        params.push(searchTerm, searchTerm);
+        conditions.push(or(
+          ilike(courses.title, searchTerm),
+          ilike(courses.description, searchTerm)
+        )!);
       }
 
-      const whereClause = whereParts.join(' AND ');
+      const whereCondition = and(...conditions);
 
       // Get total count
-      const countStmt = sqliteDb.prepare(`SELECT COUNT(*) as count FROM courses c WHERE ${whereClause}`);
-      const totalResult = countStmt.get(...params) as { count: number };
-      const total = totalResult?.count || 0;
+      const countResult = await db
+        .select({ count: sql<number>`count(*)` })
+        .from(courses)
+        .where(whereCondition);
+      const total = Number(countResult[0]?.count || 0);
 
       // Apply sorting
-      let orderBy = 'ORDER BY c.order_index DESC, c.created_at DESC';
+      let orderByClause;
       if (filters?.sortBy === 'popular') {
-        orderBy = 'ORDER BY c.view_count DESC';
+        orderByClause = [desc(courses.viewCount)];
       } else if (filters?.sortBy === 'recent') {
-        orderBy = 'ORDER BY c.created_at DESC';
+        orderByClause = [desc(courses.createdAt)];
       } else if (filters?.sortBy === 'duration') {
-        orderBy = 'ORDER BY c.duration ASC';
-      } else if (filters?.sortBy === 'level') {
-        orderBy = "ORDER BY CASE c.level WHEN 'beginner' THEN 1 WHEN 'intermediate' THEN 2 WHEN 'advanced' THEN 3 ELSE 4 END, c.order_index ASC";
+        orderByClause = [asc(courses.duration)];
+      } else {
+        orderByClause = [desc(courses.orderIndex), desc(courses.createdAt)];
       }
 
-      // Get courses with lesson count and quiz indicator
-      const coursesSql = `SELECT c.*, (SELECT COUNT(*) FROM course_lessons WHERE course_id = c.id) as lesson_count, (SELECT COUNT(*) FROM course_quizzes WHERE course_id = c.id) as has_quiz FROM courses c WHERE ${whereClause} ${orderBy} LIMIT ? OFFSET ?`;
-      const coursesStmt = sqliteDb.prepare(coursesSql);
-      const courseRows = coursesStmt.all(...params, limit, offset) as any[];
-      
-      // Map rows to Course objects (convert snake_case to camelCase and integer booleans to booleans)
-      const courseList = courseRows.map((row: any) => ({
-        id: row.id,
-        title: row.title,
-        slug: row.slug,
-        description: row.description,
-        excerpt: row.excerpt,
-        category: row.category,
-        level: row.level,
-        duration: row.duration,
-        thumbnailUrl: row.thumbnail_url,
-        videoUrl: row.video_url,
-        orderIndex: row.order_index,
-        isPublished: row.is_published === 1,
-        isFeatured: row.is_featured === 1,
-        requiresAuth: row.requires_auth === 1,
-        authorId: row.author_id,
-        viewCount: row.view_count || 0,
-        lessonCount: row.lesson_count || 0,
-        hasQuiz: (row.has_quiz || 0) > 0,
-        createdAt: row.created_at,
-        updatedAt: row.updated_at,
-      })) as Course[];
-      
-      sqliteDb.close();
-      
+      // Get courses
+      const courseList = await db
+        .select()
+        .from(courses)
+        .where(whereCondition)
+        .orderBy(...orderByClause)
+        .limit(limit)
+        .offset(offset);
+
       return {
         courses: courseList,
         total,
@@ -3705,9 +3654,8 @@ export class DatabaseStorage implements IStorage {
         limit
       };
     } catch (error) {
-      sqliteDb.close();
       console.error('[getCourses] Error:', error);
-      throw error; // Re-throw to let the route handle it
+      throw error;
     }
   }
 
@@ -4234,7 +4182,26 @@ export class DatabaseStorage implements IStorage {
 
     return result.filter(item => item.course);
   }
+
+  // User Profiles
+  async getUserProfile(userId: number): Promise<UserProfile | undefined> {
+    const [profile] = await db.select().from(userProfiles).where(eq(userProfiles.userId, userId)).limit(1);
+    return profile;
+  }
+
+  async createUserProfile(data: Partial<InsertUserProfile> & { userId: number }): Promise<UserProfile> {
+    const [profile] = await db.insert(userProfiles).values(data as any).returning();
+    return profile;
+  }
+
+  async updateUserProfile(userId: number, updates: Partial<InsertUserProfile>): Promise<UserProfile> {
+    const [profile] = await db.update(userProfiles)
+      .set(updates)
+      .where(eq(userProfiles.userId, userId))
+      .returning();
+    return profile;
+  }
 }
 
-// Use DatabaseStorage with SQLite
+// Use DatabaseStorage with Neon Postgres
 export const storage = new DatabaseStorage();

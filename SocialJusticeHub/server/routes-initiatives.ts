@@ -5,7 +5,7 @@ import { authenticateToken, type AuthRequest } from "./auth";
 import {
   insertInitiativeMilestoneSchema,
   insertInitiativeTaskSchema,
-} from "@shared/schema-sqlite";
+} from "@shared/schema";
 
 function parseId(value: string): number | null {
   const id = Number.parseInt(value, 10);
@@ -24,6 +24,16 @@ export function registerInitiativeRoutes(app: Express) {
         const milestoneId = parseId(req.params.milestoneId);
         if (milestoneId === null) {
           return res.status(400).json({ message: "Invalid milestone ID" });
+        }
+
+        // Verify user is a member of the initiative
+        const postId = parseId(req.params.postId);
+        if (postId !== null) {
+          const members = await storage.getInitiativeMembers(postId);
+          const isMember = members.some(m => m.userId === req.user?.userId);
+          if (!isMember) {
+            return res.status(403).json({ message: "Not authorized to update this milestone" });
+          }
         }
 
         const updates = insertInitiativeMilestoneSchema.partial().parse(req.body);
@@ -49,6 +59,16 @@ export function registerInitiativeRoutes(app: Express) {
         const taskId = parseId(req.params.taskId);
         if (taskId === null) {
           return res.status(400).json({ message: "Invalid task ID" });
+        }
+
+        // Verify user is a member of the initiative
+        const postId = parseId(req.params.postId);
+        if (postId !== null) {
+          const members = await storage.getInitiativeMembers(postId);
+          const isMember = members.some(m => m.userId === req.user?.userId);
+          if (!isMember) {
+            return res.status(403).json({ message: "Not authorized to update this task" });
+          }
         }
 
         const updates = insertInitiativeTaskSchema.partial().parse(req.body);

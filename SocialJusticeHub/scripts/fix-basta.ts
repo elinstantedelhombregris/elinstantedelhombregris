@@ -1,7 +1,7 @@
 
 import { drizzle } from 'drizzle-orm/better-sqlite3';
 import Database from 'better-sqlite3';
-import { blogPosts } from '../shared/schema-sqlite';
+import { blogPosts } from '../shared/schema';
 import { eq, sql } from 'drizzle-orm';
 import path from 'path';
 

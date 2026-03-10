@@ -5,6 +5,9 @@ import advancedAuthRoutes from './routes-advanced-auth';
 import { registerInitiativeRoutes } from './routes-initiatives';
 import { registerCourseRoutes } from './routes-courses';
 import { registerLifeAreasRoutes } from './routes-life-areas';
+import { registerCivicAssessmentRoutes } from './routes-civic-assessment';
+import { registerGoalRoutes } from './routes-goals';
+import { registerCoachingRoutes } from './routes-coaching';
 import { 
   insertUserSchema, 
   insertDreamSchema, 
@@ -27,7 +30,7 @@ import {
   insertActivityFeedSchema,
   insertMembershipRequestSchema,
   insertNotificationSchema
-} from "@shared/schema-sqlite";
+} from "@shared/schema";
 import { z } from "zod";
 import { 
   authenticateToken, 
@@ -111,6 +114,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Course routes
   registerCourseRoutes(app);
   registerLifeAreasRoutes(app);
+  registerCivicAssessmentRoutes(app);
+  registerGoalRoutes(app);
+  registerCoachingRoutes(app);
 
   // Get all dreams
   app.get("/api/dreams", optionalAuth, async (req: AuthRequest, res) => {
@@ -123,9 +129,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // Create a dream
-  app.post("/api/dreams", async (req, res) => {
+  app.post("/api/dreams", authenticateToken, async (req: AuthRequest, res) => {
     try {
-      const validatedData = insertDreamSchema.parse(req.body);
+      const validatedData = insertDreamSchema.parse({
+        ...req.body,
+        userId: req.user?.userId ?? req.body.userId,
+      });
       const dream = await storage.createDream(validatedData);
       res.status(201).json(dream);
     } catch (error) {
@@ -1723,7 +1732,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
         name: user.name,
         location: user.location,
         lastLogin: user.lastLogin,
-        emailVerified: user.emailVerified
+        emailVerified: user.emailVerified,
+        onboardingCompleted: user.onboardingCompleted,
+        createdAt: user.createdAt
       });
     } catch (error) {
       console.error('Get user profile error:', error);
@@ -1760,7 +1771,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
           username: updatedUser.username,
           email: updatedUser.email,
           name: updatedUser.name,
-          location: updatedUser.location
+          location: updatedUser.location,
+          emailVerified: updatedUser.emailVerified,
+          onboardingCompleted: updatedUser.onboardingCompleted,
+          createdAt: updatedUser.createdAt
         }
       });
     } catch (error) {
@@ -1780,6 +1794,66 @@ export async function registerRoutes(app: Express): Promise<Server> {
           message: 'Error interno del servidor'
         });
       }
+    }
+  });
+
+  // Complete onboarding
+  app.post("/api/auth/complete-onboarding", authenticateToken, async (req: AuthRequest, res) => {
+    try {
+      const updatedUser = await storage.updateUser(req.user!.userId, { onboardingCompleted: true } as any);
+      res.json({
+        message: 'Onboarding completado',
+        user: {
+          id: updatedUser.id,
+          username: updatedUser.username,
+          email: updatedUser.email,
+          name: updatedUser.name,
+          location: updatedUser.location,
+          emailVerified: updatedUser.emailVerified,
+          onboardingCompleted: updatedUser.onboardingCompleted,
+          createdAt: updatedUser.createdAt
+        }
+      });
+    } catch (error) {
+      console.error('Complete onboarding error:', error);
+      res.status(500).json({
+        error: 'Internal server error',
+        message: 'Error interno del servidor'
+      });
+    }
+  });
+
+  // Save user interests
+  app.post("/api/user/interests", authenticateToken, async (req: AuthRequest, res) => {
+    try {
+      const { interests } = req.body;
+      if (!Array.isArray(interests)) {
+        return res.status(400).json({
+          error: 'Validation error',
+          message: 'interests debe ser un array'
+        });
+      }
+
+      // Upsert into userProfiles
+      const existing = await storage.getUserProfile(req.user!.userId);
+      if (existing) {
+        await storage.updateUserProfile(req.user!.userId, { interests: JSON.stringify(interests) });
+      } else {
+        await storage.createUserProfile({
+          userId: req.user!.userId,
+          interests: JSON.stringify(interests),
+          values: null,
+          personalityTraits: null,
+        });
+      }
+
+      res.json({ message: 'Intereses guardados', interests });
+    } catch (error) {
+      console.error('Save interests error:', error);
+      res.status(500).json({
+        error: 'Internal server error',
+        message: 'Error interno del servidor'
+      });
     }
   });
 
@@ -2974,7 +3048,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const progress = await storage.updateChallengeProgress(
         req.user!.userId,
         challengeId,
-        Math.max(currentProgress.currentStep, completedSteps.length),
+        Math.max(currentProgress.currentStep ?? 0, completedSteps.length),
         completedSteps
       );
       

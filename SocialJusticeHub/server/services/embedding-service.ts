@@ -1,5 +1,5 @@
 import { db } from '../db';
-import { textEmbeddings } from '@shared/schema-sqlite';
+import { textEmbeddings } from '@shared/schema';
 import { eq, and } from 'drizzle-orm';
 
 // Cache for the transformer pipeline to avoid reloading
@@ -75,34 +75,28 @@ export async function getOrCreateEmbedding(
       .limit(1);
 
     if (existing.length > 0 && existing[0].embedding) {
-      // Parse existing embedding from blob
-      const embeddingBlob = existing[0].embedding;
-      if (embeddingBlob instanceof Buffer) {
-        const embeddingStr = embeddingBlob.toString('utf-8');
-        try {
-          const embedding = JSON.parse(embeddingStr);
-          if (Array.isArray(embedding) && embedding.length > 0) {
-            return embedding;
-          }
-        } catch (parseError) {
-          console.warn('Failed to parse cached embedding, regenerating:', parseError);
+      try {
+        const embedding = JSON.parse(existing[0].embedding);
+        if (Array.isArray(embedding) && embedding.length > 0) {
+          return embedding;
         }
+      } catch (parseError) {
+        console.warn('Failed to parse cached embedding, regenerating:', parseError);
       }
     }
 
     // Generate new embedding
     const embedding = await generateEmbedding(text);
 
-    // Store in database (serialize as JSON string)
+    // Store in database as JSON string
     const embeddingJson = JSON.stringify(embedding);
-    const embeddingBuffer = Buffer.from(embeddingJson, 'utf-8');
 
     // Insert or update
     if (existing.length > 0) {
       await db
         .update(textEmbeddings)
         .set({
-          embedding: embeddingBuffer,
+          embedding: embeddingJson,
           model: 'Xenova/all-MiniLM-L6-v2',
         })
         .where(
@@ -115,7 +109,7 @@ export async function getOrCreateEmbedding(
       await db.insert(textEmbeddings).values({
         contentId,
         contentType,
-        embedding: embeddingBuffer,
+        embedding: embeddingJson,
         model: 'Xenova/all-MiniLM-L6-v2',
       });
     }
@@ -202,5 +196,3 @@ export async function batchGenerateEmbeddings(
 
   return results;
 }
-
-

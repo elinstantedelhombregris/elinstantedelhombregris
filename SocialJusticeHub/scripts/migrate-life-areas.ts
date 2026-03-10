@@ -1,6 +1,6 @@
 import { drizzle } from 'drizzle-orm/better-sqlite3';
 import Database from 'better-sqlite3';
-import * as schema from '../shared/schema-sqlite';
+import * as schema from '../shared/schema';
 
 async function migrateLifeAreas() {
   console.log('🚀 Iniciando migración de áreas de vida...');

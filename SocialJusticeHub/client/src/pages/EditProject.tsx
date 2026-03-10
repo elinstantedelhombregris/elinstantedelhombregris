@@ -65,7 +65,7 @@ const EditProject = () => {
   });
 
   // Fetch the existing project post
-  const { data: projectPost, isLoading } = useQuery<EditableProjectPost>({
+  const { data: projectPost, isLoading, isError, error } = useQuery<EditableProjectPost>({
     queryKey: [`/api/community/${id}`],
     enabled: !!id,
     staleTime: 60000,
@@ -97,7 +97,7 @@ const EditProject = () => {
         title: '¡Proyecto actualizado!',
         description: 'Tu publicación de proyecto ha sido actualizada exitosamente.',
       });
-      queryClient.invalidateQueries({ queryKey: ['/api/community'] });
+      queryClient.invalidateQueries({ queryKey: ['community-posts'] });
       queryClient.invalidateQueries({ queryKey: [`/api/community/${id}`] });
       setLocation('/community');
     },
@@ -130,6 +130,25 @@ const EditProject = () => {
           <div className="text-center">
             <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-amber-600 mx-auto"></div>
             <p className="mt-4 text-gray-600">Cargando proyecto...</p>
+          </div>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
+
+  if (isError) {
+    return (
+      <div className="min-h-screen bg-gray-50">
+        <Header />
+        <div className="container mx-auto px-4 py-8 max-w-4xl">
+          <div className="text-center">
+            <h1 className="text-2xl font-bold text-gray-900 mb-4">Error al cargar</h1>
+            <p className="text-gray-600 mb-6">{error?.message || 'Ocurrió un error al cargar el proyecto.'}</p>
+            <Button onClick={() => setLocation('/community')}>
+              <ArrowLeft className="h-4 w-4 mr-2" />
+              Volver a la comunidad
+            </Button>
           </div>
         </div>
         <Footer />

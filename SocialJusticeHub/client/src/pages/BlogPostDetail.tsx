@@ -253,7 +253,7 @@ export default function BlogPostDetail() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-slate-50">
+      <div className="min-h-screen bg-slate-50 theme-light">
         <Header />
         <div className="relative bg-gradient-to-br from-indigo-600 via-purple-600 to-violet-700 pt-32 pb-20">
           <div className="container mx-auto px-4 max-w-4xl">
@@ -281,7 +281,7 @@ export default function BlogPostDetail() {
 
   if (error || !post) {
     return (
-      <div className="min-h-screen bg-slate-50">
+      <div className="min-h-screen bg-slate-50 theme-light">
         <Header />
         <div className="relative bg-gradient-to-br from-indigo-600 via-purple-600 to-violet-700 pt-32 pb-32">
           <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMiIvPjwvZz48L2c+PC9zdmc+')] opacity-50" />
@@ -306,7 +306,7 @@ export default function BlogPostDetail() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-slate-50 theme-light">
       <Header />
 
       {/* Reading Progress Bar */}

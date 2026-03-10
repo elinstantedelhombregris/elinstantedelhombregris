@@ -1,54 +1,24 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Link } from "wouter";
 import {
   Eye,
   Users,
-  Heart,
-  Shield,
   AlertTriangle,
   Sparkles,
-  ArrowRight,
   Globe,
-  Clock,
-  Target,
   Zap,
-  Lightbulb,
-  Quote,
   TrendingUp,
-  Award,
-  Flame,
-  Star,
-  CheckCircle,
-  XCircle,
-  BookOpen,
-  Hammer,
   Brain,
   MapPin,
-  Navigation,
   Rocket,
-  ArrowDown,
-  Building2,
-  Scale,
-  Handshake,
   Scan,
   Activity
 } from 'lucide-react';
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import { motion, AnimatePresence } from 'framer-motion';
-import UrgencyTimer from '@/components/UrgencyTimer';
 import ShockStats from '@/components/ShockStats';
-import PowerCTA, { PredefinedCTAs } from '@/components/PowerCTA';
+import PowerCTA from '@/components/PowerCTA';
 import CommitmentModal from '@/components/CommitmentModal';
 import NextStepCard from '@/components/NextStepCard';
 import SystemHierarchy from '@/components/SystemHierarchy';
@@ -58,10 +28,33 @@ const LaVision = () => {
   const [showCommitmentModal, setShowCommitmentModal] = useState(false);
   const [activePillar, setActivePillar] = useState<number | null>(null);
 
+  const { data: platformStats } = useQuery<{
+    totalMembers: number;
+    activeMembers: number;
+    newMembersThisWeek: number;
+    totalPosts: number;
+    totalDreams: number;
+    projectPosts: number;
+    jobPosts: number;
+    resourcePosts: number;
+  }>({ queryKey: ['/api/stats'] });
+
+  const { data: dreams = [] } = useQuery<Array<{
+    id: number;
+    userId: number | null;
+    location: string | null;
+    type: string;
+  }>>({ queryKey: ['/api/dreams'] });
+
+  const realStats = useMemo(() => {
+    const uniqueVoices = new Set(dreams.filter(d => d.userId).map(d => d.userId)).size;
+    const uniqueLocations = new Set(dreams.filter(d => d.location).map(d => d.location)).size;
+    return { uniqueVoices, uniqueLocations, totalContributions: dreams.length };
+  }, [dreams]);
+
   const handleCommitment = (commitmentData: any) => {
     console.log('Commitment made:', commitmentData);
     setShowCommitmentModal(false);
-    // Here you would typically save the commitment to the backend
   };
 
   useEffect(() => {
@@ -139,34 +132,19 @@ const LaVision = () => {
 
   const visionStats = [
     {
-      id: 'diagnostics',
-      label: 'Diagnósticos activos',
-      value: 18240,
-      unit: '',
-      trend: 'up' as const,
-      color: 'blue' as const,
-      icon: <Brain className="w-6 h-6" />,
-      description: 'Personas que mapearon su vida'
+      id: 'voices',
+      label: 'Voces escuchadas',
+      value: realStats.uniqueVoices,
     },
     {
-      id: 'patterns',
-      label: 'Patrones detectados',
-      value: 612,
-      unit: '',
-      trend: 'up' as const,
-      color: 'green' as const,
-      icon: <Lightbulb className="w-6 h-6" />,
-      description: 'Tendencias que revelan interdependencias'
+      id: 'contributions',
+      label: 'Contribuciones',
+      value: realStats.totalContributions,
     },
     {
-      id: 'alliances',
-      label: 'Acciones coordinadas',
-      value: 128,
-      unit: '',
-      trend: 'up' as const,
-      color: 'orange' as const,
-      icon: <Handshake className="w-6 h-6" />,
-      description: 'Proyectos que conectan micro y macro'
+      id: 'territories',
+      label: 'Territorios',
+      value: realStats.uniqueLocations,
     }
   ];
 
@@ -176,14 +154,14 @@ const LaVision = () => {
       description: "Escuchamos la vida cotidiana sin filtros para entender qué tan lejos estamos de la Argentina deseada.",
       detail: "Lo cotidiano se convierte en información estratégica.",
       icon: <AlertTriangle className="w-6 h-6 text-amber-500" />,
-      stats: "85% Cobertura"
+      stats: `${realStats.uniqueLocations} localidades`
     },
     {
       title: "Revelar patrones invisibles",
       description: "Analizamos datos y relatos para mostrar dinámicas que los modelos tradicionales no ven.",
       detail: "Mostramos cómo se concatenan los problemas.",
       icon: <Scan className="w-6 h-6 text-indigo-500" />,
-      stats: "124 Patrones"
+      stats: `${realStats.totalContributions} datos`
     },
     {
       title: "Mostrar interdependencia",
@@ -197,40 +175,40 @@ const LaVision = () => {
       description: "Identificamos nodos donde falta articulación, inversión o acompañamiento.",
       detail: "El mapa señala dónde intervenir primero.",
       icon: <Activity className="w-6 h-6 text-blue-500" />,
-      stats: "Alta Precisión"
+      stats: "En curso"
     }
   ];
 
   const pulseStats = [
     {
-      id: 'localCells',
-      label: 'Células locales activas',
-      value: 342,
+      id: 'members',
+      label: 'Miembros de la comunidad',
+      value: platformStats?.totalMembers ?? 0,
       unit: '',
       trend: 'up' as const,
       color: 'purple' as const,
-      icon: <Award className="w-6 h-6" />,
-      description: 'Comunidades diseñando soluciones'
+      icon: <Users className="w-6 h-6" />,
+      description: 'Personas que se sumaron al movimiento'
     },
     {
-      id: 'leverage',
-      label: 'Palancas identificadas',
-      value: 57,
+      id: 'projects',
+      label: 'Proyectos ciudadanos',
+      value: platformStats?.totalPosts ?? 0,
       unit: '',
       trend: 'up' as const,
       color: 'green' as const,
       icon: <Zap className="w-6 h-6" />,
-      description: 'Puntos sistémicos listos para intervenir'
+      description: 'Iniciativas creadas por la comunidad'
     },
     {
-      id: 'policies',
-      label: 'Políticas alineadas',
-      value: 23,
+      id: 'newThisWeek',
+      label: 'Nuevos esta semana',
+      value: platformStats?.newMembersThisWeek ?? 0,
       unit: '',
       trend: 'up' as const,
       color: 'orange' as const,
-      icon: <Hammer className="w-6 h-6" />,
-      description: 'Gestiones públicas basadas en datos ciudadanos'
+      icon: <TrendingUp className="w-6 h-6" />,
+      description: 'Personas que se unieron en los últimos 7 días'
     }
   ];
 
@@ -540,44 +518,6 @@ const LaVision = () => {
               title="Impacto del Modelo Vivo"
               variant="dark"
             />
-          </div>
-        </section>
-
-        {/* Call to Action */}
-        <section className="section-spacing relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/20 to-purple-900/20" />
-          <div className="container-content relative z-10">
-            <div className="max-w-4xl mx-auto text-center">
-              <h2 className="heading-section mb-8">
-                Activa tu diagnóstico y alimenta la visión compartida
-              </h2>
-              <p className="text-body text-blue-100 mb-12 max-w-3xl mx-auto">
-                Cuando completas tu mapa personal, fortaleces el diagnóstico vivo del país, detectas tus propios patrones y ofreces información que ayuda a diseñar políticas coherentes.
-              </p>
-
-              <div className="card-unified p-10 backdrop-blur-xl border-blue-500/20">
-                <h3 className="text-2xl font-bold text-white mb-4">
-                  Únete al proceso de construcción colectiva
-                </h3>
-                <p className="text-slate-300 mb-8">
-                  Sube tu diagnóstico, conecta con otros y observa en tiempo real cómo tus datos se entrelazan con los de miles de argentinos.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <PowerCTA
-                    text="REGISTRAR MI DIAGNÓSTICO"
-                    variant="primary"
-                    onClick={() => setShowCommitmentModal(true)}
-                    size="lg"
-                    animate={true}
-                  />
-                  <Link href="/el-mapa">
-                    <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10 h-14 px-8 rounded-full">
-                      VER INSIGHTS NACIONALES
-                    </Button>
-                  </Link>
-                </div>
-              </div>
-            </div>
           </div>
         </section>
 

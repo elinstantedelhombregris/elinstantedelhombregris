@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { UserContext } from '@/App';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -8,33 +8,33 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { 
-  User, 
-  Trophy, 
-  Target, 
-  Star, 
+import EmailVerificationBanner from '@/components/EmailVerificationBanner';
+import { Link } from 'wouter';
+import { motion } from 'framer-motion';
+import {
+  User,
+  Trophy,
+  Target,
+  Star,
   TrendingUp,
   Calendar,
-  CheckCircle,
-  Clock,
   Flame,
   Zap,
   Heart,
   Users,
   BookOpen,
-  Edit,
   Save,
-  X,
   Award,
   Activity,
   BarChart3,
   Crown,
-  Sparkles,
-  Gem,
-  Settings
+  ShieldCheck,
+  ArrowRight,
+  Edit3,
+  MapPin,
+  X
 } from 'lucide-react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { apiRequest } from '@/lib/queryClient';
@@ -74,59 +74,77 @@ interface UserActivity {
   streakActive: boolean;
 }
 
+interface BadgeType {
+  id: number;
+  name: string;
+  description: string;
+  iconName: string;
+  rarity: string;
+  experienceReward: number;
+}
+
 const UserProfile = () => {
   const userContext = useContext(UserContext);
   const queryClient = useQueryClient();
   const [isEditing, setIsEditing] = useState(false);
+  const [authCheckTimeout, setAuthCheckTimeout] = useState(false);
   const [editForm, setEditForm] = useState({
     name: userContext?.user?.name || '',
     email: userContext?.user?.email || '',
-    bio: '',
-    location: ''
+    location: userContext?.user?.location || ''
   });
 
-  // Fetch user stats
-  const { data: userStats, isLoading: statsLoading } = useQuery<UserStats>({
+  useEffect(() => {
+    if (!userContext?.user) {
+      const timer = setTimeout(() => setAuthCheckTimeout(true), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [userContext?.user]);
+
+  const { data: userStats } = useQuery<UserStats>({
     queryKey: ['/api/user/stats'],
     enabled: !!userContext?.isLoggedIn,
     staleTime: 30000,
   });
 
-  // Fetch user badges
   const { data: userBadges = [], isLoading: badgesLoading } = useQuery<UserBadge[]>({
     queryKey: ['/api/user/badges'],
     enabled: !!userContext?.isLoggedIn,
     staleTime: 60000,
   });
 
-  // Fetch user activity
   const { data: userActivity = [], isLoading: activityLoading } = useQuery<UserActivity[]>({
     queryKey: ['/api/user/activity'],
     enabled: !!userContext?.isLoggedIn,
     staleTime: 60000,
   });
 
-  // Fetch all badges
-  interface Badge {
-    id: number;
-    name: string;
-    description: string;
-    iconName: string;
-    rarity: string;
-    experienceReward: number;
-  }
-  
-  const { data: allBadges = [] } = useQuery<Badge[]>({
+  const { data: allBadges = [] } = useQuery<BadgeType[]>({
     queryKey: ['/api/badges'],
     staleTime: 300000,
   });
 
+  // Auth guard
   if (!userContext?.user) {
+    if (authCheckTimeout) {
+      return (
+        <div className="min-h-screen bg-[#0a0a0a] text-slate-200 flex items-center justify-center">
+          <div className="text-center">
+            <ShieldCheck className="h-16 w-16 mx-auto mb-4 text-blue-500/50 animate-pulse" />
+            <h2 className="text-xl font-serif text-slate-100">Acceso restringido</h2>
+            <p className="text-slate-500 mt-2 font-mono text-sm">Iniciá sesión para ver tu perfil.</p>
+            <Button className="mt-6 bg-blue-600 hover:bg-blue-700 text-white" onClick={() => window.location.href = '/login'}>
+              Iniciar sesión
+            </Button>
+          </div>
+        </div>
+      );
+    }
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center">
+      <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
-          <p className="text-gray-600">Cargando tu perfil...</p>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto mb-4 shadow-[0_0_15px_rgba(59,130,246,0.5)]"></div>
+          <p className="text-blue-400 font-mono text-sm tracking-widest">Cargando perfil...</p>
         </div>
       </div>
     );
@@ -135,389 +153,382 @@ const UserProfile = () => {
   const { user } = userContext;
   const progressPercentage = userStats ? (userStats.experience / userStats.experienceToNext) * 100 : 0;
 
-  // Get level name and color
   const getLevelInfo = (level: number) => {
     switch (level) {
-      case 1: return { name: 'Vos', color: 'from-blue-500 to-blue-600', icon: Heart };
-      case 2: return { name: 'Tu Familia', color: 'from-pink-500 to-pink-600', icon: Users };
-      case 3: return { name: 'Tu Barrio', color: 'from-green-500 to-green-600', icon: BookOpen };
-      case 4: return { name: 'Tu Provincia', color: 'from-purple-500 to-purple-600', icon: TrendingUp };
-      case 5: return { name: 'La Nación', color: 'from-indigo-500 to-indigo-600', icon: Star };
-      default: return { name: 'Vos', color: 'from-blue-500 to-blue-600', icon: Heart };
+      case 1: return { name: 'Consciencia Individual', color: 'text-blue-400', gradient: 'from-blue-500 to-blue-600', icon: Heart };
+      case 2: return { name: 'Núcleo Familiar', color: 'text-amber-400', gradient: 'from-amber-500 to-amber-600', icon: Users };
+      case 3: return { name: 'Impacto Comunitario', color: 'text-emerald-400', gradient: 'from-emerald-500 to-emerald-600', icon: BookOpen };
+      case 4: return { name: 'Liderazgo Provincial', color: 'text-purple-400', gradient: 'from-purple-500 to-purple-600', icon: TrendingUp };
+      case 5: return { name: 'Visión Nacional', color: 'text-indigo-400', gradient: 'from-indigo-500 to-indigo-600', icon: Star };
+      default: return { name: 'Consciencia Individual', color: 'text-blue-400', gradient: 'from-blue-500 to-blue-600', icon: Heart };
     }
   };
 
   const currentLevelInfo = getLevelInfo(userStats?.level || 1);
   const LevelIcon = currentLevelInfo.icon;
 
-  // Get badges not earned yet
   const earnedBadgeIds = userBadges.map(ub => ub.badge.id);
-  const availableBadges = allBadges.filter((badge: Badge) => !earnedBadgeIds.includes(badge.id));
+  const availableBadges = allBadges.filter((badge) => !earnedBadgeIds.includes(badge.id));
 
-  // Get rarity color
-  const getRarityColor = (rarity: string) => {
+  const getRarityStyle = (rarity: string) => {
     switch (rarity) {
-      case 'legendary': return 'from-yellow-400 to-orange-500';
-      case 'epic': return 'from-purple-500 to-pink-500';
-      case 'rare': return 'from-blue-500 to-purple-500';
-      default: return 'from-gray-400 to-gray-600';
+      case 'legendary': return { bg: 'bg-yellow-500/10 border-yellow-500/30', text: 'text-yellow-400', gradient: 'from-yellow-400 to-orange-500' };
+      case 'epic': return { bg: 'bg-purple-500/10 border-purple-500/30', text: 'text-purple-400', gradient: 'from-purple-500 to-pink-500' };
+      case 'rare': return { bg: 'bg-blue-500/10 border-blue-500/30', text: 'text-blue-400', gradient: 'from-blue-500 to-purple-500' };
+      default: return { bg: 'bg-slate-500/10 border-slate-500/30', text: 'text-slate-400', gradient: 'from-slate-400 to-slate-600' };
     }
   };
 
-  // Get rarity text color
-  const getRarityTextColor = (rarity: string) => {
-    switch (rarity) {
-      case 'legendary': return 'text-yellow-600';
-      case 'epic': return 'text-purple-600';
-      case 'rare': return 'text-blue-600';
-      default: return 'text-gray-600';
+  const profileMutation = useMutation({
+    mutationFn: async (data: { name?: string; email?: string; location?: string }) => {
+      const response = await apiRequest('PUT', '/api/auth/profile', data);
+      if (!response.ok) throw new Error('Failed to update profile');
+      return response.json();
+    },
+    onSuccess: (data) => {
+      if (userContext) userContext.setUser(data.user);
+      toast({ title: 'Perfil actualizado', description: 'Tus cambios han sido guardados exitosamente.' });
+      setIsEditing(false);
+    },
+    onError: () => {
+      toast({ title: 'Error', description: 'No se pudieron guardar los cambios', variant: 'destructive' });
     }
-  };
+  });
 
   const handleEditToggle = () => {
     if (isEditing) {
       setEditForm({
-        name: userContext?.user?.name || '',
-        email: userContext?.user?.email || '',
-        bio: '',
-        location: ''
+        name: user.name || '',
+        email: user.email || '',
+        location: user.location || ''
       });
     }
     setIsEditing(!isEditing);
   };
 
   const handleSave = () => {
-    // Here you would implement the save functionality
-    toast({
-      title: 'Perfil actualizado',
-      description: 'Tus cambios han sido guardados exitosamente.',
-    });
-    setIsEditing(false);
+    profileMutation.mutate({ name: editForm.name, email: editForm.email, location: editForm.location });
   };
 
+  const memberSince = user.createdAt
+    ? new Date(user.createdAt).toLocaleDateString('es-AR', { year: 'numeric', month: 'long', day: 'numeric' })
+    : 'Reciente';
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+    <div className="min-h-screen bg-[#0a0a0a] text-slate-200 font-sans selection:bg-blue-500/30">
       <Header />
-      
+      <EmailVerificationBanner variant="dark" />
+
       {/* Hero Section */}
-      <div className="relative overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 via-purple-600/5 to-indigo-600/5"></div>
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-            backgroundRepeat: 'repeat'
-          }}></div>
-        </div>
-        
+      <div className="relative overflow-hidden border-b border-white/5">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/20 via-[#0a0a0a] to-[#0a0a0a] pointer-events-none" />
+
         <div className="relative max-w-7xl mx-auto px-4 py-12">
-          <div className="text-center mb-8">
-            <div className="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full mb-6 shadow-lg">
-              <Avatar className="h-20 w-20 border-4 border-white">
-                <AvatarImage src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${user.username}`} />
-                <AvatarFallback className="text-2xl font-bold bg-gradient-to-br from-blue-500 to-purple-600 text-white">
-                  {user.name.charAt(0)}
-                </AvatarFallback>
-              </Avatar>
-            </div>
-            
-            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent mb-4 font-serif">
-              {user.name}
-            </h1>
-            
-            <p className="text-xl text-gray-600 mb-2">@{user.username}</p>
-            
-            <div className="flex flex-wrap items-center justify-center gap-4 mb-6">
-              <Badge className="px-4 py-2 text-sm font-semibold bg-gradient-to-r from-blue-500 to-blue-600 text-white border-0 shadow-lg">
-                <Crown className="h-4 w-4 mr-2" />
-                Nivel {userStats?.level || 1} • {currentLevelInfo.name}
-              </Badge>
-              <Badge className="px-4 py-2 text-sm font-semibold bg-gradient-to-r from-purple-500 to-purple-600 text-white border-0 shadow-lg">
-                <Zap className="h-4 w-4 mr-2" />
-                {userStats?.experience || 0} XP
-              </Badge>
-              <Badge className="px-4 py-2 text-sm font-semibold bg-gradient-to-r from-amber-500 to-orange-600 text-white border-0 shadow-lg">
-                <Trophy className="h-4 w-4 mr-2" />
-                {userStats?.badgesEarned || 0} Logros
-              </Badge>
-            </div>
+          <div className="flex flex-col md:flex-row items-center gap-8">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              className="relative group"
+            >
+              <div className="w-28 h-28 rounded-2xl bg-white/5 overflow-hidden border border-white/10 shadow-[0_0_30px_rgba(59,130,246,0.15)] group-hover:border-blue-500/50 transition-all duration-500">
+                <Avatar className="h-full w-full rounded-none">
+                  <AvatarImage src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${user.username}`} className="grayscale opacity-80 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500" />
+                  <AvatarFallback className="bg-slate-900 text-slate-400 font-bold text-3xl">
+                    {user.name.charAt(0)}
+                  </AvatarFallback>
+                </Avatar>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="text-center md:text-left flex-1"
+            >
+              <h1 className="text-3xl md:text-4xl font-bold text-white font-serif tracking-tight mb-1">
+                {user.name}
+              </h1>
+              <p className="text-slate-500 font-mono text-sm mb-4">@{user.username}</p>
+
+              <div className="flex flex-wrap items-center justify-center md:justify-start gap-3">
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10">
+                  <Crown className="h-3.5 w-3.5 text-amber-400" />
+                  <span className="text-xs font-bold text-slate-300">NV. {userStats?.level || 1} · {currentLevelInfo.name}</span>
+                </div>
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10">
+                  <Zap className="h-3.5 w-3.5 text-blue-400" />
+                  <span className="text-xs font-bold text-slate-300">{userStats?.experience || 0} XP</span>
+                </div>
+                {user.location && (
+                  <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10">
+                    <MapPin className="h-3.5 w-3.5 text-emerald-400" />
+                    <span className="text-xs font-bold text-slate-300">{user.location}</span>
+                  </div>
+                )}
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <Button
+                onClick={handleEditToggle}
+                variant="outline"
+                className={`border-white/20 text-slate-300 hover:bg-white/10 hover:text-white ${isEditing ? 'bg-white/10 border-blue-500/50 text-blue-300' : ''}`}
+              >
+                {isEditing ? <X className="h-4 w-4 mr-2" /> : <Edit3 className="h-4 w-4 mr-2" />}
+                {isEditing ? 'Cancelar' : 'Editar perfil'}
+              </Button>
+            </motion.div>
           </div>
         </div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 py-8">
+        {/* Edit form inline */}
+        {isEditing && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="mb-8"
+          >
+            <Card className="bg-white/5 backdrop-blur-md border-white/10 shadow-lg border-l-4 border-l-blue-500">
+              <CardHeader className="pb-3">
+                <CardTitle className="text-lg font-bold text-slate-100 uppercase tracking-wider flex items-center gap-3">
+                  <Edit3 className="h-5 w-5 text-blue-400" />
+                  Editar Información
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="name" className="text-slate-400 text-xs uppercase tracking-wider">Nombre completo</Label>
+                    <Input
+                      id="name"
+                      value={editForm.name}
+                      onChange={(e) => setEditForm({ ...editForm, name: e.target.value })}
+                      className="bg-white/5 border-white/10 text-white focus:border-blue-500/50"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="email" className="text-slate-400 text-xs uppercase tracking-wider">Email</Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      value={editForm.email}
+                      onChange={(e) => setEditForm({ ...editForm, email: e.target.value })}
+                      className="bg-white/5 border-white/10 text-white focus:border-blue-500/50"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="location" className="text-slate-400 text-xs uppercase tracking-wider">Ubicación</Label>
+                    <Input
+                      id="location"
+                      value={editForm.location}
+                      onChange={(e) => setEditForm({ ...editForm, location: e.target.value })}
+                      placeholder="Ciudad, Provincia"
+                      className="bg-white/5 border-white/10 text-white placeholder:text-slate-600 focus:border-blue-500/50"
+                    />
+                  </div>
+                </div>
+                <div className="flex gap-3 mt-6">
+                  <Button
+                    onClick={handleSave}
+                    disabled={profileMutation.isPending}
+                    className="bg-blue-600 hover:bg-blue-500 text-white shadow-[0_0_15px_rgba(37,99,235,0.3)]"
+                  >
+                    <Save className="h-4 w-4 mr-2" />
+                    {profileMutation.isPending ? 'Guardando...' : 'Guardar Cambios'}
+                  </Button>
+                  <Button onClick={handleEditToggle} variant="ghost" className="text-slate-400 hover:text-slate-200 hover:bg-white/5">
+                    Cancelar
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
+        )}
+
         <Tabs defaultValue="info" className="space-y-8">
-          <TabsList className="grid w-full grid-cols-3 bg-gradient-to-r from-white to-gray-50 border-0 shadow-lg">
-            <TabsTrigger value="info" className="flex items-center data-[state=active]:bg-gradient-to-r data-[state=active]:from-blue-500 data-[state=active]:to-purple-600 data-[state=active]:text-white">
+          <TabsList className="grid w-full grid-cols-3 bg-white/5 border border-white/10 rounded-xl p-1">
+            <TabsTrigger value="info" className="data-[state=active]:bg-white/10 data-[state=active]:text-white text-slate-400 rounded-lg transition-all">
               <User className="h-4 w-4 mr-2" />
               Información
             </TabsTrigger>
-            <TabsTrigger value="progress" className="flex items-center data-[state=active]:bg-gradient-to-r data-[state=active]:from-purple-500 data-[state=active]:to-pink-600 data-[state=active]:text-white">
+            <TabsTrigger value="progress" className="data-[state=active]:bg-white/10 data-[state=active]:text-white text-slate-400 rounded-lg transition-all">
               <BarChart3 className="h-4 w-4 mr-2" />
               Progreso
             </TabsTrigger>
-            <TabsTrigger value="achievements" className="flex items-center data-[state=active]:bg-gradient-to-r data-[state=active]:from-amber-500 data-[state=active]:to-orange-600 data-[state=active]:text-white">
+            <TabsTrigger value="achievements" className="data-[state=active]:bg-white/10 data-[state=active]:text-white text-slate-400 rounded-lg transition-all">
               <Trophy className="h-4 w-4 mr-2" />
               Logros
             </TabsTrigger>
           </TabsList>
 
           {/* Información Personal */}
-          <TabsContent value="info" className="space-y-8">
-            <Card className="bg-gradient-to-br from-white to-blue-50/50 border-0 shadow-xl">
-              <CardHeader className="pb-4">
-                <CardTitle className="flex items-center text-xl">
-                  <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center mr-3">
-                    <User className="h-5 w-5 text-white" />
+          <TabsContent value="info" className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <Card className="bg-white/5 backdrop-blur-md border-white/10 shadow-lg">
+                <CardHeader className="pb-3 border-b border-white/5">
+                  <CardTitle className="flex items-center text-sm font-bold text-slate-200 uppercase tracking-wider">
+                    <User className="h-4 w-4 mr-2 text-blue-400" />
+                    Información Básica
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="pt-4 space-y-3">
+                  <div className="flex justify-between items-center py-2 border-b border-white/5">
+                    <span className="text-slate-500 text-sm">Nombre</span>
+                    <span className="text-slate-200 font-medium text-sm">{user.name}</span>
                   </div>
-                  Información Personal
-                </CardTitle>
-                <CardDescription className="text-base">
-                  Gestiona tu información personal y preferencias
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                {isEditing ? (
-                  <div className="space-y-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <Label htmlFor="name">Nombre completo</Label>
-                        <Input
-                          id="name"
-                          value={editForm.name}
-                          onChange={(e) => setEditForm({ ...editForm, name: e.target.value })}
-                        />
-                      </div>
-                      <div>
-                        <Label htmlFor="email">Email</Label>
-                        <Input
-                          id="email"
-                          type="email"
-                          value={editForm.email}
-                          onChange={(e) => setEditForm({ ...editForm, email: e.target.value })}
-                        />
-                      </div>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <Label htmlFor="location">Ubicación</Label>
-                        <Input
-                          id="location"
-                          value={editForm.location}
-                          onChange={(e) => setEditForm({ ...editForm, location: e.target.value })}
-                          placeholder="Ciudad, País"
-                        />
-                      </div>
-                      <div>
-                        <Label htmlFor="username">Usuario</Label>
-                        <Input
-                          id="username"
-                          value={user.username}
-                          disabled
-                          className="bg-gray-50"
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <Label htmlFor="bio">Biografía</Label>
-                      <Textarea
-                        id="bio"
-                        value={editForm.bio}
-                        onChange={(e) => setEditForm({ ...editForm, bio: e.target.value })}
-                        placeholder="Cuéntanos sobre ti..."
-                        rows={3}
-                      />
-                    </div>
-                    <div className="flex space-x-2">
-                      <Button onClick={handleSave}>
-                        <Save className="h-4 w-4 mr-2" />
-                        Guardar Cambios
-                      </Button>
-                      <Button onClick={handleEditToggle} variant="outline">
-                        Cancelar
-                      </Button>
-                    </div>
+                  <div className="flex justify-between items-center py-2 border-b border-white/5">
+                    <span className="text-slate-500 text-sm">Email</span>
+                    <span className="text-slate-200 font-medium text-sm">{user.email}</span>
                   </div>
-                ) : (
-                  <div className="space-y-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div>
-                        <h3 className="font-semibold text-gray-900 mb-2">Información Básica</h3>
-                        <div className="space-y-2">
-                          <div className="flex justify-between">
-                            <span className="text-gray-600">Nombre:</span>
-                            <span className="font-medium">{user.name}</span>
-                          </div>
-                          <div className="flex justify-between">
-                            <span className="text-gray-600">Email:</span>
-                            <span className="font-medium">{user.email}</span>
-                          </div>
-                          <div className="flex justify-between">
-                            <span className="text-gray-600">Usuario:</span>
-                            <span className="font-medium">@{user.username}</span>
-                          </div>
-                          <div className="flex justify-between">
-                            <span className="text-gray-600">Miembro desde:</span>
-                            <span className="font-medium">
-                              {new Date().toLocaleDateString()}
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                      <div>
-                        <h3 className="font-semibold text-gray-900 mb-2">Estadísticas Rápidas</h3>
-                        <div className="space-y-2">
-                          <div className="flex justify-between">
-                            <span className="text-gray-600">Nivel actual:</span>
-                            <Badge variant="secondary">{userStats?.level || 1}</Badge>
-                          </div>
-                          <div className="flex justify-between">
-                            <span className="text-gray-600">Experiencia:</span>
-                            <span className="font-medium">{userStats?.experience || 0} XP</span>
-                          </div>
-                          <div className="flex justify-between">
-                            <span className="text-gray-600">Racha:</span>
-                            <span className="font-medium flex items-center">
-                              <Flame className="h-4 w-4 text-orange-500 mr-1" />
-                              {userStats?.streak || 0} días
-                            </span>
-                          </div>
-                          <div className="flex justify-between">
-                            <span className="text-gray-600">Desafíos completados:</span>
-                            <span className="font-medium">{userStats?.completedChallenges || 0}</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                  <div className="flex justify-between items-center py-2 border-b border-white/5">
+                    <span className="text-slate-500 text-sm">Usuario</span>
+                    <span className="text-slate-200 font-medium text-sm">@{user.username}</span>
                   </div>
-                )}
-              </CardContent>
-            </Card>
-          </TabsContent>
-
-          {/* Progreso */}
-          <TabsContent value="progress" className="space-y-6">
-            {/* Progreso General */}
-            <Card>
-              <CardHeader>
-                <CardTitle>Tu Progreso en la Guía del Cambio</CardTitle>
-                <CardDescription>
-                  Sigue tu evolución a través de los 5 niveles de transformación
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-6">
-                  <div className="flex items-center space-x-4">
-                    <div className={`w-16 h-16 bg-gradient-to-br ${currentLevelInfo.color} text-white rounded-full flex items-center justify-center`}>
-                      <LevelIcon className="h-8 w-8" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl font-semibold text-gray-900">{currentLevelInfo.name}</h3>
-                      <p className="text-gray-600">
-                        {(userStats?.experienceToNext || 500) - (userStats?.experience || 0)} XP para el siguiente nivel
-                      </p>
-                      <div className="flex justify-between text-sm mt-2">
-                        <span>Nivel {userStats?.level || 1}</span>
-                        <span>{userStats?.experience || 0} / {userStats?.experienceToNext || 500} XP</span>
-                      </div>
-                      <Progress value={progressPercentage} className="h-3 mt-2" />
-                    </div>
+                  <div className="flex justify-between items-center py-2 border-b border-white/5">
+                    <span className="text-slate-500 text-sm">Ubicación</span>
+                    <span className="text-slate-200 font-medium text-sm">{user.location || '—'}</span>
                   </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Estadísticas Detalladas */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <Card>
-                <CardContent className="p-6">
-                  <div className="flex items-center space-x-3">
-                    <div className="p-2 bg-blue-100 rounded-lg">
-                      <Target className="h-6 w-6 text-blue-600" />
-                    </div>
-                    <div>
-                      <p className="text-sm font-medium text-gray-600">Desafíos Completados</p>
-                      <p className="text-2xl font-bold text-gray-900">{userStats?.completedChallenges || 0}</p>
-                    </div>
+                  <div className="flex justify-between items-center py-2">
+                    <span className="text-slate-500 text-sm">Miembro desde</span>
+                    <span className="text-slate-200 font-medium text-sm">{memberSince}</span>
                   </div>
                 </CardContent>
               </Card>
 
-              <Card>
-                <CardContent className="p-6">
-                  <div className="flex items-center space-x-3">
-                    <div className="p-2 bg-orange-100 rounded-lg">
-                      <Flame className="h-6 w-6 text-orange-600" />
-                    </div>
-                    <div>
-                      <p className="text-sm font-medium text-gray-600">Racha Actual</p>
-                      <p className="text-2xl font-bold text-gray-900">{userStats?.streak || 0} días</p>
-                    </div>
+              <Card className="bg-white/5 backdrop-blur-md border-white/10 shadow-lg">
+                <CardHeader className="pb-3 border-b border-white/5">
+                  <CardTitle className="flex items-center text-sm font-bold text-slate-200 uppercase tracking-wider">
+                    <BarChart3 className="h-4 w-4 mr-2 text-purple-400" />
+                    Estadísticas Rápidas
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="pt-4 space-y-3">
+                  <div className="flex justify-between items-center py-2 border-b border-white/5">
+                    <span className="text-slate-500 text-sm">Nivel actual</span>
+                    <Badge variant="outline" className="border-blue-500/30 text-blue-400 bg-blue-500/10 text-xs">
+                      {userStats?.level || 1} · {currentLevelInfo.name}
+                    </Badge>
                   </div>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardContent className="p-6">
-                  <div className="flex items-center space-x-3">
-                    <div className="p-2 bg-purple-100 rounded-lg">
-                      <Trophy className="h-6 w-6 text-purple-600" />
-                    </div>
-                    <div>
-                      <p className="text-sm font-medium text-gray-600">Logros Obtenidos</p>
-                      <p className="text-2xl font-bold text-gray-900">{userStats?.badgesEarned || 0}</p>
-                    </div>
+                  <div className="flex justify-between items-center py-2 border-b border-white/5">
+                    <span className="text-slate-500 text-sm">Experiencia</span>
+                    <span className="text-blue-400 font-bold text-sm">{userStats?.experience || 0} XP</span>
                   </div>
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardContent className="p-6">
-                  <div className="flex items-center space-x-3">
-                    <div className="p-2 bg-green-100 rounded-lg">
-                      <Zap className="h-6 w-6 text-green-600" />
-                    </div>
-                    <div>
-                      <p className="text-sm font-medium text-gray-600">Experiencia Total</p>
-                      <p className="text-2xl font-bold text-gray-900">{userStats?.experience || 0} XP</p>
-                    </div>
+                  <div className="flex justify-between items-center py-2 border-b border-white/5">
+                    <span className="text-slate-500 text-sm">Racha</span>
+                    <span className="text-amber-400 font-bold text-sm flex items-center">
+                      <Flame className="h-4 w-4 mr-1" />
+                      {userStats?.streak || 0} días
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center py-2">
+                    <span className="text-slate-500 text-sm">Desafíos completados</span>
+                    <span className="text-emerald-400 font-bold text-sm">{userStats?.completedChallenges || 0}</span>
                   </div>
                 </CardContent>
               </Card>
             </div>
+          </TabsContent>
 
-            {/* Actividad Reciente */}
-            <Card>
-              <CardHeader>
-                <CardTitle>Actividad Reciente</CardTitle>
-                <CardDescription>
-                  Tu actividad de los últimos 30 días
+          {/* Progreso */}
+          <TabsContent value="progress" className="space-y-6">
+            <Card className="bg-white/5 backdrop-blur-md border-white/10 shadow-lg">
+              <CardHeader className="pb-3 border-b border-white/5">
+                <CardTitle className="flex items-center text-lg font-bold text-slate-100 uppercase tracking-wider">
+                  <Crown className="h-5 w-5 mr-3 text-amber-400" />
+                  Progreso en la Guía del Cambio
+                </CardTitle>
+                <CardDescription className="text-slate-500 text-xs font-mono mt-1">
+                  EVOLUCIÓN A TRAVÉS DE 5 NIVELES
                 </CardDescription>
               </CardHeader>
-              <CardContent>
+              <CardContent className="pt-6">
+                <div className="flex items-center gap-6 mb-6">
+                  <div className={`w-20 h-20 rounded-2xl bg-[#0a0a0a] border border-white/10 flex items-center justify-center`}>
+                    <LevelIcon className={`h-8 w-8 ${currentLevelInfo.color}`} />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className={`text-2xl font-bold ${currentLevelInfo.color} font-serif`}>{currentLevelInfo.name}</h3>
+                    <p className="text-slate-500 font-mono text-xs mt-1">
+                      PRÓXIMO NIVEL: <span className="text-slate-200 font-bold">{(userStats?.experienceToNext || 500) - (userStats?.experience || 0)} XP</span>
+                    </p>
+                  </div>
+                </div>
+                <div className="flex justify-between text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-2">
+                  <span>Nivel {userStats?.level || 1}</span>
+                  <span className="text-blue-400">{Math.round(progressPercentage)}%</span>
+                </div>
+                <div className="h-2 bg-white/5 rounded-full overflow-hidden border border-white/5">
+                  <motion.div
+                    initial={{ width: 0 }}
+                    animate={{ width: `${progressPercentage}%` }}
+                    transition={{ duration: 1.5, ease: "easeOut" }}
+                    className="h-full bg-gradient-to-r from-blue-600 to-purple-500"
+                  />
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Stats grid */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+              {[
+                { label: 'Desafíos', value: userStats?.completedChallenges || 0, icon: Target, color: 'text-blue-400', bg: 'bg-blue-500/10 border-blue-500/20' },
+                { label: 'Racha', value: `${userStats?.streak || 0}d`, icon: Flame, color: 'text-amber-400', bg: 'bg-amber-500/10 border-amber-500/20' },
+                { label: 'Logros', value: userStats?.badgesEarned || 0, icon: Trophy, color: 'text-purple-400', bg: 'bg-purple-500/10 border-purple-500/20' },
+                { label: 'XP Total', value: userStats?.experience || 0, icon: Zap, color: 'text-emerald-400', bg: 'bg-emerald-500/10 border-emerald-500/20' },
+              ].map((stat) => {
+                const Icon = stat.icon;
+                return (
+                  <Card key={stat.label} className="bg-white/5 border-white/10">
+                    <CardContent className="p-4 text-center">
+                      <div className={`w-10 h-10 mx-auto rounded-lg ${stat.bg} border flex items-center justify-center mb-3`}>
+                        <Icon className={`h-5 w-5 ${stat.color}`} />
+                      </div>
+                      <p className="text-2xl font-mono font-bold text-white">{stat.value}</p>
+                      <p className="text-[10px] uppercase text-slate-500 font-bold tracking-wider mt-1">{stat.label}</p>
+                    </CardContent>
+                  </Card>
+                );
+              })}
+            </div>
+
+            {/* Activity */}
+            <Card className="bg-white/5 backdrop-blur-md border-white/10 shadow-lg">
+              <CardHeader className="pb-3 border-b border-white/5">
+                <CardTitle className="flex items-center text-sm font-bold text-slate-200 uppercase tracking-wider">
+                  <Activity className="h-4 w-4 mr-2 text-emerald-400" />
+                  Actividad Reciente
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="pt-4">
                 {activityLoading ? (
-                  <div className="text-center py-4">
-                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto"></div>
-                    <p className="text-sm text-gray-600 mt-2">Cargando actividad...</p>
+                  <div className="text-center py-6">
+                    <p className="text-slate-500 font-mono text-xs animate-pulse">CARGANDO ACTIVIDAD...</p>
                   </div>
                 ) : userActivity.length > 0 ? (
-                  <div className="space-y-3">
+                  <div className="space-y-2">
                     {userActivity.slice(0, 10).map((activity) => (
-                      <div key={activity.id} className="flex items-center justify-between p-3 border rounded-lg">
-                        <div className="flex items-center space-x-3">
-                          <Calendar className="h-4 w-4 text-gray-400" />
+                      <div key={activity.id} className="flex items-center justify-between p-3 bg-white/5 border border-white/5 rounded-lg hover:bg-white/[0.07] transition-colors">
+                        <div className="flex items-center gap-3">
+                          <Calendar className="h-4 w-4 text-slate-600" />
                           <div>
-                            <p className="font-medium">{new Date(activity.date).toLocaleDateString()}</p>
-                            <p className="text-sm text-gray-600">
-                              +{activity.experienceGained} XP • {activity.challengesCompleted} desafíos
+                            <p className="text-sm font-medium text-slate-300">{new Date(activity.date).toLocaleDateString('es-AR')}</p>
+                            <p className="text-xs text-slate-500">
+                              +{activity.experienceGained} XP · {activity.challengesCompleted} desafíos
                             </p>
                           </div>
                         </div>
-                        <div className="flex items-center space-x-2">
-                          {activity.streakActive && (
-                            <Flame className="h-4 w-4 text-orange-500" />
-                          )}
-                          <Badge variant="outline">
+                        <div className="flex items-center gap-2">
+                          {activity.streakActive && <Flame className="h-4 w-4 text-amber-500" />}
+                          <Badge variant="outline" className="border-white/10 text-slate-400 text-xs">
                             {activity.actionsCompleted} acciones
                           </Badge>
                         </div>
@@ -525,10 +536,16 @@ const UserProfile = () => {
                     ))}
                   </div>
                 ) : (
-                  <div className="text-center py-8">
-                    <Activity className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-                    <p className="text-gray-600">No hay actividad registrada aún</p>
-                    <p className="text-sm text-gray-500">¡Completa desafíos para ver tu progreso aquí!</p>
+                  <div className="text-center py-10 bg-white/5 rounded-lg border border-dashed border-white/10">
+                    <Activity className="h-8 w-8 text-emerald-500/30 mx-auto mb-3" />
+                    <p className="text-slate-400 text-sm mb-1">Tu actividad aparecerá acá</p>
+                    <p className="text-slate-600 font-mono text-xs mb-4">Completá desafíos para registrar tu progreso</p>
+                    <Link href="/challenges">
+                      <Button variant="outline" size="sm" className="border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/10 text-xs uppercase tracking-wider">
+                        Ver desafíos
+                        <ArrowRight className="ml-1 h-3 w-3" />
+                      </Button>
+                    </Link>
                   </div>
                 )}
               </CardContent>
@@ -537,97 +554,104 @@ const UserProfile = () => {
 
           {/* Logros */}
           <TabsContent value="achievements" className="space-y-6">
-            {/* Logros Obtenidos */}
-            <Card>
-              <CardHeader>
-                <CardTitle>Logros Obtenidos</CardTitle>
-                <CardDescription>
-                  {userBadges.length} de {allBadges.length} logros desbloqueados
-                </CardDescription>
+            <Card className="bg-white/5 backdrop-blur-md border-white/10 shadow-lg">
+              <CardHeader className="pb-3 border-b border-white/5">
+                <div className="flex items-center justify-between">
+                  <CardTitle className="flex items-center text-sm font-bold text-slate-200 uppercase tracking-wider">
+                    <Award className="h-4 w-4 mr-2 text-yellow-400" />
+                    Logros Obtenidos
+                  </CardTitle>
+                  <span className="text-xs font-mono text-slate-500">
+                    {userBadges.length} / {allBadges.length}
+                  </span>
+                </div>
               </CardHeader>
-              <CardContent>
+              <CardContent className="pt-4">
                 {badgesLoading ? (
-                  <div className="text-center py-4">
-                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto"></div>
+                  <div className="text-center py-6">
+                    <p className="text-slate-500 font-mono text-xs animate-pulse">CARGANDO LOGROS...</p>
                   </div>
                 ) : userBadges.length > 0 ? (
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {userBadges.map((userBadge) => (
-                      <div key={userBadge.id} className="p-4 border rounded-lg bg-gradient-to-br from-green-50 to-green-100">
-                        <div className="flex items-center space-x-3 mb-3">
-                          <div className={`w-10 h-10 rounded-full flex items-center justify-center bg-gradient-to-br ${getRarityColor(userBadge.badge.rarity)}`}>
-                            <Award className="h-5 w-5 text-white" />
+                    {userBadges.map((userBadge) => {
+                      const style = getRarityStyle(userBadge.badge.rarity);
+                      return (
+                        <div key={userBadge.id} className={`p-4 rounded-lg border ${style.bg} transition-colors hover:bg-white/[0.07]`}>
+                          <div className="flex items-center gap-3 mb-3">
+                            <div className={`w-10 h-10 rounded-lg flex items-center justify-center bg-gradient-to-br ${style.gradient}`}>
+                              <Award className="h-5 w-5 text-white" />
+                            </div>
+                            <div>
+                              <h3 className="font-bold text-sm text-slate-200">{userBadge.badge.name}</h3>
+                              <p className={`text-[10px] font-bold uppercase tracking-wider ${style.text}`}>
+                                {userBadge.badge.rarity}
+                              </p>
+                            </div>
                           </div>
-                          <div>
-                            <h3 className="font-semibold">{userBadge.badge.name}</h3>
-                            <p className={`text-xs font-medium ${getRarityTextColor(userBadge.badge.rarity)}`}>
-                              {userBadge.badge.rarity.toUpperCase()}
-                            </p>
+                          <p className="text-sm text-slate-400 mb-2">{userBadge.badge.description}</p>
+                          <div className="flex items-center justify-between text-xs text-slate-600">
+                            <span className="text-emerald-400">+{userBadge.badge.experienceReward} XP</span>
+                            <span>{new Date(userBadge.earnedAt).toLocaleDateString('es-AR')}</span>
                           </div>
                         </div>
-                        <p className="text-sm text-gray-700 mb-2">{userBadge.badge.description}</p>
-                        <div className="flex items-center justify-between text-xs text-gray-500">
-                          <span>+{userBadge.badge.experienceReward} XP</span>
-                          <span>{new Date(userBadge.earnedAt).toLocaleDateString()}</span>
-                        </div>
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
                 ) : (
-                  <div className="text-center py-8">
-                    <Trophy className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-                    <p className="text-gray-600">Aún no has obtenido logros</p>
-                    <p className="text-sm text-gray-500">¡Completa desafíos para desbloquearlos!</p>
+                  <div className="text-center py-10 bg-white/5 rounded-lg border border-dashed border-white/10">
+                    <Trophy className="h-8 w-8 text-yellow-500/30 mx-auto mb-3" />
+                    <p className="text-slate-400 text-sm mb-1">Completá desafíos para desbloquear tus primeros logros</p>
+                    <p className="text-slate-600 font-mono text-xs mb-4">Cada logro otorga XP y reconocimiento</p>
+                    <Link href="/challenges">
+                      <Button variant="outline" size="sm" className="border-yellow-500/30 text-yellow-400 hover:bg-yellow-500/10 text-xs uppercase tracking-wider">
+                        Explorar desafíos
+                        <ArrowRight className="ml-1 h-3 w-3" />
+                      </Button>
+                    </Link>
                   </div>
                 )}
               </CardContent>
             </Card>
 
-            {/* Logros Disponibles */}
-            <Card>
-              <CardHeader>
-                <CardTitle>Logros Disponibles</CardTitle>
-                <CardDescription>
-                  Desafíos para desbloquear más logros
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                {availableBadges.length > 0 ? (
+            {/* Available Badges */}
+            {availableBadges.length > 0 && (
+              <Card className="bg-white/5 backdrop-blur-md border-white/10 shadow-lg">
+                <CardHeader className="pb-3 border-b border-white/5">
+                  <CardTitle className="flex items-center text-sm font-bold text-slate-200 uppercase tracking-wider">
+                    <Star className="h-4 w-4 mr-2 text-slate-500" />
+                    Logros Disponibles
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="pt-4">
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {availableBadges.map((badge: any) => (
-                      <div key={badge.id} className="p-4 border rounded-lg bg-gray-50 opacity-75">
-                        <div className="flex items-center space-x-3 mb-3">
-                          <div className="w-10 h-10 rounded-full flex items-center justify-center bg-gray-300">
-                            <Award className="h-5 w-5 text-gray-500" />
+                    {availableBadges.map((badge) => (
+                      <div key={badge.id} className="p-4 rounded-lg border border-white/5 bg-white/[0.02] opacity-60">
+                        <div className="flex items-center gap-3 mb-3">
+                          <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-slate-800 border border-white/10">
+                            <Award className="h-5 w-5 text-slate-500" />
                           </div>
                           <div>
-                            <h3 className="font-semibold text-gray-600">{badge.name}</h3>
-                            <p className="text-xs font-medium text-gray-500">
-                              {badge.rarity.toUpperCase()}
+                            <h3 className="font-bold text-sm text-slate-400">{badge.name}</h3>
+                            <p className="text-[10px] font-bold uppercase tracking-wider text-slate-600">
+                              {badge.rarity}
                             </p>
                           </div>
                         </div>
-                        <p className="text-sm text-gray-600 mb-2">{badge.description}</p>
-                        <div className="flex items-center justify-between text-xs text-gray-400">
+                        <p className="text-sm text-slate-500 mb-2">{badge.description}</p>
+                        <div className="flex items-center justify-between text-xs text-slate-700">
                           <span>+{badge.experienceReward} XP</span>
-                          <span>Bloqueado</span>
+                          <span className="uppercase tracking-wider">Bloqueado</span>
                         </div>
                       </div>
                     ))}
                   </div>
-                ) : (
-                  <div className="text-center py-8">
-                    <Star className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-                    <p className="text-gray-600">¡Has obtenido todos los logros disponibles!</p>
-                    <p className="text-sm text-gray-500">¡Felicitaciones por tu dedicación!</p>
-                  </div>
-                )}
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            )}
           </TabsContent>
         </Tabs>
       </div>
-      
+
       <Footer />
     </div>
   );

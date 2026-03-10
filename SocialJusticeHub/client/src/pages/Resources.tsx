@@ -86,7 +86,7 @@ const Resources = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
+    <div className="min-h-screen bg-slate-50 font-sans text-slate-900 theme-light">
       <FluidBackground className="opacity-30" />
       <Header />
       

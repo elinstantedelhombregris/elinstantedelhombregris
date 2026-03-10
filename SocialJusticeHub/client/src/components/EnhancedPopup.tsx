@@ -1,36 +1,43 @@
 import { Dream } from "@shared/schema";
 
+type MapDisplayItem = Dream & { compromiso?: string | null };
+
 interface EnhancedPopupProps {
-  dream: Dream;
-  onViewDetails?: (dream: Dream) => void;
-  onShare?: (dream: Dream) => void;
+  dream: MapDisplayItem;
+  onViewDetails?: (dream: MapDisplayItem) => void;
+  onShare?: (dream: MapDisplayItem) => void;
 }
 
 const EnhancedPopup = ({ dream, onViewDetails, onShare }: EnhancedPopupProps): string => {
+  const itemType = dream.type as string;
+
   const getContent = () => {
-    if (dream.type === 'dream' && dream.dream) return dream.dream;
-    if (dream.type === 'value' && dream.value) return dream.value;
-    if (dream.type === 'need' && dream.need) return dream.need;
-    if (dream.type === 'basta' && dream.basta) return dream.basta;
+    if (itemType === 'dream' && dream.dream) return dream.dream;
+    if (itemType === 'value' && dream.value) return dream.value;
+    if (itemType === 'need' && dream.need) return dream.need;
+    if (itemType === 'basta' && dream.basta) return dream.basta;
+    if (itemType === 'compromiso' && dream.compromiso) return dream.compromiso;
     return '';
   };
 
   const getTypeLabel = () => {
-    switch (dream.type) {
+    switch (itemType) {
       case 'dream': return 'Sueño';
       case 'value': return 'Valor';
       case 'need': return 'Necesidad';
       case 'basta': return '¡BASTA!';
+      case 'compromiso': return 'Compromiso';
       default: return 'Contribución';
     }
   };
 
   const getTypeColor = () => {
-    switch (dream.type) {
+    switch (itemType) {
       case 'dream': return 'text-blue-600 bg-blue-50';
       case 'value': return 'text-pink-600 bg-pink-50';
       case 'need': return 'text-amber-600 bg-amber-50';
       case 'basta': return 'text-red-600 bg-red-50';
+      case 'compromiso': return 'text-emerald-600 bg-emerald-50';
       default: return 'text-gray-600 bg-gray-50';
     }
   };
