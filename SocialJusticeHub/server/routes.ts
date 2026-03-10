@@ -602,22 +602,27 @@ export async function registerRoutes(app: Express): Promise<Server> {
         );
       }
       
-      // Enrich posts with author information
+      // Enrich posts with author information and engagement counts
       const postsWithAuthors = await Promise.all(posts.map(async (post) => {
+        let enriched: any = { ...post };
         if (post.userId) {
           const user = await storage.getUser(post.userId);
           if (user) {
-            return {
-              ...post,
-              author: {
-                id: user.id,
-                name: user.name,
-                username: user.username
-              }
+            enriched.author = {
+              id: user.id,
+              name: user.name,
+              username: user.username
             };
           }
         }
-        return post;
+        try {
+          enriched.likesCount = await storage.getCommunityPostLikesCount(post.id);
+          enriched.viewsCount = await storage.getCommunityPostViewsCount(post.id);
+        } catch (_) {
+          enriched.likesCount = 0;
+          enriched.viewsCount = 0;
+        }
+        return enriched;
       }));
       
       res.json(postsWithAuthors);
@@ -638,6 +643,18 @@ export async function registerRoutes(app: Express): Promise<Server> {
         userId: req.user.userId  // Assign userId automatically from authenticated user
       });
       const post = await storage.createCommunityPost(validatedData);
+
+      // Create activity feed item
+      try {
+        await storage.createActivityFeedItem({
+          type: 'new_initiative',
+          postId: post.id,
+          userId: req.user!.userId,
+          title: `Nueva iniciativa: ${post.title}`,
+          description: post.description?.substring(0, 100) || null,
+        });
+      } catch (_) { /* non-critical */ }
+
       res.status(201).json(post);
     } catch (error) {
       if (error instanceof z.ZodError) {
@@ -645,6 +662,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
       } else {
         res.status(500).json({ message: "Failed to create community post" });
       }
+    }
+  });
+
+  // Get user's initiative memberships
+  app.get("/api/community/my-memberships", authenticateToken, async (req: AuthRequest, res) => {
+    try {
+      const memberships = await storage.getUserMemberships(req.user!.userId);
+      res.json(memberships);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch memberships" });
     }
   });
 
@@ -1175,9 +1202,20 @@ export async function registerRoutes(app: Express): Promise<Server> {
       } else {
         // Add member directly
         const member = await storage.addInitiativeMember(id, req.user!.userId, 'member');
-        res.status(201).json({ 
+
+        // Create activity feed item
+        try {
+          await storage.createActivityFeedItem({
+            type: 'new_member',
+            postId: id,
+            userId: req.user!.userId,
+            title: `Nuevo miembro en: ${post.title}`,
+          });
+        } catch (_) { /* non-critical */ }
+
+        res.status(201).json({
           message: "Te has unido a la iniciativa",
-          member 
+          member
         });
       }
     } catch (error) {
@@ -1354,6 +1392,19 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
 
       await storage.completeMilestone(id, req.user!.userId);
+
+      // Create activity feed item
+      try {
+        const postId = parseInt(req.params.postId);
+        await storage.createActivityFeedItem({
+          type: 'milestone_completed',
+          postId: isNaN(postId) ? null : postId,
+          userId: req.user!.userId,
+          title: 'Hito completado',
+          targetId: id,
+        });
+      } catch (_) { /* non-critical */ }
+
       res.json({ message: "Milestone completed" });
     } catch (error) {
       res.status(500).json({ message: "Failed to complete milestone" });
@@ -1438,6 +1489,19 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
 
       await storage.completeTask(id);
+
+      // Create activity feed item
+      try {
+        const postId = parseInt(req.params.postId);
+        await storage.createActivityFeedItem({
+          type: 'task_completed',
+          postId: isNaN(postId) ? null : postId,
+          userId: req.user!.userId,
+          title: 'Tarea completada',
+          targetId: id,
+        });
+      } catch (_) { /* non-critical */ }
+
       res.json({ message: "Task completed" });
     } catch (error) {
       res.status(500).json({ message: "Failed to complete task" });

@@ -258,6 +258,7 @@ export interface IStorage {
   
   // Initiative Members
   getInitiativeMembers(postId: number): Promise<InitiativeMember[]>;
+  getUserMemberships(userId: number): Promise<any[]>;
   addInitiativeMember(postId: number, userId: number, role: string): Promise<InitiativeMember>;
   updateMemberRole(memberId: number, role: string, permissions: object): Promise<void>;
   removeMember(memberId: number): Promise<void>;
@@ -3203,6 +3204,24 @@ export class DatabaseStorage implements IStorage {
       .from(initiativeMembers)
       .where(and(eq(initiativeMembers.postId, postId), eq(initiativeMembers.status, 'active')))
       .orderBy(asc(initiativeMembers.joinedAt));
+  }
+
+  async getUserMemberships(userId: number): Promise<any[]> {
+    return await db
+      .select({
+        id: initiativeMembers.id,
+        postId: initiativeMembers.postId,
+        role: initiativeMembers.role,
+        status: initiativeMembers.status,
+        joinedAt: initiativeMembers.joinedAt,
+        postTitle: communityPosts.title,
+        postType: communityPosts.type,
+        postStatus: communityPosts.status,
+      })
+      .from(initiativeMembers)
+      .innerJoin(communityPosts, eq(initiativeMembers.postId, communityPosts.id))
+      .where(and(eq(initiativeMembers.userId, userId), eq(initiativeMembers.status, 'active')))
+      .orderBy(desc(initiativeMembers.joinedAt));
   }
 
   async addInitiativeMember(postId: number, userId: number, role: string): Promise<InitiativeMember> {

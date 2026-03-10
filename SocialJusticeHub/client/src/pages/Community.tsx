@@ -1,10 +1,11 @@
-import { useState, useEffect, useContext } from 'react';
-import { useQuery } from '@tanstack/react-query';
+import { useState, useEffect, useContext, useMemo } from 'react';
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { useLocation } from 'wouter';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Users, Target, Sparkles, Search, MapPin, MessageCircle, 
-  ArrowRight, Zap, Filter, Plus, Trophy, Heart, BookOpen, Map, List
+import {
+  Users, Target, Sparkles, Search, MapPin, MessageCircle,
+  ArrowRight, Zap, Filter, Plus, Trophy, Heart, BookOpen, Map, List,
+  Eye, Bell, Flame, Award
 } from 'lucide-react';
 
 import { UserContext } from '@/App';
@@ -51,51 +52,35 @@ type CommunityPost = {
   updatedAt?: string;
   status?: 'active' | 'paused' | 'closed';
   tags?: string[];
+  likesCount?: number;
+  viewsCount?: number;
   author?: {
     name: string;
     username: string;
   };
 };
 
-const communityStats = [
-  { 
-    id: 'members', 
-    label: 'Miembros Activos', 
-    value: 12540, 
-    unit: '', 
-    color: 'blue' as const, 
-    icon: <Users className="w-5 h-5" />, 
-    description: 'Ciudadanos despiertos' 
-  },
-  { 
-    id: 'projects', 
-    label: 'Proyectos Vivos', 
-    value: 843, 
-    unit: '', 
-    color: 'purple' as const, 
-    icon: <Sparkles className="w-5 h-5" />, 
-    description: 'Transformando realidad' 
-  },
-  { 
-    id: 'impact', 
-    label: 'Impacto Directo', 
-    value: 45000, 
-    unit: '+', 
-    color: 'green' as const, 
-    icon: <Target className="w-5 h-5" />, 
-    description: 'Vidas tocadas' 
-  },
-];
+// Debounce hook
+function useDebounce<T>(value: T, delay: number): T {
+  const [debouncedValue, setDebouncedValue] = useState(value);
+  useEffect(() => {
+    const timer = setTimeout(() => setDebouncedValue(value), delay);
+    return () => clearTimeout(timer);
+  }, [value, delay]);
+  return debouncedValue;
+}
 
 const Community = () => {
   const userContext = useContext(UserContext);
   const [, setLocation] = useLocation();
   const { toast } = useToast();
+  const queryClient = useQueryClient();
   const [searchTerm, setSearchTerm] = useState('');
+  const debouncedSearch = useDebounce(searchTerm, 300);
   const [selectedType, setSelectedType] = useState<string>('all');
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [viewMode, setViewMode] = useState<'list' | 'map'>('list');
-  
+
   // New Post State
   const [newPost, setNewPost] = useState({
     title: '',
@@ -114,12 +99,138 @@ const Community = () => {
     document.title = 'La Tribu - Comunidad de Transformadores | ¡BASTA!';
   }, []);
 
+  // === DATA QUERIES ===
+
   const { data: posts = [], isLoading } = useQuery({
-    queryKey: ['community-posts', searchTerm, selectedType],
+    queryKey: ['community-posts', debouncedSearch, selectedType],
     queryFn: async () => {
-      const response = await apiRequest('GET', `/api/community?type=${selectedType}`);
+      const params = new URLSearchParams();
+      if (selectedType !== 'all') params.set('type', selectedType);
+      if (debouncedSearch) params.set('search', debouncedSearch);
+      const response = await apiRequest('GET', `/api/community?${params.toString()}`);
       if (response.ok) return response.json();
       return [];
+    },
+  });
+
+  // Real community stats
+  const { data: statsData } = useQuery({
+    queryKey: ['community-stats'],
+    queryFn: async () => {
+      const res = await apiRequest('GET', '/api/stats');
+      if (!res.ok) return null;
+      return res.json();
+    },
+    staleTime: 300000,
+  });
+
+  const communityStats = useMemo(() => [
+    {
+      id: 'members',
+      label: 'Miembros Activos',
+      value: statsData?.activeMembers || 0,
+      unit: '',
+      color: 'blue' as const,
+      icon: <Users className="w-5 h-5" />,
+      description: 'Ciudadanos despiertos'
+    },
+    {
+      id: 'projects',
+      label: 'Proyectos Vivos',
+      value: statsData?.totalPosts || 0,
+      unit: '',
+      color: 'purple' as const,
+      icon: <Sparkles className="w-5 h-5" />,
+      description: 'Transformando realidad'
+    },
+    {
+      id: 'impact',
+      label: 'Acciones Realizadas',
+      value: statsData?.totalDreams || 0,
+      unit: '+',
+      color: 'green' as const,
+      icon: <Target className="w-5 h-5" />,
+      description: 'Impacto directo'
+    },
+  ], [statsData]);
+
+  // Leaderboard
+  const { data: leaderboardData } = useQuery({
+    queryKey: ['community-leaderboard'],
+    queryFn: async () => {
+      const res = await apiRequest('GET', '/api/leaderboard?type=global&limit=5');
+      if (!res.ok) return null;
+      return res.json();
+    },
+    staleTime: 300000,
+  });
+
+  // User stats (only when logged in)
+  const { data: userStats } = useQuery({
+    queryKey: ['user-stats'],
+    queryFn: async () => {
+      const res = await apiRequest('GET', '/api/user/stats');
+      if (!res.ok) return null;
+      return res.json();
+    },
+    enabled: !!userContext?.user,
+    staleTime: 60000,
+  });
+
+  // Mi Tribu data (only when logged in)
+  const { data: myPosts = [] } = useQuery({
+    queryKey: ['community-my-posts'],
+    queryFn: async () => {
+      const res = await apiRequest('GET', '/api/community/my-posts');
+      if (!res.ok) return [];
+      return res.json();
+    },
+    enabled: !!userContext?.user,
+  });
+
+  const { data: myMemberships = [] } = useQuery({
+    queryKey: ['community-my-memberships'],
+    queryFn: async () => {
+      const res = await apiRequest('GET', '/api/community/my-memberships');
+      if (!res.ok) return [];
+      return res.json();
+    },
+    enabled: !!userContext?.user,
+  });
+
+  const { data: unreadNotifications } = useQuery({
+    queryKey: ['notifications-unread-count'],
+    queryFn: async () => {
+      const res = await apiRequest('GET', '/api/notifications/unread-count');
+      if (!res.ok) return { count: 0 };
+      return res.json();
+    },
+    enabled: !!userContext?.user,
+    refetchInterval: 60000,
+  });
+
+  // === MUTATIONS ===
+
+  const createPostMutation = useMutation({
+    mutationFn: async (postData: any) => {
+      const response = await apiRequest('POST', '/api/community', postData);
+      if (!response.ok) throw new Error('Failed to create post');
+      return response.json();
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['community-posts'] });
+      queryClient.invalidateQueries({ queryKey: ['community-my-posts'] });
+      queryClient.invalidateQueries({ queryKey: ['community-stats'] });
+      queryClient.invalidateQueries({ queryKey: ['activity-feed-pulse'] });
+      setShowCreateModal(false);
+      setNewPost({ title: '', description: '', type: 'project', location: '', participants: '', tags: '', latitude: '', longitude: '' });
+      toast({
+        title: "Iniciativa lanzada",
+        description: "Tu iniciativa ya esta visible para la tribu.",
+      });
+    },
+    onError: () => {
+      toast({ title: "Error", description: "No se pudo crear la iniciativa.", variant: "destructive" });
     },
   });
 
@@ -158,47 +269,33 @@ const Community = () => {
       {
         enableHighAccuracy: true,
         timeout: 10000,
-        maximumAge: 300000 // 5 minutes
+        maximumAge: 300000
       }
     );
   };
 
-  const handleCreatePost = async () => {
+  const handleCreatePost = () => {
     if (!userContext?.user) {
       toast({
         title: "Error",
-        description: "Debes estar logueado para crear posts",
+        description: "Debes estar logueado para crear iniciativas",
         variant: "destructive",
       });
       return;
     }
 
-    try {
-      const postData: any = {
-        ...newPost,
-        participants: newPost.participants ? parseInt(newPost.participants) : null,
-        tags: newPost.tags.split(',').map(tag => tag.trim()).filter(Boolean)
-      };
+    const postData: any = {
+      ...newPost,
+      participants: newPost.participants ? parseInt(newPost.participants) : null,
+      tags: newPost.tags.split(',').map(tag => tag.trim()).filter(Boolean)
+    };
 
-      // Add geolocation if provided
-      if (newPost.latitude && newPost.longitude) {
-        postData.latitude = parseFloat(newPost.latitude);
-        postData.longitude = parseFloat(newPost.longitude);
-      }
-
-      const response = await apiRequest('POST', '/api/community', postData);
-
-      if (response.ok) {
-        toast({
-          title: "¡Éxito!",
-          description: "Tu iniciativa ha sido lanzada a la red.",
-        });
-        setShowCreateModal(false);
-        setNewPost({ title: '', description: '', type: 'project', location: '', participants: '', tags: '', latitude: '', longitude: '' });
-      }
-    } catch (error) {
-      toast({ title: "Error", description: "No se pudo crear el post.", variant: "destructive" });
+    if (newPost.latitude && newPost.longitude) {
+      postData.latitude = parseFloat(newPost.latitude);
+      postData.longitude = parseFloat(newPost.longitude);
     }
+
+    createPostMutation.mutate(postData);
   };
 
   const postTypes = [
@@ -208,11 +305,17 @@ const Community = () => {
     { value: 'exchange', label: 'Intercambios', icon: <Sparkles className="w-4 h-4" /> },
   ];
 
+  // Leaderboard helpers
+  const leaderboard = leaderboardData?.data || [];
+  const xpProgress = userStats
+    ? Math.min(100, Math.round((userStats.experience / (userStats.experience + userStats.experienceToNext)) * 100))
+    : 0;
+
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-slate-200 selection:bg-blue-500/30 font-sans relative overflow-hidden">
       <FluidBackground className="opacity-40" />
       <Header />
-      
+
       <main className="relative z-10 pt-20">
         <TribalPulse />
 
@@ -226,7 +329,7 @@ const Community = () => {
                   La Tribu de Transformadores
                 </div>
               </SmoothReveal>
-              
+
               <SmoothReveal delay={0.2}>
                 <h1 className="heading-hero mb-8">
                   <span className="block text-transparent bg-clip-text bg-gradient-to-b from-white via-slate-200 to-slate-500">
@@ -273,13 +376,65 @@ const Community = () => {
         {/* SHOCK STATS: Community Impact */}
         <section className="py-12 border-t border-white/5 bg-white/[0.02]">
           <div className="container-content">
-            <ShockStats 
-              stats={communityStats} 
-              title="PULSO DE LA TRIBU" 
+            <ShockStats
+              stats={communityStats}
+              title="PULSO DE LA TRIBU"
               variant="dark"
             />
           </div>
         </section>
+
+        {/* MI TRIBU: Personal Dashboard (only when logged in) */}
+        {userContext?.user && (
+          <section className="py-8 border-t border-white/5">
+            <div className="container-content">
+              <div className="flex items-center gap-2 mb-6">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-900/20 border border-blue-500/30 text-blue-400 text-xs font-mono tracking-widest uppercase">
+                  <Flame className="w-3 h-3" />
+                  Mi Tribu
+                </div>
+              </div>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <GlassCard className="p-4 text-center hover:bg-white/5 transition-colors cursor-pointer" onClick={() => {}}>
+                  <div className="w-10 h-10 mx-auto mb-2 rounded-full bg-blue-500/10 flex items-center justify-center">
+                    <Sparkles className="w-5 h-5 text-blue-400" />
+                  </div>
+                  <div className="text-2xl font-bold text-white">{myPosts.length}</div>
+                  <div className="text-xs text-slate-500">Mis Iniciativas</div>
+                </GlassCard>
+
+                <GlassCard className="p-4 text-center hover:bg-white/5 transition-colors cursor-pointer" onClick={() => {}}>
+                  <div className="w-10 h-10 mx-auto mb-2 rounded-full bg-purple-500/10 flex items-center justify-center">
+                    <Users className="w-5 h-5 text-purple-400" />
+                  </div>
+                  <div className="text-2xl font-bold text-white">{myMemberships.length}</div>
+                  <div className="text-xs text-slate-500">Membresias</div>
+                </GlassCard>
+
+                <GlassCard className="p-4 text-center hover:bg-white/5 transition-colors cursor-pointer" onClick={() => {}}>
+                  <div className="w-10 h-10 mx-auto mb-2 rounded-full bg-orange-500/10 flex items-center justify-center relative">
+                    <Bell className="w-5 h-5 text-orange-400" />
+                    {(unreadNotifications?.count || 0) > 0 && (
+                      <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full text-[10px] text-white flex items-center justify-center font-bold">
+                        {unreadNotifications!.count}
+                      </span>
+                    )}
+                  </div>
+                  <div className="text-2xl font-bold text-white">{unreadNotifications?.count || 0}</div>
+                  <div className="text-xs text-slate-500">Notificaciones</div>
+                </GlassCard>
+
+                <GlassCard className="p-4 text-center hover:bg-white/5 transition-colors cursor-pointer" onClick={() => {}}>
+                  <div className="w-10 h-10 mx-auto mb-2 rounded-full bg-emerald-500/10 flex items-center justify-center">
+                    <Flame className="w-5 h-5 text-emerald-400" />
+                  </div>
+                  <div className="text-2xl font-bold text-white">{userStats?.streak || 0}</div>
+                  <div className="text-xs text-slate-500">Dias de Racha</div>
+                </GlassCard>
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* THE COMPASS: Sticky Navigation */}
         <div className="sticky top-20 z-40 py-4 bg-[#0a0a0a]/80 backdrop-blur-xl border-y border-white/5">
@@ -290,8 +445,8 @@ const Community = () => {
                   key={type.value}
                   onClick={() => setSelectedType(type.value)}
                   className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all whitespace-nowrap border ${
-                    selectedType === type.value 
-                      ? 'bg-blue-500/20 border-blue-500/50 text-white shadow-[0_0_15px_rgba(59,130,246,0.3)]' 
+                    selectedType === type.value
+                      ? 'bg-blue-500/20 border-blue-500/50 text-white shadow-[0_0_15px_rgba(59,130,246,0.3)]'
                       : 'bg-white/5 border-white/10 text-slate-400 hover:bg-white/10 hover:text-white'
                   }`}
                 >
@@ -313,7 +468,7 @@ const Community = () => {
                   className="w-full bg-white/5 border border-white/10 rounded-full py-2.5 pl-10 pr-4 text-sm text-slate-200 focus:outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all placeholder:text-slate-600"
                 />
               </div>
-              
+
               {/* View Mode Toggle */}
               <div className="flex gap-2 border border-white/10 rounded-full p-1 bg-white/5">
                 <button
@@ -358,19 +513,18 @@ const Community = () => {
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">El tablero está vacío</h3>
                 <p className="text-slate-500 mb-8">Sé el primero en encender una chispa en esta categoría.</p>
-                <PowerCTA 
-                  text="INICIAR EL MOVIMIENTO" 
-                  onClick={() => setShowCreateModal(true)} 
+                <PowerCTA
+                  text="INICIAR EL MOVIMIENTO"
+                  onClick={() => setShowCreateModal(true)}
                   variant="accent"
                 />
               </div>
             ) : viewMode === 'map' ? (
-              <InitiativesMap 
+              <InitiativesMap
                 initiatives={posts.filter((post: CommunityPost) => {
-                  // Apply filters to map view
                   if (selectedType !== 'all' && post.type !== selectedType) return false;
-                  if (searchTerm && !post.title.toLowerCase().includes(searchTerm.toLowerCase()) && 
-                      !post.description.toLowerCase().includes(searchTerm.toLowerCase())) return false;
+                  if (debouncedSearch && !post.title.toLowerCase().includes(debouncedSearch.toLowerCase()) &&
+                      !post.description.toLowerCase().includes(debouncedSearch.toLowerCase())) return false;
                   return true;
                 })}
                 onInitiativeClick={(id) => setLocation(`/community/${id}`)}
@@ -379,8 +533,8 @@ const Community = () => {
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {posts.map((post: CommunityPost, i: number) => (
                   <SmoothReveal key={post.id} delay={i * 0.1}>
-                    <GlassCard 
-                      className="h-full group cursor-pointer hover:border-blue-500/50 transition-all duration-500 flex flex-col overflow-hidden" 
+                    <GlassCard
+                      className="h-full group cursor-pointer hover:border-blue-500/50 transition-all duration-500 flex flex-col overflow-hidden"
                       onClick={() => setLocation(`/community/${post.id}`)}
                       intensity="low"
                     >
@@ -430,7 +584,7 @@ const Community = () => {
                         <div className="pt-4 border-t border-white/5 flex items-center justify-between text-xs text-slate-500 mt-auto">
                           <div className="flex items-center gap-3">
                             <div className="w-8 h-8 rounded-full bg-gradient-to-br from-slate-800 to-slate-900 border border-white/10 flex items-center justify-center text-white font-bold shadow-sm">
-                              {post.author?.name.charAt(0)}
+                              {post.author?.name?.charAt(0) || '?'}
                             </div>
                             <div className="flex flex-col">
                               <span className="text-slate-300 font-medium truncate max-w-[100px]">{post.author?.name}</span>
@@ -439,8 +593,18 @@ const Community = () => {
                               </span>
                             </div>
                           </div>
-                          
-                          <div className="flex items-center">
+
+                          <div className="flex items-center gap-3">
+                            {(post.likesCount != null && post.likesCount > 0) && (
+                              <span className="flex items-center gap-1 text-slate-500">
+                                <Heart className="w-3 h-3" /> {post.likesCount}
+                              </span>
+                            )}
+                            {(post.viewsCount != null && post.viewsCount > 0) && (
+                              <span className="flex items-center gap-1 text-slate-500">
+                                <Eye className="w-3 h-3" /> {post.viewsCount}
+                              </span>
+                            )}
                             <Button size="sm" variant="ghost" className="text-blue-400 hover:text-blue-300 hover:bg-blue-500/10 h-8 rounded-full px-3">
                               Conectar <ArrowRight className="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform" />
                             </Button>
@@ -472,30 +636,39 @@ const Community = () => {
                   Reconocemos a quienes transforman la realidad con acciones consistentes. Su impacto es el faro que guía a la tribu.
                 </p>
                 <div className="grid grid-cols-1 gap-4">
-                  {[1, 2, 3].map((rank) => (
-                    <GlassCard key={rank} className="flex items-center gap-4 p-4 hover:bg-white/5 transition-colors">
-                      <div className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg border ${
-                        rank === 1 ? 'bg-yellow-500/20 text-yellow-400 border-yellow-500/50' :
-                        rank === 2 ? 'bg-slate-400/20 text-slate-300 border-slate-400/50' :
-                        'bg-orange-700/20 text-orange-400 border-orange-700/50'
-                      }`}>
-                        {rank}
-                      </div>
-                      <div className="flex-1">
-                        <h4 className="text-white font-bold">Guardián {rank === 1 ? 'Solar' : rank === 2 ? 'Lunar' : 'Estelar'}</h4>
-                        <div className="flex items-center gap-2 text-xs text-slate-500 font-mono mt-1">
-                          <Target className="w-3 h-3" /> {150 - rank * 12} Misiones Completadas
-                        </div>
-                      </div>
-                      <div className="text-right">
-                        <div className="text-xl font-bold text-white">{(5000 - rank * 500).toLocaleString()}</div>
-                        <div className="text-xs text-slate-500 uppercase">XP</div>
-                      </div>
+                  {leaderboard.length === 0 ? (
+                    <GlassCard className="p-8 text-center">
+                      <Trophy className="w-10 h-10 text-slate-600 mx-auto mb-3" />
+                      <p className="text-slate-500">Todavia no hay lideres en el ranking.</p>
+                      <p className="text-slate-600 text-sm mt-1">Se el primero en escalar.</p>
                     </GlassCard>
-                  ))}
+                  ) : (
+                    leaderboard.map((entry: any, idx: number) => (
+                      <GlassCard key={entry.userId} className="flex items-center gap-4 p-4 hover:bg-white/5 transition-colors">
+                        <div className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg border ${
+                          idx === 0 ? 'bg-yellow-500/20 text-yellow-400 border-yellow-500/50' :
+                          idx === 1 ? 'bg-slate-400/20 text-slate-300 border-slate-400/50' :
+                          idx === 2 ? 'bg-orange-700/20 text-orange-400 border-orange-700/50' :
+                          'bg-white/10 text-slate-400 border-white/20'
+                        }`}>
+                          {idx + 1}
+                        </div>
+                        <div className="flex-1">
+                          <h4 className="text-white font-bold">{entry.user?.name || 'Anonimo'}</h4>
+                          <div className="flex items-center gap-2 text-xs text-slate-500 font-mono mt-1">
+                            <Award className="w-3 h-3" /> Nivel {entry.level || 1}
+                          </div>
+                        </div>
+                        <div className="text-right">
+                          <div className="text-xl font-bold text-white">{(entry.points || 0).toLocaleString()}</div>
+                          <div className="text-xs text-slate-500 uppercase">XP</div>
+                        </div>
+                      </GlassCard>
+                    ))
+                  )}
                 </div>
               </div>
-              
+
               {/* My Stats Card */}
               <div className="w-full md:w-96">
                 <GlassCard className="bg-gradient-to-br from-blue-900/10 to-purple-900/10 border-blue-500/20">
@@ -507,27 +680,53 @@ const Community = () => {
                     </div>
                     <h3 className="text-white font-bold text-lg">Tu Legado</h3>
                     <p className="text-slate-400 text-sm">
-                      {userContext?.user ? userContext.user.username : 'Iniciado'}
+                      {userContext?.user ? userContext.user.username : 'Inicia sesion para ver tu progreso'}
                     </p>
                   </div>
-                  <div className="p-6 space-y-4">
-                    <div className="flex justify-between items-center">
-                      <span className="text-slate-400 text-sm">Nivel Actual</span>
-                      <Badge className="bg-blue-500/20 text-blue-300 border-blue-500/30">Nivel 1</Badge>
-                    </div>
-                    <div className="space-y-2">
-                      <div className="flex justify-between text-xs text-slate-500">
-                        <span>Progreso a Nivel 2</span>
-                        <span>450 / 1000 XP</span>
+                  {userContext?.user && userStats ? (
+                    <div className="p-6 space-y-4">
+                      <div className="flex justify-between items-center">
+                        <span className="text-slate-400 text-sm">Nivel Actual</span>
+                        <Badge className="bg-blue-500/20 text-blue-300 border-blue-500/30">Nivel {userStats.level || 1}</Badge>
                       </div>
-                      <div className="h-2 w-full bg-slate-800 rounded-full overflow-hidden">
-                        <div className="h-full bg-gradient-to-r from-blue-500 to-purple-500 w-[45%]" />
+                      <div className="space-y-2">
+                        <div className="flex justify-between text-xs text-slate-500">
+                          <span>Progreso a Nivel {(userStats.level || 1) + 1}</span>
+                          <span>{userStats.experience || 0} / {(userStats.experience || 0) + (userStats.experienceToNext || 1000)} XP</span>
+                        </div>
+                        <div className="h-2 w-full bg-slate-800 rounded-full overflow-hidden">
+                          <div
+                            className="h-full bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-500"
+                            style={{ width: `${xpProgress}%` }}
+                          />
+                        </div>
+                      </div>
+                      <div className="grid grid-cols-3 gap-3 pt-2">
+                        <div className="text-center">
+                          <div className="text-lg font-bold text-white">{userStats.streak || 0}</div>
+                          <div className="text-[10px] text-slate-500 uppercase">Racha</div>
+                        </div>
+                        <div className="text-center">
+                          <div className="text-lg font-bold text-white">{userStats.badgesEarned || 0}</div>
+                          <div className="text-[10px] text-slate-500 uppercase">Insignias</div>
+                        </div>
+                        <div className="text-center">
+                          <div className="text-lg font-bold text-white">{userStats.completedChallenges || 0}</div>
+                          <div className="text-[10px] text-slate-500 uppercase">Desafios</div>
+                        </div>
                       </div>
                     </div>
-                    <Button className="w-full bg-white/10 hover:bg-white/20 text-white border border-white/10 mt-4">
-                      Ver Mi Perfil Completo
-                    </Button>
-                  </div>
+                  ) : (
+                    <div className="p-6 text-center">
+                      <p className="text-slate-500 text-sm mb-4">Inicia sesion para desbloquear tu perfil de impacto.</p>
+                      <Button
+                        className="w-full bg-white/10 hover:bg-white/20 text-white border border-white/10"
+                        onClick={() => setLocation('/login')}
+                      >
+                        Iniciar Sesion
+                      </Button>
+                    </div>
+                  )}
                 </GlassCard>
               </div>
             </div>
@@ -547,7 +746,7 @@ const Community = () => {
               Define tu misión y convoca a la tribu.
             </DialogDescription>
           </DialogHeader>
-          
+
           <div className="space-y-6 py-4">
             <div className="space-y-2">
               <label className="text-sm font-medium text-slate-400">Título de la Misión</label>
@@ -558,7 +757,7 @@ const Community = () => {
                 className="bg-white/5 border-white/10 text-white placeholder:text-slate-600 focus:border-blue-500/50"
               />
             </div>
-            
+
             <div className="grid md:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <label className="text-sm font-medium text-slate-400">Tipo de Acción</label>
@@ -644,8 +843,12 @@ const Community = () => {
               <Button variant="ghost" onClick={() => setShowCreateModal(false)} className="text-slate-400 hover:text-white hover:bg-white/5">
                 Abortar
               </Button>
-              <Button onClick={handleCreatePost} className="bg-blue-600 hover:bg-blue-700 text-white shadow-[0_0_20px_rgba(37,99,235,0.3)]">
-                Lanzar Misión
+              <Button
+                onClick={handleCreatePost}
+                disabled={createPostMutation.isPending || !newPost.title.trim()}
+                className="bg-blue-600 hover:bg-blue-700 text-white shadow-[0_0_20px_rgba(37,99,235,0.3)]"
+              >
+                {createPostMutation.isPending ? 'Lanzando...' : 'Lanzar Misión'}
               </Button>
             </div>
           </div>
