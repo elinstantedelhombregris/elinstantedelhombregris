@@ -40,15 +40,15 @@ interface Course {
   } | null;
 }
 
-const categoryMeta: Record<string, { icon: LucideIcon; color: string; accent: string }> = {
-  vision:        { icon: Eye,            color: 'text-emerald-600', accent: '#059669' },
-  action:        { icon: Zap,            color: 'text-amber-600',   accent: '#d97706' },
-  community:     { icon: Users,          color: 'text-blue-600',    accent: '#2563eb' },
-  reflection:    { icon: Brain,          color: 'text-purple-600',  accent: '#9333ea' },
-  'hombre-gris': { icon: User,           color: 'text-slate-600',   accent: '#475569' },
-  economia:      { icon: TrendingUp,     color: 'text-green-600',   accent: '#16a34a' },
-  comunicacion:  { icon: MessageSquare,  color: 'text-cyan-600',    accent: '#0891b2' },
-  civica:        { icon: Landmark,       color: 'text-red-600',     accent: '#dc2626' },
+const categoryMeta: Record<string, { icon: LucideIcon; color: string; accent: string; gradient: string }> = {
+  vision:        { icon: Eye,            color: 'text-emerald-600', accent: '#059669', gradient: 'from-emerald-500/20 to-cyan-500/20' },
+  action:        { icon: Zap,            color: 'text-amber-600',   accent: '#d97706', gradient: 'from-amber-500/20 to-orange-500/20' },
+  community:     { icon: Users,          color: 'text-blue-600',    accent: '#2563eb', gradient: 'from-blue-500/20 to-indigo-500/20' },
+  reflection:    { icon: Brain,          color: 'text-purple-600',  accent: '#9333ea', gradient: 'from-purple-500/20 to-fuchsia-500/20' },
+  'hombre-gris': { icon: User,           color: 'text-slate-600',   accent: '#475569', gradient: 'from-slate-500/20 to-gray-500/20' },
+  economia:      { icon: TrendingUp,     color: 'text-green-600',   accent: '#16a34a', gradient: 'from-green-500/20 to-emerald-500/20' },
+  comunicacion:  { icon: MessageSquare,  color: 'text-cyan-600',    accent: '#0891b2', gradient: 'from-cyan-500/20 to-teal-500/20' },
+  civica:        { icon: Landmark,       color: 'text-red-600',     accent: '#dc2626', gradient: 'from-red-500/20 to-rose-500/20' },
 };
 
 const categoryOrder = [
@@ -56,73 +56,142 @@ const categoryOrder = [
   'reflection', 'economia', 'comunicacion', 'civica',
 ];
 
-function CompactCourseCard({ course, accentColor }: { course: Course; accentColor: string }) {
+function CourseCard({ course, accentColor }: { course: Course; accentColor: string }) {
   const isCompleted = course.userProgress?.status === 'completed';
   const isInProgress = course.userProgress?.status === 'in_progress';
   const progress = course.userProgress?.progress || 0;
 
   return (
-    <motion.div variants={fadeUp}>
+    <motion.div variants={fadeUp} className="h-full">
       <Link href={`/recursos/guias-estudio/${course.slug}`}>
-        <div
-          className="group relative bg-white rounded-xl border border-slate-200 shadow-sm
-                     hover:shadow-md hover:-translate-y-0.5 transition-all duration-200
-                     p-4 h-full flex flex-col cursor-pointer"
-          style={{ borderTopWidth: '3px', borderTopColor: accentColor }}
-        >
-          {isCompleted && (
-            <div className="absolute top-2 right-2">
-              <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-            </div>
-          )}
+        <div className="group relative bg-white rounded-2xl border border-slate-200/80 shadow-[0_4px_24px_rgba(15,23,42,0.06)] hover:shadow-[0_20px_50px_rgba(15,23,42,0.12)] hover:-translate-y-1 transition-all duration-500 overflow-hidden h-full flex flex-col cursor-pointer">
 
-          <div className="flex items-center gap-2 mb-3 flex-wrap">
-            <span className={`px-2 py-0.5 rounded-full text-[11px] font-medium ${levelColors[course.level] || 'bg-slate-100 text-slate-600'}`}>
-              {getLevelLabel(course.level)}
-            </span>
-            {course.duration && (
-              <span className="flex items-center gap-1 text-[11px] text-slate-400">
-                <Clock className="w-3 h-3" />
-                {formatDuration(course.duration)}
-              </span>
+          {/* Thumbnail */}
+          <div className="relative h-44 overflow-hidden">
+            {course.thumbnailUrl ? (
+              <img
+                src={course.thumbnailUrl}
+                alt={course.title}
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+            ) : (
+              <div
+                className="w-full h-full flex items-center justify-center"
+                style={{
+                  background: `linear-gradient(135deg, ${accentColor}18, ${accentColor}08)`,
+                }}
+              >
+                <GraduationCap className="w-14 h-14 opacity-20" style={{ color: accentColor }} />
+              </div>
             )}
-            {course.lessonCount != null && course.lessonCount > 0 && (
-              <span className="flex items-center gap-1 text-[11px] text-slate-400">
-                <BookOpen className="w-3 h-3" />
-                {course.lessonCount}
+
+            {/* Gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+
+            {/* Level badge */}
+            <div className="absolute top-3 left-3">
+              <span className={`px-2.5 py-1 rounded-full text-[11px] font-semibold uppercase tracking-wide backdrop-blur-md shadow-sm ${levelColors[course.level] || 'bg-white/90 text-slate-700'}`}>
+                {getLevelLabel(course.level)}
               </span>
+            </div>
+
+            {/* Completed badge */}
+            {isCompleted && (
+              <div className="absolute top-3 right-3">
+                <span className="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-500 text-white shadow-sm flex items-center gap-1">
+                  <CheckCircle2 className="w-3 h-3" /> Completado
+                </span>
+              </div>
             )}
-            {course.hasQuiz && (
-              <span className="flex items-center gap-1 text-[11px] text-cyan-500">
-                <Award className="w-3 h-3" />
-              </span>
-            )}
+
+            {/* Bottom metadata on image */}
+            <div className="absolute bottom-3 left-3 right-3 flex items-center gap-2">
+              {course.duration && (
+                <span className="flex items-center gap-1 text-[11px] text-white/90 font-medium backdrop-blur-sm bg-black/20 px-2 py-0.5 rounded-full">
+                  <Clock className="w-3 h-3" />
+                  {formatDuration(course.duration)}
+                </span>
+              )}
+              {course.lessonCount != null && course.lessonCount > 0 && (
+                <span className="flex items-center gap-1 text-[11px] text-white/90 font-medium backdrop-blur-sm bg-black/20 px-2 py-0.5 rounded-full">
+                  <BookOpen className="w-3 h-3" />
+                  {course.lessonCount} lecciones
+                </span>
+              )}
+              {course.hasQuiz && (
+                <span className="flex items-center gap-1 text-[11px] text-white/90 font-medium backdrop-blur-sm bg-black/20 px-2 py-0.5 rounded-full">
+                  <Award className="w-3 h-3" />
+                  Quiz
+                </span>
+              )}
+            </div>
           </div>
 
-          <h3 className="text-base font-semibold text-slate-900 line-clamp-2 mb-1 group-hover:text-emerald-700 transition-colors">
-            {course.title}
-          </h3>
-
-          <p className="text-sm text-slate-500 line-clamp-1 mb-3 flex-1">
-            {course.description}
-          </p>
-
-          {isInProgress && (
+          {/* Content */}
+          <div className="p-5 flex flex-col flex-1">
+            {/* Category pill */}
             <div className="mb-3">
-              <div className="flex justify-between text-[11px] text-emerald-600 font-medium mb-1">
-                <span>{progress}%</span>
+              <span
+                className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold uppercase tracking-wider"
+                style={{
+                  backgroundColor: `${accentColor}10`,
+                  color: accentColor,
+                }}
+              >
+                {getCategoryLabel(course.category)}
+              </span>
+            </div>
+
+            {/* Title */}
+            <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-emerald-700 transition-colors leading-snug">
+              {course.title}
+            </h3>
+
+            {/* Full description */}
+            <p className="text-sm text-slate-500 leading-relaxed mb-4 flex-1">
+              {course.description}
+            </p>
+
+            {/* Progress bar (in-progress only) */}
+            {isInProgress && (
+              <div className="mb-4">
+                <div className="flex justify-between text-xs font-medium mb-1.5">
+                  <span className="text-emerald-600">En progreso</span>
+                  <span className="text-emerald-600">{progress}%</span>
+                </div>
+                <div className="h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full transition-all duration-500"
+                    style={{ width: `${progress}%` }}
+                  />
+                </div>
               </div>
-              <div className="h-1 bg-slate-100 rounded-full overflow-hidden">
-                <div className="h-full bg-emerald-500 rounded-full" style={{ width: `${progress}%` }} />
+            )}
+
+            {/* Footer */}
+            <div className="flex items-center justify-between pt-3 border-t border-slate-100 mt-auto">
+              <span className="text-sm text-slate-400 flex items-center gap-1.5">
+                {isInProgress ? (
+                  <>
+                    <PlayCircle className="w-3.5 h-3.5 text-emerald-500" />
+                    <span className="text-emerald-600 font-medium">Continuar</span>
+                  </>
+                ) : isCompleted ? (
+                  <>
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
+                    <span className="text-emerald-600 font-medium">Repasar</span>
+                  </>
+                ) : (
+                  <>
+                    <PlayCircle className="w-3.5 h-3.5" />
+                    Comenzar
+                  </>
+                )}
+              </span>
+              <div className="w-7 h-7 rounded-full bg-slate-50 flex items-center justify-center text-slate-300 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300">
+                <ChevronRight className="w-4 h-4" />
               </div>
             </div>
-          )}
-
-          <div className="flex items-center justify-between pt-2 border-t border-slate-100 mt-auto">
-            <span className="text-[11px] text-slate-400">
-              {getCategoryLabel(course.category)}
-            </span>
-            <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-emerald-500 transition-colors" />
           </div>
         </div>
       </Link>
@@ -296,7 +365,7 @@ const StudyGuides = () => {
           )}
 
           {/* Filters Bar */}
-          <div className="sticky top-24 z-40 mb-12">
+          <div className="sticky top-24 z-40 mb-14">
             <GlassCard className="max-w-5xl mx-auto p-2 flex flex-col md:flex-row items-center gap-4 bg-white/80 backdrop-blur-xl shadow-xl rounded-full" intensity="high">
               <div className="flex-1 w-full relative pl-2">
                 <Search className="absolute left-5 top-1/2 transform -translate-y-1/2 text-slate-400 w-5 h-5" />
@@ -363,7 +432,7 @@ const StudyGuides = () => {
                 </SmoothReveal>
               </div>
             ) : (
-              <div className="space-y-12">
+              <div className="space-y-16">
                 {Array.from(coursesByCategory.entries()).map(([catId, catCourses]) => {
                   const meta = categoryMeta[catId];
                   const CatIcon = meta?.icon || GraduationCap;
@@ -371,29 +440,35 @@ const StudyGuides = () => {
                     <section key={catId}>
                       {category === 'all' && (
                         <SmoothReveal direction="up">
-                          <div className="flex items-center gap-3 mb-6 pb-3 border-b border-slate-200">
-                            <div className="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center">
-                              <CatIcon className={`w-4 h-4 ${meta?.color || 'text-slate-500'}`} />
+                          <div className="flex items-center gap-4 mb-8">
+                            <div
+                              className="w-10 h-10 rounded-xl flex items-center justify-center"
+                              style={{ backgroundColor: `${meta?.accent || '#64748b'}15` }}
+                            >
+                              <CatIcon className="w-5 h-5" style={{ color: meta?.accent || '#64748b' }} />
                             </div>
-                            <h2 className="text-lg font-bold text-slate-800">
-                              {getCategoryLabel(catId)}
-                            </h2>
-                            <span className="text-sm text-slate-400 ml-auto">
-                              {catCourses.length} {catCourses.length === 1 ? 'curso' : 'cursos'}
-                            </span>
+                            <div>
+                              <h2 className="text-xl font-bold text-slate-800">
+                                {getCategoryLabel(catId)}
+                              </h2>
+                              <p className="text-sm text-slate-400">
+                                {catCourses.length} {catCourses.length === 1 ? 'curso disponible' : 'cursos disponibles'}
+                              </p>
+                            </div>
+                            <div className="flex-1 h-px bg-gradient-to-r from-slate-200 to-transparent ml-4" />
                           </div>
                         </SmoothReveal>
                       )}
 
                       <motion.div
-                        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
+                        className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"
                         variants={staggerContainer}
                         initial="initial"
                         whileInView="animate"
                         viewport={{ once: true, margin: '-5%' }}
                       >
                         {catCourses.map(course => (
-                          <CompactCourseCard
+                          <CourseCard
                             key={course.id}
                             course={course}
                             accentColor={meta?.accent || '#64748b'}
