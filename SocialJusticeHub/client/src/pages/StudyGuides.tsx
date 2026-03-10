@@ -3,11 +3,17 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { useEffect, useState, useContext, useMemo } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { motion, useScroll } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Search, Loader2, GraduationCap, Clock, PlayCircle, CheckCircle2, ChevronRight, Sparkles, BookOpen, Award, TrendingUp, ArrowRight } from 'lucide-react';
+import {
+  Search, Loader2, GraduationCap, Clock, PlayCircle, CheckCircle2,
+  ChevronRight, Sparkles, BookOpen, Award, ArrowRight,
+  Eye, Zap, Users, Brain, User, TrendingUp, MessageSquare, Landmark,
+  type LucideIcon,
+} from 'lucide-react';
 import { apiRequest } from '@/lib/queryClient';
 import { getCategoryLabel, getLevelLabel, formatDuration, levelColors } from '@/lib/course-utils';
+import { fadeUp, staggerContainer } from '@/lib/motion-variants';
 import FluidBackground from '@/components/ui/FluidBackground';
 import GlassCard from '@/components/ui/GlassCard';
 import SmoothReveal from '@/components/ui/SmoothReveal';
@@ -34,19 +40,106 @@ interface Course {
   } | null;
 }
 
+const categoryMeta: Record<string, { icon: LucideIcon; color: string; accent: string }> = {
+  vision:        { icon: Eye,            color: 'text-emerald-600', accent: '#059669' },
+  action:        { icon: Zap,            color: 'text-amber-600',   accent: '#d97706' },
+  community:     { icon: Users,          color: 'text-blue-600',    accent: '#2563eb' },
+  reflection:    { icon: Brain,          color: 'text-purple-600',  accent: '#9333ea' },
+  'hombre-gris': { icon: User,           color: 'text-slate-600',   accent: '#475569' },
+  economia:      { icon: TrendingUp,     color: 'text-green-600',   accent: '#16a34a' },
+  comunicacion:  { icon: MessageSquare,  color: 'text-cyan-600',    accent: '#0891b2' },
+  civica:        { icon: Landmark,       color: 'text-red-600',     accent: '#dc2626' },
+};
+
+const categoryOrder = [
+  'hombre-gris', 'vision', 'action', 'community',
+  'reflection', 'economia', 'comunicacion', 'civica',
+];
+
+function CompactCourseCard({ course, accentColor }: { course: Course; accentColor: string }) {
+  const isCompleted = course.userProgress?.status === 'completed';
+  const isInProgress = course.userProgress?.status === 'in_progress';
+  const progress = course.userProgress?.progress || 0;
+
+  return (
+    <motion.div variants={fadeUp}>
+      <Link href={`/recursos/guias-estudio/${course.slug}`}>
+        <div
+          className="group relative bg-white rounded-xl border border-slate-200 shadow-sm
+                     hover:shadow-md hover:-translate-y-0.5 transition-all duration-200
+                     p-4 h-full flex flex-col cursor-pointer"
+          style={{ borderTopWidth: '3px', borderTopColor: accentColor }}
+        >
+          {isCompleted && (
+            <div className="absolute top-2 right-2">
+              <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+            </div>
+          )}
+
+          <div className="flex items-center gap-2 mb-3 flex-wrap">
+            <span className={`px-2 py-0.5 rounded-full text-[11px] font-medium ${levelColors[course.level] || 'bg-slate-100 text-slate-600'}`}>
+              {getLevelLabel(course.level)}
+            </span>
+            {course.duration && (
+              <span className="flex items-center gap-1 text-[11px] text-slate-400">
+                <Clock className="w-3 h-3" />
+                {formatDuration(course.duration)}
+              </span>
+            )}
+            {course.lessonCount != null && course.lessonCount > 0 && (
+              <span className="flex items-center gap-1 text-[11px] text-slate-400">
+                <BookOpen className="w-3 h-3" />
+                {course.lessonCount}
+              </span>
+            )}
+            {course.hasQuiz && (
+              <span className="flex items-center gap-1 text-[11px] text-cyan-500">
+                <Award className="w-3 h-3" />
+              </span>
+            )}
+          </div>
+
+          <h3 className="text-base font-semibold text-slate-900 line-clamp-2 mb-1 group-hover:text-emerald-700 transition-colors">
+            {course.title}
+          </h3>
+
+          <p className="text-sm text-slate-500 line-clamp-1 mb-3 flex-1">
+            {course.description}
+          </p>
+
+          {isInProgress && (
+            <div className="mb-3">
+              <div className="flex justify-between text-[11px] text-emerald-600 font-medium mb-1">
+                <span>{progress}%</span>
+              </div>
+              <div className="h-1 bg-slate-100 rounded-full overflow-hidden">
+                <div className="h-full bg-emerald-500 rounded-full" style={{ width: `${progress}%` }} />
+              </div>
+            </div>
+          )}
+
+          <div className="flex items-center justify-between pt-2 border-t border-slate-100 mt-auto">
+            <span className="text-[11px] text-slate-400">
+              {getCategoryLabel(course.category)}
+            </span>
+            <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-emerald-500 transition-colors" />
+          </div>
+        </div>
+      </Link>
+    </motion.div>
+  );
+}
+
 const StudyGuides = () => {
   const [category, setCategory] = useState<string>('all');
   const [search, setSearch] = useState('');
-  const [page, setPage] = useState(1);
-  const { scrollYProgress } = useScroll();
   const userContext = useContext(UserContext);
   const isLoggedIn = userContext?.isLoggedIn ?? false;
 
   const { data, isLoading } = useQuery({
-    queryKey: ['courses', category, search, page],
+    queryKey: ['courses', category, search],
     queryFn: async () => {
       const params = new URLSearchParams({
-        page: page.toString(),
         limit: '100',
         sortBy: 'level'
       });
@@ -62,7 +155,6 @@ const StudyGuides = () => {
     },
   });
 
-  // Fetch user's courses for "continue learning" banner
   const { data: userCoursesData } = useQuery({
     queryKey: ['user-courses'],
     queryFn: async () => {
@@ -74,13 +166,12 @@ const StudyGuides = () => {
   });
 
   useEffect(() => {
-    document.title = 'Guías de Estudio - El Camino del Aprendizaje';
+    document.title = 'Guías de Estudio - Catálogo de Cursos';
     window.scrollTo(0, 0);
   }, []);
 
   const courses: Course[] = data?.courses || [];
 
-  // Find the most recent in-progress course for the continue banner
   const inProgressCourse = useMemo(() => {
     if (!userCoursesData?.courses) return null;
     const inProgress = userCoursesData.courses.filter(
@@ -89,7 +180,6 @@ const StudyGuides = () => {
     return inProgress.length > 0 ? inProgress[0] : null;
   }, [userCoursesData]);
 
-  // Compute stats from courses data
   const stats = useMemo(() => {
     const total = data?.total || courses.length;
     const totalMinutes = courses.reduce((sum: number, c: Course) => sum + (c.duration || 0), 0);
@@ -98,15 +188,22 @@ const StudyGuides = () => {
     return { total, totalHours, levelCount: levels.size };
   }, [courses, data?.total]);
 
-  // Compute actual user progress for the timeline
-  const actualProgress = useMemo(() => {
-    if (!isLoggedIn || courses.length === 0) return 0;
-    const completedCount = courses.filter((c: Course) => c.userProgress?.status === 'completed').length;
-    return completedCount / courses.length;
-  }, [courses, isLoggedIn]);
+  const coursesByCategory = useMemo(() => {
+    const grouped = new Map<string, Course[]>();
+    categoryOrder.forEach(catId => grouped.set(catId, []));
+    courses.forEach(course => {
+      const list = grouped.get(course.category);
+      if (list) list.push(course);
+      else grouped.set(course.category, [course]);
+    });
+    for (const [key, value] of grouped) {
+      if (value.length === 0) grouped.delete(key);
+    }
+    return grouped;
+  }, [courses]);
 
   const categories = [
-    { id: 'all', label: 'Todo el Camino' },
+    { id: 'all', label: 'Todos' },
     { id: 'vision', label: 'Visión' },
     { id: 'action', label: 'Acción' },
     { id: 'community', label: 'Comunidad' },
@@ -117,129 +214,8 @@ const StudyGuides = () => {
     { id: 'civica', label: 'Cívica' },
   ];
 
-  // Build course list with level milestone markers
-  const renderCourses = () => {
-    const elements: JSX.Element[] = [];
-    let prevLevel = '';
-
-    courses.forEach((course, index) => {
-      // Insert milestone marker when level changes
-      if (course.level !== prevLevel && prevLevel !== '' && category === 'all') {
-        elements.push(
-          <div key={`milestone-${index}-${course.level}`} className="relative flex justify-center my-4 md:my-8">
-            <div className="absolute left-4 md:left-1/2 w-10 h-10 -translate-x-1/2 rounded-full bg-gradient-to-r from-emerald-400 to-cyan-500 flex items-center justify-center shadow-lg z-10 hidden md:flex">
-              <TrendingUp className="w-4 h-4 text-white" />
-            </div>
-            <div className="bg-white/90 backdrop-blur-sm px-6 py-2 rounded-full border border-slate-200 shadow-sm md:ml-16">
-              <span className="text-sm font-semibold text-slate-700">Nivel {getLevelLabel(course.level)}</span>
-            </div>
-          </div>
-        );
-      }
-      prevLevel = course.level;
-
-      const isEven = index % 2 === 0;
-      elements.push(
-        <div key={course.id} className={`relative flex md:items-center ${isEven ? 'md:justify-start' : 'md:justify-end'}`}>
-
-          {/* Node Point on Line */}
-          <div className="absolute left-4 md:left-1/2 w-8 h-8 rounded-full bg-white border-4 border-emerald-100 shadow-md -translate-x-1/2 z-10 flex items-center justify-center hidden md:flex">
-            <div className={`w-3 h-3 rounded-full ${
-              course.userProgress?.status === 'completed' ? 'bg-emerald-500' :
-              course.userProgress?.status === 'in_progress' ? 'bg-amber-400 animate-pulse' :
-              'bg-slate-300'
-            }`} />
-          </div>
-
-          {/* Content Card */}
-          <div className={`w-full md:w-[45%] pl-12 md:pl-0 ${isEven ? 'md:pr-12' : 'md:pl-12'}`}>
-            <SmoothReveal direction={isEven ? 'right' : 'left'} delay={index * 0.1}>
-              <Link href={`/recursos/guias-estudio/${course.slug}`}>
-                <div className="group p-0 overflow-hidden bg-white rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
-                  <div className="relative h-48 overflow-hidden bg-slate-200">
-                    {course.thumbnailUrl ? (
-                      <img src={course.thumbnailUrl} alt={course.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                    ) : (
-                      <div className="w-full h-full bg-gradient-to-br from-emerald-50 to-cyan-50 flex items-center justify-center">
-                        <GraduationCap className="w-16 h-16 text-emerald-200" />
-                      </div>
-                    )}
-                    <div className="absolute top-4 left-4">
-                      <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider backdrop-blur-md shadow-sm ${levelColors[course.level] || 'bg-white/90 text-slate-700'}`}>
-                        {getLevelLabel(course.level)}
-                      </span>
-                    </div>
-                    {course.userProgress?.status === 'completed' && (
-                      <div className="absolute top-4 right-4">
-                        <span className="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500 text-white shadow-sm flex items-center gap-1">
-                          <CheckCircle2 className="w-3 h-3" /> Completado
-                        </span>
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="p-6 md:p-8">
-                    <div className="flex items-center gap-2 text-xs font-bold text-emerald-600 mb-3 uppercase tracking-wider flex-wrap">
-                      <span className="bg-emerald-50 px-2 py-1 rounded">{getCategoryLabel(course.category)}</span>
-                      {course.duration && (
-                        <span className="flex items-center gap-1 text-slate-400 font-normal lowercase">
-                          <Clock className="w-3 h-3" /> {formatDuration(course.duration)}
-                        </span>
-                      )}
-                      {course.lessonCount != null && course.lessonCount > 0 && (
-                        <span className="flex items-center gap-1 text-slate-400 font-normal lowercase">
-                          <BookOpen className="w-3 h-3" /> {course.lessonCount} lecciones
-                        </span>
-                      )}
-                      {course.hasQuiz && (
-                        <span className="flex items-center gap-1 text-cyan-500 font-normal lowercase">
-                          <Award className="w-3 h-3" /> Quiz
-                        </span>
-                      )}
-                    </div>
-
-                    <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-emerald-700 transition-colors">
-                      {course.title}
-                    </h3>
-
-                    <p className="text-slate-600 mb-6 line-clamp-2">
-                      {course.description}
-                    </p>
-
-                    <div className="flex items-center justify-between pt-4 border-t border-slate-100">
-                      {course.userProgress?.progress ? (
-                        <div className="flex flex-col gap-1 w-full mr-4">
-                          <div className="flex justify-between text-xs font-medium mb-1">
-                            <span className="text-emerald-600">{course.userProgress.progress}% Completado</span>
-                          </div>
-                          <div className="h-1.5 bg-slate-100 rounded-full overflow-hidden">
-                            <div className="h-full bg-emerald-500 rounded-full transition-all duration-500" style={{ width: `${course.userProgress.progress}%` }} />
-                          </div>
-                        </div>
-                      ) : (
-                        <span className="text-sm text-slate-400 flex items-center gap-2">
-                          <PlayCircle className="w-4 h-4" /> Comenzar
-                        </span>
-                      )}
-
-                      <div className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 group-hover:bg-emerald-500 group-hover:text-white transition-all">
-                        <ChevronRight className="w-5 h-5" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            </SmoothReveal>
-          </div>
-        </div>
-      );
-    });
-
-    return elements;
-  };
-
   return (
-    <div className="min-h-screen bg-slate-50 font-sans text-slate-900 overflow-hidden">
+    <div className="min-h-screen bg-slate-50 font-sans text-slate-900 overflow-hidden theme-light">
       <FluidBackground className="opacity-30" />
       <Header />
 
@@ -247,7 +223,7 @@ const StudyGuides = () => {
         <div className="container mx-auto px-4">
 
           {/* Hero Section */}
-          <section className="min-h-[40vh] flex flex-col justify-center items-center text-center mb-12">
+          <section className="py-12 md:py-20 flex flex-col justify-center items-center text-center mb-8">
             <SmoothReveal direction="up" className="mb-6">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200 shadow-sm mb-8">
                 <GraduationCap className="w-4 h-4 text-emerald-600" />
@@ -255,17 +231,16 @@ const StudyGuides = () => {
               </div>
             </SmoothReveal>
             <SmoothReveal direction="up" delay={0.1}>
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-slate-900 mb-6 tracking-tight">
-                Tu Camino de <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-cyan-600">Maestría</span>
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-slate-900 mb-6 tracking-tight">
+                Catálogo de <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-cyan-600">Cursos</span>
               </h1>
             </SmoothReveal>
             <SmoothReveal direction="up" delay={0.2} className="max-w-2xl">
-              <p className="text-xl md:text-2xl text-slate-600 leading-relaxed font-light">
-                No son solo cursos. Es un itinerario diseñado para transformar tu comprensión en capacidad de acción real.
+              <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-light">
+                Explorá todos los cursos disponibles. Filtrá por categoría o buscá por tema para encontrar lo que necesitás.
               </p>
             </SmoothReveal>
 
-            {/* Stats Strip */}
             {!isLoading && courses.length > 0 && (
               <SmoothReveal direction="up" delay={0.3} className="mt-10">
                 <div className="flex justify-center gap-8 md:gap-12">
@@ -321,13 +296,13 @@ const StudyGuides = () => {
           )}
 
           {/* Filters Bar */}
-          <div className="sticky top-24 z-40 mb-20">
-            <GlassCard className="max-w-4xl mx-auto p-2 flex flex-col md:flex-row items-center gap-4 bg-white/80 backdrop-blur-xl shadow-xl rounded-full" intensity="high">
+          <div className="sticky top-24 z-40 mb-12">
+            <GlassCard className="max-w-5xl mx-auto p-2 flex flex-col md:flex-row items-center gap-4 bg-white/80 backdrop-blur-xl shadow-xl rounded-full" intensity="high">
               <div className="flex-1 w-full relative pl-2">
                 <Search className="absolute left-5 top-1/2 transform -translate-y-1/2 text-slate-400 w-5 h-5" />
                 <input
                   type="text"
-                  placeholder="Buscar en el camino..."
+                  placeholder="Buscar cursos..."
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                   className="w-full bg-transparent border-none focus:ring-0 pl-10 text-base text-slate-800 placeholder-slate-400 h-12"
@@ -352,17 +327,8 @@ const StudyGuides = () => {
             </GlassCard>
           </div>
 
-          {/* The Path Layout */}
-          <div className="relative max-w-5xl mx-auto min-h-[500px]">
-            {/* Central Line */}
-            <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-1 bg-slate-200 -translate-x-1/2 hidden md:block" />
-
-            {/* Animated Progress Line */}
-            <motion.div
-              className="absolute left-4 md:left-1/2 top-0 w-1 bg-gradient-to-b from-emerald-400 via-cyan-400 to-blue-500 -translate-x-1/2 origin-top hidden md:block"
-              style={{ height: '100%', scaleY: isLoggedIn && actualProgress > 0 ? actualProgress : scrollYProgress }}
-            />
-
+          {/* Course Grid */}
+          <div className="max-w-7xl mx-auto min-h-[300px]">
             {isLoading ? (
               <div className="flex justify-center pt-20">
                 <Loader2 className="w-10 h-10 animate-spin text-emerald-500" />
@@ -375,18 +341,14 @@ const StudyGuides = () => {
                       <Sparkles className="w-8 h-8 text-slate-400" />
                     </div>
                     <h3 className="text-xl font-semibold text-slate-800 mb-3">
-                      {category === 'community'
-                        ? 'Cursos de Comunidad en Desarrollo'
-                        : search
-                          ? `Sin resultados para "${search}"`
-                          : `Cursos de ${categories.find(c => c.id === category)?.label || 'esta categoría'} próximamente`}
+                      {search
+                        ? `Sin resultados para "${search}"`
+                        : `Cursos de ${categories.find(c => c.id === category)?.label || 'esta categoría'} próximamente`}
                     </h3>
                     <p className="text-slate-500 mb-6">
-                      {category === 'community'
-                        ? 'Estamos preparando contenido sobre acción comunitaria. Mientras tanto, explora nuestros otros caminos de aprendizaje.'
-                        : search
-                          ? 'Intenta con otras palabras clave o elimina los filtros para ver todos los cursos.'
-                          : 'Mientras tanto, explora las guías disponibles en otras categorías.'}
+                      {search
+                        ? 'Intenta con otras palabras clave o elimina los filtros para ver todos los cursos.'
+                        : 'Mientras tanto, explora las guías disponibles en otras categorías.'}
                     </p>
                     <div className="flex gap-3 justify-center">
                       <Button
@@ -394,29 +356,53 @@ const StudyGuides = () => {
                         onClick={() => { setSearch(''); setCategory('all'); }}
                         className="rounded-full"
                       >
-                        Ver todo el camino
+                        Ver todos los cursos
                       </Button>
                     </div>
                   </div>
                 </SmoothReveal>
               </div>
             ) : (
-              <div className="space-y-12 md:space-y-24 pb-20">
-                {renderCourses()}
-              </div>
-            )}
+              <div className="space-y-12">
+                {Array.from(coursesByCategory.entries()).map(([catId, catCourses]) => {
+                  const meta = categoryMeta[catId];
+                  const CatIcon = meta?.icon || GraduationCap;
+                  return (
+                    <section key={catId}>
+                      {category === 'all' && (
+                        <SmoothReveal direction="up">
+                          <div className="flex items-center gap-3 mb-6 pb-3 border-b border-slate-200">
+                            <div className="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center">
+                              <CatIcon className={`w-4 h-4 ${meta?.color || 'text-slate-500'}`} />
+                            </div>
+                            <h2 className="text-lg font-bold text-slate-800">
+                              {getCategoryLabel(catId)}
+                            </h2>
+                            <span className="text-sm text-slate-400 ml-auto">
+                              {catCourses.length} {catCourses.length === 1 ? 'curso' : 'cursos'}
+                            </span>
+                          </div>
+                        </SmoothReveal>
+                      )}
 
-            {/* End of Path Indicator */}
-            {courses.length > 0 && (
-              <div className="text-center mt-20 relative z-10 pb-20">
-                <div className="inline-flex flex-col items-center gap-4">
-                  <div className="w-3 h-3 rounded-full bg-slate-300" />
-                  <div className="w-2 h-2 rounded-full bg-slate-300/60" />
-                  <div className="w-1 h-1 rounded-full bg-slate-300/30" />
-                  <p className="text-slate-400 text-sm font-medium uppercase tracking-widest mt-4">
-                    Más caminos próximamente
-                  </p>
-                </div>
+                      <motion.div
+                        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
+                        variants={staggerContainer}
+                        initial="initial"
+                        whileInView="animate"
+                        viewport={{ once: true, margin: '-5%' }}
+                      >
+                        {catCourses.map(course => (
+                          <CompactCourseCard
+                            key={course.id}
+                            course={course}
+                            accentColor={meta?.accent || '#64748b'}
+                          />
+                        ))}
+                      </motion.div>
+                    </section>
+                  );
+                })}
               </div>
             )}
           </div>
