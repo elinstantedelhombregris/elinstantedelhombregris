@@ -106,6 +106,23 @@ export function registerInitiativeRoutes(app: Express) {
         }
 
         await storage.assignTask(taskId, assignedTo);
+
+        // Notify assigned user
+        try {
+          const postId = parseId(req.params.postId);
+          if (postId) {
+            const post = await storage.getCommunityPostWithDetails(postId);
+            await storage.createNotification(assignedTo, {
+              type: 'task_assigned' as any,
+              title: 'Tarea asignada',
+              content: `Te asignaron una tarea en "${post?.title || 'una iniciativa'}"`,
+              postId,
+              userId: assignedTo,
+              targetId: taskId,
+            });
+          }
+        } catch (_) { /* non-critical */ }
+
         res.json({ message: "Task assigned" });
       } catch (error) {
         res.status(500).json({ message: "Failed to assign task" });

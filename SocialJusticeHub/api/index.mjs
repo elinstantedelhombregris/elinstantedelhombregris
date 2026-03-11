@@ -3156,102 +3156,438 @@ var blogContentUpdates = {
       </article>
     `
   },
-  [slugify("El Pozo que se Desborda - Reflexiones en Vivo")]: {
-    excerpt: "Este video nace de una noche en la que tres personas distintas me dijeron lo mismo: 'ya no puedo seguir as\xED'. Ese desborde emocional es un regalo \u2014 si sabemos escucharlo.",
-    content: `
-      <article>
-        <h1>El Pozo que se Desborda \u2014 Reflexiones en Vivo</h1>
-        <p>
-          Este video nace de una noche en la que tres personas distintas \u2014 que no se conocen entre s\xED \u2014
-          me dijeron exactamente lo mismo: "ya no puedo seguir as\xED". Una por mensaje, otra en un caf\xE9,
-          la tercera en una llamada que empez\xF3 hablando de trabajo y termin\xF3 en llanto.
-          Ese desborde emocional simult\xE1neo no es casualidad. Es una se\xF1al colectiva.
-          Y si sabemos escucharla, es el punto exacto donde empieza la transformaci\xF3n.
-        </p>
-
-        <h2>Lo que comparto en el video</h2>
-        <ul>
-          <li><strong>El instante del quiebre:</strong> el momento preciso en que notamos que postergar la acci\xF3n es traicionarnos a nosotros mismos.</li>
-          <li><strong>El duelo necesario:</strong> aceptar que el viejo yo \u2014 el que toleraba, el que esperaba, el que delegaba \u2014 no volver\xE1. Y que eso est\xE1 bien.</li>
-          <li><strong>El nacimiento del arquitecto:</strong> descubrir que el futuro no se espera: se dise\xF1a. Y que ese dise\xF1o empieza hoy. La psicolog\xEDa positiva lo confirma: el sentido de agencia \u2014 la certeza de que tus acciones importan \u2014 es el predictor m\xE1s fuerte de bienestar sostenido. No esperanza pasiva: agencia activa.</li>
-        </ul>
-
-        <blockquote>
-          Cuando el pozo se desborda no buscamos culpables:
-          dise\xF1amos nuevas compuertas para que la energ\xEDa se oriente al servicio.
-        </blockquote>
-
-        <h2>Preguntas para acompa\xF1ar el video</h2>
-        <p>Respond\xE9 antes de seguir scrolleando \u2014 este es el ejercicio:</p>
-        <ol>
-          <li>\xBFQu\xE9 se\xF1al ven\xEDas ignorando hasta hoy?</li>
-          <li>\xBFQu\xE9 relaci\xF3n necesit\xE1s redise\xF1ar para recuperar energ\xEDa vital?</li>
-          <li>\xBFQu\xE9 microacci\xF3n pod\xE9s tomar en las pr\xF3ximas 24 horas que demuestre que despertaste?</li>
-        </ol>
-
-        <h2>Plan de 30 d\xEDas: del desborde al dise\xF1o</h2>
-        <p>No dejes que el impulso se enfr\xEDe. Us\xE1 el desborde como rampa de lanzamiento:</p>
-        <ul>
-          <li><strong>Semana 1 \u2014 Nombrar:</strong> registr\xE1 tus patrones de cansancio y eleg\xED el sistema que quer\xE9s cambiar. Un solo sistema. El m\xE1s urgente.</li>
-          <li><strong>Semana 2 \u2014 Convocar:</strong> ped\xED ayuda. Form\xE1 una dupla o comunidad m\xEDnima. Nadie redise\xF1a solo.</li>
-          <li><strong>Semana 3 \u2014 Prototipar:</strong> lanz\xE1 una acci\xF3n concreta y medible. No perfecta: medible.</li>
-          <li><strong>Semana 4 \u2014 Narrar:</strong> cont\xE1 p\xFAblicamente qu\xE9 aprendiste y qu\xE9 sigue. Tu historia es el combustible de otros.</li>
-        </ul>
-
-        <blockquote>
-          Despertar es aceptar que somos los curadores de la energ\xEDa colectiva.
-          Cuando el pozo se desborda, la \xFAnica pregunta que importa no es "por qu\xE9"
-          \u2014 es "hacia d\xF3nde la dirijo ahora". Y en esa pregunta, si la escuch\xE1s bien,
-          ya est\xE1 la respuesta.
-        </blockquote>
-      </article>
-    `
-  },
   [slugify("Sistemas vs. S\xEDntomas: C\xF3mo Pensar como Ingeniero Social")]: {
-    excerpt: "Hay dos formas de mirar la realidad argentina: perseguir incendios o redise\xF1ar el tablero. Este vlog te entrena para la segunda \u2014 la \xFAnica que produce cambios duraderos.",
+    excerpt: "Hay dos formas de mirar la realidad: perseguir incendios o redise\xF1ar el tablero. Este art\xEDculo te entrena para la segunda \u2014 la \xFAnica que produce cambios duraderos. Porque mientras sigas tratando s\xEDntomas, el sistema que los produce va a seguir intacto.",
     content: `
       <article>
         <h1>Sistemas vs. S\xEDntomas: C\xF3mo Pensar como Ingeniero Social</h1>
         <p>
-          Te voy a contar algo que me pas\xF3 la semana pasada. Estaba en una reuni\xF3n donde todos
-          se quejaban del mismo problema \u2014 por tercera vez en dos meses. Y de golpe entend\xED:
+          Te voy a contar algo que me pas\xF3 hace poco. Estaba en una reuni\xF3n donde todos se quejaban
+          del mismo problema \u2014 por tercera vez en dos meses. Alguien propon\xEDa una soluci\xF3n, otro la
+          descartaba, un tercero se indignaba. Y de golpe lo vi con una claridad que me dej\xF3 helado:
           no est\xE1bamos discutiendo el problema. Est\xE1bamos discutiendo el s\xEDntoma. El problema real
-          \u2014 el dise\xF1o que lo produce \u2014 nadie lo hab\xEDa nombrado. Ese d\xEDa decid\xED grabar este video.
-          Porque si a m\xED me cost\xF3 verlo, probablemente a vos tambi\xE9n. Y la diferencia entre
-          quedarse atrapado y salir adelante est\xE1 exactamente ah\xED: en aprender a distinguir
-          el s\xEDntoma del sistema.
+          \u2014 el dise\xF1o que lo produce \u2014 nadie lo hab\xEDa nombrado. Nadie. En tres reuniones.
+        </p>
+        <p>
+          Y ah\xED entend\xED algo que me cambi\xF3 la forma de mirar todo: la mayor\xEDa de las personas
+          inteligentes, bien intencionadas, con ganas de cambiar las cosas, pasan la vida entera
+          persiguiendo s\xEDntomas. No por ignorancia \u2014 por falta de entrenamiento. Nadie nos ense\xF1\xF3
+          a ver sistemas. Nos ense\xF1aron a ver eventos. Y esa diferencia \u2014 invisible pero demoledora \u2014
+          es la raz\xF3n por la que Argentina cicla por las mismas crisis generaci\xF3n tras generaci\xF3n,
+          por la que tu empresa repite los mismos errores cada trimestre, por la que tu vida personal
+          parece dar vueltas alrededor de los mismos problemas sin resolverlos nunca.
+        </p>
+        <p>
+          Este art\xEDculo es un manual. No una opini\xF3n, no una reflexi\xF3n inspiracional \u2014 un manual.
+          Para aprender a ver lo que est\xE1 debajo de lo que se ve. Para dejar de ser bombero y
+          empezar a ser arquitecto. Para pensar como ingeniero social \u2014 que no es una profesi\xF3n,
+          sino una forma de mirar la realidad que, una vez que la adquir\xEDs, no pod\xE9s volver atr\xE1s.
         </p>
 
-        <h2>Los tres errores que te mantienen atrapado</h2>
-        <ul>
-          <li><strong>Confundir urgencia con importancia:</strong> corremos detr\xE1s del \xFAltimo titular y olvidamos los patrones que llevan d\xE9cadas repiti\xE9ndose. La urgencia es el anest\xE9sico de la estrategia.</li>
-          <li><strong>Atacar personas en lugar de procesos:</strong> personalizamos cada conflicto y perdemos de vista las reglas del juego que los crean. Cambiar al jugador sin cambiar las reglas no cambia nada.</li>
-          <li><strong>Dise\xF1ar sin datos:</strong> proponemos soluciones desde la intuici\xF3n sin medir flujos, incentivos ni consecuencias de segundo orden.</li>
-        </ul>
-
         <blockquote>
-          Pensar como ingeniero social es hacerse responsable de los sistemas
-          que alimentamos con nuestra atenci\xF3n, nuestro dinero y nuestro silencio \u2014 cada d\xEDa.
+          El s\xEDntoma grita. El sistema susurra. Y si no aprend\xE9s a escuchar lo que susurra,
+          vas a pasarte la vida corriendo detr\xE1s de lo que grita \u2014 sin resolver nunca nada.
         </blockquote>
 
-        <h2>Entrenamiento: tres habilidades para desarrollar esta semana</h2>
+        <h2>Qu\xE9 es un s\xEDntoma y qu\xE9 es un sistema \u2014 la diferencia que nadie te explic\xF3</h2>
+        <p>
+          Un s\xEDntoma es lo que se ve. Es el resultado visible de algo que opera debajo, fuera de
+          tu campo de visi\xF3n. La fiebre es un s\xEDntoma \u2014 la infecci\xF3n es el sistema. La inflaci\xF3n
+          es un s\xEDntoma \u2014 la estructura monetaria y fiscal es el sistema. La deserci\xF3n escolar
+          es un s\xEDntoma \u2014 el dise\xF1o educativo que expulsa en lugar de contener es el sistema.
+          El empleado que renuncia es un s\xEDntoma \u2014 la cultura organizacional que lo agota es el sistema.
+        </p>
+        <p>
+          Pens\xE1 en tu propia vida. \xBFCu\xE1ntas veces atacaste un s\xEDntoma creyendo que estabas
+          resolviendo un problema? Cambiaste de trabajo porque el jefe era insoportable \u2014 y en el
+          siguiente trabajo encontraste otro jefe insoportable. \xBFCasualidad? No. Hay un patr\xF3n
+          en el tipo de organizaciones que eleg\xEDs, en c\xF3mo te posicion\xE1s frente a la autoridad,
+          en qu\xE9 toler\xE1s y qu\xE9 no. Ese patr\xF3n es el sistema. El jefe insoportable es solo el s\xEDntoma.
+        </p>
+        <p>
+          Ahora escal\xE1 eso a un pa\xEDs. Argentina tiene una relaci\xF3n patol\xF3gica con el d\xF3lar.
+          Cada gobierno intenta "resolver" el problema cambiario con controles, cepos, devaluaciones,
+          unificaciones. Son parches sobre s\xEDntomas. El sistema que produce la fuga al d\xF3lar
+          \u2014 d\xE9cadas de traici\xF3n institucional, inflaci\xF3n cr\xF3nica que destruye ahorros, reglas que
+          cambian a mitad del juego \u2014 nadie lo toca. Porque tocar el sistema requiere una forma
+          de pensar que no nos ense\xF1aron.
+        </p>
+
+        <h2>Por qu\xE9 tu cerebro prefiere los s\xEDntomas \u2014 y c\xF3mo reprogramarlo</h2>
+        <p>
+          No es estupidez. Es neurolog\xEDa. Tu cerebro est\xE1 dise\xF1ado para responder a lo inmediato,
+          lo visible, lo urgente. Daniel Kahneman lo document\xF3 exhaustivamente: el Sistema 1
+          \u2014 el pensamiento r\xE1pido, autom\xE1tico, emocional \u2014 domina la mayor parte de tus decisiones.
+          Y el Sistema 1 ama los s\xEDntomas. Son concretos, son visibles, son emocionalmente
+          satisfactorios de atacar. "El problema es este pol\xEDtico." "El problema es este empleado."
+          "El problema es esta ley." Se\xF1alar un culpable se siente bien. Redise\xF1ar un sistema
+          no se siente bien \u2014 se siente inc\xF3modo, lento, abstracto. Pero es lo \xFAnico que funciona.
+        </p>
+        <p>
+          El Sistema 2 \u2014 el pensamiento lento, deliberado, anal\xEDtico \u2014 es el que puede ver sistemas.
+          Pero cuesta activarlo. Consume energ\xEDa. Requiere concentraci\xF3n sostenida. Y sobre todo,
+          requiere tolerar la ambig\xFCedad: los sistemas no tienen un solo culpable, no tienen una
+          sola causa, no tienen una soluci\xF3n que quepa en un tuit. Y eso, en la era de la
+          gratificaci\xF3n instant\xE1nea, es casi intolerable.
+        </p>
+        <p>
+          Pero ac\xE1 est\xE1 la buena noticia: el pensamiento sist\xE9mico se entrena. No es un talento
+          innato \u2014 es una habilidad adquirida. Y una vez que la adquir\xEDs, es como ponerte anteojos
+          por primera vez: lo que antes era borroso se vuelve n\xEDtido, y no pod\xE9s creer que hayas
+          vivido tanto tiempo sin ver lo que ahora es obvio.
+        </p>
+
+        <h2>Las cinco trampas del pensador de s\xEDntomas</h2>
+        <p>
+          Antes de aprender a ver sistemas, necesit\xE1s identificar los errores que te mantienen
+          atrapado en la superficie. Son cinco, y probablemente comet\xE9s al menos tres todos los d\xEDas:
+        </p>
         <ol>
-          <li><strong>Mapear causas:</strong> eleg\xED un s\xEDntoma que te moleste y dibuj\xE1 al menos cinco factores que lo sostienen. Vas a ver que el s\xEDntoma es solo la punta del iceberg.</li>
-          <li><strong>Detectar palancas:</strong> de esos cinco factores, eleg\xED el punto donde intervenir cambia varias variables a la vez. Ese es tu apalancamiento.</li>
-          <li><strong>Ensayar prototipos:</strong> actu\xE1 r\xE1pido con un experimento peque\xF1o y med\xED su efecto en 7 d\xEDas. Velocidad de aprendizaje vence perfecci\xF3n de dise\xF1o.</li>
+          <li>
+            <strong>Confundir urgencia con importancia.</strong> Lo urgente grita; lo importante
+            susurra. El \xFAltimo esc\xE1ndalo pol\xEDtico es urgente. La reforma educativa que determina
+            qu\xE9 tipo de ciudadanos vamos a tener en 20 a\xF1os es importante. \xBFA cu\xE1l le dedic\xE1s
+            m\xE1s atenci\xF3n? La urgencia es el anest\xE9sico de la estrategia. Cada minuto que invert\xEDs
+            en lo urgente es un minuto que le rob\xE1s a lo importante. Y lo importante, cuando se
+            ignora el tiempo suficiente, se convierte en la pr\xF3xima urgencia. Es un ciclo que
+            solo se rompe con una decisi\xF3n consciente: elegir lo importante antes de que se
+            vuelva urgente.
+          </li>
+          <li>
+            <strong>Personalizar lo que es estructural.</strong> "El problema es Fulano."
+            "Si cambiamos al ministro, se arregla." "Con un buen l\xEDder alcanza." No alcanza.
+            Nunca alcanz\xF3. Cuando un sistema est\xE1 dise\xF1ado para producir un resultado,
+            no importa qui\xE9n lo opere \u2014 va a producir ese resultado. Edwards Deming, el padre
+            del control de calidad, lo dijo con una precisi\xF3n quir\xFArgica: "Un mal sistema
+            vence a una buena persona, siempre." Cambiar al jugador sin cambiar las reglas
+            del juego no cambia el juego. Solo cambia qui\xE9n pierde.
+          </li>
+          <li>
+            <strong>Buscar la causa \xFAnica.</strong> "\xBFCu\xE1l es LA causa de la pobreza?"
+            No hay una. Hay un entramado de factores que se retroalimentan: educaci\xF3n que no
+            prepara para el mercado laboral, un mercado laboral que no genera empleo formal,
+            informalidad que no permite acumular capital, falta de capital que impide educarse.
+            Es un bucle. Y los bucles no se rompen buscando "la" causa \u2014 se rompen encontrando
+            el punto de apalancamiento donde una intervenci\xF3n precisa desata un efecto cascada.
+          </li>
+          <li>
+            <strong>Ignorar las consecuencias de segundo orden.</strong> Toda acci\xF3n tiene
+            consecuencias directas (primer orden) y consecuencias indirectas (segundo orden).
+            Las de primer orden son obvias. Las de segundo orden son las que te destruyen.
+            Ejemplo: un gobierno congela precios para combatir la inflaci\xF3n (primer orden:
+            los precios bajan). Segundo orden: los productores dejan de producir porque no
+            les cierra el negocio. Tercer orden: hay desabastecimiento. Cuarto orden: aparece
+            un mercado negro con precios m\xE1s altos que los originales. El "remedio" fue peor
+            que la enfermedad \u2014 porque nadie pens\xF3 m\xE1s all\xE1 del primer movimiento.
+          </li>
+          <li>
+            <strong>Dise\xF1ar sin datos.</strong> Proponemos soluciones desde la intuici\xF3n,
+            desde la ideolog\xEDa, desde la indignaci\xF3n \u2014 sin medir flujos, incentivos ni
+            resultados previos. "Hay que poner m\xE1s polic\xEDas" \u2014 \xBFmediste si m\xE1s polic\xEDas
+            reduce el crimen o solo lo desplaza? "Hay que invertir m\xE1s en educaci\xF3n" \u2014
+            \xBFmediste si el problema es la inversi\xF3n o es c\xF3mo se usa esa inversi\xF3n?
+            La intuici\xF3n sin datos es adivinaci\xF3n. Y adivinar con la vida de millones
+            de personas no es valent\xEDa \u2014 es irresponsabilidad.
+          </li>
         </ol>
 
-        <h2>Checklist de ingeniero social para tus proyectos</h2>
-        <p>Antes de lanzar cualquier iniciativa, respond\xE9 estas tres preguntas:</p>
+        <blockquote>
+          Pensar como ingeniero social es hacerse responsable de los sistemas que alimentamos
+          con nuestra atenci\xF3n, nuestro dinero y nuestro silencio \u2014 cada d\xEDa. No es una profesi\xF3n.
+          Es una decisi\xF3n \xE9tica.
+        </blockquote>
+
+        <h2>El marco del ingeniero social: c\xF3mo ver lo invisible</h2>
+        <p>
+          Donella Meadows \u2014 una de las pensadoras sist\xE9micas m\xE1s brillantes del siglo XX \u2014
+          defini\xF3 un sistema como "un conjunto de elementos interconectados que produce un
+          patr\xF3n de comportamiento a lo largo del tiempo." Fijate: no dijo "un conjunto de
+          problemas". Dijo "un patr\xF3n de comportamiento". Los sistemas no son buenos ni malos
+          \u2014 producen resultados. Y si no te gustan los resultados, ten\xE9s que cambiar el dise\xF1o,
+          no quejarte del resultado.
+        </p>
+        <p>
+          Todo sistema tiene tres componentes que necesit\xE1s aprender a ver:
+        </p>
         <ul>
-          <li>\xBFQui\xE9n gana si todo sigue exactamente igual? (Segu\xED el incentivo.)</li>
-          <li>\xBFQu\xE9 informaci\xF3n falta para tomar decisiones mejores? (Segu\xED los datos que nadie mide.)</li>
-          <li>\xBFQu\xE9 h\xE1bito personal m\xEDo alimenta el s\xEDntoma que critico? (Empez\xE1 por casa.)</li>
+          <li>
+            <strong>Elementos:</strong> las partes visibles. En un sistema educativo: escuelas,
+            docentes, estudiantes, curr\xEDculas, presupuesto. La mayor\xEDa de la gente solo ve esto.
+            Y cuando quiere "arreglar la educaci\xF3n", mueve elementos: pone m\xE1s escuelas, cambia
+            docentes, agrega materias. Casi nunca funciona \u2014 porque los elementos no son el
+            problema.
+          </li>
+          <li>
+            <strong>Interconexiones:</strong> las relaciones entre los elementos. C\xF3mo fluye
+            la informaci\xF3n, c\xF3mo se distribuyen los incentivos, qui\xE9n responde ante qui\xE9n,
+            qu\xE9 reglas gobiernan el comportamiento. Un docente brillante en un sistema que
+            lo eval\xFAa por asistencia y no por impacto va a optimizar para asistencia, no
+            para impacto. No porque sea mediocre \u2014 porque el sistema lo incentiva a serlo.
+            Cambiar las interconexiones (los incentivos, las reglas, los flujos de informaci\xF3n)
+            tiene mucho m\xE1s impacto que cambiar los elementos.
+          </li>
+          <li>
+            <strong>Prop\xF3sito:</strong> la funci\xF3n que el sistema realmente cumple \u2014 no la que
+            dice cumplir. Este es el nivel m\xE1s profundo y el m\xE1s inc\xF3modo. El sistema educativo
+            argentino dice que su prop\xF3sito es "formar ciudadanos cr\xEDticos y creativos".
+            Pero su dise\xF1o real \u2014 evaluaciones memor\xEDsticas, jerarqu\xEDa r\xEDgida, curr\xEDculas
+            uniformes \u2014 produce obediencia, no creatividad. El prop\xF3sito real de un sistema
+            se revela en sus resultados, no en su declaraci\xF3n de misi\xF3n. Si quer\xE9s saber
+            para qu\xE9 est\xE1 dise\xF1ado un sistema, no leas su misi\xF3n \u2014 mir\xE1 qu\xE9 produce.
+          </li>
         </ul>
 
+        <h2>Los puntos de apalancamiento: d\xF3nde intervenir para que todo cambie</h2>
+        <p>
+          Meadows identific\xF3 una jerarqu\xEDa de puntos de intervenci\xF3n en un sistema, ordenados
+          de menor a mayor impacto. La mayor\xEDa de la gente interviene en los puntos de menor
+          impacto \u2014 y despu\xE9s se frustra porque "nada cambia". Ac\xE1 van los m\xE1s importantes,
+          del menos al m\xE1s poderoso:
+        </p>
+        <ol>
+          <li>
+            <strong>N\xFAmeros y par\xE1metros:</strong> ajustar cantidades. M\xE1s presupuesto, m\xE1s
+            polic\xEDas, m\xE1s subsidios. Es lo que hacen todos los gobiernos. Es lo que tiene
+            menos impacto. Mover los n\xFAmeros sin cambiar la estructura es como subir el
+            volumen de una canci\xF3n desafinada \u2014 suena m\xE1s fuerte, pero sigue desafinada.
+          </li>
+          <li>
+            <strong>Bucles de retroalimentaci\xF3n:</strong> crear o fortalecer mecanismos que
+            permitan al sistema corregirse a s\xED mismo. Ejemplo: si los ciudadanos pudieran
+            ver en tiempo real c\xF3mo se gasta cada peso de sus impuestos, el comportamiento
+            de los funcionarios cambiar\xEDa \u2014 no por virtud, sino por visibilidad. La
+            transparencia es un bucle de retroalimentaci\xF3n. Y los bucles de retroalimentaci\xF3n
+            son mucho m\xE1s poderosos que los presupuestos.
+          </li>
+          <li>
+            <strong>Reglas del juego:</strong> cambiar los incentivos, las restricciones, las
+            consecuencias. \xBFQui\xE9n puede hacer qu\xE9? \xBFQu\xE9 se premia y qu\xE9 se castiga? \xBFQui\xE9n
+            rinde cuentas ante qui\xE9n? Cambiar las reglas cambia el comportamiento de todos
+            los actores simult\xE1neamente \u2014 sin necesidad de convencer a cada uno individualmente.
+          </li>
+          <li>
+            <strong>Poder de dise\xF1ar las reglas:</strong> m\xE1s poderoso que las reglas mismas
+            es qui\xE9n tiene el poder de escribirlas. Si las reglas las escribe siempre el mismo
+            grupo, el sistema siempre va a beneficiar a ese grupo. La democratizaci\xF3n del dise\xF1o
+            institucional \u2014 que los ciudadanos participen en escribir las reglas, no solo en
+            cumplirlas \u2014 es uno de los puntos de apalancamiento m\xE1s altos que existen.
+          </li>
+          <li>
+            <strong>Paradigmas y modelos mentales:</strong> el punto de mayor apalancamiento.
+            Los supuestos compartidos que nadie cuestiona porque "siempre fue as\xED". "La educaci\xF3n
+            es sentarse en un aula a escuchar." "La pol\xEDtica es elegir un l\xEDder cada cuatro
+            a\xF1os." "La econom\xEDa es un juego de suma cero." Cuando cambi\xE1s el paradigma, todo el
+            sistema se reorganiza alrededor del nuevo supuesto. Es lo m\xE1s dif\xEDcil de cambiar \u2014
+            y lo que m\xE1s impacto tiene cuando se logra.
+          </li>
+        </ol>
+
+        <h2>Caso pr\xE1ctico: la inseguridad como sistema</h2>
+        <p>
+          Tomemos un ejemplo concreto para aplicar todo lo anterior. La inseguridad en Argentina.
+          El enfoque de s\xEDntomas dice: "hay que poner m\xE1s polic\xEDas, endurecer las penas, bajar
+          la edad de imputabilidad." Son intervenciones en los par\xE1metros \u2014 el nivel m\xE1s bajo
+          de apalancamiento. La evidencia internacional muestra que m\xE1s polic\xEDas sin reforma
+          institucional no reduce el crimen de forma sostenida, y que la severidad de las penas
+          tiene un efecto disuasorio limitado cuando la probabilidad de ser atrapado es baja.
+        </p>
+        <p>
+          El enfoque de sistemas pregunta diferente:
+        </p>
+        <ul>
+          <li>\xBFQu\xE9 bucles de retroalimentaci\xF3n sostienen la inseguridad? Pobreza que limita
+          oportunidades, falta de oportunidades que empuja a la informalidad, informalidad que
+          debilita el tejido social, tejido social d\xE9bil que facilita el crimen, crimen que
+          profundiza la pobreza. Es un ciclo que se refuerza a s\xED mismo.</li>
+          <li>\xBFD\xF3nde est\xE1n las palancas? Tal vez en la educaci\xF3n temprana \u2014 la evidencia muestra
+          que la inversi\xF3n en primera infancia tiene uno de los retornos sociales m\xE1s altos que
+          existen. Tal vez en la justicia restaurativa \u2014 que en otros pa\xEDses redujo la
+          reincidencia significativamente. Tal vez en el dise\xF1o urbano \u2014 ciudades mejor iluminadas,
+          con espacios p\xFAblicos activos, reducen el crimen m\xE1s que patrullajes aleatorios.</li>
+          <li>\xBFQui\xE9n dise\xF1a las reglas actuales? \xBFLos que sufren la inseguridad participan en el
+          dise\xF1o de las pol\xEDticas de seguridad? \xBFO las dise\xF1an personas que viven en barrios
+          cerrados y nunca tomaron un colectivo de noche?</li>
+          <li>\xBFCu\xE1l es el paradigma que sostiene todo? "La seguridad es un problema policial."
+          Ese paradigma limita las soluciones al \xE1mbito policial. Si cambi\xE1s el paradigma a
+          "la seguridad es un resultado del dise\xF1o social" \u2014 de la educaci\xF3n, la econom\xEDa, el
+          urbanismo, la justicia, la salud mental \u2014 se abre un universo de intervenciones que
+          el paradigma anterior hac\xEDa invisibles.</li>
+        </ul>
+
+        <h2>Caso pr\xE1ctico: tu propia vida como sistema</h2>
+        <p>
+          No hace falta escalar a nivel pa\xEDs para practicar. Tu vida es un sistema. Y probablemente
+          tiene s\xEDntomas recurrentes que est\xE1s tratando sin tocar la estructura que los produce.
+        </p>
+        <p>
+          \xBFSiempre te falta tiempo? El s\xEDntoma es "no llego a nada". El sistema probablemente
+          incluye: dificultad para decir que no (interconexi\xF3n social que te sobrecarga),
+          ausencia de prioridades claras (falta de prop\xF3sito definido), y un entorno que premia
+          la hiperactividad sobre la efectividad (paradigma cultural). Pod\xE9s seguir comprando
+          agendas y bajando apps de productividad \u2014 eso es tratar el s\xEDntoma. O pod\xE9s redise\xF1ar
+          las reglas: aprender a decir que no, definir tus tres prioridades no negociables,
+          y salirte de los entornos que confunden estar ocupado con ser productivo.
+        </p>
+        <p>
+          \xBFSiempre termin\xE1s en relaciones que te lastiman? El s\xEDntoma es el dolor. El sistema
+          incluye tus criterios de selecci\xF3n, tus umbrales de tolerancia, los modelos relacionales
+          que internalizaste, y las narrativas que te cont\xE1s sobre lo que "merec\xE9s". Cambiar de
+          pareja sin cambiar el sistema es como cambiar de c\xE1rcel. El nuevo espacio puede ser
+          diferente \u2014 pero segu\xEDs preso.
+        </p>
+
+        <h2>El m\xE9todo: siete pasos para pensar como ingeniero social</h2>
+        <p>
+          Ac\xE1 va un protocolo que pod\xE9s aplicar a cualquier problema \u2014 personal, organizacional
+          o social. No es teor\xEDa: es una herramienta de trabajo.
+        </p>
+        <ol>
+          <li>
+            <strong>Nombrar el s\xEDntoma sin juzgarlo.</strong> Describ\xED lo que ves sin
+            interpretarlo. "La gente renuncia a los 6 meses." "Los alumnos no aprenden."
+            "Siempre me peleo con mi socio." Solo datos. Sin drama. Sin culpables.
+          </li>
+          <li>
+            <strong>Preguntar "\xBFqu\xE9 produce esto?" cinco veces.</strong> La t\xE9cnica de los
+            "5 por qu\xE9" de Toyota. Cada respuesta te lleva una capa m\xE1s profundo. "\xBFPor qu\xE9
+            renuncia la gente?" Porque no se sienten valorados. "\xBFPor qu\xE9 no se sienten
+            valorados?" Porque no hay feedback. "\xBFPor qu\xE9 no hay feedback?" Porque los l\xEDderes
+            no fueron entrenados. "\xBFPor qu\xE9 no fueron entrenados?" Porque el sistema premia
+            resultados individuales, no desarrollo de equipos. "\xBFPor qu\xE9 premia eso?" Porque
+            las m\xE9tricas fueron dise\xF1adas para medir producci\xF3n, no retenci\xF3n. Ah\xED est\xE1 el
+            sistema.
+          </li>
+          <li>
+            <strong>Dibujar el mapa de interconexiones.</strong> Literalmente. Agarr\xE1 un papel
+            y dibuj\xE1 los factores que encontraste conectados con flechas. Marc\xE1 los bucles
+            \u2014 los ciclos que se refuerzan. Los bucles son donde vive el sistema. Si no los ves,
+            no entend\xE9s el problema.
+          </li>
+          <li>
+            <strong>Identificar qui\xE9n se beneficia del status quo.</strong> Todo sistema tiene
+            beneficiarios. No necesariamente villanos \u2014 a veces son personas bien intencionadas
+            que simplemente se adaptaron a las reglas existentes. Pero si no sab\xE9s qui\xE9n gana
+            con que nada cambie, no vas a entender por qu\xE9 nada cambia. Segu\xED el incentivo.
+            Siempre.
+          </li>
+          <li>
+            <strong>Encontrar el punto de apalancamiento.</strong> De todos los factores que
+            mapeaste, \xBFcu\xE1l es el que, si lo mov\xE9s, arrastra a varios otros? Ese es tu palanca.
+            No es necesariamente el m\xE1s obvio \u2014 de hecho, casi nunca lo es. La palanca suele
+            estar en las interconexiones o en las reglas, no en los elementos.
+          </li>
+          <li>
+            <strong>Dise\xF1ar un prototipo m\xEDnimo.</strong> No un plan perfecto \u2014 un experimento.
+            Algo que puedas probar en 30 d\xEDas o menos, con resultados medibles. La velocidad
+            de aprendizaje vence a la perfecci\xF3n del dise\xF1o. Siempre. Un prototipo feo que te
+            ense\xF1a algo vale m\xE1s que un plan brillante que nunca se ejecuta.
+          </li>
+          <li>
+            <strong>Medir, aprender, iterar.</strong> \xBFFuncion\xF3? \xBFQu\xE9 aprendiste? \xBFQu\xE9 no viste?
+            Ajust\xE1 y volv\xE9 a probar. Los sistemas complejos no se resuelven de una \u2014 se navegan.
+            Cada iteraci\xF3n te acerca al dise\xF1o correcto. Cada "fracaso" es un dato nuevo.
+          </li>
+        </ol>
+
         <blockquote>
-          La ingenier\xEDa social no es una profesi\xF3n: es la decisi\xF3n de dejar de quejarte del incendio
-          y sentarte a redise\xF1ar la instalaci\xF3n el\xE9ctrica. Hoy. No ma\xF1ana.
+          No necesit\xE1s tener todas las respuestas para empezar. Necesit\xE1s tener mejores preguntas.
+          Y la mejor pregunta que pod\xE9s hacerte frente a cualquier problema es esta:
+          "\xBFQu\xE9 dise\xF1o est\xE1 produciendo este resultado?" Cuando encontr\xE9s la respuesta,
+          dej\xE1s de ser v\xEDctima del sistema y te convert\xEDs en su arquitecto.
+        </blockquote>
+
+        <h2>Por qu\xE9 Argentina necesita ingenieros sociales \u2014 no m\xE1s h\xE9roes</h2>
+        <p>
+          Llevamos d\xE9cadas esperando al l\xEDder que nos salve. Al presidente correcto, al ministro
+          iluminado, al juez incorruptible. Y cada vez que depositamos esa esperanza en una persona,
+          el resultado es el mismo: decepci\xF3n. No porque las personas sean malas \u2014 porque ninguna
+          persona puede vencer un mal sistema. Un presidente brillante operando dentro de un sistema
+          institucional roto va a producir resultados rotos. Es matem\xE1tica, no traici\xF3n.
+        </p>
+        <p>
+          Lo que Argentina necesita no es un h\xE9roe \u2014 es un mill\xF3n de personas que piensen como
+          ingenieros sociales. Personas que dejen de se\xF1alar culpables y empiecen a redise\xF1ar
+          procesos. Que dejen de quejarse de los resultados y empiecen a modificar los dise\xF1os
+          que los producen. Que entiendan que cada sistema fue dise\xF1ado por alguien \u2014 y que si
+          fue dise\xF1ado, puede ser redise\xF1ado. Por nosotros. Ahora.
+        </p>
+        <p>
+          No necesit\xE1s un cargo pol\xEDtico para ser ingeniero social. Pod\xE9s redise\xF1ar la din\xE1mica
+          de tu familia, la cultura de tu equipo de trabajo, las reglas de tu comunidad de
+          vecinos, el funcionamiento de la cooperadora de la escuela de tus hijos. Cada sistema
+          peque\xF1o que redise\xF1\xE1s es un prototipo de los sistemas grandes que necesitamos cambiar.
+          Y cada persona que aprende a ver sistemas en lugar de s\xEDntomas es una persona menos
+          que va a caer en la trampa del pr\xF3ximo mes\xEDas.
+        </p>
+
+        <h2>Checklist del ingeniero social \u2014 para usar todos los d\xEDas</h2>
+        <p>
+          Imprim\xED esto. Pegalo donde lo veas. Usalo antes de opinar, antes de proponer,
+          antes de indignarte:
+        </p>
+        <ul>
+          <li>\xBFEstoy viendo un s\xEDntoma o un sistema?</li>
+          <li>\xBFEstoy atacando a una persona o a un proceso?</li>
+          <li>\xBFPens\xE9 en las consecuencias de segundo y tercer orden?</li>
+          <li>\xBFQui\xE9n gana si todo sigue exactamente igual?</li>
+          <li>\xBFQu\xE9 informaci\xF3n me falta para tomar una decisi\xF3n mejor?</li>
+          <li>\xBFQu\xE9 h\xE1bito personal m\xEDo alimenta el s\xEDntoma que critico?</li>
+          <li>\xBFD\xF3nde est\xE1 la palanca \u2014 el punto donde un cambio peque\xF1o arrastra varios otros?</li>
+          <li>\xBFPuedo probar mi idea en peque\xF1o antes de escalarla?</li>
+        </ul>
+
+        <h2>Cinco ejercicios para entrenar tu visi\xF3n sist\xE9mica esta semana</h2>
+        <ol>
+          <li>
+            <strong>El diario de patrones:</strong> durante 7 d\xEDas, cada noche escrib\xED un
+            problema que observaste y preguntate: "\xBFEsto es un evento aislado o es un patr\xF3n
+            que se repite?" Si se repite, hay un sistema detr\xE1s. Nombralo.
+          </li>
+          <li>
+            <strong>El mapa de causas:</strong> eleg\xED un s\xEDntoma que te moleste \u2014 en tu vida,
+            en tu trabajo, en tu pa\xEDs \u2014 y dibuj\xE1 al menos siete factores que lo sostienen.
+            Conectalos con flechas. Busc\xE1 los bucles. Vas a ver que el s\xEDntoma es solo la
+            punta del iceberg.
+          </li>
+          <li>
+            <strong>La pregunta del beneficiario:</strong> ante cualquier problema persistente,
+            preguntate: "\xBFQui\xE9n gana con que esto siga as\xED?" No para buscar un villano \u2014 para
+            entender la estructura de incentivos. Si nadie ganara, ya se habr\xEDa resuelto.
+          </li>
+          <li>
+            <strong>El prototipo de 30 d\xEDas:</strong> eleg\xED un sistema peque\xF1o que puedas
+            redise\xF1ar (tu rutina matinal, las reuniones de tu equipo, la organizaci\xF3n de tu
+            hogar). Cambi\xE1 una regla. Una sola. Med\xED qu\xE9 pasa durante 30 d\xEDas. Document\xE1
+            lo que aprend\xE9s.
+          </li>
+          <li>
+            <strong>La conversaci\xF3n sist\xE9mica:</strong> la pr\xF3xima vez que alguien se queje de
+            algo, en lugar de sumar tu queja, pregunt\xE1: "\xBFQu\xE9 regla o proceso produce este
+            resultado?" Vas a ver c\xF3mo cambia la conversaci\xF3n \u2014 de la impotencia al dise\xF1o.
+          </li>
+        </ol>
+
+        <h2>La invitaci\xF3n</h2>
+        <p>
+          No te estoy pidiendo que cambies el mundo ma\xF1ana. Te estoy pidiendo que cambies la
+          forma en que lo mir\xE1s \u2014 hoy. Porque cuando dej\xE1s de ver eventos aislados y empez\xE1s
+          a ver los sistemas que los producen, algo irreversible ocurre en tu mente: dej\xE1s de
+          sentirte v\xEDctima y empez\xE1s a sentirte arquitecto. Dej\xE1s de esperar que alguien
+          resuelva las cosas y empez\xE1s a preguntarte c\xF3mo redise\xF1arlas vos.
+        </p>
+        <p>
+          Eso es ingenier\xEDa social. No es manipulaci\xF3n \u2014 es responsabilidad. No es control \u2014
+          es dise\xF1o. No es arrogancia \u2014 es la humildad de aceptar que los sistemas que nos
+          gobiernan fueron creados por personas como nosotros, y que personas como nosotros
+          podemos recrearlos. Mejor.
+        </p>
+
+        <blockquote>
+          La ingenier\xEDa social no es una profesi\xF3n: es la decisi\xF3n de dejar de quejarte
+          del incendio y sentarte a redise\xF1ar la instalaci\xF3n el\xE9ctrica. No ma\xF1ana. Hoy.
+          Porque mientras vos dud\xE1s, el sistema sigue funcionando. Y cada d\xEDa que funciona
+          sin que lo cuestiones, se fortalece. La pregunta no es si ten\xE9s permiso para
+          redise\xF1arlo. La pregunta es si pod\xE9s seguir viviendo sin hacerlo.
         </blockquote>
       </article>
     `
@@ -4124,9 +4460,9 @@ var DatabaseStorage = class {
   async incrementLoginAttempts(username) {
     await db.update(users).set({
       loginAttempts: sql3`login_attempts + 1`,
-      lockedUntil: sql3`CASE 
-          WHEN login_attempts + 1 >= 5 THEN datetime('now', '+15 minutes')
-          ELSE locked_until 
+      lockedUntil: sql3`CASE
+          WHEN login_attempts + 1 >= 5 THEN (NOW() + INTERVAL '15 minutes')::text
+          ELSE locked_until
         END`,
       updatedAt: (/* @__PURE__ */ new Date()).toISOString()
     }).where(eq(users.username, username));
@@ -5461,7 +5797,7 @@ var DatabaseStorage = class {
     await this.ensureUserCommitmentsLocationColumns();
     const [summary] = await db.select({
       total: sql3`count(*)`,
-      last24h: sql3`sum(case when datetime(${userCommitments.createdAt}) >= datetime('now', '-1 day') then 1 else 0 end)`
+      last24h: sql3`sum(case when ${userCommitments.createdAt}::timestamp >= NOW() - INTERVAL '1 day' then 1 else 0 end)`
     }).from(userCommitments).where(eq(userCommitments.status, "active"));
     const byTypeRows = await db.select({
       type: userCommitments.commitmentType,
@@ -5632,6 +5968,18 @@ var DatabaseStorage = class {
   // Initiative Members
   async getInitiativeMembers(postId) {
     return await db.select().from(initiativeMembers).where(and(eq(initiativeMembers.postId, postId), eq(initiativeMembers.status, "active"))).orderBy(asc(initiativeMembers.joinedAt));
+  }
+  async getUserMemberships(userId) {
+    return await db.select({
+      id: initiativeMembers.id,
+      postId: initiativeMembers.postId,
+      role: initiativeMembers.role,
+      status: initiativeMembers.status,
+      joinedAt: initiativeMembers.joinedAt,
+      postTitle: communityPosts.title,
+      postType: communityPosts.type,
+      postStatus: communityPosts.status
+    }).from(initiativeMembers).innerJoin(communityPosts, eq(initiativeMembers.postId, communityPosts.id)).where(and(eq(initiativeMembers.userId, userId), eq(initiativeMembers.status, "active"))).orderBy(desc(initiativeMembers.joinedAt));
   }
   async addInitiativeMember(postId, userId, role) {
     const [member] = await db.insert(initiativeMembers).values({
@@ -7977,17 +8325,89 @@ function registerLifeAreasRoutes(app2) {
         )
       ).limit(1);
       if (existing.length > 0) continue;
+      let reqData = {};
+      try {
+        reqData = badge.requirementData ? JSON.parse(badge.requirementData) : {};
+      } catch {
+      }
       let shouldAward = false;
       if (requirementType === "quiz_complete") {
-        const quiz = await db.select().from(lifeAreaQuizzes).where(eq3(lifeAreaQuizzes.lifeAreaId, areaId)).limit(1);
-        if (quiz.length > 0) {
-          const responses = await db.select().from(lifeAreaQuizResponses).where(
+        if (reqData.areaCount) {
+          const completedAreas = await db.select({ areaId: lifeAreaQuizzes.lifeAreaId }).from(lifeAreaQuizResponses).innerJoin(lifeAreaQuizzes, eq3(lifeAreaQuizResponses.quizId, lifeAreaQuizzes.id)).where(eq3(lifeAreaQuizResponses.userId, userId)).groupBy(lifeAreaQuizzes.lifeAreaId);
+          shouldAward = completedAreas.length >= reqData.areaCount;
+        } else {
+          const quiz = await db.select().from(lifeAreaQuizzes).where(eq3(lifeAreaQuizzes.lifeAreaId, areaId)).limit(1);
+          if (quiz.length > 0) {
+            const responses = await db.select().from(lifeAreaQuizResponses).where(
+              and2(
+                eq3(lifeAreaQuizResponses.userId, userId),
+                eq3(lifeAreaQuizResponses.quizId, quiz[0].id)
+              )
+            );
+            shouldAward = responses.length > 0;
+          }
+        }
+      } else if (requirementType === "score_reach") {
+        const threshold = reqData.threshold || 70;
+        if (reqData.allAreas) {
+          const qualifyingAreas = await db.select({ cnt: sql4`COUNT(*)` }).from(lifeAreaScores).where(
             and2(
-              eq3(lifeAreaQuizResponses.userId, userId),
-              eq3(lifeAreaQuizResponses.quizId, quiz[0].id)
+              eq3(lifeAreaScores.userId, userId),
+              sql4`${lifeAreaScores.subcategoryId} IS NULL`,
+              gte2(lifeAreaScores.currentScore, threshold)
             )
           );
-          shouldAward = responses.length > 0;
+          shouldAward = (qualifyingAreas[0]?.cnt || 0) >= 12;
+        } else {
+          const score = await db.select().from(lifeAreaScores).where(
+            and2(
+              eq3(lifeAreaScores.userId, userId),
+              eq3(lifeAreaScores.lifeAreaId, areaId),
+              sql4`${lifeAreaScores.subcategoryId} IS NULL`
+            )
+          ).limit(1);
+          shouldAward = score.length > 0 && score[0].currentScore >= threshold;
+        }
+      } else if (requirementType === "actions_complete") {
+        const required = reqData.count || 1;
+        const completedCount = await db.select({ cnt: sql4`COUNT(*)` }).from(userLifeAreaProgress).where(
+          and2(
+            eq3(userLifeAreaProgress.userId, userId),
+            eq3(userLifeAreaProgress.status, "completed")
+          )
+        );
+        shouldAward = (completedCount[0]?.cnt || 0) >= required;
+      } else if (requirementType === "streak") {
+        const requiredDays = reqData.days || 7;
+        const streak = await db.select().from(lifeAreaStreaks).where(
+          and2(
+            eq3(lifeAreaStreaks.userId, userId),
+            eq3(lifeAreaStreaks.streakType, "daily")
+          )
+        ).limit(1);
+        if (streak.length > 0) {
+          const best = Math.max(streak[0].currentStreak || 0, streak[0].longestStreak || 0);
+          shouldAward = best >= requiredDays;
+        }
+      } else if (requirementType === "mastery") {
+        const requiredPct = reqData.percentage || 25;
+        if (reqData.anyArea) {
+          const mastery = await db.select().from(lifeAreaMastery).where(
+            and2(
+              eq3(lifeAreaMastery.userId, userId),
+              gte2(lifeAreaMastery.masteryPercentage, requiredPct)
+            )
+          ).limit(1);
+          shouldAward = mastery.length > 0;
+        } else {
+          const mastery = await db.select().from(lifeAreaMastery).where(
+            and2(
+              eq3(lifeAreaMastery.userId, userId),
+              eq3(lifeAreaMastery.lifeAreaId, areaId),
+              gte2(lifeAreaMastery.masteryPercentage, requiredPct)
+            )
+          ).limit(1);
+          shouldAward = mastery.length > 0;
         }
       }
       if (shouldAward) {
@@ -8705,6 +9125,435 @@ function registerLifeAreasRoutes(app2) {
     } catch (error) {
       console.error("Error fetching trends:", error);
       res.status(500).json({ message: "Error fetching trends" });
+    }
+  });
+  app2.get("/api/life-areas/:areaId(\\d+)/quiz/history", authenticateToken, async (req, res) => {
+    try {
+      const areaId = parseInt(req.params.areaId);
+      if (isNaN(areaId) || areaId <= 0) {
+        return res.status(400).json({ message: "Invalid area ID" });
+      }
+      const userId = req.user.userId;
+      const quiz = await db.select().from(lifeAreaQuizzes).where(eq3(lifeAreaQuizzes.lifeAreaId, areaId)).limit(1);
+      if (quiz.length === 0) {
+        return res.json({ sessions: [] });
+      }
+      const responses = await db.select({
+        id: lifeAreaQuizResponses.id,
+        questionId: lifeAreaQuizResponses.questionId,
+        currentValue: lifeAreaQuizResponses.currentValue,
+        desiredValue: lifeAreaQuizResponses.desiredValue,
+        answeredAt: lifeAreaQuizResponses.answeredAt
+      }).from(lifeAreaQuizResponses).where(
+        and2(
+          eq3(lifeAreaQuizResponses.userId, userId),
+          eq3(lifeAreaQuizResponses.quizId, quiz[0].id)
+        )
+      ).orderBy(desc2(lifeAreaQuizResponses.answeredAt));
+      const sessionMap = /* @__PURE__ */ new Map();
+      for (const r of responses) {
+        const dateKey = r.answeredAt ? r.answeredAt.split("T")[0] : "unknown";
+        if (!sessionMap.has(dateKey)) sessionMap.set(dateKey, []);
+        sessionMap.get(dateKey).push(r);
+      }
+      const questions = await db.select({
+        id: lifeAreaQuizQuestions.id,
+        subcategoryId: lifeAreaQuizQuestions.subcategoryId,
+        category: lifeAreaQuizQuestions.category
+      }).from(lifeAreaQuizQuestions).where(eq3(lifeAreaQuizQuestions.quizId, quiz[0].id));
+      const questionMap = new Map(questions.map((q) => [q.id, q]));
+      const sessions = Array.from(sessionMap.entries()).map(([date, resps]) => {
+        const subcatScores = {};
+        for (const r of resps) {
+          const q = questionMap.get(r.questionId);
+          if (!q || !q.subcategoryId) continue;
+          if (!subcatScores[q.subcategoryId]) subcatScores[q.subcategoryId] = {};
+          if (q.category === "current") subcatScores[q.subcategoryId].current = r.currentValue ?? void 0;
+          else if (q.category === "desired") subcatScores[q.subcategoryId].desired = r.desiredValue ?? void 0;
+        }
+        const scores = Object.values(subcatScores);
+        const avgCurrent = scores.length > 0 ? Math.round(scores.reduce((s, v) => s + (v.current || 0), 0) / scores.length) : 0;
+        return { date, subcatScores, avgCurrent, responseCount: resps.length };
+      });
+      res.json({ sessions });
+    } catch (error) {
+      console.error("Error fetching quiz history:", error);
+      res.status(500).json({ message: "Error fetching quiz history" });
+    }
+  });
+  app2.get("/api/life-areas/challenges", authenticateToken, async (req, res) => {
+    try {
+      const userId = req.user.userId;
+      const challenges2 = await db.select().from(lifeAreaChallenges).where(eq3(lifeAreaChallenges.isActive, true)).orderBy(desc2(lifeAreaChallenges.createdAt));
+      const userChallenges = await db.select().from(userLifeAreaChallenges).where(eq3(userLifeAreaChallenges.userId, userId));
+      const userChallengeMap = new Map(
+        userChallenges.map((uc) => [uc.challengeId, uc])
+      );
+      const result = challenges2.map((c) => ({
+        ...c,
+        requirements: c.requirements ? JSON.parse(c.requirements) : null,
+        rewards: c.rewards ? JSON.parse(c.rewards) : null,
+        userStatus: userChallengeMap.get(c.id) || null
+      }));
+      res.json(result);
+    } catch (error) {
+      console.error("Error fetching challenges:", error);
+      res.status(500).json({ message: "Error fetching challenges" });
+    }
+  });
+  app2.get("/api/life-areas/challenges/:id(\\d+)", authenticateToken, async (req, res) => {
+    try {
+      const challengeId = parseInt(req.params.id);
+      if (isNaN(challengeId) || challengeId <= 0) {
+        return res.status(400).json({ message: "Invalid challenge ID" });
+      }
+      const userId = req.user.userId;
+      const challenge = await db.select().from(lifeAreaChallenges).where(eq3(lifeAreaChallenges.id, challengeId)).limit(1);
+      if (challenge.length === 0) {
+        return res.status(404).json({ message: "Challenge not found" });
+      }
+      const userChallenge = await db.select().from(userLifeAreaChallenges).where(
+        and2(
+          eq3(userLifeAreaChallenges.userId, userId),
+          eq3(userLifeAreaChallenges.challengeId, challengeId)
+        )
+      ).limit(1);
+      const participants = await db.select({ cnt: sql4`COUNT(*)` }).from(userLifeAreaChallenges).where(eq3(userLifeAreaChallenges.challengeId, challengeId));
+      res.json({
+        ...challenge[0],
+        requirements: challenge[0].requirements ? JSON.parse(challenge[0].requirements) : null,
+        rewards: challenge[0].rewards ? JSON.parse(challenge[0].rewards) : null,
+        userStatus: userChallenge[0] || null,
+        participantCount: participants[0]?.cnt || 0
+      });
+    } catch (error) {
+      console.error("Error fetching challenge:", error);
+      res.status(500).json({ message: "Error fetching challenge" });
+    }
+  });
+  app2.post("/api/life-areas/challenges/:id(\\d+)/join", authenticateToken, async (req, res) => {
+    try {
+      const challengeId = parseInt(req.params.id);
+      if (isNaN(challengeId) || challengeId <= 0) {
+        return res.status(400).json({ message: "Invalid challenge ID" });
+      }
+      const userId = req.user.userId;
+      const challenge = await db.select().from(lifeAreaChallenges).where(and2(eq3(lifeAreaChallenges.id, challengeId), eq3(lifeAreaChallenges.isActive, true))).limit(1);
+      if (challenge.length === 0) {
+        return res.status(404).json({ message: "Challenge not found or inactive" });
+      }
+      const existing = await db.select().from(userLifeAreaChallenges).where(
+        and2(
+          eq3(userLifeAreaChallenges.userId, userId),
+          eq3(userLifeAreaChallenges.challengeId, challengeId)
+        )
+      ).limit(1);
+      if (existing.length > 0) {
+        return res.status(400).json({ message: "Already joined this challenge" });
+      }
+      await db.insert(userLifeAreaChallenges).values({
+        userId,
+        challengeId,
+        status: "joined",
+        progress: JSON.stringify({ current: 0, target: 1 })
+      });
+      await db.update(lifeAreaChallenges).set({ participantCount: sql4`${lifeAreaChallenges.participantCount} + 1` }).where(eq3(lifeAreaChallenges.id, challengeId));
+      res.json({ message: "Joined challenge successfully" });
+    } catch (error) {
+      console.error("Error joining challenge:", error);
+      res.status(500).json({ message: "Error joining challenge" });
+    }
+  });
+  app2.put("/api/life-areas/challenges/:id(\\d+)/progress", authenticateToken, async (req, res) => {
+    try {
+      const challengeId = parseInt(req.params.id);
+      if (isNaN(challengeId) || challengeId <= 0) {
+        return res.status(400).json({ message: "Invalid challenge ID" });
+      }
+      const userId = req.user.userId;
+      const { progress } = req.body;
+      const userChallenge = await db.select().from(userLifeAreaChallenges).where(
+        and2(
+          eq3(userLifeAreaChallenges.userId, userId),
+          eq3(userLifeAreaChallenges.challengeId, challengeId)
+        )
+      ).limit(1);
+      if (userChallenge.length === 0) {
+        return res.status(404).json({ message: "Not joined this challenge" });
+      }
+      await db.update(userLifeAreaChallenges).set({
+        progress: JSON.stringify(progress),
+        status: "in_progress",
+        updatedAt: (/* @__PURE__ */ new Date()).toISOString()
+      }).where(eq3(userLifeAreaChallenges.id, userChallenge[0].id));
+      res.json({ message: "Progress updated" });
+    } catch (error) {
+      console.error("Error updating challenge progress:", error);
+      res.status(500).json({ message: "Error updating challenge progress" });
+    }
+  });
+  app2.post("/api/life-areas/challenges/:id(\\d+)/complete", authenticateToken, async (req, res) => {
+    try {
+      const challengeId = parseInt(req.params.id);
+      if (isNaN(challengeId) || challengeId <= 0) {
+        return res.status(400).json({ message: "Invalid challenge ID" });
+      }
+      const userId = req.user.userId;
+      const userChallenge = await db.select().from(userLifeAreaChallenges).where(
+        and2(
+          eq3(userLifeAreaChallenges.userId, userId),
+          eq3(userLifeAreaChallenges.challengeId, challengeId)
+        )
+      ).limit(1);
+      if (userChallenge.length === 0) {
+        return res.status(404).json({ message: "Not joined this challenge" });
+      }
+      if (userChallenge[0].status === "completed") {
+        return res.status(400).json({ message: "Challenge already completed" });
+      }
+      const challenge = await db.select().from(lifeAreaChallenges).where(eq3(lifeAreaChallenges.id, challengeId)).limit(1);
+      if (challenge.length === 0) {
+        return res.status(404).json({ message: "Challenge not found" });
+      }
+      const rewards = challenge[0].rewards ? JSON.parse(challenge[0].rewards) : {};
+      await db.update(userLifeAreaChallenges).set({
+        status: "completed",
+        completedAt: (/* @__PURE__ */ new Date()).toISOString(),
+        rewardsClaimed: true,
+        updatedAt: (/* @__PURE__ */ new Date()).toISOString()
+      }).where(eq3(userLifeAreaChallenges.id, userChallenge[0].id));
+      if (rewards.xp) {
+        await awardXP(userId, rewards.areaId || 1, rewards.xp, "challenge", challengeId);
+      }
+      if (rewards.seeds) {
+        await awardSeeds(userId, rewards.seeds);
+      }
+      await db.insert(lifeAreaNotifications).values({
+        userId,
+        type: "challenge",
+        title: "\xA1Desafio completado!",
+        message: `Completaste el desafio: ${challenge[0].title}`,
+        actionUrl: `/life-areas/challenges`
+      });
+      res.json({ message: "Challenge completed", rewards });
+    } catch (error) {
+      console.error("Error completing challenge:", error);
+      res.status(500).json({ message: "Error completing challenge" });
+    }
+  });
+  app2.get("/api/life-areas/chests", authenticateToken, async (req, res) => {
+    try {
+      const userId = req.user.userId;
+      const chests = await db.select().from(lifeAreaRewardChests).where(
+        and2(
+          eq3(lifeAreaRewardChests.userId, userId),
+          sql4`${lifeAreaRewardChests.openedAt} IS NULL`
+        )
+      ).orderBy(desc2(lifeAreaRewardChests.createdAt));
+      const today = (/* @__PURE__ */ new Date()).toISOString().split("T")[0];
+      const todayChest = await db.select().from(lifeAreaRewardChests).where(
+        and2(
+          eq3(lifeAreaRewardChests.userId, userId),
+          eq3(lifeAreaRewardChests.chestType, "daily"),
+          sql4`${lifeAreaRewardChests.createdAt}::date = ${today}::date`
+        )
+      ).limit(1);
+      if (todayChest.length === 0) {
+        const dailyChest = await db.insert(lifeAreaRewardChests).values({
+          userId,
+          chestType: "daily",
+          rarity: "common",
+          expiresAt: new Date(Date.now() + 24 * 60 * 60 * 1e3).toISOString()
+        }).returning();
+        chests.unshift(dailyChest[0]);
+      }
+      const openedChests = await db.select().from(lifeAreaRewardChests).where(
+        and2(
+          eq3(lifeAreaRewardChests.userId, userId),
+          sql4`${lifeAreaRewardChests.openedAt} IS NOT NULL`
+        )
+      ).orderBy(desc2(lifeAreaRewardChests.openedAt)).limit(10);
+      res.json({
+        available: chests.map((c) => ({
+          ...c,
+          rewards: c.rewards ? JSON.parse(c.rewards) : null
+        })),
+        recent: openedChests.map((c) => ({
+          ...c,
+          rewards: c.rewards ? JSON.parse(c.rewards) : null
+        }))
+      });
+    } catch (error) {
+      console.error("Error fetching chests:", error);
+      res.status(500).json({ message: "Error fetching chests" });
+    }
+  });
+  app2.post("/api/life-areas/chests/:id(\\d+)/open", authenticateToken, async (req, res) => {
+    try {
+      const chestId = parseInt(req.params.id);
+      if (isNaN(chestId) || chestId <= 0) {
+        return res.status(400).json({ message: "Invalid chest ID" });
+      }
+      const userId = req.user.userId;
+      const chest = await db.select().from(lifeAreaRewardChests).where(
+        and2(
+          eq3(lifeAreaRewardChests.id, chestId),
+          eq3(lifeAreaRewardChests.userId, userId),
+          sql4`${lifeAreaRewardChests.openedAt} IS NULL`
+        )
+      ).limit(1);
+      if (chest.length === 0) {
+        return res.status(404).json({ message: "Chest not found or already opened" });
+      }
+      const rarityMultiplier = {
+        common: 1,
+        rare: 2,
+        epic: 3,
+        legendary: 5
+      };
+      const mult = rarityMultiplier[chest[0].rarity || "common"] || 1;
+      const xp = Math.round((10 + Math.random() * 40) * mult);
+      const seeds = Math.round((5 + Math.random() * 20) * mult);
+      const rewards = { xp, seeds };
+      await db.update(lifeAreaRewardChests).set({
+        openedAt: (/* @__PURE__ */ new Date()).toISOString(),
+        rewards: JSON.stringify(rewards)
+      }).where(eq3(lifeAreaRewardChests.id, chestId));
+      await awardXP(userId, 1, xp, "chest", chestId);
+      await awardSeeds(userId, seeds);
+      res.json({ rewards, rarity: chest[0].rarity });
+    } catch (error) {
+      console.error("Error opening chest:", error);
+      res.status(500).json({ message: "Error opening chest" });
+    }
+  });
+  app2.get("/api/life-areas/social/feed", authenticateToken, async (req, res) => {
+    try {
+      const recentMilestones = await db.select({
+        id: lifeAreaMilestones.id,
+        userId: lifeAreaMilestones.userId,
+        title: lifeAreaMilestones.title,
+        description: lifeAreaMilestones.description,
+        createdAt: lifeAreaMilestones.createdAt,
+        lifeAreaId: lifeAreaMilestones.lifeAreaId,
+        username: users.username,
+        name: users.name
+      }).from(lifeAreaMilestones).innerJoin(users, eq3(lifeAreaMilestones.userId, users.id)).where(sql4`${lifeAreaMilestones.sharedAt} IS NOT NULL`).orderBy(desc2(lifeAreaMilestones.createdAt)).limit(20);
+      const feedItems = await Promise.all(
+        recentMilestones.map(async (m) => {
+          const likes = await db.select({ cnt: sql4`COUNT(*)` }).from(lifeAreaSocialInteractions).where(
+            and2(
+              eq3(lifeAreaSocialInteractions.targetType, "milestone"),
+              eq3(lifeAreaSocialInteractions.targetId, m.id),
+              eq3(lifeAreaSocialInteractions.interactionType, "like")
+            )
+          );
+          const comments = await db.select({
+            id: lifeAreaSocialInteractions.id,
+            content: lifeAreaSocialInteractions.content,
+            createdAt: lifeAreaSocialInteractions.createdAt,
+            username: users.username,
+            name: users.name
+          }).from(lifeAreaSocialInteractions).innerJoin(users, eq3(lifeAreaSocialInteractions.userId, users.id)).where(
+            and2(
+              eq3(lifeAreaSocialInteractions.targetType, "milestone"),
+              eq3(lifeAreaSocialInteractions.targetId, m.id),
+              eq3(lifeAreaSocialInteractions.interactionType, "comment")
+            )
+          ).orderBy(lifeAreaSocialInteractions.createdAt).limit(5);
+          return {
+            ...m,
+            likeCount: likes[0]?.cnt || 0,
+            comments
+          };
+        })
+      );
+      res.json(feedItems);
+    } catch (error) {
+      console.error("Error fetching social feed:", error);
+      res.status(500).json({ message: "Error fetching social feed" });
+    }
+  });
+  app2.post("/api/life-areas/social/like", authenticateToken, async (req, res) => {
+    try {
+      const userId = req.user.userId;
+      const { targetType, targetId } = req.body;
+      if (!targetType || !targetId) {
+        return res.status(400).json({ message: "targetType and targetId required" });
+      }
+      const existing = await db.select().from(lifeAreaSocialInteractions).where(
+        and2(
+          eq3(lifeAreaSocialInteractions.userId, userId),
+          eq3(lifeAreaSocialInteractions.targetType, targetType),
+          eq3(lifeAreaSocialInteractions.targetId, targetId),
+          eq3(lifeAreaSocialInteractions.interactionType, "like")
+        )
+      ).limit(1);
+      if (existing.length > 0) {
+        await db.delete(lifeAreaSocialInteractions).where(eq3(lifeAreaSocialInteractions.id, existing[0].id));
+        return res.json({ liked: false });
+      }
+      let targetUserId = null;
+      if (targetType === "milestone") {
+        const milestone = await db.select({ userId: lifeAreaMilestones.userId }).from(lifeAreaMilestones).where(eq3(lifeAreaMilestones.id, targetId)).limit(1);
+        targetUserId = milestone[0]?.userId ?? null;
+      }
+      await db.insert(lifeAreaSocialInteractions).values({
+        userId,
+        targetUserId,
+        interactionType: "like",
+        targetType,
+        targetId
+      });
+      if (targetUserId && targetUserId !== userId) {
+        await db.insert(lifeAreaNotifications).values({
+          userId: targetUserId,
+          type: "social",
+          title: "\xA1Nuevo like!",
+          message: "A alguien le gusto tu logro",
+          actionUrl: "/life-areas"
+        });
+      }
+      res.json({ liked: true });
+    } catch (error) {
+      console.error("Error toggling like:", error);
+      res.status(500).json({ message: "Error toggling like" });
+    }
+  });
+  app2.post("/api/life-areas/social/comment", authenticateToken, async (req, res) => {
+    try {
+      const userId = req.user.userId;
+      const { targetType, targetId, content } = req.body;
+      if (!targetType || !targetId || !content || typeof content !== "string" || content.trim().length === 0) {
+        return res.status(400).json({ message: "targetType, targetId, and content required" });
+      }
+      const sanitizedContent = content.trim().slice(0, 500);
+      let targetUserId = null;
+      if (targetType === "milestone") {
+        const milestone = await db.select({ userId: lifeAreaMilestones.userId }).from(lifeAreaMilestones).where(eq3(lifeAreaMilestones.id, targetId)).limit(1);
+        targetUserId = milestone[0]?.userId ?? null;
+      }
+      const comment = await db.insert(lifeAreaSocialInteractions).values({
+        userId,
+        targetUserId,
+        interactionType: "comment",
+        targetType,
+        targetId,
+        content: sanitizedContent
+      }).returning();
+      if (targetUserId && targetUserId !== userId) {
+        await db.insert(lifeAreaNotifications).values({
+          userId: targetUserId,
+          type: "social",
+          title: "\xA1Nuevo comentario!",
+          message: sanitizedContent.slice(0, 100),
+          actionUrl: "/life-areas"
+        });
+      }
+      res.json(comment[0]);
+    } catch (error) {
+      console.error("Error posting comment:", error);
+      res.status(500).json({ message: "Error posting comment" });
     }
   });
 }
@@ -11973,20 +12822,25 @@ async function registerRoutes(app2) {
         );
       }
       const postsWithAuthors = await Promise.all(posts.map(async (post) => {
+        let enriched = { ...post };
         if (post.userId) {
           const user = await storage.getUser(post.userId);
           if (user) {
-            return {
-              ...post,
-              author: {
-                id: user.id,
-                name: user.name,
-                username: user.username
-              }
+            enriched.author = {
+              id: user.id,
+              name: user.name,
+              username: user.username
             };
           }
         }
-        return post;
+        try {
+          enriched.likesCount = await storage.getCommunityPostLikesCount(post.id);
+          enriched.viewsCount = await storage.getCommunityPostViewsCount(post.id);
+        } catch (_) {
+          enriched.likesCount = 0;
+          enriched.viewsCount = 0;
+        }
+        return enriched;
       }));
       res.json(postsWithAuthors);
     } catch (error) {
@@ -12004,6 +12858,16 @@ async function registerRoutes(app2) {
         // Assign userId automatically from authenticated user
       });
       const post = await storage.createCommunityPost(validatedData);
+      try {
+        await storage.createActivityFeedItem({
+          type: "new_initiative",
+          postId: post.id,
+          userId: req.user.userId,
+          title: `Nueva iniciativa: ${post.title}`,
+          description: post.description?.substring(0, 100) || null
+        });
+      } catch (_) {
+      }
       res.status(201).json(post);
     } catch (error) {
       if (error instanceof z4.ZodError) {
@@ -12011,6 +12875,14 @@ async function registerRoutes(app2) {
       } else {
         res.status(500).json({ message: "Failed to create community post" });
       }
+    }
+  });
+  app2.get("/api/community/my-memberships", authenticateToken, async (req, res) => {
+    try {
+      const memberships = await storage.getUserMemberships(req.user.userId);
+      res.json(memberships);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch memberships" });
     }
   });
   app2.get("/api/community/:id", async (req, res) => {
@@ -12415,6 +13287,15 @@ async function registerRoutes(app2) {
         });
       } else {
         const member = await storage.addInitiativeMember(id, req.user.userId, "member");
+        try {
+          await storage.createActivityFeedItem({
+            type: "new_member",
+            postId: id,
+            userId: req.user.userId,
+            title: `Nuevo miembro en: ${post.title}`
+          });
+        } catch (_) {
+        }
         res.status(201).json({
           message: "Te has unido a la iniciativa",
           member
@@ -12559,6 +13440,17 @@ async function registerRoutes(app2) {
         return res.status(400).json({ message: "Invalid milestone ID" });
       }
       await storage.completeMilestone(id, req.user.userId);
+      try {
+        const postId = parseInt(req.params.postId);
+        await storage.createActivityFeedItem({
+          type: "milestone_completed",
+          postId: isNaN(postId) ? null : postId,
+          userId: req.user.userId,
+          title: "Hito completado",
+          targetId: id
+        });
+      } catch (_) {
+      }
       res.json({ message: "Milestone completed" });
     } catch (error) {
       res.status(500).json({ message: "Failed to complete milestone" });
@@ -12630,6 +13522,17 @@ async function registerRoutes(app2) {
         return res.status(400).json({ message: "Invalid task ID" });
       }
       await storage.completeTask(id);
+      try {
+        const postId = parseInt(req.params.postId);
+        await storage.createActivityFeedItem({
+          type: "task_completed",
+          postId: isNaN(postId) ? null : postId,
+          userId: req.user.userId,
+          title: "Tarea completada",
+          targetId: id
+        });
+      } catch (_) {
+      }
       res.json({ message: "Task completed" });
     } catch (error) {
       res.status(500).json({ message: "Failed to complete task" });
@@ -14882,9 +15785,21 @@ async function getApp() {
   });
   return app;
 }
+function neutralizeVercelBodyGetter(req) {
+  const descriptor = Object.getOwnPropertyDescriptor(req, "body") || Object.getOwnPropertyDescriptor(Object.getPrototypeOf(req), "body");
+  if (descriptor?.get) {
+    Object.defineProperty(req, "body", {
+      value: void 0,
+      writable: true,
+      enumerable: true,
+      configurable: true
+    });
+  }
+}
 async function handler(req, res) {
   try {
     maybeRestoreOriginalApiPath(req);
+    neutralizeVercelBodyGetter(req);
     const expressApp = await getApp();
     return expressApp(req, res);
   } catch (error) {

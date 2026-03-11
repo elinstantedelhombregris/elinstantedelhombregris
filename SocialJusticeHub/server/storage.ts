@@ -281,7 +281,9 @@ export interface IStorage {
   updateTask(taskId: number, updates: Partial<InsertInitiativeTask>): Promise<void>;
   assignTask(taskId: number, userId: number): Promise<void>;
   completeTask(taskId: number): Promise<void>;
-  
+  deleteTask(taskId: number): Promise<void>;
+  deleteMilestone(milestoneId: number): Promise<void>;
+
   // Messages/Chat
   getInitiativeMessages(postId: number, limit?: number, offset?: number): Promise<InitiativeMessage[]>;
   sendMessage(postId: number, userId: number, content: string, type?: string): Promise<InitiativeMessage>;
@@ -2634,6 +2636,13 @@ export class DatabaseStorage implements IStorage {
   // ==================== POST LIKES AND VIEWS METHODS ====================
 
   async likePost(postId: number, userId: number): Promise<CommunityPostLike> {
+    // Prevent duplicate likes
+    const alreadyLiked = await this.isPostLikedByUser(postId, userId);
+    if (alreadyLiked) {
+      const [existing] = await db.select().from(communityPostLikes)
+        .where(and(eq(communityPostLikes.postId, postId), eq(communityPostLikes.userId, userId)));
+      return existing;
+    }
     const [like] = await db.insert(communityPostLikes)
       .values({ postId, userId })
       .returning();
@@ -2645,8 +2654,9 @@ export class DatabaseStorage implements IStorage {
       .where(and(
         eq(communityPostLikes.postId, postId),
         eq(communityPostLikes.userId, userId)
-      ));
-    return result.changes > 0;
+      ))
+      .returning();
+    return result.length > 0;
   }
 
   async isPostLikedByUser(postId: number, userId: number): Promise<boolean> {
@@ -3225,6 +3235,21 @@ export class DatabaseStorage implements IStorage {
   }
 
   async addInitiativeMember(postId: number, userId: number, role: string): Promise<InitiativeMember> {
+    // Prevent duplicate members
+    const [existing] = await db
+      .select()
+      .from(initiativeMembers)
+      .where(and(
+        eq(initiativeMembers.postId, postId),
+        eq(initiativeMembers.userId, userId),
+        eq(initiativeMembers.status, 'active')
+      ))
+      .limit(1);
+
+    if (existing) {
+      return existing;
+    }
+
     const [member] = await db
       .insert(initiativeMembers)
       .values({
@@ -3289,6 +3314,21 @@ export class DatabaseStorage implements IStorage {
 
   // Membership Requests
   async createMembershipRequest(postId: number, userId: number, message: string): Promise<MembershipRequest> {
+    // Prevent duplicate pending requests
+    const [existingRequest] = await db
+      .select()
+      .from(membershipRequests)
+      .where(and(
+        eq(membershipRequests.postId, postId),
+        eq(membershipRequests.userId, userId),
+        eq(membershipRequests.status, 'pending')
+      ))
+      .limit(1);
+
+    if (existingRequest) {
+      return existingRequest;
+    }
+
     const [request] = await db
       .insert(membershipRequests)
       .values({
@@ -3505,6 +3545,24 @@ export class DatabaseStorage implements IStorage {
         metadata: JSON.stringify({ taskId })
       });
     }
+  }
+
+  async deleteTask(taskId: number): Promise<void> {
+    await db
+      .delete(initiativeTasks)
+      .where(eq(initiativeTasks.id, taskId));
+  }
+
+  async deleteMilestone(milestoneId: number): Promise<void> {
+    // Unlink tasks from this milestone first
+    await db
+      .update(initiativeTasks)
+      .set({ milestoneId: null })
+      .where(eq(initiativeTasks.milestoneId, milestoneId));
+    // Then delete the milestone
+    await db
+      .delete(initiativeMilestones)
+      .where(eq(initiativeMilestones.id, milestoneId));
   }
 
   // Messages/Chat

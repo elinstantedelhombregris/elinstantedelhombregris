@@ -54,6 +54,7 @@ type CommunityPost = {
   tags?: string[];
   likesCount?: number;
   viewsCount?: number;
+  likedByMe?: boolean;
   author?: {
     name: string;
     username: string;
@@ -80,6 +81,9 @@ const Community = () => {
   const [selectedType, setSelectedType] = useState<string>('all');
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [viewMode, setViewMode] = useState<'list' | 'map'>('list');
+  const [showOnlyMine, setShowOnlyMine] = useState(false);
+  const [showMyMemberships, setShowMyMemberships] = useState(false);
+  const [showNotifications, setShowNotifications] = useState(false);
 
   // New Post State
   const [newPost, setNewPost] = useState({
@@ -209,6 +213,24 @@ const Community = () => {
     refetchInterval: 60000,
   });
 
+  const { data: notificationsList = [] } = useQuery({
+    queryKey: ['notifications-list'],
+    queryFn: async () => {
+      const res = await apiRequest('GET', '/api/notifications');
+      if (!res.ok) return [];
+      return res.json();
+    },
+    enabled: !!userContext?.user && showNotifications,
+  });
+
+  const markAllReadMutation = useMutation({
+    mutationFn: () => apiRequest('POST', '/api/notifications/read-all'),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['notifications-unread-count'] });
+      queryClient.invalidateQueries({ queryKey: ['notifications-list'] });
+    }
+  });
+
   // === MUTATIONS ===
 
   const createPostMutation = useMutation({
@@ -231,6 +253,23 @@ const Community = () => {
     },
     onError: () => {
       toast({ title: "Error", description: "No se pudo crear la iniciativa.", variant: "destructive" });
+    },
+  });
+
+  // Toggle like on post card
+  const togglePostLikeMutation = useMutation({
+    mutationFn: async ({ postId, isLiked }: { postId: number; isLiked: boolean }) => {
+      if (isLiked) {
+        return apiRequest('DELETE', `/api/community/${postId}/like`);
+      } else {
+        return apiRequest('POST', `/api/community/${postId}/like`);
+      }
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['community-posts'] });
+    },
+    onError: () => {
+      toast({ title: 'Error', description: 'No se pudo procesar tu me gusta.', variant: 'destructive' });
     },
   });
 
@@ -304,6 +343,17 @@ const Community = () => {
     { value: 'action', label: 'Acciones', icon: <Zap className="w-4 h-4" /> },
     { value: 'exchange', label: 'Intercambios', icon: <Sparkles className="w-4 h-4" /> },
   ];
+
+  // Filter posts based on Mi Tribu card selection
+  const displayPosts = useMemo(() => {
+    if (showOnlyMine) {
+      return posts.filter((p: CommunityPost) => p.userId === userContext?.user?.id);
+    }
+    if (showMyMemberships) {
+      return posts.filter((p: CommunityPost) => myMemberships.some((m: any) => m.postId === p.id));
+    }
+    return posts;
+  }, [posts, showOnlyMine, showMyMemberships, userContext?.user?.id, myMemberships]);
 
   // Leaderboard helpers
   const leaderboard = leaderboardData?.data || [];
@@ -395,7 +445,10 @@ const Community = () => {
                 </div>
               </div>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <GlassCard className="p-4 text-center hover:bg-white/5 transition-colors cursor-pointer" onClick={() => {}}>
+                <GlassCard
+                  className={`p-4 text-center hover:bg-white/5 transition-colors cursor-pointer ${showOnlyMine ? 'ring-2 ring-blue-500/50' : ''}`}
+                  onClick={() => { setShowOnlyMine(!showOnlyMine); setShowMyMemberships(false); }}
+                >
                   <div className="w-10 h-10 mx-auto mb-2 rounded-full bg-blue-500/10 flex items-center justify-center">
                     <Sparkles className="w-5 h-5 text-blue-400" />
                   </div>
@@ -403,15 +456,18 @@ const Community = () => {
                   <div className="text-xs text-slate-500">Mis Iniciativas</div>
                 </GlassCard>
 
-                <GlassCard className="p-4 text-center hover:bg-white/5 transition-colors cursor-pointer" onClick={() => {}}>
+                <GlassCard
+                  className={`p-4 text-center hover:bg-white/5 transition-colors cursor-pointer ${showMyMemberships ? 'ring-2 ring-purple-500/50' : ''}`}
+                  onClick={() => { setShowMyMemberships(!showMyMemberships); setShowOnlyMine(false); }}
+                >
                   <div className="w-10 h-10 mx-auto mb-2 rounded-full bg-purple-500/10 flex items-center justify-center">
                     <Users className="w-5 h-5 text-purple-400" />
                   </div>
                   <div className="text-2xl font-bold text-white">{myMemberships.length}</div>
-                  <div className="text-xs text-slate-500">Membresias</div>
+                  <div className="text-xs text-slate-500">Membresías</div>
                 </GlassCard>
 
-                <GlassCard className="p-4 text-center hover:bg-white/5 transition-colors cursor-pointer" onClick={() => {}}>
+                <GlassCard className="p-4 text-center hover:bg-white/5 transition-colors cursor-pointer" onClick={() => setShowNotifications(true)}>
                   <div className="w-10 h-10 mx-auto mb-2 rounded-full bg-orange-500/10 flex items-center justify-center relative">
                     <Bell className="w-5 h-5 text-orange-400" />
                     {(unreadNotifications?.count || 0) > 0 && (
@@ -424,7 +480,7 @@ const Community = () => {
                   <div className="text-xs text-slate-500">Notificaciones</div>
                 </GlassCard>
 
-                <GlassCard className="p-4 text-center hover:bg-white/5 transition-colors cursor-pointer" onClick={() => {}}>
+                <GlassCard className="p-4 text-center hover:bg-white/5 transition-colors cursor-pointer" onClick={() => setLocation('/profile')}>
                   <div className="w-10 h-10 mx-auto mb-2 rounded-full bg-emerald-500/10 flex items-center justify-center">
                     <Flame className="w-5 h-5 text-emerald-400" />
                   </div>
@@ -521,7 +577,7 @@ const Community = () => {
               </div>
             ) : viewMode === 'map' ? (
               <InitiativesMap
-                initiatives={posts.filter((post: CommunityPost) => {
+                initiatives={displayPosts.filter((post: CommunityPost) => {
                   if (selectedType !== 'all' && post.type !== selectedType) return false;
                   if (debouncedSearch && !post.title.toLowerCase().includes(debouncedSearch.toLowerCase()) &&
                       !post.description.toLowerCase().includes(debouncedSearch.toLowerCase())) return false;
@@ -531,7 +587,7 @@ const Community = () => {
               />
             ) : (
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {posts.map((post: CommunityPost, i: number) => (
+                {displayPosts.map((post: CommunityPost, i: number) => (
                   <SmoothReveal key={post.id} delay={i * 0.1}>
                     <GlassCard
                       className="h-full group cursor-pointer hover:border-blue-500/50 transition-all duration-500 flex flex-col overflow-hidden"
@@ -595,17 +651,29 @@ const Community = () => {
                           </div>
 
                           <div className="flex items-center gap-3">
-                            {(post.likesCount != null && post.likesCount > 0) && (
-                              <span className="flex items-center gap-1 text-slate-500">
-                                <Heart className="w-3 h-3" /> {post.likesCount}
-                              </span>
-                            )}
+                            <button
+                              className={`flex items-center gap-1 transition-colors ${post.likedByMe ? 'text-red-400 hover:text-red-300' : 'text-slate-500 hover:text-red-400'}`}
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                if (!userContext?.user) { setLocation('/login'); return; }
+                                togglePostLikeMutation.mutate({ postId: post.id, isLiked: !!post.likedByMe });
+                              }}
+                              disabled={togglePostLikeMutation.isPending}
+                            >
+                              <Heart className={`w-3 h-3 ${post.likedByMe ? 'fill-current' : ''}`} />
+                              {(post.likesCount || 0) > 0 && <span>{post.likesCount}</span>}
+                            </button>
                             {(post.viewsCount != null && post.viewsCount > 0) && (
                               <span className="flex items-center gap-1 text-slate-500">
                                 <Eye className="w-3 h-3" /> {post.viewsCount}
                               </span>
                             )}
-                            <Button size="sm" variant="ghost" className="text-blue-400 hover:text-blue-300 hover:bg-blue-500/10 h-8 rounded-full px-3">
+                            <Button
+                              size="sm"
+                              variant="ghost"
+                              className="text-blue-400 hover:text-blue-300 hover:bg-blue-500/10 h-8 rounded-full px-3"
+                              onClick={(e) => { e.stopPropagation(); setLocation(`/community/${post.id}`); }}
+                            >
                               Conectar <ArrowRight className="w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform" />
                             </Button>
                           </div>
@@ -736,6 +804,48 @@ const Community = () => {
 
       </main>
       <Footer />
+
+      {/* NOTIFICATIONS MODAL */}
+      <Dialog open={showNotifications} onOpenChange={setShowNotifications}>
+        <DialogContent className="sm:max-w-[500px] bg-[#0f1116] border border-white/10 text-slate-200">
+          <DialogHeader>
+            <DialogTitle className="text-xl font-bold text-white">Notificaciones</DialogTitle>
+            <DialogDescription className="text-slate-400">
+              Mantente al día con la actividad de tus iniciativas
+            </DialogDescription>
+          </DialogHeader>
+          <div className="space-y-2 max-h-96 overflow-y-auto">
+            {notificationsList.length === 0 ? (
+              <p className="text-center text-slate-500 py-8">No hay notificaciones</p>
+            ) : (
+              notificationsList.map((notif: any) => (
+                <div
+                  key={notif.id}
+                  className={`p-3 rounded-lg border ${notif.read ? 'bg-white/3 border-white/5' : 'bg-blue-500/5 border-blue-500/20'} cursor-pointer`}
+                  onClick={() => { if (notif.postId) { setShowNotifications(false); setLocation(`/community/${notif.postId}`); } }}
+                >
+                  <p className="text-sm font-medium text-white">{notif.title}</p>
+                  <p className="text-xs text-slate-400">{notif.content}</p>
+                  <p className="text-xs text-slate-600 mt-1">{new Date(notif.createdAt).toLocaleString()}</p>
+                </div>
+              ))
+            )}
+          </div>
+          {notificationsList.length > 0 && (
+            <div className="flex justify-end">
+              <Button
+                variant="outline"
+                size="sm"
+                className="border-white/10 text-slate-300"
+                onClick={() => markAllReadMutation.mutate()}
+                disabled={markAllReadMutation.isPending}
+              >
+                Marcar todas leídas
+              </Button>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
 
       {/* CREATE MODAL - Dark Theme */}
       <Dialog open={showCreateModal} onOpenChange={setShowCreateModal}>

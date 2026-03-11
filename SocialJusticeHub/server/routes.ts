@@ -71,6 +71,35 @@ import {
   batchGenerateEmbeddings,
 } from './services/embedding-service';
 
+// Helper: check if a user is a member (or creator) of an initiative
+async function requireMembership(postId: number, userId: number): Promise<boolean> {
+  const post = await storage.getCommunityPostWithDetails(postId);
+  if (post && post.userId === userId) return true;
+  const members = await storage.getInitiativeMembers(postId);
+  return members.some(m => m.userId === userId);
+}
+
+// Helper: notify all members of an initiative (excluding one user)
+async function notifyInitiativeMembers(
+  postId: number,
+  excludeUserId: number,
+  data: { type: string; title: string; content: string; targetId?: number | null }
+) {
+  const members = await storage.getInitiativeMembers(postId);
+  for (const m of members) {
+    if (m.userId && m.userId !== excludeUserId) {
+      try {
+        await storage.createNotification(m.userId, {
+          ...data,
+          postId,
+          userId: m.userId,
+          type: data.type as any,
+        });
+      } catch (_) { /* non-critical */ }
+    }
+  }
+}
+
 export async function registerRoutes(app: Express): Promise<Server> {
   // Apply middleware
   app.use(requestLogger);
@@ -586,7 +615,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // Get community posts with optional filters
-  app.get("/api/community", async (req, res) => {
+  app.get("/api/community", optionalAuth, async (req: AuthRequest, res) => {
     try {
       const type = req.query.type as string | undefined;
       const search = req.query.search as string | undefined;
@@ -621,6 +650,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
         } catch (_) {
           enriched.likesCount = 0;
           enriched.viewsCount = 0;
+        }
+        // Add likedByMe when user is authenticated
+        if (req.user?.userId) {
+          try {
+            enriched.likedByMe = await storage.isPostLikedByUser(post.id, req.user.userId);
+          } catch (_) { enriched.likedByMe = false; }
+        } else {
+          enriched.likedByMe = false;
         }
         return enriched;
       }));
@@ -672,6 +709,85 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.json(memberships);
     } catch (error) {
       res.status(500).json({ message: "Failed to fetch memberships" });
+    }
+  });
+
+  // Get user's posts (MUST be before /:id wildcard)
+  app.get("/api/community/my-posts", authenticateToken, async (req: AuthRequest, res) => {
+    try {
+      const posts = await storage.getUserCommunityPosts(req.user!.userId);
+      res.json(posts);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch your posts" });
+    }
+  });
+
+  // Get user's interactions (MUST be before /:id wildcard)
+  app.get("/api/community/my-interactions", authenticateToken, async (req: AuthRequest, res) => {
+    try {
+      const interactions = await storage.getUserInteractions(req.user!.userId);
+      res.json(interactions);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch your interactions" });
+    }
+  });
+
+  // Get user's activity history (MUST be before /:id wildcard)
+  app.get("/api/community/my-activity", authenticateToken, async (req: AuthRequest, res) => {
+    try {
+      const activity = await storage.getUserActivityHistory(req.user!.userId);
+      res.json(activity);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch activity history" });
+    }
+  });
+
+  // Get user's messages inbox (MUST be before /:id wildcard)
+  app.get("/api/community/messages", authenticateToken, async (req: AuthRequest, res) => {
+    try {
+      const messages = await storage.getUserMessages(req.user!.userId);
+      res.json(messages);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch messages" });
+    }
+  });
+
+  // Get unread message count (MUST be before /:id wildcard)
+  app.get("/api/community/messages/unread/count", authenticateToken, async (req: AuthRequest, res) => {
+    try {
+      const count = await storage.getUnreadMessageCount(req.user!.userId);
+      res.json({ count });
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch unread message count" });
+    }
+  });
+
+  // Search posts by location (MUST be before /:id wildcard)
+  app.get("/api/community/search/location", async (req, res) => {
+    try {
+      const {
+        province,
+        city,
+        radius,
+        userLat,
+        userLng
+      } = req.query;
+
+      const radiusKm = radius ? parseInt(radius as string) : undefined;
+      const latitude = userLat ? parseFloat(userLat as string) : undefined;
+      const longitude = userLng ? parseFloat(userLng as string) : undefined;
+
+      const posts = await storage.searchPostsByLocation(
+        province as string,
+        city as string,
+        radiusKm,
+        latitude,
+        longitude
+      );
+
+      res.json(posts);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to search posts by location" });
     }
   });
 
@@ -767,16 +883,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Get user's posts
-  app.get("/api/community/my-posts", authenticateToken, async (req: AuthRequest, res) => {
-    try {
-      const posts = await storage.getUserCommunityPosts(req.user!.userId);
-      res.json(posts);
-    } catch (error) {
-      res.status(500).json({ message: "Failed to fetch your posts" });
-    }
-  });
-
   // ==================== INTERACTION ENDPOINTS ====================
 
   // Apply/express interest/volunteer for a post
@@ -863,16 +969,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Get user's interactions
-  app.get("/api/community/my-interactions", authenticateToken, async (req: AuthRequest, res) => {
-    try {
-      const interactions = await storage.getUserInteractions(req.user!.userId);
-      res.json(interactions);
-    } catch (error) {
-      res.status(500).json({ message: "Failed to fetch your interactions" });
-    }
-  });
-
   // ==================== MESSAGING ENDPOINTS ====================
 
   // Send message about a post
@@ -905,16 +1001,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Get user's messages (inbox)
-  app.get("/api/community/messages", authenticateToken, async (req: AuthRequest, res) => {
-    try {
-      const messages = await storage.getUserMessages(req.user!.userId);
-      res.json(messages);
-    } catch (error) {
-      res.status(500).json({ message: "Failed to fetch messages" });
-    }
-  });
-
   // Mark message as read
   app.patch("/api/community/messages/:id/read", authenticateToken, async (req: AuthRequest, res) => {
     try {
@@ -933,16 +1019,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.json({ message: "Message marked as read" });
     } catch (error) {
       res.status(500).json({ message: "Failed to mark message as read" });
-    }
-  });
-
-  // Get unread message count
-  app.get("/api/community/messages/unread/count", authenticateToken, async (req: AuthRequest, res) => {
-    try {
-      const count = await storage.getUnreadMessageCount(req.user!.userId);
-      res.json({ count });
-    } catch (error) {
-      res.status(500).json({ message: "Failed to fetch unread message count" });
     }
   });
 
@@ -1005,16 +1081,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Get user's activity history
-  app.get("/api/community/my-activity", authenticateToken, async (req: AuthRequest, res) => {
-    try {
-      const activity = await storage.getUserActivityHistory(req.user!.userId);
-      res.json(activity);
-    } catch (error) {
-      res.status(500).json({ message: "Failed to fetch activity history" });
-    }
-  });
-
   // ==================== GEOGRAPHIC ENDPOINTS ====================
 
   // Get provinces
@@ -1045,14 +1111,22 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const { id } = req.params;
       const postId = parseInt(id);
-      
+
       if (isNaN(postId)) {
         return res.status(400).json({ message: "Invalid post ID" });
+      }
+
+      const alreadyLiked = await storage.isPostLikedByUser(postId, req.user!.userId);
+      if (alreadyLiked) {
+        return res.status(409).json({ message: "Already liked" });
       }
 
       const like = await storage.likePost(postId, req.user!.userId);
       res.status(201).json(like);
     } catch (error) {
+      if ((error as any)?.code === '23505') {
+        return res.status(409).json({ message: "Already liked" });
+      }
       res.status(500).json({ message: "Failed to like post" });
     }
   });
@@ -1127,37 +1201,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // ==================== GEOGRAPHIC SEARCH ENDPOINTS ====================
-
-  // Search posts by location
-  app.get("/api/community/search/location", async (req, res) => {
-    try {
-      const { 
-        province, 
-        city, 
-        radius, 
-        userLat, 
-        userLng 
-      } = req.query;
-
-      const radiusKm = radius ? parseInt(radius as string) : undefined;
-      const latitude = userLat ? parseFloat(userLat as string) : undefined;
-      const longitude = userLng ? parseFloat(userLng as string) : undefined;
-
-      const posts = await storage.searchPostsByLocation(
-        province as string,
-        city as string,
-        radiusKm,
-        latitude,
-        longitude
-      );
-
-      res.json(posts);
-    } catch (error) {
-      res.status(500).json({ message: "Failed to search posts by location" });
-    }
-  });
-
   // ==================== NEW INITIATIVE FEATURES ENDPOINTS ====================
 
   // Initiative Members Endpoints
@@ -1170,7 +1213,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
       
       const members = await storage.getInitiativeMembers(id);
-      res.json(members);
+      const membersWithUsers = await Promise.all(members.map(async (member) => {
+        const user = member.userId ? await storage.getUser(member.userId) : null;
+        return {
+          ...member,
+          user: user ? { id: user.id, name: user.name, username: user.username } : null,
+        };
+      }));
+      res.json(membersWithUsers);
     } catch (error) {
       res.status(500).json({ message: "Failed to fetch initiative members" });
     }
@@ -1192,12 +1242,39 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(404).json({ message: "Post not found" });
       }
 
+      // Check if already a member
+      const existingMembers = await storage.getInitiativeMembers(id);
+      const alreadyMember = existingMembers.some(m => m.userId === req.user!.userId && m.status === 'active');
+      if (alreadyMember) {
+        return res.status(409).json({ message: "Ya sos miembro de esta iniciativa" });
+      }
+
       if (post.requiresApproval) {
+        // Check for existing pending request
+        const existingRequests = await storage.getMembershipRequests(id, 'pending');
+        const alreadyRequested = existingRequests.some(r => r.userId === req.user!.userId);
+        if (alreadyRequested) {
+          return res.status(409).json({ message: "Ya tenés una solicitud pendiente" });
+        }
+
         // Create membership request
         const request = await storage.createMembershipRequest(id, req.user!.userId, message || "");
-        res.status(201).json({ 
+
+        // Notify creator about the request
+        try {
+          const user = await storage.getUser(req.user!.userId);
+          await storage.createNotification(post.userId!, {
+            type: 'member_joined',
+            title: 'Nueva solicitud de unión',
+            content: `${user?.name || 'Alguien'} quiere unirse a "${post.title}"`,
+            postId: id,
+            userId: post.userId!,
+          });
+        } catch (_) { /* non-critical */ }
+
+        res.status(201).json({
           message: "Solicitud de unión enviada",
-          request 
+          request
         });
       } else {
         // Add member directly
@@ -1210,6 +1287,18 @@ export async function registerRoutes(app: Express): Promise<Server> {
             postId: id,
             userId: req.user!.userId,
             title: `Nuevo miembro en: ${post.title}`,
+          });
+        } catch (_) { /* non-critical */ }
+
+        // Notify creator
+        try {
+          const user = await storage.getUser(req.user!.userId);
+          await storage.createNotification(post.userId!, {
+            type: 'member_joined',
+            title: 'Nuevo miembro',
+            content: `${user?.name || 'Alguien'} se unió a "${post.title}"`,
+            postId: id,
+            userId: post.userId!,
           });
         } catch (_) { /* non-critical */ }
 
@@ -1265,7 +1354,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
 
       const requests = await storage.getMembershipRequests(id, status as string);
-      res.json(requests);
+      const requestsWithUsers = await Promise.all(requests.map(async (req) => {
+        const user = req.userId ? await storage.getUser(req.userId) : null;
+        return {
+          ...req,
+          user: user ? { id: user.id, name: user.name, username: user.username } : null,
+        };
+      }));
+      res.json(requestsWithUsers);
     } catch (error) {
       res.status(500).json({ message: "Failed to fetch membership requests" });
     }
@@ -1328,7 +1424,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
 
       const milestones = await storage.getInitiativeMilestones(id);
-      res.json(milestones);
+      const milestonesWithUsers = await Promise.all(milestones.map(async (milestone) => {
+        const completedByUser = milestone.completedBy ? await storage.getUser(milestone.completedBy) : null;
+        return {
+          ...milestone,
+          completedByUser: completedByUser ? { id: completedByUser.id, name: completedByUser.name, username: completedByUser.username } : null,
+        };
+      }));
+      res.json(milestonesWithUsers);
     } catch (error) {
       res.status(500).json({ message: "Failed to fetch milestones" });
     }
@@ -1338,9 +1441,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const { postId } = req.params;
       const id = parseInt(postId);
-      
+
       if (isNaN(id)) {
         return res.status(400).json({ message: "Invalid post ID" });
+      }
+
+      if (!(await requireMembership(id, req.user!.userId))) {
+        return res.status(403).json({ message: "Solo miembros pueden crear hitos" });
       }
 
       const validatedData = insertInitiativeMilestoneSchema.parse(req.body);
@@ -1360,11 +1467,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   app.patch("/api/community/:postId/milestones/:milestoneId", authenticateToken, async (req: AuthRequest, res) => {
     try {
-      const { milestoneId } = req.params;
+      const { postId, milestoneId } = req.params;
       const id = parseInt(milestoneId);
-      
-      if (isNaN(id)) {
-        return res.status(400).json({ message: "Invalid milestone ID" });
+      const pId = parseInt(postId);
+
+      if (isNaN(id) || isNaN(pId)) {
+        return res.status(400).json({ message: "Invalid ID" });
+      }
+
+      if (!(await requireMembership(pId, req.user!.userId))) {
+        return res.status(403).json({ message: "Solo miembros pueden actualizar hitos" });
       }
 
       const updates = insertInitiativeMilestoneSchema.partial().parse(req.body);
@@ -1384,23 +1496,38 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   app.post("/api/community/:postId/milestones/:milestoneId/complete", authenticateToken, async (req: AuthRequest, res) => {
     try {
-      const { milestoneId } = req.params;
+      const { postId, milestoneId } = req.params;
       const id = parseInt(milestoneId);
-      
-      if (isNaN(id)) {
-        return res.status(400).json({ message: "Invalid milestone ID" });
+      const pId = parseInt(postId);
+
+      if (isNaN(id) || isNaN(pId)) {
+        return res.status(400).json({ message: "Invalid ID" });
+      }
+
+      if (!(await requireMembership(pId, req.user!.userId))) {
+        return res.status(403).json({ message: "Solo miembros pueden completar hitos" });
       }
 
       await storage.completeMilestone(id, req.user!.userId);
 
       // Create activity feed item
       try {
-        const postId = parseInt(req.params.postId);
         await storage.createActivityFeedItem({
           type: 'milestone_completed',
-          postId: isNaN(postId) ? null : postId,
+          postId: pId,
           userId: req.user!.userId,
           title: 'Hito completado',
+          targetId: id,
+        });
+      } catch (_) { /* non-critical */ }
+
+      // Notify all members
+      try {
+        const post = await storage.getCommunityPostWithDetails(pId);
+        await notifyInitiativeMembers(pId, req.user!.userId, {
+          type: 'milestone_completed',
+          title: 'Hito completado',
+          content: `Se completó un hito en "${post?.title || 'una iniciativa'}"`,
           targetId: id,
         });
       } catch (_) { /* non-critical */ }
@@ -1422,7 +1549,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
 
       const tasks = await storage.getInitiativeTasks(id);
-      res.json(tasks);
+      const tasksWithUsers = await Promise.all(tasks.map(async (task) => {
+        const assignedUser = task.assignedTo ? await storage.getUser(task.assignedTo) : null;
+        const createdByUser = task.createdBy ? await storage.getUser(task.createdBy) : null;
+        return {
+          ...task,
+          assignedToUser: assignedUser ? { id: assignedUser.id, name: assignedUser.name, username: assignedUser.username } : null,
+          createdByUser: createdByUser ? { id: createdByUser.id, name: createdByUser.name, username: createdByUser.username } : null,
+        };
+      }));
+      res.json(tasksWithUsers);
     } catch (error) {
       res.status(500).json({ message: "Failed to fetch tasks" });
     }
@@ -1435,6 +1571,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       if (isNaN(id)) {
         return res.status(400).json({ message: "Invalid post ID" });
+      }
+
+      if (!(await requireMembership(id, req.user!.userId))) {
+        return res.status(403).json({ message: "Solo miembros pueden crear tareas" });
       }
 
       const validatedData = insertInitiativeTaskSchema.parse({
@@ -1457,11 +1597,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   app.patch("/api/community/:postId/tasks/:taskId", authenticateToken, async (req: AuthRequest, res) => {
     try {
-      const { taskId } = req.params;
+      const { postId, taskId } = req.params;
       const id = parseInt(taskId);
-      
-      if (isNaN(id)) {
-        return res.status(400).json({ message: "Invalid task ID" });
+      const pId = parseInt(postId);
+
+      if (isNaN(id) || isNaN(pId)) {
+        return res.status(400).json({ message: "Invalid ID" });
+      }
+
+      if (!(await requireMembership(pId, req.user!.userId))) {
+        return res.status(403).json({ message: "Solo miembros pueden actualizar tareas" });
       }
 
       const updates = insertInitiativeTaskSchema.partial().parse(req.body);
@@ -1481,11 +1626,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   app.post("/api/community/:postId/tasks/:taskId/complete", authenticateToken, async (req: AuthRequest, res) => {
     try {
-      const { taskId } = req.params;
+      const { postId, taskId } = req.params;
       const id = parseInt(taskId);
-      
-      if (isNaN(id)) {
-        return res.status(400).json({ message: "Invalid task ID" });
+      const pId = parseInt(postId);
+
+      if (isNaN(id) || isNaN(pId)) {
+        return res.status(400).json({ message: "Invalid ID" });
+      }
+
+      if (!(await requireMembership(pId, req.user!.userId))) {
+        return res.status(403).json({ message: "Solo miembros pueden completar tareas" });
       }
 
       await storage.completeTask(id);
@@ -1502,9 +1652,124 @@ export async function registerRoutes(app: Express): Promise<Server> {
         });
       } catch (_) { /* non-critical */ }
 
+      // Notify initiative members
+      try {
+        const post = await storage.getCommunityPostWithDetails(pId);
+        await notifyInitiativeMembers(pId, req.user!.userId, {
+          type: 'task_completed',
+          title: 'Tarea completada',
+          content: `Se completó una tarea en "${post?.title || 'una iniciativa'}"`,
+          targetId: id,
+        });
+      } catch (_notif) { /* non-critical */ }
+
       res.json({ message: "Task completed" });
     } catch (error) {
       res.status(500).json({ message: "Failed to complete task" });
+    }
+  });
+
+  // Delete Task
+  app.delete("/api/community/:postId/tasks/:taskId", authenticateToken, async (req: AuthRequest, res) => {
+    try {
+      const { postId, taskId } = req.params;
+      const pId = parseInt(postId);
+      const tId = parseInt(taskId);
+
+      if (isNaN(pId) || isNaN(tId)) {
+        return res.status(400).json({ message: "Invalid ID" });
+      }
+
+      if (!(await requireMembership(pId, req.user!.userId))) {
+        return res.status(403).json({ message: "Solo miembros pueden eliminar tareas" });
+      }
+
+      await storage.deleteTask(tId);
+      res.json({ message: "Tarea eliminada" });
+    } catch (error) {
+      res.status(500).json({ message: "Failed to delete task" });
+    }
+  });
+
+  // Delete Milestone
+  app.delete("/api/community/:postId/milestones/:milestoneId", authenticateToken, async (req: AuthRequest, res) => {
+    try {
+      const { postId, milestoneId } = req.params;
+      const pId = parseInt(postId);
+      const mId = parseInt(milestoneId);
+
+      if (isNaN(pId) || isNaN(mId)) {
+        return res.status(400).json({ message: "Invalid ID" });
+      }
+
+      if (!(await requireMembership(pId, req.user!.userId))) {
+        return res.status(403).json({ message: "Solo miembros pueden eliminar hitos" });
+      }
+
+      await storage.deleteMilestone(mId);
+      res.json({ message: "Hito eliminado" });
+    } catch (error) {
+      res.status(500).json({ message: "Failed to delete milestone" });
+    }
+  });
+
+  // Update Member Role (creator only)
+  app.patch("/api/community/:postId/members/:memberId/role", authenticateToken, async (req: AuthRequest, res) => {
+    try {
+      const { postId, memberId } = req.params;
+      const { role } = req.body;
+      const pId = parseInt(postId);
+      const mId = parseInt(memberId);
+
+      if (isNaN(pId) || isNaN(mId)) {
+        return res.status(400).json({ message: "Invalid ID" });
+      }
+
+      // Only creator can change roles
+      const post = await storage.getCommunityPostWithDetails(pId);
+      if (!post || post.userId !== req.user!.userId) {
+        return res.status(403).json({ message: "Solo el creador puede cambiar roles" });
+      }
+
+      const validRoles = ['member', 'co-organizer', 'active_member'];
+      if (!validRoles.includes(role)) {
+        return res.status(400).json({ message: "Rol inválido" });
+      }
+
+      const defaultPermissions: Record<string, object> = {
+        'co-organizer': { canEdit: true, canInvite: true, canApprove: true, canCreateMilestone: true, canCreateTask: true, canAssignTask: true },
+        'active_member': { canCreateMilestone: true, canCreateTask: true },
+        'member': {},
+      };
+
+      await storage.updateMemberRole(mId, role, defaultPermissions[role] || {});
+      res.json({ message: "Rol actualizado" });
+    } catch (error) {
+      res.status(500).json({ message: "Failed to update role" });
+    }
+  });
+
+  // Remove Member (creator only)
+  app.delete("/api/community/:postId/members/:memberId", authenticateToken, async (req: AuthRequest, res) => {
+    try {
+      const { postId, memberId } = req.params;
+      const pId = parseInt(postId);
+      const mId = parseInt(memberId);
+
+      if (isNaN(pId) || isNaN(mId)) {
+        return res.status(400).json({ message: "Invalid ID" });
+      }
+
+      // Only creator can remove members
+      const post = await storage.getCommunityPostWithDetails(pId);
+      if (!post || post.userId !== req.user!.userId) {
+        return res.status(403).json({ message: "Solo el creador puede remover miembros" });
+      }
+
+      await storage.removeMember(mId);
+      res.json({ message: "Miembro removido" });
+    } catch (error) {
+      res.status(500).json({ message: "Failed to remove member" });
     }
   });
 
@@ -1523,7 +1788,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const offsetNum = offset ? parseInt(offset as string) : 0;
 
       const messages = await storage.getInitiativeMessages(id, limitNum, offsetNum);
-      res.json(messages);
+      const messagesWithUsers = await Promise.all(messages.map(async (msg) => {
+        const user = msg.userId ? await storage.getUser(msg.userId) : null;
+        return {
+          ...msg,
+          user: user ? { id: user.id, name: user.name, username: user.username } : null,
+        };
+      }));
+      res.json(messagesWithUsers);
     } catch (error) {
       res.status(500).json({ message: "Failed to fetch messages" });
     }
@@ -1543,8 +1815,28 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(400).json({ message: "Content is required" });
       }
 
+      // Verify membership
+      if (!(await requireMembership(id, req.user!.userId))) {
+        return res.status(403).json({ message: "Solo miembros pueden enviar mensajes" });
+      }
+
       const message = await storage.sendMessage(id, req.user!.userId, content, type);
-      res.status(201).json(message);
+      const user = await storage.getUser(req.user!.userId);
+
+      // Notify other members of new message
+      try {
+        const post = await storage.getCommunityPostWithDetails(id);
+        await notifyInitiativeMembers(id, req.user!.userId, {
+          type: 'message',
+          title: 'Nuevo mensaje',
+          content: `${user?.name || 'Alguien'} envió un mensaje en "${post?.title || 'una iniciativa'}"`,
+        });
+      } catch (_) { /* non-critical */ }
+
+      res.status(201).json({
+        ...message,
+        user: user ? { id: user.id, name: user.name, username: user.username } : null,
+      });
     } catch (error) {
       res.status(500).json({ message: "Failed to send message" });
     }
@@ -1562,7 +1854,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
         limit: limitNum,
         offset: offsetNum
       });
-      res.json(feed);
+      const feedWithUsers = await Promise.all(feed.map(async (item) => {
+        const user = item.userId ? await storage.getUser(item.userId) : null;
+        return {
+          ...item,
+          user: user ? { id: user.id, name: user.name, username: user.username } : null,
+        };
+      }));
+      res.json(feedWithUsers);
     } catch (error) {
       res.status(500).json({ message: "Failed to fetch activity feed" });
     }

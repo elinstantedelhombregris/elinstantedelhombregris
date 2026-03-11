@@ -235,7 +235,7 @@ const StudyGuides = () => {
   });
 
   useEffect(() => {
-    document.title = 'Guías de Estudio - Rutas de Transformación';
+    document.title = 'Rutas de Transformación - El Instante del Hombre Gris';
     window.scrollTo(0, 0);
   }, []);
 
@@ -296,7 +296,7 @@ const StudyGuides = () => {
             <SmoothReveal direction="up" className="mb-6">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200 shadow-sm mb-8">
                 <GraduationCap className="w-4 h-4 text-emerald-600" />
-                <span className="text-sm font-semibold text-slate-600 uppercase tracking-wider">Guías de Estudio</span>
+                <span className="text-sm font-semibold text-slate-600 uppercase tracking-wider">Rutas de Transformación</span>
               </div>
             </SmoothReveal>
             <SmoothReveal direction="up" delay={0.1}>
@@ -306,7 +306,7 @@ const StudyGuides = () => {
             </SmoothReveal>
             <SmoothReveal direction="up" delay={0.2} className="max-w-2xl">
               <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-light">
-                Explorá todos los cursos disponibles. Filtrá por categoría o buscá por tema para encontrar lo que necesitás.
+                Cada ruta es un camino práctico para entender tu realidad y pasar a la acción. Elegí la que más resuene con vos y empezá hoy.
               </p>
             </SmoothReveal>
 
@@ -366,15 +366,15 @@ const StudyGuides = () => {
 
           {/* Filters Bar */}
           <div className="sticky top-24 z-40 mb-14">
-            <GlassCard className="max-w-5xl mx-auto p-2 flex flex-col md:flex-row items-center gap-4 bg-white/80 backdrop-blur-xl shadow-xl rounded-full" intensity="high">
-              <div className="flex-1 w-full relative pl-2">
-                <Search className="absolute left-5 top-1/2 transform -translate-y-1/2 text-slate-400 w-5 h-5" />
+            <GlassCard className="max-w-5xl mx-auto p-2 flex flex-col md:flex-row items-center gap-3 bg-white/80 backdrop-blur-xl shadow-xl rounded-2xl md:rounded-full" intensity="high">
+              <div className="flex-1 w-full relative">
+                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400 w-5 h-5" />
                 <input
                   type="text"
                   placeholder="Buscar cursos..."
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
-                  className="w-full bg-transparent border-none focus:ring-0 pl-10 text-base text-slate-800 placeholder-slate-400 h-12"
+                  className="w-full bg-slate-100/70 border border-slate-200/80 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-400/20 rounded-full pl-11 pr-4 text-base text-slate-800 placeholder-slate-400 h-11 transition-colors outline-none"
                 />
               </div>
 

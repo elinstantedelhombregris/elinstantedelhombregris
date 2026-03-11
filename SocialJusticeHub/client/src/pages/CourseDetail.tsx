@@ -147,7 +147,7 @@ const CourseDetail = () => {
             <p className="text-destructive">Error al cargar el curso</p>
             <Link href="/recursos/guias-estudio">
               <Button variant="outline" className="mt-4">
-                Volver a Guías de Estudio
+                Volver a Rutas de Transformación
               </Button>
             </Link>
           </div>
@@ -198,7 +198,7 @@ const CourseDetail = () => {
           <Link href="/recursos/guias-estudio">
             <Button variant="ghost" size="sm" className="gap-2">
               <ArrowLeft className="w-4 h-4" />
-              Volver a Guías de Estudio
+              Volver a Rutas de Transformación
             </Button>
           </Link>
         </div>

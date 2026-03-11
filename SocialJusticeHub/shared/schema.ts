@@ -1,4 +1,4 @@
-import { pgTable, serial, integer, text, real, boolean, type AnyPgColumn } from "drizzle-orm/pg-core";
+import { pgTable, serial, integer, text, real, boolean, unique, index, type AnyPgColumn } from "drizzle-orm/pg-core";
 import { sql } from "drizzle-orm";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
@@ -176,7 +176,9 @@ export const communityPostLikes = pgTable("community_post_likes", {
   postId: integer("post_id").references(() => communityPosts.id),
   userId: integer("user_id").references(() => users.id),
   createdAt: text("created_at").default(sql`now()`),
-});
+}, (table) => ({
+  uniqueLike: unique("cpl_post_user_unique").on(table.postId, table.userId),
+}));
 
 export const communityPostViews = pgTable("community_post_views", {
   id: serial("id").primaryKey(),
@@ -677,7 +679,10 @@ export const initiativeMembers = pgTable("initiative_members", {
   permissions: text("permissions"), // JSON: {canEdit, canInvite, canPost, etc}
   joinedAt: text("joined_at").default(sql`now()`),
   leftAt: text("left_at")
-});
+}, (table) => ({
+  uniqueMember: unique("im_post_user_unique").on(table.postId, table.userId),
+  postIdIdx: index("im_post_id_idx").on(table.postId),
+}));
 
 // Hitos de iniciativas
 export const initiativeMilestones = pgTable("initiative_milestones", {
@@ -692,7 +697,9 @@ export const initiativeMilestones = pgTable("initiative_milestones", {
   orderIndex: integer("order_index").default(0),
   createdAt: text("created_at").default(sql`now()`),
   updatedAt: text("updated_at").default(sql`now()`)
-});
+}, (table) => ({
+  postIdIdx: index("ims_post_id_idx").on(table.postId),
+}));
 
 // Chat/Mensajes de iniciativa
 export const initiativeMessages = pgTable("initiative_messages", {
@@ -720,7 +727,9 @@ export const initiativeTasks = pgTable("initiative_tasks", {
   createdBy: integer("created_by").references(() => users.id),
   createdAt: text("created_at").default(sql`now()`),
   updatedAt: text("updated_at").default(sql`now()`)
-});
+}, (table) => ({
+  postIdIdx: index("it_post_id_idx").on(table.postId),
+}));
 
 // Feed de actividad global
 export const activityFeed = pgTable("activity_feed", {
@@ -733,7 +742,9 @@ export const activityFeed = pgTable("activity_feed", {
   description: text("description"),
   metadata: text("metadata"), // JSON con datos adicionales
   createdAt: text("created_at").default(sql`now()`)
-});
+}, (table) => ({
+  createdAtIdx: index("af_created_at_idx").on(table.createdAt),
+}));
 
 // Solicitudes de unión (para posts con aprobación)
 export const membershipRequests = pgTable("membership_requests", {
@@ -745,7 +756,9 @@ export const membershipRequests = pgTable("membership_requests", {
   reviewedBy: integer("reviewed_by").references(() => users.id),
   reviewedAt: text("reviewed_at"),
   createdAt: text("created_at").default(sql`now()`)
-});
+}, (table) => ({
+  uniqueRequest: unique("mr_post_user_unique").on(table.postId, table.userId),
+}));
 
 // Notificaciones
 export const notifications = pgTable("notifications", {
@@ -758,7 +771,9 @@ export const notifications = pgTable("notifications", {
   targetId: integer("target_id"), // ID del recurso relacionado
   read: boolean("read").default(false),
   createdAt: text("created_at").default(sql`now()`)
-});
+}, (table) => ({
+  userIdIdx: index("notif_user_id_idx").on(table.userId),
+}));
 
 // ==================== LIFE AREAS TABLES ====================
 

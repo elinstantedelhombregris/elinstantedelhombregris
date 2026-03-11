@@ -68,7 +68,7 @@ const Footer = () => {
             <ul className="space-y-4">
               {[
                 { label: 'Blog & Artículos', href: '/recursos/blog' },
-                { label: 'Guías de Estudio', href: '/recursos/guias-estudio' },
+                { label: 'Rutas de Transformación', href: '/recursos/guias-estudio' },
                 { label: 'Manifiesto', href: '/manifiesto' },
                 { label: 'Kit de Prensa', href: '#' },
                 { label: 'Donaciones', href: '#' }

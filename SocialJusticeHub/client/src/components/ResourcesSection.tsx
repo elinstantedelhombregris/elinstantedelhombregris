@@ -119,7 +119,7 @@ const ResourcesSection = () => {
       recentContent: recentVlogItems
     },
     {
-      title: 'Guías de Estudio',
+      title: 'Rutas de Transformación',
       description: 'Cursos interactivos y guías estructuradas para profundizar tu comprensión',
       icon: GraduationCap,
       href: '/recursos/guias-estudio',
@@ -248,7 +248,7 @@ const ResourcesSection = () => {
                 <div className="bg-white rounded-xl p-6 border border-gray-200">
                   <div className="flex items-center gap-2 mb-4">
                     <GraduationCap className="w-5 h-5 text-green-600" />
-                    <h4 className="font-bold text-gray-800">Guías de Estudio</h4>
+                    <h4 className="font-bold text-gray-800">Rutas de Transformación</h4>
                   </div>
                   <ul className="space-y-3">
                     {recentCourseItems.slice(0, 3).map((course: any) => (

@@ -72,7 +72,7 @@ const Resources = () => {
       delay: 0.3
     },
     {
-      title: 'Guías de Estudio',
+      title: 'Rutas de Transformación',
       subtitle: 'FORMACIÓN',
       description: 'Recorridos estructurados para pasar de la comprensión teórica a la práctica personal y comunitaria.',
       icon: GraduationCap,
@@ -80,7 +80,7 @@ const Resources = () => {
       count: coursesCount,
       gradient: 'from-emerald-500/10 to-teal-500/10',
       iconColor: 'bg-emerald-100 text-emerald-700',
-      cta: 'Iniciar Cursos',
+      cta: 'Explorar Rutas',
       delay: 0.4
     }
   ];
