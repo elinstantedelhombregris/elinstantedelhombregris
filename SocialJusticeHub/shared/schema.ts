@@ -50,6 +50,26 @@ export const dreams = pgTable("dreams", {
   type: text("type").notNull().default('dream').$type<'dream' | 'value' | 'need' | 'basta'>(),
 });
 
+// Recursos declarados por usuarios (habilidades, tiempo, espacios, conexiones)
+export const userResources = pgTable("user_resources", {
+  id: serial("id").primaryKey(),
+  userId: integer("user_id").references(() => users.id),
+  description: text("description").notNull(),
+  category: text("category").notNull().$type<
+    'legal' | 'medical' | 'education' | 'tech' | 'construction' |
+    'agriculture' | 'communication' | 'admin' | 'transport' |
+    'space' | 'equipment' | 'other'
+  >(),
+  availableHours: integer("available_hours"), // hours per week
+  latitude: real("latitude"),
+  longitude: real("longitude"),
+  location: text("location"),
+  province: text("province"),
+  city: text("city"),
+  isActive: boolean("is_active").default(true),
+  createdAt: text("created_at").default(sql`now()`),
+});
+
 export const communityPosts = pgTable("community_posts", {
   id: serial("id").primaryKey(),
   userId: integer("user_id").references(() => users.id),
@@ -667,6 +687,46 @@ export const provinceRankings = pgTable("province_rankings", {
   updatedAt: text("updated_at").default(sql`now()`)
 });
 
+// ==================== MANDATO VIVO TABLES ====================
+
+// Mandatos territoriales auto-generados
+export const territoryMandates = pgTable("territory_mandates", {
+  id: serial("id").primaryKey(),
+  territoryLevel: text("territory_level").notNull().$type<'barrio' | 'city' | 'province' | 'national'>(),
+  territoryName: text("territory_name").notNull(),
+  province: text("province"),
+  city: text("city"),
+  version: integer("version").notNull().default(1),
+  voiceCount: integer("voice_count").notNull().default(0),
+  convergenceScore: real("convergence_score"),
+  // AI-generated content (JSON)
+  diagnosis: text("diagnosis"), // JSON: top priorities with evidence
+  availableResources: text("available_resources"), // JSON: resource summary
+  gaps: text("gaps"), // JSON: gap analysis
+  suggestedActions: text("suggested_actions"), // JSON: action plans
+  rawSummary: text("raw_summary"), // Plain text executive summary
+  status: text("status").notNull().default('draft').$type<'draft' | 'published'>(),
+  generatedAt: text("generated_at").default(sql`now()`),
+  publishedAt: text("published_at"),
+  createdAt: text("created_at").default(sql`now()`),
+});
+
+// Sugerencias auto-generadas del matchmaker
+export const mandateSuggestions = pgTable("mandate_suggestions", {
+  id: serial("id").primaryKey(),
+  mandateId: integer("mandate_id").references(() => territoryMandates.id),
+  territoryName: text("territory_name").notNull(),
+  needCategory: text("need_category").notNull(), // theme key
+  needCount: integer("need_count").notNull().default(0),
+  resourceCount: integer("resource_count").notNull().default(0),
+  suggestedAction: text("suggested_action").notNull(),
+  precedent: text("precedent"), // similar success elsewhere
+  status: text("status").notNull().default('suggested').$type<'suggested' | 'activated' | 'completed'>(),
+  activatedBy: integer("activated_by").references(() => users.id),
+  initiativeId: integer("initiative_id").references(() => communityPosts.id),
+  createdAt: text("created_at").default(sql`now()`),
+});
+
 // ==================== NEW INITIATIVE FEATURES TABLES ====================
 
 // Miembros de iniciativas con roles personalizables
@@ -1129,6 +1189,31 @@ export const usersRelations = relations(users, ({ many, one }) => ({
   weeklyCheckins: many(weeklyCheckins),
   coachingSessions: many(coachingSessions),
   coachingPrompts: many(coachingPrompts),
+  // Mandato Vivo relations
+  resources: many(userResources),
+  mandateSuggestions: many(mandateSuggestions),
+}));
+
+export const userResourcesRelations = relations(userResources, ({ one }) => ({
+  user: one(users, {
+    fields: [userResources.userId],
+    references: [users.id],
+  }),
+}));
+
+export const territoryMandatesRelations = relations(territoryMandates, ({ many }) => ({
+  suggestions: many(mandateSuggestions),
+}));
+
+export const mandateSuggestionsRelations = relations(mandateSuggestions, ({ one }) => ({
+  mandate: one(territoryMandates, {
+    fields: [mandateSuggestions.mandateId],
+    references: [territoryMandates.id],
+  }),
+  activator: one(users, {
+    fields: [mandateSuggestions.activatedBy],
+    references: [users.id],
+  }),
 }));
 
 export const dreamsRelations = relations(dreams, ({ one }) => ({
@@ -2064,6 +2149,31 @@ export type VrMeeting = typeof vrMeetings.$inferSelect;
 
 export type InsertMeetingParticipant = z.infer<typeof insertMeetingParticipantSchema>;
 export type MeetingParticipant = typeof meetingParticipants.$inferSelect;
+
+// Mandato Vivo
+export const insertUserResourceSchema = createInsertSchema(userResources).omit({
+  id: true,
+  createdAt: true,
+});
+
+export type InsertUserResource = z.infer<typeof insertUserResourceSchema>;
+export type UserResource = typeof userResources.$inferSelect;
+
+export const insertTerritoryMandateSchema = createInsertSchema(territoryMandates).omit({
+  id: true,
+  createdAt: true,
+});
+
+export const insertMandateSuggestionSchema = createInsertSchema(mandateSuggestions).omit({
+  id: true,
+  createdAt: true,
+});
+
+export type InsertTerritoryMandate = z.infer<typeof insertTerritoryMandateSchema>;
+export type TerritoryMandate = typeof territoryMandates.$inferSelect;
+
+export type InsertMandateSuggestion = z.infer<typeof insertMandateSuggestionSchema>;
+export type MandateSuggestion = typeof mandateSuggestions.$inferSelect;
 
 // Gamification Insert Schemas
 export const insertUserLevelSchema = createInsertSchema(userLevels).omit({

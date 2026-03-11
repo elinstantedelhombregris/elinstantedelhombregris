@@ -21,7 +21,8 @@ import {
   Sunrise,
   HandHeart,
   Sun,
-  Flame
+  Flame,
+  MapPin
 } from 'lucide-react';
 import ShockStats from '@/components/ShockStats';
 import PowerCTA from '@/components/PowerCTA';
@@ -836,11 +837,11 @@ const LaSemillaDeBasta = () => {
 
         {/* Next Steps */}
         <NextStepCard
-          title="Diseña la Visión Colectiva"
-          description="Tus semillas personales alimentan el mapa maestro. Ve al siguiente paso para plasmar la Argentina regenerada."
-          href="/la-vision"
+          title="Llevá Tu Semilla al Mapa"
+          description="Tu compromiso cobra vida en el mapa. Explorá cómo se conectan las semillas de cambio en todo el territorio argentino."
+          href="/el-mapa"
           gradient="from-emerald-900 to-blue-900"
-          icon={<Eye className="w-5 h-5" />}
+          icon={<MapPin className="w-5 h-5" />}
         />
 
 

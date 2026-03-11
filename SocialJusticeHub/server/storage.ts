@@ -51,7 +51,11 @@ import {
   quizAttempts, type QuizAttempt, type InsertQuizAttempt,
   quizAttemptAnswers, type QuizAttemptAnswer, type InsertQuizAttemptAnswer,
   courseCertificates, type CourseCertificate, type InsertCourseCertificate,
-  userProfiles, type UserProfile, type InsertUserProfile
+  userProfiles, type UserProfile, type InsertUserProfile,
+  // Mandato Vivo
+  userResources, type UserResource, type InsertUserResource,
+  territoryMandates, type TerritoryMandate, type InsertTerritoryMandate,
+  mandateSuggestions, type MandateSuggestion, type InsertMandateSuggestion,
 } from "@shared/schema";
 import { db } from "./db";
 import { eq, desc, and, sql, asc, gte, or, like, inArray, ilike, isNotNull } from "drizzle-orm";
@@ -111,7 +115,25 @@ export interface IStorage {
   getDreams(): Promise<Dream[]>;
   getDreamsByUser(userId: number): Promise<Dream[]>;
   createDream(dream: InsertDream): Promise<Dream>;
-  
+
+  // User Resources (Mandato Vivo)
+  getUserResources(): Promise<UserResource[]>;
+  getUserResourcesByUser(userId: number): Promise<UserResource[]>;
+  createUserResource(resource: InsertUserResource): Promise<UserResource>;
+
+  // Territory Mandates (Mandato Vivo)
+  getMandates(level?: string): Promise<TerritoryMandate[]>;
+  getMandateByTerritory(level: string, name: string): Promise<TerritoryMandate | undefined>;
+  createMandate(mandate: InsertTerritoryMandate): Promise<TerritoryMandate>;
+  updateMandate(id: number, updates: Partial<InsertTerritoryMandate>): Promise<TerritoryMandate | undefined>;
+
+  // Mandate Suggestions (Matchmaker)
+  getSuggestionsByMandate(mandateId: number): Promise<MandateSuggestion[]>;
+  getSuggestionsByTerritory(territoryName: string): Promise<MandateSuggestion[]>;
+  getSuggestionById(id: number): Promise<MandateSuggestion | undefined>;
+  createSuggestion(suggestion: InsertMandateSuggestion): Promise<MandateSuggestion>;
+  activateSuggestion(id: number, userId: number, initiativeId: number): Promise<MandateSuggestion | undefined>;
+
   // Community Posts
   getCommunityPosts(type?: string): Promise<CommunityPost[]>;
   getCommunityPostById(id: number): Promise<CommunityPost | undefined>;
@@ -466,7 +488,33 @@ export class MemStorage implements Partial<IStorage> {
     this.dreams.set(id, dream);
     return dream;
   }
-  
+
+  // User Resources methods (Mandato Vivo)
+  async getUserResources(): Promise<UserResource[]> {
+    return [];
+  }
+  async getUserResourcesByUser(userId: number): Promise<UserResource[]> {
+    return [];
+  }
+  async createUserResource(resource: InsertUserResource): Promise<UserResource> {
+    return { id: 1, ...resource, createdAt: new Date().toISOString(), isActive: true } as UserResource;
+  }
+
+  // Territory Mandates stubs (MemStorage)
+  async getMandates(): Promise<TerritoryMandate[]> { return []; }
+  async getMandateByTerritory(): Promise<TerritoryMandate | undefined> { return undefined; }
+  async createMandate(m: InsertTerritoryMandate): Promise<TerritoryMandate> {
+    return { id: 1, ...m, createdAt: new Date().toISOString() } as TerritoryMandate;
+  }
+  async updateMandate(): Promise<TerritoryMandate | undefined> { return undefined; }
+  async getSuggestionsByMandate(): Promise<MandateSuggestion[]> { return []; }
+  async getSuggestionsByTerritory(): Promise<MandateSuggestion[]> { return []; }
+  async getSuggestionById(): Promise<MandateSuggestion | undefined> { return undefined; }
+  async createSuggestion(s: InsertMandateSuggestion): Promise<MandateSuggestion> {
+    return { id: 1, ...s, createdAt: new Date().toISOString() } as MandateSuggestion;
+  }
+  async activateSuggestion(): Promise<MandateSuggestion | undefined> { return undefined; }
+
   // Community Posts methods
   async getCommunityPosts(type?: string): Promise<CommunityPost[]> {
     const posts = Array.from(this.communityPosts.values());
@@ -1284,7 +1332,93 @@ export class DatabaseStorage implements IStorage {
     const [dream] = await db.insert(dreams).values(dreamData).returning();
     return dream;
   }
-  
+
+  // User Resources methods (Mandato Vivo)
+  async getUserResources(): Promise<UserResource[]> {
+    return await db.select().from(userResources)
+      .where(eq(userResources.isActive, true))
+      .orderBy(desc(userResources.createdAt));
+  }
+
+  async getUserResourcesByUser(userId: number): Promise<UserResource[]> {
+    return await db.select().from(userResources).where(eq(userResources.userId, userId));
+  }
+
+  async createUserResource(resource: InsertUserResource): Promise<UserResource> {
+    const [created] = await db.insert(userResources).values(resource).returning();
+    return created;
+  }
+
+  // Territory Mandates (Mandato Vivo)
+  async getMandates(level?: string): Promise<TerritoryMandate[]> {
+    if (level) {
+      return await db.select().from(territoryMandates)
+        .where(eq(territoryMandates.territoryLevel, level as any))
+        .orderBy(desc(territoryMandates.generatedAt));
+    }
+    return await db.select().from(territoryMandates).orderBy(desc(territoryMandates.generatedAt));
+  }
+
+  async getMandateByTerritory(level: string, name: string): Promise<TerritoryMandate | undefined> {
+    const [mandate] = await db.select().from(territoryMandates)
+      .where(and(
+        eq(territoryMandates.territoryLevel, level as any),
+        eq(territoryMandates.territoryName, name)
+      ))
+      .orderBy(desc(territoryMandates.version))
+      .limit(1);
+    return mandate;
+  }
+
+  async createMandate(mandate: InsertTerritoryMandate): Promise<TerritoryMandate> {
+    const [created] = await db.insert(territoryMandates).values(mandate).returning();
+    return created;
+  }
+
+  async updateMandate(id: number, updates: Partial<InsertTerritoryMandate>): Promise<TerritoryMandate | undefined> {
+    const [updated] = await db.update(territoryMandates)
+      .set(updates)
+      .where(eq(territoryMandates.id, id))
+      .returning();
+    return updated;
+  }
+
+  // Mandate Suggestions (Matchmaker)
+  async getSuggestionsByMandate(mandateId: number): Promise<MandateSuggestion[]> {
+    return await db.select().from(mandateSuggestions)
+      .where(eq(mandateSuggestions.mandateId, mandateId))
+      .orderBy(desc(mandateSuggestions.createdAt));
+  }
+
+  async getSuggestionsByTerritory(territoryName: string): Promise<MandateSuggestion[]> {
+    return await db.select().from(mandateSuggestions)
+      .where(eq(mandateSuggestions.territoryName, territoryName))
+      .orderBy(desc(mandateSuggestions.createdAt));
+  }
+
+  async getSuggestionById(id: number): Promise<MandateSuggestion | undefined> {
+    const [suggestion] = await db.select().from(mandateSuggestions)
+      .where(eq(mandateSuggestions.id, id));
+    return suggestion;
+  }
+
+  async createSuggestion(suggestion: InsertMandateSuggestion): Promise<MandateSuggestion> {
+    const [created] = await db.insert(mandateSuggestions).values(suggestion).returning();
+    return created;
+  }
+
+  async activateSuggestion(id: number, userId: number, initiativeId: number): Promise<MandateSuggestion | undefined> {
+    const [updated] = await db.update(mandateSuggestions)
+      .set({
+        status: 'activated' as const,
+        activatedBy: userId,
+        initiativeId: initiativeId,
+      })
+      .where(eq(mandateSuggestions.id, id))
+      .returning();
+    return updated;
+  }
+
   // Community Posts methods
   async getCommunityPosts(type?: string): Promise<CommunityPost[]> {
     if (type && type !== 'all') {

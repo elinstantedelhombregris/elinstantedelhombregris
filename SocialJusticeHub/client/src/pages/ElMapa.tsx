@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'wouter';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SovereignMap from '@/components/SovereignMap';
@@ -7,15 +8,18 @@ import MeaningNetwork from '@/components/MeaningNetwork';
 import ImpactCaseStudy from '@/components/ImpactCaseStudy';
 import MapPulseAnalytics from '@/components/MapPulseAnalytics';
 import ConstellationGraph from '@/components/ConstellationGraph';
+import GapAnalysisDashboard from '@/components/GapAnalysisDashboard';
 import PowerCTA from '@/components/PowerCTA';
 import NextStepCard from '@/components/NextStepCard';
-import { 
-  Compass, 
-  Anchor, 
-  Target, 
-  ShieldCheck, 
-  Brain, 
-  Map as MapIcon
+import {
+  Compass,
+  Anchor,
+  Target,
+  ShieldCheck,
+  Brain,
+  Map as MapIcon,
+  Wrench,
+  ArrowRight
 } from 'lucide-react';
 
 const ElMapa = () => {
@@ -112,6 +116,9 @@ const ElMapa = () => {
                       <li className="flex items-center gap-3">
                         <ShieldCheck className="w-4 h-4 text-amber-400 flex-shrink-0" /> Qué no está dispuesto a negociar
                       </li>
+                      <li className="flex items-center gap-3">
+                        <Wrench className="w-4 h-4 text-teal-400 flex-shrink-0" /> Qué puede aportar al cambio
+                      </li>
                     </ul>
                     <p className="font-semibold text-blue-200">
                       Entonces la política pierde margen para desviarse.
@@ -201,6 +208,110 @@ const ElMapa = () => {
               </p>
             </div>
             <MapPulseAnalytics />
+          </div>
+        </section>
+
+        {/* GAP ENGINE: Need vs Resource Analysis */}
+        <section id="motor-brechas" className="py-24 bg-gradient-to-b from-[#0f1116] via-[#0a0a0a] to-[#0f1116] relative overflow-hidden">
+          <div className="container-content">
+            <div className="text-center mb-16">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <span className="text-teal-500 font-mono text-xs tracking-[0.3em] uppercase">
+                  El Mandato Vivo
+                </span>
+                <h2 className="text-4xl font-bold text-white mt-4 mb-6">
+                  El Motor de Brechas
+                </h2>
+                <p className="text-slate-400 max-w-2xl mx-auto">
+                  La distancia entre lo que necesitamos y lo que tenemos <strong className="text-white">es</strong> el plan de acción.
+                  Sin debates. Sin votaciones. Los datos hablan solos.
+                </p>
+              </motion.div>
+            </div>
+
+            <GapAnalysisDashboard />
+          </div>
+        </section>
+
+        {/* MANDATO VIVO: Territory Mandate CTA */}
+        <section id="mandato-vivo" className="py-24 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-amber-900/5 via-transparent to-teal-900/5" />
+          <div className="container-content relative z-10">
+            <div className="text-center mb-12">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <span className="text-amber-500 font-mono text-xs tracking-[0.3em] uppercase">
+                  Democracia Directa por Datos
+                </span>
+                <h2 className="text-4xl font-bold text-white mt-4 mb-6">
+                  El Mandato Vivo
+                </h2>
+                <p className="text-slate-400 max-w-2xl mx-auto mb-12">
+                  Los datos del mapa se convierten en mandatos territoriales automáticos.
+                  Nadie vota. Nadie debate. La convergencia de voces genera el mandato.
+                  Cada territorio tiene su verdad — y esa verdad se vuelve plan de acción.
+                </p>
+              </motion.div>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+              >
+                <Link href="/mandato/national/Argentina" className="group bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 hover:border-amber-500/30 transition-all cursor-pointer block">
+                  <div className="text-3xl mb-3">🇦🇷</div>
+                  <h3 className="text-lg font-bold text-white mb-2">Mandato Nacional</h3>
+                  <p className="text-sm text-slate-400">Todas las voces del país convergen en un mandato irrefutable</p>
+                  <div className="mt-4 flex items-center gap-2 text-amber-400 text-sm font-mono">
+                    Ver mandato <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </Link>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+              >
+                <Link href="/mandato/province/Buenos%20Aires" className="group bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 hover:border-teal-500/30 transition-all cursor-pointer block">
+                  <div className="text-3xl mb-3">🗺️</div>
+                  <h3 className="text-lg font-bold text-white mb-2">Mandatos Provinciales</h3>
+                  <p className="text-sm text-slate-400">Cada provincia tiene su diagnóstico, sus brechas y su plan</p>
+                  <div className="mt-4 flex items-center gap-2 text-teal-400 text-sm font-mono">
+                    Explorar <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </Link>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+              >
+                <Link href="/mandato/city/CABA" className="group bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 hover:border-blue-500/30 transition-all cursor-pointer block">
+                  <div className="text-3xl mb-3">🏙️</div>
+                  <h3 className="text-lg font-bold text-white mb-2">Mandatos Municipales</h3>
+                  <p className="text-sm text-slate-400">Tu barrio habla. Tu ciudad responde. El mandato se escribe solo</p>
+                  <div className="mt-4 flex items-center gap-2 text-blue-400 text-sm font-mono">
+                    Explorar <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </Link>
+              </motion.div>
+            </div>
           </div>
         </section>
 

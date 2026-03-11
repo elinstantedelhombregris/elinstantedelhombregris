@@ -47,6 +47,9 @@ const InsightDashboard = React.lazy(() => import("@/pages/InsightDashboard"));
 const Goals = React.lazy(() => import("@/pages/Goals"));
 const WeeklyCheckin = React.lazy(() => import("@/pages/WeeklyCheckin"));
 const CoachingChat = React.lazy(() => import("@/pages/CoachingChat"));
+const PoliticaPrivacidad = React.lazy(() => import("@/pages/PoliticaPrivacidad"));
+const MandatoTerritorial = React.lazy(() => import("@/pages/MandatoTerritorial"));
+const MandatoPublico = React.lazy(() => import("@/pages/MandatoPublico"));
 
 type User = {
   id: number;
@@ -111,6 +114,10 @@ function Router() {
       <Route path="/metas" component={Goals} />
       <Route path="/checkin-semanal" component={WeeklyCheckin} />
       <Route path="/coaching" component={CoachingChat} />
+
+      <Route path="/politica-privacidad" component={PoliticaPrivacidad} />
+      <Route path="/mandato/:level/:name" component={MandatoTerritorial} />
+      <Route path="/mandato-publico/:level/:name" component={MandatoPublico} />
 
       {/* Life Areas routes */}
       <Route path="/life-areas" component={LifeAreasDashboard} />

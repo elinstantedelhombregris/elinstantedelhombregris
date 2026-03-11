@@ -36,9 +36,9 @@ const Manifiesto = () => {
       title: '',
       content: `Este no es un documento político. No es un manifiesto partidario. No es una declaración de intenciones.
 
-Es una conversación de corazón a corazón. Un recordatorio de que no estás solo en lo que sentís. Es una invitación a despertar, no por enojo sino por amor a lo que podemos construir juntos.
+Es una conversación íntima entre dos personas hartas de lo mismo. Un recordatorio de que no estás solo en lo que sentís. Es una invitación a despertar, no por enojo sino por amor a lo que podemos construir juntos.
 
-Si estás leyendo esto, algo adentro tuyo ya dijo "basta". Algo te empuja a dejar de sobrevivir y empezar a vivir con sentido.
+Si estás leyendo esto, algo adentro tuyo ya dijo ¡BASTA! Algo te empuja a dejar de sobrevivir y empezar a vivir con sentido.
 
 Este manifiesto no te pide que me sigas. Te invita a recordar quién sos y a tomar de nuevo el volante de tu vida.
 
@@ -79,7 +79,9 @@ Las instituciones van por un carril y la vida real por otro. Los incentivos prem
 
 El diagnóstico es simple y duro: seguimos alimentando procesos mal diseñados. No es mala suerte; es un sistema que repetimos.
 
-¿Cuántas veces más vamos a reiniciar el mismo dolor esperando un resultado distinto?`,
+¿Cuántas veces más vamos a reiniciar el mismo dolor esperando un resultado distinto?
+
+El dolor de repetir es peor que el dolor de cambiar.`,
       icon: Target,
       color: 'red'
     },
@@ -113,7 +115,7 @@ La conciencia contagia. Un gesto coherente despierta a otro, y otro. Así se enc
 
 No necesitás esperar a millones. Necesitás empezar vos.
 
-¿Estás listo para ser esa chispa?`,
+¿Estás listo para ser la chispa que enciende a todo un país?`,
       icon: Zap,
       color: 'yellow'
     },
@@ -143,7 +145,7 @@ Solo quien atraviesa las tres etapas puede liderar sin buscar seguidores: se vue
       title: 'La Construcción de lo Nuevo',
       content: `No venimos a administrar ruinas: venimos a estrenar país.
 
-Ultrathink es pensar más profundo hasta que la solución se vuelva inevitable. Diseño idealizado es imaginar el país como si empezáramos hoy, sin las cadenas del pasado. Amabilidad radical no es debilidad: es fuerza que repara vínculos. Interdependencia consciente es recordar que somos libres, pero nos necesitamos.
+Pensar profundo es ir más allá de lo obvio hasta que la solución se vuelva inevitable. Diseño idealizado es imaginar el país como si empezáramos hoy, sin las cadenas del pasado. Amabilidad radical no es debilidad: es fuerza que repara vínculos. Interdependencia consciente es recordar que somos libres, pero nos necesitamos.
 
 Construir lo nuevo se ve en prototipos concretos: escuelas que enseñan a pensar, barrios que se organizan, empresas transparentes, gobiernos que miden lo que importa: dignidad, confianza, bienestar real.
 
@@ -195,7 +197,7 @@ El tiempo de esperar terminó. El tiempo de construir comenzó.
 
 **Practicar amabilidad radical.** Tratar bien no por debilidad, sino por fuerza y por respeto a la dignidad del otro.
 
-**Diseñar soluciones ultrathink.** No me conformaré con lo primero que funcione; buscaré lo justo, lo elegante, lo humano.
+**Diseñar soluciones con pensamiento profundo.** No me conformaré con lo primero que funcione; buscaré lo justo, lo elegante, lo humano.
 
 **Distribuir liderazgo.** No levantaré altares personales; formaré personas capaces de liderar sin pedirme permiso.
 
@@ -215,7 +217,9 @@ Cuando seamos suficientes, la Argentina posible dejará de ser futuro y se volve
 
 Ese día llegará cuando nuestro suelo vuelva a atraer a soñadores de todo el planeta, no por desesperación sino por excelencia. No vendrán a escapar, vendrán a construir.
 
-Ese día, el Hombre Gris dejará de ser un nombre porque vivirá multiplicado en cada ciudadano.`,
+Ese día, el Hombre Gris dejará de ser un nombre porque vivirá multiplicado en cada ciudadano.
+
+Y vos, que llegaste hasta acá leyendo, ya sos parte de ese día.`,
       type: 'cierre'
     }
   ];

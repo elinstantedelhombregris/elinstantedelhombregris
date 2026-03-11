@@ -18,7 +18,7 @@ import {
 
 // ─── Constants ───
 
-const DREAM_TYPES: DreamType[] = ['dream', 'value', 'need', 'basta', 'compromiso'];
+const DREAM_TYPES: DreamType[] = ['dream', 'value', 'need', 'basta', 'compromiso', 'recurso'];
 
 const TYPE_VERB: Record<DreamType, string> = {
   dream: 'soñamos',
@@ -26,6 +26,7 @@ const TYPE_VERB: Record<DreamType, string> = {
   need:  'necesitamos',
   basta: 'rechazamos',
   compromiso: 'nos comprometemos con',
+  recurso: 'aportamos',
 };
 
 const ICON_MAP: Record<string, React.FC<{ className?: string }>> = {

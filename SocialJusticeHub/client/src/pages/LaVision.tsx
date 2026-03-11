@@ -523,11 +523,11 @@ const LaVision = () => {
 
         {/* Next Step */}
         <NextStepCard
-          title="Visualiza el Cambio en el Mapa"
-          description="Ahora que conoces la visión, explora cómo se está transformando Argentina en tiempo real. Cada punto en el mapa representa una persona que decidió actuar."
-          href="/el-mapa"
-          gradient="from-green-900 to-blue-900"
-          icon={<MapPin className="w-5 h-5" />}
+          title="Una Nueva Visión Necesita una Nueva Cultura"
+          description="Conocés la visión. Ahora descubrí al Hombre Gris: la identidad colectiva que despierta para construir la Argentina que soñamos."
+          href="/el-instante-del-hombre-gris"
+          gradient="from-gray-900 to-blue-900"
+          icon={<Eye className="w-5 h-5" />}
         />
 
       </main>

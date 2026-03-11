@@ -107,9 +107,9 @@ const Footer = () => {
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
           <p>© {new Date().getFullYear()} El Instante del Hombre Gris. Todos los derechos reservados.</p>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-white transition-colors">Privacidad</a>
-            <a href="#" className="hover:text-white transition-colors">Términos</a>
-            <a href="#" className="hover:text-white transition-colors">Cookies</a>
+            <a href="/politica-privacidad" className="hover:text-white transition-colors">Privacidad</a>
+            <a href="/politica-privacidad" className="hover:text-white transition-colors">Términos</a>
+            <a href="/politica-privacidad" className="hover:text-white transition-colors">Cookies</a>
           </div>
         </div>
       </div>

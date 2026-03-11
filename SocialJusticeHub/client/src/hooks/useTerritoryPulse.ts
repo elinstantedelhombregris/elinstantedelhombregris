@@ -55,7 +55,7 @@ const extractWords = (text: string | null): string[] => {
 
 // ─── Constants ───
 
-const DREAM_TYPES: DreamType[] = ['dream', 'value', 'need', 'basta', 'compromiso'];
+const DREAM_TYPES: DreamType[] = ['dream', 'value', 'need', 'basta', 'compromiso', 'recurso'];
 const THEME_KEYS = Object.keys(THEME_KEYWORDS) as ThemeKey[];
 
 const VERB_MAP: Record<DreamType, string> = {
@@ -64,6 +64,7 @@ const VERB_MAP: Record<DreamType, string> = {
   need:  'necesita',
   basta: 'exige',
   compromiso: 'se compromete con',
+  recurso: 'aporta',
 };
 
 // ─── Interfaces ───
@@ -161,20 +162,35 @@ export const useTerritoryPulse = (): TerritoryPulseData => {
     staleTime: 30000,
   });
 
+  const { data: resourcesData = [] } = useQuery<any[]>({
+    queryKey: ['/api/resources-map'],
+    staleTime: 30000,
+  });
+
   const allEntries = useMemo(() => {
     const commitments = commitmentsResponse?.data?.commitments || [];
     const mappedCompromisos = commitments.map((c: any) => ({
       id: c.id + 1_000_000,
       type: 'compromiso' as const,
       compromiso: c.commitmentText,
-      dream: null, value: null, need: null, basta: null,
+      dream: null, value: null, need: null, basta: null, recurso: null,
       location: [c.city, c.province].filter(Boolean).join(', ') || null,
       latitude: c.latitude?.toString() || null,
       longitude: c.longitude?.toString() || null,
       createdAt: c.createdAt,
     }));
-    return [...dreams, ...mappedCompromisos];
-  }, [dreams, commitmentsResponse]);
+    const mappedResources = (resourcesData || []).map((r: any) => ({
+      id: r.id + 2_000_000,
+      type: 'recurso' as const,
+      recurso: r.description,
+      dream: null, value: null, need: null, basta: null, compromiso: null,
+      location: [r.city, r.province].filter(Boolean).join(', ') || r.location || null,
+      latitude: r.latitude?.toString() || null,
+      longitude: r.longitude?.toString() || null,
+      createdAt: r.createdAt,
+    }));
+    return [...dreams, ...mappedCompromisos, ...mappedResources];
+  }, [dreams, commitmentsResponse, resourcesData]);
 
   return useMemo(() => {
     const empty: TerritoryPulseData = {
@@ -199,11 +215,11 @@ export const useTerritoryPulse = (): TerritoryPulseData => {
     const themeHits: Record<ThemeKey, Record<DreamType, number>> = {} as any;
     const themeQuotes: Record<ThemeKey, Partial<Record<DreamType, string>>> = {} as any;
     for (const tk of THEME_KEYS) {
-      themePresence[tk] = { dream: new Set(), value: new Set(), need: new Set(), basta: new Set(), compromiso: new Set() };
-      themeHits[tk] = { dream: 0, value: 0, need: 0, basta: 0, compromiso: 0 };
+      themePresence[tk] = { dream: new Set(), value: new Set(), need: new Set(), basta: new Set(), compromiso: new Set(), recurso: new Set() };
+      themeHits[tk] = { dream: 0, value: 0, need: 0, basta: 0, compromiso: 0, recurso: 0 };
       themeQuotes[tk] = {};
     }
-    const totalWithText: Record<DreamType, number> = { dream: 0, value: 0, need: 0, basta: 0, compromiso: 0 };
+    const totalWithText: Record<DreamType, number> = { dream: 0, value: 0, need: 0, basta: 0, compromiso: 0, recurso: 0 };
 
     // Voces: candidate entries per theme
     const voiceCandidates: Map<ThemeKey, VoiceEntry[]> = new Map();
@@ -248,7 +264,7 @@ export const useTerritoryPulse = (): TerritoryPulseData => {
 
       // Location accumulator init
       if (!locTypeCounts[loc]) {
-        locTypeCounts[loc] = { dream: 0, value: 0, need: 0, basta: 0, compromiso: 0 };
+        locTypeCounts[loc] = { dream: 0, value: 0, need: 0, basta: 0, compromiso: 0, recurso: 0 };
         locThemeHits[loc] = {} as Record<ThemeKey, number>;
         for (const tk of THEME_KEYS) locThemeHits[loc][tk] = 0;
       }

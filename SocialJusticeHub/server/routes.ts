@@ -29,7 +29,9 @@ import {
   insertInitiativeTaskSchema,
   insertActivityFeedSchema,
   insertMembershipRequestSchema,
-  insertNotificationSchema
+  insertNotificationSchema,
+  // Mandato Vivo
+  insertUserResourceSchema,
 } from "@shared/schema";
 import { z } from "zod";
 import { 
@@ -172,6 +174,160 @@ export async function registerRoutes(app: Express): Promise<Server> {
       } else {
         res.status(500).json({ message: "Failed to create dream" });
       }
+    }
+  });
+
+  // ==================== MANDATO VIVO: RESOURCES ====================
+
+  // Get all active resources
+  app.get("/api/resources-map", optionalAuth, async (req: AuthRequest, res) => {
+    try {
+      const resources = await storage.getUserResources();
+      res.json(resources);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch resources" });
+    }
+  });
+
+  // Create a resource declaration
+  app.post("/api/resources-map", authenticateToken, sanitizeInput, async (req: AuthRequest, res) => {
+    try {
+      const validatedData = insertUserResourceSchema.parse({
+        ...req.body,
+        userId: req.user?.userId,
+      });
+      const resource = await storage.createUserResource(validatedData);
+      res.status(201).json(resource);
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        res.status(400).json({ message: "Invalid resource data", errors: error.errors });
+      } else {
+        res.status(500).json({ message: "Failed to create resource" });
+      }
+    }
+  });
+
+  // ==================== MANDATO VIVO: MANDATES & MATCHMAKER ====================
+
+  // Generate mandate for a territory
+  app.post("/api/mandates/generate", authenticateToken, async (req: AuthRequest, res) => {
+    try {
+      const { territoryLevel, territoryName, province, city } = req.body;
+      if (!territoryLevel || !territoryName) {
+        return res.status(400).json({ message: "territoryLevel and territoryName are required" });
+      }
+      const { generateAndSaveMandate } = await import('./mandate-service');
+      const result = await generateAndSaveMandate(territoryLevel, territoryName, province, city);
+      res.json(result);
+    } catch (error) {
+      console.error('Mandate generation error:', error);
+      res.status(500).json({ message: "Failed to generate mandate" });
+    }
+  });
+
+  // Get all mandates (optionally by level)
+  app.get("/api/mandates", optionalAuth, async (req: AuthRequest, res) => {
+    try {
+      const level = req.query.level as string | undefined;
+      const mandates = await storage.getMandates(level);
+      res.json(mandates);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch mandates" });
+    }
+  });
+
+  // Get mandate for a specific territory
+  app.get("/api/mandates/:level/:name", async (req, res) => {
+    try {
+      const { level, name } = req.params;
+      const mandate = await storage.getMandateByTerritory(level, decodeURIComponent(name));
+      if (!mandate) {
+        return res.status(404).json({ message: "No mandate found for this territory" });
+      }
+      // Parse JSON fields (handle both string and already-parsed objects)
+      const safeJsonParse = (val: any) => {
+        if (!val) return null;
+        if (typeof val === 'object') return val;
+        try { return JSON.parse(val); } catch { return null; }
+      };
+      const parsed = {
+        ...mandate,
+        diagnosis: safeJsonParse(mandate.diagnosis),
+        availableResources: safeJsonParse(mandate.availableResources),
+        gaps: safeJsonParse(mandate.gaps),
+        suggestedActions: safeJsonParse(mandate.suggestedActions),
+      };
+      res.json(parsed);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch mandate" });
+    }
+  });
+
+  // Publish a mandate
+  app.post("/api/mandates/:id/publish", authenticateToken, async (req: AuthRequest, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      if (isNaN(id)) return res.status(400).json({ message: "Invalid mandate ID" });
+      const updated = await storage.updateMandate(id, {
+        status: 'published',
+        publishedAt: new Date().toISOString(),
+      });
+      if (!updated) return res.status(404).json({ message: "Mandate not found" });
+      res.json(updated);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to publish mandate" });
+    }
+  });
+
+  // Run matchmaker scan
+  app.post("/api/matchmaker/scan", authenticateToken, async (req: AuthRequest, res) => {
+    try {
+      const { scanAndSaveSuggestions } = await import('./matchmaker-service');
+      const saved = await scanAndSaveSuggestions();
+      res.json({ suggestions: saved, count: saved.length });
+    } catch (error) {
+      console.error('Matchmaker scan error:', error);
+      res.status(500).json({ message: "Failed to scan for matches" });
+    }
+  });
+
+  // Get suggestions for a territory
+  app.get("/api/suggestions/:territory", optionalAuth, async (req: AuthRequest, res) => {
+    try {
+      const territory = decodeURIComponent(req.params.territory);
+      const suggestions = await storage.getSuggestionsByTerritory(territory);
+      res.json(suggestions);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch suggestions" });
+    }
+  });
+
+  // Activate a suggestion (create initiative from it)
+  app.post("/api/suggestions/:id/activate", authenticateToken, async (req: AuthRequest, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      if (isNaN(id)) return res.status(400).json({ message: "Invalid suggestion ID" });
+      const userId = req.user?.userId;
+      if (!userId) return res.status(401).json({ message: "Auth required" });
+
+      // Find suggestion by ID
+      const suggestion = await storage.getSuggestionById(id);
+      if (!suggestion) return res.status(404).json({ message: "Suggestion not found" });
+      if (suggestion.status !== 'suggested') return res.status(400).json({ message: "Suggestion already activated" });
+
+      const rawTitle = suggestion.suggestedAction.split('\n')[0] || 'Iniciativa Comunitaria';
+      const initiative = await storage.createCommunityPost({
+        userId,
+        title: rawTitle.length > 200 ? rawTitle.substring(0, 200) + '…' : rawTitle,
+        description: suggestion.suggestedAction,
+        type: 'project',
+        location: suggestion.territoryName || 'Argentina',
+      });
+
+      const activated = await storage.activateSuggestion(id, userId, initiative.id);
+      res.json({ suggestion: activated, initiative });
+    } catch (error) {
+      res.status(500).json({ message: "Failed to activate suggestion" });
     }
   });
 

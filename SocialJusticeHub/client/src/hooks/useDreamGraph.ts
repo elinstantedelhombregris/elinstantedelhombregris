@@ -29,15 +29,16 @@ export interface GraphStats {
   convergencePercent: number;
 }
 
-const DREAM_TYPES: DreamType[] = ['dream', 'value', 'need', 'basta', 'compromiso'];
+const DREAM_TYPES: DreamType[] = ['dream', 'value', 'need', 'basta', 'compromiso', 'recurso'];
 
-// Pentagon positions for hub nodes
+// Hexagon positions for hub nodes (6 types now)
 const HUB_POSITIONS: Record<DreamType, { x: number; y: number }> = {
   dream:      { x: 0,     y: -250 },
-  value:      { x: 238,   y: -77 },
-  need:       { x: 147,   y: 202 },
-  basta:      { x: -147,  y: 202 },
-  compromiso: { x: -238,  y: -77 },
+  value:      { x: 217,   y: -125 },
+  need:       { x: 217,   y: 125 },
+  basta:      { x: 0,     y: 250 },
+  compromiso: { x: -217,  y: 125 },
+  recurso:    { x: -217,  y: -125 },
 };
 
 export const useDreamGraph = () => {
@@ -61,7 +62,7 @@ export const useDreamGraph = () => {
   const { graph, stats, clusterData } = useMemo(() => {
     const g = new Graph({ multi: false, type: 'undirected' });
     const typeCounts: Record<DreamType, number> = {
-      dream: 0, value: 0, need: 0, basta: 0, compromiso: 0,
+      dream: 0, value: 0, need: 0, basta: 0, compromiso: 0, recurso: 0,
     };
     // Store entries per cluster for the detail panel
     const clusters: Record<string, ClusterEntry[]> = {};

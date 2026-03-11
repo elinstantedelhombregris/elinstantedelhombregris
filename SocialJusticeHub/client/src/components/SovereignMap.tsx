@@ -20,7 +20,8 @@ import {
   Heart,
   AlertCircle,
   Zap,
-  Handshake
+  Handshake,
+  Wrench
 } from 'lucide-react';
 import { cn } from "@/lib/utils";
 
@@ -38,7 +39,7 @@ const SovereignMap = () => {
   const { toast } = useToast();
   const queryClient = useQueryClient();
 
-  const [activeLayer, setActiveLayer] = useState<'all' | 'dream' | 'value' | 'need' | 'basta' | 'compromiso'>('all');
+  const [activeLayer, setActiveLayer] = useState<'all' | 'dream' | 'value' | 'need' | 'basta' | 'compromiso' | 'recurso'>('all');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [mapReady, setMapReady] = useState(false);
@@ -82,7 +83,12 @@ const SovereignMap = () => {
     staleTime: 60000,
   });
 
-  // Merge dreams + compromisos into a unified array
+  const { data: resourcesData = [] } = useQuery<any[]>({
+    queryKey: ['/api/resources-map'],
+    staleTime: 60000,
+  });
+
+  // Merge dreams + compromisos + recursos into a unified array
   const allMapItems = useMemo(() => {
     const dreamItems = Array.isArray(dreams) ? dreams : [];
     const commitments = commitmentsResponse?.data?.commitments || [];
@@ -98,8 +104,21 @@ const SovereignMap = () => {
         longitude: String(c.longitude),
         createdAt: c.createdAt,
       }));
-    return [...dreamItems, ...mappedCompromisos];
-  }, [dreams, commitmentsResponse]);
+    const mappedResources = (resourcesData || [])
+      .filter((r: any) => r.latitude && r.longitude)
+      .map((r: any) => ({
+        id: r.id + 2_000_000,
+        type: 'recurso' as const,
+        recurso: r.description,
+        resourceCategory: r.category,
+        dream: null, value: null, need: null, basta: null,
+        location: [r.city, r.province].filter(Boolean).join(', ') || r.location || 'Argentina',
+        latitude: String(r.latitude),
+        longitude: String(r.longitude),
+        createdAt: r.createdAt,
+      }));
+    return [...dreamItems, ...mappedCompromisos, ...mappedResources];
+  }, [dreams, commitmentsResponse, resourcesData]);
 
   // Filter items by active layer
   const filteredDreams = useMemo(() => {
@@ -228,7 +247,8 @@ const SovereignMap = () => {
       value: createIcon('bg-pink-500', '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>'),
       need: createIcon('bg-amber-500', '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>'),
       basta: createIcon('bg-red-500', '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>'),
-      compromiso: createIcon('bg-emerald-500', '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></svg>')
+      compromiso: createIcon('bg-emerald-500', '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></svg>'),
+      recurso: createIcon('bg-teal-500', '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>')
     };
 
     const newMarkers: any[] = [];
@@ -312,6 +332,15 @@ const SovereignMap = () => {
           longitude: parseFloat(lng),
         };
         res = await apiRequest('POST', '/api/commitment', payload);
+      } else if (data.type === 'recurso') {
+        const payload = {
+          description: data.content,
+          category: data.resourceCategory || 'other',
+          latitude: parseFloat(lat),
+          longitude: parseFloat(lng),
+          location: loc,
+        };
+        res = await apiRequest('POST', '/api/resources-map', payload);
       } else {
         const payload = {
           type: data.type,
@@ -342,6 +371,8 @@ const SovereignMap = () => {
 
       if (data.type === 'compromiso') {
         queryClient.invalidateQueries({ queryKey: ['/api/commitments'] });
+      } else if (data.type === 'recurso') {
+        queryClient.invalidateQueries({ queryKey: ['/api/resources-map'] });
       } else {
         queryClient.invalidateQueries({ queryKey: ['/api/dreams'] });
       }
@@ -431,7 +462,8 @@ const SovereignMap = () => {
             { id: 'value', label: 'Valores', icon: Heart, color: 'text-pink-400' },
             { id: 'need', label: 'Necesidades', icon: AlertCircle, color: 'text-amber-400' },
             { id: 'basta', label: '¡Basta!', icon: Zap, color: 'text-red-400' },
-            { id: 'compromiso', label: 'Compromisos', icon: Handshake, color: 'text-emerald-400' }
+            { id: 'compromiso', label: 'Compromisos', icon: Handshake, color: 'text-emerald-400' },
+            { id: 'recurso', label: 'Recursos', icon: Wrench, color: 'text-teal-400' }
           ].map((layer) => (
             <button
               key={layer.id}
@@ -515,16 +547,18 @@ const SovereignMap = () => {
                     item.type === 'dream' ? "text-blue-400" :
                     item.type === 'basta' ? "text-red-400" :
                     item.type === 'value' ? "text-pink-400" :
-                    item.type === 'compromiso' ? "text-emerald-400" : "text-amber-400"
+                    item.type === 'compromiso' ? "text-emerald-400" :
+                    item.type === 'recurso' ? "text-teal-400" : "text-amber-400"
                   )}>
                     {item.type === 'dream' ? 'Visión' :
                      item.type === 'value' ? 'Valor' :
                      item.type === 'need' ? 'Necesidad' :
                      item.type === 'basta' ? '¡Basta!' :
-                     item.type === 'compromiso' ? 'Compromiso' : item.type}
+                     item.type === 'compromiso' ? 'Compromiso' :
+                     item.type === 'recurso' ? 'Recurso' : item.type}
                   </span>
                   <p className="text-slate-300 line-clamp-2 font-mono opacity-80">
-                    {item.dream || item.value || item.need || item.basta || item.compromiso}
+                    {item.dream || item.value || item.need || item.basta || item.compromiso || item.recurso}
                   </p>
                 </motion.div>
               ))}

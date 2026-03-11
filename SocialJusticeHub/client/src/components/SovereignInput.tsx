@@ -13,11 +13,27 @@ import {
   Send,
   Loader2,
   Check,
-  Handshake
+  Handshake,
+  Wrench
 } from 'lucide-react';
 import { cn } from "@/lib/utils";
 
-type InputType = 'dream' | 'value' | 'need' | 'basta' | 'compromiso';
+type InputType = 'dream' | 'value' | 'need' | 'basta' | 'compromiso' | 'recurso';
+
+const RESOURCE_CATEGORIES = [
+  { id: 'legal', label: 'Legal' },
+  { id: 'medical', label: 'Salud' },
+  { id: 'education', label: 'Educación' },
+  { id: 'tech', label: 'Tecnología' },
+  { id: 'construction', label: 'Construcción' },
+  { id: 'agriculture', label: 'Agro' },
+  { id: 'communication', label: 'Comunicación' },
+  { id: 'admin', label: 'Administración' },
+  { id: 'transport', label: 'Transporte' },
+  { id: 'space', label: 'Espacio físico' },
+  { id: 'equipment', label: 'Equipamiento' },
+  { id: 'other', label: 'Otro' },
+] as const;
 
 interface SovereignInputProps {
   onSubmit: (data: any) => Promise<void>;
@@ -59,6 +75,13 @@ const types: { id: InputType; label: string; icon: any; color: string; desc: str
     icon: Handshake,
     color: 'text-emerald-400 border-emerald-500/30 bg-emerald-500/10',
     desc: '¿Qué te comprometés a hacer?'
+  },
+  {
+    id: 'recurso',
+    label: 'Recurso',
+    icon: Wrench,
+    color: 'text-teal-400 border-teal-500/30 bg-teal-500/10',
+    desc: '¿Qué podés aportar al movimiento?'
   }
 ];
 
@@ -67,6 +90,7 @@ const SovereignInput = ({ onSubmit, isSubmitting }: SovereignInputProps) => {
   const [content, setContent] = useState('');
   const [shareLocation, setShareLocation] = useState(true); // Default to true for map value
   const [charCount, setCharCount] = useState(0);
+  const [resourceCategory, setResourceCategory] = useState<string>('other');
   const maxChars = 280;
 
   const handleTypeChange = (type: InputType) => {
@@ -88,7 +112,8 @@ const SovereignInput = ({ onSubmit, isSubmitting }: SovereignInputProps) => {
     await onSubmit({
       type: activeType,
       content,
-      shareLocation
+      shareLocation,
+      ...(activeType === 'recurso' ? { resourceCategory } : {}),
     });
     
     setContent('');
@@ -102,7 +127,7 @@ const SovereignInput = ({ onSubmit, isSubmitting }: SovereignInputProps) => {
   return (
     <div className="w-full max-w-md bg-slate-900/90 backdrop-blur-xl border border-slate-800 rounded-3xl overflow-hidden shadow-2xl shadow-black/50">
       {/* Header / Type Selector */}
-      <div className="p-2 grid grid-cols-5 gap-1 bg-black/20 border-b border-white/5">
+      <div className="p-2 grid grid-cols-6 gap-1 bg-black/20 border-b border-white/5">
         {types.map((type) => (
           <button
             key={type.id}
@@ -139,6 +164,25 @@ const SovereignInput = ({ onSubmit, isSubmitting }: SovereignInputProps) => {
         </AnimatePresence>
 
         <form onSubmit={handleSubmit} className="space-y-4">
+          {activeType === 'recurso' && (
+            <div className="flex flex-wrap gap-1.5">
+              {RESOURCE_CATEGORIES.map((cat) => (
+                <button
+                  key={cat.id}
+                  type="button"
+                  onClick={() => setResourceCategory(cat.id)}
+                  className={cn(
+                    "px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider transition-all border",
+                    resourceCategory === cat.id
+                      ? "bg-teal-500/20 border-teal-500/40 text-teal-300"
+                      : "bg-white/5 border-white/10 text-slate-500 hover:text-slate-300"
+                  )}
+                >
+                  {cat.label}
+                </button>
+              ))}
+            </div>
+          )}
           <div className="relative">
             <Textarea
               value={content}

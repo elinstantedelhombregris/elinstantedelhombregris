@@ -23,6 +23,7 @@
     "three-mesh-bvh": "^0.8.0"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.78.0",
     "@ar-js-org/ar.js": "^3.4.5",
     "@hookform/resolvers": "^3.10.0",
     "@jridgewell/trace-mapping": "^0.3.25",

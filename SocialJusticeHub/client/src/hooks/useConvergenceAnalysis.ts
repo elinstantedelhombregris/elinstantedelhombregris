@@ -55,7 +55,7 @@ export type ThemeKey =
   | 'community'
   | 'future';
 
-export type DreamType = 'dream' | 'value' | 'need' | 'basta' | 'compromiso';
+export type DreamType = 'dream' | 'value' | 'need' | 'basta' | 'compromiso' | 'recurso';
 
 export const THEME_KEYWORDS: Record<ThemeKey, string[]> = {
   systemic: [
@@ -122,6 +122,7 @@ export const TYPE_COLORS: Record<DreamType, string> = {
   need:  '#f59e0b',
   basta: '#ef4444',
   compromiso: '#10b981',
+  recurso: '#14b8a6',
 };
 
 export const TYPE_LABELS: Record<DreamType, string> = {
@@ -130,9 +131,10 @@ export const TYPE_LABELS: Record<DreamType, string> = {
   need:  'Necesidades',
   basta: '¡BASTA!',
   compromiso: 'Compromisos',
+  recurso: 'Recursos',
 };
 
-const DREAM_TYPES: DreamType[] = ['dream', 'value', 'need', 'basta', 'compromiso'];
+const DREAM_TYPES: DreamType[] = ['dream', 'value', 'need', 'basta', 'compromiso', 'recurso'];
 
 // --- Interfaces ---
 
@@ -193,20 +195,35 @@ export const useConvergenceAnalysis = (): ConvergenceData => {
     staleTime: 30000,
   });
 
+  const { data: resourcesData = [] } = useQuery<any[]>({
+    queryKey: ['/api/resources-map'],
+    staleTime: 30000,
+  });
+
   const allEntries = useMemo(() => {
     const commitments = commitmentsResponse?.data?.commitments || [];
     const mappedCompromisos = commitments.map((c: any) => ({
       id: c.id + 1_000_000,
       type: 'compromiso' as const,
       compromiso: c.commitmentText,
-      dream: null, value: null, need: null, basta: null,
+      dream: null, value: null, need: null, basta: null, recurso: null,
       location: [c.city, c.province].filter(Boolean).join(', ') || null,
       latitude: c.latitude?.toString() || null,
       longitude: c.longitude?.toString() || null,
       createdAt: c.createdAt,
     }));
-    return [...dreams, ...mappedCompromisos];
-  }, [dreams, commitmentsResponse]);
+    const mappedResources = (resourcesData || []).map((r: any) => ({
+      id: r.id + 2_000_000,
+      type: 'recurso' as const,
+      recurso: r.description,
+      dream: null, value: null, need: null, basta: null, compromiso: null,
+      location: [r.city, r.province].filter(Boolean).join(', ') || r.location || null,
+      latitude: r.latitude?.toString() || null,
+      longitude: r.longitude?.toString() || null,
+      createdAt: r.createdAt,
+    }));
+    return [...dreams, ...mappedCompromisos, ...mappedResources];
+  }, [dreams, commitmentsResponse, resourcesData]);
 
   return useMemo(() => {
     if (!allEntries.length) {
@@ -232,9 +249,9 @@ export const useConvergenceAnalysis = (): ConvergenceData => {
 
     const themeKeys = Object.keys(THEME_KEYWORDS) as ThemeKey[];
     for (const tk of themeKeys) {
-      themePresence[tk] = { dream: new Set(), value: new Set(), need: new Set(), basta: new Set(), compromiso: new Set() };
-      themeQuotes[tk] = { dream: [], value: [], need: [], basta: [], compromiso: [] };
-      themeHits[tk] = { dream: 0, value: 0, need: 0, basta: 0, compromiso: 0 };
+      themePresence[tk] = { dream: new Set(), value: new Set(), need: new Set(), basta: new Set(), compromiso: new Set(), recurso: new Set() };
+      themeQuotes[tk] = { dream: [], value: [], need: [], basta: [], compromiso: [], recurso: [] };
+      themeHits[tk] = { dream: 0, value: 0, need: 0, basta: 0, compromiso: 0, recurso: 0 };
     }
 
     // word-level cross-type tracking
@@ -250,7 +267,7 @@ export const useConvergenceAnalysis = (): ConvergenceData => {
 
         for (const w of words) {
           // track word-level stats
-          if (!wordByType[w]) wordByType[w] = { dream: 0, value: 0, need: 0, basta: 0, compromiso: 0 };
+          if (!wordByType[w]) wordByType[w] = { dream: 0, value: 0, need: 0, basta: 0, compromiso: 0, recurso: 0 };
           wordByType[w][type]++;
 
           // classify into themes
