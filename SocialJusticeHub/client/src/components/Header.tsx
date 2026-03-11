@@ -29,7 +29,7 @@ const Header = () => {
   // Determine if current page has a dark hero background
   const darkHeroRoutes = [
     '/', '/la-vision', '/el-instante-del-hombre-gris',
-    '/la-semilla-de-basta', '/el-mapa', '/manifiesto',
+    '/la-semilla-de-basta', '/el-mapa', '/el-mandato-vivo', '/manifiesto',
     '/bienvenida', '/dashboard', '/profile', '/challenges',
     '/life-areas', '/evaluacion', '/metas', '/checkin-semanal',
     '/coaching',
@@ -80,6 +80,7 @@ const Header = () => {
     { label: 'Hombre Gris', href: '/el-instante-del-hombre-gris' },
     { label: 'Semilla', href: '/la-semilla-de-basta' },
     { label: 'Mapa', href: '/el-mapa' },
+    { label: 'Mandato', href: '/el-mandato-vivo' },
     { label: 'Tribu', href: '/community' },
     { label: 'Recursos', href: '/recursos' },
   ];

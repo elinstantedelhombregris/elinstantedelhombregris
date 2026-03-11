@@ -51,6 +51,7 @@ const Footer = () => {
                 { label: 'El Hombre Gris', href: '/el-instante-del-hombre-gris' },
                 { label: 'La Semilla', href: '/la-semilla-de-basta' },
                 { label: 'El Mapa', href: '/el-mapa' },
+                { label: 'El Mandato Vivo', href: '/el-mandato-vivo' },
                 { label: 'La Tribu', href: '/community' }
               ].map((link) => (
                 <li key={link.href}>

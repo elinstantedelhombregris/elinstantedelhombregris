@@ -48,6 +48,7 @@ const Goals = React.lazy(() => import("@/pages/Goals"));
 const WeeklyCheckin = React.lazy(() => import("@/pages/WeeklyCheckin"));
 const CoachingChat = React.lazy(() => import("@/pages/CoachingChat"));
 const PoliticaPrivacidad = React.lazy(() => import("@/pages/PoliticaPrivacidad"));
+const ElMandatoVivo = React.lazy(() => import("@/pages/ElMandatoVivo"));
 const MandatoTerritorial = React.lazy(() => import("@/pages/MandatoTerritorial"));
 const MandatoPublico = React.lazy(() => import("@/pages/MandatoPublico"));
 
@@ -115,6 +116,7 @@ function Router() {
       <Route path="/checkin-semanal" component={WeeklyCheckin} />
       <Route path="/coaching" component={CoachingChat} />
 
+      <Route path="/el-mandato-vivo" component={ElMandatoVivo} />
       <Route path="/politica-privacidad" component={PoliticaPrivacidad} />
       <Route path="/mandato/:level/:name" component={MandatoTerritorial} />
       <Route path="/mandato-publico/:level/:name" component={MandatoPublico} />
