@@ -6,7 +6,6 @@ import SovereignMap from '@/components/SovereignMap';
 import MeaningNetwork from '@/components/MeaningNetwork';
 import MapPulseAnalytics from '@/components/MapPulseAnalytics';
 import ConstellationGraph from '@/components/ConstellationGraph';
-import GapAnalysisDashboard from '@/components/GapAnalysisDashboard';
 import PowerCTA from '@/components/PowerCTA';
 import NextStepCard from '@/components/NextStepCard';
 import {
@@ -204,33 +203,6 @@ const ElMapa = () => {
               </p>
             </div>
             <MapPulseAnalytics />
-          </div>
-        </section>
-
-        {/* GAP ENGINE: Need vs Resource Analysis */}
-        <section id="motor-brechas" className="py-24 bg-gradient-to-b from-[#0f1116] via-[#0a0a0a] to-[#0f1116] relative overflow-hidden">
-          <div className="container-content">
-            <div className="text-center mb-16">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-              >
-                <span className="text-teal-500 font-mono text-xs tracking-[0.3em] uppercase">
-                  El Mandato Vivo
-                </span>
-                <h2 className="text-4xl font-bold text-white mt-4 mb-6">
-                  El Motor de Brechas
-                </h2>
-                <p className="text-slate-400 max-w-2xl mx-auto">
-                  La distancia entre lo que necesitamos y lo que tenemos <strong className="text-white">es</strong> el plan de acción.
-                  Sin debates. Sin votaciones. Los datos hablan solos.
-                </p>
-              </motion.div>
-            </div>
-
-            <GapAnalysisDashboard />
           </div>
         </section>
 
