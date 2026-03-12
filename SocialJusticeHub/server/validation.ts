@@ -78,7 +78,9 @@ export const updateProfileSchema = z.object({
   
   location: z.string()
     .max(255, 'La ubicación no puede exceder 255 caracteres')
-    .optional()
+    .optional(),
+
+  dataShareOptOut: z.boolean().optional()
 });
 
 // Dream creation schema

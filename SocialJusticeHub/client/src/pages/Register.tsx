@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'wouter';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -26,9 +26,16 @@ const Register = () => {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [selectedProvince, setSelectedProvince] = useState('');
   const [selectedCity, setSelectedCity] = useState('');
+  const [honeypot, setHoneypot] = useState('');
+  const formLoadedAt = useRef(Date.now());
   const { toast } = useToast();
   const userContext = useContext(UserContext);
   const [_, setLocation] = useLocation();
+
+  // Reset timestamp when component mounts (in case of re-render)
+  useEffect(() => {
+    formLoadedAt.current = Date.now();
+  }, []);
 
   // Fetch provinces
   const { data: provinces = [] } = useQuery<{ id: number; name: string }[]>({
@@ -72,7 +79,7 @@ const Register = () => {
     }
     
     setIsLoading(true);
-    
+
     try {
       const userData = {
         name: formData.name,
@@ -80,9 +87,12 @@ const Register = () => {
         username: formData.username,
         password: formData.password,
         confirmPassword: formData.confirmPassword,
-        location: formData.location
+        location: formData.location,
+        // Anti-bot fields
+        _hp: honeypot,
+        _t: formLoadedAt.current
       };
-      
+
       const response = await apiRequest('POST', '/api/register', userData);
       const data = await response.json();
       
@@ -138,6 +148,20 @@ const Register = () => {
           
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">
+              {/* Honeypot - invisible to humans, bots auto-fill it */}
+              <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', top: '-9999px', opacity: 0, height: 0, overflow: 'hidden' }}>
+                <label htmlFor="website">Website</label>
+                <input
+                  type="text"
+                  id="website"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={honeypot}
+                  onChange={(e) => setHoneypot(e.target.value)}
+                />
+              </div>
+
               <div className="space-y-2">
                 <Label htmlFor="name">Nombre completo *</Label>
                 <Input 

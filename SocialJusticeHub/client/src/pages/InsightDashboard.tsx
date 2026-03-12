@@ -114,7 +114,7 @@ const InsightDashboard = () => {
               <div className="relative group">
                 <div className="w-16 h-16 rounded-2xl bg-white/5 overflow-hidden border border-white/10 group-hover:border-blue-500/30 transition-colors duration-300">
                   <Avatar className="h-full w-full rounded-none">
-                    <AvatarImage src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${user.username}`} className="opacity-80 group-hover:opacity-100 transition-opacity" />
+                    <AvatarImage src={user.avatarUrl || `https://api.dicebear.com/7.x/avataaars/svg?seed=${user.username}`} className={`${user.avatarUrl ? 'object-cover' : 'opacity-80'} group-hover:opacity-100 transition-opacity`} />
                     <AvatarFallback className="bg-slate-900 text-slate-400 font-bold text-xl">
                       {user.name.charAt(0)}
                     </AvatarFallback>

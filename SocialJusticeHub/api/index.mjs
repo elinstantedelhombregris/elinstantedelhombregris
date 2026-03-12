@@ -8,6 +8,2621 @@ var __export = (target, all) => {
     __defProp(target, name, { get: all[name], enumerable: true });
 };
 
+// shared/schema.ts
+var schema_exports = {};
+__export(schema_exports, {
+  activityFeed: () => activityFeed,
+  activityFeedRelations: () => activityFeedRelations,
+  aiInsights: () => aiInsights,
+  badges: () => badges,
+  badgesRelations: () => badgesRelations,
+  blockchainTransactions: () => blockchainTransactions,
+  blogPosts: () => blogPosts,
+  blogPostsRelations: () => blogPostsRelations,
+  challengeSteps: () => challengeSteps,
+  challengeStepsRelations: () => challengeStepsRelations,
+  challenges: () => challenges,
+  challengesRelations: () => challengesRelations,
+  civicAssessmentResponses: () => civicAssessmentResponses,
+  civicAssessmentResponsesRelations: () => civicAssessmentResponsesRelations,
+  civicAssessments: () => civicAssessments,
+  civicAssessmentsRelations: () => civicAssessmentsRelations,
+  civicGoals: () => civicGoals,
+  civicGoalsRelations: () => civicGoalsRelations,
+  civicProfiles: () => civicProfiles,
+  civicProfilesRelations: () => civicProfilesRelations,
+  coachingPrompts: () => coachingPrompts,
+  coachingPromptsRelations: () => coachingPromptsRelations,
+  coachingSessions: () => coachingSessions,
+  coachingSessionsRelations: () => coachingSessionsRelations,
+  communityMessages: () => communityMessages,
+  communityMessagesRelations: () => communityMessagesRelations,
+  communityPostActivity: () => communityPostActivity,
+  communityPostActivityRelations: () => communityPostActivityRelations,
+  communityPostInteractions: () => communityPostInteractions,
+  communityPostInteractionsRelations: () => communityPostInteractionsRelations,
+  communityPostLikes: () => communityPostLikes,
+  communityPostViews: () => communityPostViews,
+  communityPosts: () => communityPosts,
+  communityPostsRelations: () => communityPostsRelations,
+  courseCertificates: () => courseCertificates,
+  courseCertificatesRelations: () => courseCertificatesRelations,
+  courseLessons: () => courseLessons,
+  courseLessonsRelations: () => courseLessonsRelations,
+  courseQuizzes: () => courseQuizzes,
+  courseQuizzesRelations: () => courseQuizzesRelations,
+  courses: () => courses,
+  coursesRelations: () => coursesRelations,
+  dreams: () => dreams,
+  dreamsRelations: () => dreamsRelations,
+  geographicLocations: () => geographicLocations,
+  initiativeMembers: () => initiativeMembers,
+  initiativeMembersRelations: () => initiativeMembersRelations,
+  initiativeMessages: () => initiativeMessages,
+  initiativeMessagesRelations: () => initiativeMessagesRelations,
+  initiativeMilestones: () => initiativeMilestones,
+  initiativeMilestonesRelations: () => initiativeMilestonesRelations,
+  initiativeTasks: () => initiativeTasks,
+  initiativeTasksRelations: () => initiativeTasksRelations,
+  insertActivityFeedSchema: () => insertActivityFeedSchema,
+  insertAiInsightSchema: () => insertAiInsightSchema,
+  insertBadgeSchema: () => insertBadgeSchema,
+  insertBlockchainTransactionSchema: () => insertBlockchainTransactionSchema,
+  insertBlogPostSchema: () => insertBlogPostSchema,
+  insertChallengeSchema: () => insertChallengeSchema,
+  insertChallengeStepSchema: () => insertChallengeStepSchema,
+  insertCivicAssessmentResponseSchema: () => insertCivicAssessmentResponseSchema,
+  insertCivicAssessmentSchema: () => insertCivicAssessmentSchema,
+  insertCivicGoalSchema: () => insertCivicGoalSchema,
+  insertCivicProfileSchema: () => insertCivicProfileSchema,
+  insertCoachingPromptSchema: () => insertCoachingPromptSchema,
+  insertCoachingSessionSchema: () => insertCoachingSessionSchema,
+  insertCommunityMessageSchema: () => insertCommunityMessageSchema,
+  insertCommunityPostActivitySchema: () => insertCommunityPostActivitySchema,
+  insertCommunityPostInteractionSchema: () => insertCommunityPostInteractionSchema,
+  insertCommunityPostSchema: () => insertCommunityPostSchema,
+  insertCourseCertificateSchema: () => insertCourseCertificateSchema,
+  insertCourseLessonSchema: () => insertCourseLessonSchema,
+  insertCourseQuizSchema: () => insertCourseQuizSchema,
+  insertCourseSchema: () => insertCourseSchema,
+  insertDreamSchema: () => insertDreamSchema,
+  insertInitiativeMemberSchema: () => insertInitiativeMemberSchema,
+  insertInitiativeMessageSchema: () => insertInitiativeMessageSchema,
+  insertInitiativeMilestoneSchema: () => insertInitiativeMilestoneSchema,
+  insertInitiativeTaskSchema: () => insertInitiativeTaskSchema,
+  insertInspiringStorySchema: () => insertInspiringStorySchema,
+  insertIotSensorSchema: () => insertIotSensorSchema,
+  insertLifeAreaActionSchema: () => insertLifeAreaActionSchema,
+  insertLifeAreaBadgeSchema: () => insertLifeAreaBadgeSchema,
+  insertLifeAreaChallengeSchema: () => insertLifeAreaChallengeSchema,
+  insertLifeAreaCommunityStatsSchema: () => insertLifeAreaCommunityStatsSchema,
+  insertLifeAreaCurrencySchema: () => insertLifeAreaCurrencySchema,
+  insertLifeAreaIndicatorSchema: () => insertLifeAreaIndicatorSchema,
+  insertLifeAreaLevelSchema: () => insertLifeAreaLevelSchema,
+  insertLifeAreaMasterySchema: () => insertLifeAreaMasterySchema,
+  insertLifeAreaMilestoneSchema: () => insertLifeAreaMilestoneSchema,
+  insertLifeAreaNotificationSchema: () => insertLifeAreaNotificationSchema,
+  insertLifeAreaQuizQuestionSchema: () => insertLifeAreaQuizQuestionSchema,
+  insertLifeAreaQuizResponseSchema: () => insertLifeAreaQuizResponseSchema,
+  insertLifeAreaQuizSchema: () => insertLifeAreaQuizSchema,
+  insertLifeAreaRewardChestSchema: () => insertLifeAreaRewardChestSchema,
+  insertLifeAreaSchema: () => insertLifeAreaSchema,
+  insertLifeAreaScoreSchema: () => insertLifeAreaScoreSchema,
+  insertLifeAreaSocialInteractionSchema: () => insertLifeAreaSocialInteractionSchema,
+  insertLifeAreaStreakSchema: () => insertLifeAreaStreakSchema,
+  insertLifeAreaSubcategorySchema: () => insertLifeAreaSubcategorySchema,
+  insertLifeAreaXpLogSchema: () => insertLifeAreaXpLogSchema,
+  insertMandateSuggestionSchema: () => insertMandateSuggestionSchema,
+  insertMeetingParticipantSchema: () => insertMeetingParticipantSchema,
+  insertMembershipRequestSchema: () => insertMembershipRequestSchema,
+  insertMonthlyRankingSchema: () => insertMonthlyRankingSchema,
+  insertNotificationSchema: () => insertNotificationSchema,
+  insertPostBookmarkSchema: () => insertPostBookmarkSchema,
+  insertPostCommentSchema: () => insertPostCommentSchema,
+  insertPostLikeSchema: () => insertPostLikeSchema,
+  insertPostTagSchema: () => insertPostTagSchema,
+  insertPostViewSchema: () => insertPostViewSchema,
+  insertProvinceRankingSchema: () => insertProvinceRankingSchema,
+  insertQuizAttemptAnswerSchema: () => insertQuizAttemptAnswerSchema,
+  insertQuizAttemptSchema: () => insertQuizAttemptSchema,
+  insertQuizQuestionSchema: () => insertQuizQuestionSchema,
+  insertRecommendationSchema: () => insertRecommendationSchema,
+  insertResourceSchema: () => insertResourceSchema,
+  insertSensorDataSchema: () => insertSensorDataSchema,
+  insertSentimentAnalysisSchema: () => insertSentimentAnalysisSchema,
+  insertTerritoryMandateSchema: () => insertTerritoryMandateSchema,
+  insertTextEmbeddingSchema: () => insertTextEmbeddingSchema,
+  insertUserActionSchema: () => insertUserActionSchema,
+  insertUserBadgeSchema: () => insertUserBadgeSchema,
+  insertUserChallengeProgressSchema: () => insertUserChallengeProgressSchema,
+  insertUserCommitmentSchema: () => insertUserCommitmentSchema,
+  insertUserCourseProgressSchema: () => insertUserCourseProgressSchema,
+  insertUserDailyActivitySchema: () => insertUserDailyActivitySchema,
+  insertUserLessonProgressSchema: () => insertUserLessonProgressSchema,
+  insertUserLevelSchema: () => insertUserLevelSchema,
+  insertUserLifeAreaBadgeSchema: () => insertUserLifeAreaBadgeSchema,
+  insertUserLifeAreaChallengeSchema: () => insertUserLifeAreaChallengeSchema,
+  insertUserLifeAreaProgressSchema: () => insertUserLifeAreaProgressSchema,
+  insertUserProfileSchema: () => insertUserProfileSchema,
+  insertUserProgressSchema: () => insertUserProgressSchema,
+  insertUserResourceSchema: () => insertUserResourceSchema,
+  insertUserSchema: () => insertUserSchema,
+  insertVrMeetingSchema: () => insertVrMeetingSchema,
+  insertWeeklyCheckinSchema: () => insertWeeklyCheckinSchema,
+  insertWeeklyRankingSchema: () => insertWeeklyRankingSchema,
+  inspiringStories: () => inspiringStories,
+  inspiringStoriesRelations: () => inspiringStoriesRelations,
+  iotSensors: () => iotSensors,
+  iotSensorsRelations: () => iotSensorsRelations,
+  lifeAreaActions: () => lifeAreaActions,
+  lifeAreaActionsRelations: () => lifeAreaActionsRelations,
+  lifeAreaBadges: () => lifeAreaBadges,
+  lifeAreaBadgesRelations: () => lifeAreaBadgesRelations,
+  lifeAreaChallenges: () => lifeAreaChallenges,
+  lifeAreaChallengesRelations: () => lifeAreaChallengesRelations,
+  lifeAreaCommunityStats: () => lifeAreaCommunityStats,
+  lifeAreaCommunityStatsRelations: () => lifeAreaCommunityStatsRelations,
+  lifeAreaCurrency: () => lifeAreaCurrency,
+  lifeAreaCurrencyRelations: () => lifeAreaCurrencyRelations,
+  lifeAreaIndicators: () => lifeAreaIndicators,
+  lifeAreaIndicatorsRelations: () => lifeAreaIndicatorsRelations,
+  lifeAreaLevels: () => lifeAreaLevels,
+  lifeAreaLevelsRelations: () => lifeAreaLevelsRelations,
+  lifeAreaMastery: () => lifeAreaMastery,
+  lifeAreaMasteryRelations: () => lifeAreaMasteryRelations,
+  lifeAreaMilestones: () => lifeAreaMilestones,
+  lifeAreaMilestonesRelations: () => lifeAreaMilestonesRelations,
+  lifeAreaNotifications: () => lifeAreaNotifications,
+  lifeAreaNotificationsRelations: () => lifeAreaNotificationsRelations,
+  lifeAreaQuizQuestions: () => lifeAreaQuizQuestions,
+  lifeAreaQuizQuestionsRelations: () => lifeAreaQuizQuestionsRelations,
+  lifeAreaQuizResponses: () => lifeAreaQuizResponses,
+  lifeAreaQuizResponsesRelations: () => lifeAreaQuizResponsesRelations,
+  lifeAreaQuizzes: () => lifeAreaQuizzes,
+  lifeAreaQuizzesRelations: () => lifeAreaQuizzesRelations,
+  lifeAreaRewardChests: () => lifeAreaRewardChests,
+  lifeAreaRewardChestsRelations: () => lifeAreaRewardChestsRelations,
+  lifeAreaScores: () => lifeAreaScores,
+  lifeAreaScoresRelations: () => lifeAreaScoresRelations,
+  lifeAreaSocialInteractions: () => lifeAreaSocialInteractions,
+  lifeAreaSocialInteractionsRelations: () => lifeAreaSocialInteractionsRelations,
+  lifeAreaStreaks: () => lifeAreaStreaks,
+  lifeAreaStreaksRelations: () => lifeAreaStreaksRelations,
+  lifeAreaSubcategories: () => lifeAreaSubcategories,
+  lifeAreaSubcategoriesRelations: () => lifeAreaSubcategoriesRelations,
+  lifeAreaXpLog: () => lifeAreaXpLog,
+  lifeAreaXpLogRelations: () => lifeAreaXpLogRelations,
+  lifeAreas: () => lifeAreas,
+  lifeAreasRelations: () => lifeAreasRelations,
+  mandateSuggestions: () => mandateSuggestions,
+  mandateSuggestionsRelations: () => mandateSuggestionsRelations,
+  meetingParticipants: () => meetingParticipants,
+  meetingParticipantsRelations: () => meetingParticipantsRelations,
+  membershipRequests: () => membershipRequests,
+  membershipRequestsRelations: () => membershipRequestsRelations,
+  monthlyRankings: () => monthlyRankings,
+  monthlyRankingsRelations: () => monthlyRankingsRelations,
+  notifications: () => notifications,
+  notificationsRelations: () => notificationsRelations,
+  postBookmarks: () => postBookmarks,
+  postBookmarksRelations: () => postBookmarksRelations,
+  postComments: () => postComments,
+  postCommentsRelations: () => postCommentsRelations,
+  postLikes: () => postLikes,
+  postLikesRelations: () => postLikesRelations,
+  postTags: () => postTags,
+  postTagsRelations: () => postTagsRelations,
+  postViews: () => postViews,
+  postViewsRelations: () => postViewsRelations,
+  provinceRankings: () => provinceRankings,
+  provinceRankingsRelations: () => provinceRankingsRelations,
+  quizAttemptAnswers: () => quizAttemptAnswers,
+  quizAttemptAnswersRelations: () => quizAttemptAnswersRelations,
+  quizAttempts: () => quizAttempts,
+  quizAttemptsRelations: () => quizAttemptsRelations,
+  quizQuestions: () => quizQuestions,
+  quizQuestionsRelations: () => quizQuestionsRelations,
+  recommendations: () => recommendations,
+  recommendationsRelations: () => recommendationsRelations,
+  resources: () => resources,
+  sensorData: () => sensorData,
+  sensorDataRelations: () => sensorDataRelations,
+  sentimentAnalysis: () => sentimentAnalysis,
+  territoryMandates: () => territoryMandates,
+  territoryMandatesRelations: () => territoryMandatesRelations,
+  textEmbeddings: () => textEmbeddings,
+  userActions: () => userActions,
+  userActionsRelations: () => userActionsRelations,
+  userBadges: () => userBadges,
+  userBadgesRelations: () => userBadgesRelations,
+  userChallengeProgress: () => userChallengeProgress,
+  userChallengeProgressRelations: () => userChallengeProgressRelations,
+  userCommitments: () => userCommitments,
+  userCommitmentsRelations: () => userCommitmentsRelations,
+  userCourseProgress: () => userCourseProgress,
+  userCourseProgressRelations: () => userCourseProgressRelations,
+  userDailyActivity: () => userDailyActivity,
+  userDailyActivityRelations: () => userDailyActivityRelations,
+  userLessonProgress: () => userLessonProgress,
+  userLessonProgressRelations: () => userLessonProgressRelations,
+  userLevels: () => userLevels,
+  userLevelsRelations: () => userLevelsRelations,
+  userLifeAreaBadges: () => userLifeAreaBadges,
+  userLifeAreaBadgesRelations: () => userLifeAreaBadgesRelations,
+  userLifeAreaChallenges: () => userLifeAreaChallenges,
+  userLifeAreaChallengesRelations: () => userLifeAreaChallengesRelations,
+  userLifeAreaProgress: () => userLifeAreaProgress,
+  userLifeAreaProgressRelations: () => userLifeAreaProgressRelations,
+  userProfiles: () => userProfiles,
+  userProfilesRelations: () => userProfilesRelations,
+  userProgress: () => userProgress,
+  userProgressRelations: () => userProgressRelations,
+  userResources: () => userResources,
+  userResourcesRelations: () => userResourcesRelations,
+  users: () => users,
+  usersRelations: () => usersRelations,
+  vrMeetings: () => vrMeetings,
+  vrMeetingsRelations: () => vrMeetingsRelations,
+  weeklyCheckins: () => weeklyCheckins,
+  weeklyCheckinsRelations: () => weeklyCheckinsRelations,
+  weeklyRankings: () => weeklyRankings,
+  weeklyRankingsRelations: () => weeklyRankingsRelations
+});
+import { pgTable, serial, integer, text, real, boolean, unique, index } from "drizzle-orm/pg-core";
+import { sql } from "drizzle-orm";
+import { createInsertSchema } from "drizzle-zod";
+import { relations } from "drizzle-orm";
+var users, dreams, userResources, communityPosts, resources, inspiringStories, communityPostInteractions, communityMessages, communityPostActivity, geographicLocations, communityPostLikes, communityPostViews, sentimentAnalysis, textEmbeddings, userProfiles, recommendations, aiInsights, blockchainTransactions, iotSensors, sensorData, vrMeetings, meetingParticipants, blogPosts, postTags, postLikes, postComments, postBookmarks, postViews, courses, courseLessons, courseQuizzes, quizQuestions, userCourseProgress, userLessonProgress, quizAttempts, quizAttemptAnswers, courseCertificates, userLevels, challenges, challengeSteps, userChallengeProgress, badges, userBadges, userDailyActivity, userCommitments, userActions, userProgress, weeklyRankings, monthlyRankings, provinceRankings, territoryMandates, mandateSuggestions, initiativeMembers, initiativeMilestones, initiativeMessages, initiativeTasks, activityFeed, membershipRequests, notifications, lifeAreas, lifeAreaSubcategories, lifeAreaQuizzes, lifeAreaQuizQuestions, lifeAreaQuizResponses, lifeAreaScores, lifeAreaActions, userLifeAreaProgress, lifeAreaMilestones, lifeAreaIndicators, lifeAreaCommunityStats, lifeAreaXpLog, lifeAreaLevels, lifeAreaStreaks, lifeAreaBadges, userLifeAreaBadges, lifeAreaCurrency, lifeAreaRewardChests, lifeAreaChallenges, userLifeAreaChallenges, lifeAreaMastery, lifeAreaNotifications, lifeAreaSocialInteractions, usersRelations, userResourcesRelations, territoryMandatesRelations, mandateSuggestionsRelations, dreamsRelations, communityPostsRelations, communityPostInteractionsRelations, communityMessagesRelations, communityPostActivityRelations, userProfilesRelations, recommendationsRelations, vrMeetingsRelations, meetingParticipantsRelations, userLevelsRelations, challengesRelations, challengeStepsRelations, userChallengeProgressRelations, badgesRelations, userBadgesRelations, userDailyActivityRelations, userCommitmentsRelations, userActionsRelations, userProgressRelations, weeklyRankingsRelations, monthlyRankingsRelations, provinceRankingsRelations, blogPostsRelations, postTagsRelations, postLikesRelations, postCommentsRelations, postBookmarksRelations, postViewsRelations, coursesRelations, courseLessonsRelations, courseQuizzesRelations, quizQuestionsRelations, userCourseProgressRelations, userLessonProgressRelations, quizAttemptsRelations, quizAttemptAnswersRelations, courseCertificatesRelations, iotSensorsRelations, sensorDataRelations, inspiringStoriesRelations, initiativeMembersRelations, initiativeMilestonesRelations, initiativeMessagesRelations, initiativeTasksRelations, activityFeedRelations, membershipRequestsRelations, notificationsRelations, lifeAreasRelations, lifeAreaSubcategoriesRelations, lifeAreaQuizzesRelations, lifeAreaQuizQuestionsRelations, lifeAreaQuizResponsesRelations, lifeAreaScoresRelations, lifeAreaActionsRelations, userLifeAreaProgressRelations, lifeAreaMilestonesRelations, lifeAreaIndicatorsRelations, lifeAreaCommunityStatsRelations, lifeAreaXpLogRelations, lifeAreaLevelsRelations, lifeAreaStreaksRelations, lifeAreaBadgesRelations, userLifeAreaBadgesRelations, lifeAreaCurrencyRelations, lifeAreaRewardChestsRelations, lifeAreaChallengesRelations, userLifeAreaChallengesRelations, lifeAreaMasteryRelations, lifeAreaNotificationsRelations, lifeAreaSocialInteractionsRelations, civicAssessments, civicAssessmentResponses, civicProfiles, civicGoals, weeklyCheckins, coachingSessions, coachingPrompts, insertUserSchema, insertDreamSchema, insertCommunityPostSchema, insertResourceSchema, insertInspiringStorySchema, insertSentimentAnalysisSchema, insertTextEmbeddingSchema, insertUserProfileSchema, insertRecommendationSchema, insertAiInsightSchema, insertBlockchainTransactionSchema, insertIotSensorSchema, insertSensorDataSchema, insertVrMeetingSchema, insertMeetingParticipantSchema, insertUserResourceSchema, insertTerritoryMandateSchema, insertMandateSuggestionSchema, insertUserLevelSchema, insertChallengeSchema, insertChallengeStepSchema, insertUserChallengeProgressSchema, insertBadgeSchema, insertUserBadgeSchema, insertUserDailyActivitySchema, insertUserCommitmentSchema, insertUserActionSchema, insertUserProgressSchema, insertWeeklyRankingSchema, insertMonthlyRankingSchema, insertProvinceRankingSchema, insertBlogPostSchema, insertPostTagSchema, insertPostLikeSchema, insertPostCommentSchema, insertPostBookmarkSchema, insertPostViewSchema, insertCourseSchema, insertCourseLessonSchema, insertCourseQuizSchema, insertQuizQuestionSchema, insertUserCourseProgressSchema, insertUserLessonProgressSchema, insertQuizAttemptSchema, insertQuizAttemptAnswerSchema, insertCourseCertificateSchema, insertCommunityPostInteractionSchema, insertCommunityMessageSchema, insertCommunityPostActivitySchema, insertInitiativeMemberSchema, insertInitiativeMilestoneSchema, insertInitiativeMessageSchema, insertInitiativeTaskSchema, insertActivityFeedSchema, insertMembershipRequestSchema, insertNotificationSchema, insertLifeAreaSchema, insertLifeAreaSubcategorySchema, insertLifeAreaQuizSchema, insertLifeAreaQuizQuestionSchema, insertLifeAreaQuizResponseSchema, insertLifeAreaScoreSchema, insertLifeAreaActionSchema, insertUserLifeAreaProgressSchema, insertLifeAreaMilestoneSchema, insertLifeAreaIndicatorSchema, insertLifeAreaCommunityStatsSchema, insertLifeAreaXpLogSchema, insertLifeAreaLevelSchema, insertLifeAreaStreakSchema, insertLifeAreaBadgeSchema, insertUserLifeAreaBadgeSchema, insertLifeAreaCurrencySchema, insertLifeAreaRewardChestSchema, insertLifeAreaChallengeSchema, insertUserLifeAreaChallengeSchema, insertLifeAreaMasterySchema, insertLifeAreaNotificationSchema, insertLifeAreaSocialInteractionSchema, civicAssessmentsRelations, civicAssessmentResponsesRelations, civicProfilesRelations, civicGoalsRelations, weeklyCheckinsRelations, coachingSessionsRelations, coachingPromptsRelations, insertCivicAssessmentSchema, insertCivicAssessmentResponseSchema, insertCivicProfileSchema, insertCivicGoalSchema, insertWeeklyCheckinSchema, insertCoachingSessionSchema, insertCoachingPromptSchema;
+var init_schema = __esm({
+  "shared/schema.ts"() {
+    "use strict";
+    users = pgTable("users", {
+      id: serial("id").primaryKey(),
+      username: text("username").notNull().unique(),
+      password: text("password").notNull(),
+      // Hashed password
+      email: text("email").notNull().unique(),
+      name: text("name").notNull(),
+      location: text("location"),
+      createdAt: text("created_at").default(sql`now()`),
+      updatedAt: text("updated_at").default(sql`now()`),
+      lastLogin: text("last_login"),
+      loginAttempts: integer("login_attempts").default(0),
+      lockedUntil: text("locked_until"),
+      isActive: boolean("is_active").default(true),
+      emailVerified: boolean("email_verified").default(false),
+      // Email verification
+      emailVerificationToken: text("email_verification_token"),
+      emailVerificationExpires: text("email_verification_expires"),
+      // Password reset
+      passwordResetToken: text("password_reset_token"),
+      passwordResetExpires: text("password_reset_expires"),
+      // Profile image (base64 data URI)
+      avatarUrl: text("avatar_url"),
+      // Onboarding
+      onboardingCompleted: boolean("onboarding_completed").default(false),
+      // 2FA
+      twoFactorEnabled: boolean("two_factor_enabled").default(false),
+      twoFactorSecret: text("two_factor_secret"),
+      twoFactorBackupCodes: text("two_factor_backup_codes"),
+      // JSON array
+      // Open Data opt-out
+      dataShareOptOut: boolean("data_share_opt_out").default(false)
+    });
+    dreams = pgTable("dreams", {
+      id: serial("id").primaryKey(),
+      userId: integer("user_id").references(() => users.id),
+      dream: text("dream"),
+      value: text("value"),
+      need: text("need"),
+      basta: text("basta"),
+      location: text("location"),
+      latitude: text("latitude"),
+      longitude: text("longitude"),
+      createdAt: text("created_at").default(sql`now()`),
+      type: text("type").notNull().default("dream").$type()
+    });
+    userResources = pgTable("user_resources", {
+      id: serial("id").primaryKey(),
+      userId: integer("user_id").references(() => users.id),
+      description: text("description").notNull(),
+      category: text("category").notNull().$type(),
+      availableHours: integer("available_hours"),
+      // hours per week
+      latitude: real("latitude"),
+      longitude: real("longitude"),
+      location: text("location"),
+      province: text("province"),
+      city: text("city"),
+      isActive: boolean("is_active").default(true),
+      createdAt: text("created_at").default(sql`now()`)
+    });
+    communityPosts = pgTable("community_posts", {
+      id: serial("id").primaryKey(),
+      userId: integer("user_id").references(() => users.id),
+      title: text("title").notNull(),
+      description: text("description").notNull(),
+      type: text("type").notNull(),
+      // employment, exchange, volunteer, project, donation
+      location: text("location").notNull(),
+      participants: integer("participants"),
+      status: text("status").notNull().default("active").$type(),
+      views: integer("views").default(0),
+      expiresAt: text("expires_at"),
+      contactEmail: text("contact_email"),
+      contactPhone: text("contact_phone"),
+      // Geographic data
+      latitude: real("latitude"),
+      longitude: real("longitude"),
+      province: text("province"),
+      city: text("city"),
+      postalCode: text("postal_code"),
+      country: text("country").default("Argentina"),
+      address: text("address"),
+      // New fields for initiative features
+      requiresApproval: boolean("requires_approval").default(false),
+      memberCount: integer("member_count").default(0),
+      settings: text("settings"),
+      // JSON with initiative settings
+      createdAt: text("created_at").default(sql`now()`),
+      updatedAt: text("updated_at").default(sql`now()`)
+    });
+    resources = pgTable("resources", {
+      id: serial("id").primaryKey(),
+      title: text("title").notNull(),
+      description: text("description").notNull(),
+      category: text("category").notNull(),
+      url: text("url"),
+      createdAt: text("created_at").default(sql`now()`)
+    });
+    inspiringStories = pgTable("inspiring_stories", {
+      id: serial("id").primaryKey(),
+      title: text("title").notNull(),
+      excerpt: text("excerpt").notNull(),
+      content: text("content").notNull(),
+      authorId: integer("author_id").references(() => users.id),
+      authorName: text("author_name"),
+      // Para casos donde no hay usuario registrado
+      authorEmail: text("author_email"),
+      // Para casos donde no hay usuario registrado
+      category: text("category").notNull().$type(),
+      location: text("location").notNull(),
+      province: text("province"),
+      city: text("city"),
+      // Impact metrics
+      impactType: text("impact_type").notNull().$type(),
+      impactCount: integer("impact_count").notNull(),
+      impactDescription: text("impact_description").notNull(),
+      // Media
+      imageUrl: text("image_url"),
+      videoUrl: text("video_url"),
+      // Verification and moderation
+      verified: boolean("verified").default(false),
+      featured: boolean("featured").default(false),
+      status: text("status").notNull().default("pending").$type(),
+      moderatedBy: integer("moderated_by").references(() => users.id),
+      moderatedAt: text("moderated_at"),
+      moderationNotes: text("moderation_notes"),
+      // Engagement metrics
+      views: integer("views").default(0),
+      likes: integer("likes").default(0),
+      shares: integer("shares").default(0),
+      // Metadata
+      tags: text("tags"),
+      // JSON array of tags
+      relatedPostId: integer("related_post_id").references(() => communityPosts.id),
+      // Link to related community post
+      createdAt: text("created_at").default(sql`now()`),
+      updatedAt: text("updated_at").default(sql`now()`),
+      publishedAt: text("published_at")
+    });
+    communityPostInteractions = pgTable("community_post_interactions", {
+      id: serial("id").primaryKey(),
+      postId: integer("post_id").references(() => communityPosts.id),
+      userId: integer("user_id").references(() => users.id),
+      type: text("type").notNull().$type(),
+      status: text("status").notNull().default("pending").$type(),
+      message: text("message"),
+      createdAt: text("created_at").default(sql`now()`),
+      updatedAt: text("updated_at").default(sql`now()`)
+    });
+    communityMessages = pgTable("community_messages", {
+      id: serial("id").primaryKey(),
+      senderId: integer("sender_id").references(() => users.id),
+      receiverId: integer("receiver_id").references(() => users.id),
+      postId: integer("post_id").references(() => communityPosts.id),
+      subject: text("subject").notNull(),
+      content: text("content").notNull(),
+      read: boolean("read").default(false),
+      createdAt: text("created_at").default(sql`now()`)
+    });
+    communityPostActivity = pgTable("community_post_activity", {
+      id: serial("id").primaryKey(),
+      postId: integer("post_id").references(() => communityPosts.id),
+      userId: integer("user_id").references(() => users.id),
+      // Can be null for anonymous views
+      activityType: text("activity_type").notNull().$type(),
+      metadata: text("metadata"),
+      // JSON string for additional data
+      createdAt: text("created_at").default(sql`now()`)
+    });
+    geographicLocations = pgTable("geographic_locations", {
+      id: serial("id").primaryKey(),
+      name: text("name").notNull(),
+      type: text("type").notNull().$type(),
+      parentId: integer("parent_id").references(() => geographicLocations.id),
+      latitude: real("latitude"),
+      longitude: real("longitude"),
+      postalCode: text("postal_code"),
+      country: text("country").default("Argentina"),
+      createdAt: text("created_at").default(sql`now()`)
+    });
+    communityPostLikes = pgTable("community_post_likes", {
+      id: serial("id").primaryKey(),
+      postId: integer("post_id").references(() => communityPosts.id),
+      userId: integer("user_id").references(() => users.id),
+      createdAt: text("created_at").default(sql`now()`)
+    }, (table) => ({
+      uniqueLike: unique("cpl_post_user_unique").on(table.postId, table.userId)
+    }));
+    communityPostViews = pgTable("community_post_views", {
+      id: serial("id").primaryKey(),
+      postId: integer("post_id").references(() => communityPosts.id),
+      userId: integer("user_id").references(() => users.id),
+      // Can be null for anonymous views
+      ipAddress: text("ip_address"),
+      userAgent: text("user_agent"),
+      viewedAt: text("viewed_at").default(sql`now()`)
+    });
+    sentimentAnalysis = pgTable("sentiment_analysis", {
+      id: serial("id").primaryKey(),
+      contentId: integer("content_id").notNull(),
+      contentType: text("content_type").notNull(),
+      // 'dream', 'post', 'story', etc.
+      sentiment: text("sentiment").notNull(),
+      // 'positive', 'negative', 'neutral'
+      confidence: real("confidence"),
+      emotions: text("emotions"),
+      // JSON string para emociones
+      keywords: text("keywords"),
+      // JSON string para palabras clave
+      topics: text("topics"),
+      // JSON string para temas
+      analyzedAt: text("analyzed_at").default(sql`now()`)
+    });
+    textEmbeddings = pgTable("text_embeddings", {
+      id: serial("id").primaryKey(),
+      contentId: integer("content_id").notNull(),
+      contentType: text("content_type").notNull(),
+      embedding: text("embedding"),
+      // Blob para vector de embeddings
+      model: text("model").notNull(),
+      createdAt: text("created_at").default(sql`now()`)
+    });
+    userProfiles = pgTable("user_profiles", {
+      id: serial("id").primaryKey(),
+      userId: integer("user_id").references(() => users.id).unique(),
+      interests: text("interests"),
+      // JSON string para intereses
+      values: text("values"),
+      // JSON string para valores inferidos
+      personalityTraits: text("personality_traits"),
+      // JSON string para rasgos
+      engagementScore: real("engagement_score"),
+      lastAnalyzed: text("last_analyzed")
+    });
+    recommendations = pgTable("recommendations", {
+      id: serial("id").primaryKey(),
+      userId: integer("user_id").references(() => users.id),
+      recommendationType: text("recommendation_type").notNull(),
+      // 'content', 'connection', 'project'
+      targetId: integer("target_id").notNull(),
+      targetType: text("target_type").notNull(),
+      score: real("score"),
+      reason: text("reason"),
+      createdAt: text("created_at").default(sql`now()`),
+      clicked: boolean("clicked").default(false),
+      dismissed: boolean("dismissed").default(false)
+    });
+    aiInsights = pgTable("ai_insights", {
+      id: serial("id").primaryKey(),
+      insightType: text("insight_type").notNull(),
+      // 'trend', 'pattern', 'prediction'
+      scope: text("scope").notNull(),
+      // 'global', 'regional', 'local'
+      title: text("title").notNull(),
+      description: text("description").notNull(),
+      data: text("data"),
+      // JSON string para datos adicionales
+      confidence: real("confidence"),
+      validUntil: text("valid_until"),
+      createdAt: text("created_at").default(sql`now()`)
+    });
+    blockchainTransactions = pgTable("blockchain_transactions", {
+      id: serial("id").primaryKey(),
+      txHash: text("tx_hash").notNull().unique(),
+      userId: integer("user_id").references(() => users.id),
+      transactionType: text("transaction_type").notNull(),
+      // 'vote', 'donation', 'certification'
+      targetId: integer("target_id"),
+      targetType: text("target_type"),
+      amount: text("amount"),
+      // String para precisión de criptomonedas
+      network: text("network").notNull(),
+      status: text("status").notNull(),
+      // 'pending', 'confirmed', 'failed'
+      createdAt: text("created_at").default(sql`now()`),
+      confirmedAt: text("confirmed_at")
+    });
+    iotSensors = pgTable("iot_sensors", {
+      id: serial("id").primaryKey(),
+      sensorId: text("sensor_id").notNull().unique(),
+      sensorType: text("sensor_type").notNull(),
+      location: text("location").notNull(),
+      latitude: real("latitude"),
+      longitude: real("longitude"),
+      installationDate: text("installation_date"),
+      lastReading: text("last_reading"),
+      status: text("status").notNull(),
+      // 'active', 'inactive', 'maintenance'
+      metadata: text("metadata")
+      // JSON string para configuración
+    });
+    sensorData = pgTable("sensor_data", {
+      id: serial("id").primaryKey(),
+      sensorId: integer("sensor_id").references(() => iotSensors.id),
+      reading: text("reading").notNull(),
+      // JSON string para datos del sensor
+      timestamp: text("timestamp").default(sql`now()`),
+      quality: text("quality"),
+      // 'good', 'moderate', 'poor'
+      processed: boolean("processed").default(false)
+    });
+    vrMeetings = pgTable("vr_meetings", {
+      id: serial("id").primaryKey(),
+      title: text("title").notNull(),
+      description: text("description"),
+      organizerId: integer("organizer_id").references(() => users.id),
+      maxParticipants: integer("max_participants"),
+      scheduledFor: text("scheduled_for"),
+      duration: integer("duration"),
+      meetingUrl: text("meeting_url"),
+      recordingUrl: text("recording_url"),
+      status: text("status").notNull(),
+      // 'scheduled', 'active', 'completed', 'cancelled'
+      metadata: text("metadata"),
+      // JSON string para configuración VR
+      createdAt: text("created_at").default(sql`now()`)
+    });
+    meetingParticipants = pgTable("meeting_participants", {
+      id: serial("id").primaryKey(),
+      meetingId: integer("meeting_id").references(() => vrMeetings.id),
+      userId: integer("user_id").references(() => users.id),
+      joinedAt: text("joined_at"),
+      leftAt: text("left_at"),
+      role: text("role")
+      // 'organizer', 'participant', 'moderator'
+    });
+    blogPosts = pgTable("blog_posts", {
+      id: serial("id").primaryKey(),
+      title: text("title").notNull(),
+      slug: text("slug").notNull().unique(),
+      excerpt: text("excerpt").notNull(),
+      content: text("content").notNull(),
+      authorId: integer("author_id").references(() => users.id),
+      publishedAt: text("published_at").default(sql`now()`),
+      category: text("category").notNull(),
+      featured: boolean("featured").default(false),
+      imageUrl: text("image_url"),
+      videoUrl: text("video_url"),
+      viewCount: integer("view_count").default(0),
+      type: text("type").notNull().$type(),
+      createdAt: text("created_at").default(sql`now()`),
+      updatedAt: text("updated_at").default(sql`now()`)
+    });
+    postTags = pgTable("post_tags", {
+      id: serial("id").primaryKey(),
+      postId: integer("post_id").references(() => blogPosts.id),
+      tag: text("tag").notNull()
+    });
+    postLikes = pgTable("post_likes", {
+      id: serial("id").primaryKey(),
+      postId: integer("post_id").references(() => blogPosts.id),
+      userId: integer("user_id").references(() => users.id),
+      createdAt: text("created_at").default(sql`now()`)
+    });
+    postComments = pgTable("post_comments", {
+      id: serial("id").primaryKey(),
+      postId: integer("post_id").references(() => blogPosts.id),
+      userId: integer("user_id").references(() => users.id),
+      parentId: integer("parent_id").references(() => postComments.id),
+      // Para replies
+      content: text("content").notNull(),
+      createdAt: text("created_at").default(sql`now()`),
+      updatedAt: text("updated_at").default(sql`now()`)
+    });
+    postBookmarks = pgTable("post_bookmarks", {
+      id: serial("id").primaryKey(),
+      postId: integer("post_id").references(() => blogPosts.id),
+      userId: integer("user_id").references(() => users.id),
+      createdAt: text("created_at").default(sql`now()`)
+    });
+    postViews = pgTable("post_views", {
+      id: serial("id").primaryKey(),
+      postId: integer("post_id").references(() => blogPosts.id),
+      userId: integer("user_id").references(() => users.id),
+      // Puede ser null para views anónimas
+      sessionId: text("session_id"),
+      // Para tracking de usuarios no autenticados
+      viewedAt: text("viewed_at").default(sql`now()`)
+    });
+    courses = pgTable("courses", {
+      id: serial("id").primaryKey(),
+      title: text("title").notNull(),
+      slug: text("slug").notNull().unique(),
+      description: text("description").notNull(),
+      excerpt: text("excerpt"),
+      // Resumen corto para cards
+      category: text("category").notNull().$type(),
+      level: text("level").notNull().$type(),
+      duration: integer("duration"),
+      // Duración estimada en minutos
+      thumbnailUrl: text("thumbnail_url"),
+      videoUrl: text("video_url"),
+      // Opcional: video introductorio
+      orderIndex: integer("order_index").default(0),
+      isPublished: boolean("is_published").default(false),
+      isFeatured: boolean("is_featured").default(false),
+      requiresAuth: boolean("requires_auth").default(false),
+      // Si requiere autenticación
+      authorId: integer("author_id").references(() => users.id),
+      viewCount: integer("view_count").default(0),
+      createdAt: text("created_at").default(sql`now()`),
+      updatedAt: text("updated_at").default(sql`now()`)
+    });
+    courseLessons = pgTable("course_lessons", {
+      id: serial("id").primaryKey(),
+      courseId: integer("course_id").references(() => courses.id),
+      title: text("title").notNull(),
+      description: text("description"),
+      content: text("content").notNull(),
+      // Contenido HTML/Markdown
+      orderIndex: integer("order_index").notNull(),
+      type: text("type").notNull().$type(),
+      videoUrl: text("video_url"),
+      documentUrl: text("document_url"),
+      duration: integer("duration"),
+      // Duración estimada en minutos
+      isRequired: boolean("is_required").default(true),
+      createdAt: text("created_at").default(sql`now()`),
+      updatedAt: text("updated_at").default(sql`now()`)
+    });
+    courseQuizzes = pgTable("course_quizzes", {
+      id: serial("id").primaryKey(),
+      courseId: integer("course_id").references(() => courses.id).unique(),
+      title: text("title").notNull(),
+      description: text("description"),
+      passingScore: integer("passing_score").default(70),
+      // Porcentaje mínimo para aprobar
+      timeLimit: integer("time_limit"),
+      // Tiempo límite en minutos (opcional)
+      allowRetakes: boolean("allow_retakes").default(true),
+      maxAttempts: integer("max_attempts"),
+      // Máximo de intentos (null = ilimitado)
+      createdAt: text("created_at").default(sql`now()`),
+      updatedAt: text("updated_at").default(sql`now()`)
+    });
+    quizQuestions = pgTable("quiz_questions", {
+      id: serial("id").primaryKey(),
+      quizId: integer("quiz_id").references(() => courseQuizzes.id),
+      question: text("question").notNull(),
+      type: text("type").notNull().$type(),
+      options: text("options"),
+      // JSON array de opciones para multiple choice
+      correctAnswer: text("correct_answer").notNull(),
+      // JSON para respuestas correctas
+      explanation: text("explanation"),
+      // Explicación de la respuesta correcta
+      points: integer("points").default(1),
+      orderIndex: integer("order_index").notNull(),
+      createdAt: text("created_at").default(sql`now()`)
+    });
+    userCourseProgress = pgTable("user_course_progress", {
+      id: serial("id").primaryKey(),
+      userId: integer("user_id").references(() => users.id),
+      courseId: integer("course_id").references(() => courses.id),
+      status: text("status").notNull().$type(),
+      progress: integer("progress").default(0),
+      // Porcentaje 0-100
+      currentLessonId: integer("current_lesson_id").references(() => courseLessons.id),
+      completedLessons: text("completed_lessons"),
+      // JSON array de IDs de lecciones completadas
+      startedAt: text("started_at"),
+      completedAt: text("completed_at"),
+      lastAccessedAt: text("last_accessed_at"),
+      createdAt: text("created_at").default(sql`now()`),
+      updatedAt: text("updated_at").default(sql`now()`)
+    });
+    userLessonProgress = pgTable("user_lesson_progress", {
+      id: serial("id").primaryKey(),
+      userId: integer("user_id").references(() => users.id),
+      lessonId: integer("lesson_id").references(() => courseLessons.id),
+      status: text("status").notNull().$type(),
+      timeSpent: integer("time_spent").default(0),
+      // Tiempo en segundos
+      completedAt: text("completed_at"),
+      createdAt: text("created_at").default(sql`now()`),
+      updatedAt: text("updated_at").default(sql`now()`)
+    });
+    quizAttempts = pgTable("quiz_attempts", {
+      id: serial("id").primaryKey(),
+      userId: integer("user_id").references(() => users.id),
+      quizId: integer("quiz_id").references(() => courseQuizzes.id),
+      courseId: integer("course_id").references(() => courses.id),
+      score: integer("score"),
+      // Porcentaje obtenido
+      passed: boolean("passed").default(false),
+      answers: text("answers"),
+      // JSON con las respuestas del usuario
+      timeSpent: integer("time_spent"),
+      // Tiempo en segundos
+      startedAt: text("started_at").default(sql`now()`),
+      completedAt: text("completed_at")
+    });
+    quizAttemptAnswers = pgTable("quiz_attempt_answers", {
+      id: serial("id").primaryKey(),
+      attemptId: integer("attempt_id").references(() => quizAttempts.id),
+      questionId: integer("question_id").references(() => quizQuestions.id),
+      answer: text("answer").notNull(),
+      // Respuesta del usuario (JSON)
+      isCorrect: boolean("is_correct").default(false),
+      pointsEarned: integer("points_earned").default(0),
+      createdAt: text("created_at").default(sql`now()`)
+    });
+    courseCertificates = pgTable("course_certificates", {
+      id: serial("id").primaryKey(),
+      userId: integer("user_id").references(() => users.id),
+      courseId: integer("course_id").references(() => courses.id),
+      certificateCode: text("certificate_code").notNull().unique(),
+      // Código único del certificado
+      issuedAt: text("issued_at").default(sql`now()`),
+      quizScore: integer("quiz_score")
+      // Score del quiz final
+    });
+    userLevels = pgTable("user_levels", {
+      id: serial("id").primaryKey(),
+      userId: integer("user_id").references(() => users.id).unique(),
+      currentLevel: integer("current_level").default(1),
+      // 1-5
+      experience: integer("experience").default(0),
+      experienceToNext: integer("experience_to_next").default(500),
+      streak: integer("streak").default(0),
+      // Días consecutivos
+      lastActivityDate: text("last_activity_date"),
+      createdAt: text("created_at").default(sql`now()`),
+      updatedAt: text("updated_at").default(sql`now()`)
+    });
+    challenges = pgTable("challenges", {
+      id: serial("id").primaryKey(),
+      level: integer("level").notNull(),
+      // 1-5
+      title: text("title").notNull(),
+      description: text("description").notNull(),
+      category: text("category").notNull(),
+      // 'vision', 'action', 'community', 'reflection'
+      difficulty: text("difficulty").notNull(),
+      // 'beginner', 'intermediate', 'advanced'
+      frequency: text("frequency").notNull(),
+      // 'daily', 'weekly', 'monthly', 'annual', 'one-time'
+      experience: integer("experience").notNull(),
+      // XP que otorga
+      duration: text("duration"),
+      // "15 min", "1 hora", etc.
+      iconName: text("icon_name"),
+      // Nombre del icono de Lucide
+      orderIndex: integer("order_index").default(0),
+      isActive: boolean("is_active").default(true),
+      createdAt: text("created_at").default(sql`now()`)
+    });
+    challengeSteps = pgTable("challenge_steps", {
+      id: serial("id").primaryKey(),
+      challengeId: integer("challenge_id").references(() => challenges.id),
+      title: text("title").notNull(),
+      description: text("description").notNull(),
+      type: text("type").notNull(),
+      // 'question', 'action', 'reflection', 'quiz'
+      orderIndex: integer("order_index").notNull(),
+      data: text("data"),
+      // JSON con opciones, preguntas, etc.
+      createdAt: text("created_at").default(sql`now()`)
+    });
+    userChallengeProgress = pgTable("user_challenge_progress", {
+      id: serial("id").primaryKey(),
+      userId: integer("user_id").references(() => users.id),
+      challengeId: integer("challenge_id").references(() => challenges.id),
+      status: text("status").notNull(),
+      // 'not_started', 'in_progress', 'completed', 'failed'
+      currentStep: integer("current_step").default(0),
+      completedSteps: text("completed_steps"),
+      // JSON array de IDs
+      startedAt: text("started_at"),
+      completedAt: text("completed_at"),
+      lastActivityAt: text("last_activity_at"),
+      createdAt: text("created_at").default(sql`now()`)
+    });
+    badges = pgTable("badges", {
+      id: serial("id").primaryKey(),
+      name: text("name").notNull(),
+      description: text("description").notNull(),
+      iconName: text("icon_name").notNull(),
+      category: text("category").notNull(),
+      // 'level', 'streak', 'challenge', 'special', 'reading'
+      requirement: text("requirement").notNull(),
+      // Descripción del requisito
+      requirementData: text("requirement_data"),
+      // JSON con criterios específicos
+      rarity: text("rarity").notNull(),
+      // 'common', 'rare', 'epic', 'legendary'
+      experienceReward: integer("experience_reward").default(0),
+      orderIndex: integer("order_index").default(0),
+      createdAt: text("created_at").default(sql`now()`)
+    });
+    userBadges = pgTable("user_badges", {
+      id: serial("id").primaryKey(),
+      userId: integer("user_id").references(() => users.id),
+      badgeId: integer("badge_id").references(() => badges.id),
+      earnedAt: text("earned_at").default(sql`now()`),
+      seen: boolean("seen").default(false)
+    });
+    userDailyActivity = pgTable("user_daily_activity", {
+      id: serial("id").primaryKey(),
+      userId: integer("user_id").references(() => users.id),
+      date: text("date").notNull(),
+      // YYYY-MM-DD
+      experienceGained: integer("experience_gained").default(0),
+      challengesCompleted: integer("challenges_completed").default(0),
+      actionsCompleted: integer("actions_completed").default(0),
+      streakActive: boolean("streak_active").default(true),
+      createdAt: text("created_at").default(sql`now()`)
+    });
+    userCommitments = pgTable("user_commitments", {
+      id: serial("id").primaryKey(),
+      userId: integer("user_id").references(() => users.id),
+      commitmentText: text("commitment_text").notNull(),
+      commitmentType: text("commitment_type").notNull(),
+      // 'initial', 'intermediate', 'public'
+      province: text("province"),
+      city: text("city"),
+      latitude: real("latitude"),
+      longitude: real("longitude"),
+      status: text("status").notNull().default("active"),
+      // 'active', 'completed', 'broken'
+      pointsAwarded: integer("points_awarded").default(0),
+      createdAt: text("created_at").default(sql`now()`),
+      completedAt: text("completed_at")
+    });
+    userActions = pgTable("user_actions", {
+      id: serial("id").primaryKey(),
+      userId: integer("user_id").references(() => users.id),
+      actionType: text("action_type").notNull(),
+      // 'page_view', 'commitment', 'share', 'community_post', etc.
+      points: integer("points").notNull(),
+      metadata: text("metadata"),
+      // JSON con datos adicionales
+      createdAt: text("created_at").default(sql`now()`)
+    });
+    userProgress = pgTable("user_progress", {
+      id: serial("id").primaryKey(),
+      userId: integer("user_id").references(() => users.id).unique(),
+      level: integer("level").default(1),
+      // 1-5 niveles del Hombre Gris
+      points: integer("points").default(0),
+      rank: text("rank").default("Novato"),
+      // Novato, Despierto, Hombre Gris, Agente de Cambio, Líder del Movimiento
+      totalActions: integer("total_actions").default(0),
+      lastActionAt: text("last_action_at"),
+      createdAt: text("created_at").default(sql`now()`),
+      updatedAt: text("updated_at").default(sql`now()`)
+    });
+    weeklyRankings = pgTable("weekly_rankings", {
+      id: serial("id").primaryKey(),
+      userId: integer("user_id").references(() => users.id),
+      weekStart: text("week_start").notNull(),
+      // YYYY-MM-DD
+      points: integer("points").default(0),
+      rank: integer("rank"),
+      createdAt: text("created_at").default(sql`now()`)
+    });
+    monthlyRankings = pgTable("monthly_rankings", {
+      id: serial("id").primaryKey(),
+      userId: integer("user_id").references(() => users.id),
+      monthStart: text("month_start").notNull(),
+      // YYYY-MM
+      points: integer("points").default(0),
+      rank: integer("rank"),
+      createdAt: text("created_at").default(sql`now()`)
+    });
+    provinceRankings = pgTable("province_rankings", {
+      id: serial("id").primaryKey(),
+      userId: integer("user_id").references(() => users.id),
+      province: text("province").notNull(),
+      points: integer("points").default(0),
+      rank: integer("rank"),
+      updatedAt: text("updated_at").default(sql`now()`)
+    });
+    territoryMandates = pgTable("territory_mandates", {
+      id: serial("id").primaryKey(),
+      territoryLevel: text("territory_level").notNull().$type(),
+      territoryName: text("territory_name").notNull(),
+      province: text("province"),
+      city: text("city"),
+      version: integer("version").notNull().default(1),
+      voiceCount: integer("voice_count").notNull().default(0),
+      convergenceScore: real("convergence_score"),
+      // AI-generated content (JSON)
+      diagnosis: text("diagnosis"),
+      // JSON: top priorities with evidence
+      availableResources: text("available_resources"),
+      // JSON: resource summary
+      gaps: text("gaps"),
+      // JSON: gap analysis
+      suggestedActions: text("suggested_actions"),
+      // JSON: action plans
+      rawSummary: text("raw_summary"),
+      // Plain text executive summary
+      status: text("status").notNull().default("draft").$type(),
+      generatedAt: text("generated_at").default(sql`now()`),
+      publishedAt: text("published_at"),
+      createdAt: text("created_at").default(sql`now()`)
+    });
+    mandateSuggestions = pgTable("mandate_suggestions", {
+      id: serial("id").primaryKey(),
+      mandateId: integer("mandate_id").references(() => territoryMandates.id),
+      territoryName: text("territory_name").notNull(),
+      needCategory: text("need_category").notNull(),
+      // theme key
+      needCount: integer("need_count").notNull().default(0),
+      resourceCount: integer("resource_count").notNull().default(0),
+      suggestedAction: text("suggested_action").notNull(),
+      precedent: text("precedent"),
+      // similar success elsewhere
+      status: text("status").notNull().default("suggested").$type(),
+      activatedBy: integer("activated_by").references(() => users.id),
+      initiativeId: integer("initiative_id").references(() => communityPosts.id),
+      createdAt: text("created_at").default(sql`now()`)
+    });
+    initiativeMembers = pgTable("initiative_members", {
+      id: serial("id").primaryKey(),
+      postId: integer("post_id").references(() => communityPosts.id),
+      userId: integer("user_id").references(() => users.id),
+      role: text("role").notNull(),
+      // Roles personalizables por iniciativa
+      status: text("status").notNull().default("active").$type(),
+      permissions: text("permissions"),
+      // JSON: {canEdit, canInvite, canPost, etc}
+      joinedAt: text("joined_at").default(sql`now()`),
+      leftAt: text("left_at")
+    }, (table) => ({
+      uniqueMember: unique("im_post_user_unique").on(table.postId, table.userId),
+      postIdIdx: index("im_post_id_idx").on(table.postId)
+    }));
+    initiativeMilestones = pgTable("initiative_milestones", {
+      id: serial("id").primaryKey(),
+      postId: integer("post_id").references(() => communityPosts.id),
+      title: text("title").notNull(),
+      description: text("description"),
+      status: text("status").notNull().default("pending").$type(),
+      dueDate: text("due_date"),
+      completedAt: text("completed_at"),
+      completedBy: integer("completed_by").references(() => users.id),
+      orderIndex: integer("order_index").default(0),
+      createdAt: text("created_at").default(sql`now()`),
+      updatedAt: text("updated_at").default(sql`now()`)
+    }, (table) => ({
+      postIdIdx: index("ims_post_id_idx").on(table.postId)
+    }));
+    initiativeMessages = pgTable("initiative_messages", {
+      id: serial("id").primaryKey(),
+      postId: integer("post_id").references(() => communityPosts.id),
+      userId: integer("user_id").references(() => users.id),
+      content: text("content").notNull(),
+      type: text("type").notNull().default("message").$type(),
+      metadata: text("metadata"),
+      // JSON para datos adicionales
+      createdAt: text("created_at").default(sql`now()`)
+    });
+    initiativeTasks = pgTable("initiative_tasks", {
+      id: serial("id").primaryKey(),
+      postId: integer("post_id").references(() => communityPosts.id),
+      milestoneId: integer("milestone_id").references(() => initiativeMilestones.id),
+      title: text("title").notNull(),
+      description: text("description"),
+      assignedTo: integer("assigned_to").references(() => users.id),
+      status: text("status").notNull().default("todo").$type(),
+      priority: text("priority").default("medium").$type(),
+      dueDate: text("due_date"),
+      completedAt: text("completed_at"),
+      createdBy: integer("created_by").references(() => users.id),
+      createdAt: text("created_at").default(sql`now()`),
+      updatedAt: text("updated_at").default(sql`now()`)
+    }, (table) => ({
+      postIdIdx: index("it_post_id_idx").on(table.postId)
+    }));
+    activityFeed = pgTable("activity_feed", {
+      id: serial("id").primaryKey(),
+      type: text("type").notNull().$type(),
+      postId: integer("post_id").references(() => communityPosts.id),
+      userId: integer("user_id").references(() => users.id),
+      targetId: integer("target_id"),
+      // ID del milestone, task, etc
+      title: text("title").notNull(),
+      description: text("description"),
+      metadata: text("metadata"),
+      // JSON con datos adicionales
+      createdAt: text("created_at").default(sql`now()`)
+    }, (table) => ({
+      createdAtIdx: index("af_created_at_idx").on(table.createdAt)
+    }));
+    membershipRequests = pgTable("membership_requests", {
+      id: serial("id").primaryKey(),
+      postId: integer("post_id").references(() => communityPosts.id),
+      userId: integer("user_id").references(() => users.id),
+      message: text("message"),
+      // Mensaje de presentación
+      status: text("status").notNull().default("pending").$type(),
+      reviewedBy: integer("reviewed_by").references(() => users.id),
+      reviewedAt: text("reviewed_at"),
+      createdAt: text("created_at").default(sql`now()`)
+    }, (table) => ({
+      uniqueRequest: unique("mr_post_user_unique").on(table.postId, table.userId)
+    }));
+    notifications = pgTable("notifications", {
+      id: serial("id").primaryKey(),
+      userId: integer("user_id").references(() => users.id),
+      type: text("type").notNull().$type(),
+      title: text("title").notNull(),
+      content: text("content").notNull(),
+      postId: integer("post_id").references(() => communityPosts.id),
+      targetId: integer("target_id"),
+      // ID del recurso relacionado
+      read: boolean("read").default(false),
+      createdAt: text("created_at").default(sql`now()`)
+    }, (table) => ({
+      userIdIdx: index("notif_user_id_idx").on(table.userId)
+    }));
+    lifeAreas = pgTable("life_areas", {
+      id: serial("id").primaryKey(),
+      name: text("name").notNull(),
+      description: text("description"),
+      iconName: text("icon_name"),
+      orderIndex: integer("order_index").notNull(),
+      colorTheme: text("color_theme"),
+      // JSON con colores del tema
+      createdAt: text("created_at").default(sql`now()`)
+    });
+    lifeAreaSubcategories = pgTable("life_area_subcategories", {
+      id: serial("id").primaryKey(),
+      lifeAreaId: integer("life_area_id").references(() => lifeAreas.id),
+      name: text("name").notNull(),
+      description: text("description"),
+      orderIndex: integer("order_index").notNull(),
+      createdAt: text("created_at").default(sql`now()`)
+    });
+    lifeAreaQuizzes = pgTable("life_area_quizzes", {
+      id: serial("id").primaryKey(),
+      lifeAreaId: integer("life_area_id").references(() => lifeAreas.id),
+      title: text("title").notNull(),
+      description: text("description"),
+      version: integer("version").default(1),
+      createdAt: text("created_at").default(sql`now()`)
+    });
+    lifeAreaQuizQuestions = pgTable("life_area_quiz_questions", {
+      id: serial("id").primaryKey(),
+      quizId: integer("quiz_id").references(() => lifeAreaQuizzes.id),
+      questionText: text("question_text").notNull(),
+      questionType: text("question_type").notNull().$type(),
+      orderIndex: integer("order_index").notNull(),
+      category: text("category").notNull().$type(),
+      subcategoryId: integer("subcategory_id").references(() => lifeAreaSubcategories.id),
+      createdAt: text("created_at").default(sql`now()`)
+    });
+    lifeAreaQuizResponses = pgTable("life_area_quiz_responses", {
+      id: serial("id").primaryKey(),
+      userId: integer("user_id").references(() => users.id),
+      quizId: integer("quiz_id").references(() => lifeAreaQuizzes.id),
+      questionId: integer("question_id").references(() => lifeAreaQuizQuestions.id),
+      currentValue: integer("current_value"),
+      // 1-100
+      desiredValue: integer("desired_value"),
+      // 1-100
+      answeredAt: text("answered_at").default(sql`now()`),
+      createdAt: text("created_at").default(sql`now()`)
+    });
+    lifeAreaScores = pgTable("life_area_scores", {
+      id: serial("id").primaryKey(),
+      userId: integer("user_id").references(() => users.id),
+      lifeAreaId: integer("life_area_id").references(() => lifeAreas.id),
+      subcategoryId: integer("subcategory_id").references(() => lifeAreaSubcategories.id),
+      currentScore: integer("current_score").notNull(),
+      // 1-100
+      desiredScore: integer("desired_score").notNull(),
+      // 1-100
+      gap: integer("gap").notNull(),
+      // desired - current
+      lastUpdated: text("last_updated").default(sql`now()`),
+      createdAt: text("created_at").default(sql`now()`)
+    });
+    lifeAreaActions = pgTable("life_area_actions", {
+      id: serial("id").primaryKey(),
+      lifeAreaId: integer("life_area_id").references(() => lifeAreas.id),
+      subcategoryId: integer("subcategory_id").references(() => lifeAreaSubcategories.id),
+      title: text("title").notNull(),
+      description: text("description").notNull(),
+      difficulty: text("difficulty").notNull().$type(),
+      estimatedDuration: text("estimated_duration"),
+      // "15 min", "1 hora", etc.
+      priority: integer("priority").default(0),
+      // Mayor número = mayor prioridad
+      category: text("category"),
+      // Categoría de la acción
+      xpReward: integer("xp_reward").default(50),
+      seedReward: integer("seed_reward").default(10),
+      createdAt: text("created_at").default(sql`now()`)
+    });
+    userLifeAreaProgress = pgTable("user_life_area_progress", {
+      id: serial("id").primaryKey(),
+      userId: integer("user_id").references(() => users.id),
+      actionId: integer("action_id").references(() => lifeAreaActions.id),
+      status: text("status").notNull().$type(),
+      startedAt: text("started_at"),
+      completedAt: text("completed_at"),
+      notes: text("notes"),
+      evidence: text("evidence"),
+      // JSON con evidencia (fotos, links, etc.)
+      createdAt: text("created_at").default(sql`now()`),
+      updatedAt: text("updated_at").default(sql`now()`)
+    });
+    lifeAreaMilestones = pgTable("life_area_milestones", {
+      id: serial("id").primaryKey(),
+      userId: integer("user_id").references(() => users.id),
+      lifeAreaId: integer("life_area_id").references(() => lifeAreas.id),
+      title: text("title").notNull(),
+      description: text("description"),
+      targetScore: integer("target_score").notNull(),
+      // Score objetivo
+      achievedScore: integer("achieved_score"),
+      achievedAt: text("achieved_at"),
+      shareToken: text("share_token").unique(),
+      // Token único para compartir
+      sharedAt: text("shared_at"),
+      createdAt: text("created_at").default(sql`now()`)
+    });
+    lifeAreaIndicators = pgTable("life_area_indicators", {
+      id: serial("id").primaryKey(),
+      userId: integer("user_id").references(() => users.id),
+      lifeAreaId: integer("life_area_id").references(() => lifeAreas.id),
+      indicatorType: text("indicator_type").notNull().$type(),
+      value: real("value").notNull(),
+      metadata: text("metadata"),
+      // JSON con datos adicionales
+      recordedAt: text("recorded_at").default(sql`now()`)
+    });
+    lifeAreaCommunityStats = pgTable("life_area_community_stats", {
+      id: serial("id").primaryKey(),
+      lifeAreaId: integer("life_area_id").references(() => lifeAreas.id),
+      period: text("period").notNull().$type(),
+      avgScore: real("avg_score"),
+      medianScore: real("median_score"),
+      totalUsers: integer("total_users").default(0),
+      percentileData: text("percentile_data"),
+      // JSON con datos de percentiles
+      calculatedAt: text("calculated_at").default(sql`now()`)
+    });
+    lifeAreaXpLog = pgTable("life_area_xp_log", {
+      id: serial("id").primaryKey(),
+      userId: integer("user_id").references(() => users.id),
+      lifeAreaId: integer("life_area_id").references(() => lifeAreas.id),
+      xpAmount: integer("xp_amount").notNull(),
+      sourceType: text("source_type").notNull().$type(),
+      sourceId: integer("source_id"),
+      // ID del recurso que generó el XP
+      multiplier: real("multiplier").default(1),
+      createdAt: text("created_at").default(sql`now()`)
+    });
+    lifeAreaLevels = pgTable("life_area_levels", {
+      id: serial("id").primaryKey(),
+      userId: integer("user_id").references(() => users.id),
+      lifeAreaId: integer("life_area_id").references(() => lifeAreas.id),
+      level: integer("level").default(1),
+      // 1-10
+      xpCurrent: integer("xp_current").default(0),
+      xpRequired: integer("xp_required").default(100),
+      unlockedFeatures: text("unlocked_features"),
+      // JSON con features desbloqueadas
+      levelUpAt: text("level_up_at"),
+      createdAt: text("created_at").default(sql`now()`),
+      updatedAt: text("updated_at").default(sql`now()`)
+    });
+    lifeAreaStreaks = pgTable("life_area_streaks", {
+      id: serial("id").primaryKey(),
+      userId: integer("user_id").references(() => users.id),
+      streakType: text("streak_type").notNull().$type(),
+      currentStreak: integer("current_streak").default(0),
+      longestStreak: integer("longest_streak").default(0),
+      lastActivityDate: text("last_activity_date"),
+      bonusMultiplier: real("bonus_multiplier").default(1),
+      createdAt: text("created_at").default(sql`now()`),
+      updatedAt: text("updated_at").default(sql`now()`)
+    });
+    lifeAreaBadges = pgTable("life_area_badges", {
+      id: serial("id").primaryKey(),
+      name: text("name").notNull(),
+      description: text("description").notNull(),
+      iconName: text("icon_name").notNull(),
+      rarity: text("rarity").notNull().$type(),
+      requirementType: text("requirement_type").notNull().$type(),
+      requirementData: text("requirement_data"),
+      // JSON con criterios específicos
+      xpReward: integer("xp_reward").default(0),
+      seedReward: integer("seed_reward").default(0),
+      createdAt: text("created_at").default(sql`now()`)
+    });
+    userLifeAreaBadges = pgTable("user_life_area_badges", {
+      id: serial("id").primaryKey(),
+      userId: integer("user_id").references(() => users.id),
+      badgeId: integer("badge_id").references(() => lifeAreaBadges.id),
+      earnedAt: text("earned_at").default(sql`now()`),
+      seen: boolean("seen").default(false),
+      sharedAt: text("shared_at")
+    });
+    lifeAreaCurrency = pgTable("life_area_currency", {
+      id: serial("id").primaryKey(),
+      userId: integer("user_id").references(() => users.id).unique(),
+      currencyType: text("currency_type").default("seeds"),
+      amount: integer("amount").default(0),
+      totalEarned: integer("total_earned").default(0),
+      totalSpent: integer("total_spent").default(0),
+      updatedAt: text("updated_at").default(sql`now()`),
+      createdAt: text("created_at").default(sql`now()`)
+    });
+    lifeAreaRewardChests = pgTable("life_area_reward_chests", {
+      id: serial("id").primaryKey(),
+      userId: integer("user_id").references(() => users.id),
+      chestType: text("chest_type").notNull().$type(),
+      rewards: text("rewards"),
+      // JSON con recompensas
+      openedAt: text("opened_at"),
+      expiresAt: text("expires_at"),
+      rarity: text("rarity").$type(),
+      createdAt: text("created_at").default(sql`now()`)
+    });
+    lifeAreaChallenges = pgTable("life_area_challenges", {
+      id: serial("id").primaryKey(),
+      challengeType: text("challenge_type").notNull().$type(),
+      title: text("title").notNull(),
+      description: text("description").notNull(),
+      requirements: text("requirements"),
+      // JSON con requisitos
+      rewards: text("rewards"),
+      // JSON con recompensas
+      startDate: text("start_date").notNull(),
+      endDate: text("end_date").notNull(),
+      isActive: boolean("is_active").default(true),
+      participantCount: integer("participant_count").default(0),
+      createdAt: text("created_at").default(sql`now()`)
+    });
+    userLifeAreaChallenges = pgTable("user_life_area_challenges", {
+      id: serial("id").primaryKey(),
+      userId: integer("user_id").references(() => users.id),
+      challengeId: integer("challenge_id").references(() => lifeAreaChallenges.id),
+      progress: text("progress"),
+      // JSON con progreso
+      status: text("status").notNull().$type(),
+      completedAt: text("completed_at"),
+      rewardsClaimed: boolean("rewards_claimed").default(false),
+      createdAt: text("created_at").default(sql`now()`),
+      updatedAt: text("updated_at").default(sql`now()`)
+    });
+    lifeAreaMastery = pgTable("life_area_mastery", {
+      id: serial("id").primaryKey(),
+      userId: integer("user_id").references(() => users.id),
+      lifeAreaId: integer("life_area_id").references(() => lifeAreas.id),
+      masteryPercentage: real("mastery_percentage").default(0),
+      // 0-100
+      actionsCompleted: integer("actions_completed").default(0),
+      totalActions: integer("total_actions").default(0),
+      timeInvestedMinutes: integer("time_invested_minutes").default(0),
+      unlockedContent: text("unlocked_content"),
+      // JSON con contenido desbloqueado
+      masteryLevel: text("mastery_level").default("novice").$type(),
+      createdAt: text("created_at").default(sql`now()`),
+      updatedAt: text("updated_at").default(sql`now()`)
+    });
+    lifeAreaNotifications = pgTable("life_area_notifications", {
+      id: serial("id").primaryKey(),
+      userId: integer("user_id").references(() => users.id),
+      type: text("type").notNull().$type(),
+      title: text("title").notNull(),
+      message: text("message").notNull(),
+      actionUrl: text("action_url"),
+      read: boolean("read").default(false),
+      createdAt: text("created_at").default(sql`now()`)
+    });
+    lifeAreaSocialInteractions = pgTable("life_area_social_interactions", {
+      id: serial("id").primaryKey(),
+      userId: integer("user_id").references(() => users.id),
+      targetUserId: integer("target_user_id").references(() => users.id),
+      interactionType: text("interaction_type").notNull().$type(),
+      targetType: text("target_type").notNull().$type(),
+      targetId: integer("target_id").notNull(),
+      content: text("content"),
+      // Para comentarios
+      createdAt: text("created_at").default(sql`now()`)
+    });
+    usersRelations = relations(users, ({ many, one }) => ({
+      dreams: many(dreams),
+      communityPosts: many(communityPosts),
+      sentimentAnalysis: many(sentimentAnalysis),
+      textEmbeddings: many(textEmbeddings),
+      userProfile: one(userProfiles),
+      recommendations: many(recommendations),
+      blockchainTransactions: many(blockchainTransactions),
+      vrMeetings: many(vrMeetings),
+      meetingParticipants: many(meetingParticipants),
+      // Blog relations
+      blogPosts: many(blogPosts),
+      postLikes: many(postLikes),
+      postComments: many(postComments),
+      postBookmarks: many(postBookmarks),
+      postViews: many(postViews),
+      // Gamification relations
+      userLevel: one(userLevels),
+      challengeProgress: many(userChallengeProgress),
+      userBadges: many(userBadges),
+      dailyActivity: many(userDailyActivity),
+      // ¡BASTA! Gamification relations
+      commitments: many(userCommitments),
+      actions: many(userActions),
+      progress: one(userProgress),
+      weeklyRankings: many(weeklyRankings),
+      monthlyRankings: many(monthlyRankings),
+      provinceRankings: many(provinceRankings),
+      // Stories relations
+      inspiringStories: many(inspiringStories),
+      // Course relations
+      courses: many(courses),
+      userCourseProgress: many(userCourseProgress),
+      userLessonProgress: many(userLessonProgress),
+      quizAttempts: many(quizAttempts),
+      courseCertificates: many(courseCertificates),
+      // Life Areas relations
+      lifeAreaQuizResponses: many(lifeAreaQuizResponses),
+      lifeAreaScores: many(lifeAreaScores),
+      userLifeAreaProgress: many(userLifeAreaProgress),
+      lifeAreaMilestones: many(lifeAreaMilestones),
+      lifeAreaIndicators: many(lifeAreaIndicators),
+      lifeAreaXpLog: many(lifeAreaXpLog),
+      lifeAreaLevels: many(lifeAreaLevels),
+      lifeAreaStreaks: many(lifeAreaStreaks),
+      userLifeAreaBadges: many(userLifeAreaBadges),
+      lifeAreaCurrency: one(lifeAreaCurrency),
+      lifeAreaRewardChests: many(lifeAreaRewardChests),
+      userLifeAreaChallenges: many(userLifeAreaChallenges),
+      lifeAreaMastery: many(lifeAreaMastery),
+      lifeAreaNotifications: many(lifeAreaNotifications),
+      lifeAreaSocialInteractions: many(lifeAreaSocialInteractions),
+      // Civic Assessment & Personal Development relations
+      civicAssessments: many(civicAssessments),
+      civicProfiles: many(civicProfiles),
+      civicGoals: many(civicGoals),
+      weeklyCheckins: many(weeklyCheckins),
+      coachingSessions: many(coachingSessions),
+      coachingPrompts: many(coachingPrompts),
+      // Mandato Vivo relations
+      resources: many(userResources),
+      mandateSuggestions: many(mandateSuggestions)
+    }));
+    userResourcesRelations = relations(userResources, ({ one }) => ({
+      user: one(users, {
+        fields: [userResources.userId],
+        references: [users.id]
+      })
+    }));
+    territoryMandatesRelations = relations(territoryMandates, ({ many }) => ({
+      suggestions: many(mandateSuggestions)
+    }));
+    mandateSuggestionsRelations = relations(mandateSuggestions, ({ one }) => ({
+      mandate: one(territoryMandates, {
+        fields: [mandateSuggestions.mandateId],
+        references: [territoryMandates.id]
+      }),
+      activator: one(users, {
+        fields: [mandateSuggestions.activatedBy],
+        references: [users.id]
+      })
+    }));
+    dreamsRelations = relations(dreams, ({ one }) => ({
+      user: one(users, {
+        fields: [dreams.userId],
+        references: [users.id]
+      })
+    }));
+    communityPostsRelations = relations(communityPosts, ({ one, many }) => ({
+      user: one(users, {
+        fields: [communityPosts.userId],
+        references: [users.id]
+      }),
+      interactions: many(communityPostInteractions),
+      messages: many(communityMessages),
+      activity: many(communityPostActivity),
+      inspiringStories: many(inspiringStories),
+      // New initiative relations
+      members: many(initiativeMembers),
+      milestones: many(initiativeMilestones),
+      initiativeMessages: many(initiativeMessages),
+      tasks: many(initiativeTasks),
+      activityFeedItems: many(activityFeed),
+      membershipRequests: many(membershipRequests),
+      notifications: many(notifications)
+    }));
+    communityPostInteractionsRelations = relations(communityPostInteractions, ({ one }) => ({
+      post: one(communityPosts, {
+        fields: [communityPostInteractions.postId],
+        references: [communityPosts.id]
+      }),
+      user: one(users, {
+        fields: [communityPostInteractions.userId],
+        references: [users.id]
+      })
+    }));
+    communityMessagesRelations = relations(communityMessages, ({ one }) => ({
+      sender: one(users, {
+        fields: [communityMessages.senderId],
+        references: [users.id]
+      }),
+      receiver: one(users, {
+        fields: [communityMessages.receiverId],
+        references: [users.id]
+      }),
+      post: one(communityPosts, {
+        fields: [communityMessages.postId],
+        references: [communityPosts.id]
+      })
+    }));
+    communityPostActivityRelations = relations(communityPostActivity, ({ one }) => ({
+      post: one(communityPosts, {
+        fields: [communityPostActivity.postId],
+        references: [communityPosts.id]
+      }),
+      user: one(users, {
+        fields: [communityPostActivity.userId],
+        references: [users.id]
+      })
+    }));
+    userProfilesRelations = relations(userProfiles, ({ one }) => ({
+      user: one(users, {
+        fields: [userProfiles.userId],
+        references: [users.id]
+      })
+    }));
+    recommendationsRelations = relations(recommendations, ({ one }) => ({
+      user: one(users, {
+        fields: [recommendations.userId],
+        references: [users.id]
+      })
+    }));
+    vrMeetingsRelations = relations(vrMeetings, ({ one, many }) => ({
+      organizer: one(users, {
+        fields: [vrMeetings.organizerId],
+        references: [users.id]
+      }),
+      participants: many(meetingParticipants)
+    }));
+    meetingParticipantsRelations = relations(meetingParticipants, ({ one }) => ({
+      meeting: one(vrMeetings, {
+        fields: [meetingParticipants.meetingId],
+        references: [vrMeetings.id]
+      }),
+      user: one(users, {
+        fields: [meetingParticipants.userId],
+        references: [users.id]
+      })
+    }));
+    userLevelsRelations = relations(userLevels, ({ one }) => ({
+      user: one(users, {
+        fields: [userLevels.userId],
+        references: [users.id]
+      })
+    }));
+    challengesRelations = relations(challenges, ({ many }) => ({
+      steps: many(challengeSteps),
+      userProgress: many(userChallengeProgress)
+    }));
+    challengeStepsRelations = relations(challengeSteps, ({ one }) => ({
+      challenge: one(challenges, {
+        fields: [challengeSteps.challengeId],
+        references: [challenges.id]
+      })
+    }));
+    userChallengeProgressRelations = relations(userChallengeProgress, ({ one }) => ({
+      user: one(users, {
+        fields: [userChallengeProgress.userId],
+        references: [users.id]
+      }),
+      challenge: one(challenges, {
+        fields: [userChallengeProgress.challengeId],
+        references: [challenges.id]
+      })
+    }));
+    badgesRelations = relations(badges, ({ many }) => ({
+      userBadges: many(userBadges)
+    }));
+    userBadgesRelations = relations(userBadges, ({ one }) => ({
+      user: one(users, {
+        fields: [userBadges.userId],
+        references: [users.id]
+      }),
+      badge: one(badges, {
+        fields: [userBadges.badgeId],
+        references: [badges.id]
+      })
+    }));
+    userDailyActivityRelations = relations(userDailyActivity, ({ one }) => ({
+      user: one(users, {
+        fields: [userDailyActivity.userId],
+        references: [users.id]
+      })
+    }));
+    userCommitmentsRelations = relations(userCommitments, ({ one }) => ({
+      user: one(users, {
+        fields: [userCommitments.userId],
+        references: [users.id]
+      })
+    }));
+    userActionsRelations = relations(userActions, ({ one }) => ({
+      user: one(users, {
+        fields: [userActions.userId],
+        references: [users.id]
+      })
+    }));
+    userProgressRelations = relations(userProgress, ({ one }) => ({
+      user: one(users, {
+        fields: [userProgress.userId],
+        references: [users.id]
+      })
+    }));
+    weeklyRankingsRelations = relations(weeklyRankings, ({ one }) => ({
+      user: one(users, {
+        fields: [weeklyRankings.userId],
+        references: [users.id]
+      })
+    }));
+    monthlyRankingsRelations = relations(monthlyRankings, ({ one }) => ({
+      user: one(users, {
+        fields: [monthlyRankings.userId],
+        references: [users.id]
+      })
+    }));
+    provinceRankingsRelations = relations(provinceRankings, ({ one }) => ({
+      user: one(users, {
+        fields: [provinceRankings.userId],
+        references: [users.id]
+      })
+    }));
+    blogPostsRelations = relations(blogPosts, ({ one, many }) => ({
+      author: one(users, {
+        fields: [blogPosts.authorId],
+        references: [users.id]
+      }),
+      tags: many(postTags),
+      likes: many(postLikes),
+      comments: many(postComments),
+      bookmarks: many(postBookmarks),
+      views: many(postViews)
+    }));
+    postTagsRelations = relations(postTags, ({ one }) => ({
+      post: one(blogPosts, {
+        fields: [postTags.postId],
+        references: [blogPosts.id]
+      })
+    }));
+    postLikesRelations = relations(postLikes, ({ one }) => ({
+      post: one(blogPosts, {
+        fields: [postLikes.postId],
+        references: [blogPosts.id]
+      }),
+      user: one(users, {
+        fields: [postLikes.userId],
+        references: [users.id]
+      })
+    }));
+    postCommentsRelations = relations(postComments, ({ one, many }) => ({
+      post: one(blogPosts, {
+        fields: [postComments.postId],
+        references: [blogPosts.id]
+      }),
+      user: one(users, {
+        fields: [postComments.userId],
+        references: [users.id]
+      }),
+      parent: one(postComments, {
+        fields: [postComments.parentId],
+        references: [postComments.id]
+      }),
+      replies: many(postComments)
+    }));
+    postBookmarksRelations = relations(postBookmarks, ({ one }) => ({
+      post: one(blogPosts, {
+        fields: [postBookmarks.postId],
+        references: [blogPosts.id]
+      }),
+      user: one(users, {
+        fields: [postBookmarks.userId],
+        references: [users.id]
+      })
+    }));
+    postViewsRelations = relations(postViews, ({ one }) => ({
+      post: one(blogPosts, {
+        fields: [postViews.postId],
+        references: [blogPosts.id]
+      }),
+      user: one(users, {
+        fields: [postViews.userId],
+        references: [users.id]
+      })
+    }));
+    coursesRelations = relations(courses, ({ one, many }) => ({
+      author: one(users, {
+        fields: [courses.authorId],
+        references: [users.id]
+      }),
+      lessons: many(courseLessons),
+      quiz: one(courseQuizzes),
+      userProgress: many(userCourseProgress),
+      certificates: many(courseCertificates)
+    }));
+    courseLessonsRelations = relations(courseLessons, ({ one, many }) => ({
+      course: one(courses, {
+        fields: [courseLessons.courseId],
+        references: [courses.id]
+      }),
+      userProgress: many(userLessonProgress)
+    }));
+    courseQuizzesRelations = relations(courseQuizzes, ({ one, many }) => ({
+      course: one(courses, {
+        fields: [courseQuizzes.courseId],
+        references: [courses.id]
+      }),
+      questions: many(quizQuestions),
+      attempts: many(quizAttempts)
+    }));
+    quizQuestionsRelations = relations(quizQuestions, ({ one, many }) => ({
+      quiz: one(courseQuizzes, {
+        fields: [quizQuestions.quizId],
+        references: [courseQuizzes.id]
+      }),
+      attemptAnswers: many(quizAttemptAnswers)
+    }));
+    userCourseProgressRelations = relations(userCourseProgress, ({ one }) => ({
+      user: one(users, {
+        fields: [userCourseProgress.userId],
+        references: [users.id]
+      }),
+      course: one(courses, {
+        fields: [userCourseProgress.courseId],
+        references: [courses.id]
+      }),
+      currentLesson: one(courseLessons, {
+        fields: [userCourseProgress.currentLessonId],
+        references: [courseLessons.id]
+      })
+    }));
+    userLessonProgressRelations = relations(userLessonProgress, ({ one }) => ({
+      user: one(users, {
+        fields: [userLessonProgress.userId],
+        references: [users.id]
+      }),
+      lesson: one(courseLessons, {
+        fields: [userLessonProgress.lessonId],
+        references: [courseLessons.id]
+      })
+    }));
+    quizAttemptsRelations = relations(quizAttempts, ({ one, many }) => ({
+      user: one(users, {
+        fields: [quizAttempts.userId],
+        references: [users.id]
+      }),
+      quiz: one(courseQuizzes, {
+        fields: [quizAttempts.quizId],
+        references: [courseQuizzes.id]
+      }),
+      course: one(courses, {
+        fields: [quizAttempts.courseId],
+        references: [courses.id]
+      }),
+      answers: many(quizAttemptAnswers)
+    }));
+    quizAttemptAnswersRelations = relations(quizAttemptAnswers, ({ one }) => ({
+      attempt: one(quizAttempts, {
+        fields: [quizAttemptAnswers.attemptId],
+        references: [quizAttempts.id]
+      }),
+      question: one(quizQuestions, {
+        fields: [quizAttemptAnswers.questionId],
+        references: [quizQuestions.id]
+      })
+    }));
+    courseCertificatesRelations = relations(courseCertificates, ({ one }) => ({
+      user: one(users, {
+        fields: [courseCertificates.userId],
+        references: [users.id]
+      }),
+      course: one(courses, {
+        fields: [courseCertificates.courseId],
+        references: [courses.id]
+      })
+    }));
+    iotSensorsRelations = relations(iotSensors, ({ many }) => ({
+      data: many(sensorData)
+    }));
+    sensorDataRelations = relations(sensorData, ({ one }) => ({
+      sensor: one(iotSensors, {
+        fields: [sensorData.sensorId],
+        references: [iotSensors.id]
+      })
+    }));
+    inspiringStoriesRelations = relations(inspiringStories, ({ one }) => ({
+      author: one(users, {
+        fields: [inspiringStories.authorId],
+        references: [users.id]
+      }),
+      moderator: one(users, {
+        fields: [inspiringStories.moderatedBy],
+        references: [users.id]
+      }),
+      relatedPost: one(communityPosts, {
+        fields: [inspiringStories.relatedPostId],
+        references: [communityPosts.id]
+      })
+    }));
+    initiativeMembersRelations = relations(initiativeMembers, ({ one }) => ({
+      post: one(communityPosts, {
+        fields: [initiativeMembers.postId],
+        references: [communityPosts.id]
+      }),
+      user: one(users, {
+        fields: [initiativeMembers.userId],
+        references: [users.id]
+      })
+    }));
+    initiativeMilestonesRelations = relations(initiativeMilestones, ({ one, many }) => ({
+      post: one(communityPosts, {
+        fields: [initiativeMilestones.postId],
+        references: [communityPosts.id]
+      }),
+      completedBy: one(users, {
+        fields: [initiativeMilestones.completedBy],
+        references: [users.id]
+      }),
+      tasks: many(initiativeTasks)
+    }));
+    initiativeMessagesRelations = relations(initiativeMessages, ({ one }) => ({
+      post: one(communityPosts, {
+        fields: [initiativeMessages.postId],
+        references: [communityPosts.id]
+      }),
+      user: one(users, {
+        fields: [initiativeMessages.userId],
+        references: [users.id]
+      })
+    }));
+    initiativeTasksRelations = relations(initiativeTasks, ({ one }) => ({
+      post: one(communityPosts, {
+        fields: [initiativeTasks.postId],
+        references: [communityPosts.id]
+      }),
+      milestone: one(initiativeMilestones, {
+        fields: [initiativeTasks.milestoneId],
+        references: [initiativeMilestones.id]
+      }),
+      assignedTo: one(users, {
+        fields: [initiativeTasks.assignedTo],
+        references: [users.id]
+      }),
+      createdBy: one(users, {
+        fields: [initiativeTasks.createdBy],
+        references: [users.id]
+      })
+    }));
+    activityFeedRelations = relations(activityFeed, ({ one }) => ({
+      post: one(communityPosts, {
+        fields: [activityFeed.postId],
+        references: [communityPosts.id]
+      }),
+      user: one(users, {
+        fields: [activityFeed.userId],
+        references: [users.id]
+      })
+    }));
+    membershipRequestsRelations = relations(membershipRequests, ({ one }) => ({
+      post: one(communityPosts, {
+        fields: [membershipRequests.postId],
+        references: [communityPosts.id]
+      }),
+      user: one(users, {
+        fields: [membershipRequests.userId],
+        references: [users.id]
+      }),
+      reviewedBy: one(users, {
+        fields: [membershipRequests.reviewedBy],
+        references: [users.id]
+      })
+    }));
+    notificationsRelations = relations(notifications, ({ one }) => ({
+      user: one(users, {
+        fields: [notifications.userId],
+        references: [users.id]
+      }),
+      post: one(communityPosts, {
+        fields: [notifications.postId],
+        references: [communityPosts.id]
+      })
+    }));
+    lifeAreasRelations = relations(lifeAreas, ({ many }) => ({
+      subcategories: many(lifeAreaSubcategories),
+      quizzes: many(lifeAreaQuizzes),
+      scores: many(lifeAreaScores),
+      actions: many(lifeAreaActions),
+      milestones: many(lifeAreaMilestones),
+      indicators: many(lifeAreaIndicators),
+      communityStats: many(lifeAreaCommunityStats),
+      xpLog: many(lifeAreaXpLog),
+      levels: many(lifeAreaLevels),
+      mastery: many(lifeAreaMastery)
+    }));
+    lifeAreaSubcategoriesRelations = relations(lifeAreaSubcategories, ({ one, many }) => ({
+      lifeArea: one(lifeAreas, {
+        fields: [lifeAreaSubcategories.lifeAreaId],
+        references: [lifeAreas.id]
+      }),
+      questions: many(lifeAreaQuizQuestions),
+      scores: many(lifeAreaScores),
+      actions: many(lifeAreaActions)
+    }));
+    lifeAreaQuizzesRelations = relations(lifeAreaQuizzes, ({ one, many }) => ({
+      lifeArea: one(lifeAreas, {
+        fields: [lifeAreaQuizzes.lifeAreaId],
+        references: [lifeAreas.id]
+      }),
+      questions: many(lifeAreaQuizQuestions),
+      responses: many(lifeAreaQuizResponses)
+    }));
+    lifeAreaQuizQuestionsRelations = relations(lifeAreaQuizQuestions, ({ one, many }) => ({
+      quiz: one(lifeAreaQuizzes, {
+        fields: [lifeAreaQuizQuestions.quizId],
+        references: [lifeAreaQuizzes.id]
+      }),
+      subcategory: one(lifeAreaSubcategories, {
+        fields: [lifeAreaQuizQuestions.subcategoryId],
+        references: [lifeAreaSubcategories.id]
+      }),
+      responses: many(lifeAreaQuizResponses)
+    }));
+    lifeAreaQuizResponsesRelations = relations(lifeAreaQuizResponses, ({ one }) => ({
+      user: one(users, {
+        fields: [lifeAreaQuizResponses.userId],
+        references: [users.id]
+      }),
+      quiz: one(lifeAreaQuizzes, {
+        fields: [lifeAreaQuizResponses.quizId],
+        references: [lifeAreaQuizzes.id]
+      }),
+      question: one(lifeAreaQuizQuestions, {
+        fields: [lifeAreaQuizResponses.questionId],
+        references: [lifeAreaQuizQuestions.id]
+      })
+    }));
+    lifeAreaScoresRelations = relations(lifeAreaScores, ({ one }) => ({
+      user: one(users, {
+        fields: [lifeAreaScores.userId],
+        references: [users.id]
+      }),
+      lifeArea: one(lifeAreas, {
+        fields: [lifeAreaScores.lifeAreaId],
+        references: [lifeAreas.id]
+      }),
+      subcategory: one(lifeAreaSubcategories, {
+        fields: [lifeAreaScores.subcategoryId],
+        references: [lifeAreaSubcategories.id]
+      })
+    }));
+    lifeAreaActionsRelations = relations(lifeAreaActions, ({ one, many }) => ({
+      lifeArea: one(lifeAreas, {
+        fields: [lifeAreaActions.lifeAreaId],
+        references: [lifeAreas.id]
+      }),
+      subcategory: one(lifeAreaSubcategories, {
+        fields: [lifeAreaActions.subcategoryId],
+        references: [lifeAreaSubcategories.id]
+      }),
+      userProgress: many(userLifeAreaProgress)
+    }));
+    userLifeAreaProgressRelations = relations(userLifeAreaProgress, ({ one }) => ({
+      user: one(users, {
+        fields: [userLifeAreaProgress.userId],
+        references: [users.id]
+      }),
+      action: one(lifeAreaActions, {
+        fields: [userLifeAreaProgress.actionId],
+        references: [lifeAreaActions.id]
+      })
+    }));
+    lifeAreaMilestonesRelations = relations(lifeAreaMilestones, ({ one, many }) => ({
+      user: one(users, {
+        fields: [lifeAreaMilestones.userId],
+        references: [users.id]
+      }),
+      lifeArea: one(lifeAreas, {
+        fields: [lifeAreaMilestones.lifeAreaId],
+        references: [lifeAreas.id]
+      }),
+      socialInteractions: many(lifeAreaSocialInteractions)
+    }));
+    lifeAreaIndicatorsRelations = relations(lifeAreaIndicators, ({ one }) => ({
+      user: one(users, {
+        fields: [lifeAreaIndicators.userId],
+        references: [users.id]
+      }),
+      lifeArea: one(lifeAreas, {
+        fields: [lifeAreaIndicators.lifeAreaId],
+        references: [lifeAreas.id]
+      })
+    }));
+    lifeAreaCommunityStatsRelations = relations(lifeAreaCommunityStats, ({ one }) => ({
+      lifeArea: one(lifeAreas, {
+        fields: [lifeAreaCommunityStats.lifeAreaId],
+        references: [lifeAreas.id]
+      })
+    }));
+    lifeAreaXpLogRelations = relations(lifeAreaXpLog, ({ one }) => ({
+      user: one(users, {
+        fields: [lifeAreaXpLog.userId],
+        references: [users.id]
+      }),
+      lifeArea: one(lifeAreas, {
+        fields: [lifeAreaXpLog.lifeAreaId],
+        references: [lifeAreas.id]
+      })
+    }));
+    lifeAreaLevelsRelations = relations(lifeAreaLevels, ({ one }) => ({
+      user: one(users, {
+        fields: [lifeAreaLevels.userId],
+        references: [users.id]
+      }),
+      lifeArea: one(lifeAreas, {
+        fields: [lifeAreaLevels.lifeAreaId],
+        references: [lifeAreas.id]
+      })
+    }));
+    lifeAreaStreaksRelations = relations(lifeAreaStreaks, ({ one }) => ({
+      user: one(users, {
+        fields: [lifeAreaStreaks.userId],
+        references: [users.id]
+      })
+    }));
+    lifeAreaBadgesRelations = relations(lifeAreaBadges, ({ many }) => ({
+      userBadges: many(userLifeAreaBadges)
+    }));
+    userLifeAreaBadgesRelations = relations(userLifeAreaBadges, ({ one }) => ({
+      user: one(users, {
+        fields: [userLifeAreaBadges.userId],
+        references: [users.id]
+      }),
+      badge: one(lifeAreaBadges, {
+        fields: [userLifeAreaBadges.badgeId],
+        references: [lifeAreaBadges.id]
+      })
+    }));
+    lifeAreaCurrencyRelations = relations(lifeAreaCurrency, ({ one }) => ({
+      user: one(users, {
+        fields: [lifeAreaCurrency.userId],
+        references: [users.id]
+      })
+    }));
+    lifeAreaRewardChestsRelations = relations(lifeAreaRewardChests, ({ one }) => ({
+      user: one(users, {
+        fields: [lifeAreaRewardChests.userId],
+        references: [users.id]
+      })
+    }));
+    lifeAreaChallengesRelations = relations(lifeAreaChallenges, ({ many }) => ({
+      userChallenges: many(userLifeAreaChallenges)
+    }));
+    userLifeAreaChallengesRelations = relations(userLifeAreaChallenges, ({ one }) => ({
+      user: one(users, {
+        fields: [userLifeAreaChallenges.userId],
+        references: [users.id]
+      }),
+      challenge: one(lifeAreaChallenges, {
+        fields: [userLifeAreaChallenges.challengeId],
+        references: [lifeAreaChallenges.id]
+      })
+    }));
+    lifeAreaMasteryRelations = relations(lifeAreaMastery, ({ one }) => ({
+      user: one(users, {
+        fields: [lifeAreaMastery.userId],
+        references: [users.id]
+      }),
+      lifeArea: one(lifeAreas, {
+        fields: [lifeAreaMastery.lifeAreaId],
+        references: [lifeAreas.id]
+      })
+    }));
+    lifeAreaNotificationsRelations = relations(lifeAreaNotifications, ({ one }) => ({
+      user: one(users, {
+        fields: [lifeAreaNotifications.userId],
+        references: [users.id]
+      })
+    }));
+    lifeAreaSocialInteractionsRelations = relations(lifeAreaSocialInteractions, ({ one }) => ({
+      user: one(users, {
+        fields: [lifeAreaSocialInteractions.userId],
+        references: [users.id]
+      }),
+      targetUser: one(users, {
+        fields: [lifeAreaSocialInteractions.targetUserId],
+        references: [users.id]
+      })
+    }));
+    civicAssessments = pgTable("civic_assessments", {
+      id: serial("id").primaryKey(),
+      userId: integer("user_id").references(() => users.id),
+      status: text("status").notNull().default("in_progress").$type(),
+      version: integer("version").default(1),
+      startedAt: text("started_at").default(sql`now()`),
+      completedAt: text("completed_at"),
+      createdAt: text("created_at").default(sql`now()`)
+    });
+    civicAssessmentResponses = pgTable("civic_assessment_responses", {
+      id: serial("id").primaryKey(),
+      assessmentId: integer("assessment_id").references(() => civicAssessments.id),
+      questionKey: text("question_key").notNull(),
+      dimensionKey: text("dimension_key").notNull(),
+      responseType: text("response_type").notNull().$type(),
+      responseValue: integer("response_value"),
+      // For scale questions (1-10)
+      responseChoice: text("response_choice"),
+      // For choice questions
+      responseRank: text("response_rank"),
+      // JSON array for rank questions
+      createdAt: text("created_at").default(sql`now()`)
+    });
+    civicProfiles = pgTable("civic_profiles", {
+      id: serial("id").primaryKey(),
+      userId: integer("user_id").references(() => users.id),
+      assessmentId: integer("assessment_id").references(() => civicAssessments.id),
+      archetype: text("archetype").notNull(),
+      // e.g. 'el_puente', 'el_catalizador'
+      dimensionScores: text("dimension_scores").notNull(),
+      // JSON: { motivacion_civica: 75, ... }
+      topStrengths: text("top_strengths").notNull(),
+      // JSON array of dimension keys
+      growthAreas: text("growth_areas").notNull(),
+      // JSON array of dimension keys
+      recommendedActions: text("recommended_actions").notNull(),
+      // JSON array of action objects
+      createdAt: text("created_at").default(sql`now()`),
+      updatedAt: text("updated_at").default(sql`now()`)
+    });
+    civicGoals = pgTable("civic_goals", {
+      id: serial("id").primaryKey(),
+      userId: integer("user_id").references(() => users.id),
+      title: text("title").notNull(),
+      description: text("description"),
+      category: text("category").notNull().$type(),
+      targetDate: text("target_date"),
+      status: text("status").notNull().default("active").$type(),
+      progress: integer("progress").default(0),
+      // 0-100
+      milestones: text("milestones"),
+      // JSON array of { title, done, doneAt }
+      linkedLifeAreaId: integer("linked_life_area_id").references(() => lifeAreas.id),
+      linkedChallengeId: integer("linked_challenge_id").references(() => challenges.id),
+      createdAt: text("created_at").default(sql`now()`),
+      updatedAt: text("updated_at").default(sql`now()`)
+    });
+    weeklyCheckins = pgTable("weekly_checkins", {
+      id: serial("id").primaryKey(),
+      userId: integer("user_id").references(() => users.id),
+      weekOf: text("week_of").notNull(),
+      // ISO date string of week start (Monday)
+      mood: integer("mood").notNull(),
+      // 1-5
+      progressRating: integer("progress_rating").notNull(),
+      // 1-5
+      highlight: text("highlight"),
+      challenge: text("challenge"),
+      nextWeekIntention: text("next_week_intention"),
+      goalsReviewed: text("goals_reviewed"),
+      // JSON array of { goalId, status }
+      createdAt: text("created_at").default(sql`now()`)
+    });
+    coachingSessions = pgTable("coaching_sessions", {
+      id: serial("id").primaryKey(),
+      userId: integer("user_id").references(() => users.id),
+      sessionType: text("session_type").notNull().$type(),
+      status: text("status").notNull().default("active").$type(),
+      messages: text("messages").notNull().default("[]"),
+      // JSON array of { role, content, timestamp }
+      insights: text("insights"),
+      // JSON array of extracted insights
+      suggestedActions: text("suggested_actions"),
+      // JSON array of action items
+      createdAt: text("created_at").default(sql`now()`),
+      updatedAt: text("updated_at").default(sql`now()`)
+    });
+    coachingPrompts = pgTable("coaching_prompts", {
+      id: serial("id").primaryKey(),
+      userId: integer("user_id").references(() => users.id),
+      promptType: text("prompt_type").notNull().$type(),
+      title: text("title").notNull(),
+      content: text("content").notNull(),
+      context: text("context"),
+      // JSON with archetype, dimension, etc.
+      isRead: boolean("is_read").default(false),
+      scheduledFor: text("scheduled_for"),
+      createdAt: text("created_at").default(sql`now()`)
+    });
+    insertUserSchema = createInsertSchema(users).omit({
+      id: true,
+      createdAt: true
+    });
+    insertDreamSchema = createInsertSchema(dreams).omit({
+      id: true,
+      createdAt: true
+    });
+    insertCommunityPostSchema = createInsertSchema(communityPosts).omit({
+      id: true,
+      createdAt: true,
+      updatedAt: true
+    });
+    insertResourceSchema = createInsertSchema(resources).omit({
+      id: true,
+      createdAt: true
+    });
+    insertInspiringStorySchema = createInsertSchema(inspiringStories).omit({
+      id: true,
+      createdAt: true,
+      updatedAt: true
+    });
+    insertSentimentAnalysisSchema = createInsertSchema(sentimentAnalysis).omit({
+      id: true,
+      analyzedAt: true
+    });
+    insertTextEmbeddingSchema = createInsertSchema(textEmbeddings).omit({
+      id: true,
+      createdAt: true
+    });
+    insertUserProfileSchema = createInsertSchema(userProfiles).omit({
+      id: true,
+      lastAnalyzed: true
+    });
+    insertRecommendationSchema = createInsertSchema(recommendations).omit({
+      id: true,
+      createdAt: true
+    });
+    insertAiInsightSchema = createInsertSchema(aiInsights).omit({
+      id: true,
+      createdAt: true
+    });
+    insertBlockchainTransactionSchema = createInsertSchema(blockchainTransactions).omit({
+      id: true,
+      createdAt: true,
+      confirmedAt: true
+    });
+    insertIotSensorSchema = createInsertSchema(iotSensors).omit({
+      id: true,
+      installationDate: true,
+      lastReading: true
+    });
+    insertSensorDataSchema = createInsertSchema(sensorData).omit({
+      id: true,
+      timestamp: true
+    });
+    insertVrMeetingSchema = createInsertSchema(vrMeetings).omit({
+      id: true,
+      createdAt: true
+    });
+    insertMeetingParticipantSchema = createInsertSchema(meetingParticipants).omit({
+      id: true
+    });
+    insertUserResourceSchema = createInsertSchema(userResources).omit({
+      id: true,
+      createdAt: true
+    });
+    insertTerritoryMandateSchema = createInsertSchema(territoryMandates).omit({
+      id: true,
+      createdAt: true
+    });
+    insertMandateSuggestionSchema = createInsertSchema(mandateSuggestions).omit({
+      id: true,
+      createdAt: true
+    });
+    insertUserLevelSchema = createInsertSchema(userLevels).omit({
+      id: true,
+      createdAt: true,
+      updatedAt: true
+    });
+    insertChallengeSchema = createInsertSchema(challenges).omit({
+      id: true,
+      createdAt: true
+    });
+    insertChallengeStepSchema = createInsertSchema(challengeSteps).omit({
+      id: true,
+      createdAt: true
+    });
+    insertUserChallengeProgressSchema = createInsertSchema(userChallengeProgress).omit({
+      id: true,
+      createdAt: true
+    });
+    insertBadgeSchema = createInsertSchema(badges).omit({
+      id: true,
+      createdAt: true
+    });
+    insertUserBadgeSchema = createInsertSchema(userBadges).omit({
+      id: true,
+      earnedAt: true
+    });
+    insertUserDailyActivitySchema = createInsertSchema(userDailyActivity).omit({
+      id: true,
+      createdAt: true
+    });
+    insertUserCommitmentSchema = createInsertSchema(userCommitments).omit({
+      id: true,
+      createdAt: true
+    });
+    insertUserActionSchema = createInsertSchema(userActions).omit({
+      id: true,
+      createdAt: true
+    });
+    insertUserProgressSchema = createInsertSchema(userProgress).omit({
+      id: true,
+      createdAt: true,
+      updatedAt: true
+    });
+    insertWeeklyRankingSchema = createInsertSchema(weeklyRankings).omit({
+      id: true,
+      createdAt: true
+    });
+    insertMonthlyRankingSchema = createInsertSchema(monthlyRankings).omit({
+      id: true,
+      createdAt: true
+    });
+    insertProvinceRankingSchema = createInsertSchema(provinceRankings).omit({
+      id: true,
+      updatedAt: true
+    });
+    insertBlogPostSchema = createInsertSchema(blogPosts).omit({
+      id: true,
+      createdAt: true,
+      updatedAt: true
+    });
+    insertPostTagSchema = createInsertSchema(postTags).omit({
+      id: true
+    });
+    insertPostLikeSchema = createInsertSchema(postLikes).omit({
+      id: true,
+      createdAt: true
+    });
+    insertPostCommentSchema = createInsertSchema(postComments).omit({
+      id: true,
+      createdAt: true,
+      updatedAt: true
+    });
+    insertPostBookmarkSchema = createInsertSchema(postBookmarks).omit({
+      id: true,
+      createdAt: true
+    });
+    insertPostViewSchema = createInsertSchema(postViews).omit({
+      id: true,
+      viewedAt: true
+    });
+    insertCourseSchema = createInsertSchema(courses).omit({
+      id: true,
+      createdAt: true,
+      updatedAt: true
+    });
+    insertCourseLessonSchema = createInsertSchema(courseLessons).omit({
+      id: true,
+      createdAt: true,
+      updatedAt: true
+    });
+    insertCourseQuizSchema = createInsertSchema(courseQuizzes).omit({
+      id: true,
+      createdAt: true,
+      updatedAt: true
+    });
+    insertQuizQuestionSchema = createInsertSchema(quizQuestions).omit({
+      id: true,
+      createdAt: true
+    });
+    insertUserCourseProgressSchema = createInsertSchema(userCourseProgress).omit({
+      id: true,
+      createdAt: true,
+      updatedAt: true
+    });
+    insertUserLessonProgressSchema = createInsertSchema(userLessonProgress).omit({
+      id: true,
+      createdAt: true,
+      updatedAt: true
+    });
+    insertQuizAttemptSchema = createInsertSchema(quizAttempts).omit({
+      id: true,
+      startedAt: true
+    });
+    insertQuizAttemptAnswerSchema = createInsertSchema(quizAttemptAnswers).omit({
+      id: true,
+      createdAt: true
+    });
+    insertCourseCertificateSchema = createInsertSchema(courseCertificates).omit({
+      id: true,
+      issuedAt: true
+    });
+    insertCommunityPostInteractionSchema = createInsertSchema(communityPostInteractions).omit({
+      id: true,
+      createdAt: true,
+      updatedAt: true
+    });
+    insertCommunityMessageSchema = createInsertSchema(communityMessages).omit({
+      id: true,
+      createdAt: true
+    });
+    insertCommunityPostActivitySchema = createInsertSchema(communityPostActivity).omit({
+      id: true,
+      createdAt: true
+    });
+    insertInitiativeMemberSchema = createInsertSchema(initiativeMembers).omit({
+      id: true,
+      joinedAt: true
+    });
+    insertInitiativeMilestoneSchema = createInsertSchema(initiativeMilestones).omit({
+      id: true,
+      createdAt: true,
+      updatedAt: true
+    });
+    insertInitiativeMessageSchema = createInsertSchema(initiativeMessages).omit({
+      id: true,
+      createdAt: true
+    });
+    insertInitiativeTaskSchema = createInsertSchema(initiativeTasks).omit({
+      id: true,
+      createdAt: true,
+      updatedAt: true
+    });
+    insertActivityFeedSchema = createInsertSchema(activityFeed).omit({
+      id: true,
+      createdAt: true
+    });
+    insertMembershipRequestSchema = createInsertSchema(membershipRequests).omit({
+      id: true,
+      createdAt: true
+    });
+    insertNotificationSchema = createInsertSchema(notifications).omit({
+      id: true,
+      createdAt: true
+    });
+    insertLifeAreaSchema = createInsertSchema(lifeAreas).omit({
+      id: true,
+      createdAt: true
+    });
+    insertLifeAreaSubcategorySchema = createInsertSchema(lifeAreaSubcategories).omit({
+      id: true,
+      createdAt: true
+    });
+    insertLifeAreaQuizSchema = createInsertSchema(lifeAreaQuizzes).omit({
+      id: true,
+      createdAt: true
+    });
+    insertLifeAreaQuizQuestionSchema = createInsertSchema(lifeAreaQuizQuestions).omit({
+      id: true,
+      createdAt: true
+    });
+    insertLifeAreaQuizResponseSchema = createInsertSchema(lifeAreaQuizResponses).omit({
+      id: true,
+      answeredAt: true,
+      createdAt: true
+    });
+    insertLifeAreaScoreSchema = createInsertSchema(lifeAreaScores).omit({
+      id: true,
+      lastUpdated: true,
+      createdAt: true
+    });
+    insertLifeAreaActionSchema = createInsertSchema(lifeAreaActions).omit({
+      id: true,
+      createdAt: true
+    });
+    insertUserLifeAreaProgressSchema = createInsertSchema(userLifeAreaProgress).omit({
+      id: true,
+      createdAt: true,
+      updatedAt: true
+    });
+    insertLifeAreaMilestoneSchema = createInsertSchema(lifeAreaMilestones).omit({
+      id: true,
+      createdAt: true
+    });
+    insertLifeAreaIndicatorSchema = createInsertSchema(lifeAreaIndicators).omit({
+      id: true,
+      recordedAt: true
+    });
+    insertLifeAreaCommunityStatsSchema = createInsertSchema(lifeAreaCommunityStats).omit({
+      id: true,
+      calculatedAt: true
+    });
+    insertLifeAreaXpLogSchema = createInsertSchema(lifeAreaXpLog).omit({
+      id: true,
+      createdAt: true
+    });
+    insertLifeAreaLevelSchema = createInsertSchema(lifeAreaLevels).omit({
+      id: true,
+      createdAt: true,
+      updatedAt: true
+    });
+    insertLifeAreaStreakSchema = createInsertSchema(lifeAreaStreaks).omit({
+      id: true,
+      createdAt: true,
+      updatedAt: true
+    });
+    insertLifeAreaBadgeSchema = createInsertSchema(lifeAreaBadges).omit({
+      id: true,
+      createdAt: true
+    });
+    insertUserLifeAreaBadgeSchema = createInsertSchema(userLifeAreaBadges).omit({
+      id: true,
+      earnedAt: true
+    });
+    insertLifeAreaCurrencySchema = createInsertSchema(lifeAreaCurrency).omit({
+      id: true,
+      updatedAt: true,
+      createdAt: true
+    });
+    insertLifeAreaRewardChestSchema = createInsertSchema(lifeAreaRewardChests).omit({
+      id: true,
+      createdAt: true
+    });
+    insertLifeAreaChallengeSchema = createInsertSchema(lifeAreaChallenges).omit({
+      id: true,
+      createdAt: true
+    });
+    insertUserLifeAreaChallengeSchema = createInsertSchema(userLifeAreaChallenges).omit({
+      id: true,
+      createdAt: true,
+      updatedAt: true
+    });
+    insertLifeAreaMasterySchema = createInsertSchema(lifeAreaMastery).omit({
+      id: true,
+      createdAt: true,
+      updatedAt: true
+    });
+    insertLifeAreaNotificationSchema = createInsertSchema(lifeAreaNotifications).omit({
+      id: true,
+      createdAt: true
+    });
+    insertLifeAreaSocialInteractionSchema = createInsertSchema(lifeAreaSocialInteractions).omit({
+      id: true,
+      createdAt: true
+    });
+    civicAssessmentsRelations = relations(civicAssessments, ({ one, many }) => ({
+      user: one(users, {
+        fields: [civicAssessments.userId],
+        references: [users.id]
+      }),
+      responses: many(civicAssessmentResponses),
+      profile: one(civicProfiles)
+    }));
+    civicAssessmentResponsesRelations = relations(civicAssessmentResponses, ({ one }) => ({
+      assessment: one(civicAssessments, {
+        fields: [civicAssessmentResponses.assessmentId],
+        references: [civicAssessments.id]
+      })
+    }));
+    civicProfilesRelations = relations(civicProfiles, ({ one }) => ({
+      user: one(users, {
+        fields: [civicProfiles.userId],
+        references: [users.id]
+      }),
+      assessment: one(civicAssessments, {
+        fields: [civicProfiles.assessmentId],
+        references: [civicAssessments.id]
+      })
+    }));
+    civicGoalsRelations = relations(civicGoals, ({ one }) => ({
+      user: one(users, {
+        fields: [civicGoals.userId],
+        references: [users.id]
+      }),
+      lifeArea: one(lifeAreas, {
+        fields: [civicGoals.linkedLifeAreaId],
+        references: [lifeAreas.id]
+      }),
+      challenge: one(challenges, {
+        fields: [civicGoals.linkedChallengeId],
+        references: [challenges.id]
+      })
+    }));
+    weeklyCheckinsRelations = relations(weeklyCheckins, ({ one }) => ({
+      user: one(users, {
+        fields: [weeklyCheckins.userId],
+        references: [users.id]
+      })
+    }));
+    coachingSessionsRelations = relations(coachingSessions, ({ one }) => ({
+      user: one(users, {
+        fields: [coachingSessions.userId],
+        references: [users.id]
+      })
+    }));
+    coachingPromptsRelations = relations(coachingPrompts, ({ one }) => ({
+      user: one(users, {
+        fields: [coachingPrompts.userId],
+        references: [users.id]
+      })
+    }));
+    insertCivicAssessmentSchema = createInsertSchema(civicAssessments).omit({
+      id: true,
+      createdAt: true
+    });
+    insertCivicAssessmentResponseSchema = createInsertSchema(civicAssessmentResponses).omit({
+      id: true,
+      createdAt: true
+    });
+    insertCivicProfileSchema = createInsertSchema(civicProfiles).omit({
+      id: true,
+      createdAt: true,
+      updatedAt: true
+    });
+    insertCivicGoalSchema = createInsertSchema(civicGoals).omit({
+      id: true,
+      createdAt: true,
+      updatedAt: true
+    });
+    insertWeeklyCheckinSchema = createInsertSchema(weeklyCheckins).omit({
+      id: true,
+      createdAt: true
+    });
+    insertCoachingSessionSchema = createInsertSchema(coachingSessions).omit({
+      id: true,
+      createdAt: true,
+      updatedAt: true
+    });
+    insertCoachingPromptSchema = createInsertSchema(coachingPrompts).omit({
+      id: true,
+      createdAt: true
+    });
+  }
+});
+
+// server/db.ts
+var db_exports = {};
+__export(db_exports, {
+  db: () => db
+});
+import { neon } from "@neondatabase/serverless";
+import { drizzle } from "drizzle-orm/neon-http";
+var databaseUrl, sql2, db;
+var init_db = __esm({
+  "server/db.ts"() {
+    "use strict";
+    init_schema();
+    databaseUrl = process.env.DATABASE_URL;
+    if (!databaseUrl) {
+      throw new Error("DATABASE_URL is required. Set it to your Neon connection string.");
+    }
+    console.log("Connecting to Neon Postgres...");
+    sql2 = neon(databaseUrl);
+    db = drizzle(sql2, { schema: schema_exports });
+  }
+});
+
 // server/config.ts
 import dotenv from "dotenv";
 import crypto from "crypto";
@@ -159,9 +2774,11 @@ function createAuthResponse(user) {
       email: user.email,
       name: user.name,
       location: user.location,
+      avatarUrl: user.avatarUrl ?? null,
       emailVerified: user.emailVerified ?? false,
       onboardingCompleted: user.onboardingCompleted ?? false,
-      createdAt: user.createdAt ?? null
+      createdAt: user.createdAt ?? null,
+      dataShareOptOut: user.dataShareOptOut ?? false
     },
     tokens: {
       accessToken,
@@ -321,2504 +2938,16 @@ var init_auth = __esm({
   }
 });
 
-// server/vercel-handler.ts
-import express from "express";
-
-// server/routes.ts
-import { createServer } from "http";
-
-// shared/schema.ts
-var schema_exports = {};
-__export(schema_exports, {
-  activityFeed: () => activityFeed,
-  activityFeedRelations: () => activityFeedRelations,
-  aiInsights: () => aiInsights,
-  badges: () => badges,
-  badgesRelations: () => badgesRelations,
-  blockchainTransactions: () => blockchainTransactions,
-  blogPosts: () => blogPosts,
-  blogPostsRelations: () => blogPostsRelations,
-  challengeSteps: () => challengeSteps,
-  challengeStepsRelations: () => challengeStepsRelations,
-  challenges: () => challenges,
-  challengesRelations: () => challengesRelations,
-  civicAssessmentResponses: () => civicAssessmentResponses,
-  civicAssessmentResponsesRelations: () => civicAssessmentResponsesRelations,
-  civicAssessments: () => civicAssessments,
-  civicAssessmentsRelations: () => civicAssessmentsRelations,
-  civicGoals: () => civicGoals,
-  civicGoalsRelations: () => civicGoalsRelations,
-  civicProfiles: () => civicProfiles,
-  civicProfilesRelations: () => civicProfilesRelations,
-  coachingPrompts: () => coachingPrompts,
-  coachingPromptsRelations: () => coachingPromptsRelations,
-  coachingSessions: () => coachingSessions,
-  coachingSessionsRelations: () => coachingSessionsRelations,
-  communityMessages: () => communityMessages,
-  communityMessagesRelations: () => communityMessagesRelations,
-  communityPostActivity: () => communityPostActivity,
-  communityPostActivityRelations: () => communityPostActivityRelations,
-  communityPostInteractions: () => communityPostInteractions,
-  communityPostInteractionsRelations: () => communityPostInteractionsRelations,
-  communityPostLikes: () => communityPostLikes,
-  communityPostViews: () => communityPostViews,
-  communityPosts: () => communityPosts,
-  communityPostsRelations: () => communityPostsRelations,
-  courseCertificates: () => courseCertificates,
-  courseCertificatesRelations: () => courseCertificatesRelations,
-  courseLessons: () => courseLessons,
-  courseLessonsRelations: () => courseLessonsRelations,
-  courseQuizzes: () => courseQuizzes,
-  courseQuizzesRelations: () => courseQuizzesRelations,
-  courses: () => courses,
-  coursesRelations: () => coursesRelations,
-  dreams: () => dreams,
-  dreamsRelations: () => dreamsRelations,
-  geographicLocations: () => geographicLocations,
-  initiativeMembers: () => initiativeMembers,
-  initiativeMembersRelations: () => initiativeMembersRelations,
-  initiativeMessages: () => initiativeMessages,
-  initiativeMessagesRelations: () => initiativeMessagesRelations,
-  initiativeMilestones: () => initiativeMilestones,
-  initiativeMilestonesRelations: () => initiativeMilestonesRelations,
-  initiativeTasks: () => initiativeTasks,
-  initiativeTasksRelations: () => initiativeTasksRelations,
-  insertActivityFeedSchema: () => insertActivityFeedSchema,
-  insertAiInsightSchema: () => insertAiInsightSchema,
-  insertBadgeSchema: () => insertBadgeSchema,
-  insertBlockchainTransactionSchema: () => insertBlockchainTransactionSchema,
-  insertBlogPostSchema: () => insertBlogPostSchema,
-  insertChallengeSchema: () => insertChallengeSchema,
-  insertChallengeStepSchema: () => insertChallengeStepSchema,
-  insertCivicAssessmentResponseSchema: () => insertCivicAssessmentResponseSchema,
-  insertCivicAssessmentSchema: () => insertCivicAssessmentSchema,
-  insertCivicGoalSchema: () => insertCivicGoalSchema,
-  insertCivicProfileSchema: () => insertCivicProfileSchema,
-  insertCoachingPromptSchema: () => insertCoachingPromptSchema,
-  insertCoachingSessionSchema: () => insertCoachingSessionSchema,
-  insertCommunityMessageSchema: () => insertCommunityMessageSchema,
-  insertCommunityPostActivitySchema: () => insertCommunityPostActivitySchema,
-  insertCommunityPostInteractionSchema: () => insertCommunityPostInteractionSchema,
-  insertCommunityPostSchema: () => insertCommunityPostSchema,
-  insertCourseCertificateSchema: () => insertCourseCertificateSchema,
-  insertCourseLessonSchema: () => insertCourseLessonSchema,
-  insertCourseQuizSchema: () => insertCourseQuizSchema,
-  insertCourseSchema: () => insertCourseSchema,
-  insertDreamSchema: () => insertDreamSchema,
-  insertInitiativeMemberSchema: () => insertInitiativeMemberSchema,
-  insertInitiativeMessageSchema: () => insertInitiativeMessageSchema,
-  insertInitiativeMilestoneSchema: () => insertInitiativeMilestoneSchema,
-  insertInitiativeTaskSchema: () => insertInitiativeTaskSchema,
-  insertInspiringStorySchema: () => insertInspiringStorySchema,
-  insertIotSensorSchema: () => insertIotSensorSchema,
-  insertLifeAreaActionSchema: () => insertLifeAreaActionSchema,
-  insertLifeAreaBadgeSchema: () => insertLifeAreaBadgeSchema,
-  insertLifeAreaChallengeSchema: () => insertLifeAreaChallengeSchema,
-  insertLifeAreaCommunityStatsSchema: () => insertLifeAreaCommunityStatsSchema,
-  insertLifeAreaCurrencySchema: () => insertLifeAreaCurrencySchema,
-  insertLifeAreaIndicatorSchema: () => insertLifeAreaIndicatorSchema,
-  insertLifeAreaLevelSchema: () => insertLifeAreaLevelSchema,
-  insertLifeAreaMasterySchema: () => insertLifeAreaMasterySchema,
-  insertLifeAreaMilestoneSchema: () => insertLifeAreaMilestoneSchema,
-  insertLifeAreaNotificationSchema: () => insertLifeAreaNotificationSchema,
-  insertLifeAreaQuizQuestionSchema: () => insertLifeAreaQuizQuestionSchema,
-  insertLifeAreaQuizResponseSchema: () => insertLifeAreaQuizResponseSchema,
-  insertLifeAreaQuizSchema: () => insertLifeAreaQuizSchema,
-  insertLifeAreaRewardChestSchema: () => insertLifeAreaRewardChestSchema,
-  insertLifeAreaSchema: () => insertLifeAreaSchema,
-  insertLifeAreaScoreSchema: () => insertLifeAreaScoreSchema,
-  insertLifeAreaSocialInteractionSchema: () => insertLifeAreaSocialInteractionSchema,
-  insertLifeAreaStreakSchema: () => insertLifeAreaStreakSchema,
-  insertLifeAreaSubcategorySchema: () => insertLifeAreaSubcategorySchema,
-  insertLifeAreaXpLogSchema: () => insertLifeAreaXpLogSchema,
-  insertMeetingParticipantSchema: () => insertMeetingParticipantSchema,
-  insertMembershipRequestSchema: () => insertMembershipRequestSchema,
-  insertMonthlyRankingSchema: () => insertMonthlyRankingSchema,
-  insertNotificationSchema: () => insertNotificationSchema,
-  insertPostBookmarkSchema: () => insertPostBookmarkSchema,
-  insertPostCommentSchema: () => insertPostCommentSchema,
-  insertPostLikeSchema: () => insertPostLikeSchema,
-  insertPostTagSchema: () => insertPostTagSchema,
-  insertPostViewSchema: () => insertPostViewSchema,
-  insertProvinceRankingSchema: () => insertProvinceRankingSchema,
-  insertQuizAttemptAnswerSchema: () => insertQuizAttemptAnswerSchema,
-  insertQuizAttemptSchema: () => insertQuizAttemptSchema,
-  insertQuizQuestionSchema: () => insertQuizQuestionSchema,
-  insertRecommendationSchema: () => insertRecommendationSchema,
-  insertResourceSchema: () => insertResourceSchema,
-  insertSensorDataSchema: () => insertSensorDataSchema,
-  insertSentimentAnalysisSchema: () => insertSentimentAnalysisSchema,
-  insertTextEmbeddingSchema: () => insertTextEmbeddingSchema,
-  insertUserActionSchema: () => insertUserActionSchema,
-  insertUserBadgeSchema: () => insertUserBadgeSchema,
-  insertUserChallengeProgressSchema: () => insertUserChallengeProgressSchema,
-  insertUserCommitmentSchema: () => insertUserCommitmentSchema,
-  insertUserCourseProgressSchema: () => insertUserCourseProgressSchema,
-  insertUserDailyActivitySchema: () => insertUserDailyActivitySchema,
-  insertUserLessonProgressSchema: () => insertUserLessonProgressSchema,
-  insertUserLevelSchema: () => insertUserLevelSchema,
-  insertUserLifeAreaBadgeSchema: () => insertUserLifeAreaBadgeSchema,
-  insertUserLifeAreaChallengeSchema: () => insertUserLifeAreaChallengeSchema,
-  insertUserLifeAreaProgressSchema: () => insertUserLifeAreaProgressSchema,
-  insertUserProfileSchema: () => insertUserProfileSchema,
-  insertUserProgressSchema: () => insertUserProgressSchema,
-  insertUserSchema: () => insertUserSchema,
-  insertVrMeetingSchema: () => insertVrMeetingSchema,
-  insertWeeklyCheckinSchema: () => insertWeeklyCheckinSchema,
-  insertWeeklyRankingSchema: () => insertWeeklyRankingSchema,
-  inspiringStories: () => inspiringStories,
-  inspiringStoriesRelations: () => inspiringStoriesRelations,
-  iotSensors: () => iotSensors,
-  iotSensorsRelations: () => iotSensorsRelations,
-  lifeAreaActions: () => lifeAreaActions,
-  lifeAreaActionsRelations: () => lifeAreaActionsRelations,
-  lifeAreaBadges: () => lifeAreaBadges,
-  lifeAreaBadgesRelations: () => lifeAreaBadgesRelations,
-  lifeAreaChallenges: () => lifeAreaChallenges,
-  lifeAreaChallengesRelations: () => lifeAreaChallengesRelations,
-  lifeAreaCommunityStats: () => lifeAreaCommunityStats,
-  lifeAreaCommunityStatsRelations: () => lifeAreaCommunityStatsRelations,
-  lifeAreaCurrency: () => lifeAreaCurrency,
-  lifeAreaCurrencyRelations: () => lifeAreaCurrencyRelations,
-  lifeAreaIndicators: () => lifeAreaIndicators,
-  lifeAreaIndicatorsRelations: () => lifeAreaIndicatorsRelations,
-  lifeAreaLevels: () => lifeAreaLevels,
-  lifeAreaLevelsRelations: () => lifeAreaLevelsRelations,
-  lifeAreaMastery: () => lifeAreaMastery,
-  lifeAreaMasteryRelations: () => lifeAreaMasteryRelations,
-  lifeAreaMilestones: () => lifeAreaMilestones,
-  lifeAreaMilestonesRelations: () => lifeAreaMilestonesRelations,
-  lifeAreaNotifications: () => lifeAreaNotifications,
-  lifeAreaNotificationsRelations: () => lifeAreaNotificationsRelations,
-  lifeAreaQuizQuestions: () => lifeAreaQuizQuestions,
-  lifeAreaQuizQuestionsRelations: () => lifeAreaQuizQuestionsRelations,
-  lifeAreaQuizResponses: () => lifeAreaQuizResponses,
-  lifeAreaQuizResponsesRelations: () => lifeAreaQuizResponsesRelations,
-  lifeAreaQuizzes: () => lifeAreaQuizzes,
-  lifeAreaQuizzesRelations: () => lifeAreaQuizzesRelations,
-  lifeAreaRewardChests: () => lifeAreaRewardChests,
-  lifeAreaRewardChestsRelations: () => lifeAreaRewardChestsRelations,
-  lifeAreaScores: () => lifeAreaScores,
-  lifeAreaScoresRelations: () => lifeAreaScoresRelations,
-  lifeAreaSocialInteractions: () => lifeAreaSocialInteractions,
-  lifeAreaSocialInteractionsRelations: () => lifeAreaSocialInteractionsRelations,
-  lifeAreaStreaks: () => lifeAreaStreaks,
-  lifeAreaStreaksRelations: () => lifeAreaStreaksRelations,
-  lifeAreaSubcategories: () => lifeAreaSubcategories,
-  lifeAreaSubcategoriesRelations: () => lifeAreaSubcategoriesRelations,
-  lifeAreaXpLog: () => lifeAreaXpLog,
-  lifeAreaXpLogRelations: () => lifeAreaXpLogRelations,
-  lifeAreas: () => lifeAreas,
-  lifeAreasRelations: () => lifeAreasRelations,
-  meetingParticipants: () => meetingParticipants,
-  meetingParticipantsRelations: () => meetingParticipantsRelations,
-  membershipRequests: () => membershipRequests,
-  membershipRequestsRelations: () => membershipRequestsRelations,
-  monthlyRankings: () => monthlyRankings,
-  monthlyRankingsRelations: () => monthlyRankingsRelations,
-  notifications: () => notifications,
-  notificationsRelations: () => notificationsRelations,
-  postBookmarks: () => postBookmarks,
-  postBookmarksRelations: () => postBookmarksRelations,
-  postComments: () => postComments,
-  postCommentsRelations: () => postCommentsRelations,
-  postLikes: () => postLikes,
-  postLikesRelations: () => postLikesRelations,
-  postTags: () => postTags,
-  postTagsRelations: () => postTagsRelations,
-  postViews: () => postViews,
-  postViewsRelations: () => postViewsRelations,
-  provinceRankings: () => provinceRankings,
-  provinceRankingsRelations: () => provinceRankingsRelations,
-  quizAttemptAnswers: () => quizAttemptAnswers,
-  quizAttemptAnswersRelations: () => quizAttemptAnswersRelations,
-  quizAttempts: () => quizAttempts,
-  quizAttemptsRelations: () => quizAttemptsRelations,
-  quizQuestions: () => quizQuestions,
-  quizQuestionsRelations: () => quizQuestionsRelations,
-  recommendations: () => recommendations,
-  recommendationsRelations: () => recommendationsRelations,
-  resources: () => resources,
-  sensorData: () => sensorData,
-  sensorDataRelations: () => sensorDataRelations,
-  sentimentAnalysis: () => sentimentAnalysis,
-  textEmbeddings: () => textEmbeddings,
-  userActions: () => userActions,
-  userActionsRelations: () => userActionsRelations,
-  userBadges: () => userBadges,
-  userBadgesRelations: () => userBadgesRelations,
-  userChallengeProgress: () => userChallengeProgress,
-  userChallengeProgressRelations: () => userChallengeProgressRelations,
-  userCommitments: () => userCommitments,
-  userCommitmentsRelations: () => userCommitmentsRelations,
-  userCourseProgress: () => userCourseProgress,
-  userCourseProgressRelations: () => userCourseProgressRelations,
-  userDailyActivity: () => userDailyActivity,
-  userDailyActivityRelations: () => userDailyActivityRelations,
-  userLessonProgress: () => userLessonProgress,
-  userLessonProgressRelations: () => userLessonProgressRelations,
-  userLevels: () => userLevels,
-  userLevelsRelations: () => userLevelsRelations,
-  userLifeAreaBadges: () => userLifeAreaBadges,
-  userLifeAreaBadgesRelations: () => userLifeAreaBadgesRelations,
-  userLifeAreaChallenges: () => userLifeAreaChallenges,
-  userLifeAreaChallengesRelations: () => userLifeAreaChallengesRelations,
-  userLifeAreaProgress: () => userLifeAreaProgress,
-  userLifeAreaProgressRelations: () => userLifeAreaProgressRelations,
-  userProfiles: () => userProfiles,
-  userProfilesRelations: () => userProfilesRelations,
-  userProgress: () => userProgress,
-  userProgressRelations: () => userProgressRelations,
-  users: () => users,
-  usersRelations: () => usersRelations,
-  vrMeetings: () => vrMeetings,
-  vrMeetingsRelations: () => vrMeetingsRelations,
-  weeklyCheckins: () => weeklyCheckins,
-  weeklyCheckinsRelations: () => weeklyCheckinsRelations,
-  weeklyRankings: () => weeklyRankings,
-  weeklyRankingsRelations: () => weeklyRankingsRelations
-});
-import { pgTable, serial, integer, text, real, boolean } from "drizzle-orm/pg-core";
-import { sql } from "drizzle-orm";
-import { createInsertSchema } from "drizzle-zod";
-import { relations } from "drizzle-orm";
-var users = pgTable("users", {
-  id: serial("id").primaryKey(),
-  username: text("username").notNull().unique(),
-  password: text("password").notNull(),
-  // Hashed password
-  email: text("email").notNull().unique(),
-  name: text("name").notNull(),
-  location: text("location"),
-  createdAt: text("created_at").default(sql`now()`),
-  updatedAt: text("updated_at").default(sql`now()`),
-  lastLogin: text("last_login"),
-  loginAttempts: integer("login_attempts").default(0),
-  lockedUntil: text("locked_until"),
-  isActive: boolean("is_active").default(true),
-  emailVerified: boolean("email_verified").default(false),
-  // Email verification
-  emailVerificationToken: text("email_verification_token"),
-  emailVerificationExpires: text("email_verification_expires"),
-  // Password reset
-  passwordResetToken: text("password_reset_token"),
-  passwordResetExpires: text("password_reset_expires"),
-  // Onboarding
-  onboardingCompleted: boolean("onboarding_completed").default(false),
-  // 2FA
-  twoFactorEnabled: boolean("two_factor_enabled").default(false),
-  twoFactorSecret: text("two_factor_secret"),
-  twoFactorBackupCodes: text("two_factor_backup_codes")
-  // JSON array
-});
-var dreams = pgTable("dreams", {
-  id: serial("id").primaryKey(),
-  userId: integer("user_id").references(() => users.id),
-  dream: text("dream"),
-  value: text("value"),
-  need: text("need"),
-  basta: text("basta"),
-  location: text("location"),
-  latitude: text("latitude"),
-  longitude: text("longitude"),
-  createdAt: text("created_at").default(sql`now()`),
-  type: text("type").notNull().default("dream").$type()
-});
-var communityPosts = pgTable("community_posts", {
-  id: serial("id").primaryKey(),
-  userId: integer("user_id").references(() => users.id),
-  title: text("title").notNull(),
-  description: text("description").notNull(),
-  type: text("type").notNull(),
-  // employment, exchange, volunteer, project, donation
-  location: text("location").notNull(),
-  participants: integer("participants"),
-  status: text("status").notNull().default("active").$type(),
-  views: integer("views").default(0),
-  expiresAt: text("expires_at"),
-  contactEmail: text("contact_email"),
-  contactPhone: text("contact_phone"),
-  // Geographic data
-  latitude: real("latitude"),
-  longitude: real("longitude"),
-  province: text("province"),
-  city: text("city"),
-  postalCode: text("postal_code"),
-  country: text("country").default("Argentina"),
-  address: text("address"),
-  // New fields for initiative features
-  requiresApproval: boolean("requires_approval").default(false),
-  memberCount: integer("member_count").default(0),
-  settings: text("settings"),
-  // JSON with initiative settings
-  createdAt: text("created_at").default(sql`now()`),
-  updatedAt: text("updated_at").default(sql`now()`)
-});
-var resources = pgTable("resources", {
-  id: serial("id").primaryKey(),
-  title: text("title").notNull(),
-  description: text("description").notNull(),
-  category: text("category").notNull(),
-  url: text("url"),
-  createdAt: text("created_at").default(sql`now()`)
-});
-var inspiringStories = pgTable("inspiring_stories", {
-  id: serial("id").primaryKey(),
-  title: text("title").notNull(),
-  excerpt: text("excerpt").notNull(),
-  content: text("content").notNull(),
-  authorId: integer("author_id").references(() => users.id),
-  authorName: text("author_name"),
-  // Para casos donde no hay usuario registrado
-  authorEmail: text("author_email"),
-  // Para casos donde no hay usuario registrado
-  category: text("category").notNull().$type(),
-  location: text("location").notNull(),
-  province: text("province"),
-  city: text("city"),
-  // Impact metrics
-  impactType: text("impact_type").notNull().$type(),
-  impactCount: integer("impact_count").notNull(),
-  impactDescription: text("impact_description").notNull(),
-  // Media
-  imageUrl: text("image_url"),
-  videoUrl: text("video_url"),
-  // Verification and moderation
-  verified: boolean("verified").default(false),
-  featured: boolean("featured").default(false),
-  status: text("status").notNull().default("pending").$type(),
-  moderatedBy: integer("moderated_by").references(() => users.id),
-  moderatedAt: text("moderated_at"),
-  moderationNotes: text("moderation_notes"),
-  // Engagement metrics
-  views: integer("views").default(0),
-  likes: integer("likes").default(0),
-  shares: integer("shares").default(0),
-  // Metadata
-  tags: text("tags"),
-  // JSON array of tags
-  relatedPostId: integer("related_post_id").references(() => communityPosts.id),
-  // Link to related community post
-  createdAt: text("created_at").default(sql`now()`),
-  updatedAt: text("updated_at").default(sql`now()`),
-  publishedAt: text("published_at")
-});
-var communityPostInteractions = pgTable("community_post_interactions", {
-  id: serial("id").primaryKey(),
-  postId: integer("post_id").references(() => communityPosts.id),
-  userId: integer("user_id").references(() => users.id),
-  type: text("type").notNull().$type(),
-  status: text("status").notNull().default("pending").$type(),
-  message: text("message"),
-  createdAt: text("created_at").default(sql`now()`),
-  updatedAt: text("updated_at").default(sql`now()`)
-});
-var communityMessages = pgTable("community_messages", {
-  id: serial("id").primaryKey(),
-  senderId: integer("sender_id").references(() => users.id),
-  receiverId: integer("receiver_id").references(() => users.id),
-  postId: integer("post_id").references(() => communityPosts.id),
-  subject: text("subject").notNull(),
-  content: text("content").notNull(),
-  read: boolean("read").default(false),
-  createdAt: text("created_at").default(sql`now()`)
-});
-var communityPostActivity = pgTable("community_post_activity", {
-  id: serial("id").primaryKey(),
-  postId: integer("post_id").references(() => communityPosts.id),
-  userId: integer("user_id").references(() => users.id),
-  // Can be null for anonymous views
-  activityType: text("activity_type").notNull().$type(),
-  metadata: text("metadata"),
-  // JSON string for additional data
-  createdAt: text("created_at").default(sql`now()`)
-});
-var geographicLocations = pgTable("geographic_locations", {
-  id: serial("id").primaryKey(),
-  name: text("name").notNull(),
-  type: text("type").notNull().$type(),
-  parentId: integer("parent_id").references(() => geographicLocations.id),
-  latitude: real("latitude"),
-  longitude: real("longitude"),
-  postalCode: text("postal_code"),
-  country: text("country").default("Argentina"),
-  createdAt: text("created_at").default(sql`now()`)
-});
-var communityPostLikes = pgTable("community_post_likes", {
-  id: serial("id").primaryKey(),
-  postId: integer("post_id").references(() => communityPosts.id),
-  userId: integer("user_id").references(() => users.id),
-  createdAt: text("created_at").default(sql`now()`)
-});
-var communityPostViews = pgTable("community_post_views", {
-  id: serial("id").primaryKey(),
-  postId: integer("post_id").references(() => communityPosts.id),
-  userId: integer("user_id").references(() => users.id),
-  // Can be null for anonymous views
-  ipAddress: text("ip_address"),
-  userAgent: text("user_agent"),
-  viewedAt: text("viewed_at").default(sql`now()`)
-});
-var sentimentAnalysis = pgTable("sentiment_analysis", {
-  id: serial("id").primaryKey(),
-  contentId: integer("content_id").notNull(),
-  contentType: text("content_type").notNull(),
-  // 'dream', 'post', 'story', etc.
-  sentiment: text("sentiment").notNull(),
-  // 'positive', 'negative', 'neutral'
-  confidence: real("confidence"),
-  emotions: text("emotions"),
-  // JSON string para emociones
-  keywords: text("keywords"),
-  // JSON string para palabras clave
-  topics: text("topics"),
-  // JSON string para temas
-  analyzedAt: text("analyzed_at").default(sql`now()`)
-});
-var textEmbeddings = pgTable("text_embeddings", {
-  id: serial("id").primaryKey(),
-  contentId: integer("content_id").notNull(),
-  contentType: text("content_type").notNull(),
-  embedding: text("embedding"),
-  // Blob para vector de embeddings
-  model: text("model").notNull(),
-  createdAt: text("created_at").default(sql`now()`)
-});
-var userProfiles = pgTable("user_profiles", {
-  id: serial("id").primaryKey(),
-  userId: integer("user_id").references(() => users.id).unique(),
-  interests: text("interests"),
-  // JSON string para intereses
-  values: text("values"),
-  // JSON string para valores inferidos
-  personalityTraits: text("personality_traits"),
-  // JSON string para rasgos
-  engagementScore: real("engagement_score"),
-  lastAnalyzed: text("last_analyzed")
-});
-var recommendations = pgTable("recommendations", {
-  id: serial("id").primaryKey(),
-  userId: integer("user_id").references(() => users.id),
-  recommendationType: text("recommendation_type").notNull(),
-  // 'content', 'connection', 'project'
-  targetId: integer("target_id").notNull(),
-  targetType: text("target_type").notNull(),
-  score: real("score"),
-  reason: text("reason"),
-  createdAt: text("created_at").default(sql`now()`),
-  clicked: boolean("clicked").default(false),
-  dismissed: boolean("dismissed").default(false)
-});
-var aiInsights = pgTable("ai_insights", {
-  id: serial("id").primaryKey(),
-  insightType: text("insight_type").notNull(),
-  // 'trend', 'pattern', 'prediction'
-  scope: text("scope").notNull(),
-  // 'global', 'regional', 'local'
-  title: text("title").notNull(),
-  description: text("description").notNull(),
-  data: text("data"),
-  // JSON string para datos adicionales
-  confidence: real("confidence"),
-  validUntil: text("valid_until"),
-  createdAt: text("created_at").default(sql`now()`)
-});
-var blockchainTransactions = pgTable("blockchain_transactions", {
-  id: serial("id").primaryKey(),
-  txHash: text("tx_hash").notNull().unique(),
-  userId: integer("user_id").references(() => users.id),
-  transactionType: text("transaction_type").notNull(),
-  // 'vote', 'donation', 'certification'
-  targetId: integer("target_id"),
-  targetType: text("target_type"),
-  amount: text("amount"),
-  // String para precisión de criptomonedas
-  network: text("network").notNull(),
-  status: text("status").notNull(),
-  // 'pending', 'confirmed', 'failed'
-  createdAt: text("created_at").default(sql`now()`),
-  confirmedAt: text("confirmed_at")
-});
-var iotSensors = pgTable("iot_sensors", {
-  id: serial("id").primaryKey(),
-  sensorId: text("sensor_id").notNull().unique(),
-  sensorType: text("sensor_type").notNull(),
-  location: text("location").notNull(),
-  latitude: real("latitude"),
-  longitude: real("longitude"),
-  installationDate: text("installation_date"),
-  lastReading: text("last_reading"),
-  status: text("status").notNull(),
-  // 'active', 'inactive', 'maintenance'
-  metadata: text("metadata")
-  // JSON string para configuración
-});
-var sensorData = pgTable("sensor_data", {
-  id: serial("id").primaryKey(),
-  sensorId: integer("sensor_id").references(() => iotSensors.id),
-  reading: text("reading").notNull(),
-  // JSON string para datos del sensor
-  timestamp: text("timestamp").default(sql`now()`),
-  quality: text("quality"),
-  // 'good', 'moderate', 'poor'
-  processed: boolean("processed").default(false)
-});
-var vrMeetings = pgTable("vr_meetings", {
-  id: serial("id").primaryKey(),
-  title: text("title").notNull(),
-  description: text("description"),
-  organizerId: integer("organizer_id").references(() => users.id),
-  maxParticipants: integer("max_participants"),
-  scheduledFor: text("scheduled_for"),
-  duration: integer("duration"),
-  meetingUrl: text("meeting_url"),
-  recordingUrl: text("recording_url"),
-  status: text("status").notNull(),
-  // 'scheduled', 'active', 'completed', 'cancelled'
-  metadata: text("metadata"),
-  // JSON string para configuración VR
-  createdAt: text("created_at").default(sql`now()`)
-});
-var meetingParticipants = pgTable("meeting_participants", {
-  id: serial("id").primaryKey(),
-  meetingId: integer("meeting_id").references(() => vrMeetings.id),
-  userId: integer("user_id").references(() => users.id),
-  joinedAt: text("joined_at"),
-  leftAt: text("left_at"),
-  role: text("role")
-  // 'organizer', 'participant', 'moderator'
-});
-var blogPosts = pgTable("blog_posts", {
-  id: serial("id").primaryKey(),
-  title: text("title").notNull(),
-  slug: text("slug").notNull().unique(),
-  excerpt: text("excerpt").notNull(),
-  content: text("content").notNull(),
-  authorId: integer("author_id").references(() => users.id),
-  publishedAt: text("published_at").default(sql`now()`),
-  category: text("category").notNull(),
-  featured: boolean("featured").default(false),
-  imageUrl: text("image_url"),
-  videoUrl: text("video_url"),
-  viewCount: integer("view_count").default(0),
-  type: text("type").notNull().$type(),
-  createdAt: text("created_at").default(sql`now()`),
-  updatedAt: text("updated_at").default(sql`now()`)
-});
-var postTags = pgTable("post_tags", {
-  id: serial("id").primaryKey(),
-  postId: integer("post_id").references(() => blogPosts.id),
-  tag: text("tag").notNull()
-});
-var postLikes = pgTable("post_likes", {
-  id: serial("id").primaryKey(),
-  postId: integer("post_id").references(() => blogPosts.id),
-  userId: integer("user_id").references(() => users.id),
-  createdAt: text("created_at").default(sql`now()`)
-});
-var postComments = pgTable("post_comments", {
-  id: serial("id").primaryKey(),
-  postId: integer("post_id").references(() => blogPosts.id),
-  userId: integer("user_id").references(() => users.id),
-  parentId: integer("parent_id").references(() => postComments.id),
-  // Para replies
-  content: text("content").notNull(),
-  createdAt: text("created_at").default(sql`now()`),
-  updatedAt: text("updated_at").default(sql`now()`)
-});
-var postBookmarks = pgTable("post_bookmarks", {
-  id: serial("id").primaryKey(),
-  postId: integer("post_id").references(() => blogPosts.id),
-  userId: integer("user_id").references(() => users.id),
-  createdAt: text("created_at").default(sql`now()`)
-});
-var postViews = pgTable("post_views", {
-  id: serial("id").primaryKey(),
-  postId: integer("post_id").references(() => blogPosts.id),
-  userId: integer("user_id").references(() => users.id),
-  // Puede ser null para views anónimas
-  sessionId: text("session_id"),
-  // Para tracking de usuarios no autenticados
-  viewedAt: text("viewed_at").default(sql`now()`)
-});
-var courses = pgTable("courses", {
-  id: serial("id").primaryKey(),
-  title: text("title").notNull(),
-  slug: text("slug").notNull().unique(),
-  description: text("description").notNull(),
-  excerpt: text("excerpt"),
-  // Resumen corto para cards
-  category: text("category").notNull().$type(),
-  level: text("level").notNull().$type(),
-  duration: integer("duration"),
-  // Duración estimada en minutos
-  thumbnailUrl: text("thumbnail_url"),
-  videoUrl: text("video_url"),
-  // Opcional: video introductorio
-  orderIndex: integer("order_index").default(0),
-  isPublished: boolean("is_published").default(false),
-  isFeatured: boolean("is_featured").default(false),
-  requiresAuth: boolean("requires_auth").default(false),
-  // Si requiere autenticación
-  authorId: integer("author_id").references(() => users.id),
-  viewCount: integer("view_count").default(0),
-  createdAt: text("created_at").default(sql`now()`),
-  updatedAt: text("updated_at").default(sql`now()`)
-});
-var courseLessons = pgTable("course_lessons", {
-  id: serial("id").primaryKey(),
-  courseId: integer("course_id").references(() => courses.id),
-  title: text("title").notNull(),
-  description: text("description"),
-  content: text("content").notNull(),
-  // Contenido HTML/Markdown
-  orderIndex: integer("order_index").notNull(),
-  type: text("type").notNull().$type(),
-  videoUrl: text("video_url"),
-  documentUrl: text("document_url"),
-  duration: integer("duration"),
-  // Duración estimada en minutos
-  isRequired: boolean("is_required").default(true),
-  createdAt: text("created_at").default(sql`now()`),
-  updatedAt: text("updated_at").default(sql`now()`)
-});
-var courseQuizzes = pgTable("course_quizzes", {
-  id: serial("id").primaryKey(),
-  courseId: integer("course_id").references(() => courses.id).unique(),
-  title: text("title").notNull(),
-  description: text("description"),
-  passingScore: integer("passing_score").default(70),
-  // Porcentaje mínimo para aprobar
-  timeLimit: integer("time_limit"),
-  // Tiempo límite en minutos (opcional)
-  allowRetakes: boolean("allow_retakes").default(true),
-  maxAttempts: integer("max_attempts"),
-  // Máximo de intentos (null = ilimitado)
-  createdAt: text("created_at").default(sql`now()`),
-  updatedAt: text("updated_at").default(sql`now()`)
-});
-var quizQuestions = pgTable("quiz_questions", {
-  id: serial("id").primaryKey(),
-  quizId: integer("quiz_id").references(() => courseQuizzes.id),
-  question: text("question").notNull(),
-  type: text("type").notNull().$type(),
-  options: text("options"),
-  // JSON array de opciones para multiple choice
-  correctAnswer: text("correct_answer").notNull(),
-  // JSON para respuestas correctas
-  explanation: text("explanation"),
-  // Explicación de la respuesta correcta
-  points: integer("points").default(1),
-  orderIndex: integer("order_index").notNull(),
-  createdAt: text("created_at").default(sql`now()`)
-});
-var userCourseProgress = pgTable("user_course_progress", {
-  id: serial("id").primaryKey(),
-  userId: integer("user_id").references(() => users.id),
-  courseId: integer("course_id").references(() => courses.id),
-  status: text("status").notNull().$type(),
-  progress: integer("progress").default(0),
-  // Porcentaje 0-100
-  currentLessonId: integer("current_lesson_id").references(() => courseLessons.id),
-  completedLessons: text("completed_lessons"),
-  // JSON array de IDs de lecciones completadas
-  startedAt: text("started_at"),
-  completedAt: text("completed_at"),
-  lastAccessedAt: text("last_accessed_at"),
-  createdAt: text("created_at").default(sql`now()`),
-  updatedAt: text("updated_at").default(sql`now()`)
-});
-var userLessonProgress = pgTable("user_lesson_progress", {
-  id: serial("id").primaryKey(),
-  userId: integer("user_id").references(() => users.id),
-  lessonId: integer("lesson_id").references(() => courseLessons.id),
-  status: text("status").notNull().$type(),
-  timeSpent: integer("time_spent").default(0),
-  // Tiempo en segundos
-  completedAt: text("completed_at"),
-  createdAt: text("created_at").default(sql`now()`),
-  updatedAt: text("updated_at").default(sql`now()`)
-});
-var quizAttempts = pgTable("quiz_attempts", {
-  id: serial("id").primaryKey(),
-  userId: integer("user_id").references(() => users.id),
-  quizId: integer("quiz_id").references(() => courseQuizzes.id),
-  courseId: integer("course_id").references(() => courses.id),
-  score: integer("score"),
-  // Porcentaje obtenido
-  passed: boolean("passed").default(false),
-  answers: text("answers"),
-  // JSON con las respuestas del usuario
-  timeSpent: integer("time_spent"),
-  // Tiempo en segundos
-  startedAt: text("started_at").default(sql`now()`),
-  completedAt: text("completed_at")
-});
-var quizAttemptAnswers = pgTable("quiz_attempt_answers", {
-  id: serial("id").primaryKey(),
-  attemptId: integer("attempt_id").references(() => quizAttempts.id),
-  questionId: integer("question_id").references(() => quizQuestions.id),
-  answer: text("answer").notNull(),
-  // Respuesta del usuario (JSON)
-  isCorrect: boolean("is_correct").default(false),
-  pointsEarned: integer("points_earned").default(0),
-  createdAt: text("created_at").default(sql`now()`)
-});
-var courseCertificates = pgTable("course_certificates", {
-  id: serial("id").primaryKey(),
-  userId: integer("user_id").references(() => users.id),
-  courseId: integer("course_id").references(() => courses.id),
-  certificateCode: text("certificate_code").notNull().unique(),
-  // Código único del certificado
-  issuedAt: text("issued_at").default(sql`now()`),
-  quizScore: integer("quiz_score")
-  // Score del quiz final
-});
-var userLevels = pgTable("user_levels", {
-  id: serial("id").primaryKey(),
-  userId: integer("user_id").references(() => users.id).unique(),
-  currentLevel: integer("current_level").default(1),
-  // 1-5
-  experience: integer("experience").default(0),
-  experienceToNext: integer("experience_to_next").default(500),
-  streak: integer("streak").default(0),
-  // Días consecutivos
-  lastActivityDate: text("last_activity_date"),
-  createdAt: text("created_at").default(sql`now()`),
-  updatedAt: text("updated_at").default(sql`now()`)
-});
-var challenges = pgTable("challenges", {
-  id: serial("id").primaryKey(),
-  level: integer("level").notNull(),
-  // 1-5
-  title: text("title").notNull(),
-  description: text("description").notNull(),
-  category: text("category").notNull(),
-  // 'vision', 'action', 'community', 'reflection'
-  difficulty: text("difficulty").notNull(),
-  // 'beginner', 'intermediate', 'advanced'
-  frequency: text("frequency").notNull(),
-  // 'daily', 'weekly', 'monthly', 'annual', 'one-time'
-  experience: integer("experience").notNull(),
-  // XP que otorga
-  duration: text("duration"),
-  // "15 min", "1 hora", etc.
-  iconName: text("icon_name"),
-  // Nombre del icono de Lucide
-  orderIndex: integer("order_index").default(0),
-  isActive: boolean("is_active").default(true),
-  createdAt: text("created_at").default(sql`now()`)
-});
-var challengeSteps = pgTable("challenge_steps", {
-  id: serial("id").primaryKey(),
-  challengeId: integer("challenge_id").references(() => challenges.id),
-  title: text("title").notNull(),
-  description: text("description").notNull(),
-  type: text("type").notNull(),
-  // 'question', 'action', 'reflection', 'quiz'
-  orderIndex: integer("order_index").notNull(),
-  data: text("data"),
-  // JSON con opciones, preguntas, etc.
-  createdAt: text("created_at").default(sql`now()`)
-});
-var userChallengeProgress = pgTable("user_challenge_progress", {
-  id: serial("id").primaryKey(),
-  userId: integer("user_id").references(() => users.id),
-  challengeId: integer("challenge_id").references(() => challenges.id),
-  status: text("status").notNull(),
-  // 'not_started', 'in_progress', 'completed', 'failed'
-  currentStep: integer("current_step").default(0),
-  completedSteps: text("completed_steps"),
-  // JSON array de IDs
-  startedAt: text("started_at"),
-  completedAt: text("completed_at"),
-  lastActivityAt: text("last_activity_at"),
-  createdAt: text("created_at").default(sql`now()`)
-});
-var badges = pgTable("badges", {
-  id: serial("id").primaryKey(),
-  name: text("name").notNull(),
-  description: text("description").notNull(),
-  iconName: text("icon_name").notNull(),
-  category: text("category").notNull(),
-  // 'level', 'streak', 'challenge', 'special', 'reading'
-  requirement: text("requirement").notNull(),
-  // Descripción del requisito
-  requirementData: text("requirement_data"),
-  // JSON con criterios específicos
-  rarity: text("rarity").notNull(),
-  // 'common', 'rare', 'epic', 'legendary'
-  experienceReward: integer("experience_reward").default(0),
-  orderIndex: integer("order_index").default(0),
-  createdAt: text("created_at").default(sql`now()`)
-});
-var userBadges = pgTable("user_badges", {
-  id: serial("id").primaryKey(),
-  userId: integer("user_id").references(() => users.id),
-  badgeId: integer("badge_id").references(() => badges.id),
-  earnedAt: text("earned_at").default(sql`now()`),
-  seen: boolean("seen").default(false)
-});
-var userDailyActivity = pgTable("user_daily_activity", {
-  id: serial("id").primaryKey(),
-  userId: integer("user_id").references(() => users.id),
-  date: text("date").notNull(),
-  // YYYY-MM-DD
-  experienceGained: integer("experience_gained").default(0),
-  challengesCompleted: integer("challenges_completed").default(0),
-  actionsCompleted: integer("actions_completed").default(0),
-  streakActive: boolean("streak_active").default(true),
-  createdAt: text("created_at").default(sql`now()`)
-});
-var userCommitments = pgTable("user_commitments", {
-  id: serial("id").primaryKey(),
-  userId: integer("user_id").references(() => users.id),
-  commitmentText: text("commitment_text").notNull(),
-  commitmentType: text("commitment_type").notNull(),
-  // 'initial', 'intermediate', 'public'
-  province: text("province"),
-  city: text("city"),
-  latitude: real("latitude"),
-  longitude: real("longitude"),
-  status: text("status").notNull().default("active"),
-  // 'active', 'completed', 'broken'
-  pointsAwarded: integer("points_awarded").default(0),
-  createdAt: text("created_at").default(sql`now()`),
-  completedAt: text("completed_at")
-});
-var userActions = pgTable("user_actions", {
-  id: serial("id").primaryKey(),
-  userId: integer("user_id").references(() => users.id),
-  actionType: text("action_type").notNull(),
-  // 'page_view', 'commitment', 'share', 'community_post', etc.
-  points: integer("points").notNull(),
-  metadata: text("metadata"),
-  // JSON con datos adicionales
-  createdAt: text("created_at").default(sql`now()`)
-});
-var userProgress = pgTable("user_progress", {
-  id: serial("id").primaryKey(),
-  userId: integer("user_id").references(() => users.id).unique(),
-  level: integer("level").default(1),
-  // 1-5 niveles del Hombre Gris
-  points: integer("points").default(0),
-  rank: text("rank").default("Novato"),
-  // Novato, Despierto, Hombre Gris, Agente de Cambio, Líder del Movimiento
-  totalActions: integer("total_actions").default(0),
-  lastActionAt: text("last_action_at"),
-  createdAt: text("created_at").default(sql`now()`),
-  updatedAt: text("updated_at").default(sql`now()`)
-});
-var weeklyRankings = pgTable("weekly_rankings", {
-  id: serial("id").primaryKey(),
-  userId: integer("user_id").references(() => users.id),
-  weekStart: text("week_start").notNull(),
-  // YYYY-MM-DD
-  points: integer("points").default(0),
-  rank: integer("rank"),
-  createdAt: text("created_at").default(sql`now()`)
-});
-var monthlyRankings = pgTable("monthly_rankings", {
-  id: serial("id").primaryKey(),
-  userId: integer("user_id").references(() => users.id),
-  monthStart: text("month_start").notNull(),
-  // YYYY-MM
-  points: integer("points").default(0),
-  rank: integer("rank"),
-  createdAt: text("created_at").default(sql`now()`)
-});
-var provinceRankings = pgTable("province_rankings", {
-  id: serial("id").primaryKey(),
-  userId: integer("user_id").references(() => users.id),
-  province: text("province").notNull(),
-  points: integer("points").default(0),
-  rank: integer("rank"),
-  updatedAt: text("updated_at").default(sql`now()`)
-});
-var initiativeMembers = pgTable("initiative_members", {
-  id: serial("id").primaryKey(),
-  postId: integer("post_id").references(() => communityPosts.id),
-  userId: integer("user_id").references(() => users.id),
-  role: text("role").notNull(),
-  // Roles personalizables por iniciativa
-  status: text("status").notNull().default("active").$type(),
-  permissions: text("permissions"),
-  // JSON: {canEdit, canInvite, canPost, etc}
-  joinedAt: text("joined_at").default(sql`now()`),
-  leftAt: text("left_at")
-});
-var initiativeMilestones = pgTable("initiative_milestones", {
-  id: serial("id").primaryKey(),
-  postId: integer("post_id").references(() => communityPosts.id),
-  title: text("title").notNull(),
-  description: text("description"),
-  status: text("status").notNull().default("pending").$type(),
-  dueDate: text("due_date"),
-  completedAt: text("completed_at"),
-  completedBy: integer("completed_by").references(() => users.id),
-  orderIndex: integer("order_index").default(0),
-  createdAt: text("created_at").default(sql`now()`),
-  updatedAt: text("updated_at").default(sql`now()`)
-});
-var initiativeMessages = pgTable("initiative_messages", {
-  id: serial("id").primaryKey(),
-  postId: integer("post_id").references(() => communityPosts.id),
-  userId: integer("user_id").references(() => users.id),
-  content: text("content").notNull(),
-  type: text("type").notNull().default("message").$type(),
-  metadata: text("metadata"),
-  // JSON para datos adicionales
-  createdAt: text("created_at").default(sql`now()`)
-});
-var initiativeTasks = pgTable("initiative_tasks", {
-  id: serial("id").primaryKey(),
-  postId: integer("post_id").references(() => communityPosts.id),
-  milestoneId: integer("milestone_id").references(() => initiativeMilestones.id),
-  title: text("title").notNull(),
-  description: text("description"),
-  assignedTo: integer("assigned_to").references(() => users.id),
-  status: text("status").notNull().default("todo").$type(),
-  priority: text("priority").default("medium").$type(),
-  dueDate: text("due_date"),
-  completedAt: text("completed_at"),
-  createdBy: integer("created_by").references(() => users.id),
-  createdAt: text("created_at").default(sql`now()`),
-  updatedAt: text("updated_at").default(sql`now()`)
-});
-var activityFeed = pgTable("activity_feed", {
-  id: serial("id").primaryKey(),
-  type: text("type").notNull().$type(),
-  postId: integer("post_id").references(() => communityPosts.id),
-  userId: integer("user_id").references(() => users.id),
-  targetId: integer("target_id"),
-  // ID del milestone, task, etc
-  title: text("title").notNull(),
-  description: text("description"),
-  metadata: text("metadata"),
-  // JSON con datos adicionales
-  createdAt: text("created_at").default(sql`now()`)
-});
-var membershipRequests = pgTable("membership_requests", {
-  id: serial("id").primaryKey(),
-  postId: integer("post_id").references(() => communityPosts.id),
-  userId: integer("user_id").references(() => users.id),
-  message: text("message"),
-  // Mensaje de presentación
-  status: text("status").notNull().default("pending").$type(),
-  reviewedBy: integer("reviewed_by").references(() => users.id),
-  reviewedAt: text("reviewed_at"),
-  createdAt: text("created_at").default(sql`now()`)
-});
-var notifications = pgTable("notifications", {
-  id: serial("id").primaryKey(),
-  userId: integer("user_id").references(() => users.id),
-  type: text("type").notNull().$type(),
-  title: text("title").notNull(),
-  content: text("content").notNull(),
-  postId: integer("post_id").references(() => communityPosts.id),
-  targetId: integer("target_id"),
-  // ID del recurso relacionado
-  read: boolean("read").default(false),
-  createdAt: text("created_at").default(sql`now()`)
-});
-var lifeAreas = pgTable("life_areas", {
-  id: serial("id").primaryKey(),
-  name: text("name").notNull(),
-  description: text("description"),
-  iconName: text("icon_name"),
-  orderIndex: integer("order_index").notNull(),
-  colorTheme: text("color_theme"),
-  // JSON con colores del tema
-  createdAt: text("created_at").default(sql`now()`)
-});
-var lifeAreaSubcategories = pgTable("life_area_subcategories", {
-  id: serial("id").primaryKey(),
-  lifeAreaId: integer("life_area_id").references(() => lifeAreas.id),
-  name: text("name").notNull(),
-  description: text("description"),
-  orderIndex: integer("order_index").notNull(),
-  createdAt: text("created_at").default(sql`now()`)
-});
-var lifeAreaQuizzes = pgTable("life_area_quizzes", {
-  id: serial("id").primaryKey(),
-  lifeAreaId: integer("life_area_id").references(() => lifeAreas.id),
-  title: text("title").notNull(),
-  description: text("description"),
-  version: integer("version").default(1),
-  createdAt: text("created_at").default(sql`now()`)
-});
-var lifeAreaQuizQuestions = pgTable("life_area_quiz_questions", {
-  id: serial("id").primaryKey(),
-  quizId: integer("quiz_id").references(() => lifeAreaQuizzes.id),
-  questionText: text("question_text").notNull(),
-  questionType: text("question_type").notNull().$type(),
-  orderIndex: integer("order_index").notNull(),
-  category: text("category").notNull().$type(),
-  subcategoryId: integer("subcategory_id").references(() => lifeAreaSubcategories.id),
-  createdAt: text("created_at").default(sql`now()`)
-});
-var lifeAreaQuizResponses = pgTable("life_area_quiz_responses", {
-  id: serial("id").primaryKey(),
-  userId: integer("user_id").references(() => users.id),
-  quizId: integer("quiz_id").references(() => lifeAreaQuizzes.id),
-  questionId: integer("question_id").references(() => lifeAreaQuizQuestions.id),
-  currentValue: integer("current_value"),
-  // 1-100
-  desiredValue: integer("desired_value"),
-  // 1-100
-  answeredAt: text("answered_at").default(sql`now()`),
-  createdAt: text("created_at").default(sql`now()`)
-});
-var lifeAreaScores = pgTable("life_area_scores", {
-  id: serial("id").primaryKey(),
-  userId: integer("user_id").references(() => users.id),
-  lifeAreaId: integer("life_area_id").references(() => lifeAreas.id),
-  subcategoryId: integer("subcategory_id").references(() => lifeAreaSubcategories.id),
-  currentScore: integer("current_score").notNull(),
-  // 1-100
-  desiredScore: integer("desired_score").notNull(),
-  // 1-100
-  gap: integer("gap").notNull(),
-  // desired - current
-  lastUpdated: text("last_updated").default(sql`now()`),
-  createdAt: text("created_at").default(sql`now()`)
-});
-var lifeAreaActions = pgTable("life_area_actions", {
-  id: serial("id").primaryKey(),
-  lifeAreaId: integer("life_area_id").references(() => lifeAreas.id),
-  subcategoryId: integer("subcategory_id").references(() => lifeAreaSubcategories.id),
-  title: text("title").notNull(),
-  description: text("description").notNull(),
-  difficulty: text("difficulty").notNull().$type(),
-  estimatedDuration: text("estimated_duration"),
-  // "15 min", "1 hora", etc.
-  priority: integer("priority").default(0),
-  // Mayor número = mayor prioridad
-  category: text("category"),
-  // Categoría de la acción
-  xpReward: integer("xp_reward").default(50),
-  seedReward: integer("seed_reward").default(10),
-  createdAt: text("created_at").default(sql`now()`)
-});
-var userLifeAreaProgress = pgTable("user_life_area_progress", {
-  id: serial("id").primaryKey(),
-  userId: integer("user_id").references(() => users.id),
-  actionId: integer("action_id").references(() => lifeAreaActions.id),
-  status: text("status").notNull().$type(),
-  startedAt: text("started_at"),
-  completedAt: text("completed_at"),
-  notes: text("notes"),
-  evidence: text("evidence"),
-  // JSON con evidencia (fotos, links, etc.)
-  createdAt: text("created_at").default(sql`now()`),
-  updatedAt: text("updated_at").default(sql`now()`)
-});
-var lifeAreaMilestones = pgTable("life_area_milestones", {
-  id: serial("id").primaryKey(),
-  userId: integer("user_id").references(() => users.id),
-  lifeAreaId: integer("life_area_id").references(() => lifeAreas.id),
-  title: text("title").notNull(),
-  description: text("description"),
-  targetScore: integer("target_score").notNull(),
-  // Score objetivo
-  achievedScore: integer("achieved_score"),
-  achievedAt: text("achieved_at"),
-  shareToken: text("share_token").unique(),
-  // Token único para compartir
-  sharedAt: text("shared_at"),
-  createdAt: text("created_at").default(sql`now()`)
-});
-var lifeAreaIndicators = pgTable("life_area_indicators", {
-  id: serial("id").primaryKey(),
-  userId: integer("user_id").references(() => users.id),
-  lifeAreaId: integer("life_area_id").references(() => lifeAreas.id),
-  indicatorType: text("indicator_type").notNull().$type(),
-  value: real("value").notNull(),
-  metadata: text("metadata"),
-  // JSON con datos adicionales
-  recordedAt: text("recorded_at").default(sql`now()`)
-});
-var lifeAreaCommunityStats = pgTable("life_area_community_stats", {
-  id: serial("id").primaryKey(),
-  lifeAreaId: integer("life_area_id").references(() => lifeAreas.id),
-  period: text("period").notNull().$type(),
-  avgScore: real("avg_score"),
-  medianScore: real("median_score"),
-  totalUsers: integer("total_users").default(0),
-  percentileData: text("percentile_data"),
-  // JSON con datos de percentiles
-  calculatedAt: text("calculated_at").default(sql`now()`)
-});
-var lifeAreaXpLog = pgTable("life_area_xp_log", {
-  id: serial("id").primaryKey(),
-  userId: integer("user_id").references(() => users.id),
-  lifeAreaId: integer("life_area_id").references(() => lifeAreas.id),
-  xpAmount: integer("xp_amount").notNull(),
-  sourceType: text("source_type").notNull().$type(),
-  sourceId: integer("source_id"),
-  // ID del recurso que generó el XP
-  multiplier: real("multiplier").default(1),
-  createdAt: text("created_at").default(sql`now()`)
-});
-var lifeAreaLevels = pgTable("life_area_levels", {
-  id: serial("id").primaryKey(),
-  userId: integer("user_id").references(() => users.id),
-  lifeAreaId: integer("life_area_id").references(() => lifeAreas.id),
-  level: integer("level").default(1),
-  // 1-10
-  xpCurrent: integer("xp_current").default(0),
-  xpRequired: integer("xp_required").default(100),
-  unlockedFeatures: text("unlocked_features"),
-  // JSON con features desbloqueadas
-  levelUpAt: text("level_up_at"),
-  createdAt: text("created_at").default(sql`now()`),
-  updatedAt: text("updated_at").default(sql`now()`)
-});
-var lifeAreaStreaks = pgTable("life_area_streaks", {
-  id: serial("id").primaryKey(),
-  userId: integer("user_id").references(() => users.id),
-  streakType: text("streak_type").notNull().$type(),
-  currentStreak: integer("current_streak").default(0),
-  longestStreak: integer("longest_streak").default(0),
-  lastActivityDate: text("last_activity_date"),
-  bonusMultiplier: real("bonus_multiplier").default(1),
-  createdAt: text("created_at").default(sql`now()`),
-  updatedAt: text("updated_at").default(sql`now()`)
-});
-var lifeAreaBadges = pgTable("life_area_badges", {
-  id: serial("id").primaryKey(),
-  name: text("name").notNull(),
-  description: text("description").notNull(),
-  iconName: text("icon_name").notNull(),
-  rarity: text("rarity").notNull().$type(),
-  requirementType: text("requirement_type").notNull().$type(),
-  requirementData: text("requirement_data"),
-  // JSON con criterios específicos
-  xpReward: integer("xp_reward").default(0),
-  seedReward: integer("seed_reward").default(0),
-  createdAt: text("created_at").default(sql`now()`)
-});
-var userLifeAreaBadges = pgTable("user_life_area_badges", {
-  id: serial("id").primaryKey(),
-  userId: integer("user_id").references(() => users.id),
-  badgeId: integer("badge_id").references(() => lifeAreaBadges.id),
-  earnedAt: text("earned_at").default(sql`now()`),
-  seen: boolean("seen").default(false),
-  sharedAt: text("shared_at")
-});
-var lifeAreaCurrency = pgTable("life_area_currency", {
-  id: serial("id").primaryKey(),
-  userId: integer("user_id").references(() => users.id).unique(),
-  currencyType: text("currency_type").default("seeds"),
-  amount: integer("amount").default(0),
-  totalEarned: integer("total_earned").default(0),
-  totalSpent: integer("total_spent").default(0),
-  updatedAt: text("updated_at").default(sql`now()`),
-  createdAt: text("created_at").default(sql`now()`)
-});
-var lifeAreaRewardChests = pgTable("life_area_reward_chests", {
-  id: serial("id").primaryKey(),
-  userId: integer("user_id").references(() => users.id),
-  chestType: text("chest_type").notNull().$type(),
-  rewards: text("rewards"),
-  // JSON con recompensas
-  openedAt: text("opened_at"),
-  expiresAt: text("expires_at"),
-  rarity: text("rarity").$type(),
-  createdAt: text("created_at").default(sql`now()`)
-});
-var lifeAreaChallenges = pgTable("life_area_challenges", {
-  id: serial("id").primaryKey(),
-  challengeType: text("challenge_type").notNull().$type(),
-  title: text("title").notNull(),
-  description: text("description").notNull(),
-  requirements: text("requirements"),
-  // JSON con requisitos
-  rewards: text("rewards"),
-  // JSON con recompensas
-  startDate: text("start_date").notNull(),
-  endDate: text("end_date").notNull(),
-  isActive: boolean("is_active").default(true),
-  participantCount: integer("participant_count").default(0),
-  createdAt: text("created_at").default(sql`now()`)
-});
-var userLifeAreaChallenges = pgTable("user_life_area_challenges", {
-  id: serial("id").primaryKey(),
-  userId: integer("user_id").references(() => users.id),
-  challengeId: integer("challenge_id").references(() => lifeAreaChallenges.id),
-  progress: text("progress"),
-  // JSON con progreso
-  status: text("status").notNull().$type(),
-  completedAt: text("completed_at"),
-  rewardsClaimed: boolean("rewards_claimed").default(false),
-  createdAt: text("created_at").default(sql`now()`),
-  updatedAt: text("updated_at").default(sql`now()`)
-});
-var lifeAreaMastery = pgTable("life_area_mastery", {
-  id: serial("id").primaryKey(),
-  userId: integer("user_id").references(() => users.id),
-  lifeAreaId: integer("life_area_id").references(() => lifeAreas.id),
-  masteryPercentage: real("mastery_percentage").default(0),
-  // 0-100
-  actionsCompleted: integer("actions_completed").default(0),
-  totalActions: integer("total_actions").default(0),
-  timeInvestedMinutes: integer("time_invested_minutes").default(0),
-  unlockedContent: text("unlocked_content"),
-  // JSON con contenido desbloqueado
-  masteryLevel: text("mastery_level").default("novice").$type(),
-  createdAt: text("created_at").default(sql`now()`),
-  updatedAt: text("updated_at").default(sql`now()`)
-});
-var lifeAreaNotifications = pgTable("life_area_notifications", {
-  id: serial("id").primaryKey(),
-  userId: integer("user_id").references(() => users.id),
-  type: text("type").notNull().$type(),
-  title: text("title").notNull(),
-  message: text("message").notNull(),
-  actionUrl: text("action_url"),
-  read: boolean("read").default(false),
-  createdAt: text("created_at").default(sql`now()`)
-});
-var lifeAreaSocialInteractions = pgTable("life_area_social_interactions", {
-  id: serial("id").primaryKey(),
-  userId: integer("user_id").references(() => users.id),
-  targetUserId: integer("target_user_id").references(() => users.id),
-  interactionType: text("interaction_type").notNull().$type(),
-  targetType: text("target_type").notNull().$type(),
-  targetId: integer("target_id").notNull(),
-  content: text("content"),
-  // Para comentarios
-  createdAt: text("created_at").default(sql`now()`)
-});
-var usersRelations = relations(users, ({ many, one }) => ({
-  dreams: many(dreams),
-  communityPosts: many(communityPosts),
-  sentimentAnalysis: many(sentimentAnalysis),
-  textEmbeddings: many(textEmbeddings),
-  userProfile: one(userProfiles),
-  recommendations: many(recommendations),
-  blockchainTransactions: many(blockchainTransactions),
-  vrMeetings: many(vrMeetings),
-  meetingParticipants: many(meetingParticipants),
-  // Blog relations
-  blogPosts: many(blogPosts),
-  postLikes: many(postLikes),
-  postComments: many(postComments),
-  postBookmarks: many(postBookmarks),
-  postViews: many(postViews),
-  // Gamification relations
-  userLevel: one(userLevels),
-  challengeProgress: many(userChallengeProgress),
-  userBadges: many(userBadges),
-  dailyActivity: many(userDailyActivity),
-  // ¡BASTA! Gamification relations
-  commitments: many(userCommitments),
-  actions: many(userActions),
-  progress: one(userProgress),
-  weeklyRankings: many(weeklyRankings),
-  monthlyRankings: many(monthlyRankings),
-  provinceRankings: many(provinceRankings),
-  // Stories relations
-  inspiringStories: many(inspiringStories),
-  // Course relations
-  courses: many(courses),
-  userCourseProgress: many(userCourseProgress),
-  userLessonProgress: many(userLessonProgress),
-  quizAttempts: many(quizAttempts),
-  courseCertificates: many(courseCertificates),
-  // Life Areas relations
-  lifeAreaQuizResponses: many(lifeAreaQuizResponses),
-  lifeAreaScores: many(lifeAreaScores),
-  userLifeAreaProgress: many(userLifeAreaProgress),
-  lifeAreaMilestones: many(lifeAreaMilestones),
-  lifeAreaIndicators: many(lifeAreaIndicators),
-  lifeAreaXpLog: many(lifeAreaXpLog),
-  lifeAreaLevels: many(lifeAreaLevels),
-  lifeAreaStreaks: many(lifeAreaStreaks),
-  userLifeAreaBadges: many(userLifeAreaBadges),
-  lifeAreaCurrency: one(lifeAreaCurrency),
-  lifeAreaRewardChests: many(lifeAreaRewardChests),
-  userLifeAreaChallenges: many(userLifeAreaChallenges),
-  lifeAreaMastery: many(lifeAreaMastery),
-  lifeAreaNotifications: many(lifeAreaNotifications),
-  lifeAreaSocialInteractions: many(lifeAreaSocialInteractions),
-  // Civic Assessment & Personal Development relations
-  civicAssessments: many(civicAssessments),
-  civicProfiles: many(civicProfiles),
-  civicGoals: many(civicGoals),
-  weeklyCheckins: many(weeklyCheckins),
-  coachingSessions: many(coachingSessions),
-  coachingPrompts: many(coachingPrompts)
-}));
-var dreamsRelations = relations(dreams, ({ one }) => ({
-  user: one(users, {
-    fields: [dreams.userId],
-    references: [users.id]
-  })
-}));
-var communityPostsRelations = relations(communityPosts, ({ one, many }) => ({
-  user: one(users, {
-    fields: [communityPosts.userId],
-    references: [users.id]
-  }),
-  interactions: many(communityPostInteractions),
-  messages: many(communityMessages),
-  activity: many(communityPostActivity),
-  inspiringStories: many(inspiringStories),
-  // New initiative relations
-  members: many(initiativeMembers),
-  milestones: many(initiativeMilestones),
-  initiativeMessages: many(initiativeMessages),
-  tasks: many(initiativeTasks),
-  activityFeedItems: many(activityFeed),
-  membershipRequests: many(membershipRequests),
-  notifications: many(notifications)
-}));
-var communityPostInteractionsRelations = relations(communityPostInteractions, ({ one }) => ({
-  post: one(communityPosts, {
-    fields: [communityPostInteractions.postId],
-    references: [communityPosts.id]
-  }),
-  user: one(users, {
-    fields: [communityPostInteractions.userId],
-    references: [users.id]
-  })
-}));
-var communityMessagesRelations = relations(communityMessages, ({ one }) => ({
-  sender: one(users, {
-    fields: [communityMessages.senderId],
-    references: [users.id]
-  }),
-  receiver: one(users, {
-    fields: [communityMessages.receiverId],
-    references: [users.id]
-  }),
-  post: one(communityPosts, {
-    fields: [communityMessages.postId],
-    references: [communityPosts.id]
-  })
-}));
-var communityPostActivityRelations = relations(communityPostActivity, ({ one }) => ({
-  post: one(communityPosts, {
-    fields: [communityPostActivity.postId],
-    references: [communityPosts.id]
-  }),
-  user: one(users, {
-    fields: [communityPostActivity.userId],
-    references: [users.id]
-  })
-}));
-var userProfilesRelations = relations(userProfiles, ({ one }) => ({
-  user: one(users, {
-    fields: [userProfiles.userId],
-    references: [users.id]
-  })
-}));
-var recommendationsRelations = relations(recommendations, ({ one }) => ({
-  user: one(users, {
-    fields: [recommendations.userId],
-    references: [users.id]
-  })
-}));
-var vrMeetingsRelations = relations(vrMeetings, ({ one, many }) => ({
-  organizer: one(users, {
-    fields: [vrMeetings.organizerId],
-    references: [users.id]
-  }),
-  participants: many(meetingParticipants)
-}));
-var meetingParticipantsRelations = relations(meetingParticipants, ({ one }) => ({
-  meeting: one(vrMeetings, {
-    fields: [meetingParticipants.meetingId],
-    references: [vrMeetings.id]
-  }),
-  user: one(users, {
-    fields: [meetingParticipants.userId],
-    references: [users.id]
-  })
-}));
-var userLevelsRelations = relations(userLevels, ({ one }) => ({
-  user: one(users, {
-    fields: [userLevels.userId],
-    references: [users.id]
-  })
-}));
-var challengesRelations = relations(challenges, ({ many }) => ({
-  steps: many(challengeSteps),
-  userProgress: many(userChallengeProgress)
-}));
-var challengeStepsRelations = relations(challengeSteps, ({ one }) => ({
-  challenge: one(challenges, {
-    fields: [challengeSteps.challengeId],
-    references: [challenges.id]
-  })
-}));
-var userChallengeProgressRelations = relations(userChallengeProgress, ({ one }) => ({
-  user: one(users, {
-    fields: [userChallengeProgress.userId],
-    references: [users.id]
-  }),
-  challenge: one(challenges, {
-    fields: [userChallengeProgress.challengeId],
-    references: [challenges.id]
-  })
-}));
-var badgesRelations = relations(badges, ({ many }) => ({
-  userBadges: many(userBadges)
-}));
-var userBadgesRelations = relations(userBadges, ({ one }) => ({
-  user: one(users, {
-    fields: [userBadges.userId],
-    references: [users.id]
-  }),
-  badge: one(badges, {
-    fields: [userBadges.badgeId],
-    references: [badges.id]
-  })
-}));
-var userDailyActivityRelations = relations(userDailyActivity, ({ one }) => ({
-  user: one(users, {
-    fields: [userDailyActivity.userId],
-    references: [users.id]
-  })
-}));
-var userCommitmentsRelations = relations(userCommitments, ({ one }) => ({
-  user: one(users, {
-    fields: [userCommitments.userId],
-    references: [users.id]
-  })
-}));
-var userActionsRelations = relations(userActions, ({ one }) => ({
-  user: one(users, {
-    fields: [userActions.userId],
-    references: [users.id]
-  })
-}));
-var userProgressRelations = relations(userProgress, ({ one }) => ({
-  user: one(users, {
-    fields: [userProgress.userId],
-    references: [users.id]
-  })
-}));
-var weeklyRankingsRelations = relations(weeklyRankings, ({ one }) => ({
-  user: one(users, {
-    fields: [weeklyRankings.userId],
-    references: [users.id]
-  })
-}));
-var monthlyRankingsRelations = relations(monthlyRankings, ({ one }) => ({
-  user: one(users, {
-    fields: [monthlyRankings.userId],
-    references: [users.id]
-  })
-}));
-var provinceRankingsRelations = relations(provinceRankings, ({ one }) => ({
-  user: one(users, {
-    fields: [provinceRankings.userId],
-    references: [users.id]
-  })
-}));
-var blogPostsRelations = relations(blogPosts, ({ one, many }) => ({
-  author: one(users, {
-    fields: [blogPosts.authorId],
-    references: [users.id]
-  }),
-  tags: many(postTags),
-  likes: many(postLikes),
-  comments: many(postComments),
-  bookmarks: many(postBookmarks),
-  views: many(postViews)
-}));
-var postTagsRelations = relations(postTags, ({ one }) => ({
-  post: one(blogPosts, {
-    fields: [postTags.postId],
-    references: [blogPosts.id]
-  })
-}));
-var postLikesRelations = relations(postLikes, ({ one }) => ({
-  post: one(blogPosts, {
-    fields: [postLikes.postId],
-    references: [blogPosts.id]
-  }),
-  user: one(users, {
-    fields: [postLikes.userId],
-    references: [users.id]
-  })
-}));
-var postCommentsRelations = relations(postComments, ({ one, many }) => ({
-  post: one(blogPosts, {
-    fields: [postComments.postId],
-    references: [blogPosts.id]
-  }),
-  user: one(users, {
-    fields: [postComments.userId],
-    references: [users.id]
-  }),
-  parent: one(postComments, {
-    fields: [postComments.parentId],
-    references: [postComments.id]
-  }),
-  replies: many(postComments)
-}));
-var postBookmarksRelations = relations(postBookmarks, ({ one }) => ({
-  post: one(blogPosts, {
-    fields: [postBookmarks.postId],
-    references: [blogPosts.id]
-  }),
-  user: one(users, {
-    fields: [postBookmarks.userId],
-    references: [users.id]
-  })
-}));
-var postViewsRelations = relations(postViews, ({ one }) => ({
-  post: one(blogPosts, {
-    fields: [postViews.postId],
-    references: [blogPosts.id]
-  }),
-  user: one(users, {
-    fields: [postViews.userId],
-    references: [users.id]
-  })
-}));
-var coursesRelations = relations(courses, ({ one, many }) => ({
-  author: one(users, {
-    fields: [courses.authorId],
-    references: [users.id]
-  }),
-  lessons: many(courseLessons),
-  quiz: one(courseQuizzes),
-  userProgress: many(userCourseProgress),
-  certificates: many(courseCertificates)
-}));
-var courseLessonsRelations = relations(courseLessons, ({ one, many }) => ({
-  course: one(courses, {
-    fields: [courseLessons.courseId],
-    references: [courses.id]
-  }),
-  userProgress: many(userLessonProgress)
-}));
-var courseQuizzesRelations = relations(courseQuizzes, ({ one, many }) => ({
-  course: one(courses, {
-    fields: [courseQuizzes.courseId],
-    references: [courses.id]
-  }),
-  questions: many(quizQuestions),
-  attempts: many(quizAttempts)
-}));
-var quizQuestionsRelations = relations(quizQuestions, ({ one, many }) => ({
-  quiz: one(courseQuizzes, {
-    fields: [quizQuestions.quizId],
-    references: [courseQuizzes.id]
-  }),
-  attemptAnswers: many(quizAttemptAnswers)
-}));
-var userCourseProgressRelations = relations(userCourseProgress, ({ one }) => ({
-  user: one(users, {
-    fields: [userCourseProgress.userId],
-    references: [users.id]
-  }),
-  course: one(courses, {
-    fields: [userCourseProgress.courseId],
-    references: [courses.id]
-  }),
-  currentLesson: one(courseLessons, {
-    fields: [userCourseProgress.currentLessonId],
-    references: [courseLessons.id]
-  })
-}));
-var userLessonProgressRelations = relations(userLessonProgress, ({ one }) => ({
-  user: one(users, {
-    fields: [userLessonProgress.userId],
-    references: [users.id]
-  }),
-  lesson: one(courseLessons, {
-    fields: [userLessonProgress.lessonId],
-    references: [courseLessons.id]
-  })
-}));
-var quizAttemptsRelations = relations(quizAttempts, ({ one, many }) => ({
-  user: one(users, {
-    fields: [quizAttempts.userId],
-    references: [users.id]
-  }),
-  quiz: one(courseQuizzes, {
-    fields: [quizAttempts.quizId],
-    references: [courseQuizzes.id]
-  }),
-  course: one(courses, {
-    fields: [quizAttempts.courseId],
-    references: [courses.id]
-  }),
-  answers: many(quizAttemptAnswers)
-}));
-var quizAttemptAnswersRelations = relations(quizAttemptAnswers, ({ one }) => ({
-  attempt: one(quizAttempts, {
-    fields: [quizAttemptAnswers.attemptId],
-    references: [quizAttempts.id]
-  }),
-  question: one(quizQuestions, {
-    fields: [quizAttemptAnswers.questionId],
-    references: [quizQuestions.id]
-  })
-}));
-var courseCertificatesRelations = relations(courseCertificates, ({ one }) => ({
-  user: one(users, {
-    fields: [courseCertificates.userId],
-    references: [users.id]
-  }),
-  course: one(courses, {
-    fields: [courseCertificates.courseId],
-    references: [courses.id]
-  })
-}));
-var iotSensorsRelations = relations(iotSensors, ({ many }) => ({
-  data: many(sensorData)
-}));
-var sensorDataRelations = relations(sensorData, ({ one }) => ({
-  sensor: one(iotSensors, {
-    fields: [sensorData.sensorId],
-    references: [iotSensors.id]
-  })
-}));
-var inspiringStoriesRelations = relations(inspiringStories, ({ one }) => ({
-  author: one(users, {
-    fields: [inspiringStories.authorId],
-    references: [users.id]
-  }),
-  moderator: one(users, {
-    fields: [inspiringStories.moderatedBy],
-    references: [users.id]
-  }),
-  relatedPost: one(communityPosts, {
-    fields: [inspiringStories.relatedPostId],
-    references: [communityPosts.id]
-  })
-}));
-var initiativeMembersRelations = relations(initiativeMembers, ({ one }) => ({
-  post: one(communityPosts, {
-    fields: [initiativeMembers.postId],
-    references: [communityPosts.id]
-  }),
-  user: one(users, {
-    fields: [initiativeMembers.userId],
-    references: [users.id]
-  })
-}));
-var initiativeMilestonesRelations = relations(initiativeMilestones, ({ one, many }) => ({
-  post: one(communityPosts, {
-    fields: [initiativeMilestones.postId],
-    references: [communityPosts.id]
-  }),
-  completedBy: one(users, {
-    fields: [initiativeMilestones.completedBy],
-    references: [users.id]
-  }),
-  tasks: many(initiativeTasks)
-}));
-var initiativeMessagesRelations = relations(initiativeMessages, ({ one }) => ({
-  post: one(communityPosts, {
-    fields: [initiativeMessages.postId],
-    references: [communityPosts.id]
-  }),
-  user: one(users, {
-    fields: [initiativeMessages.userId],
-    references: [users.id]
-  })
-}));
-var initiativeTasksRelations = relations(initiativeTasks, ({ one }) => ({
-  post: one(communityPosts, {
-    fields: [initiativeTasks.postId],
-    references: [communityPosts.id]
-  }),
-  milestone: one(initiativeMilestones, {
-    fields: [initiativeTasks.milestoneId],
-    references: [initiativeMilestones.id]
-  }),
-  assignedTo: one(users, {
-    fields: [initiativeTasks.assignedTo],
-    references: [users.id]
-  }),
-  createdBy: one(users, {
-    fields: [initiativeTasks.createdBy],
-    references: [users.id]
-  })
-}));
-var activityFeedRelations = relations(activityFeed, ({ one }) => ({
-  post: one(communityPosts, {
-    fields: [activityFeed.postId],
-    references: [communityPosts.id]
-  }),
-  user: one(users, {
-    fields: [activityFeed.userId],
-    references: [users.id]
-  })
-}));
-var membershipRequestsRelations = relations(membershipRequests, ({ one }) => ({
-  post: one(communityPosts, {
-    fields: [membershipRequests.postId],
-    references: [communityPosts.id]
-  }),
-  user: one(users, {
-    fields: [membershipRequests.userId],
-    references: [users.id]
-  }),
-  reviewedBy: one(users, {
-    fields: [membershipRequests.reviewedBy],
-    references: [users.id]
-  })
-}));
-var notificationsRelations = relations(notifications, ({ one }) => ({
-  user: one(users, {
-    fields: [notifications.userId],
-    references: [users.id]
-  }),
-  post: one(communityPosts, {
-    fields: [notifications.postId],
-    references: [communityPosts.id]
-  })
-}));
-var lifeAreasRelations = relations(lifeAreas, ({ many }) => ({
-  subcategories: many(lifeAreaSubcategories),
-  quizzes: many(lifeAreaQuizzes),
-  scores: many(lifeAreaScores),
-  actions: many(lifeAreaActions),
-  milestones: many(lifeAreaMilestones),
-  indicators: many(lifeAreaIndicators),
-  communityStats: many(lifeAreaCommunityStats),
-  xpLog: many(lifeAreaXpLog),
-  levels: many(lifeAreaLevels),
-  mastery: many(lifeAreaMastery)
-}));
-var lifeAreaSubcategoriesRelations = relations(lifeAreaSubcategories, ({ one, many }) => ({
-  lifeArea: one(lifeAreas, {
-    fields: [lifeAreaSubcategories.lifeAreaId],
-    references: [lifeAreas.id]
-  }),
-  questions: many(lifeAreaQuizQuestions),
-  scores: many(lifeAreaScores),
-  actions: many(lifeAreaActions)
-}));
-var lifeAreaQuizzesRelations = relations(lifeAreaQuizzes, ({ one, many }) => ({
-  lifeArea: one(lifeAreas, {
-    fields: [lifeAreaQuizzes.lifeAreaId],
-    references: [lifeAreas.id]
-  }),
-  questions: many(lifeAreaQuizQuestions),
-  responses: many(lifeAreaQuizResponses)
-}));
-var lifeAreaQuizQuestionsRelations = relations(lifeAreaQuizQuestions, ({ one, many }) => ({
-  quiz: one(lifeAreaQuizzes, {
-    fields: [lifeAreaQuizQuestions.quizId],
-    references: [lifeAreaQuizzes.id]
-  }),
-  subcategory: one(lifeAreaSubcategories, {
-    fields: [lifeAreaQuizQuestions.subcategoryId],
-    references: [lifeAreaSubcategories.id]
-  }),
-  responses: many(lifeAreaQuizResponses)
-}));
-var lifeAreaQuizResponsesRelations = relations(lifeAreaQuizResponses, ({ one }) => ({
-  user: one(users, {
-    fields: [lifeAreaQuizResponses.userId],
-    references: [users.id]
-  }),
-  quiz: one(lifeAreaQuizzes, {
-    fields: [lifeAreaQuizResponses.quizId],
-    references: [lifeAreaQuizzes.id]
-  }),
-  question: one(lifeAreaQuizQuestions, {
-    fields: [lifeAreaQuizResponses.questionId],
-    references: [lifeAreaQuizQuestions.id]
-  })
-}));
-var lifeAreaScoresRelations = relations(lifeAreaScores, ({ one }) => ({
-  user: one(users, {
-    fields: [lifeAreaScores.userId],
-    references: [users.id]
-  }),
-  lifeArea: one(lifeAreas, {
-    fields: [lifeAreaScores.lifeAreaId],
-    references: [lifeAreas.id]
-  }),
-  subcategory: one(lifeAreaSubcategories, {
-    fields: [lifeAreaScores.subcategoryId],
-    references: [lifeAreaSubcategories.id]
-  })
-}));
-var lifeAreaActionsRelations = relations(lifeAreaActions, ({ one, many }) => ({
-  lifeArea: one(lifeAreas, {
-    fields: [lifeAreaActions.lifeAreaId],
-    references: [lifeAreas.id]
-  }),
-  subcategory: one(lifeAreaSubcategories, {
-    fields: [lifeAreaActions.subcategoryId],
-    references: [lifeAreaSubcategories.id]
-  }),
-  userProgress: many(userLifeAreaProgress)
-}));
-var userLifeAreaProgressRelations = relations(userLifeAreaProgress, ({ one }) => ({
-  user: one(users, {
-    fields: [userLifeAreaProgress.userId],
-    references: [users.id]
-  }),
-  action: one(lifeAreaActions, {
-    fields: [userLifeAreaProgress.actionId],
-    references: [lifeAreaActions.id]
-  })
-}));
-var lifeAreaMilestonesRelations = relations(lifeAreaMilestones, ({ one, many }) => ({
-  user: one(users, {
-    fields: [lifeAreaMilestones.userId],
-    references: [users.id]
-  }),
-  lifeArea: one(lifeAreas, {
-    fields: [lifeAreaMilestones.lifeAreaId],
-    references: [lifeAreas.id]
-  }),
-  socialInteractions: many(lifeAreaSocialInteractions)
-}));
-var lifeAreaIndicatorsRelations = relations(lifeAreaIndicators, ({ one }) => ({
-  user: one(users, {
-    fields: [lifeAreaIndicators.userId],
-    references: [users.id]
-  }),
-  lifeArea: one(lifeAreas, {
-    fields: [lifeAreaIndicators.lifeAreaId],
-    references: [lifeAreas.id]
-  })
-}));
-var lifeAreaCommunityStatsRelations = relations(lifeAreaCommunityStats, ({ one }) => ({
-  lifeArea: one(lifeAreas, {
-    fields: [lifeAreaCommunityStats.lifeAreaId],
-    references: [lifeAreas.id]
-  })
-}));
-var lifeAreaXpLogRelations = relations(lifeAreaXpLog, ({ one }) => ({
-  user: one(users, {
-    fields: [lifeAreaXpLog.userId],
-    references: [users.id]
-  }),
-  lifeArea: one(lifeAreas, {
-    fields: [lifeAreaXpLog.lifeAreaId],
-    references: [lifeAreas.id]
-  })
-}));
-var lifeAreaLevelsRelations = relations(lifeAreaLevels, ({ one }) => ({
-  user: one(users, {
-    fields: [lifeAreaLevels.userId],
-    references: [users.id]
-  }),
-  lifeArea: one(lifeAreas, {
-    fields: [lifeAreaLevels.lifeAreaId],
-    references: [lifeAreas.id]
-  })
-}));
-var lifeAreaStreaksRelations = relations(lifeAreaStreaks, ({ one }) => ({
-  user: one(users, {
-    fields: [lifeAreaStreaks.userId],
-    references: [users.id]
-  })
-}));
-var lifeAreaBadgesRelations = relations(lifeAreaBadges, ({ many }) => ({
-  userBadges: many(userLifeAreaBadges)
-}));
-var userLifeAreaBadgesRelations = relations(userLifeAreaBadges, ({ one }) => ({
-  user: one(users, {
-    fields: [userLifeAreaBadges.userId],
-    references: [users.id]
-  }),
-  badge: one(lifeAreaBadges, {
-    fields: [userLifeAreaBadges.badgeId],
-    references: [lifeAreaBadges.id]
-  })
-}));
-var lifeAreaCurrencyRelations = relations(lifeAreaCurrency, ({ one }) => ({
-  user: one(users, {
-    fields: [lifeAreaCurrency.userId],
-    references: [users.id]
-  })
-}));
-var lifeAreaRewardChestsRelations = relations(lifeAreaRewardChests, ({ one }) => ({
-  user: one(users, {
-    fields: [lifeAreaRewardChests.userId],
-    references: [users.id]
-  })
-}));
-var lifeAreaChallengesRelations = relations(lifeAreaChallenges, ({ many }) => ({
-  userChallenges: many(userLifeAreaChallenges)
-}));
-var userLifeAreaChallengesRelations = relations(userLifeAreaChallenges, ({ one }) => ({
-  user: one(users, {
-    fields: [userLifeAreaChallenges.userId],
-    references: [users.id]
-  }),
-  challenge: one(lifeAreaChallenges, {
-    fields: [userLifeAreaChallenges.challengeId],
-    references: [lifeAreaChallenges.id]
-  })
-}));
-var lifeAreaMasteryRelations = relations(lifeAreaMastery, ({ one }) => ({
-  user: one(users, {
-    fields: [lifeAreaMastery.userId],
-    references: [users.id]
-  }),
-  lifeArea: one(lifeAreas, {
-    fields: [lifeAreaMastery.lifeAreaId],
-    references: [lifeAreas.id]
-  })
-}));
-var lifeAreaNotificationsRelations = relations(lifeAreaNotifications, ({ one }) => ({
-  user: one(users, {
-    fields: [lifeAreaNotifications.userId],
-    references: [users.id]
-  })
-}));
-var lifeAreaSocialInteractionsRelations = relations(lifeAreaSocialInteractions, ({ one }) => ({
-  user: one(users, {
-    fields: [lifeAreaSocialInteractions.userId],
-    references: [users.id]
-  }),
-  targetUser: one(users, {
-    fields: [lifeAreaSocialInteractions.targetUserId],
-    references: [users.id]
-  })
-}));
-var civicAssessments = pgTable("civic_assessments", {
-  id: serial("id").primaryKey(),
-  userId: integer("user_id").references(() => users.id),
-  status: text("status").notNull().default("in_progress").$type(),
-  version: integer("version").default(1),
-  startedAt: text("started_at").default(sql`now()`),
-  completedAt: text("completed_at"),
-  createdAt: text("created_at").default(sql`now()`)
-});
-var civicAssessmentResponses = pgTable("civic_assessment_responses", {
-  id: serial("id").primaryKey(),
-  assessmentId: integer("assessment_id").references(() => civicAssessments.id),
-  questionKey: text("question_key").notNull(),
-  dimensionKey: text("dimension_key").notNull(),
-  responseType: text("response_type").notNull().$type(),
-  responseValue: integer("response_value"),
-  // For scale questions (1-10)
-  responseChoice: text("response_choice"),
-  // For choice questions
-  responseRank: text("response_rank"),
-  // JSON array for rank questions
-  createdAt: text("created_at").default(sql`now()`)
-});
-var civicProfiles = pgTable("civic_profiles", {
-  id: serial("id").primaryKey(),
-  userId: integer("user_id").references(() => users.id),
-  assessmentId: integer("assessment_id").references(() => civicAssessments.id),
-  archetype: text("archetype").notNull(),
-  // e.g. 'el_puente', 'el_catalizador'
-  dimensionScores: text("dimension_scores").notNull(),
-  // JSON: { motivacion_civica: 75, ... }
-  topStrengths: text("top_strengths").notNull(),
-  // JSON array of dimension keys
-  growthAreas: text("growth_areas").notNull(),
-  // JSON array of dimension keys
-  recommendedActions: text("recommended_actions").notNull(),
-  // JSON array of action objects
-  createdAt: text("created_at").default(sql`now()`),
-  updatedAt: text("updated_at").default(sql`now()`)
-});
-var civicGoals = pgTable("civic_goals", {
-  id: serial("id").primaryKey(),
-  userId: integer("user_id").references(() => users.id),
-  title: text("title").notNull(),
-  description: text("description"),
-  category: text("category").notNull().$type(),
-  targetDate: text("target_date"),
-  status: text("status").notNull().default("active").$type(),
-  progress: integer("progress").default(0),
-  // 0-100
-  milestones: text("milestones"),
-  // JSON array of { title, done, doneAt }
-  linkedLifeAreaId: integer("linked_life_area_id").references(() => lifeAreas.id),
-  linkedChallengeId: integer("linked_challenge_id").references(() => challenges.id),
-  createdAt: text("created_at").default(sql`now()`),
-  updatedAt: text("updated_at").default(sql`now()`)
-});
-var weeklyCheckins = pgTable("weekly_checkins", {
-  id: serial("id").primaryKey(),
-  userId: integer("user_id").references(() => users.id),
-  weekOf: text("week_of").notNull(),
-  // ISO date string of week start (Monday)
-  mood: integer("mood").notNull(),
-  // 1-5
-  progressRating: integer("progress_rating").notNull(),
-  // 1-5
-  highlight: text("highlight"),
-  challenge: text("challenge"),
-  nextWeekIntention: text("next_week_intention"),
-  goalsReviewed: text("goals_reviewed"),
-  // JSON array of { goalId, status }
-  createdAt: text("created_at").default(sql`now()`)
-});
-var coachingSessions = pgTable("coaching_sessions", {
-  id: serial("id").primaryKey(),
-  userId: integer("user_id").references(() => users.id),
-  sessionType: text("session_type").notNull().$type(),
-  status: text("status").notNull().default("active").$type(),
-  messages: text("messages").notNull().default("[]"),
-  // JSON array of { role, content, timestamp }
-  insights: text("insights"),
-  // JSON array of extracted insights
-  suggestedActions: text("suggested_actions"),
-  // JSON array of action items
-  createdAt: text("created_at").default(sql`now()`),
-  updatedAt: text("updated_at").default(sql`now()`)
-});
-var coachingPrompts = pgTable("coaching_prompts", {
-  id: serial("id").primaryKey(),
-  userId: integer("user_id").references(() => users.id),
-  promptType: text("prompt_type").notNull().$type(),
-  title: text("title").notNull(),
-  content: text("content").notNull(),
-  context: text("context"),
-  // JSON with archetype, dimension, etc.
-  isRead: boolean("is_read").default(false),
-  scheduledFor: text("scheduled_for"),
-  createdAt: text("created_at").default(sql`now()`)
-});
-var insertUserSchema = createInsertSchema(users).omit({
-  id: true,
-  createdAt: true
-});
-var insertDreamSchema = createInsertSchema(dreams).omit({
-  id: true,
-  createdAt: true
-});
-var insertCommunityPostSchema = createInsertSchema(communityPosts).omit({
-  id: true,
-  createdAt: true,
-  updatedAt: true
-});
-var insertResourceSchema = createInsertSchema(resources).omit({
-  id: true,
-  createdAt: true
-});
-var insertInspiringStorySchema = createInsertSchema(inspiringStories).omit({
-  id: true,
-  createdAt: true,
-  updatedAt: true
-});
-var insertSentimentAnalysisSchema = createInsertSchema(sentimentAnalysis).omit({
-  id: true,
-  analyzedAt: true
-});
-var insertTextEmbeddingSchema = createInsertSchema(textEmbeddings).omit({
-  id: true,
-  createdAt: true
-});
-var insertUserProfileSchema = createInsertSchema(userProfiles).omit({
-  id: true,
-  lastAnalyzed: true
-});
-var insertRecommendationSchema = createInsertSchema(recommendations).omit({
-  id: true,
-  createdAt: true
-});
-var insertAiInsightSchema = createInsertSchema(aiInsights).omit({
-  id: true,
-  createdAt: true
-});
-var insertBlockchainTransactionSchema = createInsertSchema(blockchainTransactions).omit({
-  id: true,
-  createdAt: true,
-  confirmedAt: true
-});
-var insertIotSensorSchema = createInsertSchema(iotSensors).omit({
-  id: true,
-  installationDate: true,
-  lastReading: true
-});
-var insertSensorDataSchema = createInsertSchema(sensorData).omit({
-  id: true,
-  timestamp: true
-});
-var insertVrMeetingSchema = createInsertSchema(vrMeetings).omit({
-  id: true,
-  createdAt: true
-});
-var insertMeetingParticipantSchema = createInsertSchema(meetingParticipants).omit({
-  id: true
-});
-var insertUserLevelSchema = createInsertSchema(userLevels).omit({
-  id: true,
-  createdAt: true,
-  updatedAt: true
-});
-var insertChallengeSchema = createInsertSchema(challenges).omit({
-  id: true,
-  createdAt: true
-});
-var insertChallengeStepSchema = createInsertSchema(challengeSteps).omit({
-  id: true,
-  createdAt: true
-});
-var insertUserChallengeProgressSchema = createInsertSchema(userChallengeProgress).omit({
-  id: true,
-  createdAt: true
-});
-var insertBadgeSchema = createInsertSchema(badges).omit({
-  id: true,
-  createdAt: true
-});
-var insertUserBadgeSchema = createInsertSchema(userBadges).omit({
-  id: true,
-  earnedAt: true
-});
-var insertUserDailyActivitySchema = createInsertSchema(userDailyActivity).omit({
-  id: true,
-  createdAt: true
-});
-var insertUserCommitmentSchema = createInsertSchema(userCommitments).omit({
-  id: true,
-  createdAt: true
-});
-var insertUserActionSchema = createInsertSchema(userActions).omit({
-  id: true,
-  createdAt: true
-});
-var insertUserProgressSchema = createInsertSchema(userProgress).omit({
-  id: true,
-  createdAt: true,
-  updatedAt: true
-});
-var insertWeeklyRankingSchema = createInsertSchema(weeklyRankings).omit({
-  id: true,
-  createdAt: true
-});
-var insertMonthlyRankingSchema = createInsertSchema(monthlyRankings).omit({
-  id: true,
-  createdAt: true
-});
-var insertProvinceRankingSchema = createInsertSchema(provinceRankings).omit({
-  id: true,
-  updatedAt: true
-});
-var insertBlogPostSchema = createInsertSchema(blogPosts).omit({
-  id: true,
-  createdAt: true,
-  updatedAt: true
-});
-var insertPostTagSchema = createInsertSchema(postTags).omit({
-  id: true
-});
-var insertPostLikeSchema = createInsertSchema(postLikes).omit({
-  id: true,
-  createdAt: true
-});
-var insertPostCommentSchema = createInsertSchema(postComments).omit({
-  id: true,
-  createdAt: true,
-  updatedAt: true
-});
-var insertPostBookmarkSchema = createInsertSchema(postBookmarks).omit({
-  id: true,
-  createdAt: true
-});
-var insertPostViewSchema = createInsertSchema(postViews).omit({
-  id: true,
-  viewedAt: true
-});
-var insertCourseSchema = createInsertSchema(courses).omit({
-  id: true,
-  createdAt: true,
-  updatedAt: true
-});
-var insertCourseLessonSchema = createInsertSchema(courseLessons).omit({
-  id: true,
-  createdAt: true,
-  updatedAt: true
-});
-var insertCourseQuizSchema = createInsertSchema(courseQuizzes).omit({
-  id: true,
-  createdAt: true,
-  updatedAt: true
-});
-var insertQuizQuestionSchema = createInsertSchema(quizQuestions).omit({
-  id: true,
-  createdAt: true
-});
-var insertUserCourseProgressSchema = createInsertSchema(userCourseProgress).omit({
-  id: true,
-  createdAt: true,
-  updatedAt: true
-});
-var insertUserLessonProgressSchema = createInsertSchema(userLessonProgress).omit({
-  id: true,
-  createdAt: true,
-  updatedAt: true
-});
-var insertQuizAttemptSchema = createInsertSchema(quizAttempts).omit({
-  id: true,
-  startedAt: true
-});
-var insertQuizAttemptAnswerSchema = createInsertSchema(quizAttemptAnswers).omit({
-  id: true,
-  createdAt: true
-});
-var insertCourseCertificateSchema = createInsertSchema(courseCertificates).omit({
-  id: true,
-  issuedAt: true
-});
-var insertCommunityPostInteractionSchema = createInsertSchema(communityPostInteractions).omit({
-  id: true,
-  createdAt: true,
-  updatedAt: true
-});
-var insertCommunityMessageSchema = createInsertSchema(communityMessages).omit({
-  id: true,
-  createdAt: true
-});
-var insertCommunityPostActivitySchema = createInsertSchema(communityPostActivity).omit({
-  id: true,
-  createdAt: true
-});
-var insertInitiativeMemberSchema = createInsertSchema(initiativeMembers).omit({
-  id: true,
-  joinedAt: true
-});
-var insertInitiativeMilestoneSchema = createInsertSchema(initiativeMilestones).omit({
-  id: true,
-  createdAt: true,
-  updatedAt: true
-});
-var insertInitiativeMessageSchema = createInsertSchema(initiativeMessages).omit({
-  id: true,
-  createdAt: true
-});
-var insertInitiativeTaskSchema = createInsertSchema(initiativeTasks).omit({
-  id: true,
-  createdAt: true,
-  updatedAt: true
-});
-var insertActivityFeedSchema = createInsertSchema(activityFeed).omit({
-  id: true,
-  createdAt: true
-});
-var insertMembershipRequestSchema = createInsertSchema(membershipRequests).omit({
-  id: true,
-  createdAt: true
-});
-var insertNotificationSchema = createInsertSchema(notifications).omit({
-  id: true,
-  createdAt: true
-});
-var insertLifeAreaSchema = createInsertSchema(lifeAreas).omit({
-  id: true,
-  createdAt: true
-});
-var insertLifeAreaSubcategorySchema = createInsertSchema(lifeAreaSubcategories).omit({
-  id: true,
-  createdAt: true
-});
-var insertLifeAreaQuizSchema = createInsertSchema(lifeAreaQuizzes).omit({
-  id: true,
-  createdAt: true
-});
-var insertLifeAreaQuizQuestionSchema = createInsertSchema(lifeAreaQuizQuestions).omit({
-  id: true,
-  createdAt: true
-});
-var insertLifeAreaQuizResponseSchema = createInsertSchema(lifeAreaQuizResponses).omit({
-  id: true,
-  answeredAt: true,
-  createdAt: true
-});
-var insertLifeAreaScoreSchema = createInsertSchema(lifeAreaScores).omit({
-  id: true,
-  lastUpdated: true,
-  createdAt: true
-});
-var insertLifeAreaActionSchema = createInsertSchema(lifeAreaActions).omit({
-  id: true,
-  createdAt: true
-});
-var insertUserLifeAreaProgressSchema = createInsertSchema(userLifeAreaProgress).omit({
-  id: true,
-  createdAt: true,
-  updatedAt: true
-});
-var insertLifeAreaMilestoneSchema = createInsertSchema(lifeAreaMilestones).omit({
-  id: true,
-  createdAt: true
-});
-var insertLifeAreaIndicatorSchema = createInsertSchema(lifeAreaIndicators).omit({
-  id: true,
-  recordedAt: true
-});
-var insertLifeAreaCommunityStatsSchema = createInsertSchema(lifeAreaCommunityStats).omit({
-  id: true,
-  calculatedAt: true
-});
-var insertLifeAreaXpLogSchema = createInsertSchema(lifeAreaXpLog).omit({
-  id: true,
-  createdAt: true
-});
-var insertLifeAreaLevelSchema = createInsertSchema(lifeAreaLevels).omit({
-  id: true,
-  createdAt: true,
-  updatedAt: true
-});
-var insertLifeAreaStreakSchema = createInsertSchema(lifeAreaStreaks).omit({
-  id: true,
-  createdAt: true,
-  updatedAt: true
-});
-var insertLifeAreaBadgeSchema = createInsertSchema(lifeAreaBadges).omit({
-  id: true,
-  createdAt: true
-});
-var insertUserLifeAreaBadgeSchema = createInsertSchema(userLifeAreaBadges).omit({
-  id: true,
-  earnedAt: true
-});
-var insertLifeAreaCurrencySchema = createInsertSchema(lifeAreaCurrency).omit({
-  id: true,
-  updatedAt: true,
-  createdAt: true
-});
-var insertLifeAreaRewardChestSchema = createInsertSchema(lifeAreaRewardChests).omit({
-  id: true,
-  createdAt: true
-});
-var insertLifeAreaChallengeSchema = createInsertSchema(lifeAreaChallenges).omit({
-  id: true,
-  createdAt: true
-});
-var insertUserLifeAreaChallengeSchema = createInsertSchema(userLifeAreaChallenges).omit({
-  id: true,
-  createdAt: true,
-  updatedAt: true
-});
-var insertLifeAreaMasterySchema = createInsertSchema(lifeAreaMastery).omit({
-  id: true,
-  createdAt: true,
-  updatedAt: true
-});
-var insertLifeAreaNotificationSchema = createInsertSchema(lifeAreaNotifications).omit({
-  id: true,
-  createdAt: true
-});
-var insertLifeAreaSocialInteractionSchema = createInsertSchema(lifeAreaSocialInteractions).omit({
-  id: true,
-  createdAt: true
-});
-var civicAssessmentsRelations = relations(civicAssessments, ({ one, many }) => ({
-  user: one(users, {
-    fields: [civicAssessments.userId],
-    references: [users.id]
-  }),
-  responses: many(civicAssessmentResponses),
-  profile: one(civicProfiles)
-}));
-var civicAssessmentResponsesRelations = relations(civicAssessmentResponses, ({ one }) => ({
-  assessment: one(civicAssessments, {
-    fields: [civicAssessmentResponses.assessmentId],
-    references: [civicAssessments.id]
-  })
-}));
-var civicProfilesRelations = relations(civicProfiles, ({ one }) => ({
-  user: one(users, {
-    fields: [civicProfiles.userId],
-    references: [users.id]
-  }),
-  assessment: one(civicAssessments, {
-    fields: [civicProfiles.assessmentId],
-    references: [civicAssessments.id]
-  })
-}));
-var civicGoalsRelations = relations(civicGoals, ({ one }) => ({
-  user: one(users, {
-    fields: [civicGoals.userId],
-    references: [users.id]
-  }),
-  lifeArea: one(lifeAreas, {
-    fields: [civicGoals.linkedLifeAreaId],
-    references: [lifeAreas.id]
-  }),
-  challenge: one(challenges, {
-    fields: [civicGoals.linkedChallengeId],
-    references: [challenges.id]
-  })
-}));
-var weeklyCheckinsRelations = relations(weeklyCheckins, ({ one }) => ({
-  user: one(users, {
-    fields: [weeklyCheckins.userId],
-    references: [users.id]
-  })
-}));
-var coachingSessionsRelations = relations(coachingSessions, ({ one }) => ({
-  user: one(users, {
-    fields: [coachingSessions.userId],
-    references: [users.id]
-  })
-}));
-var coachingPromptsRelations = relations(coachingPrompts, ({ one }) => ({
-  user: one(users, {
-    fields: [coachingPrompts.userId],
-    references: [users.id]
-  })
-}));
-var insertCivicAssessmentSchema = createInsertSchema(civicAssessments).omit({
-  id: true,
-  createdAt: true
-});
-var insertCivicAssessmentResponseSchema = createInsertSchema(civicAssessmentResponses).omit({
-  id: true,
-  createdAt: true
-});
-var insertCivicProfileSchema = createInsertSchema(civicProfiles).omit({
-  id: true,
-  createdAt: true,
-  updatedAt: true
-});
-var insertCivicGoalSchema = createInsertSchema(civicGoals).omit({
-  id: true,
-  createdAt: true,
-  updatedAt: true
-});
-var insertWeeklyCheckinSchema = createInsertSchema(weeklyCheckins).omit({
-  id: true,
-  createdAt: true
-});
-var insertCoachingSessionSchema = createInsertSchema(coachingSessions).omit({
-  id: true,
-  createdAt: true,
-  updatedAt: true
-});
-var insertCoachingPromptSchema = createInsertSchema(coachingPrompts).omit({
-  id: true,
-  createdAt: true
-});
-
-// server/db.ts
-import { neon } from "@neondatabase/serverless";
-import { drizzle } from "drizzle-orm/neon-http";
-var databaseUrl = process.env.DATABASE_URL;
-if (!databaseUrl) {
-  throw new Error("DATABASE_URL is required. Set it to your Neon connection string.");
-}
-console.log("Connecting to Neon Postgres...");
-var sql2 = neon(databaseUrl);
-var db = drizzle(sql2, { schema: schema_exports });
-
-// server/storage.ts
-init_auth();
-import { eq, desc, and, sql as sql3, asc, gte, or, like, inArray, ilike, isNotNull } from "drizzle-orm";
-import path from "path";
-import { fileURLToPath } from "url";
-
 // shared/blogContent.ts
-var slugify = (title) => title.toLowerCase().replace(/[^\w\s-]/g, "").replace(/\s+/g, "-").replace(/-+/g, "-").trim();
-var blogContentUpdates = {
-  [slugify("El Cansancio Sagrado: Por qu\xE9 ya no podemos esperar")]: {
-    excerpt: "Hay un cansancio que no pide almohada: pide planos. Es la lucidez inc\xF3moda de saber que Argentina puede ser redise\xF1ada \u2014 ahora, no ma\xF1ana.",
-    content: `
+var slugify, blogContentUpdates;
+var init_blogContent = __esm({
+  "shared/blogContent.ts"() {
+    "use strict";
+    slugify = (title) => title.toLowerCase().replace(/[^\w\s-]/g, "").replace(/\s+/g, "-").replace(/-+/g, "-").trim();
+    blogContentUpdates = {
+      [slugify("El Cansancio Sagrado: Por qu\xE9 ya no podemos esperar")]: {
+        excerpt: "Hay un cansancio que no pide almohada: pide planos. Es la lucidez inc\xF3moda de saber que Argentina puede ser redise\xF1ada \u2014 ahora, no ma\xF1ana.",
+        content: `
       <article>
         <h1>El Cansancio Sagrado: Por qu\xE9 ya no podemos esperar</h1>
         <p>
@@ -2896,10 +3025,10 @@ var blogContentUpdates = {
         </blockquote>
       </article>
     `
-  },
-  [slugify("La Amabilidad como Ingenier\xEDa Social")]: {
-    excerpt: "Decile 'amabilidad' a un argentino curtido y te va a mirar con desconfianza. Pero cuando la us\xE1s como arquitectura social, repara v\xEDnculos y alinea prop\xF3sitos como ninguna otra tecnolog\xEDa.",
-    content: `
+      },
+      [slugify("La Amabilidad como Ingenier\xEDa Social")]: {
+        excerpt: "Decile 'amabilidad' a un argentino curtido y te va a mirar con desconfianza. Pero cuando la us\xE1s como arquitectura social, repara v\xEDnculos y alinea prop\xF3sitos como ninguna otra tecnolog\xEDa.",
+        content: `
       <article>
         <h1>La Amabilidad como Ingenier\xEDa Social</h1>
         <p>
@@ -2952,10 +3081,10 @@ var blogContentUpdates = {
         </blockquote>
       </article>
     `
-  },
-  [slugify("Dise\xF1o Idealizado: La Argentina Posible")]: {
-    excerpt: "\xBFY si pudieras empezar de cero? El dise\xF1o idealizado no es fantas\xEDa: es la metodolog\xEDa que nos obliga a describir en detalle la Argentina que merece existir \u2014 y despu\xE9s construirla.",
-    content: `
+      },
+      [slugify("Dise\xF1o Idealizado: La Argentina Posible")]: {
+        excerpt: "\xBFY si pudieras empezar de cero? El dise\xF1o idealizado no es fantas\xEDa: es la metodolog\xEDa que nos obliga a describir en detalle la Argentina que merece existir \u2014 y despu\xE9s construirla.",
+        content: `
       <article>
         <h1>Dise\xF1o Idealizado: La Argentina Posible</h1>
         <p>
@@ -3016,10 +3145,10 @@ var blogContentUpdates = {
         </blockquote>
       </article>
     `
-  },
-  [slugify("El Poder del Pensamiento Sist\xE9mico en la Transformaci\xF3n Social")]: {
-    excerpt: "Un m\xE9dico no trata la fiebre sin buscar la infecci\xF3n. Pensar en sistemas es pasar del 'qu\xE9 pas\xF3' al 'qu\xE9 lo hizo posible' \u2014 y dise\xF1ar palancas que cambien el patr\xF3n completo.",
-    content: `
+      },
+      [slugify("El Poder del Pensamiento Sist\xE9mico en la Transformaci\xF3n Social")]: {
+        excerpt: "Un m\xE9dico no trata la fiebre sin buscar la infecci\xF3n. Pensar en sistemas es pasar del 'qu\xE9 pas\xF3' al 'qu\xE9 lo hizo posible' \u2014 y dise\xF1ar palancas que cambien el patr\xF3n completo.",
+        content: `
       <article>
         <h1>El Poder del Pensamiento Sist\xE9mico en la Transformaci\xF3n Social</h1>
         <p>
@@ -3080,10 +3209,10 @@ var blogContentUpdates = {
         </blockquote>
       </article>
     `
-  },
-  [slugify("La \xC9tica del Servicio: Construyendo una Sociedad de Servidores")]: {
-    excerpt: "En Argentina, 'servir' suena a sacrificio. Pero servir no es inmolarse: es dise\xF1ar tu vida para que cada talento produzca valor colectivo medible. Es la forma m\xE1s profesional del amor.",
-    content: `
+      },
+      [slugify("La \xC9tica del Servicio: Construyendo una Sociedad de Servidores")]: {
+        excerpt: "En Argentina, 'servir' suena a sacrificio. Pero servir no es inmolarse: es dise\xF1ar tu vida para que cada talento produzca valor colectivo medible. Es la forma m\xE1s profesional del amor.",
+        content: `
       <article>
         <h1>La \xC9tica del Servicio: Construyendo una Sociedad de Servidores</h1>
         <p>
@@ -3155,10 +3284,10 @@ var blogContentUpdates = {
         </blockquote>
       </article>
     `
-  },
-  [slugify("Sistemas vs. S\xEDntomas: C\xF3mo Pensar como Ingeniero Social")]: {
-    excerpt: "Hay dos formas de mirar la realidad: perseguir incendios o redise\xF1ar el tablero. Este art\xEDculo te entrena para la segunda \u2014 la \xFAnica que produce cambios duraderos. Porque mientras sigas tratando s\xEDntomas, el sistema que los produce va a seguir intacto.",
-    content: `
+      },
+      [slugify("Sistemas vs. S\xEDntomas: C\xF3mo Pensar como Ingeniero Social")]: {
+        excerpt: "Hay dos formas de mirar la realidad: perseguir incendios o redise\xF1ar el tablero. Este art\xEDculo te entrena para la segunda \u2014 la \xFAnica que produce cambios duraderos. Porque mientras sigas tratando s\xEDntomas, el sistema que los produce va a seguir intacto.",
+        content: `
       <article>
         <h1>Sistemas vs. S\xEDntomas: C\xF3mo Pensar como Ingeniero Social</h1>
         <p>
@@ -3591,10 +3720,10 @@ var blogContentUpdates = {
         </blockquote>
       </article>
     `
-  },
-  [slugify("La Amabilidad como Estrategia de Transformaci\xF3n")]: {
-    excerpt: "\xBFC\xF3mo sostengo la firmeza sin perder humanidad? Este vlog muestra la amabilidad como plan t\xE1ctico para transformar espacios hostiles en laboratorios de cooperaci\xF3n \u2014 antes de que termine el d\xEDa.",
-    content: `
+      },
+      [slugify("La Amabilidad como Estrategia de Transformaci\xF3n")]: {
+        excerpt: "\xBFC\xF3mo sostengo la firmeza sin perder humanidad? Este vlog muestra la amabilidad como plan t\xE1ctico para transformar espacios hostiles en laboratorios de cooperaci\xF3n \u2014 antes de que termine el d\xEDa.",
+        content: `
       <article>
         <h1>La Amabilidad como Estrategia de Transformaci\xF3n</h1>
         <p>
@@ -3641,10 +3770,10 @@ var blogContentUpdates = {
         </blockquote>
       </article>
     `
-  },
-  [slugify("Aprender para Ser Libres: La Educaci\xF3n como Acto de Soberan\xEDa")]: {
-    excerpt: "Cada vez que alguien aprende algo que el sistema no le ense\xF1\xF3, se produce un acto de soberan\xEDa silenciosa. La educaci\xF3n autodirigida no es un lujo: es la herramienta m\xE1s poderosa que ten\xE9s para redise\xF1ar tu realidad \u2014 y la de tu pa\xEDs.",
-    content: `
+      },
+      [slugify("Aprender para Ser Libres: La Educaci\xF3n como Acto de Soberan\xEDa")]: {
+        excerpt: "Cada vez que alguien aprende algo que el sistema no le ense\xF1\xF3, se produce un acto de soberan\xEDa silenciosa. La educaci\xF3n autodirigida no es un lujo: es la herramienta m\xE1s poderosa que ten\xE9s para redise\xF1ar tu realidad \u2014 y la de tu pa\xEDs.",
+        content: `
       <article>
         <h1>Aprender para Ser Libres: La Educaci\xF3n como Acto de Soberan\xEDa</h1>
         <p>
@@ -3725,10 +3854,10 @@ var blogContentUpdates = {
         </blockquote>
       </article>
     `
-  },
-  [slugify("La Ciencia de la Confianza: El Capital que Nadie Mide pero Todos Necesitan")]: {
-    excerpt: "Argentina tiene uno de los \xEDndices de confianza interpersonal m\xE1s bajos del continente. Y sin embargo, cada crisis la reconstruyen las redes vecinales, no los decretos. La confianza no es un sentimiento: es infraestructura. Y se puede dise\xF1ar.",
-    content: `
+      },
+      [slugify("La Ciencia de la Confianza: El Capital que Nadie Mide pero Todos Necesitan")]: {
+        excerpt: "Argentina tiene uno de los \xEDndices de confianza interpersonal m\xE1s bajos del continente. Y sin embargo, cada crisis la reconstruyen las redes vecinales, no los decretos. La confianza no es un sentimiento: es infraestructura. Y se puede dise\xF1ar.",
+        content: `
       <article>
         <h1>La Ciencia de la Confianza: El Capital que Nadie Mide pero Todos Necesitan</h1>
         <p>
@@ -3816,10 +3945,10 @@ var blogContentUpdates = {
         </blockquote>
       </article>
     `
-  },
-  [slugify("Por Qu\xE9 Nos Resistimos a Cambiar: La Psicolog\xEDa de la Transformaci\xF3n")]: {
-    excerpt: "Sab\xE9s que ten\xE9s que cambiar. Sab\xE9s c\xF3mo. Sab\xE9s por qu\xE9. Y aun as\xED, ma\xF1ana vas a hacer exactamente lo mismo que hoy. No es pereza: es neurolog\xEDa. Y entenderla es el primer paso para dise\xF1ar a su favor.",
-    content: `
+      },
+      [slugify("Por Qu\xE9 Nos Resistimos a Cambiar: La Psicolog\xEDa de la Transformaci\xF3n")]: {
+        excerpt: "Sab\xE9s que ten\xE9s que cambiar. Sab\xE9s c\xF3mo. Sab\xE9s por qu\xE9. Y aun as\xED, ma\xF1ana vas a hacer exactamente lo mismo que hoy. No es pereza: es neurolog\xEDa. Y entenderla es el primer paso para dise\xF1ar a su favor.",
+        content: `
       <article>
         <h1>Por Qu\xE9 Nos Resistimos a Cambiar: La Psicolog\xEDa de la Transformaci\xF3n</h1>
         <p>
@@ -3914,10 +4043,10 @@ var blogContentUpdates = {
         </blockquote>
       </article>
     `
-  },
-  [slugify("Inteligencia Colectiva: Por Qu\xE9 Juntos Pensamos Mejor de lo que Creemos")]: {
-    excerpt: "Un grupo de personas comunes, con buenas reglas y buena informaci\xF3n, toma mejores decisiones que un experto solo. Esto no es idealismo: es matem\xE1tica. Y si lo dise\xF1amos bien, es el recurso m\xE1s poderoso que tiene Argentina.",
-    content: `
+      },
+      [slugify("Inteligencia Colectiva: Por Qu\xE9 Juntos Pensamos Mejor de lo que Creemos")]: {
+        excerpt: "Un grupo de personas comunes, con buenas reglas y buena informaci\xF3n, toma mejores decisiones que un experto solo. Esto no es idealismo: es matem\xE1tica. Y si lo dise\xF1amos bien, es el recurso m\xE1s poderoso que tiene Argentina.",
+        content: `
       <article>
         <h1>Inteligencia Colectiva: Por Qu\xE9 Juntos Pensamos Mejor de lo que Creemos</h1>
         <p>
@@ -4015,10 +4144,10 @@ var blogContentUpdates = {
         </blockquote>
       </article>
     `
-  },
-  [slugify("Lo Que Le Debemos al Futuro: Responsabilidad Intergeneracional como Dise\xF1o")]: {
-    excerpt: "Cada decisi\xF3n que tomamos hoy la van a vivir personas que todav\xEDa no nacieron. No nos pidieron permiso. No nos van a poder reclamar. Y eso no nos libera de responsabilidad \u2014 nos la multiplica.",
-    content: `
+      },
+      [slugify("Lo Que Le Debemos al Futuro: Responsabilidad Intergeneracional como Dise\xF1o")]: {
+        excerpt: "Cada decisi\xF3n que tomamos hoy la van a vivir personas que todav\xEDa no nacieron. No nos pidieron permiso. No nos van a poder reclamar. Y eso no nos libera de responsabilidad \u2014 nos la multiplica.",
+        content: `
       <article>
         <h1>Lo Que Le Debemos al Futuro: Responsabilidad Intergeneracional como Dise\xF1o</h1>
         <p>
@@ -4106,10 +4235,10 @@ var blogContentUpdates = {
         </blockquote>
       </article>
     `
-  },
-  [slugify("Las Fuerzas del Cielo: El Poder que ya Ten\xE9s y Nadie te Ense\xF1\xF3 a Usar")]: {
-    excerpt: "Se habla de 'Las Fuerzas del Cielo' como si fueran un ej\xE9rcito m\xEDstico esperando \xF3rdenes de un l\xEDder. Pero la fuerza m\xE1s poderosa que viene del cielo no es un rayo ni un milagro: es la imaginaci\xF3n. Y ya est\xE1 adentro tuyo \u2014 funcionando ahora mismo.",
-    content: `
+      },
+      [slugify("Las Fuerzas del Cielo: El Poder que ya Ten\xE9s y Nadie te Ense\xF1\xF3 a Usar")]: {
+        excerpt: "Se habla de 'Las Fuerzas del Cielo' como si fueran un ej\xE9rcito m\xEDstico esperando \xF3rdenes de un l\xEDder. Pero la fuerza m\xE1s poderosa que viene del cielo no es un rayo ni un milagro: es la imaginaci\xF3n. Y ya est\xE1 adentro tuyo \u2014 funcionando ahora mismo.",
+        content: `
       <article>
         <h1>Las Fuerzas del Cielo: El Poder que ya Ten\xE9s y Nadie te Ense\xF1\xF3 a Usar</h1>
         <p>
@@ -4358,523 +4487,583 @@ var blogContentUpdates = {
         </blockquote>
       </article>
     `
+      }
+    };
   }
-};
+});
 
 // server/blogContentEnhancements.ts
-var applyBlogContentEnhancements = (post) => {
-  if (!post?.slug) {
-    return post;
+var applyBlogContentEnhancements, applyEnhancementsToList;
+var init_blogContentEnhancements = __esm({
+  "server/blogContentEnhancements.ts"() {
+    "use strict";
+    init_blogContent();
+    applyBlogContentEnhancements = (post) => {
+      if (!post?.slug) {
+        return post;
+      }
+      const update = blogContentUpdates[post.slug];
+      if (!update) {
+        return post;
+      }
+      return {
+        ...post,
+        content: update.content ?? post.content,
+        excerpt: update.excerpt ?? post.excerpt
+      };
+    };
+    applyEnhancementsToList = (posts) => {
+      return posts.map((post) => applyBlogContentEnhancements(post));
+    };
   }
-  const update = blogContentUpdates[post.slug];
-  if (!update) {
-    return post;
-  }
-  return {
-    ...post,
-    content: update.content ?? post.content,
-    excerpt: update.excerpt ?? post.excerpt
-  };
-};
-var applyEnhancementsToList = (posts) => {
-  return posts.map((post) => applyBlogContentEnhancements(post));
-};
+});
 
 // server/storage.ts
-var ACTION_POINTS = {
-  "page_view": 1,
-  "commitment": 100,
-  "share": 50,
-  "community_post": 75,
-  "challenge_complete": 200,
-  "badge_earned": 150,
-  "level_up": 300,
-  "lesson_complete": 50,
-  "course_complete": 500,
-  "quiz_passed": 200,
-  "certificate_earned": 300
-};
-var __filename = fileURLToPath(import.meta.url);
-var __dirname = path.dirname(__filename);
-var DatabaseStorage = class {
-  constructor() {
-    this.userCommitmentsLocationColumnsEnsured = false;
-  }
-  async ensureUserCommitmentsLocationColumns() {
-    this.userCommitmentsLocationColumnsEnsured = true;
-  }
-  // User methods
-  async getUser(id) {
-    const [user] = await db.select().from(users).where(eq(users.id, id));
-    return user;
-  }
-  async getUserByUsername(username) {
-    const [user] = await db.select().from(users).where(eq(users.username, username));
-    return user;
-  }
-  async getUserByEmail(email) {
-    const [user] = await db.select().from(users).where(eq(users.email, email));
-    return user;
-  }
-  async getAllUsers() {
-    return await db.select().from(users);
-  }
-  async createUser(insertUser) {
-    const [user] = await db.insert(users).values(insertUser).returning();
-    return user;
-  }
-  async createUserWithHash(userData) {
-    const hashedPassword = await PasswordManager.hash(userData.password);
-    const insertUser = {
-      ...userData,
-      password: hashedPassword
+import { eq, desc, and, sql as sql3, asc, gte, or, like, inArray, ilike, isNotNull } from "drizzle-orm";
+import path from "path";
+import { fileURLToPath } from "url";
+var ACTION_POINTS, __filename, __dirname, DatabaseStorage, storage;
+var init_storage = __esm({
+  "server/storage.ts"() {
+    "use strict";
+    init_schema();
+    init_db();
+    init_auth();
+    init_blogContentEnhancements();
+    ACTION_POINTS = {
+      "page_view": 1,
+      "commitment": 100,
+      "share": 50,
+      "community_post": 75,
+      "challenge_complete": 200,
+      "badge_earned": 150,
+      "level_up": 300,
+      "lesson_complete": 50,
+      "course_complete": 500,
+      "quiz_passed": 200,
+      "certificate_earned": 300
     };
-    const [user] = await db.insert(users).values(insertUser).returning();
-    return user;
-  }
-  async verifyUserPassword(username, password) {
-    const user = await this.getUserByUsername(username);
-    if (!user || !user.isActive) {
-      return null;
-    }
-    const storedPassword = user.password || "";
-    const isBcryptHash = typeof storedPassword === "string" && /^\$2[aby]\$\d{2}\$/.test(storedPassword);
-    if (!isBcryptHash) {
-      if (storedPassword && storedPassword === password) {
-        console.warn(`[verifyUserPassword] Plaintext password detected for user "${username}". Upgrading to secure hash.`);
-        await this.updatePassword(user.id, password);
-        const updatedUser = await this.getUserByUsername(username);
-        return updatedUser && updatedUser.isActive ? updatedUser : null;
+    __filename = fileURLToPath(import.meta.url);
+    __dirname = path.dirname(__filename);
+    DatabaseStorage = class {
+      constructor() {
+        this.userCommitmentsLocationColumnsEnsured = false;
       }
-      return null;
-    }
-    const isValid = await PasswordManager.verify(password, storedPassword);
-    return isValid ? user : null;
-  }
-  async updateLastLogin(userId) {
-    await db.update(users).set({
-      lastLogin: (/* @__PURE__ */ new Date()).toISOString(),
-      updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-    }).where(eq(users.id, userId));
-  }
-  async incrementLoginAttempts(username) {
-    await db.update(users).set({
-      loginAttempts: sql3`login_attempts + 1`,
-      lockedUntil: sql3`CASE
+      async ensureUserCommitmentsLocationColumns() {
+        this.userCommitmentsLocationColumnsEnsured = true;
+      }
+      // User methods
+      async getUser(id) {
+        const [user] = await db.select().from(users).where(eq(users.id, id));
+        return user;
+      }
+      async getUserByUsername(username) {
+        const [user] = await db.select().from(users).where(eq(users.username, username));
+        return user;
+      }
+      async getUserByEmail(email) {
+        const [user] = await db.select().from(users).where(eq(users.email, email));
+        return user;
+      }
+      async getAllUsers() {
+        return await db.select().from(users);
+      }
+      async createUser(insertUser) {
+        const [user] = await db.insert(users).values(insertUser).returning();
+        return user;
+      }
+      async createUserWithHash(userData) {
+        const hashedPassword = await PasswordManager.hash(userData.password);
+        const insertUser = {
+          ...userData,
+          password: hashedPassword
+        };
+        const [user] = await db.insert(users).values(insertUser).returning();
+        return user;
+      }
+      async verifyUserPassword(username, password) {
+        const user = await this.getUserByUsername(username);
+        if (!user || !user.isActive) {
+          return null;
+        }
+        const storedPassword = user.password || "";
+        const isBcryptHash = typeof storedPassword === "string" && /^\$2[aby]\$\d{2}\$/.test(storedPassword);
+        if (!isBcryptHash) {
+          if (storedPassword && storedPassword === password) {
+            console.warn(`[verifyUserPassword] Plaintext password detected for user "${username}". Upgrading to secure hash.`);
+            await this.updatePassword(user.id, password);
+            const updatedUser = await this.getUserByUsername(username);
+            return updatedUser && updatedUser.isActive ? updatedUser : null;
+          }
+          return null;
+        }
+        const isValid = await PasswordManager.verify(password, storedPassword);
+        return isValid ? user : null;
+      }
+      async updateLastLogin(userId) {
+        await db.update(users).set({
+          lastLogin: (/* @__PURE__ */ new Date()).toISOString(),
+          updatedAt: (/* @__PURE__ */ new Date()).toISOString()
+        }).where(eq(users.id, userId));
+      }
+      async incrementLoginAttempts(username) {
+        await db.update(users).set({
+          loginAttempts: sql3`login_attempts + 1`,
+          lockedUntil: sql3`CASE
           WHEN login_attempts + 1 >= 5 THEN (NOW() + INTERVAL '15 minutes')::text
           ELSE locked_until
         END`,
-      updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-    }).where(eq(users.username, username));
-  }
-  async resetLoginAttempts(username) {
-    await db.update(users).set({
-      loginAttempts: 0,
-      lockedUntil: null,
-      updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-    }).where(eq(users.username, username));
-  }
-  async isUserLocked(username) {
-    const user = await this.getUserByUsername(username);
-    if (!user || !user.lockedUntil) {
-      return false;
-    }
-    return /* @__PURE__ */ new Date() < new Date(user.lockedUntil);
-  }
-  async updateUser(userId, updates) {
-    const [user] = await db.update(users).set({
-      ...updates,
-      updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-    }).where(eq(users.id, userId)).returning();
-    return user;
-  }
-  // Email verification methods
-  async setEmailVerificationToken(userId, token, expires) {
-    await db.update(users).set({
-      emailVerificationToken: token,
-      emailVerificationExpires: expires.toISOString(),
-      updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-    }).where(eq(users.id, userId));
-  }
-  async verifyEmail(token) {
-    const [user] = await db.select().from(users).where(eq(users.emailVerificationToken, token));
-    if (!user) return null;
-    if (user.emailVerificationExpires && /* @__PURE__ */ new Date() > new Date(user.emailVerificationExpires)) {
-      return null;
-    }
-    await db.update(users).set({
-      emailVerified: true,
-      emailVerificationToken: null,
-      emailVerificationExpires: null,
-      updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-    }).where(eq(users.id, user.id));
-    return user;
-  }
-  // Password reset methods
-  async setPasswordResetToken(userId, token, expires) {
-    await db.update(users).set({
-      passwordResetToken: token,
-      passwordResetExpires: expires.toISOString(),
-      updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-    }).where(eq(users.id, userId));
-  }
-  async getUserByPasswordResetToken(token) {
-    const [user] = await db.select().from(users).where(eq(users.passwordResetToken, token));
-    if (!user) return null;
-    if (user.passwordResetExpires && /* @__PURE__ */ new Date() > new Date(user.passwordResetExpires)) {
-      return null;
-    }
-    return user;
-  }
-  async updatePassword(userId, newPassword) {
-    const { PasswordManager: PasswordManager2 } = await Promise.resolve().then(() => (init_auth(), auth_exports));
-    const hashedPassword = await PasswordManager2.hash(newPassword);
-    await db.update(users).set({
-      password: hashedPassword,
-      passwordResetToken: null,
-      passwordResetExpires: null,
-      updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-    }).where(eq(users.id, userId));
-  }
-  // 2FA methods
-  async enable2FA(userId, secret, backupCodes) {
-    await db.update(users).set({
-      twoFactorEnabled: true,
-      twoFactorSecret: secret,
-      twoFactorBackupCodes: JSON.stringify(backupCodes),
-      updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-    }).where(eq(users.id, userId));
-  }
-  async disable2FA(userId) {
-    await db.update(users).set({
-      twoFactorEnabled: false,
-      twoFactorSecret: null,
-      twoFactorBackupCodes: null,
-      updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-    }).where(eq(users.id, userId));
-  }
-  async get2FASecret(userId) {
-    const user = await this.getUser(userId);
-    return user?.twoFactorSecret || null;
-  }
-  async useBackupCode(userId, codeIndex) {
-    const user = await this.getUser(userId);
-    if (!user || !user.twoFactorBackupCodes) return;
-    const backupCodes = JSON.parse(user.twoFactorBackupCodes);
-    backupCodes[codeIndex] = null;
-    await db.update(users).set({
-      twoFactorBackupCodes: JSON.stringify(backupCodes),
-      updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-    }).where(eq(users.id, userId));
-  }
-  // Dreams methods
-  async getDreams() {
-    return await db.select().from(dreams).orderBy(desc(dreams.createdAt));
-  }
-  async getDreamsByUser(userId) {
-    return await db.select().from(dreams).where(eq(dreams.userId, userId));
-  }
-  async createDream(insertDream) {
-    const dreamData = {
-      ...insertDream,
-      type: insertDream.type || "dream"
-    };
-    const [dream] = await db.insert(dreams).values(dreamData).returning();
-    return dream;
-  }
-  // Community Posts methods
-  async getCommunityPosts(type) {
-    if (type && type !== "all") {
-      return await db.select().from(communityPosts).where(eq(communityPosts.type, type));
-    }
-    return await db.select().from(communityPosts).orderBy(desc(communityPosts.createdAt));
-  }
-  async getCommunityPostById(id) {
-    const [post] = await db.select().from(communityPosts).where(eq(communityPosts.id, id));
-    return post;
-  }
-  async createCommunityPost(insertPost) {
-    const postData = {
-      ...insertPost,
-      status: "active",
-      views: 0,
-      expiresAt: null,
-      contactEmail: null,
-      contactPhone: null,
-      updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-    };
-    const [post] = await db.insert(communityPosts).values(postData).returning();
-    return post;
-  }
-  async updateCommunityPost(id, updates, userId) {
-    const [post] = await db.update(communityPosts).set({ ...updates, updatedAt: (/* @__PURE__ */ new Date()).toISOString() }).where(and(eq(communityPosts.id, id), eq(communityPosts.userId, userId))).returning();
-    return post;
-  }
-  async deleteCommunityPost(id, userId) {
-    const result = await db.delete(communityPosts).where(and(eq(communityPosts.id, id), eq(communityPosts.userId, userId)));
-    return result.changes > 0;
-  }
-  async getCommunityPostWithDetails(id) {
-    const [post] = await db.select().from(communityPosts).where(eq(communityPosts.id, id));
-    if (!post) {
-      return void 0;
-    }
-    let userInfo = null;
-    if (post.userId) {
-      const [user] = await db.select().from(users).where(eq(users.id, post.userId));
-      if (user) {
-        const userInitiativesResult = await db.select({ count: sql3`count(*)` }).from(communityPosts).where(eq(communityPosts.userId, post.userId));
-        const initiativesCount = Number(userInitiativesResult[0]?.count || 0);
-        const userPosts = await db.select({ id: communityPosts.id }).from(communityPosts).where(eq(communityPosts.userId, post.userId));
-        const postIds = userPosts.map((p) => p.id);
-        let totalMembers = 0;
-        if (postIds.length > 0) {
-          const membersResult = await db.select({ count: sql3`count(*)` }).from(initiativeMembers).where(inArray(initiativeMembers.postId, postIds));
-          totalMembers = Number(membersResult[0]?.count || 0);
+          updatedAt: (/* @__PURE__ */ new Date()).toISOString()
+        }).where(eq(users.username, username));
+      }
+      async resetLoginAttempts(username) {
+        await db.update(users).set({
+          loginAttempts: 0,
+          lockedUntil: null,
+          updatedAt: (/* @__PURE__ */ new Date()).toISOString()
+        }).where(eq(users.username, username));
+      }
+      async isUserLocked(username) {
+        const user = await this.getUserByUsername(username);
+        if (!user || !user.lockedUntil) {
+          return false;
         }
-        userInfo = {
-          id: user.id,
-          name: user.name,
-          username: user.username,
-          email: user.email,
-          location: user.location,
-          stats: {
-            initiativesCreated: initiativesCount,
-            totalMembers
+        return /* @__PURE__ */ new Date() < new Date(user.lockedUntil);
+      }
+      async updateUser(userId, updates) {
+        const [user] = await db.update(users).set({
+          ...updates,
+          updatedAt: (/* @__PURE__ */ new Date()).toISOString()
+        }).where(eq(users.id, userId)).returning();
+        return user;
+      }
+      // Email verification methods
+      async setEmailVerificationToken(userId, token, expires) {
+        await db.update(users).set({
+          emailVerificationToken: token,
+          emailVerificationExpires: expires.toISOString(),
+          updatedAt: (/* @__PURE__ */ new Date()).toISOString()
+        }).where(eq(users.id, userId));
+      }
+      async verifyEmail(token) {
+        const [user] = await db.select().from(users).where(eq(users.emailVerificationToken, token));
+        if (!user) return null;
+        if (user.emailVerificationExpires && /* @__PURE__ */ new Date() > new Date(user.emailVerificationExpires)) {
+          return null;
+        }
+        await db.update(users).set({
+          emailVerified: true,
+          emailVerificationToken: null,
+          emailVerificationExpires: null,
+          updatedAt: (/* @__PURE__ */ new Date()).toISOString()
+        }).where(eq(users.id, user.id));
+        return user;
+      }
+      // Password reset methods
+      async setPasswordResetToken(userId, token, expires) {
+        await db.update(users).set({
+          passwordResetToken: token,
+          passwordResetExpires: expires.toISOString(),
+          updatedAt: (/* @__PURE__ */ new Date()).toISOString()
+        }).where(eq(users.id, userId));
+      }
+      async getUserByPasswordResetToken(token) {
+        const [user] = await db.select().from(users).where(eq(users.passwordResetToken, token));
+        if (!user) return null;
+        if (user.passwordResetExpires && /* @__PURE__ */ new Date() > new Date(user.passwordResetExpires)) {
+          return null;
+        }
+        return user;
+      }
+      async updatePassword(userId, newPassword) {
+        const { PasswordManager: PasswordManager2 } = await Promise.resolve().then(() => (init_auth(), auth_exports));
+        const hashedPassword = await PasswordManager2.hash(newPassword);
+        await db.update(users).set({
+          password: hashedPassword,
+          passwordResetToken: null,
+          passwordResetExpires: null,
+          updatedAt: (/* @__PURE__ */ new Date()).toISOString()
+        }).where(eq(users.id, userId));
+      }
+      // 2FA methods
+      async enable2FA(userId, secret, backupCodes) {
+        await db.update(users).set({
+          twoFactorEnabled: true,
+          twoFactorSecret: secret,
+          twoFactorBackupCodes: JSON.stringify(backupCodes),
+          updatedAt: (/* @__PURE__ */ new Date()).toISOString()
+        }).where(eq(users.id, userId));
+      }
+      async disable2FA(userId) {
+        await db.update(users).set({
+          twoFactorEnabled: false,
+          twoFactorSecret: null,
+          twoFactorBackupCodes: null,
+          updatedAt: (/* @__PURE__ */ new Date()).toISOString()
+        }).where(eq(users.id, userId));
+      }
+      async get2FASecret(userId) {
+        const user = await this.getUser(userId);
+        return user?.twoFactorSecret || null;
+      }
+      async useBackupCode(userId, codeIndex) {
+        const user = await this.getUser(userId);
+        if (!user || !user.twoFactorBackupCodes) return;
+        const backupCodes = JSON.parse(user.twoFactorBackupCodes);
+        backupCodes[codeIndex] = null;
+        await db.update(users).set({
+          twoFactorBackupCodes: JSON.stringify(backupCodes),
+          updatedAt: (/* @__PURE__ */ new Date()).toISOString()
+        }).where(eq(users.id, userId));
+      }
+      // Dreams methods
+      async getDreams() {
+        return await db.select().from(dreams).orderBy(desc(dreams.createdAt));
+      }
+      async getDreamsByUser(userId) {
+        return await db.select().from(dreams).where(eq(dreams.userId, userId));
+      }
+      async createDream(insertDream) {
+        const dreamData = {
+          ...insertDream,
+          type: insertDream.type || "dream"
+        };
+        const [dream] = await db.insert(dreams).values(dreamData).returning();
+        return dream;
+      }
+      // User Resources methods (Mandato Vivo)
+      async getUserResources() {
+        return await db.select().from(userResources).where(eq(userResources.isActive, true)).orderBy(desc(userResources.createdAt));
+      }
+      async getUserResourcesByUser(userId) {
+        return await db.select().from(userResources).where(eq(userResources.userId, userId));
+      }
+      async createUserResource(resource) {
+        const [created] = await db.insert(userResources).values(resource).returning();
+        return created;
+      }
+      // Territory Mandates (Mandato Vivo)
+      async getMandates(level) {
+        if (level) {
+          return await db.select().from(territoryMandates).where(eq(territoryMandates.territoryLevel, level)).orderBy(desc(territoryMandates.generatedAt));
+        }
+        return await db.select().from(territoryMandates).orderBy(desc(territoryMandates.generatedAt));
+      }
+      async getMandateByTerritory(level, name) {
+        const [mandate] = await db.select().from(territoryMandates).where(and(
+          eq(territoryMandates.territoryLevel, level),
+          eq(territoryMandates.territoryName, name)
+        )).orderBy(desc(territoryMandates.version)).limit(1);
+        return mandate;
+      }
+      async createMandate(mandate) {
+        const [created] = await db.insert(territoryMandates).values(mandate).returning();
+        return created;
+      }
+      async updateMandate(id, updates) {
+        const [updated] = await db.update(territoryMandates).set(updates).where(eq(territoryMandates.id, id)).returning();
+        return updated;
+      }
+      // Mandate Suggestions (Matchmaker)
+      async getSuggestionsByMandate(mandateId) {
+        return await db.select().from(mandateSuggestions).where(eq(mandateSuggestions.mandateId, mandateId)).orderBy(desc(mandateSuggestions.createdAt));
+      }
+      async getSuggestionsByTerritory(territoryName) {
+        return await db.select().from(mandateSuggestions).where(eq(mandateSuggestions.territoryName, territoryName)).orderBy(desc(mandateSuggestions.createdAt));
+      }
+      async getSuggestionById(id) {
+        const [suggestion] = await db.select().from(mandateSuggestions).where(eq(mandateSuggestions.id, id));
+        return suggestion;
+      }
+      async createSuggestion(suggestion) {
+        const [created] = await db.insert(mandateSuggestions).values(suggestion).returning();
+        return created;
+      }
+      async activateSuggestion(id, userId, initiativeId) {
+        const [updated] = await db.update(mandateSuggestions).set({
+          status: "activated",
+          activatedBy: userId,
+          initiativeId
+        }).where(eq(mandateSuggestions.id, id)).returning();
+        return updated;
+      }
+      // Community Posts methods
+      async getCommunityPosts(type) {
+        if (type && type !== "all") {
+          return await db.select().from(communityPosts).where(eq(communityPosts.type, type));
+        }
+        return await db.select().from(communityPosts).orderBy(desc(communityPosts.createdAt));
+      }
+      async getCommunityPostById(id) {
+        const [post] = await db.select().from(communityPosts).where(eq(communityPosts.id, id));
+        return post;
+      }
+      async createCommunityPost(insertPost) {
+        const postData = {
+          ...insertPost,
+          status: "active",
+          views: 0,
+          expiresAt: null,
+          contactEmail: null,
+          contactPhone: null,
+          updatedAt: (/* @__PURE__ */ new Date()).toISOString()
+        };
+        const [post] = await db.insert(communityPosts).values(postData).returning();
+        return post;
+      }
+      async updateCommunityPost(id, updates, userId) {
+        const [post] = await db.update(communityPosts).set({ ...updates, updatedAt: (/* @__PURE__ */ new Date()).toISOString() }).where(and(eq(communityPosts.id, id), eq(communityPosts.userId, userId))).returning();
+        return post;
+      }
+      async deleteCommunityPost(id, userId) {
+        const result = await db.delete(communityPosts).where(and(eq(communityPosts.id, id), eq(communityPosts.userId, userId)));
+        return result.changes > 0;
+      }
+      async getCommunityPostWithDetails(id) {
+        const [post] = await db.select().from(communityPosts).where(eq(communityPosts.id, id));
+        if (!post) {
+          return void 0;
+        }
+        let userInfo = null;
+        if (post.userId) {
+          const [user] = await db.select().from(users).where(eq(users.id, post.userId));
+          if (user) {
+            const userInitiativesResult = await db.select({ count: sql3`count(*)` }).from(communityPosts).where(eq(communityPosts.userId, post.userId));
+            const initiativesCount = Number(userInitiativesResult[0]?.count || 0);
+            const userPosts = await db.select({ id: communityPosts.id }).from(communityPosts).where(eq(communityPosts.userId, post.userId));
+            const postIds = userPosts.map((p) => p.id);
+            let totalMembers = 0;
+            if (postIds.length > 0) {
+              const membersResult = await db.select({ count: sql3`count(*)` }).from(initiativeMembers).where(inArray(initiativeMembers.postId, postIds));
+              totalMembers = Number(membersResult[0]?.count || 0);
+            }
+            userInfo = {
+              id: user.id,
+              name: user.name,
+              username: user.username,
+              email: user.email,
+              location: user.location,
+              stats: {
+                initiativesCreated: initiativesCount,
+                totalMembers
+              }
+            };
           }
+        }
+        return {
+          ...post,
+          user: userInfo,
+          impulsor: userInfo
         };
       }
-    }
-    return {
-      ...post,
-      user: userInfo,
-      impulsor: userInfo
-    };
-  }
-  async getUserCommunityPosts(userId) {
-    return await db.select().from(communityPosts).where(eq(communityPosts.userId, userId)).orderBy(desc(communityPosts.createdAt));
-  }
-  // Community Interactions
-  async createPostInteraction(data) {
-    const interactionData = {
-      ...data,
-      status: "pending",
-      updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-    };
-    const [interaction] = await db.insert(communityPostInteractions).values(interactionData).returning();
-    return interaction;
-  }
-  async getPostInteractions(postId, ownerId) {
-    const query = db.select().from(communityPostInteractions).where(eq(communityPostInteractions.postId, postId)).orderBy(desc(communityPostInteractions.createdAt));
-    return await query;
-  }
-  async updateInteractionStatus(id, status, userId) {
-    const result = await db.update(communityPostInteractions).set({ status, updatedAt: (/* @__PURE__ */ new Date()).toISOString() }).where(and(eq(communityPostInteractions.id, id), eq(communityPostInteractions.userId, userId)));
-    return result.changes > 0;
-  }
-  async getUserInteractions(userId) {
-    return await db.select().from(communityPostInteractions).where(eq(communityPostInteractions.userId, userId)).orderBy(desc(communityPostInteractions.createdAt));
-  }
-  // Community Messages
-  async createCommunityMessage(data) {
-    const [message] = await db.insert(communityMessages).values(data).returning();
-    return message;
-  }
-  async getUserMessages(userId) {
-    return await db.select().from(communityMessages).where(eq(communityMessages.receiverId, userId)).orderBy(desc(communityMessages.createdAt));
-  }
-  async markMessageAsRead(id, userId) {
-    const result = await db.update(communityMessages).set({ read: true }).where(and(eq(communityMessages.id, id), eq(communityMessages.receiverId, userId)));
-    return result.changes > 0;
-  }
-  async getUnreadMessageCount(userId) {
-    const result = await db.select({ count: sql3`count(*)` }).from(communityMessages).where(and(eq(communityMessages.receiverId, userId), eq(communityMessages.read, false)));
-    return result[0]?.count || 0;
-  }
-  // Community Activity
-  async recordPostActivity(data) {
-    const activityData = {
-      ...data,
-      activityType: data.activityType
-    };
-    const [activity] = await db.insert(communityPostActivity).values(activityData).returning();
-    return activity;
-  }
-  async getPostAnalytics(postId, ownerId) {
-    const post = await db.select().from(communityPosts).where(and(eq(communityPosts.id, postId), eq(communityPosts.userId, ownerId)));
-    if (!post.length) return null;
-    const activities = await db.select().from(communityPostActivity).where(eq(communityPostActivity.postId, postId));
-    const interactions = await db.select().from(communityPostInteractions).where(eq(communityPostInteractions.postId, postId));
-    return {
-      post: post[0],
-      totalViews: activities.filter((a) => a.activityType === "view").length,
-      totalInteractions: interactions.length,
-      interactionBreakdown: {
-        apply: interactions.filter((i) => i.type === "apply").length,
-        interest: interactions.filter((i) => i.type === "interest").length,
-        volunteer: interactions.filter((i) => i.type === "volunteer").length,
-        save: interactions.filter((i) => i.type === "save").length
-      },
-      activities: activities.slice(0, 10),
-      // Recent 10 activities
-      interactions: interactions.slice(0, 10)
-      // Recent 10 interactions
-    };
-  }
-  async getUserActivityHistory(userId) {
-    return await db.select().from(communityPostActivity).where(eq(communityPostActivity.userId, userId)).orderBy(desc(communityPostActivity.createdAt));
-  }
-  // Resources methods
-  async getResources() {
-    return await db.select().from(resources);
-  }
-  async getResourcesByCategory(category) {
-    return await db.select().from(resources).where(eq(resources.category, category));
-  }
-  async createResource(insertResource) {
-    const [resource] = await db.insert(resources).values(insertResource).returning();
-    return resource;
-  }
-  // Stories methods
-  async getStories() {
-    return await db.select().from(stories);
-  }
-  async getStoryById(id) {
-    const [story] = await db.select().from(stories).where(eq(stories.id, id));
-    return story;
-  }
-  async createStory(insertStory) {
-    const [story] = await db.insert(stories).values(insertStory).returning();
-    return story;
-  }
-  // Initialize with sample resources if needed
-  async initSampleData() {
-    const existingResources = await this.getResources();
-    if (existingResources.length === 0) {
-      const resources2 = [
-        {
-          title: "Pensamiento sist\xE9mico",
-          description: "Comprende c\xF3mo las partes de un sistema se relacionan e influyen entre s\xED para crear soluciones integrales.",
-          category: "systemic-thinking",
-          url: "/resources/systemic-thinking"
-        },
-        {
-          title: "Cambio de h\xE1bitos",
-          description: "Metodolog\xEDas pr\xE1cticas para transformar comportamientos individuales y colectivos de forma sostenible.",
-          category: "habit-change",
-          url: "/resources/habit-change"
-        },
-        {
-          title: "Proyectos ciudadanos",
-          description: "Gu\xEDas paso a paso para dise\xF1ar, implementar y evaluar iniciativas con impacto comunitario positivo.",
-          category: "citizen-projects",
-          url: "/resources/citizen-projects"
-        },
-        {
-          title: "Dise\xF1o idealizado",
-          description: "Una metodolog\xEDa para reimaginar sistemas desde cero en vez de reformar lo que ya no funciona.",
-          category: "idealized-design",
-          url: "/resources/idealized-design"
-        },
-        {
-          title: "Comunicaci\xF3n efectiva",
-          description: "Herramientas para dialogar, construir consensos y resolver conflictos en espacios de participaci\xF3n.",
-          category: "effective-communication",
-          url: "/resources/effective-communication"
-        },
-        {
-          title: "Biblioteca digital",
-          description: "Colecci\xF3n de libros, art\xEDculos y documentos sobre transformaci\xF3n social, participaci\xF3n ciudadana y desarrollo comunitario.",
-          category: "digital-library",
-          url: "/resources/digital-library"
-        }
-      ];
-      for (const resource of resources2) {
-        await this.createResource(resource);
+      async getUserCommunityPosts(userId) {
+        return await db.select().from(communityPosts).where(eq(communityPosts.userId, userId)).orderBy(desc(communityPosts.createdAt));
       }
-    }
-  }
-  // ==================== GAMIFICATION METHODS ====================
-  // User Levels
-  async getUserLevel(userId) {
-    const level = await db.query.userLevels.findFirst({
-      where: eq(userLevels.userId, userId),
-      with: {
-        user: true
+      // Community Interactions
+      async createPostInteraction(data) {
+        const interactionData = {
+          ...data,
+          status: "pending",
+          updatedAt: (/* @__PURE__ */ new Date()).toISOString()
+        };
+        const [interaction] = await db.insert(communityPostInteractions).values(interactionData).returning();
+        return interaction;
       }
-    });
-    return level;
-  }
-  async createUserLevel(userId) {
-    const [newLevel] = await db.insert(userLevels).values({
-      userId,
-      currentLevel: 1,
-      experience: 0,
-      experienceToNext: 500,
-      streak: 0
-    }).returning();
-    return newLevel;
-  }
-  async updateUserExperience(userId, experienceGained) {
-    const userLevel = await this.getUserLevel(userId);
-    if (!userLevel) {
-      await this.createUserLevel(userId);
-      return await this.updateUserExperience(userId, experienceGained);
-    }
-    const newExperience = userLevel.experience + experienceGained;
-    const newLevel = Math.floor(newExperience / 500) + 1;
-    const experienceToNext = newLevel * 500 - newExperience;
-    const [updatedLevel] = await db.update(userLevels).set({
-      experience: newExperience,
-      currentLevel: newLevel,
-      experienceToNext,
-      updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-    }).where(eq(userLevels.userId, userId)).returning();
-    return updatedLevel;
-  }
-  async updateStreak(userId) {
-    const today = (/* @__PURE__ */ new Date()).toISOString().split("T")[0];
-    const userLevel = await this.getUserLevel(userId);
-    if (!userLevel) {
-      await this.createUserLevel(userId);
-      return await this.updateStreak(userId);
-    }
-    const lastActivityDate = userLevel.lastActivityDate;
-    const yesterday = /* @__PURE__ */ new Date();
-    yesterday.setDate(yesterday.getDate() - 1);
-    const yesterdayStr = yesterday.toISOString().split("T")[0];
-    let newStreak = userLevel.streak;
-    if (lastActivityDate === yesterdayStr) {
-      newStreak += 1;
-    } else if (lastActivityDate !== today) {
-      newStreak = 1;
-    }
-    const [updatedLevel] = await db.update(userLevels).set({
-      streak: newStreak,
-      lastActivityDate: today,
-      updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-    }).where(eq(userLevels.userId, userId)).returning();
-    return updatedLevel;
-  }
-  // Challenges
-  async getChallenges(filters) {
-    let query = db.query.challenges.findMany({
-      with: {
-        steps: {
-          orderBy: [asc(challengeSteps.orderIndex)]
+      async getPostInteractions(postId, ownerId) {
+        const query = db.select().from(communityPostInteractions).where(eq(communityPostInteractions.postId, postId)).orderBy(desc(communityPostInteractions.createdAt));
+        return await query;
+      }
+      async updateInteractionStatus(id, status, userId) {
+        const result = await db.update(communityPostInteractions).set({ status, updatedAt: (/* @__PURE__ */ new Date()).toISOString() }).where(and(eq(communityPostInteractions.id, id), eq(communityPostInteractions.userId, userId)));
+        return result.changes > 0;
+      }
+      async getUserInteractions(userId) {
+        return await db.select().from(communityPostInteractions).where(eq(communityPostInteractions.userId, userId)).orderBy(desc(communityPostInteractions.createdAt));
+      }
+      // Community Messages
+      async createCommunityMessage(data) {
+        const [message] = await db.insert(communityMessages).values(data).returning();
+        return message;
+      }
+      async getUserMessages(userId) {
+        return await db.select().from(communityMessages).where(eq(communityMessages.receiverId, userId)).orderBy(desc(communityMessages.createdAt));
+      }
+      async markMessageAsRead(id, userId) {
+        const result = await db.update(communityMessages).set({ read: true }).where(and(eq(communityMessages.id, id), eq(communityMessages.receiverId, userId)));
+        return result.changes > 0;
+      }
+      async getUnreadMessageCount(userId) {
+        const result = await db.select({ count: sql3`count(*)` }).from(communityMessages).where(and(eq(communityMessages.receiverId, userId), eq(communityMessages.read, false)));
+        return result[0]?.count || 0;
+      }
+      // Community Activity
+      async recordPostActivity(data) {
+        const activityData = {
+          ...data,
+          activityType: data.activityType
+        };
+        const [activity] = await db.insert(communityPostActivity).values(activityData).returning();
+        return activity;
+      }
+      async getPostAnalytics(postId, ownerId) {
+        const post = await db.select().from(communityPosts).where(and(eq(communityPosts.id, postId), eq(communityPosts.userId, ownerId)));
+        if (!post.length) return null;
+        const activities = await db.select().from(communityPostActivity).where(eq(communityPostActivity.postId, postId));
+        const interactions = await db.select().from(communityPostInteractions).where(eq(communityPostInteractions.postId, postId));
+        return {
+          post: post[0],
+          totalViews: activities.filter((a) => a.activityType === "view").length,
+          totalInteractions: interactions.length,
+          interactionBreakdown: {
+            apply: interactions.filter((i) => i.type === "apply").length,
+            interest: interactions.filter((i) => i.type === "interest").length,
+            volunteer: interactions.filter((i) => i.type === "volunteer").length,
+            save: interactions.filter((i) => i.type === "save").length
+          },
+          activities: activities.slice(0, 10),
+          // Recent 10 activities
+          interactions: interactions.slice(0, 10)
+          // Recent 10 interactions
+        };
+      }
+      async getUserActivityHistory(userId) {
+        return await db.select().from(communityPostActivity).where(eq(communityPostActivity.userId, userId)).orderBy(desc(communityPostActivity.createdAt));
+      }
+      // Resources methods
+      async getResources() {
+        return await db.select().from(resources);
+      }
+      async getResourcesByCategory(category) {
+        return await db.select().from(resources).where(eq(resources.category, category));
+      }
+      async createResource(insertResource) {
+        const [resource] = await db.insert(resources).values(insertResource).returning();
+        return resource;
+      }
+      // Stories methods
+      async getStories() {
+        return await db.select().from(stories);
+      }
+      async getStoryById(id) {
+        const [story] = await db.select().from(stories).where(eq(stories.id, id));
+        return story;
+      }
+      async createStory(insertStory) {
+        const [story] = await db.insert(stories).values(insertStory).returning();
+        return story;
+      }
+      // Initialize with sample resources if needed
+      async initSampleData() {
+        const existingResources = await this.getResources();
+        if (existingResources.length === 0) {
+          const resources2 = [
+            {
+              title: "Pensamiento sist\xE9mico",
+              description: "Comprende c\xF3mo las partes de un sistema se relacionan e influyen entre s\xED para crear soluciones integrales.",
+              category: "systemic-thinking",
+              url: "/resources/systemic-thinking"
+            },
+            {
+              title: "Cambio de h\xE1bitos",
+              description: "Metodolog\xEDas pr\xE1cticas para transformar comportamientos individuales y colectivos de forma sostenible.",
+              category: "habit-change",
+              url: "/resources/habit-change"
+            },
+            {
+              title: "Proyectos ciudadanos",
+              description: "Gu\xEDas paso a paso para dise\xF1ar, implementar y evaluar iniciativas con impacto comunitario positivo.",
+              category: "citizen-projects",
+              url: "/resources/citizen-projects"
+            },
+            {
+              title: "Dise\xF1o idealizado",
+              description: "Una metodolog\xEDa para reimaginar sistemas desde cero en vez de reformar lo que ya no funciona.",
+              category: "idealized-design",
+              url: "/resources/idealized-design"
+            },
+            {
+              title: "Comunicaci\xF3n efectiva",
+              description: "Herramientas para dialogar, construir consensos y resolver conflictos en espacios de participaci\xF3n.",
+              category: "effective-communication",
+              url: "/resources/effective-communication"
+            },
+            {
+              title: "Biblioteca digital",
+              description: "Colecci\xF3n de libros, art\xEDculos y documentos sobre transformaci\xF3n social, participaci\xF3n ciudadana y desarrollo comunitario.",
+              category: "digital-library",
+              url: "/resources/digital-library"
+            }
+          ];
+          for (const resource of resources2) {
+            await this.createResource(resource);
+          }
         }
-      },
-      orderBy: [asc(challenges.orderIndex)]
-    });
-    if (filters) {
-      const conditions = [];
-      if (filters.level) conditions.push(eq(challenges.level, filters.level));
-      if (filters.frequency) conditions.push(eq(challenges.frequency, filters.frequency));
-      if (filters.category) conditions.push(eq(challenges.category, filters.category));
-      if (filters.difficulty) conditions.push(eq(challenges.difficulty, filters.difficulty));
-      if (conditions.length > 0) {
-        query = db.query.challenges.findMany({
-          where: and(...conditions),
+      }
+      // ==================== GAMIFICATION METHODS ====================
+      // User Levels
+      async getUserLevel(userId) {
+        const level = await db.query.userLevels.findFirst({
+          where: eq(userLevels.userId, userId),
+          with: {
+            user: true
+          }
+        });
+        return level;
+      }
+      async createUserLevel(userId) {
+        const [newLevel] = await db.insert(userLevels).values({
+          userId,
+          currentLevel: 1,
+          experience: 0,
+          experienceToNext: 500,
+          streak: 0
+        }).returning();
+        return newLevel;
+      }
+      async updateUserExperience(userId, experienceGained) {
+        const userLevel = await this.getUserLevel(userId);
+        if (!userLevel) {
+          await this.createUserLevel(userId);
+          return await this.updateUserExperience(userId, experienceGained);
+        }
+        const newExperience = userLevel.experience + experienceGained;
+        const newLevel = Math.floor(newExperience / 500) + 1;
+        const experienceToNext = newLevel * 500 - newExperience;
+        const [updatedLevel] = await db.update(userLevels).set({
+          experience: newExperience,
+          currentLevel: newLevel,
+          experienceToNext,
+          updatedAt: (/* @__PURE__ */ new Date()).toISOString()
+        }).where(eq(userLevels.userId, userId)).returning();
+        return updatedLevel;
+      }
+      async updateStreak(userId) {
+        const today = (/* @__PURE__ */ new Date()).toISOString().split("T")[0];
+        const userLevel = await this.getUserLevel(userId);
+        if (!userLevel) {
+          await this.createUserLevel(userId);
+          return await this.updateStreak(userId);
+        }
+        const lastActivityDate = userLevel.lastActivityDate;
+        const yesterday = /* @__PURE__ */ new Date();
+        yesterday.setDate(yesterday.getDate() - 1);
+        const yesterdayStr = yesterday.toISOString().split("T")[0];
+        let newStreak = userLevel.streak;
+        if (lastActivityDate === yesterdayStr) {
+          newStreak += 1;
+        } else if (lastActivityDate !== today) {
+          newStreak = 1;
+        }
+        const [updatedLevel] = await db.update(userLevels).set({
+          streak: newStreak,
+          lastActivityDate: today,
+          updatedAt: (/* @__PURE__ */ new Date()).toISOString()
+        }).where(eq(userLevels.userId, userId)).returning();
+        return updatedLevel;
+      }
+      // Challenges
+      async getChallenges(filters) {
+        let query = db.query.challenges.findMany({
           with: {
             steps: {
               orderBy: [asc(challengeSteps.orderIndex)]
@@ -4882,1706 +5071,2198 @@ var DatabaseStorage = class {
           },
           orderBy: [asc(challenges.orderIndex)]
         });
-      }
-    }
-    return await query;
-  }
-  async getChallenge(challengeId) {
-    return await db.query.challenges.findFirst({
-      where: eq(challenges.id, challengeId),
-      with: {
-        steps: {
-          orderBy: [asc(challengeSteps.orderIndex)]
+        if (filters) {
+          const conditions = [];
+          if (filters.level) conditions.push(eq(challenges.level, filters.level));
+          if (filters.frequency) conditions.push(eq(challenges.frequency, filters.frequency));
+          if (filters.category) conditions.push(eq(challenges.category, filters.category));
+          if (filters.difficulty) conditions.push(eq(challenges.difficulty, filters.difficulty));
+          if (conditions.length > 0) {
+            query = db.query.challenges.findMany({
+              where: and(...conditions),
+              with: {
+                steps: {
+                  orderBy: [asc(challengeSteps.orderIndex)]
+                }
+              },
+              orderBy: [asc(challenges.orderIndex)]
+            });
+          }
         }
+        return await query;
       }
-    });
-  }
-  async getChallengeSteps(challengeId) {
-    return await db.query.challengeSteps.findMany({
-      where: eq(challengeSteps.challengeId, challengeId),
-      orderBy: [asc(challengeSteps.orderIndex)]
-    });
-  }
-  // User Challenge Progress
-  async getUserChallengeProgress(userId) {
-    return await db.query.userChallengeProgress.findMany({
-      where: eq(userChallengeProgress.userId, userId),
-      with: {
-        challenge: {
+      async getChallenge(challengeId) {
+        return await db.query.challenges.findFirst({
+          where: eq(challenges.id, challengeId),
           with: {
             steps: {
               orderBy: [asc(challengeSteps.orderIndex)]
             }
           }
-        }
+        });
       }
-    });
-  }
-  async startChallenge(userId, challengeId) {
-    const [progress] = await db.insert(userChallengeProgress).values({
-      userId,
-      challengeId,
-      status: "in_progress",
-      currentStep: 0,
-      startedAt: (/* @__PURE__ */ new Date()).toISOString(),
-      lastActivityAt: (/* @__PURE__ */ new Date()).toISOString()
-    }).returning();
-    return progress;
-  }
-  async updateChallengeProgress(userId, challengeId, currentStep, completedSteps) {
-    const [progress] = await db.update(userChallengeProgress).set({
-      currentStep,
-      completedSteps: JSON.stringify(completedSteps),
-      lastActivityAt: (/* @__PURE__ */ new Date()).toISOString()
-    }).where(
-      and(
-        eq(userChallengeProgress.userId, userId),
-        eq(userChallengeProgress.challengeId, challengeId)
-      )
-    ).returning();
-    return progress;
-  }
-  async completeChallenge(userId, challengeId) {
-    const [progress] = await db.update(userChallengeProgress).set({
-      status: "completed",
-      completedAt: (/* @__PURE__ */ new Date()).toISOString(),
-      lastActivityAt: (/* @__PURE__ */ new Date()).toISOString()
-    }).where(
-      and(
-        eq(userChallengeProgress.userId, userId),
-        eq(userChallengeProgress.challengeId, challengeId)
-      )
-    ).returning();
-    const challenge = await this.getChallenge(challengeId);
-    if (challenge) {
-      await this.updateUserExperience(userId, challenge.experience);
-      await this.updateStreak(userId);
-    }
-    return progress;
-  }
-  // Badges
-  async getBadges() {
-    return await db.query.badges.findMany({
-      orderBy: [asc(badges.orderIndex)]
-    });
-  }
-  async getUserBadges(userId) {
-    return await db.query.userBadges.findMany({
-      where: eq(userBadges.userId, userId),
-      with: {
-        badge: true
+      async getChallengeSteps(challengeId) {
+        return await db.query.challengeSteps.findMany({
+          where: eq(challengeSteps.challengeId, challengeId),
+          orderBy: [asc(challengeSteps.orderIndex)]
+        });
       }
-    });
-  }
-  async awardBadge(userId, badgeId) {
-    const existingBadge = await db.query.userBadges.findFirst({
-      where: and(
-        eq(userBadges.userId, userId),
-        eq(userBadges.badgeId, badgeId)
-      )
-    });
-    if (existingBadge) {
-      return existingBadge;
-    }
-    const [userBadge] = await db.insert(userBadges).values({
-      userId,
-      badgeId,
-      earnedAt: (/* @__PURE__ */ new Date()).toISOString()
-    }).returning();
-    const badge = await db.query.badges.findFirst({
-      where: eq(badges.id, badgeId)
-    });
-    if (badge && badge.experienceReward > 0) {
-      await this.updateUserExperience(userId, badge.experienceReward);
-    }
-    return userBadge;
-  }
-  async checkBadgeRequirements(userId) {
-    const userLevel = await this.getUserLevel(userId);
-    const userProgress2 = await this.getUserChallengeProgress(userId);
-    const userBadges2 = await this.getUserBadges(userId);
-    if (!userLevel) return [];
-    const completedChallenges = userProgress2.filter((p) => p.status === "completed").length;
-    const earnedBadgeIds = userBadges2.map((ub) => ub.badgeId);
-    const allBadges = await this.getBadges();
-    const newBadges = [];
-    for (const badge of allBadges) {
-      if (earnedBadgeIds.includes(badge.id)) continue;
-      let shouldAward = false;
-      const requirementData = JSON.parse(badge.requirementData || "{}");
-      switch (badge.category) {
-        case "level":
-          if (requirementData.level && userLevel.currentLevel >= requirementData.level) {
-            shouldAward = true;
+      // User Challenge Progress
+      async getUserChallengeProgress(userId) {
+        return await db.query.userChallengeProgress.findMany({
+          where: eq(userChallengeProgress.userId, userId),
+          with: {
+            challenge: {
+              with: {
+                steps: {
+                  orderBy: [asc(challengeSteps.orderIndex)]
+                }
+              }
+            }
           }
-          break;
-        case "challenge":
-          if (requirementData.challengesCompleted && completedChallenges >= requirementData.challengesCompleted) {
-            shouldAward = true;
-          }
-          break;
-        case "streak":
-          if (requirementData.streak && userLevel.streak >= requirementData.streak) {
-            shouldAward = true;
-          }
-          break;
+        });
       }
-      if (shouldAward) {
-        const newBadge = await this.awardBadge(userId, badge.id);
-        newBadges.push(newBadge);
+      async startChallenge(userId, challengeId) {
+        const [progress] = await db.insert(userChallengeProgress).values({
+          userId,
+          challengeId,
+          status: "in_progress",
+          currentStep: 0,
+          startedAt: (/* @__PURE__ */ new Date()).toISOString(),
+          lastActivityAt: (/* @__PURE__ */ new Date()).toISOString()
+        }).returning();
+        return progress;
       }
-    }
-    return newBadges;
-  }
-  // Activity & Stats
-  async getUserStats(userId) {
-    const userLevel = await this.getUserLevel(userId);
-    const userProgress2 = await this.getUserChallengeProgress(userId);
-    const userBadges2 = await this.getUserBadges(userId);
-    const completedChallenges = userProgress2.filter((p) => p.status === "completed").length;
-    const totalChallenges = userProgress2.length;
-    return {
-      level: userLevel?.currentLevel || 1,
-      experience: userLevel?.experience || 0,
-      experienceToNext: userLevel?.experienceToNext || 500,
-      streak: userLevel?.streak || 0,
-      completedChallenges,
-      totalChallenges,
-      badgesEarned: userBadges2.length,
-      lastActivity: userLevel?.lastActivityDate
-    };
-  }
-  async recordDailyActivity(userId, experienceGained, challengesCompleted, actionsCompleted) {
-    const today = (/* @__PURE__ */ new Date()).toISOString().split("T")[0];
-    const existingActivity = await db.query.userDailyActivity.findFirst({
-      where: and(
-        eq(userDailyActivity.userId, userId),
-        eq(userDailyActivity.date, today)
-      )
-    });
-    if (existingActivity) {
-      const [updated] = await db.update(userDailyActivity).set({
-        experienceGained: existingActivity.experienceGained + experienceGained,
-        challengesCompleted: existingActivity.challengesCompleted + challengesCompleted,
-        actionsCompleted: existingActivity.actionsCompleted + actionsCompleted
-      }).where(eq(userDailyActivity.id, existingActivity.id)).returning();
-      return updated;
-    } else {
-      const [newActivity] = await db.insert(userDailyActivity).values({
-        userId,
-        date: today,
-        experienceGained,
-        challengesCompleted,
-        actionsCompleted
-      }).returning();
-      return newActivity;
-    }
-  }
-  async getUserActivity(userId, days = 30) {
-    const startDate = /* @__PURE__ */ new Date();
-    startDate.setDate(startDate.getDate() - days);
-    const startDateStr = startDate.toISOString().split("T")[0];
-    return await db.query.userDailyActivity.findMany({
-      where: and(
-        eq(userDailyActivity.userId, userId),
-        gte(userDailyActivity.date, startDateStr)
-      ),
-      orderBy: [desc(userDailyActivity.date)]
-    });
-  }
-  // ==================== BLOG METHODS ====================
-  async getBlogPosts(filters) {
-    try {
-      const offset = filters?.page ? (filters.page - 1) * (filters.limit || 10) : 0;
-      const limit = filters?.limit || 10;
-      let query = db.select({
-        id: blogPosts.id,
-        title: blogPosts.title,
-        slug: blogPosts.slug,
-        excerpt: blogPosts.excerpt,
-        content: blogPosts.content,
-        authorId: blogPosts.authorId,
-        publishedAt: blogPosts.publishedAt,
-        category: blogPosts.category,
-        featured: blogPosts.featured,
-        imageUrl: blogPosts.imageUrl,
-        videoUrl: blogPosts.videoUrl,
-        viewCount: blogPosts.viewCount,
-        type: blogPosts.type
-      }).from(blogPosts);
-      const conditions = [];
-      if (filters?.type && typeof filters.type === "string" && filters.type.trim() !== "") {
-        conditions.push(eq(blogPosts.type, filters.type));
-      }
-      if (filters?.category && typeof filters.category === "string" && filters.category.trim() !== "") {
-        conditions.push(eq(blogPosts.category, filters.category));
-      }
-      if (filters?.featured !== void 0 && filters.featured !== null) {
-        conditions.push(eq(blogPosts.featured, filters.featured));
-      }
-      if (filters?.search && typeof filters.search === "string" && filters.search.trim() !== "") {
-        conditions.push(
-          or(
-            like(blogPosts.title, `%${filters.search}%`),
-            like(blogPosts.excerpt, `%${filters.search}%`),
-            like(blogPosts.content, `%${filters.search}%`)
+      async updateChallengeProgress(userId, challengeId, currentStep, completedSteps) {
+        const [progress] = await db.update(userChallengeProgress).set({
+          currentStep,
+          completedSteps: JSON.stringify(completedSteps),
+          lastActivityAt: (/* @__PURE__ */ new Date()).toISOString()
+        }).where(
+          and(
+            eq(userChallengeProgress.userId, userId),
+            eq(userChallengeProgress.challengeId, challengeId)
           )
-        );
+        ).returning();
+        return progress;
       }
-      if (conditions.length === 1) {
-        query = query.where(conditions[0]);
-      } else if (conditions.length > 1) {
-        query = query.where(and(...conditions));
-      }
-      const allPosts = await query.orderBy(desc(blogPosts.publishedAt)).limit(limit).offset(offset);
-      console.log(`[getBlogPosts] Found ${allPosts.length} posts with filters:`, filters);
-      if (allPosts.length === 0) {
-        console.log("[getBlogPosts] No posts found, returning empty array");
-        return [];
-      }
-      const postIds = allPosts.map((p) => p.id);
-      let allTags = [];
-      let allLikes = [];
-      let allComments = [];
-      try {
-        if (postIds.length > 0 && postIds.every((id) => typeof id === "number" && !isNaN(id))) {
-          allTags = await db.select().from(postTags).where(inArray(postTags.postId, postIds));
-          allLikes = await db.select().from(postLikes).where(inArray(postLikes.postId, postIds));
-          allComments = await db.select().from(postComments).where(inArray(postComments.postId, postIds));
+      async completeChallenge(userId, challengeId) {
+        const [progress] = await db.update(userChallengeProgress).set({
+          status: "completed",
+          completedAt: (/* @__PURE__ */ new Date()).toISOString(),
+          lastActivityAt: (/* @__PURE__ */ new Date()).toISOString()
+        }).where(
+          and(
+            eq(userChallengeProgress.userId, userId),
+            eq(userChallengeProgress.challengeId, challengeId)
+          )
+        ).returning();
+        const challenge = await this.getChallenge(challengeId);
+        if (challenge) {
+          await this.updateUserExperience(userId, challenge.experience);
+          await this.updateStreak(userId);
         }
-      } catch (error) {
-        console.error("[getBlogPosts] Error fetching related data:", error);
-        console.error("[getBlogPosts] Error details:", error instanceof Error ? error.stack : error);
+        return progress;
       }
-      const userIds = /* @__PURE__ */ new Set();
-      allLikes.forEach((like2) => {
-        if (like2.userId) userIds.add(like2.userId);
-      });
-      allComments.forEach((comment) => {
-        if (comment.userId) userIds.add(comment.userId);
-      });
-      allPosts.forEach((post) => {
-        if (post.authorId) userIds.add(post.authorId);
-      });
-      let allUsers = [];
-      try {
-        if (userIds.size > 0) {
-          const userIdArray = Array.from(userIds).filter((id) => typeof id === "number" && !isNaN(id));
-          if (userIdArray.length > 0) {
-            allUsers = await db.select({
-              id: users.id,
-              name: users.name,
-              username: users.username,
-              email: users.email
-            }).from(users).where(inArray(users.id, userIdArray));
+      // Badges
+      async getBadges() {
+        return await db.query.badges.findMany({
+          orderBy: [asc(badges.orderIndex)]
+        });
+      }
+      async getUserBadges(userId) {
+        return await db.query.userBadges.findMany({
+          where: eq(userBadges.userId, userId),
+          with: {
+            badge: true
+          }
+        });
+      }
+      async awardBadge(userId, badgeId) {
+        const existingBadge = await db.query.userBadges.findFirst({
+          where: and(
+            eq(userBadges.userId, userId),
+            eq(userBadges.badgeId, badgeId)
+          )
+        });
+        if (existingBadge) {
+          return existingBadge;
+        }
+        const [userBadge] = await db.insert(userBadges).values({
+          userId,
+          badgeId,
+          earnedAt: (/* @__PURE__ */ new Date()).toISOString()
+        }).returning();
+        const badge = await db.query.badges.findFirst({
+          where: eq(badges.id, badgeId)
+        });
+        if (badge && badge.experienceReward > 0) {
+          await this.updateUserExperience(userId, badge.experienceReward);
+        }
+        return userBadge;
+      }
+      async checkBadgeRequirements(userId) {
+        const userLevel = await this.getUserLevel(userId);
+        const userProgress2 = await this.getUserChallengeProgress(userId);
+        const userBadges2 = await this.getUserBadges(userId);
+        if (!userLevel) return [];
+        const completedChallenges = userProgress2.filter((p) => p.status === "completed").length;
+        const earnedBadgeIds = userBadges2.map((ub) => ub.badgeId);
+        const allBadges = await this.getBadges();
+        const newBadges = [];
+        for (const badge of allBadges) {
+          if (earnedBadgeIds.includes(badge.id)) continue;
+          let shouldAward = false;
+          const requirementData = JSON.parse(badge.requirementData || "{}");
+          switch (badge.category) {
+            case "level":
+              if (requirementData.level && userLevel.currentLevel >= requirementData.level) {
+                shouldAward = true;
+              }
+              break;
+            case "challenge":
+              if (requirementData.challengesCompleted && completedChallenges >= requirementData.challengesCompleted) {
+                shouldAward = true;
+              }
+              break;
+            case "streak":
+              if (requirementData.streak && userLevel.streak >= requirementData.streak) {
+                shouldAward = true;
+              }
+              break;
+          }
+          if (shouldAward) {
+            const newBadge = await this.awardBadge(userId, badge.id);
+            newBadges.push(newBadge);
           }
         }
-      } catch (error) {
-        console.error("[getBlogPosts] Error fetching users:", error);
-        console.error("[getBlogPosts] Error details:", error instanceof Error ? error.stack : error);
+        return newBadges;
       }
-      const userMap = new Map(allUsers.map((u) => [u.id, u]));
-      const tagsByPost = /* @__PURE__ */ new Map();
-      const likesByPost = /* @__PURE__ */ new Map();
-      const commentsByPost = /* @__PURE__ */ new Map();
-      allTags.forEach((tag) => {
-        if (!tagsByPost.has(tag.postId)) tagsByPost.set(tag.postId, []);
-        tagsByPost.get(tag.postId).push(tag);
-      });
-      allLikes.forEach((like2) => {
-        if (!likesByPost.has(like2.postId)) likesByPost.set(like2.postId, []);
-        likesByPost.get(like2.postId).push(like2);
-      });
-      allComments.forEach((comment) => {
-        if (!commentsByPost.has(comment.postId)) commentsByPost.set(comment.postId, []);
-        commentsByPost.get(comment.postId).push(comment);
-      });
-      const postsWithAuthors = allPosts.map((post) => {
-        const author = post.authorId ? userMap.get(post.authorId) : null;
-        const postTags2 = tagsByPost.get(post.id) || [];
-        const postLikesData = likesByPost.get(post.id) || [];
-        const postCommentsData = commentsByPost.get(post.id) || [];
-        const likes = postLikesData.map((like2) => ({
-          user: like2.userId && userMap.get(like2.userId) ? userMap.get(like2.userId) : { id: like2.userId || 0, name: "Usuario", username: "usuario" }
-        }));
-        const comments = postCommentsData.map((comment) => ({
-          id: comment.id,
-          content: comment.content,
-          createdAt: comment.createdAt || "",
-          updatedAt: comment.updatedAt || "",
-          user: comment.userId && userMap.get(comment.userId) ? userMap.get(comment.userId) : { id: comment.userId || 0, name: "Usuario", username: "usuario" },
-          parentId: comment.parentId || void 0,
-          replies: []
-        }));
+      // Activity & Stats
+      async getUserStats(userId) {
+        const userLevel = await this.getUserLevel(userId);
+        const userProgress2 = await this.getUserChallengeProgress(userId);
+        const userBadges2 = await this.getUserBadges(userId);
+        const completedChallenges = userProgress2.filter((p) => p.status === "completed").length;
+        const totalChallenges = userProgress2.length;
         return {
-          id: post.id,
-          title: post.title,
-          slug: post.slug,
-          excerpt: post.excerpt,
-          content: post.content,
-          category: post.category,
-          type: post.type,
-          featured: post.featured,
-          imageUrl: post.imageUrl || null,
-          videoUrl: post.videoUrl || null,
-          viewCount: post.viewCount || 0,
-          publishedAt: post.publishedAt || (/* @__PURE__ */ new Date()).toISOString(),
-          author: author || { id: post.authorId || 0, name: "Usuario", username: "usuario", email: "" },
-          tags: postTags2.map((t) => ({ tag: t.tag })),
-          likes,
-          comments
+          level: userLevel?.currentLevel || 1,
+          experience: userLevel?.experience || 0,
+          experienceToNext: userLevel?.experienceToNext || 500,
+          streak: userLevel?.streak || 0,
+          completedChallenges,
+          totalChallenges,
+          badgesEarned: userBadges2.length,
+          lastActivity: userLevel?.lastActivityDate
         };
-      });
-      console.log(`[getBlogPosts] Returning ${postsWithAuthors.length} posts with full data`);
-      const validatedPosts = postsWithAuthors.map((post) => ({
-        id: Number(post.id),
-        title: String(post.title || ""),
-        slug: String(post.slug || ""),
-        excerpt: String(post.excerpt || ""),
-        content: String(post.content || ""),
-        category: String(post.category || ""),
-        type: post.type === "blog" || post.type === "vlog" ? post.type : "blog",
-        featured: Boolean(post.featured),
-        imageUrl: post.imageUrl || null,
-        videoUrl: post.videoUrl || null,
-        viewCount: Number(post.viewCount || 0),
-        publishedAt: String(post.publishedAt || (/* @__PURE__ */ new Date()).toISOString()),
-        author: post.author || { id: 0, name: "Usuario", username: "usuario", email: "" },
-        tags: Array.isArray(post.tags) ? post.tags : [],
-        likes: Array.isArray(post.likes) ? post.likes : [],
-        comments: Array.isArray(post.comments) ? post.comments : []
-      }));
-      return applyEnhancementsToList(validatedPosts);
-    } catch (error) {
-      console.error("[getBlogPosts] ERROR:", error);
-      console.error("[getBlogPosts] Error stack:", error instanceof Error ? error.stack : "No stack trace");
-      console.error("[getBlogPosts] Error message:", error instanceof Error ? error.message : String(error));
-      return [];
-    }
-  }
-  async getBlogPostStats() {
-    try {
-      const counts = await db.select({
-        type: blogPosts.type,
-        count: sql3`COUNT(*)`.as("count")
-      }).from(blogPosts).groupBy(blogPosts.type);
-      let blog = 0;
-      let vlog = 0;
-      counts.forEach((row) => {
-        if (row.type === "vlog") {
-          vlog = Number(row.count) || 0;
-        } else if (row.type === "blog") {
-          blog = Number(row.count) || 0;
-        }
-      });
-      return {
-        total: blog + vlog,
-        blog,
-        vlog
-      };
-    } catch (error) {
-      console.error("[getBlogPostStats] ERROR:", error);
-      return { total: 0, blog: 0, vlog: 0 };
-    }
-  }
-  async getBlogPost(slug) {
-    try {
-      const result = await db.select({
-        id: blogPosts.id,
-        title: blogPosts.title,
-        slug: blogPosts.slug,
-        excerpt: blogPosts.excerpt,
-        content: blogPosts.content,
-        authorId: blogPosts.authorId,
-        publishedAt: blogPosts.publishedAt,
-        category: blogPosts.category,
-        featured: blogPosts.featured,
-        imageUrl: blogPosts.imageUrl,
-        videoUrl: blogPosts.videoUrl,
-        viewCount: blogPosts.viewCount,
-        type: blogPosts.type,
-        createdAt: blogPosts.createdAt,
-        updatedAt: blogPosts.updatedAt,
-        authorIdCol: users.id,
-        authorName: users.name,
-        authorUsername: users.username,
-        authorEmail: users.email
-      }).from(blogPosts).leftJoin(users, eq(blogPosts.authorId, users.id)).where(eq(blogPosts.slug, slug)).limit(1);
-      if (result.length === 0) {
-        return void 0;
       }
-      const postData = result[0];
-      const post = {
-        id: postData.id,
-        title: postData.title,
-        slug: postData.slug,
-        excerpt: postData.excerpt,
-        content: postData.content,
-        authorId: postData.authorId,
-        publishedAt: postData.publishedAt,
-        category: postData.category,
-        featured: postData.featured,
-        imageUrl: postData.imageUrl,
-        videoUrl: postData.videoUrl,
-        viewCount: postData.viewCount,
-        type: postData.type,
-        createdAt: postData.createdAt,
-        updatedAt: postData.updatedAt,
-        author: postData.authorIdCol ? {
-          id: postData.authorIdCol,
-          name: postData.authorName || "Usuario",
-          username: postData.authorUsername || "usuario",
-          email: postData.authorEmail || ""
-        } : { id: postData.authorId || 0, name: "Usuario", username: "usuario", email: "" }
-      };
-      const tags = await db.select({
-        tag: postTags.tag
-      }).from(postTags).where(eq(postTags.postId, post.id));
-      const likesRecords = await db.select().from(postLikes).where(eq(postLikes.postId, post.id));
-      const likes = await Promise.all(likesRecords.map(async (like2) => {
-        if (like2.userId) {
-          const [user] = await db.select({
-            id: users.id,
-            name: users.name,
-            username: users.username
-          }).from(users).where(eq(users.id, like2.userId)).limit(1);
+      async recordDailyActivity(userId, experienceGained, challengesCompleted, actionsCompleted) {
+        const today = (/* @__PURE__ */ new Date()).toISOString().split("T")[0];
+        const existingActivity = await db.query.userDailyActivity.findFirst({
+          where: and(
+            eq(userDailyActivity.userId, userId),
+            eq(userDailyActivity.date, today)
+          )
+        });
+        if (existingActivity) {
+          const [updated] = await db.update(userDailyActivity).set({
+            experienceGained: existingActivity.experienceGained + experienceGained,
+            challengesCompleted: existingActivity.challengesCompleted + challengesCompleted,
+            actionsCompleted: existingActivity.actionsCompleted + actionsCompleted
+          }).where(eq(userDailyActivity.id, existingActivity.id)).returning();
+          return updated;
+        } else {
+          const [newActivity] = await db.insert(userDailyActivity).values({
+            userId,
+            date: today,
+            experienceGained,
+            challengesCompleted,
+            actionsCompleted
+          }).returning();
+          return newActivity;
+        }
+      }
+      async getUserActivity(userId, days = 30) {
+        const startDate = /* @__PURE__ */ new Date();
+        startDate.setDate(startDate.getDate() - days);
+        const startDateStr = startDate.toISOString().split("T")[0];
+        return await db.query.userDailyActivity.findMany({
+          where: and(
+            eq(userDailyActivity.userId, userId),
+            gte(userDailyActivity.date, startDateStr)
+          ),
+          orderBy: [desc(userDailyActivity.date)]
+        });
+      }
+      // ==================== BLOG METHODS ====================
+      async getBlogPosts(filters) {
+        try {
+          const offset = filters?.page ? (filters.page - 1) * (filters.limit || 10) : 0;
+          const limit = filters?.limit || 10;
+          let query = db.select({
+            id: blogPosts.id,
+            title: blogPosts.title,
+            slug: blogPosts.slug,
+            excerpt: blogPosts.excerpt,
+            content: blogPosts.content,
+            authorId: blogPosts.authorId,
+            publishedAt: blogPosts.publishedAt,
+            category: blogPosts.category,
+            featured: blogPosts.featured,
+            imageUrl: blogPosts.imageUrl,
+            videoUrl: blogPosts.videoUrl,
+            viewCount: blogPosts.viewCount,
+            type: blogPosts.type
+          }).from(blogPosts);
+          const conditions = [];
+          if (filters?.type && typeof filters.type === "string" && filters.type.trim() !== "") {
+            conditions.push(eq(blogPosts.type, filters.type));
+          }
+          if (filters?.category && typeof filters.category === "string" && filters.category.trim() !== "") {
+            conditions.push(eq(blogPosts.category, filters.category));
+          }
+          if (filters?.featured !== void 0 && filters.featured !== null) {
+            conditions.push(eq(blogPosts.featured, filters.featured));
+          }
+          if (filters?.search && typeof filters.search === "string" && filters.search.trim() !== "") {
+            conditions.push(
+              or(
+                like(blogPosts.title, `%${filters.search}%`),
+                like(blogPosts.excerpt, `%${filters.search}%`),
+                like(blogPosts.content, `%${filters.search}%`)
+              )
+            );
+          }
+          if (conditions.length === 1) {
+            query = query.where(conditions[0]);
+          } else if (conditions.length > 1) {
+            query = query.where(and(...conditions));
+          }
+          const allPosts = await query.orderBy(desc(blogPosts.publishedAt)).limit(limit).offset(offset);
+          console.log(`[getBlogPosts] Found ${allPosts.length} posts with filters:`, filters);
+          if (allPosts.length === 0) {
+            console.log("[getBlogPosts] No posts found, returning empty array");
+            return [];
+          }
+          const postIds = allPosts.map((p) => p.id);
+          let allTags = [];
+          let allLikes = [];
+          let allComments = [];
+          try {
+            if (postIds.length > 0 && postIds.every((id) => typeof id === "number" && !isNaN(id))) {
+              allTags = await db.select().from(postTags).where(inArray(postTags.postId, postIds));
+              allLikes = await db.select().from(postLikes).where(inArray(postLikes.postId, postIds));
+              allComments = await db.select().from(postComments).where(inArray(postComments.postId, postIds));
+            }
+          } catch (error) {
+            console.error("[getBlogPosts] Error fetching related data:", error);
+            console.error("[getBlogPosts] Error details:", error instanceof Error ? error.stack : error);
+          }
+          const userIds = /* @__PURE__ */ new Set();
+          allLikes.forEach((like2) => {
+            if (like2.userId) userIds.add(like2.userId);
+          });
+          allComments.forEach((comment) => {
+            if (comment.userId) userIds.add(comment.userId);
+          });
+          allPosts.forEach((post) => {
+            if (post.authorId) userIds.add(post.authorId);
+          });
+          let allUsers = [];
+          try {
+            if (userIds.size > 0) {
+              const userIdArray = Array.from(userIds).filter((id) => typeof id === "number" && !isNaN(id));
+              if (userIdArray.length > 0) {
+                allUsers = await db.select({
+                  id: users.id,
+                  name: users.name,
+                  username: users.username,
+                  email: users.email
+                }).from(users).where(inArray(users.id, userIdArray));
+              }
+            }
+          } catch (error) {
+            console.error("[getBlogPosts] Error fetching users:", error);
+            console.error("[getBlogPosts] Error details:", error instanceof Error ? error.stack : error);
+          }
+          const userMap = new Map(allUsers.map((u) => [u.id, u]));
+          const tagsByPost = /* @__PURE__ */ new Map();
+          const likesByPost = /* @__PURE__ */ new Map();
+          const commentsByPost = /* @__PURE__ */ new Map();
+          allTags.forEach((tag) => {
+            if (!tagsByPost.has(tag.postId)) tagsByPost.set(tag.postId, []);
+            tagsByPost.get(tag.postId).push(tag);
+          });
+          allLikes.forEach((like2) => {
+            if (!likesByPost.has(like2.postId)) likesByPost.set(like2.postId, []);
+            likesByPost.get(like2.postId).push(like2);
+          });
+          allComments.forEach((comment) => {
+            if (!commentsByPost.has(comment.postId)) commentsByPost.set(comment.postId, []);
+            commentsByPost.get(comment.postId).push(comment);
+          });
+          const postsWithAuthors = allPosts.map((post) => {
+            const author = post.authorId ? userMap.get(post.authorId) : null;
+            const postTags2 = tagsByPost.get(post.id) || [];
+            const postLikesData = likesByPost.get(post.id) || [];
+            const postCommentsData = commentsByPost.get(post.id) || [];
+            const likes = postLikesData.map((like2) => ({
+              user: like2.userId && userMap.get(like2.userId) ? userMap.get(like2.userId) : { id: like2.userId || 0, name: "Usuario", username: "usuario" }
+            }));
+            const comments = postCommentsData.map((comment) => ({
+              id: comment.id,
+              content: comment.content,
+              createdAt: comment.createdAt || "",
+              updatedAt: comment.updatedAt || "",
+              user: comment.userId && userMap.get(comment.userId) ? userMap.get(comment.userId) : { id: comment.userId || 0, name: "Usuario", username: "usuario" },
+              parentId: comment.parentId || void 0,
+              replies: []
+            }));
+            return {
+              id: post.id,
+              title: post.title,
+              slug: post.slug,
+              excerpt: post.excerpt,
+              content: post.content,
+              category: post.category,
+              type: post.type,
+              featured: post.featured,
+              imageUrl: post.imageUrl || null,
+              videoUrl: post.videoUrl || null,
+              viewCount: post.viewCount || 0,
+              publishedAt: post.publishedAt || (/* @__PURE__ */ new Date()).toISOString(),
+              author: author || { id: post.authorId || 0, name: "Usuario", username: "usuario", email: "" },
+              tags: postTags2.map((t) => ({ tag: t.tag })),
+              likes,
+              comments
+            };
+          });
+          console.log(`[getBlogPosts] Returning ${postsWithAuthors.length} posts with full data`);
+          const validatedPosts = postsWithAuthors.map((post) => ({
+            id: Number(post.id),
+            title: String(post.title || ""),
+            slug: String(post.slug || ""),
+            excerpt: String(post.excerpt || ""),
+            content: String(post.content || ""),
+            category: String(post.category || ""),
+            type: post.type === "blog" || post.type === "vlog" ? post.type : "blog",
+            featured: Boolean(post.featured),
+            imageUrl: post.imageUrl || null,
+            videoUrl: post.videoUrl || null,
+            viewCount: Number(post.viewCount || 0),
+            publishedAt: String(post.publishedAt || (/* @__PURE__ */ new Date()).toISOString()),
+            author: post.author || { id: 0, name: "Usuario", username: "usuario", email: "" },
+            tags: Array.isArray(post.tags) ? post.tags : [],
+            likes: Array.isArray(post.likes) ? post.likes : [],
+            comments: Array.isArray(post.comments) ? post.comments : []
+          }));
+          return applyEnhancementsToList(validatedPosts);
+        } catch (error) {
+          console.error("[getBlogPosts] ERROR:", error);
+          console.error("[getBlogPosts] Error stack:", error instanceof Error ? error.stack : "No stack trace");
+          console.error("[getBlogPosts] Error message:", error instanceof Error ? error.message : String(error));
+          return [];
+        }
+      }
+      async getBlogPostStats() {
+        try {
+          const counts = await db.select({
+            type: blogPosts.type,
+            count: sql3`COUNT(*)`.as("count")
+          }).from(blogPosts).groupBy(blogPosts.type);
+          let blog = 0;
+          let vlog = 0;
+          counts.forEach((row) => {
+            if (row.type === "vlog") {
+              vlog = Number(row.count) || 0;
+            } else if (row.type === "blog") {
+              blog = Number(row.count) || 0;
+            }
+          });
           return {
-            user: user || { id: like2.userId, name: "Usuario", username: "usuario" }
+            total: blog + vlog,
+            blog,
+            vlog
           };
+        } catch (error) {
+          console.error("[getBlogPostStats] ERROR:", error);
+          return { total: 0, blog: 0, vlog: 0 };
         }
-        return {
-          user: { id: like2.userId || 0, name: "Usuario", username: "usuario" }
-        };
-      }));
-      const commentsRecords = await db.select().from(postComments).where(eq(postComments.postId, post.id));
-      const comments = await Promise.all(commentsRecords.map(async (comment) => {
-        let user = { id: comment.userId || 0, name: "Usuario", username: "usuario" };
-        if (comment.userId) {
-          const [userData] = await db.select({
-            id: users.id,
-            name: users.name,
-            username: users.username
-          }).from(users).where(eq(users.id, comment.userId)).limit(1);
-          if (userData) {
-            user = userData;
+      }
+      async getBlogPost(slug) {
+        try {
+          const result = await db.select({
+            id: blogPosts.id,
+            title: blogPosts.title,
+            slug: blogPosts.slug,
+            excerpt: blogPosts.excerpt,
+            content: blogPosts.content,
+            authorId: blogPosts.authorId,
+            publishedAt: blogPosts.publishedAt,
+            category: blogPosts.category,
+            featured: blogPosts.featured,
+            imageUrl: blogPosts.imageUrl,
+            videoUrl: blogPosts.videoUrl,
+            viewCount: blogPosts.viewCount,
+            type: blogPosts.type,
+            createdAt: blogPosts.createdAt,
+            updatedAt: blogPosts.updatedAt,
+            authorIdCol: users.id,
+            authorName: users.name,
+            authorUsername: users.username,
+            authorEmail: users.email
+          }).from(blogPosts).leftJoin(users, eq(blogPosts.authorId, users.id)).where(eq(blogPosts.slug, slug)).limit(1);
+          if (result.length === 0) {
+            return void 0;
           }
+          const postData = result[0];
+          const post = {
+            id: postData.id,
+            title: postData.title,
+            slug: postData.slug,
+            excerpt: postData.excerpt,
+            content: postData.content,
+            authorId: postData.authorId,
+            publishedAt: postData.publishedAt,
+            category: postData.category,
+            featured: postData.featured,
+            imageUrl: postData.imageUrl,
+            videoUrl: postData.videoUrl,
+            viewCount: postData.viewCount,
+            type: postData.type,
+            createdAt: postData.createdAt,
+            updatedAt: postData.updatedAt,
+            author: postData.authorIdCol ? {
+              id: postData.authorIdCol,
+              name: postData.authorName || "Usuario",
+              username: postData.authorUsername || "usuario",
+              email: postData.authorEmail || ""
+            } : { id: postData.authorId || 0, name: "Usuario", username: "usuario", email: "" }
+          };
+          const tags = await db.select({
+            tag: postTags.tag
+          }).from(postTags).where(eq(postTags.postId, post.id));
+          const likesRecords = await db.select().from(postLikes).where(eq(postLikes.postId, post.id));
+          const likes = await Promise.all(likesRecords.map(async (like2) => {
+            if (like2.userId) {
+              const [user] = await db.select({
+                id: users.id,
+                name: users.name,
+                username: users.username
+              }).from(users).where(eq(users.id, like2.userId)).limit(1);
+              return {
+                user: user || { id: like2.userId, name: "Usuario", username: "usuario" }
+              };
+            }
+            return {
+              user: { id: like2.userId || 0, name: "Usuario", username: "usuario" }
+            };
+          }));
+          const commentsRecords = await db.select().from(postComments).where(eq(postComments.postId, post.id));
+          const comments = await Promise.all(commentsRecords.map(async (comment) => {
+            let user = { id: comment.userId || 0, name: "Usuario", username: "usuario" };
+            if (comment.userId) {
+              const [userData] = await db.select({
+                id: users.id,
+                name: users.name,
+                username: users.username
+              }).from(users).where(eq(users.id, comment.userId)).limit(1);
+              if (userData) {
+                user = userData;
+              }
+            }
+            return {
+              id: comment.id,
+              content: comment.content,
+              createdAt: comment.createdAt || "",
+              updatedAt: comment.updatedAt || "",
+              user,
+              parentId: comment.parentId || void 0,
+              replies: []
+            };
+          }));
+          return applyBlogContentEnhancements({
+            ...post,
+            tags: tags || [],
+            likes: likes || [],
+            comments: comments || []
+          });
+        } catch (error) {
+          console.error("Error in getBlogPost:", error);
+          return void 0;
         }
+      }
+      async createBlogPost(post) {
+        const result = await db.insert(blogPosts).values(post).returning();
+        return applyBlogContentEnhancements(result[0]);
+      }
+      async updateBlogPost(id, post, userId) {
+        const existingPost = await db.query.blogPosts.findFirst({
+          where: and(eq(blogPosts.id, id), eq(blogPosts.authorId, userId))
+        });
+        if (!existingPost) {
+          return void 0;
+        }
+        const result = await db.update(blogPosts).set({ ...post, updatedAt: (/* @__PURE__ */ new Date()).toISOString() }).where(eq(blogPosts.id, id)).returning();
+        return result.length ? applyBlogContentEnhancements(result[0]) : void 0;
+      }
+      async deleteBlogPost(id, userId) {
+        const existingPost = await db.query.blogPosts.findFirst({
+          where: and(eq(blogPosts.id, id), eq(blogPosts.authorId, userId))
+        });
+        if (!existingPost) {
+          return false;
+        }
+        await db.delete(blogPosts).where(eq(blogPosts.id, id));
+        return true;
+      }
+      // Post Interactions
+      async togglePostLike(postId, userId) {
+        const existingLike = await db.query.postLikes.findFirst({
+          where: and(eq(postLikes.postId, postId), eq(postLikes.userId, userId))
+        });
+        if (existingLike) {
+          await db.delete(postLikes).where(eq(postLikes.id, existingLike.id));
+        } else {
+          await db.insert(postLikes).values({ postId, userId });
+        }
+        const count = await db.select({ count: sql3`count(*)` }).from(postLikes).where(eq(postLikes.postId, postId));
         return {
-          id: comment.id,
-          content: comment.content,
-          createdAt: comment.createdAt || "",
-          updatedAt: comment.updatedAt || "",
-          user,
-          parentId: comment.parentId || void 0,
-          replies: []
+          liked: !existingLike,
+          count: count[0].count
         };
-      }));
-      return applyBlogContentEnhancements({
-        ...post,
-        tags: tags || [],
-        likes: likes || [],
-        comments: comments || []
-      });
-    } catch (error) {
-      console.error("Error in getBlogPost:", error);
-      return void 0;
-    }
-  }
-  async createBlogPost(post) {
-    const result = await db.insert(blogPosts).values(post).returning();
-    return applyBlogContentEnhancements(result[0]);
-  }
-  async updateBlogPost(id, post, userId) {
-    const existingPost = await db.query.blogPosts.findFirst({
-      where: and(eq(blogPosts.id, id), eq(blogPosts.authorId, userId))
-    });
-    if (!existingPost) {
-      return void 0;
-    }
-    const result = await db.update(blogPosts).set({ ...post, updatedAt: (/* @__PURE__ */ new Date()).toISOString() }).where(eq(blogPosts.id, id)).returning();
-    return result.length ? applyBlogContentEnhancements(result[0]) : void 0;
-  }
-  async deleteBlogPost(id, userId) {
-    const existingPost = await db.query.blogPosts.findFirst({
-      where: and(eq(blogPosts.id, id), eq(blogPosts.authorId, userId))
-    });
-    if (!existingPost) {
-      return false;
-    }
-    await db.delete(blogPosts).where(eq(blogPosts.id, id));
-    return true;
-  }
-  // Post Interactions
-  async togglePostLike(postId, userId) {
-    const existingLike = await db.query.postLikes.findFirst({
-      where: and(eq(postLikes.postId, postId), eq(postLikes.userId, userId))
-    });
-    if (existingLike) {
-      await db.delete(postLikes).where(eq(postLikes.id, existingLike.id));
-    } else {
-      await db.insert(postLikes).values({ postId, userId });
-    }
-    const count = await db.select({ count: sql3`count(*)` }).from(postLikes).where(eq(postLikes.postId, postId));
-    return {
-      liked: !existingLike,
-      count: count[0].count
-    };
-  }
-  async getPostLikes(postId) {
-    const likes = await db.query.postLikes.findMany({
-      where: eq(postLikes.postId, postId),
-      with: {
-        user: true
-      },
-      orderBy: [desc(postLikes.createdAt)]
-    });
-    return {
-      count: likes.length,
-      users: likes.map((like2) => like2.user)
-    };
-  }
-  async createPostComment(postId, userId, content, parentId) {
-    const result = await db.insert(postComments).values({
-      postId,
-      userId,
-      content,
-      parentId
-    }).returning();
-    return result[0];
-  }
-  async getPostComments(postId) {
-    return await db.query.postComments.findMany({
-      where: eq(postComments.postId, postId),
-      with: {
-        user: true,
-        replies: {
+      }
+      async getPostLikes(postId) {
+        const likes = await db.query.postLikes.findMany({
+          where: eq(postLikes.postId, postId),
           with: {
             user: true
           },
-          orderBy: [asc(postComments.createdAt)]
-        }
-      },
-      orderBy: [asc(postComments.createdAt)]
-    });
-  }
-  async updatePostComment(id, content, userId) {
-    const existingComment = await db.query.postComments.findFirst({
-      where: and(eq(postComments.id, id), eq(postComments.userId, userId))
-    });
-    if (!existingComment) {
-      return void 0;
-    }
-    const result = await db.update(postComments).set({ content, updatedAt: (/* @__PURE__ */ new Date()).toISOString() }).where(eq(postComments.id, id)).returning();
-    return result[0];
-  }
-  async deletePostComment(id, userId) {
-    const existingComment = await db.query.postComments.findFirst({
-      where: and(eq(postComments.id, id), eq(postComments.userId, userId))
-    });
-    if (!existingComment) {
-      return false;
-    }
-    await db.delete(postComments).where(eq(postComments.id, id));
-    return true;
-  }
-  async togglePostBookmark(postId, userId) {
-    const existingBookmark = await db.query.postBookmarks.findFirst({
-      where: and(eq(postBookmarks.postId, postId), eq(postBookmarks.userId, userId))
-    });
-    if (existingBookmark) {
-      await db.delete(postBookmarks).where(eq(postBookmarks.id, existingBookmark.id));
-      return { bookmarked: false };
-    } else {
-      await db.insert(postBookmarks).values({ postId, userId });
-      return { bookmarked: true };
-    }
-  }
-  async getUserBookmarks(userId) {
-    const bookmarks = await db.query.postBookmarks.findMany({
-      where: eq(postBookmarks.userId, userId),
-      with: {
-        post: {
+          orderBy: [desc(postLikes.createdAt)]
+        });
+        return {
+          count: likes.length,
+          users: likes.map((like2) => like2.user)
+        };
+      }
+      async createPostComment(postId, userId, content, parentId) {
+        const result = await db.insert(postComments).values({
+          postId,
+          userId,
+          content,
+          parentId
+        }).returning();
+        return result[0];
+      }
+      async getPostComments(postId) {
+        return await db.query.postComments.findMany({
+          where: eq(postComments.postId, postId),
           with: {
-            author: true,
-            tags: true
-          }
-        }
-      },
-      orderBy: [desc(postBookmarks.createdAt)]
-    });
-    return applyEnhancementsToList(bookmarks.map((bookmark) => bookmark.post));
-  }
-  async recordPostView(postId, userId, sessionId) {
-    try {
-      await db.insert(postViews).values({
-        postId,
-        userId,
-        sessionId
-      });
-    } catch (error) {
-      console.error("[recordPostView] Error:", error);
-      throw error;
-    }
-    await db.update(blogPosts).set({ viewCount: sql3`${blogPosts.viewCount} + 1` }).where(eq(blogPosts.id, postId));
-  }
-  // Search & Recommendations
-  async searchPosts(query, filters) {
-    const page = filters?.page || 1;
-    const limit = filters?.limit || 10;
-    const offset = (page - 1) * limit;
-    let whereClause = sql3`(${blogPosts.title} LIKE '%${query}%' OR ${blogPosts.excerpt} LIKE '%${query}%' OR ${blogPosts.content} LIKE '%${query}%')`;
-    if (filters?.type) {
-      whereClause = sql3`${whereClause} AND ${blogPosts.type} = ${filters.type}`;
-    }
-    if (filters?.category) {
-      whereClause = sql3`${whereClause} AND ${blogPosts.category} = ${filters.category}`;
-    }
-    const rawPosts = await db.select().from(blogPosts).where(whereClause).orderBy(desc(blogPosts.publishedAt)).limit(limit).offset(offset);
-    return applyEnhancementsToList(rawPosts);
-  }
-  async getTrendingPosts(days = 7, limit = 10) {
-    const startDate = /* @__PURE__ */ new Date();
-    startDate.setDate(startDate.getDate() - days);
-    const startDateStr = startDate.toISOString();
-    const posts = await db.select().from(blogPosts).where(gte(blogPosts.publishedAt, startDateStr)).orderBy(desc(blogPosts.viewCount)).limit(limit);
-    return applyEnhancementsToList(posts);
-  }
-  async getRelatedPosts(postId, limit = 4) {
-    const post = await db.query.blogPosts.findFirst({
-      where: eq(blogPosts.id, postId)
-    });
-    if (!post) {
-      return [];
-    }
-    const related = await db.select().from(blogPosts).where(and(
-      eq(blogPosts.category, post.category),
-      sql3`${blogPosts.id} != ${postId}`
-    )).orderBy(desc(blogPosts.viewCount)).limit(limit);
-    return applyEnhancementsToList(related);
-  }
-  async getPopularTags(limit = 20) {
-    const result = await db.select({
-      tag: postTags.tag,
-      count: sql3`count(*)`
-    }).from(postTags).groupBy(postTags.tag).orderBy(desc(sql3`count(*)`)).limit(limit);
-    return result;
-  }
-  // ==================== GEOGRAPHIC LOCATIONS METHODS ====================
-  async getProvinces() {
-    return await db.select().from(geographicLocations).where(eq(geographicLocations.type, "province"));
-  }
-  async getCitiesByProvince(provinceId) {
-    return await db.select().from(geographicLocations).where(and(
-      eq(geographicLocations.type, "city"),
-      eq(geographicLocations.parentId, provinceId)
-    ));
-  }
-  async getLocationByName(name, type) {
-    const conditions = [eq(geographicLocations.name, name)];
-    if (type) {
-      conditions.push(eq(geographicLocations.type, type));
-    }
-    const [location] = await db.select().from(geographicLocations).where(and(...conditions));
-    return location;
-  }
-  async createLocation(location) {
-    const [newLocation] = await db.insert(geographicLocations).values(location).returning();
-    return newLocation;
-  }
-  // ==================== POST LIKES AND VIEWS METHODS ====================
-  async likePost(postId, userId) {
-    const [like2] = await db.insert(communityPostLikes).values({ postId, userId }).returning();
-    return like2;
-  }
-  async unlikePost(postId, userId) {
-    const result = await db.delete(communityPostLikes).where(and(
-      eq(communityPostLikes.postId, postId),
-      eq(communityPostLikes.userId, userId)
-    ));
-    return result.changes > 0;
-  }
-  async isPostLikedByUser(postId, userId) {
-    const [like2] = await db.select().from(communityPostLikes).where(and(
-      eq(communityPostLikes.postId, postId),
-      eq(communityPostLikes.userId, userId)
-    ));
-    return !!like2;
-  }
-  async getCommunityPostLikes(postId) {
-    return await db.select().from(communityPostLikes).where(eq(communityPostLikes.postId, postId));
-  }
-  async getCommunityPostLikesCount(postId) {
-    const result = await db.select({ count: sql3`count(*)` }).from(communityPostLikes).where(eq(communityPostLikes.postId, postId));
-    return result[0]?.count || 0;
-  }
-  async recordCommunityPostView(postId, userId, ipAddress, userAgent) {
-    const [view] = await db.insert(communityPostViews).values({
-      postId,
-      userId,
-      ipAddress,
-      userAgent
-    }).returning();
-    return view;
-  }
-  async getCommunityPostViews(postId) {
-    return await db.select().from(communityPostViews).where(eq(communityPostViews.postId, postId));
-  }
-  async getCommunityPostViewsCount(postId) {
-    const result = await db.select({ count: sql3`count(*)` }).from(communityPostViews).where(eq(communityPostViews.postId, postId));
-    return result[0]?.count || 0;
-  }
-  // ==================== GEOGRAPHIC SEARCH METHODS ====================
-  async searchPostsByLocation(province, city, radiusKm, userLat, userLng) {
-    let conditions = [eq(communityPosts.status, "active")];
-    if (province) {
-      conditions.push(eq(communityPosts.province, province));
-    }
-    if (city) {
-      conditions.push(eq(communityPosts.city, city));
-    }
-    let query = db.select().from(communityPosts).where(and(...conditions));
-    if (radiusKm && userLat && userLng) {
-      const posts = await query;
-      return posts.filter((post) => {
-        if (!post.latitude || !post.longitude) return false;
-        const distance = this.calculateDistance(userLat, userLng, post.latitude, post.longitude);
-        return distance <= radiusKm;
-      });
-    }
-    return await query;
-  }
-  calculateDistance(lat1, lng1, lat2, lng2) {
-    const R = 6371;
-    const dLat = this.deg2rad(lat2 - lat1);
-    const dLng = this.deg2rad(lng2 - lng1);
-    const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(this.deg2rad(lat1)) * Math.cos(this.deg2rad(lat2)) * Math.sin(dLng / 2) * Math.sin(dLng / 2);
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    return R * c;
-  }
-  deg2rad(deg) {
-    return deg * (Math.PI / 180);
-  }
-  // Inspiring Stories methods
-  async getInspiringStories(filters) {
-    let query = db.select().from(inspiringStories);
-    const conditions = [];
-    if (filters?.category) {
-      conditions.push(eq(inspiringStories.category, filters.category));
-    }
-    if (filters?.status) {
-      conditions.push(eq(inspiringStories.status, filters.status));
-    }
-    if (filters?.featured !== void 0) {
-      conditions.push(eq(inspiringStories.featured, filters.featured ? 1 : 0));
-    }
-    if (conditions.length > 0) {
-      query = query.where(and(...conditions));
-    }
-    query = query.orderBy(desc(inspiringStories.publishedAt));
-    if (filters?.limit) {
-      query = query.limit(filters.limit);
-    }
-    if (filters?.offset) {
-      query = query.offset(filters.offset);
-    }
-    return await query;
-  }
-  async getInspiringStory(id) {
-    const [story] = await db.select().from(inspiringStories).where(eq(inspiringStories.id, id));
-    return story;
-  }
-  async createInspiringStory(story) {
-    const [newStory] = await db.insert(inspiringStories).values({
-      ...story,
-      createdAt: (/* @__PURE__ */ new Date()).toISOString(),
-      updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-    }).returning();
-    return newStory;
-  }
-  async updateInspiringStory(id, updates) {
-    const [updatedStory] = await db.update(inspiringStories).set({
-      ...updates,
-      updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-    }).where(eq(inspiringStories.id, id)).returning();
-    return updatedStory;
-  }
-  async deleteInspiringStory(id) {
-    await db.delete(inspiringStories).where(eq(inspiringStories.id, id));
-  }
-  async getFeaturedStories(limit = 3) {
-    return this.getInspiringStories({ featured: true, status: "approved", limit });
-  }
-  async getStoriesByCategory(category, limit = 5) {
-    return this.getInspiringStories({ category, status: "approved", limit });
-  }
-  async incrementStoryViews(id) {
-    await db.update(inspiringStories).set({
-      views: sql3`views + 1`,
-      updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-    }).where(eq(inspiringStories.id, id));
-  }
-  async incrementStoryLikes(id) {
-    await db.update(inspiringStories).set({
-      likes: sql3`likes + 1`,
-      updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-    }).where(eq(inspiringStories.id, id));
-  }
-  async incrementStoryShares(id) {
-    await db.update(inspiringStories).set({
-      shares: sql3`shares + 1`,
-      updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-    }).where(eq(inspiringStories.id, id));
-  }
-  async moderateStory(id, status, moderatorId, notes) {
-    const [updatedStory] = await db.update(inspiringStories).set({
-      status,
-      moderatedBy: moderatorId,
-      moderatedAt: (/* @__PURE__ */ new Date()).toISOString(),
-      moderationNotes: notes,
-      updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-    }).where(eq(inspiringStories.id, id)).returning();
-    return updatedStory;
-  }
-  // ==================== GAMIFICATION ¡BASTA! METHODS ====================
-  async saveCommitment(userId, commitmentText, commitmentType, location) {
-    await this.ensureUserCommitmentsLocationColumns();
-    const rawLatitude = location?.latitude;
-    const rawLongitude = location?.longitude;
-    const latitude = Number.isFinite(rawLatitude) ? Number(rawLatitude) : null;
-    const longitude = Number.isFinite(rawLongitude) ? Number(rawLongitude) : null;
-    let province = location?.province?.trim() || null;
-    let city = location?.city?.trim() || null;
-    if ((!province || !city) && latitude !== null && longitude !== null) {
-      const resolved = await this.resolveLocationFromCoordinates(latitude, longitude);
-      province = province || resolved.province;
-      city = city || resolved.city;
-    }
-    const [commitment] = await db.insert(userCommitments).values({
-      userId,
-      commitmentText,
-      commitmentType,
-      province,
-      city,
-      latitude,
-      longitude,
-      status: "active",
-      pointsAwarded: 100
-      // Award 100 points for making a commitment
-    }).returning();
-    await this.recordAction(userId, "commitment", { commitmentType, commitmentId: commitment.id });
-    return commitment;
-  }
-  async getRecentCommitments(limit) {
-    await this.ensureUserCommitmentsLocationColumns();
-    const safeLimit = Number.isFinite(limit) ? Math.max(1, Math.min(limit, 100)) : 20;
-    return await db.select({
-      id: userCommitments.id,
-      commitmentText: userCommitments.commitmentText,
-      commitmentType: userCommitments.commitmentType,
-      province: userCommitments.province,
-      city: userCommitments.city,
-      latitude: userCommitments.latitude,
-      longitude: userCommitments.longitude,
-      status: userCommitments.status,
-      pointsAwarded: userCommitments.pointsAwarded,
-      createdAt: userCommitments.createdAt,
-      completedAt: userCommitments.completedAt,
-      user: {
-        id: users.id,
-        name: users.name,
-        username: users.username
-      }
-    }).from(userCommitments).innerJoin(users, eq(userCommitments.userId, users.id)).where(eq(userCommitments.status, "active")).orderBy(desc(userCommitments.createdAt)).limit(safeLimit);
-  }
-  async getCommitmentStats() {
-    await this.ensureUserCommitmentsLocationColumns();
-    const [summary] = await db.select({
-      total: sql3`count(*)`,
-      last24h: sql3`sum(case when ${userCommitments.createdAt}::timestamp >= NOW() - INTERVAL '1 day' then 1 else 0 end)`
-    }).from(userCommitments).where(eq(userCommitments.status, "active"));
-    const byTypeRows = await db.select({
-      type: userCommitments.commitmentType,
-      total: sql3`count(*)`
-    }).from(userCommitments).where(eq(userCommitments.status, "active")).groupBy(userCommitments.commitmentType).orderBy(desc(sql3`count(*)`));
-    return {
-      total: Number(summary?.total ?? 0),
-      last24h: Number(summary?.last24h ?? 0),
-      byType: byTypeRows.map((row) => ({
-        type: row.type ?? "intermediate",
-        total: Number(row.total ?? 0)
-      }))
-    };
-  }
-  async resolveLocationFromCoordinates(latitude, longitude) {
-    const locations = await db.select({
-      id: geographicLocations.id,
-      name: geographicLocations.name,
-      type: geographicLocations.type,
-      parentId: geographicLocations.parentId,
-      latitude: geographicLocations.latitude,
-      longitude: geographicLocations.longitude
-    }).from(geographicLocations).where(and(
-      inArray(geographicLocations.type, ["province", "city"]),
-      isNotNull(geographicLocations.latitude),
-      isNotNull(geographicLocations.longitude)
-    ));
-    if (!locations.length) {
-      return { province: null, city: null };
-    }
-    const provinces = locations.filter((location) => location.type === "province");
-    const cities = locations.filter((location) => location.type === "city");
-    const provinceById = new Map(provinces.map((province2) => [province2.id, province2.name]));
-    const nearestProvince = provinces.reduce((closest, province2) => {
-      const distance = this.calculateDistance(latitude, longitude, province2.latitude, province2.longitude);
-      if (distance < closest.distance) return { distance, name: province2.name };
-      return closest;
-    }, { distance: Number.POSITIVE_INFINITY, name: null });
-    const nearestCity = cities.reduce((closest, city2) => {
-      const distance = this.calculateDistance(latitude, longitude, city2.latitude, city2.longitude);
-      if (distance < closest.distance) {
-        return { distance, name: city2.name, parentId: city2.parentId ?? null };
-      }
-      return closest;
-    }, { distance: Number.POSITIVE_INFINITY, name: null, parentId: null });
-    const cityThresholdKm = 180;
-    const provinceThresholdKm = 300;
-    const city = nearestCity.distance <= cityThresholdKm ? nearestCity.name : null;
-    const provinceFromCity = city && nearestCity.parentId ? provinceById.get(nearestCity.parentId) ?? null : null;
-    const provinceDirect = nearestProvince.distance <= provinceThresholdKm ? nearestProvince.name : null;
-    const province = provinceFromCity || provinceDirect;
-    return { province, city };
-  }
-  async getLeaderboard(type, limit) {
-    let query;
-    switch (type) {
-      case "weekly":
-        const weekStart = /* @__PURE__ */ new Date();
-        weekStart.setDate(weekStart.getDate() - weekStart.getDay());
-        const weekStartStr = weekStart.toISOString().split("T")[0];
-        query = db.select({
-          userId: weeklyRankings.userId,
-          points: weeklyRankings.points,
-          rank: weeklyRankings.rank,
-          user: {
-            id: users.id,
-            name: users.name,
-            username: users.username
-          }
-        }).from(weeklyRankings).innerJoin(users, eq(weeklyRankings.userId, users.id)).where(eq(weeklyRankings.weekStart, weekStartStr)).orderBy(asc(weeklyRankings.rank)).limit(limit);
-        break;
-      case "monthly":
-        const monthStart = (/* @__PURE__ */ new Date()).toISOString().substring(0, 7);
-        query = db.select({
-          userId: monthlyRankings.userId,
-          points: monthlyRankings.points,
-          rank: monthlyRankings.rank,
-          user: {
-            id: users.id,
-            name: users.name,
-            username: users.username
-          }
-        }).from(monthlyRankings).innerJoin(users, eq(monthlyRankings.userId, users.id)).where(eq(monthlyRankings.monthStart, monthStart)).orderBy(asc(monthlyRankings.rank)).limit(limit);
-        break;
-      case "global":
-      default:
-        query = db.select({
-          userId: userProgress.userId,
-          points: userProgress.points,
-          rank: userProgress.rank,
-          level: userProgress.level,
-          user: {
-            id: users.id,
-            name: users.name,
-            username: users.username
-          }
-        }).from(userProgress).innerJoin(users, eq(userProgress.userId, users.id)).orderBy(desc(userProgress.points)).limit(limit);
-        break;
-    }
-    return await query;
-  }
-  async recordAction(userId, actionType, metadata) {
-    const points = ACTION_POINTS[actionType] ?? 10;
-    const [action] = await db.insert(userActions).values({
-      userId,
-      actionType,
-      points,
-      metadata: metadata ? JSON.stringify(metadata) : null
-    }).returning();
-    await this.updateUserProgress(userId, points);
-    return action;
-  }
-  async getUserProgress(userId) {
-    const [progress] = await db.select().from(userProgress).where(eq(userProgress.userId, userId));
-    if (!progress) {
-      const [newProgress] = await db.insert(userProgress).values({
-        userId,
-        level: 1,
-        points: 0,
-        rank: "Novato",
-        totalActions: 0
-      }).returning();
-      return newProgress;
-    }
-    return progress;
-  }
-  async getAllBadges() {
-    return await db.select().from(badges).orderBy(asc(badges.orderIndex));
-  }
-  async updateUserProgress(userId, pointsToAdd) {
-    const [currentProgress] = await db.select().from(userProgress).where(eq(userProgress.userId, userId));
-    if (!currentProgress) {
-      await db.insert(userProgress).values({
-        userId,
-        level: 1,
-        points: pointsToAdd,
-        rank: "Novato",
-        totalActions: 1,
-        lastActionAt: (/* @__PURE__ */ new Date()).toISOString()
-      });
-    } else {
-      const newPoints = currentProgress.points + pointsToAdd;
-      const newLevel = Math.floor(newPoints / 500) + 1;
-      let newRank = "Novato";
-      if (newLevel >= 5) newRank = "L\xEDder del Movimiento";
-      else if (newLevel >= 4) newRank = "Agente de Cambio";
-      else if (newLevel >= 3) newRank = "Hombre Gris";
-      else if (newLevel >= 2) newRank = "Despierto";
-      await db.update(userProgress).set({
-        points: newPoints,
-        level: newLevel,
-        rank: newRank,
-        totalActions: currentProgress.totalActions + 1,
-        lastActionAt: (/* @__PURE__ */ new Date()).toISOString(),
-        updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-      }).where(eq(userProgress.userId, userId));
-      if (newLevel > currentProgress.level) {
-        await this.recordAction(userId, "level_up", {
-          oldLevel: currentProgress.level,
-          newLevel,
-          oldRank: currentProgress.rank,
-          newRank
+            user: true,
+            replies: {
+              with: {
+                user: true
+              },
+              orderBy: [asc(postComments.createdAt)]
+            }
+          },
+          orderBy: [asc(postComments.createdAt)]
         });
       }
-    }
-  }
-  // ==================== NEW INITIATIVE FEATURES IMPLEMENTATIONS ====================
-  // Initiative Members
-  async getInitiativeMembers(postId) {
-    return await db.select().from(initiativeMembers).where(and(eq(initiativeMembers.postId, postId), eq(initiativeMembers.status, "active"))).orderBy(asc(initiativeMembers.joinedAt));
-  }
-  async getUserMemberships(userId) {
-    return await db.select({
-      id: initiativeMembers.id,
-      postId: initiativeMembers.postId,
-      role: initiativeMembers.role,
-      status: initiativeMembers.status,
-      joinedAt: initiativeMembers.joinedAt,
-      postTitle: communityPosts.title,
-      postType: communityPosts.type,
-      postStatus: communityPosts.status
-    }).from(initiativeMembers).innerJoin(communityPosts, eq(initiativeMembers.postId, communityPosts.id)).where(and(eq(initiativeMembers.userId, userId), eq(initiativeMembers.status, "active"))).orderBy(desc(initiativeMembers.joinedAt));
-  }
-  async addInitiativeMember(postId, userId, role) {
-    const [member] = await db.insert(initiativeMembers).values({
-      postId,
-      userId,
-      role,
-      status: "active",
-      permissions: JSON.stringify({
-        canEdit: role === "creator",
-        canInvite: role === "creator" || role === "co-organizer",
-        canApprove: role === "creator" || role === "co-organizer",
-        canCreateMilestone: role === "creator" || role === "co-organizer" || role === "active_member",
-        canCreateTask: role === "creator" || role === "co-organizer" || role === "active_member",
-        canAssignTask: role === "creator" || role === "co-organizer",
-        canDeleteContent: role === "creator",
-        canManageRoles: role === "creator"
-      })
-    }).returning();
-    await db.update(communityPosts).set({ memberCount: sql3`${communityPosts.memberCount} + 1` }).where(eq(communityPosts.id, postId));
-    return member;
-  }
-  async updateMemberRole(memberId, role, permissions) {
-    await db.update(initiativeMembers).set({
-      role,
-      permissions: JSON.stringify(permissions)
-    }).where(eq(initiativeMembers.id, memberId));
-  }
-  async removeMember(memberId) {
-    const [member] = await db.select().from(initiativeMembers).where(eq(initiativeMembers.id, memberId));
-    if (member) {
-      await db.update(initiativeMembers).set({
-        status: "left",
-        leftAt: (/* @__PURE__ */ new Date()).toISOString()
-      }).where(eq(initiativeMembers.id, memberId));
-      await db.update(communityPosts).set({ memberCount: sql3`${communityPosts.memberCount} - 1` }).where(eq(communityPosts.id, member.postId));
-    }
-  }
-  // Membership Requests
-  async createMembershipRequest(postId, userId, message) {
-    const [request] = await db.insert(membershipRequests).values({
-      postId,
-      userId,
-      message,
-      status: "pending"
-    }).returning();
-    return request;
-  }
-  async getMembershipRequests(postId, status) {
-    let query = db.select().from(membershipRequests).where(eq(membershipRequests.postId, postId));
-    if (status) {
-      query = query.where(eq(membershipRequests.status, status));
-    }
-    return await query.orderBy(desc(membershipRequests.createdAt));
-  }
-  async approveMembershipRequest(requestId, reviewerId) {
-    const [request] = await db.select().from(membershipRequests).where(eq(membershipRequests.id, requestId));
-    if (request && request.status === "pending") {
-      await this.addInitiativeMember(request.postId, request.userId, "member");
-      await db.update(membershipRequests).set({
-        status: "approved",
-        reviewedBy: reviewerId,
-        reviewedAt: (/* @__PURE__ */ new Date()).toISOString()
-      }).where(eq(membershipRequests.id, requestId));
-      await this.createActivityFeedItem({
-        type: "new_member",
-        postId: request.postId,
-        userId: request.userId,
-        title: "Nuevo miembro se uni\xF3",
-        description: `Un nuevo miembro se uni\xF3 a la iniciativa`,
-        metadata: JSON.stringify({ requestId })
-      });
-    }
-  }
-  async rejectMembershipRequest(requestId, reviewerId) {
-    await db.update(membershipRequests).set({
-      status: "rejected",
-      reviewedBy: reviewerId,
-      reviewedAt: (/* @__PURE__ */ new Date()).toISOString()
-    }).where(eq(membershipRequests.id, requestId));
-  }
-  // Milestones
-  async getInitiativeMilestones(postId) {
-    return await db.select().from(initiativeMilestones).where(eq(initiativeMilestones.postId, postId)).orderBy(asc(initiativeMilestones.orderIndex));
-  }
-  async createMilestone(postId, data) {
-    const [milestone] = await db.insert(initiativeMilestones).values({
-      ...data,
-      postId
-    }).returning();
-    await this.createActivityFeedItem({
-      type: "update",
-      postId,
-      userId: data.completedBy || 0,
-      // Will be updated when completed
-      title: "Nuevo hito creado",
-      description: `Se cre\xF3 el hito: ${data.title}`,
-      metadata: JSON.stringify({ milestoneId: milestone.id })
-    });
-    return milestone;
-  }
-  async updateMilestone(milestoneId, updates) {
-    await db.update(initiativeMilestones).set({
-      ...updates,
-      updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-    }).where(eq(initiativeMilestones.id, milestoneId));
-  }
-  async completeMilestone(milestoneId, userId) {
-    await db.update(initiativeMilestones).set({
-      status: "completed",
-      completedBy: userId,
-      completedAt: (/* @__PURE__ */ new Date()).toISOString(),
-      updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-    }).where(eq(initiativeMilestones.id, milestoneId));
-    const [milestone] = await db.select().from(initiativeMilestones).where(eq(initiativeMilestones.id, milestoneId));
-    if (milestone) {
-      await this.createActivityFeedItem({
-        type: "milestone_completed",
-        postId: milestone.postId,
-        userId,
-        title: "Hito completado",
-        description: `Se complet\xF3 el hito: ${milestone.title}`,
-        metadata: JSON.stringify({ milestoneId })
-      });
-    }
-  }
-  // Tasks
-  async getInitiativeTasks(postId) {
-    return await db.select().from(initiativeTasks).where(eq(initiativeTasks.postId, postId)).orderBy(asc(initiativeTasks.createdAt));
-  }
-  async createTask(postId, data) {
-    const [task] = await db.insert(initiativeTasks).values({
-      ...data,
-      postId
-    }).returning();
-    await this.createActivityFeedItem({
-      type: "update",
-      postId,
-      userId: data.createdBy || 0,
-      title: "Nueva tarea creada",
-      description: `Se cre\xF3 la tarea: ${data.title}`,
-      metadata: JSON.stringify({ taskId: task.id })
-    });
-    return task;
-  }
-  async updateTask(taskId, updates) {
-    await db.update(initiativeTasks).set({
-      ...updates,
-      updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-    }).where(eq(initiativeTasks.id, taskId));
-  }
-  async assignTask(taskId, userId) {
-    await db.update(initiativeTasks).set({
-      assignedTo: userId,
-      updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-    }).where(eq(initiativeTasks.id, taskId));
-  }
-  async completeTask(taskId) {
-    await db.update(initiativeTasks).set({
-      status: "done",
-      completedAt: (/* @__PURE__ */ new Date()).toISOString(),
-      updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-    }).where(eq(initiativeTasks.id, taskId));
-    const [task] = await db.select().from(initiativeTasks).where(eq(initiativeTasks.id, taskId));
-    if (task) {
-      await this.createActivityFeedItem({
-        type: "task_completed",
-        postId: task.postId,
-        userId: task.assignedTo || 0,
-        title: "Tarea completada",
-        description: `Se complet\xF3 la tarea: ${task.title}`,
-        metadata: JSON.stringify({ taskId })
-      });
-    }
-  }
-  // Messages/Chat
-  async getInitiativeMessages(postId, limit = 50, offset = 0) {
-    return await db.select().from(initiativeMessages).where(eq(initiativeMessages.postId, postId)).orderBy(desc(initiativeMessages.createdAt)).limit(limit).offset(offset);
-  }
-  async sendMessage(postId, userId, content, type = "message") {
-    const [message] = await db.insert(initiativeMessages).values({
-      postId,
-      userId,
-      content,
-      type
-    }).returning();
-    return message;
-  }
-  // Activity Feed
-  async getActivityFeed(filters) {
-    const { type, limit = 20, offset = 0 } = filters || {};
-    let query = db.select().from(activityFeed).orderBy(desc(activityFeed.createdAt)).limit(limit).offset(offset);
-    if (type) {
-      query = query.where(eq(activityFeed.type, type));
-    }
-    return await query;
-  }
-  async createActivityFeedItem(data) {
-    const [item] = await db.insert(activityFeed).values(data).returning();
-    return item;
-  }
-  // Notifications
-  async getUserNotifications(userId, unreadOnly = false) {
-    let query = db.select().from(notifications).where(eq(notifications.userId, userId));
-    if (unreadOnly) {
-      query = query.where(eq(notifications.read, false));
-    }
-    return await query.orderBy(desc(notifications.createdAt));
-  }
-  async markNotificationAsRead(notificationId) {
-    await db.update(notifications).set({ read: true }).where(eq(notifications.id, notificationId));
-  }
-  async markAllNotificationsAsRead(userId) {
-    await db.update(notifications).set({ read: true }).where(eq(notifications.userId, userId));
-  }
-  async createNotification(userId, data) {
-    const [notification] = await db.insert(notifications).values({
-      ...data,
-      userId
-    }).returning();
-    return notification;
-  }
-  // ==================== COURSE METHODS ====================
-  // Courses
-  async getCourses(filters) {
-    const page = filters?.page || 1;
-    const limit = filters?.limit || 12;
-    const offset = (page - 1) * limit;
-    try {
-      const conditions = [eq(courses.isPublished, true)];
-      if (filters?.category) {
-        conditions.push(eq(courses.category, filters.category));
+      async updatePostComment(id, content, userId) {
+        const existingComment = await db.query.postComments.findFirst({
+          where: and(eq(postComments.id, id), eq(postComments.userId, userId))
+        });
+        if (!existingComment) {
+          return void 0;
+        }
+        const result = await db.update(postComments).set({ content, updatedAt: (/* @__PURE__ */ new Date()).toISOString() }).where(eq(postComments.id, id)).returning();
+        return result[0];
       }
-      if (filters?.level) {
-        conditions.push(eq(courses.level, filters.level));
+      async deletePostComment(id, userId) {
+        const existingComment = await db.query.postComments.findFirst({
+          where: and(eq(postComments.id, id), eq(postComments.userId, userId))
+        });
+        if (!existingComment) {
+          return false;
+        }
+        await db.delete(postComments).where(eq(postComments.id, id));
+        return true;
       }
-      if (filters?.featured === true) {
-        conditions.push(eq(courses.isFeatured, true));
+      async togglePostBookmark(postId, userId) {
+        const existingBookmark = await db.query.postBookmarks.findFirst({
+          where: and(eq(postBookmarks.postId, postId), eq(postBookmarks.userId, userId))
+        });
+        if (existingBookmark) {
+          await db.delete(postBookmarks).where(eq(postBookmarks.id, existingBookmark.id));
+          return { bookmarked: false };
+        } else {
+          await db.insert(postBookmarks).values({ postId, userId });
+          return { bookmarked: true };
+        }
       }
-      if (filters?.search) {
-        const searchTerm = `%${filters.search}%`;
-        conditions.push(or(
-          ilike(courses.title, searchTerm),
-          ilike(courses.description, searchTerm)
+      async getUserBookmarks(userId) {
+        const bookmarks = await db.query.postBookmarks.findMany({
+          where: eq(postBookmarks.userId, userId),
+          with: {
+            post: {
+              with: {
+                author: true,
+                tags: true
+              }
+            }
+          },
+          orderBy: [desc(postBookmarks.createdAt)]
+        });
+        return applyEnhancementsToList(bookmarks.map((bookmark) => bookmark.post));
+      }
+      async recordPostView(postId, userId, sessionId) {
+        try {
+          await db.insert(postViews).values({
+            postId,
+            userId,
+            sessionId
+          });
+        } catch (error) {
+          console.error("[recordPostView] Error:", error);
+          throw error;
+        }
+        await db.update(blogPosts).set({ viewCount: sql3`${blogPosts.viewCount} + 1` }).where(eq(blogPosts.id, postId));
+      }
+      // Search & Recommendations
+      async searchPosts(query, filters) {
+        const page = filters?.page || 1;
+        const limit = filters?.limit || 10;
+        const offset = (page - 1) * limit;
+        let whereClause = sql3`(${blogPosts.title} LIKE '%${query}%' OR ${blogPosts.excerpt} LIKE '%${query}%' OR ${blogPosts.content} LIKE '%${query}%')`;
+        if (filters?.type) {
+          whereClause = sql3`${whereClause} AND ${blogPosts.type} = ${filters.type}`;
+        }
+        if (filters?.category) {
+          whereClause = sql3`${whereClause} AND ${blogPosts.category} = ${filters.category}`;
+        }
+        const rawPosts = await db.select().from(blogPosts).where(whereClause).orderBy(desc(blogPosts.publishedAt)).limit(limit).offset(offset);
+        return applyEnhancementsToList(rawPosts);
+      }
+      async getTrendingPosts(days = 7, limit = 10) {
+        const startDate = /* @__PURE__ */ new Date();
+        startDate.setDate(startDate.getDate() - days);
+        const startDateStr = startDate.toISOString();
+        const posts = await db.select().from(blogPosts).where(gte(blogPosts.publishedAt, startDateStr)).orderBy(desc(blogPosts.viewCount)).limit(limit);
+        return applyEnhancementsToList(posts);
+      }
+      async getRelatedPosts(postId, limit = 4) {
+        const post = await db.query.blogPosts.findFirst({
+          where: eq(blogPosts.id, postId)
+        });
+        if (!post) {
+          return [];
+        }
+        const related = await db.select().from(blogPosts).where(and(
+          eq(blogPosts.category, post.category),
+          sql3`${blogPosts.id} != ${postId}`
+        )).orderBy(desc(blogPosts.viewCount)).limit(limit);
+        return applyEnhancementsToList(related);
+      }
+      async getPopularTags(limit = 20) {
+        const result = await db.select({
+          tag: postTags.tag,
+          count: sql3`count(*)`
+        }).from(postTags).groupBy(postTags.tag).orderBy(desc(sql3`count(*)`)).limit(limit);
+        return result;
+      }
+      // ==================== GEOGRAPHIC LOCATIONS METHODS ====================
+      async getProvinces() {
+        return await db.select().from(geographicLocations).where(eq(geographicLocations.type, "province"));
+      }
+      async getCitiesByProvince(provinceId) {
+        return await db.select().from(geographicLocations).where(and(
+          eq(geographicLocations.type, "city"),
+          eq(geographicLocations.parentId, provinceId)
         ));
       }
-      const whereCondition = and(...conditions);
-      const countResult = await db.select({ count: sql3`count(*)` }).from(courses).where(whereCondition);
-      const total = Number(countResult[0]?.count || 0);
-      let orderByClause;
-      if (filters?.sortBy === "popular") {
-        orderByClause = [desc(courses.viewCount)];
-      } else if (filters?.sortBy === "recent") {
-        orderByClause = [desc(courses.createdAt)];
-      } else if (filters?.sortBy === "duration") {
-        orderByClause = [asc(courses.duration)];
-      } else {
-        orderByClause = [desc(courses.orderIndex), desc(courses.createdAt)];
+      async getLocationByName(name, type) {
+        const conditions = [eq(geographicLocations.name, name)];
+        if (type) {
+          conditions.push(eq(geographicLocations.type, type));
+        }
+        const [location] = await db.select().from(geographicLocations).where(and(...conditions));
+        return location;
       }
-      const courseList = await db.select().from(courses).where(whereCondition).orderBy(...orderByClause).limit(limit).offset(offset);
-      return {
-        courses: courseList,
-        total,
-        page,
-        limit
-      };
-    } catch (error) {
-      console.error("[getCourses] Error:", error);
-      throw error;
-    }
-  }
-  async getCourseBySlug(slug) {
-    const [course] = await db.select().from(courses).where(eq(courses.slug, slug)).limit(1);
-    return course;
-  }
-  async getCourseWithLessons(courseId) {
-    const [course] = await db.select().from(courses).where(eq(courses.id, courseId)).limit(1);
-    if (!course) return void 0;
-    const lessonsList = await db.select().from(courseLessons).where(eq(courseLessons.courseId, courseId)).orderBy(asc(courseLessons.orderIndex));
-    return { course, lessons: lessonsList };
-  }
-  async getCourseQuiz(courseId) {
-    const [quiz] = await db.select().from(courseQuizzes).where(eq(courseQuizzes.courseId, courseId)).limit(1);
-    if (!quiz) return void 0;
-    const questionsList = await db.select().from(quizQuestions).where(eq(quizQuestions.quizId, quiz.id)).orderBy(asc(quizQuestions.orderIndex));
-    return { quiz, questions: questionsList };
-  }
-  // Course Progress
-  async getUserCourseProgress(userId, courseId) {
-    const [progress] = await db.select().from(userCourseProgress).where(
-      and(
-        eq(userCourseProgress.userId, userId),
-        eq(userCourseProgress.courseId, courseId)
-      )
-    ).limit(1);
-    return progress;
-  }
-  async startCourse(userId, courseId) {
-    const existing = await this.getUserCourseProgress(userId, courseId);
-    if (existing) {
-      return existing;
-    }
-    const [course] = await db.select().from(courses).where(eq(courses.id, courseId)).limit(1);
-    if (!course) {
-      throw new Error("Course not found");
-    }
-    const [progress] = await db.insert(userCourseProgress).values({
-      userId,
-      courseId,
-      status: "in_progress",
-      progress: 0,
-      startedAt: (/* @__PURE__ */ new Date()).toISOString(),
-      lastAccessedAt: (/* @__PURE__ */ new Date()).toISOString(),
-      completedLessons: JSON.stringify([])
-    }).returning();
-    if (!progress) {
-      throw new Error("Failed to create course progress");
-    }
-    return progress;
-  }
-  async completeLesson(userId, lessonId) {
-    const [lesson] = await db.select().from(courseLessons).where(eq(courseLessons.id, lessonId)).limit(1);
-    if (!lesson) {
-      throw new Error("Lesson not found");
-    }
-    if (!lesson.courseId) {
-      throw new Error("Lesson has no associated course");
-    }
-    const [existingLessonProgress] = await db.select().from(userLessonProgress).where(
-      and(
-        eq(userLessonProgress.userId, userId),
-        eq(userLessonProgress.lessonId, lessonId)
-      )
-    ).limit(1);
-    if (existingLessonProgress) {
-      await db.update(userLessonProgress).set({
-        status: "completed",
-        completedAt: (/* @__PURE__ */ new Date()).toISOString(),
-        updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-      }).where(eq(userLessonProgress.id, existingLessonProgress.id));
-    } else {
-      await db.insert(userLessonProgress).values({
-        userId,
-        lessonId,
-        status: "completed",
-        completedAt: (/* @__PURE__ */ new Date()).toISOString()
-      });
-    }
-    const [courseProgress] = await db.select().from(userCourseProgress).where(
-      and(
-        eq(userCourseProgress.userId, userId),
-        eq(userCourseProgress.courseId, lesson.courseId)
-      )
-    ).limit(1);
-    if (!courseProgress) {
-      throw new Error("Course progress not found");
-    }
-    const allLessons = await db.select().from(courseLessons).where(eq(courseLessons.courseId, lesson.courseId)).orderBy(asc(courseLessons.orderIndex));
-    const requiredLessons = allLessons.filter((l) => l.isRequired);
-    const completedLessonsIds = JSON.parse(courseProgress.completedLessons || "[]");
-    const lessonAlreadyCompleted = completedLessonsIds.includes(lessonId);
-    if (!lessonAlreadyCompleted) {
-      completedLessonsIds.push(lessonId);
-    }
-    const completedRequired = requiredLessons.filter((l) => completedLessonsIds.includes(l.id)).length;
-    const progressPercentage = requiredLessons.length > 0 ? Math.round(completedRequired / requiredLessons.length * 100) : 0;
-    const nextLesson = allLessons.find(
-      (l) => l.orderIndex > lesson.orderIndex && !completedLessonsIds.includes(l.id)
-    );
-    const courseCompleted = requiredLessons.every((l) => completedLessonsIds.includes(l.id));
-    const courseWasCompletedBefore = courseProgress.status === "completed";
-    const [updatedProgress] = await db.update(userCourseProgress).set({
-      progress: progressPercentage,
-      status: courseCompleted ? "completed" : "in_progress",
-      currentLessonId: nextLesson?.id || null,
-      completedLessons: JSON.stringify(completedLessonsIds),
-      completedAt: courseCompleted ? (/* @__PURE__ */ new Date()).toISOString() : null,
-      lastAccessedAt: (/* @__PURE__ */ new Date()).toISOString(),
-      updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-    }).where(eq(userCourseProgress.id, courseProgress.id)).returning();
-    if (!updatedProgress) {
-      throw new Error("Failed to update course progress");
-    }
-    if (!lesson.courseId) {
-      throw new Error("Lesson courseId is missing");
-    }
-    const xpAwarded = { lesson: 0, course: 0 };
-    if (!lessonAlreadyCompleted) {
-      try {
-        xpAwarded.lesson = ACTION_POINTS["lesson_complete"] ?? 0;
-        await this.recordAction(userId, "lesson_complete", {
-          lessonId,
-          courseId: lesson.courseId
-        });
-        if (courseCompleted && !courseWasCompletedBefore) {
-          xpAwarded.course = ACTION_POINTS["course_complete"] ?? 0;
-          await this.recordAction(userId, "course_complete", {
-            courseId: lesson.courseId
+      async createLocation(location) {
+        const [newLocation] = await db.insert(geographicLocations).values(location).returning();
+        return newLocation;
+      }
+      // ==================== POST LIKES AND VIEWS METHODS ====================
+      async likePost(postId, userId) {
+        const alreadyLiked = await this.isPostLikedByUser(postId, userId);
+        if (alreadyLiked) {
+          const [existing] = await db.select().from(communityPostLikes).where(and(eq(communityPostLikes.postId, postId), eq(communityPostLikes.userId, userId)));
+          return existing;
+        }
+        const [like2] = await db.insert(communityPostLikes).values({ postId, userId }).returning();
+        return like2;
+      }
+      async unlikePost(postId, userId) {
+        const result = await db.delete(communityPostLikes).where(and(
+          eq(communityPostLikes.postId, postId),
+          eq(communityPostLikes.userId, userId)
+        )).returning();
+        return result.length > 0;
+      }
+      async isPostLikedByUser(postId, userId) {
+        const [like2] = await db.select().from(communityPostLikes).where(and(
+          eq(communityPostLikes.postId, postId),
+          eq(communityPostLikes.userId, userId)
+        ));
+        return !!like2;
+      }
+      async getCommunityPostLikes(postId) {
+        return await db.select().from(communityPostLikes).where(eq(communityPostLikes.postId, postId));
+      }
+      async getCommunityPostLikesCount(postId) {
+        const result = await db.select({ count: sql3`count(*)` }).from(communityPostLikes).where(eq(communityPostLikes.postId, postId));
+        return result[0]?.count || 0;
+      }
+      async recordCommunityPostView(postId, userId, ipAddress, userAgent) {
+        const [view] = await db.insert(communityPostViews).values({
+          postId,
+          userId,
+          ipAddress,
+          userAgent
+        }).returning();
+        return view;
+      }
+      async getCommunityPostViews(postId) {
+        return await db.select().from(communityPostViews).where(eq(communityPostViews.postId, postId));
+      }
+      async getCommunityPostViewsCount(postId) {
+        const result = await db.select({ count: sql3`count(*)` }).from(communityPostViews).where(eq(communityPostViews.postId, postId));
+        return result[0]?.count || 0;
+      }
+      // ==================== GEOGRAPHIC SEARCH METHODS ====================
+      async searchPostsByLocation(province, city, radiusKm, userLat, userLng) {
+        let conditions = [eq(communityPosts.status, "active")];
+        if (province) {
+          conditions.push(eq(communityPosts.province, province));
+        }
+        if (city) {
+          conditions.push(eq(communityPosts.city, city));
+        }
+        let query = db.select().from(communityPosts).where(and(...conditions));
+        if (radiusKm && userLat && userLng) {
+          const posts = await query;
+          return posts.filter((post) => {
+            if (!post.latitude || !post.longitude) return false;
+            const distance = this.calculateDistance(userLat, userLng, post.latitude, post.longitude);
+            return distance <= radiusKm;
           });
         }
-      } catch (actionError) {
-        console.error("Error awarding points for lesson completion:", actionError);
+        return await query;
       }
-    }
-    return { progress: updatedProgress, courseCompleted, xpAwarded };
-  }
-  async updateLessonTimeSpent(userId, lessonId, seconds) {
-    const [existing] = await db.select().from(userLessonProgress).where(
-      and(
-        eq(userLessonProgress.userId, userId),
-        eq(userLessonProgress.lessonId, lessonId)
-      )
-    ).limit(1);
-    if (existing) {
-      await db.update(userLessonProgress).set({
-        timeSpent: (existing.timeSpent || 0) + seconds,
-        updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-      }).where(eq(userLessonProgress.id, existing.id));
-    } else {
-      await db.insert(userLessonProgress).values({
-        userId,
-        lessonId,
-        status: "in_progress",
-        timeSpent: seconds
-      });
-    }
-    const [lesson] = await db.select().from(courseLessons).where(eq(courseLessons.id, lessonId)).limit(1);
-    if (lesson) {
-      await db.update(userCourseProgress).set({
-        lastAccessedAt: (/* @__PURE__ */ new Date()).toISOString()
-      }).where(
-        and(
-          eq(userCourseProgress.userId, userId),
-          eq(userCourseProgress.courseId, lesson.courseId)
-        )
-      );
-    }
-  }
-  async getUserLessonProgress(userId, lessonId) {
-    const [progress] = await db.select().from(userLessonProgress).where(
-      and(
-        eq(userLessonProgress.userId, userId),
-        eq(userLessonProgress.lessonId, lessonId)
-      )
-    ).limit(1);
-    return progress;
-  }
-  // Quiz
-  async createQuizAttempt(userId, quizId, courseId) {
-    const [attempt] = await db.insert(quizAttempts).values({
-      userId,
-      quizId,
-      courseId,
-      startedAt: (/* @__PURE__ */ new Date()).toISOString()
-    }).returning();
-    return attempt;
-  }
-  async submitQuizAttempt(attemptId, answers) {
-    const [attempt] = await db.select().from(quizAttempts).where(eq(quizAttempts.id, attemptId)).limit(1);
-    if (!attempt) {
-      throw new Error("Quiz attempt not found");
-    }
-    const quizData = await this.getCourseQuiz(attempt.courseId);
-    if (!quizData) {
-      throw new Error("Quiz not found");
-    }
-    const { quiz, questions } = quizData;
-    let correctAnswers = 0;
-    let totalPoints = 0;
-    let earnedPoints = 0;
-    const attemptAnswers = [];
-    for (const question of questions) {
-      totalPoints += question.points || 1;
-      const userAnswer = answers.find((a) => a.questionId === question.id);
-      const correctAnswer = JSON.parse(question.correctAnswer);
-      const isCorrect = JSON.stringify(userAnswer?.answer) === JSON.stringify(correctAnswer);
-      if (isCorrect) {
-        correctAnswers++;
-        earnedPoints += question.points || 1;
+      calculateDistance(lat1, lng1, lat2, lng2) {
+        const R = 6371;
+        const dLat = this.deg2rad(lat2 - lat1);
+        const dLng = this.deg2rad(lng2 - lng1);
+        const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(this.deg2rad(lat1)) * Math.cos(this.deg2rad(lat2)) * Math.sin(dLng / 2) * Math.sin(dLng / 2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        return R * c;
       }
-      const [answerRecord] = await db.insert(quizAttemptAnswers).values({
-        attemptId,
-        questionId: question.id,
-        answer: JSON.stringify(userAnswer?.answer || ""),
-        isCorrect,
-        pointsEarned: isCorrect ? question.points || 1 : 0
-      }).returning();
-      attemptAnswers.push(answerRecord);
-    }
-    const score = Math.round(earnedPoints / totalPoints * 100);
-    const passed = score >= (quiz.passingScore || 70);
-    const timeSpent = attempt.startedAt ? Math.floor(((/* @__PURE__ */ new Date()).getTime() - new Date(attempt.startedAt).getTime()) / 1e3) : 0;
-    await db.update(quizAttempts).set({
-      score,
-      passed,
-      answers: JSON.stringify(answers),
-      timeSpent,
-      completedAt: (/* @__PURE__ */ new Date()).toISOString()
-    }).where(eq(quizAttempts.id, attemptId));
-    let certificateCode;
-    const xpAwarded = { quiz: 0, certificate: 0 };
-    if (passed) {
-      xpAwarded.quiz = ACTION_POINTS["quiz_passed"] ?? 0;
-      await this.recordAction(attempt.userId, "quiz_passed", {
-        quizId: attempt.quizId,
-        courseId: attempt.courseId,
-        score
-      });
-      const { certificate, created } = await this.generateCertificate(attempt.userId, attempt.courseId, score);
-      certificateCode = certificate.certificateCode;
-      if (created) {
-        xpAwarded.certificate = ACTION_POINTS["certificate_earned"] ?? 0;
-        await this.recordAction(attempt.userId, "certificate_earned", {
-          courseId: attempt.courseId,
-          certificateCode: certificate.certificateCode
+      deg2rad(deg) {
+        return deg * (Math.PI / 180);
+      }
+      // Inspiring Stories methods
+      async getInspiringStories(filters) {
+        let query = db.select().from(inspiringStories);
+        const conditions = [];
+        if (filters?.category) {
+          conditions.push(eq(inspiringStories.category, filters.category));
+        }
+        if (filters?.status) {
+          conditions.push(eq(inspiringStories.status, filters.status));
+        }
+        if (filters?.featured !== void 0) {
+          conditions.push(eq(inspiringStories.featured, filters.featured ? 1 : 0));
+        }
+        if (conditions.length > 0) {
+          query = query.where(and(...conditions));
+        }
+        query = query.orderBy(desc(inspiringStories.publishedAt));
+        if (filters?.limit) {
+          query = query.limit(filters.limit);
+        }
+        if (filters?.offset) {
+          query = query.offset(filters.offset);
+        }
+        return await query;
+      }
+      async getInspiringStory(id) {
+        const [story] = await db.select().from(inspiringStories).where(eq(inspiringStories.id, id));
+        return story;
+      }
+      async createInspiringStory(story) {
+        const [newStory] = await db.insert(inspiringStories).values({
+          ...story,
+          createdAt: (/* @__PURE__ */ new Date()).toISOString(),
+          updatedAt: (/* @__PURE__ */ new Date()).toISOString()
+        }).returning();
+        return newStory;
+      }
+      async updateInspiringStory(id, updates) {
+        const [updatedStory] = await db.update(inspiringStories).set({
+          ...updates,
+          updatedAt: (/* @__PURE__ */ new Date()).toISOString()
+        }).where(eq(inspiringStories.id, id)).returning();
+        return updatedStory;
+      }
+      async deleteInspiringStory(id) {
+        await db.delete(inspiringStories).where(eq(inspiringStories.id, id));
+      }
+      async getFeaturedStories(limit = 3) {
+        return this.getInspiringStories({ featured: true, status: "approved", limit });
+      }
+      async getStoriesByCategory(category, limit = 5) {
+        return this.getInspiringStories({ category, status: "approved", limit });
+      }
+      async incrementStoryViews(id) {
+        await db.update(inspiringStories).set({
+          views: sql3`views + 1`,
+          updatedAt: (/* @__PURE__ */ new Date()).toISOString()
+        }).where(eq(inspiringStories.id, id));
+      }
+      async incrementStoryLikes(id) {
+        await db.update(inspiringStories).set({
+          likes: sql3`likes + 1`,
+          updatedAt: (/* @__PURE__ */ new Date()).toISOString()
+        }).where(eq(inspiringStories.id, id));
+      }
+      async incrementStoryShares(id) {
+        await db.update(inspiringStories).set({
+          shares: sql3`shares + 1`,
+          updatedAt: (/* @__PURE__ */ new Date()).toISOString()
+        }).where(eq(inspiringStories.id, id));
+      }
+      async moderateStory(id, status, moderatorId, notes) {
+        const [updatedStory] = await db.update(inspiringStories).set({
+          status,
+          moderatedBy: moderatorId,
+          moderatedAt: (/* @__PURE__ */ new Date()).toISOString(),
+          moderationNotes: notes,
+          updatedAt: (/* @__PURE__ */ new Date()).toISOString()
+        }).where(eq(inspiringStories.id, id)).returning();
+        return updatedStory;
+      }
+      // ==================== GAMIFICATION ¡BASTA! METHODS ====================
+      async saveCommitment(userId, commitmentText, commitmentType, location) {
+        await this.ensureUserCommitmentsLocationColumns();
+        const rawLatitude = location?.latitude;
+        const rawLongitude = location?.longitude;
+        const latitude = Number.isFinite(rawLatitude) ? Number(rawLatitude) : null;
+        const longitude = Number.isFinite(rawLongitude) ? Number(rawLongitude) : null;
+        let province = location?.province?.trim() || null;
+        let city = location?.city?.trim() || null;
+        if ((!province || !city) && latitude !== null && longitude !== null) {
+          const resolved = await this.resolveLocationFromCoordinates(latitude, longitude);
+          province = province || resolved.province;
+          city = city || resolved.city;
+        }
+        const [commitment] = await db.insert(userCommitments).values({
+          userId,
+          commitmentText,
+          commitmentType,
+          province,
+          city,
+          latitude,
+          longitude,
+          status: "active",
+          pointsAwarded: 100
+          // Award 100 points for making a commitment
+        }).returning();
+        await this.recordAction(userId, "commitment", { commitmentType, commitmentId: commitment.id });
+        return commitment;
+      }
+      async getRecentCommitments(limit) {
+        await this.ensureUserCommitmentsLocationColumns();
+        const safeLimit = Number.isFinite(limit) ? Math.max(1, Math.min(limit, 100)) : 20;
+        return await db.select({
+          id: userCommitments.id,
+          commitmentText: userCommitments.commitmentText,
+          commitmentType: userCommitments.commitmentType,
+          province: userCommitments.province,
+          city: userCommitments.city,
+          latitude: userCommitments.latitude,
+          longitude: userCommitments.longitude,
+          status: userCommitments.status,
+          pointsAwarded: userCommitments.pointsAwarded,
+          createdAt: userCommitments.createdAt,
+          completedAt: userCommitments.completedAt,
+          user: {
+            id: users.id,
+            name: users.name,
+            username: users.username
+          }
+        }).from(userCommitments).innerJoin(users, eq(userCommitments.userId, users.id)).where(eq(userCommitments.status, "active")).orderBy(desc(userCommitments.createdAt)).limit(safeLimit);
+      }
+      async getCommitmentStats() {
+        await this.ensureUserCommitmentsLocationColumns();
+        const [summary] = await db.select({
+          total: sql3`count(*)`,
+          last24h: sql3`sum(case when ${userCommitments.createdAt}::timestamp >= NOW() - INTERVAL '1 day' then 1 else 0 end)`
+        }).from(userCommitments).where(eq(userCommitments.status, "active"));
+        const byTypeRows = await db.select({
+          type: userCommitments.commitmentType,
+          total: sql3`count(*)`
+        }).from(userCommitments).where(eq(userCommitments.status, "active")).groupBy(userCommitments.commitmentType).orderBy(desc(sql3`count(*)`));
+        return {
+          total: Number(summary?.total ?? 0),
+          last24h: Number(summary?.last24h ?? 0),
+          byType: byTypeRows.map((row) => ({
+            type: row.type ?? "intermediate",
+            total: Number(row.total ?? 0)
+          }))
+        };
+      }
+      async resolveLocationFromCoordinates(latitude, longitude) {
+        const locations = await db.select({
+          id: geographicLocations.id,
+          name: geographicLocations.name,
+          type: geographicLocations.type,
+          parentId: geographicLocations.parentId,
+          latitude: geographicLocations.latitude,
+          longitude: geographicLocations.longitude
+        }).from(geographicLocations).where(and(
+          inArray(geographicLocations.type, ["province", "city"]),
+          isNotNull(geographicLocations.latitude),
+          isNotNull(geographicLocations.longitude)
+        ));
+        if (!locations.length) {
+          return { province: null, city: null };
+        }
+        const provinces = locations.filter((location) => location.type === "province");
+        const cities = locations.filter((location) => location.type === "city");
+        const provinceById = new Map(provinces.map((province2) => [province2.id, province2.name]));
+        const nearestProvince = provinces.reduce((closest, province2) => {
+          const distance = this.calculateDistance(latitude, longitude, province2.latitude, province2.longitude);
+          if (distance < closest.distance) return { distance, name: province2.name };
+          return closest;
+        }, { distance: Number.POSITIVE_INFINITY, name: null });
+        const nearestCity = cities.reduce((closest, city2) => {
+          const distance = this.calculateDistance(latitude, longitude, city2.latitude, city2.longitude);
+          if (distance < closest.distance) {
+            return { distance, name: city2.name, parentId: city2.parentId ?? null };
+          }
+          return closest;
+        }, { distance: Number.POSITIVE_INFINITY, name: null, parentId: null });
+        const cityThresholdKm = 180;
+        const provinceThresholdKm = 300;
+        const city = nearestCity.distance <= cityThresholdKm ? nearestCity.name : null;
+        const provinceFromCity = city && nearestCity.parentId ? provinceById.get(nearestCity.parentId) ?? null : null;
+        const provinceDirect = nearestProvince.distance <= provinceThresholdKm ? nearestProvince.name : null;
+        const province = provinceFromCity || provinceDirect;
+        return { province, city };
+      }
+      async getLeaderboard(type, limit) {
+        let query;
+        switch (type) {
+          case "weekly":
+            const weekStart = /* @__PURE__ */ new Date();
+            weekStart.setDate(weekStart.getDate() - weekStart.getDay());
+            const weekStartStr = weekStart.toISOString().split("T")[0];
+            query = db.select({
+              userId: weeklyRankings.userId,
+              points: weeklyRankings.points,
+              rank: weeklyRankings.rank,
+              user: {
+                id: users.id,
+                name: users.name,
+                username: users.username
+              }
+            }).from(weeklyRankings).innerJoin(users, eq(weeklyRankings.userId, users.id)).where(eq(weeklyRankings.weekStart, weekStartStr)).orderBy(asc(weeklyRankings.rank)).limit(limit);
+            break;
+          case "monthly":
+            const monthStart = (/* @__PURE__ */ new Date()).toISOString().substring(0, 7);
+            query = db.select({
+              userId: monthlyRankings.userId,
+              points: monthlyRankings.points,
+              rank: monthlyRankings.rank,
+              user: {
+                id: users.id,
+                name: users.name,
+                username: users.username
+              }
+            }).from(monthlyRankings).innerJoin(users, eq(monthlyRankings.userId, users.id)).where(eq(monthlyRankings.monthStart, monthStart)).orderBy(asc(monthlyRankings.rank)).limit(limit);
+            break;
+          case "global":
+          default:
+            query = db.select({
+              userId: userProgress.userId,
+              points: userProgress.points,
+              rank: userProgress.rank,
+              level: userProgress.level,
+              user: {
+                id: users.id,
+                name: users.name,
+                username: users.username
+              }
+            }).from(userProgress).innerJoin(users, eq(userProgress.userId, users.id)).orderBy(desc(userProgress.points)).limit(limit);
+            break;
+        }
+        return await query;
+      }
+      async recordAction(userId, actionType, metadata) {
+        const points = ACTION_POINTS[actionType] ?? 10;
+        const [action] = await db.insert(userActions).values({
+          userId,
+          actionType,
+          points,
+          metadata: metadata ? JSON.stringify(metadata) : null
+        }).returning();
+        await this.updateUserProgress(userId, points);
+        return action;
+      }
+      async getUserProgress(userId) {
+        const [progress] = await db.select().from(userProgress).where(eq(userProgress.userId, userId));
+        if (!progress) {
+          const [newProgress] = await db.insert(userProgress).values({
+            userId,
+            level: 1,
+            points: 0,
+            rank: "Novato",
+            totalActions: 0
+          }).returning();
+          return newProgress;
+        }
+        return progress;
+      }
+      async getAllBadges() {
+        return await db.select().from(badges).orderBy(asc(badges.orderIndex));
+      }
+      async updateUserProgress(userId, pointsToAdd) {
+        const [currentProgress] = await db.select().from(userProgress).where(eq(userProgress.userId, userId));
+        if (!currentProgress) {
+          await db.insert(userProgress).values({
+            userId,
+            level: 1,
+            points: pointsToAdd,
+            rank: "Novato",
+            totalActions: 1,
+            lastActionAt: (/* @__PURE__ */ new Date()).toISOString()
+          });
+        } else {
+          const newPoints = currentProgress.points + pointsToAdd;
+          const newLevel = Math.floor(newPoints / 500) + 1;
+          let newRank = "Novato";
+          if (newLevel >= 5) newRank = "L\xEDder del Movimiento";
+          else if (newLevel >= 4) newRank = "Agente de Cambio";
+          else if (newLevel >= 3) newRank = "Hombre Gris";
+          else if (newLevel >= 2) newRank = "Despierto";
+          await db.update(userProgress).set({
+            points: newPoints,
+            level: newLevel,
+            rank: newRank,
+            totalActions: currentProgress.totalActions + 1,
+            lastActionAt: (/* @__PURE__ */ new Date()).toISOString(),
+            updatedAt: (/* @__PURE__ */ new Date()).toISOString()
+          }).where(eq(userProgress.userId, userId));
+          if (newLevel > currentProgress.level) {
+            await this.recordAction(userId, "level_up", {
+              oldLevel: currentProgress.level,
+              newLevel,
+              oldRank: currentProgress.rank,
+              newRank
+            });
+          }
+        }
+      }
+      // ==================== NEW INITIATIVE FEATURES IMPLEMENTATIONS ====================
+      // Initiative Members
+      async getInitiativeMembers(postId) {
+        return await db.select().from(initiativeMembers).where(and(eq(initiativeMembers.postId, postId), eq(initiativeMembers.status, "active"))).orderBy(asc(initiativeMembers.joinedAt));
+      }
+      async getUserMemberships(userId) {
+        return await db.select({
+          id: initiativeMembers.id,
+          postId: initiativeMembers.postId,
+          role: initiativeMembers.role,
+          status: initiativeMembers.status,
+          joinedAt: initiativeMembers.joinedAt,
+          postTitle: communityPosts.title,
+          postType: communityPosts.type,
+          postStatus: communityPosts.status
+        }).from(initiativeMembers).innerJoin(communityPosts, eq(initiativeMembers.postId, communityPosts.id)).where(and(eq(initiativeMembers.userId, userId), eq(initiativeMembers.status, "active"))).orderBy(desc(initiativeMembers.joinedAt));
+      }
+      async addInitiativeMember(postId, userId, role) {
+        const [existing] = await db.select().from(initiativeMembers).where(and(
+          eq(initiativeMembers.postId, postId),
+          eq(initiativeMembers.userId, userId),
+          eq(initiativeMembers.status, "active")
+        )).limit(1);
+        if (existing) {
+          return existing;
+        }
+        const [member] = await db.insert(initiativeMembers).values({
+          postId,
+          userId,
+          role,
+          status: "active",
+          permissions: JSON.stringify({
+            canEdit: role === "creator",
+            canInvite: role === "creator" || role === "co-organizer",
+            canApprove: role === "creator" || role === "co-organizer",
+            canCreateMilestone: role === "creator" || role === "co-organizer" || role === "active_member",
+            canCreateTask: role === "creator" || role === "co-organizer" || role === "active_member",
+            canAssignTask: role === "creator" || role === "co-organizer",
+            canDeleteContent: role === "creator",
+            canManageRoles: role === "creator"
+          })
+        }).returning();
+        await db.update(communityPosts).set({ memberCount: sql3`${communityPosts.memberCount} + 1` }).where(eq(communityPosts.id, postId));
+        return member;
+      }
+      async updateMemberRole(memberId, role, permissions) {
+        await db.update(initiativeMembers).set({
+          role,
+          permissions: JSON.stringify(permissions)
+        }).where(eq(initiativeMembers.id, memberId));
+      }
+      async removeMember(memberId) {
+        const [member] = await db.select().from(initiativeMembers).where(eq(initiativeMembers.id, memberId));
+        if (member) {
+          await db.update(initiativeMembers).set({
+            status: "left",
+            leftAt: (/* @__PURE__ */ new Date()).toISOString()
+          }).where(eq(initiativeMembers.id, memberId));
+          await db.update(communityPosts).set({ memberCount: sql3`${communityPosts.memberCount} - 1` }).where(eq(communityPosts.id, member.postId));
+        }
+      }
+      // Membership Requests
+      async createMembershipRequest(postId, userId, message) {
+        const [existingRequest] = await db.select().from(membershipRequests).where(and(
+          eq(membershipRequests.postId, postId),
+          eq(membershipRequests.userId, userId),
+          eq(membershipRequests.status, "pending")
+        )).limit(1);
+        if (existingRequest) {
+          return existingRequest;
+        }
+        const [request] = await db.insert(membershipRequests).values({
+          postId,
+          userId,
+          message,
+          status: "pending"
+        }).returning();
+        return request;
+      }
+      async getMembershipRequests(postId, status) {
+        let query = db.select().from(membershipRequests).where(eq(membershipRequests.postId, postId));
+        if (status) {
+          query = query.where(eq(membershipRequests.status, status));
+        }
+        return await query.orderBy(desc(membershipRequests.createdAt));
+      }
+      async approveMembershipRequest(requestId, reviewerId) {
+        const [request] = await db.select().from(membershipRequests).where(eq(membershipRequests.id, requestId));
+        if (request && request.status === "pending") {
+          await this.addInitiativeMember(request.postId, request.userId, "member");
+          await db.update(membershipRequests).set({
+            status: "approved",
+            reviewedBy: reviewerId,
+            reviewedAt: (/* @__PURE__ */ new Date()).toISOString()
+          }).where(eq(membershipRequests.id, requestId));
+          await this.createActivityFeedItem({
+            type: "new_member",
+            postId: request.postId,
+            userId: request.userId,
+            title: "Nuevo miembro se uni\xF3",
+            description: `Un nuevo miembro se uni\xF3 a la iniciativa`,
+            metadata: JSON.stringify({ requestId })
+          });
+        }
+      }
+      async rejectMembershipRequest(requestId, reviewerId) {
+        await db.update(membershipRequests).set({
+          status: "rejected",
+          reviewedBy: reviewerId,
+          reviewedAt: (/* @__PURE__ */ new Date()).toISOString()
+        }).where(eq(membershipRequests.id, requestId));
+      }
+      // Milestones
+      async getInitiativeMilestones(postId) {
+        return await db.select().from(initiativeMilestones).where(eq(initiativeMilestones.postId, postId)).orderBy(asc(initiativeMilestones.orderIndex));
+      }
+      async createMilestone(postId, data) {
+        const [milestone] = await db.insert(initiativeMilestones).values({
+          ...data,
+          postId
+        }).returning();
+        await this.createActivityFeedItem({
+          type: "update",
+          postId,
+          userId: data.completedBy || 0,
+          // Will be updated when completed
+          title: "Nuevo hito creado",
+          description: `Se cre\xF3 el hito: ${data.title}`,
+          metadata: JSON.stringify({ milestoneId: milestone.id })
         });
+        return milestone;
+      }
+      async updateMilestone(milestoneId, updates) {
+        await db.update(initiativeMilestones).set({
+          ...updates,
+          updatedAt: (/* @__PURE__ */ new Date()).toISOString()
+        }).where(eq(initiativeMilestones.id, milestoneId));
+      }
+      async completeMilestone(milestoneId, userId) {
+        await db.update(initiativeMilestones).set({
+          status: "completed",
+          completedBy: userId,
+          completedAt: (/* @__PURE__ */ new Date()).toISOString(),
+          updatedAt: (/* @__PURE__ */ new Date()).toISOString()
+        }).where(eq(initiativeMilestones.id, milestoneId));
+        const [milestone] = await db.select().from(initiativeMilestones).where(eq(initiativeMilestones.id, milestoneId));
+        if (milestone) {
+          await this.createActivityFeedItem({
+            type: "milestone_completed",
+            postId: milestone.postId,
+            userId,
+            title: "Hito completado",
+            description: `Se complet\xF3 el hito: ${milestone.title}`,
+            metadata: JSON.stringify({ milestoneId })
+          });
+        }
+      }
+      // Tasks
+      async getInitiativeTasks(postId) {
+        return await db.select().from(initiativeTasks).where(eq(initiativeTasks.postId, postId)).orderBy(asc(initiativeTasks.createdAt));
+      }
+      async createTask(postId, data) {
+        const [task] = await db.insert(initiativeTasks).values({
+          ...data,
+          postId
+        }).returning();
+        await this.createActivityFeedItem({
+          type: "update",
+          postId,
+          userId: data.createdBy || 0,
+          title: "Nueva tarea creada",
+          description: `Se cre\xF3 la tarea: ${data.title}`,
+          metadata: JSON.stringify({ taskId: task.id })
+        });
+        return task;
+      }
+      async updateTask(taskId, updates) {
+        await db.update(initiativeTasks).set({
+          ...updates,
+          updatedAt: (/* @__PURE__ */ new Date()).toISOString()
+        }).where(eq(initiativeTasks.id, taskId));
+      }
+      async assignTask(taskId, userId) {
+        await db.update(initiativeTasks).set({
+          assignedTo: userId,
+          updatedAt: (/* @__PURE__ */ new Date()).toISOString()
+        }).where(eq(initiativeTasks.id, taskId));
+      }
+      async completeTask(taskId) {
+        await db.update(initiativeTasks).set({
+          status: "done",
+          completedAt: (/* @__PURE__ */ new Date()).toISOString(),
+          updatedAt: (/* @__PURE__ */ new Date()).toISOString()
+        }).where(eq(initiativeTasks.id, taskId));
+        const [task] = await db.select().from(initiativeTasks).where(eq(initiativeTasks.id, taskId));
+        if (task) {
+          await this.createActivityFeedItem({
+            type: "task_completed",
+            postId: task.postId,
+            userId: task.assignedTo || 0,
+            title: "Tarea completada",
+            description: `Se complet\xF3 la tarea: ${task.title}`,
+            metadata: JSON.stringify({ taskId })
+          });
+        }
+      }
+      async deleteTask(taskId) {
+        await db.delete(initiativeTasks).where(eq(initiativeTasks.id, taskId));
+      }
+      async deleteMilestone(milestoneId) {
+        await db.update(initiativeTasks).set({ milestoneId: null }).where(eq(initiativeTasks.milestoneId, milestoneId));
+        await db.delete(initiativeMilestones).where(eq(initiativeMilestones.id, milestoneId));
+      }
+      // Messages/Chat
+      async getInitiativeMessages(postId, limit = 50, offset = 0) {
+        return await db.select().from(initiativeMessages).where(eq(initiativeMessages.postId, postId)).orderBy(desc(initiativeMessages.createdAt)).limit(limit).offset(offset);
+      }
+      async sendMessage(postId, userId, content, type = "message") {
+        const [message] = await db.insert(initiativeMessages).values({
+          postId,
+          userId,
+          content,
+          type
+        }).returning();
+        return message;
+      }
+      // Activity Feed
+      async getActivityFeed(filters) {
+        const { type, limit = 20, offset = 0 } = filters || {};
+        let query = db.select().from(activityFeed).orderBy(desc(activityFeed.createdAt)).limit(limit).offset(offset);
+        if (type) {
+          query = query.where(eq(activityFeed.type, type));
+        }
+        return await query;
+      }
+      async createActivityFeedItem(data) {
+        const [item] = await db.insert(activityFeed).values(data).returning();
+        return item;
+      }
+      // Notifications
+      async getUserNotifications(userId, unreadOnly = false) {
+        let query = db.select().from(notifications).where(eq(notifications.userId, userId));
+        if (unreadOnly) {
+          query = query.where(eq(notifications.read, false));
+        }
+        return await query.orderBy(desc(notifications.createdAt));
+      }
+      async markNotificationAsRead(notificationId) {
+        await db.update(notifications).set({ read: true }).where(eq(notifications.id, notificationId));
+      }
+      async markAllNotificationsAsRead(userId) {
+        await db.update(notifications).set({ read: true }).where(eq(notifications.userId, userId));
+      }
+      async createNotification(userId, data) {
+        const [notification] = await db.insert(notifications).values({
+          ...data,
+          userId
+        }).returning();
+        return notification;
+      }
+      // ==================== COURSE METHODS ====================
+      // Courses
+      async getCourses(filters) {
+        const page = filters?.page || 1;
+        const limit = filters?.limit || 12;
+        const offset = (page - 1) * limit;
         try {
-          const [courseBadge] = await db.select().from(badges).where(eq(badges.name, "Estudiante Dedicado")).limit(1);
-          if (courseBadge) {
-            await this.awardBadge(attempt.userId, courseBadge.id);
+          const conditions = [eq(courses.isPublished, true)];
+          if (filters?.category) {
+            conditions.push(eq(courses.category, filters.category));
+          }
+          if (filters?.level) {
+            conditions.push(eq(courses.level, filters.level));
+          }
+          if (filters?.featured === true) {
+            conditions.push(eq(courses.isFeatured, true));
+          }
+          if (filters?.search) {
+            const searchTerm = `%${filters.search}%`;
+            conditions.push(or(
+              ilike(courses.title, searchTerm),
+              ilike(courses.description, searchTerm)
+            ));
+          }
+          const whereCondition = and(...conditions);
+          const countResult = await db.select({ count: sql3`count(*)` }).from(courses).where(whereCondition);
+          const total = Number(countResult[0]?.count || 0);
+          let orderByClause;
+          if (filters?.sortBy === "popular") {
+            orderByClause = [desc(courses.viewCount)];
+          } else if (filters?.sortBy === "recent") {
+            orderByClause = [desc(courses.createdAt)];
+          } else if (filters?.sortBy === "duration") {
+            orderByClause = [asc(courses.duration)];
+          } else {
+            orderByClause = [desc(courses.orderIndex), desc(courses.createdAt)];
+          }
+          const courseList = await db.select().from(courses).where(whereCondition).orderBy(...orderByClause).limit(limit).offset(offset);
+          return {
+            courses: courseList,
+            total,
+            page,
+            limit
+          };
+        } catch (error) {
+          console.error("[getCourses] Error:", error);
+          throw error;
+        }
+      }
+      async getCourseBySlug(slug) {
+        const [course] = await db.select().from(courses).where(eq(courses.slug, slug)).limit(1);
+        return course;
+      }
+      async getCourseWithLessons(courseId) {
+        const [course] = await db.select().from(courses).where(eq(courses.id, courseId)).limit(1);
+        if (!course) return void 0;
+        const lessonsList = await db.select().from(courseLessons).where(eq(courseLessons.courseId, courseId)).orderBy(asc(courseLessons.orderIndex));
+        return { course, lessons: lessonsList };
+      }
+      async getCourseQuiz(courseId) {
+        const [quiz] = await db.select().from(courseQuizzes).where(eq(courseQuizzes.courseId, courseId)).limit(1);
+        if (!quiz) return void 0;
+        const questionsList = await db.select().from(quizQuestions).where(eq(quizQuestions.quizId, quiz.id)).orderBy(asc(quizQuestions.orderIndex));
+        return { quiz, questions: questionsList };
+      }
+      // Course Progress
+      async getUserCourseProgress(userId, courseId) {
+        const [progress] = await db.select().from(userCourseProgress).where(
+          and(
+            eq(userCourseProgress.userId, userId),
+            eq(userCourseProgress.courseId, courseId)
+          )
+        ).limit(1);
+        return progress;
+      }
+      async startCourse(userId, courseId) {
+        const existing = await this.getUserCourseProgress(userId, courseId);
+        if (existing) {
+          return existing;
+        }
+        const [course] = await db.select().from(courses).where(eq(courses.id, courseId)).limit(1);
+        if (!course) {
+          throw new Error("Course not found");
+        }
+        const [progress] = await db.insert(userCourseProgress).values({
+          userId,
+          courseId,
+          status: "in_progress",
+          progress: 0,
+          startedAt: (/* @__PURE__ */ new Date()).toISOString(),
+          lastAccessedAt: (/* @__PURE__ */ new Date()).toISOString(),
+          completedLessons: JSON.stringify([])
+        }).returning();
+        if (!progress) {
+          throw new Error("Failed to create course progress");
+        }
+        return progress;
+      }
+      async completeLesson(userId, lessonId) {
+        const [lesson] = await db.select().from(courseLessons).where(eq(courseLessons.id, lessonId)).limit(1);
+        if (!lesson) {
+          throw new Error("Lesson not found");
+        }
+        if (!lesson.courseId) {
+          throw new Error("Lesson has no associated course");
+        }
+        const [existingLessonProgress] = await db.select().from(userLessonProgress).where(
+          and(
+            eq(userLessonProgress.userId, userId),
+            eq(userLessonProgress.lessonId, lessonId)
+          )
+        ).limit(1);
+        if (existingLessonProgress) {
+          await db.update(userLessonProgress).set({
+            status: "completed",
+            completedAt: (/* @__PURE__ */ new Date()).toISOString(),
+            updatedAt: (/* @__PURE__ */ new Date()).toISOString()
+          }).where(eq(userLessonProgress.id, existingLessonProgress.id));
+        } else {
+          await db.insert(userLessonProgress).values({
+            userId,
+            lessonId,
+            status: "completed",
+            completedAt: (/* @__PURE__ */ new Date()).toISOString()
+          });
+        }
+        const [courseProgress] = await db.select().from(userCourseProgress).where(
+          and(
+            eq(userCourseProgress.userId, userId),
+            eq(userCourseProgress.courseId, lesson.courseId)
+          )
+        ).limit(1);
+        if (!courseProgress) {
+          throw new Error("Course progress not found");
+        }
+        const allLessons = await db.select().from(courseLessons).where(eq(courseLessons.courseId, lesson.courseId)).orderBy(asc(courseLessons.orderIndex));
+        const requiredLessons = allLessons.filter((l) => l.isRequired);
+        const completedLessonsIds = JSON.parse(courseProgress.completedLessons || "[]");
+        const lessonAlreadyCompleted = completedLessonsIds.includes(lessonId);
+        if (!lessonAlreadyCompleted) {
+          completedLessonsIds.push(lessonId);
+        }
+        const completedRequired = requiredLessons.filter((l) => completedLessonsIds.includes(l.id)).length;
+        const progressPercentage = requiredLessons.length > 0 ? Math.round(completedRequired / requiredLessons.length * 100) : 0;
+        const nextLesson = allLessons.find(
+          (l) => l.orderIndex > lesson.orderIndex && !completedLessonsIds.includes(l.id)
+        );
+        const courseCompleted = requiredLessons.every((l) => completedLessonsIds.includes(l.id));
+        const courseWasCompletedBefore = courseProgress.status === "completed";
+        const [updatedProgress] = await db.update(userCourseProgress).set({
+          progress: progressPercentage,
+          status: courseCompleted ? "completed" : "in_progress",
+          currentLessonId: nextLesson?.id || null,
+          completedLessons: JSON.stringify(completedLessonsIds),
+          completedAt: courseCompleted ? (/* @__PURE__ */ new Date()).toISOString() : null,
+          lastAccessedAt: (/* @__PURE__ */ new Date()).toISOString(),
+          updatedAt: (/* @__PURE__ */ new Date()).toISOString()
+        }).where(eq(userCourseProgress.id, courseProgress.id)).returning();
+        if (!updatedProgress) {
+          throw new Error("Failed to update course progress");
+        }
+        if (!lesson.courseId) {
+          throw new Error("Lesson courseId is missing");
+        }
+        const xpAwarded = { lesson: 0, course: 0 };
+        if (!lessonAlreadyCompleted) {
+          try {
+            xpAwarded.lesson = ACTION_POINTS["lesson_complete"] ?? 0;
+            await this.recordAction(userId, "lesson_complete", {
+              lessonId,
+              courseId: lesson.courseId
+            });
+            if (courseCompleted && !courseWasCompletedBefore) {
+              xpAwarded.course = ACTION_POINTS["course_complete"] ?? 0;
+              await this.recordAction(userId, "course_complete", {
+                courseId: lesson.courseId
+              });
+            }
+          } catch (actionError) {
+            console.error("Error awarding points for lesson completion:", actionError);
+          }
+        }
+        return { progress: updatedProgress, courseCompleted, xpAwarded };
+      }
+      async updateLessonTimeSpent(userId, lessonId, seconds) {
+        const [existing] = await db.select().from(userLessonProgress).where(
+          and(
+            eq(userLessonProgress.userId, userId),
+            eq(userLessonProgress.lessonId, lessonId)
+          )
+        ).limit(1);
+        if (existing) {
+          await db.update(userLessonProgress).set({
+            timeSpent: (existing.timeSpent || 0) + seconds,
+            updatedAt: (/* @__PURE__ */ new Date()).toISOString()
+          }).where(eq(userLessonProgress.id, existing.id));
+        } else {
+          await db.insert(userLessonProgress).values({
+            userId,
+            lessonId,
+            status: "in_progress",
+            timeSpent: seconds
+          });
+        }
+        const [lesson] = await db.select().from(courseLessons).where(eq(courseLessons.id, lessonId)).limit(1);
+        if (lesson) {
+          await db.update(userCourseProgress).set({
+            lastAccessedAt: (/* @__PURE__ */ new Date()).toISOString()
+          }).where(
+            and(
+              eq(userCourseProgress.userId, userId),
+              eq(userCourseProgress.courseId, lesson.courseId)
+            )
+          );
+        }
+      }
+      async getUserLessonProgress(userId, lessonId) {
+        const [progress] = await db.select().from(userLessonProgress).where(
+          and(
+            eq(userLessonProgress.userId, userId),
+            eq(userLessonProgress.lessonId, lessonId)
+          )
+        ).limit(1);
+        return progress;
+      }
+      // Quiz
+      async createQuizAttempt(userId, quizId, courseId) {
+        const [attempt] = await db.insert(quizAttempts).values({
+          userId,
+          quizId,
+          courseId,
+          startedAt: (/* @__PURE__ */ new Date()).toISOString()
+        }).returning();
+        return attempt;
+      }
+      async submitQuizAttempt(attemptId, answers) {
+        const [attempt] = await db.select().from(quizAttempts).where(eq(quizAttempts.id, attemptId)).limit(1);
+        if (!attempt) {
+          throw new Error("Quiz attempt not found");
+        }
+        const quizData = await this.getCourseQuiz(attempt.courseId);
+        if (!quizData) {
+          throw new Error("Quiz not found");
+        }
+        const { quiz, questions } = quizData;
+        let correctAnswers = 0;
+        let totalPoints = 0;
+        let earnedPoints = 0;
+        const attemptAnswers = [];
+        for (const question of questions) {
+          totalPoints += question.points || 1;
+          const userAnswer = answers.find((a) => a.questionId === question.id);
+          const correctAnswer = JSON.parse(question.correctAnswer);
+          const isCorrect = JSON.stringify(userAnswer?.answer) === JSON.stringify(correctAnswer);
+          if (isCorrect) {
+            correctAnswers++;
+            earnedPoints += question.points || 1;
+          }
+          const [answerRecord] = await db.insert(quizAttemptAnswers).values({
+            attemptId,
+            questionId: question.id,
+            answer: JSON.stringify(userAnswer?.answer || ""),
+            isCorrect,
+            pointsEarned: isCorrect ? question.points || 1 : 0
+          }).returning();
+          attemptAnswers.push(answerRecord);
+        }
+        const score = Math.round(earnedPoints / totalPoints * 100);
+        const passed = score >= (quiz.passingScore || 70);
+        const timeSpent = attempt.startedAt ? Math.floor(((/* @__PURE__ */ new Date()).getTime() - new Date(attempt.startedAt).getTime()) / 1e3) : 0;
+        await db.update(quizAttempts).set({
+          score,
+          passed,
+          answers: JSON.stringify(answers),
+          timeSpent,
+          completedAt: (/* @__PURE__ */ new Date()).toISOString()
+        }).where(eq(quizAttempts.id, attemptId));
+        let certificateCode;
+        const xpAwarded = { quiz: 0, certificate: 0 };
+        if (passed) {
+          xpAwarded.quiz = ACTION_POINTS["quiz_passed"] ?? 0;
+          await this.recordAction(attempt.userId, "quiz_passed", {
+            quizId: attempt.quizId,
+            courseId: attempt.courseId,
+            score
+          });
+          const { certificate, created } = await this.generateCertificate(attempt.userId, attempt.courseId, score);
+          certificateCode = certificate.certificateCode;
+          if (created) {
+            xpAwarded.certificate = ACTION_POINTS["certificate_earned"] ?? 0;
+            await this.recordAction(attempt.userId, "certificate_earned", {
+              courseId: attempt.courseId,
+              certificateCode: certificate.certificateCode
+            });
+            try {
+              const [courseBadge] = await db.select().from(badges).where(eq(badges.name, "Estudiante Dedicado")).limit(1);
+              if (courseBadge) {
+                await this.awardBadge(attempt.userId, courseBadge.id);
+              }
+            } catch (error) {
+              console.log("Course completion badge not found");
+            }
+          }
+        }
+        return { score, passed, answers: attemptAnswers, certificateCode, xpAwarded };
+      }
+      async getQuizAttempt(attemptId) {
+        const [attempt] = await db.select().from(quizAttempts).where(eq(quizAttempts.id, attemptId)).limit(1);
+        return attempt;
+      }
+      async getUserQuizAttempts(userId, quizId) {
+        return await db.select().from(quizAttempts).where(
+          and(
+            eq(quizAttempts.userId, userId),
+            eq(quizAttempts.quizId, quizId)
+          )
+        ).orderBy(desc(quizAttempts.startedAt));
+      }
+      // Certificates
+      async generateCertificate(userId, courseId, quizScore) {
+        const [existing] = await db.select().from(courseCertificates).where(
+          and(
+            eq(courseCertificates.userId, userId),
+            eq(courseCertificates.courseId, courseId)
+          )
+        ).limit(1);
+        if (existing) {
+          return { certificate: existing, created: false };
+        }
+        const timestamp = Date.now();
+        const random = Math.random().toString(36).substring(2, 9);
+        const certificateCode = `${courseId}-${userId}-${timestamp}-${random}`;
+        const [certificate] = await db.insert(courseCertificates).values({
+          userId,
+          courseId,
+          certificateCode,
+          quizScore
+        }).returning();
+        try {
+          const [certificateBadge] = await db.select().from(badges).where(eq(badges.name, "Certificado de Curso")).limit(1);
+          if (certificateBadge) {
+            await this.awardBadge(userId, certificateBadge.id);
           }
         } catch (error) {
-          console.log("Course completion badge not found");
+          console.log("Certificate badge not found");
+        }
+        return { certificate, created: true };
+      }
+      async getUserCertificates(userId) {
+        return await db.select().from(courseCertificates).where(eq(courseCertificates.userId, userId)).orderBy(desc(courseCertificates.issuedAt));
+      }
+      async getUserCourses(userId) {
+        const progressList = await db.select().from(userCourseProgress).where(eq(userCourseProgress.userId, userId));
+        const result = await Promise.all(
+          progressList.map(async (progress) => {
+            const [course] = await db.select().from(courses).where(progress.courseId !== null ? eq(courses.id, progress.courseId) : void 0).limit(1);
+            return { course, progress };
+          })
+        );
+        return result.filter((item) => item.course);
+      }
+      // User Profiles
+      async getUserProfile(userId) {
+        const [profile] = await db.select().from(userProfiles).where(eq(userProfiles.userId, userId)).limit(1);
+        return profile;
+      }
+      async createUserProfile(data) {
+        const [profile] = await db.insert(userProfiles).values(data).returning();
+        return profile;
+      }
+      async updateUserProfile(userId, updates) {
+        const [profile] = await db.update(userProfiles).set(updates).where(eq(userProfiles.userId, userId)).returning();
+        return profile;
+      }
+    };
+    storage = new DatabaseStorage();
+  }
+});
+
+// server/mandate-service.ts
+var mandate_service_exports = {};
+__export(mandate_service_exports, {
+  generateAndSaveMandate: () => generateAndSaveMandate,
+  generateMandate: () => generateMandate
+});
+import Anthropic from "@anthropic-ai/sdk";
+async function generateMandate(territoryLevel, territoryName, province, city) {
+  const [dreams2, commitmentsRes, resources2] = await Promise.all([
+    storage.getDreams(),
+    fetchCommitments(),
+    storage.getUserResources()
+  ]);
+  const territoryDreams = filterByTerritory(dreams2, territoryName, territoryLevel);
+  const territoryResources = filterResourcesByTerritory(resources2, territoryName, territoryLevel);
+  const localAnalysis = analyzeLocally(territoryDreams, territoryResources);
+  const apiKey = process.env.ANTHROPIC_API_KEY;
+  if (apiKey && localAnalysis.voiceCount >= 3) {
+    try {
+      return await synthesizeWithAI(apiKey, territoryName, territoryLevel, localAnalysis);
+    } catch (error) {
+      console.error("AI synthesis failed, falling back to local analysis:", error);
+      return localAnalysis;
+    }
+  }
+  return localAnalysis;
+}
+async function fetchCommitments() {
+  try {
+    const db2 = await Promise.resolve().then(() => (init_db(), db_exports));
+    const schema = await Promise.resolve().then(() => (init_schema(), schema_exports));
+    const { desc: desc8 } = await import("drizzle-orm");
+    const commitments = await db2.db.select().from(schema.userCommitments).orderBy(desc8(schema.userCommitments.createdAt));
+    return commitments;
+  } catch {
+    return [];
+  }
+}
+function filterByTerritory(items, territoryName, level) {
+  if (level === "national") return items;
+  return items.filter((item) => {
+    const loc = (item.location || "").toLowerCase();
+    const name = territoryName.toLowerCase();
+    return loc.includes(name);
+  });
+}
+function filterResourcesByTerritory(resources2, territoryName, level) {
+  if (level === "national") return resources2;
+  return resources2.filter((r) => {
+    const loc = [r.city, r.province, r.location].filter(Boolean).join(" ").toLowerCase();
+    return loc.includes(territoryName.toLowerCase());
+  });
+}
+function analyzeLocally(dreams2, resources2) {
+  const THEME_KEYWORDS = {
+    systemic: ["transformacion", "cambio", "revolucion", "reforma", "sistema", "estructura"],
+    values: ["transparencia", "justicia", "equidad", "dignidad", "respeto", "honestidad", "solidaridad"],
+    action: ["accion", "participacion", "movilizacion", "liderazgo", "iniciativa", "compromiso"],
+    development: ["educacion", "formacion", "capacitacion", "aprendizaje", "conocimiento", "desarrollo"],
+    justice: ["derechos", "libertad", "democracia", "acceso", "oportunidad", "proteccion"],
+    economy: ["trabajo", "empleo", "economia", "produccion", "salario", "inversion"],
+    health: ["salud", "cuidado", "atencion", "prevencion", "tratamiento", "vida"],
+    community: ["comunidad", "pueblo", "sociedad", "colectivo", "ciudadania", "barrio", "territorio"],
+    future: ["futuro", "vision", "horizonte", "esperanza", "sueno", "meta", "proposito"]
+  };
+  const normalize = (w) => w.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z]/g, "");
+  const themeHits = {};
+  for (const tk of Object.keys(THEME_KEYWORDS)) {
+    themeHits[tk] = { count: 0, quotes: [] };
+  }
+  let voiceCount = 0;
+  const types = ["need", "basta", "dream", "value"];
+  dreams2.forEach((entry) => {
+    for (const type of types) {
+      const text2 = entry[type];
+      if (!text2) continue;
+      voiceCount++;
+      const words = text2.split(/\s+/).map(normalize).filter((w) => w.length > 3);
+      for (const tk of Object.keys(THEME_KEYWORDS)) {
+        const matched = words.some(
+          (w) => THEME_KEYWORDS[tk].some((kw) => w.includes(kw) || kw.includes(w))
+        );
+        if (matched) {
+          themeHits[tk].count++;
+          if (themeHits[tk].quotes.length < 3) {
+            themeHits[tk].quotes.push(text2.length > 120 ? text2.slice(0, 120) + "\u2026" : text2);
+          }
         }
       }
     }
-    return { score, passed, answers: attemptAnswers, certificateCode, xpAwarded };
+  });
+  const priorities = Object.entries(themeHits).filter(([, v]) => v.count > 0).sort(([, a], [, b]) => b.count - a.count).slice(0, 5).map(([theme, data], i) => ({
+    rank: i + 1,
+    theme: THEME_LABELS[theme] || theme,
+    description: `${data.count} declaraciones convergen en ${THEME_LABELS[theme] || theme}`,
+    convergencePercent: voiceCount > 0 ? Math.round(data.count / voiceCount * 100) : 0,
+    voiceCount: data.count,
+    sampleQuotes: data.quotes
+  }));
+  const resCats = {};
+  resources2.forEach((r) => {
+    const cat = r.category || "other";
+    resCats[cat] = (resCats[cat] || 0) + 1;
+  });
+  const resourceCategories = Object.entries(resCats).map(([category, count]) => ({
+    category: RESOURCE_CATEGORY_LABELS[category] || category,
+    count,
+    description: `${count} persona(s) con capacidad en ${RESOURCE_CATEGORY_LABELS[category] || category}`
+  })).sort((a, b) => b.count - a.count);
+  const RESOURCE_THEME_MAP = {
+    legal: ["justice", "systemic"],
+    medical: ["health"],
+    education: ["development", "future"],
+    tech: ["systemic", "action", "economy"],
+    construction: ["community", "economy"],
+    agriculture: ["economy", "health"],
+    communication: ["action", "values", "community"],
+    admin: ["systemic", "economy"],
+    transport: ["community", "economy"],
+    space: ["community", "action"],
+    equipment: ["economy", "action"]
+  };
+  const resourceThemeCounts = {};
+  resources2.forEach((r) => {
+    const themes = RESOURCE_THEME_MAP[r.category] || [];
+    themes.forEach((t) => {
+      resourceThemeCounts[t] = (resourceThemeCounts[t] || 0) + 1;
+    });
+  });
+  const gaps = Object.entries(themeHits).map(([theme, data]) => ({
+    theme: THEME_LABELS[theme] || theme,
+    needCount: data.count,
+    resourceCount: resourceThemeCounts[theme] || 0,
+    gap: data.count - (resourceThemeCounts[theme] || 0),
+    urgency: data.count - (resourceThemeCounts[theme] || 0) > 5 ? "critical" : data.count - (resourceThemeCounts[theme] || 0) > 2 ? "high" : "medium"
+  })).filter((g) => g.gap > 0).sort((a, b) => b.gap - a.gap).slice(0, 5);
+  const suggestedActions = gaps.slice(0, 3).map((gap) => ({
+    title: `Programa de ${gap.theme}`,
+    description: `${gap.needCount} personas expresaron necesidad en ${gap.theme}. ${gap.resourceCount > 0 ? `Hay ${gap.resourceCount} recursos disponibles.` : "Se necesitan recursos externos."}`,
+    needsAddressed: gap.theme,
+    resourcesRequired: gap.resourceCount > 0 ? "Parcialmente cubiertos" : "Se requiere movilizaci\xF3n",
+    estimatedImpact: `Impacto directo en ${gap.needCount} personas`
+  }));
+  const topPriority = priorities[0]?.theme || "Sin datos suficientes";
+  const rawSummary = voiceCount > 0 ? `Mandato basado en ${voiceCount} declaraciones. Prioridad #1: ${topPriority}. ${resources2.length} recursos declarados. ${gaps.length} brechas identificadas.` : "A\xFAn no hay suficientes datos para generar un mandato. Se necesitan m\xE1s declaraciones en el mapa.";
+  const convergenceScore = priorities.length > 0 ? Math.round(priorities.reduce((sum, p) => sum + p.convergencePercent, 0) / priorities.length) : 0;
+  return {
+    diagnosis: { priorities },
+    availableResources: { categories: resourceCategories, totalVolunteers: resources2.length },
+    gaps: { critical: gaps },
+    suggestedActions: { actions: suggestedActions },
+    rawSummary,
+    convergenceScore,
+    voiceCount
+  };
+}
+async function synthesizeWithAI(apiKey, territoryName, territoryLevel, localAnalysis) {
+  const client = new Anthropic({ apiKey });
+  const prompt = `Eres el sintetizador del Mandato Vivo \u2014 un sistema que traduce la voz colectiva del pueblo en mandatos accionables. No interpretas, no opinas, no agregas ideolog\xEDa. Solo ARTICUL\xC1S lo que los datos dicen.
+
+TERRITORIO: ${territoryName} (nivel: ${territoryLevel})
+DATOS RECOPILADOS: ${localAnalysis.voiceCount} declaraciones, ${localAnalysis.availableResources.totalVolunteers} recursos declarados.
+
+DIAGN\xD3STICO LOCAL:
+${JSON.stringify(localAnalysis.diagnosis.priorities, null, 2)}
+
+RECURSOS DISPONIBLES:
+${JSON.stringify(localAnalysis.availableResources.categories, null, 2)}
+
+BRECHAS IDENTIFICADAS:
+${JSON.stringify(localAnalysis.gaps.critical, null, 2)}
+
+Genera un RESUMEN EJECUTIVO del mandato en espa\xF1ol rioplatense (m\xE1ximo 300 palabras) que incluya:
+1. Las top 3 prioridades con evidencia de convergencia
+2. Los recursos disponibles y qu\xE9 pueden cubrir
+3. Las brechas cr\xEDticas que requieren acci\xF3n
+4. 2-3 acciones concretas sugeridas que conecten necesidades con recursos disponibles
+
+El tono debe ser: directo, basado en datos, sin ret\xF3rica vac\xEDa. Como un informe de inteligencia que un coordinador territorial pueda usar para actuar HOY.`;
+  const response = await client.messages.create({
+    model: "claude-haiku-4-5-20251001",
+    max_tokens: 1024,
+    messages: [{ role: "user", content: prompt }]
+  });
+  const aiSummary = response.content[0].type === "text" ? response.content[0].text : localAnalysis.rawSummary;
+  return {
+    ...localAnalysis,
+    rawSummary: aiSummary
+  };
+}
+async function generateAndSaveMandate(territoryLevel, territoryName, province, city) {
+  const mandate = await generateMandate(territoryLevel, territoryName, province, city);
+  const existing = await storage.getMandateByTerritory(territoryLevel, territoryName);
+  if (existing) {
+    const updated = await storage.updateMandate(existing.id, {
+      version: (existing.version || 0) + 1,
+      voiceCount: mandate.voiceCount,
+      convergenceScore: mandate.convergenceScore,
+      diagnosis: JSON.stringify(mandate.diagnosis),
+      availableResources: JSON.stringify(mandate.availableResources),
+      gaps: JSON.stringify(mandate.gaps),
+      suggestedActions: JSON.stringify(mandate.suggestedActions),
+      rawSummary: mandate.rawSummary,
+      generatedAt: (/* @__PURE__ */ new Date()).toISOString()
+    });
+    return { mandate: updated, generated: mandate };
   }
-  async getQuizAttempt(attemptId) {
-    const [attempt] = await db.select().from(quizAttempts).where(eq(quizAttempts.id, attemptId)).limit(1);
-    return attempt;
+  const created = await storage.createMandate({
+    territoryLevel,
+    territoryName,
+    province: province || null,
+    city: city || null,
+    voiceCount: mandate.voiceCount,
+    convergenceScore: mandate.convergenceScore,
+    diagnosis: JSON.stringify(mandate.diagnosis),
+    availableResources: JSON.stringify(mandate.availableResources),
+    gaps: JSON.stringify(mandate.gaps),
+    suggestedActions: JSON.stringify(mandate.suggestedActions),
+    rawSummary: mandate.rawSummary,
+    status: "draft"
+  });
+  return { mandate: created, generated: mandate };
+}
+var THEME_LABELS, RESOURCE_CATEGORY_LABELS;
+var init_mandate_service = __esm({
+  "server/mandate-service.ts"() {
+    "use strict";
+    init_storage();
+    THEME_LABELS = {
+      systemic: "Transformaci\xF3n Sist\xE9mica",
+      values: "Valores Fundamentales",
+      action: "Acci\xF3n y Agencia",
+      development: "Desarrollo Humano",
+      justice: "Justicia y Derechos",
+      economy: "Econom\xEDa y Recursos",
+      health: "Salud y Vida",
+      community: "Comunidad y Colectivo",
+      future: "Futuro y Visi\xF3n"
+    };
+    RESOURCE_CATEGORY_LABELS = {
+      legal: "Legal",
+      medical: "Salud",
+      education: "Educaci\xF3n",
+      tech: "Tecnolog\xEDa",
+      construction: "Construcci\xF3n",
+      agriculture: "Agricultura",
+      communication: "Comunicaci\xF3n",
+      admin: "Administraci\xF3n",
+      transport: "Transporte",
+      space: "Espacio F\xEDsico",
+      equipment: "Equipamiento",
+      other: "Otros"
+    };
   }
-  async getUserQuizAttempts(userId, quizId) {
-    return await db.select().from(quizAttempts).where(
-      and(
-        eq(quizAttempts.userId, userId),
-        eq(quizAttempts.quizId, quizId)
-      )
-    ).orderBy(desc(quizAttempts.startedAt));
-  }
-  // Certificates
-  async generateCertificate(userId, courseId, quizScore) {
-    const [existing] = await db.select().from(courseCertificates).where(
-      and(
-        eq(courseCertificates.userId, userId),
-        eq(courseCertificates.courseId, courseId)
-      )
-    ).limit(1);
-    if (existing) {
-      return { certificate: existing, created: false };
-    }
-    const timestamp = Date.now();
-    const random = Math.random().toString(36).substring(2, 9);
-    const certificateCode = `${courseId}-${userId}-${timestamp}-${random}`;
-    const [certificate] = await db.insert(courseCertificates).values({
-      userId,
-      courseId,
-      certificateCode,
-      quizScore
-    }).returning();
-    try {
-      const [certificateBadge] = await db.select().from(badges).where(eq(badges.name, "Certificado de Curso")).limit(1);
-      if (certificateBadge) {
-        await this.awardBadge(userId, certificateBadge.id);
+});
+
+// server/matchmaker-service.ts
+var matchmaker_service_exports = {};
+__export(matchmaker_service_exports, {
+  scanAndSaveSuggestions: () => scanAndSaveSuggestions,
+  scanForMatches: () => scanForMatches
+});
+async function scanForMatches(minNeeds = 2, minResources = 1) {
+  const [dreams2, resources2] = await Promise.all([
+    storage.getDreams(),
+    storage.getUserResources()
+  ]);
+  const THEME_KEYWORDS = {
+    systemic: ["transformacion", "cambio", "revolucion", "reforma", "sistema"],
+    values: ["transparencia", "justicia", "equidad", "dignidad", "respeto", "solidaridad"],
+    action: ["accion", "participacion", "movilizacion", "liderazgo", "iniciativa"],
+    development: ["educacion", "formacion", "capacitacion", "aprendizaje", "desarrollo"],
+    justice: ["derechos", "libertad", "democracia", "acceso", "oportunidad"],
+    economy: ["trabajo", "empleo", "economia", "produccion", "salario"],
+    health: ["salud", "cuidado", "atencion", "prevencion", "tratamiento"],
+    community: ["comunidad", "pueblo", "sociedad", "colectivo", "barrio", "territorio"],
+    future: ["futuro", "vision", "horizonte", "esperanza", "sueno", "meta"]
+  };
+  const normalize = (w) => w.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z]/g, "");
+  const needsByLocTheme = {};
+  dreams2.forEach((entry) => {
+    const loc = entry.location || "Sin ubicaci\xF3n";
+    if (loc === "Sin ubicaci\xF3n") return;
+    for (const type of ["need", "basta"]) {
+      const text2 = entry[type];
+      if (!text2) continue;
+      const words = text2.split(/\s+/).map(normalize).filter((w) => w.length > 3);
+      for (const [theme, keywords] of Object.entries(THEME_KEYWORDS)) {
+        if (words.some((w) => keywords.some((kw) => w.includes(kw) || kw.includes(w)))) {
+          if (!needsByLocTheme[loc]) needsByLocTheme[loc] = {};
+          needsByLocTheme[loc][theme] = (needsByLocTheme[loc][theme] || 0) + 1;
+        }
       }
-    } catch (error) {
-      console.log("Certificate badge not found");
     }
-    return { certificate, created: true };
+  });
+  const resourcesByLocCat = {};
+  resources2.forEach((r) => {
+    const loc = [r.city, r.province].filter(Boolean).join(", ") || r.location || "Sin ubicaci\xF3n";
+    if (loc === "Sin ubicaci\xF3n") return;
+    if (!resourcesByLocCat[loc]) resourcesByLocCat[loc] = {};
+    const cat = r.category || "other";
+    resourcesByLocCat[loc][cat] = (resourcesByLocCat[loc][cat] || 0) + 1;
+  });
+  const matches = [];
+  for (const [loc, themes] of Object.entries(needsByLocTheme)) {
+    const locResources = resourcesByLocCat[loc] || {};
+    for (const [theme, needCount] of Object.entries(themes)) {
+      if (needCount < minNeeds) continue;
+      const matchingCategories = THEME_RESOURCE_MATCHES[theme] || [];
+      for (const cat of matchingCategories) {
+        const resourceCount = locResources[cat] || 0;
+        if (resourceCount < minResources) continue;
+        const template = ACTION_TEMPLATES[theme]?.[cat] || DEFAULT_TEMPLATE;
+        matches.push({
+          territoryName: loc,
+          needTheme: theme,
+          needThemeLabel: THEME_LABELS2[theme] || theme,
+          needCount,
+          resourceCategory: cat,
+          resourceCategoryLabel: RESOURCE_LABELS[cat] || cat,
+          resourceCount,
+          suggestedAction: template.action,
+          precedent: template.precedent
+        });
+      }
+    }
   }
-  async getUserCertificates(userId) {
-    return await db.select().from(courseCertificates).where(eq(courseCertificates.userId, userId)).orderBy(desc(courseCertificates.issuedAt));
+  matches.sort((a, b) => b.needCount + b.resourceCount - (a.needCount + a.resourceCount));
+  return matches;
+}
+async function scanAndSaveSuggestions(mandateId) {
+  const matches = await scanForMatches();
+  const saved = [];
+  for (const match of matches.slice(0, 10)) {
+    const suggestion = await storage.createSuggestion({
+      mandateId: mandateId || null,
+      territoryName: match.territoryName,
+      needCategory: match.needTheme,
+      needCount: match.needCount,
+      resourceCount: match.resourceCount,
+      suggestedAction: `${match.suggestedAction}
+
+${match.needCount} personas necesitan ${match.needThemeLabel}. ${match.resourceCount} personas con capacidad en ${match.resourceCategoryLabel} est\xE1n disponibles.`,
+      precedent: match.precedent,
+      status: "suggested"
+    });
+    saved.push({ suggestion, match });
   }
-  async getUserCourses(userId) {
-    const progressList = await db.select().from(userCourseProgress).where(eq(userCourseProgress.userId, userId));
-    const result = await Promise.all(
-      progressList.map(async (progress) => {
-        const [course] = await db.select().from(courses).where(progress.courseId !== null ? eq(courses.id, progress.courseId) : void 0).limit(1);
-        return { course, progress };
-      })
-    );
-    return result.filter((item) => item.course);
+  return saved;
+}
+var THEME_LABELS2, RESOURCE_LABELS, THEME_RESOURCE_MATCHES, ACTION_TEMPLATES, DEFAULT_TEMPLATE;
+var init_matchmaker_service = __esm({
+  "server/matchmaker-service.ts"() {
+    "use strict";
+    init_storage();
+    THEME_LABELS2 = {
+      systemic: "Transformaci\xF3n Sist\xE9mica",
+      values: "Valores Fundamentales",
+      action: "Acci\xF3n y Agencia",
+      development: "Desarrollo Humano",
+      justice: "Justicia y Derechos",
+      economy: "Econom\xEDa y Recursos",
+      health: "Salud y Vida",
+      community: "Comunidad y Colectivo",
+      future: "Futuro y Visi\xF3n"
+    };
+    RESOURCE_LABELS = {
+      legal: "Legal",
+      medical: "Salud",
+      education: "Educaci\xF3n",
+      tech: "Tecnolog\xEDa",
+      construction: "Construcci\xF3n",
+      agriculture: "Agricultura",
+      communication: "Comunicaci\xF3n",
+      admin: "Administraci\xF3n",
+      transport: "Transporte",
+      space: "Espacio F\xEDsico",
+      equipment: "Equipamiento",
+      other: "Otros"
+    };
+    THEME_RESOURCE_MATCHES = {
+      health: ["medical"],
+      development: ["education"],
+      justice: ["legal"],
+      economy: ["tech", "agriculture", "construction", "admin"],
+      community: ["space", "communication", "transport"],
+      action: ["communication", "tech", "space"],
+      systemic: ["legal", "tech", "admin"],
+      values: ["education", "communication"],
+      future: ["education", "tech"]
+    };
+    ACTION_TEMPLATES = {
+      health: {
+        medical: {
+          action: "Red de Atenci\xF3n Comunitaria: jornadas de salud gratuitas con profesionales voluntarios",
+          precedent: "En Rosario, 15 m\xE9dicos voluntarios atienden a 200 familias por mes en centros comunitarios"
+        }
+      },
+      development: {
+        education: {
+          action: "Red de Tutor\xEDas Barriales: docentes voluntarios ofrecen apoyo escolar en espacios comunitarios",
+          precedent: "En La Matanza, una red de 30 docentes ayud\xF3 a 500 chicos a mejorar rendimiento escolar en 6 meses"
+        }
+      },
+      justice: {
+        legal: {
+          action: "Consultorio Jur\xEDdico Popular: asesoramiento legal gratuito semanal para el barrio",
+          precedent: "En C\xF3rdoba, 10 abogados voluntarios resolvieron 150 casos de vivienda en un a\xF1o"
+        }
+      },
+      economy: {
+        tech: {
+          action: "Hub de Emprendedores Digitales: capacitaci\xF3n tecnol\xF3gica para generar ingresos",
+          precedent: "En Mendoza, un hub digital capacit\xF3 a 80 personas que generaron emprendimientos en 4 meses"
+        },
+        agriculture: {
+          action: "Red de Huertas Comunitarias: producci\xF3n local de alimentos con asistencia t\xE9cnica",
+          precedent: "En Tucum\xE1n, 20 huertas comunitarias alimentan a 300 familias y generan excedente para ferias"
+        }
+      },
+      community: {
+        space: {
+          action: "Centro de Encuentro Barrial: espacio abierto para reuniones, talleres y coordinaci\xF3n vecinal",
+          precedent: "En San Mart\xEDn, un vecino cedi\xF3 su garaje y ahora funciona como centro comunitario con 100 asistentes semanales"
+        },
+        communication: {
+          action: "Medio Comunitario Digital: canal de comunicaci\xF3n barrial para coordinar acciones y difundir logros",
+          precedent: "En Quilmes, un grupo de WhatsApp barrial evolucion\xF3 a un medio digital con 2,000 seguidores"
+        }
+      }
+    };
+    DEFAULT_TEMPLATE = {
+      action: "Programa de acci\xF3n coordinada conectando necesidades con recursos disponibles en el territorio",
+      precedent: "M\xFAltiples experiencias en Argentina demuestran que la organizaci\xF3n vecinal multiplica el impacto"
+    };
   }
-  // User Profiles
-  async getUserProfile(userId) {
-    const [profile] = await db.select().from(userProfiles).where(eq(userProfiles.userId, userId)).limit(1);
-    return profile;
-  }
-  async createUserProfile(data) {
-    const [profile] = await db.insert(userProfiles).values(data).returning();
-    return profile;
-  }
-  async updateUserProfile(userId, updates) {
-    const [profile] = await db.update(userProfiles).set(updates).where(eq(userProfiles.userId, userId)).returning();
-    return profile;
-  }
-};
-var storage = new DatabaseStorage();
+});
+
+// server/vercel-handler.ts
+import express from "express";
+
+// server/routes.ts
+init_storage();
+import { createServer } from "http";
 
 // server/routes-advanced-auth.ts
+init_storage();
+init_auth();
 import { Router } from "express";
 import crypto3 from "crypto";
-init_auth();
 
 // server/email.ts
 import nodemailer from "nodemailer";
@@ -7401,8 +8082,10 @@ router.post("/2fa/disable", authenticateToken, async (req, res) => {
 var routes_advanced_auth_default = router;
 
 // server/routes-initiatives.ts
-import { z as z2 } from "zod";
+init_storage();
 init_auth();
+init_schema();
+import { z as z2 } from "zod";
 function parseId(value) {
   const id = Number.parseInt(value, 10);
   return Number.isNaN(id) ? null : id;
@@ -7484,6 +8167,21 @@ function registerInitiativeRoutes(app2) {
           return res.status(400).json({ message: "Invalid assignedTo user ID" });
         }
         await storage.assignTask(taskId, assignedTo);
+        try {
+          const postId = parseId(req.params.postId);
+          if (postId) {
+            const post = await storage.getCommunityPostWithDetails(postId);
+            await storage.createNotification(assignedTo, {
+              type: "task_assigned",
+              title: "Tarea asignada",
+              content: `Te asignaron una tarea en "${post?.title || "una iniciativa"}"`,
+              postId,
+              userId: assignedTo,
+              targetId: taskId
+            });
+          }
+        } catch (_) {
+        }
         res.json({ message: "Task assigned" });
       } catch (error) {
         res.status(500).json({ message: "Failed to assign task" });
@@ -7493,7 +8191,10 @@ function registerInitiativeRoutes(app2) {
 }
 
 // server/routes-courses.ts
+init_storage();
 init_auth();
+init_schema();
+init_db();
 import { eq as eq2 } from "drizzle-orm";
 function registerCourseRoutes(app2) {
   app2.get("/api/courses", optionalAuth, async (req, res) => {
@@ -7843,6 +8544,8 @@ function registerCourseRoutes(app2) {
 
 // server/routes-life-areas.ts
 init_auth();
+init_db();
+init_schema();
 import { eq as eq3, and as and2, desc as desc2, sql as sql4, gte as gte2 } from "drizzle-orm";
 import { randomUUID } from "crypto";
 var SCORE_MAPPING = {
@@ -9559,6 +10262,8 @@ function registerLifeAreasRoutes(app2) {
 }
 
 // server/routes-civic-assessment.ts
+init_db();
+init_schema();
 init_auth();
 import { eq as eq5, desc as desc4, and as and3 } from "drizzle-orm";
 
@@ -10093,6 +10798,8 @@ var ASSESSMENT_QUESTIONS = [
 ];
 
 // server/services/civic-profile-service.ts
+init_db();
+init_schema();
 import { eq as eq4, desc as desc3 } from "drizzle-orm";
 function findQuestion(questionKey) {
   return ASSESSMENT_QUESTIONS.find((q) => q.key === questionKey);
@@ -10513,6 +11220,8 @@ function registerCivicAssessmentRoutes(app2) {
 }
 
 // server/routes-goals.ts
+init_db();
+init_schema();
 init_auth();
 import { eq as eq6, desc as desc5, and as and4 } from "drizzle-orm";
 function registerGoalRoutes(app2) {
@@ -10647,10 +11356,14 @@ function registerGoalRoutes(app2) {
 }
 
 // server/routes-coaching.ts
+init_db();
+init_schema();
 init_auth();
 import { eq as eq8, desc as desc7, and as and6 } from "drizzle-orm";
 
 // server/services/coaching-service.ts
+init_db();
+init_schema();
 init_config();
 import { eq as eq7, desc as desc6, and as and5, isNull } from "drizzle-orm";
 
@@ -10796,8 +11509,8 @@ var MockCoachingProvider = class {
 };
 var ClaudeCoachingProvider = class {
   async generateResponse(messages, sessionType, context) {
-    const Anthropic = (await import("@anthropic-ai/sdk")).default;
-    const client = new Anthropic({ apiKey: config.ai.anthropicApiKey });
+    const Anthropic2 = (await import("@anthropic-ai/sdk")).default;
+    const client = new Anthropic2({ apiKey: config.ai.anthropicApiKey });
     const systemPrompt = this.buildSystemPrompt(sessionType, context);
     const apiMessages = messages.filter((m) => m.role !== "system").map((m) => ({
       role: m.role,
@@ -11028,7 +11741,361 @@ function registerCoachingRoutes(app2) {
   });
 }
 
+// server/routes-open-data.ts
+init_db();
+init_schema();
+import { eq as eq9, and as and7, isNull as isNull2, or as or2, sql as sql6 } from "drizzle-orm";
+import rateLimit from "express-rate-limit";
+import { stringify } from "csv-stringify/sync";
+import initSqlJs from "sql.js";
+import archiver from "archiver";
+import { PassThrough } from "stream";
+import { readFileSync } from "fs";
+import { createRequire } from "module";
+var cache = /* @__PURE__ */ new Map();
+var CACHE_TTL = 60 * 60 * 1e3;
+function isCacheFresh(key) {
+  const entry = cache.get(key);
+  if (!entry) return false;
+  return Date.now() - entry.generatedAt.getTime() < CACHE_TTL;
+}
+var openDataRateLimit = rateLimit({
+  windowMs: 15 * 60 * 1e3,
+  max: 5,
+  message: { error: "Demasiadas descargas. Intent\xE1 nuevamente en 15 minutos." },
+  standardHeaders: true,
+  legacyHeaders: false
+});
+async function queryDreams() {
+  const rows = await db.select({
+    dream: dreams.dream,
+    value: dreams.value,
+    need: dreams.need,
+    basta: dreams.basta,
+    type: dreams.type,
+    location: dreams.location,
+    latitude: dreams.latitude,
+    longitude: dreams.longitude,
+    createdAt: dreams.createdAt
+  }).from(dreams).leftJoin(users, eq9(dreams.userId, users.id)).where(
+    or2(
+      isNull2(dreams.userId),
+      isNull2(users.dataShareOptOut),
+      eq9(users.dataShareOptOut, false)
+    )
+  );
+  return rows.map((r, i) => ({ exportId: i + 1, ...r }));
+}
+async function queryCommitments() {
+  const rows = await db.select({
+    commitmentText: userCommitments.commitmentText,
+    commitmentType: userCommitments.commitmentType,
+    province: userCommitments.province,
+    city: userCommitments.city,
+    latitude: userCommitments.latitude,
+    longitude: userCommitments.longitude,
+    createdAt: userCommitments.createdAt
+  }).from(userCommitments).leftJoin(users, eq9(userCommitments.userId, users.id)).where(
+    or2(
+      isNull2(userCommitments.userId),
+      isNull2(users.dataShareOptOut),
+      eq9(users.dataShareOptOut, false)
+    )
+  );
+  return rows.map((r, i) => ({ exportId: i + 1, ...r }));
+}
+async function queryResources() {
+  const rows = await db.select({
+    description: userResources.description,
+    category: userResources.category,
+    availableHours: userResources.availableHours,
+    latitude: userResources.latitude,
+    longitude: userResources.longitude,
+    location: userResources.location,
+    province: userResources.province,
+    city: userResources.city,
+    isActive: userResources.isActive,
+    createdAt: userResources.createdAt
+  }).from(userResources).leftJoin(users, eq9(userResources.userId, users.id)).where(
+    and7(
+      eq9(userResources.isActive, true),
+      or2(
+        isNull2(userResources.userId),
+        isNull2(users.dataShareOptOut),
+        eq9(users.dataShareOptOut, false)
+      )
+    )
+  );
+  return rows.map((r, i) => ({ exportId: i + 1, ...r }));
+}
+async function fetchAllData() {
+  const [dreamsData, commitmentsData, resourcesData] = await Promise.all([
+    queryDreams(),
+    queryCommitments(),
+    queryResources()
+  ]);
+  return { dreams: dreamsData, commitments: commitmentsData, resources: resourcesData };
+}
+function dateStamp() {
+  return (/* @__PURE__ */ new Date()).toISOString().slice(0, 10);
+}
+async function generateJSON(data) {
+  const payload = {
+    metadata: {
+      exportedAt: (/* @__PURE__ */ new Date()).toISOString(),
+      version: "1.0",
+      source: "El Instante del Hombre Gris \u2014 Datos Abiertos",
+      license: "CC BY 4.0",
+      description: "Datos an\xF3nimos del mapa colectivo: sue\xF1os, compromisos y recursos declarados por la comunidad.",
+      recordCounts: {
+        dreams: data.dreams.length,
+        commitments: data.commitments.length,
+        resources: data.resources.length
+      }
+    },
+    suenos: data.dreams,
+    compromisos: data.commitments,
+    recursos: data.resources
+  };
+  return Buffer.from(JSON.stringify(payload, null, 2), "utf-8");
+}
+async function generateCSV(data) {
+  const dreamsCSV = stringify(data.dreams, { header: true });
+  const commitmentsCSV = stringify(data.commitments, { header: true });
+  const resourcesCSV = stringify(data.resources, { header: true });
+  const readme = `DATOS ABIERTOS \u2014 El Instante del Hombre Gris
+=============================================
+Exportado: ${(/* @__PURE__ */ new Date()).toISOString()}
+Licencia: CC BY 4.0
+
+Archivos incluidos:
+- suenos.csv: Sue\xF1os, valores, necesidades y declaraciones \xA1Basta! (${data.dreams.length} registros)
+- compromisos.csv: Compromisos p\xFAblicos de la comunidad (${data.commitments.length} registros)
+- recursos.csv: Recursos declarados \u2014 habilidades, tiempo, espacios (${data.resources.length} registros)
+
+Todos los datos son an\xF3nimos. No contienen identificadores de usuario.
+Los usuarios pueden excluir sus datos desde su perfil.
+`;
+  return new Promise((resolve, reject) => {
+    const chunks = [];
+    const passthrough = new PassThrough();
+    passthrough.on("data", (chunk) => chunks.push(chunk));
+    passthrough.on("end", () => resolve(Buffer.concat(chunks)));
+    passthrough.on("error", reject);
+    const archive = archiver("zip", { zlib: { level: 9 } });
+    archive.on("error", reject);
+    archive.pipe(passthrough);
+    archive.append(dreamsCSV, { name: "suenos.csv" });
+    archive.append(commitmentsCSV, { name: "compromisos.csv" });
+    archive.append(resourcesCSV, { name: "recursos.csv" });
+    archive.append(readme, { name: "README.txt" });
+    archive.finalize();
+  });
+}
+async function generateSQLite(data) {
+  const require2 = createRequire(import.meta.url);
+  const wasmPath = require2.resolve("sql.js/dist/sql-wasm.wasm");
+  const wasmBuffer = readFileSync(wasmPath);
+  const wasmBinary = new Uint8Array(wasmBuffer).buffer;
+  const SQL = await initSqlJs({ wasmBinary });
+  const sqliteDb = new SQL.Database();
+  sqliteDb.run(`CREATE TABLE suenos (
+    export_id INTEGER PRIMARY KEY,
+    dream TEXT,
+    value TEXT,
+    need TEXT,
+    basta TEXT,
+    type TEXT,
+    location TEXT,
+    latitude TEXT,
+    longitude TEXT,
+    created_at TEXT
+  )`);
+  sqliteDb.run(`CREATE TABLE compromisos (
+    export_id INTEGER PRIMARY KEY,
+    commitment_text TEXT,
+    commitment_type TEXT,
+    province TEXT,
+    city TEXT,
+    latitude REAL,
+    longitude REAL,
+    created_at TEXT
+  )`);
+  sqliteDb.run(`CREATE TABLE recursos (
+    export_id INTEGER PRIMARY KEY,
+    description TEXT,
+    category TEXT,
+    available_hours INTEGER,
+    latitude REAL,
+    longitude REAL,
+    location TEXT,
+    province TEXT,
+    city TEXT,
+    is_active INTEGER,
+    created_at TEXT
+  )`);
+  const insertDream = sqliteDb.prepare(
+    "INSERT INTO suenos VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+  );
+  for (const d of data.dreams) {
+    insertDream.run([d.exportId, d.dream, d.value, d.need, d.basta, d.type, d.location, d.latitude, d.longitude, d.createdAt]);
+  }
+  insertDream.free();
+  const insertCommitment = sqliteDb.prepare(
+    "INSERT INTO compromisos VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
+  );
+  for (const c of data.commitments) {
+    insertCommitment.run([c.exportId, c.commitmentText, c.commitmentType, c.province, c.city, c.latitude, c.longitude, c.createdAt]);
+  }
+  insertCommitment.free();
+  const insertResource = sqliteDb.prepare(
+    "INSERT INTO recursos VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+  );
+  for (const r of data.resources) {
+    insertResource.run([r.exportId, r.description, r.category, r.availableHours, r.latitude, r.longitude, r.location, r.province, r.city, r.isActive ? 1 : 0, r.createdAt]);
+  }
+  insertResource.free();
+  sqliteDb.run(`CREATE TABLE metadata (key TEXT PRIMARY KEY, value TEXT)`);
+  const insertMeta = sqliteDb.prepare("INSERT INTO metadata VALUES (?, ?)");
+  insertMeta.run(["exported_at", (/* @__PURE__ */ new Date()).toISOString()]);
+  insertMeta.run(["version", "1.0"]);
+  insertMeta.run(["license", "CC BY 4.0"]);
+  insertMeta.run(["source", "El Instante del Hombre Gris"]);
+  insertMeta.free();
+  const binary = sqliteDb.export();
+  sqliteDb.close();
+  return Buffer.from(binary);
+}
+function registerOpenDataRoutes(app2) {
+  app2.get("/api/open-data/stats", async (_req, res) => {
+    try {
+      const [dreamsCount] = await db.select({ count: sql6`count(*)` }).from(dreams).leftJoin(users, eq9(dreams.userId, users.id)).where(or2(isNull2(dreams.userId), isNull2(users.dataShareOptOut), eq9(users.dataShareOptOut, false)));
+      const [commitmentsCount] = await db.select({ count: sql6`count(*)` }).from(userCommitments).leftJoin(users, eq9(userCommitments.userId, users.id)).where(or2(isNull2(userCommitments.userId), isNull2(users.dataShareOptOut), eq9(users.dataShareOptOut, false)));
+      const [resourcesCount] = await db.select({ count: sql6`count(*)` }).from(userResources).leftJoin(users, eq9(userResources.userId, users.id)).where(
+        and7(
+          eq9(userResources.isActive, true),
+          or2(isNull2(userResources.userId), isNull2(users.dataShareOptOut), eq9(users.dataShareOptOut, false))
+        )
+      );
+      const lastGenerated = cache.get("json")?.generatedAt?.toISOString() || cache.get("csv")?.generatedAt?.toISOString() || cache.get("sqlite")?.generatedAt?.toISOString() || null;
+      res.json({
+        dreams: Number(dreamsCount.count),
+        commitments: Number(commitmentsCount.count),
+        resources: Number(resourcesCount.count),
+        lastGenerated
+      });
+    } catch (error) {
+      console.error("Error fetching open data stats:", error);
+      res.status(500).json({ error: "Error al obtener estad\xEDsticas" });
+    }
+  });
+  app2.get("/api/open-data/download", openDataRateLimit, async (req, res) => {
+    try {
+      const format = req.query.format?.toLowerCase();
+      if (!format || !["json", "csv", "sqlite"].includes(format)) {
+        return res.status(400).json({ error: "Formato inv\xE1lido. Us\xE1: json, csv, o sqlite" });
+      }
+      if (isCacheFresh(format)) {
+        const cached = cache.get(format);
+        return sendFile(res, format, cached.buffer);
+      }
+      const data = await fetchAllData();
+      const counts = {
+        dreams: data.dreams.length,
+        commitments: data.commitments.length,
+        resources: data.resources.length
+      };
+      let buffer;
+      switch (format) {
+        case "json":
+          buffer = await generateJSON(data);
+          break;
+        case "csv":
+          buffer = await generateCSV(data);
+          break;
+        case "sqlite":
+          buffer = await generateSQLite(data);
+          break;
+        default:
+          return res.status(400).json({ error: "Formato inv\xE1lido" });
+      }
+      cache.set(format, { buffer, generatedAt: /* @__PURE__ */ new Date(), counts });
+      return sendFile(res, format, buffer);
+    } catch (error) {
+      console.error("Error generating open data export:", error);
+      res.status(500).json({ error: "Error al generar la exportaci\xF3n" });
+    }
+  });
+  app2.get("/api/open-data/schema", (_req, res) => {
+    res.json({
+      suenos: {
+        description: "Sue\xF1os, valores, necesidades y declaraciones \xA1Basta! del mapa colectivo",
+        fields: {
+          exportId: "ID secuencial del registro en la exportaci\xF3n",
+          dream: "Texto del sue\xF1o declarado",
+          value: "Valor personal declarado",
+          need: "Necesidad declarada",
+          basta: "Declaraci\xF3n \xA1Basta! \u2014 lo que ya no se tolera",
+          type: "Tipo de declaraci\xF3n: dream, value, need, basta",
+          location: "Ubicaci\xF3n en texto libre",
+          latitude: "Latitud geogr\xE1fica",
+          longitude: "Longitud geogr\xE1fica",
+          createdAt: "Fecha de creaci\xF3n"
+        }
+      },
+      compromisos: {
+        description: "Compromisos p\xFAblicos de acci\xF3n asumidos por la comunidad",
+        fields: {
+          exportId: "ID secuencial del registro en la exportaci\xF3n",
+          commitmentText: "Texto del compromiso",
+          commitmentType: "Tipo: initial, intermediate, public",
+          province: "Provincia",
+          city: "Ciudad",
+          latitude: "Latitud geogr\xE1fica",
+          longitude: "Longitud geogr\xE1fica",
+          createdAt: "Fecha de creaci\xF3n"
+        }
+      },
+      recursos: {
+        description: "Recursos declarados por la comunidad: habilidades, tiempo, espacios, equipamiento",
+        fields: {
+          exportId: "ID secuencial del registro en la exportaci\xF3n",
+          description: "Descripci\xF3n del recurso ofrecido",
+          category: "Categor\xEDa: legal, medical, education, tech, construction, agriculture, communication, admin, transport, space, equipment, other",
+          availableHours: "Horas disponibles por semana",
+          latitude: "Latitud geogr\xE1fica",
+          longitude: "Longitud geogr\xE1fica",
+          location: "Ubicaci\xF3n en texto libre",
+          province: "Provincia",
+          city: "Ciudad",
+          isActive: "Si el recurso est\xE1 activo",
+          createdAt: "Fecha de creaci\xF3n"
+        }
+      }
+    });
+  });
+}
+function sendFile(res, format, buffer) {
+  const stamp = dateStamp();
+  switch (format) {
+    case "json":
+      res.setHeader("Content-Type", "application/json");
+      res.setHeader("Content-Disposition", `attachment; filename="datos-abiertos-${stamp}.json"`);
+      break;
+    case "csv":
+      res.setHeader("Content-Type", "application/zip");
+      res.setHeader("Content-Disposition", `attachment; filename="datos-abiertos-${stamp}.zip"`);
+      break;
+    case "sqlite":
+      res.setHeader("Content-Type", "application/x-sqlite3");
+      res.setHeader("Content-Disposition", `attachment; filename="datos-abiertos-${stamp}.sqlite"`);
+      break;
+  }
+  res.send(buffer);
+}
+
 // server/routes.ts
+init_schema();
 init_auth();
 import { z as z4 } from "zod";
 
@@ -11066,7 +12133,8 @@ var changePasswordSchema = z3.object({
 var updateProfileSchema = z3.object({
   name: z3.string().min(2, "El nombre debe tener al menos 2 caracteres").max(100, "El nombre no puede exceder 100 caracteres").regex(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/, "El nombre solo puede contener letras y espacios").optional(),
   email: z3.string().email("Formato de email inv\xE1lido").max(255, "El email no puede exceder 255 caracteres").toLowerCase().optional(),
-  location: z3.string().max(255, "La ubicaci\xF3n no puede exceder 255 caracteres").optional()
+  location: z3.string().max(255, "La ubicaci\xF3n no puede exceder 255 caracteres").optional(),
+  dataShareOptOut: z3.boolean().optional()
 });
 var createDreamSchema = z3.object({
   dream: z3.string().min(10, "El sue\xF1o debe tener al menos 10 caracteres").max(1e3, "El sue\xF1o no puede exceder 1000 caracteres").optional(),
@@ -11122,7 +12190,7 @@ var createResourceSchema = z3.object({
 
 // server/middleware.ts
 init_config();
-import rateLimit from "express-rate-limit";
+import rateLimit2 from "express-rate-limit";
 import helmet from "helmet";
 import cors from "cors";
 function securityHeaders() {
@@ -11193,7 +12261,7 @@ var generalRateLimit = (() => {
       return next();
     };
   }
-  return rateLimit({
+  return rateLimit2({
     windowMs: config.security.rateLimitWindowMs,
     max: config.security.rateLimitMaxRequests,
     message: {
@@ -11218,7 +12286,7 @@ var generalRateLimit = (() => {
     }
   });
 })();
-var authRateLimit = rateLimit({
+var authRateLimit = rateLimit2({
   windowMs: config.security.loginRateLimitWindowMs,
   max: config.security.loginRateLimitMax,
   message: {
@@ -11689,13 +12757,13 @@ var NLPService = class {
   async findSimilarTexts(text2, textCollection) {
     const targetEmbedding = await this.getTextEmbedding(text2);
     const similarities = await Promise.all(
-      textCollection.map(async (collectionText, index) => {
+      textCollection.map(async (collectionText, index2) => {
         const collectionEmbedding = await this.getTextEmbedding(collectionText);
         const similarity = this.calculateCosineSimilarity(targetEmbedding, collectionEmbedding);
         return {
           text: collectionText,
           similarity,
-          index
+          index: index2
         };
       })
     );
@@ -12338,7 +13406,9 @@ var ARService = class {
 var arService = new ARService();
 
 // server/services/embedding-service.ts
-import { eq as eq9, and as and7 } from "drizzle-orm";
+init_db();
+init_schema();
+import { eq as eq10, and as and8 } from "drizzle-orm";
 var embeddingPipeline = null;
 async function getEmbeddingPipeline() {
   if (!embeddingPipeline) {
@@ -12378,9 +13448,9 @@ async function getOrCreateEmbedding(contentId, text2, contentType) {
   }
   try {
     const existing = await db.select().from(textEmbeddings).where(
-      and7(
-        eq9(textEmbeddings.contentId, contentId),
-        eq9(textEmbeddings.contentType, contentType)
+      and8(
+        eq10(textEmbeddings.contentId, contentId),
+        eq10(textEmbeddings.contentType, contentType)
       )
     ).limit(1);
     if (existing.length > 0 && existing[0].embedding) {
@@ -12400,9 +13470,9 @@ async function getOrCreateEmbedding(contentId, text2, contentType) {
         embedding: embeddingJson,
         model: "Xenova/all-MiniLM-L6-v2"
       }).where(
-        and7(
-          eq9(textEmbeddings.contentId, contentId),
-          eq9(textEmbeddings.contentType, contentType)
+        and8(
+          eq10(textEmbeddings.contentId, contentId),
+          eq10(textEmbeddings.contentType, contentType)
         )
       );
     } else {
@@ -12466,6 +13536,28 @@ async function batchGenerateEmbeddings(contributions, batchSize = 10) {
 }
 
 // server/routes.ts
+async function requireMembership(postId, userId) {
+  const post = await storage.getCommunityPostWithDetails(postId);
+  if (post && post.userId === userId) return true;
+  const members = await storage.getInitiativeMembers(postId);
+  return members.some((m) => m.userId === userId);
+}
+async function notifyInitiativeMembers(postId, excludeUserId, data) {
+  const members = await storage.getInitiativeMembers(postId);
+  for (const m of members) {
+    if (m.userId && m.userId !== excludeUserId) {
+      try {
+        await storage.createNotification(m.userId, {
+          ...data,
+          postId,
+          userId: m.userId,
+          type: data.type
+        });
+      } catch (_) {
+      }
+    }
+  }
+}
 async function registerRoutes(app2) {
   app2.use(requestLogger);
   app2.use(sanitizeInput);
@@ -12501,6 +13593,7 @@ async function registerRoutes(app2) {
   registerCivicAssessmentRoutes(app2);
   registerGoalRoutes(app2);
   registerCoachingRoutes(app2);
+  registerOpenDataRoutes(app2);
   app2.get("/api/dreams", optionalAuth, async (req, res) => {
     try {
       const dreams2 = await storage.getDreams();
@@ -12525,12 +13618,143 @@ async function registerRoutes(app2) {
       }
     }
   });
+  app2.get("/api/resources-map", optionalAuth, async (req, res) => {
+    try {
+      const resources2 = await storage.getUserResources();
+      res.json(resources2);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch resources" });
+    }
+  });
+  app2.post("/api/resources-map", authenticateToken, sanitizeInput, async (req, res) => {
+    try {
+      const validatedData = insertUserResourceSchema.parse({
+        ...req.body,
+        userId: req.user?.userId
+      });
+      const resource = await storage.createUserResource(validatedData);
+      res.status(201).json(resource);
+    } catch (error) {
+      if (error instanceof z4.ZodError) {
+        res.status(400).json({ message: "Invalid resource data", errors: error.errors });
+      } else {
+        res.status(500).json({ message: "Failed to create resource" });
+      }
+    }
+  });
+  app2.post("/api/mandates/generate", authenticateToken, async (req, res) => {
+    try {
+      const { territoryLevel, territoryName, province, city } = req.body;
+      if (!territoryLevel || !territoryName) {
+        return res.status(400).json({ message: "territoryLevel and territoryName are required" });
+      }
+      const { generateAndSaveMandate: generateAndSaveMandate2 } = await Promise.resolve().then(() => (init_mandate_service(), mandate_service_exports));
+      const result = await generateAndSaveMandate2(territoryLevel, territoryName, province, city);
+      res.json(result);
+    } catch (error) {
+      console.error("Mandate generation error:", error);
+      res.status(500).json({ message: "Failed to generate mandate" });
+    }
+  });
+  app2.get("/api/mandates", optionalAuth, async (req, res) => {
+    try {
+      const level = req.query.level;
+      const mandates = await storage.getMandates(level);
+      res.json(mandates);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch mandates" });
+    }
+  });
+  app2.get("/api/mandates/:level/:name", async (req, res) => {
+    try {
+      const { level, name } = req.params;
+      const mandate = await storage.getMandateByTerritory(level, decodeURIComponent(name));
+      if (!mandate) {
+        return res.status(404).json({ message: "No mandate found for this territory" });
+      }
+      const safeJsonParse = (val) => {
+        if (!val) return null;
+        if (typeof val === "object") return val;
+        try {
+          return JSON.parse(val);
+        } catch {
+          return null;
+        }
+      };
+      const parsed = {
+        ...mandate,
+        diagnosis: safeJsonParse(mandate.diagnosis),
+        availableResources: safeJsonParse(mandate.availableResources),
+        gaps: safeJsonParse(mandate.gaps),
+        suggestedActions: safeJsonParse(mandate.suggestedActions)
+      };
+      res.json(parsed);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch mandate" });
+    }
+  });
+  app2.post("/api/mandates/:id/publish", authenticateToken, async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      if (isNaN(id)) return res.status(400).json({ message: "Invalid mandate ID" });
+      const updated = await storage.updateMandate(id, {
+        status: "published",
+        publishedAt: (/* @__PURE__ */ new Date()).toISOString()
+      });
+      if (!updated) return res.status(404).json({ message: "Mandate not found" });
+      res.json(updated);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to publish mandate" });
+    }
+  });
+  app2.post("/api/matchmaker/scan", authenticateToken, async (req, res) => {
+    try {
+      const { scanAndSaveSuggestions: scanAndSaveSuggestions2 } = await Promise.resolve().then(() => (init_matchmaker_service(), matchmaker_service_exports));
+      const saved = await scanAndSaveSuggestions2();
+      res.json({ suggestions: saved, count: saved.length });
+    } catch (error) {
+      console.error("Matchmaker scan error:", error);
+      res.status(500).json({ message: "Failed to scan for matches" });
+    }
+  });
+  app2.get("/api/suggestions/:territory", optionalAuth, async (req, res) => {
+    try {
+      const territory = decodeURIComponent(req.params.territory);
+      const suggestions = await storage.getSuggestionsByTerritory(territory);
+      res.json(suggestions);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch suggestions" });
+    }
+  });
+  app2.post("/api/suggestions/:id/activate", authenticateToken, async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      if (isNaN(id)) return res.status(400).json({ message: "Invalid suggestion ID" });
+      const userId = req.user?.userId;
+      if (!userId) return res.status(401).json({ message: "Auth required" });
+      const suggestion = await storage.getSuggestionById(id);
+      if (!suggestion) return res.status(404).json({ message: "Suggestion not found" });
+      if (suggestion.status !== "suggested") return res.status(400).json({ message: "Suggestion already activated" });
+      const rawTitle = suggestion.suggestedAction.split("\n")[0] || "Iniciativa Comunitaria";
+      const initiative = await storage.createCommunityPost({
+        userId,
+        title: rawTitle.length > 200 ? rawTitle.substring(0, 200) + "\u2026" : rawTitle,
+        description: suggestion.suggestedAction,
+        type: "project",
+        location: suggestion.territoryName || "Argentina"
+      });
+      const activated = await storage.activateSuggestion(id, userId, initiative.id);
+      res.json({ suggestion: activated, initiative });
+    } catch (error) {
+      res.status(500).json({ message: "Failed to activate suggestion" });
+    }
+  });
   let graphCache = null;
-  const CACHE_TTL = 5 * 60 * 1e3;
-  function generatePersonPosition(index, total) {
+  const CACHE_TTL2 = 5 * 60 * 1e3;
+  function generatePersonPosition(index2, total) {
     const radius = 8 + (total > 10 ? Math.min(4, Math.floor(total / 5)) : 0);
-    const theta = index / total * Math.PI * 2;
-    const phi = Math.acos(index * 2 / total - 1);
+    const theta = index2 / total * Math.PI * 2;
+    const phi = Math.acos(index2 * 2 / total - 1);
     return [
       radius * Math.sin(phi) * Math.cos(theta),
       radius * Math.sin(phi) * Math.sin(theta),
@@ -12584,7 +13808,7 @@ async function registerRoutes(app2) {
       const minSimilarity = parseFloat(req.query.minSimilarity || "0.3");
       const maxConnections = parseInt(req.query.maxConnections || "10");
       const useCache = req.query.cache !== "false";
-      if (useCache && graphCache && Date.now() - graphCache.timestamp < CACHE_TTL) {
+      if (useCache && graphCache && Date.now() - graphCache.timestamp < CACHE_TTL2) {
         return res.json(graphCache.data);
       }
       const allContributions = await storage.getDreams();
@@ -12619,8 +13843,8 @@ async function registerRoutes(app2) {
       const userPromises = userIds.map((userId) => storage.getUser(userId));
       const users2 = (await Promise.all(userPromises)).filter((u) => u !== void 0);
       const peoplePositions = /* @__PURE__ */ new Map();
-      users2.forEach((user, index) => {
-        peoplePositions.set(user.id, generatePersonPosition(index, users2.length));
+      users2.forEach((user, index2) => {
+        peoplePositions.set(user.id, generatePersonPosition(index2, users2.length));
       });
       const typeColors = {
         dream: "#3b82f6",
@@ -12810,7 +14034,7 @@ async function registerRoutes(app2) {
       });
     }
   });
-  app2.get("/api/community", async (req, res) => {
+  app2.get("/api/community", optionalAuth, async (req, res) => {
     try {
       const type = req.query.type;
       const search = req.query.search;
@@ -12839,6 +14063,15 @@ async function registerRoutes(app2) {
         } catch (_) {
           enriched.likesCount = 0;
           enriched.viewsCount = 0;
+        }
+        if (req.user?.userId) {
+          try {
+            enriched.likedByMe = await storage.isPostLikedByUser(post.id, req.user.userId);
+          } catch (_) {
+            enriched.likedByMe = false;
+          }
+        } else {
+          enriched.likedByMe = false;
         }
         return enriched;
       }));
@@ -12883,6 +14116,70 @@ async function registerRoutes(app2) {
       res.json(memberships);
     } catch (error) {
       res.status(500).json({ message: "Failed to fetch memberships" });
+    }
+  });
+  app2.get("/api/community/my-posts", authenticateToken, async (req, res) => {
+    try {
+      const posts = await storage.getUserCommunityPosts(req.user.userId);
+      res.json(posts);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch your posts" });
+    }
+  });
+  app2.get("/api/community/my-interactions", authenticateToken, async (req, res) => {
+    try {
+      const interactions = await storage.getUserInteractions(req.user.userId);
+      res.json(interactions);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch your interactions" });
+    }
+  });
+  app2.get("/api/community/my-activity", authenticateToken, async (req, res) => {
+    try {
+      const activity = await storage.getUserActivityHistory(req.user.userId);
+      res.json(activity);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch activity history" });
+    }
+  });
+  app2.get("/api/community/messages", authenticateToken, async (req, res) => {
+    try {
+      const messages = await storage.getUserMessages(req.user.userId);
+      res.json(messages);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch messages" });
+    }
+  });
+  app2.get("/api/community/messages/unread/count", authenticateToken, async (req, res) => {
+    try {
+      const count = await storage.getUnreadMessageCount(req.user.userId);
+      res.json({ count });
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch unread message count" });
+    }
+  });
+  app2.get("/api/community/search/location", async (req, res) => {
+    try {
+      const {
+        province,
+        city,
+        radius,
+        userLat,
+        userLng
+      } = req.query;
+      const radiusKm = radius ? parseInt(radius) : void 0;
+      const latitude = userLat ? parseFloat(userLat) : void 0;
+      const longitude = userLng ? parseFloat(userLng) : void 0;
+      const posts = await storage.searchPostsByLocation(
+        province,
+        city,
+        radiusKm,
+        latitude,
+        longitude
+      );
+      res.json(posts);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to search posts by location" });
     }
   });
   app2.get("/api/community/:id", async (req, res) => {
@@ -12958,14 +14255,6 @@ async function registerRoutes(app2) {
       res.status(500).json({ message: "Failed to update post status" });
     }
   });
-  app2.get("/api/community/my-posts", authenticateToken, async (req, res) => {
-    try {
-      const posts = await storage.getUserCommunityPosts(req.user.userId);
-      res.json(posts);
-    } catch (error) {
-      res.status(500).json({ message: "Failed to fetch your posts" });
-    }
-  });
   app2.post("/api/community/:id/interact", authenticateToken, async (req, res) => {
     try {
       const { id } = req.params;
@@ -13031,14 +14320,6 @@ async function registerRoutes(app2) {
       res.status(500).json({ message: "Failed to update interaction status" });
     }
   });
-  app2.get("/api/community/my-interactions", authenticateToken, async (req, res) => {
-    try {
-      const interactions = await storage.getUserInteractions(req.user.userId);
-      res.json(interactions);
-    } catch (error) {
-      res.status(500).json({ message: "Failed to fetch your interactions" });
-    }
-  });
   app2.post("/api/community/messages", authenticateToken, async (req, res) => {
     try {
       const { receiverId, postId, subject, content } = req.body;
@@ -13063,14 +14344,6 @@ async function registerRoutes(app2) {
       }
     }
   });
-  app2.get("/api/community/messages", authenticateToken, async (req, res) => {
-    try {
-      const messages = await storage.getUserMessages(req.user.userId);
-      res.json(messages);
-    } catch (error) {
-      res.status(500).json({ message: "Failed to fetch messages" });
-    }
-  });
   app2.patch("/api/community/messages/:id/read", authenticateToken, async (req, res) => {
     try {
       const { id } = req.params;
@@ -13085,14 +14358,6 @@ async function registerRoutes(app2) {
       res.json({ message: "Message marked as read" });
     } catch (error) {
       res.status(500).json({ message: "Failed to mark message as read" });
-    }
-  });
-  app2.get("/api/community/messages/unread/count", authenticateToken, async (req, res) => {
-    try {
-      const count = await storage.getUnreadMessageCount(req.user.userId);
-      res.json({ count });
-    } catch (error) {
-      res.status(500).json({ message: "Failed to fetch unread message count" });
     }
   });
   app2.post("/api/community/:id/view", optionalAuth, async (req, res) => {
@@ -13140,14 +14405,6 @@ async function registerRoutes(app2) {
       res.status(500).json({ message: "Failed to fetch analytics" });
     }
   });
-  app2.get("/api/community/my-activity", authenticateToken, async (req, res) => {
-    try {
-      const activity = await storage.getUserActivityHistory(req.user.userId);
-      res.json(activity);
-    } catch (error) {
-      res.status(500).json({ message: "Failed to fetch activity history" });
-    }
-  });
   app2.get("/api/geographic/provinces", async (req, res) => {
     try {
       const provinces = await storage.getProvinces();
@@ -13172,9 +14429,16 @@ async function registerRoutes(app2) {
       if (isNaN(postId)) {
         return res.status(400).json({ message: "Invalid post ID" });
       }
+      const alreadyLiked = await storage.isPostLikedByUser(postId, req.user.userId);
+      if (alreadyLiked) {
+        return res.status(409).json({ message: "Already liked" });
+      }
       const like2 = await storage.likePost(postId, req.user.userId);
       res.status(201).json(like2);
     } catch (error) {
+      if (error?.code === "23505") {
+        return res.status(409).json({ message: "Already liked" });
+      }
       res.status(500).json({ message: "Failed to like post" });
     }
   });
@@ -13230,30 +14494,6 @@ async function registerRoutes(app2) {
       res.status(500).json({ message: "Failed to get views count" });
     }
   });
-  app2.get("/api/community/search/location", async (req, res) => {
-    try {
-      const {
-        province,
-        city,
-        radius,
-        userLat,
-        userLng
-      } = req.query;
-      const radiusKm = radius ? parseInt(radius) : void 0;
-      const latitude = userLat ? parseFloat(userLat) : void 0;
-      const longitude = userLng ? parseFloat(userLng) : void 0;
-      const posts = await storage.searchPostsByLocation(
-        province,
-        city,
-        radiusKm,
-        latitude,
-        longitude
-      );
-      res.json(posts);
-    } catch (error) {
-      res.status(500).json({ message: "Failed to search posts by location" });
-    }
-  });
   app2.get("/api/community/:postId/members", async (req, res) => {
     try {
       const { postId } = req.params;
@@ -13262,7 +14502,14 @@ async function registerRoutes(app2) {
         return res.status(400).json({ message: "Invalid post ID" });
       }
       const members = await storage.getInitiativeMembers(id);
-      res.json(members);
+      const membersWithUsers = await Promise.all(members.map(async (member) => {
+        const user = member.userId ? await storage.getUser(member.userId) : null;
+        return {
+          ...member,
+          user: user ? { id: user.id, name: user.name, username: user.username } : null
+        };
+      }));
+      res.json(membersWithUsers);
     } catch (error) {
       res.status(500).json({ message: "Failed to fetch initiative members" });
     }
@@ -13279,8 +14526,29 @@ async function registerRoutes(app2) {
       if (!post) {
         return res.status(404).json({ message: "Post not found" });
       }
+      const existingMembers = await storage.getInitiativeMembers(id);
+      const alreadyMember = existingMembers.some((m) => m.userId === req.user.userId && m.status === "active");
+      if (alreadyMember) {
+        return res.status(409).json({ message: "Ya sos miembro de esta iniciativa" });
+      }
       if (post.requiresApproval) {
+        const existingRequests = await storage.getMembershipRequests(id, "pending");
+        const alreadyRequested = existingRequests.some((r) => r.userId === req.user.userId);
+        if (alreadyRequested) {
+          return res.status(409).json({ message: "Ya ten\xE9s una solicitud pendiente" });
+        }
         const request = await storage.createMembershipRequest(id, req.user.userId, message || "");
+        try {
+          const user = await storage.getUser(req.user.userId);
+          await storage.createNotification(post.userId, {
+            type: "member_joined",
+            title: "Nueva solicitud de uni\xF3n",
+            content: `${user?.name || "Alguien"} quiere unirse a "${post.title}"`,
+            postId: id,
+            userId: post.userId
+          });
+        } catch (_) {
+        }
         res.status(201).json({
           message: "Solicitud de uni\xF3n enviada",
           request
@@ -13293,6 +14561,17 @@ async function registerRoutes(app2) {
             postId: id,
             userId: req.user.userId,
             title: `Nuevo miembro en: ${post.title}`
+          });
+        } catch (_) {
+        }
+        try {
+          const user = await storage.getUser(req.user.userId);
+          await storage.createNotification(post.userId, {
+            type: "member_joined",
+            title: "Nuevo miembro",
+            content: `${user?.name || "Alguien"} se uni\xF3 a "${post.title}"`,
+            postId: id,
+            userId: post.userId
           });
         } catch (_) {
         }
@@ -13336,7 +14615,14 @@ async function registerRoutes(app2) {
         return res.status(403).json({ message: "Unauthorized" });
       }
       const requests = await storage.getMembershipRequests(id, status);
-      res.json(requests);
+      const requestsWithUsers = await Promise.all(requests.map(async (req2) => {
+        const user = req2.userId ? await storage.getUser(req2.userId) : null;
+        return {
+          ...req2,
+          user: user ? { id: user.id, name: user.name, username: user.username } : null
+        };
+      }));
+      res.json(requestsWithUsers);
     } catch (error) {
       res.status(500).json({ message: "Failed to fetch membership requests" });
     }
@@ -13385,7 +14671,14 @@ async function registerRoutes(app2) {
         return res.status(400).json({ message: "Invalid post ID" });
       }
       const milestones = await storage.getInitiativeMilestones(id);
-      res.json(milestones);
+      const milestonesWithUsers = await Promise.all(milestones.map(async (milestone) => {
+        const completedByUser = milestone.completedBy ? await storage.getUser(milestone.completedBy) : null;
+        return {
+          ...milestone,
+          completedByUser: completedByUser ? { id: completedByUser.id, name: completedByUser.name, username: completedByUser.username } : null
+        };
+      }));
+      res.json(milestonesWithUsers);
     } catch (error) {
       res.status(500).json({ message: "Failed to fetch milestones" });
     }
@@ -13396,6 +14689,9 @@ async function registerRoutes(app2) {
       const id = parseInt(postId);
       if (isNaN(id)) {
         return res.status(400).json({ message: "Invalid post ID" });
+      }
+      if (!await requireMembership(id, req.user.userId)) {
+        return res.status(403).json({ message: "Solo miembros pueden crear hitos" });
       }
       const validatedData = insertInitiativeMilestoneSchema.parse(req.body);
       const milestone = await storage.createMilestone(id, validatedData);
@@ -13413,10 +14709,14 @@ async function registerRoutes(app2) {
   });
   app2.patch("/api/community/:postId/milestones/:milestoneId", authenticateToken, async (req, res) => {
     try {
-      const { milestoneId } = req.params;
+      const { postId, milestoneId } = req.params;
       const id = parseInt(milestoneId);
-      if (isNaN(id)) {
-        return res.status(400).json({ message: "Invalid milestone ID" });
+      const pId = parseInt(postId);
+      if (isNaN(id) || isNaN(pId)) {
+        return res.status(400).json({ message: "Invalid ID" });
+      }
+      if (!await requireMembership(pId, req.user.userId)) {
+        return res.status(403).json({ message: "Solo miembros pueden actualizar hitos" });
       }
       const updates = insertInitiativeMilestoneSchema.partial().parse(req.body);
       await storage.updateMilestone(id, updates);
@@ -13434,19 +14734,32 @@ async function registerRoutes(app2) {
   });
   app2.post("/api/community/:postId/milestones/:milestoneId/complete", authenticateToken, async (req, res) => {
     try {
-      const { milestoneId } = req.params;
+      const { postId, milestoneId } = req.params;
       const id = parseInt(milestoneId);
-      if (isNaN(id)) {
-        return res.status(400).json({ message: "Invalid milestone ID" });
+      const pId = parseInt(postId);
+      if (isNaN(id) || isNaN(pId)) {
+        return res.status(400).json({ message: "Invalid ID" });
+      }
+      if (!await requireMembership(pId, req.user.userId)) {
+        return res.status(403).json({ message: "Solo miembros pueden completar hitos" });
       }
       await storage.completeMilestone(id, req.user.userId);
       try {
-        const postId = parseInt(req.params.postId);
         await storage.createActivityFeedItem({
           type: "milestone_completed",
-          postId: isNaN(postId) ? null : postId,
+          postId: pId,
           userId: req.user.userId,
           title: "Hito completado",
+          targetId: id
+        });
+      } catch (_) {
+      }
+      try {
+        const post = await storage.getCommunityPostWithDetails(pId);
+        await notifyInitiativeMembers(pId, req.user.userId, {
+          type: "milestone_completed",
+          title: "Hito completado",
+          content: `Se complet\xF3 un hito en "${post?.title || "una iniciativa"}"`,
           targetId: id
         });
       } catch (_) {
@@ -13464,7 +14777,16 @@ async function registerRoutes(app2) {
         return res.status(400).json({ message: "Invalid post ID" });
       }
       const tasks = await storage.getInitiativeTasks(id);
-      res.json(tasks);
+      const tasksWithUsers = await Promise.all(tasks.map(async (task) => {
+        const assignedUser = task.assignedTo ? await storage.getUser(task.assignedTo) : null;
+        const createdByUser = task.createdBy ? await storage.getUser(task.createdBy) : null;
+        return {
+          ...task,
+          assignedToUser: assignedUser ? { id: assignedUser.id, name: assignedUser.name, username: assignedUser.username } : null,
+          createdByUser: createdByUser ? { id: createdByUser.id, name: createdByUser.name, username: createdByUser.username } : null
+        };
+      }));
+      res.json(tasksWithUsers);
     } catch (error) {
       res.status(500).json({ message: "Failed to fetch tasks" });
     }
@@ -13475,6 +14797,9 @@ async function registerRoutes(app2) {
       const id = parseInt(postId);
       if (isNaN(id)) {
         return res.status(400).json({ message: "Invalid post ID" });
+      }
+      if (!await requireMembership(id, req.user.userId)) {
+        return res.status(403).json({ message: "Solo miembros pueden crear tareas" });
       }
       const validatedData = insertInitiativeTaskSchema.parse({
         ...req.body,
@@ -13495,10 +14820,14 @@ async function registerRoutes(app2) {
   });
   app2.patch("/api/community/:postId/tasks/:taskId", authenticateToken, async (req, res) => {
     try {
-      const { taskId } = req.params;
+      const { postId, taskId } = req.params;
       const id = parseInt(taskId);
-      if (isNaN(id)) {
-        return res.status(400).json({ message: "Invalid task ID" });
+      const pId = parseInt(postId);
+      if (isNaN(id) || isNaN(pId)) {
+        return res.status(400).json({ message: "Invalid ID" });
+      }
+      if (!await requireMembership(pId, req.user.userId)) {
+        return res.status(403).json({ message: "Solo miembros pueden actualizar tareas" });
       }
       const updates = insertInitiativeTaskSchema.partial().parse(req.body);
       await storage.updateTask(id, updates);
@@ -13516,26 +14845,120 @@ async function registerRoutes(app2) {
   });
   app2.post("/api/community/:postId/tasks/:taskId/complete", authenticateToken, async (req, res) => {
     try {
-      const { taskId } = req.params;
+      const { postId, taskId } = req.params;
       const id = parseInt(taskId);
-      if (isNaN(id)) {
-        return res.status(400).json({ message: "Invalid task ID" });
+      const pId = parseInt(postId);
+      if (isNaN(id) || isNaN(pId)) {
+        return res.status(400).json({ message: "Invalid ID" });
+      }
+      if (!await requireMembership(pId, req.user.userId)) {
+        return res.status(403).json({ message: "Solo miembros pueden completar tareas" });
       }
       await storage.completeTask(id);
       try {
-        const postId = parseInt(req.params.postId);
+        const postId2 = parseInt(req.params.postId);
         await storage.createActivityFeedItem({
           type: "task_completed",
-          postId: isNaN(postId) ? null : postId,
+          postId: isNaN(postId2) ? null : postId2,
           userId: req.user.userId,
           title: "Tarea completada",
           targetId: id
         });
       } catch (_) {
       }
+      try {
+        const post = await storage.getCommunityPostWithDetails(pId);
+        await notifyInitiativeMembers(pId, req.user.userId, {
+          type: "task_completed",
+          title: "Tarea completada",
+          content: `Se complet\xF3 una tarea en "${post?.title || "una iniciativa"}"`,
+          targetId: id
+        });
+      } catch (_notif) {
+      }
       res.json({ message: "Task completed" });
     } catch (error) {
       res.status(500).json({ message: "Failed to complete task" });
+    }
+  });
+  app2.delete("/api/community/:postId/tasks/:taskId", authenticateToken, async (req, res) => {
+    try {
+      const { postId, taskId } = req.params;
+      const pId = parseInt(postId);
+      const tId = parseInt(taskId);
+      if (isNaN(pId) || isNaN(tId)) {
+        return res.status(400).json({ message: "Invalid ID" });
+      }
+      if (!await requireMembership(pId, req.user.userId)) {
+        return res.status(403).json({ message: "Solo miembros pueden eliminar tareas" });
+      }
+      await storage.deleteTask(tId);
+      res.json({ message: "Tarea eliminada" });
+    } catch (error) {
+      res.status(500).json({ message: "Failed to delete task" });
+    }
+  });
+  app2.delete("/api/community/:postId/milestones/:milestoneId", authenticateToken, async (req, res) => {
+    try {
+      const { postId, milestoneId } = req.params;
+      const pId = parseInt(postId);
+      const mId = parseInt(milestoneId);
+      if (isNaN(pId) || isNaN(mId)) {
+        return res.status(400).json({ message: "Invalid ID" });
+      }
+      if (!await requireMembership(pId, req.user.userId)) {
+        return res.status(403).json({ message: "Solo miembros pueden eliminar hitos" });
+      }
+      await storage.deleteMilestone(mId);
+      res.json({ message: "Hito eliminado" });
+    } catch (error) {
+      res.status(500).json({ message: "Failed to delete milestone" });
+    }
+  });
+  app2.patch("/api/community/:postId/members/:memberId/role", authenticateToken, async (req, res) => {
+    try {
+      const { postId, memberId } = req.params;
+      const { role } = req.body;
+      const pId = parseInt(postId);
+      const mId = parseInt(memberId);
+      if (isNaN(pId) || isNaN(mId)) {
+        return res.status(400).json({ message: "Invalid ID" });
+      }
+      const post = await storage.getCommunityPostWithDetails(pId);
+      if (!post || post.userId !== req.user.userId) {
+        return res.status(403).json({ message: "Solo el creador puede cambiar roles" });
+      }
+      const validRoles = ["member", "co-organizer", "active_member"];
+      if (!validRoles.includes(role)) {
+        return res.status(400).json({ message: "Rol inv\xE1lido" });
+      }
+      const defaultPermissions = {
+        "co-organizer": { canEdit: true, canInvite: true, canApprove: true, canCreateMilestone: true, canCreateTask: true, canAssignTask: true },
+        "active_member": { canCreateMilestone: true, canCreateTask: true },
+        "member": {}
+      };
+      await storage.updateMemberRole(mId, role, defaultPermissions[role] || {});
+      res.json({ message: "Rol actualizado" });
+    } catch (error) {
+      res.status(500).json({ message: "Failed to update role" });
+    }
+  });
+  app2.delete("/api/community/:postId/members/:memberId", authenticateToken, async (req, res) => {
+    try {
+      const { postId, memberId } = req.params;
+      const pId = parseInt(postId);
+      const mId = parseInt(memberId);
+      if (isNaN(pId) || isNaN(mId)) {
+        return res.status(400).json({ message: "Invalid ID" });
+      }
+      const post = await storage.getCommunityPostWithDetails(pId);
+      if (!post || post.userId !== req.user.userId) {
+        return res.status(403).json({ message: "Solo el creador puede remover miembros" });
+      }
+      await storage.removeMember(mId);
+      res.json({ message: "Miembro removido" });
+    } catch (error) {
+      res.status(500).json({ message: "Failed to remove member" });
     }
   });
   app2.get("/api/community/:postId/messages", async (req, res) => {
@@ -13549,7 +14972,14 @@ async function registerRoutes(app2) {
       const limitNum = limit ? parseInt(limit) : 50;
       const offsetNum = offset ? parseInt(offset) : 0;
       const messages = await storage.getInitiativeMessages(id, limitNum, offsetNum);
-      res.json(messages);
+      const messagesWithUsers = await Promise.all(messages.map(async (msg) => {
+        const user = msg.userId ? await storage.getUser(msg.userId) : null;
+        return {
+          ...msg,
+          user: user ? { id: user.id, name: user.name, username: user.username } : null
+        };
+      }));
+      res.json(messagesWithUsers);
     } catch (error) {
       res.status(500).json({ message: "Failed to fetch messages" });
     }
@@ -13565,8 +14995,24 @@ async function registerRoutes(app2) {
       if (!content) {
         return res.status(400).json({ message: "Content is required" });
       }
+      if (!await requireMembership(id, req.user.userId)) {
+        return res.status(403).json({ message: "Solo miembros pueden enviar mensajes" });
+      }
       const message = await storage.sendMessage(id, req.user.userId, content, type);
-      res.status(201).json(message);
+      const user = await storage.getUser(req.user.userId);
+      try {
+        const post = await storage.getCommunityPostWithDetails(id);
+        await notifyInitiativeMembers(id, req.user.userId, {
+          type: "message",
+          title: "Nuevo mensaje",
+          content: `${user?.name || "Alguien"} envi\xF3 un mensaje en "${post?.title || "una iniciativa"}"`
+        });
+      } catch (_) {
+      }
+      res.status(201).json({
+        ...message,
+        user: user ? { id: user.id, name: user.name, username: user.username } : null
+      });
     } catch (error) {
       res.status(500).json({ message: "Failed to send message" });
     }
@@ -13581,7 +15027,14 @@ async function registerRoutes(app2) {
         limit: limitNum,
         offset: offsetNum
       });
-      res.json(feed);
+      const feedWithUsers = await Promise.all(feed.map(async (item) => {
+        const user = item.userId ? await storage.getUser(item.userId) : null;
+        return {
+          ...item,
+          user: user ? { id: user.id, name: user.name, username: user.username } : null
+        };
+      }));
+      res.json(feedWithUsers);
     } catch (error) {
       res.status(500).json({ message: "Failed to fetch activity feed" });
     }
@@ -13638,7 +15091,23 @@ async function registerRoutes(app2) {
   });
   app2.post("/api/register", authRateLimit, async (req, res) => {
     try {
-      const validatedData = registerUserSchema.parse(req.body);
+      if (req.body._hp) {
+        return res.status(201).json({
+          message: "Usuario registrado exitosamente",
+          user: { id: 0, username: "", email: "", name: "" },
+          tokens: { accessToken: "", refreshToken: "" }
+        });
+      }
+      const formLoadedAt = Number(req.body._t);
+      if (formLoadedAt && Date.now() - formLoadedAt < 3e3) {
+        return res.status(429).json({
+          error: "Too fast",
+          message: "El formulario fue enviado demasiado r\xE1pido. Intent\xE1 de nuevo.",
+          code: "SUBMISSION_TOO_FAST"
+        });
+      }
+      const { _hp, _t, ...registrationData } = req.body;
+      const validatedData = registerUserSchema.parse(registrationData);
       const existingUsername = await storage.getUserByUsername(validatedData.username);
       if (existingUsername) {
         return res.status(409).json({
@@ -13667,7 +15136,8 @@ async function registerRoutes(app2) {
         username: user.username,
         email: user.email,
         name: user.name,
-        location: user.location
+        location: user.location,
+        avatarUrl: user.avatarUrl
       });
       res.status(201).json({
         message: "Usuario registrado exitosamente",
@@ -13730,7 +15200,8 @@ async function registerRoutes(app2) {
         username: user.username,
         email: user.email,
         name: user.name,
-        location: user.location
+        location: user.location,
+        avatarUrl: user.avatarUrl
       });
       res.json({
         message: "Inicio de sesi\xF3n exitoso",
@@ -13771,10 +15242,12 @@ async function registerRoutes(app2) {
         email: user.email,
         name: user.name,
         location: user.location,
+        avatarUrl: user.avatarUrl,
         lastLogin: user.lastLogin,
         emailVerified: user.emailVerified,
         onboardingCompleted: user.onboardingCompleted,
-        createdAt: user.createdAt
+        createdAt: user.createdAt,
+        dataShareOptOut: user.dataShareOptOut ?? false
       });
     } catch (error) {
       console.error("Get user profile error:", error);
@@ -13806,9 +15279,11 @@ async function registerRoutes(app2) {
           email: updatedUser.email,
           name: updatedUser.name,
           location: updatedUser.location,
+          avatarUrl: updatedUser.avatarUrl,
           emailVerified: updatedUser.emailVerified,
           onboardingCompleted: updatedUser.onboardingCompleted,
-          createdAt: updatedUser.createdAt
+          createdAt: updatedUser.createdAt,
+          dataShareOptOut: updatedUser.dataShareOptOut ?? false
         }
       });
     } catch (error) {
@@ -13828,6 +15303,79 @@ async function registerRoutes(app2) {
           message: "Error interno del servidor"
         });
       }
+    }
+  });
+  app2.post("/api/auth/avatar", authenticateToken, async (req, res) => {
+    try {
+      const { image } = req.body;
+      if (!image || typeof image !== "string") {
+        return res.status(400).json({
+          error: "Validation error",
+          message: "Se requiere una imagen v\xE1lida"
+        });
+      }
+      const dataUriMatch = image.match(/^data:image\/(png|jpeg|jpg|webp|gif);base64,/);
+      if (!dataUriMatch) {
+        return res.status(400).json({
+          error: "Validation error",
+          message: "Formato de imagen inv\xE1lido. Solo se aceptan PNG, JPEG, WebP o GIF."
+        });
+      }
+      const base64Data = image.split(",")[1];
+      const sizeInBytes = Math.ceil(base64Data.length * 3 / 4);
+      const maxSize = 2 * 1024 * 1024;
+      if (sizeInBytes > maxSize) {
+        return res.status(400).json({
+          error: "Validation error",
+          message: "La imagen es demasiado grande. El tama\xF1o m\xE1ximo es 2MB."
+        });
+      }
+      const updatedUser = await storage.updateUser(req.user.userId, { avatarUrl: image });
+      res.json({
+        message: "Avatar actualizado exitosamente",
+        user: {
+          id: updatedUser.id,
+          username: updatedUser.username,
+          email: updatedUser.email,
+          name: updatedUser.name,
+          location: updatedUser.location,
+          avatarUrl: updatedUser.avatarUrl,
+          emailVerified: updatedUser.emailVerified,
+          onboardingCompleted: updatedUser.onboardingCompleted,
+          createdAt: updatedUser.createdAt
+        }
+      });
+    } catch (error) {
+      console.error("Upload avatar error:", error);
+      res.status(500).json({
+        error: "Internal server error",
+        message: "Error al subir el avatar"
+      });
+    }
+  });
+  app2.delete("/api/auth/avatar", authenticateToken, async (req, res) => {
+    try {
+      const updatedUser = await storage.updateUser(req.user.userId, { avatarUrl: null });
+      res.json({
+        message: "Avatar eliminado exitosamente",
+        user: {
+          id: updatedUser.id,
+          username: updatedUser.username,
+          email: updatedUser.email,
+          name: updatedUser.name,
+          location: updatedUser.location,
+          avatarUrl: updatedUser.avatarUrl,
+          emailVerified: updatedUser.emailVerified,
+          onboardingCompleted: updatedUser.onboardingCompleted,
+          createdAt: updatedUser.createdAt
+        }
+      });
+    } catch (error) {
+      console.error("Delete avatar error:", error);
+      res.status(500).json({
+        error: "Internal server error",
+        message: "Error al eliminar el avatar"
+      });
     }
   });
   app2.post("/api/auth/complete-onboarding", authenticateToken, async (req, res) => {
@@ -13957,7 +15505,8 @@ async function registerRoutes(app2) {
         username: user.username,
         email: user.email,
         name: user.name,
-        location: user.location
+        location: user.location,
+        avatarUrl: user.avatarUrl
       });
       res.json({
         message: "Tokens actualizados exitosamente",
@@ -15751,6 +17300,7 @@ async function registerRoutes(app2) {
 }
 
 // server/vercel-handler.ts
+init_storage();
 var app = null;
 function maybeRestoreOriginalApiPath(req) {
   const raw = req.query?.path;

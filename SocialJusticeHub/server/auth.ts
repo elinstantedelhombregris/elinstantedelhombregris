@@ -10,6 +10,7 @@ export interface AuthUser {
   email: string;
   name: string;
   location?: string | null;
+  avatarUrl?: string | null;
 }
 
 export interface JWTPayload {
@@ -272,9 +273,11 @@ export function createAuthResponse(user: AuthUser) {
       email: user.email,
       name: user.name,
       location: user.location,
+      avatarUrl: user.avatarUrl ?? null,
       emailVerified: (user as any).emailVerified ?? false,
       onboardingCompleted: (user as any).onboardingCompleted ?? false,
-      createdAt: (user as any).createdAt ?? null
+      createdAt: (user as any).createdAt ?? null,
+      dataShareOptOut: (user as any).dataShareOptOut ?? false,
     },
     tokens: {
       accessToken,

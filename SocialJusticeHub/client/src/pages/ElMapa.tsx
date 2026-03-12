@@ -15,6 +15,7 @@ import {
   ShieldCheck,
   Brain,
   Wrench,
+  Database,
 } from 'lucide-react';
 
 const ElMapa = () => {
@@ -237,6 +238,14 @@ const ElMapa = () => {
           href="/el-mandato-vivo"
           gradient="from-[#1a1500] to-[#1e1a0b]"
           icon={<Target className="w-5 h-5" />}
+        />
+
+        <NextStepCard
+          title="Datos Abiertos"
+          description="Descargá los datos del mapa en formato abierto. JSON, CSV o SQLite. Sin restricciones, sin permisos. Son tuyos."
+          href="/datos-abiertos"
+          gradient="from-[#001a15] to-[#0b1a16]"
+          icon={<Database className="w-5 h-5" />}
         />
 
       </main>

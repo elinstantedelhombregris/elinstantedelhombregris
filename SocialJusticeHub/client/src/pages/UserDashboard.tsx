@@ -245,7 +245,7 @@ const UserDashboard = () => {
               <div className="relative group">
                 <div className="w-24 h-24 rounded-2xl bg-white/5 overflow-hidden border border-white/10 shadow-[0_0_30px_rgba(59,130,246,0.15)] group-hover:border-blue-500/50 group-hover:shadow-[0_0_40px_rgba(59,130,246,0.3)] transition-all duration-500">
                    <Avatar className="h-full w-full rounded-none">
-                    <AvatarImage src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${user.username}`} className="grayscale opacity-80 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500" />
+                    <AvatarImage src={user.avatarUrl || `https://api.dicebear.com/7.x/avataaars/svg?seed=${user.username}`} className={`${user.avatarUrl ? 'object-cover' : 'grayscale opacity-80 group-hover:grayscale-0'} group-hover:scale-110 transition-all duration-500`} />
                     <AvatarFallback className="bg-slate-900 text-slate-400 font-bold text-3xl">
                       {user.name.charAt(0)}
                     </AvatarFallback>

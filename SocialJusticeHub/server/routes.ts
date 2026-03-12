@@ -8,6 +8,7 @@ import { registerLifeAreasRoutes } from './routes-life-areas';
 import { registerCivicAssessmentRoutes } from './routes-civic-assessment';
 import { registerGoalRoutes } from './routes-goals';
 import { registerCoachingRoutes } from './routes-coaching';
+import { registerOpenDataRoutes } from './routes-open-data';
 import { 
   insertUserSchema, 
   insertDreamSchema, 
@@ -148,6 +149,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   registerCivicAssessmentRoutes(app);
   registerGoalRoutes(app);
   registerCoachingRoutes(app);
+  registerOpenDataRoutes(app);
 
   // Get all dreams
   app.get("/api/dreams", optionalAuth, async (req: AuthRequest, res) => {
@@ -2087,9 +2089,32 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Register user - ENTERPRISE LEVEL
   app.post("/api/register", authRateLimit, async (req, res) => {
     try {
+      // Anti-bot: Honeypot check — if the hidden field has content, it's a bot
+      if (req.body._hp) {
+        // Return fake success to not reveal the trap
+        return res.status(201).json({
+          message: 'Usuario registrado exitosamente',
+          user: { id: 0, username: '', email: '', name: '' },
+          tokens: { accessToken: '', refreshToken: '' }
+        });
+      }
+
+      // Anti-bot: Time-trap — form submitted too fast (< 3 seconds = bot)
+      const formLoadedAt = Number(req.body._t);
+      if (formLoadedAt && (Date.now() - formLoadedAt) < 3000) {
+        return res.status(429).json({
+          error: 'Too fast',
+          message: 'El formulario fue enviado demasiado rápido. Intentá de nuevo.',
+          code: 'SUBMISSION_TOO_FAST'
+        });
+      }
+
+      // Strip anti-bot fields before validation
+      const { _hp, _t, ...registrationData } = req.body;
+
       // Validate input with enhanced schema
-      const validatedData = registerUserSchema.parse(req.body);
-      
+      const validatedData = registerUserSchema.parse(registrationData);
+
       // Check if username already exists
       const existingUsername = await storage.getUserByUsername(validatedData.username);
       if (existingUsername) {
@@ -2125,9 +2150,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
         username: user.username,
         email: user.email,
         name: user.name,
-        location: user.location
+        location: user.location,
+        avatarUrl: user.avatarUrl
       });
-      
+
       res.status(201).json({
         message: 'Usuario registrado exitosamente',
         ...authResponse
@@ -2205,9 +2231,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
         username: user.username,
         email: user.email,
         name: user.name,
-        location: user.location
+        location: user.location,
+        avatarUrl: user.avatarUrl
       });
-      
+
       res.json({
         message: 'Inicio de sesión exitoso',
         ...authResponse
@@ -2250,10 +2277,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
         email: user.email,
         name: user.name,
         location: user.location,
+        avatarUrl: user.avatarUrl,
         lastLogin: user.lastLogin,
         emailVerified: user.emailVerified,
         onboardingCompleted: user.onboardingCompleted,
-        createdAt: user.createdAt
+        createdAt: user.createdAt,
+        dataShareOptOut: user.dataShareOptOut ?? false,
       });
     } catch (error) {
       console.error('Get user profile error:', error);
@@ -2291,9 +2320,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
           email: updatedUser.email,
           name: updatedUser.name,
           location: updatedUser.location,
+          avatarUrl: updatedUser.avatarUrl,
           emailVerified: updatedUser.emailVerified,
           onboardingCompleted: updatedUser.onboardingCompleted,
-          createdAt: updatedUser.createdAt
+          createdAt: updatedUser.createdAt,
+          dataShareOptOut: updatedUser.dataShareOptOut ?? false,
         }
       });
     } catch (error) {
@@ -2313,6 +2344,91 @@ export async function registerRoutes(app: Express): Promise<Server> {
           message: 'Error interno del servidor'
         });
       }
+    }
+  });
+
+  // Upload avatar image (base64)
+  app.post("/api/auth/avatar", authenticateToken, async (req: AuthRequest, res) => {
+    try {
+      const { image } = req.body;
+
+      if (!image || typeof image !== 'string') {
+        return res.status(400).json({
+          error: 'Validation error',
+          message: 'Se requiere una imagen válida'
+        });
+      }
+
+      // Validate base64 data URI format
+      const dataUriMatch = image.match(/^data:image\/(png|jpeg|jpg|webp|gif);base64,/);
+      if (!dataUriMatch) {
+        return res.status(400).json({
+          error: 'Validation error',
+          message: 'Formato de imagen inválido. Solo se aceptan PNG, JPEG, WebP o GIF.'
+        });
+      }
+
+      // Check size (roughly: base64 is ~33% larger than binary, limit to ~2MB image = ~2.7MB base64)
+      const base64Data = image.split(',')[1];
+      const sizeInBytes = Math.ceil((base64Data.length * 3) / 4);
+      const maxSize = 2 * 1024 * 1024; // 2MB
+      if (sizeInBytes > maxSize) {
+        return res.status(400).json({
+          error: 'Validation error',
+          message: 'La imagen es demasiado grande. El tamaño máximo es 2MB.'
+        });
+      }
+
+      const updatedUser = await storage.updateUser(req.user!.userId, { avatarUrl: image } as any);
+
+      res.json({
+        message: 'Avatar actualizado exitosamente',
+        user: {
+          id: updatedUser.id,
+          username: updatedUser.username,
+          email: updatedUser.email,
+          name: updatedUser.name,
+          location: updatedUser.location,
+          avatarUrl: updatedUser.avatarUrl,
+          emailVerified: updatedUser.emailVerified,
+          onboardingCompleted: updatedUser.onboardingCompleted,
+          createdAt: updatedUser.createdAt
+        }
+      });
+    } catch (error) {
+      console.error('Upload avatar error:', error);
+      res.status(500).json({
+        error: 'Internal server error',
+        message: 'Error al subir el avatar'
+      });
+    }
+  });
+
+  // Remove avatar
+  app.delete("/api/auth/avatar", authenticateToken, async (req: AuthRequest, res) => {
+    try {
+      const updatedUser = await storage.updateUser(req.user!.userId, { avatarUrl: null } as any);
+
+      res.json({
+        message: 'Avatar eliminado exitosamente',
+        user: {
+          id: updatedUser.id,
+          username: updatedUser.username,
+          email: updatedUser.email,
+          name: updatedUser.name,
+          location: updatedUser.location,
+          avatarUrl: updatedUser.avatarUrl,
+          emailVerified: updatedUser.emailVerified,
+          onboardingCompleted: updatedUser.onboardingCompleted,
+          createdAt: updatedUser.createdAt
+        }
+      });
+    } catch (error) {
+      console.error('Delete avatar error:', error);
+      res.status(500).json({
+        error: 'Internal server error',
+        message: 'Error al eliminar el avatar'
+      });
     }
   });
 
@@ -2465,9 +2581,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
         username: user.username,
         email: user.email,
         name: user.name,
-        location: user.location
+        location: user.location,
+        avatarUrl: user.avatarUrl
       });
-      
+
       res.json({
         message: 'Tokens actualizados exitosamente',
         ...authResponse

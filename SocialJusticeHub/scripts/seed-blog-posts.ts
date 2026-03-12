@@ -146,6 +146,17 @@ const baseBlogPostsData = [
     publishedAt: new Date("2026-02-03").toISOString(),
     tags: ["sistemas", "ingeniería social", "pensamiento sistémico", "análisis", "transformación"],
   },
+  {
+    title: "Detectar Patrones: Otro Poder Que Ya Tenés y Nadie Te Enseñó a Usar",
+    slug: createSlug("Detectar Patrones: Otro Poder Que Ya Tenés y Nadie Te Enseñó a Usar"),
+    category: "Filosofía",
+    type: "blog" as const,
+    featured: true,
+    imageUrl: "https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?w=800&h=400&fit=crop",
+    authorId: 1,
+    publishedAt: new Date("2026-03-12").toISOString(),
+    tags: ["patrones", "política", "pensamiento crítico", "transformación", "Argentina"],
+  },
 ];
 
 const blogPostsData = baseBlogPostsData.map((post) => {

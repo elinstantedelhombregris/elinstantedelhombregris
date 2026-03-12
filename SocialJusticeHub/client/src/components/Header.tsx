@@ -142,7 +142,7 @@ const Header = () => {
                       : 'border-white/20 bg-white/10 text-white hover:bg-white/20'
                   }`}>
                     <Avatar className="h-6 w-6 border border-white/20">
-                      <AvatarImage src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${userContext.user?.username}`} />
+                      <AvatarImage src={userContext.user?.avatarUrl || `https://api.dicebear.com/7.x/avataaars/svg?seed=${userContext.user?.username}`} className={userContext.user?.avatarUrl ? 'object-cover' : ''} />
                       <AvatarFallback>U</AvatarFallback>
                     </Avatar>
                     <span className="text-xs font-medium pr-1">

@@ -9,6 +9,7 @@ interface UserAvatarProps {
     name: string;
     username: string;
     email: string;
+    avatarUrl?: string | null;
   };
   level?: number;
   streak?: number;
@@ -79,7 +80,7 @@ const UserAvatar: React.FC<UserAvatarProps> = ({
   return (
     <div className={`relative inline-block ${className}`}>
       <Avatar className={sizeClasses}>
-        <AvatarImage src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${user.username}`} />
+        <AvatarImage src={user.avatarUrl || `https://api.dicebear.com/7.x/avataaars/svg?seed=${user.username}`} />
         <AvatarFallback className="text-sm font-medium">
           {user.name.charAt(0).toUpperCase()}
         </AvatarFallback>

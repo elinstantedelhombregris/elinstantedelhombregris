@@ -51,6 +51,7 @@ const PoliticaPrivacidad = React.lazy(() => import("@/pages/PoliticaPrivacidad")
 const ElMandatoVivo = React.lazy(() => import("@/pages/ElMandatoVivo"));
 const MandatoTerritorial = React.lazy(() => import("@/pages/MandatoTerritorial"));
 const MandatoPublico = React.lazy(() => import("@/pages/MandatoPublico"));
+const DatosAbiertos = React.lazy(() => import("@/pages/DatosAbiertos"));
 
 type User = {
   id: number;
@@ -58,9 +59,11 @@ type User = {
   name: string;
   email: string;
   location?: string | null;
+  avatarUrl?: string | null;
   emailVerified?: boolean;
   onboardingCompleted?: boolean;
   createdAt?: string | null;
+  dataShareOptOut?: boolean;
 } | null;
 
 export type UserContextType = {
@@ -120,6 +123,7 @@ function Router() {
       <Route path="/politica-privacidad" component={PoliticaPrivacidad} />
       <Route path="/mandato/:level/:name" component={MandatoTerritorial} />
       <Route path="/mandato-publico/:level/:name" component={MandatoPublico} />
+      <Route path="/datos-abiertos" component={DatosAbiertos} />
 
       {/* Life Areas routes */}
       <Route path="/life-areas" component={LifeAreasDashboard} />

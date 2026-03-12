@@ -27,6 +27,9 @@ export const users = pgTable("users", {
   passwordResetToken: text("password_reset_token"),
   passwordResetExpires: text("password_reset_expires"),
   
+  // Profile image (base64 data URI)
+  avatarUrl: text("avatar_url"),
+
   // Onboarding
   onboardingCompleted: boolean("onboarding_completed").default(false),
 
@@ -34,6 +37,9 @@ export const users = pgTable("users", {
   twoFactorEnabled: boolean("two_factor_enabled").default(false),
   twoFactorSecret: text("two_factor_secret"),
   twoFactorBackupCodes: text("two_factor_backup_codes"), // JSON array
+
+  // Open Data opt-out
+  dataShareOptOut: boolean("data_share_opt_out").default(false),
 });
 
 export const dreams = pgTable("dreams", {
