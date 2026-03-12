@@ -52,6 +52,9 @@ interface Config {
     model: string;
     maxTokens: number;
     enabled: boolean;
+    groqApiKey: string | null;
+    groqModel: string;
+    groqEnabled: boolean;
   };
 }
 
@@ -146,6 +149,9 @@ function validateConfig(): Config {
       model: process.env.AI_MODEL || 'claude-sonnet-4-20250514',
       maxTokens: parseInt(process.env.AI_MAX_TOKENS || '512'),
       enabled: !!process.env.ANTHROPIC_API_KEY,
+      groqApiKey: process.env.GROQ_API_KEY || null,
+      groqModel: process.env.GROQ_MODEL || 'llama-3.3-70b-versatile',
+      groqEnabled: !!process.env.GROQ_API_KEY,
     }
   };
 }
