@@ -66,7 +66,6 @@ const BlogVlog = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    fetchPosts();
   }, []);
 
   useEffect(() => {
