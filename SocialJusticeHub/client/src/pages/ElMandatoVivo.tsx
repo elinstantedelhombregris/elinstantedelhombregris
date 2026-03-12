@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useQuery } from '@tanstack/react-query';
+import { getQueryFn } from '@/lib/queryClient';
 import { Link } from 'wouter';
 import {
   Scroll,
@@ -12,111 +13,68 @@ import {
   Wrench,
   MapPin,
   Map,
+  Activity,
+  BarChart3,
+  Zap,
+  Target,
+  Clock,
+  ChevronRight,
+  Calendar,
 } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import SimulatedMandate from '@/components/SimulatedMandate';
+import PoliticalSimulation from '@/components/PoliticalSimulation';
 import MandateCascade from '@/components/MandateCascade';
 import ImpactCaseStudy from '@/components/ImpactCaseStudy';
 import PowerCTA from '@/components/PowerCTA';
 import NextStepCard from '@/components/NextStepCard';
+import TrendIcon from '@/components/TrendIcon';
+import ProposalCard from '@/components/ProposalCard';
 
-// ─── Simulated mandate data ───────────────────────────────────────────────────
+// ─── Types ────────────────────────────────────────────────────────────────────
 
-const cordobaData = {
-  territory: "Córdoba",
-  level: "provincial" as const,
-  voiceCount: 5200,
-  convergenceScore: 78,
-  priorities: [
-    { rank: 1, theme: "Salud y Vida", convergencePercent: 87, voiceCount: 4524 },
-    { rank: 2, theme: "Economía y Recursos", convergencePercent: 74, voiceCount: 3848 },
-    { rank: 3, theme: "Desarrollo Humano", convergencePercent: 71, voiceCount: 3692 },
-  ],
-  resources: [
-    { category: "Profesionales de Salud", count: 340 },
-    { category: "Educadores", count: 220 },
-    { category: "Tecnología", count: 180 },
-  ],
-  gaps: [
-    { theme: "Salud y Vida", needCount: 4500, resourceCount: 340, urgency: "critical" as const },
-    { theme: "Economía y Recursos", needCount: 3200, resourceCount: 180, urgency: "high" as const },
-  ],
-  suggestedActions: [
-    {
-      title: "Red de Atención Comunitaria",
-      description: "Jornadas de salud gratuitas coordinadas entre 340 profesionales voluntarios y centros barriales en toda la provincia.",
-      estimatedImpact: "4.500 familias atendidas por trimestre",
-    },
-  ],
-  precedent: "En Rosario, 15 médicos voluntarios atienden a 200 familias por mes con este modelo. Escalado a nivel provincial, el impacto se multiplica por 20.",
+type PulseStats = {
+  totalPulses: number;
+  totalProposals: number;
+  activeProposals: number;
+  completedProposals: number;
+  lastPulseDate: string | null;
+  lastPulseWeek: number | null;
 };
 
-const laMatanzaData = {
-  territory: "La Matanza",
-  level: "municipal" as const,
-  voiceCount: 3100,
-  convergenceScore: 82,
-  priorities: [
-    { rank: 1, theme: "Economía y Recursos", convergencePercent: 91, voiceCount: 2821 },
-    { rank: 2, theme: "Comunidad y Colectivo", convergencePercent: 79, voiceCount: 2449 },
-    { rank: 3, theme: "Salud y Vida", convergencePercent: 73, voiceCount: 2263 },
-  ],
-  resources: [
-    { category: "Tecnología y Oficios", count: 180 },
-    { category: "Construcción", count: 95 },
-    { category: "Agricultura Urbana", count: 60 },
-  ],
-  gaps: [
-    { theme: "Economía y Recursos", needCount: 2800, resourceCount: 180, urgency: "critical" as const },
-    { theme: "Alimentación", needCount: 1900, resourceCount: 60, urgency: "high" as const },
-  ],
-  suggestedActions: [
-    {
-      title: "Hub de Emprendedores Digitales",
-      description: "Espacio compartido de co-trabajo y capacitación técnica para 180 personas con habilidades en tecnología y oficios.",
-      estimatedImpact: "300 nuevos emprendimientos en 6 meses",
-    },
-    {
-      title: "Red de Huertas Comunitarias",
-      description: "60 agricultores urbanos capacitan a 500 familias en producción de alimentos frescos.",
-      estimatedImpact: "1.900 familias con acceso a alimento fresco",
-    },
-  ],
+type PulseData = {
+  id: number;
+  weekNumber: number;
+  year: number;
+  weekStartDate: string;
+  weekEndDate: string;
+  totalNewVoices: number;
+  newDreams: number;
+  newNeeds: number;
+  newBastas: number;
+  emergingThemes: Array<{ theme: string; trend: string; count: number; description: string }> | null;
+  generatedAt: string;
+  proposals: Array<{
+    id: number;
+    title: string;
+    summary: string;
+    targetCategory: string;
+    urgency: 'critica' | 'importante' | 'oportunidad';
+    status: string;
+    weeksActive: number;
+    territory: string;
+    suggestedActionType: string;
+    evidence: { voiceCount: number; convergencePercent: number } | null;
+  }>;
 };
 
-const argentinaData = {
-  territory: "Argentina",
-  level: "national" as const,
-  voiceCount: 50000,
-  convergenceScore: 72,
-  priorities: [
-    { rank: 1, theme: "Economía y Recursos", convergencePercent: 88, voiceCount: 44000 },
-    { rank: 2, theme: "Salud y Vida", convergencePercent: 82, voiceCount: 41000 },
-    { rank: 3, theme: "Justicia y Derechos", convergencePercent: 76, voiceCount: 38000 },
-    { rank: 4, theme: "Desarrollo Humano", convergencePercent: 73, voiceCount: 36500 },
-    { rank: 5, theme: "Comunidad y Colectivo", convergencePercent: 69, voiceCount: 34500 },
-  ],
-  resources: [
-    { category: "Profesionales de Salud", count: 4200 },
-    { category: "Educadores", count: 3800 },
-    { category: "Tecnología", count: 2900 },
-    { category: "Legal", count: 1600 },
-    { category: "Construcción", count: 1200 },
-  ],
-  gaps: [
-    { theme: "Economía y Recursos", needCount: 44000, resourceCount: 2900, urgency: "critical" as const },
-    { theme: "Salud y Vida", needCount: 41000, resourceCount: 4200, urgency: "critical" as const },
-    { theme: "Justicia y Derechos", needCount: 38000, resourceCount: 1600, urgency: "high" as const },
-  ],
-  suggestedActions: [
-    {
-      title: "Red Nacional de Salud Comunitaria",
-      description: "4.200 profesionales de salud organizados en redes provinciales para atención primaria gratuita en territorios desatendidos.",
-      estimatedImpact: "Cobertura para 2 millones de personas sin acceso",
-    },
-  ],
-  precedent: "24 mandatos provinciales alimentan este mandato nacional. La cascada va del barrio al país — cada voz local construye la dirección nacional.",
+type PulseSummary = {
+  id: number;
+  weekNumber: number;
+  year: number;
+  totalNewVoices: number;
+  generatedAt: string;
+  emergingThemes: Array<{ theme: string; trend: string }> | null;
 };
 
 // ─── How-it-works cards data ──────────────────────────────────────────────────
@@ -141,14 +99,14 @@ const howItWorksCards = [
     color: "amber-400",
     bg: "amber-500/10",
     title: "El Mandato Se Escribe Solo",
-    desc: "Cuando la convergencia supera el umbral, el mandato territorial se genera automáticamente. Nadie vota. Nadie debate.",
+    desc: "Cada viernes a las 17:55, el motor de convergencia genera mandatos territoriales automáticos. Nadie vota. Nadie debate.",
   },
   {
     icon: Rocket,
     color: "emerald-400",
     bg: "emerald-500/10",
     title: "La Acción Se Activa",
-    desc: "El casamentero conecta necesidades con recursos disponibles y sugiere iniciativas concretas con precedentes reales.",
+    desc: "Cada mandato incluye propuestas con plantilla de acción lista para enviar: carta, petición, proyecto de ley.",
   },
 ];
 
@@ -170,11 +128,13 @@ const bgColorMap: Record<string, string> = {
 
 // ─── Stat card color map ──────────────────────────────────────────────────────
 
-const statStyles: Record<string, { text: string; bgIcon: string; border: string }> = {
-  blue: { text: "text-blue-400", bgIcon: "text-blue-500/10", border: "border-blue-500/20" },
-  teal: { text: "text-teal-400", bgIcon: "text-teal-500/10", border: "border-teal-500/20" },
-  purple: { text: "text-purple-400", bgIcon: "text-purple-500/10", border: "border-purple-500/20" },
-  amber: { text: "text-amber-400", bgIcon: "text-amber-500/10", border: "border-amber-500/20" },
+const statStyles: Record<string, { text: string; bgIcon: string }> = {
+  blue: { text: "text-blue-400", bgIcon: "text-blue-500/10" },
+  teal: { text: "text-teal-400", bgIcon: "text-teal-500/10" },
+  purple: { text: "text-purple-400", bgIcon: "text-purple-500/10" },
+  amber: { text: "text-amber-400", bgIcon: "text-amber-500/10" },
+  emerald: { text: "text-emerald-400", bgIcon: "text-emerald-500/10" },
+  rose: { text: "text-rose-400", bgIcon: "text-rose-500/10" },
 };
 
 // ─── Component ────────────────────────────────────────────────────────────────
@@ -185,18 +145,38 @@ const ElMandatoVivo = () => {
     document.title = 'El Mandato Vivo - Democracia Directa por Datos';
   }, []);
 
+  // Map data
   const { data: dreams = [] } = useQuery<any[]>({ queryKey: ['/api/dreams'] });
   const { data: resources = [] } = useQuery<any[]>({ queryKey: ['/api/resources-map'] });
   const { data: mandates = [] } = useQuery<any[]>({ queryKey: ['/api/mandates'] });
 
+  // Pulse data
+  const { data: latestPulse } = useQuery<{ data: PulseData | null }>({
+    queryKey: ['/api/pulsos/latest'],
+    queryFn: getQueryFn({ on401: 'returnNull' }),
+  });
+  const { data: pulseStatsRes } = useQuery<{ data: PulseStats }>({
+    queryKey: ['/api/pulsos/stats'],
+    queryFn: getQueryFn({ on401: 'returnNull' }),
+  });
+  const { data: historyRes } = useQuery<{ data: PulseSummary[] }>({
+    queryKey: ['/api/pulsos'],
+    queryFn: getQueryFn({ on401: 'returnNull' }),
+  });
+
   const totalVoices = dreams.length + resources.length;
   const uniqueLocations = new Set(dreams.filter((d: any) => d.location).map((d: any) => d.location)).size;
+  const pulse = latestPulse?.data;
+  const pulseStats = pulseStatsRes?.data;
+  const history = historyRes?.data;
 
   const stats = [
     { value: dreams.length, label: "Voces en el Mapa", icon: Users, color: "blue" },
     { value: resources.length, label: "Recursos Ofrecidos", icon: Wrench, color: "teal" },
     { value: uniqueLocations, label: "Territorios Activos", icon: MapPin, color: "purple" },
     { value: mandates.length, label: "Mandatos Generados", icon: FileText, color: "amber" },
+    { value: pulseStats?.totalProposals || 0, label: "Propuestas Generadas", icon: Target, color: "emerald" },
+    { value: pulseStats?.activeProposals || 0, label: "Propuestas Activas", icon: Zap, color: "rose" },
   ];
 
   return (
@@ -206,13 +186,10 @@ const ElMandatoVivo = () => {
 
         {/* ━━━ SECTION 1: HERO ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
         <section className="relative h-screen flex items-center justify-center overflow-hidden">
-          {/* Background gradient */}
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-amber-950/40 via-[#0a0a0a] to-[#0a0a0a]" />
-          {/* Noise overlay */}
           <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')]" />
 
           <div className="relative z-10 text-center px-4">
-            {/* Animated label */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -225,7 +202,6 @@ const ElMandatoVivo = () => {
               </span>
             </motion.div>
 
-            {/* Title */}
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -239,33 +215,38 @@ const ElMandatoVivo = () => {
               </span>
             </motion.h1>
 
-            {/* Subtitle */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.3 }}
               className="text-xl md:text-2xl text-slate-400 max-w-2xl mx-auto mb-10"
             >
-              Lo que el pueblo declara se convierte en mandato irrefutable. Sin debates. Sin votaciones. La convergencia habla.
+              Lo que el pueblo declara se convierte en mandato irrefutable. Cada viernes el motor de convergencia traduce la voz colectiva en propuestas accionables.
             </motion.p>
 
-            {/* Live counter badge */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="flex items-center justify-center gap-2 mb-16"
+              className="inline-flex items-center gap-3 bg-white/5 backdrop-blur-md border border-white/10 rounded-full px-5 py-2.5 mb-16"
             >
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500" />
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-500" />
               </span>
-              <span className="text-xs text-slate-500 font-mono">
-                {totalVoices} voces alimentando el mandato
+              <span className="text-white/70 text-sm">
+                <span className="text-amber-400 font-bold">{totalVoices}</span> voces
+                {pulseStats && (
+                  <>
+                    {' · '}
+                    <span className="text-amber-400 font-bold">{pulseStats.totalProposals}</span> propuestas
+                    {' · '}
+                    <span className="text-amber-400 font-bold">{pulseStats.totalPulses}</span> mandatos semanales
+                  </>
+                )}
               </span>
             </motion.div>
 
-            {/* Scroll indicator */}
             <motion.div
               animate={{ y: [0, 10, 0] }}
               transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
@@ -323,7 +304,7 @@ const ElMandatoVivo = () => {
               </h2>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 max-w-6xl mx-auto">
               {stats.map((stat, index) => {
                 const Icon = stat.icon;
                 const style = statStyles[stat.color];
@@ -333,49 +314,160 @@ const ElMandatoVivo = () => {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className={`relative bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 overflow-hidden`}
+                    transition={{ duration: 0.5, delay: index * 0.08 }}
+                    className="relative bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-5 overflow-hidden"
                   >
-                    {/* Background icon */}
-                    <Icon className={`absolute -bottom-2 -right-2 w-20 h-20 ${style.bgIcon} opacity-30`} />
+                    <Icon className={`absolute -bottom-2 -right-2 w-16 h-16 ${style.bgIcon} opacity-30`} />
                     <div className="relative z-10">
-                      <span className={`text-4xl font-bold ${style.text}`}>
+                      <span className={`text-3xl font-bold ${style.text}`}>
                         {stat.value}
                       </span>
-                      <p className="text-slate-400 text-sm mt-2">{stat.label}</p>
+                      <p className="text-slate-400 text-xs mt-2">{stat.label}</p>
                     </div>
                   </motion.div>
                 );
               })}
             </div>
+
+            {pulseStats?.lastPulseDate && (
+              <motion.p
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                className="text-slate-500 text-xs text-center mt-8 font-mono flex items-center justify-center gap-1.5"
+              >
+                <Clock className="w-3 h-3" />
+                Último mandato semanal: {new Date(pulseStats.lastPulseDate).toLocaleDateString('es-AR', {
+                  day: 'numeric', month: 'long', year: 'numeric',
+                })}
+              </motion.p>
+            )}
           </div>
         </section>
 
-        {/* ━━━ SECTION 4: SIMULATED EXAMPLES ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-        <section className="bg-gradient-to-b from-[#0a0a0a] via-[#0f1116] to-[#0a0a0a] py-20 md:py-28">
+        {/* ━━━ SECTION 4: LATEST MANDATE (PULSE) ━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+        {pulse ? (
+          <section className="bg-gradient-to-b from-[#0a0a0a] via-[#0f1116] to-[#0a0a0a] py-20 md:py-28">
+            <div className="container mx-auto px-4 max-w-5xl">
+              <div className="text-center mb-14">
+                <span className="text-amber-500 font-mono text-xs tracking-[0.3em] uppercase">
+                  Mandato Semanal #{pulse.weekNumber}
+                </span>
+                <h2 className="text-4xl font-bold text-white mt-3 font-serif">
+                  El Último Mandato
+                </h2>
+                <p className="text-slate-400 max-w-2xl mx-auto mt-4 text-sm">
+                  {new Date(pulse.weekStartDate).toLocaleDateString('es-AR', { day: 'numeric', month: 'long' })}
+                  {' — '}
+                  {new Date(pulse.weekEndDate).toLocaleDateString('es-AR', { day: 'numeric', month: 'long', year: 'numeric' })}
+                  {' · '}
+                  <span className="text-amber-400 font-bold">{pulse.totalNewVoices}</span> voces nuevas procesadas
+                </p>
+              </div>
+
+              {/* Emerging themes */}
+              {pulse.emergingThemes && pulse.emergingThemes.length > 0 && (
+                <div className="mb-12">
+                  <h3 className="text-sm font-mono text-amber-500 tracking-[0.2em] uppercase text-center mb-6">
+                    Temas Emergentes
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    {pulse.emergingThemes.slice(0, 3).map((theme, i) => (
+                      <motion.div
+                        key={i}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: i * 0.1 }}
+                        className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-5"
+                      >
+                        <div className="flex items-center gap-2 mb-2">
+                          <TrendIcon trend={theme.trend} />
+                          <h4 className="text-white font-serif font-bold text-sm">{theme.theme}</h4>
+                        </div>
+                        <p className="text-slate-400 text-xs leading-relaxed line-clamp-2">{theme.description}</p>
+                        <p className="text-amber-400 text-xs font-mono mt-2">{theme.count} menciones</p>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Top proposals */}
+              {pulse.proposals && pulse.proposals.length > 0 && (
+                <div className="mb-10">
+                  <h3 className="text-sm font-mono text-amber-500 tracking-[0.2em] uppercase text-center mb-6">
+                    Propuestas del Mandato
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {pulse.proposals.slice(0, 4).map((proposal, i) => (
+                      <ProposalCard key={proposal.id} proposal={proposal} index={i} />
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Link to full mandate */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                className="text-center"
+              >
+                <Link
+                  href={`/mandato/pulso/${pulse.id}`}
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/20 rounded-xl text-amber-400 text-sm font-mono uppercase tracking-wider transition-all"
+                >
+                  Ver mandato completo
+                  <ChevronRight className="w-4 h-4" />
+                </Link>
+              </motion.div>
+            </div>
+          </section>
+        ) : (
+          <section className="bg-gradient-to-b from-[#0a0a0a] via-[#0f1116] to-[#0a0a0a] py-20 md:py-28">
+            <div className="container mx-auto px-4 text-center max-w-3xl">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-12"
+              >
+                <Activity className="w-16 h-16 text-slate-700 mx-auto mb-6" />
+                <h3 className="text-white font-serif font-bold text-2xl mb-3">El primer mandato se genera pronto</h3>
+                <p className="text-slate-400 text-sm max-w-md mx-auto leading-relaxed">
+                  El motor de convergencia genera mandatos automáticamente cada viernes a las 17:55.
+                  Mientras tanto, seguí cargando sueños, necesidades y recursos en{' '}
+                  <Link href="/el-mapa" className="text-amber-400 hover:text-amber-300">El Mapa</Link>.
+                </p>
+              </motion.div>
+            </div>
+          </section>
+        )}
+
+        {/* ━━━ SECTION 5: POLITICAL SIMULATION ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+        <section className="py-20 md:py-28">
           <div className="container mx-auto px-4">
             <div className="text-center mb-14">
               <span className="text-amber-500 font-mono text-xs tracking-[0.3em] uppercase">
                 Simulación a Escala
               </span>
               <h2 className="text-4xl font-bold text-white mt-3 font-serif">
-                Cuando Miles de Voces Convergen
+                Cómo el Sistema Obliga a la Política
               </h2>
               <p className="text-slate-400 max-w-3xl mx-auto mt-4 text-lg">
-                Estos ejemplos simulan lo que el sistema genera cuando miles de personas alimentan el mapa. Es el futuro que estamos construyendo — y cada voz que se suma lo acerca.
+                Cuando el mandato es claro y la política no responde, el sistema genera automáticamente las herramientas para exigir cumplimiento.
               </p>
             </div>
 
-            <div className="max-w-4xl mx-auto space-y-8">
-              <SimulatedMandate {...cordobaData} />
-              <SimulatedMandate {...laMatanzaData} />
-              <SimulatedMandate {...argentinaData} />
+            <div className="max-w-6xl mx-auto">
+              <PoliticalSimulation />
             </div>
           </div>
         </section>
 
-        {/* ━━━ SECTION 5: MANDATE CASCADE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-        <section className="py-20 md:py-28">
+        {/* ━━━ SECTION 6: MANDATE CASCADE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+        <section className="bg-gradient-to-b from-[#0a0a0a] via-[#0f1116] to-[#0a0a0a] py-20 md:py-28">
           <div className="container mx-auto px-4">
             <div className="text-center mb-14">
               <span className="text-amber-500 font-mono text-xs tracking-[0.3em] uppercase">
@@ -401,8 +493,8 @@ const ElMandatoVivo = () => {
           </div>
         </section>
 
-        {/* ━━━ SECTION 6: IMPACT CASE STUDIES ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-        <section className="bg-gradient-to-b from-[#0f1116] to-[#0a0a0a] py-20 md:py-28">
+        {/* ━━━ SECTION 7: IMPACT CASE STUDIES ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+        <section className="py-20 md:py-28">
           <div className="container mx-auto px-4">
             <div className="text-center mb-14">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 mb-6">
@@ -425,9 +517,87 @@ const ElMandatoVivo = () => {
           </div>
         </section>
 
-        {/* ━━━ SECTION 7: CTA ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+        {/* ━━━ SECTION 8: MANDATE ARCHIVE ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+        <section className="bg-gradient-to-b from-[#0a0a0a] via-[#0f1116] to-[#0a0a0a] py-20 md:py-28">
+          <div className="container mx-auto px-4 max-w-5xl">
+            <div className="text-center mb-14">
+              <span className="text-amber-500 font-mono text-xs tracking-[0.3em] uppercase">
+                Archivo
+              </span>
+              <h2 className="text-4xl font-bold text-white mt-3 font-serif">
+                Mandatos Anteriores
+              </h2>
+              <p className="text-slate-400 max-w-md mx-auto mt-4 text-sm">
+                Cada mandato semanal es un registro histórico de la evolución de la voz colectiva.
+              </p>
+            </div>
+
+            {history && history.length > 0 ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {history.map((p, i) => (
+                  <Link key={p.id} href={`/mandato/pulso/${p.id}`}>
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: i * 0.08 }}
+                      className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-5 hover:border-amber-500/20 transition-all cursor-pointer group"
+                    >
+                      <div className="flex items-center justify-between mb-3">
+                        <div className="flex items-center gap-2">
+                          <div className="w-8 h-8 rounded-full bg-amber-500/10 flex items-center justify-center">
+                            <Activity className="w-4 h-4 text-amber-400" />
+                          </div>
+                          <span className="text-white font-serif font-bold">
+                            Mandato #{p.weekNumber}
+                          </span>
+                        </div>
+                        <span className="text-slate-500 text-xs font-mono">
+                          {p.generatedAt ? new Date(p.generatedAt).toLocaleDateString('es-AR', { day: 'numeric', month: 'short', year: 'numeric' }) : ''}
+                        </span>
+                      </div>
+
+                      <p className="text-slate-400 text-sm mb-3">
+                        <span className="text-amber-400 font-bold">{p.totalNewVoices}</span> voces procesadas
+                      </p>
+
+                      {p.emergingThemes && p.emergingThemes.length > 0 && (
+                        <div className="flex gap-1.5 flex-wrap">
+                          {p.emergingThemes.slice(0, 3).map((t, j) => (
+                            <span key={j} className="flex items-center gap-1 text-[10px] text-slate-400 bg-white/5 border border-white/5 px-2 py-0.5 rounded-full font-mono">
+                              <TrendIcon trend={t.trend} />
+                              {t.theme}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+
+                      <div className="mt-3 pt-3 border-t border-white/5 flex items-center gap-1 text-xs text-slate-500 group-hover:text-amber-400 transition-colors">
+                        <span>Ver mandato completo</span>
+                        <ChevronRight className="w-3 h-3" />
+                      </div>
+                    </motion.div>
+                  </Link>
+                ))}
+              </div>
+            ) : (
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                className="bg-white/5 border border-white/10 rounded-2xl p-10 text-center"
+              >
+                <Calendar className="w-10 h-10 text-slate-700 mx-auto mb-4" />
+                <p className="text-slate-400 text-sm">
+                  Los mandatos semanales aparecerán acá a medida que se generen cada viernes.
+                </p>
+              </motion.div>
+            )}
+          </div>
+        </section>
+
+        {/* ━━━ SECTION 9: CTA ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
         <section className="relative py-20 md:py-28 overflow-hidden">
-          {/* Ambient glow */}
           <div className="absolute inset-0 bg-amber-900/5" />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-amber-500/[0.03] rounded-full blur-[120px] pointer-events-none" />
 
@@ -477,7 +647,7 @@ const ElMandatoVivo = () => {
           </div>
         </section>
 
-        {/* ━━━ SECTION 8: NEXT STEP CARD ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+        {/* ━━━ SECTION 10: NEXT STEP CARD ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
         <NextStepCard
           title="Únete a la Tribu"
           description="El mandato no se defiende solo. Encontrá a otros que vibran en tu misma frecuencia y empezá a construir."

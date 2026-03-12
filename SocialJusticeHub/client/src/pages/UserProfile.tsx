@@ -44,6 +44,7 @@ import {
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { apiRequest } from '@/lib/queryClient';
 import { toast } from '@/hooks/use-toast';
+import { useAvatarUpload } from '@/hooks/useAvatarUpload';
 
 interface UserStats {
   level: number;
@@ -185,69 +186,7 @@ const UserProfile = () => {
   };
 
   const fileInputRef = React.useRef<HTMLInputElement>(null);
-
-  const avatarUploadMutation = useMutation({
-    mutationFn: async (file: File) => {
-      return new Promise<any>((resolve, reject) => {
-        if (file.size > 2 * 1024 * 1024) {
-          reject(new Error('La imagen es demasiado grande. El tamaño máximo es 2MB.'));
-          return;
-        }
-        if (!['image/png', 'image/jpeg', 'image/webp', 'image/gif'].includes(file.type)) {
-          reject(new Error('Formato no soportado. Usá PNG, JPEG, WebP o GIF.'));
-          return;
-        }
-        const reader = new FileReader();
-        reader.onload = async () => {
-          try {
-            const response = await apiRequest('POST', '/api/auth/avatar', { image: reader.result });
-            if (!response.ok) {
-              const err = await response.json();
-              throw new Error(err.message || 'Error al subir el avatar');
-            }
-            resolve(await response.json());
-          } catch (err) {
-            reject(err);
-          }
-        };
-        reader.onerror = () => reject(new Error('Error al leer el archivo'));
-        reader.readAsDataURL(file);
-      });
-    },
-    onSuccess: (data) => {
-      if (userContext) userContext.setUser(data.user);
-      queryClient.invalidateQueries({ queryKey: ['/api/auth/me'] });
-      toast({ title: 'Avatar actualizado', description: 'Tu imagen de perfil fue actualizada.' });
-    },
-    onError: (error: Error) => {
-      toast({ title: 'Error', description: error.message, variant: 'destructive' });
-    }
-  });
-
-  const avatarDeleteMutation = useMutation({
-    mutationFn: async () => {
-      const response = await apiRequest('DELETE', '/api/auth/avatar');
-      if (!response.ok) throw new Error('Error al eliminar el avatar');
-      return response.json();
-    },
-    onSuccess: (data) => {
-      if (userContext) userContext.setUser(data.user);
-      queryClient.invalidateQueries({ queryKey: ['/api/auth/me'] });
-      toast({ title: 'Avatar eliminado', description: 'Se restauró el avatar por defecto.' });
-    },
-    onError: () => {
-      toast({ title: 'Error', description: 'No se pudo eliminar el avatar', variant: 'destructive' });
-    }
-  });
-
-  const handleAvatarChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      avatarUploadMutation.mutate(file);
-    }
-    // Reset input so the same file can be selected again
-    if (fileInputRef.current) fileInputRef.current.value = '';
-  };
+  const { uploadMutation: avatarUploadMutation, deleteMutation: avatarDeleteMutation, handleFileChange: handleAvatarChange } = useAvatarUpload(fileInputRef);
 
   const profileMutation = useMutation({
     mutationFn: async (data: { name?: string; email?: string; location?: string }) => {
@@ -321,20 +260,20 @@ const UserProfile = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
-              className="relative group"
+              className="relative"
             >
-              <div className="w-28 h-28 rounded-2xl bg-white/5 overflow-hidden border border-white/10 shadow-[0_0_30px_rgba(59,130,246,0.15)] group-hover:border-blue-500/50 transition-all duration-500">
+              <div className="w-28 h-28 rounded-2xl bg-white/5 overflow-hidden border border-white/10 shadow-[0_0_30px_rgba(59,130,246,0.15)] hover:border-blue-500/50 transition-all duration-500">
                 <Avatar className="h-full w-full rounded-none">
                   <AvatarImage
                     src={user.avatarUrl || `https://api.dicebear.com/7.x/avataaars/svg?seed=${user.username}`}
-                    className={`${user.avatarUrl ? 'object-cover' : 'grayscale opacity-80 group-hover:grayscale-0'} group-hover:scale-110 transition-all duration-500`}
+                    className={`${user.avatarUrl ? 'object-cover' : 'grayscale opacity-80'} hover:scale-110 transition-all duration-500`}
                   />
                   <AvatarFallback className="bg-slate-900 text-slate-400 font-bold text-3xl">
                     {user.name.charAt(0)}
                   </AvatarFallback>
                 </Avatar>
               </div>
-              {/* Avatar upload overlay */}
+              {/* Hidden file input */}
               <input
                 ref={fileInputRef}
                 type="file"
@@ -342,30 +281,32 @@ const UserProfile = () => {
                 onChange={handleAvatarChange}
                 className="hidden"
               />
-              <div className="absolute inset-0 rounded-2xl flex items-center justify-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/50 backdrop-blur-sm">
+              {/* Upload button - always visible */}
+              <button
+                onClick={() => fileInputRef.current?.click()}
+                disabled={avatarUploadMutation.isPending}
+                className="absolute -bottom-2 -left-2 z-20 p-1.5 rounded-full bg-blue-600 hover:bg-blue-500 text-white transition-colors shadow-[0_0_12px_rgba(37,99,235,0.5)] border-2 border-[#0a0a0a]"
+                title="Cambiar foto de perfil"
+                aria-label="Cambiar foto de perfil"
+              >
                 {avatarUploadMutation.isPending ? (
-                  <Loader2 className="h-6 w-6 text-white animate-spin" />
+                  <Loader2 className="h-3.5 w-3.5 animate-spin" />
                 ) : (
-                  <>
-                    <button
-                      onClick={() => fileInputRef.current?.click()}
-                      className="p-2 rounded-full bg-blue-500/80 hover:bg-blue-500 text-white transition-colors"
-                      title="Cambiar avatar"
-                    >
-                      <Camera className="h-4 w-4" />
-                    </button>
-                    {user.avatarUrl && (
-                      <button
-                        onClick={() => avatarDeleteMutation.mutate()}
-                        className="p-2 rounded-full bg-red-500/80 hover:bg-red-500 text-white transition-colors"
-                        title="Eliminar avatar"
-                      >
-                        <Trash2 className="h-4 w-4" />
-                      </button>
-                    )}
-                  </>
+                  <Camera className="h-3.5 w-3.5" />
                 )}
-              </div>
+              </button>
+              {/* Delete button - only when custom avatar exists */}
+              {user.avatarUrl && (
+                <button
+                  onClick={() => avatarDeleteMutation.mutate()}
+                  disabled={avatarDeleteMutation.isPending}
+                  className="absolute -top-1.5 -right-1.5 z-20 p-1 rounded-full bg-red-600 hover:bg-red-500 text-white transition-colors shadow-lg border-2 border-[#0a0a0a]"
+                  title="Eliminar avatar"
+                  aria-label="Eliminar avatar"
+                >
+                  <Trash2 className="h-3 w-3" />
+                </button>
+              )}
             </motion.div>
 
             <motion.div

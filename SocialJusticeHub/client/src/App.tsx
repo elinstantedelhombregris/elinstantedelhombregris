@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Switch, Route } from "wouter";
+import { Switch, Route, Redirect } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { apiRequest } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
@@ -52,6 +52,8 @@ const ElMandatoVivo = React.lazy(() => import("@/pages/ElMandatoVivo"));
 const MandatoTerritorial = React.lazy(() => import("@/pages/MandatoTerritorial"));
 const MandatoPublico = React.lazy(() => import("@/pages/MandatoPublico"));
 const DatosAbiertos = React.lazy(() => import("@/pages/DatosAbiertos"));
+const PulsoDetalle = React.lazy(() => import("@/pages/PulsoDetalle"));
+const PropuestaDetalle = React.lazy(() => import("@/pages/PropuestaDetalle"));
 
 type User = {
   id: number;
@@ -124,6 +126,13 @@ function Router() {
       <Route path="/mandato/:level/:name" component={MandatoTerritorial} />
       <Route path="/mandato-publico/:level/:name" component={MandatoPublico} />
       <Route path="/datos-abiertos" component={DatosAbiertos} />
+      <Route path="/mandato/pulso/:id" component={PulsoDetalle} />
+      <Route path="/mandato/propuesta/:id" component={PropuestaDetalle} />
+
+      {/* Legacy redirects — old Pulso URLs */}
+      <Route path="/el-pulso">{() => <Redirect to="/el-mandato-vivo" />}</Route>
+      <Route path="/pulso/:id">{(params) => <Redirect to={`/mandato/pulso/${params.id}`} />}</Route>
+      <Route path="/propuesta/:id">{(params) => <Redirect to={`/mandato/propuesta/${params.id}`} />}</Route>
 
       {/* Life Areas routes */}
       <Route path="/life-areas" component={LifeAreasDashboard} />

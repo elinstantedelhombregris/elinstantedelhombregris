@@ -2818,6 +2818,114 @@ export const insertCoachingPromptSchema = createInsertSchema(coachingPrompts).om
   createdAt: true,
 });
 
+// ==================== EL PULSO SEMANAL TABLES ====================
+
+// Weekly digests — automated synthesis of all map data
+export const weeklyDigests = pgTable("weekly_digests", {
+  id: serial("id").primaryKey(),
+  weekNumber: integer("week_number").notNull(),
+  year: integer("year").notNull(),
+  weekStartDate: text("week_start_date").notNull(),
+  weekEndDate: text("week_end_date").notNull(),
+  // Thermometer stats
+  totalNewVoices: integer("total_new_voices").default(0),
+  newDreams: integer("new_dreams").default(0),
+  newNeeds: integer("new_needs").default(0),
+  newBastas: integer("new_bastas").default(0),
+  newValues: integer("new_values").default(0),
+  newCommitments: integer("new_commitments").default(0),
+  newResources: integer("new_resources").default(0),
+  // Cumulative totals at time of digest
+  cumulativeVoices: integer("cumulative_voices").default(0),
+  cumulativeResources: integer("cumulative_resources").default(0),
+  // AI-generated content (JSON)
+  emergingThemes: text("emerging_themes"), // JSON: [{theme, trend, count, description}]
+  patterns: text("patterns"), // JSON: [{pattern, territories, description, evidence}]
+  unconnectedResources: text("unconnected_resources"), // JSON: [{resource, suggestion}]
+  seedOfWeek: text("seed_of_week"), // JSON: {title, description, inspiration}
+  comparisonWithPrevious: text("comparison_with_previous"), // JSON: {trends, escalations}
+  // Full AI analysis
+  fullAnalysis: text("full_analysis"), // Complete pulse text from Claude
+  // Status
+  status: text("status").notNull().default('generating').$type<'generating' | 'completed' | 'failed'>(),
+  errorMessage: text("error_message"),
+  generatedAt: text("generated_at"),
+  createdAt: text("created_at").default(sql`now()`),
+});
+
+// Proposals generated from weekly digests
+export const digestProposals = pgTable("digest_proposals", {
+  id: serial("id").primaryKey(),
+  digestId: integer("digest_id").references(() => weeklyDigests.id).notNull(),
+  // Core proposal content
+  title: text("title").notNull(),
+  summary: text("summary").notNull(),
+  fullAnalysis: text("full_analysis"), // Detailed AI analysis
+  evidence: text("evidence"), // JSON: {voiceCount, territories, quotes[], convergence}
+  // Targeting
+  targetCategory: text("target_category").notNull().$type<
+    'gobierno_municipal' | 'gobierno_provincial' | 'gobierno_nacional' |
+    'organizaciones' | 'medios' | 'sector_privado' | 'comunidad'
+  >(),
+  targetDescription: text("target_description"), // Specific org/entity name
+  territory: text("territory"), // Geographic scope
+  // Classification
+  urgency: text("urgency").notNull().$type<'critica' | 'importante' | 'oportunidad'>(),
+  precedent: text("precedent"), // Similar success case
+  suggestedActionType: text("suggested_action_type").notNull().$type<
+    'carta' | 'peticion' | 'iniciativa_comunitaria' | 'difusion' | 'nota_periodistica' | 'proyecto_ley'
+  >(),
+  // Action template (pre-generated)
+  actionTemplate: text("action_template"), // Full generated action text (letter, petition, etc.)
+  // Lifecycle
+  status: text("status").notNull().default('propuesta').$type<
+    'semilla' | 'propuesta' | 'enviada' | 'respondida' | 'en_accion' | 'completada' | 'archivada'
+  >(),
+  firstAppearedWeek: integer("first_appeared_week"), // For tracking recurring proposals
+  weeksActive: integer("weeks_active").default(1),
+  escalatedAt: text("escalated_at"),
+  createdAt: text("created_at").default(sql`now()`),
+  updatedAt: text("updated_at").default(sql`now()`),
+});
+
+// Audit trail for proposal lifecycle changes
+export const proposalStatusHistory = pgTable("proposal_status_history", {
+  id: serial("id").primaryKey(),
+  proposalId: integer("proposal_id").references(() => digestProposals.id).notNull(),
+  fromStatus: text("from_status").notNull(),
+  toStatus: text("to_status").notNull(),
+  changedBy: integer("changed_by").references(() => users.id),
+  notes: text("notes"),
+  createdAt: text("created_at").default(sql`now()`),
+});
+
+// Insert schemas
+export const insertWeeklyDigestSchema = createInsertSchema(weeklyDigests).omit({
+  id: true,
+  createdAt: true,
+});
+
+export const insertDigestProposalSchema = createInsertSchema(digestProposals).omit({
+  id: true,
+  createdAt: true,
+  updatedAt: true,
+});
+
+export const insertProposalStatusHistorySchema = createInsertSchema(proposalStatusHistory).omit({
+  id: true,
+  createdAt: true,
+});
+
+// Types
+export type InsertWeeklyDigest = z.infer<typeof insertWeeklyDigestSchema>;
+export type WeeklyDigest = typeof weeklyDigests.$inferSelect;
+
+export type InsertDigestProposal = z.infer<typeof insertDigestProposalSchema>;
+export type DigestProposal = typeof digestProposals.$inferSelect;
+
+export type InsertProposalStatusHistory = z.infer<typeof insertProposalStatusHistorySchema>;
+export type ProposalStatusHistory = typeof proposalStatusHistory.$inferSelect;
+
 // Civic Assessment Types
 export type InsertCivicAssessment = z.infer<typeof insertCivicAssessmentSchema>;
 export type CivicAssessment = typeof civicAssessments.$inferSelect;

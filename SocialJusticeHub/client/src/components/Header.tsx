@@ -14,7 +14,7 @@ import {
 import { VisuallyHidden } from "@/components/ui/visually-hidden";
 import {
   Menu, Award, Star, Crown, Trophy, Target, Shield, X, LogOut, User, LayoutDashboard,
-  ClipboardCheck, Crosshair, MessageCircle
+  ClipboardCheck, Crosshair, MessageCircle, Activity
 } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
 import { NotificationBell } from '@/components/NotificationBell';
@@ -32,9 +32,11 @@ const Header = () => {
     '/la-semilla-de-basta', '/el-mapa', '/el-mandato-vivo', '/manifiesto',
     '/bienvenida', '/dashboard', '/profile', '/challenges',
     '/life-areas', '/evaluacion', '/metas', '/checkin-semanal',
-    '/coaching',
+    '/coaching', '/datos-abiertos',
   ];
   const isDarkPage = darkHeroRoutes.includes(location) ||
+    location.startsWith('/mandato/pulso/') ||
+    location.startsWith('/mandato/propuesta/') ||
     (location.startsWith('/community') &&
       !location.includes('/job/') &&
       !location.includes('/project/') &&

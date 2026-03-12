@@ -3,16 +3,15 @@ import { UserContext } from '@/App';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Progress } from '@/components/ui/progress';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { motion } from 'framer-motion';
-import { 
-  User, 
-  Trophy, 
-  Target, 
-  Star, 
+import {
+  User,
+  Trophy,
+  Target,
+  Star,
   TrendingUp,
   Flame,
   Zap,
@@ -21,17 +20,21 @@ import {
   Crown,
   BarChart3,
   ArrowRight,
-  Radar,
-  Activity,
   ShieldCheck,
   Cpu,
-  Users
+  Users,
+  Camera,
+  Trash2,
+  Loader2,
+  Compass,
+  Sparkles,
 } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
 import { apiRequest } from '@/lib/queryClient';
 import { Link } from 'wouter';
 import EmailVerificationBanner from '@/components/EmailVerificationBanner';
 import GettingStartedChecklist from '@/components/GettingStartedChecklist';
+import { useAvatarUpload } from '@/hooks/useAvatarUpload';
 
 interface UserStats {
   level: number;
@@ -70,6 +73,8 @@ interface UserBadge {
 const UserDashboard = () => {
   const userContext = useContext(UserContext);
   const [authCheckTimeout, setAuthCheckTimeout] = useState(false);
+  const fileInputRef = React.useRef<HTMLInputElement>(null);
+  const { uploadMutation: avatarUploadMutation, deleteMutation: avatarDeleteMutation, handleFileChange: handleAvatarChange } = useAvatarUpload(fileInputRef);
 
   useEffect(() => {
     if (!userContext?.user) {
@@ -242,16 +247,51 @@ const UserDashboard = () => {
               transition={{ duration: 0.6 }}
               className="flex items-center gap-8"
             >
-              <div className="relative group">
-                <div className="w-24 h-24 rounded-2xl bg-white/5 overflow-hidden border border-white/10 shadow-[0_0_30px_rgba(59,130,246,0.15)] group-hover:border-blue-500/50 group-hover:shadow-[0_0_40px_rgba(59,130,246,0.3)] transition-all duration-500">
+              <div className="relative">
+                <div className="w-24 h-24 rounded-2xl bg-white/5 overflow-hidden border border-white/10 shadow-[0_0_30px_rgba(59,130,246,0.15)] hover:border-blue-500/50 hover:shadow-[0_0_40px_rgba(59,130,246,0.3)] transition-all duration-500">
                    <Avatar className="h-full w-full rounded-none">
-                    <AvatarImage src={user.avatarUrl || `https://api.dicebear.com/7.x/avataaars/svg?seed=${user.username}`} className={`${user.avatarUrl ? 'object-cover' : 'grayscale opacity-80 group-hover:grayscale-0'} group-hover:scale-110 transition-all duration-500`} />
+                    <AvatarImage src={user.avatarUrl || `https://api.dicebear.com/7.x/avataaars/svg?seed=${user.username}`} className={`${user.avatarUrl ? 'object-cover' : 'grayscale opacity-80'} hover:scale-110 transition-all duration-500`} />
                     <AvatarFallback className="bg-slate-900 text-slate-400 font-bold text-3xl">
                       {user.name.charAt(0)}
                     </AvatarFallback>
                   </Avatar>
                 </div>
-                <div className="absolute -bottom-2 -right-2 bg-emerald-500 w-5 h-5 rounded-full border-4 border-[#0a0a0a] shadow-[0_0_10px_rgba(16,185,129,0.6)] animate-pulse" title="Sistema Activo"></div>
+                {/* Hidden file input */}
+                <input
+                  ref={fileInputRef}
+                  type="file"
+                  accept="image/png,image/jpeg,image/webp,image/gif"
+                  onChange={handleAvatarChange}
+                  className="hidden"
+                />
+                {/* Upload button - always visible */}
+                <button
+                  onClick={() => fileInputRef.current?.click()}
+                  disabled={avatarUploadMutation.isPending}
+                  className="absolute -bottom-2 -left-2 z-20 p-1.5 rounded-full bg-blue-600 hover:bg-blue-500 text-white transition-colors shadow-[0_0_12px_rgba(37,99,235,0.5)] border-2 border-[#0a0a0a]"
+                  title="Cambiar foto de perfil"
+                  aria-label="Cambiar foto de perfil"
+                >
+                  {avatarUploadMutation.isPending ? (
+                    <Loader2 className="h-3.5 w-3.5 animate-spin" />
+                  ) : (
+                    <Camera className="h-3.5 w-3.5" />
+                  )}
+                </button>
+                {/* Delete button - only when custom avatar exists */}
+                {user.avatarUrl && (
+                  <button
+                    onClick={() => avatarDeleteMutation.mutate()}
+                    disabled={avatarDeleteMutation.isPending}
+                    className="absolute -top-1.5 -right-1.5 z-20 p-1 rounded-full bg-red-600 hover:bg-red-500 text-white transition-colors shadow-lg border-2 border-[#0a0a0a]"
+                    title="Eliminar avatar"
+                    aria-label="Eliminar avatar"
+                  >
+                    <Trash2 className="h-3 w-3" />
+                  </button>
+                )}
+                {/* Active status dot */}
+                <div className="absolute -bottom-2 -right-2 z-10 bg-emerald-500 w-5 h-5 rounded-full border-4 border-[#0a0a0a] shadow-[0_0_10px_rgba(16,185,129,0.6)] animate-pulse" title="Sistema Activo"></div>
               </div>
               
               <div>
@@ -283,16 +323,22 @@ const UserDashboard = () => {
               </div>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="w-full md:w-auto"
+              className="w-full md:w-auto flex gap-3"
             >
                <Link href="/life-areas">
-                <Button className="w-full md:w-auto h-12 bg-blue-600 hover:bg-blue-500 text-white border-0 shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_30px_rgba(37,99,235,0.5)] transition-all duration-300 font-bold tracking-wide">
-                  <Activity className="mr-2 h-4 w-4 animate-pulse" />
-                  VER ÁREAS DE VIDA
+                <Button className="h-12 bg-emerald-600 hover:bg-emerald-500 text-white border-0 shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:shadow-[0_0_30px_rgba(16,185,129,0.5)] transition-all duration-300 font-bold tracking-wide">
+                  <Compass className="mr-2 h-4 w-4" />
+                  ÁREAS DE VIDA
+                </Button>
+               </Link>
+               <Link href="/profile">
+                <Button variant="outline" className="h-12 border-white/20 text-slate-300 hover:bg-white/10 hover:text-white transition-all duration-300 font-bold tracking-wide">
+                  <User className="mr-2 h-4 w-4" />
+                  MI PERFIL
                 </Button>
                </Link>
             </motion.div>
@@ -306,11 +352,101 @@ const UserDashboard = () => {
         animate="visible"
         className="max-w-7xl mx-auto px-4 py-10"
       >
+        {/* Áreas de Vida - Hero Card (full width) */}
+        <motion.div variants={itemVariants} whileHover={{ y: -3 }} className="mb-8 transition-all">
+          <Link href="/life-areas">
+            <Card className="border-0 shadow-[0_0_60px_rgba(0,0,0,0.6)] bg-gradient-to-br from-[#0c1116] via-[#0f1419] to-[#0d1210] text-white rounded-2xl relative overflow-hidden group cursor-pointer">
+              {/* Animated grid background */}
+              <div className="absolute inset-0 opacity-10 pointer-events-none"
+                   style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0)', backgroundSize: '32px 32px' }} />
+              {/* Gradient orbs */}
+              <div className="absolute -left-32 -top-32 w-96 h-96 bg-emerald-500/8 rounded-full blur-[100px] group-hover:bg-emerald-500/15 transition-all duration-1000" />
+              <div className="absolute -right-20 -bottom-20 w-80 h-80 bg-teal-500/8 rounded-full blur-[80px] group-hover:bg-teal-500/15 transition-all duration-1000" />
+              <div className="absolute right-1/4 top-0 w-60 h-60 bg-cyan-500/5 rounded-full blur-[60px] group-hover:bg-cyan-500/10 transition-all duration-1000" />
+              {/* Accent border glow */}
+              <div className="absolute inset-0 rounded-2xl border border-emerald-500/20 group-hover:border-emerald-400/40 transition-colors duration-500" />
+
+              <CardContent className="relative z-10 p-8 md:p-10">
+                <div className="flex flex-col md:flex-row gap-8 items-center">
+                  {/* Left: Constellation preview */}
+                  <div className="flex-shrink-0">
+                    <div className="relative w-32 h-32 md:w-40 md:h-40">
+                      {/* Orbiting dots representing life areas — CSS animations for perf */}
+                      {[...Array(12)].map((_, i) => {
+                        const angle = (i * 30 - 90) * (Math.PI / 180);
+                        const radius = 55;
+                        const x = 50 + radius * Math.cos(angle);
+                        const y = 50 + radius * Math.sin(angle);
+                        const colors = ['bg-emerald-400', 'bg-teal-400', 'bg-cyan-400', 'bg-green-400', 'bg-emerald-300', 'bg-teal-300', 'bg-cyan-300', 'bg-green-300', 'bg-emerald-500', 'bg-teal-500', 'bg-cyan-500', 'bg-green-500'];
+                        return (
+                          <div
+                            key={i}
+                            className={`absolute w-2.5 h-2.5 rounded-full ${colors[i]} shadow-[0_0_8px_rgba(52,211,153,0.5)] animate-[constellationPulse_2.5s_ease-in-out_infinite]`}
+                            style={{ left: `${x}%`, top: `${y}%`, transform: 'translate(-50%, -50%)', animationDelay: `${i * 0.2}s` }}
+                          />
+                        );
+                      })}
+                      {/* Center icon */}
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center group-hover:bg-emerald-500/20 group-hover:border-emerald-400/50 transition-all duration-500 shadow-[0_0_30px_rgba(52,211,153,0.15)]">
+                          <Compass className="h-7 w-7 text-emerald-400 group-hover:rotate-45 transition-transform duration-700" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Center: Content */}
+                  <div className="flex-1 text-center md:text-left space-y-4">
+                    <div>
+                      <div className="flex items-center justify-center md:justify-start gap-3 mb-2">
+                        <Badge variant="outline" className="border-emerald-500/30 text-emerald-400 bg-emerald-500/10 text-[10px] uppercase tracking-widest font-bold backdrop-blur-sm">
+                          <Sparkles className="h-3 w-3 mr-1" />
+                          Herramienta Principal
+                        </Badge>
+                      </div>
+                      <h2 className="text-2xl md:text-3xl font-bold text-white font-serif tracking-tight mb-2">
+                        Mapa Personal de Áreas de Vida
+                      </h2>
+                      <p className="text-slate-400 text-sm md:text-base font-light leading-relaxed max-w-xl">
+                        Explorá y calibrá las <strong className="text-emerald-300 font-medium">12 áreas fundamentales</strong> de tu vida.
+                        Identificá brechas, definí objetivos y ejecutá mejoras concretas.
+                      </p>
+                    </div>
+
+                    <div className="flex flex-wrap justify-center md:justify-start gap-3">
+                      <div className="bg-emerald-500/10 rounded-lg px-4 py-2 border border-emerald-500/20 backdrop-blur-sm">
+                        <span className="block text-[9px] text-emerald-300/70 uppercase tracking-wider">Áreas</span>
+                        <span className="text-lg font-mono text-emerald-300 font-bold">12</span>
+                      </div>
+                      <div className="bg-teal-500/10 rounded-lg px-4 py-2 border border-teal-500/20 backdrop-blur-sm">
+                        <span className="block text-[9px] text-teal-300/70 uppercase tracking-wider">Subcategorías</span>
+                        <span className="text-lg font-mono text-teal-300 font-bold">60</span>
+                      </div>
+                      <div className="bg-amber-500/10 rounded-lg px-4 py-2 border border-amber-500/20 backdrop-blur-sm">
+                        <span className="block text-[9px] text-amber-300/70 uppercase tracking-wider">Diagnóstico</span>
+                        <span className="text-lg font-mono text-amber-300 font-bold">DISPONIBLE</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Right: CTA */}
+                  <div className="flex-shrink-0">
+                    <div className="bg-white text-slate-950 hover:bg-emerald-50 font-bold tracking-wide shadow-[0_0_30px_rgba(255,255,255,0.15)] group-hover:shadow-[0_0_40px_rgba(255,255,255,0.25)] transition-all duration-500 h-14 px-8 rounded-xl flex items-center gap-2 text-base">
+                      EXPLORAR ÁREAS
+                      <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </Link>
+        </motion.div>
+
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          
+
           {/* Columna Principal: Sistemas Críticos */}
           <div className="lg:col-span-2 space-y-8">
-            
+
             {/* Estado de progreso */}
             <motion.div variants={itemVariants} whileHover={{ y: -2 }} className="transition-all">
               <Card className="bg-white/5 backdrop-blur-md border-white/10 shadow-2xl overflow-hidden relative group">
@@ -335,14 +471,14 @@ const UserDashboard = () => {
                         </p>
                       </div>
                     </div>
-                    
+
                     <div className="relative pt-2">
                       <div className="flex justify-between text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-2">
                         <span>Progreso Actual</span>
                         <span className="text-blue-400">{Math.round(progressPercentage)}% Completado</span>
                       </div>
                       <div className="h-2 bg-white/5 rounded-full overflow-hidden border border-white/5">
-                        <motion.div 
+                        <motion.div
                           initial={{ width: 0 }}
                           animate={{ width: `${progressPercentage}%` }}
                           transition={{ duration: 1.5, ease: "easeOut" }}
@@ -351,55 +487,6 @@ const UserDashboard = () => {
                           <div className="absolute inset-0 bg-white/20 animate-[shimmer_2s_infinite]" style={{ backgroundImage: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)' }}></div>
                         </motion.div>
                       </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            {/* Mapa personal de áreas de vida */}
-            <motion.div variants={itemVariants} whileHover={{ scale: 1.01 }} className="transition-all">
-              <Card className="border-0 shadow-[0_0_40px_rgba(0,0,0,0.5)] bg-[#0f1115] text-white rounded-xl relative overflow-hidden group cursor-pointer border-l-4 border-l-emerald-500">
-                {/* Animated Background */}
-                <div className="absolute inset-0 opacity-20 pointer-events-none" 
-                     style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0)', backgroundSize: '24px 24px' }}>
-                </div>
-                <div className="absolute right-0 top-0 h-full w-2/3 bg-gradient-to-l from-emerald-900/20 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute -right-20 -top-20 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl group-hover:bg-emerald-500/20 transition-colors duration-700"></div>
-
-                <CardHeader className="relative z-10 pb-2">
-                  <CardTitle className="flex items-center text-lg font-bold uppercase tracking-wider text-emerald-100">
-                    <Radar className="h-5 w-5 mr-3 text-emerald-400 animate-[spin_10s_linear_infinite]" />
-                    Mapa Personal de Áreas de Vida
-                  </CardTitle>
-                  <CardDescription className="text-emerald-400/60 text-xs font-mono mt-1 tracking-widest">
-                    ESTADO: LISTO PARA DIAGNÓSTICO
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="relative z-10 pt-4">
-                  <div className="flex flex-col md:flex-row gap-6 items-center">
-                    <div className="flex-1 space-y-4">
-                      <p className="text-slate-300 text-sm font-light leading-relaxed max-w-xl">
-                        Revisá tu diagnóstico para calibrar las <strong className="text-white font-medium">12 áreas fundamentales</strong> de tu vida. Identificá brechas, definí objetivos y ejecutá mejoras concretas.
-                      </p>
-                      <div className="flex gap-3">
-                        <div className="bg-emerald-500/10 rounded px-3 py-1.5 border border-emerald-500/20 backdrop-blur-sm">
-                          <span className="block text-[9px] text-emerald-300/70 uppercase tracking-wider">Áreas Activas</span>
-                          <span className="text-base font-mono text-emerald-300 font-bold">12</span>
-                        </div>
-                        <div className="bg-amber-500/10 rounded px-3 py-1.5 border border-amber-500/20 backdrop-blur-sm">
-                          <span className="block text-[9px] text-amber-300/70 uppercase tracking-wider">Diagnóstico</span>
-                          <span className="text-base font-mono text-amber-300 font-bold">DISPONIBLE</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="w-full md:w-auto">
-                      <Link href="/life-areas">
-                        <Button className="w-full md:w-auto bg-white text-slate-950 hover:bg-emerald-50 font-bold tracking-wide shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all group-hover:scale-105 h-12 px-8 rounded-lg">
-                          ABRIR PANEL
-                          <ArrowRight className="ml-2 h-4 w-4" />
-                        </Button>
-                      </Link>
                     </div>
                   </div>
                 </CardContent>

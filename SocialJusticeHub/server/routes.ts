@@ -9,6 +9,8 @@ import { registerCivicAssessmentRoutes } from './routes-civic-assessment';
 import { registerGoalRoutes } from './routes-goals';
 import { registerCoachingRoutes } from './routes-coaching';
 import { registerOpenDataRoutes } from './routes-open-data';
+import { registerPulseRoutes } from './routes-pulse';
+import { startMandatoCron } from './services/mandato-engine';
 import { 
   insertUserSchema, 
   insertDreamSchema, 
@@ -150,6 +152,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
   registerGoalRoutes(app);
   registerCoachingRoutes(app);
   registerOpenDataRoutes(app);
+  registerPulseRoutes(app);
+
+  // Start weekly pulse cron (Fridays at 17:05 ART)
+  startMandatoCron();
 
   // Get all dreams
   app.get("/api/dreams", optionalAuth, async (req: AuthRequest, res) => {
@@ -218,7 +224,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       if (!territoryLevel || !territoryName) {
         return res.status(400).json({ message: "territoryLevel and territoryName are required" });
       }
-      const { generateAndSaveMandate } = await import('./mandate-service');
+      const { generateAndSaveMandate } = await import('./services/mandato-engine');
       const result = await generateAndSaveMandate(territoryLevel, territoryName, province, city);
       res.json(result);
     } catch (error) {
