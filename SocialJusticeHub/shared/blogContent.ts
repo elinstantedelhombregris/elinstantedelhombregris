@@ -1578,7 +1578,7 @@ export const blogContentUpdates: Record<string, BlogContentEntry> = {
         <h2>Siguiendo el hilo...</h2>
         <p>
           Si leíste nuestro artículo anterior,
-          <a href="/blog-vlog/las-fuerzas-del-cielo-el-poder-que-ya-tenes-y-nadie-te-enseno-a-usar"><strong>Las Fuerzas del Cielo: El Poder Que Ya Tenés y Nadie Te Enseñó a Usar</strong></a>,
+          <a href="/blog-vlog/las-fuerzas-del-cielo-el-poder-que-ya-tens-y-nadie-te-ense-a-usar"><strong>Las Fuerzas del Cielo: El Poder Que Ya Tenés y Nadie Te Enseñó a Usar</strong></a>,
           ya sabés que venimos hablando de esos poderes que tenés adentro, que son gratis, que nadie te los puede sacar,
           y que por algún motivo nadie se sentó a explicarte cómo usarlos.
         </p>
