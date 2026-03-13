@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 import HeroCinema from '@/components/HeroCinema';
 import BastaPrincipio from '@/components/BastaPrincipio';
 import AparatoPolitico from '@/components/AparatoPolitico';
-import { Eye, Sprout, Users, Brain, MapPin, ArrowRight, Share2 } from 'lucide-react';
+import { Eye, Sprout, Users, Brain, MapPin, ScrollText, ArrowRight, Share2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
 
@@ -81,6 +81,23 @@ const steps = [
   },
   {
     num: '05',
+    title: 'El Mandato',
+    subtitle: 'Democracia directa por datos',
+    description: 'Los datos del mapa se convierten en mandatos territoriales. La convergencia de voces genera el plan de acción vinculante.',
+    href: '/el-mandato-vivo',
+    cta: 'Ver el mandato',
+    icon: <ScrollText className="w-6 h-6" />,
+    accent: 'from-red-400 to-red-600',
+    text: 'text-red-400',
+    bg: 'bg-red-500/10',
+    border: 'border-red-500/15',
+    hoverBorder: 'hover:border-red-500/30',
+    hoverBg: 'hover:bg-red-500/[0.04]',
+    glow: 'hover:shadow-[0_8px_40px_rgba(239,68,68,0.08)]',
+    numColor: 'text-red-500/[0.06]',
+  },
+  {
+    num: '06',
     title: 'La Tribu',
     subtitle: 'Comunidad activa',
     description: 'Un espacio para sostener aprendizaje, colaboración y ejecución. La transformación se consolida cuando nadie trabaja solo.',
@@ -175,7 +192,7 @@ const Home = () => {
                   El camino
                 </span>
                 <h2 className="text-4xl md:text-[3.5rem] lg:text-6xl font-black text-white mb-6 tracking-tight leading-[0.95]">
-                  Cinco pasos hacia
+                  Seis pasos hacia
                   <br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400">
                     la transformación
@@ -183,7 +200,7 @@ const Home = () => {
                 </h2>
                 <p className="text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
                   Entender la realidad, formar criterio, generar tracción,
-                  coordinar territorio y sostener comunidad.
+                  coordinar territorio, construir el mandato y sostener comunidad.
                 </p>
               </motion.div>
 
@@ -196,9 +213,7 @@ const Home = () => {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.5, delay: i * 0.08 }}
-                      className={`group cursor-pointer relative h-full ${
-                        i >= 3 ? 'md:col-span-1 lg:col-span-1' : ''
-                      } ${i === 4 ? 'md:col-span-2 lg:col-span-1' : ''}`}
+                      className="group cursor-pointer relative h-full"
                     >
                       <div className={`
                         h-full relative rounded-2xl bg-white/[0.02] border ${step.border}

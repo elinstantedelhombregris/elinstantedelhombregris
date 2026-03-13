@@ -366,8 +366,8 @@ const StudyGuides = () => {
 
           {/* Filters Bar */}
           <div className="sticky top-24 z-40 mb-14">
-            <GlassCard className="max-w-5xl mx-auto p-2 flex flex-col md:flex-row items-center gap-3 bg-white/80 backdrop-blur-xl shadow-xl rounded-2xl md:rounded-full" intensity="high">
-              <div className="flex-1 w-full relative">
+            <GlassCard className="max-w-5xl mx-auto p-3 flex flex-col items-center gap-3 bg-white/80 backdrop-blur-xl shadow-xl rounded-2xl" intensity="high">
+              <div className="w-full relative max-w-md">
                 <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400 w-5 h-5" />
                 <input
                   type="text"
