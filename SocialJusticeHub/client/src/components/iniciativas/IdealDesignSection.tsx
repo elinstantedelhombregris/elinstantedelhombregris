@@ -1,0 +1,66 @@
+import { Sparkles } from 'lucide-react';
+import SmoothReveal from '@/components/ui/SmoothReveal';
+import type { InitiativeSection } from '../../../../shared/strategic-initiatives';
+
+interface IdealDesignSectionProps {
+  data: InitiativeSection;
+}
+
+export default function IdealDesignSection({ data }: IdealDesignSectionProps) {
+  return (
+    <section id="phase-elDisenoIdeal" className="relative py-20 md:py-32 bg-blue-50/30">
+      {/* Watermark number */}
+      <div className="absolute top-8 right-8 md:right-16 text-[12rem] md:text-[16rem] font-serif font-bold text-blue-100/50 leading-none select-none pointer-events-none">
+        03
+      </div>
+
+      <div className="relative z-10 max-w-4xl mx-auto px-4 lg:pl-24">
+        {/* Phase header */}
+        <SmoothReveal direction="up">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="p-3 rounded-xl bg-blue-100 text-blue-600">
+              <Sparkles className="w-6 h-6" />
+            </div>
+            <div>
+              <span className="text-xs font-bold text-blue-500 uppercase tracking-wider">Fase 03</span>
+              <h2 className="text-3xl md:text-5xl font-serif font-bold text-slate-900">{data.title}</h2>
+            </div>
+          </div>
+        </SmoothReveal>
+
+        {/* Content */}
+        <SmoothReveal direction="up" delay={0.1}>
+          <div
+            className="prose prose-lg prose-slate max-w-none mb-10 [&>p]:text-slate-700 [&>p]:leading-relaxed [&>p]:mb-4 [&_strong]:text-blue-800"
+            dangerouslySetInnerHTML={{ __html: data.content }}
+          />
+        </SmoothReveal>
+
+        {/* Pull quote */}
+        {data.pullQuote && (
+          <SmoothReveal direction="up" delay={0.2}>
+            <blockquote className="border-l-4 border-blue-400 bg-white rounded-r-2xl p-6 md:p-8 shadow-sm my-10">
+              <p className="text-xl md:text-2xl font-serif italic text-slate-800 leading-relaxed">
+                "{data.pullQuote}"
+              </p>
+            </blockquote>
+          </SmoothReveal>
+        )}
+
+        {/* Stats / Ideal metrics */}
+        {data.stats && data.stats.length > 0 && (
+          <SmoothReveal direction="up" delay={0.3}>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10">
+              {data.stats.map((stat) => (
+                <div key={stat.label} className="bg-white rounded-2xl p-5 border border-blue-100 shadow-sm text-center">
+                  <p className="text-2xl md:text-3xl font-bold text-blue-600 mb-1">{stat.value}</p>
+                  <p className="text-xs text-slate-500 font-medium uppercase tracking-wide">{stat.label}</p>
+                </div>
+              ))}
+            </div>
+          </SmoothReveal>
+        )}
+      </div>
+    </section>
+  );
+}

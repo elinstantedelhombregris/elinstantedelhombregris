@@ -54,6 +54,8 @@ const MandatoPublico = React.lazy(() => import("@/pages/MandatoPublico"));
 const DatosAbiertos = React.lazy(() => import("@/pages/DatosAbiertos"));
 const PulsoDetalle = React.lazy(() => import("@/pages/PulsoDetalle"));
 const PropuestaDetalle = React.lazy(() => import("@/pages/PropuestaDetalle"));
+const IniciativasEstrategicas = React.lazy(() => import("@/pages/IniciativasEstrategicas"));
+const IniciativaDetalle = React.lazy(() => import("@/pages/IniciativaDetalle"));
 
 type User = {
   id: number;
@@ -97,6 +99,8 @@ function Router() {
       <Route path="/recursos/guias-estudio/:slug" component={CourseDetail} />
       <Route path="/recursos/guias-estudio/:courseSlug/leccion/:lessonId" component={LessonView} />
       <Route path="/recursos/guias-estudio/:courseSlug/quiz" component={QuizView} />
+      <Route path="/recursos/iniciativas" component={IniciativasEstrategicas} />
+      <Route path="/recursos/iniciativas/:slug" component={IniciativaDetalle} />
       <Route path="/login" component={Login} />
       <Route path="/register" component={Register} />
       <Route path="/bienvenida" component={Bienvenida} />

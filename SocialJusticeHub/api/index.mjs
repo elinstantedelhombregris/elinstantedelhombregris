@@ -53,6 +53,7 @@ __export(schema_exports, {
   courseQuizzesRelations: () => courseQuizzesRelations,
   courses: () => courses,
   coursesRelations: () => coursesRelations,
+  digestProposals: () => digestProposals,
   dreams: () => dreams,
   dreamsRelations: () => dreamsRelations,
   geographicLocations: () => geographicLocations,
@@ -85,6 +86,7 @@ __export(schema_exports, {
   insertCourseLessonSchema: () => insertCourseLessonSchema,
   insertCourseQuizSchema: () => insertCourseQuizSchema,
   insertCourseSchema: () => insertCourseSchema,
+  insertDigestProposalSchema: () => insertDigestProposalSchema,
   insertDreamSchema: () => insertDreamSchema,
   insertInitiativeMemberSchema: () => insertInitiativeMemberSchema,
   insertInitiativeMessageSchema: () => insertInitiativeMessageSchema,
@@ -122,6 +124,7 @@ __export(schema_exports, {
   insertPostLikeSchema: () => insertPostLikeSchema,
   insertPostTagSchema: () => insertPostTagSchema,
   insertPostViewSchema: () => insertPostViewSchema,
+  insertProposalStatusHistorySchema: () => insertProposalStatusHistorySchema,
   insertProvinceRankingSchema: () => insertProvinceRankingSchema,
   insertQuizAttemptAnswerSchema: () => insertQuizAttemptAnswerSchema,
   insertQuizAttemptSchema: () => insertQuizAttemptSchema,
@@ -149,6 +152,7 @@ __export(schema_exports, {
   insertUserSchema: () => insertUserSchema,
   insertVrMeetingSchema: () => insertVrMeetingSchema,
   insertWeeklyCheckinSchema: () => insertWeeklyCheckinSchema,
+  insertWeeklyDigestSchema: () => insertWeeklyDigestSchema,
   insertWeeklyRankingSchema: () => insertWeeklyRankingSchema,
   inspiringStories: () => inspiringStories,
   inspiringStoriesRelations: () => inspiringStoriesRelations,
@@ -214,6 +218,7 @@ __export(schema_exports, {
   postTagsRelations: () => postTagsRelations,
   postViews: () => postViews,
   postViewsRelations: () => postViewsRelations,
+  proposalStatusHistory: () => proposalStatusHistory,
   provinceRankings: () => provinceRankings,
   provinceRankingsRelations: () => provinceRankingsRelations,
   quizAttemptAnswers: () => quizAttemptAnswers,
@@ -265,6 +270,7 @@ __export(schema_exports, {
   vrMeetingsRelations: () => vrMeetingsRelations,
   weeklyCheckins: () => weeklyCheckins,
   weeklyCheckinsRelations: () => weeklyCheckinsRelations,
+  weeklyDigests: () => weeklyDigests,
   weeklyRankings: () => weeklyRankings,
   weeklyRankingsRelations: () => weeklyRankingsRelations
 });
@@ -272,7 +278,7 @@ import { pgTable, serial, integer, text, real, boolean, unique, index } from "dr
 import { sql } from "drizzle-orm";
 import { createInsertSchema } from "drizzle-zod";
 import { relations } from "drizzle-orm";
-var users, dreams, userResources, communityPosts, resources, inspiringStories, communityPostInteractions, communityMessages, communityPostActivity, geographicLocations, communityPostLikes, communityPostViews, sentimentAnalysis, textEmbeddings, userProfiles, recommendations, aiInsights, blockchainTransactions, iotSensors, sensorData, vrMeetings, meetingParticipants, blogPosts, postTags, postLikes, postComments, postBookmarks, postViews, courses, courseLessons, courseQuizzes, quizQuestions, userCourseProgress, userLessonProgress, quizAttempts, quizAttemptAnswers, courseCertificates, userLevels, challenges, challengeSteps, userChallengeProgress, badges, userBadges, userDailyActivity, userCommitments, userActions, userProgress, weeklyRankings, monthlyRankings, provinceRankings, territoryMandates, mandateSuggestions, initiativeMembers, initiativeMilestones, initiativeMessages, initiativeTasks, activityFeed, membershipRequests, notifications, lifeAreas, lifeAreaSubcategories, lifeAreaQuizzes, lifeAreaQuizQuestions, lifeAreaQuizResponses, lifeAreaScores, lifeAreaActions, userLifeAreaProgress, lifeAreaMilestones, lifeAreaIndicators, lifeAreaCommunityStats, lifeAreaXpLog, lifeAreaLevels, lifeAreaStreaks, lifeAreaBadges, userLifeAreaBadges, lifeAreaCurrency, lifeAreaRewardChests, lifeAreaChallenges, userLifeAreaChallenges, lifeAreaMastery, lifeAreaNotifications, lifeAreaSocialInteractions, usersRelations, userResourcesRelations, territoryMandatesRelations, mandateSuggestionsRelations, dreamsRelations, communityPostsRelations, communityPostInteractionsRelations, communityMessagesRelations, communityPostActivityRelations, userProfilesRelations, recommendationsRelations, vrMeetingsRelations, meetingParticipantsRelations, userLevelsRelations, challengesRelations, challengeStepsRelations, userChallengeProgressRelations, badgesRelations, userBadgesRelations, userDailyActivityRelations, userCommitmentsRelations, userActionsRelations, userProgressRelations, weeklyRankingsRelations, monthlyRankingsRelations, provinceRankingsRelations, blogPostsRelations, postTagsRelations, postLikesRelations, postCommentsRelations, postBookmarksRelations, postViewsRelations, coursesRelations, courseLessonsRelations, courseQuizzesRelations, quizQuestionsRelations, userCourseProgressRelations, userLessonProgressRelations, quizAttemptsRelations, quizAttemptAnswersRelations, courseCertificatesRelations, iotSensorsRelations, sensorDataRelations, inspiringStoriesRelations, initiativeMembersRelations, initiativeMilestonesRelations, initiativeMessagesRelations, initiativeTasksRelations, activityFeedRelations, membershipRequestsRelations, notificationsRelations, lifeAreasRelations, lifeAreaSubcategoriesRelations, lifeAreaQuizzesRelations, lifeAreaQuizQuestionsRelations, lifeAreaQuizResponsesRelations, lifeAreaScoresRelations, lifeAreaActionsRelations, userLifeAreaProgressRelations, lifeAreaMilestonesRelations, lifeAreaIndicatorsRelations, lifeAreaCommunityStatsRelations, lifeAreaXpLogRelations, lifeAreaLevelsRelations, lifeAreaStreaksRelations, lifeAreaBadgesRelations, userLifeAreaBadgesRelations, lifeAreaCurrencyRelations, lifeAreaRewardChestsRelations, lifeAreaChallengesRelations, userLifeAreaChallengesRelations, lifeAreaMasteryRelations, lifeAreaNotificationsRelations, lifeAreaSocialInteractionsRelations, civicAssessments, civicAssessmentResponses, civicProfiles, civicGoals, weeklyCheckins, coachingSessions, coachingPrompts, insertUserSchema, insertDreamSchema, insertCommunityPostSchema, insertResourceSchema, insertInspiringStorySchema, insertSentimentAnalysisSchema, insertTextEmbeddingSchema, insertUserProfileSchema, insertRecommendationSchema, insertAiInsightSchema, insertBlockchainTransactionSchema, insertIotSensorSchema, insertSensorDataSchema, insertVrMeetingSchema, insertMeetingParticipantSchema, insertUserResourceSchema, insertTerritoryMandateSchema, insertMandateSuggestionSchema, insertUserLevelSchema, insertChallengeSchema, insertChallengeStepSchema, insertUserChallengeProgressSchema, insertBadgeSchema, insertUserBadgeSchema, insertUserDailyActivitySchema, insertUserCommitmentSchema, insertUserActionSchema, insertUserProgressSchema, insertWeeklyRankingSchema, insertMonthlyRankingSchema, insertProvinceRankingSchema, insertBlogPostSchema, insertPostTagSchema, insertPostLikeSchema, insertPostCommentSchema, insertPostBookmarkSchema, insertPostViewSchema, insertCourseSchema, insertCourseLessonSchema, insertCourseQuizSchema, insertQuizQuestionSchema, insertUserCourseProgressSchema, insertUserLessonProgressSchema, insertQuizAttemptSchema, insertQuizAttemptAnswerSchema, insertCourseCertificateSchema, insertCommunityPostInteractionSchema, insertCommunityMessageSchema, insertCommunityPostActivitySchema, insertInitiativeMemberSchema, insertInitiativeMilestoneSchema, insertInitiativeMessageSchema, insertInitiativeTaskSchema, insertActivityFeedSchema, insertMembershipRequestSchema, insertNotificationSchema, insertLifeAreaSchema, insertLifeAreaSubcategorySchema, insertLifeAreaQuizSchema, insertLifeAreaQuizQuestionSchema, insertLifeAreaQuizResponseSchema, insertLifeAreaScoreSchema, insertLifeAreaActionSchema, insertUserLifeAreaProgressSchema, insertLifeAreaMilestoneSchema, insertLifeAreaIndicatorSchema, insertLifeAreaCommunityStatsSchema, insertLifeAreaXpLogSchema, insertLifeAreaLevelSchema, insertLifeAreaStreakSchema, insertLifeAreaBadgeSchema, insertUserLifeAreaBadgeSchema, insertLifeAreaCurrencySchema, insertLifeAreaRewardChestSchema, insertLifeAreaChallengeSchema, insertUserLifeAreaChallengeSchema, insertLifeAreaMasterySchema, insertLifeAreaNotificationSchema, insertLifeAreaSocialInteractionSchema, civicAssessmentsRelations, civicAssessmentResponsesRelations, civicProfilesRelations, civicGoalsRelations, weeklyCheckinsRelations, coachingSessionsRelations, coachingPromptsRelations, insertCivicAssessmentSchema, insertCivicAssessmentResponseSchema, insertCivicProfileSchema, insertCivicGoalSchema, insertWeeklyCheckinSchema, insertCoachingSessionSchema, insertCoachingPromptSchema;
+var users, dreams, userResources, communityPosts, resources, inspiringStories, communityPostInteractions, communityMessages, communityPostActivity, geographicLocations, communityPostLikes, communityPostViews, sentimentAnalysis, textEmbeddings, userProfiles, recommendations, aiInsights, blockchainTransactions, iotSensors, sensorData, vrMeetings, meetingParticipants, blogPosts, postTags, postLikes, postComments, postBookmarks, postViews, courses, courseLessons, courseQuizzes, quizQuestions, userCourseProgress, userLessonProgress, quizAttempts, quizAttemptAnswers, courseCertificates, userLevels, challenges, challengeSteps, userChallengeProgress, badges, userBadges, userDailyActivity, userCommitments, userActions, userProgress, weeklyRankings, monthlyRankings, provinceRankings, territoryMandates, mandateSuggestions, initiativeMembers, initiativeMilestones, initiativeMessages, initiativeTasks, activityFeed, membershipRequests, notifications, lifeAreas, lifeAreaSubcategories, lifeAreaQuizzes, lifeAreaQuizQuestions, lifeAreaQuizResponses, lifeAreaScores, lifeAreaActions, userLifeAreaProgress, lifeAreaMilestones, lifeAreaIndicators, lifeAreaCommunityStats, lifeAreaXpLog, lifeAreaLevels, lifeAreaStreaks, lifeAreaBadges, userLifeAreaBadges, lifeAreaCurrency, lifeAreaRewardChests, lifeAreaChallenges, userLifeAreaChallenges, lifeAreaMastery, lifeAreaNotifications, lifeAreaSocialInteractions, usersRelations, userResourcesRelations, territoryMandatesRelations, mandateSuggestionsRelations, dreamsRelations, communityPostsRelations, communityPostInteractionsRelations, communityMessagesRelations, communityPostActivityRelations, userProfilesRelations, recommendationsRelations, vrMeetingsRelations, meetingParticipantsRelations, userLevelsRelations, challengesRelations, challengeStepsRelations, userChallengeProgressRelations, badgesRelations, userBadgesRelations, userDailyActivityRelations, userCommitmentsRelations, userActionsRelations, userProgressRelations, weeklyRankingsRelations, monthlyRankingsRelations, provinceRankingsRelations, blogPostsRelations, postTagsRelations, postLikesRelations, postCommentsRelations, postBookmarksRelations, postViewsRelations, coursesRelations, courseLessonsRelations, courseQuizzesRelations, quizQuestionsRelations, userCourseProgressRelations, userLessonProgressRelations, quizAttemptsRelations, quizAttemptAnswersRelations, courseCertificatesRelations, iotSensorsRelations, sensorDataRelations, inspiringStoriesRelations, initiativeMembersRelations, initiativeMilestonesRelations, initiativeMessagesRelations, initiativeTasksRelations, activityFeedRelations, membershipRequestsRelations, notificationsRelations, lifeAreasRelations, lifeAreaSubcategoriesRelations, lifeAreaQuizzesRelations, lifeAreaQuizQuestionsRelations, lifeAreaQuizResponsesRelations, lifeAreaScoresRelations, lifeAreaActionsRelations, userLifeAreaProgressRelations, lifeAreaMilestonesRelations, lifeAreaIndicatorsRelations, lifeAreaCommunityStatsRelations, lifeAreaXpLogRelations, lifeAreaLevelsRelations, lifeAreaStreaksRelations, lifeAreaBadgesRelations, userLifeAreaBadgesRelations, lifeAreaCurrencyRelations, lifeAreaRewardChestsRelations, lifeAreaChallengesRelations, userLifeAreaChallengesRelations, lifeAreaMasteryRelations, lifeAreaNotificationsRelations, lifeAreaSocialInteractionsRelations, civicAssessments, civicAssessmentResponses, civicProfiles, civicGoals, weeklyCheckins, coachingSessions, coachingPrompts, insertUserSchema, insertDreamSchema, insertCommunityPostSchema, insertResourceSchema, insertInspiringStorySchema, insertSentimentAnalysisSchema, insertTextEmbeddingSchema, insertUserProfileSchema, insertRecommendationSchema, insertAiInsightSchema, insertBlockchainTransactionSchema, insertIotSensorSchema, insertSensorDataSchema, insertVrMeetingSchema, insertMeetingParticipantSchema, insertUserResourceSchema, insertTerritoryMandateSchema, insertMandateSuggestionSchema, insertUserLevelSchema, insertChallengeSchema, insertChallengeStepSchema, insertUserChallengeProgressSchema, insertBadgeSchema, insertUserBadgeSchema, insertUserDailyActivitySchema, insertUserCommitmentSchema, insertUserActionSchema, insertUserProgressSchema, insertWeeklyRankingSchema, insertMonthlyRankingSchema, insertProvinceRankingSchema, insertBlogPostSchema, insertPostTagSchema, insertPostLikeSchema, insertPostCommentSchema, insertPostBookmarkSchema, insertPostViewSchema, insertCourseSchema, insertCourseLessonSchema, insertCourseQuizSchema, insertQuizQuestionSchema, insertUserCourseProgressSchema, insertUserLessonProgressSchema, insertQuizAttemptSchema, insertQuizAttemptAnswerSchema, insertCourseCertificateSchema, insertCommunityPostInteractionSchema, insertCommunityMessageSchema, insertCommunityPostActivitySchema, insertInitiativeMemberSchema, insertInitiativeMilestoneSchema, insertInitiativeMessageSchema, insertInitiativeTaskSchema, insertActivityFeedSchema, insertMembershipRequestSchema, insertNotificationSchema, insertLifeAreaSchema, insertLifeAreaSubcategorySchema, insertLifeAreaQuizSchema, insertLifeAreaQuizQuestionSchema, insertLifeAreaQuizResponseSchema, insertLifeAreaScoreSchema, insertLifeAreaActionSchema, insertUserLifeAreaProgressSchema, insertLifeAreaMilestoneSchema, insertLifeAreaIndicatorSchema, insertLifeAreaCommunityStatsSchema, insertLifeAreaXpLogSchema, insertLifeAreaLevelSchema, insertLifeAreaStreakSchema, insertLifeAreaBadgeSchema, insertUserLifeAreaBadgeSchema, insertLifeAreaCurrencySchema, insertLifeAreaRewardChestSchema, insertLifeAreaChallengeSchema, insertUserLifeAreaChallengeSchema, insertLifeAreaMasterySchema, insertLifeAreaNotificationSchema, insertLifeAreaSocialInteractionSchema, civicAssessmentsRelations, civicAssessmentResponsesRelations, civicProfilesRelations, civicGoalsRelations, weeklyCheckinsRelations, coachingSessionsRelations, coachingPromptsRelations, insertCivicAssessmentSchema, insertCivicAssessmentResponseSchema, insertCivicProfileSchema, insertCivicGoalSchema, insertWeeklyCheckinSchema, insertCoachingSessionSchema, insertCoachingPromptSchema, weeklyDigests, digestProposals, proposalStatusHistory, insertWeeklyDigestSchema, insertDigestProposalSchema, insertProposalStatusHistorySchema;
 var init_schema = __esm({
   "shared/schema.ts"() {
     "use strict";
@@ -2598,14 +2604,102 @@ var init_schema = __esm({
       id: true,
       createdAt: true
     });
+    weeklyDigests = pgTable("weekly_digests", {
+      id: serial("id").primaryKey(),
+      weekNumber: integer("week_number").notNull(),
+      year: integer("year").notNull(),
+      weekStartDate: text("week_start_date").notNull(),
+      weekEndDate: text("week_end_date").notNull(),
+      // Thermometer stats
+      totalNewVoices: integer("total_new_voices").default(0),
+      newDreams: integer("new_dreams").default(0),
+      newNeeds: integer("new_needs").default(0),
+      newBastas: integer("new_bastas").default(0),
+      newValues: integer("new_values").default(0),
+      newCommitments: integer("new_commitments").default(0),
+      newResources: integer("new_resources").default(0),
+      // Cumulative totals at time of digest
+      cumulativeVoices: integer("cumulative_voices").default(0),
+      cumulativeResources: integer("cumulative_resources").default(0),
+      // AI-generated content (JSON)
+      emergingThemes: text("emerging_themes"),
+      // JSON: [{theme, trend, count, description}]
+      patterns: text("patterns"),
+      // JSON: [{pattern, territories, description, evidence}]
+      unconnectedResources: text("unconnected_resources"),
+      // JSON: [{resource, suggestion}]
+      seedOfWeek: text("seed_of_week"),
+      // JSON: {title, description, inspiration}
+      comparisonWithPrevious: text("comparison_with_previous"),
+      // JSON: {trends, escalations}
+      // Full AI analysis
+      fullAnalysis: text("full_analysis"),
+      // Complete pulse text from Claude
+      // Status
+      status: text("status").notNull().default("generating").$type(),
+      errorMessage: text("error_message"),
+      generatedAt: text("generated_at"),
+      createdAt: text("created_at").default(sql`now()`)
+    });
+    digestProposals = pgTable("digest_proposals", {
+      id: serial("id").primaryKey(),
+      digestId: integer("digest_id").references(() => weeklyDigests.id).notNull(),
+      // Core proposal content
+      title: text("title").notNull(),
+      summary: text("summary").notNull(),
+      fullAnalysis: text("full_analysis"),
+      // Detailed AI analysis
+      evidence: text("evidence"),
+      // JSON: {voiceCount, territories, quotes[], convergence}
+      // Targeting
+      targetCategory: text("target_category").notNull().$type(),
+      targetDescription: text("target_description"),
+      // Specific org/entity name
+      territory: text("territory"),
+      // Geographic scope
+      // Classification
+      urgency: text("urgency").notNull().$type(),
+      precedent: text("precedent"),
+      // Similar success case
+      suggestedActionType: text("suggested_action_type").notNull().$type(),
+      // Action template (pre-generated)
+      actionTemplate: text("action_template"),
+      // Full generated action text (letter, petition, etc.)
+      // Lifecycle
+      status: text("status").notNull().default("propuesta").$type(),
+      firstAppearedWeek: integer("first_appeared_week"),
+      // For tracking recurring proposals
+      weeksActive: integer("weeks_active").default(1),
+      escalatedAt: text("escalated_at"),
+      createdAt: text("created_at").default(sql`now()`),
+      updatedAt: text("updated_at").default(sql`now()`)
+    });
+    proposalStatusHistory = pgTable("proposal_status_history", {
+      id: serial("id").primaryKey(),
+      proposalId: integer("proposal_id").references(() => digestProposals.id).notNull(),
+      fromStatus: text("from_status").notNull(),
+      toStatus: text("to_status").notNull(),
+      changedBy: integer("changed_by").references(() => users.id),
+      notes: text("notes"),
+      createdAt: text("created_at").default(sql`now()`)
+    });
+    insertWeeklyDigestSchema = createInsertSchema(weeklyDigests).omit({
+      id: true,
+      createdAt: true
+    });
+    insertDigestProposalSchema = createInsertSchema(digestProposals).omit({
+      id: true,
+      createdAt: true,
+      updatedAt: true
+    });
+    insertProposalStatusHistorySchema = createInsertSchema(proposalStatusHistory).omit({
+      id: true,
+      createdAt: true
+    });
   }
 });
 
 // server/db.ts
-var db_exports = {};
-__export(db_exports, {
-  db: () => db
-});
 import { neon } from "@neondatabase/serverless";
 import { drizzle } from "drizzle-orm/neon-http";
 var databaseUrl, sql2, db;
@@ -2700,7 +2794,10 @@ function validateConfig() {
       anthropicApiKey: process.env.ANTHROPIC_API_KEY || null,
       model: process.env.AI_MODEL || "claude-sonnet-4-20250514",
       maxTokens: parseInt(process.env.AI_MAX_TOKENS || "512"),
-      enabled: !!process.env.ANTHROPIC_API_KEY
+      enabled: !!process.env.ANTHROPIC_API_KEY,
+      groqApiKey: process.env.GROQ_API_KEY || null,
+      groqModel: process.env.GROQ_MODEL || "llama-3.3-70b-versatile",
+      groqEnabled: !!process.env.GROQ_API_KEY
     }
   };
 }
@@ -7094,60 +7191,487 @@ var init_storage = __esm({
   }
 });
 
-// server/mandate-service.ts
-var mandate_service_exports = {};
-__export(mandate_service_exports, {
+// server/services/mandato-engine.ts
+var mandato_engine_exports = {};
+__export(mandato_engine_exports, {
   generateAndSaveMandate: () => generateAndSaveMandate,
-  generateMandate: () => generateMandate
+  generateWeeklyMandate: () => generateWeeklyMandate,
+  startMandatoCron: () => startMandatoCron,
+  stopMandatoCron: () => stopMandatoCron
 });
 import Anthropic from "@anthropic-ai/sdk";
-async function generateMandate(territoryLevel, territoryName, province, city) {
-  const [dreams2, commitmentsRes, resources2] = await Promise.all([
+import { desc as desc8, gte as gte3, sql as sql7, and as and8, eq as eq10 } from "drizzle-orm";
+function getWeekBounds() {
+  const now = /* @__PURE__ */ new Date();
+  const dayOfWeek = now.getDay();
+  const mondayOffset = dayOfWeek === 0 ? -6 : 1 - dayOfWeek;
+  const start = new Date(now);
+  start.setDate(now.getDate() + mondayOffset);
+  start.setHours(0, 0, 0, 0);
+  const end = new Date(start);
+  end.setDate(start.getDate() + 6);
+  end.setHours(23, 59, 59, 999);
+  const jan1 = new Date(now.getFullYear(), 0, 1);
+  const days = Math.floor((start.getTime() - jan1.getTime()) / 864e5);
+  const weekNumber = Math.ceil((days + jan1.getDay() + 1) / 7);
+  return { start, end, weekNumber, year: now.getFullYear() };
+}
+function extractTerritory(item) {
+  return item.location || item.province || item.city || "Sin ubicacion";
+}
+async function gatherPulseData() {
+  const { start } = getWeekBounds();
+  const weekStartISO = start.toISOString();
+  const [allDreams, allResources] = await Promise.all([
     storage.getDreams(),
-    fetchCommitments(),
     storage.getUserResources()
   ]);
-  const territoryDreams = filterByTerritory(dreams2, territoryName, territoryLevel);
-  const territoryResources = filterResourcesByTerritory(resources2, territoryName, territoryLevel);
-  const localAnalysis = analyzeLocally(territoryDreams, territoryResources);
-  const apiKey = process.env.ANTHROPIC_API_KEY;
-  if (apiKey && localAnalysis.voiceCount >= 3) {
-    try {
-      return await synthesizeWithAI(apiKey, territoryName, territoryLevel, localAnalysis);
-    } catch (error) {
-      console.error("AI synthesis failed, falling back to local analysis:", error);
-      return localAnalysis;
+  let allCommitments = [];
+  try {
+    allCommitments = await db.select().from(userCommitments).orderBy(desc8(userCommitments.createdAt));
+  } catch {
+  }
+  const isThisWeek = (createdAt) => {
+    if (!createdAt) return false;
+    return new Date(createdAt) >= new Date(weekStartISO);
+  };
+  const newDreamEntries = allDreams.filter((d) => isThisWeek(d.createdAt));
+  const newDreams = newDreamEntries.filter((d) => d.type === "dream");
+  const newNeeds = newDreamEntries.filter((d) => d.type === "need");
+  const newBastas = newDreamEntries.filter((d) => d.type === "basta");
+  const newValues = newDreamEntries.filter((d) => d.type === "value");
+  const newCommitments = allCommitments.filter((c) => isThisWeek(c.createdAt));
+  const newResources = allResources.filter((r) => isThisWeek(r.createdAt));
+  const previousPulses = await db.select().from(weeklyDigests).where(eq10(weeklyDigests.status, "completed")).orderBy(desc8(weeklyDigests.createdAt)).limit(1);
+  const previousPulse = previousPulses[0] || null;
+  const recurringProposals = await db.select().from(digestProposals).where(
+    and8(
+      gte3(digestProposals.weeksActive, 3),
+      sql7`${digestProposals.status} NOT IN ('completada', 'archivada')`
+    )
+  );
+  return {
+    newDreams,
+    newNeeds,
+    newBastas,
+    newValues,
+    newCommitments,
+    newResources,
+    allDreams,
+    allCommitments,
+    allResources,
+    previousPulse,
+    recurringProposals
+  };
+}
+function groupByTerritory(data) {
+  const territoryGroups = {};
+  for (const d of data.allDreams) {
+    const territory = d.location || d.province || "Sin ubicacion";
+    if (!territoryGroups[territory]) territoryGroups[territory] = { dreams: [], resources: [], commitments: [] };
+    territoryGroups[territory].dreams.push(d);
+  }
+  for (const r of data.allResources) {
+    const territory = r.province || r.city || r.location || "Sin ubicacion";
+    if (!territoryGroups[territory]) territoryGroups[territory] = { dreams: [], resources: [], commitments: [] };
+    territoryGroups[territory].resources.push(r);
+  }
+  for (const c of data.allCommitments) {
+    const territory = c.location || c.province || "Sin ubicacion";
+    if (!territoryGroups[territory]) territoryGroups[territory] = { dreams: [], resources: [], commitments: [] };
+    territoryGroups[territory].commitments.push(c);
+  }
+  return territoryGroups;
+}
+function buildTerritorySummary(groups) {
+  const lines = [];
+  const sorted = Object.entries(groups).filter(([name]) => name !== "Sin ubicacion").sort(([, a], [, b]) => b.dreams.length + b.resources.length - (a.dreams.length + a.resources.length));
+  for (const [territory, group] of sorted) {
+    const dreamTypes = {
+      dream: group.dreams.filter((d) => d.type === "dream").length,
+      need: group.dreams.filter((d) => d.type === "need").length,
+      basta: group.dreams.filter((d) => d.type === "basta").length,
+      value: group.dreams.filter((d) => d.type === "value").length
+    };
+    const totalVoices = dreamTypes.dream + dreamTypes.need + dreamTypes.basta + dreamTypes.value;
+    lines.push(`
+--- ${territory} (${totalVoices} voces, ${group.resources.length} recursos) ---`);
+    if (dreamTypes.dream > 0) lines.push(`  Suenos: ${dreamTypes.dream}`);
+    if (dreamTypes.need > 0) lines.push(`  Necesidades: ${dreamTypes.need}`);
+    if (dreamTypes.basta > 0) lines.push(`  Bastas: ${dreamTypes.basta}`);
+    if (dreamTypes.value > 0) lines.push(`  Valores: ${dreamTypes.value}`);
+    if (group.resources.length > 0) lines.push(`  Recursos: ${group.resources.length}`);
+    if (group.commitments.length > 0) lines.push(`  Compromisos: ${group.commitments.length}`);
+    const sampleDreams = group.dreams.filter((d) => d.type === "dream").slice(0, 3);
+    const sampleNeeds = group.dreams.filter((d) => d.type === "need").slice(0, 3);
+    const sampleBastas = group.dreams.filter((d) => d.type === "basta").slice(0, 3);
+    if (sampleDreams.length > 0) {
+      lines.push(`  Citas suenos: ${JSON.stringify(sampleDreams.map((d) => (d.dream || "").slice(0, 150)))}`);
+    }
+    if (sampleNeeds.length > 0) {
+      lines.push(`  Citas necesidades: ${JSON.stringify(sampleNeeds.map((d) => (d.need || "").slice(0, 150)))}`);
+    }
+    if (sampleBastas.length > 0) {
+      lines.push(`  Citas bastas: ${JSON.stringify(sampleBastas.map((d) => (d.basta || "").slice(0, 150)))}`);
     }
   }
-  return localAnalysis;
+  const sinUbicacion = groups["Sin ubicacion"];
+  if (sinUbicacion && sinUbicacion.dreams.length > 0) {
+    lines.push(`
+--- Sin ubicacion (${sinUbicacion.dreams.length} voces sin territorio asignado) ---`);
+  }
+  return lines.join("\n");
 }
-async function fetchCommitments() {
+async function synthesizeWithClaude(data, weekInfo) {
+  const apiKey = process.env.ANTHROPIC_API_KEY;
+  if (!apiKey) {
+    throw new Error("ANTHROPIC_API_KEY is required for mandate generation");
+  }
+  const client = new Anthropic({ apiKey });
+  const totalNewVoices = data.newDreams.length + data.newNeeds.length + data.newBastas.length + data.newValues.length + data.newCommitments.length + data.newResources.length;
+  const previousSummary = data.previousPulse ? `PULSO ANTERIOR (Semana ${data.previousPulse.weekNumber}):
+- Voces nuevas: ${data.previousPulse.totalNewVoices}
+- Temas emergentes: ${data.previousPulse.emergingThemes || "N/A"}
+- Propuestas activas: ${data.recurringProposals.length} propuestas llevan 3+ semanas sin resolverse` : "No hay pulso anterior \u2014 este es el PRIMER PULSO.";
+  const sampleQuotes = (items, field, max = 15) => items.slice(0, max).map((i) => ({
+    text: (i[field] || "").slice(0, 200),
+    location: extractTerritory(i)
+  })).filter((q) => q.text);
+  const territoryGroups = groupByTerritory(data);
+  const territorySummary = buildTerritorySummary(territoryGroups);
+  const territoriesWithMandate = Object.entries(territoryGroups).filter(([name, g]) => name !== "Sin ubicacion" && g.dreams.length >= 3).map(([name, g]) => `${name} (${g.dreams.length} voces)`).join(", ");
+  const prompt = `Genera el Pulso Semanal #${weekInfo.weekNumber} del ano ${weekInfo.year} junto con los Mandatos Territoriales.
+
+\u2550\u2550\u2550 DATOS DE ESTA SEMANA \u2550\u2550\u2550
+
+NUEVAS VOCES: ${totalNewVoices} total
+- Suenos: ${data.newDreams.length}
+- Necesidades: ${data.newNeeds.length}
+- Bastas: ${data.newBastas.length}
+- Valores: ${data.newValues.length}
+- Compromisos: ${data.newCommitments.length}
+- Recursos nuevos: ${data.newResources.length}
+
+DATOS ACUMULADOS TOTALES:
+- ${data.allDreams.length} declaraciones totales en el mapa
+- ${data.allCommitments.length} compromisos activos
+- ${data.allResources.length} recursos declarados
+
+\u2550\u2550\u2550 MUESTRAS DE VOCES NUEVAS \u2550\u2550\u2550
+
+SUENOS:
+${JSON.stringify(sampleQuotes(data.newDreams, "dream"))}
+
+NECESIDADES:
+${JSON.stringify(sampleQuotes(data.newNeeds, "need"))}
+
+BASTAS:
+${JSON.stringify(sampleQuotes(data.newBastas, "basta"))}
+
+VALORES:
+${JSON.stringify(sampleQuotes(data.newValues, "value"))}
+
+COMPROMISOS:
+${JSON.stringify(sampleQuotes(data.newCommitments, "commitmentText"))}
+
+RECURSOS DECLARADOS:
+${JSON.stringify(data.newResources.slice(0, 10).map((r) => ({
+    description: r.description,
+    category: r.category,
+    location: extractTerritory(r),
+    hours: r.availableHours
+  })))}
+
+\u2550\u2550\u2550 TODOS LOS DATOS ACUMULADOS (muestras) \u2550\u2550\u2550
+
+SUENOS ACUMULADOS:
+${JSON.stringify(sampleQuotes(data.allDreams.filter((d) => d.type === "dream"), "dream", 20))}
+
+NECESIDADES ACUMULADAS:
+${JSON.stringify(sampleQuotes(data.allDreams.filter((d) => d.type === "need"), "need", 20))}
+
+BASTAS ACUMULADOS:
+${JSON.stringify(sampleQuotes(data.allDreams.filter((d) => d.type === "basta"), "basta", 20))}
+
+VALORES ACUMULADOS:
+${JSON.stringify(sampleQuotes(data.allDreams.filter((d) => d.type === "value"), "value", 20))}
+
+TODOS LOS RECURSOS:
+${JSON.stringify(data.allResources.map((r) => ({
+    description: r.description?.slice(0, 100),
+    category: r.category,
+    location: extractTerritory(r),
+    hours: r.availableHours
+  })))}
+
+\u2550\u2550\u2550 VOCES AGRUPADAS POR TERRITORIO \u2550\u2550\u2550
+
+Territorios con suficientes voces para mandato: ${territoriesWithMandate || "Ninguno aun"}
+
+${territorySummary}
+
+\u2550\u2550\u2550 CONTEXTO HISTORICO \u2550\u2550\u2550
+
+${previousSummary}
+
+PROPUESTAS RECURRENTES (3+ semanas sin accion):
+${JSON.stringify(data.recurringProposals.map((p) => ({
+    title: p.title,
+    urgency: p.urgency,
+    weeksActive: p.weeksActive,
+    targetCategory: p.targetCategory
+  })))}
+
+\u2550\u2550\u2550 INSTRUCCIONES DE RESPUESTA \u2550\u2550\u2550
+
+Responde con un JSON con esta estructura exacta:
+{
+  "emergingThemes": [
+    {"theme": "nombre del tema", "trend": "up|stable|down|new", "count": numero, "description": "descripcion"}
+  ],
+  "patterns": [
+    {"pattern": "nombre del patron", "territories": ["territorio1"], "description": "explicacion", "evidence": ["cita1"]}
+  ],
+  "proposals": [
+    {
+      "title": "Verbo + objetivo concreto",
+      "summary": "Resumen en 2-3 oraciones",
+      "fullAnalysis": "Analisis detallado extenso \u2014 tan largo como sea necesario para fundamentar bien la propuesta. Inclu\xED contexto, datos, argumentacion, y por que es autoevidente desde los datos.",
+      "evidence": {"voiceCount": numero, "territories": ["lista"], "quotes": ["citas textuales del mapa"], "convergencePercent": numero},
+      "targetCategory": "gobierno_municipal|gobierno_provincial|gobierno_nacional|organizaciones|medios|sector_privado|comunidad",
+      "targetDescription": "A quien especificamente va dirigida",
+      "territory": "Alcance geografico",
+      "urgency": "critica|importante|oportunidad",
+      "precedent": "Caso similar que funciono en otro lado (investigar si existe)",
+      "suggestedActionType": "carta|peticion|iniciativa_comunitaria|difusion|nota_periodistica|proyecto_ley",
+      "actionTemplate": "TEXTO COMPLETO de la accion \u2014 carta, peticion, proyecto, nota \u2014 LISTO PARA USAR. Extenso, formal, profesional, con todos los datos."
+    }
+  ],
+  "territoryMandates": [
+    {
+      "territoryName": "Nombre exacto del territorio",
+      "territoryLevel": "barrio|city|province|national",
+      "convergenceScore": numero_0_a_100,
+      "voiceCount": numero,
+      "priorities": [
+        {"rank": numero, "theme": "tema", "description": "descripcion con evidencia", "convergencePercent": numero, "voiceCount": numero, "sampleQuotes": ["citas reales"]}
+      ],
+      "gaps": [
+        {"theme": "tema", "needCount": numero, "resourceCount": numero, "gap": numero, "urgency": "critical|high|medium"}
+      ],
+      "suggestedActions": [
+        {"title": "titulo accion", "description": "descripcion detallada", "needsAddressed": "que necesidad cubre", "resourcesRequired": "que recursos se necesitan", "estimatedImpact": "impacto estimado", "precedent": "caso similar si existe"}
+      ],
+      "rawSummary": "Resumen ejecutivo del mandato territorial \u2014 directo, accionable, con datos. Lo que un coordinador territorial necesita para actuar hoy."
+    }
+  ],
+  "unconnectedResources": [
+    {"resource": "descripcion", "category": "categoria", "suggestion": "como podria activarse"}
+  ],
+  "seedOfWeek": {
+    "title": "Idea inspiradora",
+    "description": "Explicacion de la idea",
+    "inspiration": "Por que los datos sugieren esta idea aunque nadie la pidio explicitamente"
+  },
+  "comparisonWithPrevious": {
+    "trends": [{"theme": "tema", "direction": "up|stable|down", "detail": "explicacion"}],
+    "escalations": ["propuestas que deben escalar de urgencia"]
+  },
+  "fullAnalysis": "EL PULSO COMPLETO como texto narrativo. Incluye todo: termometro, patrones, propuestas explicadas, mandatos territoriales resumidos, recursos sin conectar, semilla. Se extenso, profundo, y accionable. Esto es lo que la gente lee."
+}
+
+IMPORTANTE:
+- Genera tantas propuestas como los datos justifiquen \u2014 no hay limite.
+- Genera un mandato territorial por cada territorio con 3+ voces.
+- Para cada mandato territorial, identifica que nivel de gobierno deber\xEDa responder.
+- Cada propuesta debe ser autoevidente desde los datos.
+- El texto de fullAnalysis (tanto global como por propuesta) debe ser tan extenso como sea necesario para generar algo de alt\xEDsima calidad.
+- Las plantillas de accion (actionTemplate) deben ser documentos COMPLETOS listos para usar.
+- Si no hay datos suficientes para un territorio, no inventes \u2014 omit\xED ese mandato.`;
+  const response = await client.messages.create({
+    model: "claude-sonnet-4-20250514",
+    max_tokens: 24e3,
+    system: MANDATO_SYSTEM_PROMPT,
+    messages: [{ role: "user", content: prompt }]
+  });
+  const text2 = response.content[0].type === "text" ? response.content[0].text : "";
+  const jsonStr = text2.replace(/^```json\n?/, "").replace(/\n?```$/, "").trim();
+  const parsed = JSON.parse(jsonStr);
+  return {
+    thermometer: {
+      totalNewVoices,
+      newDreams: data.newDreams.length,
+      newNeeds: data.newNeeds.length,
+      newBastas: data.newBastas.length,
+      newValues: data.newValues.length,
+      newCommitments: data.newCommitments.length,
+      newResources: data.newResources.length
+    },
+    emergingThemes: parsed.emergingThemes || [],
+    patterns: parsed.patterns || [],
+    proposals: parsed.proposals || [],
+    territoryMandates: parsed.territoryMandates || [],
+    unconnectedResources: parsed.unconnectedResources || [],
+    seedOfWeek: parsed.seedOfWeek || { title: "", description: "", inspiration: "" },
+    comparisonWithPrevious: parsed.comparisonWithPrevious || { trends: [], escalations: [] },
+    fullAnalysis: parsed.fullAnalysis || ""
+  };
+}
+async function generateWeeklyMandate() {
+  const weekInfo = getWeekBounds();
+  const existing = await db.select().from(weeklyDigests).where(
+    and8(
+      eq10(weeklyDigests.weekNumber, weekInfo.weekNumber),
+      eq10(weeklyDigests.year, weekInfo.year)
+    )
+  ).limit(1);
+  if (existing[0]?.status === "completed") {
+    return existing[0];
+  }
+  let digestRecord;
+  if (existing[0]) {
+    digestRecord = existing[0];
+    await db.update(weeklyDigests).set({ status: "generating" }).where(eq10(weeklyDigests.id, existing[0].id));
+  } else {
+    const [created] = await db.insert(weeklyDigests).values({
+      weekNumber: weekInfo.weekNumber,
+      year: weekInfo.year,
+      weekStartDate: weekInfo.start.toISOString(),
+      weekEndDate: weekInfo.end.toISOString(),
+      status: "generating"
+    }).returning();
+    digestRecord = created;
+  }
   try {
-    const db2 = await Promise.resolve().then(() => (init_db(), db_exports));
-    const schema = await Promise.resolve().then(() => (init_schema(), schema_exports));
-    const { desc: desc8 } = await import("drizzle-orm");
-    const commitments = await db2.db.select().from(schema.userCommitments).orderBy(desc8(schema.userCommitments.createdAt));
-    return commitments;
-  } catch {
-    return [];
+    const data = await gatherPulseData();
+    const result = await synthesizeWithClaude(data, weekInfo);
+    const [updated] = await db.update(weeklyDigests).set({
+      totalNewVoices: result.thermometer.totalNewVoices,
+      newDreams: result.thermometer.newDreams,
+      newNeeds: result.thermometer.newNeeds,
+      newBastas: result.thermometer.newBastas,
+      newValues: result.thermometer.newValues,
+      newCommitments: result.thermometer.newCommitments,
+      newResources: result.thermometer.newResources,
+      cumulativeVoices: data.allDreams.length + data.allCommitments.length,
+      cumulativeResources: data.allResources.length,
+      emergingThemes: JSON.stringify(result.emergingThemes),
+      patterns: JSON.stringify(result.patterns),
+      unconnectedResources: JSON.stringify(result.unconnectedResources),
+      seedOfWeek: JSON.stringify(result.seedOfWeek),
+      comparisonWithPrevious: JSON.stringify(result.comparisonWithPrevious),
+      fullAnalysis: result.fullAnalysis,
+      status: "completed",
+      generatedAt: (/* @__PURE__ */ new Date()).toISOString()
+    }).where(eq10(weeklyDigests.id, digestRecord.id)).returning();
+    for (const proposal of result.proposals) {
+      const existingProposal = data.recurringProposals.find(
+        (p) => p.title.toLowerCase().includes(proposal.title.toLowerCase().slice(0, 20))
+      );
+      await db.insert(digestProposals).values({
+        digestId: digestRecord.id,
+        title: proposal.title,
+        summary: proposal.summary,
+        fullAnalysis: proposal.fullAnalysis,
+        evidence: JSON.stringify(proposal.evidence),
+        targetCategory: proposal.targetCategory,
+        targetDescription: proposal.targetDescription,
+        territory: proposal.territory,
+        urgency: proposal.urgency,
+        precedent: proposal.precedent,
+        suggestedActionType: proposal.suggestedActionType,
+        actionTemplate: proposal.actionTemplate,
+        status: "propuesta",
+        firstAppearedWeek: existingProposal?.firstAppearedWeek || weekInfo.weekNumber,
+        weeksActive: existingProposal ? (existingProposal.weeksActive || 1) + 1 : 1
+      });
+    }
+    for (const recurring of data.recurringProposals) {
+      if ((recurring.weeksActive || 0) >= 3 && recurring.urgency !== "critica") {
+        await db.update(digestProposals).set({
+          urgency: "critica",
+          escalatedAt: (/* @__PURE__ */ new Date()).toISOString(),
+          updatedAt: (/* @__PURE__ */ new Date()).toISOString()
+        }).where(eq10(digestProposals.id, recurring.id));
+      }
+    }
+    if (result.territoryMandates && Array.isArray(result.territoryMandates)) {
+      for (const tm of result.territoryMandates) {
+        if (!tm.territoryName || tm.voiceCount < 3) continue;
+        const level = tm.territoryLevel || "province";
+        const existingMandate = await storage.getMandateByTerritory(level, tm.territoryName);
+        const mandateData = {
+          territoryLevel: level,
+          territoryName: tm.territoryName,
+          voiceCount: tm.voiceCount,
+          convergenceScore: tm.convergenceScore,
+          diagnosis: JSON.stringify({ priorities: tm.priorities || [] }),
+          availableResources: JSON.stringify({ categories: [], totalVolunteers: 0 }),
+          gaps: JSON.stringify({ critical: tm.gaps || [] }),
+          suggestedActions: JSON.stringify({ actions: tm.suggestedActions || [] }),
+          rawSummary: tm.rawSummary || "",
+          status: "published",
+          generatedAt: (/* @__PURE__ */ new Date()).toISOString()
+        };
+        if (existingMandate) {
+          await storage.updateMandate(existingMandate.id, {
+            ...mandateData,
+            version: (existingMandate.version || 0) + 1
+          });
+          console.log(`[Mandato] Updated mandate for ${tm.territoryName} (v${(existingMandate.version || 0) + 1})`);
+        } else {
+          await storage.createMandate(mandateData);
+          console.log(`[Mandato] Created new mandate for ${tm.territoryName}`);
+        }
+      }
+    }
+    console.log(`[Mandato] Weekly mandate generated: ${result.proposals.length} proposals, ${result.territoryMandates.length} territory mandates`);
+    return updated;
+  } catch (error) {
+    await db.update(weeklyDigests).set({
+      status: "failed",
+      errorMessage: error.message || "Unknown error"
+    }).where(eq10(weeklyDigests.id, digestRecord.id));
+    throw error;
   }
 }
-function filterByTerritory(items, territoryName, level) {
-  if (level === "national") return items;
-  return items.filter((item) => {
-    const loc = (item.location || "").toLowerCase();
-    const name = territoryName.toLowerCase();
-    return loc.includes(name);
-  });
+function startMandatoCron() {
+  cronInterval = setInterval(async () => {
+    const now = /* @__PURE__ */ new Date();
+    const arTime = new Date(now.toLocaleString("en-US", { timeZone: "America/Argentina/Buenos_Aires" }));
+    if (arTime.getDay() === 5 && arTime.getHours() === 17 && arTime.getMinutes() === 55) {
+      console.log("[Mandato] Friday 17:55 ART \u2014 triggering weekly mandate generation...");
+      try {
+        await generateWeeklyMandate();
+        console.log("[Mandato] Weekly mandate generated successfully.");
+      } catch (error) {
+        console.error("[Mandato] Failed to generate weekly mandate:", error);
+      }
+    }
+  }, 6e4);
+  console.log("[Mandato] Cron scheduler started \u2014 will generate mandate every Friday at 17:55 ART");
 }
-function filterResourcesByTerritory(resources2, territoryName, level) {
-  if (level === "national") return resources2;
-  return resources2.filter((r) => {
-    const loc = [r.city, r.province, r.location].filter(Boolean).join(" ").toLowerCase();
-    return loc.includes(territoryName.toLowerCase());
-  });
-}
-function analyzeLocally(dreams2, resources2) {
+async function generateAndSaveMandate(territoryLevel, territoryName, province, city) {
+  const [allDreams, allResources] = await Promise.all([
+    storage.getDreams(),
+    storage.getUserResources()
+  ]);
+  const filterByTerritory = (items) => {
+    if (territoryLevel === "national") return items;
+    return items.filter((item) => {
+      const loc = (item.location || "").toLowerCase();
+      return loc.includes(territoryName.toLowerCase());
+    });
+  };
+  const filterResources = (resources2) => {
+    if (territoryLevel === "national") return resources2;
+    return resources2.filter((r) => {
+      const loc = [r.city, r.province, r.location].filter(Boolean).join(" ").toLowerCase();
+      return loc.includes(territoryName.toLowerCase());
+    });
+  };
+  const territoryDreams = filterByTerritory(allDreams);
+  const territoryResources = filterResources(allResources);
   const THEME_KEYWORDS = {
     systemic: ["transformacion", "cambio", "revolucion", "reforma", "sistema", "estructura"],
     values: ["transparencia", "justicia", "equidad", "dignidad", "respeto", "honestidad", "solidaridad"],
@@ -7159,50 +7683,31 @@ function analyzeLocally(dreams2, resources2) {
     community: ["comunidad", "pueblo", "sociedad", "colectivo", "ciudadania", "barrio", "territorio"],
     future: ["futuro", "vision", "horizonte", "esperanza", "sueno", "meta", "proposito"]
   };
-  const normalize = (w) => w.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z]/g, "");
-  const themeHits = {};
-  for (const tk of Object.keys(THEME_KEYWORDS)) {
-    themeHits[tk] = { count: 0, quotes: [] };
-  }
-  let voiceCount = 0;
-  const types = ["need", "basta", "dream", "value"];
-  dreams2.forEach((entry) => {
-    for (const type of types) {
-      const text2 = entry[type];
-      if (!text2) continue;
-      voiceCount++;
-      const words = text2.split(/\s+/).map(normalize).filter((w) => w.length > 3);
-      for (const tk of Object.keys(THEME_KEYWORDS)) {
-        const matched = words.some(
-          (w) => THEME_KEYWORDS[tk].some((kw) => w.includes(kw) || kw.includes(w))
-        );
-        if (matched) {
-          themeHits[tk].count++;
-          if (themeHits[tk].quotes.length < 3) {
-            themeHits[tk].quotes.push(text2.length > 120 ? text2.slice(0, 120) + "\u2026" : text2);
-          }
-        }
-      }
-    }
-  });
-  const priorities = Object.entries(themeHits).filter(([, v]) => v.count > 0).sort(([, a], [, b]) => b.count - a.count).slice(0, 5).map(([theme, data], i) => ({
-    rank: i + 1,
-    theme: THEME_LABELS[theme] || theme,
-    description: `${data.count} declaraciones convergen en ${THEME_LABELS[theme] || theme}`,
-    convergencePercent: voiceCount > 0 ? Math.round(data.count / voiceCount * 100) : 0,
-    voiceCount: data.count,
-    sampleQuotes: data.quotes
-  }));
-  const resCats = {};
-  resources2.forEach((r) => {
-    const cat = r.category || "other";
-    resCats[cat] = (resCats[cat] || 0) + 1;
-  });
-  const resourceCategories = Object.entries(resCats).map(([category, count]) => ({
-    category: RESOURCE_CATEGORY_LABELS[category] || category,
-    count,
-    description: `${count} persona(s) con capacidad en ${RESOURCE_CATEGORY_LABELS[category] || category}`
-  })).sort((a, b) => b.count - a.count);
+  const THEME_LABELS2 = {
+    systemic: "Transformaci\xF3n Sist\xE9mica",
+    values: "Valores Fundamentales",
+    action: "Acci\xF3n y Agencia",
+    development: "Desarrollo Humano",
+    justice: "Justicia y Derechos",
+    economy: "Econom\xEDa y Recursos",
+    health: "Salud y Vida",
+    community: "Comunidad y Colectivo",
+    future: "Futuro y Visi\xF3n"
+  };
+  const RESOURCE_CATEGORY_LABELS = {
+    legal: "Legal",
+    medical: "Salud",
+    education: "Educaci\xF3n",
+    tech: "Tecnolog\xEDa",
+    construction: "Construcci\xF3n",
+    agriculture: "Agricultura",
+    communication: "Comunicaci\xF3n",
+    admin: "Administraci\xF3n",
+    transport: "Transporte",
+    space: "Espacio F\xEDsico",
+    equipment: "Equipamiento",
+    other: "Otros"
+  };
   const RESOURCE_THEME_MAP = {
     legal: ["justice", "systemic"],
     medical: ["health"],
@@ -7216,20 +7721,44 @@ function analyzeLocally(dreams2, resources2) {
     space: ["community", "action"],
     equipment: ["economy", "action"]
   };
+  const normalize = (w) => w.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z]/g, "");
+  const themeHits = {};
+  for (const tk of Object.keys(THEME_KEYWORDS)) themeHits[tk] = { count: 0, quotes: [] };
+  let voiceCount = 0;
+  for (const entry of territoryDreams) {
+    for (const type of ["need", "basta", "dream", "value"]) {
+      const text2 = entry[type];
+      if (!text2) continue;
+      voiceCount++;
+      const words = text2.split(/\s+/).map(normalize).filter((w) => w.length > 3);
+      for (const tk of Object.keys(THEME_KEYWORDS)) {
+        if (words.some((w) => THEME_KEYWORDS[tk].some((kw) => w.includes(kw) || kw.includes(w)))) {
+          themeHits[tk].count++;
+          if (themeHits[tk].quotes.length < 3) themeHits[tk].quotes.push(text2.length > 120 ? text2.slice(0, 120) + "\u2026" : text2);
+        }
+      }
+    }
+  }
+  const priorities = Object.entries(themeHits).filter(([, v]) => v.count > 0).sort(([, a], [, b]) => b.count - a.count).slice(0, 5).map(([theme, data], i) => ({
+    rank: i + 1,
+    theme: THEME_LABELS2[theme] || theme,
+    description: `${data.count} declaraciones convergen en ${THEME_LABELS2[theme] || theme}`,
+    convergencePercent: voiceCount > 0 ? Math.round(data.count / voiceCount * 100) : 0,
+    voiceCount: data.count,
+    sampleQuotes: data.quotes
+  }));
+  const resCats = {};
+  territoryResources.forEach((r) => {
+    resCats[r.category || "other"] = (resCats[r.category || "other"] || 0) + 1;
+  });
+  const resourceCategories = Object.entries(resCats).map(([category, count]) => ({ category: RESOURCE_CATEGORY_LABELS[category] || category, count, description: `${count} persona(s) con capacidad en ${RESOURCE_CATEGORY_LABELS[category] || category}` })).sort((a, b) => b.count - a.count);
   const resourceThemeCounts = {};
-  resources2.forEach((r) => {
-    const themes = RESOURCE_THEME_MAP[r.category] || [];
-    themes.forEach((t) => {
+  territoryResources.forEach((r) => {
+    (RESOURCE_THEME_MAP[r.category] || []).forEach((t) => {
       resourceThemeCounts[t] = (resourceThemeCounts[t] || 0) + 1;
     });
   });
-  const gaps = Object.entries(themeHits).map(([theme, data]) => ({
-    theme: THEME_LABELS[theme] || theme,
-    needCount: data.count,
-    resourceCount: resourceThemeCounts[theme] || 0,
-    gap: data.count - (resourceThemeCounts[theme] || 0),
-    urgency: data.count - (resourceThemeCounts[theme] || 0) > 5 ? "critical" : data.count - (resourceThemeCounts[theme] || 0) > 2 ? "high" : "medium"
-  })).filter((g) => g.gap > 0).sort((a, b) => b.gap - a.gap).slice(0, 5);
+  const gaps = Object.entries(themeHits).map(([theme, data]) => ({ theme: THEME_LABELS2[theme] || theme, needCount: data.count, resourceCount: resourceThemeCounts[theme] || 0, gap: data.count - (resourceThemeCounts[theme] || 0), urgency: data.count - (resourceThemeCounts[theme] || 0) > 5 ? "critical" : data.count - (resourceThemeCounts[theme] || 0) > 2 ? "high" : "medium" })).filter((g) => g.gap > 0).sort((a, b) => b.gap - a.gap).slice(0, 5);
   const suggestedActions = gaps.slice(0, 3).map((gap) => ({
     title: `Programa de ${gap.theme}`,
     description: `${gap.needCount} personas expresaron necesidad en ${gap.theme}. ${gap.resourceCount > 0 ? `Hay ${gap.resourceCount} recursos disponibles.` : "Se necesitan recursos externos."}`,
@@ -7238,115 +7767,141 @@ function analyzeLocally(dreams2, resources2) {
     estimatedImpact: `Impacto directo en ${gap.needCount} personas`
   }));
   const topPriority = priorities[0]?.theme || "Sin datos suficientes";
-  const rawSummary = voiceCount > 0 ? `Mandato basado en ${voiceCount} declaraciones. Prioridad #1: ${topPriority}. ${resources2.length} recursos declarados. ${gaps.length} brechas identificadas.` : "A\xFAn no hay suficientes datos para generar un mandato. Se necesitan m\xE1s declaraciones en el mapa.";
+  let rawSummary = voiceCount > 0 ? `Mandato basado en ${voiceCount} declaraciones. Prioridad #1: ${topPriority}. ${territoryResources.length} recursos declarados. ${gaps.length} brechas identificadas.` : "A\xFAn no hay suficientes datos para generar un mandato. Se necesitan m\xE1s declaraciones en el mapa.";
   const convergenceScore = priorities.length > 0 ? Math.round(priorities.reduce((sum, p) => sum + p.convergencePercent, 0) / priorities.length) : 0;
-  return {
-    diagnosis: { priorities },
-    availableResources: { categories: resourceCategories, totalVolunteers: resources2.length },
-    gaps: { critical: gaps },
-    suggestedActions: { actions: suggestedActions },
-    rawSummary,
-    convergenceScore,
-    voiceCount
-  };
-}
-async function synthesizeWithAI(apiKey, territoryName, territoryLevel, localAnalysis) {
-  const client = new Anthropic({ apiKey });
-  const prompt = `Eres el sintetizador del Mandato Vivo \u2014 un sistema que traduce la voz colectiva del pueblo en mandatos accionables. No interpretas, no opinas, no agregas ideolog\xEDa. Solo ARTICUL\xC1S lo que los datos dicen.
+  const apiKey = process.env.ANTHROPIC_API_KEY;
+  if (apiKey && voiceCount >= 3) {
+    try {
+      const client = new Anthropic({ apiKey });
+      const response = await client.messages.create({
+        model: "claude-haiku-4-5-20251001",
+        max_tokens: 1024,
+        messages: [{ role: "user", content: `Sos el sintetizador del Mandato Vivo \u2014 un sistema que traduce la voz colectiva del pueblo en mandatos accionables. No interpretas, no opinas, no agregas ideolog\xEDa. Solo ARTICUL\xC1S lo que los datos dicen.
 
 TERRITORIO: ${territoryName} (nivel: ${territoryLevel})
-DATOS RECOPILADOS: ${localAnalysis.voiceCount} declaraciones, ${localAnalysis.availableResources.totalVolunteers} recursos declarados.
+DATOS: ${voiceCount} declaraciones, ${territoryResources.length} recursos.
 
-DIAGN\xD3STICO LOCAL:
-${JSON.stringify(localAnalysis.diagnosis.priorities, null, 2)}
+DIAGN\xD3STICO:
+${JSON.stringify(priorities, null, 2)}
 
-RECURSOS DISPONIBLES:
-${JSON.stringify(localAnalysis.availableResources.categories, null, 2)}
+RECURSOS:
+${JSON.stringify(resourceCategories, null, 2)}
 
-BRECHAS IDENTIFICADAS:
-${JSON.stringify(localAnalysis.gaps.critical, null, 2)}
+BRECHAS:
+${JSON.stringify(gaps, null, 2)}
 
-Genera un RESUMEN EJECUTIVO del mandato en espa\xF1ol rioplatense (m\xE1ximo 300 palabras) que incluya:
-1. Las top 3 prioridades con evidencia de convergencia
-2. Los recursos disponibles y qu\xE9 pueden cubrir
-3. Las brechas cr\xEDticas que requieren acci\xF3n
-4. 2-3 acciones concretas sugeridas que conecten necesidades con recursos disponibles
-
-El tono debe ser: directo, basado en datos, sin ret\xF3rica vac\xEDa. Como un informe de inteligencia que un coordinador territorial pueda usar para actuar HOY.`;
-  const response = await client.messages.create({
-    model: "claude-haiku-4-5-20251001",
-    max_tokens: 1024,
-    messages: [{ role: "user", content: prompt }]
-  });
-  const aiSummary = response.content[0].type === "text" ? response.content[0].text : localAnalysis.rawSummary;
-  return {
-    ...localAnalysis,
-    rawSummary: aiSummary
-  };
-}
-async function generateAndSaveMandate(territoryLevel, territoryName, province, city) {
-  const mandate = await generateMandate(territoryLevel, territoryName, province, city);
-  const existing = await storage.getMandateByTerritory(territoryLevel, territoryName);
-  if (existing) {
-    const updated = await storage.updateMandate(existing.id, {
-      version: (existing.version || 0) + 1,
-      voiceCount: mandate.voiceCount,
-      convergenceScore: mandate.convergenceScore,
-      diagnosis: JSON.stringify(mandate.diagnosis),
-      availableResources: JSON.stringify(mandate.availableResources),
-      gaps: JSON.stringify(mandate.gaps),
-      suggestedActions: JSON.stringify(mandate.suggestedActions),
-      rawSummary: mandate.rawSummary,
-      generatedAt: (/* @__PURE__ */ new Date()).toISOString()
-    });
-    return { mandate: updated, generated: mandate };
+Gener\xE1 un RESUMEN EJECUTIVO del mandato en espa\xF1ol rioplatense (m\xE1ximo 300 palabras): top 3 prioridades con evidencia, recursos disponibles, brechas cr\xEDticas, 2-3 acciones concretas. Tono: directo, sin ret\xF3rica vac\xEDa.` }]
+      });
+      const aiText = response.content[0].type === "text" ? response.content[0].text : "";
+      if (aiText) rawSummary = aiText;
+    } catch (error) {
+      console.error("[Mandato] AI enrichment failed for on-demand mandate, using local analysis:", error);
+    }
   }
-  const created = await storage.createMandate({
+  const mandateData = {
     territoryLevel,
     territoryName,
     province: province || null,
     city: city || null,
-    voiceCount: mandate.voiceCount,
-    convergenceScore: mandate.convergenceScore,
-    diagnosis: JSON.stringify(mandate.diagnosis),
-    availableResources: JSON.stringify(mandate.availableResources),
-    gaps: JSON.stringify(mandate.gaps),
-    suggestedActions: JSON.stringify(mandate.suggestedActions),
-    rawSummary: mandate.rawSummary,
-    status: "draft"
-  });
-  return { mandate: created, generated: mandate };
+    voiceCount,
+    convergenceScore,
+    diagnosis: JSON.stringify({ priorities }),
+    availableResources: JSON.stringify({ categories: resourceCategories, totalVolunteers: territoryResources.length }),
+    gaps: JSON.stringify({ critical: gaps }),
+    suggestedActions: JSON.stringify({ actions: suggestedActions }),
+    rawSummary,
+    generatedAt: (/* @__PURE__ */ new Date()).toISOString()
+  };
+  const existing = await storage.getMandateByTerritory(territoryLevel, territoryName);
+  if (existing) {
+    const updated = await storage.updateMandate(existing.id, { ...mandateData, version: (existing.version || 0) + 1 });
+    return { mandate: updated, generated: { diagnosis: { priorities }, availableResources: { categories: resourceCategories, totalVolunteers: territoryResources.length }, gaps: { critical: gaps }, suggestedActions: { actions: suggestedActions }, rawSummary, convergenceScore, voiceCount } };
+  }
+  const created = await storage.createMandate({ ...mandateData, status: "draft" });
+  return { mandate: created, generated: { diagnosis: { priorities }, availableResources: { categories: resourceCategories, totalVolunteers: territoryResources.length }, gaps: { critical: gaps }, suggestedActions: { actions: suggestedActions }, rawSummary, convergenceScore, voiceCount } };
 }
-var THEME_LABELS, RESOURCE_CATEGORY_LABELS;
-var init_mandate_service = __esm({
-  "server/mandate-service.ts"() {
+function stopMandatoCron() {
+  if (cronInterval) {
+    clearInterval(cronInterval);
+    cronInterval = null;
+    console.log("[Mandato] Cron scheduler stopped.");
+  }
+}
+var MANDATO_SYSTEM_PROMPT, cronInterval;
+var init_mandato_engine = __esm({
+  "server/services/mandato-engine.ts"() {
     "use strict";
     init_storage();
-    THEME_LABELS = {
-      systemic: "Transformaci\xF3n Sist\xE9mica",
-      values: "Valores Fundamentales",
-      action: "Acci\xF3n y Agencia",
-      development: "Desarrollo Humano",
-      justice: "Justicia y Derechos",
-      economy: "Econom\xEDa y Recursos",
-      health: "Salud y Vida",
-      community: "Comunidad y Colectivo",
-      future: "Futuro y Visi\xF3n"
-    };
-    RESOURCE_CATEGORY_LABELS = {
-      legal: "Legal",
-      medical: "Salud",
-      education: "Educaci\xF3n",
-      tech: "Tecnolog\xEDa",
-      construction: "Construcci\xF3n",
-      agriculture: "Agricultura",
-      communication: "Comunicaci\xF3n",
-      admin: "Administraci\xF3n",
-      transport: "Transporte",
-      space: "Espacio F\xEDsico",
-      equipment: "Equipamiento",
-      other: "Otros"
-    };
+    init_db();
+    init_schema();
+    MANDATO_SYSTEM_PROMPT = `Sos el Motor de Convergencia de "El Mandato Vivo" \u2014 el sistema de inteligencia colectiva del proyecto El Instante del Hombre Gris.
+
+Tu funcion es UNICA y PRECISA: transformar las voces crudas del pueblo (suenos, necesidades, bastas, valores, compromisos y recursos declarados en el mapa colaborativo) en DOS productos:
+
+1. EL PULSO SEMANAL \u2014 un analisis profundo de lo que emerge de los datos esta semana, con propuestas concretas y accionables dirigidas a destinatarios especificos.
+2. MANDATOS TERRITORIALES \u2014 por cada territorio con 3 o mas voces, un mandato estructurado que sintetiza las prioridades, brechas y acciones sugeridas para ese territorio.
+
+\u2550\u2550\u2550 PRINCIPIOS INNEGOCIABLES \u2550\u2550\u2550
+
+- CERO INTERPRETACION IDEOLOGICA: no agregas, no filtras, no editorializas. Articul\xE1s lo que los datos dicen. Si 47 personas piden agua potable en Tucum\xE1n, eso es un mandato \u2014 no una "demanda social" ni una "reivindicaci\xF3n". Es un dato.
+- CERO VOTACION: el sistema no funciona por mayor\xEDa. Funciona por convergencia. Si 3 personas en un barrio dicen lo mismo sin conocerse, eso pesa m\xE1s que 100 firmas en una petici\xF3n gen\xE9rica.
+- CONVERGENCIA > POPULARIDAD: busc\xE1 patrones que se repiten entre personas que NO se coordinaron. Esa es la se\xF1al real.
+- DATOS HABLAN SOLOS: cada propuesta debe ser AUTOEVIDENTE desde los datos. Si alguien lee la evidencia y no llega a la misma conclusi\xF3n, la propuesta est\xE1 mal fundamentada.
+- ESCALAMIENTO TEMPORAL: si una propuesta aparece 3+ semanas seguidas sin acci\xF3n, escal\xE1 su urgencia autom\xE1ticamente. El sistema tiene memoria.
+- GRANULARIDAD TERRITORIAL: agrup\xE1 las voces por territorio (barrio, ciudad, provincia, nacional). Un mandato territorial es m\xE1s poderoso que uno gen\xE9rico porque tiene nombre y apellido geogr\xE1fico.
+- NIVEL DE GOBIERNO: para cada mandato territorial, identific\xE1 qu\xE9 nivel de gobierno deber\xEDa responder (municipal, provincial, nacional) o si es algo que la propia comunidad puede resolver por autogesti\xF3n.
+
+\u2550\u2550\u2550 IDENTIDAD Y TONO \u2550\u2550\u2550
+
+- Habl\xE1 en espa\xF1ol rioplatense, directo y sin sarasa
+- S\xE9 riguroso como un analista de datos pero apasionado como alguien que entiende que detr\xE1s de cada dato hay una persona
+- No uses lenguaje burocr\xE1tico ni academicista \u2014 escrib\xED para que lo entienda cualquiera desde el celular
+- S\xE9 tan extenso como sea necesario para que cada propuesta sea de alt\xEDsima calidad \u2014 no hay l\xEDmite de palabras
+- Cada propuesta debe poder imprimirse y entregarse tal cual a un funcionario, medio de comunicaci\xF3n, o asamblea barrial
+
+\u2550\u2550\u2550 CATEGOR\xCDAS DE DESTINATARIOS \u2550\u2550\u2550
+
+- gobierno_municipal: Intendencias, concejos deliberantes, secretar\xEDas municipales
+- gobierno_provincial: Legislaturas provinciales, ministerios, gobernaciones
+- gobierno_nacional: Congreso, ministerios nacionales, organismos federales
+- organizaciones: ONGs, fundaciones, organizaciones de base, sindicatos
+- medios: Periodistas, medios comunitarios, medios nacionales
+- sector_privado: Empresas, cooperativas, emprendedores, c\xE1maras
+- comunidad: La propia comunidad organizada (autogesti\xF3n directa)
+
+\u2550\u2550\u2550 TIPOS DE ACCI\xD3N \u2550\u2550\u2550
+
+- carta: Carta formal dirigida al destinatario (con encabezado, saludo, cuerpo argumentativo con datos, solicitud concreta, cierre formal)
+- peticion: Petici\xF3n p\xFAblica con fundamentaci\xF3n (t\xEDtulo, fundamentaci\xF3n legal/social, datos de respaldo, pedido espec\xEDfico, espacio para adhesiones)
+- iniciativa_comunitaria: Plan de acci\xF3n comunitario autogestivo (objetivo, pasos, recursos necesarios, cronograma, coordinaci\xF3n)
+- difusion: Campa\xF1a de concientizaci\xF3n (mensaje principal, datos clave, hashtags, call to action, piezas para redes)
+- nota_periodistica: Nota period\xEDstica/comunicado de prensa (t\xEDtulo, bajada, cuerpo informativo, datos duros, declaraciones, cierre)
+- proyecto_ley: Borrador de proyecto de ley/ordenanza (considerandos, articulado, fundamentaci\xF3n, impacto presupuestario estimado)
+
+Para cada PLANTILLA DE ACCION, gener\xE1 el texto COMPLETO listo para usar \u2014 no res\xFAmenes, no esquemas, el documento final que alguien puede copiar, pegar, firmar y enviar.
+
+\u2550\u2550\u2550 MANDATOS TERRITORIALES \u2550\u2550\u2550
+
+Para cada territorio con 3 o m\xE1s voces, gener\xE1 un mandato territorial que incluya:
+- Las prioridades rankeadas por convergencia real (no por cantidad bruta)
+- Las brechas entre lo que se necesita y los recursos disponibles
+- Acciones sugeridas que conecten necesidades con recursos existentes
+- El nivel de gobierno que deber\xEDa actuar (o si es autogesti\xF3n comunitaria)
+- Un resumen ejecutivo que un coordinador territorial pueda usar para actuar HOY
+
+Los territorios pueden ser: barrios, ciudades, provincias, o el nivel nacional. Us\xE1 el nivel m\xE1s espec\xEDfico posible \u2014 un mandato de "Barrio Alberdi, C\xF3rdoba" es m\xE1s \xFAtil que uno de "C\xF3rdoba".
+
+\u2550\u2550\u2550 DETECCI\xD3N DE PATRONES CRUZADOS \u2550\u2550\u2550
+
+Busc\xE1 especialmente:
+- Temas que aparecen en M\xDALTIPLES territorios (se\xF1al de problema sist\xE9mico)
+- Recursos declarados en un territorio que podr\xEDan cubrir necesidades de otro
+- Compromisos que ya abordan brechas identificadas (para visibilizarlos)
+- Escalaciones: temas que pasaron de "necesidad" a "basta" en semanas recientes
+- Semillas: conexiones entre datos que nadie pidi\xF3 expl\xEDcitamente pero que los datos sugieren
+
+RESPUESTA EN JSON ESTRICTO (sin markdown, sin backticks):`;
+    cronInterval = null;
   }
 });
 
@@ -7357,7 +7912,7 @@ __export(matchmaker_service_exports, {
   scanForMatches: () => scanForMatches
 });
 async function scanForMatches(minNeeds = 2, minResources = 1) {
-  const [dreams2, resources2] = await Promise.all([
+  const [dreams3, resources2] = await Promise.all([
     storage.getDreams(),
     storage.getUserResources()
   ]);
@@ -7374,7 +7929,7 @@ async function scanForMatches(minNeeds = 2, minResources = 1) {
   };
   const normalize = (w) => w.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z]/g, "");
   const needsByLocTheme = {};
-  dreams2.forEach((entry) => {
+  dreams3.forEach((entry) => {
     const loc = entry.location || "Sin ubicaci\xF3n";
     if (loc === "Sin ubicaci\xF3n") return;
     for (const type of ["need", "basta"]) {
@@ -7410,7 +7965,7 @@ async function scanForMatches(minNeeds = 2, minResources = 1) {
         matches.push({
           territoryName: loc,
           needTheme: theme,
-          needThemeLabel: THEME_LABELS2[theme] || theme,
+          needThemeLabel: THEME_LABELS[theme] || theme,
           needCount,
           resourceCategory: cat,
           resourceCategoryLabel: RESOURCE_LABELS[cat] || cat,
@@ -7444,12 +7999,12 @@ ${match.needCount} personas necesitan ${match.needThemeLabel}. ${match.resourceC
   }
   return saved;
 }
-var THEME_LABELS2, RESOURCE_LABELS, THEME_RESOURCE_MATCHES, ACTION_TEMPLATES, DEFAULT_TEMPLATE;
+var THEME_LABELS, RESOURCE_LABELS, THEME_RESOURCE_MATCHES, ACTION_TEMPLATES, DEFAULT_TEMPLATE;
 var init_matchmaker_service = __esm({
   "server/matchmaker-service.ts"() {
     "use strict";
     init_storage();
-    THEME_LABELS2 = {
+    THEME_LABELS = {
       systemic: "Transformaci\xF3n Sist\xE9mica",
       values: "Valores Fundamentales",
       action: "Acci\xF3n y Agencia",
@@ -11776,6 +12331,100 @@ function getTemplateMessages(sessionType, archetype, weakestDimension) {
 }
 
 // server/services/coaching-service.ts
+var ARCHETYPE_LENSES = {
+  el_puente: `Este usuario es un Puente \u2014 conecta personas, ideas y recursos que de otra forma no se cruzarian. En la Argentina fragmentada, su capacidad de tejer vinculos es un recurso estrategico. Ayudalo a ver cada conversacion como una oportunidad de conectar mundos. Desafialo a presentar personas que deberian conocerse. Preguntale: "\xBFQue dos personas de tu vida que no se conocen podrian crear algo juntas?"`,
+  el_vigia: `Este usuario es un Vigia \u2014 no mira para otro lado. Tiene la conviccion de que las instituciones deben rendir cuentas y la firmeza para se\xF1alarlo. Su riesgo es el agotamiento y la amargura. Ayudalo a canalizar su indignacion en acciones precisas, no en bronca difusa. Recordale que cuidarse a si mismo es parte de la lucha. Preguntale: "\xBFCual es la unica cosa que vas a fiscalizar esta semana?"`,
+  la_raiz: `Este usuario es una Raiz \u2014 su impacto esta en lo cercano, lo cotidiano, lo que sostiene a la comunidad cuando todo tambalea. No necesita grandes escenarios. Ayudalo a valorar su trabajo invisible y a profundizar en lo local. Preguntale: "\xBFQue necesita tu barrio esta semana que vos podrias resolver sin pedirle permiso a nadie?"`,
+  el_catalizador: `Este usuario es un Catalizador \u2014 no diagnostica, actua. Tiene energia natural y capacidad de contagiar entusiasmo. Su riesgo es el burnout y la accion sin estrategia. Ayudalo a combinar impulso con planificacion. Antes de cada accion, pedile tres cosas: que quiere lograr, quien lo puede ayudar, y como va a saber si funciono.`,
+  el_sembrador: `Este usuario es un Sembrador \u2014 esta en un momento de apertura civica. Quizas todavia no encontro su espacio pero siente el llamado. Su ventaja es la mirada fresca, sin las cicatrices del desencanto. Sele gentil pero desafiante. Guialo a dar pasos concretos y pequenos. Preguntale: "\xBFQue espacio de participacion te gustaria explorar primero?"`,
+  el_espejo: `Este usuario es un Espejo \u2014 su fortaleza es la autoconciencia. Reflexiona antes de actuar, escucha antes de opinar. En una cultura publica del grito, su equilibrio es un recurso raro. Ayudalo a poner esa capacidad al servicio de grupos: facilitar dialogos, mediar conflictos, crear espacios donde otros piensen mejor.`
+};
+var SESSION_DIRECTIVES = {
+  assessment_debrief: `OBJETIVO DE SESION: El usuario acaba de completar su evaluacion civica. Tu trabajo es devolverle un espejo poderoso \u2014 que se vea no como un puntaje sino como alguien con un rol unico en la reconstruccion del pais. Conecta sus resultados con su potencial de impacto. Termina con una accion concreta para esta semana.`,
+  weekly_reflection: `OBJETIVO DE SESION: Reflexion semanal. Tu trabajo es ayudar al usuario a encontrar el hilo civico en su semana \u2014 momentos donde actuo (o pudo haber actuado) como ciudadano/a. No juzgues, ilumina. Cada reflexion debe cerrar con una intencion para la semana que viene.`,
+  goal_review: `OBJETIVO DE SESION: Revision de metas. Se honesto: si las metas del usuario son vagas o inalcanzables, ayudalo a reformularlas. Usa la formula: accion especifica + para cuando + como vas a saber que lo lograste. Si esta estancado, preguntale si la meta realmente le importa o la definio por inercia.`,
+  growth_prompt: `OBJETIVO DE SESION: Impulso de crecimiento. Propone un ejercicio o desafio concreto que saque al usuario de su zona de confort civica. Que sea pequeno, alcanzable, y que se pueda hacer esta semana. Conectalo con su arquetipo y sus areas de crecimiento.`,
+  ad_hoc: `OBJETIVO DE SESION: Charla libre. Escucha activamente y guia la conversacion hacia la interseccion entre lo que le preocupa y lo que puede hacer al respecto. Tu brujula es siempre: "\xBFY que vas a hacer con eso?"`
+};
+function buildSystemPrompt(sessionType, context) {
+  let prompt = `# IDENTIDAD
+
+Sos el Coach Civico del movimiento "El Instante del Hombre Gris". No sos un chatbot generico \u2014 sos la voz de un movimiento que cree que cada argentino tiene un poder dormido esperando ser activado.
+
+El Hombre Gris no es un lider mesianico. Es una idea que toma carne: el vecino, la madre, el trabajador, la estudiante que un dia dice BASTA y empieza a crear en vez de quejarse. Gris no es ausencia de color \u2014 es la sintesis de la luz y la sombra, de todo lo vivido, sufrido y aprendido.
+
+Tu mision como coach es despertar esa conciencia en cada persona que hable con vos.
+
+# VOZ Y TONO
+
+- Hablas en castellano rioplatense autentico (vos, sos, tenes, hacete, ponele).
+- Sos directo pero empatico. No endulzas la realidad, pero tampoco aplastas.
+- Tu tono es el de un amigo sabio que te dice lo que necesitas escuchar, no lo que queres escuchar.
+- Nunca sos condescendiente. Nunca academico. Nunca frio.
+- Usas metaforas concretas, ancladas en la experiencia argentina (el colectivo, el mate, la plaza, la asamblea barrial).
+- Maximo 150 palabras por respuesta. Precision quirurgica. Cada palabra cuenta.
+
+# LOS 6 PRINCIPIOS QUE GUIAN CADA RESPUESTA
+
+1. SUPERINTELIGENCIA SISTEMICA \u2014 Ayuda al usuario a ver conexiones ocultas entre fenomenos que parecen desconectados. "Tu problema con el transporte y la educacion de tus hijos son el mismo problema visto desde angulos distintos."
+2. AMABILIDAD RADICAL \u2014 La amabilidad no es debilidad, es ingenieria social. Cada acto de amabilidad es un ladrillo en la construccion de confianza colectiva. Cuando el usuario hable con bronca, validala y despues redirigila: "Esa bronca es combustible. \xBFEn que la vas a invertir?"
+3. LIDERAZGO DISTRIBUIDO \u2014 Nunca promuevas lideres mesianicos. El cambio es co-creacion. Pregunta: "\xBFCon quien vas a hacer esto?" No "\xBFvos solo?"
+4. DISENIO IDEALIZADO \u2014 Invita a imaginar: "Si pudieras disenar esto de cero, sin las limitaciones actuales, \xBFcomo seria?" Despues trabaja hacia atras hasta un primer paso concreto.
+5. DISOLVER PROBLEMAS \u2014 No busques soluciones parche. Busca crear condiciones donde el problema deje de existir. "\xBFComo se podria hacer que este problema sea imposible?"
+6. TRANSPARENCIA RADICAL \u2014 Celebra la vulnerabilidad. Cuando alguien admite no saber, no poder, o tener miedo, eso es valentia. Reforzalo.
+
+# MARCO ESTRATEGICO
+
+Todo lo que digas debe apuntar, directa o indirectamente, hacia estos tres horizontes:
+- Hacer de Argentina un lugar donde la gente quiera venir a construir (no un lugar del que la gente huye).
+- Crear interdependencia consciente: cada derecho lleva una responsabilidad.
+- Que la amabilidad sea la ley invisible \u2014 no la excepcion sino la norma.
+
+# TECNICAS DE COACHING
+
+- SIEMPRE termina con una pregunta o un paso accionable. Nunca cierres en abstracto.
+- Usa la tecnica del espejo: devolvele al usuario sus propias palabras reformuladas para que se vea con claridad.
+- Cuando detectes apatia o cinismo ("no se puede", "este pais no tiene arreglo", "son todos iguales"), no lo confrontes directamente. Primero valida el dolor, despues ofrece un contraejemplo concreto y argentino: las asambleas del 2001, las cooperativas que sostuvieron barrios enteros, los comedores comunitarios que funcionan sin un peso del estado. Despues pregunta: "Si esa gente pudo en la peor crisis, \xBFque te impide a vos hacer algo mas chico?"
+- Conecta lo personal con lo civico: si el usuario tiene brechas en salud, familia o dinero, ayudalo a ver que su bienestar personal y el bienestar del pais estan entrelazados. Un ciudadano agotado no puede construir nada.
+- Nunca des la respuesta directa. Guia al usuario a descubrirla. Pregunta mas de lo que afirmas.
+
+# LIMITES INFRANQUEABLES
+
+- JAMAS nombres un partido politico, politico actual, o tomes posicion partidaria. Tu terreno es la ciudadania, no la politica partidaria.
+- JAMAS digas que sos una IA, un modelo de lenguaje, o un programa. Sos un coach civico experimentado que conoce la realidad argentina.
+- JAMAS promuevas violencia, ilegalidad, ni acciones destructivas.
+- JAMAS refuerces la resignacion. Si alguien dice "no se puede", tu trabajo es encontrar la grieta por donde entra la luz.
+- JAMAS des consejos financieros, legales, o medicos especificos. Redirig\xED a profesionales.
+- Si el usuario muestra signos de crisis emocional seria, valida su dolor y sugeri que hable con alguien de confianza o con la linea de atencion en crisis (135 en Argentina).
+
+# TIPO DE SESION ACTUAL
+${SESSION_DIRECTIVES[sessionType] || SESSION_DIRECTIVES["ad_hoc"]}`;
+  if (context.archetype && ARCHETYPE_LENSES[context.archetype]) {
+    prompt += `
+
+# PERFIL DEL USUARIO
+Arquetipo: ${context.archetype}
+${ARCHETYPE_LENSES[context.archetype]}`;
+  }
+  if (context.topStrengths.length > 0) {
+    prompt += `
+Fortalezas principales: ${context.topStrengths.join(", ")}. Usa estas fortalezas como palanca \u2014 recordaselas cuando dude de si mismo/a.`;
+  }
+  if (context.growthAreas.length > 0) {
+    prompt += `
+Areas de crecimiento: ${context.growthAreas.join(", ")}. Trabaja estas areas con curiosidad, no con presion. Son oportunidades, no defectos.`;
+  }
+  if (context.dimensionScores) {
+    prompt += `
+Puntuaciones por dimension (0-100): ${JSON.stringify(context.dimensionScores)}`;
+  }
+  if (context.lifeAreaGaps.length > 0) {
+    const topGaps = context.lifeAreaGaps.slice(0, 5);
+    prompt += `
+Brechas de vida (actual\u2192deseado): ${topGaps.map((g) => `${g.area}: ${g.current}\u2192${g.desired} (brecha ${g.gap})`).join(", ")}. Conecta estas brechas con su potencial civico: "Tu brecha en ${topGaps[0]?.area || "esa area"} tambien es la brecha del pais. Trabajar en vos es trabajar en Argentina."`;
+  }
+  return prompt;
+}
 var MockCoachingProvider = class {
   async generateResponse(messages, sessionType, context) {
     const templates = getTemplateMessages(
@@ -11788,11 +12437,47 @@ var MockCoachingProvider = class {
     return templates[idx];
   }
 };
+var GroqCoachingProvider = class {
+  async generateResponse(messages, sessionType, context) {
+    const systemPrompt = buildSystemPrompt(sessionType, context);
+    const apiMessages = [
+      { role: "system", content: systemPrompt },
+      ...messages.filter((m) => m.role !== "system").map((m) => ({ role: m.role, content: m.content }))
+    ];
+    if (messages.length === 0) {
+      apiMessages.push({
+        role: "user",
+        content: "Iniciemos la sesion. Dame tu primer mensaje como coach."
+      });
+    }
+    const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${config.ai.groqApiKey}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        model: config.ai.groqModel,
+        messages: apiMessages,
+        max_tokens: config.ai.maxTokens,
+        temperature: 0.7
+      })
+    });
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.error("Groq API error:", response.status, errorText);
+      const fallback = new MockCoachingProvider();
+      return fallback.generateResponse(messages, sessionType, context);
+    }
+    const data = await response.json();
+    return data.choices[0]?.message?.content || "No pude generar una respuesta. Intentalo de nuevo.";
+  }
+};
 var ClaudeCoachingProvider = class {
   async generateResponse(messages, sessionType, context) {
     const Anthropic2 = (await import("@anthropic-ai/sdk")).default;
     const client = new Anthropic2({ apiKey: config.ai.anthropicApiKey });
-    const systemPrompt = this.buildSystemPrompt(sessionType, context);
+    const systemPrompt = buildSystemPrompt(sessionType, context);
     const apiMessages = messages.filter((m) => m.role !== "system").map((m) => ({
       role: m.role,
       content: m.content
@@ -11806,40 +12491,13 @@ var ClaudeCoachingProvider = class {
     const textBlock = response.content.find((b) => b.type === "text");
     return textBlock?.text || "No pude generar una respuesta. Intentalo de nuevo.";
   }
-  buildSystemPrompt(sessionType, context) {
-    let prompt = `Sos un coach civico argentino. Hablas en castellano rioplatense (vos, sos, tenes). Sos directo pero empatico. Cada respuesta tiene maximo 150 palabras e incluye al menos un paso concreto y accionable.
-
-Tipo de sesion: ${sessionType}`;
-    if (context.archetype) {
-      prompt += `
-Arquetipo civico del usuario: ${context.archetype}`;
-    }
-    if (context.topStrengths.length > 0) {
-      prompt += `
-Fortalezas: ${context.topStrengths.join(", ")}`;
-    }
-    if (context.growthAreas.length > 0) {
-      prompt += `
-Areas de crecimiento: ${context.growthAreas.join(", ")}`;
-    }
-    if (context.dimensionScores) {
-      prompt += `
-Puntuaciones por dimension: ${JSON.stringify(context.dimensionScores)}`;
-    }
-    if (context.lifeAreaGaps.length > 0) {
-      const topGaps = context.lifeAreaGaps.slice(0, 5);
-      prompt += `
-Areas de vida con mayor brecha (actual vs deseado): ${topGaps.map((g) => `${g.area}: ${g.current}\u2192${g.desired} (gap ${g.gap})`).join(", ")}`;
-    }
-    prompt += `
-
-Nunca digas que sos una IA. Actua como un coach civico experimentado que conoce la realidad argentina.`;
-    return prompt;
-  }
 };
 function getProvider() {
   if (config.ai.enabled && config.ai.anthropicApiKey) {
     return new ClaudeCoachingProvider();
+  }
+  if (config.ai.groqEnabled && config.ai.groqApiKey) {
+    return new GroqCoachingProvider();
   }
   return new MockCoachingProvider();
 }
@@ -12375,7 +13033,200 @@ function sendFile(res, format, buffer) {
   res.send(buffer);
 }
 
+// server/routes-pulse.ts
+init_db();
+init_schema();
+init_auth();
+init_mandato_engine();
+import { eq as eq11, desc as desc9, and as and9, sql as sql8 } from "drizzle-orm";
+function registerPulseRoutes(app2) {
+  app2.get("/api/pulsos/stats", optionalAuth, async (_req, res) => {
+    try {
+      const [totalPulses] = await db.select({ count: sql8`count(*)` }).from(weeklyDigests).where(eq11(weeklyDigests.status, "completed"));
+      const [totalProposals] = await db.select({ count: sql8`count(*)` }).from(digestProposals);
+      const [activeProposals] = await db.select({ count: sql8`count(*)` }).from(digestProposals).where(sql8`${digestProposals.status} NOT IN ('completada', 'archivada')`);
+      const [completedProposals] = await db.select({ count: sql8`count(*)` }).from(digestProposals).where(eq11(digestProposals.status, "completada"));
+      const [latestPulse] = await db.select().from(weeklyDigests).where(eq11(weeklyDigests.status, "completed")).orderBy(desc9(weeklyDigests.createdAt)).limit(1);
+      res.json({
+        success: true,
+        data: {
+          totalPulses: Number(totalPulses?.count) || 0,
+          totalProposals: Number(totalProposals?.count) || 0,
+          activeProposals: Number(activeProposals?.count) || 0,
+          completedProposals: Number(completedProposals?.count) || 0,
+          lastPulseDate: latestPulse?.generatedAt || null,
+          lastPulseWeek: latestPulse?.weekNumber || null
+        }
+      });
+    } catch (error) {
+      console.error("Error fetching pulse stats:", error);
+      res.status(500).json({ error: "Error fetching stats" });
+    }
+  });
+  app2.get("/api/pulsos/latest", optionalAuth, async (_req, res) => {
+    try {
+      const [pulse] = await db.select().from(weeklyDigests).where(eq11(weeklyDigests.status, "completed")).orderBy(desc9(weeklyDigests.createdAt)).limit(1);
+      if (!pulse) {
+        return res.json({ success: true, data: null });
+      }
+      const proposals = await db.select().from(digestProposals).where(eq11(digestProposals.digestId, pulse.id)).orderBy(desc9(digestProposals.urgency));
+      res.json({
+        success: true,
+        data: {
+          ...pulse,
+          emergingThemes: safeJsonParse(pulse.emergingThemes),
+          patterns: safeJsonParse(pulse.patterns),
+          unconnectedResources: safeJsonParse(pulse.unconnectedResources),
+          seedOfWeek: safeJsonParse(pulse.seedOfWeek),
+          comparisonWithPrevious: safeJsonParse(pulse.comparisonWithPrevious),
+          proposals: proposals.map((p) => ({
+            ...p,
+            evidence: safeJsonParse(p.evidence)
+          }))
+        }
+      });
+    } catch (error) {
+      console.error("Error fetching latest pulse:", error);
+      res.status(500).json({ error: "Error fetching latest pulse" });
+    }
+  });
+  app2.post("/api/pulsos/generate", authenticateToken, async (_req, res) => {
+    try {
+      const result = await generateWeeklyMandate();
+      res.json({ success: true, data: result });
+    } catch (error) {
+      console.error("Error generating pulse:", error);
+      res.status(500).json({ error: error.message || "Error generating pulse" });
+    }
+  });
+  app2.get("/api/pulsos", optionalAuth, async (_req, res) => {
+    try {
+      const pulses = await db.select().from(weeklyDigests).where(eq11(weeklyDigests.status, "completed")).orderBy(desc9(weeklyDigests.createdAt)).limit(52);
+      res.json({
+        success: true,
+        data: pulses.map((p) => ({
+          ...p,
+          emergingThemes: safeJsonParse(p.emergingThemes),
+          patterns: safeJsonParse(p.patterns),
+          unconnectedResources: safeJsonParse(p.unconnectedResources),
+          seedOfWeek: safeJsonParse(p.seedOfWeek),
+          comparisonWithPrevious: safeJsonParse(p.comparisonWithPrevious)
+        }))
+      });
+    } catch (error) {
+      console.error("Error fetching pulses:", error);
+      res.status(500).json({ error: "Error fetching pulses" });
+    }
+  });
+  app2.get("/api/pulsos/:id", optionalAuth, async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      if (isNaN(id)) return res.status(400).json({ error: "Invalid ID" });
+      const [pulse] = await db.select().from(weeklyDigests).where(eq11(weeklyDigests.id, id)).limit(1);
+      if (!pulse) {
+        return res.status(404).json({ error: "Pulse not found" });
+      }
+      const proposals = await db.select().from(digestProposals).where(eq11(digestProposals.digestId, id)).orderBy(desc9(digestProposals.urgency));
+      res.json({
+        success: true,
+        data: {
+          ...pulse,
+          emergingThemes: safeJsonParse(pulse.emergingThemes),
+          patterns: safeJsonParse(pulse.patterns),
+          unconnectedResources: safeJsonParse(pulse.unconnectedResources),
+          seedOfWeek: safeJsonParse(pulse.seedOfWeek),
+          comparisonWithPrevious: safeJsonParse(pulse.comparisonWithPrevious),
+          proposals: proposals.map((p) => ({
+            ...p,
+            evidence: safeJsonParse(p.evidence)
+          }))
+        }
+      });
+    } catch (error) {
+      console.error("Error fetching pulse:", error);
+      res.status(500).json({ error: "Error fetching pulse" });
+    }
+  });
+  app2.get("/api/propuestas", optionalAuth, async (req, res) => {
+    try {
+      const { status, urgency, target } = req.query;
+      const conditions = [];
+      if (status) conditions.push(eq11(digestProposals.status, status));
+      if (urgency) conditions.push(eq11(digestProposals.urgency, urgency));
+      if (target) conditions.push(eq11(digestProposals.targetCategory, target));
+      const proposals = conditions.length > 0 ? await db.select().from(digestProposals).where(and9(...conditions)).orderBy(desc9(digestProposals.createdAt)) : await db.select().from(digestProposals).orderBy(desc9(digestProposals.createdAt));
+      res.json({
+        success: true,
+        data: proposals.map((p) => ({
+          ...p,
+          evidence: safeJsonParse(p.evidence)
+        }))
+      });
+    } catch (error) {
+      console.error("Error fetching proposals:", error);
+      res.status(500).json({ error: "Error fetching proposals" });
+    }
+  });
+  app2.get("/api/propuestas/:id", optionalAuth, async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      if (isNaN(id)) return res.status(400).json({ error: "Invalid ID" });
+      const [proposal] = await db.select().from(digestProposals).where(eq11(digestProposals.id, id)).limit(1);
+      if (!proposal) {
+        return res.status(404).json({ error: "Proposal not found" });
+      }
+      const history = await db.select().from(proposalStatusHistory).where(eq11(proposalStatusHistory.proposalId, id)).orderBy(desc9(proposalStatusHistory.createdAt));
+      res.json({
+        success: true,
+        data: {
+          ...proposal,
+          evidence: safeJsonParse(proposal.evidence),
+          statusHistory: history
+        }
+      });
+    } catch (error) {
+      console.error("Error fetching proposal:", error);
+      res.status(500).json({ error: "Error fetching proposal" });
+    }
+  });
+  app2.post("/api/propuestas/:id/status", authenticateToken, async (req, res) => {
+    try {
+      const id = parseInt(req.params.id);
+      const { status, notes } = req.body;
+      const userId = req.user?.userId;
+      if (!status) return res.status(400).json({ error: "Status is required" });
+      const validStatuses = ["semilla", "propuesta", "enviada", "respondida", "en_accion", "completada", "archivada"];
+      if (!validStatuses.includes(status)) {
+        return res.status(400).json({ error: "Invalid status" });
+      }
+      const [current] = await db.select().from(digestProposals).where(eq11(digestProposals.id, id)).limit(1);
+      if (!current) return res.status(404).json({ error: "Proposal not found" });
+      const [updated] = await db.update(digestProposals).set({ status, updatedAt: (/* @__PURE__ */ new Date()).toISOString() }).where(eq11(digestProposals.id, id)).returning();
+      await db.insert(proposalStatusHistory).values({
+        proposalId: id,
+        fromStatus: current.status,
+        toStatus: status,
+        changedBy: userId || null,
+        notes: notes || null
+      });
+      res.json({ success: true, data: { ...updated, evidence: safeJsonParse(updated.evidence) } });
+    } catch (error) {
+      console.error("Error updating proposal status:", error);
+      res.status(500).json({ error: "Error updating proposal status" });
+    }
+  });
+}
+function safeJsonParse(str) {
+  if (!str) return null;
+  try {
+    return JSON.parse(str);
+  } catch {
+    return str;
+  }
+}
+
 // server/routes.ts
+init_mandato_engine();
 init_schema();
 init_auth();
 import { z as z4 } from "zod";
@@ -13689,7 +14540,7 @@ var arService = new ARService();
 // server/services/embedding-service.ts
 init_db();
 init_schema();
-import { eq as eq10, and as and8 } from "drizzle-orm";
+import { eq as eq12, and as and10 } from "drizzle-orm";
 var embeddingPipeline = null;
 async function getEmbeddingPipeline() {
   if (!embeddingPipeline) {
@@ -13729,9 +14580,9 @@ async function getOrCreateEmbedding(contentId, text2, contentType) {
   }
   try {
     const existing = await db.select().from(textEmbeddings).where(
-      and8(
-        eq10(textEmbeddings.contentId, contentId),
-        eq10(textEmbeddings.contentType, contentType)
+      and10(
+        eq12(textEmbeddings.contentId, contentId),
+        eq12(textEmbeddings.contentType, contentType)
       )
     ).limit(1);
     if (existing.length > 0 && existing[0].embedding) {
@@ -13751,9 +14602,9 @@ async function getOrCreateEmbedding(contentId, text2, contentType) {
         embedding: embeddingJson,
         model: "Xenova/all-MiniLM-L6-v2"
       }).where(
-        and8(
-          eq10(textEmbeddings.contentId, contentId),
-          eq10(textEmbeddings.contentType, contentType)
+        and10(
+          eq12(textEmbeddings.contentId, contentId),
+          eq12(textEmbeddings.contentType, contentType)
         )
       );
     } else {
@@ -13853,10 +14704,10 @@ async function registerRoutes(app2) {
   });
   app2.get("/api/test-db", async (req, res) => {
     try {
-      const dreams2 = await storage.getDreams();
+      const dreams3 = await storage.getDreams();
       res.json({
         status: "ok",
-        dreamsCount: dreams2.length,
+        dreamsCount: dreams3.length,
         message: "Database connection working"
       });
     } catch (error) {
@@ -13875,10 +14726,12 @@ async function registerRoutes(app2) {
   registerGoalRoutes(app2);
   registerCoachingRoutes(app2);
   registerOpenDataRoutes(app2);
+  registerPulseRoutes(app2);
+  startMandatoCron();
   app2.get("/api/dreams", optionalAuth, async (req, res) => {
     try {
-      const dreams2 = await storage.getDreams();
-      res.json(dreams2);
+      const dreams3 = await storage.getDreams();
+      res.json(dreams3);
     } catch (error) {
       res.status(500).json({ message: "Failed to fetch dreams" });
     }
@@ -13929,7 +14782,7 @@ async function registerRoutes(app2) {
       if (!territoryLevel || !territoryName) {
         return res.status(400).json({ message: "territoryLevel and territoryName are required" });
       }
-      const { generateAndSaveMandate: generateAndSaveMandate2 } = await Promise.resolve().then(() => (init_mandate_service(), mandate_service_exports));
+      const { generateAndSaveMandate: generateAndSaveMandate2 } = await Promise.resolve().then(() => (init_mandato_engine(), mandato_engine_exports));
       const result = await generateAndSaveMandate2(territoryLevel, territoryName, province, city);
       res.json(result);
     } catch (error) {
@@ -13953,7 +14806,7 @@ async function registerRoutes(app2) {
       if (!mandate) {
         return res.status(404).json({ message: "No mandate found for this territory" });
       }
-      const safeJsonParse = (val) => {
+      const safeJsonParse2 = (val) => {
         if (!val) return null;
         if (typeof val === "object") return val;
         try {
@@ -13964,10 +14817,10 @@ async function registerRoutes(app2) {
       };
       const parsed = {
         ...mandate,
-        diagnosis: safeJsonParse(mandate.diagnosis),
-        availableResources: safeJsonParse(mandate.availableResources),
-        gaps: safeJsonParse(mandate.gaps),
-        suggestedActions: safeJsonParse(mandate.suggestedActions)
+        diagnosis: safeJsonParse2(mandate.diagnosis),
+        availableResources: safeJsonParse2(mandate.availableResources),
+        gaps: safeJsonParse2(mandate.gaps),
+        suggestedActions: safeJsonParse2(mandate.suggestedActions)
       };
       res.json(parsed);
     } catch (error) {
@@ -15818,7 +16671,7 @@ async function registerRoutes(app2) {
     try {
       const users2 = await storage.getAllUsers();
       const communityPosts2 = await storage.getCommunityPosts();
-      const dreams2 = await storage.getDreams();
+      const dreams3 = await storage.getDreams();
       const now = /* @__PURE__ */ new Date();
       const oneWeekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1e3);
       const newUsersThisWeek = users2.filter((user) => {
@@ -15828,7 +16681,7 @@ async function registerRoutes(app2) {
       }).length;
       const activeUsers = users2.filter((user) => {
         const hasPosts = communityPosts2.some((post) => post.userId === user.id);
-        const hasDreams = dreams2.some((dream) => dream.userId === user.id);
+        const hasDreams = dreams3.some((dream) => dream.userId === user.id);
         return hasPosts || hasDreams;
       }).length;
       const jobPosts = communityPosts2.filter((post) => post.type === "job").length;
@@ -15843,7 +16696,7 @@ async function registerRoutes(app2) {
         projectPosts,
         resourcePosts,
         totalPosts: communityPosts2.length,
-        totalDreams: dreams2.length
+        totalDreams: dreams3.length
       });
     } catch (error) {
       console.error("Stats error:", error);

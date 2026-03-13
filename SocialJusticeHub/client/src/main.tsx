@@ -3,6 +3,13 @@ import App from "./App";
 import "./index.css";
 import { ThemeProvider } from "next-themes";
 
+// Unregister stale service workers
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.getRegistrations().then(registrations => {
+    registrations.forEach(r => r.unregister());
+  });
+}
+
 // Set the document title
 document.title = "¡BASTA! - El cambio empieza en vos";
 
