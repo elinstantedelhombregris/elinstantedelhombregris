@@ -45,6 +45,7 @@ export interface StrategicInitiative {
   category: InitiativeCategory;
   summary: string;
   iconName: string;
+  documentFile?: string;
   elProblema: InitiativeSection;
   quePasaSiNoCambiamos: InitiativeSection;
   elDisenoIdeal: InitiativeSection;
@@ -63,6 +64,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
     category: 'medio-ambiente',
     summary: 'El suelo que genera el 60–70% de los ingresos por exportaciones de Argentina se degrada aceleradamente. PLANISV propone tratar al suelo como infraestructura estratégica nacional — medible, gestionable y reconstruible — mediante ingeniería biológica y física del agua, con un retorno de inversión estimado de 8:1 a 15:1 en 10 años.',
     iconName: 'Leaf',
+    documentFile: 'PLANISV_Argentina_ES.md',
     elProblema: {
       title: 'El Problema',
       content: `<p>La Argentina es una de las naciones productoras de alimentos más importantes del planeta. Con 39 millones de hectáreas bajo cultivo, produce alimentos para más de 400 millones de personas — diez veces su población. Sus exportaciones agropecuarias generan entre USD 40.000 y 50.000 millones anuales, representando el 60–70% de los ingresos totales por exportaciones.</p>
@@ -243,12 +245,417 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
       },
     ],
     tags: ['suelo vivo', 'agricultura regenerativa', 'carbono', 'soberanía alimentaria', 'exportaciones', 'INTA', 'agua'],
+    relatedInitiativeSlugs: ['plan24cn-24-ciudades-nuevas', 'planrep-reconversion-empleo-publico'],
     sources: [
       { title: 'PLANISV — Plan Nacional de Infraestructura de Suelo Vivo (Documento Estratégico, Feb 2026)' },
       { title: 'INTA — Estaciones Experimentales (datos de MOS y erosión)' },
       { title: 'OECD — PISA Agricultural Sustainability Indicators' },
       { title: 'EUDR — Reglamento de Deforestación de la UE' },
       { title: 'Acuerdo de París — Compromisos de Argentina (NDC)' },
+      { title: 'Russell Ackoff — Idealized Design (Metodología)' },
+    ],
+  },
+
+  // PLAN24CN — 24 Ciudades Nuevas
+  {
+    slug: 'plan24cn-24-ciudades-nuevas',
+    title: 'PLAN24CN',
+    subtitle: 'Plan Nacional de Fundación de 24 Ciudades Nuevas para la Argentina',
+    category: 'infraestructura',
+    summary: 'La Argentina pierde entre USD 25.000 y 40.000 millones por año en costos del mal diseño urbano. PLAN24CN propone fundar 24 ciudades nuevas — una por provincia — diseñadas integralmente con los mejores conocimientos disponibles en bienestar humano, ecología, energía y gobernanza, con un retorno estimado de 5:1 a 12:1.',
+    iconName: 'Building2',
+    documentFile: 'PLAN24CN_Argentina_ES.md',
+    elProblema: {
+      title: 'El Problema',
+      content: `<p>La Argentina padece una deformación urbana llamada <strong>macrocefalia</strong>: el Gran Buenos Aires concentra el 37% de la población total del país en menos del 0,4% del territorio nacional. Diecisiete millones de personas apiñadas en un área de 3.800 km² rodeada de la pampa más fértil del planeta.</p>
+
+<p>Pero la concentración demográfica es apenas la superficie. Lo verdaderamente patológico es la concentración de <em>todo lo demás</em>: el 40% del PBI, el 45% del empleo formal privado, el 78% de la conectividad de alta velocidad. La red ferroviaria — construida como embudo hacia Buenos Aires — nunca conectó las provincias entre sí. El resultado es una <strong>doble crisis</strong>: el AMBA colapsa bajo su propio peso mientras las provincias se vacían de talento.</p>
+
+<p>Las ciudades argentinas presentan deterioros sistémicos en 10 dimensiones: un déficit de 3,5 millones de viviendas, el 40% de la población sin cloacas, un commute promedio de 90+ minutos en el AMBA, apenas 6,2 m² de espacio verde por habitante en Buenos Aires (la OMS recomienda 15+), el 50%+ de residuos a relleno sanitario, edificios sin aislación térmica que desperdician el 40% de la energía, 30+ inundaciones severas por año, y redes de agua con 50-100 años que pierden el 40% del agua tratada.</p>
+
+<p>El costo humano es devastador: depresión del 10-15% en zonas urbanas densas, riesgo cardiovascular incrementado 15-30% por commutes sedentarios, el 35% de adultos reporta soledad frecuente, y 7.000-10.000 muertes prematuras anuales por contaminación del aire. La fealdad urbana no es un problema cosmético: es un problema de salud pública.</p>`,
+      pullQuote: 'Las ciudades argentinas no fueron diseñadas. Se acumularon. Crecieron como tumores benignos alrededor de estaciones de tren, de puertos, de plazas coloniales — sin que nadie jamás se sentara a preguntar: ¿esto es lo mejor que podemos hacer?',
+      stats: [
+        { label: 'Déficit habitacional', value: '3,5M viviendas' },
+        { label: 'Población AMBA / país', value: '37% en 0,4%' },
+        { label: 'Costo mal diseño / año', value: 'USD 25-40 mil M' },
+        { label: 'Espacio verde Bs.As.', value: '6,2 m²/hab' },
+      ],
+    },
+    quePasaSiNoCambiamos: {
+      title: '¿Qué pasa si no cambiamos?',
+      content: `<p>Estamos ante un caso de <strong>rendimientos decrecientes de la inversión en parcheo</strong>. Cada peso invertido en mejorar una ciudad mal diseñada rinde menos que el peso anterior, porque la estructura subyacente trabaja en contra de la intervención. Es como tratar de mejorar la aerodinámica de un ladrillo.</p>
+
+<p><strong>Costos acumulados en 25 años:</strong> USD 625.000–1.000.000 millones en pérdidas por mal diseño urbano. Eso es entre el 5% y el 8% del PBI cada año — más de lo que cuesta construir las 24 ciudades que propone este plan.</p>
+
+<p><strong>Infraestructura en colapso:</strong> Las redes de agua tienen 50 a 100 años y pierden el 40% del agua tratada — pero repararlas requiere romper calles que a su vez interrumpen el tránsito caótico. Los edificios sin aislación térmica consumen energía subsidiada que drena las cuentas fiscales — pero aislarlos cuesta más que construir vivienda nueva con estándares pasivos. Los subsidios energéticos cuestan USD 10.000–15.000 millones por año.</p>
+
+<p><strong>Crisis de salud pública:</strong> 7.000-10.000 muertes prematuras anuales por contaminación del aire (USD 3.000M/año en costos de salud). El commute sedentario de millones de personas incrementa el riesgo cardiovascular hasta un 30%. Los chicos en entornos sin espacios verdes muestran déficits cognitivos medibles.</p>
+
+<p><strong>Concentración irreversible:</strong> Sin polos de atracción alternativos, la migración hacia el AMBA continuará. Las provincias seguirán perdiendo talento, atrapadas en economías extractivas de baja complejidad. Las comunidades una vez perdidas no regresan.</p>`,
+      pullQuote: 'La Argentina pierde entre USD 25.000 y 40.000 millones por año en costos asociados al mal diseño urbano. Es más de lo que cuesta construir las 24 ciudades que propone este plan.',
+      stats: [
+        { label: 'Pérdida acumulada (25 años)', value: 'USD 625 mil-1 B M' },
+        { label: 'Subsidios energía / año', value: 'USD 10-15 mil M' },
+        { label: 'Muertes contaminación / año', value: '7.000-10.000' },
+        { label: 'Agua tratada perdida', value: '40%+' },
+      ],
+    },
+    elDisenoIdeal: {
+      title: 'El Diseño Ideal',
+      content: `<p>Fundar <strong>24 ciudades nuevas</strong> — una por provincia — diseñadas integralmente desde la primera piedra hasta la última fibra óptica. No réplicas de las ciudades existentes. Ciudades completas, cada una un faro, cada una única porque Misiones no es Mendoza y Tierra del Fuego no es Tucumán.</p>
+
+<p><strong>Seis Leyes del Urbanismo Vivo:</strong></p>
+<p><strong>1. Escala Humana:</strong> Máximo 1.200m a todo lo esencial, todo caminable en menos de 15 minutos. Máxima altura 4-6 pisos. Densidad 50-80 hab/ha.</p>
+<p><strong>2. Integración Bioclimática:</strong> Estándar Passivhaus con 80-90% de reducción energética. 60%+ de suelo permeable. 25-40 m² de espacio verde per cápita.</p>
+<p><strong>3. Belleza como Infraestructura:</strong> 2% del presupuesto de construcción destinado a arte público. La neuroestética demuestra que entornos bellos reducen estrés y aumentan conducta prosocial.</p>
+<p><strong>4. Economía Circular:</strong> Meta de >80% circularidad. 40-60% de producción alimentaria local. Zero residuos lineales.</p>
+<p><strong>5. Ciudadanía Activa:</strong> 30% del presupuesto anual decidido directamente por los ciudadanos. Gobernanza participativa vinculante.</p>
+<p><strong>6. Interconexión Vital:</strong> Las 24 ciudades como células de un organismo nacional. Protocolos de cooperación inter-ciudad.</p>
+
+<p><strong>Siete Anillos Concéntricos:</strong> Cada ciudad se estructura desde un Núcleo Cívico (plaza central, gobierno, mercado) hacia afuera: anillo residencial denso, barrios con identidad propia, anillo productivo (talleres, laboratorios, cooperativas), anillo agro-productivo, ecotono de transición, y paisaje circundante (1:10 — 10 hectáreas gestionadas por cada 1 urbana). Más una capa digital (fibra óptica soberana, datacenter, IoT, IA, plataforma de gobernanza participativa).</p>`,
+      pullQuote: 'No pedimos mejores ciudades. Pedimos ciudades dignas de la vida humana. Ciudades que nos hagan mejores personas por el solo hecho de habitarlas.',
+      stats: [
+        { label: 'Ciudades nuevas', value: '24' },
+        { label: 'Espacio verde per cápita', value: '25-40 m²' },
+        { label: 'Inversión total', value: 'USD 27-76 mil M' },
+        { label: 'ROI estimado (25 años)', value: '5:1 a 12:1' },
+      ],
+    },
+    elCamino: {
+      overview: 'PLAN24CN se despliega en 4 fases, trabajando hacia atrás desde 24 ciudades maduras y autofinanciadas hasta 4 ciudades piloto iniciales — cada una en una región distinta del país.',
+      steps: [
+        {
+          id: 1,
+          title: 'Efecto faro: 24 ciudades maduras',
+          description: '1 a 1,8 millones de residentes en total. Ciudades autofinanciadas por valorización de tierra, economía circular y recaudación propia. Modelo exportado a otras naciones latinoamericanas. Efecto faro: cada ciudad demuestra que otra forma de vivir es posible. Índice Nacional de Ciudades Nuevas (INCN) establece ranking público. Las ciudades con puntaje >80 durante 3 años reciben estatus de "Faro".',
+          timeline: 'Año 10-25 — META',
+          dependencies: [],
+          orderIndex: 1,
+        },
+        {
+          id: 2,
+          title: 'Las 24 ciudades operativas',
+          description: 'Todas las 24 ciudades en funcionamiento con 300.000 a 800.000 residentes en total. Primeras ciudades alcanzando autofinanciamiento. Economías circulares locales generando empleo y reduciendo dependencia externa. Tablero Nacional público con datos en tiempo real de cada ciudad en 7 dimensiones: construcción, población, economía, bienestar, medio ambiente, gobernanza y finanzas.',
+          timeline: 'Año 5-10',
+          dependencies: ['Efecto faro: 24 ciudades maduras'],
+          orderIndex: 2,
+        },
+        {
+          id: 3,
+          title: 'Escalamiento a 16 ciudades',
+          description: 'Expansión a 16 ciudades adicionales en todas las provincias restantes. Primeros residentes habitando las 4 ciudades piloto. 50.000+ trabajadores capacitados en oficios de construcción viva. Protocolo de diseño urbano validado y documentado para replicación. Lecciones de las 4 ciudades piloto integradas en los diseños posteriores.',
+          timeline: 'Año 1,5-5',
+          dependencies: ['Las 24 ciudades operativas'],
+          orderIndex: 3,
+        },
+        {
+          id: 4,
+          title: '4 ciudades piloto: diseño y construcción',
+          description: 'Cuatro ciudades fundacionales en regiones distintas: Ciudad Raíz (pampa/litoral), Ciudad Sol Alto (Cuyo/NOA), Ciudad Viento (Patagonia) y Ciudad Selva (NEA/Mesopotamia). Aprobación de la Ley Nacional de Ciudades Nuevas. Selección y aseguramiento de tierras fiscales. Concursos internacionales de diseño. Financiamiento inicial: USD 3.000-7.000 millones. Creación de la Agencia Nacional de Ciudades Nuevas.',
+          timeline: 'Mes 0-18',
+          dependencies: ['Escalamiento a 16 ciudades'],
+          orderIndex: 4,
+        },
+      ],
+    },
+    kpis: [
+      {
+        id: 'poblacion-ciudades-nuevas',
+        metric: 'Población en Ciudades Nuevas',
+        currentValue: 0,
+        targetValue: 1800,
+        unit: 'K hab',
+        source: 'PLAN24CN — Objetivo de Programa',
+        milestones: [
+          { date: 'Año 5', targetValue: 50 },
+          { date: 'Año 10', targetValue: 800 },
+          { date: 'Año 25', targetValue: 1800 },
+        ],
+      },
+      {
+        id: 'espacio-verde-per-capita',
+        metric: 'Espacio Verde per Cápita (ciudades nuevas)',
+        currentValue: 6.2,
+        targetValue: 40,
+        unit: 'm²/hab',
+        source: 'Objetivo vs. promedio nacional actual',
+        milestones: [
+          { date: 'Año 5', targetValue: 25 },
+          { date: 'Año 10', targetValue: 35 },
+          { date: 'Año 25', targetValue: 40 },
+        ],
+      },
+      {
+        id: 'indice-incn',
+        metric: 'Índice Nacional de Ciudades Nuevas (INCN)',
+        currentValue: 0,
+        targetValue: 80,
+        unit: '/100',
+        source: 'PLAN24CN — Tablero Nacional',
+        milestones: [
+          { date: 'Año 5', targetValue: 50 },
+          { date: 'Año 10', targetValue: 65 },
+          { date: 'Año 25', targetValue: 80 },
+        ],
+      },
+      {
+        id: 'ciudades-operativas',
+        metric: 'Ciudades Operativas',
+        currentValue: 0,
+        targetValue: 24,
+        unit: 'ciudades',
+        source: 'PLAN24CN — Cronograma',
+        milestones: [
+          { date: 'Año 1,5', targetValue: 4 },
+          { date: 'Año 5', targetValue: 12 },
+          { date: 'Año 10', targetValue: 24 },
+        ],
+      },
+      {
+        id: 'energia-renovable',
+        metric: 'Energía Renovable por Ciudad',
+        currentValue: 0,
+        targetValue: 100,
+        unit: '%',
+        source: 'PLAN24CN — Meta de soberanía energética',
+        milestones: [
+          { date: 'Año 5', targetValue: 60 },
+          { date: 'Año 10', targetValue: 85 },
+          { date: 'Año 25', targetValue: 100 },
+        ],
+      },
+      {
+        id: 'circularidad',
+        metric: 'Circularidad de Materiales y Energía',
+        currentValue: 15,
+        targetValue: 80,
+        unit: '%',
+        source: 'PLAN24CN — Meta de economía circular',
+        milestones: [
+          { date: 'Año 5', targetValue: 40 },
+          { date: 'Año 10', targetValue: 60 },
+          { date: 'Año 25', targetValue: 80 },
+        ],
+      },
+    ],
+    tags: ['ciudades nuevas', 'urbanismo', 'bienestar', 'diseño ideal', 'federalismo', 'economía circular', 'belleza'],
+    relatedInitiativeSlugs: ['planisv-infraestructura-suelo-vivo', 'planrep-reconversion-empleo-publico'],
+    sources: [
+      { title: 'PLAN24CN — Plan Nacional de 24 Ciudades Nuevas (Documento Estratégico, Mar 2026)' },
+      { title: 'INDEC — Censo Nacional de Población, Hogares y Viviendas' },
+      { title: 'OMS — Recomendaciones de Espacios Verdes Urbanos' },
+      { title: 'CEPAL — Panorama de la Gestión Urbana en América Latina' },
+      { title: 'Russell Ackoff — Idealized Design (Metodología)' },
+    ],
+  },
+
+  // PLANREP — Reconversión del Empleo Público
+  {
+    slug: 'planrep-reconversion-empleo-publico',
+    title: 'PLANREP',
+    subtitle: 'Plan Nacional de Reconversión del Empleo Público hacia la Economía Privada Productiva',
+    category: 'economia',
+    summary: 'La Argentina tiene entre 1,2 y 1,8 millones de empleados públicos en puestos que no generan valor. PLANREP propone no echar gente sino liberarla: un programa masivo, voluntario y financiado de reconversión hacia la Economía de la Vida (8 oficios irreemplazables) y la Economía de la Inteligencia (servicios IA para el mundo), con potencial de USD 15-47 mil millones anuales.',
+    iconName: 'TrendingUp',
+    documentFile: 'PLANREP_Argentina_ES.md',
+    elProblema: {
+      title: 'El Problema',
+      content: `<p>La Argentina tiene más empleados públicos per cápita que cualquier país comparable de América Latina. Son <strong>3,5 millones de personas</strong> en el sector público nacional, provincial y municipal — el 30% del empleo total. El empleo público creció un 70% entre 2003 y 2023 (de ~2M a 3,5M), mientras el empleo privado formal creció solo 35%.</p>
+
+<p>El problema no es la cantidad en abstracto — Dinamarca emplea al 28% de su fuerza laboral en el sector público y tiene uno de los Estados más eficientes del mundo. El problema argentino es la <strong>brecha entre input y output</strong>: se emplea a tanta gente como un país nórdico pero se entregan servicios de calidad subsahariana. Esa brecha es donde se esconde el sobreempleo.</p>
+
+<p>Entre <strong>1,2 y 1,8 millones de puestos públicos</strong> no generan valor verificable para la sociedad. Estas personas no son el problema — son las víctimas. Fueron capturadas por un sistema que les ofreció la única opción disponible: un sueldo fijo en un país donde el sector privado es hostil, frágil, informal y mal pago. Ahora están atrapadas en una trampa que les roba su potencial, su autoestima y sus mejores años.</p>
+
+<p>El costo fiscal directo es de <strong>USD 15.000–25.000 millones anuales</strong> (3-5% del PBI). Cuando se suman costos indirectos — presión impositiva excesiva, burocracia paralizante, competencia desleal por talento, endeudamiento crónico — el costo total del Estado sobredimensionado supera los <strong>USD 50.000 millones anuales</strong>, más del 10% del PBI.</p>
+
+<p>Todas las reformas anteriores fracasaron — los retiros voluntarios de Menem, la modernización de De la Rúa, el modelo de expulsión de Milei — porque trataron a la gente como un costo a eliminar en vez de un activo a reconvertir.</p>`,
+      pullQuote: 'No hay nada más violento que robarle a una persona la posibilidad de hacer algo que importe. El empleo público innecesario es esa violencia, administrada con recibo de sueldo.',
+      stats: [
+        { label: 'Empleo público total', value: '3,5M personas' },
+        { label: 'Sobreempleo estimado', value: '1,2-1,8M' },
+        { label: 'Costo fiscal directo / año', value: 'USD 15-25 mil M' },
+        { label: 'Costo total Estado grande', value: 'USD 50+ mil M/año' },
+      ],
+    },
+    quePasaSiNoCambiamos: {
+      title: '¿Qué pasa si no cambiamos?',
+      content: `<p>La Argentina está atrapada en la <strong>Trampa del Estado Empleador</strong>. Para financiar el sobreempleo, mantiene una presión fiscal del 29-32% del PBI — nivel OCDE con servicios subsaharianos. Esta presión asfixia al sector privado, empujando al 35-40% del empleo a la informalidad, lo que reduce la recaudación, lo que requiere más deuda, lo que genera más presión fiscal. Un círculo vicioso que se autoperpetúa.</p>
+
+<p><strong>El costo del status quo es 5 a 7 veces más caro que hacer PLANREP.</strong> Mantener el sobreempleo cuesta USD 15.000–25.000 millones cada año, para siempre. Es más que todo el presupuesto nacional de salud (USD 12.000M) y más que todo el presupuesto de educación (USD 14.000M). Con ese dinero se podrían construir 50 hospitales de última generación por año.</p>
+
+<p><strong>Crisis demográfica inminente:</strong> Argentina tiene 7,3 millones de personas mayores de 60 años, creciendo al 3% anual. Para 2040 serán más de 10 millones. El déficit actual de cuidadores formales es de 150.000 profesionales. Sin reconversión hacia la economía del cuidado, esta demanda queda desatendida.</p>
+
+<p><strong>Ventana competitiva cerrándose:</strong> Polonia genera 50.000 nuevos ingenieros por año. Vietnam emerge como hub tecnológico con costos más bajos. La ventana de oportunidad para posicionar a Argentina en la economía de inteligencia global es de 5 a 10 años. El tren pasa ahora — si no subimos, no pasa de vuelta.</p>
+
+<p><strong>Fuga de cerebros perpetuada:</strong> Sin oportunidades de reconversión, el talento sigue emigrando. Argentina pierde posición competitiva en la economía de inteligencia emergente. Sin camino de retorno para la diáspora.</p>`,
+      pullQuote: 'El costo del status quo es 5 a 7 veces más caro que PLANREP. Mantener el sobreempleo cuesta USD 15.000–25.000 millones cada año, para siempre. Es más que todo el presupuesto nacional de salud.',
+      stats: [
+        { label: 'Presión fiscal total', value: '29-32% PBI' },
+        { label: 'Empleo informal', value: '35-40%' },
+        { label: 'Costo status quo / año', value: 'USD 15-25 mil M' },
+        { label: 'Cargas patronales', value: '40-45%' },
+      ],
+    },
+    elDisenoIdeal: {
+      title: 'El Diseño Ideal',
+      content: `<p>PLANREP propone no echar gente sino <strong>liberarla</strong>. Un programa masivo, voluntario, gradual y financiado de reconversión laboral con una <strong>estrategia dual</strong>: el Escudo y la Espada.</p>
+
+<p><strong>EL ESCUDO — Economía de la Vida</strong> (8 ramas de trabajo que requieren presencia humana irreemplazable):</p>
+<p><strong>1. La Belleza</strong> (Oficios Artesanales) — 150.000-200.000 personas. Madera, cerámica, textil, cuero, metal, vidrio, joyería.</p>
+<p><strong>2. El Amparo</strong> (Economía del Cuidado) — 200.000-250.000 personas. Cuidado de ancianos, niños, apoyo terapéutico.</p>
+<p><strong>3. La Reparación</strong> (Remediación Ambiental) — 150.000-200.000 personas. Ríos, suelos, basurales, ecosistemas.</p>
+<p><strong>4. El Refugio</strong> (Construcción Viva) — 200.000-250.000 personas. Vivienda digna, restauración patrimonial, bioconstrucción.</p>
+<p><strong>5. La Mesa</strong> (Alimentación de Origen) — 150.000-200.000 personas. Producción, elaboración y gastronomía artesanal.</p>
+<p><strong>6. El Encuentro</strong> (Economía de la Experiencia) — 100.000-150.000 personas. Turismo, hospitalidad, eventos, cultura viva.</p>
+<p><strong>7. La Imaginación</strong> (Industria Creativa) — 100.000-150.000 personas. Cine, música, gaming, diseño, narrativa.</p>
+<p><strong>8. La Precisión</strong> (Economía Circular) — 80.000-120.000 personas. Reparación, remanufactura, microfabricación.</p>
+
+<p><strong>LA ESPADA — Economía de la Inteligencia:</strong> Servicios AI-aumentados para mercados globales. 50 Centros de Inteligencia. Ventaja argentina: zona horaria de EE.UU., afinidad cultural, ADN creativo, costos competitivos. Mercado global de USD 500.000 millones para 2030.</p>
+
+<p><strong>Infraestructura:</strong> 120 Centros de la Vida + 50 Centros de Inteligencia + 50 unidades PLANREP-Móvil. Bonos de Impacto Social. Transición de 36 meses con garantía de ingreso, salud, apoyo psicológico y mentoría. Todos los egresados aprenden 40 horas de "Herramientas IA para mi Oficio" (Artesano Aumentado).</p>`,
+      pullQuote: 'No se trata de echar gente, sino de liberarla. No ajuste fiscal disfrazado de reforma, sino reconversión real hacia actividades que requieren presencia humana irreemplazable.',
+      stats: [
+        { label: 'Centros de la Vida', value: '120' },
+        { label: 'Centros de Inteligencia', value: '50' },
+        { label: 'Potencial económico', value: 'USD 15-47 mil M/año' },
+        { label: 'Punto de equilibrio fiscal', value: 'Año 4' },
+      ],
+    },
+    elCamino: {
+      overview: 'PLANREP se despliega en 5 fases, trabajando hacia atrás desde una Argentina donde el empleo público es esencial y productivo, la Economía de la Vida representa el 8-12% del PBI, y la Economía de la Inteligencia exporta USD 17-25 mil millones anuales.',
+      steps: [
+        {
+          id: 1,
+          title: 'La nueva normalidad',
+          description: 'Empleo público reducido a lo esencial: educación, salud, seguridad, justicia, infraestructura (de 3,5M a 2,1M). Presión fiscal reducida 4-6 puntos de PBI. Economía de la Vida: 8-12% del PBI (comparable a turismo o construcción). Economía de la Inteligencia: USD 17.000-25.000 millones/año en exportación de servicios (2do-3er sector exportador). Argentina exporta artesanía, gastronomía y diseño como marca país. Fuga de cerebros revertida: la diáspora regresa.',
+          timeline: 'Año 10-20 — META',
+          dependencies: [],
+          orderIndex: 1,
+        },
+        {
+          id: 2,
+          title: 'Transformación: 1M+ reconvertidos',
+          description: 'Más de 1.000.000 de personas reconvertidas (~700K Vida, ~300K Inteligencia). Reducción de 2-3 puntos de PBI en presión fiscal. Economía de la Vida visible en cada ciudad. Economía de la Inteligencia: USD 5.000-10.000 millones/año en exportación de servicios. Argentina posicionada como hub regional de talento AI-aumentado. Modelo exportado a otros países de la región.',
+          timeline: 'Año 5-10',
+          dependencies: ['La nueva normalidad'],
+          orderIndex: 2,
+        },
+        {
+          id: 3,
+          title: 'Escala: 120 Centros + 50 Centros de Inteligencia',
+          description: 'Todos los 120 Centros de la Vida operativos (mínimo 5 por provincia). Todos los 50 Centros de Inteligencia operativos. 300.000 nuevos participantes por año (~200K Vida, ~100K Inteligencia). Primeras cooperativas PLANREP operando. Contratos de compra pública de productos y servicios de la Vida ejecutándose. Primeros egresados de Inteligencia generando ingresos en USD internacionalmente. 200.000+ reducción en nómina pública.',
+          timeline: 'Año 2-5',
+          dependencies: ['Transformación: 1M+ reconvertidos'],
+          orderIndex: 3,
+        },
+        {
+          id: 4,
+          title: 'Piloto: 20 Centros, 25.000 personas',
+          description: '20 Centros de la Vida operativos (1 por ciudad grande). 10 Centros de Inteligencia operativos (CABA, Córdoba, Rosario, Mendoza, Tucumán, Mar del Plata, La Plata, Neuquén, Salta, Resistencia). 1.000 personas por Centro de Vida + 500 por Centro de Inteligencia. Métricas de éxito: >85% retención, >7/10 satisfacción, >60% empleados 1 año post-egreso, ≥80% del salario público previo.',
+          timeline: 'Año 1-2',
+          dependencies: ['Escala: 120 Centros + 50 Centros de Inteligencia'],
+          orderIndex: 4,
+        },
+        {
+          id: 5,
+          title: 'Diagnóstico y diseño',
+          description: 'Censo nacional de empleo público: auditoría funcional de 3,5 millones de puestos (esencial / optimizable / prescindible). Mapeo de demanda artesanal + demanda de servicios IA. Diseño curricular (40+ oficios × 4 niveles y 4 tracks). Selección de sitios: 20 Centros de Vida + 10 Centros de Inteligencia. Convocatoria: 600 Maestros Artesanos + 580 mentores IA. Campaña: "De la oficina al taller — y al mundo". Legislación: Ley Nacional de Reconversión del Empleo Público.',
+          timeline: 'Mes 0-12',
+          dependencies: ['Piloto: 20 Centros, 25.000 personas'],
+          orderIndex: 5,
+        },
+      ],
+    },
+    kpis: [
+      {
+        id: 'personas-reconvertidas',
+        metric: 'Personas Reconvertidas (acumulado)',
+        currentValue: 0,
+        targetValue: 1800,
+        unit: 'K personas',
+        source: 'PLANREP — Objetivo de Programa',
+        milestones: [
+          { date: 'Año 2', targetValue: 25 },
+          { date: 'Año 5', targetValue: 500 },
+          { date: 'Año 10', targetValue: 1200 },
+          { date: 'Año 20', targetValue: 1800 },
+        ],
+      },
+      {
+        id: 'ahorro-fiscal-neto',
+        metric: 'Ahorro Fiscal Neto Acumulado',
+        currentValue: 0,
+        targetValue: 200,
+        unit: 'mil M USD',
+        source: 'PLANREP — Proyección fiscal',
+        milestones: [
+          { date: 'Año 5', targetValue: 5 },
+          { date: 'Año 10', targetValue: 50 },
+          { date: 'Año 20', targetValue: 200 },
+        ],
+      },
+      {
+        id: 'exportacion-inteligencia',
+        metric: 'Exportaciones Economía de Inteligencia',
+        currentValue: 0,
+        targetValue: 25,
+        unit: 'mil M USD/año',
+        source: 'PLANREP — Proyección Espada',
+        milestones: [
+          { date: 'Año 5', targetValue: 2 },
+          { date: 'Año 10', targetValue: 14 },
+          { date: 'Año 20', targetValue: 25 },
+        ],
+      },
+      {
+        id: 'cooperativas-activas',
+        metric: 'Cooperativas PLANREP Activas',
+        currentValue: 0,
+        targetValue: 2000,
+        unit: 'cooperativas',
+        source: 'PLANREP — Red de Economía de la Vida',
+        milestones: [
+          { date: 'Año 5', targetValue: 500 },
+          { date: 'Año 10', targetValue: 1200 },
+          { date: 'Año 20', targetValue: 2000 },
+        ],
+      },
+      {
+        id: 'reduccion-presion-fiscal',
+        metric: 'Reducción de Presión Fiscal',
+        currentValue: 0,
+        targetValue: 5,
+        unit: 'puntos PBI',
+        source: 'PLANREP — Meta fiscal',
+        milestones: [
+          { date: 'Año 5', targetValue: 1 },
+          { date: 'Año 10', targetValue: 3 },
+          { date: 'Año 20', targetValue: 5 },
+        ],
+      },
+      {
+        id: 'egresados-actividad-productiva',
+        metric: 'Egresados con Actividad Productiva',
+        currentValue: 0,
+        targetValue: 80,
+        unit: '%',
+        source: 'PLANREP — Indicador de efectividad',
+        milestones: [
+          { date: 'Año 5', targetValue: 60 },
+          { date: 'Año 10', targetValue: 70 },
+          { date: 'Año 20', targetValue: 80 },
+        ],
+      },
+    ],
+    tags: ['empleo público', 'reconversión laboral', 'economía de la vida', 'artesanos', 'inteligencia artificial', 'alivio fiscal', 'cooperativas'],
+    relatedInitiativeSlugs: ['planisv-infraestructura-suelo-vivo', 'plan24cn-24-ciudades-nuevas'],
+    sources: [
+      { title: 'PLANREP — Plan Nacional de Reconversión del Empleo Público (Documento Estratégico, Mar 2026)' },
+      { title: 'INDEC — Encuesta Permanente de Hogares (datos de empleo público)' },
+      { title: 'Ministerio de Economía — Presupuesto Nacional (masa salarial pública)' },
+      { title: 'OCDE — Government at a Glance (comparativa internacional)' },
+      { title: 'OIT — Perspectivas del Empleo y la Transformación Digital' },
       { title: 'Russell Ackoff — Idealized Design (Metodología)' },
     ],
   },

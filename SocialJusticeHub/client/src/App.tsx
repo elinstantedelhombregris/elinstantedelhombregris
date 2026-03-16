@@ -56,6 +56,7 @@ const PulsoDetalle = React.lazy(() => import("@/pages/PulsoDetalle"));
 const PropuestaDetalle = React.lazy(() => import("@/pages/PropuestaDetalle"));
 const IniciativasEstrategicas = React.lazy(() => import("@/pages/IniciativasEstrategicas"));
 const IniciativaDetalle = React.lazy(() => import("@/pages/IniciativaDetalle"));
+const IniciativaDocumento = React.lazy(() => import("@/pages/IniciativaDocumento"));
 
 type User = {
   id: number;
@@ -100,6 +101,7 @@ function Router() {
       <Route path="/recursos/guias-estudio/:courseSlug/leccion/:lessonId" component={LessonView} />
       <Route path="/recursos/guias-estudio/:courseSlug/quiz" component={QuizView} />
       <Route path="/recursos/iniciativas" component={IniciativasEstrategicas} />
+      <Route path="/recursos/iniciativas/:slug/documento" component={IniciativaDocumento} />
       <Route path="/recursos/iniciativas/:slug" component={IniciativaDetalle} />
       <Route path="/login" component={Login} />
       <Route path="/register" component={Register} />

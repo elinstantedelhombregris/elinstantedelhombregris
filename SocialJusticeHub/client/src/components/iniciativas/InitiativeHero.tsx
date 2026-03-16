@@ -1,4 +1,5 @@
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, FileText } from 'lucide-react';
+import { Link } from 'wouter';
 import { motion } from 'framer-motion';
 import SmoothReveal from '@/components/ui/SmoothReveal';
 import { INITIATIVE_CATEGORIES, PHASE_META } from '@/lib/initiative-utils';
@@ -71,17 +72,28 @@ export default function InitiativeHero({ initiative, onScrollToContent }: Initia
           </div>
         </SmoothReveal>
 
-        {/* Scroll CTA */}
+        {/* Scroll CTA + Document link */}
         <SmoothReveal direction="up" delay={0.4}>
-          <motion.button
-            onClick={onScrollToContent}
-            className="inline-flex flex-col items-center gap-2 text-slate-500 hover:text-slate-700 transition-colors"
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-          >
-            <span className="text-sm font-medium tracking-wide uppercase">Comenzar a Leer</span>
-            <ChevronDown className="w-6 h-6" />
-          </motion.button>
+          <div className="flex flex-col items-center gap-6">
+            <motion.button
+              onClick={onScrollToContent}
+              className="inline-flex flex-col items-center gap-2 text-slate-500 hover:text-slate-700 transition-colors"
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+            >
+              <span className="text-sm font-medium tracking-wide uppercase">Comenzar a Leer</span>
+              <ChevronDown className="w-6 h-6" />
+            </motion.button>
+
+            {initiative.documentFile && (
+              <Link href={`/recursos/iniciativas/${initiative.slug}/documento`}>
+                <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-slate-200 bg-white/80 backdrop-blur-sm text-slate-600 hover:text-slate-900 hover:border-slate-300 text-sm font-medium transition-all cursor-pointer shadow-sm">
+                  <FileText className="w-4 h-4" />
+                  Ver Documento Completo / Descargar PDF
+                </span>
+              </Link>
+            )}
+          </div>
         </SmoothReveal>
       </div>
     </section>

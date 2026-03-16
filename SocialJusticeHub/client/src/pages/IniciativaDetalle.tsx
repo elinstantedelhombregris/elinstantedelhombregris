@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef, useCallback } from 'react';
 import { Link, useParams } from 'wouter';
-import { ChevronRight, ArrowLeft, ExternalLink } from 'lucide-react';
+import { ChevronRight, ArrowLeft, ExternalLink, FileText, Download } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SmoothReveal from '@/components/ui/SmoothReveal';
@@ -133,6 +133,46 @@ export default function IniciativaDetalle() {
                   </li>
                 ))}
               </ul>
+            </SmoothReveal>
+          </div>
+        </section>
+      )}
+
+      {/* Full Document CTA */}
+      {initiative.documentFile && (
+        <section className="py-16 bg-white">
+          <div className="max-w-4xl mx-auto px-4 lg:pl-24">
+            <SmoothReveal direction="up">
+              <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-8 md:p-12">
+                <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-amber-100/30 blur-3xl -translate-y-1/2 translate-x-1/2" />
+                <div className="relative flex flex-col md:flex-row items-start md:items-center gap-6">
+                  <div className="p-4 rounded-2xl bg-amber-100 text-amber-700 shrink-0">
+                    <FileText className="w-8 h-8" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-serif font-bold text-slate-900 mb-2">
+                      Documento Completo
+                    </h3>
+                    <p className="text-slate-600 leading-relaxed">
+                      Este resumen presenta las 5 fases del diseño idealizado. El documento estratégico completo contiene el análisis detallado, las tablas de datos, los mecanismos de implementación y las proyecciones fiscales.
+                    </p>
+                  </div>
+                  <div className="flex flex-col sm:flex-row gap-3 shrink-0 w-full md:w-auto">
+                    <Link href={`/recursos/iniciativas/${initiative.slug}/documento`}>
+                      <button className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-slate-900 text-white hover:bg-slate-800 text-sm font-medium transition-colors w-full sm:w-auto">
+                        <FileText className="w-4 h-4" />
+                        Leer Documento
+                      </button>
+                    </Link>
+                    <Link href={`/recursos/iniciativas/${initiative.slug}/documento`}>
+                      <button className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-50 text-sm font-medium transition-colors w-full sm:w-auto">
+                        <Download className="w-4 h-4" />
+                        Descargar PDF
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+              </div>
             </SmoothReveal>
           </div>
         </section>
