@@ -254,7 +254,7 @@ Todos los intentos previos de reforma del Estado argentino ignoraron esta verdad
 
 El patrón es claro: **las personas no dejan la seguridad por nada. La dejan por algo que brilla más fuerte.** No se van hacia el vacío: se van hacia una visión de sí mismos que les resulta más atractiva que la versión actual. El albañil que nunca tuvo la oportunidad de ser artesano no sabe que quiere serlo — hasta que lo descubre. La administrativa que nunca tocó arcilla no sabe que tiene manos de ceramista — hasta que las mete en el barro. El empleado de mesa de entradas que cocina los mejores domingos de su familia no sabe que podría vivir de eso — hasta que alguien le dice: *podés*.
 
-Por eso PLANREP no arranca con formularios. Arranca con **experiencia**. Antes de que nadie firme nada, antes de que nadie renuncie a nada, el programa invita a cada empleado público en puesto prescindible a vivir una semana en un Centro de la Vida. A probar la madera, la masa, la tierra, el metal. A escuchar a un Maestro de Oficio contar cómo dejó un trabajo gris y hoy vive de lo que ama. A conocer a alguien que ya hizo el salto y está del otro lado, vivo, produciendo, dignificado.
+Por eso PLANREP no arranca con formularios. Arranca con **experiencia**. Antes de que nadie firme nada, antes de que nadie renuncie a nada, el programa invita a cada empleado público en puesto prescindible a vivir una semana en un Centro de la Vida. A probar la madera, la masa, la tierra, el metal. A escuchar a un Maestro de Oficio contar cómo dejó un trabajo apagado y hoy vive de lo que ama. A conocer a alguien que ya hizo el salto y está del otro lado, vivo, produciendo, dignificado.
 
 **Esa semana es el instrumento más importante de todo PLANREP.** Más que la ley. Más que el presupuesto. Más que los Centros. Porque esa semana no ofrece argumentos: ofrece contacto directo con la posibilidad. Y la posibilidad, cuando se toca con las manos, genera deseo. Y el deseo es el único motor que funciona.
 
@@ -411,7 +411,7 @@ Esa frase tiene que estar en cada afiche, en cada spot, en cada discurso, en cad
 
 #### Los Embajadores
 
-Ningún funcionario, por más elocuente que sea, puede convencer a un empleado público de que la reconversión funciona. Solo puede convencerlo alguien que ya la hizo. Alguien que estaba sentado en el mismo escritorio gris, en la misma oficina con el mismo fluorescente roto, llenando el mismo formulario que nadie lee — y hoy está en un taller, con las manos en la masa, viviendo de lo que hace, ganando más o ganando igual pero con una dignidad que no tiene precio.
+Ningún funcionario, por más elocuente que sea, puede convencer a un empleado público de que la reconversión funciona. Solo puede convencerlo alguien que ya la hizo. Alguien que estaba sentado en la misma oficina apagada, con el mismo fluorescente roto, llenando el mismo formulario que nadie lee — y un día tuvo su instante, se convirtió en Hombre Gris, y hoy está en un taller, con las manos en la masa, viviendo de lo que hace, ganando más o ganando igual pero con una dignidad que no tiene precio.
 
 PLANREP establece un cuerpo de **24 Embajadores Provinciales** — uno por provincia — seleccionados entre los graduados de la Fase 1 (piloto). No son comunicadores profesionales: son personas comunes que hicieron la transición y pueden contarla con la autoridad inapelable de la experiencia vivida. Se les paga un suplemento por su rol de embajadores, se les da entrenamiento básico en comunicación pública, y se los despliega en medios locales, visitas a oficinas públicas, redes sociales y eventos comunitarios. Entre los 24, deben estar representadas las ocho ramas — no solo artesanos: también cuidadores, constructores, cocineros, remediadores, creativos, guías y reparadores.
 
@@ -1519,7 +1519,7 @@ El segundo — la Economía de la Inteligencia — es el camino del desarrollado
 
 Juntos, estos dos destinos cubren el espectro completo de perfiles humanos y garantizan que cada persona — sin importar si piensa con las manos o con la mente, si prefiere la arcilla o el código, si sueña con un taller o con un producto digital — tenga un camino viable, digno y próspero.
 
-La Argentina no tiene que elegir entre ser un país de artesanos o un país de programadores. Puede ser — y debe ser — ambas cosas. El Hombre Gris puede elegir su propio camino de regreso a la luz.
+La Argentina no tiene que elegir entre ser un país de artesanos o un país de programadores. Puede ser — y debe ser — ambas cosas. El Hombre Gris elige su propio camino — porque ser Hombre Gris es exactamente eso: encender tu propia luz.
 
 > *"La belleza nos protege. La inteligencia nos proyecta. Juntas, nos liberan."*
 
@@ -2220,9 +2220,9 @@ Imaginemos la Argentina en 2040. No como fantasía, sino como resultado directo 
 
 **Los números.** El PBI per cápita pasó de USD 10.000 a USD 22.000. La pobreza bajó del 40% al 12%. El empleo informal se redujo del 45% al 20%. La presión fiscal bajó 5 puntos del PBI. Las reservas del Banco Central se triplicaron, alimentadas por las exportaciones de vida e inteligencia. La Argentina dejó de discutir cómo repartir una torta que no crece y empezó a discutir cómo invertir el excedente de una economía que no para de crear valor.
 
-**El momento.** Y todo empezó con una decisión. Un instante. El instante en que un hombre gris — uno de esos millones de hombres y mujeres atrapados en una oficina donde no hacían nada que importara — leyó un papel que decía que había otro camino. Que podía aprender un oficio. Que podía cuidar a alguien. Que podía construir algo. Que podía reparar lo roto. Que podía crear algo bello. Que podía usar la inteligencia artificial como multiplicador de su talento. Que no tenía que elegir entre la seguridad de la nada y el terror del vacío — porque había un puente, con contención, con acompañamiento, con 36 meses de red que lo sostenía mientras aprendía a volar.
+**El momento.** Y todo empezó con una decisión. Un instante. El instante en que una persona apagada — una de esos millones de hombres y mujeres atrapados en una oficina donde no hacían nada que importara — leyó un papel que decía que había otro camino. Que podía aprender un oficio. Que podía cuidar a alguien. Que podía construir algo. Que podía reparar lo roto. Que podía crear algo bello. Que podía usar la inteligencia artificial como multiplicador de su talento. Que no tenía que elegir entre la seguridad de la nada y el terror del vacío — porque había un puente, con contención, con acompañamiento, con 36 meses de red que lo sostenía mientras aprendía a volar.
 
-Ese hombre gris dejó de ser gris. No porque el Estado lo echó, sino porque el Estado, por primera vez, le ofreció algo mejor que la inercia. Le ofreció un destino. Le ofreció sus propias manos. Le ofreció su propia mente. Le ofreció ocho ramas de la vida y cuatro niveles de la inteligencia como formas de la dignidad.
+Esa persona apagada tuvo su instante. Se convirtió en Hombre Gris — en alguien que pule su carácter, que enciende su espíritu, que brilla. No porque el Estado lo echó, sino porque el Estado, por primera vez, le ofreció algo mejor que la inercia. Le ofreció un destino. Le ofreció sus propias manos. Le ofreció su propia mente. Le ofreció ocho ramas de la vida y cuatro niveles de la inteligencia como formas de la dignidad.
 
 Y eligió.
 

@@ -245,7 +245,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
       },
     ],
     tags: ['suelo vivo', 'agricultura regenerativa', 'carbono', 'soberanía alimentaria', 'exportaciones', 'INTA', 'agua'],
-    relatedInitiativeSlugs: ['plan24cn-24-ciudades-nuevas', 'planrep-reconversion-empleo-publico'],
+    relatedInitiativeSlugs: ['plan24cn-24-ciudades-nuevas', 'planrep-reconversion-empleo-publico', 'planedu-refundacion-educativa'],
     sources: [
       { title: 'PLANISV — Plan Nacional de Infraestructura de Suelo Vivo (Documento Estratégico, Feb 2026)' },
       { title: 'INTA — Estaciones Experimentales (datos de MOS y erosión)' },
@@ -440,7 +440,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
       },
     ],
     tags: ['ciudades nuevas', 'urbanismo', 'bienestar', 'diseño ideal', 'federalismo', 'economía circular', 'belleza'],
-    relatedInitiativeSlugs: ['planisv-infraestructura-suelo-vivo', 'planrep-reconversion-empleo-publico'],
+    relatedInitiativeSlugs: ['planisv-infraestructura-suelo-vivo', 'planrep-reconversion-empleo-publico', 'planedu-refundacion-educativa'],
     sources: [
       { title: 'PLAN24CN — Plan Nacional de 24 Ciudades Nuevas (Documento Estratégico, Mar 2026)' },
       { title: 'INDEC — Censo Nacional de Población, Hogares y Viviendas' },
@@ -469,7 +469,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
 
 <p>El costo fiscal directo es de <strong>USD 15.000–25.000 millones anuales</strong> (3-5% del PBI). Cuando se suman costos indirectos — presión impositiva excesiva, burocracia paralizante, competencia desleal por talento, endeudamiento crónico — el costo total del Estado sobredimensionado supera los <strong>USD 50.000 millones anuales</strong>, más del 10% del PBI.</p>
 
-<p>Todas las reformas anteriores fracasaron — los retiros voluntarios de Menem, la modernización de De la Rúa, el modelo de expulsión de Milei — porque trataron a la gente como un costo a eliminar en vez de un activo a reconvertir.</p>`,
+<p>Todas las reformas anteriores fracasaron — los retiros voluntarios de los 90, la modernización fallida de 2000, las reducciones de contratos sin reconversión — porque trataron a la gente como un costo a eliminar en vez de un activo a reconvertir.</p>`,
       pullQuote: 'No hay nada más violento que robarle a una persona la posibilidad de hacer algo que importe. El empleo público innecesario es esa violencia, administrada con recibo de sueldo.',
       stats: [
         { label: 'Empleo público total', value: '3,5M personas' },
@@ -649,13 +649,220 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
       },
     ],
     tags: ['empleo público', 'reconversión laboral', 'economía de la vida', 'artesanos', 'inteligencia artificial', 'alivio fiscal', 'cooperativas'],
-    relatedInitiativeSlugs: ['planisv-infraestructura-suelo-vivo', 'plan24cn-24-ciudades-nuevas'],
+    relatedInitiativeSlugs: ['planisv-infraestructura-suelo-vivo', 'plan24cn-24-ciudades-nuevas', 'planedu-refundacion-educativa'],
     sources: [
       { title: 'PLANREP — Plan Nacional de Reconversión del Empleo Público (Documento Estratégico, Mar 2026)' },
       { title: 'INDEC — Encuesta Permanente de Hogares (datos de empleo público)' },
       { title: 'Ministerio de Economía — Presupuesto Nacional (masa salarial pública)' },
       { title: 'OCDE — Government at a Glance (comparativa internacional)' },
       { title: 'OIT — Perspectivas del Empleo y la Transformación Digital' },
+      { title: 'Russell Ackoff — Idealized Design (Metodología)' },
+    ],
+  },
+
+  // PLANEDU — Refundación Educativa
+  {
+    slug: 'planedu-refundacion-educativa',
+    title: 'PLANEDU',
+    subtitle: 'Plan Nacional de Refundación Educativa para la Soberanía del Conocimiento Humano',
+    category: 'educacion',
+    summary: 'Argentina ocupa el puesto 63 de 81 en PISA gastando más del 5% de su PBI en educación. El 46% de los alumnos no alcanza el nivel mínimo de comprensión lectora. PLANEDU propone una refundación basada en Siete Capacidades, Maestros Creadores, AI como co-tutor, y aprendizaje por dominio — con el objetivo de ubicar a Argentina en el top 20 mundial en 15 años.',
+    iconName: 'GraduationCap',
+    documentFile: 'PLANEDU_Argentina_ES.md',
+    elProblema: {
+      title: 'El Problema',
+      content: `<p>La Argentina fue, durante la primera mitad del siglo XX, una potencia educativa. La Ley 1420 de 1884 fue una de las legislaciones más avanzadas del mundo. Para 1950, tenía la tasa de alfabetización más alta de América Latina. Eso fue hace setenta y cinco años.</p>
+
+<p>Hoy ocupa el <strong>puesto 63 de 81 países</strong> en PISA 2022. El <strong>46% de los estudiantes de 15 años</strong> no alcanza el nivel mínimo de comprensión lectora. El <strong>69%</strong> no alcanza el nivel mínimo de matemáticas. Estos no son números de un país pobre: son de un país que gasta más del 5% de su PBI en educación — más que el promedio de la OCDE — y obtiene resultados entre los peores del continente.</p>
+
+<p>Solo el <strong>53% de los argentinos termina la secundaria</strong>. De los que entran a la universidad, el 70% no se recibe. El salario docente promedio es de ~USD 450-600/mes — inferior al promedio de la economía. Menos del 5% de los docentes tiene maestría o doctorado (Finlandia: 100%). El ausentismo docente es del 15-20% de los días de clase. Los postulantes a carreras docentes caen año a año.</p>
+
+<p>El sistema no enseña pensamiento crítico, creatividad, inteligencia emocional, habilidades financieras, pensamiento sistémico, comunicación efectiva, trabajo en equipo real, ni un segundo idioma funcional. Enseña fragmentos de información enciclopédica que los alumnos memorizan, vomitan en un examen, y olvidan a la semana siguiente. Confunde información con conocimiento, memorización con comprensión, y aprobación con aprendizaje.</p>`,
+      pullQuote: 'El sistema educativo argentino no fracasa porque los maestros sean malos o los alumnos sean vagos. Fracasa porque está diseñado para un propósito que ya no existe: producir obreros obedientes para fábricas del siglo XX.',
+      stats: [
+        { label: 'Posición PISA (lectura)', value: '63 de 81' },
+        { label: 'Sin nivel mínimo lectura', value: '46%' },
+        { label: 'Graduación secundaria', value: '~53%' },
+        { label: 'Salario docente promedio', value: 'USD 450-600/mes' },
+      ],
+    },
+    quePasaSiNoCambiamos: {
+      title: '¿Qué pasa si no cambiamos?',
+      content: `<p>La Argentina pierde entre <strong>USD 50.000 y 75.000 millones por año</strong> por no educar bien a su gente — entre el 10% y el 15% del PBI anual. Es más que la deuda externa. Es más que todo el presupuesto nacional. Es el costo más grande que paga el país, y el único que nadie presupuesta.</p>
+
+<p><strong>Productividad perdida:</strong> USD 15.000–25.000M/año. Cada desviación estándar de mejora en PISA genera +2% de crecimiento del PBI a largo plazo (Hanushek & Woessmann). Argentina está 1,5 desviaciones por debajo del promedio OCDE.</p>
+
+<p><strong>Fuga de cerebros:</strong> ~30.000 profesionales/año emigran, llevándose el capital humano que el país financió. Costo: USD 3.000–5.000M/año.</p>
+
+<p><strong>Criminalidad:</strong> Correlación directa entre nivel educativo y tasa de criminalidad (Lochner & Moretti). Cada punto de graduación secundaria que se pierde se paga en policía, cárceles, justicia y seguros. USD 8.000–12.000M/año.</p>
+
+<p><strong>Desempleo estructural:</strong> Personas formadas para un mundo que no existe, no calificadas para los trabajos que sí hay. USD 10.000–15.000M/año.</p>
+
+<p><strong>En 25 años:</strong> USD 1.500.000–2.250.000 millones acumulados en pérdidas. Y un costo que ninguna tabla captura: el talento desperdiciado de millones de personas que nunca descubrieron lo que podían ser. ¿Cuántos científicos perdimos? ¿Cuántos artistas? ¿Cuántos emprendedores? No lo sabremos nunca.</p>`,
+      pullQuote: 'La Argentina pierde entre USD 50.000 y 75.000 millones por año por no educar bien a su gente. Es el costo más grande que paga el país, y el único que nadie presupuesta.',
+      stats: [
+        { label: 'Costo de la ignorancia / año', value: 'USD 50-75 mil M' },
+        { label: 'Fuga de cerebros / año', value: '~30.000 profesionales' },
+        { label: 'Pérdida acumulada (25 años)', value: 'USD 1,5-2,25 B M' },
+        { label: 'Sin nivel mínimo matemáticas', value: '69%' },
+      ],
+    },
+    elDisenoIdeal: {
+      title: 'El Diseño Ideal',
+      content: `<p>PLANEDU reemplaza el currículo enciclopédico obsoleto con <strong>Siete Capacidades</strong> — dimensiones integradas del saber humano que se desarrollan simultáneamente y se demuestran a través de la creación:</p>
+
+<p><strong>1. CREAR</strong> — Arte, diseño, ingeniería, emprendimiento, programación creativa. El corazón del currículo.</p>
+<p><strong>2. CUIDAR</strong> — Salud, inteligencia emocional, ecología práctica, relación con la tierra (integración PLANISV).</p>
+<p><strong>3. PENSAR</strong> — Matemática aplicada, lógica, pensamiento científico, detección de falacias, pensamiento sistémico.</p>
+<p><strong>4. COMUNICAR</strong> — Español avanzado, inglés fluido (B2/C1 a los 16), tercer idioma opcional (lengua originaria).</p>
+<p><strong>5. CONSTRUIR</strong> — Carpintería, electricidad, fabricación digital, programación, robótica, cultivo.</p>
+<p><strong>6. COLABORAR</strong> — Trabajo en equipo real, liderazgo, negociación, participación cívica.</p>
+<p><strong>7. CONOCER</strong> — Ciencias integradas, culturas, saberes originarios, autoconocimiento, ética.</p>
+
+<p><strong>Maestros Creadores:</strong> Seleccionados del tercio superior, formados en 5 años, con salario piso de 1,5× el mediano profesional (~USD 1.200-1.500/mes inicial, escalando a USD 2.500+). Carrera por mérito: 4 niveles hasta Maestro Referente Nacional.</p>
+
+<p><strong>AI Socrática como Co-Tutor:</strong> Cada alumno con un asistente de IA personalizado que pregunta más de lo que responde — guiando hacia el descubrimiento, no dictando respuestas. Plataforma Argentina de Aprendizaje (PAA) desarrollada como infraestructura soberana.</p>
+
+<p><strong>Aprendizaje por Dominio:</strong> Avanzás cuando demostrás que sabés, no cuando el calendario dice. Se terminó la farsa del "aprobé con 4".</p>
+
+<p><strong>Portfolio reemplaza al boletín:</strong> Cada alumno egresa con un cuerpo de creaciones reales — no con un papel.</p>
+
+<p><strong>500 Escuelas del Futuro:</strong> Laboratorios vivientes distribuidos en todo el país, abiertos 14 horas/día, 350 días/año, sirviendo a toda la comunidad.</p>
+
+<p><strong>ANCE:</strong> Agencia Nacional de Calidad Educativa — ente autárquico, blindado contra el ciclo electoral, con directorio de 9 miembros (docentes, académicos, familias, sindicatos, estudiantes) y piso presupuestario del 0,5% del PBI.</p>`,
+      pullQuote: 'No les enseñemos a nuestros hijos a ganarse la vida. Enseñémosles a crear una vida que valga la pena ser vivida — y que haga del mundo un lugar mejor para todos.',
+      stats: [
+        { label: 'Capacidades centrales', value: '7' },
+        { label: 'Escuelas del Futuro', value: '500' },
+        { label: 'ROI estimado (20 años)', value: '8:1 a 12:1' },
+        { label: 'Salario docente objetivo', value: 'USD 1.200-3.500/mes' },
+      ],
+    },
+    elCamino: {
+      overview: 'PLANEDU se despliega en 4 fases, trabajando hacia atrás desde una Argentina en el top 20 mundial de educación, con bilingüismo universal, docencia como profesión de élite, y la PAA usada por 50 millones de hispanohablantes.',
+      steps: [
+        {
+          id: 1,
+          title: 'Argentina: referente educativo mundial',
+          description: 'Top 20 en evaluaciones internacionales. 70% de egresados secundarios con nivel B2+ de inglés. La profesión de Maestro Creador entre las 3 más prestigiosas del país. PAA usada por 50 millones de hispanohablantes en 12+ países. Tasa de graduación secundaria >85%. Primera generación completa de egresados PLANEDU en el mercado laboral — la más creativa, capaz y empática que Argentina produjo.',
+          timeline: 'Año 10-15 — META',
+          dependencies: [],
+          orderIndex: 1,
+        },
+        {
+          id: 2,
+          title: 'Irradiación: 500 Escuelas del Futuro',
+          description: '500 Escuelas del Futuro operativas en todas las provincias. 25.000 Maestros Creadores formados y activos. PAA disponible para todo el sistema educativo (12M estudiantes). Escuelas convencionales adoptan elementos del modelo voluntariamente. Salario docente alcanza niveles objetivo en EdF. Primeras exportaciones de PAA y metodología. Argentina top 30 en PISA con cohortes EdF.',
+          timeline: 'Año 5-10',
+          dependencies: ['Argentina: referente educativo mundial'],
+          orderIndex: 2,
+        },
+        {
+          id: 3,
+          title: 'Demostración: 50 Escuelas del Futuro',
+          description: '50 Escuelas del Futuro operando a régimen completo. 5.000 Maestros Creadores activos. PAA v1.0 desplegada en las 50 EdF. Primera evaluación de impacto: diferencia medible entre EdF y convencionales. Build in Public: documentación abierta de éxitos y fracasos. Programa de bilingüismo con inmersión en inglés desde los 4 años.',
+          timeline: 'Año 3-5',
+          dependencies: ['Irradiación: 500 Escuelas del Futuro'],
+          orderIndex: 3,
+        },
+        {
+          id: 4,
+          title: 'Siembra: ANCE, currículo y cohorte fundacional',
+          description: 'Creación de la ANCE por ley del Congreso. Diseño del currículo de Siete Capacidades con equipos interdisciplinarios. Selección de 2.000 Maestros Creadores fundacionales (mejores docentes existentes) + Residencia de Transformación de 12 meses. Inicio de construcción/adaptación de 50 escuelas. Prototipo de la PAA. Diseño del portfolio. Campaña "La educación que merecemos". Pacto de la Dignidad con sindicatos docentes.',
+          timeline: 'Mes 0-24',
+          dependencies: ['Demostración: 50 Escuelas del Futuro'],
+          orderIndex: 4,
+        },
+      ],
+    },
+    kpis: [
+      {
+        id: 'posicion-pisa',
+        metric: 'Posición PISA (lectura)',
+        currentValue: 63,
+        targetValue: 20,
+        unit: 'puesto mundial',
+        source: 'PISA 2022 / Objetivo PLANEDU',
+        milestones: [
+          { date: 'Año 5', targetValue: 50 },
+          { date: 'Año 10', targetValue: 30 },
+          { date: 'Año 15', targetValue: 20 },
+        ],
+      },
+      {
+        id: 'graduacion-secundaria',
+        metric: 'Tasa de Graduación Secundaria',
+        currentValue: 53,
+        targetValue: 85,
+        unit: '%',
+        source: 'Observatorio Argentinos por la Educación',
+        milestones: [
+          { date: 'Año 5', targetValue: 60 },
+          { date: 'Año 10', targetValue: 75 },
+          { date: 'Año 15', targetValue: 85 },
+        ],
+      },
+      {
+        id: 'bilinguismo-b2',
+        metric: 'Bilingüismo B2+ Inglés (egresados 16 años)',
+        currentValue: 5,
+        targetValue: 70,
+        unit: '%',
+        source: 'PLANEDU — Objetivo Pilar IV',
+        milestones: [
+          { date: 'Año 5', targetValue: 15 },
+          { date: 'Año 10', targetValue: 40 },
+          { date: 'Año 15', targetValue: 70 },
+        ],
+      },
+      {
+        id: 'escuelas-del-futuro',
+        metric: 'Escuelas del Futuro Operativas',
+        currentValue: 0,
+        targetValue: 500,
+        unit: 'escuelas',
+        source: 'PLANEDU — Pilar III',
+        milestones: [
+          { date: 'Año 3', targetValue: 50 },
+          { date: 'Año 7', targetValue: 200 },
+          { date: 'Año 10', targetValue: 500 },
+        ],
+      },
+      {
+        id: 'maestros-creadores',
+        metric: 'Maestros Creadores Formados',
+        currentValue: 0,
+        targetValue: 25000,
+        unit: 'docentes',
+        source: 'PLANEDU — Pilar I',
+        milestones: [
+          { date: 'Año 2', targetValue: 2000 },
+          { date: 'Año 5', targetValue: 5000 },
+          { date: 'Año 10', targetValue: 25000 },
+        ],
+      },
+      {
+        id: 'salario-docente',
+        metric: 'Salario Docente Promedio (EdF)',
+        currentValue: 500,
+        targetValue: 2500,
+        unit: 'USD/mes',
+        source: 'PLANEDU — Tabla de Escalamiento Salarial',
+        milestones: [
+          { date: 'Año 3', targetValue: 1200 },
+          { date: 'Año 7', targetValue: 1800 },
+          { date: 'Año 12', targetValue: 2500 },
+        ],
+      },
+    ],
+    tags: ['educación', 'maestros creadores', 'siete capacidades', 'inteligencia artificial', 'bilingüismo', 'portfolio', 'escuelas del futuro'],
+    relatedInitiativeSlugs: ['planisv-infraestructura-suelo-vivo', 'plan24cn-24-ciudades-nuevas', 'planrep-reconversion-empleo-publico'],
+    sources: [
+      { title: 'PLANEDU — Plan Nacional de Refundación Educativa (Documento Estratégico, Mar 2026)' },
+      { title: 'PISA 2022 — Resultados Argentina (OCDE)' },
+      { title: 'Observatorio Argentinos por la Educación — Indicadores educativos' },
+      { title: 'Hanushek & Woessmann — The Knowledge Capital of Nations (2015)' },
+      { title: 'Heckman — The Economics of Human Potential (Perry Preschool / Abecedarian)' },
       { title: 'Russell Ackoff — Idealized Design (Metodología)' },
     ],
   },
