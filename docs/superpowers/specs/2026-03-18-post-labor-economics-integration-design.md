@@ -81,13 +81,15 @@ Ambos documentos adoptan un framework temporal explícito con transiciones basad
 
 ### 3.1 Modificaciones a secciones existentes
 
-#### M1: Preámbulo (líneas 24-57)
+#### M1: Preámbulo (líneas 24-57) — Dos inserciones
 
-**Qué cambia:** Agregar párrafo después de la crítica al sistema educativo como "fábrica de obreros del siglo XX".
+**Inserción 1 — después de línea 30** (después de "Ese mundo ya no existe. Pero la escuela sigue preparando gente para habitarlo."):
 
 **Contenido nuevo:** El sistema educativo no solo prepara para un mundo que ya no existe — ni siquiera se está preparando para el mundo que viene. Un mundo donde la AI y la robótica transforman radicalmente qué significa "trabajar", dónde una parte creciente de la producción no requiere manos humanas, y donde el desafío central ya no es "conseguir empleo" sino "diseñar una vida con sentido". PLANEDU no puede repetir el error de diseñar educación para el empleo de 2026 cuando los egresados de 2040 van a vivir en un mundo fundamentalmente distinto. Por eso PLANEDU está diseñado en tres horizontes temporales — y construye desde el día uno las capacidades para que cada argentino pueda navegar la transición más profunda de la historia humana.
 
-**También en el preámbulo:** Insertar el marco metodológico de Primera Mejor Alternativa + Humildad Epistémica: "Todo lo que PLANEDU propone es la primera mejor alternativa basada en la mejor evidencia disponible en 2026. El plan está diseñado para escuchar, aprender y adaptarse. Los mecanismos de adaptación son concretos: los Paneles Ciudadanos deliberan, la ANCE evalúa, el Dashboard publica, y el sistema se ajusta. Un plan que no cambia no es un plan sabio — es un plan arrogante."
+**Inserción 2 — justo antes de la Tesis Central (línea 57)**, como último párrafo del preámbulo antes de "Tesis Central:":
+
+**Contenido nuevo:** "Todo lo que PLANEDU propone es la primera mejor alternativa basada en la mejor evidencia disponible en 2026. El plan está diseñado para escuchar, aprender y adaptarse. Los mecanismos de adaptación son concretos: los Paneles Ciudadanos deliberan, la ANCE evalúa, el Dashboard publica, y el sistema se ajusta. Un plan que no cambia no es un plan sabio — es un plan arrogante."
 
 #### M2: Sección 4.1 — Tabla 8 "Escuela Fábrica vs. Taller de Humanidad"
 
@@ -100,24 +102,41 @@ Ambos documentos adoptan un framework temporal explícito con transiciones basad
 
 **Qué cambia:** No se agrega una octava capacidad. Se profundizan dos existentes.
 
-**CONOCER se amplía para incluir:**
+**CONOCER** (línea 299) — se mantiene la descripción existente y se agregan sub-bullets después del texto actual, manteniendo el formato `**7. CONOCER** — texto existente`:
+
 - Autoconocimiento existencial: quién soy más allá de lo que hago por trabajo
 - Alfabetización económica post-laboral: entender fideicomisos de propósito perpetuo, DNP, economía de contribución, licencia social de automatización
 - Pensamiento de futuros: scenario planning como habilidad ciudadana — no predecir el futuro sino prepararse para múltiples futuros posibles
 
-**CREAR se amplía para incluir:**
+**CREAR** (línea 287) — se mantiene la descripción existente y se agregan sub-bullets después del texto actual, manteniendo el formato `**1. CREAR** — texto existente`:
+
 - Crear sentido: no solo crear objetos, obras o proyectos sino diseñar tu vida como tu obra maestra
 - Crear contribución: diseñar formas de aportar valor a tu comunidad que no requieren un empleador
 
-#### M4: Sección 7.4 — KPIs del Tablero Nacional de Educación (Tabla 12)
+**Nota de formato:** Las otras cinco capacidades (CUIDAR, PENSAR, COMUNICAR, CONSTRUIR, COLABORAR) no se modifican. La expansión de CONOCER y CREAR con sub-bullets es coherente visualmente porque son las dos capacidades más directamente impactadas por la transición post-laboral.
 
-**Qué cambia:** Se agregan KPIs para Horizontes 2 y 3.
+#### M4: Sección 7.4 — KPIs del Tablero Nacional de Educación (Tabla en línea 502, "TABLA 12: KPIs del Tablero Nacional de Educación")
 
-| KPI nuevo | Medición | Target Año 10 | Target Año 15 |
-|---|---|---|---|
-| Capacidad de generar valor sin empleo formal | Portfolio de contribución independiente | 30% de egresados EdF con proyecto de contribución activo | 60% |
-| Alfabetización post-laboral | Evaluación de comprensión de DNP, fideicomisos, economía de contribución | 50% de alumnos de 16+ demuestran comprensión | 80% |
-| Participación en deliberación de futuro económico | Registro de participación en Paneles Ciudadanos de Futuro | 10% de egresados participaron antes de los 20 | 25% |
+**Qué cambia:** Se agregan 3 filas nuevas al final de la tabla existente (línea 502), usando el mismo formato de 6 columnas. También se modifica la fila existente "Inserción laboral/universitaria" (línea 513).
+
+**Filas nuevas (mismas 6 columnas que la tabla existente):**
+
+| Indicador | Medición | Target Año 5 | Target Año 10 | Target Año 15 | Responsable |
+|---|---|---|---|---|---|
+| Capacidad de generar valor sin empleo formal | Portfolio de contribución independiente evaluado por ANCE | Programa piloto en 10 EdF | 30% de egresados EdF con proyecto de contribución activo | 60% | ANCE |
+| Alfabetización post-laboral | Evaluación de comprensión de DNP, fideicomisos, economía de contribución | Módulo integrado en currículo de EdF | 50% de alumnos de 16+ demuestran comprensión | 80% | ANCE |
+| Participación en deliberación de futuro económico | Registro de participación en Paneles Ciudadanos de Futuro | Paneles simulados operativos en 50 EdF | 10% de egresados participaron antes de los 20 | 25% | ANCE + Paneles Ciudadanos |
+
+**Modificación de fila existente (línea 513):**
+- **De:** "Inserción laboral/universitaria de egresados EdF"
+- **A:** "Inserción laboral, universitaria o contributiva de egresados EdF" (se agrega "o contributiva" para reflejar que el empleo formal no es el único indicador de éxito)
+
+#### M4b: Sección 2.4 — Medición (línea 236)
+
+**Qué cambia:** En la lista de prioridades de medición del nuevo sistema.
+
+**De:** "portfolios, inserción laboral, bienestar"
+**A:** "portfolios, inserción laboral y capacidad de contribución, bienestar"
 
 #### M5: Sección 12.3 — Pasantías
 
@@ -125,13 +144,35 @@ Ambos documentos adoptan un framework temporal explícito con transiciones basad
 
 Las pasantías en empresas son experiencia de Horizonte 1 y se mantienen. Se agregan **Residencias de Contribución** para Horizonte 2: el alumno pasa tiempo en un Nodo de Actividad (ex-Centro de la Vida) contribuyendo a un proyecto comunitario — no como empleado sino como contribuidor. Aprende que "hacer algo que importa" no requiere un empleador. La residencia se documenta en el Portfolio Ciudadano Único.
 
-#### M6: Sección 18 — Visión 2040
+#### M6: Sección 18 — Visión 2040 (líneas 1285-1327)
 
-**Qué cambia:** La historia de Valentina se reescribe completamente.
+**Qué cambia:** La historia de Valentina se reescribe completamente. Esto requiere una pasada de escritura creativa dedicada que mantenga la voz literaria rioplatense del original.
 
-**Esencia de la nueva Valentina:** Valentina recibe un DNP que cubre sus necesidades básicas. *Elige* trabajar en diseño urbano porque le da sentido, no porque necesite el ingreso. Su portfolio de contribución — los filtros de agua instalados, el informe al municipio, la mentoría a chicos más jóvenes — amplifica su DNP a través de la Economía de la Contribución. No busca empleo: diseña su vida. Participa en un Panel Ciudadano de Futuro Económico donde delibera con otros ciudadanos sobre cómo debería evolucionar el modelo. Vive en una sociedad que está en plena transición — con incertidumbre, pero con herramientas para navegarla colectivamente.
+**Estructura a mantener:** El formato hora-por-hora del día de Valentina se preserva (es una de las secciones más potentes del documento). Las horas y actividades se adaptan para reflejar el mundo post-laboral.
 
-**La tabla del portfolio se ajusta:** En vez de "ofertas de 3 universidades y 2 empresas", Valentina tiene un Portfolio Ciudadano con contribuciones verificadas, un DNP base, ingresos amplificados por contribución, y la libertad de elegir su camino.
+**Guía detallada para la reescritura:**
+
+1. **Contexto de Valentina**: Misma edad (16), misma escuela (EdF Juana Azurduy, Resistencia, Chaco), mismo origen socioeconómico. Pero vive en una Argentina donde el DNP piloto acaba de activarse en Chaco (una de las primeras provincias). Su mamá recibe DNP + ingreso de contribución por su trabajo en un Nodo de Actividad.
+
+2. **Cambios en las actividades horarias:**
+   - 7:30 Llegada: se mantiene similar, pero mencionar que el barrio tiene un Nodo de Contribución además de la EdF
+   - 8:00 Proyecto de equipo: se mantiene (río Negro) — agregar que el proyecto se registra en su Portfolio Ciudadano Único
+   - 9:45 AI co-tutor: se mantiene — agregar módulo de alfabetización post-laboral (Valentina entiende cómo funcionan los fideicomisos que financian su DNP)
+   - 11:00 Almuerzo: se mantiene
+   - 13:00 Cambiar de "Pasantía en estudio de arquitectura" a **Residencia de Contribución en un Nodo de Actividad**: Valentina contribuye al diseño de un espacio comunitario, no como empleada sino como contribuidora. Su trabajo se registra en el Portfolio Ciudadano.
+   - 16:30 English Club: se mantiene
+   - 18:00 Makerspace / Capstone: se mantiene el filtro de agua — agregar que el impacto (120 personas con agua potable) está verificado en su Portfolio Ciudadano y amplifica el DNP de su familia
+
+3. **Cambios en la tabla del portfolio (líneas 1305-1312):**
+   - Eliminar "ofertas de 3 universidades y 2 empresas" (línea 1314)
+   - Reemplazar con: Valentina tiene un Portfolio Ciudadano con contribuciones verificadas, un DNP base que cubre sus necesidades, ingresos amplificados por contribución, y la libertad de elegir su camino. Participa en un Panel Ciudadano de Futuro Económico de Chaco.
+
+4. **Cambios en el párrafo de cierre (líneas 1316-1318):**
+   - Mantener la esencia: "la confianza tranquila de alguien que sabe lo que puede hacer"
+   - Agregar: Valentina no busca empleo — diseña su vida. Y participa activamente en diseñar el futuro económico de su comunidad.
+
+5. **Cambios en "La Argentina de 2040 en un párrafo" (líneas 1322-1324):**
+   - Reemplazar la proyección de pleno empleo con una visión de transición: Argentina está en medio de la transición más profunda de su historia. El DNP piloto funciona en 8 provincias. Los fideicomisos generan retornos crecientes. La Economía de la Contribución opera a escala. La sociedad delibera activamente sobre el modelo de Horizonte 3. No es una utopía resuelta — es una sociedad que aprendió a diseñar su futuro colectivamente.
 
 ### 3.2 Secciones nuevas en PLANEDU
 
@@ -170,7 +211,7 @@ Las pasantías en empresas son experiencia de Horizonte 1 y se mantienen. Se agr
 
 **Contenido nuevo:** La definición de trabajo como "actividad mediante la cual un ser humano transforma el mundo y se transforma a sí mismo" se mantiene. Se agrega: esa transformación no requiere un empleador, un salario, ni un mercado. Requiere propósito, herramientas y comunidad. PLANREP en su Horizonte 1 reconvierte personas hacia empleo digno porque eso es lo que el mundo de 2026 necesita. Pero PLANREP se diseña sabiendo que el mundo de 2040 va a necesitar algo diferente — y construye desde el día uno la infraestructura para esa evolución.
 
-**También:** Insertar marco de Primera Mejor Alternativa + Escucha Activa: "Todo lo que PLANREP propone — las Ocho Ramas, el Artesano Aumentado, los fideicomisos, el DNP, la Economía de la Contribución — es la primera mejor alternativa. Fue diseñada con la mejor evidencia, la mejor intención y el mejor juicio disponibles en 2026. Pero PLANREP sabe algo que los planes anteriores no sabían: que está equivocado en formas que todavía no puede ver. Por eso no solo propone una solución — propone un sistema de escucha activa que detecta cuándo la solución deja de funcionar y la reemplaza por una mejor. Los Paneles Ciudadanos deliberan. Los dashboards miden. La ANCE evalúa. Y el plan se adapta. No por debilidad — por inteligencia. Un plan que no escucha no es fuerte: es sordo. Y un plan sordo en un siglo de cambio exponencial es un plan muerto."
+**Inserción del marco Primera Mejor Alternativa** — entre el blockquote de línea 38 ("No hay nada más violento...") y la Tesis Central de línea 40: "Todo lo que PLANREP propone — las Ocho Ramas, el Artesano Aumentado, los fideicomisos, el DNP, la Economía de la Contribución — es la primera mejor alternativa. Fue diseñada con la mejor evidencia, la mejor intención y el mejor juicio disponibles en 2026. Pero PLANREP sabe algo que los planes anteriores no sabían: que está equivocado en formas que todavía no puede ver. Por eso no solo propone una solución — propone un sistema de escucha activa que detecta cuándo la solución deja de funcionar y la reemplaza por una mejor. Los Paneles Ciudadanos deliberan. Los dashboards miden. La ANCE evalúa. Y el plan se adapta. No por debilidad — por inteligencia. Un plan que no escucha no es fuerte: es sordo. Y un plan sordo en un siglo de cambio exponencial es un plan muerto."
 
 #### M8: Tesis Central (línea 40)
 
@@ -212,21 +253,42 @@ El módulo de 40 horas no es formación única sino primer ciclo de formación c
 
 **Se agrega módulo de Reconstrucción de Identidad Productiva:** Cada Centro de la Vida incluye un proceso estructurado donde la persona explora quién es más allá de su puesto. Qué sabe hacer, qué le importa, qué quiere dejar en el mundo. Es la versión adulta del autoconocimiento de PLANEDU y el puente psicológico entre Horizonte 1 (me reconvierto hacia un oficio) y Horizonte 2 (diseño mi vida como contribuidor).
 
-#### M11: Tabla 7 — Vulnerabilidad a la AI (líneas 371-389)
+#### M11: Tabla 7 — Vulnerabilidad a la AI (líneas 371-389) — COMPLEMENTO de M9, no reemplazo
 
-**Qué cambia:** Se agrega dimensión temporal.
+**Relación con M9:** M9 reescribe la sección 2.5 (líneas 365-394) y agrega la **Tabla 7b** (vulnerabilidad futura por RAMA). M11 modifica la **Tabla 7 original** (vulnerabilidad por TIPO DE TRABAJO, líneas 371-389) que está DENTRO de esa sección. **Orden de operaciones:** Primero aplicar M9 (reescribir sección, mantener Tabla 7 existente dentro, agregar Tabla 7b después). Luego aplicar M11 a la Tabla 7 existente que quedó dentro de la sección reescrita.
 
-Cada fila de la tabla actual recibe columnas adicionales: "Vulnerabilidad 2026" (la actual), "Vulnerabilidad Proyectada 2040", "Vulnerabilidad Proyectada 2050+". Las categorías "MUY BAJA" y "NULA" se recalifican como "MUY BAJA (2026)" con proyecciones según escenario. Esto no invalida Horizonte 1 — lo refuerza mostrando que PLANREP eligió las ramas con mayor ventana de protección. Pero no miente sobre la ventana.
+**Qué cambia en Tabla 7:** Se agregan dos columnas a la derecha: "Vulnerabilidad Proyectada 2040" y "Vulnerabilidad Proyectada 2050+". Las categorías "MUY BAJA" y "NULA" actuales se renombran a "MUY BAJA (2026)" y "NULA (2026)" para explicitar que son evaluaciones temporales. Cada fila recibe proyecciones según escenario medio.
+
+**Resultado:** La sección 2.5 reescrita contiene DOS tablas complementarias:
+- **Tabla 7** (modificada): vulnerabilidad por tipo de trabajo, con dimensión temporal
+- **Tabla 7b** (nueva): vulnerabilidad por rama específica, con tres escenarios
+
+Juntas dan una visión completa: qué tipos de trabajo resisten (Tabla 7) y cómo se comporta cada rama concreta (Tabla 7b).
 
 #### M12: Visión 2040 (líneas 2214-2242)
 
-**Qué cambia:** Reescritura completa.
+**Qué cambia:** Reescritura completa. Requiere pasada de escritura creativa dedicada.
 
-**Nueva visión:** Un mundo en transición. Algunas ramas están parcialmente automatizadas. Los Centros de la Vida se están transformando en Nodos de Contribución. El DNP piloto está activo en varias provincias. La Economía de la Contribución opera a escala creciente. La sociedad está en plena deliberación sobre el modelo económico de Horizonte 3. No es una utopía resuelta — es una sociedad que aprendió a diseñar su futuro colectivamente y que está en medio de la transición más importante de la historia humana. Con incertidumbre, pero con herramientas para navegarla.
+**Estructura a mantener:** La Visión 2040 de PLANREP tiene subsecciones temáticas (El Estado que funciona / Las 24 ciudades / Los suelos vivos / etc.). Se mantiene esa estructura pero se agregan 2 subsecciones nuevas y se ajustan las proyecciones cuantitativas.
+
+**Subsecciones nuevas a insertar:**
+- "Los Fideicomisos que Sostienen" — los fideicomisos generan X retornos, el DNP piloto está activo en Y provincias
+- "La Economía que Escucha" — los Paneles Ciudadanos llevan una década deliberando, el modelo v2.0 está en implementación
+
+**Ajustes a proyecciones cuantitativas existentes:**
+- Mantener las cifras de Ocho Ramas pero agregar nota: "algunas ramas están en transición hacia el modelo de contribución"
+- La cifra de 400K en Economía de la Inteligencia se mantiene pero se contextualiza: muchos trabajan desde Nodos de Contribución, no desde empleos tradicionales
+- PBI per cápita y reducción de pobreza: mantener proyecciones pero atribuir parte del impacto al DNP
+
+**Tono:** No utopía resuelta sino transición en curso. Argentina está en medio del cambio más profundo de su historia. Con incertidumbre, pero con herramientas para navegarla colectivamente.
+
+**Párrafo de cierre "El momento" (líneas 2236-2240):** Se preserva la esencia del instante del Hombre Gris pero se amplía: el despertar ya no es solo "encontrar un oficio" — es descubrir que podés diseñar tu vida como contribuidor en una sociedad que te garantiza un piso de dignidad.
 
 ### 4.2 Secciones nuevas en PLANREP
 
-#### N4: Nueva Sección — "Los Fideicomisos de Propósito Perpetuo"
+**Ubicación de N4-N8:** Las cinco secciones nuevas se insertan como un bloque cohesivo titulado **"SECCIÓN 15: INFRAESTRUCTURA PARA LA TRANSICIÓN POST-LABORAL"** entre la actual Sección 14 (Integración con el Proyecto BASTA, que termina ~línea 2200) y la actual Sección 15 (El Llamado / cierre del documento). La actual Sección 15 se renumera como Sección 16. Dentro de la nueva Sección 15, cada N es una subsección: 15.1 (N4), 15.2 (N5), 15.3 (N6), 15.4 (N7), 15.5 (N8).
+
+#### N4: Nueva Subsección 15.1 — "Los Fideicomisos de Propósito Perpetuo"
 
 **Título:** "Infraestructura Económica para Tres Generaciones"
 
@@ -323,6 +385,40 @@ Precedentes internacionales: propuestas de Bill Gates (robot tax), esquema de So
 - **Transparencia:** Todas las deliberaciones son públicas. Todos los datos están abiertos. Todos los modelos son auditables. Build in public como método, no como slogan.
 - **Integración con PLANEDU:** Los alumnos de 16+ participan en paneles simulados y luego en paneles reales. La educación no es preparación para el futuro: es participación activa en su diseño.
 
+### 4.3 Cambios adicionales en PLANREP (identificados en revisión)
+
+#### M13: Suavizar lenguaje de certeza "a prueba de IA" en todo el documento
+
+**Qué cambia:** M9 reescribe la sección 2.5 con humildad epistémica, pero el mismo lenguaje de certeza absoluta aparece en otros pasajes de PLANREP que quedarían en contradicción. Se suavizan todos:
+
+| Ubicación | Texto actual (aproximado) | Texto nuevo |
+|---|---|---|
+| ~Línea 344 | "Las ocho ramas de la Economía de la Vida son a prueba de IA" | "Las ocho ramas de la Economía de la Vida son, según la mejor evidencia de 2026, las más resistentes a la automatización" |
+| ~Línea 394 | "empleos del futuro permanente — los que ninguna revolución tecnológica va a eliminar" | "los empleos con mayor resiliencia ante la revolución tecnológica — y la infraestructura para adaptarse cuando esa resiliencia se erosione" |
+| ~Línea 1000 | "Estas ramas son a prueba de automatización porque requieren presencia física..." | "Estas ramas son las más resistentes a la automatización actual porque requieren presencia física... (ver Tabla 7b para proyecciones temporales)" |
+| ~Línea 1516 | "Es local, es físico, es hermoso, y es a prueba de IA" | "Es local, es físico, es hermoso — y hoy, es lo más resistente que tenemos a la automatización" |
+| ~Línea 2188 | "El 'doble blindaje': irremplazables por máquinas Y potenciados por ellas" | "El 'doble blindaje' de hoy: las más difíciles de reemplazar por máquinas Y potenciadas por ellas — un blindaje que se refuerza con los mecanismos de adaptación de Horizonte 2 y 3" |
+
+**Principio:** En cada caso se mantiene la confianza en la estrategia de Horizonte 1 pero se elimina la certeza absoluta. El tono pasa de "esto es para siempre" a "esto es lo mejor que tenemos y estamos preparados para cuando cambie".
+
+#### M14: Actualizar cross-references entre PLANEDU y PLANREP
+
+**En PLANREP (~línea 2200):**
+- **De:** "Esa integración se desarrollará integralmente cuando PLANEDU se presente como plan complementario"
+- **A:** Referencia directa a las secciones de PLANEDU que abordan fideicomisos (N2), Portfolio Ciudadano (N3), y educación para tres futuros (N1). "PLANEDU — el plan de refundación educativa del proyecto BASTA — integra la preparación para la transición post-laboral en su currículo: los alumnos aprenden sobre fideicomisos y DNP (Capacidad CONOCER), participan en Paneles Ciudadanos simulados (Capacidad COLABORAR), y construyen su Portfolio Ciudadano Único desde los 6 años."
+
+**En PLANEDU Sección 17 — Tablas de integración BASTA (líneas 1222-1241):**
+- Agregar fila en Tabla 35 (PLANEDU aporta a PLANREP): "Alfabetización post-laboral | Egresados que entienden fideicomisos, DNP, Economía de la Contribución, y participan activamente en Paneles Ciudadanos de Futuro Económico"
+- Agregar fila en Tabla 36 (PLANEDU recibe de PLANREP): "Infraestructura post-laboral | Fideicomisos de Propósito Perpetuo, DNP, Nodos de Contribución como destinos para egresados, Economía de la Contribución como marco de actividad post-escolar"
+
+### 4.4 Nota sobre renumeración de secciones
+
+**En PLANEDU:** N1 se inserta entre Secciones 4 y 5 como nueva **Sección 5: "Educar para Tres Futuros"**. Las secciones actuales 5-19 se renumeran como 6-20. N2 y N3 se insertan después de la nueva Sección 18 (ex-17, Integración BASTA) como **Sección 19: "Los Fideicomisos y la Educación"** y **Sección 20: "El Portfolio Ciudadano Único"**. Las secciones ex-18 y ex-19 se renumeran como 21 y 22.
+
+**En PLANREP:** N4-N8 se insertan como un bloque (nueva Sección 15 con 5 subsecciones). La actual Sección 15 (El Llamado) se renumera como Sección 16.
+
+**Todas las referencias internas a números de sección en ambos documentos deben actualizarse.**
+
 ---
 
 ## 5. Principio Transversal: Primera Mejor Alternativa + Escucha Activa
@@ -369,34 +465,39 @@ El DNP es derecho incondicional. La contribución es elección, no obligación. 
 
 ## 7. Resumen de Cambios
 
-### PLANEDU — 9 cambios
+### PLANEDU — 11 cambios
 
-| ID | Tipo | Sección | Descripción |
+| ID | Tipo | Ubicación exacta | Descripción |
 |---|---|---|---|
-| M1 | Modificación | Preámbulo | Agregar párrafo sobre futuro post-laboral + marco Primera Mejor Alternativa |
-| M2 | Modificación | 4.1 Tabla 8 | Ampliar "Egresado ideal" |
-| M3 | Modificación | 4.2 Siete Capacidades | Profundizar CONOCER y CREAR |
-| M4 | Modificación | 7.4 KPIs | Agregar KPIs post-laborales |
-| M5 | Modificación | 12.3 Pasantías | Agregar Residencias de Contribución |
-| M6 | Modificación | 18 Visión 2040 | Reescribir historia de Valentina |
-| N1 | Nueva sección | Entre 4 y 5 | "Educar para Tres Futuros" |
-| N2 | Nueva sección | Después de 17 | "Los Fideicomisos y la Educación" |
-| N3 | Nueva sección | Después de N2 | "El Portfolio Ciudadano Único" |
+| M1 | Modificación | Preámbulo: inserción 1 tras línea 30, inserción 2 antes de línea 57 | Párrafo sobre futuro post-laboral + marco Primera Mejor Alternativa |
+| M2 | Modificación | Sección 4.1, Tabla 8, fila "Egresado ideal" | Ampliar con "independientemente de su situación laboral" |
+| M3 | Modificación | Sección 4.2, líneas 287 (CREAR) y 299 (CONOCER) | Agregar sub-bullets post-laborales a dos capacidades |
+| M4 | Modificación | Sección 7.4, Tabla en línea 502 + línea 513 | Agregar 3 filas KPI + modificar fila inserción laboral |
+| M4b | Modificación | Sección 2.4, línea 236 | Agregar "y capacidad de contribución" a prioridades de medición |
+| M5 | Modificación | Sección 12.3 | Agregar Residencias de Contribución |
+| M6 | Modificación | Sección 18, líneas 1285-1327 | Reescribir historia de Valentina (pasada creativa, ver guía detallada) |
+| M14 (parcial) | Modificación | Sección 17, Tablas 35-36 (líneas 1222-1241) | Agregar filas de integración post-laboral con PLANREP |
+| N1 | Nueva sección | Nueva Sección 5 (entre actuales 4 y 5, renumerar downstream) | "Educar para Tres Futuros" |
+| N2 | Nueva sección | Nueva Sección 19 (tras actual 17, renumerada como 18) | "Los Fideicomisos y la Educación" |
+| N3 | Nueva sección | Nueva Sección 20 (tras N2) | "El Portfolio Ciudadano Único" |
 
-### PLANREP — 11 cambios
+### PLANREP — 14 cambios
 
-| ID | Tipo | Sección | Descripción |
+| ID | Tipo | Ubicación exacta | Descripción |
 |---|---|---|---|
-| M7 | Modificación | Preámbulo | Ampliar definición de trabajo + marco Primera Mejor Alternativa |
-| M8 | Modificación | Tesis Central | Agregar tres horizontes |
-| M9 | Modificación | 2.5 AI-proof | Reescribir con honestidad + Tabla 7b escenarios |
-| M10 | Modificación | Artesano Aumentado | Redefinir como identidad evolutiva + módulo identidad |
-| M11 | Modificación | Tabla 7 | Agregar dimensión temporal de vulnerabilidad |
-| M12 | Modificación | Visión 2040 | Reescribir como transición, no utopía resuelta |
-| N4 | Nueva sección | — | Fideicomisos de Propósito Perpetuo |
-| N5 | Nueva sección | — | Licencia Social de Automatización |
-| N6 | Nueva sección | — | Dividendo Nacional de Productividad |
-| N7 | Nueva sección | — | Economía de la Contribución |
-| N8 | Nueva sección | — | Paneles Ciudadanos de Futuro Económico |
+| M7 | Modificación | Preámbulo: tras línea 28, marco PMA entre líneas 38-40 | Ampliar definición de trabajo + marco Primera Mejor Alternativa |
+| M8 | Modificación | Tesis Central, línea 40, al final | Agregar tres horizontes |
+| M9 | Modificación | Sección 2.5, líneas 365-394 (reescritura completa, mantener Tabla 7 interna) | Reescribir con honestidad + agregar Tabla 7b después de Tabla 7 |
+| M10 | Modificación | Definición Artesano Aumentado, líneas 342-360 | Redefinir como identidad evolutiva + módulo identidad |
+| M11 | Modificación | Tabla 7, líneas 371-389 (DENTRO de M9) | Agregar 2 columnas temporales. Aplicar DESPUÉS de M9 |
+| M12 | Modificación | Visión 2040, líneas 2214-2242 (pasada creativa) | Reescribir como transición, agregar 2 subsecciones, ajustar cifras |
+| M13 | Modificación | ~5 pasajes distribuidos (~líneas 344, 394, 1000, 1516, 2188) | Suavizar lenguaje "a prueba de IA" en todo el documento |
+| M14 (parcial) | Modificación | ~Línea 2200 | Actualizar cross-reference a PLANEDU |
+| N4 | Nueva subsección | Nueva Sección 15.1 (entre actual Sección 14 y actual Sección 15) | Fideicomisos de Propósito Perpetuo |
+| N5 | Nueva subsección | Nueva Sección 15.2 | Licencia Social de Automatización |
+| N6 | Nueva subsección | Nueva Sección 15.3 | Dividendo Nacional de Productividad |
+| N7 | Nueva subsección | Nueva Sección 15.4 | Economía de la Contribución |
+| N8 | Nueva subsección | Nueva Sección 15.5 | Paneles Ciudadanos de Futuro Económico |
+| — | Renumeración | Actual Sección 15 → Sección 16 | Renumerar cierre del documento |
 
-### Total: 20 cambios (6 modificaciones + 3 secciones nuevas en PLANEDU; 6 modificaciones + 5 secciones nuevas en PLANREP)
+### Total: 25 cambios (8 modificaciones + 3 secciones nuevas en PLANEDU; 8 modificaciones + 5 secciones nuevas + 1 renumeración en PLANREP)
