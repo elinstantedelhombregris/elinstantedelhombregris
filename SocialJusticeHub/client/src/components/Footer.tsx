@@ -1,7 +1,13 @@
 import { Link } from 'wouter';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Facebook, Twitter, Instagram, Youtube, ArrowRight, Mail, Shield } from 'lucide-react';
+import { Facebook, Instagram, Youtube, ArrowRight, Mail, Shield } from 'lucide-react';
+
+const XIcon = ({ size = 18 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+  </svg>
+);
 
 const Footer = () => {
   const handleSubmit = (e: React.FormEvent) => {
@@ -34,9 +40,14 @@ const Footer = () => {
               Un movimiento de consciencia colectiva para rediseñar Argentina desde los valores, la visión y la acción.
             </p>
             <div className="flex gap-4 pt-2">
-              {[Facebook, Twitter, Instagram, Youtube].map((Icon, i) => (
-                <a key={i} href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white transition-all duration-300">
-                  <Icon size={18} />
+              {[
+                { icon: <XIcon size={18} />, href: 'https://x.com/ElInstanteDelHG' },
+                { icon: <Instagram size={18} />, href: 'https://www.instagram.com/elinstantedelhombregris' },
+                { icon: <Facebook size={18} />, href: 'https://www.facebook.com/profile.php?id=61580779013855' },
+                { icon: <Youtube size={18} />, href: 'https://www.youtube.com/@elinstantedelhombregris777' },
+              ].map((social, i) => (
+                <a key={i} href={social.href} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white transition-all duration-300">
+                  {social.icon}
                 </a>
               ))}
             </div>
