@@ -37,13 +37,13 @@ Este documento no es una reforma educativa. Las reformas educativas las hacemos 
 
 La respuesta de PLANEDU es concreta: construiríamos un sistema cuyo propósito no es producir trabajadores, ni ciudadanos, ni consumidores, sino **seres humanos capaces de crear las mejores experiencias humanas posibles — para sí mismos, para los que los rodean, y para el mundo**. Seres humanos que sepan pensar con rigor, crear con belleza, comunicar con claridad, cuidar con empatía, construir con sus manos, colaborar con inteligencia, y conocer con profundidad. No especialistas estrechos. No generalistas superficiales. Personas completas, potentes, creativas, compasivas — personas que hagan del mundo un lugar mejor por el solo hecho de habitarlo.
 
-PLANEDU forma parte de lo que llamamos el **Cuadrilátero BASTA** — cuatro iniciativas estratégicas interconectadas que abordan las crisis estructurales que la Argentina arrastra como cadenas: PLAN24CN (las 24 ciudades nuevas que descomprimen el colapso urbano), PLANREP (la reconversión del empleo público hacia trabajo creador), PLANISV (la reconstrucción de la infraestructura biológica del suelo) y PLANEDU (la refundación del sistema educativo). Cuatro documentos. Un solo diagnóstico: la Argentina tiene todos los recursos — naturales, humanos, culturales, geográficos — para ser un país extraordinario, y un sistema diseñado para impedirlo. BASTA.
+PLANEDU forma parte de lo que llamamos el **proyecto BASTA** — cinco iniciativas estratégicas fundacionales interconectadas que abordan las crisis estructurales que la Argentina arrastra como cadenas: PLAN24CN (las 24 ciudades nuevas que descomprimen el colapso urbano), PLANREP (la reconversión del empleo público hacia trabajo creador), PLANISV (la reconstrucción de la infraestructura biológica del suelo), PLANEDU (la refundación del sistema educativo) y PLANJUS (la justicia popular y resolución de conflictos). Cinco iniciativas. Un solo diagnóstico: la Argentina tiene todos los recursos — naturales, humanos, culturales, geográficos — para ser un país extraordinario, y un sistema diseñado para impedirlo. BASTA.
 
-Y de las cuatro iniciativas, PLANEDU es la que determina si las otras tres sobreviven al paso del tiempo. Podés construir 24 ciudades perfectas, pero si la gente que las habita no tiene la formación para cuidarlas, gobernarlas y hacerlas evolucionar, se deterioran en una generación. Podés reconvertir un millón de empleados públicos, pero si el sistema educativo sigue produciendo gente sin habilidades, sin iniciativa y sin capacidad de crear valor, en diez años tenés otro millón pidiendo puesto en el Estado. Podés regenerar cada hectárea de suelo argentino, pero si los hijos de los productores no entienden la biología del suelo porque nadie se la enseñó, vuelven al glifosato en cuanto cambian de generación.
+Y de las cinco iniciativas, PLANEDU es la que determina si las otras cuatro sobreviven al paso del tiempo. Podés construir 24 ciudades perfectas, pero si la gente que las habita no tiene la formación para cuidarlas, gobernarlas y hacerlas evolucionar, se deterioran en una generación. Podés reconvertir un millón de empleados públicos, pero si el sistema educativo sigue produciendo gente sin habilidades, sin iniciativa y sin capacidad de crear valor, en diez años tenés otro millón pidiendo puesto en el Estado. Podés regenerar cada hectárea de suelo argentino, pero si los hijos de los productores no entienden la biología del suelo porque nadie se la enseñó, vuelven al glifosato en cuanto cambian de generación.
 
 La educación no es una política pública más. Es **el sistema operativo** de todas las demás. Si funciona mal, todo lo demás falla eventualmente. Si funciona bien, todo lo demás se vuelve posible.
 
-Hay una filosofía que atraviesa las cuatro iniciativas del Cuadrilátero. La llamamos *El Instante del Hombre Gris*. La premisa es simple: vivimos en una sociedad que apaga a las personas — que les roba la capacidad de crear, de sentir su potencia, de transformar el mundo con sus manos y su inteligencia. Personas dormidas, en piloto automático, reducidas a engranajes de un sistema que no las necesita despiertas. El sistema educativo argentino es la máquina principal de ese apagón. No por maldad — por diseño. Un sistema que premia la repetición sobre la creación, la obediencia sobre la curiosidad, la memorización sobre la comprensión, y el título sobre la capacidad — es un sistema diseñado para mantener a la gente dormida. Gente que cumple pero no crea. Que obedece pero no pregunta. Que trabaja pero no vive.
+Hay una filosofía que atraviesa las cinco iniciativas del proyecto BASTA. La llamamos *El Instante del Hombre Gris*. La premisa es simple: vivimos en una sociedad que apaga a las personas — que les roba la capacidad de crear, de sentir su potencia, de transformar el mundo con sus manos y su inteligencia. Personas dormidas, en piloto automático, reducidas a engranajes de un sistema que no las necesita despiertas. El sistema educativo argentino es la máquina principal de ese apagón. No por maldad — por diseño. Un sistema que premia la repetición sobre la creación, la obediencia sobre la curiosidad, la memorización sobre la comprensión, y el título sobre la capacidad — es un sistema diseñado para mantener a la gente dormida. Gente que cumple pero no crea. Que obedece pero no pregunta. Que trabaja pero no vive.
 
 El Hombre Gris es lo contrario de esa persona dormida. El Hombre Gris es el que **despierta**. Gris como el acero que se pule hasta brillar. Gris como la piedra que contiene el diamante. Gris como el amanecer antes de que el sol estalle. El Hombre Gris es el que decide despolarizarse — salir de los extremos, encontrar su centro, encender su espíritu, pulir su carácter. No es un estado de carencia — es un estado de transformación. Es la persona que dice: *basta de vivir apagado*.
 
@@ -235,7 +235,7 @@ De los éxitos internacionales — Finlandia, Singapur, Estonia, Ontario — eme
 4. **Co-diseño con los que implementan.** Los docentes, los directores, las familias, las empresas — todos participan en el diseño. Lo que se impone desde arriba, fracasa desde abajo.
 5. **Medición de lo que importa.** No exámenes estandarizados de memorización. Evaluación de capacidades reales, portfolios, inserción laboral, bienestar. Si medís lo fácil en vez de lo importante, optimizás la métrica equivocada.
 
-PLANEDU incorpora las cinco constantes. La ANCE es la institución autónoma. Los Maestros Creadores son el docente primero. El Pacto de la Dignidad es el co-diseño con los sindicatos. El portfolio es la medición de lo que importa. Y el Cuadrilátero BASTA es el compromiso de largo plazo — cuatro documentos diseñados para sobrevivir al ciclo electoral.
+PLANEDU incorpora las cinco constantes. La ANCE es la institución autónoma. Los Maestros Creadores son el docente primero. El Pacto de la Dignidad es el co-diseño con los sindicatos. El portfolio es la medición de lo que importa. Y el proyecto BASTA es el compromiso de largo plazo — cinco iniciativas estratégicas diseñadas para sobrevivir al ciclo electoral.
 ## SECCIÓN 3: EL INGREDIENTE — POR QUÉ CAMBIARÍA UN DOCENTE, UN PADRE, UN ALUMNO
 
 > *"Nadie cambia por un decreto. Cambian cuando ven algo mejor y sienten que lo pueden alcanzar."*
@@ -754,7 +754,7 @@ PLANEDU no pretende que la transformación educativa sea barata. Pretende que se
 | 12 | 7.0% | +2.0% | ~10.000 | Régimen: todas las fuentes consolidadas | 500 EdF + transformación sistémica en curso |
 
 **Supuestos clave:**
-- Crecimiento del PBI: 2-3% anual promedio (conservador, dado efecto combinado del Cuadrilátero BASTA)
+- Crecimiento del PBI: 2-3% anual promedio (conservador, dado efecto combinado de las iniciativas BASTA)
 - PBI base: ~USD 500.000M (2026), creciendo a ~USD 650.000-700.000M en Año 12
 - Cada 0.1% de un PBI de USD 600.000M = USD 600M
 - Ahorro PLANREP: comienza en Año 3 con ~USD 3.000M/año, escala a ~USD 15.000M/año en Año 8+
@@ -1194,25 +1194,26 @@ Si la Fase 2 demuestra que el modelo funciona, la Fase 3 lo escala. De 50 escuel
 
 ---
 
-## SECCIÓN 17: INTEGRACIÓN CON EL CUADRILÁTERO BASTA — EL ORGANISMO COMPLETO
+## SECCIÓN 17: INTEGRACIÓN CON EL PROYECTO BASTA — EL ORGANISMO COMPLETO
 
-> *"PLANEDU no existe solo. Es un órgano de un organismo. Sin los otros tres, late pero no vive. Con los otros tres, transforma todo."*
+> *"PLANEDU no existe solo. Es un órgano de un organismo. Sin los otros cuatro, late pero no vive. Con los otros cuatro, transforma todo."*
 
-PLANEDU es la cuarta pieza de un rompecabezas que solo funciona completo. Cada documento del Cuadrilátero BASTA — PLAN24CN, PLANISV, PLANREP, PLANEDU — aborda una crisis específica, pero las cuatro crisis están interconectadas y las cuatro soluciones se potencian mutuamente. Un egresado de PLANEDU que vive en una ciudad de PLAN24CN, come alimentos de un campo PLANISV, y trabaja en un emprendimiento nacido de PLANREP es un argentino que vive en un ecosistema completo de bienestar — no en un parche aislado.
+PLANEDU es una de las cinco piezas de un rompecabezas que solo funciona completo. Cada iniciativa del proyecto BASTA — PLAN24CN, PLANISV, PLANREP, PLANEDU, PLANJUS — aborda una crisis específica, pero las cinco crisis están interconectadas y las cinco soluciones se potencian mutuamente. Un egresado de PLANEDU que vive en una ciudad de PLAN24CN, come alimentos de un campo PLANISV, y trabaja en un emprendimiento nacido de PLANREP es un argentino que vive en un ecosistema completo de bienestar — no en un parche aislado.
 
 ### 17.1 El Aula Viva: La Educación que Sale del Edificio
 
-Las Escuelas del Futuro no terminan en sus paredes. PLANEDU propone que cada alumno, durante su trayectoria escolar, participe en rotaciones inmersivas por las otras tres iniciativas del Cuadrilátero. No como excursión turística — como experiencia formativa profunda, integrada en el currículo, evaluada como parte del portfolio.
+Las Escuelas del Futuro no terminan en sus paredes. PLANEDU propone que cada alumno, durante su trayectoria escolar, participe en rotaciones inmersivas por las otras cuatro iniciativas del proyecto BASTA. No como excursión turística — como experiencia formativa profunda, integrada en el currículo, evaluada como parte del portfolio.
 
-**TABLA 34: El Aula Viva — Rotaciones Inmersivas del Cuadrilátero**
+**TABLA 34: El Aula Viva — Rotaciones Inmersivas BASTA**
 
 | Rotación | Duración | Edad | Capacidades que Desarrolla | Qué Hace el Alumno | Conexión BASTA |
 |---|---|---|---|---|---|
 | **Semana PLANISV** (en un sitio de restauración de suelo o finca regenerativa) | 5-7 días (2 veces en la trayectoria: a los 10 y a los 15) | 10 y 15 años | CUIDAR + CONOCER + CONSTRUIR + COLABORAR | Trabaja con las manos en el suelo: analiza microbiología, planta coberturas, mide infiltración de agua, cocina con lo que cosecha. Documenta todo para su portfolio. Convive con productores reales. | La biología del suelo deja de ser un capítulo de un libro y se convierte en tierra bajo las uñas |
 | **Semana PLAN24CN** (en una ciudad nueva en construcción o ya habitada) | 5-7 días (2 veces: a los 12 y a los 16) | 12 y 16 años | PENSAR + CREAR + COLABORAR + COMUNICAR | Participa en un taller de diseño urbano real: analiza cómo se diseñó la ciudad, propone mejoras, entrevista a habitantes, mapea flujos. Presenta sus conclusiones al Consejo Ciudadano de la ciudad. | El urbanismo como creación colectiva — la ciudad no es algo que te pasa, es algo que se diseña |
 | **Semana PLANREP** (en un Centro de la Vida o Centro de Inteligencia) | 5-7 días (1 vez, a los 14) | 14 años | CONSTRUIR + CREAR + CUIDAR + CONOCER | Trabaja junto a adultos en reconversión: aprende un oficio artesanal durante una semana, ve a personas adultas aprendiendo cosas nuevas, entiende que el aprendizaje no termina a los 18. Produce una pieza artesanal que se suma a su portfolio. | La educación no es solo para chicos. Ver a un adulto de 45 años aprendiendo carpintería cambia la perspectiva de un adolescente sobre el aprendizaje para siempre |
+| **Semana PLANJUS** (en una Casa JUS o panel ciudadano) | 5-7 días (1 vez, a los 16) | 16 años | PENSAR + COMUNICAR + COLABORAR + CUIDAR | Estudiantes visitan Casas JUS, observan paneles ciudadanos en acción, participan en casos simulados, aprenden resolución de conflictos y justicia restaurativa | Comprensión de justicia como servicio comunitario, no como institución lejana |
 
-**El efecto de polinización cruzada:** Cuando un alumno de 15 años vuelve de una semana en una finca PLANISV y cuenta en su Escuela del Futuro lo que aprendió sobre micorrizas, sobre la relación entre suelo y agua, sobre el amanecer trabajando con las manos — está haciendo algo que ningún libro de texto puede hacer: está transmitiendo experiencia vivida. Y cuando un productor de PLANISV ve a un grupo de adolescentes analizando su suelo con instrumentos científicos y explicándole en qué consiste la red de micorrizas que sostiene sus cultivos, está viendo el futuro de la producción argentina. El Cuadrilátero se convierte en un aula viva donde cada pieza educa a las otras.
+**El efecto de polinización cruzada:** Cuando un alumno de 15 años vuelve de una semana en una finca PLANISV y cuenta en su Escuela del Futuro lo que aprendió sobre micorrizas, sobre la relación entre suelo y agua, sobre el amanecer trabajando con las manos — está haciendo algo que ningún libro de texto puede hacer: está transmitiendo experiencia vivida. Y cuando un productor de PLANISV ve a un grupo de adolescentes analizando su suelo con instrumentos científicos y explicándole en qué consiste la red de micorrizas que sostiene sus cultivos, está viendo el futuro de la producción argentina. El proyecto BASTA se convierte en un aula viva donde cada pieza educa a las otras.
 
 ### 17.2 Lo Que PLANEDU Aporta a Cada Iniciativa
 
@@ -1239,18 +1240,19 @@ Las Escuelas del Futuro no terminan en sus paredes. PLANEDU propone que cada alu
 | **Red de pasantías** | Empresas y organizaciones de ciudades nuevas como sitios de pasantía para alumnos EdF | Fincas y sitios PLANISV como destinos de pasantía y rotación inmersiva | Centros de la Vida como sitios de pasantía: alumnos trabajan junto a adultos en reconversión |
 | **Legitimidad social** | La calidad de las ciudades nuevas valida el proyecto BASTA entero | La mejora visible del campo valida la filosofía del cuidado que PLANEDU enseña | La reconversión exitosa de adultos valida la promesa de que la educación transforma vidas a cualquier edad |
 
-### 17.4 El Efecto Multiplicador del Cuadrilátero
+### 17.4 El Efecto Multiplicador del Proyecto BASTA
 
-Ninguna de las cuatro iniciativas funciona a su máximo potencial sin las otras tres. El efecto no es aditivo — es multiplicador.
+Ninguna de las cinco iniciativas funciona a su máximo potencial sin las otras cuatro. El efecto no es aditivo — es multiplicador.
 
 **TABLA 37: Efecto Multiplicador BASTA**
 
-| Sin Cuadrilátero (cada plan solo) | Con Cuadrilátero (los 4 integrados) | Multiplicador |
+| Sin integración (cada plan solo) | Con BASTA (los 5 integrados) | Multiplicador |
 |---|---|---|
 | PLANEDU forma buenos alumnos que egresan a ciudades que no funcionan | PLANEDU forma buenos alumnos que habitan ciudades diseñadas para el bienestar (PLAN24CN) | ×2-3 en impacto sobre calidad de vida |
 | PLANISV capacita productores que no consiguen mano de obra formada | PLANISV recibe egresados de PLANEDU que entienden biología del suelo y eligen producción regenerativa | ×2 en adopción de prácticas regenerativas |
 | PLANREP reconvierte adultos que no encuentran demanda para sus oficios | PLANREP reconvierte adultos hacia ciudades nuevas (PLAN24CN) que necesitan carpinteros, cocineros, artesanos, cuidadores | ×3 en tasa de inserción laboral post-reconversión |
 | PLAN24CN construye ciudades con habitantes que no están preparados para gobernarlas | PLAN24CN recibe habitantes formados por PLANEDU en pensamiento crítico, participación cívica, y cuidado ambiental | ×2 en calidad de gobernanza participativa |
+| PLANEDU + PLANJUS: Justicia lenta e inaccesible | Panelistas formados en PLANEDU; conflictos educativos resueltos en 45 días; justicia como capacidad cívica enseñada en escuelas | ×2-3 en confianza ciudadana en el sistema de justicia |
 
 ---
 
@@ -1354,7 +1356,7 @@ La respuesta es: para que cada argentino pueda vivir la mejor vida posible y ayu
 
 ---
 
-**PLANEDU es el cuarto documento del Cuadrilátero BASTA.**
+**PLANEDU es una de las cinco iniciativas fundacionales del proyecto BASTA.**
 
 | Documento | Crisis que Aborda | Visión |
 |---|---|---|
@@ -1362,7 +1364,8 @@ La respuesta es: para que cada argentino pueda vivir la mejor vida posible y ayu
 | **PLANISV** | Degradación del suelo y la producción | Suelo vivo como infraestructura estratégica nacional — 39 millones de hectáreas restauradas, producción regenerativa, soberanía alimentaria |
 | **PLANREP** | Empleo público improductivo y trampa fiscal | Reconversión de 1.5 millones de personas hacia trabajo creador — la Economía de la Vida y la Economía de la Inteligencia como destino |
 | **PLANEDU** | Sistema educativo obsoleto que apaga a las personas en vez de encenderlas | Refundación educativa para la soberanía del conocimiento humano — Siete Capacidades, Maestros Creadores, y la promesa de que cada argentino tenga su instante y se convierta en Hombre Gris |
+| **PLANJUS** | Justicia lenta, corrupta e inaccesible; el pueblo no confía en el sistema | Justicia popular en 15/45/90 días — paneles ciudadanos por sorteo, anticorrupción por diseño, justicia restaurativa, Casas JUS en cada municipio |
 
-**Cuatro documentos. Un solo propósito: que la Argentina sea el mejor lugar del planeta para vivir una experiencia humana.**
+**Cinco iniciativas. Un solo propósito: que la Argentina sea el mejor lugar del planeta para vivir una experiencia humana.**
 
 **BASTA.**

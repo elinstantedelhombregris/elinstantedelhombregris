@@ -2106,9 +2106,9 @@ La principal debilidad del plan radica en su vulnerabilidad frente a la volatili
 
 ---
 
-## SECCIÓN 14: INTEGRACIÓN CON OTRAS INICIATIVAS ESTRATÉGICAS — EL CUADRILÁTERO BASTA
+## SECCIÓN 14: INTEGRACIÓN CON OTRAS INICIATIVAS ESTRATÉGICAS — EL PROYECTO BASTA
 
-Con la incorporación de la Economía de la Inteligencia como segundo pilar de PLANREP, la integración con las demás iniciativas estratégicas se amplifica. Cuatro vértices. Cuatro dimensiones de una misma transformación.
+Con la incorporación de la Economía de la Inteligencia como segundo pilar de PLANREP, la integración con las demás iniciativas estratégicas se amplifica. Cinco pilares fundacionales. Cinco dimensiones de una misma transformación.
 
 ### 14.1 PLANREP + PLAN24CN (24 Ciudades Nuevas)
 
@@ -2166,16 +2166,16 @@ PLANREP no es solo un programa social. Es un motor económico dual:
 - Posiciona a la Argentina en la economía del conocimiento. No como consumidora de tecnología importada, sino como exportadora de talento potenciado por IA. La zona horaria, el nivel educativo base y el costo de vida hacen de Argentina una plataforma de exportación de servicios de inteligencia artificial con ventajas comparativas reales.
 - Crea un efecto multiplicador: cada dólar que entra por exportación de servicios IA genera actividad económica local (alquiler, comida, transporte, servicios) que beneficia a toda la comunidad, incluidos los egresados de la Vida.
 
-### 14.4 El Cuadrilátero BASTA
+### 14.4 El Proyecto BASTA
 
-Cuatro vértices. Cuatro dimensiones. Un solo proyecto.
+Cinco pilares fundacionales. Cinco dimensiones. Un solo proyecto.
 
 - **PLAN24CN** — las ciudades donde vivir.
 - **PLANISV** — el suelo donde crecer.
 - **PLANREP-Vida** — las ocho ramas del trabajo vivo: manos para construir, personas para cuidar, bocas para alimentar, ojos para reparar.
 - **PLANREP-Inteligencia** — las mentes para competir.
 
-**TABLA 20: El Cuadrilátero BASTA — Sinergias**
+**TABLA 20: BASTA — Sinergias**
 
 | Intersección | Sinergia | Impacto |
 |---|---|---|
@@ -2186,19 +2186,32 @@ Cuatro vértices. Cuatro dimensiones. Un solo proyecto.
 | Suelo + Vida (La Mesa) | Alimentos de suelos remediados → gastronomía de origen → marca país | Ciclo completo campo→mesa→mundo |
 | Suelo + Inteligencia | Agricultura de precisión con IA; monitoreo ecológico con drones y sensores | Productividad 5x con huella ambiental 1/3 |
 | Vida + Inteligencia | Artesano Aumentado: cada egresado de la Vida usa IA para potenciar su oficio | El "doble blindaje": irremplazables por máquinas Y potenciados por ellas |
-| Las 4 juntas | El Cuadrilátero BASTA: sistema completo de transformación nacional | USD 30-50B/año de nuevo valor económico; 2M+ empleos genuinos |
+| Reconversión + Justicia | PLANJUS resuelve conflictos laborales de la reconversión en 15-45 días | Garantía de que ningún trabajador reconvertido queda en limbo legal |
+| Las 5 juntas | BASTA: sistema completo de transformación nacional | USD 30-50B/año de nuevo valor económico; 2M+ empleos genuinos |
 
-Ciudades donde vivir. Suelo para crecer alimentos. Ocho ramas de trabajo vivo para construir, cuidar, alimentar, reparar, crear. Mentes para competir en el mundo. Los cuatro vértices se necesitan mutuamente. Sin ciudades, ¿dónde trabajan los egresados? Sin suelo sano, ¿de qué se alimentan las ciudades? Sin las ocho ramas, ¿quién construye, quién cuida, quién alimenta, quién repara? Sin mentes, ¿cómo compite el país?
+Ciudades donde vivir. Suelo para crecer alimentos. Ocho ramas de trabajo vivo para construir, cuidar, alimentar, reparar, crear. Mentes para competir en el mundo. Justicia para proteger todo lo construido. Los cinco pilares se necesitan mutuamente. Sin ciudades, ¿dónde trabajan los egresados? Sin suelo sano, ¿de qué se alimentan las ciudades? Sin las ocho ramas, ¿quién construye, quién cuida, quién alimenta, quién repara? Sin mentes, ¿cómo compite el país? Sin justicia, ¿quién protege al que transiciona?
 
-No son cuatro programas separados: son cuatro dimensiones del mismo proyecto de transformación nacional. Cada uno funciona solo — pero juntos, son un sistema. Un sistema donde el egresado de El Refugio construye la ciudad de PLAN24CN, el egresado de La Reparación restaura los suelos de PLANISV, el egresado de La Mesa alimenta a la ciudad con productos de esos suelos, el egresado de El Amparo cuida a los ancianos de la ciudad, y el egresado de la Inteligencia gestiona todo eso con IA desde su Centro de Inteligencia.
+No son cinco programas separados: son cinco dimensiones del mismo proyecto de transformación nacional. Cada uno funciona solo — pero juntos, son un sistema. Un sistema donde el egresado de El Refugio construye la ciudad de PLAN24CN, el egresado de La Reparación restaura los suelos de PLANISV, el egresado de La Mesa alimenta a la ciudad con productos de esos suelos, el egresado de El Amparo cuida a los ancianos de la ciudad, y el egresado de la Inteligencia gestiona todo eso con IA desde su Centro de Inteligencia.
 
 Eso es BASTA: **B**ienestar, **A**limentación, **S**istemas inteligentes, **T**erritorio, **A**utonomía. No es un acrónimo pensado para marketing — es la síntesis operativa de lo que la Argentina necesita para dejar de ser un país que administra su decadencia y empezar a ser un país que construye su futuro.
+
+Y PLANJUS — Justicia Popular — es el sistema inmunológico que protege a las cinco letras. Sin justicia rápida y accesible, los trabajadores reconvertidos no tienen protección legal durante su transición.
 
 PLANREP se integrará además con **PLANEDU** (Plan Nacional de Educación), actualmente en desarrollo, que diseñará la conexión bidireccional entre el sistema educativo formal y la infraestructura de formación de PLANREP. Los Centros de la Vida, en su etapa de consolidación, se transformarán en instituciones permanentes del sistema de educación técnica argentino — una alternativa vocacional para jóvenes de 18+ que eligen no ir a la universidad, y una fuente de Maestros de Oficio para las escuelas técnicas. Esa integración se desarrollará integralmente cuando PLANEDU se presente como plan complementario.
 
 > *"No hacen falta milagros. Hacen falta manos, mentes, tierra y ciudades. Todo lo demás es excusa."*
 
-### 14.5 Visión 2040: La Argentina Reconvertida
+### 14.5 PLANREP + PLANJUS: Justicia para la Reconversión
+
+La reconversión de cientos de miles de empleados públicos genera, inevitablemente, conflictos. Disputas con empleadores anteriores, incumplimientos de contratos de formación, controversias sobre bonos de impacto social, conflictos entre cooperativas de egresados y proveedores. Sin un mecanismo de resolución rápida, esos conflictos se convierten en limbo legal — y el limbo mata la confianza en el programa.
+
+**Conflictos laborales de la transición resueltos en 45 días.** El trabajador en reconversión que enfrenta una disputa con su empleador anterior — liquidación final, certificaciones de servicio, derechos adquiridos — accede a PLANJUS JUS-2 (juicio completo) y obtiene resolución vinculante en un máximo de 45 días. No en 3 años. No en 7. En 45 días.
+
+**Disputas de formación y emprendimiento resueltas en 15 días.** Los contratos de formación entre egresados y Centros de Oficios, los conflictos por bonos de impacto social entre inversores y cooperativas, las disputas entre microemprendedores y proveedores — todo se resuelve en PLANJUS JUS-1 (resolución simple) en 15 días. La velocidad protege al más débil: el egresado que está empezando.
+
+**El Pacto de la Transición con dientes.** PLANREP propone un pacto social entre Estado, trabajadores y sector productivo. PLANJUS es la garantía de que ese pacto tiene enforcement real. Si el Estado no cumple con el ingreso de transición, el trabajador tiene recurso. Si el egresado no cumple con su compromiso de formación, el programa tiene recurso. Si la empresa que contrata egresados incumple condiciones laborales, PLANJUS actúa. Sin justicia, el pacto es papel. Con PLANJUS, es contrato.
+
+### 14.6 Visión 2040: La Argentina Reconvertida
 
 Imaginemos la Argentina en 2040. No como fantasía, sino como resultado directo de las decisiones que se toman hoy.
 

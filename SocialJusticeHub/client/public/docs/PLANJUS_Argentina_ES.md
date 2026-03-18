@@ -51,7 +51,7 @@ PLANJUS no viene a reformar el sistema judicial. Viene a darle al pueblo argenti
 > *"Donde no hay justicia es peligroso tener razón."*
 > — Francisco de Quevedo
 
-**Tesis Central:** El sistema judicial argentino no necesita una reforma más — necesita una alternativa que lo reemplace por excelencia. PLANJUS propone un sistema de justicia popular basado en **tres niveles de resolución** (JUS-1 para conflictos simples en 15 días, JUS-2 para conflictos medianos en 45 días, JUS-3 para conflictos complejos en 90 días); **paneles ciudadanos seleccionados por sorteo democrático** (no jueces de carrera sino ciudadanos capacitados, elegidos al azar, que rotan para ser incapturables); un **triple candado anticorrupción** (imposibilidad estructural + transparencia radical + incentivos económicos que hacen que corromperse sea irracional); **Casas JUS** en cada municipio del país como puntos de acceso físico; una **plataforma digital** para resolución remota de casos simples; **justicia restaurativa** como principio rector (reparar el daño, no solo castigar al responsable); **eliminación del requisito de abogado obligatorio** para acceder a PLANJUS; y una **estrategia de absorción gradual** que comienza como complemento del sistema judicial, se convierte en la opción preferida del pueblo por su velocidad y justicia, y termina siendo el sistema de facto — sin necesidad de destruir el viejo, simplemente dejándolo morir de inanición mientras el nuevo lo supera en todo. El marco institucional se sostiene en la **ANJUS** (Agencia Nacional de Justicia Popular) — ente autárquico, blindado contra el ciclo electoral, con financiamiento constitucional protegido — y en una **Ley de Justicia Popular** que habilita los mecanismos sin requerir reforma constitucional inmediata. El costo estimado es de USD 800–2.500M/año (progresivo en 10 años), financiado por reasignación del presupuesto judicial existente + ahorro por reducción de litigiosidad + contribución del sector privado por eficiencia comercial. El ROI estimado es de 6:1 a 10:1 en 15 años — contando solo el impacto económico directo, sin incluir el valor incalculable de una sociedad que vuelve a confiar en la justicia.
+**Tesis Central:** El sistema judicial argentino no necesita una reforma más — necesita una alternativa que lo reemplace por excelencia. PLANJUS propone un sistema de justicia popular basado en **tres niveles de resolución** (JUS-1 para conflictos simples en 15 días, JUS-2 para conflictos medianos en 45 días, JUS-3 para conflictos complejos en 90 días); **paneles ciudadanos seleccionados por sorteo democrático** (no jueces de carrera sino ciudadanos capacitados, elegidos al azar, que rotan para ser incapturables); un **triple candado anticorrupción** (imposibilidad estructural + transparencia radical + incentivos económicos que hacen que corromperse sea irracional); **Casas JUS** en cada municipio del país como puntos de acceso físico; una **plataforma digital** para resolución remota de casos simples; **justicia restaurativa** como principio rector (reparar el daño, no solo castigar al responsable); **eliminación del requisito de abogado obligatorio** para acceder a PLANJUS; y una **estrategia de absorción gradual** que comienza como complemento del sistema judicial, se convierte en la opción preferida del pueblo por su velocidad y justicia, y termina siendo el sistema de facto — sin necesidad de destruir el viejo, simplemente dejando que evolucione en función de la demanda popular — un sistema que la gente elige libremente porque resuelve mejor, más rápido, y con más justicia. El marco institucional se sostiene en la **ANJUS** (Agencia Nacional de Justicia Popular) — ente autárquico, blindado contra el ciclo electoral, con financiamiento constitucional protegido — y en una **Ley de Justicia Popular** que habilita los mecanismos sin requerir reforma constitucional inmediata. El costo estimado es de USD 800–2.500M/año (progresivo en 10 años), financiado por reasignación del presupuesto judicial existente + ahorro por reducción de litigiosidad + contribución del sector privado por eficiencia comercial. El ROI estimado es de 6:1 a 10:1 en 15 años — contando solo el impacto económico directo, sin incluir el valor incalculable de una sociedad que vuelve a confiar en la justicia.
 
 ---
 
@@ -69,13 +69,13 @@ Los números no mienten:
 
 | Indicador | Dato | Contexto |
 |---|---|---|
-| Duración promedio de un juicio civil | 3–6 años | Países con mejores prácticas: 6–12 meses |
-| Duración promedio de un juicio laboral | 3–5 años | El trabajador espera sin cobrar |
-| Duración de causas por corrupción | 4.161 días (~11,4 años) | La impunidad tiene un mecanismo: el tiempo |
-| Presos sin condena (sobre total de presos) | >50% | Personas encarceladas sin haber sido juzgadas |
-| Presupuesto del Poder Judicial Nacional | ~96% en salarios | Solo el 4% se invierte en tecnología, infraestructura, mejora |
-| Empleados del Poder Judicial federal | ~24.500 | Uno de los poderes judiciales más costosos per cápita de la región |
-| Confianza ciudadana en la justicia | <20% | Entre las instituciones con menor confianza en encuestas nacionales |
+| Duración promedio de un juicio civil | 3–6 años (práctica forense habitual) | Países con mejores prácticas: 6–12 meses |
+| Duración promedio de un juicio laboral | 3–5 años (práctica forense habitual) | El trabajador espera sin cobrar |
+| Duración de causas por corrupción | ~14 años promedio (ACIJ, 2024) | La impunidad tiene un mecanismo: el tiempo |
+| Presos sin condena (sobre total de presos) | ~46% (SNEEP, 2024) — mejora reciente pero aún crítico | Personas encarceladas sin haber sido juzgadas |
+| Presupuesto del Poder Judicial Nacional | ~96% en salarios (AJB/CIyF, 2024) | Solo el 4% se invierte en tecnología, infraestructura, mejora |
+| Empleados del Poder Judicial federal | ~24.500 (Consejo de la Magistratura) | Uno de los poderes judiciales más costosos per cápita de la región |
+| Confianza ciudadana en la justicia | <20% (Latinobarómetro, 2024) | Entre las instituciones con menor confianza en encuestas nacionales |
 | Causas ingresadas vs. resueltas por año | Ingreso supera resolución | El backlog crece cada año — el sistema se ahoga |
 | Costo promedio de un juicio para el ciudadano | USD 2.000–15.000+ | Honorarios de abogado + tasas + costos indirectos (tiempo, estrés) |
 | Ganancias promedio de un juez federal | Top 5% de ingresos del país | Superiores a las de un médico, ingeniero o científico |
@@ -274,7 +274,7 @@ El paradigma actual dice: la justicia es **castigo**. Alguien hizo algo malo, ha
 
 PLANJUS dice: la justicia es **reparación**. Alguien sufrió un daño, hay que repararlo. El foco está en la víctima y en restaurar lo que se rompió — la relación, el patrimonio, la dignidad, la confianza. El resultado ideal es que la víctima sea reparada y que las condiciones que produjeron el daño sean modificadas para que no se repitan.
 
-La evidencia respalda este cambio: meta-análisis de programas de justicia restaurativa muestran un aumento del 63% en la satisfacción de las víctimas comparado con el sistema tradicional, y un aumento equivalente en la percepción de justicia procedimental. Las víctimas que participan en procesos restaurativos sienten que fueron escuchadas, respetadas, y que el resultado tiene sentido — incluso cuando el resultado no es exactamente lo que pedían.
+La evidencia respalda este cambio: meta-análisis de programas de justicia restaurativa (Fulham, Blais, Rugge & Schultheis, 2025) muestran un aumento del 63% en la satisfacción de las víctimas comparado con el sistema tradicional, y un aumento equivalente en la percepción de justicia procedimental. Las víctimas que participan en procesos restaurativos sienten que fueron escuchadas, respetadas, y que el resultado tiene sentido — incluso cuando el resultado no es exactamente lo que pedían.
 
 ---
 
@@ -297,6 +297,29 @@ PLANJUS organiza todos los conflictos en tres niveles según su complejidad. Cad
 | **Formación del panelista** | 2 semanas intensivas + certificación | 4 semanas intensivas + práctica supervisada | 8 semanas + práctica + formación continua |
 | **Compensación del panelista** | Viático + compensación por caso | Salario proporcional al tiempo dedicado | Salario equivalente a profesional calificado |
 | **Apelación** | Panel de apelación (5 miembros) — resolución en 10 días | Panel de apelación (5 miembros) — resolución en 15 días | Panel de apelación (7 miembros) — resolución en 30 días |
+
+### 5.7 Protocolo de Derivación: La Frontera Civil-Penal
+
+PLANJUS resuelve conflictos civiles, comerciales, laborales y de familia. No resuelve casos penales. Pero la vida no respeta categorías legales — y a veces un caso que empieza como civil revela un delito. ¿Qué pasa cuando un reclamo por incumplimiento de contrato descubre un fraude? ¿Cuando una disputa de vivienda revela violencia doméstica? ¿Cuando un conflicto laboral muestra trabajo esclavo?
+
+El Protocolo de Derivación establece cinco pasos claros:
+
+1. **El panel pausa la resolución civil.** En el momento en que cualquier panelista o el sistema de IA identifica indicios de conducta penal, el componente civil del caso se suspende temporalmente.
+2. **Componente penal → derivación automática al Ministerio Público Fiscal.** PLANJUS genera un informe estructurado con la evidencia relevante y lo transmite al MPF dentro de las 24 horas. No es una denuncia que se pierde en una mesa de entradas — es un paquete completo con contexto, evidencia, y análisis preliminar.
+3. **Componente civil puede continuar si las partes consienten.** Si ambas partes aceptan, y el componente civil es separable del penal, el panel puede resolver la parte civil mientras el MPF investiga la penal. Ejemplo: en un incumplimiento de contrato donde se descubre fraude, PLANJUS puede resolver la devolución del dinero (civil) mientras la fiscalía investiga el fraude (penal).
+4. **Medidas protectorias inmediatas.** PLANJUS puede dictar medidas protectorias de emergencia — restricción de acercamiento, embargo preventivo de bienes, protección de testigos — con efecto inmediato y sin esperar al sistema judicial. Estas medidas tienen vigencia de 72 horas, renovables por orden judicial.
+5. **Registro completo y seguimiento.** Cada derivación queda registrada en el sistema con seguimiento de qué pasó con el caso penal. Si el MPF archiva la causa, PLANJUS retoma el componente civil completo.
+
+**Casos fronterizos más comunes:**
+
+| Caso Civil Inicial | Componente Penal Detectado | Acción PLANJUS |
+|---|---|---|
+| Incumplimiento de contrato comercial | Fraude, estafa, falsificación documental | Derivar fraude al MPF; resolver deuda civil si las partes consienten |
+| Conflicto de vivienda / locación | Violencia doméstica, amenazas, usurpación | Medida protectoria inmediata + derivación penal; componente locativo se suspende hasta garantizar seguridad |
+| Reclamo laboral | Trabajo no registrado con componente de trata o explotación | Derivación urgente al MPF + medidas protectorias + componente salarial se resuelve en PLANJUS |
+| Daño ambiental por actividad productiva | Contaminación con tipificación penal (Ley 24.051) | Derivación penal + medida cautelar ambiental inmediata (cese de actividad contaminante) + reparación civil en PLANJUS |
+
+La frontera civil-penal no es una grieta en PLANJUS — es un puente que conecta la justicia rápida con la justicia penal, y que le da al ciudadano protección inmediata mientras el sistema penal (que necesariamente es más lento) hace su trabajo.
 
 ### 5.2 La Columna Vertebral Procedimental — Siete Salvaguardas
 
@@ -425,6 +448,20 @@ El sistema judicial actual tiene ~24.500 empleados a nivel federal y decenas de 
 
 La clave: nadie es expulsado. Se les ofrece un camino mejor. Los que tienen verdadera vocación de justicia van a encontrar en PLANJUS un sistema que les permite hacer justicia de verdad — algo que el sistema actual no les permite. Los que solo estaban por el sueldo y la estabilidad van a tener que adaptarse, pero tendrán las herramientas para hacerlo.
 
+### 6.5 Diversidad y Representatividad de los Panelistas
+
+El sorteo democrático es igualitario en teoría. Pero si el pool del que se sortea no es representativo, el resultado tampoco lo es. PLANJUS enfrenta esto de frente.
+
+**El problema:** Los requisitos de edad mínima de 25 años y educación secundaria completa producen brechas de representación en provincias donde la tasa de finalización secundaria es inferior al 70% — particularmente en el NOA y el NEA, y en comunidades rurales e indígenas. Si no se corrige, el pool de panelistas sobrerepresenta a urbanos, universitarios, y clase media — exactamente lo contrario de lo que PLANJUS necesita.
+
+**Las mitigaciones:**
+
+- **Para JUS-1:** La edad mínima baja a 21 años. Los conflictos simples no requieren la experiencia de vida que justifica el piso de 25 — requieren sentido común, escucha, y las herramientas que la formación JUS-1 provee. Ampliar a 21 incorpora al pool a millones de ciudadanos jóvenes que hoy están excluidos.
+- **Certificación acelerada de justicia cívica:** Para comunidades con baja tasa de finalización secundaria, PLANJUS ofrece una certificación de justicia cívica de 4 semanas que sustituye el requisito de educación secundaria para JUS-1. La certificación cubre lo que un panelista necesita saber — no lo que el sistema educativo formal no le dio. PLANEDU provee programas de completación educativa para quienes quieran acceder a JUS-2 y JUS-3.
+- **Panelistas bilingües e interculturales:** En provincias con población indígena significativa, PLANJUS recluta y forma panelistas que hablan lenguas originarias y conocen las dinámicas comunitarias locales. La justicia no puede ser justa si no habla el idioma de quien la necesita.
+
+**El monitoreo:** ANJUS rastrea la demografía del pool de panelistas activos versus la población local en cada provincia — por edad, género, nivel educativo, origen urbano/rural, y pertenencia a comunidades indígenas. Si la representación de cualquier grupo demográfico cae por debajo del 50% de su proporción poblacional, se activa un protocolo de reclutamiento dirigido: campaña específica para ese grupo, ajuste de requisitos si es necesario, y formación adaptada. El dashboard público muestra estos datos. La diversidad del pool no es un objetivo aspiracional — es un KPI medible y publicado.
+
 ---
 
 ## SECCIÓN 7: JUSTICIA RESTAURATIVA Y TRANSFORMATIVA — REPARAR, NO CASTIGAR
@@ -497,7 +534,7 @@ PLANJUS no se presenta como reemplazo del sistema judicial. Se presenta como **a
 
 ¿Por qué funciona esta estrategia? Porque no requiere confrontación. No requiere legislar contra la Corte Suprema. No requiere echar jueces. Requiere solo una cosa: **ser mejor**. Si PLANJUS resuelve más rápido, más barato, y con más satisfacción — la gente lo elige. Y cuando la gente lo elige, el viejo sistema muere de inanición. Nadie lo mató. Simplemente dejó de ser necesario.
 
-Es lo que le pasó a Blockbuster con Netflix. A los taxis con Uber. A la enciclopedia con Wikipedia. A las cartas con el email. Nadie legisló contra ellos. Les crearon una alternativa superior y la gente migró. PLANJUS es el Netflix de la justicia argentina.
+Es lo que hace un sistema inmunológico sano cuando reemplaza a uno enfermo: no ataca las células viejas — simplemente produce células nuevas que funcionan mejor, más rápido, y con más precisión. Las células viejas se retiran naturalmente porque ya no hay demanda para su función. PLANJUS es ese sistema inmunológico nuevo: no necesita destruir el viejo. Solo necesita funcionar mejor.
 
 ---
 
@@ -560,7 +597,24 @@ PLANJUS debe ser nacional pero respetar la diversidad federal. La estrategia: **
 - Provincias rurales: Casas JUS itinerantes que visitan localidades pequeñas
 - CABA y conurbano: Casas JUS barriales con alta densidad
 
-### 10.3 Coordinación Federal
+### 10.3 Las Cuatro Provincias Piloto
+
+Las cuatro provincias piloto no se eligen al azar. Se eligen porque cada una representa un desafío diferente — y si PLANJUS funciona en las cuatro, funciona en cualquier parte de la Argentina.
+
+**TABLA 7B: Las Cuatro Provincias Piloto**
+
+| Provincia | Crisis Judicial Específica | Ventaja para Piloto | Obstáculo Constitucional | Métrica Clave |
+|---|---|---|---|---|
+| **Buenos Aires (AMBA)** | Mayor backlog del país; concentración masiva de conflictos laborales y de consumo; tiempos promedio de resolución entre los más altos | Mayor densidad poblacional = más casos para demostrar velocidad; infraestructura digital existente; red de defensorías del consumidor como canal de difusión | Constitución Provincial favorable (Art. 15 establece juicio por jurados — precedente directo para paneles ciudadanos) | Reducción del backlog civil 30% en Año 2 |
+| **Córdoba** | Sistema judicial más saturado per cápita del interior; alta litigiosidad comercial; burocracia procesal extrema | Universidad Nacional con expertise jurídico de primer nivel; primera provincia en implementar jurados penales; cultura cívica fuerte | Sin obstáculos constitucionales significativos; tradición de innovación judicial | Satisfacción ciudadana >70% en Año 1 |
+| **Tucumán** | Menor acceso a justicia del NOA; brecha digital severa; alta concentración de conflictos laborales agrícolas; distancia geográfica a los tribunales para poblaciones rurales | Prueba de estrés para el modelo en zonas con menor conectividad; alta necesidad = alta demanda potencial; oportunidad de demostrar que PLANJUS funciona donde más se necesita | Art. 25 de la Constitución Provincial requiere juez natural (requiere ley de adhesión cuidadosamente redactada para compatibilizar) | Adopción rural >40% en Año 2 |
+| **Neuquén** | Conflictos ambientales y de recursos naturales crecientes; población dispersa en territorio extenso; comunidades originarias Mapuche con conflictos territoriales históricos | Prueba del modelo en baja densidad poblacional; oportunidad de integrar saberes comunitarios indígenas en la mediación; Constitución provincial progresista | Constitución favorable a participación ciudadana (Art. 227+); la provincia ya tiene experiencia con jurados populares | Resolución de conflictos ambientales <45 días |
+
+**¿Por qué estas cuatro y no otras?** Porque si PLANJUS resuelve un reclamo laboral en el AMBA en 15 días, resuelve un conflicto comercial en Córdoba en 45, funciona sin conectividad en el interior de Tucumán, y media un conflicto ambiental con comunidades originarias en Neuquén — no hay provincia argentina donde no pueda funcionar. Las cuatro provincias piloto no son las más fáciles. Son las más representativas. Y el éxito en las más representativas es la prueba que silencia a los escépticos.
+
+**Protocolo de selección alternativa:** Si alguna de las cuatro provincias no firma el convenio en los primeros 4 meses del Año 0, la lista de alternativas pre-identificadas es: Mendoza (reemplaza a Córdoba), Salta (reemplaza a Tucumán), Río Negro (reemplaza a Neuquén), y La Plata/GBA zona sur (reemplaza al AMBA si el convenio provincial se demora, operando a nivel municipal). El programa no se detiene por una firma que no llega.
+
+### 10.4 Coordinación Federal
 
 La ANJUS (Agencia Nacional de Justicia Popular) establece los estándares nacionales:
 - Plataforma digital única (nacional)
@@ -681,6 +735,24 @@ La ruta: reforma constitucional vía Congreso (Art. 30 de la Constitución) una 
 
 > *"La justicia lenta es la forma de injusticia más cara que existe."*
 
+### 14.0 Dónde Va la Plata Hoy — Radiografía del Gasto Judicial Argentino
+
+Antes de hablar de cuánto cuesta PLANJUS, hablemos de cuánto cuesta lo que ya tenemos — y qué produce.
+
+**TABLA 10A: Gasto Judicial Argentino Actual**
+
+| Componente | Gasto Anual Estimado (USD) | % del Total | Qué Produce |
+|---|---|---|---|
+| Poder Judicial Federal (salarios) | 3.800–4.200M | ~38% | 96% del presupuesto va a salarios, 4% a inversión; <20% de confianza ciudadana (Latinobarómetro, 2024) |
+| Poderes Judiciales Provinciales | 4.500–5.500M | ~50% | 24 sistemas desconectados entre sí; tiempos de resolución de 3–8 años por causa según la jurisdicción |
+| Ministerio Público Fiscal | 800–1.200M | ~10% | Alta tasa de prescripción de causas penales; el tiempo mata más casos que los fiscales |
+| Defensoría Pública | 200–300M | ~2% | Acceso limitado para quienes no pueden pagar abogado; sobrecarga crónica de defensores oficiales |
+| **TOTAL** | **9.300–11.200M/año** | **100%** | **<20% confianza ciudadana, 3–6 años promedio por causa, backlog creciente cada año** |
+
+Leé esos números de nuevo. La Argentina gasta entre nueve mil y once mil millones de dólares por año en un sistema de justicia que produce menos del 20% de confianza ciudadana y tarda entre tres y seis años en resolver una causa civil promedio. Cada peso de esos once mil millones es un peso que no va a educación, a salud, a infraestructura — y que ni siquiera produce justicia.
+
+PLANJUS propone invertir USD 300–600M/año en su primera fase — menos del 5% de lo que la Argentina ya gasta en un sistema que no funciona. La pregunta no es si podemos pagarlo. La pregunta es si podemos seguir pagando lo que no funciona.
+
 ### 14.1 Costo de PLANJUS
 
 **TABLA 10: Costo de Implementación — Progresivo a 10 Años**
@@ -754,86 +826,115 @@ PLANJUS mide algo que ningún sistema judicial del mundo mide: **cuánto se fort
 
 ## SECCIÓN 16: HOJA DE RUTA — LAS FASES DE LA TRANSICIÓN
 
-### 16.1 Cronograma Detallado
+> *"Un plan sin fechas es una fantasía. Un plan con fechas, KPIs y contingencias es una promesa."*
 
-**Año 0 — Preparación (12 meses antes del lanzamiento):**
-- Sanción de la Ley de Justicia Popular
-- Creación de ANJUS
-- Desarrollo de la plataforma digital (MVP)
-- Selección de 4 provincias piloto
-- Primera convocatoria y formación de panelistas (1.000 panelistas JUS-1)
-- Construcción/adaptación de primeras 50 Casas JUS
-- Campaña de comunicación: "Tu justicia. Tu tiempo. Tu voz."
+### 16.1 Fase 0: Preparación (Año 0 — 12 meses antes del lanzamiento)
 
-**Años 1–3 — Fase 1: El Alivio:**
-- Lanzamiento en 4 provincias piloto → expansión a 12
-- JUS-1 operativo completo, JUS-2 en piloto
-- 500.000 casos/año → 2.000.000 casos/año
-- 5.000 panelistas formados → 20.000
-- 50 Casas JUS → 200
-- Primer ciclo de evaluación y ajuste
+El año cero es el año donde se construye todo lo que tiene que estar listo antes de que el primer ciudadano presente su primer caso. No hay margen para improvisación. Cada hito tiene un responsable, un KPI, y un plan B.
 
-**Años 3–7 — Fase 2: La Preferencia:**
-- Cobertura nacional completa (24 provincias + CABA)
-- JUS-1, JUS-2, JUS-3 operativos en todo el país
-- 5.000.000+ casos/año
-- 50.000+ panelistas activos
-- 500+ Casas JUS
-- 70% de los conflictos civiles/comerciales/laborales en PLANJUS
-- Inicio de reasignación presupuestaria desde el sistema judicial
+**TABLA 14: Fase 0 — Preparación**
 
-**Años 7–15 — Fase 3: La Sucesión Natural:**
-- 90%+ de los conflictos en PLANJUS
-- Reforma constitucional para formalizar
-- Sistema judicial tradicional reducido a jurisdicción penal compleja y constitucional
-- Argentina como referente internacional en justicia comunitaria
-- Exportación del modelo a otros países latinoamericanos
+| Hito | KPI Específico | Target | Responsable | Trigger de Contingencia |
+|---|---|---|---|---|
+| Ley PLANJUS sancionada | Aprobación en ambas cámaras | Sanción antes del mes 6 del Año 0 | Comisión de Justicia del Congreso + equipo legislativo BASTA | Si ley no se aprueba en 12 meses → decreto de necesidad y urgencia para ANJUS transitoria con jurisdicción voluntaria en materias no legisladas |
+| ANJUS constituida | Directorio completo operativo | 9 miembros designados y en funciones antes del mes 8 | Congreso + universidades + sorteo ciudadano | Si el sorteo ciudadano se demora → directorio interino de 5 miembros (Congreso + universidades) mientras se completa el proceso |
+| Plataforma digital MVP | MVP funcional con JUS-1 completo | Plataforma operativa para recibir casos JUS-1 en 4 provincias | Equipo tech de ANJUS + proveedor seleccionado por licitación | Si el MVP no está listo → protocolo 100% presencial en Casas JUS con registro manual hasta la digitalización; no se demora el lanzamiento |
+| Provincias piloto seleccionadas | Convenios firmados con 4 gobernadores | Convenios antes del mes 4 | ANJUS + Ministerio de Justicia | Si alguna provincia se baja → provincia alternativa pre-identificada (lista de 6 candidatas); el programa no se detiene por una firma |
+| Primer contingente de panelistas | 1.000 panelistas JUS-1 formados y certificados | Certificación completada antes del mes 10 | Dirección de Formación de ANJUS + universidades | Si la convocatoria no alcanza el target → incrementar compensación 20% + ampliar convocatoria a 8 universidades + campaña en redes |
+| Primeras Casas JUS | 50 Casas JUS operativas (construcción o adaptación) | Operativas antes del mes 11 | ANJUS + municipios | Si construcción se demora → usar espacios comunitarios existentes (centros culturales, bibliotecas, clubes) como Casas JUS provisorias |
+| Campaña de comunicación lanzada | Alcance + reconocimiento de marca | 60% de reconocimiento espontáneo en provincias piloto | Dirección de Comunicación de ANJUS | Si reconocimiento <40% al mes 10 → triplicar inversión en medios locales + activar embajadores ciudadanos anticipadamente |
+
+### 16.2 Fase 1: El Alivio (Años 1–3)
+
+La fase donde PLANJUS demuestra que funciona. No hay segunda oportunidad para una primera impresión. Los primeros 500.000 casos resueltos son la prueba de concepto que nadie puede refutar.
+
+**TABLA 15: Fase 1 — El Alivio**
+
+| Hito | KPI Específico | Target | Responsable | Trigger de Contingencia |
+|---|---|---|---|---|
+| JUS-1 operativo en 4 provincias piloto | Casos ingresados y resueltos por mes | 500.000 casos/año al final del Año 1 | Directores provinciales JUS | Si casos <300.000 al Año 1 → campaña intensiva de difusión + simplificar aún más el ingreso de casos + alianzas con defensorías del consumidor |
+| JUS-2 en piloto | Piloto operativo en 2 provincias | 50.000 casos JUS-2 en Año 2 | ANJUS + Consejos Provinciales | Si la complejidad de JUS-2 genera satisfacción <55% → reforzar formación de panelistas + agregar mentor JUS-3 a cada panel + revisar protocolos |
+| Casos resueltos acumulados | Resolución acumulada | 2.000.000 de casos al final del Año 3 | ANJUS nacional | Si el ritmo es <60% del target → priorizar JUS-1 masivo, demorar expansión de JUS-2/3, concentrar recursos en velocidad y calidad |
+| Panelistas activos | Pool certificado y en rotación | 20.000 panelistas al Año 3 | Dirección de Formación | Si <14.000 al Año 2 → programa de reclutamiento de emergencia + formación acelerada JUS-1 (10 días) + alianza con PLANEDU |
+| Casas JUS operativas | Casas en funcionamiento | 200 Casas JUS al Año 3 | ANJUS + municipios | Si <150 → priorizar densidad en provincias piloto sobre cobertura geográfica; calidad antes que cantidad |
+| Satisfacción ciudadana | Encuesta post-resolución | >70% de satisfacción promedio nacional | Dirección de Calidad | Si satisfacción <60% en cualquier provincia durante 2 trimestres consecutivos → activar panel diagnóstico provincial + reforzar formación + auditoría de procesos |
+| Expansión a 12 provincias | Convenios firmados y operación iniciada | 12 provincias operativas al Año 3 | ANJUS + Ministerio de Justicia | Si <8 provincias al Año 3 → concentrar en las que funcionan, perfeccionar modelo, y usar resultados como palanca para las resistentes |
+
+### 16.3 Fase 2: La Preferencia (Años 3–7)
+
+La fase donde PLANJUS deja de ser la alternativa y se convierte en la opción obvia. Donde la pregunta ya no es "¿por qué usaría PLANJUS?" sino "¿por qué esperaría cinco años en un tribunal?"
+
+**TABLA 16: Fase 2 — La Preferencia**
+
+| Hito | KPI Específico | Target | Responsable | Trigger de Contingencia |
+|---|---|---|---|---|
+| Cobertura nacional completa | Provincias operativas | 24 provincias + CABA al Año 5 | ANJUS nacional | Si <20 provincias al Año 5 → operar con cobertura digital nacional + Casas JUS presenciales donde haya convenio; no esperar a los rezagados |
+| JUS-3 operativo | Casos JUS-3 resueltos | 200.000 casos JUS-3/año al Año 5 | ANJUS + Consejos Provinciales | Si calidad JUS-3 genera apelaciones >20% → reforzar formación de especialistas + agregar segundo asesor técnico-legal + revisión de protocolo |
+| Volumen total de casos | Casos resueltos por año | 5.000.000+ casos/año al Año 7 | ANJUS nacional | Si <3.500.000 → análisis de barreras de acceso + revisión de categorización + campaña de conciencia |
+| Panelistas activos | Pool certificado | 50.000+ panelistas activos al Año 7 | Dirección de Formación | Si <35.000 → escalar formación vía PLANEDU + programa de panelistas veteranos como formadores |
+| Reasignación presupuestaria | % del presupuesto judicial redirigido a PLANJUS | 20% del presupuesto judicial reasignado al Año 5, 40% al Año 7 | Congreso + Ministerio de Economía | Si reasignación bloqueada → PLANJUS opera con presupuesto propio (piso constitucional) + financiamiento del sector privado; no depende de la transferencia |
+| Adopción ciudadana | % de conflictos civiles/comerciales/laborales en PLANJUS | 50% al Año 5, 70% al Año 7 | ANJUS nacional | Si adopción <50% en Año 5 → campaña intensificada + revisión UX + programa embajadores + análisis de por qué la gente sigue eligiendo tribunales |
+| Casas JUS | Red nacional | 500+ Casas JUS al Año 7 | ANJUS + municipios | Si <400 → compensar con Casas JUS itinerantes + puntos de acceso digital en bibliotecas y centros comunitarios |
+
+### 16.4 Fase 3: La Sucesión Natural (Años 7–15)
+
+La fase donde la pregunta cambia de "¿funciona PLANJUS?" a "¿para qué necesitamos todavía el sistema viejo?" No es una revolución — es una evolución que la gente ya eligió con los pies.
+
+**TABLA 17: Fase 3 — La Sucesión Natural**
+
+| Hito | KPI Específico | Target | Responsable | Trigger de Contingencia |
+|---|---|---|---|---|
+| 90%+ de conflictos en PLANJUS | Porcentaje de resolución total del país | 90% de conflictos civiles/comerciales/laborales/familia | ANJUS nacional | Si 90% no se alcanza al Año 10 → análisis de los nichos resistentes + adaptación específica; PLANJUS no necesita 100% para ser el sistema dominante |
+| Reforma constitucional | Artículos 108-119 reformados + nuevo artículo de justicia rápida | Reforma aprobada por convención constituyente | Congreso + ANJUS | Si reforma constitucional bloqueada → PLANJUS opera indefinidamente con ley ordinaria; no necesita la Constitución para funcionar — la Constitución necesita ponerse al día con PLANJUS |
+| Sistema judicial residual | Jurisdicción reducida | Poder Judicial limitado a jurisdicción penal grave, constitucional y contencioso-administrativo complejo | Congreso + Corte Suprema | Si hay resistencia judicial a la reducción → PLANJUS coexiste; la ciudadanía elige; los tribunales vacíos hablan solos |
+| Reconocimiento internacional | Evaluación externa | Argentina reconocida por organismos internacionales como líder en justicia comunitaria | ANJUS + Cancillería | Indicador de éxito, no de riesgo — si llega, acelera la exportación; si no llega, PLANJUS sigue funcionando para los argentinos |
+| Exportación del modelo | Países que adoptan variantes de PLANJUS | Al menos 3 países latinoamericanos implementando versiones adaptadas al Año 15 | ANJUS + Cancillería + cooperación internacional | Si ningún país adopta → no afecta operación interna; la exportación es un bono, no un requisito |
 
 ---
 
 ## SECCIÓN 17: ANÁLISIS DE RIESGO — QUÉ PUEDE SALIR MAL Y CÓMO LO PREVENIMOS
 
-**TABLA 11: Riesgos y Mitigación**
+**TABLA 11: Riesgos, Mitigación y Triggers de Contingencia**
 
-| Riesgo | Probabilidad | Impacto | Mitigación |
-|---|---|---|---|
-| **Impugnación constitucional** | Alta | Alto | La Ley PLANJUS se redacta con jurisdicción voluntaria (las partes eligen), lo que evita conflicto constitucional. La Constitución no prohíbe mecanismos alternativos; los habilita. |
-| **Sabotaje desde el Poder Judicial** | Alta | Medio | PLANJUS no depende del Poder Judicial. Opera en paralelo. El sabotaje más probable (fallos que limiten PLANJUS) se contrarresta con apoyo popular masivo y legislación blindada. |
-| **Lobby de Colegios de Abogados** | Alta | Medio | Pacto de la Transición: los abogados tienen rutas dentro de PLANJUS. Los que se oponen pierden relevancia a medida que los ciudadanos eligen PLANJUS. |
-| **Captura política de ANJUS** | Media | Alto | Conducción por sorteo ciudadano + mandatos no renovables + blindaje constitucional + transparencia total. Múltiples candados contra la captura. |
-| **Baja calidad de panelistas** | Media | Alto | Formación rigurosa + evaluación continua + rotación + sistema de remoción automática por evaluaciones bajas. El sistema se autocorrige. |
-| **Brecha digital** | Media | Medio | Casas JUS como punto de acceso para los que no tienen conectividad. Asistentes digitales en cada Casa. Línea telefónica de asistencia. |
-| **Resistencia cultural ("la gente no va a confiar")** | Media | Medio | Campañas de comunicación + primeros resultados visibles + boca a boca. La confianza se construye caso a caso. |
-| **Subfinanciamiento** | Media | Alto | Piso presupuestario constitucional + múltiples fuentes de financiamiento + el sector privado como co-financiador interesado. |
-| **Corrupción interna en PLANJUS** | Baja (por diseño) | Alto | Triple candado anticorrupción. El sistema está diseñado para que la corrupción sea estructuralmente imposible, visible, e irracional. |
+| Riesgo | Probabilidad | Impacto | Mitigación | Trigger de Contingencia |
+|---|---|---|---|---|
+| **Impugnación constitucional** | Alta | Alto | La Ley PLANJUS se redacta con jurisdicción voluntaria (las partes eligen), lo que evita conflicto constitucional. La Constitución no prohíbe mecanismos alternativos; los habilita. | Si la Corte Suprema declara inconstitucional algún aspecto en Año 1 → ajustar la ley al fallo + reforzar el carácter voluntario + amicus curiae de constitucionalistas internacionales en 30 días |
+| **Sabotaje desde el Poder Judicial** | Alta | Medio | PLANJUS no depende del Poder Judicial. Opera en paralelo. El sabotaje más probable (fallos que limiten PLANJUS) se contrarresta con apoyo popular masivo y legislación blindada. | Si >5 fallos judiciales adversos en 6 meses → activar estrategia legal coordinada nacional + conferencia de prensa con datos de satisfacción comparada + presentación ante organismos internacionales |
+| **Lobby de Colegios de Abogados** | Alta | Medio | Pacto de la Transición: los abogados tienen rutas dentro de PLANJUS. Los que se oponen pierden relevancia a medida que los ciudadanos eligen PLANJUS. | Si lobby logra bloqueo legislativo → campaña ciudadana directa + vía decreto para componentes que no requieran ley + publicación de datos de cuánto cuesta el monopolio actual |
+| **Captura política de ANJUS** | Media | Alto | Conducción por sorteo ciudadano + mandatos no renovables + blindaje constitucional + transparencia total. Múltiples candados contra la captura. | Si se detecta intento de influencia política en el directorio → activación automática de auditoría extraordinaria + publicación de todos los registros de contacto + convocatoria de reemplazo por sorteo en 60 días |
+| **Baja calidad de panelistas** | Media | Alto | Formación rigurosa + evaluación continua + rotación + sistema de remoción automática por evaluaciones bajas. El sistema se autocorrige. | Si satisfacción de partes cae por debajo del 60% en cualquier provincia durante 2 trimestres → suspender certificación de nuevos panelistas en esa provincia + auditar formación + reforzar con mentores JUS-3 |
+| **Brecha digital** | Media | Medio | Casas JUS como punto de acceso para los que no tienen conectividad. Asistentes digitales en cada Casa. Línea telefónica de asistencia. | Si uso digital <30% en provincias con baja conectividad → duplicar presupuesto de Casas JUS itinerantes + activar alianza con centros comunitarios + protocolo 100% presencial como default |
+| **Resistencia cultural ("la gente no va a confiar")** | Media | Medio | Campañas de comunicación + primeros resultados visibles + boca a boca. La confianza se construye caso a caso. | Si adopción voluntaria <20% en cualquier provincia piloto en Año 1 → programa intensificado de embajadores ciudadanos + casos demostrativos con alta visibilidad + revisión de UX |
+| **Subfinanciamiento** | Media | Alto | Piso presupuestario constitucional + múltiples fuentes de financiamiento + el sector privado como co-financiador interesado. | Si financiamiento real cae >20% por debajo del piso → activar financiamiento de emergencia del sector privado + reducir velocidad de expansión + priorizar provincias piloto hasta estabilización |
+| **Corrupción interna en PLANJUS** | Baja (por diseño) | Alto | Triple candado anticorrupción. El sistema está diseñado para que la corrupción sea estructuralmente imposible, visible, e irracional. | Si se detecta caso confirmado de corrupción → publicación inmediata y completa del caso + sanción ejemplar + auditoría sistémica del nivel JUS afectado + refuerzo del candado vulnerado en 30 días |
+| **Fallo tecnológico a escala** | Media | Alto | Infraestructura cloud distribuida con redundancia. Protocolo de fallback presencial. Backups cada hora. | Si plataforma caída >24h en cualquier provincia → activar protocolo presencial completo en todas las Casas JUS afectadas + equipo de emergencia tech desplegado en 48h + comunicación transparente a usuarios |
+| **Demanda supera capacidad** | Media-Alta | Medio | Diseño modular que permite escalamiento progresivo. Priorización automática por nivel JUS. | Si demanda supera capacidad en >30% durante 2 meses consecutivos → congelar intake JUS-2/JUS-3, priorizar JUS-1, acelerar formación de panelistas con programa intensivo, abrir convocatoria extraordinaria |
+| **Precedente judicial adverso** | Media | Alto | Equipo legal permanente de ANJUS. Estrategia constitucional preparada con dictámenes de 20+ constitucionalistas. | Si >3 fallos provinciales contra PLANJUS en Año 1 → estrategia constitucional de emergencia + amicus curiae internacional + PLANJUS continúa operando bajo marco de arbitraje voluntario mientras se resuelve |
+| **Falla de reclutamiento de panelistas** | Media-Baja | Alto | Compensación competitiva + formación de calidad + reconocimiento social + carrera meritocrática como incentivos. | Si <70% del target de panelistas en Año 1 → incrementar compensación 30% + reducir edad mínima a 21 años + simplificar formación JUS-1 a 10 días intensivos + campaña de reclutamiento en universidades |
+| **Presión internacional (tratados bilaterales de inversión)** | Baja | Medio | PLANJUS no afecta mecanismos de arbitraje internacional (ICSID, UNCITRAL). Comunicación diplomática pre-preparada. | Si algún país invoca cláusula de tratado bilateral → respuesta diplomática en 72h con análisis técnico demostrando que PLANJUS es voluntario y complementario + convocatoria de panel de expertos internacionales |
 
 ---
 
 ## SECCIÓN 18: RESPUESTA A CRÍTICAS — LO QUE VAN A DECIR Y POR QUÉ SE EQUIVOCAN
 
-### "Es inconstitucional"
+Van a atacar. Es inevitable. Cualquier sistema que amenace un monopolio de poder atrae fuego. Lo que sigue es la artillería que van a usar — y las respuestas que la desarman.
 
-No lo es. La Constitución Nacional no establece que todos los conflictos deban resolverse en el Poder Judicial. El artículo 75 inciso 12 otorga al Congreso la facultad de dictar códigos de procedimiento, y la jurisprudencia argentina reconoce la validez de los mecanismos alternativos de resolución de conflictos. La mediación obligatoria (Ley 26.589) ya existe y fue declarada constitucional. PLANJUS extiende ese principio. Además, la jurisdicción de PLANJUS es voluntaria — las partes eligen. Nadie está obligado.
+**TABLA 13: Críticas y Respuestas**
 
-### "Ciudadanos no pueden juzgar — no tienen formación"
-
-Los jurados populares existen en el sistema penal de varias provincias argentinas (Buenos Aires, Neuquén, Córdoba, Chaco, entre otras) y son constitucionales. Si un ciudadano puede decidir si una persona va presa o queda libre, puede decidir si un inquilino tiene razón sobre la humedad del departamento. Los panelistas PLANJUS reciben formación específica. No improvisan.
-
-### "Sin abogados no hay garantías"
-
-Con abogados tampoco las hay — lo demuestran los datos. El abogado no es garantía de justicia; es garantía de costo. PLANJUS reemplaza al abogado con salvaguardas arquitectónicas: piso de derechos, consistencia asistida por IA, apelación automática. Estos mecanismos son más confiables que un abogado cansado al que le pagás poco.
-
-### "Es justicia de segunda"
-
-El sistema actual es justicia de tercera que tarda cinco años. PLANJUS es justicia de primera que tarda quince días. ¿Cuál preferís?
-
-### "Van a corromper a los panelistas"
-
-Para corromper un panel PLANJUS necesitarías sobornar a desconocidos seleccionados al azar minutos antes de la audiencia, que van a rotar al caso siguiente, bajo vigilancia algorítmica permanente, con registro inmutable de cada voto. Es más fácil corromper a un juez que tiene cargo vitalicio y despacho propio. Incomparablemente más fácil.
-
-### "Esto destruye el Estado de Derecho"
-
-No. Esto construye el Estado de Derecho que nunca existió. El Estado de Derecho no es un edificio ni una toga. Es la capacidad de un pueblo de resolver sus conflictos de manera justa, rápida, y accesible. Hoy esa capacidad no existe para la mayoría de los argentinos. PLANJUS la crea.
+| Crítica | Respuesta |
+|---|---|
+| **"Es inconstitucional"** | No lo es. La Constitución no establece que todos los conflictos deban resolverse en el Poder Judicial. El Art. 75 inc. 12 otorga al Congreso facultad de dictar códigos de procedimiento, y la jurisprudencia reconoce la validez de mecanismos alternativos. La mediación obligatoria (Ley 26.589) ya fue declarada constitucional. PLANJUS extiende ese principio con jurisdicción voluntaria — las partes eligen. Nadie está obligado. |
+| **"Ciudadanos no pueden juzgar — no tienen formación"** | Los jurados populares existen en el sistema penal de Buenos Aires, Neuquén, Córdoba, Chaco, y son constitucionales. Si un ciudadano puede decidir si una persona va presa o queda libre, puede decidir si un inquilino tiene razón sobre la humedad del departamento. Los panelistas PLANJUS reciben formación específica de 2 a 8 semanas. No improvisan. |
+| **"Sin abogados no hay garantías"** | Con abogados tampoco las hay — lo demuestran los datos (<20% de confianza). El abogado no es garantía de justicia; es garantía de costo. PLANJUS reemplaza al abogado con salvaguardas arquitectónicas: piso de derechos, consistencia asistida por IA, apelación automática. Estos mecanismos son más confiables que un abogado cansado al que le pagás poco. |
+| **"Van a corromper a los panelistas"** | Para corromper un panel PLANJUS necesitarías sobornar a desconocidos seleccionados al azar minutos antes de la audiencia, que van a rotar al caso siguiente, bajo vigilancia algorítmica permanente, con registro inmutable de cada voto. Es más fácil corromper a un juez con cargo vitalicio y despacho propio. Incomparablemente más fácil. |
+| **"Esto destruye el Estado de Derecho"** | No. Esto construye el Estado de Derecho que nunca existió. El Estado de Derecho no es un edificio ni una toga — es la capacidad de un pueblo de resolver sus conflictos de manera justa, rápida, y accesible. Hoy esa capacidad no existe para la mayoría de los argentinos. PLANJUS la crea. |
+| **"Es justicia de segunda"** | El sistema actual es justicia de tercera que tarda cinco años. Cinco años en los que Marta no cobra, Diego paga lo que no debe, y Luciana cría sola. PLANJUS es justicia de primera que tarda quince días — con panelistas formados, salvaguardas algorítmicas, transparencia total, y evaluación permanente. ¿Cuál es la de segunda? |
+| **"Esto crea una justicia de segunda clase para los pobres"** | El sistema actual es la justicia de segunda clase para los pobres — los ricos litigan con estudios de abogados premium, los pobres esperan cuatro años con un abogado de oficio sobrecargado. PLANJUS es la misma justicia para todos: el mismo sorteo, la misma plataforma, las mismas salvaguardas, el mismo plazo. La igualdad no es una promesa en un preámbulo — es una arquitectura que funciona igual para el empresario de Puerto Madero y la trabajadora de Lanús. |
+| **"Excluye digitalmente a adultos mayores y zonas rurales"** | Las Casas JUS existen precisamente para esto. Cada Casa tiene asistentes digitales que ayudan presencialmente a quienes no pueden o no quieren usar la plataforma. Hay línea telefónica de asistencia. Hay atención sin turno. Las Casas JUS itinerantes visitan localidades rurales. PLANJUS no es solo una app — es un sistema híbrido diseñado para que nadie quede afuera, ni el abuelo de 80 años en Formosa ni la productora de Catamarca. |
+| **"Partes sofisticadas van a manipular a los panelistas"** | Siete salvaguardas procedimentales previenen esto arquitectónicamente: sorteo verificable (no sabés quién te toca), recusación sin causa, registro inmutable, piso de derechos, consistencia asistida por IA, alerta automática de anomalías, y evaluación post-resolución. Si una empresa intenta manipular sistemáticamente, el sistema de detección de anomalías lo identifica en los patrones antes de que cause daño real. No depende de la virtud del panelista — depende del diseño del sistema. |
+| **"Viola tratados internacionales de independencia judicial"** | PLANJUS es voluntario y complementario — no reemplaza la jurisdicción judicial para quienes prefieren el sistema tradicional. Los mecanismos de arbitraje internacional (ICSID, UNCITRAL) no se ven afectados en absoluto. Los tratados de independencia judicial se refieren al Poder Judicial como institución del Estado — PLANJUS no lo interviene ni lo modifica, opera en paralelo. Múltiples países con mecanismos alternativos robustos (Singapur, Holanda, Estonia) cumplen plenamente con estos tratados. |
+| **"Los inversores extranjeros necesitan tribunales de verdad"** | Lo que los inversores necesitan es resolución rápida, predecible, y ejecutable. El sistema actual argentino les da lo opuesto: 3 a 6 años, impredecibilidad total, y ejecución incierta. Es el sistema actual el que espanta inversores — no PLANJUS. Un JUS comercial que resuelve en 45 días con transparencia total y fuerza ejecutoria es exactamente lo que un inversor busca. Los que dicen "tribunales de verdad" confunden la toga con la justicia. |
+| **"¿Qué pasa si un gobierno populista captura la ANJUS?"** | Tendría que capturar un directorio donde 3 de 9 miembros son elegidos por sorteo ciudadano, 2 por universidades, 1 por Defensorías, y 1 por sociedad civil. Tendría que sortear mandatos de 6 años no renovables y escalonados. Tendría que conseguir 2/3 del Congreso para remover a un director. Tendría que violar el piso presupuestario constitucional. Tendría que evadir la auditoría trienal independiente de universidades nacionales e internacionales. Y tendría que hacerlo todo a la vista de un dashboard público donde cada peso y cada decisión se publican en tiempo real. No es imposible — pero es más difícil que capturar al Poder Judicial actual, que se captura con un decreto y tres nombramientos. |
 
 ---
 
@@ -863,6 +964,24 @@ Si el establishment ataca:
 - **"Destruye empleos judiciales" →** Mostrar las rutas de transición y los testimonios de judiciales que ya migraron
 - **"Hay casos de error" →** Sí, y el sistema los detecta y corrige en días. El sistema actual tiene errores que tardan décadas en corregirse.
 
+### 19.4 Arquitectura de Comunicación
+
+La comunicación de PLANJUS no es marketing — es infraestructura de legitimidad. Cada instrumento tiene una audiencia, un mensaje, y una frecuencia diseñados para construir y sostener la confianza pública.
+
+**TABLA 12: Arquitectura de Comunicación PLANJUS**
+
+| Instrumento | Audiencia | Mensaje | Frecuencia |
+|---|---|---|---|
+| Dashboard público en tiempo real | Ciudadanía | "Mirá los resultados vos mismo" — cada caso, cada tiempo, cada evaluación, todo visible | Permanente |
+| Testimonios de casos resueltos | Ciudadanía | "Marta resolvió su caso en 12 días" — historias reales, nombres reales (con consentimiento), resultados reales | Semanal |
+| Informe para el establishment judicial | Poder Judicial, Colegios de Abogados | "Les sacamos carga — estos son los números" — tono colaborativo, datos duros, sin confrontación innecesaria | Trimestral |
+| Embajadores ciudadanos | Barrios, comunidades, organizaciones de base | Personas que pasaron por PLANJUS cuentan su experiencia en primera persona — el boca a boca institucionalizado | Permanente |
+| Protocolo anti-crisis | Medios, opinión pública, líderes de opinión | Dictámenes constitucionalistas pre-preparados + datos de satisfacción comparada + testimonios de panelistas y usuarios | Activación inmediata ante ataque |
+| Informes académicos de impacto | Universidades, think tanks, organismos internacionales | Evaluación rigurosa de resultados con metodología verificable — credibilidad técnica que blinda la legitimidad política | Semestral |
+| Contenido educativo para escuelas | Docentes, estudiantes (vía PLANEDU) | "Así funciona tu justicia" — materiales para la Semana PLANJUS y formación cívica continua | Anual (actualizado) |
+
+La regla de oro de la comunicación de PLANJUS: **nunca prometas lo que no podés demostrar con datos públicos.** La confianza se construye caso a caso, dato a dato, testimonio a testimonio. No hay atajo.
+
 ---
 
 ## SECCIÓN 20: INTEGRACIÓN CON BASTA — EL QUINTO PILAR
@@ -871,7 +990,7 @@ Si el establishment ataca:
 
 ### 20.1 PLANJUS en el Cuerpo de BASTA
 
-BASTA es un proyecto de diez mandatos populares — uno por cada dedo de las dos manos que dicen *basta*. Cada mandato diseña, desde cero, el sistema ideal para un dominio esencial de la vida argentina. PLAN24CN reimagina las ciudades. PLANREP reimagina el trabajo. PLANISV reimagina el suelo. PLANEDU reimagina la educación. PLANJUS reimagina la justicia.
+BASTA es un proyecto de mandatos populares — cada uno diseñado desde cero para un dominio esencial de la vida argentina. Los primeros cinco son los mandatos fundacionales: PLAN24CN reimagina las ciudades. PLANREP reimagina el trabajo. PLANISV reimagina el suelo. PLANEDU reimagina la educación. PLANJUS reimagina la justicia. Los que siguen — salud, seguridad, energía, cultura, ciencia — se desarrollan sobre los cimientos que estos cinco establecen.
 
 Pero PLANJUS tiene un rol especial. En la arquitectura del cuerpo humano, el sistema inmunológico no es un órgano como los demás — es el sistema que protege a todos los otros órganos. Sin sistema inmune, el corazón se infecta, los pulmones colapsan, el cerebro se inflama. De la misma manera, sin justicia funcional, los otros mandatos son vulnerables:
 
@@ -883,6 +1002,18 @@ Pero PLANJUS tiene un rol especial. En la arquitectura del cuerpo humano, el sis
 | **PLAN24CN** | Un contratista incumple en la construcción de una ciudad nueva → litigio de 6 años | Disputa comercial en PLANJUS → resolución en 45 días → la ciudad avanza |
 
 PLANJUS es el sistema inmunológico de BASTA. Sin él, los otros mandatos pueden ser saboteados, demorados, corrompidos. Con él, tienen un mecanismo de protección y ejecución que funciona a la velocidad de la vida real.
+
+### 20.3 PLANJUS y PLANEDU: Justicia y Educación
+
+PLANJUS y PLANEDU no son dos mandatos que conviven en paralelo — son dos mandatos que se necesitan como el oxígeno necesita a los pulmones.
+
+**Formación de panelistas como extensión de PLANEDU.** La infraestructura educativa de PLANEDU — las Escuelas del Futuro, los centros de formación continua, las plataformas de aprendizaje — es el canal natural para formar panelistas ciudadanos. La capacidad de "Colaborar" que PLANEDU define como uno de los ejes fundamentales de la educación del futuro incluye la justicia cívica como competencia central. Un ciudadano que pasó por el sistema educativo de PLANEDU llega a PLANJUS con las herramientas de escucha activa, análisis crítico y resolución colaborativa ya integradas. No empieza de cero — termina de especializarse.
+
+**PLANJUS como escudo de PLANEDU.** Los conflictos educativos — desvío de fondos, disputas laborales docentes, vulneración de derechos estudiantiles, incumplimiento de compromisos de infraestructura escolar — se resuelven hoy en tribunales que tardan años. Cuando un funcionario desvía recursos educativos, para el momento en que la justicia actúa el daño ya es irreversible: una generación de chicos que no tuvo la escuela que le correspondía. PLANJUS resuelve estos casos en 30–45 días. La impunidad educativa muere cuando la justicia funciona a la velocidad del ciclo lectivo.
+
+**La Semana PLANJUS en las escuelas.** Cada año, las escuelas que integran el sistema PLANEDU realizan una rotación de "Semana PLANJUS": los estudiantes de los últimos años visitan Casas JUS, observan paneles en funcionamiento (con consentimiento de las partes), y realizan simulaciones de casos reales simplificados. El objetivo no es formar abogados — es formar ciudadanos que entienden que la justicia les pertenece, que saben cómo funciona, y que llegan a la vida adulta con la convicción de que resolver conflictos es un acto cívico, no un trámite burocrático. La Semana PLANJUS produce algo que ningún curso de Educación Cívica logró jamás: experiencia directa con la justicia funcionando bien.
+
+**Completación educativa como puente.** Dado que PLANJUS requiere educación secundaria completa para ser panelista, PLANEDU provee los programas de completación educativa que cierran la brecha — especialmente en provincias con tasas de finalización por debajo del 70%. No es un requisito excluyente: es una oportunidad de inclusión que los dos mandatos construyen juntos.
 
 ### 20.2 La Arquitectura de Gobernanza Popular
 
@@ -919,6 +1050,24 @@ Porque un pueblo con educación sabe. Un pueblo con trabajo digno produce. Un pu
 Y un pueblo que se gobierna no necesita que nadie lo gobierne.
 
 > *"La justicia no es un edificio. Es un río. Y los ríos, cuando los dejás, siempre encuentran su camino hacia la gente."*
+
+### 21.1 El Argumento Definitivo
+
+Hay tres argumentos para PLANJUS. Los tres son irrefutables. Los tres juntos son demoledores.
+
+**El argumento humano.** Cada día que pasa sin PLANJUS es un día más de Marta esperando cuatro años por un sueldo robado. Es un día más de Diego pagando lo que no debe porque el sistema no le da otra opción. Es un día más de Luciana criando sola mientras el padre de su hija se esconde detrás de un expediente. Cada día sin PLANJUS no es un día neutro — es un día de daño activo. Cada caso que no se resuelve es una persona que pierde un poco más de fe en que las reglas sirven para algo. Multiplicá eso por millones y lo que tenés no es un problema judicial — es una enfermedad civilizatoria.
+
+**El argumento económico.** PLANJUS cuesta entre USD 300 y 600 millones por año en su primera fase — menos del 5% de lo que la Argentina ya gasta en un sistema que produce menos del 20% de confianza ciudadana — y devuelve entre 6 y 10 pesos por cada peso invertido en resolución comercial, inversión atraída, formalización laboral y ahorro estatal. No es un gasto. Es la inversión con mejor retorno que la Argentina puede hacer, descontando oxígeno y agua potable.
+
+**El argumento histórico.** Atenas seleccionó jurados por sorteo durante doscientos años y construyó la civilización que inventó la democracia, la filosofía y el teatro. Rwanda resolvió 1,9 millones de casos con tribunales comunitarios Gacaca después de un genocidio que dejó 50 jueces vivos en todo el país. Singapur resuelve conflictos vecinales en dos semanas con tribunales comunitarios asistidos por IA. Estonia digitalizó la justicia y la hizo funcionar en semanas lo que en otros países tarda años. La justicia popular no es una utopía. Es una tecnología probada que funciona a escala — y la Argentina es el país que más la necesita y el que mejores condiciones tiene para implementarla.
+
+No hay más excusas. No hay más "pero primero hay que reformar." No hay más "es muy complejo." No hay más "la gente no está preparada." La gente está más que preparada — lleva décadas soportando un sistema que la castiga por buscar justicia. Lo que no estaba preparado era el sistema. Ahora sí lo está. Se llama PLANJUS.
+
+**Credo:**
+
+> *"Un pueblo que puede resolver sus propios conflictos no necesita que nadie le resuelva la vida. PLANJUS no le da justicia al pueblo — le devuelve el poder de hacerse justicia a sí mismo."*
+
+Este es el instante del Hombre Gris. El momento en que el pueblo argentino deja de esperar que la justicia baje de un edificio con columnas y empieza a hacerla — en su barrio, con sus vecinos, con sus propias manos. No porque el Estado se lo permita. Porque el Estado ya no puede impedirlo. PLANJUS no es un plan más. Es el punto de no retorno. Es el instante donde la gente deja de esperar justicia y empieza a producirla.
 
 ---
 

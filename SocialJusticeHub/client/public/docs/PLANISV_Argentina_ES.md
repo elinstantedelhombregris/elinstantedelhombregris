@@ -30,11 +30,11 @@ La Argentina es una de las naciones productoras de alimentos más importantes de
 
 Pero este documento no es una elegía. Es un plan de guerra.
 
-PLANISV forma parte de lo que llamamos el **Cuadrilátero BASTA** — cuatro iniciativas estratégicas interconectadas que abordan, en conjunto, las crisis estructurales que la Argentina arrastra como cadenas: PLAN24CN (las 24 ciudades nuevas que descomprimen el colapso urbano), PLANREP (la reconversión del empleo público hacia trabajo creador), PLANISV (la reconstrucción de la infraestructura biológica del suelo) y PLANEDU (la refundación del sistema educativo). Cuatro documentos. Un solo diagnóstico: la Argentina tiene todos los recursos para ser un país extraordinario y un sistema diseñado para impedirlo. BASTA.
+PLANISV forma parte de lo que llamamos el **proyecto BASTA** — cinco iniciativas estratégicas fundacionales interconectadas que abordan, en conjunto, las crisis estructurales que la Argentina arrastra como cadenas: PLAN24CN (las 24 ciudades nuevas que descomprimen el colapso urbano), PLANREP (la reconversión del empleo público hacia trabajo creador), PLANISV (la reconstrucción de la infraestructura biológica del suelo), PLANEDU (la refundación del sistema educativo) y PLANJUS (la justicia popular que protege a las otras cuatro). Cinco documentos. Un solo diagnóstico: la Argentina tiene todos los recursos para ser un país extraordinario y un sistema diseñado para impedirlo. BASTA.
 
-Hay una filosofía que atraviesa las cuatro iniciativas. La llamamos *El Instante del Hombre Gris*. La premisa es simple y brutal: vivimos en una sociedad que produce hombres grises — personas a las que se les robó la capacidad de crear, de sentir su potencia, de transformar el mundo con sus manos y su inteligencia. Personas reducidas a engranajes, a consumidores, a ejecutores de rutinas que no eligieron. El suelo argentino es un hombre gris. Fue forzado a producir bajo un modelo que lo vacía, lo envenena y lo ignora. Su microbiología — esa fuerza laboral invisible de miles de millones de organismos por gramo — fue tratada como prescindible, reemplazable por química sintética. No lo es. Nunca lo fue. Y la Argentina está pagando el precio.
+Hay una filosofía que atraviesa las cinco iniciativas. La llamamos *El Instante del Hombre Gris*. La premisa es simple y brutal: vivimos en una sociedad que apaga a las personas — que les roba la capacidad de crear, de sentir su potencia, de transformar el mundo con sus manos y su inteligencia. Personas dormidas, reducidas a engranajes, a consumidores, a ejecutores de rutinas que no eligieron. El Hombre Gris es el que despierta — el que decide pulir su carácter, encender su espíritu, dejar de aceptar el letargo. Gris como el acero antes de brillar. Gris como el amanecer antes del sol. El suelo argentino necesita su propio instante. Fue forzado a producir bajo un modelo que lo vacía, lo envenena y lo ignora — un suelo apagado, dormido, tratado como insumo descartable. Su microbiología — esa fuerza laboral invisible de miles de millones de organismos por gramo — fue tratada como prescindible, reemplazable por química sintética. No lo es. Nunca lo fue. Y la Argentina está pagando el precio.
 
-El instante del hombre gris es el momento en que algo se quiebra y la persona decide dejar de aceptar. Decide crear en vez de consumir. Decide sanar en vez de seguir roto. Para la Argentina agropecuaria, ese instante es ahora. No porque seamos idealistas, sino porque la aritmética no miente: el costo de seguir como estamos supera, por órdenes de magnitud, el costo de cambiar.
+El instante del Hombre Gris es el momento en que algo se enciende y la persona decide despertar. Decide crear en vez de consumir. Decide sanar en vez de seguir roto. Se convierte en Hombre Gris — alguien que pule su carácter, que elige brillar. Para la Argentina agropecuaria, ese instante es ahora. No porque seamos idealistas, sino porque la aritmética no miente: el costo de seguir como estamos supera, por órdenes de magnitud, el costo de cambiar.
 
 Este documento no es un estudio académico. Es un plan operativo. Introduce una nueva categoría de infraestructura para la gobernanza argentina — la **Infraestructura de Suelo Vivo (ISV)** — y presenta el marco de ingeniería, la arquitectura institucional, el modelo económico, la estrategia ganadera, la integración de saberes ancestrales y la plataforma tecnológica digital necesarios para reconstruirla. Está redactado para que un Secretario de Agricultura, un Ministro provincial de Producción, un director regional de INTA, un presidente de comisión del Congreso, y también un productor de Pergamino, una comunidad Mapuche de Neuquén o un chacarero de Entre Ríos puedan leerlo y comprender exactamente qué construir, cómo financiarlo, qué medir y por qué el costo de esperar supera al costo de actuar.
 
@@ -186,7 +186,7 @@ No le hablemos a Raúl de biodiversidad, de huella de carbono ni de los Objetivo
 
 ### 2.4 El Ingrediente
 
-PLANREP — el Plan de Reconversión del Empleo Público, hermano de este documento en el Cuadrilátero BASTA — identifica algo que llama "El Ingrediente": la fuerza interna que hace que una persona decida cambiar. Ningún programa, por más bien diseñado que esté, funciona si no existe ese ingrediente. No se puede reconvertir a un empleado público que no quiere. No se puede regenerar el suelo de un productor que no siente la necesidad.
+PLANREP — el Plan de Reconversión del Empleo Público, hermano de este documento en el proyecto BASTA — identifica algo que llama "El Ingrediente": la fuerza interna que hace que una persona decida cambiar. Ningún programa, por más bien diseñado que esté, funciona si no existe ese ingrediente. No se puede reconvertir a un empleado público que no quiere. No se puede regenerar el suelo de un productor que no siente la necesidad.
 
 PLANISV necesita el mismo ingrediente. Y la buena noticia es que las condiciones para que ese ingrediente exista nunca fueron tan favorables. La sequía de 2022-2023 fue un trauma colectivo que dejó USD 20.000 millones de pérdidas y una generación de productores que por primera vez se preguntó: *¿y si el modelo no va más?* Los costos de insumos en dólares están en máximos históricos. La resistencia de malezas obliga a usar cócteles cada vez más caros y tóxicos. Las regulaciones europeas amenazan el acceso a mercados premium. Los mercados de carbono ofrecen una fuente de ingresos nueva.
 
@@ -1999,17 +1999,17 @@ PLANISV no opera en un vacío global. Hay un ecosistema internacional creciente 
 
 ---
 
-## SECCIÓN 21: INTEGRACIÓN CON EL CUADRILÁTERO BASTA — LAS CUATRO PATAS DE LA MESA
+## SECCIÓN 21: INTEGRACIÓN CON EL PROYECTO BASTA — LAS PATAS DE LA MESA
 
 > *"Un país no se arregla con un solo plan. Se arregla cuando varios planes se miran entre sí y descubren que son partes del mismo cuerpo."*
 
 ---
 
-### 21.1 El Cuadrilátero BASTA: Arquitectura de una Transformación Nacional
+### 21.1 El Proyecto BASTA: Arquitectura de una Transformación Nacional
 
 La Argentina no necesita un programa. Necesita un sistema. Un programa resuelve un problema aislado — el suelo, el empleo, la vivienda, la tecnología — y lo deja a merced del próximo ciclo político. Un sistema conecta esos problemas entre sí, de modo que la solución de uno alimenta la solución de los otros, y el conjunto se vuelve más difícil de destruir que cualquiera de sus partes.
 
-El Cuadrilátero BASTA es ese sistema. Cuatro iniciativas estratégicas que funcionan cada una de forma independiente pero que, conectadas, constituyen la transformación nacional más ambiciosa intentada en la Argentina desde la Generación del 80 — con la diferencia decisiva de que esta transformación no se basa en la acumulación extractiva sino en la regeneración productiva.
+El proyecto BASTA es ese sistema. Cinco iniciativas estratégicas fundacionales que funcionan cada una de forma independiente pero que, conectadas, constituyen la transformación nacional más ambiciosa intentada en la Argentina desde la Generación del 80 — con la diferencia decisiva de que esta transformación no se basa en la acumulación extractiva sino en la regeneración productiva.
 
 **BASTA** es un acrónimo operativo, no publicitario:
 
@@ -2019,7 +2019,9 @@ El Cuadrilátero BASTA es ese sistema. Cuatro iniciativas estratégicas que func
 - **T** — **Territorio**: PLAN24CN. La construcción de 24 nuevas ciudades en la Argentina, redistribuyendo población, creando polos productivos regionales, y rompiendo la macrocefalia de Buenos Aires.
 - **A** — **Autonomía**: El resultado emergente de las cuatro anteriores. Autonomía alimentaria (PLANISV), autonomía laboral (PLANREP), autonomía territorial (PLAN24CN), autonomía tecnológica (PLANREP-Inteligencia). Un país que no depende de nadie para comer, trabajar, vivir y pensar.
 
-El proyecto madre que contiene al Cuadrilátero es **El Instante del Hombre Gris** — un marco filosófico sobre la transformación del argentino atrapado en roles improductivos ("el hombre gris") en un creador. Cada una de las cuatro iniciativas es un camino concreto desde la grisura hacia la creación.
+PLANJUS — Justicia Popular — es la quinta iniciativa fundacional: el sistema inmunológico que protege a las otras cuatro. Sin justicia que funcione, ningún plan sobrevive al sabotaje, la corrupción o la inercia institucional. PLANJUS es el escudo de BASTA.
+
+El proyecto madre que contiene a BASTA es **El Instante del Hombre Gris** — un marco filosófico sobre el despertar del argentino atrapado en el letargo de un sistema que lo apaga. El Hombre Gris no es la persona dormida — es la que despierta. Es la que decide pulir su carácter, encender su espíritu, brillar. Cada una de las cinco iniciativas es un camino concreto desde el apagón hacia la creación.
 
 ### 21.2 PLANISV × PLAN24CN: Suelo Vivo para Ciudades Nuevas
 
@@ -2067,30 +2069,42 @@ PLANREP-Inteligencia forma trabajadores en habilidades AI-aumentadas para la exp
 
 **Empleo estimado en la intersección:** 30.000-60.000 puestos tecnológicos vinculados directamente a la operación de PLANISV, más un potencial de exportación de servicios de USD 500M-2.000M/año una vez que el modelo se replica regionalmente.
 
-### 21.5 Sinergia de Financiamiento
+### 21.5 PLANISV × PLANJUS: Justicia para el Suelo
 
-Los cuatro programas del Cuadrilátero BASTA comparten infraestructura, reducen costos por escala y amplifican la capacidad de captación de financiamiento internacional:
+PLANJUS aporta al ecosistema PLANISV lo que ningún programa técnico puede: la certeza de que los conflictos ambientales y contractuales se resuelven antes de que destruyan la confianza en el sistema.
+
+**Conflictos ambientales resueltos en 45 días.** Las disputas por contaminación de suelos, envenenamiento de napas y deriva de agroquímicos — que hoy tardan 7-12 años en la justicia ordinaria — se resuelven a través de PLANJUS JUS-2 (juicio completo) en un máximo de 45 días, con peritos ambientales especializados y resolución vinculante. El productor que contamina la cuenca de un vecino enfrenta consecuencias reales antes de que el daño se vuelva irreversible.
+
+**Contratos de manejo regenerativo con dientes.** Los compromisos que los productores asumen al ingresar al programa PLANISV — rotación de cultivos, eliminación gradual de agroquímicos, implementación de cultivos de cobertura — no son declaraciones de buena voluntad. Los incumplimientos se resuelven en PLANJUS JUS-1 (resolución simple) en 15 días. Esto protege tanto al programa como a los productores honestos que cumplen mientras sus vecinos hacen trampa.
+
+**Conflictos de uso del suelo entre productores y comunidades.** Las disputas territoriales entre establecimientos agropecuarios y comunidades rurales — fumigaciones cerca de escuelas, contaminación de agua comunitaria, avance sobre tierras indígenas — se canalizan a través de PLANJUS JUS-3 (apelación especializada) con paneles que incluyen peritos ambientales y representantes comunitarios. Resolución en 90 días máximo, no en décadas.
+
+**Empleo estimado en la intersección:** 2.000-5.000 peritos ambientales, mediadores especializados en conflictos de suelo, y operadores de justicia rural formados en la intersección PLANISV-PLANJUS.
+
+### 21.6 Sinergia de Financiamiento
+
+Los cinco programas de BASTA comparten infraestructura, reducen costos por escala y amplifican la capacidad de captación de financiamiento internacional:
 
 - **Infraestructura compartida.** Los Centros de Oficios de PLANREP-Belleza y los Centros de Inteligencia de PLANREP-Inteligencia pueden co-ubicarse en las 24 ciudades nuevas de PLAN24CN, compartiendo campus, conectividad, vivienda estudiantil y servicios. Los laboratorios de suelo de PLANISV pueden operar dentro de Centros de Excelencia universitarios que también sirven como centros de formación PLANREP.
 - **Financiamiento internacional combinado.** Una propuesta al Green Climate Fund que combine restauración de suelos (PLANISV), ciudades resilientes (PLAN24CN) y empleo verde (PLANREP) tiene un perfil de impacto enormemente superior a cualquiera de los tres por separado. Lo mismo aplica a BID, Banco Mundial, CAF, y fondos bilaterales europeos.
-- **Economías de escala en comunicación.** Una campaña nacional del Cuadrilátero BASTA tiene mayor impacto mediático y menor costo por programa que cuatro campañas separadas.
+- **Economías de escala en comunicación.** Una campaña nacional de BASTA tiene mayor impacto mediático y menor costo por programa que cinco campañas separadas.
 - **Sinergia fiscal.** Los egresados de PLANREP que se emplean en PLANISV y PLAN24CN generan recaudación impositiva que financia parcialmente los programas mismos. El circuito fiscal se cierra: inversión pública → empleo genuino → recaudación → reinversión.
 
 **Ahorro estimado por sinergias:** USD 2.000-5.000M en el horizonte de 15 años por compartición de infraestructura, financiamiento combinado y eliminación de duplicaciones.
 
-### 21.6 El Instante del Hombre Gris: De Gris a Verde
+### 21.7 El Instante del Hombre Gris: Del Apagón al Despertar Verde
 
-El Instante del Hombre Gris es la filosofía madre del Cuadrilátero BASTA. Su premisa es simple y devastadora: millones de argentinos están atrapados en roles improductivos — empleos estatales que no generan valor, trabajos informales de subsistencia, desempleo disfrazado de changas — no por incapacidad personal sino por un sistema que les niega la oportunidad de crear.
+El Instante del Hombre Gris es la filosofía madre del proyecto BASTA. Su premisa es simple y devastadora: millones de argentinos están atrapados en el letargo — empleos que no generan valor, trabajos de subsistencia, desempleo disfrazado de changas — no por incapacidad personal sino por un sistema que los mantiene apagados, dormidos, en piloto automático.
 
-El "hombre gris" no es un insulto. Es un diagnóstico. Es el empleado público que sella expedientes que nadie lee. Es el joven que no estudia ni trabaja porque no ve para qué. Es la mujer que tiene capacidad para dirigir una empresa pero administra un kiosco porque no tuvo acceso a formación. Es el productor que sabe que sus suelos se mueren pero no tiene ni el capital ni el conocimiento para hacer algo distinto.
+El Hombre Gris no es esa persona dormida. El Hombre Gris es el que **despierta**. Es el empleado público que un día se cansa de sellar expedientes que nadie lee y decide aprender un oficio. Es el joven que encuentra su propósito. Es la mujer que siempre supo que podía más y finalmente encuentra el camino. Es el productor que mira su suelo moribundo y dice: *esto se puede sanar*. El Hombre Gris es gris como el acero que se pule — no como el cemento que aplasta. Es el color de la transformación, no del sometimiento.
 
-PLANISV transforma al hombre gris en hombre verde. No metafóricamente: literalmente. El ex-empleado administrativo que se forma como técnico de salud del suelo y empieza a medir biomasa microbiana en campos de la Pampa Húmeda dejó de ser gris. La ex-recepcionista que se forma como operadora de drones y monitorea cultivos de cobertura desde una estación INTA dejó de ser gris. El productor que deja de fumigar, empieza a compostar y ve cómo su suelo revive dejó de ser gris.
+PLANISV le da al Hombre Gris un destino verde. El ex-empleado administrativo que se forma como técnico de salud del suelo y empieza a medir biomasa microbiana en campos de la Pampa Húmeda tuvo su instante — se convirtió en Hombre Gris, y eligió lo verde. La ex-recepcionista que se forma como operadora de drones y monitorea cultivos de cobertura desde una estación INTA tuvo su instante. El productor que deja de fumigar, empieza a compostar y ve cómo su suelo revive tuvo su instante.
 
-De gris a verde. De extractivo a regenerativo. De administrar la decadencia a construir fertilidad. Esa es la transformación que PLANISV opera a nivel de cada persona que toca.
+Del apagón al despertar. De lo extractivo a lo regenerativo. De administrar la decadencia a construir fertilidad. Esa es la transformación que PLANISV opera a nivel de cada persona que toca.
 
-Y cuando esa transformación se multiplica por 500.000 personas — técnicos, productores, operadores, analistas, artesanos alimentarios, monitores ambientales — deja de ser una política pública y se convierte en un movimiento civilizatorio. La Argentina que extrae se convierte en la Argentina que regenera. El instante del hombre gris fue el instante en que eligió dejar de matar el suelo y empezar a sanarlo.
+Y cuando esa transformación se multiplica por 500.000 personas — técnicos, productores, operadores, analistas, artesanos alimentarios, monitores ambientales — deja de ser una política pública y se convierte en un movimiento civilizatorio. La Argentina que extraía se convierte en la Argentina que regenera. El instante del Hombre Gris fue el instante en que eligió despertar — y despertar significó sanar el suelo.
 
-**TABLA 27: Matriz de Integración del Cuadrilátero BASTA con PLANISV**
+**TABLA 27: Matriz de Integración de BASTA con PLANISV**
 
 | Intersección | Recursos que fluyen hacia PLANISV | Recursos que fluyen desde PLANISV | Impacto conjunto estimado |
 |---|---|---|---|
@@ -2098,7 +2112,8 @@ Y cuando esa transformación se multiplica por 500.000 personas — técnicos, p
 | **PLANISV → PLAN24CN** | Paisajes regenerados como atractivo territorial; calidad de agua superior | Mercado cautivo para producción PLANISV; logística compartida | Valor inmobiliario +15-25% en ciudades con cinturón alimentario activo |
 | **PLANREP-Belleza → PLANISV** | 80.000-150.000 trabajadores formados: técnicos de suelo, viveristas, agroecólogos, artesanos alimentarios | Materia prima de alta calidad para gastronomía artesanal; paisajes para turismo regenerativo | Cadena completa campo→mesa→exportación; turismo regenerativo USD 200M+/año |
 | **PLANREP-Inteligencia → PLANISV** | 30.000-60.000 trabajadores tech: pilotos de drones, analistas IA, desarrolladores, técnicos IoT | Demanda de servicios exportables (MRV, drones, análisis de suelo como servicio) | Exportación de servicios de suelo inteligente USD 500M-2.000M/año |
-| **Cuadrilátero completo** | Sistema integrado de financiamiento, infraestructura, talento y mercados | Seguridad alimentaria como base de todo el sistema productivo | USD 30-50B/año de nuevo valor económico; 2M+ empleos genuinos |
+| **PLANISV + PLANJUS** | Resolución rápida de conflictos ambientales, de contratos agrícolas y de uso del suelo | Productores que incumplen compromisos de regeneración enfrentan resolución en 45 días, no en 7 años |
+| **BASTA completo** | Sistema integrado de financiamiento, infraestructura, talento, mercados y justicia | Seguridad alimentaria como base de todo el sistema productivo | USD 30-50B/año de nuevo valor económico; 2M+ empleos genuinos |
 
 ---
 
@@ -2238,10 +2253,10 @@ Antes de que el primer sensor toque la tierra, hay que construir las condiciones
 - Selección de las 6 agro-regiones prioritarias y los 50 sitios de demostración Nivel 1
 - Convenios con universidades para los 6 Centros de Excelencia regionales
 
-**Hitos del Cuadrilátero BASTA:**
+**Hitos de BASTA:**
 - Reunión de coordinación PLANISV × PLAN24CN: identificación de los primeros 6 cinturones alimentarios para ciudades piloto
 - Reunión de coordinación PLANISV × PLANREP: diseño de tracks formativos cruzados (agroecología, drones, análisis de suelo)
-- Convenio marco de integración del Cuadrilátero BASTA firmado por los directores de los 4 programas
+- Convenio marco de integración de BASTA firmado por los directores de los 5 programas
 
 **Hitos de financiamiento:**
 - Presentación de solicitud al Green Climate Fund (GCF) con perfil de proyecto PLANISV
@@ -2294,7 +2309,7 @@ Antes de que el primer sensor toque la tierra, hay que construir las condiciones
 - Convenios firmados con CREA, AAPRESID, Federación Agraria Argentina, CONINAGRO y Sociedad Rural
 - Al menos 50 grupos CREA participando como multiplicadores
 
-**Hitos del Cuadrilátero BASTA:**
+**Hitos de BASTA:**
 - Primera cohorte de 200 egresados PLANREP incorporados como técnicos de campo PLANISV
 - Primeros 3 cinturones alimentarios de ciudades piloto PLAN24CN con protocolo de suelo PLANISV activo
 
@@ -2352,10 +2367,10 @@ Antes de que el primer sensor toque la tierra, hay que construir las condiciones
 - Cooperativas de comercialización de productos PLANISV formadas en 4 regiones
 - Primera exportación de producto con certificación "Suelo Vivo Argentino"
 
-**Hitos del Cuadrilátero BASTA:**
+**Hitos de BASTA:**
 - 2.000+ egresados PLANREP trabajando en roles PLANISV (técnicos, operadores de drones, analistas)
 - 6 cinturones alimentarios activos produciendo para ciudades piloto PLAN24CN
-- Primera propuesta de financiamiento internacional conjunta del Cuadrilátero (GCF o BID)
+- Primera propuesta de financiamiento internacional conjunta de BASTA (GCF o BID)
 
 ### 23.3 Fase 3 — Escalar (Meses 36-72): De Programa a Institución
 
@@ -2404,7 +2419,7 @@ Antes de que el primer sensor toque la tierra, hay que construir las condiciones
 - Los "pueblos fumigados" del corredor sojero muestran mejoras en indicadores de salud pública vinculados a reducción de agroquímicos
 - Primer estudio epidemiológico publicado mostrando correlación entre adopción PLANISV y reducción de enfermedades vinculadas a pesticidas
 
-**Hitos del Cuadrilátero BASTA:**
+**Hitos de BASTA:**
 - 10.000+ egresados PLANREP integrados al ecosistema PLANISV
 - 12 cinturones alimentarios operativos con autosuficiencia local del 30%+
 - Exportación de servicios de monitoreo de suelos a Paraguay, Uruguay y sur de Brasil
@@ -2450,10 +2465,10 @@ Antes de que el primer sensor toque la tierra, hay que construir las condiciones
 - 100+ cuencas con calidad de agua restaurada
 - Argentina alcanza estándares OMS de calidad de agua en todas las zonas agrícolas con presencia PLANISV
 
-**Hitos del Cuadrilátero BASTA:**
-- Cuadrilátero BASTA plenamente operativo como sistema integrado
+**Hitos de BASTA:**
+- Proyecto BASTA plenamente operativo como sistema integrado
 - 50.000+ egresados PLANREP en roles productivos vinculados a PLANISV, PLAN24CN y la cadena agroalimentaria
-- Argentina exporta el modelo Cuadrilátero como paquete completo de transformación nacional
+- Argentina exporta el modelo BASTA como paquete completo de transformación nacional
 
 **TABLA 29: Hoja de Ruta de Implementación — Línea Temporal**
 
@@ -2475,7 +2490,7 @@ Antes de que el primer sensor toque la tierra, hay que construir las condiciones
 
 ### 24.1 Inversión del Programa por Fase (Presupuesto Expandido)
 
-El presupuesto original de PLANISV contemplaba seis categorías de inversión. El alcance expandido de v3.0 — que integra ganadería, remediación hídrica, agricultura urbana, programas de género e inclusión, comunicación, y coordinación con el Cuadrilátero BASTA — requiere un marco presupuestario ampliado.
+El presupuesto original de PLANISV contemplaba seis categorías de inversión. El alcance expandido de v3.0 — que integra ganadería, remediación hídrica, agricultura urbana, programas de género e inclusión, comunicación, y coordinación con el proyecto BASTA — requiere un marco presupuestario ampliado.
 
 **TABLA 30: Presupuesto Detallado por Fase (en millones de USD)**
 
@@ -2494,7 +2509,7 @@ El presupuesto original de PLANISV contemplaba seis categorías de inversión. E
 | **Comunicación y campaña nacional** | 0,5-1 | 1-2 | 3-5 | 5-8 | 8-12 | **17,5-28** |
 | **Programa de comunidades indígenas** | — | 0,5-1 | 2-3 | 4-8 | 8-15 | **14,5-27** |
 | **Programa de género e inclusión** | — | 0,3-0,5 | 1-2 | 3-5 | 5-8 | **9,3-15,5** |
-| **Coordinación Cuadrilátero BASTA** | — | 0,2-0,5 | 1-2 | 2-4 | 4-8 | **7,2-14,5** |
+| **Coordinación proyecto BASTA** | — | 0,2-0,5 | 1-2 | 2-4 | 4-8 | **7,2-14,5** |
 | **INVERSIÓN TOTAL** | **3-6** | **17,5-36** | **87-166** | **244-543** | **672-2.213** | **1.023,5-2.964** |
 
 **Inversión total estimada a 15 años: USD 1.000-3.000M.**
@@ -2506,7 +2521,7 @@ Para poner esto en contexto: la Argentina gasta anualmente USD 3.000-4.000M en i
 | Fuente | Aporte estimado | Mecanismo |
 |---|---|---|
 | Afectación de retenciones (2-3% de derechos de exportación agropecuarios) | USD 400-750M en 15 años | Ley de Infraestructura de Suelo Vivo; Fondo Nacional |
-| Financiamiento internacional (GCF, BID, Banco Mundial, CAF) | USD 200-500M en 15 años | Préstamos concesionales y donaciones; propuestas conjuntas Cuadrilátero BASTA |
+| Financiamiento internacional (GCF, BID, Banco Mundial, CAF) | USD 200-500M en 15 años | Préstamos concesionales y donaciones; propuestas conjuntas BASTA |
 | Fondos climáticos bilaterales (UE, Alemania, Noruega, Japón) | USD 100-300M en 15 años | Cooperación técnica; alineamiento con EUDR y Acuerdo de París |
 | Ingresos por créditos de carbono (autofinanciamiento desde Fase 3) | USD 200-1.000M en 15 años | Mercado Argentino de Carbono Agroecológico; ventas internacionales |
 | Co-inversión provincial | USD 100-200M en 15 años | Matching funds; contrapartida de convenios marco |
@@ -2649,13 +2664,13 @@ PLANISV fue el instante en que la Argentina eligió dejar de ignorarlos.
 
 No fue un acto heroico. Fue un acto de lucidez mínima. Fue mirar el suelo, mirar los datos, mirar los campos vecinos del mundo que ya estaban restaurando, y decir: nosotros también podemos. Nosotros, que tenemos INTA desde 1956. Nosotros, que tenemos los mejores agrónomos de América Latina. Nosotros, que exportamos alimentos para 400 millones de personas. Nosotros, que sabemos hacer cosas difíciles cuando queremos.
 
-El hombre gris — el que estaba sentado detrás de un escritorio sellando expedientes — se levantó. Se puso un mameluco. Aprendió a medir biomasa microbiana, a operar un drone, a compostar, a leer un análisis de suelo, a plantar un corredor de biodiversidad. Se ensució las manos con tierra viva. Y dejó de ser gris.
+La persona apagada — la que estaba sentada detrás de un escritorio sellando expedientes — tuvo su instante. Se convirtió en Hombre Gris. Se levantó. Se puso un mameluco. Aprendió a medir biomasa microbiana, a operar un drone, a compostar, a leer un análisis de suelo, a plantar un corredor de biodiversidad. Se ensució las manos con tierra viva. Encendió su espíritu.
 
-La mujer gris — la que sabía que podía más pero el sistema no le daba lugar — encontró lugar. En un laboratorio de suelos, en una cooperativa de productoras orgánicas, en un equipo de monitoreo satelital, en una cocina artesanal que transforma alimentos de suelo regenerado en productos que el mundo quiere comprar. Dejó de ser gris.
+La mujer dormida — la que sabía que podía más pero el sistema no le daba lugar — despertó. Tuvo su instante. Encontró lugar en un laboratorio de suelos, en una cooperativa de productoras orgánicas, en un equipo de monitoreo satelital, en una cocina artesanal que transforma alimentos de suelo regenerado en productos que el mundo quiere comprar. Se convirtió en Hombre Gris — en alguien que brilla.
 
-El productor gris — el que sabía que estaba matando su suelo pero no veía alternativa — vio la alternativa. La vio en los campos piloto de INTA. La vio en los números de su vecino. La vio en el PPR que le llegó cuando su MOS subió medio punto. La vio en el precio premium que obtuvo por su primera exportación certificada como regenerativa. Dejó de ser gris.
+El productor en piloto automático — el que sabía que estaba matando su suelo pero no veía alternativa — vio la alternativa. La vio en los campos piloto de INTA. La vio en los números de su vecino. La vio en el PPR que le llegó cuando su MOS subió medio punto. La vio en el precio premium que obtuvo por su primera exportación certificada como regenerativa. Tuvo su instante. Pulió su carácter. Eligió lo verde.
 
-De gris a verde. De la extracción a la regeneración. Del suelo muerto al suelo vivo. De la Argentina que se comía su futuro a la Argentina que siembra el futuro de 400 millones de personas.
+Del apagón al despertar. De la extracción a la regeneración. Del suelo muerto al suelo vivo. De la Argentina que se comía su futuro a la Argentina que siembra el futuro de 400 millones de personas.
 
 Ese fue el instante.
 
@@ -2678,8 +2693,8 @@ ES LA DEUDA REAL
 PLANISV v3.0 — Marzo 2026
 Plan Nacional para la Reconstrucción de la Infraestructura de Suelo Vivo de la Argentina
 
-Parte del Cuadrilátero BASTA — El Instante del Hombre Gris
-PLAN24CN · PLANISV · PLANREP-Belleza · PLANREP-Inteligencia
+Parte del proyecto BASTA — El Instante del Hombre Gris
+PLAN24CN · PLANISV · PLANREP-Belleza · PLANREP-Inteligencia · PLANJUS
 
 — Fin del Documento —
 ```

@@ -31,7 +31,7 @@ Russell Ackoff, uno de los pensadores más lúcidos en diseño de sistemas, prop
 
 Y la responde en serio. Con números, con planos, con presupuestos, con cronogramas, con gobernanza.
 
-Este plan no es un ejercicio de urbanismo. Es la instanciación física del proyecto nacional **BASTA** — el compromiso de hacer de la Argentina el mejor lugar del planeta para vivir una experiencia humana. Porque esa experiencia no ocurre en el aire, no ocurre en un PowerPoint, no ocurre en un discurso: ocurre en una calle, en una vereda, en un patio, en un parque, en un mercado, en una escuela, en la esquina donde te encontrás con tu vecina. Ocurre en la ciudad. Y si la ciudad está diseñada contra el bienestar — si genera estrés, aislamiento, fealdad, inseguridad, enfermedad, desigualdad — entonces ningún programa social, ningún subsidio, ninguna app va a compensar ese daño estructural.
+Este plan no es un ejercicio de urbanismo. Es la instanciación física del **proyecto BASTA** — cinco iniciativas estratégicas fundacionales interconectadas: PLAN24CN (las 24 ciudades nuevas), PLANREP (la reconversión del empleo público), PLANISV (la reconstrucción de la infraestructura biológica del suelo), PLANEDU (la refundación del sistema educativo) y PLANJUS (la justicia popular y resolución de conflictos) — con el compromiso de hacer de la Argentina el mejor lugar del planeta para vivir una experiencia humana. Porque esa experiencia no ocurre en el aire, no ocurre en un PowerPoint, no ocurre en un discurso: ocurre en una calle, en una vereda, en un patio, en un parque, en un mercado, en una escuela, en la esquina donde te encontrás con tu vecina. Ocurre en la ciudad. Y si la ciudad está diseñada contra el bienestar — si genera estrés, aislamiento, fealdad, inseguridad, enfermedad, desigualdad — entonces ningún programa social, ningún subsidio, ninguna app va a compensar ese daño estructural.
 
 La propuesta es concreta: fundar **24 ciudades nuevas**, una por provincia. No réplicas de las ciudades existentes. No conjuntos habitacionales rebautizados. Ciudades completas, diseñadas integralmente, desde la primera piedra hasta la última fibra óptica, con los mejores conocimientos disponibles en el planeta. Cada una un faro. Cada una única — porque Misiones no es Mendoza, y Tierra del Fuego no es Tucumán. Cada una una prueba de concepto de que otra forma de vivir es posible AHORA, no en un futuro lejano que nunca llega.
 
@@ -2785,7 +2785,7 @@ Las ciudades del PLAN24CN cambian esta ecuación. Una ciudad nueva, diseñada de
 
 **Emprendedores.** Las ciudades con Régimen de Promoción (Sección 10.1) ofrecen condiciones excepcionales para emprendedores: carga fiscal mínima, acceso a infraestructura y servicios, mercado interno creciente, cercanía a recursos naturales y cadenas productivas. Un emprendedor de biotech en Ciudad Selva tiene acceso a la biodiversidad de la selva misionera, un laboratorio universitario y un régimen fiscal que le permite reinvertir el 90% de sus ganancias durante la primera década.
 
-Las ciudades del PLAN24CN son la prueba física de la tesis central del programa BASTA: Argentina puede ser el mejor lugar del planeta para vivir una experiencia humana. No algún día, no en teoría — ahora, acá, en estas coordenadas.
+Las ciudades del PLAN24CN son la prueba física de la tesis central del proyecto BASTA: Argentina puede ser el mejor lugar del planeta para vivir una experiencia humana. No algún día, no en teoría — ahora, acá, en estas coordenadas.
 
 ---
 
@@ -2857,6 +2857,24 @@ Cada Ciudad Célula tiene una **ciudad hermana existente** — la ciudad más ce
 Cada convenio de simbiosis incluye: **planificación conjunta de infraestructura** (no duplicar hospitales, universidades ni plantas de tratamiento que pueden servir a ambas poblaciones), **estrategia económica compartida** (la ciudad nueva no le roba los comercios a la vieja sino que genera nueva demanda), **monitoreo de impacto bidireccional** (si el PBI o la población de la ciudad hermana empieza a caer, se activan mecanismos correctivos), y **resolución de conflictos** vía el Comité de Proyecto mixto.
 
 La simbiosis no es caridad: es inteligencia territorial. Una Ciudad Célula aislada de su contexto regional es frágil. Una Ciudad Célula integrada con su entorno es un catalizador de transformación regional — que es el objetivo real del PLAN24CN.
+
+---
+
+### 16.6 PLAN24CN + PLANJUS (Justicia Popular)
+
+Las ciudades nuevas del PLAN24CN nacen con justicia incorporada — no como un servicio que se agrega después, sino como parte del diseño original. La integración con PLANJUS es estructural desde el primer día.
+
+**Casa JUS integrada en cada centro comunitario.** Cada Ciudad Célula incluye al menos una Casa JUS en su Núcleo Cívico, integrada en el centro comunitario principal. No es un juzgado: es un espacio de resolución de conflictos accesible, cercano, diseñado para que cualquier vecino pueda presentar un caso sin abogado, sin trámites kafkianos, sin esperar años. La Casa JUS ofrece mediación comunitaria, paneles ciudadanos por sorteo, y justicia restaurativa — todo dentro de los plazos PLANJUS: 15 días para casos simples, 45 días para casos intermedios, 90 días para casos complejos.
+
+**Conflictos de construcción resueltos en tiempo real.** Los contratos de construcción de las ciudades nuevas — miles de acuerdos entre cooperativas, proveedores, trabajadores y la Corporación Nacional de Desarrollo Urbano — generan disputas inevitables. En el sistema actual, una disputa contractual tarda 4-6 años en resolverse. Con PLANJUS, los conflictos de construcción del PLAN24CN se resuelven en paneles JUS-2 (45 días), con panelistas capacitados en contratos de obra pública y construcción cooperativa. La ciudad no se detiene porque un conflicto se pudre en un juzgado.
+
+**Gobernanza ciudadana con resolución de conflictos integrada.** Las Asambleas Ciudadanas y los Consejos de Ciudad del PLAN24CN generan tensiones legítimas: disputas sobre uso del suelo, conflictos entre barrios por asignación de recursos, desacuerdos sobre normas de convivencia. En vez de judicializar estos conflictos — lo que los sacaría de la esfera comunitaria y los metería en el aparato judicial tradicional — los paneles PLANJUS los resuelven localmente, con vecinos que entienden el contexto porque lo viven.
+
+**Conflictos ambientales y de planificación urbana.** Los paneles ambientales de PLANJUS resuelven disputas sobre impacto ambiental de obras, conflictos entre el cinturón agroecológico y la expansión urbana, y tensiones entre desarrollo económico y preservación ecológica. Los panelistas incluyen expertos en urbanismo y ecología designados por el Consejo de Sabiduría de cada ciudad.
+
+**Efecto sobre la cultura cívica.** Una ciudad donde los conflictos se resuelven en 15-45 días, donde la justicia es visible y accesible, donde los vecinos participan como panelistas — es una ciudad que genera confianza institucional desde el nacimiento. Los habitantes de las ciudades PLAN24CN no heredan la desconfianza argentina hacia la justicia: crecen en un sistema donde la justicia funciona, donde es rápida, transparente y comunitaria. Esa experiencia se transmite a la generación siguiente como normalidad — no como excepción.
+
+Las ciudades del PLAN24CN nacen con justicia incorporada — no como un servicio que se agrega después, sino como parte del diseño original.
 
 ---
 
@@ -2966,4 +2984,4 @@ Este documento no es un estudio académico. No es un informe de consultoría. Es
 
 *PLAN24CN — Plan Nacional de 24 Ciudades Nuevas para la Argentina*
 *Documento Estratégico — Secciones 9 a 18*
-*Iniciativa del Programa BASTA*
+*Iniciativa del Proyecto BASTA*
