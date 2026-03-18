@@ -245,7 +245,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
       },
     ],
     tags: ['suelo vivo', 'agricultura regenerativa', 'carbono', 'soberanía alimentaria', 'exportaciones', 'INTA', 'agua'],
-    relatedInitiativeSlugs: ['plan24cn-24-ciudades-nuevas', 'planrep-reconversion-empleo-publico', 'planedu-refundacion-educativa'],
+    relatedInitiativeSlugs: ['plan24cn-24-ciudades-nuevas', 'planrep-reconversion-empleo-publico', 'planedu-refundacion-educativa', 'planjus-justicia-popular'],
     sources: [
       { title: 'PLANISV — Plan Nacional de Infraestructura de Suelo Vivo (Documento Estratégico, Feb 2026)' },
       { title: 'INTA — Estaciones Experimentales (datos de MOS y erosión)' },
@@ -440,7 +440,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
       },
     ],
     tags: ['ciudades nuevas', 'urbanismo', 'bienestar', 'diseño ideal', 'federalismo', 'economía circular', 'belleza'],
-    relatedInitiativeSlugs: ['planisv-infraestructura-suelo-vivo', 'planrep-reconversion-empleo-publico', 'planedu-refundacion-educativa'],
+    relatedInitiativeSlugs: ['planisv-infraestructura-suelo-vivo', 'planrep-reconversion-empleo-publico', 'planedu-refundacion-educativa', 'planjus-justicia-popular'],
     sources: [
       { title: 'PLAN24CN — Plan Nacional de 24 Ciudades Nuevas (Documento Estratégico, Mar 2026)' },
       { title: 'INDEC — Censo Nacional de Población, Hogares y Viviendas' },
@@ -649,7 +649,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
       },
     ],
     tags: ['empleo público', 'reconversión laboral', 'economía de la vida', 'artesanos', 'inteligencia artificial', 'alivio fiscal', 'cooperativas'],
-    relatedInitiativeSlugs: ['planisv-infraestructura-suelo-vivo', 'plan24cn-24-ciudades-nuevas', 'planedu-refundacion-educativa'],
+    relatedInitiativeSlugs: ['planisv-infraestructura-suelo-vivo', 'plan24cn-24-ciudades-nuevas', 'planedu-refundacion-educativa', 'planjus-justicia-popular'],
     sources: [
       { title: 'PLANREP — Plan Nacional de Reconversión del Empleo Público (Documento Estratégico, Mar 2026)' },
       { title: 'INDEC — Encuesta Permanente de Hogares (datos de empleo público)' },
@@ -856,7 +856,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
       },
     ],
     tags: ['educación', 'maestros creadores', 'siete capacidades', 'inteligencia artificial', 'bilingüismo', 'portfolio', 'escuelas del futuro'],
-    relatedInitiativeSlugs: ['planisv-infraestructura-suelo-vivo', 'plan24cn-24-ciudades-nuevas', 'planrep-reconversion-empleo-publico'],
+    relatedInitiativeSlugs: ['planisv-infraestructura-suelo-vivo', 'plan24cn-24-ciudades-nuevas', 'planrep-reconversion-empleo-publico', 'planjus-justicia-popular'],
     sources: [
       { title: 'PLANEDU — Plan Nacional de Refundación Educativa (Documento Estratégico, Mar 2026)' },
       { title: 'PISA 2022 — Resultados Argentina (OCDE)' },
@@ -864,6 +864,202 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
       { title: 'Hanushek & Woessmann — The Knowledge Capital of Nations (2015)' },
       { title: 'Heckman — The Economics of Human Potential (Perry Preschool / Abecedarian)' },
       { title: 'Russell Ackoff — Idealized Design (Metodología)' },
+    ],
+  },
+  {
+    slug: 'planjus-justicia-popular',
+    title: 'PLANJUS',
+    subtitle: 'Plan Nacional de Justicia Popular y Resolución de Conflictos',
+    category: 'justicia',
+    summary: 'El sistema judicial argentino tarda entre 3 y 11 años en resolver un caso, cuesta miles de dólares, y tiene menos del 20% de confianza ciudadana. PLANJUS propone un sistema de justicia popular con paneles ciudadanos seleccionados por sorteo democrático que resuelven conflictos en 15, 45 o 90 días — gratuito, transparente, e incorruptible por diseño arquitectónico.',
+    iconName: 'Scale',
+    documentFile: 'PLANJUS_Argentina_ES.md',
+    elProblema: {
+      title: 'El Problema',
+      content: `<p>El sistema judicial argentino es una enfermedad autoinmune: el sistema que existe para proteger al ciudadano se convirtió en el sistema que lo enferma. Lo enferma con años de espera, con costos que no puede pagar, y con una impunidad que le demuestra, caso tras caso, que la justicia no es para él.</p>
+<p>Un juicio civil tarda entre 3 y 6 años. Un juicio laboral entre 3 y 5 años. Las causas por corrupción tardan un promedio de 4.161 días — más de 11 años. Más del 50% de los presos están sin condena. La confianza ciudadana en la justicia es inferior al 20%.</p>
+<p>El 96% del presupuesto del Poder Judicial federal se destina a salarios. Solo el 4% se invierte en tecnología, infraestructura o mejora. El sistema no está roto por falta de recursos — está diseñado para protegerse a sí mismo: cada regla procesal que agrega un paso protege al abogado que cobra por hora, cada apelación sin costo protege al que tiene más recursos para litigar, cada año de demora protege al poderoso que puede esperar y destruye al débil que no puede.</p>
+<p>El costo económico de la injusticia se estima en USD 23.000–43.000 millones anuales (5–8% del PBI), contando contratos incumplidos sin resolución, desincentivo a la inversión, informalidad laboral sostenida, y el costo directo del sistema judicial.</p>`,
+      pullQuote: 'La justicia argentina no está rota. Está funcionando exactamente como fue diseñada: para protegerse a sí misma.',
+      stats: [
+        { label: 'Duración promedio juicio civil', value: '3-6 años' },
+        { label: 'Causas de corrupción', value: '11,4 años' },
+        { label: 'Presos sin condena', value: '>50%' },
+        { label: 'Confianza ciudadana', value: '<20%' },
+        { label: 'Presupuesto judicial en salarios', value: '96%' },
+        { label: 'Costo de la injusticia / año', value: 'USD 23-43 mil M' },
+      ],
+    },
+    quePasaSiNoCambiamos: {
+      title: '¿Qué pasa si no cambiamos?',
+      content: `<p>Sin una alternativa funcional al sistema judicial, la Argentina seguirá pagando un costo de entre USD 23.000 y 43.000 millones anuales en justicia disfuncional — más que el presupuesto combinado de educación y salud.</p>
+<p>La informalidad laboral se perpetúa porque los empleadores saben que un juicio laboral tarda 5 años. La inversión no llega porque la seguridad jurídica es una ficción. Las PyMEs quiebran porque un contrato incumplido no puede resolverse a tiempo. Los alquileres se vuelven un campo de batalla donde gana el que puede esperar, no el que tiene razón.</p>
+<p>La confianza institucional seguirá erosionándose. Un pueblo que no confía en su sistema de justicia resuelve las cosas por mano propia, acepta el abuso porque reclamar es peor, y deja de creer en las reglas. La crisis de justicia no es solo jurídica — es social, económica, y democrática.</p>
+<p>Cada año sin cambio profundiza la captura del sistema por sus beneficiarios: la casta judicial, los colegios de abogados, y los actores poderosos que usan la lentitud como arma. El costo de la inacción crece exponencialmente porque la desconfianza se retroalimenta.</p>`,
+      pullQuote: 'Cada caso que dura una década le enseña a la sociedad que reclamar es inútil. La injusticia no solo daña a la víctima — mata la confianza de todos.',
+      stats: [
+        { label: 'Costo acumulado 10 años sin cambio', value: 'USD 230-430 mil M' },
+        { label: 'Inversión perdida por inseguridad jurídica', value: 'USD 8-15 mil M/año' },
+        { label: 'Informalidad laboral sostenida', value: '35-40%' },
+        { label: 'Contratos irresueltos / año', value: 'USD 5-10 mil M' },
+      ],
+    },
+    elDisenoIdeal: {
+      title: 'El Diseño Ideal',
+      content: `<p><strong>PLANJUS</strong> es un sistema de justicia popular que funciona como un sistema inmunológico: distribuido en todo el cuerpo social, sin punto único de fallo, proporcional en su respuesta, adaptativo, y antifragil — se vuelve más fuerte cada vez que alguien intenta corromperlo.</p>
+<p><strong>Tres niveles JUS:</strong> JUS-1 para conflictos simples (consumo, deudas menores, vecindad) resueltos en 15 días por plataforma digital. JUS-2 para conflictos medianos (laborales, vivienda, comerciales) resueltos en 45 días con modelo híbrido. JUS-3 para conflictos complejos (familia, custodia, herencias) resueltos en 90 días en Casas JUS presenciales.</p>
+<p><strong>Paneles ciudadanos por sorteo:</strong> No jueces de carrera sino ciudadanos capacitados, seleccionados al azar por algoritmo público y auditable, que rotan después de cada caso. Imposibles de capturar porque nadie sabe quiénes van a ser hasta que el caso empieza.</p>
+<p><strong>Triple candado anticorrupción:</strong> (1) Imposibilidad estructural — el sorteo aleatorio hace que sobornar sea matemáticamente irracional. (2) Transparencia radical — cada decisión es pública y verificable, registrada en sistema inmutable. (3) Incentivos económicos — ser honesto paga más que ser corrupto, por diseño.</p>
+<p><strong>Sin abogado obligatorio:</strong> Las partes se representan a sí mismas. Salvaguardas arquitectónicas (piso de derechos, consistencia asistida por IA, apelación automática) reemplazan la función protectora del abogado con mecanismos más confiables y gratuitos.</p>
+<p><strong>Justicia restaurativa:</strong> El foco está en reparar el daño, no en castigar al infractor. Las víctimas reportan 100% más satisfacción en procesos restaurativos que en la justicia tradicional.</p>
+<p><strong>Absorción gradual:</strong> PLANJUS comienza como complemento del sistema judicial ("le sacamos carga"), se convierte en la opción preferida del pueblo por velocidad y calidad, y termina siendo el sistema de facto — sin confrontación, por excelencia.</p>`,
+      pullQuote: 'La justicia no es un edificio al que tenés que ir a suplicar. Es un río que fluye hacia donde la gente está.',
+      stats: [
+        { label: 'Resolución JUS-1', value: '15 días' },
+        { label: 'Resolución JUS-2', value: '45 días' },
+        { label: 'Resolución JUS-3', value: '90 días' },
+        { label: 'Costo para el ciudadano', value: 'Gratuito' },
+        { label: 'ROI estimado (15 años)', value: '6:1 a 10:1' },
+        { label: 'Satisfacción objetivo', value: '>70%' },
+      ],
+    },
+    elCamino: {
+      overview: 'PLANJUS se despliega en tres fases: "El Alivio" (complemento que demuestra resultados), "La Preferencia" (la gente elige PLANJUS masivamente), y "La Sucesión Natural" (PLANJUS se convierte en el sistema de justicia de facto). La estrategia es ganar por excelencia, no por confrontación.',
+      steps: [
+        {
+          id: 1,
+          title: 'Ley de Justicia Popular y creación de ANJUS',
+          description: 'Sanción de la ley habilitante que crea la Agencia Nacional de Justicia Popular (ANJUS), establece los tres niveles JUS, reconoce resoluciones con fuerza ejecutoria, y elimina el patrocinio letrado obligatorio para procedimientos PLANJUS.',
+          timeline: 'Año 0',
+          dependencies: [],
+          orderIndex: 1,
+        },
+        {
+          id: 2,
+          title: 'Plataforma digital y primeras 50 Casas JUS',
+          description: 'Desarrollo del MVP de la plataforma digital PLANJUS, construcción o adaptación de las primeras 50 Casas JUS en 4 provincias piloto, y formación del primer contingente de 1.000 panelistas JUS-1.',
+          timeline: 'Año 0-1',
+          dependencies: ['1'],
+          orderIndex: 2,
+        },
+        {
+          id: 3,
+          title: 'Fase 1 — El Alivio: Lanzamiento en 4 provincias piloto',
+          description: 'JUS-1 operativo completo en 4 provincias. 500.000 casos resueltos en el primer año. Satisfacción >65%. Demostración de velocidad y calidad. Expansión a 12 provincias al tercer año con 2 millones de casos/año.',
+          timeline: 'Años 1-3',
+          dependencies: ['2'],
+          orderIndex: 3,
+        },
+        {
+          id: 4,
+          title: 'Fase 2 — La Preferencia: Cobertura nacional + JUS-2 y JUS-3',
+          description: 'Cobertura en 24 provincias + CABA. JUS-1, JUS-2 y JUS-3 operativos. 5+ millones de casos/año. 70% de conflictos civiles/comerciales/laborales en PLANJUS. 500+ Casas JUS. Inicio de reasignación presupuestaria desde el sistema judicial.',
+          timeline: 'Años 3-7',
+          dependencies: ['3'],
+          orderIndex: 4,
+        },
+        {
+          id: 5,
+          title: 'Fase 3 — La Sucesión Natural: PLANJUS como sistema primario',
+          description: '90%+ de conflictos en PLANJUS. Reforma constitucional para formalizar. Sistema judicial tradicional reducido a jurisdicción penal compleja y constitucional. Argentina como referente internacional en justicia comunitaria.',
+          timeline: 'Años 7-15',
+          dependencies: ['4'],
+          orderIndex: 5,
+        },
+      ],
+    },
+    kpis: [
+      {
+        id: 'tiempo-resolucion-jus1',
+        metric: 'Tiempo Promedio Resolución JUS-1',
+        currentValue: 0,
+        targetValue: 7,
+        unit: 'días',
+        source: 'PLANJUS — Tablero Nacional de Justicia',
+        milestones: [
+          { date: 'Año 1', targetValue: 15 },
+          { date: 'Año 5', targetValue: 10 },
+          { date: 'Año 10', targetValue: 7 },
+        ],
+      },
+      {
+        id: 'satisfaccion-ciudadana',
+        metric: 'Satisfacción Ciudadana con PLANJUS',
+        currentValue: 20,
+        targetValue: 85,
+        unit: '%',
+        source: 'PLANJUS — Evaluación post-resolución',
+        milestones: [
+          { date: 'Año 1', targetValue: 65 },
+          { date: 'Año 5', targetValue: 75 },
+          { date: 'Año 10', targetValue: 85 },
+        ],
+      },
+      {
+        id: 'casos-resueltos-ano',
+        metric: 'Casos Resueltos por Año',
+        currentValue: 0,
+        targetValue: 5000000,
+        unit: 'casos',
+        source: 'PLANJUS — Tablero Nacional de Justicia',
+        milestones: [
+          { date: 'Año 1', targetValue: 500000 },
+          { date: 'Año 3', targetValue: 2000000 },
+          { date: 'Año 7', targetValue: 5000000 },
+        ],
+      },
+      {
+        id: 'casas-jus',
+        metric: 'Casas JUS Operativas',
+        currentValue: 0,
+        targetValue: 800,
+        unit: 'casas',
+        source: 'PLANJUS — Despliegue territorial',
+        milestones: [
+          { date: 'Año 1', targetValue: 50 },
+          { date: 'Año 3', targetValue: 200 },
+          { date: 'Año 7', targetValue: 500 },
+          { date: 'Año 10', targetValue: 800 },
+        ],
+      },
+      {
+        id: 'panelistas-activos',
+        metric: 'Panelistas Ciudadanos Activos',
+        currentValue: 0,
+        targetValue: 50000,
+        unit: 'panelistas',
+        source: 'PLANJUS — Sistema de sorteo democrático',
+        milestones: [
+          { date: 'Año 1', targetValue: 5000 },
+          { date: 'Año 3', targetValue: 20000 },
+          { date: 'Año 7', targetValue: 50000 },
+        ],
+      },
+      {
+        id: 'tasa-cumplimiento',
+        metric: 'Tasa de Cumplimiento de Resoluciones',
+        currentValue: 55,
+        targetValue: 92,
+        unit: '%',
+        source: 'PLANJUS — Ejecución y seguimiento',
+        milestones: [
+          { date: 'Año 1', targetValue: 75 },
+          { date: 'Año 5', targetValue: 85 },
+          { date: 'Año 10', targetValue: 92 },
+        ],
+      },
+    ],
+    tags: ['justicia', 'paneles ciudadanos', 'sorteo democrático', 'anticorrupción', 'justicia restaurativa', 'desregulación', 'Casas JUS', 'transparencia', 'resolución de conflictos'],
+    relatedInitiativeSlugs: ['planisv-infraestructura-suelo-vivo', 'plan24cn-24-ciudades-nuevas', 'planrep-reconversion-empleo-publico', 'planedu-refundacion-educativa'],
+    sources: [
+      { title: 'PLANJUS — Plan Nacional de Justicia Popular y Resolución de Conflictos (Documento Estratégico, Mar 2026)' },
+      { title: 'PISA Judicial — Duración de causas de corrupción en Argentina (4.161 días promedio)' },
+      { title: 'Kleros — Decentralized Justice & Blockchain Arbitration (Stanford Law)' },
+      { title: 'México — Ley General de Mecanismos Alternativos de Solución de Controversias (2024)' },
+      { title: 'Rwanda — Gacaca Courts: 1.9 millones de casos procesados (2002-2012)' },
+      { title: 'Tyler — Procedural Justice: satisfaction and legitimacy research' },
+      { title: 'Ostrom — Governing the Commons: Design Principles (Nobel 2009)' },
+      { title: 'Fulham et al. — Meta-analysis of Restorative Justice Programs (2025)' },
     ],
   },
 ];
