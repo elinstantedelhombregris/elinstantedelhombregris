@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100" fill="none">
+  <rect width="300" height="100" rx="8" fill="#0a0a0a"/>
+  <text x="150" y="52" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="42" fill="white" letter-spacing="8">¡BASTA!</text>
+  <line x1="40" y1="66" x2="260" y2="66" stroke="#ef4444" stroke-width="2"/>
+  <text x="150" y="84" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#94a3b8" letter-spacing="3">MOVIMIENTO DE TRANSFORMACIÓN</text>
+</svg>

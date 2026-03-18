@@ -71,13 +71,19 @@ const Footer = () => {
                 { label: 'Blog & Artículos', href: '/recursos/blog' },
                 { label: 'Rutas de Transformación', href: '/recursos/guias-estudio' },
                 { label: 'Manifiesto', href: '/manifiesto' },
-                { label: 'Kit de Prensa', href: '#' },
+                { label: 'Kit de Prensa', href: '/kit-de-prensa' },
                 { label: 'Donaciones', href: '#' }
               ].map((link, i) => (
                 <li key={i}>
-                  <a href={link.href} className="text-slate-300 hover:text-purple-400 hover:translate-x-1 transition-all duration-300 inline-flex items-center gap-2 text-sm font-medium">
-                    {link.label}
-                  </a>
+                  {link.href === '#' ? (
+                    <a href={link.href} className="text-slate-300 hover:text-purple-400 hover:translate-x-1 transition-all duration-300 inline-flex items-center gap-2 text-sm font-medium">
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link href={link.href} className="text-slate-300 hover:text-purple-400 hover:translate-x-1 transition-all duration-300 inline-flex items-center gap-2 text-sm font-medium">
+                      {link.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

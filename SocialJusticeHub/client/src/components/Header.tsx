@@ -14,7 +14,7 @@ import {
 import { VisuallyHidden } from "@/components/ui/visually-hidden";
 import {
   Menu, Award, Star, Crown, Trophy, Target, Shield, X, LogOut, User, LayoutDashboard,
-  ClipboardCheck, Crosshair, MessageCircle, Activity
+  ClipboardCheck, Crosshair, MessageCircle, Activity, MessageSquareHeart, Inbox
 } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
 import { NotificationBell } from '@/components/NotificationBell';
@@ -32,7 +32,7 @@ const Header = () => {
     '/la-semilla-de-basta', '/el-mapa', '/el-mandato-vivo', '/manifiesto',
     '/bienvenida', '/dashboard', '/profile', '/challenges',
     '/life-areas', '/evaluacion', '/metas', '/checkin-semanal',
-    '/coaching', '/datos-abiertos',
+    '/coaching', '/datos-abiertos', '/kit-de-prensa',
   ];
   const isDarkPage = darkHeroRoutes.includes(location) ||
     location.startsWith('/mandato/pulso/') ||
@@ -248,7 +248,16 @@ const Header = () => {
                       >
                         <User className="w-5 h-5" /> Mi Perfil
                       </Link>
-                      <button 
+                      {userContext.user?.id === 1 && (
+                        <Link
+                          href="/admin/feedback"
+                          onClick={() => setIsMenuOpen(false)}
+                          className="flex items-center gap-3 px-4 py-3 text-purple-400 hover:text-purple-300"
+                        >
+                          <Inbox className="w-5 h-5" /> Buzón de Feedback
+                        </Link>
+                      )}
+                      <button
                         onClick={() => {
                           userContext.setUser(null);
                           localStorage.removeItem('authToken');
@@ -278,6 +287,18 @@ const Header = () => {
       
       {/* Spacer for fixed header */}
       <div className={location === '/' ? '' : 'h-20'} />
+
+      {/* Floating feedback button */}
+      {location !== '/feedback' && (
+        <Link href="/feedback">
+          <button
+            className="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-600/30 flex items-center justify-center transition-all hover:scale-110"
+            title="Enviar feedback"
+          >
+            <MessageSquareHeart className="w-5 h-5" />
+          </button>
+        </Link>
+      )}
     </>
   );
 };

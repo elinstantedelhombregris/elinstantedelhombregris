@@ -57,6 +57,9 @@ const PropuestaDetalle = React.lazy(() => import("@/pages/PropuestaDetalle"));
 const IniciativasEstrategicas = React.lazy(() => import("@/pages/IniciativasEstrategicas"));
 const IniciativaDetalle = React.lazy(() => import("@/pages/IniciativaDetalle"));
 const IniciativaDocumento = React.lazy(() => import("@/pages/IniciativaDocumento"));
+const Feedback = React.lazy(() => import("@/pages/Feedback"));
+const AdminFeedback = React.lazy(() => import("@/pages/AdminFeedback"));
+const KitDePrensa = React.lazy(() => import("@/pages/KitDePrensa"));
 
 type User = {
   id: number;
@@ -139,6 +142,13 @@ function Router() {
       <Route path="/el-pulso">{() => <Redirect to="/el-mandato-vivo" />}</Route>
       <Route path="/pulso/:id">{(params) => <Redirect to={`/mandato/pulso/${params.id}`} />}</Route>
       <Route path="/propuesta/:id">{(params) => <Redirect to={`/mandato/propuesta/${params.id}`} />}</Route>
+
+      {/* Kit de Prensa */}
+      <Route path="/kit-de-prensa" component={KitDePrensa} />
+
+      {/* Feedback */}
+      <Route path="/feedback" component={Feedback} />
+      <Route path="/admin/feedback" component={AdminFeedback} />
 
       {/* Life Areas routes */}
       <Route path="/life-areas" component={LifeAreasDashboard} />

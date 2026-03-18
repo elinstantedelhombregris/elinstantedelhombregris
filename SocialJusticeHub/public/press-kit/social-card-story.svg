@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" fill="none">
+  <rect width="1080" height="1920" fill="#0a0a0a"/>
+  <!-- Gradient orbs -->
+  <circle cx="100" cy="1600" r="400" fill="#3b82f6" opacity="0.08"/>
+  <circle cx="980" cy="300" r="350" fill="#8b5cf6" opacity="0.06"/>
+  <!-- Logo mark -->
+  <rect x="390" y="580" width="300" height="300" rx="60" fill="url(#st1)"/>
+  <text x="540" y="760" text-anchor="middle" font-family="Georgia, serif" font-weight="bold" font-size="120" fill="white">HG</text>
+  <!-- Text -->
+  <text x="540" y="1000" text-anchor="middle" font-family="Georgia, serif" font-weight="bold" font-size="60" fill="white">El Instante</text>
+  <text x="540" y="1070" text-anchor="middle" font-family="Georgia, serif" font-weight="bold" font-size="60" fill="white">del</text>
+  <text x="540" y="1150" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="36" fill="#3b82f6" letter-spacing="10">HOMBRE GRIS</text>
+  <line x1="240" y1="1200" x2="840" y2="1200" stroke="#3b82f6" stroke-opacity="0.3" stroke-width="1"/>
+  <text x="540" y="1270" text-anchor="middle" font-family="Georgia, serif" font-size="28" fill="#94a3b8">Plataforma de inteligencia</text>
+  <text x="540" y="1310" text-anchor="middle" font-family="Georgia, serif" font-size="28" fill="#94a3b8">colectiva para rediseñar</text>
+  <text x="540" y="1350" text-anchor="middle" font-family="Georgia, serif" font-size="28" fill="#94a3b8">Argentina.</text>
+  <defs>
+    <linearGradient id="st1" x1="390" y1="580" x2="690" y2="880" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3b82f6"/>
+      <stop offset="1" stop-color="#8b5cf6"/>
+    </linearGradient>
+  </defs>
+</svg>
