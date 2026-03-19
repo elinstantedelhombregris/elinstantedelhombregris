@@ -159,7 +159,7 @@ James Heckman, premio Nobel de Economía, demostró con evidencia longitudinal d
 | Centros de Desarrollo Infantil públicos | ~3.500 (fragmentados entre Nación, provincias, municipios, ONGs) | Sin estándar nacional unificado | Fragmentación total |
 | Profesionalización de cuidadores 0-3 | Sin requisito nacional uniforme | Dinamarca: título terciario obligatorio | Sin estándar |
 
-PLANEDU aborda esta brecha con los **Centros de Desarrollo Temprano (CDT)** — espacios profesionalizados de estimulación y cuidado para niños de 0 a 3 años, integrados al sistema de salud pública y ubicados en cada barrio. No son guarderías. Son el primer eslabón de la cadena educativa. Se detallan en la Sección 6.
+PLANEDU aborda esta brecha con los **Centros de Desarrollo Temprano (CDT)** — espacios profesionalizados de estimulación y cuidado para niños de 0 a 3 años, integrados al sistema de salud pública y ubicados en cada barrio. No son guarderías. Son el primer eslabón de la cadena educativa. Se detallan en la Sección 7.
 
 ### 1.6 El Costo de la Ignorancia: Proyección a 25 Años
 
@@ -319,7 +319,69 @@ En el sistema actual, un alumno "aprueba" con un 4 sobre 10 — el 40% del míni
 
 ---
 
-## SECCIÓN 5: LOS CINCO PILARES DE PLANEDU
+## SECCIÓN 5: EDUCAR PARA TRES FUTUROS — LA EDUCACIÓN COMO SISTEMA OPERATIVO DE LA TRANSICIÓN
+
+> *"Un plan educativo que solo prepara para el presente es un plan que condena al futuro. PLANEDU prepara para tres futuros — porque no sabemos cuál va a llegar, pero sabemos que podemos diseñarlos todos."*
+
+Las secciones anteriores definieron **qué** enseña PLANEDU (las Siete Capacidades), **cómo** lo enseña (Aprendizaje por Dominio, AI como Co-Tutor), y **cómo** lo evalúa (Creación como Evaluación, el Portfolio). Pero hay una pregunta que el plan todavía no respondió — y es la pregunta que determina si todo lo anterior tiene sentido o es otra fantasía bienintencionada: **¿para qué mundo estamos preparando a estos alumnos?**
+
+Si la respuesta es "el mercado laboral de 2026", estamos repitiendo exactamente el error que diagnosticamos en la Sección 1. Estamos diseñando la educación para un mundo que va a dejar de existir antes de que los egresados lo habiten. El mundo está cambiando más rápido que cualquier sistema educativo en la historia haya tenido que manejar — y la velocidad se acelera. La inteligencia artificial, la robótica, la automatización, la biotecnología y la transición energética van a transformar no solo qué trabajos existen sino qué significa *trabajar*. Un plan educativo que ignore esa transformación — o que la mencione en el preámbulo y después diseñe un currículo para el presente — es un plan cobarde.
+
+PLANEDU no es cobarde. PLANEDU prepara para tres futuros simultáneamente.
+
+### 5.1 Los Tres Horizontes: El Mapa de la Transición
+
+Russell Ackoff insistía en que planificar no es predecir — es diseñar. No necesitamos saber exactamente cómo va a ser el futuro para prepararnos. Necesitamos identificar los escenarios más probables, construir las capacidades que sirvan en todos ellos, y diseñar los mecanismos para adaptarnos cuando la realidad — como siempre — se desvíe de nuestras proyecciones. PLANEDU organiza su horizonte temporal en tres fases, cada una con su premisa, su estrategia educativa, y su conexión con PLANREP — porque educación y trabajo son dos caras de la misma moneda.
+
+**TABLA 8b: Los Tres Horizontes de PLANEDU — Educar para la Transición**
+
+| Horizonte | Período | Premisa | Qué hace PLANEDU | Qué hace PLANREP |
+|---|---|---|---|---|
+| **H1: El Escudo** | 2026-2035 | El empleo humano sigue siendo central, pero hay que preparar la transición | Siete Capacidades + KPIs de inserción laboral Y contributiva + alfabetización post-laboral como módulo | Ocho Ramas + Centros de la Vida + Artesano Aumentado |
+| **H2: La Transición** | 2035-2045 | La automatización penetra incluso los trabajos "humanos". El empleo deja de ser el mecanismo principal de distribución de riqueza | Portfolio de contribución reemplaza al CV. Residencias de Contribución complementan pasantías. Alumnos participan en Paneles Ciudadanos reales | Centros de la Vida → Nodos de Contribución. DNP piloto activo. Economía de la Contribución opera |
+| **H3: La Abundancia** | 2045+ | El trabajo es elección, no necesidad. La automatización sostiene la producción material | Educación forma para "¿Quién querés ser cuando no necesitás trabajar para vivir?" | Fideicomisos sostienen DNP universal. Sociedad organizada alrededor de contribución y sentido |
+
+**H1: El Escudo (2026-2035)** — En este horizonte, el empleo sigue siendo la forma principal en que las personas participan de la economía y obtienen ingresos. Pero las grietas ya son visibles: la automatización avanza, los trabajos rutinarios desaparecen, y la promesa de "estudiar para conseguir un buen trabajo" se vuelve cada vez más frágil. PLANEDU en H1 hace dos cosas simultáneas: prepara a los alumnos para el mundo laboral que todavía existe — con capacidades reales, no con títulos vacíos — y al mismo tiempo introduce la *alfabetización post-laboral* como módulo dentro de CONOCER. Los alumnos aprenden qué son los fideicomisos de propósito perpetuo, cómo funciona el Dividendo Nacional de Productividad, qué significa la economía de la contribución. No porque lo necesiten mañana — porque lo van a necesitar en veinte años, y veinte años pasan rápido.
+
+**H2: La Transición (2035-2045)** — Acá la cosa cambia. La automatización ya no se limita a los trabajos manuales repetitivos — penetra la contabilidad, el análisis de datos, el diagnóstico médico básico, la redacción estándar, la atención al cliente. El empleo sigue existiendo pero deja de ser el mecanismo central de distribución de riqueza. PLANEDU en H2 evoluciona: el portfolio de creaciones se transforma en un *portfolio de contribución* — no solo qué sabés hacer, sino qué aportaste a tu comunidad, qué problemas resolviste, qué creaste que otros necesitaban. Las pasantías se complementan con *Residencias de Contribución* — períodos donde los alumnos participan en proyectos reales de impacto comunitario, no para un empleador sino para un propósito. Y los alumnos empiezan a participar en Paneles Ciudadanos reales — porque la deliberación democrática sobre cómo se distribuyen los beneficios de la automatización es una de las capacidades más críticas de esta fase.
+
+**H3: La Abundancia (2045+)** — El horizonte más lejano y más transformador. Si la automatización y la inteligencia artificial alcanzan su potencial — y la evidencia sugiere que lo van a hacer, la pregunta es cuándo, no si — la producción material de lo que una sociedad necesita puede sostenerse con una fracción del trabajo humano actual. El trabajo deja de ser necesidad y se convierte en elección. La pregunta educativa central ya no es "¿para qué trabajo te preparamos?" sino "**¿quién querés ser cuando no necesitás trabajar para vivir?**" — y esa pregunta es la más profunda que un sistema educativo puede hacerle a un ser humano. PLANEDU en H3 forma personas capaces de diseñar vidas con sentido, de crear por el placer de crear, de cuidar por la satisfacción de cuidar, de contribuir porque contribuir es lo que hace que una vida valga la pena.
+
+### 5.2 Por Qué las Siete Capacidades Son Resilientes en los Tres Horizontes
+
+Esto no es casualidad — es diseño. Las Siete Capacidades no entrenan para un trabajo específico. Entrenan capacidades humanas que se transfieren a **cualquier** contexto:
+
+- Una persona que sabe **Crear** puede crear un producto para vender (H1), un proyecto comunitario que resuelve un problema (H2), o una obra de arte que le da sentido a su vida (H3).
+- Una persona que sabe **Cuidar** puede trabajar como profesional de salud (H1), operar un Centro de la Vida como nodo de contribución (H2), o dedicar su vida a cuidar personas y ecosistemas porque eso la realiza (H3).
+- Una persona que sabe **Pensar** puede resolver problemas complejos para un empleador (H1), deliberar en un Panel Ciudadano sobre política de automatización (H2), o investigar por el puro placer de entender el universo (H3).
+- Una persona que sabe **Comunicar** puede liderar equipos (H1), facilitar diálogos ciudadanos (H2), o escribir el libro que siempre quiso escribir (H3).
+- Una persona que sabe **Construir** puede fabricar cosas que el mercado necesita (H1), diseñar infraestructura comunitaria (H2), o construir la casa de sus sueños con sus propias manos (H3).
+- Una persona que sabe **Colaborar** puede trabajar en equipo (H1), organizar redes de contribución (H2), o co-crear proyectos por el gozo de hacer cosas juntos (H3).
+- Una persona que se **Conoce** puede elegir una carrera que la haga feliz (H1), definir su contribución desde la autenticidad (H2), o responder a la pregunta más difícil de todas — *¿quién soy cuando nadie me necesita?* — con claridad y sin crisis (H3).
+
+Las Siete Capacidades son a prueba de futuros. Por eso están en el centro de PLANEDU — no porque suenen bien en un documento, sino porque funcionan en cualquier mundo que venga.
+
+### 5.3 Conceptos Post-Laborales: Lo Que los Alumnos Necesitan Entender
+
+PLANEDU no puede esperar a que el futuro llegue para enseñar sus conceptos. Tres ideas fundamentales — desarrolladas en profundidad por PLANREP — se introducen en PLANEDU como parte de la Capacidad CONOCER:
+
+**Fideicomisos de Propósito Perpetuo:** Infraestructura productiva — fábricas automatizadas, plantas de energía, redes logísticas — que no pertenece a ningún individuo sino a un fideicomiso cuyo propósito es generar retornos para la sociedad a perpetuidad. No es estatización — es un mecanismo donde la propiedad tiene un *propósito*, no un dueño que la puede liquidar. Los alumnos necesitan entender este concepto porque van a vivir en una economía donde cada vez más producción la sostiene este tipo de estructura.
+
+**Dividendo Nacional de Productividad (DNP):** Tu parte de la productividad colectiva. Si la automatización produce riqueza que no requiere trabajo humano — ¿de quién es esa riqueza? El DNP responde: es de todos. Un ingreso universal financiado no por impuestos redistributivos sino por los retornos de la infraestructura productiva automatizada. No es una dádiva — es un dividendo. Como el que recibe un accionista, pero el accionista es cada ciudadano.
+
+**Economía de la Contribución:** Valor más allá del mercado. Hoy medimos el valor de una persona por lo que produce en el mercado — su salario. Pero cuidar a un padre enfermo, criar a un hijo, restaurar un ecosistema, organizar un barrio, crear una obra de arte que emociona — todo eso tiene valor enorme y el mercado lo ignora. La Economía de la Contribución es el marco para reconocer, medir y sostener ese valor. Los alumnos no solo necesitan entenderla — necesitan practicarla desde la escuela.
+
+### 5.4 La Primera Mejor Alternativa: Un Plan Que Sabe Que No Sabe
+
+Estos tres horizontes son nuestra mejor hipótesis sobre cómo se va a desplegar el futuro. El timing exacto y la forma de cada transición van a ser diferentes de lo que proyectamos acá. H2 puede llegar en 2032 en algunos sectores y en 2050 en otros. H3 puede ser una realidad parcial antes de lo que imaginamos — o puede tardar más. No importa. Lo que importa es que PLANEDU no apuesta a un solo futuro.
+
+Y esa es la diferencia más profunda entre PLANEDU y cualquier plan educativo que la Argentina tuvo antes. Los planes anteriores asumían un mundo estable — educamos para el mercado laboral que existe, y listo. PLANEDU asume un mundo en transición — y construye no solo las capacidades para cada horizonte sino el **mecanismo para adaptarse**: los Paneles Ciudadanos deliberan sobre qué priorizar en cada fase, la ANCE evalúa si las capacidades que estamos enseñando siguen siendo relevantes, el Dashboard publica los datos para que la sociedad pueda opinar, y el sistema evoluciona.
+
+Un plan que no cambia no es un plan — es una plegaria. Y la Argentina ya rezó demasiado. PLANEDU elige la ingeniería sobre la fe: diseñar, medir, adaptar, mejorar. Ackoff lo llamaba *Diseño Idealizado* — no porque el diseño sea perfecto, sino porque el proceso de diseñar nunca termina. El plan perfecto no existe. El plan que aprende — ese sí.
+
+---
+
+## SECCIÓN 6: LOS CINCO PILARES DE PLANEDU
 
 ### Pilar I: Maestros Creadores — La Revolución Docente
 
@@ -331,7 +393,7 @@ El "tercio superior" como requisito de ingreso aplica a las nuevas generaciones.
 
 Los primeros 2.000-5.000 seleccionados ingresan a una **Residencia de Transformación** de 12 meses: formación intensiva en las Siete Capacidades, tecnología educativa, mentoría, liderazgo pedagógico — mientras mantienen su salario y reciben el nuevo salario PLANEDU desde el primer día. Estos son los Maestros Creadores fundacionales que abren las primeras 50 Escuelas del Futuro.
 
-Para las **nuevas generaciones**: la carrera de Maestro Creador dura 5 años en Institutos Superiores de Formación Docente reformados (ver Sección 6.2) con requisito de ingreso del tercio superior de cada cohorte. La atracción se garantiza con el nuevo salario y prestigio.
+Para las **nuevas generaciones**: la carrera de Maestro Creador dura 5 años en Institutos Superiores de Formación Docente reformados (ver Sección 7.2) con requisito de ingreso del tercio superior de cada cohorte. La atracción se garantiza con el nuevo salario y prestigio.
 
 **B. Remuneración: Escalonamiento Realista**
 
@@ -379,15 +441,15 @@ Inmersión desde los 4 años (30% del tiempo en inglés). AI como entrenador de 
 
 ### Pilar V: Gobernanza Educativa Distribuida
 
-Desarrollada en detalle en Secciones 7 y 8.
+Desarrollada en detalle en Secciones 8 y 9.
 
 ---
 
-## SECCIÓN 6: EL SISTEMA COMPLETO — LO QUE NINGUNA REFORMA ABORDÓ
+## SECCIÓN 7: EL SISTEMA COMPLETO — LO QUE NINGUNA REFORMA ABORDÓ
 
 > *"Un plan que solo cubre el 60% del sistema no es un plan — es una excusa para ignorar al otro 40%."*
 
-### 6.1 Primera Infancia (0-3): Centros de Desarrollo Temprano
+### 7.1 Primera Infancia (0-3): Centros de Desarrollo Temprano
 
 PLANEDU crea una red de **Centros de Desarrollo Temprano (CDT)** — uno por cada 5.000 habitantes, integrados al sistema de salud pública:
 - Personal profesionalizado (título terciario en desarrollo infantil, salario equivalente a docente inicial)
@@ -398,7 +460,7 @@ PLANEDU crea una red de **Centros de Desarrollo Temprano (CDT)** — uno por cad
 
 **Inversión:** USD 1.000-2.000M en 5 años (construcción/adaptación) + USD 500M/año (operación). **ROI:** 13:1 según evidencia Heckman. Es la inversión con mayor retorno de todo PLANEDU.
 
-### 6.2 Educación Superior y Formación de Maestros Creadores
+### 7.2 Educación Superior y Formación de Maestros Creadores
 
 PLANEDU respeta la **autonomía universitaria** (Art. 75 inc. 19 de la Constitución). No reforma universidades — pero sí transforma la formación docente:
 
@@ -407,7 +469,7 @@ PLANEDU respeta la **autonomía universitaria** (Art. 75 inc. 19 de la Constituc
 - **CONEAU** certifica los programas de formación de Maestros Creadores con estándares específicos PLANEDU.
 - Los primeros egresados completos del modelo (Año 7+) ingresan a universidades que voluntariamente adaptaron sus sistemas de admisión para aceptar portfolios además de exámenes.
 
-### 6.3 Educación Técnica: Integración con INET
+### 7.3 Educación Técnica: Integración con INET
 
 La Ley 26.058 de Educación Técnico Profesional creó el INET y un sistema de escuelas técnicas que ya hace mucho de lo que la Capacidad CONSTRUIR propone. PLANEDU no destruye esto — lo potencia:
 
@@ -416,7 +478,7 @@ La Ley 26.058 de Educación Técnico Profesional creó el INET y un sistema de e
 - El Fondo Nacional de Educación Técnica (FNET) se amplía para financiar la transición
 - AMET (sindicato de docentes técnicos) es aliado natural de PLANEDU
 
-### 6.4 Educación Rural: La Escuela Donde No Llega Nadie
+### 7.4 Educación Rural: La Escuela Donde No Llega Nadie
 
 La Argentina tiene ~13.000 escuelas rurales, muchas unidocentes o bidocentes, con conectividad limitada y acceso difícil. PLANEDU no las abandona:
 
@@ -426,7 +488,7 @@ La Argentina tiene ~13.000 escuelas rurales, muchas unidocentes o bidocentes, co
 - **Programa de Intercambio**: alumnos rurales pasan un trimestre en una EdF urbana; alumnos urbanos pasan un mes en una escuela rural. Cruz polinización.
 - Integración con sitios PLANISV: la escuela rural y la finca regenerativa comparten territorio y conocimiento
 
-### 6.5 Educación Intercultural Bilingüe (EIB)
+### 7.5 Educación Intercultural Bilingüe (EIB)
 
 La Ley 26.206 (Art. 52-54) establece la EIB como modalidad del sistema educativo. PLANEDU la lleva de la letra a la práctica:
 
@@ -436,7 +498,7 @@ La Ley 26.206 (Art. 52-54) establece la EIB como modalidad del sistema educativo
 - Maestros Creadores bilingües (español + lengua originaria) con formación específica
 - Escuelas del Futuro en comunidades originarias (mínimo 1 por pueblo con más de 5.000 personas)
 
-### 6.6 Educación Especial: Nadie Se Queda Afuera
+### 7.6 Educación Especial: Nadie Se Queda Afuera
 
 El Aprendizaje por Dominio es **inherentemente inclusivo**: cada alumno avanza a su ritmo, con apoyo personalizado de la AI co-tutor y del docente. PLANEDU complementa esto con:
 
@@ -446,7 +508,7 @@ El Aprendizaje por Dominio es **inherentemente inclusivo**: cada alumno avanza a
 - Maestros Creadores con formación en diferenciación y accesibilidad
 - Cumplimiento pleno de la Convención sobre los Derechos de las Personas con Discapacidad
 
-### 6.7 Las 49.500 Escuelas Restantes: La Estrategia de Irradiación
+### 7.7 Las 49.500 Escuelas Restantes: La Estrategia de Irradiación
 
 PLANEDU no puede transformar 50.000 escuelas de golpe. Pero sí puede crear las condiciones para que la transformación se propague:
 
@@ -456,7 +518,7 @@ PLANEDU no puede transformar 50.000 escuelas de golpe. Pero sí puede crear las 
 - Convergencia salarial gradual: el objetivo es que todo el sistema alcance salarios PLANEDU en 12-15 años
 - **Efecto demostración**: cuando los egresados de las EdF obtengan mejores resultados, mejores empleos, y mejor calidad de vida que los egresados convencionales, la demanda de transformación vendrá de abajo — de los padres, de los alumnos, de los propios docentes
 
-### 6.8 Comedores Escolares y Bienestar Integral
+### 7.8 Comedores Escolares y Bienestar Integral
 
 Para millones de chicos argentinos, la comida de la escuela es la comida principal del día. PLANEDU transforma los comedores de un servicio asistencial a una **herramienta pedagógica**:
 
@@ -467,15 +529,15 @@ Para millones de chicos argentinos, la comida de la escuela es la comida princip
 
 ---
 
-## SECCIÓN 7: ARQUITECTURA INSTITUCIONAL — CÓMO SE GOBIERNA SIN QUE LA POLÍTICA LO DESTRUYA
+## SECCIÓN 8: ARQUITECTURA INSTITUCIONAL — CÓMO SE GOBIERNA SIN QUE LA POLÍTICA LO DESTRUYA
 
 > *"La peor amenaza para la educación argentina no es la falta de presupuesto. Es el ministro que cambia cada dos años y empieza de cero."*
 
-### 7.1 El Problema
+### 8.1 El Problema
 
 Desde 1983, la Argentina tuvo más de 20 ministros de Educación nacionales. Duración promedio: ~2 años. Cada uno llegó con su propia visión, su propio equipo, sus propias prioridades. Ninguno completó un ciclo. Los programas del anterior se desmantelan. Los del nuevo se lanzan sin evaluar los anteriores. El resultado es un sistema que gira sobre sí mismo sin avanzar.
 
-### 7.2 La ANCE: Agencia Nacional de Calidad Educativa
+### 8.2 La ANCE: Agencia Nacional de Calidad Educativa
 
 La ANCE es al sistema educativo lo que el BCRA es al sistema financiero: una institución técnica con mandato claro, independencia operativa, y rendición de cuentas pública.
 
@@ -492,7 +554,7 @@ La ANCE es al sistema educativo lo que el BCRA es al sistema financiero: una ins
 | **Lo que NO hace** | No define contenidos específicos. No designa directores de escuela. No negocia paritarias. No ejecuta presupuesto de escuelas individuales | Evita concentración de poder |
 | **Evaluación externa** | Cada 3 años, panel internacional de expertos evalúa a la ANCE y publica informe vinculante | Accountability de la propia institución |
 
-### 7.3 Defensas Anti-Captura
+### 8.3 Defensas Anti-Captura
 
 **TABLA 11: Cinco Mecanismos de Captura y Sus Defensas**
 
@@ -504,7 +566,7 @@ La ANCE es al sistema educativo lo que el BCRA es al sistema financiero: una ins
 | **Captura sindical** | Sindicatos bloquean cualquier cambio que amenace su poder | 1 asiento sindical en directorio de 9 = voz pero no veto. Pacto de la Dignidad alinea intereses |
 | **Captura por inercia** | El sistema absorbe reformas sin cambiar nada | Evaluación externa obligatoria cada 3 años + dashboard público |
 
-### 7.4 Tablero Nacional de Educación
+### 8.4 Tablero Nacional de Educación
 
 Dashboard público en tiempo real, inspirado en el Tablero Nacional del PLANISV:
 
@@ -526,11 +588,11 @@ Dashboard público en tiempo real, inspirado en el Tablero Nacional del PLANISV:
 
 ---
 
-## SECCIÓN 8: MARCO LEGAL — QUÉ LEYES SE NECESITAN
+## SECCIÓN 9: MARCO LEGAL — QUÉ LEYES SE NECESITAN
 
 > *"Una ley no es un deseo. Es una infraestructura. Sin ella, todo lo anterior es un PowerPoint."*
 
-### 8.1 Ley de Refundación Educativa Nacional
+### 9.1 Ley de Refundación Educativa Nacional
 
 La piedra angular legislativa. Contenido mínimo:
 
@@ -547,19 +609,19 @@ La piedra angular legislativa. Contenido mínimo:
 
 **Relación con la Ley 26.206:** No la deroga — la complementa y la supera. Los principios de la 26.206 (obligatoriedad, gratuidad, inclusión) se mantienen. Lo que cambia: el marco curricular, el sistema de evaluación, la formación docente, y la gobernanza.
 
-### 8.2 Ley de Dignidad Docente
+### 9.2 Ley de Dignidad Docente
 
 Piso salarial = 1.5× salario mediano profesional, indexado trimestralmente. 100 horas/año de formación paga. Carrera por mérito + antigüedad. Año sabático cada 7 años.
 
-### 8.3 Reforma del Estatuto Docente
+### 9.3 Reforma del Estatuto Docente
 
-Mérito junto a antigüedad (no en reemplazo). Portfolio docente. Evaluación por pares. Protección reforzada contra despido arbitrario. Transición voluntaria para docentes en ejercicio. Detalle en Sección 9.4.
+Mérito junto a antigüedad (no en reemplazo). Portfolio docente. Evaluación por pares. Protección reforzada contra despido arbitrario. Transición voluntaria para docentes en ejercicio. Detalle en Sección 10.4.
 
-### 8.4 Integración con Ley 26.058 (ETP)
+### 9.4 Integración con Ley 26.058 (ETP)
 
 Las escuelas técnicas se integran al modelo como Escuelas del Futuro prioritarias. Las competencias ETP se mapean contra las Siete Capacidades.
 
-### 8.5 Hoja de Ruta Legislativa
+### 9.5 Hoja de Ruta Legislativa
 
 **TABLA 13: Hoja de Ruta Legislativa**
 
@@ -571,13 +633,13 @@ Las escuelas técnicas se integran al modelo como Escuelas del Futuro prioritari
 | Decreto de creación transitoria de ANCE | Alta | Año 1 (si la ley se demora) | Media | Poder Ejecutivo | Debilidad jurídica sin ley |
 | Integración ETP-PLANEDU | Media | Año 2-3 | Baja | AMET + INET | Complejidad técnica |
 | Ley de Primera Infancia | Alta | Año 2 | Media | Ministerio de Salud + UNICEF + ONGs de infancia | Fragmentación de responsabilidades Nación/provincias |
-## SECCIÓN 9: ESTRATEGIA SINDICAL — LOS SINDICATOS NO SON EL ENEMIGO
+## SECCIÓN 10: ESTRATEGIA SINDICAL — LOS SINDICATOS NO SON EL ENEMIGO
 
 > *"Un sindicato que solo pelea por salario es un sindicato incompleto. Un sindicato que pelea por la dignidad del oficio es invencible."*
 
 Cada reforma educativa en la Argentina de los últimos treinta años chocó contra el mismo muro: los sindicatos docentes. Y cada vez, el gobierno de turno eligió una de dos estrategias perdedoras — confrontar al sindicato (y perder en la calle) o cooptarlo (y perder la reforma). PLANEDU propone una tercera vía: convertir al sindicato en co-arquitecto del cambio. No por ingenuidad — por aritmética política. Un sindicato que participa en el diseño de una reforma que le da a sus afiliados mejores salarios, mejor formación, y mayor prestigio profesional no tiene incentivo racional para oponerse. La clave es que la oferta sea real, no retórica.
 
-### 9.1 El Mapa Sindical: Quién es Quién
+### 10.1 El Mapa Sindical: Quién es Quién
 
 La representación gremial docente en la Argentina es un ecosistema complejo, fragmentado por jurisdicción, ideología y nivel educativo. No se puede negociar con "los sindicatos" como si fueran una entidad homogénea. Hay que entender quién es quién, qué quiere cada uno, y dónde están los puntos de convergencia con PLANEDU.
 
@@ -596,7 +658,7 @@ La representación gremial docente en la Argentina es un ecosistema complejo, fr
 
 **Lectura estratégica:** La fragmentación sindical es simultáneamente un obstáculo (hay que negociar con muchos actores) y una oportunidad (no se necesita el acuerdo de todos para avanzar — basta con una coalición suficiente). PLANEDU apunta a construir una alianza inicial con CTERA + UDA + AMET + CEA (~475.000 afiliados) que represente masa crítica para legitimar el proceso.
 
-### 9.2 El Pacto de la Dignidad: Sindicatos como Co-Arquitectos
+### 10.2 El Pacto de la Dignidad: Sindicatos como Co-Arquitectos
 
 La lección de PLANREP es directa: cuando tratás a los sindicatos como enemigos, te los ganás como enemigos. Cuando los tratás como socios en el diseño, los convertís en co-responsables del resultado. PLANEDU propone un **Pacto de la Dignidad Docente** — un acuerdo formal, público, vinculante — con los siguientes componentes:
 
@@ -620,7 +682,7 @@ La lección de PLANREP es directa: cuando tratás a los sindicatos como enemigos
 | Compromiso de no-conflicto por salario | Con el piso salarial indexado y garantizado, los sindicatos aceptan que las paritarias se enfoquen en condiciones de calidad, no solo en dinero | Estabilidad del sistema |
 | Legitimación del proceso | El apoyo sindical desactiva la narrativa de "reforma impuesta" | Viabilidad política |
 
-### 9.3 Reforma del Sistema de Paritarias: La Paritaria de Calidad
+### 10.3 Reforma del Sistema de Paritarias: La Paritaria de Calidad
 
 El sistema de paritarias docentes argentino produce un resultado predecible: cada año, entre febrero y marzo, los sindicatos piden un aumento salarial que compense la inflación. El gobierno ofrece menos. Se negocia durante semanas o meses. Si no hay acuerdo, hay paro. Los chicos pierden días de clase. Eventualmente se cierra un número que no satisface a nadie. Y todo vuelve a empezar al año siguiente. El sistema entero gira alrededor del dinero — y mientras gira, nadie habla de calidad.
 
@@ -649,7 +711,7 @@ El sistema de paritarias docentes argentino produce un resultado predecible: cad
 
 Cuando el salario deja de ser tema de disputa, la energía del sistema se libera para lo que importa: cómo enseñar mejor, cómo evaluar mejor, cómo formar mejor, cómo aprender mejor. La experiencia escandinava es inequívoca: en Finlandia, Suecia y Noruega, los sindicatos docentes son los principales aliados de la calidad educativa — porque no necesitan pelear por sobrevivir.
 
-### 9.4 El Estatuto Docente: Reforma sin Traición
+### 10.4 El Estatuto Docente: Reforma sin Traición
 
 El Estatuto del Docente (Ley 14.473 y sus equivalentes provinciales) es el marco legal que regula la carrera docente en la Argentina. Es simultáneamente la mayor conquista laboral del sector y el mayor obstáculo para la mejora de la calidad. Protege el empleo — pero no protege la excelencia. Garantiza estabilidad — pero no garantiza desarrollo profesional. Premia la antigüedad — pero ignora el mérito.
 
@@ -682,11 +744,11 @@ La evaluación no es punitiva. El resultado de la evaluación es un **plan de de
 
 ---
 
-## SECCIÓN 10: MARCO PRESUPUESTARIO DETALLADO — QUÉ CUESTA, A DÓNDE VA LA PLATA HOY, Y CÓMO SE PAGA
+## SECCIÓN 11: MARCO PRESUPUESTARIO DETALLADO — QUÉ CUESTA, A DÓNDE VA LA PLATA HOY, Y CÓMO SE PAGA
 
 > *"La pregunta no es si la Argentina puede pagar esta transformación. La pregunta es si puede seguir pagando el costo de no hacerla."*
 
-### 10.1 ¿A Dónde Van los USD 30.000M que Ya Gastamos?
+### 11.1 ¿A Dónde Van los USD 30.000M que Ya Gastamos?
 
 La Argentina gasta aproximadamente el 5-6% de su PBI en educación — un nivel comparable al de Finlandia, Canadá o Australia. La diferencia no está en cuánto gasta sino en cómo lo gasta. Para entender por qué el resultado es tan desastroso con una inversión que no es menor, hay que abrir la caja negra del gasto educativo y mirar adentro.
 
@@ -704,7 +766,7 @@ La Argentina gasta aproximadamente el 5-6% de su PBI en educación — un nivel 
 
 **La matemática del fracaso:** La Argentina gasta ~USD 2.500 por alumno por año (para ~12 millones de estudiantes). Chile gasta ~USD 3.500, pero obtiene resultados PISA 40-50 puntos superiores. Corea del Sur gasta ~USD 8.000 y obtiene resultados 150 puntos superiores. Pero Vietnam gasta ~USD 700 por alumno y obtiene resultados PISA superiores a los argentinos. El gasto por alumno no explica la diferencia. Lo que explica la diferencia es en qué se gasta cada dólar, cómo se selecciona y forma a los docentes, qué se enseña, cómo se evalúa, y a quién se rinde cuentas.
 
-### 10.2 Costo de PLANEDU: Desglose Honesto
+### 11.2 Costo de PLANEDU: Desglose Honesto
 
 PLANEDU no pretende que la transformación educativa sea barata. Pretende que sea la mejor inversión que la Argentina haya hecho. Y para eso, el presupuesto tiene que ser honesto — sin ocultar costos, sin inflar beneficios, sin prometer lo que no se puede pagar.
 
@@ -731,7 +793,7 @@ PLANEDU no pretende que la transformación educativa sea barata. Pretende que se
 | Costo PAA por alumno (a régimen) | USD 200M ÷ 12M alumnos | ~USD 17/alumno/año (comparable a plataformas edtech internacionales) ✓ |
 | Costo primera infancia por centro | USD 2.000M total ÷ 500 centros | ~USD 4M/centro (construcción + equipamiento) ✓ |
 
-### 10.3 ¿De Dónde Sale la Plata? — Fuentes Específicas con Montos
+### 11.3 ¿De Dónde Sale la Plata? — Fuentes Específicas con Montos
 
 **TABLA 14: Fuentes de Financiamiento de PLANEDU**
 
@@ -745,7 +807,7 @@ PLANEDU no pretende que la transformación educativa sea barata. Pretende que se
 | **Créditos internacionales (BID, Banco Mundial, CAF)** | 1.000–3.000 | Año 1+ | Préstamos blandos para infraestructura educativa. Tasa preferencial (~2-3% anual, plazo 20-30 años). El BID ya tiene líneas de crédito activas para educación en Argentina (~USD 500M). CAF tiene programa de infraestructura escolar. Ampliable a USD 1.000-3.000M con proyecto PLANEDU como respaldo | Alto |
 | **TOTAL DISPONIBLE** | **6.200–13.000** | **Progresivo** | **Cubre el costo incremental de PLANEDU en todas las fases con margen de 20-50%** | — |
 
-### 10.4 La Ruta Fiscal: Del 5% al 7% del PBI en 12 Años
+### 11.4 La Ruta Fiscal: Del 5% al 7% del PBI en 12 Años
 
 **TABLA 15: Progresión del Gasto Educativo como % del PBI**
 
@@ -772,7 +834,7 @@ PLANEDU no pretende que la transformación educativa sea barata. Pretende que se
 - Ahorro PLANREP: comienza en Año 3 con ~USD 3.000M/año, escala a ~USD 15.000M/año en Año 8+
 - Asignación a PLANEDU: 5-8% del ahorro PLANREP = USD 750-1.200M/año a régimen
 
-### 10.5 ROI — Por Qué Esto Es La Mejor Inversión del País
+### 11.5 ROI — Por Qué Esto Es La Mejor Inversión del País
 
 La literatura económica sobre retorno de la inversión educativa es una de las más robustas de las ciencias sociales. Los datos son consistentes a través de décadas, países y metodologías:
 
@@ -806,11 +868,11 @@ La literatura económica sobre retorno de la inversión educativa es una de las 
 
 ---
 
-## SECCIÓN 11: PROVINCIAS COMO ACTORES — 24 REALIDADES, UNA ESTRATEGIA
+## SECCIÓN 12: PROVINCIAS COMO ACTORES — 24 REALIDADES, UNA ESTRATEGIA
 
 > *"La Argentina no tiene un sistema educativo. Tiene 24 sistemas educativos que fingen coordinarse."*
 
-### 11.1 El Mapa Educativo Provincial
+### 12.1 El Mapa Educativo Provincial
 
 La descentralización educativa de los años '90 transfirió las escuelas nacionales a las provincias sin transferir los recursos ni las capacidades técnicas para gestionarlas. El resultado es un mosaico de 24 jurisdicciones con diferencias abismales en inversión, calidad y resultados. Un chico que nace en la Ciudad de Buenos Aires tiene una probabilidad radicalmente diferente de recibir una buena educación que un chico que nace en Formosa o en Santiago del Estero — y esa diferencia no la eligió ninguno de los dos.
 
@@ -831,7 +893,7 @@ La descentralización educativa de los años '90 transfirió las escuelas nacion
 
 *Los resultados PISA se reportan a nivel nacional. Las estimaciones provinciales se basan en las pruebas Aprender (nacionales) correlacionadas con puntajes PISA. Son aproximaciones, no datos exactos.*
 
-### 11.2 La Estrategia Federal: El Modelo 70/30
+### 12.2 La Estrategia Federal: El Modelo 70/30
 
 La Constitución Nacional (Art. 5) establece que las provincias son responsables de la educación primaria. La Ley de Educación Nacional (26.206) establece un marco federal que las provincias aplican con amplia autonomía. PLANEDU no puede ni debe centralizar la educación — pero puede establecer un piso de calidad nacional que ninguna provincia tenga excusa para no cumplir.
 
@@ -855,7 +917,7 @@ La Constitución Nacional (Art. 5) establece que las provincias son responsables
 | 50/50 (federalismo puro) | Reproduce las asimetrías actuales; las provincias pobres no tienen capacidad técnica para diseñar currículo de calidad | Perpetúa la desigualdad |
 | 70/30 (federalismo con piso) | Garantiza calidad nacional + permite adaptación local | **Equilibrio óptimo entre equidad y autonomía** |
 
-### 11.3 Pactos Educativos Bilaterales
+### 12.3 Pactos Educativos Bilaterales
 
 PLANEDU no se impone por decreto nacional. Se negocia provincia por provincia a través de **Pactos Educativos Bilaterales** — acuerdos formales entre la ANCE y cada gobierno provincial que establecen compromisos mutuos.
 
@@ -878,7 +940,7 @@ PLANEDU no se impone por decreto nacional. Se negocia provincia por provincia a 
 | 2-3 | 8-10 provincias adicionales (Buenos Aires, Tucumán, Salta, Jujuy, Río Negro, Chubut, Misiones, La Pampa, Corrientes, Catamarca) | Incluye provincias grandes y provincias con alta necesidad |
 | 3-5 | Restantes 6-10 provincias | Las que inicialmente resistieron ven resultados en las otras y se suman. Fondo de Convergencia como incentivo decisivo |
 
-### 11.4 El Fondo de Convergencia Educativa
+### 12.4 El Fondo de Convergencia Educativa
 
 La coparticipación federal distribuye recursos con criterios que no tienen nada que ver con la calidad educativa. El resultado: las provincias con peores resultados reciben frecuentemente menos por alumno, no más. El Fondo de Convergencia Educativa invierte esa lógica.
 
@@ -906,13 +968,13 @@ El Fondo no castiga a las provincias que ya invierten bien — les da menos adic
 
 ---
 
-## SECCIÓN 12: EL SECTOR PRIVADO — ALIADOS, NO ENEMIGOS
+## SECCIÓN 13: EL SECTOR PRIVADO — ALIADOS, NO ENEMIGOS
 
 > *"La educación pública no se defiende peleando contra la educación privada. Se defiende siendo tan buena que la privada quiera copiarla."*
 
 El 30% de los estudiantes argentinos — casi 4 millones — asisten a escuelas privadas. Ignorarlos sería una irresponsabilidad; combatirlos sería una estupidez. PLANEDU no es un plan para la educación pública — es un plan para la educación argentina. El sector privado tiene un rol que jugar, y ese rol no es ser enemigo ni ser patrón: es ser aliado en una transformación que beneficia a todos.
 
-### 12.1 Las Escuelas Privadas: Convivencia y Convergencia
+### 13.1 Las Escuelas Privadas: Convivencia y Convergencia
 
 El ecosistema de educación privada en Argentina no es homogéneo. Hay que distinguir tres realidades muy distintas:
 
@@ -934,7 +996,7 @@ El ecosistema de educación privada en Argentina no es homogéneo. Hay que disti
 
 Las escuelas privadas que no quieran adoptar las Siete Capacidades son libres de no hacerlo — pero si reciben dinero público, deben rendir cuentas públicas. Y todas las escuelas, públicas y privadas, tendrán sus resultados publicados en el Dashboard Nacional de ANCE. La transparencia iguala.
 
-### 12.2 Empresas Edtech: Co-Desarrollo de la PAA
+### 13.2 Empresas Edtech: Co-Desarrollo de la PAA
 
 La Plataforma Argentina de Aprendizaje (PAA) no se construye en un sótano del Ministerio de Educación. Se construye como infraestructura abierta con participación del sector privado tecnológico.
 
@@ -965,7 +1027,7 @@ La Plataforma Argentina de Aprendizaje (PAA) no se construye en un sótano del M
 | Dependencia tecnológica de un proveedor | Arquitectura modular: cualquier módulo puede ser reemplazado sin afectar el sistema |
 | Obsolescencia de dispositivos | Licitación cada 3 años con requisito de actualización OTA (over-the-air). Dispositivos diseñados para 5+ años de vida útil |
 
-### 12.3 El Pacto Escuela-Empresa: Pasantías y Mentorías
+### 13.3 El Pacto Escuela-Empresa: Pasantías y Mentorías
 
 Desde los 14 años, los alumnos de las Escuelas del Futuro pasan 1-2 días por semana en pasantías rotativas en el mundo real. Esto requiere una red organizada de empresas, talleres, estudios, hospitales, fincas, laboratorios y organizaciones dispuestas a recibir estudiantes.
 
@@ -1005,7 +1067,7 @@ Toda la experiencia se documenta en el **Portfolio Ciudadano Único** — el mis
 
 Las Residencias de Contribución no reemplazan las pasantías — las complementan. El alumno ideal pasa por ambas experiencias: aprende a trabajar dentro de una estructura (pasantía) y aprende a generar valor fuera de toda estructura (residencia). Las dos capacidades juntas lo hacen **anti-frágil** frente a cualquier futuro económico que venga.
 
-### 12.4 El Knowledge Commons: Todo lo Público es Abierto
+### 13.4 El Knowledge Commons: Todo lo Público es Abierto
 
 Cada peso invertido por el Estado argentino en crear contenido educativo genera un activo que debería pertenecer a todos los argentinos — y a todos los hispanohablantes. PLANEDU establece un principio radical: **todo contenido educativo creado con fondos públicos se publica bajo licencia Creative Commons BY-SA** (atribución + compartir igual).
 
@@ -1025,7 +1087,7 @@ Esto no es altruismo ingenuo. Es la mejor estrategia de soft power que la Argent
 
 ---
 
-## SECCIÓN 13: ANÁLISIS DE RIESGO — QUÉ PUEDE SALIR MAL Y CÓMO LO PREVENIMOS
+## SECCIÓN 14: ANÁLISIS DE RIESGO — QUÉ PUEDE SALIR MAL Y CÓMO LO PREVENIMOS
 
 > *"Un plan que no anticipa sus propios fracasos no es un plan — es una fantasía. PLANEDU anticipa catorce maneras de fracasar y tiene una respuesta para cada una."*
 
@@ -1035,7 +1097,7 @@ Ningún plan de esta magnitud está exento de riesgo. La diferencia entre un pla
 
 | # | Riesgo | Probabilidad | Impacto | Mitigación Primaria | Trigger de Contingencia |
 |---|---|---|---|---|---|
-| 1 | **Resistencia sindical masiva** — Sindicatos rechazan el Pacto de la Dignidad y convocan paro nacional indefinido | Alta | Alto | Sindicatos como co-arquitectos (Sección 9) + piso salarial elimina causa principal de conflicto + implementación gradual y voluntaria para docentes actuales + representación sindical en ANCE | Si >50% de docentes en paro por >30 días consecutivos → mesa de diálogo de emergencia con mediador internacional (OIT) + congelamiento de implementación en jurisdicciones conflictivas + aceleración en jurisdicciones receptivas |
+| 1 | **Resistencia sindical masiva** — Sindicatos rechazan el Pacto de la Dignidad y convocan paro nacional indefinido | Alta | Alto | Sindicatos como co-arquitectos (Sección 10) + piso salarial elimina causa principal de conflicto + implementación gradual y voluntaria para docentes actuales + representación sindical en ANCE | Si >50% de docentes en paro por >30 días consecutivos → mesa de diálogo de emergencia con mediador internacional (OIT) + congelamiento de implementación en jurisdicciones conflictivas + aceleración en jurisdicciones receptivas |
 | 2 | **Captura política de la ANCE** — Un gobierno futuro intenta cooptar la ANCE para fines partidarios, reemplazando directores técnicos por operadores políticos | Media | Crítico | Mandatos escalonados de 6 años (no coincidentes con ciclo electoral) + directores seleccionados por concurso internacional + piso presupuestario con rango constitucional + publicación obligatoria de todas las decisiones | Si el gobierno intenta remover a un director sin causa justificada → activación automática de recurso judicial (la ley de creación de ANCE incluye cláusula de amparo automático) + denuncia pública + intervención del Defensor del Pueblo |
 | 3 | **Provincias que se niegan a adoptar** — Más de 5 provincias rechazan firmar el Pacto Bilateral y se niegan a implementar las Siete Capacidades | Alta | Alto | Modelo 70/30 respeta autonomía provincial + Fondo de Convergencia como incentivo financiero poderoso + Pactos Bilaterales negociados individualmente | Si >5 provincias rechazan en Año 3 → programa piloto solo en provincias dispuestas. Efecto demostración: cuando las provincias piloto muestren resultados superiores, las resistentes se suman (precedente: reforma educativa de Ontario, Canadá) |
 | 4 | **Insuficiencia presupuestaria** — Crisis económica o cambio de prioridades gubernamental reduce el presupuesto disponible por debajo del mínimo | Media | Alto | Fuentes de financiamiento diversificadas (6 fuentes independientes) + phasing gradual que permite reducir velocidad sin reducir calidad + piso constitucional de gasto educativo | Si déficit presupuestario >20% del plan → reducción de velocidad de expansión (menos EdF por año), NUNCA reducción de calidad ni de salarios. Prioridad: mantener lo que ya funciona |
@@ -1054,7 +1116,7 @@ Ningún plan de esta magnitud está exento de riesgo. La diferencia entre un pla
 
 ---
 
-## SECCIÓN 14: RESPUESTA A CRÍTICAS ANTICIPADAS — LO QUE VAN A DECIR Y POR QUÉ SE EQUIVOCAN
+## SECCIÓN 15: RESPUESTA A CRÍTICAS ANTICIPADAS — LO QUE VAN A DECIR Y POR QUÉ SE EQUIVOCAN
 
 > *"Si nadie critica tu plan, tu plan no cambia nada. PLANEDU va a ser criticado desde todos los ángulos — y tiene respuesta para cada uno."*
 
@@ -1065,27 +1127,27 @@ Un plan que solo convence a los que ya estaban convencidos no sirve. PLANEDU nec
 | # | Crítica | Quién la Hace | Respuesta | Evidencia / Sección de Referencia |
 |---|---|---|---|---|
 | 1 | **"Es ideológico / es adoctrinamiento"** | Oposición política, sectores conservadores, medios afines | Las Siete Capacidades son habilidades humanas universales: crear, pensar, comunicar, cuidar, construir, colaborar, conocer. No hay contenido partidario, no hay doctrina, no hay ideología. Cualquier gobierno, de cualquier signo político, debería querer ciudadanos que piensen con rigor, creen con belleza y cuiden con empatía. El desafío está abierto: señalá cuál de las siete es ideológica. | Sección 4 — Las Siete Capacidades. Validación internacional: estas capacidades coinciden con los marcos de competencias de la OCDE, UNESCO, y los sistemas educativos de Finlandia, Singapur y Canadá |
-| 2 | **"Es demasiado caro"** | Fiscalistas, economistas ortodoxos, opinión pública | El costo de NO hacerlo es USD 50.000-75.000M/año en productividad perdida, gasto en seguridad, salud y programas sociales evitables. PLANEDU cuesta USD 3.000-10.000M/año incremental. El ROI es 3:1 a 5.5:1 conservador, 8:1 a 12:1 con beneficios indirectos. Cada dólar invertido en primera infancia retorna USD 13 (Heckman). Es literalmente la inversión más rentable que existe. | Sección 10 — Tabla 16 (evidencia ROI) y Tabla 17 (proyección 20 años) |
-| 3 | **"Los sindicatos lo van a bloquear"** | Analistas políticos, periodistas, escépticos | PLANEDU no enfrenta a los sindicatos — los incorpora como co-arquitectos. El piso salarial indexado elimina la causa principal de conflicto. El mérito se suma a la antigüedad, no la reemplaza. Los sindicatos tienen un asiento en el Directorio de ANCE. La oferta es tan buena que la resistencia racional es mínima. | Sección 9 — El Pacto de la Dignidad |
-| 4 | **"Las provincias no van a aceptar"** | Federalistas, gobernadores, constitucionalistas | El Modelo 70/30 respeta la autonomía provincial (Art. 5 CN). El Fondo de Convergencia incentiva la adopción sin imposición. Los Pactos Bilaterales se negocian individualmente. Las provincias que no quieren participar no están obligadas — pero ven cómo las que participan mejoran, y la presión ciudadana hace el resto. | Sección 11 — Modelo 70/30 y Fondo de Convergencia |
+| 2 | **"Es demasiado caro"** | Fiscalistas, economistas ortodoxos, opinión pública | El costo de NO hacerlo es USD 50.000-75.000M/año en productividad perdida, gasto en seguridad, salud y programas sociales evitables. PLANEDU cuesta USD 3.000-10.000M/año incremental. El ROI es 3:1 a 5.5:1 conservador, 8:1 a 12:1 con beneficios indirectos. Cada dólar invertido en primera infancia retorna USD 13 (Heckman). Es literalmente la inversión más rentable que existe. | Sección 11 — Tabla 16 (evidencia ROI) y Tabla 17 (proyección 20 años) |
+| 3 | **"Los sindicatos lo van a bloquear"** | Analistas políticos, periodistas, escépticos | PLANEDU no enfrenta a los sindicatos — los incorpora como co-arquitectos. El piso salarial indexado elimina la causa principal de conflicto. El mérito se suma a la antigüedad, no la reemplaza. Los sindicatos tienen un asiento en el Directorio de ANCE. La oferta es tan buena que la resistencia racional es mínima. | Sección 10 — El Pacto de la Dignidad |
+| 4 | **"Las provincias no van a aceptar"** | Federalistas, gobernadores, constitucionalistas | El Modelo 70/30 respeta la autonomía provincial (Art. 5 CN). El Fondo de Convergencia incentiva la adopción sin imposición. Los Pactos Bilaterales se negocian individualmente. Las provincias que no quieren participar no están obligadas — pero ven cómo las que participan mejoran, y la presión ciudadana hace el resto. | Sección 12 — Modelo 70/30 y Fondo de Convergencia |
 | 5 | **"La AI va a reemplazar a los docentes"** | Docentes, sindicatos, humanistas preocupados | Lo opuesto. La AI reemplaza la parte mecánica del trabajo docente (transmisión de información, corrección de ejercicios rutinarios, diagnóstico de lagunas) y potencia la parte humana (mentoría, inspiración, contención emocional, diseño de experiencias). El docente no pierde — gana prestigio, gana tiempo, gana herramientas. El Maestro Creador es más valioso CON AI que sin ella, no menos. | Pilar II — AI como Co-Tutor |
 | 6 | **"Aprendizaje por Dominio es injusto — los pobres van más lento"** | Progresistas, organizaciones de derechos sociales | El sistema actual es lo injusto: aprueba con 4 (sin saber nada) y avanza sin haber aprendido. Eso no es igualdad — es la peor estafa que les hacemos a los pibes pobres. Aprendizaje por Dominio + AI co-tutor + atención personalizada garantiza que TODOS lleguen, a su ritmo. El pobre no avanza "más lento" — avanza con más apoyo. Y cuando llega, llega de verdad. | Sección 4.3 — Aprendizaje por Dominio. Evidencia: Bloom (1984) demostró que con tutoría personalizada el 98% de los estudiantes alcanza el nivel que solo el 20% alcanza en clases masivas |
 | 7 | **"El portfolio es subjetivo"** | Tradición evaluativa, padres acostumbrados a notas numéricas | El examen tradicional es más subjetivo de lo que parece: depende de qué preguntas elige el docente, de cómo las corrige, y de la suerte del alumno ese día. El portfolio + rúbricas públicas + evaluación por pares + evaluación externa de ANCE = sistema con más triangulación y transparencia que un examen donde aprobás memorizando la noche anterior. Además: ¿qué prefiere un empleador? ¿Un 7 en una materia que no sabe qué significa, o un portfolio que muestra exactamente qué puede hacer esa persona? | Sección 4.4 — Creación como Evaluación |
-| 8 | **"No se puede reformar todo a la vez"** | Gradualistas, burócratas, consultores de la cautela | Exacto. Y PLANEDU no reforma todo a la vez. Crea un modelo alternativo (500 Escuelas del Futuro) que DEMUESTRA que funciona. El resto del sistema adopta gradualmente por efecto demostración, no por imposición. Primero 50, después 200, después 500. En ningún momento se obliga a las 50.000 escuelas existentes a cambiar de un día para el otro. La irradiación es orgánica: los docentes ven, los padres ven, los alumnos ven, y piden más. | Sección 5 (Pilar III) + Sección 16 (cronograma por fases) |
+| 8 | **"No se puede reformar todo a la vez"** | Gradualistas, burócratas, consultores de la cautela | Exacto. Y PLANEDU no reforma todo a la vez. Crea un modelo alternativo (500 Escuelas del Futuro) que DEMUESTRA que funciona. El resto del sistema adopta gradualmente por efecto demostración, no por imposición. Primero 50, después 200, después 500. En ningún momento se obliga a las 50.000 escuelas existentes a cambiar de un día para el otro. La irradiación es orgánica: los docentes ven, los padres ven, los alumnos ven, y piden más. | Sección 6 (Pilar III) + Sección 17 (cronograma por fases) |
 | 9 | **"Bilingüismo es imperialismo cultural"** | Nacionalistas, sectores de izquierda cultural | Hablar inglés no es renunciar al español. Es acceder al 95% del conocimiento científico publicado, al mercado laboral global, y a la posibilidad de exportar cultura argentina al mundo. Gardel en inglés sigue siendo Gardel. Borges escribía en los dos idiomas y nadie lo acusó de imperialista. Además, PLANEDU incluye un tercer idioma que puede ser quechua, guaraní, mapuzugun o wichí — eso sí que es soberanía cultural. | Pilar IV — Bilingüismo Universal |
-| 10 | **"¿Y las universidades?"** | Académicos, rectores, comunidad universitaria | PLANEDU no reforma universidades — la autonomía universitaria tiene rango constitucional y PLANEDU la respeta. Lo que sí hace: reforma la formación docente (ISFDs + certificación ANCE), crea incentivos para que las universidades participen voluntariamente en la formación de Maestros Creadores, y — lo más importante — produce egresados secundarios tan bien formados que las universidades van a tener que subir su nivel para estar a la altura. | Sección 6.2 (en documento base) |
-| 11 | **"Los vouchers de Chile fracasaron, esto es lo mismo"** | Izquierda educativa, defensores de la escuela pública | PLANEDU NO propone vouchers. El financiamiento sigue siendo público, directo, estatal. No hay mecanismo de mercado que permita a las familias "elegir" escuela con dinero público. Lo que cambia es QUÉ se enseña (Siete Capacidades) y CÓMO se evalúa (portfolio + dominio). La escuela pública no se debilita — se fortalece hasta ser la mejor opción. Las privadas subvencionadas deben adoptar los mismos estándares o perder el subsidio. | Sección 2.2 (en documento base) + Sección 12 |
-| 12 | **"Finlandia tardó 30 años, esto propone 15"** | Escépticos, académicos comparativistas | Finlandia empezó en 1972 sin internet, sin AI, sin 50 años de investigación educativa acumulada, sin evidencia de qué funciona y qué no. Argentina en 2026 tiene Khan Academy, tiene GPT, tiene décadas de estudios de Heckman, Bloom, Dweck, Wiliam y cien más. Tiene los errores de Chile, de Corea, de Singapur como lecciones. No empezamos de cero en conocimiento — empezamos de cero en voluntad. Y con voluntad + conocimiento + tecnología, 15 años son suficientes para la demostración. La transformación sistémica completa puede llevar 25-30 años — pero los primeros resultados medibles aparecen en 5. | Sección 2.4 (en documento base) + Sección 16 (cronograma) |
+| 10 | **"¿Y las universidades?"** | Académicos, rectores, comunidad universitaria | PLANEDU no reforma universidades — la autonomía universitaria tiene rango constitucional y PLANEDU la respeta. Lo que sí hace: reforma la formación docente (ISFDs + certificación ANCE), crea incentivos para que las universidades participen voluntariamente en la formación de Maestros Creadores, y — lo más importante — produce egresados secundarios tan bien formados que las universidades van a tener que subir su nivel para estar a la altura. | Sección 7.2 (en documento base) |
+| 11 | **"Los vouchers de Chile fracasaron, esto es lo mismo"** | Izquierda educativa, defensores de la escuela pública | PLANEDU NO propone vouchers. El financiamiento sigue siendo público, directo, estatal. No hay mecanismo de mercado que permita a las familias "elegir" escuela con dinero público. Lo que cambia es QUÉ se enseña (Siete Capacidades) y CÓMO se evalúa (portfolio + dominio). La escuela pública no se debilita — se fortalece hasta ser la mejor opción. Las privadas subvencionadas deben adoptar los mismos estándares o perder el subsidio. | Sección 2.2 (en documento base) + Sección 13 |
+| 12 | **"Finlandia tardó 30 años, esto propone 15"** | Escépticos, académicos comparativistas | Finlandia empezó en 1972 sin internet, sin AI, sin 50 años de investigación educativa acumulada, sin evidencia de qué funciona y qué no. Argentina en 2026 tiene Khan Academy, tiene GPT, tiene décadas de estudios de Heckman, Bloom, Dweck, Wiliam y cien más. Tiene los errores de Chile, de Corea, de Singapur como lecciones. No empezamos de cero en conocimiento — empezamos de cero en voluntad. Y con voluntad + conocimiento + tecnología, 15 años son suficientes para la demostración. La transformación sistémica completa puede llevar 25-30 años — pero los primeros resultados medibles aparecen en 5. | Sección 2.4 (en documento base) + Sección 17 (cronograma) |
 
 ---
 
-## SECCIÓN 15: ESTRATEGIA DE COMUNICACIÓN — CÓMO SE CONSTRUYE APOYO Y SE DEFIENDE EL PROGRAMA
+## SECCIÓN 16: ESTRATEGIA DE COMUNICACIÓN — CÓMO SE CONSTRUYE APOYO Y SE DEFIENDE EL PROGRAMA
 
 > *"El mejor plan del mundo fracasa si nadie lo entiende, nadie lo quiere, y nadie lo defiende. La comunicación no es un anexo de PLANEDU — es un pilar invisible."*
 
 La reforma educativa más ambiciosa de la historia argentina no sobrevive sin apoyo popular sostenido. Y el apoyo popular no se construye con publicidad — se construye con narrativa, con evidencia visible, con embajadores creíbles, y con la valentía de mostrar los fracasos además de los éxitos.
 
-### 15.1 La Narrativa Central
+### 16.1 La Narrativa Central
 
 **"La educación que merecemos"** — Tres palabras que le hablan a cada argentino, sin importar su partido, su clase social, ni su ideología. Porque todos — absolutamente todos — saben que la educación que tienen no es la que merecen. El obrero lo sabe porque ve que su hijo sale del colegio sin saber nada útil. El profesional lo sabe porque compara con lo que ve en el mundo. El docente lo sabe porque pelea todos los días contra un sistema que no lo deja enseñar bien. El pibe lo sabe porque se aburre en un aula que no le importa.
 
@@ -1099,7 +1161,7 @@ La narrativa no es técnica. No es política. Es **personal**. Cada argentino ti
 | **"Los docentes merecen más"** | Docentes, sindicatos, opinión pública | Medios especializados, redes docentes, eventos presenciales | Reconocimiento, dignidad, orgullo profesional |
 | **"Argentina puede ser la mejor"** | Jóvenes, empresarios, diáspora, comunidad internacional | Redes sociales, prensa internacional, eventos TEDx, documentales | Ambición, orgullo nacional, visión de futuro |
 
-### 15.2 Embajadores del Cambio
+### 16.2 Embajadores del Cambio
 
 La comunicación institucional no alcanza. Los mensajes más poderosos vienen de personas reales — docentes, padres, alumnos — que viven la transformación y la cuentan con sus palabras.
 
@@ -1113,7 +1175,7 @@ La comunicación institucional no alcanza. Los mensajes más poderosos vienen de
 | **Directores de EdF** | Los líderes de las 500 Escuelas del Futuro | 50 (Año 3), 200 (Año 7) | Hablan desde los datos: resultados, comparaciones, lecciones aprendidas, transparencia total | Conferencias, publicaciones académicas, medios especializados, Dashboard público |
 | **Aliados internacionales** | Expertos en educación, organizaciones internacionales (OCDE, UNESCO, BID), académicos | 20-50 | Validan desde la evidencia: "Lo que Argentina está haciendo es innovador, riguroso, y funciona" | Prensa internacional, informes técnicos, visitas a EdF |
 
-### 15.3 Build in Public: Transparencia Radical
+### 16.3 Build in Public: Transparencia Radical
 
 Inspirado en el Tablero Nacional de PLANISV, PLANEDU adopta el principio de **Build in Public** — construir en público, mostrando todo: lo que funciona, lo que falla, lo que se ajusta, lo que se aprende.
 
@@ -1129,7 +1191,7 @@ Inspirado en el Tablero Nacional de PLANISV, PLANEDU adopta el principio de **Bu
 
 La transparencia no es solo un valor ético — es una estrategia de supervivencia. Un programa que publica sus propios fracasos es un programa al que no le pueden inventar fracasos. Un programa que muestra sus datos es un programa al que no le pueden fabricar datos alternativos. La transparencia desarma a los críticos de mala fe y fortalece a los críticos de buena fe — que son los que ayudan a mejorar.
 
-### 15.4 Counter-Narrative Defense: Defensa Activa de la Narrativa
+### 16.4 Counter-Narrative Defense: Defensa Activa de la Narrativa
 
 PLANEDU va a ser atacado. Es inevitable. La pregunta no es si habrá ataques sino cuáles serán y cómo se responde. El equipo de comunicación de ANCE incluye una unidad de **Defensa Narrativa** con capacidad de respuesta en menos de 4 horas.
 
@@ -1146,7 +1208,7 @@ PLANEDU va a ser atacado. Es inevitable. La pregunta no es si habrá ataques sin
 
 ---
 
-## SECCIÓN 16: IMPLEMENTACIÓN DETALLADA — CRONOGRAMA CON KPIs, TRIGGERS Y CONTINGENCIAS
+## SECCIÓN 17: IMPLEMENTACIÓN DETALLADA — CRONOGRAMA CON KPIs, TRIGGERS Y CONTINGENCIAS
 
 > *"Un plan sin cronograma es un deseo. Un cronograma sin KPIs es una mentira. KPIs sin contingencias es soberbia. PLANEDU tiene los tres."*
 
@@ -1220,13 +1282,13 @@ Si la Fase 2 demuestra que el modelo funciona, la Fase 3 lo escala. De 50 escuel
 
 ---
 
-## SECCIÓN 17: INTEGRACIÓN CON EL PROYECTO BASTA — EL ORGANISMO COMPLETO
+## SECCIÓN 18: INTEGRACIÓN CON EL PROYECTO BASTA — EL ORGANISMO COMPLETO
 
 > *"PLANEDU no existe solo. Es un órgano de un organismo. Sin los otros cuatro, late pero no vive. Con los otros cuatro, transforma todo."*
 
 PLANEDU es una de las cinco piezas de un rompecabezas que solo funciona completo. Cada iniciativa del proyecto BASTA — PLAN24CN, PLANISV, PLANREP, PLANEDU, PLANJUS — aborda una crisis específica, pero las cinco crisis están interconectadas y las cinco soluciones se potencian mutuamente. Un egresado de PLANEDU que vive en una ciudad de PLAN24CN, come alimentos de un campo PLANISV, y trabaja en un emprendimiento nacido de PLANREP es un argentino que vive en un ecosistema completo de bienestar — no en un parche aislado.
 
-### 17.1 El Aula Viva: La Educación que Sale del Edificio
+### 18.1 El Aula Viva: La Educación que Sale del Edificio
 
 Las Escuelas del Futuro no terminan en sus paredes. PLANEDU propone que cada alumno, durante su trayectoria escolar, participe en rotaciones inmersivas por las otras cuatro iniciativas del proyecto BASTA. No como excursión turística — como experiencia formativa profunda, integrada en el currículo, evaluada como parte del portfolio.
 
@@ -1241,7 +1303,7 @@ Las Escuelas del Futuro no terminan en sus paredes. PLANEDU propone que cada alu
 
 **El efecto de polinización cruzada:** Cuando un alumno de 15 años vuelve de una semana en una finca PLANISV y cuenta en su Escuela del Futuro lo que aprendió sobre micorrizas, sobre la relación entre suelo y agua, sobre el amanecer trabajando con las manos — está haciendo algo que ningún libro de texto puede hacer: está transmitiendo experiencia vivida. Y cuando un productor de PLANISV ve a un grupo de adolescentes analizando su suelo con instrumentos científicos y explicándole en qué consiste la red de micorrizas que sostiene sus cultivos, está viendo el futuro de la producción argentina. El proyecto BASTA se convierte en un aula viva donde cada pieza educa a las otras.
 
-### 17.2 Lo Que PLANEDU Aporta a Cada Iniciativa
+### 18.2 Lo Que PLANEDU Aporta a Cada Iniciativa
 
 **TABLA 35: Matriz de Contribución — PLANEDU Aporta a →**
 
@@ -1254,7 +1316,7 @@ Las Escuelas del Futuro no terminan en sus paredes. PLANEDU propone que cada alu
 | **Siete Capacidades** | Marco de habilidades para ciudadanos de las 24 ciudades | CUIDAR como filosofía de producción regenerativa | CREAR y CONSTRUIR como base de las Ocho Ramas del Trabajo Vivo |
 | **Bilingüismo** | Ciudades conectadas con el mundo: comercio, turismo, academia internacional | Acceso a literatura científica sobre suelo y regeneración (95% en inglés) | Exportación de servicios en la Economía de la Inteligencia requiere inglés |
 
-### 17.3 Lo Que PLANEDU Recibe de Cada Iniciativa
+### 18.3 Lo Que PLANEDU Recibe de Cada Iniciativa
 
 **TABLA 36: Matriz de Contribución — PLANEDU Recibe de ←**
 
@@ -1266,7 +1328,7 @@ Las Escuelas del Futuro no terminan en sus paredes. PLANEDU propone que cada alu
 | **Red de pasantías** | Empresas y organizaciones de ciudades nuevas como sitios de pasantía para alumnos EdF | Fincas y sitios PLANISV como destinos de pasantía y rotación inmersiva | Centros de la Vida como sitios de pasantía: alumnos trabajan junto a adultos en reconversión |
 | **Legitimidad social** | La calidad de las ciudades nuevas valida el proyecto BASTA entero | La mejora visible del campo valida la filosofía del cuidado que PLANEDU enseña | La reconversión exitosa de adultos valida la promesa de que la educación transforma vidas a cualquier edad |
 
-### 17.4 El Efecto Multiplicador del Proyecto BASTA
+### 18.4 El Efecto Multiplicador del Proyecto BASTA
 
 Ninguna de las cinco iniciativas funciona a su máximo potencial sin las otras cuatro. El efecto no es aditivo — es multiplicador.
 
@@ -1282,7 +1344,7 @@ Ninguna de las cinco iniciativas funciona a su máximo potencial sin las otras c
 
 ---
 
-## SECCIÓN 18: VISIÓN 2040 — LA ARGENTINA QUE EDUCAMOS
+## SECCIÓN 19: VISIÓN 2040 — LA ARGENTINA QUE EDUCAMOS
 
 > *"No construimos un sistema educativo. Construimos un país."*
 
@@ -1353,7 +1415,7 @@ Las personas apagadas son un recuerdo. El Hombre Gris — el que despierta, el q
 
 ---
 
-## SECCIÓN 19: EL ARGUMENTO DEFINITIVO
+## SECCIÓN 20: EL ARGUMENTO DEFINITIVO
 
 > *"La educación es el arma más poderosa que podés usar para cambiar el mundo."*
 > — Nelson Mandela
