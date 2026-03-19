@@ -1283,6 +1283,8 @@ PLANISV crea esa profesión. El Técnico de Suelo Vivo es alguien que:
 
 Esta escala de carrera es fundamental. Si ser técnico de suelo es un trabajo precario, temporal, mal pago — nadie bueno va a querer hacerlo. Si es una profesión con futuro, con crecimiento, con reconocimiento — va a atraer talento. PLANISV necesita que los mejores estudiantes de agronomía del país quieran ser Técnicos de Suelo Vivo, no representantes de Bayer.
 
+**Nota sobre los Tres Horizontes:** La carrera de Técnico de Suelo Vivo está diseñada para el Horizonte 1 (2026-2035) — empleo directo en restauración de suelos. Pero las competencias que construye — diagnóstico biológico, análisis de datos, gestión de ecosistemas, comunicación con comunidades rurales — son inherentemente transferibles al Horizonte 2, la Economía de la Contribución, donde "Regeneración ambiental" es una de las siete categorías de contribución reconocidas (ver PLANREP Sección 15.4). PLANISV no promete empleo eterno — construye capacidades que retienen valor independientemente de cómo evolucione el modelo económico. Un Técnico de Suelo Vivo que sabe leer biología del suelo, interpretar datos satelitales y articular con productores tiene herramientas que sirven tanto en un esquema de empleo formal como en un Nodo de Contribución. La carrera es nuestra primera mejor alternativa para el desarrollo de la fuerza laboral rural; las habilidades son permanentes aunque el formato de empleo se transforme.
+
 ### 15.4 Dimensión de Género
 
 Hay un dato que la Argentina agrícola prefiere no ver: según el Censo Nacional Agropecuario 2018, solo el 20,6% de las explotaciones agropecuarias están gestionadas por mujeres como titulares. Pero el dato esconde más de lo que muestra. En la agricultura familiar — que representa el 66% de las explotaciones del país — las mujeres trabajan la tierra, cuidan los animales, producen alimentos, gestionan la economía doméstica y toman decisiones agronómicas todos los días. No figuran como "productoras" porque el título de la tierra está a nombre del marido, porque el crédito lo saca él, porque la cooperativa la integra él. Son invisibles en los papeles y fundamentales en la realidad.
@@ -2094,7 +2096,22 @@ Los cinco programas de BASTA comparten infraestructura, reducen costos por escal
 
 **Ahorro estimado por sinergias:** USD 2.000-5.000M en el horizonte de 15 años por compartición de infraestructura, financiamiento combinado y eliminación de duplicaciones.
 
-### 21.7 El Instante del Hombre Gris: Del Apagón al Despertar Verde
+### 21.7 PLANISV y la Transición Económica: El Suelo como Infraestructura de los Tres Horizontes
+
+PLANREP Sección 15.1 establece cinco Fideicomisos de Propósito Perpetuo — estructuras patrimoniales diseñadas para que los activos estratégicos de la Argentina generen valor a perpetuidad sin depender de decisiones políticas coyunturales. Uno de ellos es el **Fideicomiso de Suelo Vivo**, cuyos activos productivos son precisamente las tierras y la infraestructura biológica que PLANISV restaura. Cada hectárea que pasa de suelo degradado a suelo biológicamente activo engrosa la base patrimonial de ese fideicomiso. El trabajo de PLANISV no es solo un programa de empleo — es la construcción del activo subyacente de una de las cinco columnas financieras del país.
+
+En la **Economía de la Contribución** que PLANREP desarrolla en la Sección 15.4, "Regeneración ambiental" es una de las siete categorías de contribución cívica formalmente reconocidas. A medida que el sistema madure, el trabajo de restauración de suelos que hoy hacen los Técnicos de Suelo Vivo como empleados será también valorado como contribución cívica a través del Índice de Contribución — un mecanismo de validación que mide impacto real, no horas sentado en una oficina. El productor que regenera su campo contribuye; el técnico que lo acompaña contribuye; la comunidad que protege su cuenca contribuye.
+
+A medida que el Fideicomiso de Suelo Vivo madure, sus retornos — agricultura regenerativa, créditos de carbono, arrendamientos productivos — alimentarán el **Dividendo Nacional de Productividad (DNP)**, convirtiendo a los trabajadores rurales del suelo en co-propietarios del valor que su trabajo genera. No es metáfora: es arquitectura financiera concreta.
+
+**Mapeo por horizontes temporales:**
+- **Horizonte 1 (2026-2035):** Centrado en empleo. PLANISV crea puestos de trabajo, forma técnicos, restaura hectáreas. El valor se mide en empleos, salarios y toneladas de carbono secuestrado.
+- **Horizonte 2 (2035-2045):** Parte del trabajo de suelo opera a través de Nodos de Contribución. El Fideicomiso automatiza monitoreo y distribuye retornos. Los técnicos más experimentados coordinan redes, no solo campos.
+- **Horizonte 3 (2045+):** El suelo regenerado es infraestructura fideicomisaria que financia el DNP. La restauración se convirtió en patrimonio nacional productivo.
+
+Estos conceptos están desarrollados en profundidad en PLANREP Sección 15. PLANISV no los replica — los reconoce. Nuestra fuerza laboral existe dentro de una transición económica más amplia, y esta sección explicita esa conexión para que ningún técnico, productor o funcionario que lea este documento crea que estamos diseñando empleos en el vacío.
+
+### 21.8 El Instante del Hombre Gris: Del Apagón al Despertar Verde
 
 El Instante del Hombre Gris es la filosofía madre del proyecto BASTA. Su premisa es simple y devastadora: millones de argentinos están atrapados en el letargo — empleos que no generan valor, trabajos de subsistencia, desempleo disfrazado de changas — no por incapacidad personal sino por un sistema que los mantiene apagados, dormidos, en piloto automático.
 
