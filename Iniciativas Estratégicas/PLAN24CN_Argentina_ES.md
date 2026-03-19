@@ -2017,6 +2017,8 @@ Las ciudades de PLAN24CN tienen una ventaja estructural: nacen con base económi
 
 Después del breakeven, el excedente se destina a: (a) fondo de reserva para mantenimiento de largo plazo (mínimo 10% de ingresos), (b) inversión en mejoras y expansión, (c) contribución al fondo solidario inter-ciudades (las ciudades más prósperas ayudan a las que tardan más en madurar).
 
+La Sección 15 de PLANREP establece cinco Fideicomisos de Propósito Perpetuo — fondos autónomos que poseen infraestructura productiva a perpetuidad. Tres de ellos intersectan directamente con PLAN24CN: el **Fideicomiso de Energía Renovable** (propietario de paneles solares y parques eólicos en las ciudades), el **Fideicomiso de Infraestructura Digital** (propietario de la red de datacenters soberanos), y el **Fideicomiso de Vivienda Social** (propietario del stock habitacional cooperativo). A medida que las ciudades maduran (Fase 3-4), ciertos activos de infraestructura pueden transferirse a co-propiedad con los fideicomisos, creando la base patrimonial desde la cual se financia eventualmente el Dividendo Nacional de Productividad (DNP). Las ciudades mismas se convierten en la infraestructura FÍSICA de la transición post-laboral. Esto es horizonte largo (Horizontes 2-3 de PLANREP), no inmediato — pero el diseño financiero de hoy lo hace posible mañana.
+
 ---
 
 ## SECCIÓN 6: MOTOR ECONÓMICO — CIUDADES QUE PRODUCEN, NO SOLO CONSUMEN
@@ -2126,6 +2128,20 @@ La red de 24 datacenters soberanos (Sección 3.3.5) no es solo infraestructura d
 **Ahorro en pagos al exterior.** El sistema de pagos soberano (tipo PIX brasileño) reduce las comisiones que hoy cobran Visa, Mastercard y procesadores extranjeros. Las comisiones actuales oscilan entre 1,5% y 3,5% del monto de cada transacción. Sobre un volumen de pagos digitales de USD 100.000M/año en Argentina, la reducción de comisiones al 0,3–0,5% (estándar PIX) genera un ahorro sistémico de USD 1.000–3.000M/año que se queda en la economía argentina en lugar de migrar a corporaciones norteamericanas.
 
 **Proyección consolidada:** La soberanía digital genera entre USD 500M y USD 2.000M/año en ingresos directos y ahorros en régimen, además de un valor estratégico incalculable: Argentina controla sus datos, sus algoritmos, sus modelos de IA y sus rieles de pago. En un mundo donde quien controla la infraestructura digital controla la economía, esto es soberanía del siglo XXI.
+
+#### 6.6 Infraestructura Preparada para los Tres Horizontes
+
+Las 24 ciudades están diseñadas para el Horizonte 1 — centrado en el empleo, con misiones productivas concretas y 240.000-480.000 puestos de trabajo directos. Pero su infraestructura física está TAMBIÉN diseñada para soportar los Horizontes 2 y 3 de la transición económica descripta en PLANREP Sección 15:
+
+- **Espacios flexibles.** Las instalaciones productivas — talleres, incubadoras, laboratorios, centros de I+D — son de uso múltiple por diseño. En el Horizonte 1 albergan empleadores y empleados en relaciones laborales clásicas. En el Horizonte 2, esos mismos espacios alojan **Nodos de Contribución** — espacios comunitarios de trabajo para las siete categorías de la Economía de la Contribución (PLANREP Sección 15.4): cuidado, creación, enseñanza, infraestructura comunitaria, investigación, mediación ambiental y emprendimiento social. No hay que demoler y reconstruir. Hay que reconfigurar.
+
+- **Energía.** Los sistemas energéticos de cada ciudad — paneles solares, parques eólicos, turbinas micro-hidro — cuando se transfieran al Fideicomiso de Energía Renovable, generan retornos que financian el Dividendo Nacional de Productividad (DNP). Una ciudad que en el Horizonte 1 vende energía excedente a la red, en el Horizonte 3 genera dividendos para sus ciudadanos. La infraestructura es la misma; cambia quién la posee y cómo se distribuyen los retornos.
+
+- **Digital.** La infraestructura de datacenters y conectividad, cuando sea absorbida por el Fideicomiso de Infraestructura Digital, se convierte en la columna vertebral del Portfolio Ciudadano Único (PLANEDU) y del sistema de validación de contribuciones que reemplaza al control de empleo formal.
+
+- **Vivienda.** Las cooperativas habitacionales transicionan naturalmente al Fideicomiso de Vivienda Social — co-propiedad perpetua que garantiza accesibilidad habitacional a través de las generaciones, independientemente de las fluctuaciones del mercado inmobiliario.
+
+La infraestructura física de la transición post-laboral no es abstracta. Son edificios, paneles, cables y casas. PLAN24CN los construye. Los fideicomisos los poseen. El DNP distribuye sus retornos. Las ciudades son donde el futuro ocurre — literalmente.
 
 ---
 
@@ -2877,6 +2893,22 @@ Las ciudades nuevas del PLAN24CN nacen con justicia incorporada — no como un s
 **Efecto sobre la cultura cívica.** Una ciudad donde los conflictos se resuelven en 15-45 días, donde la justicia es visible y accesible, donde los vecinos participan como panelistas — es una ciudad que genera confianza institucional desde el nacimiento. Los habitantes de las ciudades PLAN24CN no heredan la desconfianza argentina hacia la justicia: crecen en un sistema donde la justicia funciona, donde es rápida, transparente y comunitaria. Esa experiencia se transmite a la generación siguiente como normalidad — no como excepción.
 
 Las ciudades del PLAN24CN nacen con justicia incorporada — no como un servicio que se agrega después, sino como parte del diseño original.
+
+### 16.7 PLAN24CN + PLANREP: Las Ciudades como Infraestructura de la Transición Económica
+
+PLANREP ya aparece en este documento como fuente demográfica para la planificación de las ciudades. Pero PLANREP v4.0 (Sección 15) ahora incluye la arquitectura completa de la transición post-laboral: Fideicomisos de Propósito Perpetuo, Dividendo Nacional de Productividad, Economía de la Contribución, Paneles Ciudadanos de Futuro Económico. Esa arquitectura no flota en el vacío — necesita territorio, edificios, redes y gente. Las 24 ciudades son donde esa transición FÍSICAMENTE ocurre.
+
+La intersección es concreta y múltiple:
+
+- **Los Fideicomisos poseen infraestructura EN estas ciudades.** El Fideicomiso de Energía Renovable es dueño de los parques solares y eólicos. El de Infraestructura Digital es dueño de los datacenters. El de Vivienda Social es dueño del stock habitacional cooperativo. La base patrimonial de los fideicomisos no es financiera — es física, y está en las 24 ciudades.
+
+- **Los Nodos de Contribución operan en espacios construidos por PLAN24CN.** Los talleres, incubadoras y laboratorios de cada ciudad son los lugares donde la Economía de la Contribución se practica concretamente — donde la gente cuida, crea, enseña, investiga y emprende socialmente.
+
+- **Los Paneles Ciudadanos de Futuro Económico se reúnen en los Núcleos Cívicos.** Los edificios diseñados para la gobernanza participativa de cada ciudad son donde los ciudadanos deliberan sobre los parámetros del DNP, los umbrales de automatización y la velocidad de la transición.
+
+- **El Portfolio Ciudadano Único corre sobre la red de datacenters.** El sistema educativo de PLANEDU que prepara a los estudiantes para una relación diferente entre actividad e ingreso — los Tres Horizontes educativos — funciona sobre infraestructura digital construida y localizada en estas ciudades. Y las escuelas donde eso se enseña ESTÁN en estas ciudades.
+
+Las ciudades no son solo edificios. Son el escenario donde Argentina ensaya, prueba y ejecuta la transición de una economía centrada en el empleo a una economía de la contribución. PLAN24CN provee el escenario. PLANREP provee el guión. PLANEDU provee los actores. PLANJUS provee las reglas. PLANISV provee la tierra.
 
 ---
 
