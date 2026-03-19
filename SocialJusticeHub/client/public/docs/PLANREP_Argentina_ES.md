@@ -2270,7 +2270,171 @@ Y eligió.
 
 ---
 
-## SECCIÓN 15: EL LLAMADO — LIBERAR AL MILLÓN
+## SECCIÓN 15: INFRAESTRUCTURA PARA LA TRANSICIÓN POST-LABORAL — EL PLAN DESPUÉS DEL PLAN
+
+> *"Un plan que solo resuelve el presente es un plan que hipoteca el futuro. PLANREP resuelve el presente Y construye la infraestructura para lo que viene después."*
+
+PLANREP tiene un Horizonte 1 sólido — las Ocho Ramas de la Economía de la Vida, los Centros de la Vida, la Economía de la Inteligencia, el Artesano Aumentado. Lo que esta sección se pregunta es: ¿y después? Porque la automatización no se detiene. Porque la inteligencia artificial no va a dejar de avanzar. Porque las capacidades que hoy clasificamos como "Muy Baja vulnerabilidad" podrían reclasificarse mañana — y ya lo dijimos con honestidad en las secciones anteriores. PLANREP no puede ser un plan que resuelva el presente y le deje al futuro la cuenta sin pagar. Lo que sigue es la infraestructura para los Horizontes 2 y 3 — los mecanismos institucionales, económicos y sociales que se activan a medida que la automatización transforma el trabajo. No son predicciones: son andamios. No son certezas: son las primeras mejores alternativas de un sistema diseñado para adaptarse. Cada propuesta de esta sección está sujeta a revisión permanente por Paneles Ciudadanos — porque nadie, ni este documento ni ningún otro, tiene la autoridad de diseñar el futuro de 46 millones de personas sin su consentimiento activo.
+
+### 15.1 Los Fideicomisos de Propósito Perpetuo — Infraestructura Económica para Tres Generaciones
+
+Si la automatización va a generar riqueza exponencial — y todo indica que sí — la pregunta central no es cómo frenarla sino quién captura esa riqueza. En el modelo actual, la captura es privada y concentrada: las empresas que automatizan retienen el 100% del valor, los trabajadores desplazados reciben el 0%, y el Estado intenta cerrar la brecha con impuestos que siempre llegan tarde, siempre se evaden, y siempre generan distorsiones. PLANREP propone una alternativa estructural: que la sociedad sea copropietaria de los activos productivos que generan esa riqueza. No como metáfora. Como hecho jurídico.
+
+**Definición.** Un Fideicomiso de Propósito Perpetuo es una entidad jurídica autónoma, blindada políticamente — con el mismo diseño institucional de la ANCE en PLANEDU — que posee y opera infraestructura productiva real. No es un fondo de inversión que compra y vende activos especulativos. Es un propietario permanente de activos físicos que generan retornos reales para la sociedad. No vende. No liquida. No se privatiza. Existe para producir — y para reinvertir lo que produce.
+
+**TABLA 21: Los Cinco Fideicomisos Iniciales**
+
+| Fideicomiso | Activo Principal | Retorno Esperado | Conexión BASTA |
+|---|---|---|---|
+| **Energía Renovable** | Parques solares y eólicos en tierras públicas, almacenamiento en baterías | Venta de energía al mercado mayorista + créditos de carbono internacionales | PLAN24CN (energía para ciudades nuevas) |
+| **Suelo Vivo** | Tierras remediadas bajo PLANISV, infraestructura de compostaje y bioinsumos | Producción agrícola regenerativa + bonos de carbono + alquileres de tierras productivas | PLANISV (integración directa) |
+| **Infraestructura Digital** | Red de conectividad soberana, centros de datos distribuidos, infraestructura cloud | Licencias de uso para empresas + servicios cloud a precio competitivo + soberanía de datos | PLAN24CN + PLANEDU (conectividad universal) |
+| **Infraestructura Vial Provincial** | Rutas provinciales, caminos rurales, logística de última milla | Peajes inteligentes + servicios logísticos integrados + datos de movilidad | PLAN24CN (conectar las 24 ciudades) |
+| **Vivienda Social** | Unidades habitacionales en ciudades PLAN24CN, edificios de uso mixto | Alquileres sociales indexados a salario mínimo + locales comerciales para egresados | PLAN24CN (vivienda fundacional) |
+
+**Gobernanza.** Cada fideicomiso tiene un directorio mixto de 9 miembros: 3 técnicos seleccionados por concurso público de antecedentes y oposición (expertos en el sector del fideicomiso), 3 ciudadanos seleccionados por sorteo cívico (con capacitación previa de 60 días), 2 representantes de la ANCE, y 1 representante de los Paneles Ciudadanos de Futuro Económico (ver 15.5). Mandatos escalonados de 8 años — se renueva un tercio cada 32 meses. Rendición de cuentas pública trimestral. Dashboard en tiempo real con inversiones, retornos, estado de activos, y proyecciones. Auditoría externa anual por firma independiente rotativa. Ningún miembro del directorio puede tener vinculación política partidaria activa en los 5 años previos a su designación.
+
+**CONCEPTO CLAVE — Los Fideicomisos como CO-INVERSORES en automatización.** Acá está el giro que distingue a PLANREP de cualquier propuesta de redistribución pasiva. Los fideicomisos no se limitan a recibir retornos — INVIERTEN ACTIVAMENTE en automatizar sus propios activos. El Fideicomiso de Energía Renovable invierte en robots de mantenimiento de paneles solares. El Fideicomiso de Suelo Vivo invierte en drones de monitoreo y siembra autónoma. El Fideicomiso de Infraestructura Digital invierte en sistemas de autogestión de red. ¿El resultado? Al POSEER la automatización, los fideicomisos capturan el 100% del valor que esa automatización genera. No necesitan cobrar impuestos a empresas que automatizan — porque ellos mismos son los que automatizan. No hay evasión posible cuando sos el dueño. No hay distorsión cuando los incentivos están alineados. Y cada peso invertido en automatización de activos propios genera soberanía tecnológica — capacidad instalada en robótica, drones, software, mantenimiento predictivo — que después se exporta.
+
+Russell Ackoff lo formuló con precisión: *"El diseño idealizado no prevé el futuro — diseña sistemas que funcionan en cualquier futuro posible."* Los fideicomisos son exactamente eso: infraestructura que funciona si la automatización avanza lento (generan retornos de activos convencionales) y funciona MEJOR si la automatización avanza rápido (porque capturan más valor de la automatización que ellos mismos poseen).
+
+**Fondo de Estabilización.** Cada fideicomiso reserva el 15% de los retornos acumulados en un fondo de estabilización intocable excepto por tres circunstancias: shock de desempleo sectorial, caída de retornos superior al 30% trimestral, o emergencia macroeconómica declarada por Panel Ciudadano (ver 15.5, Circuit Breakers). El fondo se invierte en instrumentos de máxima liquidez y baja volatilidad. No es un ahorro pasivo — es un seguro activo.
+
+**Evolución por horizontes:**
+
+- **Horizonte 1 (2027-2035):** Los fideicomisos se constituyen, adquieren activos, comienzan a operar. Sus retornos financian infraestructura adicional, reducen presión fiscal, y se reinvierten agresivamente en automatización de activos propios. Los primeros robots de mantenimiento solar, los primeros drones de monitoreo de suelo, los primeros sistemas de autogestión digital — todo propiedad de los fideicomisos.
+- **Horizonte 2 (2035-2043):** Los retornos crecen — amplificados por la automatización propia — y empiezan a alimentar los pilotos del Dividendo Nacional de Productividad (ver 15.3). Los fideicomisos son ahora los mayores inversores en automatización del país — no por decreto sino por rentabilidad. Cada peso invertido en un robot que mantiene paneles solares se recupera en 18 meses.
+- **Horizonte 3 (2043+):** Los fideicomisos son la base económica de una sociedad post-laboral. Sus retornos — amplificados por décadas de inversión en automatización propia — financian un DNP robusto. La sociedad argentina es copropietaria de la infraestructura productiva que la sostiene. No depende de la caridad del mercado ni de la capacidad recaudatoria del Estado: depende de activos reales que le pertenecen.
+
+### 15.2 La Licencia Social de Automatización
+
+Los fideicomisos capturan el valor de la automatización de activos públicos. Pero el sector privado también automatiza — y a velocidad creciente. ¿Cómo se captura valor de la automatización privada sin caer en la trampa del impuesto punitivo que desincentiva la innovación?
+
+**Mecanismo.** Toda empresa que supere un umbral del 30% de automatización en su cadena de valor adquiere una Licencia Social de Automatización. La licencia implica que entre el 3% y el 7% del valor generado por los sistemas automatizados fluye a los fideicomisos. No es un impuesto punitivo — es una licencia habilitante. Automatizás libremente, la sociedad recibe su parte. Cuanto más automatizás, más producís, más generás para todos — incluido vos. La tasa específica, el umbral de activación, y el mecanismo de cálculo son primera mejor alternativa — los Paneles Ciudadanos de Futuro Económico los revisan cada 3 años con datos actualizados de productividad, empleo y retornos de fideicomisos.
+
+**¿Por qué funciona?** Porque no castiga la automatización — la habilita. La empresa que automatiza al 50% paga Licencia Social, sí — pero su productividad aumentó 300%. El neto es brutalmente positivo. La Licencia Social no le saca lo que tiene — le cobra una fracción de lo que ganó gracias a un ecosistema social que formó a sus trabajadores, construyó su infraestructura, mantuvo su estabilidad institucional. Es el equivalente de las regalías mineras: no te prohibimos extraer el recurso — pero el recurso es de todos, así que todos participamos del retorno.
+
+**Precedentes internacionales.** Esto no sale de la nada. Bill Gates propuso en 2017 un "impuesto a los robots" — la idea correcta con el instrumento equivocado (un impuesto desincentiva; una licencia habilita). Corea del Sur redujo en 2018 las deducciones fiscales por inversión en automatización — un mecanismo indirecto que funciona pero no genera ingresos directos para la sociedad. El Fondo Permanente de Alaska distribuye desde 1982 dividendos a cada residente del estado, financiados por regalías petroleras — el precedente más directo, pero aplicado a un recurso natural agotable. La Licencia Social de Automatización toma lo mejor de cada precedente: es habilitante (no punitiva), genera ingresos directos (no indirectos), y se aplica a un recurso inagotable (la productividad de la automatización crece, no se agota).
+
+**Diseño anti-evasión.** La Licencia Social se calcula sobre valor generado, no sobre inversión en maquinaria. Esto evita la maniobra clásica de subreportar inversión en automatización. Si tu planta produce X con Y trabajadores y de repente produce 3X con Y/3 trabajadores, el valor generado por automatización es observable, medible, auditable. Los fideicomisos de Infraestructura Digital proveen las herramientas de monitoreo — otro ejemplo de cómo los fideicomisos se refuerzan mutuamente.
+
+### 15.3 El Dividendo Nacional de Productividad (DNP)
+
+**Definición.** El Dividendo Nacional de Productividad es un ingreso periódico que recibe cada ciudadano argentino, financiado por los retornos de los Fideicomisos de Propósito Perpetuo y los ingresos de la Licencia Social de Automatización. No es un plan social. No es caridad. No es una transferencia financiada con impuestos. Es tu parte — la parte que te corresponde como copropietario de los activos productivos que pertenecen a toda la sociedad.
+
+**Por qué NO es Ingreso Básico Universal (UBI).** La diferencia es estructural, no cosmética. El UBI se financia con impuestos — es redistribución. Tomás de unos para darle a otros. Eso genera resentimiento político, resistencia fiscal, y dependencia del ciclo recaudatorio. El DNP se financia con retornos de activos que la sociedad posee — es co-propiedad. No le sacás a nadie. Recibís el fruto de lo que es tuyo. Y acá está la diferencia que lo cambia todo: el UBI es estático (depende de cuánto recauda el Estado), el DNP es dinámico (crece con la productividad). Cuanto más automatizada la economía, más producen los fideicomisos, más genera la Licencia Social, más grande es el DNP. La automatización no es una amenaza para el DNP — es su combustible.
+
+**TABLA 22: Fases del Dividendo Nacional de Productividad**
+
+| Fase | Período | Monto Estimado | Cobertura | Fuente Principal |
+|---|---|---|---|---|
+| **Piloto** | 2033-2037 | ~USD 50-100/mes | 3-5 provincias con fideicomisos maduros | Retornos tempranos de Fideicomisos de Energía + Suelo Vivo |
+| **Expansión** | 2037-2043 | ~USD 150-300/mes | Nacional, universal | Retornos de todos los fideicomisos + ingresos de Licencia Social |
+| **Régimen** | 2043+ | ~USD 400-800/mes (crece con productividad) | Universal, incondicional | Fideicomisos a plena madurez + automatización propia amplificando retornos |
+
+Los montos son estimaciones conservadoras basadas en proyecciones de retorno de activos similares a nivel internacional. Los valores reales dependerán del ritmo de constitución de fideicomisos, la velocidad de adopción de automatización, y las decisiones de los Paneles Ciudadanos. Los rangos se presentan con honestidad: no sabemos cuánto va a dar exactamente. Sabemos que la dirección es creciente.
+
+**Anti-resentimiento.** El DNP es universal desde el momento de su activación. TODOS lo reciben — incluidos los trabajadores activos, los empleados públicos, los empresarios, los jubilados. Es el piso de una escalera, no una puerta alternativa. No genera la dicotomía "los que trabajan vs. los que no trabajan" porque no es un reemplazo del trabajo — es un complemento. El que trabaja recibe DNP + su ingreso laboral. El que no trabaja (todavía, o temporalmente, o porque contribuye de otras formas) recibe DNP. Nadie pierde por el hecho de que otro reciba. Esto es posible porque el DNP no sale de los impuestos de nadie — sale de activos que pertenecen a todos.
+
+**TABLA 23: Convergencia con Programas Sociales Existentes**
+
+| Programa Actual | Monto Aproximado | Mecanismo de Absorción en DNP |
+|---|---|---|
+| AUH (Asignación Universal por Hijo) | ~USD 50/mes/hijo | Se integra como componente del DNP infantil cuando el DNP supera el monto de AUH |
+| Potenciar Trabajo | ~USD 120/mes | Absorbido naturalmente cuando el DNP excede su monto — sin decreto, por convergencia |
+| Tarjeta Alimentar | ~USD 40-80/mes | Integrado al DNP con componente nutricional específico para hogares con niños |
+| Jubilaciones mínimas | ~USD 250/mes | Complementadas por DNP; convergencia plena en Horizonte 3 |
+
+La lógica es elegante: a medida que el DNP crece, los programas fragmentados pierden razón de existir. No se eliminan por decreto — se absorben por obsolescencia. ¿Para qué mantener Potenciar Trabajo si el DNP ya lo supera? ¿Para qué gestionar la Tarjeta Alimentar como programa separado si el DNP cubre ese monto y más? Al final del Horizonte 2, el DNP es el piso universal y la maraña de programas fragmentados — con su burocracia, su clientelismo, sus intermediarios — se disolvió sola. No por ataque ideológico a los planes sociales, sino por construcción de algo mejor.
+
+**El DNP no reemplaza el trabajo.** Esto hay que decirlo con todas las letras. En Horizonte 1 y 2, el DNP es un complemento — no alcanza para vivir solo de él. En Horizonte 3, si la automatización de los fideicomisos genera retornos suficientes, el DNP podría ser un ingreso de subsistencia digna. Pero incluso en ese escenario, la Economía de la Contribución (ver 15.4) genera incentivos poderosos para la actividad. La evidencia de los pilotos de UBI lo confirma: en Finlandia (2017-2018), los receptores no dejaron de trabajar — reportaron mejor bienestar y la misma tasa de empleo. En Stockton, California (2019-2021), el 28% de los receptores que no tenían empleo al inicio consiguieron uno durante el piloto. En Kenya (GiveDirectly, desde 2016), los receptores invirtieron en negocios propios y aumentaron sus ingresos en un 26% por encima del DNP recibido. La gente no se queda quieta cuando tiene un piso. Se mueve más — porque se mueve sin miedo.
+
+### 15.4 La Economía de la Contribución
+
+**Definición.** Un sistema paralelo al mercado donde la sociedad reconoce, mide y remunera actividades que hoy no tienen precio: cuidar a un vecino enfermo, regenerar un espacio público abandonado, mentorear a un adolescente en riesgo, crear arte comunitario, investigar soluciones a problemas locales, enseñar un oficio, mediar en un conflicto barrial. Todas estas actividades generan valor social enorme — y todas son invisibles para el PBI, para el mercado laboral, y para cualquier tabla de Excel. La Economía de la Contribución las hace visibles, las valida y las recompensa.
+
+**Cómo funciona (primera mejor alternativa, sujeta a revisión por Paneles Ciudadanos):**
+
+1. **Portfolio Ciudadano Único.** Cada persona tiene un registro de lo que hace, lo que aprende y lo que aporta. Nace a los 6 años en la Escuela del Futuro de PLANEDU y acompaña al ciudadano toda la vida. Documenta formación, experiencia laboral, contribuciones sociales, logros, reconocimientos. No es un CV — es un mapa vivo de capacidades y aportes. Propiedad exclusiva del ciudadano — nadie accede sin su consentimiento explícito.
+
+2. **Validadores Comunitarios.** Tres fuentes de validación para cada contribución: pares (otros contribuyentes que verifican), beneficiarios (quienes reciben el impacto), y sistemas de medición (indicadores objetivos cuando aplican — hectáreas remediadas, horas de cuidado registradas, conflictos mediados, alumnos formados). La triple validación evita el abuso sin crear burocracia paralizante. No hace falta que un ministerio certifique que cuidaste a tu vecino — hace falta que tu vecino lo confirme, que otros cuidadores lo validen, y que las horas queden registradas.
+
+3. **Índice de Contribución.** Acá está el mecanismo que conecta la contribución con el ingreso. El DNP tiene un piso universal e incondicional — todos lo reciben por ser ciudadanos. Pero el Índice de Contribución funciona como amplificador: cuanto más contribuís (verificado por los Validadores), más recibís por encima del piso. El piso es un derecho. El amplificador es un incentivo. Nadie pierde si no contribuye — pero todos ganan más si contribuyen. La proporción entre piso y amplificador la definen los Paneles Ciudadanos.
+
+4. **Paneles Ciudadanos de Contribución** (evolución directa de los paneles de PLANJUS). Son los que definen QUÉ cuenta como contribución. No el Estado. No este documento. No un algoritmo. Ciudadanos seleccionados por sorteo cívico que deliberan, con evidencia y asesoramiento técnico, qué actividades la sociedad reconoce y en qué proporción. El menú de contribuciones es dinámico — se actualiza cada año.
+
+**Siete categorías iniciales de contribución (primera mejor alternativa):**
+
+- **Cuidado comunitario:** Atención a adultos mayores, personas con discapacidad, niños, enfermos crónicos. Las horas de cuidado no remunerado que hoy hacen millones de argentinos (mayoritariamente mujeres) sin reconocimiento alguno.
+- **Creación cultural:** Producción artística, musical, literaria, audiovisual, teatral que enriquece la vida comunitaria. El muralista que pinta la pared del barrio. La maestra de teatro que monta la obra de fin de año. El músico que toca en la plaza.
+- **Regeneración ambiental:** Remediación de suelos, limpieza de arroyos, reforestación, cuidado de espacios verdes, compostaje comunitario. Todo lo que PLANISV necesita multiplicado por millones de manos voluntarias que hoy no tienen incentivo formal.
+- **Mentoría y enseñanza:** Transmisión de conocimientos y habilidades fuera del sistema formal. El carpintero jubilado que enseña a pibes del barrio. La ingeniera que hace talleres de programación en el centro comunitario. El chef que da clases de cocina en el comedor popular.
+- **Mediación y cohesión social:** Resolución de conflictos vecinales, organización comunitaria, facilitación de asambleas, construcción de consensos. La infraestructura social invisible que evita que los barrios se fragmenten.
+- **Investigación y conocimiento:** Investigación aplicada, documentación de saberes locales, ciencia ciudadana, monitoreo ambiental participativo. El biólogo aficionado que registra especies en el humedal. La historiadora local que documenta la memoria del pueblo.
+- **Construcción y reparación:** Trabajo voluntario en infraestructura comunitaria, reparación de equipamiento público, mantenimiento de espacios compartidos. El vecino que repara los juegos de la plaza. La cuadrilla que arregla el techo del club de barrio.
+
+**Sobre la no participación.** El DNP es un DERECHO, no un contrato. La dignidad humana no se condiciona a la productividad. Si una persona decide no contribuir — por la razón que sea — sigue recibiendo el DNP completo, sin penalización, sin estigma, sin burocracia punitiva. Pero toda la infraestructura BASTA está diseñada para que la inmensa mayoría QUIERA contribuir — no por obligación sino porque tiene herramientas, comunidad, espacios, reconocimiento y sentido. La evidencia de los pilotos de UBI citados en 15.3 es contundente: cuando le das a la gente un piso de seguridad, la mayoría no se queda quieta — se activa. Porque la inercia no es un estado natural del ser humano — es un síntoma de un sistema que no le ofrece nada mejor que la inercia. PLANREP ofrece algo mejor. Ocho ramas. Cuatro niveles. Siete categorías de contribución. Y un país entero que necesita manos.
+
+### 15.5 Los Paneles Ciudadanos de Futuro Económico
+
+**Definición.** Mecanismo de deliberación colectiva, inspirado directamente en los Paneles Ciudadanos de PLANJUS (que ya resuelven conflictos en 15-45 días con 91% de satisfacción), enfocado en el diseño del futuro económico de la Argentina. Si PLANJUS demuestra que ciudadanos comunes pueden resolver conflictos mejor que jueces profesionales, estos paneles parten de la misma premisa para la política económica: ciudadanos informados, deliberando con evidencia, producen decisiones más legítimas y frecuentemente más sabias que tecnócratas operando en el vacío.
+
+**Diseño institucional:**
+
+- **Composición:** 100-500 ciudadanos seleccionados por sorteo cívico estratificado (representativo por provincia, género, edad, nivel socioeconómico). Todo ciudadano mayor de 18 años con DNI es elegible. No se requiere formación técnica previa — se provee.
+- **Mandato:** 1 año, con renovación escalonada (un tercio se renueva cada 4 meses). Esto garantiza continuidad institucional y memoria deliberativa sin cristalización de camarillas.
+- **Capacitación:** 60 días de formación intensiva antes de deliberar — economía básica, funcionamiento de fideicomisos, automatización, DNP, precedentes internacionales. Formación provista por universidades nacionales + ANCE, con pluralidad explícita de perspectivas (no adoctrinamiento — exposición a las mejores versiones de TODOS los argumentos).
+- **Compensación:** Cada panelista recibe un ingreso equivalente al salario mediano nacional durante su mandato. Servir en un Panel Ciudadano es un trabajo — no un voluntariado.
+
+**Niveles:**
+
+- **Paneles Provinciales (permanentes):** Uno por provincia, 100 ciudadanos cada uno. Deliberan sobre fideicomisos provinciales, prioridades locales del DNP, categorías de contribución relevantes al territorio.
+- **Panel Nacional (anual):** 500 ciudadanos de todo el país, sesiona 3 meses al año. Delibera sobre política nacional de fideicomisos, tasa de Licencia Social, montos del DNP, transiciones entre horizontes, grandes decisiones de diseño sistémico.
+
+**Función central:** Los paneles deliberan y producen recomendaciones vinculantes sobre el DNP, los fideicomisos, la Economía de la Contribución, las transiciones entre horizontes, y los parámetros de la Licencia Social. Los directorios de los fideicomisos y la ANCE deben implementar las recomendaciones o justificar públicamente — con evidencia, no con opinión — por qué no lo hacen.
+
+**Regla de Tres Rechazos.** Si un directorio de fideicomiso o la ANCE rechaza la misma recomendación de un Panel Ciudadano tres veces consecutivas, la recomendación se convierte en vinculante por defecto. No hay cuarta oportunidad de rechazo. Esto garantiza escucha activa real sin convertir cada recomendación en mandato inmediato — da espacio para el diálogo técnico-ciudadano pero establece un límite claro a la arrogancia institucional. El directorio tiene tres chances de explicar por qué no. Si tres veces no convence al panel, es el directorio el que está equivocado, no el panel.
+
+**TABLA 24: Circuit Breakers — Mecanismos de Respuesta ante Shocks**
+
+| Circuit Breaker | Trigger de Activación | Acción Automática |
+|---|---|---|
+| **Shock de desempleo sectorial** | >15% de trabajadores de una Rama pierden actividad en menos de 12 meses | DNP de emergencia financiado por el Fondo de Estabilización (15% reservado) + apertura acelerada de Nodos de Contribución en el territorio afectado |
+| **Shock tecnológico** | Una capacidad clasificada como "Muy Baja vulnerabilidad" se reclasifica a "Alta" en menos de 2 años | Convocatoria de Panel Ciudadano extraordinario en 30 días + reclasificación de escenarios + activación de reentrenamiento masivo |
+| **Shock de fideicomisos** | Retornos de un fideicomiso caen más del 30% en un trimestre | Activación del Fondo de Estabilización + reducción temporal de inversión en expansión + auditoría de causas |
+| **Shock de legitimidad** | Más del 40% de la población manifiesta desconfianza en el modelo (encuesta ANCE semestral) | Panel extraordinario de 500 ciudadanos en 45 días + auditoría externa internacional + publicación de hallazgos |
+
+Los Circuit Breakers son automáticos — no requieren decisión política para activarse. Si el trigger se cumple, la acción se dispara. Esto blinda al sistema contra la parálisis institucional: cuando hay un shock, no hace falta esperar a que un ministro decida reunirse con otro ministro que decida consultar con un tercer ministro. El sistema ya sabe qué hacer.
+
+**El Panel de Adversarios.** Este es, quizás, el mecanismo más contraintuitivo y más importante de toda la Sección 15. Cada 3 años, coincidiendo con el ciclo de evaluación de la Licencia Social, se convoca a un Panel de Adversarios: 15-25 personas que se OPONEN al modelo.
+
+- **Selección:** Convocatoria pública + nominación por organizaciones críticas. Se buscan economistas ortodoxos, sindicalistas escépticos, libertarios, ciudadanos críticos, académicos disidentes — las personas que tienen los mejores argumentos contra todo lo que esta sección propone.
+- **Mandato:** Producir un informe público de "Ataque al Modelo" — el mejor caso posible contra los fideicomisos, el DNP, la Economía de la Contribución, la Licencia Social, los propios paneles ciudadanos. No un panfleto — un documento técnico con datos, evidencia y argumentación rigurosa.
+- **Publicación:** El informe se publica íntegramente junto con las respuestas punto por punto del sistema. Ambos documentos son públicos, accesibles, y se debaten en sesión abierta del Panel Nacional.
+- **Poder real:** Si una crítica del Panel de Adversarios no tiene respuesta convincente — evaluado por 5 expertos internacionales independientes, seleccionados por acuerdo entre adversarios y panelistas — se convierte en disparador obligatorio de revisión. No se puede ignorar. No se puede archivar. Se responde o se modifica.
+- **Filosofía:** No alcanza con decir "podríamos estar equivocados" — eso es retórica. El Panel de Adversarios es la institución diseñada para DEMOSTRAR que estamos equivocados. Es la antítesis del pensamiento grupal. Es la incorporación estructural de la duda. Es lo que separa a un plan que se cree perfecto de un plan que se sabe perfectible.
+
+¿Cuántos gobiernos, cuántos programas, cuántos planes quinquenales crearon una institución cuyo propósito explícito es destruir sus propios argumentos? Ninguno. Por eso fracasaron. PLANREP no va a cometer ese error.
+
+### 15.6 Argentina como Laboratorio de Transición Post-Laboral
+
+PLANEDU ya exporta el PAA (Programa Acelerado de Aprendizaje) a 12 países. Pero el activo exportable más valioso no es la plataforma educativa — es el marco institucional completo: fideicomisos de propósito perpetuo + Licencia Social + Dividendo Nacional de Productividad + Economía de la Contribución + Paneles Ciudadanos + Circuit Breakers + Panel de Adversarios. El paquete entero. La arquitectura de transición.
+
+**El Kit de Transición Post-Laboral.** Open source, replicable, adaptable. Documentación completa de diseño institucional, marcos legales, mecanismos de gobernanza, protocolos de implementación, métricas de monitoreo, y — crucialmente — los errores cometidos y las lecciones aprendidas. No se exporta un PowerPoint: se exporta una década de experiencia operativa con todos los tropezones incluidos. Porque lo que el mundo necesita no es otro whitepaper sobre el futuro del trabajo — necesita evidencia de alguien que lo intentó, con datos de qué funcionó y qué no.
+
+**Retornos de la exportación.** Los ingresos por consultoría internacional, licenciamiento de plataformas de gestión, capacitación de panelistas extranjeros, y certificación de fideicomisos en otros países vuelven a alimentar los fideicomisos argentinos. Ciclo virtuoso: más países adoptan el modelo → más ingresos por exportación → más retornos para los fideicomisos → más robusto el DNP argentino → más atractivo el modelo para otros países.
+
+**El mercado.** Quinientos millones de hispanoparlantes en más de 20 países enfrentan la misma transición. México, Colombia, Chile, España, Perú — todos van a necesitar respuestas para la automatización del empleo. Ninguno tiene hoy un marco institucional diseñado para eso. Argentina puede ser el primero. No por arrogancia — por necesidad convertida en ventaja. Somos el país que TUVO que resolver el problema del empleo público improductivo, y al resolverlo construimos la infraestructura que el mundo va a necesitar.
+
+**Dimensión geopolítica.** El país que diseñe la primera transición post-laboral exitosa va a tener una influencia cultural, institucional y económica desproporcionada en el siglo XXI — comparable a la influencia que tuvo Estados Unidos por diseñar la democracia de masas en el XVIII, o Escandinavia por diseñar el estado de bienestar en el XX. Argentina tiene la oportunidad de ser ese país. No porque sea el más rico o el más poderoso — sino porque es el que más necesita la transformación y por lo tanto el que más incentivo tiene para hacerla bien.
+
+**Timeline prudente.** La exportación es Horizonte 2 — cuando el modelo tenga una década de evidencia operativa. En Horizonte 1, la tarea es documentar todo como build-in-public: cada decisión, cada error, cada ajuste, cada dato. Publicar reportes anuales de progreso con la misma transparencia que le exigimos a los fideicomisos. Invitar a observadores internacionales. Abrir los datos. Que el mundo pueda seguir la experiencia en tiempo real y juzgar por sí mismo si funciona o no. Si funciona, van a venir a buscar el kit. Si no funciona, van a aprender de nuestros errores — que es casi igual de valioso.
+
+> *"La Argentina no necesita permiso del mundo para transformarse. Pero al transformarse con transparencia, le da al mundo algo que vale más que exportaciones: un precedente."*
+
+---
+
+## SECCIÓN 16: EL LLAMADO — LIBERAR AL MILLÓN
 
 Hay un millón y medio de argentinos atrapados en oficinas donde no hacen nada que importe. No son vagos. No son parásitos. Son personas a las que el sistema les negó la oportunidad de descubrir de qué son capaces. No son todos artesanos. Son cuidadores, constructores, cocineros, restauradores, artesanos, creativos, reparadores y guías. Son ocho formas de la dignidad esperando a ser activadas. Y son desarrolladores, analistas, diseñadores digitales, orquestadores de sistemas inteligentes — personas que podrían competir con el mundo desde su computadora. Personas que están sentadas detrás de un escritorio sellando expedientes que nadie va a leer, porque el Estado les ofreció eso y no les ofreció nada mejor.
 
