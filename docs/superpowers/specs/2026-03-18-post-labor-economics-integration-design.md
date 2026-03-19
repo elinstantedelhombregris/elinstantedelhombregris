@@ -310,10 +310,14 @@ Juntas dan una visión completa: qué tipos de trabajo resisten (Tabla 7) y cóm
 
 **Lógica económica central:** A medida que la AI y la robótica hacen que estos activos produzcan más con menos trabajo humano, los retornos CRECEN. Lo que en el paradigma viejo es una amenaza (la máquina reemplaza al trabajador), en el paradigma de fideicomisos es una bendición (la máquina hace más productivo un activo que es de todos). La automatización deja de ser el enemigo del trabajador y se convierte en el motor de la abundancia colectiva.
 
+**Los fideicomisos como co-inversores en automatización:** Los fideicomisos no son receptores pasivos de retornos — son inversores activos en la automatización de sus propios activos. El Fideicomiso de Energía Renovable invierte en robots de mantenimiento de paneles solares. El de Suelo Vivo invierte en drones de monitoreo y análisis AI de microbiología. El de Infraestructura Digital invierte en sistemas autónomos de gestión de red. Al ser co-dueños de la automatización, los fideicomisos capturan el 100% del valor generado — no dependen de gravar a empresas privadas. La Licencia Social de Automatización (N5) opera como mecanismo complementario para el sector privado, pero el motor principal del DNP son los retornos de la automatización propia de los fideicomisos. Esto es más eficiente (no hay evasión), más inteligente (alineás incentivos), y construye soberanía tecnológica en vez de dependencia de proveedores extranjeros.
+
+**Fondo de Estabilización:** Cada fideicomiso reserva el 15% de sus retornos acumulados en un fondo de estabilización que se activa ante shocks (caída de retornos >30% en un trimestre, crisis macroeconómica, disrupción tecnológica). Esto garantiza que el DNP no dependa de un trimestre bueno — tiene colchón para absorber volatilidad.
+
 **Evolución por horizonte:**
-- H1: Retornos financian infraestructura y reducen presión fiscal
-- H2: Retornos crecientes alimentan DNP piloto
-- H3: Fideicomisos son la base económica de la sociedad post-laboral
+- H1: Retornos financian infraestructura, reducen presión fiscal, y se reinvierten en automatización de los propios activos
+- H2: Retornos crecientes (amplificados por automatización propia) alimentan DNP piloto
+- H3: Fideicomisos son la base económica de la sociedad post-laboral — propietarios de la automatización que sostiene la abundancia
 
 #### N5: Nueva Sección — "La Licencia Social de Automatización"
 
@@ -343,7 +347,18 @@ Precedentes internacionales: propuestas de Bill Gates (robot tax), esquema de So
 
 **Clave anti-resentimiento:** El DNP es universal desde su activación. TODOS lo reciben — incluyendo quienes trabajan. Es piso de una escalera, no puerta alternativa. No hay "los que trabajan" vs. "los que no". Hay una sociedad donde todos tienen un piso y cada uno elige cómo construir encima.
 
-**Nota:** Los montos, fases y mecanismos son primera mejor alternativa. Se actualizan con deliberación de Paneles Ciudadanos y evidencia de los pilotos.
+**Convergencia con protección social existente:** El DNP no reemplaza los planes sociales de golpe. A medida que crece, los programas existentes se absorben progresivamente:
+
+| Programa actual | Monto aprox. | Absorción en DNP |
+|---|---|---|
+| AUH (Asignación Universal por Hijo) | ~USD 50/mes/hijo | Se convierte en componente del DNP infantil cuando DNP > AUH |
+| Potenciar Trabajo | ~USD 120/mes | Se absorbe cuando DNP supera su monto (fase Expansión) |
+| Tarjeta Alimentar | ~USD 40-80/mes | Se integra al DNP con componente nutricional |
+| Jubilaciones mínimas | ~USD 250/mes | Se complementan con DNP; convergencia en Horizonte 3 |
+
+Al final de Horizonte 2, el DNP es el piso universal y los programas fragmentados se absorbieron — no por decreto sino por convergencia natural. Un sistema universal en vez de 15 focalizados: más eficiente, más justo, políticamente viable (nadie pierde nada, todos ganan gradualmente).
+
+**Nota:** Los montos, fases, mecanismos y convergencia son primera mejor alternativa. Se actualizan con deliberación de Paneles Ciudadanos y evidencia de los pilotos.
 
 #### N7: Nueva Sección — "La Economía de la Contribución"
 
@@ -384,6 +399,39 @@ Precedentes internacionales: propuestas de Bill Gates (robot tax), esquema de So
 - **Regla de Tres Rechazos:** Si un directorio rechaza la misma recomendación tres veces consecutivas, la recomendación se convierte en vinculante por defecto. Garantiza escucha activa real sin convertir cada recomendación en mandato inmediato.
 - **Transparencia:** Todas las deliberaciones son públicas. Todos los datos están abiertos. Todos los modelos son auditables. Build in public como método, no como slogan.
 - **Integración con PLANEDU:** Los alumnos de 16+ participan en paneles simulados y luego en paneles reales. La educación no es preparación para el futuro: es participación activa en su diseño.
+
+**Circuit Breakers — Respuesta a shocks súbitos:** Los Tres Horizontes asumen transición gradual, pero la tecnología avanza en saltos (GPT no apareció gradualmente). Los Circuit Breakers son mecanismos de respuesta automática ante disrupciones súbitas:
+
+| Circuit Breaker | Trigger | Acción automática |
+|---|---|---|
+| **Shock de desempleo sectorial** | >15% de trabajadores de una Rama pierden actividad en <12 meses | DNP de emergencia para afectados (activación del Fondo de Estabilización de fideicomisos) + apertura acelerada de Nodos de Contribución en la zona |
+| **Shock tecnológico** | Una capacidad marcada como "Muy Baja vulnerabilidad" en Tabla 7 pasa a "Alta" en <2 años | Panel Ciudadano extraordinario convocado en 30 días + reclasificación de escenarios + revisión del modelo completo |
+| **Shock de fideicomisos** | Retornos de fideicomisos caen >30% en un trimestre | Activación del Fondo de Estabilización (reserva del 15%) + reducción temporal de inversión en expansión + mantenimiento del DNP existente |
+| **Shock de legitimidad** | >40% de la población manifiesta desconfianza en el modelo (encuesta ANCE) | Panel Ciudadano extraordinario + auditoría externa internacional + publicación de informe "Sin Filtro" con diagnóstico honesto |
+
+Los Circuit Breakers no son decisiones políticas — son protocolos automáticos con responsables designados y plazos de activación (72 horas para operativos, 30 días para estratégicos).
+
+**Panel de Adversarios — La humildad epistémica institucionalizada:** Cada ciclo de evaluación (cada 3 años), se convoca un panel de 15-25 personas que se oponen al modelo — economistas ortodoxos, sindicalistas que desconfían, libertarios, ciudadanos escépticos, académicos críticos. Su función no es aprobar ni bloquear sino atacar el plan con los mejores argumentos posibles.
+
+- **Selección:** Convocatoria pública + nominación por organizaciones críticas + autopostulación. Diversidad ideológica obligatoria.
+- **Producto:** Un informe público de "Ataque al Modelo" que identifica las debilidades más graves. Se publica junto con las respuestas del sistema.
+- **Poder:** Si una crítica del Panel de Adversarios no tiene respuesta convincente (evaluada por un jurado independiente de 5 expertos internacionales), se convierte en trigger de revisión obligatoria.
+- **Filosofía:** No solo decimos "podríamos estar equivocados" — creamos la institución diseñada específicamente para demostrarnos que estamos equivocados. Es la antítesis del pensamiento grupal. Un plan que invita a sus críticos a atacarlo es un plan que no le tiene miedo a la verdad.
+
+#### N9: Nueva Subsección 15.6 — "Argentina como Laboratorio de Transición Post-Laboral"
+
+**Contenido:** PLANEDU ya habla de exportar la PAA a 12 países. Pero el activo más valioso de exportación no es la plataforma educativa — es el modelo institucional completo: fideicomisos + DNP + economía de contribución + paneles ciudadanos + circuit breakers. Ningún país del mundo tiene esto armado.
+
+**Propuesta:**
+- El framework completo se documenta como **"Kit de Transición Post-Laboral"** — open source, replicable, adaptable
+- Los retornos de exportación (consultoría a gobiernos, licenciamiento de plataformas de Portfolio Ciudadano, formación de panelistas, asistencia técnica para fideicomisos) alimentan los fideicomisos argentinos
+- Ciclo virtuoso: cuanto más países adoptan el modelo, más retornos generan los fideicomisos, más robusto es el DNP
+
+**Dimensión geopolítica:** Argentina no solo resuelve sus propios problemas — se posiciona como el primer país que diseñó la transición post-laboral de forma deliberada, participativa y replicable. Es soft power de la más alta calidad: no exportás armas ni deuda — exportás un modelo de sociedad.
+
+**Mercado potencial:** 500M de hispanohablantes en 20+ países enfrentando la misma transición. El BID, el Banco Mundial y la OCDE buscan modelos replicables de transición post-laboral — Argentina puede ser el caso de estudio.
+
+**Timeline:** La exportación es Horizonte 2 (cuando el modelo tenga evidencia de una década). En Horizonte 1 se documenta todo como build-in-public, se publican los datos, y se invita a observadores internacionales. La credibilidad se construye con resultados, no con marketing.
 
 ### 4.3 Cambios adicionales en PLANREP (identificados en revisión)
 
@@ -441,7 +489,7 @@ Cada propuesta en PLANEDU y PLANREP se presenta como la mejor solución que pode
 
 ---
 
-## 6. Las Seis Mejoras Integradas
+## 6. Las Once Mejoras Integradas
 
 ### Mejora 1: Anti-resentimiento — DNP como piso universal
 El DNP es para todos, incluyendo trabajadores. Es piso, no alternativa. Elimina la dicotomía trabajador/no-trabajador. Integrado en N6.
@@ -460,6 +508,21 @@ Los Paneles Ciudadanos tienen poder real. Escucha activa con dientes. Integrado 
 
 ### Mejora 6: Postura sobre no-participación
 El DNP es derecho incondicional. La contribución es elección, no obligación. El diseño ambiental hace que la mayoría elija contribuir. Evidencia empírica respalda. Integrado en N7.
+
+### Mejora 7: Fideicomisos como co-inversores en automatización
+Los fideicomisos no son receptores pasivos — invierten activamente en automatizar sus propios activos. Capturan 100% del valor, construyen soberanía tecnológica. Integrado en N4.
+
+### Mejora 8: Circuit Breakers para shocks súbitos
+Protocolos automáticos de respuesta ante disrupciones tecnológicas, económicas o de legitimidad que no siguen el patrón gradual de los tres horizontes. Integrado en N8.
+
+### Mejora 9: Convergencia con protección social existente
+El DNP absorbe gradualmente AUH, Potenciar Trabajo, Tarjeta Alimentar. Un sistema universal en vez de 15 fragmentados. Nadie pierde, todos ganan progresivamente. Integrado en N6.
+
+### Mejora 10: Panel de Adversarios
+Institución diseñada para atacar el modelo con los mejores argumentos posibles. La humildad epistémica necesita enemigos amistosos. Integrado en N8.
+
+### Mejora 11: Argentina como laboratorio exportable
+El framework completo (fideicomisos + DNP + contribución + paneles) como "Kit de Transición Post-Laboral" exportable. Los retornos de exportación alimentan los fideicomisos. Sección nueva dedicada (N9).
 
 ---
 
@@ -497,7 +560,8 @@ El DNP es derecho incondicional. La contribución es elección, no obligación. 
 | N5 | Nueva subsección | Nueva Sección 15.2 | Licencia Social de Automatización |
 | N6 | Nueva subsección | Nueva Sección 15.3 | Dividendo Nacional de Productividad |
 | N7 | Nueva subsección | Nueva Sección 15.4 | Economía de la Contribución |
-| N8 | Nueva subsección | Nueva Sección 15.5 | Paneles Ciudadanos de Futuro Económico |
+| N8 | Nueva subsección | Nueva Sección 15.5 | Paneles Ciudadanos de Futuro Económico + Circuit Breakers + Panel de Adversarios |
+| N9 | Nueva subsección | Nueva Sección 15.6 | Argentina como Laboratorio de Transición Post-Laboral |
 | — | Renumeración | Actual Sección 15 → Sección 16 | Renumerar cierre del documento |
 
-### Total: 25 cambios (8 modificaciones + 3 secciones nuevas en PLANEDU; 8 modificaciones + 5 secciones nuevas + 1 renumeración en PLANREP)
+### Total: 28 cambios (8 modificaciones + 3 secciones nuevas en PLANEDU; 8 modificaciones + 6 secciones nuevas + 1 renumeración en PLANREP)
