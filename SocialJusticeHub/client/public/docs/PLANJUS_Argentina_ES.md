@@ -51,6 +51,8 @@ PLANJUS no viene a reformar el sistema judicial. Viene a darle al pueblo argenti
 > *"Donde no hay justicia es peligroso tener razón."*
 > — Francisco de Quevedo
 
+Todo lo que PLANJUS propone es la *primera mejor alternativa* basada en la mejor evidencia disponible en 2026. Los sistemas de justicia tienen que evolucionar al ritmo de la sociedad que sirven — y la sociedad argentina se dirige hacia la transformación económica más profunda de la historia humana. El Tablero Nacional de Justicia mide, la ANJUS evalúa, los Paneles Ciudadanos deliberan, y el sistema se adapta. Un sistema de justicia que no evoluciona con su sociedad no está administrando justicia — está preservando el pasado. PLANJUS está diseñado para ser tan dinámico como la realidad que le toca arbitrar.
+
 **Tesis Central:** El sistema judicial argentino no necesita una reforma más — necesita una alternativa que lo reemplace por excelencia. PLANJUS propone un sistema de justicia popular basado en **tres niveles de resolución** (JUS-1 para conflictos simples en 15 días, JUS-2 para conflictos medianos en 45 días, JUS-3 para conflictos complejos en 90 días); **paneles ciudadanos seleccionados por sorteo democrático** (no jueces de carrera sino ciudadanos capacitados, elegidos al azar, que rotan para ser incapturables); un **triple candado anticorrupción** (imposibilidad estructural + transparencia radical + incentivos económicos que hacen que corromperse sea irracional); **Casas JUS** en cada municipio del país como puntos de acceso físico; una **plataforma digital** para resolución remota de casos simples; **justicia restaurativa** como principio rector (reparar el daño, no solo castigar al responsable); **eliminación del requisito de abogado obligatorio** para acceder a PLANJUS; y una **estrategia de absorción gradual** que comienza como complemento del sistema judicial, se convierte en la opción preferida del pueblo por su velocidad y justicia, y termina siendo el sistema de facto — sin necesidad de destruir el viejo, simplemente dejando que evolucione en función de la demanda popular — un sistema que la gente elige libremente porque resuelve mejor, más rápido, y con más justicia. El marco institucional se sostiene en la **ANJUS** (Agencia Nacional de Justicia Popular) — ente autárquico, blindado contra el ciclo electoral, con financiamiento constitucional protegido — y en una **Ley de Justicia Popular** que habilita los mecanismos sin requerir reforma constitucional inmediata. El costo estimado es de USD 800–2.500M/año (progresivo en 10 años), financiado por reasignación del presupuesto judicial existente + ahorro por reducción de litigiosidad + contribución del sector privado por eficiencia comercial. El ROI estimado es de 6:1 a 10:1 en 15 años — contando solo el impacto económico directo, sin incluir el valor incalculable de una sociedad que vuelve a confiar en la justicia.
 
 ---
@@ -378,6 +380,8 @@ Las Casas JUS son los puntos de presencia física de PLANJUS en cada comunidad. 
 - **Horario:** 8:00 a 22:00, seis días a la semana. La justicia no funciona solo de 8 a 14 como un trámite — funciona cuando la gente la necesita.
 - **Personal:** Un coordinador, un asistente administrativo, un técnico digital. Los panelistas rotan — no son personal fijo de la Casa.
 
+Las Casas JUS están diseñadas como espacios cívicos flexibles. En el Horizonte 1, su función principal es la justicia comunitaria. Pero su infraestructura — mesas redondas, diseño abierto, sistemas digitales, accesibilidad barrial — las convierte en sedes naturales para otras formas de deliberación ciudadana. PLANREP Sección 15.5 establece los Paneles Ciudadanos de Futuro Económico (ciudadanos seleccionados por sorteo que deliberan sobre la transición económica). Las Casas JUS pueden alojar estos paneles, compartiendo infraestructura y normalizando la participación ciudadana en decisiones de gobernanza que van más allá de la justicia.
+
 ### 5.6 Flujo de un Caso — De Principio a Fin
 
 **JUS-1 (ejemplo: reclamo de consumo, producto defectuoso):**
@@ -461,6 +465,8 @@ El sorteo democrático es igualitario en teoría. Pero si el pool del que se sor
 - **Panelistas bilingües e interculturales:** En provincias con población indígena significativa, PLANJUS recluta y forma panelistas que hablan lenguas originarias y conocen las dinámicas comunitarias locales. La justicia no puede ser justa si no habla el idioma de quien la necesita.
 
 **El monitoreo:** ANJUS rastrea la demografía del pool de panelistas activos versus la población local en cada provincia — por edad, género, nivel educativo, origen urbano/rural, y pertenencia a comunidades indígenas. Si la representación de cualquier grupo demográfico cae por debajo del 50% de su proporción poblacional, se activa un protocolo de reclutamiento dirigido: campaña específica para ese grupo, ajuste de requisitos si es necesario, y formación adaptada. El dashboard público muestra estos datos. La diversidad del pool no es un objetivo aspiracional — es un KPI medible y publicado.
+
+El modelo de panelista — sorteo democrático, formación estructurada, rotación, salvaguardas de diversidad, progresión por mérito — es la contribución de PLANJUS a la infraestructura cívica argentina más allá de la justicia. PLANREP Sección 15.5 adopta la misma arquitectura para sus Paneles Ciudadanos de Futuro Económico, que deliberan sobre fideicomisos, el DNP, y la Economía de la Contribución. PLANEDU Sección 19 prepara a estudiantes desde los 16 años para participar en paneles simulados usando la misma metodología de sorteo. El panelista no es solo una figura de justicia — es el prototipo del ciudadano-gobernante que todo el proyecto BASTA necesita. Lo que PLANJUS construye como mecanismo de resolución de conflictos se convierte en el modelo operativo de la democracia participativa argentina.
 
 ---
 
@@ -1003,6 +1009,8 @@ Pero PLANJUS tiene un rol especial. En la arquitectura del cuerpo humano, el sis
 
 PLANJUS es el sistema inmunológico de BASTA. Sin él, los otros mandatos pueden ser saboteados, demorados, corrompidos. Con él, tienen un mecanismo de protección y ejecución que funciona a la velocidad de la vida real.
 
+La función protectora de PLANJUS se extiende a la nueva infraestructura post-laboral que PLANREP Sección 15 establece. Los Fideicomisos de Propósito Perpetuo necesitan resolución de disputas cuando surgen conflictos de gobernanza. La Economía de la Contribución necesita arbitraje cuando se cuestiona la validación de contribuciones. El DNP necesita un mecanismo para resolver disputas de elegibilidad. En todos estos casos, la misma arquitectura aplica: panelistas por sorteo, escalamiento en tres niveles, resolución en 15/45/90 días. A medida que la Argentina transita los Tres Horizontes (de una economía centrada en el empleo a una centrada en la contribución), los tipos de conflictos que PLANJUS resuelve van a evolucionar — pero la arquitectura está diseñada para manejar cualquier disputa entre ciudadanos, no solo las comerciales o laborales tradicionales. Esa es la belleza de un sistema construido sobre el juicio humano en vez de la tecnicidad legal: se adapta a lo que sea que la sociedad se convierta.
+
 ### 20.3 PLANJUS y PLANEDU: Justicia y Educación
 
 PLANJUS y PLANEDU no son dos mandatos que conviven en paralelo — son dos mandatos que se necesitan como el oxígeno necesita a los pulmones.
@@ -1034,6 +1042,8 @@ Un trabajador al que le deben el sueldo abre la app de PLANJUS y presenta su rec
 Una inquilina con humedad en el departamento va a la Casa JUS de su barrio. Se sienta en una mesa redonda — al mismo nivel que el propietario, al mismo nivel que los panelistas. Habla con sus palabras. No hay jerga. No hay toga. No hay estrado. Hay escucha. En 30 días, la humedad está reparada y el propietario pagó los gastos médicos de los chicos.
 
 Un comerciante al que le incumplieron un contrato resuelve su caso en 15 días por la plataforma digital. Recupera lo que le deben. Sigue adelante. No quebró. No contrató abogado. No esperó cinco años.
+
+Pero también hay casos nuevos que en 2026 no existían. Un contribuyente impugna la validación de su Portfolio Ciudadano. Un Nodo de Contribución barrial disputa cómo se calculó el Índice de Contribución de sus integrantes. Dos beneficiarios de un fideicomiso comunitario no se ponen de acuerdo sobre las prioridades de inversión. Estos son los conflictos del Horizonte 2 — y PLANJUS los resuelve con la misma arquitectura, la misma velocidad, y los mismos jueces ciudadanos. El sistema fue diseñado para conflictos humanos, no para un tipo específico de economía. Por eso sigue funcionando.
 
 Y algo más grande ha cambiado. La gente confía. No confía ciegamente — confía porque puede verificar. Cada resolución es pública. Cada métrica es visible. Cada intento de corrupción fue detectado y neutralizado. El sistema no pide fe — ofrece evidencia.
 
@@ -1068,6 +1078,8 @@ No hay más excusas. No hay más "pero primero hay que reformar." No hay más "e
 > *"Un pueblo que puede resolver sus propios conflictos no necesita que nadie le resuelva la vida. PLANJUS no le da justicia al pueblo — le devuelve el poder de hacerse justicia a sí mismo."*
 
 Este es el instante del Hombre Gris. El momento en que el pueblo argentino deja de esperar que la justicia baje de un edificio con columnas y empieza a hacerla — en su barrio, con sus vecinos, con sus propias manos. No porque el Estado se lo permita. Porque el Estado ya no puede impedirlo. PLANJUS no es un plan más. Es el punto de no retorno. Es el instante donde la gente deja de esperar justicia y empieza a producirla.
+
+Y cuando la Argentina complete la transición que los otros cuatro mandatos de BASTA están construyendo — de una economía del empleo a una economía de la contribución — PLANJUS seguirá ahí. Porque donde hay personas, hay conflictos. Y donde hay conflictos, hace falta justicia. La forma del conflicto cambia. La necesidad de resolverlo, nunca.
 
 ---
 
