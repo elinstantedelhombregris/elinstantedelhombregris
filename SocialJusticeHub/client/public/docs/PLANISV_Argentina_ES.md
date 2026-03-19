@@ -40,6 +40,8 @@ Este documento no es un estudio académico. Es un plan operativo. Introduce una 
 
 > *"No se trata de volver al pasado. Se trata de que el futuro tenga piso."*
 
+Todo lo que PLANISV propone es la *primera mejor alternativa* basada en la mejor evidencia disponible en 2026. No es un plan tallado en piedra — es un plan diseñado para escuchar, aprender y adaptarse. Los mecanismos de adaptación son concretos: el Tablero Nacional de Salud del Suelo mide, INTA evalúa, los Paneles Ciudadanos deliberan, y el sistema se ajusta. Humildad epistémica: convicción férrea en el propósito — regenerar el suelo argentino —, flexibilidad radical en los métodos. Un plan que no cambia no es fuerte — es ciego frente al campo que intenta sanar.
+
 **Tesis Central:** El suelo argentino no es un insumo agropecuario. Es infraestructura estratégica nacional — el cimiento de la economía exportadora, de la soberanía alimentaria, de la posición climática global y de los medios de vida de millones de personas. Puede medirse, gestionarse y reconstruirse con tecnologías de ingeniería biológica, física del agua, ganadería regenerativa, diversificación de cultivos e innovación digital. Treinta y nueve millones de hectáreas degradadas no son una catástrofe irreversible: son una bóveda de carbono vacía esperando ser llenada, un activo depreciado esperando ser recapitalizado, una oportunidad de USD 3.000-15.000 millones anuales en créditos de carbono, primas de exportación regenerativa e ingresos por eficiencia. El programa integra sus cinco pilares estratégicos — Censo Nacional de Suelo Vivo, Red de Despliegue Tecnológico, Pagos por Resultados Verificados, Mercado de Carbono Agroecológico y Red de Conocimiento y Formación — con ganadería regenerativa, soberanía de semillas, saberes ancestrales de pueblos originarios, innovación digital y una estrategia comercial que convierte las regulaciones europeas en ventaja competitiva. El ROI estimado es de 8:1 a 15:1 en diez años. Pero el argumento definitivo no es económico: es existencial. Sin suelo vivo, la Argentina no tiene economía, no tiene alimentos, no tiene futuro. La pregunta no es si podemos permitirnos hacer esto. La pregunta es si podemos permitirnos no hacerlo.
 
 ---
@@ -1281,6 +1283,8 @@ PLANISV crea esa profesión. El Técnico de Suelo Vivo es alguien que:
 
 Esta escala de carrera es fundamental. Si ser técnico de suelo es un trabajo precario, temporal, mal pago — nadie bueno va a querer hacerlo. Si es una profesión con futuro, con crecimiento, con reconocimiento — va a atraer talento. PLANISV necesita que los mejores estudiantes de agronomía del país quieran ser Técnicos de Suelo Vivo, no representantes de Bayer.
 
+**Nota sobre los Tres Horizontes:** La carrera de Técnico de Suelo Vivo está diseñada para el Horizonte 1 (2026-2035) — empleo directo en restauración de suelos. Pero las competencias que construye — diagnóstico biológico, análisis de datos, gestión de ecosistemas, comunicación con comunidades rurales — son inherentemente transferibles al Horizonte 2, la Economía de la Contribución, donde "Regeneración ambiental" es una de las siete categorías de contribución reconocidas (ver PLANREP Sección 15.4). PLANISV no promete empleo eterno — construye capacidades que retienen valor independientemente de cómo evolucione el modelo económico. Un Técnico de Suelo Vivo que sabe leer biología del suelo, interpretar datos satelitales y articular con productores tiene herramientas que sirven tanto en un esquema de empleo formal como en un Nodo de Contribución. La carrera es nuestra primera mejor alternativa para el desarrollo de la fuerza laboral rural; las habilidades son permanentes aunque el formato de empleo se transforme.
+
 ### 15.4 Dimensión de Género
 
 Hay un dato que la Argentina agrícola prefiere no ver: según el Censo Nacional Agropecuario 2018, solo el 20,6% de las explotaciones agropecuarias están gestionadas por mujeres como titulares. Pero el dato esconde más de lo que muestra. En la agricultura familiar — que representa el 66% de las explotaciones del país — las mujeres trabajan la tierra, cuidan los animales, producen alimentos, gestionan la economía doméstica y toman decisiones agronómicas todos los días. No figuran como "productoras" porque el título de la tierra está a nombre del marido, porque el crédito lo saca él, porque la cooperativa la integra él. Son invisibles en los papeles y fundamentales en la realidad.
@@ -2092,7 +2096,22 @@ Los cinco programas de BASTA comparten infraestructura, reducen costos por escal
 
 **Ahorro estimado por sinergias:** USD 2.000-5.000M en el horizonte de 15 años por compartición de infraestructura, financiamiento combinado y eliminación de duplicaciones.
 
-### 21.7 El Instante del Hombre Gris: Del Apagón al Despertar Verde
+### 21.7 PLANISV y la Transición Económica: El Suelo como Infraestructura de los Tres Horizontes
+
+PLANREP Sección 15.1 establece cinco Fideicomisos de Propósito Perpetuo — estructuras patrimoniales diseñadas para que los activos estratégicos de la Argentina generen valor a perpetuidad sin depender de decisiones políticas coyunturales. Uno de ellos es el **Fideicomiso de Suelo Vivo**, cuyos activos productivos son precisamente las tierras y la infraestructura biológica que PLANISV restaura. Cada hectárea que pasa de suelo degradado a suelo biológicamente activo engrosa la base patrimonial de ese fideicomiso. El trabajo de PLANISV no es solo un programa de empleo — es la construcción del activo subyacente de una de las cinco columnas financieras del país.
+
+En la **Economía de la Contribución** que PLANREP desarrolla en la Sección 15.4, "Regeneración ambiental" es una de las siete categorías de contribución cívica formalmente reconocidas. A medida que el sistema madure, el trabajo de restauración de suelos que hoy hacen los Técnicos de Suelo Vivo como empleados será también valorado como contribución cívica a través del Índice de Contribución — un mecanismo de validación que mide impacto real, no horas sentado en una oficina. El productor que regenera su campo contribuye; el técnico que lo acompaña contribuye; la comunidad que protege su cuenca contribuye.
+
+A medida que el Fideicomiso de Suelo Vivo madure, sus retornos — agricultura regenerativa, créditos de carbono, arrendamientos productivos — alimentarán el **Dividendo Nacional de Productividad (DNP)**, convirtiendo a los trabajadores rurales del suelo en co-propietarios del valor que su trabajo genera. No es metáfora: es arquitectura financiera concreta.
+
+**Mapeo por horizontes temporales:**
+- **Horizonte 1 (2026-2035):** Centrado en empleo. PLANISV crea puestos de trabajo, forma técnicos, restaura hectáreas. El valor se mide en empleos, salarios y toneladas de carbono secuestrado.
+- **Horizonte 2 (2035-2045):** Parte del trabajo de suelo opera a través de Nodos de Contribución. El Fideicomiso automatiza monitoreo y distribuye retornos. Los técnicos más experimentados coordinan redes, no solo campos.
+- **Horizonte 3 (2045+):** El suelo regenerado es infraestructura fideicomisaria que financia el DNP. La restauración se convirtió en patrimonio nacional productivo.
+
+Estos conceptos están desarrollados en profundidad en PLANREP Sección 15. PLANISV no los replica — los reconoce. Nuestra fuerza laboral existe dentro de una transición económica más amplia, y esta sección explicita esa conexión para que ningún técnico, productor o funcionario que lea este documento crea que estamos diseñando empleos en el vacío.
+
+### 21.8 El Instante del Hombre Gris: Del Apagón al Despertar Verde
 
 El Instante del Hombre Gris es la filosofía madre del proyecto BASTA. Su premisa es simple y devastadora: millones de argentinos están atrapados en el letargo — empleos que no generan valor, trabajos de subsistencia, desempleo disfrazado de changas — no por incapacidad personal sino por un sistema que los mantiene apagados, dormidos, en piloto automático.
 
@@ -2102,7 +2121,7 @@ PLANISV le da al Hombre Gris un destino verde. El ex-empleado administrativo que
 
 Del apagón al despertar. De lo extractivo a lo regenerativo. De administrar la decadencia a construir fertilidad. Esa es la transformación que PLANISV opera a nivel de cada persona que toca.
 
-Y cuando esa transformación se multiplica por 500.000 personas — técnicos, productores, operadores, analistas, artesanos alimentarios, monitores ambientales — deja de ser una política pública y se convierte en un movimiento civilizatorio. La Argentina que extraía se convierte en la Argentina que regenera. El instante del Hombre Gris fue el instante en que eligió despertar — y despertar significó sanar el suelo.
+Y cuando esa transformación se multiplica por 500.000 personas en diversas modalidades de actividad productiva — técnicos, productores, operadores, analistas, artesanos alimentarios, monitores ambientales — deja de ser una política pública y se convierte en un movimiento civilizatorio. La Argentina que extraía se convierte en la Argentina que regenera. El instante del Hombre Gris fue el instante en que eligió despertar — y despertar significó sanar el suelo.
 
 **TABLA 27: Matriz de Integración de BASTA con PLANISV**
 
@@ -2540,7 +2559,7 @@ El ROI de PLANISV no se mide solo en dólares que vuelven al programa. Se mide e
 | **Prima de exportación UE (EUDR + regenerativo)** | Producción verificada obtiene 5-15% de prima sobre commodities | 5.000-20.000M acumulados |
 | **Ahorro en insumos químicos (productores)** | 30-50% de reducción en gasto de agroquímicos y fertilizantes sintéticos | 5.000-12.000M en ahorro |
 | **Eficiencia hídrica y resiliencia a sequías** | 30%+ mejora en retención de agua; prevención de pérdidas catastróficas en años secos | 3.000-10.000M en pérdidas evitadas |
-| **Revitalización económica rural** | 500.000+ empleos directos e indirectos; multiplicador 2-3x | 8.000-15.000M en actividad económica generada |
+| **Revitalización económica rural** | 500.000+ personas activas en diversas modalidades de actividad productiva (empleo directo + Economía de la Contribución); multiplicador 2-3x | 8.000-15.000M en actividad económica generada |
 | **Ahorro en salud pública** | Reducción de exposición a agroquímicos; mejora nutricional de alimentos; agua más limpia | 5.000-15.000M en costos de salud evitados |
 | **Ahorro en infraestructura hídrica** | Suelos con mayor retención reducen necesidad de obras de riego, drenaje y control de inundaciones | 2.000-5.000M en obra pública evitada |
 | **Valor de biodiversidad** | Corredores de biodiversidad, polinización natural, control biológico de plagas | 1.000-5.000M (valoración servicios ecosistémicos) |
@@ -2630,7 +2649,7 @@ En el borde del campo, hay una nena de ocho años jugando. Es la nieta del produ
 - **Reducción de agroquímicos: -55%** en volumen aplicado a nivel nacional. Los "pueblos fumigados" del corredor sojero dejaron de ser fumigados. Las tasas de cáncer y malformaciones congénitas en esas localidades empezaron a descender a partir del año 8 del programa.
 - **Prima de exportación: USD 5.000-8.000M/año** adicionales por certificación de producción regenerativa. "Suelo Vivo Argentino" se convirtió en sello reconocido en supermercados de Europa, Japón, Corea del Sur y el Golfo Pérsico.
 - **Mercado de carbono: USD 2.000-4.000M/año** en créditos verificados vendidos a nivel internacional. El Mercado Argentino de Carbono Agroecológico es el más grande del mundo en carbono de suelo.
-- **Empleo: 500.000 puestos de trabajo** directos e indirectos creados o transformados — técnicos de suelo, operadores de drones, analistas de datos, artesanos alimentarios, viveristas, monitores ambientales, investigadores, extensionistas, constructores de infraestructura verde.
+- **Actividad productiva: 500.000 personas activas en la regeneración del suelo** — la mayoría en empleo directo (técnicos de suelo, operadores de drones, analistas de datos, artesanos alimentarios, viveristas, monitores ambientales, investigadores, extensionistas, constructores de infraestructura verde), y un número creciente a través de la Economía de la Contribución (ver PLANREP Sección 15.4). El DNP piloto activo en provincias con fideicomisos maduros complementa los ingresos rurales.
 - **Retención hídrica: +35%** promedio en capacidad de absorción de agua del suelo. Los campos PLANISV funcionan como esponjas: absorben las lluvias intensas y liberan humedad lentamente. Las inundaciones en la cuenca del Salado se redujeron un 40% en frecuencia y un 60% en daños.
 - **INSS (Índice Nacional de Salud del Suelo): 72/100** — arriba del 38/100 del primer reporte en 2027. El INSS se publica junto al PBI, la inflación y el riesgo país. Es la métrica que mide si la Argentina se está comiendo su futuro o construyéndolo.
 
@@ -2646,7 +2665,7 @@ El Fondo Nacional de Suelo Vivo se autofinancia desde el Año 8. Los ingresos po
 
 ### 26.4 Las Personas: Los Nombres Detrás de los Números
 
-**Don Raúl, Pergamino.** En 2027, Don Raúl Figueroa tenía 58 años, 800 hectáreas en la zona núcleo de la Pampa Húmeda, y un suelo con 2,3% de MOS — la mitad de lo que tenía cuando su padre le enseñó a sembrar. Un extensionista de INTA le mostró los números de un campo piloto Nivel 1 a 40 kilómetros de su establecimiento: mismo suelo, misma zona, pero con inoculación biológica, cultivos de cobertura y cero labranza. MOS: 3,1% después de un año. Rendimiento: 5% más alto. Costo de insumos: 30% más bajo. Don Raúl dijo: "Si el suelo del vecino mejoró, el mío también puede". Fue uno de los primeros Nivel 2 de Pergamino. En 2040, Don Raúl tiene 71 años, un suelo con 4,4% de MOS, y un estante lleno de premios. Viaja dos veces por año a otros países como embajador PLANISV, enseñándole a productores brasileños y paraguayos lo que aprendió. Su nieta — la que juega descalza en el campo — quiere estudiar biología del suelo. "Antes yo le dejaba tierra", dice Don Raúl. "Ahora le dejo suelo vivo. No es lo mismo."
+**Don Raúl, Pergamino.** En 2027, Don Raúl Figueroa tenía 58 años, 800 hectáreas en la zona núcleo de la Pampa Húmeda, y un suelo con 2,3% de MOS — la mitad de lo que tenía cuando su padre le enseñó a sembrar. Un extensionista de INTA le mostró los números de un campo piloto Nivel 1 a 40 kilómetros de su establecimiento: mismo suelo, misma zona, pero con inoculación biológica, cultivos de cobertura y cero labranza. MOS: 3,1% después de un año. Rendimiento: 5% más alto. Costo de insumos: 30% más bajo. Don Raúl dijo: "Si el suelo del vecino mejoró, el mío también puede". Fue uno de los primeros Nivel 2 de Pergamino. En 2040, Don Raúl tiene 71 años, un suelo con 4,4% de MOS, y un estante lleno de premios. Viaja dos veces por año a otros países como embajador PLANISV, enseñándole a productores brasileños y paraguayos lo que aprendió. Su nieta — la que juega descalza en el campo — quiere estudiar biología del suelo. Su Portfolio Ciudadano Único, creado por PLANEDU, ya registra formalmente sus contribuciones a la regeneración del suelo familiar — validadas en la Economía de la Contribución. Pero sigue embarrándose las botas cada mañana; esto sigue siendo sobre la tierra. "Antes yo le dejaba tierra", dice Don Raúl. "Ahora le dejo suelo vivo. No es lo mismo."
 
 **María, de la oficina al cielo.** María Soledad Torres era administrativa nivel 3 en el Ministerio de Desarrollo Social de la provincia de Buenos Aires. Tenía 34 años, un sueldo que no alcanzaba, y la sensación diaria de que su trabajo no servía para nada — porque no servía para nada. En 2028 se anotó en PLANREP-Inteligencia, track de drones y análisis geoespacial. Doce meses después, era operadora certificada de drones PLANISV. En 2040, María dirige el equipo de monitoreo aéreo de la Pampa Húmeda: 15 operadores, 40 drones, 3 millones de hectáreas bajo vigilancia. Gana cuatro veces lo que ganaba en el Ministerio. Pero lo que más la cambió no fue el sueldo. "Antes miraba papeles", dice María. "Ahora miro el suelo desde arriba y veo cómo se cura. Veo los corredores verdes que no existían cuando empecé. Veo los arroyos que vuelven a correr claros. Veo el país cambiando, y sé que yo soy parte de eso."
 
@@ -2675,6 +2694,8 @@ Del apagón al despertar. De la extracción a la regeneración. Del suelo muerto
 Ese fue el instante.
 
 Y no fue un milagro. Fue un plan. Con fases, con presupuesto, con métricas, con ley, con instituciones, con ciencia. Con las manos de 500.000 personas que eligieron construir en lugar de extraer. Con la terquedad de un país que, por una vez, decidió tratar a su recurso más valioso como lo que es: infraestructura. No materia prima. Infraestructura. La infraestructura viva que alimenta al mundo.
+
+Para 2040, algunas de esas manos ya no trabajan bajo contrato laboral — contribuyen a través de la Economía de la Contribución, con el DNP como piso y el suelo como propósito. Pero la tierra no distingue: responde igual a la mano que la cuida, venga de un empleo o de una contribución.
 
 ---
 
