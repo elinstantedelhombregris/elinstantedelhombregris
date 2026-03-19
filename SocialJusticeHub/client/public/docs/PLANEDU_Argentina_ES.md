@@ -237,7 +237,7 @@ De los éxitos internacionales — Finlandia, Singapur, Estonia, Ontario — eme
 2. **15+ años de compromiso sin interrupciones.** Finlandia tardó 30 años. Singapur 25. Ontario 10 (porque solo se enfocó en literacy). Ninguna transformación se logró en un ciclo electoral.
 3. **Institución autónoma.** Un organismo técnico, blindado contra la política, con mandato de largo plazo. Sin esto, cada gobierno empieza de cero.
 4. **Co-diseño con los que implementan.** Los docentes, los directores, las familias, las empresas — todos participan en el diseño. Lo que se impone desde arriba, fracasa desde abajo.
-5. **Medición de lo que importa.** No exámenes estandarizados de memorización. Evaluación de capacidades reales, portfolios, inserción laboral, bienestar. Si medís lo fácil en vez de lo importante, optimizás la métrica equivocada.
+5. **Medición de lo que importa.** No exámenes estandarizados de memorización. Evaluación de capacidades reales, portfolios, inserción laboral y capacidad de contribución, bienestar. Si medís lo fácil en vez de lo importante, optimizás la métrica equivocada.
 
 PLANEDU incorpora las cinco constantes. La ANCE es la institución autónoma. Los Maestros Creadores son el docente primero. El Pacto de la Dignidad es el co-diseño con los sindicatos. El portfolio es la medición de lo que importa. Y el proyecto BASTA es el compromiso de largo plazo — cinco iniciativas estratégicas diseñadas para sobrevivir al ciclo electoral.
 ## SECCIÓN 3: EL INGREDIENTE — POR QUÉ CAMBIARÍA UN DOCENTE, UN PADRE, UN ALUMNO
@@ -284,11 +284,13 @@ PLANEDU no propone mejorar la escuela. Propone cambiar la **categoría** de lo q
 | Horario | Rígido, 4-5 horas | Flexible, 8-14 horas disponibles |
 | Relación comunidad | Cerrada, aislada | Abierta, integrada, sirve a toda la comunidad |
 | Idiomas | Español + inglés deficiente | Español + inglés fluido + tercera lengua |
-| Egresado ideal | Persona con título | Persona con portfolio que demuestra capacidades |
+| Egresado ideal | Persona con título | Persona con portfolio que demuestra capacidades para crear valor, contribuir a su comunidad, y diseñar una vida con sentido — independientemente de su situación laboral |
 
 ### 4.2 Las Siete Capacidades
 
 **1. CREAR** — Todo lo que importa fue creado por alguien. Integra arte, diseño, ingeniería de producto, emprendimiento, programación creativa. El **corazón** del currículo. Cada año, cada alumno crea algo real.
+  - *Crear sentido*: no solo crear objetos, obras o proyectos sino diseñar tu vida como tu obra maestra
+  - *Crear contribución*: diseñar formas de aportar valor a tu comunidad que no requieren un empleador
 
 **2. CUIDAR** — Salud, nutrición, inteligencia emocional, ecología práctica, relación con la tierra (integración con PLANISV), resolución de conflictos, cuidado de personas.
 
@@ -301,6 +303,9 @@ PLANEDU no propone mejorar la escuela. Propone cambiar la **categoría** de lo q
 **6. COLABORAR** — Trabajo en equipo real, liderazgo situacional, negociación, gestión de proyectos, participación cívica, organización comunitaria.
 
 **7. CONOCER** — Ciencias integradas, historia y culturas, saberes de pueblos originarios (no como folclore sino como conocimiento valioso), **autoconocimiento** y desarrollo personal, ética, astronomía y conciencia cósmica.
+  - *Autoconocimiento existencial*: quién soy más allá de lo que hago por trabajo
+  - *Alfabetización económica post-laboral*: entender fideicomisos de propósito perpetuo, DNP, economía de contribución, licencia social de automatización
+  - *Pensamiento de futuros*: scenario planning como habilidad ciudadana — no predecir el futuro sino prepararse para múltiples futuros posibles
 
 ### 4.3 Aprendizaje por Dominio
 
@@ -514,7 +519,10 @@ Dashboard público en tiempo real, inspirado en el Tablero Nacional del PLANISV:
 | Bienestar estudiantil | Encuesta anual | Mejora de 20% vs. línea base | Mejora de 40% | Mejora de 60% | ANCE |
 | Brecha socioeconómica | Diferencia en capacidades entre Q1 y Q5 | Reducción de 20% | Reducción de 40% | Reducción de 60% | ANCE |
 | Tasa de graduación secundaria | Registro administrativo | 60% (+7 pp) | 75% (+22 pp) | 85%+ | Ministerios provinciales |
-| Inserción laboral/universitaria de egresados EdF | Seguimiento de cohortes | Primera cohorte aún no egresó | 80% insertados en 1 año | 90%+ | ANCE + SPU |
+| Inserción laboral, universitaria o contributiva de egresados EdF | Seguimiento de cohortes | Primera cohorte aún no egresó | 80% insertados en 1 año | 90%+ | ANCE + SPU |
+| Capacidad de generar valor sin empleo formal | Portfolio de contribución independiente evaluado por ANCE | Programa piloto en 10 EdF | 30% de egresados EdF con proyecto de contribución activo | 60% | ANCE |
+| Alfabetización post-laboral | Evaluación de comprensión de DNP, fideicomisos, economía de contribución | Módulo integrado en currículo de EdF | 50% de alumnos de 16+ demuestran comprensión | 80% | ANCE |
+| Participación en deliberación de futuro económico | Registro de participación en Paneles Ciudadanos de Futuro | Paneles simulados operativos en 50 EdF | 10% de egresados participaron antes de los 20 | 25% | ANCE + Paneles Ciudadanos |
 
 ---
 
@@ -982,6 +990,20 @@ Desde los 14 años, los alumnos de las Escuelas del Futuro pasan 1-2 días por s
 | **Empresa** | Pipeline de talento pre-formado, crédito fiscal, vínculo con la comunidad, innovación (los jóvenes traen ideas frescas), cumplimiento de RSE |
 | **Escuela** | Conexión con el mundo real que valida y enriquece el currículo, feedback de empleadores sobre qué capacidades faltan |
 | **Comunidad** | Tejido social fortalecido, empresas comprometidas con la educación, jóvenes integrados en la vida productiva antes de graduarse |
+
+#### Residencias de Contribución: Más Allá de la Pasantía
+
+A partir del Horizonte 2, cuando la red de **Nodos de Actividad** (los espacios comunitarios de trabajo y contribución establecidos por PLANREP) esté operativa, PLANEDU agrega una modalidad complementaria a las pasantías tradicionales: la **Residencia de Contribución**.
+
+La diferencia es fundamental. En una pasantía, el alumno entra a una empresa como aprendiz — aprende un oficio, observa cómo funciona un negocio, se integra en una estructura productiva existente. En una Residencia de Contribución, el alumno entra a un Nodo de Actividad como **contribuidor**: no tiene jefe, no tiene horario fijo, no está aprendiendo a ser empleado. Está aprendiendo a **generar valor sin que nadie se lo pida**.
+
+Concretamente: un alumno de 16 años puede pasar 8 horas semanales en el Nodo de Actividad de su barrio trabajando en un proyecto comunitario real — una huerta urbana que alimenta al comedor del barrio, un taller de reparación de electrodomésticos para familias vulnerables, un estudio de producción audiovisual que documenta la historia oral del barrio, o un laboratorio de fabricación digital que produce prótesis de bajo costo. El alumno elige su proyecto, define sus objetivos, gestiona su tiempo y evalúa su propio impacto.
+
+Toda la experiencia se documenta en el **Portfolio Ciudadano Único** — el mismo portfolio que lo acompaña desde los 6 años y que acumula evidencia de sus capacidades reales. La diferencia es que ahora el portfolio no solo muestra lo que sabe hacer, sino lo que **eligió hacer por su comunidad sin que nadie le pagara por hacerlo**.
+
+¿Por qué importa esto? Porque estamos preparando a una generación que va a vivir en un mundo donde el empleo formal tal como lo conocemos puede no ser la norma. Un pibe que a los 17 años ya tiene experiencia real de contribución comunitaria autodirigida no necesita que una empresa le dé permiso para ser útil. Ya sabe cómo hacerlo. Ya lo hizo. Y tiene el portfolio que lo demuestra.
+
+Las Residencias de Contribución no reemplazan las pasantías — las complementan. El alumno ideal pasa por ambas experiencias: aprende a trabajar dentro de una estructura (pasantía) y aprende a generar valor fuera de toda estructura (residencia). Las dos capacidades juntas lo hacen **anti-frágil** frente a cualquier futuro económico que venga.
 
 ### 12.4 El Knowledge Commons: Todo lo Público es Abierto
 
