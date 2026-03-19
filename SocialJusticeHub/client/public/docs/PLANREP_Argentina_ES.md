@@ -27,6 +27,8 @@ Hay una mentira piadosa que la Argentina se cuenta a sí misma desde hace medio 
 
 El trabajo — el verdadero, el que te hace salir de la cama con una razón — es la actividad mediante la cual un ser humano transforma el mundo y se transforma a sí mismo. Cuando un albañil levanta una pared, cuando una diseñadora resuelve un problema visual, cuando un carpintero hace un mueble que va a durar tres generaciones, cuando una cocinera convierte ingredientes en experiencia — están creando valor. Valor real. Valor que alguien quiere y por el cual está dispuesto a pagar. Valor que deja al mundo un poco mejor de como lo encontró. Eso es trabajo. Lo otro — sellar expedientes que nadie lee, atender ventanillas donde no hay ventanas, ocupar escritorios para justificar organigramas que justifican presupuestos que justifican cargos que justifican nada — es simulacro.
 
+Esa transformación no necesita un empleador, un sueldo ni un mercado. Necesita propósito, herramientas y comunidad. PLANREP en su Horizonte 1 reconvierte personas hacia el empleo digno porque eso es lo que el mundo de 2026 necesita. Pero PLANREP está diseñado sabiendo que el mundo de 2040 va a necesitar otra cosa — y construye desde el día uno la infraestructura para esa evolución.
+
 Y el simulacro tiene un costo monstruoso. No solo fiscal — que lo tiene, y lo vamos a cuantificar con precisión — sino humano. Tres millones y medio de argentinos trabajan en el sector público nacional, provincial y municipal. Muchos de ellos — los médicos del hospital público, los maestros de la escuela rural, los bomberos, los científicos del CONICET, los ingenieros de vialidad — hacen trabajos esenciales y dignos. Este plan no habla de ellos. Este plan habla de los otros: del millón y medio (conservadoramente) de personas que están en puestos que no deberían existir, que no producen nada que la sociedad necesite, que fueron creados por conveniencia electoral y sostenidos por inercia burocrática.
 
 Esas personas no son el problema. Son las víctimas del problema. Fueron capturadas por un sistema que les ofreció la única opción disponible — un sueldo fijo en un país donde el sector privado es hostil, frágil, informal y mal pago — y ahora están atrapadas en una trampa que les roba su potencial, su autoestima, su creatividad y sus mejores años. Un empleado público innecesario no es un vago: es un ser humano al que el sistema le falló.
@@ -37,7 +39,9 @@ Y lo propone con una premisa que ningún programa de "modernización del Estado"
 
 > *"No hay nada más violento que robarle a una persona la posibilidad de hacer algo que importe. El empleo público innecesario es esa violencia, administrada con recibo de sueldo."*
 
-**Tesis Central:** La Argentina tiene entre 1.2 y 1.8 millones de empleados públicos en puestos que no generan valor para la sociedad. Estas personas no necesitan ser despedidas: necesitan ser reconvertidas hacia actividades productivas privadas a través de una **estrategia dual**. La **Economía de la Vida** — ocho ramas de trabajo que requieren presencia humana irreemplazable: oficios artesanales, cuidado de personas, regeneración ambiental, construcción viva, alimentación de origen, economía de la experiencia, industria creativa y economía circular — protege contra la automatización como un escudo. La **Economía de la Inteligencia** — habilidades AI-aumentadas para mercados globales — proyecta al país como una espada. Juntas cubren el espectro completo de capacidades humanas y generan un potencial de USD 15-47B/año en valor económico. El costo fiscal del sobreempleo público — entre USD 15.000 y 25.000 millones anuales — es simultáneamente el mayor lastre económico del país y la mayor fuente de financiamiento disponible para la transformación. PLANREP propone un programa de reconversión voluntario, gradual, masivo y financiado — con 120 Centros de la Vida y 50 Centros de Inteligencia, 50 unidades PLANREP-Móvil, Bonos de Impacto Social, un sistema de transición suave de 36 meses, y seis redes de contención — que libere talento humano atrapado, alivie la presión fiscal, genere divisas por exportación de servicios de inteligencia, dinamice la economía privada y demuestre que la reforma del Estado puede ser un acto de justicia, no de crueldad.
+Todo lo que PLANREP propone — las Ocho Ramas, el Artesano Aumentado, los fideicomisos, el DNP, la Economía de la Contribución — es la **primera mejor alternativa**. Fue diseñada con la mejor evidencia, la mejor intención y el mejor juicio disponible en 2026. Pero PLANREP sabe algo que los planes anteriores no sabían: que se equivoca en formas que todavía no puede ver. Por eso no propone solo una solución — propone un **sistema de escucha activa** que detecta cuándo la solución deja de funcionar y la reemplaza por una mejor. Los Paneles Ciudadanos deliberan. Los dashboards miden. ANCE evalúa. Y el plan se adapta. No por debilidad — por inteligencia. Un plan que no escucha no es fuerte: es sordo. Y un plan sordo en un siglo de cambio exponencial es un plan muerto.
+
+**Tesis Central:** La Argentina tiene entre 1.2 y 1.8 millones de empleados públicos en puestos que no generan valor para la sociedad. Estas personas no necesitan ser despedidas: necesitan ser reconvertidas hacia actividades productivas privadas a través de una **estrategia dual**. La **Economía de la Vida** — ocho ramas de trabajo que requieren presencia humana irreemplazable: oficios artesanales, cuidado de personas, regeneración ambiental, construcción viva, alimentación de origen, economía de la experiencia, industria creativa y economía circular — protege contra la automatización como un escudo. La **Economía de la Inteligencia** — habilidades AI-aumentadas para mercados globales — proyecta al país como una espada. Juntas cubren el espectro completo de capacidades humanas y generan un potencial de USD 15-47B/año en valor económico. El costo fiscal del sobreempleo público — entre USD 15.000 y 25.000 millones anuales — es simultáneamente el mayor lastre económico del país y la mayor fuente de financiamiento disponible para la transformación. PLANREP propone un programa de reconversión voluntario, gradual, masivo y financiado — con 120 Centros de la Vida y 50 Centros de Inteligencia, 50 unidades PLANREP-Móvil, Bonos de Impacto Social, un sistema de transición suave de 36 meses, y seis redes de contención — que libere talento humano atrapado, alivie la presión fiscal, genere divisas por exportación de servicios de inteligencia, dinamice la economía privada y demuestre que la reforma del Estado puede ser un acto de justicia, no de crueldad. PLANREP está diseñado en tres horizontes. El Escudo y la Espada son la mejor estrategia para el Horizonte 1 (2026-2035). El plan construye desde el día uno la infraestructura económica (Fideicomisos de Propósito Perpetuo), social (Paneles Ciudadanos de Futuro Económico) y educativa (integración con PLANEDU) para los Horizontes 2 y 3 — sabiendo que la forma exacta de esos horizontes será diseñada por la sociedad a través de la deliberación colectiva, no por este documento.
 
 ---
 
@@ -341,9 +345,9 @@ La Economía del Cuidado es la rama de PLANREP que ningún escéptico puede cues
 
 #### El Artesano Aumentado: Nadie Sale Sin IA
 
-Las ocho ramas de la Economía de la Vida son a prueba de IA — pero no son anti-IA. Al contrario: cada rama se potencia con inteligencia artificial. La diferencia es que la IA no reemplaza al trabajador: lo amplifica.
+Las ocho ramas de la Economía de la Vida son, según la mejor evidencia disponible en 2026, las más resistentes a la automatización — pero no son anti-IA. Al contrario: cada rama se potencia con inteligencia artificial. La diferencia es que la IA no reemplaza al trabajador: lo amplifica. Y la clave no es que esa combinación sea eterna — es que sea la mejor que podemos diseñar hoy, y que construyamos los mecanismos para rediseñarla mañana.
 
-Todo egresado de la Economía de la Vida — sin excepción, sin importar su rama — completa un módulo obligatorio de **40 horas: "Herramientas de IA para Mi Oficio"**. No para convertirse en programador ni en analista de datos. Para usar la IA como el artesano usa el formón: como una herramienta al servicio de su trabajo.
+Todo egresado de la Economía de la Vida — sin excepción, sin importar su rama — completa un **primer ciclo de formación continua permanente de 40 horas: "Herramientas de IA para Mi Oficio"**, actualizado cada 3 años con las herramientas vigentes. No para convertirse en programador ni en analista de datos. Para usar la IA como el artesano usa el formón: como una herramienta al servicio de su trabajo. Y para entender que esa herramienta va a cambiar — y que la capacidad de adaptarse a la herramienta nueva es tan importante como dominar la actual.
 
 **TABLA 6B: El Módulo "Artesano Aumentado" por Rama**
 
@@ -358,40 +362,63 @@ Todo egresado de la Economía de la Vida — sin excepción, sin importar su ram
 | La Imaginación | Herramientas de IA generativa para diseño, producción musical, edición de video, prototipado rápido | Creativo que produce en horas lo que antes llevaba semanas |
 | La Precisión | Diagnóstico de fallas con IA, modelado 3D, optimización de procesos de fabricación, gestión de inventario circular | Reparador que diagnostica con precisión de ingeniero y fabrica repuestos imposibles |
 
-El Artesano Aumentado es la síntesis definitiva del plan: un ser humano cuyas manos hacen lo que ninguna máquina puede hacer, pero cuya mente usa las máquinas para hacerlo mejor. No es artesano O digital. Es artesano Y digital. Es el doble blindaje: irremplazable por las máquinas Y potenciado por ellas. Esa combinación no tiene fecha de vencimiento.
+El Artesano Aumentado es la síntesis del plan en su Horizonte 1: un ser humano cuyas manos hacen lo que ninguna máquina puede hacer, pero cuya mente usa las máquinas para hacerlo mejor. No es artesano O digital. Es artesano Y digital. Es la mejor combinación que podemos diseñar hoy — y es una identidad diseñada para evolucionar:
+
+- **Artesano Aumentado 2030:** Usa la IA como herramienta. La máquina optimiza cortes, sugiere diseños, monitorea signos vitales — pero las manos, el juicio y la presencia son del humano. Es el modelo que PLANREP forma hoy.
+- **Artesano-Curador 2040:** No necesariamente produce (la máquina puede producir). Pero diseña, supervisa, agrega el toque humano, decide si lo que la máquina generó merece existir. Es el director creativo de un proceso donde la IA ejecuta cada vez más. La formación continua de PLANREP prepara esta transición.
+- **Artesano-Explorador 2050:** Algo que hoy no podemos imaginar. Un rol que la sociedad definirá a través de los Paneles Ciudadanos de Futuro Económico y la deliberación colectiva. PLANREP no pretende saber qué forma tomará — pero construye desde el día uno la infraestructura (educativa, económica, institucional) para que esa forma emerja sin crisis.
+
+Cada egresado de PLANREP no recibe solo un oficio. Recibe una identidad productiva con capacidad de evolución incorporada. Y para sostener esa evolución, los Centros de la Vida incorporan un **Módulo de Reconstrucción de Identidad Productiva**: un proceso estructurado donde adultos que fueron definidos durante décadas por un cargo público exploran quiénes son más allá de un título. Talleres de narrativa personal, exploración vocacional profunda, contacto con múltiples oficios antes de elegir uno, y acompañamiento psicológico para atravesar la crisis de identidad que significa dejar de ser "empleado de" y empezar a ser "creador de". Porque la reconversión laboral más difícil no es la técnica — es la emocional.
 
 El rango de potencial de empleo de la Economía de la Vida — 1.13 a 1.52 millones — se alinea con la estimación de sobreempleo público (1.2–1.8 millones) sin forzar ninguna rama individual más allá de lo que su mercado puede absorber. No es casualidad: la demanda latente de vida digna en la Argentina es proporcional al tamaño de su déficit. Un país que durante décadas priorizó la supervivencia sobre el cuidado, la extracción sobre la regeneración, la construcción masiva sobre el refugio digno, y el descarte sobre la reparación, tiene una demanda reprimida enorme en cada una de las ocho ramas. Esa demanda — humana, territorial, ambiental y estética — es el mercado que espera a quienes salgan del Estado.
 
-### 2.5 Por Qué la Economía de la Vida es a Prueba de IA
+### 2.5 Por Qué la Economía de la Vida es la Primera Mejor Alternativa contra la Automatización
+
+Las ocho ramas son, según la mejor evidencia disponible en 2026, las actividades humanas más resistentes a la automatización. Esta es nuestra primera mejor alternativa. Pero la historia de la tecnología enseña una lección implacable: cada afirmación sobre lo que las máquinas "nunca" van a poder hacer tiene fecha de vencimiento. Hace 20 años la traducción era "irremplazable". Hace 10 años la conducción era "demasiado compleja". Hace 5 años la creación artística era "exclusivamente humana". PLANREP no apuesta a que las ocho ramas sean eternas — apuesta a que son las mejores para hoy, y construye los mecanismos para adaptarse cuando la realidad cambie.
 
 La inteligencia artificial está destruyendo categorías enteras de empleo — y va a destruir más. Los trabajos más vulnerables son los que consisten en procesar información según reglas predecibles: contabilidad, traducción básica, atención al cliente por texto, análisis de datos, programación rutinaria, diseño gráfico genérico, redacción corporativa. En los próximos 10 años, se estima que entre el 20% y el 40% de los empleos de oficina serán automatizados parcial o totalmente.
 
-Los trabajos que la IA NO puede reemplazar comparten características específicas:
+Los trabajos que la IA no puede reemplazar *hoy* comparten características específicas:
 
-**TABLA 7: Vulnerabilidad a la IA — Qué Se Automatiza y Qué No**
+**TABLA 7: Vulnerabilidad a la IA — Qué Se Automatiza y Qué No (con Proyecciones Temporales)**
 
-| Característica del Trabajo | Vulnerabilidad a IA | Ejemplo | Rama de la Economía de la Vida |
-|---|---|---|---|
-| Procesamiento de información digital | MUY ALTA | Contabilidad, data entry, traducción, análisis financiero | — (esto es lo que REEMPLAZA la IA) |
-| Creación de contenido genérico | ALTA | Artículos SEO, diseño gráfico corporativo, código boilerplate | — |
-| Atención al cliente remota | ALTA | Call centers, chatbots, soporte técnico nivel 1 | — |
-| Gestión administrativa | ALTA | Coordinación de agenda, gestión de documentos, reporting | — |
-| Trabajo manual repetitivo industrial | MEDIA-ALTA | Ensamblaje en línea, empaque, clasificación | — |
-| Trabajo manual artesanal NO repetitivo | MUY BAJA | Carpintería fina, herrería artística, albañilería de restauración | La Belleza, La Precisión |
-| Cuidado humano presencial con empatía | MUY BAJA | Cuidado geriátrico, acompañamiento terapéutico, cuidado infantil | El Amparo |
-| Construcción y restauración física | MUY BAJA | Bioconstrucción, restauración patrimonial, techos verdes | El Refugio |
-| Trabajo con sistemas biológicos vivos | MUY BAJA | Remediación ambiental, reforestación, agroecología, compostaje | La Reparación |
-| Producción alimentaria artesanal | MUY BAJA | Panadería, fermentación, cocina regional, apicultura | La Mesa |
-| Creación estética con materiales físicos | MUY BAJA | Cerámica, vidriería, ebanistería, jardines, cocina artesanal | La Belleza |
-| Reparación y diagnóstico táctil | MUY BAJA | Reparación de electrónica, muebles, calzado, electrodomésticos | La Precisión |
-| Performance y experiencia presencial | NULA | Música en vivo, teatro, guía turística, hospitalidad | El Encuentro |
-| Relación humana de confianza | NULA | Cuidado paliativo, mentoría, acompañamiento de crisis | El Amparo, El Encuentro |
+| Característica del Trabajo | Vulnerabilidad (2026) | Vulnerabilidad Proyectada 2040 | Vulnerabilidad Proyectada 2050+ | Ejemplo | Rama de la Economía de la Vida |
+|---|---|---|---|---|---|
+| Procesamiento de información digital | MUY ALTA | MUY ALTA | MUY ALTA | Contabilidad, data entry, traducción, análisis financiero | — (esto es lo que REEMPLAZA la IA) |
+| Creación de contenido genérico | ALTA | MUY ALTA | MUY ALTA | Artículos SEO, diseño gráfico corporativo, código boilerplate | — |
+| Atención al cliente remota | ALTA | MUY ALTA | MUY ALTA | Call centers, chatbots, soporte técnico nivel 1 | — |
+| Gestión administrativa | ALTA | MUY ALTA | MUY ALTA | Coordinación de agenda, gestión de documentos, reporting | — |
+| Trabajo manual repetitivo industrial | MEDIA-ALTA | ALTA | MUY ALTA | Ensamblaje en línea, empaque, clasificación | — |
+| Trabajo manual artesanal NO repetitivo | MUY BAJA | BAJA | MEDIA | Carpintería fina, herrería artística, albañilería de restauración | La Belleza, La Precisión |
+| Cuidado humano presencial con empatía | MUY BAJA | BAJA | BAJA-MEDIA | Cuidado geriátrico, acompañamiento terapéutico, cuidado infantil | El Amparo |
+| Construcción y restauración física | MUY BAJA | BAJA | MEDIA | Bioconstrucción, restauración patrimonial, techos verdes | El Refugio |
+| Trabajo con sistemas biológicos vivos | MUY BAJA | BAJA | BAJA-MEDIA | Remediación ambiental, reforestación, agroecología, compostaje | La Reparación |
+| Producción alimentaria artesanal | MUY BAJA | BAJA | BAJA-MEDIA | Panadería, fermentación, cocina regional, apicultura | La Mesa |
+| Creación estética con materiales físicos | MUY BAJA | BAJA-MEDIA | MEDIA | Cerámica, vidriería, ebanistería, jardines, cocina artesanal | La Belleza |
+| Reparación y diagnóstico táctil | MUY BAJA | BAJA-MEDIA | MEDIA-ALTA | Reparación de electrónica, muebles, calzado, electrodomésticos | La Precisión |
+| Performance y experiencia presencial | NULA | MUY BAJA | BAJA | Música en vivo, teatro, guía turística, hospitalidad | El Encuentro |
+| Relación humana de confianza | NULA | MUY BAJA | BAJA | Cuidado paliativo, mentoría, acompañamiento de crisis | El Amparo, El Encuentro |
 
-Las ocho ramas de la Economía de la Vida se ubican enteramente en las franjas de vulnerabilidad MUY BAJA o NULA. Y hay una quinta barrera contra la automatización que la tabla no captura pero que es decisiva para varias ramas: la **relación humana de confianza**. Un anciano no confía su cuidado a un robot. Un turista no quiere que lo guíe un parlante. Un cliente no le cuenta sus preferencias a un algoritmo cuando elige un mueble a medida. La confianza es interpersonal, presencial, humana — y es irreproducible por cualquier tecnología previsible.
+Las ocho ramas de la Economía de la Vida se ubican enteramente, en 2026, en las franjas de vulnerabilidad MUY BAJA o NULA. Las columnas de proyección 2040 y 2050+ muestran que esa protección se erosiona con el tiempo — a velocidades distintas según la rama, y según el escenario tecnológico que se materialice. Por eso PLANREP no solo protege: prepara la evolución. Y hay una quinta barrera contra la automatización que la tabla no captura pero que es decisiva para varias ramas: la **relación humana de confianza**. Un anciano no confía su cuidado a un robot. Un turista no quiere que lo guíe un parlante. Un cliente no le cuenta sus preferencias a un algoritmo cuando elige un mueble a medida. La confianza es interpersonal, presencial, humana — y es, por ahora, irreproducible por cualquier tecnología previsible.
+
+**TABLA 7b: Escenarios de Vulnerabilidad Futura de las Ocho Ramas**
+
+| Rama | Vulnerabilidad 2026 | Escenario Conservador 2040 | Escenario Medio 2040 | Escenario Acelerado 2040 |
+|---|---|---|---|---|
+| La Belleza (artesanía) | Muy baja | Muy baja | Baja | Media |
+| El Amparo (cuidado) | Muy baja | Muy baja | Baja-Media | Media |
+| La Reparación (regeneración) | Muy baja | Baja | Media | Media-Alta |
+| El Refugio (construcción) | Muy baja | Baja | Media | Media-Alta |
+| La Mesa (alimentación) | Muy baja | Muy baja | Baja | Media |
+| El Encuentro (experiencia) | Nula | Muy baja | Baja | Baja-Media |
+| La Imaginación (creatividad) | Baja | Baja-Media | Media | Alta |
+| La Precisión (circular) | Baja | Media | Media-Alta | Alta |
+
+Esta tabla es una hipótesis informada, no una profecía. Se actualiza cada 3 años con evidencia real y deliberación de los Paneles Ciudadanos de Futuro Tecnológico. Si la realidad demuestra que nos equivocamos en alguna rama, los mecanismos de adaptación (fideicomisos + DNP + Economía de la Contribución) están diseñados para absorber el impacto.
 
 No es que la IA no pueda intervenir en estos campos — puede diseñar un plano de mueble, puede sugerir un plan de cuidado, puede modelar la contaminación de un río — sino que la IA **complementa** al trabajador de la Vida en lugar de reemplazarlo. El carpintero que usa IA para optimizar cortes es más productivo, no obsoleto. El cuidador que usa sensores para monitorear signos vitales es mejor cuidador, no un cuidador innecesario. El remediador que usa drones para mapear contaminación remedia más rápido, no es reemplazado por el drone. La IA es herramienta del trabajador de la Vida, no su sustituto. Por eso cada egresado completa el módulo de Artesano Aumentado: para que la herramienta esté siempre en sus manos, nunca al revés.
 
-Esta es la lógica estratégica de PLANREP: reconvertir personas hacia los **empleos del futuro permanente** — los que ninguna revolución tecnológica va a eliminar porque dependen de lo que las máquinas no tienen: un cuerpo que toca, unos ojos que evalúan, unas manos que sienten el material, una presencia que genera confianza, una empatía que cuida, y un arraigo territorial que no se deslocaliza.
+Esta es la lógica estratégica de PLANREP: reconvertir personas hacia los **empleos con mayor resiliencia ante la revolución tecnológica** — y la infraestructura para adaptarse cuando esa resiliencia se erosione — porque dependen de lo que las máquinas no tienen: un cuerpo que toca, unos ojos que evalúan, unas manos que sienten el material, una presencia que genera confianza, una empatía que cuida, y un arraigo territorial que no se deslocaliza.
 
 ### 2.6 La Narrativa: Cómo Se Cuenta Esta Historia
 
@@ -997,7 +1024,7 @@ PLANREP opera con dos economías, no con una:
 
 **La Economía de la Vida es el ESCUDO.**
 
-Protege a las personas en las ocho ramas de trabajo que la IA no puede reemplazar: oficios artesanales, cuidado de personas, regeneración ambiental, construcción viva, alimentación de origen, experiencias, industria creativa presencial, y economía circular. Estas ramas son a prueba de automatización porque requieren presencia física, juicio contextual, manipulación de materiales irregulares, relación con sistemas biológicos vivos, y relación humana de confianza. Las cinco barreras infranqueables:
+Protege a las personas en las ocho ramas de trabajo que la IA no puede reemplazar: oficios artesanales, cuidado de personas, regeneración ambiental, construcción viva, alimentación de origen, experiencias, industria creativa presencial, y economía circular. Estas ramas son a prueba de automatización porque requieren presencia física, juicio contextual, manipulación de materiales irregulares, relación con sistemas biológicos vivos, y relación humana de confianza (ver Tabla 7b para proyecciones temporales). Las cinco barreras infranqueables:
 
 1. **Manipulación física de materiales irregulares:** la robótica no puede manejar madera con nudos, arcilla húmeda, masa madre, tierra de jardín con la adaptabilidad de una mano humana.
 2. **Juicio estético y contextual:** la IA no puede decidir si un mueble queda bien en ESTA habitación, si un jardín dialoga con ESTE paisaje, si una fachada respeta ESTE barrio, si una comida está en su punto justo.
@@ -1513,7 +1540,7 @@ No estamos pidiendo un acto de fe. Estamos proponiendo una inversión con retorn
 
 PLANREP no ofrece un solo camino. Ofrece dos.
 
-El primero — la Economía de la Vida — es el camino del artesano, del cocinero, del albañil creativo, del diseñador de jardines, del ceramista, del constructor. Es local, es físico, es hermoso, y es a prueba de IA. Es la base. Es el piso que garantiza que nadie caiga.
+El primero — la Economía de la Vida — es el camino del artesano, del cocinero, del albañil creativo, del diseñador de jardines, del ceramista, del constructor. Es local, es físico, es hermoso — y hoy, es lo más resistente que tenemos a la automatización. Es la base. Es el piso que garantiza que nadie caiga.
 
 El segundo — la Economía de la Inteligencia — es el camino del desarrollador AI-aumentado, del analista de datos, del productor de contenido global, del orquestador de sistemas complejos, del emprendedor digital. Es global, es digital, es escalable, y usa la IA como multiplicador. Es el techo. Es la oportunidad de que la Argentina juegue en las ligas mayores de la economía global.
 
@@ -2185,7 +2212,7 @@ Cinco pilares fundacionales. Cinco dimensiones. Un solo proyecto.
 | Suelo + Vida (La Reparación) | Remediadores restauran ecosistemas; pipeline laboral directo de PLANREP para PLANISV | 200K+ empleos en regeneración territorial |
 | Suelo + Vida (La Mesa) | Alimentos de suelos remediados → gastronomía de origen → marca país | Ciclo completo campo→mesa→mundo |
 | Suelo + Inteligencia | Agricultura de precisión con IA; monitoreo ecológico con drones y sensores | Productividad 5x con huella ambiental 1/3 |
-| Vida + Inteligencia | Artesano Aumentado: cada egresado de la Vida usa IA para potenciar su oficio | El "doble blindaje": irremplazables por máquinas Y potenciados por ellas |
+| Vida + Inteligencia | Artesano Aumentado: cada egresado de la Vida usa IA para potenciar su oficio | El "doble blindaje" de hoy: las más difíciles de reemplazar por máquinas Y potenciadas por ellas — un blindaje que se refuerza con los mecanismos de adaptación de Horizonte 2 y 3 |
 | Reconversión + Justicia | PLANJUS resuelve conflictos laborales de la reconversión en 15-45 días | Garantía de que ningún trabajador reconvertido queda en limbo legal |
 | Las 5 juntas | BASTA: sistema completo de transformación nacional | USD 30-50B/año de nuevo valor económico; 2M+ empleos genuinos |
 
