@@ -1035,6 +1035,8 @@ Una inquilina con humedad en el departamento va a la Casa JUS de su barrio. Se s
 
 Un comerciante al que le incumplieron un contrato resuelve su caso en 15 días por la plataforma digital. Recupera lo que le deben. Sigue adelante. No quebró. No contrató abogado. No esperó cinco años.
 
+Pero también hay casos nuevos que en 2026 no existían. Un contribuyente impugna la validación de su Portfolio Ciudadano. Un Nodo de Contribución barrial disputa cómo se calculó el Índice de Contribución de sus integrantes. Dos beneficiarios de un fideicomiso comunitario no se ponen de acuerdo sobre las prioridades de inversión. Estos son los conflictos del Horizonte 2 — y PLANJUS los resuelve con la misma arquitectura, la misma velocidad, y los mismos jueces ciudadanos. El sistema fue diseñado para conflictos humanos, no para un tipo específico de economía. Por eso sigue funcionando.
+
 Y algo más grande ha cambiado. La gente confía. No confía ciegamente — confía porque puede verificar. Cada resolución es pública. Cada métrica es visible. Cada intento de corrupción fue detectado y neutralizado. El sistema no pide fe — ofrece evidencia.
 
 Los Colegios de Abogados se transformaron. Los mejores abogados son mediadores, facilitadores, diseñadores de acuerdos — no guerreros de trinchera que cobran por hora de batalla. El prestigio ya no está en ganar un juicio largo sino en resolver un conflicto rápido. El paradigma cambió.
@@ -1068,6 +1070,8 @@ No hay más excusas. No hay más "pero primero hay que reformar." No hay más "e
 > *"Un pueblo que puede resolver sus propios conflictos no necesita que nadie le resuelva la vida. PLANJUS no le da justicia al pueblo — le devuelve el poder de hacerse justicia a sí mismo."*
 
 Este es el instante del Hombre Gris. El momento en que el pueblo argentino deja de esperar que la justicia baje de un edificio con columnas y empieza a hacerla — en su barrio, con sus vecinos, con sus propias manos. No porque el Estado se lo permita. Porque el Estado ya no puede impedirlo. PLANJUS no es un plan más. Es el punto de no retorno. Es el instante donde la gente deja de esperar justicia y empieza a producirla.
+
+Y cuando la Argentina complete la transición que los otros cuatro mandatos de BASTA están construyendo — de una economía del empleo a una economía de la contribución — PLANJUS seguirá ahí. Porque donde hay personas, hay conflictos. Y donde hay conflictos, hace falta justicia. La forma del conflicto cambia. La necesidad de resolverlo, nunca.
 
 ---
 
