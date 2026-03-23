@@ -2055,3 +2055,127 @@ El primer caso adverso mediático va a llegar. No es cuestión de si — es cues
 La comunicación de PLANSAL no es marketing. No es propaganda. Es la verdad contada con la misma intensidad y creatividad con que la industria farmacéutica y alimentaria cuentan sus mentiras. La diferencia es que nosotros tenemos la evidencia de nuestro lado — solo necesitamos aprender a contarla mejor.
 
 ---
+
+## SECCIÓN 21 · INTEGRACIÓN BASTA
+
+> *"Ningún órgano sana solo. El cuerpo es un sistema — y una nación también."*
+
+PLANSAL no existe en el vacío. Es el plan que revela en el cuerpo lo que los otros planes construyen en el territorio, en la tierra, en las aulas, en el trabajo y en los tribunales. Si BASTA es una arquitectura de diez mandatos para que el pueblo gobierne y el gobierno ejecute, PLANSAL es el mandato que atraviesa todos los demás — porque donde los otros planes transforman estructuras, PLANSAL mide el resultado en la única infraestructura que importa: el ser humano vivo.
+
+La articulación no es teórica. Es operativa, concreta, verificable:
+
+**PLAN24CN (Ciudades Nuevas) → Raíz 11: Entorno.** Cada una de las 24 ciudades bioclimáticas que PLAN24CN diseña incorpora un Centro de Vitalidad como pieza urbanística obligatoria — no como agregado sanitario, sino como corazón del barrio. Los espacios verdes que PLAN24CN planta cada 400 metros no son decoración: son prescripción. Una ciudad caminable, con ciclovías, con plazas donde sentarse a tomar mate con un vecino, es una ciudad que previene infartos sin recetar una sola pastilla. Cuando PLAN24CN diseña una ciudad para vivir — no solo para transitar — está ejecutando política de salud con cemento, árboles y veredas anchas.
+
+**PLANISV (Suelo Vivo) → Raíz 2: Alimentación.** PLANISV reconstruye el suelo argentino devastado por décadas de monocultivo y glifosato. PLANSAL necesita ese suelo vivo porque los Centros de Vitalidad no pueden enseñar a comer bien si no existe comida real. Las huertas comunitarias de cada Centro se alimentan de semillas, técnicas y protocolos que PLANISV desarrolla. La regulación de agroquímicos que PLANISV impulsa es, en términos sanitarios, la mayor intervención preventiva posible: dejar de envenenar la cadena alimentaria antes de pretender que la gente se sane. PLANISV y PLANSAL son dos caras de la misma moneda — una regenera la tierra, la otra regenera el cuerpo que come de esa tierra.
+
+**PLANEDU (Educación) → Raíces 8 y 12: Aprendizaje y Comunidad.** PLANEDU transforma la escuela de fábrica de obediencia en espacio de autoconocimiento. Dentro de esa transformación, PLANSAL inserta tres ejes: educación alimentaria real desde los 4 años (Sección 4 — Los 1.000 Días), educación emocional y corporal como materia troncal, y formación de Guías de Vitalidad en universidades públicas. La escuela es la infraestructura de prevención más temprana que existe. Si un chico aprende a cocinar, a respirar conscientemente y a resolver conflictos sin violencia antes de los 12 años, la Fábrica de Enfermos pierde a su futuro cliente.
+
+**PLANREP (Trabajo Vivo) → Raíz 6: Propósito.** PLANREP libera a millones de personas de empleos que las vacían. PLANSAL les ofrece destino: los Centros de Vitalidad son fuente de empleo digno para trabajadores reconvertidos — cocineros comunitarios, facilitadores de movimiento, acompañantes emocionales, gestores de huerta, coordinadores de Familias Mentoras. Cada persona que deja un trabajo sin sentido y encuentra propósito en un Centro no solo deja de enfermarse: se convierte en agente de salud para otros. La reconversión laboral que PLANREP organiza y la reconversión sanitaria que PLANSAL propone son el mismo movimiento visto desde dos ángulos.
+
+**PLANJUS (Justicia Cercana) → Raíz 7: Seguridad.** La incertidumbre legal y económica es un factor de enfermedad tan potente como el tabaco. PLANJUS reduce esa incertidumbre: justicia que resuelve en días, no en años. Pero además, PLANJUS protege jurídicamente a la ANVIP contra captura política (Sección 14), y los Centros de Vitalidad incorporan mediación familiar como servicio permanente — porque buena parte de las enfermedades crónicas argentinas tienen raíz en conflictos familiares que supuran durante décadas sin resolución.
+
+---
+
+PLANSAL es el plan que hace visible a BASTA en el cuerpo. Sin salud, las ciudades de PLAN24CN son contenedores hermosos para gente enferma. Sin salud, la educación de PLANEDU forma mentes brillantes atrapadas en cuerpos rotos. Sin salud, el trabajo digno de PLANREP es un derecho que nadie tiene energía para ejercer. Y sin los otros planes, PLANSAL pelea solo contra una fábrica que lo supera en todos los frentes.
+
+BASTA funciona como sistema porque la vida funciona como sistema. Y el cuerpo humano es donde ese sistema triunfa o fracasa. Cada latido, cada respiración, cada noche de sueño profundo o de insomnio angustiado es el veredicto en tiempo real de si la arquitectura está funcionando. PLANSAL no mide indicadores — mide personas. Y las personas no mienten.
+
+---
+
+## SECCIÓN 22 · VISIÓN 2040
+
+> *"Hay quienes miran las cosas como son y preguntan por qué. Yo sueño con cosas que nunca fueron y pregunto por qué no."*
+> — George Bernard Shaw
+
+### 22.1 · El argumento humano
+
+Es una mañana de octubre de 2040. En un barrio del sur del conurbano bonaerense — uno de esos barrios que en 2026 aparecía en los noticieros solo cuando había un crimen o una inundación — hay un Centro de Vitalidad que abrió hace once años. No es un edificio imponente. Es una construcción modesta, con mucha luz natural, una huerta que ocupa media manzana, una cocina comunitaria que huele a pan casero, un salón de movimiento con piso de madera, una sala de silencio con cinco almohadones y nada más, y una galería donde a esta hora hay cuatro vecinas tomando mate mientras pelan batatas para el almuerzo comunitario.
+
+Adentro, un grupo de doce adolescentes aprende a preparar un guiso de lentejas con verduras de la huerta. El que enseña tiene 22 años: fue uno de los primeros chicos del barrio que pasó por el programa de educación alimentaria de la escuela primaria, cuando PLANEDU lo integró como materia troncal. Ahora estudia Nutrición Comunitaria en la universidad pública y hace sus prácticas acá. Los chicos se ríen, se manchan, discuten sobre cuánto ajo es demasiado ajo. Ninguno de ellos desayuna galletitas con mate cocido. No porque alguien se lo haya prohibido — porque aprendieron a cocinar antes de aprender a depender de un paquete.
+
+Afuera, en las calles arboladas que PLAN24CN diseñó cuando reconvirtió esta zona, un grupo de caminata matutino avanza por la vereda ancha. Son quince personas, la mayoría mayores de sesenta. Caminan despacio. Hablan. Se conocen los nombres, las historias, los dolores. Uno de ellos tuvo un infarto hace tres años — real, grave, con stent y todo. Pero después del infarto, en vez de volver a su casa a tomar pastillas y mirar televisión como hacían los infartados de 2026, entró al programa de rehabilitación cardíaca del Centro. Ahora camina cinco kilómetros por día, cocina su propia comida, y los martes facilita un círculo de hombres donde otros varones del barrio aprenden algo que nadie les enseñó jamás: a hablar de lo que sienten.
+
+El círculo de hombres funciona los martes a las siete de la tarde. Empezó con cuatro. Ahora son dieciséis. No es terapia — nadie usa la palabra "terapia." Es una ronda con mate donde se habla en serio. De los miedos. Del laburo. De los hijos que crecieron. De los padres que no supieron abrazar. De la soledad que nadie nombra porque los varones argentinos aprendieron que nombrar la soledad es una debilidad. En la ronda no es debilidad. En la ronda es el precio de entrada.
+
+En la sala de silencio hay tres personas sentadas. No meditan — o sí, no importa cómo lo llamen. Están en silencio. Cinco minutos, diez, veinte. Uno de ellos es un albañil que descubrió que si se sienta en silencio diez minutos antes de arrancar el día, le duele menos la espalda y pierde los estribos menos. No leyó ningún paper sobre cortisol y respuesta parasimpática. Solo sabe que funciona.
+
+La médica del barrio — ahora Guía de Vitalidad desde hace nueve años — pasa por el Centro todas las mañanas. Su consultorio está acá, no en un hospital. Ve a cuatro o cinco personas por día, no a cuarenta. Tiene tiempo para escuchar. Tiene tiempo para preguntar "¿cómo estás durmiendo?", "¿qué estás comiendo?", "¿con quién hablás cuando algo te pesa?" No ha recetado metformina en meses. Cuando alguien llega con glucosa elevada, lo primero que hace es caminar con esa persona hasta la huerta y preguntarle qué desayunó. Dice que es la médica más feliz que conoce. Dice que tardó quince años en entender que curar no era lo mismo que sanar, y que le llevó otros cinco aceptar que lo que le habían enseñado en la facultad era apenas un fragmento de la verdad.
+
+La enfermedad crónica no desapareció. No va a desaparecer — la condición humana incluye la fragilidad. Pero dejó de ser la norma. Dejó de ser el destino esperable de una persona que nació en el conurbano, comió mal treinta años, trabajó sin propósito y no tuvo a nadie con quien hablar de lo que importa. Ahora, cuando alguien se enferma, la comunidad lo nota. Y lo primero que pasa no es un turno en tres meses con un especialista que lo ve siete minutos: lo primero que pasa es una conversación con su Familia Mentora, que lo conoce, que sabe cómo vive, que le pregunta qué cambió en su vida — y lo ayuda a mirar lo que necesita cambiar.
+
+### 22.2 · El argumento económico
+
+La poesía importa. Pero la República Argentina toma decisiones con números, y los números de PLANSAL son tan contundentes como sus historias.
+
+| Indicador | Argentina 2026 | Proyección PLANSAL 2040 | Impacto |
+|---|---|---|---|
+| Gasto público en salud (% PBI) | 10,2% | 7,5% | Ahorro fiscal de 2,7 puntos del PBI — equivalente a ~USD 18.000 millones anuales a valores constantes |
+| Prevalencia de diabetes tipo 2 | 12,7% de adultos | 6-7% | Reducción del 45-50%. Menos insulina, menos diálisis, menos amputaciones |
+| Consumo de psicofármacos (benzodiazepinas) | 3er lugar per cápita en Latinoamérica | Reducción estimada del 60% | Millones de personas durmiendo por primera vez sin pastillas |
+| Internaciones por enfermedad crónica prevenible | ~4,2 millones/año | ~1,8 millones/año | Hospitales descomprimidos, enfocados en emergencia, trauma y alta complejidad |
+| Ausentismo laboral por enfermedad | 7,3 días promedio/año | 3,5 días promedio/año | Productividad ganada equivalente a ~USD 4.500 millones anuales |
+| Gasto farmacéutico per cápita | USD 245/año | USD 120-140/año | Ahorro de ~USD 5.000 millones anuales en medicamentos crónicos |
+
+El cálculo acumulado a 15 años es conservador: entre ahorro fiscal directo, reducción de gasto farmacéutico, productividad ganada y descompresión hospitalaria, PLANSAL genera un retorno estimado de **USD 150.000-200.000 millones** sobre la inversión total del plan — que en su fase más costosa (años 5-10, despliegue nacional de Centros) no supera los USD 3.000 millones anuales.
+
+Dicho de otro modo: cada peso invertido en prevención integral devuelve entre ocho y doce pesos en ahorro sanitario, productividad y calidad de vida. La ecuación no es opinable. Es aritmética. Prevenir cuesta 1x. Tratar cuesta 10x. Mantener enfermos crónicos de por vida cuesta 100x. La Argentina lleva décadas eligiendo la opción de 100x y preguntándose por qué no le alcanzan los recursos.
+
+La salud fiscal de un país mejora cuando mejora la salud de su gente. No al revés. No se puede recortar el camino hacia la prosperidad con una población enferma, medicada y exhausta. PLANSAL no es gasto: es la inversión con mayor retorno que un Estado puede hacer — porque un ciudadano sano produce más, consume menos servicios médicos, necesita menos asistencia social, y contribuye más a la comunidad que lo rodea.
+
+### 22.3 · El argumento histórico
+
+Ningún país en la historia diseñó un sistema de salud basado en la vitalidad en vez de la enfermedad. Ninguno. Todos los modelos — el Beveridge británico, el Bismarck alemán, el sistema cubano, el nórdico, el canadiense — parten de la misma premisa: la gente se enferma, y el Estado debe organizar cómo tratarla. Varían en quién paga, quién presta, quién regula. Pero la lógica es idéntica: el sistema existe para gestionar enfermedad. La salud es la ausencia de enfermedad. El éxito se mide en enfermedades curadas, intervenciones realizadas, mortalidad reducida.
+
+PLANSAL invierte la ecuación completa. La salud no es ausencia de enfermedad: es presencia de vitalidad — física, emocional, vincular, comunitaria, espiritual. El sistema no existe para tratar enfermos sino para cultivar personas vitales. El éxito no se mide en patologías revertidas sino en vidas que funcionan.
+
+¿Es esto utopía?
+
+Cuba, con un PBI per cápita de USD 9.500, tiene indicadores de salud comparables a los de Estados Unidos — esperanza de vida de 79 años, mortalidad infantil de 4 por mil — gracias a un sistema de atención primaria donde cada cuadra tiene un médico de familia que conoce a sus pacientes por nombre. Cuba demostró que la prevención primaria, cuando se ejecuta con rigor y cobertura universal, supera en resultados a los sistemas más costosos del planeta.
+
+Costa Rica, con una inversión en salud del 8% del PBI, redujo la desnutrición infantil del 26% al 4% en dos décadas gracias a un programa integrado de nutrición, educación y atención comunitaria. No inventó un medicamento: cambió la manera en que las madres alimentaban a sus hijos.
+
+Las Zonas Azules — Okinawa, Cerdeña, Nicoya, Loma Linda, Icaria — son los lugares del planeta donde la gente vive más y mejor. No tienen sistemas de salud sofisticados. Tienen comunidades donde las personas se mueven naturalmente, comen comida real, tienen propósito después de los 80 años, pertenecen a un grupo, y priorizan la familia y el vínculo por encima de la acumulación. Todo lo que PLANSAL propone está validado — en fragmentos, en distintos continentes, en distintas épocas.
+
+La diferencia es que nadie integró todos los fragmentos en una sola arquitectura coherente. Cuba tiene la atención primaria pero no la reconversión laboral. Costa Rica tiene la nutrición infantil pero no la regeneración del suelo. Las Zonas Azules tienen la comunidad pero no un plan replicable. PLANSAL toma lo que funciona, lo integra con las 12 Raíces, lo estructura en Centros de Vitalidad y Familias Mentoras, y lo despliega como política de Estado.
+
+La Argentina puede ser el primer país del mundo que deje de administrar enfermedad y empiece a cultivar vitalidad como política nacional. El primer país que diga: nuestro sistema de salud no existe para curar a los enfermos — existe para que cada vez haya menos enfermos que curar. El precedente. La demostración de que hay otro camino. Un camino que no requiere tecnología de punta ni presupuestos imposibles — requiere una decisión civilizatoria: dejar de fabricar enfermos.
+
+Esa decisión es el argumento histórico. No lo que Argentina fue. Lo que Argentina elige ser.
+
+---
+
+### La familia Ramírez, octubre de 2040
+
+Ricardo tiene 59 años. Dejó la distribuidora en 2030, después de que PLANREP abriera un programa de reorientación vocacional en el Centro de Vitalidad de su barrio. Le costó. Le costó mucho — no sabía qué quería porque nunca nadie le había preguntado qué quería. Hizo tres meses de talleres. Descubrió que le gustaban las plantas. Le pareció ridículo al principio — él, un tipo de depósito, con las manos en la tierra. Pero empezó en la huerta del Centro como voluntario y terminó coordinando la red de huertas comunitarias de toda su zona. Ahora gestiona diecisiete huertas. Conoce a los vecinos por nombre. Trabaja al aire libre. Llega a su casa cansado de una manera distinta — un cansancio que no necesita cerveza para amortiguarse. Su presión arterial es normal desde hace ocho años. No toma losartan. No toma nada. Su médica — la del Centro — lo ve cada seis meses y le dice que tiene el corazón de alguien de cuarenta. Ricardo se ríe. Dice que a los cuarenta estaba muerto y no lo sabía.
+
+Silvia tiene 56 años. Dejó el clonazepam en 2029. No fue fácil — no se deja una benzodiazepina como se deja un par de zapatos viejos. El Centro tenía un protocolo de reducción gradual con acompañamiento médico y emocional. Tardó catorce meses. Las primeras tres semanas sin la pastilla fueron las peores de su vida: no dormía, le temblaban las manos, sentía que el mundo se caía. Pero tenía un círculo de mujeres que la sostuvo. Se juntaban todos los miércoles a la tarde en el Centro — ocho mujeres que estaban dejando psicofármacos juntas, acompañándose, llorando juntas, riéndose juntas de lo absurdo y lo terrible. Silvia dice que esas ocho mujeres le salvaron la vida. Ahora duerme mejor de lo que durmió en veinte años. Facilita talleres emocionales para otras madres en el Centro. A veces llora. Dice que llorar sin pastillas es distinto — duele más pero pasa. Antes el dolor no pasaba nunca: la pastilla lo congelaba en un lugar al que no podías acceder pero del que tampoco podías salir.
+
+Tomás tiene 30 años. Es Guía de Vitalidad. Terminó el profesorado de Educación para la Salud Integral que PLANEDU creó en 2031 en la Universidad Nacional de Lomas de Zamora. Trabaja en un Centro de Vitalidad en Lanús — no en el de su barrio, porque quiso construir algo propio. Sus ataques de pánico pararon en 2028, cuando llevaba un año participando en los talleres de jóvenes del Centro. No fue un momento mágico — fue un proceso lento, sucio, con recaídas. Pero había algo que antes no tenía: un lugar donde ir que no fuera una pantalla. Personas que lo miraban a los ojos. Una actividad — la huerta, primero; después los talleres de respiración — que le exigía estar en su cuerpo en vez de escaparse de él. Tomás dice algo que se convirtió en frase del Centro: *"Nadie me dijo que estaba permitido sentir. Cuando supe eso, mi cuerpo dejó de gritar."* Ahora acompaña a adolescentes que llegan como él llegó — rotos, desconectados, asustados — y les ofrece lo que a él le ofrecieron: presencia, paciencia, y la certeza de que lo que sienten no está mal. Lo que estaba mal era un mundo que les enseñó a no sentir.
+
+Nélida tiene 86 años. No toma insulina desde 2028. Su diabetes tipo 2 revirtió — no mágicamente, no de la noche a la mañana. Fue un proceso de dos años en los que cambió todo lo que comía, empezó a caminar todos los días — despacio, con bastón primero, después sin él —, y participó en los talleres de cocina saludable del Centro donde, con una ironía que a ella le encanta contar, terminó enseñando a otros a cocinar. Porque Nélida siempre supo cocinar — lo que había olvidado era cocinar de verdad, con ingredientes de verdad, en vez de abrir paquetes. Su hemoglobina glicosilada está en 5,6 — rango normal — desde hace doce años. De las siete pastillas que tomaba en 2026, no toma ninguna. Su médica de entonces — la que le renovaba las recetas cada tres meses sin preguntarle cómo vivía — ahora viene al Centro los jueves a la mañana para las clases de respiración. Se saludan con un beso. No hablan de la época de las pastillas.
+
+Nélida es la Anciana de Sabiduría más buscada de su Centro. Es un rol que PLANSAL creó para personas mayores de 75 años que quieran transmitir lo que saben — no lo que estudiaron, lo que vivieron. Nélida enseña a hacer dulce de membrillo, empanadas de humita y pastelitos criollos. Su dulce de membrillo es famoso en tres barrios. Los pibes que van al taller de cocina le dicen "abu" aunque no sea abuela de ninguno. Nélida dice que esos pibes la mantienen viva. Que tener razón para levantarse a la mañana es la mejor medicina que tomó en su vida — y es la única que ningún médico le recetó jamás.
+
+---
+
+### El cierre
+
+La fábrica cerró. No porque alguien la demolió. No porque un decreto la clausuró. No porque un héroe llegó a salvar a nadie.
+
+Cerró porque la gente dejó de alimentarla. Una familia a la vez. Una decisión a la vez. Una mañana a la vez. Un desayuno sin galletitas de paquete. Una caminata al Centro en vez de quedarse en el sillón. Una conversación honesta en vez de una pantalla. Una noche de sueño sin pastilla. Un día de trabajo con sentido. Una hija que aprendió a cocinar a los 8 años y que a los 25 no conoce el interior de una farmacia.
+
+La fábrica no resistió eso. No estaba diseñada para resistir gente que elige estar viva.
+
+---
+
+Eso es *el instante del Hombre Gris* — el momento en que una persona gris, apagada, en piloto automático, reducida a funciones y diagnósticos, elige encenderse. Elige moverse. Elige sentir. Elige cuidarse. Elige vincularse. Elige participar de algo más grande que su propia supervivencia.
+
+PLANSAL no crea ese momento. Ningún plan puede crear ese momento. Lo que PLANSAL crea son las condiciones para que ese momento sea posible. Retira los venenos. Abre los espacios. Forma a los guías. Conecta a las familias. Ofrece la huerta, la cocina, la ronda, el silencio, la caminata, la compañía. Pone todo en su lugar — como una mesa tendida para un banquete.
+
+Pero sentarse a la mesa, servirse el plato, mirar a los ojos al que tenés enfrente y decidir que esta vez vas a comer de verdad, a estar de verdad, a vivir de verdad — eso no lo hace ningún sistema, ningún gobierno, ningún plan.
+
+Eso lo hacés vos.
+
+---
+
+*Marzo 2026 · República Argentina · PLANSAL v1.0*
