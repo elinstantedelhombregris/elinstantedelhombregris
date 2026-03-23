@@ -74,6 +74,8 @@ Eso fue hace setenta y cinco años.
 
 Hoy, la Argentina ocupa el **puesto 63 de 81 países** en las pruebas PISA 2022 de lectura, matemáticas y ciencias. El **46% de los estudiantes de 15 años no alcanza el nivel mínimo de comprensión lectora** (PISA 2022, Nivel 2). El **69% no alcanza el nivel mínimo de matemáticas**. Estos no son números de un país pobre sin recursos: son números de un país que gasta más del 5% de su PBI en educación — más que el promedio de la OCDE — y obtiene resultados de los peores del continente.
 
+Pero la crisis es más profunda de lo que PISA revela. Estudios de Argentinos por la Educación (2024) muestran que entre estudiantes secundarios del quintil socioeconómico más bajo, las tasas de analfabetismo funcional se acercan al **70%**. Estos estudiantes no pueden leer un contrato de alquiler, una receta médica ni una boleta electoral con comprensión plena. Son ciudadanos de una democracia que no pueden entender por qué votan. Y la brecha se profundiza: mientras el quintil más alto alcanza niveles comparables a la OCDE, el quintil más bajo se hunde a niveles de países sin sistema educativo formal. La Argentina no tiene *una* crisis educativa — tiene dos: una de calidad general y una de **analfabetismo funcional masivo** que afecta a la mitad más pobre de la población. PLANEDU aborda ambas — pero la segunda es la emergencia. Sin lectura, no hay aprendizaje por dominio, no hay portfolio, no hay bilingüismo, no hay ciudadanía informada. Por eso *Leer para Encender* (Sección 4.5) es el Pilar Cero de todo el plan.
+
 **TABLA 1: El Derrumbe Educativo Argentino — Radiografía del Fracaso**
 
 | Indicador | Dato | Fuente | Contexto |
@@ -240,6 +242,35 @@ De los éxitos internacionales — Finlandia, Singapur, Estonia, Ontario — eme
 5. **Medición de lo que importa.** No exámenes estandarizados de memorización. Evaluación de capacidades reales, portfolios, inserción laboral y capacidad de contribución, bienestar. Si medís lo fácil en vez de lo importante, optimizás la métrica equivocada.
 
 PLANEDU incorpora las cinco constantes. La ANCE es la institución autónoma. Los Maestros Creadores son el docente primero. El Pacto de la Dignidad es el co-diseño con los sindicatos. El portfolio es la medición de lo que importa. Y el proyecto BASTA es el compromiso de largo plazo — cinco iniciativas estratégicas diseñadas para sobrevivir al ciclo electoral.
+
+### 2.5 Alpha School: La Escuela que Comprimió el Tiempo y Liberó la Creación
+
+Hay un experimento educativo en Austin, Texas, que merece un lugar en esta sección — no porque PLANEDU lo copie, sino porque demostró algo que el sistema educativo tradicional se niega a admitir: **que el contenido académico se puede dominar en una fracción del tiempo que la escuela convencional le dedica.** Y que el tiempo restante — las horas que la escuela actual desperdicia en repetición mecánica, espera pasiva y aburrimiento sistematizado — puede usarse para hacer algo infinitamente más valioso: crear.
+
+**Alpha School** fue fundada en 2016 como una escuela K-12 privada. Su modelo se llama "2-Hour Learning" — y el nombre es literal. Los alumnos de Alpha dedican **dos horas por la mañana** al aprendizaje académico adaptativo: lectoescritura, matemáticas, ciencias, estudios sociales. Todo mediado por software con algoritmos de repetición espaciada, caminos de aprendizaje individualizados que se ajustan en tiempo real al nivel de cada estudiante, y una plataforma de orquestación llamada **Dash** que genera un plan de aprendizaje personalizado diario para cada alumno. No hay clases expositivas de 45 minutos donde 30 chicos escuchan a un adulto hablar sobre un tema que la mitad ya entendió y la otra mitad todavía no alcanza. Cada alumno trabaja en su frontera — ni más fácil ni más difícil de lo que necesita en ese momento.
+
+Las **seis horas restantes** del día se dedican a lo que Alpha llama "workshops" — talleres rotativos de habilidades reales: producción de medios, emprendimiento estudiantil (los chicos de Alpha gestionan food trucks reales, consultoras juveniles, productoras audiovisuales), arte, diseño, trabajo manual, oratoria, liderazgo. Veinticuatro talleres rotativos de habilidades para la vida que exponen a los alumnos a un universo de experiencias que la escuela convencional ni se anima a mencionar en su currículo.
+
+Los resultados son difíciles de ignorar. Los alumnos de Alpha **puntúan consistentemente en el percentil 98-99 de los exámenes estandarizados nacionales** — el top 1-2% del país. Con dos horas de académico por día. Sin tarea. Leelo de nuevo: dos horas. Sin tarea. Top 1-2% nacional. Lo que eso significa es devastador para la escuela tradicional: la mayor parte del tiempo que un alumno pasa en clase es **tiempo desperdiciado**. No es que los chicos necesiten menos educación — es que necesitan menos *tiempo sentados escuchando* y más *tiempo haciendo, creando, descubriendo*.
+
+El modelo tiene una limitación obvia: Alpha es una escuela privada con un costo de entre **USD 10.000 y USD 65.000 por alumno por año**. No es escalable a un sistema público nacional con esos números. Y la intervención del docente en Alpha, aunque presente, está minimizada de una manera que PLANEDU deliberadamente rechaza.
+
+Pero el principio subyacente es oro puro: **la tecnología adaptativa puede comprimir el dominio del contenido académico en una fracción del tiempo escolar, liberando horas para la creación, el taller, el proyecto, el emprendimiento y la conexión humana.**
+
+**TABLA 5b: Alpha School en el Contexto de Transformaciones Educativas**
+
+| País | Programa | Período | Qué Hicieron | Resultado | Lección para PLANEDU |
+|---|---|---|---|---|---|
+| **EE.UU. (Austin, TX)** | Alpha School — "2-Hour Learning" | 2016–presente | 2 horas de académico adaptativo por mañana (plataforma Dash con repetición espaciada e individualización). 6+ horas de talleres, emprendimientos reales, proyectos. Sin tarea. 24 talleres rotativos de habilidades. | Top 1-2% en exámenes estandarizados nacionales. Alumnos que gestionan emprendimientos reales a los 14 años. | **El tiempo sobra — el propósito falta.** Alpha demostró que con tecnología adaptativa, el contenido académico se domina en una fracción del tiempo convencional. La pregunta no es cuánto tiempo necesitás — es qué hacés con el tiempo que sobra. |
+
+Lo que PLANEDU toma de Alpha — y lo que descarta:
+
+- **Toma:** El principio de compresión académica mediante tecnología adaptativa. La liberación de horas para creación. La estructura de talleres rotativos. La eliminación de la tarea.
+- **Descarta:** El modelo de docente minimizado. El costo privado. La desconexión con la comunidad.
+- **Supera:** PLANEDU usa **3 horas** de bloque matutino adaptativo (no 2) porque incorpora Sesiones Socráticas con el Maestro Creador — interacción humana de alto nivel que Alpha no prioriza. El Maestro Creador en PLANEDU es **más** central al proceso, no menos. La PAA es open-source y soberana, no software propietario. El costo objetivo de PLANEDU es **USD 3.000-4.000 por alumno por año** usando infraestructura compartida BASTA, tecnología abierta y economías de escala pública. Y las 5 horas liberadas de la tarde no son solo talleres — son emprendimientos reales conectados con PLANREP, proyectos comunitarios con impacto medible, y una Escuela Abierta que sirve al barrio entero.
+
+PLANEDU no copia a Alpha — la supera. Alpha demostró que el tiempo sobra. PLANEDU demuestra que el tiempo liberado puede encender a una generación entera.
+
 ## SECCIÓN 3: EL INGREDIENTE — POR QUÉ CAMBIARÍA UN DOCENTE, UN PADRE, UN ALUMNO
 
 > *"Nadie cambia por un decreto. Cambian cuando ven algo mejor y sienten que lo pueden alcanzar."*
@@ -282,6 +313,7 @@ PLANEDU no propone mejorar la escuela. Propone cambiar la **categoría** de lo q
 | Rol del docente | Transmisor | Maestro Creador: mentor, diseñador, guía |
 | Tecnología | Ausente o marginal | AI como co-tutor personalizado |
 | Horario | Rígido, 4-5 horas | Flexible, 8-14 horas disponibles |
+| Estructura diaria | 4-5 horas de clases pasivas + tarea para el hogar | Modelo 3+5: 3h de dominio adaptativo (PAA + Maestro Socrático) + 5h de talleres, proyectos y emprendimientos. Sin tarea |
 | Relación comunidad | Cerrada, aislada | Abierta, integrada, sirve a toda la comunidad |
 | Idiomas | Español + inglés deficiente | Español + inglés fluido + tercera lengua |
 | Egresado ideal | Persona con título | Persona con portfolio que demuestra capacidades para crear valor, contribuir a su comunidad, y diseñar una vida con sentido — independientemente de su situación laboral |
@@ -317,9 +349,297 @@ En el sistema actual, un alumno "aprueba" con un 4 sobre 10 — el 40% del míni
 - A los 12: un cortometraje, un programa funcional, un ensayo argumentativo, una conversación en inglés, un proyecto comunitario.
 - A los 16: un emprendimiento real, una investigación científica, una obra artística, un **Proyecto Capstone** que integre múltiples capacidades e impacte la comunidad.
 
+### 4.5 Leer para Encender: El Pilar Cero de la Transformación Educativa
+
+> *"Sin lectura, nada se enciende. Sin lectura, las Siete Capacidades son siete puertas cerradas. Sin lectura, la PAA es una pantalla en blanco. Sin lectura, la escuela sigue apagando en vez de encender."*
+
+#### 4.5.1 "Sin Lectura, Nada se Enciende"
+
+Antes de hablar de talleres, de emprendimientos, de la PAA, de Sesiones Socráticas, de portfolios — hay que hablar de algo que debería dar vergüenza a todos los que alguna vez gestionaron la educación argentina: **el 46% de los alumnos de 15 años no alcanza el nivel mínimo de comprensión lectora** (PISA 2022, Nivel 2). No el nivel avanzado. No el nivel intermedio. El nivel *mínimo*. Casi la mitad de los adolescentes argentinos no puede leer un texto moderadamente complejo y entender lo que dice.
+
+Y eso es el promedio nacional. Cuando mirás por nivel socioeconómico, la imagen es una catástrofe: en el quintil más bajo, la analfabetización funcional llega a **~70%** (Argentinos por la Educación, informes 2022-2023). Siete de cada diez pibes del sector más pobre no pueden leer de verdad. Pueden decodificar letras, armar palabras, leer una oración — pero no pueden leer un contrato de alquiler y entender qué firman. No pueden leer un prospecto médico y saber qué tomar. No pueden leer una boleta electoral y comprender qué están votando. Son ciudadanos de una democracia que no pueden entender por qué votan.
+
+Esto no es un problema entre muchos. No es un ítem en una lista de pendientes. **Es EL problema fundacional.** Cada innovación que PLANEDU propone — el modelo 3+5, los talleres, los emprendimientos, el portfolio, la PAA, las Sesiones Socráticas, la Escuela Abierta — depende de que los alumnos sepan leer. Un chico que no lee no puede usar la PAA. No puede participar de una Sesión Socrática. No puede escribir un plan de negocio para su emprendimiento. No puede leer un plano en el taller de carpintería. No puede analizar un estudio de caso en el laboratorio de pensamiento. No puede hacer *nada* de lo que PLANEDU promete.
+
+La lectura no es una de las Siete Capacidades. Es la **condición previa** de las siete. Es el oxígeno. Sin oxígeno, no hay fuego. Y PLANEDU existe para encender fuegos.
+
+Por eso "Leer para Encender" no es la Sección 4.5 por casualidad. Es el **Pilar Cero** — lo que tiene que funcionar antes de que todo lo demás pueda empezar a funcionar.
+
+#### 4.5.2 La Estrategia Dual: Motor + Inmersión
+
+PLANEDU ataca el analfabetismo funcional con dos estrategias simultáneas que operan en capas complementarias:
+
+**MOTOR — El Motor de Aceleración Lectora PAA (para alumnos por debajo del nivel)**
+
+Para cada alumno que entra a una Escuela del Futuro leyendo por debajo de su nivel esperado, la PAA activa un módulo intensivo de aceleración lectora con las siguientes características:
+
+1. **Diagnóstico de entrada.** Evaluación adaptativa que determina el nivel exacto de lectura del alumno — no su grado escolar, su nivel real. Un chico de 12 años puede estar leyendo a nivel de 8. Necesitamos saberlo desde el día uno, sin vergüenza, sin estigma, con precisión clínica.
+
+2. **Dificultad adaptativa en la zona de desarrollo próximo.** El módulo ajusta la complejidad del texto en tiempo real para mantener al alumno en la franja donde el desafío es alto pero alcanzable — ni tan fácil que aburre, ni tan difícil que frustra. Vygotsky tenía razón: se aprende en la frontera, no en el centro de lo que ya sabés.
+
+3. **Repetición espaciada para vocabulario y comprensión.** Cada palabra nueva, cada estructura gramatical, cada patrón de comprensión se refuerza con intervalos optimizados — la misma técnica que usa Alpha School para contenido académico, aplicada al acto más fundamental de todos: leer.
+
+4. **Exposición multi-género.** No se aprende a leer leyendo un solo tipo de texto. El Motor expone al alumno a ficción, no ficción, periodismo, poesía, textos técnicos, instrucciones, formularios — y a la literatura argentina que debería ser patrimonio de cada ciudadano: Borges, Cortázar, Walsh, Storni, Ocampo, Saer, Heker, Sacheri, Schweblin, autores contemporáneos que demuestran que leer no es una obligación escolar sino una de las experiencias más potentes que un ser humano puede tener.
+
+5. **Intensidad: 45-60 minutos por día como módulo PAA matutino primario** hasta que el alumno alcance el umbral de nivel. No es un complemento. No es optativo. Es la *primera prioridad* del bloque matutino para todo alumno que esté por debajo del nivel.
+
+**Meta: el 80% de los alumnos por debajo del nivel alcanzan el nivel esperado dentro de los 18 meses** de ingreso a una Escuela del Futuro.
+
+**INMERSIÓN — Lectura Integrada en las Siete Capacidades (para todos los alumnos)**
+
+La lectura no se enseña solo en el bloque matutino. Se **respira** en cada taller, cada proyecto, cada emprendimiento. Porque la lectura no es una materia — es el medio a través del cual se accede a todo lo demás:
+
+| Capacidad | Lectura Integrada — Ejemplos |
+|---|---|
+| **CREAR** | Briefs de diseño, planes de negocio, análisis de tendencias, críticas artísticas, patentes, guiones |
+| **CUIDAR** | Instrucciones médicas, prospectos farmacéuticos, protocolos de primeros auxilios, informes ecológicos, guías de nutrición |
+| **PENSAR** | Papers científicos, análisis estadísticos, argumentaciones filosóficas, estudios de caso, informes de investigación |
+| **COMUNICAR** | Artículos periodísticos, discursos, entrevistas transcriptas, ensayos, scripts de podcast, obras de teatro |
+| **CONSTRUIR** | Manuales técnicos, planos, especificaciones de materiales, instrucciones de seguridad, esquemas eléctricos |
+| **COLABORAR** | Propuestas de proyecto, actas de reunión, cartas formales, minutas, informes de mediación |
+| **CONOCER** | Biografías, narrativa histórica, textos de pueblos originarios, ensayos filosóficos, atlas, relatos de viajes |
+
+La lectura no es el taller de las 8:15. Es el oxígeno de las 14 horas que la Escuela del Futuro está abierta.
+
+#### 4.5.3 El Sistema de Umbrales
+
+No todos los alumnos necesitan la misma intensidad de intervención. "Leer para Encender" opera con un sistema de umbrales que asigna recursos proporcionalmente a la urgencia:
+
+**TABLA 10: Sistema de Umbrales de Lectura — Asignación de Recursos**
+
+| Nivel de Lectura | Definición | Asignación PAA Matutina | Apoyo Adicional | Tiempo de Recuperación Objetivo |
+|---|---|---|---|---|
+| **Crítico** (3+ años por debajo del nivel) | El alumno decodifica pero no comprende. No puede leer un texto de dos párrafos y explicar la idea central. | 60 min/día como módulo PAA prioritario | Tutor humano de lectura 2×/semana + Programa de Alfabetización Familiar + biblioteca curada personalizada | 18-24 meses |
+| **Por debajo del nivel** (1-3 años por debajo) | Lee con dificultad. Comprende textos simples pero no puede inferir, comparar ni argumentar desde lo leído. | 45 min/día como módulo PAA primario | Compañeros lectores ("buddy system") + biblioteca curada + monitoreo quincenal del Maestro | 12-18 meses |
+| **En nivel** | Lee con fluidez y comprensión adecuada para su edad. Puede usar textos como herramienta en talleres y proyectos. | Lectura integrada en todas las Capacidades (mantenimiento) | Desafíos de género literario + escritura creativa | Mantenimiento continuo |
+| **Por encima del nivel** | Lee por encima de lo esperado. Tiene capacidad de análisis crítico y producción escrita avanzada. | Lectura como herramienta de profundización | Talleres avanzados de escritura + mentoría en producción editorial + desafíos de investigación | Enriquecimiento continuo |
+
+La clave del sistema es que **nadie se estanca y nadie se aburre.** El alumno crítico recibe la intervención más intensa y avanza lo más rápido posible. El alumno avanzado no espera — recibe desafíos que lo llevan más lejos. Y todos, absolutamente todos, leen todos los días en cada taller, porque la lectura no es el remedio — es la respiración.
+
+#### 4.5.4 Encender en Casa: El Programa de Alfabetización Familiar
+
+Hay una verdad incómoda que la escuela argentina evita decir en voz alta: **el nivel de lectura de un chico depende más de lo que pasa en su casa que de lo que pasa en el aula.** Los datos son brutales. Un niño que crece en un hogar con libros, donde los adultos leen, donde se conversa sobre lo que se lee, llega a primer grado con una ventaja de vocabulario de hasta 30 millones de palabras sobre un niño de un hogar donde no se lee (Hart & Risley, 1995). Treinta millones. Y la escuela, con cuatro horas de clase por día, no puede compensar esa brecha sola.
+
+PLANEDU no esquiva esa verdad — la enfrenta. El Programa de Alfabetización Familiar "Leer para Encender en Casa" opera en seis frentes simultáneos:
+
+**1. PAA para padres y cuidadores.** La misma plataforma que usan los alumnos tiene un módulo para adultos: "Leer para Encender — Familias". Adaptado a las necesidades reales de los adultos: leer un contrato, entender un formulario de ANSES, interpretar un recibo de sueldo, seguir instrucciones médicas. Aprender a leer mejor no tiene edad — y ningún padre debería sentir vergüenza por hacerlo.
+
+**2. Círculos de lectura comunitarios.** En los horarios de Escuela Abierta (17:00-21:00), la Escuela del Futuro abre espacios para círculos de lectura del barrio. Vecinos que se juntan a leer y conversar. No es un programa de alfabetización con olor a caridad — es un espacio de cultura con olor a café.
+
+**3. Alianzas intergeneracionales de lectura.** El chico le lee al abuelo. El abuelo le cuenta historias orales al chico. Se cruzan mundos. El alumno practica lectura en voz alta con un público que lo ama incondicionalmente. El abuelo comparte saberes que ningún libro contiene. Las dos generaciones se encuentran en un espacio que la vida moderna les había robado.
+
+**4. Desafíos familiares de lectura.** Rachas de lectura familiar (días consecutivos donde al menos un miembro de la familia lee 20+ minutos), club de libros del hogar (la familia elige un libro por mes y lo discute en la mesa), entradas compartidas en el Portfolio Ciudadano del alumno ("Mi mamá y yo leímos *Crónica de una muerte anunciada*. Esto es lo que pensamos").
+
+**5. Talleres de crianza lectora.** Sesiones prácticas para padres y cuidadores: cómo crear un ambiente de lectura en casa con recursos mínimos, cómo leerle a un hijo de 2 años, cómo acompañar a un adolescente que odia leer sin convertirlo en una batalla. No se trata de juzgar a las familias — se trata de darles herramientas que nadie les dio.
+
+**6. Conexión con los CDT (0-3 años).** La exposición temprana a la lectura empieza ANTES de la escuela. Los Centros de Desarrollo Temprano incorporan lectura en voz alta como actividad central desde los primeros meses de vida. Cuando ese chico llega a primer grado, ya tiene miles de horas de exposición al lenguaje escrito.
+
+**Meta: 50% de las familias participan activamente en al menos una de estas líneas dentro de los 3 años de apertura de cada Escuela del Futuro.**
+
+Esto es lo más difícil de todo "Leer para Encender" — porque es cambiar hábitos familiares. Pedirles a familias que hagan cosas que no están acostumbradas a hacer. Pero la alternativa es peor: pretender que la escuela puede compensar sola lo que el hogar no aporta. No puede. La escuela y la familia tienen que encenderse juntas.
+
+#### 4.5.5 Gamificación e Incentivos
+
+Decirle a un chico de 13 años que leer es importante no funciona. Decírselo tres veces tampoco. La lectura tiene que ser **atractiva, competitiva, social y gratificante** — especialmente para los que más la resisten.
+
+"Leer para Encender" incorpora una capa de gamificación diseñada para activar la motivación intrínseca sin infantilizarla:
+
+- **Rachas de lectura.** Días consecutivos con 30+ minutos de lectura registrada en la PAA. La racha es visible en el perfil del alumno. Perderla duele. Mantenerla genera orgullo. Simple y efectivo.
+- **Insignias de explorador de géneros.** Cada género literario es un territorio por explorar. Cinco géneros leídos = insignia de explorador. Diez = cartógrafo literario. Todos los géneros = enciclopedista. Los chicos coleccionan experiencias, no puntos vacíos.
+- **Desafíos comunitarios.** "1.000 libros leídos colectivamente este semestre." El contador es visible en la entrada de la Escuela del Futuro. La meta es de todos. El logro es compartido. La lectura deja de ser un acto solitario y se vuelve un proyecto colectivo.
+- **Desbloqueo de talleres avanzados.** Algunos talleres avanzados requieren un umbral de lectura como prerrequisito práctico — no como castigo. No podés hacer carpintería avanzada si no podés leer planos. No podés participar del laboratorio de datos si no podés leer un informe estadístico. No es que te prohibimos el taller por no leer — es que necesitás leer para poder hacer lo que el taller exige. Eso convierte la lectura de obligación abstracta en herramienta concreta.
+- **Recompensas físicas.** Elegir un libro para la biblioteca personal. Visita a una librería. Participación en un concurso de escritura. Publicación de un cuento en la revista de la Escuela del Futuro. Cosas tangibles que dicen: *lo que leíste importa*.
+
+**Para alumnos mayores (12-18):** La gamificación se adapta a la dignidad del adolescente. Modo de práctica anónimo para los que no quieren que se note que están en nivel bajo. Contenido apropiado para la edad — no cuentos infantiles para un chico de 15. Desafíos entre pares enmarcados como competencia legítima, no como juego de nenes. La dignidad del alumno es innegociable — especialmente la del alumno que más atrás viene.
+
+#### 4.5.6 Plan de Transición para Alumnos Actuales
+
+Las Escuelas del Futuro no van a abrir sus puertas y encontrar alumnos que leen perfecto. Van a recibir a los alumnos que el sistema actual les entregue — y el sistema actual les entrega un 46% por debajo del mínimo. La transición requiere un plan de emergencia:
+
+**Año 1-2 de cada nueva EdF:** Sprint de alfabetización de emergencia. Todo alumno por debajo del nivel recibe **60-90 minutos diarios** de Motor de Aceleración Lectora como primera prioridad del bloque matutino. Esto es más del 50% del bloque matutino dedicado exclusivamente a lectura. Es agresivo. Es necesario. Sin este sprint, nada de lo que viene después funciona.
+
+**Año 3+:** A medida que el pipeline madura — los CDT alimentan primer grado con chicos que ya tienen exposición temprana a la lectura, el Programa Familiar estabiliza los hogares, los alumnos que pasaron por el sprint llegan a nivel — la proporción de intervención intensiva baja naturalmente. El Motor sigue activo para los que lo necesitan, pero la Inmersión se convierte en el modo dominante.
+
+**Tutores humanos de lectura:** Para los alumnos en nivel Crítico, la PAA no alcanza sola. PLANEDU incorpora un tutor humano de lectura por cada 15 alumnos en nivel Crítico. Estos tutores pueden ser Maestros Creadores en formación, estudiantes universitarios de Letras en práctica profesional, o voluntarios capacitados del programa Escuela Abierta. La tecnología es poderosa. Pero un ser humano que se sienta al lado de un chico y lee con él — eso es irremplazable.
+
+> *"Leer para Encender no es un programa de lectura. Es la condición previa de todo lo demás. Es el permiso de entrada al futuro. Y cada chico argentino tiene derecho a ese permiso."*
+
+### 4.6 El Modelo 3+5: Tres Horas de Dominio Adaptativo, Cinco Horas de Creación Viva
+
+> *"Alpha demostró que el tiempo sobra. PLANEDU demuestra que el tiempo liberado puede encender a una generación entera."*
+
+#### 4.6.1 El Principio
+
+Alpha School comprimió el dominio académico en dos horas diarias y obtuvo resultados en el top 1-2% nacional. PLANEDU toma ese principio y lo adapta con tres diferencias fundamentales:
+
+**Primero:** PLANEDU usa **3 horas** de bloque matutino adaptativo — un 50% más que Alpha — porque creemos en **más** intervención humana, no en menos. La media hora de Sesión Socrática con el Maestro Creador no es un complemento decorativo — es el corazón pedagógico del modelo. La PAA entrega el *qué*: contenido personalizado, repetición espaciada, caminos individualizados. El Maestro Creador entrega el *por qué*: significado, curiosidad, conexión, provocación intelectual, acompañamiento humano. Una IA puede enseñarte a resolver una ecuación cuadrática. Un Maestro Creador puede hacerte sentir que resolver ecuaciones cuadráticas importa.
+
+**Segundo:** Las **5 horas de la tarde** no son un recreo largo. Son la jornada más importante del día — talleres de las Siete Capacidades, proyectos comunitarios con impacto real, emprendimientos estudiantiles conectados con la infraestructura PLANREP, y una Escuela Abierta que extiende el aprendizaje hasta las 21:00 para toda la comunidad.
+
+**Tercero:** Todo el modelo 3+5 **depende de que "Leer para Encender" funcione primero.** Un bloque matutino adaptativo sin alumnos que lean es una pantalla encendida frente a ojos que no pueden decodificarla. Un taller de carpintería sin alumnos que lean planos es un espacio con herramientas que nadie puede usar. La Sección 4.5 no es un accesorio de la 4.6 — es su fundamento.
+
+#### 4.6.2 La Mañana (7:00-10:00) — "Dominio Adaptativo"
+
+El bloque matutino es donde la PAA — el "Dash Argentino" — hace su trabajo más potente. Cada mañana, la plataforma genera un **camino de aprendizaje diario personalizado** para cada alumno basado en su nivel actual, sus áreas de fortaleza y debilidad, su ritmo de progresión, y los objetivos de dominio pendientes. Ningún alumno hace lo mismo que su compañero. Cada uno trabaja en su frontera.
+
+**TABLA 11: Estructura del Bloque Matutino por Grupo de Edad**
+
+| Horario | Edades 6-9 | Edades 10-13 | Edades 14-18 |
+|---|---|---|---|
+| **7:00-7:45** | PAA Adaptativa: Lectoescritura + Numeración (individualizado). *Leer para Encender* como módulo prioritario para los que están por debajo del umbral | PAA Adaptativa: PENSAR + COMUNICAR (caminos individualizados). Motor de Aceleración Lectora activo para los que lo necesitan | PAA Adaptativa: Contenido avanzado en área elegida por el alumno. Módulos de profundización |
+| **7:45-8:30** | Sesión Socrática con el Maestro: Exploración grupal conectada con lo que la PAA detectó. El Maestro trabaja con los temas donde el algoritmo identificó confusión compartida | Sesión Socrática: Aprendizaje basado en problemas, debates estructurados, razonamiento colaborativo. El Maestro trae problemas del mundo real que conectan con lo que la PAA está enseñando | Sesión Socrática: Seminario de profundidad, enseñanza entre pares (los que dominan un tema se lo enseñan a otros), análisis de problemas reales de la comunidad |
+| **8:30-9:15** | PAA: Repaso con repetición espaciada de lo trabajado + módulo de inglés inmersivo (canciones, cuentos, juegos en inglés) | PAA: Repetición espaciada de contenido clave + inmersión en inglés (videos, artículos adaptados, conversación con IA en inglés) | PAA: Repetición espaciada + módulo de alfabetización post-laboral (fideicomisos, DNP, economía de contribución — ver Sección 5) |
+| **9:15-9:45** | Pausa de movimiento + merienda. Los chicos se mueven, juegan, comen | Pausa + discusión libre entre pares. Espacio no estructurado para procesar lo aprendido | Pausa + estudio autodirigido. Los alumnos eligen qué revisar o explorar |
+| **9:45-10:00** | PAA: Exploración gamificada a ritmo propio. Juegos educativos, desafíos de lógica, lecturas elegidas por el alumno | PAA: Profundización en un tema de interés personal — la PAA ofrece caminos de curiosidad | PAA: Módulo avanzado autoelegido O continuación de *Leer para Encender* si el alumno todavía está en proceso de aceleración |
+
+**Cómo funciona en la práctica:** El Maestro Creador arranca el día mirando el **dashboard de la PAA** — un panel que le muestra en tiempo real el progreso de cada alumno, las áreas donde hay confusión compartida, los alumnos que están atascados, y los que avanzan más rápido de lo esperado. Con esa información, diseña la Sesión Socrática de las 7:45: si el algoritmo detectó que 8 de 25 alumnos no entendieron fracciones, el Maestro no repite la explicación del libro — arma una actividad grupal que ataca la confusión desde otro ángulo, usando preguntas, problemas reales, y la interacción entre los alumnos que sí entendieron y los que no. La IA maneja el **QUÉ** (entrega de contenido). El Maestro maneja el **POR QUÉ** (significado, curiosidad, conexión humana).
+
+#### 4.6.3 La Tarde (10:30-17:00/18:00) — "Creación Viva"
+
+A las 10:30, la pantalla se apaga y las manos se encienden. La tarde es el espacio de los talleres — donde las Siete Capacidades dejan de ser conceptos y se convierten en experiencias. Cada alumno participa en **3-4 talleres simultáneos** por rotación, con rotaciones de **6-8 semanas**. A lo largo de los 12 años de escolaridad, cada alumno pasa por **todos los talleres al menos una vez**.
+
+**TABLA 12: Los 24+ Talleres de Creación Viva — Mapeados a las Siete Capacidades**
+
+| Capacidad | Talleres | Duración por Rotación | Edades |
+|---|---|---|---|
+| **CREAR** | Artes visuales (pintura, escultura, fotografía) · Composición musical · Escritura creativa · Diseño de juegos · Diseño de producto · Moda y textil | 6-8 semanas | Todas |
+| **CUIDAR** | Primeros auxilios y RCP · Nutrición y cocina · Laboratorio de inteligencia emocional · Restauración ecológica · Cuidado de personas mayores y niños | 6-8 semanas | Todas (adaptado por edad) |
+| **PENSAR** | Filosofía y debate · Laboratorio de datos y estadística · Pensamiento científico (método experimental) · Simulación financiera y económica · Pensamiento sistémico | 6-8 semanas | 10+ |
+| **COMUNICAR** | Oratoria y debate público · Periodismo y medios · Cine y producción de video · Estudio de podcast · Teatro en inglés | 6-8 semanas | Todas |
+| **CONSTRUIR** | Carpintería · Electrónica y robótica · Impresión 3D y fabricación digital · Laboratorio de código · Electricidad y plomería básica · Huerta y agricultura urbana | 6-8 semanas | Todas (adaptado por edad) |
+| **COLABORAR** | Gestión de proyectos comunitarios · Resolución de conflictos y mediación · Laboratorio de liderazgo · Producción y organización de eventos | 6-8 semanas | 12+ |
+| **CONOCER** | Astronomía y exploración cósmica · Saberes originarios y etnobotánica · Desarrollo personal y autoconocimiento · Historia oral y memoria comunitaria | 6-8 semanas | Todas |
+
+**La rotación funciona así:** En cualquier momento dado, cada alumno está en 3-4 talleres que rotan cada 6-8 semanas. Algunos talleres son **obligatorios de base** — primeros auxilios, cocina y nutrición, alfabetización financiera, laboratorio de código — porque hay cosas que todo ser humano necesita saber independientemente de sus intereses. El resto es **electivo por interés**: el alumno elige, prueba, descubre qué le apasiona y qué no. A los 18 años, cada egresado pasó por un mínimo de 24 experiencias de taller — y tiene al menos tres o cuatro áreas donde desarrolló profundidad real.
+
+Y en cada taller — en cada uno sin excepción — **se lee.** En carpintería se leen planos, especificaciones de materiales, manuales de seguridad. En teatro se leen guiones, biografías de dramaturgos, críticas de obras. En mediación se leen estudios de caso, actas de mediación, propuestas de resolución. En huerta se leen tablas de siembra, informes de suelo, investigaciones de PLANISV. La lectura no es el taller de las 8:15 — es el oxígeno de las 14 horas. "Leer para Encender" no termina cuando termina el bloque matutino. Atraviesa todo.
+
+#### 4.6.4 Sin Tarea: Todo Sucede Dentro de la Jornada Escolar
+
+PLANEDU elimina la tarea domiciliaria. Completamente. Sin excepciones.
+
+¿Por qué? Tres razones:
+
+**1. La repetición espaciada lo resuelve.** El argumento clásico a favor de la tarea es que refuerza lo aprendido. Pero la PAA ya maneja eso con algoritmos de repetición espaciada que son más efectivos que cualquier ejercitario impreso. Cada mañana, la PAA le presenta al alumno exactamente lo que necesita repasar, en el momento óptimo para la retención. No necesitás que el chico se siente a las 9 de la noche a hacer ejercicios repetitivos de un cuadernillo — la ciencia cognitiva ya resolvió ese problema.
+
+**2. La tarea es inequitativa.** Un chico con casa propia, escritorio, luz, internet, y padres disponibles hace la tarea en condiciones radicalmente distintas a un chico que vive en un monoambiente con cinco hermanos, sin internet, con padres que trabajan doce horas. La tarea premia el privilegio, no el esfuerzo. Reproduce exactamente la desigualdad que la escuela debería reducir.
+
+**3. La tarea roba infancia.** Después de 8 horas de jornada escolar intensiva (3 de Dominio Adaptativo + 5 de Creación Viva), un chico necesita jugar, descansar, estar con su familia, aburrirse creativamente, mirar el cielo. La infancia y la adolescencia no son una sala de espera para la vida adulta — son la vida. PLANEDU no les roba ni un minuto más de lo necesario.
+
+Todo el aprendizaje, toda la práctica, toda la exploración, toda la creación — suceden dentro de la jornada escolar. Cuando el alumno sale de la Escuela del Futuro a las 16:00 o 17:00, sale libre. Si quiere volver para la Escuela Abierta (17:00-21:00), vuelve porque quiere — no porque debe.
+
+#### 4.6.5 Un Día en la Vida
+
+Los planes educativos suelen ser abstractos. Tablas, porcentajes, siglas. Acá hay dos días concretos — uno de Matías (9 años, 4to grado equivalente) y otro de Valentina (16 años, 5to año equivalente) — para que se vea cómo se siente vivir en una Escuela del Futuro.
+
+**Un día en la vida de Matías (9 años)**
+
+| Horario | Actividad |
+|---|---|
+| **7:00-10:00** | **Bloque Matutino:** PAA Adaptativa — Matías empezó primer grado leyendo a nivel de 5 años (entró al programa "Leer para Encender"). Hoy, dos años después, lee a nivel de 9 años. Su bloque matutino: 30 min de lectoescritura adaptativa (ya trabaja comprensión inferencial), 45 min de Sesión Socrática con su Maestra (hoy: exploración de por qué el agua del arroyo del barrio está contaminada — conecta con ciencia, ecología y ética), 30 min de numeración adaptativa, 15 min de inglés inmersivo (una canción + un cuento corto) |
+| **10:00-10:30** | **Recreo** — Matías juega al fútbol en el patio de la EdF. Come una fruta del programa de meriendas. |
+| **10:30-12:30** | **Taller: Carpintería** — Esta rotación: construyendo una caja de herramientas. Matías lee las especificaciones del proyecto (lectura integrada), mide madera con regla y escuadra (matemática aplicada), lija, clava, arma. La caja es suya cuando termina. |
+| **12:30-13:30** | **Almuerzo** — Cocinado por el grupo de alumnos del taller de CUIDAR (nutrición y cocina). Matías comió milanesas de lentejas que sus compañeros prepararon. No le gustaron mucho. Pero aprendió que se puede cocinar sin carne y que no está mal. |
+| **13:30-15:00** | **Proyecto: Documentar la historia del barrio** — Matías y su grupo están entrevistando a vecinos del barrio y armando un podcast. Hoy entrevistaron a Don Roberto, que tiene 82 años y les contó cómo era el barrio cuando no había asfalto. Matías hizo las preguntas (comunicación). Su compañera Lucía grabó el audio (tecnología). Juntos van a editar el episodio la semana que viene. |
+| **15:00-16:00** | **Taller: Primeros Auxilios** — Rotación obligatoria. Matías aprendió RCP básico con un muñeco de práctica. Le pareció difícil pero importante. Leyó el protocolo paso a paso en una lámina (lectura integrada). |
+| **16:00-16:30** | **Reflexión + Portfolio** — Matías abre su Portfolio Ciudadano en la PAA y sube una foto de su caja de herramientas en progreso. Escribe dos oraciones sobre lo que aprendió hoy. Su Maestra le deja un comentario: "Esa caja va a durar más que cualquier examen de matemáticas." |
+
+**Un día en la vida de Valentina (16 años)**
+
+| Horario | Actividad |
+|---|---|
+| **7:00-10:00** | **Bloque Matutino:** PAA Adaptativa — Valentina está en un camino avanzado de cálculo vectorial (eligió profundizar en matemática aplicada para su emprendimiento de filtros de agua). 45 min de PAA adaptativa. 45 min de Sesión Socrática: seminario con su Maestro y 11 compañeros sobre el problema del acceso al agua potable en comunidades rurales — datos, ética, ingeniería, política (pensamiento sistémico real). 30 min de módulo de alfabetización post-laboral: hoy, cómo funciona un fideicomiso de propósito perpetuo y por qué importa para el futuro del trabajo. |
+| **10:00-10:30** | **Recreo** — Valentina toma mate con sus compañeras y revisan el guion de la nota que van a publicar en el medio de la EdF. |
+| **10:30-12:30** | **Taller: Periodismo y Producción de Medios** — Valentina está en el equipo editorial de la revista digital de la Escuela del Futuro. Hoy: edición final de un artículo investigativo sobre la calidad del agua del Río Negro. Lee papers científicos como fuente (lectura integrada avanzada). Escribe, corrige, debate encuadres con su editora (una compañera de 17). |
+| **12:30-13:30** | **Almuerzo** — Valentina almuerza en el comedor de la EdF. Hoy cocina el grupo de 14-16 del taller de nutrición. |
+| **13:30-15:00** | **Bloque de Proyecto: Investigación de calidad del agua del Río Negro** — Valentina y su equipo analizan muestras de agua que recolectaron la semana pasada. Usan el kit de análisis del laboratorio de la EdF. Comparan resultados con los estándares del Código Alimentario Argentino (lectura técnica). Documentan hallazgos para su Portfolio Capstone. |
+| **15:00-16:30** | **Bloque de Emprendimiento: Empresa de filtros de agua** — Valentina cofundó un Emprendimiento Educativo que diseña y produce filtros de agua de bajo costo con materiales reciclados. Hoy: reunión con su mentora de PLANREP (una ingeniera del Centro de la Vida local) para revisar el prototipo v3. Revisan costos, prueban eficiencia, planifican la presentación para la Feria de la Vida del mes que viene. Los filtros se venden a precio de costo a familias de la zona. Las ganancias se reinvierten en materiales. |
+| **16:30-17:00** | **Reflexión + Portfolio** — Valentina actualiza su Portfolio Ciudadano: sube el resultado del análisis de agua, una foto del prototipo v3, y una reflexión de medio párrafo sobre qué aprendió hoy. Su Portfolio ya tiene 4 años de trabajo acumulado. |
+| **17:00-21:00** | **Escuela Abierta (opcional)** — Valentina se queda hasta las 19:00: usa el makerspace para imprimir una pieza de repuesto del filtro en la impresora 3D. A las 18:00 participa del club de inglés conversacional (practica una presentación en inglés para un concurso internacional de emprendimiento juvenil). A las 18:30 su mamá llega al círculo de "Leer para Encender Familiar" — están leyendo *Cuentos de los dos lados* de Heker. |
+
+Dos vidas. Dos edades. Un mismo sistema que los trata como seres humanos con potencia, no como recipientes vacíos que llenar.
+
+#### 4.6.6 El Maestro Creador en el Modelo 3+5
+
+El modelo 3+5 no degrada al docente — lo **eleva**. En el sistema actual, el docente dedica la mayor parte de su energía a la tarea más baja de su profesión: transmitir información que un libro (o una IA) podría transmitir igual o mejor. Es como pedirle a un cirujano que pase el día esterilizando instrumentos. Puede hacerlo — pero es un desperdicio de todo lo que sabe.
+
+En el modelo 3+5, el Maestro Creador opera en dos modos:
+
+**Por la mañana: Facilitador adaptativo y coach socrático.**
+- Monitorea el dashboard de la PAA — identifica alumnos atascados, patrones de confusión compartida, oportunidades de profundización.
+- Lidera las Sesiones Socráticas — no repite lo que la PAA enseñó, sino que lo cuestiona, lo conecta, lo problematiza. Hace las preguntas que ningún algoritmo sabe hacer: "¿Y vos qué pensás?" "¿Por qué te parece que eso importa?" "¿Qué pasaría si fuera al revés?"
+- Brinda mentoría personalizada — se sienta al lado del alumno que está trabado y lo acompaña. No con la respuesta, sino con la presencia.
+- Este es trabajo de **mayor complejidad** que dar una clase expositiva. Requiere escucha, adaptación en tiempo real, conocimiento profundo de cada alumno, y capacidad de improvisación pedagógica. Es el docente como artista, no como repetidor.
+
+**Por la tarde: Líder de taller en su área de expertise y pasión.**
+- Cada Maestro Creador tiene un área de taller donde brilla — carpintería, música, periodismo, robótica, cocina, teatro, código, huerta. La parte de la enseñanza que lo hizo elegir la profesión.
+- Acá el Maestro no monitorea una pantalla. Trabaja con las manos junto a los alumnos. Demuestra. Corrige. Comparte trucos del oficio. Se ríe. Se frustra cuando algo no sale. Modela lo que significa ser un adulto que crea y que disfruta creando.
+- Los talleres son el espacio donde la relación docente-alumno se profundiza — porque no hay nada que genere más confianza que hacer algo juntos.
+
+El modelo 3+5 es un **upgrade** para el docente. Mejor pago, más respetado, más autónomo, haciendo el trabajo que eligió hacer. El docente que hoy llega a casa agotado de repetir lo mismo seis veces a seis grupos distintos, en el modelo 3+5 llega a casa habiendo acompañado descubrimientos a la mañana y habiendo construido algo hermoso con sus alumnos a la tarde. Esa es la diferencia entre sobrevivir y encenderse.
+
+### 4.7 Emprendimientos Estudiantiles: Crear Valor desde la Escuela
+
+> *"Si un chico de 15 años puede gestionar una empresa de filtros de agua que le resuelve un problema real a su comunidad — ¿qué estamos haciendo enseñándole a memorizar la clasificación de los triángulos?"*
+
+#### 4.7.1 Edades 6-13: Empresas Simuladas + Portfolios de Proyectos
+
+La capacidad de crear valor no aparece a los 18 años. Se construye desde los 6 — si el sistema la estimula en vez de apagarla.
+
+**"Mi Primer Proyecto" (6-9 años):** Experiencias de emprendimiento a escala infantil que enseñan los fundamentos sin la presión del mercado real. El puesto de limonada en la feria de la EdF — con cartel, precios, cálculo de costos, y la experiencia de venderle algo a un adulto que te paga con monedas. La tienda del aula — inventario, precios, "ventas", "ganancias" en moneda simulada. La feria de artesanías — cada chico produce algo en el taller de CREAR, le pone precio, lo presenta, lo vende. La experiencia es el producto, no la ganancia.
+
+**"Empresa Joven" (10-13 años):** Un escalón más arriba. Los proyectos son grupales, duran un semestre, y simulan todas las funciones de un emprendimiento real:
+- **Servicio de comida:** el grupo diseña un menú, calcula costos, produce la comida en el taller de nutrición, y la vende en el comedor de la EdF a precio real. Moneda simulada pero contabilidad real.
+- **Producción de medios:** una productora juvenil que ofrece servicios de video, podcast y diseño gráfico a otras áreas de la EdF. Clientes reales (los talleres que necesitan material), presupuestos reales, plazos reales.
+- **Consultoría de barrio:** el grupo identifica un problema del barrio (iluminación deficiente, basura acumulada, espacio público abandonado), investiga soluciones, y presenta una propuesta al municipio o a la junta vecinal.
+- Cada empresa mantiene estados financieros simples, hace marketing, documenta su proceso, y presenta resultados al final del semestre ante un jurado de pares y Maestros.
+
+Todo documentado en el Portfolio Ciudadano. Cada empresa requiere **leer y escribir** — planes de negocio, propuestas, registros financieros, informes. "Leer para Encender" en acción: la lectura no como obligación abstracta sino como herramienta para hacer algo que importa.
+
+#### 4.7.2 Edades 14+: Emprendimientos Reales vía Centros de la Vida PLANREP
+
+A partir de los 14 años, los emprendimientos dejan de ser simulados. Son reales. Con clientes reales, ingresos reales, impacto real. Y se conectan con la infraestructura de PLANREP — porque la red de Centros de la Vida que PLANREP despliega en todo el país es el ecosistema natural para que los emprendimientos estudiantiles nazcan, crezcan y aprendan.
+
+**TABLA 13: Tipos de Emprendimientos Estudiantiles**
+
+| Tipo | Ejemplos | Capacidades Principales |
+|---|---|---|
+| **Producto** | Filtros de agua, muebles, cerámicas artesanales, alimentos procesados, indumentaria | CREAR + CONSTRUIR |
+| **Servicio** | Tutoría académica, medios comunitarios, producción de eventos, cuidado de personas, diseño gráfico | CUIDAR + COMUNICAR |
+| **Tecnología** | Apps para problemas locales, sitios web para comercios del barrio, análisis de datos para organizaciones sociales | PENSAR + CREAR |
+| **Ambiental** | Compostaje barrial, huerta urbana, reciclaje especializado, restauración de espacios verdes | CUIDAR + CONOCER |
+
+**Marco legal:** PLANEDU propone la creación de la figura de **"Micro-Emprendimiento Educativo"** — un estatus simplificado que permite a los emprendimientos estudiantiles operar legalmente sin la carga burocrática y fiscal de una empresa convencional. Facturación simplificada. Exención impositiva hasta un umbral. Protección legal del menor. Supervisión del Maestro Creador como tutor legal del emprendimiento.
+
+**Ingresos:** Los estudiantes **conservan las ganancias** de sus emprendimientos. La Escuela del Futuro provee la infraestructura — espacio, equipamiento, materiales a costo, acceso a mentores — pero no se queda con un porcentaje. El emprendimiento es del alumno. La escuela es la plataforma que lo hace posible.
+
+**Integración con PLANREP:**
+
+**TABLA 14: Cómo la Infraestructura PLANREP Potencia los Emprendimientos Estudiantiles**
+
+| Infraestructura PLANREP | Cómo la Usan los Emprendimientos Estudiantiles |
+|---|---|
+| **Centros de la Vida** (120 en todo el país) | Espacio de taller ampliado, equipamiento profesional, materiales a costo, matching con mentores adultos que tienen experiencia en el rubro |
+| **Maestros de Oficio** | Talleres especializados para equipos emprendedores. Guía de estándares de calidad profesional. El carpintero que lleva 30 años en el oficio le enseña al equipo de muebles cómo hacer una unión que no se afloja |
+| **PLANREP-Móvil** | Llevan oportunidades de emprendimiento a Escuelas del Futuro rurales que no tienen un Centro de la Vida cerca. Furgón equipado con herramientas, materiales, y un Maestro de Oficio itinerante |
+| **Plataforma de Marketplace** | Los emprendimientos estudiantiles se listan junto a los emprendimientos adultos de PLANREP, identificados con la etiqueta "Emprendimiento Educativo". Visibilidad real. Clientes reales. Dignidad real |
+| **Ferias de la Vida** | Los emprendimientos estudiantiles participan en las ferias regionales y nacionales de PLANREP. Los mejores se exhiben, se premian, y se conectan con oportunidades de escalamiento |
+
+#### 4.7.3 La Conexión con la Lectura
+
+Y acá cerramos el círculo — porque los emprendimientos estudiantiles son la evidencia más poderosa de que "Leer para Encender" funcionó.
+
+Un chico que a los 10 años no podía leer un párrafo completo, que pasó por el Motor de Aceleración Lectora, que leyó planos en carpintería, guiones en teatro, protocolos en primeros auxilios — ese chico, a los 15, está escribiendo un plan de negocio para su empresa de compostaje barrial. Está leyendo contratos con el municipio. Está redactando propuestas para presentar en la Feria de la Vida. Está haciendo algo que cinco años antes habría sido imposible — no porque le faltara inteligencia, sino porque le faltaba la herramienta más básica: saber leer de verdad.
+
+Los emprendimientos son la motivación de lectura más potente que existe para los alumnos que resisten la instrucción tradicional. No leés porque la maestra te lo pide. No leés para aprobar un examen. Leés porque **necesitás** leer para hacer funcionar tu emprendimiento. Necesitás leer la especificación técnica del filtro de agua que estás construyendo. Necesitás leer el contrato con tu primer cliente. Necesitás leer el informe financiero de tu empresa para saber si estás ganando o perdiendo plata. La lectura deja de ser una obligación escolar y se convierte en una herramienta de poder — tu poder de crear, de producir, de transformar tu realidad.
+
+Ese es el objetivo final de "Leer para Encender": no producir lectores que leen por obligación, sino seres humanos que leen porque descubrieron que leer es la llave que abre todas las puertas. Y los emprendimientos estudiantiles son la puerta más grande que un adolescente puede abrir.
+
+> *"El chico que no sabía leer a los 10 escribe planes de negocio a los 15. Eso no es un milagro — es un sistema que funciona."*
+
 ---
 
-## SECCIÓN 5: EDUCAR PARA TRES FUTUROS — LA EDUCACIÓN COMO SISTEMA OPERATIVO DE LA TRANSICIÓN
+## SECCIÓN 5: EDUCAR PARA TRES FUTUROS
 
 > *"Un plan educativo que solo prepara para el presente es un plan que condena al futuro. PLANEDU prepara para tres futuros — porque no sabemos cuál va a llegar, pero sabemos que podemos diseñarlos todos."*
 
@@ -414,26 +734,54 @@ La revolución salarial es progresiva — no se multiplica por tres el salario d
 3. **Maestro Formador** (forma a otros docentes, estatus de director)
 4. **Maestro Referente Nacional** (top 100, investiga, representa internacionalmente)
 
-### Pilar II: AI como Co-Tutor — La Tecnología al Servicio del Aprendizaje
+### Pilar II: PAA 2.0 — Socrática + Adaptativa: La Plataforma que Enciende
 
-La IA no reemplaza al docente — lo libera.
+La IA no reemplaza al docente — lo libera. Y la PAA 2.0 es mucho más que un tutor: es el sistema nervioso digital de todo el Modelo 3+5.
 
-**La AI Socrática:** A diferencia de las plataformas existentes que explican y muestran, la PAA (Plataforma Argentina de Aprendizaje) incorpora un modelo pedagógico socrático: la AI **pregunta** más de lo que responde. No le dice al alumno "la respuesta es X" — le pregunta "¿por qué creés que es X?" y lo guía hacia el descubrimiento. Esto es pedagógicamente más poderoso y computacionalmente más simple que las plataformas de respuesta directa.
+**De Socrática a Socrática + Adaptativa:**
 
-**Costo Realista:**
+La visión original de la PAA — una AI socrática que pregunta más de lo que responde — sigue siendo el corazón filosófico de la plataforma. Pero la evidencia de Alpha School y otras implementaciones de AI educativa demostró que la metodología socrática sola es insuficiente para el dominio de habilidades fundacionales (lectura, matemáticas, adquisición de idiomas). Estas habilidades requieren práctica adaptativa con repetición espaciada, retroalimentación inmediata y calibración individualizada de dificultad. La PAA 2.0 es AMBAS cosas: Socrática para la comprensión profunda (el POR QUÉ), Adaptativa para el dominio fundacional (el QUÉ). La IA socrática le pregunta al alumno "¿por qué creés que es X?" y lo guía hacia el descubrimiento. El motor adaptativo le presenta la práctica exacta que necesita, en el momento exacto, con el nivel de dificultad calibrado a su progreso real. Juntas, producen algo que ninguna de las dos logra sola: aprendizaje profundo Y dominio sólido.
+
+**El "Dash Argentino" — Motor de Orquestación de Aprendizaje Open-Source:**
+
+El Dash Argentino es el cerebro operativo de la PAA 2.0 — un motor de orquestación que conecta todas las piezas del Modelo 3+5 en una experiencia integrada para cada alumno, cada docente y cada familia:
+
+- **Ruta de aprendizaje individualizada:** Generación de caminos de aprendizaje basados en evaluación diagnóstica + datos de desempeño continuo. Cada alumno tiene un mapa de competencias vivo que se actualiza en tiempo real.
+- **Motor de repetición espaciada:** Sistema Leitner adaptado con optimización por IA para vocabulario, operaciones matemáticas, gramática, conceptos científicos. La ciencia cognitiva aplicada al aula: la información se repasa justo antes de que se olvide.
+- **Detección de brechas en tiempo real:** Identifica prerrequisitos faltantes y redirige al alumno para llenarlos antes de avanzar. No más alumnos "arrastrando" lagunas de años anteriores sin que nadie se entere.
+- **Integración con "Leer para Encender":** Módulo de aceleración lectora para alumnos por debajo del umbral (ver Sección 4.5). Lectura como prioridad absoluta — sin lectura, nada del resto funciona.
+- **Motor de programación de talleres:** Recomienda rotaciones de talleres basadas en intereses del alumno, brechas de capacidades y optimización de grupos de pares. El alumno explora todas las Siete Capacidades, con énfasis progresivo en sus fortalezas naturales.
+- **Dashboard docente:** Visibilidad en tiempo real del progreso de cada alumno, con alertas para estudiantes estancados o desenganchados. El Maestro Creador no necesita adivinar — la PAA le dice exactamente quién necesita atención y por qué.
+- **Tracking de portfolio:** Documentación automática de hitos de dominio y proyectos completados. El portfolio se construye orgánicamente a medida que el alumno avanza — no como una tarea burocrática adicional.
+- **Tracking de emprendimientos:** Para alumnos de 14+ años, seguimiento de micro-emprendimientos reales: plan de negocio, hitos, mentoría, impacto. Integración con el fondo semilla y la red de Maestros de Oficio de PLANREP.
+- **Arquitectura offline-first:** Funcionalidad completa sin internet; sincronización cuando se conecta. Crítico para la Argentina rural (ver Sección 7.4). No hay excusa para que un alumno de Formosa tenga menos acceso que uno de Palermo.
+
+**Stack Open-Source:**
+
+| Capa | Tecnología | Modelo |
+|---|---|---|
+| Core del Dash Argentino | Plataforma soberana argentina | MIT/Apache, código auditable, propiedad del Estado |
+| Motor de repetición espaciada | Derivado de Anki adaptado para K-12 | Open source |
+| Módulos de contenido | Competencia abierta (ver Sección 13.2) | Empresas desarrollan módulos que cumplen estándares ANCE |
+| Modelos de IA | Fine-tuned en español argentino (rioplatense) | Entrenados sobre currículo nacional + literatura argentina |
+| Puente internacional | Khan Academy, Duolingo, etc. | Contenido transicional mientras la biblioteca PAA madura |
+
+**Costo Realista (PAA 2.0):**
 
 | Componente | Costo | Justificación |
 |---|---|---|
-| Desarrollo de PAA (Año 1-5) | USD 500M-1.500M | Incluye: entrenamiento de modelos en español argentino, desarrollo de módulos para Siete Capacidades, interfaz para docentes y alumnos, modo offline, testing |
+| Desarrollo de PAA 2.0 (Año 1-5) | USD 800M-2.000M | Scope expandido: Socrática + Adaptativa + Leer para Encender + Dash Argentino + motor de talleres + tracking de emprendimientos |
 | Dispositivos (tabletas/laptops) para 12M alumnos | USD 1.000-2.000M (progresivo) | ~USD 100-150 por dispositivo a escala × 12M alumnos = desplegado en 5 años |
-| Operación anual | USD 100-200M/año | Servidores, actualizaciones, soporte, mejora continua |
-| **Costo por alumno (a régimen)** | **~USD 50-100/año** | **Menos que un set de libros de texto. Más impacto que cualquier material impreso.** |
+| Operación anual | USD 150-300M/año | Plataforma más compleja: más servidores, más soporte, actualizaciones continuas, equipo de desarrollo permanente |
+| **Costo por alumno (a régimen)** | **~USD 50-120/año** | **Menos que un set de libros de texto. Más impacto que cualquier material impreso.** |
 
-La plataforma se desarrolla como **infraestructura soberana** pero usa como puente plataformas internacionales existentes (Khan Academy, Duolingo, etc.) durante los primeros años. El core open-source permite que otros países hispanohablantes adapten y contribuyan.
+La plataforma se desarrolla como **infraestructura soberana** pero usa como puente plataformas internacionales existentes durante los primeros años. El core open-source permite que otros países hispanohablantes adapten y contribuyan. La diferencia con Conectar Igualdad (2010-2018) es filosófica: no se reparten dispositivos — se construye un ecosistema pedagógico completo donde la tecnología está al servicio del aprendizaje, no al revés.
 
 ### Pilar III: Red de 500 Escuelas del Futuro
 
 Distribuidas en todo el país (mínimo 10 por provincia, prioridad en zonas vulnerables + ciudades PLAN24CN). Cada una: espacio rediseñado (talleres, labs, huertos, foro asambleario), horario 7:00-21:00 los 350 días, equipo de 20-40 Maestros Creadores, conexión con el mundo real (pasantías desde los 14), gobernanza participativa (Consejo Escolar con docentes, alumnos, familias, comunidad).
+
+**Espacios del Modelo 3+5:** Cada Escuela del Futuro requiere, como mínimo: 6-8 espacios de taller especializados (carpintería, cocina, makerspace, estudio de medios, laboratorio de ciencias, estudio de arte, espacio de código, área agrícola/huerta), una sala de lectura/biblioteca con 5.000+ volúmenes físicos (curada para todos los niveles de lectura — desde libros ilustrados hasta literatura avanzada — como parte integral de *Leer para Encender*), un espacio de incubación para emprendimientos estudiantiles (edades 14+), y espacios flexibles reconfigurables para sesiones socráticas, proyectos de equipo o trabajo individual con PAA. La integración con PLAN24CN reduce el costo por escuela en un 20-30% a través de infraestructura compartida (red digital, energía renovable, espacios públicos).
 
 ### Pilar IV: Bilingüismo Universal
 
@@ -585,6 +933,10 @@ Dashboard público en tiempo real, inspirado en el Tablero Nacional del PLANISV:
 | Capacidad de generar valor sin empleo formal | Portfolio de contribución independiente evaluado por ANCE | Programa piloto en 10 EdF | 30% de egresados EdF con proyecto de contribución activo | 60% | ANCE |
 | Alfabetización post-laboral | Evaluación de comprensión de DNP, fideicomisos, economía de contribución | Módulo integrado en currículo de EdF | 50% de alumnos de 16+ demuestran comprensión | 80% | ANCE |
 | Participación en deliberación de futuro económico | Registro de participación en Paneles Ciudadanos de Futuro | Paneles simulados operativos en 50 EdF | 10% de egresados participaron antes de los 20 | 25% | ANCE + Paneles Ciudadanos |
+| Proficiencia lectora (Leer para Encender) | Diagnóstico anual de lectura | 60% de alumnos por debajo del nivel recuperados en 18 meses (EdF) | 80% tasa de recuperación; <15% por debajo del nivel en EdF | 90% recuperación; <10% por debajo del nivel en todo el sistema | ANCE |
+| Horas de taller por alumno/año | Registro administrativo | 600+ horas (EdF) | 600+ horas (EdF), 200+ (escuelas de irradiación) | 600+ horas (sistema) | ANCE |
+| Emprendimientos estudiantiles lanzados | Registro de emprendimientos | 500 (primeras 50 EdF) | 5.000 (500 EdF) | 15.000+ | ANCE + PLANREP |
+| Participación familiar en Leer para Encender | Registro de uso de PAA por familias | 30% de familias en EdF participan activamente | 50% de familias en EdF | 40% de familias en todo el sistema | ANCE + CDT |
 
 ---
 
@@ -672,6 +1024,7 @@ La lección de PLANREP es directa: cuando tratás a los sindicatos como enemigos
 | Formación como beneficio laboral | 100 horas anuales de desarrollo profesional — pagas, en horario laboral | Mejora las condiciones laborales reales |
 | Protección de derechos adquiridos | Ningún docente en ejercicio pierde derechos bajo el marco actual | Seguridad para la base |
 | Transición voluntaria | El nuevo marco de carrera se aplica a nuevos ingresantes; los actuales pueden optar voluntariamente | Sin imposición |
+| Evolución del rol en el Modelo 3+5 | Mañanas: Maestro como facilitador y coach adaptativo — liberado de la clase expositiva por la PAA, dedicado a sesiones socráticas de alto nivel, mentoría individualizada y acompañamiento emocional. Tardes: Maestro como líder de taller en su área de especialización y pasión — la parte de la enseñanza que lo atrajo a la profesión. | Upgrade profesional: trabajo más significativo, menos repetición mecánica. El Maestro Creador en el Modelo 3+5 hace lo que siempre quiso hacer — y deja lo que siempre odió a la tecnología |
 
 **Lo que los sindicatos aportan a PLANEDU:**
 
@@ -776,13 +1129,14 @@ PLANEDU no pretende que la transformación educativa sea barata. Pretende que se
 |---|---|---|---|---|---|
 | **Pilar I: Formación de Maestros Creadores** | 500 | 1.000 | 800 | 300 | Residencia de Transformación (2.000→10.000→25.000 docentes), infraestructura de formación, formadores |
 | **Pilar I: Incremento salarial docente** | 200 | 800 | 3.000 | 8.000 | Phased: Año 1-3: 5.000 docentes al nuevo salario (EdF). Año 4-7: 25.000. Año 8-12: 100.000. Régimen: 500.000 |
-| **Pilar II: PAA — Plataforma AI** | 300 | 500 | 400 | 200 | Desarrollo core + dispositivos para EdF + expansión a sistema. Incluye infraestructura de servidores, equipo de desarrollo, licencias |
+| **Pilar II: PAA 2.0 — Plataforma AI Socrática + Adaptativa** | 400 | 600 | 500 | 300 | Desarrollo expandido: Socrática + Adaptativa + Leer para Encender + Dash Argentino + motor de talleres + tracking de emprendimientos. Incluye infraestructura de servidores, equipo de desarrollo |
+| **Equipamiento de talleres + fondo semilla de emprendimientos** | 200 | 300 | 200 | 100 | Equipamiento para 24+ talleres por EdF (herramientas, materiales, tecnología) + fondo semilla para emprendimientos estudiantiles (edades 14+). Incluye reposición y actualización |
 | **Pilar III: 500 Escuelas del Futuro** | 1.500 | 2.000 | 1.000 | 500 | Construcción nueva: ~50 (Año 1-3), ~200 (Año 4-7), ~250 (Año 8-12). Mantenimiento en régimen |
 | **Pilar IV: Bilingüismo** | — | — | — | — | Incluido en Pilar I (formación) y Pilar II (PAA). No es costo separado |
 | **Pilar V: ANCE + Gobernanza** | 100 | 80 | 80 | 80 | Creación del organismo, staff técnico, sistemas de evaluación, tablero público |
 | **S6: Primera Infancia (Centros 0-5 años)** | 300 | 500 | 700 | 500 | Construcción y operación de Centros de Primera Infancia vinculados a EdF. 500 centros en 12 años |
 | **S6: Comedores + bienestar estudiantil** | 200 | 400 | 500 | 500 | Upgrade de comedores a estándar nutricional PLANISV + gabinetes psicopedagógicos + becas |
-| **TOTAL INCREMENTAL** | **~3.100** | **~5.280** | **~6.480** | **~10.080** | **Sobre el gasto actual de ~30.000M/año** |
+| **TOTAL INCREMENTAL** | **~3.400** | **~5.680** | **~6.780** | **~10.280** | **Sobre el gasto actual de ~30.000M/año** |
 
 **Notas de consistencia interna:**
 
@@ -1044,6 +1398,8 @@ Desde los 14 años, los alumnos de las Escuelas del Futuro pasan 1-2 días por s
 | **Sectores prioritarios** | Alineados con Ocho Ramas del Trabajo Vivo (PLANREP): artesanía, cuidado, alimentación, construcción, experiencia, industria creativa, economía circular, regeneración ambiental + tecnología, ciencia, servicios profesionales | Diversidad de experiencias garantizada |
 | **Plataforma digital** | Red Nacional de Pasantías: matchmaking escuela-empresa, seguimiento, evaluación, portfolio | Integrada con PAA |
 
+**Conexión con Emprendimientos Estudiantiles (Sección 4.7):** A partir de los 14 años, las pasantías se complementan con los emprendimientos estudiantiles reales del Modelo 3+5. Mientras la pasantía enseña a trabajar *dentro* de una estructura existente (empresa, taller, organización), el emprendimiento enseña a crear valor *desde cero*. Los Centros de la Vida de PLANREP son el puente: un estudiante puede hacer su pasantía en un Centro y simultáneamente incubar su propio emprendimiento usando la infraestructura del mismo Centro. Los Maestros de Oficio de PLANREP mentorean tanto pasantías como emprendimientos — garantizando estándares de calidad y conexión con el mundo real. La Red Nacional de Pasantías integrada en la PAA conecta ambos mundos: match de pasantías + registro de emprendimientos + seguimiento de portfolio.
+
 **Lo que cada parte obtiene:**
 
 | Actor | Beneficio Concreto |
@@ -1089,11 +1445,11 @@ Esto no es altruismo ingenuo. Es la mejor estrategia de soft power que la Argent
 
 ## SECCIÓN 14: ANÁLISIS DE RIESGO — QUÉ PUEDE SALIR MAL Y CÓMO LO PREVENIMOS
 
-> *"Un plan que no anticipa sus propios fracasos no es un plan — es una fantasía. PLANEDU anticipa catorce maneras de fracasar y tiene una respuesta para cada una."*
+> *"Un plan que no anticipa sus propios fracasos no es un plan — es una fantasía. PLANEDU anticipa dieciséis maneras de fracasar y tiene una respuesta para cada una."*
 
-Ningún plan de esta magnitud está exento de riesgo. La diferencia entre un plan serio y un plan fantasioso no es la ausencia de riesgos — es la presencia de mitigaciones específicas y triggers de contingencia que se activan automáticamente cuando las cosas no salen como se esperaba. PLANEDU identifica catorce riesgos principales y para cada uno define: probabilidad, impacto, mitigación primaria, y el trigger exacto que activa la contingencia.
+Ningún plan de esta magnitud está exento de riesgo. La diferencia entre un plan serio y un plan fantasioso no es la ausencia de riesgos — es la presencia de mitigaciones específicas y triggers de contingencia que se activan automáticamente cuando las cosas no salen como se esperaba. PLANEDU identifica dieciséis riesgos principales y para cada uno define: probabilidad, impacto, mitigación primaria, y el trigger exacto que activa la contingencia.
 
-**TABLA 25: Matriz de Riesgos de PLANEDU — 14 Riesgos Críticos**
+**TABLA 25: Matriz de Riesgos de PLANEDU — 16 Riesgos Críticos**
 
 | # | Riesgo | Probabilidad | Impacto | Mitigación Primaria | Trigger de Contingencia |
 |---|---|---|---|---|---|
@@ -1111,6 +1467,8 @@ Ningún plan de esta magnitud está exento de riesgo. La diferencia entre un pla
 | 12 | **Los Maestros Creadores iniciales no alcanzan el estándar** — La primera cohorte de 2.000 docentes no logra el nivel de excelencia esperado después de la Residencia de Transformación | Baja | Alto | Selección rigurosa (tercio superior + evaluación de aptitudes) + Residencia de Transformación intensiva de 12 meses con evaluación continua + mentores experimentados | Si >20% de la cohorte no pasa evaluación final → extensión de Residencia por 6 meses + tutoría individualizada + revisión del programa de formación con panel externo. Nadie se certifica sin alcanzar el estándar |
 | 13 | **El sistema dual (EdF + convencionales) crea segregación** — Las Escuelas del Futuro se perciben como "escuelas de élite" y las convencionales como "escuelas de descarte", profundizando la desigualdad | Media | Alto | EdF ubicadas prioritariamente en zonas de ALTA vulnerabilidad (no en barrios ricos) + irradiación obligatoria (cada EdF forma docentes de 10 escuelas vecinas) + PAA disponible para TODO el sistema | Si brecha de resultados entre EdF y convencionales crece >30% en Año 5 → acelerar programa de irradiación + asignar más recursos del Fondo de Convergencia a escuelas convencionales + meta: 50% de escuelas convencionales adoptan al menos 3 de las 7 Capacidades en Año 8 |
 | 14 | **Cambio de gobierno abandona PLANEDU** — Un nuevo gobierno decide desmantelar PLANEDU por razones políticas, presupuestarias o ideológicas | Alta | Crítico | ANCE autárquica con blindaje legal (ley especial + piso presupuestario constitucional) + resultados tan visibles y medibles que abandonar PLANEDU tenga costo político prohibitivo + comunidad de Maestros Creadores organizada como grupo de presión cívica | Si nuevo gobierno intenta desmantelar → movilización de la comunidad de Maestros Creadores + padres de alumnos de EdF + visibilidad internacional (OCDE, UNESCO, BID como aliados) + recurso judicial por violación de ley de ANCE + publicación de datos comparativos (resultados EdF vs. convencionales) para que la sociedad vea qué se pierde |
+| 15 | **Brecha de lectura demasiado profunda para la PAA sola** — El motor de lectura adaptativo no logra recuperar a estudiantes con analfabetismo funcional severo (3+ años por debajo del nivel) | Alta | Alto | Motor "Leer para Encender" con tecnología adaptativa + repetición espaciada + gamificación + sistema de umbrales + programa familiar "Encender en Casa" + contenido multi-género en español argentino | Si <50% de los estudiantes por debajo del nivel se recuperan dentro de 24 meses → despliegue de tutores humanos de lectura (1 cada 15 estudiantes en nivel crítico) como complemento de PAA + extensión del período intensivo de Leer para Encender + revisión del algoritmo adaptativo con panel de expertos en lectoescritura |
+| 16 | **Emprendimientos estudiantiles generan responsabilidad legal/financiera** — Accidentes, deudas, conflictos legales o fraude en los emprendimientos reales de estudiantes de 14+ años | Media | Medio | Marco legal simplificado "Micro-Emprendimiento Educativo" + seguro obligatorio + supervisión de Maestro Creador + mentoría de Maestros de Oficio PLANREP + límites de capital y operación | Si ocurre un incidente de responsabilidad → seguro cubre daños + revisión del marco legal dentro de 30 días + suspensión temporal del tipo de emprendimiento afectado pendiente revisión + mediación PLANJUS para disputas |
 
 **Nota sobre el diseño de contingencias:** Cada trigger de contingencia tiene un responsable asignado (el Directorio de ANCE, un equipo de crisis específico, o una combinación), un plazo de activación (72 horas para contingencias operativas, 30 días para contingencias estratégicas), y un protocolo documentado que no depende de la buena voluntad del funcionario de turno. La automaticidad de las contingencias es la mejor defensa contra la inercia institucional.
 
@@ -1138,6 +1496,7 @@ Un plan que solo convence a los que ya estaban convencidos no sirve. PLANEDU nec
 | 10 | **"¿Y las universidades?"** | Académicos, rectores, comunidad universitaria | PLANEDU no reforma universidades — la autonomía universitaria tiene rango constitucional y PLANEDU la respeta. Lo que sí hace: reforma la formación docente (ISFDs + certificación ANCE), crea incentivos para que las universidades participen voluntariamente en la formación de Maestros Creadores, y — lo más importante — produce egresados secundarios tan bien formados que las universidades van a tener que subir su nivel para estar a la altura. | Sección 7.2 (en documento base) |
 | 11 | **"Los vouchers de Chile fracasaron, esto es lo mismo"** | Izquierda educativa, defensores de la escuela pública | PLANEDU NO propone vouchers. El financiamiento sigue siendo público, directo, estatal. No hay mecanismo de mercado que permita a las familias "elegir" escuela con dinero público. Lo que cambia es QUÉ se enseña (Siete Capacidades) y CÓMO se evalúa (portfolio + dominio). La escuela pública no se debilita — se fortalece hasta ser la mejor opción. Las privadas subvencionadas deben adoptar los mismos estándares o perder el subsidio. | Sección 2.2 (en documento base) + Sección 13 |
 | 12 | **"Finlandia tardó 30 años, esto propone 15"** | Escépticos, académicos comparativistas | Finlandia empezó en 1972 sin internet, sin AI, sin 50 años de investigación educativa acumulada, sin evidencia de qué funciona y qué no. Argentina en 2026 tiene Khan Academy, tiene GPT, tiene décadas de estudios de Heckman, Bloom, Dweck, Wiliam y cien más. Tiene los errores de Chile, de Corea, de Singapur como lecciones. No empezamos de cero en conocimiento — empezamos de cero en voluntad. Y con voluntad + conocimiento + tecnología, 15 años son suficientes para la demostración. La transformación sistémica completa puede llevar 25-30 años — pero los primeros resultados medibles aparecen en 5. | Sección 2.4 (en documento base) + Sección 17 (cronograma) |
+| 13 | **"Tres horas de academia no alcanzan — los chicos van a salir sin saber"** | Padres preocupados, educadores tradicionales, opinión pública | Alpha School en Estados Unidos logra que sus alumnos estén en el top 1-2% nacional con solo **2 horas** de academias adaptativas comprimidas. PLANEDU usa 3 horas — un 50% más — con un blend más rico: IA adaptativa con repetición espaciada + sesiones socráticas guiadas por Maestros Creadores. La evidencia es inequívoca: no es la **cantidad** de horas académicas lo que determina los resultados, es la **calidad y la personalización**. Un alumno haciendo 3 horas de aprendizaje individualizado, adaptativo, con feedback inmediato y repetición espaciada domina más contenido que un alumno haciendo 5 horas de escucha pasiva. Y las 5 horas liberadas no se pierden — se dedican a talleres, proyectos y emprendimientos donde se aplican y profundizan las capacidades académicas en contextos reales. El chico que calcula el presupuesto de su emprendimiento está haciendo matemáticas. El que escribe el guión de un documental está haciendo lengua. El que lee los planos de carpintería está leyendo. El Modelo 3+5 no reduce la academia — la potencia distribuyéndola en la vida real. | Sección 2.5 (Alpha School) + Sección 4.6 (Modelo 3+5) |
 
 ---
 
@@ -1406,7 +1765,7 @@ Es 2040. Catorce años pasaron desde que PLANEDU se puso en marcha. Los escépti
 | Países que usan o adaptan PAA | 0 | 12 | Argentina como exportador educativo |
 | Escuelas del Futuro operativas | 0 | 500 (irradiando a ~15.000 escuelas convencionales) | Red nacional consolidada |
 
-Pero los números no cuentan la historia que importa. La historia que importa es la de Valentina.
+Pero los números no cuentan la historia que importa. La historia que importa es la de Valentina — y la de su hermano menor, Matías.
 
 ---
 
@@ -1427,6 +1786,8 @@ Pero los números no cuentan la historia que importa. La historia que importa es
 **18:00 — Makerspace: Proyecto Capstone.** Es voluntario, pero Valentina viene casi todas las tardes. Está trabajando en su Proyecto Capstone — el proyecto final que integra todo lo que aprendió en su trayectoria. El suyo: un filtro de agua de bajo costo fabricado con materiales locales (arena, grava, carbón activado de cáscara de coco, y una membrana de cerámica que aprendió a hacer en un taller con un ceramista del Nodo de Contribución PLANREP). El filtro cuesta menos de USD 15 en materiales y puede potabilizar 200 litros de agua por día. Valentina ya probó un prototipo en el laboratorio de la escuela y los resultados fueron buenos. Su plan: instalar los primeros 20 filtros en una comunidad Qom del interior del Chaco que no tiene agua potable de red. Ya habló con el cacique de la comunidad (en una visita de campo que organizó la escuela), ya tiene los materiales (donados por una empresa local a cambio de crédito fiscal por pasantía), y ya tiene un equipo de tres compañeros que la ayudan. El impacto — 120 personas con acceso a agua potable por primera vez — queda verificado en su Portfolio Ciudadano Único y amplifica el DNP de su familia: la contribución medida y verificada no solo genera reconocimiento sino retorno real dentro de la Economía de la Contribución. Las capacidades: CREAR (diseñar algo que no existía), CONSTRUIR (fabricar con las manos), CUIDAR (resolver un problema de salud pública real), PENSAR (método científico aplicado, análisis de datos de calidad de agua), COLABORAR (equipo + comunidad + empresa), COMUNICAR (presentación del proyecto al cacique, a la empresa, a los evaluadores de portfolio), CONOCER (ingeniería de materiales, química del agua, realidad social del Chaco profundo).
 
 ---
+
+**Mientras tanto, en la misma escuela: Matías, 9 años.** El hermano menor de Valentina llegó a la Escuela del Futuro hace tres años leyendo a nivel de un chico de 6. *Leer para Encender* lo detectó en el diagnóstico del primer día. Durante 18 meses, su primera hora de cada mañana fue en el motor de lectura adaptativo — gamificado, implacable, diseñado para encontrar exactamente lo que Matías no entendía y enseñárselo a su ritmo. Matías odiaba leer. *Leer para Encender* no le pidió que amara leer — le propuso desafíos, le dio insignias, le desbloqueó el taller de carpintería avanzada cuando alcanzó el umbral de lectura para comprender planos. Hoy Matías lee a nivel de su edad. Devora libros de aventuras por las noches — no porque alguien se lo pida, sino porque descubrió que leer es la puerta a mundos que no conocía. El mes pasado desbloqueó el taller de robótica porque alcanzó el umbral de comprensión de manuales técnicos. Su mamá, que nunca leyó un libro completo en su vida, participa del círculo de lectura comunitario de la Escuela Abierta los jueves a la noche — *Encender en Casa* le enseñó que la lectura no es solo para los chicos. La familia entera cambió. La casa tiene libros ahora. Matías y su mamá leen juntos los domingos.
 
 **El Portfolio Ciudadano de Valentina al egresar:**
 

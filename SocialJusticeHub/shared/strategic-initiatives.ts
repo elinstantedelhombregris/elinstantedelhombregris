@@ -666,7 +666,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
     title: 'PLANEDU',
     subtitle: 'Plan Nacional de Refundación Educativa para la Soberanía del Conocimiento Humano',
     category: 'educacion',
-    summary: 'Argentina ocupa el puesto 63 de 81 en PISA gastando más del 5% de su PBI en educación. El 46% de los alumnos no alcanza el nivel mínimo de comprensión lectora. PLANEDU propone una refundación basada en Siete Capacidades, Maestros Creadores, AI como co-tutor, y aprendizaje por dominio — con el objetivo de ubicar a Argentina en el top 20 mundial en 15 años.',
+    summary: 'Argentina ocupa el puesto 63 de 81 en PISA gastando más del 5% de su PBI en educación. El 46% de los alumnos no alcanza el nivel mínimo de comprensión lectora — y en el quintil más pobre, el analfabetismo funcional llega al 70%. PLANEDU propone una refundación basada en Siete Capacidades, Maestros Creadores, el Modelo 3+5 (3 horas de dominio adaptativo + 5 horas de talleres, proyectos y emprendimientos), "Leer para Encender" como Pilar Cero de alfabetización, y la PAA 2.0 (Socrática + Adaptativa) — adaptando las innovaciones de Alpha School para educación pública a escala, con el objetivo de ubicar a Argentina en el top 20 mundial en 15 años.',
     iconName: 'GraduationCap',
     documentFile: 'PLANEDU_Argentina_ES.md',
     elProblema: {
@@ -721,20 +721,26 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
 
 <p><strong>Maestros Creadores:</strong> Seleccionados del tercio superior, formados en 5 años, con salario piso de 1,5× el mediano profesional (~USD 1.200-1.500/mes inicial, escalando a USD 2.500+). Carrera por mérito: 4 niveles hasta Maestro Referente Nacional.</p>
 
-<p><strong>AI Socrática como Co-Tutor:</strong> Cada alumno con un asistente de IA personalizado que pregunta más de lo que responde — guiando hacia el descubrimiento, no dictando respuestas. Plataforma Argentina de Aprendizaje (PAA) desarrollada como infraestructura soberana.</p>
+<p><strong>Leer para Encender — El Pilar Cero:</strong> Sin lectura, nada funciona. Motor adaptativo de lectura con repetición espaciada y gamificación para alumnos por debajo del nivel + lectura integrada en TODAS las Capacidades y talleres. Programa familiar "Encender en Casa": padres usan PAA, círculos de lectura comunitarios, desafíos intergeneracionales. Objetivo: 80% de alumnos por debajo del nivel recuperados en 18 meses.</p>
+
+<p><strong>El Modelo 3+5:</strong> Inspirado en Alpha School (EE.UU., top 1-2% nacional con solo 2 horas de academia adaptativa), PLANEDU estructura la jornada en <strong>3 horas de dominio adaptativo</strong> (PAA con repetición espaciada + sesiones socráticas con Maestro Creador) + <strong>5 horas de talleres, proyectos y emprendimientos</strong>. 24+ talleres rotativos mapeados a las Siete Capacidades. Sin tarea para el hogar — todo sucede en la jornada escolar.</p>
+
+<p><strong>PAA 2.0 — Socrática + Adaptativa:</strong> El "Dash Argentino" — motor de orquestación open-source que genera caminos de aprendizaje individualizados con repetición espaciada, detección de brechas en tiempo real, motor de lectura "Leer para Encender", scheduling de talleres, dashboard docente, y arquitectura offline-first para zonas rurales.</p>
+
+<p><strong>Emprendimientos Estudiantiles:</strong> Edades 6-13: empresas simuladas. Edades 14+: emprendimientos reales vía Centros de la Vida PLANREP. Filtros de agua, medios comunitarios, huerta urbana, tecnología. Los emprendimientos son el motivador de lectura más potente: necesitás leer para crear un plan de negocios.</p>
 
 <p><strong>Aprendizaje por Dominio:</strong> Avanzás cuando demostrás que sabés, no cuando el calendario dice. Se terminó la farsa del "aprobé con 4".</p>
 
 <p><strong>Portfolio reemplaza al boletín:</strong> Cada alumno egresa con un cuerpo de creaciones reales — no con un papel.</p>
 
-<p><strong>500 Escuelas del Futuro:</strong> Laboratorios vivientes distribuidos en todo el país, abiertos 14 horas/día, 350 días/año, sirviendo a toda la comunidad.</p>
+<p><strong>500 Escuelas del Futuro:</strong> Laboratorios vivientes distribuidos en todo el país, abiertos 14 horas/día, 350 días/año, sirviendo a toda la comunidad. Espacios de taller, biblioteca con 5.000+ volúmenes, incubadora de emprendimientos, makerspace.</p>
 
 <p><strong>ANCE:</strong> Agencia Nacional de Calidad Educativa — ente autárquico, blindado contra el ciclo electoral, con directorio de 9 miembros (docentes, académicos, familias, sindicatos, estudiantes) y piso presupuestario del 0,5% del PBI.</p>`,
-      pullQuote: 'No les enseñemos a nuestros hijos a ganarse la vida. Enseñémosles a crear una vida que valga la pena ser vivida — y que haga del mundo un lugar mejor para todos.',
+      pullQuote: 'PLANEDU no copia a Alpha School — la supera. Alpha demostró que el tiempo sobra. PLANEDU demuestra que el tiempo liberado puede encender a una generación entera.',
       stats: [
-        { label: 'Capacidades centrales', value: '7' },
+        { label: 'Modelo diario', value: '3+5 horas' },
+        { label: 'Talleres rotativos', value: '24+' },
         { label: 'Escuelas del Futuro', value: '500' },
-        { label: 'ROI estimado (20 años)', value: '8:1 a 12:1' },
         { label: 'Salario docente objetivo', value: 'USD 1.200-3.500/mes' },
       ],
     },
@@ -760,7 +766,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
         {
           id: 3,
           title: 'Demostración: 50 Escuelas del Futuro',
-          description: '50 Escuelas del Futuro operando a régimen completo. 5.000 Maestros Creadores activos. PAA v1.0 desplegada en las 50 EdF. Primera evaluación de impacto: diferencia medible entre EdF y convencionales. Build in Public: documentación abierta de éxitos y fracasos. Programa de bilingüismo con inmersión en inglés desde los 4 años.',
+          description: '50 Escuelas del Futuro operando con el Modelo 3+5 a régimen completo. 5.000 Maestros Creadores activos. PAA 2.0 (Socrática + Adaptativa) desplegada. "Leer para Encender" como sprint de emergencia literaria: 60% de alumnos por debajo del nivel recuperados. Primeros emprendimientos estudiantiles reales. "Encender en Casa" operativo con familias. Primera evaluación de impacto. Build in Public: documentación abierta de éxitos y fracasos.',
           timeline: 'Año 3-5',
           dependencies: ['Irradiación: 500 Escuelas del Futuro'],
           orderIndex: 3,
@@ -768,7 +774,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
         {
           id: 4,
           title: 'Siembra: ANCE, currículo y cohorte fundacional',
-          description: 'Creación de la ANCE por ley del Congreso. Diseño del currículo de Siete Capacidades con equipos interdisciplinarios. Selección de 2.000 Maestros Creadores fundacionales (mejores docentes existentes) + Residencia de Transformación de 12 meses. Inicio de construcción/adaptación de 50 escuelas. Prototipo de la PAA. Diseño del portfolio. Campaña "La educación que merecemos". Pacto de la Dignidad con sindicatos docentes.',
+          description: 'Creación de la ANCE por ley del Congreso. Diseño del currículo de Siete Capacidades + Modelo 3+5 + talleres rotativos. Selección de 2.000 Maestros Creadores fundacionales + Residencia de Transformación de 12 meses. Desarrollo del "Dash Argentino" (PAA 2.0) y motor "Leer para Encender". Inicio de construcción de 50 EdF con espacios de taller. Pacto de la Dignidad con sindicatos (incluye evolución del rol docente en Modelo 3+5). Campaña "La educación que merecemos".',
           timeline: 'Mes 0-24',
           dependencies: ['Demostración: 50 Escuelas del Futuro'],
           orderIndex: 4,
@@ -854,8 +860,34 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
           { date: 'Año 12', targetValue: 2500 },
         ],
       },
+      {
+        id: 'lectura-recuperacion',
+        metric: 'Recuperación Lectora (Leer para Encender)',
+        currentValue: 0,
+        targetValue: 90,
+        unit: '% recuperados',
+        source: 'PLANEDU — Leer para Encender (Sección 4.5)',
+        milestones: [
+          { date: 'Año 5', targetValue: 60 },
+          { date: 'Año 10', targetValue: 80 },
+          { date: 'Año 15', targetValue: 90 },
+        ],
+      },
+      {
+        id: 'horas-taller',
+        metric: 'Horas de Taller por Alumno/Año (EdF)',
+        currentValue: 0,
+        targetValue: 600,
+        unit: 'horas/año',
+        source: 'PLANEDU — Modelo 3+5 (Sección 4.6)',
+        milestones: [
+          { date: 'Año 3', targetValue: 600 },
+          { date: 'Año 7', targetValue: 600 },
+          { date: 'Año 15', targetValue: 600 },
+        ],
+      },
     ],
-    tags: ['educación', 'maestros creadores', 'siete capacidades', 'inteligencia artificial', 'bilingüismo', 'portfolio', 'escuelas del futuro'],
+    tags: ['educación', 'maestros creadores', 'siete capacidades', 'inteligencia artificial', 'bilingüismo', 'portfolio', 'escuelas del futuro', 'leer para encender', 'modelo 3+5', 'emprendimientos estudiantiles', 'Alpha School', 'PAA 2.0'],
     relatedInitiativeSlugs: ['planisv-infraestructura-suelo-vivo', 'plan24cn-24-ciudades-nuevas', 'planrep-reconversion-empleo-publico', 'planjus-justicia-popular'],
     sources: [
       { title: 'PLANEDU — Plan Nacional de Refundación Educativa (Documento Estratégico, Mar 2026)' },
