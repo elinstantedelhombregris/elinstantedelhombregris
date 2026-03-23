@@ -1286,11 +1286,88 @@ Por eso PLANEB no es un cronograma rígido — es un sistema adaptativo con mét
 
 ---
 
-## SECCIÓN 19: VISIÓN 2040 — LA RED BASTARDA A ESCALA
+## SECCIÓN 19: DIMENSIÓN FEDERAL — 24 PROVINCIAS, UNA RED
+
+> *"La Argentina no es una ciudad con provincias. Es veinticuatro provincias que inventaron una ciudad para que las gobierne — y después se olvidaron de cobrarle alquiler."*
+
+La Argentina tiene 24 jurisdicciones: 23 provincias y la Ciudad Autónoma de Buenos Aires. Cada una con su constitución, sus entes reguladores, sus registros, sus lógicas. Cuando PLANEB propone crear Empresas Bastardas en siete sectores — seguros, banca, telecomunicaciones, energía, salud, alimentación, vivienda — no enfrenta un solo marco regulatorio sino una constelación de marcos superpuestos. Algunas Bastardas operan bajo reguladores nacionales y escalan con una sola habilitación. Otras chocan con regulaciones provinciales o municipales que varían de jurisdicción en jurisdicción. Sin una estrategia federal explícita, la Red Bastarda corre el riesgo de funcionar en Capital y Gran Buenos Aires y ser invisible en el resto del país — reproduciendo exactamente el centralismo que BASTA denuncia en todas sus dimensiones.
+
+**TABLA: Regulador por Sector × Jurisdicción**
+
+| Sector Bastarda | Regulador Principal | Jurisdicción | Nota |
+|---|---|---|---|
+| Seguros | SSN (Superintendencia de Seguros) | Nacional | Marco uniforme, facilita escalabilidad |
+| Banca | BCRA | Nacional | Regulación centralizada, una sola habilitación |
+| Telecomunicaciones | ENACOM | Nacional | Licencia MVNO nacional |
+| Energía (distribución) | ENRE + entes provinciales | Nacional + Provincial | Distribución es provincial; cada provincia tiene su ente regulador |
+| Salud prepaga | Superintendencia de Servicios de Salud | Nacional | Pero prestadores son provinciales/municipales |
+| Alimentación | SENASA + Bromatología municipal | Nacional + Municipal | Cadena de frío y habilitación son municipales |
+| Transporte | Municipios + provincias | Provincial/Municipal | Regulación de ride-hailing es local |
+| Vivienda | Registros de propiedad provinciales | Provincial | Derecho de propiedad es provincial |
+
+La tabla revela un patrón claro: los sectores más fáciles para la primera ola de Bastardas — seguros, banca, telecomunicaciones — son los que tienen regulación nacional uniforme. Los sectores más complejos — energía, alimentación, transporte, vivienda — requieren negociación provincia por provincia. Esta no es una debilidad del plan — es una variable de diseño. La cascada de lanzamiento de la Sección 7 ya refleja esta lógica: la Bastarda Aseguradora va primero porque la SSN es nacional y el producto es uniforme en todo el territorio.
+
+### 19.1 Bastardas Provinciales
+
+La Red Bastarda no es exclusivamente nacional. Las provincias pueden activar **Bastardas Provinciales** — entidades que operan dentro de una jurisdicción específica, bajo el mismo Protocolo Bastardo, pero interfaceando con reguladores provinciales en lugar de nacionales.
+
+El caso más evidente: una **Bastarda Energética Provincial** para Mendoza, operando dentro de la red de distribución provincial, interfaceando con el EPRE (Ente Provincial Regulador Eléctrico) mendocino, y aprovechando el potencial solar de Cuyo que hoy no se capitaliza porque la distribución está diseñada para beneficiar a la distribuidora, no al usuario.
+
+El mecanismo de activación replica el modelo nacional: **petición ciudadana con 10.000 firmas provinciales**, ajustadas por población. Provincias con menos de 500.000 habitantes requieren 5.000 firmas. Provincias con menos de 200.000 requieren 2.500. El principio: proporcionalidad, no uniformidad. Tierra del Fuego no debería necesitar la misma masa crítica que Buenos Aires para decidir que quiere una Bastarda propia.
+
+Las Bastardas Provinciales usan la misma infraestructura del Protocolo Bastardo — identidad, tesorería on-chain, gobernanza por sorteo, motor de transparencia — pero su ámbito operativo es la provincia. Participan del Fondo de Solidaridad Bastarda (el 2% sigue fluyendo al fondo común) y acceden a sus reservas cruzadas. Son autónomas en su operación pero federadas en su infraestructura.
+
+### 19.2 Convenios Marco ANEB-Provincia
+
+Para que las Bastardas — nacionales o provinciales — operen eficientemente en el interior, la ANEB firma **Convenios Marco Bilaterales** con cada provincia que quiera participar.
+
+El modelo es similar a los convenios bilaterales que PLANEDU propone entre la ANCE y las provincias para la refundación educativa: un acuerdo donde cada parte aporta lo que mejor sabe hacer.
+
+**La ANEB aporta:**
+- Protocolo Bastardo completo (infraestructura técnica, código open-source, documentación)
+- Asistencia técnica para constitución de Bastardas Provinciales
+- Acceso al Fondo de Solidaridad Bastarda (reservas cruzadas, red de respaldo)
+- Capacitación de equipos provinciales en gobernanza DAO y transparencia radical
+
+**La provincia aporta:**
+- Facilitación regulatoria ante sus entes provinciales (energía, bromatología, transporte, registros de propiedad)
+- Soporte logístico para pilotos y despliegue inicial
+- Datos abiertos provinciales (padrón de prestadores, registros, infraestructura existente)
+- Compromiso de no obstaculización — no facilitar lobby de incumbentes contra la Bastarda
+
+Estos convenios no obligan a la provincia a nada que no quiera. No transfieren competencias. No crean obligaciones fiscales. Solo formalizan una cooperación donde ambas partes ganan: la ANEB gana escala territorial, la provincia gana una herramienta de reducción de costos para sus ciudadanos.
+
+### 19.3 Provincias Piloto
+
+No todas las provincias van a querer participar al mismo tiempo — ni deberían. PLANEB propone comenzar con **cuatro provincias piloto**, seleccionadas por condiciones favorables:
+
+**Buenos Aires** — la provincia más poblada (17 millones de habitantes, 40% del país). La escala justifica cualquier inversión inicial. El GBA concentra la mayor densidad de usuarios de servicios esenciales. Si la Bastarda funciona en Buenos Aires, tiene mercado suficiente para demostrar viabilidad antes de expandir.
+
+**Córdoba** — cultura cooperativa arraigada (Córdoba tiene más cooperativas per cápita que cualquier otra provincia), economía diversificada (agro, industria, tecnología, servicios), y una clase media amplia que siente la extracción. La Bastarda Aseguradora y la Bastarda Financiera tienen terreno fértil donde la cooperativa ya es una forma natural de organización.
+
+**Mendoza** — oportunidad energética. Cuyo tiene el potencial solar más alto del país, pero la distribución eléctrica provincial opera con las ineficiencias de siempre. Una Bastarda Energética Provincial en Mendoza puede demostrar que la generación distribuida + distribución al costo transforma la ecuación energética de una provincia entera.
+
+**Santa Fe** — Rosario es la capital argentina del seguro. Ahí viven las aseguradoras, los reaseguradores, los actuarios, los productores. Lanzar La Bastarda Aseguradora donde la industria tiene su epicentro es un gesto simbólico y estratégico: no estamos huyendo de la industria, estamos compitiendo en su cancha, con sus reglas, pero sin su extracción.
+
+Cada provincia piloto recibe un **enlace ANEB dedicado** — un equipo técnico que reside en la provincia, conoce su regulación, y facilita la articulación entre la Red Bastarda nacional y el ecosistema provincial.
+
+### 19.4 Las Ciudades PLAN24CN como Laboratorio Federal
+
+PLAN24CN propone construir 24 ciudades nuevas — una por provincia. Cada ciudad nace con infraestructura pública de última generación, sin deuda heredada, sin concesiones viciadas, sin monopolios instalados.
+
+Esas 24 ciudades son el **laboratorio federal natural** de las Bastardas. Cada una opera en una provincia diferente, interfacea con un ente regulador diferente, y enfrenta condiciones geográficas, climáticas y demográficas diferentes. Si la Bastarda Energética funciona en la ciudad nueva de Mendoza (solar), en la de Misiones (biomasa), y en la de Santa Cruz (eólica) — entonces funciona en cualquier lado. Si la Bastarda Alimentaria resuelve la cadena de frío en la ciudad nueva de Formosa y en la de Chubut — entonces las bromatologías municipales de todo el país tienen un modelo replicable.
+
+Las ciudades PLAN24CN nacen **Bastarda-nativas**: seguros al costo, banca al costo, telecomunicaciones al costo, energía al costo, salud al costo. Desde el día uno. No hay incumbentes de los que desplazar. No hay concesiones que renegociar. No hay lobby que resistir. Son la prueba de concepto más limpia posible — y la más visible, porque cada ciudad es vidriera de lo que pasa cuando la extracción desaparece (ver Sección 14: Integración con el Marco BASTA).
+
+La dimensión federal de PLANEB no es un apéndice. Es una condición de legitimidad. Un plan que promete devolver soberanía económica a los ciudadanos pero solo funciona en AMBA no es un plan nacional — es un piloto porteño con buenas intenciones. Las Bastardas tienen que llegar a Jujuy, a Neuquén, a Corrientes, a Tierra del Fuego. No al mismo tiempo — la cascada tiene sus tiempos. Pero con la certeza de que cada provincia tiene un camino claro para sumarse, y que ese camino no depende de la buena voluntad de un gobernador sino de la voluntad organizada de sus ciudadanos.
+
+---
+
+## SECCIÓN 20: VISIÓN 2040 — LA RED BASTARDA A ESCALA
 
 > *"En la Argentina donde vamos, preguntar cuánto cuesta realmente un servicio no es un acto revolucionario. Es un dato público."*
 
-### 19.1 Lo Que Se Ve desde 2040
+### 20.1 Lo Que Se Ve desde 2040
 
 Si PLANEB funciona — si la cascada se despliega, si las Bastardas prueban que se puede hacer más con menos, si la Red crece y la ciudadanía la adopta — esto es lo que se ve en 2040:
 
@@ -1306,13 +1383,13 @@ Si PLANEB funciona — si la cascada se despliega, si las Bastardas prueban que 
 
 **La Ley de Entidades de Propósito Perpetuo** como referencia legislativa global — el equivalente económico de Creative Commons.
 
-### 19.2 Integración con PLANREP Horizonte 3
+### 20.2 Integración con PLANREP Horizonte 3
 
 En el Horizonte 3 de PLANREP (2043+), los Fideicomisos de Propósito Perpetuo financian un Dividendo Nacional de Productividad que provee un ingreso universal a cada argentino. En ese escenario, las Empresas Bastardas operan como la capa de servicios esenciales al costo — lo que cada ciudadano necesita para vivir, provisto sin extracción.
 
 La convergencia: el DNP pone plata en tu bolsillo. Las Bastardas aseguran que esa plata compre el máximo posible. No se pierde en márgenes. No se evapora en comisiones. No se diluye en opacidad. Cada peso que el sistema genera llega entero al ciudadano — y cuando el ciudadano lo gasta, compra servicio real, no extracción disfrazada.
 
-### 19.3 La Pregunta Final
+### 20.3 La Pregunta Final
 
 Los Moretti, en 2040, ya no necesitan sentarse a descifrar facturas opacas. Claudia abre la app de la Red Bastarda y ve, en tiempo real, cuánto paga por cada servicio y a dónde va cada peso. No hay misterio. No hay letra chica. No hay "gastos de producción y explotación" que esconden lo que nadie quiere mostrar.
 
