@@ -326,6 +326,8 @@ La honestidad obliga a decir algo más: no todos van a elegir la Bastarda. Ni si
 
 > *"El problema nunca fue la falta de democracia. Fue la democracia sin transparencia — donde votás pero no ves."*
 
+*Claudia Moretti sale sorteada para el Panel Ciudadano de la Bastarda Aseguradora. Nunca se sentó en un directorio. Nunca leyó un balance. Después de 30 días de capacitación, entra a su primera sesión y le pregunta al Consejo Técnico algo sobre asignación de reservas que hace que la sala se quede en silencio — no porque la pregunta sea ingenua, sino porque es la pregunta que ningún ejecutivo le hizo jamás a su propio directorio. Porque a ningún ejecutivo le dependía la compra del supermercado de la respuesta.*
+
 ### 4.1 Las Cuatro Capas de Gobernanza
 
 Cada Empresa Bastarda se gobierna por cuatro capas, cada una con un rol específico y mecanismos de control sobre las demás:
@@ -590,11 +592,33 @@ Las Bastardas no reemplazan a los reguladores. La SSN sigue regulando seguros. E
 
 **Principio rector:** La Red Bastarda se concentra en una sola cosa — hacer visible el costo real de los servicios esenciales y permitir que los ciudadanos accedan a ellos sin intermediación parasitaria. Todo lo que queda fuera de esa misión tiene su propio instrumento, su propio mandato, su propia institucionalidad. PLANEB no pretende resolverlo todo. Pretende resolver *una cosa* tan bien que el resto del sistema funcione mejor por su existencia.
 
+### 5.6 ¿Y Si la Bastarda Se Convierte en Lo Que Vino a Corregir?
+
+> *"El poder concentrado corrompe — incluso cuando nació con las mejores intenciones. Especialmente cuando nació con las mejores intenciones."*
+
+La pregunta más incómoda de PLANEB no es si las Bastardas pueden competir contra los incumbentes. Es qué pasa si ganan *demasiado*. Si una Bastarda Aseguradora captura el 60% del mercado de seguros automotor, ¿no se convirtió en el monopolio que vino a desplazar — solo que con mejor marketing? La honestidad intelectual exige responder esto antes de que pase, no después.
+
+**Umbral de concentración: 40%.**
+Si una sola Bastarda supera el 40% de participación en su sector de mercado, la ANEB convoca una revisión pública obligatoria. La revisión no asume que la concentración sea mala — pregunta *por qué* ocurre. Si la dominancia es porque la Bastarda ofrece un servicio genuinamente mejor a costo real y los usuarios la eligen libremente, eso es competencia funcionando. La concentración por mérito no se castiga. Pero si la dominancia es porque los efectos de red están asfixiando a competidores que también son transparentes y eficientes — porque la escala genera ventajas que nada tienen que ver con la calidad del servicio — entonces hay un problema estructural que requiere remedio. La revisión es pública, con participación ciudadana, y sus conclusiones son vinculantes.
+
+**Prevención de colusión entre Bastardas.**
+Cada Bastarda fija sus costos de forma independiente. El Protocolo Bastardo comparte infraestructura tecnológica, no decisiones de precio. La subsidización cruzada — usar el excedente de una Bastarda sectorial para subpreciar a otra y ganar mercado artificialmente — está prohibida y constituye causal de investigación por la ANEB. Las Bastardas son aliadas en infraestructura y rivales en transparencia: cada una tiene que justificar sus costos por separado, sin esconderse detrás de la Red.
+
+**La salvaguarda nuclear: el fork.**
+Cualquier Bastarda puede ser bifurcada. El código es open-source. La gobernanza está documentada públicamente. Los procesos operativos son replicables. Si una Bastarda se vuelve monopólica, capturada, o simplemente deja de servir a sus usuarios, cualquier grupo de ciudadanos puede copiar la operación completa — código, protocolos, estructura de gobernanza — y lanzar una Bastarda competidora con el mismo Protocolo. Es la opción nuclear. Y el hecho de que *exista* disciplina el comportamiento, incluso si nunca se usa. No necesitás apretar el botón — necesitás que todos sepan que el botón está ahí.
+
+**Cláusula constitucional obligatoria.**
+El acta fundacional de cada Bastarda incluye una cláusula irrenunciable: *"Esta entidad existe para servir a sus usuarios, no para dominar su mercado. Si la ANEB determina que su escala perjudica la competencia — incluso la competencia de otras entidades transparentes y no extractivas — la Bastarda se somete voluntariamente a las medidas correctivas que correspondan, incluyendo escisión, limitación de crecimiento, o apertura forzada de infraestructura a competidores."* Esta cláusula no puede ser modificada por la Asamblea de Usuarios ni por el Consejo Técnico. Está grabada en el smart contract fundacional y requiere unanimidad del directorio de la ANEB para cualquier alteración.
+
+La diferencia entre una Bastarda y un monopolio es transparencia. Un monopolio esconde su poder — en estructuras societarias opacas, en contratos confidenciales, en lobbying invisible. Una Bastarda publica todo: cada peso que entra, cada peso que sale, cada decisión de gobernanza, cada voto, cada conflicto de interés. Cuando podés ver cada peso, la concentración de poder es visible. Y la visibilidad es el primer paso hacia la rendición de cuentas. No alcanza — pero sin ella, nada de lo que viene después funciona.
+
 ---
 
 ## SECCIÓN 6: EL MODELO ECONÓMICO BASTARDO
 
 > *"Si tu factura de seguro bajó este mes, no es un descuento comercial. Es que este mes hubo menos accidentes. Así de simple. Así de transparente."*
+
+*Martín Moretti abre la app y ve su primera factura de la Bastarda: $39.270. Su aseguradora vieja le cobraba $47.000. Debajo del número, un desglose: siniestros, operación, reservas. Lo lee en 30 segundos. Entiende cada línea. Es la primera factura de seguro que entiende en su vida. Le saca captura y se la manda a tres amigos.*
 
 ### 6.1 El Pool Mutual Dinámico
 
@@ -810,6 +834,8 @@ Cuando 25.000 ciudadanos proponen una nueva Bastarda en un sector que todavía n
 
 > *"La pregunta no es si se puede hacer un seguro sin dueño. La pregunta es: ¿en cuántos sectores más se puede hacer lo mismo?"*
 
+*Valentina Moretti (14) está haciendo la tarea en la mesa de la cocina cuando escucha a sus viejos hablar de la Bastarda. Pregunta: "Si el seguro puede funcionar así, ¿por qué la empresa de teléfonos no?" Claudia no tiene respuesta todavía. Pero no sabe que 12.000 personas ya firmaron la petición para La Bastarda Conectada.*
+
 ### 9.1 La Bastarda Aseguradora (Caso modelo — ver Sección 10 para deep dive)
 
 El primer adaptador. Seguro automotor obligatorio como producto de lanzamiento. Expansión a hogar, vida, micropólizas. Regulado por SSN.
@@ -1018,6 +1044,8 @@ Las aseguradoras incumbentes no van a celebrar la aparición de una Bastarda que
 ## SECCIÓN 11: LA CASCADA — CÓMO NACEN LAS BASTARDAS
 
 > *"Cada Bastarda exitosa es la madre de la siguiente — aunque ninguna tenga padre."*
+
+*Rosa Gutiérrez es maestra de escuela en Tucumán. Lee sobre la familia Moretti en un posteo de ¡BASTA! que le comparte una compañera. Piensa en su factura de luz — esa factura opaca de la distribuidora provincial que nunca explica por qué cuesta lo que cuesta. Abre la plataforma de la Red Bastarda y arranca una petición: "Bastarda Energética para Tucumán." En 4 meses, 25.000 tucumanos firmaron.*
 
 ### 11.1 El Pipeline: De la Petición al Mercado
 
@@ -1260,6 +1288,8 @@ Una ciudad Bastarda-nativa no es una utopía — es un laboratorio. Los aprendiz
 
 > *"No ganás una guerra peleando contra todos al mismo tiempo. Ganás identificando quién puede caminar con vos, quién va a resistir, y quién todavía no se decidió — y trabajando cada grupo de forma distinta."*
 
+*Carlos Medina lleva 22 años como productor de seguros. Cuando se entera de La Bastarda Aseguradora, se le cae el estómago. Sin comisiones no hay Carlos. Va a una charla informativa de la ANEB esperando encontrar enemigos. En cambio, se entera de que las Bastardas necesitan Asesores — personas que ayudan a los usuarios a elegir coberturas, entender perfiles de riesgo, navegar siniestros. Las mismas habilidades, compensación transparente, sin opacidad que vender. Carlos se anota como el primer Asesor Bastardo. Su mujer dice que parece diez años más joven.*
+
 PLANEB no se despliega en el vacío. Se despliega en un campo de fuerzas donde cada actor — aseguradoras, bancos, reguladores, sindicatos, fintechs, medios, legisladores — tiene intereses concretos, miedos legítimos, poder real y potencial de alianza o bloqueo. Ignorar esto es garantizar el fracaso. La historia de las reformas argentinas está llena de proyectos técnicamente sólidos que murieron en la implementación porque subestimaron el mapa político. PLANEB no va a repetir ese error.
 
 Lo que sigue no es un listado de enemigos. Es un mapa de actores, sus posiciones probables, su capacidad de obstruir o impulsar, y la estrategia para cada uno. La premisa es simple: la Red Bastarda no necesita destruir a nadie para existir. Necesita tejer — alianzas donde las haya, neutralización donde no, y paciencia donde todavía no se sabe.
@@ -1373,25 +1403,25 @@ Toda crisis de Nivel 2 o superior dispara una revisión estructural obligatoria 
 ### 16.3 Críticas Anticipadas y Respuestas
 
 **"Esto es comunismo / estatismo disfrazado."**
-No. La Empresa Bastarda no la crea el Estado, no la financia el Estado, no la dirige el Estado. La crean ciudadanos. La financian con su plata. La gobiernan ellos mismos. No hay propiedad estatal — no hay propiedad de nadie. Y compite en el mercado abierto — no reemplaza al mercado. Si el comunismo es propiedad estatal de los medios de producción, la Bastarda es lo opuesto: propiedad de nadie, al servicio de todos, en competencia con privados.
+Detrás de esta crítica hay una preocupación real: que el Estado se meta donde no le corresponde. La Argentina tiene sobrada experiencia con el intervencionismo destructivo — empresas públicas ineficientes, monopolios estatales capturados por la política, servicios que funcionan peor cuanto más controla el gobierno. Cualquiera que vivió los '80, los '90, o la década siguiente tiene razones concretas para desconfiar de todo lo que suene a "organización colectiva". Esa experiencia es válida. PLANEB fue diseñado con esa preocupación en mente: la Empresa Bastarda no la crea el Estado, no la financia el Estado, no la dirige el Estado. La crean ciudadanos. La financian con su plata. La gobiernan ellos mismos. No hay propiedad estatal — no hay propiedad de nadie. Y compite en el mercado abierto — no reemplaza al mercado. Si el comunismo es propiedad estatal de los medios de producción, la Bastarda es lo opuesto: propiedad de nadie, al servicio de todos, en competencia con privados.
 
 **"Va a fracasar como todas las cooperativas."**
-No es una cooperativa (ver 3.3). Los problemas crónicos del cooperativismo argentino — captura dirigencial, baja transparencia, asambleas vacías — están bloqueados por diseño: sorteo (no elección), transparencia on-chain (no balance anual opaco), democracia líquida (no asamblea anual a la que van 20 personas).
+El cooperativismo argentino tiene problemas reales — dirigentes que se perpetúan, balances que nadie lee, asambleas a las que van veinte personas de las cuales quince son familiares del presidente. Cualquiera que vivió de cerca una cooperativa capturada tiene derecho a desconfiar. La desconfianza no es ignorancia — es experiencia acumulada. La pregunta correcta no es "por qué PLANEB va a ser diferente" — es "qué mecanismos específicos bloquean cada una de esas fallas". La respuesta: la Bastarda no es una cooperativa (ver 3.3). Cada falla crónica del cooperativismo argentino tiene un bloqueo estructural explícito: sorteo democrático en lugar de elección (nadie se perpetúa porque nadie se postula), transparencia on-chain en lugar de balance anual opaco (cada peso es rastreable en tiempo real, no una vez al año en un PDF que nadie lee), democracia líquida en lugar de asamblea anual a la que van 20 personas (se vota desde el teléfono, cuando querés, delegando si preferís). No es optimismo: son mecanismos.
 
 **"Las DAOs no funcionan — mirá lo que pasó con The DAO en 2016."**
-The DAO de 2016 fue hackeada por una vulnerabilidad en su smart contract — un bug de código, no una falla del concepto. La industria aprendió: hoy hay auditorías profesionales, estándares de seguridad (OpenZeppelin), y prácticas de desarrollo que redujeron drásticamente el riesgo. Además, PLANEB usa un modelo híbrido: la blockchain es la capa de auditoría, no la capa operativa. La mayoría de las operaciones corren en infraestructura tradicional con protecciones convencionales.
+The DAO de 2016 perdió USD 50 millones por un bug de código. Eso es un hecho, no una opinión. Y cualquiera que lo use como argumento tiene un punto legítimo: la tecnología no era madura, el código no estaba auditado, y la gobernanza era un experimento sin red de contención. Lo que cambió desde entonces no es la retórica — es la ingeniería. Hoy existen auditorías profesionales de smart contracts como estándar de la industria, frameworks de seguridad probados (OpenZeppelin), y una década de lecciones documentadas sobre qué sale mal y por qué. Además, PLANEB no repite el modelo de 2016: usa un esquema híbrido donde la blockchain es la capa de auditoría y transparencia, no la capa operativa. La mayoría de las operaciones corren en infraestructura tradicional con protecciones convencionales. La blockchain registra, no ejecuta. La vulnerabilidad que destruyó a The DAO no aplica a una arquitectura donde el smart contract no controla los fondos.
 
 **"El seguro necesita expertise actuarial, no democracia."**
-Exactamente. Por eso la Bastarda tiene un Consejo Técnico de profesionales — actuarios, ingenieros, abogados. La democracia no reemplaza la expertise técnica. La supervisa. El Panel Ciudadano no calcula probabilidades de siniestro — verifica que los que calculan probabilidades de siniestro no estén inflando costos.
+Esto es cierto. El cálculo actuarial, la gestión de reservas, y la evaluación de riesgos son disciplinas técnicas que requieren años de formación y experiencia. Nadie propone que un panel de ciudadanos sorteados calcule tablas de mortalidad. La preocupación detrás de esta crítica — que la democratización diluya la competencia técnica — es legítima y está contemplada en el diseño. Por eso la Bastarda tiene un Consejo Técnico de profesionales: actuarios, ingenieros, abogados. La democracia no reemplaza la expertise técnica. La supervisa. El Panel Ciudadano no calcula probabilidades de siniestro — verifica que los que calculan probabilidades de siniestro no estén inflando costos. La expertise dice *cuánto cuesta*. La democracia verifica que *no te estén cobrando de más*.
 
 **"Sin margen de ganancia, ¿quién va a querer trabajar ahí?"**
-Personas que cobran el salario mediano de mercado con amplificación por contribución y techo de 8:1. La Bastarda no paga mal — paga justo. Y para muchos profesionales, trabajar en una organización con propósito claro, transparencia total, y sin la presión de "maximizar rentabilidad para accionistas" es más atractivo que un corporate con bonus que vienen con estrés crónico.
+En un país donde el salario se licúa cada tres meses, donde los empleos "estables" se evaporan con cada crisis, y donde la precarización laboral es la norma incluso en el sector privado formal, preocuparse por la sustentabilidad de un empleo sin margen de ganancia es razonable. Nadie quiere un trabajo con propósito que paga miseria — la Argentina tiene demasiada experiencia con esa trampa. La Bastarda no pide sacrificio: paga el salario mediano de mercado con amplificación indexada a contribución y un techo de 8:1 entre el máximo y el mínimo. No paga mal — paga justo, con techo transparente. Y para muchos profesionales, trabajar en una organización con propósito claro, transparencia total, y sin la presión de "maximizar rentabilidad para accionistas" es más atractivo que un corporate con bonus que vienen con estrés crónico. La Bastarda compite por talento con las mismas armas que cualquier empleador — salario, condiciones, estabilidad — más una que los otros no tienen: coherencia.
 
 **"Los incumbentes los van a aplastar."**
-¿Cómo? No pueden comprar la Bastarda (no hay acciones). No pueden quitarle clientes con precios predatorios (la Bastarda cobra al costo — no se puede cobrar menos que el costo sin perder plata). Pueden lobbear al regulador — pero 200.000 usuarios con transparencia total son un argumento político difícil de ignorar. Y si un incumbente decide competir con transparencia y eficiencia para retener clientes... excelente. Eso es exactamente lo que PLANEB quiere.
+Las empresas establecidas tienen más recursos, más experiencia, más abogados y más contactos que cualquier Bastarda. Subestimar eso sería irresponsable. El mercado asegurador argentino mueve miles de millones de pesos al año, tiene décadas de relaciones con reguladores, y cuenta con departamentos legales que facturan más que lo que la primera Bastarda va a recaudar en su primer año. Eso es real. La pregunta es: ¿qué herramientas tienen contra este modelo específico? No pueden comprar la Bastarda — no hay acciones. No pueden quitarle usuarios con precios predatorios — la Bastarda cobra al costo, y no se puede cobrar menos que el costo sin perder plata. Pueden lobbear al regulador — pero 200.000 usuarios con transparencia total son un argumento político difícil de ignorar. Pueden intentar asfixia regulatoria — pero el código es abierto, la gobernanza es pública, y una Bastarda cerrada por presión política se convierte en mártir con toda la documentación intacta para relanzarse. Y si un incumbente decide competir con transparencia y eficiencia para retener clientes... excelente. Eso es exactamente lo que PLANEB quiere.
 
 **"¿Quién va a auditar esto de verdad?"**
-Cualquiera. Los datos son públicos. El código es abierto. La blockchain es verificable. No hace falta confiar en un auditor designado — cualquier contador, cualquier programador, cualquier ciudadano curioso puede verificar las cuentas. Esa es la diferencia entre "auditoría periódica" (que pasa una vez al año y puede ser capturada) y "transparencia permanente" (que pasa todos los días y es incapturable).
+La desconfianza en las auditorías es sana. En la Argentina, "auditado" muchas veces significa "un estudio amigo firmó un papel que nadie leyó". La diferencia con la Bastarda no es que tenga mejores auditores — es que no depende de auditores. Los datos son públicos. El código es abierto. La blockchain es verificable. Cualquier contador, cualquier programador, cualquier ciudadano curioso puede verificar las cuentas en cualquier momento. No hace falta confiar en un auditor designado — hace falta una conexión a internet. Esa es la diferencia entre "auditoría periódica" (que pasa una vez al año y puede ser capturada) y "transparencia permanente" (que pasa todos los días y es incapturable).
 
 ---
 
@@ -1449,6 +1479,8 @@ Las crisis van a llegar. Lo que importa no es evitarlas — es cómo respondés.
 ## SECCIÓN 18: HOJA DE RUTA
 
 > *"No hay plan de diez años que sobreviva al contacto con la realidad. Hay un primer paso, y un mecanismo de escucha para decidir el segundo."*
+
+*Es 2041. Tomás Moretti tiene 24 años. Trabaja como desarrollador en el Protocolo Bastardo — manteniendo la infraestructura open-source que alimenta una red que sus viejos ayudaron a construir cuando él tenía nueve. Un compañero menciona que los seguros antes eran opacos. Tomás levanta la vista, confundido: "¿La gente pagaba sin saber cuánto costaba? ¿En serio?" El compañero se ríe. "Posta. Y no hace tanto."*
 
 ### 18.1 Cronograma
 
