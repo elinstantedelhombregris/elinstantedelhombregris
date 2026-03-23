@@ -1410,3 +1410,282 @@ Cada Centro de Vitalidad alimenta el tablero con datos anonimizados de sus parti
 El objetivo no es solo medir. Es *comprometer*. Cuando un intendente ve que su municipio tiene el peor índice de soledad percibida de la provincia, se mueve. Cuando una obra social ve que sus afiliados en barrios con Centro tienen 40% menos consultas que los de barrios sin Centro, redirige recursos. Cuando una madre ve que la línea de su barrio sube en el tablero, siente que lo que hace importa. Medir en público es gobernar en público. Y gobernar en público es la única forma de gobernar que PLANSAL acepta.
 
 ---
+
+## SECCIÓN 13 · LO QUE PLANSAL NO REEMPLAZA
+
+> *"El principio de la sabiduría es saber lo que no sabés — y el principio de la política seria es saber lo que no te corresponde tocar."*
+
+Existe una tentación legítima al leer un plan como PLANSAL: creer que propone reemplazar la medicina. No. PLANSAL no reemplaza la medicina. PLANSAL reemplaza la *fábrica de enfermos* — que es lo opuesto a la medicina. La medicina real — la que salva vidas en una guardia a las tres de la mañana, la que reconstruye un fémur destrozado, la que saca un tumor del cerebro — esa medicina es una de las conquistas más grandes de la humanidad. PLANSAL no solo no la toca: la *fortalece*, liberando recursos que hoy se desperdician manteniendo crónicos que nunca debieron enfermarse.
+
+Pero para que esta distinción sea creíble, hay que ser explícito. Lo que sigue es lo que PLANSAL **no reemplaza, no pretende reemplazar, y protege activamente**.
+
+### 13.1 · Medicina de emergencia y trauma
+
+Accidentes de tránsito, infartos agudos, ACV, apendicitis, heridas de arma, quemaduras, complicaciones quirúrgicas. Todo esto requiere hospitales, cirujanos, ambulancias, terapia intensiva. PLANSAL no toca esta infraestructura — la *libera*. Hoy, una guardia hospitalaria argentina está colapsada atendiendo crisis hipertensivas, descompensaciones diabéticas y ataques de pánico que son el resultado de décadas de abandono preventivo. Cada paciente crónico prevenible que PLANSAL evita es una cama libre, un médico disponible, un minuto de atención que puede salvar la vida de alguien que realmente necesita la guardia.
+
+### 13.2 · Enfermedades no vinculadas a estilo de vida
+
+PLANSAL se enfoca en el 80% de la enfermedad crónica que es prevenible por cambios en alimentación, movimiento, conexión social y reducción de tóxicos ambientales. Pero existe un 20% que no entra en esa categoría: diabetes tipo 1 (autoinmune, no prevenible), enfermedades genéticas (fibrosis quística, hemofilia, distrofias musculares), cánceres sin relación con factores de estilo de vida, condiciones congénitas. Las personas que viven con estas condiciones merecen la mejor medicina disponible — y PLANSAL les da exactamente eso al dejar de desperdiciar recursos en lo que sí se podía prevenir. Un sistema de salud que no gasta el 80% de su presupuesto en consecuencias evitables puede destinar mucho más a quienes genuinamente necesitan tratamiento intensivo, investigación avanzada y acompañamiento de por vida.
+
+### 13.3 · Crisis de salud mental aguda
+
+Ideación suicida. Brotes psicóticos. Crisis de abstinencia. Violencia doméstica activa. Estos cuadros requieren intervención profesional inmediata, internación cuando es necesario, medicación psiquiátrica de emergencia, y protocolos de seguridad que exceden toda capacidad comunitaria. Los Centros de Vitalidad **no son** salas de salud mental. No tienen psiquiatras de guardia, no tienen camas de internación, no manejan medicación psicotrópica. Lo que sí tienen es: protocolos claros de derivación a servicios especializados, capacitación básica de sus Guías para detectar señales tempranas, y — lo más importante — un efecto preventivo upstream. Comunidades con vínculos fuertes, actividad física regular, alimentación real y propósito compartido producen *menos* crisis de salud mental aguda. No cero, pero significativamente menos. PLANSAL trabaja en la base de la pirámide para que la cima — los servicios de emergencia psiquiátrica — reciba menos presión y pueda responder mejor cuando realmente se la necesita.
+
+### 13.4 · Discapacidad
+
+PLANSAL no es un plan de discapacidad. No reemplaza la CUD (Certificado Único de Discapacidad), no modifica la Ley 22.431, no sustituye programas de rehabilitación ni pensiones por invalidez. Lo que sí hace: los Centros de Vitalidad deben ser accesibles. Rampas, señalética inclusiva, programas adaptados de movimiento, horarios preferentes. Una persona con discapacidad motriz puede participar de un programa de alimentación real. Una persona con discapacidad sensorial puede ser parte de una Familia Mentora. La vitalidad no tiene requisito de capacidad física — tiene requisito de dignidad.
+
+### 13.5 · Enfermedades infecciosas y pandemias
+
+Vacunación, vigilancia epidemiológica, respuesta pandémica, control de vectores, tratamiento de tuberculosis y HIV. Todo esto tiene su propia infraestructura, sus propios protocolos, sus propias agencias. PLANSAL no los reemplaza. Pero hace algo que ningún programa de vacunación puede hacer solo: construye *resiliencia poblacional*. Una comunidad bien alimentada, físicamente activa, socialmente conectada y emocionalmente estable resiste mejor cualquier amenaza biológica — desde un brote de dengue hasta la próxima pandemia. El sistema inmunológico no es un órgano — es una expresión del estado general del organismo. PLANSAL mejora ese estado general. La epidemiología de emergencia maneja las crisis puntuales. Se complementan.
+
+### Principio rector
+
+PLANSAL se concentra en lo prevenible. Lo hace con intensidad, con escala, con recursos y con infraestructura comunitaria. Todo lo que *no* es prevenible por cambios en el modo de vida requiere medicina, y PLANSAL protege activamente la capacidad del sistema médico para atender esos casos. No competimos con la medicina. Competimos con la enfermedad manufacturada. Y al ganar esa competencia, le devolvemos a la medicina su función original: curar lo que genuinamente necesita ser curado.
+
+---
+
+## SECCIÓN 14 · ARQUITECTURA INSTITUCIONAL
+
+> *"Las instituciones son los ríos por los que fluye la voluntad popular. Si el río se seca, la voluntad se pierde en la arena. Si se desborda, destruye lo que pretendía nutrir."*
+
+PLANSAL requiere instituciones nuevas. No porque las existentes sean malas — sino porque fueron diseñadas para administrar enfermedad, no para producir vitalidad. El Ministerio de Salud gestiona hospitales, epidemias, presupuesto de medicamentos y relaciones con obras sociales. Su lógica es reactiva por diseño. Pedirle al Ministerio de Salud que lidere una transformación hacia la vitalidad preventiva es como pedirle a un bombero que diseñe casas a prueba de fuego: puede opinar, pero su expertise y su estructura están optimizadas para apagar incendios, no para prevenirlos.
+
+### 14.1 · Agencia Nacional de Vitalidad Popular (ANVIP)
+
+La ANVIP es el órgano rector de PLANSAL. Es un ente autárquico con personería jurídica propia, presupuesto propio y autonomía operativa. **No depende del Ministerio de Salud.** Se coordina con él para la transición — especialmente en la reconversión de centros de atención primaria y la reorientación de presupuestos — pero su gobernanza, su estructura y su rendición de cuentas son independientes.
+
+**Composición del Directorio:**
+
+| Tercio | Representantes | Forma de selección |
+|---|---|---|
+| Comunitario (1/3) | Delegados de los Centros de Vitalidad | Elección directa por asambleas barriales — un delegado cada 10 Centros |
+| Profesional (1/3) | Guías de Vitalidad reconvertidos (médicos, nutricionistas, kinesiólogos, psicólogos, facilitadores comunitarios) | Selección por pares dentro de la red de Guías — rotación bienal |
+| Familias Mentoras (1/3) | Representantes de la red de Familias | Selección por la propia red — un representante por región |
+
+**Exclusiones explícitas:** No tienen representación en el Directorio de ANVIP: la industria farmacéutica, las cámaras de obras sociales, las cámaras de prepagas, ni las asociaciones de laboratorios. No por persecución — por conflicto de interés estructural. Un directorio que incluya a quienes lucran con la enfermedad no puede gobernar una agencia cuyo mandato es reducir enfermedad. Si estas industrias quieren participar del diálogo, hay canales consultivos. Pero no votan, no vetan, no definen agenda.
+
+**Dirección ejecutiva:** Concurso abierto, público, con evaluación de antecedentes y plan de gestión. La persona seleccionada asume con mandato de 5 años, no coincidente con el ciclo presidencial (para aislar de presión política directa). La comunidad tiene derecho de veto fundado dentro de los primeros 60 días. La remoción requiere 2/3 del Directorio más dictamen favorable de auditoría ciudadana vinculada a PLANJUS (ver *Casas JUS*, Sección 6 de PLANJUS).
+
+**Presupuesto:** Partida propia en el Presupuesto Nacional, protegida por ley contra reasignación discrecional. El piso presupuestario se fija como porcentaje del gasto total en salud (propuesta inicial: 5%, creciente al 15% en 10 años a medida que PLANSAL demuestre reducción de costos crónicos). Auditoría ciudadana anual obligatoria — resultados publicados en el Tablero Nacional de Vitalidad.
+
+**Protección contra captura política:** Mandatos escalonados (se renueva un tercio del Directorio cada dos años). Selección comunitaria (no designación presidencial). Auditoría ciudadana permanente vía PLANJUS. Presupuesto protegido por ley. Transparencia total de actas, decisiones y gastos. La ANVIP no es infalible — ninguna institución lo es — pero está diseñada para que capturarla sea estructuralmente difícil.
+
+### 14.2 · Gobernanza de los Centros de Vitalidad
+
+Cada Centro de Vitalidad es una unidad autogobernada. No es una sucursal de la ANVIP — es un nodo comunitario con autonomía operativa y rendición de cuentas hacia arriba (ANVIP) y hacia abajo (barrio).
+
+**Estructura de gobierno del Centro:**
+
+- **Asamblea barrial:** Todos los participantes activos del Centro tienen derecho a voto. Quórum mínimo: 20% de los inscriptos o 30 personas (lo que sea menor). Se reúne trimestralmente como mínimo, y puede ser convocada extraordinariamente por el 10% de los participantes. Decide: prioridades programáticas del Centro, uso de fondos discrecionales, evaluación del equipo coordinador.
+
+- **Facilitador/a comunitario/a:** Elegido/a por la asamblea barrial mediante voto directo. Mandato de 2 años con posibilidad de una reelección. **No es designado/a por el Estado ni por la ANVIP.** La ANVIP certifica que cumple requisitos mínimos de formación (curso de Guía de Vitalidad) pero no elige. Si la ANVIP rechaza la certificación, la asamblea puede apelar ante PLANJUS.
+
+- **Equipo coordinador:** 3-5 personas elegidas por la asamblea para gestión cotidiana (logística, presupuesto, programación, comunicación). Rotación anual obligatoria — nadie coordina más de 2 años consecutivos. Esto previene la formación de burocracias locales y distribuye el saber-hacer.
+
+- **Presupuesto transparente:** Cada Centro publica mensualmente sus ingresos (transferencia ANVIP + aportes locales), gastos detallados y saldo. Publicación en cartelera física en el Centro y en plataforma digital. Cualquier vecino puede pedir explicación de cualquier gasto. La auditoría no es un evento anual — es un estado permanente.
+
+- **Resolución de conflictos:** Conflictos internos del Centro se resuelven primero por mediación interna (Guías capacitados en facilitación). Si no se resuelven, se derivan a *Casas JUS* (ver PLANJUS, Sección 6) que ofrecen mediación comunitaria gratuita y vinculante. Ningún conflicto interno debería llegar a la justicia ordinaria — pero el camino está disponible si todo lo demás falla.
+
+### 14.3 · Gobernanza de las Familias Mentoras
+
+Las Familias Mentoras no son empleadas del Estado ni de la ANVIP. Son familias que completaron el proceso de transformación y eligen acompañar a otras. Su gobernanza respeta esa naturaleza voluntaria y horizontal.
+
+**Red autónoma con coordinación regional:**
+
+- Las Familias Mentoras se agrupan en redes regionales (una por provincia o región metropolitana).
+- Cada red regional elige un/a coordinador/a por consenso o voto directo de las familias miembros. Mandato de 2 años.
+- Los/las coordinadores/as regionales forman el Consejo Nacional de Familias Mentoras, que tiene representación directa en el Directorio de ANVIP (tercio de Familias).
+
+**Selección de nuevas Familias Mentoras:**
+
+- Proceso de selección por pares. Las familias que ya son mentoras evalúan a las candidatas.
+- Criterios: haber completado al menos 1 año de participación activa en un Centro de Vitalidad, haber experimentado transformación verificable en al menos 2 de las 12 áreas vitales, disposición de tiempo para acompañamiento (mínimo 4 horas semanales), y evaluación favorable de la familia actualmente acompañada.
+- NO hay requisito de título profesional. Una familia obrera que transformó su alimentación, fortaleció sus vínculos y redujo conflictos internos está tan calificada como una familia de profesionales.
+
+**Formación continua:**
+
+- ANVIP facilita formación trimestral (presencial y virtual) sobre herramientas de acompañamiento, primeros auxilios emocionales, derivación a servicios especializados, y actualización en evidencia de vitalidad.
+- La formación no es evaluación burocrática — es fortalecimiento colectivo. No hay examen de aprobación — hay retroalimentación permanente.
+
+**Calidad por retroalimentación comunitaria:**
+
+- Cada familia acompañada evalúa trimestralmente a su Familia Mentora mediante formulario anónimo simple (accesible por celular o en papel en el Centro).
+- Si una Familia Mentora recibe evaluaciones negativas sostenidas (3 trimestres consecutivos), se activa un proceso de acompañamiento — no de sanción. Se busca entender qué pasó y cómo ayudar. Solo si la situación no mejora después del acompañamiento se sugiere una pausa.
+- La lógica no es punitiva — es de cuidado. Las Familias Mentoras también necesitan ser mentoreadas.
+
+---
+
+## SECCIÓN 15 · MARCO LEGAL
+
+> *"La ley sin pueblo es letra muerta. El pueblo sin ley es fuerza ciega. PLANSAL necesita ambos: la fuerza del pueblo y la precisión de la ley."*
+
+PLANSAL requiere un andamiaje legal que no existe hoy en Argentina. Algunas piezas existen parcialmente (como la Ley de Etiquetado Frontal), pero están incompletas, sin enforcement, o capturadas por los intereses que deberían regular. Lo que sigue son las 7 leyes que PLANSAL necesita — algunas nuevas, otras reformas de existentes.
+
+### 15.1 · Ley de Alimentación Real
+
+**Base existente:** Ley 27.642 de Promoción de Alimentación Saludable (2021) — establece etiquetado frontal con octógonos negros.
+
+**Lo que falta:**
+- **Restricción de ultraprocesados en instituciones públicas:** Escuelas, hospitales, cárceles, comedores comunitarios, fuerzas de seguridad. Si el Estado lo financia, no puede servir veneno industrial. Plazo de adecuación: 3 años con apoyo técnico a proveedores.
+- **Impuesto progresivo al azúcar industrial:** Sobre bebidas azucaradas y productos con más de 10% de azúcar agregada. Recaudación afectada específicamente a financiamiento de Centros de Vitalidad. Modelo: impuesto mexicano al refresco (que redujo consumo un 12% en 2 años), mejorado.
+- **Regulación de publicidad alimentaria dirigida a menores de 16:** Prohibición total en TV, radio, vía pública y redes sociales segmentadas. Los niños no son consumidores — son víctimas de marketing predatorio.
+- **Fortalecimiento del enforcement de etiquetado:** ANMAT con capacidad real de inspección, multas que duelan (porcentaje de facturación, no montos fijos ridículos), y publicación de infractores.
+
+**Vía legislativa:** Ley del Congreso (modifica ley existente). Requiere mayoría simple en ambas cámaras.
+
+### 15.2 · Ley de Vitalidad Popular
+
+**Ley completamente nueva.** Marco jurídico integral para:
+- **Centros de Vitalidad:** Reconocimiento legal como entidades comunitarias de salud preventiva. Régimen fiscal simplificado. Habilitación municipal automática cuando cumplen requisitos de ANVIP.
+- **Familias Mentoras:** Estatus legal de agentes comunitarios de salud. Cobertura de ART (Aseguradora de Riesgos del Trabajo) durante actividades de mentoría. Reconocimiento de su labor como antecedente de servicio comunitario.
+- **Guías de Vitalidad:** Creación de matrícula profesional para Guías de Vitalidad. Requisitos de formación estandarizados por ANVIP. Reconocimiento por obras sociales y prepagas como prestadores de salud.
+- **Cobertura obligatoria:** Obras sociales y prepagas deben cubrir programas de vitalidad (alimentación, movimiento, acompañamiento emocional, mentoría familiar) como prestaciones de salud. No solo medicamentos y cirugías — también prevención activa. Esto es el cambio más importante y el más resistido: obliga al sistema financiador a pagar por lo que funciona, no solo por lo que factura.
+
+**Vía legislativa:** Ley del Congreso. Requiere mayoría simple. Resistencia esperada de lobbies de obras sociales y prepagas — estrategia en Sección 16.
+
+### 15.3 · Reforma de ANMAT
+
+**Mandato expandido:** ANMAT (Administración Nacional de Medicamentos, Alimentos y Tecnología Médica) regula medicamentos pero tiene capacidad limitada sobre ultraprocesados. La reforma le otorga:
+- Potestad para clasificar productos alimentarios por nivel de procesamiento (NOVA o equivalente).
+- Capacidad de restringir o prohibir aditivos con evidencia de daño acumulativo.
+- Mandato de monitoreo de conflictos de interés en investigación nutricional financiada por la industria.
+- Presupuesto ampliado para inspecciones (actualmente ANMAT depende de aranceles de la industria que regula — conflicto estructural).
+
+**Vía legislativa:** Decreto del Ejecutivo para ampliación de mandato. Ley del Congreso para presupuesto.
+
+### 15.4 · Fortalecimiento de Ley de Parto Respetado (Ley 25.929)
+
+La ley existe desde 2004. Garantiza derechos durante embarazo, parto y posparto. En la práctica, se viola sistemáticamente: tasas de cesárea del 35% (OMS recomienda 10-15%), violencia obstétrica normalizada, separación innecesaria de madre y recién nacido.
+
+**Reforma:**
+- Mecanismos reales de denuncia y sanción (actualmente no tiene dientes).
+- Obligatoriedad de acompañante durante todo el proceso (incluyendo cesáreas).
+- Registro público de tasas de cesárea e intervenciones por institución (transparencia como mecanismo de presión).
+- Conexión con Centros de Vitalidad: acompañamiento pre y postnatal como programa estándar.
+
+**Vía legislativa:** Ley del Congreso (modifica ley existente).
+
+### 15.5 · Licencia parental extendida
+
+**Propuesta:** 6 meses para persona gestante (hoy son 90 días), 3 meses para co-progenitor (hoy son 2 días — sí, dos días). Extensible a 9 meses en casos de prematurez, nacimiento múltiple o complicaciones.
+
+**Encuadre:** No es un beneficio laboral — es una inversión en salud pública. Los primeros 1.000 días (ver Sección 9) definen la salud de toda una vida. Un bebé que recibe lactancia exclusiva 6 meses, contacto piel a piel permanente, y padres presentes y no destruidos por el estrés laboral tiene mejores marcadores de salud a los 5, 15, 35 y 65 años. El costo de la licencia se recupera en reducción de enfermedad crónica a mediano plazo.
+
+**Financiamiento:** Fondo tripartito — Estado, empleador, seguridad social. PyMEs con apoyo diferenciado.
+
+**Vía legislativa:** Ley del Congreso. Requiere negociación con sector empresarial — estrategia en Sección 16.
+
+### 15.6 · Modificación de Ley de Agroquímicos
+
+**Conexión directa con PLANISV** (Sección 6.3: Soberanía Alimentaria y Territorial).
+
+- Zonas de exclusión de fumigación: mínimo 1.500 metros de áreas pobladas, escuelas, hospitales y cursos de agua. Actualmente las distancias son ridículas o inexistentes en muchas provincias.
+- Prohibición de fumigación aérea en proximidad de comunidades.
+- Monitoreo obligatorio de residuos de agroquímicos en agua, suelo y alimentos — resultados públicos.
+- Transición obligatoria a agroecología en zonas periurbanas (cinturones verdes de producción de alimentos reales que abastecen a los Centros de Vitalidad).
+
+**Vía legislativa:** Ley del Congreso para marco federal. Requiere adhesión provincial (las provincias regulan uso del suelo). Resistencia fuerte del sector agropecuario — ver Sección 16.
+
+### 15.7 · Ley de Espacios Verdes Obligatorios
+
+**Conexión directa con PLAN24CN** (Sección 4: Ley de Regeneración Ecosistémica).
+
+- Mínimo de 10 m² de espacio verde público por habitante en todo proyecto urbanístico nuevo (OMS recomienda 9 m² — Argentina promedia menos de 5 m² en zonas urbanas densas).
+- Obligatoriedad de espacio verde accesible a menos de 300 metros de toda vivienda nueva.
+- Los Centros de Vitalidad deben tener acceso directo a espacio verde (es condición de habilitación).
+- Incentivos fiscales para municipios que superen los mínimos.
+
+**Vía legislativa:** Ley del Congreso para estándares federales. Implementación municipal con apoyo de PLAN24CN.
+
+### Ruta legislativa consolidada
+
+| Instrumento | Tipo | Vía |
+|---|---|---|
+| Ley de Alimentación Real | Reforma de ley existente | Congreso (mayoría simple) |
+| Ley de Vitalidad Popular | Ley nueva | Congreso (mayoría simple) |
+| Reforma de ANMAT | Mixta | Decreto + Congreso |
+| Parto Respetado | Reforma de ley existente | Congreso (mayoría simple) |
+| Licencia parental | Ley nueva | Congreso (mayoría simple) |
+| Agroquímicos | Ley nueva federal | Congreso + adhesión provincial |
+| Espacios Verdes | Ley nueva federal | Congreso + implementación municipal |
+
+La estrategia legislativa no es "mandar todo junto al Congreso y esperar". Es secuencial: primero las leyes con mayor consenso social (Alimentación Real, Parto Respetado), después las que requieren más negociación (Licencia parental, Vitalidad Popular), y finalmente las de mayor resistencia estructural (Agroquímicos, ANMAT). Ver conexión con PLANEDU para formación ciudadana que sostiene la demanda popular de estas leyes.
+
+---
+
+## SECCIÓN 16 · ESTRATEGIA DE STAKEHOLDERS
+
+> *"No ganás una guerra peleando contra todos al mismo tiempo. Ganás identificando quién está con vos, quién está en contra, y quién todavía no decidió — y trabajando cada grupo distinto."*
+
+PLANSAL no se implementa en el vacío. Se implementa en un campo de fuerzas donde cada actor tiene intereses, miedos, poder y potencial de alianza o bloqueo. Ignorar esto es garantizar el fracaso. Lo que sigue es un mapeo realista de los actores clave, su posición probable, y la estrategia para cada uno.
+
+**TABLA 9: Mapa de stakeholders de PLANSAL**
+
+| Actor | Posición probable | Poder de bloqueo | Estrategia |
+|---|---|---|---|
+| Médicos de atención primaria | Aliados potenciales | Medio | Reconversión como Guías de Vitalidad con mejores condiciones |
+| Especialistas hospitalarios | Neutrales a favorables | Bajo | Su campo se fortalece al liberar recursos de crónicos prevenibles |
+| Enfermeros/as y agentes sanitarios | Aliados naturales | Bajo | Integración directa en Centros — ya hacen trabajo comunitario |
+| Industria farmacéutica | Oposición fuerte | Alto | No confrontar — hacer irrelevante por reducción de demanda |
+| Obras sociales | Oposición moderada | Alto | Demostrar ahorro: prevención reduce costos por afiliado |
+| Prepagas | Oposición | Medio-alto | Regulación legal (Ley de Vitalidad Popular) + incentivos |
+| Sindicatos de salud (CICOP, ATSA, FATSA) | Oposición (miedo a pérdida de empleo) | Alto | Reconversión laboral — misma gente, nuevo rol, misma estabilidad |
+| Industria alimentaria | Oposición fuerte | Alto | Regulación progresiva + alternativas económicas viables |
+| Comunidades organizadas | Aliados principales | Medio (a favor) | Son los operadores de los Centros — darles poder real |
+| Pueblos originarios | Aliados | Bajo-medio (a favor) | Integración de saberes ancestrales con respeto y co-diseño |
+| Nutricionistas, psicólogos, kinesiólogos | Aliados potenciales | Bajo | Roles expandidos y mejor remunerados en Centros |
+| Universidades de medicina | Neutrales | Medio | Reforma curricular gradual con incentivos de investigación |
+| Medios de comunicación | Variables | Alto | Narrativa pública atractiva + datos transparentes |
+| Intendentes y gobernadores | Variables | Alto | Tablero público como presión + fondos condicionados |
+
+### 16.1 · La industria farmacéutica: no pelear, hacer irrelevante
+
+La tentación es obvia: denunciar a la industria farmacéutica como el villano principal. Es satisfactorio, es verdadero en muchos sentidos, y es estratégicamente estúpido. La industria farmacéutica tiene más dinero, más lobbyistas, más abogados y más conexiones políticas que cualquier movimiento popular. Pelear de frente es perder.
+
+La estrategia de PLANSAL es distinta: **reducir la demanda**. No atacar la oferta — secar la demanda. Si la población deja de desarrollar diabetes tipo 2, el mercado de metformina e insulina se achica solo. Si la prevalencia de hipertensión cae un 40%, las ventas de antihipertensivos caen un 40%. No necesitamos prohibir medicamentos — necesitamos hacer que la gente no los necesite.
+
+Esto no es teoría. Cada Centro de Vitalidad que funciona es un punto de reducción de consumo farmacéutico. A escala — 5.000 Centros, 2 millones de Familias Mentoras, 30 millones de personas impactadas — el efecto sobre el mercado es devastador para la industria sin necesidad de una sola confrontación directa.
+
+¿Va a resistir la industria? Sí. Va a financiar estudios que cuestionen la prevención. Va a presionar legisladores para debilitar la Ley de Vitalidad Popular. Va a comprar espacio mediático para instalar dudas. La respuesta no es pelearle cada batalla — es construir hechos consumados. Cuando 50.000 personas en una provincia redujeron su medicación crónica un 60% porque cambiaron cómo comen, cómo se mueven y cómo se vinculan, ningún estudio financiado por Pfizer puede desmentir eso. Los resultados hablan. El Tablero Nacional de Vitalidad los amplifica. Y la industria se adapta o se achica — cualquiera de los dos resultados le sirve a la población.
+
+### 16.2 · Los médicos: no son el enemigo, son rehenes del sistema
+
+El discurso anti-médico es otro error estratégico común. La mayoría de los médicos argentinos están frustrados, agotados, mal pagos y atrapados en un sistema que los obliga a atender 40 pacientes por día en 10 minutos cada uno, recetando medicamentos que saben que no resuelven nada de fondo. No eligieron eso — el sistema los formó y los encerró en eso.
+
+PLANSAL les ofrece una salida digna: reconvertirse como Guías de Vitalidad. ¿Qué cambia?
+
+- **Volumen:** En lugar de 40 pacientes/día de 10 minutos, acompañan a 15-20 personas/semana con tiempo real para cada una.
+- **Impacto:** Dejan de recetar parches y empiezan a ver transformaciones reales. Un médico que ve a un paciente diabético revertir su condición en 6 meses sin medicación experimenta algo que nunca vivió en el sistema convencional.
+- **Condiciones:** Horarios humanos, trabajo en equipo (no solos en un consultorio), conexión comunitaria, propósito profesional.
+- **Estabilidad:** Contratación por ANVIP con condiciones laborales protegidas. No es precarización — es reconversión con mejora.
+
+La clave es que sea voluntario y atractivo. No se obliga a ningún médico a reconvertirse. Se ofrece la opción — y se hace lo suficientemente buena para que la elijan. Los primeros 500 médicos que se reconviertan y cuenten su experiencia se convierten en los mejores embajadores de PLANSAL dentro del gremio médico.
+
+### 16.3 · Los sindicatos: el miedo es real, la respuesta es reconversión
+
+Los sindicatos de salud (CICOP, ATSA, FATSA, UPA) van a resistir PLANSAL por una razón legítima: miedo a que sus afiliados pierdan el trabajo. Si PLANSAL reduce hospitalizaciones, consultas y consumo de medicamentos, ¿qué pasa con los enfermeros, administrativos, farmacéuticos y técnicos que viven de ese volumen?
+
+La respuesta tiene que ser concreta, no retórica:
+
+- **Enfermeros/as:** Se integran como facilitadores comunitarios en Centros de Vitalidad. Misma estabilidad laboral, rol expandido, mejores condiciones. Un/a enfermero/a que hoy corre entre 30 camas en un hospital pasa a coordinar programas de movimiento y acompañamiento en un Centro — con las mismas o mejores condiciones contractuales.
+- **Administrativos de salud:** Los Centros de Vitalidad necesitan gestión. El Tablero Nacional necesita alimentación de datos. La ANVIP necesita personal. La reconversión administrativa es directa.
+- **Farmacéuticos/as:** Se reconvierten en educadores nutricionales y asesores de alimentación real. Su formación en química y bioquímica los califica para un rol que hoy no existe pero que PLANSAL crea.
+- **Técnicos/as:** Mantenimiento de infraestructura de Centros, gestión de plataforma digital, coordinación logística de programas.
+
+Lo que PLANSAL le dice a los sindicatos no es "van a perder trabajo" — es "van a cambiar de trabajo, con las mismas o mejores condiciones, haciendo algo que tiene sentido". Pero esto tiene que estar *escrito en ley* (ver Ley de Vitalidad Popular, Sección 15.2) y *negociado con cada sindicato* antes de la implementación. No se puede pedir confianza sin garantías formales.
+
+### 16.4 · Pueblos originarios: aliados ancestrales
+
+Los pueblos Mapuche, Qom, Wichí, Guaraní, Diaguita, Mocoví — entre otros — practican salud comunitaria, conexión con la tierra, alimentación basada en lo que el territorio ofrece, y vínculos intergeneracionales de cuidado desde hace miles de años. PLANSAL no les enseña nada — aprende de ellos.
+
+La estrategia es de integración respetuosa:
+
+- **Consulta previa:** Todo Centro de Vitalidad en territorio con presencia de pueblos originarios debe pasar por consulta comunitaria antes de establecerse. No se instala nada sin permiso y participación.
+- **Co-diseño:** Los programas del Centro incorporan saberes locales. Si la comunidad Qom tiene prácticas de alimentación estacional, esas prácticas se integran al programa — no como folklore, sino como conocimiento válido.
+- **Medicina tradicional:** Curanderos, machis, chamanes y sabedores comunitarios tienen lugar en el Centro si la comunidad así lo decide. PLANSAL no jerarquiza — complementa.
+- **No apropiación:** Los saberes de los pueblos originarios no se extraen para ser "escalados" o "sistematizados" en contextos urbanos sin consentimiento explícito y reconocimiento de origen.
+
+Los pueblos originarios no necesitan a PLANSAL. PLANSAL los necesita a ellos — como fuente de sabiduría, como ejemplo viviente de que la salud comunitaria funciona, y como aliados políticos en un proyecto que, en el fondo, propone volver a lo que ellos nunca abandonaron: cuidar la vida desde la comunidad, la tierra y el vínculo.
+
+---
