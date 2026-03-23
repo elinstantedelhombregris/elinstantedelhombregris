@@ -1184,6 +1184,25 @@ Si una métrica cruza un umbral crítico, el sistema responde automáticamente �
 | Discrepancia on-chain/off-chain detectada | Congelamiento temporal de transacciones grandes. Auditoría de emergencia en 72 horas. |
 | Cuota excede 80% del techo contratado durante 3 meses consecutivos | Asamblea Extraordinaria para revisar coberturas, techo, o activar reaseguro adicional. |
 | Fondo de Solidaridad <USD 10M | Suspensión temporal de co-financiamiento de nuevas Bastardas hasta recuperación. |
+| Confianza ciudadana <60% sostenida 2 trimestres | Panel Ciudadano convocado para revisión integral de operación + comunicación + gobernanza. |
+
+### 13.4 Indicadores de Impacto Humano — ¿Estamos Bien?
+
+Las métricas económicas te dicen si el sistema funciona. Las métricas humanas te dicen si el sistema importa.
+
+PLANREP tiene un "Dashboard de Impacto Humano — KPIs No Económicos" — indicadores que miden si la gente *siente* que su vida mejoró, no solo si los números del tablero dan bien. PLANEB sigue la misma filosofía, adaptada a la Red Bastarda. Porque una Bastarda puede tener las reservas perfectas, la cuota más baja del mercado y cero discrepancias on-chain — y aun así fallarle a las personas si nadie entiende su factura, si nadie siente que tiene voz, si nadie confía en que el sistema opera a su favor.
+
+**TABLA 21b: Dashboard de Impacto Humano de la Red Bastarda**
+
+| Indicador | Pregunta | Método | Meta | Trigger de Alerta |
+|---|---|---|---|---|
+| **Confianza** | "¿Confiás en que la Bastarda opera a tu favor?" | Encuesta trimestral anónima, muestra representativa | >80% "sí" o "mucho" | <60% sostenido 2 trimestres → Panel Ciudadano convocado (ver S13.3) |
+| **Agencia** | "¿Sentís que tenés voz en cómo se maneja?" | Proxy: tasa de participación en votaciones + tasa de delegación activa | >15% participación directa o delegada | <5% → incentivos de participación activados |
+| **Comprensión** | "¿Entendés tu factura mensual?" | Encuesta + test rápido ("¿a dónde fue tu cuota este mes?") | >90% comprensión correcta | <70% → rediseño de la factura, no del usuario |
+| **Comunidad** | "¿Sentís que formás parte de algo más que un servicio?" | Participación en eventos, foros, mentoría entre usuarios | Crecimiento trimestral positivo | Caída >20% en participación comunitaria → revisión de diseño de comunidad |
+| **Impacto percibido** | "¿Saber cuánto cuesta realmente te cambió la forma de ver otros servicios?" | Encuesta cualitativa anual | >50% reportan mayor conciencia de precios en otros sectores | Métrica de impacto sistémico — no tiene trigger, solo monitoreo |
+
+Estos no son indicadores cosméticos. Si Confianza cae por debajo del 60%, activa el mismo circuit breaker que una alerta financiera (ver TABLA 21, S13.3). Si Comprensión baja del 70%, el problema no es el usuario — es la factura. La respuesta correcta no es "educar" a la gente para que entienda un documento confuso; es rediseñar el documento hasta que sea imposible no entenderlo. Si Agencia cae por debajo del 5%, significa que la Bastarda dejó de ser de la gente y se convirtió en otro servicio más que te llega por débito automático. Y si Comunidad cae, si la gente no siente que pertenece a algo más grande que una póliza barata, entonces la Bastarda está ganando la batalla económica pero perdiendo la guerra cultural. El punto es claro: la Bastarda existe para servir a personas, no a números. Si los números dan bien pero las personas no lo sienten, algo anda mal.
 
 ---
 
@@ -1394,6 +1413,36 @@ El eje narrativo de PLANEB es la historia de los Moretti — la familia que desc
 ### 17.3 La Narrativa contra la Narrativa
 
 Los incumbentes van a intentar instalar la narrativa: "es riesgoso, es inviable, van a perder su plata." La contra-narrativa es simple: "todo lo que hacemos es público. Fijate vos." La transparencia radical es el arma de comunicación más poderosa que existe — porque no necesita que nadie confíe en vos. Solo necesita que miren.
+
+### 17.4 Distribución — Cómo Llega la Historia
+
+La mejor historia del mundo no sirve si nadie la escucha. La distribución de PLANEB opera en tres canales simultáneos:
+
+**Digital.** TikTok e Instagram para explicadores cortos de "La Factura Invisible" — videos de 30 segundos con un formato simple: "Tu aseguradora te cobra $47.000. Lo que realmente cuesta: $29.400. La diferencia: ganancia que nunca vas a ver." Directo, con datos, sin dramatismo. YouTube para deep-dives por sector — desgloses completos de costos reales con fuentes verificables. Podcast con entrevistas a miembros fundadores del Panel Ciudadano: gente real explicando por qué pusieron su plata en algo que no tiene dueño.
+
+**Medios ganados.** Cada reporte mensual de transparencia de la Bastarda *es* un comunicado de prensa. Los periodistas pueden comparar los costos Bastardos con los del mercado — eso es una nota mensual que nadie más ofrece. No necesitás convencer a un editor de que la historia importa. Los números la cuentan solos. Cuando una aseguradora cobra $47.000 y la Bastarda publica que el mismo servicio cuesta $29.400, la nota se escribe sola.
+
+**Comunidad.** La Tribu — la red comunitaria de BASTA — es el canal de distribución de base. Cada miembro de La Tribu que se suma invita a tres más. No hace falta incentivo artificial — el ahorro *es* el incentivo. Cuando tu vecino te muestra que paga 30% menos por el mismo seguro, no necesitás un banner publicitario. Necesitás que tu vecino te pase el link.
+
+### 17.5 Embajadores Bastardos
+
+No son influencers — son usuarios. Gente real que publica sus ahorros reales.
+
+La campaña **"Mi Factura Bastarda"** funciona así: los usuarios comparten voluntariamente capturas de su costo mensual al lado de lo que pagaban antes. Anonimizado o con nombre — decisión de cada uno. El formato es simple: dos números, uno al lado del otro. La diferencia habla sola.
+
+No hay endorsements pagados. No hay embajadores famosos. No hay presupuesto de influencers. La autenticidad es la única moneda que funciona contra incumbentes que te pueden superar 1000 a 1 en gasto de marketing. Ninguna campaña publicitaria del mundo compite contra tu vecina mostrándote su factura en el grupo de WhatsApp del edificio. El mejor embajador de la Bastarda es alguien que conocés, que vive cerca, y que te muestra su factura.
+
+### 17.6 Protocolo de Comunicación de Crisis
+
+Las crisis van a llegar. Lo que importa no es evitarlas — es cómo respondés.
+
+**Si hay prensa negativa:** respuesta en menos de 4 horas con datos — no con spin de relaciones públicas, con datos. Se publica el reclamo específico que se está haciendo y la data específica que lo contradice. Sin editoriales, sin victimización, sin ataques. Datos. Que la gente decida.
+
+**Si hay amenaza regulatoria:** comunicado público inmediato de la ANEB + presentación legal formal + notificación a todos los usuarios de la Bastarda afectada dentro de las 24 horas. Transparencia total sobre la amenaza y sobre la respuesta. Los usuarios no se enteran por los medios — se enteran por la Bastarda primero.
+
+**Si hay incidente de seguridad o exploit:** divulgación transparente dentro de las 24 horas. Sin encubrimiento, nunca — la transparencia es constitucional en una Bastarda. Se publica: qué pasó, qué sabemos, qué no sabemos, qué estamos haciendo. Actualización diaria hasta resolución completa. El impulso de ocultar un incidente de seguridad es exactamente lo que hacen las empresas que la Bastarda existe para superar.
+
+**Plantillas pre-escritas** para cinco escenarios comunes de crisis: regulatorio, seguridad, financiero, mediático y político. No se usan tal cual — se adaptan al caso específico. Pero nunca se empieza de cero. En una crisis, cada hora sin respuesta es una hora que la narrativa la escribe otro.
 
 ---
 
