@@ -1129,13 +1129,80 @@ Una ciudad Bastarda-nativa no es una utopía — es un laboratorio. Los aprendiz
 
 ---
 
-## SECCIÓN 15: RIESGOS, CRÍTICAS Y RESPUESTAS
+## SECCIÓN 15: ESTRATEGIA DE STAKEHOLDERS — TEJER, NO DESTRUIR
+
+> *"No ganás una guerra peleando contra todos al mismo tiempo. Ganás identificando quién puede caminar con vos, quién va a resistir, y quién todavía no se decidió — y trabajando cada grupo de forma distinta."*
+
+PLANEB no se despliega en el vacío. Se despliega en un campo de fuerzas donde cada actor — aseguradoras, bancos, reguladores, sindicatos, fintechs, medios, legisladores — tiene intereses concretos, miedos legítimos, poder real y potencial de alianza o bloqueo. Ignorar esto es garantizar el fracaso. La historia de las reformas argentinas está llena de proyectos técnicamente sólidos que murieron en la implementación porque subestimaron el mapa político. PLANEB no va a repetir ese error.
+
+Lo que sigue no es un listado de enemigos. Es un mapa de actores, sus posiciones probables, su capacidad de obstruir o impulsar, y la estrategia para cada uno. La premisa es simple: la Red Bastarda no necesita destruir a nadie para existir. Necesita tejer — alianzas donde las haya, neutralización donde no, y paciencia donde todavía no se sabe.
+
+**TABLA 24: Mapa de Stakeholders de PLANEB**
+
+| Actor | Posición probable | Poder de bloqueo | Estrategia |
+|---|---|---|---|
+| Aseguradoras incumbentes | Oposición | Alto | No pelear — iluminar con referencia de precio |
+| Bancos | Oposición | Muy alto | Entrada gradual, empezar pequeño, demostrar |
+| Telefónicas | Oposición | Alto | Modelo MVNO = les da ingresos de wholesale |
+| Reguladores (SSN, BCRA, ENACOM) | Neutral-cautelosos | Alto | Cumplir primero, dialogar después. ANEB como interlocutor |
+| Productores de seguros y brokers | Oposición | Medio | Reconversión: pueden ser asesores Bastardos |
+| Sindicatos del sector financiero | Miedo | Medio | Garantías de empleo, mismas o mejores condiciones |
+| Cooperativas existentes | Aliados potenciales | Medio (a favor) | Pueden adoptar el Protocolo, interoperar |
+| Fintechs argentinas | Aliados potenciales | Bajo (a favor) | Partners de infraestructura, co-desarrollo open-source |
+| Defensa del Consumidor | Aliados naturales | Bajo (a favor) | Data sharing, campañas conjuntas de transparencia |
+| Poder Judicial | Neutral | Bajo | PLANJUS como backbone de disputas ya está alineado |
+| Medios de comunicación | Variables | Alto | La Factura Invisible provee contenido permanente |
+| Congreso | Variable | Alto | Ley de EPP necesita campeones legislativos |
+
+### 15.1 Las aseguradoras: no pelear, iluminar
+
+La tentación es obvia: pintar a las aseguradoras como el gran villano. Y hay razones — los márgenes de la Tabla 1 hablan solos. Pero convertir a un sector entero en enemigo es estratégicamente suicida. La industria aseguradora argentina mueve miles de millones de dólares, emplea a decenas de miles de personas, tiene acceso directo a reguladores y legisladores, y puede financiar campañas de desprestigio que harían que la Bastarda pierda la batalla narrativa antes de emitir su primera póliza.
+
+La estrategia de PLANEB es distinta: **no pelear — iluminar**. La Bastarda Aseguradora no denuncia a las aseguradoras privadas. Publica sus propios costos. Muestra cuánto cuesta realmente proveer un seguro de auto. Y deja que el ciudadano compare. Cuando la Bastarda cobra $30.000 por el mismo producto que la aseguradora privada cobra $47.000, la pregunta se hace sola: *¿a dónde van los otros $17.000?* La Bastarda no necesita responderla — el público la responde solo.
+
+La industria aseguradora no es un bloque monolítico. Algunas aseguradoras van a resistir con todo: lobby, campañas mediáticas, presión al regulador. Otras van a mirar los números de la Bastarda, van a entender que la transparencia es el futuro, y van a empezar a publicar sus propios desgloses para competir. Esa segunda fracción es la aliada natural. No hace falta convencerla — hace falta existir para que aparezca.
+
+Y un punto que PLANEB no puede olvidar: la mayoría de las personas que trabajan en aseguradoras son profesionales haciendo su trabajo dentro de un sistema que no diseñaron. Actuarios que calculan riesgos con honestidad. Liquidadores que procesan siniestros de buena fe. Administrativos que atienden teléfonos. La Bastarda no compite contra esas personas — compite contra un modelo de negocio que les pide extraer más de lo necesario. Muchos de ellos, si se les ofreciera trabajar en una organización transparente con propósito claro, aceptarían. Algunos ya lo están esperando.
+
+### 15.2 Los reguladores: aliados necesarios, no obstáculos
+
+La SSN, el BCRA y ENACOM no son enemigos de PLANEB. Son instituciones con un mandato legítimo: proteger al consumidor, garantizar solvencia, evitar riesgo sistémico. Que miren con desconfianza a una entidad nueva que propone operar sin accionistas, con gobernanza DAO y tesorería on-chain no es irrazonable — es su trabajo.
+
+La estrategia con los reguladores es una sola: **cumplir primero, dialogar después**. La Bastarda Aseguradora no pide excepciones regulatorias. Se constituye bajo la ley vigente de fideicomisos. Cumple los requisitos de capital mínimo de la SSN. Presenta balances auditados. Contrata reaseguro. Hace todo lo que una aseguradora convencional hace — y además hace más: publica todo en tiempo real, invita a auditorías externas permanentes, y abre sus Paneles Ciudadanos a observadores regulatorios.
+
+La ANEB (ver Sección 5) es el interlocutor institucional. No es un grupo de activistas tocando la puerta del regulador — es una agencia con equipo técnico, legal y actuarial que puede sentarse a la mesa con la SSN y hablar su idioma. La invitación es concreta: vengan a ver cómo funciona. Auditen. Observen un Panel Ciudadano deliberando sobre reservas técnicas. Verifiquen los smart contracts. Si después de ver todo siguen teniendo objeciones, las escuchamos. Pero que sean objeciones técnicas, no reflejos institucionales ante lo desconocido.
+
+Los reguladores no necesitan amar a la Bastarda. Necesitan no bloquearla sin causa. Y la mejor forma de lograrlo es no darles causa.
+
+### 15.3 Los productores de seguros y brokers: reconversión, no extinción
+
+Hay más de 60.000 productores de seguros matriculados en Argentina. Son la cara humana de un sistema que, en su operación transaccional, cada vez necesita menos caras humanas. La digitalización viene matando la intermediación mucho antes de que PLANEB existiera — las aseguradoras directas online ya les estaban comiendo terreno. La Bastarda no inventa la amenaza; la acelera.
+
+Pero la Bastarda también crea una oportunidad que la digitalización pura no ofrece: el rol de **asesor Bastardo**. La Red Bastarda opera al costo, con transparencia radical, y eso elimina la necesidad de un vendedor que empuja productos por comisión. Pero no elimina la necesidad de un profesional que ayude al usuario a entender qué cobertura necesita, cómo funciona el modelo de cuota dinámica, cuándo conviene ampliar la protección, y cómo navegar un siniestro.
+
+No son el enemigo — son intermediarios de un sistema que se beneficia de la complejidad. La Bastarda elimina la complejidad, no al intermediario. Lo que cambia es el modelo de compensación: en lugar de comisión por venta (que incentiva vender más, no asesorar mejor), el asesor Bastardo cobra por servicio (que incentiva resolver, no empujar). Las habilidades son las mismas — conocimiento de riesgo, empatía con el usuario, capacidad de explicar lo complejo en simple. El contexto es distinto: en lugar de trabajar para una empresa que le pide maximizar primas, trabaja dentro de una red que le pide maximizar valor para el usuario.
+
+PLANEB propone un programa de reconversión concreto: certificación de asesores Bastardos, con formación en el Protocolo, en gobernanza DAO, en transparencia radical. Los primeros 500 productores que se reconviertan se convierten en los embajadores más creíbles de la Red — porque conocen el sistema viejo desde adentro y pueden explicar, con autoridad de experiencia, por qué el nuevo funciona mejor. Para el gremio, el mensaje no es "van a quedar afuera" — es "hay un lugar, y es mejor."
+
+### 15.4 Las fintechs: primos tecnológicos
+
+Argentina tiene uno de los ecosistemas fintech más vibrantes de América Latina. Mercado Pago, Ualá, Naranja X, Brubank, Lemon Cash — todas nacieron de la misma frustración que origina PLANEB: los servicios financieros tradicionales son caros, opacos, y tratan al usuario como un número de cuenta, no como una persona.
+
+Las fintechs no son competidoras de la Red Bastarda — son primas tecnológicas. Comparten ADN: digital-first, costos bajos, foco en el usuario, aversión a la burocracia legacy. Lo que las diferencia de la Bastarda es la estructura de propiedad: las fintechs tienen accionistas e inversores que esperan retorno; la Bastarda no tiene dueño y opera al costo. Esa diferencia no las hace enemigas — las hace complementarias.
+
+El Protocolo Bastardo es open-source. Las fintechs pueden contribuir código, adoptar módulos, interoperar con la Red. Una fintech que integra la capa de transparencia del Protocolo en su propia plataforma gana credibilidad y diferenciación. La Bastarda que usa la infraestructura de pagos de una fintech gana velocidad de implementación y base de usuarios.
+
+La estrategia es de co-desarrollo, no de competencia. Los hackathons conjuntos, las APIs abiertas, los estándares compartidos de identidad digital — todo esto crea un ecosistema donde la Bastarda y las fintechs se potencian mutuamente. Y cuando un usuario de Mercado Pago puede ver, dentro de su propia app, cuánto le costaría asegurarse a través de la Bastarda versus su aseguradora actual, la transparencia se viraliza sin que PLANEB tenga que gastar un peso en publicidad.
+
+---
+
+## SECCIÓN 16: RIESGOS, CRÍTICAS Y RESPUESTAS
 
 > *"Un plan que no anticipa sus propias debilidades no es un plan — es una fantasía."*
 
-### 15.1 Matriz de Riesgos
+### 16.1 Matriz de Riesgos
 
-**TABLA 24: Riesgos de PLANEB — Probabilidad, Impacto, Mitigación**
+**TABLA 25: Riesgos de PLANEB — Probabilidad, Impacto, Mitigación**
 
 | Riesgo | Probabilidad | Impacto | Mitigación |
 |---|---|---|---|
@@ -1148,7 +1215,7 @@ Una ciudad Bastarda-nativa no es una utopía — es un laboratorio. Los aprendiz
 | **Desafío legal al fideicomiso perpetuo** | Media | Alto | Mecanismo de renovación/fideicomiso sucesor. Push paralelo por Ley de EPP. |
 | **Catástrofe que excede todas las reservas** | Muy baja | Muy alto | 5 líneas de defensa (Operativa → Catástrofe → Solidaridad → Reaseguro → Asamblea). Diversificación de reaseguradores. |
 
-### 15.2 Críticas Anticipadas y Respuestas
+### 16.2 Críticas Anticipadas y Respuestas
 
 **"Esto es comunismo / estatismo disfrazado."**
 No. La Empresa Bastarda no la crea el Estado, no la financia el Estado, no la dirige el Estado. La crean ciudadanos. La financian con su plata. La gobiernan ellos mismos. No hay propiedad estatal — no hay propiedad de nadie. Y compite en el mercado abierto — no reemplaza al mercado. Si el comunismo es propiedad estatal de los medios de producción, la Bastarda es lo opuesto: propiedad de nadie, al servicio de todos, en competencia con privados.
@@ -1173,34 +1240,34 @@ Cualquiera. Los datos son públicos. El código es abierto. La blockchain es ver
 
 ---
 
-## SECCIÓN 16: ESTRATEGIA DE COMUNICACIÓN
+## SECCIÓN 17: ESTRATEGIA DE COMUNICACIÓN
 
 > *"El mejor marketing de la Bastarda es la verdad — porque la verdad es lo que el mercado no tiene."*
 
-### 16.1 La Campaña: "La Factura Invisible"
+### 17.1 La Campaña: "La Factura Invisible"
 
 El eje narrativo de PLANEB es la historia de los Moretti — la familia que descubre cuánto de lo que paga no compra nada. La campaña no dramatiza ni victimiza. Muestra números. Muestra datos. Muestra la brecha entre costo y precio. Y hace la pregunta: *¿y si pudieras ver cuánto cuesta realmente?*
 
-### 16.2 Del Documento a las 25.000 Firmas
+### 17.2 Del Documento a las 25.000 Firmas
 
 1. **Integración con plataforma ¡BASTA!** Las declaraciones de ¡BASTA! sobre servicios caros, comisiones abusivas, y opacidad de mercado se canalizan hacia la petición de la primera Bastarda.
 2. **La Tribu.** Las comunidades BASTA organizadas a nivel barrial son el canal primario de difusión.
 3. **Calculadora Bastarda.** Herramienta online donde cualquier argentino ingresa sus facturas de seguro, banco, teléfono y energía, y ve cuánto ahorraría en una Bastarda — basado en las estimaciones del modelo.
 4. **Transparencia como contenido.** Cada dato publicado por la Red es contenido de comunicación. Los reportes mensuales de la Bastarda son notas de prensa. Los dashboards son viralizables.
 
-### 16.3 La Narrativa contra la Narrativa
+### 17.3 La Narrativa contra la Narrativa
 
 Los incumbentes van a intentar instalar la narrativa: "es riesgoso, es inviable, van a perder su plata." La contra-narrativa es simple: "todo lo que hacemos es público. Fijate vos." La transparencia radical es el arma de comunicación más poderosa que existe — porque no necesita que nadie confíe en vos. Solo necesita que miren.
 
 ---
 
-## SECCIÓN 17: HOJA DE RUTA
+## SECCIÓN 18: HOJA DE RUTA
 
 > *"No hay plan de diez años que sobreviva al contacto con la realidad. Hay un primer paso, y un mecanismo de escucha para decidir el segundo."*
 
-### 17.1 Cronograma
+### 18.1 Cronograma
 
-**TABLA 25: Hoja de Ruta de PLANEB — 5 Años**
+**TABLA 26: Hoja de Ruta de PLANEB — 5 Años**
 
 | Año | Hito Principal | Bastardas Activas | Usuarios Estimados |
 |---|---|---|---|
@@ -1211,7 +1278,7 @@ Los incumbentes van a intentar instalar la narrativa: "es riesgoso, es inviable,
 | **Año 4** | Bastarda Conectada + Bastarda Energética en estudio/constitución. Primera ciudad PLAN24CN con servicios Bastardos. | 3-4 | 150.000 |
 | **Año 5** | Red Bastarda con 5+ Bastardas activas. Ahorro ciudadano >USD 100M/año. Proyecto de Ley de EPP en Congreso. | 5+ | 300.000+ |
 
-### 17.2 Lo Que No Sabemos
+### 18.2 Lo Que No Sabemos
 
 PLANEB sabe lo que todos los PLANs de BASTA saben: que se equivoca en formas que todavía no puede ver. Las proyecciones son estimaciones. Los tiempos son optimistas. Los costos pueden ser mayores. Los reguladores pueden ser más resistentes. La adopción puede ser más lenta.
 
@@ -1219,11 +1286,11 @@ Por eso PLANEB no es un cronograma rígido — es un sistema adaptativo con mét
 
 ---
 
-## SECCIÓN 18: VISIÓN 2040 — LA RED BASTARDA A ESCALA
+## SECCIÓN 19: VISIÓN 2040 — LA RED BASTARDA A ESCALA
 
 > *"En la Argentina donde vamos, preguntar cuánto cuesta realmente un servicio no es un acto revolucionario. Es un dato público."*
 
-### 18.1 Lo Que Se Ve desde 2040
+### 19.1 Lo Que Se Ve desde 2040
 
 Si PLANEB funciona — si la cascada se despliega, si las Bastardas prueban que se puede hacer más con menos, si la Red crece y la ciudadanía la adopta — esto es lo que se ve en 2040:
 
@@ -1239,13 +1306,13 @@ Si PLANEB funciona — si la cascada se despliega, si las Bastardas prueban que 
 
 **La Ley de Entidades de Propósito Perpetuo** como referencia legislativa global — el equivalente económico de Creative Commons.
 
-### 18.2 Integración con PLANREP Horizonte 3
+### 19.2 Integración con PLANREP Horizonte 3
 
 En el Horizonte 3 de PLANREP (2043+), los Fideicomisos de Propósito Perpetuo financian un Dividendo Nacional de Productividad que provee un ingreso universal a cada argentino. En ese escenario, las Empresas Bastardas operan como la capa de servicios esenciales al costo — lo que cada ciudadano necesita para vivir, provisto sin extracción.
 
 La convergencia: el DNP pone plata en tu bolsillo. Las Bastardas aseguran que esa plata compre el máximo posible. No se pierde en márgenes. No se evapora en comisiones. No se diluye en opacidad. Cada peso que el sistema genera llega entero al ciudadano — y cuando el ciudadano lo gasta, compra servicio real, no extracción disfrazada.
 
-### 18.3 La Pregunta Final
+### 19.3 La Pregunta Final
 
 Los Moretti, en 2040, ya no necesitan sentarse a descifrar facturas opacas. Claudia abre la app de la Red Bastarda y ve, en tiempo real, cuánto paga por cada servicio y a dónde va cada peso. No hay misterio. No hay letra chica. No hay "gastos de producción y explotación" que esconden lo que nadie quiere mostrar.
 
