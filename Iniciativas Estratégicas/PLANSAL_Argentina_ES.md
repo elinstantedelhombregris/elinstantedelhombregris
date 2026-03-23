@@ -1190,3 +1190,223 @@ La Plataforma Digital Nacional de PLANSAL es la evolución de lo que ya se está
 La plataforma no reemplaza el contacto humano — lo facilita. No reemplaza al Centro de Vitalidad — te lleva a él. No reemplaza a la Familia Mentora — te conecta con ella. Es el sistema nervioso digital de una infraestructura que es, ante todo, de carne y hueso, de tierra y mate, de miradas y abrazos.
 
 ---
+
+## SECCIÓN 10 · RECONVERSIÓN DEL SISTEMA MÉDICO
+
+> *"No destruyas una cerca hasta que sepas por qué fue construida."*
+> — G.K. Chesterton
+
+Sería fácil — y sería un error catastrófico — plantear PLANSAL como una guerra contra el sistema médico. Lo que hace PLANSAL es algo más difícil y más honesto: un diagnóstico sistémico sin culpa individual. El enemigo no es el médico que receta. El enemigo no es la enfermera que aplica la inyección. El enemigo no es el farmacéutico que entrega la caja. El enemigo es la estructura de incentivos que convirtió a todos ellos — profesionales de la salud que eligieron su carrera para curar — en engranajes de una máquina diseñada para administrar enfermedad crónica.
+
+El médico que atiende treinta pacientes por día en ocho horas no tiene tiempo para preguntar cómo dormís, qué comés, si tenés amigos, si tu trabajo te destruye el alma. Tiene siete minutos por consulta — y en siete minutos solo se puede hacer una cosa: recetar. La enfermera que trabaja guardias de veinticuatro horas por un sueldo que no cubre el alquiler no está en condiciones de acompañar un proceso de transformación vital. Está en condiciones de sobrevivir hasta el próximo franco. El farmacéutico que vende psicofármacos como si fueran caramelos no es un villano — es un comerciante atrapado en un sistema donde la demanda de pastillas crece porque las condiciones que producen sufrimiento crecen.
+
+Son víctimas del mismo diseño perverso que enferma a los Ramírez. Son aliados potenciales, no adversarios. Y la transición que propone PLANSAL no funciona por confrontación — funciona por demostración. No hacemos irrelevante al viejo sistema peleando contra él. Lo hacemos irrelevante construyendo algo tan claramente mejor que la gente migre por elección propia.
+
+### 10.1 · Tres fases hacia un sistema de vitalidad
+
+La reconversión no es un golpe de timón. Es una transición gradual, medible y reversible en cada etapa. Si una fase no produce resultados, se ajusta antes de avanzar a la siguiente. Esto no es ideología — es método.
+
+---
+
+**FASE 1 — COEXISTENCIA (Años 1-3)**
+
+Los Centros de Vitalidad (Sección 9) operan *en paralelo* al sistema médico existente. No se cierra un hospital. No se reduce un presupuesto sanitario. No se confronta con ningún actor del sistema actual. Se agrega una capa nueva — y se mide qué pasa.
+
+Indicadores clave de esta fase:
+
+- ¿Disminuyen las consultas por enfermedad crónica prevenible en los barrios que tienen un Centro de Vitalidad, comparados con barrios equivalentes sin Centro? Si la respuesta es sí, el argumento se construye solo.
+- ¿Cuántos profesionales de la salud solicitan voluntariamente capacitarse como Guías de Vitalidad? No se obliga a nadie — se abre la puerta. La hipótesis es que miles de médicos, kinesiólogos, nutricionistas, psicólogos y enfermeros están hartos de recetar y quieren volver a curar. Darles un camino.
+- Se lanzan programas piloto de pago por resultado: obras sociales y prepagas que reciben un incentivo económico cuando sus afiliados *dejan de estar enfermos*. Se invierte el incentivo perverso. En lugar de cobrar por consulta (cuantas más consultas, más ingresos), se cobra por vitalidad (cuantos más afiliados sanos, más ingresos). Modelos similares existen en sistemas de salud de Canadá, el Reino Unido (NHS) y Singapur — no es ciencia ficción.
+- Se invita a las obras sociales a co-financiar programas de los Centros de Vitalidad como "atención preventiva." Si una obra social gasta $50.000 por año en la medicación crónica de un afiliado diabético, y puede gastar $10.000 en un programa de vitalidad que revierte la diabetes — la aritmética es irresistible. No es altruismo. Es negocio inteligente.
+
+La Fase 1 es diplomática. No pide permiso, pero tampoco pisotea. Construye evidencia. Genera aliados. Demuestra que otra cosa es posible.
+
+---
+
+**FASE 2 — REDIRECCIONAMIENTO (Años 3-7)**
+
+Con tres años de datos, la evidencia habla. Si los Centros de Vitalidad reducen consultas por enfermedad crónica en un 20-30% en los barrios donde operan — como proyecta PLANSAL basándose en programas comparables a nivel internacional — entonces el redireccionamiento presupuestario deja de ser una propuesta política. Pasa a ser una obligación fiscal.
+
+Ejes de esta fase:
+
+- **Especialización hospitalaria.** Los hospitales se concentran en lo que hacen extraordinariamente bien: emergencias, trauma, cirugía, enfermedades infecciosas agudas, patologías complejas que requieren alta tecnología. Eso es lo que un hospital puede hacer y un Centro de Vitalidad no. En cambio, las enfermedades crónicas prevenibles — diabetes tipo 2, hipertensión, depresión moderada, obesidad, síndrome metabólico — migran progresivamente fuera de los hospitales hacia los Centros de Vitalidad, donde se abordan desde las raíces y no desde los síntomas. El hospital deja de ser un depósito de crónicos que esperan seis horas para renovar una receta. Vuelve a ser lo que debería ser: un lugar donde se salvan vidas en peligro.
+- **Cobertura obligatoria de programas de vitalidad.** Las obras sociales y prepagas son requeridas por ley a cubrir programas de vitalidad integral — no solo medicamentos. Si cubrís atorvastatina para el colesterol, tenés que cubrir el programa de alimentación y movimiento que hace que la atorvastatina sea innecesaria. No es un gasto adicional — es un gasto sustitutivo. Y más barato.
+- **Reforma educativa en las facultades de medicina.** Las universidades comienzan a integrar formación obligatoria en medicina del estilo de vida, salud comunitaria, nutrición clínica, prescripción de ejercicio, y acompañamiento de familias. El médico del futuro que Edison imaginó en 1903 empieza a formarse. El cambio curricular no elimina la farmacología ni la cirugía — las complementa con las herramientas que el sistema actual ignora.
+- **Reconversión de la fuerza de trabajo sanitaria.** Enfermeros, agentes sanitarios, nutricionistas, psicólogos, kinesiólogos, terapistas ocupacionales — todos encuentran roles expandidos en los Centros de Vitalidad. El sistema actual los subutiliza: los confina a tareas mecánicas dentro de un modelo centrado en el médico y el fármaco. PLANSAL los libera para hacer lo que saben hacer y lo que eligieron hacer. La enfermera que pasa de administrar insulina a acompañar a una familia a no necesitar insulina no pierde su trabajo — lo transforma en algo con sentido.
+
+---
+
+**FASE 3 — EL NUEVO SISTEMA (Años 7-15)**
+
+La Argentina consolida un sistema de salud de dos brazos:
+
+1. **Brazo de emergencia y complejidad** — Hospitales y clínicas especializados en lo que la medicina aguda hace mejor: salvar vidas, reparar cuerpos, tratar patologías complejas. Menos camas ocupadas por crónicos, más capacidad para lo urgente.
+2. **Brazo de vitalidad** — Centros de Vitalidad + Familias Mentoras + Plataforma Digital + Ancianos de Sabiduría (Sección 9). La red que cultiva salud antes de que la enfermedad llegue — y que acompaña la reversión cuando ya llegó.
+
+La industria farmacéutica no fue atacada, boicoteada ni expropiada. Se contrajo naturalmente por reducción de demanda. Nadie le prohibió vender metformina — simplemente millones de argentinos dejaron de necesitarla. Es el mercado, entendido correctamente: cuando el producto deja de ser necesario, la demanda cae. No es ideología anticapitalista. Es la misma lógica del capitalismo aplicada en beneficio de la gente.
+
+La mayoría de los profesionales de la salud trabaja en prevención, acompañamiento y cultivo de vitalidad. El médico que antes atendía treinta pacientes en ocho horas ahora acompaña a veinte familias en sus procesos de transformación. Gana igual o mejor — porque el sistema ya no paga por volumen sino por impacto. Y vuelve a su casa sintiéndose útil. Eso también es salud.
+
+La Argentina se convierte en referencia mundial en salud integral. No por tener los mejores hospitales — eso se lo dejamos a los países ricos. Por tener las comunidades más sanas, las familias más conectadas, la comida más real, y un modelo que otros países empiezan a estudiar, visitar y replicar. El país que fue fábrica de enfermos se convierte en laboratorio de vitalidad.
+
+### 10.2 · La ruta de des-medicalización acompañada
+
+Este apartado es el más importante de toda la Sección 10. Porque si PLANSAL no responde con rigor absoluto a una pregunta específica, todo lo demás se derrumba. La pregunta es: *¿qué pasa con los millones de argentinos que hoy toman medicación crónica?*
+
+La respuesta tiene que ser inequívoca: **PLANSAL no dice "dejá de tomar tus pastillas."** Cualquiera que use este plan para promover el abandono de medicación es un irresponsable que contradice todo lo que PLANSAL defiende. La des-medicalización no es un acto de rebeldía. Es un proceso clínico, gradual, acompañado y basado en evidencia biológica medible.
+
+**Protocolo de Des-medicalización Acompañada:**
+
+1. **Nunca contra el médico.** El Guía de Vitalidad trabaja *en conjunción* con el médico tratante del paciente. No lo reemplaza, no lo desautoriza, no lo contradice. Coordina. El médico sigue siendo responsable de la prescripción farmacológica. El Guía es responsable de construir las condiciones de vida que hagan esa prescripción progresivamente innecesaria.
+2. **Indicadores biológicos como juez.** Nada se modifica por opinión, por sensación ni por ideología. Se modifica cuando el cuerpo demuestra — con análisis de sangre, hemoglobina glicosilada, presión arterial, marcadores inflamatorios, paneles metabólicos — que la medicación ya no es necesaria. El cuerpo habla. Los números hablan. Las creencias se callan.
+3. **Gradualidad obligatoria.** No se retira toda la medicación de golpe. Se reduce de a un fármaco por vez, empezando por el de menor criticidad, con monitoreo mensual. Si algún indicador empeora, se revierte. La seguridad del paciente es innegociable.
+4. **Registro digital completo.** Cada paso del proceso queda documentado en la Plataforma Digital Nacional. El paciente, su médico y su Guía de Vitalidad tienen acceso al historial completo. Transparencia total. Trazabilidad total.
+
+**El principio rector es simple: nada se retira hasta que el cuerpo demuestre que ya no lo necesita.**
+
+---
+
+Esto es lo opuesto de "dejá las pastillas." Es "mejorá tu vida hasta que tu cuerpo demuestre que las pastillas sobran."
+
+Veamos cómo funciona en la práctica.
+
+**Claudia, 58 años. Morón, provincia de Buenos Aires.**
+
+Claudia es diabética tipo 2 desde hace doce años. Toma metformina 850mg dos veces por día, glibenclamida una vez por día y atorvastatina para el colesterol. Su hemoglobina glicosilada (A1C) es 8,2% — controlada pero mal controlada, como diría su endocrinóloga del Hospital Posadas con la resignación de quien sabe que la receta no alcanza pero no tiene otra herramienta. Claudia pesa 89 kilos. Tiene dolor crónico en las rodillas. No hace actividad física desde que su hija era chica. Come lo que puede, cuando puede, lo que hay. Vive sola desde que se separó hace siete años. Sus hijos la llaman los domingos. A veces.
+
+En marzo de 2027, se inaugura un Centro de Vitalidad a ocho cuadras de su casa. Una vecina la invita. Claudia va con desconfianza — "otra cosa del gobierno que no va a servir para nada." Pero la reciben bien. Le hacen el autodiagnóstico de las doce áreas. El mapa de vitalidad muestra lo que Claudia sabe pero nunca vio dibujado: su alimentación es crítica, su movimiento es nulo, sus vínculos están devastados, su propósito está vacío. No está enferma de diabetes — está enferma de soledad, inmovilidad y comida industrial. La diabetes es el síntoma.
+
+**Mes 1-2:** Claudia se suma al grupo de caminata del Centro. Tres veces por semana, cuarenta minutos. No corre — camina. Con otras mujeres de su edad. Charlan mientras caminan. Se ríen. Claudia no se reía con otras personas desde hacía años. Se suma también al taller de cocina que dirige Marta, una Anciana de Sabiduría de 74 años que les enseña a cocinar guisos con legumbres, verduras de estación y cero ultraprocesados. Claudia descubre que cocinar puede ser un acto social: cocinan juntas, comen juntas, llevan comida a sus casas.
+
+**Mes 3-4:** A1C baja a 7,5%. La endocrinóloga nota la mejora. El Guía de Vitalidad le muestra los datos. La doctora — inicialmente escéptica — acepta observar. Claudia perdió 4 kilos. Las rodillas duelen menos. Duerme mejor. La sertralina que le habían recetado el año pasado empieza a sentirse excesiva — "me siento rara, como dopada." Su psiquiatra reduce la dosis.
+
+**Mes 5-6:** A1C baja a 6,5%. La endocrinóloga, ya no escéptica sino intrigada, reduce la glibenclamida a la mitad. Claudia perdió 8 kilos en total. Camina sin dolor. Cocina todos los días. Se sumó al programa de Familia Mentora — ahora acompaña a otra mujer diabética del barrio que recién empieza. Tiene un propósito. Tiene amigas. Tiene razones para levantarse que no son "ir al hospital."
+
+**Mes 8-10:** A1C en 6,0%. Glibenclamida eliminada. Metformina reducida a una sola toma diaria. Atorvastatina en evaluación — el colesterol LDL bajó de 165 a 118 solo con cambio alimentario.
+
+**Mes 12:** A1C en 5,8%. Rango no diabético. La endocrinóloga retira la metformina. Claudia llora en el consultorio. No de tristeza — de algo que no sabe nombrar. Después lo nombra: libertad. Doce años de pastillas. Doce años de "usted es diabética, esto es para siempre." Y resulta que no era para siempre. Era para mientras viviera de una forma que produce diabetes.
+
+Medicaciones actuales de Claudia: cero. Kilos perdidos: 14. A1C: normal. Rodillas: sin dolor. Amigas: un grupo de siete mujeres que caminan juntas tres veces por semana y cocinan juntas los sábados. Propósito: acompañar a otras personas a hacer lo que ella hizo.
+
+Claudia no abandonó la medicina. Hizo que la medicina dejara de ser necesaria. Y eso es PLANSAL en una persona.
+
+---
+
+## SECCIÓN 11 · EL ARGUMENTO ECONÓMICO
+
+> *"Si pensás que la prevención es cara, probá con la enfermedad."*
+> — Adaptación de aforismo atribuido a Derek Bok, presidente de Harvard
+
+PLANSAL no es solo un argumento moral — aunque es profundamente moral. Es un argumento fiscal. La Argentina no puede seguir pagando por una fábrica que produce enfermos. No por bondad. Por supervivencia económica.
+
+### 11.1 · Cuánto cuesta la enfermedad
+
+La Argentina gasta aproximadamente el 10% de su PBI en salud — alrededor de USD 60.000 millones por año (Banco Mundial, 2022). De ese total, una proporción enorme se destina a tratar enfermedades crónicas que podrían haberse prevenido. El cálculo exacto es difícil porque los tres subsistemas (Sección 2.2) no comparten datos, pero las estimaciones convergentes de organismos nacionales e internacionales permiten construir el siguiente cuadro:
+
+**TABLA 6: Costo anual estimado de la enfermedad prevenible en Argentina**
+
+| Concepto | Costo anual estimado (USD) | Fuente / base |
+|---|---|---|
+| Tratamiento diabetes tipo 2 (>5M personas) | ~USD 5.500M [est.] | FID Atlas 2021, ajustado por prevalencia argentina |
+| Tratamiento hipertensión arterial (~10M personas) | ~USD 3.800M [est.] | OPS/MSN, costo directo medicación + consultas |
+| Medicación psicofarmacológica crónica | ~USD 2.200M [est.] | SEDRONAR/OPS, gasto farmacéutico sector |
+| Tratamiento obesidad y complicaciones asociadas | ~USD 3.000M [est.] | Estudios regionales OPS, proporción del gasto |
+| Enfermedades cardiovasculares prevenibles | ~USD 4.500M [est.] | MSN/SAC, costos internaciones + procedimientos |
+| Ausentismo laboral por enfermedad crónica | ~USD 2.800M [est.] | OIT/estimaciones cámara empresarial argentina |
+| Pérdida de productividad (presentismo + discapacidad) | ~USD 4.200M [est.] | OMS Burden of Disease, proporción argentina |
+| **Total enfermedad prevenible** | **~USD 26.000M [est.]** | — |
+
+Veintiséis mil millones de dólares por año. Es un número tan grande que pierde sentido. Pongámoslo en perspectiva:
+
+- Es más que el presupuesto completo de educación nacional.
+- Es más que lo que la Argentina recibe del FMI en un desembolso típico.
+- Es suficiente para construir 500 hospitales nuevos por año — si los hospitales fueran la solución, que no lo son.
+- Es el equivalente a quemar, cada día, setenta millones de dólares en tratar las consecuencias de un sistema que enferma a su propia gente.
+
+Y esto solo cuenta el gasto directo e indirecto cuantificable. No cuenta el sufrimiento. No cuenta los años de vida perdidos. No cuenta a Silvia Ramírez despierta a las tres de la mañana mirando el techo. No cuenta a Tomás en el Borda a los 17 años. No cuenta a Nélida pinchándose insulina dos veces por día mientras la llaman "controlada." El costo humano es inconmensurable. El costo económico ya es insostenible.
+
+### 11.2 · Cuánto cuesta la vitalidad
+
+Ahora la pregunta inversa. ¿Cuánto cuesta construir el sistema que PLANSAL propone?
+
+**TABLA 7: Inversión estimada en el sistema de vitalidad PLANSAL (10 años)**
+
+| Componente | Inversión estimada (USD, 10 años) | Detalle |
+|---|---|---|
+| 3.000 Centros de Vitalidad — construcción/adaptación | ~USD 1.500M [est.] | ~USD 500.000 por Centro (adaptación de espacios existentes) |
+| 3.000 Centros de Vitalidad — operación anual | ~USD 3.000M [est.] | ~USD 100.000/año por Centro × 10 años |
+| 25.000 Familias Mentoras — formación y apoyo | ~USD 500M [est.] | Capacitación, estipendio, supervisión |
+| Plataforma Digital Nacional — desarrollo y mantenimiento | ~USD 150M [est.] | Código abierto, equipo permanente, infraestructura |
+| Reconversión profesional — 50.000 profesionales | ~USD 400M [est.] | Programas de formación en medicina del estilo de vida |
+| Programa Ancianos de Sabiduría | ~USD 200M [est.] | Estipendios, transporte, materiales |
+| Campaña de comunicación y educación | ~USD 250M [est.] | Medios, materiales, formadores |
+| **Total inversión 10 años** | **~USD 6.000M [est.]** | — |
+
+Seis mil millones de dólares en diez años. Seiscientos millones por año. Es mucho dinero — no lo minimicemos. Pero comparémoslo:
+
+- El sistema actual gasta ~USD 26.000M por año en enfermedad prevenible.
+- PLANSAL propone gastar ~USD 600M por año en prevenirla.
+- **La inversión en vitalidad es el 2,3% del gasto actual en enfermedad.**
+
+### 11.3 · La ecuación
+
+La aritmética no tiene ideología:
+
+- **Prevenir cuesta 1x.**
+- **Tratar cuesta 10x.**
+- **Tratar enfermedad crónica de por vida cuesta 100x.**
+
+Cada peso invertido en un Centro de Vitalidad que evita diez diagnósticos de diabetes ahorra cien pesos en tratamiento crónico durante treinta años. La proyección conservadora de retorno de inversión: **cada peso invertido en prevención integral ahorra entre 5 y 8 pesos en tratamiento a 5 años, y entre 12 y 20 pesos a 10 años** [est., basado en meta-análisis de programas de prevención comparables — OMS/Lancet 2018].
+
+No es una proyección teórica. Hay países que ya lo hicieron:
+
+- **Cuba** invierte más en atención primaria y prevención que en hospitales. Con un PBI per cápita de USD ~9.500, tiene una esperanza de vida de 78 años — superior a la de Estados Unidos. Tiene uno de los mejores ratios de médicos por habitante del mundo. Gasta una fracción de lo que gasta la Argentina y obtiene resultados superiores.
+- **Costa Rica** desmanteló su sistema hospitalocéntrico en los años 90 y construyó una red de Equipos Básicos de Atención Integral de Salud (EBAIS) comunitarios. La esperanza de vida costarricense es de 80 años — en la zona de Nicoya, una de las cinco "Zonas Azules" del mundo, supera los 85. Gasta 7,3% del PBI en salud — tres puntos menos que Argentina — con resultados radicalmente mejores.
+- **Finlandia** implementó el programa North Karelia en los años 70, cuando la mortalidad cardiovascular era la más alta de Europa. Intervención comunitaria masiva: cambio alimentario, actividad física, reducción del tabaquismo, huertos comunitarios. En 30 años, la mortalidad cardiovascular cayó un 80%. El programa se pagó solo en la primera década y generó ahorros netos astronómicos.
+
+La conclusión no requiere retórica. Requiere honestidad:
+
+**La Argentina gasta USD 26.000 millones por año fabricando enfermos. PLANSAL propone gastar USD 600 millones por año fabricando salud. Si en diez años la inversión en vitalidad reduce el gasto en enfermedad prevenible en un 30% — una meta conservadora dado el precedente internacional — el ahorro neto es de ~USD 7.200 millones por año. Restando la inversión de USD 600M, el beneficio fiscal neto es de ~USD 6.600 millones anuales.**
+
+Esto no es un argumento moral — aunque es profundamente moral. Esto no es un argumento ideológico — aunque tiene una visión clara del mundo. Esto es supervivencia fiscal. La Argentina no puede pagar la fábrica de enfermos. No tiene la plata. No tiene los años. No tiene los cuerpos. Cada día que pasa sin reconvertir el sistema es un día que el país sangra setenta millones de dólares en tratar lo que podría prevenir con un décimo de ese costo.
+
+---
+
+## SECCIÓN 12 · MÉTRICAS E INDICADORES
+
+> *"Lo que se mide, mejora. Lo que se mide públicamente, mejora más rápido."*
+
+El sistema actual mide enfermedad: camas ocupadas, recetas emitidas, consultas realizadas, internaciones procesadas. Son métricas de actividad, no de resultado. Miden cuánto trabaja la fábrica — no si la fábrica produce algo bueno. Un hospital con el 100% de ocupación de camas no es un éxito — es una tragedia. Significa que la prevención falló en el 100% de esos casos.
+
+PLANSAL mide vitalidad. Mide lo que el sistema *produce*, no lo que el sistema *procesa*. Y lo mide en público, en tiempo real, sin posibilidad de maquillaje.
+
+**TABLA 8: Tablero Nacional de Vitalidad — Indicadores centrales**
+
+| Dimensión | Indicador | Línea base (2026) | Meta a 10 años (2036) |
+|---|---|---|---|
+| Vitalidad poblacional | Esperanza de vida saludable (HALE) | ~66 años (OMS) | 71 años (+5) |
+| Enfermedad crónica | Prevalencia diabetes tipo 2 | 12,7% (FID) | 7,6% (-40%) |
+| Salud mental | Personas con depresión diagnosticada | ~5M [est.] | ~3,5M (-30%) |
+| Alimentación | Consumo de ultraprocesados (% calorías) | >30% [est.] | <15% (-50%) |
+| Familia | Conflicto familiar como fuente de estrés | ~65% [est.] | ~39% (-40%) |
+| Comunidad | Índice de soledad percibida | [línea base a establecer Año 1] | -50% |
+| Adicciones | Consumo problemático de sustancias | [línea base a establecer Año 1] | -35% |
+| Movimiento | Sedentarismo en adultos | ~64,9% (ENFR 2018) | ~39% (-40%) |
+| Sistema médico | Consultas por enfermedad crónica prevenible | [línea base a establecer Año 1] | -60% |
+| Gasto | Gasto en medicamentos crónicos per cápita | [línea base a establecer Año 1] | -50% |
+| Satisfacción | Satisfacción ciudadana con la salud propia | <40% [est.] | >70% |
+| Cobertura Centros | Barrios con Centro de Vitalidad operativo | 0 | 80% |
+| Cobertura Familias | Familias con acceso a Familia Mentora | 0 | 80% |
+| Primeros 1.000 días | Tasa de parto respetado | [línea base a establecer Año 1] | >70% |
+| Primeros 1.000 días | Lactancia materna exclusiva hasta 6 meses | ~40% [est.] | >60% |
+| Ancianos | Adultos mayores integrados en programas comunitarios | ~5% [est.] | >50% |
+
+---
+
+**El Tablero Nacional de Vitalidad** es un panel público, digital, accesible desde cualquier dispositivo, que muestra estos indicadores en tiempo real — desagregados por provincia, por municipio, por barrio. Cualquier ciudadano puede ver cómo va su comunidad. Cualquier periodista puede verificar si las promesas se cumplen. Cualquier opositor puede auditar los números. La transparencia no es un adorno — es el mecanismo de rendición de cuentas.
+
+Cada Centro de Vitalidad alimenta el tablero con datos anonimizados de sus participantes. Cada Familia Mentora reporta indicadores de las familias que acompaña. La Plataforma Digital contribuye datos agregados de los autodiagnósticos y seguimientos de hábitos. Todo fluye hacia un sistema centralizado de datos abiertos que cualquiera puede consultar, descargar y analizar. No hay informe anual que llega tarde y maquillado — hay números vivos que cambian todos los días.
+
+El objetivo no es solo medir. Es *comprometer*. Cuando un intendente ve que su municipio tiene el peor índice de soledad percibida de la provincia, se mueve. Cuando una obra social ve que sus afiliados en barrios con Centro tienen 40% menos consultas que los de barrios sin Centro, redirige recursos. Cuando una madre ve que la línea de su barrio sube en el tablero, siente que lo que hace importa. Medir en público es gobernar en público. Y gobernar en público es la única forma de gobernar que PLANSAL acepta.
+
+---
