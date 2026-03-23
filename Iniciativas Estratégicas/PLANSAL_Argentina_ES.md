@@ -727,3 +727,290 @@ Lo que sigue son ocho compromisos. No son mandamientos. No son obligaciones lega
 Este pacto no es un contrato con el Estado. Es un contrato con vos mismo. El Estado puede fallar — y probablemente va a fallar, porque los Estados fallan. Puede cambiar el gobierno. Pueden recortar presupuestos. Pueden vaciar los Centros de Vitalidad. Pueden archivar PLANSAL en un cajón, como se archivaron tantas otras cosas en este país. Pero tu decisión no puede fallar — a menos que vos la abandones. La decisión de Jorge esa mañana en Quilmes no dependía de ningún ministerio. Dependía de Jorge. Si mañana desaparece todo lo que este plan propone — cada centro, cada programa, cada ley — los ocho compromisos que acabás de leer siguen siendo posibles. Siguen siendo gratuitos. Siguen siendo tuyos. Porque la salud, en su forma más radical y más verdadera, no es algo que se recibe. Es algo que se decide. Cada día. Empezando ahora.
 
 ---
+
+## SECCIÓN 7 · LAS DOCE RAÍCES DE LA SALUD
+
+> *"Un árbol enfermo no se cura podando las ramas. Se cura alimentando las raíces. Y las raíces, bajo tierra, están todas conectadas."*
+
+En la Sección 2.3 recorrimos las doce raíces enfermas de la Argentina. Vimos cómo cada dimensión de la vida — el cuerpo, la alimentación, los vínculos, la familia, los amigos, el trabajo, el dinero, el crecimiento, el sentido, el juego, el entorno, la comunidad — se convirtió en una línea de producción de la Fábrica de Enfermos. Cada raíz enferma produce su propia cosecha de patologías: cardiovasculares, metabólicas, mentales, autoinmunes, adictivas. Y cada raíz enferma alimenta a las otras, creando un sistema donde todo se deteriora al mismo tiempo.
+
+Ahora invertimos la pregunta. Si cada dimensión de la vida enferma cuando está descuidada, cada dimensión de la vida *sana* cuando está cultivada. Esta no es una afirmación ideológica — es la conclusión de medio siglo de investigación en medicina del estilo de vida, en epidemiología social, en psiconeuroinmunología. Las Zonas Azules lo demuestran sin necesidad de papers: donde la gente se mueve, come real, se conecta, tiene propósito y pertenece a una comunidad, la enfermedad retrocede como la oscuridad retrocede ante la luz. No porque alguien la combata. Porque las condiciones para la salud están presentes, y la biología humana hace el resto.
+
+Las doce raíces que siguen no son doce programas separados. Son un sistema radicular — como el de un bosque, donde los árboles comparten nutrientes bajo tierra a través de redes de hongos que los conectan a todos. Mejorás la alimentación de una familia y mejora su salud física, su energía para vincularse, su capacidad de trabajar, su sueño, su humor. Reconstruís el tejido comunitario de un barrio y baja la soledad, bajan las adicciones, sube la actividad física, mejora la seguridad, los chicos salen a jugar. No podés tocar una raíz sin mover las otras once. Eso es lo que hace que este enfoque sea tan poderoso — y tan distinto de la medicina que trata órganos como si fueran piezas independientes de una máquina.
+
+Lo que sigue es el mapa de las soluciones. Raíz por raíz, mostramos tres cosas: cómo enferma esa dimensión cuando está descuidada, cómo sana cuando se la cultiva, y cómo medimos que está mejorando. Los Centros de Vitalidad (Sección 8) son el espacio físico donde estas raíces convergen. Las Familias Mentoras (Sección 9.2) son el mecanismo humano que las transmite. Pero las raíces en sí mismas son la arquitectura fundamental. Sin entenderlas, todo lo que sigue es logística sin alma.
+
+---
+
+### 7.1 · Raíz 1: Salud Física
+
+**Cómo enferma.** El sedentarismo es la pandemia silenciosa que nadie declara. El cuerpo humano — diseñado por 300.000 años de evolución para caminar 15 kilómetros diarios, trepar, cargar, escapar, explorar — pasa en la Argentina promedio entre 8 y 12 horas sentado. No es pereza individual: es arquitectura social. Jornadas laborales sedentarias, transporte que inmoviliza, barrios sin espacios para moverse, una cultura que trata al cuerpo como transporte para la cabeza. El resultado: el 64,9% de los adultos con actividad física insuficiente (ENFR 2018/2019), primera causa de muerte cardiovascular, y una población que perdió contacto con sus propias sensaciones físicas — no sabe cuándo tiene hambre real, cuándo está cansada de verdad, cuándo su cuerpo le pide moverse y cuándo le pide parar.
+
+**Cómo sana.** El movimiento no puede ser un "agregado" a la vida — algo que hacés si te sobra tiempo después de trabajar, viajar, cocinar y sobrevivir. Tiene que estar *integrado* en la vida misma. PLANSAL propone tres ejes:
+
+1. **Movimiento como transporte.** Articulación con PLAN24CN para ciudades caminables, bicisendas seguras y transporte activo. Cada kilómetro que un argentino camina o pedalea en vez de ir sentado en un colectivo es un kilómetro de salud cardiovascular, metabólica y mental.
+2. **Espacios de movimiento libre.** Cada Centro de Vitalidad (Sección 8) incluye un espacio abierto de movimiento: no un gimnasio con máquinas — un lugar para caminar, bailar, hacer yoga, jugar al fútbol, trabajar la tierra de la huerta, estirarse al sol. Sin horarios rígidos. Sin cuotas. Sin ropa especial. El cuerpo se mueve cuando tiene un lugar digno para hacerlo.
+3. **Movimiento comunitario.** Caminatas barriales, baile para mayores, juego libre para chicos y adultos, trabajo colectivo en las huertas. El movimiento más sostenible no es el que hacés solo con auriculares — es el que hacés con otros, porque el vínculo social convierte la actividad en placer.
+
+**Indicador de vitalidad.**
+
+| Métrica | Línea de base (2026) | Meta a 5 años |
+|---|---|---|
+| Sedentarismo adulto (actividad insuficiente) | ~64,9% (ENFR) | <50% |
+| Minutos promedio de movimiento diario | <30 min [est.] | >45 min |
+| Muertes cardiovasculares evitables/año | ~100.000 (DEIS) | Reducción del 15% |
+
+---
+
+### 7.2 · Raíz 2: Alimentación
+
+> *En la plataforma de autodiagnóstico esta dimensión aparece como "Apariencia" — PLANSAL la redefine. No nos importa cómo te ves. Nos importa qué combustible le ponés a tu organismo.*
+
+**Cómo enferma.** Los ultraprocesados son drogas legales diseñadas para la adicción. No es hipérbole — la ingeniería alimentaria lo llama "bliss point": el punto exacto de azúcar, sal y grasa que activa los circuitos dopaminérgicos de recompensa con la misma intensidad que la nicotina. La Argentina destina más del 30% de sus calorías a estos productos (OPS/CESNI). Pero el problema no es solo el producto — es el sistema. Los alimentos reales son más caros que los industriales. Los barrios populares son desiertos alimentarios donde el kiosco tiene galletitas pero no hay verdulería en diez cuadras. El campo argentino produce commodities para exportar, no comida para nutrir — y el suelo que los produce está envenenado de agroquímicos que entran en la cadena alimentaria (PLANISV documenta esto en detalle). La inflamación crónica que genera esta dieta es la base biológica de la diabetes, la obesidad, muchos cánceres y la depresión.
+
+**Cómo sana.** La solución no es "educación nutricional" en abstracto — es acceso real a comida real. PLANSAL propone:
+
+1. **Huertas comunitarias en cada Centro de Vitalidad.** No como hobby — como infraestructura alimentaria barrial. Producción local de verduras, hierbas, frutas de estación. La huerta es simultáneamente fuente de alimento, espacio de movimiento (Raíz 1), conexión con la naturaleza (Raíz 11), actividad comunitaria (Raíz 12) y aprendizaje continuo (Raíz 8). Una sola intervención que nutre cinco raíces a la vez.
+2. **Cocinas colectivas.** Espacios en los Centros donde vecinos cocinan y comen juntos. Recuperar el acto de cocinar como acto social y de cuidado, no como carga individual. Transmisión horizontal de saberes culinarios: la abuela que enseña el guiso, el vecino que sabe hacer pan, la nutricionista que acompaña sin imponer. Articulación con PLANISV: suelo vivo = alimento vivo.
+3. **Regulación real del etiquetado y la publicidad.** Aplicación efectiva de la Ley de Etiquetado Frontal, restricción de publicidad de ultraprocesados dirigida a menores, y eliminación progresiva de ultraprocesados del sistema alimentario escolar.
+
+**Indicador de vitalidad.**
+
+| Métrica | Línea de base (2026) | Meta a 5 años |
+|---|---|---|
+| Calorías de ultraprocesados (% dieta promedio) | >30% (OPS/CESNI) | <22% |
+| Obesidad adulta (IMC ≥30) | ~28,3% (OMS) | <24% |
+| Huertas comunitarias activas | [dato a relevar] | 1 por cada Centro de Vitalidad |
+
+---
+
+### 7.3 · Raíz 3: Amor y Vínculos Íntimos
+
+**Cómo enferma.** Una relación íntima tóxica es una enfermedad crónica que no aparece en ningún análisis de sangre. El estrés relacional crónico — peleas constantes, manipulación, violencia emocional, codependencia, frialdad afectiva, o simplemente la convivencia vacía de dos personas que comparten techo y silencio — produce las mismas alteraciones fisiológicas que cualquier estresor crónico: cortisol elevado, inflamación sistémica, supresión inmunológica, alteración del sueño. Fernando y Laura en Rosario — dieciséis años juntos, ningún gastroenterólogo preguntándole a ella cómo está su relación mientras le receta omeprazol por un colon que grita lo que la boca no dice.
+
+**Cómo sana.** PLANSAL no pretende arreglar relaciones desde un ministerio. Pretende dar herramientas que hoy son privilegio de quienes pueden pagar un terapeuta de pareja:
+
+1. **Talleres de comunicación vincular** en cada Centro de Vitalidad. No terapia de pareja — herramientas prácticas: cómo expresar necesidades sin agredir, cómo escuchar sin defenderse, cómo resolver conflictos sin que el cuerpo pague el costo. Formato grupal, horizontal, facilitado por profesionales capacitados.
+2. **Educación en vínculos saludables** desde la adolescencia. Articulación con PLANEDU: en la escuela se enseña matemáticas pero no se enseña a querer bien. Programa de habilidades relacionales en secundaria: consentimiento, comunicación, manejo de conflictos, detección de violencia temprana, construcción de límites sanos.
+3. **Red de acompañamiento ante violencia de género.** Integrada con los Centros de Vitalidad — detección temprana por parte de facilitadores comunitarios, derivación inmediata, contención integral. No esperar al femicidio. Actuar cuando el vínculo empieza a enfermar.
+
+**Indicador de vitalidad.**
+
+| Métrica | Línea de base (2026) | Meta a 5 años |
+|---|---|---|
+| Femicidios/año | ~1 cada 35 hs (Obs. MuMaLá) | Reducción del 30% |
+| Denuncias de violencia doméstica | En aumento [línea 144] | Aumento de denuncias + reducción de reincidencia |
+| Satisfacción vincular (encuesta poblacional) | [dato a relevar] | Medición nacional incorporada |
+
+---
+
+### 7.4 · Raíz 4: Familia — Raíz Madre
+
+> *"Rompé la familia y rompiste todo. No hay sistema de salud, no hay centro comunitario, no hay programa estatal que pueda reemplazar lo que una familia funcional produce todos los días sin presupuesto, sin burocracia y sin horario de atención: pertenencia, regulación emocional, sentido y la certeza de que a alguien le importa si estás vivo."*
+
+**Cómo enferma.** La familia es la unidad fundamental de salud — y está rota. Aproximadamente un 40% de los hogares argentinos con menores son monoparentales (INDEC/EPH), con una madre sola cargando todo. El 65% de los argentinos reporta que el conflicto familiar es su principal fuente de estrés. Los rituales que sostenían la salud familiar — la cena compartida, la conversación diaria, el domingo en familia, la transmisión intergeneracional de saberes — desaparecieron, reemplazados por cuatro personas en cuatro pantallas compartiendo metros cuadrados pero no vida.
+
+Pero el daño va más profundo que la logística rota. La familia es donde se aprende — o no se aprende — a regularse emocionalmente. Un niño que crece en una familia donde los conflictos se resuelven con gritos, con silencio o con violencia, internaliza esos patrones como su sistema operativo vincular. Después tiene 35 años, hipertensión y un matrimonio que lo enferma — y nadie conecta los puntos. La Sección 5 sobre Trauma Intergeneracional documenta cómo el dolor no procesado de una generación se transmite a la siguiente a través del cuerpo, de los patrones vinculares, de la epigenética misma. La familia es el vehículo de esa transmisión — para bien y para mal.
+
+Los datos internacionales son contundentes: los países con estructuras familiares más sólidas — medidas por convivencia intergeneracional, frecuencia de comidas compartidas, cercanía emocional reportada — tienen mejores indicadores de salud en *todas* las dimensiones. Las Zonas Azules lo confirman: familia primero no es un slogan — es una receta de longevidad con más evidencia que cualquier fármaco.
+
+**Cómo sana.** Reconstruir la familia no es una política de "valores tradicionales." Es una emergencia sanitaria. PLANSAL propone tres intervenciones articuladas que constituyen, junto con los Centros de Vitalidad, el corazón operativo del plan:
+
+**1. Sistema de Familias Mentoras — Programa Nacional Estrella**
+
+La idea es simple y poderosa: familias que transformaron su vida guían a otras familias que están donde ellas estaban. No profesionales que bajan línea desde un escritorio — vecinos que comparten lo que aprendieron desde la experiencia. Transmisión horizontal de lo que ningún manual puede enseñar: cómo cocinar nutritivo con presupuesto real, cómo resolver un conflicto de pareja sin que los chicos paguen el costo, cómo manejar la economía familiar cuando el sueldo no alcanza, cómo criar con presencia en vez de con pantallas, cómo instalar hábitos de bienestar que se sostengan.
+
+Cada Centro de Vitalidad identifica, forma y acompaña a sus Familias Mentoras. Cada familia en crisis del barrio tiene acceso a una Familia Mentora que conoce su realidad — porque vive en la misma cuadra, compra en el mismo almacén, manda a los hijos a la misma escuela. El vínculo es de par a par, no de experto a paciente. La Sección 9.2 detalla la arquitectura completa del sistema — formación, seguimiento, incentivos, escalamiento. Aquí basta con decir que es, probablemente, la intervención de mayor impacto potencial de todo PLANSAL: porque una familia que funciona bien produce salud en las doce raíces simultáneamente, sin necesitar médicos, sin necesitar presupuesto estatal continuo, y con un efecto multiplicador que ningún programa vertical puede igualar.
+
+**2. "La Mesa" — Programa Nacional de Recuperación de la Cena Familiar**
+
+Suena pequeño. No lo es. La mesa familiar es el espacio donde la familia se reconstituye como unidad viva — o donde se confirma que dejó de serlo. En la mesa se miran las caras. Se cuenta el día. Se comparte comida preparada con las manos. Los chicos aprenden a hablar, a escuchar, a esperar su turno, a ser humanos entre humanos. La mesa es, simultáneamente, nutrición (Raíz 2), vínculo (Raíz 3), contención emocional (Raíz 4), pertenencia (Raíz 12) y procesamiento del día (Raíz 9). Cinco raíces en un solo ritual cotidiano.
+
+"La Mesa" es una campaña nacional que opera a tres niveles: primero, sensibilización masiva — porque antes de cambiar un hábito hay que hacer visible lo que se perdió. Segundo, facilitación práctica: recetas simples, económicas y rápidas distribuidas a través de la plataforma digital, las escuelas y los Centros de Vitalidad. Si la barrera es "no tengo tiempo para cocinar," la respuesta no es un sermón — es un guiso de una olla que se hace en treinta minutos y alimenta a cuatro personas. Tercero, medición: la frecuencia de cenas familiares compartidas se incorpora como indicador de vitalidad del sistema.
+
+**3. Mediación Familiar Gratuita y Accesible**
+
+Antes de que un conflicto destruya una familia, tiene que existir un lugar donde resolverlo. Hoy la mediación familiar es un servicio privado que cuesta lo que muchas familias gastan en comida en una semana. PLANSAL integra un servicio de mediación familiar en cada Centro de Vitalidad — profesionales formados en resolución de conflictos familiares, disponibles sin turno previo, sin costo, sin burocracia. Articulación con la Sección 4 (Los Primeros 1.000 Días): muchos de los conflictos familiares más dañinos para la salud infantil ocurren durante el embarazo y los primeros años de vida del niño, exactamente cuando el impacto en el desarrollo es máximo.
+
+**Indicador de vitalidad.**
+
+| Métrica | Línea de base (2026) | Meta a 5 años |
+|---|---|---|
+| Conflicto familiar como fuente primaria de estrés | ~65% [est.] | <45% |
+| Frecuencia de cena familiar compartida (≥4/semana) | [dato a relevar] | >60% de hogares con menores |
+| Familias con acceso a Familia Mentora en su barrio | 0% | >40% en áreas con Centro de Vitalidad |
+| Índice de cohesión familiar (encuesta nacional) | [a construir] | Medición nacional incorporada |
+
+---
+
+### 7.5 · Raíz 5: Amigos y Tribu
+
+**Cómo enferma.** La soledad es la epidemia que nadie declara. El ex Cirujano General de Estados Unidos la equiparó a fumar 15 cigarrillos diarios. En la Argentina los indicadores indirectos son alarmantes: hogares unipersonales en aumento sostenido (más del 17%, censo), participación en clubes, iglesias y organizaciones barriales en caída libre, y una generación entera que confunde seguidores con amigos. Daniel, jubilado del Correo, con el televisor prendido todo el día para escuchar una voz humana. Millones de Danieles. La soledad no solo deprime — inflama. Literalmente: el aislamiento social activa genes proinflamatorios y suprime la respuesta antiviral. Un cuerpo solo es un cuerpo que se defiende peor de todo.
+
+**Cómo sana.** La conexión humana no se fuerza. Se facilita. PLANSAL no propone "programas de socialización" — propone crear las condiciones para que la gente se encuentre orgánicamente:
+
+1. **Centros de Vitalidad como puntos de encuentro natural.** No centros donde "se brindan servicios" a individuos aislados — espacios donde la gente converge porque hay algo que quiere hacer: caminar con el grupo de la mañana, cocinar en la cocina colectiva, trabajar en la huerta, tomar mate en el patio. La conexión surge del hacer compartido, no de la obligación social.
+2. **Actividades puente entre generaciones.** Los Ancianos de Sabiduría (Sección 9.3) no son solo depositarios de experiencia — son conectores intergeneracionales. Abuelos que leen cuentos en la salita. Jubilados que enseñan oficios. Adolescentes que enseñan tecnología a mayores. El tejido social se reconstruye cuando las generaciones dejan de vivir en burbujas paralelas.
+3. **Caminatas, comidas, huerta, deporte:** todas las actividades de los Centros se diseñan en formato grupal. No porque lo individual no sirva — sino porque cada actividad compartida es una oportunidad de vínculo que el barrio perdió.
+
+**Indicador de vitalidad.**
+
+| Métrica | Línea de base (2026) | Meta a 5 años |
+|---|---|---|
+| Soledad percibida (encuesta nacional) | [dato a relevar — no existe medición] | Medición incorporada; reducción del 20% en zonas con Centro |
+| Participación en actividades comunitarias | En caída [est.] | Aumento del 30% en zonas con Centro |
+| Hogares unipersonales con contacto social semanal <2 veces | [a relevar] | Reducción del 25% |
+
+---
+
+### 7.6 · Raíz 6: Trabajo y Vocación
+
+**Cómo enferma.** El trabajo sin propósito es un generador crónico de cortisol. No es metáfora — es fisiología documentada. El estudio Whitehall II (Marmot et al.) demostró que los trabajadores con bajo control sobre sus tareas tienen un riesgo cardiovascular 40% mayor. El cuerpo de alguien que odia su trabajo produce las mismas hormonas de estrés que el de alguien enfrentando una amenaza física real — pero durante ocho, diez, doce horas diarias, cinco o seis días a la semana, durante décadas. El resultado es Ricardo Ramírez multiplicado por millones: burnout, hipertensión, depresión, insatisfacción que se derrama sobre la familia, las relaciones, la alimentación, el sueño. Más del 80% de los trabajadores argentinos reporta síntomas de agotamiento laboral (encuestas Bumeran 2023/2024).
+
+**Cómo sana.** PLANSAL no puede transformar el mercado laboral argentino — pero puede actuar sobre la interfaz entre trabajo y salud:
+
+1. **Orientación vocacional en los Centros de Vitalidad.** Espacios para que adultos — no solo adolescentes — exploren qué les da sentido, qué saben hacer, qué podrían aprender. Muchos argentinos nunca tuvieron una conversación seria sobre vocación — fueron empujados al primer trabajo disponible y ahí se quedaron.
+2. **Espacios de trabajo colaborativo y creativo.** Talleres de oficios, cooperativas de producción local, incubadoras barriales de microemprendimientos. Articulación directa con PLANREP y sus ocho ramas de trabajo vivo — el Centro de Vitalidad como puerta de entrada al ecosistema productivo que PLANREP propone.
+3. **Programas de reducción de estrés laboral.** Técnicas de manejo de estrés, mindfulness aplicado, pausas activas, talleres de límites laborales. No como sustituto de condiciones de trabajo dignas — sino como herramientas de supervivencia mientras las condiciones estructurales cambian.
+
+**Indicador de vitalidad.**
+
+| Métrica | Línea de base (2026) | Meta a 5 años |
+|---|---|---|
+| Burnout laboral autorreportado | >80% [est.] | <60% |
+| Satisfacción laboral | [dato a relevar] | Medición nacional incorporada |
+| Enfermedades profesionales denunciadas/año | [SRT, dato a relevar] | Reducción del 20% |
+
+---
+
+### 7.7 · Raíz 7: Dinero y Seguridad Económica
+
+**Cómo enferma.** La inseguridad económica es la droga más destructiva de la Argentina — y es la única que no requiere receta. El hipotálamo no distingue entre un león y una cuota impagable: la respuesta biológica es idéntica. Cortisol, adrenalina, sistema simpático encendido, inflamación sistémica. Y en un país con inflación crónica de tres dígitos, con una historia de corralitos, devaluaciones y confiscaciones, el trauma económico es colectivo y transgeneracional. Cada argentino carga en su cuerpo la memoria de las crisis — la de 2001, la de 2018, la de siempre. El estrés financiero no es un "problema del bolsillo" — es un problema del sistema nervioso. El 60% de los argentinos lo declara como su fuente principal de estrés. Es la raíz más difícil de tratar desde la salud porque depende de variables macroeconómicas que ningún Centro de Vitalidad puede modificar.
+
+**Cómo sana.** PLANSAL actúa donde puede — en la relación de cada persona y cada familia con el dinero — mientras otros PLANs del marco BASTA atacan las causas estructurales:
+
+1. **Educación financiera práctica en Centros de Vitalidad.** No teoría de inversiones — supervivencia económica real: cómo armar un presupuesto familiar, cómo comprar alimentos nutritivos con presupuesto limitado, cómo evitar las trampas del consumismo y el crédito fácil, cómo generar un colchón mínimo de emergencia. Formatos grupales donde las familias comparten estrategias que ya les funcionan.
+2. **Economía familiar en las Familias Mentoras.** Una de las cinco áreas de transmisión del sistema: la familia mentora que aprendió a administrar un ingreso insuficiente sin destruirse en el proceso comparte esas herramientas con la familia que está ahogándose. Horizontal. Práctica. Sin condescendencia.
+3. **Articulación con el ecosistema BASTA.** PLANREP genera trabajo con sentido. PLANEDU genera capacidades. PLAN24CN genera infraestructura que baja el costo de vida (transporte, energía, vivienda). PLANSAL no opera en el vacío — opera en un marco donde otros planes atacan las causas estructurales de la inseguridad económica.
+
+**Indicador de vitalidad.**
+
+| Métrica | Línea de base (2026) | Meta a 5 años |
+|---|---|---|
+| Estrés financiero como preocupación primaria | ~60% [est.] | <45% |
+| Hogares con presupuesto familiar activo | [dato a relevar] | >40% en zonas con Centro |
+| Seguridad económica percibida (encuesta) | [a construir] | Medición nacional incorporada |
+
+---
+
+### 7.8 · Raíz 8: Crecimiento Personal
+
+**Cómo enferma.** Cuando una persona deja de crecer, empieza a morir. No es poesía — es neurología. El cerebro que no se desafía empieza a podar conexiones sinápticas. La neuroplasticidad se reduce. La memoria se degrada. La motivación colapsa. Erikson lo llamó estancamiento: la fase en que el ser humano deja de generar y empieza a contraerse. El resultado es esa monotonía gris que empuja al escapismo — alcohol, pantallas, consumo compulsivo, cualquier cosa que rompa la circularidad asfixiante de días idénticos. La cultura argentina lo normaliza con frases que son sentencias de muerte lenta: "ya estoy grande para eso," "es lo que hay," "para qué vas a cambiar a esta altura." Cada vez que alguien dice eso, su biología toma nota.
+
+**Cómo sana.** El crecimiento no tiene edad de vencimiento. PLANSAL lo propone como hábito permanente:
+
+1. **Plataforma digital de autoconocimiento.** Las 12 áreas de vida mapeadas en un sistema de autodiagnóstico que muestra dónde estás, qué podés hacer y cómo vas avanzando. Quiz, hábitos, seguimiento, micro-celebraciones. Tecnología al servicio del despertar, no de la adicción (la diferencia entre la plataforma de PLANSAL y las redes sociales es que una te devuelve a vos mismo y las otras te secuestran).
+2. **Bibliotecas vivas y talleres en los Centros de Vitalidad.** Espacios de aprendizaje continuo: idiomas, oficios, arte, filosofía, ciencia, lo que la comunidad necesite y proponga. No educación formal con exámenes y certificados — exploración libre con el único requisito de la curiosidad. Articulación con PLANEDU para formación con reconocimiento cuando sea necesario.
+3. **Círculos de conversación.** Grupos rotativos donde vecinos comparten lecturas, experiencias, reflexiones. El crecimiento personal no requiere un gurú ni un curso caro — requiere un espacio donde alguien te pregunte "¿qué estás aprendiendo?" y te escuche la respuesta.
+
+**Indicador de vitalidad.**
+
+| Métrica | Línea de base (2026) | Meta a 5 años |
+|---|---|---|
+| Participación en educación continua/no formal (adultos) | Baja [est.] | Aumento del 40% en zonas con Centro |
+| Uso activo de plataforma de autoconocimiento | 0 (no existe) | >500.000 usuarios activos |
+| Percepción de crecimiento personal (encuesta) | [a construir] | Medición nacional incorporada |
+
+---
+
+### 7.9 · Raíz 9: Espiritualidad y Sentido
+
+**Cómo enferma.** El vacío existencial es la raíz de todas las adicciones. Esto no es una opinión — es la tesis central de Viktor Frankl, validada por décadas de investigación en psicología de las adicciones. Nadie toma para sentirse bien — toma para dejar de sentir el vacío. Nadie scrollea doce horas por placer — scrollea porque la alternativa es quedarse a solas con una vida que no tiene para qué. El clonazepam de Silvia. La cerveza de Ricardo. Las pantallas de Tomás. Cada sustancia, cada conducta adictiva, es un intento desesperado de llenar un hueco que solo el sentido puede llenar. La Argentina es el segundo país de América Latina en consumo de psicofármacos — no porque tenga más enfermedades mentales, sino porque tiene más acceso a pastillas y menos acceso a propósito.
+
+**Cómo sana.** El sentido no se receta, no se enseña y no viene en un programa gubernamental. Pero se pueden crear las condiciones para que emerja:
+
+1. **Espacios de silencio y contemplación en los Centros de Vitalidad.** Un lugar donde simplemente estar. Sin pantallas, sin ruido, sin demanda. Un jardín, una sala con luz natural, un rincón con almohadones. Parece poco. Para alguien que no ha estado en silencio consigo mismo en años, es todo.
+2. **Prácticas de respiración y presencia.** Breathwork, meditación guiada, yoga, taichí — no como moda wellness para privilegiados, sino como herramientas concretas de regulación del sistema nervioso disponibles para cualquiera. Formatos grupales, gratuitos, sin exigencia de creencia alguna.
+3. **Servicio comunitario como fuente de sentido.** La investigación es consistente: ayudar a otros es una de las intervenciones más potentes contra la depresión y el vacío existencial. Los programas de voluntariado de los Centros — vecinos cuidando vecinos, los Ancianos de Sabiduría compartiendo experiencia, las Familias Mentoras acompañando a otras familias — no son solo logística social. Son fábricas de propósito. Descubrir que sos útil para otros llena el vacío que ninguna sustancia puede llenar.
+4. **Conexión profunda con la naturaleza.** No la naturaleza como paisaje decorativo — la naturaleza como experiencia de pertenencia a algo más grande que tu biografía individual. Las huertas, las caminatas, el contacto con la tierra — todo esto conecta con una dimensión de sentido que el cemento y las pantallas amputaron.
+
+**Indicador de vitalidad.**
+
+| Métrica | Línea de base (2026) | Meta a 5 años |
+|---|---|---|
+| Consumo de psicofármacos (ranking regional) | 2do en América Latina (SEDRONAR/OPS) | Descenso sostenido |
+| Sentido de propósito (encuesta) | [a construir] | >60% reportando propósito claro |
+| Tasa de adicciones en tratamiento | [SEDRONAR, dato a relevar] | Reducción del 15% |
+
+---
+
+### 7.10 · Raíz 10: Recreación y Juego
+
+**Cómo enferma.** Hay una diferencia crítica que la sociedad moderna borró: la diferencia entre *escape* y *recreación*. Escape es lo que te saca del presente sin devolverte nada: scrollear tres horas, binge-watching, alcohol, juegos de azar, consumo compulsivo. Cuando terminás, tenés menos energía que cuando empezaste. Recreación es lo que te *re-crea* — lo que te devuelve energía, conexión, alegría: jugar al fútbol con amigos, pintar, cocinar para alguien, caminar por un parque, tocar un instrumento, jugar con tus hijos en el piso. Cuando terminás, tenés más vida que cuando empezaste. La Argentina reemplazó recreación por escape y lo llamó "entretenimiento." El argentino promedio pasa más de 3 horas diarias frente a pantallas recreativas; los adolescentes superan las 6 horas. El juego libre infantil — el mecanismo más poderoso de desarrollo neurológico y social — está en extinción.
+
+**Cómo sana.** Recuperar el juego y la recreación genuina como derechos y como hábitos:
+
+1. **Espacios de juego libre para todas las edades** en los Centros de Vitalidad. No solo para chicos — para adultos también. Juegos de mesa, canchas abiertas, talleres de arte, música comunitaria. El adulto que dice "yo no juego" es un adulto que dejó de recrearse y solo escapa. Necesita un espacio que le recuerde lo que se siente.
+2. **Deporte comunitario participativo.** No competitivo — participativo. Torneos barriales donde el objetivo es moverse y encontrarse, no ganar. Fútbol mixto, caminatas grupales, vóley de vecinos, natación libre donde exista la infraestructura. Articulación con PLAN24CN para instalaciones deportivas accesibles en cada barrio.
+3. **Arte como expresión, no como consumo.** Talleres de pintura, escritura, teatro, música — no para formar artistas profesionales, sino para abrir canales expresivos que las pantallas cerraron. La expresión creativa reduce cortisol, mejora el estado de ánimo y genera conexión social. Es medicina que no parece medicina — y por eso funciona.
+
+**Indicador de vitalidad.**
+
+| Métrica | Línea de base (2026) | Meta a 5 años |
+|---|---|---|
+| Tiempo de pantalla recreativa diario (adultos) | >3 hs [est.] | <2 hs |
+| Participación en actividades recreativas presenciales | Baja [est.] | Aumento del 50% en zonas con Centro |
+| Restauración autorreportada post-tiempo libre | [a construir] | Medición incorporada; >50% reportando restauración |
+
+---
+
+### 7.11 · Raíz 11: Entorno y Naturaleza
+
+**Cómo enferma.** La ciudad argentina típica está diseñada para enfermar a sus habitantes. No es negligencia — es el resultado de décadas de urbanismo centrado en el automóvil, en la especulación inmobiliaria y en la indiferencia total por la biología humana. Ruido que supera los 70 decibeles (riesgo cardiovascular según OMS). Contaminación del aire que mata silenciosamente. Cemento que irradia calor y no deja lugar a un árbol. Veredas hostiles. Parques insuficientes y distribuidos con desigualdad brutal: los barrios del norte de Buenos Aires tienen verde; los del sur tienen hormigón. En el conurbano, localidades enteras sin una plaza digna. El Riachuelo envenenando a 4 millones de personas. Graciela en Villa Fiorito, mirando un descampado con basura desde su ventana, con dolor de cabeza crónico que ningún médico conecta con el hecho de que no tocó un árbol en meses.
+
+**Cómo sana.** La naturaleza no es un lujo estético — es infraestructura biológica:
+
+1. **"Recetas verdes": prescripción médica de tiempo en naturaleza.** Ya implementado en Reino Unido, Nueva Zelanda y otros países: el médico prescribe formalmente horas semanales en contacto con naturaleza. No es esoterismo — la evidencia muestra reducciones mensurables en cortisol, presión arterial e inflamación. PLANSAL lo incorpora al protocolo de atención en Centros de Vitalidad y en el sistema de salud pública. El médico que prescribe una caminata por el parque está haciendo medicina basada en evidencia.
+2. **Centros de Vitalidad con espacios verdes y huertas.** Cada Centro es un oasis de naturaleza en el barrio: árboles, plantas, huerta comunitaria, tierra expuesta donde los chicos puedan ensuciarse. El contacto con la tierra — que la ciencia llama "grounding" y los abuelos llamaban "jugar afuera" — tiene efectos documentados en la regulación del sistema nervioso y la función inmunológica.
+3. **Articulación con PLAN24CN — Ciudades diseñadas para la salud.** Arbolado urbano masivo, corredores verdes, espacios públicos de calidad, reducción de contaminación sonora y atmosférica, acceso equitativo a naturaleza. La ciudad como entorno que sana en vez de entorno que enferma. Cada metro cuadrado de verde que se agrega a un barrio es una dosis de salud distribuida a toda la población.
+
+**Indicador de vitalidad.**
+
+| Métrica | Línea de base (2026) | Meta a 5 años |
+|---|---|---|
+| Espacio verde por habitante (m²) — Buenos Aires | ~6 m² (GCBA) | >9 m² (estándar OMS) |
+| Calidad del aire (PM2.5 promedio urbano) | Supera estándares OMS en varias zonas | Cumplimiento en >70% de zonas urbanas |
+| Tiempo semanal en contacto con naturaleza | [a relevar] | >150 min/semana (umbral de beneficio documentado) |
+
+---
+
+### 7.12 · Raíz 12: Comunidad y Pertenencia
+
+**Cómo enferma.** La atomización social es la enfermedad moderna por excelencia. La Argentina tuvo cultura de barrio — la vereda, el club, la sociedad de fomento, la parroquia, el almacén donde te conocían por tu nombre. Esa red no era folklore — era infraestructura de salud invisible. Pertenencia, reciprocidad, detección temprana del vecino que está cayendo, cuidado mutuo sin formularios ni expedientes. Esa red se rompió. La inseguridad la rompió: rejas, countries, desconfianza. Las pantallas la rompieron: ¿para qué salir si todo está en el teléfono? El individualismo la rompió: cada uno en su burbuja, comprando su propia solución privada a problemas que son colectivos. El resultado: nadie conoce al vecino. Los clubes cierran. Las cooperadoras funcionan con tres madres exhaustas. Y cada hilo de tejido comunitario que se corta es un hilo de salud que se pierde.
+
+**Cómo sana.** El Centro de Vitalidad es, en su esencia más profunda, la respuesta a esta raíz. No es un centro de salud. No es un centro comunitario. No es un centro cultural. Es el *ágora* — el espacio donde la comunidad se reconstituye:
+
+1. **El Centro como plaza pública del siglo XXI.** Un lugar donde la gente va porque quiere, no porque tiene un turno. Porque hay mate en la cocina, porque la huerta necesita riego, porque hoy es el taller de pan, porque el grupo de caminata sale a las ocho, porque los chicos juegan mientras los padres conversan. Cada actividad del Centro es un pretexto para el verdadero producto: comunidad.
+2. **Programas de salud entre vecinos.** Vecinos capacitados como agentes de salud comunitaria: detectan al adulto mayor que hace días no sale, al adolescente que se aisló, a la familia que está en crisis. No burocracia — red humana. La comunidad como sistema inmunológico social que detecta y responde antes de que el daño sea irreversible.
+3. **Ancianos de Sabiduría.** El programa detallado en la Sección 9.3: adultos mayores que pasan de ser "pasivos" del sistema a ser activos de la comunidad. Enseñan, acompañan, cuentan, escuchan. Recuperan un rol que la sociedad les robó y que la comunidad necesita desesperadamente. El anciano que tiene un rol vive más, se enferma menos y le cuesta menos al sistema de salud. Y el barrio que tiene ancianos activos tiene más cohesión, más memoria y más sentido de pertenencia.
+4. **Festividades y rituales barriales.** Ferias de productores locales, festivales de cocina comunitaria, celebraciones de estación, torneos deportivos vecinales. El ritual compartido es el pegamento social que la modernidad disolvió. Los Centros de Vitalidad lo recrean — no con nostalgia, sino con intención.
+
+**Indicador de vitalidad.**
+
+| Métrica | Línea de base (2026) | Meta a 5 años |
+|---|---|---|
+| Índice de pertenencia comunitaria | [a construir] | Medición nacional incorporada |
+| Participación en voluntariado/actividades barriales | En caída [est.] | Aumento del 40% en zonas con Centro |
+| "¿Conocés a tu vecino?" (encuesta barrial) | [a relevar] | >70% en zonas con Centro de Vitalidad |
+
+---
+
+### El sistema radicular completo
+
+Estas doce raíces no son doce programas. No son doce ministerios. No son doce partidas presupuestarias. Son *una sola cosa* vista desde doce ángulos — como un cristal que cambia de color según cómo lo iluminés pero sigue siendo el mismo cristal.
+
+Cuando una familia se sienta a cenar junta (Raíz 4), está comiendo comida real (Raíz 2), conectándose emocionalmente (Raíz 3), procesando el día (Raíz 9), sosteniendo vínculos (Raíz 5), modelando hábitos para sus hijos (Raíz 8). Cuando un vecino camina con un grupo del Centro de Vitalidad (Raíz 1), está rompiendo el aislamiento (Raíz 5), conectándose con la naturaleza (Raíz 11), participando en comunidad (Raíz 12), y encontrando un espacio de pausa y sentido (Raíz 9). Cuando una Familia Mentora enseña a otra familia a cocinar nutritivo con presupuesto real, está actuando sobre la alimentación (Raíz 2), la economía familiar (Raíz 7), los vínculos (Raíz 4), la autoestima (Raíz 8) y el sentido de propósito del mentor (Raíz 9).
+
+PLANSAL no trata enfermedades. Cultiva las condiciones para que la salud emerja naturalmente — como emerge un bosque cuando el suelo es fértil, hay agua, hay sol y nadie le tira veneno. Las enfermedades de la Argentina no son fallas biológicas. Son el resultado predecible de doce raíces descuidadas durante décadas. Cuidar las raíces no requiere tecnología de punta ni presupuestos astronómicos. Requiere lo que este país siempre tuvo y dejó de usar: comunidad, familia, tierra, comida real, movimiento, propósito y la decisión colectiva de dejar de ser clientes de la Fábrica de Enfermos para ser protagonistas de la propia salud.
+
+---
