@@ -1014,3 +1014,179 @@ Cuando una familia se sienta a cenar junta (Raíz 4), está comiendo comida real
 PLANSAL no trata enfermedades. Cultiva las condiciones para que la salud emerja naturalmente — como emerge un bosque cuando el suelo es fértil, hay agua, hay sol y nadie le tira veneno. Las enfermedades de la Argentina no son fallas biológicas. Son el resultado predecible de doce raíces descuidadas durante décadas. Cuidar las raíces no requiere tecnología de punta ni presupuestos astronómicos. Requiere lo que este país siempre tuvo y dejó de usar: comunidad, familia, tierra, comida real, movimiento, propósito y la decisión colectiva de dejar de ser clientes de la Fábrica de Enfermos para ser protagonistas de la propia salud.
 
 ---
+
+## SECCIÓN 8 · EL PODER DE PARAR
+
+> *"Todo el problema de la humanidad proviene de la incapacidad del hombre para sentarse tranquilo en una habitación solo."*
+> — Blaise Pascal, *Pensées*, 1670
+
+Las siete secciones anteriores hablaron de lo que hay que *hacer*. Moverse. Comer distinto. Reconectar. Cultivar. Construir. Pero hay una verdad incómoda que la industria del bienestar esquiva porque no puede facturarla: a veces, la medicina más poderosa no es agregar algo — es *dejar de hacer*.
+
+Vivimos en una civilización adicta a la acción. Cada problema tiene una solución, cada solución tiene un producto, cada producto tiene un precio. ¿Estás gordo? Comprá este suplemento. ¿Estás triste? Tomá esta pastilla. ¿Estás cansado? Tomá este energizante. Nunca, jamás, la respuesta oficial es: *pará*. Porque "pará" no genera facturación. "Pará" no mueve la rueda. "Pará" es el enemigo de una economía que necesita que consumas sin detenerte.
+
+PLANSAL dice: *pará*.
+
+### 8.1 · Ayuno: la medicina más antigua y más gratuita
+
+En 2016, el biólogo japonés Yoshinori Ohsumi ganó el Premio Nobel de Medicina por descubrir los mecanismos de la *autofagia* — el proceso por el cual las células del cuerpo se limpian, reciclan componentes dañados y se regeneran. La autofagia es, literalmente, el sistema de mantenimiento interno del cuerpo humano. Y tiene una particularidad extraordinaria: solo se activa de forma plena *cuando dejamos de comer*.
+
+El cuerpo no puede limpiar la casa mientras le seguís metiendo muebles. Necesita que pares. Necesita períodos de ayuno — no de hambruna extrema, no de privación punitiva, sino de descanso digestivo — para activar su maquinaria de reparación. El ayuno intermitente (12, 16, 24 horas sin ingerir alimentos) es una práctica con evidencia creciente en la reducción de inflamación crónica, la mejora de la sensibilidad a la insulina, la regulación del peso y hasta la protección neurológica.
+
+Pero el ayuno no es un descubrimiento moderno. Es la práctica de salud más antigua de la humanidad. Todas las tradiciones espirituales del mundo — el Ramadán islámico, el Yom Kipur judío, la Cuaresma cristiana, las prácticas ascéticas del hinduismo y el budismo — incluyen el ayuno como herramienta de purificación. Nuestros abuelos ayunaban sin llamarlo "intermittent fasting". Simplemente no comían entre comidas, cenaban temprano y desayunaban tarde. El cuerpo tenía sus horas de reparación. La industria alimentaria destruyó eso: snacks las 24 horas, comida en cada esquina, la idea de que saltarse una comida es peligroso. Es exactamente al revés.
+
+La paradoja es exquisita: en un mundo que te vende soluciones para todo, la intervención más poderosa para la salud metabólica *es gratuita*. No comer no cuesta nada. No requiere receta, no tiene efectos secundarios a las dosis habituales, no enriquece a nadie. Por eso nadie la publicita.
+
+PLANSAL incorpora el ayuno consciente como práctica de salud pública. No como dogma — como herramienta disponible, explicada con evidencia, acompañada por los Centros de Vitalidad.
+
+### 8.2 · Silencio: medicina para un sistema nervioso agotado
+
+El sistema nervioso humano evolucionó en un mundo de silencio relativo. Viento, agua, pájaros, el fuego crepitando. Hoy, el ciudadano promedio de Buenos Aires recibe más estímulos en un día que su bisabuelo en un mes. Notificaciones cada tres minutos. Televisión de fondo permanente. Publicidad auditiva en el transporte, en el supermercado, en la calle. Música en el ascensor. Alarmas. Bocinas. El zumbido constante de la máquina urbana.
+
+El resultado fisiológico es concreto: el sistema nervioso simpático — diseñado para activarse frente a amenazas reales — funciona en modo permanente. Cortisol elevado crónico. Ritmo cardíaco en alerta. Digestión comprometida. Sueño fragmentado. El cuerpo vive como si un león estuviera a punto de atacar las veinticuatro horas del día. No hay león. Hay un teléfono con 47 notificaciones pendientes. Pero el cuerpo no distingue.
+
+El silencio no es un lujo espiritual. Es la condición necesaria para que el sistema nervioso parasimpático — el modo de reparación, digestión y descanso — se active. Investigaciones del *Duke University Medical Center* mostraron que dos horas de silencio producen neurogénesis (nacimiento de nuevas neuronas) en el hipocampo, la región cerebral asociada a la memoria y el aprendizaje. El silencio, literalmente, regenera el cerebro.
+
+No se trata de imponer meditación — PLANSAL no es una secta. Se trata de algo mucho más simple: crear espacios donde sea posible no recibir estímulos. Donde el cuerpo pueda, aunque sea veinte minutos por día, dejar de estar en guardia.
+
+### 8.3 · Descanso real: no es entretenimiento pasivo
+
+Hay una confusión moderna que es necesario desmontar: descansar no es mirar Netflix. Descansar no es scrollear Instagram. Descansar no es tirarse en el sillón con el teléfono. Esas actividades *entretienen* — pero no *restauran*. El cerebro sigue procesando estímulos, la luz azul sigue alterando los ritmos circadianos, la dopamina sigue descargándose en pulsos que agotan los receptores. Después de tres horas de serie, estás igual de cansado que antes — pero con la ilusión de haber "descansado".
+
+El descanso real es otra cosa. Es dormir. Es estar en la naturaleza sin hacer nada. Es sentarse al sol. Es la siesta. Es caminar sin auriculares. Es mirar por la ventana. Es aburrirse — sí, aburrirse, ese estado que la modernidad patologizó y que es en realidad el espacio donde la mente se reorganiza, la creatividad emerge y el sistema nervioso se calma.
+
+Matthew Walker, neurocientífico de la Universidad de Berkeley y autor de *Why We Sleep*, lo expone sin ambigüedad: el sueño es la infraestructura biológica más importante del ser humano. Cada hora de sueño que se pierde tiene costos medibles en función cognitiva, regulación emocional, salud cardiovascular, función inmunológica y expectativa de vida. La Argentina es un país que duerme mal: horarios laborales demenciales, transporte que roba horas, cultura de la trasnoche como signo de productividad. PLANSAL declara: *dormir es un acto de salud pública*. Y el Estado que diseña condiciones que impiden dormir bien está enfermando a su población.
+
+### 8.4 · Desintoxicación digital
+
+Las pantallas son el tabaco del siglo XXI. La comparación no es retórica — es neurológica. Los mecanismos de *scroll* infinito, las notificaciones intermitentes, los *likes* y los algoritmos de recomendación activan exactamente las mismas vías dopaminérgicas que las máquinas tragamonedas. No es accidente. Fue diseñado así. Ex ingenieros de Google, Facebook e Instagram lo han admitido públicamente: las plataformas están optimizadas para generar adicción.
+
+El resultado es mensurable: fragmentación de la atención (el lapso promedio bajó de 12 segundos en 2000 a 8 en 2023), alteración de los ritmos circadianos por exposición a luz azul, deterioro de las relaciones interpersonales (el teléfono sobre la mesa reduce la calidad de la conversación un 30% según estudios de la Universidad de Essex), aumento de ansiedad y depresión en adolescentes correlacionado con horas de uso de redes.
+
+La desintoxicación digital no es ludismo ni nostalgia. Es higiene neurológica. Así como nadie cuestiona que lavarse las manos previene infecciones, necesitamos normalizar que limitar pantallas previene enfermedad mental. PLANSAL propone zonas libres de dispositivos en los Centros de Vitalidad, campañas de concientización basadas en evidencia, y — en articulación con el plan de educación — formación en uso consciente de tecnología desde la escuela primaria.
+
+### 8.5 · Respiración consciente
+
+De todas las funciones autónomas del cuerpo — ritmo cardíaco, presión arterial, digestión, temperatura — la respiración es la *única* que podemos controlar voluntariamente. Esa singularidad no es casual. La respiración es el puente entre el sistema nervioso voluntario y el involuntario. Es el control remoto del estado interno.
+
+James Nestor, periodista científico y autor de *Breath*, dedicó diez años a investigar lo que la ciencia médica moderna había ignorado durante un siglo: cómo respiramos importa tanto como qué comemos. La respiración coherente — aproximadamente 5,5 respiraciones por minuto, inhalación y exhalación de igual duración — activa el nervio vago, reduce la frecuencia cardíaca, baja la presión arterial y lleva al sistema nervioso al estado de coherencia cardíaca, un estado óptimo de equilibrio fisiológico. La respiración cuadrada (*box breathing*: 4 segundos de inhalación, 4 de retención, 4 de exhalación, 4 de retención) es usada por fuerzas especiales militares para el control del estrés en combate — y funciona igual de bien para una madre desbordada en Florencio Varela.
+
+Lo extraordinario, otra vez, es la gratuidad. Respirar bien no cuesta nada. No requiere equipamiento, no requiere espacio especial, no requiere turno médico. Requiere *saber* — y eso es lo que PLANSAL pone a disposición.
+
+### El principio rector
+
+**El cuerpo sabe sanarse solo si le das las condiciones — y la primera condición es dejar de agredirlo.**
+
+Cada enfermedad crónica que tratamos con pastillas es, en algún grado, un cuerpo pidiendo que paremos. Que dejemos de meterle comida que no reconoce. Que dejemos de bombardearlo con estímulos. Que le demos silencio. Que lo dejemos dormir. Que lo dejemos respirar. La Fábrica de Enfermos funciona porque nunca nos detenemos el tiempo suficiente para que el cuerpo haga lo que sabe hacer.
+
+**Integración en los Centros de Vitalidad:** cada Centro contará con una *sala de silencio* (sin dispositivos, sin música, sin conversación), sesiones grupales de respiración guiada, jornadas comunitarias de ayuno acompañado (con supervisión de Guías de Vitalidad), y zonas declaradas *libres de pantallas*. No como castigo — como refugio. Un lugar donde el sistema nervioso pueda, por fin, dejar de estar en guardia.
+
+---
+
+## SECCIÓN 9 · INFRAESTRUCTURA DE VITALIDAD
+
+> *"Primero formamos nuestros edificios; después, nuestros edificios nos forman a nosotros."*
+> — Winston Churchill, 1943
+
+Todo lo descrito en las Secciones 3 a 8 — las doce raíces, el poder de parar — queda en papel si no existe la infraestructura donde hacerlo real. Las ideas más brillantes del mundo no sirven si no tienen dónde aterrizar.
+
+PLANSAL propone cuatro pilares de infraestructura: una red de espacios físicos, un sistema de transmisión humana, un programa de recuperación del saber ancestral y una plataforma digital que conecte todo. Estos cuatro pilares son los pies del plan. Sin ellos, todo lo anterior es literatura. Con ellos, es política pública.
+
+### 9.1 · Red Nacional de Centros de Vitalidad
+
+Imaginá un lugar en tu barrio. No es un hospital — no hay olor a desinfectante, no hay sala de espera con numeritos, no hay caras de sufrimiento bajo luces fluorescentes. No es un gimnasio — no hay espejos, no hay música a volumen insoportable, no hay culto al cuerpo. No es un centro comunitario de los que conocemos — no hay un cartel de un político sonriente en la entrada, no hay burocracia para usar las instalaciones, no está cerrado la mitad de la semana por falta de presupuesto.
+
+Es otra cosa.
+
+Cuando entrás, lo primero que ves es verde. Un espacio abierto con árboles, una huerta donde alguien está sacando tomates, canteros con aromáticas. Hay tierra. Hay sol. Hay olor a tierra mojada o a albahaca, según la hora. Pasás al espacio de movimiento: un área abierta, piso de madera, donde un grupo de adultos mayores hace ejercicios de equilibrio mientras más allá unos pibes practican capoeira. No hay máquinas — hay cuerpos que se mueven.
+
+Seguís caminando y llegás a la cocina comunitaria. Siempre hay algo cocinándose. Hoy es un guiso de lentejas; lo está haciendo Marta, que tiene 68 años y viene todos los martes a enseñar a un grupo de padres jóvenes cómo alimentar a una familia de cuatro con comida real y poco presupuesto. Al lado de la cocina, en la sala de reuniones, una Familia Mentora — los Gómez — está con tres familias nuevas del barrio: mates, galletitas de avena hechas acá mismo, una conversación sobre cómo poner límites a las pantallas de los hijos sin que la casa se convierta en un campo de batalla.
+
+Al fondo, la *sala de silencio*. Una puerta que dice "zona sin dispositivos". Adentro, almohadones, luz natural, nada más. Tres personas sentadas con los ojos cerrados. Una cuarta mira por la ventana. Nadie habla. Nadie tiene que explicar nada.
+
+En la biblioteca hay una señora leyéndole un cuento a dos chicos que no son sus nietos. En el patio, un abuelo le enseña a un adolescente a armar una compostera. En el consultorio de orientación — el único espacio que se parece un poco a algo "institucional" — un Guía de Vitalidad conversa con una mujer que vino porque no puede dormir. No le va a recetar nada. Le va a preguntar cómo es su día, qué come, a qué hora mira el teléfono por última vez, hace cuánto no camina, quién la abraza. Y le va a proponer un plan — no un tratamiento. Un plan de vida.
+
+Eso es un Centro de Vitalidad.
+
+**Red nacional:** un Centro por barrio en zonas urbanas, uno por pueblo en zonas rurales. La escala puede parecer ambiciosa — es necesaria. La salud que se construye en estos espacios solo funciona si queda a distancia caminable. Si hay que tomar un colectivo para llegar, ya perdimos. El Centro tiene que ser tan cercano como la panadería. Tan cotidiano como la plaza.
+
+**Gestión comunitaria con apoyo estatal.** Los Centros no son estatales (la burocracia los mata) ni privados (la rentabilidad los pervierte). Son *comunitarios*: operados por la gente del barrio, con financiamiento y marco normativo del Estado, rendición de cuentas transparente, y autonomía de funcionamiento. El modelo existe — las cooperativas argentinas, las sociedades de fomento, los clubes de barrio lo demuestran desde hace un siglo. PLANSAL lo actualiza y lo potencia.
+
+**Espacios mínimos requeridos:** área de movimiento (interior o exterior), huerta y espacio verde, cocina comunitaria con comedor, sala de reuniones familiares, biblioteca y espacio de lectura, sala de silencio y meditación, consultorio de orientación vital, espacio de juego para niños.
+
+**Personal:** Guías de Vitalidad (formados en salud integral, no médicos — el detalle importa), facilitadores comunitarios, Familias Mentoras residentes, Ancianos de Sabiduría en roles activos. La mayor parte de los recursos humanos *son del barrio*. El Centro no trae gente de afuera a "ayudar" — activa la capacidad que ya existe adentro.
+
+**Modelo de financiamiento:** la reconversión del gasto en enfermedad prevenible. La Argentina gasta anualmente cifras obscenas en tratar diabetes tipo 2, hipertensión, depresión, ansiedad, obesidad y sus complicaciones — enfermedades que en un 80% son prevenibles con cambios en estilo de vida. Cada peso que deja de ir a metformina para un caso de diabetes prevenido, cada internación por infarto que no ocurre, cada tratamiento psiquiátrico que se evita porque la persona encontró comunidad antes de llegar a la crisis — ese peso se redirige al Centro de Vitalidad. No es gasto nuevo. Es gasto reasignado de reparar daños a prevenir daños. De la Fábrica de Enfermos a la fábrica de salud.
+
+### 9.2 · Sistema de Familias Mentoras
+
+De todos los mecanismos que propone PLANSAL, este es el más innovador. No tiene precedente a esta escala en ningún sistema de salud del mundo. Y es, posiblemente, el más poderoso.
+
+La premisa es simple: **la salud se transmite mejor de familia a familia que de profesional a paciente.** Un nutricionista puede explicarte la pirámide alimentaria. Pero la vecina que crió tres hijos sanos con un sueldo mínimo, que te muestra cómo hacer un guiso nutritivo con lo que hay en la verdulería de la esquina, que te cuenta cómo ella también estaba desbordada y cómo salió — esa vecina te cambia la vida. Porque no te está hablando desde la teoría. Te está hablando desde la cicatriz.
+
+**Selección por transformación demostrada.** Las Familias Mentoras no se eligen por títulos, diplomas ni currículum. Se eligen porque *hicieron el camino*. Una familia que estaba rota — desconectada, comiendo mal, sedentaria, sobremedicada, con vínculos deteriorados — y que logró transformarse. Que hoy come diferente, se mueve, conversa, cocina junta, puso límites a las pantallas, recuperó algo que se parecía a la vida. Esa transformación documentada y verificable *es* la credencial. Nadie puede enseñar lo que no vivió.
+
+**Formación práctica.** Las Familias Mentoras reciben capacitación — pero no académica. Práctica. Cocina real con presupuesto real. Comunicación familiar efectiva. Crianza consciente. Economía doméstica. Primeros auxilios emocionales: qué hacer cuando el otro está en crisis, cuándo escuchar, cuándo derivar. Herramientas concretas para acompañar sin invadir, guiar sin imponer.
+
+**Funcionamiento:** cada Familia Mentora acompaña a entre tres y cinco familias de su barrio durante un ciclo de un año. El acompañamiento es semanal: al menos un encuentro presencial (en el Centro de Vitalidad, en la casa de alguna de las familias, en la plaza del barrio) y contacto cotidiano por los canales que surjan naturalmente. No hay formularios. No hay protocolos rígidos. Hay presencia.
+
+**Cómo se ve un sábado.** Los Gómez — Carlos y María, 48 y 45 años, tres hijos — son Familia Mentora del Centro de Vitalidad de Villa Lugano. Hoy es sábado. Invitaron a los Pérez — Lucas y Daniela, 32 y 30, un hijo de 4 y una beba de 8 meses — a cocinar juntos. En la cocina del Centro, Carlos le muestra a Lucas cómo hacer una salsa de tomates naturales (compraron un cajón en el Mercado Central por menos de lo que cuestan tres frascos de salsa envasada). María charla con Daniela mientras amasa pan casero. La beba duerme en el cochecito. El hijo de los Pérez juega con la hija menor de los Gómez en el patio.
+
+En algún momento, entre el tomate y la harina, Lucas dice que con Daniela casi no se hablan. Que llegan a la noche destruidos. Que el pibe no duerme. Que él juega a la PlayStation hasta las dos de la mañana porque es la única hora del día que siente que es *suya*. Carlos no lo juzga. Le cuenta que él hacía exactamente lo mismo hace cinco años. Que la PlayStation era su refugio porque el mundo real era insoportable. Que lo que lo cambió no fue un psicólogo (aunque no descarta que pueda servir) sino algo más simple: empezar a hacer *una cosa* por día con intención. Una caminata. Una cena cocinada. Una conversación real con María de quince minutos sin teléfono. Que la acumulación de esas pequeñas cosas fue lo que movió todo.
+
+No hay receta. No hay diagnóstico. Hay un hombre contándole a otro hombre: *yo estuve donde vos estás, y se puede salir*. Eso vale más que cien sesiones de terapia cognitivo-conductual. Porque es real. Porque está al lado. Porque se nota en los ojos.
+
+**Escala.** Primer año: mil Familias Mentoras seleccionadas y formadas a nivel nacional. Segundo año: cinco mil (muchas de ellas surgidas de familias que fueron mentoreadas el primer año). Tercer año en adelante: efecto multiplicador natural. La familia que fue acompañada se convierte en la que acompaña. El círculo se expande. A diez años, el objetivo es que la red de Familias Mentoras sea *la* red de salud comunitaria más grande del país — más grande que cualquier obra social, más penetrante que cualquier hospital.
+
+### 9.3 · Ancianos de Sabiduría
+
+La Argentina tiene un recurso de salud pública extraordinario, masivo y completamente desperdiciado: sus adultos mayores.
+
+Hay más de cinco millones de personas mayores de 65 años en este país. La mayoría están jubiladas con haberes que no alcanzan, medicadas con cinco o más fármacos diarios, aisladas en sus casas o depositadas en geriátricos, y tratadas por el sistema — y por la sociedad — como un pasivo. Un costo. Una carga.
+
+Es obsceno. Porque esas cinco millones de personas son portadoras de algo que la Argentina está perdiendo a velocidad alarmante: *saber práctico acumulado*. Nelida — la abuela de los Ramírez del Preámbulo — sabe cocinar con lo que hay. Sabe preparar remedios caseros que funcionan. Sabe conservar alimentos sin freezer. Sabe tejer, coser, remendar. Sabe poner la mesa para una cena familiar donde la gente se mira a los ojos. Sabe lo que funcionaba *antes* de que la industria reemplazara todo eso con productos descartables. Y se está muriendo sin transmitirlo — porque nadie le pregunta.
+
+El programa **Ancianos de Sabiduría** invierte la ecuación. No son pasivos del sistema — son activos de la comunidad. No son destinatarios de cuidado — son *fuentes* de cuidado. No necesitan que los entretengan — necesitan que los *necesiten*.
+
+**Roles concretos en los Centros de Vitalidad:**
+
+- **Maestros de cocina:** enseñan recetas reales, económicas, nutritivas. Transmiten el saber culinario que se pierde con cada generación que pide delivery.
+- **Narradores:** cuentan historias a los chicos. No subestimes esto: la narración oral es una de las prácticas más antiguas de cohesión comunitaria. Un abuelo contando cómo era su barrio, qué hacía su familia, cómo se resolvían los problemas — eso es educación viva.
+- **Mediadores de conflictos:** la experiencia de vida da una perspectiva que los jóvenes no tienen. Un anciano que escucha a un matrimonio en crisis aporta algo que ningún terapeuta de treinta años puede: la mirada larga.
+- **Mentores de huerta y jardín:** muchos adultos mayores tienen décadas de saber sobre plantas, tierra, estaciones. Son los profesores naturales de las huertas comunitarias.
+- **Historiadores orales:** preservan la memoria del barrio, de la familia, de la comunidad. Ese registro no está en ningún archivo. Está en sus cabezas. Y se pierde cada vez que uno muere sin que nadie lo haya escuchado.
+- **Artesanos y oficios:** carpintería, costura, conservas, panadería, herrería. Saberes que la economía industrial volvió "innecesarios" y que la economía de la vitalidad necesita recuperar.
+
+**El efecto bidireccional.** La magia de este programa no es solo lo que los ancianos *dan* — es lo que *reciben*. La soledad mata: la evidencia lo documenta con la misma claridad que el tabaquismo. Un adulto mayor aislado tiene un riesgo de mortalidad equivalente a fumar 15 cigarrillos por día (estudio de Holt-Lunstad, 2015). Darle un rol, una razón para levantarse, un grupo que lo espera, chicos que lo admiran, familias que lo necesitan — eso es medicina. La más potente y la más barata.
+
+La reconexión intergeneracional sana en las dos direcciones. El viejo deja de morirse de soledad. El joven deja de repetir errores por falta de guía. La comunidad recupera un eslabón que le habían amputado. Esto conecta directamente con la Raíz 4 (Familia), la Raíz 5 (Tribu), y la Raíz 12 (Comunidad) — y demuestra, una vez más, que las doce raíces son una sola cosa con doce nombres.
+
+### 9.4 · Plataforma Digital Nacional
+
+La paradoja de PLANSAL es que, habiendo denunciado el daño de las pantallas, necesita una plataforma digital. La resolución es simple: el problema no es la tecnología — es la tecnología *diseñada para extraer*. Una herramienta digital diseñada para *conectar con la vida real* es una herramienta de salud.
+
+La Plataforma Digital Nacional de PLANSAL es la evolución de lo que ya se está construyendo en el proyecto SocialJusticeHub: una plataforma pública, de código abierto, sin publicidad y sin venta de datos.
+
+**Funcionalidades centrales:**
+
+1. **Autodiagnóstico por las 12 áreas de vida.** El sistema de cuestionario ya existente: el usuario evalúa su estado actual y su estado deseado en las doce raíces (movimiento, alimentación, bienestar emocional, familia, tribu, trabajo, finanzas, crecimiento, propósito, sueño/descanso, naturaleza, comunidad). El resultado no es un diagnóstico médico — es un mapa de vitalidad. Un espejo que dice: *esto es lo que funciona en tu vida, y esto es lo que duele*.
+
+2. **Plan de vitalidad personalizado.** Basado en los resultados del autodiagnóstico, la plataforma genera recomendaciones concretas. No genéricas — personalizadas según las áreas más deficitarias, los recursos disponibles en el barrio del usuario (¿hay un Centro de Vitalidad cerca? ¿Hay una Familia Mentora disponible? ¿Hay un grupo de caminata el miércoles?) y el nivel de disposición al cambio.
+
+3. **Conexión con la infraestructura física.** La plataforma no es un destino — es un puente. Cada recomendación lleva a una acción en el mundo real: inscribirse en un taller de cocina del Centro, contactar a la Familia Mentora del barrio, sumarse a un grupo de actividad física, participar en una jornada de ayuno acompañado. La pantalla te lleva a la vida. No al revés.
+
+4. **Seguimiento de hábitos y evolución.** Registro simple de hábitos diarios (movimiento, alimentación, descanso, conexión social), visualización del progreso en el tiempo, micro-celebraciones por logros alcanzados. Gamificación ética — sin las trampas adictivas de las redes sociales, pero con los mecanismos motivacionales que la psicología del comportamiento ha validado.
+
+5. **Comunidad digital vinculada a comunidad física.** Foros por barrio, por Centro de Vitalidad, por Familia Mentora. No una red social genérica — una red de vitalidad geolocalizada. El objetivo es que la conversación digital sea siempre una antesala de encuentro presencial. Que el mensaje en la plataforma termine en un mate en el Centro.
+
+6. **Contenido educativo estructurado.** Biblioteca de contenidos sobre cada una de las doce raíces: artículos, videos, recetas, rutinas de movimiento, ejercicios de respiración, guías de huerta, estrategias de crianza. Todo en lenguaje accesible, todo gratuito, todo sin conflicto de interés con industria farmacéutica ni alimentaria.
+
+**Principios de diseño:**
+
+- **Código abierto:** cualquiera puede auditar, mejorar o replicar la plataforma. Transparencia total.
+- **Sin publicidad, sin venta de datos.** Si el modelo de negocio depende de la atención del usuario, el incentivo es retenerlo en la pantalla. PLANSAL invierte el incentivo: el éxito de la plataforma se mide por cuánto tiempo la gente pasa *fuera* de ella, viviendo.
+- **Accesible:** funciona en web y en celular, opera con conexiones básicas, tiene modo offline para zonas con conectividad limitada. Disponible para el teléfono más barato del mercado.
+- **Diseñada para salir de ella.** Cada interacción lleva hacia afuera: hacia el Centro, hacia la Familia Mentora, hacia el grupo de caminata, hacia la huerta, hacia la comunidad. La plataforma es el mapa. El territorio es la vida.
+
+La plataforma no reemplaza el contacto humano — lo facilita. No reemplaza al Centro de Vitalidad — te lleva a él. No reemplaza a la Familia Mentora — te conecta con ella. Es el sistema nervioso digital de una infraestructura que es, ante todo, de carne y hueso, de tierra y mate, de miradas y abrazos.
+
+---
