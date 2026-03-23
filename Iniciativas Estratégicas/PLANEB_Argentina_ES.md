@@ -477,6 +477,46 @@ La ANEB sigue el mismo patrón institucional de las agencias del marco BASTA: **
 
 **Rendición de cuentas:** Dashboard público en tiempo real con todas las decisiones, gastos, inversiones, y métricas de la Red. Auditoría externa anual por firma independiente rotativa. Informe semestral al Congreso de la Nación.
 
+### 5.3b Roles Clave del Directorio
+
+El directorio de once miembros funciona como órgano colegiado — las decisiones se toman por mayoría calificada (7 de 11) para asuntos ordinarios y 9 de 11 para modificaciones al Protocolo Bastardo o al reglamento del Fondo de Solidaridad. Dentro de esa estructura horizontal, tres roles concentran responsabilidades ejecutivas diferenciadas:
+
+**Director/a Ejecutivo/a.** Responsable de la gestión general de la ANEB: coordina las áreas técnicas, representa a la Agencia ante los reguladores (SSN, BCRA, ENACOM, ENRE), firma convenios institucionales, y es la cara pública de la Red Bastarda. El/la Directora/a Ejecutivo/a es seleccionado/a por voto del directorio pleno — se requieren 7 de 11 votos. Mandato de 4 años, renovable una sola vez. En caso de renuncia o remoción, el directorio tiene 60 días para designar reemplazante; en el interín, el/la miembro de mayor antigüedad en el directorio asume funciones interinas. Restricción crítica: el/la Director/a Ejecutivo/a no tiene voto de desempate — en caso de empate, la votación se repite en 48 horas y, si persiste, el tema se eleva a consulta ciudadana digital con plazo de 15 días.
+
+**Director/a de Tecnología.** Supervisa el desarrollo, la evolución y la seguridad del Protocolo Bastardo — el sistema operativo sobre el que corre toda la Red. Responsabilidades: coordinar el equipo de desarrollo open-source, gestionar auditorías de seguridad (penetration testing trimestral, bug bounties permanentes), certificar adaptadores sectoriales antes de su despliegue, y garantizar la interoperabilidad entre Bastardas. Requisito excluyente: 10 o más años de experiencia demostrable en sistemas distribuidos, arquitectura de software a escala, o criptografía aplicada. Selección por concurso público de antecedentes y oposición, con evaluación técnica conducida por un panel de 5 expertos independientes (3 académicos internacionales + 2 del sector privado argentino, ninguno vinculado a empresas en sectores donde operan Bastardas). El/la Director/a de Tecnología puede vetar un despliegue técnico por razones de seguridad — pero el veto es público, fundamentado, y apelable ante el directorio pleno.
+
+**Director/a de Integridad.** Este es el rol más inusual y el más importante. El/la Director/a de Integridad no reporta al directorio — reporta directamente a la ciudadanía. Su función: gestionar el Canal de Transparencia (whistleblower channel para denuncias internas y externas), monitorear señales de captura regulatoria o influencia indebida sobre el directorio, auditar conflictos de interés, y publicar un Informe de Integridad trimestral que se difunde en el dashboard de la ANEB y en el Tablero Nacional de la Red Bastarda. El/la Director/a de Integridad tiene acceso irrestricto a toda la documentación interna de la ANEB — actas, comunicaciones, registros financieros — y puede convocar audiencias con cualquier miembro del directorio o personal técnico. Protección clave: no puede ser removido/a por el directorio. La única vía de remoción es una Asamblea Extraordinaria convocada por el 10% de los usuarios registrados de todas las Bastardas, con aprobación por mayoría simple del total de votantes. Esta protección asegura que el/la Director/a de Integridad pueda señalar irregularidades sin miedo a represalias internas.
+
+### 5.3c Mecanismos Anti-Captura
+
+La captura institucional — el proceso por el cual un organismo regulador o de gobernanza termina sirviendo a los intereses de las entidades que debería controlar — es el riesgo existencial número uno de la ANEB. Si el directorio se convierte en una extensión de los intereses privados del sector asegurador, bancario, o tecnológico, todo PLANEB colapsa. Estos son los mecanismos diseñados para prevenirlo:
+
+**Cooling-off bilateral.** No alcanza con pedir que nadie venga del sector regulado (3 años de cuarentena de entrada, ya establecida en S5.3). También hay que impedir que alguien use la ANEB como trampolín para después irse al sector privado con información privilegiada. Regla: 3 años después de dejar la ANEB, ningún ex-miembro del directorio puede trabajar, asesorar, o tener relación contractual con empresas que operen en sectores donde existen Bastardas activas. Violación: la ANEB puede iniciar acción civil por daños y perjuicios, y el Informe de Integridad lo documenta públicamente.
+
+**Declaración jurada patrimonial.** Todos los miembros del directorio publican declaración jurada patrimonial anual en el dashboard de la ANEB — no en un PDF enterrado en un sitio web, sino en formato estructurado, consultable, con histórico comparativo año a año. Cualquier ciudadano puede ver la evolución patrimonial de cualquier miembro del directorio. Incrementos patrimoniales no explicados por ingresos declarados activan una investigación automática del/la Director/a de Integridad.
+
+**Límite de mandato vitalicio.** Ningún miembro del directorio — en ninguno de los 5 estamentos (ciudadanos sorteados, expertos técnicos, representantes Bastardas, rep. ANCE, rep. ANJUS) — puede servir más de 2 mandatos en toda su vida. No dos mandatos consecutivos: dos mandatos *total*. Esto impide la profesionalización del cargo — que alguien salga, espere un período, y vuelva a entrar. La ANEB no es una carrera. Es un servicio.
+
+**Alarma Ciudadana.** Cualquier grupo de 5.000 ciudadanos (registrados en el padrón electoral nacional, verificados por identidad digital) puede activar una revisión pública de la conducta de cualquier miembro del directorio. La revisión es conducida por un Panel ad-hoc de 7 ciudadanos seleccionados por sorteo democrático del padrón, con asistencia técnica del/la Director/a de Integridad. El Panel tiene 90 días para investigar, 30 días para publicar su informe, y la potestad de recomendar amonestación, suspensión temporal, o remoción. La recomendación de remoción se eleva a votación del directorio (requiere 9 de 11) o a Asamblea Extraordinaria de usuarios si el directorio no actúa en 30 días.
+
+**Incompatibilidades absolutas.** Ningún miembro del directorio de la ANEB puede, mientras ejerce el cargo: ocupar cargo electivo nacional, provincial o municipal; trabajar, asesorar o ser afiliado/a a un partido político; tener participación accionaria, directa o indirecta, en empresas que operen en sectores donde existen Bastardas activas; ser proveedor/a de servicios a la ANEB o a cualquier Bastarda de la Red. La incompatibilidad se verifica al momento de la designación y se audita anualmente por el/la Director/a de Integridad.
+
+### 5.3d Competencias Requeridas
+
+No alcanza con buena voluntad. Cada estamento del directorio necesita perfiles específicos — y, tan importante como lo que saben, es lo que *no pueden tener*.
+
+**TABLA 9b: Perfil y Restricciones por Estamento del Directorio ANEB**
+
+| Cargo | Perfil Requerido | Incompatibilidades |
+|---|---|---|
+| Ciudadanos por sorteo (4) | Mayores de 25 años, residentes permanentes en Argentina, sin antecedentes penales. No se requiere formación técnica — se provee capacitación intensiva de 60 días previa al inicio del mandato (derecho, regulación, gobernanza, tecnología, finanzas básicas). Se busca diversidad geográfica, etaria, de género y socioeconómica. | No pueden tener vinculación política partidaria activa en los 5 años previos. No pueden tener relación laboral, contractual o societaria con empresas en sectores donde operan Bastardas. No pueden ser empleados/as del Estado nacional, provincial o municipal en cargos de decisión. |
+| Expertos técnicos (3) | Mínimo 10 años de experiencia demostrable en al menos una de las siguientes áreas: sistemas distribuidos y arquitectura de software, finanzas y actuariado, regulación de servicios públicos. Título universitario o equivalente en experiencia profesional comprobable. Publicaciones, patentes o proyectos auditables como evidencia de competencia. | No pueden haber trabajado en los 3 años previos para empresas en sectores donde operan Bastardas. No pueden mantener inversiones o participaciones societarias en dichos sectores. No pueden tener vínculos contractuales vigentes con reguladores sectoriales (SSN, BCRA, ENACOM, ENRE). |
+| Representantes de Bastardas (2) | Mínimo 2 años como panelista activo en al menos una Bastarda de la Red. Participación verificable en al menos el 70% de las votaciones de su Panel. Conocimiento directo de la operación cotidiana del modelo — no teórico, vivencial. | No pueden ser miembros del Consejo Técnico de ninguna Bastarda mientras sirvan en el directorio ANEB. No pueden tener relación comercial con proveedores de la Red. No pueden representar simultáneamente a más de un sector. |
+| Representante ANCE — PLANEDU (1) | Designado/a por el directorio de ANCE según sus propias reglas internas. Perfil orientado a educación, formación continua, y desarrollo de capacidades ciudadanas. Experiencia en diseño curricular o pedagogía para adultos es valorada. | No puede tener doble mandato en el directorio de ANCE y en la ANEB (debe solicitar licencia de ANCE durante el mandato en ANEB). Aplican todas las incompatibilidades generales del directorio. |
+| Representante ANJUS — PLANJUS (1) | Designado/a por el directorio de ANJUS según sus propias reglas internas. Perfil orientado a resolución de conflictos, mediación, y arquitectura de justicia restaurativa. Experiencia en diseño de sistemas de resolución de disputas es valorada. | No puede actuar como mediador/a o árbitro/a en disputas que involucren a Bastardas de la Red mientras sirve en el directorio. Aplican todas las incompatibilidades generales del directorio. |
+
+**Nota:** La capacitación de los 60 días para ciudadanos sorteados no busca convertirlos en expertos — busca darles las herramientas para hacer las preguntas correctas. El directorio funciona precisamente porque combina expertise técnica con perspectiva ciudadana no profesionalizada. Los ciudadanos sorteados aportan algo que ningún experto puede aportar: la mirada de quien paga la factura.
+
 ### 5.4 Funciones de la ANEB
 
 **1. Administración del Protocolo Bastardo**
@@ -634,6 +674,33 @@ Las Empresas Bastardas no buscan destruir al mercado. Buscan mejorarlo. La integ
 
 > *"PLANEB no pide plata del Estado. Pide ciudadanos dispuestos a poner lo que cuesta. Y les devuelve cada peso que sobra."*
 
+### 7.0 Dónde Va Tu Plata Hoy — Radiografía del Mercado Asegurador
+
+Antes de mostrar cuánto cuesta una Bastarda, mostremos cuánto pagás hoy — y a dónde va cada peso. Porque la promesa de PLANEB no es abstracta: es que una parte concreta, cuantificable, de lo que pagás cada mes no compra ningún servicio. Compra la ganancia de alguien más. Y para creer eso, hay que verlo.
+
+Tomemos el sector de seguros — el primero que la Red Bastarda va a desafiar. Cuando pagás tu prima mensual de seguro automotor, ese dinero se reparte entre componentes que tienen destinos muy distintos. Algunos pagan por protección real. Otros pagan por intermediación. Y otros no pagan por nada que te beneficie.
+
+**TABLA 11b: Desglose del Peso de Prima en el Mercado Asegurador Argentino**
+
+| Componente | % de la Prima | Destino | En una Bastarda |
+|---|---|---|---|
+| Siniestros pagados | 48-52% | Pago de reclamos — la razón por la que el seguro existe | Igual — el riesgo no cambia |
+| Gastos de producción (comisiones a productores) | 15-20% | Productores/brokers que intermedian la venta | Reemplazado por costo de plataforma digital (~3-5%) |
+| Gastos de administración | 12-18% | Sueldos, oficinas, IT, compliance | ~8-12% (open-source reduce IT, sin marketing masivo, staff lean) |
+| Resultado técnico | 5-10% | Ganancia operativa → dividendos a accionistas | 0% — no hay accionistas |
+| Resultado financiero | 5-8% | Rendimiento de inversión de reservas → parte a accionistas | Rendimiento reinvertido como menor cuota |
+| **Total extracción** | **20-35%** | **Dividendos + bonus ejecutivos + ineficiencias toleradas** | **0%** |
+
+> *Datos estimados basados en informes sectoriales y balances publicados por la SSN — sujetos a verificación antes de publicación.*
+
+El mercado asegurador argentino no es un mercado disperso. Las 5 aseguradoras más grandes controlan aproximadamente el 40% de la facturación total del sector. Esa concentración no es casualidad: las barreras de entrada (capital mínimo regulatorio, relaciones con la SSN, red de productores) favorecen a los incumbentes y desincentivan la competencia. El resultado es un oligopolio tácito donde nadie tiene incentivos para bajar precios — porque todos están cómodos con márgenes del 20-35%.
+
+¿A dónde va ese 20-35%? No a mejorar el servicio — preguntale a cualquier argentino que haya intentado cobrar un siniestro cuánto tardó. Va a tres destinos: dividendos a accionistas que nunca pisaron una oficina de reclamos, bonos ejecutivos atados a "optimización del loss ratio" — que en castellano significa hacer más difícil que cobres tu póliza —, y presupuestos de marketing diseñados para convencerte de que la opacidad es profesionalismo, de que no entender tu factura es normal, de que así funciona el mercado. No. Así funciona la extracción.
+
+En una Bastarda, el pool de riesgo es el mismo. Los siniestros se pagan igual — el riesgo actuarial no cambia porque cambie quién administra el fondo. Lo que cambia es todo lo demás. Las comisiones de productores desaparecen: la plataforma digital reemplaza al intermediario con un costo del 3-5% en vez de 15-20%. La administración se reduce: open-source baja los costos de IT, no hay directorio que cobre honorarios de mercado, no hay presupuesto de publicidad porque la transparencia *es* la publicidad. El resultado técnico es cero — no hay accionistas a quienes pagarles. Y el resultado financiero — el rendimiento de las reservas invertidas — se reinvierte como menor cuota futura en vez de irse a un balance que los usuarios nunca van a leer.
+
+Ese 20-35% que hoy es extracción, en una Bastarda es 0%. Esos son los $7.000 por mes que la familia Moretti estaba pagando por nada. Multiplicá por 200.000 usuarios y tenés la dimensión del cambio: no es una rebaja comercial, no es un descuento de campaña. Es la eliminación estructural de la ganancia sobre un servicio que no necesita generar ganancia para funcionar.
+
 ### 7.1 La Bastarda Aseguradora: Proyecciones Financieras
 
 La primera Empresa Bastarda es el caso modelo. Las proyecciones a continuación son estimaciones de orden de magnitud — la primera mejor alternativa — sujetas a validación durante el estudio de viabilidad de la ANEB.
@@ -684,6 +751,8 @@ PLANEB no genera retorno financiero. No hay inversores que esperen dividendos. P
 - **PLANEB: inversión ciudadana de USD 8-17M → ahorro de USD 90-180M/año en año 5 = ROI social 6:1 a 20:1**
 
 PLANEB es el mandato de BASTA con el mejor retorno por peso invertido — y el único que no requiere ni un centavo del Estado. La ciudadanía financia su propia liberación económica.
+
+**El efecto multiplicador fiscal.** El retorno social de la Red Bastarda no se agota en el ahorro directo de los usuarios. Hay un efecto de segundo orden que los economistas llaman multiplicador fiscal — y que acá opera al revés de lo habitual: en vez de inyectar dinero estatal en la economía, se *deja de extraer* dinero privado. El resultado neto es el mismo. Doscientos mil ciudadanos ahorrando entre un 20% y un 30% en seguros significa ingreso disponible adicional que no se evapora en dividendos de una corporación — se gasta en la economía real. Se compra comida, se paga educación, se va al cine, se ahorra para una casa. Cada peso que deja de ser extracción se convierte en un peso que compra algo real — y ese peso genera actividad económica, empleo, y consumo en cadena. El multiplicador estimado del consumo de hogares en Argentina oscila entre 1,2 y 1,5 — lo que significa que cada USD 100 millones de ahorro anual genera entre USD 120 y USD 150 millones en actividad económica agregada. Pero el efecto no termina ahí. Las entidades transparentes requieren menos supervisión regulatoria: cuando toda la información financiera es pública y auditable en tiempo real, la SSN puede reasignar recursos de auditoría hacia las aseguradoras que sí operan en la opacidad. Menos carga regulatoria, mejor focalización. Y hasta las arcas del Estado se benefician: mayor actividad económica implica mayor recaudación por IVA, Ingresos Brutos, y otros impuestos al consumo — sin aumentar ninguna alícuota. PLANEB no le pide plata al Estado, y encima le genera recaudación indirecta. Es el mandato fiscal más eficiente de todo el marco BASTA.
 
 ---
 
@@ -1022,6 +1091,45 @@ PLANEB propone un proyecto de ley que cree un nuevo tipo de entidad jurídica en
 6. **Protección contra takeover.** Una EPP no puede ser adquirida — no tiene acciones que comprar, no tiene patrimonio que capturar. Pero la ley refuerza esto explícitamente: cualquier intento de convertir una EPP en una entidad con fines de lucro es nulo de nulidad absoluta.
 7. **Registro Nacional de EPPs.** Administrado por la ANEB. Público. Cualquier ciudadano puede verificar el estado de cualquier EPP.
 
+#### Estructura del Proyecto de Ley
+
+Título formal: **"Proyecto de Ley de Entidades de Propósito Perpetuo y Gobernanza Descentralizada."**
+
+Las siete disposiciones de arriba son principios. Pero un principio sin articulado es un discurso — y los discursos no cambian la ley. Lo que sigue es la arquitectura legislativa concreta: un proyecto estimado en 45 a 60 artículos, distribuidos en 8 capítulos, diseñado para recorrer el camino completo desde comisión hasta sanción.
+
+**TABLA: Capítulos del Proyecto de Ley**
+
+| Capítulo | Contenido | Artículos Estimados |
+|---|---|---|
+| **Cap. I — Disposiciones Generales** | Definiciones (EPP, DAO, gobernanza descentralizada, sorteo democrático), ámbito de aplicación, principios rectores | 1-8 |
+| **Cap. II — Constitución de EPPs** | Requisitos de formación, registro ante ANEB, patrimonio mínimo, objeto social limitado a servicio al costo | 9-16 |
+| **Cap. III — Gobernanza Descentralizada** | Reconocimiento legal de votación on-chain, sorteo verificable, democracia líquida, Paneles Ciudadanos, Regla de Tres Rechazos | 17-26 |
+| **Cap. IV — Régimen Fiscal** | Exención de impuesto a las ganancias (no hay base imponible), IVA reducido para servicios esenciales al costo, contribuciones patronales estándar | 27-32 |
+| **Cap. V — Régimen Regulatorio** | Vía simplificada de habilitación ante SSN/BCRA/ENACOM/ENRE para EPPs que cumplan estándares de transparencia del Protocolo Bastardo | 33-38 |
+| **Cap. VI — Protección contra Conversión** | Nulidad absoluta de conversión de EPP a entidad con fines de lucro, prohibición de distribución de patrimonio, cláusula de "muerte digna" | 39-42 |
+| **Cap. VII — ANEB** | Creación legal del ente autárquico, competencias, presupuesto protegido, directorio por sorteo y representación técnica | 43-50 |
+| **Cap. VIII — Disposiciones Transitorias** | Adaptación de Bastardas existentes (constituidas como fideicomisos) al nuevo régimen, plazo de 24 meses | 51-55 |
+
+Algunos capítulos merecen aclaración. El Capítulo III es el corazón ideológico: establece que una votación verificada on-chain tiene la misma validez legal que una resolución de asamblea de accionistas. Esto no tiene precedente en el derecho argentino. El articulado deberá resolver cuestiones de identidad (¿cómo se verifica que un voto on-chain corresponde a una persona real?), de impugnación (¿cómo se cuestiona una decisión tomada por smart contract?), y de integración con el sistema judicial existente. El Capítulo VI incluye la cláusula de "muerte digna" — si una EPP no puede continuar operando, su patrimonio se transfiere al Fondo de Solidaridad Bastarda o a otra EPP del mismo sector, jamás a manos privadas. No hay liquidación con reparto de remanente. La entidad nace sin dueño y muere sin heredero.
+
+**Camino legislativo:**
+
+El proyecto necesita recorrer comisiones en ambas cámaras:
+
+- **Cámara de Diputados:** Legislación General + Presupuesto y Hacienda + Finanzas.
+- **Senado:** Legislación General + Economía Nacional e Inversión.
+- **Timeline estimado:** 18-24 meses desde la presentación formal hasta la sanción. Este plazo asume negociación activa — no cajoneamiento.
+- **Campeones legislativos:** Se necesitan al menos 2-3 senadores y 5-7 diputados de múltiples bloques dispuestos a impulsar el proyecto. El incentivo político existe: la base de 25.000+ usuarios de las Bastardas que ya operarán bajo fideicomiso para cuando el proyecto llegue al Congreso constituye un electorado organizado, informado y ruidoso. Ningún legislador quiere ser el que votó en contra de que la gente ahorre en seguros.
+
+**Versiones de compromiso:**
+
+No todo proyecto sale como entra. La política legislativa argentina funciona por negociación y desgaste. PLANEB prepara dos versiones:
+
+- **"Ley Mínima":** Solo reconoce la duración perpetua para fideicomisos sin fines de lucro con gobernanza auditable + exención de impuesto a las ganancias (dado que no hay ganancia). No incluye reconocimiento de DAO, ni gobernanza on-chain con validez legal, ni régimen regulatorio simplificado. Es una ley de cuatro artículos que resuelve los dos problemas más urgentes: que el fideicomiso no se venza a los 30 años y que el fisco no grave lo que no es ganancia. Políticamente viable incluso con resistencia.
+- **"Ley Plena":** Todo el framework de 55 artículos y 8 capítulos. Es la aspiración.
+
+La estrategia es clara: presentar la Ley Plena, negociar hacia la Mínima si es necesario, y usar las Bastardas que ya operan bajo fideicomiso como prueba de concepto viva que justifica la versión completa. Cada mes que la Bastarda Aseguradora funciona sin escándalos y ahorrándole plata a 200.000 personas, el argumento por la Ley Plena se fortalece. El tiempo juega a favor del modelo — si funciona, la ley lo alcanza.
+
 ### 12.3 Fase C: Template Legal Internacional
 
 Una vez probada en Argentina, la ley se publica como template open-source — adaptable por cualquier país. Como Creative Commons creó licencias legales estandarizadas para contenido digital, PLANEB crea un marco legal estandarizado para entidades económicas sin dueño.
@@ -1215,7 +1323,35 @@ La estrategia es de co-desarrollo, no de competencia. Los hackathons conjuntos, 
 | **Desafío legal al fideicomiso perpetuo** | Media | Alto | Mecanismo de renovación/fideicomiso sucesor. Push paralelo por Ley de EPP. |
 | **Catástrofe que excede todas las reservas** | Muy baja | Muy alto | 5 líneas de defensa (Operativa → Catástrofe → Solidaridad → Reaseguro → Asamblea). Diversificación de reaseguradores. |
 
-### 16.2 Críticas Anticipadas y Respuestas
+### 16.2 Gobernanza de Crisis — Quién Decide, Cuán Rápido
+
+Identificar riesgos es la parte fácil. Lo que importa es quién decide qué hacer cuando un riesgo se materializa — y con qué velocidad.
+
+La matriz de arriba lista amenazas y mitigaciones. Pero una mitigación sin cadena de mando es un PowerPoint — se ve bien en la presentación y no sirve de nada cuando la crisis golpea a las tres de la mañana. PLANEB define cuatro niveles de crisis, cada uno con su autoridad decisoria, su plazo máximo de resolución, y su mecanismo de escalamiento. La regla es simple: cuanto más grave la crisis, más amplia la base decisoria — pero siempre con reloj.
+
+**TABLA: Niveles de Crisis — Autoridad, Plazo y Escalamiento**
+
+| Nivel | Tipo de Crisis | Autoridad de Decisión | Plazo Máximo | Escalamiento |
+|---|---|---|---|---|
+| **Nivel 1 — Operativa** | Caída de reservas, NPS bajo, aumento inusual de siniestros | Consejo Técnico de la Bastarda afectada | 7 días | Si no se resuelve en 7 días, escala a Nivel 2 |
+| **Nivel 2 — Sectorial** | Amenaza regulatoria, pico de siniestros por catástrofe, problema técnico del Protocolo | Panel Ciudadano de la Bastarda afectada (convocado extraordinariamente) | 15 días | Si no se resuelve en 15 días, escala a Nivel 3 |
+| **Nivel 3 — Red** | Crisis que afecta a múltiples Bastardas, activación del Fondo de Solidaridad, ataque coordinado | Directorio de la ANEB | 30 días | Si no se resuelve en 30 días, escala a Nivel 4 |
+| **Nivel 4 — Existencial** | Desafío legal al modelo completo, exploit catastrófico, pérdida masiva de confianza | Asamblea Extraordinaria de todas las Bastardas (convocada por ANEB) | 45 días | No hay escalamiento superior. La Asamblea es la autoridad final. |
+
+La lógica del escalamiento refleja un principio de gobernanza bastarda: los técnicos resuelven lo técnico, los ciudadanos resuelven lo político, y nadie se sienta en un problema más tiempo del que la situación permite. El reloj no es decorativo — si un Consejo Técnico no resolvió una crisis operativa en 7 días, la presunción es que necesita más legitimidad democrática para las decisiones que debe tomar (recortar servicios, tocar reservas, subir cuotas temporalmente). El Panel Ciudadano tiene esa legitimidad. Y si el Panel no puede resolver en 15 días, la presunción es que el problema excede a una sola Bastarda y necesita coordinación de red.
+
+**Protocolo de comunicación por nivel:**
+
+- **Nivel 1:** Informe interno al Panel Ciudadano de la Bastarda afectada + publicación en el dashboard de la Bastarda. Los usuarios ven que algo se está gestionando, pero no se genera alarma pública.
+- **Nivel 2:** Comunicado público en el dashboard + notificación directa a todos los usuarios de la Bastarda afectada. Transparencia total sobre la naturaleza de la crisis y las opciones que el Panel evalúa.
+- **Nivel 3:** Comunicado oficial de la ANEB + notificación a usuarios de toda la Red Bastarda + alerta formal a los reguladores sectoriales relevantes (SSN, BCRA, ENACOM, ENRE según corresponda). La Red entera sabe que está pasando algo serio.
+- **Nivel 4:** Conferencia pública de la ANEB + cobertura mediática proactiva (no se espera a que los medios descubran el problema — se les lleva la información antes) + contacto directo con legisladores que impulsan la Ley de EPP. En una crisis existencial, la opacidad es el enemigo. Se comunica todo, incluso lo que duele.
+
+**Revisión post-crisis obligatoria:**
+
+Toda crisis de Nivel 2 o superior dispara una revisión estructural obligatoria dentro de los 60 días posteriores a la resolución. La revisión se publica íntegramente — no hay informes internos que se archivan y se olvidan. Si la crisis reveló debilidades sistémicas, el informe incluye cambios estructurales propuestos, que se someten a votación del Panel Ciudadano (Nivel 2) o de la Asamblea (Nivel 3-4). El objetivo no es solo apagar el fuego — es rediseñar la cocina para que no se prenda de vuelta. Esta revisión se articula con los Circuit Breakers de la Sección 13 (que activan respuestas automáticas ante umbrales cuantitativos) y con el Protocolo de Falla de la Sección 23 (que define qué pasa cuando una Bastarda individual no puede continuar). Los tres mecanismos — crisis governance, circuit breakers, protocolo de falla — forman la arquitectura completa de resiliencia de la Red.
+
+### 16.3 Críticas Anticipadas y Respuestas
 
 **"Esto es comunismo / estatismo disfrazado."**
 No. La Empresa Bastarda no la crea el Estado, no la financia el Estado, no la dirige el Estado. La crean ciudadanos. La financian con su plata. La gobiernan ellos mismos. No hay propiedad estatal — no hay propiedad de nadie. Y compite en el mercado abierto — no reemplaza al mercado. Si el comunismo es propiedad estatal de los medios de producción, la Bastarda es lo opuesto: propiedad de nadie, al servicio de todos, en competencia con privados.
