@@ -1399,6 +1399,199 @@ Y la pregunta que Claudia se hizo en 2026 — *"¿y si pudiéramos ver cuánto c
 
 ---
 
+## SECCIÓN 21: INFRAESTRUCTURA FINANCIERA — CÓMO SE MUEVE EL DINERO
+
+> *"No me preguntes si creo en la transparencia. Preguntame cuánto cuesta la transferencia. Ahí está la verdad."*
+
+Las Bastardas pueden tener la mejor gobernanza del hemisferio. Pueden tener fideicomisos de propósito perpetuo, sorteo ciudadano, auditoría permanente, transparencia en tiempo real. Pero si un usuario no puede pagar la cuota de su seguro al costo con la misma facilidad con la que paga Netflix, nada de eso importa. La infraestructura financiera es el sistema circulatorio de la Red Bastarda. Si la sangre no fluye, el organismo muere — sin importar cuán sano sea el cerebro.
+
+### 21.1 Integración con el Ecosistema de Pagos Argentino
+
+Los usuarios de una Bastarda pagan como pagan cualquier otra cosa en Argentina. No hay wallet especial. No hay token. No hay crypto obligatoria. El sistema se monta sobre los rieles que ya existen:
+
+**DEBIN (Débito Inmediato).** El mecanismo de débito directo del BCRA permite que la Bastarda envíe una solicitud de cobro a la cuenta bancaria del usuario. El usuario la acepta una vez y los cobros sucesivos son automáticos. Es el modelo de débito automático de cualquier servicio — la factura de Edesur, la cuota de Spotify — pero con la diferencia de que el usuario puede verificar en tiempo real a dónde fue cada peso.
+
+**Transferencias inmediatas (Transferencias 3.0).** Para pagos únicos o ajustes. La interoperabilidad del BCRA permite transferencias gratuitas entre cuentas bancarias y billeteras virtuales. Un usuario paga a la Bastarda desde Mercado Pago, desde MODO, desde su home banking. Sin fricción. Sin costo adicional.
+
+**QR interoperables.** En los puntos de atención físicos de la Red Bastarda (oficinas, centros de atención, eventos comunitarios), el pago por código QR es el estándar. El mismo QR que funciona en cualquier kiosco funciona en la Bastarda.
+
+**Débito automático en tarjeta.** Para los usuarios que prefieren cargar contra su tarjeta de crédito o débito. Integración con procesadores estándar (Prisma, Fiserv). La Bastarda absorbe el costo de procesamiento (1-3%) dentro de sus gastos operativos — transparentado en el dashboard.
+
+### 21.2 AML/CFT — Compliance Anti-Lavado
+
+Las Bastardas mueven dinero de muchas personas. Eso las convierte en sujetos obligados bajo la Ley 25.246. No hay excepción por buenas intenciones. El compliance anti-lavado no es un trámite — es el escudo que impide que un fiscal creativo diga que la Bastarda es una cueva financiera.
+
+**KYC (Know Your Customer).** Todo miembro de una Bastarda se verifica por identidad estándar: DNI + validación biométrica (RENAPER). Es el mismo proceso que usa cualquier fintech para abrir una cuenta. No hay anonimato — pero hay privacidad. Tu identidad se verifica; tus datos personales no se comparten con terceros. El fideicomiso fiduciario es el custodio legal.
+
+**Reporte de operaciones sospechosas (ROS).** Si un miembro deposita $50M en la Bastarda de un día para el otro sin origen justificado, el oficial de compliance del fideicomiso reporta a la UIF (Unidad de Información Financiera). Igual que lo hace un banco. Igual que lo hace Mercado Pago. La Bastarda no es un mecanismo para lavar plata — y el sistema de monitoreo automático garantiza que no lo sea.
+
+**Monitoreo automatizado.** Alertas por: movimientos que excedan 3 desvíos estándar del patrón habitual del usuario; concentración inusual de aportes desde una misma fuente; patrones de fraccionamiento (structuring). Revisión humana obligatoria dentro de las 48 horas.
+
+### 21.3 Tratamiento Impositivo
+
+Los fideicomisos en Argentina tienen un régimen fiscal específico (Ley 24.441 y modificaciones). Pero los fideicomisos de propósito perpetuo de PLANEB tienen una particularidad clave: **no generan ganancia**.
+
+No hay dividendos. No hay distribución de utilidades. No hay accionistas. El excedente operativo (si lo hay) se devuelve a los usuarios o se capitaliza en reservas. Esto tiene consecuencias fiscales directas:
+
+- **Impuesto a las Ganancias:** sin base imponible por inexistencia de renta distribuida. Primera mejor alternativa — sujeto a consulta vinculante con AFIP.
+- **IVA:** los servicios prestados por la Bastarda (administración de seguro, gestión de energía, etc.) pueden estar alcanzados por IVA según la actividad. El tratamiento específico requiere consulta vinculante con AFIP por sector. Si hay IVA, se transparenta al usuario como componente del costo.
+- **Ingresos Brutos:** jurisdicción provincial. Cada Bastarda tramita su exención o régimen especial según la provincia donde opera, invocando su naturaleza de entidad sin fines de lucro con propósito perpetuo.
+- **Impuesto a los Sellos:** los contratos de fideicomiso pueden estar alcanzados. Se negocia exención por analogía con cooperativas y mutuales.
+
+La posición legal de PLANEB es clara: los Fideicomisos de Propósito Perpetuo son una nueva figura jurídica (creada por la Ley de Entidades de Propósito Perpetuo propuesta en la Sección 15) que merece un tratamiento fiscal acorde a su naturaleza no extractiva. No es evasión — es adecuación del régimen fiscal a una entidad que, por diseño, no genera ganancia.
+
+### 21.4 Reaseguro — La Bastarda en el Mercado Global
+
+La Bastarda Aseguradora necesita reaseguro. Es una mutual de seguros que cubre riesgos reales — y ninguna mutual sensata retiene el 100% de su exposición. El reaseguro es el mecanismo por el cual la Bastarda transfiere parte de su riesgo a reaseguradores globales (Swiss Re, Munich Re, Hannover Re, Lloyd's de Londres).
+
+Lo central: **el fideicomiso fiduciario es la contraparte legal del contrato de reaseguro.** La estructura DAO de gobernanza no aparece en el contrato de reaseguro — lo que aparece es un fideicomiso argentino, con CUIT, con estados contables auditados, con reservas técnicas verificables. Para Swiss Re, la Bastarda es un cliente más. Un cliente peculiar por su transparencia, pero un cliente con marco legal reconocible.
+
+La gobernanza ciudadana decide la política de riesgo (qué cubrir, a qué prima). El fiduciario ejecuta la compra de reaseguro en el mercado global según esos parámetros. El Panel Ciudadano no negocia con Munich Re — aprueba la estrategia de reaseguro que el equipo técnico propone y el fiduciario implementa.
+
+### 21.5 Multi-Moneda y Controles Cambiarios
+
+**Versión 1.0: peso argentino exclusivo.** Todas las operaciones de la Red Bastarda se denominan, cobran y liquidan en pesos. No hay exposición cambiaria para el usuario. No hay conversión. No hay volatilidad de tipo de cambio.
+
+**Excepción: reaseguro.** Los contratos de reaseguro internacional se denominan en USD o EUR. El fideicomiso accede al MULC (Mercado Único y Libre de Cambios) bajo el régimen de acceso para entidades aseguradoras autorizado por el BCRA. Esto no requiere excepción especial — es el mismo régimen que usan las aseguradoras tradicionales para pagar reaseguro.
+
+**Futuro (v2.0+): expansión MERCOSUR.** Si la Red Bastarda se expande a Uruguay o Brasil, se requerirá liquidación en UYU o BRL. Esto se abordará cuando exista masa crítica. Para la v1.0 argentina, peso-only simplifica todo.
+
+**TABLA — Operaciones Financieras de la Red Bastarda**
+
+| Operación Financiera | Mecanismo | Regulación Aplicable | Estado |
+|---|---|---|---|
+| Cobro de cuotas a usuarios | DEBIN / débito automático / QR / transferencia | BCRA (medios de pago) | Operativo desde Día 1 |
+| Pago a proveedores | Transferencia bancaria | BCRA + normativa comercial | Operativo desde Día 1 |
+| Depósito de reservas técnicas | Cuentas a la vista y plazo fijo en bancos autorizados | SSN + BCRA | Requiere habilitación SSN |
+| Reporte AML/CFT | Monitoreo automático + ROS a UIF | Ley 25.246 + Resoluciones UIF | Obligatorio desde constitución |
+| Compra de reaseguro | Contrato internacional vía fiduciario | SSN + BCRA (acceso MULC) | Negociación pre-lanzamiento |
+| Pago de impuestos | Según régimen fiscal aplicable | AFIP + ARBA/AGIP/API según provincia | Sujeto a consulta vinculante |
+| Devolución de excedentes | Transferencia a usuarios pro-rata | Régimen del fideicomiso | Automático al cierre de ejercicio |
+| Liquidación multi-moneda (futuro) | Convenio interbancario MERCOSUR | BCRA + BCU + BCB | No aplica en v1.0 |
+
+La infraestructura financiera de PLANEB no es innovadora. Es deliberadamente convencional. Se monta sobre los rieles que ya existen, usa los reguladores que ya operan, y cumple con las normas que ya están vigentes. La innovación está en lo que mueve — servicios al costo, sin extracción — no en cómo lo mueve. Porque la mejor infraestructura financiera es la que el usuario ni siquiera nota. Pagás. Te llega. Sabés a dónde fue. Fin.
+
+---
+
+## SECCIÓN 22: SEGURIDAD OPERATIVA — PROTECCIÓN DEL PROTOCOLO BASTARDO
+
+> *"La paranoia es un lujo que no podemos permitirnos. La negligencia, tampoco. Lo que necesitamos es ingeniería."*
+
+Una Red Bastarda que administra las pólizas de seguro, la energía o los ahorros de 200.000 personas es un blanco. No porque sea mala — porque tiene valor. Los ataques no vienen solo de hackers con capucha: vienen de adentro (un empleado que se corrompe), de arriba (un regulador que quiere destruir lo que no controla), de afuera (un competidor incumbente que prefiere sabotear antes que competir), y del caos (un bug que nadie vio). Esta sección construye las defensas para todos esos frentes.
+
+### 22.1 Modelo de Amenazas
+
+No se puede defender lo que no se entiende. Antes de construir murallas, hay que saber de dónde vienen las flechas.
+
+**TABLA — Modelo de Amenazas del Protocolo Bastardo**
+
+| Amenaza | Probabilidad | Impacto | Defensa |
+|---|---|---|---|
+| **Exploit de smart contract** — bug en los contratos de tesorería que permite drenar fondos | Media | Muy alto | Multi-auditoría obligatoria (mínimo 3 firmas independientes antes de deploy). Bug bounty permanente. Contratos upgradeables con proxy y timelock de 72h para cambios críticos. Monitoreo on-chain 24/7. |
+| **DDoS / ataque a infraestructura** — saturación de servidores para interrumpir operaciones | Media | Medio | Redundancia multi-cloud (mínimo 2 proveedores). CDN distribuida. Rate limiting adaptativo. Plan de failover con RTO < 4 horas. |
+| **Ingeniería social** — phishing a miembros del Consejo Técnico o Panel Ciudadano para obtener acceso a multi-sig | Alta | Alto | Hardware keys obligatorias para todo firmante de multi-sig. Capacitación trimestral en seguridad operacional. Protocolo de verificación out-of-band (llamada telefónica + código rotativo) para toda transacción > 1% de tesorería. |
+| **Amenaza interna** — empleado o contratista con acceso privilegiado que actúa contra el sistema | Baja | Alto | Principio de mínimo privilegio: nadie tiene acceso a más de lo que necesita. Segregación de funciones: quien programa no deploya, quien deploya no audita. Logging inmutable de toda acción administrativa. Rotación de accesos cada 90 días. |
+| **Ataque de gobernanza** — manipulación del sorteo ciudadano o de las votaciones para capturar decisiones | Muy baja | Muy alto | VRF (Verifiable Random Function) verificable públicamente para todo sorteo. Un-usuario-un-voto, no transferible, no delegable (excepto delegación líquida explícita). Identidad verificada vía RENAPER. Auditoría de Integridad permanente con potestad de anular votaciones comprometidas. |
+
+### 22.2 Protocolo de Respuesta a Incidentes
+
+Cuando algo sale mal — y algo va a salir mal — la velocidad y transparencia de la respuesta definen si el incidente destruye la confianza o la fortalece. El protocolo tiene seis fases secuenciales:
+
+**Fase 1: Detección.** Monitoreo automatizado 24/7 de contratos on-chain, infraestructura de servidores, y patrones de acceso. Alertas automáticas cuando cualquier movimiento de tesorería supera el 5% del total sin autorización multi-sig previa. Canales de reporte anónimo para empleados y miembros.
+
+**Fase 2: Congelamiento.** Si la alerta es de nivel crítico (movimiento anómalo de fondos, acceso no autorizado a multi-sig), el sistema ejecuta freeze automático de todos los contratos afectados. No requiere aprobación humana. El freeze se activa y después se investiga. Mejor congelar en falso que drenar en serio.
+
+**Fase 3: Evaluación.** La Auditoría Permanente tiene 24 horas para determinar: naturaleza del incidente, alcance del daño, vector de ataque, y si el freeze fue justificado. Equipo de respuesta: mínimo 3 personas, ninguna vinculada al área afectada.
+
+**Fase 4: Comunicación.** Divulgación pública dentro de las 48 horas. Siempre. Sin excepción. La Bastarda no oculta incidentes — los publica. El comunicado incluye: qué pasó, qué se perdió (si algo), qué se hizo, y qué se va a hacer. La transparencia en el momento de crisis es lo que distingue a la Bastarda de las instituciones que dice reemplazar.
+
+**Fase 5: Recuperación.** Implementación de la corrección. Redespliegue de contratos si es necesario. Restitución de fondos afectados desde reservas frías (ver 22.3). Verificación independiente de que el vector de ataque fue cerrado.
+
+**Fase 6: Post-mortem.** Publicado en el dashboard de la Bastarda dentro de los 30 días. Análisis de causa raíz. Cambios implementados. Lecciones aprendidas. Accesible para cualquier ciudadano. Porque el post-mortem no es un documento interno — es una rendición de cuentas.
+
+### 22.3 Arquitectura de Recuperación
+
+La defensa en profundidad requiere que incluso un ataque exitoso no sea catastrófico.
+
+**Reservas frías (cold storage).** El 20% de las reservas totales de cada Bastarda se mantiene fuera de la blockchain, en wallets de hardware multi-sig almacenadas en ubicaciones físicas separadas (mínimo 3 ubicaciones, mínimo 2 provincias). Estas reservas son intocables por cualquier exploit on-chain. Para moverlas se requiere presencia física de 3 de 5 custodios — y cada custodio es sorteado anualmente del Panel Ciudadano, con verificación de identidad presencial.
+
+**Segregación de fondos operativos.** Los fondos de operación diaria (pago de siniestros, gastos administrativos) están en un contrato separado de las reservas estratégicas. Un exploit en el contrato operativo no toca las reservas. Un exploit en las reservas no paraliza las operaciones diarias.
+
+**Backups de estado.** Snapshot diario del estado completo de todos los contratos, almacenado off-chain en infraestructura redundante. Si hay que reconstruir, se reconstruye desde el último snapshot verificado.
+
+### 22.4 Programa de Bug Bounty
+
+Permanente. Público. Generoso.
+
+Cualquier persona — investigador de seguridad, hacker ético, miembro de la Bastarda, o un pibe de 17 años en Banfield que encontró un bug mirando el código open-source — puede reportar vulnerabilidades y recibir recompensa.
+
+**Escala de recompensas:** hasta el 5% del valor de la vulnerabilidad encontrada, con un tope de USD 500.000 por reporte. Las vulnerabilidades se clasifican por severidad (bajo, medio, alto, crítico) y el pago es proporcional.
+
+**Proceso:** reporte confidencial → verificación por equipo de seguridad (72h) → clasificación de severidad → pago → divulgación pública coordinada (después del fix). El programa se publica en el dashboard de la Bastarda y en plataformas especializadas (HackerOne, Immunefi).
+
+**El incentivo es claro:** si encontrás un bug que podría drenar $10M, te pagamos hasta $500K por contárnoslo antes de que alguien lo explote. Es más barato que el exploit. Es más ético que la ignorancia. Y es la demostración de que la Bastarda confía más en la inteligencia colectiva que en la seguridad por oscuridad.
+
+La seguridad del Protocolo Bastardo no depende de que nadie ataque. Depende de que, cuando ataquen, el sistema responda más rápido, más transparente y más inteligentemente que cualquier institución financiera tradicional. Porque la Bastarda no puede esconder un hackeo detrás de un comunicado de prensa vago y un call center colapsado. Todo es público. Todo es auditable. Y eso, paradójicamente, es lo que la hace más segura — porque la transparencia es la mejor auditoría permanente.
+
+---
+
+## SECCIÓN 23: PROTOCOLO DE FALLA — QUÉ PASA CUANDO SALE MAL
+
+> *"Un plan que no contempla su propio fracaso no es un plan — es una fantasía. Y las fantasías no protegen a nadie cuando la realidad golpea."*
+
+Toda la arquitectura de PLANEB — los fideicomisos, la gobernanza, la cascada, la transparencia — está diseñada para funcionar. Pero diseñar para funcionar sin diseñar para fallar es arrogancia ingenieril. Las Bastardas van a enfrentar fracasos. Algunos pequeños (un producto que no encuentra mercado), algunos graves (un exploit que drena fondos), algunos existenciales (un cambio político que las quiere destruir). Lo que separa a una institución resiliente de una frágil no es la ausencia de fallas — es la calidad de su respuesta cuando las fallas ocurren.
+
+Esta sección mapea los escenarios de falla más probables y más graves, y define para cada uno: cómo se detecta, quién responde, y cuál es el camino de vuelta.
+
+### 23.1 Matriz de Escenarios de Falla
+
+**TABLA — Protocolo de Falla: Escenarios, Detección y Respuesta**
+
+| Escenario | Probabilidad | Impacto | Trigger de Detección | Respuesta de Gobernanza | Camino de Recuperación |
+|---|---|---|---|---|---|
+| **La primera Bastarda no alcanza 10.000 usuarios en el Año 1** | Media | Alto | Dashboard de usuarios < 5.000 al mes 9 | ANEB convoca Panel extraordinario. Opciones: extender piloto 6 meses, reducir umbral de lanzamiento, pivotar producto (ej: de seguro hogar a seguro salud). | Si no se recupera en 18 meses: fusión con otra Bastarda que sí tenga tracción, o cierre ordenado con devolución de reservas. |
+| **Exploit de smart contract drena 50%+ de la tesorería** | Muy baja | Catastrófico | Alerta automática por movimiento anómalo (S22) | Freeze inmediato de todos los contratos. Auditoría de emergencia en 24h. Comunicación pública en 24h. Activación del Fondo de Solidaridad entre Bastardas + reservas frías (20% intocable). | Reconstrucción de contratos auditados por firmas independientes. Reembolso parcial a usuarios afectados desde reservas frías + Fondo de Solidaridad. Informe público completo en 30 días. |
+| **La SSN revoca la licencia bajo presión política** | Baja | Muy alto | Notificación formal de la SSN o señales políticas previas | Acción judicial inmediata: amparo ante la justicia federal argumentando arbitrariedad y violación de derechos adquiridos. Comunicación pública masiva. Movilización de usuarios (una Bastarda con 200K miembros tiene 200K votantes). Intervención de ANEB ante el Congreso. | Si se sostiene la revocación tras agotar vía judicial: migración de la operación a estructura cooperativa (Ley 20.337) como peor caso — pierde eficiencia pero conserva la misión. Apelación ante tribunales internacionales si hay tratado bilateral aplicable. |
+| **Captura de gobernanza — una facción toma control del Panel** | Muy baja | Alto | Patrones anómalos de votación detectados por Auditoría de Integridad. Concentración sospechosa de delegaciones líquidas. Denuncias de miembros. | Activación de la Alarma Ciudadana: 5.000 firmas verificadas disparan revisión obligatoria. Sorteo extraordinario de Panel completo. Investigación formal de la Auditoría Permanente con poder de anulación de decisiones comprometidas. | Si se confirma captura: disolución del Panel, sorteo completamente nuevo con exclusión de los participantes del Panel capturado, informe público con detalle de cómo ocurrió y qué se cambió para que no se repita. |
+| **Los incumbentes lanzan un producto transparente al costo ("Bastarda-killer")** | Media | Bajo (positivo) | Competidor lanza aseguradora/energética/etc. transparente, sin extracción, con precios equivalentes a la Bastarda | Celebrar. Literalmente. Este es el objetivo de PLANEB. Si los incumbentes se vuelven transparentes, la misión se cumplió. La presión competitiva funcionó. | La Bastarda puede fusionarse con el nuevo competidor, reducirse a nichos desatendidos, o especializarse. Si el mercado entero se transparentó, el trabajo de la Bastarda está hecho. Puede disolverse con orgullo. |
+| **Fatiga de gobernanza — la participación cae por debajo del 3%** | Alta | Medio | Dashboard de participación en gobernanza (votaciones, asambleas, propuestas) | Incentivos de participación: micro-descuento en cuota mensual por votación ejercida. Simplificación radical de las votaciones (menos frecuentes, más claras). Mayor uso de delegación líquida. Si nada funciona: reducir frecuencia de votaciones, confiar más en el Panel sorteado. | La democracia líquida + sorteo ciudadano = el sistema funciona incluso con baja participación activa. Los que participan deciden por los que no — y los que no pueden activarse en cualquier momento. No es una crisis existencial. Es una señal de que la Bastarda funciona tan bien que la gente confía en dejarla andar. |
+
+### 23.2 El Fondo de Solidaridad entre Bastardas
+
+Ninguna Bastarda opera sola. La Red Bastarda es una red — y las redes se sostienen mutuamente. El Fondo de Solidaridad es el mecanismo:
+
+Cada Bastarda activa contribuye el 2% de sus reservas anuales al Fondo. El Fondo es un fideicomiso independiente, administrado por ANEB, con reglas de activación predefinidas:
+
+- **Activación Nivel 1 (asistencia técnica):** una Bastarda enfrenta dificultades operativas (baja de usuarios, problemas regulatorios). El Fondo financia consultoría, asistencia legal, o campaña de comunicación. Hasta USD 100K por evento.
+- **Activación Nivel 2 (rescate parcial):** una Bastarda sufre pérdida financiera significativa (exploit, fallo regulatorio). El Fondo cubre hasta el 50% de la pérdida, condicionado a plan de recuperación aprobado por ANEB.
+- **Activación Nivel 3 (absorción):** una Bastarda fracasa irremediablemente. El Fondo financia la transferencia ordenada de usuarios y pólizas a otra Bastarda de la Red.
+
+El Fondo no es infinito. Si el drenaje supera su capacidad, se activa un derrame proporcional entre todas las Bastardas activas. La solidaridad tiene límites prácticos — pero la existencia del Fondo hace que esos límites se alcancen mucho más tarde que si cada Bastarda estuviera sola.
+
+### 23.3 La Cláusula de Muerte Digna
+
+Si una Bastarda fracasa — genuinamente fracasa, después de agotar el Fondo de Solidaridad, después de intentar fusión, después de pivotar producto, después de todo — entonces muere. Pero muere con dignidad. No como una empresa que quiebra dejando a sus clientes en la calle. Muere como una institución que fue diseñada para fallar bien.
+
+**Protocolo de cierre ordenado:**
+
+**1. Reservas devueltas.** Todo el capital restante en el fideicomiso se distribuye proporcionalmente entre los usuarios activos. No hay accionistas que cobren primero. No hay acreedores privilegiados (excepto obligaciones legales — siniestros pendientes, salarios). Los usuarios son primeros en la fila.
+
+**2. Pólizas transferidas.** Convenio de portabilidad pre-negociado con al menos dos aseguradoras (una Bastarda de la Red, una aseguradora tradicional). Los usuarios eligen a cuál migrar. La transferencia es automática — no hay período sin cobertura. El convenio se firma al momento de constitución de la Bastarda, no cuando está muriendo. Cuando estás muriendo, nadie te ofrece buenos términos.
+
+**3. Datos preservados.** Toda la historia operativa de la Bastarda — transacciones, gobernanza, incidentes, métricas — se archiva en el Protocolo Bastardo como caso de estudio permanente. Los datos personales se destruyen según ley de protección de datos. Los datos operativos y de gobernanza se preservan como bien público.
+
+**4. Post-mortem público.** Dentro de los 60 días del cierre: informe completo publicado en el dashboard de ANEB. Qué falló. Por qué. Qué decisiones fueron erróneas. Qué factores externos intervinieron. Qué se podría haber hecho diferente. Sin eufemismos. Sin culpar al contexto. Análisis honesto de un fracaso honesto.
+
+**5. El Protocolo no muere.** Una Bastarda puede morir. El Protocolo Bastardo no. El código es open-source. Las lecciones están documentadas. Otra comunidad, en otra ciudad, en otro sector, puede tomar todo lo aprendido y fundar una nueva Bastarda que no repita los errores de la que cayó. El fracaso de una instancia alimenta el éxito de la siguiente. Eso es resiliencia sistémica — no depender de que cada nodo sobreviva, sino de que la red aprenda de cada nodo que cae.
+
+---
+
+No hay vergüenza en el fracaso planificado. Hay vergüenza en el fracaso que deja a la gente sin respuesta, sin explicación, y sin recurso. La cláusula de muerte digna no es pesimismo — es la prueba de que PLANEB se toma en serio a las personas que confían en él. Porque la peor forma de traicionar esa confianza no es fallar. Es fallar y pretender que no pasó nada.
+
+> *"La Bastarda que muere bien enseña más que la que sobrevive por inercia. Porque en la muerte digna hay verdad — y la verdad es el único material con el que se construye algo que dure."*
+
+---
+
 *PLANEB es el octavo mandato del proyecto BASTA. Se integra con PLANREP (reconversión laboral), PLANJUS (justicia popular), PLANSUS (soberanía sobre sustancias), PLANEDU (refundación educativa), PLAN24CN (ciudades nuevas), PLANISV (soberanía del suelo), y PLANSAL (salud pública). Juntos, los ocho mandatos componen la arquitectura de una Argentina donde el pueblo diseña y el gobierno ejecuta.*
 
 *Versión 1.0 — Marzo 2026*
