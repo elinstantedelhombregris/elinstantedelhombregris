@@ -647,3 +647,83 @@ El trauma intergeneracional no se resuelve con medicamentos, porque no es una en
 Permitir que las personas finalmente nombren lo que sus cuerpos llevan cargando desde hace generaciones no es un programa de bienestar. Es una deuda. La Argentina le debe a sus ciudadanos — a los hijos de los desaparecidos, a los nietos de los inmigrantes, a los bisnietos de los que sobrevivieron guerras que nadie contó — el derecho a dejar de cargar lo que no les pertenece. PLANSAL crea el espacio para que eso ocurra. Lo que pasa adentro de ese espacio — el llanto, el alivio, la comprensión, la liberación — es soberano y de cada persona. Como todo acto de sanación verdadero.
 
 ---
+
+## SECCIÓN 6 · EL PACTO DE CO-RESPONSABILIDAD
+
+> "La salud no se recibe. Se decide. Y decidir es el acto más soberano que existe."
+
+### La historia de Jorge
+
+Jorge tiene 52 años y vive en Quilmes. Trabaja en una metalúrgica desde los diecinueve. Tiene diabetes tipo 2 desde hace ocho años, diagnosticada después de un control de rutina al que fue porque le insistió su mujer. Le recetaron metformina. Después agregaron atorvastatina para el colesterol. Después un protector gástrico para bancarse las otras dos pastillas. Después un ansiolítico "por las dudas" — porque la glucosa no bajaba y el médico asumió que era estrés. Cuatro pastillas. Lunes a domingo. Un pastillero de plástico con los días de la semana impresos que Jorge llena cada domingo a la noche mientras mira la televisión.
+
+Un lunes de marzo, a las seis y media de la mañana, Jorge se levanta a trabajar como todos los días. Agarra el pastillero. Lo mira. Y algo ocurre. No una revelación. No una epifanía cinematográfica. Algo más sutil y más brutal: un reconocimiento. Jorge se ve. Se ve ahí parado, a los 52, con un pastillero que resume su relación con su propio cuerpo — una relación delegada, automática, tercerizada a un sistema que nunca le preguntó qué comía, cómo dormía, qué sentía, si caminaba, si tenía amigos, si su vida tenía sentido. Le preguntaron el valor de la hemoglobina glicosilada. Le ajustaron la dosis. Lo mandaron a la casa. Ocho años así.
+
+Ese lunes, Jorge no tira las pastillas. No es un acto de rebeldía adolescente. Pero decide algo: esto no es mi vida. No voy a tener 60 años llenando este pastillero. No voy a ser un producto de la fábrica.
+
+Lo que pasó después no fue mágico. Fue trabajo. Jorge empezó a caminar — media hora por día, por el barrio, antes de ir a la metalúrgica. Empezó a cocinar. Su mujer lo miraba con desconfianza al principio — en treinta años de matrimonio, Jorge nunca había pisado la cocina más que para servirse. Empezó a comer verduras, legumbres, menos pan blanco, menos gaseosa. Empezó a hablar con sus hijos — no de fútbol, sino de cosas que importaban. Dejó el ansiolítico primero. Después, con supervisión médica, fue bajando la metformina. A los seis meses, su hemoglobina glicosilada estaba en 5.4 — normal, sin medicación. Su médico pidió repetir el análisis. Lo repitió. 5.3. El médico estaba confundido. Jorge no. Jorge simplemente había decidido dejar de ser paciente para empezar a ser persona.
+
+Ese *instante* — ese momento en el que Jorge miró el pastillero y se reconoció — es lo que ninguna política pública puede fabricar. Ningún plan de salud, ningún centro de atención, ningún programa de gobierno puede entrar en la cocina de un hombre de 52 años un lunes a las seis de la mañana y tomar esa decisión por él. Ese momento es absolutamente soberano. Es el punto ciego de todo sistema de salud del mundo: funciona con personas que ya decidieron. Sin esa decisión, todo lo demás es infraestructura vacía.
+
+PLANSAL no puede crear ese instante. Pero puede hacer dos cosas: primero, dejar de impedirlo — dejar de tratar a Jorge como un receptor pasivo de fármacos en una cadena de producción industrial. Segundo, crear las condiciones para que cuando ese instante llegue, Jorge tenga adónde ir, con quién caminar, qué comer y un sistema que lo acompañe en vez de medicarlo. Eso es el Pacto de Co-responsabilidad: la definición explícita de lo que el Estado se compromete a hacer y lo que el ciudadano se compromete a hacer. Con una asimetría deliberada: el compromiso del ciudadano pesa más. Porque la salud, en última instancia, no vive en un ministerio. Vive en el cuerpo de cada persona. Y ese cuerpo es soberano.
+
+---
+
+### 6.1 · El compromiso del Estado: dejar de envenenar
+
+El Estado no cura a nadie. Nunca lo hizo. Lo que el Estado puede hacer — y lo que durante décadas no hizo — es dejar de ser cómplice del sistema que enferma a su población y empezar a crear las condiciones mínimas para que la salud sea posible. No garantizada — posible. La garantía la pone cada persona. El Estado pone el piso.
+
+Estos son los diez compromisos que PLANSAL exige al Estado argentino:
+
+**1. Regulación real de la industria alimentaria.** Implementación plena y fiscalizada de la ley de etiquetado frontal, restricción efectiva de productos ultraprocesados en escuelas y hospitales públicos, e impuestos progresivos a la azúcar industrial y los aditivos asociados a enfermedades metabólicas. No más autoregulación de la industria. La regulación la hace el pueblo a través de sus instituciones, no el regulado.
+
+**2. Garantía de agua limpia y accesible en todo el territorio.** Todavía hay millones de argentinos sin acceso a agua potable segura. Mientras eso siga así, hablar de salud es una obscenidad. El agua limpia es el requisito previo a cualquier política sanitaria.
+
+**3. Regulación de agroquímicos y protección de pueblos fumigados.** Conexión directa con PLANISV. Las comunidades rurales expuestas a glifosato y otros agroquímicos tienen tasas de cáncer, malformaciones y enfermedades autoinmunes que la ciencia ya documentó y que la política sigue ignorando. PLANSAL exige la aplicación del principio precautorio sin excepciones comerciales.
+
+**4. Creación de la Red Nacional de Centros de Vitalidad.** Centros comunitarios de salud integral — no hospitales disfrazados — donde las personas acceden a acompañamiento nutricional, movimiento, trabajo emocional, círculos de palabra, trabajo de linaje y conexión comunitaria. El Centro de Vitalidad no reemplaza al hospital. Lo complementa con todo lo que el hospital no puede hacer.
+
+**5. Facilitación del Sistema de Familias Mentoras.** Crear y sostener la red de familias que acompañan a otras familias en la transición hacia una vida más saludable. Formación, recursos y reconocimiento para quienes ya demostraron con su propia experiencia que otro modo de vivir es posible.
+
+**6. Plataforma digital de salud integral, gratuita y de código abierto.** Una herramienta pública — no privada, no corporativa, no extractiva — donde cada ciudadano pueda registrar su estado integral, acceder a información verificada, conectarse con su Centro de Vitalidad y llevar un seguimiento de su proceso. De código abierto porque la información sobre la salud de un pueblo no puede ser propiedad de nadie.
+
+**7. Reconversión gradual del sistema médico hacia la salud integral.** Formación obligatoria en nutrición real, trabajo emocional, trauma intergeneracional y salud comunitaria en todas las carreras de medicina. No para eliminar la medicina de urgencia — que salva vidas — sino para que el médico deje de ser un dispensador de recetas y recupere la capacidad de ver a la persona entera.
+
+**8. Espacios verdes obligatorios en todo proyecto urbanístico.** Conexión directa con PLAN24CN. El cemento enferma. El verde sana. Esto no es poesía — es neurobiología. Cada metro cuadrado de espacio verde accesible reduce indicadores de estrés, ansiedad y enfermedad cardiovascular. Es infraestructura de salud, no decoración municipal.
+
+**9. Educación alimentaria y emocional en las escuelas.** Conexión directa con PLANEDU. Que los chicos aprendan a cocinar, a reconocer alimentos reales, a identificar sus emociones, a regular su sistema nervioso. Que la escuela deje de ser un lugar donde se come galletitas procesadas en el recreo y se aprenda a nombrar lo que se siente antes de que el cuerpo lo exprese como enfermedad veinte años después.
+
+**10. Transparencia total sobre conflictos de interés en política sanitaria.** Publicación obligatoria de todo vínculo financiero entre funcionarios de salud, legisladores, asesores y la industria farmacéutica, alimentaria o de seguros médicos. El ciudadano tiene derecho a saber quién financia las decisiones que afectan su salud. Sin excepciones.
+
+Estos diez compromisos no son aspiraciones. Son obligaciones mínimas. Y aun así, incluso si el Estado cumpliera los diez al pie de la letra — lo cual nunca pasó en la historia argentina y PLANSAL no es ingenuo al respecto — la salud de un pueblo no cambiaría sin lo que viene a continuación. Porque el Estado no sana. El Estado deja de obstaculizar. La sanación la hace cada persona. El Estado es un facilitador. El protagonista es otro.
+
+---
+
+### 6.2 · El compromiso del ciudadano: decidir sanarse
+
+Esto no es un formulario. No es una lista de hábitos saludables que un ministerio le dice a la población que debería cumplir. No es una campaña de concientización con gráficos de colores y hashtags. Esto es una invitación — solemne, directa, sin paternalismo — a que vos, que estás leyendo esto, te hagas cargo. No porque el Estado te lo pida. Porque tu cuerpo es tuyo. Porque tu vida es tuya. Porque nadie — ni el mejor médico, ni el mejor plan de gobierno, ni la mejor tecnología del mundo — puede vivir tu salud por vos.
+
+Lo que sigue son ocho compromisos. No son mandamientos. No son obligaciones legales. Son actos de soberanía personal. Cada uno de ellos es algo que vos podés hacer — hoy, mañana, sin esperar a que cambie ningún gobierno, sin depender de ningún presupuesto. Son gratuitos. Son inmediatos. Y son, probablemente, más poderosos que cualquier medicamento que te hayan recetado en tu vida.
+
+---
+
+**DECIDIR.** Este es el paso cero. Sin este, nada de lo que sigue tiene sentido. Decidir no es "me gustaría estar más sano." Decidir es lo que hizo Jorge aquella mañana en Quilmes mirando el pastillero: un corte. Un antes y un después. Decidir es decirle a tu cuerpo, a tu historia, a tu inercia: *hasta acá*. No hace falta saber cómo vas a hacer todo lo demás. No hace falta tener un plan perfecto. Hace falta un instante de honestidad brutal con vos mismo. Hacete la pregunta: ¿Estoy viviendo o estoy sobreviviendo? Si la respuesta te incomoda, ya estás listo. Nadie puede tomar esta decisión por vos. Ni tu médico, ni tu familia, ni este plan. Es el acto más solitario y más poderoso que existe. Es tu instante.
+
+**MOVERSE.** Treinta minutos por día. Mínimo. No hace falta un gimnasio, no hace falta ropa especial, no hace falta una rutina diseñada por un influencer. Caminá. Caminá por tu barrio, por la plaza, por la costanera, por donde sea. Bailá en tu cocina. Jugá con tus hijos. Si tenés tierra, trabajala con las manos. Tu cuerpo fue diseñado para moverse — cientos de miles de años de evolución lo construyeron para caminar, trepar, cargar, escapar, explorar. Se enferma cuando lo obligás a estar quieto ocho horas frente a una pantalla y después ocho horas acostado. La diabetes de Jorge no empezó en el páncreas. Empezó en un cuerpo que dejó de moverse. El movimiento no es un complemento de la salud. Es la salud.
+
+**ALIMENTARSE.** Comida real. Eso es todo. Si tu abuela no lo reconocería como comida, probablemente no lo sea. Cociná. No importa si al principio es básico — un guiso, unas verduras al horno, unos huevos. Lo que importa es que vos sepas qué entra en tu cuerpo. Mirá los paquetes: si la lista de ingredientes tiene quince palabras que no podés pronunciar, no es comida. Es un producto industrial diseñado para que lo sigas comprando, no para que te nutra. No hace falta ser experto. Hace falta una regla simple: comé lo que la tierra produce y lo que tus manos pueden preparar. El resto, cuanto menos, mejor.
+
+**SENTIR.** Lo que no sentís, tu cuerpo lo siente por vos. Eso no es metáfora — es fisiología. Las emociones reprimidas no desaparecen: se almacenan como tensión muscular, como inflamación, como desregulación hormonal, como enfermedad autoinmune. La Argentina tiene una cultura que premia el "bancar todo" y castiga la vulnerabilidad. Esa cultura enferma. PLANSAL te pide lo contrario: sentí. Si estás triste, llorá. Si estás enojado, nombralo. Si tenés miedo, decilo. Si tenés un conflicto con alguien, enfrentalo — no lo tapés con alcohol, con comida, con trabajo excesivo, con pantallas. Cada emoción que nombrás es una emoción que tu cuerpo deja de cargar. Cada conflicto que enfrentás es una enfermedad que tu cuerpo no necesita fabricar.
+
+**CONECTAR.** La soledad mata. No es una figura retórica — la investigación epidemiológica documenta que el aislamiento social es un factor de riesgo comparable al tabaquismo. La salud no es individual. Nunca lo fue. Es relacional. Se construye entre personas — en la mesa familiar, en la plaza del barrio, en la conversación con un vecino, en el abrazo que no diste porque "no sos de esos." Reconstruí lazos. Visitá a tu viejo. Llamá a ese amigo que hace meses que no hablás. Sentate a comer con tu familia sin el televisor encendido. Participá en algo comunitario — lo que sea. Tu sistema nervioso necesita saber que no estás solo. Cuando lo sabe, deja de estar en modo supervivencia. Cuando deja de estar en modo supervivencia, empezás a sanar.
+
+**DESCANSAR.** El sueño no es un lujo. Es infraestructura biológica no negociable. Mientras dormís, tu cuerpo repara tejidos, consolida memorias, regula hormonas, limpia el cerebro de proteínas tóxicas, recalibra tu sistema inmunológico. Siete a ocho horas. Todos los días. Sin pantallas en la última hora antes de dormir — la luz azul suprime la melatonina y tu cerebro no sabe si es medianoche o mediodía. Sin culpa. La cultura productivista que glorifica dormir poco es la misma cultura que llena los consultorios de cardiología. Dormir no es perder el tiempo. Dormir es la inversión más rentable que podés hacer por tu salud. Cada hora de sueño robada es una deuda que tu cuerpo va a cobrar — con intereses.
+
+**BUSCAR SENTIDO.** Este compromiso es el más difícil de cuantificar y probablemente el más importante de todos. Vos podés moverte, comer bien, dormir ocho horas, tener amigos y aun así estar enfermo — si tu vida no tiene un para qué. Sin propósito, la salud es mantenimiento de una máquina vacía. Con propósito, el cuerpo tiene una razón para sanar. El sentido no tiene que ser grandioso. Puede ser criar a tus hijos con presencia. Puede ser el oficio que amás. Puede ser cuidar a alguien. Puede ser aprender algo que siempre quisiste aprender. Puede ser construir algo con tus manos. Lo que sea que cuando te levantás a la mañana te haga sentir que el día vale la pena — eso es sentido. Y cuando lo tenés, tu biología responde. El sistema inmunológico se fortalece. La inflamación baja. La presión se regula. No es magia. Es un organismo que sabe que tiene razón para estar vivo.
+
+**ACOMPAÑAR.** Tu salud no termina en tu cuerpo. Cuando tu vecino está enfermo y vos estás presente — cuando llevás una vianda, cuando escuchás sin dar consejos, cuando simplemente estás — eso es un acto de salud. Cuando tu padre envejece y vos lo visitás con regularidad, eso es salud. Cuando en tu barrio alguien está pasándola mal y la comunidad responde, eso es salud pública en su forma más pura — más pura que cualquier hospital. La salud es colectiva. Tu bienestar y el de tu comunidad son inseparables. No podés estar verdaderamente sano en un barrio enfermo, en una familia rota, en una sociedad que abandona a los que sufren. Acompañar no es caridad. Es reconocer que somos parte de un tejido — y que cuando una parte del tejido se deteriora, todo el tejido se debilita. Sanar juntos no es una opción romántica. Es la única opción que funciona.
+
+---
+
+Este pacto no es un contrato con el Estado. Es un contrato con vos mismo. El Estado puede fallar — y probablemente va a fallar, porque los Estados fallan. Puede cambiar el gobierno. Pueden recortar presupuestos. Pueden vaciar los Centros de Vitalidad. Pueden archivar PLANSAL en un cajón, como se archivaron tantas otras cosas en este país. Pero tu decisión no puede fallar — a menos que vos la abandones. La decisión de Jorge esa mañana en Quilmes no dependía de ningún ministerio. Dependía de Jorge. Si mañana desaparece todo lo que este plan propone — cada centro, cada programa, cada ley — los ocho compromisos que acabás de leer siguen siendo posibles. Siguen siendo gratuitos. Siguen siendo tuyos. Porque la salud, en su forma más radical y más verdadera, no es algo que se recibe. Es algo que se decide. Cada día. Empezando ahora.
+
+---
