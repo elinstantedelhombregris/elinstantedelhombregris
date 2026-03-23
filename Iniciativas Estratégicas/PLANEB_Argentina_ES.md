@@ -1655,7 +1655,7 @@ No hay dividendos. No hay distribución de utilidades. No hay accionistas. El ex
 - **Ingresos Brutos:** jurisdicción provincial. Cada Bastarda tramita su exención o régimen especial según la provincia donde opera, invocando su naturaleza de entidad sin fines de lucro con propósito perpetuo.
 - **Impuesto a los Sellos:** los contratos de fideicomiso pueden estar alcanzados. Se negocia exención por analogía con cooperativas y mutuales.
 
-La posición legal de PLANEB es clara: los Fideicomisos de Propósito Perpetuo son una nueva figura jurídica (creada por la Ley de Entidades de Propósito Perpetuo propuesta en la Sección 15) que merece un tratamiento fiscal acorde a su naturaleza no extractiva. No es evasión — es adecuación del régimen fiscal a una entidad que, por diseño, no genera ganancia.
+La posición legal de PLANEB es clara: los Fideicomisos de Propósito Perpetuo son una nueva figura jurídica (creada por la Ley de Entidades de Propósito Perpetuo propuesta en la Sección 12) que merece un tratamiento fiscal acorde a su naturaleza no extractiva. No es evasión — es adecuación del régimen fiscal a una entidad que, por diseño, no genera ganancia.
 
 ### 21.4 Reaseguro — La Bastarda en el Mercado Global
 
@@ -1811,5 +1811,5 @@ No hay vergüenza en el fracaso planificado. Hay vergüenza en el fracaso que de
 
 *PLANEB es el octavo mandato del proyecto BASTA. Se integra con PLANREP (reconversión laboral), PLANJUS (justicia popular), PLANSUS (soberanía sobre sustancias), PLANEDU (refundación educativa), PLAN24CN (ciudades nuevas), PLANISV (soberanía del suelo), y PLANSAL (salud pública). Juntos, los ocho mandatos componen la arquitectura de una Argentina donde el pueblo diseña y el gobierno ejecuta.*
 
-*Versión 1.0 — Marzo 2026*
+*Versión 1.1 — Marzo 2026*
 *Documento estratégico preparado en el marco de El Instante del Hombre Gris*
