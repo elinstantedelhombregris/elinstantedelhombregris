@@ -2031,6 +2031,18 @@ export const coachingPrompts = pgTable("coaching_prompts", {
   createdAt: text("created_at").default(sql`now()`),
 });
 
+// Platform Feedback
+export const platformFeedback = pgTable("platform_feedback", {
+  id: serial("id").primaryKey(),
+  type: text("type").notNull(), // 'critica' | 'sugerencia' | 'bug' | 'otro'
+  content: text("content").notNull(),
+  email: text("email"),
+  userId: integer("user_id").references(() => users.id),
+  status: text("status").notNull().default("nueva"), // 'nueva' | 'revisada' | 'resuelta'
+  adminNotes: text("admin_notes"),
+  createdAt: text("created_at").default(sql`now()`),
+});
+
 // Insert schemas
 export const insertUserSchema = createInsertSchema(users).omit({
   id: true,
@@ -2948,3 +2960,13 @@ export type CoachingSession = typeof coachingSessions.$inferSelect;
 export type InsertCoachingPrompt = z.infer<typeof insertCoachingPromptSchema>;
 export type CoachingPrompt = typeof coachingPrompts.$inferSelect;
 export type LifeAreaSocialInteraction = typeof lifeAreaSocialInteractions.$inferSelect;
+
+// Platform Feedback
+export const insertPlatformFeedbackSchema = createInsertSchema(platformFeedback).omit({
+  id: true,
+  createdAt: true,
+  status: true,
+  adminNotes: true,
+});
+export type InsertPlatformFeedback = z.infer<typeof insertPlatformFeedbackSchema>;
+export type PlatformFeedback = typeof platformFeedback.$inferSelect;

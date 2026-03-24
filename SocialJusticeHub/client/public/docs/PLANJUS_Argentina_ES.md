@@ -10,13 +10,15 @@ Anticorrupción por Diseño · Transparencia Radical · Justicia Restaurativa
 Tres Niveles JUS · Casas JUS · Desregulación del Monopolio Legal
 El Escudo del Pueblo · Plataforma Digital · Absorción Gradual del Sistema Viejo
 Arquitectura Antifragil · Inmunidad Distribuida · Justicia como Derecho, No como Privilegio
+Jurisdicción Asimétrica · Protocolo de Ejecución · Gobernanza de IA
+Seguridad Operativa · Accesibilidad Universal · Disputas Transfronterizas
 
 Preparado para la República Argentina
 Ministerio de Justicia y Derechos Humanos · Consejo de la Magistratura
 Defensoría del Pueblo · Ministerios Provinciales de Justicia
 Colegios de Abogados · Congreso de la Nación
 
-Marzo 2026 | Versión 1.0
+Marzo 2026 | Versión 1.1
 DOCUMENTO ESTRATÉGICO — PARA REVISIÓN AUTORIZADA
 ```
 
@@ -300,28 +302,47 @@ PLANJUS organiza todos los conflictos en tres niveles según su complejidad. Cad
 | **Compensación del panelista** | Viático + compensación por caso | Salario proporcional al tiempo dedicado | Salario equivalente a profesional calificado |
 | **Apelación** | Panel de apelación (5 miembros) — resolución en 10 días | Panel de apelación (5 miembros) — resolución en 15 días | Panel de apelación (7 miembros) — resolución en 30 días |
 
-### 5.7 Protocolo de Derivación: La Frontera Civil-Penal
+### 5.1.1 El Cuarto Dominio: Disputas Ciudadano-Estado
 
-PLANJUS resuelve conflictos civiles, comerciales, laborales y de familia. No resuelve casos penales. Pero la vida no respeta categorías legales — y a veces un caso que empieza como civil revela un delito. ¿Qué pasa cuando un reclamo por incumplimiento de contrato descubre un fraude? ¿Cuando una disputa de vivienda revela violencia doméstica? ¿Cuando un conflicto laboral muestra trabajo esclavo?
+PLANJUS no resuelve solo conflictos entre privados. Resuelve también los conflictos que millones de argentinos tienen con el Estado — y que hoy son una fuente de injusticia tan grande como cualquier disputa civil.
 
-El Protocolo de Derivación establece cinco pasos claros:
+Un jubilado al que ANSES le rechaza un reajuste. Un contribuyente al que AFIP le traba un embargo por un error que nadie corrige. Un comerciante al que el municipio le niega una habilitación sin explicar por qué. Una familia que espera un subsidio de vivienda que nunca llega. Hoy, estos conflictos van a la justicia contencioso-administrativa — un fuero especializado que funciona peor que el civil, porque el Estado tiene abogados ilimitados, tiempo ilimitado, y ningún incentivo para resolver rápido.
 
-1. **El panel pausa la resolución civil.** En el momento en que cualquier panelista o el sistema de IA identifica indicios de conducta penal, el componente civil del caso se suspende temporalmente.
-2. **Componente penal → derivación automática al Ministerio Público Fiscal.** PLANJUS genera un informe estructurado con la evidencia relevante y lo transmite al MPF dentro de las 24 horas. No es una denuncia que se pierde en una mesa de entradas — es un paquete completo con contexto, evidencia, y análisis preliminar.
-3. **Componente civil puede continuar si las partes consienten.** Si ambas partes aceptan, y el componente civil es separable del penal, el panel puede resolver la parte civil mientras el MPF investiga la penal. Ejemplo: en un incumplimiento de contrato donde se descubre fraude, PLANJUS puede resolver la devolución del dinero (civil) mientras la fiscalía investiga el fraude (penal).
-4. **Medidas protectorias inmediatas.** PLANJUS puede dictar medidas protectorias de emergencia — restricción de acercamiento, embargo preventivo de bienes, protección de testigos — con efecto inmediato y sin esperar al sistema judicial. Estas medidas tienen vigencia de 72 horas, renovables por orden judicial.
-5. **Registro completo y seguimiento.** Cada derivación queda registrada en el sistema con seguimiento de qué pasó con el caso penal. Si el MPF archiva la causa, PLANJUS retoma el componente civil completo.
+**PLANJUS asume jurisdicción sobre disputas administrativas de baja y mediana complejidad:**
 
-**Casos fronterizos más comunes:**
-
-| Caso Civil Inicial | Componente Penal Detectado | Acción PLANJUS |
+| Dominio Administrativo | PLANJUS resuelve | Queda en Contencioso-Administrativo |
 |---|---|---|
-| Incumplimiento de contrato comercial | Fraude, estafa, falsificación documental | Derivar fraude al MPF; resolver deuda civil si las partes consienten |
-| Conflicto de vivienda / locación | Violencia doméstica, amenazas, usurpación | Medida protectoria inmediata + derivación penal; componente locativo se suspende hasta garantizar seguridad |
-| Reclamo laboral | Trabajo no registrado con componente de trata o explotación | Derivación urgente al MPF + medidas protectorias + componente salarial se resuelve en PLANJUS |
-| Daño ambiental por actividad productiva | Contaminación con tipificación penal (Ley 24.051) | Derivación penal + medida cautelar ambiental inmediata (cese de actividad contaminante) + reparación civil en PLANJUS |
+| Seguridad social (jubilaciones, pensiones, asignaciones) | Reclamos individuales de reajuste, demora en otorgamiento, error de liquidación | Impugnación de políticas generales, declaración de inconstitucionalidad de normas previsionales |
+| Tributario | Errores de liquidación <USD 50.000, embargos indebidos, demora en devoluciones | Impugnación de normas tributarias, determinaciones de oficio complejas, evasión fiscal |
+| Habilitaciones y permisos | Demora irrazonable (>60 días), denegatoria sin fundamento, silencio administrativo | Impugnación de zonificación, regulaciones ambientales complejas |
+| Servicios públicos | Reclamos contra prestadores regulados (corte de servicio, facturación incorrecta, calidad deficiente) | Regulación tarifaria, concesiones, impugnación de marcos regulatorios |
+| Empleo público | Demora en liquidaciones, errores en escalafón, acoso laboral | Cesantías, exoneración, impugnación de concursos |
 
-La frontera civil-penal no es una grieta en PLANJUS — es un puente que conecta la justicia rápida con la justicia penal, y que le da al ciudadano protección inmediata mientras el sistema penal (que necesariamente es más lento) hace su trabajo.
+El principio: si el conflicto es entre un ciudadano individual y el Estado por un acto administrativo concreto que afecta un derecho subjetivo, y no requiere declarar la inconstitucionalidad de una norma general, **PLANJUS tiene jurisdicción**. El Estado participa como cualquier otra parte — sin privilegios procesales, sin plazos extendidos, sin la ventaja que hoy tiene de agotar al reclamante por cansancio.
+
+La base constitucional es sólida: el Art. 42 CN establece el derecho de los consumidores y usuarios a procedimientos eficaces de resolución de conflictos — incluyendo los conflictos con prestadores de servicios públicos regulados por el Estado. El Art. 43 CN habilita el amparo contra actos u omisiones de autoridades públicas. PLANJUS no reemplaza el amparo constitucional — lo complementa con un mecanismo más ágil para los casos que no requieren intervención judicial directa.
+
+### 5.1.2 Jurisdicción Asimétrica: Protección del Débil
+
+Hay una verdad que PLANJUS enfrenta de frente: la jurisdicción voluntaria pura favorece al poderoso. Si ambas partes tienen que estar de acuerdo para ir a PLANJUS, el banco siempre va a decir que no. El empleador siempre va a decir que no. La aseguradora siempre va a decir que no. ¿Por qué aceptarían un sistema que resuelve en 15 días cuando el sistema actual les da 5 años para desgastar al reclamante?
+
+PLANJUS establece el principio de **jurisdicción asimétrica**: en relaciones de poder desigual, **la parte débil elige el foro**.
+
+**TABLA 6B: Reglas de Jurisdicción Asimétrica**
+
+| Tipo de Relación | Parte Débil | Regla |
+|---|---|---|
+| Consumidor vs. empresa | Consumidor | Si el consumidor elige PLANJUS, la empresa debe participar. Sin excepción. Base: Art. 42 CN. |
+| Trabajador vs. empleador | Trabajador | Si el trabajador elige PLANJUS, el empleador debe participar. Para reclamos <USD 50.000. Base: Art. 14 bis CN. |
+| Inquilino vs. propietario | Inquilino | Si el inquilino elige PLANJUS, el propietario debe participar. Base: derecho constitucional a la vivienda. |
+| Ciudadano vs. Estado | Ciudadano | Si el ciudadano elige PLANJUS para disputas administrativas dentro del alcance del 5.1.1, el Estado debe participar. |
+| PyME vs. gran empresa | PyME (<50 empleados) | Si la PyME elige PLANJUS para disputas comerciales <USD 100.000, la gran empresa debe participar. |
+| Persona vs. persona (simétrica) | N/A | Jurisdicción voluntaria clásica — ambas partes deben consentir. |
+| Empresa vs. empresa (simétrica) | N/A | Jurisdicción voluntaria, salvo que exista cláusula PLANJUS en el contrato. |
+
+**Desincentivo económico para quienes rechazan PLANJUS:** En los casos simétricos donde una parte propone PLANJUS y la otra rechaza, si el caso va a tribunales tradicionales y la parte que rechazó PLANJUS pierde, paga costas agravadas (x1,5). No es un castigo — es un incentivo para resolver rápido. El que tenía razón para rechazar PLANJUS (porque su caso era legítimamente complejo) no paga más. El que rechazó para dilatar, paga la cuenta de su dilación.
+
+La jurisdicción asimétrica no es un capricho. Es la corrección de una asimetría preexistente. El sistema actual es "voluntario" en teoría — nadie te obliga a ir a juicio. Pero en la práctica, el sistema actual obliga al débil a ir a un foro que está diseñado para beneficiar al fuerte. PLANJUS invierte la ecuación: el que necesita protección elige dónde recibirla.
 
 ### 5.2 La Columna Vertebral Procedimental — Siete Salvaguardas
 
@@ -335,11 +356,58 @@ Cada nivel JUS comparte la misma columna vertebral procedimental. Estas siete sa
 
 **4. Piso de derechos.** Antes de que una resolución sea válida, el sistema la evalúa automáticamente contra una lista de derechos fundamentales (constitucionales + tratados internacionales). Si la resolución viola un derecho fundamental, el sistema la rechaza y devuelve el caso al panel con indicación específica del derecho vulnerado. No es discrecional: es algorítmico.
 
+El piso de derechos no es un concepto abstracto — es una arquitectura con componentes, gobernanza, y protocolos de actualización:
+
+**Alcance del piso:** Constitución Nacional (Arts. 14, 14 bis, 16, 17, 18, 19, 42, 43, 75 incs. 17, 22, 23) + tratados internacionales con jerarquía constitucional (CADH, PIDESC, PIDCP, CEDAW, CDN, CDPD) + legislación protectoria fundamental (Ley 24.240 defensa del consumidor, Ley 26.485 violencia de género, Ley 26.061 protección de menores, Ley 20.744 contrato de trabajo).
+
+**Diseño del algoritmo:** El piso no es un modelo de IA generalista — es un sistema de reglas basado en la doctrina constitucional consolidada, diseñado por un consorcio de universidades nacionales (al menos 5 facultades de Derecho) y validado por la Comisión de Derechos Humanos de ANJUS. El algoritmo opera en tres capas:
+- *Capa 1 — Reglas absolutas:* Prohibiciones que nunca pueden ser violadas (discriminación, trabajo infantil, desalojo sin alternativa habitacional, privación de alimentos a menores). Si la resolución viola una regla absoluta, rechazo automático.
+- *Capa 2 — Reglas ponderadas:* Derechos que pueden entrar en tensión entre sí (libertad de empresa vs. derechos laborales, propiedad vs. función social). El sistema no resuelve la tensión — la señala al panel con la doctrina relevante para que el panel pondere con información.
+- *Capa 3 — Alertas de zona gris:* Situaciones donde la resolución no viola un derecho pero se acerca a un límite. No rechaza — advierte. El panel puede proceder pero debe justificar expresamente.
+
+**Gobernanza:** El consorcio universitario actualiza el piso semestralmente, incorporando nueva jurisprudencia de la Corte Suprema, la Corte IDH, y los órganos de tratados de la ONU. Cada actualización se publica con 60 días de anticipación para debate público. ANJUS no puede modificar el piso unilateralmente — el consorcio tiene autonomía técnica.
+
+**Cuando el algoritmo se equivoca:** Si un panel considera que el piso rechazó erróneamente su resolución, puede elevar una objeción al Comité de Revisión del Piso de Derechos (3 juristas del consorcio + 2 panelistas JUS-3 veteranos). El Comité resuelve en 72 horas. Si confirma que el piso erró, corrige la regla y la resolución procede. Cada error del piso es un dato que mejora el sistema.
+
 **5. Consistencia asistida por IA.** Un módulo de inteligencia artificial analiza cada resolución en contexto de casos similares previos. No decide — informa. Le muestra al panel: "casos similares a este se resolvieron de esta manera en el 85% de los casos." Los panelistas pueden desviarse, pero tienen que justificar por qué. Esto produce consistencia sin rigidez.
 
 **6. Alerta automática de anomalías.** Si una resolución se desvía significativamente de patrones (por monto, por dirección, por velocidad), el sistema genera una alerta que activa revisión por un panel independiente. No hay que esperar a que alguien se queje. El sistema se vigila a sí mismo.
 
 **7. Evaluación post-resolución.** Ambas partes evalúan el proceso (no el resultado) en cinco dimensiones: voz, respeto, neutralidad, claridad, velocidad. Estas evaluaciones alimentan el sistema de calidad y la selección futura de panelistas. Un panelista con evaluaciones consistentemente bajas sale de la rotación.
+
+### 5.2.1 Gobernanza de la Inteligencia Artificial
+
+PLANJUS usa inteligencia artificial en cinco funciones críticas: categorización de casos, análisis de consistencia, detección de anomalías, transcripción de audiencias, y asistencia al piso de derechos. Cada una de estas funciones tiene el potencial de mejorar masivamente la calidad de la justicia — y cada una tiene el potencial de reproducir los sesgos del sistema que PLANJUS viene a reemplazar. Sin gobernanza explícita, la IA es un caballo sin jinete: poderoso y peligroso.
+
+**Principio rector: La IA asiste. Nunca decide.** En ningún nivel JUS, en ninguna función, la inteligencia artificial toma una decisión vinculante. Informa, sugiere, alerta, analiza — pero la decisión es siempre humana. Si la IA categoriza un caso como JUS-1, un panelista puede escalar a JUS-2. Si la IA sugiere que el caso es similar a otros que se resolvieron de determinada manera, el panel puede ignorar la sugerencia. Si la IA detecta una anomalía, un humano verifica antes de actuar. La IA es el microscopio — el ojo que mira sigue siendo humano.
+
+**Datos de entrenamiento:** La IA de PLANJUS no se entrena con la jurisprudencia del sistema judicial existente — porque esa jurisprudencia está contaminada por los sesgos de clase, género, raza, y poder que PLANJUS existe para eliminar. Los modelos se entrenan con:
+- Resoluciones de sistemas de justicia comunitaria y restaurativa a nivel global (Kleros, Gacaca, tribunales comunitarios de Singapur, ODR holandés)
+- Casos simulados diseñados por el consorcio universitario con resultados validados por expertos en derechos humanos
+- Resoluciones reales de PLANJUS a partir del Año 2, ponderadas por satisfacción de las partes y tasa de apelación (las resoluciones de alta calidad pesan más en el entrenamiento)
+- Nunca: resoluciones del sistema judicial argentino tradicional. Si se necesita jurisprudencia como referencia, se incluye solo la doctrina de la Corte Suprema y la Corte IDH — no las decisiones de instancias inferiores donde se concentra el sesgo.
+
+**Auditoría de sesgo:** Cada trimestre, un equipo independiente (contratado por el consorcio universitario, no por ANJUS) audita los modelos de IA en busca de:
+- Sesgo de género (¿la IA sugiere resoluciones diferentes para las mismas situaciones según el género de las partes?)
+- Sesgo socioeconómico (¿la IA categoriza diferente los casos según el barrio de origen del reclamante?)
+- Sesgo de repetición (¿la IA favorece a partes que aparecen frecuentemente en el sistema?)
+- Sesgo de lenguaje (¿la IA categoriza peor los casos presentados con errores de ortografía o lenguaje informal?)
+
+Los resultados de cada auditoría se publican completos en el dashboard público. Si se detecta sesgo significativo, el modelo se retira, se corrige, y se re-despliega. No hay negociación.
+
+**Explicabilidad:** Cada recomendación de la IA viene con una explicación comprensible para los panelistas y las partes. No "el modelo dice X" sino "el modelo sugiere X porque los 147 casos más similares se resolvieron de esta manera, con estas características en común." Las partes tienen derecho a cuestionar la recomendación de la IA y el panel tiene la obligación de responder a ese cuestionamiento.
+
+**TABLA 6C: Funciones de IA en PLANJUS — Alcance y Límites**
+
+| Función | Qué hace | Qué NO hace | Auditoría |
+|---|---|---|---|
+| Categorización | Sugiere nivel JUS y tipo de caso | No asigna definitivamente — un humano confirma | Precisión medida mensualmente; target >90% |
+| Consistencia | Muestra resoluciones similares previas y sus resultados | No dice qué resolución es "correcta" | Auditoría trimestral de sesgo |
+| Anomalías | Alerta cuando una resolución se desvía significativamente de patrones | No invalida la resolución — un panel humano revisa | Tasa de falsos positivos medida; target <5% |
+| Transcripción | Transcribe audiencias en tiempo real | No interpreta, no resume, no edita | Precisión verificada por muestra aleatoria mensual |
+| Piso de derechos | Evalúa resoluciones contra reglas de derechos fundamentales | No pondera derechos en tensión — los señala | Gobernanza separada por consorcio universitario (ver 5.2) |
+
+**Seguridad adversarial:** La IA de PLANJUS es un blanco predecible para actores que quieran manipular el sistema. Si una empresa descubre que presentar la evidencia de determinada manera hace que la IA categorice siempre como JUS-1 (más rápido pero con panel más simple), va a explotar esa debilidad. ANJUS mantiene un equipo permanente de *red teaming* que intenta explotar los modelos antes de que lo hagan otros. Cada vulnerabilidad detectada se parchea y se documenta públicamente (sin revelar el exploit específico hasta que esté corregido).
 
 ### 5.3 El Triple Candado Anticorrupción
 
@@ -358,6 +426,29 @@ Cada resolución es pública. Cada voto es registrado (los panelistas votan con 
 **Candado 3 — Incentivos Económicos (La Ecuación)**
 
 Los panelistas reciben compensación por participar. Los panelistas con buenas evaluaciones y decisiones consistentes reciben bonificaciones y acceso a niveles superiores (JUS-2, JUS-3) con mejor compensación. Un panelista que acepta un soborno arriesga: detección por el sistema de anomalías, pérdida de su posición, sanción legal, y pérdida de todas las bonificaciones acumuladas. El beneficio de ser corrupto es puntual y riesgoso. El beneficio de ser honesto es acumulativo y seguro. La ecuación favorece la honestidad — no porque los humanos sean santos, sino porque el sistema hace que ser santo sea más rentable.
+
+### 5.3.1 Contramedidas para Actores Repetitivos
+
+Los tres candados protegen contra la corrupción caso por caso. Pero hay una amenaza diferente: el **actor repetitivo** — la empresa, el banco, la aseguradora que aparece como parte en cientos o miles de casos. No necesita corromper a un panelista. Necesita algo más sutil: aprender el sistema.
+
+Un banco que enfrenta 500 reclamos de consumo por año en PLANJUS va a desarrollar una "estrategia PLANJUS" — un equipo dedicado que estudia patrones de resolución, optimiza la presentación de evidencia, identifica qué tipo de argumentos funcionan mejor, y explota cada debilidad procedimental. No es ilegal. Es racional. Y si PLANJUS no lo prevé, la asimetría informacional entre el banco (que conoce el sistema íntimamente) y el consumidor (que lo usa una vez en la vida) reproduce la misma desigualdad que PLANJUS viene a eliminar.
+
+**Mecanismos anti-repetición:**
+
+**1. Perfil Público de Litigante Frecuente.** Toda parte que aparezca en más de 10 casos PLANJUS por año calendario es clasificada como **Litigante Frecuente** y su perfil se publica en el dashboard: cuántos casos tiene, cuántos perdió, cuántos ganó, tiempo promedio de cumplimiento, tasa de apelación. La transparencia es el primer desincentivo: un banco que pierde el 80% de los reclamos de consumo no puede esconderse. Los consumidores, los inversores, y los reguladores ven el patrón.
+
+**2. Alerta de Patrón Sistémico.** Cuando el sistema detecta que un Litigante Frecuente enfrenta más de 20 reclamos similares en 6 meses, activa una **Alerta de Patrón Sistémico**. Esto significa que el problema no es un caso aislado — es una práctica empresarial. ANJUS puede:
+- Emitir una **Recomendación Sistémica** pública, instando al Litigante Frecuente a modificar la práctica que genera los reclamos
+- Si la práctica continúa, elevar el caso a los organismos regulatorios competentes (BCRA para bancos, SSN para aseguradoras, Defensa del Consumidor para empresas)
+- Publicar un **Informe de Impacto** con el costo total que esa práctica genera a los ciudadanos
+
+**3. Variación Procedimental Anti-Gaming.** Para prevenir que los equipos legales de Litigantes Frecuentes optimicen su estrategia contra patrones predecibles, el sistema introduce variaciones aleatorias controladas en el procedimiento: orden de presentación de evidencia, formato de la audiencia, composición del panel (mayor proporción de panelistas que nunca resolvieron un caso contra esa empresa). Las variaciones son pequeñas y no afectan las garantías procesales — pero impiden que el conocimiento del sistema se convierta en una ventaja injusta.
+
+**4. Asistente JUS Automático.** En todo caso donde una parte es un Litigante Frecuente y la otra es una persona física sin representación, PLANJUS asigna automáticamente un **Asistente JUS** (ver Sección 6.7) a la persona física. El Asistente ayuda a presentar la evidencia, explica el proceso, y equilibra la asimetría informacional. El costo del Asistente se carga al presupuesto de PLANJUS — no a la parte débil.
+
+**5. Panel Reforzado.** Los casos donde el demandado es un Litigante Frecuente con más de 50 casos pendientes se resuelven con panel reforzado: un panelista adicional (4 en JUS-1, 3 ciudadanos + 2 expertos en JUS-2). El panelista adicional compensa cualquier ventaja informacional del Litigante Frecuente.
+
+La filosofía es simple: PLANJUS no prohíbe a las empresas participar — las obliga a participar en condiciones justas. Si una empresa genera cientos de reclamos, el problema es la empresa, no los reclamantes. Y PLANJUS lo visibiliza, lo corrige, y lo desincentiva.
 
 ### 5.4 La Plataforma Digital
 
@@ -399,6 +490,104 @@ Las Casas JUS están diseñadas como espacios cívicos flexibles. En el Horizont
 11. Ambas partes evalúan el proceso
 
 **Tiempo total: 7–15 días. Costo para el ciudadano: cero.**
+
+### 5.7 Protocolo de Derivación: La Frontera Civil-Penal
+
+PLANJUS resuelve conflictos civiles, comerciales, laborales, de familia, y administrativos de baja complejidad. No resuelve casos penales. Pero la vida no respeta categorías legales — y a veces un caso que empieza como civil revela un delito. ¿Qué pasa cuando un reclamo por incumplimiento de contrato descubre un fraude? ¿Cuando una disputa de vivienda revela violencia doméstica? ¿Cuando un conflicto laboral muestra trabajo esclavo?
+
+El Protocolo de Derivación establece cinco pasos claros:
+
+1. **El panel pausa la resolución civil.** En el momento en que cualquier panelista o el sistema de IA identifica indicios de conducta penal, el componente civil del caso se suspende temporalmente.
+2. **Componente penal → derivación automática al Ministerio Público Fiscal.** PLANJUS genera un informe estructurado con la evidencia relevante y lo transmite al MPF dentro de las 24 horas. No es una denuncia que se pierde en una mesa de entradas — es un paquete completo con contexto, evidencia, y análisis preliminar.
+3. **Componente civil puede continuar si las partes consienten.** Si ambas partes aceptan, y el componente civil es separable del penal, el panel puede resolver la parte civil mientras el MPF investiga la penal. Ejemplo: en un incumplimiento de contrato donde se descubre fraude, PLANJUS puede resolver la devolución del dinero (civil) mientras la fiscalía investiga el fraude (penal).
+4. **Medidas protectorias inmediatas.** PLANJUS puede dictar medidas protectorias de emergencia — restricción de acercamiento, embargo preventivo de bienes, protección de testigos — con efecto inmediato y sin esperar al sistema judicial. Estas medidas tienen vigencia de 72 horas, renovables por orden judicial.
+5. **Registro completo y seguimiento.** Cada derivación queda registrada en el sistema con seguimiento de qué pasó con el caso penal. Si el MPF archiva la causa, PLANJUS retoma el componente civil completo.
+
+**Casos fronterizos más comunes:**
+
+| Caso Civil Inicial | Componente Penal Detectado | Acción PLANJUS |
+|---|---|---|
+| Incumplimiento de contrato comercial | Fraude, estafa, falsificación documental | Derivar fraude al MPF; resolver deuda civil si las partes consienten |
+| Conflicto de vivienda / locación | Violencia doméstica, amenazas, usurpación | Medida protectoria inmediata + derivación penal; componente locativo se suspende hasta garantizar seguridad |
+| Reclamo laboral | Trabajo no registrado con componente de trata o explotación | Derivación urgente al MPF + medidas protectorias + componente salarial se resuelve en PLANJUS |
+| Daño ambiental por actividad productiva | Contaminación con tipificación penal (Ley 24.051) | Derivación penal + medida cautelar ambiental inmediata (cese de actividad contaminante) + reparación civil en PLANJUS |
+
+La frontera civil-penal no es una grieta en PLANJUS — es un puente que conecta la justicia rápida con la justicia penal, y que le da al ciudadano protección inmediata mientras el sistema penal (que necesariamente es más lento) hace su trabajo.
+
+### 5.8 Protocolo Especializado de Violencia de Género
+
+> *"En la Argentina muere una mujer cada 31 horas por violencia de género. Cada una de esas muertes es el fracaso final de un sistema que tuvo oportunidades de intervenir y no lo hizo."*
+
+La violencia de género no es un caso más. Es una emergencia que requiere velocidad diferente, sensibilidad diferente, y protocolos diferentes a los de una disputa comercial o un reclamo de consumo. PLANJUS no puede tratar un divorcio contencioso con violencia de género con el mismo procedimiento que un incumplimiento de contrato. Si lo hace, fracasa. Y cuando PLANJUS fracasa en un caso de violencia de género, alguien puede morir.
+
+**Principio rector:** En todo caso donde existan indicios de violencia de género (física, psicológica, sexual, económica, o simbólica — conforme la Ley 26.485), se activa automáticamente el Protocolo de Género. No hace falta que la parte lo pida. No hace falta que el caso esté catalogado como "caso de género." Si un reclamo de alimentos revela control económico, el protocolo se activa. Si un divorcio revela intimidación, el protocolo se activa. Si un conflicto de vivienda revela que una mujer no puede irse porque no tiene a dónde ir, el protocolo se activa.
+
+**Componentes del protocolo:**
+
+**1. Medidas de protección inmediata (hora cero).** PLANJUS puede dictar medidas protectorias de emergencia sin esperar la constitución del panel:
+- Exclusión del hogar del agresor (Art. 26 inc. a.2 Ley 26.485)
+- Prohibición de acercamiento (Art. 26 inc. a.4)
+- Restitución de efectos personales
+- Fijación provisoria de alimentos y custodia
+- Derivación a refugio cuando sea necesario
+
+Estas medidas las dicta el **Coordinador de Emergencia de la Casa JUS** — un funcionario con formación específica en género que está disponible 24/7, no solo en horario de atención. La medida es inmediata — se ejecuta primero, se confirma por panel después (dentro de 72 horas). La seguridad no espera burocracia.
+
+**2. Panel especializado.** Los casos con Protocolo de Género activo se asignan a panelistas del **Pool de Género** — panelistas que, además de la formación general JUS, completaron una formación adicional obligatoria de 40 horas en:
+- Dinámica de la violencia de género (ciclo de violencia, mecanismos de control, trauma)
+- Marco legal: Ley 26.485, Ley Micaela (27.499), Convención de Belém do Pará, CEDAW
+- Comunicación trauma-informada (cómo escuchar sin revictimizar)
+- Evaluación de riesgo (indicadores de letalidad)
+- Perspectiva de género en la resolución de conflictos patrimoniales y de custodia
+
+El Pool de Género tiene una composición mínima obligatoria: al menos el 60% de los panelistas del pool deben ser mujeres o personas del colectivo LGBTIQ+. No porque los hombres no puedan ser buenos panelistas en estos casos — sino porque la experiencia vivida importa, y la composición del panel comunica respeto.
+
+**3. Coordinación con la red existente.** PLANJUS no opera en el vacío. Se coordina con:
+- Línea 144 (atención a víctimas de violencia de género)
+- Comisarías de la Mujer y la Familia
+- Oficinas de Violencia Doméstica (OVD) del Poder Judicial
+- Refugios y centros de atención
+- Defensorías de Menores (cuando hay hijos involucrados)
+- Equipos interdisciplinarios locales
+
+La plataforma PLANJUS incluye un botón de derivación directa a cada uno de estos recursos, con geolocalización para identificar el más cercano.
+
+**4. Evaluación de riesgo integrada.** En todo caso con Protocolo de Género activo, el sistema ejecuta automáticamente una evaluación de riesgo basada en indicadores validados internacionalmente (adaptación del modelo DASH — Domestic Abuse, Stalking and Harassment). El resultado clasifica el riesgo como estándar, medio, o alto. El nivel de riesgo determina la urgencia de las medidas y la intensidad del seguimiento post-resolución.
+
+**5. Seguimiento post-resolución obligatorio.** A diferencia de los casos civiles ordinarios donde la resolución cierra el caso, en los casos de género PLANJUS mantiene seguimiento activo durante 6 meses:
+- Verificación de cumplimiento de medidas protectorias
+- Contacto periódico con la víctima (consentido, no invasivo)
+- Derivación a servicios de acompañamiento psicológico y legal
+- Reactivación inmediata si se detecta incumplimiento o nuevos episodios
+
+**TABLA 6D: Diferencias Procedimentales — Caso Ordinario vs. Protocolo de Género**
+
+| Dimensión | Caso Ordinario | Protocolo de Género |
+|---|---|---|
+| Medidas de emergencia | Dentro del proceso, con panel constituido | Inmediatas, antes de panel, por Coordinador 24/7 |
+| Plazo de primera intervención | 48-72 horas | Menos de 4 horas |
+| Panel | Pool general JUS | Pool de Género especializado |
+| Presencia del agresor | Normal (audiencia conjunta) | Separada (audiencias independientes, nunca contacto directo no deseado) |
+| Seguimiento post-resolución | No hay | 6 meses activos |
+| Confidencialidad | Estándar (público con anonimización en familia) | Reforzada (identidad de víctima sellada, acceso restringido) |
+| Derivación penal | A solicitud o detección | Automática cuando los indicios superan umbral (no requiere consentimiento de la víctima para derivar) |
+
+### 5.9 Protocolos por Dominio Específico
+
+PLANJUS resuelve conflictos de todo tipo con una columna vertebral procedimental común (las siete salvaguardas). Pero ciertos dominios requieren adaptaciones específicas — no porque el proceso sea diferente, sino porque la evidencia es diferente, los tiempos son diferentes, y los riesgos son diferentes.
+
+**TABLA 6E: Adaptaciones por Dominio**
+
+| Dominio | Evidencia Específica | Expertos Requeridos | Medidas Cautelares Especiales | Consideraciones de Plazo |
+|---|---|---|---|---|
+| **Ambiental** | Análisis de suelo/agua/aire, imágenes satelitales, informes de impacto ambiental, muestreo biológico | Ingeniero ambiental o biólogo en panel JUS-2/3 | Cese preventivo de actividad contaminante (inmediato, sin esperar resolución final) | Pericias pueden requerir tiempo: plazo JUS-3 extendible a 120 días con justificación |
+| **Mala praxis médica** | Historia clínica, informes periciales, protocolos médicos, consentimiento informado | Médico de la especialidad relevante en panel + perito independiente | Medida para preservar documentación médica | Pericias complejas: plazo JUS-3 extendible a 120 días |
+| **Construcción / infraestructura** | Planos, contratos de obra, certificados de avance, inspección in situ, pericias de ingeniería | Ingeniero civil o arquitecto en panel JUS-2/3 | Orden de suspensión de obra si hay riesgo estructural | Inspección in situ obligatoria antes de resolución |
+| **Propiedad intelectual** | Registros INPI, prueba de originalidad, análisis técnico de similitud, cadena de titularidad | Especialista en PI en panel JUS-3 | Medida cautelar de cese de uso provisional | Casos complejos: JUS-3 exclusivo |
+| **Laboral con CCT** | Convenio colectivo aplicable, recibos de sueldo, actas paritarias, pericias contables | Contador público + especialista en relaciones laborales en panel JUS-2/3 | Embargo preventivo sobre bienes del empleador por montos adeudados | Asesor técnico-legal obligatorio para interpretar CCT |
+| **Sucesiones complejas** | Testamento, documentación patrimonial completa, pericias contables, tasaciones | Contador + escribano (validación de documentos) en panel JUS-3 | Anotación preventiva de bienes para evitar disposición | Inventario completo antes de resolución |
+
+**Protocolo de pericia especial:** Cuando un caso requiere una pericia que excede los 15/45/90 días del nivel JUS correspondiente, el panel puede solicitar una **extensión por pericia** de hasta 30 días adicionales. La extensión es excepcional, se justifica expresamente, y se informa a las partes con el cronograma actualizado. Las pericias se realizan por profesionales del **Registro Nacional de Peritos PLANJUS** — peritos acreditados por ANJUS, sujetos a las mismas reglas de sorteo y rotación que los panelistas para evitar la captura.
 
 ---
 
@@ -467,6 +656,76 @@ El sorteo democrático es igualitario en teoría. Pero si el pool del que se sor
 **El monitoreo:** ANJUS rastrea la demografía del pool de panelistas activos versus la población local en cada provincia — por edad, género, nivel educativo, origen urbano/rural, y pertenencia a comunidades indígenas. Si la representación de cualquier grupo demográfico cae por debajo del 50% de su proporción poblacional, se activa un protocolo de reclutamiento dirigido: campaña específica para ese grupo, ajuste de requisitos si es necesario, y formación adaptada. El dashboard público muestra estos datos. La diversidad del pool no es un objetivo aspiracional — es un KPI medible y publicado.
 
 El modelo de panelista — sorteo democrático, formación estructurada, rotación, salvaguardas de diversidad, progresión por mérito — es la contribución de PLANJUS a la infraestructura cívica argentina más allá de la justicia. PLANREP Sección 15.5 adopta la misma arquitectura para sus Paneles Ciudadanos de Futuro Económico, que deliberan sobre fideicomisos, el DNP, y la Economía de la Contribución. PLANEDU Sección 19 prepara a estudiantes desde los 16 años para participar en paneles simulados usando la misma metodología de sorteo. El panelista no es solo una figura de justicia — es el prototipo del ciudadano-gobernante que todo el proyecto BASTA necesita. Lo que PLANJUS construye como mecanismo de resolución de conflictos se convierte en el modelo operativo de la democracia participativa argentina.
+
+### 6.6 Selección y Gobernanza de Expertos
+
+Los panelistas ciudadanos son el corazón de PLANJUS. Pero en JUS-2 y JUS-3, el corazón necesita cerebro especializado: un experto del dominio en JUS-2, dos especialistas y un asesor técnico-legal en JUS-3. Estos expertos son el componente más vulnerable a la captura — porque a diferencia de los ciudadanos anónimos del sorteo, son profesionales identificables con carreras, reputaciones, y redes.
+
+**¿Cómo se seleccionan sin abrir una puerta a la corrupción?**
+
+**Registro Nacional de Expertos PLANJUS (RNEP).** ANJUS mantiene un registro público de profesionales habilitados para servir como expertos en paneles. La inscripción es voluntaria pero la acreditación es rigurosa:
+
+| Requisito | Descripción |
+|---|---|
+| Título habilitante | Título universitario en la disciplina relevante (validado por universidad nacional) |
+| Experiencia mínima | 5 años de ejercicio profesional comprobable |
+| Formación PLANJUS | Curso de adaptación al sistema PLANJUS (2 semanas) + certificación |
+| Declaración jurada de intereses | Publicada en el RNEP — empleadores, clientes principales, participaciones societarias |
+| Antecedentes | Sin sanciones disciplinarias vigentes del colegio profesional correspondiente |
+| Renovación | Cada 2 años, con actualización de declaración de intereses y evaluaciones |
+
+**Sorteo desde el RNEP.** Los expertos se seleccionan por el mismo mecanismo de sorteo que los panelistas ciudadanos — al azar, desde el pool de expertos acreditados en la disciplina relevante, con exclusión automática de conflictos de interés (mismo empleador que una de las partes, cliente actual o de los últimos 2 años, relación familiar o societaria detectable). Nadie sabe qué experto le toca hasta que el caso se asigna.
+
+**Compensación fija por caso.** Los expertos cobran un honorario fijo por caso, establecido por ANJUS y publicado. No cobran por resultado ni por hora — cobran por servicio. Esto elimina el incentivo de prolongar los casos y alinea la compensación con la filosofía de PLANJUS: resolver rápido.
+
+**Rotación y límites.** Un experto no puede servir en más de 30 casos por año (para evitar la profesionalización) ni en más de 5 casos consecutivos del mismo tipo (para evitar sesgos de especialización excesiva). La rotación mantiene la perspectiva fresca.
+
+### 6.7 Asistentes JUS — Equilibrando la Cancha
+
+Eliminar el patrocinio letrado obligatorio es una victoria para el acceso a la justicia. Pero tiene un efecto colateral: en los casos complejos (JUS-2 y JUS-3), una parte puede contratar un abogado y la otra no. Resultado: la parte sin abogado está en desventaja — no porque no tenga razón, sino porque no sabe cómo presentar su razón de la manera más efectiva. PLANJUS no puede reemplazar un monopolio profesional por una nueva asimetría.
+
+La solución: el **Asistente JUS**.
+
+El Asistente JUS no es un abogado. No representa a la parte ni litiga por ella. Es un **facilitador de acceso** formado por PLANJUS que ayuda a la parte a:
+- Entender el proceso y sus derechos
+- Organizar y presentar su evidencia de manera clara
+- Prepararse para la audiencia
+- Entender la resolución y sus opciones (cumplimiento, apelación)
+
+**Cuándo se asigna un Asistente JUS:**
+
+| Situación | Asignación |
+|---|---|
+| Todo caso JUS-3 donde una parte no tiene representación profesional | Automática |
+| Caso JUS-2 donde una parte es Litigante Frecuente y la otra es persona física sin representación | Automática (ver 5.3.1) |
+| Caso JUS-2/3 donde el panel identifica asimetría de capacidad significativa entre las partes | A solicitud del panel |
+| Cualquier caso donde una parte lo solicite | A solicitud (sujeto a disponibilidad; prioridad a los casos con mayor asimetría) |
+| Todo caso con Protocolo de Género activo | Automática para la víctima |
+
+**Formación:** 8 semanas intensivas que combinan procedimiento PLANJUS, comunicación efectiva, análisis básico de evidencia, y empatía. Los Asistentes no necesitan título de abogado — necesitan capacidad de escucha, claridad, y compromiso con la equidad.
+
+**Financiamiento:** Los Asistentes JUS son pagados por PLANJUS. Nunca cobran a la parte asistida. Su compensación es equivalente a un técnico calificado. Son personal de ANJUS, no independientes — esto evita conflictos de interés.
+
+**Independencia:** El Asistente no le dice a la parte qué hacer. Le explica las opciones y las consecuencias. No es un abogado disfrazado — es un traductor entre el ciudadano y el sistema. Su lealtad es con la equidad del proceso, no con el resultado de una parte.
+
+### 6.8 Salud Mental y Sostenibilidad del Panelista
+
+Los jueces queman carreras enteras en el sistema y muchos terminan con estrés crónico, cinismo, y despersonalización. Los panelistas de PLANJUS — ciudadanos comunes que resuelven conflictos reales con consecuencias reales para personas reales — enfrentan el mismo riesgo en menos tiempo. Un panelista JUS-3 que en una semana resuelve un caso de custodia donde un menor fue testigo de violencia, al día siguiente un caso de sucesión donde hermanos se odian, y al siguiente un caso laboral donde un trabajador perdió un brazo en una fábrica insegura — ese panelista necesita más que una compensación económica. Necesita que el sistema cuide su salud mental como cuida la justicia de las partes.
+
+**Componentes:**
+
+**1. Debriefing post-caso traumático.** Después de todo caso clasificado como emocionalmente intenso (violencia de género, abuso de menores, lesiones graves, muerte), el panel tiene una sesión de debriefing con un psicólogo del equipo de salud mental de la Casa JUS. No es opcional. No es una debilidad. Es higiene profesional — como lavarse las manos después de operar.
+
+**2. Acceso a consultoría psicológica.** Todo panelista activo tiene acceso gratuito e ilimitado a consultas psicológicas con profesionales del programa de salud mental de ANJUS. Confidencial. Sin registro en su legajo de panelista. El sistema que le pide a un ciudadano que juzgue tiene la obligación de cuidar al ciudadano que juzga.
+
+**3. Monitoreo de carga.** La plataforma rastrea la carga emocional acumulada de cada panelista: cuántos casos de alta intensidad resolvió en los últimos 30 días, cuántas horas dedicó, cuántos debriefings tuvo. Si la carga supera umbrales predefinidos, el sistema automáticamente:
+- Asigna solo casos de baja intensidad durante 2 semanas (pausa parcial)
+- Si la carga persiste, activa una pausa total de 30 días con compensación completa
+- Si el panelista solicita desvinculación por razones de salud mental, se acepta inmediatamente sin penalización
+
+**4. Continuidad de caso.** ¿Qué pasa cuando un panelista debe retirarse de un caso en curso por razones de salud? El panelista suplente (que ya fue sorteado al inicio del caso) asume. Si no hay suplente disponible, se sortea uno nuevo con acceso inmediato al registro del caso. El caso no se reinicia — continúa desde donde quedó. La salud del panelista nunca se subordina al plazo del caso.
+
+**5. Rotación como política de salud.** El límite de 18 meses de servicio consecutivo no es solo anticorrupción — es salud. Después de 18 meses de resolver conflictos ajenos, el panelista necesita volver a su vida, procesar la experiencia, y descansar. Los 6 meses de pausa antes de reincorporarse son tanto una medida de frescura institucional como de recuperación humana.
 
 ---
 
@@ -541,6 +800,31 @@ PLANJUS no se presenta como reemplazo del sistema judicial. Se presenta como **a
 ¿Por qué funciona esta estrategia? Porque no requiere confrontación. No requiere legislar contra la Corte Suprema. No requiere echar jueces. Requiere solo una cosa: **ser mejor**. Si PLANJUS resuelve más rápido, más barato, y con más satisfacción — la gente lo elige. Y cuando la gente lo elige, el viejo sistema muere de inanición. Nadie lo mató. Simplemente dejó de ser necesario.
 
 Es lo que hace un sistema inmunológico sano cuando reemplaza a uno enfermo: no ataca las células viejas — simplemente produce células nuevas que funcionan mejor, más rápido, y con más precisión. Las células viejas se retiran naturalmente porque ya no hay demanda para su función. PLANJUS es ese sistema inmunológico nuevo: no necesita destruir el viejo. Solo necesita funcionar mejor.
+
+### 8.3 Transición de Casos Pendientes — El Backlog Que Nadie Quiere Heredar
+
+Hay millones de expedientes pudriéndose en los tribunales argentinos ahora mismo. Millones de Martas, Diegos y Lucianas esperando. PLANJUS no puede mirar para otro lado y decir "empezamos de cero con los casos nuevos." El backlog es la herida abierta del sistema viejo — y PLANJUS tiene que ofrecer una cura, no solo prevención para el futuro.
+
+**Protocolo de Migración Voluntaria de Casos Pendientes:**
+
+**1. Elegibilidad.** Cualquier caso civil, comercial, laboral, de familia, o administrativo que esté pendiente en el sistema judicial tradicional puede migrar a PLANJUS si:
+- Al menos una de las partes lo solicita (en casos asimétricos, aplican las reglas del 5.1.2 — la parte débil elige)
+- El caso entra dentro del alcance material de PLANJUS (no penal, no constitucional puro)
+- No hay sentencia firme (si ya hay sentencia y está en ejecución, no migra — el problema es de ejecución, no de resolución)
+
+**2. Procedimiento de migración.** La parte interesada presenta solicitud en la plataforma PLANJUS o en una Casa JUS. PLANJUS notifica a la otra parte y al juzgado de origen. Si la otra parte consiente (o si aplica jurisdicción asimétrica), el juzgado remite el expediente digital a PLANJUS dentro de 10 días hábiles. Si el expediente no está digitalizado, PLANJUS lo digitaliza en la Casa JUS más cercana.
+
+**3. Qué se hereda, qué se reinicia.** La migración no borra lo actuado:
+- Las pruebas producidas en el sistema viejo se incorporan al caso PLANJUS
+- Las medidas cautelares vigentes se mantienen
+- Los acuerdos parciales homologados se respetan
+- Pero la resolución es de PLANJUS — con panel por sorteo, con las siete salvaguardas, con los plazos JUS. No se "retoma" el expediente viejo. Se resuelve el conflicto con herramientas nuevas y evidencia heredada.
+
+**4. Incentivos para migrar.** ¿Por qué alguien que ya lleva 3 años en un juicio migraría? Porque en PLANJUS el caso se resuelve en 45-90 días más — no en 3 años más. Porque no tiene que seguir pagando abogado. Porque la resolución tiene fuerza ejecutoria y se ejecuta en semanas (ver Sección 22). El cálculo es obvio para cualquiera que haya perdido años de vida en un expediente.
+
+**5. Meta.** Absorber 500.000 casos pendientes en los primeros 3 años. No es una cifra arbitraria: es el volumen necesario para demostrar que PLANJUS no solo previene el backlog futuro sino que cura el pasado. Cada caso migrado que se resuelve en semanas es una historia que se cuenta, un testimonio que se comparte, y un argumento que ningún defensor del sistema viejo puede refutar.
+
+**6. Lo que no migra.** Causas penales, recursos extraordinarios ante la Corte Suprema, juicios con múltiples partes internacionales bajo tratados bilaterales de inversión, y causas donde ambas partes rechazan la migración (en casos simétricos). PLANJUS no pretende absorber todo — pretende absorber todo lo que puede resolver mejor.
 
 ---
 
@@ -633,6 +917,31 @@ Las provincias administran la operación local:
 - Selección y convocatoria de panelistas del padrón local
 - Adaptaciones culturales y lingüísticas
 - Coordinación con el sistema judicial provincial existente
+
+### 10.5 Justicia Intercultural — Los Pueblos Originarios y PLANJUS
+
+La Argentina tiene más de 40 pueblos originarios reconocidos, con una población estimada de 955.000 personas (Censo 2010, probable subestimación). La Constitución Nacional, en su Art. 75 inc. 17, reconoce la preexistencia étnica y cultural de los pueblos indígenas argentinos y garantiza el respeto a su identidad, incluyendo "la posesión y propiedad comunitarias de las tierras que tradicionalmente ocupan" y su participación "en la gestión referida a sus recursos naturales y a los demás intereses que los afecten." El Convenio 169 de la OIT — ratificado por Argentina mediante Ley 24.071 — obliga al Estado a consultar a los pueblos indígenas cada vez que se prevean medidas legislativas o administrativas que los afecten.
+
+PLANJUS no puede llegar a Neuquén, a Salta, a Formosa, a Chaco — a cualquiera de las provincias con comunidades originarias significativas — con un protocolo diseñado exclusivamente desde la cosmovisión occidental y pretender que es universal. No lo es. Y si lo pretende, no es justicia — es colonialismo con otro nombre.
+
+**Marco de pluralismo jurídico:**
+
+**1. Conflictos intracomunitarios.** Los conflictos entre miembros de una misma comunidad indígena que sean regulados por sus normas consuetudinarias **no son competencia de PLANJUS** — son competencia de las instituciones de justicia propias de la comunidad, conforme el Art. 75 inc. 17 CN. PLANJUS respeta la autonomía jurisdiccional indígena. Solo interviene si una de las partes lo solicita expresamente y ambas consienten.
+
+**2. Conflictos interculturales.** Los conflictos entre miembros de comunidades indígenas y personas o instituciones no indígenas (disputas territoriales, conflictos ambientales, reclamos laborales, conflictos con empresas extractivas) **sí son competencia de PLANJUS** cuando alguna de las partes lo elige. Estos casos se resuelven con un protocolo intercultural específico:
+
+| Componente | Protocolo Intercultural |
+|---|---|
+| **Panel** | Al menos 1 panelista perteneciente a la comunidad indígena involucrada o a una comunidad del mismo pueblo (seleccionado del Pool Intercultural de ANJUS) |
+| **Idioma** | Audiencia bilingüe (castellano + lengua originaria) con intérprete certificado. Resolución emitida en ambos idiomas. |
+| **Evidencia** | Admisión de formas de prueba propias de la tradición oral indígena: testimonios de ancianos, memoria comunitaria, mapas culturales del territorio |
+| **Marco normativo** | El panel considera tanto la legislación argentina como los usos y costumbres de la comunidad, conforme el Art. 75 inc. 17 CN. Cuando entran en tensión, se aplica el principio *pro homine* — la norma que mejor protege el derecho de la persona. |
+| **Consulta previa** | Antes de resolver cualquier caso que afecte tierras comunitarias o recursos naturales de un pueblo indígena, el panel debe acreditar que se realizó la consulta previa establecida por el Convenio 169 OIT. Si no se realizó, PLANJUS ordena la consulta como paso previo a la resolución. |
+| **Espacio** | En casos que involucren comunidades rurales, la audiencia puede realizarse en el territorio de la comunidad — no solo en la Casa JUS. La justicia va donde la gente está, y para muchas comunidades, la Casa JUS más cercana puede estar a horas de viaje. |
+
+**3. Disputas territoriales.** Los conflictos por tierras comunitarias indígenas son los más sensibles y los más urgentes. PLANJUS los clasifica como JUS-3 con panel reforzado (2 panelistas ciudadanos + 1 panelista indígena + 1 especialista en derecho indígena + 1 especialista en agrimensura/territorio). El plazo se extiende a 120 días para permitir la pericia territorial y la consulta comunitaria. Las medidas cautelares incluyen la suspensión inmediata de cualquier actividad (extractiva, constructiva, agrícola) que afecte el territorio en disputa mientras se resuelve el caso.
+
+**4. El Piloto de Neuquén y el pueblo Mapuche.** Neuquén es provincia piloto de PLANJUS y hogar de una de las comunidades Mapuche más organizadas del país. El protocolo intercultural se co-diseña con las organizaciones Mapuche durante la Fase 0, no se les impone después. La consulta comienza antes de que se abra la primera Casa JUS en territorio Mapuche. Los formadores de panelistas interculturales incluyen referentes comunitarios Mapuche. Esto no es decoración multicultural — es requisito constitucional (Art. 75 inc. 17) e internacional (Convenio 169 OIT, Art. 6).
 
 ---
 
@@ -735,6 +1044,38 @@ PLANJUS no requiere reforma constitucional para su lanzamiento — se basa en la
 
 La ruta: reforma constitucional vía Congreso (Art. 30 de la Constitución) una vez que PLANJUS haya demostrado resultados durante 7–10 años y cuente con apoyo popular masivo.
 
+### 13.4 Naturaleza Jurídica de las Resoluciones PLANJUS y Revisión Judicial
+
+Este es el punto donde la elegancia constitucional de PLANJUS se juega. Si las resoluciones de PLANJUS no pueden ser revisadas por el Poder Judicial, la Corte Suprema va a declarar todo inconstitucional (Art. 18 CN — debido proceso, Art. 8 CADH — garantías judiciales). Si pueden ser revisadas sin límite, cada caso resuelto en 15 días termina en un juzgado que tarda 5 años — y PLANJUS se convierte en un trámite previo, no en una solución.
+
+La solución: **revisión judicial limitada, acotada, y rápida**.
+
+**Naturaleza jurídica.** Las resoluciones de PLANJUS son actos jurisdiccionales *sui generis* — emitidos por paneles ciudadanos con competencia otorgada por la Ley de Justicia Popular, con fuerza ejecutoria equivalente a sentencia judicial. No son laudos arbitrales (porque PLANJUS no es un arbitraje privado — es un sistema público con financiamiento estatal y jurisdicción legal). No son actos administrativos (porque PLANJUS no es la administración pública — es un sistema de justicia paralelo). Son una categoría nueva, creada por ley, con su propio régimen.
+
+**El recurso de revisión JUS.** Contra toda resolución firme de PLANJUS (después de agotada la instancia de apelación interna), cualquier parte puede interponer un **recurso de revisión** ante el Poder Judicial. Pero el recurso es extremadamente acotado:
+
+**TABLA 9B: Recurso de Revisión JUS — Causales Taxativas**
+
+| Causal | Descripción | Ejemplo |
+|---|---|---|
+| Violación constitucional | La resolución viola un derecho o garantía constitucional que el piso de derechos no detectó | Resolución que discrimina por género en un caso de custodia |
+| Vicio grave de procedimiento | Una salvaguarda procedimental fue violada de manera que afectó el resultado | Panelista con conflicto de interés no detectado; evidencia clave excluida sin justificación |
+| Exceso de jurisdicción | PLANJUS resolvió un caso fuera de su competencia | Caso penal resuelto como civil; caso que excede el monto de jurisdicción |
+
+Tres causales. Solo tres. No hay apelación "porque no estoy de acuerdo con el resultado." No hay revisión del mérito. No hay re-evaluación de la evidencia. El juez que revisa no se pregunta "¿yo habría decidido igual?" Se pregunta solamente: "¿hubo un vicio constitucional, procedimental, o de competencia?"
+
+**Procedimiento del recurso:**
+- **Plazo de interposición:** 30 días corridos desde la notificación de la resolución firme de PLANJUS
+- **Tribunal competente:** Juzgado de primera instancia con competencia en la materia, del domicilio del recurrente
+- **Caución:** El recurrente deposita una caución equivalente al 10% del monto del caso (o un monto fijo para casos no patrimoniales). Si el recurso es rechazado, la caución se pierde a favor de la otra parte. Esto desincentiva los recursos dilatorios sin impedir los legítimos.
+- **Resolución:** El tribunal tiene 60 días para resolver. Si no resuelve en 60 días, se entiende confirmada la resolución PLANJUS (silencio positivo — la inacción del Poder Judicial no puede bloquear a PLANJUS).
+- **Alcance de la revisión:** Limitada al expediente PLANJUS. No se admite nueva prueba, no se repite la audiencia. Revisión sobre el acta.
+- **Efecto:** El recurso no suspende la ejecución de la resolución PLANJUS, salvo que el tribunal disponga expresamente la suspensión por peligro de daño irreparable (y esto requiere depósito de contragarantía).
+
+**Recurso extraordinario ante la Corte Suprema.** La Corte Suprema retiene jurisdicción constitucional plena (Art. 14 Ley 48). Puede revisar cualquier resolución PLANJUS por cuestión federal. Pero esto ya es así para cualquier resolución de cualquier tribunal del país — no es una debilidad de PLANJUS, es la arquitectura constitucional argentina. Lo que PLANJUS garantiza es que el camino hasta la Corte no sea un laberinto: el recurso extraordinario se interpone directamente contra la resolución del juzgado que revisó, no contra la resolución PLANJUS (que ya fue revisada).
+
+La clave: la revisión judicial limitada no viola el debido proceso — lo cumple. El Art. 8 CADH exige un "recurso efectivo" ante los tribunales, no una revisión ilimitada. La Corte IDH ha sostenido que los mecanismos alternativos de resolución de conflictos son compatibles con la Convención cuando ofrecen garantías procesales adecuadas y acceso a revisión judicial en caso de violación de derechos. PLANJUS ofrece ambas cosas.
+
 ---
 
 ## SECCIÓN 14: MARCO PRESUPUESTARIO Y ROI — QUÉ CUESTA Y QUÉ DEVUELVE
@@ -792,6 +1133,52 @@ PLANJUS propone invertir USD 300–600M/año en su primera fase — menos del 5%
 | Beneficio económico directo (10 años) | USD 25.000–45.000M (resolución comercial + inversión + formalización + ahorro estatal) |
 | **ROI directo** | **6:1 a 10:1** |
 | Beneficio indirecto (confianza institucional, cohesión social, reducción de violencia) | Incalculable |
+
+### 14.4 Análisis de Sensibilidad — Qué Pasa Si las Cosas No Salen Perfectas
+
+Los números de arriba son el escenario base. Pero ningún plan sobrevive intacto al contacto con la realidad. ¿Qué pasa si la adopción es más lenta? ¿Si los costos se disparan? ¿Si el contexto macroeconómico argentino (inflación, devaluación, crisis fiscal) ataca las proyecciones?
+
+**TABLA 10B: Análisis de Sensibilidad — Tres Escenarios**
+
+| Variable | Escenario Pesimista | Escenario Base | Escenario Optimista |
+|---|---|---|---|
+| Adopción ciudadana (Año 5) | 30% de conflictos en PLANJUS | 50% | 70% |
+| Casos resueltos/año (Año 5) | 2.000.000 | 5.000.000 | 8.000.000 |
+| Costo total (10 años) | USD 6.500M (+50% sobrecosto) | USD 4.500M | USD 3.300M (eficiencia por escala) |
+| Beneficio económico directo (10 años) | USD 12.000M | USD 35.000M | USD 50.000M |
+| **ROI** | **1,8:1** | **7,8:1** | **15:1** |
+| Breakeven (año) | Año 6 | Año 3 | Año 2 |
+
+**Lectura del escenario pesimista:** Incluso si la adopción es la mitad de lo esperado, los costos se desbordan un 50%, y los beneficios se reducen a un tercio del base — PLANJUS todavía genera un ROI positivo de 1,8:1. Pierde dinero en los primeros 5 años, alcanza el breakeven en el año 6, y genera retorno neto positivo en la segunda mitad de la década. No es un desastre — es un programa público con retorno moderado en un escenario adverso. Comparado con el sistema actual (que cuesta USD 9.300–11.200M/año y genera <20% de confianza), incluso el escenario pesimista de PLANJUS es mejor.
+
+**Variables de estrés para Argentina:**
+- **Inflación:** Todos los costos están denominados en USD constantes. En la implementación real, los contratos se indexan por un mix de IPC + USD para proteger contra la volatilidad cambiaria argentina. La compensación de panelistas se ajusta trimestralmente.
+- **Crisis fiscal:** Si el Estado recorta presupuesto, el piso constitucional de ANJUS (1% del presupuesto nacional) protege el mínimo operativo. En escenario extremo, PLANJUS puede operar al 60% de capacidad con el piso presupuestario + co-financiamiento del sector privado.
+- **Devaluación abrupta:** Los costos en pesos (salarios, operación de Casas JUS) bajan en USD mientras los costos en USD (plataforma digital, equipamiento) suben. El efecto neto es modesto porque ~70% de los costos de PLANJUS son en pesos (panelistas, personal, operación).
+
+**Comparación con reformas anteriores:**
+
+| Reforma | Costo Estimado | Resultado | ROI Real |
+|---|---|---|---|
+| Plan Justicia 2020 | ~USD 200M (estimado, parcial) | Impacto imperceptible en experiencia ciudadana | Negativo |
+| Código Procesal Penal Federal (implementación) | ~USD 500M (estimado, parcial) | Implementación fragmentaria, más de una década | Negativo |
+| Expediente digital judicial (post-COVID) | ~USD 300M (estimado) | Implementación desigual, juzgados volvieron al papel | Negativo |
+| **PLANJUS (escenario pesimista)** | **USD 6.500M** | **2M de casos/año resueltos en semanas** | **1,8:1 positivo** |
+
+La conclusión es ineludible: las reformas anteriores costaron menos y produjeron nada. PLANJUS cuesta más y produce resultados medibles. El riesgo no es invertir en PLANJUS. El riesgo es seguir invirtiendo en un sistema que no funciona.
+
+### 14.5 Metodología de Evaluación Rigurosa
+
+Los KPIs de las Secciones 15 y 16 miden el desempeño de PLANJUS. Pero medir desempeño no es lo mismo que demostrar impacto causal. Para que PLANJUS pueda afirmar "funcionamos mejor que el sistema viejo," necesita evidencia que resista el escrutinio académico y la crítica del establishment.
+
+**Diseño cuasi-experimental de evaluación:**
+
+La imposibilidad de un RCT puro (no se puede asignar aleatoriamente a ciudadanos a PLANJUS vs. sistema viejo) se compensa con:
+
+1. **Diferencia-en-diferencias.** Comparación entre provincias piloto (con PLANJUS) y provincias similares sin PLANJUS durante los Años 1–3. Si la satisfacción ciudadana sube 30 puntos en las piloto y no se mueve en las de control, el efecto es atribuible a PLANJUS.
+2. **Regression discontinuity.** En la frontera de jurisdicción de las provincias piloto (barrios limítrofes entre provincia con y sin PLANJUS), comparación de resultados para casos similares.
+3. **Panel longitudinal.** Seguimiento de 10.000 usuarios de PLANJUS y 10.000 litigantes del sistema tradicional (casos similares, mismas provincias) durante 5 años: satisfacción, cumplimiento, costo, tiempo, impacto en calidad de vida.
+4. **Evaluación independiente.** El consorcio de universidades (distinto al que diseña el piso de derechos) publica evaluaciones semestrales con datos abiertos. ANJUS no controla la evaluación — la financia y la publica, pero no la edita.
 
 ---
 
@@ -1083,8 +1470,938 @@ Y cuando la Argentina complete la transición que los otros cuatro mandatos de B
 
 ---
 
+## SECCIÓN 22: PROTOCOLO DE EJECUCIÓN — CÓMO SE HACE CUMPLIR
+
+> *"Una sentencia sin ejecución es una carta de amor que nunca mandaste. Puede ser hermosa. Puede tener razón. Pero no cambia nada."*
+
+### 22.1 La Verdad Que Nadie Dice
+
+Hay un secreto sucio en los sistemas de justicia de todo el mundo — y en la Argentina es un secreto a gritos: **la resolución no es la justicia. La ejecución es la justicia.** Podés tener el panel más brillante, el proceso más rápido, la decisión más sabia — y si la otra parte se cruza de brazos y dice "no pago", ¿qué tenés? Un papel. Otro papel más. Papel es lo que sobra en la justicia argentina. Lo que falta es que el papel se convierta en hechos.
+
+El sistema judicial actual tiene este problema calcificado hasta los huesos. Una sentencia laboral firme tarda en promedio 18 a 36 meses *adicionales* en ejecutarse — después de los 3 a 5 años que tardó el juicio. Eso significa que Marta, si gana, espera entre cinco y ocho años desde que la echaron hasta que ve un peso. Ocho años. Su hija más chica ya va a estar en la secundaria para cuando Marta cobre lo que le robaron cuando la nena tenía tres.
+
+PLANJUS no puede repetir esta enfermedad. Si construimos un sistema que resuelve en 15 días pero no puede hacer cumplir en 15 más, lo único que hicimos fue producir papel más rápido. PLANJUS necesita dientes. No los dientes de un tiburón — los dientes de un sistema diseñado para que morder sea innecesario, pero que cuando muerde, muerde de verdad.
+
+Esta sección es la mordida.
+
+### 22.2 Oficina de Ejecución JUS (OEJ)
+
+La ANJUS tiene brazos — las Casas JUS, la plataforma digital, los paneles ciudadanos. Pero le faltaba un puño. La **Oficina de Ejecución JUS (OEJ)** es ese puño.
+
+La OEJ no es policía. No porta armas. No irrumpe en domicilios. No arresta a nadie. La OEJ es un cuerpo especializado de ejecución civil — funcionarios formados en mecanismos de cumplimiento forzoso, coordinación interbancaria, retención patrimonial, y seguimiento de obligaciones. Son los que convierten la resolución en realidad.
+
+**Estructura de la OEJ:**
+
+| Componente | Función | Dotación estimada |
+|---|---|---|
+| **Coordinación Nacional** | Diseño de protocolos, relación con BCRA/AFIP/Registros, estadísticas, supervisión | 50 profesionales (Buenos Aires) |
+| **Oficinas Provinciales** | Ejecución directa en cada jurisdicción, coordinación con Casas JUS | 15–30 por provincia (total: ~500) |
+| **Unidad Digital** | Ejecución automatizada de retenciones, anotaciones registrales, notificaciones electrónicas | 80 profesionales + infraestructura IT |
+| **Unidad de Emergencia** | Ejecución inmediata de medidas protectoras (violencia de género, protección de menores) | 100 agentes con capacitación en crisis |
+| **TOTAL** | | ~730 funcionarios a nivel nacional |
+
+La OEJ responde exclusivamente a la ANJUS — no al Poder Ejecutivo, no al Poder Judicial, no a ningún gobernador. Su financiamiento está protegido por la misma estructura de autarquía que protege a toda la ANJUS. Un funcionario de la OEJ que recibe una orden de un político de no ejecutar contra una empresa amiga tiene la obligación legal de denunciarlo, y la ANJUS tiene la obligación institucional de publicar la denuncia.
+
+### 22.3 La Escalera de Cumplimiento — Cinco Peldaños, Un Solo Destino
+
+Toda resolución firme de PLANJUS activa automáticamente la Escalera de Cumplimiento. No es un proceso discrecional — es un protocolo que corre como un reloj. La parte obligada sabe desde el momento en que recibe la resolución exactamente qué le pasa si no cumple, y cuándo.
+
+**TABLA 13: Escalera de Cumplimiento — Los Cinco Peldaños**
+
+| Peldaño | Plazo | Mecanismo | Quién Actúa | Costo para el Incumplidor |
+|---|---|---|---|---|
+| **1. Notificación + Cumplimiento Voluntario** | 5 días hábiles desde la resolución firme | Notificación electrónica certificada + SMS + carta documento si es necesario. Se informa la resolución, el plazo, y las consecuencias exactas de cada peldaño. | Sistema automatizado + Casa JUS | Cero — cumplir en Peldaño 1 no genera costos adicionales |
+| **2. Mediación de Cumplimiento** | Días 6–15 | Un facilitador de la OEJ contacta a ambas partes y construye un plan de cumplimiento: plazos realistas, forma de pago, cronograma verificable. No es renegociar la resolución — es facilitar su ejecución. | Facilitador OEJ | Costo administrativo mínimo (~1 UMA) |
+| **3. Medidas Coercitivas Patrimoniales** | A partir del día 16 | Retención bancaria vía BCRA, retención salarial vía AFIP/empleador, anotación de litis en Registro de la Propiedad, inhibición general de bienes, anotación en Registro Público de Comercio | OEJ + BCRA + AFIP + Registros | Costos de ejecución + intereses compensatorios |
+| **4. Sanciones por Contumacia** | A partir del día 31 | Astreintes progresivas (multas diarias que se duplican cada 15 días), inscripción en el Registro Nacional de Incumplimiento JUS, notificación a cámaras comerciales, impacto en scoring crediticio | OEJ + ANJUS + BCRA (Central de Deudores) | Astreintes desde 1 UMA/día hasta 50 UMA/día + daño reputacional permanente |
+| **5. Derivación Judicial para Ejecución Física** | A partir del día 46 | Solicitud a juez de ejecución para embargo ejecutivo, allanamiento, secuestro de bienes, subasta. El único peldaño donde PLANJUS necesita al sistema judicial tradicional. | OEJ solicita → Juez de ejecución ordena → Fuerzas de seguridad ejecutan | Todos los costos anteriores + costas judiciales + honorarios de ejecución |
+
+La Escalera no es opcional — es automática. La parte obligada no puede "elegir" quedarse en el Peldaño 2 para siempre. Los plazos corren. Las consecuencias se acumulan. Y cada peldaño es peor que el anterior.
+
+**La genialidad del diseño:** El Peldaño 5 es deliberadamente aterrador. Embargo ejecutivo. Subasta de bienes. Publicación del nombre. Destrucción de la reputación comercial. Nadie quiere llegar al Peldaño 5. Y esa es exactamente la idea. La Escalera de Cumplimiento funciona por la misma lógica que hace funcionar al triple candado anticorrupción: **no necesitás que la sanción se aplique si la amenaza de la sanción es suficiente para cambiar la conducta.** La teoría de juegos es simple — cumplir en el Peldaño 1 cuesta cero; no cumplir cuesta, acumulativamente, mucho más que lo que se debía pagar. El incumplimiento es económicamente irracional. Y cuando diseñás un sistema donde el incumplimiento es irracional, la mayoría cumple.
+
+### 22.4 Herramientas de Ejecución por Tipo de Caso
+
+No todos los casos se ejecutan igual. La herramienta depende del tipo de obligación.
+
+**TABLA 14: Herramientas de Ejecución por Tipo de Caso**
+
+| Tipo de Caso | Obligación Típica | Herramientas Principales | Herramientas Secundarias | Plazo Estimado de Ejecución Completa |
+|---|---|---|---|---|
+| **Consumidor (JUS-1)** | Restitución de dinero, reemplazo de producto, reparación de servicio | Retención bancaria automática (montos bajos), débito directo desde cuenta del proveedor | Anotación en Registro de Incumplimiento, impacto en scoring | 5–15 días |
+| **Laboral (JUS-2)** | Pago de haberes adeudados, indemnización, reinstalación | Retención salarial vía AFIP al empleador, retención bancaria, embargo de cuentas comerciales | Astreintes, anotación en Registro, inhabilitación para contratar con el Estado | 15–30 días |
+| **Comercial (JUS-2/3)** | Cumplimiento de contrato, indemnización por incumplimiento, restitución de bienes | Retención bancaria, anotación en Registro de Comercio, inhibición general de bienes | Astreintes progresivas, publicación en Registro, embargo ejecutivo | 15–45 días |
+| **Familia (JUS-3)** | Cuota alimentaria, régimen de comunicación, división de bienes | Retención automática del ingreso del alimentante vía AFIP, débito bancario directo | Registro de Deudores Alimentarios (provincial + PLANJUS), restricción de salida del país, astreintes | 5–20 días (alimentaria: inmediato) |
+| **Administrativo (JUS-2/3)** | Cumplimiento de obligación estatal, restitución de derechos, cese de acto lesivo | Mandamiento directo a la administración, retención presupuestaria, responsabilidad personal del funcionario | Astreintes al funcionario responsable, publicación, denuncia penal por incumplimiento de deberes | 15–45 días |
+
+### 22.5 Ejecución Interprovincial — Una Resolución, Un País
+
+Uno de los vicios más corrosivos del sistema actual es que una sentencia de un juzgado de Córdoba necesita un *exhorto* para ejecutarse en Buenos Aires — un trámite burocrático que puede tardar meses. Es como si tu DNI dejara de ser válido cuando cruzás de provincia. Es absurdo. Es medieval. Es funcional a la impunidad.
+
+En PLANJUS, una resolución firme de cualquier Casa JUS del país es ejecutable en cualquier otra provincia sin trámite adicional. El mecanismo:
+
+- **Plataforma nacional unificada:** La OEJ opera sobre un sistema informático nacional. Una resolución cargada en Formosa es visible y ejecutable desde Ushuaia en tiempo real.
+- **Convenio de Ejecución Recíproca PLANJUS:** Las 24 provincias que adhieren a PLANJUS firman un convenio de ejecución recíproca automática — análogo al Convenio de Comunicaciones Judiciales pero sin la burocracia. La resolución se ejecuta; no se "exhorta."
+- **Coordinación OEJ:** Si la parte obligada tiene bienes en Mendoza pero la resolución se dictó en Tucumán, la Oficina Provincial de Mendoza ejecuta directamente, con instrucción de la Oficina de Tucumán. Sin intermediarios. Sin papel. Sin demoras.
+- **Registro Nacional Unificado de Bienes:** La OEJ tiene acceso integrado a los registros de propiedad inmueble, automotor, embarcaciones, aeronaves, y comercio de todas las provincias — vía convenios con cada Registro. Un solo sistema para trazar todos los bienes del incumplidor en todo el territorio.
+
+### 22.6 Ejecución de Emergencia — Cuando No Hay Tiempo para Escaleras
+
+Hay casos donde la Escalera de Cumplimiento es un lujo que no se puede permitir. Una mujer con una medida de protección por violencia de género no puede esperar cinco días a que su agresor cumpla voluntariamente. Un menor en situación de riesgo no puede esperar quince días de mediación de cumplimiento. Un trabajador despedido en represalia por denunciar condiciones insalubres no puede esperar un mes para que le restituyan el puesto.
+
+Para estos casos, PLANJUS establece el **Protocolo de Ejecución de Emergencia (PEE):**
+
+- **Activación inmediata:** La resolución de emergencia se ejecuta dentro de las 24 horas siguientes a su emisión. No hay Peldaño 1, no hay período de cumplimiento voluntario. Se ejecuta.
+- **Coordinación directa con Fuerzas de Seguridad:** La OEJ tiene un canal permanente con las fuerzas de seguridad provinciales y federales para la ejecución de medidas protectoras. El protocolo está preestablecido — no hay que inventar nada en el momento de la crisis.
+- **Dispositivos de botón antipánico integrados:** La plataforma PLANJUS emite dispositivos de alerta conectados a la OEJ y a las fuerzas de seguridad para las víctimas con medidas de protección activas.
+- **Responsabilidad personal:** Si una medida de emergencia no se ejecuta en plazo por negligencia de un funcionario de la OEJ o de las fuerzas de seguridad, ese funcionario es personalmente responsable — civil y penalmente.
+
+**Casos cubiertos por el PEE:**
+
+| Tipo de Emergencia | Medida | Plazo de Ejecución | Coordinación |
+|---|---|---|---|
+| Violencia de género | Exclusión del agresor del hogar, perímetro de restricción, botón antipánico | < 24 horas | OEJ + Fuerzas de Seguridad + Línea 144 |
+| Protección de menores | Guarda provisoria, suspensión de contacto, intervención de equipo interdisciplinario | < 24 horas | OEJ + Servicio de Protección de Derechos + Fuerzas de Seguridad |
+| Riesgo de vida laboral | Clausura preventiva del establecimiento, restitución inmediata del trabajador | < 48 horas | OEJ + Superintendencia de Riesgos del Trabajo + Fuerzas de Seguridad |
+| Despojo de vivienda | Restitución inmediata del inmueble, prohibición de acceso al despojante | < 48 horas | OEJ + Fuerzas de Seguridad |
+| Corte de servicios esenciales como represalia | Reconexión inmediata del servicio | < 24 horas | OEJ + Ente regulador correspondiente |
+
+El PEE es la prueba de que PLANJUS no juega. Cuando la vida de alguien está en riesgo, la Escalera de Cumplimiento se convierte en un ascensor directo al Peldaño 5. Sin escalas. Sin contemplaciones.
+
+### 22.7 Registro Nacional de Incumplimiento JUS (RENIJ)
+
+El dinero duele. Pero la reputación duele más.
+
+El **Registro Nacional de Incumplimiento JUS (RENIJ)** es una base de datos pública — consultable por cualquier ciudadano, cualquier empresa, cualquier organismo estatal — que registra a toda persona física o jurídica que haya incumplido una resolución firme de PLANJUS y haya alcanzado el Peldaño 4 de la Escalera de Cumplimiento.
+
+**Efectos de la inscripción en el RENIJ:**
+
+| Efecto | Mecanismo | Duración |
+|---|---|---|
+| **Impacto crediticio** | Comunicación a la Central de Deudores del BCRA. Las entidades financieras ven al incumplidor como deudor moroso de obligación civil firme. Afecta capacidad de crédito. | Hasta el cumplimiento total + 2 años |
+| **Inhabilitación para contratar con el Estado** | Toda persona o empresa inscripta en el RENIJ queda inhabilitada para contratos públicos, licitaciones, subsidios, y beneficios fiscales | Hasta el cumplimiento total + 1 año |
+| **Anotación en Registro Público de Comercio** | Se inscribe la medida en el legajo de la sociedad, visible para socios, inversores, y contrapartes comerciales | Hasta el cumplimiento total |
+| **Publicidad** | El RENIJ es consultable online, con buscador por nombre/CUIT. Cualquiera puede verificar si una empresa o persona cumple sus obligaciones JUS | Hasta el cumplimiento total + 2 años |
+| **Notificación a cámaras y asociaciones** | Si la parte inscripta pertenece a una cámara empresarial, la OEJ notifica a la cámara | Inmediata |
+
+El RENIJ es el equivalente civil de los antecedentes penales — pero para la vida comercial y contractual. Una empresa que aparece en el RENIJ pierde contratos. Un comerciante que aparece en el RENIJ pierde clientes. Un profesional que aparece en el RENIJ pierde reputación. Y todo esto se limpia con una sola acción: **cumplir con la resolución.**
+
+El RENIJ opera como un incentivo negativo permanente. La amenaza de inscripción es, en muchos casos, más poderosa que la retención bancaria — porque la retención afecta la cuenta, pero el RENIJ afecta la vida comercial entera. Un empresario puede sobrevivir a que le retengan fondos de una cuenta. No puede sobrevivir a que todos sus proveedores, clientes, y socios sepan que no cumple sus obligaciones civiles.
+
+### 22.8 Ejecución Internacional — Las Resoluciones de PLANJUS Cruzan Fronteras
+
+En una economía globalizada, los conflictos no respetan fronteras. Una empresa uruguaya que le debe a un proveedor argentino. Un empleador brasileño que viola derechos laborales de un trabajador argentino en una sucursal de Córdoba. Un consumidor que compró un producto defectuoso a una empresa chilena por internet.
+
+PLANJUS estructura sus resoluciones para maximizar su ejecutabilidad internacional:
+
+- **Resoluciones como laudos arbitrales:** Las resoluciones de JUS-2 y JUS-3, cuando involucran partes de distintos países, se estructuran como laudos arbitrales bajo la Convención de Nueva York de 1958 (ratificada por Argentina y por 172 países). Esto les da un marco de reconocimiento internacional que una sentencia judicial doméstica no tiene — porque la Convención de Nueva York es el instrumento más exitoso de ejecución transfronteriza que existe.
+- **Cooperación Mercosur:** Para conflictos intra-Mercosur (Argentina, Brasil, Uruguay, Paraguay), PLANJUS opera bajo el Protocolo de Las Leñas y el Protocolo de Buenos Aires sobre Jurisdicción Internacional — con un canal de ejecución acelerado entre las agencias de justicia popular de los países del bloque (cuando existan) o los tribunales nacionales.
+- **Acuerdos bilaterales de ejecución recíproca:** La ANJUS negocia acuerdos con los organismos de justicia de los países con mayor volumen de comercio bilateral (Brasil, Chile, Uruguay, Paraguay, Estados Unidos, China, UE) para el reconocimiento expedito de resoluciones PLANJUS.
+- **Cláusulas PLANJUS en contratos internacionales:** A medida que PLANJUS gana prestigio, las empresas argentinas incluyen cláusulas de resolución PLANJUS en sus contratos internacionales — de la misma manera que hoy se incluyen cláusulas de arbitraje CCI o CIADI. PLANJUS se convierte en un foro atractivo: más rápido, más barato, igualmente ejecutable.
+
+### 22.9 Métricas de Ejecución — Lo Que Se Mide, Se Cumple
+
+La OEJ no opera en la oscuridad. Cada acción de ejecución se mide, se publica, y se evalúa. El pueblo tiene derecho a saber no solo cuántos casos se resuelven, sino cuántos se cumplen efectivamente.
+
+**TABLA 15: KPIs de Ejecución — Metas y Seguimiento**
+
+| Indicador | Meta Año 1 | Meta Año 3 | Meta Año 7 | Referencia Internacional |
+|---|---|---|---|---|
+| **Tasa de cumplimiento voluntario (Peldaño 1)** | >70% | >80% | >85% | Tribunales de consumo de Singapur: ~82% |
+| **Tasa de cumplimiento acumulado (Peldaños 1+2)** | >85% | >90% | >93% | Mediación obligatoria Italia: ~88% |
+| **Tasa de cumplimiento acumulado (Peldaños 1+2+3)** | >93% | >96% | >98% | Ejecución civil Países Bajos: ~95% |
+| **Casos que llegan al Peldaño 5** | <3% | <2% | <1% | El sistema funciona si casi nadie llega al final |
+| **Tiempo promedio hasta cumplimiento total** | <25 días | <20 días | <15 días | Resolución + ejecución en menos de un mes |
+| **Ejecución de medidas de emergencia en plazo** | >95% | >98% | >99% | Tolerancia cero para fallas en protección |
+| **Monto total recuperado / Monto total ordenado** | >85% | >92% | >96% | Se recupera casi todo lo que se ordena |
+| **Satisfacción del acreedor con el proceso de ejecución** | >65% | >75% | >85% | Encuesta post-ejecución |
+
+Estos números se publican en el Tablero Nacional de Justicia — en tiempo real, desagregados por provincia, por tipo de caso, por peldaño. Si una provincia tiene una tasa de cumplimiento voluntario del 50% cuando la media nacional es del 80%, algo está pasando en esa provincia — y la ANJUS tiene la obligación de investigar, intervenir, y corregir.
+
+La transparencia de las métricas de ejecución produce un efecto secundario poderoso: **el efecto demostración.** Cuando los potenciales incumplidores ven que el 96% de los casos se cobran, que el RENIJ destruye reputaciones, que las retenciones bancarias se ejecutan en horas — la decisión de cumplir en el Peldaño 1 se vuelve obvia. El sistema no necesita ser punitivo si es *creíble*. Y la credibilidad se construye con datos publicados, no con amenazas vacías.
+
+### 22.10 La Filosofía del Puño Cerrado
+
+El sistema judicial argentino tiene una mano que no puede cerrar. Dicta sentencias que no puede ejecutar. Ordena pagos que nadie cobra. Impone sanciones que nunca se materializan. Es una mano abierta — impotente, expuesta, inofensiva. Y todos lo saben. El deudor lo sabe. El empleador abusivo lo sabe. El ex marido que no paga la cuota lo sabe. Saben que la justicia ladra pero no muerde. Y actúan en consecuencia.
+
+PLANJUS cierra esa mano.
+
+No con violencia — con arquitectura. La Escalera de Cumplimiento es automática, no discrecional. Las retenciones bancarias son electrónicas, no dependen de un oficial de justicia que "no encontró" al deudor. El RENIJ es público, no negociable. Las astreintes se duplican cada quince días, no se olvidan en un cajón. Y al final de la Escalera — solo al final, solo cuando todo lo demás falló — está el brazo ejecutor del Estado, con su embargo, su allanamiento, y su subasta.
+
+La inmensa mayoría de la gente no necesita que la amenacen para cumplir sus obligaciones. Necesita saber que el sistema va en serio. Que el papel tiene fuerza. Que la resolución no es un consejo — es un mandato. La Escalera de Cumplimiento le dice a cada parte en cada caso: *cumplí en cinco días y esto termina bien para todos. No cumplas, y cada día que pase va a ser peor que el anterior. No porque queramos castigarte — porque el sistema está diseñado para que no cumplir sea la peor decisión económica que puedas tomar.*
+
+La misma teoría de juegos que hace que la corrupción sea irracional en el triple candado anticorrupción hace que el incumplimiento sea irracional en la Escalera de Cumplimiento. Diseñás los incentivos. Publicás las consecuencias. Ejecutás sin excepción. Y el comportamiento cambia — no porque las personas sean buenas o malas, sino porque son racionales.
+
+PLANJUS no confía en la bondad humana. Confía en la racionalidad humana. Y diseña el sistema para que la racionalidad y la justicia apunten en la misma dirección.
+
+---
+
+## SECCIÓN 23: INFRAESTRUCTURA FINANCIERA — CÓMO SE MUEVE EL DINERO
+
+> *"Si querés saber si un sistema de justicia funciona, no mires la ley. Mirá la plata. Si la plata fluye hacia donde tiene que fluir — hacia los panelistas, hacia las víctimas, hacia la operación — el sistema funciona. Si la plata se atasca, se desvía, o se evapora, no tenés un sistema de justicia. Tenés un mecanismo de extracción con toga."*
+
+### 23.1 El Principio: Cada Peso Rastreable, Cada Flujo Publicado
+
+PLANJUS maneja plata. Plata del presupuesto público para operar. Plata de las partes en litigio para restituir. Plata de los panelistas que cobran por su servicio. Plata de las astreintes que se recaudan. Plata de las tasas que se cobran en casos comerciales. Y cada peso — cada centavo — tiene que ser rastreable, auditable, y publicado en tiempo real.
+
+No es una aspiración. Es una obligación arquitectónica. PLANJUS aplica el mismo principio de transparencia radical que el Protocolo Bastardo de PLANEB: la opacidad financiera es la madre de la corrupción, y la transparencia financiera es el anticuerpo más potente. Si todo el mundo puede ver cómo se mueve la plata, nadie puede robarla sin que alguien se dé cuenta. Y en un sistema donde la denuncia se resuelve en 30 días y la sanción se ejecuta en 15, robar es suicidio profesional.
+
+### 23.2 Billetera JUS — El Bolsillo Digital del Panelista
+
+Los panelistas de PLANJUS no son funcionarios públicos con sueldo fijo depositado el día 5 de cada mes en un banco que el Estado elige. Son ciudadanos que prestan un servicio cívico y cobran de manera proporcional a lo que hacen. Para eso, PLANJUS crea la **Billetera JUS**: un monedero digital vinculado a la identidad verificada de cada panelista, operado sobre la infraestructura financiera de la ANJUS, y compatible con cualquier cuenta bancaria o billetera virtual del mercado (Mercado Pago, Ualá, Naranja X, o la que sea).
+
+**Modelo de compensación por nivel:**
+
+| Nivel | Modelo de Pago | Monto Base | Bonificaciones | Frecuencia de Cobro |
+|---|---|---|---|---|
+| **JUS-1** | Por caso resuelto | 1 UMA (Unidad de Medida Arancelaria) por caso (~equivalente a 1 jornada de salario mediano) | +20% si la evaluación de ambas partes supera 4/5; +10% adicional si el caso se cerró en menos de 10 días | Automático, dentro de las 48hs de cierre del caso |
+| **JUS-2** | Proporcional al tiempo de servicio | 1,5 UMA por jornada de dedicación (equivalente a salario de técnico calificado) | +25% por evaluación superior a 4/5; +15% por resolución antes del plazo máximo; +10% por acuerdo restaurativo exitoso | Quincenal |
+| **JUS-3** | Salario mensual durante el servicio | Equivalente a salario de profesional calificado (~percentil 75 del mercado) | +30% por evaluación destacada; bono semestral por consistencia (>90% de casos con evaluación >3.5/5) | Mensual |
+
+**Tratamiento fiscal:**
+
+- La compensación de panelistas JUS-1 está exenta de Impuesto a las Ganancias hasta 4 UMA/mes (equivalente a 4 casos/mes). Los panelistas que resuelven más casos tributan sobre el excedente como ingreso de trabajo independiente.
+- La compensación de panelistas JUS-2 y JUS-3 tributa como relación de dependencia transitoria — la ANJUS actúa como agente de retención de Ganancias, aportes jubilatorios, y obra social.
+- Los aportes jubilatorios durante el servicio como panelista se computan como meses de servicio con aportes completos — incentivo adicional para ciudadanos en situación de empleo informal o desempleo.
+
+**El flujo de pago es automático:** el panel cierra el caso → el sistema calcula la compensación base + bonificaciones → el monto se acredita en la Billetera JUS → el panelista lo transfiere a su cuenta bancaria cuando quiera, o lo usa directamente para pagos digitales. No hay intermediarios. No hay "ventanilla de habilitación." No hay nadie que pueda retrasar el cobro como presión política.
+
+### 23.3 Fondo de Restitución JUS (FREJUS)
+
+Este es el fondo que resuelve el problema más sangrante de la justicia argentina: **la víctima que gana el juicio pero no cobra.**
+
+El **Fondo de Restitución JUS (FREJUS)** es un fondo fiduciario administrado por la ANJUS, con cuentas segregadas por tipo de caso, cuyo propósito es garantizar que la parte acreedora cobre lo que se le debe — independientemente de los tiempos de ejecución contra el deudor.
+
+**Cómo funciona:**
+
+| Mecanismo | Descripción |
+|---|---|
+| **Escrow comercial** | En disputas comerciales, al iniciar el caso JUS-2/3, la plataforma puede solicitar al demandado un depósito cautelar en el FREJUS (entre el 20% y el 50% del monto reclamado, según la evaluación de riesgo de cumplimiento). Si el demandado gana, el depósito se devuelve con intereses. Si pierde, el depósito se aplica al pago inmediato. |
+| **Anticipo de restitución laboral** | En casos laborales donde la resolución ordena pago de haberes adeudados y el empleador no cumple en el Peldaño 1, el FREJUS adelanta al trabajador hasta el 70% del monto resuelto — y luego el FREJUS se subroga en el derecho del trabajador y ejecuta contra el empleador. El trabajador cobra rápido. El FREJUS cobra después. |
+| **Garantía alimentaria** | En casos de cuota alimentaria impaga, el FREJUS cubre la cuota desde el primer día de incumplimiento y ejecuta contra el alimentante. Los hijos no esperan. Nunca. |
+| **Fondo de víctimas de consumo** | Para casos de consumo donde el proveedor desaparece o quiebra, el FREJUS cubre la restitución hasta un tope (5 UMA por caso) con cargo al Subfondo de Consumo, financiado por las tasas que pagan las empresas en casos comerciales (ver 23.7). |
+
+**El FREJUS no es un regalo.** Es un anticipo. Todo peso que el FREJUS adelanta a un acreedor se recupera del deudor — con intereses y costos de ejecución. El FREJUS se subroga en los derechos del acreedor y ejecuta con la misma Escalera de Cumplimiento de la Sección 22. La diferencia es que la víctima ya cobró. El sistema le pelea al deudor — no la víctima.
+
+**Capitalización del FREJUS:**
+
+| Fuente | Aporte Estimado Anual | Participación |
+|---|---|---|
+| Presupuesto ANJUS (asignación directa) | USD 50–100M | 40% |
+| Tasas de casos comerciales (ver 23.7) | USD 30–60M | 25% |
+| Recupero de anticipos (subrogación) | USD 20–50M (creciente) | 20% |
+| Astreintes recaudadas por la OEJ | USD 10–25M | 10% |
+| Rendimiento financiero del fondo | USD 5–15M | 5% |
+| **TOTAL estimado** | **USD 115–250M/año** | **100%** |
+
+### 23.4 Integración con el Sistema Financiero — BCRA, AFIP, y los Bancos
+
+PLANJUS no opera en una isla. Para que la ejecución funcione, para que las retenciones se hagan, para que los panelistas cobren, para que el FREJUS opere — necesita hablar con el sistema financiero. Y necesita que el sistema financiero le responda.
+
+**Convenios operativos:**
+
+| Entidad | Función en PLANJUS | Mecanismo |
+|---|---|---|
+| **BCRA** | Retención de fondos en cuentas bancarias por orden de la OEJ; reporte a la Central de Deudores; coordinación para el RENIJ | Convenio BCRA-ANJUS con protocolo de comunicación electrónica directa. Tiempo de ejecución de retención: <24 horas desde la orden |
+| **AFIP** | Retención de haberes del empleador para pago de deudas laborales; identificación patrimonial del deudor (CUIT, bienes registrados, declaraciones juradas) | Convenio AFIP-ANJUS. Acceso a la base de contribuyentes con fines de ejecución civil. Retención automática sobre sueldos depositados |
+| **Bancos comerciales** | Ejecución de retenciones ordenadas vía BCRA; depósito de fondos del FREJUS; operación de la Billetera JUS | Circular BCRA obligatoria para todos los bancos del sistema. Multa por demora en ejecución de retención |
+| **Registros de la Propiedad (provinciales)** | Anotación de medidas cautelares, inhibiciones, embargos | Convenio ANJUS + cada Registro Provincial. Interoperabilidad digital (meta: anotación electrónica en <48 horas) |
+| **ANSES** | Identificación de beneficiarios de prestaciones sociales para fines de acceso a PLANJUS; coordinación de aportes previsionales de panelistas | Convenio ANJUS-ANSES. Datos compartidos con restricciones de privacidad |
+
+La integración no es negociable. Sin ella, PLANJUS es un sistema que dicta resoluciones que no puede ejecutar — es decir, el sistema viejo con otro nombre. La ANJUS tiene el mandato legal de celebrar estos convenios, y la Ley de Justicia Popular les da fuerza vinculante. Si un banco demora una retención, la OEJ informa al BCRA y el BCRA sanciona. Si AFIP no coopera, la ANJUS eleva al Poder Ejecutivo. La cadena de responsabilidad es clara y pública.
+
+### 23.5 Transparencia Presupuestaria — El Dashboard del Dinero
+
+Todo el dinero que entra y sale de PLANJUS está publicado en un dashboard financiero de acceso público — actualizado diariamente, desagregado por categoría, por provincia, por mes. No existe "información reservada" en las finanzas de PLANJUS. Si la ANJUS compra biromes, aparece en el dashboard.
+
+**TABLA 16: Estructura Presupuestaria de PLANJUS — Categorías y Destino**
+
+| Categoría | Porcentaje del Presupuesto Total | Destino | Control |
+|---|---|---|---|
+| **Compensación de panelistas** | 35–40% | Pagos a panelistas JUS-1, JUS-2, JUS-3 vía Billetera JUS | Automático (sistema calcula y paga, sin intervención humana en la liquidación) |
+| **Operación de Casas JUS** | 20–25% | Alquiler o mantenimiento de inmuebles, mobiliario, servicios, personal de coordinación | Licitación pública para cada Casa JUS; rendición trimestral por coordinador |
+| **Plataforma digital** | 10–15% | Desarrollo, mantenimiento, hosting, seguridad, soporte técnico | Contratos publicados, código abierto donde sea posible, auditoría de seguridad anual |
+| **ANJUS (administración)** | 8–10% | Salarios del equipo permanente de la ANJUS, gastos institucionales, viáticos | Tope salarial: ningún funcionario de ANJUS gana más que el equivalente al salario de un juez de primera instancia |
+| **OEJ (ejecución)** | 8–10% | Salarios de la OEJ, infraestructura de ejecución, convenios con entidades financieras | Rendición mensual; KPIs de ejecución vinculados a presupuesto |
+| **Formación de panelistas** | 5–7% | Programas de formación, materiales, evaluadores, convenios con universidades (vía PLANEDU) | Costo por panelista formado publicado; comparación con costo de formación judicial tradicional |
+| **FREJUS (aporte presupuestario)** | 5–8% | Capitalización del Fondo de Restitución | Rendición separada; estado del fondo publicado diariamente |
+| **Reserva y contingencias** | 2–3% | Fondo para imprevistos, emergencias provinciales, expansión acelerada | Solo se usa con autorización del Directorio de la ANJUS, publicada |
+
+**El principio del tope salarial:** Ningún funcionario de la ANJUS — desde el director hasta el último administrativo — gana más que un juez de primera instancia del sistema tradicional. Y el director de la ANJUS gana *menos* que un juez de Cámara. ¿Por qué? Porque PLANJUS no puede predicar austeridad y transparencia si sus propios jefes se pagan como maharajás. La legitimidad empieza por casa. El dashboard muestra cada sueldo de cada categoría — no los nombres individuales (eso sería invasivo), pero sí el rango salarial, la cantidad de personas en cada rango, y el total. Si el pueblo ve que el 38% del presupuesto va a panelistas y el 9% a administración, confía. Si ve que el 50% va a "gastos administrativos" y nadie puede explicar por qué, no confía. Y tiene razón.
+
+### 23.6 Flujos Financieros por Tipo de Caso
+
+No todos los casos mueven plata de la misma manera. Un caso de consumo tiene un flujo simple — restitución del proveedor al consumidor. Un caso de familia tiene un flujo recurrente — cuota alimentaria mensual. Un caso comercial puede mover cientos de miles de dólares en escrow. PLANJUS los maneja todos.
+
+**TABLA 17: Flujos Financieros por Tipo de Caso**
+
+| Tipo de Caso | Flujo Principal | Monto Típico | Intermediación PLANJUS | Instrumento |
+|---|---|---|---|---|
+| **Consumidor (JUS-1)** | Proveedor → Consumidor | ARS 10.000 – 500.000 | OEJ facilita retención bancaria si no hay cumplimiento voluntario | Transferencia directa o retención automática |
+| **Laboral (JUS-2)** | Empleador → Trabajador | ARS 100.000 – 5.000.000 | FREJUS anticipa hasta 70% si hay demora; OEJ ejecuta contra empleador | Anticipo FREJUS + retención salarial AFIP |
+| **Comercial (JUS-2/3)** | Parte incumplidora → Parte acreedora | USD 1.000 – 500.000+ | Escrow en FREJUS; ejecución vía retención bancaria y embargo | Escrow + retención + embargo ejecutivo |
+| **Familia — Alimentaria (JUS-3)** | Alimentante → Alimentado (vía progenitor/a) | ARS 50.000 – 300.000/mes | FREJUS garantiza pago inmediato; OEJ retiene del ingreso del alimentante | Débito automático AFIP + garantía FREJUS |
+| **Familia — División de bienes (JUS-3)** | Entre las partes | Variable (puede involucrar inmuebles) | OEJ coordina con escribanía y registros para transferencias | Escritura + anotación registral |
+| **Administrativo (JUS-2/3)** | Estado → Ciudadano o Estado → cumplimiento de obligación | Variable | OEJ intima a la administración; mandamiento directo | Retención presupuestaria + responsabilidad personal |
+
+### 23.7 Co-financiamiento del Sector Privado — La Tasa Comercial JUS
+
+PLANJUS es gratuito para el ciudadano en conflictos de consumo, laborales, y de familia. Pero los conflictos comerciales entre empresas son otra cosa. Las empresas que litigan en PLANJUS se ahorran una fortuna comparado con el sistema judicial tradicional — un juicio comercial que costaba USD 20.000–50.000 en honorarios y tardaba 5 años ahora se resuelve en 45–90 días por una fracción del costo. Esa eficiencia tiene que financiar parte del sistema.
+
+**La Tasa Comercial JUS:**
+
+| Monto en Disputa | Tasa | Quién Paga | Ejemplo |
+|---|---|---|---|
+| Hasta USD 10.000 | Gratuito | Nadie — PLANJUS absorbe el costo como servicio público para PyMEs | Una PyME que reclama USD 5.000 por un servicio impago no paga nada |
+| USD 10.001 – 50.000 | 0,5% del monto en disputa | La parte que inicia el caso (reembolsable si gana) | Disputa de USD 30.000 → tasa de USD 150 |
+| USD 50.001 – 200.000 | 1% del monto en disputa | La parte que inicia (reembolsable si gana) | Disputa de USD 100.000 → tasa de USD 1.000 |
+| USD 200.001 – 1.000.000 | 1,5% del monto en disputa | La parte que inicia (reembolsable si gana) | Disputa de USD 500.000 → tasa de USD 7.500 |
+| Más de USD 1.000.000 | 2% del monto en disputa (con tope de USD 50.000) | La parte que inicia (reembolsable si gana) | Disputa de USD 3.000.000 → tasa de USD 50.000 (tope) |
+
+**Comparación con el sistema tradicional:**
+
+| | Sistema Judicial Tradicional | PLANJUS |
+|---|---|---|
+| **Costo total para una disputa de USD 100.000** | USD 15.000–30.000 (honorarios + tasas + pericias) | USD 1.000 (tasa) — reembolsable si gana |
+| **Tiempo** | 3–6 años | 45–90 días |
+| **Costo total para una disputa de USD 500.000** | USD 50.000–100.000 | USD 7.500 (tasa) — reembolsable |
+| **Costo total para una disputa de USD 10.000 (PyME)** | USD 5.000–10.000 (a veces más que el monto reclamado) | Gratuito |
+
+Las empresas pagan la tasa con entusiasmo — porque aun pagando, se ahorran el 90% de lo que gastaban en el sistema viejo. Y esa tasa financia el FREJUS, las Casas JUS, y la operación general del sistema. El sector privado no subsidia a PLANJUS por solidaridad — lo hace porque es la mejor inversión en eficiencia comercial que existe.
+
+**Recaudación estimada de la Tasa Comercial JUS:**
+
+| Año | Casos comerciales estimados | Monto promedio en disputa | Recaudación estimada |
+|---|---|---|---|
+| Año 1 | 50.000 | USD 25.000 | USD 15–25M |
+| Año 3 | 200.000 | USD 30.000 | USD 40–70M |
+| Año 7 | 500.000 | USD 35.000 | USD 80–150M |
+
+### 23.8 Fondo de Emergencia Provincial
+
+No todas las provincias arrancan igual. Las provincias del NOA y del NEA tienen economías más frágiles, menor densidad poblacional, y mayor informalidad — lo que significa menos recaudación local para PLANJUS y más demanda de servicios. Si PLANJUS se financia solo con asignación proporcional a la población, las provincias más pobres van a tener las Casas JUS más precarias. Eso es inaceptable.
+
+El **Fondo de Emergencia Provincial** funciona como un mecanismo de solidaridad federal dentro de PLANJUS:
+
+- **Financiamiento:** 5% del presupuesto total de la ANJUS se destina al Fondo de Emergencia.
+- **Criterio de activación:** Se activa cuando una provincia tiene costos operativos per cápita superiores al 130% del promedio nacional, o cuando la demanda de casos supera la capacidad instalada en más de un 20%.
+- **Uso:** Apertura acelerada de Casas JUS, contratación de personal OEJ adicional, refuerzo de la plataforma digital, formación extra de panelistas, aporte al FREJUS provincial.
+- **Rendición:** Cada peso del Fondo de Emergencia se rinde por separado en el dashboard financiero. El uso queda registrado, justificado, y publicado.
+
+| Indicador | Umbral de activación | Acción |
+|---|---|---|
+| Costo operativo per cápita > 130% del promedio nacional | Automática | Transferencia del Fondo para nivelar |
+| Demanda de casos > 120% de capacidad instalada | Automática | Refuerzo de personal y apertura de Casa JUS temporal |
+| Tiempo promedio de resolución > 150% del promedio nacional | Investigación ANJUS | Diagnóstico + plan de mejora + asignación de recursos |
+| Tasa de cumplimiento voluntario < 60% | Investigación ANJUS | Refuerzo de OEJ provincial + campaña de concientización |
+
+La justicia no puede depender de la suerte geográfica. Un habitante de Formosa tiene el mismo derecho a una justicia rápida y efectiva que un habitante de Puerto Madero. El Fondo de Emergencia es la garantía de que PLANJUS no reproduce las desigualdades federales — las corrige.
+
+### 23.9 Proyección Financiera Consolidada
+
+Juntemos todos los números. ¿Cuánto cuesta PLANJUS? ¿De dónde sale la plata? ¿Y vale la pena?
+
+**TABLA 18: Proyección Financiera Consolidada — 10 Años**
+
+| Concepto | Año 1 | Año 3 | Año 5 | Año 7 | Año 10 |
+|---|---|---|---|---|---|
+| **INGRESOS** | | | | | |
+| Presupuesto nacional (reasignación judicial) | USD 200M | USD 400M | USD 600M | USD 800M | USD 1.000M |
+| Tasa Comercial JUS | USD 20M | USD 55M | USD 100M | USD 130M | USD 180M |
+| Recupero FREJUS (subrogación) | USD 5M | USD 30M | USD 60M | USD 90M | USD 120M |
+| Astreintes recaudadas | USD 3M | USD 15M | USD 25M | USD 30M | USD 35M |
+| Co-financiamiento internacional (BID, BM, PNUD) | USD 50M | USD 40M | USD 20M | USD 10M | USD 0 |
+| **TOTAL INGRESOS** | **USD 278M** | **USD 540M** | **USD 805M** | **USD 1.060M** | **USD 1.335M** |
+| | | | | | |
+| **EGRESOS** | | | | | |
+| Compensación de panelistas | USD 100M | USD 200M | USD 310M | USD 400M | USD 490M |
+| Casas JUS (operación) | USD 60M | USD 120M | USD 170M | USD 210M | USD 270M |
+| Plataforma digital | USD 40M | USD 50M | USD 55M | USD 60M | USD 65M |
+| ANJUS (administración) | USD 25M | USD 40M | USD 50M | USD 55M | USD 60M |
+| OEJ (ejecución) | USD 20M | USD 45M | USD 65M | USD 80M | USD 95M |
+| Formación de panelistas | USD 15M | USD 30M | USD 45M | USD 55M | USD 65M |
+| FREJUS (capitalización) | USD 12M | USD 40M | USD 70M | USD 100M | USD 130M |
+| Fondo de Emergencia Provincial | USD 6M | USD 15M | USD 30M | USD 40M | USD 50M |
+| Reserva y contingencias | USD 5M | USD 10M | USD 15M | USD 20M | USD 25M |
+| **TOTAL EGRESOS** | **USD 283M** | **USD 550M** | **USD 810M** | **USD 1.020M** | **USD 1.250M** |
+| | | | | | |
+| **BALANCE** | **-USD 5M** | **-USD 10M** | **-USD 5M** | **+USD 40M** | **+USD 85M** |
+| **Casos resueltos** | 500.000 | 2.000.000 | 4.000.000 | 6.000.000 | 8.000.000 |
+| **Costo por caso resuelto** | USD 566 | USD 275 | USD 203 | USD 170 | USD 156 |
+
+El Año 1 tiene un déficit mínimo cubierto por cooperación internacional. A partir del Año 7, PLANJUS se autofinancia — y genera excedente que se reinvierte en calidad del servicio, expansión de Casas JUS, y capitalización del FREJUS.
+
+**El dato demoledor: costo por caso.** Un juicio civil en el sistema actual le cuesta al Estado entre USD 3.000 y USD 8.000 por caso (presupuesto judicial dividido por casos resueltos). PLANJUS resuelve un caso por USD 156 en régimen de crucero. Es 20 a 50 veces más eficiente. No porque pague mal a su gente — porque no tiene 24.500 empleados con estabilidad vitalicia procesando expedientes de papel en edificios del siglo XIX.
+
+### 23.10 La Arquitectura del Agua Limpia
+
+El dinero en un sistema de justicia es como el agua en un cuerpo. Si fluye — si llega a cada célula, si se purifica, si se renueva — el cuerpo vive. Si se estanca — si forma charcos donde se acumula, si se contamina, si no llega a los extremos — el cuerpo se pudre.
+
+El sistema judicial argentino tiene el agua estancada. El 96% del presupuesto se queda en sueldos — el agua no circula, se acumula en los mismos charcos de siempre. Los acreedores que ganan juicios no cobran — el agua no llega a donde tiene que llegar. Los costos de litigar son astronómicos — el agua está contaminada con intermediarios que la encarecen sin purificarla. Y las provincias pobres tienen menos justicia que las ricas — el agua no llega a los extremos del cuerpo.
+
+PLANJUS diseña la cañería desde cero. La Billetera JUS hace que los panelistas cobren en 48 horas — el agua llega fresca. El FREJUS garantiza que las víctimas cobren primero y el sistema ejecute después — el agua llega a quien la necesita. La integración con BCRA y AFIP hace que las retenciones se ejecuten en horas, no en meses — el agua fluye sin obstrucciones. La Tasa Comercial JUS hace que el sector privado financie su propia eficiencia — el agua se renueva. El Fondo de Emergencia Provincial hace que Formosa tenga la misma justicia que CABA — el agua llega a los extremos. Y el dashboard financiero público hace que todo el sistema sea visible — el agua es transparente.
+
+No es un sistema perfecto. Es un sistema honesto. Cada peso tiene un destino. Cada destino tiene un control. Cada control tiene una publicación. Y cada publicación tiene 46 millones de auditores — los argentinos, que por primera vez en la historia, van a poder ver exactamente cuánto cuesta su justicia, a dónde va cada centavo, y si el precio que pagan vale lo que reciben.
+
+Y si no vale — tienen PLANJUS para reclamar. Que es, al final, la prueba definitiva de que el sistema funciona: **cuando podés usar el sistema para reclamar contra el propio sistema.**
+
+---
+## SECCIÓN 24: SEGURIDAD OPERATIVA — PROTECCIÓN DEL SISTEMA
+
+> *"La paranoia no es una enfermedad cuando te están mirando de verdad. Un sistema que administra la justicia de 46 millones de personas no se puede dar el lujo de confiar — tiene que verificar. Todo. Siempre."*
+
+Un sistema de justicia que resuelve cinco millones de casos por año es un blanco. No porque sea malo — porque tiene poder. Poder sobre conflictos, sobre datos sensibles, sobre la credibilidad de todo el proyecto BASTA. Un ataque exitoso contra PLANJUS no roba dinero — roba confianza. Y la confianza, a diferencia del dinero, no se puede devolver con un reembolso. Se tarda años en construirla y segundos en destruirla.
+
+Las amenazas no vienen de un solo frente. Vienen de afuera (un hacker que quiere demostrar que puede), de adentro (un empleado que se corrompe o se equivoca), de arriba (un gobierno que quiere controlar lo que no puede capturar), y del caos (un terremoto, un corte de energía, un bug que nadie vio). Esta sección construye las defensas para todos esos frentes. No con optimismo — con ingeniería.
+
+### 24.1 Arquitectura de Ciberseguridad
+
+La plataforma PLANJUS opera sobre infraestructura cloud distribuida con **residencia de datos obligatoria en territorio argentino**, en cumplimiento de la Ley 25.326 de Protección de Datos Personales. No es una sugerencia — es un requisito arquitectónico. Ningún dato de caso, ninguna identidad de parte, ningún registro de resolución sale del país.
+
+**Principios de diseño:**
+
+- **Zero-trust architecture.** Nadie es confiable por defecto — ni los administradores, ni los panelistas, ni los servidores. Cada solicitud se autentica, cada acceso se verifica, cada operación se registra. No hay "zonas seguras" internas. Todo es frontera.
+- **Infraestructura multi-cloud redundante.** Mínimo dos proveedores cloud (AWS + GCP o Azure) con data centers en Argentina. Si uno cae, el otro asume en menos de 4 horas. Si los dos caen — algo que estadísticamente ocurre cada 500 años — se activa el protocolo presencial (ver 24.6).
+- **Encriptación end-to-end.** Todas las comunicaciones entre partes, panelistas, y la plataforma están encriptadas con protocolos de grado militar (TLS 1.3 mínimo, AES-256 para datos en reposo). Nadie — ni siquiera el equipo técnico de ANJUS — puede leer una comunicación entre una parte y su panel sin autorización judicial.
+- **Penetration testing trimestral.** Firmas independientes de seguridad (mínimo dos, rotando anualmente) intentan vulnerar la plataforma cada 90 días. Los resultados se publican en el dashboard de ANJUS — incluyendo las vulnerabilidades encontradas y cómo se corrigieron. Si una firma encuentra un agujero, eso no es una vergüenza — es el sistema funcionando.
+- **Segmentación de red.** La plataforma está dividida en microservicios aislados. El módulo de gestión de casos no puede acceder al módulo de identidad de panelistas. El módulo de audiencias virtuales no puede acceder al registro inmutable. Un exploit en un módulo no compromete el sistema completo — compromete una habitación, no el edificio.
+
+**TABLA 18: Arquitectura de Seguridad por Capas**
+
+| Capa | Mecanismo | Estándar | Auditoría |
+|---|---|---|---|
+| **Red** | Segmentación micro-servicios, firewalls de próxima generación, detección de intrusiones (IDS/IPS) | ISO 27001, NIST CSF | Pen-test trimestral + monitoreo 24/7 |
+| **Datos en tránsito** | TLS 1.3, certificados rotados cada 90 días, pinning de certificados en apps móviles | OWASP Top 10 | Escaneo automatizado continuo |
+| **Datos en reposo** | AES-256, claves administradas por HSM (Hardware Security Module) con rotación semestral | Ley 25.326 + GDPR como benchmark | Auditoría anual de gestión de claves |
+| **Identidad y acceso** | MFA obligatorio para todo acceso administrativo, tokens de sesión con TTL corto, principio de mínimo privilegio | Zero-trust (BeyondCorp model) | Revisión de accesos mensual |
+| **Aplicación** | Code review obligatorio para todo deploy, análisis estático (SAST) y dinámico (DAST), dependency scanning | OWASP ASVS Level 2 | Pipeline CI/CD con gates de seguridad |
+| **Registro inmutable** | Hash criptográfico con marca temporal, replicación multi-nodo, verificación de integridad continua | Estándar de evidencia digital forense | Verificación cruzada cada 6 horas |
+
+### 24.2 Marco de Protección de Datos
+
+PLANJUS maneja los datos más sensibles que un sistema estatal puede manejar: conflictos familiares, violencia de género, disputas laborales, identidad de menores. Un sistema que publica todo lo que hace tiene que ser quirúrgicamente preciso sobre qué publica y qué protege. La transparencia radical no significa desnudar a las víctimas — significa desnudar al sistema.
+
+**Principio rector: Privacy by design.** La protección de datos no es una capa que se agrega después — está integrada en la arquitectura desde el día cero. El sistema no puede, por diseño, publicar lo que debe proteger.
+
+**Tres niveles de clasificación de datos:**
+
+| Clasificación | Qué incluye | Quién accede | Publicación |
+|---|---|---|---|
+| **PÚBLICO** | Resoluciones (anonimizadas en familia/menores), estadísticas agregadas, métricas del dashboard, demografía del pool de panelistas, presupuesto ejecutado, patrones de casos por tipo y región | Cualquier ciudadano | Tiempo real en dashboard público |
+| **ANONIMIZADO** | Detalles de casos individuales en familia y menores, evidencia relacionada con salud mental, datos de contexto en casos de GBV, evaluaciones individuales de panelistas | Panelistas del caso, partes involucradas, ANJUS con autorización del Director de Datos | Disponible para investigación académica con protocolo de anonimización irreversible |
+| **SELLADO** | Identidad de menores en todos los casos, identidad de víctimas de GBV cuando lo solicitan, identidad de testigos en derivaciones a penal, datos biométricos de panelistas, claves de acceso | Solo sistema automatizado + Director de Datos de ANJUS con autorización judicial | Nunca. Destrucción programada según protocolo de retención |
+
+**Cumplimiento normativo:**
+
+- **Ley 25.326** (Habeas Data): derecho de acceso, rectificación, supresión, y oposición sobre datos personales. PLANJUS cumple y excede — implementa todos los derechos del titular con formulario digital de ejercicio en la plataforma.
+- **Ley 26.388** (Delitos Informáticos): todo acceso no autorizado a la plataforma es perseguible penalmente. PLANJUS mantiene los logs necesarios para que la persecución sea efectiva.
+- **Estándares internacionales** (GDPR como benchmark, ISO 27701): aunque la GDPR no aplica directamente, PLANJUS adopta sus estándares como piso mínimo. Porque si vas a construir un sistema de justicia para el siglo XXI, no lo construís con estándares del siglo XX.
+
+### 24.3 La Paradoja del Registro Inmutable
+
+Acá está la tensión que ningún sistema de transparencia puede ignorar. Por un lado, PLANJUS registra cada acto procesal en un sistema inmutable con sellado criptográfico — porque la inmutabilidad es lo que garantiza que nadie puede alterar un registro después del hecho. Sin inmutabilidad, no hay confianza. Sin confianza, no hay sistema.
+
+Por otro lado, las personas tienen derecho al olvido. Un menor que fue parte de un caso de custodia a los 8 años tiene derecho a que ese caso no lo persiga a los 25. Una víctima de violencia de género tiene derecho a que su nombre no aparezca en ningún registro accesible. Un testigo que declaró contra un empleador violento tiene derecho a que su identidad no quede expuesta para siempre.
+
+**La solución: arquitectura de dos capas.**
+
+La primera capa es el **registro de hechos** — qué pasó, cuándo, qué se decidió, qué evidencia se presentó. Esta capa es inmutable. Nunca se borra. Nunca se modifica. Persiste para siempre como garantía de integridad y como fuente de aprendizaje para el sistema (análisis de patrones, consistencia de resoluciones, detección de anomalías).
+
+La segunda capa es el **registro de identidad** — quién estuvo involucrado, como parte, como panelista, como testigo. Esta capa está vinculada a la primera por un enlace criptográfico que puede ser **cortado** por orden de ANJUS, sin destruir la primera capa.
+
+Cuando el enlace se corta, el registro de hechos sigue existiendo — pero está des-identificado. Sabés que hubo un caso de custodia, sabés cómo se resolvió, sabés qué evidencia se presentó. Pero no sabés quiénes fueron las partes. El caso existe como dato pero no como identidad. El sistema aprende del caso sin que el caso persiga a la persona.
+
+**Causales de des-identificación por orden de ANJUS:**
+
+| Causal | Solicitante | Plazo de resolución | Automático o a pedido |
+|---|---|---|---|
+| Menor que alcanza la mayoría de edad | El propio titular al cumplir 18 | 48 horas | Automático si se activó preferencia al momento del caso; a pedido si no |
+| Víctima de GBV | La víctima, en cualquier momento | 48 horas | A pedido, sin costo, sin justificación requerida |
+| Testigo en derivación a penal | El testigo, una vez concluido el proceso penal | 48 horas | A pedido |
+| Panelista que recibió amenazas | El panelista, con denuncia en MPF | 24 horas (urgente) | A pedido, con activación simultánea de protocolo de protección |
+| Orden judicial | Juez competente | Según orden | Según orden |
+
+La paradoja se resuelve sin sacrificar ninguno de los dos valores. El registro es inmutable — el hecho no se puede borrar. La identidad es protegible — la persona se puede desligar. Es como un libro de historia donde podés arrancar los nombres sin arrancar los capítulos. La historia se preserva. Las personas se protegen.
+
+### 24.4 Seguridad Física de las Casas JUS
+
+Una Casa JUS en un barrio de Lanús escucha casos de violencia doméstica. Una Casa JUS en el conurbano profundo resuelve disputas que pueden involucrar actores con conexiones al crimen organizado. Una Casa JUS en cualquier lugar del país es un espacio donde dos partes en conflicto se sientan en la misma mesa — y a veces una de esas partes es peligrosa.
+
+La seguridad física de las Casas JUS no es un tema secundario. Es una condición necesaria para que el sistema funcione. Si los panelistas tienen miedo, no van a participar. Si las partes vulnerables tienen miedo, no van a denunciar. Si las Casas JUS no son seguras, PLANJUS no es real.
+
+**Protocolos:**
+
+- **Entradas separadas para partes en conflicto.** Toda Casa JUS con más de un espacio de audiencia tiene como mínimo dos accesos independientes. Las partes en casos de violencia (DV, amenazas, restricción de acercamiento) nunca se cruzan en pasillos, salas de espera, ni baños. Nunca.
+- **Botones de pánico.** Cada espacio de audiencia tiene un sistema de alerta silenciosa accesible desde tres puntos (panelista principal, coordinador de Casa, y sistema automatizado por voz). La activación genera alerta a la fuerza de seguridad local con tiempo de respuesta objetivo de menos de 5 minutos.
+- **Casas JUS son zona libre de armas.** Sin excepciones. Detector de metales en la entrada. Fuerzas de seguridad que asisten una emergencia lo hacen desarmadas dentro de la Casa, con apoyo armado en el exterior. La justicia no se administra bajo la sombra de un arma.
+- **Coordinación con fuerzas de seguridad locales.** Cada Casa JUS tiene un protocolo de enlace con la comisaría o destacamento más cercano. No subordinación — coordinación. Las fuerzas de seguridad no participan en las audiencias, no influyen en las resoluciones, no acceden a los registros. Están para la seguridad física. Punto.
+- **Evaluación de riesgo pre-audiencia.** El sistema de la plataforma evalúa automáticamente el nivel de riesgo de cada caso antes de la audiencia presencial. Casos con indicios de violencia, amenazas previas, o partes con antecedentes de conducta agresiva activan protocolos reforzados: seguridad adicional, audiencia en horario con menor afluencia, panelistas informados del riesgo.
+
+### 24.5 Protección de Panelistas
+
+Los panelistas de PLANJUS no son jueces. No tienen edificio con custodia, auto blindado, ni escolta. Son ciudadanos comunes que dedican parte de su tiempo a hacer justicia — y después vuelven a sus vidas. Esa normalidad es la fuerza del sistema. Pero también es una vulnerabilidad que hay que blindar.
+
+**Anonimato durante el servicio.** Las partes conocen el nombre de pila de cada panelista. Nada más. No conocen el apellido, la dirección, el lugar de trabajo, ni ningún dato identificatorio. La comunicación entre partes y panelistas ocurre exclusivamente a través de la plataforma — nunca hay intercambio de datos de contacto personal. El sistema asigna seudónimos verificables para el registro inmutable.
+
+**Período de protección post-servicio.** Durante los 6 meses posteriores a la última actuación de un panelista, ANJUS mantiene un canal de reporte directo. Si el panelista recibe contacto no solicitado, amenazas, presiones, o cualquier forma de intimidación vinculada a su servicio, activa el protocolo anti-represalias.
+
+**Protocolo anti-represalias:**
+
+| Evento | Respuesta inmediata | Investigación | Medida protectoria |
+|---|---|---|---|
+| Contacto no solicitado de una parte (sin amenaza) | Registro + advertencia formal a la parte | Evaluación en 72 horas | Extensión del período de protección a 12 meses |
+| Amenaza verbal o escrita | Registro + derivación al MPF en 24h | Investigación penal | Restricción de acercamiento + seguimiento de seguridad por 6 meses + des-identificación del registro del caso |
+| Amenaza con indicios de violencia física | Registro + derivación urgente al MPF + alerta policial | Investigación penal urgente | Medidas protectorias completas (custodia temporal si es necesario) + reubicación de emergencia si se evalúa riesgo alto |
+| Represalia laboral (si el empleador descubre que el panelista participó) | Registro + derivación a inspección laboral | Investigación + sanción al empleador | Compensación por lucro cesante + acción penal si corresponde |
+
+**El mensaje es claro:** si tocás a un panelista, PLANJUS no lo deja solo. La protección no es un formulario que se llena y se olvida — es un sistema activo con recursos dedicados y consecuencias reales para el agresor.
+
+### 24.6 Recuperación ante Desastres
+
+Los sistemas fallan. Los servidores se caen. Las tormentas destruyen data centers. Los ataques cibernéticos pueden tumbar infraestructura por horas o días. La pregunta no es si PLANJUS va a sufrir una interrupción — es cuándo, y qué pasa cuando ocurre.
+
+**Backups:**
+- **Snapshot cada hora** del estado completo de la plataforma (casos activos, registros, configuración).
+- **Backup incremental cada 15 minutos** de datos transaccionales (nuevos casos, evidencia, resoluciones).
+- **Almacenamiento de backups en ubicación geográfica separada** del data center principal (mínimo 300 km de distancia). Si un terremoto destruye el data center de Buenos Aires, los backups están en Córdoba o Mendoza.
+
+**Recovery Time Objectives (RTO):**
+
+| Tipo de interrupción | RTO objetivo | Mecanismo | Fallback |
+|---|---|---|---|
+| Falla de un servicio individual | < 15 minutos | Auto-scaling + failover automático | Servicio degradado (funcionalidad reducida) |
+| Falla de un data center completo | < 4 horas | Failover a data center secundario | Protocolo presencial para casos urgentes |
+| Falla multi-data center | < 12 horas | Reconstrucción desde backup en tercer proveedor | Protocolo presencial completo en todas las Casas JUS |
+| Plataforma caída > 24 horas | N/A — activación automática de fallback | N/A | **Protocolo presencial obligatorio** en todas las Casas JUS del país |
+
+**Protocolo presencial de emergencia.** Si la plataforma está caída más de 24 horas en cualquier región, se activa automáticamente (sin necesidad de autorización del directorio) el protocolo presencial de emergencia:
+
+- Todas las Casas JUS operan en modo 100% presencial.
+- Los coordinadores de Casa asumen la función de registro manual (formularios en papel con sellado temporal por escribano).
+- Los panelistas disponibles en cada jurisdicción se convocan por teléfono.
+- Los plazos procesales se suspenden durante la duración de la interrupción + 48 horas adicionales de gracia.
+- Cuando la plataforma vuelve, los registros manuales se digitalizan y se incorporan al sistema inmutable con marca temporal verificada.
+
+PLANJUS no depende de la tecnología para existir. La tecnología lo hace más rápido, más transparente, más consistente. Pero si la tecnología falla, la justicia sigue — más lenta, más artesanal, pero sigue. Porque la justicia no vive en un servidor. Vive en la gente que la hace.
+
+### 24.7 Clasificación de Incidentes y Respuesta
+
+No todos los problemas son iguales. Un intento de phishing a un coordinador de Casa no es lo mismo que una filtración masiva de datos de menores. El sistema necesita saber la diferencia — y responder proporcionalmente.
+
+**TABLA 19: Clasificación de Incidentes de Seguridad y Protocolo de Respuesta**
+
+| Nivel | Clasificación | Ejemplo | Respuesta | Tiempo de respuesta | Comunicación |
+|---|---|---|---|---|---|
+| **1 — Menor** | Intento fallido sin impacto | Intento de phishing bloqueado, escaneo de puertos detectado, intento de login fallido masivo | Registro + análisis + refuerzo preventivo | 24 horas | Interna (equipo de seguridad) |
+| **2 — Moderado** | Acceso no autorizado contenido | Empleado accede a datos fuera de su perímetro, credencial comprometida pero detectada antes de uso malicioso | Revocación de credenciales + investigación + refuerzo de protocolos de acceso | 4 horas | Interna + notificación al Director de Datos |
+| **3 — Significativo** | Filtración de datos no sensibles o interrupción parcial | Exposición de estadísticas no publicadas, caída de un módulo por más de 2 horas, malware detectado en estación de trabajo | Contención + análisis forense + restauración + revisión de controles | 2 horas | Interna + notificación al Directorio de ANJUS + comunicado público en 48h |
+| **4 — Grave** | Filtración de datos sensibles o interrupción prolongada | Exposición de datos anonimizados, caída de plataforma >12h, acceso no autorizado a registros de identidad sin extracción confirmada | Contención inmediata + análisis forense urgente + activación protocolo presencial + notificación a autoridad de datos personales | 1 hora | Notificación a Directorio + autoridad de datos + comunicado público en 24h + notificación a partes afectadas |
+| **5 — Crítico** | Compromiso de datos sellados, ataque a integridad del registro inmutable, o amenaza a seguridad física | Exposición de identidad de menores o víctimas de GBV, manipulación de registros de resoluciones, ataque físico coordinado a Casas JUS | **Congelamiento total del módulo afectado** + equipo de crisis activado + análisis forense con peritos externos + derivación penal inmediata + protocolo presencial de emergencia | 30 minutos | Notificación inmediata al Directorio + Ministerio de Justicia + autoridad de datos + MPF + comunicado público en 12h + notificación personal a cada parte afectada |
+
+**Principio inquebrantable:** todo incidente de nivel 3 o superior se publica. Sin excepción. Sin demoras. Sin eufemismos. El comunicado incluye: qué pasó, qué datos se vieron afectados, qué se hizo, qué se va a hacer, y cómo se previene la recurrencia. PLANJUS no esconde incidentes detrás de un comunicado vago de "hemos detectado actividad inusual." Dice lo que pasó. Con todas las letras. Porque la confianza no se construye siendo invulnerable — se construye siendo honesto cuando sos vulnerable.
+
+---
+
+## SECCIÓN 25: PROTOCOLO DE FALLA — QUÉ PASA CUANDO SALE MAL
+
+> *"Ningún sistema diseñado por humanos es perfecto. La diferencia entre un sistema frágil y uno antifragil no es que el segundo no falle — es que cuando falla, se vuelve más fuerte. El sistema frágil esconde el fracaso. El antifragil lo publica, lo disecciona, y lo convierte en armadura."*
+
+PLANJUS va a fallar. No es pesimismo — es honestidad ingenieril. Un sistema que resuelve millones de conflictos por año, operado por decenas de miles de panelistas ciudadanos, distribuido en 24 provincias, con una plataforma digital de alcance nacional — va a fallar. La pregunta no es si. La pregunta es cómo responde cuando falla. Y la diferencia entre un sistema que merece confianza y uno que no la merece es exactamente esa: la calidad de la respuesta ante el fracaso.
+
+El sistema judicial que PLANJUS busca reemplazar también falla — todos los días, en cada expediente que duerme, en cada sentencia que llega tarde, en cada juez que mira para otro lado. Pero ese sistema no tiene protocolo de falla. No tiene post-mortem público. No tiene mecanismo de compensación. No tiene la más mínima intención de aprender de sus errores. Falla en silencio. Y el silencio es lo que lo protege.
+
+PLANJUS falla en voz alta. Y eso es lo que lo hace mejor.
+
+### 25.1 Taxonomía de Fallas
+
+No todas las fallas son iguales. Una falla individual (un panelista corrupto) no se trata igual que una falla sistémica (una provincia que colapsa). Una falla técnica (la plataforma se cae) no se trata igual que una falla política (el gobierno intenta capturar la ANJUS). Cada tipo de falla tiene su severidad, su protocolo, y su mecanismo de aprendizaje.
+
+**TABLA 20: Taxonomía de Fallas — Clasificación, Respuesta y Aprendizaje**
+
+| Tipo de falla | Severidad | Detección | Respuesta inmediata | Protocolo de aprendizaje |
+|---|---|---|---|---|
+| **Conducta indebida de panelista** (sesgo, corrupción, incompetencia descubierta post-resolución) | Alta | Anomalía estadística en resoluciones + denuncia de parte + evaluación post-caso <40% | Suspensión inmediata del panelista. Revisión de todos sus casos (ver 25.2). Derivación penal si hay corrupción. Notificación a todas las partes afectadas en 72h. | Auditoría del proceso de formación y certificación. ¿Cómo pasó el filtro? ¿Qué señal se ignoró? Ajuste de criterios de selección y evaluación continua. |
+| **Error sistémico de IA** (categorización incorrecta que afecta múltiples casos: JUS-1 clasificados como JUS-2, consistencia sugiriendo resoluciones erradas) | Alta | Alerta de anomalía estadística + revisión de calidad trimestral + denuncia acumulada de panelistas | Suspensión del módulo de IA afectado. Reversa a proceso manual para categorización/consistencia. Revisión de todos los casos afectados. | Análisis de causa raíz del modelo. ¿Datos de entrenamiento sesgados? ¿Drift del modelo? ¿Caso edge no contemplado? Re-entrenamiento con datos corregidos + validación por comité técnico + testing antes de reactivar. |
+| **Falla catastrófica de plataforma** (>24h de downtime) | Muy alta | Monitoreo automatizado + incapacidad de operar | Activación automática de protocolo presencial de emergencia (S24.6). Equipo de crisis tech desplegado. Comunicación pública en 4h. Suspensión de plazos procesales. | Post-mortem técnico completo. ¿Fallo de infraestructura? ¿Ataque? ¿Error de deploy? Implementar redundancia adicional en el punto de falla. Publicar informe técnico accesible. |
+| **Colapso de implementación provincial** (una provincia pierde capacidad de operar: sin panelistas, sin Casas JUS, sin coordinación) | Muy alta | Dashboard provincial con KPIs <30% del target durante 2 trimestres + informes de campo | ANJUS envía equipo de intervención provincial. Panelistas de provincias vecinas cubren casos urgentes. Casas JUS itinerantes como medida de emergencia. Evaluación de causas en 30 días. | ¿El convenio provincial era frágil? ¿Dependía de una sola persona? ¿Había sub-financiamiento? Rediseñar el modelo de implementación provincial con más redundancia institucional y menos dependencia de voluntad política local. |
+| **Intento de captura política** (gobierno intenta desfinanciar, intervenir, o controlar ANJUS) | Crítica | Señales: proyecto de ley que modifica ANJUS, reducción presupuestaria no justificada, intento de remover directores fuera de protocolo | Activación de todas las defensas institucionales: blindaje constitucional del presupuesto, amparo judicial inmediato, comunicación pública masiva, movilización de los 50.000+ panelistas como red ciudadana, denuncia ante organismos internacionales. | Análisis de qué flanco institucional fue vulnerable. ¿El blindaje constitucional es suficiente? ¿Los mandatos escalonados funcionaron? ¿Hay que reforzar la independencia presupuestaria? Propuesta de reforma de fortalecimiento a Congreso en 60 días. |
+| **Inundación de casos falsos** (adversario inunda el sistema con presentaciones fraudulentas para colapsar la capacidad) | Media-Alta | Spike anómalo de presentaciones + patrones de texto repetitivos + IPs sospechosas + tasa inusual de presentaciones sin respuesta de la otra parte | Filtros automáticos reforzados. Verificación de identidad reforzada para nuevas presentaciones. Rate limiting por usuario. Casos sospechosos en cola separada para revisión manual. | ¿Los filtros anti-fraude eran suficientes? ¿Faltaba verificación de identidad en algún punto? ¿Puede el sistema distinguir mejor entre caso legítimo y caso falso? Implementar CAPTCHA inteligente + scoring de legitimidad + verificación RENAPER reforzada. |
+| **Falla de enforcement** (incumplimiento sistemático de resoluciones en una región: las resoluciones se dictan pero no se cumplen) | Alta | Tasa de cumplimiento <50% en una provincia durante 2 trimestres + informes de partes | Investigación de ANJUS sobre causas. Si es falta de mecanismo ejecutorio: refuerzo de convenio con Poder Judicial para ejecución. Si es resistencia de actores poderosos: publicación de datos de incumplimiento + acción judicial contra incumplidores + derivación penal por desacato. | ¿El mecanismo de ejecución de resoluciones es suficiente? ¿Hacen falta sanciones más fuertes? ¿Hay que ampliar la potestad de PLANJUS para ejecutar directamente (embargo, retención de haberes)? Propuesta de reforma del mecanismo ejecutorio. |
+| **Crisis constitucional** (Corte Suprema declara inconstitucional un aspecto central de PLANJUS) | Existencial | Fallo de la Corte Suprema | Acatamiento del fallo + análisis inmediato de qué aspecto fue impugnado + ajuste legislativo en 60 días. PLANJUS continúa operando en las áreas no afectadas por el fallo. Si el fallo afecta la jurisdicción voluntaria: PLANJUS opera como mecanismo de arbitraje privado mientras se resuelve legislativamente. | ¿La redacción de la ley fue vulnerable? ¿Había una formulación constitucional más robusta? ¿El equipo legal anticipó el argumento de la Corte? Refuerzo del equipo constitucionalista de ANJUS + presentación de proyecto de ley correctivo + estrategia para eventual reforma constitucional (Sección 16, Fase 3). |
+
+### 25.2 Remediación para Partes Afectadas
+
+Cuando una falla afecta casos ya resueltos, PLANJUS no le dice a la gente "mala suerte, ya fue." Le dice: "nos equivocamos, y esto es lo que vamos a hacer."
+
+**Principio: el error del sistema nunca lo paga el ciudadano.**
+
+**Protocolo de remediación:**
+
+**1. Revisión automática de casos vinculados.** Cuando se detecta conducta indebida de un panelista — sesgo, corrupción, incompetencia significativa — el sistema identifica automáticamente todos los casos en los que ese panelista participó durante el período sospechado. No se espera a que las partes se quejen. El sistema va a buscarlas.
+
+**2. Re-resolución gratuita.** Toda parte afectada por una falla del sistema tiene derecho a solicitar re-resolución de su caso — sin costo, sin requisitos adicionales, con prioridad en la asignación de panel. El nuevo panel no incluye a ningún panelista del caso original. La re-resolución no es una apelación — es un caso nuevo con la misma evidencia, evaluado por ojos frescos.
+
+**3. Fondo de Compensación por Fallas del Sistema.** ANJUS administra un fondo específico — alimentado por el 0,5% del presupuesto operativo anual — destinado a compensar a ciudadanos que sufrieron daño material demostrable como consecuencia directa de una falla del sistema. Ejemplos: una trabajadora que perdió un recurso porque la resolución fue corrupta, un comerciante que perdió un contrato porque la plataforma estuvo caída 72 horas en un momento crítico. La compensación no reemplaza la re-resolución — la complementa.
+
+**TABLA 21: Protocolo de Remediación por Tipo de Falla**
+
+| Tipo de falla | Acción sobre casos resueltos | Notificación | Compensación |
+|---|---|---|---|
+| Panelista corrupto/sesgado | Revisión de 100% de sus casos. Re-resolución ofrecida a todas las partes. | Notificación personal a cada parte afectada en 72h | Fondo de Compensación para daño material demostrable |
+| Error de IA | Revisión de todos los casos afectados por la categorización/consistencia errónea | Notificación a partes de casos re-clasificados | Re-resolución gratuita si la parte considera que el error afectó el resultado |
+| Falla de plataforma prolongada | Extensión de plazos + prioridad de resolución para casos demorados | Comunicación general a todos los usuarios activos | Compensación por lucro cesante si el retraso causó daño demostrable |
+| Falla de enforcement | Re-ejecución de la resolución con mecanismos reforzados | Notificación personal a partes con resolución incumplida | Fondo de Compensación para costos incurridos por el incumplimiento |
+
+**4. Divulgación pública.** Cada evento de remediación se publica en el dashboard de ANJUS. No como nota al pie — como sección destacada. Cuántos casos se revisaron, cuántos se re-resolvieron, cuánto se compensó, y por qué. Porque la remediación escondida no es remediación — es gestión de imagen.
+
+### 25.3 Protocolo Post-Mortem
+
+Cada falla significativa (nivel 3 o superior en la tabla de incidentes, cualquier tipo de falla de la taxonomía del 25.1) activa un protocolo post-mortem que no es opcional, no es privado, y no es cosmético.
+
+**Fase 1: Informe preliminar — 72 horas.**
+El equipo responsable del área afectada produce un informe preliminar que responde cinco preguntas: ¿Qué pasó? ¿Cuándo empezó? ¿Cuántos casos/personas se vieron afectados? ¿Qué se hizo inmediatamente? ¿Qué se va a hacer en los próximos 30 días? El informe se publica en el dashboard de ANJUS. Sin pulir. Sin lenguaje corporativo. Con la verdad cruda.
+
+**Fase 2: Análisis de causa raíz — 30 días.**
+Un equipo independiente (no el equipo que causó o gestionó la falla) realiza un análisis de causa raíz usando metodología de los "5 porqués": no basta con saber qué falló — hay que saber por qué falló, y por qué existían las condiciones para que fallara, y por qué nadie las había detectado antes. El análisis incluye entrevistas con todos los involucrados, revisión de registros, análisis de datos, y comparación con incidentes similares en otros sistemas (nacionales e internacionales).
+
+**Fase 3: Publicación completa.**
+El informe completo de causa raíz se publica en el dashboard de ANJUS. Accesible para cualquier ciudadano. En lenguaje claro — no en jerga técnica. Incluye: narración cronológica del incidente, análisis de causas, identificación de responsables (institucionales, no necesariamente personales), modificaciones implementadas, y plan de seguimiento.
+
+**Fase 4: Modificación del sistema.**
+Cada post-mortem termina con al menos una modificación concreta al sistema. No "recomendaciones" — modificaciones implementadas, con fecha de implementación, responsable, y mecanismo de verificación. Si la falla fue de un panelista, se modifica el proceso de selección o evaluación. Si fue de la IA, se modifica el modelo o el protocolo de supervisión. Si fue de infraestructura, se refuerza la redundancia. No hay post-mortem sin cambio.
+
+**Fase 5: Actualización del dashboard.**
+El dashboard público de PLANJUS incluye una sección permanente: **"Fallas y aprendizajes."** Cada falla significativa tiene su entrada. Cada entrada muestra: qué pasó, qué se hizo, y qué cambió. Esta sección no está escondida en un rincón — está visible. Porque las fallas no son la vergüenza de PLANJUS. Son la prueba de que funciona como un sistema que aprende.
+
+### 25.4 El Mecanismo de Antifragilidad
+
+La Sección 15 define el indicador de antifragilidad de PLANJUS: la relación entre estreses recibidos y mejoras implementadas. Esta sección lo operacionaliza. Cada tipo de falla tiene un mecanismo específico por el cual hace al sistema más fuerte — no a pesar de la falla, sino gracias a ella.
+
+**TABLA 22: De Falla a Fortaleza — El Mecanismo de Antifragilidad**
+
+| Falla | Qué expone | Mejora que dispara | El sistema después es... |
+|---|---|---|---|
+| **Panelista corrupto** | Debilidad en el filtro de selección o en la detección temprana | Criterios de formación más exigentes + evaluación continua con umbral más bajo para remoción + refuerzo del sistema de anomalías para detectar patrones de sesgo antes de que se acumulen | ...más difícil de infiltrar, con detección más rápida |
+| **Error sistémico de IA** | Sesgo en datos de entrenamiento o modelo insuficiente para edge cases | Re-entrenamiento con datos corregidos + incorporación de edge cases al set de testing + comité de supervisión humana permanente sobre outputs de IA | ...más preciso, con supervisión humana como red de seguridad |
+| **Falla catastrófica de plataforma** | Punto único de falla o insuficiencia de redundancia | Redundancia adicional en el punto de falla + reducción del RTO + ampliación del protocolo presencial de emergencia | ...más resiliente, con fallback más rápido y probado |
+| **Colapso provincial** | Dependencia excesiva de voluntad política local o fragilidad institucional | Modelo de implementación con más autonomía local + convenios con múltiples actores institucionales (universidades, colegios profesionales, municipios) + red de panelistas interprovincial | ...más distribuido, menos dependiente de una sola institución |
+| **Captura política** | Insuficiencia del blindaje institucional en algún flanco | Refuerzo constitucional del mecanismo vulnerable + ampliación de la red de defensa ciudadana + internacionalización de la protección | ...más blindado, con más capas de defensa |
+| **Inundación de casos falsos** | Filtros de ingreso insuficientes | Verificación de identidad reforzada + scoring de legitimidad + rate limiting inteligente + sistema de consecuencias para presentaciones fraudulentas | ...más resistente al abuso, con filtros más sofisticados |
+| **Falla de enforcement** | Mecanismo ejecutorio débil o resistencia institucional | Ampliación de potestades ejecutorias + convenios reforzados con Poder Judicial + publicación de "mapa de incumplimiento" que genera presión social | ...con más capacidad de hacer cumplir sus resoluciones |
+| **Crisis constitucional** | Vulnerabilidad en la formulación legal | Ley correctiva con formulación más robusta + estrategia constitucional de largo plazo + generación de jurisprudencia favorable caso a caso | ...jurídicamente más sólido, con precedentes a su favor |
+
+Este no es optimismo barato. Es diseño deliberado. Cada falla es información. Cada información es una oportunidad de mejora. Cada mejora es una nueva capa de defensa. El sistema que emerge de una falla bien procesada es estrictamente superior al sistema que existía antes de la falla. Eso es antifragilidad — y es lo que distingue a PLANJUS de un sistema judicial que lleva 200 años cometiendo los mismos errores sin aprender nada de ninguno.
+
+### 25.5 La Transparencia Como Escudo
+
+Hay una tentación que acecha a todo sistema institucional: esconder las fallas. Minimizarlas. Comunicar tarde. Usar lenguaje vago. Culpar al contexto. Prometer que "se están tomando medidas" sin especificar cuáles. Es la tentación de la gestión de imagen — proteger la reputación del sistema a costa de la confianza del ciudadano.
+
+PLANJUS rechaza esa tentación por diseño, no por voluntad.
+
+El dashboard de fallas y aprendizajes es público por arquitectura — no hay botón para esconderlo. Los post-mortem son obligatorios por protocolo — no hay excepción para "casos políticamente sensibles." Las notificaciones a partes afectadas son automáticas — no dependen de que un funcionario decida que "es conveniente informar."
+
+Porque la paradoja es la siguiente: un sistema que muestra sus fallas genera más confianza que uno que finge no tenerlas. El ciudadano no espera perfección — espera honestidad. Cuando PLANJUS dice "tuvimos un panelista corrupto, lo detectamos en 47 días, revisamos los 83 casos en los que participó, ofrecimos re-resolución a las 166 partes afectadas, y modificamos el proceso de selección para que no se repita" — ese ciudadano confía más, no menos. Porque sabe que si algo sale mal, se va a enterar. Y se va a hacer algo.
+
+El sistema judicial actual opera sobre el principio opuesto: la opacidad como protección. No publica sus errores. No compensa a sus víctimas. No modifica sus procesos. Y cuando alguien le pide transparencia, responde con "independencia del Poder Judicial" — como si la independencia fuera una excusa para la irresponsabilidad.
+
+PLANJUS es independiente. Pero la independencia no es impunidad. Es la libertad de tomar decisiones sin presión política — no la libertad de fallar sin consecuencias. Un sistema verdaderamente independiente no necesita esconder sus fallas. Las publica, las corrige, y sigue adelante. Más fuerte cada vez.
+
+> *"El sistema que esconde sus fracasos está condenado a repetirlos. El sistema que los publica está condenado a superarlos. Elegí tu condena."*
+
+---
+## SECCIÓN 26: ACCESIBILIDAD UNIVERSAL — JUSTICIA PARA TODOS SIGNIFICA TODOS
+
+> *"Si la justicia no llega a los que más la necesitan — a los que no ven, a los que no oyen, a los que no caminan, a los que no hablan tu idioma, a los que están encerrados, a los que están postrados — entonces no es justicia. Es un club privado con buena prensa."*
+
+### 26.1 Accesibilidad No Es un Feature — Es un Derecho Constitucional
+
+Hay una trampa cómoda en la que caen todos los planes de modernización: diseñan para el usuario ideal — el porteño de 35 años con smartphone, wifi, y castellano fluido — y después agregan una nota al pie que dice "se contemplará la accesibilidad." Una nota al pie. Para los 5,1 millones de argentinos con alguna discapacidad (INDEC, Estudio Nacional sobre Discapacidad). Para los pueblos originarios que hablan lenguas que el Estado ignora. Para los adultos mayores que nunca tocaron una pantalla. Para las personas privadas de libertad que la sociedad prefiere olvidar. Una nota al pie para millones de personas que tienen los mismos derechos constitucionales que vos y que yo — pero que en la práctica no tienen ninguno.
+
+El artículo 75 inciso 23 de la Constitución Nacional manda al Congreso a "legislar y promover medidas de acción positiva que garanticen la igualdad real de oportunidades y de trato." No dice igualdad formal — dice igualdad *real*. No dice "para los que puedan acceder" — dice para todos. La Convención sobre los Derechos de las Personas con Discapacidad — con jerarquía constitucional desde 2014 — obliga al Estado a asegurar "acceso a la justicia para las personas con discapacidad en igualdad de condiciones con las demás" (Art. 13). La Ley 26.378 lo ratifica. La Ley 24.314 lo exige para la infraestructura física. La Ley 26.522 lo exige para los medios. Y sin embargo — en la práctica, en la realidad cotidiana, en el sistema judicial que tenemos — la accesibilidad es una ficción.
+
+PLANJUS no va a repetir esa ficción. La accesibilidad en PLANJUS no es una capa que se agrega después. No es un módulo que "se implementará en la Fase 3." No es una sección de buenas intenciones al final del documento. Es una condición fundacional — cada Casa JUS, cada pantalla de la plataforma, cada protocolo de atención, cada interacción con el sistema se diseña desde el primer día para ser accesible a toda persona que habite el suelo argentino, sin excepción.
+
+Si una sola persona no puede acceder a PLANJUS por una barrera que el sistema podría haber removido y no removió — entonces PLANJUS fracasó. No un poquito. Completamente. Porque "justicia para todos" o significa todos o no significa nada.
+
+### 26.2 Accesibilidad Física de las Casas JUS
+
+Cada Casa JUS que se construya o se adapte en el territorio argentino cumple — desde el primer día de operación, no desde "cuando haya presupuesto" — con la totalidad de la Ley 24.314 de Accesibilidad Urbanística y su decreto reglamentario 914/97. No hay plazo de gracia. No hay excepciones. No hay "se va a hacer después." Si la Casa JUS no es accesible, no abre.
+
+**TABLA 18: Estándares de Accesibilidad Física — Casas JUS**
+
+| Componente | Estándar Mínimo | Verificación |
+|---|---|---|
+| **Acceso exterior** | Rampa con pendiente ≤8%, ancho ≥1,50m, pasamanos bilateral a 0,75m y 0,90m, superficie antideslizante. Estacionamiento accesible a <30m de la entrada. | Certificación por auditor de accesibilidad antes de apertura |
+| **Puertas y circulación** | Puertas de ≥0,90m de ancho libre, manijas tipo palanca (no perilla), circulación interna ≥1,50m, sin desniveles no salvados. | Inspección trimestral |
+| **Ascensor** | Obligatorio en toda Casa JUS de más de una planta. Cabina ≥1,10m × 1,40m, botonera con braille y relieve, anuncio sonoro de pisos. | Mantenimiento mensual |
+| **Sanitarios adaptados** | Mínimo 1 por planta. Barra de apoyo, espacio de giro ≥1,50m de diámetro, pileta a altura regulable, alarma de emergencia. | Inspección trimestral |
+| **Señalización táctil** | Piso podotáctil (guía y prevención) en todos los recorridos principales. Cartelería en braille y macrocaracteres. Planos hápticos en la entrada. | Instalación verificada antes de apertura |
+| **Aro magnético (hearing loop)** | Instalado en todas las salas de audiencia y en el mostrador de atención principal. Señalizado con el símbolo internacional. | Test funcional semanal |
+| **Iluminación** | Mínimo 500 lux en áreas de lectura y audiencia, sin reflejos especulares, luces de emergencia accesibles. | Medición semestral |
+| **Mobiliario** | Mesas regulables en altura, al menos 2 puestos adaptados para silla de ruedas por sala. Asientos con apoyabrazos para personas con movilidad reducida. | Inventario anual |
+
+La ANJUS publica un **ranking de accesibilidad** de todas las Casas JUS del país — actualizado semestralmente, auditable por cualquier ciudadano. Cualquier Casa JUS que pierda certificación de accesibilidad tiene 30 días para rectificar o se suspende su operación hasta que cumpla. Sin excepciones. La justicia que no llega a todos no es justicia — es discriminación con presupuesto estatal.
+
+### 26.3 Accesibilidad de la Plataforma Digital
+
+La plataforma digital PLANJUS cumple con los estándares WCAG 2.1 nivel AA como mínimo — y apunta a AAA donde sea técnicamente viable. Esto no es una aspiración. Es un requisito de lanzamiento. Cada actualización de la plataforma pasa por testing de accesibilidad antes de desplegarse. Si rompe accesibilidad, no se despliega.
+
+**TABLA 19: Estándares de Accesibilidad Digital — Plataforma PLANJUS**
+
+| Dimensión | Implementación | Estándar |
+|---|---|---|
+| **Lectores de pantalla** | Compatibilidad completa con NVDA, JAWS, VoiceOver, TalkBack. Toda la interfaz navegable por teclado. Todos los elementos con ARIA labels descriptivos. | WCAG 2.1 AA — Perceptible / Operable |
+| **Interfaz por voz** | Presentación de casos, seguimiento de estado, y consultas — todo operable por comandos de voz. "Quiero presentar un reclamo." "¿En qué estado está mi caso?" "Necesito hablar con mi Asistente JUS." | Desarrollo propio + integración con asistentes de voz |
+| **Modo alto contraste** | Fondo negro con texto blanco/amarillo, sin dependencia del color para transmitir información. Activable con un solo clic. | WCAG 2.1 AA — 4,5:1 mínimo para texto, 3:1 para elementos gráficos |
+| **Escalado de tipografía** | Interfaz funcional hasta 200% de zoom sin pérdida de contenido ni funcionalidad. Tipografía base mínima 16px. | WCAG 2.1 AA — Redimensionable |
+| **Lenguaje claro** | Todo texto en la plataforma escrito en español llano, sin jerga legal. Nivel de lectura: comprensible para una persona con educación primaria completa. Glosario emergente para términos técnicos inevitables. | Principio fundacional de PLANJUS formalizado como estándar de accesibilidad |
+| **Subtitulado y LSA** | Todo contenido audiovisual de la plataforma (tutoriales, audiencias grabadas, notificaciones en video) con subtítulos y versión en Lengua de Señas Argentina. | WCAG 2.1 AA — Alternativas de tiempo |
+| **Modo simplificado** | Versión reducida de la interfaz con menos opciones visibles, flujo guiado paso a paso, iconografía grande. Para personas con dificultades cognitivas o baja alfabetización digital. | Principio de diseño universal |
+| **Testing con usuarios** | Cada actualización mayor testeada con panel de usuarios con discapacidad visual, auditiva, motriz, y cognitiva antes del despliegue. | Protocolo interno obligatorio |
+
+La plataforma se audita anualmente por un organismo independiente de accesibilidad digital. Los resultados se publican. Si hay incumplimiento, la ANJUS tiene 60 días para corregir — y el responsable técnico rinde cuentas públicamente.
+
+### 26.4 Accesibilidad Lingüística — La Justicia Habla Tu Idioma
+
+La Argentina no es monolingüe. Nunca lo fue. Los pueblos originarios hablan lenguas que estaban acá miles de años antes que el castellano. Las comunidades migrantes traen las suyas. Las personas sordas se comunican en Lengua de Señas Argentina. Un sistema de justicia que solo funciona en castellano escrito estándar deja afuera a millones.
+
+**TABLA 20: Accesibilidad Lingüística — Lenguas y Servicios**
+
+| Lengua | Hablantes estimados en Argentina | Servicio en PLANJUS | Alcance geográfico |
+|---|---|---|---|
+| **Español** (rioplatense/estándar) | ~45 millones | Idioma completo de la plataforma, Casas JUS, toda documentación | Nacional |
+| **Guaraní** | ~500.000+ (Corrientes, Misiones, Formosa, Chaco) | Panelistas bilingües, interfaz de plataforma traducida, documentación de casos, señalización en Casas JUS | Corrientes, Misiones, Formosa, Chaco, CABA (comunidades) |
+| **Quechua** | ~150.000+ (Jujuy, Salta, Tucumán, Catamarca, Santiago del Estero) | Panelistas bilingües, interpretación presencial y remota, documentación clave traducida | NOA + comunidades urbanas |
+| **Aymara** | ~30.000+ (Jujuy, Salta, CABA) | Interpretación presencial y remota, Asistente JUS bilingüe | Jujuy, Salta, CABA |
+| **Mapudungun** | ~40.000+ (Neuquén, Río Negro, Chubut) | Panelistas bilingües donde la comunidad lo requiera, interpretación presencial y remota | Patagonia norte |
+| **Wichí** | ~50.000+ (Salta, Formosa, Chaco) | Interpretación presencial obligatoria en Casas JUS de la zona, Asistente JUS bilingüe | Salta, Formosa, Chaco |
+| **Toba/Qom** | ~70.000+ (Chaco, Formosa, Santa Fe) | Interpretación presencial obligatoria en Casas JUS de la zona, Asistente JUS bilingüe | Chaco, Formosa, Santa Fe |
+| **Lengua de Señas Argentina (LSA)** | ~100.000+ personas sordas/hipoacúsicas | Intérprete de LSA disponible en toda Casa JUS (presencial o por videollamada), videos en LSA en la plataforma, Asistente JUS con manejo de LSA | Nacional |
+| **Portugués** | Comunidad brasileña significativa | Servicio de interpretación (no traducción completa de plataforma), formularios bilingües, Asistente JUS con portugués en zonas fronterizas | Misiones, CABA, zonas fronterizas |
+| **Chino (mandarín)** | Comunidad china en crecimiento | Servicio de interpretación presencial y remota, formularios de ingreso bilingües | CABA, GBA, grandes centros urbanos |
+| **Coreano** | Comunidad coreana consolidada | Servicio de interpretación presencial y remota | CABA (Bajo Flores, Flores), GBA |
+| **Criollo haitiano** | Comunidad haitiana reciente | Servicio de interpretación presencial y remota | CABA, Córdoba, Mendoza |
+| **Wolof** | Comunidad senegalesa en crecimiento | Servicio de interpretación presencial y remota | CABA, GBA, La Plata |
+
+La diferencia es clara: para las lenguas originarias y la LSA, el compromiso es **estructural** — panelistas bilingües, plataforma traducida, señalización, documentación. Para las lenguas migrantes, el compromiso es de **servicio** — interpretación garantizada para que nadie quede sin poder presentar, entender, y participar en su caso. Ambos niveles son obligatorios. Ninguno es opcional.
+
+La ANJUS financia un programa permanente de formación de intérpretes judiciales en todas las lenguas de la tabla — en coordinación con universidades nacionales y organizaciones de pueblos originarios. No se terceriza a una empresa de traducciones. Se construye capacidad propia, comunitaria, sostenible.
+
+### 26.5 Personas Privadas de Libertad — La Justicia No Se Suspende por un Muro
+
+Hay algo que este país necesita entender de una vez por todas: una persona presa perdió la libertad ambulatoria. No perdió la ciudadanía. No perdió los derechos civiles. No perdió el derecho a resolver conflictos de consumo, de familia, de vivienda, de deudas — todos los conflictos que PLANJUS cubre y que no tienen nada que ver con la causa penal. Una persona presa puede tener un propietario que le debe un depósito. Puede tener un empleador que le debe salarios previos a la detención. Puede tener una disputa familiar por alimentos para sus hijos. Puede tener un reclamo de consumo por un producto que compró antes de caer presa. Negarle acceso a la justicia civil porque está presa es castigo adicional — y es inconstitucional.
+
+PLANJUS garantiza acceso a personas privadas de libertad mediante tres vías:
+
+| Vía de acceso | Descripción | Frecuencia |
+|---|---|---|
+| **Terminales PLANJUS en penitenciarías** | Terminales dedicadas (no compartidas con el sistema penitenciario) instaladas en bibliotecas o espacios comunes de cada unidad penitenciaria federal y provincial. Conexión segura a la plataforma. Privacidad garantizada — ningún agente penitenciario puede ver el contenido del caso. | Acceso permanente en horario extendido (8:00–22:00) |
+| **Casa JUS Itinerante penitenciaria** | Equipo móvil de PLANJUS visita las principales unidades penitenciarias del país. Asistencia presencial para presentar casos, participar en audiencias, y recibir notificaciones. | Mensual en unidades de >500 internos, bimestral en unidades menores |
+| **Asistente JUS automático** | Toda persona privada de libertad que presente un caso en PLANJUS recibe asignación automática de un Asistente JUS — sin necesidad de solicitarlo. El Asistente actúa como facilitador, no como abogado, pero garantiza que la persona entienda el proceso y pueda participar efectivamente. | Asignación automática al ingresar un caso |
+
+El Servicio Penitenciario no puede interferir, demorar, ni condicionar el acceso de una persona privada de libertad a PLANJUS. Si lo hace, la ANJUS tiene potestad para denunciar al funcionario ante la Procuración Penitenciaria de la Nación y, simultáneamente, activar la vía de acceso alternativa. La obstrucción del acceso a PLANJUS por parte de un agente penitenciario se tipifica como falta grave en el régimen disciplinario — y la ANJUS publica cada incidente.
+
+### 26.6 Personas Hospitalizadas e Inmovilizadas — La Justicia Va Donde Vos Estás
+
+Si no podés moverte, la justicia se mueve. Es así de simple. Una persona hospitalizada, una persona con movilidad reducida severa, una persona postrada en su domicilio — todas tienen el mismo derecho a PLANJUS que la persona que camina hasta la Casa JUS de su barrio.
+
+Para casos JUS-1 (digitales): participación remota completa por videollamada desde el hospital o domicilio. Si la persona no tiene dispositivo o conectividad, la Casa JUS más cercana le provee un dispositivo con conexión y un asistente que lo acompaña durante la audiencia.
+
+Para casos JUS-2 y JUS-3 (presenciales o híbridos): la **Casa JUS Itinerante** — el mismo equipo móvil que visita penitenciarías — visita hospitales y domicilios cuando una de las partes no puede trasladarse. El panel se adapta: si la parte no puede asistir presencialmente, la audiencia se reconfigura como híbrida (panelistas presenciales con parte remota) o completamente remota.
+
+Nadie pierde un caso porque está internado. Nadie pierde un plazo porque no puede levantarse de la cama. El sistema se adapta a la persona — no la persona al sistema.
+
+### 26.7 Personas Mayores — La Vía No Digital Está Garantizada
+
+El 15% de la población argentina tiene más de 60 años. Una fracción significativa no usa — y no quiere usar — plataformas digitales. Esto no es un déficit de la persona. Es una realidad que el sistema tiene que respetar. PLANJUS no obliga a nadie a ser digital. La vía no digital no es una concesión — es un canal de primera clase con los mismos plazos, las mismas garantías, y el mismo nivel de atención.
+
+| Canal no digital | Descripción |
+|---|---|
+| **Línea 0800-JUSTICIA** | Línea telefónica gratuita, atendida por operadores humanos (no bots), disponible de 8:00 a 20:00 de lunes a sábados. Permite presentar un caso completo por teléfono, consultar estado, recibir orientación. El operador carga el caso en la plataforma en nombre de la persona. |
+| **Atención presencial en Casa JUS** | Sin turno previo. La persona llega, un Asistente JUS la recibe, la escucha, la ayuda a formular su reclamo, lo carga en el sistema, y le explica los pasos siguientes en lenguaje claro. Todo el proceso — de principio a fin — puede hacerse presencialmente. |
+| **Asistente JUS dedicado para personas mayores** | Las Casas JUS con alta proporción de personas mayores en la zona cuentan con asistentes especializados en atención a adultos mayores: ritmo pausado, repetición sin impaciencia, acompañamiento emocional, verificación de comprensión en cada paso. |
+| **Notificación en papel** | Opción de recibir todas las notificaciones del caso en formato impreso, enviadas por correo postal al domicilio. El plazo legal se cuenta desde la recepción confirmada, no desde el envío digital. |
+| **Audiencia presencial garantizada** | Para casos JUS-2 y JUS-3, la persona mayor puede solicitar que toda la audiencia sea presencial en la Casa JUS más cercana, con transporte asistido si es necesario (convenio con municipios y organizaciones de la sociedad civil). |
+
+La premisa es irreductible: si tu abuela de 82 años tiene un problema con la obra social y no sabe usar un celular, PLANJUS le resuelve el problema con la misma velocidad y la misma justicia que al programador de 28 años que presenta todo digital. Si no puede, el sistema no es universal. Y si no es universal, no es PLANJUS.
+
+### 26.8 Niños, Niñas y Adolescentes — Protección Reforzada por Diseño
+
+Cuando un menor de 18 años es parte o testigo en un caso PLANJUS, se activan protocolos de protección reforzada que no son opcionales ni negociables. La Convención sobre los Derechos del Niño — con jerarquía constitucional — manda que en toda actuación que involucre a un niño, el interés superior del niño sea la consideración primordial. PLANJUS lo operacionaliza:
+
+| Protocolo | Descripción |
+|---|---|
+| **Panelistas especializados** | Todo caso que involucre a un menor es asignado a panelistas con formación específica en derechos de niños, niñas y adolescentes. La formación incluye: comunicación adaptada a la edad, detección de situaciones de vulnerabilidad, manejo de conflictos familiares con menores involucrados. No es una capacitación genérica — son 40 horas adicionales específicas. |
+| **Cámara Gesell / entorno protegido** | Cuando un menor debe dar testimonio, se utiliza un entorno protegido equivalente a la Cámara Gesell: el menor habla con un profesional especializado (psicólogo/a infantil) en un espacio separado, sin contacto directo con las partes. El testimonio se transmite al panel en tiempo real. La grabación se resguarda con los mismos estándares que el sistema penal. |
+| **Asistente JUS obligatorio** | En todo caso que involucre a un menor, la asignación de un Asistente JUS es automática y obligatoria — no depende de que alguien lo pida. El Asistente acompaña al menor y/o a su representante legal durante todo el proceso. |
+| **Intervención de la Defensoría de Menores** | La Defensoría de Niños, Niñas y Adolescentes (nacional o provincial, según jurisdicción) es notificada automáticamente de todo caso PLANJUS que involucre a un menor. Tiene derecho a intervenir, solicitar medidas de protección, y apelar resoluciones que considere contrarias al interés superior del niño. |
+| **Confidencialidad reforzada** | Los datos del menor no se publican en ningún registro público. La resolución se anonimiza antes de su publicación en el Tablero de Justicia. Ninguna parte puede difundir la identidad del menor fuera del proceso — la violación de esta regla es falta gravísima con consecuencias inmediatas. |
+| **Tiempos prioritarios** | Los casos que involucran menores tienen prioridad de asignación y no pueden exceder los plazos máximos bajo ninguna circunstancia. Si el plazo está por vencerse, se activa un protocolo de aceleración automática con panelistas de refuerzo. |
+
+Los niños no son adultos pequeños. No entienden los procesos como adultos, no expresan sus necesidades como adultos, no procesan el conflicto como adultos. Un sistema de justicia que trata a un menor como a un adulto en miniatura no lo protege — lo revictimiza. PLANJUS no comete ese error.
+
+### 26.9 El Compromiso
+
+La accesibilidad universal no es un capítulo que se escribe para quedar bien. Es una deuda que el Estado argentino tiene con millones de personas a las que les dijo "todos somos iguales ante la ley" mientras les cerraba la puerta en la cara — la puerta física que no tenía rampa, la puerta digital que no tenía lector de pantalla, la puerta lingüística que solo hablaba castellano jurídico, la puerta burocrática que solo se abría con abogado.
+
+PLANJUS no les promete igualdad. Les construye la rampa, la interfaz, el intérprete, la terminal, el asistente, el protocolo — todo lo que hace falta para que la promesa deje de ser papel y se convierta en experiencia. Si una sola persona queda afuera, el sistema no está completo. Y si el sistema no está completo, no abrimos.
+
+---
+
+## SECCIÓN 27: DISPUTAS TRANSFRONTERIZAS Y DE DERECHO INTERNACIONAL PRIVADO
+
+> *"La economía es global. Los conflictos también. Un sistema de justicia que solo funciona dentro de las fronteras deja desprotegidos a millones de argentinos que compran, venden, trabajan y viven en un mundo conectado."*
+
+### 27.1 El Agujero Negro: Conflictos Sin Fronteras, Justicia Con Fronteras
+
+Comprás un celular en AliExpress y llega roto. Vendés servicios de diseño a una empresa en Brasil y no te pagan. Tu ex se mudó a España con tu hijo y no cumple el régimen de visitas. Una empresa paraguaya te incumple un contrato de provisión. Una plataforma con sede en Irlanda te cobra por un servicio que cancelaste.
+
+¿A dónde vas? Al sistema judicial argentino, que tarda cinco años en resolver un conflicto interno — imaginate uno transfronterizo. Al arbitraje internacional, que cuesta más que lo que reclamás. A la embajada, que te dice que no es su competencia. A ningún lado. Te la bancás. Absorbés la pérdida. Aprendés que el mundo conectado no tiene justicia conectada.
+
+Este agujero negro traga millones de conflictos por año. La economía digital no tiene fronteras. El e-commerce no tiene fronteras. Las familias no tienen fronteras. Pero la justicia sí tiene fronteras — y cada frontera es un muro contra el que se estrellan personas comunes que simplemente quieren que alguien les resuelva un problema.
+
+PLANJUS no puede gobernar el mundo. Pero puede — y debe — proteger a toda persona que esté en territorio argentino o que tenga una relación jurídica con Argentina. Esta sección establece cómo.
+
+### 27.2 Jurisdicción: Cuándo PLANJUS Interviene en un Conflicto Transfronterizo
+
+PLANJUS tiene jurisdicción sobre un conflicto con componente internacional cuando se cumple al menos una de las siguientes condiciones:
+
+| Criterio de jurisdicción | Descripción | Fundamento legal |
+|---|---|---|
+| **Domicilio en Argentina** | Al menos una de las partes tiene domicilio real o legal en Argentina | Art. 2608 CCC — criterio de domicilio del demandado |
+| **Lugar de cumplimiento** | El contrato fue cumplido o debió cumplirse (total o parcialmente) en territorio argentino | Art. 2650 CCC — jurisdicción por lugar de cumplimiento |
+| **Lugar del daño** | El daño se produjo o produjo efectos en territorio argentino | Art. 2656 CCC — jurisdicción por lugar del hecho dañoso |
+| **Prórroga voluntaria** | Las partes acordaron — antes o después del conflicto — someter la resolución a PLANJUS | Art. 2607 CCC — prórroga de jurisdicción en materia patrimonial |
+| **Consumidor argentino** | Una de las partes es un consumidor con domicilio en Argentina y la relación de consumo tiene vínculo con el territorio argentino | Art. 2654 CCC — protección del consumidor (foro del domicilio del consumidor) |
+
+PLANJUS no reclama jurisdicción universal. No pretende resolver disputas entre dos partes extranjeras sin conexión con Argentina. Pero cuando hay un argentino involucrado, cuando hay un contrato que se ejecuta en suelo argentino, cuando hay un daño que impacta en territorio argentino — PLANJUS ofrece una vía de resolución que hoy no existe fuera de los tribunales judiciales saturados o el arbitraje inalcanzable.
+
+### 27.3 E-Commerce Transfronterizo — El Conflicto Más Común del Siglo XXI
+
+Millones de argentinos compran en plataformas internacionales. Millones venden. Y cuando algo sale mal — producto defectuoso, no entrega, cobro indebido, garantía incumplida — la respuesta del sistema actual es un silencio atronador. ¿Vas a hacerle un juicio a Amazon en Delaware? ¿A AliExpress en Hangzhou? ¿Con qué abogado, con qué plata, en qué idioma?
+
+**TABLA 21: Protocolo PLANJUS para Disputas de E-Commerce Transfronterizo**
+
+| Etapa | Acción | Plazo |
+|---|---|---|
+| **1. Presentación** | El consumidor argentino presenta el reclamo en PLANJUS (plataforma digital). Adjunta: comprobante de compra, comunicaciones con el vendedor, evidencia del problema. | Día 0 |
+| **2. Notificación a la plataforma** | PLANJUS notifica a la plataforma marketplace (MercadoLibre, Amazon, AliExpress, Shopee, etc.) mediante el canal de resolución de disputas de la plataforma — si existe — y simultáneamente abre el caso en PLANJUS. | Día 1–2 |
+| **3. Coordinación dual** | Si la plataforma tiene sistema propio de resolución, PLANJUS lo reconoce como primera instancia y espera su resultado. Si la plataforma no tiene sistema, o si el sistema no resuelve en 15 días, PLANJUS asume la resolución completa. | Día 2–17 |
+| **4. Resolución PLANJUS** | Panel JUS-1 o JUS-2 (según monto) evalúa la evidencia y emite resolución. Se aplica la ley argentina de defensa del consumidor (Ley 24.240) por tratarse de un consumidor domiciliado en Argentina. | Día 17–30 |
+| **5. Ejecución** | Si el vendedor o la plataforma tienen activos, representación, o filial en Argentina → ejecución directa contra esos activos. Si no → la resolución se registra en un sistema de reputación PLANJUS que las plataformas pueden consultar + se comunica al organismo de protección del consumidor del país de origen del vendedor vía red de cooperación internacional. | Día 30–45 |
+
+La clave es la ejecución. Una resolución que dice "el vendedor le debe $500.000 al consumidor" pero que no se puede cobrar es papel decorativo. PLANJUS resuelve esto por dos vías:
+
+1. **Contra activos en Argentina.** Si la plataforma tiene filial, representación, o activos en Argentina (MercadoLibre tiene sede en Buenos Aires, Amazon opera a través de AFIP como importador registrado, etc.), la resolución se ejecuta directamente contra esos activos — con la misma fuerza que cualquier resolución PLANJUS.
+
+2. **Contra la reputación global.** PLANJUS mantiene un registro público de vendedores y plataformas con resoluciones incumplidas. Este registro se comparte con organismos de defensa del consumidor de otros países (vía la Red Internacional de Protección al Consumidor — ICPEN) y con las propias plataformas. Un vendedor con resoluciones incumplidas en PLANJUS se convierte en un vendedor señalado — y las plataformas que quieran operar en Argentina tienen incentivos para no albergar vendedores señalados.
+
+### 27.4 Disputas Familiares Transfronterizas — Cuando el Dolor Cruza Fronteras
+
+Los conflictos familiares transfronterizos — custodia de hijos, alimentos, restitución internacional de menores — son los más dolorosos y los más lentos del sistema judicial actual. Un padre que se lleva al hijo a otro país puede tardar años en ser localizado, requerido, y eventualmente obligado a cumplir. Años en los que un niño crece sin uno de sus padres. Años en los que la justicia brilla por su ausencia.
+
+Argentina es parte del Convenio de La Haya sobre los Aspectos Civiles de la Sustracción Internacional de Menores (Ley 23.857) y del Convenio sobre Cobro Internacional de Alimentos (Ley 27.163). La Autoridad Central argentina — el Ministerio de Justicia — es el punto de enlace con las autoridades centrales de los otros países. Pero el mecanismo judicial interno que procesa estos casos es el mismo mecanismo saturado que tarda años en resolver un caso de alimentos doméstico.
+
+PLANJUS interviene así:
+
+| Componente | Mecanismo PLANJUS | Ventaja sobre el sistema actual |
+|---|---|---|
+| **Alimentos internacionales** | Cuando hay un reclamo de alimentos y el obligado reside en el extranjero, PLANJUS resuelve el componente doméstico (determinación del monto, medidas cautelares sobre bienes en Argentina) en plazo JUS-3 (90 días). La ejecución internacional se canaliza a través de la Autoridad Central bajo el Convenio de La Haya. | El sistema actual tarda 1–3 años solo para determinar el monto. PLANJUS lo hace en 90 días. La cooperación internacional arranca antes. |
+| **Custodia con progenitor en el extranjero** | PLANJUS resuelve el régimen de comunicación y los aspectos patrimoniales domésticos. Para la restitución internacional, PLANJUS prepara el expediente en formato compatible con La Haya y lo transfiere a la Autoridad Central en 30 días — no en los 6–18 meses que tarda actualmente armar un expediente judicial completo. | El cuello de botella no es La Haya — es el sistema judicial interno que tarda una eternidad en preparar el caso. PLANJUS elimina ese cuello de botella. |
+| **Reconocimiento de resoluciones extranjeras** | Cuando un tribunal extranjero emitió una resolución de familia (alimentos, custodia, régimen de visitas) que necesita ejecutarse en Argentina, PLANJUS la reconoce y ejecuta mediante un trámite simplificado — sin necesidad del exequátur tradicional, que es un juicio entero para reconocer un juicio ajeno. | El exequátur actual tarda 1–3 años. El reconocimiento PLANJUS tarda 45 días (JUS-2), verificando orden público, derecho de defensa, y autenticidad documental. |
+
+### 27.5 Comercio Internacional — Resoluciones con Fuerza Global
+
+Acá viene lo estratégico. PLANJUS no solo resuelve conflictos para argentinos — puede convertirse en un polo de resolución de disputas comerciales internacionales si sus resoluciones son reconocidas y ejecutables en el extranjero.
+
+La herramienta: la **Convención de Nueva York sobre Reconocimiento y Ejecución de Sentencias Arbitrales Extranjeras** (1958). Argentina la ratificó (Ley 23.619). Más de 170 países la ratificaron. Es el tratado de derecho privado más exitoso de la historia — más países ratificaron la Convención de Nueva York que la Carta de las Naciones Unidas.
+
+La Convención de Nueva York permite que un laudo arbitral emitido en un país sea reconocido y ejecutado en cualquier otro país signatario — con muy pocas excepciones. El requisito clave: la resolución debe calificar como **laudo arbitral** bajo los términos de la Convención.
+
+PLANJUS estructura sus resoluciones comerciales internacionales como laudos arbitrales cuando las partes lo solicitan o cuando el caso tiene componente transfronterizo. Esto significa:
+
+| Elemento | Implementación PLANJUS |
+|---|---|
+| **Acuerdo arbitral** | Las partes aceptan la jurisdicción de PLANJUS mediante cláusula contractual o sumisión voluntaria posterior al conflicto. Esto constituye el "acuerdo por escrito" que exige el Art. II de la Convención de Nueva York. |
+| **Procedimiento arbitral** | El proceso PLANJUS cumple con los estándares de debido proceso reconocidos internacionalmente: notificación adecuada, derecho de defensa, imparcialidad del tribunal, fundamentación del laudo. |
+| **Laudo ejecutable** | La resolución PLANJUS se emite en formato de laudo arbitral, con los requisitos formales de la Convención: identificación de las partes, cuestiones sometidas, fundamentación, parte dispositiva, firma de los panelistas (que actúan como árbitros). |
+| **Sede del arbitraje** | Argentina. Lo cual significa que cualquier recurso contra el laudo se rige por la ley argentina — y PLANJUS prevé un recurso de revisión interno de 15 días, mucho más rápido que la nulidad judicial del arbitraje tradicional. |
+
+El resultado: una empresa argentina que le gana un caso comercial a una empresa brasileña, mexicana, o española en PLANJUS puede ejecutar ese laudo directamente en el país de la otra parte — a través de los tribunales locales de ese país, que están obligados por la Convención de Nueva York a reconocerlo. Esto le da a PLANJUS una fuerza ejecutoria global que el sistema judicial argentino no tiene — porque las sentencias judiciales argentinas requieren exequátur en cada país, un proceso lento y costoso, mientras que los laudos arbitrales bajo la Convención de Nueva York tienen un camino de reconocimiento estandarizado y rápido.
+
+### 27.6 Integración Mercosur — La Justicia Regional
+
+El Mercosur tiene instrumentos de cooperación judicial que — como todo en el Mercosur — son buenos en el papel y lentos en la práctica. Pero existen, y PLANJUS los usa:
+
+**TABLA 22: Instrumentos Mercosur y Aplicación en PLANJUS**
+
+| Instrumento | Contenido | Uso en PLANJUS |
+|---|---|---|
+| **Protocolo de Las Leñas** (1992) | Cooperación y asistencia jurisdiccional en materia civil, comercial, laboral y administrativa entre Estados Parte del Mercosur. Reconocimiento de sentencias y laudos arbitrales. | PLANJUS usa Las Leñas para el reconocimiento y ejecución de sus resoluciones en Brasil, Paraguay, y Uruguay — sin necesidad de exequátur completo, solo trámite simplificado ante la Autoridad Central del país requerido. |
+| **Protocolo de Buenos Aires** (1994) | Jurisdicción internacional en materia contractual. Establece reglas para determinar qué tribunal es competente en contratos con elementos transfronterizos dentro del Mercosur. | PLANJUS se posiciona como foro elegible cuando las partes lo acuerdan (Art. 4 — prórroga de jurisdicción) o cuando Argentina es el lugar de cumplimiento del contrato. |
+| **Protocolo de Santa María** (1996, no vigente pero referencial) | Jurisdicción internacional en materia de relaciones de consumo. Prevé foro del domicilio del consumidor. | PLANJUS aplica el principio del domicilio del consumidor como base jurisdiccional para todas las disputas de consumo transfronterizas del Mercosur — anticipándose a la eventual ratificación del Protocolo. |
+| **Acuerdo de Buenos Aires sobre Arbitraje Comercial Internacional** (1998) | Marco para el arbitraje comercial entre partes del Mercosur. | PLANJUS estructura sus resoluciones comerciales como laudos arbitrales compatibles con este Acuerdo, facilitando el reconocimiento automático en la región. |
+
+La propuesta estratégica de PLANJUS para el Mercosur es más ambiciosa: ofrecer a los otros Estados Parte un **protocolo piloto de resolución digital de disputas de consumo transfronterizas** — un "PLANJUS Mercosur" donde un consumidor brasileño que compra a un vendedor argentino (o viceversa) puede resolver su conflicto en una plataforma compartida, con panelistas de ambos países, en el idioma de cada parte. Si funciona — y va a funcionar — se convierte en el primer sistema de justicia digital regional del mundo.
+
+### 27.7 Extranjeros en Argentina — Sin Ciudadanía, Con Derechos
+
+Un turista francés al que le roban en el hotel y la administración no se hace cargo. Un inmigrante boliviano al que el empleador le paga menos de lo que acordaron. Una estudiante colombiana a la que la inmobiliaria le retiene el depósito ilegalmente. Un trabajador senegalés al que le niegan un servicio por el color de su piel.
+
+Todas estas personas tienen derecho a PLANJUS. Sin excepción. Sin requisito de ciudadanía, de residencia permanente, de DNI argentino. El artículo 20 de la Constitución Nacional es cristalino: "Los extranjeros gozan en el territorio de la Nación de todos los derechos civiles del ciudadano." Todos. No algunos. No los que tengan papeles. Todos.
+
+| Situación | Acceso a PLANJUS |
+|---|---|
+| **Turista** | Acceso completo. Presenta su caso en la plataforma digital o en la Casa JUS más cercana. Si no habla español, se activa el servicio de interpretación (Sección 26.4). Si el caso no se resuelve antes de que se vaya del país, puede seguir participando remotamente desde su país de origen. |
+| **Residente temporario** | Acceso completo. Mismo trato que un ciudadano argentino. Sin restricciones. |
+| **Residente permanente** | Acceso completo. |
+| **Persona en situación migratoria irregular** | Acceso completo. PLANJUS no pide ni verifica estatus migratorio. No comparte información con la Dirección Nacional de Migraciones. La justicia civil no es un brazo del control migratorio — y PLANJUS no va a convertirla en uno. |
+| **Refugiado/solicitante de asilo** | Acceso completo con prioridad en asignación de Asistente JUS y servicio de interpretación. |
+
+La accesibilidad lingüística descrita en la Sección 26 es especialmente crítica acá. Un trabajador senegalés que habla wolof y un poco de español necesita un intérprete para presentar su caso — y PLANJUS se lo da. Un turista chino que no entiende nada necesita un intérprete — y PLANJUS se lo da. La justicia no tiene idioma. Tiene obligación de hacerse entender.
+
+### 27.8 Mapa de Disputas Transfronterizas — Protocolo Consolidado
+
+**TABLA 23: Tipos de Disputa Transfronteriza y Protocolo PLANJUS**
+
+| Tipo de disputa | Ejemplo típico | Nivel JUS | Ley aplicable | Ejecución internacional | Plazo |
+|---|---|---|---|---|---|
+| **E-commerce B2C** | Argentino compra en AliExpress, producto no llega | JUS-1 | Ley 24.240 (Defensa del Consumidor) + CCC Art. 2654 | Contra activos en Argentina + registro de reputación + ICPEN | 30 días |
+| **E-commerce B2B** | PyME argentina compra insumos a proveedor brasileño, entrega defectuosa | JUS-2 | CCC Art. 2650–2653 + Protocolo de Buenos Aires | Laudo arbitral bajo Convención de Nueva York + Las Leñas | 45 días |
+| **Laboral transfronterizo** | Argentino trabaja remoto para empresa uruguaya, no le pagan | JUS-2 | Ley 20.744 (LCT) si el trabajo se ejecuta desde Argentina (Art. 3 LCT) | Contra activos en Argentina + Las Leñas | 45 días |
+| **Alimentos internacionales** | Madre en Argentina, padre en España no paga cuota | JUS-3 | CCC + Convenio de La Haya sobre alimentos (Ley 27.163) | Componente doméstico ejecutable directamente; internacional vía Autoridad Central | 90 días (componente doméstico) |
+| **Custodia internacional** | Padre retiene al hijo en Brasil, madre reclama desde Argentina | JUS-3 | Convenio de La Haya sobre sustracción (Ley 23.857) | PLANJUS prepara expediente y lo transfiere a Autoridad Central en 30 días | 30 días (preparación) + trámite La Haya |
+| **Comercial internacional (>USD 50.000)** | Exportador argentino vs. importador mexicano, contrato incumplido | JUS-3 | CCC + autonomía de la voluntad + ley elegida por las partes | Laudo arbitral bajo Convención de Nueva York — ejecutable en 170+ países | 90 días |
+| **Servicios digitales** | Plataforma con sede en Irlanda cobra indebidamente a usuario argentino | JUS-1 | Ley 24.240 + CCC Art. 2654 (consumidor) | Contra filial/activos en Argentina + registro de reputación + cooperación UE-Mercosur | 30 días |
+| **Propiedad intelectual** | Empresa chilena copia marca registrada argentina | JUS-3 | Ley 22.362 (Marcas) + Convenio de París + ADPIC | Laudo arbitral bajo NY Convention si ambas partes aceptan; sino, vía judicial tradicional para PI | 90 días |
+| **Daños transfronterizos** | Turista brasileño sufre daño en establecimiento argentino | JUS-2 | CCC Art. 2656 (lugar del daño) | Ejecución directa en Argentina; si el turista quiere ejecutar en Brasil → Las Leñas | 45 días |
+| **Familia — reconocimiento de resolución extranjera** | Tribunal español dictó alimentos, hay que ejecutar en Argentina | JUS-2 | CCC Art. 2610–2612 + Protocolo de Las Leñas (si Mercosur) | PLANJUS reconoce y ejecuta en 45 días — sin exequátur judicial | 45 días |
+
+### 27.9 Límites — Lo Que PLANJUS No Hace
+
+Transparencia radical implica decir lo que no se puede hacer:
+
+- **PLANJUS no reemplaza el arbitraje de inversión** (CIADI/ICSID, UNCITRAL). Las disputas entre inversores extranjeros y el Estado argentino bajo tratados bilaterales de inversión siguen sus propios mecanismos. PLANJUS no interfiere.
+- **PLANJUS no tiene jurisdicción penal internacional.** Si un delito cruza fronteras, es materia de Interpol, tratados de extradición, y justicia penal — no de PLANJUS.
+- **PLANJUS no puede forzar la ejecución en países que no ratificaron la Convención de Nueva York** ni tienen tratados de cooperación con Argentina. En esos casos (pocos), la resolución PLANJUS tiene valor declarativo y puede usarse como evidencia en procedimientos locales del país en cuestión.
+- **PLANJUS no resuelve disputas entre dos partes extranjeras sin conexión con Argentina.** Tiene que haber un vínculo: domicilio, lugar de cumplimiento, lugar del daño, o acuerdo de las partes.
+
+Estos límites no son debilidades. Son honestidad. Un sistema que promete lo que no puede cumplir pierde credibilidad — y la credibilidad es el activo más valioso de PLANJUS.
+
+### 27.10 La Oportunidad Estratégica
+
+Argentina tiene algo que pocos países de la región tienen: abogados de primer nivel en derecho internacional privado, una tradición académica fuerte en arbitraje, y una posición geográfica y económica que la hace hub natural del Mercosur. PLANJUS puede convertir esa capacidad dormida en una ventaja competitiva global.
+
+Si PLANJUS logra — y va a lograr — resoluciones comerciales internacionales rápidas, predecibles, transparentes, y ejecutables bajo la Convención de Nueva York, la Argentina se convierte en un polo de arbitraje comercial regional. Las empresas que operan en el Mercosur van a preferir resolver sus disputas en PLANJUS — 90 días, transparencia total, costo mínimo — antes que en un arbitraje institucional que tarda 18 meses y cuesta cientos de miles de dólares.
+
+Eso no es solo justicia. Es política exterior. Es competitividad. Es decirle al mundo: "Vengan a hacer negocios con nosotros. Si hay un problema, lo resolvemos en tres meses. No en tres años."
+
+Un sistema de justicia que funciona no solo protege a los que están adentro. Atrae a los que están afuera. Y un país que atrae — negocios, talento, confianza — es un país que crece. PLANJUS no es solo el quinto pilar de BASTA. Es la carta de presentación de la Argentina ante un mundo que dejó de creer en nuestras promesas — y necesita que le mostremos resultados.
+
+---
+
 **FIN DEL DOCUMENTO**
 
-**PLANJUS v1.0 — Marzo 2026**
+**PLANJUS v1.1 — Marzo 2026**
 **Proyecto BASTA — El Instante del Hombre Gris**
 **Preparado para la República Argentina**

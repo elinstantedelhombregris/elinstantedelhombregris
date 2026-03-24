@@ -35,6 +35,8 @@ import {
   insertNotificationSchema,
   // Mandato Vivo
   insertUserResourceSchema,
+  // Platform Feedback
+  insertPlatformFeedbackSchema,
 } from "@shared/schema";
 import { z } from "zod";
 import { 
@@ -4775,6 +4777,65 @@ export async function registerRoutes(app: Express): Promise<Server> {
         error: "Internal Server Error",
         message: "Error fetching blog post"
       });
+    }
+  });
+
+  // ============ Platform Feedback ============
+
+  // Public: submit feedback (no auth required, optionalAuth to attach userId if logged in)
+  app.post("/api/feedback", optionalAuth, async (req: AuthRequest, res) => {
+    try {
+      const parsed = insertPlatformFeedbackSchema.safeParse({
+        ...req.body,
+        userId: req.user?.userId || null,
+      });
+      if (!parsed.success) {
+        return res.status(400).json({ error: "Datos inválidos", details: parsed.error.errors });
+      }
+      const feedback = await storage.createPlatformFeedback(parsed.data);
+      res.status(201).json(feedback);
+    } catch (error) {
+      console.error("Error creating feedback:", error);
+      res.status(500).json({ error: "Error al enviar feedback" });
+    }
+  });
+
+  // Admin: get all feedback (restricted to user ID 1 — HombreGris01)
+  app.get("/api/admin/feedback", authenticateToken, async (req: AuthRequest, res) => {
+    try {
+      if (req.user?.userId !== 1) {
+        return res.status(403).json({ error: "Forbidden" });
+      }
+      const feedback = await storage.getAllPlatformFeedback();
+      res.json(feedback);
+    } catch (error) {
+      console.error("Error fetching feedback:", error);
+      res.status(500).json({ error: "Error al obtener feedback" });
+    }
+  });
+
+  // Admin: update feedback status (restricted to user ID 1 — HombreGris01)
+  app.patch("/api/admin/feedback/:id/status", authenticateToken, async (req: AuthRequest, res) => {
+    try {
+      if (req.user?.userId !== 1) {
+        return res.status(403).json({ error: "Forbidden" });
+      }
+      const id = parseInt(req.params.id);
+      if (isNaN(id)) {
+        return res.status(400).json({ error: "ID inválido" });
+      }
+      const { status, adminNotes } = req.body;
+      if (!status || !['nueva', 'revisada', 'resuelta'].includes(status)) {
+        return res.status(400).json({ error: "Estado inválido. Debe ser 'nueva', 'revisada' o 'resuelta'" });
+      }
+      const feedback = await storage.updatePlatformFeedbackStatus(id, status, adminNotes);
+      if (!feedback) {
+        return res.status(404).json({ error: "Feedback no encontrado" });
+      }
+      res.json(feedback);
+    } catch (error) {
+      console.error("Error updating feedback:", error);
+      res.status(500).json({ error: "Error al actualizar feedback" });
     }
   });
 

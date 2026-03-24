@@ -7,9 +7,10 @@ import { Link } from 'wouter';
 import {
   Copy, Check, Download, Eye, Users, Brain, MapPin, Vote,
   Sparkles, Globe, Zap, BookOpen, GraduationCap, Building2,
-  Briefcase, Leaf, ArrowRight, ChevronDown, FileText,
+  Briefcase, Leaf, Scale, ArrowRight, ChevronDown, FileText,
   Palette, Type, Image, Monitor, Smartphone, Square,
-  Code2, Shield, BarChart3, Heart, Mail
+  Code2, Shield, BarChart3, Heart, Mail, HeartPulse, Store,
+  FlaskConical, Droplets, Landmark
 } from 'lucide-react';
 
 const fadeUp = {
@@ -48,7 +49,7 @@ const KitDePrensa = () => {
     },
     {
       label: 'Un párrafo',
-      text: 'El Instante del Hombre Gris es una plataforma de inteligencia colectiva nacida en Argentina que opera en tres niveles: transformación personal (diagnóstico de 12 áreas de vida con 60 dimensiones), inteligencia colectiva (un viaje de 6 pasos donde sueños, valores y necesidades se vuelven visibles en el territorio) y diseño de país (4 planes estratégicos con diagnóstico, solución, costos y métricas). El nombre viene de una profecía que habla de un momento bisagra para Argentina — no un líder mesiánico, sino el despertar de las personas comunes que eligen construir en vez de destruir.',
+      text: 'El Instante del Hombre Gris es una plataforma de inteligencia colectiva nacida en Argentina que opera en tres niveles: transformación personal (diagnóstico de 12 áreas de vida con 60 dimensiones), inteligencia colectiva (un viaje de 6 pasos donde sueños, valores y necesidades se vuelven visibles en el territorio) y diseño de país (9 planes estratégicos con diagnóstico, solución, costos y métricas). El nombre viene de una profecía que habla de un momento bisagra para Argentina — no un líder mesiánico, sino el despertar de las personas comunes que eligen construir en vez de destruir.',
     },
     {
       label: 'Descripción completa',
@@ -56,9 +57,11 @@ const KitDePrensa = () => {
 
 El "Hombre Gris" no es un líder mesiánico. Es exactamente lo contrario: es alguien común que decide dejar de culpar y empezar a crear. Gris no es ausencia de color — es la mezcla de todos. Es quien se salió de la cancha de la grieta y eligió construir.
 
-La plataforma funciona en tres niveles. Primero, la transformación personal: un sistema de diagnóstico sobre 12 áreas de vida con 60 dimensiones, contenido de estudio real y herramientas concretas. Segundo, la inteligencia colectiva: un viaje de seis pasos que va desde la Visión de Argentina hasta la Tribu activa, pasando por el Mapa donde los sueños se vuelven visibles en el territorio y el Mandato Vivo donde los datos construyen democracia directa. Tercero, el diseño de un país nuevo: cuatro planes estratégicos completos — refundación educativa (PLANEDU), regeneración del suelo (PLANISV), 24 ciudades nuevas (PLAN24CN) y reconversión del empleo público (PLANREP).
+La plataforma funciona en tres niveles. Primero, la transformación personal: un sistema de diagnóstico sobre 12 áreas de vida con 60 dimensiones, contenido de estudio real y herramientas concretas. Segundo, la inteligencia colectiva: un viaje de seis pasos que va desde la Visión de Argentina hasta la Tribu activa, pasando por el Mapa donde los sueños se vuelven visibles en el territorio y el Mandato Vivo donde los datos construyen democracia directa. Tercero, el diseño de un país nuevo: cinco planes estratégicos completos — refundación educativa (PLANEDU), regeneración del suelo (PLANISV), 24 ciudades nuevas (PLAN24CN), reconversión del empleo público (PLANREP) y justicia popular (PLANJUS).
 
-Todo es abierto. Todo es auditable. Todo el código es público. El movimiento se llama ¡BASTA! — no como grito de enojo, sino como el susurro que cambia todo por dentro cuando decidís hacerte cargo.`,
+Todo es abierto. Todo es auditable. Todo el código es público. El movimiento se llama ¡BASTA! — no como grito de enojo, sino como el susurro que cambia todo por dentro cuando decidís hacerte cargo.
+
+Los nueve planes estratégicos cubren educación (PLANEDU), regeneración del suelo (PLANISV), 24 ciudades nuevas (PLAN24CN), reconversión del empleo público (PLANREP), justicia popular (PLANJUS), salud integral (PLANSAL), empresas bastardas al costo real (PLANEB), soberanía sobre sustancias (PLANSUS) y soberanía hídrica (PLANAGUA).`,
     },
   ];
 
@@ -119,10 +122,15 @@ Todo es abierto. Todo es auditable. Todo el código es público. El movimiento s
   ];
 
   const strategicPlans = [
-    { code: 'PLANEDU', name: 'Refundación Educativa', icon: GraduationCap, desc: 'Rediseño completo del sistema educativo argentino' },
-    { code: 'PLANISV', name: 'Regeneración del Suelo', icon: Leaf, desc: 'Soberanía alimentaria y restauración territorial' },
-    { code: 'PLAN24CN', name: '24 Ciudades Nuevas', icon: Building2, desc: 'Una ciudad nueva por provincia, diseñada desde cero' },
-    { code: 'PLANREP', name: 'Reconversión del Empleo Público', icon: Briefcase, desc: 'Transición digna y eficiente del empleo estatal' },
+    { code: 'PLANEDU', name: 'Refundación Educativa', icon: GraduationCap, desc: 'Argentina ocupa el puesto 63/81 en PISA. Refundación basada en Siete Capacidades, Maestros Creadores y AI como co-tutor.' },
+    { code: 'PLANISV', name: 'Infraestructura de Suelo Vivo', icon: Leaf, desc: 'El suelo que genera el 60–70% de las exportaciones se degrada. Ingeniería biológica con retorno 8:1 a 15:1.' },
+    { code: 'PLAN24CN', name: '24 Ciudades Nuevas', icon: Building2, desc: 'USD 25–40 mil M/año en costos del mal diseño urbano. Una ciudad nueva por provincia, diseñada desde cero.' },
+    { code: 'PLANREP', name: 'Reconversión del Empleo Público', icon: Briefcase, desc: '1,2–1,8M empleados sin valor verificable. Reconversión hacia la Economía de la Vida y la Inteligencia.' },
+    { code: 'PLANJUS', name: 'Justicia Popular', icon: Scale, desc: '3 a 11 años por caso y <20% de confianza. Paneles ciudadanos por sorteo que resuelven en 15, 45 o 90 días.' },
+    { code: 'PLANSAL', name: 'Salud Integral y Vitalidad Popular', icon: HeartPulse, desc: '10% del PBI en salud con resultados de país en desarrollo. 3.000 Centros de Vitalidad barriales y 25.000 Familias Mentoras.' },
+    { code: 'PLANEB', name: 'Empresas Bastardas', icon: Store, desc: 'USD 10.600–21.950M/año en extracción sobre costos reales. Entidades sin dueño, al costo real, con transparencia radical.' },
+    { code: 'PLANSUS', name: 'Soberanía sobre Sustancias', icon: FlaskConical, desc: 'USD 3.000–8.000M/año para el narco por la prohibición. Regulación integral en cascada con ROI de 5:1 a 15:1.' },
+    { code: 'PLANAGUA', name: 'Soberanía Hídrica', icon: Droplets, desc: '7 millones sin agua segura, 40% se pierde en fugas. Censo Nacional del Agua, 50.000 sensores IoT y Bastardas Hídricas.' },
   ];
 
   const downloadAsset = (url: string, filename: string) => {
@@ -479,9 +487,9 @@ Todo es abierto. Todo es auditable. Todo el código es público. El movimiento s
             viewport={{ once: true }}
           >
             <motion.h3 variants={fadeUp} custom={0} className="text-xl font-semibold mb-8">
-              Los 4 planes estratégicos — Diseño de País
+              Los 9 planes estratégicos — Diseño de País
             </motion.h3>
-            <div className="grid sm:grid-cols-2 gap-4">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {strategicPlans.map((plan, i) => {
                 const Icon = plan.icon;
                 return (
@@ -530,7 +538,7 @@ Todo es abierto. Todo es auditable. Todo el código es público. El movimiento s
             {[
               { icon: Brain, title: 'Diagnóstico Personal', desc: '12 áreas de vida, 60 dimensiones, cuestionario conversacional con contenido de estudio real.' },
               { icon: BarChart3, title: 'Inteligencia Colectiva', desc: 'Sueños, valores y necesidades mapeados en el territorio. Datos que construyen democracia directa.' },
-              { icon: BookOpen, title: 'Planes Estratégicos', desc: '4 documentos completos con diagnóstico, solución, costos y métricas. Todo abierto y auditable.' },
+              { icon: BookOpen, title: 'Planes Estratégicos', desc: '9 documentos completos con diagnóstico, solución, costos y métricas. Todo abierto y auditable.' },
             ].map((feat, i) => {
               const Icon = feat.icon;
               return (

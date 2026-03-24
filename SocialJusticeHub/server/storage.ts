@@ -56,6 +56,8 @@ import {
   userResources, type UserResource, type InsertUserResource,
   territoryMandates, type TerritoryMandate, type InsertTerritoryMandate,
   mandateSuggestions, type MandateSuggestion, type InsertMandateSuggestion,
+  // Platform Feedback
+  platformFeedback, type PlatformFeedback, type InsertPlatformFeedback,
 } from "@shared/schema";
 import { db } from "./db";
 import { eq, desc, and, sql, asc, gte, or, like, inArray, ilike, isNotNull } from "drizzle-orm";
@@ -353,6 +355,11 @@ export interface IStorage {
   generateCertificate(userId: number, courseId: number, quizScore: number): Promise<{ certificate: CourseCertificate; created: boolean }>;
   getUserCertificates(userId: number): Promise<CourseCertificate[]>;
   getUserCourses(userId: number): Promise<Array<{ course: Course; progress: UserCourseProgress }>>;
+
+  // Platform Feedback
+  createPlatformFeedback(data: InsertPlatformFeedback): Promise<PlatformFeedback>;
+  getAllPlatformFeedback(): Promise<PlatformFeedback[]>;
+  updatePlatformFeedbackStatus(id: number, status: string, adminNotes?: string): Promise<PlatformFeedback | undefined>;
 }
 
 export class MemStorage implements Partial<IStorage> {
@@ -368,7 +375,8 @@ export class MemStorage implements Partial<IStorage> {
   private resources: Map<number, Resource>;
   private inspiringStories: Map<number, InspiringStory>;
   private stories: Map<number, History>;
-  
+  private platformFeedbacks: Map<number, PlatformFeedback>;
+
   currentUserId: number;
   currentDreamId: number;
   currentPostId: number;
@@ -381,6 +389,7 @@ export class MemStorage implements Partial<IStorage> {
   currentViewId: number;
   currentInspiringStoryId: number;
   currentStoryId: number;
+  currentFeedbackId: number;
 
   constructor() {
     this.users = new Map();
@@ -408,7 +417,9 @@ export class MemStorage implements Partial<IStorage> {
     this.currentLikeId = 1;
     this.currentViewId = 1;
     this.currentInspiringStoryId = 1;
-    
+    this.currentFeedbackId = 1;
+    this.platformFeedbacks = new Map();
+
     // Add sample resources
     this.addSampleResources();
   }
@@ -1074,6 +1085,36 @@ export class MemStorage implements Partial<IStorage> {
       updatedAt: new Date().toISOString(),
     };
     this.inspiringStories.set(id, updated);
+    return updated;
+  }
+
+  // Platform Feedback
+  async createPlatformFeedback(data: InsertPlatformFeedback): Promise<PlatformFeedback> {
+    const id = this.currentFeedbackId++;
+    const feedback: PlatformFeedback = {
+      id,
+      type: data.type,
+      content: data.content,
+      email: data.email || null,
+      userId: data.userId || null,
+      status: "nueva",
+      adminNotes: null,
+      createdAt: new Date().toISOString(),
+    };
+    this.platformFeedbacks.set(id, feedback);
+    return feedback;
+  }
+
+  async getAllPlatformFeedback(): Promise<PlatformFeedback[]> {
+    return Array.from(this.platformFeedbacks.values())
+      .sort((a, b) => (b.createdAt ? new Date(b.createdAt).getTime() : 0) - (a.createdAt ? new Date(a.createdAt).getTime() : 0));
+  }
+
+  async updatePlatformFeedbackStatus(id: number, status: string, adminNotes?: string): Promise<PlatformFeedback | undefined> {
+    const feedback = this.platformFeedbacks.get(id);
+    if (!feedback) return undefined;
+    const updated: PlatformFeedback = { ...feedback, status, adminNotes: adminNotes ?? feedback.adminNotes };
+    this.platformFeedbacks.set(id, updated);
     return updated;
   }
 }
@@ -4411,6 +4452,27 @@ export class DatabaseStorage implements IStorage {
       .where(eq(userProfiles.userId, userId))
       .returning();
     return profile;
+  }
+
+  // Platform Feedback
+  async createPlatformFeedback(data: InsertPlatformFeedback): Promise<PlatformFeedback> {
+    const [feedback] = await db.insert(platformFeedback).values(data).returning();
+    return feedback;
+  }
+
+  async getAllPlatformFeedback(): Promise<PlatformFeedback[]> {
+    return await db.select().from(platformFeedback)
+      .orderBy(desc(platformFeedback.createdAt));
+  }
+
+  async updatePlatformFeedbackStatus(id: number, status: string, adminNotes?: string): Promise<PlatformFeedback | undefined> {
+    const updates: any = { status };
+    if (adminNotes !== undefined) updates.adminNotes = adminNotes;
+    const [feedback] = await db.update(platformFeedback)
+      .set(updates)
+      .where(eq(platformFeedback.id, id))
+      .returning();
+    return feedback;
   }
 }
 

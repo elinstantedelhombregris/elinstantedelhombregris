@@ -1094,4 +1094,530 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
       { title: 'Fulham et al. — Meta-analysis of Restorative Justice Programs (2025)' },
     ],
   },
+
+  // PLANSAL — Salud Integral y Vitalidad Popular
+  {
+    slug: 'plansal-salud-integral',
+    title: 'PLANSAL',
+    subtitle: 'Plan Nacional de Salud Integral y Vitalidad Popular',
+    category: 'salud',
+    summary: 'La Argentina gasta ~10% del PBI en salud con resultados de país en desarrollo: 28% de obesidad adulta, 12.7% de diabetes tipo 2, y menos del 30% de satisfacción ciudadana. PLANSAL propone la primera arquitectura que cultiva vitalidad en vez de administrar enfermedad, con 3.000 Centros de Vitalidad barriales, 25.000 Familias Mentoras, y un retorno estimado de 12:1 a 20:1 en 10 años.',
+    iconName: 'HeartPulse',
+    documentFile: 'PLANSAL_Argentina_ES.md',
+    elProblema: {
+      title: 'El Problema',
+      content: `<p>La Argentina gasta aproximadamente el 10% de su PBI en salud — comparable a Alemania — pero obtiene resultados de país en desarrollo. El 28.3% de los adultos son obesos. El 12.7% tiene diabetes tipo 2. Cinco millones de personas tienen depresión diagnosticada. El 64.9% de adultos son sedentarios. Más del 30% de las calorías provienen de ultraprocesados. El consumo de psicofármacos es el segundo más alto de América Latina.</p>
+<p>El sistema no falla. Funciona exactamente como fue diseñado: para administrar enfermedad, no para cultivar salud. Cada enfermedad crónica es un cliente de por vida — medicamentos, estudios, consultas — que nunca se cura pero tampoco se muere. La industria farmacéutica global factura USD 1.6 billones anuales, y el 70% proviene de enfermedades crónicas.</p>
+<p>Detrás de cada estadística hay una familia como los Ramírez de Lomas de Zamora: Ricardo con hipertensión por estrés laboral crónico, Silvia con depresión y clonazepam, Tomás de 16 años con ataques de pánico, y Nélida de 72 con diabetes y siete pastillas diarias. No están enfermos porque el sistema de salud falló — están enfermos porque el sistema de vida los enfermó: comida industrial, trabajo sin sentido, incertidumbre económica, aislamiento digital, barrios hostiles.</p>`,
+      pullQuote: 'La Argentina no tiene una crisis de salud — tiene un sistema de vida que manufactura enfermedad y un sistema médico que la administra como negocio.',
+      stats: [
+        { label: 'Gasto en salud (% PBI)', value: '~10%' },
+        { label: 'Obesidad adulta', value: '28.3%' },
+        { label: 'Diabetes tipo 2', value: '12.7%' },
+        { label: 'Depresión diagnosticada', value: '~5M personas' },
+      ],
+    },
+    quePasaSiNoCambiamos: {
+      title: '¿Qué pasa si no cambiamos?',
+      content: `<p>Sin reconversión, la Fábrica de Enfermos sigue produciendo a pleno. La Argentina gasta USD 26.000 millones por año tratando enfermedad crónica prevenible. Cada día sin cambio son USD 70 millones quemados en tratar lo que podría prevenirse con un décimo de ese costo.</p>
+<p>La diabetes tipo 2 cuesta ~USD 5.500M/año. Las enfermedades cardiovasculares prevenibles cuestan ~USD 4.500M/año. La medicación psicofarmacológica crónica consume ~USD 2.200M/año. La pérdida de productividad por presentismo y discapacidad suma ~USD 4.200M/año.</p>
+<p>La fábrica opera en cinco fases: envenenamiento silencioso (comida industrial, agua contaminada, aire tóxico), desconexión progresiva (trabajo sin sentido, estrés crónico), escape (alcohol, pantallas, psicofármacos), síntoma (el cuerpo habla), y captura (paciente crónico de por vida). El ciclo se acelera con cada generación. Tomás, con 16 años, ya tiene diagnóstico psiquiátrico.</p>`,
+      pullQuote: 'La Argentina no puede pagar la fábrica de enfermos. Cada día que pasa sin reconvertir el sistema son setenta millones de dólares en tratar lo que podría prevenir.',
+      stats: [
+        { label: 'Costo anual enfermedad prevenible', value: 'USD 26.000M' },
+        { label: 'Diabetes tipo 2 / año', value: 'USD 5.500M' },
+        { label: 'Pérdida de productividad', value: 'USD 4.200M/año' },
+        { label: 'Equivalente diario quemado', value: 'USD 70M/día' },
+      ],
+    },
+    elDisenoIdeal: {
+      title: 'El Diseño Ideal',
+      content: `<p>PLANSAL propone la primera arquitectura integral de salud que no gestiona enfermedad sino que cultiva vitalidad, organizada en torno a las 12 Raíces de la Salud: alimentación, movimiento, sueño, propósito, vínculo, entorno, trabajo, economía, espiritualidad, creatividad, aprendizaje y comunidad.</p>
+<p>Cuatro pilares de infraestructura: una <strong>Red Nacional de Centros de Vitalidad</strong> (3.000+, uno por barrio, operados por la comunidad), un <strong>Sistema de Familias Mentoras</strong> (25.000+ familias que transmiten bienestar horizontalmente), <strong>Ancianos de Sabiduría</strong> (5M+ adultos mayores reposicionados como activos comunitarios), y una <strong>Plataforma Digital Nacional</strong> de autodiagnóstico por las 12 dimensiones.</p>
+<p>La reconversión del sistema médico opera en 3 fases a lo largo de 15 años: de la coexistencia a la especialización hospitalaria en emergencias y trauma, mientras las enfermedades crónicas prevenibles migran a los Centros de Vitalidad. Se funda en un Pacto de Co-responsabilidad: el Estado deja de envenenar, el ciudadano elige sanarse.</p>`,
+      pullQuote: 'PLANSAL no es un plan de hospitales — es un plan de transformación humana.',
+      stats: [
+        { label: 'Inversión total (10 años)', value: 'USD 6.000M' },
+        { label: 'Retorno por peso invertido', value: '12-20x a 10 años' },
+        { label: 'Centros de Vitalidad', value: '3.000+' },
+        { label: 'Familias Mentoras', value: '25.000+' },
+      ],
+    },
+    elCamino: {
+      overview: 'Cuatro fases en 15 años: demostrar antes de escalar, medir antes de expandir, convencer con hechos antes de pedir confianza. Cada fase tiene métricas claras y condiciones para avanzar.',
+      steps: [
+        { id: 1, title: 'Fase 0 — Preparar', description: 'Crear ANVIP (agencia), seleccionar 10 barrios piloto diversos, reclutar primeras 100 Familias Mentoras, desarrollar Plataforma v1, entrenar 50 Guías de Vitalidad, presentar Ley de Vitalidad Popular al Congreso.', timeline: 'Meses 1-6', dependencies: [], orderIndex: 1 },
+        { id: 2, title: 'Fase 1 — Demostrar', description: '10 Centros de Vitalidad operativos, 1.000 Familias Mentoras activas, medición cuasi-experimental rigurosa (barrios con Centro vs barrios control), primeros resultados publicados.', timeline: 'Años 1-3', dependencies: ['Fase 0 completa'], orderIndex: 2 },
+        { id: 3, title: 'Fase 2 — Escalar', description: '500 Centros, 5.000 Familias Mentoras, integración formal con obras sociales y PAMI, redireccionamiento de presupuesto basado en evidencia, expansión rural, 7 leyes promulgadas.', timeline: 'Años 3-7', dependencies: ['Fase 1 con resultados demostrados'], orderIndex: 3 },
+        { id: 4, title: 'Fase 3 — Consolidar', description: '3.000+ Centros (80% cobertura barrial), 25.000+ Familias Mentoras (red autosustentable), sistema dual consolidado: hospitales para emergencias, Centros para vitalidad. Argentina como referencia mundial.', timeline: 'Años 7-15', dependencies: ['Fase 2 escalada exitosamente'], orderIndex: 4 },
+      ],
+    },
+    kpis: [
+      {
+        id: 'hale',
+        metric: 'Esperanza de Vida Saludable (HALE)',
+        currentValue: 66,
+        targetValue: 71,
+        unit: 'años',
+        source: 'PLANSAL — Tablero Nacional de Vitalidad',
+        milestones: [
+          { date: 'Año 5', targetValue: 68 },
+          { date: 'Año 10', targetValue: 71 },
+        ],
+      },
+      {
+        id: 'diabetes-prevalencia',
+        metric: 'Prevalencia Diabetes Tipo 2',
+        currentValue: 12.7,
+        targetValue: 7.6,
+        unit: '%',
+        source: 'PLANSAL — Indicador de enfermedad crónica',
+        milestones: [
+          { date: 'Año 5', targetValue: 10 },
+          { date: 'Año 10', targetValue: 7.6 },
+        ],
+      },
+      {
+        id: 'centros-vitalidad',
+        metric: 'Centros de Vitalidad Operativos',
+        currentValue: 0,
+        targetValue: 3000,
+        unit: 'centros',
+        source: 'PLANSAL — Red Nacional',
+        milestones: [
+          { date: 'Año 3', targetValue: 10 },
+          { date: 'Año 7', targetValue: 500 },
+          { date: 'Año 15', targetValue: 3000 },
+        ],
+      },
+      {
+        id: 'sedentarismo',
+        metric: 'Sedentarismo en Adultos',
+        currentValue: 64.9,
+        targetValue: 39,
+        unit: '%',
+        source: 'PLANSAL — Indicador de movimiento',
+        milestones: [
+          { date: 'Año 5', targetValue: 55 },
+          { date: 'Año 10', targetValue: 39 },
+        ],
+      },
+      {
+        id: 'satisfaccion-salud',
+        metric: 'Satisfacción Ciudadana con Salud Propia',
+        currentValue: 40,
+        targetValue: 70,
+        unit: '%',
+        source: 'PLANSAL — Encuesta Nacional',
+        milestones: [
+          { date: 'Año 5', targetValue: 55 },
+          { date: 'Año 10', targetValue: 70 },
+        ],
+      },
+    ],
+    tags: ['salud', 'vitalidad', 'prevención', 'centros barriales', 'familias mentoras', 'enfermedad crónica', 'alimentación', 'bienestar', '12 raíces'],
+    relatedInitiativeSlugs: ['planisv-infraestructura-suelo-vivo', 'plan24cn-24-ciudades-nuevas', 'planrep-reconversion-empleo-publico', 'planedu-refundacion-educativa', 'planjus-justicia-popular'],
+    sources: [
+      { title: 'PLANSAL — Plan Nacional de Salud Integral y Vitalidad Popular (Documento Estratégico, Mar 2026)' },
+      { title: 'OMS — Esperanza de vida saludable (HALE) por país' },
+      { title: 'Ministerio de Salud — Encuesta Nacional de Factores de Riesgo (ENFR 4ta edición)' },
+      { title: 'Krishnamurti — No es signo de buena salud estar bien adaptado a una sociedad enferma' },
+      { title: 'Russell Ackoff — Idealized Design (Metodología)' },
+    ],
+  },
+
+  // PLANEB — Empresas Bastardas y Soberanía Económica Popular
+  {
+    slug: 'planeb-empresas-bastardas',
+    title: 'PLANEB',
+    subtitle: 'Plan Nacional de Empresas Bastardas y Soberanía Económica Popular',
+    category: 'economia',
+    summary: 'Los argentinos pierden entre USD 10.600 y 21.950 millones al año en extracción sobre costos reales en servicios esenciales. PLANEB propone Empresas Bastardas — entidades sin dueño, sin accionistas, gobernadas como DAOs, que proveen servicios al costo real con transparencia radical — como referencia de precio que discipline al mercado entero.',
+    iconName: 'Store',
+    documentFile: 'PLANEB_Argentina_ES.md',
+    elProblema: {
+      title: 'El Problema',
+      content: `<p>Los mercados argentinos de servicios esenciales — seguros, banca, telecomunicaciones, energía, salud prepaga — operan sobre una asimetría de información estructural: el ciudadano no puede saber cuánto cuesta realmente proveer el servicio que consume, y esa opacidad es el mecanismo central de extracción de valor.</p>
+<p>La facturación combinada de estos cinco sectores alcanza entre USD 49.000 y 65.000 millones anuales. De ese total, entre USD 10.600 y 21.950 millones no compran ningún servicio — van a márgenes de ganancia, ineficiencias administrativas infladas, comisiones intermediarias y ejecutivos que cobran bonus por "optimizar la rentabilidad."</p>
+<p>Una familia tipo como los Moretti de Caballito paga entre $650.000 y $850.000 por año en extracción pura — dinero que no compra protección, ni conectividad, ni salud. Es un viaje familiar que nunca van a hacer, una operación dental que postergan, las clases de inglés que "este mes no se puede." La opacidad no es un error del sistema — es el negocio.</p>`,
+      pullQuote: 'Un mercado sin transparencia no es un mercado libre — es un mecanismo de extracción con buenas relaciones públicas.',
+      stats: [
+        { label: 'Extracción anual total', value: 'USD 10.600-21.950M' },
+        { label: 'Facturación sectores esenciales', value: 'USD 49.000-65.000M' },
+        { label: 'ROE bancario (vs 8-12% global)', value: '25-40%' },
+        { label: 'Extracción por hogar / año', value: '$650.000-$850.000' },
+      ],
+    },
+    quePasaSiNoCambiamos: {
+      title: '¿Qué pasa si no cambiamos?',
+      content: `<p>Sin cambio estructural, la máquina de extracción continúa sin freno. La regulación ha demostrado ser estructuralmente incapaz de cerrar la brecha — cada mecanismo (topes de precio, publicación de balances, multas, control de calidad, defensa del consumidor) falla porque opera desde fuera de la opacidad en vez de eliminarla.</p>
+<p>Los topes de precio hacen que la empresa ajuste la calidad hacia abajo. Las multas son una fracción de la ganancia — se convierten en costo operativo. Los balances se publican en jerga contable diseñada para que nadie entienda. La defensa del consumidor resuelve caso por caso sin cambiar la estructura del mercado.</p>
+<p>La extracción de USD 10.600-21.950M anuales supera el presupuesto nacional de educación, el de salud, y los intereses de la deuda externa. Multiplicada por los 14 millones de hogares argentinos, es la razón invisible por la que la clase media siempre llega "raspando" a fin de mes.</p>`,
+      pullQuote: 'La opacidad no es un error del sistema. Es el negocio.',
+      stats: [
+        { label: 'Extracción anual sostenida', value: 'USD 10.600-21.950M' },
+        { label: 'Más que el presupuesto de educación', value: 'Sí' },
+        { label: 'Más que el presupuesto de salud', value: 'Sí' },
+        { label: 'Hogares afectados', value: '14 millones' },
+      ],
+    },
+    elDisenoIdeal: {
+      title: 'El Diseño Ideal',
+      content: `<p>PLANEB propone el derecho de los ciudadanos a crear <strong>Empresas Bastardas</strong> — entidades constituidas como Fideicomisos de Propósito Perpetuo, gobernadas como DAOs (Organizaciones Autónomas Descentralizadas), sin dueño, sin accionistas, sin fines de lucro, que proveen servicios esenciales al costo real con transparencia radical: cada peso que entra y cada peso que sale es auditable en tiempo real por cualquier ciudadano.</p>
+<p>La <strong>Red Bastarda</strong> — la red de Empresas Bastardas interconectadas — opera sobre el <strong>Protocolo Bastardo</strong>, infraestructura compartida open-source con identidad descentralizada, tesorería on-chain, gobernanza por sorteo democrático, y un motor de transparencia que publica automáticamente cada dato financiero.</p>
+<p>La primera Bastarda ataca el sector de seguros: producto obligatorio, alta demanda, riesgo bien modelado. Los usuarios pagan el costo real dinámico con un techo mensual. La capitalización es ciudadana: 25.000 fundadores eliminan la necesidad de inversores. El ROI social es de 6:1 a 20:1 en cinco años.</p>`,
+      pullQuote: 'Bastarda: sin padre, sin dueño, sin patrón. Pero con propósito, con transparencia, con la gente.',
+      stats: [
+        { label: 'Ahorro por usuario', value: '20-35%' },
+        { label: 'Inversión primera Bastarda', value: 'USD 8-17M' },
+        { label: 'ROI social a 5 años', value: '6:1 a 20:1' },
+        { label: 'Ahorro ciudadano Año 5', value: 'USD 90-180M/año' },
+      ],
+    },
+    elCamino: {
+      overview: 'Modelo de cascada: cada Bastarda exitosa hace la siguiente más barata, más rápida y más confiable. La primera construye todo el Protocolo; para la quinta, el 95% de la infraestructura ya existe.',
+      steps: [
+        { id: 1, title: 'Año 0 — Fundación', description: 'PLANEB publicado. ANEB constituida. Protocolo Bastardo v1.0 desarrollado. Petición de la Bastarda Aseguradora lanzada. 25.000 firmantes reunidos.', timeline: 'Pre-lanzamiento', dependencies: [], orderIndex: 1 },
+        { id: 2, title: 'Año 1 — Bastarda Aseguradora', description: 'Primera Empresa Bastarda constituida y lanzada públicamente con producto de responsabilidad civil automotor. 10.000 usuarios. Licencia SSN obtenida.', timeline: 'Meses 1-18', dependencies: ['ANEB operativa', 'Protocolo v1.0'], orderIndex: 2 },
+        { id: 3, title: 'Año 2 — Expansión Aseguradora', description: 'Multi-producto (auto + hogar + micro-pólizas). 30.000 usuarios. Petición de Bastarda Financiera alcanza 25.000 firmas.', timeline: 'Meses 19-36', dependencies: ['Bastarda Aseguradora operativa'], orderIndex: 3 },
+        { id: 4, title: 'Año 3 — Bastarda Financiera', description: 'Bastarda bancaria en piloto. Bastarda Conectada (telecom) en fase de petición. Red de 80.000 usuarios totales.', timeline: 'Año 3', dependencies: ['80% del Protocolo reutilizable'], orderIndex: 4 },
+        { id: 5, title: 'Año 4 — Expansión de Red', description: 'Bastarda Conectada + Bastarda Energética en estudio. Primera ciudad PLAN24CN con servicios Bastardos. 150.000 usuarios.', timeline: 'Año 4', dependencies: ['Múltiples Bastardas operativas'], orderIndex: 5 },
+        { id: 6, title: 'Año 5 — Red Bastarda a Escala', description: '5+ Bastardas activas. Ahorro ciudadano >USD 100M/año. Ley de Entidades de Propósito Perpetuo en el Congreso. 300.000+ usuarios.', timeline: 'Año 5', dependencies: ['Efecto cascada', '95% Protocolo reutilizable'], orderIndex: 6 },
+      ],
+    },
+    kpis: [
+      {
+        id: 'usuarios-red',
+        metric: 'Usuarios Totales de la Red Bastarda',
+        currentValue: 0,
+        targetValue: 300000,
+        unit: 'usuarios',
+        source: 'PLANEB — Tablero Nacional',
+        milestones: [
+          { date: 'Año 1', targetValue: 10000 },
+          { date: 'Año 3', targetValue: 80000 },
+          { date: 'Año 5', targetValue: 300000 },
+        ],
+      },
+      {
+        id: 'ahorro-ciudadano',
+        metric: 'Ahorro Ciudadano Acumulado',
+        currentValue: 0,
+        targetValue: 180,
+        unit: 'USD M/año',
+        source: 'PLANEB — Impacto económico',
+        milestones: [
+          { date: 'Año 1', targetValue: 3 },
+          { date: 'Año 3', targetValue: 40 },
+          { date: 'Año 5', targetValue: 180 },
+        ],
+      },
+      {
+        id: 'bastardas-activas',
+        metric: 'Bastardas Activas',
+        currentValue: 0,
+        targetValue: 5,
+        unit: 'entidades',
+        source: 'PLANEB — Red Bastarda',
+        milestones: [
+          { date: 'Año 1', targetValue: 1 },
+          { date: 'Año 3', targetValue: 2 },
+          { date: 'Año 5', targetValue: 5 },
+        ],
+      },
+      {
+        id: 'sectores-referencia',
+        metric: 'Sectores con Referencia Transparente',
+        currentValue: 0,
+        targetValue: 5,
+        unit: 'sectores',
+        source: 'PLANEB — Impacto de mercado',
+        milestones: [
+          { date: 'Año 2', targetValue: 1 },
+          { date: 'Año 4', targetValue: 3 },
+          { date: 'Año 5', targetValue: 5 },
+        ],
+      },
+    ],
+    tags: ['empresas bastardas', 'DAO', 'transparencia radical', 'costo real', 'cero propiedad', 'Red Bastarda', 'Protocolo Bastardo', 'ANEB', 'seguros', 'banca', 'telecomunicaciones', 'soberanía económica'],
+    relatedInitiativeSlugs: ['planrep-reconversion-empleo-publico', 'planjus-justicia-popular', 'plansus-soberania-sustancias', 'plan24cn-24-ciudades-nuevas', 'plansal-salud-integral'],
+    sources: [
+      { title: 'PLANEB — Plan Nacional de Empresas Bastardas y Soberanía Económica Popular (Documento Estratégico, Mar 2026)' },
+      { title: 'SSN — Balances de aseguradoras (margen técnico y financiero)' },
+      { title: 'BCRA — Informes de rentabilidad bancaria (ROE 25-40%)' },
+      { title: 'ENACOM — Reportes de operadoras de telecomunicaciones (EBITDA margins)' },
+      { title: 'Ostrom — Governing the Commons: Design Principles (Nobel 2009)' },
+      { title: 'Russell Ackoff — Idealized Design (Metodología)' },
+    ],
+  },
+
+  // PLANSUS — Soberanía sobre Sustancias
+  {
+    slug: 'plansus-soberania-sustancias',
+    title: 'PLANSUS',
+    subtitle: 'Plan Nacional de Soberanía sobre Sustancias y Desarrollo Productivo del Conocimiento Expandido',
+    category: 'instituciones',
+    summary: 'La prohibición le regaló al narcotráfico un mercado de USD 3.000-8.000M anuales que no paga impuestos, no controla calidad y mata gente. PLANSUS propone la ruptura soberana con las convenciones de la ONU y una regulación integral en cascada: cannabis en el Año 1, psicodélicos terapéuticos en el Año 3, regulación completa en el Año 5. ROI estimado 5:1 a 15:1.',
+    iconName: 'FlaskConical',
+    documentFile: 'PLANSUS_Argentina_ES.md',
+    elProblema: {
+      title: 'El Problema',
+      content: `<p>La prohibición de sustancias en la Argentina es un fracaso absoluto por cualquier métrica. No redujo el consumo, no redujo la oferta, no protegió a los menores, no detuvo al narcotráfico — y le regaló al crimen organizado un mercado de USD 3.000-8.000 millones anuales que no paga impuestos, no controla calidad, no protege trabajadores, y mata gente.</p>
+<p>El Estado gasta entre USD 2.000 y 4.000 millones por año en enforcement que captura apenas el 5-15% del flujo de drogas. Por cada peso que el Estado invierte en prohibir, el narco gana entre dos y cuatro pesos. Es la peor inversión de la historia de la política pública argentina.</p>
+<p>El costo total estimado de la prohibición — mercado negro, enforcement, costos sanitarios, violencia, corrupción, productividad perdida — alcanza entre USD 7.300 y 20.000M por año, entre el 1,5% y el 4% del PBI. Mientras tanto, el ~40% de los presos federales están encarcelados por infracciones a la ley de drogas, y menos del 3% de los condenados son verdaderos narcotraficantes.</p>`,
+      pullQuote: 'La prohibición no combate al narco. Es el modelo de negocio del narco.',
+      stats: [
+        { label: 'Mercado negro anual', value: 'USD 3.000-8.000M' },
+        { label: 'Gasto en enforcement / año', value: 'USD 2.000-4.000M' },
+        { label: 'Droga incautada vs flujo total', value: '5-15%' },
+        { label: 'Muertes anuales (violencia + adulteración)', value: '2.000-5.000' },
+      ],
+    },
+    quePasaSiNoCambiamos: {
+      title: '¿Qué pasa si no cambiamos?',
+      content: `<p>Sin reforma, la Argentina sigue perdiendo entre USD 7.300 y 20.000M por año al costo total de la prohibición. El Estado sigue gastando miles de millones en enforcement que captura el 10% del flujo — el narco reinvierte el 90% restante en violencia, corrupción y expansión territorial.</p>
+<p>Las cárceles siguen llenas de pibes pobres por tenencia personal mientras los verdaderos narcotraficantes operan con impunidad. Los barrios populares como Las Flores en Rosario siguen siendo campos de batalla donde los conflictos comerciales se resuelven con balas porque no pueden resolverse en juzgados.</p>
+<p>Mientras tanto, el mundo avanza. Portugal, Canadá, Uruguay, Colorado, Australia y Oregon ya reformaron. La Argentina queda congelada en un marco de 1961 diseñado por la guerra contra las drogas de Harry Anslinger — obedeciendo un mandato colonial disfrazado de política sanitaria, mientras el país que escribió esas convenciones legaliza en la mitad de sus estados.</p>`,
+      pullQuote: 'Encarcerar consumidores y micro-vendedores es la política de salud pública más cara, más cruel y más inútil jamás diseñada.',
+      stats: [
+        { label: 'Costo total de prohibición / año', value: 'USD 7.300-20.000M' },
+        { label: 'Presos federales por drogas', value: '~40% del total' },
+        { label: 'Narco-bosses condenados', value: '<3%' },
+        { label: 'Impuestos que paga el narco', value: 'USD 0' },
+      ],
+    },
+    elDisenoIdeal: {
+      title: 'El Diseño Ideal',
+      content: `<p>PLANSUS reemplaza el paradigma de prohibición por uno de soberanía. Cuatro vías de licenciamiento: <strong>Ceremonial</strong> (tradiciones ancestrales, exenta de impuestos), <strong>Terapéutica</strong> (investigación y tratamiento clínico, impuesto reducido 5-8%), <strong>Recreativa/Personal</strong> (tres escalones Micro/Meso/Macro para prevenir monopolios, tributación progresiva 10-30%), e <strong>Industrial</strong> (cáñamo, farmacéutica, exportación).</p>
+<p>La <strong>ANSUS</strong> (Agencia Nacional de Soberanía sobre Sustancias) administra el sistema con un directorio de 9 miembros (científicos, sociedad civil, representantes indígenas, sorteo ciudadano), presupuesto constitucional protegido, y auditoría blockchain.</p>
+<p>La <strong>Amnistía "El Puente"</strong> ofrece a los operadores del mercado negro una transición hacia la legalidad — porque la única forma de destruir al narcotráfico es quitarle el mercado, no dispararle a sus soldados. Las penalidades para venta a menores son las más duras del continente. Los ingresos proyectados son de USD 2.200-4.400M/año al Año 5.</p>`,
+      pullQuote: 'La única forma de destruir al narcotráfico es quitarle el mercado, no dispararle a sus soldados.',
+      stats: [
+        { label: 'Ingresos proyectados Año 5', value: 'USD 2.200-4.400M/año' },
+        { label: 'Empleos directos Año 5', value: '100.000-200.000' },
+        { label: 'Costo de implementación (5 años)', value: 'USD 800M-2.200M' },
+        { label: 'ROI a 10 años', value: '5:1 a 15:1' },
+      ],
+    },
+    elCamino: {
+      overview: 'Cascada controlada en 5 años. La secuencia es fija pero el avance depende de evidencia, no de política. Cada fase avanza solo cuando un sistema tripartito de verificación (ANSUS + evaluadores internacionales + panel ciudadano) confirma que las precondiciones se cumplen.',
+      steps: [
+        { id: 1, title: 'Pre-Fase — Los Cimientos', description: 'Encuesta nacional de base, 5 laboratorios regionales equipados, equipo ANSUS operativo, safe harbor bancario del BCRA, plataforma de trazabilidad, protocolos DUI, campaña de comunicación.', timeline: '12 meses antes de la ley', dependencies: [], orderIndex: 1 },
+        { id: 2, title: 'Fase 1 — El Alivio (Cannabis + Despenalización)', description: 'Ley aprobada. Convenciones ONU denunciadas. Liberación inmediata de presos por tenencia. ANSUS establecida formalmente. Primeras micro-licencias de cannabis. Amnistía Tier 1 operativa. Primeras ventas legales al Mes 6.', timeline: 'Año 1', dependencies: ['10 hitos pre-fase cumplidos'], orderIndex: 2 },
+        { id: 3, title: 'Fase 2 — La Expansión (Psicodélicos)', description: 'Legalización completa de psicodélicos (si Gate 2 es verde). Primeros centros terapéuticos licenciados. Vía Ceremonial operativa. Hub de I+D con primeras patentes. Primeras exportaciones de cannabis con denominación de origen.', timeline: 'Años 2-3', dependencies: ['Consumo juvenil estable', 'Mercado negro contraído 20%+'], orderIndex: 3 },
+        { id: 4, title: 'Fase 3 — La Soberanía (Regulación Completa)', description: 'MDMA legalizado. Cocaína regulada con controles de pureza/dosis. Todas las sustancias incorporadas. Amnistía Tier 3 completada. Mercado plenamente operativo. Evaluación integral a 5 años publicada.', timeline: 'Años 3-5', dependencies: ['Mercado negro contraído 40%+', 'Sistema de salud absorbiendo demanda'], orderIndex: 4 },
+        { id: 5, title: 'Visión 2040', description: 'Mercado negro contraído 90%+. Cannabis es 4to producto agrícola de exportación. Buenos Aires, Córdoba y Mendoza son referentes mundiales en investigación psicodélica. Violencia narco reducida 80%. Presos por drogas cerca de cero.', timeline: '14 años post-implementación', dependencies: ['Cascada completada exitosamente'], orderIndex: 5 },
+      ],
+    },
+    kpis: [
+      {
+        id: 'mercado-negro',
+        metric: 'Contracción del Mercado Negro',
+        currentValue: 0,
+        targetValue: 90,
+        unit: '%',
+        source: 'PLANSUS — Tablero Nacional de Sustancias',
+        milestones: [
+          { date: 'Año 1', targetValue: 10 },
+          { date: 'Año 3', targetValue: 40 },
+          { date: 'Año 10', targetValue: 90 },
+        ],
+      },
+      {
+        id: 'recaudacion-fiscal',
+        metric: 'Recaudación Fiscal por Sustancias',
+        currentValue: 0,
+        targetValue: 1500,
+        unit: 'USD M/año',
+        source: 'PLANSUS — Ingresos proyectados',
+        milestones: [
+          { date: 'Año 1', targetValue: 100 },
+          { date: 'Año 3', targetValue: 500 },
+          { date: 'Año 5', targetValue: 1500 },
+        ],
+      },
+      {
+        id: 'muertes-narco',
+        metric: 'Muertes por Violencia Narco + Adulteración',
+        currentValue: 3500,
+        targetValue: 700,
+        unit: 'personas/año',
+        source: 'PLANSUS — Indicador de seguridad',
+        milestones: [
+          { date: 'Año 1', targetValue: 2800 },
+          { date: 'Año 5', targetValue: 1400 },
+          { date: 'Año 10', targetValue: 700 },
+        ],
+      },
+      {
+        id: 'empleos-legales',
+        metric: 'Empleos Directos en Economía Legal de Sustancias',
+        currentValue: 0,
+        targetValue: 200000,
+        unit: 'empleos',
+        source: 'PLANSUS — Desarrollo productivo',
+        milestones: [
+          { date: 'Año 1', targetValue: 10000 },
+          { date: 'Año 3', targetValue: 60000 },
+          { date: 'Año 5', targetValue: 200000 },
+        ],
+      },
+      {
+        id: 'presos-drogas',
+        metric: 'Presos Federales por Delitos de Drogas',
+        currentValue: 40,
+        targetValue: 2,
+        unit: '% del total',
+        source: 'PLANSUS — Indicador de justicia',
+        milestones: [
+          { date: 'Año 1', targetValue: 15 },
+          { date: 'Año 3', targetValue: 5 },
+          { date: 'Año 5', targetValue: 2 },
+        ],
+      },
+    ],
+    tags: ['soberanía', 'sustancias', 'cannabis', 'psicodélicos', 'narcotráfico', 'ANSUS', 'amnistía', 'regulación', 'cuatro vías', 'despenalización', 'convenciones ONU'],
+    relatedInitiativeSlugs: ['planjus-justicia-popular', 'planrep-reconversion-empleo-publico', 'planisv-infraestructura-suelo-vivo', 'planedu-refundacion-educativa', 'planeb-empresas-bastardas'],
+    sources: [
+      { title: 'PLANSUS — Plan Nacional de Soberanía sobre Sustancias (Documento Estratégico, Mar 2026)' },
+      { title: 'UNODC — World Drug Report (estimaciones de mercado negro)' },
+      { title: 'SEDRONAR — Encuestas nacionales de consumo de sustancias' },
+      { title: 'Portugal — Decriminalization Impact Assessment (2001-2020)' },
+      { title: 'Uruguay — Regulación del cannabis: resultados a 10 años (IRCCA)' },
+      { title: 'Johns Hopkins — Psilocybin Research for Treatment-Resistant Depression' },
+    ],
+  },
+
+  // PLANAGUA — Soberanía Hídrica y Resiliencia Climática
+  {
+    slug: 'planagua-soberania-hidrica',
+    title: 'PLANAGUA',
+    subtitle: 'Plan Nacional de Soberanía Hídrica y Resiliencia Climática',
+    category: 'medio-ambiente',
+    summary: '7 millones de argentinos no tienen acceso a agua segura. El 40% del agua tratada se pierde en fugas. 4+ millones están expuestos a arsénico sobre el límite de la OMS. PLANAGUA propone una arquitectura de soberanía hídrica con Censo Nacional del Agua, 50.000 sensores IoT, personería jurídica para ríos, y Bastardas Hídricas al costo. ROI estimado 4:1 a 8:1.',
+    iconName: 'Droplets',
+    documentFile: 'PLANAGUA_Argentina_ES.md',
+    elProblema: {
+      title: 'El Problema',
+      content: `<p>La Argentina tiene el octavo territorio más grande del mundo, glaciares que alimentan ríos vitales, el Acuífero Guaraní compartido con tres países, y uno de los sistemas fluviales más extensos del planeta. Y sin embargo, 7 millones de argentinos no tienen acceso a agua segura por red.</p>
+<p>El 40% del agua tratada — unos 6.000 millones de litros por día — se pierde en fugas de cañerías que tienen en promedio más de 55 años. Más de 4 millones de argentinos están expuestos a arsénico por encima del límite de la OMS. 15 millones no tienen red cloacal. La inversión per cápita en agua es de USD 15-20 por habitante por año — contra los USD 200+ de Israel.</p>
+<p>Los glaciares de los Andes Centrales perdieron hasta el 41% de su masa en dos décadas. El Paraná bajó en 2021 a niveles no vistos en 77 años. Las comunidades wichí del Chaco beben agua con cinco veces más arsénico que el límite de la OMS. En el conurbano, familias como los Ferreyra de Ingeniero Budge gastan más del 2% de sus ingresos en bidones porque el agua de la canilla sale marrón.</p>`,
+      pullQuote: 'Un país que tiene agua y no puede dársela limpia a su gente no tiene un problema técnico. Tiene un problema moral.',
+      stats: [
+        { label: 'Sin acceso a agua segura', value: '7 millones' },
+        { label: 'Agua tratada perdida en fugas', value: '40%' },
+        { label: 'Expuestos a arsénico > OMS', value: '4+ millones' },
+        { label: 'Inversión per cápita (vs Israel USD 200+)', value: 'USD 15-20' },
+      ],
+    },
+    quePasaSiNoCambiamos: {
+      title: '¿Qué pasa si no cambiamos?',
+      content: `<p>La inacción a 10 años (2026-2036) cuesta entre USD 33.500 y 67.000 millones en pérdidas acumuladas. PLANAGUA cuesta USD 15.000-25.000M — la inacción cuesta entre USD 18.500 y 42.000 millones MÁS que la inversión propuesta.</p>
+<p>Las pérdidas por fugas representan USD 8.000-12.000M. Los costos sanitarios por enfermedades hídricas suman USD 5.000-8.000M. Las pérdidas agrícolas por sequías y bajantes alcanzan USD 3.000-8.000M. El impacto de inundaciones agrega USD 3.000-7.000M. La pérdida de reservas glaciares — agua que nunca volverá — vale USD 5.000-12.000M.</p>
+<p>Cada centímetro de profundidad que el Paraná pierde equivale a cientos de toneladas menos por buque y millones en costos de flete. Los glaciares que alimentan Mendoza pierden 1-2% por año — y sin ellos, Mendoza es literalmente desierto. La pregunta no es si podemos pagar PLANAGUA. Es si podemos pagar el costo de no tenerlo.</p>`,
+      pullQuote: 'La pregunta no es si podemos pagar PLANAGUA. La pregunta es si podemos pagar el costo de no tenerlo.',
+      stats: [
+        { label: 'Costo de inacción (10 años)', value: 'USD 33.500-67.000M' },
+        { label: 'Pérdidas por fugas (10 años)', value: 'USD 8.000-12.000M' },
+        { label: 'Costos sanitarios hídricos', value: 'USD 5.000-8.000M' },
+        { label: 'Pérdida de glaciares', value: 'USD 5.000-12.000M' },
+      ],
+    },
+    elDisenoIdeal: {
+      title: 'El Diseño Ideal',
+      content: `<p>PLANAGUA propone una arquitectura de soberanía hídrica en dos pistas. La <strong>Pista Infraestructura</strong>: Censo Nacional del Agua (primer inventario completo), red de 50.000+ sensores IoT, Gemelo Digital Nacional, retrofitting de 40.000+ km de cañerías (de 40% a <15% de pérdidas), Procesos de Oxidación Avanzada en plantas potabilizadoras, desalinización estratégica, modelo de 90% de reúso de agua, y ciencia ciudadana con 100.000 monitores.</p>
+<p>La <strong>Pista Derechos</strong>: personería jurídica para ríos y acuíferos (Paraná, Río de la Plata, Acuífero Guaraní), Ley de Criosfera pionera mundial, co-gobernanza indígena del agua, y créditos hídricos no especulativos.</p>
+<p>La convergencia opera a través de <strong>Bastardas Hídricas</strong> — servicios de agua al costo gobernados por la comunidad, organizados por cuenca — y un cuerpo especializado de Diplomacia Hídrica para recursos transfronterizos. Cada dólar invertido evita 2-3 dólares de pérdida y genera 4-8 dólares de valor económico, sanitario y ambiental.</p>`,
+      pullQuote: 'Infraestructura sin derechos es tecnocracia. Derechos sin infraestructura es poesía. PLANAGUA es las dos cosas.',
+      stats: [
+        { label: 'Inversión total (10 años)', value: 'USD 15.000-25.000M' },
+        { label: 'Retorno por dólar invertido', value: 'USD 4-8' },
+        { label: 'Sensores IoT', value: '50.000+' },
+        { label: 'Bastardas Hídricas (meta)', value: '30+' },
+      ],
+    },
+    elCamino: {
+      overview: 'Cuatro fases en 10 años. Cada fase tiene hitos verificables, inversión asignada y responsables identificados. Si un hito se incumple, se activa un protocolo de revisión — no hay postergación silenciosa.',
+      steps: [
+        { id: 1, title: 'Fase 1 — Diagnóstico y Emergencia', description: 'Lanzar Censo Nacional del Agua. Constituir ANAGUA. 100% comunidades indígenas con agua potable. Ósmosis inversa en 500 localidades con arsénico. Piloto IoT en 3 cuencas. Ley de Criosfera al Congreso. Primera Bastarda Hídrica piloto.', timeline: 'Años 0-2', dependencies: [], orderIndex: 1 },
+        { id: 2, title: 'Fase 2 — Construcción', description: 'Censo completado. 50.000+ nodos IoT. Gemelo Digital operativo. AOP en 20 plantas. Pérdidas de 40% a 30%. Ley de Criosfera promulgada. Personería jurídica para Paraná y Guaraní. 5 Bastardas Hídricas operativas. Remediación de Riachuelo/Reconquista/Salí-Dulce lanzada.', timeline: 'Años 2-5', dependencies: ['Censo y ANAGUA de Fase 1'], orderIndex: 2 },
+        { id: 3, title: 'Fase 3 — Expansión', description: 'AOP en 100+ plantas (75% población urbana). Pérdidas <20%. 3 plantas desalinizadoras. 30% reúso industrial. 20+ Bastardas. Co-manejo indígena en todas las cuencas relevantes. Riachuelo ICA >40.', timeline: 'Años 5-8', dependencies: ['Infraestructura base y Tablero de Fase 2'], orderIndex: 3 },
+        { id: 4, title: 'Fase 4 — Consolidación', description: 'Pérdidas <15% (rango OCDE). AOP estándar en todas las plantas >10.000 habitantes (200+). Riachuelo nadable (ICA >60). 50% reúso industrial. 30+ Bastardas con 1M+ usuarios. Argentina reconocida como líder mundial en legislación hídrica. Sistema financieramente autosustentable.', timeline: 'Años 8-10', dependencies: ['Fase 3 alcanza masa crítica'], orderIndex: 4 },
+      ],
+    },
+    kpis: [
+      {
+        id: 'perdidas-red',
+        metric: 'Pérdidas en Red de Distribución',
+        currentValue: 40,
+        targetValue: 15,
+        unit: '%',
+        source: 'PLANAGUA — Tablero Nacional del Agua',
+        milestones: [
+          { date: 'Año 5', targetValue: 30 },
+          { date: 'Año 8', targetValue: 20 },
+          { date: 'Año 10', targetValue: 15 },
+        ],
+      },
+      {
+        id: 'acceso-agua-segura',
+        metric: 'Población con Acceso a Agua Segura por Red',
+        currentValue: 85,
+        targetValue: 97,
+        unit: '%',
+        source: 'PLANAGUA — Cobertura de red',
+        milestones: [
+          { date: 'Año 5', targetValue: 92 },
+          { date: 'Año 10', targetValue: 97 },
+        ],
+      },
+      {
+        id: 'plantas-aop',
+        metric: 'Plantas con Oxidación Avanzada Operativa',
+        currentValue: 0,
+        targetValue: 200,
+        unit: 'plantas',
+        source: 'PLANAGUA — Tecnología de tratamiento',
+        milestones: [
+          { date: 'Año 2', targetValue: 5 },
+          { date: 'Año 5', targetValue: 20 },
+          { date: 'Año 8', targetValue: 100 },
+          { date: 'Año 10', targetValue: 200 },
+        ],
+      },
+      {
+        id: 'sensores-iot',
+        metric: 'Sensores IoT Operativos',
+        currentValue: 200,
+        targetValue: 50000,
+        unit: 'sensores',
+        source: 'PLANAGUA — Red de monitoreo',
+        milestones: [
+          { date: 'Año 2', targetValue: 5000 },
+          { date: 'Año 5', targetValue: 50000 },
+        ],
+      },
+      {
+        id: 'comunidades-indigenas-agua',
+        metric: 'Comunidades Indígenas con Agua Potable',
+        currentValue: 30,
+        targetValue: 100,
+        unit: '%',
+        source: 'PLANAGUA — Derecho al agua',
+        milestones: [
+          { date: 'Año 2', targetValue: 100 },
+        ],
+      },
+    ],
+    tags: ['agua', 'soberanía hídrica', 'glaciares', 'Acuífero Guaraní', 'Paraná', 'IoT', 'arsénico', 'Bastardas Hídricas', 'criosfera', 'personería jurídica de ríos', 'ANAGUA'],
+    relatedInitiativeSlugs: ['planisv-infraestructura-suelo-vivo', 'plan24cn-24-ciudades-nuevas', 'plansal-salud-integral', 'planeb-empresas-bastardas'],
+    sources: [
+      { title: 'PLANAGUA — Plan Nacional de Soberanía Hídrica y Resiliencia Climática (Documento Estratégico, Mar 2026)' },
+      { title: 'AySA — Pérdidas en red de distribución (~40%)' },
+      { title: 'IANIGLA-CONICET — Inventario Nacional de Glaciares (Ley 26.639)' },
+      { title: 'OMS — Límites de arsénico en agua potable (10 µg/L)' },
+      { title: 'INA — Instituto Nacional del Agua (datos hidrológicos)' },
+      { title: 'Russell Ackoff — Idealized Design (Metodología)' },
+    ],
+  },
 ];
