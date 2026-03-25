@@ -10,7 +10,8 @@ export type InitiativeCategory =
   | 'tecnologia'
   | 'medio-ambiente'
   | 'cultura'
-  | 'instituciones';
+  | 'instituciones'
+  | 'geopolitica';
 
 export interface PathStep {
   id: number;
@@ -1617,6 +1618,202 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
       { title: 'IANIGLA-CONICET — Inventario Nacional de Glaciares (Ley 26.639)' },
       { title: 'OMS — Límites de arsénico en agua potable (10 µg/L)' },
       { title: 'INA — Instituto Nacional del Agua (datos hidrológicos)' },
+      { title: 'Russell Ackoff — Idealized Design (Metodología)' },
+    ],
+  },
+
+  // ──────────────────────────────────────
+  // PLANGEO — Posicionamiento Geopolítico
+  // ──────────────────────────────────────
+  {
+    slug: 'plangeo-posicionamiento-geopolitico',
+    title: 'PLANGEO',
+    subtitle: 'Plan Nacional de Posicionamiento Geopolítico y Plataforma de Soberanía Exportable',
+    category: 'geopolitica',
+    summary: 'Argentina con BASTA no es una anomalía aislada — es diez. PLANGEO es el plan que hace que los otros diez mandatos lleguen al mundo sin que el mundo los destruya. Propone una estrategia de doble capa (diplomacia convencional + infraestructura paralela) y una Plataforma de Soberanía Exportable: siete Stacks open-source que empaquetan cada herramienta BASTA como infraestructura adoptable por cualquier país. La Red Soberana — una comunidad de países y ciudades que comparten estos Stacks — convierte a Argentina en un nodo demasiado útil para sancionar, demasiado interconectado para aislar y demasiado transparente para difamar.',
+    iconName: 'Globe',
+    documentFile: 'PLANGEO_Argentina_ES.md',
+    elProblema: {
+      title: 'El Problema',
+      content: `<p>Argentina posee uno de los inventarios estratégicos más completos del planeta: terceras reservas mundiales de litio, segundas de shale gas (Vaca Muerta), capacidad alimentaria para 400 millones de personas, participación en el Acuífero Guaraní, presencia antártica continua más antigua del mundo (desde 1904) y el mayor porcentaje de universitarios de América Latina.</p>
+<p>Sin embargo, exporta litio como carbonato (USD 10.000-15.000/t) e importa baterías (USD 100.000-200.000/t) — un multiplicador perdido de 7 a 25 veces. Exporta datos por cero dólares hacia servidores en Virginia. Exporta cerebros y reimporta consultores. La estructura del comercio global está diseñada para que países como Argentina sean proveedores de insumos baratos y compradores de productos caros.</p>
+<p>Peor aún: cuando un país intenta cambiar esta estructura, el sistema responde. No necesita coordinación. Calificadoras bajan el rating en 48 horas, mercados financieros mueven capitales en minutos, el FMI condiciona préstamos en meses, SWIFT puede desconectar en días, y medios internacionales instalan narrativas en horas. Es un sistema inmunológico que detecta la anomalía, moviliza anticuerpos y ataca.</p>
+<p>BASTA propone diez reformas simultáneas que amenazan a aseguradoras multinacionales (PLANEB), al régimen prohibicionista de drogas (PLANSUS), a la hegemonía digital de Silicon Valley (PLANDIG), al control sobre recursos estratégicos (PLANAGUA, litio), al modelo de ciudades financiarizadas (PLAN24CN) y a la lógica misma del capitalismo accionarial (PLANREP). Cada una de estas iniciativas, lanzada individualmente, podría sobrevivir. Las diez juntas activan el sistema inmunológico completo: corporaciones presionan Estados, Estados presionan multilaterales, multilaterales imponen condiciones. Sin una estrategia geopolítica que anticipe esta cascada, BASTA es una revolución doméstica brillante que el mundo puede asfixiar.</p>`,
+      pullQuote: 'La Argentina no tiene un problema de recursos. Tiene un problema de arquitectura: el sistema global está diseñado para extraer valor del Sur y procesarlo en el Norte. No por maldad — por estructura. La maldad sería más fácil de combatir.',
+      stats: [
+        { label: 'Multiplicador perdido (litio)', value: '7-25x' },
+        { label: 'Datos soberanos en servidores extranjeros', value: '93% de países' },
+        { label: 'Velocidad de respuesta del sistema', value: 'Horas a días' },
+        { label: 'PLANs BASTA que activan fricción', value: '10 simultáneos' },
+      ],
+    },
+    quePasaSiNoCambiamos: {
+      title: '¿Qué pasa si no cambiamos?',
+      content: `<p><strong>Sin PLANGEO, cada PLAN de BASTA queda expuesto:</strong> PLANEB enfrenta demandas millonarias en tribunales de inversión sin estrategia de defensa legal internacional. PLANSUS denuncia convenciones de drogas sin coalición reformista, aislando a Argentina. PLANDIG construye soberanía digital sin alianza con la UE, permitiendo que Big Tech restrinja servicios. El litio se sigue exportando como materia prima porque no hay acuerdos de transferencia tecnológica con India, China o la UE.</p>
+
+<p><strong>Escenario cascada (sin preparación):</strong> Argentina denuncia convenciones → EEUU presiona al FMI → Moody's hace downgrade → capital flight → Big Tech restringe servicios → medios internacionales publican "estado fallido" → oposición interna capitaliza la narrativa. Este escenario no es hipotético — es el playbook estándar que el sistema aplicó a docenas de países que intentaron reformas estructurales sin escudo geopolítico.</p>
+
+<p><strong>Costo de la inacción geopolítica:</strong> Argentina pierde entre USD 5.000-15.000M anuales en valor agregado no capturado (litio, datos, conocimiento). La dependencia del FMI se perpetúa. La presencia antártica se erosiona frente a países con mayor inversión. Las Malvinas siguen congeladas indefinidamente. Y lo más grave: las herramientas de BASTA — que podrían beneficiar a miles de millones de personas en el mundo — quedan encerradas en un solo país del Cono Sur, vulnerables a un cambio de gobierno.</p>
+
+<p><strong>Próximos 25 años sin estrategia:</strong> Argentina sigue siendo proveedor de commodities baratos. El litio se agota sin industrialización. Vaca Muerta genera ingresos decrecientes sin reinversión en renovables. Los mejores cerebros se siguen yendo. Y un día, un gobierno opositor desmantela BASTA sin que nadie en el mundo tenga incentivo para defenderlo — porque nadie en el mundo lo adoptó.</p>`,
+      pullQuote: 'Un país que transforma todo internamente pero no construye alianzas externas es un laboratorio aislado. Los laboratorios aislados se cierran cuando cambia el director.',
+      stats: [
+        { label: 'Valor no capturado / año', value: 'USD 5-15 mil M' },
+        { label: 'Velocidad de cascada', value: 'Semanas' },
+        { label: 'Países que necesitan los Stacks', value: '100+' },
+        { label: 'Riesgo de reversibilidad sin red', value: 'Alto' },
+      ],
+    },
+    elDisenoIdeal: {
+      title: 'El Diseño Ideal',
+      content: `<p><strong>Doctrina de la Plataforma Soberana:</strong> Argentina no solo transforma su gobernanza — empaqueta cada herramienta BASTA como infraestructura soberana exportable. Siete Stacks open-source (Gobernanza Económica, Soberanía Digital, Recursos, Transición Humana, Soberanía Sanitaria, Soberanía Urbana, Soberanía Jurídica) que cualquier país o ciudad puede adoptar, forkear y modificar sin permiso de Buenos Aires. Soberanía como Servicio — sin lock-in, sin dependencia.</p>
+
+<p><strong>La Red Soberana:</strong> No es un bloque geopolítico. Es una comunidad de usuarios: países y ciudades que comparten infraestructura de gobernanza open-source, con cooperación técnica, defensa mutua por interdependencia, y mejora continua del código compartido. Cuatro niveles: Observador → Adoptante → Contribuyente → Nodo Fundador. La red crece por necesidad, no por proselitismo.</p>
+
+<p><strong>Estrategia de Doble Capa:</strong> Una capa diplomática (tratados, foros, cumplimiento normativo) que compra tiempo y legitimidad. Una capa de infraestructura (código open-source, nodos distribuidos, Embajadores Bastardos, standards track) que crea hechos irreversibles. La capa de infraestructura siempre va adelante de la diplomática — cuando el diplomático se sienta a negociar, la infraestructura ya está parcialmente desplegada.</p>
+
+<p><strong>Estrategia de las Mil Puertas:</strong> Hacer que Argentina esté tan profundamente entrelazada con la infraestructura de gobernanza de tantos países que sancionar a la Argentina tendría efectos cascada en medio mundo. No es dependencia (lo que EEUU hace con el dólar) — es utilidad distribuida. Como Linux: cualquiera puede forkear, pero nadie quiere, porque la red comparte el costo de mantenimiento.</p>
+
+<p><strong>Navegación US-China:</strong> Argentina no elige bando. Es el péndulo que oscila según el leverage necesario. GNL y cooperación antinarcóticos para EEUU. Litio procesado y joint ventures para China. Equivalencia GDPR y complementariedad para la UE. Litio-genéricos-pagos para India. El Judo Diplomático: usar los valores declarados de cada potencia como argumento a favor de BASTA.</p>
+
+<p><strong>Malvinas — Estrategia Bifurcada:</strong> Capa diplomática: paciencia estratégica, reclamo formal, oferta de diálogo constructivo. Capa de infraestructura: hub logístico austral, monitoreo marítimo total, cables submarinos, trazabilidad pesquera, integración económica gradual de los isleños. No hay "día D." Hay un horizonte donde mantener una base británica a 14.000 km se vuelve insostenible.</p>
+
+<p><strong>Ideas sin Frontera:</strong> Franquicias de Gobernanza (adopción ciudad-a-ciudad sin pasar por gobiernos nacionales). Estrategia del Espejo (cada ataque produce una herramienta open-source que hace obsoleto al atacante). DAOs transnacionales para recursos compartidos (Guaraní, Triángulo del Litio, Antártida). Calificadora Soberana alternativa (Índice de Soberanía Nacional). Caballo de Troya Invertido (cláusulas de adopción embebidas en acuerdos comerciales convencionales). Diplomacia de Código (convertir protocolos en estándares IEEE/IETF insancionables).</p>`,
+      pullQuote: 'No exportamos ideología. Exportamos infraestructura. La ideología la pone el que la usa.',
+      stats: [
+        { label: 'Stacks de Soberanía exportables', value: '7' },
+        { label: 'Países con problemas que los Stacks resuelven', value: '150+' },
+        { label: 'Inversión 10 años', value: 'USD 14.200M' },
+        { label: 'Retorno estimado', value: 'ROI 3:1 a 6:1' },
+      ],
+    },
+    elCamino: {
+      overview: 'PLANGEO se despliega en cuatro fases coordinadas con el secuenciamiento de todos los PLANs BASTA — primero los inobjetables, luego los estratégicos, después los confrontativos, finalmente los transformativos. La capa de infraestructura siempre adelanta a la diplomática.',
+      steps: [
+        {
+          id: 1,
+          title: 'Los Inobjetables',
+          description: 'Constituir CNEG. Publicar Protocolo Bastardo en GitHub. Desplegar ArgenCloud. Firmar primeros MoU con Uruguay, Senegal, Costa Rica. Lanzar PLANEB seguros, PLANEDU reforma, PLANISV escala. Construir credibilidad sin activar el sistema inmunológico.',
+          timeline: '2026-2028',
+          dependencies: [],
+          orderIndex: 1,
+        },
+        {
+          id: 2,
+          title: 'Los Estratégicos',
+          description: 'Desplegar nodos internacionales de ArgenCloud. Firmar acuerdo GNL con UE. Ampliar swap con China. Acuerdo litio-genéricos con India. Proponer DAO del Guaraní. Publicar ISN piloto. Lanzar internacionalmente PLANDIG y PLAN24CN. Red Soberana alcanza 15-20 adoptantes.',
+          timeline: '2028-2030',
+          dependencies: ['Los Inobjetables'],
+          orderIndex: 2,
+        },
+        {
+          id: 3,
+          title: 'Los Confrontativos',
+          description: 'Denuncia formal de convenciones de drogas con coalición de 8+ países. Lanzamiento internacional de PLANSUS y PLANREP. Sistema de pagos soberano operativo. Transición FMI completada. DAO del Guaraní operativa. Red Soberana alcanza 30+ países.',
+          timeline: '2030-2033',
+          dependencies: ['Los Estratégicos'],
+          orderIndex: 3,
+        },
+        {
+          id: 4,
+          title: 'Los Transformativos',
+          description: 'Protocolo Bastardo como estándar IEEE. Calificadora Soberana (ISN) con cobertura de 150+ países. Franquicias de Gobernanza en 100+ ciudades. Fondo de Estabilización Soberano como alternativa al FMI. Red Soberana alcanza 50-67 países. Argentina como "forja de gobernanza" del siglo XXI.',
+          timeline: '2033-2040',
+          dependencies: ['Los Confrontativos'],
+          orderIndex: 4,
+        },
+      ],
+    },
+    kpis: [
+      {
+        id: 'red-soberana-paises',
+        metric: 'Países en la Red Soberana',
+        currentValue: 0,
+        targetValue: 67,
+        unit: 'países',
+        source: 'PLANGEO — Red Soberana',
+        milestones: [
+          { date: 'Año 2', targetValue: 5 },
+          { date: 'Año 5', targetValue: 20 },
+          { date: 'Año 8', targetValue: 40 },
+          { date: 'Año 14', targetValue: 67 },
+        ],
+      },
+      {
+        id: 'ciudades-soberanas',
+        metric: 'Ciudades Adoptantes del Stack',
+        currentValue: 0,
+        targetValue: 340,
+        unit: 'ciudades',
+        source: 'PLANGEO — Red de Ciudades Soberanas',
+        milestones: [
+          { date: 'Año 3', targetValue: 10 },
+          { date: 'Año 7', targetValue: 100 },
+          { date: 'Año 14', targetValue: 340 },
+        ],
+      },
+      {
+        id: 'nodos-argencloud-int',
+        metric: 'Nodos Internacionales de ArgenCloud',
+        currentValue: 0,
+        targetValue: 47,
+        unit: 'nodos',
+        source: 'PLANGEO — Stack de Soberanía Digital',
+        milestones: [
+          { date: 'Año 1', targetValue: 1 },
+          { date: 'Año 3', targetValue: 5 },
+          { date: 'Año 7', targetValue: 20 },
+          { date: 'Año 14', targetValue: 47 },
+        ],
+      },
+      {
+        id: 'multiplicador-litio',
+        metric: 'Multiplicador de Valor del Litio',
+        currentValue: 1,
+        targetValue: 15,
+        unit: 'x',
+        source: 'PLANGEO — Cadena de valor litio',
+        milestones: [
+          { date: 'Año 5', targetValue: 3 },
+          { date: 'Año 10', targetValue: 8 },
+          { date: 'Año 14', targetValue: 15 },
+        ],
+      },
+      {
+        id: 'coalicion-reformista',
+        metric: 'Países en Coalición Reformista (Drogas)',
+        currentValue: 0,
+        targetValue: 15,
+        unit: 'países',
+        source: 'PLANGEO — PLANSUS internacional',
+        milestones: [
+          { date: 'Año 2', targetValue: 5 },
+          { date: 'Año 5', targetValue: 10 },
+          { date: 'Año 8', targetValue: 15 },
+        ],
+      },
+      {
+        id: 'inversion-plangeo',
+        metric: 'Inversión Acumulada (10 años)',
+        currentValue: 0,
+        targetValue: 14200,
+        unit: 'USD M',
+        source: 'PLANGEO — Presupuesto',
+        milestones: [
+          { date: 'Año 5', targetValue: 7150 },
+          { date: 'Año 10', targetValue: 14200 },
+        ],
+      },
+    ],
+    tags: ['geopolítica', 'soberanía', 'plataforma', 'Red Soberana', 'doble capa', 'litio', 'GNL', 'Malvinas', 'Antártida', 'Mercosur', 'BRICS', 'CNEG', 'open-source', 'Stack de Soberanía', 'diplomacia', 'Atlántico Sur'],
+    relatedInitiativeSlugs: ['planeb-empresas-bastardas', 'plansus-soberania-sustancias', 'plan24cn-24-ciudades-nuevas', 'planagua-soberania-hidrica', 'plansal-salud-integral'],
+    sources: [
+      { title: 'PLANGEO — Plan Nacional de Posicionamiento Geopolítico y Plataforma de Soberanía Exportable (Documento Estratégico, Mar 2026)' },
+      { title: 'USGS — Mineral Commodity Summaries: Lithium (2024)' },
+      { title: 'ONU-Hábitat — World Cities Report (urbanización 2025-2050)' },
+      { title: 'Task Force on Justice — Justice for All Report (5.100M sin acceso a justicia)' },
+      { title: 'McKinsey / Goldman Sachs / OIT — Estimaciones de impacto IA en empleo global' },
+      { title: 'Tratado Antártico (1959) — Marco de revisión post-2048' },
       { title: 'Russell Ackoff — Idealized Design (Metodología)' },
     ],
   },

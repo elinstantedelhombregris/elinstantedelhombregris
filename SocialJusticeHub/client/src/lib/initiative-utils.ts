@@ -1,6 +1,6 @@
 import {
   GraduationCap, TrendingUp, Scale, Heart, Building2,
-  Cpu, Leaf, Palette, Landmark,
+  Cpu, Leaf, Palette, Landmark, Globe,
   AlertTriangle, TrendingDown, Sparkles, Route, BarChart3,
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
@@ -25,6 +25,7 @@ export const INITIATIVE_CATEGORIES: Record<InitiativeCategory, CategoryMeta> = {
   'medio-ambiente': { label: 'Medio Ambiente',   icon: Leaf,          color: 'text-green-700',   accent: '#15803d', gradient: 'from-green-500/10 to-lime-500/10',     bgLight: 'bg-green-100' },
   cultura:          { label: 'Cultura',          icon: Palette,       color: 'text-purple-700',  accent: '#7e22ce', gradient: 'from-purple-500/10 to-fuchsia-500/10', bgLight: 'bg-purple-100' },
   instituciones:    { label: 'Instituciones',    icon: Landmark,      color: 'text-indigo-700',  accent: '#4338ca', gradient: 'from-indigo-500/10 to-violet-500/10',  bgLight: 'bg-indigo-100' },
+  geopolitica:      { label: 'Geopolítica',      icon: Globe,         color: 'text-sky-700',     accent: '#0369a1', gradient: 'from-sky-500/10 to-blue-500/10',       bgLight: 'bg-sky-100' },
 };
 
 export interface PhaseMeta {
