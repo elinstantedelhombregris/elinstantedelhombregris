@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { Link, useLocation } from 'wouter';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -22,6 +22,13 @@ const Login = () => {
   const { toast } = useToast();
   const userContext = useContext(UserContext);
   const [_, setLocation] = useLocation();
+
+  // Redirect authenticated users to dashboard
+  useEffect(() => {
+    if (userContext?.isLoggedIn) {
+      setLocation('/dashboard');
+    }
+  }, [userContext?.isLoggedIn, setLocation]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

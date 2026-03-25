@@ -32,6 +32,13 @@ const Register = () => {
   const userContext = useContext(UserContext);
   const [_, setLocation] = useLocation();
 
+  // Redirect authenticated users to dashboard
+  useEffect(() => {
+    if (userContext?.isLoggedIn) {
+      setLocation('/dashboard');
+    }
+  }, [userContext?.isLoggedIn, setLocation]);
+
   // Reset timestamp when component mounts (in case of re-render)
   useEffect(() => {
     formLoadedAt.current = Date.now();
@@ -317,10 +324,8 @@ const Register = () => {
           <CardFooter className="flex flex-col space-y-4">
             <div className="text-sm text-center">
               ¿Ya tenés una cuenta? {' '}
-              <Link href="/login">
-                <a className="text-[hsl(var(--primary))] hover:underline font-medium">
-                  Iniciá sesión
-                </a>
+              <Link href="/login" className="text-[hsl(var(--primary))] hover:underline font-medium">
+                Iniciá sesión
               </Link>
             </div>
             

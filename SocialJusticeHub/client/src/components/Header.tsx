@@ -153,12 +153,19 @@ const Header = () => {
                   </div>
                 </Link>
 
-                <Button 
-                  onClick={() => {
+                <Button
+                  onClick={async () => {
+                    try {
+                      await fetch('/api/auth/logout', {
+                        method: 'POST',
+                        headers: { 'Authorization': `Bearer ${localStorage.getItem('authToken')}` },
+                      });
+                    } catch {}
                     userContext.setUser(null);
                     localStorage.removeItem('authToken');
+                    localStorage.removeItem('refreshToken');
                   }}
-                  variant="ghost" 
+                  variant="ghost"
                   size="icon"
                   className={showSolid ? 'text-slate-500 hover:text-red-500' : 'text-white/70 hover:text-white'}
                 >
@@ -258,9 +265,16 @@ const Header = () => {
                         </Link>
                       )}
                       <button
-                        onClick={() => {
+                        onClick={async () => {
+                          try {
+                            await fetch('/api/auth/logout', {
+                              method: 'POST',
+                              headers: { 'Authorization': `Bearer ${localStorage.getItem('authToken')}` },
+                            });
+                          } catch {}
                           userContext.setUser(null);
                           localStorage.removeItem('authToken');
+                          localStorage.removeItem('refreshToken');
                           setIsMenuOpen(false);
                         }}
                         className="flex items-center gap-3 px-4 py-3 text-red-400 hover:text-red-300 w-full text-left"
