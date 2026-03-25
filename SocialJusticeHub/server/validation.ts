@@ -21,7 +21,7 @@ export const registerUserSchema = z.object({
   password: z.string()
     .min(8, 'La contraseña debe tener al menos 8 caracteres')
     .max(128, 'La contraseña no puede exceder 128 caracteres')
-    .regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])/, 
+    .regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z0-9])/,
       'La contraseña debe contener al menos una letra minúscula, una mayúscula, un número y un carácter especial'),
   
   confirmPassword: z.string(),
@@ -53,7 +53,7 @@ export const changePasswordSchema = z.object({
   newPassword: z.string()
     .min(8, 'La nueva contraseña debe tener al menos 8 caracteres')
     .max(128, 'La nueva contraseña no puede exceder 128 caracteres')
-    .regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])/, 
+    .regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z0-9])/,
       'La nueva contraseña debe contener al menos una letra minúscula, una mayúscula, un número y un carácter especial'),
   
   confirmNewPassword: z.string()
