@@ -1817,4 +1817,182 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
       { title: 'Russell Ackoff — Idealized Design (Metodología)' },
     ],
   },
+  {
+    slug: 'planmon-soberania-monetaria',
+    title: 'PLANMON',
+    subtitle: 'Plan Nacional de Soberanía Monetaria y Arquitectura Financiera',
+    category: 'economia',
+    summary: 'Argentina destruyó 5 monedas en 50 años, eliminó 13 ceros, y sus ciudadanos guardan entre USD 250.000 y 400.000 millones fuera del sistema — un PBI entero bajo el colchón. PLANMON propone El Pulso: una moneda de red ciudadana emitida por protocolo (no por el Banco Central), respaldada por una canasta verificable de commodities argentinas, con anti-confiscación por diseño y desdolarización por obsolescencia.',
+    iconName: 'Coins',
+    documentFile: 'PLANMON_Argentina_ES.md',
+    elProblema: {
+      title: 'El Problema',
+      content: `<p>Jorge tiene 74 años. Cobró su primer sueldo en pesos moneda nacional, ahorró en pesos ley 18.188, vio cómo le pesificaban los australes, sobrevivió la hiperinflación de 1989, perdió sus ahorros en el corralito de 2001, y ahora guarda dólares bajo el colchón. No es irracional — es sabio. El sistema monetario argentino le enseñó, con cada confiscación, que su moneda es una promesa que se rompe.</p>
+<p>Argentina es el único país del mundo que eliminó 13 ceros de su moneda en 50 años. Cinco monedas distintas (peso moneda nacional → peso ley → peso argentino → austral → peso convertible → peso) — cada una una confesión de fracaso de la anterior. La inflación acumulada entre 1945 y 2024 supera los 10 billones por ciento.</p>
+<p>El bimonetarismo argentino no es un "problema cultural." Es una <strong>respuesta racional</strong> a décadas de confiscación. Los argentinos piensan en dólares, ahorran en dólares, valúan inmuebles en dólares y negocian salarios mentalmente en dólares. El peso es medio de transacción; el dólar es reserva de valor. Se estima que los argentinos tienen entre USD 250.000 y USD 400.000 millones fuera del sistema financiero doméstico — un PBI entero afuera. No es evasión: es autodefensa.</p>
+<p>El Banco Central no ha sido independiente en la práctica en décadas. Financia al Tesoro, administra el tipo de cambio para objetivos políticos, y sus directores rotan con cada gobierno. La inflación argentina no es primariamente monetaria — es fiscal (déficit crónico), estructural (oligopolios que marcan precios), inercial (contratos indexados al pasado), y psicológica (expectativas autorrealizadas). Atacar solo la emisión es como tratar la fiebre sin curar la infección.</p>`,
+      pullQuote: 'El argentino que guarda dólares bajo el colchón no es irracional — es sabio. El sistema le enseñó que su moneda es una promesa que se rompe. PLANMON tiene que crear las condiciones para que ese mismo argentino, siendo igual de sabio, elija el Pulso.',
+      stats: [
+        { label: 'Monedas destruidas (50 años)', value: '5' },
+        { label: 'Ceros eliminados', value: '13' },
+        { label: 'Ahorros fuera del sistema', value: 'USD 250-400 mil M' },
+        { label: 'Economía informal', value: '40-45%' },
+      ],
+    },
+    quePasaSiNoCambiamos: {
+      title: '¿Qué pasa si no cambiamos?',
+      content: `<p>El ciclo se repite. Argentina toma deuda en dólares → usa los dólares para financiar fuga de capitales y consumo importado → la deuda crece → no puede pagar → default o reestructuración → pierde acceso al crédito → ajuste brutal → crisis social → vuelve al mercado desesperada → toma deuda en peores condiciones → repite. Este ciclo se repitió en 1890, 1930, 1982, 1989, 2001, 2018, 2020. No es un error — es el diseño.</p>
+<p><strong>La dolarización total</strong> (propuesta recurrente) disuelve la inflación pero entrega la soberanía monetaria. Un país sin moneda propia no puede hacer política anticíclica. Ecuador y El Salvador dolarizaron — no tuvieron más inflación, pero tampoco pudieron responder a crisis con política monetaria.</p>
+<p><strong>La convertibilidad</strong> ya se probó (1991-2001). Funciona mientras entran dólares. Cuando paran, el sistema colapsa porque no hay prestamista de última instancia. Argentina aprendió esto con 40 muertos en diciembre de 2001.</p>
+<p><strong>El cepo cambiario</strong> crea mercados paralelos, destruye la señal de precios, incentiva subfacturación de exportaciones, y genera una economía de arbitraje que consume energía productiva en vez de crear valor.</p>
+<p><strong>Las metas de inflación</strong> requieren un BCRA creíble. Argentina lo intentó en 2016-2018. Fracasó porque la credibilidad no se decreta. Ninguna solución dentro del paradigma actual funciona porque el paradigma mismo es el problema.</p>`,
+      pullQuote: 'Argentina no tiene mala suerte monetaria. Tiene un diseño estructural defectuoso que produce resultados predecibles. Cambiar al operador del BCRA sin cambiar la arquitectura es como cambiar al piloto sin arreglar el motor.',
+      stats: [
+        { label: 'Defaults soberanos', value: '9' },
+        { label: 'Deuda pública', value: 'USD 400+ mil M' },
+        { label: 'Inflación 2023', value: '211%' },
+        { label: 'Ciclos de crisis (desde 1890)', value: '7+' },
+      ],
+    },
+    elDisenoIdeal: {
+      title: 'El Diseño Ideal',
+      content: `<p>PLANMON no busca la "mejor política monetaria" dentro del paradigma actual. Rediseña la arquitectura monetaria para que los problemas recurrentes — inflación crónica, bimonetarismo, fuga de capitales, dependencia del dólar, ciclos de endeudamiento — <strong>dejen de tener las condiciones estructurales para existir.</strong></p>
+
+<p><strong>El Pulso</strong> — una moneda de red ciudadana emitida por el Protocolo Monetario Bastardo, no por el Banco Central. Cada Pulso está referenciado a una canasta verificable de commodities que Argentina efectivamente produce: soja (18%), gas natural (12%), maíz (10%), petróleo (10%), economía del conocimiento (10%), litio (8%), carne (8%), trigo (7%), energía renovable (5%), créditos de carbono (5%), vino y economías regionales (4%), y reservas minerales (3%). Cualquier argentino con un celular puede verificar en tiempo real que el respaldo es real.</p>
+
+<p><strong>Anti-confiscación por diseño:</strong> El Pulso opera en wallets soberanas, no en cuentas bancarias. Ningún gobierno puede congelar tu wallet — los fondos solo pueden ser embargados por resolución judicial individualizada. Un corralito es arquitectónicamente imposible porque no existe un punto central que pueda bloquear las transacciones.</p>
+
+<p><strong>Desdolarización por obsolescencia:</strong> No se prohíbe el dólar — se lo vuelve innecesario. En 4 fases a lo largo de 15 años, el Pulso coexiste con el peso y el dólar, y la migración es voluntaria. Los argentinos eligen el Pulso no por patriotismo ni por obligación, sino porque es mejor negocio.</p>
+
+<p><strong>Fondo Soberano Bastardo:</strong> Capitalizado con regalías de commodities, ingresos del mercado regulado de sustancias (PLANSUS), superávit de la Red Bastarda, y capital repatriado. Regla de gasto del 3% del valor total (modelo Noruega). Gobernanza mixta: técnicos + ciudadanos por sorteo.</p>
+
+<p><strong>Bastarda Financiera</strong> como banca al costo: reservas 100% (no fraccionarias), crédito productivo desde fondos separados, wallet soberana, puentes nativos a crypto.</p>`,
+      pullQuote: 'El Pulso no nace estable — nace honesto. La estabilidad se construye con adopción, con commodities verificables, y con la imposibilidad arquitectónica de que alguien imprima más de lo que el protocolo permite.',
+      stats: [
+        { label: 'Componentes de canasta', value: '12 commodities' },
+        { label: 'Fondo Soberano meta (15 años)', value: 'USD 200-500 mil M' },
+        { label: 'Desdolarización meta (15 años)', value: '<10% depósitos' },
+        { label: 'Formalización meta', value: '85%+ economía' },
+      ],
+    },
+    elCamino: {
+      overview: 'PLANMON se despliega en 4 fases de desdolarización por obsolescencia, trabajando hacia atrás desde una Argentina monetariamente soberana con moneda creíble, fondo soberano robusto y economía formalizada.',
+      steps: [
+        {
+          id: 1,
+          title: 'Fase 3-4: Soberanía Monetaria Plena',
+          description: 'El Pulso es la moneda dominante en Argentina. Fondo Soberano supera USD 100 mil millones. Dolarización de depósitos cae debajo del 10%. Economía formalizada al 85%+. Argentina emite deuda en peso-canasta aceptada internacionalmente. El BCRA se reduce a departamento residual de transición. Propuesta de Bancor Sudamericano para comercio intra-Mercosur.',
+          timeline: 'Año 8-15 — META',
+          dependencies: [],
+          orderIndex: 1,
+        },
+        {
+          id: 2,
+          title: 'Fase 2: Migración Orgánica',
+          description: 'Contratos privados empiezan a denominarse en peso-canasta. Inmuebles cotizan en Pulso. Crédito hipotecario a 20 años en peso-canasta (imposible hoy en pesos). 10-15 millones de usuarios. DeFi nativa en peso-canasta operativa. Capital repatriado supera USD 25 mil millones. Dolarización de depósitos cae del 70% al 30-40%.',
+          timeline: 'Año 4-8',
+          dependencies: ['Soberanía Monetaria Plena'],
+          orderIndex: 2,
+        },
+        {
+          id: 3,
+          title: 'Fase 1: Señalización Estatal',
+          description: 'El Estado denomina ciertos contratos en peso-canasta: obra pública, salarios de nuevas ciudades PLAN24CN, precios de Empresas Bastardas. Bastarda Financiera opera como nodo ancla. 1-5 millones de usuarios. Fondo Soberano capitalizado desde múltiples fuentes. Ley Marco de Monedas de Red Ciudadana en Congreso. Puentes nativos a BTC/ETH/stablecoins operativos.',
+          timeline: 'Año 1-4',
+          dependencies: ['Migración Orgánica'],
+          orderIndex: 3,
+        },
+        {
+          id: 4,
+          title: 'Fase 0: Coexistencia y Lanzamiento',
+          description: 'El Pulso se lanza como moneda complementaria bajo ley vigente (no necesita ley nueva). Peso actual, dólar y peso-canasta coexisten. Cero restricciones. ANMON constituida como custodio del protocolo. Protocolo Monetario Bastardo v1.0 desplegado en testnet, luego mainnet con caps conservadores. Red de validadores comunitarios activa. Tablero Nacional de Estabilidad Monetaria en línea.',
+          timeline: 'Mes 0-12',
+          dependencies: ['Señalización Estatal'],
+          orderIndex: 4,
+        },
+      ],
+    },
+    kpis: [
+      {
+        id: 'usuarios-pulso',
+        metric: 'Usuarios Activos del Pulso',
+        currentValue: 0,
+        targetValue: 25000000,
+        unit: 'usuarios',
+        source: 'PLANMON — Tablero Nacional',
+        milestones: [
+          { date: 'Año 1', targetValue: 200000 },
+          { date: 'Año 5', targetValue: 5000000 },
+          { date: 'Año 10', targetValue: 15000000 },
+          { date: 'Año 15', targetValue: 25000000 },
+        ],
+      },
+      {
+        id: 'dolarizacion-depositos',
+        metric: 'Dolarización de Depósitos',
+        currentValue: 70,
+        targetValue: 10,
+        unit: '%',
+        source: 'BCRA — Informe de Estabilidad Financiera',
+        milestones: [
+          { date: 'Año 5', targetValue: 50 },
+          { date: 'Año 10', targetValue: 25 },
+          { date: 'Año 15', targetValue: 10 },
+        ],
+      },
+      {
+        id: 'fondo-soberano',
+        metric: 'Fondo Soberano Bastardo',
+        currentValue: 0,
+        targetValue: 300,
+        unit: 'USD mil M',
+        source: 'PLANMON — Fondo Soberano',
+        milestones: [
+          { date: 'Año 5', targetValue: 25 },
+          { date: 'Año 10', targetValue: 100 },
+          { date: 'Año 15', targetValue: 300 },
+        ],
+      },
+      {
+        id: 'economia-formal',
+        metric: 'Economía Formal',
+        currentValue: 55,
+        targetValue: 85,
+        unit: '%',
+        source: 'INDEC / PLANMON',
+        milestones: [
+          { date: 'Año 5', targetValue: 63 },
+          { date: 'Año 10', targetValue: 75 },
+          { date: 'Año 15', targetValue: 85 },
+        ],
+      },
+      {
+        id: 'poder-adquisitivo',
+        metric: 'Poder Adquisitivo del Pulso (estabilidad anual)',
+        currentValue: 0,
+        targetValue: 97,
+        unit: '% preservado',
+        source: 'ANMON — Índice Canasta Argentina',
+        milestones: [
+          { date: 'Año 3', targetValue: 85 },
+          { date: 'Año 5', targetValue: 92 },
+          { date: 'Año 10', targetValue: 95 },
+          { date: 'Año 15', targetValue: 97 },
+        ],
+      },
+    ],
+    tags: ['moneda', 'soberanía monetaria', 'Pulso', 'peso-canasta', 'desdolarización', 'CBDC alternativa', 'Fondo Soberano', 'commodity-basket', 'anti-confiscación', 'protocolo monetario', 'Bastarda Financiera', 'ANMON', 'inflación', 'deuda', 'economía informal', 'crypto', 'DeFi', 'repatriación'],
+    relatedInitiativeSlugs: ['planeb-empresas-bastardas', 'plansus-soberania-sustancias', 'planisv-infraestructura-suelo-vivo', 'plan24cn-24-ciudades-nuevas', 'planrep-reconversion-empleo', 'plangeo-posicionamiento-geopolitico'],
+    sources: [
+      { title: 'PLANMON — Plan Nacional de Soberanía Monetaria y Arquitectura Financiera (Documento Estratégico, Mar 2026)' },
+      { title: 'BCRA — Base Monetaria e Inflación: Series Históricas' },
+      { title: 'INDEC — Distribución del ingreso y condiciones de vida' },
+      { title: 'Norges Bank Investment Management — Government Pension Fund Global' },
+      { title: 'Banco Central do Brasil — Plano Real e URV (1994)' },
+      { title: 'WIR Bank — 90 Jahre WIR (Moneda complementaria suiza desde 1934)' },
+      { title: 'MakerDAO — DAI: A Decentralized Stablecoin' },
+      { title: 'Silvio Gesell — El Orden Económico Natural (1916)' },
+      { title: 'Russell Ackoff — Idealized Design (Metodología)' },
+    ],
+  },
 ];
