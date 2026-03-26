@@ -144,6 +144,9 @@ const Bienvenida = () => {
   const user = userContext?.user;
   if (!user) return null;
 
+  // Skip location step if user already provided location during registration
+  const skipLocationStep = !!user.location;
+
   const handleNext = async () => {
     // Save data on step transitions
     if (step === 1 && selectedProvince) {
@@ -153,8 +156,13 @@ const Bienvenida = () => {
     if (step === 2 && selectedInterests.length > 0) {
       saveInterestsMutation.mutate(selectedInterests);
     }
-    if (step < TOTAL_STEPS - 1) {
-      setStep(step + 1);
+    let nextStep = step + 1;
+    // Skip location step if already provided during registration
+    if (nextStep === 1 && skipLocationStep) {
+      nextStep = 2;
+    }
+    if (nextStep < TOTAL_STEPS) {
+      setStep(nextStep);
     }
   };
 
@@ -389,7 +397,7 @@ const Bienvenida = () => {
                 <div className="flex items-center justify-center gap-4 pt-2">
                   <Button
                     variant="ghost"
-                    onClick={() => setStep(step - 1)}
+                    onClick={() => setStep(step === 2 && skipLocationStep ? 0 : step - 1)}
                     className="text-slate-500 hover:text-slate-300 hover:bg-white/5"
                   >
                     <ChevronLeft className="mr-2 h-4 w-4" />
