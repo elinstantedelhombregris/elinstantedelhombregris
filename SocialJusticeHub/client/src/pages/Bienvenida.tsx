@@ -39,7 +39,7 @@ const PILLARS = [
   { icon: Eye, label: 'Visión', desc: 'Tu brújula interna para navegar el cambio' },
   { icon: Compass, label: 'Hombre Gris', desc: 'Reconocer lo que te frena para liberarte' },
   { icon: Sprout, label: 'Semilla', desc: 'Un acto simple pero poderoso cada día' },
-  { icon: Map, label: 'Mapa', desc: 'Tu diagnóstico personal de 12 áreas de vida' },
+  { icon: Map, label: 'Mapa', desc: 'Donde vos te hacés visible' },
   { icon: Users, label: 'Tribu', desc: 'Comunidad que transforma junta' },
   { icon: ScrollText, label: 'Mandato', desc: 'Tu voz convertida en acción colectiva' },
 ];
