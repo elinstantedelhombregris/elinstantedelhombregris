@@ -31,7 +31,8 @@ import {
   type LucideIcon,
   SkipForward,
   Send,
-  ArrowRight
+  ArrowRight,
+  ScrollText
 } from 'lucide-react';
 
 const PILLARS = [
@@ -40,6 +41,7 @@ const PILLARS = [
   { icon: Sprout, label: 'Semilla', desc: 'Un acto simple pero poderoso cada día' },
   { icon: Map, label: 'Mapa', desc: 'Tu diagnóstico personal de 12 áreas de vida' },
   { icon: Users, label: 'Tribu', desc: 'Comunidad que transforma junta' },
+  { icon: ScrollText, label: 'Mandato', desc: 'Tu voz convertida en acción colectiva' },
 ];
 
 const LIFE_AREAS: { name: string; icon: LucideIcon }[] = [
@@ -233,7 +235,7 @@ const Bienvenida = () => {
                     </h1>
                   </motion.div>
                   <p className="text-slate-400 text-lg max-w-md mx-auto leading-relaxed">
-                    ¡BASTA! se construye sobre 5 pilares. Cada uno es una herramienta para tu transformación.
+                    ¡BASTA! se construye sobre 6 pilares. Cada uno es una herramienta para tu transformación.
                   </p>
                 </div>
 
@@ -241,7 +243,7 @@ const Bienvenida = () => {
                   variants={staggerContainer}
                   initial="initial"
                   animate="animate"
-                  className="grid grid-cols-1 sm:grid-cols-5 gap-4"
+                  className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4"
                 >
                   {PILLARS.map((pillar) => {
                     const Icon = pillar.icon;
