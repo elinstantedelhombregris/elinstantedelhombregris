@@ -6,6 +6,7 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import ErrorBoundary from "@/components/ErrorBoundary";
+import { Analytics } from "@vercel/analytics/react";
 
 const Home = React.lazy(() => import("@/pages/Home"));
 const Login = React.lazy(() => import("@/pages/Login"));
@@ -212,6 +213,7 @@ function App() {
       <UserContext.Provider value={contextValue}>
         <TooltipProvider>
           <ErrorBoundary>
+            <Analytics />
             <Toaster />
             <React.Suspense
               fallback={
