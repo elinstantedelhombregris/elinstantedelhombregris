@@ -33,6 +33,7 @@ const Header = () => {
     '/bienvenida', '/dashboard', '/profile', '/challenges',
     '/life-areas', '/evaluacion', '/metas', '/checkin-semanal',
     '/coaching', '/datos-abiertos', '/kit-de-prensa',
+    '/recursos/el-arquitecto',
   ];
   const isDarkPage = darkHeroRoutes.includes(location) ||
     location.startsWith('/mandato/pulso/') ||
@@ -85,6 +86,7 @@ const Header = () => {
     { label: 'Mandato', href: '/el-mandato-vivo' },
     { label: 'Tribu', href: '/community' },
     { label: 'Recursos', href: '/recursos' },
+    { label: 'Arquitecto', href: '/recursos/el-arquitecto' },
   ];
 
   return (

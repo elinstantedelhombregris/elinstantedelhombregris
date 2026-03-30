@@ -109,7 +109,7 @@ export default function ElArquitecto() {
               </span>
             </div>
 
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4">
+            <h1 className="text-5xl md:text-7xl font-serif font-bold tracking-tight mb-4">
               <span className="bg-gradient-to-r from-white via-white/90 to-white/70 bg-clip-text text-transparent">
                 El Arquitecto
               </span>

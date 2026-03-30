@@ -414,6 +414,12 @@ const DependencyGraph: React.FC<DependencyGraphProps> = ({ onSelectPlan }) => {
   }, [failureTarget, failureCascade]);
 
   return (
+    <div className="space-y-4">
+      {/* Intro text */}
+      <p className="text-sm text-white/50 leading-relaxed max-w-3xl">
+        Cada nodo es un mandato. Las líneas representan dependencias: <span className="text-red-400">rojo = crítica</span>, <span className="text-amber-400">ámbar = importante</span>, <span className="text-white/30">gris = menor</span>. El tamaño del nodo indica cuántos planes dependen de él. Hacé click en un nodo para ver sus detalles, o activá <strong className="text-white/70">"Simular Fallo"</strong> para ver qué pasa si un plan falla.
+      </p>
+
     <div className="relative rounded-2xl border border-white/10 overflow-hidden bg-[#050510]">
       {/* ─── Toolbar ─── */}
       <div className="flex flex-wrap items-center gap-3 p-4 border-b border-white/5 bg-black/40 backdrop-blur-sm">
@@ -672,6 +678,7 @@ const DependencyGraph: React.FC<DependencyGraphProps> = ({ onSelectPlan }) => {
           50% { opacity: 0.25; transform: translate(-50%, -50%) scale(1.08); }
         }
       `}</style>
+    </div>
     </div>
   );
 };

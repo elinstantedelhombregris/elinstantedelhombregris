@@ -238,12 +238,12 @@ export const DEPENDENCIES: Dependency[] = [
 
   // PLAN24CN dependencies
   { id: 'd24', source: 'PLAN24CN', target: 'PLANISV', nature: 'CRITICAL', type: 'TECHNICAL', description: 'Suelo regenerado para agricultura urbana e infraestructura verde' },
-  { id: 'd25', source: 'PLAN24CN', target: 'PLANAGUA', nature: 'CRITICAL', type: 'TECHNICAL', description: 'Infraestructura hídrica para ciudades en construcción' },
+  { id: 'd25', source: 'PLAN24CN', target: 'PLANAGUA', nature: 'IMPORTANT', type: 'TECHNICAL', description: 'Infraestructura hídrica para ciudades en construcción (necesaria cuando llegan residentes, no en fase de diseño)' },
   { id: 'd26', source: 'PLAN24CN', target: 'PLANEB', nature: 'CRITICAL', type: 'INSTITUTIONAL', description: 'Ciudades nacen Bastarda-nativas: todos los servicios al costo' },
 
   // PLANVIV transversal
-  { id: 'd27', source: 'PLANVIV', target: 'PLANMON', nature: 'CRITICAL', type: 'FINANCIAL', description: 'Crédito Hipotecario Bastardo denominado en peso-canasta' },
-  { id: 'd28', source: 'PLANVIV', target: 'PLANEB', nature: 'CRITICAL', type: 'INSTITUTIONAL', description: 'Bastarda Inmobiliaria usa Protocolo Bastardo para fideicomiso perpetuo' },
+  { id: 'd27', source: 'PLANVIV', target: 'PLANMON', nature: 'IMPORTANT', type: 'FINANCIAL', description: 'Crédito Hipotecario Bastardo denominado en peso-canasta (necesario en Fase 1, no en pre-fase de censo)' },
+  { id: 'd28', source: 'PLANVIV', target: 'PLANEB', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'Bastarda Inmobiliaria usa Protocolo Bastardo para fideicomiso perpetuo (ambos lanzan Año 0)' },
   { id: 'd29', source: 'PLANVIV', target: 'PLANAGUA', nature: 'IMPORTANT', type: 'TECHNICAL', description: '1800 urbanizaciones necesitan co-ejecución hídrica con ANAGUA' },
   { id: 'd30', source: 'PLANVIV', target: 'PLANSEG', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'CPTED (prevención por diseño ambiental) en urbanizaciones' },
 
