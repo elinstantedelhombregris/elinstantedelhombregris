@@ -61,6 +61,7 @@ const IniciativaDocumento = React.lazy(() => import("@/pages/IniciativaDocumento
 const Feedback = React.lazy(() => import("@/pages/Feedback"));
 const AdminFeedback = React.lazy(() => import("@/pages/AdminFeedback"));
 const KitDePrensa = React.lazy(() => import("@/pages/KitDePrensa"));
+const ElArquitecto = React.lazy(() => import("@/pages/ElArquitecto"));
 
 type User = {
   id: number;
@@ -105,6 +106,7 @@ function Router() {
       <Route path="/recursos/guias-estudio/:courseSlug/leccion/:lessonId" component={LessonView} />
       <Route path="/recursos/guias-estudio/:courseSlug/quiz" component={QuizView} />
       <Route path="/recursos/iniciativas" component={IniciativasEstrategicas} />
+      <Route path="/recursos/el-arquitecto" component={ElArquitecto} />
       <Route path="/recursos/iniciativas/:slug/documento" component={IniciativaDocumento} />
       <Route path="/recursos/iniciativas/:slug" component={IniciativaDetalle} />
       <Route path="/login" component={Login} />
