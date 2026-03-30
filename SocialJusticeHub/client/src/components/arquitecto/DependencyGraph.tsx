@@ -46,7 +46,7 @@ const NATURE_LABELS: Record<DependencyNature, string> = {
 // ─── Graph Builder ───
 
 function buildGraph(): Graph {
-  const graph = new Graph({ type: 'directed', multi: false, allowSelfLoops: false });
+  const graph = new Graph({ type: 'directed', multi: true, allowSelfLoops: false });
 
   const nodeCount = PLAN_NODES.length;
   const radius = 300;

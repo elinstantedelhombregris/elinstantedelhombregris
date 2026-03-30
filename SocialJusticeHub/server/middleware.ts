@@ -35,9 +35,9 @@ export function securityHeaders() {
         scriptSrc: isDevelopment 
           ? ["'self'", "'unsafe-inline'", "'unsafe-eval'", "https://unpkg.com"] // Required for Vite HMR in dev + Leaflet
           : ["'self'", "https://unpkg.com"], // Allow Leaflet in production
-        scriptSrcElem: isDevelopment 
-          ? ["'self'", "'unsafe-inline'", "'unsafe-eval'", "https://unpkg.com"] // Explicit script-src-elem for <script> tags
-          : ["'self'", "https://unpkg.com"], // Allow Leaflet in production
+        scriptSrcElem: isDevelopment
+          ? ["'self'", "'unsafe-inline'", "'unsafe-eval'", "https://unpkg.com", "https://www.googletagmanager.com", "https://www.google-analytics.com", "https://va.vercel-scripts.com"] // Explicit script-src-elem for <script> tags
+          : ["'self'", "https://unpkg.com", "https://www.googletagmanager.com", "https://www.google-analytics.com", "https://va.vercel-scripts.com"], // Allow Leaflet + analytics in production
         styleSrcElem: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://unpkg.com"], // Explicit style-src-elem for <style> and <link> tags
         imgSrc: ["'self'", "data:", "https:"],
         connectSrc,
