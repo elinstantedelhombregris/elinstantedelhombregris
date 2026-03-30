@@ -7,6 +7,11 @@ import {
   DollarSign,
   BarChart3,
   Loader2,
+  Activity,
+  Zap,
+  Shield,
+  Edit3,
+  Swords,
 } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -16,8 +21,13 @@ const DependencyGraph = lazy(() => import('@/components/arquitecto/DependencyGra
 const CriticalPathTimeline = lazy(() => import('@/components/arquitecto/CriticalPathTimeline'));
 const BudgetFlow = lazy(() => import('@/components/arquitecto/BudgetFlow'));
 const KPICommandBoard = lazy(() => import('@/components/arquitecto/KPICommandBoard'));
+const CommandCenter = lazy(() => import('@/components/arquitecto/CommandCenter'));
+const WhatIfSimulator = lazy(() => import('@/components/arquitecto/WhatIfSimulator'));
+const ValidationDashboard = lazy(() => import('@/components/arquitecto/ValidationDashboard'));
+const PlanEditor = lazy(() => import('@/components/arquitecto/PlanEditor'));
+const AdversarialSimulator = lazy(() => import('@/components/arquitecto/AdversarialSimulator'));
 
-type TabId = 'organismo' | 'dependencias' | 'ruta' | 'presupuesto' | 'indicadores';
+type TabId = 'organismo' | 'dependencias' | 'ruta' | 'presupuesto' | 'indicadores' | 'comando' | 'whatif' | 'validacion' | 'editor' | 'adversarial';
 
 interface Tab {
   id: TabId;
@@ -31,6 +41,11 @@ const TABS: Tab[] = [
   { id: 'ruta', label: 'Ruta Critica', icon: Route },
   { id: 'presupuesto', label: 'Presupuesto', icon: DollarSign },
   { id: 'indicadores', label: 'Indicadores', icon: BarChart3 },
+  { id: 'comando', label: 'Centro de Mando', icon: Activity },
+  { id: 'whatif', label: '¿Qué Pasa Si?', icon: Zap },
+  { id: 'validacion', label: 'Validación', icon: Shield },
+  { id: 'editor', label: 'Editor', icon: Edit3 },
+  { id: 'adversarial', label: 'Adversarial', icon: Swords },
 ];
 
 function TabFallback() {
@@ -155,6 +170,11 @@ export default function ElArquitecto() {
             {activeTab === 'ruta' && <CriticalPathTimeline onSelectPlan={() => {}} />}
             {activeTab === 'presupuesto' && <BudgetFlow />}
             {activeTab === 'indicadores' && <KPICommandBoard />}
+            {activeTab === 'comando' && <CommandCenter />}
+            {activeTab === 'whatif' && <WhatIfSimulator />}
+            {activeTab === 'validacion' && <ValidationDashboard />}
+            {activeTab === 'editor' && <PlanEditor />}
+            {activeTab === 'adversarial' && <AdversarialSimulator />}
           </Suspense>
         </AnimatePresence>
       </main>
