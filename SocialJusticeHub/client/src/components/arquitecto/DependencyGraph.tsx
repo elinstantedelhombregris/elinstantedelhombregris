@@ -77,9 +77,9 @@ function buildGraph(): Graph {
         size: NATURE_SIZES[dep.nature],
         color: NATURE_COLORS[dep.nature],
         nature: dep.nature,
-        type: dep.type as DependencyType,
+        depType: dep.type as DependencyType,
         description: dep.description,
-        edgeType: 'arrow',
+        type: 'arrow',
       });
     }
   });
@@ -195,7 +195,7 @@ const DependencyGraph: React.FC<DependencyGraphProps> = ({ onSelectPlan }) => {
           // Check if this node has ANY edge of the filtered type
           const edges = graph.edges(node);
           const hasMatchingEdge = edges.some((e) => {
-            const edgeType = graph.getEdgeAttribute(e, 'type') as string;
+            const edgeType = graph.getEdgeAttribute(e, 'depType') as string;
             return edgeType === filter;
           });
           if (!hasMatchingEdge) {
@@ -255,7 +255,7 @@ const DependencyGraph: React.FC<DependencyGraphProps> = ({ onSelectPlan }) => {
         const fTarget = failureTargetRef.current;
         const fCascade = failureCascadeRef.current;
         const nature = graph.getEdgeAttribute(edge, 'nature') as DependencyNature;
-        const edgeType = graph.getEdgeAttribute(edge, 'type') as string;
+        const edgeType = graph.getEdgeAttribute(edge, 'depType') as string;
 
         // Failure mode: only show edges in the cascade
         if (fMode && fTarget && fCascade) {
