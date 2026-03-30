@@ -1995,4 +1995,804 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
       { title: 'Russell Ackoff — Idealized Design (Metodología)' },
     ],
   },
+
+  // PLANCUL — Cultura Viva y Red de Dendritas
+  {
+    slug: 'plancul-cultura-viva',
+    title: 'PLANCUL',
+    subtitle: 'Plan Nacional de Cultura Viva y Red de Dendritas',
+    category: 'cultura',
+    summary: 'La Argentina no tiene una crisis de información — tiene una crisis de sentido. PLANCUL es único entre los mandatos de ¡BASTA!: no tiene presupuesto dedicado, no tiene agencia, no tiene líder. Opera por parasitismo estratégico, habitando la infraestructura que los demás PLANes construyen. Su unidad mínima es la Mesa Larga — vecinos que comen juntos — y de ahí crece una Red de Dendritas que reconecta el tejido cultural desde las Siete Raíces y las Tres Corrientes.',
+    iconName: 'Palette',
+    documentFile: 'PLANCUL_Argentina_ES.md',
+    elProblema: {
+      title: 'El Problema',
+      content: `<p>La Argentina tiene una crisis de sentido. El 67% de los argentinos siente que su vida carece de propósito (OCDE: 38%). Cinco horas diarias de pantalla no-laboral anestesian un vacío que no es informativo sino existencial. La sociedad enferma alimenta a los medios, no al revés — la pantalla no es la enfermedad, es la anestesia.</p>
+<p>Cinco heridas históricas explican la fractura: la dictadura cortó la transmisión intergeneracional desapareciendo una generación de activadores culturales; el neoliberalismo reemplazó sentido por consumo; la inmigración perdió sus raíces; Buenos Aires concentra el 85% de la producción editorial y el 90% de la audiovisual, devorando a las provincias; y la "batalla cultural" convirtió la cultura en marketing político.</p>
+<p>Solo el 12% de los argentinos participó en alguna actividad cultural comunitaria en el último mes (Uruguay: 28%). La confianza interpersonal es del 17% — una de las más bajas del mundo. El 31% no tiene a nadie con quien hablar de cosas importantes. El 44% de los mayores declara no tener razón para levantarse.</p>
+<p>Las siete condiciones mínimas para que la cultura florezca — tiempo libre, materiales, compañía, memoria, cuerpo, lugar, seguridad para ser vulnerable — están en estado deficitario en la Argentina de 2026. La cadena intergeneracional de transmisión cultural está gravemente rota.</p>`,
+      pullQuote: 'La Argentina no tiene una crisis de información. Tiene una crisis de sentido. Millones de personas llegan al final de cada día sin haber hecho nada que les importe, y ese vacío es llenado por una industria que lucra con el miedo.',
+      stats: [
+        { label: '"Mi vida carece de propósito"', value: '67% (OCDE: 38%)' },
+        { label: 'Confianza interpersonal', value: '17%' },
+        { label: 'Participación cultural comunitaria', value: '12%' },
+        { label: 'Mayores "sin razón para levantarse"', value: '44%' },
+      ],
+    },
+    quePasaSiNoCambiamos: {
+      title: '¿Qué pasa si no cambiamos?',
+      content: `<p>Sin intervención, la crisis de sentido se profundiza exponencialmente. Cada generación que crece sin transmisión cultural pierde saberes irrecuperables — los mayores de 85 mueren con historias, lenguas y oficios que desaparecen para siempre. Los Archivos Vivos que no se graban hoy no se podrán grabar mañana.</p>
+<p>La soledad estructural — que ya mata más que fumar 15 cigarrillos por día — seguirá escalando. El consumo de ansiolíticos (Argentina es 2° en Latinoamérica) continuará en aumento. El 70% de los jóvenes que quieren irse del país seguirá ejecutando esa fuga, llevándose el capital cultural y humano que la nación necesita para reconstruirse.</p>
+<p>Los planes estatales culturales seguirán el patrón de fracaso de las últimas tres décadas: gobierno crea estructura → asigna presupuesto → cambia gobierno → se recorta → repetir. La Ley de Medios, los Puntos de Cultura, el CCK — todos murieron por dependencia presupuestaria. La concentración mediática seguirá manufacturando miedo y pasividad sin contrapeso comunitario.</p>
+<p>Sin tejido cultural vivo, los demás PLANes de ¡BASTA! construyen infraestructura pero no construyen un país. Vivienda sin comunidad es depósito de personas. Educación sin memoria es instrucción sin raíces. Salud sin sentido de propósito no reduce mortalidad. PLANCUL es el micelio sin el cual el bosque no crece.</p>`,
+      pullQuote: 'Ningún plan cultural estatal sobrevive la volatilidad argentina. La única cultura que sobrevive es la que no necesita permiso.',
+      stats: [
+        { label: 'Jóvenes que quieren irse', value: '~70%' },
+        { label: 'Horas pantalla no-laboral/día', value: '5.2 (global: 3.8)' },
+        { label: 'Planes culturales estatales caídos', value: '6+ en 30 años' },
+        { label: 'Soledad profunda', value: '31% sin confidente' },
+      ],
+    },
+    elDisenoIdeal: {
+      title: 'El Diseño Ideal',
+      content: `<p>PLANCUL opera por <strong>parasitismo estratégico</strong>: habita infraestructura que existe por razones independientes — bosques comestibles (PLANISV), escuelas (PLANEDU), Centros de la Vida (PLANREP), estaciones de tren (PLANTRA). Cortarlo requeriría cerrar todo lo demás. No tiene presupuesto dedicado que ningún gobierno pueda recortar. No tiene agencia que ningún gobierno pueda cerrar. Depende de la voluntad humana — que es lo único que nunca se puede legislar.</p>
+<p>La unidad mínima es la <strong>Mesa Larga</strong>: vecinos que cierran la calle, ponen mesas, y cada casa trae algo. De ahí crece la <strong>Escalera de Confianza</strong> — nueve peldaños desde comer juntos hasta exigir juntos, sin saltear etapas. Las comunidades que saltean peldaños se quiebran. De la mesa crecen las <strong>Siete Raíces</strong> (Tierra, Memoria, Creación, Cuerpo, Vínculo, Juego, Identidad) y a través de ellas fluyen las <strong>Tres Corrientes</strong>: Ambiente (la cultura satura los espacios cotidianos), Interior (el despertar empieza en soledad), Temporal (pensamos en generaciones, no en elecciones).</p>
+<p>La <strong>Red de Dendritas</strong> conecta personas cuya práctica es contagiosa — no un cargo, sino un estado de activación. Los <strong>Nodos Culturales Autónomos</strong> ya existen: 2.000+ bibliotecas populares, miles de clubes de barrio, peñas en cada provincia. PLANCUL los reconoce, conecta y fortalece. La <strong>Plataforma Dendrita</strong> (open source, federada, sin algoritmo de engagement) mapea, archiva y coordina — si te mantiene más de 10 minutos, falló.</p>
+<p>El gobierno hace exactamente tres cosas — romper monopolios mediáticos, remover burocracia, redistribuir pauta publicitaria — y después se retira. Los <strong>Granaderos</strong> (jubilados del sistema ¡BASTA!) son las Dendritas naturales más poderosas: tienen tiempo, saberes, paciencia, credibilidad y necesidad de propósito. PLANCUL propone la redefinición más profunda: <strong>éxito = la calidad de tus vínculos, la profundidad de tus raíces, la belleza que creaste</strong>.</p>`,
+      pullQuote: 'PLANCUL no crea cultura. Remueve lo que la aplasta. Y conecta lo que ya existe — como el micelio conecta los árboles de un bosque.',
+      stats: [
+        { label: 'Presupuesto dedicado', value: '$0 (por diseño)' },
+        { label: 'Nodos existentes para conectar', value: '2.000+ biblio. populares' },
+        { label: 'Peldaños Escalera de Confianza', value: '9 (comer → exigir)' },
+        { label: 'Acciones del gobierno', value: '3 (y nada más)' },
+      ],
+    },
+    elCamino: {
+      overview: 'PLANCUL no se despliega como un programa — emerge como un organismo. Puede empezar HOY, sin esperar a ningún gobierno. La cascada de activación trabaja hacia atrás desde una visión a 30+ años donde la cultura es simplemente cómo vive la gente.',
+      steps: [
+        {
+          id: 1,
+          title: 'La cultura ES Argentina',
+          description: 'La Red no es un "programa" — es cómo vive la gente. Cada provincia tiene producción cultural propia. El arte está en las calles de cada pueblo. La generación del Año 0 tiene 15+ años y nunca conoció un mundo sin esto. La redefinición de éxito penetra: los jóvenes no quieren irse tanto. En el Año 30 la "batalla cultural" es un recuerdo anacrónico. En el Año 65 un niño nacido en el Año 0 es Granadero y abre la Carta al Futuro que su barrio escribió cuando nació.',
+          timeline: 'Año 8-30+ — META',
+          dependencies: [],
+          orderIndex: 1,
+        },
+        {
+          id: 2,
+          title: 'Masa crítica y expansión',
+          description: '20.000+ Dendritas activas. 2.000+ Nodos en todas las provincias. 100.000+ grabaciones en Archivos Vivos. 2.000+ publicaciones de Argentina Escribe. Mesas Largas como institución nacional reconocida. Audiencia mediática tóxica declina por irrelevancia. Primera generación de niños Dendrita tiene 10-12 años — son activadores nativos que nunca conocieron otro mundo.',
+          timeline: 'Año 4-7',
+          dependencies: ['La cultura ES Argentina'],
+          orderIndex: 2,
+        },
+        {
+          id: 3,
+          title: 'Enraizamiento y supervivencia del Valle de la Apatía',
+          description: '5.000+ Dendritas, 500+ Nodos conectados. 10.000+ grabaciones en Archivos Vivos. 200 publicaciones de Argentina Escribe. 1.000 emisoras Radio Dendrita. PLANJUB, PLANEDU, PLANISV activos potencian la Red. ALERTA Años 2-3: la novedad pasa, fundadores cansados. Diseño anti-apatía activo: hibernación permitida, rotación inyecta energía, Granaderos llegan como refuerzo fresco, Nodos Compañeros revitalizan con visitas cruzadas.',
+          timeline: 'Año 1-3',
+          dependencies: ['Masa crítica y expansión'],
+          orderIndex: 3,
+        },
+        {
+          id: 4,
+          title: 'Semilla: primeras Mesas Largas y activación',
+          description: '50 Mesas Largas en 15+ provincias — deliberadamente distribuidas, no concentradas en Buenos Aires. 100 Dendritas auto-identificadas. 30 Nodos existentes (bibliotecas populares, clubes, peñas) conectados en Plataforma Dendrita mínima. Tres acciones gubernamentales si ¡BASTA! gobierna (deseable pero no esencial). 200 emisoras Radio Dendrita. Primeros Círculos de Memoria con jubilados. PLANCUL puede empezar HOY — no requiere permiso, presupuesto ni gobierno.',
+          timeline: 'Pre-Año 0 a Año 1',
+          dependencies: ['Enraizamiento y supervivencia del Valle de la Apatía'],
+          orderIndex: 4,
+        },
+      ],
+    },
+    kpis: [
+      {
+        id: 'vida-con-proposito',
+        metric: 'Argentinos que sienten que su vida tiene propósito',
+        currentValue: 33,
+        targetValue: 60,
+        unit: '%',
+        source: 'Encuesta comunitaria / Observatorio de Sentido',
+        milestones: [
+          { date: 'Año 5', targetValue: 40 },
+          { date: 'Año 10', targetValue: 50 },
+          { date: 'Año 15', targetValue: 60 },
+        ],
+      },
+      {
+        id: 'nodos-activos',
+        metric: 'Nodos Culturales Autónomos activos',
+        currentValue: 500,
+        targetValue: 5000,
+        unit: 'nodos',
+        source: 'Plataforma Dendrita — Mapa vivo de Nodos',
+        milestones: [
+          { date: 'Año 1', targetValue: 100 },
+          { date: 'Año 3', targetValue: 500 },
+          { date: 'Año 7', targetValue: 2000 },
+          { date: 'Año 15', targetValue: 5000 },
+        ],
+      },
+      {
+        id: 'archivos-vivos',
+        metric: 'Grabaciones en Archivos Vivos',
+        currentValue: 0,
+        targetValue: 100000,
+        unit: 'grabaciones',
+        source: 'Plataforma Dendrita — Archivos Vivos',
+        milestones: [
+          { date: 'Año 3', targetValue: 10000 },
+          { date: 'Año 7', targetValue: 100000 },
+          { date: 'Año 15', targetValue: 500000 },
+        ],
+      },
+      {
+        id: 'confianza-interpersonal',
+        metric: 'Confianza interpersonal',
+        currentValue: 17,
+        targetValue: 35,
+        unit: '%',
+        source: 'Encuesta de confianza / Latinobarómetro',
+        milestones: [
+          { date: 'Año 5', targetValue: 22 },
+          { date: 'Año 10', targetValue: 28 },
+          { date: 'Año 15', targetValue: 35 },
+        ],
+      },
+    ],
+    tags: ['cultura viva', 'Mesas Largas', 'Red de Dendritas', 'Siete Raíces', 'sentido', 'comunidad', 'parasitismo estratégico', 'sin presupuesto', 'Escalera de Confianza'],
+    relatedInitiativeSlugs: ['planedu-refundacion-educativa', 'planrep-reconversion-empleo-publico', 'plan24cn-24-ciudades-nuevas', 'plansal-salud-integral'],
+    sources: [
+      { title: 'PLANCUL — Plan Nacional de Cultura Viva y Red de Dendritas (Documento Estratégico, Mar 2026)' },
+      { title: 'OCDE — Indicadores de Bienestar Subjetivo (propósito de vida)' },
+      { title: 'Latinobarómetro — Encuesta de Confianza Interpersonal' },
+      { title: 'CONABIP — Registro Nacional de Bibliotecas Populares' },
+      { title: 'Russell Ackoff — Idealized Design (Metodología)' },
+    ],
+  },
+
+  // PLANDIG — Soberanía Digital e Inteligencia Artificial
+  {
+    slug: 'plandig-soberania-digital',
+    title: 'PLANDIG',
+    subtitle: 'Plan Nacional de Soberanía Digital e Inteligencia Artificial',
+    category: 'tecnologia',
+    summary: 'La Argentina es una colonia digital: sus datos residen en servidores extranjeros, su capacidad de cómputo se alquila a corporaciones extranjeras, y la inteligencia artificial entrenada con datos argentinos pertenece a otros. PLANDIG propone construir un sistema nervioso soberano — infraestructura, datos e IA propios — con un ROI estimado de 2:1 a 7:1 a 10 años.',
+    iconName: 'Cpu',
+    documentFile: 'PLANDIG_Argentina_ES.md',
+    elProblema: {
+      title: 'El Problema',
+      content: `<p>La Argentina exporta materia prima digital con la misma pasividad con la que exportó cuero en el siglo XVIII y soja en el XX. La diferencia: los datos se van sin aduana, sin retención, sin que nadie sepa que los está exportando. La suma conservadora de la extracción directa cuantificable supera los <strong>USD 15.000–20.000 millones por año</strong>.</p>
+<p>El Estado argentino aloja sus datos críticos — padrones electorales, historias clínicas, expedientes judiciales, datos impositivos — en servidores de Amazon, Microsoft y Google fuera del territorio nacional. ARSAT opera un único Centro Nacional de Datos de 4.200 m² que es insuficiente para las necesidades del Estado. Argentina tiene apenas ~50–80 MW de capacidad en datacenters, contra 1.000+ MW de Brasil y 300+ MW de México.</p>
+<p>No existe una identidad digital soberana. Los pagos digitales viajan a servidores de Visa y Mastercard en EE.UU., generando comisiones de USD 1.500–3.500 millones por año. Argentina no tiene un solo modelo de IA fundacional propio, y el presupuesto de ciencia y tecnología (0,16% del PBI) es el más bajo desde 2002. Cada año que pasa sin infraestructura soberana es un año de datos perdidos e inteligencia regalada.</p>
+<p>PLANDIG no es un plan más de ¡BASTA! — es la capa que hace posibles todos los demás. Así como PLANJUS es el sistema inmune que protege al cuerpo, PLANDIG es el <strong>sistema nervioso</strong> que lo conecta. Sin PLANDIG, cada PLAN opera ciego, sordo y aislado.</p>`,
+      pullQuote: 'Un país cuyos datos, cuya inteligencia artificial y cuya infraestructura digital pertenecen a corporaciones extranjeras no es un país libre — es una colonia con buena conexión a internet.',
+      stats: [
+        { label: 'Extracción digital / año', value: 'USD 15-20 mil M' },
+        { label: 'Capacidad datacenters ARG', value: '~50-80 MW' },
+        { label: 'Comisiones Visa/MC / año', value: 'USD 1.5-3.5 mil M' },
+        { label: 'Presupuesto CyT / PBI', value: '0,16%' },
+      ],
+    },
+    quePasaSiNoCambiamos: {
+      title: '¿Qué pasa si no cambiamos?',
+      content: `<p>El colonialismo digital no es un problema filosófico — es un riesgo operativo con consecuencias medibles. Cada año que pasa sin infraestructura soberana es un año más de datos perdidos, inteligencia regalada y soberanía cedida. Los datos tienen la propiedad de que su valor <em>aumenta</em> con la acumulación: un modelo de IA entrenado con diez años de datos argentinos es exponencialmente más valioso que uno entrenado con un año.</p>
+
+<p><strong>Vulnerabilidad operativa:</strong> Si un proveedor cloud sube precios un 50% (ya ocurrió con AWS en 2022-23), el Estado paga o migra — pero no tiene adónde migrar. Si EE.UU. impone sanciones que restringen acceso a cloud — como ocurrió con Rusia en 2022 — la parálisis operativa del Estado llega en semanas. Cada cambio de Terms of Service de Google o Meta afecta a millones de estudiantes y ciudadanos sin consulta.</p>
+
+<p><strong>Fuga de talento:</strong> ~150.000 developers argentinos trabajan para empresas extranjeras; el brain drain físico se acelera. Argentina forma el talento, otro país captura el valor. La IA entrenada con datos argentinos toma decisiones sesgadas sobre argentinos — en crédito, contratación y justicia predictiva — sin supervisión soberana.</p>
+
+<p><strong>Ceguera institucional:</strong> El Estado no tiene una visión unificada de su territorio ni de su población. Los datos están fragmentados en silos ministeriales que no se comunican, en bases de datos provinciales incompatibles. El INDEC mide la economía con meses de retraso. Salud no puede cruzar datos con Educación. CONAE tiene satélites pero no hay sistema que integre sus imágenes con los datos de los otros PLANes.</p>`,
+      pullQuote: 'Cada año que le regalamos a Google es un año que no podemos recuperar. Argentina paga suscripciones a servicios de IA que fueron entrenados con datos argentinos — pagamos para que nos devuelvan nuestra propia información procesada.',
+      stats: [
+        { label: 'Gasto ARG en cloud / año', value: 'USD 4.600 M' },
+        { label: 'Developers para empresas ext.', value: '~150.000' },
+        { label: 'Riesgo mercado UE (sanciones)', value: 'Parálisis en semanas' },
+        { label: 'Modelos IA propios', value: '0' },
+      ],
+    },
+    elDisenoIdeal: {
+      title: 'El Diseño Ideal',
+      content: `<p>PLANDIG propone construir un <strong>sistema nervioso soberano</strong> en dos capas. Un <strong>núcleo soberano</strong> de 20–31 datacenters reconvertidos desde infraestructura existente (fábricas cerradas, bases militares, edificios públicos) con 140–270 MW de capacidad, alimentados por energía renovable. Y una <strong>malla comunitaria</strong> de 100.000 nodos donde ciudadanos, escuelas, cooperativas y municipios contribuyen cómputo y almacenamiento a cambio de Créditos de Cómputo Nacional.</p>
+
+<p>El <strong>LANIA</strong> (Laboratorio Nacional de Inteligencia Artificial) entrena modelos fundacionales de código abierto sobre datos argentinos en infraestructura argentina. Una <strong>Arquitectura de Datos en Tres Capas</strong> — pública abierta, intergubernamental auditada, y ciudadana-privada cifrada con llave exclusiva del ciudadano. <strong>El Mapa</strong>: red de 40.000–70.000 sensores IoT + constelación SAOCOM para conciencia situacional del territorio en tiempo real.</p>
+
+<p>Un ecosistema digital soberano completo: <strong>Identidad Digital Soberana (IDS)</strong>, sistema de pagos <strong>SAPI</strong> (como PIX de Brasil pero soberano), Mensajero Nacional, red social cívica <strong>La Tribu</strong>, y plataformas de educación y salud. El <strong>Arquitecto de Fuerza Laboral IA</strong> acompaña a cada trabajador público en su reconversión (integración con PLANREP).</p>
+
+<p>Todo gobernado por la <strong>ANDIG</strong> — Agencia Nacional de Infraestructura Digital y Soberanía Tecnológica — ente autárquico con presupuesto constitucional protegido, gobernado por sorteo democrático y representación técnica. Inversión estimada: USD 4.700–9.900M en 10 años. Retorno en régimen: USD 4.300–12.300M/año.</p>`,
+      pullQuote: 'Imaginá un país donde cada dato te pertenece, donde la inteligencia artificial trabaja para vos — no para un accionista en otro continente. Eso no es ciencia ficción. Es el 2040 si empezamos hoy.',
+      stats: [
+        { label: 'ROI a 10 años', value: '2:1 a 7:1' },
+        { label: 'Inversión total (10 años)', value: 'USD 4.700-9.900 M' },
+        { label: 'Retorno anual en régimen', value: 'USD 4.300-12.300 M' },
+        { label: 'Nodos comunitarios meta', value: '100.000' },
+      ],
+    },
+    elCamino: {
+      overview: 'PLANDIG se despliega en una cascada de 10 años, trabajando hacia atrás desde la visión de una Argentina digitalmente soberana — con datos propios, IA propia, infraestructura propia — que exporta servicios cloud e inteligencia artificial en español a toda América Latina.',
+      steps: [
+        {
+          id: 1,
+          title: 'Argentina digitalmente soberana',
+          description: 'Capacidad plena del núcleo soberano (140–270 MW). 100.000 nodos comunitarios. Modelos argentinos de frontera en producción. Gemelo Digital del país completo. 95% de datos del Estado en infraestructura soberana. SAPI con 30M+ de usuarios como método de pago dominante. Argentina exporta servicios cloud e IA a América Latina. La inversión se paga sola. El sistema nervioso de ¡BASTA! está completo.',
+          timeline: 'Año 7-10 — META',
+          dependencies: [],
+          orderIndex: 1,
+        },
+        {
+          id: 2,
+          title: 'Consolidación y ecosistema completo',
+          description: '15–20 nodos del núcleo operativos. 70.000 nodos comunitarios. SAPI con 25M de usuarios. Identidad Digital universal. 60% de datos del Estado migrados a infraestructura soberana. LANIA con 300 investigadores y 2.048 GPUs. Primeros modelos especializados entrenados desde cero. 30.000 sensores IoT. Programa de reversión de brain drain revierte la tendencia de emigración.',
+          timeline: 'Año 5-6',
+          dependencies: ['Argentina digitalmente soberana'],
+          orderIndex: 2,
+        },
+        {
+          id: 3,
+          title: 'Escala: plataformas y malla nacional',
+          description: '10 nodos del núcleo operativos. 50.000 nodos comunitarios. SAPI con 15M de usuarios. Modelo Legal Argentino en piloto con PLANJUS. Modelo Educativo en 5.000 escuelas. El Mapa v1 operativo con integración SAOCOM + 15.000 sensores IoT. Arquitecto de Fuerza Laboral en piloto con PLANREP. Lanzamiento de La Tribu v1.',
+          timeline: 'Año 3-4',
+          dependencies: ['Consolidación y ecosistema completo'],
+          orderIndex: 3,
+        },
+        {
+          id: 4,
+          title: 'Fundación: ley, agencia, primeros nodos',
+          description: 'Ley de Soberanía Digital al Congreso. Creación de ANDIG con directorio por sorteo/concurso. Primeros 3 nodos del núcleo soberano operativos (reconversión). SAPI en piloto con 5M de usuarios. Fine-tuning del primer Modelo Argentino. 10.000 nodos comunitarios desplegados. Mensajero Nacional v1. Plataforma educativa soberana en 500 escuelas. Adquisición de primeras 256 GPUs para LANIA. 500 becas LANIA.',
+          timeline: 'Mes 0-24',
+          dependencies: ['Escala: plataformas y malla nacional'],
+          orderIndex: 4,
+        },
+      ],
+    },
+    kpis: [
+      {
+        id: 'datos-estado-soberanos',
+        metric: 'Datos del Estado en Infraestructura Soberana',
+        currentValue: 5,
+        targetValue: 95,
+        unit: '%',
+        source: 'ANDIG — Tablero Nacional Digital',
+        milestones: [
+          { date: 'Año 2', targetValue: 15 },
+          { date: 'Año 5', targetValue: 60 },
+          { date: 'Año 10', targetValue: 95 },
+        ],
+      },
+      {
+        id: 'usuarios-sapi',
+        metric: 'Usuarios de SAPI (Sistema Abierto de Pagos e Identidad)',
+        currentValue: 0,
+        targetValue: 30,
+        unit: 'M usuarios',
+        source: 'ANDIG / BCRA',
+        milestones: [
+          { date: 'Año 2', targetValue: 5 },
+          { date: 'Año 4', targetValue: 15 },
+          { date: 'Año 6', targetValue: 25 },
+          { date: 'Año 10', targetValue: 30 },
+        ],
+      },
+      {
+        id: 'nodos-comunitarios',
+        metric: 'Nodos Comunitarios Desplegados',
+        currentValue: 0,
+        targetValue: 100000,
+        unit: 'nodos',
+        source: 'ANDIG — Malla Comunitaria',
+        milestones: [
+          { date: 'Año 2', targetValue: 10000 },
+          { date: 'Año 4', targetValue: 50000 },
+          { date: 'Año 6', targetValue: 70000 },
+          { date: 'Año 10', targetValue: 100000 },
+        ],
+      },
+      {
+        id: 'capacidad-datacenters',
+        metric: 'Capacidad de Datacenters Soberanos',
+        currentValue: 50,
+        targetValue: 270,
+        unit: 'MW',
+        source: 'ANDIG / ARSAT',
+        milestones: [
+          { date: 'Año 2', targetValue: 80 },
+          { date: 'Año 5', targetValue: 150 },
+          { date: 'Año 10', targetValue: 270 },
+        ],
+      },
+    ],
+    tags: ['soberanía digital', 'inteligencia artificial', 'datos', 'infraestructura digital', 'ciberseguridad', 'ARSAT', 'LANIA', 'pagos soberanos'],
+    relatedInitiativeSlugs: ['planeb-empresas-bastardas', 'planrep-reconversion-empleo-publico', 'planedu-refundacion-educativa', 'planjus-justicia-popular', 'plan24cn-24-ciudades-nuevas', 'planmon-soberania-monetaria', 'planagua-soberania-hidrica'],
+    sources: [
+      { title: 'PLANDIG — Plan Nacional de Soberanía Digital e Inteligencia Artificial (Documento Estratégico, Mar 2026)' },
+      { title: 'ARSAT — Centro Nacional de Datos y Red Federal de Fibra Óptica (REFEFO)' },
+      { title: 'Banco Central do Brasil — PIX: Sistema de Pagamentos Instantâneos' },
+      { title: 'Estonia — e-Residency y X-Road (Identidad digital soberana)' },
+      { title: 'Russell Ackoff — Idealized Design (Metodología)' },
+    ],
+  },
+
+  // PLANEN — Soberanía Energética y Transición de Matriz
+  {
+    slug: 'planen-soberania-energetica',
+    title: 'PLANEN',
+    subtitle: 'Plan Nacional de Soberanía Energética y Transición de la Matriz Productiva',
+    category: 'infraestructura',
+    summary: 'La Argentina tiene el segundo yacimiento de shale gas del mundo, el tercer recurso de litio del planeta, vientos de clase mundial y sol de primer nivel — y sin embargo subsidia la energía USD 10.000–15.000 millones por año, tiene siete millones de personas en pobreza energética, y exporta litio como polvo. PLANEN propone una transición de 15 años que se paga a sí misma en menos de 5.',
+    iconName: 'Zap',
+    documentFile: 'PLANEN_Argentina_ES.md',
+    elProblema: {
+      title: 'El Problema',
+      content: `<p>La Argentina produce energía para el mundo y no puede garantizar energía confiable y accesible para su propia gente. Tiene Vaca Muerta (308 TCF de shale gas, segundo del mundo), 19,3 millones de toneladas de litio identificadas (tercero del mundo), vientos clase 6-7 en la Patagonia con factores de capacidad del 45–55%, y sol de 5–6 kWh/m²/día en el NOA. No es una crisis de recursos — es una crisis de soberanía.</p>
+<p>El Estado subsidia la energía entre <strong>USD 10.000 y 15.000 millones por año</strong> — más que el presupuesto de educación, más que el de salud. El 75% del subsidio beneficia a empresas generadoras y distribuidoras, no al consumidor. Es una anestesia que esconde el dolor sin curar la enfermedad. Siete millones de personas viven en pobreza energética. El sistema eléctrico pierde entre el 15% y el 25% de la energía que transporta.</p>
+<p>Argentina exporta carbonato de litio a USD 10.000–15.000/t e importa baterías a USD 80.000–200.000/t — la diferencia de 7x a 25x es la medida exacta de la inserción colonial en la cadena de valor global. Exporta gas crudo cuando un metro cúbico convertido en fertilizante vale entre 5x y 10x más. Y no tiene fondo soberano: la renta de Vaca Muerta se gasta en el año que se genera.</p>
+<p>Un carpintero del Chaco pierde 12 días de producción por mes por cortes de luz, con sol de 14 horas cayéndole encima. Una jubilada de Moreno elige entre prender la estufa o comer. Una ingeniera eólica en Comodoro Rivadavia diseña parques para España porque en Argentina no consigue financiamiento. Un químico kolla ve cómo el litio de su Puna se va sin transformar.</p>`,
+      pullQuote: 'Un país que tiene energía debajo de la tierra, en el viento, en el sol, en los ríos — y no puede mantener la luz prendida en un taller del Chaco — no tiene un problema técnico. Tiene un problema político.',
+      stats: [
+        { label: 'Subsidios energéticos / año', value: 'USD 10-15 mil M' },
+        { label: 'Pobreza energética', value: '7 millones' },
+        { label: 'Pérdidas de red', value: '15-25%' },
+        { label: 'Industrialización litio doméstica', value: '0%' },
+      ],
+    },
+    quePasaSiNoCambiamos: {
+      title: '¿Qué pasa si no cambiamos?',
+      content: `<p>El péndulo argentino oscila entre subsidiar (popular pero insostenible) y ajustar tarifas (impopular pero necesario). Ningún gobierno ataca la causa raíz: generación cara (térmicas a gas), distribución ineficiente (redes viejas, pérdidas altas), cero inversión en renovables, y ningún mecanismo de ahorro de la renta energética.</p>
+
+<p><strong>Costo fiscal acumulado:</strong> A ritmo actual, los subsidios energéticos suman USD 150.000–225.000 millones en 15 años. El costo total de no hacer nada — subsidios + pobreza energética + pérdidas de red + dependencia importadora — se estima en USD 300.000–400.000 millones en 15 años. Es entre 4 y 8 veces lo que cuesta PLANEN.</p>
+
+<p><strong>Ventana de oportunidad cerrándose:</strong> La ventana de máximo valor del gas es 2025–2045; después la demanda global cae con la transición renovable. Sin plantas de GNL, Argentina no puede vender gas al mundo a precio premium (GNL spot: USD 10–18/MMBTU vs. gasoducto: USD 3–5). Cada año sin infraestructura de licuefacción es USD 10.000–20.000 millones de exportaciones perdidas. El litio se multiplica por 5 en demanda entre 2025 y 2035 — si Argentina no industrializa ahora, se queda exportando polvo para siempre.</p>
+
+<p><strong>Maldición de los recursos:</strong> Venezuela tiene las mayores reservas de petróleo del mundo y es un desastre económico. Nigeria tiene petróleo desde los años 60 y el 40% de su población vive con menos de USD 2/día. La "maldición de los recursos" no es una maldición — es una decisión: gastar en vez de ahorrar, exportar crudo en vez de industrializar. Sin PLANEN, Argentina toma esa decisión por omisión.</p>`,
+      pullQuote: 'PLANEN cuesta menos de la mitad de lo que cuestan los subsidios energéticos en el mismo período. Y a diferencia de los subsidios — que no resuelven nada —, PLANEN construye infraestructura que reduce los costos permanentemente.',
+      stats: [
+        { label: 'Subsidios acumulados (15 años)', value: 'USD 150-225 mil M' },
+        { label: 'Costo de no hacer nada (15 años)', value: 'USD 300-400 mil M' },
+        { label: 'Exportaciones GNL perdidas / año', value: 'USD 10-20 mil M' },
+        { label: 'Multiplicador demanda litio 2025-35', value: '5x' },
+      ],
+    },
+    elDisenoIdeal: {
+      title: 'El Diseño Ideal',
+      content: `<p>PLANEN organiza la transición en <strong>cinco pilares simultáneos</strong>. <strong>Pilar 1 — Gas como puente:</strong> Vaca Muerta industrializado, no exportado crudo. 2–4 plantas de GNL (USD 10.000–20.000M de inversión, USD 15.000–25.000M/año de retorno), polo petroquímico integrado, y regalías progresivas del 18–25% que alimentan el Fondo Soberano Bastardo. Fecha de vencimiento explícita: maximizar valor 20 años, no enamorarse del gas.</p>
+
+<p><strong>Pilar 2 — Renovables escalables:</strong> 20.000 MW eólicos en Patagonia + 10.000 MW solares en NOA + rehabilitación hidro + bioenergía. Meta: 85% renovable+nuclear al año 15 (desde ~45% actual). <strong>Pilar 3 — Industrialización del litio:</strong> de carbonato a cátodos, celdas y baterías — 10 GWh/año — convirtiendo valor de 7x–25x. <strong>Pilar 4 — Nuclear de nueva generación:</strong> CAREM + SMRs como base firme. Argentina exporta reactores.</p>
+
+<p><strong>Pilar 5 — Frontera Tecnológica (LANEF):</strong> Laboratorio Nacional de Energía del Futuro — electrolizadores de ultra-alta eficiencia (>90%), cosecha electromagnética ambiental, geotermia profunda andina, energía mareal atlántica, almacenamiento avanzado, fusión. Cada programa con horizonte de transferencia a la industria.</p>
+
+<p>La <strong>Bastarda Energética</strong> distribuye energía al costo real, sin extracción de margen, con transparencia radical y generación distribuida. El programa <strong>Cada Techo un Generador</strong> convierte hogares en prosumidores — 1 millón de techos solares en 10 años. Las regalías (USD 2.000–5.000M/año) capitalizan el Fondo Soberano Bastardo de PLANMON. El subsidio desaparece no porque se elimine, sino porque deja de ser necesario.</p>`,
+      pullQuote: 'Dinamarca tiene el viento de un suspiro comparado con la Patagonia. Y con ese suspiro alimenta al país entero. Nosotros tenemos un huracán permanente y lo dejamos pasar.',
+      stats: [
+        { label: 'Inversión total (15 años)', value: 'USD 45-76 mil M' },
+        { label: 'Exportaciones energéticas (Año 10)', value: 'USD 20-35 mil M' },
+        { label: 'Fondo Soberano (Año 15)', value: 'USD 85-120 mil M' },
+        { label: 'Empleos directos generados', value: '300.000-450.000' },
+      ],
+    },
+    elCamino: {
+      overview: 'PLANEN se despliega en una cascada de 15 años, trabajando hacia atrás desde la visión de una Argentina energéticamente soberana — con matriz 85%+ renovable+nuclear, exportadora neta de energía y tecnología, pobreza energética cero en áreas Bastarda, y un Fondo Soberano de USD 85.000–120.000 millones.',
+      steps: [
+        {
+          id: 1,
+          title: 'Soberanía energética plena',
+          description: 'Matriz eléctrica 85%+ renovable+nuclear. Exportación de hidrógeno verde, baterías de litio, tecnología nuclear (CAREM/SMRs). Fondo Soberano: USD 85.000M+. Bastarda Energética cubre 50%+ del territorio. 1 millón de techos solares. Pobreza energética: cero en áreas Bastarda. Subsidios eliminados — la energía cuesta menos de producir que la tarifa subsidiada de 2026. Factura promedio 40–60% menor en términos reales.',
+          timeline: 'Año 10-15 — META',
+          dependencies: [],
+          orderIndex: 1,
+        },
+        {
+          id: 2,
+          title: 'Industrialización y almacenamiento a escala',
+          description: 'Eólica total: 18.000–25.000 MW. Solar total: 10.000–14.000 MW. Hub de litio a escala industrial: planta de celdas con 5–10 GWh/año. Almacenamiento de energía con baterías + hidro de bombeo + primeros proyectos de H₂ verde. Segunda planta de GNL operativa. Polo petroquímico operativo. SMR en construcción. Bastarda en 30% del territorio. 500.000 techos solares. Renovables+nuclear: 60%+ de generación. Exportaciones energéticas: USD 20.000–35.000M/año.',
+          timeline: 'Año 5-10',
+          dependencies: ['Soberanía energética plena'],
+          orderIndex: 2,
+        },
+        {
+          id: 3,
+          title: 'Gas como puente + renovables primera ola',
+          description: 'Primera planta de GNL operativa (Año 4-5). 5.000–8.000 MW eólicos nuevos + 3.000–5.000 MW solares. Hub de litio: planta piloto de cátodos. CAREM-25 operativo. Bastarda Energética en 5+ ciudades PLAN24CN. 200.000 techos solares. Polo petroquímico en construcción. Regalías al Fondo Soberano: USD 1.000–3.500M/año. Renovables: 28%+ de generación eléctrica.',
+          timeline: 'Año 1-5',
+          dependencies: ['Industrialización y almacenamiento a escala'],
+          orderIndex: 3,
+        },
+        {
+          id: 4,
+          title: 'Marco legal, ANEN y auditoría energética',
+          description: 'Auditoría energética nacional completa — cada central, cada línea, cada red. Creación de la ANEN (Agencia Nacional de Energía y Frontera Tecnológica) como ente autárquico. Ley de Soberanía Energética: regalías progresivas 18/22/25%, condicionamiento litio, net metering ciudadano. Tablero Nacional de Energía con datos en tiempo real. Primera Bastarda Energética en ciudad PLAN24CN. Inicio de regalías al Fondo Soberano: USD 800–1.000M/año. Diseño regulatorio completo.',
+          timeline: 'Mes 0-12',
+          dependencies: ['Gas como puente + renovables primera ola'],
+          orderIndex: 4,
+        },
+      ],
+    },
+    kpis: [
+      {
+        id: 'matriz-renovable-nuclear',
+        metric: 'Generación Eléctrica Renovable + Nuclear',
+        currentValue: 45,
+        targetValue: 85,
+        unit: '%',
+        source: 'CAMMESA / ANEN',
+        milestones: [
+          { date: 'Año 5', targetValue: 60 },
+          { date: 'Año 10', targetValue: 75 },
+          { date: 'Año 15', targetValue: 85 },
+        ],
+      },
+      {
+        id: 'fondo-soberano-energia',
+        metric: 'Fondo Soberano (regalías energéticas)',
+        currentValue: 0,
+        targetValue: 85000,
+        unit: 'M USD',
+        source: 'PLANMON / Fondo Soberano Bastardo',
+        milestones: [
+          { date: 'Año 5', targetValue: 12000 },
+          { date: 'Año 10', targetValue: 42000 },
+          { date: 'Año 15', targetValue: 85000 },
+        ],
+      },
+      {
+        id: 'pobreza-energetica',
+        metric: 'Personas en Pobreza Energética',
+        currentValue: 7,
+        targetValue: 1,
+        unit: 'M personas',
+        source: 'INDEC / ANEN',
+        milestones: [
+          { date: 'Año 5', targetValue: 5 },
+          { date: 'Año 10', targetValue: 3.5 },
+          { date: 'Año 15', targetValue: 1 },
+        ],
+      },
+      {
+        id: 'techos-solares',
+        metric: 'Techos Solares Residenciales',
+        currentValue: 50000,
+        targetValue: 1000000,
+        unit: 'instalaciones',
+        source: 'Bastarda Energética / ANEN',
+        milestones: [
+          { date: 'Año 5', targetValue: 200000 },
+          { date: 'Año 10', targetValue: 500000 },
+          { date: 'Año 15', targetValue: 1000000 },
+        ],
+      },
+    ],
+    tags: ['energía', 'Vaca Muerta', 'litio', 'renovables', 'eólica', 'solar', 'nuclear', 'hidrógeno verde', 'fondo soberano', 'soberanía energética'],
+    relatedInitiativeSlugs: ['planmon-soberania-monetaria', 'planeb-empresas-bastardas', 'plan24cn-24-ciudades-nuevas', 'planagua-soberania-hidrica', 'planisv-infraestructura-suelo-vivo', 'plandig-soberania-digital', 'plangeo-posicionamiento-geopolitico', 'planrep-reconversion-empleo-publico'],
+    sources: [
+      { title: 'PLANEN — Plan Nacional de Soberanía Energética y Transición de la Matriz Productiva (Documento Estratégico, Mar 2026)' },
+      { title: 'Secretaría de Energía — Informes de Coyuntura Energética' },
+      { title: 'Norges Bank Investment Management — Government Pension Fund Global' },
+      { title: 'CAMMESA — Informe Mensual del Mercado Eléctrico Mayorista' },
+      { title: 'Russell Ackoff — Idealized Design (Metodología)' },
+    ],
+  },
+
+  // PLANSEG — Seguridad Ciudadana
+  {
+    slug: 'planseg-seguridad-ciudadana',
+    title: 'PLANSEG',
+    subtitle: 'Plan Nacional de Seguridad Ciudadana y Transición del Orden Público',
+    category: 'instituciones',
+    summary: 'La Argentina gasta USD 8.000–12.000 millones anuales en un sistema de seguridad que no protege a la gente: 340.000 efectivos, una tasa de homicidios de 5,3/100K, cárceles al 150% de capacidad con 70% de presos sin sentencia, y una reincidencia superior al 60%. PLANSEG propone cuatro pilares — policía comunitaria modelo koban, protocolo de transición narco sincronizado con PLANSUS, reforma carcelaria restaurativa, e infraestructura de prevención por diseño — para construir seguridad desde la comunidad, no desde la represión.',
+    iconName: 'Shield',
+    documentFile: 'PLANSEG_Argentina_ES.md',
+    elProblema: {
+      title: 'El Problema',
+      content: `<p>La Argentina tiene una de las relaciones policía-habitante más altas de América Latina — 1 cada 135 personas — y sin embargo la percepción de inseguridad supera el 70%. No es un problema de cantidad: es un sistema diseñado para fracasar. 340.000 efectivos entrenados para reprimir (40-50% de la formación es uso de fuerza), mal pagados (USD 400-600/mes), y operando en una cultura institucional donde la corrupción es funcional al modelo.</p>
+
+<p>El sistema carcelario es una fábrica de reincidentes: ~105.000 personas detenidas en un sistema con capacidad para 70.000 plazas. El 70% no tiene sentencia firme — están esperando juicio, a veces durante años. La tasa de reincidencia supera el 60%. El 25-30% de los presos están ahí por delitos de drogas — participantes de un mercado que la prohibición creó. El costo: USD 1.500-2.500 millones anuales para almacenar personas sin rehabilitarlas.</p>
+
+<p>El narcotráfico controla territorios enteros — en Rosario zona sur, la tasa de homicidios llega a 20/100K, cuatro veces el promedio nacional. Barrios donde las ambulancias no entran sin custodia, donde los chicos son reclutados a los 14 años, donde el Estado abandonó su función y la reemplazó con operativos esporádicos que no cambian la estructura.</p>
+
+<p>La seguridad en la Argentina es un servicio diferenciado por clase social: en Zona Norte GBA el tiempo de respuesta al 911 es menos de 5 minutos; en el Conurbano sur, 15-40 minutos o directamente no responde. El gatillo fácil — más de 8.000 muertos a manos de fuerzas de seguridad desde 1983, 90% jóvenes pobres — no es un accidente: es policiamiento de clase. El costo total de la inseguridad se estima en USD 19.500-35.500 millones anuales, entre el 4% y el 7% del PBI.</p>`,
+      pullQuote: 'No tenemos un problema de inseguridad. Tenemos un sistema de seguridad que genera inseguridad. Agregar policías a un modelo reactivo es como agregar agua a un balde con un agujero — el problema no es la cantidad de agua, es el agujero.',
+      stats: [
+        { label: 'Gasto en seguridad / año', value: 'USD 8-12 mil M' },
+        { label: 'Percepción de inseguridad', value: '>70%' },
+        { label: 'Presos sin sentencia firme', value: '70%' },
+        { label: 'Costo total inseguridad / año', value: 'USD 19,5-35,5 mil M' },
+      ],
+    },
+    quePasaSiNoCambiamos: {
+      title: '¿Qué pasa si no cambiamos?',
+      content: `<p>PLANSUS — el sexto mandato de ¡BASTA! — va a legalizar las sustancias en cascada a lo largo de cinco años. Cuando el mercado negro que emplea a cientos de miles de personas empiece a desaparecer, ¿qué pasa con los territorios? ¿Con las bandas que pierden su fuente de ingresos? ¿Con los 60.000 efectivos cuya función principal era el enforcement de la prohibición? El vacío de seguridad que PLANSUS genera no se llena solo. Se llena con PLANSEG — o se llena con caos.</p>
+
+<p><strong>La lección colombiana:</strong> Cuando las FARC se desmovilizaron, las zonas que controlaban quedaron vacías. En muchos territorios, grupos disidentes y bandas criminales llenaron el vacío. 1.300 líderes sociales asesinados desde el acuerdo de paz. Si PLANSUS le quita el mercado al narco en Rosario y PLANSEG no tiene un plan de presencia territorial, otro grupo va a ocupar ese espacio.</p>
+
+<p><strong>El sistema carcelario seguirá fabricando reincidentes</strong> a un costo creciente. Cada preso que entra sale peor — sin trabajo, sin red, sin herramientas, con las habilidades del delito como única competencia. USD 1.500-2.500 millones anuales para financiar un sistema con más de 60% de reincidencia es una inversión en inseguridad futura.</p>
+
+<p><strong>El costo económico acumulado en 15 años:</strong> USD 290.000-530.000 millones en pérdidas directas e indirectas — productividad destruida, turismo perdido, inversión disuadida, salud por trauma, gasto carcelario inútil, y seguridad privada que suplanta al Estado. La Argentina gastará el equivalente al presupuesto educativo en un sistema que no funciona.</p>`,
+      pullQuote: 'PLANSUS le quita el mercado al narco. Pero el vacío de seguridad que eso genera no se llena solo. Se llena con PLANSEG — o se llena con caos.',
+      stats: [
+        { label: 'Efectivos a reconvertir', value: '50.000-80.000' },
+        { label: 'Reincidencia carcelaria', value: '>60%' },
+        { label: 'Costo inseguridad (15 años)', value: 'USD 290-530 mil M' },
+        { label: 'Líderes asesinados (Colombia)', value: '1.300+' },
+      ],
+    },
+    elDisenoIdeal: {
+      title: 'El Diseño Ideal',
+      content: `<p>PLANSEG se sostiene sobre <strong>cuatro pilares estructurales y tres transversales</strong>. Los estructurales: Policía Comunitaria, Protocolo de Transición Narco, Reforma Carcelaria e Infraestructura de Prevención. Los transversales: Reconversión de Fuerzas, Vigilancia Digital con Derechos, y la Agencia ANSEG.</p>
+
+<p><strong>Pilar 1 — Policía Comunitaria:</strong> 5.000 Estaciones Barriales (EB) modelo koban japonés, cada una cubriendo 5.000-10.000 habitantes. Oficiales comunitarios con 1.120 horas de formación (70% relacional y preventiva, 7% uso de fuerza), que viven en el barrio que protegen, evaluados por Paneles Ciudadanos (40% de la calificación), no por el comisario. El éxito se mide por ausencia de delito, no por arrestos.</p>
+
+<p><strong>Pilar 2 — Protocolo de Transición Narco:</strong> Sincronizado milimétricamente con la cascada de PLANSUS. Sistema VERDE/AMARILLO/ROJO por territorio. Mapeo territorial previo, amnistía inteligente para operadores de bajo nivel vía PLANREP, despliegue anticipado de EB en zonas rojas (Rosario, Conurbano sur, corredores fronterizos), y enforcement focalizado contra organizaciones que rechacen la transición.</p>
+
+<p><strong>Pilar 3 — Reforma Carcelaria:</strong> Reducción del 50% de la población carcelaria en 10 años mediante liberación de presos por drogas (PLANSUS), eliminación de prisión preventiva como regla, justicia restaurativa (PLANJUS) y penas alternativas. Los que sí deben estar en prisión reciben educación, trabajo remunerado, salud mental, y un plan de reinserción desde el día uno — modelo Halden/Noruega.</p>
+
+<p><strong>Pilar 4 — Infraestructura de Prevención:</strong> CPTED (Prevención del Delito por Diseño Ambiental) en todas las ciudades existentes: 500.000 luminarias LED inteligentes, recuperación de 2.000 espacios abandonados, 10.000 murales comunitarios, y Redes Comunitarias de Alerta Temprana coordinadas por las EB. <strong>Vigilancia Digital con Derechos:</strong> body cams obligatorias al 100%, IA con orden judicial para reconocimiento facial, datos soberanos en infraestructura PLANDIG, y Junta Civil de supervisión por sorteo democrático.</p>`,
+      pullQuote: 'La seguridad no se mide por la cantidad de policías en la calle. Se mide por la cantidad de personas que pueden caminar tranquilas por ella.',
+      stats: [
+        { label: 'Estaciones Barriales meta', value: '5.000' },
+        { label: 'Oficiales comunitarios meta', value: '50.000+' },
+        { label: 'Inversión total (15 años)', value: 'USD 21-36 mil M' },
+        { label: 'ROI estimado (15 años)', value: '1:1 a 1,5:1' },
+      ],
+    },
+    elCamino: {
+      overview: 'PLANSEG se despliega en 4 fases sincronizadas con la cascada de legalización de PLANSUS, trabajando hacia atrás desde una Argentina con tasa de homicidios menor a 2/100K, cárceles rehabilitadoras, y policía comunitaria consolidada.',
+      steps: [
+        {
+          id: 1,
+          title: 'Argentina segura: modelo de referencia regional',
+          description: 'Tasa de homicidios menor a 2/100K (desde 5,3). Población carcelaria reducida un 50%. Reincidencia menor al 25% (desde más de 60%). Satisfacción ciudadana con la seguridad superior al 70%. Cero casos de gatillo fácil. 100% de cobertura de body cams. 5.000+ EB operativas con evaluación comunitaria media superior a 7/10. Reconversión de fuerzas completada al 100%. Argentina reconocida como modelo de referencia en seguridad ciudadana para América Latina.',
+          timeline: 'Año 10-15 — META',
+          dependencies: [],
+          orderIndex: 1,
+        },
+        {
+          id: 2,
+          title: 'Consolidación: modelo comunitario completo',
+          description: '5.000 EB (meta nacional alcanzada). Reforma carcelaria completada: todos los Centros de Rehabilitación y Reinserción operativos, unidades obsoletas cerradas. Tasa de reincidencia en ruta a menos del 25%. Policía comunitaria como modelo consolidado. CPTED desplegado en 100+ zonas críticas. Reconversión de fuerzas al 80%. Sistema de IA de seguridad auditado y optimizado.',
+          timeline: 'Año 5-10',
+          dependencies: ['Argentina segura: modelo de referencia regional'],
+          orderIndex: 2,
+        },
+        {
+          id: 3,
+          title: 'Transición sincronizada con PLANSUS',
+          description: 'De 500 a 2.500 EB desplegadas. Cascada de legalización de PLANSUS en marcha con protocolo VERDE/AMARILLO/ROJO activo. Amnistía inteligente en ejecución. Primeros Centros de Rehabilitación inaugurados. Body cams al 100%. Liberación de 25.000-30.000 presos por delitos de drogas. Reconversión de 50% de los efectivos de enforcement. Segundo Camino (PLANSUS) activo.',
+          timeline: 'Año 1-5',
+          dependencies: ['Consolidación: modelo comunitario completo'],
+          orderIndex: 3,
+        },
+        {
+          id: 4,
+          title: 'Fundación: mapeo, piloto y capacidad institucional',
+          description: 'Mapeo territorial nacional del panorama narco. Auditoría de fuerzas de seguridad e identificación de efectivos comprometidos. 250 EB operativas (50 piloto + 200 nuevas) en zonas rojas y amarillas. 1.000 oficiales comunitarios formados con programa completo de 1.120 horas. ANSEG constituida con Panel Ciudadano sorteado. Ley de Seguridad Ciudadana sancionada. Tablero Nacional de Seguridad online. Protocolo VERDE activado en todo el país, AMARILLO en zonas rojas.',
+          timeline: 'Mes 0-12',
+          dependencies: ['Transición sincronizada con PLANSUS'],
+          orderIndex: 4,
+        },
+      ],
+    },
+    kpis: [
+      {
+        id: 'tasa-homicidios',
+        metric: 'Tasa de Homicidios',
+        currentValue: 5.3,
+        targetValue: 2,
+        unit: '/100K hab',
+        source: 'INDEC / Ministerio de Seguridad',
+        milestones: [
+          { date: 'Año 5', targetValue: 3.5 },
+          { date: 'Año 10', targetValue: 2.5 },
+          { date: 'Año 15', targetValue: 2 },
+        ],
+      },
+      {
+        id: 'poblacion-carcelaria',
+        metric: 'Población Carcelaria',
+        currentValue: 105,
+        targetValue: 52,
+        unit: 'K personas',
+        source: 'SNEEP / Ministerio de Justicia',
+        milestones: [
+          { date: 'Año 3', targetValue: 80 },
+          { date: 'Año 7', targetValue: 65 },
+          { date: 'Año 10', targetValue: 52 },
+        ],
+      },
+      {
+        id: 'reincidencia',
+        metric: 'Tasa de Reincidencia',
+        currentValue: 60,
+        targetValue: 25,
+        unit: '%',
+        source: 'ANSEG — Meta de programa',
+        milestones: [
+          { date: 'Año 5', targetValue: 45 },
+          { date: 'Año 10', targetValue: 30 },
+          { date: 'Año 15', targetValue: 25 },
+        ],
+      },
+      {
+        id: 'estaciones-barriales',
+        metric: 'Estaciones Barriales Operativas',
+        currentValue: 0,
+        targetValue: 5000,
+        unit: 'EB',
+        source: 'ANSEG — Cronograma de despliegue',
+        milestones: [
+          { date: 'Año 1', targetValue: 500 },
+          { date: 'Año 5', targetValue: 2500 },
+          { date: 'Año 10', targetValue: 5000 },
+        ],
+      },
+    ],
+    tags: ['seguridad ciudadana', 'policía comunitaria', 'transición narco', 'reforma carcelaria', 'CPTED', 'prevención', 'justicia restaurativa', 'body cams', 'ANSEG', 'koban'],
+    relatedInitiativeSlugs: ['plansus-soberania-sustancias', 'planjus-justicia-popular', 'planrep-reconversion-empleo-publico', 'plan24cn-24-ciudades-nuevas', 'planviv-vivienda-digna'],
+    sources: [
+      { title: 'PLANSEG — Plan Nacional de Seguridad Ciudadana y Transición del Orden Público (Documento Estratégico, Mar 2026)' },
+      { title: 'INDEC / Ministerio de Seguridad — Estadísticas de criminalidad' },
+      { title: 'SNEEP — Sistema Nacional de Estadísticas sobre Ejecución de la Pena' },
+      { title: 'CORREPI — Coordinadora contra la Represión Policial e Institucional' },
+      { title: 'Russell Ackoff — Idealized Design (Metodología)' },
+    ],
+  },
+
+  // PLANVIV — Vivienda Digna
+  {
+    slug: 'planviv-vivienda-digna',
+    title: 'PLANVIV',
+    subtitle: 'Plan Nacional de Vivienda Digna y Hábitat para las Ciudades Existentes',
+    category: 'infraestructura',
+    summary: 'La Argentina tiene un déficit habitacional de 3,5 millones de viviendas, 1.800 asentamientos informales con más de 4 millones de residentes sin cloacas ni títulos, 2 millones de viviendas vacías, y un crédito hipotecario que representa apenas el 1% del PBI. PLANVIV propone seis pilares simultáneos — Bastarda Inmobiliaria, Crédito Hipotecario Bastardo en peso-canasta, urbanización de villas, retrofit térmico, facilitación del mercado y la Plataforma Tecnológica Housing OS — para reducir el déficit a menos de 500.000 unidades en 15 años.',
+    iconName: 'Home',
+    documentFile: 'PLANVIV_Argentina_ES.md',
+    elProblema: {
+      title: 'El Problema',
+      content: `<p>La Argentina tiene un déficit habitacional de 3,5 millones de viviendas. Desglosado: 1,3 millones de viviendas que faltan, 2,2 millones que necesitan mejoras, 1,7 millones de hogares con hacinamiento crítico, y 1.800+ asentamientos informales donde más de 4 millones de personas viven sin cloacas, sin gas natural, sin títulos de propiedad, sin nombre de calle. Son invisibles para el Estado pero no para la lluvia, no para el dengue, no para el frío.</p>
+
+<p>El crédito hipotecario es virtualmente inexistente: representa el 1% del PBI, contra el 15-20% en Chile y el 25% en Brasil. En un país con inflación de tres dígitos, ningún banco presta a 30 años y ninguna familia toma un crédito UVA que puede triplicar la cuota. PROCREAR — el programa más ambicioso — construyó menos de 100.000 viviendas en diez años. A ese ritmo, cerrar el déficit llevaría 350 años.</p>
+
+<p>Mientras tanto, la Argentina tiene 2 millones de viviendas vacías. Solo en Buenos Aires capital, 340.000 unidades desocupadas — el 20% del parque habitacional — mientras 80.000 familias porteñas viven hacinadas. Son inversión, reserva de valor, dólares disfrazados de hormigón. Un departamento que se vende a USD 100.000 tiene un costo real de USD 50.000-60.000 — la diferencia es margen de desarrollador (20-35%), especulación del suelo y comisiones.</p>
+
+<p>4 millones de hogares alquilan gastando entre el 40% y el 65% del ingreso — cuando la ONU define como habitable que no supere el 30%. Las mujeres jefas de hogar son las más afectadas: representan el 43% de los hogares en asentamientos informales. El hacinamiento correlaciona con violencia intrafamiliar (64% de los casos de la OVD provienen de hogares hacinados), enfermedades respiratorias, y menor rendimiento educativo (20-30% menos en pruebas estandarizadas). La vivienda es la condición mínima para que alguien pueda empezar a despertar.</p>`,
+      pullQuote: 'La Argentina tiene más cemento del que necesita y menos casas de las que merece. No es un problema de escasez — es un problema de distribución, de especulación, de un Estado que anuncia planes que no ejecuta, y de una sociedad que naturalizó que seis personas en dos ambientes es "tener casa."',
+      stats: [
+        { label: 'Déficit habitacional', value: '3,5M viviendas' },
+        { label: 'Asentamientos informales', value: '1.800+' },
+        { label: 'Viviendas vacías', value: '2M (340K en CABA)' },
+        { label: 'Crédito hipotecario / PBI', value: '1%' },
+      ],
+    },
+    quePasaSiNoCambiamos: {
+      title: '¿Qué pasa si no cambiamos?',
+      content: `<p>A la tasa de construcción histórica de Argentina (~10.000 viviendas sociales por año), cerrar el déficit de 3,5 millones llevaría 350 años. La población crece, las familias se subdividen, la migración interna continúa. El déficit no se achica — se agranda. Cada año sin actuar son 50.000-80.000 familias nuevas que necesitan vivienda y no la encuentran.</p>
+
+<p><strong>Costo económico:</strong> El déficit habitacional le cuesta a la Argentina entre USD 8.000 y 12.000 millones anuales en productividad perdida (commutes de 3+ horas), salud (enfermedades por hacinamiento y falta de servicios), energía desperdiciada (500.000 viviendas sin aislación térmica que consumen 40% más), y conflicto social. En 15 años: USD 120.000-180.000 millones acumulados.</p>
+
+<p><strong>La crisis climática multiplica todo:</strong> Las ciudades argentinas se inundan con lluvias de 40 mm — la mitad de lo que llovía cuando se diseñaron los desagües. Las islas de calor urbano generan temperaturas 3-8 grados mayores que el entorno rural. Las viviendas precarias de los asentamientos no resisten eventos climáticos extremos — techos de chapa que vuelan con vientos de 80 km/h, pisos que se inundan. La Plata 2013: 89 muertos por una inundación que el sistema de drenaje no pudo absorber.</p>
+
+<p><strong>Sin vivienda digna, ningún otro mandato funciona.</strong> No hay PLANREP que forme (no aprendés un oficio si no dormiste), no hay PLANSAL que cure (no sanás si el ambiente te enferma), no hay PLANEDU que enseñe (no estudiás si no tenés dónde sentarte), no hay PLANSEG que proteja (no hay barrio seguro sobre calles sin nombre). La vivienda es la condición mínima para despertar — y 3,5 millones de familias argentinas llevan demasiado tiempo durmiendo apretadas, con miedo, con frío, o directamente no durmiendo.</p>`,
+      pullQuote: 'A la tasa actual de construcción, cerrar el déficit de 3,5 millones de viviendas llevaría 350 años. La pregunta no es si podemos permitirnos PLANVIV. Es si podemos permitirnos 350 años más.',
+      stats: [
+        { label: 'Años para cerrar déficit (ritmo actual)', value: '350' },
+        { label: 'Costo del déficit / año', value: 'USD 8-12 mil M' },
+        { label: 'Alquiler / ingreso (CABA)', value: '55-65%' },
+        { label: 'Energía extra por falta de aislación', value: '40%' },
+      ],
+    },
+    elDisenoIdeal: {
+      title: 'El Diseño Ideal',
+      content: `<p>PLANVIV ataca el problema con <strong>seis pilares simultáneos</strong> — porque el problema argentino tiene seis dimensiones al mismo tiempo. Ningún país hizo lo que PLANVIV intenta: combinar construcción al costo, crédito en moneda estable, urbanización de asentamientos, retrofit energético, facilitación del mercado y plataforma tecnológica, todo integrado con un ecosistema de 16 mandatos.</p>
+
+<p><strong>Pilar 1 — Bastarda Inmobiliaria + PyMEs Acreditadas:</strong> Vivienda al costo real, sin margen de desarrollador, sobre fideicomiso de suelo perpetuo (el suelo nunca vuelve al mercado especulativo). Construcción organizada en Células de 150-250 familias con patios interiores, comercio en planta baja, escuela, centro de salud y espacio verde — comunidades, no cajas apiladas. Meta: 500.000+ unidades.</p>
+
+<p><strong>Pilar 2 — Crédito Hipotecario Bastardo:</strong> Denominado en peso-canasta (PLANMON), a 30 años, con cuota que nunca supera el 25% del ingreso real. El primer crédito hipotecario funcional en Argentina desde los 90. <strong>Pilar 3 — Urbanización de Villas:</strong> Los 1.800 asentamientos del RENABAP se urbanizan en 15 años — agua, cloacas, electricidad, internet, calles, títulos de propiedad. Las familias no se mudan — se quedan, con la infraestructura que el Estado les debe.</p>
+
+<p><strong>Pilar 4 — Retrofit Térmico:</strong> 500.000 viviendas sociales aisladas térmicamente, ahorrando 30-40% de energía por unidad. <strong>Pilar 5 — Facilitación del Mercado:</strong> La Bolsa de Alquiler Bastarda ofrece renta garantizada en peso-canasta a propietarios, disciplinando al mercado por competencia, no por regulación. <strong>Pilar 6 — Housing OS:</strong> La plataforma tecnológica que coordina todo el ecosistema — ciudadanos, municipios, Bastarda, PyMEs, proveedores — con Hubs de Manufactura Local que industrializan la construcción con impresión 3D, prefabricados y madera laminada. ANVIV coordina todo con autonomía constitucional, paneles ciudadanos y tablero público.</p>`,
+      pullQuote: 'No pedimos una casa. Pedimos un lugar donde sea posible vivir como persona. Y vivir como persona empieza por tener un techo que no se llueva, una puerta que se cierre, y un espacio donde tus hijos puedan crecer sin que crecer signifique solamente sobrevivir.',
+      stats: [
+        { label: 'Viviendas nuevas meta', value: '500.000+' },
+        { label: 'Inversión total (15 años)', value: 'USD 80-120 mil M' },
+        { label: 'Asentamientos a urbanizar', value: '1.800' },
+        { label: 'Costo Bastarda vs. mercado', value: '30-45% menos' },
+      ],
+    },
+    elCamino: {
+      overview: 'PLANVIV se despliega en 4 fases, trabajando hacia atrás desde la meta de reducir el déficit habitacional de 3,5 millones a menos de 500.000 unidades, con cero asentamientos sin urbanizar y el ecosistema Housing OS conectando las 24 provincias.',
+      steps: [
+        {
+          id: 1,
+          title: 'Déficit cerrado: vivienda digna para todos',
+          description: 'Déficit habitacional reducido de 3,5 millones a menos de 500.000 unidades. Cero asentamientos informales sin urbanizar. 500.000 viviendas retrofiteadas. Crédito hipotecario del 1% al 5-8% del PBI. 400.000+ créditos bastardos activos. Housing OS en 24 provincias con 500+ PyMEs y 24 Hubs de Manufactura. Alquiler no supera el 30% del ingreso de ninguna familia en la Red Bastarda. 3.000+ cooperativas activas. Argentina como referencia en vivienda social integrada.',
+          timeline: 'Año 10-15 — META',
+          dependencies: [],
+          orderIndex: 1,
+        },
+        {
+          id: 2,
+          title: 'Escala completa: el ecosistema funciona',
+          description: '2 millones de familias ayudadas acumuladas. 400.000 retrofits. 1.000 barrios urbanizados. 200.000 unidades nuevas (Bastarda + PyMEs). 100+ Células completas. Housing OS en 20 provincias. 15 Hubs de Manufactura operativos. 250.000 créditos Canasta-Lite acumulados. 150.000 empleos directos en el pico de actividad. Vouchers bajando porque las familias migran a vivienda propia.',
+          timeline: 'Año 5-10',
+          dependencies: ['Déficit cerrado: vivienda digna para todos'],
+          orderIndex: 2,
+        },
+        {
+          id: 3,
+          title: 'Escala de lo probado + piloto de lo nuevo',
+          description: '730.000 familias ayudadas. 300.000 vouchers activos. 200.000 retrofits. 400 barrios urbanizados. 30.000 unidades cooperativas. Primera Célula Bastarda completa + 5.000 unidades en construcción. 5 Hubs de Manufactura piloto. Housing OS Core en 12 provincias. 50 PyMEs acreditadas. 80.000 créditos Canasta-Lite. 80.000 empleos directos en construcción.',
+          timeline: 'Año 1-5',
+          dependencies: ['Escala completa: el ecosistema funciona'],
+          orderIndex: 3,
+        },
+        {
+          id: 4,
+          title: 'Impacto inmediato y fundación institucional',
+          description: 'Censo Nacional de Vivienda actualizado. Mapeo georreferenciado de 1.800 asentamientos. Relevamiento de suelo fiscal disponible. ANVIV constituida. Bastarda Inmobiliaria capitalizada como fideicomiso. Ley ANVIV sancionada. Housing OS MVP en 5 provincias piloto. 50.000 vouchers de vivienda activos. 10.000 unidades en Bolsa de Alquiler Bastarda. 10.000 retrofits iniciados. 50 barrios piloto en urbanización. 5.000 Artesanos del Refugio certificados (PLANREP).',
+          timeline: 'Mes 0-12',
+          dependencies: ['Escala de lo probado + piloto de lo nuevo'],
+          orderIndex: 4,
+        },
+      ],
+    },
+    kpis: [
+      {
+        id: 'deficit-habitacional',
+        metric: 'Déficit Habitacional Total',
+        currentValue: 3500,
+        targetValue: 500,
+        unit: 'K viviendas',
+        source: 'INDEC / ANVIV — Tablero Nacional de Vivienda',
+        milestones: [
+          { date: 'Año 5', targetValue: 2800 },
+          { date: 'Año 10', targetValue: 1500 },
+          { date: 'Año 15', targetValue: 500 },
+        ],
+      },
+      {
+        id: 'asentamientos-urbanizados',
+        metric: 'Asentamientos Urbanizados',
+        currentValue: 0,
+        targetValue: 1800,
+        unit: 'barrios',
+        source: 'RENABAP / ANVIV',
+        milestones: [
+          { date: 'Año 5', targetValue: 400 },
+          { date: 'Año 10', targetValue: 1000 },
+          { date: 'Año 15', targetValue: 1800 },
+        ],
+      },
+      {
+        id: 'viviendas-bastarda',
+        metric: 'Viviendas Bastarda + PyMEs Construidas',
+        currentValue: 0,
+        targetValue: 500,
+        unit: 'K unidades',
+        source: 'ANVIV — Housing OS',
+        milestones: [
+          { date: 'Año 5', targetValue: 50 },
+          { date: 'Año 10', targetValue: 200 },
+          { date: 'Año 15', targetValue: 500 },
+        ],
+      },
+      {
+        id: 'credito-hipotecario-pbi',
+        metric: 'Crédito Hipotecario / PBI',
+        currentValue: 1,
+        targetValue: 7,
+        unit: '%',
+        source: 'BCRA / PLANMON',
+        milestones: [
+          { date: 'Año 5', targetValue: 2 },
+          { date: 'Año 10', targetValue: 4 },
+          { date: 'Año 15', targetValue: 7 },
+        ],
+      },
+    ],
+    tags: ['vivienda', 'hábitat', 'Bastarda Inmobiliaria', 'crédito hipotecario', 'urbanización de villas', 'retrofit térmico', 'Housing OS', 'ANVIV', 'peso-canasta', 'cooperativas', 'asentamientos'],
+    relatedInitiativeSlugs: ['plan24cn-24-ciudades-nuevas', 'planeb-empresas-bastardas', 'planmon-soberania-monetaria', 'planagua-soberania-hidrica', 'planseg-seguridad-ciudadana', 'planrep-reconversion-empleo-publico'],
+    sources: [
+      { title: 'PLANVIV — Plan Nacional de Vivienda Digna y Hábitat para las Ciudades Existentes (Documento Estratégico, Mar 2026)' },
+      { title: 'INDEC — Censo Nacional de Población, Hogares y Viviendas 2022' },
+      { title: 'RENABAP — Registro Nacional de Barrios Populares (Ley 27.453)' },
+      { title: 'UN-Habitat — Indicadores Urbanos Comparativos' },
+      { title: 'Russell Ackoff — Idealized Design (Metodología)' },
+    ],
+  },
 ];
