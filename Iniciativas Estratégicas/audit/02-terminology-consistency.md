@@ -1,6 +1,6 @@
 # Auditoría de Terminología y Consistencia de Voz
 
-**Proyecto BASTA — 12 Iniciativas Estratégicas**
+**Proyecto ¡BASTA! — 12 Iniciativas Estratégicas**
 **Fecha:** 26 de marzo de 2026
 **Tipo:** Auditoría de consistencia terminológica, metafórica y estructural
 **Alcance:** Los 12 documentos PLAN*_Argentina_ES.md
@@ -153,13 +153,13 @@ Cada plan debe incluir un párrafo que establezca que sus propuestas son "la pri
 7. Sección 2: Lecciones del mundo
 8. Sección 3: "El Ingrediente"
 9. [Secciones de contenido]
-10. Sección de integración con BASTA
+10. Sección de integración con ¡BASTA!
 11. Sección de Visión 2040
 12. Cierre
 
 ### 3.2 Resultados por PLAN
 
-| PLAN | Code block | Preámbulo | Hombre Gris | Primera Mejor Alt. | Tesis Central | Crisis | Lecciones | Ingrediente | Integración BASTA | Visión 2040 | Severidad |
+| PLAN | Code block | Preámbulo | Hombre Gris | Primera Mejor Alt. | Tesis Central | Crisis | Lecciones | Ingrediente | Integración ¡BASTA! | Visión 2040 | Severidad |
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | PLANMON | SI | SI (L24) | SI (L44) | SI (L54) | SI (L58) | SI | SI (S3, L304) | NO | SI | SI (L1988) | MINOR |
 | PLANEDU | SI | SI (L24) | SI (L48-50) | SI (L59) | SI (L61) | SI (S1, L65) | SI (S2, L196) | SI (S3, L274) | SI | SI (L1746) | OK |
@@ -192,11 +192,11 @@ Cada plan debe incluir un párrafo que establezca que sus propuestas son "la pri
 
 ---
 
-## 4. AUDITORÍA DEL ACRÓNIMO BASTA
+## 4. AUDITORÍA DEL ACRÓNIMO ¡BASTA!
 
 ### 4.1 Conflicto detectado
 
-Solo dos planes decodifican explícitamente el acrónimo BASTA letra por letra. Presentan versiones conflictivas:
+Solo dos planes decodifican explícitamente el acrónimo ¡BASTA! letra por letra. Presentan versiones conflictivas:
 
 **PLANREP (L2223):**
 > **B**ienestar, **A**limentación, **S**istemas inteligentes, **T**erritorio, **A**utonomía
@@ -228,7 +228,7 @@ El conflicto se concentra en la B:
 
 ### 4.3 Planes que NO decodifican el acrónimo
 
-Los siguientes 10 planes NO decodifican BASTA letra por letra: PLANJUS, PLANSUS, PLANEB, PLANDIG, PLANMON, PLANAGUA, PLANSAL, PLAN24CN, PLANGEO, PLANEDU. Esto en sí mismo no es un problema — pero significa que la resolución del conflicto solo requiere corregir un documento (PLANISV o PLANREP).
+Los siguientes 10 planes NO decodifican ¡BASTA! letra por letra: PLANJUS, PLANSUS, PLANEB, PLANDIG, PLANMON, PLANAGUA, PLANSAL, PLAN24CN, PLANGEO, PLANEDU. Esto en sí mismo no es un problema — pero significa que la resolución del conflicto solo requiere corregir un documento (PLANISV o PLANREP).
 
 ---
 
@@ -325,17 +325,17 @@ Concentrado en PLANEB (definición, L8, L57, L1257+), PLANREP (infraestructura e
 
 2. **ANVIP (PLANSAL):** Usa "Vitalidad Popular" en lugar de "Salud." Severidad: MINOR — deliberado, ya que PLANSAL rechaza el paradigma de "salud" como gestión de enfermedad y lo reemplaza por "vitalidad." La desviación es conceptual, no accidental.
 
-3. **ENSV (PLANISV):** Usa "Ente Nacional" en lugar de "Agencia Nacional." Severidad: IMPORTANT — PLANISV es uno de los planes fundacionales (predating los planes más recientes) y usa un patrón diferente. El texto de PLANGEO L200 lista las agencias BASTA como "ANEB, ANSUS, ANVIP, ANCE, ANJUS, ANAGUA" — omitiendo al ENSV. Esto sugiere que el ENSV no se percibe como parte de la familia de agencias AN*, lo cual crea fragmentación institucional.
+3. **ENSV (PLANISV):** Usa "Ente Nacional" en lugar de "Agencia Nacional." Severidad: IMPORTANT — PLANISV es uno de los planes fundacionales (predating los planes más recientes) y usa un patrón diferente. El texto de PLANGEO L200 lista las agencias ¡BASTA! como "ANEB, ANSUS, ANVIP, ANCE, ANJUS, ANAGUA" — omitiendo al ENSV. Esto sugiere que el ENSV no se percibe como parte de la familia de agencias AN*, lo cual crea fragmentación institucional.
 
 4. **Ente Autónomo PLANREP:** No tiene acrónimo propio. PLANREP L1857 lo define como "Ente Autónomo" sin nombre formal. Sin embargo, el texto menciona ANCE (PLANEDU) con naturalidad, sugiriendo que PLANEDU fue formalizado antes y PLANREP nunca recibió un nombre de agencia comparable. Severidad: IMPORTANT.
 
-5. **Corporación Nacional de Desarrollo Urbano (PLAN24CN):** Ni ente autárquico ni agencia — es una "corporación." Severidad: IMPORTANT — la estructura legal difiere del patrón BASTA.
+5. **Corporación Nacional de Desarrollo Urbano (PLAN24CN):** Ni ente autárquico ni agencia — es una "corporación." Severidad: IMPORTANT — la estructura legal difiere del patrón ¡BASTA!.
 
 6. **CNEG (PLANGEO):** Excepción intencionalmente justificada. PLANGEO L200 explica: "la geopolítica requiere flexibilidad ejecutiva, velocidad de respuesta y discreción táctica incompatibles con la gobernanza por sorteo democrático." El CNEG es un órgano asesor del Ejecutivo, no una agencia autónoma. Severidad: OK.
 
 ### 6.3 Tabla de PLANGEO como referencia canónica
 
-PLANGEO L204-211 contiene la lista más completa de agencias BASTA. Análisis de esa lista:
+PLANGEO L204-211 contiene la lista más completa de agencias ¡BASTA!. Análisis de esa lista:
 
 | Agencia listada | PLAN origen | Incluida en lista PLANGEO |
 |---|---|---|
@@ -364,7 +364,7 @@ PLANGEO L204-211 contiene la lista más completa de agencias BASTA. Análisis de
 | # | Hallazgo | PLANes afectados | Acción requerida |
 |---|---|---|---|
 | C-1 | Metáfora "acero" en lugar de "plata" | PLANEDU, PLANISV, PLANJUS, PLANSUS, PLANEB, PLANDIG, PLANAGUA (7 planes) | Reemplazar "acero" por "plata" y agregar "porque Argentina es argentum, y argentum es plata" |
-| C-2 | Conflicto en acrónimo BASTA: B=Bienestar vs B=Belleza | PLANREP vs PLANISV | Definir versión canónica y corregir el plan divergente |
+| C-2 | Conflicto en acrónimo ¡BASTA!: B=Bienestar vs B=Belleza | PLANREP vs PLANISV | Definir versión canónica y corregir el plan divergente |
 
 ### 7.2 Hallazgos IMPORTANT (requieren atención)
 
@@ -373,7 +373,7 @@ PLANGEO L204-211 contiene la lista más completa de agencias BASTA. Análisis de
 | I-1 | Ausencia del párrafo del Hombre Gris | PLAN24CN, PLANGEO | Evaluar si agregar el párrafo estándar o documentar la excepción |
 | I-2 | Formulación del Hombre Gris sin metáfora de metal | PLANSAL | Evaluar si agregar la metáfora de la plata al texto existente |
 | I-3 | Nomenclatura de agencia fuera del patrón AN+sufijo | ENSV (PLANISV), Ente Autónomo (PLANREP), Corporación Nacional (PLAN24CN) | Evaluar estandarización o documentar excepciones justificadas |
-| I-4 | Lista de agencias BASTA en PLANGEO desactualizada | PLANGEO | Agregar ANMON, ANDIG a la tabla de L204-211 |
+| I-4 | Lista de agencias ¡BASTA! en PLANGEO desactualizada | PLANGEO | Agregar ANMON, ANDIG a la tabla de L204-211 |
 
 ### 7.3 Hallazgos MINOR (mejoras deseables)
 
@@ -390,7 +390,7 @@ PLANGEO L204-211 contiene la lista más completa de agencias BASTA. Análisis de
 
 1. **C-1: Corregir "acero" a "plata"** en 7 planes + 2 variantes narrativas (PLANISV L2118, PLANDIG L1753). Esta es la corrección de mayor impacto y menor esfuerzo — es un search-and-replace quirúrgico en cada archivo.
 
-2. **C-2: Resolver el acrónimo BASTA.** Decisión requerida: B=Bienestar o B=Belleza. Recomendación: B=Bienestar (versión PLANREP, más inclusiva). Corregir PLANISV L2020.
+2. **C-2: Resolver el acrónimo ¡BASTA!.** Decisión requerida: B=Bienestar o B=Belleza. Recomendación: B=Bienestar (versión PLANREP, más inclusiva). Corregir PLANISV L2020.
 
 3. **I-4: Actualizar lista de agencias en PLANGEO.** Agregar ANMON y ANDIG a la tabla L204-211.
 
@@ -402,4 +402,4 @@ PLANGEO L204-211 contiene la lista más completa de agencias BASTA. Análisis de
 
 ---
 
-*Auditoría realizada el 26 de marzo de 2026. Documento preparado como parte de la revisión integral del marco BASTA.*
+*Auditoría realizada el 26 de marzo de 2026. Documento preparado como parte de la revisión integral del marco ¡BASTA!.*

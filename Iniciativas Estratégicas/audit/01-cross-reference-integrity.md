@@ -1,6 +1,6 @@
 # Auditoria de Integridad de Referencias Cruzadas
 
-**Proyecto BASTA -- 12 Iniciativas Estrategicas**
+**Proyecto ¡BASTA! -- 12 Iniciativas Estrategicas**
 **Fecha:** 26 de marzo de 2026
 **Tipo:** Auditoria estructural de coherencia inter-PLAN
 
@@ -8,7 +8,7 @@
 
 ## 1. Resumen Ejecutivo
 
-Se auditaron los 12 documentos de PLANes que componen el proyecto BASTA, verificando las referencias cruzadas entre cada par, la coherencia en el conteo de mandatos, las referencias huerfanas y las discrepancias descriptivas.
+Se auditaron los 12 documentos de PLANes que componen el proyecto ¡BASTA!, verificando las referencias cruzadas entre cada par, la coherencia en el conteo de mandatos, las referencias huerfanas y las discrepancias descriptivas.
 
 ### Hallazgos principales
 
@@ -137,29 +137,29 @@ Leyenda:
 
 ## 3. Conteos de Mandatos Obsoletos
 
-Cada PLAN declara cuantos mandatos conforman BASTA. La cifra correcta actual es **12**. La tabla siguiente documenta cada conteo encontrado.
+Cada PLAN declara cuantos mandatos conforman ¡BASTA!. La cifra correcta actual es **12**. La tabla siguiente documenta cada conteo encontrado.
 
 | PLAN | Cita textual | Linea | Conteo declarado | Correcto (12) | Severidad |
 |---|---|---|---|---|---|
-| **PLAN24CN** | "proyecto BASTA -- cinco iniciativas estrategicas fundacionales interconectadas: PLAN24CN [...] PLANREP [...] PLANISV [...] PLANEDU [...] PLANJUS" | 34 | 5 | NO | CRITICAL |
+| **PLAN24CN** | "proyecto ¡BASTA! -- cinco iniciativas estrategicas fundacionales interconectadas: PLAN24CN [...] PLANREP [...] PLANISV [...] PLANEDU [...] PLANJUS" | 34 | 5 | NO | CRITICAL |
 | **PLANREP** | "Cinco pilares fundacionales. Cinco dimensiones." | 2198 | 5 | NO | CRITICAL |
 | **PLANISV** | "Cinco iniciativas estrategicas fundacionales que funcionan cada una de forma independiente" | 2016 | 5 | NO | CRITICAL |
 | **PLANISV** | "Cada una de las cinco iniciativas es un camino concreto desde el apagon hacia la creacion." | 2028 | 5 | NO | CRITICAL |
 | **PLANEDU** | "cinco iniciativas estrategicas disenadas para sobrevivir al ciclo electoral" | 244 | 5 | NO | CRITICAL |
 | **PLANEDU** | "Ninguna de las cinco iniciativas funciona a su maximo potencial sin las otras cuatro." | 1694 | 5 | NO | CRITICAL |
-| **PLANEDU** | "PLANEDU es una de las cinco iniciativas fundacionales del proyecto BASTA." | 1849 | 5 | NO | CRITICAL |
+| **PLANEDU** | "PLANEDU es una de las cinco iniciativas fundacionales del proyecto ¡BASTA!." | 1849 | 5 | NO | CRITICAL |
 | **PLANEDU** | "Cinco iniciativas. Un solo proposito" | 1859 | 5 | NO | CRITICAL |
 | **PLANJUS** | "Los primeros cinco son los mandatos fundacionales [...] Los que siguen -- salud, seguridad, energia, cultura, ciencia -- se desarrollan sobre los cimientos que estos cinco establecen." | 1386 | 5+ (abierto) | Parcial | IMPORTANT |
-| **PLANSUS** | "PLANSUS se integra con los cinco mandatos existentes de BASTA" (tesis central) | 79 | 5 | NO | CRITICAL |
-| **PLANSUS** | "SECCION 19: INTEGRACION CON BASTA -- CINCO MANDATOS, UNA TRANSFORMACION" | 1382 | 5 | NO | CRITICAL |
+| **PLANSUS** | "PLANSUS se integra con los cinco mandatos existentes de ¡BASTA!" (tesis central) | 79 | 5 | NO | CRITICAL |
+| **PLANSUS** | "SECCION 19: INTEGRACION CON ¡BASTA! -- CINCO MANDATOS, UNA TRANSFORMACION" | 1382 | 5 | NO | CRITICAL |
 | **PLANEB** | "TABLA 22: PLANEB x Los Siete Mandatos Existentes" | 1243 | 7 | NO | CRITICAL |
-| **PLANEB** | "PLANEB es el octavo mandato del proyecto BASTA [...] los ocho mandatos" | 1812 | 8 | NO | CRITICAL |
-| **PLANSAL** | "BASTA es una arquitectura de diez mandatos" | 2063 | 10 | NO | IMPORTANT |
-| **PLANAGUA** | "PLANAGUA es el noveno mandato del proyecto BASTA [...] los nueve mandatos" | 4562 | 9 | NO | IMPORTANT |
+| **PLANEB** | "PLANEB es el octavo mandato del proyecto ¡BASTA! [...] los ocho mandatos" | 1812 | 8 | NO | CRITICAL |
+| **PLANSAL** | "¡BASTA! es una arquitectura de diez mandatos" | 2063 | 10 | NO | IMPORTANT |
+| **PLANAGUA** | "PLANAGUA es el noveno mandato del proyecto ¡BASTA! [...] los nueve mandatos" | 4562 | 9 | NO | IMPORTANT |
 | **PLANAGUA** | "No hay un solo plan de los nueve que no dependa..." | 3375 | 9 | NO | IMPORTANT |
-| **PLANDIG** | "PLANDIG es el decimo mandato de BASTA" | 1759 | 10 | NO | IMPORTANT |
-| **PLANGEO** | "BASTA produce diez mandatos populares [...] PLANGEO -- el undecimo" | 182 | 11 | NO | IMPORTANT |
-| **PLANGEO** | "PLANGEO no es el decimo plan de BASTA. Es el plan que hace que los otros nueve lleguen al mundo" | 1339 | 10 (implica 11 con si mismo) | NO | MINOR |
+| **PLANDIG** | "PLANDIG es el decimo mandato de ¡BASTA!" | 1759 | 10 | NO | IMPORTANT |
+| **PLANGEO** | "¡BASTA! produce diez mandatos populares [...] PLANGEO -- el undecimo" | 182 | 11 | NO | IMPORTANT |
+| **PLANGEO** | "PLANGEO no es el decimo plan de ¡BASTA!. Es el plan que hace que los otros nueve lleguen al mundo" | 1339 | 10 (implica 11 con si mismo) | NO | MINOR |
 | **PLANMON** | Tesis central integra todos los PLANes + PLANEN | 58 | 12+ (incluye PLANEN inexistente) | NO | CRITICAL |
 
 ### Patron identificado
@@ -258,7 +258,7 @@ En los casos donde existe referencia bidireccional, se verifico que las descripc
 
 | Documento | Cita | Linea |
 |---|---|---|
-| PLANGEO | "BASTA produce diez mandatos populares (PLANEB, PLANDIG, PLANSUS, PLANSAL, PLANREP, PLANEDU, PLAN24CN, PLANAGUA, PLANISV, PLANJUS). PLANGEO -- el undecimo" | 182 |
+| PLANGEO | "¡BASTA! produce diez mandatos populares (PLANEB, PLANDIG, PLANSUS, PLANSAL, PLANREP, PLANEDU, PLAN24CN, PLANAGUA, PLANISV, PLANJUS). PLANGEO -- el undecimo" | 182 |
 
 **Analisis:** PLANGEO no menciona PLANMON en esta lista ni en ninguna otra parte del documento. Si PLANGEO se autodenomina el undecimo y PLANMON es el duodecimo, PLANGEO fue escrito antes de que PLANMON existiera. Pero la tabla de servicio a cada PLAN (Seccion 24.1) tampoco incluye PLANMON. Esto significa que PLANGEO no tiene integracion con la capa monetaria, lo cual es incongruente dado que PLANGEO propone "sistema de pagos alternativo" y "peso-canasta regional para comercio Mercosur."
 
@@ -268,7 +268,7 @@ En los casos donde existe referencia bidireccional, se verifico que las descripc
 
 | Documento | Cita | Linea |
 |---|---|---|
-| PLANSAL | "Si BASTA es una arquitectura de **diez mandatos** para que el pueblo gobierne y el gobierno ejecute..." | 2063 |
+| PLANSAL | "Si ¡BASTA! es una arquitectura de **diez mandatos** para que el pueblo gobierne y el gobierno ejecute..." | 2063 |
 | PLANSAL (integracion) | Solo menciona por nombre: PLAN24CN, PLANISV, PLANEDU, PLANREP, PLANJUS | 2067-2075 |
 
 **Analisis:** PLANSAL afirma la existencia de 10 mandatos pero su seccion de integracion solo desarrolla 5 relaciones. No hay seccion dedicada a PLANSUS, PLANEB, PLANAGUA, PLANDIG ni PLANGEO. Las ausencias mas criticas: PLANSUS (sustancias y salud son interdependientes), PLANAGUA (agua contaminada es factor sanitario de primer orden, y PLANAGUA le dedica una seccion entera a PLANSAL).
@@ -290,8 +290,8 @@ En los casos donde existe referencia bidireccional, se verifico que las descripc
 
 | Documento | Cita | Linea |
 |---|---|---|
-| PLANDIG | "PLANDIG es el **decimo** mandato de BASTA." | 1759 |
-| PLANGEO | "BASTA produce **diez** mandatos populares (PLANEB, PLANDIG, PLANSUS, PLANSAL, PLANREP, PLANEDU, PLAN24CN, PLANAGUA, PLANISV, PLANJUS). PLANGEO -- el undecimo" | 182 |
+| PLANDIG | "PLANDIG es el **decimo** mandato de ¡BASTA!." | 1759 |
+| PLANGEO | "¡BASTA! produce **diez** mandatos populares (PLANEB, PLANDIG, PLANSUS, PLANSAL, PLANREP, PLANEDU, PLAN24CN, PLANAGUA, PLANISV, PLANJUS). PLANGEO -- el undecimo" | 182 |
 
 **Analisis:** Coherentes entre si respecto al numero de PLANDIG. Pero el listado de PLANGEO no sigue un orden de creacion (lista PLANEB primero, luego PLANDIG, etc.), lo que podria confundir lectores sobre la secuencia de mandatos.
 
@@ -309,7 +309,7 @@ PLANSAL es el PLAN mas "aislado" del ecosistema post-fundacional. Pese a ser el 
 
 ### 6.2 PLANGEO como unico hub bidireccional potencial
 
-PLANGEO es el unico PLAN que menciona a los 10 PLANes anteriores (no menciona PLANMON porque fue escrito antes). Sin embargo, **ninguno de esos 10 PLANes menciona a PLANGEO**. La proyeccion geopolitica de BASTA es invisible para todos los PLANes que PLANGEO dice proteger. Esto significa que ningun PLAN incorpora en su diseno de riesgos la variable geopolitica, ni reconoce la existencia de una estrategia internacional.
+PLANGEO es el unico PLAN que menciona a los 10 PLANes anteriores (no menciona PLANMON porque fue escrito antes). Sin embargo, **ninguno de esos 10 PLANes menciona a PLANGEO**. La proyeccion geopolitica de ¡BASTA! es invisible para todos los PLANes que PLANGEO dice proteger. Esto significa que ningun PLAN incorpora en su diseno de riesgos la variable geopolitica, ni reconoce la existencia de una estrategia internacional.
 
 **Severidad:** CRITICAL
 
@@ -332,7 +332,7 @@ PLANMON menciona a los 11 PLANes restantes (incluyendo PLANEN que no existe). Si
 ### Acciones correctivas recomendadas por prioridad
 
 **Prioridad 1 -- Actualizacion de conteos (todas las tesis centrales)**
-Cada PLAN debe actualizar su tesis central y secciones de integracion para reflejar la existencia de 12 mandatos. Esto afecta a los 12 documentos.
+Cada PLAN debe actualizar su tesis central y secciones de integracion para reflejar la existencia de 15 mandatos. Esto afecta a los 15 documentos.
 
 **Prioridad 2 -- Actualizacion retroactiva de secciones de integracion**
 Los 5 PLANes fundacionales (PLAN24CN, PLANREP, PLANISV, PLANEDU, PLANJUS) necesitan secciones de integracion expandidas que incorporen a los 7 PLANes posteriores. Como minimo, cada uno deberia incluir una tabla de sinergias con los 11 otros PLANes.

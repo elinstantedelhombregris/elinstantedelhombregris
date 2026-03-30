@@ -41,7 +41,7 @@ Jorge no es irracional. Jorge es un sobreviviente de cinco monedas, dos hiperinf
 
 El sistema monetario argentino le enseñó a Jorge — y a 46 millones de argentinos — una sola lección: **tu dinero no es tuyo.** Es del gobierno, que lo emite y lo destruye. Es del banco, que lo custodia y lo congela. Es del Banco Central, que fija un tipo de cambio que no existe. Es de cualquiera menos tuyo. Tu trabajo fue real — las horas en el torno, el metal caliente, las manos agrietadas. Tu ahorro fue real — las decisiones de no gastar, de postergar, de privarte. Pero el dinero que representaba ese trabajo y ese ahorro era una ficción que el Estado reescribía cada vez que le convenía.
 
-Hay una filosofía que atraviesa las iniciativas del proyecto BASTA. La llamamos *El Instante del Hombre Gris*. La premisa: vivimos en una sociedad que apaga a las personas — que les roba la capacidad de crear, de sentir su potencia, de transformar el mundo. Personas dormidas, reducidas a engranajes. El Hombre Gris es el que despierta. Gris como la **plata** que se pule hasta brillar — porque Argentina es argentum, y argentum es plata. Gris como el amanecer antes de que el sol estalle. El instante del Hombre Gris es el momento en que alguien dice *basta de vivir apagado*.
+Hay una filosofía que atraviesa las iniciativas del proyecto ¡BASTA!. La llamamos *El Instante del Hombre Gris*. La premisa: vivimos en una sociedad que apaga a las personas — que les roba la capacidad de crear, de sentir su potencia, de transformar el mundo. Personas dormidas, reducidas a engranajes. El Hombre Gris es el que despierta. Gris como la **plata** que se pule hasta brillar — porque Argentina es argentum, y argentum es plata. Gris como el amanecer antes de que el sol estalle. El instante del Hombre Gris es el momento en que alguien dice *basta de vivir apagado*.
 
 La moneda argentina apaga. Apaga porque destruye el vínculo entre esfuerzo y resultado. Si trabajás treinta y dos años y tus ahorros valen cero, el mensaje es: no tiene sentido esforzarse. Si ahorrás en la moneda de tu país y el Estado te confisca, el mensaje es: tu país es tu enemigo. Si la única forma de proteger tu patrimonio es esconderlo en una moneda extranjera dentro de una funda de almohada, el mensaje es: el sistema está diseñado para que pierdas.
 
@@ -55,7 +55,7 @@ Todo lo que PLANMON propone es la *primera mejor alternativa* basada en la mejor
 
 ---
 
-**Tesis Central:** La crisis monetaria argentina no es un accidente ni una maldición — es el resultado predecible de un diseño defectuoso que se repite desde hace un siglo: un Estado que monopoliza la emisión monetaria y la usa como caja para financiar déficits, un Banco Central sin independencia real que opera como apéndice del Tesoro, una economía bimonetaria donde el peso cumple la función de ticket de transacción y el dólar la de reserva de valor, y una ciudadanía que aprendió — racionalmente, dolorosamente — que su propia moneda es una promesa que se rompe. PLANMON no propone una mejor política monetaria dentro de este paradigma. Propone **disolver** el paradigma. La moneda argentina deja de ser emitida por un Banco Central capturado y pasa a ser emitida por el **Protocolo Monetario Bastardo** — un conjunto de reglas codificadas, auditables y no modificables sin consenso ciudadano, que opera sobre la infraestructura de la Red Bastarda (PLANEB) y los rieles de pago del SAPI (PLANDIG). La nueva moneda — **El Pulso**, el peso-canasta digital — está referenciada a una canasta ponderada y verificable de commodities que Argentina efectivamente produce (soja, maíz, trigo, litio, gas natural, petróleo, carne, economía del conocimiento, créditos de carbono), tokenizada on-chain con datos reales de producción de PLANISV y PLANEN. El Pulso NO es una CBDC — no la emite ningún banco central. Es una **moneda de red ciudadana**, anti-confiscatoria por diseño (wallets soberanas sin punto central de control — confiscar requiere hackear millones de wallets individuales), privada para el ciudadano y transparente para los fondos públicos (pruebas de conocimiento cero — ZKP para wallets personales, tributación automática opt-in para wallets comerciales), programable para transferencias sociales pero libre para el dinero propio, e interoperable con el ecosistema cripto global. La **ANMON** (Agencia Nacional de Estabilidad Monetaria) no es un banco central — es la **custodia del protocolo**: audita que las reglas se cumplan, propone ajustes a la canasta, publica el Tablero de Estabilidad, y coordina la red de validadores. No puede emitir moneda — esa función es automática y protocolar. El **Fondo Soberano Bastardo** — capitalizado con regalías de commodities, ingresos del mercado regulado de sustancias (PLANSUS), excedentes de la Red Bastarda (PLANEB), y capital repatriado — opera como amortiguador anticíclico, reserva de estabilización, y motor de inversión productiva, con regla de gasto modelada sobre el fondo noruego pero adaptada a la volatilidad argentina. La desdolarización no se impone por decreto — ocurre por **obsolescencia voluntaria**: cuando existe un instrumento que mantiene su poder adquisitivo, no se puede confiscar, tiene respaldo verificable, y rinde más que un billete de cien dólares en una funda de almohada, el argentino racional migra solo. No porque se lo ordenen — porque le conviene. La reestructuración de la deuda opera bajo el principio de **deuda justa**: la legítima se honra, la ilegítima se audita, la odiosa se litiga, y la nueva deuda se emite en peso-canasta con cláusulas de PIB. La economía informal se formaliza no por coerción sino por **inclusión arquitectónica**: operar en la Red del Pulso da acceso a crédito, seguro, servicios, y comunidad — sin CUIT, sin contador, sin formularios. PLANMON se integra orgánicamente con todos los mandatos de BASTA: con PLANEB (la Bastarda Financiera como nodo ancla de la Red del Pulso y custodio de reservas), con PLANSUS (ingresos fiscales para el Fondo Soberano), con PLANISV (datos de producción para la canasta de respaldo), con PLANEN (commodities energéticas en la canasta), con PLANDIG (SAPI como riel de pagos, nodos comunitarios como validadores), con PLAN24CN (ciudades nuevas como laboratorios de economía desdolarizada), con PLANREP (exportaciones de servicios como flujo genuino de divisas), y con PLANJUS (resolución de disputas financieras en tres niveles). PLANMON no es un mandato más — es la **capa de estabilidad monetaria** que todos los mandatos necesitan. Una economía sin moneda confiable es un cuerpo sin sangre. El Pulso es la sangre. Y por primera vez en la historia argentina, la sangre no la controla un vampiro.
+**Tesis Central:** La crisis monetaria argentina no es un accidente ni una maldición — es el resultado predecible de un diseño defectuoso que se repite desde hace un siglo: un Estado que monopoliza la emisión monetaria y la usa como caja para financiar déficits, un Banco Central sin independencia real que opera como apéndice del Tesoro, una economía bimonetaria donde el peso cumple la función de ticket de transacción y el dólar la de reserva de valor, y una ciudadanía que aprendió — racionalmente, dolorosamente — que su propia moneda es una promesa que se rompe. PLANMON no propone una mejor política monetaria dentro de este paradigma. Propone **disolver** el paradigma. La moneda argentina deja de ser emitida por un Banco Central capturado y pasa a ser emitida por el **Protocolo Monetario Bastardo** — un conjunto de reglas codificadas, auditables y no modificables sin consenso ciudadano, que opera sobre la infraestructura de la Red Bastarda (PLANEB) y los rieles de pago del SAPI (PLANDIG). La nueva moneda — **El Pulso**, el peso-canasta digital — está referenciada a una canasta ponderada y verificable de commodities que Argentina efectivamente produce (soja, maíz, trigo, litio, gas natural, petróleo, carne, economía del conocimiento, créditos de carbono), tokenizada on-chain con datos reales de producción de PLANISV y PLANEN. El Pulso NO es una CBDC — no la emite ningún banco central. Es una **moneda de red ciudadana**, anti-confiscatoria por diseño (wallets soberanas sin punto central de control — confiscar requiere hackear millones de wallets individuales), privada para el ciudadano y transparente para los fondos públicos (pruebas de conocimiento cero — ZKP para wallets personales, tributación automática opt-in para wallets comerciales), programable para transferencias sociales pero libre para el dinero propio, e interoperable con el ecosistema cripto global. La **ANMON** (Agencia Nacional de Estabilidad Monetaria) no es un banco central — es la **custodia del protocolo**: audita que las reglas se cumplan, propone ajustes a la canasta, publica el Tablero de Estabilidad, y coordina la red de validadores. No puede emitir moneda — esa función es automática y protocolar. El **Fondo Soberano Bastardo** — capitalizado con regalías de commodities, ingresos del mercado regulado de sustancias (PLANSUS), margen operativo de la Bastarda Financiera, Contribución de Soberanía de toda la Red Bastarda (PLANEB), y capital repatriado — opera como amortiguador anticíclico, reserva de estabilización, y motor de inversión productiva, con regla de gasto modelada sobre el fondo noruego pero adaptada a la volatilidad argentina. La desdolarización no se impone por decreto — ocurre por **obsolescencia voluntaria**: cuando existe un instrumento que mantiene su poder adquisitivo, no se puede confiscar, tiene respaldo verificable, y rinde más que un billete de cien dólares en una funda de almohada, el argentino racional migra solo. No porque se lo ordenen — porque le conviene. La reestructuración de la deuda opera bajo el principio de **deuda justa**: la legítima se honra, la ilegítima se audita, la odiosa se litiga, y la nueva deuda se emite en peso-canasta con cláusulas de PIB. La economía informal se formaliza no por coerción sino por **inclusión arquitectónica**: operar en la Red del Pulso da acceso a crédito, seguro, servicios, y comunidad — sin CUIT, sin contador, sin formularios. PLANMON se integra orgánicamente con todos los mandatos de ¡BASTA!: con PLANEB (la Bastarda Financiera como nodo ancla de la Red del Pulso y custodio de reservas), con PLANSUS (ingresos fiscales para el Fondo Soberano), con PLANISV (datos de producción para la canasta de respaldo), con PLANEN (commodities energéticas en la canasta), con PLANDIG (SAPI como riel de pagos, nodos comunitarios como validadores), con PLAN24CN (ciudades nuevas como laboratorios de economía desdolarizada), con PLANREP (exportaciones de servicios como flujo genuino de divisas), y con PLANJUS (resolución de disputas financieras en tres niveles). PLANMON no es un mandato más — es la **capa de estabilidad monetaria** que todos los mandatos necesitan. Una economía sin moneda confiable es un cuerpo sin sangre. El Pulso es la sangre. Y por primera vez en la historia argentina, la sangre no la controla un vampiro.
 
 ---
 
@@ -217,11 +217,13 @@ No es porque "el Estado gaste mucho" en abstracto. Es porque la estructura del i
 | Componente del gasto | % del presupuesto (aprox.) | Tendencia | Conexión con PLANMON |
 |---|---|---|---|
 | Jubilaciones y pensiones | ~45% | Creciente (envejecimiento + moratorias) | PLANREP expande base de aportantes; Pulso formaliza economía informal |
-| Subsidios económicos (energía, transporte) | ~8-12% | Variable (en reducción forzada) | PLANEN elimina dependencia energética importada |
+| Subsidios económicos (energía, transporte) | ~8-12% | Variable (en reducción forzada) | PLANEN* elimina dependencia energética importada |
 | Servicios de deuda | ~8-10% | Creciente post-reestructuraciones | Estrategia de deuda justa de PLANMON (Sección 7) |
 | Empleo público | ~12-15% | Estable-creciente | PLANREP reconvierte empleo público redundante a productivo |
 | Transferencias a provincias | ~15-20% | Estable | PLAN24CN crea economías provinciales autónomas |
 | Obra pública e inversión | ~5-8% | Volátil (primera víctima del ajuste) | Fondo Soberano Bastardo como fuente anticíclica de inversión |
+
+*\* Ver PLANEN — Plan Nacional de Soberanía Energética (Sección 6: Regalías y el Fondo Soberano) para el detalle de estas cifras.*
 
 El déficit fiscal financia la emisión que financia la inflación. Pero el déficit no se "corta" simplemente recortando gasto — porque cada línea de gasto tiene un grupo de beneficiarios que resiste el recorte. El ajuste fiscal como política antiinflacionaria funciona en el corto plazo y genera crisis social en el mediano. PLANMON no propone ignorar el déficit — propone **disolver las causas del déficit** a través de la integración con los otros PLANes: formalizar la economía amplía la recaudación sin subir alícuotas, reconvertir el empleo público reduce el gasto sin echar gente, la soberanía energética elimina subsidios sin cortar el gas, y el Fondo Soberano absorbe shocks sin recurrir a la emisión.
 
@@ -264,7 +266,7 @@ Argentina necesita dólares para importar energía (en reducción con Vaca Muert
 | Fuente de dólares | Estimación anual (USD miles de millones) | Tendencia | Conexión PLANMON |
 |---|---|---|---|
 | Exportación agrícola | 35-45 | Estable-creciente (PLANISV expande producción regenerativa) | Commodities de la canasta del peso-canasta |
-| Exportación energética (Vaca Muerta + litio) | 5-15 (creciendo rápido) | Fuertemente creciente | PLANEN como pilar de la canasta y flujo de divisas |
+| Exportación energética (Vaca Muerta + litio) | 5-15 (creciendo rápido) | Fuertemente creciente | PLANEN* como pilar de la canasta y flujo de divisas |
 | Exportación de servicios (economía del conocimiento) | 8-12 | Creciente (PLANREP la acelera) | Flujo genuino; trabajadores cobran en Pulso, no en dólares pesificados |
 | Turismo receptivo | 3-5 | Estable | — |
 | **Total generación** | **~55-75** | | |
@@ -272,6 +274,8 @@ Argentina necesita dólares para importar energía (en reducción con Vaca Muert
 | Pagos de deuda | 10-20 | Alta post-reestructuraciones | Estrategia de deuda justa (Sección 7) |
 | Fuga de capitales / atesoramiento | 10-30 (estimado, muy variable) | Alta en períodos de incertidumbre | Incentivos de repatriación + Pulso como alternativa al dólar |
 | **Total demanda** | **~70-120** | | |
+
+*\* Ver PLANEN — Plan Nacional de Soberanía Energética (Sección 6: Regalías y el Fondo Soberano) para el detalle de estas cifras.*
 
 La brecha entre generación y demanda de dólares es el motor de las crisis cambiarias. PLANMON la ataca desde tres frentes: aumentar la generación (PLANISV, PLANEN, PLANREP expanden las exportaciones), reducir la demanda (la soberanía energética reduce importaciones; el Pulso reduce la dolarización de ahorro), y crear un amortiguador (el Fondo Soberano Bastardo absorbe la volatilidad de precios de commodities).
 
@@ -324,11 +328,11 @@ Los fondos soberanos son la prueba de que un país puede acumular riqueza interg
 | FEES + FRP | Chile | ~20.000M (post-retiros pandemia) | Renta del cobre (regla de superávit estructural) | Contracíclico: acumula en boom, gasta en crisis | Banco Central como custodio, Ministerio de Hacienda decide | Funcionó perfectamente en 2008-2009. El retiro por COVID erosionó décadas de acumulación |
 | Pula Fund | Botswana | ~5.000M | Renta de diamantes | Regla de ahorro vinculada a ingresos minerales | Banco de Botswana | Un país africano puede hacerlo. La excusa de "no estamos preparados" no aplica |
 | Alaska Permanent Fund | EE.UU. (Alaska) | ~80.000M | Renta petrolera | Dividendo anual a cada residente (~USD 1.600/persona) | Corporación independiente + legislatura estatal | El dividendo universal crea alianza ciudadana con el fondo — la gente lo defiende |
-| Fondo Nacional de los Emiratos (ADIA) | EAU | ~850.000M | Renta petrolera | Discrecional, orientado a diversificación | Familia real + profesionales globales | Concentración de gobernanza sin contrapesos democráticos — anti-modelo para BASTA |
+| Fondo Nacional de los Emiratos (ADIA) | EAU | ~850.000M | Renta petrolera | Discrecional, orientado a diversificación | Familia real + profesionales globales | Concentración de gobernanza sin contrapesos democráticos — anti-modelo para ¡BASTA! |
 
 La lección central de los fondos soberanos es esta: **la riqueza de commodities se puede transformar en estabilidad intergeneracional si se ahorra en vez de gastar.** Argentina produce commodities — soja, maíz, litio, gas, petróleo. Pero no tiene fondo soberano. Toda la renta de commodities se gasta o se fuga en el mismo año en que se genera. El Fondo Soberano Bastardo (Sección 6) propone romper ese patrón.
 
-El modelo de Alaska es especialmente relevante para BASTA: el dividendo anual convierte a cada ciudadano en stakeholder del fondo. Si el fondo se gasta, el dividendo baja. Eso crea un incentivo ciudadano directo para defender la acumulación contra la tentación política de gastar. El Fondo Soberano Bastardo podría operar un mecanismo similar — un "dividendo del Pulso" donde los rendimientos del fondo se distribuyen parcialmente a los usuarios de la red, creando un interés material en la preservación del fondo.
+El modelo de Alaska es especialmente relevante para ¡BASTA!: el dividendo anual convierte a cada ciudadano en stakeholder del fondo. Si el fondo se gasta, el dividendo baja. Eso crea un incentivo ciudadano directo para defender la acumulación contra la tentación política de gastar. El Fondo Soberano Bastardo podría operar un mecanismo similar — un "dividendo del Pulso" donde los rendimientos del fondo se distribuyen parcialmente a los usuarios de la red, creando un interés material en la preservación del fondo.
 
 ### 3.3 Monedas-Canasta y Anclajes Commodity: La Vieja Idea Nueva
 
@@ -423,14 +427,16 @@ El peso-canasta está referenciado a una canasta ponderada de commodities y prod
 | Maíz | 10% | Segunda exportación agrícola. Alta liquidez | PLANISV + MAGyP | CBOT |
 | Trigo | 7% | Relevancia alimentaria interna y exportación | PLANISV + MAGyP | CBOT / mercados locales |
 | Carne bovina | 8% | Identidad productiva argentina. Mercado de exportación creciente (China) | PLANISV + SENASA | Mercado de Liniers / índices globales |
-| Gas natural | 12% | Vaca Muerta: segundo yacimiento de shale gas del mundo. Producción en expansión | PLANEN + Secretaría de Energía | Henry Hub / mercados regionales |
-| Petróleo | 10% | Vaca Muerta. Producción creciente, exportación iniciando | PLANEN + Secretaría de Energía | Brent / WTI |
-| Litio | 8% | Triángulo del Litio (Argentina, Bolivia, Chile). Demanda exponencial (baterías EV) | PLANEN + Secretaría de Minería | London Metal Exchange / spot markets |
+| Gas natural | 12% | Vaca Muerta: segundo yacimiento de shale gas del mundo. Producción en expansión | PLANEN* + Secretaría de Energía | Henry Hub / mercados regionales |
+| Petróleo | 10% | Vaca Muerta. Producción creciente, exportación iniciando | PLANEN* + Secretaría de Energía | Brent / WTI |
+| Litio | 8% | Triángulo del Litio (Argentina, Bolivia, Chile). Demanda exponencial (baterías EV) | PLANEN* + Secretaría de Minería | London Metal Exchange / spot markets |
 | Economía del conocimiento | 10% | USD 8-12 mil millones/año en exportaciones de software y servicios. Crecimiento sostenido | PLANREP + ARGENCON + CESSI | Índice propio (canasta de tarifas de servicios tech argentinos) |
 | Créditos de carbono | 5% | 70 millones de hectáreas agropecuarias con potencial de captura. Conexión PLANISV | PLANISV + registros internacionales de carbono | Mercados voluntarios + EU ETS |
 | Vino y economías regionales | 4% | Diversificación regional. Identidad productiva | INV + ministerios provinciales | Índices sectoriales |
-| Energía renovable (hidrógeno verde, solar, eólica) | 5% | Potencial enorme. Patagonia para eólica, NOA para solar | PLANEN | Índices de energía renovable |
+| Energía renovable (hidrógeno verde, solar, eólica) | 5% | Potencial enorme. Patagonia para eólica, NOA para solar | PLANEN* | Índices de energía renovable |
 | Reservas minerales (oro, cobre, uranio) | 3% | Diversificación. Cobertura contra crisis | Secretaría de Minería | London Metal Exchange |
+
+*\* Ver PLANEN — Plan Nacional de Soberanía Energética (Sección 6: Regalías y el Fondo Soberano) para el detalle de estas cifras.*
 
 **Ponderación total: 100%**
 
@@ -504,7 +510,7 @@ La convertibilidad colapsó porque era un sistema binario: funcionaba si había 
 
 En PLANEB, las Empresas Bastardas ya operan con una "Unidad de Cuenta" interna para denominar sus costos operativos y precios al usuario. En PLAN24CN, las ciudades nuevas usan la "Unidad Ciudad" para contratos de desarrollo urbano. Ambos instrumentos buscan lo mismo: una unidad de cuenta estable que no dependa del peso.
 
-PLANMON unifica estos instrumentos: la UC de PLANEB y la Unidad Ciudad de PLAN24CN se convierten en el peso-canasta. Una sola moneda de referencia para toda la arquitectura BASTA. Esto genera **efectos de red**: cuantos más PLANes denominen sus operaciones en peso-canasta, mayor la base de uso, mayor la liquidez, mayor la estabilidad. El peso-canasta no nace desde cero — nace con la masa crítica de la Red Bastarda.
+PLANMON unifica estos instrumentos: la UC de PLANEB y la Unidad Ciudad de PLAN24CN se convierten en el peso-canasta. Una sola moneda de referencia para toda la arquitectura ¡BASTA!. Esto genera **efectos de red**: cuantos más PLANes denominen sus operaciones en peso-canasta, mayor la base de uso, mayor la liquidez, mayor la estabilidad. El peso-canasta no nace desde cero — nace con la masa crítica de la Red Bastarda.
 
 ### 4.6 ¿Puede Incluir Capacidad Productiva Futura?
 
@@ -572,10 +578,12 @@ Si la canasta del Pulso depende de datos de producción y precios, ¿qué impide
 |---|---|---|---|
 | **Soja, maíz, trigo** | CBOT (Chicago Board of Trade) — precios en tiempo real | SENASA (registros fitosanitarios de producción), Aduana (exportaciones) | PLANISV (datos de siembra y cosecha), imágenes satelitales (SAOCOM argentino, Sentinel europeo) |
 | **Litio** | LME (London Metal Exchange), Asian Metal | Secretaría de Minería (producción declarada), Aduana (exportaciones) | Datos de empresas listadas en bolsa (reportes SEC/CNV), imágenes satelitales de actividad en salares |
-| **Gas natural, petróleo** | Henry Hub (gas), WTI/Brent (petróleo) — ambos en tiempo real | Secretaría de Energía (producción diaria), PLANEN (infraestructura verificada) | Datos de transporte por gasoductos (volúmenes medibles), consumo eléctrico de plantas de procesamiento |
+| **Gas natural, petróleo** | Henry Hub (gas), WTI/Brent (petróleo) — ambos en tiempo real | Secretaría de Energía (producción diaria), PLANEN* (infraestructura verificada) | Datos de transporte por gasoductos (volúmenes medibles), consumo eléctrico de plantas de procesamiento |
 | **Carne** | CME (Chicago Mercantile Exchange), mercados de Oceanía | SENASA (faena, trazabilidad animal), Mercado de Liniers | PLANISV (stock ganadero verificado), datos de frigoríficos exportadores |
 | **Economía del conocimiento** | Datos de exportación de servicios (OMC, balanza de pagos) | AFIP/Aduana (exportación de servicios), cámaras sectoriales (CESSI, Argencon) | Flujos de divisas por exportación de software (BCRA/MULC), datos de plataformas de trabajo remoto |
 | **Créditos de carbono** | Mercados voluntarios (Verra, Gold Standard), EU ETS | Registro nacional de proyectos de carbono | Imágenes satelitales de cobertura forestal y cambio de uso de suelo |
+
+*\* Ver PLANEN — Plan Nacional de Soberanía Energética (Sección 6: Regalías y el Fondo Soberano) para el detalle de estas cifras.*
 
 El punto no es que cada dato sea perfecto — es que cada dato tiene **contraste.** Si el SENASA dice que se produjeron 50 millones de toneladas de soja pero las imágenes satelitales muestran la mitad de la superficie sembrada, algo no cierra. Si Aduana reporta exportaciones que no coinciden con los registros de puertos, algo no cierra. Si PLANISV reporta una cosecha que diverge de los datos de CBOT sobre producción argentina, algo no cierra. Un dato se puede mentir. Tres datos cruzados de fuentes independientes, no.
 
@@ -754,7 +762,7 @@ La meta es cobertura ZKP completa para toda transacción personal — pero la ho
 | Parámetro | Especificación | Justificación |
 |---|---|---|
 | Tipo de blockchain | Permisionada, código abierto, auditable. Candidatos: Cosmos SDK, Substrate/Polkadot, Hyperledger Besu | Balance entre eficiencia (no necesitás proof-of-work) y transparencia (cualquiera puede auditar el código y la cadena). Plataforma final se selecciona tras prototipado comparativo |
-| Consenso | Proof-of-Stake Comunitario (PoSC) | Eficiente energéticamente. Los validadores son actores del ecosistema BASTA, no mineros especulativos |
+| Consenso | Proof-of-Stake Comunitario (PoSC) | Eficiente energéticamente. Los validadores son actores del ecosistema ¡BASTA!, no mineros especulativos |
 | Velocidad de transacciones (capa 2) | 1.000-5.000 TPS (2026). Roadmap: 10.000 TPS (2030), 50.000 TPS (2035+) | 1.000-5.000 TPS cubre el volumen actual de Argentina (~300-500 TPS promedio) con margen amplio. 50.000 es meta aspiracional a 10 años |
 | Costo por transacción | <$0,001 (objetivo) | Tiene que ser más barato que el efectivo para competir con la informalidad |
 | Privacidad | ZKP selectiva: zk-SNARKs (2026) → zk-STARKs post-cuánticas (2030+). ZKP por defecto en transacciones <500 Pulsos; opcional en montos mayores | Privacidad verificable para la vida cotidiana. ZKP universal es meta 2035 — no promesa 2026 |
@@ -850,20 +858,23 @@ El Fondo Soberano Bastardo es la respuesta: un mecanismo de ahorro intergeneraci
 
 ### 6.2 Fuentes de Capitalización
 
-El Fondo no nace de la nada. Se capitaliza con fuentes específicas, cada una vinculada a un PLAN del ecosistema BASTA:
+El Fondo no nace de la nada. Se capitaliza con fuentes específicas, cada una vinculada a un PLAN del ecosistema ¡BASTA!:
 
 **TABLA 16: Fuentes de Capitalización del Fondo Soberano Bastardo**
 
 | Fuente | Estimación anual (USD millones) | PLAN vinculado | Mecanismo |
 |---|---|---|---|
-| Regalías de commodities (litio, gas, petróleo) | 2.000-5.000 | PLANEN | Renegociación de contratos mineros y energéticos. Porcentaje mínimo de regalías al Fondo (no al gasto corriente) |
+| Regalías de commodities (litio, gas, petróleo) | 2.000-5.000 | PLANEN* | Renegociación de contratos mineros y energéticos. Porcentaje mínimo de regalías al Fondo (no al gasto corriente) |
 | Ingresos del mercado regulado de sustancias | 2.000-8.000 (año 5) | PLANSUS | Impuestos + licencias + exportación del mercado legal de sustancias |
-| Excedente operativo de la Red Bastarda | 500-2.000 | PLANEB | Las Bastardas no generan ganancia privada. El excedente operativo (si lo hay) fluye parcialmente al Fondo |
+| Margen operativo de la Bastarda Financiera (rendimientos de custodia, spread financiero) | 200-400 | PLANEB | La Bastarda Financiera genera margen operativo por la naturaleza del negocio bancario (custodia, intermediación crediticia). Ese margen fluye parcialmente al Fondo |
+| Contribución de Soberanía de la Red Bastarda (1-2% de ingresos brutos) | 100-300 | PLANEB | Todas las Bastardas contribuyen el 1-2% de sus ingresos brutos al Fondo Soberano como reconocimiento de que operan sobre infraestructura pública y acceso de mercado. No es ganancia — es renta de infraestructura, transparente y fija, compatible con la filosofía de costo real (ver PLANEB, Secciones 5.2 y 6.2) |
 | Recupero de evasión fiscal vía transparencia | 1.000-3.000 | PLANMON / PLANDIG | La Red del Pulso ilumina transacciones que hoy son invisibles. La base imponible real se amplía sin subir alícuotas |
 | Capital repatriado (incentivos) | 2.000-10.000 (variable) | PLANMON (Sección 12) | Programa de repatriación con destino Fondo Soberano. Rendimiento garantizado por la canasta |
 | Rendimientos del propio Fondo | Creciente (compound) | — | Interés compuesto sobre décadas. El recurso más poderoso del universo financiero |
 | **Total estimado (año 5)** | **7.500-28.000** | | |
 | **Total estimado (año 10)** | **15.000-50.000** (acumulado, con rendimientos) | | |
+
+*\* Ver PLANEN — Plan Nacional de Soberanía Energética (Sección 6: Regalías y el Fondo Soberano) para el detalle de estas cifras.*
 
 Las estimaciones son rangos amplios porque dependen de variables que PLANMON no controla individualmente (precios internacionales de commodities, velocidad de implementación de PLANSUS, éxito del programa de repatriación). Pero incluso en el escenario conservador — USD 7.500 millones/año — en 10 años el Fondo acumularía más de USD 100 mil millones (con rendimientos reinvertidos al 6% anual). Eso es comparable al fondo chileno en su mejor momento, y representaría ~15-20% del PBI argentino.
 
@@ -982,13 +993,13 @@ PLANMON no propone el default unilateral ni el pago acrítico. Propone un marco 
 | Deuda legítima | Tomada democráticamente, para fines públicos, en condiciones de mercado | Honrar con reestructuración de plazos si necesario | USD 150-200B |
 | Deuda cuestionable | Tomada democráticamente pero en condiciones desfavorables o para fines poco claros | Auditar. Renegociar condiciones. Swap por instrumentos más justos | USD 80-120B |
 | Deuda odiosa | Tomada por gobiernos de facto, para fines contrarios al interés público, con conocimiento de acreedores | Litigio internacional. Repudio con argumentación jurídica | USD 30-50B (estimación deuda rastreable a dictadura) |
-| Deuda con FMI | Deuda específica con el Fondo Monetario Internacional | Renegociación integral. Swap deuda-por-naturaleza + deuda-por-infraestructura BASTA | USD 44B (acuerdo 2018) |
+| Deuda con FMI | Deuda específica con el Fondo Monetario Internacional | Renegociación integral. Swap deuda-por-naturaleza + deuda-por-infraestructura ¡BASTA! | USD 44B (acuerdo 2018) |
 
 ### 7.3 Instrumentos Innovadores de Reestructuración
 
 **Swap deuda-por-naturaleza.** Precedentes: Belice (2021) reestructuró USD 553M de deuda a cambio de compromisos de conservación marina. Ecuador (2023) reestructuró USD 1.600M a cambio de conservación de Galápagos. Argentina tiene activos naturales enormes: selva misionera, glaciares, humedales del Litoral, pampa como sumidero de carbono, mar patagónico. Un swap deuda-por-naturaleza de escala significativa (USD 5-10 mil millones) reduciría el stock de deuda y financiaría la conservación que PLANISV necesita. Los acreedores convierten deuda de dudoso cobro en activos ambientales con valor creciente (créditos de carbono).
 
-**Swap deuda-por-infraestructura-BASTA.** Los acreedores que acepten convertir deuda en participación en proyectos de PLAN24CN (ciudades nuevas), PLANEN (infraestructura energética), o PLANDIG (infraestructura digital) obtienen retorno sobre inversión productiva en vez de cupones de deuda soberana riesgosa. No es deuda-por-equity (porque las Bastardas no tienen equity) — es deuda-por-bonos-de-proyecto con retorno vinculado al flujo de caja de la infraestructura.
+**Swap deuda-por-infraestructura-¡BASTA!.** Los acreedores que acepten convertir deuda en participación en proyectos de PLAN24CN (ciudades nuevas), PLANEN (infraestructura energética), o PLANDIG (infraestructura digital) obtienen retorno sobre inversión productiva en vez de cupones de deuda soberana riesgosa. No es deuda-por-equity (porque las Bastardas no tienen equity) — es deuda-por-bonos-de-proyecto con retorno vinculado al flujo de caja de la infraestructura.
 
 **NFTs de deuda pública.** Cada bono del Estado emitido bajo PLANMON es un token en la Red del Pulso — verificable, auditable, transferible. No más bonos opacos que se reestructuran en la oscuridad. El mercado secundario de deuda argentina opera on-chain, con transparencia total de quién tiene qué y a qué precio. Los holdouts que compraron deuda argentina a 20 centavos y litigan para cobrar 100 centavos quedan expuestos: se puede ver en la blockchain exactamente cuánto pagaron y cuánto pretenden cobrar. La transparencia como herramienta de negociación.
 
@@ -1027,7 +1038,7 @@ Argentina tiene una relación tóxica con el Fondo Monetario Internacional. El F
 PLANMON no propone repudiar la deuda con el FMI. Propone renegociarla en términos que reflejen la corresponsabilidad del Fondo en el fracaso del programa:
 
 - **Extensión de plazos:** El acuerdo actual implica repagos concentrados en pocos años. PLANMON propone extensión a 20+ años, con pagos vinculados al crecimiento del PIB (cláusula GDP).
-- **Swap parcial por proyectos BASTA:** Parte de la deuda se convierte en inversión del FMI en infraestructura productiva bajo los PLANes — ciudades nuevas (PLAN24CN), energía (PLANEN), infraestructura digital (PLANDIG). El FMI recupera su capital a través del flujo de caja de la infraestructura, no del presupuesto público.
+- **Swap parcial por proyectos ¡BASTA!:** Parte de la deuda se convierte en inversión del FMI en infraestructura productiva bajo los PLANes — ciudades nuevas (PLAN24CN), energía (PLANEN), infraestructura digital (PLANDIG). El FMI recupera su capital a través del flujo de caja de la infraestructura, no del presupuesto público.
 - **Auditoría del programa 2018:** Una auditoría independiente del programa 2018 — cómo se usaron los fondos, por qué no hubo condiciones de control de fuga de capitales, por qué el staff del FMI aprobó un programa que sus propios manuales desaconsejaban (préstamos de acceso excepcional para financiar fuga de capitales).
 - **Compromiso de no-repetición:** Argentina se compromete a no volver al FMI como prestamista de emergencia — porque el Fondo Soberano Bastardo reemplaza esa función. A cambio, el FMI acepta condiciones de repago más favorables.
 
@@ -1148,7 +1159,7 @@ La desdolarización del comercio exterior no ocurre por decreto — ocurre porqu
 
 Esteban tiene 40 años. Es electricista independiente. Tiene una cuenta en un banco privado — no porque quiera, sino porque necesita cobrar por transferencia. El banco le cobra: mantenimiento de cuenta ($5.200/mes), seguro de vida que no pidió ($3.800/mes), mantenimiento de tarjeta de débito ($2.100/mes), y una lista de comisiones que parece más larga que el código civil. En total, Esteban le paga al banco unos $15.000 por mes por el privilegio de que le guarden la plata. ¿Cuánto le cuesta al banco mantener su cuenta? Con la digitalización actual, centavos por transacción. Esteban paga $15.000 mensuales por un servicio que cuesta $150. La diferencia — $14.850 al mes, $178.000 al año — es extracción pura.
 
-La Bastarda Financiera (diseñada en PLANEB) elimina esa extracción. Opera al costo real: cada peso de ingreso se destina a operaciones, tecnología, reservas, y un 2% al Fondo de Solidaridad Bastarda. No hay accionistas, no hay dividendos, no hay bonos de ejecutivos. El costo de mantener una cuenta en la Bastarda Financiera es lo que efectivamente cuesta mantener una cuenta — centavos.
+La Bastarda Financiera (diseñada en PLANEB) elimina esa extracción. Opera al costo real: cada peso de ingreso se destina a operaciones, tecnología, reservas, un 3-5% al Fondo de Solidaridad Bastarda, y un 1-2% como Contribución de Soberanía al Fondo Soberano Nacional. No hay accionistas, no hay dividendos, no hay bonos de ejecutivos. El costo de mantener una cuenta en la Bastarda Financiera es lo que efectivamente cuesta mantener una cuenta — centavos.
 
 PLANMON agrega a la Bastarda Financiera funciones de escala monetaria:
 
@@ -1180,7 +1191,7 @@ Argentina sabe lo que pasa cuando el LOLR falla: 2001. Los depositantes corriero
 
 ¿Por qué? Porque no opera con reserva fraccionaria. La Bastarda Financiera mantiene **reservas del 100% sobre los depósitos.** Si depositás 100.000 Pulsos en la Bastarda, la Bastarda tiene 100.000 Pulsos en custodia. No presta tus depósitos. Punto. No hay multiplicador bancario sobre tus depósitos. No hay corrida posible — porque la plata está ahí, siempre, toda.
 
-"¿Pero entonces cómo otorga crédito la Bastarda?" Con fondos separados. El crédito productivo de la Bastarda (Sección 9.2) se financia con el **Fondo de Crédito Productivo** — un pool dedicado, capitalizado con aportes del Fondo Soberano, con excedentes operativos de la Red Bastarda, y con líneas específicas de los PLANes (PLANREP, PLANISV, PLAN24CN). El Fondo de Crédito Productivo es un fondo de riesgo separado de los depósitos. Si un crédito se incobra, la pérdida la absorbe el Fondo de Crédito — no los depósitos de los ahorristas. Es la diferencia entre un banco (que mezcla depósitos con crédito y reza para que la proporción funcione) y una estructura donde ahorro y crédito son piscinas separadas con tabiques de hormigón entre ellas.
+"¿Pero entonces cómo otorga crédito la Bastarda?" Con fondos separados. El crédito productivo de la Bastarda (Sección 9.2) se financia con el **Fondo de Crédito Productivo** — un pool dedicado, capitalizado con aportes del Fondo Soberano, con margen operativo de la Bastarda Financiera, y con líneas específicas de los PLANes (PLANREP, PLANISV, PLAN24CN). El Fondo de Crédito Productivo es un fondo de riesgo separado de los depósitos. Si un crédito se incobra, la pérdida la absorbe el Fondo de Crédito — no los depósitos de los ahorristas. Es la diferencia entre un banco (que mezcla depósitos con crédito y reza para que la proporción funcione) y una estructura donde ahorro y crédito son piscinas separadas con tabiques de hormigón entre ellas.
 
 No hay reserva fraccionaria → no hay corrida posible → no hay necesidad de un LOLR para los depósitos en Pulso.
 
@@ -1247,7 +1258,7 @@ Esta es la diferencia fundamental entre el sistema bancario que conocemos y la B
 | Dimensión | Bancos tradicionales (reserva fraccionaria) | Bastarda Financiera (reserva 100%) |
 |---|---|---|
 | **Depósitos** | El banco toma tu depósito y presta la mayor parte (~90%). Guarda solo el encaje. | La Bastarda guarda el 100% de tu depósito. No lo toca. |
-| **Fuente del crédito** | Los depósitos de los ahorristas (con el riesgo de que si todos los quieren a la vez, no están) | Fondo de Crédito Productivo: pool separado, capitalizado con aportes del Fondo Soberano, excedentes de la Red Bastarda, y líneas de los PLANes |
+| **Fuente del crédito** | Los depósitos de los ahorristas (con el riesgo de que si todos los quieren a la vez, no están) | Fondo de Crédito Productivo: pool separado, capitalizado con aportes del Fondo Soberano, margen operativo de la Bastarda Financiera, y líneas de los PLANes |
 | **Riesgo de corrida** | Real. Si el 20% de los depositantes retira al mismo tiempo, el banco quiebra sin rescate del BCRA | Cero. Tus Pulsos están ahí, siempre, todos. No hay corrida posible. |
 | **Multiplicador monetario** | Cada $1 depositado genera ~$10 en crédito (sistema fraccionario) | Cada $1 depositado genera $0 en crédito. El crédito viene de otra fuente. |
 | **Creación de crédito** | Alta (pero inestable — depende de la confianza) | Menor (pero estable — depende de fondos reales, no de confianza) |
@@ -1262,7 +1273,7 @@ Seamos rigurosos. Los depósitos del sector privado en el sistema bancario argen
 
 1. **Contracción del crédito bancario.** Los bancos operan con reserva fraccionaria: cada dólar de depósito genera ~8-10 dólares de crédito (por el multiplicador). Si pierden USD 20 mil millones en depósitos, la contracción del crédito bancario puede ser de USD 160-200 mil millones. Es un número enorme — equivale al 25-35% del PIB argentino.
 
-2. **Compensación por crédito Bastarda.** Pero esos depósitos no desaparecen del sistema — migran a la Red del Pulso. El Fondo de Crédito Productivo de la Bastarda Financiera, capitalizado con aportes del Fondo Soberano y excedentes de la Red, canaliza crédito productivo denominado en peso-canasta. La diferencia: el crédito Bastarda no opera con multiplicador. Si el Fondo tiene USD 20 mil millones, presta USD 20 mil millones — no USD 200 mil millones. La expansión crediticia es menor, pero es real (respaldada por fondos existentes) y estable (no depende de que los depositantes no corran al cajero).
+2. **Compensación por crédito Bastarda.** Pero esos depósitos no desaparecen del sistema — migran a la Red del Pulso. El Fondo de Crédito Productivo de la Bastarda Financiera, capitalizado con aportes del Fondo Soberano y margen operativo de la Bastarda Financiera, canaliza crédito productivo denominado en peso-canasta. La diferencia: el crédito Bastarda no opera con multiplicador. Si el Fondo tiene USD 20 mil millones, presta USD 20 mil millones — no USD 200 mil millones. La expansión crediticia es menor, pero es real (respaldada por fondos existentes) y estable (no depende de que los depositantes no corran al cajero).
 
 3. **Efecto neto sobre la economía.** En el corto plazo, la contracción del crédito bancario supera la expansión del crédito Bastarda — porque el multiplicador fraccionario genera más crédito nominal por dólar de depósito que la reserva 100%. En el mediano plazo, la estabilidad del Pulso atrae más ahorro doméstico (los USD 250-400 mil millones en el exterior, ver Sección 12) y la repatriación de capital expande el Fondo de Crédito Productivo. A largo plazo, un sistema crediticio respaldado por fondos reales — sin el riesgo de corridas y confiscaciones — genera más confianza y más inversión que un sistema fraccionario en un país donde la reserva fraccionaria terminó en corralito tres veces.
 
@@ -1518,7 +1529,7 @@ Después de 20 años de operar su kiosco en la Red del Pulso, Mabel tiene un fon
 
 El sistema previsional argentino tiene un problema estructural que ninguna fórmula de movilidad resuelve: depende de que la cantidad de trabajadores activos aportando sea suficiente para sostener a la cantidad de jubilados cobrando. Es un pacto intergeneracional que funciona cuando la población es joven y el empleo es alto — y se rompe cuando la población envejece o el empleo cae. Argentina tiene ambos problemas en el horizonte: la pirámide poblacional se invierte lentamente, y la informalidad reduce la base de aportantes efectivos.
 
-PLANMON introduce un respaldo adicional que no depende de trabajadores activos: el **Fondo Previsional Bastardo.** Una porción del rendimiento anual del Fondo Soberano Bastardo — por ejemplo, el 15-20% del rendimiento (no del capital) — se destina a un sub-fondo previsional que complementa las jubilaciones. Este fondo no reemplaza al sistema de reparto — lo refuerza. La fuente del dinero no son los aportes de trabajadores activos — son los rendimientos de las inversiones del Fondo Soberano, que a su vez están alimentados por regalías de commodities, ingresos de PLANSUS, y excedentes de la Red Bastarda.
+PLANMON introduce un respaldo adicional que no depende de trabajadores activos: el **Fondo Previsional Bastardo.** Una porción del rendimiento anual del Fondo Soberano Bastardo — por ejemplo, el 15-20% del rendimiento (no del capital) — se destina a un sub-fondo previsional que complementa las jubilaciones. Este fondo no reemplaza al sistema de reparto — lo refuerza. La fuente del dinero no son los aportes de trabajadores activos — son los rendimientos de las inversiones del Fondo Soberano, que a su vez están alimentados por regalías de commodities, ingresos de PLANSUS, y margen operativo de la Bastarda Financiera.
 
 Es el modelo noruego aplicado a jubilaciones: Noruega usa su fondo soberano (alimentado por petróleo) para sostener un sistema previsional que no depende exclusivamente del pacto intergeneracional. Argentina, con su canasta de commodities (soja, litio, gas, petróleo, carne, economía del conocimiento), puede construir un respaldo previsional similar — donde la tierra produce la jubilación, no solo los hijos.
 
@@ -1629,7 +1640,7 @@ La siguiente tabla compara los rendimientos de mantener capital en Miami vs. rep
 
 ### 13.1 El Principio de Honestidad Radical
 
-Todo lo que PLANMON propone es la *primera mejor alternativa* basada en la mejor evidencia disponible en 2026. No es un plan perfecto — es un plan honesto. Los PLANes del marco BASTA comparten un principio: **un plan que no cambia no es sabio — es arrogante.** Y un plan arrogante sobre dinero en un país que destruyó cinco monedas es un plan suicida.
+Todo lo que PLANMON propone es la *primera mejor alternativa* basada en la mejor evidencia disponible en 2026. No es un plan perfecto — es un plan honesto. Los PLANes del marco ¡BASTA! comparten un principio: **un plan que no cambia no es sabio — es arrogante.** Y un plan arrogante sobre dinero en un país que destruyó cinco monedas es un plan suicida.
 
 Esta sección no es un anexo — es una de las más importantes del documento. Porque la credibilidad del Pulso depende, en gran parte, de que la gente sepa qué pasa cuando las cosas salen mal. En Argentina, la experiencia con planes económicos que "no podían fallar" es traumática: la convertibilidad "no podía caer" (cayó), el "blindaje" de 2001 "no podía romperse" (se rompió), las reservas del BCRA "estaban sólidas" (se vaciaron). PLANMON no promete que no va a haber problemas. Promete que cuando los haya, hay un protocolo transparente para manejarlos.
 
@@ -1672,7 +1683,7 @@ Esta sección no es un anexo — es una de las más importantes del documento. P
 1. **Operación como moneda complementaria.** El Pulso puede operar sin ley nueva. El WIR suizo opera desde 1934 sin ser moneda de curso legal. Bitcoin opera sin permiso de ningún Estado. Las monedas complementarias son legales en Argentina bajo la normativa de medios de pago electrónicos (Ley 25.065 de Tarjetas de Crédito, normativa BCRA sobre billeteras virtuales). El Pulso puede ser un medio de pago electrónico privado — no moneda de curso legal, pero perfectamente legal como instrumento de transacción.
 2. **Limitaciones sin ley marco:** Sin la ley, la ANMON no existe como ente autárquico (opera como asociación civil), el Fondo Soberano no tiene blindaje constitucional (opera como fideicomiso privado), y los impuestos no se pueden cobrar en Pulso (se cobran en pesos). Son limitaciones significativas — pero no impiden la operación.
 3. **Estrategia de legitimidad.** Si el Pulso funciona y millones de personas lo usan, la presión sobre el Congreso para darle marco legal es enorme. No necesitás la ley para empezar — necesitás la masa crítica para que la ley sea inevitable.
-4. **Precedente BASTA:** Cada PLAN opera en la misma doble vía — funciona bajo la ley vigente mientras propone la ley nueva. La ley llega después que la realidad, no antes.
+4. **Precedente ¡BASTA!:** Cada PLAN opera en la misma doble vía — funciona bajo la ley vigente mientras propone la ley nueva. La ley llega después que la realidad, no antes.
 
 **ESCENARIO 5: Bug en el smart contract del Protocolo Monetario**
 *Trigger:* Un bug permite emisión no autorizada o robo de fondos (precedente: hack de "The DAO" en 2016, donde un bug en el smart contract permitió drenar USD 50 millones).
@@ -2060,7 +2071,7 @@ Y construyeron algo mejor.
 
 ### 15.6 Lo Que Queda Por Hacer
 
-PLANMON es un punto de partida, no un punto de llegada. Los problemas monetarios de Argentina se acumularon durante un siglo — no se disuelven con un documento, por más extenso que sea. Lo que este plan ofrece es una arquitectura. Un diseño. Un mapa de ruta. Las preguntas que no pudimos responder — y hay muchas — están señaladas honestamente como tales. Los riesgos que no pudimos anticipar — y habrá muchos — están cubiertos por los protocolos de falla y por el principio BASTA de que un plan que no cambia es un plan sordo.
+PLANMON es un punto de partida, no un punto de llegada. Los problemas monetarios de Argentina se acumularon durante un siglo — no se disuelven con un documento, por más extenso que sea. Lo que este plan ofrece es una arquitectura. Un diseño. Un mapa de ruta. Las preguntas que no pudimos responder — y hay muchas — están señaladas honestamente como tales. Los riesgos que no pudimos anticipar — y habrá muchos — están cubiertos por los protocolos de falla y por el principio ¡BASTA! de que un plan que no cambia es un plan sordo.
 
 Lo que sí podemos afirmar es que el diseño actual — un Estado que monopoliza la emisión de una moneda que destruye cíclicamente, un Banco Central sin independencia real, una ciudadanía atrapada entre la inflación y el cepo, y un bimonetarismo que entrega la soberanía financiera a la Reserva Federal de Estados Unidos — **no funciona, no funcionó, y no va a funcionar.** No porque los argentinos sean incapaces — porque el diseño produce fracaso como resultado natural. Si querés un resultado diferente, necesitás un diseño diferente.
 
@@ -2100,14 +2111,20 @@ Eso no es utopía. Es ingeniería. Es diseño de sistemas. Es lo que pasa cuando
 | Año | Hito | Meta cuantitativa | PLANes vinculados |
 |---|---|---|---|
 | 0 | Diseño del protocolo, auditorías de código, testnet | Protocolo auditado por 3+ firmas | PLANDIG (infraestructura SAPI) |
-| 1 | Lanzamiento piloto — Red del Pulso en modo beta con caps | 10.000 usuarios beta, USD 10M en circulación | PLANEB (Bastarda Financiera operativa) |
+| 1 | Lanzamiento piloto — Red del Pulso en modo beta con caps | 10.000 usuarios beta, USD 10M en circulación | PLANEB (Bastarda Financiera operativa — operación puente vía bancos cooperativos hasta Año 3) |
 | 2 | Expansión a Red Bastarda — todas las Bastardas operan en Pulso | 100.000-500.000 usuarios, USD 100M | PLANEB, PLAN24CN (primeras ciudades en Pulso) |
 | 3 | Fase 1 de desdolarización — Estado señaliza en peso-canasta | 500.000-2.000.000 usuarios | PLANSUS (ingresos al Fondo), PLANREP |
-| 5 | Fondo Soberano supera USD 30B. DeFi nativa operativa | 5.000.000 usuarios | PLANEN (commodities energéticas en canasta) |
+| 5 | Fondo Soberano supera USD 30B. DeFi nativa operativa | 5.000.000 usuarios | PLANEN* (commodities energéticas en canasta) |
 | 7 | Fase 2 de desdolarización — contratos privados migran | 10.000.000 usuarios | PLANISV (datos de producción en canasta) |
 | 10 | Fondo Soberano supera USD 100B. Primer Dividendo significativo | 15.000.000 usuarios | Todos los PLANes integrados |
 | 12 | Fase 3 — dólar es moneda extranjera, Pulso dominante | 20.000.000+ usuarios | — |
 | 15 | BCRA reducido a departamento residual. Argentina emite deuda en peso-canasta | 25.000.000+ usuarios. Fondo >USD 200B | Peso-canasta regional en negociación con Mercosur |
+
+*\* Ver PLANEN — Plan Nacional de Soberanía Energética (Sección 6: Regalías y el Fondo Soberano) para el detalle de estas cifras.*
+
+**Puente Operativo (Años 0-2):** Durante los primeros dos años, antes de que la Bastarda Financiera alcance escala piloto (PLANEB, Fase 2), El Pulso opera sobre rieles bancarios existentes. El convenio puente se establece con el Banco Nación, el Banco de la Provincia de Buenos Aires, y la red de bancos cooperativos (CREDICOOP y otros). Estos bancos proveen: custodia de reservas del peso-canasta, infraestructura de pagos para el Pulso, y créditos de desarrollo en peso-canasta. A partir del Año 3, la Bastarda Financiera asume progresivamente estas funciones, y para el Año 5 opera como nodo ancla exclusivo. El puente no es un compromiso — es una estrategia de penetración: los bancos existentes se familiarizan con El Pulso y se convierten en aliados en vez de enemigos.
+
+**Nota de secuenciación:** PLANMON es el undécimo mandato en secuencia de lanzamiento. Las leyes y agencias de PLANJUS y PLANREP se establecen primero (Año 0, Q1-Q2), seguidos por PLANDIG y PLANEB (Año 0, Q3-Q4), y los mandatos subsiguientes. PLANMON lanza su Pre-Fase en el Año 2 y su Fase 0 formal en el Año 3, cuando la Bastarda Financiera (PLANEB) y la infraestructura digital (PLANDIG) ya están operativas. Esta secuenciación garantiza que PLANMON no dependa de componentes que aún no existen.
 
 ---
 
@@ -2120,7 +2137,7 @@ Eso no es utopía. Es ingeniería. Es diseño de sistemas. Es lo que pasa cuando
 | **PLANEB** (Empresas Bastardas) | Bastarda Financiera = nodo ancla del Pulso. Red Bastarda = infraestructura antiinflacionaria de oferta. Protocolo Bastardo = base tecnológica del PMB | PLANEB → PLANMON (infraestructura) |
 | **PLANSUS** (Sustancias) | Ingresos fiscales del mercado regulado → Fondo Soberano. Dispensarios operan en Pulso | PLANSUS → PLANMON (capitalización) |
 | **PLANISV** (Suelo Vivo) | Datos de producción agrícola → canasta del peso-canasta. Crédito agrícola en Pulso | PLANISV ↔ PLANMON (datos y crédito) |
-| **PLANEN** (Energía) | Commodities energéticas en canasta. Regalías → Fondo Soberano. Exportación de H2 verde = flujo de divisas | PLANEN → PLANMON (canasta y capital) |
+| **PLANEN*** (Energía) | Commodities energéticas en canasta. Regalías → Fondo Soberano. Exportación de H2 verde = flujo de divisas | PLANEN → PLANMON (canasta y capital) |
 | **PLANDIG** (Digital) | SAPI = riel de pagos del Pulso. Nodos comunitarios = validadores. CCN se canjean en Pulso | PLANDIG → PLANMON (infraestructura) |
 | **PLAN24CN** (Ciudades Nuevas) | Ciudades operan 100% en Pulso. Laboratorios de economía desdolarizada. Inversión del Fondo en infraestructura urbana | PLAN24CN ↔ PLANMON (laboratorio y flujo) |
 | **PLANREP** (Reconversión Empleo) | Exportaciones de servicios = flujo de divisas genuino. Crédito de reconversión en Pulso. Trabajadores cobran en Pulso | PLANREP ↔ PLANMON (divisas y crédito) |
@@ -2129,6 +2146,14 @@ Eso no es utopía. Es ingeniería. Es diseño de sistemas. Es lo que pasa cuando
 | **PLANSAL** (Salud) | Bastarda Sanitaria opera en Pulso. Transferencias de salud programables | PLANSAL ↔ PLANMON (pagos) |
 | **PLANAGUA** (Agua) | Infraestructura hídrica financiada por Fondo Soberano. Tarifas de agua al costo en Pulso | PLANAGUA ← PLANMON (financiamiento) |
 | **PLANGEO** (Geopolítica) | Peso-canasta regional para comercio Mercosur. Diplomacia monetaria soberana | PLANGEO ↔ PLANMON (estrategia regional) |
+| **PLANSEG** (Seguridad) | Protección de la infraestructura del Pulso — nodos de validación, datacenters de la Bastarda Financiera, puntos de acceso físico. Ciberdefensa de la red de pagos soberana contra ataques externos. Protocolo anti-falsificación de instrumentos monetarios | PLANSEG → PLANMON (protección de infraestructura) |
+| **PLANVIV** (Vivienda Digna) | Crédito Hipotecario Bastardo en peso-canasta. Bastarda Inmobiliaria opera en Pulso. Fondo Soberano financia infraestructura de vivienda | PLANMON ↔ PLANVIV (crédito y operación) |
+
+*\* Ver PLANEN — Plan Nacional de Soberanía Energética (Sección 6: Regalías y el Fondo Soberano) para el detalle de estas cifras.*
+
+### PLANMON × PLANVIV: El Crédito Que Por Fin Es Posible
+
+El Crédito Hipotecario Bastardo — denominado en peso-canasta — resuelve lo que ningún instrumento financiero argentino pudo resolver en medio siglo: crédito de largo plazo para vivienda sin riesgo de licuación ni de asfixia. Los créditos UVA se ataron a inflación y destruyeron a los deudores cuando el índice se disparó. Los créditos en dólares destruyeron a los deudores cuando el peso se devaluó. El peso-canasta de PLANMON no hace ni una cosa ni la otra: refleja el valor real de una canasta de bienes y servicios, y la cuota hipotecaria sube y baja con esa canasta — no con la especulación, no con la emisión, no con la corrida. PLANVIV construye las viviendas; PLANMON provee el instrumento financiero que permite que una familia argentina acceda a un crédito de 20 años sin que el sueño se convierta en pesadilla al primer cimbronazo macroeconómico.
 
 ---
 
@@ -2142,6 +2167,6 @@ Eso no es utopía. Es ingeniería. Es diseño de sistemas. Es lo que pasa cuando
 
 PLANMON — Plan Nacional de Soberanía Monetaria y Arquitectura Financiera
 Versión 1.0 | Marzo 2026
-Preparado bajo el marco BASTA — ¡Basta de vivir apagados!
+Preparado bajo el marco ¡BASTA! — ¡Basta de vivir apagados!
 
 *Todo lo que PLANMON propone es la primera mejor alternativa basada en la mejor evidencia disponible. Un plan que no cambia no es valiente — es sordo. Y un plan sordo sobre dinero en un país que destruyó cinco monedas es un plan suicida.*

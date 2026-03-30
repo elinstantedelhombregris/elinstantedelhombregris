@@ -40,11 +40,11 @@ Y la enfermedad se propaga. Cada persona que pasa por el sistema y sale destruid
 
 PLANJUS es el tratamiento. No un parche. No una reforma cosmética más. No un "plan de modernización judicial" que cambia los muebles de las oficinas y deja intacta la estructura podrida. PLANJUS es un sistema inmunológico nuevo — diseñado desde cero, distribuido en cada comunidad, incorruptible por arquitectura, rápido por diseño, y propiedad del pueblo. Un sistema donde la justicia no es un edificio al que tenés que ir a suplicar. Es un río que fluye hacia donde la gente está. No esperás a la justicia. La justicia te llega.
 
-Hay una filosofía que atraviesa las iniciativas del proyecto BASTA. La llamamos *El Instante del Hombre Gris*. La premisa: vivimos en una sociedad que apaga a las personas — que les roba la capacidad de crear, de sentir su potencia, de transformar el mundo. Personas dormidas, reducidas a engranajes. El Hombre Gris es el que despierta. Gris como el acero que se pule hasta brillar. Gris como el amanecer antes de que el sol estalle. El instante del Hombre Gris es el momento en que alguien dice *basta de vivir apagado*.
+Hay una filosofía que atraviesa las iniciativas del proyecto ¡BASTA!. La llamamos *El Instante del Hombre Gris*. La premisa: vivimos en una sociedad que apaga a las personas — que les roba la capacidad de crear, de sentir su potencia, de transformar el mundo. Personas dormidas, reducidas a engranajes. El Hombre Gris es el que despierta. Gris como la **plata** que se pule hasta brillar — porque Argentina es argentum, y argentum es plata. Gris como el amanecer antes de que el sol estalle. El instante del Hombre Gris es el momento en que alguien dice *basta de vivir apagado*.
 
 La justicia argentina apaga a la gente. Cada expediente que dura cinco años es una persona apagándose. Cada audiencia que se suspende por tercera vez es una persona que pierde un poco más de fe. Cada sentencia que llega tarde es una persona que ya no cree que el sistema la protege. PLANJUS existe para que cada argentino — cuando tenga un conflicto, cuando sufra una injusticia, cuando necesite que alguien escuche su reclamo y le dé una respuesta justa — pueda resolver su problema en días o semanas, no en años o décadas. Sin necesidad de un abogado caro. Sin necesidad de entender un código procesal incomprensible. Sin necesidad de ir a un edificio a hacer fila y esperar. Con la certeza de que el proceso es limpio, transparente, y que nadie — absolutamente nadie — puede comprar el resultado.
 
-PLANJUS es el quinto pilar de BASTA. Y es, de todos, el que hace posibles los otros. PLANEDU puede diseñar la mejor educación del mundo, pero si el sistema judicial permite que un funcionario desvíe los fondos sin consecuencias, PLANEDU muere. PLANISV puede reconstruir cada hectárea de suelo argentino, pero si la justicia tarda once años en condenar al que contamina, PLANISV es papel. PLANREP puede liberar a un millón de personas del empleo público improductivo, pero si los mecanismos legales de transición se atascan en los tribunales, PLANREP se paraliza. PLAN24CN puede fundar veinticuatro ciudades extraordinarias, pero si los contratos de construcción se litigan durante una década, no se funda nada.
+PLANJUS es el quinto pilar de ¡BASTA!. Y es, de todos, el que hace posibles los otros. PLANEDU puede diseñar la mejor educación del mundo, pero si el sistema judicial permite que un funcionario desvíe los fondos sin consecuencias, PLANEDU muere. PLANISV puede reconstruir cada hectárea de suelo argentino, pero si la justicia tarda once años en condenar al que contamina, PLANISV es papel. PLANREP puede liberar a un millón de personas del empleo público improductivo, pero si los mecanismos legales de transición se atascan en los tribunales, PLANREP se paraliza. PLAN24CN puede fundar veinticuatro ciudades extraordinarias, pero si los contratos de construcción se litigan durante una década, no se funda nada.
 
 **La justicia es el sistema inmunológico de una sociedad. Si funciona, todo lo demás tiene oportunidad de funcionar. Si no funciona — si está enfermo, capturado, corrompido — nada funciona. Nada.**
 
@@ -393,7 +393,7 @@ PLANJUS usa inteligencia artificial en cinco funciones críticas: categorizació
 - Sesgo de repetición (¿la IA favorece a partes que aparecen frecuentemente en el sistema?)
 - Sesgo de lenguaje (¿la IA categoriza peor los casos presentados con errores de ortografía o lenguaje informal?)
 
-Los resultados de cada auditoría se publican completos en el dashboard público. Si se detecta sesgo significativo, el modelo se retira, se corrige, y se re-despliega. No hay negociación.
+Los resultados de cada auditoría se publican completos en el tablero público. Si se detecta sesgo significativo, el modelo se retira, se corrige, y se re-despliega. No hay negociación.
 
 **Explicabilidad:** Cada recomendación de la IA viene con una explicación comprensible para los panelistas y las partes. No "el modelo dice X" sino "el modelo sugiere X porque los 147 casos más similares se resolvieron de esta manera, con estas características en común." Las partes tienen derecho a cuestionar la recomendación de la IA y el panel tiene la obligación de responder a ese cuestionamiento.
 
@@ -435,7 +435,7 @@ Un banco que enfrenta 500 reclamos de consumo por año en PLANJUS va a desarroll
 
 **Mecanismos anti-repetición:**
 
-**1. Perfil Público de Litigante Frecuente.** Toda parte que aparezca en más de 10 casos PLANJUS por año calendario es clasificada como **Litigante Frecuente** y su perfil se publica en el dashboard: cuántos casos tiene, cuántos perdió, cuántos ganó, tiempo promedio de cumplimiento, tasa de apelación. La transparencia es el primer desincentivo: un banco que pierde el 80% de los reclamos de consumo no puede esconderse. Los consumidores, los inversores, y los reguladores ven el patrón.
+**1. Perfil Público de Litigante Frecuente.** Toda parte que aparezca en más de 10 casos PLANJUS por año calendario es clasificada como **Litigante Frecuente** y su perfil se publica en el tablero: cuántos casos tiene, cuántos perdió, cuántos ganó, tiempo promedio de cumplimiento, tasa de apelación. La transparencia es el primer desincentivo: un banco que pierde el 80% de los reclamos de consumo no puede esconderse. Los consumidores, los inversores, y los reguladores ven el patrón.
 
 **2. Alerta de Patrón Sistémico.** Cuando el sistema detecta que un Litigante Frecuente enfrenta más de 20 reclamos similares en 6 meses, activa una **Alerta de Patrón Sistémico**. Esto significa que el problema no es un caso aislado — es una práctica empresarial. ANJUS puede:
 - Emitir una **Recomendación Sistémica** pública, instando al Litigante Frecuente a modificar la práctica que genera los reclamos
@@ -458,7 +458,7 @@ PLANJUS opera sobre una plataforma digital que es la columna vertebral tecnológ
 - **Gestión de evidencia:** Carga de documentos, fotos, videos, capturas de pantalla. Verificación de autenticidad mediante hash criptográfico.
 - **Audiencias virtuales:** Para JUS-1 y la fase digital de JUS-2. Videollamada integrada, grabación automática, transcripción asistida por IA.
 - **Registro distribuido:** Cada acto procesal sellado con marca temporal criptográfica. Inmutable. Auditable.
-- **Dashboard público:** Estadísticas en tiempo real de todos los casos: cuántos entran, cuántos se resuelven, en cuánto tiempo, con qué satisfacción. Transparencia total.
+- **Tablero público:** Estadísticas en tiempo real de todos los casos: cuántos entran, cuántos se resuelven, en cuánto tiempo, con qué satisfacción. Transparencia total.
 - **Accesibilidad:** Funciona en celular. Interface en español claro. Asistente de voz para personas con dificultades de lectura. Soporte en lenguas originarias en jurisdicciones pertinentes.
 
 ### 5.5 Las Casas JUS
@@ -653,9 +653,9 @@ El sorteo democrático es igualitario en teoría. Pero si el pool del que se sor
 - **Certificación acelerada de justicia cívica:** Para comunidades con baja tasa de finalización secundaria, PLANJUS ofrece una certificación de justicia cívica de 4 semanas que sustituye el requisito de educación secundaria para JUS-1. La certificación cubre lo que un panelista necesita saber — no lo que el sistema educativo formal no le dio. PLANEDU provee programas de completación educativa para quienes quieran acceder a JUS-2 y JUS-3.
 - **Panelistas bilingües e interculturales:** En provincias con población indígena significativa, PLANJUS recluta y forma panelistas que hablan lenguas originarias y conocen las dinámicas comunitarias locales. La justicia no puede ser justa si no habla el idioma de quien la necesita.
 
-**El monitoreo:** ANJUS rastrea la demografía del pool de panelistas activos versus la población local en cada provincia — por edad, género, nivel educativo, origen urbano/rural, y pertenencia a comunidades indígenas. Si la representación de cualquier grupo demográfico cae por debajo del 50% de su proporción poblacional, se activa un protocolo de reclutamiento dirigido: campaña específica para ese grupo, ajuste de requisitos si es necesario, y formación adaptada. El dashboard público muestra estos datos. La diversidad del pool no es un objetivo aspiracional — es un KPI medible y publicado.
+**El monitoreo:** ANJUS rastrea la demografía del pool de panelistas activos versus la población local en cada provincia — por edad, género, nivel educativo, origen urbano/rural, y pertenencia a comunidades indígenas. Si la representación de cualquier grupo demográfico cae por debajo del 50% de su proporción poblacional, se activa un protocolo de reclutamiento dirigido: campaña específica para ese grupo, ajuste de requisitos si es necesario, y formación adaptada. El tablero público muestra estos datos. La diversidad del pool no es un objetivo aspiracional — es un KPI medible y publicado.
 
-El modelo de panelista — sorteo democrático, formación estructurada, rotación, salvaguardas de diversidad, progresión por mérito — es la contribución de PLANJUS a la infraestructura cívica argentina más allá de la justicia. PLANREP Sección 15.5 adopta la misma arquitectura para sus Paneles Ciudadanos de Futuro Económico, que deliberan sobre fideicomisos, el DNP, y la Economía de la Contribución. PLANEDU Sección 19 prepara a estudiantes desde los 16 años para participar en paneles simulados usando la misma metodología de sorteo. El panelista no es solo una figura de justicia — es el prototipo del ciudadano-gobernante que todo el proyecto BASTA necesita. Lo que PLANJUS construye como mecanismo de resolución de conflictos se convierte en el modelo operativo de la democracia participativa argentina.
+El modelo de panelista — sorteo democrático, formación estructurada, rotación, salvaguardas de diversidad, progresión por mérito — es la contribución de PLANJUS a la infraestructura cívica argentina más allá de la justicia. PLANREP Sección 15.5 adopta la misma arquitectura para sus Paneles Ciudadanos de Futuro Económico, que deliberan sobre fideicomisos, el DNP, y la Economía de la Contribución. PLANEDU Sección 19 prepara a estudiantes desde los 16 años para participar en paneles simulados usando la misma metodología de sorteo. El panelista no es solo una figura de justicia — es el prototipo del ciudadano-gobernante que todo el proyecto ¡BASTA! necesita. Lo que PLANJUS construye como mecanismo de resolución de conflictos se convierte en el modelo operativo de la democracia participativa argentina.
 
 ### 6.6 Selección y Gobernanza de Expertos
 
@@ -1186,7 +1186,7 @@ La imposibilidad de un RCT puro (no se puede asignar aleatoriamente a ciudadanos
 
 > *"Lo que no se mide no se puede mejorar. Lo que no se publica no se puede controlar."*
 
-### 15.1 Dashboard Público
+### 15.1 Tablero Público
 
 PLANJUS publica en tiempo real, accesible a cualquier ciudadano:
 
@@ -1229,7 +1229,7 @@ El año cero es el año donde se construye todo lo que tiene que estar listo ant
 
 | Hito | KPI Específico | Target | Responsable | Trigger de Contingencia |
 |---|---|---|---|---|
-| Ley PLANJUS sancionada | Aprobación en ambas cámaras | Sanción antes del mes 6 del Año 0 | Comisión de Justicia del Congreso + equipo legislativo BASTA | Si ley no se aprueba en 12 meses → decreto de necesidad y urgencia para ANJUS transitoria con jurisdicción voluntaria en materias no legisladas |
+| Ley PLANJUS sancionada | Aprobación en ambas cámaras | Sanción antes del mes 6 del Año 0 | Comisión de Justicia del Congreso + equipo legislativo ¡BASTA! | Si ley no se aprueba en 12 meses → decreto de necesidad y urgencia para ANJUS transitoria con jurisdicción voluntaria en materias no legisladas |
 | ANJUS constituida | Directorio completo operativo | 9 miembros designados y en funciones antes del mes 8 | Congreso + universidades + sorteo ciudadano | Si el sorteo ciudadano se demora → directorio interino de 5 miembros (Congreso + universidades) mientras se completa el proceso |
 | Plataforma digital MVP | MVP funcional con JUS-1 completo | Plataforma operativa para recibir casos JUS-1 en 4 provincias | Equipo tech de ANJUS + proveedor seleccionado por licitación | Si el MVP no está listo → protocolo 100% presencial en Casas JUS con registro manual hasta la digitalización; no se demora el lanzamiento |
 | Provincias piloto seleccionadas | Convenios firmados con 4 gobernadores | Convenios antes del mes 4 | ANJUS + Ministerio de Justicia | Si alguna provincia se baja → provincia alternativa pre-identificada (lista de 6 candidatas); el programa no se detiene por una firma |
@@ -1327,7 +1327,7 @@ Van a atacar. Es inevitable. Cualquier sistema que amenace un monopolio de poder
 | **"Partes sofisticadas van a manipular a los panelistas"** | Siete salvaguardas procedimentales previenen esto arquitectónicamente: sorteo verificable (no sabés quién te toca), recusación sin causa, registro inmutable, piso de derechos, consistencia asistida por IA, alerta automática de anomalías, y evaluación post-resolución. Si una empresa intenta manipular sistemáticamente, el sistema de detección de anomalías lo identifica en los patrones antes de que cause daño real. No depende de la virtud del panelista — depende del diseño del sistema. |
 | **"Viola tratados internacionales de independencia judicial"** | PLANJUS es voluntario y complementario — no reemplaza la jurisdicción judicial para quienes prefieren el sistema tradicional. Los mecanismos de arbitraje internacional (ICSID, UNCITRAL) no se ven afectados en absoluto. Los tratados de independencia judicial se refieren al Poder Judicial como institución del Estado — PLANJUS no lo interviene ni lo modifica, opera en paralelo. Múltiples países con mecanismos alternativos robustos (Singapur, Holanda, Estonia) cumplen plenamente con estos tratados. |
 | **"Los inversores extranjeros necesitan tribunales de verdad"** | Lo que los inversores necesitan es resolución rápida, predecible, y ejecutable. El sistema actual argentino les da lo opuesto: 3 a 6 años, impredecibilidad total, y ejecución incierta. Es el sistema actual el que espanta inversores — no PLANJUS. Un JUS comercial que resuelve en 45 días con transparencia total y fuerza ejecutoria es exactamente lo que un inversor busca. Los que dicen "tribunales de verdad" confunden la toga con la justicia. |
-| **"¿Qué pasa si un gobierno populista captura la ANJUS?"** | Tendría que capturar un directorio donde 3 de 9 miembros son elegidos por sorteo ciudadano, 2 por universidades, 1 por Defensorías, y 1 por sociedad civil. Tendría que sortear mandatos de 6 años no renovables y escalonados. Tendría que conseguir 2/3 del Congreso para remover a un director. Tendría que violar el piso presupuestario constitucional. Tendría que evadir la auditoría trienal independiente de universidades nacionales e internacionales. Y tendría que hacerlo todo a la vista de un dashboard público donde cada peso y cada decisión se publican en tiempo real. No es imposible — pero es más difícil que capturar al Poder Judicial actual, que se captura con un decreto y tres nombramientos. |
+| **"¿Qué pasa si un gobierno populista captura la ANJUS?"** | Tendría que capturar un directorio donde 3 de 9 miembros son elegidos por sorteo ciudadano, 2 por universidades, 1 por Defensorías, y 1 por sociedad civil. Tendría que sortear mandatos de 6 años no renovables y escalonados. Tendría que conseguir 2/3 del Congreso para remover a un director. Tendría que violar el piso presupuestario constitucional. Tendría que evadir la auditoría trienal independiente de universidades nacionales e internacionales. Y tendría que hacerlo todo a la vista de un tablero público donde cada peso y cada decisión se publican en tiempo real. No es imposible — pero es más difícil que capturar al Poder Judicial actual, que se captura con un decreto y tres nombramientos. |
 
 ---
 
@@ -1347,7 +1347,7 @@ PLANJUS tiene dos audiencias con dos mensajes:
 
 - **Fase pre-lanzamiento (6 meses):** Historias reales de personas destruidas por el sistema judicial. Datos. Comparaciones internacionales. "¿Sabías que en Singapur un caso como el tuyo se resuelve en dos semanas?"
 - **Fase lanzamiento:** Primeros casos resueltos en PLANJUS. Testimonios en video. Satisfacción de las partes. "Marta resolvió su reclamo laboral en 12 días. Sin abogado. Sin costo. Con justicia."
-- **Fase expansión:** Dashboard público. Los números hablan solos. Ciudadanos convertidos en evangelizadores. El boca a boca es el marketing más poderoso.
+- **Fase expansión:** Tablero público. Los números hablan solos. Ciudadanos convertidos en evangelizadores. El boca a boca es el marketing más poderoso.
 
 ### 19.3 Manejo de Crisis Narrativa
 
@@ -1365,7 +1365,7 @@ La comunicación de PLANJUS no es marketing — es infraestructura de legitimida
 
 | Instrumento | Audiencia | Mensaje | Frecuencia |
 |---|---|---|---|
-| Dashboard público en tiempo real | Ciudadanía | "Mirá los resultados vos mismo" — cada caso, cada tiempo, cada evaluación, todo visible | Permanente |
+| Tablero público en tiempo real | Ciudadanía | "Mirá los resultados vos mismo" — cada caso, cada tiempo, cada evaluación, todo visible | Permanente |
 | Testimonios de casos resueltos | Ciudadanía | "Marta resolvió su caso en 12 días" — historias reales, nombres reales (con consentimiento), resultados reales | Semanal |
 | Informe para el establishment judicial | Poder Judicial, Colegios de Abogados | "Les sacamos carga — estos son los números" — tono colaborativo, datos duros, sin confrontación innecesaria | Trimestral |
 | Embajadores ciudadanos | Barrios, comunidades, organizaciones de base | Personas que pasaron por PLANJUS cuentan su experiencia en primera persona — el boca a boca institucionalizado | Permanente |
@@ -1377,13 +1377,13 @@ La regla de oro de la comunicación de PLANJUS: **nunca prometas lo que no podé
 
 ---
 
-## SECCIÓN 20: INTEGRACIÓN CON BASTA — EL QUINTO PILAR
+## SECCIÓN 20: INTEGRACIÓN CON ¡BASTA! — EL QUINTO PILAR
 
-> *"Cada dedo tiene su función. Pero solo juntos forman una mano. Y solo la mano puede decir: BASTA."*
+> *"Cada dedo tiene su función. Pero solo juntos forman una mano. Y solo la mano puede decir: ¡BASTA!."*
 
-### 20.1 PLANJUS en el Cuerpo de BASTA
+### 20.1 PLANJUS en el Cuerpo de ¡BASTA!
 
-BASTA es un proyecto de mandatos populares — cada uno diseñado desde cero para un dominio esencial de la vida argentina. Los primeros cinco son los mandatos fundacionales: PLAN24CN reimagina las ciudades. PLANREP reimagina el trabajo. PLANISV reimagina el suelo. PLANEDU reimagina la educación. PLANJUS reimagina la justicia. Los que siguen — salud, seguridad, energía, cultura, ciencia — se desarrollan sobre los cimientos que estos cinco establecen.
+¡BASTA! es un proyecto de mandatos populares — cada uno diseñado desde cero para un dominio esencial de la vida argentina. Los primeros cinco son los mandatos fundacionales: PLAN24CN reimagina las ciudades. PLANREP reimagina el trabajo. PLANISV reimagina el suelo. PLANEDU reimagina la educación. PLANJUS reimagina la justicia. Los que siguen — salud, seguridad, energía, cultura, ciencia — se desarrollan sobre los cimientos que estos cinco establecen.
 
 Pero PLANJUS tiene un rol especial. En la arquitectura del cuerpo humano, el sistema inmunológico no es un órgano como los demás — es el sistema que protege a todos los otros órganos. Sin sistema inmune, el corazón se infecta, los pulmones colapsan, el cerebro se inflama. De la misma manera, sin justicia funcional, los otros mandatos son vulnerables:
 
@@ -1391,10 +1391,10 @@ Pero PLANJUS tiene un rol especial. En la arquitectura del cuerpo humano, el sis
 |---|---|---|
 | **PLANEDU** | Un funcionario desvía fondos educativos → juicio de 11 años → impunidad | Denuncia en PLANJUS → investigación en 30 días → sanción efectiva |
 | **PLANISV** | Un productor contamina y no cumple compromisos → juicio de 7 años | Reclamo en PLANJUS → resolución en 45 días → cumplimiento o ejecución |
-| **PLANREP** | Un trabajador reconvertido no recibe la formación prometida → juicio laboral de 4 años | Reclamo en PLANJUS → resolución en 15 días → el sistema funciona |
+| **PLANREP** | Un trabajador reconvertido no recibe la formación prometida → juicio laboral de 4 años | Disputas simples de reconversión (formación, emprendimiento, microcrédito) → JUS-1, resolución en 15 días. Disputas complejas de reconversión (conflictos con empleador anterior, indemnizaciones, beneficios) → JUS-2, resolución en 45 días |
 | **PLAN24CN** | Un contratista incumple en la construcción de una ciudad nueva → litigio de 6 años | Disputa comercial en PLANJUS → resolución en 45 días → la ciudad avanza |
 
-PLANJUS es el sistema inmunológico de BASTA. Sin él, los otros mandatos pueden ser saboteados, demorados, corrompidos. Con él, tienen un mecanismo de protección y ejecución que funciona a la velocidad de la vida real.
+PLANJUS es el sistema inmunológico de ¡BASTA!. Sin él, los otros mandatos pueden ser saboteados, demorados, corrompidos. Con él, tienen un mecanismo de protección y ejecución que funciona a la velocidad de la vida real.
 
 La función protectora de PLANJUS se extiende a la nueva infraestructura post-laboral que PLANREP Sección 15 establece. Los Fideicomisos de Propósito Perpetuo necesitan resolución de disputas cuando surgen conflictos de gobernanza. La Economía de la Contribución necesita arbitraje cuando se cuestiona la validación de contribuciones. El DNP necesita un mecanismo para resolver disputas de elegibilidad. En todos estos casos, la misma arquitectura aplica: panelistas por sorteo, escalamiento en tres niveles, resolución en 15/45/90 días. A medida que la Argentina transita los Tres Horizontes (de una economía centrada en el empleo a una centrada en la contribución), los tipos de conflictos que PLANJUS resuelve van a evolucionar — pero la arquitectura está diseñada para manejar cualquier disputa entre ciudadanos, no solo las comerciales o laborales tradicionales. Esa es la belleza de un sistema construido sobre el juicio humano en vez de la tecnicidad legal: se adapta a lo que sea que la sociedad se convierta.
 
@@ -1412,9 +1412,77 @@ PLANJUS y PLANEDU no son dos mandatos que conviven en paralelo — son dos manda
 
 ### 20.2 La Arquitectura de Gobernanza Popular
 
-La visión de BASTA es profunda: **el pueblo diseña, el pueblo vigila, el gobierno ejecuta**. Cada mandato es una expresión de la voluntad popular para un dominio específico. PLANJUS es el mecanismo por el cual esa voluntad se hace cumplir. Si el gobierno no ejecuta lo que el pueblo diseñó — PLANJUS es la herramienta para exigirlo. Si un funcionario desvía recursos — PLANJUS es el sistema que lo detecta y lo sanciona. Si un interés privado sabotea un mandato — PLANJUS es el escudo que lo frena.
+La visión de ¡BASTA! es profunda: **el pueblo diseña, el pueblo vigila, el gobierno ejecuta**. Cada mandato es una expresión de la voluntad popular para un dominio específico. PLANJUS es el mecanismo por el cual esa voluntad se hace cumplir. Si el gobierno no ejecuta lo que el pueblo diseñó — PLANJUS es la herramienta para exigirlo. Si un funcionario desvía recursos — PLANJUS es el sistema que lo detecta y lo sanciona. Si un interés privado sabotea un mandato — PLANJUS es el escudo que lo frena.
 
-En la arquitectura de BASTA, PLANJUS no es un pilar más. Es el sistema que mantiene en pie a todos los demás.
+En la arquitectura de ¡BASTA!, PLANJUS no es un pilar más. Es el sistema que mantiene en pie a todos los demás.
+
+### 20.4 PLANJUS y PLANDIG: La Justicia que Habita la Red
+
+PLANDIG construye el sistema nervioso digital de la Argentina soberana. PLANJUS lo habita como inquilino principal y como primer caso de uso de alto impacto social. La integración es total: los tres niveles del sistema JUS (JUS-1, JUS-2, JUS-3) operan sobre infraestructura soberana construida por PLANDIG. Los expedientes digitales viven en la Capa 2 con audit trail completo e inviolable. Las resoluciones se publican en la Capa 1 — transparencia radical, verificable por cualquier ciudadano. Las audiencias remotas fluyen por el Mensajero Nacional cifrado, no por Zoom.
+
+El **Modelo Legal Argentino** del LANIA — entrenado sobre todo el corpus jurídico argentino, la jurisprudencia, y los dictámenes — es la herramienta de asistencia más poderosa que un panel ciudadano puede tener. "Casos similares a este se resolvieron así en el 85% de las veces" — no como instrucción sino como información. La IA informa, nunca decide. Esa regla, que PLANJUS definió en su Sección 5.2.1, se implementa con la gobernanza de IA que PLANDIG provee.
+
+La plataforma JUS Digital permite resolución de disputas online para casos JUS-1 simples — un consumidor reclama desde Ushuaia a las 11 de la noche y el sistema ya clasificó, notificó, y agendó mediación antes del amanecer. PLANDIG construye la infraestructura. PLANJUS la habita. Sin PLANDIG, la justicia popular sigue siendo presencial y lenta. Sin PLANJUS, la infraestructura digital más sofisticada del continente no tiene su caso de uso más transformador.
+
+### 20.5 PLANJUS y PLANEB: El Sistema Inmunológico de las Bastardas
+
+Las Empresas Bastardas de PLANEB son entidades sin dueño — DAOs híbridas que operan al costo, gobernadas por sus usuarios. Son el experimento de organización económica más radical de ¡BASTA!. Y como todo organismo radical, necesitan un sistema inmunológico que las proteja de la infección interna sin matarlas con burocracia externa.
+
+PLANJUS provee ese sistema inmunológico en tres niveles. **JUS-1:** mediación comunitaria para disputas entre usuarios de una Bastarda — un socio de la Bastarda Energética que cuestiona su factura, un usuario de la Bastarda Sanitaria que reclama por un turno. Resolución en 15 días, sin abogados, sin costos. **JUS-2:** arbitraje por panel ciudadano especializado para disputas entre Bastardas y reguladores, o entre Bastardas entre sí — la Bastarda Financiera y la ANEB no se ponen de acuerdo sobre estándares de transparencia. Panel en 45 días. **JUS-3:** tribunal de apelación para conflictos estructurales que ponen en riesgo la integridad de la Red Bastarda.
+
+El modelo Kleros de justicia descentralizada — fundado por el argentino Federico Ast — se adapta para el arbitraje interno de las Bastardas: jurado aleatorio de usuarios, incentivos económicos, resolución rápida. Las Casas JUS pueden hospedar las oficinas físicas de las Bastardas en municipios donde se necesite presencia compartida. Sin PLANJUS, la confianza pública en las Bastardas se erosiona al primer conflicto mal resuelto. Con PLANJUS, cada disputa resuelta justamente es una demostración de que las empresas sin dueño funcionan mejor que las empresas con dueño — porque hasta su justicia es del pueblo.
+
+### 20.6 PLANJUS y PLANSAL: Cuando la Salud Necesita Justicia
+
+La incertidumbre legal es un factor de enfermedad tan potente como el tabaco — PLANSAL lo identifica como Raíz 7 del modelo de Doce Raíces. PLANJUS ataca esa raíz directamente: justicia que resuelve en días reduce el cortisol crónico que enferma. Pero la integración va mucho más allá del efecto indirecto.
+
+Las disputas sanitarias en la Argentina de hoy son un calvario: mala praxis médica con juicios de 8 años, conflictos con obras sociales que niegan prestaciones mientras el paciente se deteriora, negligencia hospitalaria que se pierde en expedientes. Las Casas JUS se convierten en punto de entrada para estos conflictos. Un paciente al que la obra social le niega una cirugía presenta su caso en JUS-1 — mediación en 15 días. Si la obra social no cede, JUS-2 con panel especializado en salud resuelve en 45 días. Mientras tanto, la medida cautelar de PLANJUS ordena la cobertura provisoria — porque en salud, esperar es enfermarse más.
+
+PLANJUS protege jurídicamente a la ANVIP (Agencia Nacional de Vitalidad Popular) contra captura política. Los Centros de Vitalidad incorporan mediación familiar como servicio permanente — porque buena parte de las enfermedades crónicas argentinas tienen raíz en conflictos familiares que supuran durante décadas sin resolución. Si la ANVIP rechaza la certificación de un facilitador comunitario elegido por asamblea barrial, la asamblea apela ante PLANJUS. El sistema inmunológico no solo protege contra amenazas externas — protege contra la esclerosis interna de las propias instituciones de ¡BASTA!.
+
+### 20.7 PLANJUS y PLANSUS: La Justicia del Mercado que No Existía
+
+PLANSUS legaliza las sustancias. PLANJUS le da al mercado legal algo que el mercado ilegal nunca tuvo ni podrá tener: un sistema de resolución de disputas. Sin PLANJUS, PLANSUS es regulación sin enforcement — letra muerta en un mercado donde los conflictos se resolvían a los tiros.
+
+Las Casas JUS absorben las disputas comerciales del mercado regulado de sustancias. Un conflicto entre un productor cannábico y un dispensario se resuelve en JUS-1 en 15 días. Un consumidor que recibió producto adulterado reclama en JUS-1 y tiene resolución antes de que el daño se multiplique. Un regulador de ANSUS que excede sus atribuciones enfrenta panel JUS-2 en 45 días. Los mecanismos anticorrupción del triple candado de PLANJUS protegen a ANSUS con la misma arquitectura que protege a ANJUS — porque la tentación de capturar el regulador de un mercado de miles de millones de dólares va a ser feroz.
+
+La justicia restaurativa de PLANJUS aplica especialmente a los conflictos de transición — operadores del mercado ilegal que se integran al mercado legal y necesitan resolver disputas con la comunidad que sufrió la violencia del narcotráfico. Los Paneles Ciudadanos barriales que PLANSUS crea para gobernar El Puente (Sección 6 de PLANSUS) operan con el modelo PLANJUS: sorteo democrático, deliberación informada, resolución vinculante. PLANJUS es la infraestructura de enforcement que hace creíble la promesa de PLANSUS. Sin ella, la legalización es un decreto. Con ella, es un sistema.
+
+### 20.8 PLANJUS y PLANMON: El Escudo de la Nueva Moneda
+
+Toda moneda se sostiene sobre confianza. Y toda confianza se sostiene sobre justicia. Si alguien te roba Pulsos y no tenés dónde reclamar, dejás de usar Pulsos. Si un contrato en peso-canasta se incumple y la resolución tarda cinco años, nadie firma contratos en peso-canasta. PLANJUS es el sistema inmunológico que protege la confianza en la nueva arquitectura monetaria de PLANMON.
+
+Las disputas financieras del nuevo sistema encuentran en PLANJUS su mecanismo natural. Conflictos con El Pulso — un comerciante al que le retuvieron fondos, un usuario que sufrió fraude en una transacción — se resuelven en JUS-1, no en tribunales comerciales colapsados. Disputas con la Bastarda Financiera — un socio que cuestiona tasas, un prestatario que reclama por condiciones crediticias — van a JUS-2 con panel especializado en finanzas. Las Casas JUS funcionan como puntos de acceso físico al Pulso — inclusión financiera con respaldo de justicia en el mismo edificio.
+
+El embargo judicial on-chain es una innovación que solo funciona si PLANJUS y PLANMON operan integrados: una resolución firme de PLANJUS puede congelar Pulsos en la wallet del incumplidor vía protocolo JUS, sin intermediarios bancarios, sin oficios a bancos que tardan semanas. Y cuando PLANMON enfrente su mayor vulnerabilidad — la manipulación de los oracles que alimentan la canasta del peso-canasta — la cadena de bloques será la evidencia forense, y los responsables enfrentarán las consecuencias en el marco de PLANJUS. La nueva moneda necesita nueva justicia. PLANJUS la provee.
+
+### 20.9 PLANJUS y PLANAGUA: El Río que Demanda
+
+PLANAGUA le da a PLANJUS su primer cliente no humano: el río. Cuando el Paraná tiene personería jurídica, necesita un sistema de justicia que la haga real. No la justicia ordinaria — que tarda años, que cuesta fortunas, que diluye todo en tecnicismos procesales. El sistema JUS.
+
+Los guardianes de personería jurídica de ríos — formados conjuntamente por ANAGUA y PLANJUS — representan al río en el sistema de tres niveles. JUS-1 para disputas menores: un agricultor desvía más agua de la que le corresponde, el guardián presenta el caso, mediación en 15 días. JUS-2 para contaminación: una industria vierte efluentes, panel especializado en medio ambiente resuelve en 45 días con los datos del Tablero Nacional del Agua como evidencia primaria — el sensor IoT que registró cromo hexavalente a las 3:47 AM es prueba suficiente, sin esperar seis meses al perito judicial. JUS-3 para conflictos estructurales: una provincia se niega a cumplir el Pacto Federal Hídrico, ANAGUA escala, resolución vinculante con retención de coparticipación como mecanismo de cumplimiento.
+
+PLANJUS procesa la Ley de Criosfera — la protección legal de glaciares y ambientes periglaciares que PLANAGUA establece. Las denuncias por violación de esta ley entran al sistema JUS con prioridad ambiental. Los ríos demandan a quien los contamina. Los glaciares tienen voz a través de sus guardianes. PLANJUS es el sistema donde esa voz se escucha y donde la sentencia se ejecuta — porque una justicia ambiental que tarda diez años es complicidad disfrazada de proceso.
+
+### 20.10 PLANJUS y PLANGEO: La Justicia que Se Exporta
+
+PLANGEO organiza los dieciséis mandatos de ¡BASTA! en siete Stacks de Soberanía exportables. PLANJUS ocupa uno entero: el **Stack de Soberanía Jurídica** — tribunales ciudadanos, resolución algorítmica, acceso a justicia. 5.100 millones de personas en el mundo no tienen acceso efectivo a justicia. 140 países tienen sistemas judiciales colapsados. PLANJUS no es solo una reforma argentina — es un producto exportable que resuelve un problema global.
+
+Pero la integración con PLANGEO tiene un segundo eje, defensivo y urgente: la protección de las reformas ¡BASTA! contra litigios internacionales. Cuando las Bastardas desplacen a aseguradoras multinacionales, van a llover demandas en el CIADI y en tribunales UNCITRAL por "expropiación regulatoria." PLANJUS provee el argumento jurídico: la Argentina tiene un sistema de justicia funcional, transparente, verificable, que resuelve en semanas lo que otros tardan años. La defensa anti-CIADI se construye mostrando que las reformas no son arbitrarias — son producto de gobernanza popular legítima, con mecanismos de resolución de disputas que superan en velocidad, transparencia y acceso a cualquier tribunal internacional.
+
+El reconocimiento internacional de las resoluciones JUS — vía standards track en IEEE, convenios bilaterales de reconocimiento recíproco, y alianzas con países con sistemas judiciales colapsados — convierte a PLANJUS en la punta de lanza diplomática de ¡BASTA!. Es difícil oponerse públicamente a "mejorar el acceso a la justicia." La resistencia será sorda, no vocal. Y mientras resisten en silencio, la Red Soberana adopta el Stack Jurídico y PLANJUS se convierte en estándar de facto para resolución de disputas rápida, transparente y verificable.
+
+### 20.11 PLANJUS × PLANEN: Disputas Energéticas
+
+Las Casas JUS resuelven disputas energéticas: conflictos tarifarios con la Bastarda Energética, disputas ambientales por fracking, y conflictos de generación distribuida (net metering). Los ríos con personería jurídica (PLANAGUA) también demandan por impacto energético — PLANJUS procesa esas causas.
+
+### 20.12 PLANJUS × PLANSEG: La Frontera entre Justicia y Seguridad
+
+PLANJUS resuelve conflictos; PLANSEG previene delitos. La línea entre ambos es nítida por diseño: cuando un conflicto vecinal escala a amenaza concreta, la Estación Barrial de PLANSEG interviene; cuando un delito genera una víctima que necesita reparación, la Casa JUS de PLANJUS procesa el caso. Las Casas JUS y las Estaciones Barriales son infraestructura complementaria — en muchos barrios, co-localizadas en el mismo edificio, compartiendo datos y protocolos de derivación. PLANSEG aporta la presencia disuasoria que permite que PLANJUS funcione sin miedo; PLANJUS aporta la resolución rápida que descomprime la tensión social antes de que se convierta en inseguridad.
+
+### 20.13 PLANJUS × PLANVIV: La Justicia del Techo
+
+La urbanización de 1.800 asentamientos informales genera el mayor volumen de disputas de propiedad en la historia argentina — y PLANJUS las resuelve. Regularización de títulos, conflictos de posesión entre familias que ocuparon el mismo lote en décadas distintas, disputas entre vecinos por límites que nunca tuvieron agrimensura, y protección de inquilinos contra desalojos abusivos — todo pasa por las Casas JUS. El sistema de tres niveles de PLANJUS (autogestión asistida, mediación, paneles ciudadanos) es la única infraestructura capaz de procesar esa escala de conflictos sin colapsar: el Poder Judicial actual tardaría décadas en titular una sola villa. PLANJUS lo hace en meses. Sin justicia de propiedad rápida y accesible, la urbanización de PLANVIV es obra pública sin seguridad jurídica — y un título sin certeza no vale más que el papel donde está impreso.
 
 ---
 
@@ -1440,7 +1508,7 @@ Los empleados judiciales que temían PLANJUS son, hoy, los coordinadores de Casa
 
 Hay 800 Casas JUS en todo el país. En cada pueblo, en cada barrio, en cada ciudad. Espacios luminosos, abiertos, donde la justicia tiene cara de vecino. Donde un panelista puede ser tu prima, tu panadero, tu vecina de enfrente — y eso no es una debilidad del sistema, es su mayor fortaleza. Porque la justicia no pertenece a una casta profesional. Pertenece al pueblo.
 
-Y PLANJUS es más que un sistema de justicia. Es la prueba viviente de que otra forma de gobernarse es posible. Que el pueblo puede diseñar las reglas, vigilar el cumplimiento, y resolver sus conflictos — sin necesitar que una élite le diga cómo, cuándo, y cuánto le va a costar. PLANJUS es el quinto dedo de la mano que dice BASTA. Pero es el dedo que cierra el puño.
+Y PLANJUS es más que un sistema de justicia. Es la prueba viviente de que otra forma de gobernarse es posible. Que el pueblo puede diseñar las reglas, vigilar el cumplimiento, y resolver sus conflictos — sin necesitar que una élite le diga cómo, cuándo, y cuánto le va a costar. PLANJUS es el quinto dedo de la mano que dice ¡BASTA!. Pero es el dedo que cierra el puño.
 
 Porque un pueblo con educación sabe. Un pueblo con trabajo digno produce. Un pueblo con suelo vivo come. Un pueblo con ciudades bellas habita. Pero un pueblo con justicia propia **se gobierna**.
 
@@ -1466,7 +1534,7 @@ No hay más excusas. No hay más "pero primero hay que reformar." No hay más "e
 
 Este es el instante del Hombre Gris. El momento en que el pueblo argentino deja de esperar que la justicia baje de un edificio con columnas y empieza a hacerla — en su barrio, con sus vecinos, con sus propias manos. No porque el Estado se lo permita. Porque el Estado ya no puede impedirlo. PLANJUS no es un plan más. Es el punto de no retorno. Es el instante donde la gente deja de esperar justicia y empieza a producirla.
 
-Y cuando la Argentina complete la transición que los otros cuatro mandatos de BASTA están construyendo — de una economía del empleo a una economía de la contribución — PLANJUS seguirá ahí. Porque donde hay personas, hay conflictos. Y donde hay conflictos, hace falta justicia. La forma del conflicto cambia. La necesidad de resolverlo, nunca.
+Y cuando la Argentina complete la transición que los otros cuatro mandatos de ¡BASTA! están construyendo — de una economía del empleo a una economía de la contribución — PLANJUS seguirá ahí. Porque donde hay personas, hay conflictos. Y donde hay conflictos, hace falta justicia. La forma del conflicto cambia. La necesidad de resolverlo, nunca.
 
 ---
 
@@ -1710,9 +1778,9 @@ PLANJUS no opera en una isla. Para que la ejecución funcione, para que las rete
 
 La integración no es negociable. Sin ella, PLANJUS es un sistema que dicta resoluciones que no puede ejecutar — es decir, el sistema viejo con otro nombre. La ANJUS tiene el mandato legal de celebrar estos convenios, y la Ley de Justicia Popular les da fuerza vinculante. Si un banco demora una retención, la OEJ informa al BCRA y el BCRA sanciona. Si AFIP no coopera, la ANJUS eleva al Poder Ejecutivo. La cadena de responsabilidad es clara y pública.
 
-### 23.5 Transparencia Presupuestaria — El Dashboard del Dinero
+### 23.5 Transparencia Presupuestaria — El Tablero del Dinero
 
-Todo el dinero que entra y sale de PLANJUS está publicado en un dashboard financiero de acceso público — actualizado diariamente, desagregado por categoría, por provincia, por mes. No existe "información reservada" en las finanzas de PLANJUS. Si la ANJUS compra biromes, aparece en el dashboard.
+Todo el dinero que entra y sale de PLANJUS está publicado en un tablero financiero de acceso público — actualizado diariamente, desagregado por categoría, por provincia, por mes. No existe "información reservada" en las finanzas de PLANJUS. Si la ANJUS compra biromes, aparece en el tablero.
 
 **TABLA 16: Estructura Presupuestaria de PLANJUS — Categorías y Destino**
 
@@ -1727,7 +1795,7 @@ Todo el dinero que entra y sale de PLANJUS está publicado en un dashboard finan
 | **FREJUS (aporte presupuestario)** | 5–8% | Capitalización del Fondo de Restitución | Rendición separada; estado del fondo publicado diariamente |
 | **Reserva y contingencias** | 2–3% | Fondo para imprevistos, emergencias provinciales, expansión acelerada | Solo se usa con autorización del Directorio de la ANJUS, publicada |
 
-**El principio del tope salarial:** Ningún funcionario de la ANJUS — desde el director hasta el último administrativo — gana más que un juez de primera instancia del sistema tradicional. Y el director de la ANJUS gana *menos* que un juez de Cámara. ¿Por qué? Porque PLANJUS no puede predicar austeridad y transparencia si sus propios jefes se pagan como maharajás. La legitimidad empieza por casa. El dashboard muestra cada sueldo de cada categoría — no los nombres individuales (eso sería invasivo), pero sí el rango salarial, la cantidad de personas en cada rango, y el total. Si el pueblo ve que el 38% del presupuesto va a panelistas y el 9% a administración, confía. Si ve que el 50% va a "gastos administrativos" y nadie puede explicar por qué, no confía. Y tiene razón.
+**El principio del tope salarial:** Ningún funcionario de la ANJUS — desde el director hasta el último administrativo — gana más que un juez de primera instancia del sistema tradicional. Y el director de la ANJUS gana *menos* que un juez de Cámara. ¿Por qué? Porque PLANJUS no puede predicar austeridad y transparencia si sus propios jefes se pagan como maharajás. La legitimidad empieza por casa. El tablero muestra cada sueldo de cada categoría — no los nombres individuales (eso sería invasivo), pero sí el rango salarial, la cantidad de personas en cada rango, y el total. Si el pueblo ve que el 38% del presupuesto va a panelistas y el 9% a administración, confía. Si ve que el 50% va a "gastos administrativos" y nadie puede explicar por qué, no confía. Y tiene razón.
 
 ### 23.6 Flujos Financieros por Tipo de Caso
 
@@ -1786,7 +1854,7 @@ El **Fondo de Emergencia Provincial** funciona como un mecanismo de solidaridad 
 - **Financiamiento:** 5% del presupuesto total de la ANJUS se destina al Fondo de Emergencia.
 - **Criterio de activación:** Se activa cuando una provincia tiene costos operativos per cápita superiores al 130% del promedio nacional, o cuando la demanda de casos supera la capacidad instalada en más de un 20%.
 - **Uso:** Apertura acelerada de Casas JUS, contratación de personal OEJ adicional, refuerzo de la plataforma digital, formación extra de panelistas, aporte al FREJUS provincial.
-- **Rendición:** Cada peso del Fondo de Emergencia se rinde por separado en el dashboard financiero. El uso queda registrado, justificado, y publicado.
+- **Rendición:** Cada peso del Fondo de Emergencia se rinde por separado en el tablero financiero. El uso queda registrado, justificado, y publicado.
 
 | Indicador | Umbral de activación | Acción |
 |---|---|---|
@@ -1839,7 +1907,7 @@ El dinero en un sistema de justicia es como el agua en un cuerpo. Si fluye — s
 
 El sistema judicial argentino tiene el agua estancada. El 96% del presupuesto se queda en sueldos — el agua no circula, se acumula en los mismos charcos de siempre. Los acreedores que ganan juicios no cobran — el agua no llega a donde tiene que llegar. Los costos de litigar son astronómicos — el agua está contaminada con intermediarios que la encarecen sin purificarla. Y las provincias pobres tienen menos justicia que las ricas — el agua no llega a los extremos del cuerpo.
 
-PLANJUS diseña la cañería desde cero. La Billetera JUS hace que los panelistas cobren en 48 horas — el agua llega fresca. El FREJUS garantiza que las víctimas cobren primero y el sistema ejecute después — el agua llega a quien la necesita. La integración con BCRA y AFIP hace que las retenciones se ejecuten en horas, no en meses — el agua fluye sin obstrucciones. La Tasa Comercial JUS hace que el sector privado financie su propia eficiencia — el agua se renueva. El Fondo de Emergencia Provincial hace que Formosa tenga la misma justicia que CABA — el agua llega a los extremos. Y el dashboard financiero público hace que todo el sistema sea visible — el agua es transparente.
+PLANJUS diseña la cañería desde cero. La Billetera JUS hace que los panelistas cobren en 48 horas — el agua llega fresca. El FREJUS garantiza que las víctimas cobren primero y el sistema ejecute después — el agua llega a quien la necesita. La integración con BCRA y AFIP hace que las retenciones se ejecuten en horas, no en meses — el agua fluye sin obstrucciones. La Tasa Comercial JUS hace que el sector privado financie su propia eficiencia — el agua se renueva. El Fondo de Emergencia Provincial hace que Formosa tenga la misma justicia que CABA — el agua llega a los extremos. Y el tablero financiero público hace que todo el sistema sea visible — el agua es transparente.
 
 No es un sistema perfecto. Es un sistema honesto. Cada peso tiene un destino. Cada destino tiene un control. Cada control tiene una publicación. Y cada publicación tiene 46 millones de auditores — los argentinos, que por primera vez en la historia, van a poder ver exactamente cuánto cuesta su justicia, a dónde va cada centavo, y si el precio que pagan vale lo que reciben.
 
@@ -1850,7 +1918,7 @@ Y si no vale — tienen PLANJUS para reclamar. Que es, al final, la prueba defin
 
 > *"La paranoia no es una enfermedad cuando te están mirando de verdad. Un sistema que administra la justicia de 46 millones de personas no se puede dar el lujo de confiar — tiene que verificar. Todo. Siempre."*
 
-Un sistema de justicia que resuelve cinco millones de casos por año es un blanco. No porque sea malo — porque tiene poder. Poder sobre conflictos, sobre datos sensibles, sobre la credibilidad de todo el proyecto BASTA. Un ataque exitoso contra PLANJUS no roba dinero — roba confianza. Y la confianza, a diferencia del dinero, no se puede devolver con un reembolso. Se tarda años en construirla y segundos en destruirla.
+Un sistema de justicia que resuelve cinco millones de casos por año es un blanco. No porque sea malo — porque tiene poder. Poder sobre conflictos, sobre datos sensibles, sobre la credibilidad de todo el proyecto ¡BASTA!. Un ataque exitoso contra PLANJUS no roba dinero — roba confianza. Y la confianza, a diferencia del dinero, no se puede devolver con un reembolso. Se tarda años en construirla y segundos en destruirla.
 
 Las amenazas no vienen de un solo frente. Vienen de afuera (un hacker que quiere demostrar que puede), de adentro (un empleado que se corrompe o se equivoca), de arriba (un gobierno que quiere controlar lo que no puede capturar), y del caos (un terremoto, un corte de energía, un bug que nadie vio). Esta sección construye las defensas para todos esos frentes. No con optimismo — con ingeniería.
 
@@ -1863,7 +1931,7 @@ La plataforma PLANJUS opera sobre infraestructura cloud distribuida con **reside
 - **Zero-trust architecture.** Nadie es confiable por defecto — ni los administradores, ni los panelistas, ni los servidores. Cada solicitud se autentica, cada acceso se verifica, cada operación se registra. No hay "zonas seguras" internas. Todo es frontera.
 - **Infraestructura multi-cloud redundante.** Mínimo dos proveedores cloud (AWS + GCP o Azure) con data centers en Argentina. Si uno cae, el otro asume en menos de 4 horas. Si los dos caen — algo que estadísticamente ocurre cada 500 años — se activa el protocolo presencial (ver 24.6).
 - **Encriptación end-to-end.** Todas las comunicaciones entre partes, panelistas, y la plataforma están encriptadas con protocolos de grado militar (TLS 1.3 mínimo, AES-256 para datos en reposo). Nadie — ni siquiera el equipo técnico de ANJUS — puede leer una comunicación entre una parte y su panel sin autorización judicial.
-- **Penetration testing trimestral.** Firmas independientes de seguridad (mínimo dos, rotando anualmente) intentan vulnerar la plataforma cada 90 días. Los resultados se publican en el dashboard de ANJUS — incluyendo las vulnerabilidades encontradas y cómo se corrigieron. Si una firma encuentra un agujero, eso no es una vergüenza — es el sistema funcionando.
+- **Penetration testing trimestral.** Firmas independientes de seguridad (mínimo dos, rotando anualmente) intentan vulnerar la plataforma cada 90 días. Los resultados se publican en el tablero de ANJUS — incluyendo las vulnerabilidades encontradas y cómo se corrigieron. Si una firma encuentra un agujero, eso no es una vergüenza — es el sistema funcionando.
 - **Segmentación de red.** La plataforma está dividida en microservicios aislados. El módulo de gestión de casos no puede acceder al módulo de identidad de panelistas. El módulo de audiencias virtuales no puede acceder al registro inmutable. Un exploit en un módulo no compromete el sistema completo — compromete una habitación, no el edificio.
 
 **TABLA 18: Arquitectura de Seguridad por Capas**
@@ -1887,7 +1955,7 @@ PLANJUS maneja los datos más sensibles que un sistema estatal puede manejar: co
 
 | Clasificación | Qué incluye | Quién accede | Publicación |
 |---|---|---|---|
-| **PÚBLICO** | Resoluciones (anonimizadas en familia/menores), estadísticas agregadas, métricas del dashboard, demografía del pool de panelistas, presupuesto ejecutado, patrones de casos por tipo y región | Cualquier ciudadano | Tiempo real en dashboard público |
+| **PÚBLICO** | Resoluciones (anonimizadas en familia/menores), estadísticas agregadas, métricas del tablero, demografía del pool de panelistas, presupuesto ejecutado, patrones de casos por tipo y región | Cualquier ciudadano | Tiempo real en tablero público |
 | **ANONIMIZADO** | Detalles de casos individuales en familia y menores, evidencia relacionada con salud mental, datos de contexto en casos de GBV, evaluaciones individuales de panelistas | Panelistas del caso, partes involucradas, ANJUS con autorización del Director de Datos | Disponible para investigación académica con protocolo de anonimización irreversible |
 | **SELLADO** | Identidad de menores en todos los casos, identidad de víctimas de GBV cuando lo solicitan, identidad de testigos en derivaciones a penal, datos biométricos de panelistas, claves de acceso | Solo sistema automatizado + Director de Datos de ANJUS con autorización judicial | Nunca. Destrucción programada según protocolo de retención |
 
@@ -2023,7 +2091,7 @@ No todas las fallas son iguales. Una falla individual (un panelista corrupto) no
 | **Conducta indebida de panelista** (sesgo, corrupción, incompetencia descubierta post-resolución) | Alta | Anomalía estadística en resoluciones + denuncia de parte + evaluación post-caso <40% | Suspensión inmediata del panelista. Revisión de todos sus casos (ver 25.2). Derivación penal si hay corrupción. Notificación a todas las partes afectadas en 72h. | Auditoría del proceso de formación y certificación. ¿Cómo pasó el filtro? ¿Qué señal se ignoró? Ajuste de criterios de selección y evaluación continua. |
 | **Error sistémico de IA** (categorización incorrecta que afecta múltiples casos: JUS-1 clasificados como JUS-2, consistencia sugiriendo resoluciones erradas) | Alta | Alerta de anomalía estadística + revisión de calidad trimestral + denuncia acumulada de panelistas | Suspensión del módulo de IA afectado. Reversa a proceso manual para categorización/consistencia. Revisión de todos los casos afectados. | Análisis de causa raíz del modelo. ¿Datos de entrenamiento sesgados? ¿Drift del modelo? ¿Caso edge no contemplado? Re-entrenamiento con datos corregidos + validación por comité técnico + testing antes de reactivar. |
 | **Falla catastrófica de plataforma** (>24h de downtime) | Muy alta | Monitoreo automatizado + incapacidad de operar | Activación automática de protocolo presencial de emergencia (S24.6). Equipo de crisis tech desplegado. Comunicación pública en 4h. Suspensión de plazos procesales. | Post-mortem técnico completo. ¿Fallo de infraestructura? ¿Ataque? ¿Error de deploy? Implementar redundancia adicional en el punto de falla. Publicar informe técnico accesible. |
-| **Colapso de implementación provincial** (una provincia pierde capacidad de operar: sin panelistas, sin Casas JUS, sin coordinación) | Muy alta | Dashboard provincial con KPIs <30% del target durante 2 trimestres + informes de campo | ANJUS envía equipo de intervención provincial. Panelistas de provincias vecinas cubren casos urgentes. Casas JUS itinerantes como medida de emergencia. Evaluación de causas en 30 días. | ¿El convenio provincial era frágil? ¿Dependía de una sola persona? ¿Había sub-financiamiento? Rediseñar el modelo de implementación provincial con más redundancia institucional y menos dependencia de voluntad política local. |
+| **Colapso de implementación provincial** (una provincia pierde capacidad de operar: sin panelistas, sin Casas JUS, sin coordinación) | Muy alta | Tablero provincial con KPIs <30% del target durante 2 trimestres + informes de campo | ANJUS envía equipo de intervención provincial. Panelistas de provincias vecinas cubren casos urgentes. Casas JUS itinerantes como medida de emergencia. Evaluación de causas en 30 días. | ¿El convenio provincial era frágil? ¿Dependía de una sola persona? ¿Había sub-financiamiento? Rediseñar el modelo de implementación provincial con más redundancia institucional y menos dependencia de voluntad política local. |
 | **Intento de captura política** (gobierno intenta desfinanciar, intervenir, o controlar ANJUS) | Crítica | Señales: proyecto de ley que modifica ANJUS, reducción presupuestaria no justificada, intento de remover directores fuera de protocolo | Activación de todas las defensas institucionales: blindaje constitucional del presupuesto, amparo judicial inmediato, comunicación pública masiva, movilización de los 50.000+ panelistas como red ciudadana, denuncia ante organismos internacionales. | Análisis de qué flanco institucional fue vulnerable. ¿El blindaje constitucional es suficiente? ¿Los mandatos escalonados funcionaron? ¿Hay que reforzar la independencia presupuestaria? Propuesta de reforma de fortalecimiento a Congreso en 60 días. |
 | **Inundación de casos falsos** (adversario inunda el sistema con presentaciones fraudulentas para colapsar la capacidad) | Media-Alta | Spike anómalo de presentaciones + patrones de texto repetitivos + IPs sospechosas + tasa inusual de presentaciones sin respuesta de la otra parte | Filtros automáticos reforzados. Verificación de identidad reforzada para nuevas presentaciones. Rate limiting por usuario. Casos sospechosos en cola separada para revisión manual. | ¿Los filtros anti-fraude eran suficientes? ¿Faltaba verificación de identidad en algún punto? ¿Puede el sistema distinguir mejor entre caso legítimo y caso falso? Implementar CAPTCHA inteligente + scoring de legitimidad + verificación RENAPER reforzada. |
 | **Falla de enforcement** (incumplimiento sistemático de resoluciones en una región: las resoluciones se dictan pero no se cumplen) | Alta | Tasa de cumplimiento <50% en una provincia durante 2 trimestres + informes de partes | Investigación de ANJUS sobre causas. Si es falta de mecanismo ejecutorio: refuerzo de convenio con Poder Judicial para ejecución. Si es resistencia de actores poderosos: publicación de datos de incumplimiento + acción judicial contra incumplidores + derivación penal por desacato. | ¿El mecanismo de ejecución de resoluciones es suficiente? ¿Hacen falta sanciones más fuertes? ¿Hay que ampliar la potestad de PLANJUS para ejecutar directamente (embargo, retención de haberes)? Propuesta de reforma del mecanismo ejecutorio. |
@@ -2052,26 +2120,26 @@ Cuando una falla afecta casos ya resueltos, PLANJUS no le dice a la gente "mala 
 | Falla de plataforma prolongada | Extensión de plazos + prioridad de resolución para casos demorados | Comunicación general a todos los usuarios activos | Compensación por lucro cesante si el retraso causó daño demostrable |
 | Falla de enforcement | Re-ejecución de la resolución con mecanismos reforzados | Notificación personal a partes con resolución incumplida | Fondo de Compensación para costos incurridos por el incumplimiento |
 
-**4. Divulgación pública.** Cada evento de remediación se publica en el dashboard de ANJUS. No como nota al pie — como sección destacada. Cuántos casos se revisaron, cuántos se re-resolvieron, cuánto se compensó, y por qué. Porque la remediación escondida no es remediación — es gestión de imagen.
+**4. Divulgación pública.** Cada evento de remediación se publica en el tablero de ANJUS. No como nota al pie — como sección destacada. Cuántos casos se revisaron, cuántos se re-resolvieron, cuánto se compensó, y por qué. Porque la remediación escondida no es remediación — es gestión de imagen.
 
 ### 25.3 Protocolo Post-Mortem
 
 Cada falla significativa (nivel 3 o superior en la tabla de incidentes, cualquier tipo de falla de la taxonomía del 25.1) activa un protocolo post-mortem que no es opcional, no es privado, y no es cosmético.
 
 **Fase 1: Informe preliminar — 72 horas.**
-El equipo responsable del área afectada produce un informe preliminar que responde cinco preguntas: ¿Qué pasó? ¿Cuándo empezó? ¿Cuántos casos/personas se vieron afectados? ¿Qué se hizo inmediatamente? ¿Qué se va a hacer en los próximos 30 días? El informe se publica en el dashboard de ANJUS. Sin pulir. Sin lenguaje corporativo. Con la verdad cruda.
+El equipo responsable del área afectada produce un informe preliminar que responde cinco preguntas: ¿Qué pasó? ¿Cuándo empezó? ¿Cuántos casos/personas se vieron afectados? ¿Qué se hizo inmediatamente? ¿Qué se va a hacer en los próximos 30 días? El informe se publica en el tablero de ANJUS. Sin pulir. Sin lenguaje corporativo. Con la verdad cruda.
 
 **Fase 2: Análisis de causa raíz — 30 días.**
 Un equipo independiente (no el equipo que causó o gestionó la falla) realiza un análisis de causa raíz usando metodología de los "5 porqués": no basta con saber qué falló — hay que saber por qué falló, y por qué existían las condiciones para que fallara, y por qué nadie las había detectado antes. El análisis incluye entrevistas con todos los involucrados, revisión de registros, análisis de datos, y comparación con incidentes similares en otros sistemas (nacionales e internacionales).
 
 **Fase 3: Publicación completa.**
-El informe completo de causa raíz se publica en el dashboard de ANJUS. Accesible para cualquier ciudadano. En lenguaje claro — no en jerga técnica. Incluye: narración cronológica del incidente, análisis de causas, identificación de responsables (institucionales, no necesariamente personales), modificaciones implementadas, y plan de seguimiento.
+El informe completo de causa raíz se publica en el tablero de ANJUS. Accesible para cualquier ciudadano. En lenguaje claro — no en jerga técnica. Incluye: narración cronológica del incidente, análisis de causas, identificación de responsables (institucionales, no necesariamente personales), modificaciones implementadas, y plan de seguimiento.
 
 **Fase 4: Modificación del sistema.**
 Cada post-mortem termina con al menos una modificación concreta al sistema. No "recomendaciones" — modificaciones implementadas, con fecha de implementación, responsable, y mecanismo de verificación. Si la falla fue de un panelista, se modifica el proceso de selección o evaluación. Si fue de la IA, se modifica el modelo o el protocolo de supervisión. Si fue de infraestructura, se refuerza la redundancia. No hay post-mortem sin cambio.
 
-**Fase 5: Actualización del dashboard.**
-El dashboard público de PLANJUS incluye una sección permanente: **"Fallas y aprendizajes."** Cada falla significativa tiene su entrada. Cada entrada muestra: qué pasó, qué se hizo, y qué cambió. Esta sección no está escondida en un rincón — está visible. Porque las fallas no son la vergüenza de PLANJUS. Son la prueba de que funciona como un sistema que aprende.
+**Fase 5: Actualización del tablero.**
+El tablero público de PLANJUS incluye una sección permanente: **"Fallas y aprendizajes."** Cada falla significativa tiene su entrada. Cada entrada muestra: qué pasó, qué se hizo, y qué cambió. Esta sección no está escondida en un rincón — está visible. Porque las fallas no son la vergüenza de PLANJUS. Son la prueba de que funciona como un sistema que aprende.
 
 ### 25.4 El Mecanismo de Antifragilidad
 
@@ -2098,7 +2166,7 @@ Hay una tentación que acecha a todo sistema institucional: esconder las fallas.
 
 PLANJUS rechaza esa tentación por diseño, no por voluntad.
 
-El dashboard de fallas y aprendizajes es público por arquitectura — no hay botón para esconderlo. Los post-mortem son obligatorios por protocolo — no hay excepción para "casos políticamente sensibles." Las notificaciones a partes afectadas son automáticas — no dependen de que un funcionario decida que "es conveniente informar."
+El tablero de fallas y aprendizajes es público por arquitectura — no hay botón para esconderlo. Los post-mortem son obligatorios por protocolo — no hay excepción para "casos políticamente sensibles." Las notificaciones a partes afectadas son automáticas — no dependen de que un funcionario decida que "es conveniente informar."
 
 Porque la paradoja es la siguiente: un sistema que muestra sus fallas genera más confianza que uno que finge no tenerlas. El ciudadano no espera perfección — espera honestidad. Cuando PLANJUS dice "tuvimos un panelista corrupto, lo detectamos en 47 días, revisamos los 83 casos en los que participó, ofrecimos re-resolución a las 166 partes afectadas, y modificamos el proceso de selección para que no se repita" — ese ciudadano confía más, no menos. Porque sabe que si algo sale mal, se va a enterar. Y se va a hacer algo.
 
@@ -2396,12 +2464,12 @@ Si PLANJUS logra — y va a lograr — resoluciones comerciales internacionales 
 
 Eso no es solo justicia. Es política exterior. Es competitividad. Es decirle al mundo: "Vengan a hacer negocios con nosotros. Si hay un problema, lo resolvemos en tres meses. No en tres años."
 
-Un sistema de justicia que funciona no solo protege a los que están adentro. Atrae a los que están afuera. Y un país que atrae — negocios, talento, confianza — es un país que crece. PLANJUS no es solo el quinto pilar de BASTA. Es la carta de presentación de la Argentina ante un mundo que dejó de creer en nuestras promesas — y necesita que le mostremos resultados.
+Un sistema de justicia que funciona no solo protege a los que están adentro. Atrae a los que están afuera. Y un país que atrae — negocios, talento, confianza — es un país que crece. PLANJUS no es solo el quinto pilar de ¡BASTA!. Es la carta de presentación de la Argentina ante un mundo que dejó de creer en nuestras promesas — y necesita que le mostremos resultados.
 
 ---
 
 **FIN DEL DOCUMENTO**
 
 **PLANJUS v1.1 — Marzo 2026**
-**Proyecto BASTA — El Instante del Hombre Gris**
+**Proyecto ¡BASTA! — El Instante del Hombre Gris**
 **Preparado para la República Argentina**

@@ -1,6 +1,6 @@
 # AUDITORÍA DE COHERENCIA ESTRATÉGICA MAESTRA
 
-## Los 12 PLANes de BASTA como Sistema Integrado
+## Los 12 PLANes de ¡BASTA! como Sistema Integrado
 
 **Documento 06 de la Serie de Auditoría**
 **Clasificación: Evaluación Estratégica de Máxima Profundidad**
@@ -14,7 +14,7 @@
 
 ## RESUMEN EJECUTIVO
 
-Este documento evalúa si los 12 PLANes de BASTA constituyen una estrategia nacional coherente o una colección de documentos ambiciosos sin articulación real. La auditoría opera sobre cuatro ejes: coherencia narrativa, vulnerabilidades adversariales, verificación de sinergias, e inteligencia del diseño estratégico.
+Este documento evalúa si los 12 PLANes de ¡BASTA! constituyen una estrategia nacional coherente o una colección de documentos ambiciosos sin articulación real. La auditoría opera sobre cuatro ejes: coherencia narrativa, vulnerabilidades adversariales, verificación de sinergias, e inteligencia del diseño estratégico.
 
 **Veredicto anticipado:** La arquitectura estratégica es genuinamente sofisticada --- probablemente la propuesta de transformación nacional más ambiciosa y sistémicamente pensada producida en América Latina en décadas. Sin embargo, su misma ambición genera vulnerabilidades estructurales que un adversario competente puede explotar. El documento que sigue detalla ambas dimensiones con la honestidad que el proyecto merece.
 
@@ -53,7 +53,7 @@ Los 12 documentos describen inequívocamente la misma Argentina. Las personas fi
 
 ### 1.3 La Metáfora del Cuerpo
 
-BASTA utiliza una metáfora orgánica consistente:
+¡BASTA! utiliza una metáfora orgánica consistente:
 - PLANJUS = sistema inmunológico
 - PLANDIG = sistema nervioso
 - PLANMON = sistema circulatorio (la sangre)
@@ -76,7 +76,7 @@ He leído los 12 PLANes como los leerían sus adversarios más peligrosos: un ec
 
 **El ataque:** "Todo esto depende de que un solo gobierno lo implemente y de que los siguientes no lo desarmen."
 
-**La realidad:** BASTA requiere al menos 10-15 años de implementación sostenida. Argentina cambió de orientación política radical cada 4-8 años durante el último siglo. Cada PLAN propone entes autárquicos blindados contra el ciclo electoral (ANCE, ANJUS, ANSUS, ANEB, ANAGUA, ANDIG, ANMON), leyes con pisos presupuestarios constitucionales, y constituencies de beneficiarios que hagan políticamente costoso desmantelar.
+**La realidad:** ¡BASTA! requiere al menos 10-15 años de implementación sostenida. Argentina cambió de orientación política radical cada 4-8 años durante el último siglo. Cada PLAN propone entes autárquicos blindados contra el ciclo electoral (ANCE, ANJUS, ANSUS, ANEB, ANAGUA, ANDIG, ANMON), leyes con pisos presupuestarios constitucionales, y constituencies de beneficiarios que hagan políticamente costoso desmantelar.
 
 **Pero:** Crear 9+ entes autárquicos requiere mayorías legislativas. Un gobierno que logre eso tendría que ser históricamente excepcional. Y un gobierno sucesor hostil no necesita "desmantelar" --- basta con desfinanciar, nombrar directivos afines, o simplemente no ejecutar. La historia argentina tiene precedentes: el CONICET sobrevivió a todos los gobiernos pero fue vaciado repetidamente. INTA sobrevivió pero fue reducido. La autarquía legal no garantiza la autarquía real cuando la cultura institucional argentina permite la captura sutil.
 
@@ -107,7 +107,7 @@ El PBI argentino es ~USD 640B (2024). Esto representa entre 1.5% y 2.7% del PBI 
 
 **Pero:** Ningún documento presenta la suma consolidada. Cada plan justifica su financiamiento individualmente, pero la pregunta adversarial es: ¿puede Argentina ejecutar 12 mega-proyectos simultáneamente? La capacidad de ejecución presupuestaria del Estado argentino es históricamente débil --- el gobierno rara vez ejecuta más del 85% de su presupuesto de inversión aprobado. Multiplicar por 12 la complejidad no multiplica linealmente la capacidad de ejecución.
 
-**Lo que falta:** Un presupuesto consolidado BASTA con priorización temporal explícita. ¿Qué se hace primero si hay restricción fiscal? ¿Qué se posterga? La ausencia de este documento es la mayor vulnerabilidad fiscal del proyecto.
+**Lo que falta:** Un presupuesto consolidado ¡BASTA! con priorización temporal explícita. ¿Qué se hace primero si hay restricción fiscal? ¿Qué se posterga? La ausencia de este documento es la mayor vulnerabilidad fiscal del proyecto.
 
 ---
 
@@ -132,7 +132,7 @@ El PBI argentino es ~USD 640B (2024). Esto representa entre 1.5% y 2.7% del PBI 
 
 **El ataque:** "Estos 12 planes fueron escritos por una persona (o un equipo pequeño). No pasaron por ningún proceso democrático. Proponen crear 9+ entes autárquicos que escapan al control del Congreso. Proponen reemplazar el Banco Central, el Poder Judicial, y el sistema educativo completo. ¿Con qué mandato?"
 
-**La realidad:** Cada PLAN propone leyes que deben ser sancionadas por el Congreso. Los Paneles Ciudadanos por sorteo democrático son un mecanismo de legitimación. Pero la objeción tiene fuerza retórica devastadora: un opositor puede decir que BASTA es un proyecto autoritario disfrazado de participación ciudadana, donde los entes autárquicos están diseñados para escapar de la alternancia democrática.
+**La realidad:** Cada PLAN propone leyes que deben ser sancionadas por el Congreso. Los Paneles Ciudadanos por sorteo democrático son un mecanismo de legitimación. Pero la objeción tiene fuerza retórica devastadora: un opositor puede decir que ¡BASTA! es un proyecto autoritario disfrazado de participación ciudadana, donde los entes autárquicos están diseñados para escapar de la alternancia democrática.
 
 **Lo que falta:** Una estrategia de construcción de legitimidad pre-legislativa. Los PLANes saltan de "diagnóstico brillante" a "ley sancionada" sin describir el proceso intermedio: las audiencias públicas, los debates televisados, las consultas vinculantes, los referéndums. La filosofía de "primera mejor alternativa" es intelectualmente honesta pero políticamente peligrosa --- suena a tecnocracia iluminada.
 
@@ -168,7 +168,7 @@ PLANMON lo reconoce parcialmente con sus tres escenarios. Pero incluso el escena
 
 ### VULNERABILIDAD #7: La Resistencia de los Perdedores (Daño Potencial: ALTO) [IMPORTANT]
 
-**El ataque:** "¿Quiénes pierden con BASTA?"
+**El ataque:** "¿Quiénes pierden con ¡BASTA!?"
 
 Los perdedores identificables:
 1. **1.2-1.8M de empleados públicos** (aunque PLANREP dice que ganan, muchos preferirán la inercia)
@@ -182,9 +182,9 @@ Los perdedores identificables:
 9. **El sistema financiero internacional** (PLANMON desafía la hegemonía del dólar)
 10. **Sindicatos docentes** (PLANEDU desafía su modelo de poder)
 
-Estos grupos no van a leer los PLANes y decir "tienen razón, nos retiramos." Van a pelear. Y muchos tienen más poder inmediato que BASTA. La industria farmacéutica global factura USD 1.6 billones anuales. Las Big Tech valen más que el PBI argentino combinado multiplicado por 10. Los narcos de Rosario disparan.
+Estos grupos no van a leer los PLANes y decir "tienen razón, nos retiramos." Van a pelear. Y muchos tienen más poder inmediato que ¡BASTA!. La industria farmacéutica global factura USD 1.6 billones anuales. Las Big Tech valen más que el PBI argentino combinado multiplicado por 10. Los narcos de Rosario disparan.
 
-**Lo que falta en los PLANes:** Cada plan tiene secciones de "críticas anticipadas" pero ninguno modela la resistencia coordinada. ¿Qué pasa cuando los abogados, los jueces, los narcos, y la oposición política convergen en un frente anti-BASTA? La suma de las resistencias individuales es mayor que las partes.
+**Lo que falta en los PLANes:** Cada plan tiene secciones de "críticas anticipadas" pero ninguno modela la resistencia coordinada. ¿Qué pasa cuando los abogados, los jueces, los narcos, y la oposición política convergen en un frente anti-¡BASTA!? La suma de las resistencias individuales es mayor que las partes.
 
 ---
 
@@ -222,9 +222,9 @@ Cada plan asume que la "primera mejor alternativa" es tan evidentemente superior
 
 ### VULNERABILIDAD #10: PLANSUS como Talón de Aquiles Comunicacional (Daño Potencial: MEDIO) [IMPORTANT]
 
-**El ataque:** "BASTA = legalización de drogas."
+**El ataque:** "¡BASTA! = legalización de drogas."
 
-PLANSUS es el plan más fácil de atacar en medios. Un adversario no necesita rebatir los 12 PLANes --- basta con gritar "quieren legalizar la cocaína" y el debate público se concentra en PLANSUS mientras los otros 11 PLANes pierden oxígeno. La nota personal del autor sobre experiencias con sustancias, aunque valiente, provee munición: "el autor de BASTA es un drogadicto" es el titular que cualquier periodista hostil puede escribir.
+PLANSUS es el plan más fácil de atacar en medios. Un adversario no necesita rebatir los 12 PLANes --- basta con gritar "quieren legalizar la cocaína" y el debate público se concentra en PLANSUS mientras los otros 11 PLANes pierden oxígeno. La nota personal del autor sobre experiencias con sustancias, aunque valiente, provee munición: "el autor de ¡BASTA! es un drogadicto" es el titular que cualquier periodista hostil puede escribir.
 
 PLANGEO propone lanzar PLANSUS como "Confrontativo" en la Fase 3 (2030-2033), lo cual muestra conciencia del problema. Pero los 12 documentos ya están escritos y disponibles. Un adversario no espera a la Fase 3 para leerlos.
 
@@ -361,11 +361,11 @@ Lo que lo debilita:
 
 1. **La ambición sin priorización.** 12 PLANes simultáneos con un costo total de USD 10-17B/año y una demanda de talento que excede la oferta nacional. No hay un documento que diga: "si solo podemos hacer 5, estos son los 5, en este orden." La ausencia de priorización es la debilidad más grave, porque convierte la fortaleza (integración sistémica) en vulnerabilidad (si falla uno, el castillo de cartas se debilita).
 
-2. **La subestimación de la resistencia coordinada.** Cada plan anticipa la resistencia sectorial. Ninguno modela la resistencia *convergente* --- el momento donde abogados, jueces, narcos, farmacéuticas, Big Tech, el FMI, y la oposición política se alinean no por coordinación sino por interés común en destruir BASTA.
+2. **La subestimación de la resistencia coordinada.** Cada plan anticipa la resistencia sectorial. Ninguno modela la resistencia *convergente* --- el momento donde abogados, jueces, narcos, farmacéuticas, Big Tech, el FMI, y la oposición política se alinean no por coordinación sino por interés común en destruir ¡BASTA!.
 
 3. **La brecha entre diseño y ejecución.** Los PLANes son documentos de diseño extraordinarios. Pero la capacidad de ejecución del Estado argentino es la más baja de la OCDE latinoamericana. El gap entre la calidad del diseño y la calidad esperada de la ejecución es la mayor fuente de riesgo del proyecto.
 
-4. **PLANMON como eslabón más débil.** Crear una nueva moneda nacional es órdenes de magnitud más difícil que cualquier otro componente de BASTA. La historia monetaria mundial tiene más fracasos que éxitos, y Argentina tiene la peor historia monetaria del hemisferio occidental. El Pulso es intelectualmente brillante pero operativamente el componente de mayor riesgo, y todo el sistema lo necesita como "sangre."
+4. **PLANMON como eslabón más débil.** Crear una nueva moneda nacional es órdenes de magnitud más difícil que cualquier otro componente de ¡BASTA!. La historia monetaria mundial tiene más fracasos que éxitos, y Argentina tiene la peor historia monetaria del hemisferio occidental. El Pulso es intelectualmente brillante pero operativamente el componente de mayor riesgo, y todo el sistema lo necesita como "sangre."
 
 ### 5.2 Calificación Global
 
@@ -382,13 +382,13 @@ Lo que lo debilita:
 
 ### 5.3 La Pregunta Final
 
-¿Es BASTA el trabajo de un estratega maestro o de un soñador brillante?
+¿Es ¡BASTA! el trabajo de un estratega maestro o de un soñador brillante?
 
 **La respuesta es: ambos, y esa es precisamente su naturaleza.**
 
-Un estratega maestro que no sueña produce optimizaciones incrementales que no cambian nada. Un soñador brillante que no hace estrategia produce manifiestos que nadie implementa. BASTA es raro porque combina ambas capacidades: la visión sistémica de alguien que ve los 12 problemas como un solo problema, y la disciplina de ingeniería de alguien que traduce esa visión en presupuestos, cronogramas, leyes, métricas y mecanismos de adaptación.
+Un estratega maestro que no sueña produce optimizaciones incrementales que no cambian nada. Un soñador brillante que no hace estrategia produce manifiestos que nadie implementa. ¡BASTA! es raro porque combina ambas capacidades: la visión sistémica de alguien que ve los 12 problemas como un solo problema, y la disciplina de ingeniería de alguien que traduce esa visión en presupuestos, cronogramas, leyes, métricas y mecanismos de adaptación.
 
-Lo que determina si BASTA pasa de documento a realidad no está en los documentos --- está en la capacidad de quien lo implemente de hacer lo que los documentos no pueden hacer: construir coaliciones, negociar con adversarios, priorizar cuando todo parece urgente, ejecutar cuando el talento no alcanza, y sostener la visión cuando la realidad golpea.
+Lo que determina si ¡BASTA! pasa de documento a realidad no está en los documentos --- está en la capacidad de quien lo implemente de hacer lo que los documentos no pueden hacer: construir coaliciones, negociar con adversarios, priorizar cuando todo parece urgente, ejecutar cuando el talento no alcanza, y sostener la visión cuando la realidad golpea.
 
 Los 12 PLANes son el mapa más detallado jamás dibujado de una Argentina posible. El territorio, como siempre, es otra cosa.
 
@@ -396,7 +396,7 @@ Los 12 PLANes son el mapa más detallado jamás dibujado de una Argentina posibl
 
 > *"El plan es nada. La planificación es todo."* --- Dwight D. Eisenhower
 
-> *"Todo lo que BASTA propone es la primera mejor alternativa. Y la primera mejora de toda primera mejor alternativa es someterla a la crítica más honesta disponible."*
+> *"Todo lo que ¡BASTA! propone es la primera mejor alternativa. Y la primera mejora de toda primera mejor alternativa es someterla a la crítica más honesta disponible."*
 
 ---
 

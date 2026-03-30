@@ -35,11 +35,11 @@ Las Convenciones de las Naciones Unidas sobre Drogas — la de 1961, la de 1971,
 
 El resultado es obsceno. La prohibición no eliminó las drogas. **Las privatizó.** Tomó una industria de miles de millones de dólares y se la regaló al crimen organizado. Le dio al narcotráfico el monopolio absoluto: sin competencia legal, sin regulación de calidad, sin impuestos, sin obligaciones laborales, sin responsabilidad civil. Cada gramo de cocaína que se vende en Rosario es una transacción de mercado negro que financia sicarios, corrompe policías, recluta chicos de catorce años como soldados, y no le deja un centavo al Estado. Cada joint que un adulto en Palermo fuma en la intimidad de su casa financia, a través de la cadena de distribución ilegal, la misma violencia que después lamentamos en los noticieros. La prohibición no combate al narco. **Es el modelo de negocio del narco.**
 
-Hay una filosofía que atraviesa las iniciativas del proyecto BASTA. La llamamos *El Instante del Hombre Gris*. La premisa: vivimos en una sociedad que apaga a las personas — que les roba la capacidad de crear, de sentir su potencia, de transformar el mundo. Personas dormidas, reducidas a engranajes. El Hombre Gris es el que despierta. Gris como el acero que se pule hasta brillar. Gris como el amanecer antes de que el sol estalle. El instante del Hombre Gris es el momento en que alguien dice *basta de vivir apagado*.
+Hay una filosofía que atraviesa las iniciativas del proyecto ¡BASTA!. La llamamos *El Instante del Hombre Gris*. La premisa: vivimos en una sociedad que apaga a las personas — que les roba la capacidad de crear, de sentir su potencia, de transformar el mundo. Personas dormidas, reducidas a engranajes. El Hombre Gris es el que despierta. Gris como la **plata** que se pule hasta brillar — porque Argentina es argentum, y argentum es plata. Gris como el amanecer antes de que el sol estalle. El instante del Hombre Gris es el momento en que alguien dice *basta de vivir apagado*.
 
 La prohibición criminaliza el despertar. Podés tomar alcohol hasta caerte — es legal. Podés fumar tabaco hasta que te mate — es legal. Podés consumir los ansiolíticos, los antidepresivos, los estimulantes que la industria farmacéutica produce y cobra a precio de oro — es legal, con receta, bajo el monopolio médico. Pero no podés comer un hongo que los pueblos originarios de Mesoamérica usaron durante diez mil años para sanar, para aprender, para conectar con algo más grande que ellos mismos. No podés tomar la ayahuasca que las comunidades amazónicas consideran medicina sagrada. No podés fumar una planta que crece en tu jardín. La prohibición no distingue entre uso y abuso. No distingue entre ceremonia y adicción. No distingue entre un adulto responsable y un menor vulnerable. Prohíbe todo, para todos, siempre — y después se sorprende de que nada funcione.
 
-PLAN24CN libera el territorio. PLANREP libera el trabajo. PLANISV libera el suelo. PLANEDU libera el aprendizaje. PLANJUS libera la justicia. **PLANSUS libera el último territorio colonizado: la conciencia.** Es el sexto pilar de BASTA. Y es, de todos, el que toca la fibra más profunda — porque no se trata de política agrícola, ni de empleo, ni de infraestructura. Se trata de quién decide lo que hacés con tu propio cuerpo. Si la respuesta es "vos", sos libre. Si la respuesta es "un tratado que firmaron bajo presión en 1961", sos un colono.
+PLAN24CN libera el territorio. PLANREP libera el trabajo. PLANISV libera el suelo. PLANEDU libera el aprendizaje. PLANJUS libera la justicia. **PLANSUS libera el último territorio colonizado: la conciencia.** Es el sexto pilar de ¡BASTA!. Y es, de todos, el que toca la fibra más profunda — porque no se trata de política agrícola, ni de empleo, ni de infraestructura. Se trata de quién decide lo que hacés con tu propio cuerpo. Si la respuesta es "vos", sos libre. Si la respuesta es "un tratado que firmaron bajo presión en 1961", sos un colono.
 
 > *"No hay libertad más fundamental que la soberanía sobre la propia conciencia. Un Estado que te dice qué podés pensar, qué podés sentir, qué podés explorar dentro de tu propia mente, no es un Estado democrático. Es un Estado totalitario con buenos modales."*
 > — Terence McKenna (adaptado)
@@ -76,7 +76,7 @@ En la Argentina donde vamos, el Hombre Gris despertó. Y cuando despertó, descu
 
 ---
 
-**Tesis Central:** La prohibición de sustancias en la Argentina es un fracaso absoluto por cualquier métrica: no redujo el consumo, no redujo la oferta, no protegió a los menores, no detuvo al narcotráfico — y le regaló al crimen organizado un mercado de USD 3.000–8.000 millones anuales que no paga impuestos, no controla calidad, no protege trabajadores, y mata gente. PLANSUS propone la ruptura soberana con las convenciones de la ONU sobre drogas (siguiendo el precedente de Bolivia 2011) y la implementación de un sistema de **regulación integral en cascada**: cannabis legal en el Año 1, psicodélicos terapéuticos y ceremoniales en el Año 3, regulación completa de todas las sustancias en el Año 5. El sistema opera a través de **cuatro vías de licenciamiento** — Ceremonial (protección de tradiciones ancestrales), Terapéutica (investigación y tratamiento clínico), Recreativa (uso adulto regulado), e Industrial (cáñamo, farmacéutica, cosmética) — administradas por la **ANSUS** (Agencia Nacional de Soberanía sobre Sustancias), ente autárquico blindado contra el ciclo electoral. La **Amnistía Graduada "El Puente"** ofrece a los operadores actuales del mercado negro una transición hacia la legalidad — porque la única forma de destruir el narcotráfico es quitarle el mercado, no dispararle a sus soldados. El sistema incluye **penalidades máximas para venta a menores** (las más duras del continente), **control de calidad obligatorio** (ANMAT), **fiscalidad progresiva**, y un **Hub de Investigación y Desarrollo** que posiciona a la Argentina como líder mundial en neurociencia aplicada y medicina psicodélica. Los ingresos proyectados son de USD 2.000–8.000 millones/año al Año 5 (impuestos + licencias + exportación + turismo terapéutico + ahorro en enforcement). El costo de implementación es de USD 500M–1.500M en 5 años. El ROI estimado es de 5:1 a 15:1 en 10 años. La protección de menores se refuerza — no se debilita — porque un mercado regulado con controles de edad funciona mejor que un mercado negro donde nadie pide documento. PLANSUS se integra con los cinco mandatos existentes de BASTA: con PLAN24CN (infraestructura de dispensarios y clínicas en las nuevas ciudades), con PLANREP (reconversión de trabajadores del enforcement hacia el mercado legal), con PLANISV (cannabis y cáñamo como cultivos regenerativos), con PLANEDU (educación sobre sustancias basada en evidencia, no en propaganda), y con PLANJUS (resolución rápida de conflictos del nuevo mercado regulado).
+**Tesis Central:** La prohibición de sustancias en la Argentina es un fracaso absoluto por cualquier métrica: no redujo el consumo, no redujo la oferta, no protegió a los menores, no detuvo al narcotráfico — y le regaló al crimen organizado un mercado de USD 3.000–8.000 millones anuales que no paga impuestos, no controla calidad, no protege trabajadores, y mata gente. PLANSUS propone la ruptura soberana con las convenciones de la ONU sobre drogas (siguiendo el precedente de Bolivia 2011) y la implementación de un sistema de **regulación integral en cascada**: cannabis legal en el Año 1, psicodélicos terapéuticos y ceremoniales en el Año 3, regulación completa de todas las sustancias en el Año 5. El sistema opera a través de **cuatro vías de licenciamiento** — Ceremonial (protección de tradiciones ancestrales), Terapéutica (investigación y tratamiento clínico), Recreativa (uso adulto regulado), e Industrial (cáñamo, farmacéutica, cosmética) — administradas por la **ANSUS** (Agencia Nacional de Soberanía sobre Sustancias), ente autárquico blindado contra el ciclo electoral. La **Amnistía Graduada "El Puente"** ofrece a los operadores actuales del mercado negro una transición hacia la legalidad — porque la única forma de destruir el narcotráfico es quitarle el mercado, no dispararle a sus soldados. El sistema incluye **penalidades máximas para venta a menores** (las más duras del continente), **control de calidad obligatorio** (ANMAT), **fiscalidad progresiva**, y un **Hub de Investigación y Desarrollo** que posiciona a la Argentina como líder mundial en neurociencia aplicada y medicina psicodélica. Los ingresos proyectados son de USD 2.000–8.000 millones/año al Año 5 (impuestos + licencias + exportación + turismo terapéutico + ahorro en enforcement). El costo de implementación es de USD 500M–1.500M en 5 años. El ROI estimado es de 5:1 a 15:1 en 10 años. La protección de menores se refuerza — no se debilita — porque un mercado regulado con controles de edad funciona mejor que un mercado negro donde nadie pide documento. PLANSUS se integra con los otros quince mandatos de ¡BASTA!: con PLAN24CN (infraestructura de dispensarios y clínicas en las nuevas ciudades), con PLANREP (reconversión de trabajadores del enforcement hacia el mercado legal), con PLANISV (cannabis y cáñamo como cultivos regenerativos), con PLANEDU (educación sobre sustancias basada en evidencia, no en propaganda), y con PLANJUS (resolución rápida de conflictos del nuevo mercado regulado).
 
 ---
 
@@ -881,7 +881,7 @@ Funciones: revisar otorgamiento de licencias comerciales, evaluar desempeño de 
 
 ### 10.3 Tablero Nacional de Sustancias
 
-Dashboard público, en tiempo real, accesible desde cualquier dispositivo. Es el sistema nervioso de PLANSUS — si algo falla, el Tablero lo muestra antes de que se convierta en crisis.
+Tablero público, en tiempo real, accesible desde cualquier dispositivo. Es el sistema nervioso de PLANSUS — si algo falla, el Tablero lo muestra antes de que se convierta en crisis.
 
 **TABLA 10A: Métricas del Tablero Nacional**
 
@@ -1113,7 +1113,7 @@ Lo que dejás de gastar es tan importante como lo que empezás a recaudar:
 
 Sumando ingresos nuevos más ahorro por costos eliminados, el ROI de PLANSUS es de **5:1 a 15:1 en diez años**. Cada dólar invertido en la implementación devuelve entre cinco y quince dólares en recaudación, ahorro fiscal y valor económico generado.
 
-Para contexto: PLANJUS proyecta un ROI de 6:1 a 10:1 en quince años. PLANREP proyecta un ahorro fiscal de USD 15-25B/año. PLANSUS no solo se autofinancia desde el Año 1 — genera un excedente fiscal que puede alimentar a los otros mandatos BASTA. **La legalización no compite con la educación, la justicia o la reconversión laboral. Las financia.**
+Para contexto: PLANJUS proyecta un ROI de 6:1 a 10:1 en quince años. PLANREP proyecta un ahorro fiscal de USD 15-25B/año. PLANSUS no solo se autofinancia desde el Año 1 — genera un excedente fiscal que puede alimentar a los otros mandatos ¡BASTA!. **La legalización no compite con la educación, la justicia o la reconversión laboral. Las financia.**
 
 ---
 
@@ -1379,9 +1379,9 @@ Cuando una Puerta tiene una o más métricas en ROJO:
 
 ---
 
-## SECCIÓN 19: INTEGRACIÓN CON BASTA — CINCO MANDATOS, UNA TRANSFORMACIÓN
+## SECCIÓN 19: INTEGRACIÓN CON ¡BASTA! — DOCE MANDATOS, UNA TRANSFORMACIÓN
 
-> *"PLANSUS no existe en el vacío. Existe dentro de BASTA — y cada mandato fortalece a los otros. Esta no es una colección de planes. Es un sistema."*
+> *"PLANSUS no existe en el vacío. Existe dentro de ¡BASTA! — y cada mandato fortalece a los otros. Esta no es una colección de planes. Es un sistema."*
 
 ### 19.1 PLANSUS ↔ PLANJUS
 
@@ -1393,7 +1393,7 @@ PLANEDU integra farmacología, neurociencia y reducción de daños en CONOCER �
 
 ### 19.3 PLANSUS ↔ PLANREP
 
-El Puente puede funcionar como una **novena Rama** del trabajo vivo de PLANREP: la "Economía de las Sustancias." Cultivadores, procesadores, operadores de retiros terapéuticos, guías ceremoniales, técnicos de laboratorio de control de calidad — todos son oficios nuevos que PLANREP puede capacitar. Los Centros de la Vida de PLANREP pueden ofrecer módulos de reconversión hacia la economía legal de sustancias. El modelo cooperativo que PLANREP promueve aplica directamente a las cooperativas cannábicas. El Monotributo Digital se adapta para micro-licenciatarios de PLANSUS.
+El Puente funciona como una **vía de especialización transversal** dentro de las ramas existentes de PLANREP — particularmente La Mesa, La Reparación y La Imaginación — no como una novena rama independiente. Los trabajadores que eligen la economía de sustancias se forman dentro de la infraestructura de PLANREP y acceden al Índice de Contribución como cualquier otro egresado. Cultivadores, procesadores, operadores de retiros terapéuticos, guías ceremoniales, técnicos de laboratorio de control de calidad — todos son oficios nuevos que PLANREP puede capacitar a través de los Centros de la Vida. El modelo cooperativo que PLANREP promueve aplica directamente a las cooperativas cannábicas. El Monotributo Digital se adapta para micro-licenciatarios de PLANSUS.
 
 ### 19.4 PLANSUS ↔ PLANISV
 
@@ -1403,16 +1403,53 @@ El cannabis y el cáñamo industrial son **cultivos de rotación ideales** para 
 
 Las 24 nuevas ciudades incluyen infraestructura PLANSUS de diseño: zonas agrícolas para cannabis y cáñamo en los cinturones productivos, centros de I+D en los campus universitarios de las nuevas ciudades, infraestructura turística para retiros terapéuticos y ceremoniales. El hempcrete — hormigón de cáñamo — es un material de construcción sustentable que PLAN24CN puede incorporar a escala: aislante térmico, captura de carbono, producción local. Las nuevas ciudades nacen post-prohibición. No tienen que desaprender nada.
 
-**TABLA 19.1: Mapa de Integración BASTA x PLANSUS**
+**TABLA 19.1: Mapa de Integración ¡BASTA! x PLANSUS**
 
-| Plan BASTA | Integración con PLANSUS | Beneficio mutuo |
+| Plan ¡BASTA! | Integración con PLANSUS | Beneficio mutuo |
 |---|---|---|
 | PLANJUS | Casas JUS para disputas comerciales; anticorrupción compartida | Justicia rápida para mercado legal; carga judicial reducida |
 | PLANEDU | Farmacología en CONOCER; conciencia en CUIDAR; emprendimiento | Educación real reemplaza propaganda; talento para la industria |
-| PLANREP | 9a Rama: Economía de Sustancias; Centros de la Vida; cooperativas | Nuevos oficios dignos; reconversión con destino productivo |
+| PLANREP | Especialización transversal en ramas existentes; Centros de la Vida; cooperativas | Nuevos oficios dignos; reconversión con destino productivo |
 | PLANISV | Rotación de cultivos; biorremediación; alternativa a agroquímicos | Suelo restaurado con valor económico; "pueblos fumigados" liberados |
 | PLAN24CN | Hempcrete; zonas agrícolas; turismo terapéutico; I+D | Ciudades sustentables desde el diseño; economía diversificada |
 | PLANSAL | Puente Sanitario de 36 meses (Sección 24); CAPAs como futura infraestructura PLANSAL; capacitación de profesionales de salud | Infraestructura sanitaria construida por PLANSUS se integra a PLANSAL; demand de tratamiento atendida desde el Día 1 |
+| PLANEB | Bastarda Financiera bancariza mercado; Bastarda Farmacéutica distribuye al costo; trazabilidad Bastarda | Infraestructura comercial ética desde el Día 1; cadena de custodia verificable |
+| PLANAGUA | Protección hídrica por cultivo legal regulado; fin de deforestación narco | Cuencas protegidas; cultivo regenerativo reemplaza producción clandestina |
+| PLANDIG | Tablero Nacional en infraestructura soberana; blockchain de trazabilidad; datos en suelo argentino | Soberanía sobre datos de consumo; política basada en evidencia real |
+| PLANGEO | Coalición reformista internacional; Fase 3 confrontativa; judo diplomático | Masa crítica para denuncia de convenciones; legitimidad internacional |
+| PLANMON | Recaudación fiscal al Fondo Soberano; mercado en Pulso; cannabis exportable | Financiamiento estable; moneda real para industria real |
+
+### 19.6 PLANSUS ↔ PLANEB
+
+La Bastarda Financiera resuelve desde el Día 1 lo que la banca tradicional tarda años en aceptar: bancarizar a los operadores del mercado regulado de sustancias. Donde el Banco Nación duda, la Bastarda Financiera abre cuentas sin estigma porque su razón de existir es servir a la economía real, no al compliance de Wall Street. La Bastarda Farmacéutica distribuye sustancias certificadas por ANMAT al costo — cannabis medicinal, psilocibina de grado terapéutico, kits de reducción de daños — eliminando el margen especulativo que convierte medicinas en lujo. El Protocolo Bastardo de trazabilidad se aplica a la cadena completa de sustancias: desde el cultivador con licencia ANSUS-Micro hasta el dispensario, cada gramo tiene historia verificable. La arquitectura de cero-propiedad de PLANEB garantiza que ningún actor acumule poder de mercado — la industria legal de sustancias nace distribuida o no nace.
+
+### 19.7 PLANSUS ↔ PLANAGUA
+
+La producción clandestina de sustancias es una catástrofe hídrica invisible. Los laboratorios de cocaína en el norte argentino vierten precursores químicos directamente a los arroyos. Los cultivos ilegales de marihuana en el litoral deforestan riberas y contaminan napas con fertilizantes no regulados. Cada hectárea de producción clandestina es una hectárea de cuenca envenenada. PLANSUS desactiva esa cadena al legalizar y regular: el cultivo legal opera bajo los estándares de PLANISV — regenerativo, sin agroquímicos, con rotación — y bajo la vigilancia hídrica de PLANAGUA. El cannabis legal no solo no contamina: el cáñamo industrial es un cultivo de biorremediación que absorbe metales pesados del suelo y reduce la escorrentía contaminante. Legalizar es proteger el agua. Prohibir es envenenarla.
+
+### 19.8 PLANSUS ↔ PLANDIG
+
+El Tablero Nacional de Sustancias — el sistema de monitoreo en tiempo real que mide cada indicador de PLANSUS desde consumo hasta violencia — corre sobre infraestructura soberana de PLANDIG. No sobre AWS. No sobre Azure. Los datos de consumo de 47 millones de argentinos, los patrones epidemiológicos, los registros de licenciatarios, la trazabilidad blockchain del mercado regulado: todo almacenado en suelo argentino, bajo jurisdicción argentina. Esto no es capricho ideológico — es necesidad operativa. Un gobierno que no controla sus propios datos de política de drogas no controla su política de drogas. La trazabilidad blockchain que PLANDIG soporta permite que cada unidad de sustancia certificada tenga un registro inmutable desde la semilla hasta el consumidor. Y los datos de consumo agregados y anonimizados se convierten en el insumo más valioso para calibrar la cascada: evidencia real, no encuestas, no estimaciones.
+
+### 19.9 PLANSUS ↔ PLANGEO
+
+La denuncia de las Convenciones de 1961 y 1971 no puede ser un acto solitario. PLANGEO estructura la coalición reformista internacional que da a PLANSUS la masa crítica diplomática para sobrevivir la presión de Washington y Viena. La Fase 3 de PLANGEO — Los Confrontativos — dedica un eje específico a la reforma del régimen internacional de sustancias: no se puede hablar de soberanía geopolítica sin incluir la soberanía sobre la conciencia. El judo diplomático es devastador: 24 estados de los Estados Unidos ya legalizaron el cannabis recreativo mientras el gobierno federal persigue a países que hacen lo mismo. Esa hipocresía es el punto de presión. Argentina lidera una coalición del Sur Global que no pide permiso para regular — exige coherencia. Cada país que se suma a la coalición es un voto menos para sostener convenciones que sus propios autores ya no respetan.
+
+### 19.10 PLANSUS ↔ PLANMON
+
+La recaudación fiscal de PLANSUS — estimada en más de USD 10.000 millones anuales a régimen — es una de las fuentes primarias del Fondo Soberano que PLANMON capitaliza. Esa conexión no puede ser informal: cada peso recaudado por ANSUS en impuestos al mercado regulado tiene destino presupuestario atado — salud, educación, infraestructura — y se denomina en Pulso, la unidad de cuenta estable de PLANMON. El mercado regulado opera en moneda real porque vende productos reales a personas reales: no hay especulación posible cuando el precio del cannabis medicinal se ancla a la canasta de bienes que Pulso refleja. El cannabis y el cáñamo industrial son componentes naturales de la canasta de exportación argentina — y su precio en Pulso permite a los productores planificar sin que una devaluación los arruine de un día para el otro. Soberanía monetaria y soberanía sobre sustancias son dos caras de la misma moneda: un país que no controla su dinero ni lo que su gente consume no es soberano. Es administrado.
+
+### 19.11 PLANSUS × PLANEN: Cáñamo como Biomasa Energética
+
+El cáñamo industrial legalizado por PLANSUS es biomasa para la cadena de bioenergía de PLANEN. Los residuos de la producción de cáñamo alimentan plantas de cogeneración en las ciudades de PLAN24CN. La fibra de cáñamo también sirve como aislante térmico, reduciendo la demanda energética de calefacción.
+
+### 19.12 PLANSUS × PLANSEG: El Sobre de Seguridad para la Transición
+
+Esta es la integración más crítica de todo el ecosistema ¡BASTA!. PLANSUS legaliza y regula sustancias en una cascada de cinco años — pero sin un protocolo de seguridad que cubra la transición, la legalización crea un vacío donde los narcos pierden mercado pero no pierden armas. PLANSEG provee el sobre de seguridad: protección de dispensarios regulados durante los primeros años vulnerables, desarticulación acelerada de redes narco que pierden su modelo de negocio, y presencia territorial en las zonas donde el narcotráfico va a pelear por retener control. Sin PLANSEG, PLANSUS es una reforma valiente pero peligrosa. Con PLANSEG, es una reforma viable — porque el Estado ocupa cada metro cuadrado que el narco abandona.
+
+### 19.13 PLANSUS × PLANVIV: El Cáñamo Que Se Vuelve Pared
+
+PLANSUS legaliza el cannabis y el cáñamo industrial. PLANVIV los convierte en casas. El hempcrete — mezcla de fibra de cáñamo con cal — es un material de construcción liviano, aislante térmico, resistente al fuego, y secuestrador neto de carbono: cada metro cúbico de pared de hempcrete captura más CO2 del que emitió durante su fabricación. PLANVIV incorpora hempcrete como material prioritario para la construcción nueva de la Bastarda Inmobiliaria y para el retrofit de edificios existentes. La cadena es completa: PLANSUS regula, PLANISV cultiva, PLANREP forma a los albañiles, y PLANVIV construye — una pared de cáñamo a la vez.
 
 ---
 
@@ -1743,7 +1780,7 @@ Despenalizar sin atender es abrir la compuerta sin haber cavado el canal. El agu
 
 Portugal despenalizó en 2001. En los dos años siguientes, las admisiones a tratamiento por sustancias subieron un 60%. No porque más gente empezara a consumir — la prevalencia se mantuvo estable — sino porque las personas que *ya consumían* dejaron de tenerle miedo al Estado. Dejaron de esconderse. Dejaron de elegir entre pedir ayuda y perder la libertad. Cuando el miedo desaparece, la demanda de tratamiento *explota*. No es una hipótesis — es evidencia empírica de veinticinco años.
 
-En Argentina, el panorama es peor que el portugués de 2001. SEDRONAR está siendo desmantelado en sus funciones punitivas — bien, eso es lo que corresponde. Pero sus funciones asistenciales llevan décadas desfinanciadas. Los hospitales públicos ya están colapsados sin sumarles una oleada de demanda nueva. Los servicios de salud mental son crónicamente insuficientes: la Ley Nacional de Salud Mental 26.657 se sancionó en 2010 y dieciséis años después sigue sin implementarse del todo. PLANSALUD — el mandato BASTA para la reforma integral del sistema sanitario — todavía no existe como infraestructura implementada. Existe como plan. Como promesa. Como horizonte.
+En Argentina, el panorama es peor que el portugués de 2001. SEDRONAR está siendo desmantelado en sus funciones punitivas — bien, eso es lo que corresponde. Pero sus funciones asistenciales llevan décadas desfinanciadas. Los hospitales públicos ya están colapsados sin sumarles una oleada de demanda nueva. Los servicios de salud mental son crónicamente insuficientes: la Ley Nacional de Salud Mental 26.657 se sancionó en 2010 y dieciséis años después sigue sin implementarse del todo. PLANSALUD — el mandato ¡BASTA! para la reforma integral del sistema sanitario — todavía no existe como infraestructura implementada. Existe como plan. Como promesa. Como horizonte.
 
 Y entre PLANSUS Día 1 y el día en que PLANSALUD funcione, hay un vacío. Un vacío que mata. Si un pibe de Rosario se anima por primera vez en ocho años a llamar pidiendo ayuda y del otro lado no atiende nadie — si va a un centro y le dicen que no hay turno hasta dentro de tres meses — si llega a una guardia y lo miran con la misma cara de desprecio que antes — entonces le fallamos exactamente en el momento en que más dispuesto estaba a ser ayudado. Le confirmamos que el sistema nunca fue para él. Y probablemente no vuelva a intentarlo.
 
@@ -1767,7 +1804,7 @@ Un programa de transición de tres años, diseñado para cubrir la brecha entre 
 
 ### 24.3 Integración con PLANSAL
 
-PLANSAL (Plan Nacional de Salud) es el mandato BASTA para la reforma integral del sistema sanitario argentino. Cuando se implemente, toda la infraestructura del Puente Sanitario se integra a él — no se descarta, no se duplica, no se desperdicia.
+PLANSAL (Plan Nacional de Salud) es el mandato ¡BASTA! para la reforma integral del sistema sanitario argentino. Cuando se implemente, toda la infraestructura del Puente Sanitario se integra a él — no se descarta, no se duplica, no se desperdicia.
 
 Los 50 CAPAs reforzados se convierten en centros comunitarios de salud integral PLANSAL. Los 500 consejeros pasan a planta permanente del sistema PLANSAL. Los pares comunitarios se incorporan a la red de acompañamiento territorial. Los espacios de consumo supervisado se amplían como nodos del sistema de reducción de daños nacional. La línea telefónica se fusiona con la línea unificada de salud PLANSAL.
 
@@ -1873,7 +1910,7 @@ Estas disposiciones se integran a la LCT 20.744 como capítulo especial — no c
 
 La Sección 13 proyecta entre 50.000 y 200.000 empleos nuevos en cinco años. Esos trabajadores no existen. No hay 5.000 agrónomos de cannabis en Argentina — no hay 50. No hay técnicos de laboratorio formados en testeo de psilocibina. No hay dispensarios operados por gente que sepa distinguir una Sativa de una Indica. Si las licencias salen antes que la formación, vas a tener dispensarios atendidos por gente que no sabe lo que vende. Eso mata la confianza del consumidor más rápido que cualquier precio.
 
-El pipeline de capacitación se estructura a través de la 9.ª Rama de PLANREP ("Economía de Sustancias"), operada desde los Centros de la Vida, con articulación universitaria vía PLANEDU:
+El pipeline de capacitación se estructura a través de los Centros de la Vida de PLANREP, como especialización transversal dentro de las ramas existentes (La Mesa, La Reparación, La Imaginación), con articulación universitaria vía PLANEDU:
 
 **Agronomía cannábica.** Diploma técnico de 6 meses. Convenio INTA + UNCuyo + UNL (Universidad Nacional del Litoral). Contenido: genética de cultivares, técnicas de cultivo indoor y outdoor, manejo de suelos, nutrición, control de plagas sin agroquímicos, cosecha, post-cosecha, secado, curado, certificación orgánica. Práctica obligatoria en campo experimental INTA. Capacidad: 2.000 egresados/año a partir del Año 1.
 
@@ -2054,5 +2091,5 @@ Bajo PLANSUS, eso no pasa. El equipo europeo necesita consentimiento previo, lib
 ---
 
 *PLANSUS — Plan Nacional de Soberanía sobre Sustancias y Desarrollo Productivo del Conocimiento Expandido*
-*Sexto Mandato BASTA*
+*Sexto Mandato ¡BASTA!*
 *República Argentina — Marzo 2026 — Versión 1.0*

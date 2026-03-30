@@ -1,4 +1,4 @@
-# BASTA — Auditoría de Arquitectura Financiera
+# ¡BASTA! — Auditoría de Arquitectura Financiera
 
 ## Auditoría #04: Consolidación Presupuestaria, Doble Contabilidad y Verificación del Fondo Soberano
 
@@ -60,13 +60,13 @@
 | Metrica | Valor |
 |---------|-------|
 | PBI Argentina estimado (2026) | ~USD 500.000-650.000M |
-| Inversion BASTA total (10 años, rango medio) | ~USD 170.000M |
-| Inversion BASTA promedio anual | ~USD 17.000M/año |
+| Inversion ¡BASTA! total (10 años, rango medio) | ~USD 170.000M |
+| Inversion ¡BASTA! promedio anual | ~USD 17.000M/año |
 | % del PBI anual | **~2,6-3,4% del PBI** |
 | Gasto publico total Argentina (aprox.) | ~USD 150.000-200.000M/año |
-| Inversion BASTA como % del gasto publico anual | **~8,5-11,3%** |
+| Inversion ¡BASTA! como % del gasto publico anual | **~8,5-11,3%** |
 
-**HALLAZGO GENERAL:** La inversion total acumulada de BASTA en 10 años equivale aproximadamente a un tercio del PBI de un solo año. El promedio anual de ~USD 17.000M/año representa entre el 2,6% y el 3,4% del PBI -- una cifra ambiciosa pero no sin precedente historico para programas de transformacion nacional (ej: Plan Marshall = ~2,5% del PBI de EEUU/año durante 4 años; Corea del Sur en los 70 invirtio >5% del PBI/año en industrializacion).
+**HALLAZGO GENERAL:** La inversion total acumulada de ¡BASTA! en 10 años equivale aproximadamente a un tercio del PBI de un solo año. El promedio anual de ~USD 17.000M/año representa entre el 2,6% y el 3,4% del PBI -- una cifra ambiciosa pero no sin precedente historico para programas de transformacion nacional (ej: Plan Marshall = ~2,5% del PBI de EEUU/año durante 4 años; Corea del Sur en los 70 invirtio >5% del PBI/año en industrializacion).
 
 **Sin embargo**, la cifra real depende criticamente de que fuentes de financiamiento se materialicen y cuales estan doblemente contadas. Este es el tema central de la seccion siguiente.
 
@@ -76,7 +76,7 @@
 
 ### 2.1 Ahorro Fiscal de PLANREP (USD 15.000-25.000M/año)
 
-Este es el "dividendo fiscal" mas grande del ecosistema BASTA. Multiples PLANes reclaman porciones del mismo.
+Este es el "dividendo fiscal" mas grande del ecosistema ¡BASTA!. Multiples PLANes reclaman porciones del mismo.
 
 | Plan que reclama | Porcion reclamada | Monto (USD/año) | Fuente en documento |
 |------------------|-------------------|------------------|----------------------|
@@ -163,8 +163,8 @@ Varios PLANes proponen pisos presupuestarios constitucionales protegidos. La sum
 **Analisis:** Los pisos constitucionales acumulados consumen entre el 2,05% y el 2,55% del PBI **antes de cualquier otro gasto del Estado**. Para contexto:
 
 - El presupuesto total del Estado argentino es ~30% del PBI (~USD 150.000-195.000M).
-- Los pisos BASTA representarian el **6,8-8,3% del presupuesto total**.
-- Sumados a las inflexibilidades existentes (jubilaciones ~45% del presupuesto, servicio de deuda ~8%, educacion existente ~5%, etc.), los pisos BASTA reducen el margen de maniobra fiscal a niveles peligrosamente bajos.
+- Los pisos ¡BASTA! representarian el **6,8-8,3% del presupuesto total**.
+- Sumados a las inflexibilidades existentes (jubilaciones ~45% del presupuesto, servicio de deuda ~8%, educacion existente ~5%, etc.), los pisos ¡BASTA! reducen el margen de maniobra fiscal a niveles peligrosamente bajos.
 - **Si todos los pisos constitucionales se activan, el Estado pierde casi toda capacidad de ajuste presupuestario ante crisis** — exactamente el tipo de rigidez que ha causado crisis fiscales en el pasado argentino.
 
 ---
@@ -344,9 +344,9 @@ Si se suman los ROI declarados de todos los PLANes, el retorno total supera los 
 
 | # | Hallazgo | Impacto | Recomendacion |
 |---|----------|---------|---------------|
-| I1 | **Doble contabilidad del ahorro PLANREP.** PLANEDU reclama 10-18% del ahorro (no 5-8% como dice), PLANDIG reclama parte adicional, y el propio PLANREP lo necesita los primeros 3 anos. | Conflicto de caja en Anos 1-3 y sobreasignacion posterior. | Crear una "Oficina de Asignacion del Ahorro Fiscal BASTA" que arbitre entre PLANes reclamantes. Definir secuencia temporal: primero PLANREP se autofinancia, luego se asigna a otros. |
-| I2 | **Financiamiento multilateral: USD 3.770-8.650M reclamados por 4 PLANes.** Competencia interna por BID/BM/GCF/CAF. Posible friccion con estrategia anti-FMI de PLANMON/PLANGEO. | Riesgo de que la estrategia geopolitica de BASTA cierre puertas de financiamiento que otros PLANes necesitan. | Coordinar la estrategia de financiamiento internacional. No publicar el "Manual de Alternativas al FMI" antes de asegurar los prestamos del Grupo Banco Mundial. |
-| I3 | **ROI superpuesto entre PLANes.** Multiples PLANes reclaman el mismo beneficio macroeconomico como retorno propio. La suma bruta de ROI supera USD 500.000M — fisicamente imposible. | Sobreestimacion del retorno consolidado. Riesgo de expectativas infladas. | Producir un ROI consolidado de BASTA que evite doble contabilidad. Cada beneficio macroeconomico se asigna a un solo PLAN. |
+| I1 | **Doble contabilidad del ahorro PLANREP.** PLANEDU reclama 10-18% del ahorro (no 5-8% como dice), PLANDIG reclama parte adicional, y el propio PLANREP lo necesita los primeros 3 anos. | Conflicto de caja en Anos 1-3 y sobreasignacion posterior. | Crear una "Oficina de Asignacion del Ahorro Fiscal ¡BASTA!" que arbitre entre PLANes reclamantes. Definir secuencia temporal: primero PLANREP se autofinancia, luego se asigna a otros. |
+| I2 | **Financiamiento multilateral: USD 3.770-8.650M reclamados por 4 PLANes.** Competencia interna por BID/BM/GCF/CAF. Posible friccion con estrategia anti-FMI de PLANMON/PLANGEO. | Riesgo de que la estrategia geopolitica de ¡BASTA! cierre puertas de financiamiento que otros PLANes necesitan. | Coordinar la estrategia de financiamiento internacional. No publicar el "Manual de Alternativas al FMI" antes de asegurar los prestamos del Grupo Banco Mundial. |
+| I3 | **ROI superpuesto entre PLANes.** Multiples PLANes reclaman el mismo beneficio macroeconomico como retorno propio. La suma bruta de ROI supera USD 500.000M — fisicamente imposible. | Sobreestimacion del retorno consolidado. Riesgo de expectativas infladas. | Producir un ROI consolidado de ¡BASTA! que evite doble contabilidad. Cada beneficio macroeconomico se asigna a un solo PLAN. |
 | I4 | **PLANSUS y Fondo Soberano: conexion no formalizada.** PLANSUS es probablemente la fuente mas viable para el Fondo Soberano, pero no aparece en la Tabla 16 de PLANMON. | Fuente real no documentada; fuentes fantasma si documentadas. | Formalizar en ambos documentos el porcentaje de la recaudacion PLANSUS que fluye al Fondo Soberano. |
 
 ### Hallazgos MENORES
@@ -375,16 +375,16 @@ Si se suman los ROI declarados de todos los PLANes, el retorno total supera los 
 
 ## 7. CONCLUSION
 
-La arquitectura financiera de BASTA es ambiciosa pero presenta **tres fallas estructurales** que requieren correccion antes de que el ecosistema pueda funcionar como sistema integrado:
+La arquitectura financiera de ¡BASTA! es ambiciosa pero presenta **tres fallas estructurales** que requieren correccion antes de que el ecosistema pueda funcionar como sistema integrado:
 
 1. **PLANEN es el eslabon faltante.** Sin un plan energetico documentado, el Fondo Soberano Bastardo — pieza central de la soberania monetaria — esta construido sobre una fuente de ingresos que no existe en papel. Esto no invalida la idea del Fondo, pero deja su principal fuente de capitalizacion como un supuesto no verificado.
 
 2. **La relacion entre las Bastardas y el Fondo Soberano es contradictoria.** PLANEB dice "no hay excedentes." PLANMON dice "los excedentes de las Bastardas capitalizan el Fondo." Ambas cosas no pueden ser verdad simultaneamente. Se debe resolver esta contradiccion con un mecanismo explicito (por ejemplo: un porcentaje de los ingresos brutos de las Bastardas, analogo al Fondo de Solidaridad del 2%, pero con destino al Fondo Soberano — lo cual requiere modificar PLANEB).
 
-3. **Los PLANes compiten por las mismas fuentes sin coordinacion.** El ahorro de PLANREP, el financiamiento multilateral, y los beneficios macroeconomicos son reclamados multiples veces. Se necesita una "tesoreria BASTA" o un mecanismo de asignacion que evite la doble contabilidad y priorice la secuencia temporal de desembolsos.
+3. **Los PLANes compiten por las mismas fuentes sin coordinacion.** El ahorro de PLANREP, el financiamiento multilateral, y los beneficios macroeconomicos son reclamados multiples veces. Se necesita una "tesoreria ¡BASTA!" o un mecanismo de asignacion que evite la doble contabilidad y priorice la secuencia temporal de desembolsos.
 
 La inversion total de ~USD 17.000M/año (2,6-3,4% del PBI) es factible para un pais del tamano y la capacidad productiva de Argentina — **si** las fuentes de financiamiento se materializan, **si** la secuencia temporal se respeta, y **si** las interdependencias criticas (especialmente PLANREP como generador de ahorro fiscal) funcionan segun lo proyectado. En el escenario pesimista (crisis macro, PLANREP demorado, multilaterales restringidos), el ecosistema enfrenta un deficit de financiamiento de USD 5.000-10.000M/año que no tiene cobertura.
 
 ---
 
-*Auditoria producida como parte del analisis integral del ecosistema BASTA. Documento de trabajo -- no constituye recomendacion de inversion ni evaluacion de viabilidad legal.*
+*Auditoria producida como parte del analisis integral del ecosistema ¡BASTA!. Documento de trabajo -- no constituye recomendacion de inversion ni evaluacion de viabilidad legal.*

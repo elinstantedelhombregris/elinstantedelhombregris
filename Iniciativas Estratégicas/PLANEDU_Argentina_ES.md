@@ -27,7 +27,7 @@ Hay una pregunta que nadie le hace al sistema educativo argentino, y es la únic
 
 No para qué les enseñamos matemáticas a los chicos — eso es una pregunta instrumental. No para qué los mandamos a la escuela — eso es una pregunta logística. No para qué les hacemos leer el Martín Fierro — eso es una pregunta cultural. La pregunta es más profunda, más incómoda, más urgente: ¿para qué existe el sistema educativo? ¿Cuál es su razón de ser? ¿Qué tipo de ser humano pretende producir? Y si no pretende producir ningún tipo en particular — si simplemente funciona por inercia, repitiendo fórmulas del siglo XIX porque nadie se animó a cuestionarlas — entonces no es un sistema educativo. Es una máquina de apagar fuegos — de tomar seres humanos que nacen encendidos y apagarlos sistemáticamente hasta que dejen de brillar.
 
-Russell Ackoff — el pensador de sistemas que inspira todo el proyecto BASTA — distinguía entre *hacer las cosas bien* y *hacer las cosas correctas*. Un sistema puede ser impecablemente eficiente haciendo algo que no debería estar haciendo. Puede optimizar cada proceso, medir cada resultado, capacitar cada operador — y estar completamente equivocado en su propósito fundamental. El sistema educativo argentino no fracasa porque los maestros sean malos o los alumnos sean vagos o el presupuesto sea insuficiente. Fracasa porque está diseñado para un propósito que ya no existe: producir obreros obedientes para fábricas del siglo XX, ciudadanos dóciles para democracias de masas, y consumidores predecibles para economías de volumen. Ese mundo ya no existe. Pero la escuela sigue preparando gente para habitarlo.
+Russell Ackoff — el pensador de sistemas que inspira todo el proyecto ¡BASTA! — distinguía entre *hacer las cosas bien* y *hacer las cosas correctas*. Un sistema puede ser impecablemente eficiente haciendo algo que no debería estar haciendo. Puede optimizar cada proceso, medir cada resultado, capacitar cada operador — y estar completamente equivocado en su propósito fundamental. El sistema educativo argentino no fracasa porque los maestros sean malos o los alumnos sean vagos o el presupuesto sea insuficiente. Fracasa porque está diseñado para un propósito que ya no existe: producir obreros obedientes para fábricas del siglo XX, ciudadanos dóciles para democracias de masas, y consumidores predecibles para economías de volumen. Ese mundo ya no existe. Pero la escuela sigue preparando gente para habitarlo.
 
 Y el problema es todavía peor de lo que parece — porque el sistema educativo no solo prepara para un mundo que ya no existe: ni siquiera prepara para el mundo que *viene*. Un mundo donde la inteligencia artificial y la robótica van a transformar radicalmente lo que significa "trabajar", donde una porción creciente de la producción no va a necesitar manos humanas, y donde el desafío central ya no es "conseguir un empleo" sino "diseñar una vida con sentido". PLANEDU no puede repetir el error de diseñar la educación para los empleos de 2026 cuando los egresados de 2040 van a habitar un mundo fundamentalmente distinto. Por eso PLANEDU se diseña en tres horizontes temporales — y construye desde el día uno las capacidades para que cada argentino pueda navegar la transición más profunda de la historia humana.
 
@@ -39,15 +39,15 @@ Este documento no es una reforma educativa. Las reformas educativas las hacemos 
 
 La respuesta de PLANEDU es concreta: construiríamos un sistema cuyo propósito no es producir trabajadores, ni ciudadanos, ni consumidores, sino **seres humanos capaces de crear las mejores experiencias humanas posibles — para sí mismos, para los que los rodean, y para el mundo**. Seres humanos que sepan pensar con rigor, crear con belleza, comunicar con claridad, cuidar con empatía, construir con sus manos, colaborar con inteligencia, y conocer con profundidad. No especialistas estrechos. No generalistas superficiales. Personas completas, potentes, creativas, compasivas — personas que hagan del mundo un lugar mejor por el solo hecho de habitarlo.
 
-PLANEDU forma parte de lo que llamamos el **proyecto BASTA** — cinco iniciativas estratégicas fundacionales interconectadas que abordan las crisis estructurales que la Argentina arrastra como cadenas: PLAN24CN (las 24 ciudades nuevas que descomprimen el colapso urbano), PLANREP (la reconversión del empleo público hacia trabajo creador), PLANISV (la reconstrucción de la infraestructura biológica del suelo), PLANEDU (la refundación del sistema educativo) y PLANJUS (la justicia popular y resolución de conflictos). Cinco iniciativas. Un solo diagnóstico: la Argentina tiene todos los recursos — naturales, humanos, culturales, geográficos — para ser un país extraordinario, y un sistema diseñado para impedirlo. BASTA.
+PLANEDU forma parte de lo que llamamos el **proyecto ¡BASTA!** — dieciséis mandatos estratégicos interconectados que abordan las crisis estructurales que la Argentina arrastra como cadenas: PLAN24CN (ciudades nuevas), PLANREP (reconversión del empleo público), PLANISV (infraestructura biológica del suelo), PLANEDU (refundación educativa), PLANJUS (justicia popular), PLANSUS (soberanía sobre sustancias), PLANEB (empresas al costo real), PLANSAL (salud integral y vitalidad), PLANAGUA (soberanía hídrica), PLANDIG (soberanía digital), PLANGEO (posicionamiento geopolítico), PLANMON (soberanía monetaria), PLANEN (soberanía energética), PLANSEG (seguridad ciudadana), PLANVIV (vivienda digna) y PLANCUL (cultura viva). Dieciséis mandatos. Un solo diagnóstico: la Argentina tiene todos los recursos — naturales, humanos, culturales, geográficos — para ser un país extraordinario, y un sistema diseñado para impedirlo. ¡BASTA!.
 
-Y de las cinco iniciativas, PLANEDU es la que determina si las otras cuatro sobreviven al paso del tiempo. Podés construir 24 ciudades perfectas, pero si la gente que las habita no tiene la formación para cuidarlas, gobernarlas y hacerlas evolucionar, se deterioran en una generación. Podés reconvertir un millón de empleados públicos, pero si el sistema educativo sigue produciendo gente sin habilidades, sin iniciativa y sin capacidad de crear valor, en diez años tenés otro millón pidiendo puesto en el Estado. Podés regenerar cada hectárea de suelo argentino, pero si los hijos de los productores no entienden la biología del suelo porque nadie se la enseñó, vuelven al glifosato en cuanto cambian de generación.
+Y de los dieciséis mandatos, PLANEDU es el que determina si los otros quince sobreviven al paso del tiempo. Podés construir 24 ciudades perfectas, pero si la gente que las habita no tiene la formación para cuidarlas, gobernarlas y hacerlas evolucionar, se deterioran en una generación. Podés reconvertir un millón de empleados públicos, pero si el sistema educativo sigue produciendo gente sin habilidades, sin iniciativa y sin capacidad de crear valor, en diez años tenés otro millón pidiendo puesto en el Estado. Podés regenerar cada hectárea de suelo argentino, pero si los hijos de los productores no entienden la biología del suelo porque nadie se la enseñó, vuelven al glifosato en cuanto cambian de generación.
 
 La educación no es una política pública más. Es **el sistema operativo** de todas las demás. Si funciona mal, todo lo demás falla eventualmente. Si funciona bien, todo lo demás se vuelve posible.
 
-Hay una filosofía que atraviesa las cinco iniciativas del proyecto BASTA. La llamamos *El Instante del Hombre Gris*. La premisa es simple: vivimos en una sociedad que apaga a las personas — que les roba la capacidad de crear, de sentir su potencia, de transformar el mundo con sus manos y su inteligencia. Personas dormidas, en piloto automático, reducidas a engranajes de un sistema que no las necesita despiertas. El sistema educativo argentino es la máquina principal de ese apagón. No por maldad — por diseño. Un sistema que premia la repetición sobre la creación, la obediencia sobre la curiosidad, la memorización sobre la comprensión, y el título sobre la capacidad — es un sistema diseñado para mantener a la gente dormida. Gente que cumple pero no crea. Que obedece pero no pregunta. Que trabaja pero no vive.
+Hay una filosofía que atraviesa los dieciséis mandatos del proyecto ¡BASTA!. La llamamos *El Instante del Hombre Gris*. La premisa es simple: vivimos en una sociedad que apaga a las personas — que les roba la capacidad de crear, de sentir su potencia, de transformar el mundo con sus manos y su inteligencia. Personas dormidas, en piloto automático, reducidas a engranajes de un sistema que no las necesita despiertas. El sistema educativo argentino es la máquina principal de ese apagón. No por maldad — por diseño. Un sistema que premia la repetición sobre la creación, la obediencia sobre la curiosidad, la memorización sobre la comprensión, y el título sobre la capacidad — es un sistema diseñado para mantener a la gente dormida. Gente que cumple pero no crea. Que obedece pero no pregunta. Que trabaja pero no vive.
 
-El Hombre Gris es lo contrario de esa persona dormida. El Hombre Gris es el que **despierta**. Gris como el acero que se pule hasta brillar. Gris como la piedra que contiene el diamante. Gris como el amanecer antes de que el sol estalle. El Hombre Gris es el que decide despolarizarse — salir de los extremos, encontrar su centro, encender su espíritu, pulir su carácter. No es un estado de carencia — es un estado de transformación. Es la persona que dice: *basta de vivir apagado*.
+El Hombre Gris es lo contrario de esa persona dormida. El Hombre Gris es el que **despierta**. Gris como la **plata** que se pule hasta brillar — porque Argentina es argentum, y argentum es plata. Gris como la piedra que contiene el diamante. Gris como el amanecer antes de que el sol estalle. El Hombre Gris es el que decide despolarizarse — salir de los extremos, encontrar su centro, encender su espíritu, pulir su carácter. No es un estado de carencia — es un estado de transformación. Es la persona que dice: *basta de vivir apagado*.
 
 El instante del Hombre Gris es el momento en que una persona decide encenderse. Decide crear en vez de repetir. Decide aprender lo que importa en vez de memorizar lo que le dijeron. Decide que su vida no va a ser una fotocopia de la vida que el sistema le programó. En ese instante, deja de ser una persona apagada y se convierte en Hombre Gris — alguien que está puliéndose, que está despertando, que está encendiendo su fuego interior. PLANEDU existe para que ese instante le llegue a cada argentino a los seis años — no a los cuarenta, cuando ya perdió dos décadas.
 
@@ -56,7 +56,7 @@ Este documento incorpora las revisiones derivadas de una evaluación externa que
 > *"La educación no es llenar un balde. Es encender un fuego."*
 > — W.B. Yeats (atribuido)
 
-Todo lo que PLANEDU propone es la *primera mejor alternativa* basada en la mejor evidencia disponible en 2026. No es un plan perfecto — es un plan honesto. Está diseñado para escuchar, aprender y adaptarse. Los mecanismos de adaptación son concretos: los Paneles Ciudadanos deliberan, la ANCE evalúa, el Dashboard publica, y el sistema se ajusta. Un plan que no cambia no es un plan sabio — es un plan arrogante. Y la Argentina ya tuvo demasiados planes arrogantes que prefirieron quebrarse antes que doblarse. PLANEDU elige la humildad epistémica: la convicción férrea en el propósito, combinada con la flexibilidad radical en los métodos.
+Todo lo que PLANEDU propone es la *primera mejor alternativa* basada en la mejor evidencia disponible en 2026. No es un plan perfecto — es un plan honesto. Está diseñado para escuchar, aprender y adaptarse. Los mecanismos de adaptación son concretos: los Paneles Ciudadanos deliberan, la ANCE evalúa, el Tablero publica, y el sistema se ajusta. Un plan que no cambia no es un plan sabio — es un plan arrogante. Y la Argentina ya tuvo demasiados planes arrogantes que prefirieron quebrarse antes que doblarse. PLANEDU elige la humildad epistémica: la convicción férrea en el propósito, combinada con la flexibilidad radical en los métodos.
 
 **Tesis Central:** El sistema educativo argentino no necesita una reforma más. Necesita una refundación basada en un propósito nuevo: formar seres humanos capaces de crear experiencias humanas extraordinarias — para sí mismos, para su comunidad y para el mundo. PLANEDU propone un sistema construido sobre **Siete Capacidades** (Crear, Cuidar, Pensar, Comunicar, Construir, Colaborar, Conocer) que reemplazan el currículo enciclopédico obsoleto; **Maestros Creadores** (los docentes mejor pagados y más prestigiosos de América Latina, seleccionados del tercio superior de cada cohorte, formados como mentores y artistas del aprendizaje); **Aprendizaje por Dominio** (avance por demostración de competencia, no por calendario); **AI como Co-Tutor** (cada estudiante con un asistente de inteligencia artificial personalizado que libera al docente de la transmisión de información y lo convierte en mentor); **Creación como Evaluación** (el portfolio de creaciones reemplaza al boletín de notas); **Escuela Abierta** (la escuela funciona 14 horas por día, 350 días al año, y sirve a toda la comunidad); **Bilingüismo Universal** (cada argentino habla español e inglés con fluidez a los 16 años); y una **Red de 500 Escuelas del Futuro** como laboratorios vivientes. El marco institucional se sostiene en la **ANCE** (Agencia Nacional de Calidad Educativa) — ente autárquico, blindado contra el ciclo electoral, con piso presupuestario constitucional — y en una **Ley de Refundación Educativa** que reforma la Ley 26.206 sin destruirla. La estrategia sindical integra a CTERA, UDA, AMET y SADOP como co-arquitectos a través del **Pacto de la Dignidad**, que garantiza un piso salarial indexado de 1.5× el salario mediano profesional y elimina la disputa salarial como fuente de conflicto. El costo incremental es de USD 3.000–10.000M/año (progresivo en 12 años), financiado por reasignación de gasto existente + ahorro PLANREP + incremento gradual del 5% al 7% del PBI en educación. El ROI estimado es de 8:1 a 12:1 en 20 años. El objetivo a 15 años es que la Argentina sea reconocida internacionalmente como el país con la mejor educación pública del hemisferio — y como exportadora neta de conocimiento, metodología y talento educativo al mundo.
 
@@ -241,7 +241,7 @@ De los éxitos internacionales — Finlandia, Singapur, Estonia, Ontario — eme
 4. **Co-diseño con los que implementan.** Los docentes, los directores, las familias, las empresas — todos participan en el diseño. Lo que se impone desde arriba, fracasa desde abajo.
 5. **Medición de lo que importa.** No exámenes estandarizados de memorización. Evaluación de capacidades reales, portfolios, inserción laboral y capacidad de contribución, bienestar. Si medís lo fácil en vez de lo importante, optimizás la métrica equivocada.
 
-PLANEDU incorpora las cinco constantes. La ANCE es la institución autónoma. Los Maestros Creadores son el docente primero. El Pacto de la Dignidad es el co-diseño con los sindicatos. El portfolio es la medición de lo que importa. Y el proyecto BASTA es el compromiso de largo plazo — cinco iniciativas estratégicas diseñadas para sobrevivir al ciclo electoral.
+PLANEDU incorpora las cinco constantes. La ANCE es la institución autónoma. Los Maestros Creadores son el docente primero. El Pacto de la Dignidad es el co-diseño con los sindicatos. El portfolio es la medición de lo que importa. Y el proyecto ¡BASTA! es el compromiso de largo plazo — dieciséis mandatos estratégicos diseñados para sobrevivir al ciclo electoral.
 
 ### 2.5 Alpha School: La Escuela que Comprimió el Tiempo y Liberó la Creación
 
@@ -267,7 +267,7 @@ Lo que PLANEDU toma de Alpha — y lo que descarta:
 
 - **Toma:** El principio de compresión académica mediante tecnología adaptativa. La liberación de horas para creación. La estructura de talleres rotativos. La eliminación de la tarea.
 - **Descarta:** El modelo de docente minimizado. El costo privado. La desconexión con la comunidad.
-- **Supera:** PLANEDU usa **3 horas** de bloque matutino adaptativo (no 2) porque incorpora Sesiones Socráticas con el Maestro Creador — interacción humana de alto nivel que Alpha no prioriza. El Maestro Creador en PLANEDU es **más** central al proceso, no menos. La PAA es open-source y soberana, no software propietario. El costo objetivo de PLANEDU es **USD 3.000-4.000 por alumno por año** usando infraestructura compartida BASTA, tecnología abierta y economías de escala pública. Y las 5 horas liberadas de la tarde no son solo talleres — son emprendimientos reales conectados con PLANREP, proyectos comunitarios con impacto medible, y una Escuela Abierta que sirve al barrio entero.
+- **Supera:** PLANEDU usa **3 horas** de bloque matutino adaptativo (no 2) porque incorpora Sesiones Socráticas con el Maestro Creador — interacción humana de alto nivel que Alpha no prioriza. El Maestro Creador en PLANEDU es **más** central al proceso, no menos. La PAA es open-source y soberana, no software propietario. El costo objetivo de PLANEDU es **USD 3.000-4.000 por alumno por año** usando infraestructura compartida ¡BASTA!, tecnología abierta y economías de escala pública. Y las 5 horas liberadas de la tarde no son solo talleres — son emprendimientos reales conectados con PLANREP, proyectos comunitarios con impacto medible, y una Escuela Abierta que sirve al barrio entero.
 
 PLANEDU no copia a Alpha — la supera. Alpha demostró que el tiempo sobra. PLANEDU demuestra que el tiempo liberado puede encender a una generación entera.
 
@@ -492,7 +492,7 @@ El bloque matutino es donde la PAA — el "Dash Argentino" — hace su trabajo m
 | **9:15-9:45** | Pausa de movimiento + merienda. Los chicos se mueven, juegan, comen | Pausa + discusión libre entre pares. Espacio no estructurado para procesar lo aprendido | Pausa + estudio autodirigido. Los alumnos eligen qué revisar o explorar |
 | **9:45-10:00** | PAA: Exploración gamificada a ritmo propio. Juegos educativos, desafíos de lógica, lecturas elegidas por el alumno | PAA: Profundización en un tema de interés personal — la PAA ofrece caminos de curiosidad | PAA: Módulo avanzado autoelegido O continuación de *Leer para Encender* si el alumno todavía está en proceso de aceleración |
 
-**Cómo funciona en la práctica:** El Maestro Creador arranca el día mirando el **dashboard de la PAA** — un panel que le muestra en tiempo real el progreso de cada alumno, las áreas donde hay confusión compartida, los alumnos que están atascados, y los que avanzan más rápido de lo esperado. Con esa información, diseña la Sesión Socrática de las 7:45: si el algoritmo detectó que 8 de 25 alumnos no entendieron fracciones, el Maestro no repite la explicación del libro — arma una actividad grupal que ataca la confusión desde otro ángulo, usando preguntas, problemas reales, y la interacción entre los alumnos que sí entendieron y los que no. La IA maneja el **QUÉ** (entrega de contenido). El Maestro maneja el **POR QUÉ** (significado, curiosidad, conexión humana).
+**Cómo funciona en la práctica:** El Maestro Creador arranca el día mirando el **tablero de la PAA** — un panel que le muestra en tiempo real el progreso de cada alumno, las áreas donde hay confusión compartida, los alumnos que están atascados, y los que avanzan más rápido de lo esperado. Con esa información, diseña la Sesión Socrática de las 7:45: si el algoritmo detectó que 8 de 25 alumnos no entendieron fracciones, el Maestro no repite la explicación del libro — arma una actividad grupal que ataca la confusión desde otro ángulo, usando preguntas, problemas reales, y la interacción entre los alumnos que sí entendieron y los que no. La IA maneja el **QUÉ** (entrega de contenido). El Maestro maneja el **POR QUÉ** (significado, curiosidad, conexión humana).
 
 #### 4.6.3 La Tarde (10:30-17:00/18:00) — "Creación Viva"
 
@@ -566,7 +566,7 @@ El modelo 3+5 no degrada al docente — lo **eleva**. En el sistema actual, el d
 En el modelo 3+5, el Maestro Creador opera en dos modos:
 
 **Por la mañana: Facilitador adaptativo y coach socrático.**
-- Monitorea el dashboard de la PAA — identifica alumnos atascados, patrones de confusión compartida, oportunidades de profundización.
+- Monitorea el tablero de la PAA — identifica alumnos atascados, patrones de confusión compartida, oportunidades de profundización.
 - Lidera las Sesiones Socráticas — no repite lo que la PAA enseñó, sino que lo cuestiona, lo conecta, lo problematiza. Hace las preguntas que ningún algoritmo sabe hacer: "¿Y vos qué pensás?" "¿Por qué te parece que eso importa?" "¿Qué pasaría si fuera al revés?"
 - Brinda mentoría personalizada — se sienta al lado del alumno que está trabado y lo acompaña. No con la respuesta, sino con la presencia.
 - Este es trabajo de **mayor complejidad** que dar una clase expositiva. Requiere escucha, adaptación en tiempo real, conocimiento profundo de cada alumno, y capacidad de improvisación pedagógica. Es el docente como artista, no como repetidor.
@@ -695,7 +695,7 @@ PLANEDU no puede esperar a que el futuro llegue para enseñar sus conceptos. Tre
 
 Estos tres horizontes son nuestra mejor hipótesis sobre cómo se va a desplegar el futuro. El timing exacto y la forma de cada transición van a ser diferentes de lo que proyectamos acá. H2 puede llegar en 2032 en algunos sectores y en 2050 en otros. H3 puede ser una realidad parcial antes de lo que imaginamos — o puede tardar más. No importa. Lo que importa es que PLANEDU no apuesta a un solo futuro.
 
-Y esa es la diferencia más profunda entre PLANEDU y cualquier plan educativo que la Argentina tuvo antes. Los planes anteriores asumían un mundo estable — educamos para el mercado laboral que existe, y listo. PLANEDU asume un mundo en transición — y construye no solo las capacidades para cada horizonte sino el **mecanismo para adaptarse**: los Paneles Ciudadanos deliberan sobre qué priorizar en cada fase, la ANCE evalúa si las capacidades que estamos enseñando siguen siendo relevantes, el Dashboard publica los datos para que la sociedad pueda opinar, y el sistema evoluciona.
+Y esa es la diferencia más profunda entre PLANEDU y cualquier plan educativo que la Argentina tuvo antes. Los planes anteriores asumían un mundo estable — educamos para el mercado laboral que existe, y listo. PLANEDU asume un mundo en transición — y construye no solo las capacidades para cada horizonte sino el **mecanismo para adaptarse**: los Paneles Ciudadanos deliberan sobre qué priorizar en cada fase, la ANCE evalúa si las capacidades que estamos enseñando siguen siendo relevantes, el Tablero publica los datos para que la sociedad pueda opinar, y el sistema evoluciona.
 
 Un plan que no cambia no es un plan — es una plegaria. Y la Argentina ya rezó demasiado. PLANEDU elige la ingeniería sobre la fe: diseñar, medir, adaptar, mejorar. Ackoff lo llamaba *Diseño Idealizado* — no porque el diseño sea perfecto, sino porque el proceso de diseñar nunca termina. El plan perfecto no existe. El plan que aprende — ese sí.
 
@@ -751,7 +751,7 @@ El Dash Argentino es el cerebro operativo de la PAA 2.0 — un motor de orquesta
 - **Detección de brechas en tiempo real:** Identifica prerrequisitos faltantes y redirige al alumno para llenarlos antes de avanzar. No más alumnos "arrastrando" lagunas de años anteriores sin que nadie se entere.
 - **Integración con "Leer para Encender":** Módulo de aceleración lectora para alumnos por debajo del umbral (ver Sección 4.5). Lectura como prioridad absoluta — sin lectura, nada del resto funciona.
 - **Motor de programación de talleres:** Recomienda rotaciones de talleres basadas en intereses del alumno, brechas de capacidades y optimización de grupos de pares. El alumno explora todas las Siete Capacidades, con énfasis progresivo en sus fortalezas naturales.
-- **Dashboard docente:** Visibilidad en tiempo real del progreso de cada alumno, con alertas para estudiantes estancados o desenganchados. El Maestro Creador no necesita adivinar — la PAA le dice exactamente quién necesita atención y por qué.
+- **Tablero docente:** Visibilidad en tiempo real del progreso de cada alumno, con alertas para estudiantes estancados o desenganchados. El Maestro Creador no necesita adivinar — la PAA le dice exactamente quién necesita atención y por qué.
 - **Tracking de portfolio:** Documentación automática de hitos de dominio y proyectos completados. El portfolio se construye orgánicamente a medida que el alumno avanza — no como una tarea burocrática adicional.
 - **Tracking de emprendimientos:** Para alumnos de 14+ años, seguimiento de micro-emprendimientos reales: plan de negocio, hitos, mentoría, impacto. Integración con el fondo semilla y la red de Maestros de Oficio de PLANREP.
 - **Arquitectura offline-first:** Funcionalidad completa sin internet; sincronización cuando se conecta. Crítico para la Argentina rural (ver Sección 7.4). No hay excusa para que un alumno de Formosa tenga menos acceso que uno de Palermo.
@@ -912,11 +912,11 @@ La ANCE es al sistema educativo lo que el BCRA es al sistema financiero: una ins
 | **Captura presupuestaria** | El gobierno de turno sub-ejecuta o reasigna fondos educativos | Piso constitucional de 0.5% del PBI + asignación automática |
 | **Captura por designación política** | Ministro nombra directores afines | Director ANCE por concurso internacional + mandato no coincidente |
 | **Captura sindical** | Sindicatos bloquean cualquier cambio que amenace su poder | 1 asiento sindical en directorio de 9 = voz pero no veto. Pacto de la Dignidad alinea intereses |
-| **Captura por inercia** | El sistema absorbe reformas sin cambiar nada | Evaluación externa obligatoria cada 3 años + dashboard público |
+| **Captura por inercia** | El sistema absorbe reformas sin cambiar nada | Evaluación externa obligatoria cada 3 años + tablero público |
 
 ### 8.4 Tablero Nacional de Educación
 
-Dashboard público en tiempo real, inspirado en el Tablero Nacional del PLANISV:
+Tablero público en tiempo real, inspirado en el Tablero Nacional del PLANISV:
 
 **TABLA 12: KPIs del Tablero Nacional de Educación**
 
@@ -1060,7 +1060,7 @@ El sistema de paritarias docentes argentino produce un resultado predecible: cad
 | Piso salarial docente resultante | ~USD 1.200/mes | Ajuste trimestral automático |
 | Mecanismo de ajuste | IPC trimestral + coeficiente de productividad sectorial (0-2% adicional/año) | INDEC + ANCE |
 | Techo salarial (Maestro Referente Nacional) | 4× piso (~USD 4.800/mes) | Carrera docente PLANEDU |
-| Fuente de financiamiento del incremento | 40% reasignación interna + 30% ahorro PLANREP + 30% incremento presupuestario | Ley de Financiamiento Educativo PLANEDU |
+| Fuente de financiamiento del incremento | 40% reasignación interna + 30% ahorro PLANREP (disponible a partir del Año 4; en Años 1-3 cubierto con créditos internacionales) + 30% incremento presupuestario | Ley de Financiamiento Educativo PLANEDU |
 
 Cuando el salario deja de ser tema de disputa, la energía del sistema se libera para lo que importa: cómo enseñar mejor, cómo evaluar mejor, cómo formar mejor, cómo aprender mejor. La experiencia escandinava es inequívoca: en Finlandia, Suecia y Noruega, los sindicatos docentes son los principales aliados de la calidad educativa — porque no necesitan pelear por sobrevivir.
 
@@ -1154,7 +1154,7 @@ PLANEDU no pretende que la transformación educativa sea barata. Pretende que se
 | Fuente | Monto Disponible (USD M/año) | Plazo | Mecanismo Específico | Nivel de Certeza |
 |---|---|---|---|---|
 | **Reasignación de burocracia educativa existente** | 1.500–2.500 | Inmediato (Año 1+) | Reducción de capas administrativas redundantes (de 4 niveles de supervisión a 2), digitalización de trámites, fusión de programas duplicados, cierre de direcciones de línea sin función verificable. Estimación: ~30-50% del gasto en administración no docente (USD 4.500M) es reasignable | Alto |
-| **Ahorro fiscal de PLANREP** | 1.000–2.000 | Año 3+ | PLANREP libera USD 15.000-25.000M/año en ahorro fiscal. La Ley de Financiamiento Educativo PLANEDU reserva el 5-8% de ese ahorro para educación. Mecanismo: asignación específica en Ley de Presupuesto, con piso constitucional | Medio-Alto (depende de PLANREP) |
+| **Ahorro fiscal de PLANREP (asignación consolidada)** | 1.500–3.500 | Año 4+ | Disponible a partir del Año 4, cuando PLANREP alcanza superávit fiscal (Años 1-3 opera en déficit — los costos de reconversión superan los ahorros). Asignación consolidada: 10-15% del ahorro neto de PLANREP, que incluye tanto el piso constitucional educativo como el Fondo de Convergencia Educativa (Sección 12.4). Mecanismo: asignación específica en Ley de Presupuesto, con piso constitucional. Ver PLANREP Sección 5.1.1 para la tabla de asignación por fase | Medio-Alto (depende de PLANREP) |
 | **Incremento gradual del gasto educativo (5%→7% del PBI)** | 2.000–4.000 | Año 5+ | Cada 0.1% del PBI = ~USD 500M (PBI estimado ~USD 500.000M). Incremento progresivo: +0.2%/año durante 10 años. Financiado con crecimiento económico + ahorro fiscal combinado | Alto (si hay crecimiento) |
 | **Eficiencia en infraestructura (sinergias PLAN24CN)** | 500–1.000 | Año 3+ | Las Escuelas del Futuro en ciudades nuevas de PLAN24CN comparten infraestructura urbana (red digital, energía renovable, espacios públicos), reduciendo costo por escuela en 20-30%. 24 escuelas integradas en 24 ciudades | Alto |
 | **Asociaciones público-privadas (edtech)** | 200–500 | Año 2+ | Co-desarrollo de módulos de la PAA con empresas tecnológicas. El gobierno provee API, estándares y datos; las empresas desarrollan contenido. Modelo: plataforma abierta con módulos propietarios opcionales. Revenue share en licenciamiento internacional | Medio |
@@ -1170,8 +1170,8 @@ PLANEDU no pretende que la transformación educativa sea barata. Pretende que se
 | 0 (actual) | 5.0% | — | — | — | — |
 | 1 | 5.2% | +0.2% | ~1.000 | Reasignación interna + créditos internacionales | ANCE + primeras 50 EdF en diseño + cohorte fundacional |
 | 2 | 5.4% | +0.4% | ~2.000 | Reasignación + créditos + inicio ahorro burocrático | Construcción 50 EdF + PAA beta + 2.000 Maestros Creadores |
-| 3 | 5.6% | +0.6% | ~3.000 | + Ahorro PLANREP (inicio) | 50 EdF operativas + PAA v1.0 + salarios nuevos para EdF |
-| 4 | 5.7% | +0.7% | ~3.500 | + Crecimiento PBI genera mayor base | Expansión a 100 EdF + evaluación de impacto |
+| 3 | 5.6% | +0.6% | ~3.000 | Reasignación + créditos (PLANREP aún en déficit) | 50 EdF operativas + PAA v1.0 + salarios nuevos para EdF |
+| 4 | 5.7% | +0.7% | ~3.500 | + Ahorro PLANREP (inicio — primer año de superávit) | Expansión a 100 EdF + evaluación de impacto |
 | 5 | 5.9% | +0.9% | ~4.500 | + Ahorro PLANREP creciente | 150 EdF + 5.000 Maestros Creadores |
 | 6 | 6.0% | +1.0% | ~5.000 | + Incremento presupuestario legislado | 200 EdF + PAA disponible para sistema |
 | 7 | 6.2% | +1.2% | ~6.000 | + Eficiencias de escala | 300 EdF + programa bilingüe consolidado |
@@ -1182,11 +1182,11 @@ PLANEDU no pretende que la transformación educativa sea barata. Pretende que se
 | 12 | 7.0% | +2.0% | ~10.000 | Régimen: todas las fuentes consolidadas | 500 EdF + transformación sistémica en curso |
 
 **Supuestos clave:**
-- Crecimiento del PBI: 2-3% anual promedio (conservador, dado efecto combinado de las iniciativas BASTA)
+- Crecimiento del PBI: 2-3% anual promedio (conservador, dado efecto combinado de las iniciativas ¡BASTA!)
 - PBI base: ~USD 500.000M (2026), creciendo a ~USD 650.000-700.000M en Año 12
 - Cada 0.1% de un PBI de USD 600.000M = USD 600M
-- Ahorro PLANREP: comienza en Año 3 con ~USD 3.000M/año, escala a ~USD 15.000M/año en Año 8+
-- Asignación a PLANEDU: 5-8% del ahorro PLANREP = USD 750-1.200M/año a régimen
+- Ahorro PLANREP: PLANREP opera en déficit los Años 1-3. El superávit comienza en el Año 4 con ~USD 12.200M/año, escalando a ~USD 26.150M/año en régimen (Año 10+). Ver PLANREP Sección 5.1.1
+- Asignación consolidada a PLANEDU: 10-15% del ahorro neto de PLANREP (incluye piso educativo + Fondo de Convergencia) = USD 1.500-3.500M/año a régimen. Disponible a partir del Año 4
 
 ### 11.5 ROI — Por Qué Esto Es La Mejor Inversión del País
 
@@ -1302,7 +1302,7 @@ La coparticipación federal distribuye recursos con criterios que no tienen nada
 
 | Parámetro | Valor | Justificación |
 |---|---|---|
-| **Tamaño del Fondo** | USD 1.000–2.000M/año (a régimen, Año 5+) | 5-10% del ahorro fiscal de PLANREP + asignación presupuestaria específica |
+| **Tamaño del Fondo** | USD 1.000–2.000M/año (a régimen, Año 5+) | Incluido dentro de la asignación consolidada del 10-15% del ahorro neto de PLANREP destinada a PLANEDU (ver Tabla 14 y PLANREP Sección 5.1.1). Disponible a partir del Año 4 cuando PLANREP alcanza superávit. No es una fuente separada sino una partida dentro de la asignación educativa total |
 | **Criterio de distribución** | Inversamente proporcional a resultados educativos + directamente proporcional a pobreza infantil | Las provincias que más necesitan reciben más. Principio de equidad, no de premio |
 | **Condicionalidad** | Adopción de Siete Capacidades + firma de Pacto Bilateral + transparencia presupuestaria + publicación de resultados | No se impone el modelo completo de golpe — se exige compromiso con estándares mínimos y transparencia |
 | **Mecanismo de asignación** | Fórmula automática (no discrecional) publicada y auditable | Elimina negociación política. Cada provincia sabe exactamente cuánto le corresponde y por qué |
@@ -1348,7 +1348,7 @@ El ecosistema de educación privada en Argentina no es homogéneo. Hay que disti
 | Subsidio salarial parcial | Adopción de marco de Siete Capacidades + evaluación ANCE | 10 años |
 | Sin subsidio | Evaluación ANCE publicada (sin obligación de adoptar Siete Capacidades) | Inmediato |
 
-Las escuelas privadas que no quieran adoptar las Siete Capacidades son libres de no hacerlo — pero si reciben dinero público, deben rendir cuentas públicas. Y todas las escuelas, públicas y privadas, tendrán sus resultados publicados en el Dashboard Nacional de ANCE. La transparencia iguala.
+Las escuelas privadas que no quieran adoptar las Siete Capacidades son libres de no hacerlo — pero si reciben dinero público, deben rendir cuentas públicas. Y todas las escuelas, públicas y privadas, tendrán sus resultados publicados en el Tablero Nacional de ANCE. La transparencia iguala.
 
 ### 13.2 Empresas Edtech: Co-Desarrollo de la PAA
 
@@ -1531,7 +1531,7 @@ La comunicación institucional no alcanza. Los mensajes más poderosos vienen de
 | **Maestros Creadores** | Los 500-2.000 mejores docentes del país, formados por PLANEDU | 500 (Año 3), 2.000 (Año 7) | Hablan desde la experiencia: "Esto es lo que cambió en mi aula, en mis alumnos, en mi vida" | Redes sociales personales + canal PLANEDU + medios + charlas en escuelas convencionales |
 | **Padres Embajadores** | Madres y padres de alumnos de Escuelas del Futuro | 200 (Año 3), 1.000 (Año 7) | Hablan desde el corazón: "Esto es lo que mi hijo puede hacer ahora — mirá su portfolio" | WhatsApp groups, radio local, TV, redes sociales |
 | **Alumnos Embajadores** | Estudiantes de 14-18 años de Escuelas del Futuro | 100 (Año 4), 500 (Año 7) | Hablan desde la creación: muestran sus proyectos, sus portfolios, sus pasantías. Son la prueba viviente | TikTok, Instagram, YouTube, festivales de innovación |
-| **Directores de EdF** | Los líderes de las 500 Escuelas del Futuro | 50 (Año 3), 200 (Año 7) | Hablan desde los datos: resultados, comparaciones, lecciones aprendidas, transparencia total | Conferencias, publicaciones académicas, medios especializados, Dashboard público |
+| **Directores de EdF** | Los líderes de las 500 Escuelas del Futuro | 50 (Año 3), 200 (Año 7) | Hablan desde los datos: resultados, comparaciones, lecciones aprendidas, transparencia total | Conferencias, publicaciones académicas, medios especializados, Tablero público |
 | **Aliados internacionales** | Expertos en educación, organizaciones internacionales (OCDE, UNESCO, BID), académicos | 20-50 | Validan desde la evidencia: "Lo que Argentina está haciendo es innovador, riguroso, y funciona" | Prensa internacional, informes técnicos, visitas a EdF |
 
 ### 16.3 Build in Public: Transparencia Radical
@@ -1542,7 +1542,7 @@ Inspirado en el Tablero Nacional de PLANISV, PLANEDU adopta el principio de **Bu
 
 | Instrumento | Contenido | Frecuencia | Audiencia | Plataforma |
 |---|---|---|---|---|
-| **Dashboard Nacional PLANEDU** | KPIs de cada Escuela del Futuro: resultados de portfolio, bienestar estudiantil, progreso en Siete Capacidades, presupuesto, satisfacción | Tiempo real (actualización mensual) | Todo el público | Web pública + app móvil |
+| **Tablero Nacional PLANEDU** | KPIs de cada Escuela del Futuro: resultados de portfolio, bienestar estudiantil, progreso en Siete Capacidades, presupuesto, satisfacción | Tiempo real (actualización mensual) | Todo el público | Web pública + app móvil |
 | **Informe "Sin Filtro"** | Reporte trimestral honesto: qué salió bien, qué salió mal, qué se cambió, qué se aprendió | Trimestral | Ciudadanía, medios, academia, sindicatos | Publicación digital + conferencia de prensa |
 | **Serie documental "Escuelas del Futuro"** | Cámaras dentro de las EdF desde el día uno. Formato realidad — no propaganda. Muestra los conflictos, los errores, las frustraciones, además de los éxitos | Semanal (temporadas de 20 capítulos) | Público general | TV pública + plataformas de streaming + YouTube |
 | **Foro abierto mensual** | Sesión pública donde el Directorio de ANCE responde preguntas de cualquier ciudadano — sin filtro, sin guion | Mensual | Ciudadanía | Streaming en vivo + grabación disponible |
@@ -1559,7 +1559,7 @@ PLANEDU va a ser atacado. Es inevitable. La pregunta no es si habrá ataques sin
 | Ataque Anticipado | Canal Probable | Respuesta Preparada | Formato de Respuesta |
 |---|---|---|---|
 | "Esto es adoctrinamiento" | TV, redes, legisladores opositores | "Acá están las Siete Capacidades. Crear. Pensar. Comunicar. Cuidar. Construir. Colaborar. Conocer. ¿Cuál es la ideológica? Esperamos." | Video de 60 segundos con alumnos de EdF mostrando sus creaciones + hilo de datos en redes |
-| "Esto es una estafa que cuesta fortunas" | Medios económicos, analistas fiscales | Dashboard público con cada peso ejecutado. Comparación: costo de PLANEDU vs. costo de NO educar. Datos de Heckman, Hanushek, OCDE. | Infografía + artículo técnico + entrevista con economista independiente |
+| "Esto es una estafa que cuesta fortunas" | Medios económicos, analistas fiscales | Tablero público con cada peso ejecutado. Comparación: costo de PLANEDU vs. costo de NO educar. Datos de Heckman, Hanushek, OCDE. | Infografía + artículo técnico + entrevista con economista independiente |
 | "Las escuelas del futuro son escuelas de élite para pocos" | Sectores progresistas, medios opositores | Mapa interactivo: dónde están las 500 EdF. 80% en zonas de alta vulnerabilidad. Perfil socioeconómico de los alumnos: 70% de hogares de ingresos bajos y medios-bajos. | Mapa + testimonios de familias + datos demográficos |
 | "Los docentes no están preparados para esto" | Sectores conservadores, medios tradicionales | Perfil de los Maestros Creadores: selección rigurosa, 5 años de formación, salarios competitivos, evaluación continua. Comparación con estándares internacionales. | Perfiles de Maestros Creadores + videos de clases + datos de formación |
 | "El sistema educativo no se cambia así" | Académicos escépticos, burocracia educativa | "Tenés razón: no se cambia así. Se cambia con 500 escuelas que demuestran que se puede. Vení a verlas." Invitación abierta a visitar cualquier EdF. | Programa de puertas abiertas + estudios de impacto publicados |
@@ -1605,7 +1605,7 @@ La fase de demostración es la más importante de todo el programa. Si las prime
 | Programa bilingüismo operativo | Inmersión desde 4 años en todas las EdF; nivel A2 medible en alumnos de 8 años | Año 5 | ANCE + coordinadores de bilingüismo | Si docentes bilingües insuficientes → | AI como tutor de inglés (conversacional) + docentes nativos por videoconferencia desde países anglófonos + programa de voluntariado con Fulbright/British Council |
 | Comedores PLANISV | 50% de EdF con comida de origen local (cadenas cortas) | Año 5 | ANCE + coordinación con PLANISV | Si cadena de suministro insuficiente → | Complementar con proveedores convencionales manteniendo estándares nutricionales mínimos. Priorizar huertos escolares propios |
 | Expansión de Pactos Bilaterales | 16-18 provincias firmaron | Año 5 | ANCE | Si <12 → | Concentrar recursos en provincias comprometidas. Publicar comparación de resultados para generar presión ciudadana en las rezagadas |
-| Dashboard público operativo | Datos de cada EdF disponibles en tiempo real para cualquier ciudadano | Año 3 | ANCE + equipo de datos | Si retrasos → | Versión simplificada (PDF mensual por escuela) mientras se desarrolla plataforma completa |
+| Tablero público operativo | Datos de cada EdF disponibles en tiempo real para cualquier ciudadano | Año 3 | ANCE + equipo de datos | Si retrasos → | Versión simplificada (PDF mensual por escuela) mientras se desarrolla plataforma completa |
 
 ### Fase 3: Irradiación (Año 5-10)
 
@@ -1641,26 +1641,26 @@ Si la Fase 2 demuestra que el modelo funciona, la Fase 3 lo escala. De 50 escuel
 
 ---
 
-## SECCIÓN 18: INTEGRACIÓN CON EL PROYECTO BASTA — EL ORGANISMO COMPLETO
+## SECCIÓN 18: INTEGRACIÓN CON EL PROYECTO ¡BASTA! — EL ORGANISMO COMPLETO
 
 > *"PLANEDU no existe solo. Es un órgano de un organismo. Sin los otros cuatro, late pero no vive. Con los otros cuatro, transforma todo."*
 
-PLANEDU es una de las cinco piezas de un rompecabezas que solo funciona completo. Cada iniciativa del proyecto BASTA — PLAN24CN, PLANISV, PLANREP, PLANEDU, PLANJUS — aborda una crisis específica, pero las cinco crisis están interconectadas y las cinco soluciones se potencian mutuamente. Un egresado de PLANEDU que vive en una ciudad de PLAN24CN, come alimentos de un campo PLANISV, y trabaja en un emprendimiento nacido de PLANREP es un argentino que vive en un ecosistema completo de bienestar — no en un parche aislado.
+PLANEDU es una de las cinco piezas de un rompecabezas que solo funciona completo. Cada iniciativa del proyecto ¡BASTA! — PLAN24CN, PLANISV, PLANREP, PLANEDU, PLANJUS — aborda una crisis específica, pero las cinco crisis están interconectadas y las cinco soluciones se potencian mutuamente. Un egresado de PLANEDU que vive en una ciudad de PLAN24CN, come alimentos de un campo PLANISV, y trabaja en un emprendimiento nacido de PLANREP es un argentino que vive en un ecosistema completo de bienestar — no en un parche aislado.
 
 ### 18.1 El Aula Viva: La Educación que Sale del Edificio
 
-Las Escuelas del Futuro no terminan en sus paredes. PLANEDU propone que cada alumno, durante su trayectoria escolar, participe en rotaciones inmersivas por las otras cuatro iniciativas del proyecto BASTA. No como excursión turística — como experiencia formativa profunda, integrada en el currículo, evaluada como parte del portfolio.
+Las Escuelas del Futuro no terminan en sus paredes. PLANEDU propone que cada alumno, durante su trayectoria escolar, participe en rotaciones inmersivas por las otras cuatro iniciativas del proyecto ¡BASTA!. No como excursión turística — como experiencia formativa profunda, integrada en el currículo, evaluada como parte del portfolio.
 
-**TABLA 34: El Aula Viva — Rotaciones Inmersivas BASTA**
+**TABLA 34: El Aula Viva — Rotaciones Inmersivas ¡BASTA!**
 
-| Rotación | Duración | Edad | Capacidades que Desarrolla | Qué Hace el Alumno | Conexión BASTA |
+| Rotación | Duración | Edad | Capacidades que Desarrolla | Qué Hace el Alumno | Conexión ¡BASTA! |
 |---|---|---|---|---|---|
 | **Semana PLANISV** (en un sitio de restauración de suelo o finca regenerativa) | 5-7 días (2 veces en la trayectoria: a los 10 y a los 15) | 10 y 15 años | CUIDAR + CONOCER + CONSTRUIR + COLABORAR | Trabaja con las manos en el suelo: analiza microbiología, planta coberturas, mide infiltración de agua, cocina con lo que cosecha. Documenta todo para su portfolio. Convive con productores reales. | La biología del suelo deja de ser un capítulo de un libro y se convierte en tierra bajo las uñas |
 | **Semana PLAN24CN** (en una ciudad nueva en construcción o ya habitada) | 5-7 días (2 veces: a los 12 y a los 16) | 12 y 16 años | PENSAR + CREAR + COLABORAR + COMUNICAR | Participa en un taller de diseño urbano real: analiza cómo se diseñó la ciudad, propone mejoras, entrevista a habitantes, mapea flujos. Presenta sus conclusiones al Consejo Ciudadano de la ciudad. | El urbanismo como creación colectiva — la ciudad no es algo que te pasa, es algo que se diseña |
 | **Semana PLANREP** (en un Centro de la Vida o Centro de Inteligencia) | 5-7 días (1 vez, a los 14) | 14 años | CONSTRUIR + CREAR + CUIDAR + CONOCER | Trabaja junto a adultos en reconversión: aprende un oficio artesanal durante una semana, ve a personas adultas aprendiendo cosas nuevas, entiende que el aprendizaje no termina a los 18. Produce una pieza artesanal que se suma a su portfolio. | La educación no es solo para chicos. Ver a un adulto de 45 años aprendiendo carpintería cambia la perspectiva de un adolescente sobre el aprendizaje para siempre |
 | **Semana PLANJUS** (en una Casa JUS o panel ciudadano) | 5-7 días (1 vez, a los 16) | 16 años | PENSAR + COMUNICAR + COLABORAR + CUIDAR | Estudiantes visitan Casas JUS, observan paneles ciudadanos en acción, participan en casos simulados, aprenden resolución de conflictos y justicia restaurativa | Comprensión de justicia como servicio comunitario, no como institución lejana |
 
-**El efecto de polinización cruzada:** Cuando un alumno de 15 años vuelve de una semana en una finca PLANISV y cuenta en su Escuela del Futuro lo que aprendió sobre micorrizas, sobre la relación entre suelo y agua, sobre el amanecer trabajando con las manos — está haciendo algo que ningún libro de texto puede hacer: está transmitiendo experiencia vivida. Y cuando un productor de PLANISV ve a un grupo de adolescentes analizando su suelo con instrumentos científicos y explicándole en qué consiste la red de micorrizas que sostiene sus cultivos, está viendo el futuro de la producción argentina. El proyecto BASTA se convierte en un aula viva donde cada pieza educa a las otras.
+**El efecto de polinización cruzada:** Cuando un alumno de 15 años vuelve de una semana en una finca PLANISV y cuenta en su Escuela del Futuro lo que aprendió sobre micorrizas, sobre la relación entre suelo y agua, sobre el amanecer trabajando con las manos — está haciendo algo que ningún libro de texto puede hacer: está transmitiendo experiencia vivida. Y cuando un productor de PLANISV ve a un grupo de adolescentes analizando su suelo con instrumentos científicos y explicándole en qué consiste la red de micorrizas que sostiene sus cultivos, está viendo el futuro de la producción argentina. El proyecto ¡BASTA! se convierte en un aula viva donde cada pieza educa a las otras.
 
 ### 18.2 Lo Que PLANEDU Aporta a Cada Iniciativa
 
@@ -1683,25 +1683,83 @@ Las Escuelas del Futuro no terminan en sus paredes. PLANEDU propone que cada alu
 | ← PLANEDU recibe de | PLAN24CN (Ciudades Nuevas) | PLANISV (Suelo Vivo) | PLANREP (Reconversión) |
 |---|---|---|---|
 | **Infraestructura física** | Escuelas del Futuro integradas en ciudades nuevas: edificios bioclimáticos, red digital soberana, espacios públicos educativos | Huertos escolares con suelo vivo real (no tierra de vivero) + alimento local de calidad para comedores escolares | Centros de la Vida como "escuelas nocturnas" para Escuela Abierta. Infraestructura compartida |
-| **Financiamiento** | Economías de escala en construcción: cada EdF en ciudad PLAN24CN cuesta 20-30% menos (infraestructura compartida) | — | Ahorro fiscal de PLANREP redirigido a PLANEDU: USD 1.000-2.000M/año (5-8% del ahorro total) |
+| **Financiamiento** | Economías de escala en construcción: cada EdF en ciudad PLAN24CN cuesta 20-30% menos (infraestructura compartida) | — | Ahorro fiscal de PLANREP redirigido a PLANEDU: USD 1.500-3.500M/año a régimen (asignación consolidada del 10-15% del ahorro neto, disponible a partir del Año 4 — ver PLANREP Sección 5.1.1) |
 | **Contenido curricular** | Urbanismo como currículo: diseño de ciudades, gobernanza participativa, arquitectura bioclimática, economía circular | Ecología como currículo: biología del suelo, ciclo del agua, producción regenerativa, relación humano-tierra | Oficios como currículo: carpintería, cocina, textil, construcción, reparación — todo lo que PLANREP enseña a adultos, PLANEDU lo integra para jóvenes |
 | **Red de pasantías** | Empresas y organizaciones de ciudades nuevas como sitios de pasantía para alumnos EdF | Fincas y sitios PLANISV como destinos de pasantía y rotación inmersiva | Centros de la Vida como sitios de pasantía: alumnos trabajan junto a adultos en reconversión |
-| **Legitimidad social** | La calidad de las ciudades nuevas valida el proyecto BASTA entero | La mejora visible del campo valida la filosofía del cuidado que PLANEDU enseña | La reconversión exitosa de adultos valida la promesa de que la educación transforma vidas a cualquier edad |
+| **Legitimidad social** | La calidad de las ciudades nuevas valida el proyecto ¡BASTA! entero | La mejora visible del campo valida la filosofía del cuidado que PLANEDU enseña | La reconversión exitosa de adultos valida la promesa de que la educación transforma vidas a cualquier edad |
 | **Infraestructura post-laboral** | Fideicomisos de energía y vivienda como contenido curricular vivo | Fideicomisos de suelo vivo como experiencia de campo | Fideicomisos de Propósito Perpetuo, DNP, Nodos de Contribución como destinos para egresados, Economía de la Contribución como marco de actividad post-escolar |
 
-### 18.4 El Efecto Multiplicador del Proyecto BASTA
+### 18.4 El Efecto Multiplicador del Proyecto ¡BASTA!
 
-Ninguna de las cinco iniciativas funciona a su máximo potencial sin las otras cuatro. El efecto no es aditivo — es multiplicador.
+Ninguno de los dieciséis mandatos funciona a su máximo potencial sin los otros quince. El efecto no es aditivo — es multiplicador.
 
-**TABLA 37: Efecto Multiplicador BASTA**
+**TABLA 37: Efecto Multiplicador ¡BASTA!**
 
-| Sin integración (cada plan solo) | Con BASTA (los 5 integrados) | Multiplicador |
+| Sin integración (cada plan solo) | Con ¡BASTA! (los 5 integrados) | Multiplicador |
 |---|---|---|
 | PLANEDU forma buenos alumnos que egresan a ciudades que no funcionan | PLANEDU forma buenos alumnos que habitan ciudades diseñadas para el bienestar (PLAN24CN) | ×2-3 en impacto sobre calidad de vida |
 | PLANISV capacita productores que no consiguen mano de obra formada | PLANISV recibe egresados de PLANEDU que entienden biología del suelo y eligen producción regenerativa | ×2 en adopción de prácticas regenerativas |
 | PLANREP reconvierte adultos que no encuentran demanda para sus oficios | PLANREP reconvierte adultos hacia ciudades nuevas (PLAN24CN) que necesitan carpinteros, cocineros, artesanos, cuidadores | ×3 en tasa de inserción laboral post-reconversión |
 | PLAN24CN construye ciudades con habitantes que no están preparados para gobernarlas | PLAN24CN recibe habitantes formados por PLANEDU en pensamiento crítico, participación cívica, y cuidado ambiental | ×2 en calidad de gobernanza participativa |
 | PLANEDU + PLANJUS: Justicia lenta e inaccesible | Panelistas formados en PLANEDU; conflictos educativos resueltos en 45 días; justicia como capacidad cívica enseñada en escuelas | ×2-3 en confianza ciudadana en el sistema de justicia |
+
+### 18.5 PLANEDU ↔ PLANDIG — El Cerebro Soberano del Aula
+
+> *"Un co-tutor de IA que no corre en suelo argentino no es soberano — es un servicio que te pueden cortar."*
+
+La PAA (Plataforma Adaptativa de Aprendizaje) es el corazón tecnológico de PLANEDU. Pero un corazón necesita un cuerpo — y ese cuerpo es PLANDIG. La infraestructura cloud soberana de ArgenCloud aloja los datos educativos de cada estudiante argentino en territorio nacional: ningún patrón de aprendizaje de un chico de Florencio Varela viaja a un servidor de Virginia. El Modelo Educativo Argentino del LANIA — fine-tuned en español rioplatense, entrenado sobre el currículo de las Siete Capacidades — corre en los Nodos Escuela que PLANDIG despliega en cada establecimiento educativo: racks pequeños con edge computing que permiten al co-tutor de IA funcionar con baja latencia incluso donde la conectividad es precaria. La Capa 3 de protección de datos de PLANDIG garantiza que los registros de aprendizaje de menores operen bajo estándares superiores: perfilado exclusivamente pedagógico, visibilidad total para padres, auditoría semestral. PLANEDU forma, a su vez, el talento digital que el ecosistema soberano necesita: los egresados de las Escuelas del Futuro que eligen carreras de computación, IA, o ingeniería de datos son la cantera humana de ArgenCloud, del LANIA, y de la Bastarda Digital. El módulo curricular de Soberanía Digital — integrado en las Siete Capacidades desde cuarto grado — enseña qué son los datos, cómo funciona un algoritmo, y por qué importa quién controla la infraestructura. PLANDIG provee el sistema nervioso; PLANEDU, la conciencia que lo habita.
+
+### 18.6 PLANEDU ↔ PLANEB — La Escuela Que No Termina Nunca
+
+> *"La Bastarda Educativa no es competencia de la Escuela del Futuro — es su continuación natural."*
+
+Las Escuelas del Futuro tienen un límite temporal: forman personas durante la infancia, la adolescencia y los primeros años de vida adulta. La Bastarda Educativa de PLANEB disuelve ese límite. Es la extensión del aprendizaje de por vida — una plataforma cooperativa, de propiedad cero, donde cualquier educador puede publicar contenido, cualquier persona puede aprender, y las credenciales se certifican en blockchain sin depender de ninguna institución. Los graduados de PLANEDU que pasan por los Centros de la Vida de PLANREP se convierten en formadores de la Bastarda Educativa: el ciclo se cierra. Pero la integración es más profunda que la infraestructura. Las Siete Capacidades incluyen CONSTRUIR y CREAR — y el emprendimiento cooperativo es contenido curricular. Los emprendimientos estudiantiles de la Sección 4.7 de PLANEDU operan bajo la lógica del Protocolo Bastardo: transparencia radical, gobernanza distribuida, creación de valor sin extracción. La ANCE y la ANEB comparten estándares de gobernanza: auditoría ciudadana, rotación de directivos, incompatibilidades cruzadas. Lo que un alumno aprende en una Escuela del Futuro sobre crear valor con transparencia es exactamente lo que va a practicar toda su vida en la Red Bastarda. PLANEDU forma la capacidad; PLANEB la despliega en el mercado.
+
+### 18.7 PLANEDU ↔ PLANSAL — La Escuela Como Nodo de Vitalidad
+
+> *"Un chico que come mal, duerme mal y sufre en silencio no aprende — no importa cuán buena sea la pedagogía."*
+
+No existe transformación educativa sin salud. Las 12 Raíces de Vitalidad Popular que PLANSAL identifica — alimentación real, movimiento diario, sueño, vínculo, propósito, contacto con la naturaleza, contención emocional, comunidad, silencio, creatividad, espiritualidad laica, conexión intergeneracional — se integran en las Siete Capacidades de PLANEDU. CUIDAR no es solo un eje curricular abstracto: es un chico que aprende a cocinar con verduras de la huerta escolar (articulación con PLANISV), que tiene actividad física diaria como parte de la jornada (no como "hora de gimnasia" opcional), que accede a contención emocional profesional cuando algo le pesa. La Escuela del Futuro es un nodo de salud — el punto de contacto más constante y universal que el Estado tiene con la infancia. Los comedores escolares dejan de servir comida procesada y se transforman en espacios de educación alimentaria viva. Las Escuelas Abiertas — que PLANEDU extiende a la comunidad en horario vespertino y fines de semana — funcionan como Centros de Vitalidad para adultos mayores, familias, y vecinos. La formación ciudadana que PLANEDU sostiene genera la demanda popular que las leyes de PLANSAL necesitan para aprobarse. PLANSAL cuida el cuerpo; PLANEDU enseña a habitarlo con conciencia.
+
+### 18.8 PLANEDU ↔ PLANSUS — Información Real, No Propaganda del Miedo
+
+> *"Decirle 'no' a un adolescente no es educación — es pereza. Darle los datos para que decida es respeto."*
+
+Sesenta años de educación antidrogas basada en el miedo no redujeron el consumo — solo redujeron la confianza de los jóvenes en las instituciones que les mentían. PLANSUS propone regulación basada en evidencia; PLANEDU es el canal educativo de esa evidencia. La integración opera en tres ejes curriculares. En CONOCER: farmacología real — cómo funcionan las sustancias en el cerebro, qué riesgos tienen según su perfil (no todos iguales), qué dice la neurociencia sobre el cerebro adolescente en desarrollo y por qué la edad de inicio importa. En CUIDAR: reducción de daños como marco ético — si alguien va a consumir, que sepa cómo minimizar el riesgo; exploración de la conciencia y conocimiento indígena sobre plantas maestras como herencia cultural, no como tabú. En CREAR: los emprendimientos estudiantiles de mayores de 18 pueden incluir proyectos vinculados a la economía legal de sustancias que PLANSUS habilita. Las universidades, articuladas por PLANEDU, se convierten en socios de I+D del Track Terapéutico y del Track de Conciencia de PLANSUS. El resultado es una generación que no necesita propaganda porque tiene ciencia. PLANSUS regula el mercado; PLANEDU forma al ciudadano que lo navega con criterio.
+
+### 18.9 PLANEDU ↔ PLANMON — Aprender Lo Que Nadie Nos Enseñó Sobre La Plata
+
+> *"Un país que destruyó cinco monedas en cuarenta años no puede darse el lujo de no enseñar qué es una moneda."*
+
+La alfabetización financiera no es un contenido optativo — es un componente estructural de las Siete Capacidades. La Argentina es un país donde millones de personas toman decisiones económicas todos los días sin entender qué es la inflación, cómo funciona un tipo de cambio, o por qué el peso se devalúa cíclicamente. PLANMON propone El Pulso — una moneda respaldada por una canasta de bienes reales, gobernada por protocolo transparente. PLANEDU enseña por qué eso importa. Desde primaria: qué es el dinero, por qué existe, qué significa que algo tenga valor. Desde secundaria: historia monetaria argentina — el austral, el peso convertible, el corralito, los cinco signos monetarios destruidos — como caso de estudio en economía y en ética pública. Qué es una canasta de respaldo. Cómo funciona el SAPI (el riel de pagos de PLANDIG). Por qué la transparencia del protocolo es una defensa contra la confiscación. Los emprendimientos estudiantiles de PLANEDU operan en Pulso desde su lanzamiento: los chicos aprenden economía transaccionando, no memorizando. La Bastarda Educativa de PLANEB también opera en Pulso — extendiendo la experiencia monetaria soberana más allá de la edad escolar. PLANMON diseña la moneda; PLANEDU forma a la generación que la entiende, la usa, y la defiende.
+
+### 18.10 PLANEDU ↔ PLANAGUA — El Laboratorio En Cada Canilla
+
+> *"El agua no es un tema de ciencias naturales — es el eje transversal de todo el currículo."*
+
+PLANAGUA le da a PLANEDU algo que ningún libro de texto puede ofrecer: un laboratorio vivo en cada escuela. El programa Agua Escuela — diseñado conjuntamente entre ANAGUA y la ANCE — convierte el análisis de agua en ciencia ciudadana real. En primaria, los chicos miden pH, turbiedad y temperatura todas las semanas: aprenden qué es un dato, una serie temporal, una tendencia. En secundaria, miden arsénico, nitratos, cloro residual y conductividad — los datos se cargan al Tablero Nacional del Agua y ANAGUA los usa. No es simulación. Es participación real en el monitoreo de su propia comunidad. En el nivel universitario, PLANEDU y PLANAGUA cofinancian 500 becas anuales para carreras de ingeniería hidráulica, sanitaria, ambiental y glaciología — la Argentina forma 200 ingenieros hidráulicos por año y necesita formar 500+. Pero el agua no vive solo en el laboratorio: es eje transversal del currículo. Biología (ecosistemas acuáticos, ciclo del agua), química (potabilización, contaminantes), geografía (cuencas, glaciares, acuífero Guaraní), ética (¿a quién le pertenece el agua? ¿puede tener derechos un río?). Los 20.000 kits distribuidos en los primeros tres años cuestan USD 8-12M. El retorno: una generación que sabe leer el agua — y que exige que se la cuide.
+
+### 18.11 PLANEDU ↔ PLANGEO — El Producto Exportable Que Nadie Puede Sancionar
+
+> *"Nadie te pone sanciones por mejorar tus escuelas. Es el caballo de Troya perfecto."*
+
+PLANGEO clasifica a PLANEDU como un "inobjetable" — una de las primeras iniciativas ¡BASTA! que se proyectan internacionalmente porque ningún actor geopolítico puede oponerse sin quedar en ridículo. ¿Quién sanciona a un país por transformar su sistema educativo? El paquete exportable es concreto: las Siete Capacidades como marco curricular adaptable, la PAA como plataforma de aprendizaje personalizado sin dependencia de Big Tech, los Maestros Creadores como modelo de formación docente, la ANCE como arquitectura de gobernanza educativa anti-captura política. PLANGEO ubica este Stack de Transición Humana — PLANEDU + PLANREP — como la oferta más atractiva de la Red de Soberanías para los 180+ países con sistemas educativos en crisis. Pero PLANEDU impone una condición que PLANGEO respeta: no se exporta antes de evaluar. La proyección internacional comienza en Año 4, después de que las primeras 500 Escuelas del Futuro hayan completado un ciclo completo y la evaluación de impacto muestre resultados verificables. No se vende humo — se comparte evidencia. Argentina primero lo prueba, lo mide, lo ajusta. Después lo ofrece. El modelo se exporta como conocimiento abierto, no como franquicia: el Protocolo Educativo se publica en GitHub, los materiales son Creative Commons, la asistencia técnica opera a través de los Embajadores Bastardos de PLANGEO. PLANGEO abre la puerta; PLANEDU entrega el contenido que la sostiene.
+
+### 18.12 PLANEDU × PLANEN: Ingeniería Energética como Capacidad Nacional
+
+Las Escuelas del Futuro incluyen energía como eje transversal: termodinámica aplicada, diseño de microredes, y eficiencia energética. Las universidades forman la cohorte de ingenieros que PLANEN necesita (nuclear, renovables, litio). 500 becas anuales en ingeniería energética financiadas por las regalías del Fondo Soberano.
+
+### 18.13 PLANEDU ↔ PLANSEG — La Escuela Que Previene la Violencia
+
+La prevención de la violencia empieza en el aula, no en la comisaría. PLANEDU integra resolución de conflictos como eje transversal de las 7 Capacidades — especialmente dentro de COLABORAR — y PLANSEG provee los protocolos de alerta temprana para jóvenes en riesgo que la escuela detecta antes que ninguna otra institución. Los sistemas de alerta temprana de la ANSEG se conectan con las Escuelas del Futuro: un docente que identifica señales de violencia intrafamiliar, reclutamiento por bandas, o consumo problemático activa un protocolo PLANSEG-PLANEDU que interviene en días, no en meses. La escuela es la primera línea de seguridad — porque un chico que sabe resolver conflictos sin violencia es un adulto que no necesita policía.
+
+### 18.14 PLANEDU ↔ PLANVIV — La Escuela Como Ancla del Barrio Urbanizado
+
+Cuando PLANVIV urbaniza una villa, lo primero que construye después de agua y cloacas es una Escuela del Futuro. No es casualidad — es arquitectura social. La escuela es el ancla comunitaria que transforma un asentamiento regularizado en un barrio con identidad: el lugar donde los chicos aprenden, donde los padres se encuentran, donde la comunidad se organiza. Cada barrio rehabilitado por PLANVIV incorpora una Escuela del Futuro de PLANEDU como equipamiento obligatorio — con huerta comunitaria, Centro de Vitalidad adyacente, y conexión directa a los Centros de la Vida de PLANREP para los adultos del barrio. PLANEDU no llega al barrio después de la urbanización: llega con ella, porque una villa sin escuela digna no es un barrio urbanizado — es una villa con cloacas.
+
+### 18.15 PLANEDU ↔ PLANCUL — La Escuela como Nodo de la Red de Dendritas
+
+Las escuelas son nodos naturales de la Red de Dendritas de PLANCUL — infraestructura cultural que ya existe en cada barrio. Las Siete Capacidades de PLANEDU incluyen CREAR, y PLANCUL aporta las Siete Raíces (Tierra, Memoria, Creación, Cuerpo, Conexión, Juego, Identidad) como contenido transversal que enriquece cada capacidad. Los Maestros Creadores de PLANEDU son facilitadores naturales de las Mesas Largas de PLANCUL: personas formadas para abrir espacios donde la creatividad, la conversación y el encuentro se vuelven actos pedagógicos. La escuela que PLANEDU construye y la cultura que PLANCUL cataliza son dos nombres para el mismo proyecto: formar personas enteras.
 
 ---
 
@@ -1711,7 +1769,7 @@ Ninguna de las cinco iniciativas funciona a su máximo potencial sin las otras c
 
 Hay una tentación pedagógica que PLANEDU rechaza de raíz: enseñar el futuro como si fuera un tema más del programa. Poner "Fideicomisos de Propósito Perpetuo" en una diapositiva, tomar un examen de opción múltiple, y seguir adelante. Eso es exactamente lo que el sistema viejo haría — y exactamente lo que no funciona. No se puede enseñar gobernanza ciudadana desde un banco. Se aprende gobernando.
 
-Los Fideicomisos de Propósito Perpetuo — las estructuras autónomas que poseen infraestructura energética, de suelo, digital, de vivienda — son probablemente la innovación institucional más importante del proyecto BASTA. Son los que generan los retornos que financian el DNP. Son los que hacen posible que la productividad colectiva se distribuya como dividendo ciudadano en vez de concentrarse como ganancia privada. Y son, por diseño, gobernados por la ciudadanía a través de Paneles Ciudadanos. Si PLANEDU no prepara a cada argentino para participar en esa gobernanza — con rigor, con criterio, con comprensión profunda de las consecuencias de cada decisión — entonces los fideicomisos se degradan en una generación. La educación no es preparación para el futuro. La educación *es* participación en el diseño del futuro.
+Los Fideicomisos de Propósito Perpetuo — las estructuras autónomas que poseen infraestructura energética, de suelo, digital, de vivienda — son probablemente la innovación institucional más importante del proyecto ¡BASTA!. Son los que generan los retornos que financian el DNP. Son los que hacen posible que la productividad colectiva se distribuya como dividendo ciudadano en vez de concentrarse como ganancia privada. Y son, por diseño, gobernados por la ciudadanía a través de Paneles Ciudadanos. Si PLANEDU no prepara a cada argentino para participar en esa gobernanza — con rigor, con criterio, con comprensión profunda de las consecuencias de cada decisión — entonces los fideicomisos se degradan en una generación. La educación no es preparación para el futuro. La educación *es* participación en el diseño del futuro.
 
 PLANEDU integra los fideicomisos en la experiencia educativa a través de la capacidad COLABORAR — no como contenido teórico sino como práctica vivida:
 
@@ -1846,7 +1904,7 @@ La respuesta es: para que cada argentino pueda vivir la mejor vida posible y ayu
 
 ---
 
-**PLANEDU es una de las cinco iniciativas fundacionales del proyecto BASTA.**
+**PLANEDU es uno de los dieciséis mandatos del proyecto ¡BASTA!.**
 
 | Documento | Crisis que Aborda | Visión |
 |---|---|---|
@@ -1856,6 +1914,6 @@ La respuesta es: para que cada argentino pueda vivir la mejor vida posible y ayu
 | **PLANEDU** | Sistema educativo obsoleto que apaga a las personas en vez de encenderlas | Refundación educativa para la soberanía del conocimiento humano — Siete Capacidades, Maestros Creadores, y la promesa de que cada argentino tenga su instante y se convierta en Hombre Gris |
 | **PLANJUS** | Justicia lenta, corrupta e inaccesible; el pueblo no confía en el sistema | Justicia popular en 15/45/90 días — paneles ciudadanos por sorteo, anticorrupción por diseño, justicia restaurativa, Casas JUS en cada municipio |
 
-**Cinco iniciativas. Un solo propósito: que la Argentina sea el mejor lugar del planeta para vivir una experiencia humana.**
+**Dieciséis mandatos. Un solo propósito: que la Argentina sea el mejor lugar del planeta para vivir una experiencia humana.**
 
-**BASTA.**
+**¡BASTA!.**

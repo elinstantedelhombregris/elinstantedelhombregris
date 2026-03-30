@@ -39,7 +39,7 @@ Y lo propone con una premisa que ningún programa de "modernización del Estado"
 
 > *"No hay nada más violento que robarle a una persona la posibilidad de hacer algo que importe. El empleo público innecesario es esa violencia, administrada con recibo de sueldo."*
 
-Todo lo que PLANREP propone — las Ocho Ramas, el Artesano Aumentado, los fideicomisos, el DNP, la Economía de la Contribución — es la **primera mejor alternativa**. Fue diseñada con la mejor evidencia, la mejor intención y el mejor juicio disponible en 2026. Pero PLANREP sabe algo que los planes anteriores no sabían: que se equivoca en formas que todavía no puede ver. Por eso no propone solo una solución — propone un **sistema de escucha activa** que detecta cuándo la solución deja de funcionar y la reemplaza por una mejor. Los Paneles Ciudadanos deliberan. Los dashboards miden. ANCE evalúa. Y el plan se adapta. No por debilidad — por inteligencia. Un plan que no escucha no es fuerte: es sordo. Y un plan sordo en un siglo de cambio exponencial es un plan muerto.
+Todo lo que PLANREP propone — las Ocho Ramas, el Artesano Aumentado, los fideicomisos, el DNP, la Economía de la Contribución — es la **primera mejor alternativa**. Fue diseñada con la mejor evidencia, la mejor intención y el mejor juicio disponible en 2026. Pero PLANREP sabe algo que los planes anteriores no sabían: que se equivoca en formas que todavía no puede ver. Por eso no propone solo una solución — propone un **sistema de escucha activa** que detecta cuándo la solución deja de funcionar y la reemplaza por una mejor. Los Paneles Ciudadanos deliberan. Los tableros miden. ANCE evalúa. Y el plan se adapta. No por debilidad — por inteligencia. Un plan que no escucha no es fuerte: es sordo. Y un plan sordo en un siglo de cambio exponencial es un plan muerto.
 
 **Tesis Central:** La Argentina tiene entre 1.2 y 1.8 millones de empleados públicos en puestos que no generan valor para la sociedad. Estas personas no necesitan ser despedidas: necesitan ser reconvertidas hacia actividades productivas privadas a través de una **estrategia dual**. La **Economía de la Vida** — ocho ramas de trabajo que requieren presencia humana irreemplazable: oficios artesanales, cuidado de personas, regeneración ambiental, construcción viva, alimentación de origen, economía de la experiencia, industria creativa y economía circular — protege contra la automatización como un escudo. La **Economía de la Inteligencia** — habilidades AI-aumentadas para mercados globales — proyecta al país como una espada. Juntas cubren el espectro completo de capacidades humanas y generan un potencial de USD 15-47B/año en valor económico. El costo fiscal del sobreempleo público — entre USD 15.000 y 25.000 millones anuales — es simultáneamente el mayor lastre económico del país y la mayor fuente de financiamiento disponible para la transformación. PLANREP propone un programa de reconversión voluntario, gradual, masivo y financiado — con 120 Centros de la Vida y 50 Centros de Inteligencia, 50 unidades PLANREP-Móvil, Bonos de Impacto Social, un sistema de transición suave de 36 meses, y seis redes de contención — que libere talento humano atrapado, alivie la presión fiscal, genere divisas por exportación de servicios de inteligencia, dinamice la economía privada y demuestre que la reforma del Estado puede ser un acto de justicia, no de crueldad. PLANREP está diseñado en tres horizontes. El Escudo y la Espada son la mejor estrategia para el Horizonte 1 (2026-2035). El plan construye desde el día uno la infraestructura económica (Fideicomisos de Propósito Perpetuo), social (Paneles Ciudadanos de Futuro Económico) y educativa (integración con PLANEDU) para los Horizontes 2 y 3 — sabiendo que la forma exacta de esos horizontes será diseñada por la sociedad a través de la deliberación colectiva, no por este documento.
 
@@ -492,7 +492,7 @@ La estrategia tiene cinco ejes:
 
 **2. Redes sociales — contenido diario:** Un equipo de comunicación en cada Centro de la Vida generando contenido permanente: videos cortos de cuidadores en acción, time-lapses de construcciones en curso, testimonios de 60 segundos, showcases de productos artesanales, detrás de escena de las clases de gastronomía, "antes y después" de remediaciones ambientales. Instagram, TikTok, YouTube Shorts — donde está la gente, está PLANREP. El objetivo: que ningún argentino con un celular pueda pasar una semana sin ver al menos un contenido de alguien que hizo la transición y está del otro lado, vivo y produciendo.
 
-**3. Visitas a escuelas secundarias:** Equipos de PLANREP visitan escuelas secundarias de todo el país para mostrar a los estudiantes que las ocho ramas de la Economía de la Vida y las carreras de inteligencia aumentada son opciones de vida viables, dignas y económicamente sólidas. No solo para los que ya están en el Estado: para la próxima generación, que tiene que crecer sabiendo que hay más opciones que el escritorio público o la informalidad. Cada visita incluye una demostración en vivo de un oficio y el testimonio de un embajador. Esta conexión con el sistema educativo se integra directamente con PLANEDU — el plan de refundación educativa del proyecto BASTA — cuyas Secciones 19, 20 y 21 desarrollan la articulación completa entre el sistema educativo y la infraestructura de PLANREP, incluyendo la preparación para fideicomisos, DNP y Paneles Ciudadanos desde la escuela primaria.
+**3. Visitas a escuelas secundarias:** Equipos de PLANREP visitan escuelas secundarias de todo el país para mostrar a los estudiantes que las ocho ramas de la Economía de la Vida y las carreras de inteligencia aumentada son opciones de vida viables, dignas y económicamente sólidas. No solo para los que ya están en el Estado: para la próxima generación, que tiene que crecer sabiendo que hay más opciones que el escritorio público o la informalidad. Cada visita incluye una demostración en vivo de un oficio y el testimonio de un embajador. Esta conexión con el sistema educativo se integra directamente con PLANEDU — el plan de refundación educativa del proyecto ¡BASTA! — cuyas Secciones 19, 20 y 21 desarrollan la articulación completa entre el sistema educativo y la infraestructura de PLANREP, incluyendo la preparación para fideicomisos, DNP y Paneles Ciudadanos desde la escuela primaria.
 
 **4. "Día del Oficio" — feriado nacional:** PLANREP propone la creación de un feriado nacional anual — el **Día del Oficio** — dedicado a celebrar a los trabajadores de las ocho ramas de la Economía de la Vida y de la Economía de la Inteligencia. Ferias en cada ciudad con Centro de la Vida: muestras de artesanía, demostraciones de cuidado profesional, exhibiciones de bioconstrucción, mercados gastronómicos, experiencias culturales, showcases de industria creativa, talleres de reparación abiertos, competencias de habilidades, premios nacionales por rama. Un día donde el país entero mira a sus creadores y dice: esto vale. Esto importa. Esto es trabajo de verdad.
 
@@ -956,6 +956,25 @@ PLANREP no es un gasto: es una inversión con retorno positivo desde el tercer a
 | **BALANCE NETO** | **-USD 2.750M** | **-USD 150M** | **+USD 12.200M/año** | **+USD 26.150M/año** |
 
 A partir del cuarto año, PLANREP genera un excedente fiscal creciente. Para el año 10, el ahorro neto acumulado supera los USD 60.000M. Para el año 20, el ahorro anual neto supera los USD 26.000M/año — que se traduce directamente en **reducción de impuestos** al sector privado Y en ingreso de divisas por exportación de servicios de inteligencia, completando un doble círculo virtuoso: menos empleados públicos improductivos → menos gasto → menos impuestos → más sector privado → más empleo → más recaudación → menor presión sobre cada contribuyente. Simultáneamente: más egresados de Inteligencia → más exportación de servicios en USD → más divisas → economía más sólida → más oportunidades para todos.
+
+#### 5.1.1 Asignación del Ahorro Fiscal de PLANREP
+
+El ahorro fiscal que PLANREP genera es la fuente de financiamiento más importante del ecosistema ¡BASTA!. Pero ese ahorro **no existe** en los primeros años — los costos de reconversión superan los ahorros generados. La tabla de balance neto lo muestra con claridad: PLANREP opera en déficit los Años 1-3 (pico de -USD 2.750M en el Año 1, todavía -USD 150M en el Año 2-3). Recién a partir del Año 4, cuando el volumen de egresados que abandonaron la nómina pública supera al costo de reconvertir nuevas cohortes, el balance se vuelve positivo.
+
+**Principio rector:** Ningún otro plan del ecosistema ¡BASTA! puede reclamar una parte del ahorro fiscal de PLANREP hasta que PLANREP alcance superávit sostenido.
+
+**TABLA 7B: Asignación del Ahorro Fiscal Neto de PLANREP por Fase**
+
+| Fase | Período | Balance Neto de PLANREP | Asignación del Ahorro |
+|---|---|---|---|
+| **Déficit** | Años 1-3 | Negativo (-USD 2.750M a -USD 150M) | 100% retenido por PLANREP para autofinanciamiento. **No hay ahorro disponible para otros planes.** Los costos de reconversión se financian con presupuesto directo, BIS, y financiamiento corporativo (Secciones 5.3-5.4) |
+| **Transición** | Año 4 | Primer superávit (+USD 12.200M) | 85% retenido por PLANREP (reserva de estabilización + escalamiento de cohortes). 10% asignado al ecosistema ¡BASTA! (PLANEDU, Fondo de Convergencia Educativa). 5% reserva de contingencia |
+| **Régimen** | Año 5+ | Superávit creciente (+USD 12.200M a +USD 26.150M) | 70% destinado a reducción de impuestos al sector privado. 15% asignado al ecosistema ¡BASTA! (PLANEDU recibe 10-15% del ahorro neto; Fondo de Convergencia Educativa incluido en esa asignación). 10% reserva de estabilización. 5% reserva de contingencia |
+
+**Implicancia para otros planes:**
+- **PLANEDU** puede contar con financiamiento proveniente de PLANREP **a partir del Año 4**, no antes. La asignación consolidada es del 10-15% del ahorro neto de PLANREP, que incluye tanto el piso constitucional educativo como el Fondo de Convergencia Educativa. Estimación a régimen: USD 1.500-3.500M/año.
+- **PLANDIG** genera su propio ahorro fiscal por automatización digital (eficiencia en trámites, eliminación de duplicaciones, optimización de compras públicas). Ese ahorro es adicional y separado del ahorro de PLANREP — no se financia con fondos de PLANREP.
+- La reducción de impuestos al sector privado tiene prioridad (70% a régimen) porque es el mecanismo que dinamiza la economía, genera empleo formal, y cierra el círculo virtuoso de la reconversión.
 
 ### 5.2 La Cascada Fiscal: Cómo Cada Peso Ahorrado Multiplica
 
@@ -1425,7 +1444,7 @@ Al completar el Nivel 1, el participante elige uno de cuatro tracks de especiali
 - SQL y bases de datos: consultas, modelado, optimización.
 - Machine learning aplicado: clasificación, regresión, clustering — usando herramientas de IA para diseñar y ejecutar modelos.
 - Storytelling con datos: cómo transformar análisis técnico en narrativa ejecutiva que genere decisiones.
-- Dashboard y reportería: herramientas de visualización profesional.
+- Tablero y reportería: herramientas de visualización profesional.
 
 *Track Creativo:*
 - Producción de identidad visual completa con IA: logos, paletas, tipografía, guidelines de marca.
@@ -1702,7 +1721,7 @@ PLANREP mide ingresos. Mide empleabilidad. Mide ahorro fiscal. Mide exportacione
 
 Eso se puede medir. No con la precisión del PBI, pero sí con instrumentos validados que la ciencia social viene desarrollando hace décadas. Y PLANREP tiene la obligación de medirlo — no como una concesión al humanismo sentimental, sino como la métrica más importante del programa. Porque al final del día, si un millón de personas dejan el Estado, ganan más plata, exportan servicios, contribuyen al fisco, pero están igual de infelices, igual de vacías, igual de perdidas que antes — entonces PLANREP fracasó. Fracasó con buenos números, que es la peor forma de fracasar.
 
-**TABLA: Dashboard de Impacto Humano — KPIs No Económicos**
+**TABLA: Tablero de Impacto Humano — KPIs No Económicos**
 
 | Indicador | Cómo Se Mide | Frecuencia | Meta Año 5 | Meta Año 10 |
 |---|---|---|---|---|
@@ -1715,7 +1734,7 @@ Eso se puede medir. No con la precisión del PBI, pero sí con instrumentos vali
 | **Dignidad autopercibida** | Pregunta directa: "¿Te sentís orgulloso/a de tu trabajo?" (% que responde afirmativamente) | Semestral | 80% | 95% |
 | **Red social profesional** | Tamaño y calidad de la red de contactos profesionales activos post-PLANREP (contactos con interacción en los últimos 6 meses) | Anual | 15 contactos activos promedio | 30 contactos activos promedio |
 
-Estas métricas se publican junto al dashboard económico. No como un anexo decorativo, no como un PDF que nadie lee — junto al dashboard económico, en la misma pantalla, con el mismo peso visual. Porque PLANREP no tiene éxito cuando los números dan bien. PLANREP tiene éxito cuando las personas están bien. Y si alguna vez esas dos cosas se contradicen — si los números mejoran pero las personas empeoran — el programa se ajusta para servir a las personas, no a los números. No estamos construyendo una hoja de cálculo: estamos reconstruyendo vidas.
+Estas métricas se publican junto al tablero económico. No como un anexo decorativo, no como un PDF que nadie lee — junto al tablero económico, en la misma pantalla, con el mismo peso visual. Porque PLANREP no tiene éxito cuando los números dan bien. PLANREP tiene éxito cuando las personas están bien. Y si alguna vez esas dos cosas se contradicen — si los números mejoran pero las personas empeoran — el programa se ajusta para servir a las personas, no a los números. No estamos construyendo una hoja de cálculo: estamos reconstruyendo vidas.
 
 Hay una métrica que no está en la tabla pero que merece mención: la tasa de egresados que recomiendan el programa a otros empleados públicos. Si alguien que pasó por PLANREP le dice a un compañero "anotate, vale la pena", esa es la validación más poderosa posible. Ninguna campaña publicitaria del gobierno, ningún discurso presidencial, ningún spot de televisión va a convencer a un empleado público asustado como la palabra de alguien que ya lo hizo y está bien. PLANREP mide esa tasa. Y si baja, se pregunta por qué.
 
@@ -1734,7 +1753,7 @@ Lo que sigue no es una lista de miedos. Es una ingeniería de contingencia: cada
 | **Crisis macroeconómica severa** (devaluación brusca, recesión, espiral inflacionaria — escenario recurrente en Argentina) | Alta — es Argentina, la pregunta no es SI va a haber crisis sino CUÁNDO | Alto | Aceleración contra-cíclica: en crisis, MÁS gente quiere reconvertirse (el empleo público pierde poder adquisitivo, el miedo al despido crece, la motivación para buscar alternativas sube). PLANREP aprovecha la crisis como motor de inscripción. La Economía de la Inteligencia genera ingresos en USD, lo que actúa como cobertura natural contra la devaluación. Ajustar los salarios de transición al índice de inflación real (no al oficial, si hay brecha). Renegociar con proveedores y contratistas en pesos actualizados. |
 | **Cambio de gobierno hostil al programa** (un nuevo presidente quiere desmantelar PLANREP por razones ideológicas, fiscales o clientelares) | Media | Muy alto | El Ente Autónomo está protegido por ley del Congreso — no se desarma por decreto. El Director Ejecutivo tiene mandato de 5 años y solo puede ser removido por 2/3 del Directorio. Los Convenios Provinciales son contratos bilaterales que generan derechos adquiridos. La base social de cientos de miles de egresados actúa como lobby político natural. La comunicación pública permanente de resultados hace que desmantelar un programa exitoso sea políticamente costoso. En el peor caso: el gobierno puede recortar presupuesto, pero no puede cerrar el Ente sin pasar por el Congreso. |
 | **La IA avanza más rápido que lo previsto** (automatiza oficios artesanales que se creían seguros, como cocina o construcción) | Baja en los próximos 10 años; media a largo plazo | Medio | Los egresados de la Economía de la Inteligencia se vuelven MÁS valiosos (más automatización = más demanda de orquestadores humanos). La Economía de la Vida se concentra en los oficios más irreductiblemente físicos y presenciales (restauración patrimonial, gastronomía de alta gama, cuidados personalizados). Se agrega un track intermedio: "artesano digital" que combina oficio manual con herramientas de IA. Los Centros de Inteligencia actualizan curricula cada 6 meses para incorporar nuevas herramientas. |
-| **Escándalo de corrupción en el programa** (desvío de fondos, nepotismo en nombramientos, certificaciones truchas, Centros fantasma) | Media — la corrupción es un riesgo endémico en la gestión pública argentina | Muy alto | Auditoría externa permanente por firma internacional (designada por concurso público, rotación cada 3 años). Transparencia total: cada peso gastado es público y rastreable en el dashboard. Whistleblower protection: canal anónimo de denuncias con protección legal para denunciantes. Remoción inmediata de cualquier responsable involucrado, sin negociación ni "pase a disponibilidad". Investigación judicial independiente (denuncia penal automática). Comunicación proactiva: si hay un escándalo, PLANREP lo publica antes de que lo publique la prensa, con el detalle de las medidas tomadas. La credibilidad se destruye en un día y se reconstruye en un año — PLANREP no puede darse ese lujo. |
+| **Escándalo de corrupción en el programa** (desvío de fondos, nepotismo en nombramientos, certificaciones truchas, Centros fantasma) | Media — la corrupción es un riesgo endémico en la gestión pública argentina | Muy alto | Auditoría externa permanente por firma internacional (designada por concurso público, rotación cada 3 años). Transparencia total: cada peso gastado es público y rastreable en el tablero. Whistleblower protection: canal anónimo de denuncias con protección legal para denunciantes. Remoción inmediata de cualquier responsable involucrado, sin negociación ni "pase a disponibilidad". Investigación judicial independiente (denuncia penal automática). Comunicación proactiva: si hay un escándalo, PLANREP lo publica antes de que lo publique la prensa, con el detalle de las medidas tomadas. La credibilidad se destruye en un día y se reconstruye en un año — PLANREP no puede darse ese lujo. |
 
 ### Sostenibilidad Post-Programa: Los Centros Como Instituciones Permanentes
 
@@ -2102,7 +2121,7 @@ La piedra angular legal del programa. Debe establecer:
 
 ### 12.2 Tablero Público de Transparencia
 
-Todos los KPIs son públicos, actualizados en tiempo real, accesibles en un dashboard web y auditados por una entidad independiente. El Tablero se alimenta del sistema de transparencia blockchain (Sección 5.5): cada desembolso, cada microcrédito, cada BIS pagado, cada comisión del Marketplace es rastreable en cadena. Cualquier ciudadano puede ver cuántas personas se reconvirtieron (por rama, por provincia, por cohorte), cuánto se ahorró, y cómo se invirtió cada peso del programa. La transparencia no es optativa: es la condición de legitimidad.
+Todos los KPIs son públicos, actualizados en tiempo real, accesibles en un tablero web y auditados por una entidad independiente. El Tablero se alimenta del sistema de transparencia blockchain (Sección 5.5): cada desembolso, cada microcrédito, cada BIS pagado, cada comisión del Marketplace es rastreable en cadena. Cualquier ciudadano puede ver cuántas personas se reconvirtieron (por rama, por provincia, por cohorte), cuánto se ahorró, y cómo se invirtió cada peso del programa. La transparencia no es optativa: es la condición de legitimidad.
 
 ---
 
@@ -2133,9 +2152,9 @@ La principal debilidad del plan radica en su vulnerabilidad frente a la volatili
 
 ---
 
-## SECCIÓN 14: INTEGRACIÓN CON OTRAS INICIATIVAS ESTRATÉGICAS — EL PROYECTO BASTA
+## SECCIÓN 14: INTEGRACIÓN CON OTRAS INICIATIVAS ESTRATÉGICAS — EL PROYECTO ¡BASTA!
 
-Con la incorporación de la Economía de la Inteligencia como segundo pilar de PLANREP, la integración con las demás iniciativas estratégicas se amplifica. Cinco pilares fundacionales. Cinco dimensiones de una misma transformación.
+Con la incorporación de la Economía de la Inteligencia como segundo pilar de PLANREP, la integración con las demás iniciativas estratégicas se amplifica. Dieciséis mandatos. Dieciséis dimensiones de una misma transformación.
 
 ### 14.1 PLANREP + PLAN24CN (24 Ciudades Nuevas)
 
@@ -2193,16 +2212,16 @@ PLANREP no es solo un programa social. Es un motor económico dual:
 - Posiciona a la Argentina en la economía del conocimiento. No como consumidora de tecnología importada, sino como exportadora de talento potenciado por IA. La zona horaria, el nivel educativo base y el costo de vida hacen de Argentina una plataforma de exportación de servicios de inteligencia artificial con ventajas comparativas reales.
 - Crea un efecto multiplicador: cada dólar que entra por exportación de servicios IA genera actividad económica local (alquiler, comida, transporte, servicios) que beneficia a toda la comunidad, incluidos los egresados de la Vida.
 
-### 14.4 El Proyecto BASTA
+### 14.4 El Proyecto ¡BASTA!
 
-Cinco pilares fundacionales. Cinco dimensiones. Un solo proyecto.
+Dieciséis mandatos. Dieciséis dimensiones. Un solo proyecto.
 
 - **PLAN24CN** — las ciudades donde vivir.
 - **PLANISV** — el suelo donde crecer.
 - **PLANREP-Vida** — las ocho ramas del trabajo vivo: manos para construir, personas para cuidar, bocas para alimentar, ojos para reparar.
 - **PLANREP-Inteligencia** — las mentes para competir.
 
-**TABLA 20: BASTA — Sinergias**
+**TABLA 20: ¡BASTA! — Sinergias**
 
 | Intersección | Sinergia | Impacto |
 |---|---|---|
@@ -2213,18 +2232,18 @@ Cinco pilares fundacionales. Cinco dimensiones. Un solo proyecto.
 | Suelo + Vida (La Mesa) | Alimentos de suelos remediados → gastronomía de origen → marca país | Ciclo completo campo→mesa→mundo |
 | Suelo + Inteligencia | Agricultura de precisión con IA; monitoreo ecológico con drones y sensores | Productividad 5x con huella ambiental 1/3 |
 | Vida + Inteligencia | Artesano Aumentado: cada egresado de la Vida usa IA para potenciar su oficio | El "doble blindaje" de hoy: las más difíciles de reemplazar por máquinas Y potenciadas por ellas — un blindaje que se refuerza con los mecanismos de adaptación de Horizonte 2 y 3 |
-| Reconversión + Justicia | PLANJUS resuelve conflictos laborales de la reconversión en 15-45 días | Garantía de que ningún trabajador reconvertido queda en limbo legal |
-| Las 5 juntas | BASTA: sistema completo de transformación nacional | USD 30-50B/año de nuevo valor económico; 2M+ empleos genuinos |
+| Reconversión + Justicia | PLANJUS resuelve conflictos laborales de la reconversión: simples (formación, microcrédito) en 15 días vía JUS-1; complejos (empleador anterior, indemnizaciones) en 45 días vía JUS-2 | Garantía de que ningún trabajador reconvertido queda en limbo legal |
+| Las 5 juntas | ¡BASTA!: sistema completo de transformación nacional | USD 30-50B/año de nuevo valor económico; 2M+ empleos genuinos |
 
 Ciudades donde vivir. Suelo para crecer alimentos. Ocho ramas de trabajo vivo para construir, cuidar, alimentar, reparar, crear. Mentes para competir en el mundo. Justicia para proteger todo lo construido. Los cinco pilares se necesitan mutuamente. Sin ciudades, ¿dónde trabajan los egresados? Sin suelo sano, ¿de qué se alimentan las ciudades? Sin las ocho ramas, ¿quién construye, quién cuida, quién alimenta, quién repara? Sin mentes, ¿cómo compite el país? Sin justicia, ¿quién protege al que transiciona?
 
 No son cinco programas separados: son cinco dimensiones del mismo proyecto de transformación nacional. Cada uno funciona solo — pero juntos, son un sistema. Un sistema donde el egresado de El Refugio construye la ciudad de PLAN24CN, el egresado de La Reparación restaura los suelos de PLANISV, el egresado de La Mesa alimenta a la ciudad con productos de esos suelos, el egresado de El Amparo cuida a los ancianos de la ciudad, y el egresado de la Inteligencia gestiona todo eso con IA desde su Centro de Inteligencia.
 
-Eso es BASTA: **B**ienestar, **A**limentación, **S**istemas inteligentes, **T**erritorio, **A**utonomía. No es un acrónimo pensado para marketing — es la síntesis operativa de lo que la Argentina necesita para dejar de ser un país que administra su decadencia y empezar a ser un país que construye su futuro.
+Eso es ¡BASTA!: **B**ienestar, **A**limentación, **S**istemas inteligentes, **T**erritorio, **A**utonomía. No es un acrónimo pensado para marketing — es la síntesis operativa de lo que la Argentina necesita para dejar de ser un país que administra su decadencia y empezar a ser un país que construye su futuro.
 
 Y PLANJUS — Justicia Popular — es el sistema inmunológico que protege a las cinco letras. Sin justicia rápida y accesible, los trabajadores reconvertidos no tienen protección legal durante su transición.
 
-PLANREP se integra directamente con **PLANEDU** — el plan de refundación educativa del proyecto BASTA — que diseña la conexión bidireccional entre el sistema educativo formal y la infraestructura de formación de PLANREP. Los Centros de la Vida, en su etapa de consolidación, se transformarán en instituciones permanentes del sistema de educación técnica argentino — una alternativa vocacional para jóvenes de 18+ que eligen no ir a la universidad, y una fuente de Maestros de Oficio para las escuelas técnicas. PLANEDU integra la preparación para la transición post-laboral en su currículo: los alumnos aprenden sobre fideicomisos y DNP (Capacidad CONOCER), participan en Paneles Ciudadanos simulados (Capacidad COLABORAR), y construyen su Portfolio Ciudadano Único desde los 6 años. Las Secciones 19, 20 y 21 de PLANEDU desarrollan esta integración en detalle.
+PLANREP se integra directamente con **PLANEDU** — el plan de refundación educativa del proyecto ¡BASTA! — que diseña la conexión bidireccional entre el sistema educativo formal y la infraestructura de formación de PLANREP. Los Centros de la Vida, en su etapa de consolidación, se transformarán en instituciones permanentes del sistema de educación técnica argentino — una alternativa vocacional para jóvenes de 18+ que eligen no ir a la universidad, y una fuente de Maestros de Oficio para las escuelas técnicas. PLANEDU integra la preparación para la transición post-laboral en su currículo: los alumnos aprenden sobre fideicomisos y DNP (Capacidad CONOCER), participan en Paneles Ciudadanos simulados (Capacidad COLABORAR), y construyen su Portfolio Ciudadano Único desde los 6 años. Las Secciones 19, 20 y 21 de PLANEDU desarrollan esta integración en detalle.
 
 > *"No hacen falta milagros. Hacen falta manos, mentes, tierra y ciudades. Todo lo demás es excusa."*
 
@@ -2266,13 +2285,91 @@ Imaginemos la Argentina en 2040. No como utopía resuelta, sino como sociedad en
 
 **El momento.** Y todo empezó con una decisión. Un instante. El instante en que una persona apagada — una de esos millones de hombres y mujeres atrapados en una oficina donde no hacían nada que importara — leyó un papel que decía que había otro camino. Que podía aprender un oficio. Que podía cuidar a alguien. Que podía construir algo. Que podía reparar lo roto. Que podía crear algo bello. Que podía usar la inteligencia artificial como multiplicador de su talento. Que no tenía que elegir entre la seguridad de la nada y el terror del vacío — porque había un puente, con contención, con acompañamiento, con 36 meses de red que lo sostenía mientras aprendía a volar.
 
-Esa persona apagada tuvo su instante. Se convirtió en Hombre Gris — en alguien que pule su carácter, que enciende su espíritu, que brilla. No porque el Estado lo echó, sino porque el Estado, por primera vez, le ofreció algo mejor que la inercia. Le ofreció un destino. Le ofreció sus propias manos. Le ofreció su propia mente. Le ofreció ocho ramas de la vida y cuatro niveles de la inteligencia como formas de la dignidad. Y después le ofreció algo más — algo que en 2026 era apenas un diseño en un documento largo: un piso de dignidad que no dependía de ningún empleo, fideicomisos que le pertenecían, paneles donde su voz contaba, y una economía de la contribución donde cuidar, crear, reparar y enseñar valían tanto como producir y vender.
+Esa persona apagada tuvo su instante. Se convirtió en Hombre Gris — gris como la plata que se pule hasta brillar, porque Argentina es argentum y argentum es plata. Alguien que pule su carácter, que enciende su espíritu, que brilla. No porque el Estado lo echó, sino porque el Estado, por primera vez, le ofreció algo mejor que la inercia. Le ofreció un destino. Le ofreció sus propias manos. Le ofreció su propia mente. Le ofreció ocho ramas de la vida y cuatro niveles de la inteligencia como formas de la dignidad. Y después le ofreció algo más — algo que en 2026 era apenas un diseño en un documento largo: un piso de dignidad que no dependía de ningún empleo, fideicomisos que le pertenecían, paneles donde su voz contaba, y una economía de la contribución donde cuidar, crear, reparar y enseñar valían tanto como producir y vender.
 
 No encontró solo un oficio. Encontró un propósito. Encontró una comunidad. Encontró que su vida podía ser más que una transacción entre su tiempo y un salario — podía ser una contribución a algo más grande que ella misma.
 
 Y eligió. Y después siguió eligiendo — porque el sistema no le pidió que eligiera una vez y para siempre. Le dio herramientas para adaptarse, para cambiar, para seguir descubriendo de qué era capaz. La certeza total no existe. Lo que existe es la infraestructura para navegar la incertidumbre con dignidad.
 
 > *"La Argentina de 2040 no está terminada. Está en construcción — y esa es su mayor fortaleza. Se construye con cada persona que decide dejar de sobrevivir y empieza a contribuir. PLANREP no es un programa: es el permiso que el país se da a sí mismo para creer que puede ser distinto — y la infraestructura para demostrarlo, ajustarlo, y seguir construyendo."*
+
+### 14.7 PLANREP + PLANDIG: La Inteligencia que Orienta la Transición
+
+PLANDIG construye la infraestructura digital soberana. PLANREP necesita esa infraestructura para funcionar — y PLANDIG necesita a PLANREP para tener sentido humano.
+
+El **Arquitecto de Fuerza Laboral IA** (PLANDIG Sección 11.1) es la herramienta que conecta ambos mundos: un sistema de inteligencia artificial que cruza el perfil de cada trabajador en transición — sus habilidades, su historia, sus intereses, su situación familiar — con las necesidades de las Ocho Ramas y de la Economía de la Inteligencia. No decide: muestra caminos. El matching entre persona y destino deja de ser burocrático y se vuelve personalizado, dinámico, acompañado. El **Compañero de Transición** — la versión micro del Arquitecto — actúa como tutor IA dentro de los Centros de la Vida y los Centros de Inteligencia, adaptando el ritmo de aprendizaje y detectando señales de angustia antes de que escalen.
+
+PLANDIG también forma la **cohorte tech** que PLANREP necesita como destino laboral: operadores de datacenters soberanos, desarrolladores de la nube argentina, técnicos de nodos comunitarios, analistas de ciberseguridad. Son oficios de la Economía de la Inteligencia que no existían antes de PLANDIG — y que PLANREP capacita.
+
+Y hay una sinergia física: la automatización y digitalización del Estado libera **edificios públicos** — ministerios vaciados, oficinas sobredimensionadas. PLANDIG los reconvierte en nodos del núcleo soberano (datacenters). PLANREP los reconvierte en Centros de la Vida. No se destruye infraestructura: se transforma, como se transforma a las personas que la habitaban.
+
+### 14.8 PLANREP + PLANEB: Los Oficios de la Economía sin Dueño
+
+Las Empresas Bastardas de PLANEB no tienen dueños — tienen usuarios y trabajadores. Y esos trabajadores necesitan formación que no existe en el sistema educativo tradicional: gerentes de cooperativas DAO, técnicos actuariales de entidades sin lucro, operadores de plataformas de transparencia, contadores de Fideicomisos de Propósito Perpetuo.
+
+Los **Centros de la Vida** forman esa fuerza laboral. Un egresado de PLANREP puede especializarse en gestión cooperativa y entrar como gerente operativo de una Bastarda Aseguradora; otro puede formarse como técnico de la Bastarda Financiera, operando wallets del Pulso en zonas rurales. La **Red Bastarda** es un destino laboral concreto para egresados de PLANREP — no abstracto, no hipotético: cada Bastarda que se crea necesita personas que la operen.
+
+La compensación sigue el modelo de PLANREP: **salario base** en la mediana de mercado, amplificado por el **Índice de Contribución**. No cobra más el que tiene más antigüedad — cobra más el que más aporta, medido en dimensiones verificables. El techo salarial de 8:1 de PLANEB se calibra con este índice. La dignidad del trabajo no se negocia: se mide y se compensa.
+
+Los Fideicomisos de Propósito Perpetuo de PLANREP (macro-infraestructura) y las Bastardas de PLANEB (servicios de mercado) comparten arquitectura legal pero tienen propósitos distintos — y se refuerzan mutuamente. Los Fideicomisos construyen la infraestructura sobre la que las Bastardas operan. Las Bastardas proveen los servicios que los egresados de PLANREP necesitan para vivir.
+
+### 14.9 PLANREP + PLANSAL: La Salud del que Transiciona
+
+La reconversión laboral no es solo un cambio de empleo — es un cambio de vida. Y todo cambio de vida tiene un costo corporal y emocional. PLANSAL lo sabe: un Ricardo que pasó diez años en una oficina sin sentido llega a los Centros de la Vida con el cuerpo inflamado, el sueño roto, y la autoestima en el suelo.
+
+Cada trabajador en transición recibe acompañamiento de los **Guías de Vitalidad** de PLANSAL — profesionales formados en salud integral que no tratan enfermos sino que acompañan personas. El Guía detecta señales tempranas: insomnio persistente, consumo problemático, aislamiento social, somatización del estrés de la transición. No medica primero: escucha, orienta, conecta con la red de contención. Si el problema es clínico, el sistema PLANSAL interviene. Si es existencial — y la mayoría lo son — el Guía sostiene.
+
+La infraestructura física se comparte: los **Centros de Vitalidad** de PLANSAL y los **Centros de la Vida** de PLANREP pueden cohabitar el mismo edificio o el mismo campus. En una ciudad mediana, no tiene sentido duplicar: un espacio donde aprendés un oficio y otro donde cuidás tu salud pueden ser el mismo espacio. La reconversión incluye nutrición, movimiento, manejo del estrés — no como extra, sino como parte del programa. Porque no podés aprender carpintería si dormís tres horas por noche. No podés cuidar ancianos si vos mismo estás destruido.
+
+### 14.10 PLANREP + PLANSUS: La Reconversión del Enforcement
+
+PLANSUS legaliza las sustancias. Pero la legalización no ocurre en el vacío — ocurre en un país con decenas de miles de personas cuyo trabajo era perseguir lo que ahora es legal. Policías de la división narcóticos, agentes de fuerzas federales antidrogas, personal penitenciario asignado a detenidos por drogas, fiscales especializados. El día que PLANSUS se implementa, esas personas pierden la razón de ser de su puesto. PLANREP les ofrece otra.
+
+La reconversión de enforcement no crea una novena Rama del trabajo vivo — la economía de sustancias se integra **transversalmente** en las ramas existentes. Un ex-agente antinarcóticos con experiencia en logística se reconvierte en operador de la cadena de trazabilidad semilla-a-venta. Un ex-policía de calle con conocimiento del territorio se reconvierte en facilitador comunitario de reducción de daños. Un ex-fiscal con formación jurídica se reconvierte en auditor de compliance del mercado regulado. Los Centros de la Vida ofrecen módulos específicos: operaciones de dispensario (3 meses), agronomía cannábica (6 meses), facilitación de terapia asistida (200 horas). PLANSUS necesita 80.000+ trabajadores certificados en su primera década — y PLANREP los forma.
+
+Lo poético del sistema: la misma persona que perseguía ahora regula, cuida, y produce. No se la descarta — se la transforma.
+
+### 14.11 PLANREP + PLANMON: El Motor Silencioso de las Divisas
+
+PLANMON necesita flujo genuino de divisas para respaldar el peso-canasta. PLANREP lo genera — desde dos frentes que no requieren ni puertos ni aduanas.
+
+Primero: la **Economía de la Inteligencia** exporta servicios. Cuatrocientos mil argentinos vendiendo servicios AI-aumentados al mundo generan USD 25.000 millones anuales en divisas reales — no en transferencias de organismos, no en deuda, no en commodities con precio volátil. Es flujo sostenido, diversificado, que entra al sistema productivo y se gasta en la economía local. Cada dólar que ingresa por una consultoría de IA vendida desde Córdoba a Austin circula en alquiler, comida, transporte, servicios — y alimenta la base del peso-canasta. PLANMON lo incluye como uno de los diez componentes de su canasta de respaldo (Sección 3.3 de PLANMON).
+
+Segundo: el **ahorro fiscal** de PLANREP es la fuente de financiamiento silenciosa de todo ¡BASTA!. Reconvertir un millón de empleados públicos redundantes ahorra USD 15.000-25.000 millones anuales en gasto estatal. Esos pesos no desaparecen — se reasignan: financian los otros catorce mandatos, alimentan los Fideicomisos de Propósito Perpetuo, y reducen la presión fiscal sobre el sector productivo. Menos impuestos, más actividad, más recaudación genuina — el círculo virtuoso que la Argentina nunca logró construir.
+
+Y en el Horizonte 3, la convergencia es total: el **DNP** — Dividendo Nacional de Productividad — reemplaza gradualmente el modelo empleo+jubilación como fuente de ingreso. Los trabajadores cobran en Pulso. El Pulso está respaldado por la canasta. La canasta se alimenta de las exportaciones que PLANREP genera. El sistema se cierra.
+
+### 14.12 PLANREP + PLANAGUA: Los Oficios del Agua
+
+PLANAGUA va a construir plantas potabilizadoras, redes IoT de monitoreo hídrico, sistemas de oxidación avanzada, infraestructura de riego inteligente. Todo eso necesita gente — y no gente genérica, sino gente formada en oficios que hoy casi no existen en la Argentina.
+
+Los **oficios del agua** son un destino de reconversión dentro de La Reparación — la rama de PLANREP dedicada a restaurar lo que se degradó. Operadores de planta potabilizadora con certificación AOP (2 años de formación + 6 meses de especialización). Técnicos de red IoT hídrica (1 año + certificación ANAGUA). Plomeros certificados de última milla — los que conectan la planta con la canilla de cada casa. Guardias ambientales de cuenca. Glaciólogos de campo. Ingenieros de riego por goteo. Casi 20.000 puestos directos en diez años, más los indirectos — construcción, fabricación de sensores, mantenimiento, logística.
+
+Los Centros de la Vida forman a estos trabajadores en coordinación con ANAGUA y el INA. La compensación sigue el Índice de Contribución de PLANREP: un operador de planta que entrena a otros, que hace ciencia ciudadana los fines de semana, que propone mejoras de proceso, cobra más que uno que solo cumple el turno. No por antigüedad — por contribución verificada. El agua no es solo un recurso: es un oficio, una vocación, y un destino de dignidad para miles de argentinos que hoy empujan papeles sin sentido en oficinas que no deberían existir.
+
+### 14.13 PLANREP + PLANGEO: La Reconversión como Producto Exportable
+
+PLANGEO organiza la inserción internacional de ¡BASTA! en cuatro fases. PLANREP pertenece a la **Fase 3 — Los Confrontativos** (2030-2033): se lanza internacionalmente cuando la Red Soberana tiene masa crítica y las defensas están en posición. ¿Por qué confrontativo? Porque el modelo post-laboral desafía la ortodoxia económica del FMI, del Banco Mundial, y de toda la arquitectura del empleo formal que el sistema internacional promueve. Exportarlo prematuramente es invitar un ataque antes de tener resultados que muestren.
+
+La condición de exportación es concreta: **7 años de operación doméstica + 1.000.000 de personas reconvertidas** antes de ofrecer el modelo a otro país. No se exporta una idea — se exporta un sistema probado, con datos, con errores corregidos, con instituciones que funcionan. El paquete incluye los Centros de la Vida como infraestructura replicable, el Índice de Contribución como métrica alternativa al salario, el DNP como sistema de ingresos post-laborales, y los Fideicomisos de Propósito Perpetuo como vehículo de inversión pública sin deuda.
+
+El concepto paraguas es **La Economía de la Vida** — exportable a todo país con sobreempleo público, que es casi toda América Latina, buena parte de Africa, y media Asia. La ventana geopolítica es real: entre 2025 y 2035, la IA generativa va a eliminar cientos de millones de puestos de trabajo a nivel global. Ningún país tiene respuesta. Argentina con PLANREP tiene una propuesta — imperfecta, no probada a escala global, pero algo. Y algo es infinitamente más que lo que cualquier otro país está ofreciendo. PLANGEO se asegura de que ese algo llegue al mundo en el momento justo, con la escala justa, y con la protección diplomática necesaria para que no lo ahoguen antes de que demuestre lo que puede hacer.
+
+### 14.14 PLANREP + PLANEN: Reconversión Energética
+
+La transición energética de PLANEN genera 150.000-300.000 puestos de trabajo en renovables, operación de plantas, manufactura de baterías de litio, e instalación solar. Los Centros de la Vida forman técnicos de energía renovable dentro de La Reparación. Los trabajadores de YPF y empresas energéticas que pierden función por automatización se reconvierten vía PLANREP.
+
+### 14.15 PLANREP + PLANSEG: La Reconversión del Aparato de Enforcement
+
+PLANSEG redefine la seguridad argentina — y eso libera entre 46.000 y 81.000 trabajadores del viejo aparato represivo: policía antinarcóticos que pierde razón de ser cuando PLANSUS regula, guardias penitenciarios de cárceles que se vacían, fiscales de causas de drogas que desaparecen del sistema. PLANREP absorbe esa masa crítica a través de los Centros de la Vida, donde se reconvierten hacia roles con futuro: policía comunitaria de proximidad, ciberseguridad, enforcement ambiental para PLANAGUA y PLANISV, y técnicos de los sistemas de monitoreo de la ANSEG. No se los descarta — se los dignifica con un oficio que la Argentina nueva necesita.
+
+### 14.16 PLANREP + PLANVIV: Los Oficios del Hábitat
+
+PLANVIV necesita entre 200.000 y 250.000 trabajadores para su programa de rehabilitación urbana — y PLANREP los forma. La rama Construcción Viva de los Centros de la Vida entrena albañiles de retrofit energético, instaladores de sistemas de agua y cloaca, técnicos de estructuras antisísmicas, y operarios de fabricación modular. La urbanización de 1.800 asentamientos informales, la renovación de edificios degradados, y la construcción de vivienda nueva a través de la Bastarda Inmobiliaria generan una demanda de mano de obra calificada que PLANREP convierte en la puerta de entrada al trabajo digno para decenas de miles de argentinos. El oficio de construir un hogar digno es el oficio más literal de la Economía de la Vida — y PLANREP lo enseña.
+
+### 14.17 PLANREP + PLANCUL: La Reconversión como Transformación Cultural
+
+Los Centros de la Vida son nodos naturales de la Red de Dendritas de PLANCUL — espacios donde la reconversión laboral se entrelaza con la transformación cultural. La Rama de la Belleza y la Industria Creativa son las intersecciones más directas: artesanos, creativos y operadores de experiencia que PLANREP forma son los mismos agentes culturales que PLANCUL necesita para alimentar la Red de Dendritas. Pero la conexión es más profunda: no se cambia de trabajo sin cambiar de identidad. La reconversión que PLANREP organiza necesita la transformación cultural que PLANCUL cataliza — porque un millón de personas dejando empleos vacíos y encontrando propósito es un fenómeno cultural, no solo económico.
 
 ---
 
@@ -2290,7 +2387,7 @@ Si la automatización va a generar riqueza exponencial — y todo indica que sí
 
 **TABLA 21: Los Cinco Fideicomisos Iniciales**
 
-| Fideicomiso | Activo Principal | Retorno Esperado | Conexión BASTA |
+| Fideicomiso | Activo Principal | Retorno Esperado | Conexión ¡BASTA! |
 |---|---|---|---|
 | **Energía Renovable** | Parques solares y eólicos en tierras públicas, almacenamiento en baterías | Venta de energía al mercado mayorista + créditos de carbono internacionales | PLAN24CN (energía para ciudades nuevas) |
 | **Suelo Vivo** | Tierras remediadas bajo PLANISV, infraestructura de compostaje y bioinsumos | Producción agrícola regenerativa + bonos de carbono + alquileres de tierras productivas | PLANISV (integración directa) |
@@ -2298,7 +2395,7 @@ Si la automatización va a generar riqueza exponencial — y todo indica que sí
 | **Infraestructura Vial Provincial** | Rutas provinciales, caminos rurales, logística de última milla | Peajes inteligentes + servicios logísticos integrados + datos de movilidad | PLAN24CN (conectar las 24 ciudades) |
 | **Vivienda Social** | Unidades habitacionales en ciudades PLAN24CN, edificios de uso mixto | Alquileres sociales indexados a salario mínimo + locales comerciales para egresados | PLAN24CN (vivienda fundacional) |
 
-**Gobernanza.** Cada fideicomiso tiene un directorio mixto de 9 miembros: 3 técnicos seleccionados por concurso público de antecedentes y oposición (expertos en el sector del fideicomiso), 3 ciudadanos seleccionados por sorteo cívico (con capacitación previa de 60 días), 2 representantes de la ANCE, y 1 representante de los Paneles Ciudadanos de Futuro Económico (ver 15.5). Mandatos escalonados de 8 años — se renueva un tercio cada 32 meses. Rendición de cuentas pública trimestral. Dashboard en tiempo real con inversiones, retornos, estado de activos, y proyecciones. Auditoría externa anual por firma independiente rotativa. Ningún miembro del directorio puede tener vinculación política partidaria activa en los 5 años previos a su designación.
+**Gobernanza.** Cada fideicomiso tiene un directorio mixto de 9 miembros: 3 técnicos seleccionados por concurso público de antecedentes y oposición (expertos en el sector del fideicomiso), 3 ciudadanos seleccionados por sorteo cívico (con capacitación previa de 60 días), 2 representantes de la ANCE, y 1 representante de los Paneles Ciudadanos de Futuro Económico (ver 15.5). Mandatos escalonados de 8 años — se renueva un tercio cada 32 meses. Rendición de cuentas pública trimestral. Tablero en tiempo real con inversiones, retornos, estado de activos, y proyecciones. Auditoría externa anual por firma independiente rotativa. Ningún miembro del directorio puede tener vinculación política partidaria activa en los 5 años previos a su designación.
 
 **CONCEPTO CLAVE — Los Fideicomisos como CO-INVERSORES en automatización.** Acá está el giro que distingue a PLANREP de cualquier propuesta de redistribución pasiva. Los fideicomisos no se limitan a recibir retornos — INVIERTEN ACTIVAMENTE en automatizar sus propios activos. El Fideicomiso de Energía Renovable invierte en robots de mantenimiento de paneles solares. El Fideicomiso de Suelo Vivo invierte en drones de monitoreo y siembra autónoma. El Fideicomiso de Infraestructura Digital invierte en sistemas de autogestión de red. ¿El resultado? Al POSEER la automatización, los fideicomisos capturan el 100% del valor que esa automatización genera. No necesitan cobrar impuestos a empresas que automatizan — porque ellos mismos son los que automatizan. No hay evasión posible cuando sos el dueño. No hay distorsión cuando los incentivos están alineados. Y cada peso invertido en automatización de activos propios genera soberanía tecnológica — capacidad instalada en robótica, drones, software, mantenimiento predictivo — que después se exporta.
 
@@ -2379,7 +2476,7 @@ La lógica es elegante: a medida que el DNP crece, los programas fragmentados pi
 - **Investigación y conocimiento:** Investigación aplicada, documentación de saberes locales, ciencia ciudadana, monitoreo ambiental participativo. El biólogo aficionado que registra especies en el humedal. La historiadora local que documenta la memoria del pueblo.
 - **Construcción y reparación:** Trabajo voluntario en infraestructura comunitaria, reparación de equipamiento público, mantenimiento de espacios compartidos. El vecino que repara los juegos de la plaza. La cuadrilla que arregla el techo del club de barrio.
 
-**Sobre la no participación.** El DNP es un DERECHO, no un contrato. La dignidad humana no se condiciona a la productividad. Si una persona decide no contribuir — por la razón que sea — sigue recibiendo el DNP completo, sin penalización, sin estigma, sin burocracia punitiva. Pero toda la infraestructura BASTA está diseñada para que la inmensa mayoría QUIERA contribuir — no por obligación sino porque tiene herramientas, comunidad, espacios, reconocimiento y sentido. La evidencia de los pilotos de UBI citados en 15.3 es contundente: cuando le das a la gente un piso de seguridad, la mayoría no se queda quieta — se activa. Porque la inercia no es un estado natural del ser humano — es un síntoma de un sistema que no le ofrece nada mejor que la inercia. PLANREP ofrece algo mejor. Ocho ramas. Cuatro niveles. Siete categorías de contribución. Y un país entero que necesita manos.
+**Sobre la no participación.** El DNP es un DERECHO, no un contrato. La dignidad humana no se condiciona a la productividad. Si una persona decide no contribuir — por la razón que sea — sigue recibiendo el DNP completo, sin penalización, sin estigma, sin burocracia punitiva. Pero toda la infraestructura ¡BASTA! está diseñada para que la inmensa mayoría QUIERA contribuir — no por obligación sino porque tiene herramientas, comunidad, espacios, reconocimiento y sentido. La evidencia de los pilotos de UBI citados en 15.3 es contundente: cuando le das a la gente un piso de seguridad, la mayoría no se queda quieta — se activa. Porque la inercia no es un estado natural del ser humano — es un síntoma de un sistema que no le ofrece nada mejor que la inercia. PLANREP ofrece algo mejor. Ocho ramas. Cuatro niveles. Siete categorías de contribución. Y un país entero que necesita manos.
 
 ### 15.5 Los Paneles Ciudadanos de Futuro Económico
 

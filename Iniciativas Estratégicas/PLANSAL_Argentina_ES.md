@@ -68,6 +68,18 @@ Los Ramirez no estan enfermos porque el sistema de salud fallo. Estan enfermos p
 
 ---
 
+### El Hombre Gris Despierta en el Cuerpo
+
+> *"El cuerpo es el campo de batalla de la biografia."*
+
+Hay una filosofia que atraviesa los dieciséis mandatos del proyecto ¡BASTA!. La llamamos *El Instante del Hombre Gris*. La premisa: vivimos en una sociedad que apaga a las personas — que les roba la capacidad de crear, de sentir su potencia, de transformar el mundo. Personas dormidas, reducidas a engranajes. El Hombre Gris es el que despierta. Gris como la **plata** que se pule hasta brillar — porque Argentina es argentum, y argentum es plata. Gris como el amanecer antes de que el sol estalle. El instante del Hombre Gris es el momento en que alguien dice *basta de vivir apagado*.
+
+Pero PLANSAL sabe algo que los otros mandatos no dicen con la misma urgencia: antes de que la plata brille, el cuerpo tiene que despertar. Porque el apagon no empieza en la cabeza. Empieza en el cuerpo. El Hombre Gris no es una metafora — es Ricardo volviendo en el 160 sin sentir nada. Es Silvia mirando el techo a las tres de la manana. Es Tomas scrolleando sin razon. Es Nelida tomando pastillas cuyo nombre no conoce. El dolor cronico, la fatiga permanente, el insomnio, la ansiedad, la obesidad, la enfermedad — son las huellas de una vida que no funciona. Y son, al mismo tiempo, las senales que pueden despertar al que las lleva. Cuando Ricardo sienta que su cuerpo le duele no porque "esta viejo" sino porque lleva once anos arrastrándose hacia un lugar que le roba la vida, ese dolor deja de ser un sintoma a silenciar y se convierte en una brujula. Cuando Silvia entienda que su depresion no es un "desequilibrio quimico" sino la respuesta sana de un organismo que se niega a seguir fingiendo que esta todo bien, su depresion se transforma de condena en puerta. Cuando Tomas descubra que sus ataques de panico son su cuerpo gritandole que la vida que le dieron no es vida, esos ataques dejan de ser un diagnostico y se convierten en el punto de partida.
+
+Ese despertar es personal e intransferible. Nadie puede sanar por vos. Ningun medico, ningun Centro de Vitalidad, ningun plan nacional, ningun gobierno. Pueden crear las condiciones. Pueden retirar los venenos. Pueden ofrecer herramientas, conocimiento, compania, estructura. Pero el instante en que una persona decide que su vida, su cuerpo, su salud son su responsabilidad — ese instante no se compra, no se vende, no se decreta. Se elige. Y todo PLANSAL esta construido como esa invitacion.
+
+---
+
 ### Tesis Central
 
 > *"No es signo de buena salud estar bien adaptado a una sociedad profundamente enferma."*
@@ -77,24 +89,12 @@ La Argentina no tiene una crisis de salud — tiene un sistema de vida que manuf
 
 ---
 
-### El Hombre Gris Despierta en el Cuerpo
-
-> *"El cuerpo es el campo de batalla de la biografia."*
-
-Hay una filosofia que atraviesa todas las iniciativas del proyecto BASTA. La llamamos *El Instante del Hombre Gris*. La premisa: vivimos en una sociedad que apaga a las personas. Que les roba la vitalidad, la capacidad de sentir, de crear, de vibrar con algo. Personas reducidas a funciones: producir, consumir, obedecer, dormir, repetir. El Hombre Gris no es una metafora — es Ricardo volviendo en el 160 sin sentir nada. Es Silvia mirando el techo a las tres de la manana. Es Tomas scrolleando sin razon. Es Nelida tomando pastillas cuyo nombre no conoce. El Hombre Gris es el producto terminado de la fabrica: un ser humano desconectado de su cuerpo, de sus emociones, de su familia, de su comunidad, de su proposito. Vivo, pero apagado. Funcional, pero vacio.
-
-PLANSAL es el plan para que el Hombre Gris despierte — pero no desde la cabeza. Desde el cuerpo. Porque el cuerpo es el primer territorio. Es donde la fabrica deja sus marcas. El dolor cronico, la fatiga permanente, el insomnio, la ansiedad, la obesidad, la enfermedad — son las huellas de una vida que no funciona. Y son, al mismo tiempo, las senales que pueden despertar al que las lleva. Cuando Ricardo sienta que su cuerpo le duele no porque "esta viejo" sino porque lleva once anos arrastrándose hacia un lugar que le roba la vida, ese dolor deja de ser un sintoma a silenciar y se convierte en una brujula. Cuando Silvia entienda que su depresion no es un "desequilibrio quimico" sino la respuesta sana de un organismo que se niega a seguir fingiendo que esta todo bien, su depresion se transforma de condena en puerta. Cuando Tomas descubra que sus ataques de panico son su cuerpo gritandole que la vida que le dieron no es vida, esos ataques dejan de ser un diagnostico y se convierten en el punto de partida.
-
-Pero ese despertar — y esto es lo que ningun sistema de salud puede legislar, financiar ni organizar — es personal e intransferible. Nadie puede sanar por vos. Ningun medico, ningun Centro de Vitalidad, ningun plan nacional, ningun gobierno. Pueden crear las condiciones. Pueden retirar los venenos. Pueden ofrecer herramientas, conocimiento, compania, estructura. Pero el instante en que una persona decide que su vida, su cuerpo, su salud son su responsabilidad — ese instante no se compra, no se vende, no se decreta. Se elige. Es el instante del Hombre Gris. El momento en que alguien que vivia en piloto automatico dice *basta* — no al sistema, no al gobierno, no al patron, sino a su propia inercia. Ese instante no se puede fabricar. Solo se puede invitar. Y todo PLANSAL esta construido como esa invitacion.
-
----
-
-### PLANSAL en el Cuerpo de BASTA
+### PLANSAL en el Cuerpo de ¡BASTA!
 
 > *"El hombre no es sino lo que hace con lo que hicieron de el."*
 > — Jean-Paul Sartre
 
-PLANSAL es el plan bisagra. Es el que demuestra que todo se conecta — no en la teoria, no en un diagrama, sino en el cuerpo y la vida de cada persona. Porque la salud no es un area de la vida: es el resultado de todas las areas de la vida. Y cada uno de los otros planes de BASTA interviene directamente sobre una dimension que produce salud o enfermedad.
+PLANSAL es el plan bisagra. Es el que demuestra que todo se conecta — no en la teoria, no en un diagrama, sino en el cuerpo y la vida de cada persona. Porque la salud no es un area de la vida: es el resultado de todas las areas de la vida. Y cada uno de los otros planes de ¡BASTA! interviene directamente sobre una dimension que produce salud o enfermedad.
 
 **PLAN24CN** construye ciudades que no enferman. Hoy, el conurbano bonaerense — donde viven los Ramirez y otros doce millones de argentinos — es una maquina de producir enfermedad: sin espacios verdes suficientes, con transporte que destruye cuerpos y animos, con contaminacion sonora permanente, con barrios disenados para el auto y no para el ser humano. PLAN24CN propone 24 ciudades nuevas, bioclimaticas, caminables, con plazas cada 400 metros, con produccion alimentaria urbana integrada. Una ciudad que te invita a caminar en vez de encerrarte en un auto es una ciudad que previene infartos. Eso es politica de salud — aunque no tenga un estetoscopio.
 
@@ -108,7 +108,7 @@ PLANSAL es el plan bisagra. Es el que demuestra que todo se conecta — no en la
 
 Sin estos otros planes, PLANSAL pelea cuesta arriba. Puede crear Centros de Vitalidad hermosos — pero si la gente que llega a ellos sigue comiendo veneno, trabajando sin sentido, viviendo en ciudades hostiles y esperando justicia que no llega, los centros se convierten en parches. Aspirinas comunitarias. Sin PLANSAL, los otros planes construyen infraestructura para personas demasiado enfermas para usarla. PLAN24CN puede fundar la ciudad mas bella del hemisferio — pero si sus habitantes tienen diabetes, depresion y ataques de panico, esa ciudad es un escenario vacio. PLANEDU puede disenar la mejor educacion del mundo — pero si los alumnos llegan desnutridos, ansiosos y sin dormir, no aprenden. PLANREP puede liberar un millon de personas hacia oficios dignos — pero si esas personas estan medicadas, agotadas y desconectadas de su cuerpo, no pueden crear nada.
 
-PLANSAL es la bisagra porque demuestra la verdad que la politica publica argentina nunca quiso aceptar: **no se puede resolver ningun problema del pais sin resolver la salud de su gente, y no se puede resolver la salud de su gente sin resolver todos los problemas del pais.** Esa circularidad no es un obstaculo: es la arquitectura. Los planes de BASTA no se ejecutan secuencialmente — se ejecutan simultaneamente, porque asi funciona la realidad. El cuerpo no espera a que la ciudad mejore para empezar a sanar. La ciudad no espera a que la educacion mejore para empezar a construirse. Todo pasa al mismo tiempo. PLANSAL lo reconoce y lo abraza.
+PLANSAL es la bisagra porque demuestra la verdad que la politica publica argentina nunca quiso aceptar: **no se puede resolver ningun problema del pais sin resolver la salud de su gente, y no se puede resolver la salud de su gente sin resolver todos los problemas del pais.** Esa circularidad no es un obstaculo: es la arquitectura. Los planes de ¡BASTA! no se ejecutan secuencialmente — se ejecutan simultaneamente, porque asi funciona la realidad. El cuerpo no espera a que la ciudad mejore para empezar a sanar. La ciudad no espera a que la educacion mejore para empezar a construirse. Todo pasa al mismo tiempo. PLANSAL lo reconoce y lo abraza.
 
 ---
 
@@ -887,11 +887,11 @@ Antes de que un conflicto destruya una familia, tiene que existir un lugar donde
 
 **Cómo enferma.** La inseguridad económica es la droga más destructiva de la Argentina — y es la única que no requiere receta. El hipotálamo no distingue entre un león y una cuota impagable: la respuesta biológica es idéntica. Cortisol, adrenalina, sistema simpático encendido, inflamación sistémica. Y en un país con inflación crónica de tres dígitos, con una historia de corralitos, devaluaciones y confiscaciones, el trauma económico es colectivo y transgeneracional. Cada argentino carga en su cuerpo la memoria de las crisis — la de 2001, la de 2018, la de siempre. El estrés financiero no es un "problema del bolsillo" — es un problema del sistema nervioso. El 60% de los argentinos lo declara como su fuente principal de estrés. Es la raíz más difícil de tratar desde la salud porque depende de variables macroeconómicas que ningún Centro de Vitalidad puede modificar.
 
-**Cómo sana.** PLANSAL actúa donde puede — en la relación de cada persona y cada familia con el dinero — mientras otros PLANs del marco BASTA atacan las causas estructurales:
+**Cómo sana.** PLANSAL actúa donde puede — en la relación de cada persona y cada familia con el dinero — mientras otros PLANs del marco ¡BASTA! atacan las causas estructurales:
 
 1. **Educación financiera práctica en Centros de Vitalidad.** No teoría de inversiones — supervivencia económica real: cómo armar un presupuesto familiar, cómo comprar alimentos nutritivos con presupuesto limitado, cómo evitar las trampas del consumismo y el crédito fácil, cómo generar un colchón mínimo de emergencia. Formatos grupales donde las familias comparten estrategias que ya les funcionan.
 2. **Economía familiar en las Familias Mentoras.** Una de las cinco áreas de transmisión del sistema: la familia mentora que aprendió a administrar un ingreso insuficiente sin destruirse en el proceso comparte esas herramientas con la familia que está ahogándose. Horizontal. Práctica. Sin condescendencia.
-3. **Articulación con el ecosistema BASTA.** PLANREP genera trabajo con sentido. PLANEDU genera capacidades. PLAN24CN genera infraestructura que baja el costo de vida (transporte, energía, vivienda). PLANSAL no opera en el vacío — opera en un marco donde otros planes atacan las causas estructurales de la inseguridad económica.
+3. **Articulación con el ecosistema ¡BASTA!.** PLANREP genera trabajo con sentido. PLANEDU genera capacidades. PLAN24CN genera infraestructura que baja el costo de vida (transporte, energía, vivienda). PLANSAL no opera en el vacío — opera en un marco donde otros planes atacan las causas estructurales de la inseguridad económica.
 
 **Indicador de vitalidad.**
 
@@ -1982,7 +1982,7 @@ PLANSAL no es el Estado diciéndote cómo vivir. Es el Estado dejando de ser có
 
 > *"No alcanza con tener razón. Hay que saber contarla. Porque la verdad sin narrativa pierde contra la mentira con presupuesto publicitario."*
 
-PLANSAL enfrenta un desafío comunicacional único entre todos los PLANes del marco BASTA: propone un cambio de paradigma que puede ser fácilmente caricaturizado. "Quieren reemplazar médicos con vecinas que hacen yoga." "Quieren que cures la diabetes con ensalada." "Son anti-ciencia." La brecha entre lo que PLANSAL realmente propone y lo que sus opositores van a decir que propone es enorme — y en esa brecha se juega todo.
+PLANSAL enfrenta un desafío comunicacional único entre todos los PLANes del marco ¡BASTA!: propone un cambio de paradigma que puede ser fácilmente caricaturizado. "Quieren reemplazar médicos con vecinas que hacen yoga." "Quieren que cures la diabetes con ensalada." "Son anti-ciencia." La brecha entre lo que PLANSAL realmente propone y lo que sus opositores van a decir que propone es enorme — y en esa brecha se juega todo.
 
 La estrategia de comunicación tiene que cerrar esa brecha antes de que se abra.
 
@@ -2056,11 +2056,11 @@ La comunicación de PLANSAL no es marketing. No es propaganda. Es la verdad cont
 
 ---
 
-## SECCIÓN 21 · INTEGRACIÓN BASTA
+## SECCIÓN 21 · INTEGRACIÓN ¡BASTA!
 
 > *"Ningún órgano sana solo. El cuerpo es un sistema — y una nación también."*
 
-PLANSAL no existe en el vacío. Es el plan que revela en el cuerpo lo que los otros planes construyen en el territorio, en la tierra, en las aulas, en el trabajo y en los tribunales. Si BASTA es una arquitectura de diez mandatos para que el pueblo gobierne y el gobierno ejecute, PLANSAL es el mandato que atraviesa todos los demás — porque donde los otros planes transforman estructuras, PLANSAL mide el resultado en la única infraestructura que importa: el ser humano vivo.
+PLANSAL no existe en el vacío. Es el plan que revela en el cuerpo lo que los otros planes construyen en el territorio, en la tierra, en las aulas, en el trabajo y en los tribunales. Si ¡BASTA! es una arquitectura de dieciséis mandatos para que el pueblo gobierne y el gobierno ejecute, PLANSAL es el mandato que atraviesa todos los demás — porque donde los otros planes transforman estructuras, PLANSAL mide el resultado en la única infraestructura que importa: el ser humano vivo.
 
 La articulación no es teórica. Es operativa, concreta, verificable:
 
@@ -2074,11 +2074,63 @@ La articulación no es teórica. Es operativa, concreta, verificable:
 
 **PLANJUS (Justicia Cercana) → Raíz 7: Seguridad.** La incertidumbre legal y económica es un factor de enfermedad tan potente como el tabaco. PLANJUS reduce esa incertidumbre: justicia que resuelve en días, no en años. Pero además, PLANJUS protege jurídicamente a la ANVIP contra captura política (Sección 14), y los Centros de Vitalidad incorporan mediación familiar como servicio permanente — porque buena parte de las enfermedades crónicas argentinas tienen raíz en conflictos familiares que supuran durante décadas sin resolución.
 
+**PLANSUS (Soberanía sobre Sustancias) → Raíz 8: Aprendizaje / Raíz 3: Movimiento Emocional.** La regulación de sustancias es política de salud mental — no de seguridad, no de moral. PLANSUS devuelve al Estado la capacidad de tratar el consumo como lo que la evidencia indica: un fenómeno de salud. El cannabis medicinal se integra a los Centros de Vitalidad como herramienta terapéutica validada para dolor crónico, ansiedad y trastornos del sueño — tres de las raíces más profundas de la Fábrica de Enfermos. La reducción de daños que PLANSUS estructura no es tolerancia: es medicina preventiva. Y el tratamiento de adicciones deja de ser castigo penal para convertirse en una Raíz de la Salud — porque una persona que consume problemáticamente no necesita un juez sino un Guía de Vitalidad que la mire a los ojos y le pregunte qué le duele.
+
+**PLANEB (Empresas Bastardas) → Raíz 2: Alimentación / Raíz 6: Propósito.** La Bastarda Sanitaria es el complemento perfecto del sistema público que PLANSAL reconstruye. Donde el Estado pone Centros de Vitalidad, PLANEB pone farmacias al costo que distribuyen genéricos sin el sobreprecio del 400% que hoy cobra la cadena farmacéutica privada. Los Centros de Vitalidad y las Bastardas Sanitarias comparten datos y protocolos en tiempo real — si un Centro detecta un brote de dengue, la Bastarda más cercana ya tiene stock de antipiréticos antes de que el primer paciente llegue a la guardia. La transparencia radical que PLANEB impone sobre costos de salud desarma la opacidad donde la industria farmacéutica esconde sus márgenes. Cuando cada argentino puede ver cuánto cuesta fabricar un ibuprofeno, la Fábrica de Enfermos pierde su herramienta más poderosa: el secreto.
+
+**PLANAGUA (Soberanía Hídrica) → Raíz 11: Entorno.** Agua limpia es la primera medicina — y la Argentina tiene pueblos enteros donde el agua del grifo enferma. Los pueblos fumigados del litoral toman agua contaminada con glifosato, atrazina y arsénico: no hay Centro de Vitalidad que pueda sanar lo que el agua envenena cada día. PLANAGUA elimina los venenos del agua y PLANSAL mide el impacto en el cuerpo — cada reducción de un contaminante hídrico se traduce en una curva epidemiológica que baja. La red IoT de monitoreo hídrico que PLANAGUA despliega alimenta directamente el tablero de salud ambiental de la ANVIP: cuando un sensor detecta arsénico por encima de la norma en un arroyo, el Centro de Vitalidad más cercano ya sabe que tiene que buscar síntomas de exposición crónica en sus familias. El agua y el cuerpo son el mismo sistema.
+
+**PLANDIG (Soberanía Digital) → Raíz 12: Comunidad.** La Plataforma Digital Nacional de autodiagnóstico que PLANSAL despliega — el primer contacto del ciudadano con su propia vitalidad — corre sobre infraestructura soberana de PLANDIG. No sobre servidores de Amazon en Virginia. No sobre nubes de Google en Irlanda. Los datos de salud de 47 millones de argentinos se almacenan en suelo argentino, bajo jurisdicción argentina, con encriptación de grado soberano. La telemedicina que lleva Guías de Vitalidad a parajes rurales donde nunca hubo un médico funciona porque PLANDIG garantiza conectividad. La inteligencia artificial que detecta patrones tempranos de diabetes o depresión en los datos poblacionales existe porque PLANDIG provee capacidad de cómputo nacional. Sin soberanía digital, los datos del cuerpo argentino son propiedad de corporaciones extranjeras — y eso no es salud. Es colonialismo biológico.
+
+**PLANGEO (Soberanía Geopolítica) → Raíz 12: Comunidad.** El Stack Sanitario que PLANSAL construye — Centros de Vitalidad, Familias Mentoras, 12 Raíces, ANVIP — es un producto exportable. No como ideología: como tecnología social probada. PLANGEO posiciona a la Argentina como referente de un modelo alternativo al sistema médico-industrial que el Norte Global impone y que el Sur Global copia sin cuestionar. Los países que no pueden pagar oncología de USD 200.000 por paciente sí pueden construir Centros de Vitalidad que previenen el 60% de los cánceres con alimentación, movimiento y comunidad. La vitalidad como paradigma sanitario es la oferta geopolítica más potente que la Argentina puede hacer al mundo — porque no vende tecnología cara sino sabiduría ancestral estructurada con rigor científico.
+
+**PLANMON (Soberanía Monetaria) → Raíz 6: Propósito.** La economía de la salud necesita una moneda que no mienta. PLANMON ancla el peso a una canasta real — y dentro de esa canasta, los costos de prevención y tratamiento se miden con una vara que no fluctúa al ritmo de la especulación. Cuando el peso-canasta dice que prevenir diabetes cuesta X y tratar diabetes cuesta 12X, ese número no se licúa con la próxima corrida cambiaria — es un dato duro que justifica cada peso invertido en un Centro de Vitalidad. El Fondo de Vitalidad que PLANSAL propone para financiar la expansión de los Centros se capitaliza con el ahorro que genera la reforma del sistema de salud: menos internaciones, menos medicamentos crónicos, menos ausentismo. PLANMON provee la arquitectura financiera soberana para que ese ahorro no se evapore en un sistema monetario diseñado para otros fines.
+
 ---
 
-PLANSAL es el plan que hace visible a BASTA en el cuerpo. Sin salud, las ciudades de PLAN24CN son contenedores hermosos para gente enferma. Sin salud, la educación de PLANEDU forma mentes brillantes atrapadas en cuerpos rotos. Sin salud, el trabajo digno de PLANREP es un derecho que nadie tiene energía para ejercer. Y sin los otros planes, PLANSAL pelea solo contra una fábrica que lo supera en todos los frentes.
+PLANSAL es el plan que hace visible a ¡BASTA! en el cuerpo. Sin salud, las ciudades de PLAN24CN son contenedores hermosos para gente enferma. Sin salud, la educación de PLANEDU forma mentes brillantes atrapadas en cuerpos rotos. Sin salud, el trabajo digno de PLANREP es un derecho que nadie tiene energía para ejercer. Y sin los otros planes, PLANSAL pelea solo contra una fábrica que lo supera en todos los frentes.
 
-BASTA funciona como sistema porque la vida funciona como sistema. Y el cuerpo humano es donde ese sistema triunfa o fracasa. Cada latido, cada respiración, cada noche de sueño profundo o de insomnio angustiado es el veredicto en tiempo real de si la arquitectura está funcionando. PLANSAL no mide indicadores — mide personas. Y las personas no mienten.
+¡BASTA! funciona como sistema porque la vida funciona como sistema. Y el cuerpo humano es donde ese sistema triunfa o fracasa. Cada latido, cada respiración, cada noche de sueño profundo o de insomnio angustiado es el veredicto en tiempo real de si la arquitectura está funcionando. PLANSAL no mide indicadores — mide personas. Y las personas no mienten.
+
+### 21.1 PLANSAL × PLANEN: Pobreza Energética como Crisis de Salud
+
+La pobreza energética — hogares que no pueden calefaccionar en invierno ni refrigerar en verano — es un determinante de salud. PLANEN elimina la pobreza energética con tarifas al costo y generación distribuida. PLANSAL mide el impacto: reducción de enfermedades respiratorias, muertes por frío, y estrés térmico.
+
+### 21.2 PLANSAL × PLANSEG: La Inseguridad Como Enfermedad
+
+La inseguridad es un determinante de salud tan potente como la mala alimentación o el sedentarismo. El estrés crónico de vivir en un barrio inseguro eleva el cortisol, dispara hipertensión, insomnio, depresión y PTSD — enfermedades que la Fábrica de Enfermos trata con pastillas cuando la causa es un entorno que aterroriza. PLANSEG reduce la inseguridad; PLANSAL mide el impacto en el cuerpo. La ANVIP y la ANSEG colaboran en intervenciones comunitarias integradas: donde una Estación Barrial de PLANSEG pacifica un territorio, el Centro de Vitalidad más cercano registra la caída en consultas por ansiedad, violencia doméstica y consumo problemático. La seguridad no es solo un derecho — es la primera medicina que muchos barrios argentinos necesitan.
+
+### 21.3 PLANSAL × PLANVIV: La Vivienda Como Determinante de Salud
+
+El hacinamiento mata — despacio, en silencio, sin que nadie lo anote como causa de muerte. Cuatro personas en una pieza con ventilación nula generan tuberculosis, infecciones respiratorias crónicas, y brotes de gastroenteritis que ningún Centro de Vitalidad puede prevenir mientras la familia siga viviendo así. Las casas con humedad permanente producen asma infantil. Los techos de chapa sin aislación generan estrés térmico mortal en verano. La falta de baño propio dispara infecciones urinarias e intestinales. PLANVIV es la infraestructura física que PLANSAL necesita para dejar de tratar síntomas y empezar a eliminar causas: cada vivienda digna que PLANVIV entrega, cada asentamiento que urbaniza con agua, cloaca y ventilación, es una intervención de salud pública más potente que mil recetas. El cuerpo no sana en un hábitat que enferma — y PLANVIV transforma el hábitat.
+
+### 21.4 PLANSAL × PLANSUS: Sustancias Reguladas como Herramienta Terapéutica
+
+PLANSUS no solo regula sustancias — le devuelve a PLANSAL herramientas terapéuticas que la prohibición secuestró durante décadas. Cannabis medicinal para dolor crónico, psicodélicos asistidos para depresión resistente y PTSD, reducción de daños como medicina preventiva. La ANVIP coordina con la ANSUS los protocolos de prescripción: un Guía de Vitalidad que detecta depresión refractaria puede derivar a terapia asistida con psilocibina sin que intervenga un juez. El tratamiento de adicciones pasa de castigo penal a Raíz de la Salud — porque lo que necesita la persona que consume problemáticamente no es una celda sino un Centro de Vitalidad.
+
+### 21.5 PLANSAL × PLANEB: Salud al Costo Real
+
+La Bastarda Sanitaria distribuye genéricos sin el sobreprecio del 400% que la cadena farmacéutica privada cobra hoy. Los Centros de Vitalidad pueden operar como Bastardas — cero propiedad, gobernanza DAO, transparencia radical de costos. Cuando cada argentino puede ver cuánto cuesta fabricar un ibuprofeno, la Fábrica de Enfermos pierde su herramienta más poderosa: el secreto. La eliminación de intermediarios que inflan precios es una intervención sanitaria tan potente como cualquier protocolo clínico.
+
+### 21.6 PLANSAL × PLANAGUA: El Agua como Primera Medicina
+
+Agua limpia es la intervención preventiva más barata y más potente que existe. ANAGUA y la ANVIP monitorean conjuntamente la calidad hídrica — arsénico, fluoruro, agroquímicos — porque cada contaminante en el agua es una curva epidemiológica que sube. La red IoT de PLANAGUA alimenta el tablero de salud ambiental de la ANVIP: cuando un sensor detecta arsénico en un arroyo, el Centro de Vitalidad más cercano ya sabe qué síntomas buscar en sus familias. No hay Centro de Vitalidad que pueda sanar lo que el agua envenena cada día.
+
+### 21.7 PLANSAL × PLANDIG: El Cuerpo Soberano en la Nube Soberana
+
+La plataforma de autodiagnóstico de PLANSAL, la historia clínica digital única y la telemedicina rural corren sobre infraestructura soberana de PLANDIG — ArgenCloud, no Amazon. Los datos de salud de 47 millones de argentinos se almacenan en suelo argentino, bajo jurisdicción argentina. La IA que detecta patrones tempranos de diabetes o depresión en datos poblacionales existe porque PLANDIG provee capacidad de cómputo nacional. Sin soberanía digital, los datos del cuerpo argentino son propiedad de corporaciones extranjeras.
+
+### 21.8 PLANSAL × PLANGEO: La Vitalidad como Producto Exportable
+
+El Stack de Soberanía Sanitaria — Centros de Vitalidad, 12 Raíces, Familias Mentoras, ANVIP — es un producto geopolítico exportable. Los países del Sur Global que no pueden pagar oncología de USD 200.000 por paciente sí pueden construir Centros de Vitalidad que previenen el 60% de los cánceres con alimentación, movimiento y comunidad. PLANGEO posiciona el modelo preventivo argentino como alternativa al sistema médico-industrial que el Norte Global impone y que el Sur Global copia sin cuestionar.
+
+### 21.9 PLANSAL × PLANMON: La Salud en la Canasta del Pulso
+
+PLANMON ancla el peso a una canasta real — y dentro de esa canasta, los costos de prevención y tratamiento se miden con una vara que no fluctúa al ritmo de la especulación. Cuando el peso-canasta dice que prevenir diabetes cuesta X y tratar diabetes cuesta 12X, ese número no se licúa con la próxima corrida cambiaria. El Fondo Soberano financia investigación biomédica nacional. Los costos médicos transparentes — impuestos por la Bastarda Sanitaria y la ANVIP — alimentan la canasta con datos reales, no con precios inflados por intermediarios.
+
+### 21.10 PLANSAL × PLANCUL: La Cultura como Medicina Preventiva
+
+Las Mesas Largas de PLANCUL son espacios de salud comunitaria que PLANSAL no podría inventar solo: lugares donde vecinos cocinan juntos, comen juntos, hablan de lo que importa. Las 12 Dimensiones de PLANSAL incluyen conexión y creatividad — y PLANCUL aporta las Siete Raíces (Tierra, Memoria, Creación, Cuerpo, Conexión, Juego, Identidad) como contenido que sana sin receta. La soledad mata tanto como el tabaco; la cultura es el antídoto que no viene en pastilla.
 
 ---
 

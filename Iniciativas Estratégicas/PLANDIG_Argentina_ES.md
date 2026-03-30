@@ -102,7 +102,7 @@ Marcos cerró la notebook. Miró a Lucía. Miró a Sol — que estaba en el sill
 
 ---
 
-Hay una filosofía que atraviesa las iniciativas del proyecto BASTA. La llamamos *El Instante del Hombre Gris*. La premisa: vivimos en una sociedad que apaga a las personas — que les roba la capacidad de crear, de sentir su potencia, de transformar el mundo. Personas dormidas, reducidas a engranajes. El Hombre Gris es el que despierta. Gris como el acero que se pule hasta brillar. Gris como el amanecer antes de que el sol estalle. El instante del Hombre Gris es el momento en que alguien dice *basta de vivir apagado*.
+Hay una filosofía que atraviesa las iniciativas del proyecto ¡BASTA!. La llamamos *El Instante del Hombre Gris*. La premisa: vivimos en una sociedad que apaga a las personas — que les roba la capacidad de crear, de sentir su potencia, de transformar el mundo. Personas dormidas, reducidas a engranajes. El Hombre Gris es el que despierta. Gris como la **plata** que se pule hasta brillar — porque Argentina es argentum, y argentum es plata. Gris como el amanecer antes de que el sol estalle. El instante del Hombre Gris es el momento en que alguien dice *basta de vivir apagado*.
 
 El colonialismo digital es otra forma de apagón. Más sutil que la pobreza, más silencioso que la injusticia, más invisible que la enfermedad — pero igualmente devastador. Porque te roba algo que ni siquiera sabías que tenías: tu soberanía digital. Tu derecho a que los datos que generás, la inteligencia que producís, la vida que vivís en el mundo digital — te pertenezcan. Que se almacenen en tu tierra. Que se procesen bajo tus leyes. Que generen valor para tu comunidad. Que te sirvan a vos — no a un accionista en Menlo Park que nunca va a saber tu nombre.
 
@@ -114,7 +114,7 @@ Todo lo que PLANDIG propone es la *primera mejor alternativa* basada en la mejor
 
 ---
 
-**Tesis Central:** La Argentina es una colonia digital. Sus datos residen en servidores extranjeros. Su capacidad de cómputo se alquila a corporaciones extranjeras. Sus pagos se procesan por redes extranjeras. La inteligencia artificial que se entrena con datos argentinos pertenece a empresas extranjeras. La identidad digital de sus ciudadanos la administran plataformas extranjeras. El sistema nervioso del país — la infraestructura que conecta, procesa, almacena, decide y coordina — no le pertenece. PLANDIG propone construir un **sistema nervioso soberano**: una infraestructura digital nacional distribuida en dos capas — un **núcleo soberano** de datacenters reconvertidos desde infraestructura existente (fábricas, bases militares, edificios públicos subutilizados) complementado por una **malla comunitaria** donde ciudadanos, escuelas, cooperativas y municipios contribuyen capacidad de cómputo y almacenamiento a la red nacional a cambio de créditos digitales; un **Laboratorio Nacional de Inteligencia Artificial** que entrena modelos fundacionales de código abierto sobre datos argentinos desplegados en infraestructura argentina; una **Arquitectura de Datos en Tres Capas** — pública abierta, intergubernamental auditada, y ciudadana-privada cifrada con llave exclusiva del ciudadano; un sistema de **Sensores en Tiempo Real** (El Mapa) que integra IoT terrestre, la constelación SAOCOM de CONAE, y ciencia ciudadana para crear una conciencia situacional continua del territorio; un **Protocolo de Coordinación Distribuida** (La Tribu) que hace operativa la gobernanza democrática de BASTA a cualquier escala; un **ecosistema digital soberano** completo — identidad, mensajería, red social cívica, comercio, medios, educación, salud — que reemplaza la dependencia de plataformas corporativas extranjeras con infraestructura ciudadana; un **Arquitecto de Fuerza Laboral IA** que opera a escala macro (modelando qué funciones del Estado automatizar, cuándo, en qué secuencia) y micro (acompañando personalmente a cada trabajador público en su transición hacia una nueva vida productiva, integrándose con PLANREP); una estrategia de **reversión de fuga de cerebros** que convierte a Argentina en polo de atracción de talento digital; y un **sistema inmune de ciberseguridad** distribuido que protege la infraestructura soberana sin convertirla en aparato de vigilancia. Todo gobernado por la **ANDIG** (Agencia Nacional de Infraestructura Digital y Soberanía Tecnológica) — ente autárquico con presupuesto constitucional protegido, gobernado por sorteo democrático y representación técnica — con un costo estimado de USD 4.700–9.900M en inversión acumulada a 10 años, financiado por ahorro en contrataciones cloud extranjeras + reasignación presupuestaria + capitalización ciudadana + créditos de organismos multilaterales. El retorno es doble: económico (USD 4.300–12.300M/año en ahorro, ingresos y valor generado en régimen, con un ROI acumulado de 2:1 a 7:1 a 10 años) y civilizatorio (una sociedad que posee su propia inteligencia, controla su propia infraestructura, y vive una vida digital que le pertenece). PLANDIG no es un plan de tecnología. Es un plan de soberanía. La tecnología es la herramienta. La soberanía es el objetivo. Y la soberanía digital del siglo XXI es tan fundamental como la soberanía territorial del siglo XIX — porque en un mundo donde quien controla los datos controla la economía, la política y la cultura, un país que no posee su infraestructura digital no se posee a sí mismo.
+**Tesis Central:** La Argentina es una colonia digital. Sus datos residen en servidores extranjeros. Su capacidad de cómputo se alquila a corporaciones extranjeras. Sus pagos se procesan por redes extranjeras. La inteligencia artificial que se entrena con datos argentinos pertenece a empresas extranjeras. La identidad digital de sus ciudadanos la administran plataformas extranjeras. El sistema nervioso del país — la infraestructura que conecta, procesa, almacena, decide y coordina — no le pertenece. PLANDIG propone construir un **sistema nervioso soberano**: una infraestructura digital nacional distribuida en dos capas — un **núcleo soberano** de datacenters reconvertidos desde infraestructura existente (fábricas, bases militares, edificios públicos subutilizados) complementado por una **malla comunitaria** donde ciudadanos, escuelas, cooperativas y municipios contribuyen capacidad de cómputo y almacenamiento a la red nacional a cambio de créditos digitales; un **Laboratorio Nacional de Inteligencia Artificial** que entrena modelos fundacionales de código abierto sobre datos argentinos desplegados en infraestructura argentina; una **Arquitectura de Datos en Tres Capas** — pública abierta, intergubernamental auditada, y ciudadana-privada cifrada con llave exclusiva del ciudadano; un sistema de **Sensores en Tiempo Real** (El Mapa) que integra IoT terrestre, la constelación SAOCOM de CONAE, y ciencia ciudadana para crear una conciencia situacional continua del territorio; un **Protocolo de Coordinación Distribuida** (La Tribu) que hace operativa la gobernanza democrática de ¡BASTA! a cualquier escala; un **ecosistema digital soberano** completo — identidad, mensajería, red social cívica, comercio, medios, educación, salud — que reemplaza la dependencia de plataformas corporativas extranjeras con infraestructura ciudadana; un **Arquitecto de Fuerza Laboral IA** que opera a escala macro (modelando qué funciones del Estado automatizar, cuándo, en qué secuencia) y micro (acompañando personalmente a cada trabajador público en su transición hacia una nueva vida productiva, integrándose con PLANREP); una estrategia de **reversión de fuga de cerebros** que convierte a Argentina en polo de atracción de talento digital; y un **sistema inmune de ciberseguridad** distribuido que protege la infraestructura soberana sin convertirla en aparato de vigilancia. Todo gobernado por la **ANDIG** (Agencia Nacional de Infraestructura Digital y Soberanía Tecnológica) — ente autárquico con presupuesto constitucional protegido, gobernado por sorteo democrático y representación técnica — con un costo estimado de USD 4.700–9.900M en inversión acumulada a 10 años, financiado por ahorro en contrataciones cloud extranjeras + reasignación presupuestaria + capitalización ciudadana + créditos de organismos multilaterales. El retorno es doble: económico (USD 4.300–12.300M/año en ahorro, ingresos y valor generado en régimen, con un ROI acumulado de 2:1 a 7:1 a 10 años) y civilizatorio (una sociedad que posee su propia inteligencia, controla su propia infraestructura, y vive una vida digital que le pertenece). PLANDIG no es un plan de tecnología. Es un plan de soberanía. La tecnología es la herramienta. La soberanía es el objetivo. Y la soberanía digital del siglo XXI es tan fundamental como la soberanía territorial del siglo XIX — porque en un mundo donde quien controla los datos controla la economía, la política y la cultura, un país que no posee su infraestructura digital no se posee a sí mismo.
 
 ---
 
@@ -179,11 +179,11 @@ Hay una consecuencia del colonialismo digital que es más profunda que la econó
 
 El INDEC mide la economía con meses de retraso. El Ministerio de Salud no puede cruzar datos con el de Educación para detectar que los chicos que se enferman más son los que abandonan la escuela más temprano. El Ministerio de Trabajo no puede cruzar datos con AFIP para estimar en tiempo real cuántos empleados públicos innecesarios hay (la estimación de PLANREP fue manual, artesanal, aproximada). CONAE tiene satélites SAR que ven el territorio con resolución métrica pero no hay un sistema que integre esas imágenes con los datos de calidad de agua de PLANAGUA, con los datos de uso del suelo de PLANISV, con los datos de planificación urbana de PLAN24CN.
 
-Cada PLAN de BASTA necesita datos. PLANEDU necesita saber cómo aprenden los chicos. PLANJUS necesita saber cuántas causas se acumulan y por qué. PLANREP necesita saber exactamente qué hace cada empleado público. PLANEB necesita transparencia total de costos. PLANSAL necesita cruzar datos de salud con datos de alimentación, de ambiente, de trabajo. PLANAGUA necesita sensores en cada cuenca, en cada acuífero, en cada planta potabilizadora. PLANISV necesita saber la biología de cada hectárea de suelo.
+Cada PLAN de ¡BASTA! necesita datos. PLANEDU necesita saber cómo aprenden los chicos. PLANJUS necesita saber cuántas causas se acumulan y por qué. PLANREP necesita saber exactamente qué hace cada empleado público. PLANEB necesita transparencia total de costos. PLANSAL necesita cruzar datos de salud con datos de alimentación, de ambiente, de trabajo. PLANAGUA necesita sensores en cada cuenca, en cada acuífero, en cada planta potabilizadora. PLANISV necesita saber la biología de cada hectárea de suelo.
 
 Todos necesitan datos. Todos necesitan que esos datos estén integrados. Todos necesitan inteligencia artificial para procesarlos. Y ninguno tiene la infraestructura para hacerlo — porque esa infraestructura es la que PLANDIG viene a construir.
 
-**PLANDIG no es un plan más de BASTA. Es la capa que hace posibles todos los demás.** Así como PLANJUS es el sistema inmune que protege al cuerpo, PLANDIG es el sistema nervioso que lo conecta. Sin nervios, el cuerpo no siente, no piensa, no coordina, no actúa. Sin PLANDIG, cada PLAN opera ciego, sordo y aislado — como un órgano desconectado del cerebro.
+**PLANDIG no es un plan más de ¡BASTA!. Es la capa que hace posibles todos los demás.** Así como PLANJUS es el sistema inmune que protege al cuerpo, PLANDIG es el sistema nervioso que lo conecta. Sin nervios, el cuerpo no siente, no piensa, no coordina, no actúa. Sin PLANDIG, cada PLAN opera ciego, sordo y aislado — como un órgano desconectado del cerebro.
 
 ---
 
@@ -323,7 +323,7 @@ China construyó el sistema de datos integrados más poderoso del mundo. Cada ci
 
 Pero el sistema chino es también un aparato de vigilancia masiva. El scoring social, el reconocimiento facial ubicuo, la censura algorítmica — son las consecuencias de una integración de datos sin derechos ciudadanos. China demuestra simultáneamente el poder de los datos integrados y el horror de integrarlos sin democracia.
 
-**La lección para Argentina:** PLANDIG toma la eficiencia del modelo chino y rechaza su autoritarismo. La Arquitectura de Datos en Tres Capas (Sección 7) es la respuesta: integración completa de datos públicos y gubernamentales para máxima eficiencia, combinada con soberanía total del ciudadano sobre sus datos personales. No es ingenuo — es un diseño deliberado que usa la tecnología para empoderar, no para controlar. La diferencia no es técnica. Es política. Y en BASTA, la política la hace el pueblo.
+**La lección para Argentina:** PLANDIG toma la eficiencia del modelo chino y rechaza su autoritarismo. La Arquitectura de Datos en Tres Capas (Sección 7) es la respuesta: integración completa de datos públicos y gubernamentales para máxima eficiencia, combinada con soberanía total del ciudadano sobre sus datos personales. No es ingenuo — es un diseño deliberado que usa la tecnología para empoderar, no para controlar. La diferencia no es técnica. Es política. Y en ¡BASTA!, la política la hace el pueblo.
 
 ### 3.6 Corea del Sur: De la Periferia a la Frontera en una Generación
 
@@ -414,7 +414,7 @@ El destino final de El Mapa no es un mapa. Es un **gemelo digital** — una repr
 - **Optimización:** ¿Cuál es la ruta óptima para la nueva línea de fibra óptica? El gemelo cruza topografía, densidad poblacional, infraestructura existente y costo para encontrar el trazado que maximiza el impacto con el mínimo recurso.
 - **Alerta temprana:** ¿Hay contaminación en el acuífero Guaraní? El gemelo detecta la anomalía antes de que llegue a la canilla.
 
-El gemelo digital es la culminación de El Mapa: los sentidos del país alimentan un cerebro (el Laboratorio Nacional de IA) que comprende el territorio, anticipa sus problemas, y recomienda soluciones. No para decidir — para informar. La decisión la toman los ciudadanos a través de los mecanismos de gobernanza de BASTA.
+El gemelo digital es la culminación de El Mapa: los sentidos del país alimentan un cerebro (el Laboratorio Nacional de IA) que comprende el territorio, anticipa sus problemas, y recomienda soluciones. No para decidir — para informar. La decisión la toman los ciudadanos a través de los mecanismos de gobernanza de ¡BASTA!.
 
 ### 4.6 El Mapa como Sistema de Alerta Temprana y Respuesta a Desastres
 
@@ -444,7 +444,7 @@ El LANIA es la institución que le da cerebro al sistema nervioso. No es un labo
 | Componente | Función | Escala |
 |---|---|---|
 | **División de Modelos Fundacionales** | Entrenar, fine-tunear y desplegar modelos de lenguaje, visión y multimodales sobre datos argentinos | Equipo de 50–100 investigadores + infraestructura GPU en el núcleo soberano |
-| **División de IA para el Estado** | Desarrollar aplicaciones de IA para cada ministerio y organismo del Estado, integradas con los PLANs de BASTA | Equipo de 100–200 ingenieros de IA aplicada |
+| **División de IA para el Estado** | Desarrollar aplicaciones de IA para cada ministerio y organismo del Estado, integradas con los PLANs de ¡BASTA! | Equipo de 100–200 ingenieros de IA aplicada |
 | **División de IA para la Ciudadanía** | Construir herramientas de IA abiertas para ciudadanos, emprendedores, estudiantes y cooperativas | Equipo de 50–80 ingenieros + comunidad open-source |
 | **División de Gobernanza y Ética** | Auditar sesgos, garantizar transparencia, certificar modelos, publicar evaluaciones | Equipo multidisciplinario: IA, derecho, ética, sociología |
 | **División de Datos** | Curar, limpiar, estructurar y mantener los datasets nacionales que alimentan los modelos | Equipo de 30–50 ingenieros de datos + coordinación con El Mapa y la Arquitectura de Tres Capas |
@@ -479,7 +479,7 @@ Entrenar modelos de IA requiere hardware especializado — GPUs de alto rendimie
 |---|---|---|---|---|
 | **Semilla** | Año 1–2 | 256 GPUs H200 (o equivalente futuro) | USD 10–15M | Suficiente para fine-tunear modelos de hasta 70B parámetros |
 | **Crecimiento** | Año 3–5 | 1.024–2.048 GPUs | USD 40–80M | Suficiente para entrenar modelos de hasta 70B desde cero y fine-tunear modelos de 405B+ |
-| **Escala** | Año 5–8 | 4.096–8.192 GPUs | USD 150–300M | Capacidad de entrenamiento de frontera regional; servicio de inferencia para todo el ecosistema BASTA |
+| **Escala** | Año 5–8 | 4.096–8.192 GPUs | USD 150–300M | Capacidad de entrenamiento de frontera regional; servicio de inferencia para todo el ecosistema ¡BASTA! |
 | **Soberanía** | Año 8–10 | 16.000+ GPUs (o equivalente de nueva generación) | USD 300–600M | Argentina como centro de cómputo IA de referencia en América Latina |
 
 *Nota: El costo por FLOP de computación IA decrece ~30% anual, lo que permite que cada dólar invertido rinda más capacidad con cada generación de hardware. Los presupuestos de esta tabla son conservadores — es probable que la misma inversión compre significativamente más capacidad de la proyectada si las tendencias de eficiencia se mantienen.*
@@ -546,7 +546,7 @@ Esto llevaría a Argentina de ~50–80 MW actuales a 140–270 MW en 10 años �
 
 ### 6.3 Capa 2: La Malla Comunitaria
 
-La malla comunitaria es la innovación más radical de PLANDIG en infraestructura. Inspirada en ThreeFold y en la filosofía de gobernanza distribuida de BASTA, propone que ciudadanos, escuelas, cooperativas, municipios y organizaciones civiles contribuyan capacidad de cómputo y almacenamiento a la red digital nacional.
+La malla comunitaria es la innovación más radical de PLANDIG en infraestructura. Inspirada en ThreeFold y en la filosofía de gobernanza distribuida de ¡BASTA!, propone que ciudadanos, escuelas, cooperativas, municipios y organizaciones civiles contribuyan capacidad de cómputo y almacenamiento a la red digital nacional.
 
 **Cómo funciona:**
 
@@ -574,7 +574,7 @@ Los datacenters son hambrientos de energía — un datacenter de 10 MW consume t
 
 Cada datacenter del núcleo soberano se diseña con generación renovable co-ubicada o dedicada. Los datacenters patagónicos se alimentan de parques eólicos. Los norteños, de parques solares. Los litoraleños, de biomasa o micro-hidro. La energía es soberana y el cómputo es soberano — la cadena completa pertenece a Argentina.
 
-**Impacto ambiental más allá de la energía.** Los datacenters no solo consumen electricidad — consumen agua para refrigeración (un datacenter típico usa 1,8 litros de agua por kWh), generan residuos electrónicos al renovar servidores cada 3–5 años, y requieren minerales raros para sus componentes. PLANDIG aborda cada impacto: (1) refrigeración por aire natural en Patagonia (clima frío que elimina la necesidad de agua) y refrigeración seca en el NOA (intercambiadores aire-aire); (2) programa de reciclaje de e-waste obligatorio — los servidores retirados se reacondicionan para la malla comunitaria o se desmontan y reciclan con protocolo ambiental; (3) auditoría de cadena de suministro de minerales con preferencia por proveedores con certificación de extracción responsable. Cada nodo del núcleo publica en el Tablero Nacional Digital su consumo de agua, energía y generación de residuos — transparencia ambiental como parte de la transparencia radical de BASTA.
+**Impacto ambiental más allá de la energía.** Los datacenters no solo consumen electricidad — consumen agua para refrigeración (un datacenter típico usa 1,8 litros de agua por kWh), generan residuos electrónicos al renovar servidores cada 3–5 años, y requieren minerales raros para sus componentes. PLANDIG aborda cada impacto: (1) refrigeración por aire natural en Patagonia (clima frío que elimina la necesidad de agua) y refrigeración seca en el NOA (intercambiadores aire-aire); (2) programa de reciclaje de e-waste obligatorio — los servidores retirados se reacondicionan para la malla comunitaria o se desmontan y reciclan con protocolo ambiental; (3) auditoría de cadena de suministro de minerales con preferencia por proveedores con certificación de extracción responsable. Cada nodo del núcleo publica en el Tablero Nacional Digital su consumo de agua, energía y generación de residuos — transparencia ambiental como parte de la transparencia radical de ¡BASTA!.
 
 ---
 
@@ -584,7 +584,7 @@ Cada datacenter del núcleo soberano se diseña con generación renovable co-ubi
 
 ### 7.1 El Principio: Integración sin Panóptico
 
-PLANDIG necesita datos integrados para que la IA funcione. Pero BASTA rechaza la vigilancia. La tensión es real — y la resolución es arquitectónica, no retórica. Se resuelve diseñando un sistema de datos que maximice la utilidad y minimice el riesgo, no por promesa sino por estructura.
+PLANDIG necesita datos integrados para que la IA funcione. Pero ¡BASTA! rechaza la vigilancia. La tensión es real — y la resolución es arquitectónica, no retórica. Se resuelve diseñando un sistema de datos que maximice la utilidad y minimice el riesgo, no por promesa sino por estructura.
 
 La **Arquitectura de Datos en Tres Capas** es esa estructura:
 
@@ -652,7 +652,7 @@ PLANDIG construye protocolos abiertos para las funciones digitales fundamentales
 Cada argentino recibe al nacer (o al registrarse como residente) una **Identidad Digital Soberana (IDS)** — una credencial criptográfica que le permite:
 
 - Autenticarse ante cualquier servicio del Estado (trámites, salud, educación, justicia) sin depender de Google, Apple, o Facebook como proveedor de identidad
-- Firmar documentos con validez legal — desde un contrato hasta un voto en un panel ciudadano de BASTA
+- Firmar documentos con validez legal — desde un contrato hasta un voto en un panel ciudadano de ¡BASTA!
 - Acceder a su Cofre Digital Ciudadano (Capa 3)
 - Verificar su identidad ante privados (bancos, empleadores, proveedores) sin revelar más datos que los estrictamente necesarios (divulgación selectiva — podés probar que sos mayor de 18 sin revelar tu fecha de nacimiento exacta)
 
@@ -684,11 +684,11 @@ La app de referencia — **Mensajero Nacional** — viene preinstalada con la ID
 
 ### 8.5 Protocolo de Gobernanza Distribuida: El Protocolo Bastardo
 
-El Protocolo Bastardo — ya mencionado en PLANEB — es la infraestructura técnica que hace posible la gobernanza descentralizada de BASTA. PLANDIG lo define y lo construye. Incluye:
+El Protocolo Bastardo — ya mencionado en PLANEB — es la infraestructura técnica que hace posible la gobernanza descentralizada de ¡BASTA!. PLANDIG lo define y lo construye. Incluye:
 
-- **Sorteo democrático digital:** Selección criptográficamente verificable de ciudadanos para paneles, jurados y comités de BASTA — imposible de manipular, auditable por cualquiera
+- **Sorteo democrático digital:** Selección criptográficamente verificable de ciudadanos para paneles, jurados y comités de ¡BASTA! — imposible de manipular, auditable por cualquiera
 - **Votación digital segura:** Para presupuesto participativo, deliberaciones de paneles ciudadanos, y referéndums vinculantes
-- **Transparencia radical:** Publicación automática en la Capa 1 de cada transacción financiera, cada contrato, cada voto, cada decisión de cada entidad BASTA
+- **Transparencia radical:** Publicación automática en la Capa 1 de cada transacción financiera, cada contrato, cada voto, cada decisión de cada entidad ¡BASTA!
 - **Registro inmutable de decisiones:** Cada resolución de gobierno queda registrada en un log criptográficamente sellado — no modificable retroactivamente
 
 ---
@@ -699,15 +699,15 @@ El Protocolo Bastardo — ya mencionado en PLANEB — es la infraestructura téc
 
 ### 9.1 La Tribu: El Protocolo de Coordinación Humana
 
-Cada PLAN de BASTA requiere coordinación — entre ciudadanos, entre instituciones, entre niveles de gobierno, entre comunidades. PLANJUS necesita paneles ciudadanos que deliberen. PLANEB necesita asambleas de gobernanza de las Bastardas. PLANEDU necesita comunidades de aprendizaje. PLANREP necesita redes de apoyo para trabajadores en transición. PLANAGUA necesita comités de cuenca. Todos necesitan que grupos de personas se coordinen para tomar decisiones, ejecutar acciones, y rendir cuentas.
+Cada PLAN de ¡BASTA! requiere coordinación — entre ciudadanos, entre instituciones, entre niveles de gobierno, entre comunidades. PLANJUS necesita paneles ciudadanos que deliberen. PLANEB necesita asambleas de gobernanza de las Bastardas. PLANEDU necesita comunidades de aprendizaje. PLANREP necesita redes de apoyo para trabajadores en transición. PLANAGUA necesita comités de cuenca. Todos necesitan que grupos de personas se coordinen para tomar decisiones, ejecutar acciones, y rendir cuentas.
 
 Hoy, esa coordinación ocurre por WhatsApp (propiedad de Meta), por email (propiedad de Google o Microsoft), por Zoom (propiedad de Zoom Inc.), y por Excel compartido (propiedad de Microsoft). La infraestructura de coordinación de la democracia argentina pertenece a corporaciones extranjeras. Es como si en el siglo XIX, las sesiones del Congreso se hubieran realizado en un salón alquilado a la corona española.
 
-**La Tribu** es el protocolo de coordinación distribuida que resuelve esto. No es una app — es una capa de infraestructura sobre la cual se construyen todas las herramientas de gobernanza participativa de BASTA:
+**La Tribu** es el protocolo de coordinación distribuida que resuelve esto. No es una app — es una capa de infraestructura sobre la cual se construyen todas las herramientas de gobernanza participativa de ¡BASTA!:
 
 **TABLA 14: La Tribu — Componentes del Protocolo**
 
-| Componente | Función | Uso en BASTA |
+| Componente | Función | Uso en ¡BASTA! |
 |---|---|---|
 | **Espacios** | Crear espacios de coordinación temáticos, geográficos o institucionales | Un espacio por cada Panel Ciudadano, cada Bastarda, cada Casa JUS, cada escuela del PLANEDU |
 | **Deliberación** | Herramientas de debate estructurado: propuestas, argumentos a favor y en contra, síntesis, votación | Paneles Ciudadanos de PLANJUS, asambleas de PLANEB, consultas públicas de PLANAGUA |
@@ -716,7 +716,7 @@ Hoy, esa coordinación ocurre por WhatsApp (propiedad de Meta), por email (propi
 | **Transparencia** | Publicación automática de actas, decisiones, votos y estados de ejecución en la Capa 1 | Todo lo que se decide y se ejecuta en La Tribu es público por defecto |
 | **IA asistente** | Un modelo del LANIA asiste a cada espacio: resume debates largos, identifica puntos de consenso, detecta argumentos no respondidos, sugiere información relevante de la Capa 1 | Los paneles de PLANJUS tienen un asistente IA que no decide pero informa |
 
-La Tribu no reemplaza la presencia física. Los Paneles Ciudadanos se reúnen en persona. Las Casas JUS atienden cara a cara. Las asambleas de las Bastardas pueden ser presenciales. Pero La Tribu extiende la participación más allá de las paredes — permite que un ciudadano de Ushuaia participe en un panel sobre agua del litoral, que una comunidad wichí en Salta delibere con una cooperativa de Córdoba, que la gobernanza de BASTA funcione a escala nacional sin perder profundidad local.
+La Tribu no reemplaza la presencia física. Los Paneles Ciudadanos se reúnen en persona. Las Casas JUS atienden cara a cara. Las asambleas de las Bastardas pueden ser presenciales. Pero La Tribu extiende la participación más allá de las paredes — permite que un ciudadano de Ushuaia participe en un panel sobre agua del litoral, que una comunidad wichí en Salta delibere con una cooperativa de Córdoba, que la gobernanza de ¡BASTA! funcione a escala nacional sin perder profundidad local.
 
 ### 9.2 El Ecosistema Digital Soberano: Una Nueva Forma de Vivir en el Mundo Digital
 
@@ -810,9 +810,9 @@ El Arquitecto no decide. Presenta mapas, proyecciones, y opciones a los Paneles 
 Cada trabajador público cuyo puesto se automatiza recibe un **Compañero IA** — un agente de inteligencia artificial personalizado que:
 
 1. **Conoce su historia:** Accede (con autorización del trabajador) a su historial educativo, su experiencia laboral, sus habilidades certificadas y latentes, sus intereses, su situación familiar
-2. **Mapea sus opciones:** Cruza su perfil con las Ocho Ramas de PLANREP, con las oportunidades de la Economía de la Inteligencia, con las necesidades de los PLANs de BASTA (PLANAGUA necesita operadores de sensores, PLANISV necesita regeneradores de suelo, PLANEDU necesita maestros creadores, PLAN24CN necesita constructores), y le presenta un mapa personalizado de caminos posibles
+2. **Mapea sus opciones:** Cruza su perfil con las Ocho Ramas de PLANREP, con las oportunidades de la Economía de la Inteligencia, con las necesidades de los PLANs de ¡BASTA! (PLANAGUA necesita operadores de sensores, PLANISV necesita regeneradores de suelo, PLANEDU necesita maestros creadores, PLAN24CN necesita constructores), y le presenta un mapa personalizado de caminos posibles
 3. **Lo acompaña en la formación:** Actúa como tutor IA personalizado durante el proceso de reconversión en los Centros de la Vida o Centros de Inteligencia de PLANREP — adapta el ritmo, detecta dificultades, celebra avances, y conecta con tutores humanos cuando la IA no alcanza
-4. **Lo ayuda a encontrar su lugar:** Cuando el trabajador está listo, el Compañero lo conecta con oportunidades concretas — emprendimientos, cooperativas, Bastardas, empresas privadas, roles en los PLANs de BASTA — y lo acompaña durante los primeros meses de su nueva vida
+4. **Lo ayuda a encontrar su lugar:** Cuando el trabajador está listo, el Compañero lo conecta con oportunidades concretas — emprendimientos, cooperativas, Bastardas, empresas privadas, roles en los PLANs de ¡BASTA! — y lo acompaña durante los primeros meses de su nueva vida
 5. **Detecta riesgo emocional:** El Compañero está entrenado para detectar señales de angustia, depresión, o resistencia emocional — y cuando las detecta, no intenta resolver; conecta con profesionales humanos de la red de contención de PLANREP
 
 La poesía del sistema es deliberada: la misma IA que hace innecesario tu puesto, te muestra que tu vida puede ser mejor. No te despide y se va — te toma de la mano y te lleva al otro lado. No es un chatbot. Es un compañero de viaje que te conoce, que aprende de vos, que se adapta a tu ritmo, y que tiene un solo objetivo: que llegues a un lugar mejor del que te fuiste.
@@ -849,7 +849,7 @@ Los argentinos tech se van por tres razones: (1) mejores salarios afuera, (2) me
 | Palanca | Mecanismo | Impacto esperado |
 |---|---|---|
 | **Becas LANIA** | 500 becas anuales de investigación en IA, con salario competitivo internacional (USD 4.000–6.000/mes), para argentinos en el exterior e investigadores internacionales que quieran trabajar en el LANIA | Repatriación de 200–500 investigadores/año |
-| **Visa Tech BASTA** | Visa simplificada para talento tecnológico internacional que quiera trabajar en el ecosistema soberano — trámite en 48 horas, sin burocracia | Atracción de talento LATAM y global |
+| **Visa Tech ¡BASTA!** | Visa simplificada para talento tecnológico internacional que quiera trabajar en el ecosistema soberano — trámite en 48 horas, sin burocracia | Atracción de talento LATAM y global |
 | **Crédito para retornados** | Línea de crédito subsidiada para argentinos que vuelvan y monten empresas tech en Argentina — con acceso preferencial a la infraestructura soberana | Retorno de emprendedores |
 | **Zonas de Desarrollo de Inteligencia** | Polos tecnológicos en las ciudades de PLAN24CN con infraestructura del núcleo soberano, incubadoras, acceso a GPU del LANIA, y beneficios fiscales | Descentralización del ecosistema tech fuera de Buenos Aires |
 | **Proyecto de país** | PLANDIG como propuesta aspiracional: "Vení a construir la soberanía digital de un país" — una convocatoria que no es salarial sino existencial | Los que vuelven por el proyecto, se quedan |
@@ -870,7 +870,7 @@ La retención es más importante que la repatriación. Cada programador argentin
 
 ### 13.1 Naturaleza Jurídica y Gobernanza
 
-ANDIG es un ente autárquico del Estado nacional, con personería jurídica propia, patrimonio propio, y presupuesto protegido por cláusula constitucional (vía la Ley de Soberanía Digital que PLANDIG propone). Su diseño sigue el patrón de las agencias BASTA: ANEB, ANJUS, ANCE, ANAGUA.
+ANDIG es un ente autárquico del Estado nacional, con personería jurídica propia, patrimonio propio, y presupuesto protegido por cláusula constitucional (vía la Ley de Soberanía Digital que PLANDIG propone). Su diseño sigue el patrón de las agencias ¡BASTA!: ANEB, ANJUS, ANCE, ANAGUA.
 
 **TABLA 19: Estructura de Gobernanza de ANDIG**
 
@@ -959,13 +959,13 @@ ANDIG está diseñada para resistir la captura por tres vectores: (1) el poder p
 | Ahorro sistémico en comisiones de pago (SAPI) | 1.000–3.000 | Reducción de comisiones del 1,5–3,5% al 0,3–0,5% |
 | Ingresos por servicios cloud soberanos (mercado doméstico y regional) | 500–2.000 | Venta de cómputo, almacenamiento y IA a empresas y gobiernos LATAM |
 | Retención de valor de exportaciones de servicios de conocimiento | 500–1.500 | Más developers trabajando en proyectos soberanos vs. para empresas extranjeras |
-| Ahorro por automatización del Estado (vía Arquitecto de Fuerza Laboral + PLANREP) | 2.000–5.000 | Eficiencia administrativa; reducción de sobreempleo (financiamiento compartido con PLANREP) |
+| Ahorro fiscal adicional generado por la automatización digital de PLANDIG (no incluido en el ahorro de PLANREP) | 2.000–5.000 | Ahorro propio de PLANDIG a partir del Año 3, proveniente de eficiencia en trámites digitalizados, eliminación de duplicaciones entre sistemas, y optimización de compras públicas vía datos integrados. Este ahorro es adicional y separado del ahorro fiscal de PLANREP (que proviene de la reducción de sobreempleo). No hay doble conteo: PLANREP ahorra por sacar gente de la nómina; PLANDIG ahorra por hacer que los procesos del Estado restante funcionen mejor |
 | Valor de datos integrados para mejora de políticas públicas | Incalculable | Mejores decisiones = mejor uso de todo el presupuesto público |
 | **TOTAL** | **4.300–12.300/año** | |
 
 *Nota sobre ROI: La inversión total acumulada es de USD 4.700–9.900M en 10 años. El retorno anual en régimen (año 10+) es de USD 4.300–12.300M/año. Dado que los retornos comienzan parcialmente a partir del año 3–4 y alcanzan régimen hacia el año 7–8, el retorno acumulado a 10 años se estima en USD 15.000–50.000M — un ROI de 2:1 a 7:1 sobre la inversión total. A 15 años, con la inversión amortizada y los retornos en régimen pleno, el ROI acumulado alcanza 5:1 a 15:1.* |
 
-El retorno no es solo económico. Es estratégico: Argentina pasa de ser colonia digital a ser soberana digital. Es social: millones de ciudadanos recuperan el control de sus datos y su vida digital. Es civilizatorio: BASTA funciona porque tiene un sistema nervioso que lo conecta todo.
+El retorno no es solo económico. Es estratégico: Argentina pasa de ser colonia digital a ser soberana digital. Es social: millones de ciudadanos recuperan el control de sus datos y su vida digital. Es civilizatorio: ¡BASTA! funciona porque tiene un sistema nervioso que lo conecta todo.
 
 ---
 
@@ -985,7 +985,7 @@ PLANDIG propone una ley integral que:
 6. **Crea el régimen de Créditos de Cómputo Nacional** para la malla comunitaria
 7. **Establece la interoperabilidad obligatoria** (tipo X-Road) entre todos los sistemas del Estado
 8. **Regula la IA en funciones públicas** — transparencia, auditoría, no-discriminación, decisión humana final
-9. **Crea la Visa Tech BASTA** y el régimen de incentivos para reversión de brain drain
+9. **Crea la Visa Tech ¡BASTA!** y el régimen de incentivos para reversión de brain drain
 10. **Establece el piso presupuestario** del 0,5% del PBI para soberanía digital, escalando al 1% en 10 años
 
 ### 15.2 Relación con Legislación Existente
@@ -1043,11 +1043,11 @@ PLANJUS ya propone IA para categorización de casos, análisis de consistencia, 
 
 ---
 
-## SECCIÓN 18: INTEGRACIÓN CON EL MARCO BASTA
+## SECCIÓN 18: INTEGRACIÓN CON EL MARCO ¡BASTA!
 
-PLANDIG es el sistema nervioso que conecta todos los órganos de BASTA. La integración es total:
+PLANDIG es el sistema nervioso que conecta todos los órganos de ¡BASTA!. La integración es total:
 
-**TABLA 23: PLANDIG como Sistema Nervioso de BASTA**
+**TABLA 23: PLANDIG como Sistema Nervioso de ¡BASTA!**
 
 | PLAN | Qué necesita de PLANDIG | Qué le da a PLANDIG |
 |---|---|---|
@@ -1060,6 +1060,38 @@ PLANDIG es el sistema nervioso que conecta todos los órganos de BASTA. La integ
 | **PLANAGUA** | Gemelo Digital del Agua; Red IoT hídrica; integración SAOCOM para monitoreo | Datos hídricos para El Mapa; sensores que alimentan la capa terrestre |
 | **PLANISV** | Censo de suelo digital; análisis IA de imágenes satelitales; MRV | Datos de suelo para El Mapa; calibración terrestre de datos SAOCOM |
 | **PLANSUS** | Trazabilidad de cadena de suministro; transparencia de mercado regulado | Datos de consumo y distribución que alimentan modelos de salud pública |
+| **PLANGEO** | ArgenCloud como infraestructura exportable; escudo diplomático contra represalias Big Tech | Protección geopolítica del ecosistema soberano; Red Soberana como mercado de servicios cloud |
+| **PLANMON** | SAPI como riel de pagos del Pulso; IDS como base del sistema anti-confiscación; nodos comunitarios como validadores | Arquitectura monetaria soberana que genera demanda masiva de infraestructura digital |
+
+### 18.1 PLANDIG ↔ PLANGEO — La Soberanía Digital Sale al Mundo
+
+PLANDIG construye la infraestructura soberana. PLANGEO la protege y la proyecta internacionalmente.
+
+**ArgenCloud como infraestructura exportable.** Los nodos internacionales de ArgenCloud — desplegados en embajadas y consulados según el esquema de PLANGEO — no solo sirven al Estado argentino en el exterior. Son la punta de lanza de una oferta de servicios cloud soberanos para la Red Soberana de naciones aliadas. Paraguay necesita cloud soberano y no puede construirlo solo. Bolivia necesita IA en quechua-aymara. Uruguay necesita SAPI regional. ArgenCloud, con nodos federados e interoperables, es la alternativa al duopolio AWS-Azure para toda la región. PLANGEO lo posiciona como cooperación Sur-Sur con retorno estratégico.
+
+**Escudo diplomático contra represalias.** Cuando PLANDIG migre los datos del Estado fuera de los hyperscalers, habrá represalias. Microsoft puede condicionar licencias de software. Google puede degradar servicios. El CLOUD Act permite a EE.UU. exigir acceso a datos almacenados por empresas estadounidenses en cualquier jurisdicción. PLANGEO articula el escudo diplomático: tratados bilaterales de protección de datos, coaliciones con la UE (que tiene la misma preocupación), y posicionamiento en foros multilaterales. La Soberanía Digital como Stack exportable — ArgenCloud + SAPI + IDS + Mensajero Nacional — es más fuerte cuando la respalda una red diplomática activa.
+
+### 18.2 PLANDIG ↔ PLANMON — Los Rieles Digitales del Peso Soberano
+
+PLANMON diseña la moneda. PLANDIG construye los rieles por donde circula.
+
+**SAPI como infraestructura de pagos del Pulso.** El sistema de pagos soberano de PLANDIG — SAPI — es el riel sobre el cual corre el Pulso, la moneda-canasta de PLANMON. Cada transacción en peso-canasta se procesa en infraestructura argentina, con latencia de milisegundos, cero comisiones para el usuario, y trazabilidad completa sin vigilancia. SAPI no es solo un sistema de pagos: es la columna vertebral transaccional de toda la arquitectura monetaria soberana.
+
+**Nodos comunitarios como validadores monetarios.** Los 100.000 nodos comunitarios de la malla de PLANDIG no solo procesan datos y cachean contenido — actúan como validadores distribuidos de la red monetaria de PLANMON. Cada cooperativa, cada escuela, cada centro comunitario con un nodo es un punto de verificación que hace imposible la manipulación centralizada del registro monetario. Descentralización real, no blockchain especulativa.
+
+**Identidad descentralizada como base anti-confiscación.** El sistema de Identidad Digital Soberana (IDS) de PLANDIG es el cimiento del sistema anti-confiscación de PLANMON. Sin identidad soberana no hay billetera soberana. Sin billetera soberana no hay protección contra el congelamiento arbitrario de fondos. IDS garantiza que cada argentino controla su identidad financiera con llave propia — ni ANDIG, ni el banco, ni el gobierno pueden congelar lo que no controlan.
+
+### 18.3 PLANDIG × PLANEN: Smart Grid Soberana
+
+La red eléctrica inteligente de PLANEN corre sobre infraestructura PLANDIG: sensores IoT en cada nodo de generación, ArgenCloud procesando datos de consumo en tiempo real, IA optimizando distribución. El Tablero Nacional de Energía es una aplicación del Mapa. La Bastarda Energética usa SAPI como riel de cobro.
+
+### 18.4 PLANDIG ↔ PLANSEG — Vigilancia con Derechos
+
+PLANSEG necesita tecnología de monitoreo — cámaras corporales, análisis de video por IA, sensores urbanos, bases de datos integradas — y PLANDIG provee la infraestructura soberana donde todo eso corre. Pero la relación tiene un límite constitucional que ninguna eficiencia justifica cruzar: toda la vigilancia opera bajo supervisión judicial, con datos almacenados en ArgenCloud (no en servidores extranjeros), y con protocolos de acceso que impiden la vigilancia masiva sin causa. PLANDIG define la infraestructura y los límites técnicos; PLANSEG define los protocolos operativos; y PLANJUS provee la supervisión judicial que impide que la seguridad se convierta en panóptico. La seguridad soberana se construye con datos soberanos — pero los datos de las personas son de las personas, no del Estado.
+
+### 18.5 PLANDIG ↔ PLANVIV — La Inteligencia del Hábitat
+
+PLANDIG digitaliza lo que PLANVIV construye. Cada edificio de la Bastarda Inmobiliaria lleva sensores IoT de monitoreo estructural — humedad, vibraciones, asentamientos — conectados a ArgenCloud, que detectan problemas antes de que se conviertan en colapsos. La regularización dominial de las 1.800 villas que PLANVIV urbaniza se ejecuta a través del sistema de titulación digital de PLANDIG: identidad soberana del titular, registro blockchain de la propiedad, título verificable sin intermediario notarial. Y los edificios inteligentes de la Bastarda Inmobiliaria gestionan energía, agua y residuos con algoritmos de optimización que corren sobre infraestructura PLANDIG — porque un edificio que sabe cuánta energía consume en tiempo real es un edificio que consume menos.
 
 ---
 
@@ -1190,7 +1222,7 @@ Los sindicatos del Estado son aliados o bloqueadores. PLANREP ya define la relac
 | La adopción ciudadana es baja — nadie quiere dejar WhatsApp | Alta | Alto | No se pide que dejen WhatsApp. Se construye algo mejor. Se empieza por lo cautivo (Estado). Se incentiva con CCN. Se espera que la masa crítica genere efecto red |
 | Embargo o restricción de exportación de GPUs por EE.UU. | Baja-media (depende del contexto geopolítico) | Muy alto | Diversificación de proveedores (NVIDIA + AMD + proveedores asiáticos); inversión en diseño de chips propios a largo plazo (cooperación LATAM); énfasis en eficiencia (DeepSeek demostró que se puede hacer más con menos) |
 | Ciberataque masivo a la infraestructura soberana | Media | Muy alto | Sistema inmune distribuido (Sección 10); no hay punto único de falla; redundancia geográfica; simulacros trimestrales |
-| Falta de talento para ejecutar | Alta (en los primeros años) | Alto | Programa de brain drain reversal; Visa Tech BASTA; formación acelerada en universidades; cooperación internacional |
+| Falta de talento para ejecutar | Alta (en los primeros años) | Alto | Programa de brain drain reversal; Visa Tech ¡BASTA!; formación acelerada en universidades; cooperación internacional |
 | Inflación argentina destruye los presupuestos | Alta (histórica) | Alto | Presupuesto constitucional protegido con cláusula de actualización; financiamiento en dólares vía multilaterales para componentes importados; generación de ingresos propios en divisa (exportación de servicios cloud) |
 | Resistencia política (lobbying de hyperscalers, oposición ideológica) | Alta | Medio | Comunicación masiva del costo del colonialismo digital; transparencia total de la inversión y el retorno; demostración temprana de resultados (quick wins: SAPI en año 2, primeros ahorros visibles) |
 
@@ -1487,6 +1519,17 @@ PLANDIG los necesita como aliados, no como víctimas:
 
 ## SECCIÓN 29: HOJA DE RUTA — CASCADA EN 10 AÑOS
 
+### Pre-Fase: Cimientos (18 meses antes del lanzamiento formal)
+
+La infraestructura digital soberana no se improvisa. PLANDIG lanza una Pre-Fase de 18 meses antes de su Fase 0 formal, con tres objetivos:
+
+1. **Auditoría de ARSAT**: Evaluación completa de la capacidad instalada, deuda técnica, y potencial de escalamiento de los datacenters existentes de ARSAT. Resultado: mapa de nodos viables para ArgenCloud.
+2. **Piloto de nodo soberano**: Un datacenter piloto (2 MW) operativo en una ubicación estratégica, con stack completo (servidores, refrigeración, energía renovable, conectividad). Prueba de concepto para los 23 nodos restantes.
+3. **Formación del equipo fundacional**: 200 ingenieros y operadores seleccionados por mérito, formados en administración de cloud soberano, ciberseguridad, y protocolos SAPI. Este equipo es la semilla del talento que PLANDIG necesita para escalar.
+4. **Diseño de API SAPI**: Especificación técnica completa del Sistema Abierto de Pagos e Identidad, publicada como estándar abierto para que PLANMON, PLANEB, y PLANJUS puedan desarrollar sus integraciones en paralelo.
+
+La Pre-Fase no requiere legislación ni creación de ANDIG. Opera como proyecto especial de la Secretaría de Innovación con presupuesto del tesoro.
+
 **TABLA 28: Cascada de Implementación de PLANDIG**
 
 | Fase | Período | Hitos principales |
@@ -1496,7 +1539,22 @@ PLANDIG los necesita como aliados, no como víctimas:
 | **Escala** | Año 3–4 | 10 nodos del núcleo operativos. 50.000 nodos comunitarios. SAPI con 15M de usuarios. IDS con 15M de usuarios. Modelo Legal Argentino en piloto con PLANJUS. Modelo Educativo en 5.000 escuelas. El Mapa v1 operativo (integración SAOCOM + primeros 15.000 sensores IoT). Arquitecto de Fuerza Laboral en piloto con PLANREP. Lanzamiento de La Tribu v1 |
 | **Consolidación** | Año 5–6 | 15–20 nodos del núcleo. 70.000 nodos comunitarios. SAPI con 25M de usuarios. IDS universal. Migración del 60% de datos del Estado a infraestructura soberana. LANIA con 300 investigadores y 2.048 GPUs. Primeros modelos especializados entrenados desde cero. 30.000 sensores IoT. Gemelo Digital v1. Programa brain drain revierte la tendencia |
 | **Soberanía** | Año 7–8 | 25+ nodos del núcleo. 90.000 nodos comunitarios. SAPI con 30M+ de usuarios — método de pago dominante. 95% de datos del Estado soberanos. LANIA como centro de referencia IA en español. Ecosistema digital soberano completo (mensajería, pagos, identidad, educación, salud, gobernanza). Argentina exporta servicios cloud y IA a LATAM |
-| **Madurez** | Año 9–10 | Capacidad plena del núcleo (140–270 MW). 100.000 nodos comunitarios. Modelos argentinos de frontera en producción. Gemelo Digital completo. La Argentina se conoce a sí misma en tiempo real. PLANDIG genera ingresos netos — la inversión se paga sola. El sistema nervioso de BASTA está completo: conecta, procesa, coordina, y aprende. Argentina es digitalmente soberana |
+| **Madurez** | Año 9–10 | Capacidad plena del núcleo (140–270 MW). 100.000 nodos comunitarios. Modelos argentinos de frontera en producción. Gemelo Digital completo. La Argentina se conoce a sí misma en tiempo real. PLANDIG genera ingresos netos — la inversión se paga sola. El sistema nervioso de ¡BASTA! está completo: conecta, procesa, coordina, y aprende. Argentina es digitalmente soberana |
+
+### Escenarios de Falla y Fallbacks
+
+PLANDIG es dependencia crítica de 5+ mandatos. Si ArgenCloud no alcanza masa crítica, el ecosistema ¡BASTA! no se detiene — se degrada de forma controlada.
+
+| Escenario | Plan afectado | Fallback | Calidad del fallback |
+|---|---|---|---|
+| ArgenCloud no escala | PLANMON | El Pulso opera sobre infraestructura híbrida: cloud internacional con cifrado de extremo a extremo + validadores locales en nodos ARSAT existentes. Soberanía por criptografía, no por geografía. | PARCIAL |
+| ArgenCloud no escala | PLANEB | Protocolo Bastardo corre sobre cloud convencional con datos cifrados. La transparencia radical se mantiene (blockchain pública); la soberanía de datos se degrada. | PARCIAL |
+| ArgenCloud no escala | PLAN24CN | Ciudades usan infraestructura ICT convencional inicialmente. Los datacenters soberanos se agregan como upgrade cuando estén disponibles. El diseño urbano reserva el espacio físico. | PARCIAL |
+| ArgenCloud no escala | PLANGEO | PLANGEO exporta el marco regulatorio y el diseño, no la infraestructura. Los países adoptantes despliegan su propia nube soberana. | DEGRADADO |
+| ArgenCloud no escala | PLANAGUA | El Gemelo Digital del Agua opera sobre cloud convencional con datos anonimizados. Los sensores IoT funcionan igual — solo cambia dónde se procesan los datos. | PARCIAL |
+| SAPI no se implementa | PLANMON | El Pulso usa APIs bancarias estándar como riel temporal. Se pierde la interoperabilidad nativa pero se mantiene la funcionalidad core. | DEGRADADO |
+
+**Principio de degradación gradual:** Ningún plan de ¡BASTA! se diseña como todo-o-nada. Si PLANDIG falla parcialmente, los otros mandatos operan en modo degradado — con menos soberanía de datos pero con funcionalidad intacta. La soberanía plena es el objetivo; la funcionalidad es el mínimo.
 
 ---
 
@@ -1542,7 +1600,7 @@ PLANDIG opera en un dominio de cambio exponencial — la tecnología que es de f
 
 6. **Verificación y cierre (Mes 15–18).** Todos los sistemas están en el núcleo soberano. Se verifica la integración con la Capa 2. Se confirma que los datos personales migraron a Cofres Digitales. Se desactiva la infraestructura cloud extranjera. Se publica el ahorro estimado en el Tablero Nacional Digital.
 
-**Entregables:** Informe de migración publicado en Capa 1; dashboard de estado del ministerio en el Tablero; equipo técnico del ministerio certificado en infraestructura soberana.
+**Entregables:** Informe de migración publicado en Capa 1; tablero de estado del ministerio en el Tablero; equipo técnico del ministerio certificado en infraestructura soberana.
 
 **El factor humano:** Cada migración genera ansiedad institucional. Los que usan el sistema viejo le tienen cariño — funciona, lo conocen, lo dominan. El protocolo incluye una etapa de "embajadores" donde técnicos del propio ministerio (no consultores de ANDIG) presentan el nuevo sistema a sus compañeros. La migración no se impone desde afuera — se lidera desde adentro.
 
@@ -1591,7 +1649,7 @@ PLANDIG opera en un dominio de cambio exponencial — la tecnología que es de f
 5. **Comunicación pública** — dentro de las 48 horas, ANDIG publica en la Capa 1: qué pasó, qué datos fueron afectados, qué se hizo, y qué se cambia para que no vuelva a pasar. Sin eufemismos, sin minimización
 6. **Post-mortem público** — dentro de los 14 días, informe completo con análisis de causa raíz, lecciones aprendidas, y cambios implementados. La IA de detección se actualiza con los patrones del ataque
 
-**Lo que NO se hace:** No se minimiza. No se oculta. No se espera a que un periodista lo descubra. La transparencia radical de BASTA aplica especialmente cuando las cosas salen mal — porque la confianza se construye en la adversidad, no en el éxito.
+**Lo que NO se hace:** No se minimiza. No se oculta. No se espera a que un periodista lo descubra. La transparencia radical de ¡BASTA! aplica especialmente cuando las cosas salen mal — porque la confianza se construye en la adversidad, no en el éxito.
 
 ### MO-4: Protocolo de Entrenamiento y Despliegue de un Modelo LANIA
 
@@ -1720,7 +1778,95 @@ Si la respuesta a alguna es no — hay que seguir construyendo. Porque la sobera
 
 ---
 
-## SECCIÓN 33: VISIÓN 2040 — LA ARGENTINA QUE SE CONOCE, SE PIENSA Y SE GOBIERNA A SÍ MISMA
+## SECCIÓN 33: PROTOCOLOS DE CONTINGENCIA — SI ARGENCLOUD NO ALCANZA MASA CRÍTICA
+
+> *"Un plan que no contempla su propia fragilidad no es valiente — es ingenuo. ArgenCloud es el corazón de PLANDIG. Si el corazón late débil, el cuerpo tiene que saber funcionar igual."*
+
+### 33.1 Por Qué Esta Sección Existe
+
+PLANDIG es el sistema nervioso del ecosistema ¡BASTA!. ArgenCloud — la infraestructura de nube soberana — es la columna vertebral de ese sistema nervioso. Si ArgenCloud falla o se retrasa significativamente, el daño no es solo para PLANDIG: se propaga a todo el ecosistema.
+
+**Dependencias críticas identificadas:**
+- **PLANMON** pierde los rieles de pago soberanos para SAPI
+- **PLANEB** pierde la infraestructura blockchain para las Empresas Bastardas
+- **PLAN24CN** pierde la capa digital de las ciudades inteligentes
+- **PLANGEO** pierde su producto de exportación digital estrella
+- **PLANEDU** pierde la plataforma adaptativa de aprendizaje soberano
+- **PLANJUS** pierde la infraestructura para justicia digital y paneles ciudadanos
+- **PLANSAL** pierde el alojamiento soberano de datos de salud
+
+Esto convierte a ArgenCloud en el punto único de falla más peligroso de ¡BASTA!. La Sección 30 documenta protocolos de falla para incidentes operativos. Esta sección es diferente: documenta qué pasa si ArgenCloud *como proyecto* no alcanza la escala necesaria para cumplir su función ecosistémica. No es un bug — es un riesgo estratégico existencial que requiere planificación explícita.
+
+### 33.2 Escenario A — Retraso Técnico: ArgenCloud Operativa Pero Más Lenta Que Lo Proyectado
+
+ArgenCloud funciona, pero la red de datacenters soberanos y la malla comunitaria de cómputo no alcanzan la escala proyectada en los plazos del plan. Los servicios existen pero no cubren todo el territorio ni toda la demanda.
+
+**Protocolo de respuesta:**
+
+1. **Infraestructura híbrida con encriptación soberana.** Los planes dependientes operan sobre un modelo mixto: ArgenCloud para lo que ya funciona + servicios cloud comerciales (AWS, Azure, GCP) con encriptación de extremo a extremo gestionada por ANDIG. Los datos viajan por rieles extranjeros pero están cifrados con llaves que solo el Estado argentino controla. No es soberanía plena — es soberanía de los datos aunque no de la infraestructura. Es la diferencia entre alquilar la casa y que el dueño tenga copia de tu llave versus alquilar con cerradura propia.
+
+2. **PLANMON lanza SAPI sobre infraestructura bancaria existente.** PLANMON ya documenta una beta de SAPI sobre la red interbancaria en Año 1. En este escenario, esa beta se convierte en el modo de operación principal por más tiempo. SAPI funciona, pero con mayor latencia y dependencia de la infraestructura bancaria tradicional como puente hasta que ArgenCloud alcance capacidad.
+
+3. **PLANEB opera sobre blockchain pública.** Las Empresas Bastardas usan Ethereum L2 (o equivalente) como capa de gobernanza y transparencia, con migración programada a ArgenCloud cuando la infraestructura soberana esté lista. El Protocolo Bastardo se diseña desde el inicio con portabilidad de cadena — la lógica de gobernanza no puede estar atada a una infraestructura específica.
+
+4. **PLAN24CN y PLANEDU operan con tecnología estándar.** Las ciudades inteligentes despliegan sensores con conectividad comercial. La plataforma educativa corre sobre infraestructura híbrida. Funcionalidad preservada, soberanía diferida.
+
+**Impacto estimado:** ROI del ecosistema reducido 30–40% los primeros 3 años. Sin pérdida funcional — todos los planes operan, pero con mayor costo operativo y menor ventaja competitiva. La soberanía se alcanza más tarde, no se pierde.
+
+### 33.3 Escenario B — Fracaso Parcial: ArgenCloud Nunca Alcanza Escala Completa
+
+ArgenCloud logra operar un núcleo soberano — suficiente para algunos servicios críticos — pero nunca alcanza la escala necesaria para reemplazar la dependencia de cloud comercial para el grueso de las operaciones del Estado y del ecosistema ¡BASTA!.
+
+**Protocolo de respuesta:**
+
+1. **ANDIG pivota a modelo federado.** En vez de una nube soberana monolítica, ANDIG opera un modelo inspirado en la plataforma X-Road de Estonia: un núcleo soberano pequeño, seguro e interoperable para datos críticos (identidad, salud, justicia, seguridad), complementado con convenios regulados con proveedores comerciales para cargas no sensibles. Estonia gobierna 1,3 millones de personas con una infraestructura digital que ocupa una fracción de lo que pretende ArgenCloud — y funciona. Argentina puede adaptar ese modelo para 46 millones.
+
+2. **Datos soberanos por clasificación, no por infraestructura.** La arquitectura de tres capas (Sección 7) se convierte en el criterio de alojamiento: Capa 3 (datos ciudadanos) y datos de seguridad nacional van obligatoriamente al núcleo soberano. Capas 1 y 2 pueden alojarse en infraestructura certificada con estándares ANDIG de encriptación, localización y auditoría.
+
+3. **PLANMON opera SAPI con protocolo de auditoría soberano.** SAPI funciona como capa de pago sobre infraestructura financiera existente — no sobre ArgenCloud — pero con un protocolo de auditoría soberano que garantiza trazabilidad, transparencia y control estatal de los datos transaccionales. La soberanía monetaria se preserva a nivel de protocolo aunque no a nivel de infraestructura.
+
+4. **PLAN24CN reduce componente IoT.** Las ciudades inteligentes operan con tecnología estándar de mercado — sensores comerciales, conectividad convencional, procesamiento en cloud híbrida. Se pierde la ventaja de la integración profunda con ArgenCloud pero se preserva la funcionalidad urbana.
+
+5. **PLANGEO ajusta su oferta.** Sin ArgenCloud a escala exportable, PLANGEO no tiene producto cloud soberano para vender a otros países del Sur Global. La oferta geopolítica pivota a exportación de conocimiento regulatorio (marcos legales de soberanía digital), modelos del LANIA en español, y consultoría en el modelo federado.
+
+**Impacto estimado:** Funcionalidad doméstica preservada al 70–80%. Pérdida significativa de ventaja competitiva geopolítica — PLANGEO pierde su producto digital estrella. El ecosistema ¡BASTA! sobrevive y opera, pero Argentina no se convierte en referente global de soberanía digital de infraestructura, sino de soberanía digital de regulación y protocolo. Es un plan B digno, no una derrota.
+
+### 33.4 Escenario C — Fracaso Total: ArgenCloud Inviable Por Costo o Capacidad
+
+ArgenCloud resulta técnica o económicamente inviable a la escala necesaria. Los costos de operación superan ampliamente los de servicios comerciales, la malla comunitaria no despega, y la infraestructura soberana no puede competir en rendimiento ni en precio.
+
+**Protocolo de respuesta:**
+
+1. **ANDIG se transforma de operador a regulador y certificador.** En vez de construir y operar la nube, ANDIG establece estándares obligatorios para cualquier proveedor que aloje datos del Estado argentino o de ciudadanos argentinos: encriptación soberana (llaves en manos del Estado), localización de datos críticos en territorio argentino (o en jurisdicciones con tratados de protección recíproca), protocolos de acceso y auditoría, y portabilidad garantizada.
+
+2. **Datos soberanos alojados en proveedores certificados.** Los proveedores comerciales que quieran operar con el Estado argentino deben obtener certificación ANDIG: datacenters con presencia física en Argentina, personal con habilitación de seguridad, auditorías trimestrales, y cláusulas contractuales de soberanía de datos que prevalezcan sobre la legislación del país de origen del proveedor (modelo CLOUD Act invertido).
+
+3. **Identidad digital soberana sobre estándares abiertos.** La IDS opera sobre estándares W3C DID (Decentralized Identifiers) y Verifiable Credentials — estándares abiertos, internacionales, no dependientes de infraestructura propietaria ni propia. La identidad del ciudadano es portable, verificable y soberana por diseño del protocolo, no por localización del servidor.
+
+4. **Cada plan activa su modo degradado.** Cada plan dependiente de PLANDIG debe tener documentado un protocolo de operación sin infraestructura soberana propia — un "modo degradado" que preserva la funcionalidad core aunque sacrifique la soberanía de infraestructura. PLANMON opera SAPI sobre rieles bancarios. PLANEB opera gobernanza sobre blockchain pública. PLANEDU opera la plataforma sobre cloud comercial certificada. Cada plan pierde autonomía de infraestructura pero conserva autonomía de protocolo y de datos.
+
+5. **PLANGEO pierde su producto digital estrella.** Sin nube soberana exportable, la oferta geopolítica de Argentina en soberanía digital se reduce a marcos regulatorios, modelos de IA abiertos del LANIA, y experiencia en gobernanza digital ciudadana. Sigue siendo valiosa — pero no es la misma propuesta.
+
+**Impacto estimado:** Pérdida de soberanía digital *de infraestructura* — los datos viajan por rieles que no son propios, aunque estén cifrados y regulados. El ecosistema ¡BASTA! sobrevive porque fue diseñado con protocolos portables. Pero la visión de la Sección 34 — una Argentina que se ve, se piensa y se gobierna desde infraestructura propia — se logra parcialmente, no plenamente. Es la diferencia entre ser dueño de la casa y alquilar con buenas cláusulas. Se puede vivir bien — pero no es lo mismo.
+
+### 33.5 Indicadores de Alerta Temprana
+
+La diferencia entre un retraso manejable y un fracaso es el tiempo de reacción. ANDIG debe monitorear indicadores específicos y activar protocolos antes de que la inercia haga imposible la corrección:
+
+| Plazo | Indicador | Umbral de alerta | Protocolo activado |
+|---|---|---|---|
+| **Año 1** | Nodos activos de la malla comunitaria | < 5.000 nodos | Activar Escenario A — infraestructura híbrida. Reforzar incentivos de adopción de nodos. Revisión del modelo de participación comunitaria |
+| **Año 2** | Latencia promedio para servicios críticos (SAPI, IDS, plataforma educativa) | > 200 ms | Reforzar inversión en infraestructura core. Si no mejora en 6 meses, activar Escenario B — modelo federado |
+| **Año 3** | Costo por transacción en ArgenCloud vs. servicios comerciales equivalentes | > 3x el costo comercial | Evaluación formal de viabilidad. Si la tendencia no se revierte en 12 meses, activar Escenario C — ANDIG como regulador |
+| **Continuo** | Adopción de servicios soberanos vs. proyección | < 40% de la meta anual durante 2 trimestres consecutivos | Auditoría de barreras de adopción. Revisión UX. Ajuste de incentivos |
+
+**Revisión trimestral obligatoria.** ANDIG publica un reporte trimestral de estado de ArgenCloud con los indicadores de esta tabla. El reporte es público — Capa 1, acceso abierto — y se presenta ante el Panel Ciudadano de Soberanía Digital. No hay opacidad posible: si ArgenCloud está fallando, la ciudadanía lo sabe al mismo tiempo que ANDIG.
+
+**Cláusula de honestidad radical.** Si en cualquier momento el análisis técnico de ANDIG concluye que ArgenCloud a escala completa es inviable con la tecnología y los recursos disponibles, ANDIG tiene la obligación de decirlo públicamente y activar el escenario correspondiente — no de pedir más presupuesto para sostener un proyecto que no funciona. La soberanía digital se puede lograr por más de un camino. Insistir en un camino muerto por orgullo institucional no es soberanía — es burocracia.
+
+---
+
+## SECCIÓN 34: VISIÓN 2040 — LA ARGENTINA QUE SE CONOCE, SE PIENSA Y SE GOBIERNA A SÍ MISMA
 
 > *"Imaginá un país donde cada dato te pertenece, donde cada decisión se toma con información completa, donde la inteligencia artificial trabaja para vos — no para un accionista en otro continente. Eso no es ciencia ficción. Es el 2040 si empezamos hoy."*
 
@@ -1740,7 +1886,7 @@ Los trabajadores del Estado que fueron reconvertidos por PLANREP recuerdan al Co
 
 Cien mil nodos comunitarios parpadean en todo el territorio — en casas, escuelas, cooperativas, municipios. Cada uno contribuye un poco de cómputo, un poco de almacenamiento, un poco de soberanía. Cada nodo es un acto cívico. Cada ciudadano que conecta un nodo dice: "este pedazo de la nube argentina es mío, y lo pongo al servicio de todos." La malla comunitaria no es solo infraestructura. Es participación. Es la versión digital del vecino que pone la vereda.
 
-La Tribu coordina la gobernanza de BASTA a escala nacional. Cinco millones de argentinos participan activamente — deliberando en Paneles Ciudadanos, votando presupuestos participativos, fiscalizando la transparencia radical de las Empresas Bastardas, auditando los algoritmos del LANIA. La democracia argentina no se agota en una elección cada cuatro años. Vive cada día, en cada espacio de La Tribu, en cada decisión que el pueblo toma informado por la mejor inteligencia disponible — inteligencia que le pertenece.
+La Tribu coordina la gobernanza de ¡BASTA! a escala nacional. Cinco millones de argentinos participan activamente — deliberando en Paneles Ciudadanos, votando presupuestos participativos, fiscalizando la transparencia radical de las Empresas Bastardas, auditando los algoritmos del LANIA. La democracia argentina no se agota en una elección cada cuatro años. Vive cada día, en cada espacio de La Tribu, en cada decisión que el pueblo toma informado por la mejor inteligencia disponible — inteligencia que le pertenece.
 
 El LANIA publica sus modelos como código abierto. Investigadores de toda América Latina usan el Modelo Educativo Argentino para mejorar sus sistemas educativos. El Modelo Legal Argentino se adapta al derecho brasileño, al chileno, al colombiano. Argentina exporta inteligencia artificial en español al mundo — no como producto de una corporación, sino como contribución a los commons globales. Los mejores investigadores de IA en español quieren trabajar en el LANIA — porque es donde se hace el trabajo más importante, con los datos más ricos, para el propósito más noble: que un continente entero se gobierne con inteligencia propia.
 
@@ -1750,13 +1896,13 @@ Los datos de los Ferreyra — al fin — les pertenecen.
 
 Y el sistema nervioso de la Argentina — los sentidos que la ven, el cerebro que la piensa, la columna que la sostiene, los nervios que la conectan, la consciencia que la gobierna, el sistema inmune que la protege — es suyo. No de Silicon Valley. No de Menlo Park. No de Virginia. Suyo.
 
-*Gris como el acero que se pule hasta brillar. Gris como el amanecer antes de que el sol estalle. Gris como la nube que ya no está en el cielo de otro — sino en la tierra propia.*
+*Gris como la plata que se pule hasta brillar. Gris como el amanecer antes de que el sol estalle. Gris como la nube que ya no está en el cielo de otro — sino en la tierra propia.*
 
 El instante del Hombre Gris digital es ahora. Y la Argentina eligió despertar.
 
 ---
 
-**PLANDIG es el décimo mandato de BASTA. No el último — porque BASTA nunca deja de construir. Pero sí el que conecta a todos los demás. Porque un país con educación pero sin datos propios educa para otros. Un país con justicia pero sin infraestructura digital juzga en el vacío. Un país con empresas bastardas pero sin soberanía tecnológica depende del que le alquila los rieles. PLANDIG cierra el circuito. Completa el sistema nervioso. Le da a BASTA un cuerpo digital donde vivir.**
+**PLANDIG es el décimo de los dieciséis mandatos de ¡BASTA!. No el último — porque ¡BASTA! nunca deja de construir. Pero sí el que conecta a todos los demás. Porque un país con educación pero sin datos propios educa para otros. Un país con justicia pero sin infraestructura digital juzga en el vacío. Un país con empresas bastardas pero sin soberanía tecnológica depende del que le alquila los rieles. PLANDIG cierra el circuito. Completa el sistema nervioso. Le da a ¡BASTA! un cuerpo digital donde vivir.**
 
 **Porque la soberanía del siglo XXI no se ejerce solo con ejércitos, con fábricas, con campos y con leyes. Se ejerce con datos, con algoritmos, con infraestructura, y con la decisión irrevocable de que la inteligencia argentina — toda ella, cada byte, cada modelo, cada decisión — nos pertenezca.**
 
