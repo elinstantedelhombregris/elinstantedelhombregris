@@ -13,6 +13,29 @@ export type InitiativeCategory =
   | 'instituciones'
   | 'geopolitica';
 
+// === Mission-centric types (from PLAN_MAESTRO & MATRIZ_MISIONES_Y_PLANES) ===
+
+export type MissionSlug =
+  | 'supervivencia-digna'
+  | 'territorio-legible'
+  | 'produccion-y-suelo-vivo'
+  | 'infancia-escuela-cultura'
+  | 'instituciones-y-futuro';
+
+export type TemporalOrder = 'emergencia' | 'transicion' | 'permanencia';
+
+export type InitiativePriority = 'alta' | 'media' | 'diferida';
+
+export type InitiativeState = 'verde' | 'ambar' | 'rojo';
+
+export type CitizenRole =
+  | 'testigo'
+  | 'declarante'
+  | 'constructor'
+  | 'custodio'
+  | 'organizador'
+  | 'narrador';
+
 export interface PathStep {
   id: number;
   title: string;
@@ -55,6 +78,18 @@ export interface StrategicInitiative {
   tags: string[];
   relatedInitiativeSlugs?: string[];
   sources?: { title: string; url?: string }[];
+  // Mission-centric fields (from MATRIZ_MISIONES_Y_PLANES)
+  missionSlug?: MissionSlug;
+  secondaryMissionSlug?: MissionSlug;
+  temporalOrder?: TemporalOrder;
+  priority?: InitiativePriority;
+  state?: InitiativeState;
+  stateDecision?: string;
+  citizenRoles?: CitizenRole[];
+  citizenAsk?: string;
+  mainRisk?: string;
+  stateCapacity?: 'baja' | 'media' | 'alta' | 'muy-alta';
+  socialCapacity?: 'baja' | 'media' | 'alta';
 }
 
 export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
@@ -255,6 +290,17 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
       { title: 'Acuerdo de París — Compromisos de Argentina (NDC)' },
       { title: 'Russell Ackoff — Idealized Design (Metodología)' },
     ],
+    // Mission-centric classification
+    missionSlug: 'produccion-y-suelo-vivo',
+    temporalOrder: 'transicion',
+    priority: 'alta',
+    state: 'verde',
+    stateDecision: 'Ejecutar primero',
+    citizenRoles: ['testigo', 'constructor', 'custodio'],
+    citizenAsk: 'Productores, tecnicos, monitoreo y aprendizaje local',
+    mainRisk: 'Escalar sin demostrar',
+    stateCapacity: 'media',
+    socialCapacity: 'media',
   },
 
   // PLAN24CN — 24 Ciudades Nuevas
@@ -449,6 +495,18 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
       { title: 'CEPAL — Panorama de la Gestión Urbana en América Latina' },
       { title: 'Russell Ackoff — Idealized Design (Metodología)' },
     ],
+    // Mission-centric classification
+    missionSlug: 'produccion-y-suelo-vivo',
+    secondaryMissionSlug: 'infancia-escuela-cultura',
+    temporalOrder: 'permanencia',
+    priority: 'diferida',
+    state: 'rojo',
+    stateDecision: 'Pausar',
+    citizenRoles: ['declarante', 'organizador'],
+    citizenAsk: 'Diseno local, aprendizaje y observacion, no despliegue',
+    mainRisk: 'Fuga de recursos y fantasia urbanistica temprana',
+    stateCapacity: 'muy-alta',
+    socialCapacity: 'media',
   },
 
   // PLANREP — Reconversión del Empleo Público
@@ -659,6 +717,17 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
       { title: 'OIT — Perspectivas del Empleo y la Transformación Digital' },
       { title: 'Russell Ackoff — Idealized Design (Metodología)' },
     ],
+    // Mission-centric classification
+    missionSlug: 'produccion-y-suelo-vivo',
+    temporalOrder: 'transicion',
+    priority: 'media',
+    state: 'ambar',
+    stateDecision: 'Ejecutar version restringida',
+    citizenRoles: ['constructor', 'organizador'],
+    citizenAsk: 'Formacion, tutoria, acogida en nodos productivos',
+    mainRisk: 'Trauma social y promesa fiscal inflada',
+    stateCapacity: 'alta',
+    socialCapacity: 'media',
   },
 
   // PLANEDU — Refundación Educativa
@@ -898,6 +967,17 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
       { title: 'Heckman — The Economics of Human Potential (Perry Preschool / Abecedarian)' },
       { title: 'Russell Ackoff — Idealized Design (Metodología)' },
     ],
+    // Mission-centric classification
+    missionSlug: 'infancia-escuela-cultura',
+    temporalOrder: 'emergencia',
+    priority: 'alta',
+    state: 'verde',
+    stateDecision: 'Ejecutar primero',
+    citizenRoles: ['constructor', 'organizador', 'narrador'],
+    citizenAsk: 'Tutoria, apoyo escolar, participacion familiar',
+    mainRisk: 'Ir demasiado rapido hacia refundacion total',
+    stateCapacity: 'media',
+    socialCapacity: 'alta',
   },
   {
     slug: 'planjus-justicia-popular',
@@ -1094,6 +1174,17 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
       { title: 'Ostrom — Governing the Commons: Design Principles (Nobel 2009)' },
       { title: 'Fulham et al. — Meta-analysis of Restorative Justice Programs (2025)' },
     ],
+    // Mission-centric classification
+    missionSlug: 'instituciones-y-futuro',
+    temporalOrder: 'transicion',
+    priority: 'media',
+    state: 'ambar',
+    stateDecision: 'Simplificar y dividir',
+    citizenRoles: ['custodio', 'declarante', 'narrador'],
+    citizenAsk: 'Jurados, paneles, custodia de integridad, denuncia',
+    mainRisk: 'Confrontacion judicial temprana sin base suficiente',
+    stateCapacity: 'alta',
+    socialCapacity: 'media',
   },
 
   // PLANSAL — Salud Integral y Vitalidad Popular
@@ -1225,6 +1316,17 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
       { title: 'Krishnamurti — No es signo de buena salud estar bien adaptado a una sociedad enferma' },
       { title: 'Russell Ackoff — Idealized Design (Metodología)' },
     ],
+    // Mission-centric classification
+    missionSlug: 'supervivencia-digna',
+    temporalOrder: 'emergencia',
+    priority: 'alta',
+    state: 'verde',
+    stateDecision: 'Ejecutar primero',
+    citizenRoles: ['testigo', 'constructor', 'organizador'],
+    citizenAsk: 'Promotores, acompanamiento, red de cuidado, datos barriales',
+    mainRisk: 'Querer pasar a salud integral sin cerrar urgencias',
+    stateCapacity: 'media',
+    socialCapacity: 'media',
   },
 
   // PLANEB — Empresas Bastardas y Soberanía Económica Popular
@@ -1350,6 +1452,17 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
       { title: 'Ostrom — Governing the Commons: Design Principles (Nobel 2009)' },
       { title: 'Russell Ackoff — Idealized Design (Metodología)' },
     ],
+    // Mission-centric classification
+    missionSlug: 'produccion-y-suelo-vivo',
+    temporalOrder: 'transicion',
+    priority: 'alta',
+    state: 'verde',
+    stateDecision: 'Ejecutar fase 1',
+    citizenRoles: ['constructor', 'custodio', 'organizador'],
+    citizenAsk: 'Fundadores, usuarios, control de costos, gobernanza',
+    mainRisk: 'Sobreingenieria juridica y financiera',
+    stateCapacity: 'media',
+    socialCapacity: 'alta',
   },
 
   // PLANSUS — Soberanía sobre Sustancias
@@ -1487,6 +1600,17 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
       { title: 'Uruguay — Regulación del cannabis: resultados a 10 años (IRCCA)' },
       { title: 'Johns Hopkins — Psilocybin Research for Treatment-Resistant Depression' },
     ],
+    // Mission-centric classification
+    missionSlug: 'instituciones-y-futuro',
+    temporalOrder: 'transicion',
+    priority: 'diferida',
+    state: 'rojo',
+    stateDecision: 'Simplificar fuerte',
+    citizenRoles: ['custodio', 'declarante'],
+    citizenAsk: 'Deliberacion, control comunitario y prevencion',
+    mainRisk: 'Abrir un frente de maxima confrontacion demasiado temprano',
+    stateCapacity: 'muy-alta',
+    socialCapacity: 'media',
   },
 
   // PLANAGUA — Soberanía Hídrica y Resiliencia Climática
@@ -1620,6 +1744,17 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
       { title: 'INA — Instituto Nacional del Agua (datos hidrológicos)' },
       { title: 'Russell Ackoff — Idealized Design (Metodología)' },
     ],
+    // Mission-centric classification
+    missionSlug: 'supervivencia-digna',
+    temporalOrder: 'emergencia',
+    priority: 'alta',
+    state: 'verde',
+    stateDecision: 'Ejecutar primero',
+    citizenRoles: ['testigo', 'constructor', 'custodio'],
+    citizenAsk: 'Relevamiento, verificacion, cuadrillas, cuidado de fuentes',
+    mainRisk: 'Sobrediseno tecnologico antes del acceso basico',
+    stateCapacity: 'media',
+    socialCapacity: 'media',
   },
 
   // ──────────────────────────────────────
@@ -1816,6 +1951,18 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
       { title: 'Tratado Antártico (1959) — Marco de revisión post-2048' },
       { title: 'Russell Ackoff — Idealized Design (Metodología)' },
     ],
+    // Mission-centric classification
+    missionSlug: 'instituciones-y-futuro',
+    secondaryMissionSlug: 'produccion-y-suelo-vivo',
+    temporalOrder: 'transicion',
+    priority: 'media',
+    state: 'ambar',
+    stateDecision: 'Simplificar',
+    citizenRoles: ['narrador', 'declarante'],
+    citizenAsk: 'Acompanamiento narrativo y cultural, no operativo masivo',
+    mainRisk: 'Publicar agenda confrontativa antes de tiempo',
+    stateCapacity: 'alta',
+    socialCapacity: 'baja',
   },
   {
     slug: 'planmon-soberania-monetaria',
@@ -1994,6 +2141,17 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
       { title: 'Silvio Gesell — El Orden Económico Natural (1916)' },
       { title: 'Russell Ackoff — Idealized Design (Metodología)' },
     ],
+    // Mission-centric classification
+    missionSlug: 'instituciones-y-futuro',
+    temporalOrder: 'permanencia',
+    priority: 'diferida',
+    state: 'rojo',
+    stateDecision: 'Pausar',
+    citizenRoles: ['custodio', 'declarante'],
+    citizenAsk: 'Custodia civica del debate, no implementacion temprana',
+    mainRisk: 'Desestabilizacion macro y perdida de credibilidad',
+    stateCapacity: 'muy-alta',
+    socialCapacity: 'baja',
   },
 
   // PLANCUL — Cultura Viva y Red de Dendritas
@@ -2148,6 +2306,17 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
       { title: 'CONABIP — Registro Nacional de Bibliotecas Populares' },
       { title: 'Russell Ackoff — Idealized Design (Metodología)' },
     ],
+    // Mission-centric classification
+    missionSlug: 'infancia-escuela-cultura',
+    temporalOrder: 'emergencia',
+    priority: 'alta',
+    state: 'verde',
+    stateDecision: 'Ejecutar primero',
+    citizenRoles: ['organizador', 'narrador', 'constructor'],
+    citizenAsk: 'Organizacion de mesas, ferias, juegos, memoria, registro',
+    mainRisk: 'Volverse estetica sin funcion publica',
+    stateCapacity: 'baja',
+    socialCapacity: 'alta',
   },
 
   // PLANDIG — Soberanía Digital e Inteligencia Artificial
@@ -2309,6 +2478,17 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
       { title: 'Estonia — e-Residency y X-Road (Identidad digital soberana)' },
       { title: 'Russell Ackoff — Idealized Design (Metodología)' },
     ],
+    // Mission-centric classification
+    missionSlug: 'territorio-legible',
+    temporalOrder: 'transicion',
+    priority: 'alta',
+    state: 'ambar',
+    stateDecision: 'Simplificar y dividir',
+    citizenRoles: ['declarante', 'custodio', 'testigo'],
+    citizenAsk: 'Declaracion de senales, verificacion, custodia de datos',
+    mainRisk: 'Punto unico de falla y maximalismo digital',
+    stateCapacity: 'alta',
+    socialCapacity: 'media',
   },
 
   // PLANEN — Soberanía Energética y Transición de Matriz
@@ -2468,6 +2648,18 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
       { title: 'CAMMESA — Informe Mensual del Mercado Eléctrico Mayorista' },
       { title: 'Russell Ackoff — Idealized Design (Metodología)' },
     ],
+    // Mission-centric classification
+    missionSlug: 'supervivencia-digna',
+    secondaryMissionSlug: 'produccion-y-suelo-vivo',
+    temporalOrder: 'transicion',
+    priority: 'media',
+    state: 'ambar',
+    stateDecision: 'Simplificar',
+    citizenRoles: ['constructor', 'custodio'],
+    citizenAsk: 'Instalacion local, control social de nodos, mantenimiento',
+    mainRisk: 'Captura corporativa y despliegue sobredimensionado',
+    stateCapacity: 'alta',
+    socialCapacity: 'media',
   },
 
   // PLANSEG — Seguridad Ciudadana
@@ -2632,6 +2824,18 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
       { title: 'CORREPI — Coordinadora contra la Represión Policial e Institucional' },
       { title: 'Russell Ackoff — Idealized Design (Metodología)' },
     ],
+    // Mission-centric classification
+    missionSlug: 'supervivencia-digna',
+    secondaryMissionSlug: 'instituciones-y-futuro',
+    temporalOrder: 'emergencia',
+    priority: 'alta',
+    state: 'ambar',
+    stateDecision: 'Simplificar y dividir',
+    citizenRoles: ['testigo', 'custodio', 'organizador'],
+    citizenAsk: 'Redes de alerta, mediacion, veeduria, documentacion',
+    mainRisk: 'Militarizacion o confrontacion prematura',
+    stateCapacity: 'alta',
+    socialCapacity: 'media',
   },
 
   // PLANVIV — Vivienda Digna
@@ -2794,5 +2998,16 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
       { title: 'UN-Habitat — Indicadores Urbanos Comparativos' },
       { title: 'Russell Ackoff — Idealized Design (Metodología)' },
     ],
+    // Mission-centric classification
+    missionSlug: 'supervivencia-digna',
+    temporalOrder: 'emergencia',
+    priority: 'alta',
+    state: 'verde',
+    stateDecision: 'Ejecutar primero',
+    citizenRoles: ['constructor', 'testigo', 'custodio'],
+    citizenAsk: 'Autoconstruccion asistida, relevamiento, mano de obra, control comunitario',
+    mainRisk: 'Querer resolver deficit total de entrada',
+    stateCapacity: 'media',
+    socialCapacity: 'alta',
   },
 ];
