@@ -58,6 +58,9 @@ import {
   mandateSuggestions, type MandateSuggestion, type InsertMandateSuggestion,
   // Platform Feedback
   platformFeedback, type PlatformFeedback, type InsertPlatformFeedback,
+  // Mission Evidence & Chronicles
+  missionEvidence, type MissionEvidence, type InsertMissionEvidence,
+  missionChronicles, type MissionChronicle, type InsertMissionChronicle,
 } from "@shared/schema";
 import { db } from "./db";
 import { eq, desc, and, sql, asc, gte, or, like, inArray, ilike, isNotNull } from "drizzle-orm";
@@ -315,7 +318,19 @@ export interface IStorage {
   // Activity Feed
   getActivityFeed(filters?: { type?: string, limit?: number, offset?: number }): Promise<ActivityFeedItem[]>;
   createActivityFeedItem(data: InsertActivityFeed): Promise<ActivityFeedItem>;
-  
+
+  // Mission Evidence
+  getEvidence(postId: number, status?: string): Promise<MissionEvidence[]>;
+  createEvidence(data: InsertMissionEvidence): Promise<MissionEvidence>;
+  verifyEvidence(evidenceId: number, verifiedBy: number): Promise<MissionEvidence>;
+  flagEvidence(evidenceId: number, flagCategory: string, flaggedBy: number): Promise<MissionEvidence>;
+  getEvidenceCount(postId: number): Promise<number>;
+  getEvidenceCountByFlag(postId: number): Promise<{ flagCategory: string; count: number }[]>;
+
+  // Mission Chronicles
+  getChronicles(postId: number): Promise<MissionChronicle[]>;
+  createChronicle(data: InsertMissionChronicle): Promise<MissionChronicle>;
+
   // Notifications
   getUserNotifications(userId: number, unreadOnly?: boolean): Promise<Notification[]>;
   markNotificationAsRead(notificationId: number): Promise<void>;
@@ -3790,6 +3805,107 @@ export class DatabaseStorage implements IStorage {
       .returning();
 
     return item;
+  }
+
+  // === Mission Evidence ===
+
+  async getEvidence(postId: number, status?: string): Promise<MissionEvidence[]> {
+    let query = db.select().from(missionEvidence)
+      .where(eq(missionEvidence.postId, postId))
+      .orderBy(desc(missionEvidence.createdAt));
+
+    if (status) {
+      query = query.where(eq(missionEvidence.status, status as any));
+    }
+
+    return await query;
+  }
+
+  async createEvidence(data: InsertMissionEvidence): Promise<MissionEvidence> {
+    const [evidence] = await db.insert(missionEvidence).values(data).returning();
+
+    // Log to activity feed
+    await this.createActivityFeedItem({
+      type: 'evidence_submitted' as any,
+      postId: data.postId!,
+      userId: data.userId!,
+      title: `Nueva evidencia: ${data.evidenceType}`,
+      description: data.content?.substring(0, 200) || '',
+    });
+
+    return evidence;
+  }
+
+  async verifyEvidence(evidenceId: number, verifiedBy: number): Promise<MissionEvidence> {
+    const [updated] = await db.update(missionEvidence)
+      .set({
+        status: 'verified',
+        verifiedBy,
+        verifiedAt: new Date().toISOString()
+      })
+      .where(eq(missionEvidence.id, evidenceId))
+      .returning();
+    return updated;
+  }
+
+  async flagEvidence(evidenceId: number, flagCategory: string, flaggedBy: number): Promise<MissionEvidence> {
+    const [updated] = await db.update(missionEvidence)
+      .set({
+        status: 'flagged',
+        flagCategory,
+        verifiedBy: flaggedBy,
+        verifiedAt: new Date().toISOString()
+      })
+      .where(eq(missionEvidence.id, evidenceId))
+      .returning();
+    return updated;
+  }
+
+  async getEvidenceCount(postId: number): Promise<number> {
+    const result = await db.select({ count: sql<number>`count(*)` })
+      .from(missionEvidence)
+      .where(eq(missionEvidence.postId, postId));
+    return Number(result[0]?.count ?? 0);
+  }
+
+  async getEvidenceCountByFlag(postId: number): Promise<{ flagCategory: string; count: number }[]> {
+    const result = await db.select({
+      flagCategory: missionEvidence.flagCategory,
+      count: sql<number>`count(*)`,
+    })
+      .from(missionEvidence)
+      .where(and(
+        eq(missionEvidence.postId, postId),
+        eq(missionEvidence.status, 'flagged')
+      ))
+      .groupBy(missionEvidence.flagCategory);
+
+    return result.map(r => ({
+      flagCategory: r.flagCategory || '',
+      count: Number(r.count)
+    }));
+  }
+
+  // === Mission Chronicles ===
+
+  async getChronicles(postId: number): Promise<MissionChronicle[]> {
+    return await db.select().from(missionChronicles)
+      .where(eq(missionChronicles.postId, postId))
+      .orderBy(desc(missionChronicles.createdAt));
+  }
+
+  async createChronicle(data: InsertMissionChronicle): Promise<MissionChronicle> {
+    const [chronicle] = await db.insert(missionChronicles).values(data).returning();
+
+    await this.createActivityFeedItem({
+      type: 'update' as any,
+      postId: data.postId!,
+      userId: data.userId!,
+      title: `Nueva cronica: ${data.title}`,
+      description: data.content?.substring(0, 200) || '',
+    });
+
+    return chronicle;
   }
 
   // Notifications
