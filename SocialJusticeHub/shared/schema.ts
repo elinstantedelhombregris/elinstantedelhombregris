@@ -81,7 +81,7 @@ export const communityPosts = pgTable("community_posts", {
   userId: integer("user_id").references(() => users.id),
   title: text("title").notNull(),
   description: text("description").notNull(),
-  type: text("type").notNull(), // employment, exchange, volunteer, project, donation
+  type: text("type").notNull(), // employment, exchange, volunteer, project, donation, mission
   location: text("location").notNull(),
   participants: integer("participants"),
   status: text("status").notNull().default('active').$type<'active' | 'paused' | 'closed'>(),
@@ -97,6 +97,8 @@ export const communityPosts = pgTable("community_posts", {
   postalCode: text("postal_code"),
   country: text("country").default("Argentina"),
   address: text("address"),
+  // Mission linkage
+  missionSlug: text("mission_slug"), // Links to a national mission (MissionSlug)
   // New fields for initiative features
   requiresApproval: boolean("requires_approval").default(false),
   memberCount: integer("member_count").default(0),
@@ -800,7 +802,7 @@ export const initiativeTasks = pgTable("initiative_tasks", {
 // Feed de actividad global
 export const activityFeed = pgTable("activity_feed", {
   id: serial("id").primaryKey(),
-  type: text("type").notNull().$type<'new_initiative' | 'new_member' | 'milestone_completed' | 'task_completed' | 'comment' | 'update'>(),
+  type: text("type").notNull().$type<'new_initiative' | 'new_member' | 'milestone_completed' | 'task_completed' | 'comment' | 'update' | 'evidence_submitted'>(),
   postId: integer("post_id").references(() => communityPosts.id),
   userId: integer("user_id").references(() => users.id),
   targetId: integer("target_id"), // ID del milestone, task, etc
@@ -811,6 +813,36 @@ export const activityFeed = pgTable("activity_feed", {
 }, (table) => ({
   createdAtIdx: index("af_created_at_idx").on(table.createdAt),
 }));
+
+// Evidencia de misiones
+export const missionEvidence = pgTable("mission_evidence", {
+  id: serial("id").primaryKey(),
+  postId: integer("post_id").references(() => communityPosts.id),
+  milestoneId: integer("milestone_id").references(() => initiativeMilestones.id),
+  userId: integer("user_id").references(() => users.id),
+  evidenceType: text("evidence_type").notNull(),
+  content: text("content").notNull(),
+  imageUrl: text("image_url"),
+  latitude: text("latitude"),
+  longitude: text("longitude"),
+  status: text("status").notNull().default('pending').$type<'pending' | 'verified' | 'flagged'>(),
+  flagCategory: text("flag_category"),
+  verifiedBy: integer("verified_by").references(() => users.id),
+  verifiedAt: text("verified_at"),
+  createdAt: text("created_at").default(sql`now()`),
+});
+
+// Crónicas de misiones
+export const missionChronicles = pgTable("mission_chronicles", {
+  id: serial("id").primaryKey(),
+  postId: integer("post_id").references(() => communityPosts.id),
+  userId: integer("user_id").references(() => users.id),
+  title: text("title").notNull(),
+  content: text("content").notNull(),
+  highlightedEvidenceIds: text("highlighted_evidence_ids"),
+  publishedAt: text("published_at"),
+  createdAt: text("created_at").default(sql`now()`),
+});
 
 // Solicitudes de unión (para posts con aprobación)
 export const membershipRequests = pgTable("membership_requests", {
@@ -1246,6 +1278,8 @@ export const communityPostsRelations = relations(communityPosts, ({ one, many })
   activityFeedItems: many(activityFeed),
   membershipRequests: many(membershipRequests),
   notifications: many(notifications),
+  evidence: many(missionEvidence),
+  chronicles: many(missionChronicles),
 }));
 
 export const communityPostInteractionsRelations = relations(communityPostInteractions, ({ one }) => ({
@@ -1673,6 +1707,36 @@ export const activityFeedRelations = relations(activityFeed, ({ one }) => ({
   }),
   user: one(users, {
     fields: [activityFeed.userId],
+    references: [users.id],
+  }),
+}));
+
+export const missionEvidenceRelations = relations(missionEvidence, ({ one }) => ({
+  post: one(communityPosts, {
+    fields: [missionEvidence.postId],
+    references: [communityPosts.id],
+  }),
+  milestone: one(initiativeMilestones, {
+    fields: [missionEvidence.milestoneId],
+    references: [initiativeMilestones.id],
+  }),
+  user: one(users, {
+    fields: [missionEvidence.userId],
+    references: [users.id],
+  }),
+  verifier: one(users, {
+    fields: [missionEvidence.verifiedBy],
+    references: [users.id],
+  }),
+}));
+
+export const missionChroniclesRelations = relations(missionChronicles, ({ one }) => ({
+  post: one(communityPosts, {
+    fields: [missionChronicles.postId],
+    references: [communityPosts.id],
+  }),
+  user: one(users, {
+    fields: [missionChronicles.userId],
     references: [users.id],
   }),
 }));
@@ -2390,6 +2454,16 @@ export const insertActivityFeedSchema = createInsertSchema(activityFeed).omit({
   createdAt: true,
 });
 
+export const insertMissionEvidenceSchema = createInsertSchema(missionEvidence).omit({
+  id: true,
+  createdAt: true,
+});
+
+export const insertMissionChronicleSchema = createInsertSchema(missionChronicles).omit({
+  id: true,
+  createdAt: true,
+});
+
 export const insertMembershipRequestSchema = createInsertSchema(membershipRequests).omit({
   id: true,
   createdAt: true,
@@ -2638,6 +2712,12 @@ export type InitiativeTask = typeof initiativeTasks.$inferSelect;
 
 export type InsertActivityFeed = z.infer<typeof insertActivityFeedSchema>;
 export type ActivityFeedItem = typeof activityFeed.$inferSelect;
+
+export type InsertMissionEvidence = z.infer<typeof insertMissionEvidenceSchema>;
+export type MissionEvidence = typeof missionEvidence.$inferSelect;
+
+export type InsertMissionChronicle = z.infer<typeof insertMissionChronicleSchema>;
+export type MissionChronicle = typeof missionChronicles.$inferSelect;
 
 export type InsertMembershipRequest = z.infer<typeof insertMembershipRequestSchema>;
 export type MembershipRequest = typeof membershipRequests.$inferSelect;
