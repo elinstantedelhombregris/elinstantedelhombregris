@@ -62,6 +62,7 @@ const Feedback = React.lazy(() => import("@/pages/Feedback"));
 const AdminFeedback = React.lazy(() => import("@/pages/AdminFeedback"));
 const KitDePrensa = React.lazy(() => import("@/pages/KitDePrensa"));
 const ElArquitecto = React.lazy(() => import("@/pages/ElArquitecto"));
+const MisionDetalle = React.lazy(() => import("@/pages/MisionDetalle"));
 
 type User = {
   id: number;
@@ -112,6 +113,7 @@ function Router() {
       <Route path="/login" component={Login} />
       <Route path="/register" component={Register} />
       <Route path="/bienvenida" component={Bienvenida} />
+      <Route path="/mision/:slug" component={MisionDetalle} />
       <Route path="/community" component={Community} />
       <Route path="/community/job/create" component={CreateJob} />
       <Route path="/community/project/create" component={CreateProject} />
