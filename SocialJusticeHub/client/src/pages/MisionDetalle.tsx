@@ -1,9 +1,9 @@
-import { useContext, useMemo } from 'react';
+import { useContext, useEffect, useMemo } from 'react';
 import { useParams, useLocation } from 'wouter';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import {
   Users, Target, Eye, Zap, Hammer, BarChart3,
-  ArrowLeft, Loader2,
+  ArrowLeft,
 } from 'lucide-react';
 
 import { UserContext } from '@/App';
@@ -25,6 +25,7 @@ import EvidenceFeed from '@/components/mission/EvidenceFeed';
 import SignalFeed from '@/components/mission/SignalFeed';
 import ChronicleSection from '@/components/mission/ChronicleSection';
 import GuardrailsPanel from '@/components/mission/GuardrailsPanel';
+import PowerCTA from '@/components/PowerCTA';
 
 import { MISSIONS } from '../../../shared/mission-registry';
 import { MISSION_META, getInitiativesByMission } from '@/lib/initiative-utils';
@@ -42,7 +43,7 @@ export default function MisionDetalle() {
 
   // ---- Data loading ----
 
-  const { data: missionPost, isLoading: postLoading } = useQuery({
+  const { data: missionPost, isLoading: isMissionPostLoading } = useQuery({
     queryKey: ['mission-post', slug],
     queryFn: async () => {
       const res = await apiRequest('GET', '/api/community?type=mission');
@@ -130,21 +131,26 @@ export default function MisionDetalle() {
     [slug],
   );
 
+  // ---- Side effects ----
+
+  useEffect(() => {
+    if (mission) {
+      document.title = `Mision ${mission.number}: ${mission.label} | ¡BASTA!`;
+      window.scrollTo(0, 0);
+    }
+  }, [mission]);
+
   // ---- Guard: invalid slug ----
 
   if (!mission || !meta) {
     return (
-      <div className="min-h-screen bg-[#0a0a0a] text-slate-200 font-sans flex flex-col">
+      <div className="min-h-screen bg-[#0a0a0a] text-slate-200">
         <Header />
-        <main className="flex-1 flex items-center justify-center">
-          <div className="text-center space-y-4">
-            <p className="text-xl text-slate-400">Mision no encontrada</p>
-            <button
-              onClick={() => setLocation('/community')}
-              className="text-sm text-blue-400 hover:underline flex items-center gap-1 mx-auto"
-            >
-              <ArrowLeft className="w-4 h-4" /> Volver a la comunidad
-            </button>
+        <main className="relative z-10 pt-20">
+          <div className="container-content py-32 text-center">
+            <h1 className="text-3xl font-serif font-bold text-white mb-4">Mision no encontrada</h1>
+            <p className="text-slate-400 mb-8">Esta mision no existe o fue eliminada.</p>
+            <PowerCTA text="VOLVER A LA TRIBU" variant="secondary" onClick={() => setLocation('/community')} />
           </div>
         </main>
         <Footer />
@@ -154,14 +160,13 @@ export default function MisionDetalle() {
 
   // ---- Guard: post still loading ----
 
-  if (postLoading) {
+  if (!missionPost && isMissionPostLoading) {
     return (
-      <div className="min-h-screen bg-[#0a0a0a] text-slate-200 font-sans flex flex-col">
-        <Header />
-        <main className="flex-1 flex items-center justify-center">
-          <Loader2 className="w-8 h-8 animate-spin text-slate-500" />
-        </main>
-        <Footer />
+      <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center">
+        <div className="flex flex-col items-center gap-4">
+          <div className="w-12 h-12 border-2 border-blue-500/30 border-t-blue-500 rounded-full animate-spin" />
+          <p className="text-slate-500 font-mono text-sm animate-pulse">Cargando mision...</p>
+        </div>
       </div>
     );
   }
