@@ -72,6 +72,8 @@ import {
 import { nlpService } from './nlp-service';
 import { blockchainService } from './blockchain-service';
 import { arService } from './ar-service';
+import { MISSIONS } from '@shared/mission-registry';
+import { matchDreamToMissions, type SignalScore } from '@shared/mission-signal-matcher';
 import {
   getOrCreateEmbedding,
   calculateCosineSimilarity,
@@ -825,9 +827,20 @@ export async function registerRoutes(app: Express): Promise<Server> {
         } else {
           enriched.likedByMe = false;
         }
+        enriched.missionSlug = (post as any).missionSlug || null;
+        enriched.memberCount = (post as any).memberCount || 0;
         return enriched;
       }));
-      
+
+      // Sort missions by number when filtering by type=mission
+      if (type === 'mission') {
+        postsWithAuthors.sort((a: any, b: any) => {
+          const aIdx = MISSIONS.findIndex(m => m.slug === a.missionSlug);
+          const bIdx = MISSIONS.findIndex(m => m.slug === b.missionSlug);
+          return aIdx - bIdx;
+        });
+      }
+
       res.json(postsWithAuthors);
     } catch (error) {
       res.status(500).json({ message: "Failed to fetch community posts" });
@@ -1395,7 +1408,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.post("/api/community/:postId/join", authenticateToken, async (req: AuthRequest, res) => {
     try {
       const { postId } = req.params;
-      const { message } = req.body;
+      const { message, citizenRole } = req.body;
       const id = parseInt(postId);
       
       if (isNaN(id)) {
@@ -1444,7 +1457,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
         });
       } else {
         // Add member directly
-        const member = await storage.addInitiativeMember(id, req.user!.userId, 'member');
+        // For mission posts, use citizen role if provided; otherwise default to 'member'
+        const role = (post.type === 'mission' && citizenRole) ? citizenRole : 'member';
+        const member = await storage.addInitiativeMember(id, req.user!.userId, role);
 
         // Create activity feed item
         try {
@@ -3761,6 +3776,262 @@ export async function registerRoutes(app: Express): Promise<Server> {
     } catch (error) {
       console.error('Record daily activity error:', error);
       res.status(500).json({ message: "Error al registrar actividad diaria" });
+    }
+  });
+
+  // === Mission endpoints ===
+
+  app.get("/api/missions", async (_req, res) => {
+    try {
+      const missionPosts = await storage.getCommunityPosts('mission');
+
+      const stats = await Promise.all(MISSIONS.map(async (mission) => {
+        const post = missionPosts.find(p => (p as any).missionSlug === mission.slug);
+        if (!post) {
+          return {
+            slug: mission.slug,
+            number: mission.number,
+            label: mission.label,
+            postId: null,
+            memberCount: 0,
+            milestonesCompleted: 0,
+            milestonesTotal: 0,
+            evidenceCount: 0,
+            activeTaskCount: 0,
+            status: 'active',
+          };
+        }
+
+        const [members, milestones, tasks, evidenceCount] = await Promise.all([
+          storage.getInitiativeMembers(post.id),
+          storage.getInitiativeMilestones(post.id),
+          storage.getInitiativeTasks(post.id),
+          storage.getEvidenceCount(post.id),
+        ]);
+
+        return {
+          slug: mission.slug,
+          number: mission.number,
+          label: mission.label,
+          postId: post.id,
+          memberCount: members.length,
+          milestonesCompleted: milestones.filter(m => m.status === 'completed').length,
+          milestonesTotal: milestones.length,
+          evidenceCount,
+          activeTaskCount: tasks.filter(t => t.status !== 'done').length,
+          status: post.status,
+        };
+      }));
+
+      res.json(stats);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch mission stats" });
+    }
+  });
+
+  app.get("/api/missions/:slug/signals", async (req, res) => {
+    try {
+      const { slug } = req.params;
+      const mission = MISSIONS.find(m => m.slug === slug);
+      if (!mission) {
+        return res.status(404).json({ message: "Mission not found" });
+      }
+
+      const allDreams = await storage.getDreams();
+      const scored = allDreams
+        .map(dream => ({
+          dream,
+          ...matchDreamToMissions(dream, [mission])[0],
+        }))
+        .filter(s => s.score > 0)
+        .sort((a, b) => {
+          // Sort by recency first, then score
+          const dateA = new Date((a.dream as any).createdAt || 0).getTime();
+          const dateB = new Date((b.dream as any).createdAt || 0).getTime();
+          return dateB - dateA;
+        })
+        .slice(0, 50);
+
+      res.json(scored);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch mission signals" });
+    }
+  });
+
+  // === Evidence endpoints ===
+
+  app.get("/api/community/:postId/evidence", async (req, res) => {
+    try {
+      const postId = parseInt(req.params.postId);
+      if (isNaN(postId)) return res.status(400).json({ message: "Invalid post ID" });
+
+      const status = req.query.status as string | undefined;
+      const evidence = await storage.getEvidence(postId, status);
+
+      // Enrich with user info
+      const enriched = await Promise.all(evidence.map(async (e) => {
+        const user = e.userId ? await storage.getUser(e.userId) : null;
+        const verifier = e.verifiedBy ? await storage.getUser(e.verifiedBy) : null;
+        return {
+          ...e,
+          user: user ? { id: user.id, name: user.name, username: user.username } : null,
+          verifier: verifier ? { id: verifier.id, name: verifier.name, username: verifier.username } : null,
+        };
+      }));
+
+      res.json(enriched);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch evidence" });
+    }
+  });
+
+  app.post("/api/community/:postId/evidence", authenticateToken, async (req: AuthRequest, res) => {
+    try {
+      const postId = parseInt(req.params.postId);
+      if (isNaN(postId)) return res.status(400).json({ message: "Invalid post ID" });
+      if (!req.user) return res.status(401).json({ message: "Authentication required" });
+
+      // Verify membership
+      const members = await storage.getInitiativeMembers(postId);
+      const isMember = members.some(m => m.userId === req.user!.userId && m.status === 'active');
+      if (!isMember) return res.status(403).json({ message: "Debes ser miembro para enviar evidencia" });
+
+      // Validate evidenceType against mission's accepted types
+      const post = await storage.getCommunityPostWithDetails(postId);
+      if (post?.type === 'mission' && (post as any).missionSlug) {
+        const mission = MISSIONS.find(m => m.slug === (post as any).missionSlug);
+        if (mission && req.body.evidenceType && !mission.evidenceAccepted.includes(req.body.evidenceType)) {
+          return res.status(400).json({ message: "Tipo de evidencia no aceptado para esta mision" });
+        }
+      }
+
+      const evidence = await storage.createEvidence({
+        postId,
+        userId: req.user.userId,
+        evidenceType: req.body.evidenceType,
+        content: req.body.content,
+        imageUrl: req.body.imageUrl || null,
+        latitude: req.body.latitude || null,
+        longitude: req.body.longitude || null,
+        milestoneId: req.body.milestoneId || null,
+      });
+
+      res.status(201).json(evidence);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to create evidence" });
+    }
+  });
+
+  app.post("/api/community/:postId/evidence/:evidenceId/verify", authenticateToken, async (req: AuthRequest, res) => {
+    try {
+      const postId = parseInt(req.params.postId);
+      const evidenceId = parseInt(req.params.evidenceId);
+      if (isNaN(postId) || isNaN(evidenceId)) return res.status(400).json({ message: "Invalid ID" });
+      if (!req.user) return res.status(401).json({ message: "Authentication required" });
+
+      // Verify caller is a custodio
+      const members = await storage.getInitiativeMembers(postId);
+      const member = members.find(m => m.userId === req.user!.userId && m.status === 'active');
+      if (!member || member.role !== 'custodio') {
+        return res.status(403).json({ message: "Solo los custodios pueden verificar evidencia" });
+      }
+
+      const updated = await storage.verifyEvidence(evidenceId, req.user.userId);
+      res.json(updated);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to verify evidence" });
+    }
+  });
+
+  app.post("/api/community/:postId/evidence/:evidenceId/flag", authenticateToken, async (req: AuthRequest, res) => {
+    try {
+      const postId = parseInt(req.params.postId);
+      const evidenceId = parseInt(req.params.evidenceId);
+      if (isNaN(postId) || isNaN(evidenceId)) return res.status(400).json({ message: "Invalid ID" });
+      if (!req.user) return res.status(401).json({ message: "Authentication required" });
+
+      const { flagCategory } = req.body;
+      if (!flagCategory) return res.status(400).json({ message: "flagCategory required" });
+
+      // Verify caller is a custodio
+      const members = await storage.getInitiativeMembers(postId);
+      const member = members.find(m => m.userId === req.user!.userId && m.status === 'active');
+      if (!member || member.role !== 'custodio') {
+        return res.status(403).json({ message: "Solo los custodios pueden marcar evidencia" });
+      }
+
+      // Validate flagCategory against mission's pause conditions
+      const post = await storage.getCommunityPostWithDetails(postId);
+      if (post?.type === 'mission' && (post as any).missionSlug) {
+        const mission = MISSIONS.find(m => m.slug === (post as any).missionSlug);
+        if (mission && !mission.pauseConditions.includes(flagCategory)) {
+          return res.status(400).json({ message: "Condicion de pausa no valida para esta mision" });
+        }
+      }
+
+      const updated = await storage.flagEvidence(evidenceId, flagCategory, req.user.userId);
+
+      // Auto-pause check: if 3+ flags on same category, pause the mission
+      const flagCounts = await storage.getEvidenceCountByFlag(postId);
+      const thisFlag = flagCounts.find(f => f.flagCategory === flagCategory);
+      if (thisFlag && thisFlag.count >= 3 && post) {
+        await storage.updateCommunityPost(postId, { status: 'paused' }, post.userId!);
+      }
+
+      res.json({ evidence: updated, paused: (thisFlag?.count ?? 0) >= 3 });
+    } catch (error) {
+      res.status(500).json({ message: "Failed to flag evidence" });
+    }
+  });
+
+  // === Chronicle endpoints ===
+
+  app.get("/api/community/:postId/chronicles", async (req, res) => {
+    try {
+      const postId = parseInt(req.params.postId);
+      if (isNaN(postId)) return res.status(400).json({ message: "Invalid post ID" });
+
+      const chronicles = await storage.getChronicles(postId);
+
+      const enriched = await Promise.all(chronicles.map(async (c) => {
+        const user = c.userId ? await storage.getUser(c.userId) : null;
+        return {
+          ...c,
+          user: user ? { id: user.id, name: user.name, username: user.username } : null,
+        };
+      }));
+
+      res.json(enriched);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch chronicles" });
+    }
+  });
+
+  app.post("/api/community/:postId/chronicles", authenticateToken, async (req: AuthRequest, res) => {
+    try {
+      const postId = parseInt(req.params.postId);
+      if (isNaN(postId)) return res.status(400).json({ message: "Invalid post ID" });
+      if (!req.user) return res.status(401).json({ message: "Authentication required" });
+
+      // Verify caller is a narrador
+      const members = await storage.getInitiativeMembers(postId);
+      const member = members.find(m => m.userId === req.user!.userId && m.status === 'active');
+      if (!member || member.role !== 'narrador') {
+        return res.status(403).json({ message: "Solo los narradores pueden escribir cronicas" });
+      }
+
+      const chronicle = await storage.createChronicle({
+        postId,
+        userId: req.user.userId,
+        title: req.body.title,
+        content: req.body.content,
+        highlightedEvidenceIds: req.body.highlightedEvidenceIds ? JSON.stringify(req.body.highlightedEvidenceIds) : null,
+        publishedAt: new Date().toISOString(),
+      });
+
+      res.status(201).json(chronicle);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to create chronicle" });
     }
   });
 
