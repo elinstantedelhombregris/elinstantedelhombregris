@@ -22,15 +22,25 @@ type CommunityPost = {
   province?: string;
 };
 
+type EvidenceMarker = {
+  latitude: string;
+  longitude: string;
+  evidenceType: string;
+  status: string;
+};
+
 type InitiativesMapProps = {
   initiatives: CommunityPost[];
   onInitiativeClick: (id: number) => void;
+  missionSlug?: string;
+  evidenceMarkers?: EvidenceMarker[];
 };
 
-const InitiativesMap = ({ initiatives, onInitiativeClick }: InitiativesMapProps) => {
+const InitiativesMap = ({ initiatives, onInitiativeClick, missionSlug, evidenceMarkers }: InitiativesMapProps) => {
   const mapRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<any>(null);
   const markersRef = useRef<any[]>([]);
+  const evidenceMarkersRef = useRef<any[]>([]);
   
   // Load Leaflet library dynamically
   const leafletLoaded = useLoader('https://unpkg.com/leaflet@1.7.1/dist/leaflet.js', 'L');
@@ -97,11 +107,16 @@ const InitiativesMap = ({ initiatives, onInitiativeClick }: InitiativesMapProps)
       });
       markersRef.current = [];
       
+      // Optionally filter by mission
+      const filteredInitiatives = missionSlug
+        ? initiatives.filter(init => (init as any).missionSlug === missionSlug)
+        : initiatives;
+
       // Filter initiatives with valid coordinates
-      const initiativesWithLocation = initiatives.filter(init => 
-        init.latitude != null && 
-        init.longitude != null && 
-        !isNaN(Number(init.latitude)) && 
+      const initiativesWithLocation = filteredInitiatives.filter(init =>
+        init.latitude != null &&
+        init.longitude != null &&
+        !isNaN(Number(init.latitude)) &&
         !isNaN(Number(init.longitude))
       );
       
@@ -162,7 +177,56 @@ const InitiativesMap = ({ initiatives, onInitiativeClick }: InitiativesMapProps)
         markersRef.current.push(marker);
       });
     }
-  }, [leafletLoaded, initiatives, onInitiativeClick]);
+  }, [leafletLoaded, initiatives, onInitiativeClick, missionSlug]);
+
+  // Get color for evidence marker status
+  const getEvidenceColor = (status: string) => {
+    if (status === 'verified') return '#22c55e'; // green
+    if (status === 'flagged') return '#ef4444';  // red
+    return '#f59e0b'; // amber — pending or unknown
+  };
+
+  // Add evidence markers to map
+  useEffect(() => {
+    if (leafletLoaded && mapInstanceRef.current) {
+      const L = window.L;
+      const map = mapInstanceRef.current;
+
+      // Clear existing evidence markers
+      evidenceMarkersRef.current.forEach(marker => map.removeLayer(marker));
+      evidenceMarkersRef.current = [];
+
+      if (!evidenceMarkers || evidenceMarkers.length === 0) return;
+
+      evidenceMarkers.forEach((ev) => {
+        const lat = Number(ev.latitude);
+        const lng = Number(ev.longitude);
+        if (isNaN(lat) || isNaN(lng)) return;
+
+        const color = getEvidenceColor(ev.status);
+
+        const icon = L.divIcon({
+          className: 'custom-evidence-marker',
+          html: `<div style="background-color: ${color}; width: 16px; height: 16px; border-radius: 3px; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.3);"></div>`,
+          iconSize: [16, 16],
+          iconAnchor: [8, 8]
+        });
+
+        const marker = L.marker([lat, lng], { icon }).addTo(map);
+
+        marker.bindPopup(`
+          <div style="min-width: 160px; padding: 8px;">
+            <div style="font-size: 12px; font-weight: 600; color: #1f2937; margin-bottom: 4px;">${ev.evidenceType}</div>
+            <span style="display: inline-block; padding: 2px 8px; background-color: ${color}20; color: ${color}; border-radius: 4px; font-size: 11px; font-weight: 500;">
+              ${ev.status}
+            </span>
+          </div>
+        `);
+
+        evidenceMarkersRef.current.push(marker);
+      });
+    }
+  }, [leafletLoaded, evidenceMarkers]);
   
   return (
     <div className="w-full h-[600px] rounded-lg overflow-hidden border border-white/10 bg-white/5">
