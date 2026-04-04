@@ -206,7 +206,7 @@ const Home = () => {
                   { num: '02', title: 'Territorio Legible', desc: 'Señales, mandatos, datos abiertos, rieles digitales básicos', accent: 'text-emerald-400', border: 'border-emerald-500/15', bg: 'bg-emerald-500/10', numColor: 'text-emerald-500/[0.06]' },
                   { num: '03', title: 'Producción y Suelo Vivo', desc: 'Empleo útil, suelo regenerado, empresas bastardas, cadenas territoriales', accent: 'text-amber-400', border: 'border-amber-500/15', bg: 'bg-amber-500/10', numColor: 'text-amber-500/[0.06]' },
                   { num: '04', title: 'Infancia, Escuela y Cultura', desc: 'Niñez cuidada, escuela significativa, cultura viva', accent: 'text-purple-400', border: 'border-purple-500/15', bg: 'bg-purple-500/10', numColor: 'text-purple-500/[0.06]' },
-                  { num: '05', title: 'Instituciones y Futuro', desc: 'Justicia, integridad, anticaptura, settlement institucional', accent: 'text-red-400', border: 'border-red-500/15', bg: 'bg-red-500/10', numColor: 'text-red-500/[0.06]' },
+                  { num: '05', title: 'Instituciones y Futuro', desc: 'Justicia, integridad, anticaptura, pacto institucional duradero', accent: 'text-red-400', border: 'border-red-500/15', bg: 'bg-red-500/10', numColor: 'text-red-500/[0.06]' },
                 ].map((mission, i) => (
                   <motion.div
                     key={i}
@@ -288,7 +288,7 @@ const Home = () => {
 
                         <div className="p-7 relative">
                           {/* Ghost number */}
-                          <span className={`absolute -top-2 right-3 text-[5.5rem] font-black ${step.numColor} leading-none select-none pointer-events-none transition-all duration-500 group-hover:opacity-150`}>
+                          <span className={`absolute -top-2 right-3 text-[5.5rem] font-black ${step.numColor} leading-none select-none pointer-events-none transition-all duration-500 group-hover:opacity-[0.12]`}>
                             {step.num}
                           </span>
 

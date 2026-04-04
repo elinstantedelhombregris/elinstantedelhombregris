@@ -14,7 +14,6 @@ import {
   MapPin,
   Map,
   Activity,
-  BarChart3,
   Zap,
   Target,
   Clock,

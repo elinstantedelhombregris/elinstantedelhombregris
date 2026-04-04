@@ -57,7 +57,7 @@ const LaVision = () => {
   useEffect(() => {
     setIsVisible(true);
     window.scrollTo(0, 0);
-    document.title = 'La Visión - ¡BASTA! | Transformar Argentina Juntos';
+    document.title = 'La Visión - ¡BASTA! | Hoja de Ruta para la Reconstrucción';
   }, []);
 
   const missions = [

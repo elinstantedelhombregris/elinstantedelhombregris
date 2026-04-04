@@ -13,18 +13,15 @@ import {
   Brain,
   Shield,
   Lightbulb,
-  CheckCircle,
   TreePine,
   Globe,
   Sprout,
   Droplets,
   Sunrise,
-  HandHeart,
   Sun,
   Flame,
   MapPin
 } from 'lucide-react';
-import ShockStats from '@/components/ShockStats';
 import PowerCTA from '@/components/PowerCTA';
 import CommitmentModal from '@/components/CommitmentModal';
 import NextStepCard from '@/components/NextStepCard';
@@ -307,7 +304,7 @@ const LaSemillaDeBasta = () => {
       step: 3,
       title: "Cuidar el Brote",
       subtitle: "Relaciones que evitan la violencia",
-      description: "Si no reconocemos el instante, el conflicto escala. Cuidar nuestras relaciones garantiza que la transformación sea consciente y no sanguinaria.",
+      description: "Si no cuidamos los vínculos, el conflicto escala. Cuidar nuestras relaciones garantiza que la transformación sea consciente y sostenible.",
       icon: <Shield className="w-12 h-12" />,
       gradient: "from-emerald-600/80 to-green-600/80",
       details: [
@@ -772,8 +769,8 @@ const LaSemillaDeBasta = () => {
                       46 millones de semillas.
                     </p>
                     <p className="text-amber-200/70 text-lg max-w-2xl mx-auto leading-relaxed">
-                      "Argentina sufrirá la tormenta en pequeña, la que luego azotará al mundo.
-                      <strong className="text-amber-300"> ¡Será ejemplo!</strong>"
+                      No hace falta esperar a millones. Hace falta dejar de delegar la primera parte.
+                      <strong className="text-amber-300"> Lo que se prueba se puede exigir.</strong>
                     </p>
                   </div>
                 </motion.div>
