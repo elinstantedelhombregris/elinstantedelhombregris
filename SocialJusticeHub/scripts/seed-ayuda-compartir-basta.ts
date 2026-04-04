@@ -51,6 +51,8 @@ async function seed() {
     // Delete dependent records first using raw SQL for simplicity
     const tables = [
       'community_post_interactions',
+      'community_post_views',
+      'community_post_likes',
       'community_messages',
       'community_post_activity',
       'inspiring_stories',

@@ -5763,9 +5763,23 @@ import { and, asc, desc, eq, ilike, or, sql as sql3 } from "drizzle-orm";
 function isPublicCourseRevision(revision) {
   return revision.isPublished === true;
 }
+function getExternalCourseId(definition) {
+  return definition.legacyCourseId ?? definition.id;
+}
+function getExternalLessonId(identity) {
+  return identity.legacyLessonId ?? identity.id;
+}
+function getExternalQuizId(quiz) {
+  return quiz.legacyQuizId ?? quiz.id;
+}
+function getExternalQuestionId(question) {
+  return question.legacyQuestionId ?? question.id;
+}
 function mapPublishedCourse(definition, revision, extras) {
   return {
-    id: definition.id,
+    id: getExternalCourseId(definition),
+    courseDefinitionId: definition.id,
+    legacyCourseId: definition.legacyCourseId,
     title: revision.title,
     slug: definition.slug,
     description: revision.description,
@@ -5793,10 +5807,12 @@ function mapPublishedCourse(definition, revision, extras) {
     indexable: revision.indexable
   };
 }
-function mapPublishedLesson(identity, lesson) {
+function mapPublishedLesson(identity, lesson, courseId) {
   return {
-    id: identity.id,
-    courseId: identity.courseDefinitionId,
+    id: getExternalLessonId(identity),
+    lessonIdentityId: identity.id,
+    legacyLessonId: identity.legacyLessonId,
+    courseId,
     title: lesson.title,
     description: lesson.description,
     content: lesson.contentHtml,
@@ -5815,10 +5831,12 @@ function mapPublishedLesson(identity, lesson) {
     indexable: lesson.indexable
   };
 }
-function mapPublishedQuiz(courseDefinitionId, quiz) {
+function mapPublishedQuiz(courseId, quiz) {
   return {
-    id: quiz.id,
-    courseId: courseDefinitionId,
+    id: getExternalQuizId(quiz),
+    quizRevisionId: quiz.id,
+    legacyQuizId: quiz.legacyQuizId,
+    courseId,
     title: quiz.title,
     description: quiz.description,
     passingScore: quiz.passingScore,
@@ -5829,10 +5847,12 @@ function mapPublishedQuiz(courseDefinitionId, quiz) {
     updatedAt: quiz.updatedAt
   };
 }
-function mapPublishedQuizQuestion(question) {
+function mapPublishedQuizQuestion(question, quizId) {
   return {
-    id: question.id,
-    quizId: question.quizRevisionId,
+    id: getExternalQuestionId(question),
+    quizQuestionRevisionId: question.id,
+    legacyQuestionId: question.legacyQuestionId,
+    quizId,
     question: question.question,
     type: question.type,
     options: question.options,
@@ -5866,21 +5886,21 @@ async function hasCurrentRevisionForCourseSlug(slug) {
   return Boolean(definition?.currentPublishedRevisionId);
 }
 async function hasCurrentRevisionForCourseId(courseId) {
+  const [definitionByLegacy] = await db.select({ currentPublishedRevisionId: courseDefinitions.currentPublishedRevisionId }).from(courseDefinitions).where(eq(courseDefinitions.legacyCourseId, courseId)).limit(1);
+  if (definitionByLegacy?.currentPublishedRevisionId) {
+    return true;
+  }
   const directRecord = await getCurrentCourseRecordByDefinitionId(courseId);
   if (directRecord) {
     return true;
   }
-  const [definition] = await db.select({ currentPublishedRevisionId: courseDefinitions.currentPublishedRevisionId }).from(courseDefinitions).where(eq(courseDefinitions.legacyCourseId, courseId)).limit(1);
-  return Boolean(definition?.currentPublishedRevisionId);
+  return false;
 }
 async function resolvePublishedCourseDefinitionId(courseId) {
-  const directRecord = await getCurrentCourseRecordByDefinitionId(courseId);
-  if (directRecord) {
-    return directRecord.definition.id;
-  }
   const [definition] = await db.select().from(courseDefinitions).where(eq(courseDefinitions.legacyCourseId, courseId)).limit(1);
   if (!definition?.currentPublishedRevisionId) {
-    return void 0;
+    const directRecord = await getCurrentCourseRecordByDefinitionId(courseId);
+    return directRecord?.definition.id;
   }
   return definition.id;
 }
@@ -5983,6 +6003,7 @@ async function getPublishedCourses(filters) {
 async function getPublishedCourseWithLessons(courseId) {
   const record = await getPublishedCourseRecordById(courseId);
   if (!record) return void 0;
+  const externalCourseId = getExternalCourseId(record.definition);
   const lessons = await db.select({
     identity: courseLessonIdentities,
     revisionLesson: courseRevisionLessons
@@ -5994,7 +6015,7 @@ async function getPublishedCourseWithLessons(courseId) {
     course: mapPublishedCourse(record.definition, record.revision, {
       lessonCount: lessons.length
     }),
-    lessons: lessons.map((row) => mapPublishedLesson(row.identity, row.revisionLesson))
+    lessons: lessons.map((row) => mapPublishedLesson(row.identity, row.revisionLesson, externalCourseId))
   };
 }
 async function getPublishedCourseQuiz(courseId) {
@@ -6003,19 +6024,18 @@ async function getPublishedCourseQuiz(courseId) {
   const [quiz] = await db.select().from(courseRevisionQuizzes).where(eq(courseRevisionQuizzes.courseRevisionId, record.revision.id)).limit(1);
   if (!quiz) return void 0;
   const questions = await db.select().from(courseRevisionQuizQuestions).where(eq(courseRevisionQuizQuestions.quizRevisionId, quiz.id)).orderBy(asc(courseRevisionQuizQuestions.orderIndex));
+  const externalCourseId = getExternalCourseId(record.definition);
+  const externalQuizId = getExternalQuizId(quiz);
   return {
-    quiz: mapPublishedQuiz(record.definition.id, quiz),
-    questions: questions.map(mapPublishedQuizQuestion),
-    courseRevisionId: record.revision.id
+    quiz: mapPublishedQuiz(externalCourseId, quiz),
+    questions: questions.map((question) => mapPublishedQuizQuestion(question, externalQuizId)),
+    courseRevisionId: record.revision.id,
+    quizRevisionId: quiz.id
   };
 }
 async function getPublishedLessonByIdentityId(lessonIdentityId) {
-  const [identity] = await db.select().from(courseLessonIdentities).where(
-    or(
-      eq(courseLessonIdentities.id, lessonIdentityId),
-      eq(courseLessonIdentities.legacyLessonId, lessonIdentityId)
-    )
-  ).orderBy(desc(courseLessonIdentities.id)).limit(1);
+  const [identityByLegacy] = await db.select().from(courseLessonIdentities).where(eq(courseLessonIdentities.legacyLessonId, lessonIdentityId)).limit(1);
+  const identity = identityByLegacy ?? (await db.select().from(courseLessonIdentities).where(eq(courseLessonIdentities.id, lessonIdentityId)).limit(1))[0];
   if (!identity?.courseDefinitionId) {
     return void 0;
   }
@@ -6055,9 +6075,17 @@ async function getCourseDefinitionIdByLegacyCourseId(legacyCourseId) {
   const [definition] = await db.select().from(courseDefinitions).where(eq(courseDefinitions.legacyCourseId, legacyCourseId)).limit(1);
   return definition?.id;
 }
+async function getCourseExternalIdByDefinitionId(courseDefinitionId) {
+  const [definition] = await db.select().from(courseDefinitions).where(eq(courseDefinitions.id, courseDefinitionId)).limit(1);
+  return definition ? getExternalCourseId(definition) : void 0;
+}
 async function getLessonIdentityIdByLegacyLessonId(legacyLessonId) {
   const [identity] = await db.select().from(courseLessonIdentities).where(eq(courseLessonIdentities.legacyLessonId, legacyLessonId)).limit(1);
   return identity?.id;
+}
+async function getLessonExternalIdByIdentityId(lessonIdentityId) {
+  const [identity] = await db.select().from(courseLessonIdentities).where(eq(courseLessonIdentities.id, lessonIdentityId)).limit(1);
+  return identity ? getExternalLessonId(identity) : void 0;
 }
 async function getCurrentRevisionForCourseDefinition(courseDefinitionId) {
   const record = await getCurrentCourseRecordByDefinitionId(courseDefinitionId);
@@ -6084,7 +6112,7 @@ var init_course_content_store = __esm({
 import { eq as eq2, desc as desc2, and as and2, sql as sql4, asc as asc2, gte, or as or2, like, inArray, ilike as ilike2, isNotNull } from "drizzle-orm";
 import path from "path";
 import { fileURLToPath } from "url";
-var ACTION_POINTS, parseNumericJsonArray, stringifyNumericArray, resolveCourseProgressCourseId, resolveCurrentLessonIdentityId, resolveCompletedLessonIdentityIds, adaptUserCourseProgress, adaptUserLessonProgress, compareCourseOrder, __filename, __dirname, DatabaseStorage, storage;
+var ACTION_POINTS, parseNumericJsonArray, stringifyNumericArray, resolveCourseProgressCourseId, resolveCurrentLessonIdentityId, resolveCompletedLessonIdentityIds, resolveCompletedLessonExternalIds, adaptUserCourseProgress, adaptUserLessonProgress, compareCourseOrder, __filename, __dirname, DatabaseStorage, storage;
 var init_storage = __esm({
   "server/storage.ts"() {
     "use strict";
@@ -6117,16 +6145,16 @@ var init_storage = __esm({
     };
     stringifyNumericArray = (values) => JSON.stringify(Array.from(new Set(values.filter((value) => typeof value === "number"))));
     resolveCourseProgressCourseId = async (progress) => {
-      if (progress?.courseDefinitionId) return progress.courseDefinitionId;
-      if (progress?.courseId) {
-        return await getCourseDefinitionIdByLegacyCourseId(progress.courseId) ?? progress.courseId;
+      if (progress?.courseId) return progress.courseId;
+      if (progress?.courseDefinitionId) {
+        return await getCourseExternalIdByDefinitionId(progress.courseDefinitionId) ?? progress.courseDefinitionId;
       }
       return null;
     };
     resolveCurrentLessonIdentityId = async (progress) => {
-      if (progress?.currentLessonIdentityId) return progress.currentLessonIdentityId;
-      if (progress?.currentLessonId) {
-        return await getLessonIdentityIdByLegacyLessonId(progress.currentLessonId) ?? progress.currentLessonId;
+      if (progress?.currentLessonId) return progress.currentLessonId;
+      if (progress?.currentLessonIdentityId) {
+        return await getLessonExternalIdByIdentityId(progress.currentLessonIdentityId) ?? progress.currentLessonIdentityId;
       }
       return null;
     };
@@ -6141,11 +6169,22 @@ var init_storage = __esm({
       );
       return Array.from(new Set(mapped));
     };
+    resolveCompletedLessonExternalIds = async (progress) => {
+      const preferred = parseNumericJsonArray(progress?.completedLessons);
+      if (preferred.length > 0) {
+        return Array.from(new Set(preferred));
+      }
+      const identityIds = parseNumericJsonArray(progress?.completedLessonIdentityIds);
+      const mapped = await Promise.all(
+        identityIds.map(async (identityId) => await getLessonExternalIdByIdentityId(identityId) ?? identityId)
+      );
+      return Array.from(new Set(mapped));
+    };
     adaptUserCourseProgress = async (progress) => {
       if (!progress) return void 0;
       const courseId = await resolveCourseProgressCourseId(progress);
       const currentLessonId = await resolveCurrentLessonIdentityId(progress);
-      const completedLessonIds = await resolveCompletedLessonIdentityIds(progress);
+      const completedLessonIds = await resolveCompletedLessonExternalIds(progress);
       return {
         ...progress,
         courseId,
@@ -6158,7 +6197,7 @@ var init_storage = __esm({
     };
     adaptUserLessonProgress = async (progress) => {
       if (!progress) return void 0;
-      const lessonId = progress.lessonIdentityId ?? (progress.lessonId ? await getLessonIdentityIdByLegacyLessonId(progress.lessonId) ?? progress.lessonId : null);
+      const lessonId = progress.lessonId ?? (progress.lessonIdentityId ? await getLessonExternalIdByIdentityId(progress.lessonIdentityId) ?? progress.lessonIdentityId : null);
       return {
         ...progress,
         lessonId,
@@ -8242,8 +8281,10 @@ var init_storage = __esm({
         if (publishedLesson) {
           return {
             ...publishedLesson.lesson,
-            id: publishedLesson.identity.id,
-            courseId: publishedLesson.courseDefinition.id,
+            id: publishedLesson.identity.legacyLessonId ?? publishedLesson.identity.id,
+            lessonIdentityId: publishedLesson.identity.id,
+            legacyLessonId: publishedLesson.identity.legacyLessonId,
+            courseId: publishedLesson.course.legacyCourseId ?? publishedLesson.course.id,
             content: publishedLesson.lesson.contentHtml,
             key: publishedLesson.identity.key
           };
@@ -8286,7 +8327,8 @@ var init_storage = __esm({
       async incrementCourseView(courseId) {
         const publishedCourse = await getPublishedCourseById(courseId);
         if (publishedCourse) {
-          await incrementPublishedCourseView(publishedCourse.id);
+          const definitionId = publishedCourse.courseDefinitionId ?? await getCourseDefinitionIdByLegacyCourseId(publishedCourse.id) ?? publishedCourse.id;
+          await incrementPublishedCourseView(definitionId);
           return;
         }
         if (await hasCurrentRevisionForCourseId(courseId)) {
@@ -8333,11 +8375,12 @@ var init_storage = __esm({
         }
         const publishedCourse = await getPublishedCourseById(courseId);
         if (publishedCourse) {
-          const revision = await getCurrentRevisionForCourseDefinition(courseId);
+          const courseDefinitionId = publishedCourse.courseDefinitionId ?? await getCourseDefinitionIdByLegacyCourseId(courseId) ?? courseId;
+          const revision = await getCurrentRevisionForCourseDefinition(courseDefinitionId);
           const [progress2] = await db.insert(userCourseProgress).values({
             userId,
-            courseId: revision?.legacyCourseId ?? null,
-            courseDefinitionId: courseId,
+            courseId: revision?.legacyCourseId ?? courseId,
+            courseDefinitionId,
             status: "in_progress",
             progress: 0,
             startedAt: (/* @__PURE__ */ new Date()).toISOString(),
@@ -8417,18 +8460,19 @@ var init_storage = __esm({
           if (!courseData) {
             throw new Error("Course not found");
           }
+          const resolveLessonIdentityId = (entry) => entry.lessonIdentityId ?? entry.id;
           const requiredLessons2 = courseData.lessons.filter((entry) => entry.isRequired);
           const completedLessonsIds2 = await resolveCompletedLessonIdentityIds(courseProgress2);
           const lessonAlreadyCompleted2 = completedLessonsIds2.includes(identity.id);
           if (!lessonAlreadyCompleted2) {
             completedLessonsIds2.push(identity.id);
           }
-          const completedRequired2 = requiredLessons2.filter((entry) => completedLessonsIds2.includes(entry.id)).length;
+          const completedRequired2 = requiredLessons2.filter((entry) => completedLessonsIds2.includes(resolveLessonIdentityId(entry))).length;
           const progressPercentage2 = requiredLessons2.length > 0 ? Math.round(completedRequired2 / requiredLessons2.length * 100) : 0;
           const nextLesson2 = courseData.lessons.find(
-            (entry) => entry.orderIndex > lesson2.orderIndex && !completedLessonsIds2.includes(entry.id)
+            (entry) => entry.orderIndex > lesson2.orderIndex && !completedLessonsIds2.includes(resolveLessonIdentityId(entry))
           );
-          const courseCompleted2 = requiredLessons2.every((entry) => completedLessonsIds2.includes(entry.id));
+          const courseCompleted2 = requiredLessons2.every((entry) => completedLessonsIds2.includes(resolveLessonIdentityId(entry)));
           const courseWasCompletedBefore2 = courseProgress2.status === "completed";
           const [updatedProgress2] = await db.update(userCourseProgress).set({
             courseId: publishedLesson.courseRevision.legacyCourseId ?? courseProgress2.courseId ?? null,
@@ -8436,7 +8480,7 @@ var init_storage = __esm({
             progress: progressPercentage2,
             status: courseCompleted2 ? "completed" : "in_progress",
             currentLessonId: null,
-            currentLessonIdentityId: nextLesson2?.id || null,
+            currentLessonIdentityId: nextLesson2 ? resolveLessonIdentityId(nextLesson2) : null,
             completedLessonIdentityIds: stringifyNumericArray(completedLessonsIds2),
             completedLessons: courseProgress2.completedLessons ?? JSON.stringify([]),
             completedAt: courseCompleted2 ? (/* @__PURE__ */ new Date()).toISOString() : null,
@@ -8558,16 +8602,17 @@ var init_storage = __esm({
       async updateLessonTimeSpent(userId, lessonId, seconds) {
         const publishedLesson = await getPublishedLessonByIdentityId(lessonId);
         if (publishedLesson) {
+          const identityId = publishedLesson.identity.id;
           const [existing2] = await db.select().from(userLessonProgress).where(
             and2(
               eq2(userLessonProgress.userId, userId),
-              eq2(userLessonProgress.lessonIdentityId, lessonId)
+              eq2(userLessonProgress.lessonIdentityId, identityId)
             )
           ).limit(1);
           if (existing2) {
             await db.update(userLessonProgress).set({
               lessonId: publishedLesson.identity.legacyLessonId ?? existing2.lessonId ?? null,
-              lessonIdentityId: lessonId,
+              lessonIdentityId: identityId,
               timeSpent: (existing2.timeSpent || 0) + seconds,
               updatedAt: (/* @__PURE__ */ new Date()).toISOString()
             }).where(eq2(userLessonProgress.id, existing2.id));
@@ -8575,7 +8620,7 @@ var init_storage = __esm({
             await db.insert(userLessonProgress).values({
               userId,
               lessonId: publishedLesson.identity.legacyLessonId ?? null,
-              lessonIdentityId: lessonId,
+              lessonIdentityId: identityId,
               status: "in_progress",
               timeSpent: seconds
             });
@@ -8645,21 +8690,24 @@ var init_storage = __esm({
       }
       // Quiz
       async createQuizAttempt(userId, quizId, courseId) {
-        const publishedQuiz = await getPublishedQuizByRevisionQuizId(quizId);
-        if (publishedQuiz && publishedQuiz.definition.id === courseId) {
+        const publishedQuiz = await getPublishedCourseQuiz(courseId);
+        if (publishedQuiz && publishedQuiz.quiz.id === quizId) {
+          const courseDefinitionId = await getCourseDefinitionIdByLegacyCourseId(courseId) ?? courseId;
+          const quizRevisionId = publishedQuiz.quizRevisionId ?? null;
+          const legacyQuizId = publishedQuiz.quiz.legacyQuizId ?? quizId;
           const [attempt2] = await db.insert(quizAttempts).values({
             userId,
-            quizId: publishedQuiz.quiz.legacyQuizId ?? null,
-            courseId: publishedQuiz.revision.legacyCourseId ?? null,
-            courseDefinitionId: publishedQuiz.definition.id,
-            courseRevisionId: publishedQuiz.revision.id,
-            courseQuizRevisionId: publishedQuiz.quiz.id,
+            quizId: legacyQuizId,
+            courseId,
+            courseDefinitionId,
+            courseRevisionId: publishedQuiz.courseRevisionId,
+            courseQuizRevisionId: quizRevisionId,
             startedAt: (/* @__PURE__ */ new Date()).toISOString()
           }).returning();
           return {
             ...attempt2,
-            courseId: publishedQuiz.definition.id,
-            quizId: publishedQuiz.quiz.id
+            courseId,
+            quizId
           };
         }
         const [attempt] = await db.insert(quizAttempts).values({
@@ -8686,7 +8734,8 @@ var init_storage = __esm({
           const attemptAnswers2 = [];
           for (const question of questions2) {
             totalPoints2 += question.points || 1;
-            const userAnswer = answers.find((a) => a.questionId === question.id);
+            const externalQuestionId = question.legacyQuestionId ?? question.id;
+            const userAnswer = answers.find((a) => a.questionId === externalQuestionId || a.questionId === question.id);
             const correctAnswer = JSON.parse(question.correctAnswer);
             const isCorrect = JSON.stringify(userAnswer?.answer) === JSON.stringify(correctAnswer);
             if (isCorrect) {
@@ -8814,8 +8863,8 @@ var init_storage = __esm({
         if (!attempt) return void 0;
         return {
           ...attempt,
-          quizId: attempt.courseQuizRevisionId ?? attempt.quizId,
-          courseId: attempt.courseDefinitionId ?? attempt.courseId
+          quizId: attempt.quizId ?? attempt.courseQuizRevisionId,
+          courseId: attempt.courseId ?? attempt.courseDefinitionId
         };
       }
       async getUserQuizAttempts(userId, quizId) {
@@ -8830,26 +8879,27 @@ var init_storage = __esm({
         ).orderBy(desc2(quizAttempts.startedAt));
         return attempts.map((attempt) => ({
           ...attempt,
-          quizId: attempt.courseQuizRevisionId ?? attempt.quizId,
-          courseId: attempt.courseDefinitionId ?? attempt.courseId
+          quizId: attempt.quizId ?? attempt.courseQuizRevisionId,
+          courseId: attempt.courseId ?? attempt.courseDefinitionId
         }));
       }
       // Certificates
       async generateCertificate(userId, courseId, quizScore) {
         const publishedCourse = await getPublishedCourseById(courseId);
         if (publishedCourse) {
-          const revision = await getCurrentRevisionForCourseDefinition(courseId);
+          const courseDefinitionId = publishedCourse.courseDefinitionId ?? await getCourseDefinitionIdByLegacyCourseId(courseId) ?? courseId;
+          const revision = await getCurrentRevisionForCourseDefinition(courseDefinitionId);
           const [existing2] = await db.select().from(courseCertificates).where(
             and2(
               eq2(courseCertificates.userId, userId),
-              eq2(courseCertificates.courseDefinitionId, courseId)
+              eq2(courseCertificates.courseDefinitionId, courseDefinitionId)
             )
           ).limit(1);
           if (existing2) {
             return {
               certificate: {
                 ...existing2,
-                courseId: existing2.courseDefinitionId ?? existing2.courseId
+                courseId: existing2.courseId ?? existing2.courseDefinitionId
               },
               created: false
             };
@@ -8859,8 +8909,8 @@ var init_storage = __esm({
           const certificateCode2 = `${courseId}-${userId}-${timestamp2}-${random2}`;
           const [certificate2] = await db.insert(courseCertificates).values({
             userId,
-            courseId: revision?.legacyCourseId ?? null,
-            courseDefinitionId: courseId,
+            courseId: revision?.legacyCourseId ?? courseId,
+            courseDefinitionId,
             courseRevisionId: revision?.id ?? null,
             certificateCode: certificateCode2,
             quizScore
@@ -8876,7 +8926,7 @@ var init_storage = __esm({
           return {
             certificate: {
               ...certificate2,
-              courseId
+              courseId: certificate2.courseId ?? courseId
             },
             created: true
           };
@@ -8913,7 +8963,7 @@ var init_storage = __esm({
         const certificates = await db.select().from(courseCertificates).where(eq2(courseCertificates.userId, userId)).orderBy(desc2(courseCertificates.issuedAt));
         return certificates.map((certificate) => ({
           ...certificate,
-          courseId: certificate.courseDefinitionId ?? certificate.courseId
+          courseId: certificate.courseId ?? certificate.courseDefinitionId
         }));
       }
       async getUserCourses(userId) {
@@ -16326,10 +16376,10 @@ var arService = new ARService();
 // shared/mission-registry.ts
 var MISSIONS = [
   {
-    slug: "supervivencia-digna",
+    slug: "la-base-esta",
     number: 1,
-    label: "Supervivencia Digna",
-    shortLabel: "Supervivencia",
+    label: "La Base Est\xE1",
+    shortLabel: "La Base",
     description: "Agua, vivienda, salud, energia, seguridad de proximidad",
     whatHurts: "La intemperie material. El agua que falta o enferma. El alquiler que expulsa. La salud que llega tarde. El barrio donde el miedo organiza mas que la ley.",
     whatWeGuarantee: "Agua, saneamiento basico, refugio digno, alimentacion esencial, salud primaria, continuidad energetica minima y seguridad de proximidad.",
@@ -16646,7 +16696,7 @@ var MISSIONS = [
 
 // shared/mission-signal-matcher.ts
 var MISSION_KEYWORDS = {
-  "supervivencia-digna": [
+  "la-base-esta": [
     "agua",
     "vivienda",
     "salud",
