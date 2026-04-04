@@ -4,13 +4,10 @@ import {
   Eye,
   Users,
   AlertTriangle,
-  Sparkles,
   Globe,
   Zap,
   TrendingUp,
   Brain,
-  MapPin,
-  Rocket,
   Scan,
   Activity
 } from 'lucide-react';
@@ -63,71 +60,57 @@ const LaVision = () => {
     document.title = 'La Visión - ¡BASTA! | Transformar Argentina Juntos';
   }, []);
 
-  const processSteps = [
+  const missions = [
     {
-      step: 1,
-      title: "Diagnosticar lo Real",
-      subtitle: "Escuchar la vida cotidiana en vivo",
-      description: "Recolectamos datos voluntarios sobre cómo viven, sienten y sueñan las personas. La nación se mira en el espejo de su gente.",
-      icon: <Eye className="w-8 h-8" />,
+      number: "01",
+      title: "La Base Está",
+      hurt: "La intemperie material. El agua que falta o enferma. El alquiler que expulsa. La salud que llega tarde.",
+      changes: "Mapa de criticidad territorial. Cuadrillas de reparación rápida. Centros de respuesta primaria.",
       color: "text-blue-400",
       border: "border-blue-500/30",
       bg: "bg-blue-500/10",
-      details: [
-        "Mapeamos bienestar financiero, mental, relacional y territorial",
-        "Detectamos tensiones recurrentes y capacidades disponibles",
-        "Convertimos testimonios en datos accionables",
-        "Regresamos a cada persona un diagnóstico útil"
-      ]
+      accent: "text-blue-500",
     },
     {
-      step: 2,
-      title: "Sincronizar la Visión",
-      subtitle: "Un mismo horizonte compartido",
-      description: "Traducimos los diagnósticos en relatos deseados. La visión se vuelve inevitable porque nace de millones de coincidencias.",
-      icon: <Sparkles className="w-8 h-8" />,
+      number: "02",
+      title: "Territorio Legible",
+      hurt: "No sabemos con suficiente precisión qué necesita cada territorio, qué rechaza, qué recursos tiene.",
+      changes: "Taxonomía unificada de señales. Tablero nacional. Primer mandato territorial en pilotos.",
       color: "text-purple-400",
       border: "border-purple-500/30",
       bg: "bg-purple-500/10",
-      details: [
-        "Identificamos principios comunes y aspiraciones repetidas",
-        "Diseñamos un lenguaje de país sin ideologías",
-        "Priorizamos bienestar integral y dignidad económica",
-        "Publicamos metas claras y verificables"
-      ]
+      accent: "text-purple-500",
     },
     {
-      step: 3,
-      title: "Cartografiar Conexiones",
-      subtitle: "Del dato al mapa vivo",
-      description: "Construimos tableros que muestran interdependencias entre personas, comunidades y gobiernos.",
-      icon: <MapPin className="w-8 h-8" />,
+      number: "03",
+      title: "Producción y Suelo Vivo",
+      hurt: "Trabajo improductivo, suelo degradado, cadena de valor rota.",
+      changes: "Pilotos de suelo vivo. Primeras bastardas de servicio útil. Cartera de microproyectos territoriales.",
       color: "text-green-400",
       border: "border-green-500/30",
       bg: "bg-green-500/10",
-      details: [
-        "Detectamos puntos de apalancamiento locales",
-        "Coordinamos recursos entre actores públicos y civiles",
-        "Generamos alertas tempranas para territorios críticos",
-        "Diseñamos rutas de acción que cualquier nivel puede replicar"
-      ]
+      accent: "text-green-500",
     },
     {
-      step: 4,
-      title: "Ejecutar con Coherencia",
-      subtitle: "Micro y macro alineados",
-      description: "Cada compromiso individual alimenta políticas, proyectos y alianzas. Medimos en tiempo real y ajustamos.",
-      icon: <Rocket className="w-8 h-8" />,
+      number: "04",
+      title: "Infancia, Escuela y Cultura",
+      hurt: "Niños rotos por el contexto, escuela degradada, cultura fragmentada.",
+      changes: "Priorización de niñez crítica. Módulos de alfabetización. Programación cultural barrial.",
       color: "text-orange-400",
       border: "border-orange-500/30",
       bg: "bg-orange-500/10",
-      details: [
-        "Acompañamos proyectos ciudadanos con herramientas concretas",
-        "Compartimos métricas abiertas para aprender rápido",
-        "Escalamos lo que funciona y cuidamos lo emergente",
-        "Celebramos y difundimos cada avance colectivo"
-      ]
-    }
+      accent: "text-orange-500",
+    },
+    {
+      number: "05",
+      title: "Instituciones y Futuro",
+      hurt: "La impunidad, la arbitrariedad, la opacidad, el ciclo pendular.",
+      changes: "Defensoría de Integridad. Protocolos de trazabilidad. Registro público de decisiones críticas.",
+      color: "text-rose-400",
+      border: "border-rose-500/30",
+      bg: "bg-rose-500/10",
+      accent: "text-rose-500",
+    },
   ];
 
   const visionStats = [
@@ -286,7 +269,7 @@ const LaVision = () => {
                     animate={true}
                   />
                   <PowerCTA
-                    text="VER LAS 4 FASES"
+                    text="VER LAS 5 MISIONES"
                     variant="secondary"
                     onClick={() => window.scrollTo({ top: 1000, behavior: 'smooth' })}
                     size="lg"
@@ -410,11 +393,11 @@ const LaVision = () => {
           <div className="container-content relative z-10">
             <div className="max-w-5xl mx-auto mb-16 text-center">
               <h2 className="text-3xl md:text-5xl font-bold text-white mb-8">
-                Ingeniería de Sistemas Humanos
+                El país es un sistema. Y el sistema está mal diseñado.
               </h2>
               <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
-                El problema argentino es un error de diseño: dejamos que un subsistema (la política) 
-                decida el propósito de todo el sistema (el país). Es hora de invertir la pirámide.
+                El problema argentino es un bug de diseño: dejamos que un subsistema (la política)
+                decida el propósito de todo el sistema (el país). Si no tocamos ese código fuente, lo demás rota arriba de la misma falla.
               </p>
             </div>
 
@@ -436,65 +419,52 @@ const LaVision = () => {
           </div>
         </section>
 
-        {/* The Blueprint Timeline */}
+        {/* Five Missions */}
         <section className="section-spacing bg-[#0a0a0a] relative">
-          {/* Energy Line Connector */}
-          <div className="absolute top-0 bottom-0 left-8 md:left-1/2 w-px bg-gradient-to-b from-transparent via-blue-900 to-transparent -z-10" />
-
           <div className="container-content">
             <div className="max-w-5xl mx-auto">
               <div className="text-center mb-20">
                 <h2 className="heading-section mb-6">
-                  El <span className="text-blue-500">Blueprint</span> de Transformación
+                  Cinco heridas. Cinco misiones.
                 </h2>
-                <p className="text-body max-w-2xl mx-auto">
-                  Cuatro fases secuenciales para rediseñar el sistema operativo de la nación.
+                <p className="text-body max-w-3xl mx-auto">
+                  Miramos la Argentina real y encontramos cinco heridas que no se pueden resolver por separado. Cada misión tiene dueño, plazo, evidencia y criterio de pausa.
                 </p>
               </div>
 
-              <div className="space-y-24">
-                {processSteps.map((step, index) => (
-                  <motion.div 
-                    key={step.step}
-                    initial={{ opacity: 0, y: 50 }}
+              <div className="space-y-8">
+                {missions.map((mission, index) => (
+                  <motion.div
+                    key={mission.number}
+                    initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    className={`flex flex-col md:flex-row gap-8 items-center ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}
+                    viewport={{ once: true, margin: "-80px" }}
+                    transition={{ delay: index * 0.1 }}
+                    className={`p-8 rounded-2xl bg-white/5 backdrop-blur-md border ${mission.border} hover:bg-white/[0.07] transition-colors`}
                   >
-                    {/* Content Card */}
-                    <div className="flex-1">
-                      <div className={`card-unified p-8 border-l-4 ${step.border.replace('border', 'border-l')}`}>
-                        <div className="flex items-center gap-4 mb-6">
-                          <div className={`w-12 h-12 rounded-xl ${step.bg} flex items-center justify-center ${step.color} border ${step.border}`}>
-                            {step.icon}
-                          </div>
-                          <div className="text-sm font-mono text-slate-500 uppercase tracking-widest">
-                            Fase 0{step.step}
-                          </div>
+                    <div className="flex flex-col md:flex-row gap-6 md:gap-10">
+                      {/* Number badge */}
+                      <div className="flex-shrink-0 flex items-start">
+                        <div className={`w-14 h-14 rounded-xl ${mission.bg} flex items-center justify-center border ${mission.border}`}>
+                          <span className={`text-xl font-bold font-mono ${mission.color}`}>{mission.number}</span>
                         </div>
-                        <h3 className="text-2xl font-bold text-white mb-2">{step.title}</h3>
-                        <p className="text-blue-200 font-medium mb-4">{step.subtitle}</p>
-                        <p className="text-slate-400 mb-6 leading-relaxed">{step.description}</p>
-                        
-                        <ul className="space-y-3">
-                          {step.details.map((detail, idx) => (
-                            <li key={idx} className="flex items-start gap-3 text-sm text-slate-300">
-                              <div className={`w-1.5 h-1.5 rounded-full mt-2 ${step.bg.replace('bg-', 'bg-')}`} />
-                              {detail}
-                            </li>
-                          ))}
-                        </ul>
+                      </div>
+
+                      {/* Content */}
+                      <div className="flex-1 space-y-5">
+                        <h3 className="text-2xl font-bold text-white">{mission.title}</h3>
+
+                        <div>
+                          <p className={`text-xs font-mono uppercase tracking-widest ${mission.accent} mb-2`}>Qué duele</p>
+                          <p className="text-slate-400 leading-relaxed">{mission.hurt}</p>
+                        </div>
+
+                        <div>
+                          <p className={`text-xs font-mono uppercase tracking-widest ${mission.accent} mb-2`}>Qué cambia en 90 días</p>
+                          <p className="text-slate-300 leading-relaxed">{mission.changes}</p>
+                        </div>
                       </div>
                     </div>
-
-                    {/* Timeline Node */}
-                    <div className="relative flex items-center justify-center w-16 h-16">
-                      <div className={`w-4 h-4 rounded-full ${step.bg.replace('bg-', 'bg-')} shadow-[0_0_20px_currentColor] z-10`} />
-                      <div className="absolute w-16 h-16 border border-white/10 rounded-full animate-ping opacity-20" />
-                    </div>
-
-                    {/* Empty Spacer for grid balance */}
-                    <div className="flex-1 hidden md:block" />
                   </motion.div>
                 ))}
               </div>
@@ -521,10 +491,32 @@ const LaVision = () => {
           </div>
         </section>
 
+        {/* Closing Pattern */}
+        <section className="section-spacing bg-[#0a0a0a]">
+          <div className="container-content">
+            <div className="max-w-4xl mx-auto">
+              <div className="p-8 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 space-y-5">
+                {[
+                  { label: "Qué estamos viendo", text: "Un país que siente mucho pero procesa mal su propia señal." },
+                  { label: "Qué hacemos ahora", text: "Volver legible lo que hoy está disperso. Cinco misiones, no diecisiete." },
+                  { label: "Qué no vamos a hacer todavía", text: "Desplegar el stack digital maximalista ni prometer bienestar pleno sin cerrar la intemperie." },
+                  { label: "Cómo se mide", text: "Cobertura territorial, densidad de señal, tiempo entre diagnóstico y primera evidencia." },
+                  { label: "Qué podés hacer vos", text: "Ocupar tu lugar en el mapa con honestidad y ayudar a que tu territorio no quede invisible." },
+                ].map((item, i) => (
+                  <div key={i} className="flex flex-col sm:flex-row sm:gap-4">
+                    <span className="text-blue-400 font-bold text-sm uppercase tracking-wider shrink-0 sm:w-64 mb-1 sm:mb-0">{item.label}</span>
+                    <span className="text-slate-400 leading-relaxed">{item.text}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Next Step */}
         <NextStepCard
-          title="Una Nueva Visión Necesita una Nueva Cultura"
-          description="Conocés la visión. Ahora descubrí al Hombre Gris: la identidad colectiva que despierta para construir la Argentina que soñamos."
+          title="Viste la herida. Ahora hace falta entender."
+          description="La visión sin marco ético se vuelve slogan. El Hombre Gris te entrena a leer la niebla antes de declarar."
           href="/el-instante-del-hombre-gris"
           gradient="from-gray-900 to-blue-900"
           icon={<Eye className="w-5 h-5" />}

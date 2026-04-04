@@ -84,7 +84,7 @@ const Header = () => {
     { label: 'Semilla', href: '/la-semilla-de-basta' },
     { label: 'Mapa', href: '/el-mapa' },
     { label: 'Mandato', href: '/el-mandato-vivo' },
-    { label: 'Tribu', href: '/community' },
+    { label: 'Círculos', href: '/community' },
     { label: 'Recursos', href: '/recursos' },
     { label: 'Arquitecto', href: '/recursos/el-arquitecto' },
   ];

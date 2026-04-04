@@ -75,9 +75,9 @@ export interface MissionMeta {
 }
 
 export const MISSION_META: Record<MissionSlug, MissionMeta> = {
-  'supervivencia-digna': {
-    slug: 'supervivencia-digna', number: 1,
-    label: 'Supervivencia Digna', shortLabel: 'Supervivencia',
+  'la-base-esta': {
+    slug: 'la-base-esta', number: 1,
+    label: 'La Base Está', shortLabel: 'La Base',
     icon: Heart, color: 'text-red-600', accent: '#dc2626',
     gradient: 'from-red-500/10 to-rose-500/10',
     bgLight: 'bg-red-50', bgDark: 'bg-red-500/10',
@@ -119,7 +119,7 @@ export const MISSION_META: Record<MissionSlug, MissionMeta> = {
 
 // Ordered array for iteration
 export const MISSION_ORDER: MissionSlug[] = [
-  'supervivencia-digna',
+  'la-base-esta',
   'territorio-legible',
   'produccion-y-suelo-vivo',
   'infancia-escuela-cultura',

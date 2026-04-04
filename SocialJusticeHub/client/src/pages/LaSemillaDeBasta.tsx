@@ -260,7 +260,7 @@ const LaSemillaDeBasta = () => {
       trend: 'up' as const,
       color: 'blue' as const,
       icon: <Droplets className="w-6 h-6" />,
-      description: 'Relaciones cuidadas para evitar "sangre en las calles"'
+      description: 'Vínculos que sostienen la reconstrucción sin violencia'
     },
     {
       id: 'comunidades',
@@ -293,7 +293,7 @@ const LaSemillaDeBasta = () => {
       step: 2,
       title: "Sembrar Hábitos",
       subtitle: "Acciones pequeñas, lluvias constantes",
-      description: '"El árbol seco sabrá de una era de nueva lluvia." Cada hábito noble es una gota que despierta la semilla. Definimos prácticas diarias que nos conecten con propósito y servicio.',
+      description: 'Cada hábito sostenido es una señal más en el mapa. Definimos prácticas diarias que nos conecten con propósito, servicio y verdad operativa.',
       icon: <Droplets className="w-12 h-12" />,
       gradient: "from-blue-600/80 to-cyan-600/80",
       details: [
@@ -319,16 +319,16 @@ const LaSemillaDeBasta = () => {
     },
     {
       step: 4,
-      title: "Multiplicar la Cosecha",
-      subtitle: "Del individuo al país ejemplo",
-      description: '"Argentina sufrirá la tormenta en pequeña, la que luego azotará al mundo. ¡Será ejemplo!" Cuando nuestra semilla madura inspira a otros, comenzamos a rediseñar el sistema.',
+      title: "Probar y Multiplicar",
+      subtitle: "Del compromiso a la evidencia pública",
+      description: 'Lo que no se prueba no se puede exigir. Subir evidencia, documentar qué funciona y qué no, y compartir lo aprendido con tu círculo de reconstrucción.',
       icon: <Sun className="w-12 h-12" />,
       gradient: "from-yellow-500/80 to-orange-500/80",
       details: [
-        "Compartir aprendizajes en la Tribu",
-        "Crear proyectos colectivos",
-        "Mentorear a nuevos despiertos",
-        'Ser la "Argentina samaritana"'
+        "Subir evidencia al mapa",
+        "Documentar qué funciona y qué no",
+        "Compartir con tu círculo de reconstrucción",
+        'Multiplicar lo probado en nuevos territorios'
       ]
     }
   ];
@@ -367,41 +367,41 @@ const LaSemillaDeBasta = () => {
   const propagacion = [
     {
       nivel: "01",
-      titulo: "Vos",
-      subtitulo: "Una decisión irreversible",
-      descripcion: "Todo empieza con una persona que se rehúsa a seguir durmiendo. No necesitás un título, un partido, ni permiso. Necesitás una convicción que no se negocia.",
+      titulo: "Tu Compromiso",
+      subtitulo: "Una declaración irreversible",
+      descripcion: "Todo empieza con una persona que declara qué está dispuesta a sostener. No necesitás un título ni permiso. Necesitás un compromiso concreto ligado a una misión.",
       alcance: "1 persona",
       icon: <Sprout className="w-6 h-6" />
     },
     {
       nivel: "02",
-      titulo: "Tu Casa",
-      subtitulo: "El cambio se siente antes de explicarse",
-      descripcion: "Cuando actuás distinto, tu familia lo nota. No hace falta dar discursos — tu ejemplo habla. Los hábitos nuevos son contagiosos cuando son genuinos.",
+      titulo: "Tu Círculo",
+      subtitulo: "El círculo se forma",
+      descripcion: "Tu compromiso atrae a otros. Un círculo de reconstrucción nace cuando varias personas deciden sostener un estándar compartido en el mismo territorio.",
       alcance: "5–10 personas",
       icon: <Heart className="w-6 h-6" />
     },
     {
       nivel: "03",
-      titulo: "Tu Barrio",
-      subtitulo: "Las preguntas correctas son virales",
-      descripcion: "Un vecino que actúa diferente genera curiosidad. Curiosidad genera conversación. Conversación genera conciencia. Conciencia genera acción.",
+      titulo: "Tu Célula",
+      subtitulo: "La célula territorial se activa",
+      descripcion: "Varios círculos forman una célula territorial: unidad mínima de servicio y acción. Relevamiento, verificación, cuadrillas, acompañamiento.",
       alcance: "50–200 personas",
       icon: <Users className="w-6 h-6" />
     },
     {
       nivel: "04",
-      titulo: "Tu Ciudad",
-      subtitulo: "El movimiento se vuelve innegable",
-      descripcion: "Miles de semillas despiertas transforman barrios en comunidades vivas. Los sistemas obsoletos no se derrumban — se vuelven irrelevantes cuando los nuevos funcionan mejor.",
+      titulo: "Tu Misión",
+      subtitulo: "La misión toma cuerpo",
+      descripcion: "Miles de compromisos alimentan una misión nacional. La evidencia se acumula, las propuestas se concretan, y el mandato territorial se vuelve exigible.",
       alcance: "Miles",
       icon: <Globe className="w-6 h-6" />
     },
     {
       nivel: "05",
-      titulo: "Tu País",
-      subtitulo: "Argentina samaritana — el destino profetizado",
-      descripcion: "No se trata de reformar lo viejo. Se trata de crear lo nuevo con tal fuerza que lo viejo quede obsoleto. Argentina no será ejemplo por decreto — será ejemplo por contagio.",
+      titulo: "Tu Evidencia",
+      subtitulo: "La evidencia se vuelve irrefutable",
+      descripcion: "Lo que se prueba no se puede negar. Cuando millones de señales, compromisos y evidencias convergen, el país deja de improvisar y empieza a reconstruirse con verdad operativa.",
       alcance: "46 millones",
       icon: <Sun className="w-6 h-6" />
     }
@@ -486,8 +486,8 @@ const LaSemillaDeBasta = () => {
               </h1>
 
               <p className="text-xl md:text-2xl text-emerald-100/60 max-w-3xl mx-auto mb-12 leading-relaxed font-light">
-                "El árbol seco de la Argentina sabrá de una era de nueva lluvia." <br />
-                Hoy sembramos los hábitos que impedirán que la tormenta termine en violencia.
+                Un país roto no se salva por acumulación de buenas ideas. Se salva por orden de ejecución. <br />
+                Y el orden empieza con un compromiso que podés sostener.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-6 justify-center mb-20">
@@ -782,63 +782,80 @@ const LaSemillaDeBasta = () => {
           </div>
         </section>
 
-        {/* Argentina Samaritana */}
+        {/* Tu semilla alimenta una misión */}
         <section className="section-spacing relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-orange-900/20 via-[#050a05] to-[#050a05]" />
-          
+          <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/20 via-[#050a05] to-[#050a05]" />
+
           <div className="container-content relative z-10">
-            <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-              <div>
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-900/30 border border-orange-500/30 text-orange-400 text-sm font-mono mb-6 tracking-widest uppercase">
-                  <HandHeart className="w-4 h-4" />
-                  Visión 1942
+            <div className="max-w-5xl mx-auto">
+              <div className="text-center mb-12">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-900/30 border border-emerald-500/30 text-emerald-400 text-sm font-mono mb-6 tracking-widest uppercase">
+                  <Target className="w-4 h-4" />
+                  Cinco misiones nacionales
                 </div>
                 <h2 className="heading-section mb-6">
-                  Argentina <span className="text-orange-400">Samaritana</span>
+                  Tu semilla alimenta <span className="text-emerald-400">una misión</span>
                 </h2>
-                <p className="text-body mb-8">
-                  "Tierras tengo para el que sufre en quemazón..." Parravicini visualizó a nuestro país como refugio. 
-                  Ese destino comienza con individuos que se convierten en semilla viva de hospitalidad.
+                <p className="text-body max-w-2xl mx-auto">
+                  Cada compromiso personal se conecta con una de las cinco misiones de la reconstrucción. No es un gesto simbólico — es una pieza de una arquitectura más grande.
                 </p>
-                <div className="space-y-4">
-                  {[
-                    "Me comprometo a abrir espacios seguros.",
-                    "Me preparo para compartir recursos.",
-                    "Acompaño a Sudamérica a curar heridas."
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-4 p-4 bg-white/5 rounded-xl border border-white/5">
-                      <CheckCircle className="w-5 h-5 text-orange-500" />
-                      <span className="text-emerald-100/80">{item}</span>
-                    </div>
-                  ))}
-                </div>
               </div>
-
-              <div className="relative">
-                <div className="absolute inset-0 bg-orange-500/10 blur-3xl rounded-full" />
-                <div className="card-unified p-10 relative border-orange-500/20 bg-orange-950/10 backdrop-blur-xl text-center">
-                  <Globe className="w-16 h-16 text-orange-400 mx-auto mb-6" />
-                  <h3 className="text-2xl font-bold text-white mb-4">Tu Semilla es Global</h3>
-                  <p className="text-emerald-100/60 mb-8">
-                    Al sanar tu parte del tejido social, estás preparando a la nación para su rol histórico de sanadora mundial.
-                  </p>
-                  <PowerCTA
-                    text="ASUMIR ROL SAMARITANO"
-                    variant="accent"
-                    onClick={() => setShowCommitmentModal(true)}
-                    size="lg"
-                    animate={true}
-                  />
-                </div>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {[
+                  { mission: "La Base Está", action: "Si cuidás un vecino", icon: "❶", color: "red" },
+                  { mission: "Territorio Legible", action: "Si documentás lo que pasa", icon: "❷", color: "blue" },
+                  { mission: "Producción y Suelo Vivo", action: "Si ofrecés un oficio", icon: "❸", color: "green" },
+                  { mission: "Infancia, Escuela y Cultura", action: "Si acompañás un pibe", icon: "❹", color: "purple" },
+                  { mission: "Instituciones y Futuro", action: "Si exigís transparencia", icon: "❺", color: "amber" },
+                ].map((m, i) => (
+                  <div key={i} className="flex items-start gap-4 p-5 bg-white/5 rounded-xl border border-white/5 hover:border-emerald-500/20 transition-colors">
+                    <span className="text-2xl">{m.icon}</span>
+                    <div>
+                      <p className="text-emerald-100/60 text-sm mb-1">{m.action}</p>
+                      <p className="text-white font-semibold">Misión {i + 1}: {m.mission}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="text-center mt-10">
+                <PowerCTA
+                  text="ELEGIR MI ROL EN LA RECONSTRUCCIÓN"
+                  variant="accent"
+                  onClick={() => setShowCommitmentModal(true)}
+                  size="lg"
+                  animate={true}
+                />
               </div>
             </div>
           </div>
         </section>
 
         {/* Next Steps */}
+        {/* ━━━ CLOSING PATTERN ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+        <section className="py-20 md:py-28">
+          <div className="container mx-auto px-4">
+            <div className="max-w-3xl mx-auto rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-sm p-8 md:p-10">
+              <div className="space-y-6">
+                {[
+                  { label: "Qué estamos viendo", text: "Millones de personas que sienten el hartazgo pero no tienen dónde canalizarlo con método." },
+                  { label: "Qué hacemos ahora", text: "Convertir cada compromiso en semilla medible, ligada a una misión y a un territorio." },
+                  { label: "Qué no vamos a hacer todavía", text: "Prometer que un hábito personal salva un país. La semilla necesita mapa, mandato y círculo." },
+                  { label: "Cómo se mide", text: "Compromisos activos, misiones alimentadas, evidencia generada." },
+                  { label: "Qué podés hacer vos", text: "Declarar un compromiso concreto, elegir una misión, y sostenerlo con estándar." },
+                ].map((item, i) => (
+                  <div key={i} className="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-4">
+                    <span className="text-emerald-400 font-bold text-sm whitespace-nowrap min-w-[220px]">{item.label}</span>
+                    <span className="text-slate-400 text-sm leading-relaxed">{item.text}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
         <NextStepCard
-          title="Llevá Tu Semilla al Mapa"
-          description="Tu compromiso cobra vida en el mapa. Explorá cómo se conectan las semillas de cambio en todo el territorio argentino."
+          title="Llevá tu declaración al Mapa"
+          description="Tu compromiso cobra vida cuando se carga en el territorio. Servir es poner tu verdad al servicio de los demás."
           href="/el-mapa"
           gradient="from-emerald-900 to-blue-900"
           icon={<MapPin className="w-5 h-5" />}

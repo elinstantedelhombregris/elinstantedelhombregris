@@ -28,10 +28,10 @@ export interface MissionDefinition {
 
 export const MISSIONS: MissionDefinition[] = [
   {
-    slug: 'supervivencia-digna',
+    slug: 'la-base-esta',
     number: 1,
-    label: 'Supervivencia Digna',
-    shortLabel: 'Supervivencia',
+    label: 'La Base Está',
+    shortLabel: 'La Base',
     description: 'Agua, vivienda, salud, energia, seguridad de proximidad',
     whatHurts: 'La intemperie material. El agua que falta o enferma. El alquiler que expulsa. La salud que llega tarde. El barrio donde el miedo organiza mas que la ley.',
     whatWeGuarantee: 'Agua, saneamiento basico, refugio digno, alimentacion esencial, salud primaria, continuidad energetica minima y seguridad de proximidad.',

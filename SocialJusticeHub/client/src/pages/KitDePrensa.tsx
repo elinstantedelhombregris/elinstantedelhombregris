@@ -117,8 +117,8 @@ Los nueve planes estratégicos cubren educación (PLANEDU), regeneración del su
     { icon: Users, name: 'El Hombre Gris', desc: 'El marco filosófico de la identidad colectiva' },
     { icon: Sparkles, name: 'La Semilla', desc: 'Visualización del movimiento creciendo' },
     { icon: MapPin, name: 'El Mapa', desc: 'Sueños, valores y necesidades visibles en el territorio' },
-    { icon: Vote, name: 'El Mandato Vivo', desc: 'Democracia directa por datos, no por opiniones' },
-    { icon: Globe, name: 'La Tribu', desc: 'Comunidad activa donde la acción se sostiene' },
+    { icon: Vote, name: 'El Mandato Vivo', desc: 'Convergencia ciudadana en tiempo real. Lo que se prueba se puede exigir.' },
+    { icon: Globe, name: 'Los Círculos', desc: 'Círculos de reconstrucción donde la acción se sostiene' },
   ];
 
   const strategicPlans = [

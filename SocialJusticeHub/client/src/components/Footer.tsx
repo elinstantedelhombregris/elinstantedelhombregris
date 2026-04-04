@@ -63,7 +63,7 @@ const Footer = () => {
                 { label: 'La Semilla', href: '/la-semilla-de-basta' },
                 { label: 'El Mapa', href: '/el-mapa' },
                 { label: 'El Mandato Vivo', href: '/el-mandato-vivo' },
-                { label: 'La Tribu', href: '/community' }
+                { label: 'Los Círculos', href: '/community' }
               ].map((link) => (
                 <li key={link.href}>
                   <Link href={link.href} className="text-slate-300 hover:text-blue-400 hover:translate-x-1 transition-all duration-300 inline-flex items-center gap-2 text-sm font-medium">

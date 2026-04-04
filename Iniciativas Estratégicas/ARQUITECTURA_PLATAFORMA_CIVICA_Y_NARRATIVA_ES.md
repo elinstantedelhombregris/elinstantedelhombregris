@@ -164,16 +164,16 @@ La experiencia debe poder leerse así:
 
 1. `Ver`
    comprender la herida, la visión y el marco.
-2. `Declarar`
-   decir qué soñás, qué necesitás, qué rechazás, qué podés aportar.
-3. `Entender`
-   mirar el mandato de tu territorio y qué misión pesa más ahí.
+2. `Entender`
+   incorporar el marco ético del Hombre Gris: humildad, verdad operativa y servicio. Hace falta entendimiento antes de poder declarar con responsabilidad.
+3. `Declarar`
+   plantar la semilla: decir qué soñás, qué necesitás, qué rechazás, qué podés aportar y qué compromiso sostenés.
 4. `Servir`
-   elegir una célula, un círculo o una acción concreta.
+   cargar tu verdad en el mapa. La información que subís es un acto de servicio para vos y para los demás. Lo que el territorio dice se vuelve legible.
 5. `Probar`
-   subir evidencia, avances, obstáculos o historias.
+   el mandato vivo convierte las señales en iniciativa cívica para la gestión pública. Lo que se prueba se puede exigir.
 6. `Multiplicar`
-   invitar, enseñar, custodiar, narrar.
+   encontrar tu círculo de reconstrucción. Invitar, enseñar, custodiar, narrar.
 
 Regla de producto:
 
@@ -300,7 +300,7 @@ Modelo conceptual:
 
 ```ts
 type MissionSlug =
-  | 'supervivencia-digna'
+  | 'la-base-esta'
   | 'territorio-legible'
   | 'produccion-y-suelo-vivo'
   | 'infancia-escuela-cultura'
@@ -358,24 +358,17 @@ Agregar:
 - `verificationStatus`
 - `evidenceLinks`
 
-## Tribus, células y lenguaje público
+## Los Círculos, células y lenguaje público
 
-`Dato:` el repo ya tiene un sistema muy desarrollado de `Tribus`.
+`Dato:` el repo tiene un sistema de comunidad que históricamente usó el nombre `Tribus`.
 
-`Inferencia:` como identidad interna y motor de comunidad, `Tribus` funciona. Como fachada estatal o lenguaje de reclutamiento amplio, puede cerrar más de lo que abre.
-
-### Resolución propuesta
-
-- Internamente:
-  se preserva `Tribus` como sistema de coordinación, pertenencia, aprendizaje y engagement.
-- Hacia afuera:
-  el lenguaje preferido pasa a ser `Células Territoriales` o `Círculos de Reconstrucción`.
+`Resolución:` el lenguaje público unificado es `Los Círculos` — abreviatura de `Círculos de Reconstrucción`. Las `Células Territoriales` son la unidad mínima de servicio dentro de los círculos.
 
 ### Regla de traducción
 
-- tribu = estructura social interna,
-- célula = unidad mínima de servicio y acción,
-- círculo = espacio local de encuentro, lectura y coordinación.
+- círculo de reconstrucción = espacio local de encuentro, lectura, coordinación y multiplicación,
+- célula territorial = unidad mínima de servicio y acción dentro de un círculo,
+- Los Círculos = nombre público del sexto paso del journey (Multiplicar).
 
 ## Open data con cuidado
 

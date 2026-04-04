@@ -138,7 +138,7 @@ export const PLAN_NODES: PlanNode[] = [
     legalInstruments: 7, constitutionalFloor: '0.50-1.50% PBI',
     mainSource: 'Presupuesto nacional (% gasto salud) + reasignación',
     color: '#f43f5e', slug: 'plansal-salud-integral',
-    missionSlug: 'supervivencia-digna', temporalOrder: 'emergencia', priority: 'alta', state: 'verde',
+    missionSlug: 'la-base-esta', temporalOrder: 'emergencia', priority: 'alta', state: 'verde',
   },
   {
     id: 'PLANISV', name: 'Plan Nacional de Infraestructura de Suelo Vivo', ordinal: 9,
@@ -158,7 +158,7 @@ export const PLAN_NODES: PlanNode[] = [
     legalInstruments: 8, constitutionalFloor: '0.15% PBI',
     mainSource: 'Piso constitucional + créditos hídricos + financiamiento climático',
     color: '#22c55e', slug: 'planagua-soberania-hidrica',
-    missionSlug: 'supervivencia-digna', temporalOrder: 'emergencia', priority: 'alta', state: 'verde',
+    missionSlug: 'la-base-esta', temporalOrder: 'emergencia', priority: 'alta', state: 'verde',
   },
   {
     id: 'PLAN24CN', name: 'Plan Nacional de 24 Ciudades Nuevas', ordinal: 11,
@@ -188,7 +188,7 @@ export const PLAN_NODES: PlanNode[] = [
     legalInstruments: 1, constitutionalFloor: '0.50% PBI',
     mainSource: 'Inversión privada condicionada (35%) + multilaterales + reasignación subsidios',
     color: '#64748b', slug: 'planen-soberania-energetica',
-    missionSlug: 'supervivencia-digna', secondaryMissionSlug: 'produccion-y-suelo-vivo', temporalOrder: 'transicion', priority: 'media', state: 'ambar',
+    missionSlug: 'la-base-esta', secondaryMissionSlug: 'produccion-y-suelo-vivo', temporalOrder: 'transicion', priority: 'media', state: 'ambar',
   },
   {
     id: 'PLANSEG', name: 'Plan Nacional de Seguridad Ciudadana', ordinal: 14,
@@ -198,7 +198,7 @@ export const PLAN_NODES: PlanNode[] = [
     legalInstruments: 1, constitutionalFloor: '0.05-0.10% PBI neto',
     mainSource: 'Reasignación gasto seguridad (60%) + presupuesto nacional + multilaterales',
     color: '#6366f1', slug: 'planseg-seguridad-ciudadana',
-    missionSlug: 'supervivencia-digna', secondaryMissionSlug: 'instituciones-y-futuro', temporalOrder: 'emergencia', priority: 'alta', state: 'ambar',
+    missionSlug: 'la-base-esta', secondaryMissionSlug: 'instituciones-y-futuro', temporalOrder: 'emergencia', priority: 'alta', state: 'ambar',
   },
   {
     id: 'PLANVIV', name: 'Plan Nacional de Vivienda Digna', ordinal: 15,
@@ -208,7 +208,7 @@ export const PLAN_NODES: PlanNode[] = [
     legalInstruments: 2, constitutionalFloor: '2.00% PBI',
     mainSource: 'Autofinanciamiento repagos (40%) + inversión privada (25%) + presupuesto (20%)',
     color: '#64748b', slug: 'planviv-vivienda-digna',
-    missionSlug: 'supervivencia-digna', temporalOrder: 'emergencia', priority: 'alta', state: 'verde',
+    missionSlug: 'la-base-esta', temporalOrder: 'emergencia', priority: 'alta', state: 'verde',
   },
   {
     id: 'PLANCUL', name: 'Plan Nacional de Cultura Viva', ordinal: 16,

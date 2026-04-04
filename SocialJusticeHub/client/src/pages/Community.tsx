@@ -105,7 +105,7 @@ const Community = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = 'La Tribu - Comunidad de Transformadores | ¡BASTA!';
+    document.title = 'Los Círculos - Comunidad de Reconstrucción | ¡BASTA!';
   }, []);
 
   // === DATA QUERIES ===
@@ -205,7 +205,7 @@ const Community = () => {
     staleTime: 60000,
   });
 
-  // Mi Tribu data (only when logged in)
+  // Mi Círculo data (only when logged in)
   const { data: myPosts = [] } = useQuery({
     queryKey: ['community-my-posts'],
     queryFn: async () => {
@@ -368,7 +368,7 @@ const Community = () => {
     { value: 'exchange', label: 'Intercambios', icon: <Sparkles className="w-4 h-4" /> },
   ];
 
-  // Filter posts based on Mi Tribu card selection
+  // Filter posts based on Mi Círculo card selection
   const displayPosts = useMemo(() => {
     let filtered = posts.filter((p: CommunityPost) => p.type !== 'mission');
     if (showOnlyMine) {
@@ -401,7 +401,7 @@ const Community = () => {
               <SmoothReveal direction="down">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-900/20 border border-blue-500/30 text-blue-400 text-sm font-mono mb-8 tracking-widest uppercase backdrop-blur-md">
                   <Users className="w-4 h-4" />
-                  La Tribu de Transformadores
+                  Los Círculos de Reconstrucción
                 </div>
               </SmoothReveal>
 
@@ -466,7 +466,7 @@ const Community = () => {
               <div className="flex items-center gap-2 mb-6">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-900/20 border border-blue-500/30 text-blue-400 text-xs font-mono tracking-widest uppercase">
                   <Flame className="w-3 h-3" />
-                  Mi Tribu
+                  Mi Círculo
                 </div>
               </div>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">

@@ -99,7 +99,7 @@ const howItWorksCards = [
     color: "amber-400",
     bg: "amber-500/10",
     title: "El Mandato Se Escribe Solo",
-    desc: "Cada viernes a las 17:55, el motor de convergencia genera mandatos territoriales automáticos. Nadie vota. Nadie debate.",
+    desc: "Cada viernes a las 17:55, el motor de convergencia sintetiza las señales del territorio en un mandato legible. No reemplaza la deliberación: la vuelve posible con verdad operativa.",
   },
   {
     icon: Rocket,
@@ -142,7 +142,7 @@ const statStyles: Record<string, { text: string; bgIcon: string }> = {
 const ElMandatoVivo = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = 'El Mandato Vivo - Democracia Directa por Datos';
+    document.title = 'El Mandato Vivo - Convergencia ciudadana en tiempo real';
   }, []);
 
   // Map data
@@ -198,7 +198,7 @@ const ElMandatoVivo = () => {
             >
               <Scroll className="w-4 h-4 text-amber-500 animate-pulse" />
               <span className="text-amber-500 font-mono text-xs tracking-[0.3em] uppercase">
-                Democracia Directa por Datos
+                Probar — Convergencia Ciudadana
               </span>
             </motion.div>
 
@@ -221,7 +221,7 @@ const ElMandatoVivo = () => {
               transition={{ duration: 0.7, delay: 0.3 }}
               className="text-xl md:text-2xl text-slate-400 max-w-2xl mx-auto mb-10"
             >
-              Lo que el pueblo declara se convierte en mandato irrefutable. Cada viernes el motor de convergencia traduce la voz colectiva en propuestas accionables.
+              Las señales del mapa se convierten en iniciativa cívica para la gestión pública. Cuando la convergencia es clara, el mandato se vuelve exigible.
             </motion.p>
 
             <motion.div
@@ -609,7 +609,7 @@ const ElMandatoVivo = () => {
               transition={{ duration: 0.6 }}
               className="text-4xl md:text-6xl font-bold text-white font-serif mb-6"
             >
-              El Mandato Te Necesita
+              Alimentá el mandato con tu señal
             </motion.h2>
 
             <motion.p
@@ -647,10 +647,38 @@ const ElMandatoVivo = () => {
           </div>
         </section>
 
+        {/* ━━━ CLOSING PATTERN ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
+        <section className="py-16">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto rounded-2xl border border-white/10 bg-white/[0.02] p-8 md:p-10 space-y-5">
+              <div className="flex flex-col sm:flex-row sm:items-start gap-2">
+                <span className="font-bold text-emerald-400 whitespace-nowrap min-w-[220px]">Qué estamos viendo:</span>
+                <span className="text-slate-400">Un sistema político que decide sin datos y una ciudadanía que grita sin síntesis.</span>
+              </div>
+              <div className="flex flex-col sm:flex-row sm:items-start gap-2">
+                <span className="font-bold text-emerald-400 whitespace-nowrap min-w-[220px]">Qué hacemos ahora:</span>
+                <span className="text-slate-400">Convertir señales territoriales en mandatos legibles que la gestión pública pueda ejecutar y la ciudadanía pueda exigir.</span>
+              </div>
+              <div className="flex flex-col sm:flex-row sm:items-start gap-2">
+                <span className="font-bold text-blue-400 whitespace-nowrap min-w-[220px]">Qué no vamos a hacer todavía:</span>
+                <span className="text-slate-400">Tratar como representativo un mandato con baja densidad. Los mandatos muestran cobertura y no simulan certeza donde no la hay.</span>
+              </div>
+              <div className="flex flex-col sm:flex-row sm:items-start gap-2">
+                <span className="font-bold text-emerald-400 whitespace-nowrap min-w-[220px]">Cómo se mide:</span>
+                <span className="text-slate-400">Porcentaje de mandatos con llamada a la acción visible. Propuestas generadas. Propuestas con respuesta institucional.</span>
+              </div>
+              <div className="flex flex-col sm:flex-row sm:items-start gap-2">
+                <span className="font-bold text-emerald-400 whitespace-nowrap min-w-[220px]">Qué podés hacer vos:</span>
+                <span className="text-slate-400">Alimentar el mapa con tu verdad. Lo que declarás se sintetiza. Lo que se sintetiza se puede probar. Lo que se prueba se puede exigir.</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* ━━━ SECTION 10: NEXT STEP CARD ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
         <NextStepCard
-          title="Únete a la Tribu"
-          description="El mandato no se defiende solo. Encontrá a otros que vibran en tu misma frecuencia y empezá a construir."
+          title="Encontrá tu círculo de reconstrucción"
+          description="El mandato se sostiene en células territoriales. Lo que se probó necesita quien lo multiplique. Encontrá la que necesita tu capacidad."
           href="/community"
           gradient="from-[#0f172a] to-[#1e293b]"
           icon={<Users className="w-5 h-5" />}

@@ -16,7 +16,7 @@ export type InitiativeCategory =
 // === Mission-centric types (from PLAN_MAESTRO & MATRIZ_MISIONES_Y_PLANES) ===
 
 export type MissionSlug =
-  | 'supervivencia-digna'
+  | 'la-base-esta'
   | 'territorio-legible'
   | 'produccion-y-suelo-vivo'
   | 'infancia-escuela-cultura'
@@ -1317,7 +1317,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
       { title: 'Russell Ackoff — Idealized Design (Metodología)' },
     ],
     // Mission-centric classification
-    missionSlug: 'supervivencia-digna',
+    missionSlug: 'la-base-esta',
     temporalOrder: 'emergencia',
     priority: 'alta',
     state: 'verde',
@@ -1745,7 +1745,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
       { title: 'Russell Ackoff — Idealized Design (Metodología)' },
     ],
     // Mission-centric classification
-    missionSlug: 'supervivencia-digna',
+    missionSlug: 'la-base-esta',
     temporalOrder: 'emergencia',
     priority: 'alta',
     state: 'verde',
@@ -2649,7 +2649,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
       { title: 'Russell Ackoff — Idealized Design (Metodología)' },
     ],
     // Mission-centric classification
-    missionSlug: 'supervivencia-digna',
+    missionSlug: 'la-base-esta',
     secondaryMissionSlug: 'produccion-y-suelo-vivo',
     temporalOrder: 'transicion',
     priority: 'media',
@@ -2825,7 +2825,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
       { title: 'Russell Ackoff — Idealized Design (Metodología)' },
     ],
     // Mission-centric classification
-    missionSlug: 'supervivencia-digna',
+    missionSlug: 'la-base-esta',
     secondaryMissionSlug: 'instituciones-y-futuro',
     temporalOrder: 'emergencia',
     priority: 'alta',
@@ -2999,7 +2999,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
       { title: 'Russell Ackoff — Idealized Design (Metodología)' },
     ],
     // Mission-centric classification
-    missionSlug: 'supervivencia-digna',
+    missionSlug: 'la-base-esta',
     temporalOrder: 'emergencia',
     priority: 'alta',
     state: 'verde',

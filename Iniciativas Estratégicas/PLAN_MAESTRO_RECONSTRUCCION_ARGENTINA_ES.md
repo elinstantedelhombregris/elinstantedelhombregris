@@ -235,7 +235,7 @@ Límite: no anticipar complejidades permanentes antes de haber recuperado la bas
 
 ## Cinco misiones nacionales
 
-## Misión 1: Supervivencia Digna
+## Misión 1: La Base Está
 
 `Principio:` ningún argentino debería acostarse sin agua segura, techo habitable, comida suficiente, atención primaria y una mínima certeza de orden.
 

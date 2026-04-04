@@ -15,7 +15,10 @@ import {
   Sprout,
   Sparkles,
   Quote,
-  BookOpen
+  BookOpen,
+  MessageSquare,
+  Hammer,
+  Users
 } from 'lucide-react';
 import { Link } from 'wouter';
 
@@ -65,7 +68,7 @@ const ElInstanteDelHombreGris = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = 'El Instante del Hombre Gris - El Despertar de la Consciencia | ¡BASTA!';
+    document.title = 'El Instante del Hombre Gris - Un marco ético para la reconstrucción | ¡BASTA!';
   }, []);
 
   const awakeningSteps = [
@@ -302,6 +305,50 @@ const ElInstanteDelHombreGris = () => {
                         <p className={`text-sm font-mono ${trait.accent} mb-2`}>{trait.quote}</p>
                         <p className="text-xs text-slate-500 uppercase tracking-wider">Acción: {trait.action}</p>
                       </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Seis Roles Ciudadanos */}
+        <section className="section-spacing relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-purple-900/5 to-[#0a0a0a]" />
+          <div className="container-content relative z-10">
+            <div className="max-w-5xl mx-auto">
+              <div className="text-center mb-16">
+                <h2 className="heading-section mb-6">Seis formas de encarnar al Hombre Gris</h2>
+                <p className="text-body max-w-3xl mx-auto">
+                  El Hombre Gris no es una abstracción. Es un rol concreto que podés ocupar en la reconstrucción.
+                </p>
+              </div>
+
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {[
+                  { title: "Testigo", description: "Ve y documenta la realidad. Mira de frente lo que otros normalizan.", icon: <Eye className="w-8 h-8" />, accent: "text-indigo-300", gradient: "from-indigo-500/20 to-blue-500/20", border: "border-indigo-500/20" },
+                  { title: "Declarante", description: "Expresa sueño, valor, necesidad o basta. Pone la verdad en el mapa.", icon: <MessageSquare className="w-8 h-8" />, accent: "text-purple-300", gradient: "from-purple-500/20 to-pink-500/20", border: "border-purple-500/20" },
+                  { title: "Constructor", description: "Aporta tiempo, oficio, recurso o trabajo. Hace con las manos.", icon: <Hammer className="w-8 h-8" />, accent: "text-amber-300", gradient: "from-amber-500/20 to-orange-500/20", border: "border-amber-500/20" },
+                  { title: "Custodio", description: "Verifica, audita, corrige y alerta. Cuida que lo que funciona no se pudra.", icon: <Shield className="w-8 h-8" />, accent: "text-emerald-300", gradient: "from-emerald-500/20 to-teal-500/20", border: "border-emerald-500/20" },
+                  { title: "Organizador", description: "Coordina células, círculos y nodos. Teje la red territorial.", icon: <Users className="w-8 h-8" />, accent: "text-sky-300", gradient: "from-sky-500/20 to-cyan-500/20", border: "border-sky-500/20" },
+                  { title: "Narrador", description: "Convierte prueba y proceso en relato compartible. La historia que legitima.", icon: <BookOpen className="w-8 h-8" />, accent: "text-rose-300", gradient: "from-rose-500/20 to-pink-500/20", border: "border-rose-500/20" },
+                ].map((role, index) => (
+                  <motion.div
+                    key={role.title}
+                    initial={{ opacity: 0, y: 24 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-40px" }}
+                    transition={{ delay: index * 0.1 }}
+                    className="group relative"
+                  >
+                    <div className={`absolute inset-0 bg-gradient-to-br ${role.gradient} rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                    <div className={`relative h-full bg-white/5 backdrop-blur-md border ${role.border} rounded-2xl p-6 hover:border-white/20 transition-all duration-500 flex flex-col`}>
+                      <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${role.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500`}>
+                        <div className={role.accent}>{role.icon}</div>
+                      </div>
+                      <h3 className="text-xl font-bold text-white mb-2">{role.title}</h3>
+                      <p className="text-slate-400 text-sm leading-relaxed flex-grow">{role.description}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -562,7 +609,7 @@ const ElInstanteDelHombreGris = () => {
                     </div>
                     <h3 className="text-3xl font-bold text-white mb-4">¿Sos vos?</h3>
                     <p className="text-slate-300 mb-8 text-lg">
-                      "Argentina no necesita un nuevo líder político. Necesita millones de miradas grises capaces de refinar la realidad."
+                      "Argentina no necesita un nuevo líder político. Necesita testigos que miren de frente, constructores que armen con evidencia, y custodios que no dejen pudrir lo que funciona. ¿Qué rol es el tuyo?"
                     </p>
                     <PowerCTA
                       text="SÍ, ACEPTO EL LLAMADO"
@@ -590,9 +637,9 @@ const ElInstanteDelHombreGris = () => {
               <div className="bg-[#1a103c] border border-purple-500/50 rounded-2xl p-6 shadow-[0_0_50px_rgba(168,85,247,0.4)] text-center">
                 <div className="flex items-center justify-center gap-3 mb-2">
                   <Crown className="w-6 h-6 text-yellow-400 animate-pulse" />
-                  <h3 className="text-white font-bold text-lg">Hombre Gris Despertado</h3>
+                  <h3 className="text-white font-bold text-lg">Primer compromiso registrado</h3>
                 </div>
-                <p className="text-purple-200 text-sm mb-4">Has tomado el primer paso. Tu consciencia se ha encendido.</p>
+                <p className="text-purple-200 text-sm mb-4">Diste el primer paso. Lo que sigue es sostenerlo.</p>
                 <Button 
                   onClick={() => setIsAwakened(false)}
                   size="sm"
@@ -606,10 +653,38 @@ const ElInstanteDelHombreGris = () => {
           )}
         </AnimatePresence>
 
+        {/* Closing Pattern */}
+        <section className="section-spacing">
+          <div className="container-content">
+            <div className="max-w-3xl mx-auto">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 space-y-5"
+              >
+                {[
+                  { label: "Qué estamos viendo", text: "Un país que confunde liderazgo con caudillismo y participación con fanatismo." },
+                  { label: "Qué hacemos ahora", text: "Entrenar otra forma de mirar: con humildad, con verdad operativa, con servicio." },
+                  { label: "Qué no vamos a hacer todavía", text: "Prometer pureza moral ni adornar la complejidad como si fuera sabiduría." },
+                  { label: "Cómo se mide", text: "Roles ocupados, compromisos sostenidos, relevos generados." },
+                  { label: "Qué podés hacer vos", text: "Elegir un rol, sostenerlo con estándar, y dejar de esperar permiso para cuidar lo común." },
+                ].map((item, index) => (
+                  <div key={index} className={index > 0 ? "pt-4 border-t border-white/5" : ""}>
+                    <span className="text-sm font-semibold text-purple-400 block mb-1">{item.label}</span>
+                    <p className="text-slate-300 leading-relaxed">{item.text}</p>
+                  </div>
+                ))}
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
         {/* Next Step */}
         <NextStepCard
           title="Siembra la Semilla del Cambio"
-          description="Transforma tu despertar en hábitos y compromisos dentro de La Semilla para nutrir la revolución consciente."
+          description="Entendiste el marco. Ahora declaralo. En La Semilla plantás tu primer compromiso concreto con la reconstrucción."
           href="/la-semilla-de-basta"
           gradient="from-[#1f2335] to-[#3b275c]"
           icon={<Sprout className="w-5 h-5" />}

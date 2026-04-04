@@ -13,11 +13,11 @@ import { Link } from 'wouter';
 const steps = [
   {
     num: '01',
-    title: 'La Visión',
-    subtitle: 'Diagnóstico compartido',
-    description: 'Una lectura clara de la Argentina real para alinear prioridades, evitar improvisación y orientar decisiones con evidencia.',
+    title: 'Ver',
+    subtitle: 'La Visión',
+    description: 'Comprender la herida y el marco. Una lectura clara de la Argentina real para alinear prioridades con evidencia.',
     href: '/la-vision',
-    cta: 'Ver diagnóstico',
+    cta: 'Ver',
     icon: <Eye className="w-6 h-6" />,
     accent: 'from-blue-400 to-blue-600',
     text: 'text-blue-400',
@@ -30,11 +30,11 @@ const steps = [
   },
   {
     num: '02',
-    title: 'El Hombre Gris',
-    subtitle: 'Cambio cultural',
-    description: 'Un marco ético y práctico para pasar del enojo disperso a una forma madura de participación y liderazgo ciudadano.',
+    title: 'Entender',
+    subtitle: 'El Hombre Gris',
+    description: 'Incorporar el marco ético. Hace falta entendimiento antes de declarar: humildad, verdad operativa, servicio.',
     href: '/el-instante-del-hombre-gris',
-    cta: 'Profundizar',
+    cta: 'Entender',
     icon: <Brain className="w-6 h-6" />,
     accent: 'from-purple-400 to-purple-600',
     text: 'text-purple-400',
@@ -47,11 +47,11 @@ const steps = [
   },
   {
     num: '03',
-    title: 'La Semilla',
-    subtitle: 'Primer movimiento',
-    description: 'Convertir visión en hábito: una acción concreta, repetible y medible para generar tracción real desde el primer día.',
+    title: 'Declarar',
+    subtitle: 'La Semilla',
+    description: 'Plantar tu compromiso. Decir qué soñás, qué necesitás, qué rechazás y qué estás dispuesto a sostener.',
     href: '/la-semilla-de-basta',
-    cta: 'Activar',
+    cta: 'Declarar',
     icon: <Sprout className="w-6 h-6" />,
     accent: 'from-emerald-400 to-emerald-600',
     text: 'text-emerald-400',
@@ -64,11 +64,11 @@ const steps = [
   },
   {
     num: '04',
-    title: 'El Mapa',
-    subtitle: 'Coordinación territorial',
-    description: 'Una infraestructura abierta para conectar personas, causas y acciones locales con foco en impacto colectivo.',
+    title: 'Servir',
+    subtitle: 'El Mapa',
+    description: 'Cargar tu verdad en el mapa. Tu información es un acto de servicio: lo que el territorio dice se vuelve legible.',
     href: '/el-mapa',
-    cta: 'Entrar al mapa',
+    cta: 'Servir',
     icon: <MapPin className="w-6 h-6" />,
     accent: 'from-amber-400 to-orange-500',
     text: 'text-amber-400',
@@ -81,11 +81,11 @@ const steps = [
   },
   {
     num: '05',
-    title: 'El Mandato',
-    subtitle: 'Democracia directa por datos',
-    description: 'Los datos del mapa se convierten en mandatos territoriales. La convergencia de voces genera el plan de acción vinculante.',
+    title: 'Probar',
+    subtitle: 'El Mandato',
+    description: 'Las señales se convierten en iniciativa cívica para la gestión pública. Lo que se prueba se puede exigir.',
     href: '/el-mandato-vivo',
-    cta: 'Ver el mandato',
+    cta: 'Probar',
     icon: <ScrollText className="w-6 h-6" />,
     accent: 'from-red-400 to-red-600',
     text: 'text-red-400',
@@ -98,11 +98,11 @@ const steps = [
   },
   {
     num: '06',
-    title: 'La Tribu',
-    subtitle: 'Comunidad activa',
-    description: 'Un espacio para sostener aprendizaje, colaboración y ejecución. La transformación se consolida cuando nadie trabaja solo.',
+    title: 'Multiplicar',
+    subtitle: 'Los Círculos',
+    description: 'Encontrar tu círculo de reconstrucción. Células territoriales que sostienen lo que una persona sola no puede. Cuando la prueba se comparte, el relato se vuelve legítimo.',
     href: '/community',
-    cta: 'Sumarme',
+    cta: 'Multiplicar',
     icon: <Users className="w-6 h-6" />,
     accent: 'from-pink-400 to-rose-500',
     text: 'text-pink-400',
@@ -134,7 +134,7 @@ const Home = () => {
 
   const handleShare = () => {
     const text = encodeURIComponent(
-      `¡BASTA! No es solo un grito, es un movimiento. Argentina despierta. ${window.location.origin}`
+      `¡BASTA! No es solo un grito, es una reconstrucción. Cinco misiones, seis verbos, y millones de autores. ${window.location.origin}`
     );
     window.open(`https://twitter.com/intent/tweet?text=${text}`, '_blank');
   };
@@ -168,6 +168,69 @@ const Home = () => {
           <AparatoPolitico />
         </div>
 
+        {/* ═══ 3.5. FIVE MISSIONS ═════════════════════════ */}
+        <section className="py-28 md:py-36 bg-[#0a0a0a] relative overflow-hidden">
+          <div className="absolute inset-0 pointer-events-none" style={{
+            backgroundImage:
+              'radial-gradient(at 30% 40%, hsla(200,70%,50%,0.04) 0px, transparent 50%),' +
+              'radial-gradient(at 70% 70%, hsla(40,70%,50%,0.03) 0px, transparent 50%)',
+          }} />
+
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="max-w-5xl mx-auto">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7 }}
+                className="text-center mb-14"
+              >
+                <span className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/[0.08] text-[11px] uppercase tracking-[0.3em] text-amber-300/70 mb-6">
+                  Cinco misiones nacionales
+                </span>
+                <h2 className="text-4xl md:text-[3.5rem] lg:text-6xl font-black text-white mb-6 tracking-tight leading-[0.95]">
+                  No hay reconstrucción
+                  <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-red-400">
+                    sin orden de prioridad
+                  </span>
+                </h2>
+                <p className="text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
+                  Miramos la Argentina real y encontramos cinco heridas que no se pueden resolver por separado.
+                </p>
+              </motion.div>
+
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {[
+                  { num: '01', title: 'La Base Está', desc: 'Agua, vivienda, salud, energía, seguridad de proximidad', accent: 'text-blue-400', border: 'border-blue-500/15', bg: 'bg-blue-500/10', numColor: 'text-blue-500/[0.06]' },
+                  { num: '02', title: 'Territorio Legible', desc: 'Señales, mandatos, datos abiertos, rieles digitales básicos', accent: 'text-emerald-400', border: 'border-emerald-500/15', bg: 'bg-emerald-500/10', numColor: 'text-emerald-500/[0.06]' },
+                  { num: '03', title: 'Producción y Suelo Vivo', desc: 'Empleo útil, suelo regenerado, empresas bastardas, cadenas territoriales', accent: 'text-amber-400', border: 'border-amber-500/15', bg: 'bg-amber-500/10', numColor: 'text-amber-500/[0.06]' },
+                  { num: '04', title: 'Infancia, Escuela y Cultura', desc: 'Niñez cuidada, escuela significativa, cultura viva', accent: 'text-purple-400', border: 'border-purple-500/15', bg: 'bg-purple-500/10', numColor: 'text-purple-500/[0.06]' },
+                  { num: '05', title: 'Instituciones y Futuro', desc: 'Justicia, integridad, anticaptura, settlement institucional', accent: 'text-red-400', border: 'border-red-500/15', bg: 'bg-red-500/10', numColor: 'text-red-500/[0.06]' },
+                ].map((mission, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: i * 0.08 }}
+                    className={`relative rounded-2xl bg-white/[0.02] border ${mission.border} p-6 overflow-hidden`}
+                  >
+                    <span className={`absolute -top-2 right-3 text-[4.5rem] font-black ${mission.numColor} leading-none select-none pointer-events-none`}>
+                      {mission.num}
+                    </span>
+                    <div className={`w-8 h-8 rounded-lg ${mission.bg} flex items-center justify-center mb-3 ${mission.accent} text-sm font-bold border ${mission.border}`}>
+                      {mission.num}
+                    </div>
+                    <h3 className="text-lg font-bold text-white mb-2">{mission.title}</h3>
+                    <p className="text-slate-400 text-sm leading-relaxed">{mission.desc}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* ═══ 4. THE JOURNEY ════════════════════════════ */}
         <section className="py-28 md:py-36 bg-[#0a0a0a] relative overflow-hidden">
           {/* Multi-color ambient glow */}
@@ -192,15 +255,15 @@ const Home = () => {
                   El camino
                 </span>
                 <h2 className="text-4xl md:text-[3.5rem] lg:text-6xl font-black text-white mb-6 tracking-tight leading-[0.95]">
-                  Seis pasos hacia
+                  De ver la herida a probar
                   <br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400">
-                    la transformación
+                    que se puede reconstruir
                   </span>
                 </h2>
                 <p className="text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed">
-                  Entender la realidad, formar criterio, generar tracción,
-                  coordinar territorio, construir el mandato y sostener comunidad.
+                  Ver. Entender. Declarar. Servir. Probar. Multiplicar.
+                  Seis verbos. Una arquitectura cívica.
                 </p>
               </motion.div>
 
@@ -284,16 +347,16 @@ const Home = () => {
                 </span>
 
                 <h2 className="text-4xl md:text-[3.5rem] font-black text-white mb-6 tracking-tight leading-[0.95]">
-                  El camino ya está trazado.
+                  No venimos a administrar ruinas.
                   <br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
-                    Solo falta que empieces.
+                    Venimos a dejar armado un país que sepa escucharse, priorizar, producir, cuidarse y corregirse.
                   </span>
                 </h2>
 
                 <p className="text-lg text-slate-400 mb-10 max-w-xl mx-auto leading-relaxed">
-                  Elegí por dónde entrar: diagnosticá la realidad, formá tu criterio
-                  o sumá tu acción al mapa. Cada paso cuenta.
+                  Elegí tu primer verbo: ver lo que pasa, entender el marco, o declarar lo que no vas a negociar.
+                  No hace falta esperar a millones. Hace falta dejar de delegar la primera parte.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">

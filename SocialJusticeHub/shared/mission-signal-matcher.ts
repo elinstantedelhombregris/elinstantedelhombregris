@@ -19,7 +19,7 @@ export interface SignalScore {
 
 // Hardcoded domain keywords per mission slug
 const MISSION_KEYWORDS: Record<string, string[]> = {
-  'supervivencia-digna': [
+  'la-base-esta': [
     'agua', 'vivienda', 'salud', 'hospital', 'energia', 'seguridad', 'alquiler',
     'comida', 'alimentacion', 'refugio', 'techo', 'medicina', 'violencia', 'barrio',
     'luz', 'gas', 'potable', 'saneamiento', 'calefaccion',

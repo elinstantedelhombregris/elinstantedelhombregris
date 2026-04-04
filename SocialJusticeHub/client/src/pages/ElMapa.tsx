@@ -44,7 +44,7 @@ const ElMapa = () => {
             >
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-900/20 border border-blue-500/30 text-blue-400 text-xs font-mono uppercase tracking-[0.2em] mb-8">
                 <Compass className="w-4 h-4 animate-pulse" />
-                Sala de Situación Nacional
+                Servir — Territorio Legible
               </div>
               
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold leading-tight mb-8">
@@ -57,6 +57,10 @@ const ElMapa = () => {
               <p className="text-xl md:text-2xl text-slate-400 max-w-2xl mx-auto leading-relaxed font-light">
                 Lo evidente disciplina. Lo invisible habilita el abuso. <br />
                 Este es el mapa que devuelve el mando a su dueño legítimo.
+              </p>
+
+              <p className="text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed mt-6">
+                Cada señal que subís al mapa es un acto de servicio. Tu verdad, cargada con honestidad, vuelve legible lo que el territorio necesita.
               </p>
               
               <motion.div 
@@ -140,11 +144,14 @@ const ElMapa = () => {
               <span className="text-blue-500 font-mono text-xs tracking-[0.3em] uppercase">Herramienta Táctica</span>
               <h2 className="text-4xl font-bold text-white mt-4 mb-6">Definir el Territorio</h2>
               <p className="text-slate-400 max-w-2xl mx-auto">
-                Tu visión geolocalizada es una orden directa. Cuando miles de puntos coinciden, 
+                Tu visión geolocalizada es una orden directa. Cuando miles de puntos coinciden,
                 el mandato se vuelve irrefutable.
               </p>
+              <p className="text-slate-400 max-w-3xl mx-auto mt-4 text-sm leading-relaxed">
+                Podés declarar: <span className="text-blue-400 font-medium">sueño</span> (qué futuro querés), <span className="text-purple-400 font-medium">valor</span> (qué no negociás), <span className="text-amber-400 font-medium">necesidad</span> (qué te falta), <span className="text-red-400 font-medium">basta</span> (qué ya no tolerás), <span className="text-emerald-400 font-medium">compromiso</span> (qué vas a sostener), <span className="text-teal-400 font-medium">recurso</span> (qué podés aportar).
+              </p>
             </div>
-            
+
             <div className="relative z-20">
               <SovereignMap />
             </div>
@@ -162,7 +169,7 @@ const ElMapa = () => {
                 transition={{ duration: 0.6 }}
               >
                 <span className="text-purple-500 font-mono text-xs tracking-[0.3em] uppercase">
-                  Inteligencia Colectiva
+                  Sistema nervioso del territorio
                 </span>
                 <h2 className="text-4xl font-bold text-white mt-4 mb-6">
                   La Red que Nos Une
@@ -196,7 +203,7 @@ const ElMapa = () => {
         <section className="py-24 bg-[#0f1116] border-y border-white/5">
           <div className="container-content">
             <div className="text-center mb-16">
-              <span className="text-blue-500 font-mono text-xs tracking-[0.3em] uppercase">Inteligencia Colectiva</span>
+              <span className="text-blue-500 font-mono text-xs tracking-[0.3em] uppercase">Síntesis territorial</span>
               <h2 className="text-4xl font-bold text-white mt-4 mb-6">El Pulso del Territorio</h2>
               <p className="text-slate-400 max-w-2xl mx-auto">
                 Lo que pensás, lo piensa tu vecino. Lo que soñás, lo sueña tu país.
@@ -215,18 +222,46 @@ const ElMapa = () => {
               Hacer visible lo que soñamos.
             </h2>
             <p className="text-xl text-slate-300 mb-12 max-w-2xl mx-auto">
-              No es rebelión. Es claridad absoluta. <br/>
-              Un pueblo que sabe hacia dónde va, es imparable.
+              No es rebelión. Es legibilidad. <br/>
+              Un territorio que se ve a sí mismo con verdad operativa deja menos margen para el abuso.
             </p>
             
             <div className="flex justify-center">
               <PowerCTA 
-                text="OCUPÁ TU LUGAR EN EL MAPA"
+                text="CARGÁ TU VERDAD: un sueño, una necesidad, un basta, un recurso o un compromiso"
                 variant="primary"
                 size="xl"
                 onClick={() => document.getElementById('mapa-interactivo')?.scrollIntoView({ behavior: 'smooth' })}
                 animate={true}
               />
+            </div>
+          </div>
+        </section>
+
+        {/* CLOSING PATTERN */}
+        <section className="py-16">
+          <div className="container-content">
+            <div className="max-w-4xl mx-auto rounded-2xl border border-white/10 bg-white/[0.02] p-8 md:p-10 space-y-5">
+              <div className="flex flex-col sm:flex-row sm:items-start gap-2">
+                <span className="font-bold text-emerald-400 whitespace-nowrap min-w-[220px]">Qué estamos viendo:</span>
+                <span className="text-slate-400">Un país que siente mucho pero no tiene dónde depositar su verdad de manera útil.</span>
+              </div>
+              <div className="flex flex-col sm:flex-row sm:items-start gap-2">
+                <span className="font-bold text-emerald-400 whitespace-nowrap min-w-[220px]">Qué hacemos ahora:</span>
+                <span className="text-slate-400">Volver legible lo que hoy está disperso. Cada señal es un acto de servicio.</span>
+              </div>
+              <div className="flex flex-col sm:flex-row sm:items-start gap-2">
+                <span className="font-bold text-blue-400 whitespace-nowrap min-w-[220px]">Qué no vamos a hacer todavía:</span>
+                <span className="text-slate-400">Publicar como representativo lo que todavía es parcial. Los territorios con baja cobertura se marcan como tales.</span>
+              </div>
+              <div className="flex flex-col sm:flex-row sm:items-start gap-2">
+                <span className="font-bold text-emerald-400 whitespace-nowrap min-w-[220px]">Cómo se mide:</span>
+                <span className="text-slate-400">Cobertura territorial, densidad de señal por tipo, tiempo entre señal y síntesis.</span>
+              </div>
+              <div className="flex flex-col sm:flex-row sm:items-start gap-2">
+                <span className="font-bold text-emerald-400 whitespace-nowrap min-w-[220px]">Qué podés hacer vos:</span>
+                <span className="text-slate-400">Cargar tu verdad en el mapa. Es servicio. Es orden. Es dignidad.</span>
+              </div>
             </div>
           </div>
         </section>

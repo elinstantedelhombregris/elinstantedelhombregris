@@ -93,7 +93,7 @@ export default function IniciativaDetalle() {
 
   const missionMeta = initiative.missionSlug ? MISSION_META[initiative.missionSlug] : null;
 
-  // Find the La Tribu post for this mission (to link "Sumate")
+  // Find the Círculos post for this mission (to link "Sumate")
   const { data: missionPost } = useQuery({
     queryKey: ['mission-post', initiative.missionSlug],
     queryFn: async () => {
@@ -196,7 +196,7 @@ export default function IniciativaDetalle() {
         </section>
       )}
 
-      {/* Mission CTA — Link to La Tribu */}
+      {/* Mission CTA — Link to Los Círculos */}
       {missionMeta && missionPost && (
         <section className="py-12 bg-white">
           <div className="max-w-4xl mx-auto px-4 lg:pl-24">
@@ -214,7 +214,7 @@ export default function IniciativaDetalle() {
                       Este plan forma parte de una misión más grande
                     </h3>
                     <p className="text-sm text-slate-600">
-                      Sumate al espacio de trabajo en La Tribu. Hay tareas concretas, hitos por cumplir y gente que ya está poniendo el cuerpo.
+                      Sumate al círculo de reconstrucción de esta misión. Hay tareas concretas, hitos por cumplir y gente que ya está poniendo el cuerpo.
                     </p>
                   </div>
                   <Link href={`/community/${missionPost.id}`}>
