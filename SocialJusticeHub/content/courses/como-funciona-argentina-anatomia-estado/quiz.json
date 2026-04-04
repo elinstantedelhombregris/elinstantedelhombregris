@@ -1,0 +1,141 @@
+{
+  "title": "Quiz: Cómo Funciona Argentina de Verdad",
+  "description": "Evaluá tu comprensión del funcionamiento real del Estado argentino.",
+  "passingScore": 70,
+  "timeLimit": 15,
+  "allowRetakes": true,
+  "maxAttempts": 3,
+  "legacyQuizId": 61,
+  "questions": [
+    {
+      "question": "¿Qué son los DNU (Decretos de Necesidad y Urgencia)?",
+      "type": "multiple_choice",
+      "options": [
+        "Leyes votadas por el Congreso",
+        "Decretos del presidente con fuerza de ley",
+        "Resoluciones judiciales",
+        "Ordenanzas municipales"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Los DNU permiten al presidente legislar sin pasar por el Congreso, diseñados para emergencias.",
+      "points": 2,
+      "orderIndex": 1,
+      "legacyQuestionId": 585
+    },
+    {
+      "question": "El 95% de los proyectos de ley muere en comisión sin llegar al recinto.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": true,
+      "explanation": "La gran mayoría de los proyectos nunca se tratan en el recinto. El presidente de comisión decide qué se trata.",
+      "points": 1,
+      "orderIndex": 2,
+      "legacyQuestionId": 586
+    },
+    {
+      "question": "¿Qué organismo controla la emisión de dinero en Argentina?",
+      "type": "multiple_choice",
+      "options": [
+        "AFIP",
+        "ANSES",
+        "BCRA",
+        "AGN"
+      ],
+      "correctAnswer": 2,
+      "explanation": "El Banco Central de la República Argentina (BCRA) controla la política monetaria y la emisión.",
+      "points": 2,
+      "orderIndex": 3,
+      "legacyQuestionId": 587
+    },
+    {
+      "question": "¿Qué artículo constitucional establece el derecho al amparo?",
+      "type": "multiple_choice",
+      "options": [
+        "Artículo 14",
+        "Artículo 19",
+        "Artículo 43",
+        "Artículo 75"
+      ],
+      "correctAnswer": 2,
+      "explanation": "El artículo 43 establece el amparo como herramienta de protección rápida de derechos constitucionales.",
+      "points": 2,
+      "orderIndex": 4,
+      "legacyQuestionId": 588
+    },
+    {
+      "question": "La coparticipación es la distribución de recursos de las provincias a la Nación.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "Es al revés: la Nación recauda y distribuye (coparticipa) a las provincias.",
+      "points": 1,
+      "orderIndex": 5,
+      "legacyQuestionId": 589
+    },
+    {
+      "question": "¿Cuál es la partida más grande del presupuesto nacional?",
+      "type": "multiple_choice",
+      "options": [
+        "Defensa",
+        "Seguridad social (jubilaciones, AUH)",
+        "Educación",
+        "Obra pública"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La seguridad social (jubilaciones, AUH, pensiones) representa más del 40% del presupuesto.",
+      "points": 2,
+      "orderIndex": 6,
+      "legacyQuestionId": 590
+    },
+    {
+      "question": "¿Qué herramienta web permite ver la ejecución del presupuesto en tiempo real?",
+      "type": "multiple_choice",
+      "options": [
+        "afip.gob.ar",
+        "presupuestoabierto.gob.ar",
+        "datos.gob.ar",
+        "argentina.gob.ar"
+      ],
+      "correctAnswer": 1,
+      "explanation": "presupuestoabierto.gob.ar muestra en tiempo real cómo se ejecuta el presupuesto nacional.",
+      "points": 2,
+      "orderIndex": 7,
+      "legacyQuestionId": 591
+    },
+    {
+      "question": "Ser fiscal de mesa es una forma de participación electoral ciudadana.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": true,
+      "explanation": "Los fiscales de mesa controlan el proceso electoral y son fundamentales para la transparencia.",
+      "points": 1,
+      "orderIndex": 8,
+      "legacyQuestionId": 592
+    },
+    {
+      "question": "¿Qué es el clientelismo político?",
+      "type": "multiple_choice",
+      "options": [
+        "Un sistema de partidos competitivo",
+        "Un sistema de intercambio de recursos por lealtad política",
+        "Un tipo de campaña electoral",
+        "Un modelo de gestión eficiente"
+      ],
+      "correctAnswer": 1,
+      "explanation": "El clientelismo es un sistema donde se intercambia acceso a recursos del Estado por apoyo político.",
+      "points": 2,
+      "orderIndex": 9,
+      "legacyQuestionId": 593
+    },
+    {
+      "question": "La Defensoría del Pueblo de la Nación funciona normalmente desde 1994.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "La Defensoría del Pueblo está vacante desde 2009, lo que la ha dejado inoperante.",
+      "points": 1,
+      "orderIndex": 10,
+      "legacyQuestionId": 594
+    }
+  ]
+}

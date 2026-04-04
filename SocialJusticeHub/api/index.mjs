@@ -47,10 +47,22 @@ __export(schema_exports, {
   communityPostsRelations: () => communityPostsRelations,
   courseCertificates: () => courseCertificates,
   courseCertificatesRelations: () => courseCertificatesRelations,
+  courseDefinitions: () => courseDefinitions,
+  courseDefinitionsRelations: () => courseDefinitionsRelations,
+  courseLessonIdentities: () => courseLessonIdentities,
+  courseLessonIdentitiesRelations: () => courseLessonIdentitiesRelations,
   courseLessons: () => courseLessons,
   courseLessonsRelations: () => courseLessonsRelations,
   courseQuizzes: () => courseQuizzes,
   courseQuizzesRelations: () => courseQuizzesRelations,
+  courseRevisionLessons: () => courseRevisionLessons,
+  courseRevisionLessonsRelations: () => courseRevisionLessonsRelations,
+  courseRevisionQuizQuestions: () => courseRevisionQuizQuestions,
+  courseRevisionQuizQuestionsRelations: () => courseRevisionQuizQuestionsRelations,
+  courseRevisionQuizzes: () => courseRevisionQuizzes,
+  courseRevisionQuizzesRelations: () => courseRevisionQuizzesRelations,
+  courseRevisions: () => courseRevisions,
+  courseRevisionsRelations: () => courseRevisionsRelations,
   courses: () => courses,
   coursesRelations: () => coursesRelations,
   digestProposals: () => digestProposals,
@@ -83,8 +95,14 @@ __export(schema_exports, {
   insertCommunityPostInteractionSchema: () => insertCommunityPostInteractionSchema,
   insertCommunityPostSchema: () => insertCommunityPostSchema,
   insertCourseCertificateSchema: () => insertCourseCertificateSchema,
+  insertCourseDefinitionSchema: () => insertCourseDefinitionSchema,
+  insertCourseLessonIdentitySchema: () => insertCourseLessonIdentitySchema,
   insertCourseLessonSchema: () => insertCourseLessonSchema,
   insertCourseQuizSchema: () => insertCourseQuizSchema,
+  insertCourseRevisionLessonSchema: () => insertCourseRevisionLessonSchema,
+  insertCourseRevisionQuizQuestionSchema: () => insertCourseRevisionQuizQuestionSchema,
+  insertCourseRevisionQuizSchema: () => insertCourseRevisionQuizSchema,
+  insertCourseRevisionSchema: () => insertCourseRevisionSchema,
   insertCourseSchema: () => insertCourseSchema,
   insertDigestProposalSchema: () => insertDigestProposalSchema,
   insertDreamSchema: () => insertDreamSchema,
@@ -117,6 +135,8 @@ __export(schema_exports, {
   insertMandateSuggestionSchema: () => insertMandateSuggestionSchema,
   insertMeetingParticipantSchema: () => insertMeetingParticipantSchema,
   insertMembershipRequestSchema: () => insertMembershipRequestSchema,
+  insertMissionChronicleSchema: () => insertMissionChronicleSchema,
+  insertMissionEvidenceSchema: () => insertMissionEvidenceSchema,
   insertMonthlyRankingSchema: () => insertMonthlyRankingSchema,
   insertNotificationSchema: () => insertNotificationSchema,
   insertPlatformFeedbackSchema: () => insertPlatformFeedbackSchema,
@@ -205,6 +225,10 @@ __export(schema_exports, {
   meetingParticipantsRelations: () => meetingParticipantsRelations,
   membershipRequests: () => membershipRequests,
   membershipRequestsRelations: () => membershipRequestsRelations,
+  missionChronicles: () => missionChronicles,
+  missionChroniclesRelations: () => missionChroniclesRelations,
+  missionEvidence: () => missionEvidence,
+  missionEvidenceRelations: () => missionEvidenceRelations,
   monthlyRankings: () => monthlyRankings,
   monthlyRankingsRelations: () => monthlyRankingsRelations,
   notifications: () => notifications,
@@ -280,7 +304,7 @@ import { pgTable, serial, integer, text, real, boolean, unique, index } from "dr
 import { sql } from "drizzle-orm";
 import { createInsertSchema } from "drizzle-zod";
 import { relations } from "drizzle-orm";
-var users, dreams, userResources, communityPosts, resources, inspiringStories, communityPostInteractions, communityMessages, communityPostActivity, geographicLocations, communityPostLikes, communityPostViews, sentimentAnalysis, textEmbeddings, userProfiles, recommendations, aiInsights, blockchainTransactions, iotSensors, sensorData, vrMeetings, meetingParticipants, blogPosts, postTags, postLikes, postComments, postBookmarks, postViews, courses, courseLessons, courseQuizzes, quizQuestions, userCourseProgress, userLessonProgress, quizAttempts, quizAttemptAnswers, courseCertificates, userLevels, challenges, challengeSteps, userChallengeProgress, badges, userBadges, userDailyActivity, userCommitments, userActions, userProgress, weeklyRankings, monthlyRankings, provinceRankings, territoryMandates, mandateSuggestions, initiativeMembers, initiativeMilestones, initiativeMessages, initiativeTasks, activityFeed, membershipRequests, notifications, lifeAreas, lifeAreaSubcategories, lifeAreaQuizzes, lifeAreaQuizQuestions, lifeAreaQuizResponses, lifeAreaScores, lifeAreaActions, userLifeAreaProgress, lifeAreaMilestones, lifeAreaIndicators, lifeAreaCommunityStats, lifeAreaXpLog, lifeAreaLevels, lifeAreaStreaks, lifeAreaBadges, userLifeAreaBadges, lifeAreaCurrency, lifeAreaRewardChests, lifeAreaChallenges, userLifeAreaChallenges, lifeAreaMastery, lifeAreaNotifications, lifeAreaSocialInteractions, usersRelations, userResourcesRelations, territoryMandatesRelations, mandateSuggestionsRelations, dreamsRelations, communityPostsRelations, communityPostInteractionsRelations, communityMessagesRelations, communityPostActivityRelations, userProfilesRelations, recommendationsRelations, vrMeetingsRelations, meetingParticipantsRelations, userLevelsRelations, challengesRelations, challengeStepsRelations, userChallengeProgressRelations, badgesRelations, userBadgesRelations, userDailyActivityRelations, userCommitmentsRelations, userActionsRelations, userProgressRelations, weeklyRankingsRelations, monthlyRankingsRelations, provinceRankingsRelations, blogPostsRelations, postTagsRelations, postLikesRelations, postCommentsRelations, postBookmarksRelations, postViewsRelations, coursesRelations, courseLessonsRelations, courseQuizzesRelations, quizQuestionsRelations, userCourseProgressRelations, userLessonProgressRelations, quizAttemptsRelations, quizAttemptAnswersRelations, courseCertificatesRelations, iotSensorsRelations, sensorDataRelations, inspiringStoriesRelations, initiativeMembersRelations, initiativeMilestonesRelations, initiativeMessagesRelations, initiativeTasksRelations, activityFeedRelations, membershipRequestsRelations, notificationsRelations, lifeAreasRelations, lifeAreaSubcategoriesRelations, lifeAreaQuizzesRelations, lifeAreaQuizQuestionsRelations, lifeAreaQuizResponsesRelations, lifeAreaScoresRelations, lifeAreaActionsRelations, userLifeAreaProgressRelations, lifeAreaMilestonesRelations, lifeAreaIndicatorsRelations, lifeAreaCommunityStatsRelations, lifeAreaXpLogRelations, lifeAreaLevelsRelations, lifeAreaStreaksRelations, lifeAreaBadgesRelations, userLifeAreaBadgesRelations, lifeAreaCurrencyRelations, lifeAreaRewardChestsRelations, lifeAreaChallengesRelations, userLifeAreaChallengesRelations, lifeAreaMasteryRelations, lifeAreaNotificationsRelations, lifeAreaSocialInteractionsRelations, civicAssessments, civicAssessmentResponses, civicProfiles, civicGoals, weeklyCheckins, coachingSessions, coachingPrompts, platformFeedback, insertUserSchema, insertDreamSchema, insertCommunityPostSchema, insertResourceSchema, insertInspiringStorySchema, insertSentimentAnalysisSchema, insertTextEmbeddingSchema, insertUserProfileSchema, insertRecommendationSchema, insertAiInsightSchema, insertBlockchainTransactionSchema, insertIotSensorSchema, insertSensorDataSchema, insertVrMeetingSchema, insertMeetingParticipantSchema, insertUserResourceSchema, insertTerritoryMandateSchema, insertMandateSuggestionSchema, insertUserLevelSchema, insertChallengeSchema, insertChallengeStepSchema, insertUserChallengeProgressSchema, insertBadgeSchema, insertUserBadgeSchema, insertUserDailyActivitySchema, insertUserCommitmentSchema, insertUserActionSchema, insertUserProgressSchema, insertWeeklyRankingSchema, insertMonthlyRankingSchema, insertProvinceRankingSchema, insertBlogPostSchema, insertPostTagSchema, insertPostLikeSchema, insertPostCommentSchema, insertPostBookmarkSchema, insertPostViewSchema, insertCourseSchema, insertCourseLessonSchema, insertCourseQuizSchema, insertQuizQuestionSchema, insertUserCourseProgressSchema, insertUserLessonProgressSchema, insertQuizAttemptSchema, insertQuizAttemptAnswerSchema, insertCourseCertificateSchema, insertCommunityPostInteractionSchema, insertCommunityMessageSchema, insertCommunityPostActivitySchema, insertInitiativeMemberSchema, insertInitiativeMilestoneSchema, insertInitiativeMessageSchema, insertInitiativeTaskSchema, insertActivityFeedSchema, insertMembershipRequestSchema, insertNotificationSchema, insertLifeAreaSchema, insertLifeAreaSubcategorySchema, insertLifeAreaQuizSchema, insertLifeAreaQuizQuestionSchema, insertLifeAreaQuizResponseSchema, insertLifeAreaScoreSchema, insertLifeAreaActionSchema, insertUserLifeAreaProgressSchema, insertLifeAreaMilestoneSchema, insertLifeAreaIndicatorSchema, insertLifeAreaCommunityStatsSchema, insertLifeAreaXpLogSchema, insertLifeAreaLevelSchema, insertLifeAreaStreakSchema, insertLifeAreaBadgeSchema, insertUserLifeAreaBadgeSchema, insertLifeAreaCurrencySchema, insertLifeAreaRewardChestSchema, insertLifeAreaChallengeSchema, insertUserLifeAreaChallengeSchema, insertLifeAreaMasterySchema, insertLifeAreaNotificationSchema, insertLifeAreaSocialInteractionSchema, civicAssessmentsRelations, civicAssessmentResponsesRelations, civicProfilesRelations, civicGoalsRelations, weeklyCheckinsRelations, coachingSessionsRelations, coachingPromptsRelations, insertCivicAssessmentSchema, insertCivicAssessmentResponseSchema, insertCivicProfileSchema, insertCivicGoalSchema, insertWeeklyCheckinSchema, insertCoachingSessionSchema, insertCoachingPromptSchema, weeklyDigests, digestProposals, proposalStatusHistory, insertWeeklyDigestSchema, insertDigestProposalSchema, insertProposalStatusHistorySchema, insertPlatformFeedbackSchema;
+var users, dreams, userResources, communityPosts, resources, inspiringStories, communityPostInteractions, communityMessages, communityPostActivity, geographicLocations, communityPostLikes, communityPostViews, sentimentAnalysis, textEmbeddings, userProfiles, recommendations, aiInsights, blockchainTransactions, iotSensors, sensorData, vrMeetings, meetingParticipants, blogPosts, postTags, postLikes, postComments, postBookmarks, postViews, courses, courseLessons, courseQuizzes, quizQuestions, courseDefinitions, courseRevisions, courseLessonIdentities, courseRevisionLessons, courseRevisionQuizzes, courseRevisionQuizQuestions, userCourseProgress, userLessonProgress, quizAttempts, quizAttemptAnswers, courseCertificates, userLevels, challenges, challengeSteps, userChallengeProgress, badges, userBadges, userDailyActivity, userCommitments, userActions, userProgress, weeklyRankings, monthlyRankings, provinceRankings, territoryMandates, mandateSuggestions, initiativeMembers, initiativeMilestones, initiativeMessages, initiativeTasks, activityFeed, missionEvidence, missionChronicles, membershipRequests, notifications, lifeAreas, lifeAreaSubcategories, lifeAreaQuizzes, lifeAreaQuizQuestions, lifeAreaQuizResponses, lifeAreaScores, lifeAreaActions, userLifeAreaProgress, lifeAreaMilestones, lifeAreaIndicators, lifeAreaCommunityStats, lifeAreaXpLog, lifeAreaLevels, lifeAreaStreaks, lifeAreaBadges, userLifeAreaBadges, lifeAreaCurrency, lifeAreaRewardChests, lifeAreaChallenges, userLifeAreaChallenges, lifeAreaMastery, lifeAreaNotifications, lifeAreaSocialInteractions, usersRelations, userResourcesRelations, territoryMandatesRelations, mandateSuggestionsRelations, dreamsRelations, communityPostsRelations, communityPostInteractionsRelations, communityMessagesRelations, communityPostActivityRelations, userProfilesRelations, recommendationsRelations, vrMeetingsRelations, meetingParticipantsRelations, userLevelsRelations, challengesRelations, challengeStepsRelations, userChallengeProgressRelations, badgesRelations, userBadgesRelations, userDailyActivityRelations, userCommitmentsRelations, userActionsRelations, userProgressRelations, weeklyRankingsRelations, monthlyRankingsRelations, provinceRankingsRelations, blogPostsRelations, postTagsRelations, postLikesRelations, postCommentsRelations, postBookmarksRelations, postViewsRelations, coursesRelations, courseLessonsRelations, courseQuizzesRelations, quizQuestionsRelations, courseDefinitionsRelations, courseRevisionsRelations, courseLessonIdentitiesRelations, courseRevisionLessonsRelations, courseRevisionQuizzesRelations, courseRevisionQuizQuestionsRelations, userCourseProgressRelations, userLessonProgressRelations, quizAttemptsRelations, quizAttemptAnswersRelations, courseCertificatesRelations, iotSensorsRelations, sensorDataRelations, inspiringStoriesRelations, initiativeMembersRelations, initiativeMilestonesRelations, initiativeMessagesRelations, initiativeTasksRelations, activityFeedRelations, missionEvidenceRelations, missionChroniclesRelations, membershipRequestsRelations, notificationsRelations, lifeAreasRelations, lifeAreaSubcategoriesRelations, lifeAreaQuizzesRelations, lifeAreaQuizQuestionsRelations, lifeAreaQuizResponsesRelations, lifeAreaScoresRelations, lifeAreaActionsRelations, userLifeAreaProgressRelations, lifeAreaMilestonesRelations, lifeAreaIndicatorsRelations, lifeAreaCommunityStatsRelations, lifeAreaXpLogRelations, lifeAreaLevelsRelations, lifeAreaStreaksRelations, lifeAreaBadgesRelations, userLifeAreaBadgesRelations, lifeAreaCurrencyRelations, lifeAreaRewardChestsRelations, lifeAreaChallengesRelations, userLifeAreaChallengesRelations, lifeAreaMasteryRelations, lifeAreaNotificationsRelations, lifeAreaSocialInteractionsRelations, civicAssessments, civicAssessmentResponses, civicProfiles, civicGoals, weeklyCheckins, coachingSessions, coachingPrompts, platformFeedback, insertUserSchema, insertDreamSchema, insertCommunityPostSchema, insertResourceSchema, insertInspiringStorySchema, insertSentimentAnalysisSchema, insertTextEmbeddingSchema, insertUserProfileSchema, insertRecommendationSchema, insertAiInsightSchema, insertBlockchainTransactionSchema, insertIotSensorSchema, insertSensorDataSchema, insertVrMeetingSchema, insertMeetingParticipantSchema, insertUserResourceSchema, insertTerritoryMandateSchema, insertMandateSuggestionSchema, insertUserLevelSchema, insertChallengeSchema, insertChallengeStepSchema, insertUserChallengeProgressSchema, insertBadgeSchema, insertUserBadgeSchema, insertUserDailyActivitySchema, insertUserCommitmentSchema, insertUserActionSchema, insertUserProgressSchema, insertWeeklyRankingSchema, insertMonthlyRankingSchema, insertProvinceRankingSchema, insertBlogPostSchema, insertPostTagSchema, insertPostLikeSchema, insertPostCommentSchema, insertPostBookmarkSchema, insertPostViewSchema, insertCourseSchema, insertCourseLessonSchema, insertCourseQuizSchema, insertQuizQuestionSchema, insertCourseDefinitionSchema, insertCourseRevisionSchema, insertCourseLessonIdentitySchema, insertCourseRevisionLessonSchema, insertCourseRevisionQuizSchema, insertCourseRevisionQuizQuestionSchema, insertUserCourseProgressSchema, insertUserLessonProgressSchema, insertQuizAttemptSchema, insertQuizAttemptAnswerSchema, insertCourseCertificateSchema, insertCommunityPostInteractionSchema, insertCommunityMessageSchema, insertCommunityPostActivitySchema, insertInitiativeMemberSchema, insertInitiativeMilestoneSchema, insertInitiativeMessageSchema, insertInitiativeTaskSchema, insertActivityFeedSchema, insertMissionEvidenceSchema, insertMissionChronicleSchema, insertMembershipRequestSchema, insertNotificationSchema, insertLifeAreaSchema, insertLifeAreaSubcategorySchema, insertLifeAreaQuizSchema, insertLifeAreaQuizQuestionSchema, insertLifeAreaQuizResponseSchema, insertLifeAreaScoreSchema, insertLifeAreaActionSchema, insertUserLifeAreaProgressSchema, insertLifeAreaMilestoneSchema, insertLifeAreaIndicatorSchema, insertLifeAreaCommunityStatsSchema, insertLifeAreaXpLogSchema, insertLifeAreaLevelSchema, insertLifeAreaStreakSchema, insertLifeAreaBadgeSchema, insertUserLifeAreaBadgeSchema, insertLifeAreaCurrencySchema, insertLifeAreaRewardChestSchema, insertLifeAreaChallengeSchema, insertUserLifeAreaChallengeSchema, insertLifeAreaMasterySchema, insertLifeAreaNotificationSchema, insertLifeAreaSocialInteractionSchema, civicAssessmentsRelations, civicAssessmentResponsesRelations, civicProfilesRelations, civicGoalsRelations, weeklyCheckinsRelations, coachingSessionsRelations, coachingPromptsRelations, insertCivicAssessmentSchema, insertCivicAssessmentResponseSchema, insertCivicProfileSchema, insertCivicGoalSchema, insertWeeklyCheckinSchema, insertCoachingSessionSchema, insertCoachingPromptSchema, weeklyDigests, digestProposals, proposalStatusHistory, insertWeeklyDigestSchema, insertDigestProposalSchema, insertProposalStatusHistorySchema, insertPlatformFeedbackSchema;
 var init_schema = __esm({
   "shared/schema.ts"() {
     "use strict";
@@ -351,7 +375,7 @@ var init_schema = __esm({
       title: text("title").notNull(),
       description: text("description").notNull(),
       type: text("type").notNull(),
-      // employment, exchange, volunteer, project, donation
+      // employment, exchange, volunteer, project, donation, mission
       location: text("location").notNull(),
       participants: integer("participants"),
       status: text("status").notNull().default("active").$type(),
@@ -367,6 +391,9 @@ var init_schema = __esm({
       postalCode: text("postal_code"),
       country: text("country").default("Argentina"),
       address: text("address"),
+      // Mission linkage
+      missionSlug: text("mission_slug"),
+      // Links to a national mission (MissionSlug)
       // New fields for initiative features
       requiresApproval: boolean("requires_approval").default(false),
       memberCount: integer("member_count").default(0),
@@ -735,16 +762,123 @@ var init_schema = __esm({
       orderIndex: integer("order_index").notNull(),
       createdAt: text("created_at").default(sql`now()`)
     });
+    courseDefinitions = pgTable("course_definitions", {
+      id: serial("id").primaryKey(),
+      slug: text("slug").notNull().unique(),
+      legacyCourseId: integer("legacy_course_id").references(() => courses.id),
+      sourcePath: text("source_path"),
+      currentPublishedRevisionId: integer("current_published_revision_id").references(() => courseRevisions.id),
+      viewCount: integer("view_count").default(0),
+      createdAt: text("created_at").default(sql`now()`),
+      updatedAt: text("updated_at").default(sql`now()`)
+    }, (table) => ({
+      uniqueLegacyCourse: unique().on(table.legacyCourseId)
+    }));
+    courseRevisions = pgTable("course_revisions", {
+      id: serial("id").primaryKey(),
+      courseDefinitionId: integer("course_definition_id").references(() => courseDefinitions.id),
+      revisionNumber: integer("revision_number").notNull(),
+      contentHash: text("content_hash").notNull(),
+      title: text("title").notNull(),
+      description: text("description").notNull(),
+      excerpt: text("excerpt"),
+      category: text("category").notNull().$type(),
+      level: text("level").notNull().$type(),
+      duration: integer("duration"),
+      thumbnailUrl: text("thumbnail_url"),
+      videoUrl: text("video_url"),
+      orderIndex: integer("order_index").default(0),
+      isPublished: boolean("is_published").default(false),
+      isFeatured: boolean("is_featured").default(false),
+      requiresAuth: boolean("requires_auth").default(false),
+      authorId: integer("author_id").references(() => users.id),
+      legacyCourseId: integer("legacy_course_id").references(() => courses.id),
+      seoTitle: text("seo_title"),
+      seoDescription: text("seo_description"),
+      searchSummary: text("search_summary"),
+      ogImageUrl: text("og_image_url"),
+      lastReviewedAt: text("last_reviewed_at"),
+      indexable: boolean("indexable").default(true),
+      publishedAt: text("published_at").default(sql`now()`),
+      createdAt: text("created_at").default(sql`now()`)
+    }, (table) => ({
+      uniqueRevisionNumber: unique().on(table.courseDefinitionId, table.revisionNumber),
+      uniqueRevisionHash: unique().on(table.courseDefinitionId, table.contentHash)
+    }));
+    courseLessonIdentities = pgTable("course_lesson_identities", {
+      id: serial("id").primaryKey(),
+      courseDefinitionId: integer("course_definition_id").references(() => courseDefinitions.id),
+      key: text("key").notNull(),
+      legacyLessonId: integer("legacy_lesson_id").references(() => courseLessons.id),
+      createdAt: text("created_at").default(sql`now()`),
+      updatedAt: text("updated_at").default(sql`now()`)
+    }, (table) => ({
+      uniqueLessonKey: unique().on(table.courseDefinitionId, table.key),
+      uniqueLegacyLesson: unique().on(table.legacyLessonId)
+    }));
+    courseRevisionLessons = pgTable("course_revision_lessons", {
+      id: serial("id").primaryKey(),
+      courseRevisionId: integer("course_revision_id").references(() => courseRevisions.id),
+      lessonIdentityId: integer("lesson_identity_id").references(() => courseLessonIdentities.id),
+      title: text("title").notNull(),
+      description: text("description"),
+      contentMarkdown: text("content_markdown").notNull(),
+      contentHtml: text("content_html").notNull(),
+      orderIndex: integer("order_index").notNull(),
+      type: text("type").notNull().$type(),
+      videoUrl: text("video_url"),
+      documentUrl: text("document_url"),
+      duration: integer("duration"),
+      isRequired: boolean("is_required").default(true),
+      legacyLessonId: integer("legacy_lesson_id").references(() => courseLessons.id),
+      seoTitle: text("seo_title"),
+      seoDescription: text("seo_description"),
+      searchSummary: text("search_summary"),
+      indexable: boolean("indexable").default(true),
+      createdAt: text("created_at").default(sql`now()`)
+    }, (table) => ({
+      uniqueRevisionLesson: unique().on(table.courseRevisionId, table.lessonIdentityId)
+    }));
+    courseRevisionQuizzes = pgTable("course_revision_quizzes", {
+      id: serial("id").primaryKey(),
+      courseRevisionId: integer("course_revision_id").references(() => courseRevisions.id).unique(),
+      legacyQuizId: integer("legacy_quiz_id").references(() => courseQuizzes.id),
+      title: text("title").notNull(),
+      description: text("description"),
+      passingScore: integer("passing_score").default(70),
+      timeLimit: integer("time_limit"),
+      allowRetakes: boolean("allow_retakes").default(true),
+      maxAttempts: integer("max_attempts"),
+      createdAt: text("created_at").default(sql`now()`),
+      updatedAt: text("updated_at").default(sql`now()`)
+    });
+    courseRevisionQuizQuestions = pgTable("course_revision_quiz_questions", {
+      id: serial("id").primaryKey(),
+      quizRevisionId: integer("quiz_revision_id").references(() => courseRevisionQuizzes.id),
+      legacyQuestionId: integer("legacy_question_id").references(() => quizQuestions.id),
+      question: text("question").notNull(),
+      type: text("type").notNull().$type(),
+      options: text("options"),
+      correctAnswer: text("correct_answer").notNull(),
+      explanation: text("explanation"),
+      points: integer("points").default(1),
+      orderIndex: integer("order_index").notNull(),
+      createdAt: text("created_at").default(sql`now()`)
+    });
     userCourseProgress = pgTable("user_course_progress", {
       id: serial("id").primaryKey(),
       userId: integer("user_id").references(() => users.id),
       courseId: integer("course_id").references(() => courses.id),
+      courseDefinitionId: integer("course_definition_id").references(() => courseDefinitions.id),
       status: text("status").notNull().$type(),
       progress: integer("progress").default(0),
       // Porcentaje 0-100
       currentLessonId: integer("current_lesson_id").references(() => courseLessons.id),
+      currentLessonIdentityId: integer("current_lesson_identity_id").references(() => courseLessonIdentities.id),
       completedLessons: text("completed_lessons"),
       // JSON array de IDs de lecciones completadas
+      completedLessonIdentityIds: text("completed_lesson_identity_ids"),
+      // JSON array de IDs estables
       startedAt: text("started_at"),
       completedAt: text("completed_at"),
       lastAccessedAt: text("last_accessed_at"),
@@ -755,6 +889,7 @@ var init_schema = __esm({
       id: serial("id").primaryKey(),
       userId: integer("user_id").references(() => users.id),
       lessonId: integer("lesson_id").references(() => courseLessons.id),
+      lessonIdentityId: integer("lesson_identity_id").references(() => courseLessonIdentities.id),
       status: text("status").notNull().$type(),
       timeSpent: integer("time_spent").default(0),
       // Tiempo en segundos
@@ -767,6 +902,9 @@ var init_schema = __esm({
       userId: integer("user_id").references(() => users.id),
       quizId: integer("quiz_id").references(() => courseQuizzes.id),
       courseId: integer("course_id").references(() => courses.id),
+      courseDefinitionId: integer("course_definition_id").references(() => courseDefinitions.id),
+      courseRevisionId: integer("course_revision_id").references(() => courseRevisions.id),
+      courseQuizRevisionId: integer("course_quiz_revision_id").references(() => courseRevisionQuizzes.id),
       score: integer("score"),
       // Porcentaje obtenido
       passed: boolean("passed").default(false),
@@ -791,6 +929,8 @@ var init_schema = __esm({
       id: serial("id").primaryKey(),
       userId: integer("user_id").references(() => users.id),
       courseId: integer("course_id").references(() => courses.id),
+      courseDefinitionId: integer("course_definition_id").references(() => courseDefinitions.id),
+      courseRevisionId: integer("course_revision_id").references(() => courseRevisions.id),
       certificateCode: text("certificate_code").notNull().unique(),
       // Código único del certificado
       issuedAt: text("issued_at").default(sql`now()`),
@@ -1071,6 +1211,32 @@ var init_schema = __esm({
     }, (table) => ({
       createdAtIdx: index("af_created_at_idx").on(table.createdAt)
     }));
+    missionEvidence = pgTable("mission_evidence", {
+      id: serial("id").primaryKey(),
+      postId: integer("post_id").references(() => communityPosts.id),
+      milestoneId: integer("milestone_id").references(() => initiativeMilestones.id),
+      userId: integer("user_id").references(() => users.id),
+      evidenceType: text("evidence_type").notNull(),
+      content: text("content").notNull(),
+      imageUrl: text("image_url"),
+      latitude: text("latitude"),
+      longitude: text("longitude"),
+      status: text("status").notNull().default("pending").$type(),
+      flagCategory: text("flag_category"),
+      verifiedBy: integer("verified_by").references(() => users.id),
+      verifiedAt: text("verified_at"),
+      createdAt: text("created_at").default(sql`now()`)
+    });
+    missionChronicles = pgTable("mission_chronicles", {
+      id: serial("id").primaryKey(),
+      postId: integer("post_id").references(() => communityPosts.id),
+      userId: integer("user_id").references(() => users.id),
+      title: text("title").notNull(),
+      content: text("content").notNull(),
+      highlightedEvidenceIds: text("highlighted_evidence_ids"),
+      publishedAt: text("published_at"),
+      createdAt: text("created_at").default(sql`now()`)
+    });
     membershipRequests = pgTable("membership_requests", {
       id: serial("id").primaryKey(),
       postId: integer("post_id").references(() => communityPosts.id),
@@ -1471,7 +1637,9 @@ var init_schema = __esm({
       tasks: many(initiativeTasks),
       activityFeedItems: many(activityFeed),
       membershipRequests: many(membershipRequests),
-      notifications: many(notifications)
+      notifications: many(notifications),
+      evidence: many(missionEvidence),
+      chronicles: many(missionChronicles)
     }));
     communityPostInteractionsRelations = relations(communityPostInteractions, ({ one }) => ({
       post: one(communityPosts, {
@@ -1711,6 +1879,80 @@ var init_schema = __esm({
       }),
       attemptAnswers: many(quizAttemptAnswers)
     }));
+    courseDefinitionsRelations = relations(courseDefinitions, ({ one, many }) => ({
+      legacyCourse: one(courses, {
+        fields: [courseDefinitions.legacyCourseId],
+        references: [courses.id]
+      }),
+      currentPublishedRevision: one(courseRevisions, {
+        fields: [courseDefinitions.currentPublishedRevisionId],
+        references: [courseRevisions.id]
+      }),
+      revisions: many(courseRevisions),
+      lessonIdentities: many(courseLessonIdentities)
+    }));
+    courseRevisionsRelations = relations(courseRevisions, ({ one, many }) => ({
+      courseDefinition: one(courseDefinitions, {
+        fields: [courseRevisions.courseDefinitionId],
+        references: [courseDefinitions.id]
+      }),
+      author: one(users, {
+        fields: [courseRevisions.authorId],
+        references: [users.id]
+      }),
+      legacyCourse: one(courses, {
+        fields: [courseRevisions.legacyCourseId],
+        references: [courses.id]
+      }),
+      lessons: many(courseRevisionLessons),
+      quiz: one(courseRevisionQuizzes)
+    }));
+    courseLessonIdentitiesRelations = relations(courseLessonIdentities, ({ one, many }) => ({
+      courseDefinition: one(courseDefinitions, {
+        fields: [courseLessonIdentities.courseDefinitionId],
+        references: [courseDefinitions.id]
+      }),
+      legacyLesson: one(courseLessons, {
+        fields: [courseLessonIdentities.legacyLessonId],
+        references: [courseLessons.id]
+      }),
+      revisions: many(courseRevisionLessons)
+    }));
+    courseRevisionLessonsRelations = relations(courseRevisionLessons, ({ one }) => ({
+      courseRevision: one(courseRevisions, {
+        fields: [courseRevisionLessons.courseRevisionId],
+        references: [courseRevisions.id]
+      }),
+      lessonIdentity: one(courseLessonIdentities, {
+        fields: [courseRevisionLessons.lessonIdentityId],
+        references: [courseLessonIdentities.id]
+      }),
+      legacyLesson: one(courseLessons, {
+        fields: [courseRevisionLessons.legacyLessonId],
+        references: [courseLessons.id]
+      })
+    }));
+    courseRevisionQuizzesRelations = relations(courseRevisionQuizzes, ({ one, many }) => ({
+      courseRevision: one(courseRevisions, {
+        fields: [courseRevisionQuizzes.courseRevisionId],
+        references: [courseRevisions.id]
+      }),
+      legacyQuiz: one(courseQuizzes, {
+        fields: [courseRevisionQuizzes.legacyQuizId],
+        references: [courseQuizzes.id]
+      }),
+      questions: many(courseRevisionQuizQuestions)
+    }));
+    courseRevisionQuizQuestionsRelations = relations(courseRevisionQuizQuestions, ({ one }) => ({
+      quizRevision: one(courseRevisionQuizzes, {
+        fields: [courseRevisionQuizQuestions.quizRevisionId],
+        references: [courseRevisionQuizzes.id]
+      }),
+      legacyQuestion: one(quizQuestions, {
+        fields: [courseRevisionQuizQuestions.legacyQuestionId],
+        references: [quizQuestions.id]
+      })
+    }));
     userCourseProgressRelations = relations(userCourseProgress, ({ one }) => ({
       user: one(users, {
         fields: [userCourseProgress.userId],
@@ -1723,6 +1965,14 @@ var init_schema = __esm({
       currentLesson: one(courseLessons, {
         fields: [userCourseProgress.currentLessonId],
         references: [courseLessons.id]
+      }),
+      courseDefinition: one(courseDefinitions, {
+        fields: [userCourseProgress.courseDefinitionId],
+        references: [courseDefinitions.id]
+      }),
+      currentLessonIdentity: one(courseLessonIdentities, {
+        fields: [userCourseProgress.currentLessonIdentityId],
+        references: [courseLessonIdentities.id]
       })
     }));
     userLessonProgressRelations = relations(userLessonProgress, ({ one }) => ({
@@ -1733,6 +1983,10 @@ var init_schema = __esm({
       lesson: one(courseLessons, {
         fields: [userLessonProgress.lessonId],
         references: [courseLessons.id]
+      }),
+      lessonIdentity: one(courseLessonIdentities, {
+        fields: [userLessonProgress.lessonIdentityId],
+        references: [courseLessonIdentities.id]
       })
     }));
     quizAttemptsRelations = relations(quizAttempts, ({ one, many }) => ({
@@ -1747,6 +2001,18 @@ var init_schema = __esm({
       course: one(courses, {
         fields: [quizAttempts.courseId],
         references: [courses.id]
+      }),
+      courseDefinition: one(courseDefinitions, {
+        fields: [quizAttempts.courseDefinitionId],
+        references: [courseDefinitions.id]
+      }),
+      courseRevision: one(courseRevisions, {
+        fields: [quizAttempts.courseRevisionId],
+        references: [courseRevisions.id]
+      }),
+      quizRevision: one(courseRevisionQuizzes, {
+        fields: [quizAttempts.courseQuizRevisionId],
+        references: [courseRevisionQuizzes.id]
       }),
       answers: many(quizAttemptAnswers)
     }));
@@ -1768,6 +2034,14 @@ var init_schema = __esm({
       course: one(courses, {
         fields: [courseCertificates.courseId],
         references: [courses.id]
+      }),
+      courseDefinition: one(courseDefinitions, {
+        fields: [courseCertificates.courseDefinitionId],
+        references: [courseDefinitions.id]
+      }),
+      courseRevision: one(courseRevisions, {
+        fields: [courseCertificates.courseRevisionId],
+        references: [courseRevisions.id]
       })
     }));
     iotSensorsRelations = relations(iotSensors, ({ many }) => ({
@@ -1849,6 +2123,34 @@ var init_schema = __esm({
       }),
       user: one(users, {
         fields: [activityFeed.userId],
+        references: [users.id]
+      })
+    }));
+    missionEvidenceRelations = relations(missionEvidence, ({ one }) => ({
+      post: one(communityPosts, {
+        fields: [missionEvidence.postId],
+        references: [communityPosts.id]
+      }),
+      milestone: one(initiativeMilestones, {
+        fields: [missionEvidence.milestoneId],
+        references: [initiativeMilestones.id]
+      }),
+      user: one(users, {
+        fields: [missionEvidence.userId],
+        references: [users.id]
+      }),
+      verifier: one(users, {
+        fields: [missionEvidence.verifiedBy],
+        references: [users.id]
+      })
+    }));
+    missionChroniclesRelations = relations(missionChronicles, ({ one }) => ({
+      post: one(communityPosts, {
+        fields: [missionChronicles.postId],
+        references: [communityPosts.id]
+      }),
+      user: one(users, {
+        fields: [missionChronicles.userId],
         references: [users.id]
       })
     }));
@@ -2366,6 +2668,33 @@ var init_schema = __esm({
       id: true,
       createdAt: true
     });
+    insertCourseDefinitionSchema = createInsertSchema(courseDefinitions).omit({
+      id: true,
+      createdAt: true,
+      updatedAt: true
+    });
+    insertCourseRevisionSchema = createInsertSchema(courseRevisions).omit({
+      id: true,
+      createdAt: true
+    });
+    insertCourseLessonIdentitySchema = createInsertSchema(courseLessonIdentities).omit({
+      id: true,
+      createdAt: true,
+      updatedAt: true
+    });
+    insertCourseRevisionLessonSchema = createInsertSchema(courseRevisionLessons).omit({
+      id: true,
+      createdAt: true
+    });
+    insertCourseRevisionQuizSchema = createInsertSchema(courseRevisionQuizzes).omit({
+      id: true,
+      createdAt: true,
+      updatedAt: true
+    });
+    insertCourseRevisionQuizQuestionSchema = createInsertSchema(courseRevisionQuizQuestions).omit({
+      id: true,
+      createdAt: true
+    });
     insertUserCourseProgressSchema = createInsertSchema(userCourseProgress).omit({
       id: true,
       createdAt: true,
@@ -2420,6 +2749,14 @@ var init_schema = __esm({
       updatedAt: true
     });
     insertActivityFeedSchema = createInsertSchema(activityFeed).omit({
+      id: true,
+      createdAt: true
+    });
+    insertMissionEvidenceSchema = createInsertSchema(missionEvidence).omit({
+      id: true,
+      createdAt: true
+    });
+    insertMissionChronicleSchema = createInsertSchema(missionChronicles).omit({
       id: true,
       createdAt: true
     });
@@ -4885,6 +5222,402 @@ var init_blogContent = __esm({
         </blockquote>
       </article>
     `
+      },
+      [slugify("Refinarse o Repetirse")]: {
+        excerpt: "Hay una parte del proceso que nadie aplaude. Es la parte en la que uno tiene que volver sobre lo que construy\xF3 y preguntarse, con honestidad brutal, si de verdad sirve. No si suena bien. No si impresiona. Si sirve.",
+        content: `
+      <article>
+        <h1>Refinarse o Repetirse</h1>
+
+        <blockquote>
+          "La elegancia se logra no cuando no hay nada m\xE1s que agregar, sino cuando no hay nada m\xE1s que quitar."
+        </blockquote>
+
+        <p>
+          Hay una parte del proceso que nadie aplaude.
+        </p>
+        <p>
+          No se ve bien en redes.
+          No queda \xE9pica en una foto.
+          No genera admiraci\xF3n inmediata.
+          No da la sensaci\xF3n de avance limpio, lineal, heroico.
+        </p>
+        <p>
+          Es la parte en la que uno tiene que volver sobre lo que construy\xF3 y preguntarse, con honestidad brutal, si de verdad sirve.
+        </p>
+        <p>
+          No si suena bien.<br/>
+          No si impresiona.<br/>
+          No si est\xE1 intelectualmente bien armado.<br/>
+          <strong>Si sirve.</strong>
+        </p>
+        <p>
+          Estoy viviendo eso.
+        </p>
+        <p>
+          Y no como idea abstracta. Lo estoy viviendo en carne propia: en el trabajo de refinar una plataforma, de someter una visi\xF3n a la realidad, de empujar una arquitectura contra el l\xEDmite de lo ejecutable, de quemar tiempo y energ\xEDa mental para probar si lo que cre\xEDa era cierto o si era solo una ilusi\xF3n elegante.
+        </p>
+        <p>
+          Porque esa es una verdad inc\xF3moda: uno puede construir algo brillante en el papel y, aun as\xED, estar equivocado.
+        </p>
+        <p>
+          De hecho, muchas veces lo m\xE1s peligroso no es estar equivocado de manera burda. Lo m\xE1s peligroso es estar equivocado de manera sofisticada.
+        </p>
+        <p>
+          Hay errores vulgares, f\xE1ciles de detectar.<br/>
+          Y hay errores hermosos.<br/>
+          Errores que vienen vestidos de profundidad.<br/>
+          Errores que parecen visi\xF3n.<br/>
+          Errores que seducen porque son coherentes, ambiciosos, completos.
+        </p>
+        <p>
+          Pero la realidad no premia la sofisticaci\xF3n de nuestros errores.
+        </p>
+        <p>
+          <strong>La realidad premia lo que funciona.</strong>
+        </p>
+
+        <h2>Todos vivimos sobre supuestos</h2>
+        <p>
+          La mayor\xEDa de las personas no est\xE1 viviendo su vida.
+        </p>
+        <p>
+          Est\xE1 ejecutando un paquete de supuestos.
+        </p>
+        <p>
+          Supuestos sobre qui\xE9nes son.<br/>
+          Supuestos sobre lo que pueden hacer.<br/>
+          Supuestos sobre lo que merecen.<br/>
+          Supuestos sobre c\xF3mo funciona el mundo.<br/>
+          Supuestos heredados de la familia, de la escuela, del miedo, de una herida vieja, de una derrota mal digerida, de una sociedad que les ense\xF1\xF3 a sobrevivir pero nunca a despertar.
+        </p>
+        <p>
+          Y el problema es que, cuando no revisamos esos supuestos, terminamos construyendo una existencia entera sobre cimientos que nunca pusimos a prueba.
+        </p>
+        <p>
+          Entonces repetimos.
+        </p>
+        <p>
+          Repetimos patrones.<br/>
+          Repetimos excusas.<br/>
+          Repetimos identidades viejas.<br/>
+          Repetimos una versi\xF3n de nosotros mismos que quiz\xE1s alguna vez nos protegi\xF3, pero que hoy no nos sirve para nada.
+        </p>
+        <p>
+          La repetici\xF3n puede parecer estabilidad.<br/>
+          Pero muchas veces es <strong>decadencia con maquillaje</strong>.
+        </p>
+
+        <h2>Refinarse duele</h2>
+        <p>
+          Refinarse no es decorar.
+        </p>
+        <p>
+          <strong>Refinarse es podar.</strong>
+        </p>
+        <p>
+          Es sacar capas.
+          Es matar partes de una idea para salvar la verdad que hab\xEDa adentro.
+          Es descubrir que no todo lo que imaginaste merece sobrevivir.
+          Es aceptar que agregar no siempre es avanzar \u2014 muchas veces, avanzar es quitar.
+        </p>
+        <p>
+          Eso lo estoy viendo con m\xE1s claridad que nunca.
+        </p>
+        <p>
+          Cuando uno empieza a construir algo grande, siente la tentaci\xF3n de cubrir cada flanco, de responder cada vac\xEDo con una nueva capa, una nueva estructura, una nueva herramienta. Parece inteligencia. Parece responsabilidad. Parece visi\xF3n total.
+        </p>
+        <p>
+          Pero llega un punto en que la complejidad deja de ser una soluci\xF3n y se convierte en una forma sofisticada de escapar de la prueba real.
+        </p>
+        <p>
+          Porque probar de verdad implica exponerse.
+        </p>
+        <p>
+          Implica poner algo en marcha.<br/>
+          Implica medir.<br/>
+          Implica observar.<br/>
+          Implica aceptar que ciertas partes no funcionan como imaginabas.<br/>
+          Implica reconocer que la realidad tiene veto.
+        </p>
+        <p>
+          Y eso hiere al ego.
+        </p>
+        <p>
+          El ego ama la totalidad imaginada.<br/>
+          <strong>La realidad exige humildad operativa.</strong>
+        </p>
+
+        <h2>Quemar tiempo no siempre es perderlo</h2>
+        <p>
+          Vivimos en una \xE9poca obsesionada con la optimizaci\xF3n.
+        </p>
+        <p>
+          Todo tiene que ser r\xE1pido.<br/>
+          Todo tiene que ser eficiente.<br/>
+          Todo tiene que escalar.<br/>
+          Todo tiene que rendir.
+        </p>
+        <p>
+          Pero hay una forma de tiempo que no se pierde aunque arda.
+        </p>
+        <p>
+          El tiempo que invert\xEDs en probar una intuici\xF3n hasta descubrir su verdad. El tiempo que entreg\xE1s para separar visi\xF3n de fantas\xEDa. El tiempo que pon\xE9s en tensi\xF3n, en observaci\xF3n, en ajuste, en correcci\xF3n \u2014 tiempo que destruye una mentira antes de que esa mentira te destruya a vos.
+        </p>
+        <p>
+          <strong>Ese tiempo no se pierde. Ese tiempo te refina.</strong>
+        </p>
+        <p>
+          S\xED, duele mirar atr\xE1s y ver horas, d\xEDas, meses puestos en caminos que hubo que corregir. S\xED, molesta descubrir que hab\xEDa cosas que parec\xEDan centrales y no lo eran. S\xED, agota tener que rearmar piezas, reenfocar, simplificar, volver a pensar.
+        </p>
+        <p>
+          Pero peor ser\xEDa seguir avanzando con una arquitectura falsa por no tener el coraje de revisarla.
+        </p>
+        <p>
+          Peor ser\xEDa enamorarse tanto de una versi\xF3n de las cosas que uno prefiera defenderla antes que transformarla.
+        </p>
+
+        <h2>Lo que no se somete a prueba se convierte en dogma</h2>
+        <p>
+          Hay personas que dicen que quieren cambiar.
+        </p>
+        <p>
+          Pero no revisan nada.<br/>
+          No prueban nada.<br/>
+          No arriesgan nada.<br/>
+          No entregan nada.
+        </p>
+        <p>
+          Quieren una vida nueva con supuestos viejos.<br/>
+          Quieren prop\xF3sito sin fricci\xF3n.<br/>
+          Quieren transformaci\xF3n sin desmontaje.<br/>
+          Quieren destino sin disciplina.
+        </p>
+        <p>
+          <strong>Eso no existe.</strong>
+        </p>
+        <p>
+          Si no somet\xE9s tu manera de ver el mundo a la experiencia, a la fricci\xF3n, al error, a la correcci\xF3n \u2014 si no dej\xE1s que la realidad te conteste \u2014 est\xE1s adorando tu propia versi\xF3n congelada.
+        </p>
+        <p>
+          Y una identidad congelada termina siendo una prisi\xF3n con el nombre de personalidad.
+        </p>
+        <p>
+          La vida cambia.<br/>
+          La realidad cambia.<br/>
+          El contexto cambia.<br/>
+          Vos cambi\xE1s, aunque no quieras admitirlo.
+        </p>
+        <p>
+          Entonces la pregunta no es si vas a cambiar.
+        </p>
+        <p>
+          La pregunta es si vas a participar conscientemente en ese cambio o si vas a dejar que la inercia decida por vos.
+        </p>
+
+        <h2>El verdadero trabajo es actualizar el alma operativa</h2>
+        <p>
+          A veces hablamos de prop\xF3sito como si fuera una frase linda esper\xE1ndonos en alg\xFAn lugar.
+        </p>
+        <p>
+          No.
+        </p>
+        <p>
+          El prop\xF3sito tambi\xE9n se afina.
+        </p>
+        <p>
+          Se descubre, s\xED. Pero adem\xE1s se corrige. Se depura. Se limpia de ego, de ruido, de vanidad, de fantas\xEDas prestadas. Se vuelve m\xE1s duro, m\xE1s simple, m\xE1s verdadero.
+        </p>
+        <p>
+          Uno no encuentra su misi\xF3n una sola vez y listo.<br/>
+          Uno entra en di\xE1logo con ella.<br/>
+          Uno la traiciona, la olvida, la recupera, la afina.<br/>
+          Uno tiene que merecerla.
+        </p>
+        <p>
+          Y para merecerla, tiene que dejar morir muchas versiones de s\xED mismo.
+        </p>
+        <p>
+          Ese quiz\xE1s sea el punto m\xE1s importante del proceso: no estamos ac\xE1 solo para construir cosas afuera. <strong>Estamos ac\xE1 para convertirnos en alguien capaz de sostener lo que dice que vino a hacer.</strong>
+        </p>
+        <p>
+          Y eso exige actualizaci\xF3n interna.
+        </p>
+        <p>
+          No alcanza con tener buenas intenciones.<br/>
+          No alcanza con pensar profundo.<br/>
+          No alcanza con sentir fuerte.
+        </p>
+        <p>
+          Hace falta poner mente, coraz\xF3n y esfuerzo al servicio de una revisi\xF3n sincera.
+        </p>
+        <p>
+          Hace falta mirar lo construido y preguntarse:<br/>
+          \xBFEsto expresa la verdad o solo mi apego?<br/>
+          \xBFEsto est\xE1 vivo o solo est\xE1 inflado?<br/>
+          \xBFEsto puede encarnar en el mundo o solo funciona en mi cabeza?
+        </p>
+
+        <h2>Cambiar la percepci\xF3n o resignarse a la repetici\xF3n</h2>
+        <p>
+          La mayor\xEDa de los cambios que la gente dice querer nunca ocurren porque no cambi\xF3 la percepci\xF3n desde la cual act\xFAa.
+        </p>
+        <p>
+          Siguen mirando el mundo desde la misma estructura mental.<br/>
+          Siguen interpretando la realidad con las mismas categor\xEDas.<br/>
+          Siguen llamando prudencia al miedo.<br/>
+          Siguen llamando paciencia a la postergaci\xF3n.<br/>
+          Siguen llamando identidad a la costumbre.
+        </p>
+        <p>
+          Y as\xED no hay revoluci\xF3n posible.<br/>
+          Ni personal.<br/>
+          Ni colectiva.<br/>
+          Ni espiritual.<br/>
+          Ni pol\xEDtica.<br/>
+          Ni existencial.
+        </p>
+        <p>
+          No cambia tu vida cuando dese\xE1s m\xE1s fuerte.<br/>
+          Cambia cuando empez\xE1s a ver distinto y, por lo tanto, a decidir distinto.<br/>
+          Cambia cuando dej\xE1s de proteger los supuestos que te mantienen peque\xF1o.<br/>
+          Cambia cuando acept\xE1s que parte de tu sufrimiento viene de seguir siendo fiel a una versi\xF3n vencida de vos mismo.
+        </p>
+        <p>
+          Eso es lo que estoy atravesando tambi\xE9n en este proceso de refinamiento.
+        </p>
+        <p>
+          No solo estoy ajustando una plataforma.<br/>
+          Estoy ajustando la manera de pensarla.<br/>
+          La manera de priorizar.<br/>
+          La manera de distinguir entre lo esencial y lo accesorio.<br/>
+          La manera de convertir una visi\xF3n en algo que pueda respirar en el mundo sin ahogarse bajo su propio peso.
+        </p>
+        <p>
+          Y en ese trabajo hay algo profundamente humano.
+        </p>
+        <p>
+          Porque al final, <strong>toda gran obra exterior termina siendo un espejo</strong>.
+        </p>
+
+        <h2>La prueba no destruye la visi\xF3n \u2014 la purifica</h2>
+        <p>
+          Hay gente que teme poner a prueba sus ideas porque cree que, si no resisten, entonces nunca fueron valiosas.
+        </p>
+        <p>
+          Yo creo lo contrario.
+        </p>
+        <p>
+          Lo que merece existir no le teme al fuego.<br/>
+          Le teme m\xE1s a la complacencia que a la prueba.
+        </p>
+        <p>
+          La validaci\xF3n real no mata la visi\xF3n.<br/>
+          La refina.<br/>
+          La vuelve sobria.<br/>
+          La vuelve precisa.<br/>
+          La vuelve capaz de encarnar.
+        </p>
+        <p>
+          <strong>Una idea que no tolera iteraci\xF3n no es una visi\xF3n. Es un capricho.</strong><br/>
+          <strong>Una misi\xF3n que no soporta correcci\xF3n no es una misi\xF3n. Es vanidad disfrazada.</strong>
+        </p>
+        <p>
+          Por eso hay momentos en los que el mayor acto de fidelidad hacia lo que uno quiere construir no es insistir ciegamente.
+        </p>
+        <p>
+          Es detenerse.<br/>
+          Mirar de nuevo.<br/>
+          Cortar.<br/>
+          Reordenar.<br/>
+          Probar otra vez.<br/>
+          Y volver a entrar.
+        </p>
+
+        <h2>La vida exige participaci\xF3n</h2>
+        <p>
+          Nadie va a venir a actualizar tus supuestos por vos.
+        </p>
+        <p>
+          Nadie va a corregir desde afuera la arquitectura interna con la que interpret\xE1s el mundo. Nadie va a instalarte prop\xF3sito como si fuera una aplicaci\xF3n. Nadie va a rescatarte de una vida repetida si vos segu\xEDs defendiendo las piezas que ya no sirven.
+        </p>
+        <p>
+          La vida no responde a declaraciones.<br/>
+          <strong>Responde a participaci\xF3n.</strong>
+        </p>
+        <p>
+          Te pide presencia.<br/>
+          Te pide honestidad.<br/>
+          Te pide coraje para revisar.<br/>
+          Te pide la fortaleza emocional de no quebrarte cada vez que descubr\xEDs que algo que amabas necesita cambiar.
+        </p>
+        <p>
+          Y s\xED, eso cuesta.
+        </p>
+        <p>
+          Cuesta tiempo.<br/>
+          Cuesta energ\xEDa.<br/>
+          Cuesta foco.<br/>
+          Cuesta partes del ego.<br/>
+          Cuesta despedirse de ciertas certezas.
+        </p>
+        <p>
+          Pero eso es crecer.
+        </p>
+        <p>
+          No volverse m\xE1s grande en apariencia.<br/>
+          <strong>Volverse m\xE1s verdadero en estructura.</strong>
+        </p>
+
+        <h2>El cambio que necesitamos no va a ocurrir solo</h2>
+        <p>
+          Hay algo que tengo cada vez m\xE1s claro: el cambio que necesitamos \u2014 en la vida y en el mundo \u2014 no va a surgir de personas que simplemente opinen mejor.
+        </p>
+        <p>
+          Va a surgir de personas dispuestas a revisar la arquitectura desde la cual viven.
+        </p>
+        <p>
+          Personas capaces de mirar sus supuestos de frente.<br/>
+          Capaces de ponerlos a prueba.<br/>
+          Capaces de pagar el costo de refinarse.<br/>
+          Capaces de cambiar de verdad.
+        </p>
+        <p>
+          Porque nada cambia si nosotros no cambiamos.<br/>
+          Y nosotros no cambiamos mientras sigamos negociando con lo que ya sabemos que no funciona.
+        </p>
+        <p>
+          A veces la evoluci\xF3n no empieza con una certeza nueva.<br/>
+          Empieza con una traici\xF3n necesaria.
+        </p>
+        <p>
+          La traici\xF3n a una vieja versi\xF3n de uno mismo.<br/>
+          La renuncia a una forma de mirar que ya qued\xF3 chica.<br/>
+          El abandono de una estructura que sirvi\xF3 ayer, pero que hoy impide el nacimiento de algo mayor.
+        </p>
+        <p>
+          <strong>Ah\xED empieza todo.</strong>
+        </p>
+        <p>
+          No cuando ten\xE9s todo claro.<br/>
+          No cuando desaparece el miedo.<br/>
+          No cuando el camino se ordena solo.
+        </p>
+        <p>
+          Empieza cuando decid\xEDs entrar al taller, agarrar el martillo, mirar lo que construiste y tener el coraje de decir:
+        </p>
+
+        <blockquote>
+          <em>Esto todav\xEDa no est\xE1 listo.</em><br/>
+          <em>Esto tiene que pasar por fuego.</em><br/>
+          <em>Y yo tambi\xE9n.</em>
+        </blockquote>
+
+        <p>
+          <em>Si algo de esto resuena en vos, no necesit\xE1s permiso para firmarlo. Solo recordarte cada ma\xF1ana: lo que no se refina, se repite. Y lo que se repite sin conciencia, te condena.</em>
+        </p>
+      </article>
+    `
       }
     };
   }
@@ -4916,11 +5649,442 @@ var init_blogContentEnhancements = __esm({
   }
 });
 
+// shared/course-content.ts
+import { marked } from "marked";
+import { z } from "zod";
+var COURSE_CATEGORY_VALUES, COURSE_LEVEL_VALUES, LESSON_TYPE_VALUES, QUIZ_QUESTION_TYPE_VALUES, COURSE_CONTENT_SCHEMA_VERSION, optionalText, seoFieldsSchema, lessonManifestEntrySchema, quizQuestionManifestSchema, quizManifestSchema, lessonRekeySchema, courseManifestSchema;
+var init_course_content = __esm({
+  "shared/course-content.ts"() {
+    "use strict";
+    COURSE_CATEGORY_VALUES = [
+      "vision",
+      "action",
+      "community",
+      "reflection",
+      "hombre-gris",
+      "economia",
+      "comunicacion",
+      "civica"
+    ];
+    COURSE_LEVEL_VALUES = [
+      "beginner",
+      "intermediate",
+      "advanced"
+    ];
+    LESSON_TYPE_VALUES = [
+      "text",
+      "video",
+      "interactive",
+      "document"
+    ];
+    QUIZ_QUESTION_TYPE_VALUES = [
+      "multiple_choice",
+      "true_false",
+      "short_answer"
+    ];
+    COURSE_CONTENT_SCHEMA_VERSION = 1;
+    optionalText = z.string().trim().min(1).optional().nullable();
+    seoFieldsSchema = z.object({
+      seoTitle: optionalText,
+      seoDescription: optionalText,
+      searchSummary: optionalText,
+      ogImageUrl: optionalText,
+      lastReviewedAt: optionalText,
+      indexable: z.boolean().optional()
+    });
+    lessonManifestEntrySchema = seoFieldsSchema.extend({
+      key: z.string().trim().min(1).max(120),
+      title: z.string().trim().min(1),
+      description: optionalText,
+      type: z.enum(LESSON_TYPE_VALUES),
+      duration: z.number().int().nonnegative().optional().nullable(),
+      orderIndex: z.number().int().nonnegative(),
+      isRequired: z.boolean().default(true),
+      contentFile: z.string().trim().min(1),
+      videoUrl: optionalText,
+      documentUrl: optionalText,
+      legacyLessonId: z.number().int().positive().optional().nullable()
+    });
+    quizQuestionManifestSchema = z.object({
+      question: z.string().trim().min(1),
+      type: z.enum(QUIZ_QUESTION_TYPE_VALUES),
+      options: z.array(z.string()).optional().nullable(),
+      correctAnswer: z.unknown(),
+      explanation: optionalText,
+      points: z.number().int().positive().default(1),
+      orderIndex: z.number().int().nonnegative(),
+      legacyQuestionId: z.number().int().positive().optional().nullable()
+    });
+    quizManifestSchema = z.object({
+      title: z.string().trim().min(1),
+      description: optionalText,
+      passingScore: z.number().int().min(0).max(100).default(70),
+      timeLimit: z.number().int().positive().optional().nullable(),
+      allowRetakes: z.boolean().default(true),
+      maxAttempts: z.number().int().positive().optional().nullable(),
+      legacyQuizId: z.number().int().positive().optional().nullable(),
+      questions: z.array(quizQuestionManifestSchema).default([])
+    });
+    lessonRekeySchema = z.object({
+      fromKey: z.string().trim().min(1).max(120),
+      toKey: z.string().trim().min(1).max(120),
+      legacyLessonId: z.number().int().positive().optional().nullable()
+    });
+    courseManifestSchema = seoFieldsSchema.extend({
+      schemaVersion: z.number().int().default(COURSE_CONTENT_SCHEMA_VERSION),
+      slug: z.string().trim().min(1),
+      title: z.string().trim().min(1),
+      description: z.string().trim().min(1),
+      excerpt: optionalText,
+      category: z.enum(COURSE_CATEGORY_VALUES),
+      level: z.enum(COURSE_LEVEL_VALUES),
+      duration: z.number().int().nonnegative().optional().nullable(),
+      thumbnailUrl: optionalText,
+      videoUrl: optionalText,
+      orderIndex: z.number().int().default(0),
+      isPublished: z.boolean().default(true),
+      isFeatured: z.boolean().default(false),
+      requiresAuth: z.boolean().default(false),
+      authorId: z.number().int().positive().optional().nullable(),
+      legacyCourseId: z.number().int().positive().optional().nullable(),
+      quizFile: z.string().trim().min(1).optional().nullable(),
+      rekeys: z.array(lessonRekeySchema).default([]),
+      lessons: z.array(lessonManifestEntrySchema)
+    });
+    marked.setOptions({
+      gfm: true,
+      breaks: false
+    });
+  }
+});
+
+// server/course-content-store.ts
+import { and, asc, desc, eq, ilike, or, sql as sql3 } from "drizzle-orm";
+function isPublicCourseRevision(revision) {
+  return revision.isPublished === true;
+}
+function mapPublishedCourse(definition, revision, extras) {
+  return {
+    id: definition.id,
+    title: revision.title,
+    slug: definition.slug,
+    description: revision.description,
+    excerpt: revision.excerpt,
+    category: revision.category,
+    level: revision.level,
+    duration: revision.duration,
+    thumbnailUrl: revision.thumbnailUrl,
+    videoUrl: revision.videoUrl,
+    orderIndex: revision.orderIndex,
+    isPublished: revision.isPublished,
+    isFeatured: revision.isFeatured,
+    requiresAuth: revision.requiresAuth,
+    authorId: revision.authorId,
+    viewCount: definition.viewCount ?? 0,
+    createdAt: definition.createdAt,
+    updatedAt: definition.updatedAt,
+    lessonCount: extras?.lessonCount,
+    hasQuiz: extras?.hasQuiz,
+    seoTitle: revision.seoTitle,
+    seoDescription: revision.seoDescription,
+    searchSummary: revision.searchSummary,
+    ogImageUrl: revision.ogImageUrl,
+    lastReviewedAt: revision.lastReviewedAt,
+    indexable: revision.indexable
+  };
+}
+function mapPublishedLesson(identity, lesson) {
+  return {
+    id: identity.id,
+    courseId: identity.courseDefinitionId,
+    title: lesson.title,
+    description: lesson.description,
+    content: lesson.contentHtml,
+    orderIndex: lesson.orderIndex,
+    type: lesson.type,
+    videoUrl: lesson.videoUrl,
+    documentUrl: lesson.documentUrl,
+    duration: lesson.duration,
+    isRequired: lesson.isRequired,
+    createdAt: lesson.createdAt,
+    updatedAt: lesson.createdAt,
+    key: identity.key,
+    searchSummary: lesson.searchSummary,
+    seoTitle: lesson.seoTitle,
+    seoDescription: lesson.seoDescription,
+    indexable: lesson.indexable
+  };
+}
+function mapPublishedQuiz(courseDefinitionId, quiz) {
+  return {
+    id: quiz.id,
+    courseId: courseDefinitionId,
+    title: quiz.title,
+    description: quiz.description,
+    passingScore: quiz.passingScore,
+    timeLimit: quiz.timeLimit,
+    allowRetakes: quiz.allowRetakes,
+    maxAttempts: quiz.maxAttempts,
+    createdAt: quiz.createdAt,
+    updatedAt: quiz.updatedAt
+  };
+}
+function mapPublishedQuizQuestion(question) {
+  return {
+    id: question.id,
+    quizId: question.quizRevisionId,
+    question: question.question,
+    type: question.type,
+    options: question.options,
+    correctAnswer: question.correctAnswer,
+    explanation: question.explanation,
+    points: question.points,
+    orderIndex: question.orderIndex,
+    createdAt: question.createdAt
+  };
+}
+async function getPublishedCourseRecordBySlug(slug) {
+  const [definition] = await db.select().from(courseDefinitions).where(eq(courseDefinitions.slug, slug)).limit(1);
+  if (!definition?.currentPublishedRevisionId) {
+    return void 0;
+  }
+  const [revision] = await db.select().from(courseRevisions).where(eq(courseRevisions.id, definition.currentPublishedRevisionId)).limit(1);
+  if (!revision || !isPublicCourseRevision(revision)) return void 0;
+  return { definition, revision };
+}
+async function getCurrentCourseRecordByDefinitionId(courseDefinitionId) {
+  const [definition] = await db.select().from(courseDefinitions).where(eq(courseDefinitions.id, courseDefinitionId)).limit(1);
+  if (!definition?.currentPublishedRevisionId) {
+    return void 0;
+  }
+  const [revision] = await db.select().from(courseRevisions).where(eq(courseRevisions.id, definition.currentPublishedRevisionId)).limit(1);
+  if (!revision) return void 0;
+  return { definition, revision };
+}
+async function hasCurrentRevisionForCourseSlug(slug) {
+  const [definition] = await db.select({ currentPublishedRevisionId: courseDefinitions.currentPublishedRevisionId }).from(courseDefinitions).where(eq(courseDefinitions.slug, slug)).limit(1);
+  return Boolean(definition?.currentPublishedRevisionId);
+}
+async function hasCurrentRevisionForCourseId(courseId) {
+  const directRecord = await getCurrentCourseRecordByDefinitionId(courseId);
+  if (directRecord) {
+    return true;
+  }
+  const [definition] = await db.select({ currentPublishedRevisionId: courseDefinitions.currentPublishedRevisionId }).from(courseDefinitions).where(eq(courseDefinitions.legacyCourseId, courseId)).limit(1);
+  return Boolean(definition?.currentPublishedRevisionId);
+}
+async function resolvePublishedCourseDefinitionId(courseId) {
+  const directRecord = await getCurrentCourseRecordByDefinitionId(courseId);
+  if (directRecord) {
+    return directRecord.definition.id;
+  }
+  const [definition] = await db.select().from(courseDefinitions).where(eq(courseDefinitions.legacyCourseId, courseId)).limit(1);
+  if (!definition?.currentPublishedRevisionId) {
+    return void 0;
+  }
+  return definition.id;
+}
+async function getPublishedCourseRecordById(courseId) {
+  const definitionId = await resolvePublishedCourseDefinitionId(courseId);
+  if (!definitionId) {
+    return void 0;
+  }
+  const record = await getCurrentCourseRecordByDefinitionId(definitionId);
+  if (!record || !isPublicCourseRevision(record.revision)) {
+    return void 0;
+  }
+  return record;
+}
+async function getPublishedCourseBySlug(slug) {
+  const record = await getPublishedCourseRecordBySlug(slug);
+  if (!record) return void 0;
+  const lessons = await db.select({ id: courseRevisionLessons.id }).from(courseRevisionLessons).where(eq(courseRevisionLessons.courseRevisionId, record.revision.id));
+  const [quiz] = await db.select().from(courseRevisionQuizzes).where(eq(courseRevisionQuizzes.courseRevisionId, record.revision.id)).limit(1);
+  return mapPublishedCourse(record.definition, record.revision, {
+    lessonCount: lessons.length,
+    hasQuiz: Boolean(quiz)
+  });
+}
+async function getPublishedCourseById(courseId) {
+  const record = await getPublishedCourseRecordById(courseId);
+  if (!record) return void 0;
+  return mapPublishedCourse(record.definition, record.revision);
+}
+async function incrementPublishedCourseView(courseId) {
+  await db.update(courseDefinitions).set({
+    viewCount: sql3`${courseDefinitions.viewCount} + 1`,
+    updatedAt: (/* @__PURE__ */ new Date()).toISOString()
+  }).where(eq(courseDefinitions.id, courseId));
+}
+async function getPublishedCourses(filters) {
+  const page = filters?.page || 1;
+  const limit = filters?.limit || 12;
+  const offset = (page - 1) * limit;
+  const conditions = [
+    sql3`${courseDefinitions.currentPublishedRevisionId} is not null`,
+    eq(courseRevisions.isPublished, true)
+  ];
+  if (filters?.category) {
+    conditions.push(eq(courseRevisions.category, filters.category));
+  }
+  if (filters?.level) {
+    conditions.push(eq(courseRevisions.level, filters.level));
+  }
+  if (filters?.featured === true) {
+    conditions.push(eq(courseRevisions.isFeatured, true));
+  }
+  if (filters?.search) {
+    const searchTerm = `%${filters.search}%`;
+    conditions.push(or(
+      ilike(courseRevisions.title, searchTerm),
+      ilike(courseRevisions.description, searchTerm),
+      ilike(courseRevisions.searchSummary, searchTerm)
+    ));
+  }
+  const whereCondition = and(...conditions);
+  const totalRows = await db.select({ count: sql3`count(*)` }).from(courseDefinitions).innerJoin(courseRevisions, eq(courseRevisions.id, courseDefinitions.currentPublishedRevisionId)).where(whereCondition);
+  const total = Number(totalRows[0]?.count || 0);
+  let orderByClause;
+  if (filters?.sortBy === "popular") {
+    orderByClause = [desc(courseDefinitions.viewCount), desc(courseRevisions.orderIndex)];
+  } else if (filters?.sortBy === "recent") {
+    orderByClause = [desc(courseRevisions.publishedAt), desc(courseDefinitions.createdAt)];
+  } else if (filters?.sortBy === "duration") {
+    orderByClause = [asc(courseRevisions.duration), desc(courseRevisions.orderIndex)];
+  } else {
+    orderByClause = [desc(courseRevisions.orderIndex), desc(courseRevisions.publishedAt)];
+  }
+  const rows = await db.select({
+    definition: courseDefinitions,
+    revision: courseRevisions,
+    lessonCount: sql3`(
+        select count(*)
+        from ${courseRevisionLessons}
+        where ${courseRevisionLessons.courseRevisionId} = ${courseRevisions.id}
+      )`,
+    hasQuiz: sql3`exists(
+        select 1
+        from ${courseRevisionQuizzes}
+        where ${courseRevisionQuizzes.courseRevisionId} = ${courseRevisions.id}
+      )`
+  }).from(courseDefinitions).innerJoin(courseRevisions, eq(courseRevisions.id, courseDefinitions.currentPublishedRevisionId)).where(whereCondition).orderBy(...orderByClause).limit(limit).offset(offset);
+  return {
+    courses: rows.map(
+      (row) => mapPublishedCourse(row.definition, row.revision, {
+        lessonCount: Number(row.lessonCount || 0),
+        hasQuiz: Boolean(row.hasQuiz)
+      })
+    ),
+    total,
+    page,
+    limit
+  };
+}
+async function getPublishedCourseWithLessons(courseId) {
+  const record = await getPublishedCourseRecordById(courseId);
+  if (!record) return void 0;
+  const lessons = await db.select({
+    identity: courseLessonIdentities,
+    revisionLesson: courseRevisionLessons
+  }).from(courseRevisionLessons).innerJoin(
+    courseLessonIdentities,
+    eq(courseLessonIdentities.id, courseRevisionLessons.lessonIdentityId)
+  ).where(eq(courseRevisionLessons.courseRevisionId, record.revision.id)).orderBy(asc(courseRevisionLessons.orderIndex));
+  return {
+    course: mapPublishedCourse(record.definition, record.revision, {
+      lessonCount: lessons.length
+    }),
+    lessons: lessons.map((row) => mapPublishedLesson(row.identity, row.revisionLesson))
+  };
+}
+async function getPublishedCourseQuiz(courseId) {
+  const record = await getPublishedCourseRecordById(courseId);
+  if (!record) return void 0;
+  const [quiz] = await db.select().from(courseRevisionQuizzes).where(eq(courseRevisionQuizzes.courseRevisionId, record.revision.id)).limit(1);
+  if (!quiz) return void 0;
+  const questions = await db.select().from(courseRevisionQuizQuestions).where(eq(courseRevisionQuizQuestions.quizRevisionId, quiz.id)).orderBy(asc(courseRevisionQuizQuestions.orderIndex));
+  return {
+    quiz: mapPublishedQuiz(record.definition.id, quiz),
+    questions: questions.map(mapPublishedQuizQuestion),
+    courseRevisionId: record.revision.id
+  };
+}
+async function getPublishedLessonByIdentityId(lessonIdentityId) {
+  const [identity] = await db.select().from(courseLessonIdentities).where(
+    or(
+      eq(courseLessonIdentities.id, lessonIdentityId),
+      eq(courseLessonIdentities.legacyLessonId, lessonIdentityId)
+    )
+  ).orderBy(desc(courseLessonIdentities.id)).limit(1);
+  if (!identity?.courseDefinitionId) {
+    return void 0;
+  }
+  const record = await getPublishedCourseRecordById(identity.courseDefinitionId);
+  if (!record) return void 0;
+  const [lesson] = await db.select().from(courseRevisionLessons).where(
+    and(
+      eq(courseRevisionLessons.courseRevisionId, record.revision.id),
+      eq(courseRevisionLessons.lessonIdentityId, identity.id)
+    )
+  ).limit(1);
+  if (!lesson) return void 0;
+  return {
+    identity,
+    lesson,
+    courseDefinition: record.definition,
+    courseRevision: record.revision,
+    course: mapPublishedCourse(record.definition, record.revision)
+  };
+}
+async function getPublishedQuizByRevisionQuizId(quizRevisionId) {
+  const [quiz] = await db.select().from(courseRevisionQuizzes).where(eq(courseRevisionQuizzes.id, quizRevisionId)).limit(1);
+  if (!quiz?.courseRevisionId) return void 0;
+  const [courseRevision] = await db.select().from(courseRevisions).where(eq(courseRevisions.id, quiz.courseRevisionId)).limit(1);
+  if (!courseRevision?.courseDefinitionId) return void 0;
+  const [definition] = await db.select().from(courseDefinitions).where(eq(courseDefinitions.id, courseRevision.courseDefinitionId)).limit(1);
+  if (!definition) return void 0;
+  const questions = await db.select().from(courseRevisionQuizQuestions).where(eq(courseRevisionQuizQuestions.quizRevisionId, quiz.id)).orderBy(asc(courseRevisionQuizQuestions.orderIndex));
+  return {
+    definition,
+    revision: courseRevision,
+    quiz,
+    questions
+  };
+}
+async function getCourseDefinitionIdByLegacyCourseId(legacyCourseId) {
+  const [definition] = await db.select().from(courseDefinitions).where(eq(courseDefinitions.legacyCourseId, legacyCourseId)).limit(1);
+  return definition?.id;
+}
+async function getLessonIdentityIdByLegacyLessonId(legacyLessonId) {
+  const [identity] = await db.select().from(courseLessonIdentities).where(eq(courseLessonIdentities.legacyLessonId, legacyLessonId)).limit(1);
+  return identity?.id;
+}
+async function getCurrentRevisionForCourseDefinition(courseDefinitionId) {
+  const record = await getCurrentCourseRecordByDefinitionId(courseDefinitionId);
+  return record?.revision;
+}
+async function getLegacyCourseById(courseId) {
+  const [course] = await db.select().from(courses).where(eq(courses.id, courseId)).limit(1);
+  return course;
+}
+async function getLegacyLessonById(lessonId) {
+  const [lesson] = await db.select().from(courseLessons).where(eq(courseLessons.id, lessonId)).limit(1);
+  return lesson;
+}
+var init_course_content_store = __esm({
+  "server/course-content-store.ts"() {
+    "use strict";
+    init_schema();
+    init_db();
+    init_course_content();
+  }
+});
+
 // server/storage.ts
-import { eq, desc, and, sql as sql3, asc, gte, or, like, inArray, ilike, isNotNull } from "drizzle-orm";
+import { eq as eq2, desc as desc2, and as and2, sql as sql4, asc as asc2, gte, or as or2, like, inArray, ilike as ilike2, isNotNull } from "drizzle-orm";
 import path from "path";
 import { fileURLToPath } from "url";
-var ACTION_POINTS, __filename, __dirname, DatabaseStorage, storage;
+var ACTION_POINTS, parseNumericJsonArray, stringifyNumericArray, resolveCourseProgressCourseId, resolveCurrentLessonIdentityId, resolveCompletedLessonIdentityIds, adaptUserCourseProgress, adaptUserLessonProgress, compareCourseOrder, __filename, __dirname, DatabaseStorage, storage;
 var init_storage = __esm({
   "server/storage.ts"() {
     "use strict";
@@ -4928,6 +6092,7 @@ var init_storage = __esm({
     init_db();
     init_auth();
     init_blogContentEnhancements();
+    init_course_content_store();
     ACTION_POINTS = {
       "page_view": 1,
       "commitment": 100,
@@ -4941,6 +6106,90 @@ var init_storage = __esm({
       "quiz_passed": 200,
       "certificate_earned": 300
     };
+    parseNumericJsonArray = (value) => {
+      if (!value) return [];
+      try {
+        const parsed = JSON.parse(value);
+        return Array.isArray(parsed) ? parsed.filter((entry) => typeof entry === "number") : [];
+      } catch {
+        return [];
+      }
+    };
+    stringifyNumericArray = (values) => JSON.stringify(Array.from(new Set(values.filter((value) => typeof value === "number"))));
+    resolveCourseProgressCourseId = async (progress) => {
+      if (progress?.courseDefinitionId) return progress.courseDefinitionId;
+      if (progress?.courseId) {
+        return await getCourseDefinitionIdByLegacyCourseId(progress.courseId) ?? progress.courseId;
+      }
+      return null;
+    };
+    resolveCurrentLessonIdentityId = async (progress) => {
+      if (progress?.currentLessonIdentityId) return progress.currentLessonIdentityId;
+      if (progress?.currentLessonId) {
+        return await getLessonIdentityIdByLegacyLessonId(progress.currentLessonId) ?? progress.currentLessonId;
+      }
+      return null;
+    };
+    resolveCompletedLessonIdentityIds = async (progress) => {
+      const preferred = parseNumericJsonArray(progress?.completedLessonIdentityIds);
+      if (preferred.length > 0) {
+        return Array.from(new Set(preferred));
+      }
+      const legacyIds = parseNumericJsonArray(progress?.completedLessons);
+      const mapped = await Promise.all(
+        legacyIds.map(async (legacyId) => await getLessonIdentityIdByLegacyLessonId(legacyId) ?? legacyId)
+      );
+      return Array.from(new Set(mapped));
+    };
+    adaptUserCourseProgress = async (progress) => {
+      if (!progress) return void 0;
+      const courseId = await resolveCourseProgressCourseId(progress);
+      const currentLessonId = await resolveCurrentLessonIdentityId(progress);
+      const completedLessonIds = await resolveCompletedLessonIdentityIds(progress);
+      return {
+        ...progress,
+        courseId,
+        courseDefinitionId: courseId,
+        currentLessonId,
+        currentLessonIdentityId: currentLessonId,
+        completedLessons: stringifyNumericArray(completedLessonIds),
+        completedLessonIdentityIds: stringifyNumericArray(completedLessonIds)
+      };
+    };
+    adaptUserLessonProgress = async (progress) => {
+      if (!progress) return void 0;
+      const lessonId = progress.lessonIdentityId ?? (progress.lessonId ? await getLessonIdentityIdByLegacyLessonId(progress.lessonId) ?? progress.lessonId : null);
+      return {
+        ...progress,
+        lessonId,
+        lessonIdentityId: lessonId
+      };
+    };
+    compareCourseOrder = (left, right, sortBy) => {
+      const toTimestamp = (value) => {
+        if (!value) return 0;
+        const parsed = new Date(value).getTime();
+        return Number.isFinite(parsed) ? parsed : 0;
+      };
+      if (sortBy === "popular") {
+        return (right.viewCount ?? 0) - (left.viewCount ?? 0) || (right.orderIndex ?? 0) - (left.orderIndex ?? 0) || toTimestamp(right.createdAt) - toTimestamp(left.createdAt);
+      }
+      if (sortBy === "recent") {
+        return toTimestamp(right.updatedAt) - toTimestamp(left.updatedAt) || toTimestamp(right.createdAt) - toTimestamp(left.createdAt) || (right.orderIndex ?? 0) - (left.orderIndex ?? 0);
+      }
+      if (sortBy === "duration") {
+        return (left.duration ?? Number.MAX_SAFE_INTEGER) - (right.duration ?? Number.MAX_SAFE_INTEGER) || (right.orderIndex ?? 0) - (left.orderIndex ?? 0);
+      }
+      if (sortBy === "level") {
+        const levelRank = {
+          beginner: 0,
+          intermediate: 1,
+          advanced: 2
+        };
+        return (levelRank[left.level] ?? 999) - (levelRank[right.level] ?? 999) || (right.orderIndex ?? 0) - (left.orderIndex ?? 0) || toTimestamp(right.createdAt) - toTimestamp(left.createdAt);
+      }
+      return (right.orderIndex ?? 0) - (left.orderIndex ?? 0) || toTimestamp(right.updatedAt) - toTimestamp(left.updatedAt) || toTimestamp(right.createdAt) - toTimestamp(left.createdAt);
+    };
     __filename = fileURLToPath(import.meta.url);
     __dirname = path.dirname(__filename);
     DatabaseStorage = class {
@@ -4952,15 +6201,15 @@ var init_storage = __esm({
       }
       // User methods
       async getUser(id) {
-        const [user] = await db.select().from(users).where(eq(users.id, id));
+        const [user] = await db.select().from(users).where(eq2(users.id, id));
         return user;
       }
       async getUserByUsername(username) {
-        const [user] = await db.select().from(users).where(eq(users.username, username));
+        const [user] = await db.select().from(users).where(eq2(users.username, username));
         return user;
       }
       async getUserByEmail(email) {
-        const [user] = await db.select().from(users).where(eq(users.email, email));
+        const [user] = await db.select().from(users).where(eq2(users.email, email));
         return user;
       }
       async getAllUsers() {
@@ -5002,24 +6251,24 @@ var init_storage = __esm({
         await db.update(users).set({
           lastLogin: (/* @__PURE__ */ new Date()).toISOString(),
           updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-        }).where(eq(users.id, userId));
+        }).where(eq2(users.id, userId));
       }
       async incrementLoginAttempts(username) {
         await db.update(users).set({
-          loginAttempts: sql3`login_attempts + 1`,
-          lockedUntil: sql3`CASE
+          loginAttempts: sql4`login_attempts + 1`,
+          lockedUntil: sql4`CASE
           WHEN login_attempts + 1 >= 5 THEN (NOW() + INTERVAL '15 minutes')::text
           ELSE locked_until
         END`,
           updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-        }).where(eq(users.username, username));
+        }).where(eq2(users.username, username));
       }
       async resetLoginAttempts(username) {
         await db.update(users).set({
           loginAttempts: 0,
           lockedUntil: null,
           updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-        }).where(eq(users.username, username));
+        }).where(eq2(users.username, username));
       }
       async isUserLocked(username) {
         const user = await this.getUserByUsername(username);
@@ -5032,7 +6281,7 @@ var init_storage = __esm({
         const [user] = await db.update(users).set({
           ...updates,
           updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-        }).where(eq(users.id, userId)).returning();
+        }).where(eq2(users.id, userId)).returning();
         return user;
       }
       // Email verification methods
@@ -5041,10 +6290,10 @@ var init_storage = __esm({
           emailVerificationToken: token,
           emailVerificationExpires: expires.toISOString(),
           updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-        }).where(eq(users.id, userId));
+        }).where(eq2(users.id, userId));
       }
       async verifyEmail(token) {
-        const [user] = await db.select().from(users).where(eq(users.emailVerificationToken, token));
+        const [user] = await db.select().from(users).where(eq2(users.emailVerificationToken, token));
         if (!user) return null;
         if (user.emailVerificationExpires && /* @__PURE__ */ new Date() > new Date(user.emailVerificationExpires)) {
           return null;
@@ -5054,7 +6303,7 @@ var init_storage = __esm({
           emailVerificationToken: null,
           emailVerificationExpires: null,
           updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-        }).where(eq(users.id, user.id));
+        }).where(eq2(users.id, user.id));
         return user;
       }
       // Password reset methods
@@ -5063,10 +6312,10 @@ var init_storage = __esm({
           passwordResetToken: token,
           passwordResetExpires: expires.toISOString(),
           updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-        }).where(eq(users.id, userId));
+        }).where(eq2(users.id, userId));
       }
       async getUserByPasswordResetToken(token) {
-        const [user] = await db.select().from(users).where(eq(users.passwordResetToken, token));
+        const [user] = await db.select().from(users).where(eq2(users.passwordResetToken, token));
         if (!user) return null;
         if (user.passwordResetExpires && /* @__PURE__ */ new Date() > new Date(user.passwordResetExpires)) {
           return null;
@@ -5081,7 +6330,7 @@ var init_storage = __esm({
           passwordResetToken: null,
           passwordResetExpires: null,
           updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-        }).where(eq(users.id, userId));
+        }).where(eq2(users.id, userId));
       }
       // 2FA methods
       async enable2FA(userId, secret, backupCodes) {
@@ -5090,7 +6339,7 @@ var init_storage = __esm({
           twoFactorSecret: secret,
           twoFactorBackupCodes: JSON.stringify(backupCodes),
           updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-        }).where(eq(users.id, userId));
+        }).where(eq2(users.id, userId));
       }
       async disable2FA(userId) {
         await db.update(users).set({
@@ -5098,7 +6347,7 @@ var init_storage = __esm({
           twoFactorSecret: null,
           twoFactorBackupCodes: null,
           updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-        }).where(eq(users.id, userId));
+        }).where(eq2(users.id, userId));
       }
       async get2FASecret(userId) {
         const user = await this.getUser(userId);
@@ -5112,14 +6361,14 @@ var init_storage = __esm({
         await db.update(users).set({
           twoFactorBackupCodes: JSON.stringify(backupCodes),
           updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-        }).where(eq(users.id, userId));
+        }).where(eq2(users.id, userId));
       }
       // Dreams methods
       async getDreams() {
-        return await db.select().from(dreams).orderBy(desc(dreams.createdAt));
+        return await db.select().from(dreams).orderBy(desc2(dreams.createdAt));
       }
       async getDreamsByUser(userId) {
-        return await db.select().from(dreams).where(eq(dreams.userId, userId));
+        return await db.select().from(dreams).where(eq2(dreams.userId, userId));
       }
       async createDream(insertDream) {
         const dreamData = {
@@ -5131,10 +6380,10 @@ var init_storage = __esm({
       }
       // User Resources methods (Mandato Vivo)
       async getUserResources() {
-        return await db.select().from(userResources).where(eq(userResources.isActive, true)).orderBy(desc(userResources.createdAt));
+        return await db.select().from(userResources).where(eq2(userResources.isActive, true)).orderBy(desc2(userResources.createdAt));
       }
       async getUserResourcesByUser(userId) {
-        return await db.select().from(userResources).where(eq(userResources.userId, userId));
+        return await db.select().from(userResources).where(eq2(userResources.userId, userId));
       }
       async createUserResource(resource) {
         const [created] = await db.insert(userResources).values(resource).returning();
@@ -5143,15 +6392,15 @@ var init_storage = __esm({
       // Territory Mandates (Mandato Vivo)
       async getMandates(level) {
         if (level) {
-          return await db.select().from(territoryMandates).where(eq(territoryMandates.territoryLevel, level)).orderBy(desc(territoryMandates.generatedAt));
+          return await db.select().from(territoryMandates).where(eq2(territoryMandates.territoryLevel, level)).orderBy(desc2(territoryMandates.generatedAt));
         }
-        return await db.select().from(territoryMandates).orderBy(desc(territoryMandates.generatedAt));
+        return await db.select().from(territoryMandates).orderBy(desc2(territoryMandates.generatedAt));
       }
       async getMandateByTerritory(level, name) {
-        const [mandate] = await db.select().from(territoryMandates).where(and(
-          eq(territoryMandates.territoryLevel, level),
-          eq(territoryMandates.territoryName, name)
-        )).orderBy(desc(territoryMandates.version)).limit(1);
+        const [mandate] = await db.select().from(territoryMandates).where(and2(
+          eq2(territoryMandates.territoryLevel, level),
+          eq2(territoryMandates.territoryName, name)
+        )).orderBy(desc2(territoryMandates.version)).limit(1);
         return mandate;
       }
       async createMandate(mandate) {
@@ -5159,18 +6408,18 @@ var init_storage = __esm({
         return created;
       }
       async updateMandate(id, updates) {
-        const [updated] = await db.update(territoryMandates).set(updates).where(eq(territoryMandates.id, id)).returning();
+        const [updated] = await db.update(territoryMandates).set(updates).where(eq2(territoryMandates.id, id)).returning();
         return updated;
       }
       // Mandate Suggestions (Matchmaker)
       async getSuggestionsByMandate(mandateId) {
-        return await db.select().from(mandateSuggestions).where(eq(mandateSuggestions.mandateId, mandateId)).orderBy(desc(mandateSuggestions.createdAt));
+        return await db.select().from(mandateSuggestions).where(eq2(mandateSuggestions.mandateId, mandateId)).orderBy(desc2(mandateSuggestions.createdAt));
       }
       async getSuggestionsByTerritory(territoryName) {
-        return await db.select().from(mandateSuggestions).where(eq(mandateSuggestions.territoryName, territoryName)).orderBy(desc(mandateSuggestions.createdAt));
+        return await db.select().from(mandateSuggestions).where(eq2(mandateSuggestions.territoryName, territoryName)).orderBy(desc2(mandateSuggestions.createdAt));
       }
       async getSuggestionById(id) {
-        const [suggestion] = await db.select().from(mandateSuggestions).where(eq(mandateSuggestions.id, id));
+        const [suggestion] = await db.select().from(mandateSuggestions).where(eq2(mandateSuggestions.id, id));
         return suggestion;
       }
       async createSuggestion(suggestion) {
@@ -5182,18 +6431,18 @@ var init_storage = __esm({
           status: "activated",
           activatedBy: userId,
           initiativeId
-        }).where(eq(mandateSuggestions.id, id)).returning();
+        }).where(eq2(mandateSuggestions.id, id)).returning();
         return updated;
       }
       // Community Posts methods
       async getCommunityPosts(type) {
         if (type && type !== "all") {
-          return await db.select().from(communityPosts).where(eq(communityPosts.type, type));
+          return await db.select().from(communityPosts).where(eq2(communityPosts.type, type));
         }
-        return await db.select().from(communityPosts).orderBy(desc(communityPosts.createdAt));
+        return await db.select().from(communityPosts).orderBy(desc2(communityPosts.createdAt));
       }
       async getCommunityPostById(id) {
-        const [post] = await db.select().from(communityPosts).where(eq(communityPosts.id, id));
+        const [post] = await db.select().from(communityPosts).where(eq2(communityPosts.id, id));
         return post;
       }
       async createCommunityPost(insertPost) {
@@ -5210,29 +6459,29 @@ var init_storage = __esm({
         return post;
       }
       async updateCommunityPost(id, updates, userId) {
-        const [post] = await db.update(communityPosts).set({ ...updates, updatedAt: (/* @__PURE__ */ new Date()).toISOString() }).where(and(eq(communityPosts.id, id), eq(communityPosts.userId, userId))).returning();
+        const [post] = await db.update(communityPosts).set({ ...updates, updatedAt: (/* @__PURE__ */ new Date()).toISOString() }).where(and2(eq2(communityPosts.id, id), eq2(communityPosts.userId, userId))).returning();
         return post;
       }
       async deleteCommunityPost(id, userId) {
-        const result = await db.delete(communityPosts).where(and(eq(communityPosts.id, id), eq(communityPosts.userId, userId)));
+        const result = await db.delete(communityPosts).where(and2(eq2(communityPosts.id, id), eq2(communityPosts.userId, userId)));
         return result.changes > 0;
       }
       async getCommunityPostWithDetails(id) {
-        const [post] = await db.select().from(communityPosts).where(eq(communityPosts.id, id));
+        const [post] = await db.select().from(communityPosts).where(eq2(communityPosts.id, id));
         if (!post) {
           return void 0;
         }
         let userInfo = null;
         if (post.userId) {
-          const [user] = await db.select().from(users).where(eq(users.id, post.userId));
+          const [user] = await db.select().from(users).where(eq2(users.id, post.userId));
           if (user) {
-            const userInitiativesResult = await db.select({ count: sql3`count(*)` }).from(communityPosts).where(eq(communityPosts.userId, post.userId));
+            const userInitiativesResult = await db.select({ count: sql4`count(*)` }).from(communityPosts).where(eq2(communityPosts.userId, post.userId));
             const initiativesCount = Number(userInitiativesResult[0]?.count || 0);
-            const userPosts = await db.select({ id: communityPosts.id }).from(communityPosts).where(eq(communityPosts.userId, post.userId));
+            const userPosts = await db.select({ id: communityPosts.id }).from(communityPosts).where(eq2(communityPosts.userId, post.userId));
             const postIds = userPosts.map((p) => p.id);
             let totalMembers = 0;
             if (postIds.length > 0) {
-              const membersResult = await db.select({ count: sql3`count(*)` }).from(initiativeMembers).where(inArray(initiativeMembers.postId, postIds));
+              const membersResult = await db.select({ count: sql4`count(*)` }).from(initiativeMembers).where(inArray(initiativeMembers.postId, postIds));
               totalMembers = Number(membersResult[0]?.count || 0);
             }
             userInfo = {
@@ -5255,7 +6504,7 @@ var init_storage = __esm({
         };
       }
       async getUserCommunityPosts(userId) {
-        return await db.select().from(communityPosts).where(eq(communityPosts.userId, userId)).orderBy(desc(communityPosts.createdAt));
+        return await db.select().from(communityPosts).where(eq2(communityPosts.userId, userId)).orderBy(desc2(communityPosts.createdAt));
       }
       // Community Interactions
       async createPostInteraction(data) {
@@ -5268,15 +6517,15 @@ var init_storage = __esm({
         return interaction;
       }
       async getPostInteractions(postId, ownerId) {
-        const query = db.select().from(communityPostInteractions).where(eq(communityPostInteractions.postId, postId)).orderBy(desc(communityPostInteractions.createdAt));
+        const query = db.select().from(communityPostInteractions).where(eq2(communityPostInteractions.postId, postId)).orderBy(desc2(communityPostInteractions.createdAt));
         return await query;
       }
       async updateInteractionStatus(id, status, userId) {
-        const result = await db.update(communityPostInteractions).set({ status, updatedAt: (/* @__PURE__ */ new Date()).toISOString() }).where(and(eq(communityPostInteractions.id, id), eq(communityPostInteractions.userId, userId)));
+        const result = await db.update(communityPostInteractions).set({ status, updatedAt: (/* @__PURE__ */ new Date()).toISOString() }).where(and2(eq2(communityPostInteractions.id, id), eq2(communityPostInteractions.userId, userId)));
         return result.changes > 0;
       }
       async getUserInteractions(userId) {
-        return await db.select().from(communityPostInteractions).where(eq(communityPostInteractions.userId, userId)).orderBy(desc(communityPostInteractions.createdAt));
+        return await db.select().from(communityPostInteractions).where(eq2(communityPostInteractions.userId, userId)).orderBy(desc2(communityPostInteractions.createdAt));
       }
       // Community Messages
       async createCommunityMessage(data) {
@@ -5284,14 +6533,14 @@ var init_storage = __esm({
         return message;
       }
       async getUserMessages(userId) {
-        return await db.select().from(communityMessages).where(eq(communityMessages.receiverId, userId)).orderBy(desc(communityMessages.createdAt));
+        return await db.select().from(communityMessages).where(eq2(communityMessages.receiverId, userId)).orderBy(desc2(communityMessages.createdAt));
       }
       async markMessageAsRead(id, userId) {
-        const result = await db.update(communityMessages).set({ read: true }).where(and(eq(communityMessages.id, id), eq(communityMessages.receiverId, userId)));
+        const result = await db.update(communityMessages).set({ read: true }).where(and2(eq2(communityMessages.id, id), eq2(communityMessages.receiverId, userId)));
         return result.changes > 0;
       }
       async getUnreadMessageCount(userId) {
-        const result = await db.select({ count: sql3`count(*)` }).from(communityMessages).where(and(eq(communityMessages.receiverId, userId), eq(communityMessages.read, false)));
+        const result = await db.select({ count: sql4`count(*)` }).from(communityMessages).where(and2(eq2(communityMessages.receiverId, userId), eq2(communityMessages.read, false)));
         return result[0]?.count || 0;
       }
       // Community Activity
@@ -5304,10 +6553,10 @@ var init_storage = __esm({
         return activity;
       }
       async getPostAnalytics(postId, ownerId) {
-        const post = await db.select().from(communityPosts).where(and(eq(communityPosts.id, postId), eq(communityPosts.userId, ownerId)));
+        const post = await db.select().from(communityPosts).where(and2(eq2(communityPosts.id, postId), eq2(communityPosts.userId, ownerId)));
         if (!post.length) return null;
-        const activities = await db.select().from(communityPostActivity).where(eq(communityPostActivity.postId, postId));
-        const interactions = await db.select().from(communityPostInteractions).where(eq(communityPostInteractions.postId, postId));
+        const activities = await db.select().from(communityPostActivity).where(eq2(communityPostActivity.postId, postId));
+        const interactions = await db.select().from(communityPostInteractions).where(eq2(communityPostInteractions.postId, postId));
         return {
           post: post[0],
           totalViews: activities.filter((a) => a.activityType === "view").length,
@@ -5325,14 +6574,14 @@ var init_storage = __esm({
         };
       }
       async getUserActivityHistory(userId) {
-        return await db.select().from(communityPostActivity).where(eq(communityPostActivity.userId, userId)).orderBy(desc(communityPostActivity.createdAt));
+        return await db.select().from(communityPostActivity).where(eq2(communityPostActivity.userId, userId)).orderBy(desc2(communityPostActivity.createdAt));
       }
       // Resources methods
       async getResources() {
         return await db.select().from(resources);
       }
       async getResourcesByCategory(category) {
-        return await db.select().from(resources).where(eq(resources.category, category));
+        return await db.select().from(resources).where(eq2(resources.category, category));
       }
       async createResource(insertResource) {
         const [resource] = await db.insert(resources).values(insertResource).returning();
@@ -5343,7 +6592,7 @@ var init_storage = __esm({
         return await db.select().from(stories);
       }
       async getStoryById(id) {
-        const [story] = await db.select().from(stories).where(eq(stories.id, id));
+        const [story] = await db.select().from(stories).where(eq2(stories.id, id));
         return story;
       }
       async createStory(insertStory) {
@@ -5401,7 +6650,7 @@ var init_storage = __esm({
       // User Levels
       async getUserLevel(userId) {
         const level = await db.query.userLevels.findFirst({
-          where: eq(userLevels.userId, userId),
+          where: eq2(userLevels.userId, userId),
           with: {
             user: true
           }
@@ -5432,7 +6681,7 @@ var init_storage = __esm({
           currentLevel: newLevel,
           experienceToNext,
           updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-        }).where(eq(userLevels.userId, userId)).returning();
+        }).where(eq2(userLevels.userId, userId)).returning();
         return updatedLevel;
       }
       async updateStreak(userId) {
@@ -5456,7 +6705,7 @@ var init_storage = __esm({
           streak: newStreak,
           lastActivityDate: today,
           updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-        }).where(eq(userLevels.userId, userId)).returning();
+        }).where(eq2(userLevels.userId, userId)).returning();
         return updatedLevel;
       }
       // Challenges
@@ -5464,26 +6713,26 @@ var init_storage = __esm({
         let query = db.query.challenges.findMany({
           with: {
             steps: {
-              orderBy: [asc(challengeSteps.orderIndex)]
+              orderBy: [asc2(challengeSteps.orderIndex)]
             }
           },
-          orderBy: [asc(challenges.orderIndex)]
+          orderBy: [asc2(challenges.orderIndex)]
         });
         if (filters) {
           const conditions = [];
-          if (filters.level) conditions.push(eq(challenges.level, filters.level));
-          if (filters.frequency) conditions.push(eq(challenges.frequency, filters.frequency));
-          if (filters.category) conditions.push(eq(challenges.category, filters.category));
-          if (filters.difficulty) conditions.push(eq(challenges.difficulty, filters.difficulty));
+          if (filters.level) conditions.push(eq2(challenges.level, filters.level));
+          if (filters.frequency) conditions.push(eq2(challenges.frequency, filters.frequency));
+          if (filters.category) conditions.push(eq2(challenges.category, filters.category));
+          if (filters.difficulty) conditions.push(eq2(challenges.difficulty, filters.difficulty));
           if (conditions.length > 0) {
             query = db.query.challenges.findMany({
-              where: and(...conditions),
+              where: and2(...conditions),
               with: {
                 steps: {
-                  orderBy: [asc(challengeSteps.orderIndex)]
+                  orderBy: [asc2(challengeSteps.orderIndex)]
                 }
               },
-              orderBy: [asc(challenges.orderIndex)]
+              orderBy: [asc2(challenges.orderIndex)]
             });
           }
         }
@@ -5491,29 +6740,29 @@ var init_storage = __esm({
       }
       async getChallenge(challengeId) {
         return await db.query.challenges.findFirst({
-          where: eq(challenges.id, challengeId),
+          where: eq2(challenges.id, challengeId),
           with: {
             steps: {
-              orderBy: [asc(challengeSteps.orderIndex)]
+              orderBy: [asc2(challengeSteps.orderIndex)]
             }
           }
         });
       }
       async getChallengeSteps(challengeId) {
         return await db.query.challengeSteps.findMany({
-          where: eq(challengeSteps.challengeId, challengeId),
-          orderBy: [asc(challengeSteps.orderIndex)]
+          where: eq2(challengeSteps.challengeId, challengeId),
+          orderBy: [asc2(challengeSteps.orderIndex)]
         });
       }
       // User Challenge Progress
       async getUserChallengeProgress(userId) {
         return await db.query.userChallengeProgress.findMany({
-          where: eq(userChallengeProgress.userId, userId),
+          where: eq2(userChallengeProgress.userId, userId),
           with: {
             challenge: {
               with: {
                 steps: {
-                  orderBy: [asc(challengeSteps.orderIndex)]
+                  orderBy: [asc2(challengeSteps.orderIndex)]
                 }
               }
             }
@@ -5537,9 +6786,9 @@ var init_storage = __esm({
           completedSteps: JSON.stringify(completedSteps),
           lastActivityAt: (/* @__PURE__ */ new Date()).toISOString()
         }).where(
-          and(
-            eq(userChallengeProgress.userId, userId),
-            eq(userChallengeProgress.challengeId, challengeId)
+          and2(
+            eq2(userChallengeProgress.userId, userId),
+            eq2(userChallengeProgress.challengeId, challengeId)
           )
         ).returning();
         return progress;
@@ -5550,9 +6799,9 @@ var init_storage = __esm({
           completedAt: (/* @__PURE__ */ new Date()).toISOString(),
           lastActivityAt: (/* @__PURE__ */ new Date()).toISOString()
         }).where(
-          and(
-            eq(userChallengeProgress.userId, userId),
-            eq(userChallengeProgress.challengeId, challengeId)
+          and2(
+            eq2(userChallengeProgress.userId, userId),
+            eq2(userChallengeProgress.challengeId, challengeId)
           )
         ).returning();
         const challenge = await this.getChallenge(challengeId);
@@ -5565,12 +6814,12 @@ var init_storage = __esm({
       // Badges
       async getBadges() {
         return await db.query.badges.findMany({
-          orderBy: [asc(badges.orderIndex)]
+          orderBy: [asc2(badges.orderIndex)]
         });
       }
       async getUserBadges(userId) {
         return await db.query.userBadges.findMany({
-          where: eq(userBadges.userId, userId),
+          where: eq2(userBadges.userId, userId),
           with: {
             badge: true
           }
@@ -5578,9 +6827,9 @@ var init_storage = __esm({
       }
       async awardBadge(userId, badgeId) {
         const existingBadge = await db.query.userBadges.findFirst({
-          where: and(
-            eq(userBadges.userId, userId),
-            eq(userBadges.badgeId, badgeId)
+          where: and2(
+            eq2(userBadges.userId, userId),
+            eq2(userBadges.badgeId, badgeId)
           )
         });
         if (existingBadge) {
@@ -5592,7 +6841,7 @@ var init_storage = __esm({
           earnedAt: (/* @__PURE__ */ new Date()).toISOString()
         }).returning();
         const badge = await db.query.badges.findFirst({
-          where: eq(badges.id, badgeId)
+          where: eq2(badges.id, badgeId)
         });
         if (badge && badge.experienceReward > 0) {
           await this.updateUserExperience(userId, badge.experienceReward);
@@ -5657,9 +6906,9 @@ var init_storage = __esm({
       async recordDailyActivity(userId, experienceGained, challengesCompleted, actionsCompleted) {
         const today = (/* @__PURE__ */ new Date()).toISOString().split("T")[0];
         const existingActivity = await db.query.userDailyActivity.findFirst({
-          where: and(
-            eq(userDailyActivity.userId, userId),
-            eq(userDailyActivity.date, today)
+          where: and2(
+            eq2(userDailyActivity.userId, userId),
+            eq2(userDailyActivity.date, today)
           )
         });
         if (existingActivity) {
@@ -5667,7 +6916,7 @@ var init_storage = __esm({
             experienceGained: existingActivity.experienceGained + experienceGained,
             challengesCompleted: existingActivity.challengesCompleted + challengesCompleted,
             actionsCompleted: existingActivity.actionsCompleted + actionsCompleted
-          }).where(eq(userDailyActivity.id, existingActivity.id)).returning();
+          }).where(eq2(userDailyActivity.id, existingActivity.id)).returning();
           return updated;
         } else {
           const [newActivity] = await db.insert(userDailyActivity).values({
@@ -5685,11 +6934,11 @@ var init_storage = __esm({
         startDate.setDate(startDate.getDate() - days);
         const startDateStr = startDate.toISOString().split("T")[0];
         return await db.query.userDailyActivity.findMany({
-          where: and(
-            eq(userDailyActivity.userId, userId),
+          where: and2(
+            eq2(userDailyActivity.userId, userId),
             gte(userDailyActivity.date, startDateStr)
           ),
-          orderBy: [desc(userDailyActivity.date)]
+          orderBy: [desc2(userDailyActivity.date)]
         });
       }
       // ==================== BLOG METHODS ====================
@@ -5714,17 +6963,17 @@ var init_storage = __esm({
           }).from(blogPosts);
           const conditions = [];
           if (filters?.type && typeof filters.type === "string" && filters.type.trim() !== "") {
-            conditions.push(eq(blogPosts.type, filters.type));
+            conditions.push(eq2(blogPosts.type, filters.type));
           }
           if (filters?.category && typeof filters.category === "string" && filters.category.trim() !== "") {
-            conditions.push(eq(blogPosts.category, filters.category));
+            conditions.push(eq2(blogPosts.category, filters.category));
           }
           if (filters?.featured !== void 0 && filters.featured !== null) {
-            conditions.push(eq(blogPosts.featured, filters.featured));
+            conditions.push(eq2(blogPosts.featured, filters.featured));
           }
           if (filters?.search && typeof filters.search === "string" && filters.search.trim() !== "") {
             conditions.push(
-              or(
+              or2(
                 like(blogPosts.title, `%${filters.search}%`),
                 like(blogPosts.excerpt, `%${filters.search}%`),
                 like(blogPosts.content, `%${filters.search}%`)
@@ -5734,9 +6983,9 @@ var init_storage = __esm({
           if (conditions.length === 1) {
             query = query.where(conditions[0]);
           } else if (conditions.length > 1) {
-            query = query.where(and(...conditions));
+            query = query.where(and2(...conditions));
           }
-          const allPosts = await query.orderBy(desc(blogPosts.publishedAt)).limit(limit).offset(offset);
+          const allPosts = await query.orderBy(desc2(blogPosts.publishedAt)).limit(limit).offset(offset);
           console.log(`[getBlogPosts] Found ${allPosts.length} posts with filters:`, filters);
           if (allPosts.length === 0) {
             console.log("[getBlogPosts] No posts found, returning empty array");
@@ -5866,7 +7115,7 @@ var init_storage = __esm({
         try {
           const counts = await db.select({
             type: blogPosts.type,
-            count: sql3`COUNT(*)`.as("count")
+            count: sql4`COUNT(*)`.as("count")
           }).from(blogPosts).groupBy(blogPosts.type);
           let blog = 0;
           let vlog = 0;
@@ -5909,7 +7158,7 @@ var init_storage = __esm({
             authorName: users.name,
             authorUsername: users.username,
             authorEmail: users.email
-          }).from(blogPosts).leftJoin(users, eq(blogPosts.authorId, users.id)).where(eq(blogPosts.slug, slug)).limit(1);
+          }).from(blogPosts).leftJoin(users, eq2(blogPosts.authorId, users.id)).where(eq2(blogPosts.slug, slug)).limit(1);
           if (result.length === 0) {
             return void 0;
           }
@@ -5939,15 +7188,15 @@ var init_storage = __esm({
           };
           const tags = await db.select({
             tag: postTags.tag
-          }).from(postTags).where(eq(postTags.postId, post.id));
-          const likesRecords = await db.select().from(postLikes).where(eq(postLikes.postId, post.id));
+          }).from(postTags).where(eq2(postTags.postId, post.id));
+          const likesRecords = await db.select().from(postLikes).where(eq2(postLikes.postId, post.id));
           const likes = await Promise.all(likesRecords.map(async (like2) => {
             if (like2.userId) {
               const [user] = await db.select({
                 id: users.id,
                 name: users.name,
                 username: users.username
-              }).from(users).where(eq(users.id, like2.userId)).limit(1);
+              }).from(users).where(eq2(users.id, like2.userId)).limit(1);
               return {
                 user: user || { id: like2.userId, name: "Usuario", username: "usuario" }
               };
@@ -5956,7 +7205,7 @@ var init_storage = __esm({
               user: { id: like2.userId || 0, name: "Usuario", username: "usuario" }
             };
           }));
-          const commentsRecords = await db.select().from(postComments).where(eq(postComments.postId, post.id));
+          const commentsRecords = await db.select().from(postComments).where(eq2(postComments.postId, post.id));
           const comments = await Promise.all(commentsRecords.map(async (comment) => {
             let user = { id: comment.userId || 0, name: "Usuario", username: "usuario" };
             if (comment.userId) {
@@ -5964,7 +7213,7 @@ var init_storage = __esm({
                 id: users.id,
                 name: users.name,
                 username: users.username
-              }).from(users).where(eq(users.id, comment.userId)).limit(1);
+              }).from(users).where(eq2(users.id, comment.userId)).limit(1);
               if (userData) {
                 user = userData;
               }
@@ -5996,35 +7245,35 @@ var init_storage = __esm({
       }
       async updateBlogPost(id, post, userId) {
         const existingPost = await db.query.blogPosts.findFirst({
-          where: and(eq(blogPosts.id, id), eq(blogPosts.authorId, userId))
+          where: and2(eq2(blogPosts.id, id), eq2(blogPosts.authorId, userId))
         });
         if (!existingPost) {
           return void 0;
         }
-        const result = await db.update(blogPosts).set({ ...post, updatedAt: (/* @__PURE__ */ new Date()).toISOString() }).where(eq(blogPosts.id, id)).returning();
+        const result = await db.update(blogPosts).set({ ...post, updatedAt: (/* @__PURE__ */ new Date()).toISOString() }).where(eq2(blogPosts.id, id)).returning();
         return result.length ? applyBlogContentEnhancements(result[0]) : void 0;
       }
       async deleteBlogPost(id, userId) {
         const existingPost = await db.query.blogPosts.findFirst({
-          where: and(eq(blogPosts.id, id), eq(blogPosts.authorId, userId))
+          where: and2(eq2(blogPosts.id, id), eq2(blogPosts.authorId, userId))
         });
         if (!existingPost) {
           return false;
         }
-        await db.delete(blogPosts).where(eq(blogPosts.id, id));
+        await db.delete(blogPosts).where(eq2(blogPosts.id, id));
         return true;
       }
       // Post Interactions
       async togglePostLike(postId, userId) {
         const existingLike = await db.query.postLikes.findFirst({
-          where: and(eq(postLikes.postId, postId), eq(postLikes.userId, userId))
+          where: and2(eq2(postLikes.postId, postId), eq2(postLikes.userId, userId))
         });
         if (existingLike) {
-          await db.delete(postLikes).where(eq(postLikes.id, existingLike.id));
+          await db.delete(postLikes).where(eq2(postLikes.id, existingLike.id));
         } else {
           await db.insert(postLikes).values({ postId, userId });
         }
-        const count = await db.select({ count: sql3`count(*)` }).from(postLikes).where(eq(postLikes.postId, postId));
+        const count = await db.select({ count: sql4`count(*)` }).from(postLikes).where(eq2(postLikes.postId, postId));
         return {
           liked: !existingLike,
           count: count[0].count
@@ -6032,11 +7281,11 @@ var init_storage = __esm({
       }
       async getPostLikes(postId) {
         const likes = await db.query.postLikes.findMany({
-          where: eq(postLikes.postId, postId),
+          where: eq2(postLikes.postId, postId),
           with: {
             user: true
           },
-          orderBy: [desc(postLikes.createdAt)]
+          orderBy: [desc2(postLikes.createdAt)]
         });
         return {
           count: likes.length,
@@ -6054,45 +7303,45 @@ var init_storage = __esm({
       }
       async getPostComments(postId) {
         return await db.query.postComments.findMany({
-          where: eq(postComments.postId, postId),
+          where: eq2(postComments.postId, postId),
           with: {
             user: true,
             replies: {
               with: {
                 user: true
               },
-              orderBy: [asc(postComments.createdAt)]
+              orderBy: [asc2(postComments.createdAt)]
             }
           },
-          orderBy: [asc(postComments.createdAt)]
+          orderBy: [asc2(postComments.createdAt)]
         });
       }
       async updatePostComment(id, content, userId) {
         const existingComment = await db.query.postComments.findFirst({
-          where: and(eq(postComments.id, id), eq(postComments.userId, userId))
+          where: and2(eq2(postComments.id, id), eq2(postComments.userId, userId))
         });
         if (!existingComment) {
           return void 0;
         }
-        const result = await db.update(postComments).set({ content, updatedAt: (/* @__PURE__ */ new Date()).toISOString() }).where(eq(postComments.id, id)).returning();
+        const result = await db.update(postComments).set({ content, updatedAt: (/* @__PURE__ */ new Date()).toISOString() }).where(eq2(postComments.id, id)).returning();
         return result[0];
       }
       async deletePostComment(id, userId) {
         const existingComment = await db.query.postComments.findFirst({
-          where: and(eq(postComments.id, id), eq(postComments.userId, userId))
+          where: and2(eq2(postComments.id, id), eq2(postComments.userId, userId))
         });
         if (!existingComment) {
           return false;
         }
-        await db.delete(postComments).where(eq(postComments.id, id));
+        await db.delete(postComments).where(eq2(postComments.id, id));
         return true;
       }
       async togglePostBookmark(postId, userId) {
         const existingBookmark = await db.query.postBookmarks.findFirst({
-          where: and(eq(postBookmarks.postId, postId), eq(postBookmarks.userId, userId))
+          where: and2(eq2(postBookmarks.postId, postId), eq2(postBookmarks.userId, userId))
         });
         if (existingBookmark) {
-          await db.delete(postBookmarks).where(eq(postBookmarks.id, existingBookmark.id));
+          await db.delete(postBookmarks).where(eq2(postBookmarks.id, existingBookmark.id));
           return { bookmarked: false };
         } else {
           await db.insert(postBookmarks).values({ postId, userId });
@@ -6101,7 +7350,7 @@ var init_storage = __esm({
       }
       async getUserBookmarks(userId) {
         const bookmarks = await db.query.postBookmarks.findMany({
-          where: eq(postBookmarks.userId, userId),
+          where: eq2(postBookmarks.userId, userId),
           with: {
             post: {
               with: {
@@ -6110,7 +7359,7 @@ var init_storage = __esm({
               }
             }
           },
-          orderBy: [desc(postBookmarks.createdAt)]
+          orderBy: [desc2(postBookmarks.createdAt)]
         });
         return applyEnhancementsToList(bookmarks.map((bookmark) => bookmark.post));
       }
@@ -6125,66 +7374,66 @@ var init_storage = __esm({
           console.error("[recordPostView] Error:", error);
           throw error;
         }
-        await db.update(blogPosts).set({ viewCount: sql3`${blogPosts.viewCount} + 1` }).where(eq(blogPosts.id, postId));
+        await db.update(blogPosts).set({ viewCount: sql4`${blogPosts.viewCount} + 1` }).where(eq2(blogPosts.id, postId));
       }
       // Search & Recommendations
       async searchPosts(query, filters) {
         const page = filters?.page || 1;
         const limit = filters?.limit || 10;
         const offset = (page - 1) * limit;
-        let whereClause = sql3`(${blogPosts.title} LIKE '%${query}%' OR ${blogPosts.excerpt} LIKE '%${query}%' OR ${blogPosts.content} LIKE '%${query}%')`;
+        let whereClause = sql4`(${blogPosts.title} LIKE '%${query}%' OR ${blogPosts.excerpt} LIKE '%${query}%' OR ${blogPosts.content} LIKE '%${query}%')`;
         if (filters?.type) {
-          whereClause = sql3`${whereClause} AND ${blogPosts.type} = ${filters.type}`;
+          whereClause = sql4`${whereClause} AND ${blogPosts.type} = ${filters.type}`;
         }
         if (filters?.category) {
-          whereClause = sql3`${whereClause} AND ${blogPosts.category} = ${filters.category}`;
+          whereClause = sql4`${whereClause} AND ${blogPosts.category} = ${filters.category}`;
         }
-        const rawPosts = await db.select().from(blogPosts).where(whereClause).orderBy(desc(blogPosts.publishedAt)).limit(limit).offset(offset);
+        const rawPosts = await db.select().from(blogPosts).where(whereClause).orderBy(desc2(blogPosts.publishedAt)).limit(limit).offset(offset);
         return applyEnhancementsToList(rawPosts);
       }
       async getTrendingPosts(days = 7, limit = 10) {
         const startDate = /* @__PURE__ */ new Date();
         startDate.setDate(startDate.getDate() - days);
         const startDateStr = startDate.toISOString();
-        const posts = await db.select().from(blogPosts).where(gte(blogPosts.publishedAt, startDateStr)).orderBy(desc(blogPosts.viewCount)).limit(limit);
+        const posts = await db.select().from(blogPosts).where(gte(blogPosts.publishedAt, startDateStr)).orderBy(desc2(blogPosts.viewCount)).limit(limit);
         return applyEnhancementsToList(posts);
       }
       async getRelatedPosts(postId, limit = 4) {
         const post = await db.query.blogPosts.findFirst({
-          where: eq(blogPosts.id, postId)
+          where: eq2(blogPosts.id, postId)
         });
         if (!post) {
           return [];
         }
-        const related = await db.select().from(blogPosts).where(and(
-          eq(blogPosts.category, post.category),
-          sql3`${blogPosts.id} != ${postId}`
-        )).orderBy(desc(blogPosts.viewCount)).limit(limit);
+        const related = await db.select().from(blogPosts).where(and2(
+          eq2(blogPosts.category, post.category),
+          sql4`${blogPosts.id} != ${postId}`
+        )).orderBy(desc2(blogPosts.viewCount)).limit(limit);
         return applyEnhancementsToList(related);
       }
       async getPopularTags(limit = 20) {
         const result = await db.select({
           tag: postTags.tag,
-          count: sql3`count(*)`
-        }).from(postTags).groupBy(postTags.tag).orderBy(desc(sql3`count(*)`)).limit(limit);
+          count: sql4`count(*)`
+        }).from(postTags).groupBy(postTags.tag).orderBy(desc2(sql4`count(*)`)).limit(limit);
         return result;
       }
       // ==================== GEOGRAPHIC LOCATIONS METHODS ====================
       async getProvinces() {
-        return await db.select().from(geographicLocations).where(eq(geographicLocations.type, "province"));
+        return await db.select().from(geographicLocations).where(eq2(geographicLocations.type, "province"));
       }
       async getCitiesByProvince(provinceId) {
-        return await db.select().from(geographicLocations).where(and(
-          eq(geographicLocations.type, "city"),
-          eq(geographicLocations.parentId, provinceId)
+        return await db.select().from(geographicLocations).where(and2(
+          eq2(geographicLocations.type, "city"),
+          eq2(geographicLocations.parentId, provinceId)
         ));
       }
       async getLocationByName(name, type) {
-        const conditions = [eq(geographicLocations.name, name)];
+        const conditions = [eq2(geographicLocations.name, name)];
         if (type) {
-          conditions.push(eq(geographicLocations.type, type));
+          conditions.push(eq2(geographicLocations.type, type));
         }
-        const [location] = await db.select().from(geographicLocations).where(and(...conditions));
+        const [location] = await db.select().from(geographicLocations).where(and2(...conditions));
         return location;
       }
       async createLocation(location) {
@@ -6195,31 +7444,31 @@ var init_storage = __esm({
       async likePost(postId, userId) {
         const alreadyLiked = await this.isPostLikedByUser(postId, userId);
         if (alreadyLiked) {
-          const [existing] = await db.select().from(communityPostLikes).where(and(eq(communityPostLikes.postId, postId), eq(communityPostLikes.userId, userId)));
+          const [existing] = await db.select().from(communityPostLikes).where(and2(eq2(communityPostLikes.postId, postId), eq2(communityPostLikes.userId, userId)));
           return existing;
         }
         const [like2] = await db.insert(communityPostLikes).values({ postId, userId }).returning();
         return like2;
       }
       async unlikePost(postId, userId) {
-        const result = await db.delete(communityPostLikes).where(and(
-          eq(communityPostLikes.postId, postId),
-          eq(communityPostLikes.userId, userId)
+        const result = await db.delete(communityPostLikes).where(and2(
+          eq2(communityPostLikes.postId, postId),
+          eq2(communityPostLikes.userId, userId)
         )).returning();
         return result.length > 0;
       }
       async isPostLikedByUser(postId, userId) {
-        const [like2] = await db.select().from(communityPostLikes).where(and(
-          eq(communityPostLikes.postId, postId),
-          eq(communityPostLikes.userId, userId)
+        const [like2] = await db.select().from(communityPostLikes).where(and2(
+          eq2(communityPostLikes.postId, postId),
+          eq2(communityPostLikes.userId, userId)
         ));
         return !!like2;
       }
       async getCommunityPostLikes(postId) {
-        return await db.select().from(communityPostLikes).where(eq(communityPostLikes.postId, postId));
+        return await db.select().from(communityPostLikes).where(eq2(communityPostLikes.postId, postId));
       }
       async getCommunityPostLikesCount(postId) {
-        const result = await db.select({ count: sql3`count(*)` }).from(communityPostLikes).where(eq(communityPostLikes.postId, postId));
+        const result = await db.select({ count: sql4`count(*)` }).from(communityPostLikes).where(eq2(communityPostLikes.postId, postId));
         return result[0]?.count || 0;
       }
       async recordCommunityPostView(postId, userId, ipAddress, userAgent) {
@@ -6232,22 +7481,22 @@ var init_storage = __esm({
         return view;
       }
       async getCommunityPostViews(postId) {
-        return await db.select().from(communityPostViews).where(eq(communityPostViews.postId, postId));
+        return await db.select().from(communityPostViews).where(eq2(communityPostViews.postId, postId));
       }
       async getCommunityPostViewsCount(postId) {
-        const result = await db.select({ count: sql3`count(*)` }).from(communityPostViews).where(eq(communityPostViews.postId, postId));
+        const result = await db.select({ count: sql4`count(*)` }).from(communityPostViews).where(eq2(communityPostViews.postId, postId));
         return result[0]?.count || 0;
       }
       // ==================== GEOGRAPHIC SEARCH METHODS ====================
       async searchPostsByLocation(province, city, radiusKm, userLat, userLng) {
-        let conditions = [eq(communityPosts.status, "active")];
+        let conditions = [eq2(communityPosts.status, "active")];
         if (province) {
-          conditions.push(eq(communityPosts.province, province));
+          conditions.push(eq2(communityPosts.province, province));
         }
         if (city) {
-          conditions.push(eq(communityPosts.city, city));
+          conditions.push(eq2(communityPosts.city, city));
         }
-        let query = db.select().from(communityPosts).where(and(...conditions));
+        let query = db.select().from(communityPosts).where(and2(...conditions));
         if (radiusKm && userLat && userLng) {
           const posts = await query;
           return posts.filter((post) => {
@@ -6274,18 +7523,18 @@ var init_storage = __esm({
         let query = db.select().from(inspiringStories);
         const conditions = [];
         if (filters?.category) {
-          conditions.push(eq(inspiringStories.category, filters.category));
+          conditions.push(eq2(inspiringStories.category, filters.category));
         }
         if (filters?.status) {
-          conditions.push(eq(inspiringStories.status, filters.status));
+          conditions.push(eq2(inspiringStories.status, filters.status));
         }
         if (filters?.featured !== void 0) {
-          conditions.push(eq(inspiringStories.featured, filters.featured ? 1 : 0));
+          conditions.push(eq2(inspiringStories.featured, filters.featured ? 1 : 0));
         }
         if (conditions.length > 0) {
-          query = query.where(and(...conditions));
+          query = query.where(and2(...conditions));
         }
-        query = query.orderBy(desc(inspiringStories.publishedAt));
+        query = query.orderBy(desc2(inspiringStories.publishedAt));
         if (filters?.limit) {
           query = query.limit(filters.limit);
         }
@@ -6295,7 +7544,7 @@ var init_storage = __esm({
         return await query;
       }
       async getInspiringStory(id) {
-        const [story] = await db.select().from(inspiringStories).where(eq(inspiringStories.id, id));
+        const [story] = await db.select().from(inspiringStories).where(eq2(inspiringStories.id, id));
         return story;
       }
       async createInspiringStory(story) {
@@ -6310,11 +7559,11 @@ var init_storage = __esm({
         const [updatedStory] = await db.update(inspiringStories).set({
           ...updates,
           updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-        }).where(eq(inspiringStories.id, id)).returning();
+        }).where(eq2(inspiringStories.id, id)).returning();
         return updatedStory;
       }
       async deleteInspiringStory(id) {
-        await db.delete(inspiringStories).where(eq(inspiringStories.id, id));
+        await db.delete(inspiringStories).where(eq2(inspiringStories.id, id));
       }
       async getFeaturedStories(limit = 3) {
         return this.getInspiringStories({ featured: true, status: "approved", limit });
@@ -6324,21 +7573,21 @@ var init_storage = __esm({
       }
       async incrementStoryViews(id) {
         await db.update(inspiringStories).set({
-          views: sql3`views + 1`,
+          views: sql4`views + 1`,
           updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-        }).where(eq(inspiringStories.id, id));
+        }).where(eq2(inspiringStories.id, id));
       }
       async incrementStoryLikes(id) {
         await db.update(inspiringStories).set({
-          likes: sql3`likes + 1`,
+          likes: sql4`likes + 1`,
           updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-        }).where(eq(inspiringStories.id, id));
+        }).where(eq2(inspiringStories.id, id));
       }
       async incrementStoryShares(id) {
         await db.update(inspiringStories).set({
-          shares: sql3`shares + 1`,
+          shares: sql4`shares + 1`,
           updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-        }).where(eq(inspiringStories.id, id));
+        }).where(eq2(inspiringStories.id, id));
       }
       async moderateStory(id, status, moderatorId, notes) {
         const [updatedStory] = await db.update(inspiringStories).set({
@@ -6347,7 +7596,7 @@ var init_storage = __esm({
           moderatedAt: (/* @__PURE__ */ new Date()).toISOString(),
           moderationNotes: notes,
           updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-        }).where(eq(inspiringStories.id, id)).returning();
+        }).where(eq2(inspiringStories.id, id)).returning();
         return updatedStory;
       }
       // ==================== GAMIFICATION ¡BASTA! METHODS ====================
@@ -6399,18 +7648,18 @@ var init_storage = __esm({
             name: users.name,
             username: users.username
           }
-        }).from(userCommitments).innerJoin(users, eq(userCommitments.userId, users.id)).where(eq(userCommitments.status, "active")).orderBy(desc(userCommitments.createdAt)).limit(safeLimit);
+        }).from(userCommitments).innerJoin(users, eq2(userCommitments.userId, users.id)).where(eq2(userCommitments.status, "active")).orderBy(desc2(userCommitments.createdAt)).limit(safeLimit);
       }
       async getCommitmentStats() {
         await this.ensureUserCommitmentsLocationColumns();
         const [summary] = await db.select({
-          total: sql3`count(*)`,
-          last24h: sql3`sum(case when ${userCommitments.createdAt}::timestamp >= NOW() - INTERVAL '1 day' then 1 else 0 end)`
-        }).from(userCommitments).where(eq(userCommitments.status, "active"));
+          total: sql4`count(*)`,
+          last24h: sql4`sum(case when ${userCommitments.createdAt}::timestamp >= NOW() - INTERVAL '1 day' then 1 else 0 end)`
+        }).from(userCommitments).where(eq2(userCommitments.status, "active"));
         const byTypeRows = await db.select({
           type: userCommitments.commitmentType,
-          total: sql3`count(*)`
-        }).from(userCommitments).where(eq(userCommitments.status, "active")).groupBy(userCommitments.commitmentType).orderBy(desc(sql3`count(*)`));
+          total: sql4`count(*)`
+        }).from(userCommitments).where(eq2(userCommitments.status, "active")).groupBy(userCommitments.commitmentType).orderBy(desc2(sql4`count(*)`));
         return {
           total: Number(summary?.total ?? 0),
           last24h: Number(summary?.last24h ?? 0),
@@ -6428,7 +7677,7 @@ var init_storage = __esm({
           parentId: geographicLocations.parentId,
           latitude: geographicLocations.latitude,
           longitude: geographicLocations.longitude
-        }).from(geographicLocations).where(and(
+        }).from(geographicLocations).where(and2(
           inArray(geographicLocations.type, ["province", "city"]),
           isNotNull(geographicLocations.latitude),
           isNotNull(geographicLocations.longitude)
@@ -6475,7 +7724,7 @@ var init_storage = __esm({
                 name: users.name,
                 username: users.username
               }
-            }).from(weeklyRankings).innerJoin(users, eq(weeklyRankings.userId, users.id)).where(eq(weeklyRankings.weekStart, weekStartStr)).orderBy(asc(weeklyRankings.rank)).limit(limit);
+            }).from(weeklyRankings).innerJoin(users, eq2(weeklyRankings.userId, users.id)).where(eq2(weeklyRankings.weekStart, weekStartStr)).orderBy(asc2(weeklyRankings.rank)).limit(limit);
             break;
           case "monthly":
             const monthStart = (/* @__PURE__ */ new Date()).toISOString().substring(0, 7);
@@ -6488,7 +7737,7 @@ var init_storage = __esm({
                 name: users.name,
                 username: users.username
               }
-            }).from(monthlyRankings).innerJoin(users, eq(monthlyRankings.userId, users.id)).where(eq(monthlyRankings.monthStart, monthStart)).orderBy(asc(monthlyRankings.rank)).limit(limit);
+            }).from(monthlyRankings).innerJoin(users, eq2(monthlyRankings.userId, users.id)).where(eq2(monthlyRankings.monthStart, monthStart)).orderBy(asc2(monthlyRankings.rank)).limit(limit);
             break;
           case "global":
           default:
@@ -6502,7 +7751,7 @@ var init_storage = __esm({
                 name: users.name,
                 username: users.username
               }
-            }).from(userProgress).innerJoin(users, eq(userProgress.userId, users.id)).orderBy(desc(userProgress.points)).limit(limit);
+            }).from(userProgress).innerJoin(users, eq2(userProgress.userId, users.id)).orderBy(desc2(userProgress.points)).limit(limit);
             break;
         }
         return await query;
@@ -6519,7 +7768,7 @@ var init_storage = __esm({
         return action;
       }
       async getUserProgress(userId) {
-        const [progress] = await db.select().from(userProgress).where(eq(userProgress.userId, userId));
+        const [progress] = await db.select().from(userProgress).where(eq2(userProgress.userId, userId));
         if (!progress) {
           const [newProgress] = await db.insert(userProgress).values({
             userId,
@@ -6533,10 +7782,10 @@ var init_storage = __esm({
         return progress;
       }
       async getAllBadges() {
-        return await db.select().from(badges).orderBy(asc(badges.orderIndex));
+        return await db.select().from(badges).orderBy(asc2(badges.orderIndex));
       }
       async updateUserProgress(userId, pointsToAdd) {
-        const [currentProgress] = await db.select().from(userProgress).where(eq(userProgress.userId, userId));
+        const [currentProgress] = await db.select().from(userProgress).where(eq2(userProgress.userId, userId));
         if (!currentProgress) {
           await db.insert(userProgress).values({
             userId,
@@ -6561,7 +7810,7 @@ var init_storage = __esm({
             totalActions: currentProgress.totalActions + 1,
             lastActionAt: (/* @__PURE__ */ new Date()).toISOString(),
             updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-          }).where(eq(userProgress.userId, userId));
+          }).where(eq2(userProgress.userId, userId));
           if (newLevel > currentProgress.level) {
             await this.recordAction(userId, "level_up", {
               oldLevel: currentProgress.level,
@@ -6575,7 +7824,7 @@ var init_storage = __esm({
       // ==================== NEW INITIATIVE FEATURES IMPLEMENTATIONS ====================
       // Initiative Members
       async getInitiativeMembers(postId) {
-        return await db.select().from(initiativeMembers).where(and(eq(initiativeMembers.postId, postId), eq(initiativeMembers.status, "active"))).orderBy(asc(initiativeMembers.joinedAt));
+        return await db.select().from(initiativeMembers).where(and2(eq2(initiativeMembers.postId, postId), eq2(initiativeMembers.status, "active"))).orderBy(asc2(initiativeMembers.joinedAt));
       }
       async getUserMemberships(userId) {
         return await db.select({
@@ -6587,13 +7836,13 @@ var init_storage = __esm({
           postTitle: communityPosts.title,
           postType: communityPosts.type,
           postStatus: communityPosts.status
-        }).from(initiativeMembers).innerJoin(communityPosts, eq(initiativeMembers.postId, communityPosts.id)).where(and(eq(initiativeMembers.userId, userId), eq(initiativeMembers.status, "active"))).orderBy(desc(initiativeMembers.joinedAt));
+        }).from(initiativeMembers).innerJoin(communityPosts, eq2(initiativeMembers.postId, communityPosts.id)).where(and2(eq2(initiativeMembers.userId, userId), eq2(initiativeMembers.status, "active"))).orderBy(desc2(initiativeMembers.joinedAt));
       }
       async addInitiativeMember(postId, userId, role) {
-        const [existing] = await db.select().from(initiativeMembers).where(and(
-          eq(initiativeMembers.postId, postId),
-          eq(initiativeMembers.userId, userId),
-          eq(initiativeMembers.status, "active")
+        const [existing] = await db.select().from(initiativeMembers).where(and2(
+          eq2(initiativeMembers.postId, postId),
+          eq2(initiativeMembers.userId, userId),
+          eq2(initiativeMembers.status, "active")
         )).limit(1);
         if (existing) {
           return existing;
@@ -6614,31 +7863,31 @@ var init_storage = __esm({
             canManageRoles: role === "creator"
           })
         }).returning();
-        await db.update(communityPosts).set({ memberCount: sql3`${communityPosts.memberCount} + 1` }).where(eq(communityPosts.id, postId));
+        await db.update(communityPosts).set({ memberCount: sql4`${communityPosts.memberCount} + 1` }).where(eq2(communityPosts.id, postId));
         return member;
       }
       async updateMemberRole(memberId, role, permissions) {
         await db.update(initiativeMembers).set({
           role,
           permissions: JSON.stringify(permissions)
-        }).where(eq(initiativeMembers.id, memberId));
+        }).where(eq2(initiativeMembers.id, memberId));
       }
       async removeMember(memberId) {
-        const [member] = await db.select().from(initiativeMembers).where(eq(initiativeMembers.id, memberId));
+        const [member] = await db.select().from(initiativeMembers).where(eq2(initiativeMembers.id, memberId));
         if (member) {
           await db.update(initiativeMembers).set({
             status: "left",
             leftAt: (/* @__PURE__ */ new Date()).toISOString()
-          }).where(eq(initiativeMembers.id, memberId));
-          await db.update(communityPosts).set({ memberCount: sql3`${communityPosts.memberCount} - 1` }).where(eq(communityPosts.id, member.postId));
+          }).where(eq2(initiativeMembers.id, memberId));
+          await db.update(communityPosts).set({ memberCount: sql4`${communityPosts.memberCount} - 1` }).where(eq2(communityPosts.id, member.postId));
         }
       }
       // Membership Requests
       async createMembershipRequest(postId, userId, message) {
-        const [existingRequest] = await db.select().from(membershipRequests).where(and(
-          eq(membershipRequests.postId, postId),
-          eq(membershipRequests.userId, userId),
-          eq(membershipRequests.status, "pending")
+        const [existingRequest] = await db.select().from(membershipRequests).where(and2(
+          eq2(membershipRequests.postId, postId),
+          eq2(membershipRequests.userId, userId),
+          eq2(membershipRequests.status, "pending")
         )).limit(1);
         if (existingRequest) {
           return existingRequest;
@@ -6652,21 +7901,21 @@ var init_storage = __esm({
         return request;
       }
       async getMembershipRequests(postId, status) {
-        let query = db.select().from(membershipRequests).where(eq(membershipRequests.postId, postId));
+        let query = db.select().from(membershipRequests).where(eq2(membershipRequests.postId, postId));
         if (status) {
-          query = query.where(eq(membershipRequests.status, status));
+          query = query.where(eq2(membershipRequests.status, status));
         }
-        return await query.orderBy(desc(membershipRequests.createdAt));
+        return await query.orderBy(desc2(membershipRequests.createdAt));
       }
       async approveMembershipRequest(requestId, reviewerId) {
-        const [request] = await db.select().from(membershipRequests).where(eq(membershipRequests.id, requestId));
+        const [request] = await db.select().from(membershipRequests).where(eq2(membershipRequests.id, requestId));
         if (request && request.status === "pending") {
           await this.addInitiativeMember(request.postId, request.userId, "member");
           await db.update(membershipRequests).set({
             status: "approved",
             reviewedBy: reviewerId,
             reviewedAt: (/* @__PURE__ */ new Date()).toISOString()
-          }).where(eq(membershipRequests.id, requestId));
+          }).where(eq2(membershipRequests.id, requestId));
           await this.createActivityFeedItem({
             type: "new_member",
             postId: request.postId,
@@ -6682,11 +7931,11 @@ var init_storage = __esm({
           status: "rejected",
           reviewedBy: reviewerId,
           reviewedAt: (/* @__PURE__ */ new Date()).toISOString()
-        }).where(eq(membershipRequests.id, requestId));
+        }).where(eq2(membershipRequests.id, requestId));
       }
       // Milestones
       async getInitiativeMilestones(postId) {
-        return await db.select().from(initiativeMilestones).where(eq(initiativeMilestones.postId, postId)).orderBy(asc(initiativeMilestones.orderIndex));
+        return await db.select().from(initiativeMilestones).where(eq2(initiativeMilestones.postId, postId)).orderBy(asc2(initiativeMilestones.orderIndex));
       }
       async createMilestone(postId, data) {
         const [milestone] = await db.insert(initiativeMilestones).values({
@@ -6708,7 +7957,7 @@ var init_storage = __esm({
         await db.update(initiativeMilestones).set({
           ...updates,
           updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-        }).where(eq(initiativeMilestones.id, milestoneId));
+        }).where(eq2(initiativeMilestones.id, milestoneId));
       }
       async completeMilestone(milestoneId, userId) {
         await db.update(initiativeMilestones).set({
@@ -6716,8 +7965,8 @@ var init_storage = __esm({
           completedBy: userId,
           completedAt: (/* @__PURE__ */ new Date()).toISOString(),
           updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-        }).where(eq(initiativeMilestones.id, milestoneId));
-        const [milestone] = await db.select().from(initiativeMilestones).where(eq(initiativeMilestones.id, milestoneId));
+        }).where(eq2(initiativeMilestones.id, milestoneId));
+        const [milestone] = await db.select().from(initiativeMilestones).where(eq2(initiativeMilestones.id, milestoneId));
         if (milestone) {
           await this.createActivityFeedItem({
             type: "milestone_completed",
@@ -6731,7 +7980,7 @@ var init_storage = __esm({
       }
       // Tasks
       async getInitiativeTasks(postId) {
-        return await db.select().from(initiativeTasks).where(eq(initiativeTasks.postId, postId)).orderBy(asc(initiativeTasks.createdAt));
+        return await db.select().from(initiativeTasks).where(eq2(initiativeTasks.postId, postId)).orderBy(asc2(initiativeTasks.createdAt));
       }
       async createTask(postId, data) {
         const [task] = await db.insert(initiativeTasks).values({
@@ -6752,21 +8001,21 @@ var init_storage = __esm({
         await db.update(initiativeTasks).set({
           ...updates,
           updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-        }).where(eq(initiativeTasks.id, taskId));
+        }).where(eq2(initiativeTasks.id, taskId));
       }
       async assignTask(taskId, userId) {
         await db.update(initiativeTasks).set({
           assignedTo: userId,
           updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-        }).where(eq(initiativeTasks.id, taskId));
+        }).where(eq2(initiativeTasks.id, taskId));
       }
       async completeTask(taskId) {
         await db.update(initiativeTasks).set({
           status: "done",
           completedAt: (/* @__PURE__ */ new Date()).toISOString(),
           updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-        }).where(eq(initiativeTasks.id, taskId));
-        const [task] = await db.select().from(initiativeTasks).where(eq(initiativeTasks.id, taskId));
+        }).where(eq2(initiativeTasks.id, taskId));
+        const [task] = await db.select().from(initiativeTasks).where(eq2(initiativeTasks.id, taskId));
         if (task) {
           await this.createActivityFeedItem({
             type: "task_completed",
@@ -6779,15 +8028,15 @@ var init_storage = __esm({
         }
       }
       async deleteTask(taskId) {
-        await db.delete(initiativeTasks).where(eq(initiativeTasks.id, taskId));
+        await db.delete(initiativeTasks).where(eq2(initiativeTasks.id, taskId));
       }
       async deleteMilestone(milestoneId) {
-        await db.update(initiativeTasks).set({ milestoneId: null }).where(eq(initiativeTasks.milestoneId, milestoneId));
-        await db.delete(initiativeMilestones).where(eq(initiativeMilestones.id, milestoneId));
+        await db.update(initiativeTasks).set({ milestoneId: null }).where(eq2(initiativeTasks.milestoneId, milestoneId));
+        await db.delete(initiativeMilestones).where(eq2(initiativeMilestones.id, milestoneId));
       }
       // Messages/Chat
       async getInitiativeMessages(postId, limit = 50, offset = 0) {
-        return await db.select().from(initiativeMessages).where(eq(initiativeMessages.postId, postId)).orderBy(desc(initiativeMessages.createdAt)).limit(limit).offset(offset);
+        return await db.select().from(initiativeMessages).where(eq2(initiativeMessages.postId, postId)).orderBy(desc2(initiativeMessages.createdAt)).limit(limit).offset(offset);
       }
       async sendMessage(postId, userId, content, type = "message") {
         const [message] = await db.insert(initiativeMessages).values({
@@ -6801,9 +8050,9 @@ var init_storage = __esm({
       // Activity Feed
       async getActivityFeed(filters) {
         const { type, limit = 20, offset = 0 } = filters || {};
-        let query = db.select().from(activityFeed).orderBy(desc(activityFeed.createdAt)).limit(limit).offset(offset);
+        let query = db.select().from(activityFeed).orderBy(desc2(activityFeed.createdAt)).limit(limit).offset(offset);
         if (type) {
-          query = query.where(eq(activityFeed.type, type));
+          query = query.where(eq2(activityFeed.type, type));
         }
         return await query;
       }
@@ -6811,19 +8060,87 @@ var init_storage = __esm({
         const [item] = await db.insert(activityFeed).values(data).returning();
         return item;
       }
+      // === Mission Evidence ===
+      async getEvidence(postId, status) {
+        let query = db.select().from(missionEvidence).where(eq2(missionEvidence.postId, postId)).orderBy(desc2(missionEvidence.createdAt));
+        if (status) {
+          query = query.where(eq2(missionEvidence.status, status));
+        }
+        return await query;
+      }
+      async createEvidence(data) {
+        const [evidence] = await db.insert(missionEvidence).values(data).returning();
+        await this.createActivityFeedItem({
+          type: "evidence_submitted",
+          postId: data.postId,
+          userId: data.userId,
+          title: `Nueva evidencia: ${data.evidenceType}`,
+          description: data.content?.substring(0, 200) || ""
+        });
+        return evidence;
+      }
+      async verifyEvidence(evidenceId, verifiedBy) {
+        const [updated] = await db.update(missionEvidence).set({
+          status: "verified",
+          verifiedBy,
+          verifiedAt: (/* @__PURE__ */ new Date()).toISOString()
+        }).where(eq2(missionEvidence.id, evidenceId)).returning();
+        return updated;
+      }
+      async flagEvidence(evidenceId, flagCategory, flaggedBy) {
+        const [updated] = await db.update(missionEvidence).set({
+          status: "flagged",
+          flagCategory,
+          verifiedBy: flaggedBy,
+          verifiedAt: (/* @__PURE__ */ new Date()).toISOString()
+        }).where(eq2(missionEvidence.id, evidenceId)).returning();
+        return updated;
+      }
+      async getEvidenceCount(postId) {
+        const result = await db.select({ count: sql4`count(*)` }).from(missionEvidence).where(eq2(missionEvidence.postId, postId));
+        return Number(result[0]?.count ?? 0);
+      }
+      async getEvidenceCountByFlag(postId) {
+        const result = await db.select({
+          flagCategory: missionEvidence.flagCategory,
+          count: sql4`count(*)`
+        }).from(missionEvidence).where(and2(
+          eq2(missionEvidence.postId, postId),
+          eq2(missionEvidence.status, "flagged")
+        )).groupBy(missionEvidence.flagCategory);
+        return result.map((r) => ({
+          flagCategory: r.flagCategory || "",
+          count: Number(r.count)
+        }));
+      }
+      // === Mission Chronicles ===
+      async getChronicles(postId) {
+        return await db.select().from(missionChronicles).where(eq2(missionChronicles.postId, postId)).orderBy(desc2(missionChronicles.createdAt));
+      }
+      async createChronicle(data) {
+        const [chronicle] = await db.insert(missionChronicles).values(data).returning();
+        await this.createActivityFeedItem({
+          type: "update",
+          postId: data.postId,
+          userId: data.userId,
+          title: `Nueva cronica: ${data.title}`,
+          description: data.content?.substring(0, 200) || ""
+        });
+        return chronicle;
+      }
       // Notifications
       async getUserNotifications(userId, unreadOnly = false) {
-        let query = db.select().from(notifications).where(eq(notifications.userId, userId));
+        let query = db.select().from(notifications).where(eq2(notifications.userId, userId));
         if (unreadOnly) {
-          query = query.where(eq(notifications.read, false));
+          query = query.where(eq2(notifications.read, false));
         }
-        return await query.orderBy(desc(notifications.createdAt));
+        return await query.orderBy(desc2(notifications.createdAt));
       }
       async markNotificationAsRead(notificationId) {
-        await db.update(notifications).set({ read: true }).where(eq(notifications.id, notificationId));
+        await db.update(notifications).set({ read: true }).where(eq2(notifications.id, notificationId));
       }
       async markAllNotificationsAsRead(userId) {
-        await db.update(notifications).set({ read: true }).where(eq(notifications.userId, userId));
+        await db.update(notifications).set({ read: true }).where(eq2(notifications.userId, userId));
       }
       async createNotification(userId, data) {
         const [notification] = await db.insert(notifications).values({
@@ -6839,40 +8156,58 @@ var init_storage = __esm({
         const limit = filters?.limit || 12;
         const offset = (page - 1) * limit;
         try {
-          const conditions = [eq(courses.isPublished, true)];
+          const publishedResult = await getPublishedCourses({
+            ...filters,
+            page: 1,
+            limit: 1e3
+          });
+          const conditions = [eq2(courses.isPublished, true)];
           if (filters?.category) {
-            conditions.push(eq(courses.category, filters.category));
+            conditions.push(eq2(courses.category, filters.category));
           }
           if (filters?.level) {
-            conditions.push(eq(courses.level, filters.level));
+            conditions.push(eq2(courses.level, filters.level));
           }
           if (filters?.featured === true) {
-            conditions.push(eq(courses.isFeatured, true));
+            conditions.push(eq2(courses.isFeatured, true));
           }
           if (filters?.search) {
             const searchTerm = `%${filters.search}%`;
-            conditions.push(or(
-              ilike(courses.title, searchTerm),
-              ilike(courses.description, searchTerm)
+            conditions.push(or2(
+              ilike2(courses.title, searchTerm),
+              ilike2(courses.description, searchTerm)
             ));
           }
-          const whereCondition = and(...conditions);
-          const countResult = await db.select({ count: sql3`count(*)` }).from(courses).where(whereCondition);
-          const total = Number(countResult[0]?.count || 0);
-          let orderByClause;
-          if (filters?.sortBy === "popular") {
-            orderByClause = [desc(courses.viewCount)];
-          } else if (filters?.sortBy === "recent") {
-            orderByClause = [desc(courses.createdAt)];
-          } else if (filters?.sortBy === "duration") {
-            orderByClause = [asc(courses.duration)];
-          } else {
-            orderByClause = [desc(courses.orderIndex), desc(courses.createdAt)];
-          }
-          const courseList = await db.select().from(courses).where(whereCondition).orderBy(...orderByClause).limit(limit).offset(offset);
+          const whereCondition = and2(...conditions);
+          const legacyRows = await db.select({
+            course: courses,
+            lessonCount: sql4`(
+            select count(*)
+            from ${courseLessons}
+            where ${courseLessons.courseId} = ${courses.id}
+          )`,
+            hasQuiz: sql4`exists(
+            select 1
+            from ${courseQuizzes}
+            where ${courseQuizzes.courseId} = ${courses.id}
+          )`
+          }).from(courses).where(whereCondition).orderBy(desc2(courses.orderIndex), desc2(courses.updatedAt), desc2(courses.createdAt));
+          const legacyVisibility = await Promise.all(
+            legacyRows.map(async (row) => ({
+              ...row,
+              hasCurrentRevision: await hasCurrentRevisionForCourseId(row.course.id)
+            }))
+          );
+          const legacyCourses = legacyVisibility.filter((row) => !row.hasCurrentRevision).map((row) => ({
+            ...row.course,
+            lessonCount: Number(row.lessonCount || 0),
+            hasQuiz: Boolean(row.hasQuiz)
+          }));
+          const mergedCourses = [...publishedResult.courses, ...legacyCourses].sort((left, right) => compareCourseOrder(left, right, filters?.sortBy));
+          const paginatedCourses = mergedCourses.slice(offset, offset + limit);
           return {
-            courses: courseList,
-            total,
+            courses: paginatedCourses,
+            total: mergedCourses.length,
             page,
             limit
           };
@@ -6881,38 +8216,141 @@ var init_storage = __esm({
           throw error;
         }
       }
+      async getCourseById(courseId) {
+        const publishedCourse = await getPublishedCourseById(courseId);
+        if (publishedCourse) {
+          return publishedCourse;
+        }
+        if (await hasCurrentRevisionForCourseId(courseId)) {
+          return void 0;
+        }
+        return await getLegacyCourseById(courseId);
+      }
       async getCourseBySlug(slug) {
-        const [course] = await db.select().from(courses).where(eq(courses.slug, slug)).limit(1);
+        const publishedCourse = await getPublishedCourseBySlug(slug);
+        if (publishedCourse) {
+          return publishedCourse;
+        }
+        if (await hasCurrentRevisionForCourseSlug(slug)) {
+          return void 0;
+        }
+        const [course] = await db.select().from(courses).where(eq2(courses.slug, slug)).limit(1);
         return course;
       }
+      async getLessonById(lessonId) {
+        const publishedLesson = await getPublishedLessonByIdentityId(lessonId);
+        if (publishedLesson) {
+          return {
+            ...publishedLesson.lesson,
+            id: publishedLesson.identity.id,
+            courseId: publishedLesson.courseDefinition.id,
+            content: publishedLesson.lesson.contentHtml,
+            key: publishedLesson.identity.key
+          };
+        }
+        const legacyLesson = await getLegacyLessonById(lessonId);
+        if (!legacyLesson) {
+          return void 0;
+        }
+        if (await hasCurrentRevisionForCourseId(legacyLesson.courseId)) {
+          return void 0;
+        }
+        return legacyLesson;
+      }
       async getCourseWithLessons(courseId) {
-        const [course] = await db.select().from(courses).where(eq(courses.id, courseId)).limit(1);
+        const publishedCourseData = await getPublishedCourseWithLessons(courseId);
+        if (publishedCourseData) {
+          return publishedCourseData;
+        }
+        if (await hasCurrentRevisionForCourseId(courseId)) {
+          return void 0;
+        }
+        const [course] = await db.select().from(courses).where(eq2(courses.id, courseId)).limit(1);
         if (!course) return void 0;
-        const lessonsList = await db.select().from(courseLessons).where(eq(courseLessons.courseId, courseId)).orderBy(asc(courseLessons.orderIndex));
+        const lessonsList = await db.select().from(courseLessons).where(eq2(courseLessons.courseId, courseId)).orderBy(asc2(courseLessons.orderIndex));
         return { course, lessons: lessonsList };
       }
       async getCourseQuiz(courseId) {
-        const [quiz] = await db.select().from(courseQuizzes).where(eq(courseQuizzes.courseId, courseId)).limit(1);
+        const publishedQuiz = await getPublishedCourseQuiz(courseId);
+        if (publishedQuiz) {
+          return publishedQuiz;
+        }
+        if (await hasCurrentRevisionForCourseId(courseId)) {
+          return void 0;
+        }
+        const [quiz] = await db.select().from(courseQuizzes).where(eq2(courseQuizzes.courseId, courseId)).limit(1);
         if (!quiz) return void 0;
-        const questionsList = await db.select().from(quizQuestions).where(eq(quizQuestions.quizId, quiz.id)).orderBy(asc(quizQuestions.orderIndex));
+        const questionsList = await db.select().from(quizQuestions).where(eq2(quizQuestions.quizId, quiz.id)).orderBy(asc2(quizQuestions.orderIndex));
         return { quiz, questions: questionsList };
+      }
+      async incrementCourseView(courseId) {
+        const publishedCourse = await getPublishedCourseById(courseId);
+        if (publishedCourse) {
+          await incrementPublishedCourseView(publishedCourse.id);
+          return;
+        }
+        if (await hasCurrentRevisionForCourseId(courseId)) {
+          return;
+        }
+        await db.update(courses).set({ viewCount: sql4`${courses.viewCount} + 1` }).where(eq2(courses.id, courseId));
       }
       // Course Progress
       async getUserCourseProgress(userId, courseId) {
-        const [progress] = await db.select().from(userCourseProgress).where(
-          and(
-            eq(userCourseProgress.userId, userId),
-            eq(userCourseProgress.courseId, courseId)
+        let [progress] = await db.select().from(userCourseProgress).where(
+          and2(
+            eq2(userCourseProgress.userId, userId),
+            eq2(userCourseProgress.courseDefinitionId, courseId)
           )
         ).limit(1);
-        return progress;
+        if (!progress) {
+          const mappedDefinitionId = await getCourseDefinitionIdByLegacyCourseId(courseId);
+          if (mappedDefinitionId) {
+            [progress] = await db.select().from(userCourseProgress).where(
+              and2(
+                eq2(userCourseProgress.userId, userId),
+                or2(
+                  eq2(userCourseProgress.courseDefinitionId, mappedDefinitionId),
+                  eq2(userCourseProgress.courseId, courseId)
+                )
+              )
+            ).limit(1);
+          }
+        }
+        if (!progress) {
+          [progress] = await db.select().from(userCourseProgress).where(
+            and2(
+              eq2(userCourseProgress.userId, userId),
+              eq2(userCourseProgress.courseId, courseId)
+            )
+          ).limit(1);
+        }
+        return await adaptUserCourseProgress(progress);
       }
       async startCourse(userId, courseId) {
         const existing = await this.getUserCourseProgress(userId, courseId);
         if (existing) {
           return existing;
         }
-        const [course] = await db.select().from(courses).where(eq(courses.id, courseId)).limit(1);
+        const publishedCourse = await getPublishedCourseById(courseId);
+        if (publishedCourse) {
+          const revision = await getCurrentRevisionForCourseDefinition(courseId);
+          const [progress2] = await db.insert(userCourseProgress).values({
+            userId,
+            courseId: revision?.legacyCourseId ?? null,
+            courseDefinitionId: courseId,
+            status: "in_progress",
+            progress: 0,
+            startedAt: (/* @__PURE__ */ new Date()).toISOString(),
+            lastAccessedAt: (/* @__PURE__ */ new Date()).toISOString(),
+            completedLessons: JSON.stringify([]),
+            completedLessonIdentityIds: JSON.stringify([])
+          }).returning();
+          if (!progress2) {
+            throw new Error("Failed to create course progress");
+          }
+          return await adaptUserCourseProgress(progress2);
+        }
+        const [course] = await db.select().from(courses).where(eq2(courses.id, courseId)).limit(1);
         if (!course) {
           throw new Error("Course not found");
         }
@@ -6931,7 +8369,108 @@ var init_storage = __esm({
         return progress;
       }
       async completeLesson(userId, lessonId) {
-        const [lesson] = await db.select().from(courseLessons).where(eq(courseLessons.id, lessonId)).limit(1);
+        const publishedLesson = await getPublishedLessonByIdentityId(lessonId);
+        if (publishedLesson) {
+          const { identity, lesson: lesson2, courseDefinition } = publishedLesson;
+          const [existingLessonProgress2] = await db.select().from(userLessonProgress).where(
+            and2(
+              eq2(userLessonProgress.userId, userId),
+              eq2(userLessonProgress.lessonIdentityId, identity.id)
+            )
+          ).limit(1);
+          if (existingLessonProgress2) {
+            await db.update(userLessonProgress).set({
+              lessonId: identity.legacyLessonId ?? existingLessonProgress2.lessonId ?? null,
+              lessonIdentityId: identity.id,
+              status: "completed",
+              completedAt: (/* @__PURE__ */ new Date()).toISOString(),
+              updatedAt: (/* @__PURE__ */ new Date()).toISOString()
+            }).where(eq2(userLessonProgress.id, existingLessonProgress2.id));
+          } else {
+            await db.insert(userLessonProgress).values({
+              userId,
+              lessonId: identity.legacyLessonId ?? null,
+              lessonIdentityId: identity.id,
+              status: "completed",
+              completedAt: (/* @__PURE__ */ new Date()).toISOString()
+            });
+          }
+          let [courseProgress2] = await db.select().from(userCourseProgress).where(
+            and2(
+              eq2(userCourseProgress.userId, userId),
+              eq2(userCourseProgress.courseDefinitionId, courseDefinition.id)
+            )
+          ).limit(1);
+          if (!courseProgress2) {
+            await this.startCourse(userId, courseDefinition.id);
+            [courseProgress2] = await db.select().from(userCourseProgress).where(
+              and2(
+                eq2(userCourseProgress.userId, userId),
+                eq2(userCourseProgress.courseDefinitionId, courseDefinition.id)
+              )
+            ).limit(1);
+          }
+          if (!courseProgress2) {
+            throw new Error("Course progress not found");
+          }
+          const courseData = await getPublishedCourseWithLessons(courseDefinition.id);
+          if (!courseData) {
+            throw new Error("Course not found");
+          }
+          const requiredLessons2 = courseData.lessons.filter((entry) => entry.isRequired);
+          const completedLessonsIds2 = await resolveCompletedLessonIdentityIds(courseProgress2);
+          const lessonAlreadyCompleted2 = completedLessonsIds2.includes(identity.id);
+          if (!lessonAlreadyCompleted2) {
+            completedLessonsIds2.push(identity.id);
+          }
+          const completedRequired2 = requiredLessons2.filter((entry) => completedLessonsIds2.includes(entry.id)).length;
+          const progressPercentage2 = requiredLessons2.length > 0 ? Math.round(completedRequired2 / requiredLessons2.length * 100) : 0;
+          const nextLesson2 = courseData.lessons.find(
+            (entry) => entry.orderIndex > lesson2.orderIndex && !completedLessonsIds2.includes(entry.id)
+          );
+          const courseCompleted2 = requiredLessons2.every((entry) => completedLessonsIds2.includes(entry.id));
+          const courseWasCompletedBefore2 = courseProgress2.status === "completed";
+          const [updatedProgress2] = await db.update(userCourseProgress).set({
+            courseId: publishedLesson.courseRevision.legacyCourseId ?? courseProgress2.courseId ?? null,
+            courseDefinitionId: courseDefinition.id,
+            progress: progressPercentage2,
+            status: courseCompleted2 ? "completed" : "in_progress",
+            currentLessonId: null,
+            currentLessonIdentityId: nextLesson2?.id || null,
+            completedLessonIdentityIds: stringifyNumericArray(completedLessonsIds2),
+            completedLessons: courseProgress2.completedLessons ?? JSON.stringify([]),
+            completedAt: courseCompleted2 ? (/* @__PURE__ */ new Date()).toISOString() : null,
+            lastAccessedAt: (/* @__PURE__ */ new Date()).toISOString(),
+            updatedAt: (/* @__PURE__ */ new Date()).toISOString()
+          }).where(eq2(userCourseProgress.id, courseProgress2.id)).returning();
+          if (!updatedProgress2) {
+            throw new Error("Failed to update course progress");
+          }
+          const xpAwarded2 = { lesson: 0, course: 0 };
+          if (!lessonAlreadyCompleted2) {
+            try {
+              xpAwarded2.lesson = ACTION_POINTS["lesson_complete"] ?? 0;
+              await this.recordAction(userId, "lesson_complete", {
+                lessonId: identity.id,
+                courseId: courseDefinition.id
+              });
+              if (courseCompleted2 && !courseWasCompletedBefore2) {
+                xpAwarded2.course = ACTION_POINTS["course_complete"] ?? 0;
+                await this.recordAction(userId, "course_complete", {
+                  courseId: courseDefinition.id
+                });
+              }
+            } catch (actionError) {
+              console.error("Error awarding points for lesson completion:", actionError);
+            }
+          }
+          return {
+            progress: await adaptUserCourseProgress(updatedProgress2),
+            courseCompleted: courseCompleted2,
+            xpAwarded: xpAwarded2
+          };
+        }
+        const [lesson] = await db.select().from(courseLessons).where(eq2(courseLessons.id, lessonId)).limit(1);
         if (!lesson) {
           throw new Error("Lesson not found");
         }
@@ -6939,9 +8478,9 @@ var init_storage = __esm({
           throw new Error("Lesson has no associated course");
         }
         const [existingLessonProgress] = await db.select().from(userLessonProgress).where(
-          and(
-            eq(userLessonProgress.userId, userId),
-            eq(userLessonProgress.lessonId, lessonId)
+          and2(
+            eq2(userLessonProgress.userId, userId),
+            eq2(userLessonProgress.lessonId, lessonId)
           )
         ).limit(1);
         if (existingLessonProgress) {
@@ -6949,7 +8488,7 @@ var init_storage = __esm({
             status: "completed",
             completedAt: (/* @__PURE__ */ new Date()).toISOString(),
             updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-          }).where(eq(userLessonProgress.id, existingLessonProgress.id));
+          }).where(eq2(userLessonProgress.id, existingLessonProgress.id));
         } else {
           await db.insert(userLessonProgress).values({
             userId,
@@ -6959,15 +8498,15 @@ var init_storage = __esm({
           });
         }
         const [courseProgress] = await db.select().from(userCourseProgress).where(
-          and(
-            eq(userCourseProgress.userId, userId),
-            eq(userCourseProgress.courseId, lesson.courseId)
+          and2(
+            eq2(userCourseProgress.userId, userId),
+            eq2(userCourseProgress.courseId, lesson.courseId)
           )
         ).limit(1);
         if (!courseProgress) {
           throw new Error("Course progress not found");
         }
-        const allLessons = await db.select().from(courseLessons).where(eq(courseLessons.courseId, lesson.courseId)).orderBy(asc(courseLessons.orderIndex));
+        const allLessons = await db.select().from(courseLessons).where(eq2(courseLessons.courseId, lesson.courseId)).orderBy(asc2(courseLessons.orderIndex));
         const requiredLessons = allLessons.filter((l) => l.isRequired);
         const completedLessonsIds = JSON.parse(courseProgress.completedLessons || "[]");
         const lessonAlreadyCompleted = completedLessonsIds.includes(lessonId);
@@ -6989,7 +8528,7 @@ var init_storage = __esm({
           completedAt: courseCompleted ? (/* @__PURE__ */ new Date()).toISOString() : null,
           lastAccessedAt: (/* @__PURE__ */ new Date()).toISOString(),
           updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-        }).where(eq(userCourseProgress.id, courseProgress.id)).returning();
+        }).where(eq2(userCourseProgress.id, courseProgress.id)).returning();
         if (!updatedProgress) {
           throw new Error("Failed to update course progress");
         }
@@ -7017,17 +8556,56 @@ var init_storage = __esm({
         return { progress: updatedProgress, courseCompleted, xpAwarded };
       }
       async updateLessonTimeSpent(userId, lessonId, seconds) {
+        const publishedLesson = await getPublishedLessonByIdentityId(lessonId);
+        if (publishedLesson) {
+          const [existing2] = await db.select().from(userLessonProgress).where(
+            and2(
+              eq2(userLessonProgress.userId, userId),
+              eq2(userLessonProgress.lessonIdentityId, lessonId)
+            )
+          ).limit(1);
+          if (existing2) {
+            await db.update(userLessonProgress).set({
+              lessonId: publishedLesson.identity.legacyLessonId ?? existing2.lessonId ?? null,
+              lessonIdentityId: lessonId,
+              timeSpent: (existing2.timeSpent || 0) + seconds,
+              updatedAt: (/* @__PURE__ */ new Date()).toISOString()
+            }).where(eq2(userLessonProgress.id, existing2.id));
+          } else {
+            await db.insert(userLessonProgress).values({
+              userId,
+              lessonId: publishedLesson.identity.legacyLessonId ?? null,
+              lessonIdentityId: lessonId,
+              status: "in_progress",
+              timeSpent: seconds
+            });
+          }
+          const [courseProgress] = await db.select().from(userCourseProgress).where(
+            and2(
+              eq2(userCourseProgress.userId, userId),
+              eq2(userCourseProgress.courseDefinitionId, publishedLesson.courseDefinition.id)
+            )
+          ).limit(1);
+          if (courseProgress) {
+            await db.update(userCourseProgress).set({
+              lastAccessedAt: (/* @__PURE__ */ new Date()).toISOString(),
+              courseDefinitionId: publishedLesson.courseDefinition.id,
+              courseId: publishedLesson.courseRevision.legacyCourseId ?? courseProgress.courseId ?? null
+            }).where(eq2(userCourseProgress.id, courseProgress.id));
+          }
+          return;
+        }
         const [existing] = await db.select().from(userLessonProgress).where(
-          and(
-            eq(userLessonProgress.userId, userId),
-            eq(userLessonProgress.lessonId, lessonId)
+          and2(
+            eq2(userLessonProgress.userId, userId),
+            eq2(userLessonProgress.lessonId, lessonId)
           )
         ).limit(1);
         if (existing) {
           await db.update(userLessonProgress).set({
             timeSpent: (existing.timeSpent || 0) + seconds,
             updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-          }).where(eq(userLessonProgress.id, existing.id));
+          }).where(eq2(userLessonProgress.id, existing.id));
         } else {
           await db.insert(userLessonProgress).values({
             userId,
@@ -7036,29 +8614,54 @@ var init_storage = __esm({
             timeSpent: seconds
           });
         }
-        const [lesson] = await db.select().from(courseLessons).where(eq(courseLessons.id, lessonId)).limit(1);
+        const [lesson] = await db.select().from(courseLessons).where(eq2(courseLessons.id, lessonId)).limit(1);
         if (lesson) {
           await db.update(userCourseProgress).set({
             lastAccessedAt: (/* @__PURE__ */ new Date()).toISOString()
           }).where(
-            and(
-              eq(userCourseProgress.userId, userId),
-              eq(userCourseProgress.courseId, lesson.courseId)
+            and2(
+              eq2(userCourseProgress.userId, userId),
+              eq2(userCourseProgress.courseId, lesson.courseId)
             )
           );
         }
       }
       async getUserLessonProgress(userId, lessonId) {
-        const [progress] = await db.select().from(userLessonProgress).where(
-          and(
-            eq(userLessonProgress.userId, userId),
-            eq(userLessonProgress.lessonId, lessonId)
+        let [progress] = await db.select().from(userLessonProgress).where(
+          and2(
+            eq2(userLessonProgress.userId, userId),
+            eq2(userLessonProgress.lessonIdentityId, lessonId)
           )
         ).limit(1);
-        return progress;
+        if (!progress) {
+          [progress] = await db.select().from(userLessonProgress).where(
+            and2(
+              eq2(userLessonProgress.userId, userId),
+              eq2(userLessonProgress.lessonId, lessonId)
+            )
+          ).limit(1);
+        }
+        return await adaptUserLessonProgress(progress);
       }
       // Quiz
       async createQuizAttempt(userId, quizId, courseId) {
+        const publishedQuiz = await getPublishedQuizByRevisionQuizId(quizId);
+        if (publishedQuiz && publishedQuiz.definition.id === courseId) {
+          const [attempt2] = await db.insert(quizAttempts).values({
+            userId,
+            quizId: publishedQuiz.quiz.legacyQuizId ?? null,
+            courseId: publishedQuiz.revision.legacyCourseId ?? null,
+            courseDefinitionId: publishedQuiz.definition.id,
+            courseRevisionId: publishedQuiz.revision.id,
+            courseQuizRevisionId: publishedQuiz.quiz.id,
+            startedAt: (/* @__PURE__ */ new Date()).toISOString()
+          }).returning();
+          return {
+            ...attempt2,
+            courseId: publishedQuiz.definition.id,
+            quizId: publishedQuiz.quiz.id
+          };
+        }
         const [attempt] = await db.insert(quizAttempts).values({
           userId,
           quizId,
@@ -7068,9 +8671,77 @@ var init_storage = __esm({
         return attempt;
       }
       async submitQuizAttempt(attemptId, answers) {
-        const [attempt] = await db.select().from(quizAttempts).where(eq(quizAttempts.id, attemptId)).limit(1);
+        const [attempt] = await db.select().from(quizAttempts).where(eq2(quizAttempts.id, attemptId)).limit(1);
         if (!attempt) {
           throw new Error("Quiz attempt not found");
+        }
+        if (attempt.courseQuizRevisionId) {
+          const quizData2 = await getPublishedQuizByRevisionQuizId(attempt.courseQuizRevisionId);
+          if (!quizData2) {
+            throw new Error("Quiz not found");
+          }
+          const { quiz: quiz2, questions: questions2, definition, revision } = quizData2;
+          let totalPoints2 = 0;
+          let earnedPoints2 = 0;
+          const attemptAnswers2 = [];
+          for (const question of questions2) {
+            totalPoints2 += question.points || 1;
+            const userAnswer = answers.find((a) => a.questionId === question.id);
+            const correctAnswer = JSON.parse(question.correctAnswer);
+            const isCorrect = JSON.stringify(userAnswer?.answer) === JSON.stringify(correctAnswer);
+            if (isCorrect) {
+              earnedPoints2 += question.points || 1;
+            }
+            const [answerRecord] = await db.insert(quizAttemptAnswers).values({
+              attemptId,
+              questionId: question.legacyQuestionId ?? null,
+              answer: JSON.stringify(userAnswer?.answer || ""),
+              isCorrect,
+              pointsEarned: isCorrect ? question.points || 1 : 0
+            }).returning();
+            attemptAnswers2.push(answerRecord);
+          }
+          const score2 = totalPoints2 > 0 ? Math.round(earnedPoints2 / totalPoints2 * 100) : 0;
+          const passed2 = score2 >= (quiz2.passingScore || 70);
+          const timeSpent2 = attempt.startedAt ? Math.floor(((/* @__PURE__ */ new Date()).getTime() - new Date(attempt.startedAt).getTime()) / 1e3) : 0;
+          await db.update(quizAttempts).set({
+            score: score2,
+            passed: passed2,
+            answers: JSON.stringify(answers),
+            timeSpent: timeSpent2,
+            completedAt: (/* @__PURE__ */ new Date()).toISOString(),
+            courseDefinitionId: definition.id,
+            courseRevisionId: revision.id,
+            courseQuizRevisionId: quiz2.id
+          }).where(eq2(quizAttempts.id, attemptId));
+          let certificateCode2;
+          const xpAwarded2 = { quiz: 0, certificate: 0 };
+          if (passed2) {
+            xpAwarded2.quiz = ACTION_POINTS["quiz_passed"] ?? 0;
+            await this.recordAction(attempt.userId, "quiz_passed", {
+              quizId: quiz2.id,
+              courseId: definition.id,
+              score: score2
+            });
+            const { certificate, created } = await this.generateCertificate(attempt.userId, definition.id, score2);
+            certificateCode2 = certificate.certificateCode;
+            if (created) {
+              xpAwarded2.certificate = ACTION_POINTS["certificate_earned"] ?? 0;
+              await this.recordAction(attempt.userId, "certificate_earned", {
+                courseId: definition.id,
+                certificateCode: certificate.certificateCode
+              });
+              try {
+                const [courseBadge] = await db.select().from(badges).where(eq2(badges.name, "Estudiante Dedicado")).limit(1);
+                if (courseBadge) {
+                  await this.awardBadge(attempt.userId, courseBadge.id);
+                }
+              } catch (error) {
+                console.log("Course completion badge not found");
+              }
+            }
+          }
+          return { score: score2, passed: passed2, answers: attemptAnswers2, certificateCode: certificateCode2, xpAwarded: xpAwarded2 };
         }
         const quizData = await this.getCourseQuiz(attempt.courseId);
         if (!quizData) {
@@ -7108,7 +8779,7 @@ var init_storage = __esm({
           answers: JSON.stringify(answers),
           timeSpent,
           completedAt: (/* @__PURE__ */ new Date()).toISOString()
-        }).where(eq(quizAttempts.id, attemptId));
+        }).where(eq2(quizAttempts.id, attemptId));
         let certificateCode;
         const xpAwarded = { quiz: 0, certificate: 0 };
         if (passed) {
@@ -7127,7 +8798,7 @@ var init_storage = __esm({
               certificateCode: certificate.certificateCode
             });
             try {
-              const [courseBadge] = await db.select().from(badges).where(eq(badges.name, "Estudiante Dedicado")).limit(1);
+              const [courseBadge] = await db.select().from(badges).where(eq2(badges.name, "Estudiante Dedicado")).limit(1);
               if (courseBadge) {
                 await this.awardBadge(attempt.userId, courseBadge.id);
               }
@@ -7139,23 +8810,81 @@ var init_storage = __esm({
         return { score, passed, answers: attemptAnswers, certificateCode, xpAwarded };
       }
       async getQuizAttempt(attemptId) {
-        const [attempt] = await db.select().from(quizAttempts).where(eq(quizAttempts.id, attemptId)).limit(1);
-        return attempt;
+        const [attempt] = await db.select().from(quizAttempts).where(eq2(quizAttempts.id, attemptId)).limit(1);
+        if (!attempt) return void 0;
+        return {
+          ...attempt,
+          quizId: attempt.courseQuizRevisionId ?? attempt.quizId,
+          courseId: attempt.courseDefinitionId ?? attempt.courseId
+        };
       }
       async getUserQuizAttempts(userId, quizId) {
-        return await db.select().from(quizAttempts).where(
-          and(
-            eq(quizAttempts.userId, userId),
-            eq(quizAttempts.quizId, quizId)
+        const attempts = await db.select().from(quizAttempts).where(
+          and2(
+            eq2(quizAttempts.userId, userId),
+            or2(
+              eq2(quizAttempts.courseQuizRevisionId, quizId),
+              eq2(quizAttempts.quizId, quizId)
+            )
           )
-        ).orderBy(desc(quizAttempts.startedAt));
+        ).orderBy(desc2(quizAttempts.startedAt));
+        return attempts.map((attempt) => ({
+          ...attempt,
+          quizId: attempt.courseQuizRevisionId ?? attempt.quizId,
+          courseId: attempt.courseDefinitionId ?? attempt.courseId
+        }));
       }
       // Certificates
       async generateCertificate(userId, courseId, quizScore) {
+        const publishedCourse = await getPublishedCourseById(courseId);
+        if (publishedCourse) {
+          const revision = await getCurrentRevisionForCourseDefinition(courseId);
+          const [existing2] = await db.select().from(courseCertificates).where(
+            and2(
+              eq2(courseCertificates.userId, userId),
+              eq2(courseCertificates.courseDefinitionId, courseId)
+            )
+          ).limit(1);
+          if (existing2) {
+            return {
+              certificate: {
+                ...existing2,
+                courseId: existing2.courseDefinitionId ?? existing2.courseId
+              },
+              created: false
+            };
+          }
+          const timestamp2 = Date.now();
+          const random2 = Math.random().toString(36).substring(2, 9);
+          const certificateCode2 = `${courseId}-${userId}-${timestamp2}-${random2}`;
+          const [certificate2] = await db.insert(courseCertificates).values({
+            userId,
+            courseId: revision?.legacyCourseId ?? null,
+            courseDefinitionId: courseId,
+            courseRevisionId: revision?.id ?? null,
+            certificateCode: certificateCode2,
+            quizScore
+          }).returning();
+          try {
+            const [certificateBadge] = await db.select().from(badges).where(eq2(badges.name, "Certificado de Curso")).limit(1);
+            if (certificateBadge) {
+              await this.awardBadge(userId, certificateBadge.id);
+            }
+          } catch (error) {
+            console.log("Certificate badge not found");
+          }
+          return {
+            certificate: {
+              ...certificate2,
+              courseId
+            },
+            created: true
+          };
+        }
         const [existing] = await db.select().from(courseCertificates).where(
-          and(
-            eq(courseCertificates.userId, userId),
-            eq(courseCertificates.courseId, courseId)
+          and2(
+            eq2(courseCertificates.userId, userId),
+            eq2(courseCertificates.courseId, courseId)
           )
         ).limit(1);
         if (existing) {
@@ -7171,7 +8900,7 @@ var init_storage = __esm({
           quizScore
         }).returning();
         try {
-          const [certificateBadge] = await db.select().from(badges).where(eq(badges.name, "Certificado de Curso")).limit(1);
+          const [certificateBadge] = await db.select().from(badges).where(eq2(badges.name, "Certificado de Curso")).limit(1);
           if (certificateBadge) {
             await this.awardBadge(userId, certificateBadge.id);
           }
@@ -7181,21 +8910,32 @@ var init_storage = __esm({
         return { certificate, created: true };
       }
       async getUserCertificates(userId) {
-        return await db.select().from(courseCertificates).where(eq(courseCertificates.userId, userId)).orderBy(desc(courseCertificates.issuedAt));
+        const certificates = await db.select().from(courseCertificates).where(eq2(courseCertificates.userId, userId)).orderBy(desc2(courseCertificates.issuedAt));
+        return certificates.map((certificate) => ({
+          ...certificate,
+          courseId: certificate.courseDefinitionId ?? certificate.courseId
+        }));
       }
       async getUserCourses(userId) {
-        const progressList = await db.select().from(userCourseProgress).where(eq(userCourseProgress.userId, userId));
+        const progressList = await db.select().from(userCourseProgress).where(eq2(userCourseProgress.userId, userId));
         const result = await Promise.all(
           progressList.map(async (progress) => {
-            const [course] = await db.select().from(courses).where(progress.courseId !== null ? eq(courses.id, progress.courseId) : void 0).limit(1);
-            return { course, progress };
+            const publicProgress = await adaptUserCourseProgress(progress);
+            if (!publicProgress?.courseId) {
+              return null;
+            }
+            const course = await this.getCourseById(publicProgress.courseId);
+            if (!course) {
+              return null;
+            }
+            return { course, progress: publicProgress };
           })
         );
-        return result.filter((item) => item.course);
+        return result.filter(Boolean);
       }
       // User Profiles
       async getUserProfile(userId) {
-        const [profile] = await db.select().from(userProfiles).where(eq(userProfiles.userId, userId)).limit(1);
+        const [profile] = await db.select().from(userProfiles).where(eq2(userProfiles.userId, userId)).limit(1);
         return profile;
       }
       async createUserProfile(data) {
@@ -7203,7 +8943,7 @@ var init_storage = __esm({
         return profile;
       }
       async updateUserProfile(userId, updates) {
-        const [profile] = await db.update(userProfiles).set(updates).where(eq(userProfiles.userId, userId)).returning();
+        const [profile] = await db.update(userProfiles).set(updates).where(eq2(userProfiles.userId, userId)).returning();
         return profile;
       }
       // Platform Feedback
@@ -7212,12 +8952,12 @@ var init_storage = __esm({
         return feedback;
       }
       async getAllPlatformFeedback() {
-        return await db.select().from(platformFeedback).orderBy(desc(platformFeedback.createdAt));
+        return await db.select().from(platformFeedback).orderBy(desc2(platformFeedback.createdAt));
       }
       async updatePlatformFeedbackStatus(id, status, adminNotes) {
         const updates = { status };
         if (adminNotes !== void 0) updates.adminNotes = adminNotes;
-        const [feedback] = await db.update(platformFeedback).set(updates).where(eq(platformFeedback.id, id)).returning();
+        const [feedback] = await db.update(platformFeedback).set(updates).where(eq2(platformFeedback.id, id)).returning();
         return feedback;
       }
     };
@@ -7234,7 +8974,7 @@ __export(mandato_engine_exports, {
   stopMandatoCron: () => stopMandatoCron
 });
 import Anthropic from "@anthropic-ai/sdk";
-import { desc as desc8, gte as gte3, sql as sql7, and as and8, eq as eq10 } from "drizzle-orm";
+import { desc as desc9, gte as gte3, sql as sql8, and as and9, eq as eq10 } from "drizzle-orm";
 function getWeekBounds() {
   const now = /* @__PURE__ */ new Date();
   const dayOfWeek = now.getDay();
@@ -7262,7 +9002,7 @@ async function gatherPulseData() {
   ]);
   let allCommitments = [];
   try {
-    allCommitments = await db.select().from(userCommitments).orderBy(desc8(userCommitments.createdAt));
+    allCommitments = await db.select().from(userCommitments).orderBy(desc9(userCommitments.createdAt));
   } catch {
   }
   const isThisWeek = (createdAt) => {
@@ -7276,12 +9016,12 @@ async function gatherPulseData() {
   const newValues = newDreamEntries.filter((d) => d.type === "value");
   const newCommitments = allCommitments.filter((c) => isThisWeek(c.createdAt));
   const newResources = allResources.filter((r) => isThisWeek(r.createdAt));
-  const previousPulses = await db.select().from(weeklyDigests).where(eq10(weeklyDigests.status, "completed")).orderBy(desc8(weeklyDigests.createdAt)).limit(1);
+  const previousPulses = await db.select().from(weeklyDigests).where(eq10(weeklyDigests.status, "completed")).orderBy(desc9(weeklyDigests.createdAt)).limit(1);
   const previousPulse = previousPulses[0] || null;
   const recurringProposals = await db.select().from(digestProposals).where(
-    and8(
+    and9(
       gte3(digestProposals.weeksActive, 3),
-      sql7`${digestProposals.status} NOT IN ('completada', 'archivada')`
+      sql8`${digestProposals.status} NOT IN ('completada', 'archivada')`
     )
   );
   return {
@@ -7554,7 +9294,7 @@ IMPORTANTE:
 async function generateWeeklyMandate() {
   const weekInfo = getWeekBounds();
   const existing = await db.select().from(weeklyDigests).where(
-    and8(
+    and9(
       eq10(weeklyDigests.weekNumber, weekInfo.weekNumber),
       eq10(weeklyDigests.year, weekInfo.year)
     )
@@ -7755,7 +9495,7 @@ async function generateAndSaveMandate(territoryLevel, territoryName, province, c
     space: ["community", "action"],
     equipment: ["economy", "action"]
   };
-  const normalize = (w) => w.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z]/g, "");
+  const normalize2 = (w) => w.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z]/g, "");
   const themeHits = {};
   for (const tk of Object.keys(THEME_KEYWORDS)) themeHits[tk] = { count: 0, quotes: [] };
   let voiceCount = 0;
@@ -7764,7 +9504,7 @@ async function generateAndSaveMandate(territoryLevel, territoryName, province, c
       const text2 = entry[type];
       if (!text2) continue;
       voiceCount++;
-      const words = text2.split(/\s+/).map(normalize).filter((w) => w.length > 3);
+      const words = text2.split(/\s+/).map(normalize2).filter((w) => w.length > 3);
       for (const tk of Object.keys(THEME_KEYWORDS)) {
         if (words.some((w) => THEME_KEYWORDS[tk].some((kw) => w.includes(kw) || kw.includes(w)))) {
           themeHits[tk].count++;
@@ -7961,7 +9701,7 @@ async function scanForMatches(minNeeds = 2, minResources = 1) {
     community: ["comunidad", "pueblo", "sociedad", "colectivo", "barrio", "territorio"],
     future: ["futuro", "vision", "horizonte", "esperanza", "sueno", "meta"]
   };
-  const normalize = (w) => w.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z]/g, "");
+  const normalize2 = (w) => w.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z]/g, "");
   const needsByLocTheme = {};
   dreams3.forEach((entry) => {
     const loc = entry.location || "Sin ubicaci\xF3n";
@@ -7969,7 +9709,7 @@ async function scanForMatches(minNeeds = 2, minResources = 1) {
     for (const type of ["need", "basta"]) {
       const text2 = entry[type];
       if (!text2) continue;
-      const words = text2.split(/\s+/).map(normalize).filter((w) => w.length > 3);
+      const words = text2.split(/\s+/).map(normalize2).filter((w) => w.length > 3);
       for (const [theme, keywords] of Object.entries(THEME_KEYWORDS)) {
         if (words.some((w) => keywords.some((kw) => w.includes(kw) || kw.includes(w)))) {
           if (!needsByLocTheme[loc]) needsByLocTheme[loc] = {};
@@ -8611,7 +10351,7 @@ var TwoFactorAuth = class {
 };
 
 // server/routes-advanced-auth.ts
-import { z } from "zod";
+import { z as z2 } from "zod";
 var router = Router();
 router.post("/send-verification", authenticateToken, async (req, res) => {
   try {
@@ -8655,8 +10395,8 @@ router.post("/send-verification", authenticateToken, async (req, res) => {
 });
 router.post("/verify-email", async (req, res) => {
   try {
-    const schema = z.object({
-      token: z.string().min(1, "Token es requerido")
+    const schema = z2.object({
+      token: z2.string().min(1, "Token es requerido")
     });
     const { token } = schema.parse(req.body);
     const user = await storage.verifyEmail(token);
@@ -8677,7 +10417,7 @@ router.post("/verify-email", async (req, res) => {
       }
     });
   } catch (error) {
-    if (error instanceof z.ZodError) {
+    if (error instanceof z2.ZodError) {
       return res.status(400).json({
         error: "Validation error",
         message: "Datos de entrada inv\xE1lidos",
@@ -8693,8 +10433,8 @@ router.post("/verify-email", async (req, res) => {
 });
 router.post("/forgot-password", async (req, res) => {
   try {
-    const schema = z.object({
-      email: z.string().email("Email inv\xE1lido")
+    const schema = z2.object({
+      email: z2.string().email("Email inv\xE1lido")
     });
     const { email } = schema.parse(req.body);
     const user = await storage.getUserByEmail(email);
@@ -8720,7 +10460,7 @@ router.post("/forgot-password", async (req, res) => {
       });
     }
   } catch (error) {
-    if (error instanceof z.ZodError) {
+    if (error instanceof z2.ZodError) {
       return res.status(400).json({
         error: "Validation error",
         message: "Email inv\xE1lido",
@@ -8736,9 +10476,9 @@ router.post("/forgot-password", async (req, res) => {
 });
 router.post("/reset-password", async (req, res) => {
   try {
-    const schema = z.object({
-      token: z.string().min(1, "Token es requerido"),
-      newPassword: z.string().min(8, "La contrase\xF1a debe tener al menos 8 caracteres").regex(
+    const schema = z2.object({
+      token: z2.string().min(1, "Token es requerido"),
+      newPassword: z2.string().min(8, "La contrase\xF1a debe tener al menos 8 caracteres").regex(
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])/,
         "La contrase\xF1a debe contener may\xFAsculas, min\xFAsculas, n\xFAmeros y caracteres especiales"
       )
@@ -8757,7 +10497,7 @@ router.post("/reset-password", async (req, res) => {
       message: "Contrase\xF1a restablecida exitosamente"
     });
   } catch (error) {
-    if (error instanceof z.ZodError) {
+    if (error instanceof z2.ZodError) {
       return res.status(400).json({
         error: "Validation error",
         message: "Datos de entrada inv\xE1lidos",
@@ -8811,10 +10551,10 @@ router.post("/2fa/setup", authenticateToken, async (req, res) => {
 });
 router.post("/2fa/enable", authenticateToken, async (req, res) => {
   try {
-    const schema = z.object({
-      secret: z.string().min(1, "Secret es requerido"),
-      token: z.string().length(6, "Token debe tener 6 d\xEDgitos"),
-      backupCodes: z.array(z.string())
+    const schema = z2.object({
+      secret: z2.string().min(1, "Secret es requerido"),
+      token: z2.string().length(6, "Token debe tener 6 d\xEDgitos"),
+      backupCodes: z2.array(z2.string())
     });
     const { secret, token, backupCodes } = schema.parse(req.body);
     const isValid = TwoFactorAuth.verifyToken(secret, token);
@@ -8835,7 +10575,7 @@ router.post("/2fa/enable", authenticateToken, async (req, res) => {
       // Return unhashed codes for user to save
     });
   } catch (error) {
-    if (error instanceof z.ZodError) {
+    if (error instanceof z2.ZodError) {
       return res.status(400).json({
         error: "Validation error",
         message: "Datos de entrada inv\xE1lidos",
@@ -8851,9 +10591,9 @@ router.post("/2fa/enable", authenticateToken, async (req, res) => {
 });
 router.post("/2fa/verify", authenticateToken, async (req, res) => {
   try {
-    const schema = z.object({
-      token: z.string().length(6, "Token debe tener 6 d\xEDgitos"),
-      useBackupCode: z.boolean().optional()
+    const schema = z2.object({
+      token: z2.string().length(6, "Token debe tener 6 d\xEDgitos"),
+      useBackupCode: z2.boolean().optional()
     });
     const { token, useBackupCode } = schema.parse(req.body);
     const secret = await storage.get2FASecret(req.user.userId);
@@ -8891,7 +10631,7 @@ router.post("/2fa/verify", authenticateToken, async (req, res) => {
       verified: true
     });
   } catch (error) {
-    if (error instanceof z.ZodError) {
+    if (error instanceof z2.ZodError) {
       return res.status(400).json({
         error: "Validation error",
         message: "Datos de entrada inv\xE1lidos",
@@ -8907,8 +10647,8 @@ router.post("/2fa/verify", authenticateToken, async (req, res) => {
 });
 router.post("/2fa/disable", authenticateToken, async (req, res) => {
   try {
-    const schema = z.object({
-      password: z.string().min(1, "Contrase\xF1a es requerida")
+    const schema = z2.object({
+      password: z2.string().min(1, "Contrase\xF1a es requerida")
     });
     const { password } = schema.parse(req.body);
     const user = await storage.getUser(req.user.userId);
@@ -8935,7 +10675,7 @@ router.post("/2fa/disable", authenticateToken, async (req, res) => {
       message: "2FA deshabilitado exitosamente"
     });
   } catch (error) {
-    if (error instanceof z.ZodError) {
+    if (error instanceof z2.ZodError) {
       return res.status(400).json({
         error: "Validation error",
         message: "Datos de entrada inv\xE1lidos",
@@ -8955,7 +10695,7 @@ var routes_advanced_auth_default = router;
 init_storage();
 init_auth();
 init_schema();
-import { z as z2 } from "zod";
+import { z as z3 } from "zod";
 function parseId(value) {
   const id = Number.parseInt(value, 10);
   return Number.isNaN(id) ? null : id;
@@ -8982,7 +10722,7 @@ function registerInitiativeRoutes(app2) {
         await storage.updateMilestone(milestoneId, updates);
         res.json({ message: "Milestone updated" });
       } catch (error) {
-        if (error instanceof z2.ZodError) {
+        if (error instanceof z3.ZodError) {
           return res.status(400).json({
             error: "Validation error",
             details: error.errors
@@ -9013,7 +10753,7 @@ function registerInitiativeRoutes(app2) {
         await storage.updateTask(taskId, updates);
         res.json({ message: "Task updated" });
       } catch (error) {
-        if (error instanceof z2.ZodError) {
+        if (error instanceof z3.ZodError) {
           return res.status(400).json({
             error: "Validation error",
             details: error.errors
@@ -9063,9 +10803,6 @@ function registerInitiativeRoutes(app2) {
 // server/routes-courses.ts
 init_storage();
 init_auth();
-init_schema();
-init_db();
-import { eq as eq2 } from "drizzle-orm";
 function registerCourseRoutes(app2) {
   app2.get("/api/courses", optionalAuth, async (req, res) => {
     try {
@@ -9114,7 +10851,7 @@ function registerCourseRoutes(app2) {
       if (!course.isPublished) {
         return res.status(404).json({ message: "Course not found" });
       }
-      await db.update(courses).set({ viewCount: (course.viewCount || 0) + 1 }).where(eq2(courses.id, course.id));
+      await storage.incrementCourseView(course.id);
       const courseData = await storage.getCourseWithLessons(course.id);
       if (!courseData) {
         return res.status(404).json({ message: "Course data not found" });
@@ -9181,14 +10918,14 @@ function registerCourseRoutes(app2) {
       if (isNaN(id)) {
         return res.status(400).json({ message: "Invalid course ID" });
       }
-      const courseById = await db.select().from(courses).where(eq2(courses.id, id)).limit(1);
-      if (!courseById[0]) {
+      const courseById = await storage.getCourseById(id);
+      if (!courseById) {
         return res.status(404).json({ message: "Course not found" });
       }
-      if (!courseById[0].isPublished) {
+      if (!courseById.isPublished) {
         return res.status(403).json({ message: "Course is not published" });
       }
-      if (courseById[0].requiresAuth && !req.user) {
+      if (courseById.requiresAuth && !req.user) {
         return res.status(401).json({ message: "Course requires authentication" });
       }
       const progress = await storage.startCourse(req.user.userId, id);
@@ -9214,11 +10951,11 @@ function registerCourseRoutes(app2) {
           return res.status(500).json({ message: "Could not start course" });
         }
       }
-      const lesson = await db.select().from(courseLessons).where(eq2(courseLessons.id, lessonIdNum)).limit(1);
-      if (!lesson[0]) {
+      const lesson = await storage.getLessonById(lessonIdNum);
+      if (!lesson) {
         return res.status(404).json({ message: "Lesson not found" });
       }
-      if (lesson[0].courseId !== courseIdNum) {
+      if (lesson.courseId !== courseIdNum) {
         return res.status(400).json({ message: "Lesson does not belong to this course" });
       }
       const result = await storage.completeLesson(req.user.userId, lessonIdNum);
@@ -9285,6 +11022,16 @@ function registerCourseRoutes(app2) {
       const quizData = await storage.getCourseQuiz(id);
       if (!quizData) {
         return res.status(404).json({ message: "Quiz not found for this course" });
+      }
+      const courseData = await storage.getCourseWithLessons(id);
+      const progress = await storage.getUserCourseProgress(req.user.userId, id);
+      const completedLessons = progress?.completedLessons ? JSON.parse(progress.completedLessons) : [];
+      const requiredLessonIds = (courseData?.lessons ?? []).filter((lesson) => lesson.isRequired).map((lesson) => lesson.id);
+      const hasUnlockedQuiz = requiredLessonIds.length === 0 ? true : requiredLessonIds.every((lessonId) => completedLessons.includes(lessonId));
+      if (!hasUnlockedQuiz) {
+        return res.status(403).json({
+          message: "Complete las lecciones requeridas antes de iniciar el quiz"
+        });
       }
       if (quizData.quiz.maxAttempts !== null) {
         const attempts = await storage.getUserQuizAttempts(req.user.userId, quizData.quiz.id);
@@ -9380,7 +11127,12 @@ function registerCourseRoutes(app2) {
   app2.get("/api/user/courses", authenticateToken, async (req, res) => {
     try {
       const userCourses = await storage.getUserCourses(req.user.userId);
-      res.json({ courses: userCourses });
+      res.json({
+        courses: userCourses.map(({ course, progress }) => ({
+          ...course,
+          userProgress: progress
+        }))
+      });
     } catch (error) {
       console.error("Error fetching user courses:", error);
       res.status(500).json({ message: "Error fetching user courses" });
@@ -9416,7 +11168,7 @@ function registerCourseRoutes(app2) {
 init_auth();
 init_db();
 init_schema();
-import { eq as eq3, and as and2, desc as desc2, sql as sql4, gte as gte2 } from "drizzle-orm";
+import { eq as eq3, and as and3, desc as desc3, sql as sql5, gte as gte2 } from "drizzle-orm";
 import { randomUUID } from "crypto";
 var SCORE_MAPPING = {
   0: 0,
@@ -9460,9 +11212,9 @@ function registerLifeAreasRoutes(app2) {
       console.log("[Life Areas Dashboard] Processing for userId:", userId);
       const areas = await db.select().from(lifeAreas).orderBy(lifeAreas.orderIndex);
       const scores = await db.select().from(lifeAreaScores).where(
-        and2(
+        and3(
           eq3(lifeAreaScores.userId, userId),
-          sql4`${lifeAreaScores.subcategoryId} IS NULL`
+          sql5`${lifeAreaScores.subcategoryId} IS NULL`
         )
       );
       const scoresMap = new Map(scores.map((s) => [s.lifeAreaId, s]));
@@ -9475,7 +11227,7 @@ function registerLifeAreasRoutes(app2) {
       const recentBadges = await db.select({
         badge: userLifeAreaBadges,
         badgeInfo: lifeAreaBadges
-      }).from(userLifeAreaBadges).innerJoin(lifeAreaBadges, eq3(userLifeAreaBadges.badgeId, lifeAreaBadges.id)).where(eq3(userLifeAreaBadges.userId, userId)).orderBy(desc2(userLifeAreaBadges.earnedAt)).limit(5);
+      }).from(userLifeAreaBadges).innerJoin(lifeAreaBadges, eq3(userLifeAreaBadges.badgeId, lifeAreaBadges.id)).where(eq3(userLifeAreaBadges.userId, userId)).orderBy(desc3(userLifeAreaBadges.earnedAt)).limit(5);
       const currency = await db.select().from(lifeAreaCurrency).where(eq3(lifeAreaCurrency.userId, userId)).limit(1);
       res.json({
         areas: areasWithScores,
@@ -9510,9 +11262,9 @@ function registerLifeAreasRoutes(app2) {
       console.log("[Life Areas Wheel] Processing for userId:", userId);
       const areas = await db.select().from(lifeAreas).orderBy(lifeAreas.orderIndex);
       const scores = await db.select().from(lifeAreaScores).where(
-        and2(
+        and3(
           eq3(lifeAreaScores.userId, userId),
-          sql4`${lifeAreaScores.subcategoryId} IS NULL`
+          sql5`${lifeAreaScores.subcategoryId} IS NULL`
         )
       );
       const scoresMap = new Map(scores.map((s) => [s.lifeAreaId, s]));
@@ -9576,7 +11328,7 @@ function registerLifeAreasRoutes(app2) {
       const quiz = quizzes[0];
       const questions = await db.select().from(lifeAreaQuizQuestions).where(eq3(lifeAreaQuizQuestions.quizId, quiz.id)).orderBy(lifeAreaQuizQuestions.orderIndex);
       const previousResponses = await db.select().from(lifeAreaQuizResponses).where(
-        and2(
+        and3(
           eq3(lifeAreaQuizResponses.userId, userId),
           eq3(lifeAreaQuizResponses.quizId, quiz.id)
         )
@@ -9618,7 +11370,7 @@ function registerLifeAreasRoutes(app2) {
       }
       const quiz = quizzes[0];
       await db.delete(lifeAreaQuizResponses).where(
-        and2(
+        and3(
           eq3(lifeAreaQuizResponses.userId, userId),
           eq3(lifeAreaQuizResponses.quizId, quiz.id)
         )
@@ -9664,17 +11416,17 @@ function registerLifeAreasRoutes(app2) {
       }
       const userId = req.user.userId;
       const areaScore = await db.select().from(lifeAreaScores).where(
-        and2(
+        and3(
           eq3(lifeAreaScores.userId, userId),
           eq3(lifeAreaScores.lifeAreaId, areaId),
-          sql4`${lifeAreaScores.subcategoryId} IS NULL`
+          sql5`${lifeAreaScores.subcategoryId} IS NULL`
         )
       ).limit(1);
       const subcategoryScores = await db.select().from(lifeAreaScores).where(
-        and2(
+        and3(
           eq3(lifeAreaScores.userId, userId),
           eq3(lifeAreaScores.lifeAreaId, areaId),
-          sql4`${lifeAreaScores.subcategoryId} IS NOT NULL`
+          sql5`${lifeAreaScores.subcategoryId} IS NOT NULL`
         )
       );
       res.json({
@@ -9696,14 +11448,14 @@ function registerLifeAreasRoutes(app2) {
       const quizzes = await db.select().from(lifeAreaQuizzes).where(eq3(lifeAreaQuizzes.lifeAreaId, areaId)).limit(1);
       if (quizzes.length > 0) {
         await db.delete(lifeAreaQuizResponses).where(
-          and2(
+          and3(
             eq3(lifeAreaQuizResponses.userId, userId),
             eq3(lifeAreaQuizResponses.quizId, quizzes[0].id)
           )
         );
       }
       await db.delete(lifeAreaScores).where(
-        and2(
+        and3(
           eq3(lifeAreaScores.userId, userId),
           eq3(lifeAreaScores.lifeAreaId, areaId)
         )
@@ -9716,7 +11468,7 @@ function registerLifeAreasRoutes(app2) {
   });
   async function calculateAndSaveScores(userId, areaId, quizId) {
     const responses = await db.select().from(lifeAreaQuizResponses).where(
-      and2(
+      and3(
         eq3(lifeAreaQuizResponses.userId, userId),
         eq3(lifeAreaQuizResponses.quizId, quizId)
       )
@@ -9758,10 +11510,10 @@ function registerLifeAreasRoutes(app2) {
     const avgDesired = allDesired.length > 0 ? Math.round(allDesired.reduce((a, b) => a + b, 0) / allDesired.length) : 0;
     const gap = avgDesired - avgCurrent;
     const existingScore = await db.select().from(lifeAreaScores).where(
-      and2(
+      and3(
         eq3(lifeAreaScores.userId, userId),
         eq3(lifeAreaScores.lifeAreaId, areaId),
-        sql4`${lifeAreaScores.subcategoryId} IS NULL`
+        sql5`${lifeAreaScores.subcategoryId} IS NULL`
       )
     ).limit(1);
     if (existingScore.length > 0 && existingScore[0]) {
@@ -9786,7 +11538,7 @@ function registerLifeAreasRoutes(app2) {
       const subcatDesired = scores.desired.length > 0 ? Math.round(scores.desired.reduce((a, b) => a + b, 0) / scores.desired.length) : 0;
       const subcatGap = subcatDesired - subcatCurrent;
       const existingSubcatScore = await db.select().from(lifeAreaScores).where(
-        and2(
+        and3(
           eq3(lifeAreaScores.userId, userId),
           eq3(lifeAreaScores.lifeAreaId, areaId),
           eq3(lifeAreaScores.subcategoryId, subcatId)
@@ -9813,7 +11565,7 @@ function registerLifeAreasRoutes(app2) {
   }
   async function awardXP(userId, areaId, amount, sourceType, sourceId) {
     const streak = await db.select().from(lifeAreaStreaks).where(
-      and2(
+      and3(
         eq3(lifeAreaStreaks.userId, userId),
         eq3(lifeAreaStreaks.streakType, "daily")
       )
@@ -9832,9 +11584,9 @@ function registerLifeAreasRoutes(app2) {
   }
   async function updateLevel(userId, areaId) {
     const xpResult = await db.select({
-      total: sql4`SUM(${lifeAreaXpLog.xpAmount})`
+      total: sql5`SUM(${lifeAreaXpLog.xpAmount})`
     }).from(lifeAreaXpLog).where(
-      and2(
+      and3(
         eq3(lifeAreaXpLog.userId, userId),
         eq3(lifeAreaXpLog.lifeAreaId, areaId)
       )
@@ -9849,7 +11601,7 @@ function registerLifeAreasRoutes(app2) {
       xpRequired = Math.round(xpRequired * 1.5);
     }
     const currentLevel = await db.select().from(lifeAreaLevels).where(
-      and2(
+      and3(
         eq3(lifeAreaLevels.userId, userId),
         eq3(lifeAreaLevels.lifeAreaId, areaId)
       )
@@ -9864,7 +11616,7 @@ function registerLifeAreasRoutes(app2) {
         levelUpAt: wasLevelUp ? (/* @__PURE__ */ new Date()).toISOString() : currentLevelData.levelUpAt || null,
         updatedAt: (/* @__PURE__ */ new Date()).toISOString()
       }).where(
-        and2(
+        and3(
           eq3(lifeAreaLevels.userId, userId),
           eq3(lifeAreaLevels.lifeAreaId, areaId)
         )
@@ -9892,7 +11644,7 @@ function registerLifeAreasRoutes(app2) {
     const badges2 = await db.select().from(lifeAreaBadges).where(eq3(lifeAreaBadges.requirementType, requirementType));
     for (const badge of badges2) {
       const existing = await db.select().from(userLifeAreaBadges).where(
-        and2(
+        and3(
           eq3(userLifeAreaBadges.userId, userId),
           eq3(userLifeAreaBadges.badgeId, badge.id)
         )
@@ -9912,7 +11664,7 @@ function registerLifeAreasRoutes(app2) {
           const quiz = await db.select().from(lifeAreaQuizzes).where(eq3(lifeAreaQuizzes.lifeAreaId, areaId)).limit(1);
           if (quiz.length > 0) {
             const responses = await db.select().from(lifeAreaQuizResponses).where(
-              and2(
+              and3(
                 eq3(lifeAreaQuizResponses.userId, userId),
                 eq3(lifeAreaQuizResponses.quizId, quiz[0].id)
               )
@@ -9923,28 +11675,28 @@ function registerLifeAreasRoutes(app2) {
       } else if (requirementType === "score_reach") {
         const threshold = reqData.threshold || 70;
         if (reqData.allAreas) {
-          const qualifyingAreas = await db.select({ cnt: sql4`COUNT(*)` }).from(lifeAreaScores).where(
-            and2(
+          const qualifyingAreas = await db.select({ cnt: sql5`COUNT(*)` }).from(lifeAreaScores).where(
+            and3(
               eq3(lifeAreaScores.userId, userId),
-              sql4`${lifeAreaScores.subcategoryId} IS NULL`,
+              sql5`${lifeAreaScores.subcategoryId} IS NULL`,
               gte2(lifeAreaScores.currentScore, threshold)
             )
           );
           shouldAward = (qualifyingAreas[0]?.cnt || 0) >= 12;
         } else {
           const score = await db.select().from(lifeAreaScores).where(
-            and2(
+            and3(
               eq3(lifeAreaScores.userId, userId),
               eq3(lifeAreaScores.lifeAreaId, areaId),
-              sql4`${lifeAreaScores.subcategoryId} IS NULL`
+              sql5`${lifeAreaScores.subcategoryId} IS NULL`
             )
           ).limit(1);
           shouldAward = score.length > 0 && score[0].currentScore >= threshold;
         }
       } else if (requirementType === "actions_complete") {
         const required = reqData.count || 1;
-        const completedCount = await db.select({ cnt: sql4`COUNT(*)` }).from(userLifeAreaProgress).where(
-          and2(
+        const completedCount = await db.select({ cnt: sql5`COUNT(*)` }).from(userLifeAreaProgress).where(
+          and3(
             eq3(userLifeAreaProgress.userId, userId),
             eq3(userLifeAreaProgress.status, "completed")
           )
@@ -9953,7 +11705,7 @@ function registerLifeAreasRoutes(app2) {
       } else if (requirementType === "streak") {
         const requiredDays = reqData.days || 7;
         const streak = await db.select().from(lifeAreaStreaks).where(
-          and2(
+          and3(
             eq3(lifeAreaStreaks.userId, userId),
             eq3(lifeAreaStreaks.streakType, "daily")
           )
@@ -9966,7 +11718,7 @@ function registerLifeAreasRoutes(app2) {
         const requiredPct = reqData.percentage || 25;
         if (reqData.anyArea) {
           const mastery = await db.select().from(lifeAreaMastery).where(
-            and2(
+            and3(
               eq3(lifeAreaMastery.userId, userId),
               gte2(lifeAreaMastery.masteryPercentage, requiredPct)
             )
@@ -9974,7 +11726,7 @@ function registerLifeAreasRoutes(app2) {
           shouldAward = mastery.length > 0;
         } else {
           const mastery = await db.select().from(lifeAreaMastery).where(
-            and2(
+            and3(
               eq3(lifeAreaMastery.userId, userId),
               eq3(lifeAreaMastery.lifeAreaId, areaId),
               gte2(lifeAreaMastery.masteryPercentage, requiredPct)
@@ -10029,17 +11781,17 @@ function registerLifeAreasRoutes(app2) {
       }
       const userId = req.user.userId;
       const score = await db.select().from(lifeAreaScores).where(
-        and2(
+        and3(
           eq3(lifeAreaScores.userId, userId),
           eq3(lifeAreaScores.lifeAreaId, areaId),
-          sql4`${lifeAreaScores.subcategoryId} IS NULL`
+          sql5`${lifeAreaScores.subcategoryId} IS NULL`
         )
       ).limit(1);
-      const actions = await db.select().from(lifeAreaActions).where(eq3(lifeAreaActions.lifeAreaId, areaId)).orderBy(desc2(lifeAreaActions.priority));
+      const actions = await db.select().from(lifeAreaActions).where(eq3(lifeAreaActions.lifeAreaId, areaId)).orderBy(desc3(lifeAreaActions.priority));
       const actionsWithProgress = await Promise.all(
         actions.map(async (action) => {
           const progress = await db.select().from(userLifeAreaProgress).where(
-            and2(
+            and3(
               eq3(userLifeAreaProgress.userId, userId),
               eq3(userLifeAreaProgress.actionId, action.id)
             )
@@ -10068,7 +11820,7 @@ function registerLifeAreasRoutes(app2) {
         return res.status(404).json({ message: "Action not found" });
       }
       const existing = await db.select().from(userLifeAreaProgress).where(
-        and2(
+        and3(
           eq3(userLifeAreaProgress.userId, userId),
           eq3(userLifeAreaProgress.actionId, actionId)
         )
@@ -10111,7 +11863,7 @@ function registerLifeAreasRoutes(app2) {
         return res.status(400).json({ message: "Notes too long (max 5000 characters)" });
       }
       const progress = await db.select().from(userLifeAreaProgress).where(
-        and2(
+        and3(
           eq3(userLifeAreaProgress.userId, userId),
           eq3(userLifeAreaProgress.actionId, actionId)
         )
@@ -10142,7 +11894,7 @@ function registerLifeAreasRoutes(app2) {
         return res.status(404).json({ message: "Action not found" });
       }
       const progress = await db.select().from(userLifeAreaProgress).where(
-        and2(
+        and3(
           eq3(userLifeAreaProgress.userId, userId),
           eq3(userLifeAreaProgress.actionId, actionId)
         )
@@ -10177,15 +11929,15 @@ function registerLifeAreasRoutes(app2) {
     try {
       const userId = req.user.userId;
       const scores = await db.select().from(lifeAreaScores).where(
-        and2(
+        and3(
           eq3(lifeAreaScores.userId, userId),
-          sql4`${lifeAreaScores.subcategoryId} IS NULL`
+          sql5`${lifeAreaScores.subcategoryId} IS NULL`
         )
       ).orderBy(lifeAreaScores.lifeAreaId);
       const actionsProgress = await db.select({
         progress: userLifeAreaProgress,
         action: lifeAreaActions
-      }).from(userLifeAreaProgress).innerJoin(lifeAreaActions, eq3(userLifeAreaProgress.actionId, lifeAreaActions.id)).where(eq3(userLifeAreaProgress.userId, userId)).orderBy(desc2(userLifeAreaProgress.updatedAt));
+      }).from(userLifeAreaProgress).innerJoin(lifeAreaActions, eq3(userLifeAreaProgress.actionId, lifeAreaActions.id)).where(eq3(userLifeAreaProgress.userId, userId)).orderBy(desc3(userLifeAreaProgress.updatedAt));
       res.json({
         scores,
         actionsProgress: actionsProgress.map((ap) => ({
@@ -10206,7 +11958,7 @@ function registerLifeAreasRoutes(app2) {
       }
       const userId = req.user.userId;
       const scores = await db.select().from(lifeAreaScores).where(
-        and2(
+        and3(
           eq3(lifeAreaScores.userId, userId),
           eq3(lifeAreaScores.lifeAreaId, areaId)
         )
@@ -10215,11 +11967,11 @@ function registerLifeAreasRoutes(app2) {
         progress: userLifeAreaProgress,
         action: lifeAreaActions
       }).from(userLifeAreaProgress).innerJoin(lifeAreaActions, eq3(userLifeAreaProgress.actionId, lifeAreaActions.id)).where(
-        and2(
+        and3(
           eq3(userLifeAreaProgress.userId, userId),
           eq3(lifeAreaActions.lifeAreaId, areaId)
         )
-      ).orderBy(desc2(userLifeAreaProgress.updatedAt));
+      ).orderBy(desc3(userLifeAreaProgress.updatedAt));
       res.json({
         scores,
         actionsProgress: actionsProgress.map((ap) => ({
@@ -10237,20 +11989,20 @@ function registerLifeAreasRoutes(app2) {
       const userId = req.user.userId;
       const limit = Math.min(parseInt(req.query.limit) || 50, 200);
       const scoreChanges = await db.select().from(lifeAreaIndicators).where(
-        and2(
+        and3(
           eq3(lifeAreaIndicators.userId, userId),
           eq3(lifeAreaIndicators.indicatorType, "score_change")
         )
-      ).orderBy(desc2(lifeAreaIndicators.recordedAt)).limit(limit);
+      ).orderBy(desc3(lifeAreaIndicators.recordedAt)).limit(limit);
       const completedActions = await db.select({
         progress: userLifeAreaProgress,
         action: lifeAreaActions
       }).from(userLifeAreaProgress).innerJoin(lifeAreaActions, eq3(userLifeAreaProgress.actionId, lifeAreaActions.id)).where(
-        and2(
+        and3(
           eq3(userLifeAreaProgress.userId, userId),
           eq3(userLifeAreaProgress.status, "completed")
         )
-      ).orderBy(desc2(userLifeAreaProgress.completedAt)).limit(limit);
+      ).orderBy(desc3(userLifeAreaProgress.completedAt)).limit(limit);
       res.json({
         scoreChanges,
         completedActions: completedActions.map((ca) => ({
@@ -10269,7 +12021,7 @@ function registerLifeAreasRoutes(app2) {
       const milestones = await db.select({
         milestone: lifeAreaMilestones,
         area: lifeAreas
-      }).from(lifeAreaMilestones).innerJoin(lifeAreas, eq3(lifeAreaMilestones.lifeAreaId, lifeAreas.id)).where(eq3(lifeAreaMilestones.userId, userId)).orderBy(desc2(lifeAreaMilestones.createdAt));
+      }).from(lifeAreaMilestones).innerJoin(lifeAreas, eq3(lifeAreaMilestones.lifeAreaId, lifeAreas.id)).where(eq3(lifeAreaMilestones.userId, userId)).orderBy(desc3(lifeAreaMilestones.createdAt));
       res.json(milestones.map((m) => ({
         ...m.milestone,
         area: m.area
@@ -10321,7 +12073,7 @@ function registerLifeAreasRoutes(app2) {
       }
       const userId = req.user.userId;
       const milestone = await db.select().from(lifeAreaMilestones).where(
-        and2(
+        and3(
           eq3(lifeAreaMilestones.id, milestoneId),
           eq3(lifeAreaMilestones.userId, userId)
         )
@@ -10367,7 +12119,7 @@ function registerLifeAreasRoutes(app2) {
   async function updateStreak(userId) {
     const today = (/* @__PURE__ */ new Date()).toISOString().split("T")[0];
     const streak = await db.select().from(lifeAreaStreaks).where(
-      and2(
+      and3(
         eq3(lifeAreaStreaks.userId, userId),
         eq3(lifeAreaStreaks.streakType, "daily")
       )
@@ -10411,16 +12163,16 @@ function registerLifeAreasRoutes(app2) {
   }
   async function updateMastery(userId, areaId) {
     const completedActions = await db.select({
-      count: sql4`COUNT(*)`
+      count: sql5`COUNT(*)`
     }).from(userLifeAreaProgress).innerJoin(lifeAreaActions, eq3(userLifeAreaProgress.actionId, lifeAreaActions.id)).where(
-      and2(
+      and3(
         eq3(userLifeAreaProgress.userId, userId),
         eq3(lifeAreaActions.lifeAreaId, areaId),
         eq3(userLifeAreaProgress.status, "completed")
       )
     );
     const totalActions = await db.select({
-      count: sql4`COUNT(*)`
+      count: sql5`COUNT(*)`
     }).from(lifeAreaActions).where(eq3(lifeAreaActions.lifeAreaId, areaId));
     const completed = completedActions[0]?.count || 0;
     const total = totalActions[0]?.count || 1;
@@ -10431,7 +12183,7 @@ function registerLifeAreasRoutes(app2) {
     else if (percentage >= 50) masteryLevel = "adept";
     else if (percentage >= 25) masteryLevel = "apprentice";
     const mastery = await db.select().from(lifeAreaMastery).where(
-      and2(
+      and3(
         eq3(lifeAreaMastery.userId, userId),
         eq3(lifeAreaMastery.lifeAreaId, areaId)
       )
@@ -10460,7 +12212,7 @@ function registerLifeAreasRoutes(app2) {
       const userId = req.user.userId;
       const xpByArea = await db.select({
         lifeAreaId: lifeAreaXpLog.lifeAreaId,
-        total: sql4`SUM(${lifeAreaXpLog.xpAmount})`
+        total: sql5`SUM(${lifeAreaXpLog.xpAmount})`
       }).from(lifeAreaXpLog).where(eq3(lifeAreaXpLog.userId, userId)).groupBy(lifeAreaXpLog.lifeAreaId);
       const totalXP = xpByArea.reduce((sum, area) => sum + (area.total || 0), 0);
       res.json({
@@ -10500,7 +12252,7 @@ function registerLifeAreasRoutes(app2) {
   });
   app2.get("/api/life-areas/badges", async (req, res) => {
     try {
-      const badges2 = await db.select().from(lifeAreaBadges).orderBy(lifeAreaBadges.rarity, desc2(lifeAreaBadges.xpReward));
+      const badges2 = await db.select().from(lifeAreaBadges).orderBy(lifeAreaBadges.rarity, desc3(lifeAreaBadges.xpReward));
       res.json(badges2);
     } catch (error) {
       console.error("Error fetching badges:", error);
@@ -10513,7 +12265,7 @@ function registerLifeAreasRoutes(app2) {
       const badges2 = await db.select({
         badge: userLifeAreaBadges,
         badgeInfo: lifeAreaBadges
-      }).from(userLifeAreaBadges).innerJoin(lifeAreaBadges, eq3(userLifeAreaBadges.badgeId, lifeAreaBadges.id)).where(eq3(userLifeAreaBadges.userId, userId)).orderBy(desc2(userLifeAreaBadges.earnedAt));
+      }).from(userLifeAreaBadges).innerJoin(lifeAreaBadges, eq3(userLifeAreaBadges.badgeId, lifeAreaBadges.id)).where(eq3(userLifeAreaBadges.userId, userId)).orderBy(desc3(userLifeAreaBadges.earnedAt));
       res.json(badges2.map((b) => ({
         ...b.badge,
         badgeInfo: b.badgeInfo
@@ -10537,11 +12289,11 @@ function registerLifeAreasRoutes(app2) {
     try {
       const userId = req.user.userId;
       const unreadOnly = req.query.unreadOnly === "true";
-      const whereConditions = unreadOnly ? and2(
+      const whereConditions = unreadOnly ? and3(
         eq3(lifeAreaNotifications.userId, userId),
         eq3(lifeAreaNotifications.read, false)
       ) : eq3(lifeAreaNotifications.userId, userId);
-      const notifications2 = await db.select().from(lifeAreaNotifications).where(whereConditions).orderBy(desc2(lifeAreaNotifications.createdAt));
+      const notifications2 = await db.select().from(lifeAreaNotifications).where(whereConditions).orderBy(desc3(lifeAreaNotifications.createdAt));
       res.json(notifications2);
     } catch (error) {
       console.error("Error fetching notifications:", error);
@@ -10556,7 +12308,7 @@ function registerLifeAreasRoutes(app2) {
       }
       const userId = req.user.userId;
       await db.update(lifeAreaNotifications).set({ read: true }).where(
-        and2(
+        and3(
           eq3(lifeAreaNotifications.id, notificationId),
           eq3(lifeAreaNotifications.userId, userId)
         )
@@ -10575,12 +12327,12 @@ function registerLifeAreasRoutes(app2) {
       if (areaId !== void 0 && (isNaN(areaId) || areaId <= 0)) {
         return res.status(400).json({ message: "Invalid area ID" });
       }
-      const whereConditions = areaId ? and2(
+      const whereConditions = areaId ? and3(
         eq3(lifeAreaIndicators.userId, userId),
         eq3(lifeAreaIndicators.lifeAreaId, areaId)
       ) : eq3(lifeAreaIndicators.userId, userId);
       const limit = Math.min(parseInt(req.query.limit) || 100, 500);
-      const indicators = await db.select().from(lifeAreaIndicators).where(whereConditions).orderBy(desc2(lifeAreaIndicators.recordedAt)).limit(limit);
+      const indicators = await db.select().from(lifeAreaIndicators).where(whereConditions).orderBy(desc3(lifeAreaIndicators.recordedAt)).limit(limit);
       res.json(indicators);
     } catch (error) {
       console.error("Error fetching indicators:", error);
@@ -10598,11 +12350,11 @@ function registerLifeAreasRoutes(app2) {
         return res.status(400).json({ message: "Invalid period. Must be 'daily', 'weekly', or 'monthly'" });
       }
       const stats = await db.select().from(lifeAreaCommunityStats).where(
-        and2(
+        and3(
           eq3(lifeAreaCommunityStats.lifeAreaId, areaId),
           eq3(lifeAreaCommunityStats.period, period)
         )
-      ).orderBy(desc2(lifeAreaCommunityStats.calculatedAt)).limit(1);
+      ).orderBy(desc3(lifeAreaCommunityStats.calculatedAt)).limit(1);
       res.json(stats[0] || null);
     } catch (error) {
       console.error("Error fetching community stats:", error);
@@ -10617,19 +12369,19 @@ function registerLifeAreasRoutes(app2) {
       }
       const userId = req.user.userId;
       const userScore = await db.select().from(lifeAreaScores).where(
-        and2(
+        and3(
           eq3(lifeAreaScores.userId, userId),
           eq3(lifeAreaScores.lifeAreaId, areaId),
-          sql4`${lifeAreaScores.subcategoryId} IS NULL`
+          sql5`${lifeAreaScores.subcategoryId} IS NULL`
         )
       ).limit(1);
       if (userScore.length === 0) {
         return res.json({ percentile: null, message: "No score found" });
       }
       const allScores = await db.select().from(lifeAreaScores).where(
-        and2(
+        and3(
           eq3(lifeAreaScores.lifeAreaId, areaId),
-          sql4`${lifeAreaScores.subcategoryId} IS NULL`
+          sql5`${lifeAreaScores.subcategoryId} IS NULL`
         )
       );
       const scores = allScores.map((s) => s.currentScore).filter((s) => s !== null && s !== void 0).sort((a, b) => a - b);
@@ -10667,14 +12419,14 @@ function registerLifeAreasRoutes(app2) {
       }
       const thirtyDaysAgo = /* @__PURE__ */ new Date();
       thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
-      const whereConditions = areaId ? and2(
+      const whereConditions = areaId ? and3(
         eq3(lifeAreaScores.userId, userId),
-        sql4`${lifeAreaScores.subcategoryId} IS NULL`,
+        sql5`${lifeAreaScores.subcategoryId} IS NULL`,
         gte2(lifeAreaScores.lastUpdated, thirtyDaysAgo.toISOString()),
         eq3(lifeAreaScores.lifeAreaId, areaId)
-      ) : and2(
+      ) : and3(
         eq3(lifeAreaScores.userId, userId),
-        sql4`${lifeAreaScores.subcategoryId} IS NULL`,
+        sql5`${lifeAreaScores.subcategoryId} IS NULL`,
         gte2(lifeAreaScores.lastUpdated, thirtyDaysAgo.toISOString())
       );
       const scores = await db.select().from(lifeAreaScores).where(whereConditions).orderBy(lifeAreaScores.lastUpdated);
@@ -10718,11 +12470,11 @@ function registerLifeAreasRoutes(app2) {
         desiredValue: lifeAreaQuizResponses.desiredValue,
         answeredAt: lifeAreaQuizResponses.answeredAt
       }).from(lifeAreaQuizResponses).where(
-        and2(
+        and3(
           eq3(lifeAreaQuizResponses.userId, userId),
           eq3(lifeAreaQuizResponses.quizId, quiz[0].id)
         )
-      ).orderBy(desc2(lifeAreaQuizResponses.answeredAt));
+      ).orderBy(desc3(lifeAreaQuizResponses.answeredAt));
       const sessionMap = /* @__PURE__ */ new Map();
       for (const r of responses) {
         const dateKey = r.answeredAt ? r.answeredAt.split("T")[0] : "unknown";
@@ -10757,7 +12509,7 @@ function registerLifeAreasRoutes(app2) {
   app2.get("/api/life-areas/challenges", authenticateToken, async (req, res) => {
     try {
       const userId = req.user.userId;
-      const challenges2 = await db.select().from(lifeAreaChallenges).where(eq3(lifeAreaChallenges.isActive, true)).orderBy(desc2(lifeAreaChallenges.createdAt));
+      const challenges2 = await db.select().from(lifeAreaChallenges).where(eq3(lifeAreaChallenges.isActive, true)).orderBy(desc3(lifeAreaChallenges.createdAt));
       const userChallenges = await db.select().from(userLifeAreaChallenges).where(eq3(userLifeAreaChallenges.userId, userId));
       const userChallengeMap = new Map(
         userChallenges.map((uc) => [uc.challengeId, uc])
@@ -10786,12 +12538,12 @@ function registerLifeAreasRoutes(app2) {
         return res.status(404).json({ message: "Challenge not found" });
       }
       const userChallenge = await db.select().from(userLifeAreaChallenges).where(
-        and2(
+        and3(
           eq3(userLifeAreaChallenges.userId, userId),
           eq3(userLifeAreaChallenges.challengeId, challengeId)
         )
       ).limit(1);
-      const participants = await db.select({ cnt: sql4`COUNT(*)` }).from(userLifeAreaChallenges).where(eq3(userLifeAreaChallenges.challengeId, challengeId));
+      const participants = await db.select({ cnt: sql5`COUNT(*)` }).from(userLifeAreaChallenges).where(eq3(userLifeAreaChallenges.challengeId, challengeId));
       res.json({
         ...challenge[0],
         requirements: challenge[0].requirements ? JSON.parse(challenge[0].requirements) : null,
@@ -10811,12 +12563,12 @@ function registerLifeAreasRoutes(app2) {
         return res.status(400).json({ message: "Invalid challenge ID" });
       }
       const userId = req.user.userId;
-      const challenge = await db.select().from(lifeAreaChallenges).where(and2(eq3(lifeAreaChallenges.id, challengeId), eq3(lifeAreaChallenges.isActive, true))).limit(1);
+      const challenge = await db.select().from(lifeAreaChallenges).where(and3(eq3(lifeAreaChallenges.id, challengeId), eq3(lifeAreaChallenges.isActive, true))).limit(1);
       if (challenge.length === 0) {
         return res.status(404).json({ message: "Challenge not found or inactive" });
       }
       const existing = await db.select().from(userLifeAreaChallenges).where(
-        and2(
+        and3(
           eq3(userLifeAreaChallenges.userId, userId),
           eq3(userLifeAreaChallenges.challengeId, challengeId)
         )
@@ -10830,7 +12582,7 @@ function registerLifeAreasRoutes(app2) {
         status: "joined",
         progress: JSON.stringify({ current: 0, target: 1 })
       });
-      await db.update(lifeAreaChallenges).set({ participantCount: sql4`${lifeAreaChallenges.participantCount} + 1` }).where(eq3(lifeAreaChallenges.id, challengeId));
+      await db.update(lifeAreaChallenges).set({ participantCount: sql5`${lifeAreaChallenges.participantCount} + 1` }).where(eq3(lifeAreaChallenges.id, challengeId));
       res.json({ message: "Joined challenge successfully" });
     } catch (error) {
       console.error("Error joining challenge:", error);
@@ -10846,7 +12598,7 @@ function registerLifeAreasRoutes(app2) {
       const userId = req.user.userId;
       const { progress } = req.body;
       const userChallenge = await db.select().from(userLifeAreaChallenges).where(
-        and2(
+        and3(
           eq3(userLifeAreaChallenges.userId, userId),
           eq3(userLifeAreaChallenges.challengeId, challengeId)
         )
@@ -10873,7 +12625,7 @@ function registerLifeAreasRoutes(app2) {
       }
       const userId = req.user.userId;
       const userChallenge = await db.select().from(userLifeAreaChallenges).where(
-        and2(
+        and3(
           eq3(userLifeAreaChallenges.userId, userId),
           eq3(userLifeAreaChallenges.challengeId, challengeId)
         )
@@ -10918,17 +12670,17 @@ function registerLifeAreasRoutes(app2) {
     try {
       const userId = req.user.userId;
       const chests = await db.select().from(lifeAreaRewardChests).where(
-        and2(
+        and3(
           eq3(lifeAreaRewardChests.userId, userId),
-          sql4`${lifeAreaRewardChests.openedAt} IS NULL`
+          sql5`${lifeAreaRewardChests.openedAt} IS NULL`
         )
-      ).orderBy(desc2(lifeAreaRewardChests.createdAt));
+      ).orderBy(desc3(lifeAreaRewardChests.createdAt));
       const today = (/* @__PURE__ */ new Date()).toISOString().split("T")[0];
       const todayChest = await db.select().from(lifeAreaRewardChests).where(
-        and2(
+        and3(
           eq3(lifeAreaRewardChests.userId, userId),
           eq3(lifeAreaRewardChests.chestType, "daily"),
-          sql4`${lifeAreaRewardChests.createdAt}::date = ${today}::date`
+          sql5`${lifeAreaRewardChests.createdAt}::date = ${today}::date`
         )
       ).limit(1);
       if (todayChest.length === 0) {
@@ -10941,11 +12693,11 @@ function registerLifeAreasRoutes(app2) {
         chests.unshift(dailyChest[0]);
       }
       const openedChests = await db.select().from(lifeAreaRewardChests).where(
-        and2(
+        and3(
           eq3(lifeAreaRewardChests.userId, userId),
-          sql4`${lifeAreaRewardChests.openedAt} IS NOT NULL`
+          sql5`${lifeAreaRewardChests.openedAt} IS NOT NULL`
         )
-      ).orderBy(desc2(lifeAreaRewardChests.openedAt)).limit(10);
+      ).orderBy(desc3(lifeAreaRewardChests.openedAt)).limit(10);
       res.json({
         available: chests.map((c) => ({
           ...c,
@@ -10969,10 +12721,10 @@ function registerLifeAreasRoutes(app2) {
       }
       const userId = req.user.userId;
       const chest = await db.select().from(lifeAreaRewardChests).where(
-        and2(
+        and3(
           eq3(lifeAreaRewardChests.id, chestId),
           eq3(lifeAreaRewardChests.userId, userId),
-          sql4`${lifeAreaRewardChests.openedAt} IS NULL`
+          sql5`${lifeAreaRewardChests.openedAt} IS NULL`
         )
       ).limit(1);
       if (chest.length === 0) {
@@ -11011,11 +12763,11 @@ function registerLifeAreasRoutes(app2) {
         lifeAreaId: lifeAreaMilestones.lifeAreaId,
         username: users.username,
         name: users.name
-      }).from(lifeAreaMilestones).innerJoin(users, eq3(lifeAreaMilestones.userId, users.id)).where(sql4`${lifeAreaMilestones.sharedAt} IS NOT NULL`).orderBy(desc2(lifeAreaMilestones.createdAt)).limit(20);
+      }).from(lifeAreaMilestones).innerJoin(users, eq3(lifeAreaMilestones.userId, users.id)).where(sql5`${lifeAreaMilestones.sharedAt} IS NOT NULL`).orderBy(desc3(lifeAreaMilestones.createdAt)).limit(20);
       const feedItems = await Promise.all(
         recentMilestones.map(async (m) => {
-          const likes = await db.select({ cnt: sql4`COUNT(*)` }).from(lifeAreaSocialInteractions).where(
-            and2(
+          const likes = await db.select({ cnt: sql5`COUNT(*)` }).from(lifeAreaSocialInteractions).where(
+            and3(
               eq3(lifeAreaSocialInteractions.targetType, "milestone"),
               eq3(lifeAreaSocialInteractions.targetId, m.id),
               eq3(lifeAreaSocialInteractions.interactionType, "like")
@@ -11028,7 +12780,7 @@ function registerLifeAreasRoutes(app2) {
             username: users.username,
             name: users.name
           }).from(lifeAreaSocialInteractions).innerJoin(users, eq3(lifeAreaSocialInteractions.userId, users.id)).where(
-            and2(
+            and3(
               eq3(lifeAreaSocialInteractions.targetType, "milestone"),
               eq3(lifeAreaSocialInteractions.targetId, m.id),
               eq3(lifeAreaSocialInteractions.interactionType, "comment")
@@ -11055,7 +12807,7 @@ function registerLifeAreasRoutes(app2) {
         return res.status(400).json({ message: "targetType and targetId required" });
       }
       const existing = await db.select().from(lifeAreaSocialInteractions).where(
-        and2(
+        and3(
           eq3(lifeAreaSocialInteractions.userId, userId),
           eq3(lifeAreaSocialInteractions.targetType, targetType),
           eq3(lifeAreaSocialInteractions.targetId, targetId),
@@ -11135,7 +12887,7 @@ function registerLifeAreasRoutes(app2) {
 init_db();
 init_schema();
 init_auth();
-import { eq as eq5, desc as desc4, and as and3 } from "drizzle-orm";
+import { eq as eq5, desc as desc5, and as and4 } from "drizzle-orm";
 
 // shared/civic-assessment-questions.ts
 var CIVIC_DIMENSIONS = [
@@ -11670,7 +13422,7 @@ var ASSESSMENT_QUESTIONS = [
 // server/services/civic-profile-service.ts
 init_db();
 init_schema();
-import { eq as eq4, desc as desc3 } from "drizzle-orm";
+import { eq as eq4, desc as desc4 } from "drizzle-orm";
 function findQuestion(questionKey) {
   return ASSESSMENT_QUESTIONS.find((q) => q.key === questionKey);
 }
@@ -11874,7 +13626,7 @@ async function computeCivicProfile(userId, assessmentId) {
   };
 }
 async function getCommunityComparison(userId) {
-  const userProfile = await db.select().from(civicProfiles).where(eq4(civicProfiles.userId, userId)).orderBy(desc3(civicProfiles.createdAt)).limit(1);
+  const userProfile = await db.select().from(civicProfiles).where(eq4(civicProfiles.userId, userId)).orderBy(desc4(civicProfiles.createdAt)).limit(1);
   if (userProfile.length === 0) {
     throw new Error("No civic profile found for this user");
   }
@@ -11920,7 +13672,7 @@ function registerCivicAssessmentRoutes(app2) {
   app2.post("/api/assessment/start", authenticateToken, async (req, res) => {
     try {
       const userId = req.user.userId;
-      const existing = await db.select().from(civicAssessments).where(and3(
+      const existing = await db.select().from(civicAssessments).where(and4(
         eq5(civicAssessments.userId, userId),
         eq5(civicAssessments.status, "in_progress")
       )).limit(1);
@@ -11953,7 +13705,7 @@ function registerCivicAssessmentRoutes(app2) {
       const assessmentId = parseInt(req.params.id);
       const userId = req.user.userId;
       const { responses } = req.body;
-      const assessment = await db.select().from(civicAssessments).where(and3(
+      const assessment = await db.select().from(civicAssessments).where(and4(
         eq5(civicAssessments.id, assessmentId),
         eq5(civicAssessments.userId, userId)
       )).limit(1);
@@ -11965,7 +13717,7 @@ function registerCivicAssessmentRoutes(app2) {
       }
       const now = (/* @__PURE__ */ new Date()).toISOString();
       for (const resp of responses) {
-        const existing = await db.select().from(civicAssessmentResponses).where(and3(
+        const existing = await db.select().from(civicAssessmentResponses).where(and4(
           eq5(civicAssessmentResponses.assessmentId, assessmentId),
           eq5(civicAssessmentResponses.questionKey, resp.questionKey)
         )).limit(1);
@@ -11999,7 +13751,7 @@ function registerCivicAssessmentRoutes(app2) {
     try {
       const assessmentId = parseInt(req.params.id);
       const userId = req.user.userId;
-      const assessment = await db.select().from(civicAssessments).where(and3(
+      const assessment = await db.select().from(civicAssessments).where(and4(
         eq5(civicAssessments.id, assessmentId),
         eq5(civicAssessments.userId, userId)
       )).limit(1);
@@ -12024,7 +13776,7 @@ function registerCivicAssessmentRoutes(app2) {
   app2.get("/api/assessment/current", authenticateToken, async (req, res) => {
     try {
       const userId = req.user.userId;
-      const assessment = await db.select().from(civicAssessments).where(eq5(civicAssessments.userId, userId)).orderBy(desc4(civicAssessments.createdAt)).limit(1);
+      const assessment = await db.select().from(civicAssessments).where(eq5(civicAssessments.userId, userId)).orderBy(desc5(civicAssessments.createdAt)).limit(1);
       if (assessment.length === 0) {
         return res.json({ assessment: null, responses: [] });
       }
@@ -12041,7 +13793,7 @@ function registerCivicAssessmentRoutes(app2) {
   app2.get("/api/civic-profile", authenticateToken, async (req, res) => {
     try {
       const userId = req.user.userId;
-      const profile = await db.select().from(civicProfiles).where(eq5(civicProfiles.userId, userId)).orderBy(desc4(civicProfiles.createdAt)).limit(1);
+      const profile = await db.select().from(civicProfiles).where(eq5(civicProfiles.userId, userId)).orderBy(desc5(civicProfiles.createdAt)).limit(1);
       if (profile.length === 0) {
         return res.json({ profile: null });
       }
@@ -12093,12 +13845,12 @@ function registerCivicAssessmentRoutes(app2) {
 init_db();
 init_schema();
 init_auth();
-import { eq as eq6, desc as desc5, and as and4 } from "drizzle-orm";
+import { eq as eq6, desc as desc6, and as and5 } from "drizzle-orm";
 function registerGoalRoutes(app2) {
   app2.get("/api/goals", authenticateToken, async (req, res) => {
     try {
       const userId = req.user.userId;
-      const goals = await db.select().from(civicGoals).where(eq6(civicGoals.userId, userId)).orderBy(desc5(civicGoals.createdAt));
+      const goals = await db.select().from(civicGoals).where(eq6(civicGoals.userId, userId)).orderBy(desc6(civicGoals.createdAt));
       const parsed = goals.map((g) => ({
         ...g,
         milestones: g.milestones ? JSON.parse(g.milestones) : []
@@ -12139,7 +13891,7 @@ function registerGoalRoutes(app2) {
       const userId = req.user.userId;
       const goalId = parseInt(req.params.id);
       const { title, description, category, targetDate, status, progress, milestones } = req.body;
-      const existing = await db.select().from(civicGoals).where(and4(eq6(civicGoals.id, goalId), eq6(civicGoals.userId, userId))).limit(1);
+      const existing = await db.select().from(civicGoals).where(and5(eq6(civicGoals.id, goalId), eq6(civicGoals.userId, userId))).limit(1);
       if (existing.length === 0) {
         return res.status(404).json({ message: "Meta no encontrada" });
       }
@@ -12162,7 +13914,7 @@ function registerGoalRoutes(app2) {
     try {
       const userId = req.user.userId;
       const goalId = parseInt(req.params.id);
-      await db.update(civicGoals).set({ status: "abandoned", updatedAt: (/* @__PURE__ */ new Date()).toISOString() }).where(and4(eq6(civicGoals.id, goalId), eq6(civicGoals.userId, userId)));
+      await db.update(civicGoals).set({ status: "abandoned", updatedAt: (/* @__PURE__ */ new Date()).toISOString() }).where(and5(eq6(civicGoals.id, goalId), eq6(civicGoals.userId, userId)));
       res.json({ success: true });
     } catch (error) {
       console.error("Error deleting goal:", error);
@@ -12172,7 +13924,7 @@ function registerGoalRoutes(app2) {
   app2.get("/api/checkins", authenticateToken, async (req, res) => {
     try {
       const userId = req.user.userId;
-      const checkins = await db.select().from(weeklyCheckins).where(eq6(weeklyCheckins.userId, userId)).orderBy(desc5(weeklyCheckins.weekOf));
+      const checkins = await db.select().from(weeklyCheckins).where(eq6(weeklyCheckins.userId, userId)).orderBy(desc6(weeklyCheckins.weekOf));
       const parsed = checkins.map((c) => ({
         ...c,
         goalsReviewed: c.goalsReviewed ? JSON.parse(c.goalsReviewed) : []
@@ -12213,7 +13965,7 @@ function registerGoalRoutes(app2) {
       const diff = now.getDate() - day + (day === 0 ? -6 : 1);
       const monday = new Date(now.setDate(diff));
       const weekOf = monday.toISOString().split("T")[0];
-      const checkin = await db.select().from(weeklyCheckins).where(and4(
+      const checkin = await db.select().from(weeklyCheckins).where(and5(
         eq6(weeklyCheckins.userId, userId),
         eq6(weeklyCheckins.weekOf, weekOf)
       )).limit(1);
@@ -12229,13 +13981,13 @@ function registerGoalRoutes(app2) {
 init_db();
 init_schema();
 init_auth();
-import { eq as eq8, desc as desc7, and as and6 } from "drizzle-orm";
+import { eq as eq8, desc as desc8, and as and7 } from "drizzle-orm";
 
 // server/services/coaching-service.ts
 init_db();
 init_schema();
 init_config();
-import { eq as eq7, desc as desc6, and as and5, isNull } from "drizzle-orm";
+import { eq as eq7, desc as desc7, and as and6, isNull } from "drizzle-orm";
 
 // shared/coaching-templates.ts
 var COACHING_TEMPLATES = [
@@ -12536,7 +14288,7 @@ function getProvider() {
   return new MockCoachingProvider();
 }
 async function getUserCoachingContext(userId) {
-  const profile = await db.select().from(civicProfiles).where(eq7(civicProfiles.userId, userId)).orderBy(desc6(civicProfiles.createdAt)).limit(1);
+  const profile = await db.select().from(civicProfiles).where(eq7(civicProfiles.userId, userId)).orderBy(desc7(civicProfiles.createdAt)).limit(1);
   let lifeAreaGaps = [];
   try {
     const scores2 = await db.select({
@@ -12545,7 +14297,7 @@ async function getUserCoachingContext(userId) {
       desiredScore: lifeAreaScores.desiredScore,
       gap: lifeAreaScores.gap
     }).from(lifeAreaScores).innerJoin(lifeAreas, eq7(lifeAreaScores.lifeAreaId, lifeAreas.id)).where(
-      and5(
+      and6(
         eq7(lifeAreaScores.userId, userId),
         isNull(lifeAreaScores.subcategoryId)
       )
@@ -12660,7 +14412,7 @@ function registerCoachingRoutes(app2) {
       if (!message || !message.trim()) {
         return res.status(400).json({ message: "Mensaje vacio" });
       }
-      const session = await db.select().from(coachingSessions).where(and6(
+      const session = await db.select().from(coachingSessions).where(and7(
         eq8(coachingSessions.id, sessionId),
         eq8(coachingSessions.userId, userId)
       )).limit(1);
@@ -12677,7 +14429,7 @@ function registerCoachingRoutes(app2) {
   app2.get("/api/coaching/sessions", authenticateToken, async (req, res) => {
     try {
       const userId = req.user.userId;
-      const sessions = await db.select().from(coachingSessions).where(eq8(coachingSessions.userId, userId)).orderBy(desc7(coachingSessions.updatedAt));
+      const sessions = await db.select().from(coachingSessions).where(eq8(coachingSessions.userId, userId)).orderBy(desc8(coachingSessions.updatedAt));
       const parsed = sessions.map((s) => ({
         ...s,
         messages: JSON.parse(s.messages),
@@ -12694,7 +14446,7 @@ function registerCoachingRoutes(app2) {
     try {
       const userId = req.user.userId;
       const sessionId = parseInt(req.params.id);
-      const session = await db.select().from(coachingSessions).where(and6(
+      const session = await db.select().from(coachingSessions).where(and7(
         eq8(coachingSessions.id, sessionId),
         eq8(coachingSessions.userId, userId)
       )).limit(1);
@@ -12717,7 +14469,7 @@ function registerCoachingRoutes(app2) {
 // server/routes-open-data.ts
 init_db();
 init_schema();
-import { eq as eq9, and as and7, isNull as isNull2, or as or2, sql as sql6 } from "drizzle-orm";
+import { eq as eq9, and as and8, isNull as isNull2, or as or3, sql as sql7 } from "drizzle-orm";
 import rateLimit from "express-rate-limit";
 import { stringify } from "csv-stringify/sync";
 import initSqlJs from "sql.js";
@@ -12751,7 +14503,7 @@ async function queryDreams() {
     longitude: dreams.longitude,
     createdAt: dreams.createdAt
   }).from(dreams).leftJoin(users, eq9(dreams.userId, users.id)).where(
-    or2(
+    or3(
       isNull2(dreams.userId),
       isNull2(users.dataShareOptOut),
       eq9(users.dataShareOptOut, false)
@@ -12769,7 +14521,7 @@ async function queryCommitments() {
     longitude: userCommitments.longitude,
     createdAt: userCommitments.createdAt
   }).from(userCommitments).leftJoin(users, eq9(userCommitments.userId, users.id)).where(
-    or2(
+    or3(
       isNull2(userCommitments.userId),
       isNull2(users.dataShareOptOut),
       eq9(users.dataShareOptOut, false)
@@ -12790,9 +14542,9 @@ async function queryResources() {
     isActive: userResources.isActive,
     createdAt: userResources.createdAt
   }).from(userResources).leftJoin(users, eq9(userResources.userId, users.id)).where(
-    and7(
+    and8(
       eq9(userResources.isActive, true),
-      or2(
+      or3(
         isNull2(userResources.userId),
         isNull2(users.dataShareOptOut),
         eq9(users.dataShareOptOut, false)
@@ -12942,12 +14694,12 @@ async function generateSQLite(data) {
 function registerOpenDataRoutes(app2) {
   app2.get("/api/open-data/stats", async (_req, res) => {
     try {
-      const [dreamsCount] = await db.select({ count: sql6`count(*)` }).from(dreams).leftJoin(users, eq9(dreams.userId, users.id)).where(or2(isNull2(dreams.userId), isNull2(users.dataShareOptOut), eq9(users.dataShareOptOut, false)));
-      const [commitmentsCount] = await db.select({ count: sql6`count(*)` }).from(userCommitments).leftJoin(users, eq9(userCommitments.userId, users.id)).where(or2(isNull2(userCommitments.userId), isNull2(users.dataShareOptOut), eq9(users.dataShareOptOut, false)));
-      const [resourcesCount] = await db.select({ count: sql6`count(*)` }).from(userResources).leftJoin(users, eq9(userResources.userId, users.id)).where(
-        and7(
+      const [dreamsCount] = await db.select({ count: sql7`count(*)` }).from(dreams).leftJoin(users, eq9(dreams.userId, users.id)).where(or3(isNull2(dreams.userId), isNull2(users.dataShareOptOut), eq9(users.dataShareOptOut, false)));
+      const [commitmentsCount] = await db.select({ count: sql7`count(*)` }).from(userCommitments).leftJoin(users, eq9(userCommitments.userId, users.id)).where(or3(isNull2(userCommitments.userId), isNull2(users.dataShareOptOut), eq9(users.dataShareOptOut, false)));
+      const [resourcesCount] = await db.select({ count: sql7`count(*)` }).from(userResources).leftJoin(users, eq9(userResources.userId, users.id)).where(
+        and8(
           eq9(userResources.isActive, true),
-          or2(isNull2(userResources.userId), isNull2(users.dataShareOptOut), eq9(users.dataShareOptOut, false))
+          or3(isNull2(userResources.userId), isNull2(users.dataShareOptOut), eq9(users.dataShareOptOut, false))
         )
       );
       const lastGenerated = cache.get("json")?.generatedAt?.toISOString() || cache.get("csv")?.generatedAt?.toISOString() || cache.get("sqlite")?.generatedAt?.toISOString() || null;
@@ -13072,15 +14824,15 @@ init_db();
 init_schema();
 init_auth();
 init_mandato_engine();
-import { eq as eq11, desc as desc9, and as and9, sql as sql8 } from "drizzle-orm";
+import { eq as eq11, desc as desc10, and as and10, sql as sql9 } from "drizzle-orm";
 function registerPulseRoutes(app2) {
   app2.get("/api/pulsos/stats", optionalAuth, async (_req, res) => {
     try {
-      const [totalPulses] = await db.select({ count: sql8`count(*)` }).from(weeklyDigests).where(eq11(weeklyDigests.status, "completed"));
-      const [totalProposals] = await db.select({ count: sql8`count(*)` }).from(digestProposals);
-      const [activeProposals] = await db.select({ count: sql8`count(*)` }).from(digestProposals).where(sql8`${digestProposals.status} NOT IN ('completada', 'archivada')`);
-      const [completedProposals] = await db.select({ count: sql8`count(*)` }).from(digestProposals).where(eq11(digestProposals.status, "completada"));
-      const [latestPulse] = await db.select().from(weeklyDigests).where(eq11(weeklyDigests.status, "completed")).orderBy(desc9(weeklyDigests.createdAt)).limit(1);
+      const [totalPulses] = await db.select({ count: sql9`count(*)` }).from(weeklyDigests).where(eq11(weeklyDigests.status, "completed"));
+      const [totalProposals] = await db.select({ count: sql9`count(*)` }).from(digestProposals);
+      const [activeProposals] = await db.select({ count: sql9`count(*)` }).from(digestProposals).where(sql9`${digestProposals.status} NOT IN ('completada', 'archivada')`);
+      const [completedProposals] = await db.select({ count: sql9`count(*)` }).from(digestProposals).where(eq11(digestProposals.status, "completada"));
+      const [latestPulse] = await db.select().from(weeklyDigests).where(eq11(weeklyDigests.status, "completed")).orderBy(desc10(weeklyDigests.createdAt)).limit(1);
       res.json({
         success: true,
         data: {
@@ -13099,11 +14851,11 @@ function registerPulseRoutes(app2) {
   });
   app2.get("/api/pulsos/latest", optionalAuth, async (_req, res) => {
     try {
-      const [pulse] = await db.select().from(weeklyDigests).where(eq11(weeklyDigests.status, "completed")).orderBy(desc9(weeklyDigests.createdAt)).limit(1);
+      const [pulse] = await db.select().from(weeklyDigests).where(eq11(weeklyDigests.status, "completed")).orderBy(desc10(weeklyDigests.createdAt)).limit(1);
       if (!pulse) {
         return res.json({ success: true, data: null });
       }
-      const proposals = await db.select().from(digestProposals).where(eq11(digestProposals.digestId, pulse.id)).orderBy(desc9(digestProposals.urgency));
+      const proposals = await db.select().from(digestProposals).where(eq11(digestProposals.digestId, pulse.id)).orderBy(desc10(digestProposals.urgency));
       res.json({
         success: true,
         data: {
@@ -13135,7 +14887,7 @@ function registerPulseRoutes(app2) {
   });
   app2.get("/api/pulsos", optionalAuth, async (_req, res) => {
     try {
-      const pulses = await db.select().from(weeklyDigests).where(eq11(weeklyDigests.status, "completed")).orderBy(desc9(weeklyDigests.createdAt)).limit(52);
+      const pulses = await db.select().from(weeklyDigests).where(eq11(weeklyDigests.status, "completed")).orderBy(desc10(weeklyDigests.createdAt)).limit(52);
       res.json({
         success: true,
         data: pulses.map((p) => ({
@@ -13160,7 +14912,7 @@ function registerPulseRoutes(app2) {
       if (!pulse) {
         return res.status(404).json({ error: "Pulse not found" });
       }
-      const proposals = await db.select().from(digestProposals).where(eq11(digestProposals.digestId, id)).orderBy(desc9(digestProposals.urgency));
+      const proposals = await db.select().from(digestProposals).where(eq11(digestProposals.digestId, id)).orderBy(desc10(digestProposals.urgency));
       res.json({
         success: true,
         data: {
@@ -13188,7 +14940,7 @@ function registerPulseRoutes(app2) {
       if (status) conditions.push(eq11(digestProposals.status, status));
       if (urgency) conditions.push(eq11(digestProposals.urgency, urgency));
       if (target) conditions.push(eq11(digestProposals.targetCategory, target));
-      const proposals = conditions.length > 0 ? await db.select().from(digestProposals).where(and9(...conditions)).orderBy(desc9(digestProposals.createdAt)) : await db.select().from(digestProposals).orderBy(desc9(digestProposals.createdAt));
+      const proposals = conditions.length > 0 ? await db.select().from(digestProposals).where(and10(...conditions)).orderBy(desc10(digestProposals.createdAt)) : await db.select().from(digestProposals).orderBy(desc10(digestProposals.createdAt));
       res.json({
         success: true,
         data: proposals.map((p) => ({
@@ -13209,7 +14961,7 @@ function registerPulseRoutes(app2) {
       if (!proposal) {
         return res.status(404).json({ error: "Proposal not found" });
       }
-      const history = await db.select().from(proposalStatusHistory).where(eq11(proposalStatusHistory.proposalId, id)).orderBy(desc9(proposalStatusHistory.createdAt));
+      const history = await db.select().from(proposalStatusHistory).where(eq11(proposalStatusHistory.proposalId, id)).orderBy(desc10(proposalStatusHistory.createdAt));
       res.json({
         success: true,
         data: {
@@ -13263,95 +15015,95 @@ function safeJsonParse(str) {
 init_mandato_engine();
 init_schema();
 init_auth();
-import { z as z4 } from "zod";
+import { z as z5 } from "zod";
 
 // server/validation.ts
-import { z as z3 } from "zod";
-var registerUserSchema = z3.object({
-  name: z3.string().min(2, "El nombre debe tener al menos 2 caracteres").max(100, "El nombre no puede exceder 100 caracteres").regex(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/, "El nombre solo puede contener letras y espacios"),
-  email: z3.string().email("Formato de email inv\xE1lido").max(255, "El email no puede exceder 255 caracteres").toLowerCase(),
-  username: z3.string().min(3, "El nombre de usuario debe tener al menos 3 caracteres").max(50, "El nombre de usuario no puede exceder 50 caracteres").regex(/^[a-zA-Z0-9_]+$/, "El nombre de usuario solo puede contener letras, n\xFAmeros y guiones bajos"),
-  password: z3.string().min(8, "La contrase\xF1a debe tener al menos 8 caracteres").max(128, "La contrase\xF1a no puede exceder 128 caracteres").regex(
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])/,
+import { z as z4 } from "zod";
+var registerUserSchema = z4.object({
+  name: z4.string().min(2, "El nombre debe tener al menos 2 caracteres").max(100, "El nombre no puede exceder 100 caracteres").regex(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/, "El nombre solo puede contener letras y espacios"),
+  email: z4.string().email("Formato de email inv\xE1lido").max(255, "El email no puede exceder 255 caracteres").toLowerCase(),
+  username: z4.string().min(3, "El nombre de usuario debe tener al menos 3 caracteres").max(50, "El nombre de usuario no puede exceder 50 caracteres").regex(/^[a-zA-Z0-9_]+$/, "El nombre de usuario solo puede contener letras, n\xFAmeros y guiones bajos"),
+  password: z4.string().min(8, "La contrase\xF1a debe tener al menos 8 caracteres").max(128, "La contrase\xF1a no puede exceder 128 caracteres").regex(
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z0-9])/,
     "La contrase\xF1a debe contener al menos una letra min\xFAscula, una may\xFAscula, un n\xFAmero y un car\xE1cter especial"
   ),
-  confirmPassword: z3.string(),
-  location: z3.string().max(255, "La ubicaci\xF3n no puede exceder 255 caracteres").optional()
+  confirmPassword: z4.string(),
+  location: z4.string().max(255, "La ubicaci\xF3n no puede exceder 255 caracteres").optional()
 }).refine((data) => data.password === data.confirmPassword, {
   message: "Las contrase\xF1as no coinciden",
   path: ["confirmPassword"]
 });
-var loginSchema = z3.object({
-  username: z3.string().min(1, "El nombre de usuario es requerido").max(50, "El nombre de usuario no puede exceder 50 caracteres"),
-  password: z3.string().min(1, "La contrase\xF1a es requerida").max(128, "La contrase\xF1a no puede exceder 128 caracteres")
+var loginSchema = z4.object({
+  username: z4.string().min(1, "El nombre de usuario es requerido").max(50, "El nombre de usuario no puede exceder 50 caracteres"),
+  password: z4.string().min(1, "La contrase\xF1a es requerida").max(128, "La contrase\xF1a no puede exceder 128 caracteres")
 });
-var changePasswordSchema = z3.object({
-  currentPassword: z3.string().min(1, "La contrase\xF1a actual es requerida"),
-  newPassword: z3.string().min(8, "La nueva contrase\xF1a debe tener al menos 8 caracteres").max(128, "La nueva contrase\xF1a no puede exceder 128 caracteres").regex(
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])/,
+var changePasswordSchema = z4.object({
+  currentPassword: z4.string().min(1, "La contrase\xF1a actual es requerida"),
+  newPassword: z4.string().min(8, "La nueva contrase\xF1a debe tener al menos 8 caracteres").max(128, "La nueva contrase\xF1a no puede exceder 128 caracteres").regex(
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z0-9])/,
     "La nueva contrase\xF1a debe contener al menos una letra min\xFAscula, una may\xFAscula, un n\xFAmero y un car\xE1cter especial"
   ),
-  confirmNewPassword: z3.string()
+  confirmNewPassword: z4.string()
 }).refine((data) => data.newPassword === data.confirmNewPassword, {
   message: "Las contrase\xF1as no coinciden",
   path: ["confirmNewPassword"]
 });
-var updateProfileSchema = z3.object({
-  name: z3.string().min(2, "El nombre debe tener al menos 2 caracteres").max(100, "El nombre no puede exceder 100 caracteres").regex(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/, "El nombre solo puede contener letras y espacios").optional(),
-  email: z3.string().email("Formato de email inv\xE1lido").max(255, "El email no puede exceder 255 caracteres").toLowerCase().optional(),
-  location: z3.string().max(255, "La ubicaci\xF3n no puede exceder 255 caracteres").optional(),
-  dataShareOptOut: z3.boolean().optional()
+var updateProfileSchema = z4.object({
+  name: z4.string().min(2, "El nombre debe tener al menos 2 caracteres").max(100, "El nombre no puede exceder 100 caracteres").regex(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/, "El nombre solo puede contener letras y espacios").optional(),
+  email: z4.string().email("Formato de email inv\xE1lido").max(255, "El email no puede exceder 255 caracteres").toLowerCase().optional(),
+  location: z4.string().max(255, "La ubicaci\xF3n no puede exceder 255 caracteres").optional(),
+  dataShareOptOut: z4.boolean().optional()
 });
-var createDreamSchema = z3.object({
-  dream: z3.string().min(10, "El sue\xF1o debe tener al menos 10 caracteres").max(1e3, "El sue\xF1o no puede exceder 1000 caracteres").optional(),
-  value: z3.string().min(5, "El valor debe tener al menos 5 caracteres").max(500, "El valor no puede exceder 500 caracteres").optional(),
-  need: z3.string().min(5, "La necesidad debe tener al menos 5 caracteres").max(500, "La necesidad no puede exceder 500 caracteres").optional(),
-  basta: z3.string().min(5, "El basta debe tener al menos 5 caracteres").max(500, "El basta no puede exceder 500 caracteres").optional(),
-  location: z3.string().max(255, "La ubicaci\xF3n no puede exceder 255 caracteres").optional(),
-  latitude: z3.string().regex(/^-?([1-8]?[0-9](\.[0-9]+)?|90(\.0+)?)$/, "Latitud inv\xE1lida").optional(),
-  longitude: z3.string().regex(/^-?((1[0-7][0-9])|([1-9]?[0-9]))(\.[0-9]+)?$/, "Longitud inv\xE1lida").optional(),
-  type: z3.enum(["dream", "value", "need", "basta"]).default("dream")
+var createDreamSchema = z4.object({
+  dream: z4.string().min(10, "El sue\xF1o debe tener al menos 10 caracteres").max(1e3, "El sue\xF1o no puede exceder 1000 caracteres").optional(),
+  value: z4.string().min(5, "El valor debe tener al menos 5 caracteres").max(500, "El valor no puede exceder 500 caracteres").optional(),
+  need: z4.string().min(5, "La necesidad debe tener al menos 5 caracteres").max(500, "La necesidad no puede exceder 500 caracteres").optional(),
+  basta: z4.string().min(5, "El basta debe tener al menos 5 caracteres").max(500, "El basta no puede exceder 500 caracteres").optional(),
+  location: z4.string().max(255, "La ubicaci\xF3n no puede exceder 255 caracteres").optional(),
+  latitude: z4.string().regex(/^-?([1-8]?[0-9](\.[0-9]+)?|90(\.0+)?)$/, "Latitud inv\xE1lida").optional(),
+  longitude: z4.string().regex(/^-?((1[0-7][0-9])|([1-9]?[0-9]))(\.[0-9]+)?$/, "Longitud inv\xE1lida").optional(),
+  type: z4.enum(["dream", "value", "need", "basta"]).default("dream")
 }).refine((data) => {
   return data.dream || data.value || data.need || data.basta;
 }, {
   message: "Debe proporcionar al menos un contenido (sue\xF1o, valor, necesidad o basta)",
   path: ["dream"]
 });
-var createCommunityPostSchema = z3.object({
-  title: z3.string().min(5, "El t\xEDtulo debe tener al menos 5 caracteres").max(200, "El t\xEDtulo no puede exceder 200 caracteres"),
-  description: z3.string().min(20, "La descripci\xF3n debe tener al menos 20 caracteres").max(2e3, "La descripci\xF3n no puede exceder 2000 caracteres"),
-  type: z3.enum(["job", "project", "resource", "volunteer", "donation"]).default("project"),
-  location: z3.string().min(2, "La ubicaci\xF3n debe tener al menos 2 caracteres").max(255, "La ubicaci\xF3n no puede exceder 255 caracteres"),
-  participants: z3.number().int("El n\xFAmero de participantes debe ser un entero").min(1, "Debe haber al menos 1 participante").max(1e3, "No puede haber m\xE1s de 1000 participantes").optional()
+var createCommunityPostSchema = z4.object({
+  title: z4.string().min(5, "El t\xEDtulo debe tener al menos 5 caracteres").max(200, "El t\xEDtulo no puede exceder 200 caracteres"),
+  description: z4.string().min(20, "La descripci\xF3n debe tener al menos 20 caracteres").max(2e3, "La descripci\xF3n no puede exceder 2000 caracteres"),
+  type: z4.enum(["job", "project", "resource", "volunteer", "donation"]).default("project"),
+  location: z4.string().min(2, "La ubicaci\xF3n debe tener al menos 2 caracteres").max(255, "La ubicaci\xF3n no puede exceder 255 caracteres"),
+  participants: z4.number().int("El n\xFAmero de participantes debe ser un entero").min(1, "Debe haber al menos 1 participante").max(1e3, "No puede haber m\xE1s de 1000 participantes").optional()
 });
-var createStorySchema = z3.object({
-  name: z3.string().min(2, "El nombre debe tener al menos 2 caracteres").max(100, "El nombre no puede exceder 100 caracteres"),
-  location: z3.string().min(2, "La ubicaci\xF3n debe tener al menos 2 caracteres").max(255, "La ubicaci\xF3n no puede exceder 255 caracteres"),
-  story: z3.string().min(50, "La historia debe tener al menos 50 caracteres").max(5e3, "La historia no puede exceder 5000 caracteres"),
-  imageUrl: z3.string().url("URL de imagen inv\xE1lida").optional()
+var createStorySchema = z4.object({
+  name: z4.string().min(2, "El nombre debe tener al menos 2 caracteres").max(100, "El nombre no puede exceder 100 caracteres"),
+  location: z4.string().min(2, "La ubicaci\xF3n debe tener al menos 2 caracteres").max(255, "La ubicaci\xF3n no puede exceder 255 caracteres"),
+  story: z4.string().min(50, "La historia debe tener al menos 50 caracteres").max(5e3, "La historia no puede exceder 5000 caracteres"),
+  imageUrl: z4.string().url("URL de imagen inv\xE1lida").optional()
 });
-var createInspiringStorySchema = z3.object({
-  title: z3.string().min(5, "El t\xEDtulo debe tener al menos 5 caracteres").max(200, "El t\xEDtulo no puede exceder 200 caracteres"),
-  excerpt: z3.string().min(20, "El extracto debe tener al menos 20 caracteres").max(500, "El extracto no puede exceder 500 caracteres"),
-  content: z3.string().min(100, "El contenido debe tener al menos 100 caracteres").max(5e3, "El contenido no puede exceder 5000 caracteres"),
-  category: z3.enum(["employment", "volunteering", "community_project", "personal_growth", "resource_sharing", "connection"]).default("connection"),
-  location: z3.string().min(2, "La ubicaci\xF3n debe tener al menos 2 caracteres").max(255, "La ubicaci\xF3n no puede exceder 255 caracteres"),
-  province: z3.string().max(100, "La provincia no puede exceder 100 caracteres").optional(),
-  city: z3.string().max(100, "La ciudad no puede exceder 100 caracteres").optional(),
-  impactType: z3.enum(["job_created", "lives_changed", "hours_volunteered", "people_helped", "project_completed", "resource_shared"]).default("lives_changed"),
-  impactCount: z3.number().int("El n\xFAmero de impacto debe ser un entero").min(1, "El impacto debe ser al menos 1").max(1e5, "El impacto no puede exceder 100,000"),
-  impactDescription: z3.string().min(5, "La descripci\xF3n del impacto debe tener al menos 5 caracteres").max(200, "La descripci\xF3n del impacto no puede exceder 200 caracteres"),
-  imageUrl: z3.string().url("URL de imagen inv\xE1lida").optional(),
-  videoUrl: z3.string().url("URL de video inv\xE1lida").optional(),
-  tags: z3.string().max(500, "Las etiquetas no pueden exceder 500 caracteres").optional(),
-  authorName: z3.string().min(2, "El nombre del autor debe tener al menos 2 caracteres").max(100, "El nombre del autor no puede exceder 100 caracteres").optional(),
-  authorEmail: z3.string().email("Formato de email del autor inv\xE1lido").max(255, "El email del autor no puede exceder 255 caracteres").optional()
+var createInspiringStorySchema = z4.object({
+  title: z4.string().min(5, "El t\xEDtulo debe tener al menos 5 caracteres").max(200, "El t\xEDtulo no puede exceder 200 caracteres"),
+  excerpt: z4.string().min(20, "El extracto debe tener al menos 20 caracteres").max(500, "El extracto no puede exceder 500 caracteres"),
+  content: z4.string().min(100, "El contenido debe tener al menos 100 caracteres").max(5e3, "El contenido no puede exceder 5000 caracteres"),
+  category: z4.enum(["employment", "volunteering", "community_project", "personal_growth", "resource_sharing", "connection"]).default("connection"),
+  location: z4.string().min(2, "La ubicaci\xF3n debe tener al menos 2 caracteres").max(255, "La ubicaci\xF3n no puede exceder 255 caracteres"),
+  province: z4.string().max(100, "La provincia no puede exceder 100 caracteres").optional(),
+  city: z4.string().max(100, "La ciudad no puede exceder 100 caracteres").optional(),
+  impactType: z4.enum(["job_created", "lives_changed", "hours_volunteered", "people_helped", "project_completed", "resource_shared"]).default("lives_changed"),
+  impactCount: z4.number().int("El n\xFAmero de impacto debe ser un entero").min(1, "El impacto debe ser al menos 1").max(1e5, "El impacto no puede exceder 100,000"),
+  impactDescription: z4.string().min(5, "La descripci\xF3n del impacto debe tener al menos 5 caracteres").max(200, "La descripci\xF3n del impacto no puede exceder 200 caracteres"),
+  imageUrl: z4.string().url("URL de imagen inv\xE1lida").optional(),
+  videoUrl: z4.string().url("URL de video inv\xE1lida").optional(),
+  tags: z4.string().max(500, "Las etiquetas no pueden exceder 500 caracteres").optional(),
+  authorName: z4.string().min(2, "El nombre del autor debe tener al menos 2 caracteres").max(100, "El nombre del autor no puede exceder 100 caracteres").optional(),
+  authorEmail: z4.string().email("Formato de email del autor inv\xE1lido").max(255, "El email del autor no puede exceder 255 caracteres").optional()
 });
-var createResourceSchema = z3.object({
-  title: z3.string().min(5, "El t\xEDtulo debe tener al menos 5 caracteres").max(200, "El t\xEDtulo no puede exceder 200 caracteres"),
-  description: z3.string().min(20, "La descripci\xF3n debe tener al menos 20 caracteres").max(1e3, "La descripci\xF3n no puede exceder 1000 caracteres"),
-  category: z3.string().min(2, "La categor\xEDa debe tener al menos 2 caracteres").max(50, "La categor\xEDa no puede exceder 50 caracteres"),
-  url: z3.string().url("URL inv\xE1lida").optional()
+var createResourceSchema = z4.object({
+  title: z4.string().min(5, "El t\xEDtulo debe tener al menos 5 caracteres").max(200, "El t\xEDtulo no puede exceder 200 caracteres"),
+  description: z4.string().min(20, "La descripci\xF3n debe tener al menos 20 caracteres").max(1e3, "La descripci\xF3n no puede exceder 1000 caracteres"),
+  category: z4.string().min(2, "La categor\xEDa debe tener al menos 2 caracteres").max(50, "La categor\xEDa no puede exceder 50 caracteres"),
+  url: z4.string().url("URL inv\xE1lida").optional()
 });
 
 // server/middleware.ts
@@ -13382,8 +15134,8 @@ function securityHeaders() {
         // Always allow unpkg.com for Leaflet in both dev and production
         scriptSrc: isDevelopment ? ["'self'", "'unsafe-inline'", "'unsafe-eval'", "https://unpkg.com"] : ["'self'", "https://unpkg.com"],
         // Allow Leaflet in production
-        scriptSrcElem: isDevelopment ? ["'self'", "'unsafe-inline'", "'unsafe-eval'", "https://unpkg.com"] : ["'self'", "https://unpkg.com"],
-        // Allow Leaflet in production
+        scriptSrcElem: isDevelopment ? ["'self'", "'unsafe-inline'", "'unsafe-eval'", "https://unpkg.com", "https://www.googletagmanager.com", "https://www.google-analytics.com", "https://va.vercel-scripts.com"] : ["'self'", "https://unpkg.com", "https://www.googletagmanager.com", "https://www.google-analytics.com", "https://va.vercel-scripts.com"],
+        // Allow Leaflet + analytics in production
         styleSrcElem: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://unpkg.com"],
         // Explicit style-src-elem for <style> and <link> tags
         imgSrc: ["'self'", "data:", "https:"],
@@ -14571,10 +16323,494 @@ var ARService = class {
 };
 var arService = new ARService();
 
+// shared/mission-registry.ts
+var MISSIONS = [
+  {
+    slug: "supervivencia-digna",
+    number: 1,
+    label: "Supervivencia Digna",
+    shortLabel: "Supervivencia",
+    description: "Agua, vivienda, salud, energia, seguridad de proximidad",
+    whatHurts: "La intemperie material. El agua que falta o enferma. El alquiler que expulsa. La salud que llega tarde. El barrio donde el miedo organiza mas que la ley.",
+    whatWeGuarantee: "Agua, saneamiento basico, refugio digno, alimentacion esencial, salud primaria, continuidad energetica minima y seguridad de proximidad.",
+    whatChanges90Days: [
+      "Mapa de criticidad territorial",
+      "Cuadrillas de reparacion rapida",
+      "Centros de respuesta primaria por zonas criticas",
+      "Stock y uso de inmuebles, camas, cisternas, comedores relevados"
+    ],
+    whatChanges12Months: [
+      "Red basica de infraestructura social critica estabilizada",
+      "Mecanismos de vivienda incremental y autoconstruccion asistida en marcha",
+      "APS territorial con protocolos minimos comunes"
+    ],
+    whatChanges3Years: [
+      "Caida sensible de intemperie extrema, enfermedad evitable y violencia de proximidad en territorios priorizados"
+    ],
+    citizenRoles: ["testigo", "constructor", "custodio"],
+    cellCanDo: [
+      "Relevamiento",
+      "Deteccion temprana",
+      "Distribucion",
+      "Cuadrillas barriales",
+      "Acompanamiento a familias criticas"
+    ],
+    citizenCanDo: [
+      "Declarar necesidad",
+      "Ofrecer recurso",
+      "Sumarse a cuadrilla",
+      "Verificar entrega",
+      "Documentar falla"
+    ],
+    evidenceAccepted: [
+      "Relevamientos geoetiquetados",
+      "Partes de reparacion",
+      "Trazabilidad de insumos",
+      "Metricas de cobertura",
+      "Historias verificadas de mejora concreta"
+    ],
+    storyItTells: "La del pais que vuelve a cuidar primero lo indispensable.",
+    whatWeWontPromiseYet: [
+      "Solucion total del deficit habitacional",
+      "Pacificacion plena",
+      "Salud integral de largo plazo en 90 dias"
+    ],
+    pauseConditions: [
+      "Opacidad en distribucion",
+      "Dependencia de intermediarios extractivos",
+      "Expansion sin evidencia de cobertura real"
+    ],
+    kpiNames: [
+      "Hogares criticos cubiertos",
+      "Tiempo promedio de reparacion",
+      "Acceso a agua segura",
+      "Cobertura de APS",
+      "Eventos violentos priorizados resueltos por protocolo"
+    ],
+    plans: ["PLANAGUA", "PLANVIV", "PLANSAL", "PLANSEG", "PLANEN"],
+    temporalOrders: ["emergencia", "transicion"]
+  },
+  {
+    slug: "territorio-legible",
+    number: 2,
+    label: "Territorio Legible y Mando Civico",
+    shortLabel: "Territorio",
+    description: "Senales, mandatos, datos abiertos, rieles digitales basicos",
+    whatHurts: "No sabemos con suficiente precision que necesita cada territorio, que esta dispuesto a sostener, que rechaza, que recursos tiene y donde estan los cuellos de botella.",
+    whatWeGuarantee: "Un sistema nacional de senal, recursos, compromisos, mandato territorial y datos abiertos con proteccion.",
+    whatChanges90Days: [
+      "Taxonomia minima unificada",
+      "Tablero nacional de senal",
+      "Cobertura territorial visible",
+      "Primer mandato territorial consolidado en pilotos"
+    ],
+    whatChanges12Months: [
+      "Mandatos por provincia y ciudades estrategicas",
+      "Integracion de recursos y compromisos",
+      "Llamados ciudadanos por mision"
+    ],
+    whatChanges3Years: [
+      "Toma de decision publica apoyada en senal ciudadana, evidencia territorial y verificacion multicapa"
+    ],
+    citizenRoles: ["declarante", "testigo", "custodio", "organizador"],
+    cellCanDo: [
+      "Convocar",
+      "Mapear",
+      "Verificar",
+      "Elevar prioridades",
+      "Sostener circulos de escucha y ejecucion"
+    ],
+    citizenCanDo: [
+      "Declarar sueno, valor, necesidad, basta, compromiso o recurso",
+      "Revisar su mandato territorial",
+      "Sumarse a una accion concreta"
+    ],
+    evidenceAccepted: [
+      "Senales con trazabilidad basica",
+      "Series temporales",
+      "Cobertura territorial",
+      "Verificacion comunitaria y documental"
+    ],
+    storyItTells: "La del pais que deja de hablar por intuicion y empieza a escucharse en serio.",
+    whatWeWontPromiseYet: [
+      "Inteligencia artificial perfecta",
+      "Representacion total",
+      "Captura cero de senal"
+    ],
+    pauseConditions: [
+      "Sesgo sistematico oculto",
+      "Vulneracion de privacidad",
+      "Opacidad algoritmica o narrativa sin trazabilidad"
+    ],
+    kpiNames: [
+      "Cobertura territorial",
+      "Densidad de senal por tipo",
+      "Tiempo entre senal y sintesis",
+      "Porcentaje de mandatos con llamada a la accion visible"
+    ],
+    plans: ["PLANDIG", "PLANRUTA"],
+    temporalOrders: ["emergencia", "transicion"]
+  },
+  {
+    slug: "produccion-y-suelo-vivo",
+    number: 3,
+    label: "Trabajo, Produccion y Suelo Vivo",
+    shortLabel: "Produccion",
+    description: "Empleo util, suelo regenerado, empresas bastardas, cadenas territoriales",
+    whatHurts: "Trabajo improductivo, suelo degradado, cadena de valor rota, infraestructura minima insuficiente y dependencia de rentas que no dejan musculatura real.",
+    whatWeGuarantee: "Reconstruccion productiva con foco en suelo vivo, empleo util, empresas de servicio justo, reconversion laboral y cadenas territoriales.",
+    whatChanges90Days: [
+      "Pilotos de suelo vivo",
+      "Identificacion de capacidades reconvertibles",
+      "Primeras bastardas o estructuras equivalentes de servicio util en dominios acotados",
+      "Cartera de microproyectos territoriales productivos"
+    ],
+    whatChanges12Months: [
+      "Nodos demostrativos de produccion y servicio",
+      "Primeras cohortes de reconversion laboral",
+      "Red inicial de empleo util ligada a misiones"
+    ],
+    whatChanges3Years: [
+      "Caida de dependencia improductiva",
+      "Mejora de suelos y rendimientos",
+      "Cadenas territoriales mas densas y menos extractivas"
+    ],
+    citizenRoles: ["constructor", "organizador", "custodio"],
+    cellCanDo: [
+      "Mapear capacidades",
+      "Coordinar formacion",
+      "Lanzar microproyectos",
+      "Auditar costo real",
+      "Conectar oferta y necesidad local"
+    ],
+    citizenCanDo: [
+      "Ofrecer oficio",
+      "Aprender uno nuevo",
+      "Sumarse a una red productiva",
+      "Custodiar transparencia de costos"
+    ],
+    evidenceAccepted: [
+      "Empleo creado o reconvertido",
+      "Productividad",
+      "Reduccion de costos extractivos",
+      "Mejora de suelo",
+      "Continuidad operativa de nodos"
+    ],
+    storyItTells: "La del pais que deja de vivir de goteos y vuelve a hacer cosas con sentido.",
+    whatWeWontPromiseYet: [
+      "Industrializacion completa",
+      "Soberania energetica total",
+      "Mercado perfecto"
+    ],
+    pauseConditions: [
+      "Subsidio sin salida",
+      "Pilotaje sin aprendizaje",
+      "Estructura productiva capturada por actores rentistas"
+    ],
+    kpiNames: [
+      "Puestos reconvertidos",
+      "Hectareas piloto",
+      "Costo real comparado",
+      "Proyectos productivos vivos a 12 meses"
+    ],
+    plans: ["PLANISV", "PLANEB", "PLANREP", "PLANEN", "PLAN24CN"],
+    temporalOrders: ["transicion", "permanencia"]
+  },
+  {
+    slug: "infancia-escuela-cultura",
+    number: 4,
+    label: "Infancia, Escuela y Cultura de Reconstruccion",
+    shortLabel: "Infancia",
+    description: "Ninez cuidada, escuela significativa, cultura viva",
+    whatHurts: "Ninos rotos por el contexto, escuela degradada, cultura fragmentada y ausencia de un relato comun que convoque sin manipular.",
+    whatWeGuarantee: "Ninez cuidada, alfabetizacion robusta, escuela significativa, cultura viva y ritos publicos que conviertan la reconstruccion en experiencia compartida.",
+    whatChanges90Days: [
+      "Priorizacion de ninez e infancia critica",
+      "Modulos de alfabetizacion y apoyo intensivo",
+      "Programacion cultural barrial de cohesion",
+      "Relatos de mision visibles y no partidarios"
+    ],
+    whatChanges12Months: [
+      "Comunidades educativas con metas compartidas",
+      "Mejora en asistencia y lectura",
+      "Circuitos culturales de pertenencia activa"
+    ],
+    whatChanges3Years: [
+      "Escuela mas exigente y mas humana",
+      "Infancia con mejor cuidado",
+      "Cultura entendida como infraestructura de confianza"
+    ],
+    citizenRoles: ["constructor", "organizador", "narrador"],
+    cellCanDo: [
+      "Tutorias",
+      "Acompanamiento a familias",
+      "Circulos de lectura",
+      "Mesas, ferias, juegos, memoria y documentacion del proceso"
+    ],
+    citizenCanDo: [
+      "Ensenar",
+      "Tutorizar",
+      "Alojar una actividad cultural",
+      "Sostener presencia adulta confiable"
+    ],
+    evidenceAccepted: [
+      "Asistencia",
+      "Alfabetizacion",
+      "Participacion",
+      "Continuidad de espacios",
+      "Historias de transformacion verificables"
+    ],
+    storyItTells: "La del pais que decide que ningun chico crezca sin horizonte ni tribu de cuidado.",
+    whatWeWontPromiseYet: [
+      "Reforma educativa total en un ciclo",
+      "Sanacion cultural instantanea"
+    ],
+    pauseConditions: [
+      "Escolarizacion vacia sin aprendizaje",
+      "Cultura convertida en propaganda",
+      "Dispersion programatica sin comunidad real"
+    ],
+    kpiNames: [
+      "Asistencia",
+      "Alfabetizacion inicial",
+      "Tutorias activas",
+      "Eventos de cohesion con continuidad"
+    ],
+    plans: ["PLANEDU", "PLANCUL"],
+    temporalOrders: ["emergencia", "transicion"]
+  },
+  {
+    slug: "instituciones-y-futuro",
+    number: 5,
+    label: "Instituciones Confiables y Pacto de Futuro",
+    shortLabel: "Instituciones",
+    description: "Justicia, integridad, blindaje, settlement institucional",
+    whatHurts: "La impunidad, la arbitrariedad, la opacidad, el ciclo pendular y la facilidad con la que cualquier construccion puede ser vaciada.",
+    whatWeGuarantee: "Integridad, justicia transicional, proteccion contra captura, settlement institucional gradual y reglas de uso del poder visibles.",
+    whatChanges90Days: [
+      "Defensoria de Integridad",
+      "Protocolos de trazabilidad",
+      "Registro publico de decisiones criticas",
+      "Reglas de emergencia con caducidad explicita"
+    ],
+    whatChanges12Months: [
+      "Mecanismos de resolucion rapida",
+      "Controles cruzados basicos",
+      "Primera capa de pacto fiscal y anticaptura"
+    ],
+    whatChanges3Years: [
+      "Settlement institucional mas estable",
+      "Justicia funcional en dominios prioritarios",
+      "Menor reversibilidad del proyecto por simple cambio de humor politico"
+    ],
+    citizenRoles: ["custodio", "testigo", "narrador"],
+    cellCanDo: [
+      "Veeduria",
+      "Registro de irregularidades",
+      "Documentacion de desvios",
+      "Custodia civica de misiones"
+    ],
+    citizenCanDo: [
+      "Denunciar",
+      "Auditar",
+      "Seguir tableros",
+      "Exigir justificacion de gasto y decision"
+    ],
+    evidenceAccepted: [
+      "Auditorias",
+      "Trazabilidad presupuestaria",
+      "Resolucion de conflictos",
+      "Tiempos judiciales acotados en dominios criticos"
+    ],
+    storyItTells: "La del pais que deja de tolerar que el poder se esconda atras del humo.",
+    whatWeWontPromiseYet: [
+      "Justicia perfecta",
+      "Constitucion ideal de un solo golpe",
+      "Desarme total de decadas de captura en meses"
+    ],
+    pauseConditions: [
+      "Expansion institucional sin control",
+      "Blindajes decorativos",
+      "Captura temprana de organos transitorios"
+    ],
+    kpiNames: [
+      "Tiempo de publicacion de decisiones",
+      "Trazabilidad de fondos",
+      "Denuncias procesadas",
+      "Conflictos criticos resueltos"
+    ],
+    plans: ["PLANJUS", "PLANSUS", "PLANMON", "PLANGEO", "PLANSEG"],
+    temporalOrders: ["transicion", "permanencia"]
+  }
+];
+
+// shared/mission-signal-matcher.ts
+var MISSION_KEYWORDS = {
+  "supervivencia-digna": [
+    "agua",
+    "vivienda",
+    "salud",
+    "hospital",
+    "energia",
+    "seguridad",
+    "alquiler",
+    "comida",
+    "alimentacion",
+    "refugio",
+    "techo",
+    "medicina",
+    "violencia",
+    "barrio",
+    "luz",
+    "gas",
+    "potable",
+    "saneamiento",
+    "calefaccion"
+  ],
+  "territorio-legible": [
+    "datos",
+    "digital",
+    "transparencia",
+    "mandato",
+    "senal",
+    "informacion",
+    "mapa",
+    "tecnologia",
+    "plataforma",
+    "algoritmo",
+    "privacidad",
+    "internet",
+    "conectividad",
+    "software"
+  ],
+  "produccion-y-suelo-vivo": [
+    "trabajo",
+    "empleo",
+    "produccion",
+    "suelo",
+    "campo",
+    "agricultura",
+    "cooperativa",
+    "empresa",
+    "fabrica",
+    "industria",
+    "cosecha",
+    "ganado",
+    "tierra",
+    "semilla",
+    "riego",
+    "obrero",
+    "salario"
+  ],
+  "infancia-escuela-cultura": [
+    "educacion",
+    "escuela",
+    "nino",
+    "infancia",
+    "juventud",
+    "cultura",
+    "maestro",
+    "docente",
+    "universidad",
+    "colegio",
+    "jardin",
+    "guarderia",
+    "arte",
+    "musica",
+    "libro",
+    "biblioteca",
+    "estudiante"
+  ],
+  "instituciones-y-futuro": [
+    "justicia",
+    "corrupcion",
+    "juez",
+    "tribunal",
+    "ley",
+    "constitucion",
+    "droga",
+    "narcotrafico",
+    "moneda",
+    "peso",
+    "dolar",
+    "inflacion",
+    "soberania",
+    "congreso",
+    "senador",
+    "diputado",
+    "policia",
+    "democracia"
+  ]
+};
+var MIN_WORD_LENGTH = 4;
+function normalize(text2) {
+  return text2.toLowerCase().replace(/[áà]/g, "a").replace(/[éè]/g, "e").replace(/[íì]/g, "i").replace(/[óò]/g, "o").replace(/[úù]/g, "u").replace(/ñ/g, "n");
+}
+function extractWords(text2, minLength = MIN_WORD_LENGTH) {
+  return normalize(text2).split(/\W+/).filter((w) => w.length >= minLength);
+}
+function planToKeyword(plan) {
+  const match = plan.match(/^PLAN(.+)$/i);
+  if (match && match[1].length >= 2) {
+    return match[1].toLowerCase();
+  }
+  return null;
+}
+function buildMissionKeywords(mission) {
+  const keywordSet = /* @__PURE__ */ new Set();
+  const domainKeywords = MISSION_KEYWORDS[mission.slug] ?? [];
+  for (const kw of domainKeywords) {
+    keywordSet.add(normalize(kw));
+  }
+  for (const plan of mission.plans) {
+    const kw = planToKeyword(plan);
+    if (kw) keywordSet.add(kw);
+    keywordSet.add(normalize(plan));
+  }
+  for (const word of extractWords(mission.description)) {
+    keywordSet.add(word);
+  }
+  for (const word of extractWords(mission.whatHurts)) {
+    keywordSet.add(word);
+  }
+  const citizenText = mission.citizenCanDo.join(" ");
+  for (const word of extractWords(citizenText)) {
+    keywordSet.add(word);
+  }
+  return Array.from(keywordSet);
+}
+function buildDreamText(dream) {
+  return normalize([
+    dream.dream ?? "",
+    dream.value ?? "",
+    dream.need ?? "",
+    dream.basta ?? ""
+  ].join(" "));
+}
+function scoreDreamForMission(dream, mission) {
+  const dreamText = buildDreamText(dream);
+  const keywords = buildMissionKeywords(mission);
+  const matchedKeywords = [];
+  for (const keyword of keywords) {
+    if (keyword.length === 0) continue;
+    if (dreamText.includes(keyword)) {
+      matchedKeywords.push(keyword);
+    }
+  }
+  return {
+    missionSlug: mission.slug,
+    score: matchedKeywords.length,
+    matchedKeywords
+  };
+}
+function matchDreamToMissions(dream, missions) {
+  return missions.map((mission) => scoreDreamForMission(dream, mission)).sort((a, b) => b.score - a.score);
+}
+
 // server/services/embedding-service.ts
 init_db();
 init_schema();
-import { eq as eq12, and as and10 } from "drizzle-orm";
+import { eq as eq12, and as and11 } from "drizzle-orm";
 var embeddingPipeline = null;
 async function getEmbeddingPipeline() {
   if (!embeddingPipeline) {
@@ -14614,7 +16850,7 @@ async function getOrCreateEmbedding(contentId, text2, contentType) {
   }
   try {
     const existing = await db.select().from(textEmbeddings).where(
-      and10(
+      and11(
         eq12(textEmbeddings.contentId, contentId),
         eq12(textEmbeddings.contentType, contentType)
       )
@@ -14636,7 +16872,7 @@ async function getOrCreateEmbedding(contentId, text2, contentType) {
         embedding: embeddingJson,
         model: "Xenova/all-MiniLM-L6-v2"
       }).where(
-        and10(
+        and11(
           eq12(textEmbeddings.contentId, contentId),
           eq12(textEmbeddings.contentType, contentType)
         )
@@ -14779,7 +17015,7 @@ async function registerRoutes(app2) {
       const dream = await storage.createDream(validatedData);
       res.status(201).json(dream);
     } catch (error) {
-      if (error instanceof z4.ZodError) {
+      if (error instanceof z5.ZodError) {
         res.status(400).json({ message: "Invalid dream data", errors: error.errors });
       } else {
         res.status(500).json({ message: "Failed to create dream" });
@@ -14803,7 +17039,7 @@ async function registerRoutes(app2) {
       const resource = await storage.createUserResource(validatedData);
       res.status(201).json(resource);
     } catch (error) {
-      if (error instanceof z4.ZodError) {
+      if (error instanceof z5.ZodError) {
         res.status(400).json({ message: "Invalid resource data", errors: error.errors });
       } else {
         res.status(500).json({ message: "Failed to create resource" });
@@ -15241,8 +17477,17 @@ async function registerRoutes(app2) {
         } else {
           enriched.likedByMe = false;
         }
+        enriched.missionSlug = post.missionSlug || null;
+        enriched.memberCount = post.memberCount || 0;
         return enriched;
       }));
+      if (type === "mission") {
+        postsWithAuthors.sort((a, b) => {
+          const aIdx = MISSIONS.findIndex((m) => m.slug === a.missionSlug);
+          const bIdx = MISSIONS.findIndex((m) => m.slug === b.missionSlug);
+          return aIdx - bIdx;
+        });
+      }
       res.json(postsWithAuthors);
     } catch (error) {
       res.status(500).json({ message: "Failed to fetch community posts" });
@@ -15271,7 +17516,7 @@ async function registerRoutes(app2) {
       }
       res.status(201).json(post);
     } catch (error) {
-      if (error instanceof z4.ZodError) {
+      if (error instanceof z5.ZodError) {
         res.status(400).json({ message: "Invalid post data", errors: error.errors });
       } else {
         res.status(500).json({ message: "Failed to create community post" });
@@ -15380,7 +17625,7 @@ async function registerRoutes(app2) {
       }
       res.json(updatedPost);
     } catch (error) {
-      if (error instanceof z4.ZodError) {
+      if (error instanceof z5.ZodError) {
         res.status(400).json({ message: "Invalid post data", errors: error.errors });
       } else {
         res.status(500).json({ message: "Failed to update post" });
@@ -15444,7 +17689,7 @@ async function registerRoutes(app2) {
       const interaction = await storage.createPostInteraction(validatedData);
       res.status(201).json(interaction);
     } catch (error) {
-      if (error instanceof z4.ZodError) {
+      if (error instanceof z5.ZodError) {
         res.status(400).json({ message: "Invalid interaction data", errors: error.errors });
       } else {
         res.status(500).json({ message: "Failed to create interaction" });
@@ -15505,7 +17750,7 @@ async function registerRoutes(app2) {
       const message = await storage.createCommunityMessage(validatedData);
       res.status(201).json(message);
     } catch (error) {
-      if (error instanceof z4.ZodError) {
+      if (error instanceof z5.ZodError) {
         res.status(400).json({ message: "Invalid message data", errors: error.errors });
       } else {
         res.status(500).json({ message: "Failed to send message" });
@@ -15685,7 +17930,7 @@ async function registerRoutes(app2) {
   app2.post("/api/community/:postId/join", authenticateToken, async (req, res) => {
     try {
       const { postId } = req.params;
-      const { message } = req.body;
+      const { message, citizenRole } = req.body;
       const id = parseInt(postId);
       if (isNaN(id)) {
         return res.status(400).json({ message: "Invalid post ID" });
@@ -15722,7 +17967,8 @@ async function registerRoutes(app2) {
           request
         });
       } else {
-        const member = await storage.addInitiativeMember(id, req.user.userId, "member");
+        const role = post.type === "mission" && citizenRole ? citizenRole : "member";
+        const member = await storage.addInitiativeMember(id, req.user.userId, role);
         try {
           await storage.createActivityFeedItem({
             type: "new_member",
@@ -15865,7 +18111,7 @@ async function registerRoutes(app2) {
       const milestone = await storage.createMilestone(id, validatedData);
       res.status(201).json(milestone);
     } catch (error) {
-      if (error instanceof z4.ZodError) {
+      if (error instanceof z5.ZodError) {
         res.status(400).json({
           error: "Validation error",
           details: error.errors
@@ -15890,7 +18136,7 @@ async function registerRoutes(app2) {
       await storage.updateMilestone(id, updates);
       res.json({ message: "Milestone updated" });
     } catch (error) {
-      if (error instanceof z4.ZodError) {
+      if (error instanceof z5.ZodError) {
         res.status(400).json({
           error: "Validation error",
           details: error.errors
@@ -15976,7 +18222,7 @@ async function registerRoutes(app2) {
       const task = await storage.createTask(id, validatedData);
       res.status(201).json(task);
     } catch (error) {
-      if (error instanceof z4.ZodError) {
+      if (error instanceof z5.ZodError) {
         res.status(400).json({
           error: "Validation error",
           details: error.errors
@@ -16001,7 +18247,7 @@ async function registerRoutes(app2) {
       await storage.updateTask(id, updates);
       res.json({ message: "Task updated" });
     } catch (error) {
-      if (error instanceof z4.ZodError) {
+      if (error instanceof z5.ZodError) {
         res.status(400).json({
           error: "Validation error",
           details: error.errors
@@ -16312,7 +18558,7 @@ async function registerRoutes(app2) {
         ...authResponse
       });
     } catch (error) {
-      if (error instanceof z4.ZodError) {
+      if (error instanceof z5.ZodError) {
         res.status(400).json({
           error: "Validation error",
           message: "Datos de entrada inv\xE1lidos",
@@ -16376,7 +18622,7 @@ async function registerRoutes(app2) {
         ...authResponse
       });
     } catch (error) {
-      if (error instanceof z4.ZodError) {
+      if (error instanceof z5.ZodError) {
         res.status(400).json({
           error: "Validation error",
           message: "Datos de entrada inv\xE1lidos",
@@ -16455,7 +18701,7 @@ async function registerRoutes(app2) {
         }
       });
     } catch (error) {
-      if (error instanceof z4.ZodError) {
+      if (error instanceof z5.ZodError) {
         res.status(400).json({
           error: "Validation error",
           message: "Datos de entrada inv\xE1lidos",
@@ -16624,7 +18870,7 @@ async function registerRoutes(app2) {
         message: "Contrase\xF1a actualizada exitosamente"
       });
     } catch (error) {
-      if (error instanceof z4.ZodError) {
+      if (error instanceof z5.ZodError) {
         res.status(400).json({
           error: "Validation error",
           message: "Datos de entrada inv\xE1lidos",
@@ -17655,6 +19901,208 @@ async function registerRoutes(app2) {
       res.status(500).json({ message: "Error al registrar actividad diaria" });
     }
   });
+  app2.get("/api/missions", async (_req, res) => {
+    try {
+      const missionPosts = await storage.getCommunityPosts("mission");
+      const stats = await Promise.all(MISSIONS.map(async (mission) => {
+        const post = missionPosts.find((p) => p.missionSlug === mission.slug);
+        if (!post) {
+          return {
+            slug: mission.slug,
+            number: mission.number,
+            label: mission.label,
+            postId: null,
+            memberCount: 0,
+            milestonesCompleted: 0,
+            milestonesTotal: 0,
+            evidenceCount: 0,
+            activeTaskCount: 0,
+            status: "active"
+          };
+        }
+        const [members, milestones, tasks, evidenceCount] = await Promise.all([
+          storage.getInitiativeMembers(post.id),
+          storage.getInitiativeMilestones(post.id),
+          storage.getInitiativeTasks(post.id),
+          storage.getEvidenceCount(post.id)
+        ]);
+        return {
+          slug: mission.slug,
+          number: mission.number,
+          label: mission.label,
+          postId: post.id,
+          memberCount: members.length,
+          milestonesCompleted: milestones.filter((m) => m.status === "completed").length,
+          milestonesTotal: milestones.length,
+          evidenceCount,
+          activeTaskCount: tasks.filter((t) => t.status !== "done").length,
+          status: post.status
+        };
+      }));
+      res.json(stats);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch mission stats" });
+    }
+  });
+  app2.get("/api/missions/:slug/signals", async (req, res) => {
+    try {
+      const { slug } = req.params;
+      const mission = MISSIONS.find((m) => m.slug === slug);
+      if (!mission) {
+        return res.status(404).json({ message: "Mission not found" });
+      }
+      const allDreams = await storage.getDreams();
+      const scored = allDreams.map((dream) => ({
+        dream,
+        ...matchDreamToMissions(dream, [mission])[0]
+      })).filter((s) => s.score > 0).sort((a, b) => {
+        const dateA = new Date(a.dream.createdAt || 0).getTime();
+        const dateB = new Date(b.dream.createdAt || 0).getTime();
+        return dateB - dateA;
+      }).slice(0, 50);
+      res.json(scored);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch mission signals" });
+    }
+  });
+  app2.get("/api/community/:postId/evidence", async (req, res) => {
+    try {
+      const postId = parseInt(req.params.postId);
+      if (isNaN(postId)) return res.status(400).json({ message: "Invalid post ID" });
+      const status = req.query.status;
+      const evidence = await storage.getEvidence(postId, status);
+      const enriched = await Promise.all(evidence.map(async (e) => {
+        const user = e.userId ? await storage.getUser(e.userId) : null;
+        const verifier = e.verifiedBy ? await storage.getUser(e.verifiedBy) : null;
+        return {
+          ...e,
+          user: user ? { id: user.id, name: user.name, username: user.username } : null,
+          verifier: verifier ? { id: verifier.id, name: verifier.name, username: verifier.username } : null
+        };
+      }));
+      res.json(enriched);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch evidence" });
+    }
+  });
+  app2.post("/api/community/:postId/evidence", authenticateToken, async (req, res) => {
+    try {
+      const postId = parseInt(req.params.postId);
+      if (isNaN(postId)) return res.status(400).json({ message: "Invalid post ID" });
+      if (!req.user) return res.status(401).json({ message: "Authentication required" });
+      const members = await storage.getInitiativeMembers(postId);
+      const isMember = members.some((m) => m.userId === req.user.userId && m.status === "active");
+      if (!isMember) return res.status(403).json({ message: "Debes ser miembro para enviar evidencia" });
+      const post = await storage.getCommunityPostWithDetails(postId);
+      if (post?.type === "mission" && post.missionSlug) {
+        const mission = MISSIONS.find((m) => m.slug === post.missionSlug);
+        if (mission && req.body.evidenceType && !mission.evidenceAccepted.includes(req.body.evidenceType)) {
+          return res.status(400).json({ message: "Tipo de evidencia no aceptado para esta mision" });
+        }
+      }
+      const evidence = await storage.createEvidence({
+        postId,
+        userId: req.user.userId,
+        evidenceType: req.body.evidenceType,
+        content: req.body.content,
+        imageUrl: req.body.imageUrl || null,
+        latitude: req.body.latitude || null,
+        longitude: req.body.longitude || null,
+        milestoneId: req.body.milestoneId || null
+      });
+      res.status(201).json(evidence);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to create evidence" });
+    }
+  });
+  app2.post("/api/community/:postId/evidence/:evidenceId/verify", authenticateToken, async (req, res) => {
+    try {
+      const postId = parseInt(req.params.postId);
+      const evidenceId = parseInt(req.params.evidenceId);
+      if (isNaN(postId) || isNaN(evidenceId)) return res.status(400).json({ message: "Invalid ID" });
+      if (!req.user) return res.status(401).json({ message: "Authentication required" });
+      const members = await storage.getInitiativeMembers(postId);
+      const member = members.find((m) => m.userId === req.user.userId && m.status === "active");
+      if (!member || member.role !== "custodio") {
+        return res.status(403).json({ message: "Solo los custodios pueden verificar evidencia" });
+      }
+      const updated = await storage.verifyEvidence(evidenceId, req.user.userId);
+      res.json(updated);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to verify evidence" });
+    }
+  });
+  app2.post("/api/community/:postId/evidence/:evidenceId/flag", authenticateToken, async (req, res) => {
+    try {
+      const postId = parseInt(req.params.postId);
+      const evidenceId = parseInt(req.params.evidenceId);
+      if (isNaN(postId) || isNaN(evidenceId)) return res.status(400).json({ message: "Invalid ID" });
+      if (!req.user) return res.status(401).json({ message: "Authentication required" });
+      const { flagCategory } = req.body;
+      if (!flagCategory) return res.status(400).json({ message: "flagCategory required" });
+      const members = await storage.getInitiativeMembers(postId);
+      const member = members.find((m) => m.userId === req.user.userId && m.status === "active");
+      if (!member || member.role !== "custodio") {
+        return res.status(403).json({ message: "Solo los custodios pueden marcar evidencia" });
+      }
+      const post = await storage.getCommunityPostWithDetails(postId);
+      if (post?.type === "mission" && post.missionSlug) {
+        const mission = MISSIONS.find((m) => m.slug === post.missionSlug);
+        if (mission && !mission.pauseConditions.includes(flagCategory)) {
+          return res.status(400).json({ message: "Condicion de pausa no valida para esta mision" });
+        }
+      }
+      const updated = await storage.flagEvidence(evidenceId, flagCategory, req.user.userId);
+      const flagCounts = await storage.getEvidenceCountByFlag(postId);
+      const thisFlag = flagCounts.find((f) => f.flagCategory === flagCategory);
+      if (thisFlag && thisFlag.count >= 3 && post) {
+        await storage.updateCommunityPost(postId, { status: "paused" }, post.userId);
+      }
+      res.json({ evidence: updated, paused: (thisFlag?.count ?? 0) >= 3 });
+    } catch (error) {
+      res.status(500).json({ message: "Failed to flag evidence" });
+    }
+  });
+  app2.get("/api/community/:postId/chronicles", async (req, res) => {
+    try {
+      const postId = parseInt(req.params.postId);
+      if (isNaN(postId)) return res.status(400).json({ message: "Invalid post ID" });
+      const chronicles = await storage.getChronicles(postId);
+      const enriched = await Promise.all(chronicles.map(async (c) => {
+        const user = c.userId ? await storage.getUser(c.userId) : null;
+        return {
+          ...c,
+          user: user ? { id: user.id, name: user.name, username: user.username } : null
+        };
+      }));
+      res.json(enriched);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to fetch chronicles" });
+    }
+  });
+  app2.post("/api/community/:postId/chronicles", authenticateToken, async (req, res) => {
+    try {
+      const postId = parseInt(req.params.postId);
+      if (isNaN(postId)) return res.status(400).json({ message: "Invalid post ID" });
+      if (!req.user) return res.status(401).json({ message: "Authentication required" });
+      const members = await storage.getInitiativeMembers(postId);
+      const member = members.find((m) => m.userId === req.user.userId && m.status === "active");
+      if (!member || member.role !== "narrador") {
+        return res.status(403).json({ message: "Solo los narradores pueden escribir cronicas" });
+      }
+      const chronicle = await storage.createChronicle({
+        postId,
+        userId: req.user.userId,
+        title: req.body.title,
+        content: req.body.content,
+        highlightedEvidenceIds: req.body.highlightedEvidenceIds ? JSON.stringify(req.body.highlightedEvidenceIds) : null,
+        publishedAt: (/* @__PURE__ */ new Date()).toISOString()
+      });
+      res.status(201).json(chronicle);
+    } catch (error) {
+      res.status(500).json({ message: "Failed to create chronicle" });
+    }
+  });
   app2.get("/api/blog/stats", async (_req, res) => {
     try {
       const stats = await storage.getBlogPostStats();
@@ -17724,7 +20172,7 @@ async function registerRoutes(app2) {
       });
       res.status(201).json(post);
     } catch (error) {
-      if (error instanceof z4.ZodError) {
+      if (error instanceof z5.ZodError) {
         res.status(400).json({ message: "Datos de post inv\xE1lidos", errors: error.errors });
       } else {
         console.error("Create blog post error:", error);
@@ -17742,7 +20190,7 @@ async function registerRoutes(app2) {
       }
       res.json(post);
     } catch (error) {
-      if (error instanceof z4.ZodError) {
+      if (error instanceof z5.ZodError) {
         res.status(400).json({ message: "Datos de post inv\xE1lidos", errors: error.errors });
       } else {
         console.error("Update blog post error:", error);
@@ -18019,7 +20467,7 @@ async function registerRoutes(app2) {
         message: "Story created successfully and submitted for moderation"
       });
     } catch (error) {
-      if (error instanceof z4.ZodError) {
+      if (error instanceof z5.ZodError) {
         return res.status(400).json({
           error: "Validation Error",
           message: "Invalid story data",
@@ -18065,7 +20513,7 @@ async function registerRoutes(app2) {
         message: "Story updated successfully"
       });
     } catch (error) {
-      if (error instanceof z4.ZodError) {
+      if (error instanceof z5.ZodError) {
         return res.status(400).json({
           error: "Validation Error",
           message: "Invalid story data",

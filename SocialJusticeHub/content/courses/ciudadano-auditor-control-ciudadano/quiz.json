@@ -1,0 +1,116 @@
+{
+  "title": "Quiz: Ciudadano Auditor",
+  "description": "Evaluá tu conocimiento de las herramientas de control ciudadano.",
+  "passingScore": 70,
+  "timeLimit": 15,
+  "allowRetakes": true,
+  "maxAttempts": 3,
+  "legacyQuizId": 62,
+  "questions": [
+    {
+      "question": "¿Qué ley te da derecho a pedir información a cualquier organismo del Estado?",
+      "type": "multiple_choice",
+      "options": [
+        "Ley 25.326 de Datos Personales",
+        "Ley 27.275 de Acceso a la Información Pública",
+        "Ley 24.240 de Defensa del Consumidor",
+        "Ley 25.675 General del Ambiente"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La Ley 27.275 de Acceso a la Información Pública te permite pedir cualquier información estatal sin dar explicaciones.",
+      "points": 2,
+      "orderIndex": 1,
+      "legacyQuestionId": 595
+    },
+    {
+      "question": "Para hacer un pedido de información pública necesitás ser abogado.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "Cualquier ciudadano puede hacer un pedido con solo su nombre, DNI y la descripción de lo que pide.",
+      "points": 1,
+      "orderIndex": 2,
+      "legacyQuestionId": 596
+    },
+    {
+      "question": "¿Cuál es una \"red flag\" en el presupuesto municipal?",
+      "type": "multiple_choice",
+      "options": [
+        "Que tenga muchas páginas",
+        "Que más del 70% vaya a sueldos dejando poco para inversión",
+        "Que incluya gastos de salud",
+        "Que esté publicado online"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Si la mayor parte del presupuesto va a sueldos, queda muy poco para servicios e inversión pública.",
+      "points": 2,
+      "orderIndex": 3,
+      "legacyQuestionId": 597
+    },
+    {
+      "question": "¿Qué es el amparo colectivo?",
+      "type": "multiple_choice",
+      "options": [
+        "Un seguro de salud grupal",
+        "Una acción judicial que protege derechos de un grupo de personas",
+        "Un tipo de protesta legal",
+        "Un beneficio para jubilados"
+      ],
+      "correctAnswer": 1,
+      "explanation": "El amparo colectivo permite proteger derechos de grupos enteros con una sola acción judicial.",
+      "points": 2,
+      "orderIndex": 4,
+      "legacyQuestionId": 598
+    },
+    {
+      "question": "La Defensoría del Pueblo de la Nación está en pleno funcionamiento desde 2009.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "La Defensoría del Pueblo está vacante desde 2009, lo que la ha dejado prácticamente inoperante.",
+      "points": 1,
+      "orderIndex": 5,
+      "legacyQuestionId": 599
+    },
+    {
+      "question": "¿Qué organismo está constitucionalmente dirigido por la oposición?",
+      "type": "multiple_choice",
+      "options": [
+        "SIGEN",
+        "Oficina Anticorrupción",
+        "AGN (Auditoría General de la Nación)",
+        "Defensoría del Pueblo"
+      ],
+      "correctAnswer": 2,
+      "explanation": "La Constitución establece que la AGN es presidida por un miembro de la primera minoría parlamentaria.",
+      "points": 2,
+      "orderIndex": 6,
+      "legacyQuestionId": 600
+    },
+    {
+      "question": "Las audiencias públicas son obligatorias antes de aumentar tarifas de servicios públicos.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": true,
+      "explanation": "Las audiencias públicas son requisito legal previo a aumentos de tarifas, aunque la participación ciudadana suele ser baja.",
+      "points": 1,
+      "orderIndex": 7,
+      "legacyQuestionId": 601
+    },
+    {
+      "question": "¿Qué portal permite ver las compras del Estado nacional?",
+      "type": "multiple_choice",
+      "options": [
+        "mercadolibre.com.ar",
+        "comprar.gob.ar",
+        "datos.gob.ar",
+        "afip.gob.ar"
+      ],
+      "correctAnswer": 1,
+      "explanation": "comprar.gob.ar publica todas las contrataciones del Estado nacional de manera accesible.",
+      "points": 2,
+      "orderIndex": 8,
+      "legacyQuestionId": 602
+    }
+  ]
+}

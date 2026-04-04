@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import { useToast } from '@/hooks/use-toast';
+import { apiRequest } from '@/lib/queryClient';
 
 export const useQuiz = (courseId: number, quizId: number) => {
   const { toast } = useToast();
@@ -9,12 +10,7 @@ export const useQuiz = (courseId: number, quizId: number) => {
   // Start quiz attempt
   const startAttempt = useMutation({
     mutationFn: async () => {
-      const response = await fetch(`/api/courses/${courseId}/quiz/attempt`, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${localStorage.getItem('authToken')}`
-        }
-      });
+      const response = await apiRequest('POST', `/api/courses/${courseId}/quiz/attempt`);
       if (!response.ok) {
         const error = await response.json();
         throw new Error(error.message || 'Error al iniciar el quiz');
@@ -43,16 +39,10 @@ export const useQuiz = (courseId: number, quizId: number) => {
         answer
       }));
 
-      const response = await fetch(
+      const response = await apiRequest(
+        'POST',
         `/api/courses/${courseId}/quiz/attempt/${attemptId}/submit`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${localStorage.getItem('authToken')}`
-          },
-          body: JSON.stringify({ answers: answersArray })
-        }
+        { answers: answersArray },
       );
       if (!response.ok) throw new Error('Error al enviar el quiz');
       return response.json();
@@ -79,4 +69,3 @@ export const useQuiz = (courseId: number, quizId: number) => {
     submitError: finishAttempt.error,
   };
 };
-

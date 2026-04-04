@@ -1,0 +1,111 @@
+{
+  "title": "Quiz: Patrones Argentinos que Debemos Romper",
+  "description": "Evaluá tu comprensión de los patrones sistémicos y los puntos de apalancamiento.",
+  "passingScore": 70,
+  "timeLimit": 15,
+  "allowRetakes": true,
+  "maxAttempts": 3,
+  "legacyQuizId": 69,
+  "questions": [
+    {
+      "question": "¿Cuáles son los tres niveles de comprensión sistémica?",
+      "type": "multiple_choice",
+      "options": [
+        "Pasado, presente, futuro",
+        "Eventos, patrones, estructuras",
+        "Economía, política, sociedad",
+        "Causa, efecto, solución"
+      ],
+      "correctAnswer": 1,
+      "explanation": "El pensamiento sistémico va de los eventos visibles a los patrones recurrentes y a las estructuras que los generan.",
+      "points": 2,
+      "orderIndex": 1,
+      "legacyQuestionId": 655
+    },
+    {
+      "question": "El ciclo stop-go se repite porque los incentivos políticos premian la expansión cortoplacista.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": true,
+      "explanation": "Expandir la economía da votos ahora; el costo del ajuste viene después y probablemente le toque al siguiente gobierno.",
+      "points": 1,
+      "orderIndex": 2,
+      "legacyQuestionId": 656
+    },
+    {
+      "question": "¿Qué nivel de intervención sistémica tiene mayor impacto según Donella Meadows?",
+      "type": "multiple_choice",
+      "options": [
+        "Cambiar parámetros (impuestos, tasas)",
+        "Construir infraestructura",
+        "Cambiar modelos mentales y objetivos del sistema",
+        "Modificar regulaciones"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Los modelos mentales y los objetivos del sistema son los niveles más profundos y transformadores de intervención.",
+      "points": 2,
+      "orderIndex": 3,
+      "legacyQuestionId": 657
+    },
+    {
+      "question": "La viveza criolla es un rasgo cultural innato de los argentinos.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "La viveza criolla es la respuesta racional a un sistema que premia el atajo. Cambiando los incentivos se cambia el comportamiento.",
+      "points": 1,
+      "orderIndex": 4,
+      "legacyQuestionId": 658
+    },
+    {
+      "question": "¿Qué diferencia al Hombre Gris del pesimista y del optimista ingenuo?",
+      "type": "multiple_choice",
+      "options": [
+        "No tiene opinión política",
+        "Piensa sistémicamente e identifica palancas de cambio",
+        "Siempre está en el centro político",
+        "Es indiferente a los problemas"
+      ],
+      "correctAnswer": 1,
+      "explanation": "El Hombre Gris ve patrones, identifica estructuras y busca puntos de apalancamiento en vez de quejarse o esperar milagros.",
+      "points": 2,
+      "orderIndex": 5,
+      "legacyQuestionId": 659
+    },
+    {
+      "question": "El \"diseño idealizado\" es un ejercicio de fantasía sin aplicación práctica.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "El diseño idealizado es una brújula que indica la dirección. No dice qué hacer mañana, pero orienta cada decisión.",
+      "points": 1,
+      "orderIndex": 6,
+      "legacyQuestionId": 660
+    },
+    {
+      "question": "¿Cuál es un punto de apalancamiento de alto impacto para Argentina?",
+      "type": "multiple_choice",
+      "options": [
+        "Subir o bajar impuestos",
+        "Transparencia radical de información pública",
+        "Cambiar el nombre de programas sociales",
+        "Construir más rutas"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La transparencia (flujos de información) es un punto de alto apalancamiento: cuando la gente ve cómo se gasta su dinero, exige rendición de cuentas.",
+      "points": 2,
+      "orderIndex": 7,
+      "legacyQuestionId": 661
+    },
+    {
+      "question": "La diferencia entre queja y diagnóstico es que el diagnóstico sugiere puntos de intervención.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": true,
+      "explanation": "Quejarse paraliza; diagnosticar identifica causas y sugiere dónde actuar.",
+      "points": 1,
+      "orderIndex": 8,
+      "legacyQuestionId": 662
+    }
+  ]
+}

@@ -1,9 +1,6 @@
 import type { Express } from "express";
 import { storage } from "./storage";
 import { authenticateToken, optionalAuth, type AuthRequest } from './auth';
-import { eq } from "drizzle-orm";
-import { courses, courseLessons } from "@shared/schema";
-import { db } from "./db";
 
 export function registerCourseRoutes(app: Express) {
   // ==================== COURSE ENDPOINTS ====================
@@ -65,11 +62,7 @@ export function registerCourseRoutes(app: Express) {
         return res.status(404).json({ message: "Course not found" });
       }
 
-      // Increment view count
-      await db
-        .update(courses)
-        .set({ viewCount: (course.viewCount || 0) + 1 })
-        .where(eq(courses.id, course.id));
+      await storage.incrementCourseView(course.id);
 
       // Get lessons
       const courseData = await storage.getCourseWithLessons(course.id);
@@ -157,15 +150,14 @@ export function registerCourseRoutes(app: Express) {
         return res.status(400).json({ message: "Invalid course ID" });
       }
 
-      // Check if course exists and is published
-      const courseById = await db.select().from(courses).where(eq(courses.id, id)).limit(1);
-      if (!courseById[0]) {
+      const courseById = await storage.getCourseById(id);
+      if (!courseById) {
         return res.status(404).json({ message: "Course not found" });
       }
-      if (!courseById[0].isPublished) {
+      if (!courseById.isPublished) {
         return res.status(403).json({ message: "Course is not published" });
       }
-      if (courseById[0].requiresAuth && !req.user) {
+      if (courseById.requiresAuth && !req.user) {
         return res.status(401).json({ message: "Course requires authentication" });
       }
 
@@ -199,12 +191,11 @@ export function registerCourseRoutes(app: Express) {
         }
       }
 
-      // Verify lesson exists and belongs to course
-      const lesson = await db.select().from(courseLessons).where(eq(courseLessons.id, lessonIdNum)).limit(1);
-      if (!lesson[0]) {
+      const lesson = await storage.getLessonById(lessonIdNum);
+      if (!lesson) {
         return res.status(404).json({ message: "Lesson not found" });
       }
-      if (lesson[0].courseId !== courseIdNum) {
+      if (lesson.courseId !== courseIdNum) {
         return res.status(400).json({ message: "Lesson does not belong to this course" });
       }
 
@@ -293,6 +284,25 @@ export function registerCourseRoutes(app: Express) {
       const quizData = await storage.getCourseQuiz(id);
       if (!quizData) {
         return res.status(404).json({ message: "Quiz not found for this course" });
+      }
+
+      const courseData = await storage.getCourseWithLessons(id);
+      const progress = await storage.getUserCourseProgress(req.user!.userId, id);
+      const completedLessons = progress?.completedLessons
+        ? JSON.parse(progress.completedLessons)
+        : [];
+      const requiredLessonIds = (courseData?.lessons ?? [])
+        .filter((lesson) => lesson.isRequired)
+        .map((lesson) => lesson.id);
+
+      const hasUnlockedQuiz = requiredLessonIds.length === 0
+        ? true
+        : requiredLessonIds.every((lessonId) => completedLessons.includes(lessonId));
+
+      if (!hasUnlockedQuiz) {
+        return res.status(403).json({
+          message: "Complete las lecciones requeridas antes de iniciar el quiz",
+        });
       }
 
       // Check max attempts
@@ -414,7 +424,12 @@ export function registerCourseRoutes(app: Express) {
   app.get("/api/user/courses", authenticateToken, async (req: AuthRequest, res) => {
     try {
       const userCourses = await storage.getUserCourses(req.user!.userId);
-      res.json({ courses: userCourses });
+      res.json({
+        courses: userCourses.map(({ course, progress }) => ({
+          ...course,
+          userProgress: progress,
+        })),
+      });
     } catch (error) {
       console.error("Error fetching user courses:", error);
       res.status(500).json({ message: "Error fetching user courses" });
@@ -450,4 +465,3 @@ export function registerCourseRoutes(app: Express) {
     }
   });
 }
-

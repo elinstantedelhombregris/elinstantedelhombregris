@@ -1,0 +1,111 @@
+{
+  "title": "Quiz: Datos para el Bien Común",
+  "description": "Evaluá tu capacidad para usar datos como herramienta de transformación.",
+  "passingScore": 70,
+  "timeLimit": 15,
+  "allowRetakes": true,
+  "maxAttempts": 3,
+  "legacyQuizId": 60,
+  "questions": [
+    {
+      "question": "¿Qué ley argentina garantiza el acceso a información pública?",
+      "type": "multiple_choice",
+      "options": [
+        "Ley de Medios",
+        "Ley 27.275 de Acceso a la Información Pública",
+        "Ley de Datos Personales",
+        "Ley de Transparencia Fiscal"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La Ley 27.275 garantiza que cualquier ciudadano puede pedir información al Estado, que tiene 15 días hábiles para responder.",
+      "points": 2,
+      "orderIndex": 1,
+      "legacyQuestionId": 577
+    },
+    {
+      "question": "Un gráfico de barras es el mejor tipo para mostrar la evolución de un indicador en el tiempo.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "Para evolución temporal, el gráfico de líneas es más apropiado. Las barras son mejores para comparar categorías.",
+      "points": 1,
+      "orderIndex": 2,
+      "legacyQuestionId": 578
+    },
+    {
+      "question": "¿Qué es la ciencia ciudadana?",
+      "type": "multiple_choice",
+      "options": [
+        "Ciencia financiada por los ciudadanos",
+        "Proyectos donde ciudadanos comunes contribuyen a investigaciones científicas con datos",
+        "Ciencia aplicada a problemas urbanos",
+        "Un programa del CONICET"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La ciencia ciudadana involucra a ciudadanos comunes en la recolección de datos científicos, como observar aves o medir calidad del agua.",
+      "points": 2,
+      "orderIndex": 3,
+      "legacyQuestionId": 579
+    },
+    {
+      "question": "Si el presupuesto de salud subió un 50% pero la inflación fue del 100%, el presupuesto real de salud aumentó.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "Con 50% de aumento nominal y 100% de inflación, el presupuesto real CAYÓ un 25%. Siempre ajustar por inflación.",
+      "points": 1,
+      "orderIndex": 4,
+      "legacyQuestionId": 580
+    },
+    {
+      "question": "¿Cuál es el primer paso del periodismo de datos?",
+      "type": "multiple_choice",
+      "options": [
+        "Descargar datos",
+        "Formular una pregunta concreta",
+        "Hacer gráficos",
+        "Publicar en redes"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Todo análisis de datos empieza con una pregunta concreta que guía la búsqueda y el análisis.",
+      "points": 2,
+      "orderIndex": 5,
+      "legacyQuestionId": 581
+    },
+    {
+      "question": "Los outputs de inteligencia artificial siempre deben verificarse con fuentes originales.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": true,
+      "explanation": "La IA puede equivocarse o inventar datos. Todo resultado debe verificarse con las fuentes originales.",
+      "points": 1,
+      "orderIndex": 6,
+      "legacyQuestionId": 582
+    },
+    {
+      "question": "¿Qué herramienta permite crear mapas temáticos gratuitos con datos geolocalizados?",
+      "type": "multiple_choice",
+      "options": [
+        "Excel",
+        "Google My Maps",
+        "PowerPoint",
+        "WhatsApp"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Google My Maps permite crear mapas colaborativos gratuitos con puntos, áreas y datos asociados.",
+      "points": 2,
+      "orderIndex": 7,
+      "legacyQuestionId": 583
+    },
+    {
+      "question": "Las declaraciones juradas de los funcionarios públicos argentinos son información confidencial.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "Las declaraciones juradas son información pública disponible en la Oficina Anticorrupción.",
+      "points": 1,
+      "orderIndex": 8,
+      "legacyQuestionId": 584
+    }
+  ]
+}

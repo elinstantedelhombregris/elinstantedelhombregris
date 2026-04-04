@@ -1,0 +1,111 @@
+{
+  "title": "Quiz: Gestión de Proyectos Comunitarios",
+  "description": "Evaluá tu capacidad para gestionar proyectos de impacto.",
+  "passingScore": 70,
+  "timeLimit": 15,
+  "allowRetakes": true,
+  "maxAttempts": 3,
+  "legacyQuizId": 59,
+  "questions": [
+    {
+      "question": "¿Cuáles son los 7 componentes de todo proyecto comunitario?",
+      "type": "multiple_choice",
+      "options": [
+        "Idea, equipo, plata, oficina, logo, web, redes",
+        "Problema, objetivo, beneficiarios, actividades, recursos, cronograma, evaluación",
+        "Visión, misión, valores, estrategia, táctica, operación, balance",
+        "Planificar, ejecutar, controlar, cerrar, evaluar, comunicar, celebrar"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Los 7 componentes esenciales son: problema, objetivo, beneficiarios, actividades, recursos, cronograma y evaluación.",
+      "points": 2,
+      "orderIndex": 1,
+      "legacyQuestionId": 569
+    },
+    {
+      "question": "Los costos de contingencia no son necesarios en el presupuesto si se planifica bien.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "En Argentina los imprevistos son la regla. Siempre incluir un 10-15% de contingencia en el presupuesto.",
+      "points": 1,
+      "orderIndex": 2,
+      "legacyQuestionId": 570
+    },
+    {
+      "question": "¿Cuál es la principal razón por la que los voluntarios abandonan un proyecto?",
+      "type": "multiple_choice",
+      "options": [
+        "Falta de pago",
+        "Desorganización, no saber qué hacer y sentirse ignorados",
+        "Distancia al lugar de trabajo",
+        "Falta de experiencia"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La desorganización, la falta de tareas claras y sentirse ignorados son los principales \"asesinos\" del voluntariado.",
+      "points": 2,
+      "orderIndex": 3,
+      "legacyQuestionId": 571
+    },
+    {
+      "question": "Una propuesta de fondos exitosa solo necesita describir el problema, no proponer indicadores de medición.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "Los evaluadores necesitan saber cómo medirás si funcionó. Los indicadores de medición son esenciales.",
+      "points": 1,
+      "orderIndex": 4,
+      "legacyQuestionId": 572
+    },
+    {
+      "question": "¿Cuál es la diferencia entre \"resultados\" e \"impacto\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Son lo mismo",
+        "Los resultados son lo que producís; el impacto es el cambio que generás",
+        "Los resultados son cualitativos; el impacto es cuantitativo",
+        "El impacto es más fácil de medir que los resultados"
+      ],
+      "correctAnswer": 1,
+      "explanation": "\"120 chicos asisten\" es resultado. \"La tasa de repetición bajó del 40% al 15%\" es impacto.",
+      "points": 2,
+      "orderIndex": 5,
+      "legacyQuestionId": 573
+    },
+    {
+      "question": "Para recibir financiamiento externo, siempre es necesario tener personería jurídica propia.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "Podés operar bajo el \"paraguas\" de una organización existente (parroquia, club, ONG) que administre los fondos.",
+      "points": 1,
+      "orderIndex": 6,
+      "legacyQuestionId": 574
+    },
+    {
+      "question": "¿Qué significa sostenibilidad institucional en un proyecto comunitario?",
+      "type": "multiple_choice",
+      "options": [
+        "Tener un edificio propio",
+        "Que el proyecto funcione sin depender de una sola persona",
+        "Tener presupuesto para 10 años",
+        "Estar registrado en el gobierno"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La sostenibilidad institucional significa distribuir liderazgo y capacidades para que el proyecto funcione sin depender de un individuo.",
+      "points": 2,
+      "orderIndex": 7,
+      "legacyQuestionId": 575
+    },
+    {
+      "question": "El ego y la competencia entre organizaciones es el principal obstáculo para las alianzas estratégicas.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": true,
+      "explanation": "Cuando se pone el propósito por encima del protagonismo, las alianzas florecen. El ego es el enemigo de la articulación.",
+      "points": 1,
+      "orderIndex": 8,
+      "legacyQuestionId": 576
+    }
+  ]
+}

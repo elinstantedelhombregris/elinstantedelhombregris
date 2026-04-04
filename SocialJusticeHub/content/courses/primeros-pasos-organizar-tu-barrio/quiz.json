@@ -1,0 +1,121 @@
+{
+  "title": "Quiz: Primeros Pasos para Organizar tu Barrio",
+  "description": "Evaluá tu comprensión de las herramientas básicas de organización barrial.",
+  "passingScore": 70,
+  "timeLimit": 15,
+  "allowRetakes": true,
+  "maxAttempts": 3,
+  "legacyQuizId": 49,
+  "questions": [
+    {
+      "question": "¿Qué propone el mapeo de activos como punto de partida?",
+      "type": "multiple_choice",
+      "options": [
+        "Listar todos los problemas del barrio",
+        "Identificar los recursos y fortalezas que ya existen",
+        "Hacer una encuesta de satisfacción",
+        "Contactar al municipio"
+      ],
+      "correctAnswer": 1,
+      "explanation": "El mapeo de activos propone empezar por las fortalezas existentes, no por los problemas.",
+      "points": 2,
+      "orderIndex": 1,
+      "legacyQuestionId": 463
+    },
+    {
+      "question": "¿Cuántas personas son suficientes para considerar exitosa una primera reunión barrial?",
+      "type": "multiple_choice",
+      "options": [
+        "Al menos 50",
+        "Al menos 20",
+        "Al menos 5",
+        "Al menos 100"
+      ],
+      "correctAnswer": 2,
+      "explanation": "5 personas comprometidas que quieran volver es un excelente punto de partida.",
+      "points": 2,
+      "orderIndex": 2,
+      "legacyQuestionId": 464
+    },
+    {
+      "question": "La conversación valiente busca eliminar todo conflicto del grupo.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "La conversación valiente no elimina el conflicto sino que lo canaliza productivamente.",
+      "points": 1,
+      "orderIndex": 3,
+      "legacyQuestionId": 465
+    },
+    {
+      "question": "¿Cuál es el criterio más importante para elegir el primer proyecto comunitario?",
+      "type": "multiple_choice",
+      "options": [
+        "Que sea el más urgente",
+        "Que sea pequeño y con altas chances de éxito",
+        "Que requiera mucha inversión",
+        "Que sea innovador"
+      ],
+      "correctAnswer": 1,
+      "explanation": "El primer éxito genera confianza, que es el recurso más escaso. Por eso debe ser pequeño y exitoso.",
+      "points": 2,
+      "orderIndex": 4,
+      "legacyQuestionId": 466
+    },
+    {
+      "question": "¿Cuál es la diferencia entre consenso y consentimiento en decisiones grupales?",
+      "type": "multiple_choice",
+      "options": [
+        "Son lo mismo",
+        "Consenso requiere 100% de acuerdo; consentimiento requiere que nadie tenga objeciones graves",
+        "Consentimiento es más lento que consenso",
+        "Consenso es para grupos chicos, consentimiento para grandes"
+      ],
+      "correctAnswer": 1,
+      "explanation": "El consentimiento pregunta \"¿alguien tiene una objeción seria?\" en vez de buscar que todos estén entusiasmados.",
+      "points": 2,
+      "orderIndex": 5,
+      "legacyQuestionId": 467
+    },
+    {
+      "question": "La frecuencia de encuentros es más importante que su duración para sostener un grupo.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": true,
+      "explanation": "Es mejor juntarse 30 minutos cada semana que 4 horas una vez al mes. La frecuencia construye hábito.",
+      "points": 1,
+      "orderIndex": 6,
+      "legacyQuestionId": 468
+    },
+    {
+      "question": "¿Qué es la \"regla de las 24 horas\" para conflictos?",
+      "type": "multiple_choice",
+      "options": [
+        "Resolver todo en 24 horas",
+        "No responder en caliente, esperar 24 horas",
+        "Reunirse dentro de 24 horas",
+        "Expulsar a quien no responda en 24 horas"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Cuando un conflicto se pone caliente, nadie responde en el momento. Se espera 24 horas para ganar perspectiva.",
+      "points": 2,
+      "orderIndex": 7,
+      "legacyQuestionId": 469
+    },
+    {
+      "question": "¿Cuál es la capa de convocatoria más efectiva para la primera reunión?",
+      "type": "multiple_choice",
+      "options": [
+        "Publicar en redes sociales",
+        "Poner carteles en comercios",
+        "Invitación personal cara a cara",
+        "Enviar un email masivo"
+      ],
+      "correctAnswer": 2,
+      "explanation": "La invitación personal tiene 10 veces más poder que cualquier otro medio de convocatoria.",
+      "points": 2,
+      "orderIndex": 8,
+      "legacyQuestionId": 470
+    }
+  ]
+}

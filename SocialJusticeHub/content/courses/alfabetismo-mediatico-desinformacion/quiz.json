@@ -1,0 +1,116 @@
+{
+  "title": "Quiz: Alfabetismo Mediático",
+  "description": "Evaluá tu capacidad para navegar la desinformación.",
+  "passingScore": 70,
+  "timeLimit": 15,
+  "allowRetakes": true,
+  "maxAttempts": 3,
+  "legacyQuizId": 65,
+  "questions": [
+    {
+      "question": "¿Cuál es la diferencia entre misinformación y desinformación?",
+      "type": "multiple_choice",
+      "options": [
+        "Son lo mismo",
+        "La misinformación es sin intención de engañar; la desinformación es deliberada",
+        "La desinformación es más grave",
+        "Una es digital y otra impresa"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La misinformación se comparte creyendo que es verdad; la desinformación se crea deliberadamente para engañar.",
+      "points": 2,
+      "orderIndex": 1,
+      "legacyQuestionId": 623
+    },
+    {
+      "question": "Los algoritmos de redes sociales priorizan contenido informativo por sobre contenido emocional.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "Los algoritmos priorizan engagement (reacciones), que suele ser generado por contenido emocional e indignante.",
+      "points": 1,
+      "orderIndex": 2,
+      "legacyQuestionId": 624
+    },
+    {
+      "question": "¿Qué es el sesgo de confirmación?",
+      "type": "multiple_choice",
+      "options": [
+        "Creer solo en medios oficiales",
+        "Tender a creer información que confirma lo que ya pensás",
+        "Confirmar noticias antes de compartirlas",
+        "Seguir solo a personas que conocés"
+      ],
+      "correctAnswer": 1,
+      "explanation": "El sesgo de confirmación nos hace buscar y creer información que refuerza nuestras creencias previas.",
+      "points": 2,
+      "orderIndex": 3,
+      "legacyQuestionId": 625
+    },
+    {
+      "question": "¿Cuál es el primer paso del método SIFT para verificar información?",
+      "type": "multiple_choice",
+      "options": [
+        "Investigar la fuente",
+        "Buscar mejor cobertura",
+        "Parar y no reaccionar inmediatamente",
+        "Rastrear las afirmaciones"
+      ],
+      "correctAnswer": 2,
+      "explanation": "El primer paso es STOP: parar y no reaccionar inmediatamente antes de investigar.",
+      "points": 2,
+      "orderIndex": 4,
+      "legacyQuestionId": 626
+    },
+    {
+      "question": "Las noticias falsas se comparten más lento que las verdaderas en redes sociales.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "Estudios del MIT muestran que las noticias falsas se comparten 6 veces más rápido que las verdaderas.",
+      "points": 1,
+      "orderIndex": 5,
+      "legacyQuestionId": 627
+    },
+    {
+      "question": "¿Qué es el astroturfing?",
+      "type": "multiple_choice",
+      "options": [
+        "Un tipo de periodismo",
+        "Crear la ilusión de movimiento espontáneo con cuentas falsas coordinadas",
+        "Una técnica de fact-checking",
+        "Publicidad encubierta en medios"
+      ],
+      "correctAnswer": 1,
+      "explanation": "El astroturfing simula apoyo o rechazo popular usando cuentas falsas coordinadas para crear tendencias artificiales.",
+      "points": 2,
+      "orderIndex": 6,
+      "legacyQuestionId": 628
+    },
+    {
+      "question": "Una dieta informativa saludable incluye medios con perspectivas opuestas a la propia.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": true,
+      "explanation": "Diversificar fuentes, incluyendo perspectivas diferentes, es esencial para salir de la burbuja y entender la realidad completa.",
+      "points": 1,
+      "orderIndex": 7,
+      "legacyQuestionId": 629
+    },
+    {
+      "question": "¿Qué significa la \"G\" en el protocolo GRIS de consumo informativo?",
+      "type": "multiple_choice",
+      "options": [
+        "Googlear la noticia",
+        "Guardar distancia emocional",
+        "Gritar tu opinión",
+        "Generar contenido propio"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Guardar distancia emocional es el primer paso: si algo te indigna intensamente, es cuando más necesitás pausar.",
+      "points": 2,
+      "orderIndex": 8,
+      "legacyQuestionId": 630
+    }
+  ]
+}

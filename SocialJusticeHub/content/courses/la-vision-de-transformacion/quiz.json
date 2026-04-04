@@ -1,0 +1,276 @@
+{
+  "title": "Evaluación: La Visión de Transformación",
+  "description": "Esta evaluación no solo mide lo que aprendiste — mide lo que entendiste. Tomate tu tiempo para cada pregunta.",
+  "passingScore": 70,
+  "timeLimit": null,
+  "allowRetakes": true,
+  "maxAttempts": null,
+  "legacyQuizId": 71,
+  "questions": [
+    {
+      "question": "¿Cuál es la diferencia fundamental entre un sueño y una visión?",
+      "type": "multiple_choice",
+      "options": [
+        "El sueño es nocturno y la visión es diurna",
+        "La visión combina deseo, dirección y compromiso; el sueño tiene deseo pero le falta estructura",
+        "No hay diferencia real, son sinónimos",
+        "La visión es para empresas y el sueño es personal"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Un sueño tiene combustible emocional pero sin motor. Una visión combina deseo con dirección clara y compromiso de acción. Es un sueño que se hizo honesto consigo mismo.",
+      "points": 2,
+      "orderIndex": 1,
+      "legacyQuestionId": 675
+    },
+    {
+      "question": "Según Viktor Frankl, lo que determinaba la supervivencia en los campos de concentración era principalmente la fortaleza física.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "Frankl observó que los que sobrevivían no eran los más fuertes físicamente, sino los que tenían un sentido, una razón, una visión de futuro. De ahí nace la logoterapia.",
+      "points": 2,
+      "orderIndex": 2,
+      "legacyQuestionId": 676
+    },
+    {
+      "question": "¿Qué revela la \"prueba del lecho de muerte\" en el ejercicio de excavación de valores?",
+      "type": "multiple_choice",
+      "options": [
+        "Tus miedos más superficiales",
+        "Tus valores más profundos y auténticos",
+        "Lo que la sociedad espera de vos",
+        "Tu nivel de éxito material"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Imaginar los últimos momentos de tu vida y preguntarte qué lamentarías revela los valores que realmente importan, más allá de las máscaras sociales.",
+      "points": 2,
+      "orderIndex": 3,
+      "legacyQuestionId": 677
+    },
+    {
+      "question": "Los \"guiones de vida\" de Eric Berne se forman generalmente en la edad adulta como resultado de decisiones conscientes.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "Los guiones de vida se desarrollan en la infancia, como narrativas inconscientes sobre quiénes somos y qué merecemos. Son peligrosos al diseñar una visión porque nos hacen creer que elegimos libremente cuando en realidad seguimos un guión escrito a los 7 años.",
+      "points": 2,
+      "orderIndex": 4,
+      "legacyQuestionId": 678
+    },
+    {
+      "question": "¿Por qué una visión vaga como \"quiero estar mejor\" no funciona según la neurociencia?",
+      "type": "multiple_choice",
+      "options": [
+        "Porque suena poco profesional",
+        "Porque el cerebro necesita especificidad para activar el Sistema Reticular y la dopamina anticipatoria",
+        "Porque las visiones siempre deben tener números exactos",
+        "Porque otras personas no la van a entender"
+      ],
+      "correctAnswer": 1,
+      "explanation": "El Sistema Reticular Activador filtra la información que llega a tu consciencia. Una visión específica y vívida lo programa para detectar oportunidades alineadas. Una visión vaga no activa nada.",
+      "points": 2,
+      "orderIndex": 5,
+      "legacyQuestionId": 679
+    },
+    {
+      "question": "Según el modelo del Ikigai adaptado, ¿qué pasa cuando tu visión incluye lo que amás y lo que el mundo necesita, pero no lo que sabés hacer?",
+      "type": "multiple_choice",
+      "options": [
+        "Tenés pasión pero no efectividad",
+        "Tenés dinero pero no alegría",
+        "Tenés propósito pero no sostenibilidad",
+        "Tenés todo lo necesario"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Sin la dimensión de habilidades desarrolladas, tenés buenas intenciones y pasión pero careces de la capacidad de ejecutar efectivamente tu visión.",
+      "points": 2,
+      "orderIndex": 6,
+      "legacyQuestionId": 680
+    },
+    {
+      "question": "La técnica de los \"5 Por Qué\" sirve para llegar desde una meta superficial hasta el propósito profundo.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": true,
+      "explanation": "Al preguntar \"¿por qué?\" repetidamente, penetrás las capas superficiales (metas, deseos) hasta llegar al propósito existencial que sostiene todo. Es la diferencia entre \"quiero un negocio\" y \"quiero vivir con dignidad\".",
+      "points": 2,
+      "orderIndex": 7,
+      "legacyQuestionId": 681
+    },
+    {
+      "question": "¿Cuál de estas es una señal de que tu propósito NO es auténticamente tuyo?",
+      "type": "multiple_choice",
+      "options": [
+        "Te desafía pero también te llena de energía",
+        "Lo sentís como un \"debo\" más que como un \"necesito\"",
+        "Te saca de tu zona de confort pero no de tu esencia",
+        "Seguirías haciéndolo incluso sin reconocimiento"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Un propósito que sentís como obligación (\"debería\") en vez de necesidad interna es probablemente heredado o adoptado sin procesamiento genuino.",
+      "points": 2,
+      "orderIndex": 8,
+      "legacyQuestionId": 682
+    },
+    {
+      "question": "Según Peter Senge, ¿cuál es la forma más profunda de relación de un grupo con su visión?",
+      "type": "multiple_choice",
+      "options": [
+        "Acatamiento: seguir instrucciones",
+        "Alineamiento: estar de acuerdo intelectualmente",
+        "Compromiso genuino: la visión es parte de la identidad del grupo",
+        "Delegación: dejar que un líder decida"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Senge distingue entre acatamiento (obediencia), alineamiento (cooperación) y compromiso genuino (la visión como parte de la identidad). Solo el compromiso genuino genera la energía que transforma.",
+      "points": 2,
+      "orderIndex": 9,
+      "legacyQuestionId": 683
+    },
+    {
+      "question": "En la Narrativa Pública de Marshall Ganz, la secuencia correcta es: Historia del Nosotros, Historia del Yo, Historia del Ahora.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "La secuencia correcta es Yo → Nosotros → Ahora. Primero conectás emocionalmente con tu historia personal, luego generás identidad grupal, y finalmente llamás a la acción con urgencia.",
+      "points": 2,
+      "orderIndex": 10,
+      "legacyQuestionId": 684
+    },
+    {
+      "question": "¿Por qué los datos solos no son suficientes para comunicar una visión transformadora?",
+      "type": "multiple_choice",
+      "options": [
+        "Porque la gente no entiende estadísticas",
+        "Porque los seres humanos nos movemos por historias y emociones, no por datos abstractos",
+        "Porque los datos siempre son falsos",
+        "Porque solo sirven para informes técnicos"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Los datos informan pero las personas conmueven. Una narrativa efectiva empieza con historia y emoción, y usa datos como soporte, no como protagonista.",
+      "points": 2,
+      "orderIndex": 11,
+      "legacyQuestionId": 685
+    },
+    {
+      "question": "¿Qué es el \"backcasting\" y por qué es más útil que el forecasting para transformaciones profundas?",
+      "type": "multiple_choice",
+      "options": [
+        "Es hacer predicciones basadas en datos históricos",
+        "Es planificar desde el futuro deseado hacia el presente, lo que libera creatividad al no anclarte a lo conocido",
+        "Es un tipo de análisis financiero",
+        "Es proyectar tendencias actuales hacia adelante"
+      ],
+      "correctAnswer": 1,
+      "explanation": "El backcasting empieza desde el futuro deseado y trabaja hacia atrás hasta el presente. A diferencia del forecasting (que proyecta desde lo conocido), el backcasting descubre caminos que desde el presente son invisibles.",
+      "points": 2,
+      "orderIndex": 12,
+      "legacyQuestionId": 686
+    },
+    {
+      "question": "Donella Meadows enseñó que los problemas complejos se resuelven mejor atacando los síntomas directamente.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "Meadows, pionera del pensamiento sistémico, enseñó que los problemas complejos se resuelven interviniendo en los puntos de apalancamiento del sistema, no atacando síntomas aislados.",
+      "points": 2,
+      "orderIndex": 13,
+      "legacyQuestionId": 687
+    },
+    {
+      "question": "¿Qué es el \"valle de la desilusión\" en la Curva J del cambio?",
+      "type": "multiple_choice",
+      "options": [
+        "El momento donde te das cuenta de que tu visión era incorrecta",
+        "La fase donde las cosas se ponen difíciles y los resultados no llegan, antes de que los cambios se estabilicen",
+        "El momento final de una transformación exitosa",
+        "Una fase que solo afecta a personas sin preparación"
+      ],
+      "correctAnswer": 1,
+      "explanation": "El valle de la desilusión es el punto 2 de la Curva J: la fase más difícil donde la mayoría abandona. Es el momento donde tu propósito y tu comunidad marcan la diferencia entre rendirse y seguir.",
+      "points": 2,
+      "orderIndex": 14,
+      "legacyQuestionId": 688
+    },
+    {
+      "question": "¿Qué significa \"presencing\" en la Teoría U de Otto Scharmer?",
+      "type": "multiple_choice",
+      "options": [
+        "Hacer una presentación pública de tu visión",
+        "Soltar lo viejo y conectar con lo que quiere emerger, en el punto de mayor vulnerabilidad y potencial",
+        "Estar presente físicamente en todas las reuniones del equipo",
+        "Presionar al grupo para que tome decisiones rápidas"
+      ],
+      "correctAnswer": 1,
+      "explanation": "\"Presencing\" (presencia + sentir) es el fondo de la U — el momento de soltar el control, abrirse a la vulnerabilidad y conectar con lo que genuinamente quiere emerger. De ahí surge la innovación real.",
+      "points": 2,
+      "orderIndex": 15,
+      "legacyQuestionId": 689
+    },
+    {
+      "question": "La resiliencia es la capacidad de aguantar el dolor sin quejarse.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "La resiliencia no es aguante pasivo. Es la capacidad de usar la adversidad como combustible de crecimiento. Tedeschi y Calhoun demostraron que la adversidad puede generar crecimiento en posibilidades, relaciones, fortaleza, espiritualidad y apreciación de la vida.",
+      "points": 2,
+      "orderIndex": 16,
+      "legacyQuestionId": 690
+    },
+    {
+      "question": "¿Por qué la fuerza de voluntad sola no funciona para sostener el cambio?",
+      "type": "multiple_choice",
+      "options": [
+        "Porque es un mito que no existe",
+        "Porque es un recurso limitado y el cerebro está diseñado evolutivamente para resistir el cambio",
+        "Porque solo funciona en personas excepcionales",
+        "Porque requiere meditación diaria para activarse"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La fuerza de voluntad es un recurso limitado. El cerebro está diseñado para minimizar amenazas y conservar energía, por lo que resiste cualquier cambio (incluso positivo). La solución está en cambios incrementales, diseño de ambiente, aliados y celebración.",
+      "points": 2,
+      "orderIndex": 17,
+      "legacyQuestionId": 691
+    },
+    {
+      "question": "¿Cuántos componentes tiene el Mapa de Transformación Personal?",
+      "type": "multiple_choice",
+      "options": [
+        "3: visión, metas y plan",
+        "5: propósito, visión, valores, estrategia y revisión",
+        "7: propósito, visión, valores operativos, enemigos identificados, narrativa, OKRs 90 días y kit de emergencia",
+        "10: uno por cada lección del curso"
+      ],
+      "correctAnswer": 2,
+      "explanation": "El mapa tiene 7 componentes que integran todo el curso: declaración de propósito, declaración de visión, valores operativos, enemigos identificados, narrativa personal, OKRs para 90 días y kit de emergencia visionaria.",
+      "points": 2,
+      "orderIndex": 18,
+      "legacyQuestionId": 692
+    },
+    {
+      "question": "Los compromisos escritos y compartidos públicamente se cumplen más que los que solo se piensan.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": true,
+      "explanation": "La investigación sobre compromisos muestra consistentemente que escribirlos, compartirlos, ponerles fecha y asociarles consecuencias aumenta dramáticamente su cumplimiento.",
+      "points": 1,
+      "orderIndex": 19,
+      "legacyQuestionId": 693
+    },
+    {
+      "question": "¿Cuál es la lección final más importante del curso?",
+      "type": "multiple_choice",
+      "options": [
+        "Que necesitás más cursos antes de actuar",
+        "Que la visión se cumple un día específico cuando lográs todas tus metas",
+        "Que la visión no es un destino sino una forma de caminar — se habita, se practica, se encarna cada día",
+        "Que solo las personas con recursos pueden transformar su realidad"
+      ],
+      "correctAnswer": 2,
+      "explanation": "La visión no se \"cumple\" — se habita. Se practica en cada decisión, cada conversación, cada día. Las personas que transforman su mundo son las que viven orientadas por su visión, no las que esperan \"cumplirla\".",
+      "points": 3,
+      "orderIndex": 20,
+      "legacyQuestionId": 694
+    }
+  ]
+}

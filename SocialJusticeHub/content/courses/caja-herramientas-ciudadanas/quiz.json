@@ -1,0 +1,111 @@
+{
+  "title": "Quiz: Caja de Herramientas Ciudadanas",
+  "description": "Evaluá tu dominio de las herramientas de acción ciudadana.",
+  "passingScore": 70,
+  "timeLimit": 12,
+  "allowRetakes": true,
+  "maxAttempts": 3,
+  "legacyQuizId": 58,
+  "questions": [
+    {
+      "question": "¿Cuál es el error más común en las reuniones comunitarias?",
+      "type": "multiple_choice",
+      "options": [
+        "Empezar puntual",
+        "No tener agenda ni definir acciones concretas al final",
+        "Invitar poca gente",
+        "Usar tecnología"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Sin agenda clara y sin acciones concretas asignadas al final, las reuniones son conversaciones sin resultado.",
+      "points": 2,
+      "orderIndex": 1,
+      "legacyQuestionId": 561
+    },
+    {
+      "question": "En oratoria ciudadana, es recomendable empezar pidiendo disculpas por no ser orador profesional.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "Pedir disculpas al inicio resta credibilidad. Es mejor arrancar directo con un gancho que capture la atención.",
+      "points": 1,
+      "orderIndex": 2,
+      "legacyQuestionId": 562
+    },
+    {
+      "question": "¿Qué es el MAAN en negociación?",
+      "type": "multiple_choice",
+      "options": [
+        "Un tipo de acuerdo",
+        "Tu Mejor Alternativa A un Acuerdo Negociado",
+        "Una técnica de persuasión",
+        "Un documento legal"
+      ],
+      "correctAnswer": 1,
+      "explanation": "El MAAN es lo que hacés si la negociación fracasa. Cuanto más fuerte tu MAAN, más poder tenés al negociar.",
+      "points": 2,
+      "orderIndex": 3,
+      "legacyQuestionId": 563
+    },
+    {
+      "question": "Correlación entre dos variables siempre implica que una causa la otra.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "Correlación no es causalidad. Dos cosas pueden moverse juntas sin que una cause la otra.",
+      "points": 1,
+      "orderIndex": 4,
+      "legacyQuestionId": 564
+    },
+    {
+      "question": "¿Cuál es la estructura básica de un discurso ciudadano efectivo?",
+      "type": "multiple_choice",
+      "options": [
+        "Introducción larga + argumentos + resumen",
+        "Gancho (30 seg) + Cuerpo (2-4 min) + Cierre con pedido concreto",
+        "Saludo + queja + despedida",
+        "Datos + más datos + conclusión técnica"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Un discurso efectivo tiene gancho que captura, cuerpo con máximo 3 puntos, y cierre con pedido de acción concreto.",
+      "points": 2,
+      "orderIndex": 5,
+      "legacyQuestionId": 565
+    },
+    {
+      "question": "Google My Maps permite crear mapas colaborativos del barrio de forma gratuita.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": true,
+      "explanation": "Google My Maps es gratuito y permite que múltiples personas agreguen puntos, fotos y descripciones en un mapa compartido.",
+      "points": 1,
+      "orderIndex": 6,
+      "legacyQuestionId": 566
+    },
+    {
+      "question": "¿Qué es sistematizar una experiencia comunitaria?",
+      "type": "multiple_choice",
+      "options": [
+        "Informatizarla",
+        "Reflexionar críticamente sobre lo vivido para extraer aprendizajes transferibles",
+        "Escribir un informe largo",
+        "Publicarla en redes sociales"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Sistematizar es más que documentar: es analizar qué funcionó, qué no y por qué, para que otros puedan aprender de tu experiencia.",
+      "points": 2,
+      "orderIndex": 7,
+      "legacyQuestionId": 567
+    },
+    {
+      "question": "Para iniciar acción ciudadana, es mejor esperar a tener un grupo grande organizado antes de hacer cualquier cosa.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "Es mejor empezar con 3-5 personas comprometidas y un problema concreto que esperar a tener una organización perfecta.",
+      "points": 1,
+      "orderIndex": 8,
+      "legacyQuestionId": 568
+    }
+  ]
+}

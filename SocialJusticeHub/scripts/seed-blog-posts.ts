@@ -157,6 +157,17 @@ const baseBlogPostsData = [
     publishedAt: new Date("2026-03-12").toISOString(),
     tags: ["patrones", "política", "pensamiento crítico", "transformación", "Argentina"],
   },
+  {
+    title: "Refinarse o Repetirse",
+    slug: createSlug("Refinarse o Repetirse"),
+    category: "Filosofía",
+    type: "blog" as const,
+    featured: true,
+    imageUrl: "https://images.unsplash.com/photo-1504198453319-5ce911bafcde?w=800&h=400&fit=crop",
+    authorId: 1,
+    publishedAt: new Date("2026-04-02").toISOString(),
+    tags: ["refinamiento", "supuestos", "transformación", "iteración", "propósito"],
+  },
 ];
 
 const blogPostsData = baseBlogPostsData.map((post) => {

@@ -1,0 +1,116 @@
+{
+  "title": "Quiz: Diseño de Instituciones",
+  "description": "Evaluá tu capacidad para diseñar propuestas institucionales.",
+  "passingScore": 70,
+  "timeLimit": 15,
+  "allowRetakes": true,
+  "maxAttempts": 3,
+  "legacyQuizId": 63,
+  "questions": [
+    {
+      "question": "¿Cuál es el primer paso del framework del diseñador institucional?",
+      "type": "multiple_choice",
+      "options": [
+        "Proponer una solución",
+        "Diagnosticar el problema",
+        "Juntar firmas",
+        "Comunicar la propuesta"
+      ],
+      "correctAnswer": 1,
+      "explanation": "El diagnóstico riguroso es la base de toda propuesta efectiva.",
+      "points": 2,
+      "orderIndex": 1,
+      "legacyQuestionId": 603
+    },
+    {
+      "question": "La mayoría de los problemas institucionales se deben a personas malas, no a incentivos mal diseñados.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "Los problemas institucionales suelen ser resultado de incentivos mal diseñados que producen malos comportamientos.",
+      "points": 1,
+      "orderIndex": 2,
+      "legacyQuestionId": 604
+    },
+    {
+      "question": "¿Qué es una coalición transversal?",
+      "type": "multiple_choice",
+      "options": [
+        "Un partido político",
+        "Una alianza de actores diversos unidos por un objetivo concreto",
+        "Un sindicato",
+        "Una organización gubernamental"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La coalición transversal une actores diversos que pueden no estar de acuerdo en todo pero sí en un objetivo específico.",
+      "points": 2,
+      "orderIndex": 3,
+      "legacyQuestionId": 605
+    },
+    {
+      "question": "¿Cuántas firmas se necesitan aproximadamente para una iniciativa popular nacional?",
+      "type": "multiple_choice",
+      "options": [
+        "1.000",
+        "50.000",
+        "500.000 (1.5% del padrón)",
+        "5.000.000"
+      ],
+      "correctAnswer": 2,
+      "explanation": "La iniciativa popular requiere el 1.5% del padrón electoral, aproximadamente 500.000 firmas de al menos 6 distritos.",
+      "points": 2,
+      "orderIndex": 4,
+      "legacyQuestionId": 606
+    },
+    {
+      "question": "El presupuesto participativo permite a los vecinos opinar sobre el gasto pero no decidir.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "En el presupuesto participativo, los vecinos DECIDEN directamente en qué se invierte una porción del presupuesto.",
+      "points": 1,
+      "orderIndex": 5,
+      "legacyQuestionId": 607
+    },
+    {
+      "question": "¿Qué componente es esencial en un proyecto de ley para que no sea \"decorativo\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Un título creativo",
+        "Autoridad de aplicación y sanciones por incumplimiento",
+        "Muchos artículos",
+        "Referencias a leyes extranjeras"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Sin autoridad de aplicación y sanciones, una ley es solo una declaración de buenas intenciones.",
+      "points": 2,
+      "orderIndex": 6,
+      "legacyQuestionId": 608
+    },
+    {
+      "question": "DemocracyOS es una plataforma argentina de civic tech para deliberación online.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": true,
+      "explanation": "DemocracyOS fue creada en Argentina por el Partido de la Red para permitir deliberación ciudadana sobre proyectos de ley.",
+      "points": 1,
+      "orderIndex": 7,
+      "legacyQuestionId": 609
+    },
+    {
+      "question": "¿Cuál es la diferencia clave entre quejarse y proponer?",
+      "type": "multiple_choice",
+      "options": [
+        "Quejarse es más fácil",
+        "Proponer requiere diagnóstico, diseño, validación y un plan de implementación",
+        "Proponer requiere título universitario",
+        "No hay diferencia real"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Proponer requiere un proceso riguroso de diagnóstico, investigación, diseño y planificación.",
+      "points": 2,
+      "orderIndex": 8,
+      "legacyQuestionId": 610
+    }
+  ]
+}

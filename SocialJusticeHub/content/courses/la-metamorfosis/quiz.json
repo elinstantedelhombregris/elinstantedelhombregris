@@ -1,0 +1,125 @@
+{
+  "title": "Evaluación Final: La Metamorfosis",
+  "description": "Reflexioná sobre tu recorrido de transformación personal y tu comprensión del camino del Hombre Gris.",
+  "passingScore": 70,
+  "timeLimit": 25,
+  "allowRetakes": true,
+  "maxAttempts": 3,
+  "legacyQuizId": 28,
+  "questions": [
+    {
+      "question": "En la metáfora de Nietzsche, ¿qué representa el Camello?",
+      "type": "multiple_choice",
+      "options": [
+        "La rebeldía contra el sistema",
+        "La creatividad libre e inocente",
+        "El espíritu que carga los pesos y mandatos impuestos diciendo \"yo puedo\"",
+        "La sabiduría del líder experimentado"
+      ],
+      "correctAnswer": "El espíritu que carga los pesos y mandatos impuestos diciendo \"yo puedo\"",
+      "explanation": "El Camello es la primera transformación: el espíritu que busca las cargas más pesadas — mandatos familiares, culturales, económicos — y las lleva por el desierto sin cuestionarlas.",
+      "points": 1,
+      "orderIndex": 1,
+      "legacyQuestionId": 553
+    },
+    {
+      "question": "Según el curso, la transformación del Camello al León al Niño es un proceso lineal donde se abandona cada etapa al pasar a la siguiente.",
+      "type": "true_false",
+      "options": [
+        "Verdadero",
+        "Falso"
+      ],
+      "correctAnswer": "Falso",
+      "explanation": "La persona madura integra las tres transformaciones simultáneamente: sabe cuándo cargar (Camello), cuándo poner límites (León) y cuándo crear (Niño). No es lineal sino integrador.",
+      "points": 1,
+      "orderIndex": 2,
+      "legacyQuestionId": 554
+    },
+    {
+      "question": "¿Qué es el \"Gran Dragón\" en la metáfora de Nietzsche y cómo se manifiesta en la vida real?",
+      "type": "multiple_choice",
+      "options": [
+        "Es un monstruo literal que hay que derrotar con fuerza",
+        "Son los mandatos, expectativas y \"debes\" internalizados que confundimos con nuestra propia voz",
+        "Es la sociedad entera que hay que destruir para ser libre",
+        "Es el miedo a la muerte que todos enfrentamos"
+      ],
+      "correctAnswer": "Son los mandatos, expectativas y \"debes\" internalizados que confundimos con nuestra propia voz",
+      "explanation": "El Gran Dragón tiene escamas donde dice \"tú debes\" — son los mandatos familiares, culturales y económicos que asumimos como propios sin cuestionarlos.",
+      "points": 1,
+      "orderIndex": 3,
+      "legacyQuestionId": 555
+    },
+    {
+      "question": "¿Por qué el curso advierte que el León tiene un peligro?",
+      "type": "multiple_choice",
+      "options": [
+        "Porque puede volverse violento físicamente",
+        "Porque puede quedarse atrapado en la destrucción y la rebeldía permanente sin nunca crear",
+        "Porque puede asustar a las demás personas",
+        "Porque el rugido desgasta la voz"
+      ],
+      "correctAnswer": "Porque puede quedarse atrapado en la destrucción y la rebeldía permanente sin nunca crear",
+      "explanation": "El León que solo dice \"no\" y nunca crea es tan esclavo como el Camello — su cadena es la rebeldía permanente. El León es una etapa necesaria pero transitoria.",
+      "points": 1,
+      "orderIndex": 4,
+      "legacyQuestionId": 556
+    },
+    {
+      "question": "Según los estudios de Christakis y Fowler, los comportamientos se propagan hasta tres grados de separación en las redes sociales.",
+      "type": "true_false",
+      "options": [
+        "Verdadero",
+        "Falso"
+      ],
+      "correctAnswer": "Verdadero",
+      "explanation": "La investigación de Christakis y Fowler en Harvard demostró que comportamientos como la felicidad, la obesidad y los hábitos se propagan hasta tres grados de separación: amigos, amigos de amigos, y amigos de amigos de amigos.",
+      "points": 1,
+      "orderIndex": 5,
+      "legacyQuestionId": 557
+    },
+    {
+      "question": "¿Qué significa la estrategia \"Tit for Tat\" aplicada como filosofía de vida del Hombre Gris?",
+      "type": "multiple_choice",
+      "options": [
+        "Vengarse de quien te hizo daño",
+        "Empezar siempre cooperando, responder a la reciprocidad y perdonar rápido cuando el otro vuelve a cooperar",
+        "No confiar en nadie hasta que demuestren ser confiables",
+        "Hacer exactamente lo mismo que hacen los demás"
+      ],
+      "correctAnswer": "Empezar siempre cooperando, responder a la reciprocidad y perdonar rápido cuando el otro vuelve a cooperar",
+      "explanation": "Tit for Tat como filosofía del Hombre Gris significa dar el primer paso de confianza, responder a la cooperación con cooperación, poner límites si hay traición, pero perdonar rápido si el otro vuelve a cooperar.",
+      "points": 1,
+      "orderIndex": 6,
+      "legacyQuestionId": 558
+    },
+    {
+      "question": "Según Damon Centola, ¿qué porcentaje aproximado de la población comprometida con un nuevo comportamiento se necesita para que se convierta en norma social?",
+      "type": "multiple_choice",
+      "options": [
+        "El 5%",
+        "El 25%",
+        "El 51% (mayoría simple)",
+        "El 90%"
+      ],
+      "correctAnswer": "El 25%",
+      "explanation": "Los estudios de Centola sugieren que aproximadamente un 25% de la población comprometida con un nuevo comportamiento es suficiente para que se convierta en norma social — la masa crítica.",
+      "points": 1,
+      "orderIndex": 7,
+      "legacyQuestionId": 559
+    },
+    {
+      "question": "El \"Instante del Hombre Gris\" es un evento espectacular y único que sucede una sola vez en la vida.",
+      "type": "true_false",
+      "options": [
+        "Verdadero",
+        "Falso"
+      ],
+      "correctAnswer": "Falso",
+      "explanation": "El Instante del Hombre Gris no es un evento espectacular sino una práctica diaria: elegir cada día quién ser, qué cargar, qué soltar, qué crear. Cada instante es una elección.",
+      "points": 1,
+      "orderIndex": 8,
+      "legacyQuestionId": 560
+    }
+  ]
+}

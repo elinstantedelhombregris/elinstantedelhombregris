@@ -1,0 +1,111 @@
+{
+  "title": "Quiz: Narrativas que Transforman",
+  "description": "Evaluá tu comprensión del storytelling para el cambio social.",
+  "passingScore": 70,
+  "timeLimit": 15,
+  "allowRetakes": true,
+  "maxAttempts": 3,
+  "legacyQuizId": 66,
+  "questions": [
+    {
+      "question": "¿Por qué las historias son más efectivas que los datos para generar acción?",
+      "type": "multiple_choice",
+      "options": [
+        "Porque la gente no entiende datos",
+        "Porque activan áreas emocionales, sensoriales y motoras del cerebro",
+        "Porque son más fáciles de inventar",
+        "Porque los datos siempre mienten"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Las historias activan múltiples áreas del cerebro simultáneamente, incluyendo empatía y respuesta motora, generando mayor impacto.",
+      "points": 2,
+      "orderIndex": 1,
+      "legacyQuestionId": 631
+    },
+    {
+      "question": "El storytelling para el cambio social debe exagerar la realidad para generar impacto.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "La verdad radical es el primer principio. La exageración destruye credibilidad.",
+      "points": 1,
+      "orderIndex": 2,
+      "legacyQuestionId": 632
+    },
+    {
+      "question": "¿Cuáles son las tres historias del framework de Marshall Ganz?",
+      "type": "multiple_choice",
+      "options": [
+        "Historia corta, media y larga",
+        "Story of Self, Story of Us, Story of Now",
+        "Inicio, nudo y desenlace",
+        "Problema, solución y acción"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Ganz propone tres historias interconectadas: la personal (Self), la comunitaria (Us) y la urgente (Now).",
+      "points": 2,
+      "orderIndex": 3,
+      "legacyQuestionId": 633
+    },
+    {
+      "question": "En video, el audio es más importante que la calidad de imagen.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": true,
+      "explanation": "La gente tolera imagen mediocre pero no tolera audio malo. El sonido es prioridad.",
+      "points": 1,
+      "orderIndex": 4,
+      "legacyQuestionId": 634
+    },
+    {
+      "question": "¿Qué es \"poverty porn\" en el contexto narrativo?",
+      "type": "multiple_choice",
+      "options": [
+        "Documentales sobre pobreza",
+        "Mostrar sufrimiento extremo como espectáculo sin dignificar a las personas",
+        "Investigación periodística sobre desigualdad",
+        "Campañas de recaudación de fondos"
+      ],
+      "correctAnswer": 1,
+      "explanation": "El poverty porn instrumentaliza el sufrimiento sin respetar la dignidad de las personas, convirtiéndolas en objetos de lástima.",
+      "points": 2,
+      "orderIndex": 5,
+      "legacyQuestionId": 635
+    },
+    {
+      "question": "Una campaña narrativa debe medir su éxito por la cantidad de likes que recibe.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "El éxito se mide por conversaciones generadas, acciones tomadas y cambio logrado, no por métricas de vanidad.",
+      "points": 1,
+      "orderIndex": 6,
+      "legacyQuestionId": 636
+    },
+    {
+      "question": "¿Cuál es la diferencia clave entre storytelling y propaganda?",
+      "type": "multiple_choice",
+      "options": [
+        "El storytelling es más largo",
+        "El storytelling complejiza y revela; la propaganda simplifica y manipula",
+        "La propaganda usa video y el storytelling usa texto",
+        "No hay diferencia"
+      ],
+      "correctAnswer": 1,
+      "explanation": "El storytelling transformador muestra complejidad y respeta la inteligencia del lector; la propaganda simplifica y manipula.",
+      "points": 2,
+      "orderIndex": 7,
+      "legacyQuestionId": 637
+    },
+    {
+      "question": "Antes de publicar la historia de otra persona, siempre debés obtener su consentimiento informado.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": true,
+      "explanation": "El consentimiento informado es un principio ético irrenunciable del storytelling responsable.",
+      "points": 1,
+      "orderIndex": 8,
+      "legacyQuestionId": 638
+    }
+  ]
+}

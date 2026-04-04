@@ -1,7 +1,7 @@
 # La Tribu — Mission Workspaces Reconversion
 
 **Date:** 2026-04-03
-**Status:** Approved design, pending implementation
+**Status:** Implemented
 **Scope:** Complete the mission-centric reconversion of La Tribu (Community page) with API plumbing, mission detail pages, and citizen participation flow.
 
 ---

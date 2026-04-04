@@ -13,6 +13,11 @@ import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, 
 import { useToast } from '@/hooks/use-toast';
 import { UserContext } from '@/App';
 import { apiRequest } from '@/lib/queryClient';
+import { MISSION_META, STATE_META, TEMPORAL_META } from '@/lib/initiative-utils';
+import { MISSIONS } from '../../../shared/mission-registry';
+import { STRATEGIC_INITIATIVES } from '../../../shared/strategic-initiatives';
+import { CitizenRoleList } from '@/components/CitizenRoleBadge';
+import type { MissionSlug } from '../../../shared/strategic-initiatives';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import {
@@ -64,6 +69,7 @@ interface InitiativeDetail {
       totalMembers: number;
     };
   };
+  missionSlug?: string;
   createdAt: string;
 }
 
@@ -128,6 +134,71 @@ interface MembershipRequest {
     name: string;
     username: string;
   } | null;
+}
+
+function MissionBanner({ missionSlug }: { missionSlug: string }) {
+  const mission = MISSIONS.find(m => m.slug === missionSlug);
+  const meta = MISSION_META[missionSlug as MissionSlug];
+  if (!mission || !meta) return null;
+
+  const missionInitiatives = STRATEGIC_INITIATIVES.filter(
+    i => i.missionSlug === missionSlug || i.secondaryMissionSlug === missionSlug
+  );
+
+  return (
+    <div className="mb-6 space-y-4">
+      {/* Mission context banner */}
+      <div className={`rounded-2xl border border-slate-200 bg-gradient-to-r ${meta.gradient} p-6`}>
+        <div className="flex items-start gap-4">
+          <div className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0" style={{ backgroundColor: `${meta.accent}15` }}>
+            <meta.icon className="w-6 h-6" style={{ color: meta.accent }} />
+          </div>
+          <div className="flex-1 min-w-0">
+            <div className="flex items-center gap-2 mb-1">
+              <span className="text-xs font-bold tracking-wider uppercase" style={{ color: meta.accent }}>
+                Misión {meta.number}
+              </span>
+            </div>
+            <h2 className="text-xl font-bold text-slate-900 mb-2">{meta.label}</h2>
+            <p className="text-sm text-slate-600 italic mb-3">"{mission.whatHurts}"</p>
+            <p className="text-sm text-slate-700 font-medium">{mission.whatWeGuarantee}</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Linked plans strip */}
+      {missionInitiatives.length > 0 && (
+        <div>
+          <h3 className="text-sm font-semibold text-slate-700 mb-2">Planes vinculados</h3>
+          <div className="flex flex-wrap gap-2">
+            {missionInitiatives.map(initiative => (
+              <a
+                key={initiative.slug}
+                href={`/recursos/iniciativas/${initiative.slug}`}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-white border border-slate-200 text-slate-700 hover:border-slate-300 hover:shadow-sm transition-all"
+              >
+                {initiative.state && (
+                  <span className={`w-2 h-2 rounded-full ${
+                    initiative.state === 'verde' ? 'bg-emerald-500' :
+                    initiative.state === 'ambar' ? 'bg-amber-500' : 'bg-red-500'
+                  }`} />
+                )}
+                {initiative.title}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Citizen roles */}
+      {mission.citizenRoles.length > 0 && (
+        <div>
+          <h3 className="text-sm font-semibold text-slate-700 mb-2">Roles ciudadanos que necesitamos</h3>
+          <CitizenRoleList roles={mission.citizenRoles} />
+        </div>
+      )}
+    </div>
+  );
 }
 
 export default function InitiativeDetail() {
@@ -671,6 +742,11 @@ export default function InitiativeDetail() {
               </div>
             </div>
           </div>
+
+          {/* Mission Banner (for mission-type posts) */}
+          {initiative?.type === 'mission' && initiative.missionSlug && (
+            <MissionBanner missionSlug={initiative.missionSlug} />
+          )}
 
           {/* Tabs */}
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">

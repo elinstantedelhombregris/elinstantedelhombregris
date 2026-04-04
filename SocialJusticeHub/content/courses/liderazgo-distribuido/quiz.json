@@ -1,0 +1,125 @@
+{
+  "title": "Evaluación: Liderazgo Distribuido",
+  "description": "Evaluá tu comprensión del liderazgo distribuido y tu capacidad para aplicarlo.",
+  "passingScore": 70,
+  "timeLimit": 20,
+  "allowRetakes": true,
+  "maxAttempts": 3,
+  "legacyQuizId": 27,
+  "questions": [
+    {
+      "question": "¿Cuál es la principal diferencia entre el liderazgo distribuido y la ausencia de liderazgo?",
+      "type": "multiple_choice",
+      "options": [
+        "No hay diferencia, en ambos casos nadie manda",
+        "En el liderazgo distribuido, la función de conducción existe pero rota según el contexto y las capacidades",
+        "El liderazgo distribuido solo funciona en grupos pequeños",
+        "El liderazgo distribuido requiere que todos tengan el mismo nivel de experiencia"
+      ],
+      "correctAnswer": "En el liderazgo distribuido, la función de conducción existe pero rota según el contexto y las capacidades",
+      "explanation": "El liderazgo distribuido no elimina la conducción — la distribuye según quién tiene la capacidad más relevante para cada situación.",
+      "points": 1,
+      "orderIndex": 1,
+      "legacyQuestionId": 545
+    },
+    {
+      "question": "Según el curso, el \"radio de confianza\" en Argentina es amplio y la gente confía fácilmente en desconocidos.",
+      "type": "true_false",
+      "options": [
+        "Verdadero",
+        "Falso"
+      ],
+      "correctAnswer": "Falso",
+      "explanation": "El radio de confianza en Argentina es cortísimo: tendemos a confiar solo en la familia cercana y sospechar de todos los demás, lo que genera enormes costos de transacción.",
+      "points": 1,
+      "orderIndex": 2,
+      "legacyQuestionId": 546
+    },
+    {
+      "question": "¿Qué es la \"empatía ruinosa\" según Kim Scott?",
+      "type": "multiple_choice",
+      "options": [
+        "Ser demasiado empático con los enemigos",
+        "Ser directo pero sin empatía, humillando al otro",
+        "Callar la verdad para no herir, permitiendo que los problemas persistan",
+        "Mostrar empatía solo cuando conviene políticamente"
+      ],
+      "correctAnswer": "Callar la verdad para no herir, permitiendo que los problemas persistan",
+      "explanation": "La empatía ruinosa es cuando callamos feedback importante por miedo a herir. Parece compasión, pero en realidad permite que los problemas se agraven.",
+      "points": 1,
+      "orderIndex": 3,
+      "legacyQuestionId": 547
+    },
+    {
+      "question": "Un compañero de tu cooperativa llega tarde a todas las reuniones. Usando el método SBI, ¿cuál sería el feedback más efectivo?",
+      "type": "multiple_choice",
+      "options": [
+        "\"Siempre llegás tarde, sos un irresponsable\"",
+        "\"En las últimas tres reuniones llegaste 30 minutos tarde. Eso hizo que el grupo te esperara y perdiéramos casi una hora y media de trabajo colectivo\"",
+        "\"No pasa nada, cada uno tiene sus tiempos\"",
+        "\"Si no podés llegar a horario, mejor no vengas\""
+      ],
+      "correctAnswer": "En las últimas tres reuniones llegaste 30 minutos tarde. Eso hizo que el grupo te esperara y perdiéramos casi una hora y media de trabajo colectivo",
+      "explanation": "El método SBI describe la Situación específica, el Comportamiento observable y el Impacto concreto, sin atacar a la persona ni minimizar el problema.",
+      "points": 1,
+      "orderIndex": 4,
+      "legacyQuestionId": 548
+    },
+    {
+      "question": "Según el curso, si tu proyecto funciona perfectamente sin vos durante una semana, eso significa que fracasaste como líder.",
+      "type": "true_false",
+      "options": [
+        "Verdadero",
+        "Falso"
+      ],
+      "correctAnswer": "Falso",
+      "explanation": "Al contrario: que el proyecto funcione sin vos es la prueba máxima de éxito en el liderazgo distribuido. Significa que construiste autonomía, no dependencia.",
+      "points": 1,
+      "orderIndex": 5,
+      "legacyQuestionId": 549
+    },
+    {
+      "question": "¿Cuál es la primera acción recomendada en las primeras 24 horas de una crisis grupal?",
+      "type": "multiple_choice",
+      "options": [
+        "Tomar decisiones rápidas e irreversibles antes de que empeore",
+        "Esperar a que la crisis pase sola para no generar pánico",
+        "Convocar al grupo, nombrar lo que está pasando y dar un siguiente paso concreto",
+        "Buscar un líder fuerte que tome el control"
+      ],
+      "correctAnswer": "Convocar al grupo, nombrar lo que está pasando y dar un siguiente paso concreto",
+      "explanation": "En las primeras horas de crisis, lo esencial es contener: juntar a la gente, nombrar la situación sin minimizarla, y proponer un próximo paso concreto para reducir la ansiedad.",
+      "points": 1,
+      "orderIndex": 6,
+      "legacyQuestionId": 550
+    },
+    {
+      "question": "¿Qué es un \"pre-mortem\" y para qué sirve?",
+      "type": "multiple_choice",
+      "options": [
+        "Una revisión de lo que salió mal después de un fracaso",
+        "Un ejercicio donde imaginás que el proyecto ya fracasó y analizás por qué, para tomar acciones preventivas",
+        "Una técnica de meditación para reducir la ansiedad sobre el futuro",
+        "Un documento legal que protege al grupo en caso de crisis"
+      ],
+      "correctAnswer": "Un ejercicio donde imaginás que el proyecto ya fracasó y analizás por qué, para tomar acciones preventivas",
+      "explanation": "El pre-mortem de Gary Klein invierte la lógica: en vez de esperar al fracaso para aprender, imagina el fracaso por adelantado y trabaja para prevenirlo.",
+      "points": 1,
+      "orderIndex": 7,
+      "legacyQuestionId": 551
+    },
+    {
+      "question": "El mentor ideal da respuestas claras y directas para que la persona mentoreada no pierda tiempo equivocándose.",
+      "type": "true_false",
+      "options": [
+        "Verdadero",
+        "Falso"
+      ],
+      "correctAnswer": "Falso",
+      "explanation": "El mentor acompaña con preguntas, no con respuestas. Como un guía de montaña (no un GPS), enseña a la persona a leer el terreno y tomar sus propias decisiones, incluso si eso implica equivocarse.",
+      "points": 1,
+      "orderIndex": 8,
+      "legacyQuestionId": 552
+    }
+  ]
+}

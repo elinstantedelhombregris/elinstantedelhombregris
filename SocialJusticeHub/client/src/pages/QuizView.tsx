@@ -1,6 +1,6 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useParams, Link } from 'wouter';
 import { useQuery, useMutation } from '@tanstack/react-query';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -23,6 +23,10 @@ import QuizQuestion from '@/components/QuizQuestion';
 import { useContext } from 'react';
 import { UserContext } from '@/App';
 import { useToast } from '@/hooks/use-toast';
+import { buildQuizMetadata } from '@shared/course-seo';
+import { useSeoMetadata } from '@/lib/seo';
+import { apiRequest } from '@/lib/queryClient';
+import { areRequiredLessonsComplete, parseCompletedLessonIds } from '@/lib/course-surface';
 
 interface Quiz {
   id: number;
@@ -47,6 +51,33 @@ interface Question {
 
 type QuizState = 'instructions' | 'taking' | 'results';
 
+interface CourseLesson {
+  id: number;
+  orderIndex: number;
+  isRequired: boolean;
+}
+
+interface CourseProgress {
+  completedLessons?: string;
+}
+
+interface CourseData {
+  course?: {
+    id: number;
+    slug: string;
+    title: string;
+    description: string;
+    excerpt?: string | null;
+    searchSummary?: string | null;
+    thumbnailUrl?: string | null;
+    ogImageUrl?: string | null;
+  };
+  quiz?: (Quiz & { questions?: Question[] }) | null;
+  lessons?: CourseLesson[];
+  completedLessons?: unknown;
+  userProgress?: CourseProgress | null;
+}
+
 const QuizView = () => {
   const { courseSlug } = useParams();
   const { toast } = useToast();
@@ -59,18 +90,26 @@ const QuizView = () => {
   const [startTime, setStartTime] = useState<Date | null>(null);
 
   // Fetch course and quiz data
-  const { data: courseData } = useQuery({
+  const { data: courseData } = useQuery<CourseData>({
     queryKey: ['course', courseSlug],
     queryFn: async () => {
-      const response = await fetch(`/api/courses/${courseSlug}`);
+      const response = await apiRequest('GET', `/api/courses/${courseSlug}`);
       if (!response.ok) throw new Error('Error al cargar el curso');
       return response.json();
     },
   });
 
-  const quiz: Quiz | null = courseData?.quiz;
-  const questions: Question[] = quiz ? (courseData?.quiz.questions || []) : [];
+  const quiz = courseData?.quiz ?? null;
+  const questions: Question[] = quiz?.questions ?? [];
   const course = courseData?.course;
+  const lessons = courseData?.lessons ?? [];
+  const completedLessons = parseCompletedLessonIds(courseData?.completedLessons, courseData?.userProgress?.completedLessons);
+  const quizUnlocked = areRequiredLessonsComplete(lessons, completedLessons);
+  const seoMetadata = useMemo(
+    () => (course ? buildQuizMetadata(course, typeof window !== 'undefined' ? window.location.origin : undefined) : null),
+    [course],
+  );
+  useSeoMetadata(seoMetadata);
 
   // Timer effect
   useEffect(() => {
@@ -92,12 +131,7 @@ const QuizView = () => {
 
   const startQuizMutation = useMutation({
     mutationFn: async () => {
-      const response = await fetch(`/api/courses/${course?.id}/quiz/attempt`, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${localStorage.getItem('authToken')}`
-        }
-      });
+      const response = await apiRequest('POST', `/api/courses/${course?.id}/quiz/attempt`);
       if (!response.ok) {
         const error = await response.json();
         throw new Error(error.message || 'Error al iniciar el quiz');
@@ -128,16 +162,10 @@ const QuizView = () => {
         answer
       }));
 
-      const response = await fetch(
+      const response = await apiRequest(
+        'POST',
         `/api/courses/${course?.id}/quiz/attempt/${attemptId}/submit`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${localStorage.getItem('authToken')}`
-          },
-          body: JSON.stringify({ answers: answersArray })
-        }
+        { answers: answersArray }
       );
       if (!response.ok) throw new Error('Error al enviar el quiz');
       return response.json();
@@ -215,9 +243,6 @@ const QuizView = () => {
   };
 
   useEffect(() => {
-    if (course) {
-      document.title = `Quiz - ${course.title}`;
-    }
     window.scrollTo(0, 0);
   }, [course]);
 
@@ -255,6 +280,29 @@ const QuizView = () => {
         <Header />
         <div className="container mx-auto px-4 py-12">
           <p className="text-center text-gray-600">Quiz no encontrado</p>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
+
+  if (!quizUnlocked) {
+    return (
+      <div className="min-h-screen bg-gray-50">
+        <Header />
+        <div className="container mx-auto px-4 py-12">
+          <Card className="max-w-2xl mx-auto">
+            <CardContent className="p-8 text-center">
+              <AlertCircle className="w-16 h-16 text-amber-500 mx-auto mb-4" />
+              <h2 className="text-2xl font-bold mb-4">Quiz todavía bloqueado</h2>
+              <p className="text-gray-600 mb-6">
+                Completa las lecciones requeridas del curso antes de rendir el quiz final.
+              </p>
+              <Link href={`/recursos/guias-estudio/${courseSlug}`}>
+                <Button>Volver al curso</Button>
+              </Link>
+            </CardContent>
+          </Card>
         </div>
         <Footer />
       </div>

@@ -1,8 +1,8 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useParams, Link } from 'wouter';
-import { useQuery, useMutation } from '@tanstack/react-query';
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { motion } from 'framer-motion';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -28,6 +28,15 @@ import { UserContext } from '@/App';
 import { useToast } from '@/hooks/use-toast';
 import { apiRequest } from '@/lib/queryClient';
 import { getCategoryLabel, getLevelLabel } from '@/lib/course-utils';
+import { buildCourseMetadata } from '@shared/course-seo';
+import { deriveSearchSummary } from '@shared/course-content';
+import { useSeoMetadata } from '@/lib/seo';
+import {
+  areRequiredLessonsComplete,
+  getContinueLessonId,
+  isLessonLocked,
+  parseCompletedLessonIds,
+} from '@/lib/course-surface';
 
 interface Course {
   id: number;
@@ -43,6 +52,12 @@ interface Course {
   viewCount: number;
   isFeatured?: boolean;
   requiresAuth?: boolean;
+  seoTitle?: string | null;
+  seoDescription?: string | null;
+  searchSummary?: string | null;
+  ogImageUrl?: string | null;
+  lastReviewedAt?: string | null;
+  indexable?: boolean | null;
   author?: {
     id: number;
     name: string;
@@ -87,6 +102,7 @@ const CourseDetail = () => {
     isLoggedIn: false
   };
   const [activeTab, setActiveTab] = useState('content');
+  const queryClient = useQueryClient();
 
   const { data, isLoading, error } = useQuery({
     queryKey: ['course', slug],
@@ -102,6 +118,8 @@ const CourseDetail = () => {
       return response.json();
     },
     onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['course', slug] });
+      queryClient.invalidateQueries({ queryKey: ['user-courses'] });
       toast({
         title: 'Curso iniciado',
         description: 'Puedes comenzar a estudiar ahora',
@@ -117,9 +135,6 @@ const CourseDetail = () => {
   });
 
   useEffect(() => {
-    if (data?.course) {
-      document.title = `${data.course.title} - El Instante del Hombre Gris`;
-    }
     // Removed automatic scroll - let user control scroll position
     // This prevents page jumping when data loads
   }, [data]);
@@ -169,12 +184,31 @@ const CourseDetail = () => {
   const lessons: Lesson[] = Array.from(lessonsMap.values()).sort((a, b) => a.orderIndex - b.orderIndex);
   const quiz: Quiz | null = data.quiz;
   const userProgress = data.userProgress;
-  const completedLessons = data.completedLessons 
-    ?? (userProgress?.completedLessons ? JSON.parse(userProgress.completedLessons) : []);
+  const completedLessons = parseCompletedLessonIds(data.completedLessons, userProgress?.completedLessons);
+
+  const courseSummary = deriveSearchSummary(course.searchSummary, course.excerpt || course.description, 220);
+  const seoMetadata = useMemo(
+    () => buildCourseMetadata(course, typeof window !== 'undefined' ? window.location.origin : undefined),
+    [course],
+  );
+  useSeoMetadata(seoMetadata);
 
   const isInProgress = userProgress?.status === 'in_progress';
   const isCompleted = userProgress?.status === 'completed';
   const progress = userProgress?.progress || 0;
+  const requiresAuth = course.requiresAuth !== false;
+  const lessonAccessContext = {
+    lessons,
+    completedLessonIds: completedLessons,
+    requiresAuth,
+    isLoggedIn: safeUserContext.isLoggedIn,
+  };
+  const continueLessonId = getContinueLessonId({
+    ...lessonAccessContext,
+    currentLessonId: userProgress?.currentLessonId,
+  });
+  const quizUnlocked = areRequiredLessonsComplete(lessons, completedLessons);
+  const canTakeQuiz = Boolean(quiz) && safeUserContext.isLoggedIn && quizUnlocked;
 
   const handleStartCourse = () => {
     if (!safeUserContext.isLoggedIn) {
@@ -241,6 +275,16 @@ const CourseDetail = () => {
                   <p className="text-slate-700 text-lg">
                     {course.description}
                   </p>
+                  {courseSummary && (
+                    <div className="mt-5 rounded-2xl border border-emerald-200/70 bg-emerald-50/80 px-4 py-3">
+                      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-700 mb-1">
+                        En síntesis
+                      </p>
+                      <p className="text-sm text-emerald-950/85 leading-relaxed">
+                        {courseSummary}
+                      </p>
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -269,33 +313,48 @@ const CourseDetail = () => {
                     <span>{course.author.name}</span>
                   </div>
                 )}
+                {course.lastReviewedAt && (
+                  <div className="flex items-center gap-2">
+                    <FileText className="w-4 h-4" />
+                    <span>Revisado {new Date(course.lastReviewedAt).toLocaleDateString('es-AR')}</span>
+                  </div>
+                )}
               </div>
 
               {/* Action Button */}
               <div className="mt-6">
                 {safeUserContext.isLoggedIn ? (
-                  isInProgress ? (
-                    <Link href={`/recursos/guias-estudio/${course.slug}/leccion/${lessons[0]?.id}`}>
+                  isCompleted ? (
+                    <div className="flex items-center gap-4">
+                      {continueLessonId ? (
+                        <Link href={`/recursos/guias-estudio/${course.slug}/leccion/${continueLessonId}`}>
+                          <Button size="lg" variant="outline" className="gap-2">
+                            <CheckCircle2 className="w-5 h-5" />
+                            Repasar Curso
+                          </Button>
+                        </Link>
+                      ) : (
+                        <Button size="lg" variant="outline" className="gap-2">
+                          <CheckCircle2 className="w-5 h-5" />
+                          Curso Completado
+                        </Button>
+                      )}
+                      {canTakeQuiz && (
+                        <Link href={`/recursos/guias-estudio/${course.slug}/quiz`}>
+                          <Button size="lg" variant="outline" className="gap-2">
+                            <Award className="w-5 h-5" />
+                            Ir al Quiz
+                          </Button>
+                        </Link>
+                      )}
+                    </div>
+                  ) : isInProgress && continueLessonId ? (
+                    <Link href={`/recursos/guias-estudio/${course.slug}/leccion/${continueLessonId}`}>
                       <Button size="lg" className="gap-2">
                         <PlayCircle className="w-5 h-5" />
                         Continuar Curso
                       </Button>
                     </Link>
-                  ) : isCompleted ? (
-                    <div className="flex items-center gap-4">
-                      <Button size="lg" variant="outline" className="gap-2">
-                        <CheckCircle2 className="w-5 h-5" />
-                        Curso Completado
-                      </Button>
-                      {quiz && (
-                        <Link href={`/recursos/guias-estudio/${course.slug}/quiz`}>
-                          <Button size="lg" variant="outline" className="gap-2">
-                            <Award className="w-5 h-5" />
-                            Ver Certificado
-                          </Button>
-                        </Link>
-                      )}
-                    </div>
                   ) : (
                     <Button
                       size="lg"
@@ -307,8 +366,8 @@ const CourseDetail = () => {
                       {startCourseMutation.isPending ? 'Iniciando...' : 'Comenzar Curso'}
                     </Button>
                   )
-                ) : course.requiresAuth === false && lessons.length > 0 ? (
-                  <Link href={`/recursos/guias-estudio/${course.slug}/leccion/${lessons[0]?.id}`}>
+                ) : course.requiresAuth === false && continueLessonId ? (
+                  <Link href={`/recursos/guias-estudio/${course.slug}/leccion/${continueLessonId}`}>
                     <Button size="lg" className="gap-2">
                       <PlayCircle className="w-5 h-5" />
                       Comenzar Curso
@@ -356,9 +415,7 @@ const CourseDetail = () => {
                     lessons.map((lesson, index) => {
                       const isCompleted = completedLessons.includes(lesson.id);
                       const isCurrent = userProgress?.currentLessonId === lesson.id;
-                      const requiresLogin = course.requiresAuth !== false;
-                      const isLocked = (requiresLogin && !safeUserContext.isLoggedIn) ||
-                        (index > 0 && !completedLessons.includes(lessons[index - 1]?.id) && lessons[index - 1]?.isRequired);
+                      const locked = isLessonLocked(lesson, lessonAccessContext);
 
                       return (
                         <LessonCard
@@ -366,7 +423,7 @@ const CourseDetail = () => {
                           lesson={lesson}
                           isCompleted={isCompleted}
                           isCurrent={isCurrent}
-                          isLocked={isLocked}
+                          isLocked={locked}
                           order={index + 1}
                           courseSlug={course.slug}
                         />
@@ -408,7 +465,7 @@ const CourseDetail = () => {
                   </div>
 
                   {safeUserContext.isLoggedIn ? (
-                    isCompleted || isInProgress ? (
+                    canTakeQuiz ? (
                       <Link href={`/recursos/guias-estudio/${course.slug}/quiz`}>
                         <Button size="lg" className="gap-2">
                           <Award className="w-5 h-5" />
@@ -417,7 +474,7 @@ const CourseDetail = () => {
                       </Link>
                     ) : (
                       <p className="text-slate-600">
-                        Completa todas las lecciones para desbloquear el quiz
+                        Completa las lecciones requeridas para desbloquear el quiz
                       </p>
                     )
                   ) : (
@@ -451,10 +508,10 @@ const CourseDetail = () => {
                           {completedLessons.length} / {lessons.length}
                         </span>
                       </div>
-                      {userProgress.currentLessonId && (
+                      {continueLessonId && (
                         <div className="text-slate-600">
-                          Próxima lección: {
-                            lessons.find(l => l.id === userProgress.currentLessonId)?.title
+                          Seguir con: {
+                            lessons.find(l => l.id === continueLessonId)?.title
                           }
                         </div>
                       )}
@@ -510,4 +567,3 @@ const CourseDetail = () => {
 };
 
 export default CourseDetail;
-

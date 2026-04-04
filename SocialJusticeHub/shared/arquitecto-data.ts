@@ -1,6 +1,8 @@
 // El Arquitecto — Structured ecosystem data for the ¡BASTA! strategic planning platform
 // Extracted from 16 PLANes + support documents (March 2026)
 
+import type { MissionSlug, TemporalOrder, InitiativePriority, InitiativeState } from './strategic-initiatives';
+
 export type DependencyNature = 'CRITICAL' | 'IMPORTANT' | 'MINOR';
 export type DependencyType = 'FINANCIAL' | 'INSTITUTIONAL' | 'TECHNICAL' | 'LEGAL' | 'LABOR' | 'DATA' | 'TEMPORAL';
 export type PlanStatus = 'DRAFT' | 'REVIEW' | 'PUBLISHED' | 'IMPLEMENTING';
@@ -23,6 +25,12 @@ export interface PlanNode {
   mainSource: string;
   color: string; // hex color for visualization
   slug: string; // link to initiative detail page
+  // Mission-centric fields
+  missionSlug: MissionSlug;
+  secondaryMissionSlug?: MissionSlug;
+  temporalOrder: TemporalOrder;
+  priority: InitiativePriority;
+  state: InitiativeState;
 }
 
 export interface Dependency {
@@ -60,6 +68,7 @@ export const PLAN_NODES: PlanNode[] = [
     legalInstruments: 6, constitutionalFloor: '0.25-0.30% PBI',
     mainSource: 'Reasignación presupuesto judicial + tasas comerciales',
     color: '#f59e0b', slug: 'planjus-justicia-popular',
+    missionSlug: 'instituciones-y-futuro', temporalOrder: 'transicion', priority: 'media', state: 'ambar',
   },
   {
     id: 'PLANREP', name: 'Plan Nacional de Reconversión del Empleo Público', ordinal: 2,
@@ -69,6 +78,7 @@ export const PLAN_NODES: PlanNode[] = [
     legalInstruments: 8, constitutionalFloor: null,
     mainSource: 'Presupuesto nacional + BIS + corporativo',
     color: '#10b981', slug: 'planrep-reconversion-empleo-publico',
+    missionSlug: 'produccion-y-suelo-vivo', temporalOrder: 'transicion', priority: 'media', state: 'ambar',
   },
   {
     id: 'PLANEB', name: 'Plan Nacional de Empresas Bastardas', ordinal: 3,
@@ -78,6 +88,7 @@ export const PLAN_NODES: PlanNode[] = [
     legalInstruments: 1, constitutionalFloor: '0.10% PBI',
     mainSource: 'Capitalización ciudadana directa + piso constitucional',
     color: '#10b981', slug: 'planeb-empresas-bastardas',
+    missionSlug: 'produccion-y-suelo-vivo', temporalOrder: 'transicion', priority: 'alta', state: 'verde',
   },
   {
     id: 'PLANMON', name: 'Plan Nacional de Soberanía Monetaria', ordinal: 4,
@@ -87,6 +98,7 @@ export const PLAN_NODES: PlanNode[] = [
     legalInstruments: 5, constitutionalFloor: null,
     mainSource: 'Regalías energéticas + recaudación PLANSUS + comisiones de red',
     color: '#10b981', slug: 'planmon-soberania-monetaria',
+    missionSlug: 'instituciones-y-futuro', temporalOrder: 'permanencia', priority: 'diferida', state: 'rojo',
   },
   {
     id: 'PLANDIG', name: 'Plan Nacional de Soberanía Digital', ordinal: 5,
@@ -96,6 +108,7 @@ export const PLAN_NODES: PlanNode[] = [
     legalInstruments: 1, constitutionalFloor: '0.50-1.0% PBI',
     mainSource: 'Reasignación gasto cloud + presupuesto CyT + multilaterales',
     color: '#06b6d4', slug: 'plandig-soberania-digital',
+    missionSlug: 'territorio-legible', temporalOrder: 'transicion', priority: 'alta', state: 'ambar',
   },
   {
     id: 'PLANSUS', name: 'Plan Nacional de Soberanía sobre Sustancias', ordinal: 6,
@@ -105,6 +118,7 @@ export const PLAN_NODES: PlanNode[] = [
     legalInstruments: 3, constitutionalFloor: '0.10% PBI',
     mainSource: 'Presupuesto nacional + activos decomisados + autofinanciamiento',
     color: '#f43f5e', slug: 'plansus-soberania-sustancias',
+    missionSlug: 'instituciones-y-futuro', temporalOrder: 'transicion', priority: 'diferida', state: 'rojo',
   },
   {
     id: 'PLANEDU', name: 'Plan Nacional de Refundación Educativa', ordinal: 7,
@@ -114,6 +128,7 @@ export const PLAN_NODES: PlanNode[] = [
     legalInstruments: 6, constitutionalFloor: '0.50% PBI',
     mainSource: 'Reasignación educativa + PLANREP ahorro (15%) + incremento PBI',
     color: '#3b82f6', slug: 'planedu-refundacion-educativa',
+    missionSlug: 'infancia-escuela-cultura', temporalOrder: 'emergencia', priority: 'alta', state: 'verde',
   },
   {
     id: 'PLANSAL', name: 'Plan Nacional de Salud Integral y Vitalidad', ordinal: 8,
@@ -123,6 +138,7 @@ export const PLAN_NODES: PlanNode[] = [
     legalInstruments: 7, constitutionalFloor: '0.50-1.50% PBI',
     mainSource: 'Presupuesto nacional (% gasto salud) + reasignación',
     color: '#f43f5e', slug: 'plansal-salud-integral',
+    missionSlug: 'supervivencia-digna', temporalOrder: 'emergencia', priority: 'alta', state: 'verde',
   },
   {
     id: 'PLANISV', name: 'Plan Nacional de Infraestructura de Suelo Vivo', ordinal: 9,
@@ -132,6 +148,7 @@ export const PLAN_NODES: PlanNode[] = [
     legalInstruments: 6, constitutionalFloor: '0.10% PBI',
     mainSource: 'Retenciones agropecuarias + financiamiento internacional + créditos de carbono',
     color: '#22c55e', slug: 'planisv-infraestructura-suelo-vivo',
+    missionSlug: 'produccion-y-suelo-vivo', temporalOrder: 'transicion', priority: 'alta', state: 'verde',
   },
   {
     id: 'PLANAGUA', name: 'Plan Nacional de Soberanía Hídrica', ordinal: 10,
@@ -141,6 +158,7 @@ export const PLAN_NODES: PlanNode[] = [
     legalInstruments: 8, constitutionalFloor: '0.15% PBI',
     mainSource: 'Piso constitucional + créditos hídricos + financiamiento climático',
     color: '#22c55e', slug: 'planagua-soberania-hidrica',
+    missionSlug: 'supervivencia-digna', temporalOrder: 'emergencia', priority: 'alta', state: 'verde',
   },
   {
     id: 'PLAN24CN', name: 'Plan Nacional de 24 Ciudades Nuevas', ordinal: 11,
@@ -150,6 +168,7 @@ export const PLAN_NODES: PlanNode[] = [
     legalInstruments: 5, constitutionalFloor: null,
     mainSource: 'FGS + presupuesto nacional + bonos de ciudad + valorización de suelo',
     color: '#64748b', slug: 'plan24cn-24-ciudades-nuevas',
+    missionSlug: 'produccion-y-suelo-vivo', secondaryMissionSlug: 'infancia-escuela-cultura', temporalOrder: 'permanencia', priority: 'diferida', state: 'rojo',
   },
   {
     id: 'PLANGEO', name: 'Plan Nacional de Posicionamiento Geopolítico', ordinal: 12,
@@ -159,6 +178,7 @@ export const PLAN_NODES: PlanNode[] = [
     legalInstruments: 1, constitutionalFloor: null,
     mainSource: 'Presupuesto nacional + YPF + bonos soberanos + inversión mixta',
     color: '#0ea5e9', slug: 'plangeo-posicionamiento-geopolitico',
+    missionSlug: 'instituciones-y-futuro', secondaryMissionSlug: 'produccion-y-suelo-vivo', temporalOrder: 'transicion', priority: 'media', state: 'ambar',
   },
   {
     id: 'PLANEN', name: 'Plan Nacional de Soberanía Energética', ordinal: 13,
@@ -168,6 +188,7 @@ export const PLAN_NODES: PlanNode[] = [
     legalInstruments: 1, constitutionalFloor: '0.50% PBI',
     mainSource: 'Inversión privada condicionada (35%) + multilaterales + reasignación subsidios',
     color: '#64748b', slug: 'planen-soberania-energetica',
+    missionSlug: 'supervivencia-digna', secondaryMissionSlug: 'produccion-y-suelo-vivo', temporalOrder: 'transicion', priority: 'media', state: 'ambar',
   },
   {
     id: 'PLANSEG', name: 'Plan Nacional de Seguridad Ciudadana', ordinal: 14,
@@ -177,6 +198,7 @@ export const PLAN_NODES: PlanNode[] = [
     legalInstruments: 1, constitutionalFloor: '0.05-0.10% PBI neto',
     mainSource: 'Reasignación gasto seguridad (60%) + presupuesto nacional + multilaterales',
     color: '#6366f1', slug: 'planseg-seguridad-ciudadana',
+    missionSlug: 'supervivencia-digna', secondaryMissionSlug: 'instituciones-y-futuro', temporalOrder: 'emergencia', priority: 'alta', state: 'ambar',
   },
   {
     id: 'PLANVIV', name: 'Plan Nacional de Vivienda Digna', ordinal: 15,
@@ -186,6 +208,7 @@ export const PLAN_NODES: PlanNode[] = [
     legalInstruments: 2, constitutionalFloor: '2.00% PBI',
     mainSource: 'Autofinanciamiento repagos (40%) + inversión privada (25%) + presupuesto (20%)',
     color: '#64748b', slug: 'planviv-vivienda-digna',
+    missionSlug: 'supervivencia-digna', temporalOrder: 'emergencia', priority: 'alta', state: 'verde',
   },
   {
     id: 'PLANCUL', name: 'Plan Nacional de Cultura Viva', ordinal: 16,
@@ -195,6 +218,7 @@ export const PLAN_NODES: PlanNode[] = [
     legalInstruments: 0, constitutionalFloor: null,
     mainSource: 'Autofinanciamiento comunitario — sin presupuesto estatal por diseño',
     color: '#a855f7', slug: 'plancul-cultura-viva',
+    missionSlug: 'infancia-escuela-cultura', temporalOrder: 'emergencia', priority: 'alta', state: 'verde',
   },
 ];
 

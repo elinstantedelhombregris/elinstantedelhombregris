@@ -1,0 +1,146 @@
+{
+  "title": "Quiz: Sobrevivir y Prosperar en la Economía Argentina",
+  "description": "Evaluá tu comprensión de finanzas personales en contexto argentino.",
+  "passingScore": 70,
+  "timeLimit": 15,
+  "allowRetakes": true,
+  "maxAttempts": 3,
+  "legacyQuizId": 52,
+  "questions": [
+    {
+      "question": "¿Qué es la inflación en términos simples?",
+      "type": "multiple_choice",
+      "options": [
+        "Las cosas valen más",
+        "Tu dinero vale menos",
+        "El gobierno sube los precios",
+        "Los comerciantes son ambiciosos"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La inflación no es que las cosas valgan más, sino que el poder adquisitivo de tu dinero disminuye.",
+      "points": 2,
+      "orderIndex": 1,
+      "legacyQuestionId": 489
+    },
+    {
+      "question": "En un contexto de alta inflación, una deuda a tasa fija en pesos puede beneficiarte.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": true,
+      "explanation": "Si la inflación supera la tasa del préstamo, en términos reales la deuda se \"licúa\" a tu favor.",
+      "points": 1,
+      "orderIndex": 2,
+      "legacyQuestionId": 490
+    },
+    {
+      "question": "¿Qué instrumento protege específicamente contra la inflación?",
+      "type": "multiple_choice",
+      "options": [
+        "Plazo fijo tradicional",
+        "Plazo fijo UVA",
+        "Cuenta corriente",
+        "Caja de ahorro"
+      ],
+      "correctAnswer": 1,
+      "explanation": "El plazo fijo UVA ajusta por inflación (CER), garantizando que tu ahorro mantenga su poder de compra.",
+      "points": 2,
+      "orderIndex": 3,
+      "legacyQuestionId": 491
+    },
+    {
+      "question": "¿Cuánto debería ser tu fondo de emergencia mínimo?",
+      "type": "multiple_choice",
+      "options": [
+        "1 semana de gastos",
+        "1 mes de gastos",
+        "3 meses de gastos",
+        "1 año de gastos"
+      ],
+      "correctAnswer": 2,
+      "explanation": "El objetivo ideal es 3 meses de gastos esenciales en un instrumento líquido.",
+      "points": 2,
+      "orderIndex": 4,
+      "legacyQuestionId": 492
+    },
+    {
+      "question": "El \"sesgo del presente\" te lleva a gastar hoy en vez de ahorrar para mañana.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": true,
+      "explanation": "Este sesgo se amplifica en Argentina por la experiencia histórica de que \"mañana quién sabe\".",
+      "points": 1,
+      "orderIndex": 5,
+      "legacyQuestionId": 493
+    },
+    {
+      "question": "¿Qué son los CEDEARs?",
+      "type": "multiple_choice",
+      "options": [
+        "Bonos del gobierno argentino",
+        "Certificados que representan acciones internacionales cotizados en pesos",
+        "Un tipo de plazo fijo",
+        "Acciones de empresas argentinas"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Los CEDEARs permiten invertir en empresas internacionales desde Argentina, combinando protección cambiaria con potencial de crecimiento.",
+      "points": 2,
+      "orderIndex": 6,
+      "legacyQuestionId": 494
+    },
+    {
+      "question": "¿Cuál es la \"regla de las 48 horas\" para compras?",
+      "type": "multiple_choice",
+      "options": [
+        "Devolver todo en 48 horas",
+        "Esperar 48 horas antes de compras no esenciales",
+        "Comprar solo los primeros 48 horas del mes",
+        "Ahorrar 48 horas de sueldo"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Esperar 48 horas antes de compras no esenciales te protege de compras impulsivas.",
+      "points": 2,
+      "orderIndex": 7,
+      "legacyQuestionId": 495
+    },
+    {
+      "question": "¿Cuál debería ser el máximo de tus ingresos destinado a cuotas de deuda?",
+      "type": "multiple_choice",
+      "options": [
+        "10%",
+        "30%",
+        "50%",
+        "70%"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Nunca debas más del 30% de tus ingresos mensuales en cuotas para mantener un margen de seguridad.",
+      "points": 2,
+      "orderIndex": 8,
+      "legacyQuestionId": 496
+    },
+    {
+      "question": "El monotributo incluye aporte jubilatorio y obra social.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": true,
+      "explanation": "La cuota del monotributo integra impuesto, aporte jubilatorio (SIPA) y obra social.",
+      "points": 1,
+      "orderIndex": 9,
+      "legacyQuestionId": 497
+    },
+    {
+      "question": "¿Qué es lo primero que debés hacer antes de empezar a invertir?",
+      "type": "multiple_choice",
+      "options": [
+        "Comprar acciones",
+        "Armar un fondo de emergencia y pagar deudas de tasa alta",
+        "Abrir una cuenta en el exterior",
+        "Leer noticias financieras"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Antes de invertir, asegurate de tener fondo de emergencia y no tener deudas a tasa alta.",
+      "points": 2,
+      "orderIndex": 10,
+      "legacyQuestionId": 498
+    }
+  ]
+}

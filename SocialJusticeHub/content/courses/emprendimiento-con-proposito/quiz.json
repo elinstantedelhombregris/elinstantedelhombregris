@@ -1,0 +1,111 @@
+{
+  "title": "Quiz: Emprendimiento con Propósito",
+  "description": "Evaluá tu comprensión del emprendimiento con impacto en Argentina.",
+  "passingScore": 70,
+  "timeLimit": 15,
+  "allowRetakes": true,
+  "maxAttempts": 3,
+  "legacyQuizId": 54,
+  "questions": [
+    {
+      "question": "¿Qué distingue a un emprendimiento con propósito de uno tradicional?",
+      "type": "multiple_choice",
+      "options": [
+        "Solo busca ganancias",
+        "Combina valor económico, social y sistémico",
+        "Es una ONG",
+        "No busca ganancias"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Un emprendimiento con propósito genera valor económico, social y sistémico simultáneamente.",
+      "points": 2,
+      "orderIndex": 1,
+      "legacyQuestionId": 507
+    },
+    {
+      "question": "El monotributo requiere presentar una declaración jurada mensual compleja.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "El monotributo es la forma más simple de formalización: un solo pago mensual cubre impuestos, obra social y jubilación.",
+      "points": 1,
+      "orderIndex": 2,
+      "legacyQuestionId": 508
+    },
+    {
+      "question": "¿Qué es el \"costeo por reposición\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Calcular ganancias sobre el precio de compra original",
+        "Calcular ganancias sobre el costo de reponer el stock",
+        "Reponer stock automáticamente",
+        "Un tipo de impuesto"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Con inflación, debés calcular tu margen sobre lo que costará REPONER, no sobre lo que pagaste originalmente.",
+      "points": 2,
+      "orderIndex": 3,
+      "legacyQuestionId": 509
+    },
+    {
+      "question": "En Argentina, WhatsApp Business es el canal de ventas más poderoso para emprendedores.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": true,
+      "explanation": "WhatsApp es la plataforma de comunicación dominante en Argentina y su versión Business ofrece herramientas gratuitas de venta.",
+      "points": 1,
+      "orderIndex": 4,
+      "legacyQuestionId": 510
+    },
+    {
+      "question": "¿Qué es una SAS (Sociedad por Acciones Simplificada)?",
+      "type": "multiple_choice",
+      "options": [
+        "Una sociedad anónima grande",
+        "Una forma societaria ágil creada en 2017 que se constituye digitalmente en 24h",
+        "Una cooperativa de trabajo",
+        "Un tipo de monotributo avanzado"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La SAS fue diseñada para emprendedores: se constituye digitalmente, en 24 horas, con capital mínimo y puede tener un solo socio.",
+      "points": 2,
+      "orderIndex": 5,
+      "legacyQuestionId": 511
+    },
+    {
+      "question": "Las Empresas B buscan ser \"las mejores PARA el mundo\" y no solo \"las mejores DEL mundo\".",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": true,
+      "explanation": "Las Empresas B certifican que integran propósito social y ambiental en su modelo de negocios, no solo ganancias.",
+      "points": 1,
+      "orderIndex": 6,
+      "legacyQuestionId": 512
+    },
+    {
+      "question": "¿Cuál es la \"regla de las 3 herramientas\" para la digitalización?",
+      "type": "multiple_choice",
+      "options": [
+        "Usar 3 redes sociales diferentes",
+        "Dominar 3 herramientas (vender, administrar, comunicar) antes de agregar más",
+        "Tener 3 empleados de IT",
+        "Cambiar de herramienta cada 3 meses"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Mejor dominar 3 herramientas bien elegidas (una para vender, una para administrar, una para comunicar) que tener 20 mal implementadas.",
+      "points": 2,
+      "orderIndex": 7,
+      "legacyQuestionId": 513
+    },
+    {
+      "question": "En Argentina, un emprendedor puede operar exitosamente de forma completamente solitaria sin red de contactos.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "La red de contactos es el \"sistema inmunológico empresarial\": mentores, socios, pares y comunidad son esenciales para sobrevivir las crisis.",
+      "points": 1,
+      "orderIndex": 8,
+      "legacyQuestionId": 514
+    }
+  ]
+}

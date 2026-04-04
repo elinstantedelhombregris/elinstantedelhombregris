@@ -1,0 +1,116 @@
+{
+  "title": "Quiz: Argentina 1810-1945",
+  "description": "Evaluá tu comprensión de los patrones sistémicos en la historia argentina.",
+  "passingScore": 70,
+  "timeLimit": 15,
+  "allowRetakes": true,
+  "maxAttempts": 3,
+  "legacyQuizId": 67,
+  "questions": [
+    {
+      "question": "¿Qué significó realmente la Revolución de Mayo desde una perspectiva sistémica?",
+      "type": "multiple_choice",
+      "options": [
+        "El nacimiento de la libertad",
+        "Un cambio de operadores del sistema sin cambio del sistema",
+        "Una revolución popular masiva",
+        "La independencia completa de España"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Mayo cambió quién operaba el sistema colonial, pero la estructura de poder (concentración en Buenos Aires, lógica extractiva) se mantuvo.",
+      "points": 2,
+      "orderIndex": 1,
+      "legacyQuestionId": 639
+    },
+    {
+      "question": "La Constitución de 1853 fue implementada sin conflictos por todas las provincias.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "Buenos Aires rechazó la Constitución y se separó de la Confederación durante una década porque perdía el control de la aduana.",
+      "points": 1,
+      "orderIndex": 2,
+      "legacyQuestionId": 640
+    },
+    {
+      "question": "¿Qué estableció la Ley Sáenz Peña de 1912?",
+      "type": "multiple_choice",
+      "options": [
+        "Educación obligatoria",
+        "Voto secreto, universal masculino y obligatorio",
+        "Reforma agraria",
+        "Separación de Iglesia y Estado"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La Ley Sáenz Peña transformó el sistema electoral argentino al hacer el voto secreto, obligatorio y universal (para hombres).",
+      "points": 2,
+      "orderIndex": 3,
+      "legacyQuestionId": 641
+    },
+    {
+      "question": "¿Cuál fue el principal \"bug de diseño\" del modelo de la Generación del 80?",
+      "type": "multiple_choice",
+      "options": [
+        "La educación pública",
+        "La inmigración masiva",
+        "La dependencia de un solo cliente y un solo producto",
+        "La federalización de Buenos Aires"
+      ],
+      "correctAnswer": 2,
+      "explanation": "El modelo dependía exclusivamente de exportar materias primas a Gran Bretaña. Cuando esa relación se alteró, Argentina no tenía alternativa.",
+      "points": 2,
+      "orderIndex": 4,
+      "legacyQuestionId": 642
+    },
+    {
+      "question": "El golpe de 1930 fue avalado por la Corte Suprema con la doctrina de \"gobiernos de facto\".",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": true,
+      "explanation": "La Corte Suprema legitimó el golpe, creando un precedente legal que facilitó los golpes posteriores.",
+      "points": 1,
+      "orderIndex": 5,
+      "legacyQuestionId": 643
+    },
+    {
+      "question": "¿Qué cargo ocupó Perón que le permitió construir su base de poder?",
+      "type": "multiple_choice",
+      "options": [
+        "Presidente",
+        "Ministro de Guerra",
+        "Secretario de Trabajo y Previsión",
+        "Jefe de Policía"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Desde la Secretaría de Trabajo, Perón impulsó leyes laborales que le ganaron la lealtad de los sindicatos y la clase obrera.",
+      "points": 2,
+      "orderIndex": 6,
+      "legacyQuestionId": 644
+    },
+    {
+      "question": "La \"Década Infame\" se caracterizó por el \"fraude patriótico\" para evitar que el pueblo eligiera libremente.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": true,
+      "explanation": "Los conservadores justificaban el fraude electoral como necesario para evitar que los radicales volvieran al poder.",
+      "points": 1,
+      "orderIndex": 7,
+      "legacyQuestionId": 645
+    },
+    {
+      "question": "¿Qué evento demostró por primera vez la irrupción de las masas populares como actor político?",
+      "type": "multiple_choice",
+      "options": [
+        "La Revolución de Mayo",
+        "La Semana Trágica de 1919",
+        "El 17 de octubre de 1945",
+        "El golpe de 1943"
+      ],
+      "correctAnswer": 2,
+      "explanation": "El 17 de octubre de 1945, cientos de miles de trabajadores marcharon espontáneamente a Plaza de Mayo, marcando la irrupción de las masas en la política argentina.",
+      "points": 2,
+      "orderIndex": 8,
+      "legacyQuestionId": 646
+    }
+  ]
+}

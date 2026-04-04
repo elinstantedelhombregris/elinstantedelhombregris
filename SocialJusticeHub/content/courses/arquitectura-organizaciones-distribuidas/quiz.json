@@ -1,0 +1,141 @@
+{
+  "title": "Quiz: Arquitectura de Organizaciones Distribuidas",
+  "description": "Evaluá tu comprensión de los modelos de gobernanza distribuida.",
+  "passingScore": 70,
+  "timeLimit": 20,
+  "allowRetakes": true,
+  "maxAttempts": 3,
+  "legacyQuizId": 50,
+  "questions": [
+    {
+      "question": "¿Qué diferencia la decisión por consentimiento del consenso?",
+      "type": "multiple_choice",
+      "options": [
+        "Son lo mismo",
+        "Consentimiento busca que nadie tenga objeciones graves; consenso busca acuerdo total",
+        "Consenso es más rápido",
+        "Consentimiento requiere unanimidad"
+      ],
+      "correctAnswer": 1,
+      "explanation": "El consentimiento pregunta \"¿alguien tiene una objeción razonada?\" en vez de buscar entusiasmo universal.",
+      "points": 2,
+      "orderIndex": 1,
+      "legacyQuestionId": 471
+    },
+    {
+      "question": "En la holacracia, una persona solo puede tener un rol a la vez.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "Una persona puede tener varios roles, y un rol puede rotar entre personas.",
+      "points": 1,
+      "orderIndex": 2,
+      "legacyQuestionId": 472
+    },
+    {
+      "question": "¿Cuál es el primer nivel de resolución de conflictos en una organización horizontal?",
+      "type": "multiple_choice",
+      "options": [
+        "Votación grupal",
+        "Conversación directa entre las dos personas",
+        "Mediación de un tercero",
+        "Panel de 3 personas"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Siempre se empieza por la conversación directa antes de escalar.",
+      "points": 2,
+      "orderIndex": 3,
+      "legacyQuestionId": 473
+    },
+    {
+      "question": "El burnout activista es principalmente un problema individual, no organizacional.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "El burnout es un problema de diseño organizacional: concentración de tareas, falta de límites y reconocimiento.",
+      "points": 1,
+      "orderIndex": 4,
+      "legacyQuestionId": 474
+    },
+    {
+      "question": "¿Qué elemento de los estatutos previene mejor la concentración de poder financiero?",
+      "type": "multiple_choice",
+      "options": [
+        "Un tesorero permanente de confianza",
+        "Firmas conjuntas y transparencia obligatoria",
+        "No manejar dinero",
+        "Que el líder apruebe todo"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Las firmas conjuntas y la transparencia obligatoria son mecanismos estructurales anti-concentración.",
+      "points": 2,
+      "orderIndex": 5,
+      "legacyQuestionId": 475
+    },
+    {
+      "question": "¿Qué es el \"doble enlace\" en la sociocracia?",
+      "type": "multiple_choice",
+      "options": [
+        "Dos personas comparten un rol",
+        "Cada círculo envía dos representantes al nivel superior",
+        "Se toman dos votaciones",
+        "Se necesitan dos reuniones para decidir"
+      ],
+      "correctAnswer": 1,
+      "explanation": "El doble enlace garantiza comunicación bidireccional entre niveles de la organización.",
+      "points": 2,
+      "orderIndex": 6,
+      "legacyQuestionId": 476
+    },
+    {
+      "question": "La Regla del 70% sugiere nunca usar más del 70% de tu capacidad como voluntario.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": true,
+      "explanation": "Dejar un 30% de margen previene el agotamiento y permite responder a imprevistos.",
+      "points": 1,
+      "orderIndex": 7,
+      "legacyQuestionId": 477
+    },
+    {
+      "question": "¿Cuál es el modelo de crecimiento donde cada organización barrial mantiene plena autonomía?",
+      "type": "multiple_choice",
+      "options": [
+        "Centralización",
+        "Replicación",
+        "Fusión",
+        "Absorción"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La replicación crea organizaciones autónomas que comparten modelo pero no dependen entre sí.",
+      "points": 2,
+      "orderIndex": 8,
+      "legacyQuestionId": 478
+    },
+    {
+      "question": "¿Cuál es la frecuencia recomendada de rotación para la facilitación de reuniones?",
+      "type": "multiple_choice",
+      "options": [
+        "Anual",
+        "Semestral",
+        "Mensual",
+        "Nunca debe rotar"
+      ],
+      "correctAnswer": 2,
+      "explanation": "La facilitación de reuniones es un rol que beneficia de rotación mensual para desarrollar capacidades en todos.",
+      "points": 2,
+      "orderIndex": 9,
+      "legacyQuestionId": 479
+    },
+    {
+      "question": "Si una decisión no quedó escrita, no se decidió.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": true,
+      "explanation": "La documentación es esencial para la memoria organizacional y para evitar malentendidos.",
+      "points": 1,
+      "orderIndex": 10,
+      "legacyQuestionId": 480
+    }
+  ]
+}

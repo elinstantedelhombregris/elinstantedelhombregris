@@ -1,0 +1,141 @@
+{
+  "title": "Quiz: Argentina como Sistema Viviente",
+  "description": "Evalúa tu comprensión de los principios sistémicos desde primeros principios hasta aplicaciones prácticas.",
+  "passingScore": 75,
+  "timeLimit": 30,
+  "allowRetakes": true,
+  "maxAttempts": 3,
+  "legacyQuizId": 4,
+  "questions": [
+    {
+      "question": "Según la primera ley de termodinámica, ¿qué ocurre con la energía?",
+      "type": "multiple_choice",
+      "options": [
+        "La energía desaparece cuando se usa",
+        "La energía se crea y se destruye",
+        "La energía no se crea ni se destruye, solo se transforma",
+        "La energía solo existe en sistemas físicos"
+      ],
+      "correctAnswer": 2,
+      "explanation": "La energía se conserva y se transforma, no desaparece. Este principio aplica a todos los sistemas, desde físicos hasta sociales.",
+      "points": 3,
+      "orderIndex": 1,
+      "legacyQuestionId": 31
+    },
+    {
+      "question": "La entropía es la tendencia natural de los sistemas hacia el desorden.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": true,
+      "explanation": "Sí, la entropía es la tendencia natural al desorden. Los sistemas vivos deben invertir energía constantemente para mantener el orden.",
+      "points": 2,
+      "orderIndex": 2,
+      "legacyQuestionId": 32
+    },
+    {
+      "question": "¿Cuál es la clave para mejorar el rendimiento de un sistema según este curso?",
+      "type": "multiple_choice",
+      "options": [
+        "Aumentar las entradas sin límite",
+        "Mejorar las relaciones entre las partes del sistema",
+        "Reducir todas las salidas",
+        "Eliminar todas las partes del sistema"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La clave es mejorar las relaciones entre las partes. Cuando las partes se relacionan mejor, el sistema completo mejora su rendimiento.",
+      "points": 3,
+      "orderIndex": 3,
+      "legacyQuestionId": 33
+    },
+    {
+      "question": "¿Qué nivel de sistema es el primero que debemos optimizar según el curso?",
+      "type": "multiple_choice",
+      "options": [
+        "El barrio",
+        "La familia",
+        "El municipio",
+        "La nación"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La familia es el primer sistema que debemos optimizar, ya que es desde allí que se irradia la transformación hacia la sociedad.",
+      "points": 2,
+      "orderIndex": 4,
+      "legacyQuestionId": 34
+    },
+    {
+      "question": "El crecimiento exponencial significa que pequeños cambios pueden generar transformaciones masivas.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": true,
+      "explanation": "Exacto. El crecimiento exponencial muestra que pequeños cambios pueden multiplicarse rápidamente, generando transformaciones masivas.",
+      "points": 2,
+      "orderIndex": 5,
+      "legacyQuestionId": 35
+    },
+    {
+      "question": "¿Qué indica una fuga energética en un sistema?",
+      "type": "multiple_choice",
+      "options": [
+        "Que el sistema está en equilibrio",
+        "Que se pierde energía en conflictos, fricción o procesos ineficientes",
+        "Que hay demasiada inversión",
+        "Que no hay suficiente complejidad"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Las fugas energéticas muestran dónde se pierde energía por conflictos, ineficiencia o desalineación.",
+      "points": 2,
+      "orderIndex": 6,
+      "legacyQuestionId": 36
+    },
+    {
+      "question": "Los diagramas de sistemas anidados muestran cómo cada nivel contiene y depende de otro.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": true,
+      "explanation": "Los sistemas anidados (familia, barrio, municipio, provincia, nación) se afectan mutuamente y deben optimizarse en conjunto.",
+      "points": 2,
+      "orderIndex": 7,
+      "legacyQuestionId": 37
+    },
+    {
+      "question": "Selecciona el ejemplo correcto de bucle reforzador positivo.",
+      "type": "multiple_choice",
+      "options": [
+        "Malas relaciones → menos comunicación → más conflictos",
+        "Mejor educación → mejores empleos → más inversión en educación",
+        "Mayor entropía → más orden automático",
+        "Menos energía → mejor rendimiento"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Un bucle reforzador positivo es un ciclo virtuoso: mejor educación genera más ingresos que vuelven a invertirse en educación.",
+      "points": 3,
+      "orderIndex": 8,
+      "legacyQuestionId": 38
+    },
+    {
+      "question": "El principio \"No cambies personas, cambia sistemas\" resume la aplicación práctica de la teoría de juegos al diseño nacional.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": true,
+      "explanation": "Modificar incentivos, reglas y relaciones cambia comportamientos más rápido que intentar cambiar personas individualmente.",
+      "points": 2,
+      "orderIndex": 9,
+      "legacyQuestionId": 39
+    },
+    {
+      "question": "¿Qué estrategia propone el curso para reducir entropía en provincias?",
+      "type": "multiple_choice",
+      "options": [
+        "Centralizar decisiones en Buenos Aires",
+        "Mejorar conectividad, liderazgos facilitadores y círculos de colaboración",
+        "Eliminar autonomía local",
+        "Incrementar trámites"
+      ],
+      "correctAnswer": 1,
+      "explanation": "El curso propone liderazgos facilitadores, conectividad y colaboración multinivel para reducir entropía territorial.",
+      "points": 3,
+      "orderIndex": 10,
+      "legacyQuestionId": 40
+    }
+  ]
+}

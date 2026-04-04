@@ -1,0 +1,111 @@
+{
+  "title": "Quiz: Sistemas Económicos",
+  "description": "Evaluá tu comprensión del sistema económico argentino.",
+  "passingScore": 70,
+  "timeLimit": 15,
+  "allowRetakes": true,
+  "maxAttempts": 3,
+  "legacyQuizId": 53,
+  "questions": [
+    {
+      "question": "¿Qué es un bucle de retroalimentación positivo en economía?",
+      "type": "multiple_choice",
+      "options": [
+        "Algo bueno que pasa",
+        "Un ciclo donde A causa B y B refuerza A, amplificándose",
+        "Una política exitosa",
+        "Un aumento de salarios"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Un bucle positivo se amplifica: como la inflación que genera expectativas de más inflación.",
+      "points": 2,
+      "orderIndex": 1,
+      "legacyQuestionId": 499
+    },
+    {
+      "question": "La inflación argentina tiene una sola causa: la emisión monetaria.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "La inflación argentina es multicausal: emisión, costos, expectativas, oligopolios y tipo de cambio interactúan.",
+      "points": 1,
+      "orderIndex": 2,
+      "legacyQuestionId": 500
+    },
+    {
+      "question": "¿Qué fase del ciclo stop-go se caracteriza por el agotamiento de reservas de dólares?",
+      "type": "multiple_choice",
+      "options": [
+        "Fase de expansión (GO)",
+        "Fase de tensión y crisis",
+        "Fase de ajuste (STOP)",
+        "Fase de recuperación"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Cuando la expansión demanda más importaciones de las que las exportaciones pueden financiar, las reservas se agotan.",
+      "points": 2,
+      "orderIndex": 3,
+      "legacyQuestionId": 501
+    },
+    {
+      "question": "Noruega y Venezuela tuvieron petróleo. Noruega creó un fondo soberano; Venezuela gastó todo.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": true,
+      "explanation": "Noruega ahorró la renta petrolera en un fondo que hoy vale 1.5 billones de dólares, mientras Venezuela colapsó.",
+      "points": 1,
+      "orderIndex": 4,
+      "legacyQuestionId": 502
+    },
+    {
+      "question": "¿Por qué la economía del conocimiento puede romper el ciclo stop-go?",
+      "type": "multiple_choice",
+      "options": [
+        "Porque usa menos energía",
+        "Porque genera dólares sin gastar dólares en importaciones",
+        "Porque no paga impuestos",
+        "Porque es más fácil que la agricultura"
+      ],
+      "correctAnswer": 1,
+      "explanation": "El conocimiento genera divisas exportando servicios sin necesitar importar insumos, rompiendo la restricción externa.",
+      "points": 2,
+      "orderIndex": 5,
+      "legacyQuestionId": 503
+    },
+    {
+      "question": "El IVA es un impuesto progresivo porque todos lo pagan.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "El IVA es regresivo: el pobre y el rico pagan lo mismo por los mismos bienes, pero para el pobre representa un porcentaje mayor de su ingreso.",
+      "points": 1,
+      "orderIndex": 6,
+      "legacyQuestionId": 504
+    },
+    {
+      "question": "¿Qué necesita Argentina para romper el ciclo económico según el análisis sistémico?",
+      "type": "multiple_choice",
+      "options": [
+        "Un líder carismático",
+        "20 años de coherencia en políticas económicas",
+        "Más emisión monetaria",
+        "Cerrar la economía"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La transformación requiere consistencia de políticas durante décadas, no soluciones mágicas de corto plazo.",
+      "points": 2,
+      "orderIndex": 7,
+      "legacyQuestionId": 505
+    },
+    {
+      "question": "La brecha entre dólar oficial y \"blue\" mide la distorsión entre precio oficial y expectativas del mercado.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": true,
+      "explanation": "La brecha cambiaria refleja la diferencia entre el precio que el gobierno fija y el que el mercado determina.",
+      "points": 1,
+      "orderIndex": 8,
+      "legacyQuestionId": 506
+    }
+  ]
+}

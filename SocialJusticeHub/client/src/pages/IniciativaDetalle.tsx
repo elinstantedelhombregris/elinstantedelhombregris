@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef, useCallback } from 'react';
 import { Link, useParams } from 'wouter';
-import { ChevronRight, ArrowLeft, ExternalLink, FileText, Download } from 'lucide-react';
+import { ChevronRight, ArrowLeft, ExternalLink, FileText, Download, Users } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import SmoothReveal from '@/components/ui/SmoothReveal';
@@ -12,8 +12,11 @@ import ProjectionSection from '@/components/iniciativas/ProjectionSection';
 import IdealDesignSection from '@/components/iniciativas/IdealDesignSection';
 import BackwardTimeline from '@/components/iniciativas/BackwardTimeline';
 import KPIDashboard from '@/components/iniciativas/KPIDashboard';
-import { PHASE_META } from '@/lib/initiative-utils';
+import { PHASE_META, MISSION_META } from '@/lib/initiative-utils';
 import { STRATEGIC_INITIATIVES } from '../../../shared/strategic-initiatives';
+import type { MissionSlug } from '../../../shared/strategic-initiatives';
+import { useQuery } from '@tanstack/react-query';
+import { apiRequest } from '@/lib/queryClient';
 
 export default function IniciativaDetalle() {
   const params = useParams<{ slug: string }>();
@@ -87,6 +90,21 @@ export default function IniciativaDetalle() {
   const relatedInitiatives = initiative.relatedInitiativeSlugs
     ?.map(slug => STRATEGIC_INITIATIVES.find(i => i.slug === slug))
     .filter(Boolean) ?? [];
+
+  const missionMeta = initiative.missionSlug ? MISSION_META[initiative.missionSlug] : null;
+
+  // Find the La Tribu post for this mission (to link "Sumate")
+  const { data: missionPost } = useQuery({
+    queryKey: ['mission-post', initiative.missionSlug],
+    queryFn: async () => {
+      if (!initiative.missionSlug) return null;
+      const response = await apiRequest('GET', '/api/community?type=mission');
+      if (!response.ok) return null;
+      const posts = await response.json();
+      return posts.find((p: any) => p.missionSlug === initiative.missionSlug) ?? null;
+    },
+    enabled: !!initiative.missionSlug,
+  });
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-900 theme-light">
@@ -171,6 +189,40 @@ export default function IniciativaDetalle() {
                       </button>
                     </Link>
                   </div>
+                </div>
+              </div>
+            </SmoothReveal>
+          </div>
+        </section>
+      )}
+
+      {/* Mission CTA — Link to La Tribu */}
+      {missionMeta && missionPost && (
+        <section className="py-12 bg-white">
+          <div className="max-w-4xl mx-auto px-4 lg:pl-24">
+            <SmoothReveal direction="up">
+              <div className={`rounded-2xl border border-slate-200 bg-gradient-to-r ${missionMeta.gradient} p-6 md:p-8`}>
+                <div className="flex flex-col md:flex-row items-start md:items-center gap-5">
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0" style={{ backgroundColor: `${missionMeta.accent}15` }}>
+                    <missionMeta.icon className="w-6 h-6" style={{ color: missionMeta.accent }} />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-xs font-bold uppercase tracking-wider mb-1" style={{ color: missionMeta.accent }}>
+                      Misión {missionMeta.number}: {missionMeta.shortLabel}
+                    </p>
+                    <h3 className="text-lg font-serif font-bold text-slate-900 mb-1">
+                      Este plan forma parte de una misión más grande
+                    </h3>
+                    <p className="text-sm text-slate-600">
+                      Sumate al espacio de trabajo en La Tribu. Hay tareas concretas, hitos por cumplir y gente que ya está poniendo el cuerpo.
+                    </p>
+                  </div>
+                  <Link href={`/community/${missionPost.id}`}>
+                    <button className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-white text-sm font-medium transition-colors shrink-0" style={{ backgroundColor: missionMeta.accent }}>
+                      <Users className="w-4 h-4" />
+                      Sumate a la misión
+                    </button>
+                  </Link>
                 </div>
               </div>
             </SmoothReveal>

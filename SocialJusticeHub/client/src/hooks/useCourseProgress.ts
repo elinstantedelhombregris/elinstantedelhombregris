@@ -1,5 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useToast } from '@/hooks/use-toast';
+import { apiRequest } from '@/lib/queryClient';
 
 export const useCourseProgress = (courseId?: number) => {
   const queryClient = useQueryClient();
@@ -10,11 +11,7 @@ export const useCourseProgress = (courseId?: number) => {
     queryKey: ['course-progress', courseId],
     queryFn: async () => {
       if (!courseId) return null;
-      const response = await fetch(`/api/courses/${courseId}/progress`, {
-        headers: {
-          'Authorization': `Bearer ${localStorage.getItem('authToken')}`
-        }
-      });
+      const response = await apiRequest('GET', `/api/courses/${courseId}/progress`);
       if (!response.ok) return null;
       return response.json();
     },
@@ -24,12 +21,7 @@ export const useCourseProgress = (courseId?: number) => {
   // Start course mutation
   const startCourse = useMutation({
     mutationFn: async (courseId: number) => {
-      const response = await fetch(`/api/courses/${courseId}/start`, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${localStorage.getItem('authToken')}`
-        }
-      });
+      const response = await apiRequest('POST', `/api/courses/${courseId}/start`);
       if (!response.ok) throw new Error('Error al iniciar el curso');
       return response.json();
     },
@@ -53,12 +45,7 @@ export const useCourseProgress = (courseId?: number) => {
   // Complete lesson mutation
   const completeLesson = useMutation({
     mutationFn: async ({ courseId, lessonId }: { courseId: number; lessonId: number }) => {
-      const response = await fetch(`/api/courses/${courseId}/lessons/${lessonId}/complete`, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${localStorage.getItem('authToken')}`
-        }
-      });
+      const response = await apiRequest('POST', `/api/courses/${courseId}/lessons/${lessonId}/complete`);
       if (!response.ok) throw new Error('Error al completar la lección');
       return response.json();
     },
@@ -85,14 +72,7 @@ export const useCourseProgress = (courseId?: number) => {
   // Update time spent mutation
   const updateTime = useMutation({
     mutationFn: async ({ courseId, lessonId, timeSpent }: { courseId: number; lessonId: number; timeSpent: number }) => {
-      const response = await fetch(`/api/courses/${courseId}/lessons/${lessonId}/track-time`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem('authToken')}`
-        },
-        body: JSON.stringify({ timeSpent })
-      });
+      const response = await apiRequest('POST', `/api/courses/${courseId}/lessons/${lessonId}/track-time`, { timeSpent });
       if (!response.ok) throw new Error('Error al actualizar tiempo');
       return response.json();
     },
@@ -111,4 +91,3 @@ export const useCourseProgress = (courseId?: number) => {
     isCompleting: completeLesson.isPending,
   };
 };
-

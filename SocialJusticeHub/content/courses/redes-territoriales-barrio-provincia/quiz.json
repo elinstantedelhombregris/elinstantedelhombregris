@@ -1,0 +1,116 @@
+{
+  "title": "Quiz: Redes Territoriales",
+  "description": "Evaluá tu comprensión de la construcción de redes entre organizaciones barriales.",
+  "passingScore": 70,
+  "timeLimit": 15,
+  "allowRetakes": true,
+  "maxAttempts": 3,
+  "legacyQuizId": 51,
+  "questions": [
+    {
+      "question": "¿Cuál es la principal ventaja de una red territorial sobre una organización barrial sola?",
+      "type": "multiple_choice",
+      "options": [
+        "Tiene más dinero",
+        "Multiplica el impacto manteniendo la autonomía de cada nodo",
+        "Es más fácil de organizar",
+        "Elimina todos los conflictos"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La red amplifica impacto sin que ninguna organización pierda su autonomía.",
+      "points": 2,
+      "orderIndex": 1,
+      "legacyQuestionId": 481
+    },
+    {
+      "question": "¿Cuál fue una de las principales debilidades de las asambleas del 2001?",
+      "type": "multiple_choice",
+      "options": [
+        "Falta de participación",
+        "Falta de estructura que las sostuviera en el tiempo",
+        "Exceso de financiamiento",
+        "Demasiada organización formal"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La horizontalidad sin protocolos ni estructura institucional hizo que no pudieran sostenerse.",
+      "points": 2,
+      "orderIndex": 2,
+      "legacyQuestionId": 482
+    },
+    {
+      "question": "La cooptación ocurre cuando una organización pierde independencia al acercarse al gobierno.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": true,
+      "explanation": "La cooptación es el riesgo de que la relación con el gobierno comprometa la independencia del grupo.",
+      "points": 1,
+      "orderIndex": 3,
+      "legacyQuestionId": 483
+    },
+    {
+      "question": "¿Qué es el \"poder informal invisible\"?",
+      "type": "multiple_choice",
+      "options": [
+        "El poder del voto",
+        "Empresarios y redes de favores que influyen sin cargos formales",
+        "El poder de los medios",
+        "El poder militar"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Son actores que ejercen poder real sin visibilidad pública ni cargos formales.",
+      "points": 2,
+      "orderIndex": 4,
+      "legacyQuestionId": 484
+    },
+    {
+      "question": "Una coalición requiere acuerdo ideológico total entre sus miembros.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "Una coalición funciona sobre acuerdos concretos mínimos, no sobre unanimidad ideológica.",
+      "points": 1,
+      "orderIndex": 5,
+      "legacyQuestionId": 485
+    },
+    {
+      "question": "¿Cuál es la primera herramienta de incidencia (advocacy) más efectiva?",
+      "type": "multiple_choice",
+      "options": [
+        "Protesta masiva",
+        "Evidencia concreta con datos",
+        "Publicar en redes sociales",
+        "Contratar un lobbista"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Los datos concretos son la base de toda incidencia: hacen medible y demostrable el problema.",
+      "points": 2,
+      "orderIndex": 6,
+      "legacyQuestionId": 486
+    },
+    {
+      "question": "El rol de articulador de red consiste principalmente en liderar la red.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "El articulador no lidera sino que conecta, facilita y sirve de puente entre nodos.",
+      "points": 1,
+      "orderIndex": 7,
+      "legacyQuestionId": 487
+    },
+    {
+      "question": "¿Cuál es la señal más clara de que una organización está siendo cooptada por el gobierno?",
+      "type": "multiple_choice",
+      "options": [
+        "Recibe fondos municipales",
+        "Pierde la capacidad de criticar públicamente",
+        "Tiene reuniones con funcionarios",
+        "Participa en presupuesto participativo"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Perder la capacidad de crítica a cambio de recursos es la señal definitiva de cooptación.",
+      "points": 2,
+      "orderIndex": 8,
+      "legacyQuestionId": 488
+    }
+  ]
+}

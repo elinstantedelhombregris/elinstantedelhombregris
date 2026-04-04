@@ -1,0 +1,116 @@
+{
+  "title": "Quiz: Argentina 1945-2001",
+  "description": "Evaluá tu comprensión del medio siglo de péndulos y crisis.",
+  "passingScore": 70,
+  "timeLimit": 15,
+  "allowRetakes": true,
+  "maxAttempts": 3,
+  "legacyQuizId": 68,
+  "questions": [
+    {
+      "question": "¿Qué ley impulsó Eva Perón que transformó la democracia argentina?",
+      "type": "multiple_choice",
+      "options": [
+        "Ley de divorcio",
+        "Voto femenino (1947)",
+        "Ley de educación",
+        "Reforma agraria"
+      ],
+      "correctAnswer": 1,
+      "explanation": "El sufragio femenino de 1947 duplicó el padrón electoral y transformó la política argentina.",
+      "points": 2,
+      "orderIndex": 1,
+      "legacyQuestionId": 647
+    },
+    {
+      "question": "La proscripción del peronismo (1955-1973) debilitó al movimiento peronista.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "La prohibición fortaleció al peronismo al convertirlo en mística de resistencia.",
+      "points": 1,
+      "orderIndex": 2,
+      "legacyQuestionId": 648
+    },
+    {
+      "question": "¿Qué fue el Cordobazo?",
+      "type": "multiple_choice",
+      "options": [
+        "Un golpe militar",
+        "Una insurrección popular de obreros y estudiantes en 1969",
+        "Una reforma económica",
+        "Un tratado internacional"
+      ],
+      "correctAnswer": 1,
+      "explanation": "El Cordobazo fue una insurrección obrero-estudiantil que desestabilizó la dictadura de Onganía.",
+      "points": 2,
+      "orderIndex": 3,
+      "legacyQuestionId": 649
+    },
+    {
+      "question": "¿Qué significó el Juicio a las Juntas de 1985?",
+      "type": "multiple_choice",
+      "options": [
+        "Un juicio militar interno",
+        "Primera vez que un gobierno democrático juzgó a su propia dictadura en tribunal civil",
+        "Un juicio internacional como Núremberg",
+        "Una amnistía general"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Argentina fue pionera mundial al juzgar y condenar a los comandantes de su dictadura en tribunales civiles.",
+      "points": 2,
+      "orderIndex": 4,
+      "legacyQuestionId": 650
+    },
+    {
+      "question": "La convertibilidad (1 peso = 1 dólar) fue sostenible a largo plazo.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "La convertibilidad tenía bugs fatales: destruía la industria local, requería endeudamiento creciente y no era sostenible.",
+      "points": 1,
+      "orderIndex": 5,
+      "legacyQuestionId": 651
+    },
+    {
+      "question": "¿Cuántos presidentes tuvo Argentina en los 10 días posteriores a la renuncia de De la Rúa?",
+      "type": "multiple_choice",
+      "options": [
+        "2",
+        "3",
+        "5",
+        "7"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Argentina tuvo 5 presidentes en 10 días, reflejando el colapso institucional total.",
+      "points": 2,
+      "orderIndex": 6,
+      "legacyQuestionId": 652
+    },
+    {
+      "question": "El grito \"Que se vayan todos\" iba dirigido exclusivamente contra el presidente De la Rúa.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "Era contra todo el sistema político: partidos, sindicatos, jueces, medios y empresarios.",
+      "points": 1,
+      "orderIndex": 7,
+      "legacyQuestionId": 653
+    },
+    {
+      "question": "¿Cuál es el patrón central del péndulo argentino 1945-2001?",
+      "type": "multiple_choice",
+      "options": [
+        "Progreso lineal continuo",
+        "Crisis → ruptura → refundación → luna de miel → agotamiento → crisis",
+        "Estabilidad institucional",
+        "Alternancia pacífica de partidos"
+      ],
+      "correctAnswer": 1,
+      "explanation": "El ciclo pendular se repitió múltiples veces, con cada fase dejando al país con menos capacidad institucional.",
+      "points": 2,
+      "orderIndex": 8,
+      "legacyQuestionId": 654
+    }
+  ]
+}

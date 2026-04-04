@@ -2,9 +2,20 @@ import {
   GraduationCap, TrendingUp, Scale, Heart, Building2,
   Cpu, Leaf, Palette, Landmark, Globe,
   AlertTriangle, TrendingDown, Sparkles, Route, BarChart3,
+  ShieldCheck, Map, Hammer, BookOpen, Eye, MessageSquare,
+  Shield, Users, Zap, RefreshCw, Target,
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
-import type { InitiativeCategory } from '../../../shared/strategic-initiatives';
+import type {
+  InitiativeCategory,
+  MissionSlug,
+  TemporalOrder,
+  InitiativeState,
+  InitiativePriority,
+  CitizenRole,
+  StrategicInitiative,
+} from '../../../shared/strategic-initiatives';
+import { STRATEGIC_INITIATIVES } from '../../../shared/strategic-initiatives';
 
 export interface CategoryMeta {
   label: string;
@@ -46,3 +57,161 @@ export const PHASE_META: PhaseMeta[] = [
   { key: 'elCamino',             label: 'El Camino',                 number: 4, icon: Route,         color: 'text-emerald-600', bg: 'bg-emerald-50/50', border: 'border-emerald-200', accent: '#059669' },
   { key: 'kpis',                 label: 'Indicadores',               number: 5, icon: BarChart3,     color: 'text-indigo-600',  bg: 'bg-indigo-50/50',  border: 'border-indigo-200',  accent: '#4f46e5' },
 ];
+
+// === Mission metadata ===
+
+export interface MissionMeta {
+  slug: MissionSlug;
+  number: number;
+  label: string;
+  shortLabel: string;
+  icon: LucideIcon;
+  color: string;
+  accent: string;
+  gradient: string;
+  bgLight: string;
+  bgDark: string;
+  description: string;
+}
+
+export const MISSION_META: Record<MissionSlug, MissionMeta> = {
+  'supervivencia-digna': {
+    slug: 'supervivencia-digna', number: 1,
+    label: 'Supervivencia Digna', shortLabel: 'Supervivencia',
+    icon: Heart, color: 'text-red-600', accent: '#dc2626',
+    gradient: 'from-red-500/10 to-rose-500/10',
+    bgLight: 'bg-red-50', bgDark: 'bg-red-500/10',
+    description: 'Agua, vivienda, salud, energia, seguridad de proximidad',
+  },
+  'territorio-legible': {
+    slug: 'territorio-legible', number: 2,
+    label: 'Territorio Legible y Mando Cívico', shortLabel: 'Territorio',
+    icon: Map, color: 'text-sky-600', accent: '#0284c7',
+    gradient: 'from-sky-500/10 to-cyan-500/10',
+    bgLight: 'bg-sky-50', bgDark: 'bg-sky-500/10',
+    description: 'Señales, mandatos, datos abiertos, rieles digitales básicos',
+  },
+  'produccion-y-suelo-vivo': {
+    slug: 'produccion-y-suelo-vivo', number: 3,
+    label: 'Trabajo, Producción y Suelo Vivo', shortLabel: 'Producción',
+    icon: Leaf, color: 'text-emerald-600', accent: '#059669',
+    gradient: 'from-emerald-500/10 to-green-500/10',
+    bgLight: 'bg-emerald-50', bgDark: 'bg-emerald-500/10',
+    description: 'Empleo útil, suelo regenerado, empresas bastardas, cadenas territoriales',
+  },
+  'infancia-escuela-cultura': {
+    slug: 'infancia-escuela-cultura', number: 4,
+    label: 'Infancia, Escuela y Cultura', shortLabel: 'Infancia',
+    icon: BookOpen, color: 'text-violet-600', accent: '#7c3aed',
+    gradient: 'from-violet-500/10 to-purple-500/10',
+    bgLight: 'bg-violet-50', bgDark: 'bg-violet-500/10',
+    description: 'Niñez cuidada, escuela significativa, cultura viva',
+  },
+  'instituciones-y-futuro': {
+    slug: 'instituciones-y-futuro', number: 5,
+    label: 'Instituciones Confiables y Pacto de Futuro', shortLabel: 'Instituciones',
+    icon: Landmark, color: 'text-amber-600', accent: '#d97706',
+    gradient: 'from-amber-500/10 to-yellow-500/10',
+    bgLight: 'bg-amber-50', bgDark: 'bg-amber-500/10',
+    description: 'Justicia, integridad, blindaje, settlement institucional',
+  },
+};
+
+// Ordered array for iteration
+export const MISSION_ORDER: MissionSlug[] = [
+  'supervivencia-digna',
+  'territorio-legible',
+  'produccion-y-suelo-vivo',
+  'infancia-escuela-cultura',
+  'instituciones-y-futuro',
+];
+
+// === Temporal order metadata ===
+
+export interface TemporalMeta {
+  key: TemporalOrder;
+  label: string;
+  range: string;
+  icon: LucideIcon;
+  color: string;
+  accent: string;
+  bgClass: string;
+}
+
+export const TEMPORAL_META: Record<TemporalOrder, TemporalMeta> = {
+  emergencia:  { key: 'emergencia',  label: 'Emergencia',  range: '0–90 días',   icon: Zap,       color: 'text-red-500',   accent: '#ef4444', bgClass: 'bg-red-500/15' },
+  transicion:  { key: 'transicion',  label: 'Transición',  range: '3–24 meses',  icon: RefreshCw, color: 'text-amber-500', accent: '#f59e0b', bgClass: 'bg-amber-500/15' },
+  permanencia: { key: 'permanencia', label: 'Permanencia', range: '2–10 años',   icon: Landmark,  color: 'text-blue-500',  accent: '#3b82f6', bgClass: 'bg-blue-500/15' },
+};
+
+// === State (traffic light) metadata ===
+
+export interface StateMeta {
+  key: InitiativeState;
+  label: string;
+  color: string;
+  bgClass: string;
+  dotClass: string;
+}
+
+export const STATE_META: Record<InitiativeState, StateMeta> = {
+  verde: { key: 'verde', label: 'Ejecutar',            color: 'text-emerald-500', bgClass: 'bg-emerald-500/15', dotClass: 'bg-emerald-500' },
+  ambar: { key: 'ambar', label: 'Simplificar / Dividir', color: 'text-amber-500',   bgClass: 'bg-amber-500/15',   dotClass: 'bg-amber-500' },
+  rojo:  { key: 'rojo',  label: 'Diferir',              color: 'text-red-500',     bgClass: 'bg-red-500/15',     dotClass: 'bg-red-500' },
+};
+
+// === Priority metadata ===
+
+export const PRIORITY_META: Record<InitiativePriority, { label: string; color: string }> = {
+  alta:     { label: 'Alta',     color: 'text-red-600' },
+  media:    { label: 'Media',    color: 'text-amber-600' },
+  diferida: { label: 'Diferida', color: 'text-slate-500' },
+};
+
+// === Citizen role metadata ===
+
+export interface CitizenRoleMeta {
+  key: CitizenRole;
+  label: string;
+  icon: LucideIcon;
+  description: string;
+}
+
+export const CITIZEN_ROLE_META: Record<CitizenRole, CitizenRoleMeta> = {
+  testigo:     { key: 'testigo',     label: 'Testigo',     icon: Eye,           description: 'Ve y documenta realidad' },
+  declarante:  { key: 'declarante',  label: 'Declarante',  icon: MessageSquare, description: 'Expresa sueño, valor, necesidad o basta' },
+  constructor: { key: 'constructor', label: 'Constructor',  icon: Hammer,        description: 'Aporta tiempo, oficio, recurso o trabajo' },
+  custodio:    { key: 'custodio',    label: 'Custodio',    icon: Shield,        description: 'Verifica, audita, corrige y alerta' },
+  organizador: { key: 'organizador', label: 'Organizador', icon: Users,         description: 'Coordina célula, círculo o nodo' },
+  narrador:    { key: 'narrador',    label: 'Narrador',    icon: BookOpen,      description: 'Convierte prueba y proceso en relato compartible' },
+};
+
+// === Helper functions ===
+
+export function getInitiativesByMission(slug: MissionSlug): StrategicInitiative[] {
+  return STRATEGIC_INITIATIVES.filter(
+    i => i.missionSlug === slug || i.secondaryMissionSlug === slug,
+  );
+}
+
+export function getMissionForInitiative(initiative: StrategicInitiative): MissionMeta | null {
+  if (!initiative.missionSlug) return null;
+  return MISSION_META[initiative.missionSlug] ?? null;
+}
+
+export function getInitiativesByTemporalOrder(order: TemporalOrder): StrategicInitiative[] {
+  return STRATEGIC_INITIATIVES.filter(i => i.temporalOrder === order);
+}
+
+export function getInitiativesByState(state: InitiativeState): StrategicInitiative[] {
+  return STRATEGIC_INITIATIVES.filter(i => i.state === state);
+}
+
+export function getMissionStateCounts(slug: MissionSlug): Record<InitiativeState, number> {
+  const initiatives = getInitiativesByMission(slug);
+  return {
+    verde: initiatives.filter(i => i.state === 'verde').length,
+    ambar: initiatives.filter(i => i.state === 'ambar').length,
+    rojo: initiatives.filter(i => i.state === 'rojo').length,
+  };
+}

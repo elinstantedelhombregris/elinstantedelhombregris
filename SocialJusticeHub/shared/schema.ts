@@ -467,15 +467,128 @@ export const quizQuestions = pgTable("quiz_questions", {
   createdAt: text("created_at").default(sql`now()`),
 });
 
+// Versioned course content source of truth
+export const courseDefinitions = pgTable("course_definitions", {
+  id: serial("id").primaryKey(),
+  slug: text("slug").notNull().unique(),
+  legacyCourseId: integer("legacy_course_id").references(() => courses.id),
+  sourcePath: text("source_path"),
+  currentPublishedRevisionId: integer("current_published_revision_id").references((): AnyPgColumn => courseRevisions.id),
+  viewCount: integer("view_count").default(0),
+  createdAt: text("created_at").default(sql`now()`),
+  updatedAt: text("updated_at").default(sql`now()`),
+}, (table) => ({
+  uniqueLegacyCourse: unique().on(table.legacyCourseId),
+}));
+
+export const courseRevisions = pgTable("course_revisions", {
+  id: serial("id").primaryKey(),
+  courseDefinitionId: integer("course_definition_id").references(() => courseDefinitions.id),
+  revisionNumber: integer("revision_number").notNull(),
+  contentHash: text("content_hash").notNull(),
+  title: text("title").notNull(),
+  description: text("description").notNull(),
+  excerpt: text("excerpt"),
+  category: text("category").notNull().$type<'vision' | 'action' | 'community' | 'reflection' | 'hombre-gris' | 'economia' | 'comunicacion' | 'civica'>(),
+  level: text("level").notNull().$type<'beginner' | 'intermediate' | 'advanced'>(),
+  duration: integer("duration"),
+  thumbnailUrl: text("thumbnail_url"),
+  videoUrl: text("video_url"),
+  orderIndex: integer("order_index").default(0),
+  isPublished: boolean("is_published").default(false),
+  isFeatured: boolean("is_featured").default(false),
+  requiresAuth: boolean("requires_auth").default(false),
+  authorId: integer("author_id").references(() => users.id),
+  legacyCourseId: integer("legacy_course_id").references(() => courses.id),
+  seoTitle: text("seo_title"),
+  seoDescription: text("seo_description"),
+  searchSummary: text("search_summary"),
+  ogImageUrl: text("og_image_url"),
+  lastReviewedAt: text("last_reviewed_at"),
+  indexable: boolean("indexable").default(true),
+  publishedAt: text("published_at").default(sql`now()`),
+  createdAt: text("created_at").default(sql`now()`),
+}, (table) => ({
+  uniqueRevisionNumber: unique().on(table.courseDefinitionId, table.revisionNumber),
+  uniqueRevisionHash: unique().on(table.courseDefinitionId, table.contentHash),
+}));
+
+export const courseLessonIdentities = pgTable("course_lesson_identities", {
+  id: serial("id").primaryKey(),
+  courseDefinitionId: integer("course_definition_id").references(() => courseDefinitions.id),
+  key: text("key").notNull(),
+  legacyLessonId: integer("legacy_lesson_id").references(() => courseLessons.id),
+  createdAt: text("created_at").default(sql`now()`),
+  updatedAt: text("updated_at").default(sql`now()`),
+}, (table) => ({
+  uniqueLessonKey: unique().on(table.courseDefinitionId, table.key),
+  uniqueLegacyLesson: unique().on(table.legacyLessonId),
+}));
+
+export const courseRevisionLessons = pgTable("course_revision_lessons", {
+  id: serial("id").primaryKey(),
+  courseRevisionId: integer("course_revision_id").references(() => courseRevisions.id),
+  lessonIdentityId: integer("lesson_identity_id").references(() => courseLessonIdentities.id),
+  title: text("title").notNull(),
+  description: text("description"),
+  contentMarkdown: text("content_markdown").notNull(),
+  contentHtml: text("content_html").notNull(),
+  orderIndex: integer("order_index").notNull(),
+  type: text("type").notNull().$type<'text' | 'video' | 'interactive' | 'document'>(),
+  videoUrl: text("video_url"),
+  documentUrl: text("document_url"),
+  duration: integer("duration"),
+  isRequired: boolean("is_required").default(true),
+  legacyLessonId: integer("legacy_lesson_id").references(() => courseLessons.id),
+  seoTitle: text("seo_title"),
+  seoDescription: text("seo_description"),
+  searchSummary: text("search_summary"),
+  indexable: boolean("indexable").default(true),
+  createdAt: text("created_at").default(sql`now()`),
+}, (table) => ({
+  uniqueRevisionLesson: unique().on(table.courseRevisionId, table.lessonIdentityId),
+}));
+
+export const courseRevisionQuizzes = pgTable("course_revision_quizzes", {
+  id: serial("id").primaryKey(),
+  courseRevisionId: integer("course_revision_id").references(() => courseRevisions.id).unique(),
+  legacyQuizId: integer("legacy_quiz_id").references(() => courseQuizzes.id),
+  title: text("title").notNull(),
+  description: text("description"),
+  passingScore: integer("passing_score").default(70),
+  timeLimit: integer("time_limit"),
+  allowRetakes: boolean("allow_retakes").default(true),
+  maxAttempts: integer("max_attempts"),
+  createdAt: text("created_at").default(sql`now()`),
+  updatedAt: text("updated_at").default(sql`now()`),
+});
+
+export const courseRevisionQuizQuestions = pgTable("course_revision_quiz_questions", {
+  id: serial("id").primaryKey(),
+  quizRevisionId: integer("quiz_revision_id").references(() => courseRevisionQuizzes.id),
+  legacyQuestionId: integer("legacy_question_id").references(() => quizQuestions.id),
+  question: text("question").notNull(),
+  type: text("type").notNull().$type<'multiple_choice' | 'true_false' | 'short_answer'>(),
+  options: text("options"),
+  correctAnswer: text("correct_answer").notNull(),
+  explanation: text("explanation"),
+  points: integer("points").default(1),
+  orderIndex: integer("order_index").notNull(),
+  createdAt: text("created_at").default(sql`now()`),
+});
+
 // Tabla de progreso del usuario en cursos
 export const userCourseProgress = pgTable("user_course_progress", {
   id: serial("id").primaryKey(),
   userId: integer("user_id").references(() => users.id),
   courseId: integer("course_id").references(() => courses.id),
+  courseDefinitionId: integer("course_definition_id").references(() => courseDefinitions.id),
   status: text("status").notNull().$type<'not_started' | 'in_progress' | 'completed'>(),
   progress: integer("progress").default(0), // Porcentaje 0-100
   currentLessonId: integer("current_lesson_id").references(() => courseLessons.id),
+  currentLessonIdentityId: integer("current_lesson_identity_id").references(() => courseLessonIdentities.id),
   completedLessons: text("completed_lessons"), // JSON array de IDs de lecciones completadas
+  completedLessonIdentityIds: text("completed_lesson_identity_ids"), // JSON array de IDs estables
   startedAt: text("started_at"),
   completedAt: text("completed_at"),
   lastAccessedAt: text("last_accessed_at"),
@@ -488,6 +601,7 @@ export const userLessonProgress = pgTable("user_lesson_progress", {
   id: serial("id").primaryKey(),
   userId: integer("user_id").references(() => users.id),
   lessonId: integer("lesson_id").references(() => courseLessons.id),
+  lessonIdentityId: integer("lesson_identity_id").references(() => courseLessonIdentities.id),
   status: text("status").notNull().$type<'not_started' | 'in_progress' | 'completed'>(),
   timeSpent: integer("time_spent").default(0), // Tiempo en segundos
   completedAt: text("completed_at"),
@@ -501,6 +615,9 @@ export const quizAttempts = pgTable("quiz_attempts", {
   userId: integer("user_id").references(() => users.id),
   quizId: integer("quiz_id").references(() => courseQuizzes.id),
   courseId: integer("course_id").references(() => courses.id),
+  courseDefinitionId: integer("course_definition_id").references(() => courseDefinitions.id),
+  courseRevisionId: integer("course_revision_id").references(() => courseRevisions.id),
+  courseQuizRevisionId: integer("course_quiz_revision_id").references(() => courseRevisionQuizzes.id),
   score: integer("score"), // Porcentaje obtenido
   passed: boolean("passed").default(false),
   answers: text("answers"), // JSON con las respuestas del usuario
@@ -525,6 +642,8 @@ export const courseCertificates = pgTable("course_certificates", {
   id: serial("id").primaryKey(),
   userId: integer("user_id").references(() => users.id),
   courseId: integer("course_id").references(() => courses.id),
+  courseDefinitionId: integer("course_definition_id").references(() => courseDefinitions.id),
+  courseRevisionId: integer("course_revision_id").references(() => courseRevisions.id),
   certificateCode: text("certificate_code").notNull().unique(), // Código único del certificado
   issuedAt: text("issued_at").default(sql`now()`),
   quizScore: integer("quiz_score"), // Score del quiz final
@@ -1554,6 +1673,86 @@ export const quizQuestionsRelations = relations(quizQuestions, ({ one, many }) =
   attemptAnswers: many(quizAttemptAnswers),
 }));
 
+export const courseDefinitionsRelations = relations(courseDefinitions, ({ one, many }) => ({
+  legacyCourse: one(courses, {
+    fields: [courseDefinitions.legacyCourseId],
+    references: [courses.id],
+  }),
+  currentPublishedRevision: one(courseRevisions, {
+    fields: [courseDefinitions.currentPublishedRevisionId],
+    references: [courseRevisions.id],
+  }),
+  revisions: many(courseRevisions),
+  lessonIdentities: many(courseLessonIdentities),
+}));
+
+export const courseRevisionsRelations = relations(courseRevisions, ({ one, many }) => ({
+  courseDefinition: one(courseDefinitions, {
+    fields: [courseRevisions.courseDefinitionId],
+    references: [courseDefinitions.id],
+  }),
+  author: one(users, {
+    fields: [courseRevisions.authorId],
+    references: [users.id],
+  }),
+  legacyCourse: one(courses, {
+    fields: [courseRevisions.legacyCourseId],
+    references: [courses.id],
+  }),
+  lessons: many(courseRevisionLessons),
+  quiz: one(courseRevisionQuizzes),
+}));
+
+export const courseLessonIdentitiesRelations = relations(courseLessonIdentities, ({ one, many }) => ({
+  courseDefinition: one(courseDefinitions, {
+    fields: [courseLessonIdentities.courseDefinitionId],
+    references: [courseDefinitions.id],
+  }),
+  legacyLesson: one(courseLessons, {
+    fields: [courseLessonIdentities.legacyLessonId],
+    references: [courseLessons.id],
+  }),
+  revisions: many(courseRevisionLessons),
+}));
+
+export const courseRevisionLessonsRelations = relations(courseRevisionLessons, ({ one }) => ({
+  courseRevision: one(courseRevisions, {
+    fields: [courseRevisionLessons.courseRevisionId],
+    references: [courseRevisions.id],
+  }),
+  lessonIdentity: one(courseLessonIdentities, {
+    fields: [courseRevisionLessons.lessonIdentityId],
+    references: [courseLessonIdentities.id],
+  }),
+  legacyLesson: one(courseLessons, {
+    fields: [courseRevisionLessons.legacyLessonId],
+    references: [courseLessons.id],
+  }),
+}));
+
+export const courseRevisionQuizzesRelations = relations(courseRevisionQuizzes, ({ one, many }) => ({
+  courseRevision: one(courseRevisions, {
+    fields: [courseRevisionQuizzes.courseRevisionId],
+    references: [courseRevisions.id],
+  }),
+  legacyQuiz: one(courseQuizzes, {
+    fields: [courseRevisionQuizzes.legacyQuizId],
+    references: [courseQuizzes.id],
+  }),
+  questions: many(courseRevisionQuizQuestions),
+}));
+
+export const courseRevisionQuizQuestionsRelations = relations(courseRevisionQuizQuestions, ({ one }) => ({
+  quizRevision: one(courseRevisionQuizzes, {
+    fields: [courseRevisionQuizQuestions.quizRevisionId],
+    references: [courseRevisionQuizzes.id],
+  }),
+  legacyQuestion: one(quizQuestions, {
+    fields: [courseRevisionQuizQuestions.legacyQuestionId],
+    references: [quizQuestions.id],
+  }),
+}));
+
 export const userCourseProgressRelations = relations(userCourseProgress, ({ one }) => ({
   user: one(users, {
     fields: [userCourseProgress.userId],
@@ -1567,6 +1766,14 @@ export const userCourseProgressRelations = relations(userCourseProgress, ({ one 
     fields: [userCourseProgress.currentLessonId],
     references: [courseLessons.id],
   }),
+  courseDefinition: one(courseDefinitions, {
+    fields: [userCourseProgress.courseDefinitionId],
+    references: [courseDefinitions.id],
+  }),
+  currentLessonIdentity: one(courseLessonIdentities, {
+    fields: [userCourseProgress.currentLessonIdentityId],
+    references: [courseLessonIdentities.id],
+  }),
 }));
 
 export const userLessonProgressRelations = relations(userLessonProgress, ({ one }) => ({
@@ -1577,6 +1784,10 @@ export const userLessonProgressRelations = relations(userLessonProgress, ({ one 
   lesson: one(courseLessons, {
     fields: [userLessonProgress.lessonId],
     references: [courseLessons.id],
+  }),
+  lessonIdentity: one(courseLessonIdentities, {
+    fields: [userLessonProgress.lessonIdentityId],
+    references: [courseLessonIdentities.id],
   }),
 }));
 
@@ -1592,6 +1803,18 @@ export const quizAttemptsRelations = relations(quizAttempts, ({ one, many }) => 
   course: one(courses, {
     fields: [quizAttempts.courseId],
     references: [courses.id],
+  }),
+  courseDefinition: one(courseDefinitions, {
+    fields: [quizAttempts.courseDefinitionId],
+    references: [courseDefinitions.id],
+  }),
+  courseRevision: one(courseRevisions, {
+    fields: [quizAttempts.courseRevisionId],
+    references: [courseRevisions.id],
+  }),
+  quizRevision: one(courseRevisionQuizzes, {
+    fields: [quizAttempts.courseQuizRevisionId],
+    references: [courseRevisionQuizzes.id],
   }),
   answers: many(quizAttemptAnswers),
 }));
@@ -1615,6 +1838,14 @@ export const courseCertificatesRelations = relations(courseCertificates, ({ one 
   course: one(courses, {
     fields: [courseCertificates.courseId],
     references: [courses.id],
+  }),
+  courseDefinition: one(courseDefinitions, {
+    fields: [courseCertificates.courseDefinitionId],
+    references: [courseDefinitions.id],
+  }),
+  courseRevision: one(courseRevisions, {
+    fields: [courseCertificates.courseRevisionId],
+    references: [courseRevisions.id],
   }),
 }));
 
@@ -2382,6 +2613,39 @@ export const insertQuizQuestionSchema = createInsertSchema(quizQuestions).omit({
   createdAt: true,
 });
 
+export const insertCourseDefinitionSchema = createInsertSchema(courseDefinitions).omit({
+  id: true,
+  createdAt: true,
+  updatedAt: true,
+});
+
+export const insertCourseRevisionSchema = createInsertSchema(courseRevisions).omit({
+  id: true,
+  createdAt: true,
+});
+
+export const insertCourseLessonIdentitySchema = createInsertSchema(courseLessonIdentities).omit({
+  id: true,
+  createdAt: true,
+  updatedAt: true,
+});
+
+export const insertCourseRevisionLessonSchema = createInsertSchema(courseRevisionLessons).omit({
+  id: true,
+  createdAt: true,
+});
+
+export const insertCourseRevisionQuizSchema = createInsertSchema(courseRevisionQuizzes).omit({
+  id: true,
+  createdAt: true,
+  updatedAt: true,
+});
+
+export const insertCourseRevisionQuizQuestionSchema = createInsertSchema(courseRevisionQuizQuestions).omit({
+  id: true,
+  createdAt: true,
+});
+
 export const insertUserCourseProgressSchema = createInsertSchema(userCourseProgress).omit({
   id: true,
   createdAt: true,
@@ -2671,6 +2935,24 @@ export type CourseQuiz = typeof courseQuizzes.$inferSelect;
 
 export type InsertQuizQuestion = z.infer<typeof insertQuizQuestionSchema>;
 export type QuizQuestion = typeof quizQuestions.$inferSelect;
+
+export type InsertCourseDefinition = z.infer<typeof insertCourseDefinitionSchema>;
+export type CourseDefinition = typeof courseDefinitions.$inferSelect;
+
+export type InsertCourseRevision = z.infer<typeof insertCourseRevisionSchema>;
+export type CourseRevision = typeof courseRevisions.$inferSelect;
+
+export type InsertCourseLessonIdentity = z.infer<typeof insertCourseLessonIdentitySchema>;
+export type CourseLessonIdentity = typeof courseLessonIdentities.$inferSelect;
+
+export type InsertCourseRevisionLesson = z.infer<typeof insertCourseRevisionLessonSchema>;
+export type CourseRevisionLesson = typeof courseRevisionLessons.$inferSelect;
+
+export type InsertCourseRevisionQuiz = z.infer<typeof insertCourseRevisionQuizSchema>;
+export type CourseRevisionQuiz = typeof courseRevisionQuizzes.$inferSelect;
+
+export type InsertCourseRevisionQuizQuestion = z.infer<typeof insertCourseRevisionQuizQuestionSchema>;
+export type CourseRevisionQuizQuestion = typeof courseRevisionQuizQuestions.$inferSelect;
 
 export type InsertUserCourseProgress = z.infer<typeof insertUserCourseProgressSchema>;
 export type UserCourseProgress = typeof userCourseProgress.$inferSelect;

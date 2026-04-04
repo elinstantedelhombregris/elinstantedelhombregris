@@ -1,0 +1,176 @@
+{
+  "title": "Quiz: Acción Comunitaria",
+  "description": "Evaluá tu comprensión del viaje completo: de la etimología de agere a la acción distribuida del Hombre Gris.",
+  "passingScore": 70,
+  "timeLimit": 20,
+  "allowRetakes": true,
+  "maxAttempts": 3,
+  "legacyQuizId": 72,
+  "questions": [
+    {
+      "question": "¿De qué verbo latino proviene la palabra \"acción\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Audire (escuchar)",
+        "Agere (hacer, mover, conducir)",
+        "Vidēre (ver)",
+        "Sentire (sentir)"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Acción viene de actio, que a su vez viene de agere: hacer, mover, conducir. De la misma raíz nacen agente, agenda, agitar y protagonista.",
+      "points": 2,
+      "orderIndex": 1,
+      "legacyQuestionId": 695
+    },
+    {
+      "question": "¿Cuál es la diferencia clave entre reaccionar y actuar según el curso?",
+      "type": "multiple_choice",
+      "options": [
+        "Reaccionar es más rápido que actuar",
+        "Actuar es automático; reaccionar es deliberado",
+        "Reaccionar es responder a lo externo; actuar es iniciar desde adentro con dirección propia",
+        "No hay diferencia significativa"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Reaccionar es ser movido por las circunstancias (respuesta automática). Actuar es mover las circunstancias desde una decisión interna con dirección elegida.",
+      "points": 2,
+      "orderIndex": 2,
+      "legacyQuestionId": 696
+    },
+    {
+      "question": "El \"activismo de sofá\" genera cambios reales equivalentes a la acción comunitaria.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "El activismo digital genera la ilusión de acción (dopamina, validación) pero no cambia nada en el mundo real. La indignación online no es acción — es reacción.",
+      "points": 1,
+      "orderIndex": 3,
+      "legacyQuestionId": 697
+    },
+    {
+      "question": "¿Qué propone la \"regla de los 3 metros\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Mantener 3 metros de distancia en reuniones",
+        "Mejorar lo que está a 3 metros de donde estás — si todos lo hacen, el país cambia",
+        "Caminar 3 metros por día como ejercicio",
+        "Limitar los proyectos a un radio de 3 metros"
+      ],
+      "correctAnswer": 1,
+      "explanation": "La regla de los 3 metros dice: mirá lo que está inmediatamente a tu alrededor y mejoralo. Si 45 millones de personas mejoran sus 3 metros, el país entero se transforma.",
+      "points": 2,
+      "orderIndex": 4,
+      "legacyQuestionId": 698
+    },
+    {
+      "question": "¿Qué enfoque propone preguntar \"¿qué ya tenemos?\" en vez de \"¿qué nos falta?\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Enfoque de carencias",
+        "Enfoque de subsidios",
+        "Enfoque de activos comunitarios (ABCD)",
+        "Enfoque de demanda externa"
+      ],
+      "correctAnswer": 2,
+      "explanation": "El Asset-Based Community Development (ABCD) de McKnight y Kretzmann propone mapear los activos existentes (personas, organizaciones, espacios, redes, historias) antes de buscar ayuda externa.",
+      "points": 2,
+      "orderIndex": 5,
+      "legacyQuestionId": 699
+    },
+    {
+      "question": "El mapeo comunitario más efectivo se hace con encuestas digitales anónimas.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "La mejor herramienta de mapeo es la conversación cara a cara: golpear puertas, tomar mate, preguntar \"¿en qué sos bueno?\" y \"¿qué te gustaría mejorar?\". Eso revela más que cualquier encuesta.",
+      "points": 1,
+      "orderIndex": 6,
+      "legacyQuestionId": 700
+    },
+    {
+      "question": "¿Cuál es la principal causa de muerte de proyectos comunitarios según el curso?",
+      "type": "multiple_choice",
+      "options": [
+        "Falta de dinero",
+        "Oposición del gobierno",
+        "Falta de diseño: objetivo difuso, dependencia de una persona, no medir ni celebrar",
+        "Falta de tecnología"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Los proyectos no mueren por falta de recursos sino por falta de diseño: objetivos vagos, dependencia de una sola persona, no medir avances, no celebrar logros pequeños, y no pedir ayuda a tiempo.",
+      "points": 2,
+      "orderIndex": 7,
+      "legacyQuestionId": 701
+    },
+    {
+      "question": "¿Cuáles son las 3 preguntas para evaluar cualquier proyecto comunitario?",
+      "type": "multiple_choice",
+      "options": [
+        "¿Cuánto costó? ¿Quién pagó? ¿Sobró plata?",
+        "¿Qué intentamos hacer? ¿Qué pasó realmente? ¿Qué aprendimos?",
+        "¿Quién lideró? ¿Quién falló? ¿Quién tiene la culpa?",
+        "¿Fue exitoso? ¿Se puede repetir? ¿Cuánto durará?"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Las 3 preguntas mágicas son: ¿Qué intentamos hacer? ¿Qué pasó realmente? ¿Qué aprendimos y qué hacemos diferente? Transforman fracasos en aprendizajes y proyectos en organismos que evolucionan.",
+      "points": 2,
+      "orderIndex": 8,
+      "legacyQuestionId": 702
+    },
+    {
+      "question": "La gente se suma a proyectos cuando entiende la propuesta técnica.",
+      "type": "true_false",
+      "options": null,
+      "correctAnswer": false,
+      "explanation": "La gente no se suma a proyectos — se suma a personas. La confianza, construida con coherencia entre lo que se dice y lo que se hace, es la moneda de la acción comunitaria.",
+      "points": 2,
+      "orderIndex": 9,
+      "legacyQuestionId": 703
+    },
+    {
+      "question": "¿Cuál es la diferencia entre convocar y manipular?",
+      "type": "multiple_choice",
+      "options": [
+        "Convocar usa redes sociales; manipular usa medios tradicionales",
+        "Convocar invita con honestidad y libertad; manipular usa culpa, presión o promesas falsas",
+        "No hay diferencia — ambas buscan que la gente participe",
+        "Manipular es más efectivo a largo plazo"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Convocar es una invitación abierta y honesta donde la persona es libre de aceptar o no. Manipular usa culpa, urgencia artificial o promesas incumplibles. La manipulación destruye la confianza.",
+      "points": 2,
+      "orderIndex": 10,
+      "legacyQuestionId": 704
+    },
+    {
+      "question": "En la metáfora del refinamiento de plata, ¿qué representa la Acción?",
+      "type": "multiple_choice",
+      "options": [
+        "El mineral sin refinar",
+        "El crisol que contiene la plata",
+        "Encender el fuego — sin fuego no hay refinamiento",
+        "El reflejo en la plata terminada"
+      ],
+      "correctAnswer": 2,
+      "explanation": "La Visión es ver la plata dentro del mineral. La Acción es encender el fuego. Sin fuego no hay refinamiento. Sin acción, la plata queda gris para siempre.",
+      "points": 2,
+      "orderIndex": 11,
+      "legacyQuestionId": 705
+    },
+    {
+      "question": "¿Cómo describe el curso la transformación del Hombre Gris a nivel nacional?",
+      "type": "multiple_choice",
+      "options": [
+        "Un líder central que coordina todas las acciones",
+        "Una ley del Congreso que establece el movimiento",
+        "Una red distribuida de acciones locales que se conectan y se multiplican",
+        "Una revolución organizada desde una capital"
+      ],
+      "correctAnswer": 2,
+      "explanation": "El Hombre Gris no es un líder central. Es una red distribuida: cada persona y comunidad actúa en su territorio, conectada por visión compartida. Cuando la acción se vuelve contagiosa, la transformación es imparable.",
+      "points": 2,
+      "orderIndex": 12,
+      "legacyQuestionId": 706
+    }
+  ]
+}

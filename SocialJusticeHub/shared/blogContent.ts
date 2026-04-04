@@ -1850,4 +1850,401 @@ export const blogContentUpdates: Record<string, BlogContentEntry> = {
       </article>
     `,
   },
+  [slugify("Refinarse o Repetirse")]: {
+    excerpt:
+      "Hay una parte del proceso que nadie aplaude. Es la parte en la que uno tiene que volver sobre lo que construyó y preguntarse, con honestidad brutal, si de verdad sirve. No si suena bien. No si impresiona. Si sirve.",
+    content: `
+      <article>
+        <h1>Refinarse o Repetirse</h1>
+
+        <blockquote>
+          "La elegancia se logra no cuando no hay nada más que agregar, sino cuando no hay nada más que quitar."
+        </blockquote>
+
+        <p>
+          Hay una parte del proceso que nadie aplaude.
+        </p>
+        <p>
+          No se ve bien en redes.
+          No queda épica en una foto.
+          No genera admiración inmediata.
+          No da la sensación de avance limpio, lineal, heroico.
+        </p>
+        <p>
+          Es la parte en la que uno tiene que volver sobre lo que construyó y preguntarse, con honestidad brutal, si de verdad sirve.
+        </p>
+        <p>
+          No si suena bien.<br/>
+          No si impresiona.<br/>
+          No si está intelectualmente bien armado.<br/>
+          <strong>Si sirve.</strong>
+        </p>
+        <p>
+          Estoy viviendo eso.
+        </p>
+        <p>
+          Y no como idea abstracta. Lo estoy viviendo en carne propia: en el trabajo de refinar una plataforma, de someter una visión a la realidad, de empujar una arquitectura contra el límite de lo ejecutable, de quemar tiempo y energía mental para probar si lo que creía era cierto o si era solo una ilusión elegante.
+        </p>
+        <p>
+          Porque esa es una verdad incómoda: uno puede construir algo brillante en el papel y, aun así, estar equivocado.
+        </p>
+        <p>
+          De hecho, muchas veces lo más peligroso no es estar equivocado de manera burda. Lo más peligroso es estar equivocado de manera sofisticada.
+        </p>
+        <p>
+          Hay errores vulgares, fáciles de detectar.<br/>
+          Y hay errores hermosos.<br/>
+          Errores que vienen vestidos de profundidad.<br/>
+          Errores que parecen visión.<br/>
+          Errores que seducen porque son coherentes, ambiciosos, completos.
+        </p>
+        <p>
+          Pero la realidad no premia la sofisticación de nuestros errores.
+        </p>
+        <p>
+          <strong>La realidad premia lo que funciona.</strong>
+        </p>
+
+        <h2>Todos vivimos sobre supuestos</h2>
+        <p>
+          La mayoría de las personas no está viviendo su vida.
+        </p>
+        <p>
+          Está ejecutando un paquete de supuestos.
+        </p>
+        <p>
+          Supuestos sobre quiénes son.<br/>
+          Supuestos sobre lo que pueden hacer.<br/>
+          Supuestos sobre lo que merecen.<br/>
+          Supuestos sobre cómo funciona el mundo.<br/>
+          Supuestos heredados de la familia, de la escuela, del miedo, de una herida vieja, de una derrota mal digerida, de una sociedad que les enseñó a sobrevivir pero nunca a despertar.
+        </p>
+        <p>
+          Y el problema es que, cuando no revisamos esos supuestos, terminamos construyendo una existencia entera sobre cimientos que nunca pusimos a prueba.
+        </p>
+        <p>
+          Entonces repetimos.
+        </p>
+        <p>
+          Repetimos patrones.<br/>
+          Repetimos excusas.<br/>
+          Repetimos identidades viejas.<br/>
+          Repetimos una versión de nosotros mismos que quizás alguna vez nos protegió, pero que hoy no nos sirve para nada.
+        </p>
+        <p>
+          La repetición puede parecer estabilidad.<br/>
+          Pero muchas veces es <strong>decadencia con maquillaje</strong>.
+        </p>
+
+        <h2>Refinarse duele</h2>
+        <p>
+          Refinarse no es decorar.
+        </p>
+        <p>
+          <strong>Refinarse es podar.</strong>
+        </p>
+        <p>
+          Es sacar capas.
+          Es matar partes de una idea para salvar la verdad que había adentro.
+          Es descubrir que no todo lo que imaginaste merece sobrevivir.
+          Es aceptar que agregar no siempre es avanzar — muchas veces, avanzar es quitar.
+        </p>
+        <p>
+          Eso lo estoy viendo con más claridad que nunca.
+        </p>
+        <p>
+          Cuando uno empieza a construir algo grande, siente la tentación de cubrir cada flanco, de responder cada vacío con una nueva capa, una nueva estructura, una nueva herramienta. Parece inteligencia. Parece responsabilidad. Parece visión total.
+        </p>
+        <p>
+          Pero llega un punto en que la complejidad deja de ser una solución y se convierte en una forma sofisticada de escapar de la prueba real.
+        </p>
+        <p>
+          Porque probar de verdad implica exponerse.
+        </p>
+        <p>
+          Implica poner algo en marcha.<br/>
+          Implica medir.<br/>
+          Implica observar.<br/>
+          Implica aceptar que ciertas partes no funcionan como imaginabas.<br/>
+          Implica reconocer que la realidad tiene veto.
+        </p>
+        <p>
+          Y eso hiere al ego.
+        </p>
+        <p>
+          El ego ama la totalidad imaginada.<br/>
+          <strong>La realidad exige humildad operativa.</strong>
+        </p>
+
+        <h2>Quemar tiempo no siempre es perderlo</h2>
+        <p>
+          Vivimos en una época obsesionada con la optimización.
+        </p>
+        <p>
+          Todo tiene que ser rápido.<br/>
+          Todo tiene que ser eficiente.<br/>
+          Todo tiene que escalar.<br/>
+          Todo tiene que rendir.
+        </p>
+        <p>
+          Pero hay una forma de tiempo que no se pierde aunque arda.
+        </p>
+        <p>
+          El tiempo que invertís en probar una intuición hasta descubrir su verdad. El tiempo que entregás para separar visión de fantasía. El tiempo que ponés en tensión, en observación, en ajuste, en corrección — tiempo que destruye una mentira antes de que esa mentira te destruya a vos.
+        </p>
+        <p>
+          <strong>Ese tiempo no se pierde. Ese tiempo te refina.</strong>
+        </p>
+        <p>
+          Sí, duele mirar atrás y ver horas, días, meses puestos en caminos que hubo que corregir. Sí, molesta descubrir que había cosas que parecían centrales y no lo eran. Sí, agota tener que rearmar piezas, reenfocar, simplificar, volver a pensar.
+        </p>
+        <p>
+          Pero peor sería seguir avanzando con una arquitectura falsa por no tener el coraje de revisarla.
+        </p>
+        <p>
+          Peor sería enamorarse tanto de una versión de las cosas que uno prefiera defenderla antes que transformarla.
+        </p>
+
+        <h2>Lo que no se somete a prueba se convierte en dogma</h2>
+        <p>
+          Hay personas que dicen que quieren cambiar.
+        </p>
+        <p>
+          Pero no revisan nada.<br/>
+          No prueban nada.<br/>
+          No arriesgan nada.<br/>
+          No entregan nada.
+        </p>
+        <p>
+          Quieren una vida nueva con supuestos viejos.<br/>
+          Quieren propósito sin fricción.<br/>
+          Quieren transformación sin desmontaje.<br/>
+          Quieren destino sin disciplina.
+        </p>
+        <p>
+          <strong>Eso no existe.</strong>
+        </p>
+        <p>
+          Si no sometés tu manera de ver el mundo a la experiencia, a la fricción, al error, a la corrección — si no dejás que la realidad te conteste — estás adorando tu propia versión congelada.
+        </p>
+        <p>
+          Y una identidad congelada termina siendo una prisión con el nombre de personalidad.
+        </p>
+        <p>
+          La vida cambia.<br/>
+          La realidad cambia.<br/>
+          El contexto cambia.<br/>
+          Vos cambiás, aunque no quieras admitirlo.
+        </p>
+        <p>
+          Entonces la pregunta no es si vas a cambiar.
+        </p>
+        <p>
+          La pregunta es si vas a participar conscientemente en ese cambio o si vas a dejar que la inercia decida por vos.
+        </p>
+
+        <h2>El verdadero trabajo es actualizar el alma operativa</h2>
+        <p>
+          A veces hablamos de propósito como si fuera una frase linda esperándonos en algún lugar.
+        </p>
+        <p>
+          No.
+        </p>
+        <p>
+          El propósito también se afina.
+        </p>
+        <p>
+          Se descubre, sí. Pero además se corrige. Se depura. Se limpia de ego, de ruido, de vanidad, de fantasías prestadas. Se vuelve más duro, más simple, más verdadero.
+        </p>
+        <p>
+          Uno no encuentra su misión una sola vez y listo.<br/>
+          Uno entra en diálogo con ella.<br/>
+          Uno la traiciona, la olvida, la recupera, la afina.<br/>
+          Uno tiene que merecerla.
+        </p>
+        <p>
+          Y para merecerla, tiene que dejar morir muchas versiones de sí mismo.
+        </p>
+        <p>
+          Ese quizás sea el punto más importante del proceso: no estamos acá solo para construir cosas afuera. <strong>Estamos acá para convertirnos en alguien capaz de sostener lo que dice que vino a hacer.</strong>
+        </p>
+        <p>
+          Y eso exige actualización interna.
+        </p>
+        <p>
+          No alcanza con tener buenas intenciones.<br/>
+          No alcanza con pensar profundo.<br/>
+          No alcanza con sentir fuerte.
+        </p>
+        <p>
+          Hace falta poner mente, corazón y esfuerzo al servicio de una revisión sincera.
+        </p>
+        <p>
+          Hace falta mirar lo construido y preguntarse:<br/>
+          ¿Esto expresa la verdad o solo mi apego?<br/>
+          ¿Esto está vivo o solo está inflado?<br/>
+          ¿Esto puede encarnar en el mundo o solo funciona en mi cabeza?
+        </p>
+
+        <h2>Cambiar la percepción o resignarse a la repetición</h2>
+        <p>
+          La mayoría de los cambios que la gente dice querer nunca ocurren porque no cambió la percepción desde la cual actúa.
+        </p>
+        <p>
+          Siguen mirando el mundo desde la misma estructura mental.<br/>
+          Siguen interpretando la realidad con las mismas categorías.<br/>
+          Siguen llamando prudencia al miedo.<br/>
+          Siguen llamando paciencia a la postergación.<br/>
+          Siguen llamando identidad a la costumbre.
+        </p>
+        <p>
+          Y así no hay revolución posible.<br/>
+          Ni personal.<br/>
+          Ni colectiva.<br/>
+          Ni espiritual.<br/>
+          Ni política.<br/>
+          Ni existencial.
+        </p>
+        <p>
+          No cambia tu vida cuando deseás más fuerte.<br/>
+          Cambia cuando empezás a ver distinto y, por lo tanto, a decidir distinto.<br/>
+          Cambia cuando dejás de proteger los supuestos que te mantienen pequeño.<br/>
+          Cambia cuando aceptás que parte de tu sufrimiento viene de seguir siendo fiel a una versión vencida de vos mismo.
+        </p>
+        <p>
+          Eso es lo que estoy atravesando también en este proceso de refinamiento.
+        </p>
+        <p>
+          No solo estoy ajustando una plataforma.<br/>
+          Estoy ajustando la manera de pensarla.<br/>
+          La manera de priorizar.<br/>
+          La manera de distinguir entre lo esencial y lo accesorio.<br/>
+          La manera de convertir una visión en algo que pueda respirar en el mundo sin ahogarse bajo su propio peso.
+        </p>
+        <p>
+          Y en ese trabajo hay algo profundamente humano.
+        </p>
+        <p>
+          Porque al final, <strong>toda gran obra exterior termina siendo un espejo</strong>.
+        </p>
+
+        <h2>La prueba no destruye la visión — la purifica</h2>
+        <p>
+          Hay gente que teme poner a prueba sus ideas porque cree que, si no resisten, entonces nunca fueron valiosas.
+        </p>
+        <p>
+          Yo creo lo contrario.
+        </p>
+        <p>
+          Lo que merece existir no le teme al fuego.<br/>
+          Le teme más a la complacencia que a la prueba.
+        </p>
+        <p>
+          La validación real no mata la visión.<br/>
+          La refina.<br/>
+          La vuelve sobria.<br/>
+          La vuelve precisa.<br/>
+          La vuelve capaz de encarnar.
+        </p>
+        <p>
+          <strong>Una idea que no tolera iteración no es una visión. Es un capricho.</strong><br/>
+          <strong>Una misión que no soporta corrección no es una misión. Es vanidad disfrazada.</strong>
+        </p>
+        <p>
+          Por eso hay momentos en los que el mayor acto de fidelidad hacia lo que uno quiere construir no es insistir ciegamente.
+        </p>
+        <p>
+          Es detenerse.<br/>
+          Mirar de nuevo.<br/>
+          Cortar.<br/>
+          Reordenar.<br/>
+          Probar otra vez.<br/>
+          Y volver a entrar.
+        </p>
+
+        <h2>La vida exige participación</h2>
+        <p>
+          Nadie va a venir a actualizar tus supuestos por vos.
+        </p>
+        <p>
+          Nadie va a corregir desde afuera la arquitectura interna con la que interpretás el mundo. Nadie va a instalarte propósito como si fuera una aplicación. Nadie va a rescatarte de una vida repetida si vos seguís defendiendo las piezas que ya no sirven.
+        </p>
+        <p>
+          La vida no responde a declaraciones.<br/>
+          <strong>Responde a participación.</strong>
+        </p>
+        <p>
+          Te pide presencia.<br/>
+          Te pide honestidad.<br/>
+          Te pide coraje para revisar.<br/>
+          Te pide la fortaleza emocional de no quebrarte cada vez que descubrís que algo que amabas necesita cambiar.
+        </p>
+        <p>
+          Y sí, eso cuesta.
+        </p>
+        <p>
+          Cuesta tiempo.<br/>
+          Cuesta energía.<br/>
+          Cuesta foco.<br/>
+          Cuesta partes del ego.<br/>
+          Cuesta despedirse de ciertas certezas.
+        </p>
+        <p>
+          Pero eso es crecer.
+        </p>
+        <p>
+          No volverse más grande en apariencia.<br/>
+          <strong>Volverse más verdadero en estructura.</strong>
+        </p>
+
+        <h2>El cambio que necesitamos no va a ocurrir solo</h2>
+        <p>
+          Hay algo que tengo cada vez más claro: el cambio que necesitamos — en la vida y en el mundo — no va a surgir de personas que simplemente opinen mejor.
+        </p>
+        <p>
+          Va a surgir de personas dispuestas a revisar la arquitectura desde la cual viven.
+        </p>
+        <p>
+          Personas capaces de mirar sus supuestos de frente.<br/>
+          Capaces de ponerlos a prueba.<br/>
+          Capaces de pagar el costo de refinarse.<br/>
+          Capaces de cambiar de verdad.
+        </p>
+        <p>
+          Porque nada cambia si nosotros no cambiamos.<br/>
+          Y nosotros no cambiamos mientras sigamos negociando con lo que ya sabemos que no funciona.
+        </p>
+        <p>
+          A veces la evolución no empieza con una certeza nueva.<br/>
+          Empieza con una traición necesaria.
+        </p>
+        <p>
+          La traición a una vieja versión de uno mismo.<br/>
+          La renuncia a una forma de mirar que ya quedó chica.<br/>
+          El abandono de una estructura que sirvió ayer, pero que hoy impide el nacimiento de algo mayor.
+        </p>
+        <p>
+          <strong>Ahí empieza todo.</strong>
+        </p>
+        <p>
+          No cuando tenés todo claro.<br/>
+          No cuando desaparece el miedo.<br/>
+          No cuando el camino se ordena solo.
+        </p>
+        <p>
+          Empieza cuando decidís entrar al taller, agarrar el martillo, mirar lo que construiste y tener el coraje de decir:
+        </p>
+
+        <blockquote>
+          <em>Esto todavía no está listo.</em><br/>
+          <em>Esto tiene que pasar por fuego.</em><br/>
+          <em>Y yo también.</em>
+        </blockquote>
+
+        <p>
+          <em>Si algo de esto resuena en vos, no necesitás permiso para firmarlo. Solo recordarte cada mañana: lo que no se refina, se repite. Y lo que se repite sin conciencia, te condena.</em>
+        </p>
+      </article>
+    `,
+  },
 };

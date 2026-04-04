@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
+import { apiRequest } from '@/lib/queryClient';
 
 interface UseLessonTrackerProps {
   userId: number | undefined;
@@ -22,16 +23,10 @@ export const useLessonTracker = ({
   const updateTimeMutation = useMutation({
     mutationFn: async (seconds: number) => {
       if (!courseId || !lessonId) return;
-      const response = await fetch(
+      const response = await apiRequest(
+        'POST',
         `/api/courses/${courseId}/lessons/${lessonId}/track-time`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${localStorage.getItem('authToken')}`
-          },
-          body: JSON.stringify({ timeSpent: seconds })
-        }
+        { timeSpent: seconds },
       );
       if (!response.ok) throw new Error('Error al actualizar tiempo');
       return response.json();
@@ -98,4 +93,3 @@ const formatTime = (seconds: number): string => {
   }
   return `${minutes}:${secs.toString().padStart(2, '0')}`;
 };
-

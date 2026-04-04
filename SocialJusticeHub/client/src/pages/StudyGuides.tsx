@@ -19,6 +19,8 @@ import GlassCard from '@/components/ui/GlassCard';
 import SmoothReveal from '@/components/ui/SmoothReveal';
 import { Link } from 'wouter';
 import { UserContext } from '@/App';
+import { buildCourseHubMetadata } from '@shared/course-seo';
+import { useSeoMetadata } from '@/lib/seo';
 
 interface Course {
   id: number;
@@ -210,7 +212,6 @@ const StudyGuides = () => {
     queryFn: async () => {
       const params = new URLSearchParams({
         limit: '100',
-        sortBy: 'level'
       });
 
       if (category !== 'all') params.append('category', category);
@@ -235,9 +236,14 @@ const StudyGuides = () => {
   });
 
   useEffect(() => {
-    document.title = 'Rutas de Transformación - El Instante del Hombre Gris';
     window.scrollTo(0, 0);
   }, []);
+
+  const seoMetadata = useMemo(
+    () => buildCourseHubMetadata(typeof window !== 'undefined' ? window.location.origin : undefined),
+    [],
+  );
+  useSeoMetadata(seoMetadata);
 
   const courses: Course[] = data?.courses || [];
 

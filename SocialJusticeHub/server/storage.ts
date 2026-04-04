@@ -68,6 +68,25 @@ import { PasswordManager, type AuthUser } from './auth';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { applyBlogContentEnhancements, applyEnhancementsToList } from "./blogContentEnhancements";
+import {
+  getCourseDefinitionIdByLegacyCourseId,
+  getCourseExternalIdByDefinitionId,
+  getCurrentRevisionForCourseDefinition,
+  hasCurrentRevisionForCourseId,
+  hasCurrentRevisionForCourseSlug,
+  getLegacyCourseById,
+  getLegacyLessonById,
+  getLessonExternalIdByIdentityId,
+  getLessonIdentityIdByLegacyLessonId,
+  getPublishedCourseById,
+  getPublishedCourseBySlug,
+  getPublishedCourseQuiz,
+  getPublishedCourseWithLessons,
+  getPublishedCourses,
+  getPublishedLessonByIdentityId,
+  getPublishedQuizByRevisionQuizId,
+  incrementPublishedCourseView,
+} from "./course-content-store";
 
 const ACTION_POINTS: Record<string, number> = {
   'page_view': 1,
@@ -82,6 +101,147 @@ const ACTION_POINTS: Record<string, number> = {
   'quiz_passed': 200,
   'certificate_earned': 300
 } as const;
+
+const parseNumericJsonArray = (value: string | null | undefined): number[] => {
+  if (!value) return [];
+
+  try {
+    const parsed = JSON.parse(value);
+    return Array.isArray(parsed)
+      ? parsed.filter((entry): entry is number => typeof entry === "number")
+      : [];
+  } catch {
+    return [];
+  }
+};
+
+const stringifyNumericArray = (values: number[]): string =>
+  JSON.stringify(Array.from(new Set(values.filter((value) => typeof value === "number"))));
+
+const resolveCourseProgressCourseId = async (progress: any): Promise<number | null> => {
+  if (progress?.courseId) return progress.courseId;
+  if (progress?.courseDefinitionId) {
+    return (await getCourseExternalIdByDefinitionId(progress.courseDefinitionId)) ?? progress.courseDefinitionId;
+  }
+  return null;
+};
+
+const resolveCurrentLessonIdentityId = async (progress: any): Promise<number | null> => {
+  if (progress?.currentLessonId) return progress.currentLessonId;
+  if (progress?.currentLessonIdentityId) {
+    return (await getLessonExternalIdByIdentityId(progress.currentLessonIdentityId)) ?? progress.currentLessonIdentityId;
+  }
+  return null;
+};
+
+const resolveCompletedLessonIdentityIds = async (progress: any): Promise<number[]> => {
+  const preferred = parseNumericJsonArray(progress?.completedLessonIdentityIds);
+  if (preferred.length > 0) {
+    return Array.from(new Set(preferred));
+  }
+
+  const legacyIds = parseNumericJsonArray(progress?.completedLessons);
+  const mapped = await Promise.all(
+    legacyIds.map(async (legacyId) => (await getLessonIdentityIdByLegacyLessonId(legacyId)) ?? legacyId),
+  );
+
+  return Array.from(new Set(mapped));
+};
+
+const resolveCompletedLessonExternalIds = async (progress: any): Promise<number[]> => {
+  const preferred = parseNumericJsonArray(progress?.completedLessons);
+  if (preferred.length > 0) {
+    return Array.from(new Set(preferred));
+  }
+
+  const identityIds = parseNumericJsonArray(progress?.completedLessonIdentityIds);
+  const mapped = await Promise.all(
+    identityIds.map(async (identityId) => (await getLessonExternalIdByIdentityId(identityId)) ?? identityId),
+  );
+
+  return Array.from(new Set(mapped));
+};
+
+const adaptUserCourseProgress = async (progress: any) => {
+  if (!progress) return undefined;
+
+  const courseId = await resolveCourseProgressCourseId(progress);
+  const currentLessonId = await resolveCurrentLessonIdentityId(progress);
+  const completedLessonIds = await resolveCompletedLessonExternalIds(progress);
+
+  return {
+    ...progress,
+    courseId,
+    courseDefinitionId: courseId,
+    currentLessonId,
+    currentLessonIdentityId: currentLessonId,
+    completedLessons: stringifyNumericArray(completedLessonIds),
+    completedLessonIdentityIds: stringifyNumericArray(completedLessonIds),
+  };
+};
+
+const adaptUserLessonProgress = async (progress: any) => {
+  if (!progress) return undefined;
+
+  const lessonId = progress.lessonId
+    ?? (progress.lessonIdentityId ? (await getLessonExternalIdByIdentityId(progress.lessonIdentityId)) ?? progress.lessonIdentityId : null);
+
+  return {
+    ...progress,
+    lessonId,
+    lessonIdentityId: lessonId,
+  };
+};
+
+type ListedCourse = Course & {
+  lessonCount?: number;
+  hasQuiz?: boolean;
+  userProgress?: {
+    status: string;
+    progress: number;
+  } | null;
+};
+
+const compareCourseOrder = (left: ListedCourse, right: ListedCourse, sortBy?: string) => {
+  const toTimestamp = (value: string | Date | null | undefined) => {
+    if (!value) return 0;
+    const parsed = new Date(value).getTime();
+    return Number.isFinite(parsed) ? parsed : 0;
+  };
+
+  if (sortBy === 'popular') {
+    return (right.viewCount ?? 0) - (left.viewCount ?? 0)
+      || (right.orderIndex ?? 0) - (left.orderIndex ?? 0)
+      || toTimestamp(right.createdAt) - toTimestamp(left.createdAt);
+  }
+
+  if (sortBy === 'recent') {
+    return toTimestamp(right.updatedAt) - toTimestamp(left.updatedAt)
+      || toTimestamp(right.createdAt) - toTimestamp(left.createdAt)
+      || (right.orderIndex ?? 0) - (left.orderIndex ?? 0);
+  }
+
+  if (sortBy === 'duration') {
+    return (left.duration ?? Number.MAX_SAFE_INTEGER) - (right.duration ?? Number.MAX_SAFE_INTEGER)
+      || (right.orderIndex ?? 0) - (left.orderIndex ?? 0);
+  }
+
+  if (sortBy === 'level') {
+    const levelRank: Record<string, number> = {
+      beginner: 0,
+      intermediate: 1,
+      advanced: 2,
+    };
+
+    return (levelRank[left.level] ?? 999) - (levelRank[right.level] ?? 999)
+      || (right.orderIndex ?? 0) - (left.orderIndex ?? 0)
+      || toTimestamp(right.createdAt) - toTimestamp(left.createdAt);
+  }
+
+  return (right.orderIndex ?? 0) - (left.orderIndex ?? 0)
+    || toTimestamp(right.updatedAt) - toTimestamp(left.updatedAt)
+    || toTimestamp(right.createdAt) - toTimestamp(left.createdAt);
+};
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -349,9 +509,12 @@ export interface IStorage {
     sortBy?: string;
     featured?: boolean;
   }): Promise<{ courses: Course[]; total: number; page: number; limit: number }>;
+  getCourseById(courseId: number): Promise<Course | undefined>;
   getCourseBySlug(slug: string): Promise<Course | undefined>;
+  getLessonById(lessonId: number): Promise<CourseLesson | undefined>;
   getCourseWithLessons(courseId: number): Promise<{ course: Course; lessons: CourseLesson[] } | undefined>;
   getCourseQuiz(courseId: number): Promise<{ quiz: CourseQuiz; questions: QuizQuestion[] } | undefined>;
+  incrementCourseView(courseId: number): Promise<void>;
   
   // Course Progress
   getUserCourseProgress(userId: number, courseId: number): Promise<UserCourseProgress | undefined>;
@@ -3965,7 +4128,12 @@ export class DatabaseStorage implements IStorage {
     const offset = (page - 1) * limit;
 
     try {
-      // Build conditions array
+      const publishedResult = await getPublishedCourses({
+        ...filters,
+        page: 1,
+        limit: 1000,
+      });
+
       const conditions = [eq(courses.isPublished, true)];
 
       if (filters?.category) {
@@ -3986,38 +4154,46 @@ export class DatabaseStorage implements IStorage {
       }
 
       const whereCondition = and(...conditions);
-
-      // Get total count
-      const countResult = await db
-        .select({ count: sql<number>`count(*)` })
-        .from(courses)
-        .where(whereCondition);
-      const total = Number(countResult[0]?.count || 0);
-
-      // Apply sorting
-      let orderByClause;
-      if (filters?.sortBy === 'popular') {
-        orderByClause = [desc(courses.viewCount)];
-      } else if (filters?.sortBy === 'recent') {
-        orderByClause = [desc(courses.createdAt)];
-      } else if (filters?.sortBy === 'duration') {
-        orderByClause = [asc(courses.duration)];
-      } else {
-        orderByClause = [desc(courses.orderIndex), desc(courses.createdAt)];
-      }
-
-      // Get courses
-      const courseList = await db
-        .select()
+      const legacyRows = await db
+        .select({
+          course: courses,
+          lessonCount: sql<number>`(
+            select count(*)
+            from ${courseLessons}
+            where ${courseLessons.courseId} = ${courses.id}
+          )`,
+          hasQuiz: sql<boolean>`exists(
+            select 1
+            from ${courseQuizzes}
+            where ${courseQuizzes.courseId} = ${courses.id}
+          )`,
+        })
         .from(courses)
         .where(whereCondition)
-        .orderBy(...orderByClause)
-        .limit(limit)
-        .offset(offset);
+        .orderBy(desc(courses.orderIndex), desc(courses.updatedAt), desc(courses.createdAt));
+
+      const legacyVisibility = await Promise.all(
+        legacyRows.map(async (row) => ({
+          ...row,
+          hasCurrentRevision: await hasCurrentRevisionForCourseId(row.course.id),
+        })),
+      );
+
+      const legacyCourses = legacyVisibility
+        .filter((row) => !row.hasCurrentRevision)
+        .map((row) => ({
+          ...row.course,
+          lessonCount: Number(row.lessonCount || 0),
+          hasQuiz: Boolean(row.hasQuiz),
+        }));
+
+      const mergedCourses = [...publishedResult.courses, ...legacyCourses]
+        .sort((left, right) => compareCourseOrder(left, right, filters?.sortBy));
+      const paginatedCourses = mergedCourses.slice(offset, offset + limit);
 
       return {
-        courses: courseList,
-        total,
+        courses: paginatedCourses,
+        total: mergedCourses.length,
         page,
         limit
       };
@@ -4027,7 +4203,29 @@ export class DatabaseStorage implements IStorage {
     }
   }
 
+  async getCourseById(courseId: number): Promise<Course | undefined> {
+    const publishedCourse = await getPublishedCourseById(courseId);
+    if (publishedCourse) {
+      return publishedCourse;
+    }
+
+    if (await hasCurrentRevisionForCourseId(courseId)) {
+      return undefined;
+    }
+
+    return await getLegacyCourseById(courseId);
+  }
+
   async getCourseBySlug(slug: string): Promise<Course | undefined> {
+    const publishedCourse = await getPublishedCourseBySlug(slug);
+    if (publishedCourse) {
+      return publishedCourse;
+    }
+
+    if (await hasCurrentRevisionForCourseSlug(slug)) {
+      return undefined;
+    }
+
     const [course] = await db
       .select()
       .from(courses)
@@ -4036,7 +4234,42 @@ export class DatabaseStorage implements IStorage {
     return course;
   }
 
+  async getLessonById(lessonId: number): Promise<CourseLesson | undefined> {
+    const publishedLesson = await getPublishedLessonByIdentityId(lessonId);
+    if (publishedLesson) {
+      return {
+        ...publishedLesson.lesson,
+        id: publishedLesson.identity.legacyLessonId ?? publishedLesson.identity.id,
+        lessonIdentityId: publishedLesson.identity.id,
+        legacyLessonId: publishedLesson.identity.legacyLessonId,
+        courseId: publishedLesson.course.legacyCourseId ?? publishedLesson.course.id,
+        content: publishedLesson.lesson.contentHtml,
+        key: publishedLesson.identity.key,
+      };
+    }
+
+    const legacyLesson = await getLegacyLessonById(lessonId);
+    if (!legacyLesson) {
+      return undefined;
+    }
+
+    if (await hasCurrentRevisionForCourseId(legacyLesson.courseId)) {
+      return undefined;
+    }
+
+    return legacyLesson;
+  }
+
   async getCourseWithLessons(courseId: number): Promise<{ course: Course; lessons: CourseLesson[] } | undefined> {
+    const publishedCourseData = await getPublishedCourseWithLessons(courseId);
+    if (publishedCourseData) {
+      return publishedCourseData;
+    }
+
+    if (await hasCurrentRevisionForCourseId(courseId)) {
+      return undefined;
+    }
+
     const [course] = await db
       .select()
       .from(courses)
@@ -4055,6 +4288,15 @@ export class DatabaseStorage implements IStorage {
   }
 
   async getCourseQuiz(courseId: number): Promise<{ quiz: CourseQuiz; questions: QuizQuestion[] } | undefined> {
+    const publishedQuiz = await getPublishedCourseQuiz(courseId);
+    if (publishedQuiz) {
+      return publishedQuiz;
+    }
+
+    if (await hasCurrentRevisionForCourseId(courseId)) {
+      return undefined;
+    }
+
     const [quiz] = await db
       .select()
       .from(courseQuizzes)
@@ -4072,19 +4314,72 @@ export class DatabaseStorage implements IStorage {
     return { quiz, questions: questionsList };
   }
 
+  async incrementCourseView(courseId: number): Promise<void> {
+    const publishedCourse = await getPublishedCourseById(courseId);
+    if (publishedCourse) {
+      const definitionId = (publishedCourse as any).courseDefinitionId
+        ?? (await getCourseDefinitionIdByLegacyCourseId(publishedCourse.id))
+        ?? publishedCourse.id;
+      await incrementPublishedCourseView(definitionId);
+      return;
+    }
+
+    if (await hasCurrentRevisionForCourseId(courseId)) {
+      return;
+    }
+
+    await db
+      .update(courses)
+      .set({ viewCount: sql`${courses.viewCount} + 1` })
+      .where(eq(courses.id, courseId));
+  }
+
   // Course Progress
   async getUserCourseProgress(userId: number, courseId: number): Promise<UserCourseProgress | undefined> {
-    const [progress] = await db
+    let [progress] = await db
       .select()
       .from(userCourseProgress)
       .where(
         and(
           eq(userCourseProgress.userId, userId),
-          eq(userCourseProgress.courseId, courseId)
+          eq(userCourseProgress.courseDefinitionId, courseId)
         )
       )
       .limit(1);
-    return progress;
+
+    if (!progress) {
+      const mappedDefinitionId = await getCourseDefinitionIdByLegacyCourseId(courseId);
+      if (mappedDefinitionId) {
+        [progress] = await db
+          .select()
+          .from(userCourseProgress)
+          .where(
+            and(
+              eq(userCourseProgress.userId, userId),
+              or(
+                eq(userCourseProgress.courseDefinitionId, mappedDefinitionId),
+                eq(userCourseProgress.courseId, courseId),
+              )!
+            )
+          )
+          .limit(1);
+      }
+    }
+
+    if (!progress) {
+      [progress] = await db
+        .select()
+        .from(userCourseProgress)
+        .where(
+          and(
+            eq(userCourseProgress.userId, userId),
+            eq(userCourseProgress.courseId, courseId)
+          )
+        )
+        .limit(1);
+    }
+
+    return await adaptUserCourseProgress(progress);
   }
 
   async startCourse(userId: number, courseId: number): Promise<UserCourseProgress> {
@@ -4092,6 +4387,35 @@ export class DatabaseStorage implements IStorage {
     const existing = await this.getUserCourseProgress(userId, courseId);
     if (existing) {
       return existing;
+    }
+
+    const publishedCourse = await getPublishedCourseById(courseId);
+    if (publishedCourse) {
+      const courseDefinitionId = (publishedCourse as any).courseDefinitionId
+        ?? (await getCourseDefinitionIdByLegacyCourseId(courseId))
+        ?? courseId;
+      const revision = await getCurrentRevisionForCourseDefinition(courseDefinitionId);
+
+      const [progress] = await db
+        .insert(userCourseProgress)
+        .values({
+          userId,
+          courseId: revision?.legacyCourseId ?? courseId,
+          courseDefinitionId,
+          status: 'in_progress',
+          progress: 0,
+          startedAt: new Date().toISOString(),
+          lastAccessedAt: new Date().toISOString(),
+          completedLessons: JSON.stringify([]),
+          completedLessonIdentityIds: JSON.stringify([]),
+        })
+        .returning();
+
+      if (!progress) {
+        throw new Error('Failed to create course progress');
+      }
+
+      return await adaptUserCourseProgress(progress);
     }
 
     // Verify course exists and is published
@@ -4126,6 +4450,148 @@ export class DatabaseStorage implements IStorage {
   }
 
   async completeLesson(userId: number, lessonId: number): Promise<{ progress: UserCourseProgress; courseCompleted: boolean; xpAwarded: { lesson: number; course: number } }> {
+    const publishedLesson = await getPublishedLessonByIdentityId(lessonId);
+    if (publishedLesson) {
+      const { identity, lesson, courseDefinition } = publishedLesson;
+
+      const [existingLessonProgress] = await db
+        .select()
+        .from(userLessonProgress)
+        .where(
+          and(
+            eq(userLessonProgress.userId, userId),
+            eq(userLessonProgress.lessonIdentityId, identity.id)
+          )
+        )
+        .limit(1);
+
+      if (existingLessonProgress) {
+        await db
+          .update(userLessonProgress)
+          .set({
+            lessonId: identity.legacyLessonId ?? existingLessonProgress.lessonId ?? null,
+            lessonIdentityId: identity.id,
+            status: 'completed',
+            completedAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString()
+          })
+          .where(eq(userLessonProgress.id, existingLessonProgress.id));
+      } else {
+        await db.insert(userLessonProgress).values({
+          userId,
+          lessonId: identity.legacyLessonId ?? null,
+          lessonIdentityId: identity.id,
+          status: 'completed',
+          completedAt: new Date().toISOString()
+        });
+      }
+
+      let [courseProgress] = await db
+        .select()
+        .from(userCourseProgress)
+        .where(
+          and(
+            eq(userCourseProgress.userId, userId),
+            eq(userCourseProgress.courseDefinitionId, courseDefinition.id)
+          )
+        )
+        .limit(1);
+
+      if (!courseProgress) {
+        await this.startCourse(userId, courseDefinition.id);
+        [courseProgress] = await db
+          .select()
+          .from(userCourseProgress)
+          .where(
+            and(
+              eq(userCourseProgress.userId, userId),
+              eq(userCourseProgress.courseDefinitionId, courseDefinition.id)
+            )
+          )
+          .limit(1);
+      }
+
+      if (!courseProgress) {
+        throw new Error('Course progress not found');
+      }
+
+      const courseData = await getPublishedCourseWithLessons(courseDefinition.id);
+      if (!courseData) {
+        throw new Error('Course not found');
+      }
+
+      const resolveLessonIdentityId = (entry: any) => entry.lessonIdentityId ?? entry.id;
+
+      const requiredLessons = courseData.lessons.filter((entry) => entry.isRequired);
+      const completedLessonsIds = await resolveCompletedLessonIdentityIds(courseProgress);
+      const lessonAlreadyCompleted = completedLessonsIds.includes(identity.id);
+
+      if (!lessonAlreadyCompleted) {
+        completedLessonsIds.push(identity.id);
+      }
+
+      const completedRequired = requiredLessons.filter((entry) => completedLessonsIds.includes(resolveLessonIdentityId(entry))).length;
+      const progressPercentage = requiredLessons.length > 0
+        ? Math.round((completedRequired / requiredLessons.length) * 100)
+        : 0;
+
+      const nextLesson = courseData.lessons.find((entry) =>
+        entry.orderIndex > lesson.orderIndex && !completedLessonsIds.includes(resolveLessonIdentityId(entry))
+      );
+
+      const courseCompleted = requiredLessons.every((entry) => completedLessonsIds.includes(resolveLessonIdentityId(entry)));
+      const courseWasCompletedBefore = courseProgress.status === 'completed';
+
+      const [updatedProgress] = await db
+        .update(userCourseProgress)
+        .set({
+          courseId: publishedLesson.courseRevision.legacyCourseId ?? courseProgress.courseId ?? null,
+          courseDefinitionId: courseDefinition.id,
+          progress: progressPercentage,
+          status: courseCompleted ? 'completed' : 'in_progress',
+          currentLessonId: null,
+          currentLessonIdentityId: nextLesson ? resolveLessonIdentityId(nextLesson) : null,
+          completedLessonIdentityIds: stringifyNumericArray(completedLessonsIds),
+          completedLessons: courseProgress.completedLessons ?? JSON.stringify([]),
+          completedAt: courseCompleted ? new Date().toISOString() : null,
+          lastAccessedAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString()
+        })
+        .where(eq(userCourseProgress.id, courseProgress.id))
+        .returning();
+
+      if (!updatedProgress) {
+        throw new Error('Failed to update course progress');
+      }
+
+      const xpAwarded = { lesson: 0, course: 0 };
+
+      if (!lessonAlreadyCompleted) {
+        try {
+          xpAwarded.lesson = ACTION_POINTS['lesson_complete'] ?? 0;
+          await this.recordAction(userId, 'lesson_complete', {
+            lessonId: identity.id,
+            courseId: courseDefinition.id
+          });
+
+          if (courseCompleted && !courseWasCompletedBefore) {
+            xpAwarded.course = ACTION_POINTS['course_complete'] ?? 0;
+            await this.recordAction(userId, 'course_complete', {
+              courseId: courseDefinition.id
+            });
+          }
+        } catch (actionError) {
+          console.error('Error awarding points for lesson completion:', actionError);
+        }
+      }
+
+      return {
+        progress: await adaptUserCourseProgress(updatedProgress),
+        courseCompleted,
+        xpAwarded,
+      };
+    }
+
     // Get lesson to find course
     const [lesson] = await db
       .select()
@@ -4264,6 +4730,65 @@ export class DatabaseStorage implements IStorage {
   }
 
   async updateLessonTimeSpent(userId: number, lessonId: number, seconds: number): Promise<void> {
+    const publishedLesson = await getPublishedLessonByIdentityId(lessonId);
+    if (publishedLesson) {
+      const identityId = publishedLesson.identity.id;
+      const [existing] = await db
+        .select()
+        .from(userLessonProgress)
+        .where(
+          and(
+            eq(userLessonProgress.userId, userId),
+            eq(userLessonProgress.lessonIdentityId, identityId)
+          )
+        )
+        .limit(1);
+
+      if (existing) {
+        await db
+          .update(userLessonProgress)
+          .set({
+            lessonId: publishedLesson.identity.legacyLessonId ?? existing.lessonId ?? null,
+            lessonIdentityId: identityId,
+            timeSpent: (existing.timeSpent || 0) + seconds,
+            updatedAt: new Date().toISOString()
+          })
+          .where(eq(userLessonProgress.id, existing.id));
+      } else {
+        await db.insert(userLessonProgress).values({
+          userId,
+          lessonId: publishedLesson.identity.legacyLessonId ?? null,
+          lessonIdentityId: identityId,
+          status: 'in_progress',
+          timeSpent: seconds
+        });
+      }
+
+      const [courseProgress] = await db
+        .select()
+        .from(userCourseProgress)
+        .where(
+          and(
+            eq(userCourseProgress.userId, userId),
+            eq(userCourseProgress.courseDefinitionId, publishedLesson.courseDefinition.id)
+          )
+        )
+        .limit(1);
+
+      if (courseProgress) {
+        await db
+          .update(userCourseProgress)
+          .set({
+            lastAccessedAt: new Date().toISOString(),
+            courseDefinitionId: publishedLesson.courseDefinition.id,
+            courseId: publishedLesson.courseRevision.legacyCourseId ?? courseProgress.courseId ?? null,
+          })
+          .where(eq(userCourseProgress.id, courseProgress.id));
+      }
+
+      return;
+    }
+
     const [existing] = await db
       .select()
       .from(userLessonProgress)
@@ -4315,21 +4840,60 @@ export class DatabaseStorage implements IStorage {
   }
 
   async getUserLessonProgress(userId: number, lessonId: number): Promise<UserLessonProgress | undefined> {
-    const [progress] = await db
+    let [progress] = await db
       .select()
       .from(userLessonProgress)
       .where(
         and(
           eq(userLessonProgress.userId, userId),
-          eq(userLessonProgress.lessonId, lessonId)
+          eq(userLessonProgress.lessonIdentityId, lessonId)
         )
       )
       .limit(1);
-    return progress;
+
+    if (!progress) {
+      [progress] = await db
+        .select()
+        .from(userLessonProgress)
+        .where(
+          and(
+            eq(userLessonProgress.userId, userId),
+            eq(userLessonProgress.lessonId, lessonId)
+          )
+        )
+        .limit(1);
+    }
+
+    return await adaptUserLessonProgress(progress);
   }
 
   // Quiz
   async createQuizAttempt(userId: number, quizId: number, courseId: number): Promise<QuizAttempt> {
+    const publishedQuiz = await getPublishedCourseQuiz(courseId);
+    if (publishedQuiz && publishedQuiz.quiz.id === quizId) {
+      const courseDefinitionId = await getCourseDefinitionIdByLegacyCourseId(courseId) ?? courseId;
+      const quizRevisionId = (publishedQuiz as any).quizRevisionId ?? null;
+      const legacyQuizId = (publishedQuiz.quiz as any).legacyQuizId ?? quizId;
+      const [attempt] = await db
+        .insert(quizAttempts)
+        .values({
+          userId,
+          quizId: legacyQuizId,
+          courseId,
+          courseDefinitionId,
+          courseRevisionId: publishedQuiz.courseRevisionId,
+          courseQuizRevisionId: quizRevisionId,
+          startedAt: new Date().toISOString()
+        })
+        .returning();
+
+      return {
+        ...attempt,
+        courseId,
+        quizId,
+      };
+    }
+
     const [attempt] = await db
       .insert(quizAttempts)
       .values({
@@ -4353,6 +4917,103 @@ export class DatabaseStorage implements IStorage {
 
     if (!attempt) {
       throw new Error('Quiz attempt not found');
+    }
+
+    if (attempt.courseQuizRevisionId) {
+      const quizData = await getPublishedQuizByRevisionQuizId(attempt.courseQuizRevisionId);
+      if (!quizData) {
+        throw new Error('Quiz not found');
+      }
+
+      const { quiz, questions, definition, revision } = quizData;
+
+      let totalPoints = 0;
+      let earnedPoints = 0;
+      const attemptAnswers: QuizAttemptAnswer[] = [];
+
+      for (const question of questions) {
+        totalPoints += question.points || 1;
+        const externalQuestionId = question.legacyQuestionId ?? question.id;
+        const userAnswer = answers.find(a => a.questionId === externalQuestionId || a.questionId === question.id);
+        const correctAnswer = JSON.parse(question.correctAnswer);
+        const isCorrect = JSON.stringify(userAnswer?.answer) === JSON.stringify(correctAnswer);
+
+        if (isCorrect) {
+          earnedPoints += question.points || 1;
+        }
+
+        const [answerRecord] = await db
+          .insert(quizAttemptAnswers)
+          .values({
+            attemptId,
+            questionId: question.legacyQuestionId ?? null,
+            answer: JSON.stringify(userAnswer?.answer || ''),
+            isCorrect,
+            pointsEarned: isCorrect ? (question.points || 1) : 0
+          })
+          .returning();
+
+        attemptAnswers.push(answerRecord);
+      }
+
+      const score = totalPoints > 0 ? Math.round((earnedPoints / totalPoints) * 100) : 0;
+      const passed = score >= (quiz.passingScore || 70);
+      const timeSpent = attempt.startedAt
+        ? Math.floor((new Date().getTime() - new Date(attempt.startedAt).getTime()) / 1000)
+        : 0;
+
+      await db
+        .update(quizAttempts)
+        .set({
+          score,
+          passed,
+          answers: JSON.stringify(answers),
+          timeSpent,
+          completedAt: new Date().toISOString(),
+          courseDefinitionId: definition.id,
+          courseRevisionId: revision.id,
+          courseQuizRevisionId: quiz.id,
+        })
+        .where(eq(quizAttempts.id, attemptId));
+
+      let certificateCode: string | undefined;
+      const xpAwarded = { quiz: 0, certificate: 0 };
+
+      if (passed) {
+        xpAwarded.quiz = ACTION_POINTS['quiz_passed'] ?? 0;
+        await this.recordAction(attempt.userId, 'quiz_passed', {
+          quizId: quiz.id,
+          courseId: definition.id,
+          score
+        });
+
+        const { certificate, created } = await this.generateCertificate(attempt.userId, definition.id, score);
+        certificateCode = certificate.certificateCode;
+
+        if (created) {
+          xpAwarded.certificate = ACTION_POINTS['certificate_earned'] ?? 0;
+          await this.recordAction(attempt.userId, 'certificate_earned', {
+            courseId: definition.id,
+            certificateCode: certificate.certificateCode
+          });
+
+          try {
+            const [courseBadge] = await db
+              .select()
+              .from(badges)
+              .where(eq(badges.name, 'Estudiante Dedicado'))
+              .limit(1);
+
+            if (courseBadge) {
+              await this.awardBadge(attempt.userId, courseBadge.id);
+            }
+          } catch (error) {
+            console.log('Course completion badge not found');
+          }
+        }
+      }
+
+      return { score, passed, answers: attemptAnswers, certificateCode, xpAwarded };
     }
 
     // Get quiz and questions
@@ -4459,24 +5120,106 @@ export class DatabaseStorage implements IStorage {
       .from(quizAttempts)
       .where(eq(quizAttempts.id, attemptId))
       .limit(1);
-    return attempt;
+    if (!attempt) return undefined;
+
+    return {
+      ...attempt,
+      quizId: attempt.quizId ?? attempt.courseQuizRevisionId,
+      courseId: attempt.courseId ?? attempt.courseDefinitionId,
+    };
   }
 
   async getUserQuizAttempts(userId: number, quizId: number): Promise<QuizAttempt[]> {
-    return await db
+    const attempts = await db
       .select()
       .from(quizAttempts)
       .where(
         and(
           eq(quizAttempts.userId, userId),
-          eq(quizAttempts.quizId, quizId)
+          or(
+            eq(quizAttempts.courseQuizRevisionId, quizId),
+            eq(quizAttempts.quizId, quizId),
+          )!
         )
       )
       .orderBy(desc(quizAttempts.startedAt));
+
+    return attempts.map((attempt) => ({
+      ...attempt,
+      quizId: attempt.quizId ?? attempt.courseQuizRevisionId,
+      courseId: attempt.courseId ?? attempt.courseDefinitionId,
+    }));
   }
 
   // Certificates
   async generateCertificate(userId: number, courseId: number, quizScore: number): Promise<{ certificate: CourseCertificate; created: boolean }> {
+    const publishedCourse = await getPublishedCourseById(courseId);
+    if (publishedCourse) {
+      const courseDefinitionId = (publishedCourse as any).courseDefinitionId
+        ?? (await getCourseDefinitionIdByLegacyCourseId(courseId))
+        ?? courseId;
+      const revision = await getCurrentRevisionForCourseDefinition(courseDefinitionId);
+
+      const [existing] = await db
+        .select()
+        .from(courseCertificates)
+        .where(
+          and(
+            eq(courseCertificates.userId, userId),
+            eq(courseCertificates.courseDefinitionId, courseDefinitionId)
+          )
+        )
+        .limit(1);
+
+      if (existing) {
+        return {
+          certificate: {
+            ...existing,
+            courseId: existing.courseId ?? existing.courseDefinitionId,
+          },
+          created: false,
+        };
+      }
+
+      const timestamp = Date.now();
+      const random = Math.random().toString(36).substring(2, 9);
+      const certificateCode = `${courseId}-${userId}-${timestamp}-${random}`;
+
+      const [certificate] = await db
+        .insert(courseCertificates)
+        .values({
+          userId,
+          courseId: revision?.legacyCourseId ?? courseId,
+          courseDefinitionId,
+          courseRevisionId: revision?.id ?? null,
+          certificateCode,
+          quizScore
+        })
+        .returning();
+
+      try {
+        const [certificateBadge] = await db
+          .select()
+          .from(badges)
+          .where(eq(badges.name, 'Certificado de Curso'))
+          .limit(1);
+
+        if (certificateBadge) {
+          await this.awardBadge(userId, certificateBadge.id);
+        }
+      } catch (error) {
+        console.log('Certificate badge not found');
+      }
+
+      return {
+        certificate: {
+          ...certificate,
+          courseId: certificate.courseId ?? courseId,
+        },
+        created: true,
+      };
+    }
+
     const [existing] = await db
       .select()
       .from(courseCertificates)
@@ -4524,11 +5267,16 @@ export class DatabaseStorage implements IStorage {
   }
 
   async getUserCertificates(userId: number): Promise<CourseCertificate[]> {
-    return await db
+    const certificates = await db
       .select()
       .from(courseCertificates)
       .where(eq(courseCertificates.userId, userId))
       .orderBy(desc(courseCertificates.issuedAt));
+
+    return certificates.map((certificate) => ({
+      ...certificate,
+      courseId: certificate.courseId ?? certificate.courseDefinitionId,
+    }));
   }
 
   async getUserCourses(userId: number): Promise<Array<{ course: Course; progress: UserCourseProgress }>> {
@@ -4539,16 +5287,21 @@ export class DatabaseStorage implements IStorage {
 
     const result = await Promise.all(
       progressList.map(async (progress) => {
-        const [course] = await db
-          .select()
-          .from(courses)
-          .where(progress.courseId !== null ? eq(courses.id, progress.courseId) : undefined)
-          .limit(1);
-        return { course: course!, progress };
+        const publicProgress = await adaptUserCourseProgress(progress);
+        if (!publicProgress?.courseId) {
+          return null;
+        }
+
+        const course = await this.getCourseById(publicProgress.courseId);
+        if (!course) {
+          return null;
+        }
+
+        return { course, progress: publicProgress };
       })
     );
 
-    return result.filter(item => item.course);
+    return result.filter(Boolean) as Array<{ course: Course; progress: UserCourseProgress }>;
   }
 
   // User Profiles

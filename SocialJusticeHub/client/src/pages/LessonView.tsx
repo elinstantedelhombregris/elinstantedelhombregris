@@ -1,6 +1,6 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useParams, Link } from 'wouter';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { motion } from 'framer-motion';
@@ -22,11 +22,20 @@ import {
 } from 'lucide-react';
 import MarkdownRenderer from '@/components/MarkdownRenderer';
 import VideoPlayer from '@/components/VideoPlayer';
-import LessonCard from '@/components/LessonCard';
 import { cn } from '@/lib/utils';
 import { useContext } from 'react';
 import { UserContext } from '@/App';
 import { useToast } from '@/hooks/use-toast';
+import { buildLessonMetadata } from '@shared/course-seo';
+import { deriveSearchSummary } from '@shared/course-content';
+import { useSeoMetadata } from '@/lib/seo';
+import {
+  areRequiredLessonsComplete,
+  getContinueLessonId,
+  getNextUnlockedLessonId,
+  isLessonLocked,
+  parseCompletedLessonIds,
+} from '@/lib/course-surface';
 
 interface Lesson {
   id: number;
@@ -39,6 +48,10 @@ interface Lesson {
   duration?: number;
   orderIndex: number;
   isRequired: boolean;
+  searchSummary?: string | null;
+  seoTitle?: string | null;
+  seoDescription?: string | null;
+  indexable?: boolean | null;
 }
 
 interface Course {
@@ -46,10 +59,16 @@ interface Course {
   title: string;
   slug: string;
   requiresAuth?: boolean;
+  thumbnailUrl?: string | null;
+  ogImageUrl?: string | null;
+  excerpt?: string | null;
+  description: string;
+  searchSummary?: string | null;
 }
 
 interface CourseProgress {
   completedLessons?: string;
+  currentLessonId?: number | null;
 }
 
 interface CourseQueryResult {
@@ -66,25 +85,6 @@ interface CompleteLessonResponse {
   };
   courseCompleted?: boolean;
 }
-
-const parseCompletedLessons = (value: unknown): number[] => {
-  if (Array.isArray(value)) {
-    return value.filter((entry): entry is number => typeof entry === 'number');
-  }
-
-  if (typeof value === 'string') {
-    try {
-      const parsed = JSON.parse(value);
-      return Array.isArray(parsed)
-        ? parsed.filter((entry): entry is number => typeof entry === 'number')
-        : [];
-    } catch {
-      return [];
-    }
-  }
-
-  return [];
-};
 
 const LessonView = () => {
   const { courseSlug, lessonId } = useParams<{ courseSlug?: string; lessonId?: string }>();
@@ -125,24 +125,7 @@ const LessonView = () => {
   const lessons: Lesson[] = Array.from(lessonsMap.values()).sort((a, b) => a.orderIndex - b.orderIndex);
   const currentLesson: Lesson | undefined = lessons.find(l => l.id === parseInt(lessonId || '0'));
   const userProgress = courseData?.userProgress;
-  const responseCompletedLessons = parseCompletedLessons(courseData?.completedLessons);
-  const persistedCompletedLessons = parseCompletedLessons(userProgress?.completedLessons);
-  const completedLessons = responseCompletedLessons.length > 0
-    ? responseCompletedLessons
-    : persistedCompletedLessons;
-
-  // Get user lesson progress - only track time if user is authenticated
-  // Note: This query is disabled because we track time in the useEffect below
-  // It's kept here for potential future use
-  const { data: lessonProgress } = useQuery({
-    queryKey: ['lesson-progress', lessonId, userContext?.user?.id],
-    queryFn: async () => {
-      if (!userContext?.user?.id || !lessonId || !course) return null;
-      // Don't make unnecessary requests
-      return null;
-    },
-    enabled: false // Disabled - we track time in useEffect instead
-  });
+  const completedLessons = parseCompletedLessonIds(courseData?.completedLessons, userProgress?.completedLessons);
 
   // Track time spent - only if user is authenticated
   useEffect(() => {
@@ -243,14 +226,10 @@ const LessonView = () => {
   });
 
   useEffect(() => {
-    if (currentLesson) {
-      document.title = `${currentLesson.title} - ${course?.title || 'Curso'}`;
-      // Update isCompleted based on completedLessons, but don't override if mutation is pending
-      if (!completeLessonMutation.isPending) {
-        setIsCompleted(completedLessons.includes(currentLesson.id));
-      }
+    if (currentLesson && !completeLessonMutation.isPending) {
+      setIsCompleted(completedLessons.includes(currentLesson.id));
     }
-  }, [currentLesson, course, completedLessons, completeLessonMutation.isPending]);
+  }, [currentLesson, completedLessons, completeLessonMutation.isPending]);
 
   // Separate useEffect for scroll - only when lessonId changes
   useEffect(() => {
@@ -298,9 +277,40 @@ const LessonView = () => {
     );
   }
 
+  const requiresAuth = course.requiresAuth !== false;
+  const effectiveCompletedLessons = isCompleted && !completedLessons.includes(currentLesson.id)
+    ? [...completedLessons, currentLesson.id]
+    : completedLessons;
+  const lessonAccessContext = {
+    lessons,
+    completedLessonIds: effectiveCompletedLessons,
+    requiresAuth,
+    isLoggedIn: userContext?.isLoggedIn ?? false,
+  };
   const currentIndex = lessons.findIndex(l => l.id === currentLesson.id);
   const prevLesson = currentIndex > 0 ? lessons[currentIndex - 1] : null;
-  const nextLesson = currentIndex < lessons.length - 1 ? lessons[currentIndex + 1] : null;
+  const nextLessonId = getNextUnlockedLessonId(currentLesson.id, lessonAccessContext);
+  const nextLesson = nextLessonId ? lessons.find((lesson) => lesson.id === nextLessonId) ?? null : null;
+  const currentLessonLocked = isLessonLocked(currentLesson, {
+    lessons,
+    completedLessonIds: completedLessons,
+    requiresAuth,
+    isLoggedIn: userContext?.isLoggedIn ?? false,
+  });
+  const continueLessonId = getContinueLessonId({
+    lessons,
+    completedLessonIds: completedLessons,
+    requiresAuth,
+    isLoggedIn: userContext?.isLoggedIn ?? false,
+    currentLessonId: userProgress?.currentLessonId,
+  });
+  const quizUnlocked = areRequiredLessonsComplete(lessons, effectiveCompletedLessons);
+  const lessonSummary = deriveSearchSummary(currentLesson.searchSummary, currentLesson.description || currentLesson.content, 220);
+  const seoMetadata = useMemo(
+    () => buildLessonMetadata(course, currentLesson, typeof window !== 'undefined' ? window.location.origin : undefined),
+    [course, currentLesson],
+  );
+  useSeoMetadata(seoMetadata);
 
   const handleComplete = () => {
     if (!userContext?.isLoggedIn) {
@@ -387,6 +397,16 @@ const LessonView = () => {
                     {currentLesson.description && (
                       <p className="text-slate-700">{currentLesson.description}</p>
                     )}
+                    {lessonSummary && (
+                      <div className="mt-5 rounded-2xl border border-sky-200/80 bg-sky-50/80 px-4 py-3">
+                        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sky-700 mb-1">
+                          En síntesis
+                        </p>
+                        <p className="text-sm leading-relaxed text-sky-950/85">
+                          {lessonSummary}
+                        </p>
+                      </div>
+                    )}
                   </div>
                 </div>
               </CardContent>
@@ -395,10 +415,32 @@ const LessonView = () => {
             {/* Lesson Content */}
             <Card className="mb-6 rounded-3xl border border-slate-200 bg-white shadow-sm" ref={lessonContentRef}>
               <CardContent className="p-6">
-                {currentLesson.type === 'text' && (
+                {currentLessonLocked ? (
+                  <div className="rounded-2xl border border-amber-200 bg-amber-50 px-5 py-6">
+                    <p className="text-sm font-semibold uppercase tracking-[0.18em] text-amber-700 mb-2">
+                      Lección bloqueada
+                    </p>
+                    <p className="text-slate-800 leading-relaxed">
+                      Completa primero las lecciones requeridas anteriores para seguir este recorrido en orden.
+                    </p>
+                    <div className="mt-4 flex flex-wrap gap-3">
+                      {continueLessonId && continueLessonId !== currentLesson.id && (
+                        <Link href={`/recursos/guias-estudio/${course.slug}/leccion/${continueLessonId}`}>
+                          <Button className="gap-2">
+                            Ir a la lección disponible
+                            <ArrowRight className="w-4 h-4" />
+                          </Button>
+                        </Link>
+                      )}
+                      <Link href={`/recursos/guias-estudio/${course.slug}`}>
+                        <Button variant="outline">Volver al curso</Button>
+                      </Link>
+                    </div>
+                  </div>
+                ) : currentLesson.type === 'text' && (
                   <MarkdownRenderer content={currentLesson.content} className="lesson-rich-text" />
                 )}
-                {currentLesson.type === 'video' && currentLesson.videoUrl && (
+                {!currentLessonLocked && currentLesson.type === 'video' && currentLesson.videoUrl && (
                   <VideoPlayer 
                     videoUrl={currentLesson.videoUrl}
                     title={currentLesson.title}
@@ -407,10 +449,10 @@ const LessonView = () => {
                     }}
                   />
                 )}
-                {currentLesson.type === 'video' && !currentLesson.videoUrl && (
+                {!currentLessonLocked && currentLesson.type === 'video' && !currentLesson.videoUrl && (
                   <MarkdownRenderer content={currentLesson.content} className="lesson-rich-text" />
                 )}
-                {currentLesson.type === 'interactive' && (
+                {!currentLessonLocked && currentLesson.type === 'interactive' && (
                   <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
                     <p className="text-slate-900 mb-4">
                       Contenido interactivo: {currentLesson.content}
@@ -420,7 +462,7 @@ const LessonView = () => {
                     </p>
                   </div>
                 )}
-                {currentLesson.type === 'document' && currentLesson.documentUrl && (
+                {!currentLessonLocked && currentLesson.type === 'document' && currentLesson.documentUrl && (
                   <div className="text-center py-8">
                     <a
                       href={currentLesson.documentUrl}
@@ -433,14 +475,14 @@ const LessonView = () => {
                     </a>
                   </div>
                 )}
-                {currentLesson.type === 'document' && !currentLesson.documentUrl && (
+                {!currentLessonLocked && currentLesson.type === 'document' && !currentLesson.documentUrl && (
                   <MarkdownRenderer content={currentLesson.content} className="lesson-rich-text" />
                 )}
               </CardContent>
             </Card>
 
             {/* Complete Lesson */}
-            {userContext?.isLoggedIn && (
+            {userContext?.isLoggedIn && !currentLessonLocked && (
               <Card className="rounded-3xl border border-slate-200 bg-white shadow-sm">
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between">
@@ -472,9 +514,9 @@ const LessonView = () => {
                         </Button>
                       </Link>
                     ) : (
-                      <Link href={`/recursos/guias-estudio/${course.slug}`}>
+                      <Link href={quizUnlocked ? `/recursos/guias-estudio/${course.slug}/quiz` : `/recursos/guias-estudio/${course.slug}`}>
                         <Button className="gap-2">
-                          Ver Quiz Final
+                          {quizUnlocked ? 'Ir al Quiz Final' : 'Volver al curso'}
                           <ArrowRight className="w-4 h-4" />
                         </Button>
                       </Link>
@@ -500,39 +542,53 @@ const LessonView = () => {
                     {lessons.map((lesson, index) => {
                       const lessonCompleted = completedLessons.includes(lesson.id);
                       const lessonCurrent = lesson.id === currentLesson.id;
-                      const requiresLogin = course.requiresAuth !== false;
-                      const lessonLocked = (requiresLogin && !userContext?.isLoggedIn) ||
-                        (index > 0 && !completedLessons.includes(lessons[index - 1]?.id) && lessons[index - 1]?.isRequired);
+                      const lessonLocked = isLessonLocked(lesson, {
+                        lessons,
+                        completedLessonIds: completedLessons,
+                        requiresAuth,
+                        isLoggedIn: userContext?.isLoggedIn ?? false,
+                      });
+
+                      const item = (
+                        <div
+                          className={cn(
+                            "p-3 rounded-2xl border transition-all",
+                            lessonLocked
+                              ? "opacity-50 cursor-not-allowed border-slate-200 bg-slate-50"
+                              : "cursor-pointer",
+                            !lessonLocked && lessonCurrent
+                              ? "border-blue-500 bg-blue-50"
+                              : !lessonLocked && lessonCompleted
+                                ? "border-emerald-300 bg-emerald-50"
+                                : !lessonLocked
+                                  ? "border-slate-200 hover:border-slate-300 hover:bg-slate-50"
+                                  : ""
+                          )}
+                        >
+                          <div className="flex items-center gap-2">
+                            <span className={cn(
+                              "text-sm font-medium",
+                              lessonCurrent ? "text-blue-900" : lessonCompleted ? "text-emerald-900" : "text-slate-900"
+                            )}>
+                              {index + 1}. {lesson.title}
+                            </span>
+                            {lessonCompleted && (
+                              <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                            )}
+                          </div>
+                        </div>
+                      );
+
+                      if (lessonLocked) {
+                        return <div key={lesson.id}>{item}</div>;
+                      }
 
                       return (
                         <Link
                           key={lesson.id}
                           href={`/recursos/guias-estudio/${course.slug}/leccion/${lesson.id}`}
                         >
-                          <div
-                            className={cn(
-                              "p-3 rounded-2xl border cursor-pointer transition-all",
-                              lessonLocked
-                                ? "opacity-50 cursor-not-allowed border-slate-200 bg-slate-50"
-                                : lessonCurrent
-                                  ? "border-blue-500 bg-blue-50"
-                                  : lessonCompleted
-                                    ? "border-emerald-300 bg-emerald-50"
-                                    : "border-slate-200 hover:border-slate-300 hover:bg-slate-50"
-                            )}
-                          >
-                            <div className="flex items-center gap-2">
-                              <span className={cn(
-                                "text-sm font-medium",
-                                lessonCurrent ? "text-blue-900" : lessonCompleted ? "text-emerald-900" : "text-slate-900"
-                              )}>
-                                {index + 1}. {lesson.title}
-                              </span>
-                              {lessonCompleted && (
-                                <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-                              )}
-                            </div>
-                          </div>
+                          {item}
                         </Link>
                       );
                     })}
@@ -550,4 +606,3 @@ const LessonView = () => {
 };
 
 export default LessonView;
-
