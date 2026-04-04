@@ -127,6 +127,12 @@ const LessonView = () => {
   const userProgress = courseData?.userProgress;
   const completedLessons = parseCompletedLessonIds(courseData?.completedLessons, userProgress?.completedLessons);
 
+  const seoMetadata = useMemo(
+    () => course && currentLesson ? buildLessonMetadata(course, currentLesson, typeof window !== 'undefined' ? window.location.origin : undefined) : null,
+    [course, currentLesson],
+  );
+  useSeoMetadata(seoMetadata);
+
   // Track time spent - only if user is authenticated
   useEffect(() => {
     if (!userContext?.user?.id || !lessonId || !course) {
@@ -306,11 +312,6 @@ const LessonView = () => {
   });
   const quizUnlocked = areRequiredLessonsComplete(lessons, effectiveCompletedLessons);
   const lessonSummary = deriveSearchSummary(currentLesson.searchSummary, currentLesson.description || currentLesson.content, 220);
-  const seoMetadata = useMemo(
-    () => buildLessonMetadata(course, currentLesson, typeof window !== 'undefined' ? window.location.origin : undefined),
-    [course, currentLesson],
-  );
-  useSeoMetadata(seoMetadata);
 
   const handleComplete = () => {
     if (!userContext?.isLoggedIn) {

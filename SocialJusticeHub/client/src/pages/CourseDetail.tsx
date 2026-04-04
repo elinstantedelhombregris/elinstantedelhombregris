@@ -134,6 +134,13 @@ const CourseDetail = () => {
     }
   });
 
+  const course: Course | undefined = data?.course;
+  const seoMetadata = useMemo(
+    () => course ? buildCourseMetadata(course, typeof window !== 'undefined' ? window.location.origin : undefined) : null,
+    [course],
+  );
+  useSeoMetadata(seoMetadata);
+
   useEffect(() => {
     // Removed automatic scroll - let user control scroll position
     // This prevents page jumping when data loads
@@ -153,7 +160,7 @@ const CourseDetail = () => {
     );
   }
 
-  if (error || !data?.course) {
+  if (error || !course) {
     return (
       <div className="min-h-screen page-bg-light">
         <Header />
@@ -172,7 +179,6 @@ const CourseDetail = () => {
     );
   }
 
-  const course: Course = data.course;
   // Deduplicate lessons by ID to prevent duplicates
   const lessonsRaw: Lesson[] = data.lessons || [];
   const lessonsMap = new Map<number, Lesson>();
@@ -187,11 +193,6 @@ const CourseDetail = () => {
   const completedLessons = parseCompletedLessonIds(data.completedLessons, userProgress?.completedLessons);
 
   const courseSummary = deriveSearchSummary(course.searchSummary, course.excerpt || course.description, 220);
-  const seoMetadata = useMemo(
-    () => buildCourseMetadata(course, typeof window !== 'undefined' ? window.location.origin : undefined),
-    [course],
-  );
-  useSeoMetadata(seoMetadata);
 
   const isInProgress = userProgress?.status === 'in_progress';
   const isCompleted = userProgress?.status === 'completed';
