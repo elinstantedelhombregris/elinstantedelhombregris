@@ -4951,7 +4951,7 @@ var init_blogContent = __esm({
         <h2>Siguiendo el hilo...</h2>
         <p>
           Si le\xEDste nuestro art\xEDculo anterior,
-          <a href="/blog-vlog/las-fuerzas-del-cielo-el-poder-que-ya-tens-y-nadie-te-ense-a-usar"><strong>Las Fuerzas del Cielo: El Poder Que Ya Ten\xE9s y Nadie Te Ense\xF1\xF3 a Usar</strong></a>,
+          <a href="/recursos/blog/las-fuerzas-del-cielo-el-poder-que-ya-tens-y-nadie-te-ense-a-usar"><strong>Las Fuerzas del Cielo: El Poder Que Ya Ten\xE9s y Nadie Te Ense\xF1\xF3 a Usar</strong></a>,
           ya sab\xE9s que venimos hablando de esos poderes que ten\xE9s adentro, que son gratis, que nadie te los puede sacar,
           y que por alg\xFAn motivo nadie se sent\xF3 a explicarte c\xF3mo usarlos.
         </p>
