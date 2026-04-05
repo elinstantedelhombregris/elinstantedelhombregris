@@ -32,7 +32,8 @@ import {
   SkipForward,
   Send,
   ArrowRight,
-  ScrollText
+  ScrollText,
+  ShieldCheck,
 } from 'lucide-react';
 
 const PILLARS = [
@@ -59,7 +60,22 @@ const LIFE_AREAS: { name: string; icon: LucideIcon }[] = [
   { name: 'Comunidad', icon: Globe2 },
 ];
 
-const TOTAL_STEPS = 5;
+const TOTAL_STEPS = 6;
+
+const AREA_TO_MISSION: Record<string, { slug: string; label: string; number: number; description: string }> = {
+  'Salud': { slug: 'la-base-esta', label: 'La Base Está', number: 1, description: 'Agua, vivienda, salud, energia, seguridad' },
+  'Entorno': { slug: 'la-base-esta', label: 'La Base Está', number: 1, description: 'Agua, vivienda, salud, energia, seguridad' },
+  'Comunidad': { slug: 'territorio-legible', label: 'Territorio Legible', number: 2, description: 'Señales, mandatos, datos abiertos' },
+  'Amigos': { slug: 'territorio-legible', label: 'Territorio Legible', number: 2, description: 'Señales, mandatos, datos abiertos' },
+  'Carrera': { slug: 'produccion-y-suelo-vivo', label: 'Producción y Suelo Vivo', number: 3, description: 'Empleo, producción, empresas bastardas' },
+  'Dinero': { slug: 'produccion-y-suelo-vivo', label: 'Producción y Suelo Vivo', number: 3, description: 'Empleo, producción, empresas bastardas' },
+  'Crecimiento Personal': { slug: 'infancia-escuela-cultura', label: 'Infancia, Escuela y Cultura', number: 4, description: 'Niñez, escuela, cultura viva' },
+  'Espiritualidad': { slug: 'infancia-escuela-cultura', label: 'Infancia, Escuela y Cultura', number: 4, description: 'Niñez, escuela, cultura viva' },
+  'Amor': { slug: 'infancia-escuela-cultura', label: 'Infancia, Escuela y Cultura', number: 4, description: 'Niñez, escuela, cultura viva' },
+  'Familia': { slug: 'la-base-esta', label: 'La Base Está', number: 1, description: 'Agua, vivienda, salud, energia, seguridad' },
+  'Apariencia': { slug: 'la-base-esta', label: 'La Base Está', number: 1, description: 'Agua, vivienda, salud, energia, seguridad' },
+  'Recreación': { slug: 'infancia-escuela-cultura', label: 'Infancia, Escuela y Cultura', number: 4, description: 'Niñez, escuela, cultura viva' },
+};
 
 const Bienvenida = () => {
   const userContext = useContext(UserContext);
@@ -417,8 +433,76 @@ const Bienvenida = () => {
               </motion.div>
             )}
 
-            {/* Step 3: Email verification */}
-            {step === 3 && (
+            {/* Step 3: Mission suggestion */}
+            {step === 3 && (() => {
+              const suggestedMission = selectedInterests.length > 0
+                ? (AREA_TO_MISSION[selectedInterests[0]] || AREA_TO_MISSION['Salud'])
+                : AREA_TO_MISSION['Salud'];
+              return (
+                <motion.div key="mission" {...fadeVariants} className="space-y-8 text-center">
+                  <div className="space-y-3">
+                    <div className="w-14 h-14 mx-auto rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-4">
+                      <ShieldCheck className="h-7 w-7 text-blue-400" />
+                    </div>
+                    <h2 className="text-3xl font-bold font-serif">Tu Misión</h2>
+                    <p className="text-slate-400 max-w-sm mx-auto">
+                      Basándonos en tus áreas de enfoque, creemos que podés contribuir a:
+                    </p>
+                  </div>
+
+                  <div className="max-w-sm mx-auto">
+                    <div className="bg-white/5 border border-blue-500/20 rounded-2xl p-6 shadow-[0_0_30px_rgba(59,130,246,0.08)] text-left space-y-3">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-lg bg-blue-500/15 border border-blue-500/30 flex items-center justify-center flex-shrink-0">
+                          <span className="text-blue-300 font-bold font-mono text-sm">
+                            {String(suggestedMission.number).padStart(2, '0')}
+                          </span>
+                        </div>
+                        <div>
+                          <p className="text-[10px] font-mono text-blue-400/70 uppercase tracking-widest mb-0.5">Misión Nacional</p>
+                          <h3 className="text-lg font-bold text-white leading-tight">{suggestedMission.label}</h3>
+                        </div>
+                      </div>
+                      <p className="text-slate-400 text-sm leading-relaxed">{suggestedMission.description}</p>
+                    </div>
+
+                    <p className="text-slate-500 text-sm mt-4 leading-relaxed">
+                      Cuando termines tu evaluación cívica, te vamos a recomendar un rol específico dentro de esta misión.
+                    </p>
+                  </div>
+
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+                    <Button
+                      onClick={handleNext}
+                      className="w-full sm:w-auto bg-blue-600 hover:bg-blue-500 text-white px-8 h-11 font-bold shadow-[0_0_20px_rgba(37,99,235,0.3)]"
+                    >
+                      <ShieldCheck className="mr-2 h-4 w-4" />
+                      Explorar esta misión
+                    </Button>
+                    <Button
+                      variant="ghost"
+                      onClick={handleNext}
+                      className="w-full sm:w-auto text-slate-500 hover:text-slate-300 hover:bg-white/5"
+                    >
+                      Lo veo después
+                      <ChevronRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </div>
+
+                  <Button
+                    variant="ghost"
+                    onClick={() => setStep(step - 1)}
+                    className="text-slate-600 hover:text-slate-400 hover:bg-white/5 text-sm"
+                  >
+                    <ChevronLeft className="mr-1 h-4 w-4" />
+                    Atrás
+                  </Button>
+                </motion.div>
+              );
+            })()}
+
+            {/* Step 4: Email verification */}
+            {step === 4 && (
               <motion.div key="email" {...fadeVariants} className="space-y-8 text-center">
                 <div className="space-y-3">
                   <div className="w-14 h-14 mx-auto rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-4">
@@ -476,8 +560,8 @@ const Bienvenida = () => {
               </motion.div>
             )}
 
-            {/* Step 4: CTA */}
-            {step === 4 && (
+            {/* Step 5: CTA */}
+            {step === 5 && (
               <motion.div key="cta" {...fadeVariants} className="text-center space-y-10">
                 <div className="space-y-4">
                   <motion.div

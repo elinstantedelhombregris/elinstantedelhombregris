@@ -12,6 +12,7 @@ import {
   MessageCircle,
   ArrowRight,
   Sparkles,
+  ShieldCheck,
 } from 'lucide-react';
 
 interface Props {
@@ -19,6 +20,7 @@ interface Props {
   hasGoals?: boolean;
   hasCheckin?: boolean;
   hasCoachingSession?: boolean;
+  hasMission?: boolean;
 }
 
 const GettingStartedChecklist: React.FC<Props> = ({
@@ -26,6 +28,7 @@ const GettingStartedChecklist: React.FC<Props> = ({
   hasGoals = false,
   hasCheckin = false,
   hasCoachingSession = false,
+  hasMission = false,
 }) => {
   const userContext = useContext(UserContext);
   const user = userContext?.user;
@@ -55,6 +58,13 @@ const GettingStartedChecklist: React.FC<Props> = ({
       href: '/coaching',
       icon: MessageCircle,
       done: hasCoachingSession,
+    },
+    {
+      label: 'Unite a una misión nacional',
+      description: 'Elegí tu rol y sumarte a una misión de reconstrucción',
+      href: '/community',
+      icon: ShieldCheck,
+      done: hasMission,
     },
   ];
 

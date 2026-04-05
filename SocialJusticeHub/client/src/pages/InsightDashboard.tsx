@@ -214,6 +214,7 @@ const InsightDashboard = () => {
                 hasGoals={goals.length > 0}
                 hasCheckin={hasCheckedIn}
                 hasCoachingSession={hasCoachingSession}
+                hasMission={(alignmentData?.currentMemberships?.length ?? 0) > 0}
               />
             )}
 
