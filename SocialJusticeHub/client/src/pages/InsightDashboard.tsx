@@ -68,6 +68,17 @@ const InsightDashboard = () => {
   const { data: alignmentData } = useMissionAlignment(isLoggedIn);
   const { data: territoryData } = useTerritoryDashboard(isLoggedIn);
 
+  const { data: recentActivity = [] } = useQuery({
+    queryKey: ['activity-feed-dashboard'],
+    queryFn: async () => {
+      const res = await apiRequest('GET', '/api/activity-feed?limit=5');
+      if (!res.ok) return [];
+      return res.json();
+    },
+    staleTime: 30000,
+    enabled: isLoggedIn,
+  });
+
   const profile = profileData?.profile || null;
   const goals = goalsData?.goals || [];
   const hasCheckedIn = !!checkinData?.checkin;
@@ -250,6 +261,32 @@ const InsightDashboard = () => {
 
             {/* Territory Pulse */}
             <TerritoryCard data={territoryData} />
+
+            {/* Recent Activity */}
+            {recentActivity.length > 0 && (
+              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4">
+                <div className="flex items-center gap-2 mb-3">
+                  <Zap className="w-3.5 h-3.5 text-blue-400" />
+                  <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-slate-500">Actividad</span>
+                </div>
+                <div className="space-y-2">
+                  {recentActivity.slice(0, 4).map((item: any) => (
+                    <div key={item.id} className="flex items-start gap-2">
+                      <div className={`w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0 ${
+                        item.type === 'new_member' ? 'bg-purple-500' :
+                        item.type === 'task_completed' ? 'bg-blue-500' :
+                        item.type === 'milestone_completed' ? 'bg-emerald-500' :
+                        'bg-slate-500'
+                      }`} />
+                      <div className="min-w-0">
+                        <p className="text-xs text-slate-400 truncate">{item.title || item.description}</p>
+                        <p className="text-[10px] text-slate-600">{item.user?.name || ''}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {/* Next Steps */}
             {profile?.recommendedActions && (
