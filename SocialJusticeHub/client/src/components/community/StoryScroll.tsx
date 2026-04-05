@@ -40,7 +40,7 @@ export default function StoryScroll({ ayudaCompartirPost, onNavigateToPost }: St
 
                 {/* First paragraphs always visible */}
                 <div className="space-y-3 text-slate-400 leading-relaxed text-[15px]">
-                  {ayudaCompartirPost.description.split('\n\n').slice(0, expanded ? undefined : 3).map((paragraph: string, i: number) => (
+                  {(ayudaCompartirPost.description ?? '').split('\n\n').slice(0, expanded ? undefined : 3).map((paragraph: string, i: number) => (
                     <p key={i}>{paragraph}</p>
                   ))}
                 </div>

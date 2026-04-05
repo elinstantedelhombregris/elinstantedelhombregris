@@ -4017,8 +4017,6 @@ export class DatabaseStorage implements IStorage {
       .set({
         status: 'flagged',
         flagCategory,
-        verifiedBy: flaggedBy,
-        verifiedAt: new Date().toISOString()
       })
       .where(eq(missionEvidence.id, evidenceId))
       .returning();

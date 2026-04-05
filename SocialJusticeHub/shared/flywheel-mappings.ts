@@ -25,7 +25,7 @@ export const LIFE_AREA_TO_MISSION: Record<string, MissionSlug> = {
   'Amigos': 'territorio-legible',
   'Carrera': 'produccion-y-suelo-vivo',
   'Dinero': 'produccion-y-suelo-vivo',
-  'Crecimiento Personal': 'infancia-escuela-cultura',
+  'Crecimiento personal': 'infancia-escuela-cultura',
   'Espiritualidad': 'infancia-escuela-cultura',
   'Amor': 'infancia-escuela-cultura',
   'Familia': 'la-base-esta',
@@ -74,6 +74,7 @@ export function computeMissionAlignment(
   // Determine mission from weakest life area
   let missionSlug: MissionSlug = 'instituciones-y-futuro'; // default if all areas strong
   let reason = 'Tus areas de vida estan equilibradas — podes contribuir a nivel institucional.';
+  let secondaryMission: MissionSlug | undefined;
 
   if (lifeAreaGaps.length > 0) {
     // Sort by gap descending (biggest gap = most need)
@@ -97,7 +98,7 @@ export function computeMissionAlignment(
       const secondWeakest = sorted[1];
       const secondMapped = LIFE_AREA_TO_MISSION[secondWeakest.area];
       if (secondMapped && secondMapped !== missionSlug) {
-        // Will be used by the caller if desired
+        secondaryMission = secondMapped;
       }
     }
   }
@@ -111,5 +112,6 @@ export function computeMissionAlignment(
     recommendedRole: role,
     recommendedRoleLabel: roleLabel,
     reason,
+    secondaryMission,
   };
 }

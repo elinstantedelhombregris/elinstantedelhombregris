@@ -1463,7 +1463,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
       } else {
         // Add member directly
         // For mission posts, use citizen role if provided; otherwise default to 'member'
-        const role = (post.type === 'mission' && citizenRole) ? citizenRole : 'member';
+        const validCitizenRoles = ['testigo', 'declarante', 'constructor', 'custodio', 'organizador', 'narrador'];
+        const role = (post.type === 'mission' && citizenRole && validCitizenRoles.includes(citizenRole))
+          ? citizenRole : 'member';
         const member = await storage.addInitiativeMember(id, req.user!.userId, role);
 
         // Create activity feed item
@@ -3942,6 +3944,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       res.json(stats);
     } catch (error) {
+      console.error('Failed to fetch mission stats:', error);
       res.status(500).json({ message: "Failed to fetch mission stats" });
     }
   });
@@ -3971,6 +3974,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       res.json(scored);
     } catch (error) {
+      console.error('Failed to fetch mission signals:', error);
       res.status(500).json({ message: "Failed to fetch mission signals" });
     }
   });
@@ -3998,6 +4002,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       res.json(enriched);
     } catch (error) {
+      console.error('Failed to fetch evidence:', error);
       res.status(500).json({ message: "Failed to fetch evidence" });
     }
   });
@@ -4012,6 +4017,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const members = await storage.getInitiativeMembers(postId);
       const isMember = members.some(m => m.userId === req.user!.userId && m.status === 'active');
       if (!isMember) return res.status(403).json({ message: "Debes ser miembro para enviar evidencia" });
+
+      if (!req.body.evidenceType || typeof req.body.evidenceType !== 'string') {
+        return res.status(400).json({ message: "evidenceType es requerido" });
+      }
+      if (!req.body.content || typeof req.body.content !== 'string') {
+        return res.status(400).json({ message: "content es requerido" });
+      }
 
       // Validate evidenceType against mission's accepted types
       const post = await storage.getCommunityPostWithDetails(postId);
@@ -4035,6 +4047,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       res.status(201).json(evidence);
     } catch (error) {
+      console.error('Failed to create evidence:', error);
       res.status(500).json({ message: "Failed to create evidence" });
     }
   });
@@ -4056,6 +4069,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const updated = await storage.verifyEvidence(evidenceId, req.user.userId);
       res.json(updated);
     } catch (error) {
+      console.error('Failed to verify evidence:', error);
       res.status(500).json({ message: "Failed to verify evidence" });
     }
   });
@@ -4097,6 +4111,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       res.json({ evidence: updated, paused: (thisFlag?.count ?? 0) >= 3 });
     } catch (error) {
+      console.error('Failed to flag evidence:', error);
       res.status(500).json({ message: "Failed to flag evidence" });
     }
   });
@@ -4120,6 +4135,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       res.json(enriched);
     } catch (error) {
+      console.error('Failed to fetch chronicles:', error);
       res.status(500).json({ message: "Failed to fetch chronicles" });
     }
   });
@@ -4129,6 +4145,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const postId = parseInt(req.params.postId);
       if (isNaN(postId)) return res.status(400).json({ message: "Invalid post ID" });
       if (!req.user) return res.status(401).json({ message: "Authentication required" });
+
+      if (!req.body.title || typeof req.body.title !== 'string') {
+        return res.status(400).json({ message: "title es requerido" });
+      }
+      if (!req.body.content || typeof req.body.content !== 'string') {
+        return res.status(400).json({ message: "content es requerido" });
+      }
 
       // Verify caller is a narrador
       const members = await storage.getInitiativeMembers(postId);
@@ -4148,6 +4171,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       res.status(201).json(chronicle);
     } catch (error) {
+      console.error('Failed to create chronicle:', error);
       res.status(500).json({ message: "Failed to create chronicle" });
     }
   });

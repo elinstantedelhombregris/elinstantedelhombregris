@@ -1,6 +1,6 @@
 import { db } from '../db';
 import { civicProfiles, coachingSessions, lifeAreaScores, lifeAreas, initiativeMembers, communityPosts, initiativeTasks, missionEvidence } from '@shared/schema';
-import { eq, desc, and, isNull, ne, count } from 'drizzle-orm';
+import { eq, desc, and, isNull, ne, count, inArray } from 'drizzle-orm';
 import { config } from '../config';
 import { getTemplateMessages } from '@shared/coaching-templates';
 
@@ -341,7 +341,7 @@ export async function getUserCoachingContext(userId: number): Promise<CoachingCo
           .from(initiativeTasks)
           .where(
             and(
-              eq(initiativeTasks.postId, postIds[0]),
+              inArray(initiativeTasks.postId, postIds),
               ne(initiativeTasks.status, 'done'),
             ),
           )
