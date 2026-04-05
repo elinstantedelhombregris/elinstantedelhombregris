@@ -97,6 +97,17 @@ export const COACHING_TEMPLATES: CoachingTemplate[] = [
     ],
   },
 
+  // ===== MISION ACTIVA =====
+  {
+    sessionType: 'mission_active',
+    messages: [
+      'Hola. Hoy vamos a enfocarnos en tu mision activa. Contame: ¿que tarea de tu mision te gustaria abordar hoy?',
+      'Bien, veo que estas participando en una mision nacional. Cada accion que tomes, por pequeña que sea, suma al cambio. ¿Hay alguna tarea pendiente que puedas completar antes de que termine el dia?',
+      'La clave de la participacion civica es la constancia, no la intensidad. ¿Que es lo mas simple que podes hacer hoy por tu mision?',
+      'Recorda: no necesitas permiso para actuar. Si ves algo que documentar, documentalo. Si ves algo que verificar, verificalo. Tu rol en la mision es tu licencia para actuar.',
+    ],
+  },
+
   // ===== DIMENSION-SPECIFIC GROWTH =====
   {
     sessionType: 'growth_prompt',

@@ -4,7 +4,7 @@ import Header from '@/components/Header';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Send, ArrowLeft, Loader2, MessageCircle, Target, Calendar, Sparkles, Compass } from 'lucide-react';
+import { Send, ArrowLeft, Loader2, MessageCircle, Target, Calendar, Sparkles, Compass, Flag } from 'lucide-react';
 import { apiRequest } from '@/lib/queryClient';
 import { Link } from 'wouter';
 
@@ -20,6 +20,7 @@ const SESSION_TYPES = [
   { value: 'goal_review', label: 'Revision de metas', icon: Target, description: 'Como van tus objetivos' },
   { value: 'growth_prompt', label: 'Impulso de crecimiento', icon: Sparkles, description: 'Desafiate a crecer' },
   { value: 'assessment_debrief', label: 'Analisis de evaluacion', icon: Compass, description: 'Profundicemos en tu perfil' },
+  { value: 'mission_active', label: 'Misión Activa', icon: Flag, description: 'Guía para tu acción cívica del día' },
 ];
 
 const CoachingChat = () => {

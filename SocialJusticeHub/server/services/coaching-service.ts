@@ -1,6 +1,6 @@
 import { db } from '../db';
-import { civicProfiles, coachingSessions, lifeAreaScores, lifeAreas } from '@shared/schema';
-import { eq, desc, and, isNull } from 'drizzle-orm';
+import { civicProfiles, coachingSessions, lifeAreaScores, lifeAreas, initiativeMembers, communityPosts, initiativeTasks, missionEvidence } from '@shared/schema';
+import { eq, desc, and, isNull, ne, count } from 'drizzle-orm';
 import { config } from '../config';
 import { getTemplateMessages } from '@shared/coaching-templates';
 
@@ -17,6 +17,9 @@ interface CoachingContext {
   growthAreas: string[];
   weakestDimension: string | null;
   lifeAreaGaps: Array<{ area: string; current: number; desired: number; gap: number }>;
+  activeMissions: Array<{ postId: number; role: string; missionLabel: string; missionSlug: string }>;
+  missionTasks: Array<{ title: string; status: string; priority: string }>;
+  evidenceCount: number;
 }
 
 // Coaching provider interface
@@ -45,6 +48,7 @@ const SESSION_DIRECTIVES: Record<string, string> = {
   goal_review: `OBJETIVO DE SESION: Revision de metas. Se honesto: si las metas del usuario son vagas o inalcanzables, ayudalo a reformularlas. Usa la formula: accion especifica + para cuando + como vas a saber que lo lograste. Si esta estancado, preguntale si la meta realmente le importa o la definio por inercia.`,
   growth_prompt: `OBJETIVO DE SESION: Impulso de crecimiento. Propone un ejercicio o desafio concreto que saque al usuario de su zona de confort civica. Que sea pequeno, alcanzable, y que se pueda hacer esta semana. Conectalo con su arquetipo y sus areas de crecimiento.`,
   ad_hoc: `OBJETIVO DE SESION: Charla libre. Escucha activamente y guia la conversacion hacia la interseccion entre lo que le preocupa y lo que puede hacer al respecto. Tu brujula es siempre: "¿Y que vas a hacer con eso?"`,
+  mission_active: `OBJETIVO DE SESION: Acompanamiento de mision activa. El usuario participa en una mision nacional de reconstruccion. Tu trabajo es ayudarlo/a a ejecutar UNA accion civica concreta HOY. Revisa sus tareas pendientes y guialo a elegir la mas alcanzable. Si ya envio evidencia, felicitalo y desafialo a ir mas lejos. Si no tiene tareas pendientes, ayudalo a descubrir que puede hacer desde su rol ciudadano. Siempre cierra con UNA accion que pueda completar antes de dormir.`,
 };
 
 // Shared system prompt builder for all AI providers
@@ -119,6 +123,21 @@ ${SESSION_DIRECTIVES[sessionType] || SESSION_DIRECTIVES['ad_hoc']}`;
   if (context.lifeAreaGaps.length > 0) {
     const topGaps = context.lifeAreaGaps.slice(0, 5);
     prompt += `\nBrechas de vida (actual→deseado): ${topGaps.map(g => `${g.area}: ${g.current}→${g.desired} (brecha ${g.gap})`).join(', ')}. Conecta estas brechas con su potencial civico: "Tu brecha en ${topGaps[0]?.area || 'esa area'} tambien es la brecha del pais. Trabajar en vos es trabajar en Argentina."`;
+  }
+
+  if (context.activeMissions && context.activeMissions.length > 0) {
+    prompt += `\n\n# MISION ACTIVA DEL USUARIO\n`;
+    for (const m of context.activeMissions) {
+      prompt += `Mision: ${m.missionLabel} | Rol: ${m.role}\n`;
+    }
+    if (context.missionTasks && context.missionTasks.length > 0) {
+      prompt += `\nTareas pendientes:\n`;
+      for (const t of context.missionTasks) {
+        prompt += `- [${t.priority}] ${t.title} (${t.status})\n`;
+      }
+    }
+    prompt += `\nEvidencias enviadas por el usuario: ${context.evidenceCount || 0}\n`;
+    prompt += `\nConecta la sesion con estas tareas concretas. Si tiene tareas pendientes, preguntale: "De estas tareas, cual te parece mas alcanzable hoy?" Si no tiene, ayudalo a descubrir como puede contribuir desde su rol.`;
   }
 
   return prompt;
@@ -281,6 +300,70 @@ export async function getUserCoachingContext(userId: number): Promise<CoachingCo
     // Life areas may not be seeded yet
   }
 
+  // Fetch active mission memberships
+  let activeMissions: CoachingContext['activeMissions'] = [];
+  let missionTasks: CoachingContext['missionTasks'] = [];
+  let evidenceCount = 0;
+  try {
+    const memberships = await db
+      .select({
+        postId: initiativeMembers.postId,
+        role: initiativeMembers.role,
+        missionLabel: communityPosts.title,
+        missionSlug: communityPosts.missionSlug,
+      })
+      .from(initiativeMembers)
+      .innerJoin(communityPosts, eq(initiativeMembers.postId, communityPosts.id))
+      .where(
+        and(
+          eq(initiativeMembers.userId, userId),
+          eq(initiativeMembers.status, 'active'),
+          eq(communityPosts.type, 'mission'),
+        ),
+      );
+
+    activeMissions = memberships.map(m => ({
+      postId: m.postId ?? 0,
+      role: m.role,
+      missionLabel: m.missionLabel,
+      missionSlug: m.missionSlug ?? '',
+    }));
+
+    if (activeMissions.length > 0) {
+      const postIds = activeMissions.map(m => m.postId).filter(id => id > 0);
+      if (postIds.length > 0) {
+        const tasks = await db
+          .select({
+            title: initiativeTasks.title,
+            status: initiativeTasks.status,
+            priority: initiativeTasks.priority,
+          })
+          .from(initiativeTasks)
+          .where(
+            and(
+              eq(initiativeTasks.postId, postIds[0]),
+              ne(initiativeTasks.status, 'done'),
+            ),
+          )
+          .limit(5);
+
+        missionTasks = tasks.map(t => ({
+          title: t.title,
+          status: t.status,
+          priority: t.priority ?? 'medium',
+        }));
+      }
+    }
+
+    const evidenceResult = await db
+      .select({ total: count() })
+      .from(missionEvidence)
+      .where(eq(missionEvidence.userId, userId));
+    evidenceCount = evidenceResult[0]?.total ?? 0;
+  } catch {
+    // Mission tables may not be populated yet
+  }
+
   if (profile.length === 0) {
     return {
       archetype: null,
@@ -289,6 +372,9 @@ export async function getUserCoachingContext(userId: number): Promise<CoachingCo
       growthAreas: [],
       weakestDimension: null,
       lifeAreaGaps,
+      activeMissions,
+      missionTasks,
+      evidenceCount,
     };
   }
 
@@ -303,6 +389,9 @@ export async function getUserCoachingContext(userId: number): Promise<CoachingCo
     growthAreas,
     weakestDimension: growthAreas[0] || null,
     lifeAreaGaps,
+    activeMissions,
+    missionTasks,
+    evidenceCount,
   };
 }
 

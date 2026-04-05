@@ -2304,7 +2304,7 @@ export const weeklyCheckins = pgTable("weekly_checkins", {
 export const coachingSessions = pgTable("coaching_sessions", {
   id: serial("id").primaryKey(),
   userId: integer("user_id").references(() => users.id),
-  sessionType: text("session_type").notNull().$type<'weekly_reflection' | 'goal_review' | 'assessment_debrief' | 'growth_prompt' | 'ad_hoc'>(),
+  sessionType: text("session_type").notNull().$type<'weekly_reflection' | 'goal_review' | 'assessment_debrief' | 'growth_prompt' | 'ad_hoc' | 'mission_active'>(),
   status: text("status").notNull().default('active').$type<'active' | 'completed'>(),
   messages: text("messages").notNull().default('[]'), // JSON array of { role, content, timestamp }
   insights: text("insights"), // JSON array of extracted insights
