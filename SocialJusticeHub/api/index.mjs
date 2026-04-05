@@ -7312,10 +7312,10 @@ var init_storage = __esm({
         } else {
           await db.insert(postLikes).values({ postId, userId });
         }
-        const count = await db.select({ count: sql4`count(*)` }).from(postLikes).where(eq2(postLikes.postId, postId));
+        const count3 = await db.select({ count: sql4`count(*)` }).from(postLikes).where(eq2(postLikes.postId, postId));
         return {
           liked: !existingLike,
-          count: count[0].count
+          count: count3[0].count
         };
       }
       async getPostLikes(postId) {
@@ -7874,7 +7874,8 @@ var init_storage = __esm({
           joinedAt: initiativeMembers.joinedAt,
           postTitle: communityPosts.title,
           postType: communityPosts.type,
-          postStatus: communityPosts.status
+          postStatus: communityPosts.status,
+          missionSlug: communityPosts.missionSlug
         }).from(initiativeMembers).innerJoin(communityPosts, eq2(initiativeMembers.postId, communityPosts.id)).where(and2(eq2(initiativeMembers.userId, userId), eq2(initiativeMembers.status, "active"))).orderBy(desc2(initiativeMembers.joinedAt));
       }
       async addInitiativeMember(postId, userId, role) {
@@ -9575,7 +9576,7 @@ async function generateAndSaveMandate(territoryLevel, territoryName, province, c
   territoryResources.forEach((r) => {
     resCats[r.category || "other"] = (resCats[r.category || "other"] || 0) + 1;
   });
-  const resourceCategories = Object.entries(resCats).map(([category, count]) => ({ category: RESOURCE_CATEGORY_LABELS[category] || category, count, description: `${count} persona(s) con capacidad en ${RESOURCE_CATEGORY_LABELS[category] || category}` })).sort((a, b) => b.count - a.count);
+  const resourceCategories = Object.entries(resCats).map(([category, count3]) => ({ category: RESOURCE_CATEGORY_LABELS[category] || category, count: count3, description: `${count3} persona(s) con capacidad en ${RESOURCE_CATEGORY_LABELS[category] || category}` })).sort((a, b) => b.count - a.count);
   const resourceThemeCounts = {};
   territoryResources.forEach((r) => {
     (RESOURCE_THEME_MAP[r.category] || []).forEach((t) => {
@@ -10376,9 +10377,9 @@ var TwoFactorAuth = class {
   /**
    * Genera códigos de respaldo
    */
-  static generateBackupCodes(count = 10) {
+  static generateBackupCodes(count3 = 10) {
     const codes = [];
-    for (let i = 0; i < count; i++) {
+    for (let i = 0; i < count3; i++) {
       const code = crypto2.randomBytes(5).toString("hex").toUpperCase();
       codes.push(code);
     }
@@ -14037,7 +14038,7 @@ import { eq as eq8, desc as desc8, and as and7 } from "drizzle-orm";
 init_db();
 init_schema();
 init_config();
-import { eq as eq7, desc as desc7, and as and6, isNull } from "drizzle-orm";
+import { eq as eq7, desc as desc7, and as and6, isNull, ne, count } from "drizzle-orm";
 
 // shared/coaching-templates.ts
 var COACHING_TEMPLATES = [
@@ -14124,6 +14125,16 @@ var COACHING_TEMPLATES = [
       "\xBFEn que puedo acompa\xF1arte hoy? Puedo ser util para poner en palabras lo que sentis, ordenar ideas, o definir proximos pasos concretos."
     ]
   },
+  // ===== MISION ACTIVA =====
+  {
+    sessionType: "mission_active",
+    messages: [
+      "Hola. Hoy vamos a enfocarnos en tu mision activa. Contame: \xBFque tarea de tu mision te gustaria abordar hoy?",
+      "Bien, veo que estas participando en una mision nacional. Cada accion que tomes, por peque\xF1a que sea, suma al cambio. \xBFHay alguna tarea pendiente que puedas completar antes de que termine el dia?",
+      "La clave de la participacion civica es la constancia, no la intensidad. \xBFQue es lo mas simple que podes hacer hoy por tu mision?",
+      "Recorda: no necesitas permiso para actuar. Si ves algo que documentar, documentalo. Si ves algo que verificar, verificalo. Tu rol en la mision es tu licencia para actuar."
+    ]
+  },
   // ===== DIMENSION-SPECIFIC GROWTH =====
   {
     sessionType: "growth_prompt",
@@ -14180,7 +14191,8 @@ var SESSION_DIRECTIVES = {
   weekly_reflection: `OBJETIVO DE SESION: Reflexion semanal. Tu trabajo es ayudar al usuario a encontrar el hilo civico en su semana \u2014 momentos donde actuo (o pudo haber actuado) como ciudadano/a. No juzgues, ilumina. Cada reflexion debe cerrar con una intencion para la semana que viene.`,
   goal_review: `OBJETIVO DE SESION: Revision de metas. Se honesto: si las metas del usuario son vagas o inalcanzables, ayudalo a reformularlas. Usa la formula: accion especifica + para cuando + como vas a saber que lo lograste. Si esta estancado, preguntale si la meta realmente le importa o la definio por inercia.`,
   growth_prompt: `OBJETIVO DE SESION: Impulso de crecimiento. Propone un ejercicio o desafio concreto que saque al usuario de su zona de confort civica. Que sea pequeno, alcanzable, y que se pueda hacer esta semana. Conectalo con su arquetipo y sus areas de crecimiento.`,
-  ad_hoc: `OBJETIVO DE SESION: Charla libre. Escucha activamente y guia la conversacion hacia la interseccion entre lo que le preocupa y lo que puede hacer al respecto. Tu brujula es siempre: "\xBFY que vas a hacer con eso?"`
+  ad_hoc: `OBJETIVO DE SESION: Charla libre. Escucha activamente y guia la conversacion hacia la interseccion entre lo que le preocupa y lo que puede hacer al respecto. Tu brujula es siempre: "\xBFY que vas a hacer con eso?"`,
+  mission_active: `OBJETIVO DE SESION: Acompanamiento de mision activa. El usuario participa en una mision nacional de reconstruccion. Tu trabajo es ayudarlo/a a ejecutar UNA accion civica concreta HOY. Revisa sus tareas pendientes y guialo a elegir la mas alcanzable. Si ya envio evidencia, felicitalo y desafialo a ir mas lejos. Si no tiene tareas pendientes, ayudalo a descubrir que puede hacer desde su rol ciudadano. Siempre cierra con UNA accion que pueda completar antes de dormir.`
 };
 function buildSystemPrompt(sessionType, context) {
   let prompt = `# IDENTIDAD
@@ -14258,6 +14270,30 @@ Puntuaciones por dimension (0-100): ${JSON.stringify(context.dimensionScores)}`;
     const topGaps = context.lifeAreaGaps.slice(0, 5);
     prompt += `
 Brechas de vida (actual\u2192deseado): ${topGaps.map((g) => `${g.area}: ${g.current}\u2192${g.desired} (brecha ${g.gap})`).join(", ")}. Conecta estas brechas con su potencial civico: "Tu brecha en ${topGaps[0]?.area || "esa area"} tambien es la brecha del pais. Trabajar en vos es trabajar en Argentina."`;
+  }
+  if (context.activeMissions && context.activeMissions.length > 0) {
+    prompt += `
+
+# MISION ACTIVA DEL USUARIO
+`;
+    for (const m of context.activeMissions) {
+      prompt += `Mision: ${m.missionLabel} | Rol: ${m.role}
+`;
+    }
+    if (context.missionTasks && context.missionTasks.length > 0) {
+      prompt += `
+Tareas pendientes:
+`;
+      for (const t of context.missionTasks) {
+        prompt += `- [${t.priority}] ${t.title} (${t.status})
+`;
+      }
+    }
+    prompt += `
+Evidencias enviadas por el usuario: ${context.evidenceCount || 0}
+`;
+    prompt += `
+Conecta la sesion con estas tareas concretas. Si tiene tareas pendientes, preguntale: "De estas tareas, cual te parece mas alcanzable hoy?" Si no tiene, ayudalo a descubrir como puede contribuir desde su rol.`;
   }
   return prompt;
 }
@@ -14360,6 +14396,52 @@ async function getUserCoachingContext(userId) {
     })).sort((a, b) => b.gap - a.gap);
   } catch {
   }
+  let activeMissions = [];
+  let missionTasks = [];
+  let evidenceCount = 0;
+  try {
+    const memberships = await db.select({
+      postId: initiativeMembers.postId,
+      role: initiativeMembers.role,
+      missionLabel: communityPosts.title,
+      missionSlug: communityPosts.missionSlug
+    }).from(initiativeMembers).innerJoin(communityPosts, eq7(initiativeMembers.postId, communityPosts.id)).where(
+      and6(
+        eq7(initiativeMembers.userId, userId),
+        eq7(initiativeMembers.status, "active"),
+        eq7(communityPosts.type, "mission")
+      )
+    );
+    activeMissions = memberships.map((m) => ({
+      postId: m.postId ?? 0,
+      role: m.role,
+      missionLabel: m.missionLabel,
+      missionSlug: m.missionSlug ?? ""
+    }));
+    if (activeMissions.length > 0) {
+      const postIds = activeMissions.map((m) => m.postId).filter((id) => id > 0);
+      if (postIds.length > 0) {
+        const tasks = await db.select({
+          title: initiativeTasks.title,
+          status: initiativeTasks.status,
+          priority: initiativeTasks.priority
+        }).from(initiativeTasks).where(
+          and6(
+            eq7(initiativeTasks.postId, postIds[0]),
+            ne(initiativeTasks.status, "done")
+          )
+        ).limit(5);
+        missionTasks = tasks.map((t) => ({
+          title: t.title,
+          status: t.status,
+          priority: t.priority ?? "medium"
+        }));
+      }
+    }
+    const evidenceResult = await db.select({ total: count() }).from(missionEvidence).where(eq7(missionEvidence.userId, userId));
+    evidenceCount = evidenceResult[0]?.total ?? 0;
+  } catch {
+  }
   if (profile.length === 0) {
     return {
       archetype: null,
@@ -14367,7 +14449,10 @@ async function getUserCoachingContext(userId) {
       topStrengths: [],
       growthAreas: [],
       weakestDimension: null,
-      lifeAreaGaps
+      lifeAreaGaps,
+      activeMissions,
+      missionTasks,
+      evidenceCount
     };
   }
   const p = profile[0];
@@ -14379,7 +14464,10 @@ async function getUserCoachingContext(userId) {
     topStrengths: JSON.parse(p.topStrengths),
     growthAreas,
     weakestDimension: growthAreas[0] || null,
-    lifeAreaGaps
+    lifeAreaGaps,
+    activeMissions,
+    missionTasks,
+    evidenceCount
   };
 }
 async function sendCoachingMessage(userId, sessionId, userMessage) {
@@ -16373,6 +16461,11 @@ var ARService = class {
 };
 var arService = new ARService();
 
+// server/routes.ts
+init_db();
+init_schema();
+import { ilike as ilike3, sql as drizzleSql } from "drizzle-orm";
+
 // shared/mission-registry.ts
 var MISSIONS = [
   {
@@ -16855,6 +16948,78 @@ function scoreDreamForMission(dream, mission) {
 }
 function matchDreamToMissions(dream, missions) {
   return missions.map((mission) => scoreDreamForMission(dream, mission)).sort((a, b) => b.score - a.score);
+}
+
+// shared/flywheel-mappings.ts
+var ARCHETYPE_TO_ROLE = {
+  el_vigia: "custodio",
+  // Both: vigilance, accountability
+  el_catalizador: "organizador",
+  // Both: mobilize, coordinate
+  el_puente: "narrador",
+  // Both: connect through communication
+  la_raiz: "constructor",
+  // Both: build at the local level
+  el_sembrador: "testigo",
+  // Both: observe and document
+  el_espejo: "declarante"
+  // Both: reflect and express truth
+};
+var LIFE_AREA_TO_MISSION = {
+  "Salud": "la-base-esta",
+  "Entorno": "la-base-esta",
+  "Comunidad": "territorio-legible",
+  "Amigos": "territorio-legible",
+  "Carrera": "produccion-y-suelo-vivo",
+  "Dinero": "produccion-y-suelo-vivo",
+  "Crecimiento Personal": "infancia-escuela-cultura",
+  "Espiritualidad": "infancia-escuela-cultura",
+  "Amor": "infancia-escuela-cultura",
+  "Familia": "la-base-esta",
+  "Apariencia": "la-base-esta",
+  "Recreaci\xF3n": "infancia-escuela-cultura"
+};
+var ROLE_LABELS = {
+  testigo: "Testigo",
+  declarante: "Declarante",
+  constructor: "Constructor",
+  custodio: "Custodio",
+  organizador: "Organizador",
+  narrador: "Narrador"
+};
+function computeMissionAlignment(archetype, lifeAreaGaps) {
+  const role = archetype && ARCHETYPE_TO_ROLE[archetype] || "testigo";
+  const roleLabel = ROLE_LABELS[role];
+  let missionSlug = "instituciones-y-futuro";
+  let reason = "Tus areas de vida estan equilibradas \u2014 podes contribuir a nivel institucional.";
+  if (lifeAreaGaps.length > 0) {
+    const sorted = [...lifeAreaGaps].sort((a, b) => b.gap - a.gap);
+    const weakest = sorted[0];
+    const allStrong = sorted.every((g) => g.current >= 60);
+    if (!allStrong && weakest.gap > 0) {
+      const mapped = LIFE_AREA_TO_MISSION[weakest.area];
+      if (mapped) {
+        missionSlug = mapped;
+        const mission2 = MISSIONS.find((m) => m.slug === mapped);
+        reason = `Tu area mas debil es ${weakest.area} (${weakest.current}/100). La ${mission2?.label || "mision"} trabaja exactamente en eso.`;
+      }
+    }
+    if (sorted.length > 1) {
+      const secondWeakest = sorted[1];
+      const secondMapped = LIFE_AREA_TO_MISSION[secondWeakest.area];
+      if (secondMapped && secondMapped !== missionSlug) {
+      }
+    }
+  }
+  const mission = MISSIONS.find((m) => m.slug === missionSlug);
+  return {
+    recommendedMission: missionSlug,
+    recommendedMissionLabel: mission?.label || missionSlug,
+    recommendedMissionNumber: mission?.number || 0,
+    recommendedRole: role,
+    recommendedRoleLabel: roleLabel,
+    reason
+  };
 }
 
 // server/services/embedding-service.ts
@@ -17615,8 +17780,8 @@ async function registerRoutes(app2) {
   });
   app2.get("/api/community/messages/unread/count", authenticateToken, async (req, res) => {
     try {
-      const count = await storage.getUnreadMessageCount(req.user.userId);
-      res.json({ count });
+      const count3 = await storage.getUnreadMessageCount(req.user.userId);
+      res.json({ count: count3 });
     } catch (error) {
       res.status(500).json({ message: "Failed to fetch unread message count" });
     }
@@ -17938,8 +18103,8 @@ async function registerRoutes(app2) {
       if (isNaN(postId)) {
         return res.status(400).json({ message: "Invalid post ID" });
       }
-      const count = await storage.getCommunityPostLikesCount(postId);
-      res.json({ count });
+      const count3 = await storage.getCommunityPostLikesCount(postId);
+      res.json({ count: count3 });
     } catch (error) {
       res.status(500).json({ message: "Failed to get likes count" });
     }
@@ -17951,8 +18116,8 @@ async function registerRoutes(app2) {
       if (isNaN(postId)) {
         return res.status(400).json({ message: "Invalid post ID" });
       }
-      const count = await storage.getCommunityPostViewsCount(postId);
-      res.json({ count });
+      const count3 = await storage.getCommunityPostViewsCount(postId);
+      res.json({ count: count3 });
     } catch (error) {
       res.status(500).json({ message: "Failed to get views count" });
     }
@@ -19949,6 +20114,85 @@ async function registerRoutes(app2) {
     } catch (error) {
       console.error("Record daily activity error:", error);
       res.status(500).json({ message: "Error al registrar actividad diaria" });
+    }
+  });
+  app2.get("/api/user/mission-alignment", authenticateToken, async (req, res) => {
+    try {
+      const userId = req.user.userId;
+      const context = await getUserCoachingContext(userId);
+      const allMemberships = await storage.getUserMemberships(userId);
+      const missionMemberships = allMemberships.filter((m) => m.postType === "mission");
+      const alignment = computeMissionAlignment(context.archetype, context.lifeAreaGaps);
+      const missionPosts = await storage.getCommunityPosts("mission");
+      const missionPost = missionPosts.find((p) => p.missionSlug === alignment.recommendedMission);
+      const taskCounts = {};
+      for (const m of missionMemberships) {
+        const tasks = await storage.getInitiativeTasks(m.postId);
+        taskCounts[m.postId] = tasks.filter((t) => t.status !== "done").length;
+      }
+      res.json({
+        hasProfile: !!context.archetype,
+        hasLifeAreas: context.lifeAreaGaps.length > 0,
+        archetype: context.archetype,
+        recommendedRole: alignment.recommendedRole,
+        recommendedRoleLabel: alignment.recommendedRoleLabel,
+        recommendedMission: {
+          slug: alignment.recommendedMission,
+          label: alignment.recommendedMissionLabel,
+          number: alignment.recommendedMissionNumber,
+          postId: missionPost?.id || null
+        },
+        reason: alignment.reason,
+        currentMemberships: missionMemberships.map((m) => ({
+          postId: m.postId,
+          role: m.role,
+          missionSlug: m.missionSlug,
+          label: m.postTitle,
+          pendingTasks: taskCounts[m.postId] || 0
+        })),
+        weakestLifeArea: context.lifeAreaGaps[0] || null
+      });
+    } catch (error) {
+      console.error("Mission alignment error:", error);
+      res.status(500).json({ message: "Error al calcular alineacion de mision" });
+    }
+  });
+  app2.get("/api/user/territory-pulse", authenticateToken, async (req, res) => {
+    try {
+      const userId = req.user.userId;
+      const user = await storage.getUser(userId);
+      if (!user || !user.location) {
+        return res.json({ hasLocation: false });
+      }
+      const location = user.location;
+      const dreamRows = await db.select({
+        id: dreams.id,
+        type: dreams.type,
+        dream: dreams.dream,
+        value: dreams.value,
+        need: dreams.need,
+        basta: dreams.basta,
+        createdAt: dreams.createdAt
+      }).from(dreams).where(ilike3(dreams.location, `%${location}%`)).orderBy(drizzleSql`${dreams.createdAt} desc`);
+      const dreamCount = dreamRows.length;
+      const recentDreams = dreamRows.slice(0, 3).map((d) => ({
+        id: d.id,
+        type: d.type,
+        text: d.dream ?? d.value ?? d.need ?? d.basta ?? "",
+        createdAt: d.createdAt ?? ""
+      }));
+      const memberRows = await db.select({ id: users.id }).from(users).where(ilike3(users.location, `%${location}%`));
+      const memberCount = memberRows.length;
+      return res.json({
+        hasLocation: true,
+        territoryName: location,
+        dreamCount,
+        recentDreams,
+        memberCount
+      });
+    } catch (error) {
+      console.error("Territory pulse error:", error);
+      res.status(500).json({ message: "Error al obtener pulso territorial" });
     }
   });
   app2.get("/api/missions", async (_req, res) => {
