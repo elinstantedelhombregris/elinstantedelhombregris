@@ -107,12 +107,12 @@ const Challenges = () => {
   // Get level info
   const getLevelInfo = (level: number) => {
     switch (level) {
-      case 1: return { name: 'Consciencia Individual', color: 'text-blue-400', border: 'border-blue-500/30', bg: 'bg-blue-500/10', icon: UserIcon };
-      case 2: return { name: 'Núcleo Familiar', color: 'text-amber-400', border: 'border-amber-500/30', bg: 'bg-amber-500/10', icon: Users };
-      case 3: return { name: 'Impacto Comunitario', color: 'text-emerald-400', border: 'border-emerald-500/30', bg: 'bg-emerald-500/10', icon: BookOpen };
-      case 4: return { name: 'Liderazgo Provincial', color: 'text-purple-400', border: 'border-purple-500/30', bg: 'bg-purple-500/10', icon: TrendingUp };
-      case 5: return { name: 'Visión Nacional', color: 'text-indigo-400', border: 'border-indigo-500/30', bg: 'bg-indigo-500/10', icon: Star };
-      default: return { name: 'Consciencia Individual', color: 'text-blue-400', border: 'border-blue-500/30', bg: 'bg-blue-500/10', icon: UserIcon };
+      case 1: return { name: 'Consciencia Individual', missionSubtitle: 'Despertar Cívico', color: 'text-blue-400', border: 'border-blue-500/30', bg: 'bg-blue-500/10', icon: UserIcon };
+      case 2: return { name: 'Núcleo Familiar', missionSubtitle: 'Primera Acción', color: 'text-amber-400', border: 'border-amber-500/30', bg: 'bg-amber-500/10', icon: Users };
+      case 3: return { name: 'Impacto Comunitario', missionSubtitle: 'Ciclo de Evidencia', color: 'text-emerald-400', border: 'border-emerald-500/30', bg: 'bg-emerald-500/10', icon: BookOpen };
+      case 4: return { name: 'Liderazgo Provincial', missionSubtitle: 'Acción Colectiva', color: 'text-purple-400', border: 'border-purple-500/30', bg: 'bg-purple-500/10', icon: TrendingUp };
+      case 5: return { name: 'Visión Nacional', missionSubtitle: 'Impacto Institucional', color: 'text-indigo-400', border: 'border-indigo-500/30', bg: 'bg-indigo-500/10', icon: Star };
+      default: return { name: 'Consciencia Individual', missionSubtitle: 'Despertar Cívico', color: 'text-blue-400', border: 'border-blue-500/30', bg: 'bg-blue-500/10', icon: UserIcon };
     }
   };
 
@@ -326,6 +326,9 @@ const Challenges = () => {
                         <h2 className="text-xl font-bold text-white font-serif tracking-wide">
                           Nivel {level} // <span className={levelInfo.color}>{levelInfo.name.toUpperCase()}</span>
                         </h2>
+                        <p className={cn("text-xs font-mono mt-0.5", levelInfo.color, "opacity-60")}>
+                          ({levelInfo.missionSubtitle})
+                        </p>
                         {!isAvailable && (
                           <span className="text-xs text-red-400 font-mono flex items-center mt-1">
                             <Lock className="w-3 h-3 mr-1" /> Bloqueado: requiere nivel {level}
