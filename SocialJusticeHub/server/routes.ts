@@ -72,6 +72,9 @@ import {
 import { nlpService } from './nlp-service';
 import { blockchainService } from './blockchain-service';
 import { arService } from './ar-service';
+import { db } from './db';
+import { ilike, count, sql as drizzleSql } from 'drizzle-orm';
+import { dreams, users } from '@shared/schema';
 import { MISSIONS } from '@shared/mission-registry';
 import { matchDreamToMissions, type SignalScore } from '@shared/mission-signal-matcher';
 import { computeMissionAlignment } from '@shared/flywheel-mappings';
@@ -3833,6 +3836,63 @@ export async function registerRoutes(app: Express): Promise<Server> {
     } catch (error) {
       console.error('Mission alignment error:', error);
       res.status(500).json({ message: "Error al calcular alineacion de mision" });
+    }
+  });
+
+  // === Territory Pulse ===
+
+  app.get("/api/user/territory-pulse", authenticateToken, async (req: AuthRequest, res) => {
+    try {
+      const userId = req.user!.userId;
+      const user = await storage.getUser(userId);
+
+      if (!user || !user.location) {
+        return res.json({ hasLocation: false });
+      }
+
+      const location = user.location;
+
+      // Count dreams in area + fetch latest 3
+      const dreamRows = await db
+        .select({
+          id: dreams.id,
+          type: dreams.type,
+          dream: dreams.dream,
+          value: dreams.value,
+          need: dreams.need,
+          basta: dreams.basta,
+          createdAt: dreams.createdAt,
+        })
+        .from(dreams)
+        .where(ilike(dreams.location, `%${location}%`))
+        .orderBy(drizzleSql`${dreams.createdAt} desc`);
+
+      const dreamCount = dreamRows.length;
+      const recentDreams = dreamRows.slice(0, 3).map(d => ({
+        id: d.id,
+        type: d.type,
+        text: d.dream ?? d.value ?? d.need ?? d.basta ?? '',
+        createdAt: d.createdAt ?? '',
+      }));
+
+      // Count distinct users in area
+      const memberRows = await db
+        .select({ id: users.id })
+        .from(users)
+        .where(ilike(users.location, `%${location}%`));
+
+      const memberCount = memberRows.length;
+
+      return res.json({
+        hasLocation: true,
+        territoryName: location,
+        dreamCount,
+        recentDreams,
+        memberCount,
+      });
+    } catch (error) {
+      console.error('Territory pulse error:', error);
+      res.status(500).json({ message: "Error al obtener pulso territorial" });
     }
   });
 

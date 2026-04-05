@@ -19,9 +19,11 @@ import GoalStrip from '@/components/insight-dashboard/GoalStrip';
 import CoachingCard from '@/components/insight-dashboard/CoachingCard';
 import NextStepsPanel from '@/components/insight-dashboard/NextStepsPanel';
 import CheckinTimeline from '@/components/insight-dashboard/CheckinTimeline';
+import TerritoryCard from '@/components/insight-dashboard/TerritoryCard';
 import { useCivicProfile, useGoals, useCurrentCheckin, useCoachingSessions } from '@/hooks/useCivicProfile';
 import { useCheckinHistory } from '@/hooks/useCheckinHistory';
 import { useMissionAlignment } from '@/hooks/useMissionAlignment';
+import { useTerritoryDashboard } from '@/hooks/useTerritoryDashboard';
 
 interface UserStats {
   level: number;
@@ -64,6 +66,7 @@ const InsightDashboard = () => {
   const { data: coachingData } = useCoachingSessions(isLoggedIn);
   const { data: checkinHistory } = useCheckinHistory(isLoggedIn);
   const { data: alignmentData } = useMissionAlignment(isLoggedIn);
+  const { data: territoryData } = useTerritoryDashboard(isLoggedIn);
 
   const profile = profileData?.profile || null;
   const goals = goalsData?.goals || [];
@@ -244,6 +247,9 @@ const InsightDashboard = () => {
 
             {/* Coaching Card */}
             <CoachingCard hasProfile={!!profile} />
+
+            {/* Territory Pulse */}
+            <TerritoryCard data={territoryData} />
 
             {/* Next Steps */}
             {profile?.recommendedActions && (
