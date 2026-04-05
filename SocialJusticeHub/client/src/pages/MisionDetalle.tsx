@@ -26,6 +26,7 @@ import SignalFeed from '@/components/mission/SignalFeed';
 import ChronicleSection from '@/components/mission/ChronicleSection';
 import GuardrailsPanel from '@/components/mission/GuardrailsPanel';
 import PowerCTA from '@/components/PowerCTA';
+import ShareButtons from '@/components/ShareButtons';
 
 import { MISSIONS } from '../../../shared/mission-registry';
 import { MISSION_META, getInitiativesByMission } from '@/lib/initiative-utils';
@@ -321,6 +322,16 @@ export default function MisionDetalle() {
                   />
                 </div>
               </SmoothReveal>
+
+              <SmoothReveal delay={0.7}>
+                <div className="mt-8 flex items-center gap-3">
+                  <span className="text-xs text-slate-500 font-mono uppercase tracking-wider">Compartir</span>
+                  <ShareButtons
+                    title={`Misión ${mission.number}: ${mission.label} — ¡BASTA!`}
+                    url={`${window.location.origin}/mision/${slug}`}
+                  />
+                </div>
+              </SmoothReveal>
             </div>
           </div>
         </section>
@@ -348,6 +359,18 @@ export default function MisionDetalle() {
                 </div>
               </div>
             </SmoothReveal>
+
+            {/* Urgency: pending emergency milestones */}
+            {milestones.filter((m: any) => m.title?.includes('Emergencia') && m.status === 'pending').length > 0 && (
+              <div className="mb-8 p-4 rounded-xl border border-amber-500/20 bg-amber-500/5">
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+                  <p className="text-sm text-amber-300 font-medium">
+                    Hitos de emergencia pendientes — <span className="text-amber-400">los primeros 90 días definen todo</span>
+                  </p>
+                </div>
+              </div>
+            )}
 
             {/* Timeline */}
             <MissionTimeline milestones={milestones} mission={mission} />
@@ -449,6 +472,58 @@ export default function MisionDetalle() {
               evidence={evidence}
               missionStatus={missionPost?.status || 'active'}
             />
+
+            {/* Recent activity feed */}
+            <div className="mb-8">
+              <h3 className="font-mono text-xs tracking-[0.3em] uppercase text-slate-500 mb-4">Actividad Reciente</h3>
+              {(() => {
+                const activities = [
+                  ...evidence.slice(0, 3).map((e: any) => ({
+                    type: 'evidence',
+                    text: `${e.user?.name || 'Alguien'} documentó evidencia: ${e.evidenceType}`,
+                    date: e.createdAt,
+                  })),
+                  ...tasks.filter((t: any) => t.status === 'done').slice(0, 2).map((t: any) => ({
+                    type: 'task',
+                    text: `Tarea completada: ${t.title}`,
+                    date: t.completedAt || t.updatedAt,
+                  })),
+                  ...members.slice(-3).map((m: any) => ({
+                    type: 'member',
+                    text: `${m.user?.name || 'Alguien'} se unió como ${m.role}`,
+                    date: m.joinedAt,
+                  })),
+                ].sort((a, b) => new Date(b.date || 0).getTime() - new Date(a.date || 0).getTime()).slice(0, 5);
+
+                if (activities.length === 0) {
+                  return (
+                    <GlassCard className="p-6 text-center">
+                      <Zap className="w-8 h-8 text-slate-600 mx-auto mb-2" />
+                      <p className="text-slate-500 text-sm">Sé el primero en actuar en esta misión</p>
+                    </GlassCard>
+                  );
+                }
+
+                return (
+                  <div className="space-y-2">
+                    {activities.map((a, i) => (
+                      <div key={i} className="flex items-center gap-3 p-3 rounded-lg bg-white/[0.03] border border-white/5">
+                        <div className={`w-2 h-2 rounded-full flex-shrink-0 ${
+                          a.type === 'evidence' ? 'bg-emerald-500' :
+                          a.type === 'task' ? 'bg-blue-500' : 'bg-purple-500'
+                        }`} />
+                        <p className="text-sm text-slate-400 flex-1">{a.text}</p>
+                        {a.date && (
+                          <span className="text-[10px] text-slate-600 font-mono flex-shrink-0">
+                            {new Date(a.date).toLocaleDateString()}
+                          </span>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                );
+              })()}
+            </div>
 
             {/* KPI Placeholders */}
             <div className="mt-8">

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import SmoothReveal from '@/components/ui/SmoothReveal';
 import PowerCTA from '@/components/PowerCTA';
+import ShareButtons from '@/components/ShareButtons';
 import { Target, Zap, Sparkles, ArrowRight, ChevronDown, ChevronUp } from 'lucide-react';
 
 interface StoryScrollProps {
@@ -61,6 +62,14 @@ export default function StoryScroll({ ayudaCompartirPost, onNavigateToPost }: St
                     {expanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
                     {expanded ? 'Ver menos' : 'Leer más'}
                   </button>
+                </div>
+
+                <div className="mt-4 pt-4 border-t border-white/10 flex items-center gap-3">
+                  <span className="text-xs text-slate-500">Compartí con tu tribu:</span>
+                  <ShareButtons
+                    title="Ayuda a compartir ¡BASTA! — Hacenos visibles"
+                    url={`${window.location.origin}/community`}
+                  />
                 </div>
               </div>
             </div>

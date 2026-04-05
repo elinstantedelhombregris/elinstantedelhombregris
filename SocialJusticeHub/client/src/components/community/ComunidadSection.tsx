@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import {
   Users, Target, Zap, Sparkles, Search, MapPin,
-  ArrowRight, Heart, Eye, Map, List, Plus
+  ArrowRight, Heart, Eye, Map, List, Plus, Share2
 } from 'lucide-react';
 import InitiativesMap from '@/components/InitiativesMap';
 import StoryScroll from './StoryScroll';
@@ -275,6 +275,19 @@ export default function ComunidadSection({
                                 <Eye className="w-3 h-3" /> {post.viewsCount}
                               </span>
                             )}
+                            <button
+                              className="flex items-center gap-0.5 text-slate-600 hover:text-blue-400 transition-colors"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                if (navigator.share) {
+                                  navigator.share({ title: post.title, url: `${window.location.origin}/community/${post.id}` });
+                                } else {
+                                  navigator.clipboard.writeText(`${window.location.origin}/community/${post.id}`);
+                                }
+                              }}
+                            >
+                              <Share2 className="w-3 h-3" />
+                            </button>
                           </div>
                         </div>
                       </div>
