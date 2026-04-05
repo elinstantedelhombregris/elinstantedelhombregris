@@ -528,6 +528,7 @@ const Community = () => {
             posts={posts}
             onNavigateToPost={(id) => setLocation(`/community/${id}`)}
             onNavigate={setLocation}
+            onCreatePost={() => setShowCreateModal(true)}
           />
         )}
 
