@@ -8130,9 +8130,7 @@ var init_storage = __esm({
       async flagEvidence(evidenceId, flagCategory, flaggedBy) {
         const [updated] = await db.update(missionEvidence).set({
           status: "flagged",
-          flagCategory,
-          verifiedBy: flaggedBy,
-          verifiedAt: (/* @__PURE__ */ new Date()).toISOString()
+          flagCategory
         }).where(eq2(missionEvidence.id, evidenceId)).returning();
         return updated;
       }
@@ -14038,7 +14036,7 @@ import { eq as eq8, desc as desc8, and as and7 } from "drizzle-orm";
 init_db();
 init_schema();
 init_config();
-import { eq as eq7, desc as desc7, and as and6, isNull, ne, count } from "drizzle-orm";
+import { eq as eq7, desc as desc7, and as and6, isNull, ne, count, inArray as inArray2 } from "drizzle-orm";
 
 // shared/coaching-templates.ts
 var COACHING_TEMPLATES = [
@@ -14427,7 +14425,7 @@ async function getUserCoachingContext(userId) {
           priority: initiativeTasks.priority
         }).from(initiativeTasks).where(
           and6(
-            eq7(initiativeTasks.postId, postIds[0]),
+            inArray2(initiativeTasks.postId, postIds),
             ne(initiativeTasks.status, "done")
           )
         ).limit(5);
@@ -16972,7 +16970,7 @@ var LIFE_AREA_TO_MISSION = {
   "Amigos": "territorio-legible",
   "Carrera": "produccion-y-suelo-vivo",
   "Dinero": "produccion-y-suelo-vivo",
-  "Crecimiento Personal": "infancia-escuela-cultura",
+  "Crecimiento personal": "infancia-escuela-cultura",
   "Espiritualidad": "infancia-escuela-cultura",
   "Amor": "infancia-escuela-cultura",
   "Familia": "la-base-esta",
@@ -16992,6 +16990,7 @@ function computeMissionAlignment(archetype, lifeAreaGaps) {
   const roleLabel = ROLE_LABELS[role];
   let missionSlug = "instituciones-y-futuro";
   let reason = "Tus areas de vida estan equilibradas \u2014 podes contribuir a nivel institucional.";
+  let secondaryMission;
   if (lifeAreaGaps.length > 0) {
     const sorted = [...lifeAreaGaps].sort((a, b) => b.gap - a.gap);
     const weakest = sorted[0];
@@ -17008,6 +17007,7 @@ function computeMissionAlignment(archetype, lifeAreaGaps) {
       const secondWeakest = sorted[1];
       const secondMapped = LIFE_AREA_TO_MISSION[secondWeakest.area];
       if (secondMapped && secondMapped !== missionSlug) {
+        secondaryMission = secondMapped;
       }
     }
   }
@@ -17018,7 +17018,8 @@ function computeMissionAlignment(archetype, lifeAreaGaps) {
     recommendedMissionNumber: mission?.number || 0,
     recommendedRole: role,
     recommendedRoleLabel: roleLabel,
-    reason
+    reason,
+    secondaryMission
   };
 }
 
@@ -18182,7 +18183,8 @@ async function registerRoutes(app2) {
           request
         });
       } else {
-        const role = post.type === "mission" && citizenRole ? citizenRole : "member";
+        const validCitizenRoles = ["testigo", "declarante", "constructor", "custodio", "organizador", "narrador"];
+        const role = post.type === "mission" && citizenRole && validCitizenRoles.includes(citizenRole) ? citizenRole : "member";
         const member = await storage.addInitiativeMember(id, req.user.userId, role);
         try {
           await storage.createActivityFeedItem({
@@ -20235,6 +20237,7 @@ async function registerRoutes(app2) {
       }));
       res.json(stats);
     } catch (error) {
+      console.error("Failed to fetch mission stats:", error);
       res.status(500).json({ message: "Failed to fetch mission stats" });
     }
   });
@@ -20256,6 +20259,7 @@ async function registerRoutes(app2) {
       }).slice(0, 50);
       res.json(scored);
     } catch (error) {
+      console.error("Failed to fetch mission signals:", error);
       res.status(500).json({ message: "Failed to fetch mission signals" });
     }
   });
@@ -20276,6 +20280,7 @@ async function registerRoutes(app2) {
       }));
       res.json(enriched);
     } catch (error) {
+      console.error("Failed to fetch evidence:", error);
       res.status(500).json({ message: "Failed to fetch evidence" });
     }
   });
@@ -20287,6 +20292,12 @@ async function registerRoutes(app2) {
       const members = await storage.getInitiativeMembers(postId);
       const isMember = members.some((m) => m.userId === req.user.userId && m.status === "active");
       if (!isMember) return res.status(403).json({ message: "Debes ser miembro para enviar evidencia" });
+      if (!req.body.evidenceType || typeof req.body.evidenceType !== "string") {
+        return res.status(400).json({ message: "evidenceType es requerido" });
+      }
+      if (!req.body.content || typeof req.body.content !== "string") {
+        return res.status(400).json({ message: "content es requerido" });
+      }
       const post = await storage.getCommunityPostWithDetails(postId);
       if (post?.type === "mission" && post.missionSlug) {
         const mission = MISSIONS.find((m) => m.slug === post.missionSlug);
@@ -20306,6 +20317,7 @@ async function registerRoutes(app2) {
       });
       res.status(201).json(evidence);
     } catch (error) {
+      console.error("Failed to create evidence:", error);
       res.status(500).json({ message: "Failed to create evidence" });
     }
   });
@@ -20323,6 +20335,7 @@ async function registerRoutes(app2) {
       const updated = await storage.verifyEvidence(evidenceId, req.user.userId);
       res.json(updated);
     } catch (error) {
+      console.error("Failed to verify evidence:", error);
       res.status(500).json({ message: "Failed to verify evidence" });
     }
   });
@@ -20354,6 +20367,7 @@ async function registerRoutes(app2) {
       }
       res.json({ evidence: updated, paused: (thisFlag?.count ?? 0) >= 3 });
     } catch (error) {
+      console.error("Failed to flag evidence:", error);
       res.status(500).json({ message: "Failed to flag evidence" });
     }
   });
@@ -20371,6 +20385,7 @@ async function registerRoutes(app2) {
       }));
       res.json(enriched);
     } catch (error) {
+      console.error("Failed to fetch chronicles:", error);
       res.status(500).json({ message: "Failed to fetch chronicles" });
     }
   });
@@ -20379,6 +20394,12 @@ async function registerRoutes(app2) {
       const postId = parseInt(req.params.postId);
       if (isNaN(postId)) return res.status(400).json({ message: "Invalid post ID" });
       if (!req.user) return res.status(401).json({ message: "Authentication required" });
+      if (!req.body.title || typeof req.body.title !== "string") {
+        return res.status(400).json({ message: "title es requerido" });
+      }
+      if (!req.body.content || typeof req.body.content !== "string") {
+        return res.status(400).json({ message: "content es requerido" });
+      }
       const members = await storage.getInitiativeMembers(postId);
       const member = members.find((m) => m.userId === req.user.userId && m.status === "active");
       if (!member || member.role !== "narrador") {
@@ -20394,6 +20415,7 @@ async function registerRoutes(app2) {
       });
       res.status(201).json(chronicle);
     } catch (error) {
+      console.error("Failed to create chronicle:", error);
       res.status(500).json({ message: "Failed to create chronicle" });
     }
   });
