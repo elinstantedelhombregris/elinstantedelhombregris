@@ -74,6 +74,8 @@ import { blockchainService } from './blockchain-service';
 import { arService } from './ar-service';
 import { MISSIONS } from '@shared/mission-registry';
 import { matchDreamToMissions, type SignalScore } from '@shared/mission-signal-matcher';
+import { computeMissionAlignment } from '@shared/flywheel-mappings';
+import { getUserCoachingContext } from './services/coaching-service';
 import {
   getOrCreateEmbedding,
   calculateCosineSimilarity,
@@ -3776,6 +3778,61 @@ export async function registerRoutes(app: Express): Promise<Server> {
     } catch (error) {
       console.error('Record daily activity error:', error);
       res.status(500).json({ message: "Error al registrar actividad diaria" });
+    }
+  });
+
+  // === Mission Alignment (Personal→Civic Bridge) ===
+
+  app.get("/api/user/mission-alignment", authenticateToken, async (req: AuthRequest, res) => {
+    try {
+      const userId = req.user!.userId;
+
+      // Get civic profile + life area gaps
+      const context = await getUserCoachingContext(userId);
+
+      // Get user memberships filtered to missions
+      const allMemberships = await storage.getUserMemberships(userId);
+      const missionMemberships = allMemberships.filter(m => m.postType === 'mission');
+
+      // Compute recommendation from archetype + life area gaps
+      const alignment = computeMissionAlignment(context.archetype, context.lifeAreaGaps);
+
+      // Find the post for the recommended mission
+      const missionPosts = await storage.getCommunityPosts('mission');
+      const missionPost = missionPosts.find(p => (p as any).missionSlug === alignment.recommendedMission);
+
+      // Count pending tasks for each current membership
+      const taskCounts: Record<number, number> = {};
+      for (const m of missionMemberships) {
+        const tasks = await storage.getInitiativeTasks(m.postId);
+        taskCounts[m.postId] = tasks.filter(t => t.status !== 'done').length;
+      }
+
+      res.json({
+        hasProfile: !!context.archetype,
+        hasLifeAreas: context.lifeAreaGaps.length > 0,
+        archetype: context.archetype,
+        recommendedRole: alignment.recommendedRole,
+        recommendedRoleLabel: alignment.recommendedRoleLabel,
+        recommendedMission: {
+          slug: alignment.recommendedMission,
+          label: alignment.recommendedMissionLabel,
+          number: alignment.recommendedMissionNumber,
+          postId: missionPost?.id || null,
+        },
+        reason: alignment.reason,
+        currentMemberships: missionMemberships.map(m => ({
+          postId: m.postId,
+          role: m.role,
+          missionSlug: m.missionSlug,
+          label: m.postTitle,
+          pendingTasks: taskCounts[m.postId] || 0,
+        })),
+        weakestLifeArea: context.lifeAreaGaps[0] || null,
+      });
+    } catch (error) {
+      console.error('Mission alignment error:', error);
+      res.status(500).json({ message: "Error al calcular alineacion de mision" });
     }
   });
 

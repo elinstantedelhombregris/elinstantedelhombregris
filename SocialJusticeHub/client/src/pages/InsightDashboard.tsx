@@ -14,12 +14,14 @@ import { Link } from 'wouter';
 import EmailVerificationBanner from '@/components/EmailVerificationBanner';
 import GettingStartedChecklist from '@/components/GettingStartedChecklist';
 import CivicProfileSummary from '@/components/insight-dashboard/CivicProfileSummary';
+import MissionAlignmentCard from '@/components/insight-dashboard/MissionAlignmentCard';
 import GoalStrip from '@/components/insight-dashboard/GoalStrip';
 import CoachingCard from '@/components/insight-dashboard/CoachingCard';
 import NextStepsPanel from '@/components/insight-dashboard/NextStepsPanel';
 import CheckinTimeline from '@/components/insight-dashboard/CheckinTimeline';
 import { useCivicProfile, useGoals, useCurrentCheckin, useCoachingSessions } from '@/hooks/useCivicProfile';
 import { useCheckinHistory } from '@/hooks/useCheckinHistory';
+import { useMissionAlignment } from '@/hooks/useMissionAlignment';
 
 interface UserStats {
   level: number;
@@ -61,6 +63,7 @@ const InsightDashboard = () => {
   const { data: checkinData } = useCurrentCheckin(isLoggedIn);
   const { data: coachingData } = useCoachingSessions(isLoggedIn);
   const { data: checkinHistory } = useCheckinHistory(isLoggedIn);
+  const { data: alignmentData } = useMissionAlignment(isLoggedIn);
 
   const profile = profileData?.profile || null;
   const goals = goalsData?.goals || [];
@@ -202,6 +205,9 @@ const InsightDashboard = () => {
 
             {/* Civic Profile Summary */}
             <CivicProfileSummary profile={profile} />
+
+            {/* Mission Alignment — Personal→Civic Bridge */}
+            <MissionAlignmentCard data={alignmentData} />
 
             {/* Weekly Evolution - Main feature */}
             <CheckinTimeline checkins={allCheckins} hasCurrentWeek={hasCheckedIn} />

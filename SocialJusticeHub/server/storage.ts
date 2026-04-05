@@ -3580,6 +3580,7 @@ export class DatabaseStorage implements IStorage {
         postTitle: communityPosts.title,
         postType: communityPosts.type,
         postStatus: communityPosts.status,
+        missionSlug: communityPosts.missionSlug,
       })
       .from(initiativeMembers)
       .innerJoin(communityPosts, eq(initiativeMembers.postId, communityPosts.id))
