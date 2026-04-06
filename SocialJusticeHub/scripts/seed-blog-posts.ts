@@ -163,10 +163,21 @@ const baseBlogPostsData = [
     category: "Filosofía",
     type: "blog" as const,
     featured: true,
-    imageUrl: "https://images.unsplash.com/photo-1504198453319-5ce911bafcde?w=800&h=400&fit=crop",
+    imageUrl: "https://images.unsplash.com/photo-1517420704952-d9f39e95b43e?w=800&h=400&fit=crop",
     authorId: 1,
     publishedAt: new Date("2026-04-02").toISOString(),
     tags: ["refinamiento", "supuestos", "transformación", "iteración", "propósito"],
+  },
+  {
+    title: "El Cristo que llevás dentro",
+    slug: createSlug("El Cristo que llevás dentro"),
+    category: "Filosofía",
+    type: "blog" as const,
+    featured: true,
+    imageUrl: "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=800&h=400&fit=crop",
+    authorId: 1,
+    publishedAt: new Date("2026-04-05").toISOString(),
+    tags: ["pascuas", "consciencia", "despertar", "etimología", "transformación"],
   },
 ];
 

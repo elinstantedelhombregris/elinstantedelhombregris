@@ -14,6 +14,7 @@ import {
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { buildBlogPostPath } from '@shared/blog-seo';
 
 interface RelatedPost {
   id: number;
@@ -210,7 +211,7 @@ export default function RelatedPosts({
           <TrendingUp className="w-6 h-6" />
           Artículos Relacionados
         </h2>
-        <Link href="/blog-vlog">
+        <Link href="/recursos/blog">
           <Button variant="ghost" size="sm" className="text-blue-600 hover:text-blue-700">
             Ver todos
             <ArrowRight className="w-4 h-4 ml-1" />
@@ -232,7 +233,7 @@ export default function RelatedPosts({
               {/* Featured Image */}
               {post.imageUrl && (
                 <div className="relative h-48 overflow-hidden">
-                  <Link href={`/blog-vlog/${post.slug}`}>
+                  <Link href={buildBlogPostPath(post)}>
                     <img
                       src={post.imageUrl}
                       alt={post.title}
@@ -264,7 +265,7 @@ export default function RelatedPosts({
                   </Badge>
                 </div>
                 <CardTitle className="text-lg leading-tight group-hover:text-blue-600 transition-colors">
-                  <Link href={`/blog-vlog/${post.slug}`}>
+                  <Link href={buildBlogPostPath(post)}>
                     {post.title}
                   </Link>
                 </CardTitle>
@@ -311,7 +312,7 @@ export default function RelatedPosts({
                   size="sm" 
                   className="w-full group-hover:bg-blue-50 group-hover:border-blue-200 transition-colors"
                 >
-                  <Link href={`/blog-vlog/${post.slug}`}>
+                  <Link href={buildBlogPostPath(post)}>
                     {post.type === 'vlog' ? 'Ver Video' : 'Leer Artículo'}
                     <ArrowRight className="w-3 h-3 ml-2" />
                   </Link>
@@ -327,7 +328,7 @@ export default function RelatedPosts({
         <p className="text-gray-600 mb-4">
           ¿Te interesa explorar más contenido?
         </p>
-        <Link href="/blog-vlog">
+        <Link href="/recursos/blog">
           <Button variant="outline" size="lg">
             Explorar todo el Blog & Vlog
             <ArrowRight className="w-4 h-4 ml-2" />
@@ -391,7 +392,7 @@ export function RelatedPostsCompact({
       
       <div className="space-y-4">
         {relatedPosts.map((post) => (
-          <Link key={post.id} href={`/blog-vlog/${post.slug}`}>
+          <Link key={post.id} href={buildBlogPostPath(post)}>
             <motion.div
               whileHover={{ x: 5 }}
               className="group cursor-pointer"

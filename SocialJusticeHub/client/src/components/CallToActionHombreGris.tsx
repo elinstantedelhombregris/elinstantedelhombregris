@@ -52,7 +52,7 @@ const CallToActionHombreGris = () => {
       bgColor: "from-green-50 to-green-100",
       borderColor: "border-green-200",
       action: () => {
-        window.location.href = '/blog-vlog';
+        window.location.href = '/recursos/blog';
       }
     },
     {
@@ -64,7 +64,7 @@ const CallToActionHombreGris = () => {
       bgColor: "from-purple-50 to-purple-100",
       borderColor: "border-purple-200",
       action: () => {
-        window.location.href = '/blog-vlog';
+        window.location.href = '/recursos/vlog';
       }
     },
     {
@@ -281,7 +281,7 @@ const CallToActionHombreGris = () => {
               size="lg"
               variant="outline"
               className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold py-4 px-8 rounded-xl transition-all transform hover:scale-105"
-              onClick={() => window.location.href = '/blog-vlog'}
+              onClick={() => window.location.href = '/recursos/blog'}
             >
               <MessageCircle className="w-5 h-5 mr-2" />
               Leer Reflexiones

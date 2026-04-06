@@ -620,7 +620,16 @@ export default function InitiativeDetail() {
                     </Badge>
                   )}
                 </div>
-                <p className="text-slate-300 mb-4">{initiative.description}</p>
+                <div className="text-slate-300 mb-4 space-y-3">
+                  {(initiative.description ?? '').split('\n\n').map((para: string, i: number) => {
+                    const trimmed = para.trim();
+                    if (trimmed.startsWith('---') && trimmed.endsWith('---')) {
+                      const heading = trimmed.replace(/^-+\s*/, '').replace(/\s*-+$/, '');
+                      return <h3 key={i} className="text-white font-semibold text-lg mt-6 mb-1">{heading}</h3>;
+                    }
+                    return <p key={i}>{trimmed}</p>;
+                  })}
+                </div>
                 
                 <div className="flex items-center gap-6 text-sm text-slate-400 mb-4">
                   <div className="flex items-center gap-1">

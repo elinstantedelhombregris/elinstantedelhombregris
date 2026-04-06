@@ -13,12 +13,15 @@ import BookmarkButton from '@/components/BookmarkButton';
 import FluidBackground from '@/components/ui/FluidBackground';
 import GlassCard from '@/components/ui/GlassCard';
 import SmoothReveal from '@/components/ui/SmoothReveal';
+import { useSeoMetadata } from '@/lib/seo';
+import { buildBlogHubMetadata, buildBlogPostPath, BLOG_HUB_PATH, VLOG_HUB_PATH } from '@shared/blog-seo';
 
 interface BlogPost {
   id: number;
   title: string;
   slug: string;
   excerpt: string;
+  content: string;
   category: string;
   type: 'blog' | 'vlog';
   featured: boolean;
@@ -49,18 +52,22 @@ const BlogVlog = () => {
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const observerRef = useRef<IntersectionObserver | null>(null);
   const loadMoreRef = useRef<HTMLDivElement | null>(null);
+  const seoKind = location === BLOG_HUB_PATH ? 'blog' : location === VLOG_HUB_PATH ? 'vlog' : 'all';
+  const seoMetadata = useMemo(
+    () => buildBlogHubMetadata(seoKind, typeof window !== 'undefined' ? window.location.origin : undefined),
+    [seoKind],
+  );
+
+  useSeoMetadata(seoMetadata);
 
   // Detect route and set active tab accordingly
   useEffect(() => {
-    if (location === '/recursos/blog') {
+    if (location === BLOG_HUB_PATH) {
       setActiveTab('blog');
-      document.title = 'Blog - El Instante del Hombre Gris';
-    } else if (location === '/recursos/vlog') {
+    } else if (location === VLOG_HUB_PATH) {
       setActiveTab('vlog');
-      document.title = 'Vlog - El Instante del Hombre Gris';
     } else {
       setActiveTab('all');
-      document.title = 'Blog & Vlog - El Instante del Hombre Gris';
     }
   }, [location]);
 
@@ -213,7 +220,7 @@ const BlogVlog = () => {
   const gridPosts = useMemo(() => posts.filter(p => p.id !== featuredPost?.id), [posts, featuredPost]);
 
   const FeaturedCard = ({ post }: { post: BlogPost }) => (
-    <Link href={`/blog-vlog/${post.slug}`}>
+    <Link href={buildBlogPostPath(post)}>
       <div className="group relative overflow-hidden min-h-[500px] flex items-end p-8 md:p-12 cursor-pointer bg-white rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
         {post.imageUrl && (
             <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-105">
@@ -266,7 +273,7 @@ const BlogVlog = () => {
   );
 
   const GridCard = ({ post, index }: { post: BlogPost, index: number }) => (
-    <Link href={`/blog-vlog/${post.slug}`}>
+    <Link href={buildBlogPostPath(post)}>
       <div
         className={`group h-full flex flex-col cursor-pointer bg-white rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 overflow-hidden ${
              index % 3 === 0 && post.type !== 'vlog' ? 'md:col-span-2' : ''

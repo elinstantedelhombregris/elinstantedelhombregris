@@ -102,6 +102,8 @@ function Router() {
       <Route path="/recursos" component={Resources} />
       <Route path="/recursos/blog" component={BlogVlog} />
       <Route path="/recursos/vlog" component={BlogVlog} />
+      <Route path="/recursos/blog/:slug" component={BlogPostDetail} />
+      <Route path="/recursos/vlog/:slug" component={BlogPostDetail} />
       <Route path="/recursos/guias-estudio" component={StudyGuides} />
       <Route path="/recursos/guias-estudio/:slug" component={CourseDetail} />
       <Route path="/recursos/guias-estudio/:courseSlug/leccion/:lessonId" component={LessonView} />

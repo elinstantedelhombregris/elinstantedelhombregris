@@ -17,7 +17,7 @@ const app = (
   </ThemeProvider>
 );
 
-if (rootElement.querySelector('[data-prerendered="course-seo"]')) {
+if (rootElement.querySelector("[data-prerendered]")) {
   hydrateRoot(rootElement, app);
 } else {
   createRoot(rootElement).render(app);

@@ -3959,15 +3959,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       const allDreams = await storage.getDreams();
       const scored = allDreams
-        .map(dream => ({
-          dream,
-          ...matchDreamToMissions(dream, [mission])[0],
-        }))
+        .map(dream => {
+          const match = matchDreamToMissions(dream, [mission])[0];
+          return { ...dream, score: match.score, matchCount: match.matchCount };
+        })
         .filter(s => s.score > 0)
         .sort((a, b) => {
-          // Sort by recency first, then score
-          const dateA = new Date((a.dream as any).createdAt || 0).getTime();
-          const dateB = new Date((b.dream as any).createdAt || 0).getTime();
+          const dateA = new Date((a as any).createdAt || 0).getTime();
+          const dateB = new Date((b as any).createdAt || 0).getTime();
           return dateB - dateA;
         })
         .slice(0, 50);

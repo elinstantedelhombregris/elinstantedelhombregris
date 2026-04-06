@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useParams } from 'wouter';
 import { motion } from 'framer-motion';
 import {
@@ -22,6 +22,15 @@ import CommentsSection from '@/components/CommentsSection';
 import ShareButtons from '@/components/ShareButtons';
 import { Link } from 'wouter';
 import MarkdownRenderer from '@/components/MarkdownRenderer';
+import { useSeoMetadata } from '@/lib/seo';
+import {
+  BLOG_HUB_PATH,
+  buildBlogHubPath,
+  buildBlogPostMetadata,
+  buildBlogPostPath,
+  normalizeBlogContentForRendering,
+  normalizeBlogReadTime,
+} from '@shared/blog-seo';
 
 interface BlogPost {
   id: number;
@@ -36,6 +45,7 @@ interface BlogPost {
   videoUrl?: string;
   viewCount: number;
   publishedAt: string;
+  updatedAt?: string;
   author: {
     id: number;
     name: string;
@@ -63,16 +73,34 @@ export default function BlogPostDetail() {
   const [error, setError] = useState<string | null>(null);
   const [readProgress, setReadProgress] = useState(0);
   const contentRef = useRef<HTMLDivElement>(null);
+  const renderedContent = useMemo(
+    () => normalizeBlogContentForRendering(post?.content),
+    [post?.content],
+  );
+  const seoMetadata = useMemo(
+    () => (post
+      ? buildBlogPostMetadata(
+          {
+            ...post,
+            content: renderedContent,
+          },
+          typeof window !== 'undefined' ? window.location.origin : undefined,
+        )
+      : null),
+    [post, renderedContent],
+  );
+  const collectionPath = post ? buildBlogHubPath(post.type) : BLOG_HUB_PATH;
+  const collectionLabel = post?.type === 'vlog' ? 'Vlog' : 'Blog';
+  const canonicalPath = post ? buildBlogPostPath(post) : BLOG_HUB_PATH;
+  const canonicalUrl = typeof window !== 'undefined' ? `${window.location.origin}${canonicalPath}` : canonicalPath;
+
+  useSeoMetadata(seoMetadata);
 
   useEffect(() => {
     if (slug) {
       fetchPost(slug);
     }
   }, [slug]);
-
-  useEffect(() => {
-    document.title = post ? `${post.title} - El Instante del Hombre Gris` : 'Blog - El Instante del Hombre Gris';
-  }, [post]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -228,10 +256,7 @@ export default function BlogPostDetail() {
   };
 
   const estimateReadTime = (content: string) => {
-    const wordsPerMinute = 200;
-    const wordCount = content.split(/\s+/).length;
-    const minutes = Math.ceil(wordCount / wordsPerMinute);
-    return `${minutes} min`;
+    return `${normalizeBlogReadTime(content)} min`;
   };
 
   // Category color map for consistent badge styling
@@ -292,7 +317,7 @@ export default function BlogPostDetail() {
             <p className="text-white/70 mb-8">
               El artículo que buscas no existe o ha sido movido.
             </p>
-            <Link href="/blog-vlog">
+            <Link href={BLOG_HUB_PATH}>
               <Button className="bg-white text-indigo-700 hover:bg-white/90 shadow-lg">
                 <ArrowLeft className="h-4 w-4 mr-2" />
                 Volver al Blog
@@ -337,9 +362,11 @@ export default function BlogPostDetail() {
           >
             <Link href="/" className="hover:text-white/90 transition-colors">Inicio</Link>
             <ChevronRight className="w-3.5 h-3.5" />
-            <Link href="/blog-vlog" className="hover:text-white/90 transition-colors">Blog & Vlog</Link>
+            <Link href="/recursos" className="hover:text-white/90 transition-colors">Recursos</Link>
             <ChevronRight className="w-3.5 h-3.5" />
-            <span className="text-white/80">{post.category}</span>
+            <Link href={collectionPath} className="hover:text-white/90 transition-colors">{collectionLabel}</Link>
+            <ChevronRight className="w-3.5 h-3.5" />
+            <span className="text-white/80">{post.title}</span>
           </motion.nav>
 
           {/* Back Link */}
@@ -349,10 +376,10 @@ export default function BlogPostDetail() {
             transition={{ duration: 0.4, delay: 0.05 }}
             className="mb-8"
           >
-            <Link href="/blog-vlog">
+            <Link href={collectionPath}>
               <span className="inline-flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors group cursor-pointer">
                 <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
-                Volver al Blog
+                Volver a {collectionLabel}
               </span>
             </Link>
           </motion.div>
@@ -420,7 +447,7 @@ export default function BlogPostDetail() {
             <span className="w-1 h-1 rounded-full bg-white/30" />
             <span className="inline-flex items-center gap-1.5">
               <Clock className="w-4 h-4 text-white/50" />
-              {estimateReadTime(post.content)}
+              {estimateReadTime(renderedContent)}
             </span>
             <span className="w-1 h-1 rounded-full bg-white/30" />
             <span className="inline-flex items-center gap-1.5">
@@ -496,7 +523,7 @@ export default function BlogPostDetail() {
                   size="sm"
                 />
                 <ShareButtons
-                  url={`${window.location.origin}/blog-vlog/${post.slug}`}
+                  url={canonicalUrl}
                   title={post.title}
                   description={post.excerpt}
                   hashtags={post.tags.map(tag => tag.tag)}
@@ -514,7 +541,7 @@ export default function BlogPostDetail() {
           {/* Article Content */}
           <div ref={contentRef} className="px-8 md:px-12 py-10">
             <MarkdownRenderer
-              content={post.content}
+              content={renderedContent}
               className="
                 blog-content
                 prose-h4:text-xl prose-h4:mb-3 prose-h4:mt-5
@@ -559,7 +586,7 @@ export default function BlogPostDetail() {
                     size="sm"
                   />
                   <ShareButtons
-                    url={`${window.location.origin}/blog-vlog/${post.slug}`}
+                    url={canonicalUrl}
                     title={post.title}
                     description={post.excerpt}
                     hashtags={post.tags.map(tag => tag.tag)}

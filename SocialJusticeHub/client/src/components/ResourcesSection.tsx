@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button';
 import { useQuery } from '@tanstack/react-query';
 import { ArrowRight, BookOpen, FileText, Video, GraduationCap } from 'lucide-react';
 import { Link } from 'wouter';
+import { buildBlogPostPath } from '@shared/blog-seo';
 import { apiRequest } from '@/lib/queryClient';
 
 const ResourcesSection = () => {
@@ -196,7 +197,7 @@ const ResourcesSection = () => {
                     {recentBlogItems.slice(0, 3).map((post: any) => (
                       <li key={post.id}>
                         <Link 
-                          href={`/blog-vlog/${post.slug}`}
+                          href={buildBlogPostPath(post)}
                           className="text-gray-700 hover:text-blue-600 text-sm leading-relaxed block hover:underline transition-colors"
                         >
                           {post.title}
@@ -225,7 +226,7 @@ const ResourcesSection = () => {
                     {recentVlogItems.slice(0, 3).map((post: any) => (
                       <li key={post.id}>
                         <Link 
-                          href={`/blog-vlog/${post.slug}`}
+                          href={buildBlogPostPath(post)}
                           className="text-gray-700 hover:text-purple-600 text-sm leading-relaxed block hover:underline transition-colors"
                         >
                           {post.title}

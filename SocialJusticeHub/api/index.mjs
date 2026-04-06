@@ -5618,6 +5618,424 @@ var init_blogContent = __esm({
         </p>
       </article>
     `
+      },
+      [slugify("El Cristo que llev\xE1s dentro")]: {
+        excerpt: "Hoy es Pascuas. Y si nos detuvi\xE9ramos a pensar desde cero \u2014 no desde la tradici\xF3n, no desde el dogma \u2014 descubrir\xEDamos que Cristo no es un nombre: es un estado. Y que la resurrecci\xF3n que importa no sucedi\xF3 hace dos mil a\xF1os. Est\xE1 sucediendo ahora. Adentro tuyo.",
+        content: `
+      <article>
+        <h1>El Cristo que llev\xE1s dentro</h1>
+
+        <blockquote>
+          <em>"El reino de los cielos est\xE1 dentro de vosotros."</em> \u2014 Lucas 17:21
+        </blockquote>
+
+        <p>
+          Me despert\xE9 pensando en Pascuas.
+        </p>
+        <p>
+          No en el chocolate. No en el feriado largo. No en la rosca. En algo que me viene dando vueltas hace un tiempo y que hoy, justo hoy, se me hizo imposible de ignorar.
+        </p>
+        <p>
+          Voy a tratar de decirlo de la forma m\xE1s honesta que pueda.
+        </p>
+
+        <h2>Un hombre, dos frases, un mundo que no entendi\xF3</h2>
+        <p>
+          Hace m\xE1s de dos mil a\xF1os vivi\xF3 un hombre. Se llamaba Jes\xFAs. No ten\xEDa t\xEDtulo. No ten\xEDa ej\xE9rcito. No ten\xEDa cargo pol\xEDtico. No ten\xEDa cuenta de Instagram. Caminaba, hablaba, escuchaba. Dicen que sanaba. Y en alg\xFAn momento de su vida dijo dos cosas que \u2014 si las ley\xE9ramos sin la capa de dos mil a\xF1os de instituci\xF3n encima \u2014 nos deber\xEDan partir al medio:
+        </p>
+        <p>
+          <strong>"Am\xE1 a tu pr\xF3jimo como a vos mismo."</strong>
+        </p>
+        <p>
+          <strong>"El reino de los cielos est\xE1 dentro de vosotros."</strong>
+        </p>
+        <p>
+          Eso.
+        </p>
+        <p>
+          No dijo "seguime." No dijo "constru\xED un templo." No dijo "necesit\xE1s un intermediario." No dijo "arrodillate."
+        </p>
+        <p>
+          Dijo: <em>am\xE1</em>. Y dijo: <em>adentro</em>.
+        </p>
+        <p>
+          Dos instrucciones tan simples que un pibe de seis a\xF1os las entiende. Y tan profundas que dos mil a\xF1os de civilizaci\xF3n no alcanzaron para ponerlas en pr\xE1ctica.
+        </p>
+        <p>
+          \xBFC\xF3mo es posible?
+        </p>
+
+        <h2>Lo que le hicimos al mensaje</h2>
+        <p>
+          Pensemos desde cero. Sin repetir lo heredado. Sin inercia. Primeros principios.
+        </p>
+        <p>
+          Un tipo camina por el desierto diciendo cosas que incomodan al poder. Le dice a la gente que no necesita sacerdotes para hablar con lo sagrado. Que no necesita templos. Que la divinidad no est\xE1 arriba en un trono ni escondida en un arca: est\xE1 <em>adentro de cada uno</em>.
+        </p>
+        <p>
+          Eso es dinamita pura.
+        </p>
+        <p>
+          Porque si la divinidad est\xE1 adentro tuyo, no necesit\xE1s intermediarios. Y si no necesit\xE1s intermediarios, toda la estructura de poder que vive de administrar el acceso a lo sagrado se queda sin raz\xF3n de existir.
+        </p>
+        <p>
+          \xBFQu\xE9 hicieron?
+        </p>
+        <p>
+          Lo mataron, claro. Pero eso no alcanz\xF3. Porque las ideas no se mueren con el cuerpo.
+        </p>
+        <p>
+          Entonces hicieron algo m\xE1s inteligente. Algo que funciona hasta hoy.
+        </p>
+        <p>
+          Tomaron al mensajero y lo convirtieron en \xEDdolo.
+        </p>
+        <p>
+          Es un movimiento de una elegancia oscura: no destru\xEDs la ense\xF1anza \u2014 eso la har\xEDa m\xE1s fuerte. La domestic\xE1s. Le cambi\xE1s el centro de gravedad. Pon\xE9s toda la atenci\xF3n en la <em>persona</em> y desvi\xE1s la mirada de las <em>palabras</em>. Constru\xEDs catedrales. Pint\xE1s frescos. Compon\xE9s r\xE9quiems. Levant\xE1s una estructura tan imponente, tan bella, tan aplastante, que la gente se olvida de lo esencial.
+        </p>
+        <p>
+          Y lo esencial cab\xEDa en dos frases.
+        </p>
+        <p>
+          Am\xE1.<br/>
+          Adentro.
+        </p>
+        <p>
+          Hoy hay miles de millones de personas que dicen seguir a Jes\xFAs. Que usan una cruz en el cuello. Que van a misa. Que repiten oraciones de memoria.
+        </p>
+        <p>
+          \xBFY cu\xE1ntas realmente aman a su pr\xF3jimo? No en abstracto. En concreto. Al tipo que les cae mal. Al que piensa distinto. Al que huele distinto. Al inmigrante. Al que vot\xF3 al otro. Al que les debe plata. Al que les rompi\xF3 el coraz\xF3n.
+        </p>
+        <p>
+          \xBFY cu\xE1ntas realmente creen que el reino est\xE1 adentro? No como frase bonita para un domingo. Como verdad operativa. Como la base desde la cual levantarse cada ma\xF1ana.
+        </p>
+        <p>
+          S\xE9 honesto. Yo tambi\xE9n estoy siendo honesto conmigo mismo mientras escribo esto.
+        </p>
+
+        <h2>Las palabras saben lo que nosotros olvidamos</h2>
+        <p>
+          Hay algo que hago siempre que quiero entender algo de verdad: desarmo las palabras. Voy a la ra\xEDz. Porque las palabras guardan, en su etimolog\xEDa, verdades que los siglos de uso irreflexivo no logran borrar del todo.
+        </p>
+        <p>
+          Y lo que encontr\xE9 me dej\xF3 helado.
+        </p>
+
+        <h3>Cristo</h3>
+        <p>
+          Jes\xFAs no se apellidaba Cristo. Eso no es un nombre. Es un estado.
+        </p>
+        <p>
+          Viene del griego <em>Christ\xF3s</em> (\u03A7\u03C1\u03B9\u03C3\u03C4\u03CC\u03C2): <strong>el ungido</strong>. Y <em>Christ\xF3s</em> es la traducci\xF3n directa del hebreo <em>Mash\xEDaj</em> \u2014 Mes\xEDas \u2014 que significa exactamente lo mismo.
+        </p>
+        <p>
+          \xBFUngido con qu\xE9? Originalmente, con aceite. Pero el aceite era s\xEDmbolo. Lo que la unci\xF3n representaba era la consagraci\xF3n: el acto de ser <em>activado</em>, <em>encendido</em>, <em>despertado</em> para un prop\xF3sito que te trasciende.
+        </p>
+        <p>
+          Cuando decimos "Jesucristo" estamos diciendo, sin saberlo, <em>"Jes\xFAs, el despierto." "Jes\xFAs, el que activ\xF3 algo adentro suyo que todos \u2014 todos \u2014 llevamos dormido."</em>
+        </p>
+        <p>
+          Cristo no es una persona.<br/>
+          Cristo es lo que pasa cuando un ser humano enciende lo que ya ten\xEDa.
+        </p>
+
+        <h3>Ungido</h3>
+        <p>
+          En espa\xF1ol viene del lat\xEDn <em>ungere</em>: untar, aplicar aceite. La misma ra\xEDz de "ung\xFCento." Se ung\xEDa a reyes, a sacerdotes, a profetas. Ungir era reconocer que alguien hab\xEDa sido tocado por algo m\xE1s grande que s\xED mismo.
+        </p>
+        <p>
+          Pero \u2014 y ac\xE1 es donde se me eriz\xF3 la piel \u2014 si el reino de los cielos est\xE1 <em>dentro de vos</em>, entonces la unci\xF3n no necesita manos ajenas. No necesit\xE1s que nadie te ponga aceite en la frente.
+        </p>
+        <p>
+          La consagraci\xF3n m\xE1s profunda es la que hac\xE9s vos. Solo. En silencio. Cuando decid\xEDs, un martes cualquiera, que vas a dejar de vivir dormido.
+        </p>
+
+        <h3>Consciencia</h3>
+        <p>
+          Del lat\xEDn <em>conscientia</em>: <em>con</em> (junto) + <em>scientia</em> (saber). Literalmente: <strong>saber con uno mismo.</strong> Conocerse. No el conocimiento que te dan en la escuela. No el que viene de los libros. El que emerge cuando te observ\xE1s sin filtro. Cuando par\xE1s la m\xE1quina y te encontr\xE1s.
+        </p>
+        <p>
+          "Conciencia cr\xEDstica" suena a cosa esot\xE9rica, a grupo de WhatsApp m\xEDstico. Pero no. Es la descripci\xF3n m\xE1s precisa que existe de un estado: el de quien <em>sabe con s\xED mismo</em> que lo sagrado le habita, y act\xFAa en consecuencia.
+        </p>
+        <p>
+          Y ac\xE1 viene algo que me vol\xF3 la cabeza.
+        </p>
+        <p>
+          En s\xE1nscrito, <em>Buddha</em> viene de <em>budh</em>: <strong>despertar</strong>. Buda es, literalmente, "el despierto."
+        </p>
+        <p>
+          Cristo: el ungido, el consagrado, el activado.<br/>
+          Buda: el despierto, el que conoce.
+        </p>
+        <p>
+          Dos tradiciones separadas por miles de kil\xF3metros y siglos de distancia. Dos culturas que no se conocieron. Y las dos llegaron al mismo lugar: <strong>lo m\xE1s sagrado que puede hacer un ser humano es despertar a lo que ya tiene adentro.</strong>
+        </p>
+        <p>
+          No adorar. No obedecer. No delegar.<br/>
+          Despertar.
+        </p>
+        <p>
+          \xBFNo te parece demasiada coincidencia?
+        </p>
+
+        <h3>Pascua</h3>
+        <p>
+          Del hebreo <em>Pesaj</em> (\u05E4\u05B6\u05BC\u05E1\u05B7\u05D7): <strong>pasaje</strong>. Paso. Cruce. Traves\xEDa.
+        </p>
+        <p>
+          La Pascua original no era una celebraci\xF3n. Era un <em>cruce</em>. El pueblo hebreo cruzando el desierto. De la esclavitud a la libertad. No un destino, sino un <em>movimiento</em>. Un umbral.
+        </p>
+        <p>
+          Pascua no es un feriado.<br/>
+          Es una invitaci\xF3n a cruzar.
+        </p>
+        <p>
+          \xBFDe d\xF3nde a d\xF3nde?
+        </p>
+        <p>
+          De dormido a despierto.<br/>
+          De esclavo del afuera a soberano del adentro.<br/>
+          De repetir el libreto a escribir el propio.
+        </p>
+
+        <h3>Resurrecci\xF3n</h3>
+        <p>
+          Y esta es la que m\xE1s me importa. Porque hoy, justamente, se supone que celebramos una resurrecci\xF3n.
+        </p>
+        <p>
+          Del lat\xEDn <em>resurrectio</em>, que viene de <em>resurgere</em>: <strong>re</strong> (de nuevo) + <strong>surgere</strong> (surgir, emerger, levantarse). Y <em>surgere</em> a su vez viene de <em>sub</em> (desde abajo) + <em>regere</em> (dirigir, enderezar).
+        </p>
+        <p>
+          Resurrecci\xF3n, en su ra\xEDz m\xE1s profunda, significa: <strong>volver a emerger desde lo profundo. Levantarse de nuevo desde abajo. Enderezarse desde lo que estaba hundido.</strong>
+        </p>
+        <p>
+          No es la imagen de un cad\xE1ver que se incorpora en una cueva. Es algo mucho m\xE1s vasto. Mucho m\xE1s vivo. Mucho m\xE1s tuyo.
+        </p>
+        <p>
+          Es lo que estaba sumergido, enterrado, olvidado... que <em>sube</em>. Que sale a la superficie. Que se niega a seguir oculto.
+        </p>
+        <p>
+          \xBFSab\xE9s qu\xE9 es lo que resucita?
+        </p>
+        <p>
+          La parte de vos que sab\xEDa. La que siempre supo. La que fue aplastada por el miedo, por la inercia, por la comodidad, por el mandato heredado, por la presi\xF3n social, por esa voz que te dice "quedate quieto, no hagas olas, no te expongas."
+        </p>
+        <p>
+          Eso es lo que resucita. No un hombre. Una conciencia.<br/>
+          La tuya.
+        </p>
+
+        <h2>La delegaci\xF3n: el error de dise\xF1o m\xE1s viejo del sistema</h2>
+        <p>
+          Yo no soy fan de la iglesia. Pero soy profundamente fan de Cristo.
+        </p>
+        <p>
+          No del personaje. Del estado. De lo que demostr\xF3. Del camino que se\xF1al\xF3. De la precisi\xF3n demoledora con la que dijo: <em>est\xE1 adentro tuyo y siempre estuvo</em>.
+        </p>
+        <p>
+          El problema no es la fe. No es la gente que reza con el coraz\xF3n genuino. No tengo nada contra tu abuela que prende una vela y habla con algo que la sostiene. Eso es sagrado y lo respeto.
+        </p>
+        <p>
+          El problema es el sistema que se mont\xF3 alrededor.
+        </p>
+        <p>
+          Porque el sistema hizo exactamente lo opuesto a lo que Jes\xFAs ense\xF1\xF3.
+        </p>
+        <p>
+          Jes\xFAs dijo: "El reino est\xE1 adentro tuyo."<br/>
+          El sistema dijo: "Pero necesit\xE1s que nosotros te lo administremos."
+        </p>
+        <p>
+          Jes\xFAs dijo: "Am\xE1 a tu pr\xF3jimo."<br/>
+          El sistema dijo: "Pero primero fijate si es del equipo correcto."
+        </p>
+        <p>
+          Jes\xFAs dijo: "No juzgu\xE9is."<br/>
+          El sistema construy\xF3 un tribunal. Literal.
+        </p>
+        <p>
+          Es el mismo patr\xF3n que vemos en todas partes. En la pol\xEDtica, en la econom\xEDa, en la educaci\xF3n, en la salud. Una verdad simple y poderosa es capturada por una estructura que necesita que <em>no la entiendas</em> para justificar su propia existencia.
+        </p>
+        <p>
+          Te convencen de que lo que necesit\xE1s est\xE1 afuera.<br/>
+          Te convencen de que no pod\xE9s solo.<br/>
+          Te convencen de que sin intermediario no hay acceso.
+        </p>
+        <p>
+          Y vos \u2014 que naciste con todo adentro \u2014 termin\xE1s de rodillas pidiendo permiso para usar lo que siempre fue tuyo.
+        </p>
+        <p>
+          Jes\xFAs no fund\xF3 una religi\xF3n. Encendi\xF3 un espejo.
+        </p>
+        <p>
+          Y nosotros le rezamos al marco.
+        </p>
+
+        <h2>Lo que se siente despertar</h2>
+        <p>
+          Puedo hablar de esto porque lo estoy viviendo. No como iluminaci\xF3n m\xEDstica. No como experiencia sobrenatural. Como algo mucho m\xE1s inc\xF3modo y mundano que eso.
+        </p>
+        <p>
+          Como un proceso.
+        </p>
+        <p>
+          Despertar no es un evento. Es una decisi\xF3n que ten\xE9s que tomar todos los d\xEDas. Es elegir ver lo que preferir\xEDas ignorar. Es bancarte la incomodidad de cuestionar lo que dabas por sentado. Es soltar certezas que te hac\xEDan sentir seguro pero que te manten\xEDan chico.
+        </p>
+        <p>
+          Y hay una parte que nadie te cuenta: despertar duele.
+        </p>
+        <p>
+          Duele ver lo que no ve\xEDas.<br/>
+          Duele aceptar cu\xE1nto tiempo estuviste dormido.<br/>
+          Duele reconocer que muchas de las cosas en las que cre\xEDas eran parches.<br/>
+          Duele la soledad de pensar distinto antes de encontrar a otros que tambi\xE9n se animaron.
+        </p>
+        <p>
+          Pero hay algo que duele m\xE1s.
+        </p>
+        <p>
+          Seguir dormido sabiendo que est\xE1s dormido. Eso s\xED que es un infierno. Y no hay fuego externo que se compare con el de una conciencia que se traiciona a s\xED misma.
+        </p>
+
+        <h2>La verdadera Pascua</h2>
+        <p>
+          \xBFY si este fin de semana, adem\xE1s de comer chocolate \u2014 que comamos, que la vida tambi\xE9n es eso \u2014, nos tom\xE1ramos cinco minutos reales?
+        </p>
+        <p>
+          No cinco minutos de reflexi\xF3n intelectual.<br/>
+          Cinco minutos de honestidad.
+        </p>
+        <p>
+          Sentarte. Cerrar los ojos. Y preguntarte:
+        </p>
+        <p>
+          <em>\xBFQu\xE9 parte de m\xED est\xE1 enterrada esperando resurgir?</em>
+        </p>
+        <p>
+          <em>\xBFQu\xE9 parte de m\xED sabe hace rato que es hora de dejar de repetir y empezar a crear?</em>
+        </p>
+        <p>
+          <em>\xBFEstoy amando a mi pr\xF3jimo como a m\xED mismo? No en teor\xEDa. Hoy. \xBFAl que me atiende en el kiosco? \xBFAl que piensa distinto? \xBFAl que me incomoda? \xBFA m\xED mismo?</em>
+        </p>
+        <p>
+          <em>\xBFEstoy viviendo desde adentro hacia afuera, o sigo buscando afuera lo que ya tengo?</em>
+        </p>
+        <p>
+          Porque eso ser\xEDa imitar a Cristo. No usar una cruz. No repetir un credo. No ir a un edificio una vez por semana.
+        </p>
+        <p>
+          Imitar a Cristo es despertar.<br/>
+          Es ungirse a uno mismo.<br/>
+          Es vivir como si lo sagrado dependiera de lo que hac\xE9s hoy con tu vida.<br/>
+          Es amar con la misma fiereza con la que \xE9l am\xF3.<br/>
+          Es atreverte a decir: el reino est\xE1 ac\xE1, en lo que soy, en lo que elijo, en c\xF3mo trato a la gente que me rodea.
+        </p>
+        <p>
+          Eso es Pascua. Eso es pasaje. Eso es resurrecci\xF3n.
+        </p>
+
+        <h2>La ense\xF1anza que sobrevivi\xF3 a todo</h2>
+        <p>
+          Me detengo en algo que me conmueve cada vez que lo pienso.
+        </p>
+        <p>
+          Dos frases.
+        </p>
+        <p>
+          Dos frases sobrevivieron a imperios. A guerras. A cruzadas. A inquisiciones. A traducciones interesadas y manipulaciones institucionales. A millones de sermones que las citaron sin entenderlas. A toda una civilizaci\xF3n que las repiti\xF3 de memoria mientras hac\xEDa exactamente lo opuesto.
+        </p>
+        <p>
+          "Am\xE1 a tu pr\xF3jimo como a vos mismo."<br/>
+          "El reino de los cielos est\xE1 dentro de vosotros."
+        </p>
+        <p>
+          Y siguen ac\xE1.
+        </p>
+        <p>
+          Intactas. Esperando. No que las recites. No que las cuelgues en la pared de la cocina.
+        </p>
+        <p>
+          Que las vivas.
+        </p>
+        <p>
+          Que las hagas carne. En c\xF3mo mir\xE1s. En c\xF3mo escuch\xE1s. En c\xF3mo respond\xE9s cuando te provocan. En c\xF3mo trat\xE1s al que no te puede devolver el favor. En c\xF3mo te trat\xE1s a vos mismo cuando nadie mira.
+        </p>
+        <p>
+          Ah\xED vive Cristo. No en una cruz. No en una hostia. No en un vitraux.
+        </p>
+        <p>
+          En cada gesto de amor consciente que decid\xEDs hacer sabiendo que pod\xEDas haber elegido la indiferencia.
+        </p>
+
+        <h2>El pasaje que todav\xEDa no hicimos</h2>
+        <p>
+          La Pascua real \u2014 el <em>Pesaj</em> verdadero \u2014 no sucedi\xF3 hace dos mil a\xF1os.
+        </p>
+        <p>
+          Est\xE1 sucediendo ahora.
+        </p>
+        <p>
+          Cada vez que dej\xE1s de culpar y empez\xE1s a crear.<br/>
+          Cada vez que dej\xE1s de repetir y empez\xE1s a pensar.<br/>
+          Cada vez que dej\xE1s de adorar figuras externas y empez\xE1s a escuchar la voz que te habla desde adentro.<br/>
+          Cada vez que eleg\xEDs amar cuando ser\xEDa m\xE1s f\xE1cil ignorar.<br/>
+          Cada vez que te neg\xE1s a normalizar lo que sab\xE9s que est\xE1 roto.
+        </p>
+        <p>
+          Eso es resurrecci\xF3n. No de un cuerpo en una tumba hace dos milenios. Resurrecci\xF3n de una conciencia que estaba dormida dentro tuyo. <em>Re-surgir.</em> Volver a emerger desde lo profundo.
+        </p>
+        <p>
+          Y no necesit\xE1s un templo para vivirla.<br/>
+          No necesit\xE1s un intermediario para activarla.<br/>
+          No necesit\xE1s una fecha en el calendario para decidirla.
+        </p>
+        <p>
+          Solo necesit\xE1s coraje.
+        </p>
+        <p>
+          El coraje de ungirte a vos mismo. De consagrarte a tu propio despertar. De vivir como si lo sagrado \u2014 que es real, que existe, que pulsa \u2014 dependiera de lo que hac\xE9s con tu vida hoy. Ahora. En esta mesa. En esta casa. En este pa\xEDs.
+        </p>
+
+        <p>
+          Hoy es Pascuas.
+        </p>
+        <p>
+          Com\xE9 la rosca. Disfrut\xE1 el chocolate. Abraz\xE1 a los tuyos.
+        </p>
+        <p>
+          Pero en alg\xFAn momento del d\xEDa, cuando haya silencio \u2014 aunque sea un minuto entre el mate y la sobremesa \u2014, cerr\xE1 los ojos.
+        </p>
+        <p>
+          Y sent\xED.
+        </p>
+        <p>
+          No pienses. Sent\xED.
+        </p>
+        <p>
+          Sent\xED eso que hay adentro tuyo que viene empujando hace rato. Eso que sabe. Eso que no necesita que nadie le explique nada. Eso que viene de antes de tu nombre, de antes de tus miedos, de antes de todo lo que te dijeron que ten\xEDas que ser.
+        </p>
+        <p>
+          Eso que est\xE1 abajo, esperando <em>surgir de nuevo</em>.
+        </p>
+        <p>
+          Eso es lo que resucita hoy.
+        </p>
+        <p>
+          No un hombre en una cueva.
+        </p>
+        <p>
+          <strong>Vos.</strong>
+        </p>
+
+        <blockquote>
+          No soy fan de la iglesia. Soy fan de Cristo. No del personaje: del estado. Del que demostr\xF3 que lo sagrado no necesita intermediarios, que el amor no necesita burocracia, y que la revoluci\xF3n m\xE1s profunda ocurre cuando un ser humano decide, por fin, despertar.
+        </blockquote>
+
+        <p>
+          <em>Feliz Pascua. Feliz pasaje. Feliz resurrecci\xF3n.</em>
+        </p>
+      </article>
+    `
       }
     };
   }
@@ -20249,12 +20667,12 @@ async function registerRoutes(app2) {
         return res.status(404).json({ message: "Mission not found" });
       }
       const allDreams = await storage.getDreams();
-      const scored = allDreams.map((dream) => ({
-        dream,
-        ...matchDreamToMissions(dream, [mission])[0]
-      })).filter((s) => s.score > 0).sort((a, b) => {
-        const dateA = new Date(a.dream.createdAt || 0).getTime();
-        const dateB = new Date(b.dream.createdAt || 0).getTime();
+      const scored = allDreams.map((dream) => {
+        const match = matchDreamToMissions(dream, [mission])[0];
+        return { ...dream, score: match.score, matchCount: match.matchCount };
+      }).filter((s) => s.score > 0).sort((a, b) => {
+        const dateA = new Date(a.createdAt || 0).getTime();
+        const dateB = new Date(b.createdAt || 0).getTime();
         return dateB - dateA;
       }).slice(0, 50);
       res.json(scored);

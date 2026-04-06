@@ -15,15 +15,23 @@ const TYPE_META: Record<string, { label: string; className: string }> = {
   basta:  { label: '¡BASTA!',   className: 'bg-red-500/15 text-red-400 border-red-500/30' },
 };
 
+/** Unwrap: API returns { dream: DreamObj, score, ... } */
+function unwrap(signal: any): any {
+  return signal.dream && typeof signal.dream === 'object' ? signal.dream : signal;
+}
+
 function getContent(signal: any): string {
-  return signal.dream ?? signal.value ?? signal.need ?? signal.basta ?? '';
+  const d = unwrap(signal);
+  return d.dream ?? d.value ?? d.need ?? d.basta ?? '';
 }
 
 function getType(signal: any): string {
-  if (signal.dream) return 'dream';
-  if (signal.value) return 'value';
-  if (signal.need) return 'need';
-  if (signal.basta) return 'basta';
+  const d = unwrap(signal);
+  if (d.type) return d.type;
+  if (d.dream) return 'dream';
+  if (d.value) return 'value';
+  if (d.need) return 'need';
+  if (d.basta) return 'basta';
   return 'dream';
 }
 
@@ -47,12 +55,13 @@ export default function SignalFeed({ signals }: SignalFeedProps) {
   return (
     <div className="space-y-3">
       {displayed.map((signal: any, idx: number) => {
+        const d = unwrap(signal);
         const type = getType(signal);
         const meta = TYPE_META[type] ?? TYPE_META.dream;
         const content = getContent(signal);
 
         return (
-          <SmoothReveal key={signal.id ?? idx} delay={idx * 0.04}>
+          <SmoothReveal key={d.id ?? idx} delay={idx * 0.04}>
             <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl px-4 py-3 flex gap-3">
               {/* Left accent */}
               <div className="flex-shrink-0 pt-0.5">
@@ -68,10 +77,10 @@ export default function SignalFeed({ signals }: SignalFeedProps) {
                 </p>
 
                 <div className="flex items-center gap-3 mt-2 flex-wrap">
-                  {(signal.location || signal.city) && (
+                  {(d.location || d.city) && (
                     <span className="flex items-center gap-1 text-xs text-slate-500">
                       <MapPin className="w-3 h-3" />
-                      {signal.location ?? signal.city}
+                      {d.location ?? d.city}
                     </span>
                   )}
                   {(signal.score != null || signal.matchCount != null) && (

@@ -12,7 +12,7 @@ const HeroSectionHombreGris = () => {
 
   const handleReadManifesto = () => {
     // Navigate to blog
-    window.location.href = '/blog-vlog';
+    window.location.href = '/recursos/blog';
   };
 
   return (

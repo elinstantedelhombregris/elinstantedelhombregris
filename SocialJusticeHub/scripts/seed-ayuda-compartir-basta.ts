@@ -2,38 +2,41 @@ import { db } from './db-neon';
 import { communityPosts } from '../shared/schema';
 import { sql, ne, eq, inArray } from 'drizzle-orm';
 
-const DESCRIPTION = `No te escribo desde un podio. Te escribo desde la misma cocina donde vos tambien te preguntaste: "y si esto no cambia nunca?"
+const DESCRIPTION = `Seguramente en algún momento te preguntaste: "¿y si esto no cambia nunca?" Yo también. Muchas veces.
 
-Cambia. Pero no por decreto. Por diseno.
+Pero acá estamos, intentando algo distinto.
 
-¡BASTA! no es una protesta. No es un partido. No es un salvador con megafono. Es una herramienta: un mapa vivo donde cada ciudadano puede marcar lo que ve, lo que necesita, lo que suena, lo que ya no tolera. Una estructura de presion publica organizada que no depende de ningun poder existente pero los obliga a todos a rendir cuentas.
+--- ¿QUÉ ES ¡BASTA!? ---
 
-Porque la presion publica organizada no es protesta: es diseno de gobernanza.
+No es un partido. No es una marcha. No es un tipo con micrófono prometiendo cosas.
 
-Necesitamos armar un mapa nacional de senales ciudadanas. Que desde cada rincon del pais alguien diga: "Aca falta agua", "Aca sobra corrupcion", "Aca hay gente dispuesta a trabajar si alguien organiza el espacio". No pedimos permiso para hacer visible lo que el pais necesita. Lo hacemos.
+Es una herramienta concreta: un mapa donde cada persona puede marcar lo que ve, lo que necesita, lo que ya no aguanta. Una forma de organizarnos entre todos para que los que gobiernan rindan cuentas — sin pedirle permiso a nadie.
 
-Que necesitamos de vos:
+Presión pública organizada. Eso es ¡BASTA!
 
-1. SUMATE — Registrate. No te pedimos plata, te pedimos presencia. Cada persona registrada es una senal de que alguien desperto.
+--- ¿PARA QUÉ SIRVE EL MAPA? ---
 
-2. COMPARTI — Manda este enlace a tres personas. No a las que ya estan indignadas sino a las que todavia creen que nada se puede hacer. Esas son las que mas necesitamos.
+Para que desde cualquier rincón del país alguien pueda decir: "acá falta agua", "acá sobra corrupción", "acá hay gente con ganas de laburar si alguien organiza el espacio".
 
-3. MARCA TU SENAL — Entra al mapa y deja tu marca. Tu sueno, tu necesidad, tu basta. Cada punto en el mapa es una prueba de que la ciudadania esta despierta y organizada.
+Cada punto en el mapa es una señal real. Cuando se juntan muchas señales, se vuelve imposible mirar para otro lado.
 
-4. VIGILA — Cuando veas que un politico promete algo, anota. Cuando veas que no cumple, documenta. La transparencia radical no es un ideal: es una tecnologia que ya tenemos.
+--- ¿QUÉ PODÉS HACER VOS? ---
 
-No llamamos a las masas. Llamamos a los despiertos. A los que entienden que los problemas del pais no son fallas morales sino bugs de diseno. Y que los bugs se arreglan con codigo nuevo, no con indignacion ciclica.
+1. SUMATE — Registrate. No pedimos plata, pedimos presencia. Cada persona que se suma es una señal más de que alguien se despertó.
 
-No venimos a administrar ruinas. Venimos a estrenar pais.
+2. COMPARTÍ — Mandá este enlace a tres personas. No a las que ya están calientes — a las que todavía creen que nada se puede hacer. Esas son las que más necesitamos.
 
-Otro pais es posible, no por decreto sino por diseno. Y el primer acto de diseno es hacernos visibles: un mapa donde cada punto de luz es un ciudadano que dijo basta, que sono algo mejor, que ofrecio lo que tiene.
+3. MARCÁ TU SEÑAL — Entrá al mapa y dejá tu marca. Tu necesidad, tu sueño, tu basta. Cada punto es una prueba de que la ciudadanía está viva.
 
-La fuerza no esta en un lider. Esta en la red. En el nosotros distribuido. En vos compartiendo esto con alguien que todavia no sabe que ya es parte.
+4. VIGILÁ — Cuando un político prometa algo, anotalo. Cuando no cumpla, documentalo. La transparencia no es un ideal lindo: es una herramienta que ya tenemos.
 
-Compartilo. Suma tu senal. Hacenos visibles.
-Porque cuando nos vean, van a tener que escuchar.
-Y cuando escuchen, van a tener que actuar.
-No porque quieran. Porque no les va a quedar otra.`;
+--- ¿POR QUÉ COMPARTIR? ---
+
+Esto no funciona con un líder. Funciona con una red. Con muchos. Con vos pasándole esto a alguien que todavía no sabe que ya es parte.
+
+Cuando nos vean, van a tener que escuchar. Y cuando escuchen, van a tener que actuar — no porque quieran, sino porque no les va a quedar otra.
+
+Compartilo. Sumá tu señal. Hagámonos visibles.`;
 
 async function seed() {
   console.log('=== Limpiando posts no-mission y creando "Ayuda a compartir ¡BASTA!" ===\n');
