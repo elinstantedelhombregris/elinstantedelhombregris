@@ -68,7 +68,7 @@ Exhaustion → "Something exists" → "It's genuinely different" → "There's de
 - The subhead immediately answers "what is this?"
 - Single CTA, single path: La Visión
 
-**Component:** Modify `HeroCinema.tsx` props from `Home.tsx`. No structural changes to HeroCinema needed.
+**Component:** Modify `HeroCinema.tsx` props from `Home.tsx`. One minor change needed: the `subtitle` prop is currently typed as `string`, but the new subhead is two paragraphs. Either change the prop type to `ReactNode` to allow paragraph breaks, or pass both paragraphs as a single string and handle line breaks in the component. The `title` prop is already `ReactNode` so the new headline works as-is.
 
 ---
 
@@ -142,10 +142,10 @@ Exhaustion → "Something exists" → "It's genuinely different" → "There's de
   Es si estás dispuesto a mirar lo que ya se está construyendo.
   ```
 
-**Component:** New section in `Home.tsx`. Three vertical blocks with left accent borders or icon markers. Replaces the current `AparatoPolitico` component import.
+**Component:** New section in `Home.tsx`. Three vertical blocks with left accent borders. Replaces the current `AparatoPolitico` component import.
 
 **Design notes:**
-- Each block has a left-side accent line (like a blockquote) with a distinct color
+- Each block has a left-side accent border (4px, like a blockquote) with a distinct color
 - Colors: blue (block 1), amber (block 2), emerald (block 3)
 - Clean, spacious layout — let the statements breathe
 - Framer Motion fade-up on scroll
