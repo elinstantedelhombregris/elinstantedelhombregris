@@ -10,7 +10,8 @@ import {
   Briefcase, Leaf, Scale, ArrowRight, ChevronDown, FileText,
   Palette, Type, Image, Monitor, Smartphone, Square,
   Code2, Shield, BarChart3, Heart, Mail, HeartPulse, Store,
-  FlaskConical, Droplets, Landmark
+  FlaskConical, Droplets, Landmark, Cpu, Flame, ShieldCheck,
+  Home, Music
 } from 'lucide-react';
 
 const fadeUp = {
@@ -45,11 +46,11 @@ const KitDePrensa = () => {
   const descriptions = [
     {
       label: 'Una línea',
-      text: 'El Instante del Hombre Gris es una plataforma argentina de inteligencia colectiva que transforma la consciencia individual en diseño participativo de país.',
+      text: 'El Instante del Hombre Gris es una plataforma argentina de inteligencia colectiva con 16 planes estratégicos para rediseñar el país desde la participación ciudadana, los datos abiertos y la acción organizada.',
     },
     {
       label: 'Un párrafo',
-      text: 'El Instante del Hombre Gris es una plataforma de inteligencia colectiva nacida en Argentina que opera en tres niveles: transformación personal (diagnóstico de 12 áreas de vida con 60 dimensiones), inteligencia colectiva (un viaje de 6 pasos donde sueños, valores y necesidades se vuelven visibles en el territorio) y diseño de país (9 planes estratégicos con diagnóstico, solución, costos y métricas). El nombre viene de una profecía que habla de un momento bisagra para Argentina — no un líder mesiánico, sino el despertar de las personas comunes que eligen construir en vez de destruir.',
+      text: 'El Instante del Hombre Gris es una plataforma de inteligencia colectiva nacida en Argentina que opera en tres niveles: transformación personal (diagnóstico de 12 áreas de vida con 60 dimensiones y coaching con IA), inteligencia colectiva (un viaje de 6 pasos donde sueños, valores y necesidades se vuelven visibles en el territorio a través de El Mapa y se convierten en mandatos ciudadanos en tiempo real) y diseño de país (16 planes estratégicos completos que cubren justicia, economía, educación, salud, energía, seguridad, cultura, vivienda, soberanía digital y más — cada uno con diagnóstico, solución, costos y métricas auditables). El nombre viene de una profecía que habla de un momento bisagra para Argentina — no un líder mesiánico, sino el despertar de las personas comunes que eligen construir en vez de destruir.',
     },
     {
       label: 'Descripción completa',
@@ -57,11 +58,9 @@ const KitDePrensa = () => {
 
 El "Hombre Gris" no es un líder mesiánico. Es exactamente lo contrario: es alguien común que decide dejar de culpar y empezar a crear. Gris no es ausencia de color — es la mezcla de todos. Es quien se salió de la cancha de la grieta y eligió construir.
 
-La plataforma funciona en tres niveles. Primero, la transformación personal: un sistema de diagnóstico sobre 12 áreas de vida con 60 dimensiones, contenido de estudio real y herramientas concretas. Segundo, la inteligencia colectiva: un viaje de seis pasos que va desde la Visión de Argentina hasta la Tribu activa, pasando por el Mapa donde los sueños se vuelven visibles en el territorio y el Mandato Vivo donde los datos construyen democracia directa. Tercero, el diseño de un país nuevo: cinco planes estratégicos completos — refundación educativa (PLANEDU), regeneración del suelo (PLANISV), 24 ciudades nuevas (PLAN24CN), reconversión del empleo público (PLANREP) y justicia popular (PLANJUS).
+La plataforma funciona en tres niveles. Primero, la transformación personal: un sistema de diagnóstico sobre 12 áreas de vida con 60 dimensiones, contenido de estudio real, coaching con inteligencia artificial y herramientas concretas para el cambio. Segundo, la inteligencia colectiva: un viaje de seis pasos que va desde la Visión de Argentina hasta la Tribu activa, pasando por El Mapa donde los sueños se vuelven visibles en el territorio, el Mandato Vivo donde los datos construyen democracia directa en tiempo real, y El Arquitecto donde los 16 planes estratégicos se visualizan como un sistema vivo de dependencias. Tercero, el diseño de un país nuevo: 16 planes estratégicos completos que cubren justicia popular, reconversión del empleo público, empresas al costo real, soberanía monetaria, soberanía digital, regulación de sustancias, refundación educativa, salud integral, suelo vivo, soberanía hídrica, 24 ciudades nuevas, posicionamiento geopolítico, soberanía energética, seguridad ciudadana, vivienda digna y cultura viva.
 
-Todo es abierto. Todo es auditable. Todo el código es público. El movimiento se llama ¡BASTA! — no como grito de enojo, sino como el susurro que cambia todo por dentro cuando decidís hacerte cargo.
-
-Los nueve planes estratégicos cubren educación (PLANEDU), regeneración del suelo (PLANISV), 24 ciudades nuevas (PLAN24CN), reconversión del empleo público (PLANREP), justicia popular (PLANJUS), salud integral (PLANSAL), empresas bastardas al costo real (PLANEB), soberanía sobre sustancias (PLANSUS) y soberanía hídrica (PLANAGUA).`,
+Todo es abierto. Todo es auditable. Todo el código es público. El movimiento se llama ¡BASTA! — no como grito de enojo, sino como el susurro que cambia todo por dentro cuando decidís hacerte cargo. No depende de ningún partido político. Depende de vos.`,
     },
   ];
 
@@ -122,15 +121,22 @@ Los nueve planes estratégicos cubren educación (PLANEDU), regeneración del su
   ];
 
   const strategicPlans = [
-    { code: 'PLANEDU', name: 'Refundación Educativa', icon: GraduationCap, desc: 'Argentina ocupa el puesto 63/81 en PISA. Refundación basada en Siete Capacidades, Maestros Creadores y AI como co-tutor.' },
-    { code: 'PLANISV', name: 'Infraestructura de Suelo Vivo', icon: Leaf, desc: 'El suelo que genera el 60–70% de las exportaciones se degrada. Ingeniería biológica con retorno 8:1 a 15:1.' },
-    { code: 'PLAN24CN', name: '24 Ciudades Nuevas', icon: Building2, desc: 'USD 25–40 mil M/año en costos del mal diseño urbano. Una ciudad nueva por provincia, diseñada desde cero.' },
-    { code: 'PLANREP', name: 'Reconversión del Empleo Público', icon: Briefcase, desc: '1,2–1,8M empleados sin valor verificable. Reconversión hacia la Economía de la Vida y la Inteligencia.' },
     { code: 'PLANJUS', name: 'Justicia Popular', icon: Scale, desc: '3 a 11 años por caso y <20% de confianza. Paneles ciudadanos por sorteo que resuelven en 15, 45 o 90 días.' },
-    { code: 'PLANSAL', name: 'Salud Integral y Vitalidad Popular', icon: HeartPulse, desc: '10% del PBI en salud con resultados de país en desarrollo. 3.000 Centros de Vitalidad barriales y 25.000 Familias Mentoras.' },
-    { code: 'PLANEB', name: 'Empresas Bastardas', icon: Store, desc: 'USD 10.600–21.950M/año en extracción sobre costos reales. Entidades sin dueño, al costo real, con transparencia radical.' },
+    { code: 'PLANREP', name: 'Reconversión del Empleo Público', icon: Briefcase, desc: '1,2–1,8M empleados sin valor verificable. Reconversión hacia la Economía de la Vida y la Inteligencia.' },
+    { code: 'PLANEB', name: 'Empresas Bastardas', icon: Store, desc: 'Entidades sin dueño, gobernadas por DAO, al costo real. Red Bastarda con transparencia radical.' },
+    { code: 'PLANMON', name: 'Soberanía Monetaria', icon: Landmark, desc: 'Arquitectura financiera soberana con sistema peso-canasta. El sistema circulatorio de la economía real.' },
+    { code: 'PLANDIG', name: 'Soberanía Digital', icon: Cpu, desc: 'Infraestructura digital independiente, IA soberana, sistema IDS, rieles de pago SAPI y El Mapa como nervio central.' },
     { code: 'PLANSUS', name: 'Soberanía sobre Sustancias', icon: FlaskConical, desc: 'USD 3.000–8.000M/año para el narco por la prohibición. Regulación integral en cascada con ROI de 5:1 a 15:1.' },
+    { code: 'PLANEDU', name: 'Refundación Educativa', icon: GraduationCap, desc: 'Argentina ocupa el puesto 63/81 en PISA. Refundación basada en Siete Capacidades, Maestros Creadores y AI como co-tutor.' },
+    { code: 'PLANSAL', name: 'Salud Integral y Vitalidad', icon: HeartPulse, desc: '10% del PBI en salud con resultados de país en desarrollo. 3.000 Centros de Vitalidad barriales y 25.000 Familias Mentoras.' },
+    { code: 'PLANISV', name: 'Infraestructura de Suelo Vivo', icon: Leaf, desc: 'El suelo que genera el 60–70% de las exportaciones se degrada. Ingeniería biológica con retorno 8:1 a 15:1.' },
     { code: 'PLANAGUA', name: 'Soberanía Hídrica', icon: Droplets, desc: '7 millones sin agua segura, 40% se pierde en fugas. Censo Nacional del Agua, 50.000 sensores IoT y Bastardas Hídricas.' },
+    { code: 'PLAN24CN', name: '24 Ciudades Nuevas', icon: Building2, desc: 'Una ciudad nueva por provincia, diseñada desde cero. Instanciación física de la visión ¡BASTA!' },
+    { code: 'PLANGEO', name: 'Posicionamiento Geopolítico', icon: Globe, desc: 'Escudo diplomático y Stack de Soberanía exportable. Argentina como referente de diseño de país.' },
+    { code: 'PLANEN', name: 'Soberanía Energética', icon: Flame, desc: 'Industrialización de Vaca Muerta, litio, solar, eólica y nuclear. Transición de la matriz productiva.' },
+    { code: 'PLANSEG', name: 'Seguridad Ciudadana', icon: ShieldCheck, desc: 'Transición del orden público sincronizada con PLANSUS. Justicia restaurativa y sistema guardián.' },
+    { code: 'PLANVIV', name: 'Vivienda Digna', icon: Home, desc: '1.800+ urbanizaciones en ciudades existentes. Hábitat digno como derecho, no como negocio.' },
+    { code: 'PLANCUL', name: 'Cultura Viva', icon: Music, desc: 'Red de Dendritas culturales barriales. El alma del sistema, con presupuesto cero del Estado — sostenida por la comunidad.' },
   ];
 
   const downloadAsset = (url: string, filename: string) => {
@@ -480,14 +486,14 @@ Los nueve planes estratégicos cubren educación (PLANEDU), regeneración del su
             </div>
           </motion.div>
 
-          {/* 4 Strategic Plans */}
+          {/* 16 Strategic Plans */}
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
           >
             <motion.h3 variants={fadeUp} custom={0} className="text-xl font-semibold mb-8">
-              Los 9 planes estratégicos — Diseño de País
+              Los 16 planes estratégicos — Diseño de País
             </motion.h3>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {strategicPlans.map((plan, i) => {
@@ -538,7 +544,7 @@ Los nueve planes estratégicos cubren educación (PLANEDU), regeneración del su
             {[
               { icon: Brain, title: 'Diagnóstico Personal', desc: '12 áreas de vida, 60 dimensiones, cuestionario conversacional con contenido de estudio real.' },
               { icon: BarChart3, title: 'Inteligencia Colectiva', desc: 'Sueños, valores y necesidades mapeados en el territorio. Datos que construyen democracia directa.' },
-              { icon: BookOpen, title: 'Planes Estratégicos', desc: '9 documentos completos con diagnóstico, solución, costos y métricas. Todo abierto y auditable.' },
+              { icon: BookOpen, title: 'Planes Estratégicos', desc: '16 documentos completos con diagnóstico, solución, costos y métricas. Todo abierto y auditable.' },
             ].map((feat, i) => {
               const Icon = feat.icon;
               return (
@@ -634,26 +640,44 @@ Los nueve planes estratégicos cubren educación (PLANEDU), regeneración del su
               custom={1}
               className="bg-white/[0.03] backdrop-blur-sm border border-white/[0.06] rounded-2xl p-8 md:p-10"
             >
-              <div className="flex items-start gap-6">
+              <div className="flex flex-col md:flex-row items-start gap-6">
                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center shrink-0">
                   <Heart className="w-8 h-8 text-white" />
                 </div>
                 <div>
                   <h3 className="text-xl font-serif font-bold mb-1">El Fundador</h3>
-                  <p className="text-sm text-blue-400 mb-4">Ingeniero Industrial · Hombre de familia · Hombre Gris</p>
+                  <p className="text-sm text-blue-400 mb-4">Ingeniero Industrial · Padre de familia · Hombre Gris</p>
                   <div className="space-y-4 text-slate-400 leading-relaxed text-[15px]">
                     <p>
-                      Un ingeniero industrial que durante años fue lo que Nietzsche llama camello —
-                      cargó con el peso de un sistema que le decía que las cosas eran así y punto.
-                      Hasta que un día, mirando a sus hijos, sintió el peso de saber que si no hacía
-                      nada, les iba a heredar exactamente el mismo ciclo.
+                      Un ingeniero industrial argentino, padre de familia, que durante años fue lo que
+                      Nietzsche llama camello — cargó con el peso de un sistema que le repetía que las
+                      cosas eran así y punto. Que el destino del país se decidía cada cuatro años en
+                      una urna, y que después no quedaba más que esperar, quejarse o irse.
                     </p>
                     <p>
-                      De las noches de estudio obsesivo, conectando ideas entre Russell Ackoff,
-                      Nietzsche, Buckminster Fuller y el Kybalión, nació algo concreto: un sistema
-                      completo para la transformación que funciona en tres niveles — personal, colectivo
-                      y de país. No un blog ni una red social más, sino herramientas reales para el
-                      cambio real.
+                      Hasta que un día, mirando a sus hijos, sintió algo que no pudo ignorar: si no
+                      hacía nada, les iba a heredar exactamente el mismo ciclo de frustración,
+                      dependencia y resignación.
+                    </p>
+                    <p>
+                      De las noches de estudio obsesivo — conectando ideas entre Russell Ackoff,
+                      Nietzsche, Buckminster Fuller y el Kybalión — nació algo concreto: no un blog
+                      ni una red social más, sino un sistema completo de transformación que opera en
+                      tres niveles — personal, colectivo y de país. Con herramientas reales, datos
+                      abiertos y 16 planes estratégicos auditables.
+                    </p>
+                    <p>
+                      Su objetivo no es fundar un partido político ni postularse a nada. Es exactamente
+                      lo contrario: demostrar que cuando las personas se organizan con inteligencia,
+                      con datos y con herramientas concretas, pueden hacer que las cosas pasen —
+                      independientemente del color del partido que esté en el gobierno. Que el poder
+                      real no está en la Casa Rosada, sino en la capacidad de la gente de diseñar,
+                      exigir y construir el país que quiere vivir.
+                    </p>
+                    <p>
+                      La premisa es simple: si un país mal diseñado produce sufrimiento, un país bien
+                      diseñado puede producir dignidad. Y el diseño no es algo que se delega — es algo
+                      que se ejerce.
                     </p>
                   </div>
                 </div>
@@ -694,12 +718,14 @@ Los nueve planes estratégicos cubren educación (PLANEDU), regeneración del su
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="grid sm:grid-cols-2 gap-4"
+            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"
           >
             {[
               { label: 'Leer el Manifiesto completo', href: '/manifiesto', icon: FileText },
               { label: 'Ver La Visión de Argentina', href: '/la-vision', icon: Eye },
               { label: 'Explorar El Mapa Soberano', href: '/el-mapa', icon: MapPin },
+              { label: 'Ver El Mandato Vivo', href: '/el-mandato-vivo', icon: Vote },
+              { label: 'Explorar El Arquitecto', href: '/recursos/el-arquitecto', icon: Brain },
               { label: 'Conocer las Iniciativas Estratégicas', href: '/recursos/iniciativas', icon: BookOpen },
             ].map((link, i) => {
               const Icon = link.icon;

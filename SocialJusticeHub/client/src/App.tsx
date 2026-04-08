@@ -63,6 +63,7 @@ const AdminFeedback = React.lazy(() => import("@/pages/AdminFeedback"));
 const KitDePrensa = React.lazy(() => import("@/pages/KitDePrensa"));
 const ElArquitecto = React.lazy(() => import("@/pages/ElArquitecto"));
 const MisionDetalle = React.lazy(() => import("@/pages/MisionDetalle"));
+const ApoyaAlMovimiento = React.lazy(() => import("@/pages/ApoyaAlMovimiento"));
 
 type User = {
   id: number;
@@ -152,6 +153,9 @@ function Router() {
 
       {/* Kit de Prensa */}
       <Route path="/kit-de-prensa" component={KitDePrensa} />
+
+      {/* Apoyá al Movimiento */}
+      <Route path="/apoya-al-movimiento" component={ApoyaAlMovimiento} />
 
       {/* Feedback */}
       <Route path="/feedback" component={Feedback} />
