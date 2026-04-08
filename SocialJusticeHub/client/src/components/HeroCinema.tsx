@@ -6,7 +6,7 @@ import { Link } from 'wouter';
 
 interface HeroCinemaProps {
   title: React.ReactNode;
-  subtitle: string;
+  subtitle: React.ReactNode;
   backgroundImage?: string;
   overlayGradient?: string;
   ctaText?: string;
@@ -68,14 +68,14 @@ const HeroCinema: React.FC<HeroCinemaProps> = ({
             {title}
           </div>
 
-          <motion.p 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6, duration: 1 }}
             className="heading-hero-subtitle mb-12 font-light text-slate-300/90"
           >
             {subtitle}
-          </motion.p>
+          </motion.div>
 
           {ctaText && ctaLink && (
             <motion.div
