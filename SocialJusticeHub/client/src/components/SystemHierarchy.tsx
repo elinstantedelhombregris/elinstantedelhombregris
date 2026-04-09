@@ -93,12 +93,12 @@ const SystemHierarchy = () => {
               MODELO DE SISTEMA
             </div>
             <h2 className="text-3xl font-bold text-white mb-4">
-              {isSovereign ? "El Orden Natural" : "La Distorsión Actual"}
+              {isSovereign ? "Así funciona cuando diseñamos nosotros" : "Así funciona hoy"}
             </h2>
             <p className="text-slate-400 leading-relaxed">
-              {isSovereign 
-                ? "Cuando el ciudadano define el propósito (Input), el Estado procesa (Throughput) y los funcionarios ejecutan (Output). El sistema funciona con legitimidad."
-                : "El error fundamental: el subsistema (políticos) intenta definir el propósito de todo el sistema. Esto genera ruido, ineficiencia y desconexión con la realidad."}
+              {isSovereign
+                ? "El ciudadano define el destino. El Estado administra los recursos. Los funcionarios ejecutan las soluciones. El sistema responde a la gente."
+                : "Los funcionarios deciden el rumbo. El Estado gestiona para ellos. El ciudadano reacciona, protesta o se resigna. La casa está construida al revés."}
             </p>
           </div>
 
@@ -110,7 +110,7 @@ const SystemHierarchy = () => {
               "flex-1 py-3 text-center text-sm font-bold rounded-xl transition-all duration-300",
               !isSovereign ? "bg-red-900/50 text-red-100 shadow-lg" : "text-slate-500"
             )}>
-              DISTORSIÓN
+              ASÍ FUNCIONA HOY
             </div>
             <div className="p-2">
               <RefreshCw className="w-5 h-5 text-slate-500 group-hover:text-white transition-colors" />
@@ -119,7 +119,7 @@ const SystemHierarchy = () => {
               "flex-1 py-3 text-center text-sm font-bold rounded-xl transition-all duration-300",
               isSovereign ? "bg-blue-600 text-white shadow-lg shadow-blue-900/50" : "text-slate-500"
             )}>
-              SOBERANÍA
+              CUANDO DISEÑAMOS
             </div>
           </button>
         </div>
