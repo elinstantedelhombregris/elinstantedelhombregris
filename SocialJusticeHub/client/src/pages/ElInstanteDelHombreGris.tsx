@@ -1,6 +1,6 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { useEffect, useRef } from 'react';
+import { useEffect, useId } from 'react';
 import { motion } from 'framer-motion';
 import {
   Eye,
@@ -12,8 +12,8 @@ import {
 } from 'lucide-react';
 import NextStepCard from '@/components/NextStepCard';
 
-// Icono personalizado de Espejo para mayor belleza estética
-const MirrorIcon = ({ className }: { className?: string }) => (
+// Icono personalizado de Espejo
+const MirrorIcon = ({ className, gradientId }: { className?: string; gradientId: string }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
@@ -23,19 +23,17 @@ const MirrorIcon = ({ className }: { className?: string }) => (
     strokeLinecap="round"
     strokeLinejoin="round"
     className={className}
+    aria-hidden="true"
   >
     <defs>
-      <linearGradient id="mirror-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="100%">
         <stop offset="0%" stopColor="currentColor" stopOpacity="0.8" />
         <stop offset="100%" stopColor="currentColor" stopOpacity="0.3" />
       </linearGradient>
     </defs>
-    {/* Marco del espejo */}
-    <circle cx="12" cy="10" r="8" stroke="url(#mirror-gradient)" strokeWidth="1.5" />
-    {/* Brillo/Reflejo en el cristal */}
+    <circle cx="12" cy="10" r="8" stroke={`url(#${gradientId})`} strokeWidth="1.5" />
     <path d="M14 7c0-1.5-1.5-2.5-3-2.5" stroke="currentColor" strokeOpacity="0.4" />
     <path d="M9 12c0 1.5 1 2.5 2 2.5" stroke="currentColor" strokeOpacity="0.2" />
-    {/* Mango elegante */}
     <path d="M12 18v4" strokeWidth="1.5" />
     <path d="M10 22h4" strokeWidth="1.5" />
   </svg>
@@ -90,7 +88,7 @@ const foundations = [
 ];
 
 const ElInstanteDelHombreGris = () => {
-  const containerRef = useRef(null);
+  const mirrorId = useId();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -98,7 +96,7 @@ const ElInstanteDelHombreGris = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-slate-200 selection:bg-purple-500/30" ref={containerRef}>
+    <div className="min-h-screen bg-[#0a0a0a] text-slate-200 selection:bg-purple-500/30">
       <Header />
       <main className="overflow-hidden">
 
@@ -142,7 +140,7 @@ const ElInstanteDelHombreGris = () => {
                 {/* The Mirror Circle */}
                 <div className="w-48 h-48 md:w-64 md:h-64 rounded-full bg-gradient-to-b from-white/5 to-transparent border border-white/10 backdrop-blur-md relative flex items-center justify-center mx-auto overflow-hidden shadow-[0_0_50px_rgba(139,92,246,0.2)]">
                   <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=2694&auto=format&fit=crop')] bg-cover opacity-20 mix-blend-overlay" />
-                  <MirrorIcon className="w-24 h-24 text-purple-200/60 drop-shadow-[0_0_15px_rgba(192,132,252,0.4)] animate-pulse" />
+                  <MirrorIcon gradientId={`${mirrorId}-hero`} className="w-24 h-24 text-purple-200/60 drop-shadow-[0_0_15px_rgba(192,132,252,0.4)] animate-pulse" />
                 </div>
               </motion.div>
 
@@ -327,7 +325,7 @@ const ElInstanteDelHombreGris = () => {
                 <div className="relative bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-10 md:p-14 hover:border-white/20 transition-all duration-500">
                   <div className="flex justify-center mb-8">
                     <div className="w-16 h-16 rounded-full bg-white/10 border border-white/20 flex items-center justify-center">
-                      <MirrorIcon className="w-8 h-8 text-purple-200/60" />
+                      <MirrorIcon gradientId={`${mirrorId}-card`} className="w-8 h-8 text-purple-200/60" />
                     </div>
                   </div>
 
