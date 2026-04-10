@@ -179,6 +179,17 @@ const baseBlogPostsData = [
     publishedAt: new Date("2026-04-05").toISOString(),
     tags: ["pascuas", "consciencia", "despertar", "etimología", "transformación"],
   },
+  {
+    title: "Pago por Inteligencia Artificial. ¿Y por la mía?",
+    slug: createSlug("Pago por Inteligencia Artificial. ¿Y por la mía?"),
+    category: "Filosofía",
+    type: "blog" as const,
+    featured: true,
+    imageUrl: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=800&h=400&fit=crop",
+    authorId: 1,
+    publishedAt: new Date("2026-04-09").toISOString(),
+    tags: ["inteligencia", "Argentina", "viveza criolla", "cooperación", "confianza", "inteligencia artificial"],
+  },
 ];
 
 const blogPostsData = baseBlogPostsData.map((post) => {

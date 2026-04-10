@@ -2667,4 +2667,171 @@ export const blogContentUpdates: Record<string, BlogContentEntry> = {
       </article>
     `,
   },
+  [slugify("Pago por Inteligencia Artificial. ¿Y por la mía?")]: {
+    excerpt:
+      "Pago 142 dólares por mes para alquilar inteligencia artificial y la exprimo al máximo. Pero mi propia inteligencia — la que es gratis, la que nadie me puede cortar — la dejo en el cajón. ¿Y vos?",
+    content: `
+      <article>
+        <h1>Pago por Inteligencia Artificial. ¿Y por la mía?</h1>
+        <p>
+          Pago 142 dólares y medio por mes para poder pensar mejor.
+        </p>
+        <p>
+          No es una forma de decir. Literalmente pago una suscripción mensual para tener acceso a sistemas de inteligencia artificial que me ayudan a escribir, a analizar, a resolver problemas. Ciento cuarenta y dos dólares con cincuenta centavos. Todos los meses.
+        </p>
+        <p>
+          Y hago algo que me llamó la atención cuando lo vi desde afuera: me esfuerzo por aprovechar cada centavo. Cuento los mensajes que me quedan. Reparto las consultas a lo largo de la semana para no quedarme sin acceso. Planeo qué le voy a preguntar antes de preguntarle, para no desperdiciar una interacción. Soy, con esta inteligencia que alquilo, un tipo increíblemente disciplinado.
+        </p>
+        <p>
+          Y un martes cualquiera, mientras calculaba cuántas consultas me quedaban para el fin de semana, se me apareció una pregunta que no esperaba:
+        </p>
+        <p>
+          <strong>¿Hago lo mismo con mi propia cabeza?</strong>
+        </p>
+
+        <h2>Pensar cansa. Y da miedo.</h2>
+        <p>
+          Hay una cosa que todos sabemos pero que elegimos no mirar de frente: pensar cansa.
+        </p>
+        <p>
+          No es metáfora. El cerebro usa una cantidad enorme de energía. Pensar de verdad — no recordar, no repetir, no reaccionar, sino sentarte a armar una idea, a proyectar qué va a pasar, a entender algo que no entendías — gasta. Tu cuerpo lo siente. Por eso después de un examen estás agotado aunque no hayas movido un músculo.
+        </p>
+        <p>
+          Entonces el cuerpo hace lo lógico: te pide que no pienses a menos que sea estrictamente necesario. Te ofrece el piloto automático como opción por defecto. Rutina, hábito, reacción, repetición. El camino de menor resistencia. No porque seas vago — porque tu cuerpo está haciendo lo que se supone que tiene que hacer: ahorrar energía.
+        </p>
+        <p>
+          El problema es que ahí se mete otro factor que no tiene nada que ver con la energía.
+        </p>
+        <p>
+          El miedo.
+        </p>
+        <p>
+          Porque cuando pensás en serio — cuando realmente te ponés a analizar tu vida, tu trabajo, tus relaciones, tu país — llegás a lugares incómodos. Llegás a conclusiones que te obligan a hacer algo. Y hacer algo tiene riesgo. Tiene costo. Tiene la posibilidad de equivocarte, de que te critiquen, de que te digan "¿y vos quién te creés que sos?".
+        </p>
+        <p>
+          Entonces no es solo que pensar canse. Es que pensar da miedo. Y la combinación de las dos cosas — el cansancio y el miedo — produce algo que parece pereza pero no lo es. Es una decisión. Inconsciente, casi siempre. Pero una decisión al fin: la decisión de dejar tu inteligencia guardada en un cajón.
+        </p>
+        <p>
+          Yo lo hago. Vos probablemente también. Y acá es donde la cosa se pone interesante, porque si esto pasa a nivel personal — ¿qué pasa cuando lo multiplicás por cuarenta y cinco millones?
+        </p>
+
+        <h2>Usamos un telescopio para mirar la vereda</h2>
+        <p>
+          Pensá en la persona más inteligente que conocés. No la más estudiada — la más inteligente. Esa persona que ve cosas que los demás no ven. Que entiende situaciones rápido. Que cuando habla, algo se acomoda.
+        </p>
+        <p>
+          Ahora pensá: ¿esa persona está usando todo lo que tiene? ¿O está usando una fracción?
+        </p>
+        <p>
+          En mi experiencia, la mayoría de la gente inteligente que conozco usa su inteligencia para sobrevivir, no para construir. La usa para resolver el problema de hoy, para zafar, para salir del paso. Es como tener un telescopio y usarlo para mirar la vereda.
+        </p>
+        <p>
+          No es culpa de nadie en particular. Es lo que pasa cuando vivís en un lugar donde el corto plazo te come vivo: toda tu capacidad mental se va en apagar incendios, y no te queda nada para diseñar el edificio.
+        </p>
+        <p>
+          Pero hay algo más. Algo que en Argentina tiene un nombre propio.
+        </p>
+
+        <h2>La viveza criolla: nuestro orgullo más caro</h2>
+        <p>
+          Nosotros le pusimos nombre y apellido a una forma muy particular de usar la cabeza: la viveza criolla.
+        </p>
+        <p>
+          El vivo es el que se aviva. El que la ve antes que los demás. El que encuentra el atajo, la vuelta, el hueco. Es un elogio. "Es re vivo", decimos, con admiración.
+        </p>
+        <p>
+          Y la verdad es que sí — hay algo genuinamente impresionante en esa capacidad. El argentino promedio tiene un radar social, una velocidad para leer situaciones, una creatividad para improvisar soluciones que no es común. Cualquiera que haya viajado lo sabe. Afuera se nota: tenemos algo.
+        </p>
+        <p>
+          La pregunta es qué hacemos con ese algo.
+        </p>
+        <p>
+          Porque la viveza, cuando la mirás bien, tiene un patrón muy particular: siempre es individual. Siempre es "yo me salvo". Siempre es una persona sacando ventaja de una situación, generalmente a costa de otra persona o del sistema en general.
+        </p>
+        <p>
+          El vivo evade un impuesto. El vivo se cuela en la fila. El vivo arregla por izquierda lo que debería resolver por derecha. Y cada vez que lo hace, gana algo chiquito para él y rompe algo grande para todos.
+        </p>
+        <p>
+          Es como un juego donde cada jugador es brillante pero todos juegan solos. Todos hacen jugadas geniales. Y el resultado del partido es un desastre.
+        </p>
+
+        <h2>Astucia no es inteligencia</h2>
+        <p>
+          Hay una diferencia enorme entre ser astuto y ser inteligente, y Argentina lleva décadas confundiendo una cosa con la otra.
+        </p>
+        <p>
+          La astucia te resuelve el momento. Te ayuda a ganar la discusión, a conseguir el descuento, a esquivar la consecuencia. La astucia mira los próximos cinco minutos y encuentra la mejor jugada dentro de esos cinco minutos.
+        </p>
+        <p>
+          La inteligencia mira más lejos. La inteligencia se pregunta: "¿qué pasa si todos hacen lo que yo estoy por hacer?". Y esa pregunta cambia todo.
+        </p>
+        <p>
+          Porque si yo evado un impuesto y me sale bien, soy astuto. Pero si todos evaden impuestos, no hay hospital que funcione. Y cuando yo me enferme, la astucia que me ahorró plata este mes no me va a curar el año que viene.
+        </p>
+        <p>
+          Si yo copio en un examen y me sale bien, soy astuto. Pero si todos copian, los títulos no valen nada. Y el médico que me atienda capaz aprobó copiando.
+        </p>
+        <p>
+          Si yo cago a mi socio y me quedo con la mayor parte, soy astuto. Pero al mes siguiente, nadie quiere asociarse conmigo. Y solo, con toda mi astucia, no puedo construir nada que requiera más de dos manos.
+        </p>
+        <p>
+          La astucia te enseña a ganar solo. La inteligencia te enseña que solo no se puede ganar.
+        </p>
+
+        <h2>La confianza no es ingenuidad — es infraestructura</h2>
+        <p>
+          Esto no es un sermón moral. No te estoy pidiendo que seas buena persona. Te estoy pidiendo que hagas la cuenta.
+        </p>
+        <p>
+          Mirá cualquier lugar del mundo donde la gente vive bien — no perfecto, bien — y vas a encontrar un patrón: la gente confía lo suficiente en los demás como para construir cosas juntos. No confían porque son ingenuos. Confían porque entendieron algo que nosotros todavía no: la confianza no es un sentimiento. Es una herramienta. Es la infraestructura invisible que permite que todo lo demás funcione.
+        </p>
+        <p>
+          Sin confianza no hay sociedad comercial que dure. No hay cooperativa que sobreviva. No hay proyecto colectivo que supere la primera crisis. Sin confianza, cada persona es una isla, y las islas no construyen puentes.
+        </p>
+        <p>
+          Argentina tiene millones de personas inteligentes que no confían unas en las otras. Y como no confían, no cooperan. Y como no cooperan, cada uno usa su inteligencia solo para sí mismo. Y como cada uno la usa solo para sí mismo, los resultados colectivos son un desastre. Y como los resultados colectivos son un desastre, la gente confía menos. Y la rueda sigue girando.
+        </p>
+        <p>
+          La viveza criolla no creó este círculo, pero lo alimenta todos los días. Cada vez que alguien "se aviva" a costa de otro, le confirma al otro que confiar es de idiota. Y así seguimos.
+        </p>
+
+        <h2>Los 142 dólares, de vuelta</h2>
+        <p>
+          Vuelvo a los 142 dólares.
+        </p>
+        <p>
+          Yo pago esa plata todos los meses para acceder a algo que procesa información más rápido que yo, que sabe más que yo, que no se cansa y no se distrae. Y lo aprovecho al máximo. No desperdicio una sola interacción.
+        </p>
+        <p>
+          Pero esa inteligencia que alquilo no quiere nada. No le importa nada. No va a llorar si algo sale mal ni festejar si sale bien. Es una herramienta extraordinaria, pero es solo eso: una herramienta.
+        </p>
+        <p>
+          Tu inteligencia — la que ya tenés, la que es gratis, la que nadie te puede cortar — viene con algo que ninguna máquina tiene: viene con ganas. Viene con la capacidad de que algo te importe. De que algo te duela. De que algo te mueva a hacer lo que no estabas haciendo.
+        </p>
+        <p>
+          Eso no se alquila. Eso no se compra. Eso ya lo tenés.
+        </p>
+        <p>
+          La pregunta es si lo estás usando.
+        </p>
+        <p>
+          No si lo estás usando para avivarte. No si lo estás usando para sobrevivir el día. Si lo estás usando para construir algo que valga la pena. Algo que dure más que vos. Algo que no podés construir solo.
+        </p>
+
+        <blockquote>
+          El problema de Argentina no es que nos falte inteligencia. Nos sobra. El problema es que cada uno la usa por su cuenta, para su cuenta, contra los demás. Y eso no es inteligencia. Es la forma más sofisticada de hacernos daño que inventamos.
+        </blockquote>
+
+        <p>
+          Ser inteligente de verdad en Argentina hoy es hacer algo que parece contraintuitivo: confiar. Cooperar. Construir con otros. No porque seas bueno. Porque sos inteligente. Porque hiciste la cuenta y te diste cuenta de que solo no funciona. Nunca funcionó. No va a funcionar.
+        </p>
+        <p>
+          Tenemos la cabeza. Tenemos la creatividad. Tenemos eso que afuera nos envidian.
+        </p>
+        <p>
+          <strong>Solo nos falta usarlo para lo que sirve.</strong>
+        </p>
+      </article>
+    `,
+  },
 };
