@@ -8,7 +8,6 @@ import {
   Feather,
   Lightbulb,
   Shield,
-  Sparkles,
   Sprout,
 } from 'lucide-react';
 import NextStepCard from '@/components/NextStepCard';
@@ -211,7 +210,9 @@ const ElInstanteDelHombreGris = () => {
                     El país lleva en su nombre el metal que solo brilla cuando se refina en el fuego.
                   </p>
                   <p className="text-body">
-                    Un país llamado Plata que se olvidó de verse brillar.
+                    Un país llamado Plata que se olvidó de verse brillar. El gris de todos los días — el bondi,
+                    la lucha, el "no llego a fin de mes" — es plata cruda. No está pulida todavía.
+                    Pero no es basura. Al contrario: es potencial sin refinar.
                   </p>
                 </motion.div>
               </div>
@@ -248,11 +249,10 @@ const ElInstanteDelHombreGris = () => {
                   </div>
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
-                  <div className="flex items-center gap-3 mb-2">
+                  <div className="flex items-center gap-3 mb-3">
                     <div className="h-2 w-16 rounded-full bg-gradient-to-r from-slate-500 to-slate-200 shadow-[0_0_10px_rgba(148,163,184,0.6)]" />
-                    <span className="text-[11px] font-mono uppercase tracking-[0.3em] text-slate-200">Gris → Plata</span>
+                    <span className="text-sm text-slate-300">Gris → Plata</span>
                   </div>
-                  <p className="text-lg text-white font-serif">"Un país llamado Plata que se olvidó de verse brillar."</p>
                 </div>
               </motion.div>
             </div>
@@ -298,11 +298,8 @@ const ElInstanteDelHombreGris = () => {
                   >
                     <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-blue-600/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     <div className="relative h-full bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8 hover:border-white/20 transition-all duration-500 flex flex-col">
-                      <div className="flex items-center justify-between mb-6">
-                        <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${card.gradient} flex items-center justify-center group-hover:scale-110 transition-transform duration-500`}>
-                          <div className={card.accent}>{card.icon}</div>
-                        </div>
-                        <Sparkles className="w-5 h-5 text-slate-500" />
+                      <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${card.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500`}>
+                        <div className={card.accent}>{card.icon}</div>
                       </div>
                       <h3 className="text-xl font-bold text-white mb-3">{card.title}</h3>
                       <p className="text-slate-400 leading-relaxed flex-grow">{card.description}</p>
