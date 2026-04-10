@@ -1,37 +1,28 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { useEffect, useState, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Button } from '@/components/ui/button';
+import { useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 import {
   Eye,
   Heart,
-  Crown,
-  Brain,
-  Shield,
-  Lightbulb,
   Feather,
-  MapPin,
-  Sprout,
+  Lightbulb,
+  Shield,
   Sparkles,
-  Quote,
-  BookOpen,
-  MessageSquare,
-  Hammer,
-  Users
+  Sprout,
 } from 'lucide-react';
-import { Link } from 'wouter';
+import NextStepCard from '@/components/NextStepCard';
 
 // Icono personalizado de Espejo para mayor belleza estética
 const MirrorIcon = ({ className }: { className?: string }) => (
-  <svg 
-    xmlns="http://www.w3.org/2000/svg" 
-    viewBox="0 0 24 24" 
-    fill="none" 
-    stroke="currentColor" 
-    strokeWidth="1" 
-    strokeLinecap="round" 
-    strokeLinejoin="round" 
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1"
+    strokeLinecap="round"
+    strokeLinejoin="round"
     className={className}
   >
     <defs>
@@ -51,134 +42,68 @@ const MirrorIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-import PowerCTA from '@/components/PowerCTA';
-import CommitmentModal from '@/components/CommitmentModal';
-import NextStepCard from '@/components/NextStepCard';
+const greyVisionCards = [
+  {
+    title: "Leer patrones, no titulares",
+    description: "Dejá de consumir el relato que te venden. Mirá los flujos, las causas, los sistemas. ¿Qué se mueve de verdad debajo del ruido? Esto no es cinismo — es atención.",
+    icon: <Eye className="w-10 h-10" />,
+    gradient: "from-indigo-500/20 to-blue-500/20",
+    accent: "text-indigo-300",
+  },
+  {
+    title: "Integrar, no polarizar",
+    description: "La zona gris entre blanco y negro es donde vive cada solución real. No es tibieza — es síntesis. Tomá lo mejor de cada extremo y construí algo que ningún bando imaginó.",
+    icon: <Shield className="w-10 h-10" />,
+    gradient: "from-purple-500/20 to-pink-500/20",
+    accent: "text-purple-300",
+  },
+  {
+    title: "Refinar, no reaccionar",
+    description: "Como la plata en el fuego, la claridad viene del calor sostenido. No reacciones a la crisis del día. Quedate en el proceso. El reflejo aparece cuando dejás de pestañear.",
+    icon: <Lightbulb className="w-10 h-10" />,
+    gradient: "from-amber-500/20 to-orange-500/20",
+    accent: "text-amber-300",
+  },
+];
+
+const foundations = [
+  {
+    title: "Humildad radical",
+    description: "La humildad no es debilidad, es precisión. Bajás el ego para ver lo que tenés enfrente. Escuchás antes de hablar. Dejás que gane la mejor idea, aunque no sea tuya. En un país adicto a los caudillos, esto es el acto más revolucionario posible.",
+    icon: <Feather className="w-10 h-10" />,
+    gradient: "from-indigo-500/20 to-blue-500/20",
+    accent: "text-indigo-300",
+  },
+  {
+    title: "Verdad que integra",
+    description: "La verdad no es un arma que le tirás al otro bando. Es la zona gris donde sostenés lo real sin pestañear — aunque sea incómodo, aunque te implique. No \"mi verdad\" contra \"tu verdad\". La verdad que aparece cuando dejás de defender una posición.",
+    icon: <Eye className="w-10 h-10" />,
+    gradient: "from-purple-500/20 to-pink-500/20",
+    accent: "text-purple-300",
+  },
+  {
+    title: "Servicio invisible",
+    description: "Servir no es caridad y no es un escenario. Es rediseñar la cosa para que funcione para todos, y después dar un paso atrás. La infraestructura más fuerte es la que nadie nota porque simplemente funciona. Construí eso.",
+    icon: <Heart className="w-10 h-10" />,
+    gradient: "from-amber-500/20 to-orange-500/20",
+    accent: "text-amber-300",
+  },
+];
 
 const ElInstanteDelHombreGris = () => {
-  const [showCommitmentModal, setShowCommitmentModal] = useState(false);
-  const [isAwakened, setIsAwakened] = useState(false);
   const containerRef = useRef(null);
-
-  const handleCommitment = (commitmentData: any) => {
-    console.log('Commitment made:', commitmentData);
-    setShowCommitmentModal(false);
-    setIsAwakened(true);
-  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = 'El Instante del Hombre Gris - Un marco ético para la reconstrucción | ¡BASTA!';
+    document.title = 'El Instante del Hombre Gris — La filosofía fundacional | ¡BASTA!';
   }, []);
-
-  const awakeningSteps = [
-    {
-      title: "Entrar en Modo Observador",
-      description: "Cambiar la forma de mirar: leer patrones, no titulares. Detectar lo que vibra en los bordes.",
-      icon: <Eye className="w-8 h-8" />,
-      panel: "bg-indigo-500/10",
-      border: "border-indigo-500/20",
-      accent: "text-indigo-400"
-    },
-    {
-      title: "Diseñar la Jugada",
-      description: "Pensar como ingeniero de sistemas humanos: reescribir procesos en lugar de maquillar síntomas.",
-      icon: <Brain className="w-8 h-8" />,
-      panel: "bg-purple-500/10",
-      border: "border-purple-500/20",
-      accent: "text-purple-400"
-    },
-    {
-      title: "Influir sin Ruido",
-      description: "Moverse en gris: liderar sin altar, actuar con amabilidad radical y precisión quirúrgica.",
-      icon: <Shield className="w-8 h-8" />,
-      panel: "bg-fuchsia-500/10",
-      border: "border-fuchsia-500/20",
-      accent: "text-fuchsia-400"
-    }
-  ];
-
-  const hombreGrisDNA = [
-    {
-      title: "Humildad radical",
-      description: "Humildad no es tibieza: es bajar el ego para que suba la precisión. Escucha profunda, liderazgo que rota y cero altar personal.",
-      quote: "La PAX nace de la humildad activa.",
-      action: "Cede el foco, eleva nuevas voces y documenta lo que aprendes.",
-      icon: <Feather className="w-10 h-10" />,
-      gradient: "from-indigo-500/20 to-blue-500/20",
-      accent: "text-indigo-300"
-    },
-    {
-      title: "Verdad que integra",
-      description: "El gris es luz y sombra dialogando. Nombra la realidad sin maquillaje y une lo mejor de cada extremo en síntesis lúcida.",
-      quote: "La verdad es el color exacto entre blanco y negro.",
-      action: "Habla con precisión, mide con evidencia y corrige rápido.",
-      icon: <Eye className="w-10 h-10" />,
-      gradient: "from-purple-500/20 to-pink-500/20",
-      accent: "text-purple-300"
-    },
-    {
-      title: "Servicio invisible",
-      description: "Servir es rediseñar sistemas para que otros brillen. Amabilidad radical como infraestructura y acción silenciosa que baja fricción.",
-      quote: "El impacto más fuerte ocurre sin tribuna.",
-      action: "Construye herramientas que hagan obsoleto el problema.",
-      icon: <Heart className="w-10 h-10" />,
-      gradient: "from-amber-500/20 to-orange-500/20",
-      accent: "text-amber-300"
-    }
-  ];
-
-  const visionFrames = [
-    {
-      title: "Mirar la trama",
-      description: "Reeducar la retina para ver causas, procesos y flujos invisibles en vez de flashes y titulares.",
-      accent: "text-indigo-300",
-      border: "border-indigo-500/30",
-      icon: <Eye className="w-10 h-10" />
-    },
-    {
-      title: "Ver la tercera vía",
-      description: "El gris integra extremos y disuelve trincheras: es síntesis lúcida que permite crear acuerdos nuevos.",
-      accent: "text-purple-300",
-      border: "border-purple-500/30",
-      icon: <Shield className="w-10 h-10" />
-    },
-    {
-      title: "Refinar la realidad",
-      description: "Como la plata pulida, la mirada limpia revela el reflejo. Prototipa soluciones inevitables en silencio elegante.",
-      accent: "text-amber-300",
-      border: "border-amber-500/30",
-      icon: <Lightbulb className="w-10 h-10" />
-    }
-  ];
-
-  const identityFrames = [
-    {
-      title: "Por qué Hombre",
-      description: "Hombre viene del latín homo (tierra, humano) y humus (suelo, raíz de humildad). Es cualquiera y es todos: pies en la tierra y responsabilidad radical sin mitos de héroe.",
-      accent: "from-emerald-500/20 to-teal-500/20",
-      icon: <Heart className="w-12 h-12 text-emerald-300" />
-    },
-    {
-      title: "Por qué Gris",
-      description: "Gris viene del francés gris (brillante, plateado). Es el color de la plata refinada y de la ceniza que guarda calor. Equilibra luz y sombra, pasión y rigor.",
-      accent: "from-slate-500/30 to-purple-500/20",
-      icon: <Sparkles className="w-12 h-12 text-purple-300" />
-    },
-    {
-      title: "El espejo",
-      description: "El Hombre Gris viene a mostrarte el reflejo de lo que ya eres cuando dejas de delegar tu conciencia: una mezcla exacta de luz y sombra lista para crear.",
-      accent: "from-blue-500/20 to-indigo-500/20",
-      icon: <MirrorIcon className="w-12 h-12 text-indigo-200" />
-    }
-  ];
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-slate-200 selection:bg-purple-500/30" ref={containerRef}>
       <Header />
       <main className="overflow-hidden">
-        
-        {/* Hero: The Mirror */}
+
+        {/* Section 1: Hero — "The Blindness We Share" */}
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
           {/* Starfield Background */}
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#1a103c] via-[#0a0a0a] to-[#0a0a0a]" />
@@ -187,18 +112,18 @@ const ElInstanteDelHombreGris = () => {
               <motion.div
                 key={i}
                 className="absolute bg-white rounded-full"
-                initial={{ 
+                initial={{
                   width: Math.random() * 2 + 1 + 'px',
                   height: Math.random() * 2 + 1 + 'px',
                   x: Math.random() * 100 + '%',
                   y: Math.random() * 100 + '%',
                   opacity: Math.random()
                 }}
-                animate={{ 
+                animate={{
                   opacity: [0.2, 1, 0.2],
                   scale: [1, 1.5, 1]
                 }}
-                transition={{ 
+                transition={{
                   duration: Math.random() * 3 + 2,
                   repeat: Infinity,
                   delay: Math.random() * 2
@@ -220,12 +145,9 @@ const ElInstanteDelHombreGris = () => {
                   <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=2694&auto=format&fit=crop')] bg-cover opacity-20 mix-blend-overlay" />
                   <MirrorIcon className="w-24 h-24 text-purple-200/60 drop-shadow-[0_0_15px_rgba(192,132,252,0.4)] animate-pulse" />
                 </div>
-                <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-[#0a0a0a] px-4 py-1 rounded-full border border-purple-500/30 text-xs uppercase tracking-widest text-purple-300">
-                  El Espejo
-                </div>
               </motion.div>
 
-              <motion.h1 
+              <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 1 }}
@@ -239,293 +161,68 @@ const ElInstanteDelHombreGris = () => {
                 </span>
               </motion.h1>
 
-              <motion.p 
+              <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.8, duration: 1 }}
                 className="text-xl md:text-2xl text-slate-300/80 max-w-3xl mx-auto mb-12 leading-relaxed font-light"
               >
-                Para una visión nueva, primero cambiamos la mirada. El Hombre Gris te entrena a leer la niebla, a ver los bordes donde nacen los futuros. 
-                Llega a Argentina como idea que refina la plata: cuando se pule, brilla y refleja la diferencia.
+                Nos enseñaron a ver en blanco y negro. Izquierda o derecha. Líder o seguidor. Héroe o villano.
+                Y nos cansamos — porque la realidad no funciona en dos colores.
+                Hay otra forma de mirar. Y empieza por entender qué significa <em>gris</em>.
               </motion.p>
-
-              <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
-                <PowerCTA
-                  text="ACTIVAR LA VISIÓN"
-                  variant="primary"
-                  onClick={() => setShowCommitmentModal(true)}
-                  size="lg"
-                  animate={true}
-                />
-                <Link href="/manifiesto">
-                  <Button 
-                    variant="outline" 
-                    size="lg"
-                    className="bg-transparent border-purple-500/30 text-purple-300 hover:bg-purple-500/10 hover:text-white hover:border-purple-400 rounded-full px-8 h-14 text-lg tracking-wide transition-all"
-                  >
-                    LEER EL MANIFIESTO
-                  </Button>
-                </Link>
-              </div>
             </div>
           </div>
         </section>
 
-        {/* ADN Holográfico */}
-        <section className="section-spacing bg-[#0a0a0a] border-t border-white/5">
-          <div className="container-content">
-            <div className="max-content-width">
-              <div className="text-center mb-20">
-                <h2 className="heading-section mb-6">ADN del Hombre Gris</h2>
-                <p className="text-body max-w-2xl mx-auto">
-                  No es una persona, es una frecuencia. Cualquiera que vibre en humildad, verdad y servicio encarna al Hombre Gris.
-                </p>
-              </div>
-
-              <div className="grid md:grid-cols-3 gap-8">
-                {hombreGrisDNA.map((trait, index) => (
-                  <motion.div 
-                    key={trait.title}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.2 }}
-                    viewport={{ once: true }}
-                    className="group relative"
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-blue-600/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <div className="relative h-full bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8 hover:border-white/20 transition-all duration-500 flex flex-col">
-                      <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${trait.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500`}>
-                        <div className={trait.accent}>{trait.icon}</div>
-                      </div>
-                      
-                      <h3 className="text-2xl font-bold text-white mb-4">{trait.title}</h3>
-                      <p className="text-slate-400 mb-6 flex-grow leading-relaxed">{trait.description}</p>
-                      
-                      <div className="pt-6 border-t border-white/5">
-                        <p className={`text-sm font-mono ${trait.accent} mb-2`}>{trait.quote}</p>
-                        <p className="text-xs text-slate-500 uppercase tracking-wider">Acción: {trait.action}</p>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Seis Roles Ciudadanos */}
-        <section className="section-spacing relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-purple-900/5 to-[#0a0a0a]" />
-          <div className="container-content relative z-10">
-            <div className="max-w-5xl mx-auto">
-              <div className="text-center mb-16">
-                <h2 className="heading-section mb-6">Seis formas de encarnar al Hombre Gris</h2>
-                <p className="text-body max-w-3xl mx-auto">
-                  El Hombre Gris no es una abstracción. Es un rol concreto que podés ocupar en la reconstrucción.
-                </p>
-              </div>
-
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {[
-                  { title: "Testigo", description: "Ve y documenta la realidad. Mira de frente lo que otros normalizan.", icon: <Eye className="w-8 h-8" />, accent: "text-indigo-300", gradient: "from-indigo-500/20 to-blue-500/20", border: "border-indigo-500/20" },
-                  { title: "Declarante", description: "Expresa sueño, valor, necesidad o basta. Pone la verdad en el mapa.", icon: <MessageSquare className="w-8 h-8" />, accent: "text-purple-300", gradient: "from-purple-500/20 to-pink-500/20", border: "border-purple-500/20" },
-                  { title: "Constructor", description: "Aporta tiempo, oficio, recurso o trabajo. Hace con las manos.", icon: <Hammer className="w-8 h-8" />, accent: "text-amber-300", gradient: "from-amber-500/20 to-orange-500/20", border: "border-amber-500/20" },
-                  { title: "Custodio", description: "Verifica, audita, corrige y alerta. Cuida que lo que funciona no se pudra.", icon: <Shield className="w-8 h-8" />, accent: "text-emerald-300", gradient: "from-emerald-500/20 to-teal-500/20", border: "border-emerald-500/20" },
-                  { title: "Organizador", description: "Coordina células, círculos y nodos. Teje la red territorial.", icon: <Users className="w-8 h-8" />, accent: "text-sky-300", gradient: "from-sky-500/20 to-cyan-500/20", border: "border-sky-500/20" },
-                  { title: "Narrador", description: "Convierte prueba y proceso en relato compartible. La historia que legitima.", icon: <BookOpen className="w-8 h-8" />, accent: "text-rose-300", gradient: "from-rose-500/20 to-pink-500/20", border: "border-rose-500/20" },
-                ].map((role, index) => (
-                  <motion.div
-                    key={role.title}
-                    initial={{ opacity: 0, y: 24 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-40px" }}
-                    transition={{ delay: index * 0.1 }}
-                    className="group relative"
-                  >
-                    <div className={`absolute inset-0 bg-gradient-to-br ${role.gradient} rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-                    <div className={`relative h-full bg-white/5 backdrop-blur-md border ${role.border} rounded-2xl p-6 hover:border-white/20 transition-all duration-500 flex flex-col`}>
-                      <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${role.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-500`}>
-                        <div className={role.accent}>{role.icon}</div>
-                      </div>
-                      <h3 className="text-xl font-bold text-white mb-2">{role.title}</h3>
-                      <p className="text-slate-400 text-sm leading-relaxed flex-grow">{role.description}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Nueva Mirada */}
-        <section className="section-spacing relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-indigo-900/10 to-[#0a0a0a]" />
-          <div className="container-content relative z-10">
-            <div className="max-w-5xl mx-auto">
-              <div className="text-center mb-16">
-                <h2 className="heading-section mb-6">Nueva visión, nueva forma de ver</h2>
-                <p className="text-body max-w-3xl mx-auto">
-                  Para cambiar el mundo hay que pulir la mirada. El Hombre Gris te entrena a leer procesos ocultos, a detectar reflejos en la niebla
-                  y a trazar rutas donde otros solo ven paredes. No es espectáculo: es disciplina visual y precisión ética.
-                </p>
-              </div>
-
-              <div className="grid md:grid-cols-3 gap-8 mb-16">
-                {visionFrames.map((frame, index) => (
-                  <motion.div
-                    key={frame.title}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-50px" }}
-                    transition={{ delay: index * 0.15 }}
-                    className="group relative"
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-blue-600/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <div className="relative h-full bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8 hover:border-white/20 transition-all duration-500 flex flex-col">
-                      <div className="flex items-center justify-between mb-6">
-                        <div className={`w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center ${frame.accent.replace('text', 'bg')} bg-opacity-10`}>
-                          <div className={frame.accent}>{frame.icon}</div>
-                        </div>
-                        <Sparkles className="w-5 h-5 text-slate-500" />
-                      </div>
-                      <h3 className="text-xl font-bold text-white mb-3">{frame.title}</h3>
-                      <p className="text-slate-400 leading-relaxed flex-grow">{frame.description}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="group relative"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-blue-600/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="relative h-full bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-10 hover:border-white/20 transition-all duration-500">
-                  <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
-                    <div className="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center border border-white/20">
-                      <Quote className="w-7 h-7 text-purple-200" />
-                    </div>
-                    <div className="flex-1">
-                      <p className="text-lg text-slate-200 leading-relaxed">
-                        "Esto no es un manual de juego: es fuego en la mente. Es la proclama de que otro país es posible,
-                        no por decreto sino por diseño. Si estás leyendo, ya sabes que no podemos seguir así: es hora de
-                        dejar de delegar la conciencia y convertir el cansancio en sagrado."
-                      </p>
-                      <p className="text-sm text-purple-200/80 mt-3 font-mono uppercase tracking-[0.25em]">
-                        Manifiesto del Hombre Gris
-                      </p>
-                    </div>
-                    <div className="w-full md:w-auto">
-                      <Link href="/manifiesto">
-                        <Button 
-                          variant="outline"
-                          className="bg-white/5 border-purple-400/40 text-purple-200 hover:bg-purple-500/10 hover:text-white"
-                        >
-                          LEER EL MANIFIESTO
-                        </Button>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* Identidad: Hombre y Gris */}
-        <section className="section-spacing relative border-t border-white/5">
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-slate-900/20 to-[#0a0a0a]" />
-          <div className="container-content relative z-10">
-            <div className="max-w-5xl mx-auto">
-              <div className="text-center mb-14">
-                <div className="inline-flex items-center gap-2 px-4 py-2 mb-4 rounded-full bg-white/5 border border-white/10 text-[11px] uppercase tracking-[0.25em] text-slate-300">
-                  <Sparkles className="w-4 h-4 text-purple-200" />
-                  <span>Etimología y reflejo</span>
-                </div>
-                <h2 className="heading-section mb-4">Por qué Hombre. Por qué Gris.</h2>
-                <p className="text-body max-w-3xl mx-auto">
-                  Hombre (homo, humus) nos recuerda suelo y humildad; gris (gris, plateado) trae el brillo de la plata pulida. No es un héroe individual, es la síntesis lúcida de quien integra extremos y usa la responsabilidad como poder.
-                </p>
-              </div>
-
-              <div className="grid md:grid-cols-3 gap-8">
-                {identityFrames.map((card, index) => (
-                  <motion.div
-                    key={card.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.15 }}
-                    className="group relative"
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-blue-600/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <div className="relative h-full bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8 hover:border-white/20 transition-all duration-500 flex flex-col gap-4">
-                      <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${card.accent} border border-white/10 flex items-center justify-center`}>
-                        {card.icon}
-                      </div>
-                      <h3 className="text-2xl font-bold text-white">{card.title}</h3>
-                      <p className="text-slate-300 leading-relaxed flex-grow">{card.description}</p>
-                      <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-slate-500 pt-2 border-t border-white/5">
-                        <MapPin className="w-3 h-3" />
-                        <span>ZONA GRIS</span>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Llegada a Argentina */}
+        {/* Section 2: Grey Thesis — text-dominant with silver polish animation */}
         <section className="section-spacing relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-tr from-[#0a0a0a] via-[#131a24] to-[#0a0a0a]" />
           <div className="container-content relative z-10">
             <div className="grid lg:grid-cols-2 gap-10 items-center">
               <div className="space-y-6">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-200 text-xs uppercase tracking-[0.25em]">
-                  <Sparkles className="w-4 h-4" />
-                  <span>El Hombre Gris llega a Argentina</span>
-                </div>
-                <h2 className="heading-section text-left">
-                  Al igual que la plata, los argentinos necesitan refinación para brillar y ver su reflejo en la visión del país
-                </h2>
-                <p className="text-body">
-                  Argentina viene de <em>argentum</em>: plata. La plata se refina en el fuego hasta que el orfebre ve su reflejo en ella.
-                  El país estará listo cuando podamos vernos en él con dignidad, verdad y servicio. El gris cotidiano se vuelve plata cuando
-                  decidimos pulir nuestro sistema vivo hasta que refleje lo que somos capaces de diseñar.
-                </p>
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div className="card-unified p-5 border border-emerald-500/30 bg-emerald-500/5">
-                    <div className="flex items-center gap-3 mb-2">
-                      <MapPin className="w-5 h-5 text-emerald-300" />
-                      <span className="text-sm font-bold text-white uppercase tracking-wide">Mapa vivo</span>
-                    </div>
-                    <p className="text-slate-300 text-sm">
-                      Diseña nodos de influencia silenciosa en tu barrio, escuela o empresa. Sin tribuna, con evidencia.
-                    </p>
-                  </div>
-                  <div className="card-unified p-5 border border-indigo-500/30 bg-indigo-500/5">
-                    <div className="flex items-center gap-3 mb-2">
-                      <BookOpen className="w-5 h-5 text-indigo-300" />
-                      <span className="text-sm font-bold text-white uppercase tracking-wide">Refinar la mirada</span>
-                    </div>
-                    <p className="text-slate-300 text-sm">
-                      La plata refleja cuando se pule. Pulir la mirada es nuestra alquimia: menos ruido, más precisión.
-                    </p>
-                  </div>
-                </div>
+                <motion.h2
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                  className="heading-section text-left"
+                >
+                  Gris no es lo que te dijeron
+                </motion.h2>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.1 }}
+                  className="space-y-5"
+                >
+                  <p className="text-body">
+                    Te vendieron que gris es burocracia. Ni fu ni fa. El color del que no se la juega, del tibio que no molesta a nadie.
+                    El color de la mediocridad cómoda.
+                  </p>
+                  <p className="text-body">
+                    Pero gris es lo que pasa cuando integrás luz y sombra en la misma mirada. No elegís un bando — elegís ver todo el tablero.
+                    Es el color de la síntesis, no de la rendición.
+                  </p>
+                  <p className="text-white font-medium text-lg leading-relaxed">
+                    La palabra <em>gris</em> viene del francés antiguo: brillante, plateado. Y Argentina viene de <em>argentum</em>: plata.
+                    El país lleva en su nombre el metal que solo brilla cuando se refina en el fuego.
+                  </p>
+                  <p className="text-body">
+                    Un país llamado Plata que se olvidó de verse brillar.
+                  </p>
+                </motion.div>
               </div>
 
-              <motion.div 
+              {/* Silver polish animation — from "Llegada a Argentina" */}
+              <motion.div
                 initial={{ opacity: 0, x: 40 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className="relative rounded-3xl overflow-hidden border border-white/10 shadow-[0_0_60px_rgba(59,130,246,0.15)] bg-gradient-to-br from-[#0f141b] via-[#0c1017] to-[#0b0f14]"
+                className="relative rounded-3xl overflow-hidden border border-white/10 shadow-[0_0_60px_rgba(59,130,246,0.15)] bg-gradient-to-br from-[#0f141b] via-[#0c1017] to-[#0b0f14] aspect-[4/3]"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-purple-500/10 to-transparent pointer-events-none" />
                 <motion.div
@@ -555,136 +252,166 @@ const ElInstanteDelHombreGris = () => {
                     <div className="h-2 w-16 rounded-full bg-gradient-to-r from-slate-500 to-slate-200 shadow-[0_0_10px_rgba(148,163,184,0.6)]" />
                     <span className="text-[11px] font-mono uppercase tracking-[0.3em] text-slate-200">Gris → Plata</span>
                   </div>
-                  <p className="text-sm text-slate-300 font-mono uppercase tracking-[0.25em]">Zona Gris // Buenos Aires</p>
-                  <p className="text-lg text-white font-serif">"Cuando el suelo vuelve a reflejar, la mirada colectiva se afila."</p>
+                  <p className="text-lg text-white font-serif">"Un país llamado Plata que se olvidó de verse brillar."</p>
                 </div>
               </motion.div>
             </div>
           </div>
         </section>
 
-        {/* The Awakening Call */}
-        <section className="section-spacing relative">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-purple-900/20 via-[#0a0a0a] to-[#0a0a0a]" />
-          
+        {/* Section 3: Sight Thesis — 3 cards */}
+        <section className="section-spacing relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-indigo-900/10 to-[#0a0a0a]" />
           <div className="container-content relative z-10">
             <div className="max-w-5xl mx-auto">
-              <div className="grid lg:grid-cols-2 gap-16 items-center">
-                <div>
-                  <h2 className="heading-section mb-8">
-                    Entrena tu mirada <span className="text-purple-400">en gris</span>
-                  </h2>
-                  <p className="text-body mb-12">
-                    No es un milagro lejano: es gimnasia visual diaria. La nueva visión nace cuando
-                    eliges ser arquitecto de tu destino y dejas de consumir relatos prefabricados.
-                  </p>
+              <div className="text-center mb-16">
+                <motion.h2
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                  className="heading-section mb-6"
+                >
+                  Ver de otra manera
+                </motion.h2>
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.1 }}
+                  className="text-body max-w-3xl mx-auto"
+                >
+                  Si el gris no es lo que te dijeron, entonces ver en gris tampoco. No es tibieza ni indecisión.
+                  Es una disciplina: leer lo que realmente pasa debajo del ruido que te venden.
+                </motion.p>
+              </div>
 
-                  <div className="space-y-6">
-                    {awakeningSteps.map((step, index) => (
-                      <motion.div 
-                        key={index}
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ delay: index * 0.2 }}
-                        viewport={{ once: true }}
-                        className={`flex gap-6 p-4 rounded-2xl border ${step.border} bg-opacity-5 transition-all hover:bg-opacity-10`}
-                      >
-                        <div className={`w-12 h-12 rounded-full ${step.panel} flex items-center justify-center flex-shrink-0 ${step.accent}`}>
-                          {step.icon}
+              <div className="grid md:grid-cols-3 gap-8">
+                {greyVisionCards.map((card, index) => (
+                  <motion.div
+                    key={card.title}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ delay: index * 0.15 }}
+                    className="group relative"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-blue-600/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="relative h-full bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8 hover:border-white/20 transition-all duration-500 flex flex-col">
+                      <div className="flex items-center justify-between mb-6">
+                        <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${card.gradient} flex items-center justify-center group-hover:scale-110 transition-transform duration-500`}>
+                          <div className={card.accent}>{card.icon}</div>
                         </div>
-                        <div>
-                          <h4 className="text-white font-bold mb-1">{step.title}</h4>
-                          <p className="text-slate-400 text-sm leading-relaxed">{step.description}</p>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-600 to-indigo-600 rounded-3xl blur-2xl opacity-20" />
-                  <div className="card-unified p-10 relative text-center backdrop-blur-xl border-purple-500/30">
-                    <div className="w-20 h-20 mx-auto bg-purple-500/20 rounded-full flex items-center justify-center mb-8 text-purple-300">
-                      <Crown className="w-10 h-10" />
+                        <Sparkles className="w-5 h-5 text-slate-500" />
+                      </div>
+                      <h3 className="text-xl font-bold text-white mb-3">{card.title}</h3>
+                      <p className="text-slate-400 leading-relaxed flex-grow">{card.description}</p>
                     </div>
-                    <h3 className="text-3xl font-bold text-white mb-4">¿Sos vos?</h3>
-                    <p className="text-slate-300 mb-8 text-lg">
-                      "Argentina no necesita un nuevo líder político. Necesita testigos que miren de frente, constructores que armen con evidencia, y custodios que no dejen pudrir lo que funciona. ¿Qué rol es el tuyo?"
-                    </p>
-                    <PowerCTA
-                      text="SÍ, ACEPTO EL LLAMADO"
-                      variant="primary"
-                      onClick={() => setShowCommitmentModal(true)}
-                      size="lg"
-                      animate={true}
-                    />
-                  </div>
-                </div>
+                  </motion.div>
+                ))}
               </div>
             </div>
           </div>
         </section>
 
-        {/* Special Badge Unlock */}
-        <AnimatePresence>
-          {isAwakened && (
-            <motion.div 
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0 }}
-              className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 w-full max-w-md px-4"
-            >
-              <div className="bg-[#1a103c] border border-purple-500/50 rounded-2xl p-6 shadow-[0_0_50px_rgba(168,85,247,0.4)] text-center">
-                <div className="flex items-center justify-center gap-3 mb-2">
-                  <Crown className="w-6 h-6 text-yellow-400 animate-pulse" />
-                  <h3 className="text-white font-bold text-lg">Primer compromiso registrado</h3>
-                </div>
-                <p className="text-purple-200 text-sm mb-4">Diste el primer paso. Lo que sigue es sostenerlo.</p>
-                <Button 
-                  onClick={() => setIsAwakened(false)}
-                  size="sm"
-                  variant="ghost"
-                  className="text-slate-400 hover:text-white"
-                >
-                  Cerrar
-                </Button>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        {/* Closing Pattern */}
-        <section className="section-spacing">
-          <div className="container-content">
+        {/* Section 4: Hombre — single centered card */}
+        <section className="section-spacing relative border-t border-white/5">
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-slate-900/20 to-[#0a0a0a]" />
+          <div className="container-content relative z-10">
             <div className="max-w-3xl mx-auto">
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 space-y-5"
+                transition={{ duration: 0.7 }}
+                className="group relative"
               >
-                {[
-                  { label: "Qué estamos viendo", text: "Un país que confunde liderazgo con caudillismo y participación con fanatismo." },
-                  { label: "Qué hacemos ahora", text: "Entrenar otra forma de mirar: con humildad, con verdad operativa, con servicio." },
-                  { label: "Qué no vamos a hacer todavía", text: "Prometer pureza moral ni adornar la complejidad como si fuera sabiduría." },
-                  { label: "Cómo se mide", text: "Roles ocupados, compromisos sostenidos, relevos generados." },
-                  { label: "Qué podés hacer vos", text: "Elegir un rol, sostenerlo con estándar, y dejar de esperar permiso para cuidar lo común." },
-                ].map((item, index) => (
-                  <div key={index} className={index > 0 ? "pt-4 border-t border-white/5" : ""}>
-                    <span className="text-sm font-semibold text-purple-400 block mb-1">{item.label}</span>
-                    <p className="text-slate-300 leading-relaxed">{item.text}</p>
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-blue-600/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-10 md:p-14 hover:border-white/20 transition-all duration-500">
+                  <div className="flex justify-center mb-8">
+                    <div className="w-16 h-16 rounded-full bg-white/10 border border-white/20 flex items-center justify-center">
+                      <MirrorIcon className="w-8 h-8 text-purple-200/60" />
+                    </div>
                   </div>
-                ))}
+
+                  <div className="space-y-6 text-center">
+                    <p className="text-body leading-relaxed">
+                      <em>Hombre</em> viene del latín <em>homo</em>, que viene de <em>humus</em>: tierra, suelo.
+                      La misma raíz de <em>humildad</em>. No es un género — es estar con los pies en la tierra.
+                      Es la condición de quien acepta ser parte del barro antes de pretender dar lecciones.
+                    </p>
+                    <p className="text-body leading-relaxed">
+                      Y <em>El Instante</em> es eso: el momento del click. Cuando dejás de ver en binario y empezás a ver en gris.
+                      No es un proceso largo ni un retiro espiritual. Es un cambio de foco que pasa en un segundo
+                      — y después ya no podés volver atrás.
+                    </p>
+                    <p className="text-white font-medium text-xl leading-relaxed">
+                      El Hombre Gris no es otro. Es tu reflejo cuando dejás de delegar tu propia conciencia.
+                      Cuando el gris se vuelve plata en vos.
+                    </p>
+                  </div>
+                </div>
               </motion.div>
             </div>
           </div>
         </section>
 
-        {/* Next Step */}
+        {/* Section 5: Three Foundations — 3 cards */}
+        <section className="section-spacing bg-[#0a0a0a] border-t border-white/5">
+          <div className="container-content">
+            <div className="max-content-width">
+              <div className="text-center mb-20">
+                <motion.h2
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                  className="heading-section mb-6"
+                >
+                  En qué se sostiene
+                </motion.h2>
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.1 }}
+                  className="text-body max-w-3xl mx-auto"
+                >
+                  Si vas a ver de otra manera, necesitás pararte en algo sólido. No son valores abstractos — son posturas concretas.
+                  Cómo te presentás en una reunión, en un barrio, en una crisis.
+                </motion.p>
+              </div>
+
+              <div className="grid md:grid-cols-3 gap-8">
+                {foundations.map((trait, index) => (
+                  <motion.div
+                    key={trait.title}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.2 }}
+                    viewport={{ once: true }}
+                    className="group relative"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-blue-600/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="relative h-full bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8 hover:border-white/20 transition-all duration-500 flex flex-col">
+                      <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${trait.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500`}>
+                        <div className={trait.accent}>{trait.icon}</div>
+                      </div>
+
+                      <h3 className="text-2xl font-bold text-white mb-4">{trait.title}</h3>
+                      <p className="text-slate-400 flex-grow leading-relaxed">{trait.description}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Section 6: NextStepCard → La Semilla */}
         <NextStepCard
-          title="Siembra la Semilla del Cambio"
-          description="Entendiste el marco. Ahora declaralo. En La Semilla plantás tu primer compromiso concreto con la reconstrucción."
+          title="Si algo de esto ya lo sentías antes de leerlo"
+          description="Lo que sigue es darle forma. En La Semilla plantás tu primer compromiso concreto con la reconstrucción — no una promesa abstracta, sino algo que podés sostener."
           href="/la-semilla-de-basta"
           gradient="from-[#1f2335] to-[#3b275c]"
           icon={<Sprout className="w-5 h-5" />}
@@ -692,14 +419,6 @@ const ElInstanteDelHombreGris = () => {
 
       </main>
       <Footer />
-
-      <CommitmentModal
-        isOpen={showCommitmentModal}
-        onClose={() => setShowCommitmentModal(false)}
-        onCommit={handleCommitment}
-        type="intermediate"
-        title="COMPROMISO DEL HOMBRE GRIS"
-      />
     </div>
   );
 };
