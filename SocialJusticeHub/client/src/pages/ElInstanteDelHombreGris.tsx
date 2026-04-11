@@ -305,12 +305,12 @@ const ElInstanteDelHombreGris = () => {
                   />
 
                   {/* Ghost watermark */}
-                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
-                    <span className="text-slate-500/20 text-6xl md:text-7xl font-black tracking-tight select-none pointer-events-none">
+                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-4" aria-hidden="true">
+                    <span className="text-slate-500/20 text-6xl md:text-7xl font-black font-serif tracking-tight select-none pointer-events-none">
                       GRIS
                     </span>
                     <div className="h-[2px] w-16 bg-gradient-to-r from-transparent via-slate-400/30 to-transparent" />
-                    <span className="text-slate-400/20 text-6xl md:text-7xl font-black tracking-tight select-none pointer-events-none">
+                    <span className="text-slate-400/20 text-6xl md:text-7xl font-black font-serif tracking-tight select-none pointer-events-none">
                       PLATA
                     </span>
                   </div>
@@ -330,7 +330,7 @@ const ElInstanteDelHombreGris = () => {
             <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-indigo-900/[0.05] rounded-full blur-[160px]" />
           </div>
 
-          <div className="container mx-auto px-4 relative z-10">
+          <div className="container-content relative z-10">
             <div className="max-w-6xl mx-auto">
               {/* Section Header */}
               <motion.div
@@ -398,7 +398,7 @@ const ElInstanteDelHombreGris = () => {
           <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-purple-900/[0.05] rounded-full blur-[180px] pointer-events-none" />
           <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-blue-900/[0.04] rounded-full blur-[150px] pointer-events-none" />
 
-          <div className="container mx-auto px-4 relative z-10">
+          <div className="container-content relative z-10">
             <div className="max-w-4xl mx-auto">
               {/* Section Header */}
               <motion.div
@@ -432,7 +432,7 @@ const ElInstanteDelHombreGris = () => {
                     className={`relative border-l-4 ${f.borderColor} pl-7 md:pl-9 py-2`}
                   >
                     {/* Ghost number */}
-                    <span className={`absolute -top-4 right-0 text-[5rem] md:text-[6rem] font-black ${f.numColor} leading-none select-none pointer-events-none`}>
+                    <span aria-hidden="true" className={`absolute -top-4 right-0 text-[5rem] md:text-[6rem] font-black ${f.numColor} leading-none select-none pointer-events-none`}>
                       {String(i + 1).padStart(2, '0')}
                     </span>
 
