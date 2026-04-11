@@ -1,260 +1,244 @@
-# El Instante del Hombre Gris — Page Redesign Spec
+# El Instante del Hombre Gris — Page Redesign v2
 
-**Date:** 2026-04-10  
-**Status:** Draft  
-**Route:** `/el-instante-del-hombre-gris`  
+**Date:** 2026-04-10
+**Status:** Approved
+**Route:** `/el-instante-del-hombre-gris`
 **Component:** `client/src/pages/ElInstanteDelHombreGris.tsx`
 
 ---
 
 ## Context
 
-The landing page was redesigned from manifesto to empathy-first messaging. La Visión was redesigned from cold engineering metaphors to a collective design invitation. This page needs the same treatment.
+The page is the philosophical foundation of the platform. It sits between La Vision (the systemic invitation) and La Semilla (the first personal commitment). Its job is to ground the visitor in a new way of seeing — before any action.
 
-**Position in journey:** La Visión ends with a threshold — "the person who can hold this vision needs to be forged." This page IS that forging. La Semilla (next page) is where the visitor plants their first concrete commitment.
+The current implementation looks disconnected from the rest of the platform: starfield particle effects, glassmorphism cards not matching Home/LaVision patterns, two nearly identical 3-card grids back-to-back, a standalone silver polish animation box, and a mystical mirror icon hero. The content also needs copy improvements to better align with the source philosophical tradition (unnamed) around the grey man, silver, humility, anonymous service, and love as operational force.
 
-**The page's job:** Establish the philosophical foundation of ¡BASTA! — a new way of seeing and a new definition of what strength looks like. Think of it as the founding text of the movement. Before any action, before any commitment, this philosophy needs to land.
-
-**Two core inversions the visitor walks away with:**
-
-1. **Grey inverted** — "I thought grey meant mediocre, invisible, nothing. Now I see grey is silver before it's polished — it's the most Argentine thing there is."
-2. **Sight inverted** — "I thought I was seeing clearly. Now I see I was reading headlines, not patterns — consuming a story instead of designing one."
+**Approach:** Narrative Cascade — each section has a different layout rhythm to avoid repetition, using platform design patterns (ambient orbs, section pills, editorial prose, platform-style cards, numbered editorial blocks). The title words become the journey structure: Instante → Hombre → Gris.
 
 ## Design Principles
 
-- **Keep all existing visual design** — glassmorphism cards, Framer Motion animations, starfield, mirror icon, silver polish effect, gradient typography. The visuals are strong. The messaging is what changes.
-- **Founding-text tone** — This page reads like a revolutionary leader laying philosophical foundations. Warm but profound. Not a pitch, not a recruitment poster — a text that changes how you think.
-- **Spanish rioplatense throughout** — "vos", "mirá", "pará". Direct address.
-- **No commitment modals** — The philosophy does the work. Single CTA at the end to La Semilla.
-- **No six roles** — Testigo, Declarante, Constructor, etc. are removed from this page. They may live elsewhere later. This page is philosophy, not org chart.
+- **Platform alignment** — Use the same visual vocabulary as Home and LaVision: ambient lighting orbs, dot grids, section pill labels, `font-black` headings with `clamp()` sizing, `border-t border-white/5` dividers, `bg-white/[0.02]` cards with colored borders
+- **Layout variety** — No two adjacent sections share the same layout. Prose, cards, two-column, numbered blocks — each section earns its own rhythm
+- **Source-aligned copy** — Philosophical tradition of the grey man informs values. Never named, never attributed. Channeled through the platform's rioplatense voice
+- **No decorative complexity** — Remove starfield particles, mirror icon, external image URLs, `animate-pulse`. The content does the work.
 
 ## Voice & Tone
 
-The voice of an inspiring revolutionary leader who thinks in first principles. Not preaching — sharing a discovery. Not recruiting — inviting you to see something that, once seen, can't be unseen.
+Warm, direct, rioplatense. "Vos", "mira", "pensa". The voice of someone sharing a discovery, not giving instructions. Founding-text weight but conversational delivery. Physical metaphors (silver, fire, soil, earth) over abstract ones.
 
-**Language In:**
-- Direct, warm, precise prose
-- Metaphors rooted in physical reality (silver, fire, soil, polishing, reflection)
-- Honest uncertainty — "we don't have all the answers"
-- Quiet conviction — not shouting, not selling
-- "Vos", "mirá", "pensá" — second person, rioplatense
-
-**Language Out:**
-- "Modo Observador", "ingeniero de sistemas humanos", "precisión quirúrgica" — tech/military jargon
-- "ACTIVAR", "ACEPTO EL LLAMADO" — cult recruitment language
-- "ADN", "frecuencia", "vibra" — new-age abstraction
-- "Gimnasia visual", "arquitecto de tu destino" — self-help clichés
-- Pill badges, uppercase tracking-widest labels, ghost numbers
+**Out:** Tech/military jargon, cult recruitment language, new-age abstraction, self-help cliches.
 
 ---
 
-## Page Structure: 6 Sections
+## Page Structure: 7 Sections
 
-### Section 1: Hero — "The Blindness We Share"
+### Section 1: Hero — "The Title Lands"
 
-**Emotional job:** Receive the visitor from La Visión. Name the shared condition — how we've all been trained to see in black and white — with empathy, not accusation.
+**Emotional job:** The title hits immediately. Then a two-line provocation names what this page is about — awakening during collapse.
 
-**Keep (visual):**
-- Mirror icon circle with gradient glow and pulse animation
-- Starfield background (50 particles)
-- "El Instante / Del Hombre Gris" split gradient typography
-- Dark radial gradient backdrop
+**Layout:** Full viewport height, text-centered, no decorative elements. Matches LaVision/Home hero pattern.
 
-**Remove:**
-- "ACTIVAR LA VISIÓN" PowerCTA
-- "LEER EL MANIFIESTO" outline button
-- CommitmentModal trigger (`onClick={() => setShowCommitmentModal(true)}`)
-- "El Espejo" pill badge under the mirror
+**Background:**
+- `#0a0a0a` base
+- Two soft ambient orbs: `slate-500/[0.04]` top-center, `purple-900/[0.04]` bottom-right
+- Subtle dot grid overlay: `pattern-dots` class at `opacity-20` (existing utility class, same as Home)
 
-**Messaging direction:**
+**Content, top to bottom:**
+1. Section pill: "La filosofia fundacional" — `text-[11px] uppercase tracking-[0.3em]`, `slate-300/70`, `bg-white/5 border border-white/[0.08] rounded-full`
+2. Title: **"El Instante del Hombre Gris"** — `font-black`, `text-[clamp(2.2rem,6vw,4.5rem)]`, silver gradient `from-white via-slate-200 to-slate-400`
+3. Provocation — `text-xl md:text-2xl text-slate-400/90`, two lines:
+   - *"Hay algo que pasa cuando un pais colapsa y nadie viene a salvarte."*
+   - *"Algunos se quiebran. Otros esperan. Y unos pocos despiertan."*
+4. Scroll hint — minimal mouse-scroll indicator (matching LaVision)
 
-The subtitle/paragraph replaces the current abstract copy ("Para una visión nueva, primero cambiamos la mirada. El Hombre Gris te entrena a leer la niebla...").
+**Animation:** Simple fade-up on load, `duration: 1.2`, `delay: 0.3`. No particles, no pulse, no scale.
 
-New direction: Name the binary vision we inherited. Left and right. Leader and follower. Hero and villain. We learned to see this way — in school, in media, in politics. And it exhausted us, because reality doesn't work in two colors. 
-
-The paragraph should feel like the opening of a founding text: it names a shared condition that the reader recognizes immediately, then plants the seed that there's another way to see. No explanation of what El Hombre Gris is yet — just the setup.
-
-**No CTAs.** The hero is pure philosophy. The name "El Instante del Hombre Gris" hangs in the air, unexplained. The visitor reads on to understand it.
-
-**Sample copy direction** (indicative, not final):
-> "Nos enseñaron a ver en blanco y negro. Izquierda o derecha. Líder o seguidor. Héroe o villano. Y nos cansamos — porque la realidad no funciona en dos colores."
+**Removed:** MirrorIcon circle, starfield particles (50 animated dots), external Unsplash image URL, purple gradient split text, `animate-pulse`.
 
 ---
 
-### Section 2: The Grey Thesis — "Gris No Es Lo Que Te Dijeron"
+### Section 2: El Instante — "The Moment You Can't Undo"
 
-**Emotional job:** The first inversion. Take the word "grey" — which everyone associates with mediocrity, blandness, the color of nothing — and turn it inside out. This is the core philosophical argument of the page.
+**Emotional job:** Define what "El Instante" means. Not a process, not a program — a single moment of clarity that can't be reversed.
 
-**Keep (visual):**
-- Silver polish animation (repurpose from the current "Llegada a Argentina" section — the animated gradient sweep across the bar element). This animation IS the argument made visual: grey becoming silver through refinement.
-- Glassmorphism card aesthetic for any supporting elements
-- Gradient backgrounds
+**Layout:** Single centered column, `max-w-3xl`. Editorial prose, no cards. `border-t border-white/5`.
 
-**Messaging structure (founding-text tone, flowing prose — not card labels):**
+**Background:** `from-[#0a0a0a] via-slate-900/[0.08] to-[#0a0a0a]`. Single muted ambient orb, centered. Quiet, intimate.
 
-1. **The assumption everyone carries** — Grey is the color of bureaucracy, of "ni fu ni fa", of the middle that stands for nothing. The color you'd never choose. Acknowledge this honestly.
+**Content:**
+1. Section pill: "El instante" — `slate-300/70`
+2. Heading: **"No se busca. Llega."** — `font-black`, `text-[clamp(1.5rem,3.5vw,2.5rem)]`
+3. Prose:
+   - P1: *Hay un momento en el que dejas de esperar que alguien arregle las cosas. No es rabia. No es resignacion. Es algo mas silencioso — como un foco que se ajusta solo y de golpe ves nitido lo que siempre estuvo borroso.*
+   - P2: *No tiene fecha. No necesita un libro, un maestro, ni una crisis particular. A veces pasa en un colectivo. A veces mirando las noticias. A veces en el medio de una discusion que venis repitiendo hace anos.*
+   - P3 (emphasized, `text-white font-semibold text-xl`): *Es el segundo exacto en el que dejas de delegar tu propia conciencia. Y despues de eso, no hay vuelta atras.*
 
-2. **The inversion** — Grey is what happens when light and shadow stop fighting. It's not the absence of color — it's the integration of all colors. It's synthesis, not surrender. The only position that can hold both extremes without choosing a tribe.
-
-3. **The Argentine key** — The word "gris" comes from the old French for *brilliant, silvered*. And "Argentina" comes from *argentum*: silver. The country is literally named after what grey becomes when you refine it. This isn't a metaphor we invented — it was already in the name of the nation, waiting to be read.
-
-4. **The provocation** — A country named Silver that forgot how to see its own shine. The grey of daily life — the commute, the struggle, the "no llego a fin de mes" — is raw silver. Not polished yet. Not worthless. The opposite: unrefined potential.
-
-**Visual treatment:** Text-dominant section. The silver polish animation serves as the visual anchor — a full-width or half-width element showing the grey-to-silver transformation. Prose flows around or above it. No 3-card grid here — this is a thesis, not a feature list.
-
-**Remove (from current page, folded into this section):**
-- "Por qué Hombre. Por qué Gris." identity cards section (the grey/silver content merges here; the "Hombre" etymology moves to Section 4)
-- "Llegada a Argentina" as a separate section (its best content and visual merge here)
+**Animation:** Fade-up, `duration: 0.8`. No decorative elements.
 
 ---
 
-### Section 3: The Sight Thesis — "Ver De Otra Manera"
+### Section 3: El Hombre — "From the Earth, Not the Pedestal"
 
-**Emotional job:** The second inversion. You thought you were seeing clearly. You weren't. You were trained to consume a narrative, not read the patterns underneath. The Hombre Gris is someone who learns to see in grey — to read what's actually happening.
+**Emotional job:** Ground the word "Hombre" — not gender, not hero. Earth, humility, anonymity. The grey man is nobody special.
 
-**Keep (visual):**
-- Vision frames card style (glassmorphism, icon + text, hover effects). Three cards work here — they represent three aspects of the new sight.
-- Gradient background shifts
+**Layout:** Single centered column, `max-w-3xl`. Editorial prose. `border-t border-white/5`.
 
-**Messaging structure:**
+**Background:** `from-[#0a0a0a] via-[#0d0d14] to-[#0a0a0a]`. Ambient orb, `purple-900/[0.03]`.
 
-This section answers: "OK, grey isn't what I thought. But what does 'seeing in grey' actually mean?"
+**Content:**
+1. Section pill: "El hombre" — `purple-300/70`
+2. Heading: **"De la tierra, no del pedestal"** — `font-black`, clamp sizing
+3. Prose:
+   - P1: *La palabra "hombre" viene del latin homo, que viene de humus: tierra, suelo. La misma raiz que humildad. No es un titulo — es una condicion. La de quien acepta ser parte del barro antes de pretender dar lecciones.*
+   - P2: *El que despierta no se convierte en lider. No tiene nombre, no tiene escenario, no junta seguidores. Camina entre la gente y nadie lo nota — porque no necesita que lo noten. Desperto en el medio del derrumbe, no antes. No es especial. Simplemente dejo de mirar para otro lado.*
+   - P3 (emphasized, `text-white font-semibold text-xl`): *No es otro. Es cualquiera que decide dejar de esperar y empezar a construir sin pedir permiso ni aplausos.*
 
-Three aspects of grey sight (replacing the current "Mirar la trama" / "Ver la tercera vía" / "Refinar la realidad" cards, which had the right idea but wrong tone):
-
-1. **Read patterns, not headlines** — Stop consuming the story you're being fed. Look at flows, causes, systems. What's actually moving underneath the noise? This isn't cynicism — it's attention.
-
-2. **Integrate, don't polarize** — The grey zone between black and white is where every real solution lives. Not compromise — synthesis. Take the best of both extremes and build something neither side imagined.
-
-3. **Refine, don't react** — Like silver in fire, clarity comes from sustained heat. Don't react to the crisis of the day. Stay in the process. The reflection appears when you stop flinching.
-
-**Tone:** These are not "training steps" or "modes." They're descriptions of what it feels like to see differently. Written warmly, as someone sharing what they've discovered — not instructions from above.
-
-**Remove:**
-- "Nueva visión, nueva forma de ver" section heading language
-- Manifesto quote block and "LEER EL MANIFIESTO" button within this section
-- Sparkles decorative icons
+**Animation:** Fade-up, `duration: 0.8`.
 
 ---
 
-### Section 4: "Hombre" — The Name Decoded
+### Section 4: El Gris — "The Silver Beneath"
 
-**Emotional job:** Complete the etymological journey. The visitor now understands grey/silver. Now ground the word "Hombre" — not as gender, not as hero, but as earth and humility.
+**Emotional job:** The core inversion. Grey isn't mediocrity — it's unpolished silver. Argentina carries this in its name.
 
-**Keep (visual):**
-- Can reuse a card or text-block style. This section can be shorter — it completes the name, not a full thesis.
-- The mirror metaphor visual from the current identity section ("El espejo" card content)
+**Layout:** Two-column on desktop (`lg:grid-cols-2`), stacked on mobile. Prose left, atmospheric silver panel right. `border-t border-white/5`.
 
-**Messaging:**
+**Background:** `from-[#0a0a0a] via-[#0d0d14] to-[#0a0a0a]` with slate ambient orb on right side.
 
-- *Hombre* comes from Latin *homo*, from *humus*: soil, earth. The same root as *humildad* (humility). It's not about being male — it's about being grounded. Feet on the earth. Anyone.
-- *El Instante* — the moment of shift. Not a process, not a program. A click. The instant you stop seeing in binary and start seeing in grey. Everyone has this moment. Most ignore it. This page is for people who don't.
-- The "mirror" idea lands here: El Hombre Gris isn't someone else. It's your reflection when you stop delegating your own conscience. When grey becomes silver in you.
+**Left column — Prose:**
+1. Section pill: "El gris" — `slate-300/70`
+2. Heading: **"El color que te ensenaron a despreciar"** — `font-black`, clamp sizing
+3. Prose:
+   - P1: *Te dijeron que gris es burocracia. Ni fu ni fa. El color del tibio, del que no molesta. El color de la mediocridad comoda.*
+   - P2: *Pero gris es lo que aparece cuando sostenes la luz y la sombra en la misma mirada. No elegis un bando — elegis ver todo el tablero. No es tibieza. Es sintesis.*
+   - P3 (emphasized, `text-white font-semibold`): *La palabra gris viene del frances antiguo: brillante, plateado. Y Argentina viene de argentum — plata. Un pais con nombre de metal que brilla cuando se refina en el fuego. Un pais entero que se olvido de lo que lleva en el nombre.*
+   - P4: *El gris de todos los dias — el bondi, la lucha, el "no llego a fin de mes" — es plata sin pulir. No es descarte. Es potencial crudo esperando el fuego que lo aclare.*
 
-**Visual treatment:** Centered text block with the MirrorIcon repurposed as a visual anchor, wrapped in a single glassmorphism card. Not a 3-column grid — this is personal, singular.
+**Right column — Atmospheric silver panel:**
+- Tall `aspect-[3/4]` rounded container: `bg-gradient-to-br from-[#0f141b] to-[#0b0f14]`, `border border-white/[0.06]`, `rounded-2xl`
+- Silver polish sweep animation as background texture: same linear-gradient sweep as current but at `opacity: 0.3`, decorative not focal
+- Centered ghost watermark text: "GRIS → PLATA" in `text-slate-500/20`, large serif
+- Small `h-[2px]` silver gradient bar underneath the text
+- The container is atmospheric, not competing with the prose
 
-**Remove:**
-- "ZONA GRIS" labels
-- "Etimología y reflejo" pill badge
-- The three separate identity cards (their content is woven into prose)
-
----
-
-### Section 5: The Three Foundations — "En Qué Se Sostiene"
-
-**Emotional job:** Now that the philosophy is established (grey seeing, integration, silver, humility), ground it in three practical stances. These are what the current "ADN del Hombre Gris" section was trying to do, but reframed from abstract traits to lived commitments.
-
-**Keep (visual):**
-- Three-card grid with glassmorphism, gradient icons, hover effects. The current DNA card design is beautiful — keep the visual structure.
-- The gradient icon containers and accent colors
-
-**Remove:**
-- "ADN del Hombre Gris" heading (too clinical)
-- "No es una persona, es una frecuencia" subtitle (new-age)
-- "PAX" reference in quotes
-- "Acción:" labels (self-help homework tone)
-- Font-mono quote styling
-
-**The three foundations (rewritten for founding-text tone):**
-
-1. **Humildad radical** — Humility isn't weakness, it's precision. You lower the ego so you can actually see what's in front of you. You listen before you speak. You let the best idea win, even when it's not yours. In a country addicted to caudillos, this is the most revolutionary act possible.
-
-2. **Verdad que integra** — Truth isn't a weapon you throw at the other side. It's the grey zone where you hold what's real without flinching — even when it's uncomfortable, even when it implicates you. Not "my truth" vs "your truth." The truth that emerges when you stop defending a position.
-
-3. **Servicio invisible** — Service isn't charity and it's not a stage. It's redesigning the thing so it works for everyone, then stepping back. The strongest infrastructure is the kind nobody notices because it just works. Build that.
-
-**Copy for each card:** A short paragraph in founding-text tone (2-3 sentences). No quotes, no "action items." The philosophy speaks for itself.
+**Animation:** Prose fades up on scroll. Right column slides in from right with `x: 30`.
 
 ---
 
-### Section 6: The Threshold — → La Semilla
+### Section 5: La Mirada Gris — "Three Ways of Seeing" (Cards)
 
-**Emotional job:** The page doesn't end with a pitch. It ends with a natural forward pull. The philosophy has landed. If you felt it, there's a next step. If not, that's fine too.
+**Emotional job:** Now that grey is redefined, what does "seeing in grey" look like in practice? Three concrete aspects.
 
-**Keep (visual):**
-- NextStepCard component structure (gradient background, icon, transition feel)
-- The Sprout icon — it's the right metaphor for what comes next
+**Layout:** Centered section, 3-column card grid on desktop. `border-t border-white/5`.
 
-**Remove:**
-- The current closing pattern Q&A section ("Qué estamos viendo" / "Qué hacemos ahora" / etc.) — this was a summary of a page that no longer needs summarizing
-- "Badge unlock" floating notification and `isAwakened` state
-- Second CommitmentModal trigger ("SÍ, ACEPTO EL LLAMADO")
-- Crown icon and "¿Sos vos?" card
+**Background:** `from-[#0a0a0a] via-indigo-900/[0.04] to-[#0a0a0a]`. Subtle ambient orb center.
 
-**The CTA:**
+**Header:**
+1. Section pill: "La mirada gris" — `indigo-300/70`
+2. Heading: **"Ver de otra manera"** — `font-black`, clamp sizing
+3. Subtext: seeing in grey is a discipline, not indecision — light copy polish of current
 
-Single, quiet, integrated. Not a "CALL TO ACTION" — a continuation. The philosophy just named what you already feel. La Semilla is where that feeling becomes something concrete.
+**Cards — platform-aligned styling (matching Home):**
+- `bg-white/[0.02]` with per-card colored border
+- Top accent line: `h-[3px] bg-gradient-to-r` in card's accent color
+- Icon in colored bg circle: `bg-{color}-500/10 border border-{color}-500/20`
+- Hover: `group-hover:border-{color}-500/40`, `group-hover:shadow-[0_0_40px_rgba(...,0.12)]`
+- `rounded-2xl` (not `rounded-3xl`)
 
-Copy direction (indicative):
-> "Si algo de esto ya lo sentías antes de leerlo, lo que sigue es darle forma."
-> → Ir a La Semilla
+**Card content:**
+1. **"Leer patrones, no titulares"** — Eye icon, indigo accent. Copy lightly trimmed for punch.
+2. **"Integrar, no polarizar"** — Shield icon, purple accent. Copy kept.
+3. **"Refinar, no reaccionar"** — Lightbulb icon, amber accent. Copy kept (fire/silver metaphor echoes source).
+
+**Animation:** Staggered fade-up on scroll, `delay: index * 0.1`.
+
+---
+
+### Section 6: Los Cimientos — "What Sustains It" (Editorial Blocks)
+
+**Emotional job:** Ground the philosophy in three lived commitments. These are not abstract values — they're how you show up.
+
+**Layout:** Numbered editorial blocks (matching Home's differentiators). `max-w-4xl` centered. Each block has left border accent + ghost number. `border-t border-white/5`.
+
+**Background:** `from-[#0a0a0a] via-purple-900/[0.04] to-[#0a0a0a]`.
+
+**Header:**
+1. Section pill: "Los cimientos" — `purple-300/70`
+2. Heading: **"En que se sostiene"** — `font-black`, clamp sizing
+3. Subtext: *"Si vas a ver de otra manera, necesitas pararte en algo solido. No son valores abstractos — son posturas que se prueban todos los dias."*
+
+**Three numbered blocks:**
+
+Each block:
+- `border-l-4` in accent color
+- Ghost number (`01`, `02`, `03`) — large semi-transparent type, top-right, `text-[5rem] md:text-[6rem] font-black text-{color}-500/[0.07]`
+- Title: `text-xl md:text-2xl font-bold text-white`
+- Prose: `text-slate-400 leading-relaxed max-w-2xl`
+
+**01 — "Humildad radical"** — `border-l-blue-500`, `bg-blue-400` dot
+*No es modestia. No es bajarse. Es precision: bajas el ruido del ego para ver lo que tenes enfrente. Escuchas antes de hablar. Dejas que gane la mejor idea, aunque no sea tuya. En un pais adicto a los caudillos, no tener nombre es el acto mas revolucionario posible.*
+
+**02 — "Amor que reconstruye"** — `border-l-purple-500`, `bg-purple-400` dot
+*No el amor de las canciones ni el de los discursos. El amor operativo — el que se levanta a las cinco a construir algo que no va a llevar su firma. El que sostiene al otro sin condiciones y sin camaras. La fuerza que el gris lleva adentro no es verdad ni razon. Es amor convertido en infraestructura.*
+
+**03 — "Servicio sin nombre"** — `border-l-amber-500`, `bg-amber-400` dot
+*Servir no es caridad y no es un escenario. Es redisenar la cosa para que funcione para todos y despues dar un paso atras. La infraestructura mas fuerte es la que nadie nota porque simplemente funciona. Construis eso — y te vas sin dejar tarjeta.*
+
+**Animation:** Staggered fade + slide from left (`x: -20`), `delay: index * 0.12`.
+
+---
+
+### Section 7: NextStepCard — La Semilla
+
+**Emotional job:** Natural forward pull. If you felt it, here's the next step. No pitch.
+
+**Implementation:** Existing `NextStepCard` component, no structural changes.
+
+- Title: "Si algo de esto ya lo sentias antes de leerlo"
+- Description: "Lo que sigue es darle forma. En La Semilla plantas tu primer compromiso concreto — no una promesa abstracta, sino algo que podes sostener."
+- Link: `/la-semilla-de-basta`
+- Icon: `Sprout`
+- Gradient: `from-[#1f2335] to-[#3b275c]`
 
 ---
 
 ## Components Summary
 
 ### Removed from page:
-- `PowerCTA` — both instances (hero + awakening section)
-- `CommitmentModal` — entire modal and all triggers
-- `showCommitmentModal` state
-- `isAwakened` state and badge unlock floating notification
-- Six citizen roles section (Testigo, Declarante, Constructor, Custodio, Organizador, Narrador) — entire section
-- "LEER EL MANIFIESTO" buttons (both instances)
-- "El Espejo" pill badge
-- "Etimología y reflejo" pill badge
-- "ZONA GRIS" labels
-- Closing Pattern Q&A section
-- Manifesto quote block (from "Nueva visión" section)
+- `MirrorIcon` SVG component — entire component definition
+- Starfield particle effect (50 animated `motion.div` dots)
+- External Unsplash image URL
+- `animate-pulse` on any element
+- `greyVisionCards` icon sizing at `w-10 h-10` (replaced by platform pattern)
+- Glassmorphism card style (`bg-white/5 backdrop-blur-md border-white/10 rounded-3xl`)
 
-### Kept & modified:
-- `MirrorIcon` SVG — keep, used in hero and potentially section 4
-- Starfield particles (50) — keep in hero
-- Silver polish animation — move from "Llegada a Argentina" to Section 2 (grey thesis)
-- `NextStepCard` — keep, update copy to point to La Semilla with new messaging
-- Three-card grid layout — reuse for Section 5 (foundations) with new copy
-- Vision frames card layout — reuse for Section 3 (sight thesis) with new copy
+### Replaced:
+- `greyVisionCards` array — rewritten with platform card styling, same content with light polish
+- `foundations` array — removed as card data, content rewritten as editorial prose blocks
+- Hero section — completely rebuilt as text-forward
+- Section order — reorganized: Instante → Hombre → Gris → Mirada → Cimientos
+
+### Kept:
+- `NextStepCard` component — unchanged, copy updated
 - `Header` / `Footer` — unchanged
 - Dark theme `bg-[#0a0a0a]` — unchanged
-- Framer Motion scroll-triggered animations — unchanged
-- Glassmorphism card styling — unchanged
+- Framer Motion scroll-triggered animations — simplified (fade-up only, no scale/pulse)
+- Silver polish sweep animation — moved to Section 4 right panel as background texture
+- Lucide icons: `Eye`, `Shield`, `Lightbulb`, `Sprout` kept; `Heart`, `Feather` removed
 
-### State simplification:
-- **Remove:** `showCommitmentModal`, `isAwakened`
-- **Keep:** `containerRef` for scroll behavior
+### Imports simplified:
+- Remove: `useId` (was for MirrorIcon gradient IDs)
+- Keep: `useEffect`, `motion`, Lucide icons (reduced set)
 
-### Data arrays rewritten:
-- `hombreGrisDNA` → rewritten with founding-text tone (Section 5)
-- `visionFrames` → rewritten with new sight thesis content (Section 3)
-- `identityFrames` → removed as separate array, content woven into Section 2 and 4 prose
-- `awakeningSteps` → removed (was "Entrena tu mirada en gris")
-- Six roles inline array → removed entirely
+### State:
+- Remove: none needed (current page already has no complex state)
+- `useEffect` for `scrollTo(0,0)` and `document.title` — kept
 
 ---
 
 ## What's NOT Covered
 
-- Final copy — all sample text is directional, not final. The actual writing is implementation work.
-- La Semilla page improvements — noted as future work.
-- Where the six roles go (may appear on a different page, or not at all).
-- The manifesto page (`/manifiesto`) — this page no longer links to it, but the manifesto page itself is unchanged.
-- Responsive breakpoints — keep existing responsive behavior.
+- Final copy polish — prose is directional, may be refined during implementation
+- Responsive breakpoints — keep existing responsive behavior
+- Other pages — no changes to LaVision, LaSemilla, Home, or any other page
+- The manifesto page (`/manifiesto`) — unchanged
