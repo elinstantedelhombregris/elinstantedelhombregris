@@ -278,46 +278,46 @@ NOTAS DE PORTABILIDAD:
  guitarra acústica se suma en compás 5, 15 segundos]
 
 [Verso 1 — energía 4/10, voz íntima, casi hablada, como contando en una mesa]
-Hace rato que el reloj no marca la hora
-sino el peso de los días que se van sin dar pelea *(rubato, fraseo libre)*
-Hace rato que miramos la vereda
-como si la grieta fuera nuestra y no de ellos — [descenso melódico en "ellos"]
+Sembraron sal en la memoria *(fraseo libre, la voz entra como un pensamiento)*
+nos enseñaron a mirar el suelo — [descenso melódico, peso en "suelo"]
+Dijeron: gris es todo lo que hay
+bajá la voz, no hagas ruido, tené miedo *(casi hablado, como órdenes recibidas)*
 
-Nos vendieron que ser grises era el precio
-de tener aunque sea un plato puesto en la mesa *(la voz se oscurece)*
-Nos dijeron conformate, no hagas ruido
-que tu gris no vale nada, que tu plata no es de acero
+Pero la lluvia no sabe que es diluvio *(la voz se eleva, primer destello de luz)*
+y la semilla no sabe que es el monte — [ascenso sutil en "monte"]
+Crecimos grises, de a poquito *(ternura, intimidad, "de a poquito" muy rioplatense)*
+sin saber que el gris ya era la plata — [la revelación susurrada, semilla del tema]
 
 [Pre-Estribillo 1 — build de 4/10 a 7/10, la voz se abre, la batería abre al ride]
 Pero el gris tiene memoria — [ascenso de un tono]
 y la plata no se olvida — [otro tono arriba]
-[PIVOTE NOSOTROS: aquí la voz pasa de "nos dijeron" a "sabemos"]
+[PIVOTE NOSOTROS: "nos enseñaron" (pasivos) → "sabemos" (soberanos)]
 Hoy sabemos lo que somos — [la voz llena el pecho, belt medio]
 y lo que siempre hemos sido — [heartbeat fill: boom-boom-boom-BOOM]
 
 [Estribillo 1 — MODULACIÓN Am → A MAYOR, energía 8/10, coro unísono,
  DISEÑADO PARA CANTO MASIVO]
 Ya somos la plata *(4ta justa ascendente en "YA", nota más alta en "PLA-ta")*
-ya no somos el olvido *(descenso gradual, sentencia)*
-ya dijimos basta *(acento fuerte en "BAS-ta", el puño del tema)*
+ya brilla lo que enterraron *(descenso gradual — lo enterrado sale a la luz)*
+Ya dijimos basta *(acento fuerte en "BAS-ta", el puño del tema)*
 y nadie nos va a apagar *(descenso cromático — sentencia inapelable)*
 [Punto de Frisson menor: la primera vez que la banda entra en A mayor después
  de todo el verso en Am — el cuerpo siente la luz antes de entender por qué]
 *(repetir estribillo 1x — la segunda vez el coro es más fuerte que la voz)*
 
-[Verso 2 — energía 5/10, un grado más de determinación, ya no cuenta: declara]
-Hay un río que nos corre por las venas
-y ese río tiene nombre y tiene fuerza y tiene orilla *(acelerando sutil)*
-Hay un fuego en cada pueblo, en cada escuela
-en cada mano que se cierra y que se abre y que se ofrece
+[Verso 2 — energía 5/10, un grado más de intensidad, ya no diagnostica: PINTA]
+Debajo del cemento crece un bosque *(imagen inaugural, la fuerza oculta)*
+la raíz empuja hasta romper la piedra — [eco de "Rasguña las Piedras", renacido]
+Cada mano que despierta es una estrella *(la voz abre el pecho, la imagen sube)*
+ya somos un cielo que nadie va a tapar — [ascenso en "cielo", expansión]
 
-No vinimos a pedir lo que nos deben
-vinimos a construir lo que soñamos con los ojos bien abiertos *(la voz crece)*
-Cada barrio es una patria que despierta
-cada pibe es un futuro que ya no van a robarnos — [ascenso en "robarnos"]
+No vinimos a pedir, vinimos a crear *(declaración, la voz firme, directa)*
+las manos en la tierra, los ojos en el sol *(imagen doble: raíz + horizonte)*
+Cada barrio es una hoguera que se enciende *(acelerando sutil, contagio)*
+cada pibe un futuro que nadie va a robar — [ascenso en "robar", desafío]
 
 [Pre-Estribillo 2 — build 5/10 a 8/10, cuerdas entran con nota pedal ascendente]
-Y la tierra lo recuerda — [las cuerdas empujan]
+Y la tierra ya lo sabe — [las cuerdas empujan]
 y la sangre no negocia — [más volumen]
 Hoy sabemos lo que somos
 y lo que vamos a ser — [cambio: "hemos sido" → "vamos a ser", futuro]
@@ -325,8 +325,8 @@ y lo que vamos a ser — [cambio: "hemos sido" → "vamos a ser", futuro]
 
 [Estribillo 2 — energía 9/10, cuerdas completas, coro en unísono + octava]
 Ya somos la plata
-ya no somos el olvido
-ya dijimos basta
+ya brilla lo que enterraron
+Ya dijimos basta
 y nadie nos va a apagar
 *(repetir — coro más fuerte, cuerdas ascendentes)*
 
@@ -334,8 +334,9 @@ y nadie nos va a apagar
  el momento más íntimo y el más poderoso]
 *(la banda DESAPARECE de golpe — solo quedan las teclas y una voz)*
 Argentina... *(hablado, casi un suspiro, en D3)*
-me dijeron que tu nombre era la plata *(notas repetidas, como latidos)*
-que te hicieron creer que eras de barro *(la voz tiembla, quiebre permitido)*
+me dijeron que tu nombre quiere decir plata *(notas repetidas, como latidos —
+ "quiere decir" = el nombre MISMO quiere hablar, está vivo)*
+y después te hicieron creer que eras de barro *(la voz tiembla, quiebre permitido)*
 pero yo puse las manos en la tierra *(ascenso mínimo, esperanza)*
 y encontré... *(pausa de medio segundo — el silencio MÁS pesado del tema)*
 ...plata *(SALTO de 6ta mayor: D3 → B3. Piano toca A MAYOR. PUNTO DE FRISSON
@@ -349,14 +350,14 @@ y encontré... *(pausa de medio segundo — el silencio MÁS pesado del tema)*
 "Vamo'" *(ad-lib, gritado, espontáneo)*
 
 Ya somos la plata *(full band + cuerdas + coro masivo)*
-ya no somos el olvido
-ya dijimos basta
+ya brilla lo que enterraron
+Ya dijimos basta
 y nadie nos va a apagar *(el bombo legüero ENTRA en cada 1 — la raíz)*
 
 *(compás 9: la banda CORTA DE GOLPE)*
 *(SOLO CORO a capella, miles de voces, desordenado, real, como cancha:)*
 Ya somos la plata... *(PUNTO DE FRISSON 2 — humanidad pura sin instrumentos)*
-ya no somos el olvido...
+ya brilla lo que enterraron...
 *(2 compases de voces solas — el momento más grande del tema)*
 
 *(la banda VUELVE con todo para los últimos 4 compases, fff)*
@@ -368,9 +369,9 @@ ya no somos el olvido...
  Open loop: la canción no termina — se muda a vivir en tu cabeza]
 ```
 
-**Registro lingüístico:** Rioplatense poético. No lunfardo, no formal — el español de alguien educado que habla desde las tripas. "Pibe", "vamo'", "barrio" conviven con "memoria", "soberanía", "construir". Es el rock nacional: poesía callejera.
+**Registro lingüístico:** Rioplatense poético. "De a poquito", "bajá", "tené", "vamo'", "pibe", "barrio" — el español de quien creció acá. Convive con imágenes de potencia lírica: "sembraron sal en la memoria", "la semilla no sabe que es el monte", "cada mano que despierta es una estrella". Es el rock nacional en su tradición más alta: Spinetta + Gieco + Cerati. Poesía que se canta en la calle.
 
-**Modo de mensaje:** Revelación poética. La canción no DICE "Argentina es valiosa" — MUESTRA a alguien poniendo las manos en la tierra y encontrando plata. No argumenta — pinta. La imagen central (gris que es plata) hace el trabajo que mil discursos no pueden.
+**Modo de mensaje:** Revelación poética. La canción no ARGUMENTA — PINTA. "Sembraron sal" es imagen, no queja. "La lluvia no sabe que es diluvio" es filosofía hecha canción. "Puse las manos en la tierra / y encontré plata" es una acción, no un concepto. El oyente VE, SIENTE y ENTIENDE — en ese orden.
 
 ## Sección 5: Anatomía del Alma
 
@@ -399,11 +400,11 @@ MOMENTO DE DESPERTAR: El puente — compás 7. Después de la palabra "encontré
   a mayor resuelve la tensión armónica acumulada en TODO el tema.
 
 PIVOTE "NOSOTROS": Pre-Estribillo 1, línea 3: "Hoy sabemos lo que somos". El sujeto
-  pasa de "nos vendieron" / "nos dijeron" (nosotros pasivos, víctimas) a "sabemos"
-  (nosotros activos, soberanos). La línea anterior es "y la plata no se olvida" —
-  ahí el "nosotros" está implícito en "la plata". En "sabemos", se hace explícito.
-  El oyente no nota el cambio conscientemente — su cuerpo ya se unió al "nosotros"
-  dos líneas antes.
+  pasa de "nos enseñaron" / "dijeron" (nosotros pasivos, receptores de órdenes) a
+  "sabemos" (nosotros activos, soberanos). Verso 1 tiene 3 imperativos recibidos
+  ("bajá", "no hagas", "tené") — la voz de la opresión. "Sabemos" es la primera
+  vez que el sujeto HABLA en vez de recibir órdenes. El oyente lo siente en el
+  cuerpo antes de notarlo con la mente.
 
 LÍNEA MEMÉTICA: "Ya somos la plata"
   — 4 palabras. 7 sílabas. Pura vocal abierta (a-o-o-a-a-a).
@@ -425,9 +426,11 @@ ANCLAJE INTERGENERACIONAL:
   — "Solo le pido a Dios" (Gieco): La estructura de himno-plegaria como base
     emocional. El abuelo reconoce el ADN de Gieco en la honestidad vocal y la
     progresión emocional
-  — "Rasguña las Piedras" (Charly): El concepto de empujar desde abajo hacia
-    la luz — "encontré plata" invierte y continúa "rasguñar las piedras" (ya
-    no rasguñamos — encontramos)
+  — "Rasguña las Piedras" (Charly): "La raíz empuja hasta romper la piedra"
+    es la continuación directa de "rasguñar las piedras" — ya no rasguñamos
+    desde abajo, ahora la raíz ROMPE la piedra desde adentro. Y "encontré
+    plata" cierra el arco: lo que Charly buscaba rasguñando, nosotros lo
+    encontramos
   — "En la Ciudad de la Furia" (Cerati): La épica del arreglo, las cuerdas, el
     build de intimidad a sinfonía. El padre rockero reconoce a Soda en el ADN
     sonoro
@@ -458,19 +461,19 @@ TEST DE DESNUDEZ (Stripped Test):
   Pregunta: Solo voz + guitarra acústica, ¿sigue emocionando?
   Resultado: PASA
   Justificación: La melodía del estribillo es pentatónica y memorable sin
-    arreglo. La letra del puente ("puse las manos en la tierra / y encontré...
-    plata") funciona con una sola guitarra criolla y una voz. El salto de 6ta
-    en "plata" emociona con o sin piano. Los versos cuentan una historia
-    que sostiene atención sin producción. En un fogón con una guitarra, este
-    tema hace llorar.
+    arreglo. "Sembraron sal en la memoria" funciona como verso hablado con
+    una guitarra. "La lluvia no sabe que es diluvio" es poesía que sostiene
+    sola. El puente ("puse las manos en la tierra / y encontré... plata")
+    funciona con una sola guitarra criolla. El salto de 6ta en "plata"
+    emociona con o sin piano. En un fogón, este tema hace silencio.
 
 TEST DEL DÍA DESPUÉS:
   Pregunta: ¿Podés tararear el estribillo 24 horas después?
   Resultado: PASA
-  Justificación: "Ya somos la plata / ya no somos el olvido / ya dijimos basta /
-    y nadie nos va a apagar" — 4 líneas, melodía pentatónica con contorno de
-    arco (sube-baja-sube-baja), ritmo silábico que coincide con el habla
-    natural. La 4ta justa ascendente de "YA somos" es el intervalo más
+  Justificación: "Ya somos la plata / ya brilla lo que enterraron / ya dijimos
+    basta / y nadie nos va a apagar" — 4 líneas, melodía pentatónica con
+    contorno de arco (sube-baja-sube-baja), ritmo silábico que coincide con
+    el habla natural. La 4ta justa ascendente de "YA somos" es el intervalo más
     memorable en la música occidental (es el inicio de "La Marcha Imperial",
     "Here Comes the Bride", el Himno Nacional). El open loop del outro
     (riff de 4 notas que queda sonando) refuerza: el cerebro sigue intentando
@@ -499,10 +502,10 @@ TEST DE ESCALABILIDAD EN VIVO:
 
 TEST DE CLIP VIRAL:
   Segmento: Puente compás 1 → Estribillo Final compás 4
-  Contenido: "Argentina... me dijeron que tu nombre era la plata / que te
-    hicieron creer que eras de barro / pero yo puse las manos en la tierra /
-    y encontré... [silencio] ...plata" → EXPLOSIÓN de banda → "Ya somos la
-    plata / ya no somos el olvido"
+  Contenido: "Argentina... me dijeron que tu nombre quiere decir plata /
+    y después te hicieron creer que eras de barro / pero yo puse las manos
+    en la tierra / y encontré... [silencio] ...plata" → EXPLOSIÓN de banda
+    → "Ya somos la plata / ya brilla lo que enterraron"
   Duración: ~25 segundos
   Justificación: Emocionalmente autocontenido (historia completa: tierra →
     revelación → explosión). Visualmente sugestivo (se pueden hacer miles de
@@ -520,7 +523,7 @@ TEST DE COHERENCIA ¡BASTA!:
     "La plata" no es un slogan — es la metáfora central que conecta con
     Argentina = argentum = plata = valor propio. PLANREP (soberanía del
     pueblo) vive en "hoy sabemos lo que somos" sin necesidad de mencionarlo.
-    PLANRUTA (empezar de cero) vive en "vinimos a construir lo que soñamos".
+    PLANRUTA (empezar de cero) vive en "no vinimos a pedir, vinimos a crear".
     Los pilares están DENTRO del género, no SOBRE él — un oyente sin
     conocimiento del movimiento escucha un himno de identidad nacional.
     Un oyente despierto escucha el manifiesto completo.
@@ -536,13 +539,13 @@ SEGMENTO VIRAL:
 
   Contenido lírico:
     "Argentina...
-     me dijeron que tu nombre era la plata
-     que te hicieron creer que eras de barro
+     me dijeron que tu nombre quiere decir plata
+     y después te hicieron creer que eras de barro
      pero yo puse las manos en la tierra
      y encontré... plata
      [explosión de banda]
      Ya somos la plata
-     ya no somos el olvido"
+     ya brilla lo que enterraron"
 
   Por qué funciona como clip standalone:
     - Emocionalmente autocontenido: Sí — arco narrativo completo en 25 segundos
@@ -558,9 +561,9 @@ SEGMENTO VIRAL:
       puente provoca levantar los brazos, cerrar los puños, saltar. Es
       involuntario — el contraste dinámico activa la respuesta motora
     - Funciona sin contexto: Sí — cualquier argentino entiende "te hicieron
-      creer que eras de barro / pero yo puse las manos en la tierra / y
-      encontré plata". No necesita contexto político. Es una verdad universal
-      envuelta en metáfora nacional
+      creer que eras de barro / pero yo puse las manos en la tierra / y encontré
+      plata". No necesita contexto político. Es una verdad universal envuelta
+      en metáfora nacional
 ```
 
 ---
@@ -581,15 +584,15 @@ Argentine rock nacional, anthemic, epic, 118 bpm, A minor to A major, acoustic g
 [Intro]
 
 [Verse 1]
-Hace rato que el reloj no marca la hora
-sino el peso de los días que se van sin dar pelea
-Hace rato que miramos la vereda
-como si la grieta fuera nuestra y no de ellos
+Sembraron sal en la memoria
+nos enseñaron a mirar el suelo
+Dijeron: gris es todo lo que hay
+bajá la voz, no hagas ruido, tené miedo
 
-Nos vendieron que ser grises era el precio
-de tener aunque sea un plato puesto en la mesa
-Nos dijeron conformate, no hagas ruido
-que tu gris no vale nada, que tu plata no es de acero
+Pero la lluvia no sabe que es diluvio
+y la semilla no sabe que es el monte
+Crecimos grises, de a poquito
+sin saber que el gris ya era la plata
 
 [Pre-Chorus]
 Pero el gris tiene memoria
@@ -599,64 +602,64 @@ y lo que siempre hemos sido
 
 [Chorus]
 Ya somos la plata
-ya no somos el olvido
+ya brilla lo que enterraron
 Ya dijimos basta
 y nadie nos va a apagar
 
 Ya somos la plata
-ya no somos el olvido
+ya brilla lo que enterraron
 Ya dijimos basta
 y nadie nos va a apagar
 
 [Verse 2]
-Hay un río que nos corre por las venas
-y ese río tiene nombre y tiene fuerza y tiene orilla
-Hay un fuego en cada pueblo, en cada escuela
-en cada mano que se cierra y que se abre y que se ofrece
+Debajo del cemento crece un bosque
+la raíz empuja hasta romper la piedra
+Cada mano que despierta es una estrella
+ya somos un cielo que nadie va a tapar
 
-No vinimos a pedir lo que nos deben
-vinimos a construir lo que soñamos con los ojos bien abiertos
-Cada barrio es una patria que despierta
-cada pibe es un futuro que ya no van a robarnos
+No vinimos a pedir, vinimos a crear
+las manos en la tierra, los ojos en el sol
+Cada barrio es una hoguera que se enciende
+cada pibe un futuro que nadie va a robar
 
 [Pre-Chorus]
-Y la tierra lo recuerda
+Y la tierra ya lo sabe
 y la sangre no negocia
 Hoy sabemos lo que somos
 y lo que vamos a ser
 
 [Chorus]
 Ya somos la plata
-ya no somos el olvido
+ya brilla lo que enterraron
 Ya dijimos basta
 y nadie nos va a apagar
 
 Ya somos la plata
-ya no somos el olvido
+ya brilla lo que enterraron
 Ya dijimos basta
 y nadie nos va a apagar
 
 [Bridge]
 Argentina...
-me dijeron que tu nombre era la plata
-que te hicieron creer que eras de barro
-pero yo puse las manos en la tierra
+me dijeron que tu nombre quiere decir plata
+y después te hicieron creer que eras de barro
+Pero yo puse las manos en la tierra
 y encontré...
 ...plata
 
 [Chorus]
 Ya somos la plata
-ya no somos el olvido
+ya brilla lo que enterraron
 Ya dijimos basta
 y nadie nos va a apagar
 
 Ya somos la plata
-ya no somos el olvido
+ya brilla lo que enterraron
 Ya dijimos basta
 y nadie nos va a apagar
 
 Ya somos la plata
-ya no somos el olvido
+ya brilla lo que enterraron
 ¡Ya dijimos basta!
 ¡Y nadie nos va a apagar!
 
