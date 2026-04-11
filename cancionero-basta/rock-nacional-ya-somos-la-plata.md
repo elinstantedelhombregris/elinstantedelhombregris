@@ -562,3 +562,103 @@ SEGMENTO VIRAL:
       encontré plata". No necesita contexto político. Es una verdad universal
       envuelta en metáfora nacional
 ```
+
+---
+
+## Sección 8: Suno — Style Prompt (≤1000 caracteres)
+
+Pegar directamente en el campo "Style of Music" de Suno:
+
+```
+Argentine rock nacional, anthemic, epic, 118 bpm, A minor to A major, acoustic guitar, electric guitar, bass, drums, piano, string orchestra, crowd choir, bombo legüero, passionate male vocals, raw, emotional, stadium anthem, Latin American, protest song, revolutionary, hopeful, building dynamics from intimate to massive, orchestral rock crescendo, León Gieco meets Soda Stereo
+```
+
+---
+
+## Sección 9: Letra Limpia (para pegar en Suno)
+
+```
+[Intro]
+
+[Verse 1]
+Hace rato que el reloj no marca la hora
+sino el peso de los días que se van sin dar pelea
+Hace rato que miramos la vereda
+como si la grieta fuera nuestra y no de ellos
+
+Nos vendieron que ser grises era el precio
+de tener aunque sea un plato puesto en la mesa
+Nos dijeron conformate, no hagas ruido
+que tu gris no vale nada, que tu plata no es de acero
+
+[Pre-Chorus]
+Pero el gris tiene memoria
+y la plata no se olvida
+Hoy sabemos lo que somos
+y lo que siempre hemos sido
+
+[Chorus]
+Ya somos la plata
+ya no somos el olvido
+Ya dijimos basta
+y nadie nos va a apagar
+
+Ya somos la plata
+ya no somos el olvido
+Ya dijimos basta
+y nadie nos va a apagar
+
+[Verse 2]
+Hay un río que nos corre por las venas
+y ese río tiene nombre y tiene fuerza y tiene orilla
+Hay un fuego en cada pueblo, en cada escuela
+en cada mano que se cierra y que se abre y que se ofrece
+
+No vinimos a pedir lo que nos deben
+vinimos a construir lo que soñamos con los ojos bien abiertos
+Cada barrio es una patria que despierta
+cada pibe es un futuro que ya no van a robarnos
+
+[Pre-Chorus]
+Y la tierra lo recuerda
+y la sangre no negocia
+Hoy sabemos lo que somos
+y lo que vamos a ser
+
+[Chorus]
+Ya somos la plata
+ya no somos el olvido
+Ya dijimos basta
+y nadie nos va a apagar
+
+Ya somos la plata
+ya no somos el olvido
+Ya dijimos basta
+y nadie nos va a apagar
+
+[Bridge]
+Argentina...
+me dijeron que tu nombre era la plata
+que te hicieron creer que eras de barro
+pero yo puse las manos en la tierra
+y encontré...
+...plata
+
+[Chorus]
+Ya somos la plata
+ya no somos el olvido
+Ya dijimos basta
+y nadie nos va a apagar
+
+Ya somos la plata
+ya no somos el olvido
+Ya dijimos basta
+y nadie nos va a apagar
+
+Ya somos la plata
+ya no somos el olvido
+¡Ya dijimos basta!
+¡Y nadie nos va a apagar!
+
+[Outro]
+```
