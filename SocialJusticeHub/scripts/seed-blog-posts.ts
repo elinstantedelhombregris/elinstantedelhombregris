@@ -190,6 +190,17 @@ const baseBlogPostsData = [
     publishedAt: new Date("2026-04-09").toISOString(),
     tags: ["inteligencia", "Argentina", "viveza criolla", "cooperación", "confianza", "inteligencia artificial"],
   },
+  {
+    title: "Buscar en el Pasado para Controlar el Futuro",
+    slug: createSlug("Buscar en el Pasado para Controlar el Futuro"),
+    category: "Filosofía",
+    type: "blog" as const,
+    featured: true,
+    imageUrl: "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?w=800&h=400&fit=crop",
+    authorId: 1,
+    publishedAt: new Date("2026-04-11").toISOString(),
+    tags: ["sistemas", "pasado", "diseño", "Argentina", "inteligencia artificial", "organización"],
+  },
 ];
 
 const blogPostsData = baseBlogPostsData.map((post) => {
