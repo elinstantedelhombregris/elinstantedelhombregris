@@ -789,9 +789,9 @@ const LaSemillaDeBasta = () => {
             <div className="max-w-3xl mx-auto rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-sm p-8 md:p-10">
               <div className="space-y-6">
                 {[
-                  { label: "Qué estamos viendo", text: "Millones de personas que sienten el hartazgo pero no tienen dónde canalizarlo con método." },
+                  { label: "Qué estamos viendo", text: "Personas que dejaron de esperar y empezaron a sostener un compromiso concreto." },
                   { label: "Qué hacemos ahora", text: "Convertir cada compromiso en semilla medible, ligada a una misión y a un territorio." },
-                  { label: "Qué no vamos a hacer todavía", text: "Prometer que un hábito personal salva un país. La semilla necesita mapa, mandato y círculo." },
+                  { label: "Qué no vamos a hacer", text: "Detenernos en la semilla. Lo que se planta necesita mapa, mandato y círculo para convertirse en bosque." },
                   { label: "Cómo se mide", text: "Compromisos activos, misiones alimentadas, evidencia generada." },
                   { label: "Qué podés hacer vos", text: "Declarar un compromiso concreto, elegir una misión, y sostenerlo con estándar." },
                 ].map((item, i) => (
