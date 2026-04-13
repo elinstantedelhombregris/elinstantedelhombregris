@@ -62,6 +62,19 @@ const LaVision = () => {
 
           <div className="container-content relative z-10">
             <div className="max-w-3xl mx-auto">
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.15 }}
+                className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold leading-tight mb-10"
+              >
+                <span className="text-white">La</span>
+                <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400">
+                  Visión
+                </span>
+              </motion.h1>
+
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}

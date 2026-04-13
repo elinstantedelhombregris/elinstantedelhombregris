@@ -93,17 +93,32 @@ const ElInstanteDelHombreGris = () => {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.2, delay: 0.3 }}
-                className="space-y-8"
+                transition={{ duration: 1.2, delay: 0.5 }}
+                className="mb-4"
               >
                 <span className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/[0.08] text-[11px] uppercase tracking-[0.3em] text-slate-300/70">
                   La filosofía fundacional
                 </span>
+              </motion.div>
 
-                <h1 className="text-[clamp(2.2rem,6vw,4.5rem)] font-black tracking-tight leading-[1.05] text-transparent bg-clip-text bg-gradient-to-b from-white via-slate-200 to-slate-400">
-                  El Instante del Hombre Gris
-                </h1>
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.15 }}
+                className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold leading-tight mb-8"
+              >
+                <span className="text-white">El Instante del</span>
+                <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-300 via-white to-slate-400">
+                  Hombre Gris
+                </span>
+              </motion.h1>
 
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1.2, delay: 0.3 }}
+              >
                 <div className="space-y-4">
                   <p className="text-xl md:text-2xl text-slate-400/90 leading-relaxed">
                     Hay algo que pasa cuando un país colapsa y nadie viene a salvarte.

@@ -418,14 +418,19 @@ const LaSemillaDeBasta = () => {
                 </div>
               </motion.div>
 
-              <h1 className="heading-hero mb-6">
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.15 }}
+                className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold leading-tight mb-6"
+              >
                 <span className="block text-transparent bg-clip-text bg-gradient-to-b from-emerald-200 via-emerald-400 to-green-600">
                   La Semilla
                 </span>
                 <span className="block text-3xl md:text-5xl font-light text-emerald-100/70 mt-2">
                   Del compromiso que te cambia
                 </span>
-              </h1>
+              </motion.h1>
 
               <div className="text-xl md:text-2xl text-emerald-100/60 max-w-3xl mx-auto mb-12 leading-relaxed font-light space-y-4">
                 <p>Viste el tablero. Entendiste el gris.<br />Pero ver no alcanza.</p>
@@ -730,54 +735,6 @@ const LaSemillaDeBasta = () => {
           </div>
         </section>
 
-        {/* Tu semilla alimenta una misión */}
-        <section className="section-spacing relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/20 via-[#050a05] to-[#050a05]" />
-
-          <div className="container-content relative z-10">
-            <div className="max-w-5xl mx-auto">
-              <div className="text-center mb-12">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-900/30 border border-emerald-500/30 text-emerald-400 text-sm font-mono mb-6 tracking-widest uppercase">
-                  <Target className="w-4 h-4" />
-                  Cinco misiones nacionales
-                </div>
-                <h2 className="heading-section mb-6">
-                  Tu semilla alimenta <span className="text-emerald-400">una misión</span>
-                </h2>
-                <p className="text-body max-w-2xl mx-auto">
-                  Cada compromiso personal se conecta con una de las cinco misiones de la reconstrucción. No es un gesto simbólico — es una pieza de una arquitectura más grande.
-                </p>
-              </div>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {[
-                  { mission: "La Base Está", action: "Si cuidás un vecino", icon: "❶", color: "red" },
-                  { mission: "Territorio Legible", action: "Si documentás lo que pasa", icon: "❷", color: "blue" },
-                  { mission: "Producción y Suelo Vivo", action: "Si ofrecés un oficio", icon: "❸", color: "green" },
-                  { mission: "Infancia, Escuela y Cultura", action: "Si acompañás un pibe", icon: "❹", color: "purple" },
-                  { mission: "Instituciones y Futuro", action: "Si exigís transparencia", icon: "❺", color: "amber" },
-                ].map((m, i) => (
-                  <div key={i} className="flex items-start gap-4 p-5 bg-white/5 rounded-xl border border-white/5 hover:border-emerald-500/20 transition-colors">
-                    <span className="text-2xl">{m.icon}</span>
-                    <div>
-                      <p className="text-emerald-100/60 text-sm mb-1">{m.action}</p>
-                      <p className="text-white font-semibold">Misión {i + 1}: {m.mission}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div className="text-center mt-10">
-                <PowerCTA
-                  text="ELEGIR MI ROL EN LA RECONSTRUCCIÓN"
-                  variant="accent"
-                  onClick={() => setShowCommitmentModal(true)}
-                  size="lg"
-                  animate={true}
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Next Steps */}
         {/* ━━━ CLOSING PATTERN ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
         <section className="py-20 md:py-28">
@@ -785,11 +742,11 @@ const LaSemillaDeBasta = () => {
             <div className="max-w-3xl mx-auto rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-sm p-8 md:p-10">
               <div className="space-y-6">
                 {[
-                  { label: "Qué estamos viendo", text: "Personas que dejaron de esperar y empezaron a sostener un compromiso concreto." },
-                  { label: "Qué hacemos ahora", text: "Convertir cada compromiso en semilla medible, ligada a una misión y a un territorio." },
-                  { label: "Qué no vamos a hacer", text: "Detenernos en la semilla. Lo que se planta necesita mapa, mandato y círculo para convertirse en bosque." },
-                  { label: "Cómo se mide", text: "Compromisos activos, misiones alimentadas, evidencia generada." },
-                  { label: "Qué podés hacer vos", text: "Declarar un compromiso concreto, elegir una misión, y sostenerlo con estándar." },
+                  { label: "Qué estamos viendo", text: "Gente que dejó de opinar y empezó a sostener. Compromisos concretos, no adhesiones tibias." },
+                  { label: "Qué hacemos ahora", text: "Cada compromiso se ancla a un territorio y se convierte en dato. Lo que se prueba se puede exigir." },
+                  { label: "Qué no vamos a hacer", text: "Quedarnos en la declaración. Una semilla sin riego es un deseo. Lo que sigue es mapa, mandato y círculo." },
+                  { label: "Cómo se mide", text: "Compromisos sostenidos en el tiempo, territorios activos, evidencia que no se puede ignorar." },
+                  { label: "Qué podés hacer vos", text: "Plantar un compromiso, anclarlo a tu territorio y bancártela cuando nadie aplauda." },
                 ].map((item, i) => (
                   <div key={i} className="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-4">
                     <span className="text-emerald-400 font-bold text-sm whitespace-nowrap min-w-[220px]">{item.label}</span>
