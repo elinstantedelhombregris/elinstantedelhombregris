@@ -19,7 +19,8 @@ import {
   Droplets,
   Sun,
   Flame,
-  MapPin
+  MapPin,
+  Wind
 } from 'lucide-react';
 import PowerCTA from '@/components/PowerCTA';
 import CommitmentModal from '@/components/CommitmentModal';
@@ -273,59 +274,39 @@ const LaSemillaDeBasta = () => {
   const germinationSteps = [
     {
       step: 1,
-      title: "Preparar la Tierra",
-      subtitle: "Ver lo que no vimos",
-      description: "El primer paso es cultivar conciencia. Removemos el terreno interno para reconocer patrones, dolores y mandatos que aún nos secan.",
-      icon: <TreePine className="w-12 h-12" />,
+      title: "El entusiasmo se seca",
+      subtitle: "Cuando la inspiración no alcanza",
+      description: "El primer día es fácil. El compromiso brilla, te sentís parte de algo, la energía sobra. Después llega el martes. Y el siguiente. Y la semilla no creció. La mayoría abandona acá — no por cobardía, sino porque confundieron inspiración con compromiso. La inspiración es un fósforo. El compromiso es leña. Lo que buscás no es motivación. Es la disciplina de regar cuando no sentís nada.",
+      icon: <Flame className="w-12 h-12" />,
       gradient: "from-amber-900/80 to-orange-900/80",
-      details: [
-        "Nombrar las crisis personales sin negarlas",
-        "Practicar autoobservación y silencio",
-        "Registrar qué produce hastío",
-        'Identificar el instante antes del "basta"'
-      ]
+      details: []
     },
     {
       step: 2,
-      title: "Sembrar Hábitos",
-      subtitle: "Acciones pequeñas, lluvias constantes",
-      description: 'Cada hábito sostenido es una señal más en el mapa. Definimos prácticas diarias que nos conecten con propósito, servicio y verdad operativa.',
-      icon: <Droplets className="w-12 h-12" />,
+      title: "El entorno empuja para atrás",
+      subtitle: "Cuando todo sigue igual menos vos",
+      description: "Vas a cambiar y tu entorno no. Tu familia, tu laburo, tu barrio — todo sigue operando con las reglas de siempre. La presión no es explícita. Nadie te dice \"dejá de intentar.\" Es más sutil: una mirada, un chiste, un \"¿y eso para qué sirve?\" La semilla crece contra gravedad. Siempre fue así. El que planta no espera permiso del suelo.",
+      icon: <Wind className="w-12 h-12" />,
       gradient: "from-blue-600/80 to-cyan-600/80",
-      details: [
-        "Diseñar rituales diarios de gratitud",
-        "Sumar micro-acciones de justicia",
-        "Elegir un hábito de servicio semanal",
-        "Perseverar en la tercera jornada"
-      ]
+      details: []
     },
     {
       step: 3,
-      title: "Cuidar el Brote",
-      subtitle: "Relaciones que evitan la violencia",
-      description: "Si no cuidamos los vínculos, el conflicto escala. Cuidar nuestras relaciones garantiza que la transformación sea consciente y sostenible.",
-      icon: <Shield className="w-12 h-12" />,
+      title: "Te convertís en lo que viniste a cambiar",
+      subtitle: "Cuando el compromiso se vuelve ego",
+      description: "Esta es la más peligrosa y nadie la ve venir. Empezás a sostener algo y un día te descubrís juzgando al que no lo hace. Sintiéndote superior. Usando tu compromiso como identidad, no como servicio. La semilla que se mira a sí misma deja de crecer. Humildad no es el punto de partida — es lo que tenés que reconquistar cada vez que te olvidás.",
+      icon: <Eye className="w-12 h-12" />,
       gradient: "from-emerald-600/80 to-green-600/80",
-      details: [
-        "Practicar empatía radical",
-        "Cuidar los vínculos familiares",
-        "Resolver conflictos pacíficamente",
-        "Multiplicar círculos de diálogo"
-      ]
+      details: []
     },
     {
       step: 4,
-      title: "Probar y Multiplicar",
-      subtitle: "Del compromiso a la evidencia pública",
-      description: 'Lo que no se prueba no se puede exigir. Subir evidencia, documentar qué funciona y qué no, y compartir lo aprendido con tu círculo de reconstrucción.',
-      icon: <Sun className="w-12 h-12" />,
+      title: "Lo que plantaste da fruto y no lo controlás",
+      subtitle: "Cuando soltar es el último servicio",
+      description: "Si sostenés, algo crece. Pero no crece como vos imaginaste. Otros lo toman, lo transforman, lo llevan donde no esperabas. Eso no es fracaso — es éxito. La semilla nunca fue tuya. El compromiso es plantar. El fruto le pertenece al territorio. Soltar el control es el último acto de servicio.",
+      icon: <Sprout className="w-12 h-12" />,
       gradient: "from-yellow-500/80 to-orange-500/80",
-      details: [
-        "Subir evidencia al mapa",
-        "Documentar qué funciona y qué no",
-        "Compartir con tu círculo de reconstrucción",
-        'Multiplicar lo probado en nuevos territorios'
-      ]
+      details: []
     }
   ];
 
@@ -572,9 +553,9 @@ const LaSemillaDeBasta = () => {
           <div className="container-content">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-16">
-                <h2 className="heading-section mb-6">El Ciclo de Germinación</h2>
+                <h2 className="heading-section mb-6">No es un plan de 4 pasos. Es lo que pasa cuando lo intentás.</h2>
                 <p className="text-body max-w-2xl mx-auto">
-                  Todo proceso de cambio atraviesa tensiones antes del florecimiento. Este ciclo te guía para preparar la tierra y sembrar consciencia.
+                  Nadie te dice esto: comprometerte de verdad genera resistencia — adentro y afuera. Estas son las tensiones que vas a atravesar. No para evitarlas. Para reconocerlas cuando lleguen.
                 </p>
               </div>
 
@@ -634,15 +615,7 @@ const LaSemillaDeBasta = () => {
                               animate={{ height: 'auto', opacity: 1 }}
                               className="text-emerald-200/70 text-sm leading-relaxed"
                             >
-                              <p className="mb-4">{step.description}</p>
-                              <ul className="space-y-2">
-                                {step.details.map((detail, i) => (
-                                  <li key={i} className="flex items-center gap-2">
-                                    <div className="w-1 h-1 bg-emerald-400 rounded-full" />
-                                    {detail}
-                                  </li>
-                                ))}
-                              </ul>
+                              <p>{step.description}</p>
                             </motion.div>
                           )}
                         </div>
