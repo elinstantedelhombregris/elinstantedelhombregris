@@ -314,40 +314,40 @@ const LaSemillaDeBasta = () => {
     {
       nivel: "01",
       titulo: "Tu Compromiso",
-      subtitulo: "Una declaración irreversible",
-      descripcion: "Todo empieza con una persona que declara qué está dispuesta a sostener. No necesitás un título ni permiso. Necesitás un compromiso concreto ligado a una misión.",
+      subtitulo: "Una declaración que nadie te pidió",
+      descripcion: "Todo empieza con alguien que decide sin esperar consenso. No necesitás un título. Necesitás algo concreto que te obligue a ser distinto mañana.",
       alcance: "1 persona",
       icon: <Sprout className="w-6 h-6" />
     },
     {
       nivel: "02",
       titulo: "Tu Círculo",
-      subtitulo: "El círculo se forma",
-      descripcion: "Tu compromiso atrae a otros. Un círculo de reconstrucción nace cuando varias personas deciden sostener un estándar compartido en el mismo territorio.",
+      subtitulo: "Los que aparecen sin que los busques",
+      descripcion: "Tu coherencia atrae a otros. Un círculo nace cuando varias personas deciden sostener un estándar compartido en el mismo territorio. No se reclutan — se reconocen.",
       alcance: "5–10 personas",
       icon: <Heart className="w-6 h-6" />
     },
     {
       nivel: "03",
       titulo: "Tu Célula",
-      subtitulo: "La célula territorial se activa",
-      descripcion: "Varios círculos forman una célula territorial: unidad mínima de servicio y acción. Relevamiento, verificación, cuadrillas, acompañamiento.",
+      subtitulo: "La unidad mínima de servicio",
+      descripcion: "Varios círculos forman una célula territorial. Relevamiento, verificación, acompañamiento. Lo suficientemente chica para conocerse. Lo suficientemente grande para mover algo.",
       alcance: "50–200 personas",
       icon: <Users className="w-6 h-6" />
     },
     {
       nivel: "04",
       titulo: "Tu Misión",
-      subtitulo: "La misión toma cuerpo",
-      descripcion: "Miles de compromisos alimentan una misión nacional. La evidencia se acumula, las propuestas se concretan, y el mandato territorial se vuelve exigible.",
+      subtitulo: "La evidencia se acumula",
+      descripcion: "Miles de compromisos alimentan una misión nacional. Lo que empezó como decisión privada se vuelve dato público, propuesta concreta, mandato exigible.",
       alcance: "Miles",
       icon: <Globe className="w-6 h-6" />
     },
     {
       nivel: "05",
       titulo: "Tu Evidencia",
-      subtitulo: "La evidencia se vuelve irrefutable",
-      descripcion: "Lo que se prueba no se puede negar. Cuando millones de señales, compromisos y evidencias convergen, el país deja de improvisar y empieza a reconstruirse con verdad operativa.",
+      subtitulo: "Lo que se prueba no se puede negar",
+      descripcion: "Cuando millones de señales convergen, el país deja de improvisar. No hace falta convencer a nadie — hace falta demostrar que hay otro camino y sostenerlo.",
       alcance: "46 millones",
       icon: <Sun className="w-6 h-6" />
     }
@@ -628,23 +628,44 @@ const LaSemillaDeBasta = () => {
           </div>
         </section>
 
-        {/* La Chispa Se Propaga */}
+        {/* La Red */}
         <section className="section-spacing bg-[#081008]">
           <div className="container-content">
             <div className="max-w-5xl mx-auto">
               <div className="text-center mb-16">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-900/20 border border-amber-500/20 text-amber-400 text-sm font-mono mb-6 tracking-widest uppercase">
-                  <Flame className="w-4 h-4" />
-                  Efecto Contagio
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-900/20 border border-emerald-500/20 text-emerald-400 text-sm font-mono mb-6 tracking-widest uppercase">
+                  <Heart className="w-4 h-4" />
+                  La red
                 </div>
                 <h2 className="heading-section mb-6">
-                  La Chispa <span className="text-amber-400">Se Propaga</span>
+                  Nadie planta <span className="text-emerald-400">solo.</span>
                 </h2>
-                <p className="text-body max-w-2xl mx-auto">
-                  Un incendio forestal comienza con una brasa. Un despertar nacional
-                  comienza con una persona que dice "basta" — y lo cumple.
+                <p className="text-body max-w-2xl mx-auto mb-12">
+                  Una semilla no hace un bosque. Pero un bosque siempre empezó con una semilla que no pidió permiso.
                 </p>
               </div>
+
+              {/* Editorial prose before timeline */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7 }}
+                className="max-w-3xl mx-auto mb-16 space-y-4 text-lg text-emerald-100/60 leading-relaxed font-light text-center"
+              >
+                <p>
+                  Hay algo que pasa cuando sostenés un compromiso sin hacer ruido:<br />
+                  alguien lo nota.<br />
+                  No porque lo publiques. Porque se nota.<br />
+                  La coherencia es magnética — no convence, atrae.
+                </p>
+                <p>
+                  No vas a reclutar a nadie. No vas a dar discursos.<br />
+                  Vas a sostener algo y el que estaba buscando<br />
+                  lo mismo va a aparecer al lado tuyo.<br />
+                  Así se forma una red. No por diseño. Por resonancia.
+                </p>
+              </motion.div>
 
               <div className="relative">
                 <div className="space-y-0">
@@ -698,13 +719,13 @@ const LaSemillaDeBasta = () => {
                   viewport={{ once: true }}
                   className="mt-12 text-center relative z-10"
                 >
-                  <div className="inline-block bg-gradient-to-r from-amber-900/20 to-orange-900/20 rounded-3xl p-10 border border-amber-500/20">
+                  <div className="inline-block bg-gradient-to-r from-emerald-900/20 to-green-900/20 rounded-3xl p-10 border border-emerald-500/20">
                     <p className="text-2xl md:text-3xl font-bold text-white mb-4">
-                      46 millones de semillas.
+                      46 millones es el potencial.
                     </p>
-                    <p className="text-amber-200/70 text-lg max-w-2xl mx-auto leading-relaxed">
-                      No hace falta esperar a millones. Hace falta dejar de delegar la primera parte.
-                      <strong className="text-amber-300"> Lo que se prueba se puede exigir.</strong>
+                    <p className="text-emerald-200/70 text-lg max-w-2xl mx-auto leading-relaxed">
+                      Pero no empieza con millones. Empieza con uno que dejó de delegar.<br />
+                      <strong className="text-emerald-300">Lo que se prueba se puede exigir. Lo que se sostiene se vuelve irrefutable.</strong>
                     </p>
                   </div>
                 </motion.div>
