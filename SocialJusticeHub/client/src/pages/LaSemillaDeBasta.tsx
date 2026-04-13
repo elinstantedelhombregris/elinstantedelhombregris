@@ -17,7 +17,6 @@ import {
   Globe,
   Sprout,
   Droplets,
-  Sunrise,
   Sun,
   Flame,
   MapPin
@@ -235,39 +234,39 @@ const LaSemillaDeBasta = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = 'La Semilla del Cambio Personal | ¡BASTA!';
+    document.title = 'La Semilla | ¡BASTA!';
   }, []);
 
   const semillaIndicators = [
     {
       id: 'semillas',
-      label: 'Semillas activadas',
+      label: 'Semillas plantadas',
       value: semilleroData.stats.total,
       unit: '',
       trend: 'up' as const,
       color: 'green' as const,
       icon: <Sprout className="w-6 h-6" />,
-      description: 'Compromisos registrados en el semillero en tiempo real'
+      description: 'Personas que dejaron de contemplar y empezaron a sostener'
     },
     {
-      id: 'redes',
-      label: 'Redes enraizadas',
-      value: semilleroData.stats.total * 3,
+      id: 'recientes',
+      label: 'Últimas 24 horas',
+      value: semilleroData.stats.last24h,
       unit: '',
       trend: 'up' as const,
       color: 'blue' as const,
       icon: <Droplets className="w-6 h-6" />,
-      description: 'Vínculos que sostienen la reconstrucción sin violencia'
+      description: 'Compromisos nuevos en el último día'
     },
     {
-      id: 'comunidades',
-      label: 'Comunidades floreciendo',
-      value: semilleroData.stats.total * 5,
+      id: 'misiones',
+      label: 'Misiones activas',
+      value: semilleroData.stats.byType?.length ?? 0,
       unit: '',
       trend: 'up' as const,
       color: 'purple' as const,
-      icon: <Sunrise className="w-6 h-6" />,
-      description: 'Personas impactadas por el efecto multiplicador colectivo'
+      icon: <Target className="w-6 h-6" />,
+      description: 'Tipos de acción elegidos por la comunidad'
     }
   ];
 
@@ -478,14 +477,20 @@ const LaSemillaDeBasta = () => {
                   La Semilla
                 </span>
                 <span className="block text-3xl md:text-5xl font-light text-emerald-100/70 mt-2">
-                  Del Cambio Personal
+                  Del compromiso que te cambia
                 </span>
               </h1>
 
-              <p className="text-xl md:text-2xl text-emerald-100/60 max-w-3xl mx-auto mb-12 leading-relaxed font-light">
-                Un país roto no se salva por acumulación de buenas ideas. Se salva por orden de ejecución. <br />
-                Y el orden empieza con un compromiso que podés sostener.
-              </p>
+              <div className="text-xl md:text-2xl text-emerald-100/60 max-w-3xl mx-auto mb-12 leading-relaxed font-light space-y-4">
+                <p>Viste el tablero. Entendiste el gris.<br />Pero ver no alcanza.</p>
+                <p>
+                  Hay un momento más silencioso que el despertar — y más difícil.<br />
+                  Es cuando dejás de entender y empezás a hacer.<br />
+                  No una marcha. No un voto. No una opinión.<br />
+                  Un compromiso concreto que te obliga a ser distinto mañana.
+                </p>
+                <p>Eso es la semilla. No lo que plantás afuera.<br />Lo que plantás en vos.</p>
+              </div>
 
               <div className="flex flex-col sm:flex-row gap-6 justify-center mb-20">
                 <PowerCTA
