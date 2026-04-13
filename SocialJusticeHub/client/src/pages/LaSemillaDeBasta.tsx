@@ -329,37 +329,6 @@ const LaSemillaDeBasta = () => {
     }
   ];
 
-  const momentosBasta = [
-    {
-      titulo: "La Factura",
-      escena: "Mirás el ticket del supermercado. Los números suben, tu salario no. Pero esta vez no suspirás — esta vez VES. Ves el sistema detrás del precio. Ves las decisiones que nadie te consultó. Ves la cadena de incompetencia y cinismo que llega hasta tu mesa.",
-      pregunta: "¿Cuántas facturas más vas a pagar en silencio?",
-      icon: <Target className="w-8 h-8" />,
-      gradient: "from-red-600/80 to-orange-600/80"
-    },
-    {
-      titulo: "El Espejo",
-      escena: "Tu hijo te pregunta por qué hay gente durmiendo en la calle. Te mirás adentro buscando una respuesta digna y no la encontrás. Porque no existe una respuesta digna para la indignidad normalizada. En ese silencio, algo se rompe.",
-      pregunta: "¿Qué Argentina vas a dejarle a quien viene después?",
-      icon: <Eye className="w-8 h-8" />,
-      gradient: "from-blue-600/80 to-indigo-600/80"
-    },
-    {
-      titulo: "La Noticia",
-      escena: "Otro escándalo. Otro funcionario. Otra promesa rota. Siempre cambiabas de canal. Pero hoy no cambiás de canal — cambiás de actitud. No es bronca. No es resignación. Es algo más peligroso para el sistema: es claridad.",
-      pregunta: "¿Y si el problema no es 'ellos' sino que vos todavía no actuaste?",
-      icon: <Lightbulb className="w-8 h-8" />,
-      gradient: "from-amber-600/80 to-yellow-600/80"
-    },
-    {
-      titulo: "El Silencio",
-      escena: "Son las 3 de la mañana. El pensamiento llega sin invitación: 'Este no es el país que merecemos.' No es nuevo ese pensamiento. Lo que es nuevo es que esta vez no te das vuelta y volvés a dormir. Esta vez te levantás.",
-      pregunta: "¿Qué estás esperando que no sea tu propia decisión?",
-      icon: <Brain className="w-8 h-8" />,
-      gradient: "from-purple-600/80 to-violet-600/80"
-    }
-  ];
-
   const propagacion = [
     {
       nivel: "01",
@@ -533,79 +502,66 @@ const LaSemillaDeBasta = () => {
           </div>
         </section>
 
-        {/* El Momento ¡BASTA! */}
-        <section className="section-spacing bg-gradient-to-b from-[#050a05] via-[#0a0808] to-[#050a05] border-y border-red-900/20">
+        {/* El Acto */}
+        <section className="section-spacing bg-gradient-to-b from-[#050a05] via-[#060b06] to-[#050a05]">
           <div className="container-content">
-            <div className="max-w-5xl mx-auto">
+            <div className="max-w-3xl mx-auto">
               <div className="text-center mb-16">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-900/20 border border-red-500/20 text-red-400 text-sm font-mono mb-6 tracking-widest uppercase">
-                  <Flame className="w-4 h-4" />
-                  El Instante Irreversible
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-900/20 border border-emerald-500/20 text-emerald-400 text-sm font-mono mb-6 tracking-widest uppercase">
+                  <Sprout className="w-4 h-4" />
+                  El verdadero instante
                 </div>
                 <h2 className="heading-section mb-6">
-                  El Momento <span className="text-red-400">¡BASTA!</span>
+                  Despertar es fácil. Plantar es otra cosa.
                 </h2>
-                <p className="text-body max-w-3xl mx-auto text-lg">
-                  No es una fecha en el calendario. No es un discurso político. Es ese instante
-                  silencioso, privado, irreversible, en el que algo se quiebra dentro tuyo —
-                  y lo que nace ya no puede morir.
-                </p>
-              </div>
-
-              <div className="space-y-6">
-                {momentosBasta.map((momento, idx) => (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, x: idx % 2 === 0 ? -30 : 30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.7, delay: idx * 0.1 }}
-                    className="group"
-                  >
-                    <div className="rounded-3xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-500 overflow-hidden">
-                      <div className="grid md:grid-cols-[auto_1fr]">
-                        <div className={`bg-gradient-to-br ${momento.gradient} p-8 flex items-center justify-center md:w-32`}>
-                          <div className="text-white">{momento.icon}</div>
-                        </div>
-                        <div className="p-8">
-                          <h3 className="text-xl font-bold text-white mb-4 tracking-wide">{momento.titulo}</h3>
-                          <p className="text-emerald-100/70 leading-relaxed mb-6 text-lg">
-                            {momento.escena}
-                          </p>
-                          <div className="bg-red-900/15 border border-red-500/20 rounded-xl px-6 py-4">
-                            <p className="text-red-300 font-semibold italic text-lg">
-                              {momento.pregunta}
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
               </div>
 
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="space-y-6 text-lg md:text-xl text-emerald-100/70 leading-relaxed font-light"
+              >
+                <p>
+                  Despertar tiene algo de cómodo.<br />
+                  Ves lo que no funciona, lo nombrás, sentís la claridad<br />
+                  — y esa claridad se siente como poder.<br />
+                  Pero no lo es.
+                </p>
+                <p>
+                  Hay miles de personas despiertas que no hacen nada.<br />
+                  Que ven el tablero completo y se quedan mirando.<br />
+                  Que tienen razón sobre todo y no cambiaron nada.<br />
+                  La lucidez sin compromiso es la forma más elegante de seguir esperando.
+                </p>
+                <p>
+                  Plantar es distinto.<br />
+                  Plantar es decir: esto que entendí ahora me obliga.<br />
+                  No como consigna. Como forma de vivir.<br />
+                  Un compromiso que se prueba todos los días,<br />
+                  que te incomoda cuando no lo cumplís,<br />
+                  que nadie te va a aplaudir por sostener.
+                </p>
+                <p className="text-emerald-200/90 font-normal">
+                  El gris despierta. La semilla actúa.<br />
+                  Y entre esas dos cosas hay un abismo<br />
+                  que la mayoría no cruza nunca.
+                </p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.3 }}
                 className="mt-16 text-center"
               >
-                <div className="rounded-3xl border border-emerald-500/20 bg-emerald-900/10 p-12">
-                  <p className="text-3xl font-bold text-white mb-4">
-                    ¿Ya sentiste ese momento?
-                  </p>
-                  <p className="text-emerald-200/60 mb-8 max-w-2xl mx-auto text-lg leading-relaxed">
-                    Si estás leyendo esto, es porque algo ya se movió adentro tuyo. La semilla ya germinó.
-                    Ahora solo queda una pregunta: ¿vas a dejarla morir o vas a regarla?
-                  </p>
-                  <PowerCTA
-                    text="REGISTRAR MI COMPROMISO"
-                    variant="primary"
-                    onClick={() => setShowCommitmentModal(true)}
-                    size="lg"
-                    animate={true}
-                  />
-                </div>
+                <p className="text-xl md:text-2xl text-emerald-100/50 leading-relaxed font-light italic">
+                  La pregunta no es si entendés lo que está mal.<br />
+                  La pregunta es si estás dispuesto a ser distinto<br />
+                  por algo que no lleva tu nombre.
+                </p>
               </motion.div>
             </div>
           </div>
