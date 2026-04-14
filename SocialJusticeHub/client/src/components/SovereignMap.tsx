@@ -233,13 +233,13 @@ const SovereignMap = () => {
       className: 'custom-marker-icon',
       html: `<div class="relative group">
               <div class="absolute inset-0 ${colorClass} rounded-full blur-md opacity-50 group-hover:opacity-100 transition-opacity"></div>
-              <div class="relative flex items-center justify-center w-8 h-8 bg-slate-900 border border-slate-600 rounded-full shadow-xl text-white transform transition-transform group-hover:scale-110">
+              <div class="relative flex items-center justify-center w-10 h-10 bg-slate-900 border border-slate-600 rounded-full shadow-xl text-white transform transition-transform group-hover:scale-110">
                 ${iconHtml}
               </div>
              </div>`,
-      iconSize: [32, 32],
-      iconAnchor: [16, 16],
-      popupAnchor: [0, -20]
+      iconSize: [40, 40],
+      iconAnchor: [20, 20],
+      popupAnchor: [0, -24]
     });
 
     const icons = {
@@ -443,8 +443,8 @@ const SovereignMap = () => {
         </div>
       )}
 
-      {/* Overlay: Header / Stats */}
-      <div className="absolute top-6 left-6 z-[400] flex flex-col gap-4 pointer-events-none">
+      {/* Overlay: Header / Stats (desktop) */}
+      <div className="absolute top-6 left-6 z-[400] hidden md:flex flex-col gap-4 pointer-events-none">
         <div className="pointer-events-auto bg-slate-900/80 backdrop-blur-md border border-slate-700 rounded-2xl p-4 shadow-xl">
           <div className="flex items-center gap-2 mb-2">
             <Activity className="w-4 h-4 text-green-400 animate-pulse" />
@@ -454,7 +454,7 @@ const SovereignMap = () => {
           <div className="text-xs text-slate-500">Nodos activos</div>
         </div>
 
-        {/* Layer Controls */}
+        {/* Layer Controls (desktop: vertical) */}
         <div className="pointer-events-auto bg-slate-900/80 backdrop-blur-md border border-slate-700 rounded-2xl p-2 shadow-xl flex flex-col gap-1">
           {[
             { id: 'all', label: 'Todos', icon: Layers, color: 'text-slate-300' },
@@ -477,11 +477,46 @@ const SovereignMap = () => {
             >
               <layer.icon className={cn("w-4 h-4", layer.color)} />
               <span className={cn(
-                "text-[10px] font-bold uppercase tracking-wider hidden sm:inline",
+                "text-[10px] font-bold uppercase tracking-wider",
                 activeLayer === layer.id ? layer.color : "text-slate-500"
               )}>
                 {layer.label}
               </span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Mobile: horizontal layer strip + activity indicator */}
+      <div className="absolute top-3 left-3 right-14 z-[400] md:hidden flex flex-col gap-2 pointer-events-none">
+        {/* Activity badge */}
+        <div className="pointer-events-auto inline-flex items-center gap-2 bg-slate-900/80 backdrop-blur-md rounded-full px-3 py-1.5 border border-slate-700 self-start">
+          <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+          <span className="text-xs font-mono text-slate-300">{allMapItems.length} señales activas</span>
+        </div>
+        {/* Horizontal scrollable layer controls */}
+        <div className="pointer-events-auto overflow-x-auto flex gap-1.5 pb-1 -mx-1 px-1 scrollbar-hide">
+          {[
+            { id: 'all', label: 'Todos', icon: Layers, color: 'text-slate-300' },
+            { id: 'dream', label: 'Visiones', icon: Eye, color: 'text-blue-400' },
+            { id: 'value', label: 'Valores', icon: Heart, color: 'text-pink-400' },
+            { id: 'need', label: 'Necesidades', icon: AlertCircle, color: 'text-amber-400' },
+            { id: 'basta', label: '¡Basta!', icon: Zap, color: 'text-red-400' },
+            { id: 'compromiso', label: 'Compromisos', icon: Handshake, color: 'text-emerald-400' },
+            { id: 'recurso', label: 'Recursos', icon: Wrench, color: 'text-teal-400' }
+          ].map((layer) => (
+            <button
+              key={layer.id}
+              onClick={() => setActiveLayer(layer.id as any)}
+              className={cn(
+                "flex items-center gap-1.5 px-3 py-1.5 rounded-full whitespace-nowrap text-[10px] font-bold uppercase tracking-wider transition-colors border",
+                activeLayer === layer.id
+                  ? "bg-white/10 border-white/20 " + layer.color
+                  : "bg-slate-900/80 border-slate-700 text-slate-500"
+              )}
+            >
+              <layer.icon className="w-3.5 h-3.5" />
+              {layer.label}
             </button>
           ))}
         </div>

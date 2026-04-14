@@ -34,6 +34,7 @@ const Header = () => {
     '/life-areas', '/evaluacion', '/metas', '/checkin-semanal',
     '/coaching', '/datos-abiertos', '/kit-de-prensa',
     '/recursos/el-arquitecto',
+    '/explorar-datos',
   ];
   const isDarkPage = darkHeroRoutes.includes(location) ||
     location.startsWith('/mandato/pulso/') ||
@@ -83,6 +84,7 @@ const Header = () => {
     { label: 'Hombre Gris', href: '/el-instante-del-hombre-gris' },
     { label: 'Semilla', href: '/la-semilla-de-basta' },
     { label: 'Mapa', href: '/el-mapa' },
+    { label: 'Explorar', href: '/explorar-datos' },
     { label: 'Mandato', href: '/el-mandato-vivo' },
     { label: 'Círculos', href: '/community' },
     { label: 'Recursos', href: '/recursos' },

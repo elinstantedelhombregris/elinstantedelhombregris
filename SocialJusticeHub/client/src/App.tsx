@@ -53,6 +53,7 @@ const ElMandatoVivo = React.lazy(() => import("@/pages/ElMandatoVivo"));
 const MandatoTerritorial = React.lazy(() => import("@/pages/MandatoTerritorial"));
 const MandatoPublico = React.lazy(() => import("@/pages/MandatoPublico"));
 const DatosAbiertos = React.lazy(() => import("@/pages/DatosAbiertos"));
+const ExplorarDatos = React.lazy(() => import("@/pages/ExplorarDatos"));
 const PulsoDetalle = React.lazy(() => import("@/pages/PulsoDetalle"));
 const PropuestaDetalle = React.lazy(() => import("@/pages/PropuestaDetalle"));
 const IniciativasEstrategicas = React.lazy(() => import("@/pages/IniciativasEstrategicas"));
@@ -143,6 +144,7 @@ function Router() {
       <Route path="/mandato/:level/:name" component={MandatoTerritorial} />
       <Route path="/mandato-publico/:level/:name" component={MandatoPublico} />
       <Route path="/datos-abiertos" component={DatosAbiertos} />
+      <Route path="/explorar-datos" component={ExplorarDatos} />
       <Route path="/mandato/pulso/:id" component={PulsoDetalle} />
       <Route path="/mandato/propuesta/:id" component={PropuestaDetalle} />
 

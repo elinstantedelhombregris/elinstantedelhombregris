@@ -286,7 +286,7 @@ const ConvergenceBars: React.FC<{ articles: MandatoArticle[] }> = ({ articles })
 
 const VoiceChip: React.FC<{ entry: VoiceEntry }> = ({ entry }) => (
   <div
-    className="flex-shrink-0 w-72 rounded-xl bg-white/5 border border-white/10 px-4 py-3"
+    className="flex-shrink-0 w-64 sm:w-72 rounded-xl bg-white/5 border border-white/10 px-4 py-3"
     style={{ borderLeftWidth: '3px', borderLeftColor: TYPE_COLORS[entry.type] }}
   >
     <p className="text-sm text-slate-300 italic leading-relaxed line-clamp-2">
@@ -362,7 +362,7 @@ const VoiceStream: React.FC<{ entries: VoiceEntry[] }> = ({ entries }) => {
           <motion.div
             className="flex gap-3 w-max"
             animate={{ x: ['0%', '-33.33%'] }}
-            transition={{ duration: row1.length * 10, repeat: Infinity, ease: 'linear' }}
+            transition={{ duration: Math.max(row1.length * 10, 40), repeat: Infinity, ease: 'linear' }}
           >
             {tripled1.map((e, i) => <VoiceChip key={`r1-${i}`} entry={e} />)}
           </motion.div>
@@ -376,7 +376,7 @@ const VoiceStream: React.FC<{ entries: VoiceEntry[] }> = ({ entries }) => {
             <motion.div
               className="flex gap-3 w-max"
               animate={{ x: ['-33.33%', '0%'] }}
-              transition={{ duration: row2.length * 10, repeat: Infinity, ease: 'linear' }}
+              transition={{ duration: Math.max(row2.length * 10, 40), repeat: Infinity, ease: 'linear' }}
             >
               {tripled2.map((e, i) => <VoiceChip key={`r2-${i}`} entry={e} />)}
             </motion.div>
@@ -480,7 +480,7 @@ const TerritoriesStrip: React.FC<{ territories: TerritoryCardData[] }> = ({ terr
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.06 }}
-            className="rounded-xl bg-white/5 border border-white/10 px-4 py-3 hover:bg-white/[0.08] transition-colors min-w-[180px]"
+            className="rounded-xl bg-white/5 border border-white/10 px-4 py-3 hover:bg-white/[0.08] transition-colors min-w-[160px]"
           >
             <div className="flex items-center gap-2 mb-1.5">
               <MapPin className="w-3.5 h-3.5 text-blue-400 flex-shrink-0" />

@@ -166,6 +166,12 @@ export interface StreamLink {
   strength: number;
 }
 
+export interface TypeDistributionEntry {
+  type: DreamType;
+  label: string;
+  count: number;
+}
+
 export interface ConvergenceData {
   convergencePercentage: number;
   sharedThemeCount: number;
@@ -173,6 +179,7 @@ export interface ConvergenceData {
   themeCards: ThemeCard[];
   sharedConcepts: SharedConcept[];
   streamLinks: StreamLink[];
+  typeDistribution: TypeDistributionEntry[];
   totalContributions: number;
   isLoading: boolean;
 }
@@ -234,6 +241,7 @@ export const useConvergenceAnalysis = (): ConvergenceData => {
         themeCards: [],
         sharedConcepts: [],
         streamLinks: [],
+        typeDistribution: DREAM_TYPES.map((t) => ({ type: t, label: TYPE_LABELS[t], count: 0 })),
         totalContributions: 0,
         isLoading,
       };
@@ -352,6 +360,18 @@ export const useConvergenceAnalysis = (): ConvergenceData => {
       }
     }
 
+    // 7. Type distribution for radar chart
+    const typeCounts: Record<DreamType, number> = { dream: 0, value: 0, need: 0, basta: 0, compromiso: 0, recurso: 0 };
+    for (const entry of allEntries) {
+      const t = (entry as any).type as DreamType;
+      if (t && typeCounts[t] !== undefined) typeCounts[t]++;
+    }
+    const typeDistribution: TypeDistributionEntry[] = DREAM_TYPES.map((t) => ({
+      type: t,
+      label: TYPE_LABELS[t],
+      count: typeCounts[t],
+    }));
+
     return {
       convergencePercentage,
       sharedThemeCount: sharedThemes.length,
@@ -359,6 +379,7 @@ export const useConvergenceAnalysis = (): ConvergenceData => {
       themeCards: sortedCards,
       sharedConcepts,
       streamLinks,
+      typeDistribution,
       totalContributions: allEntries.length,
       isLoading,
     };

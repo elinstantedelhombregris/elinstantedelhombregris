@@ -56,7 +56,7 @@ const DetailPanel: React.FC<{ detail: NodeDetail; onClose: () => void }> = ({ de
       animate={{ x: 0, opacity: 1 }}
       exit={{ x: 300, opacity: 0 }}
       transition={{ type: 'spring', damping: 25 }}
-      className="absolute top-4 right-4 w-96 max-h-[calc(100%-2rem)] overflow-hidden z-30 rounded-xl border border-white/10 bg-black/80 backdrop-blur-xl flex flex-col"
+      className="fixed md:absolute bottom-0 md:bottom-auto md:top-4 right-0 md:right-4 w-full md:w-96 max-h-[60vh] md:max-h-[calc(100%-2rem)] overflow-hidden z-30 rounded-t-xl md:rounded-xl border border-white/10 bg-black/90 md:bg-black/80 backdrop-blur-xl flex flex-col"
     >
       {/* Header */}
       <div className="flex items-center justify-between p-4 border-b border-white/5 flex-shrink-0">
@@ -448,7 +448,7 @@ const ConstellationGraph: React.FC = () => {
           </div>
 
           {/* Sigma Canvas */}
-          <div className="relative" style={{ height: 700 }}>
+          <div className="relative" style={{ height: 'clamp(400px, 60vh, 700px)' }}>
             {isLoading ? (
               <div className="absolute inset-0 flex items-center justify-center z-10">
                 <div className="flex flex-col items-center gap-4">
@@ -537,7 +537,8 @@ const ConstellationGraph: React.FC = () => {
 
         <div className="flex items-center justify-center gap-2 mt-6 text-xs text-slate-600 font-mono">
           <Link2 className="w-3 h-3" />
-          <span>Arrastra para explorar. Click en un nodo para ver las entradas agrupadas.</span>
+          <span className="hidden md:inline">Arrastra para explorar. Click en un nodo para ver las entradas agrupadas.</span>
+          <span className="md:hidden">Pellizcá para zoom. Tocá un nodo para ver detalles.</span>
         </div>
       </motion.div>
 

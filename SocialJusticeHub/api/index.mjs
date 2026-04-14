@@ -6036,6 +6036,509 @@ var init_blogContent = __esm({
         </p>
       </article>
     `
+      },
+      [slugify("Pago por Inteligencia Artificial. \xBFY por la m\xEDa?")]: {
+        excerpt: "Pago 142 d\xF3lares por mes para alquilar inteligencia artificial y la exprimo al m\xE1ximo. Pero mi propia inteligencia \u2014 la que es gratis, la que nadie me puede cortar \u2014 la dejo en el caj\xF3n. \xBFY vos?",
+        content: `
+      <article>
+        <h1>Pago por Inteligencia Artificial. \xBFY por la m\xEDa?</h1>
+        <p>
+          Pago 142 d\xF3lares y medio por mes para poder pensar mejor.
+        </p>
+        <p>
+          No es una forma de decir. Literalmente pago una suscripci\xF3n mensual para tener acceso a sistemas de inteligencia artificial que me ayudan a escribir, a analizar, a resolver problemas. Ciento cuarenta y dos d\xF3lares con cincuenta centavos. Todos los meses.
+        </p>
+        <p>
+          Y hago algo que me llam\xF3 la atenci\xF3n cuando lo vi desde afuera: me esfuerzo por aprovechar cada centavo. Cuento los mensajes que me quedan. Reparto las consultas a lo largo de la semana para no quedarme sin acceso. Planeo qu\xE9 le voy a preguntar antes de preguntarle, para no desperdiciar una interacci\xF3n. Soy, con esta inteligencia que alquilo, un tipo incre\xEDblemente disciplinado.
+        </p>
+        <p>
+          Y un martes cualquiera, mientras calculaba cu\xE1ntas consultas me quedaban para el fin de semana, se me apareci\xF3 una pregunta que no esperaba:
+        </p>
+        <p>
+          <strong>\xBFHago lo mismo con mi propia cabeza?</strong>
+        </p>
+
+        <h2>Pensar cansa. Y da miedo.</h2>
+        <p>
+          Hay una cosa que todos sabemos pero que elegimos no mirar de frente: pensar cansa.
+        </p>
+        <p>
+          No es met\xE1fora. El cerebro usa una cantidad enorme de energ\xEDa. Pensar de verdad \u2014 no recordar, no repetir, no reaccionar, sino sentarte a armar una idea, a proyectar qu\xE9 va a pasar, a entender algo que no entend\xEDas \u2014 gasta. Tu cuerpo lo siente. Por eso despu\xE9s de un examen est\xE1s agotado aunque no hayas movido un m\xFAsculo.
+        </p>
+        <p>
+          Entonces el cuerpo hace lo l\xF3gico: te pide que no pienses a menos que sea estrictamente necesario. Te ofrece el piloto autom\xE1tico como opci\xF3n por defecto. Rutina, h\xE1bito, reacci\xF3n, repetici\xF3n. El camino de menor resistencia. No porque seas vago \u2014 porque tu cuerpo est\xE1 haciendo lo que se supone que tiene que hacer: ahorrar energ\xEDa.
+        </p>
+        <p>
+          El problema es que ah\xED se mete otro factor que no tiene nada que ver con la energ\xEDa.
+        </p>
+        <p>
+          El miedo.
+        </p>
+        <p>
+          Porque cuando pens\xE1s en serio \u2014 cuando realmente te pon\xE9s a analizar tu vida, tu trabajo, tus relaciones, tu pa\xEDs \u2014 lleg\xE1s a lugares inc\xF3modos. Lleg\xE1s a conclusiones que te obligan a hacer algo. Y hacer algo tiene riesgo. Tiene costo. Tiene la posibilidad de equivocarte, de que te critiquen, de que te digan "\xBFy vos qui\xE9n te cre\xE9s que sos?".
+        </p>
+        <p>
+          Entonces no es solo que pensar canse. Es que pensar da miedo. Y la combinaci\xF3n de las dos cosas \u2014 el cansancio y el miedo \u2014 produce algo que parece pereza pero no lo es. Es una decisi\xF3n. Inconsciente, casi siempre. Pero una decisi\xF3n al fin: la decisi\xF3n de dejar tu inteligencia guardada en un caj\xF3n.
+        </p>
+        <p>
+          Yo lo hago. Vos probablemente tambi\xE9n. Y ac\xE1 es donde la cosa se pone interesante, porque si esto pasa a nivel personal \u2014 \xBFqu\xE9 pasa cuando lo multiplic\xE1s por cuarenta y cinco millones?
+        </p>
+
+        <h2>Usamos un telescopio para mirar la vereda</h2>
+        <p>
+          Pens\xE1 en la persona m\xE1s inteligente que conoc\xE9s. No la m\xE1s estudiada \u2014 la m\xE1s inteligente. Esa persona que ve cosas que los dem\xE1s no ven. Que entiende situaciones r\xE1pido. Que cuando habla, algo se acomoda.
+        </p>
+        <p>
+          Ahora pens\xE1: \xBFesa persona est\xE1 usando todo lo que tiene? \xBFO est\xE1 usando una fracci\xF3n?
+        </p>
+        <p>
+          En mi experiencia, la mayor\xEDa de la gente inteligente que conozco usa su inteligencia para sobrevivir, no para construir. La usa para resolver el problema de hoy, para zafar, para salir del paso. Es como tener un telescopio y usarlo para mirar la vereda.
+        </p>
+        <p>
+          No es culpa de nadie en particular. Es lo que pasa cuando viv\xEDs en un lugar donde el corto plazo te come vivo: toda tu capacidad mental se va en apagar incendios, y no te queda nada para dise\xF1ar el edificio.
+        </p>
+        <p>
+          Pero hay algo m\xE1s. Algo que en Argentina tiene un nombre propio.
+        </p>
+
+        <h2>La viveza criolla: nuestro orgullo m\xE1s caro</h2>
+        <p>
+          Nosotros le pusimos nombre y apellido a una forma muy particular de usar la cabeza: la viveza criolla.
+        </p>
+        <p>
+          El vivo es el que se aviva. El que la ve antes que los dem\xE1s. El que encuentra el atajo, la vuelta, el hueco. Es un elogio. "Es re vivo", decimos, con admiraci\xF3n.
+        </p>
+        <p>
+          Y la verdad es que s\xED \u2014 hay algo genuinamente impresionante en esa capacidad. El argentino promedio tiene un radar social, una velocidad para leer situaciones, una creatividad para improvisar soluciones que no es com\xFAn. Cualquiera que haya viajado lo sabe. Afuera se nota: tenemos algo.
+        </p>
+        <p>
+          La pregunta es qu\xE9 hacemos con ese algo.
+        </p>
+        <p>
+          Porque la viveza, cuando la mir\xE1s bien, tiene un patr\xF3n muy particular: siempre es individual. Siempre es "yo me salvo". Siempre es una persona sacando ventaja de una situaci\xF3n, generalmente a costa de otra persona o del sistema en general.
+        </p>
+        <p>
+          El vivo evade un impuesto. El vivo se cuela en la fila. El vivo arregla por izquierda lo que deber\xEDa resolver por derecha. Y cada vez que lo hace, gana algo chiquito para \xE9l y rompe algo grande para todos.
+        </p>
+        <p>
+          Es como un juego donde cada jugador es brillante pero todos juegan solos. Todos hacen jugadas geniales. Y el resultado del partido es un desastre.
+        </p>
+
+        <h2>Astucia no es inteligencia</h2>
+        <p>
+          Hay una diferencia enorme entre ser astuto y ser inteligente, y Argentina lleva d\xE9cadas confundiendo una cosa con la otra.
+        </p>
+        <p>
+          La astucia te resuelve el momento. Te ayuda a ganar la discusi\xF3n, a conseguir el descuento, a esquivar la consecuencia. La astucia mira los pr\xF3ximos cinco minutos y encuentra la mejor jugada dentro de esos cinco minutos.
+        </p>
+        <p>
+          La inteligencia mira m\xE1s lejos. La inteligencia se pregunta: "\xBFqu\xE9 pasa si todos hacen lo que yo estoy por hacer?". Y esa pregunta cambia todo.
+        </p>
+        <p>
+          Porque si yo evado un impuesto y me sale bien, soy astuto. Pero si todos evaden impuestos, no hay hospital que funcione. Y cuando yo me enferme, la astucia que me ahorr\xF3 plata este mes no me va a curar el a\xF1o que viene.
+        </p>
+        <p>
+          Si yo copio en un examen y me sale bien, soy astuto. Pero si todos copian, los t\xEDtulos no valen nada. Y el m\xE9dico que me atienda capaz aprob\xF3 copiando.
+        </p>
+        <p>
+          Si yo cago a mi socio y me quedo con la mayor parte, soy astuto. Pero al mes siguiente, nadie quiere asociarse conmigo. Y solo, con toda mi astucia, no puedo construir nada que requiera m\xE1s de dos manos.
+        </p>
+        <p>
+          La astucia te ense\xF1a a ganar solo. La inteligencia te ense\xF1a que solo no se puede ganar.
+        </p>
+
+        <h2>La confianza no es ingenuidad \u2014 es infraestructura</h2>
+        <p>
+          Esto no es un serm\xF3n moral. No te estoy pidiendo que seas buena persona. Te estoy pidiendo que hagas la cuenta.
+        </p>
+        <p>
+          Mir\xE1 cualquier lugar del mundo donde la gente vive bien \u2014 no perfecto, bien \u2014 y vas a encontrar un patr\xF3n: la gente conf\xEDa lo suficiente en los dem\xE1s como para construir cosas juntos. No conf\xEDan porque son ingenuos. Conf\xEDan porque entendieron algo que nosotros todav\xEDa no: la confianza no es un sentimiento. Es una herramienta. Es la infraestructura invisible que permite que todo lo dem\xE1s funcione.
+        </p>
+        <p>
+          Sin confianza no hay sociedad comercial que dure. No hay cooperativa que sobreviva. No hay proyecto colectivo que supere la primera crisis. Sin confianza, cada persona es una isla, y las islas no construyen puentes.
+        </p>
+        <p>
+          Argentina tiene millones de personas inteligentes que no conf\xEDan unas en las otras. Y como no conf\xEDan, no cooperan. Y como no cooperan, cada uno usa su inteligencia solo para s\xED mismo. Y como cada uno la usa solo para s\xED mismo, los resultados colectivos son un desastre. Y como los resultados colectivos son un desastre, la gente conf\xEDa menos. Y la rueda sigue girando.
+        </p>
+        <p>
+          La viveza criolla no cre\xF3 este c\xEDrculo, pero lo alimenta todos los d\xEDas. Cada vez que alguien "se aviva" a costa de otro, le confirma al otro que confiar es de idiota. Y as\xED seguimos.
+        </p>
+
+        <h2>Los 142 d\xF3lares, de vuelta</h2>
+        <p>
+          Vuelvo a los 142 d\xF3lares.
+        </p>
+        <p>
+          Yo pago esa plata todos los meses para acceder a algo que procesa informaci\xF3n m\xE1s r\xE1pido que yo, que sabe m\xE1s que yo, que no se cansa y no se distrae. Y lo aprovecho al m\xE1ximo. No desperdicio una sola interacci\xF3n.
+        </p>
+        <p>
+          Pero esa inteligencia que alquilo no quiere nada. No le importa nada. No va a llorar si algo sale mal ni festejar si sale bien. Es una herramienta extraordinaria, pero es solo eso: una herramienta.
+        </p>
+        <p>
+          Tu inteligencia \u2014 la que ya ten\xE9s, la que es gratis, la que nadie te puede cortar \u2014 viene con algo que ninguna m\xE1quina tiene: viene con ganas. Viene con la capacidad de que algo te importe. De que algo te duela. De que algo te mueva a hacer lo que no estabas haciendo.
+        </p>
+        <p>
+          Eso no se alquila. Eso no se compra. Eso ya lo ten\xE9s.
+        </p>
+        <p>
+          La pregunta es si lo est\xE1s usando.
+        </p>
+        <p>
+          No si lo est\xE1s usando para avivarte. No si lo est\xE1s usando para sobrevivir el d\xEDa. Si lo est\xE1s usando para construir algo que valga la pena. Algo que dure m\xE1s que vos. Algo que no pod\xE9s construir solo.
+        </p>
+
+        <blockquote>
+          El problema de Argentina no es que nos falte inteligencia. Nos sobra. El problema es que cada uno la usa por su cuenta, para su cuenta, contra los dem\xE1s. Y eso no es inteligencia. Es la forma m\xE1s sofisticada de hacernos da\xF1o que inventamos.
+        </blockquote>
+
+        <p>
+          Ser inteligente de verdad en Argentina hoy es hacer algo que parece contraintuitivo: confiar. Cooperar. Construir con otros. No porque seas bueno. Porque sos inteligente. Porque hiciste la cuenta y te diste cuenta de que solo no funciona. Nunca funcion\xF3. No va a funcionar.
+        </p>
+        <p>
+          Tenemos la cabeza. Tenemos la creatividad. Tenemos eso que afuera nos envidian.
+        </p>
+        <p>
+          <strong>Solo nos falta usarlo para lo que sirve.</strong>
+        </p>
+      </article>
+    `
+      },
+      [slugify("Buscar en el Pasado para Controlar el Futuro")]: {
+        excerpt: "Tengo una carpeta con dieciocho gigabytes de datos sobre energ\xEDas no convencionales. Ayer, dentro de esa carpeta, un agente de IA que constru\xED encontr\xF3 una frase de John Desmond Bernal que me hizo frenar en seco. Y me acord\xE9 de una fiesta en Gualeguaych\xFA que me cambi\xF3 la vida.",
+        content: `
+      <article>
+        <h1>Buscar en el pasado para controlar el futuro</h1>
+
+        <blockquote>
+          "In science, more than in any other human institution, it is necessary to search out the past in order to understand the present and to control the future."
+          <br/><em>\u2014 John Desmond Bernal</em>
+        </blockquote>
+
+        <p>
+          Tengo una carpeta en mi computadora con dieciocho gigabytes de datos sobre investigaci\xF3n en energ\xEDas no convencionales.
+        </p>
+        <p>
+          Dieciocho gigas.
+        </p>
+        <p>
+          Libros viejos. Documentos escaneados. Papers olvidados. PDFs que nadie lee. Fotos de p\xE1ginas amarillentas tomadas con apuro en bibliotecas que ya no existen. A\xF1os de investigaci\xF3n acumulada sobre tecnolog\xEDas que tocan fuerzas f\xEDsicas que todav\xEDa no entendemos del todo \u2014 formas de capturar y canalizar energ\xEDa cin\xE9tica, de aprovechar fen\xF3menos que la ciencia oficial no sabe clasificar, de preguntarse si no hay otra manera de sostener una civilizaci\xF3n sin prender fuego el planeta.
+        </p>
+        <p>
+          Porque tiene que haber otra forma.
+        </p>
+        <p>
+          Est\xE1 escondida de nuestra vista, por ahora. Pero el hecho de que no la veamos no significa que no exista. Significa que todav\xEDa no hicimos las preguntas correctas.
+        </p>
+        <p>
+          Esa carpeta es un acto de fe disfrazado de archivo digital.
+        </p>
+
+        <h2>El agente que busca mientras vos dorm\xEDs</h2>
+        <p>
+          Hace poco me puse a construir una herramienta. Un agente de inteligencia artificial dise\xF1ado para hacer algo muy espec\xEDfico: meterse adentro de esos dieciocho gigas, extraer la informaci\xF3n de los PDFs, limpiarla, organizarla y convertirla en algo que un sistema de IA pueda digerir. Tomar lo inaccesible y volverlo legible. Tomar el caos y darle estructura.
+        </p>
+        <p>
+          Porque ah\xED adentro hay m\xE1s de 298.000 archivos. Ning\xFAn ser humano puede leer eso. Pero una m\xE1quina s\xED puede recorrerlo, indexarlo, encontrar patrones, cruzar referencias, levantar se\xF1ales que a un ojo humano le llevar\xEDa d\xE9cadas detectar.
+        </p>
+        <p>
+          Mi sue\xF1o es que ese agente no solo extraiga datos \u2014 sino que investigue. Que eval\xFAe ideas en un loop permanente, refin\xE1ndolas, puli\xE9ndolas. Como la plata. Que tome una hip\xF3tesis cruda y la trabaje hasta que brille, hasta que sea lo suficientemente precisa como para merecer ser probada. Que proponga caminos de desarrollo super bien pensados, arquitecturas de soluci\xF3n que no sean parches sino dise\xF1os inevitables.
+        </p>
+        <p>
+          Falta camino para llegar ah\xED, lo s\xE9.
+        </p>
+        <p>
+          Soy emprendedor. Tengo una startup. Tengo tres hijos activos, una mujer muy activa, y trato de mantener todo eso funcionando mientras me explota la cabeza con ideas sobre c\xF3mo vamos a cambiar Argentina. Sin la ayuda de ning\xFAn pol\xEDtico. Sin pedirle permiso a nadie.
+        </p>
+        <p>
+          A veces la vida se parece m\xE1s a un malabarismo desesperado que a un plan estrat\xE9gico. Pero algo me empuja. Algo que no puedo apagar aunque quisiera.
+        </p>
+
+        <h2>Lo que encontr\xE9 entre los datos ordenados</h2>
+        <p>
+          Reci\xE9n me puse a clickear dentro de la carpeta destino \u2014 el lugar donde el agente iba depositando los datos extra\xEDdos de la carpeta madre. M\xE1s de 298.000 archivos procesados, convertidos, clasificados. Empec\xE9 a navegar sin rumbo, abriendo carpetas al azar que ten\xEDan nombres raros, algunas palabras las podr\xEDa identificar, y hab\xEDa una carpeta que se llamaba "somethign-called-nothing", en espa\xF1ol ser\xEDa "algo llamado nada" con esa curiosidad que no busca nada en particular y por eso encuentra todo.
+        </p>
+        <p>
+          Encontr\xE9 una carpeta con cientos de fotos de un libro muy viejo. P\xE1ginas escaneadas una por una, amarillentas, con esa tipograf\xEDa pesada que usaban los textos cient\xEDficos de otra \xE9poca. Clicke\xE9 en una imagen.
+        </p>
+        <p>
+          Y ah\xED estaba.
+        </p>
+        <p>
+          Una frase de John Desmond Bernal:
+        </p>
+        <blockquote>
+          "In science, more than in any other human institution, it is necessary to search out the past in order to understand the present and to control the future."
+        </blockquote>
+        <p>
+          En la ciencia, m\xE1s que en cualquier otra instituci\xF3n humana, es necesario buscar en el pasado para entender el presente y controlar el futuro.
+        </p>
+        <p>
+          Me qued\xE9 mirando la pantalla.
+        </p>
+        <p>
+          No porque fuera una frase nueva. No porque fuera revolucionaria en s\xED misma. Sino porque en ese momento exacto, sentado frente a dieciocho gigas de pasado acumulado, con un agente de IA construido para buscar en ese pasado precisamente, la frase dej\xF3 de ser una cita y se convirti\xF3 en un espejo.
+        </p>
+
+        <h2>Lo que encontr\xE1s cuando busc\xE1s en tu propio pasado</h2>
+        <p>
+          Bernal hablaba de la ciencia. Pero yo no pude evitar llevar la frase a otro lugar.
+        </p>
+        <p>
+          Porque cuando busco en mi pasado \u2014 en el m\xEDo, personal, visceral, desordenado \u2014 lo que encuentro es todo lo que me he construido para llegar a este momento.
+        </p>
+        <p>
+          Digo <em>construido</em> a prop\xF3sito. Porque haya sido yo, o Dios jugando a ser yo \u2014 como podr\xEDa jugar a ser vos, como podr\xEDa jugar a ser cualquiera \u2014, el resultado de mis actos conscientes ha dado por resultado la construcci\xF3n de algo. He tenido muchos actos inconscientes tambi\xE9n, m\xE1s de eso para otro d\xEDa. Pero hoy quiero hablar de lo que pasa cuando mir\xE1s para atr\xE1s con honestidad y te das cuenta de que cada cosa que hiciste \u2014 cada decisi\xF3n, cada error, cada obsesi\xF3n rara, cada noche sin dormir persiguiendo una idea que nadie m\xE1s entend\xEDa \u2014 te trajo exactamente hasta ac\xE1.
+        </p>
+        <p>
+          Hasta este momento preciso.
+        </p>
+        <p>
+          Hasta este p\xE1rrafo que est\xE1s leyendo.
+        </p>
+        <p>
+          Imaginalo: todos los actos que has hecho te llevan a este exacto momento en el que est\xE1s. Que gracias por leer hasta ac\xE1, te han llevado a este instante. Si mir\xE1s, seguramente encontr\xE9s que tu pasado est\xE1 lleno de recuerdos y cosas que te han hecho quien sos hoy. Algunas las elegiste. Otras te eligieron a vos. Pero todas construyeron el pozo que sos \u2014 tallado no en piedra, sino en tiempo.
+        </p>
+        <p>
+          Y ese pozo est\xE1 lleno.
+        </p>
+        <p>
+          Solo falta la decisi\xF3n de desbordarte.
+        </p>
+
+        <h2>Gualeguaych\xFA, 2006: donde aprend\xED a pensar en sistemas</h2>
+        <p>
+          Me acord\xE9 de esto hace poco y se me vino todo de golpe.
+        </p>
+        <p>
+          En el 2006 fui a las pasant\xEDas de Tenaris. \xC9ramos un grupo de pibes con ganas de comernos el mundo, o al menos de averiguar qu\xE9 gusto ten\xEDa. Un fin de semana nos fuimos al festival de Gualeguaych\xFA. Un d\xEDa terminamos en una fiesta al lado del r\xEDo. Un lugar hermoso \u2014 el agua, las luces, la tarde soleada, los fernets en botella, las sonrisas en la cara de la gente.
+        </p>
+        <p>
+          Est\xE1bamos bailando bajo un ventilador que tiraba agua, en un delicioso estado de consciencia alterado, cuando empec\xE9 a escuchar algo. Mientras bailaba, la gente se fue organizando en un c\xE1ntico. Como esos cantos populares de cancha de f\xFAtbol que nacen de la nada y de repente son de todos.
+        </p>
+        <p>
+          <em>"Si nos organizamos cogemos todos, si nos organizamos cogemos todos."</em>
+        </p>
+        <p>
+          As\xED, con la melod\xEDa futbolera, con la convicci\xF3n de un estadio entero. Y con la l\xF3gica aplastante de una verdad que no necesita diploma para ser entendida.
+        </p>
+        <p>
+          En ese momento, mis ojos se cerraron.
+        </p>
+        <p>
+          No me dorm\xED. Me fui a otro lugar. Quer\xEDa modelar en mi cabeza c\xF3mo es que eso podr\xEDa pasar. Se nota que ten\xEDa ganas de \u2014 bueno, ya saben. Pero mi cerebro hizo algo que mi cuerpo no esperaba: en el ojo de mi mente pude imaginar que tomaba vuelo, que miraba todo desde arriba, y empezaba a asignar caracter\xEDsticas, gustos, tama\xF1os, ondas. Empec\xE9 a ver c\xF3mo se podr\xEDan generar m\xFAltiples alternativas para que todos salgan bastante satisfechos. Un problema de asignaci\xF3n de recursos con restricciones m\xFAltiples y funci\xF3n objetivo de satisfacci\xF3n colectiva.
+        </p>
+        <p>
+          Un problema de sistemas.
+        </p>
+        <p>
+          Desde ese d\xEDa me volv\xED loco.
+        </p>
+        <p>
+          Loco por estudiar sistemas. C\xF3mo pensar sobre ellos. C\xF3mo dise\xF1arlos. C\xF3mo hacer para que funcionen mejor. C\xF3mo permitir que evolucionen. C\xF3mo poner l\xEDmites para maximizar belleza. Y c\xF3mo tratar de cont\xE1rselo a la gente de una forma que lo entienda y lo pueda aplicar.
+        </p>
+        <p>
+          Todo empez\xF3 con un canto guarango al lado de un r\xEDo, bajo un ventilador que tiraba agua, en una noche de carnaval.
+        </p>
+        <p>
+          Si eso no es Argentina, no s\xE9 qu\xE9 es.
+        </p>
+
+        <h2>La fiesta como met\xE1fora del pa\xEDs</h2>
+        <p>
+          Mir\xE1, se puede escribir toda una filosof\xEDa pol\xEDtica a partir de esa an\xE9cdota, y me la banco.
+        </p>
+        <p>
+          <em>"Si nos organizamos cogemos todos"</em> no es solo un chiste de borrachos. Es, en su crudeza perfecta, una verdad sist\xE9mica profunda: cuando las partes de un sistema se coordinan, el resultado para cada parte individual es superior al que obtendr\xEDa actuando sola.
+        </p>
+        <p>
+          Eso es pensamiento sist\xE9mico destilado a su esencia m\xE1s cruda y m\xE1s honesta.
+        </p>
+        <p>
+          Porque cuando estudias pensamiento sist\xE9mico aprend\xE9s que la mejor forma de mejorar un sistema no es mejorar el funcionamiento individual de las partes, sino mejorar la forma en que las partes se relacionan. No importa lo bueno que seas vos solo. Importa la calidad de la red. Importa el dise\xF1o de las interacciones. Importa la arquitectura de la coordinaci\xF3n.
+        </p>
+        <p>
+          Y eso es exactamente lo que nos falta como pa\xEDs.
+        </p>
+        <p>
+          No nos faltan recursos. No nos falta talento. No nos falta inteligencia. No nos falta pasi\xF3n.
+        </p>
+        <p>
+          Nos falta organizaci\xF3n.
+        </p>
+        <p>
+          <strong>Nos falta un sistema de dise\xF1o del sistema en el que jugamos.</strong>
+        </p>
+
+        <h2>El pueblo por encima de la cadena de mando</h2>
+        <p>
+          Ac\xE1 es donde la cosa se pone seria.
+        </p>
+        <p>
+          Como pueblo nos tenemos que poner encima de la cadena de mando. Y la \xFAnica forma en que lo vamos a conseguir es organiz\xE1ndonos.
+        </p>
+        <p>
+          No con marchas. No con quejas. No con tweets furiosos. Organiz\xE1ndonos de verdad: con datos, con estructura, con dise\xF1o, con herramientas que nos permitan hacer visible lo que hoy es invisible.
+        </p>
+        <p>
+          Porque el problema no son los pol\xEDticos. Los pol\xEDticos son un s\xEDntoma. El problema es que no existe un sistema donde el pueblo participe del dise\xF1o del sistema. No hay mecanismo real para que hagas conocer qu\xE9 es lo que so\xF1\xE1s, lo que valor\xE1s, lo que necesit\xE1s, lo que ya no quer\xE9s, a lo que te compromet\xE9s, lo que ten\xE9s para aportar.
+        </p>
+        <p>
+          Son las capas m\xE1s simples. Las m\xE1s fundamentales. Y no las tenemos.
+        </p>
+        <p>
+          Sin esas capas, estamos ciegos. Y un pueblo ciego no puede gobernar. Solo puede reaccionar. Solo puede votar cada cuatro a\xF1os y rezar para que el que eligi\xF3 no sea peor que el anterior.
+        </p>
+        <p>
+          Pero si empezamos a hacer visibles esas cosas \u2014 los sue\xF1os, los valores, las necesidades, los compromisos, los aportes \u2014 estaremos en mejor posici\xF3n para actuar que si no. Y es casi tan b\xE1sico como eso.
+        </p>
+        <p>
+          Una vez que el pueblo habla y el mandato es claro, el ejecutivo tiene que ejecutar, el legislativo tiene que legislar, y el judicial tiene que cuidar.
+        </p>
+        <p>
+          Es imposible que un l\xEDder gobierne bien si el pueblo no participa del dise\xF1o del sistema en el que juega. La democracia no puede ser solo una urna cada cuatro a\xF1os. Tiene que ser un sistema vivo de participaci\xF3n permanente, donde la voz de cada ciudadano alimente el dise\xF1o de las soluciones.
+        </p>
+        <p>
+          Y si los pol\xEDticos no quieren sumarse, van a venir a nuestros sistemas igual. Porque si quieren mantener sus trabajos, van a tener que ejecutar lo que el pueblo dise\xF1\xF3. O el pueblo va a encontrar a alguien que s\xED lo haga.
+        </p>
+
+        <h2>El presente es un escal\xF3n</h2>
+        <p>
+          Hay que entender que el presente es el escal\xF3n al futuro. Y que para poder controlar el futuro \u2014 no en el sentido de las c\xE1maras y los papeles para moverse de un lugar a otro, sino en el sentido de tomar el tim\xF3n y marcar el rumbo \u2014 la mejor forma es dise\xF1ar c\xF3mo vamos a pasar nuestro tiempo.
+        </p>
+        <p>
+          Sin dise\xF1o, no hay direcci\xF3n.<br/>
+          Sin l\xEDmites, no hay estructura.<br/>
+          Sin estructura, no hay control.
+        </p>
+        <p>
+          Y sin control \u2014 del bueno, del que empodera en vez de oprimir \u2014 no hay forma de llegar adonde queremos ir.
+        </p>
+        <p>
+          Para eso tenemos que participar como pa\xEDs en la adquisici\xF3n m\xE1s grande de nuestra realidad f\xEDsica: definir cu\xE1l ser\xEDa el ideal y actuar en consecuencia. Un dise\xF1o idealizado, como dir\xEDa Ackoff. No administrar ruinas: <strong>estrenar pa\xEDs</strong>. Preguntarnos, colectivamente, sin filtro: \xBFc\xF3mo ser\xEDa Argentina si pudi\xE9ramos empezar hoy, con el conocimiento actual, sin las cadenas del pasado?
+        </p>
+        <p>
+          No es utop\xEDa. Es m\xE9todo.
+        </p>
+
+        <h2>Herramientas que ya existen</h2>
+        <p>
+          Hoy en d\xEDa tenemos a disposici\xF3n herramientas para procesar cantidades masivas de informaci\xF3n y ayudarnos a determinar los caminos m\xE1s cortos para llevar un problema a su ideal. Inteligencia artificial. Procesamiento de lenguaje natural. Sistemas de an\xE1lisis en tiempo real. Plataformas de participaci\xF3n ciudadana.
+        </p>
+        <p>
+          Nada de esto exist\xEDa hace veinte a\xF1os.
+        </p>
+        <p>
+          Hoy existe. Y la mayor\xEDa de los gobiernos del mundo no tiene la menor idea de qu\xE9 hacer con ello. O peor: lo usa para vigilar en vez de para escuchar.
+        </p>
+        <p>
+          Nosotros podemos usarlo para dise\xF1ar.
+        </p>
+        <p>
+          Eso no significa que no vayan a haber nuevos problemas. Cada soluci\xF3n lleva un problema diferente \u2014 eso es ley de sistemas. Pero al menos ser\xE1n problemas mejores. Problemas de abundancia en vez de problemas de escasez. Problemas de coordinaci\xF3n en vez de problemas de supervivencia. Problemas que valga la pena tener.
+        </p>
+
+        <h2>Lo que ves aqu\xED es un boceto</h2>
+        <p>
+          Lo que ves construido en esta plataforma es eso: un boceto. Un sketch hecho con las manos sucias de un tipo que no puede dejar de pensar en c\xF3mo ser\xEDan las cosas si estuvieran bien dise\xF1adas.
+        </p>
+        <p>
+          El Mapa muestra una semilla de lo que podr\xEDa ser ese sistema de participaci\xF3n ciudadana. La secci\xF3n de iniciativas estrat\xE9gicas cuenta con planes que fui dise\xF1ando \u2014 no como verdades reveladas, sino como disparadores de discusi\xF3n. Son largos. Son detallados. Est\xE1n hechos con la granularidad que merece un problema serio. Estar\xEDa bueno que si te interesa la propuesta le des una mirada a uno para que veas con qu\xE9 nivel de profundidad se puede trabajar cuando uno deja de quejarse y se pone a dise\xF1ar.
+        </p>
+        <p>
+          Se vienen planes nuevos pr\xF3ximamente.
+        </p>
+        <p>
+          Trabajar en ellos quema los tokens \u2014 literalmente, porque trato de hacerlos funcionar en conjunto. Si lanzo un plan nuevo, que se modifiquen todos a la vez y queden armonizados. Que cada pieza del rompecabezas encaje con las dem\xE1s. Que el sistema sea org\xE1nico, no mec\xE1nico.
+        </p>
+        <p>
+          Me muero de ganas de poder generar algunos con todas las cosas que la gente cargue en la plataforma. Que no sea yo solo dise\xF1ando desde mi escritorio a las dos de la ma\xF1ana con un mate fr\xEDo: que sean miles de argentinos volcando sus sue\xF1os, sus datos, sus propuestas, y que la inteligencia artificial nos ayude a encontrar los patrones, las convergencias, los caminos que ninguno de nosotros podr\xEDa ver solo.
+        </p>
+        <p>
+          Ojal\xE1 se copen.
+        </p>
+        <p>
+          Solo necesitamos adaptar y refinar un poco m\xE1s nuestra visi\xF3n para darnos cuenta de lo que es posible hacer. Las herramientas est\xE1n. La inteligencia est\xE1. El deseo est\xE1. Lo que falta es que nos decidamos a usarlo todo junto.
+        </p>
+
+        <h2>Volver a Bernal</h2>
+        <p>
+          Bernal ten\xEDa raz\xF3n. Hay que buscar en el pasado para entender el presente y controlar el futuro.
+        </p>
+        <p>
+          Pero yo le agregar\xEDa algo.
+        </p>
+        <p>
+          No solo hay que buscar en el pasado de la ciencia. Hay que buscar en el pasado propio. En esa carpeta desordenada de dieciocho gigas que cada uno lleva adentro \u2014 recuerdos, decisiones, intuiciones, heridas, momentos de claridad, momentos de locura, momentos en los que cerraste los ojos en una fiesta al lado del r\xEDo y tu cerebro se fue a dise\xF1ar un sistema de asignaci\xF3n \xF3ptima de recursos humanos con restricciones de compatibilidad m\xFAltiple.
+        </p>
+        <p>
+          Todo eso te trajo hasta ac\xE1.
+        </p>
+        <p>
+          Todo eso construy\xF3 el pozo.
+        </p>
+        <p>
+          Y yo encontr\xE9 a Bernal exactamente donde ten\xEDa que encontrarlo: dentro de una carpeta que un agente de IA estaba procesando, que yo mismo hab\xEDa construido, dentro de un proyecto que empec\xE9 porque no puedo aceptar que las cosas tengan que seguir como est\xE1n, dentro de una vida que eleg\xED vivir en Argentina porque creo \u2014 con la terquedad de un ingeniero y la fe de un loco \u2014 que nos recontra merecemos que nos vaya mejor.
+        </p>
+        <p>
+          A m\xED me encanta vivir en Argentina. Y todo este trabajo lo he hecho de amor. No de ego, no de ambici\xF3n, no de resentimiento. De amor. Del m\xE1s inteligente que puedo ofrecer.
+        </p>
+        <p>
+          Creo que tenemos que darnos cuenta de muchas cosas. Pero eso empieza en el instante en que pensamos que nuestra acci\xF3n va a tener un efecto. En el instante en que elegimos muy bien nuestras causas para causar esos efectos. En el instante en que dejamos de ser espectadores de nuestra propia existencia y agarramos el l\xE1piz para empezar a dise\xF1ar.
+        </p>
+        <p>
+          El instante ese es ahora.
+        </p>
+        <p>
+          No importa que no sea perfecto. No importa que sea un boceto. No importa que falte camino.
+        </p>
+        <p>
+          Importa que las herramientas tienen que ser construidas y controladas por el pueblo. Y que sirvan de apoyo al sistema pol\xEDtico para que mantenga su relevancia \u2014 para que el que ejecute y accione lo haga de la forma m\xE1s adecuada para conseguir los resultados dise\xF1ados.
+        </p>
+        <p>
+          Es decir: si tenemos el sistema, no importa qui\xE9n venga. Porque tendremos una historia sobre la cual construir. Una historia que vamos nutriendo entre todos. Un dise\xF1o vivo, evolutivo, imposible de capturar por una sola persona o un solo partido, porque le pertenece a todos los que participaron en crearlo.
+        </p>
+        <p>
+          Eso es lo que estamos sembrando.
+        </p>
+
+        <h2>Una invitaci\xF3n, no una demanda</h2>
+        <p>
+          No s\xE9 cu\xE1ndo va a germinar todo esto. No s\xE9 si lo voy a ver. No s\xE9 si importa.
+        </p>
+        <p>
+          Lo que s\xE9 es que cada vez que abro esa carpeta de dieciocho gigas, cada vez que mi agente extrae un dato nuevo de un PDF olvidado, cada vez que un canto guarango de carnaval me recuerda por qu\xE9 me apasionan los sistemas, cada vez que miro a mis tres hijos y pienso en el pa\xEDs que les voy a dejar \u2014 algo se mueve.
+        </p>
+        <p>
+          Algo se desborda.
+        </p>
+        <p>
+          Y no puedo pararlo. Ni quiero.
+        </p>
+        <p>
+          Si algo de esto resuena en vos, no necesit\xE1s permiso para sumarte. No necesit\xE1s credenciales. No necesit\xE1s esperar a que alguien te diga que es el momento.
+        </p>
+        <p>
+          Bernal buscaba en el pasado de la ciencia para controlar el futuro de la humanidad.
+        </p>
+        <p>
+          Nosotros buscamos en el pasado de Argentina \u2014 en lo que fuimos, en lo que so\xF1amos, en lo que construimos y en lo que destruimos \u2014 para dise\xF1ar el futuro que nos merecemos.
+        </p>
+        <p>
+          Ese futuro no se predice.
+        </p>
+        <p>
+          <strong>Se dise\xF1a.</strong>
+        </p>
+
+        <blockquote>
+          El Hombre Gris no es una persona. Es una idea. Y las ideas no necesitan permiso para multiplicarse.
+        </blockquote>
+
+        <p>
+          <em>Movimiento \xA1BASTA! \u2014 Transformando Argentina, un argentino a la vez.</em>
+        </p>
+      </article>
+    `
       }
     };
   }
@@ -9913,7 +10416,7 @@ async function generateAndSaveMandate(territoryLevel, territoryName, province, c
   };
   const territoryDreams = filterByTerritory(allDreams);
   const territoryResources = filterResources(allResources);
-  const THEME_KEYWORDS = {
+  const THEME_KEYWORDS2 = {
     systemic: ["transformacion", "cambio", "revolucion", "reforma", "sistema", "estructura"],
     values: ["transparencia", "justicia", "equidad", "dignidad", "respeto", "honestidad", "solidaridad"],
     action: ["accion", "participacion", "movilizacion", "liderazgo", "iniciativa", "compromiso"],
@@ -9924,7 +10427,7 @@ async function generateAndSaveMandate(territoryLevel, territoryName, province, c
     community: ["comunidad", "pueblo", "sociedad", "colectivo", "ciudadania", "barrio", "territorio"],
     future: ["futuro", "vision", "horizonte", "esperanza", "sueno", "meta", "proposito"]
   };
-  const THEME_LABELS2 = {
+  const THEME_LABELS3 = {
     systemic: "Transformaci\xF3n Sist\xE9mica",
     values: "Valores Fundamentales",
     action: "Acci\xF3n y Agencia",
@@ -9964,7 +10467,7 @@ async function generateAndSaveMandate(territoryLevel, territoryName, province, c
   };
   const normalize2 = (w) => w.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z]/g, "");
   const themeHits = {};
-  for (const tk of Object.keys(THEME_KEYWORDS)) themeHits[tk] = { count: 0, quotes: [] };
+  for (const tk of Object.keys(THEME_KEYWORDS2)) themeHits[tk] = { count: 0, quotes: [] };
   let voiceCount = 0;
   for (const entry of territoryDreams) {
     for (const type of ["need", "basta", "dream", "value"]) {
@@ -9972,8 +10475,8 @@ async function generateAndSaveMandate(territoryLevel, territoryName, province, c
       if (!text2) continue;
       voiceCount++;
       const words = text2.split(/\s+/).map(normalize2).filter((w) => w.length > 3);
-      for (const tk of Object.keys(THEME_KEYWORDS)) {
-        if (words.some((w) => THEME_KEYWORDS[tk].some((kw) => w.includes(kw) || kw.includes(w)))) {
+      for (const tk of Object.keys(THEME_KEYWORDS2)) {
+        if (words.some((w) => THEME_KEYWORDS2[tk].some((kw) => w.includes(kw) || kw.includes(w)))) {
           themeHits[tk].count++;
           if (themeHits[tk].quotes.length < 3) themeHits[tk].quotes.push(text2.length > 120 ? text2.slice(0, 120) + "\u2026" : text2);
         }
@@ -9982,8 +10485,8 @@ async function generateAndSaveMandate(territoryLevel, territoryName, province, c
   }
   const priorities = Object.entries(themeHits).filter(([, v]) => v.count > 0).sort(([, a], [, b]) => b.count - a.count).slice(0, 5).map(([theme, data], i) => ({
     rank: i + 1,
-    theme: THEME_LABELS2[theme] || theme,
-    description: `${data.count} declaraciones convergen en ${THEME_LABELS2[theme] || theme}`,
+    theme: THEME_LABELS3[theme] || theme,
+    description: `${data.count} declaraciones convergen en ${THEME_LABELS3[theme] || theme}`,
     convergencePercent: voiceCount > 0 ? Math.round(data.count / voiceCount * 100) : 0,
     voiceCount: data.count,
     sampleQuotes: data.quotes
@@ -9999,7 +10502,7 @@ async function generateAndSaveMandate(territoryLevel, territoryName, province, c
       resourceThemeCounts[t] = (resourceThemeCounts[t] || 0) + 1;
     });
   });
-  const gaps = Object.entries(themeHits).map(([theme, data]) => ({ theme: THEME_LABELS2[theme] || theme, needCount: data.count, resourceCount: resourceThemeCounts[theme] || 0, gap: data.count - (resourceThemeCounts[theme] || 0), urgency: data.count - (resourceThemeCounts[theme] || 0) > 5 ? "critical" : data.count - (resourceThemeCounts[theme] || 0) > 2 ? "high" : "medium" })).filter((g) => g.gap > 0).sort((a, b) => b.gap - a.gap).slice(0, 5);
+  const gaps = Object.entries(themeHits).map(([theme, data]) => ({ theme: THEME_LABELS3[theme] || theme, needCount: data.count, resourceCount: resourceThemeCounts[theme] || 0, gap: data.count - (resourceThemeCounts[theme] || 0), urgency: data.count - (resourceThemeCounts[theme] || 0) > 5 ? "critical" : data.count - (resourceThemeCounts[theme] || 0) > 2 ? "high" : "medium" })).filter((g) => g.gap > 0).sort((a, b) => b.gap - a.gap).slice(0, 5);
   const suggestedActions = gaps.slice(0, 3).map((gap) => ({
     title: `Programa de ${gap.theme}`,
     description: `${gap.needCount} personas expresaron necesidad en ${gap.theme}. ${gap.resourceCount > 0 ? `Hay ${gap.resourceCount} recursos disponibles.` : "Se necesitan recursos externos."}`,
@@ -10157,7 +10660,7 @@ async function scanForMatches(minNeeds = 2, minResources = 1) {
     storage.getDreams(),
     storage.getUserResources()
   ]);
-  const THEME_KEYWORDS = {
+  const THEME_KEYWORDS2 = {
     systemic: ["transformacion", "cambio", "revolucion", "reforma", "sistema"],
     values: ["transparencia", "justicia", "equidad", "dignidad", "respeto", "solidaridad"],
     action: ["accion", "participacion", "movilizacion", "liderazgo", "iniciativa"],
@@ -10177,7 +10680,7 @@ async function scanForMatches(minNeeds = 2, minResources = 1) {
       const text2 = entry[type];
       if (!text2) continue;
       const words = text2.split(/\s+/).map(normalize2).filter((w) => w.length > 3);
-      for (const [theme, keywords] of Object.entries(THEME_KEYWORDS)) {
+      for (const [theme, keywords] of Object.entries(THEME_KEYWORDS2)) {
         if (words.some((w) => keywords.some((kw) => w.includes(kw) || kw.includes(w)))) {
           if (!needsByLocTheme[loc]) needsByLocTheme[loc] = {};
           needsByLocTheme[loc][theme] = (needsByLocTheme[loc][theme] || 0) + 1;
@@ -10206,7 +10709,7 @@ async function scanForMatches(minNeeds = 2, minResources = 1) {
         matches.push({
           territoryName: loc,
           needTheme: theme,
-          needThemeLabel: THEME_LABELS[theme] || theme,
+          needThemeLabel: THEME_LABELS2[theme] || theme,
           needCount,
           resourceCategory: cat,
           resourceCategoryLabel: RESOURCE_LABELS[cat] || cat,
@@ -10240,12 +10743,12 @@ ${match.needCount} personas necesitan ${match.needThemeLabel}. ${match.resourceC
   }
   return saved;
 }
-var THEME_LABELS, RESOURCE_LABELS, THEME_RESOURCE_MATCHES, ACTION_TEMPLATES, DEFAULT_TEMPLATE;
+var THEME_LABELS2, RESOURCE_LABELS, THEME_RESOURCE_MATCHES, ACTION_TEMPLATES, DEFAULT_TEMPLATE;
 var init_matchmaker_service = __esm({
   "server/matchmaker-service.ts"() {
     "use strict";
     init_storage();
-    THEME_LABELS = {
+    THEME_LABELS2 = {
       systemic: "Transformaci\xF3n Sist\xE9mica",
       values: "Valores Fundamentales",
       action: "Acci\xF3n y Agencia",
@@ -10342,157 +10845,96 @@ import { Router } from "express";
 import crypto3 from "crypto";
 
 // server/email.ts
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
+var resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
+var DEFAULT_FROM = process.env.RESEND_FROM || "\xA1BASTA! <onboarding@resend.dev>";
 var EmailService = class {
-  constructor() {
-    this.transporter = null;
-    this.initializeTransporter();
-  }
-  initializeTransporter() {
-    if (process.env.EMAIL_HOST && process.env.EMAIL_USER) {
-      this.transporter = nodemailer.createTransport({
-        host: process.env.EMAIL_HOST,
-        port: parseInt(process.env.EMAIL_PORT || "587"),
-        secure: process.env.EMAIL_SECURE === "true",
-        auth: {
-          user: process.env.EMAIL_USER,
-          pass: process.env.EMAIL_PASSWORD
-        }
-      });
-    } else {
-      this.createTestAccount();
-    }
-  }
-  async createTestAccount() {
-    try {
-      const testAccount = await nodemailer.createTestAccount();
-      this.transporter = nodemailer.createTransport({
-        host: "smtp.ethereal.email",
-        port: 587,
-        secure: false,
-        auth: {
-          user: testAccount.user,
-          pass: testAccount.pass
-        }
-      });
-      console.log("\u{1F4E7} Using Ethereal email for testing");
-      console.log("\u{1F4EC} Test email account:", testAccount.user);
-    } catch (error) {
-      console.error("Failed to create test email account:", error);
-    }
-  }
   async sendVerificationEmail(email, token, name) {
-    if (!this.transporter) {
-      console.log("\u{1F4E7} Email not configured. Verification link:", this.getVerificationUrl(token));
+    const verificationUrl = this.getVerificationUrl(token);
+    if (!resend) {
+      console.log("\u{1F4E7} Resend not configured. Verification link:", verificationUrl);
       return;
     }
-    const verificationUrl = this.getVerificationUrl(token);
-    const mailOptions = {
-      from: process.env.EMAIL_FROM || '"\xA1BASTA!" <noreply@basta.com>',
+    const { error } = await resend.emails.send({
+      from: DEFAULT_FROM,
       to: email,
-      subject: "\xA1Bienvenido a \xA1BASTA! - Verifica tu email",
+      subject: "\xA1Bienvenido a \xA1BASTA! \u2014 Verific\xE1 tu email",
       html: this.getVerificationEmailTemplate(name, verificationUrl)
-    };
-    try {
-      const info = await this.transporter.sendMail(mailOptions);
-      console.log("\u{1F4E7} Verification email sent:", info.messageId);
-      if (process.env.NODE_ENV === "development") {
-        console.log("\u{1F4EC} Preview URL:", nodemailer.getTestMessageUrl(info));
-      }
-    } catch (error) {
+    });
+    if (error) {
       console.error("Failed to send verification email:", error);
       throw new Error("Failed to send verification email");
     }
+    console.log("\u{1F4E7} Verification email sent to", email);
   }
   async sendPasswordResetEmail(email, token, name) {
-    if (!this.transporter) {
-      console.log("\u{1F4E7} Email not configured. Password reset link:", this.getPasswordResetUrl(token));
+    const resetUrl = this.getPasswordResetUrl(token);
+    if (!resend) {
+      console.log("\u{1F4E7} Resend not configured. Password reset link:", resetUrl);
       return;
     }
-    const resetUrl = this.getPasswordResetUrl(token);
-    const mailOptions = {
-      from: process.env.EMAIL_FROM || '"\xA1BASTA!" <noreply@basta.com>',
+    const { error } = await resend.emails.send({
+      from: DEFAULT_FROM,
       to: email,
-      subject: "Recuperaci\xF3n de Contrase\xF1a - \xA1BASTA!",
+      subject: "Recuperaci\xF3n de Contrase\xF1a \u2014 \xA1BASTA!",
       html: this.getPasswordResetEmailTemplate(name, resetUrl)
-    };
-    try {
-      const info = await this.transporter.sendMail(mailOptions);
-      console.log("\u{1F4E7} Password reset email sent:", info.messageId);
-      if (process.env.NODE_ENV === "development") {
-        console.log("\u{1F4EC} Preview URL:", nodemailer.getTestMessageUrl(info));
-      }
-    } catch (error) {
+    });
+    if (error) {
       console.error("Failed to send password reset email:", error);
       throw new Error("Failed to send password reset email");
     }
+    console.log("\u{1F4E7} Password reset email sent to", email);
   }
-  // Community notification methods
   async sendPostInteractionNotification(receiverEmail, receiverName, senderName, postTitle, interactionType) {
-    if (!this.transporter) {
-      console.log("\u{1F4E7} Email not configured. Interaction notification would be sent to:", receiverEmail);
+    if (!resend) {
+      console.log("\u{1F4E7} Resend not configured. Interaction notification would be sent to:", receiverEmail);
       return;
     }
-    const mailOptions = {
-      from: process.env.EMAIL_FROM || '"\xA1BASTA!" <noreply@basta.com>',
+    const { error } = await resend.emails.send({
+      from: DEFAULT_FROM,
       to: receiverEmail,
-      subject: `Nueva ${interactionType} en tu publicaci\xF3n - \xA1BASTA!`,
+      subject: `Nueva ${interactionType} en tu publicaci\xF3n \u2014 \xA1BASTA!`,
       html: this.getPostInteractionNotificationTemplate(receiverName, senderName, postTitle, interactionType)
-    };
-    try {
-      const info = await this.transporter.sendMail(mailOptions);
-      console.log("\u{1F4E7} Post interaction notification sent:", info.messageId);
-      if (process.env.NODE_ENV === "development") {
-        console.log("\u{1F4EC} Preview URL:", nodemailer.getTestMessageUrl(info));
-      }
-    } catch (error) {
+    });
+    if (error) {
       console.error("Failed to send post interaction notification:", error);
       throw new Error("Failed to send post interaction notification");
     }
+    console.log("\u{1F4E7} Post interaction notification sent to", receiverEmail);
   }
   async sendNewMessageNotification(receiverEmail, receiverName, senderName, messageSubject) {
-    if (!this.transporter) {
-      console.log("\u{1F4E7} Email not configured. Message notification would be sent to:", receiverEmail);
+    if (!resend) {
+      console.log("\u{1F4E7} Resend not configured. Message notification would be sent to:", receiverEmail);
       return;
     }
-    const mailOptions = {
-      from: process.env.EMAIL_FROM || '"\xA1BASTA!" <noreply@basta.com>',
+    const { error } = await resend.emails.send({
+      from: DEFAULT_FROM,
       to: receiverEmail,
-      subject: "Nuevo mensaje en la comunidad - \xA1BASTA!",
+      subject: "Nuevo mensaje en la comunidad \u2014 \xA1BASTA!",
       html: this.getNewMessageNotificationTemplate(receiverName, senderName, messageSubject)
-    };
-    try {
-      const info = await this.transporter.sendMail(mailOptions);
-      console.log("\u{1F4E7} New message notification sent:", info.messageId);
-      if (process.env.NODE_ENV === "development") {
-        console.log("\u{1F4EC} Preview URL:", nodemailer.getTestMessageUrl(info));
-      }
-    } catch (error) {
+    });
+    if (error) {
       console.error("Failed to send new message notification:", error);
       throw new Error("Failed to send new message notification");
     }
+    console.log("\u{1F4E7} New message notification sent to", receiverEmail);
   }
   async sendPostStatusChangeNotification(receiverEmail, receiverName, postTitle, newStatus) {
-    if (!this.transporter) {
-      console.log("\u{1F4E7} Email not configured. Status change notification would be sent to:", receiverEmail);
+    if (!resend) {
+      console.log("\u{1F4E7} Resend not configured. Status change notification would be sent to:", receiverEmail);
       return;
     }
-    const mailOptions = {
-      from: process.env.EMAIL_FROM || '"\xA1BASTA!" <noreply@basta.com>',
+    const { error } = await resend.emails.send({
+      from: DEFAULT_FROM,
       to: receiverEmail,
-      subject: `Estado de tu publicaci\xF3n actualizado - \xA1BASTA!`,
+      subject: "Estado de tu publicaci\xF3n actualizado \u2014 \xA1BASTA!",
       html: this.getPostStatusChangeNotificationTemplate(receiverName, postTitle, newStatus)
-    };
-    try {
-      const info = await this.transporter.sendMail(mailOptions);
-      console.log("\u{1F4E7} Post status change notification sent:", info.messageId);
-      if (process.env.NODE_ENV === "development") {
-        console.log("\u{1F4EC} Preview URL:", nodemailer.getTestMessageUrl(info));
-      }
-    } catch (error) {
+    });
+    if (error) {
       console.error("Failed to send post status change notification:", error);
       throw new Error("Failed to send post status change notification");
     }
+    console.log("\u{1F4E7} Post status change notification sent to", receiverEmail);
   }
   getVerificationUrl(token) {
     const baseUrl = process.env.BASE_URL || "http://localhost:5173";
@@ -10524,17 +10966,17 @@ var EmailService = class {
           </div>
           <div class="content">
             <p>Gracias por registrarte en nuestra plataforma de cambio social.</p>
-            <p>Para completar tu registro y activar tu cuenta, por favor verifica tu direcci\xF3n de email haciendo clic en el siguiente bot\xF3n:</p>
+            <p>Para completar tu registro y activar tu cuenta, por favor verific\xE1 tu direcci\xF3n de email haciendo clic en el siguiente bot\xF3n:</p>
             <p style="text-align: center;">
               <a href="${verificationUrl}" class="button">Verificar mi Email</a>
             </p>
-            <p>O copia y pega este enlace en tu navegador:</p>
+            <p>O copi\xE1 y peg\xE1 este enlace en tu navegador:</p>
             <p style="word-break: break-all; color: #667eea;">${verificationUrl}</p>
             <p><strong>Este enlace expirar\xE1 en 24 horas.</strong></p>
-            <p>Si no creaste esta cuenta, puedes ignorar este email.</p>
+            <p>Si no creaste esta cuenta, pod\xE9s ignorar este email.</p>
           </div>
           <div class="footer">
-            <p>\xA9 2025 \xA1BASTA! - Movimiento de Cambio Social</p>
+            <p>&copy; 2025 \xA1BASTA! \u2014 Movimiento de Cambio Social</p>
             <p>Este es un email autom\xE1tico, por favor no respondas.</p>
           </div>
         </div>
@@ -10566,24 +11008,24 @@ var EmailService = class {
           <div class="content">
             <p>Hola ${name},</p>
             <p>Recibimos una solicitud para restablecer la contrase\xF1a de tu cuenta en \xA1BASTA!.</p>
-            <p>Para crear una nueva contrase\xF1a, haz clic en el siguiente bot\xF3n:</p>
+            <p>Para crear una nueva contrase\xF1a, hac\xE9 clic en el siguiente bot\xF3n:</p>
             <p style="text-align: center;">
               <a href="${resetUrl}" class="button">Restablecer Contrase\xF1a</a>
             </p>
-            <p>O copia y pega este enlace en tu navegador:</p>
+            <p>O copi\xE1 y peg\xE1 este enlace en tu navegador:</p>
             <p style="word-break: break-all; color: #f5576c;">${resetUrl}</p>
             <div class="warning">
-              <strong>\u26A0\uFE0F Importante:</strong>
+              <strong>Importante:</strong>
               <ul>
                 <li>Este enlace expirar\xE1 en 1 hora</li>
-                <li>Solo puedes usar este enlace una vez</li>
-                <li>Si no solicitaste este cambio, ignora este email</li>
+                <li>Solo pod\xE9s usar este enlace una vez</li>
+                <li>Si no solicitaste este cambio, ignor\xE1 este email</li>
               </ul>
             </div>
-            <p>Si no solicitaste restablecer tu contrase\xF1a, tu cuenta est\xE1 segura y puedes ignorar este mensaje.</p>
+            <p>Si no solicitaste restablecer tu contrase\xF1a, tu cuenta est\xE1 segura y pod\xE9s ignorar este mensaje.</p>
           </div>
           <div class="footer">
-            <p>\xA9 2025 \xA1BASTA! - Movimiento de Cambio Social</p>
+            <p>&copy; 2025 \xA1BASTA! \u2014 Movimiento de Cambio Social</p>
             <p>Este es un email autom\xE1tico, por favor no respondas.</p>
           </div>
         </div>
@@ -10616,28 +11058,28 @@ var EmailService = class {
       <body>
         <div class="container">
           <div class="header">
-            <h1>\xA1Nueva ${interactionText} en tu publicaci\xF3n!</h1>
+            <h1>Nueva ${interactionText} en tu publicaci\xF3n</h1>
           </div>
           <div class="content">
             <p>Hola ${receiverName},</p>
-            <p>\xA1Excelente noticia! Alguien ha mostrado ${interactionText} en tu publicaci\xF3n.</p>
-            
+            <p>Alguien ha mostrado ${interactionText} en tu publicaci\xF3n.</p>
+
             <div class="highlight">
-              <strong>\u{1F4DD} Publicaci\xF3n:</strong> ${postTitle}<br>
-              <strong>\u{1F464} Usuario:</strong> ${senderName}<br>
-              <strong>\u{1F3AF} Acci\xF3n:</strong> ${interactionText}
+              <strong>Publicaci\xF3n:</strong> ${postTitle}<br>
+              <strong>Usuario:</strong> ${senderName}<br>
+              <strong>Acci\xF3n:</strong> ${interactionText}
             </div>
-            
-            <p>Esto significa que tu publicaci\xF3n est\xE1 generando inter\xE9s en la comunidad. \xA1Sigue as\xED!</p>
-            
+
+            <p>Esto significa que tu publicaci\xF3n est\xE1 generando inter\xE9s en la comunidad.</p>
+
             <p style="text-align: center;">
               <a href="${process.env.BASE_URL || "http://localhost:5173"}/community" class="button">Ver en la Comunidad</a>
             </p>
-            
-            <p>Recuerda que puedes gestionar todas las interacciones desde tu panel de control.</p>
+
+            <p>Pod\xE9s gestionar todas las interacciones desde tu panel de control.</p>
           </div>
           <div class="footer">
-            <p>\xA9 2025 \xA1BASTA! - Movimiento de Cambio Social</p>
+            <p>&copy; 2025 \xA1BASTA! \u2014 Movimiento de Cambio Social</p>
             <p>Este es un email autom\xE1tico, por favor no respondas.</p>
           </div>
         </div>
@@ -10664,25 +11106,25 @@ var EmailService = class {
       <body>
         <div class="container">
           <div class="header">
-            <h1>\xA1Tienes un nuevo mensaje!</h1>
+            <h1>Ten\xE9s un nuevo mensaje</h1>
           </div>
           <div class="content">
             <p>Hola ${receiverName},</p>
             <p>Alguien de la comunidad te ha enviado un mensaje.</p>
-            
+
             <div class="highlight">
-              <strong>\u{1F4E8} Asunto:</strong> ${messageSubject}<br>
-              <strong>\u{1F464} De:</strong> ${senderName}
+              <strong>Asunto:</strong> ${messageSubject}<br>
+              <strong>De:</strong> ${senderName}
             </div>
-            
-            <p>\xA1No te olvides de responder para mantener la comunicaci\xF3n activa!</p>
-            
+
+            <p>No te olvides de responder para mantener la comunicaci\xF3n activa.</p>
+
             <p style="text-align: center;">
               <a href="${process.env.BASE_URL || "http://localhost:5173"}/community/messages" class="button">Ver Mensaje</a>
             </p>
           </div>
           <div class="footer">
-            <p>\xA9 2025 \xA1BASTA! - Movimiento de Cambio Social</p>
+            <p>&copy; 2025 \xA1BASTA! \u2014 Movimiento de Cambio Social</p>
             <p>Este es un email autom\xE1tico, por favor no respondas.</p>
           </div>
         </div>
@@ -10696,11 +11138,6 @@ var EmailService = class {
       "closed": "cerrado",
       "active": "activo"
     }[newStatus] || newStatus;
-    const statusEmoji = {
-      "badge": "\u23F8\uFE0F",
-      "closed": "\u{1F512}",
-      "active": "\u2705"
-    }[newStatus] || "\u{1F4DD}";
     return `
       <!DOCTYPE html>
       <html>
@@ -10724,20 +11161,20 @@ var EmailService = class {
           <div class="content">
             <p>Hola ${receiverName},</p>
             <p>El estado de tu publicaci\xF3n ha sido actualizado.</p>
-            
+
             <div class="highlight">
-              <strong>\u{1F4DD} Publicaci\xF3n:</strong> ${postTitle}<br>
-              <strong>${statusEmoji} Nuevo Estado:</strong> ${statusText}
+              <strong>Publicaci\xF3n:</strong> ${postTitle}<br>
+              <strong>Nuevo Estado:</strong> ${statusText}
             </div>
-            
-            <p>Puedes revisar y gestionar tu publicaci\xF3n desde tu panel de control.</p>
-            
+
+            <p>Pod\xE9s revisar y gestionar tu publicaci\xF3n desde tu panel de control.</p>
+
             <p style="text-align: center;">
               <a href="${process.env.BASE_URL || "http://localhost:5173"}/community/my-posts" class="button">Ver Mis Publicaciones</a>
             </p>
           </div>
           <div class="footer">
-            <p>\xA9 2025 \xA1BASTA! - Movimiento de Cambio Social</p>
+            <p>&copy; 2025 \xA1BASTA! \u2014 Movimiento de Cambio Social</p>
             <p>Este es un email autom\xE1tico, por favor no respondas.</p>
           </div>
         </div>
@@ -15565,6 +16002,458 @@ function safeJsonParse(str) {
   }
 }
 
+// server/services/analytics-service.ts
+init_db();
+init_schema();
+init_config();
+import { eq as eq12, and as and11, isNull as isNull3, or as or4 } from "drizzle-orm";
+var THEME_KEYWORDS = {
+  systemic: [
+    "transformacion",
+    "cambio",
+    "revolucion",
+    "reforma",
+    "renovacion",
+    "sistema",
+    "estructura",
+    "organizacion",
+    "institucion",
+    "proceso"
+  ],
+  values: [
+    "transparencia",
+    "amabilidad",
+    "justicia",
+    "equidad",
+    "dignidad",
+    "respeto",
+    "integridad",
+    "honestidad",
+    "solidaridad",
+    "empatia",
+    "colaboracion",
+    "cooperacion",
+    "inclusion",
+    "diversidad",
+    "igualdad"
+  ],
+  action: [
+    "accion",
+    "participacion",
+    "movilizacion",
+    "empoderamiento",
+    "liderazgo",
+    "innovacion",
+    "creatividad",
+    "iniciativa",
+    "compromiso",
+    "responsabilidad",
+    "protagonismo",
+    "autonomia",
+    "autodeterminacion"
+  ],
+  development: [
+    "educacion",
+    "formacion",
+    "capacitacion",
+    "aprendizaje",
+    "conocimiento",
+    "desarrollo",
+    "crecimiento",
+    "evolucion",
+    "progreso",
+    "avance",
+    "mejora",
+    "excelencia",
+    "calidad",
+    "bienestar"
+  ],
+  justice: [
+    "derechos",
+    "libertad",
+    "democracia",
+    "representacion",
+    "acceso",
+    "oportunidad",
+    "redistribucion",
+    "reparacion",
+    "restitucion",
+    "garantia",
+    "proteccion",
+    "defensa",
+    "reivindicacion"
+  ],
+  economy: [
+    "trabajo",
+    "empleo",
+    "economia",
+    "produccion",
+    "distribucion",
+    "recursos",
+    "bienes",
+    "servicios",
+    "salario",
+    "ingreso",
+    "inversion",
+    "sustentabilidad",
+    "sostenibilidad"
+  ],
+  health: [
+    "salud",
+    "cuidado",
+    "atencion",
+    "prevencion",
+    "tratamiento",
+    "curacion",
+    "sanacion",
+    "vida",
+    "universal",
+    "publico",
+    "gratuito"
+  ],
+  community: [
+    "comunidad",
+    "pueblo",
+    "sociedad",
+    "colectivo",
+    "ciudadania",
+    "vecindario",
+    "barrio",
+    "territorio",
+    "espacio",
+    "comun",
+    "compartido",
+    "participativo",
+    "abierto",
+    "inclusivo"
+  ],
+  future: [
+    "futuro",
+    "vision",
+    "horizonte",
+    "posibilidad",
+    "potencial",
+    "esperanza",
+    "aspiracion",
+    "sueno",
+    "ideal",
+    "meta",
+    "objetivo",
+    "proposito",
+    "mision",
+    "destino",
+    "legado"
+  ]
+};
+var THEME_LABELS = {
+  systemic: "Transformaci\xF3n Sist\xE9mica",
+  values: "Valores Fundamentales",
+  action: "Acci\xF3n y Agencia",
+  development: "Desarrollo Humano",
+  justice: "Justicia y Derechos",
+  economy: "Econom\xEDa y Recursos",
+  health: "Salud y Vida",
+  community: "Comunidad y Colectivo",
+  future: "Futuro y Visi\xF3n"
+};
+var TYPE_LABELS = {
+  dream: "Sue\xF1os",
+  value: "Valores",
+  need: "Necesidades",
+  basta: "\xA1BASTA!",
+  compromiso: "Compromisos",
+  recurso: "Recursos"
+};
+function normalizeWord(word) {
+  return word.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[.,;:¡!¿?()[\]{}«»""'/\\-]/g, "").trim();
+}
+function extractWords(text2) {
+  if (!text2) return [];
+  const STOP_WORDS = /* @__PURE__ */ new Set([
+    "el",
+    "la",
+    "los",
+    "las",
+    "un",
+    "una",
+    "unos",
+    "unas",
+    "de",
+    "que",
+    "y",
+    "a",
+    "en",
+    "ser",
+    "se",
+    "no",
+    "haber",
+    "por",
+    "con",
+    "su",
+    "para",
+    "como",
+    "estar",
+    "tener",
+    "le",
+    "es",
+    "son",
+    "pero",
+    "sino",
+    "porque",
+    "pues",
+    "cuando",
+    "donde"
+  ]);
+  return text2.split(/\s+/).map(normalizeWord).filter((w) => w.length > 3 && !STOP_WORDS.has(w));
+}
+function classifyThemes(text2) {
+  const words = extractWords(text2);
+  const matched = /* @__PURE__ */ new Set();
+  for (const w of words) {
+    for (const [theme, keywords] of Object.entries(THEME_KEYWORDS)) {
+      if (keywords.some((kw) => w.includes(kw) || kw.includes(w))) {
+        matched.add(theme);
+      }
+    }
+  }
+  return [...matched];
+}
+async function queryAllDreams() {
+  return db.select({
+    id: dreams.id,
+    dream: dreams.dream,
+    value: dreams.value,
+    need: dreams.need,
+    basta: dreams.basta,
+    type: dreams.type,
+    location: dreams.location,
+    createdAt: dreams.createdAt
+  }).from(dreams).leftJoin(users, eq12(dreams.userId, users.id)).where(
+    or4(
+      isNull3(dreams.userId),
+      isNull3(users.dataShareOptOut),
+      eq12(users.dataShareOptOut, false)
+    )
+  );
+}
+async function queryAllCommitments() {
+  return db.select({
+    id: userCommitments.id,
+    commitmentText: userCommitments.commitmentText,
+    province: userCommitments.province,
+    city: userCommitments.city,
+    createdAt: userCommitments.createdAt
+  }).from(userCommitments).leftJoin(users, eq12(userCommitments.userId, users.id)).where(
+    or4(
+      isNull3(userCommitments.userId),
+      isNull3(users.dataShareOptOut),
+      eq12(users.dataShareOptOut, false)
+    )
+  );
+}
+async function queryAllResources() {
+  return db.select({
+    id: userResources.id,
+    description: userResources.description,
+    category: userResources.category,
+    province: userResources.province,
+    city: userResources.city,
+    createdAt: userResources.createdAt
+  }).from(userResources).leftJoin(users, eq12(userResources.userId, users.id)).where(
+    and11(
+      eq12(userResources.isActive, true),
+      or4(
+        isNull3(userResources.userId),
+        isNull3(users.dataShareOptOut),
+        eq12(users.dataShareOptOut, false)
+      )
+    )
+  );
+}
+async function computeConvergenceSummary() {
+  const [dreamsData, commitmentsData, resourcesData] = await Promise.all([
+    queryAllDreams(),
+    queryAllCommitments(),
+    queryAllResources()
+  ]);
+  const totalContributions = dreamsData.length + commitmentsData.length + resourcesData.length;
+  const typeCounts = {
+    dream: 0,
+    value: 0,
+    need: 0,
+    basta: 0,
+    compromiso: 0,
+    recurso: 0
+  };
+  const themePresence = {};
+  const themeHits = {};
+  for (const theme of Object.keys(THEME_KEYWORDS)) {
+    themePresence[theme] = /* @__PURE__ */ new Set();
+    themeHits[theme] = { dream: 0, value: 0, need: 0, basta: 0, compromiso: 0, recurso: 0 };
+  }
+  for (const d of dreamsData) {
+    const entryType = d.type || "dream";
+    typeCounts[entryType] = (typeCounts[entryType] || 0) + 1;
+    const fields = [
+      { type: "dream", text: d.dream },
+      { type: "value", text: d.value },
+      { type: "need", text: d.need },
+      { type: "basta", text: d.basta }
+    ];
+    for (const field of fields) {
+      if (!field.text) continue;
+      const themes = classifyThemes(field.text);
+      for (const theme of themes) {
+        themePresence[theme].add(field.type);
+        themeHits[theme][field.type]++;
+      }
+    }
+  }
+  typeCounts.compromiso = commitmentsData.length;
+  for (const c of commitmentsData) {
+    if (!c.commitmentText) continue;
+    const themes = classifyThemes(c.commitmentText);
+    for (const theme of themes) {
+      themePresence[theme].add("compromiso");
+      themeHits[theme].compromiso++;
+    }
+  }
+  typeCounts.recurso = resourcesData.length;
+  for (const r of resourcesData) {
+    if (!r.description) continue;
+    const themes = classifyThemes(r.description);
+    for (const theme of themes) {
+      themePresence[theme].add("recurso");
+      themeHits[theme].recurso++;
+    }
+  }
+  const themeKeys = Object.keys(THEME_KEYWORDS);
+  const themeSummary = themeKeys.map((theme) => {
+    const presentTypes = [...themePresence[theme]];
+    const totalHits = Object.values(themeHits[theme]).reduce((s, n) => s + n, 0);
+    return { theme, label: THEME_LABELS[theme], convergenceCount: presentTypes.length, totalHits, presentTypes };
+  }).filter((t) => t.totalHits > 0).sort((a, b) => b.convergenceCount - a.convergenceCount || b.totalHits - a.totalHits);
+  const activeThemes = themeSummary.filter((t) => t.convergenceCount > 0);
+  const sharedThemes = themeSummary.filter((t) => t.convergenceCount >= 2);
+  const convergencePercentage = activeThemes.length > 0 ? Math.round(sharedThemes.length / activeThemes.length * 100) : 0;
+  const typeDistribution = Object.entries(typeCounts).map(([type, count3]) => ({
+    type,
+    label: TYPE_LABELS[type] || type,
+    count: count3
+  }));
+  return {
+    totalContributions,
+    convergencePercentage,
+    sharedThemeCount: sharedThemes.length,
+    totalActiveThemes: activeThemes.length,
+    topThemes: themeSummary.slice(0, 7),
+    typeDistribution,
+    generatedAt: (/* @__PURE__ */ new Date()).toISOString()
+  };
+}
+var AI_FALLBACK = {
+  narrative: "Las voces del pueblo se acumulan en el mapa colectivo. Cada sue\xF1o declarado, cada valor defendido y cada grito de \xA1BASTA! forman parte de un mandato popular que se construye desde abajo. Los datos muestran convergencia \u2014 personas que no se conocen est\xE1n diciendo lo mismo con palabras distintas. Eso no es coincidencia, es el pulso de un pa\xEDs que sabe lo que quiere.",
+  generatedAt: (/* @__PURE__ */ new Date()).toISOString()
+};
+async function generateAIInsights(convergenceData) {
+  if (!config.ai.groqApiKey) {
+    return AI_FALLBACK;
+  }
+  const systemPrompt = `Sos un analista de datos c\xEDvicos del movimiento "El Instante del Hombre Gris" en Argentina.
+Tu tarea es generar una narrativa de exactamente 3 p\xE1rrafos en castellano rioplatense (vos, sos, ten\xE9s) sobre los datos de convergencia ciudadana.
+
+P\xE1rrafo 1: Resumen del volumen y diversidad de voces (total de contribuciones, tipos).
+P\xE1rrafo 2: D\xF3nde convergen \u2014 qu\xE9 temas comparten distintos tipos de declaraciones (sue\xF1os, valores, necesidades, \xA1BASTA!, compromisos, recursos).
+P\xE1rrafo 3: Cierre con perspectiva de futuro y llamado a la acci\xF3n.
+
+Reglas:
+- M\xE1ximo 200 palabras total.
+- Tono: directo, esperanzador pero no ingenuo. Como un amigo que te muestra datos y te dice "mir\xE1 esto".
+- NO uses emojis.
+- NO uses markdown ni formato especial \u2014 texto plano.
+- NO inventes datos. Us\xE1 solo los que te paso.`;
+  const userPrompt = `Datos de convergencia ciudadana:
+- Total de contribuciones: ${convergenceData.totalContributions}
+- Porcentaje de convergencia: ${convergenceData.convergencePercentage}%
+- Temas compartidos: ${convergenceData.sharedThemeCount} de ${convergenceData.totalActiveThemes} activos
+- Top temas: ${convergenceData.topThemes.slice(0, 5).map((t) => `${t.label} (${t.convergenceCount} tipos, ${t.totalHits} menciones)`).join(", ")}
+- Distribuci\xF3n: ${convergenceData.typeDistribution.map((t) => `${t.label}: ${t.count}`).join(", ")}
+
+Gener\xE1 la narrativa.`;
+  const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+    method: "POST",
+    headers: {
+      "Authorization": `Bearer ${config.ai.groqApiKey}`,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      model: config.ai.groqModel,
+      messages: [
+        { role: "system", content: systemPrompt },
+        { role: "user", content: userPrompt }
+      ],
+      max_tokens: config.ai.maxTokens,
+      temperature: 0.7
+    })
+  });
+  if (!response.ok) {
+    const errorText = await response.text();
+    console.error("Groq API error in analytics insights:", response.status, errorText);
+    return AI_FALLBACK;
+  }
+  const aiData = await response.json();
+  const narrative = aiData.choices[0]?.message?.content || "No se pudo generar la narrativa.";
+  return {
+    narrative,
+    generatedAt: (/* @__PURE__ */ new Date()).toISOString()
+  };
+}
+
+// server/routes-analytics.ts
+var convergenceCache = null;
+var CONVERGENCE_TTL = 15 * 60 * 1e3;
+var insightsCache = null;
+var INSIGHTS_TTL = 60 * 60 * 1e3;
+function isCacheFresh2(entry, ttl) {
+  if (!entry) return false;
+  return Date.now() - entry.generatedAt.getTime() < ttl;
+}
+function registerAnalyticsRoutes(app2) {
+  app2.get("/api/analytics/convergence-summary", async (_req, res) => {
+    try {
+      if (isCacheFresh2(convergenceCache, CONVERGENCE_TTL)) {
+        return res.json(convergenceCache.data);
+      }
+      const summary = await computeConvergenceSummary();
+      convergenceCache = { data: summary, generatedAt: /* @__PURE__ */ new Date() };
+      res.json(summary);
+    } catch (error) {
+      console.error("Error computing convergence summary:", error);
+      res.status(500).json({ error: "Error al calcular el resumen de convergencia" });
+    }
+  });
+  app2.get("/api/analytics/insights", async (_req, res) => {
+    try {
+      if (isCacheFresh2(insightsCache, INSIGHTS_TTL)) {
+        return res.json(insightsCache.data);
+      }
+      let convergenceData;
+      if (isCacheFresh2(convergenceCache, CONVERGENCE_TTL)) {
+        convergenceData = convergenceCache.data;
+      } else {
+        convergenceData = await computeConvergenceSummary();
+        convergenceCache = { data: convergenceData, generatedAt: /* @__PURE__ */ new Date() };
+      }
+      const result = await generateAIInsights(convergenceData);
+      insightsCache = { data: result, generatedAt: /* @__PURE__ */ new Date() };
+      res.json(result);
+    } catch (error) {
+      console.error("Error generating AI insights:", error);
+      res.status(500).json({ error: "Error al generar las narrativas de an\xE1lisis" });
+    }
+  });
+}
+
 // server/routes.ts
 init_mandato_engine();
 init_schema();
@@ -17305,7 +18194,7 @@ var MIN_WORD_LENGTH = 4;
 function normalize(text2) {
   return text2.toLowerCase().replace(/[áà]/g, "a").replace(/[éè]/g, "e").replace(/[íì]/g, "i").replace(/[óò]/g, "o").replace(/[úù]/g, "u").replace(/ñ/g, "n");
 }
-function extractWords(text2, minLength = MIN_WORD_LENGTH) {
+function extractWords2(text2, minLength = MIN_WORD_LENGTH) {
   return normalize(text2).split(/\W+/).filter((w) => w.length >= minLength);
 }
 function planToKeyword(plan) {
@@ -17326,14 +18215,14 @@ function buildMissionKeywords(mission) {
     if (kw) keywordSet.add(kw);
     keywordSet.add(normalize(plan));
   }
-  for (const word of extractWords(mission.description)) {
+  for (const word of extractWords2(mission.description)) {
     keywordSet.add(word);
   }
-  for (const word of extractWords(mission.whatHurts)) {
+  for (const word of extractWords2(mission.whatHurts)) {
     keywordSet.add(word);
   }
   const citizenText = mission.citizenCanDo.join(" ");
-  for (const word of extractWords(citizenText)) {
+  for (const word of extractWords2(citizenText)) {
     keywordSet.add(word);
   }
   return Array.from(keywordSet);
@@ -17444,7 +18333,7 @@ function computeMissionAlignment(archetype, lifeAreaGaps) {
 // server/services/embedding-service.ts
 init_db();
 init_schema();
-import { eq as eq12, and as and11 } from "drizzle-orm";
+import { eq as eq13, and as and12 } from "drizzle-orm";
 var embeddingPipeline = null;
 async function getEmbeddingPipeline() {
   if (!embeddingPipeline) {
@@ -17484,9 +18373,9 @@ async function getOrCreateEmbedding(contentId, text2, contentType) {
   }
   try {
     const existing = await db.select().from(textEmbeddings).where(
-      and11(
-        eq12(textEmbeddings.contentId, contentId),
-        eq12(textEmbeddings.contentType, contentType)
+      and12(
+        eq13(textEmbeddings.contentId, contentId),
+        eq13(textEmbeddings.contentType, contentType)
       )
     ).limit(1);
     if (existing.length > 0 && existing[0].embedding) {
@@ -17506,9 +18395,9 @@ async function getOrCreateEmbedding(contentId, text2, contentType) {
         embedding: embeddingJson,
         model: "Xenova/all-MiniLM-L6-v2"
       }).where(
-        and11(
-          eq12(textEmbeddings.contentId, contentId),
-          eq12(textEmbeddings.contentType, contentType)
+        and12(
+          eq13(textEmbeddings.contentId, contentId),
+          eq13(textEmbeddings.contentType, contentType)
         )
       );
     } else {
@@ -17631,6 +18520,7 @@ async function registerRoutes(app2) {
   registerCoachingRoutes(app2);
   registerOpenDataRoutes(app2);
   registerPulseRoutes(app2);
+  registerAnalyticsRoutes(app2);
   startMandatoCron();
   app2.get("/api/dreams", optionalAuth, async (req, res) => {
     try {
@@ -19180,6 +20070,10 @@ async function registerRoutes(app2) {
         password: validatedData.password,
         location: validatedData.location || null
       });
+      const crypto4 = await import("crypto");
+      const verifyToken = crypto4.randomBytes(32).toString("hex");
+      const verifyExpires = new Date(Date.now() + 24 * 60 * 60 * 1e3);
+      storage.setEmailVerificationToken(user.id, verifyToken, verifyExpires).then(() => emailService.sendVerificationEmail(user.email, verifyToken, user.name)).catch((err) => console.error("Auto-send verification email failed:", err));
       const authResponse = createAuthResponse({
         id: user.id,
         username: user.username,

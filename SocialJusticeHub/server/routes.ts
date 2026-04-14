@@ -10,6 +10,7 @@ import { registerGoalRoutes } from './routes-goals';
 import { registerCoachingRoutes } from './routes-coaching';
 import { registerOpenDataRoutes } from './routes-open-data';
 import { registerPulseRoutes } from './routes-pulse';
+import { registerAnalyticsRoutes } from './routes-analytics';
 import { startMandatoCron } from './services/mandato-engine';
 import { 
   insertUserSchema, 
@@ -69,6 +70,7 @@ import {
   requestSizeLimiter,
   sanitizeInput
 } from './middleware';
+import { emailService } from './email';
 import { nlpService } from './nlp-service';
 import { blockchainService } from './blockchain-service';
 import { arService } from './ar-service';
@@ -162,6 +164,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   registerCoachingRoutes(app);
   registerOpenDataRoutes(app);
   registerPulseRoutes(app);
+  registerAnalyticsRoutes(app);
 
   // Start weekly pulse cron (Fridays at 17:05 ART)
   startMandatoCron();
@@ -2174,6 +2177,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
         location: validatedData.location || null
       });
       
+      // Send verification email (fire-and-forget — don't block registration)
+      const crypto = await import('crypto');
+      const verifyToken = crypto.randomBytes(32).toString('hex');
+      const verifyExpires = new Date(Date.now() + 24 * 60 * 60 * 1000); // 24h
+      storage.setEmailVerificationToken(user.id, verifyToken, verifyExpires)
+        .then(() => emailService.sendVerificationEmail(user.email, verifyToken, user.name))
+        .catch(err => console.error('Auto-send verification email failed:', err));
+
       // Create auth response with tokens
       const authResponse = createAuthResponse({
         id: user.id,
