@@ -19,12 +19,14 @@ import {
 import { useQuery } from '@tanstack/react-query';
 import { NotificationBell } from '@/components/NotificationBell';
 import { apiRequest } from '@/lib/queryClient';
+import { useImmersion } from '@/components/ImmersionContext';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const userContext = useContext(UserContext);
   const [location] = useLocation();
+  const { isImmersive } = useImmersion();
 
   // Determine if current page has a dark hero background
   const darkHeroRoutes = [
@@ -83,6 +85,7 @@ const Header = () => {
     { label: 'Visión', href: '/la-vision' },
     { label: 'Hombre Gris', href: '/el-instante-del-hombre-gris' },
     { label: 'Semilla', href: '/la-semilla-de-basta' },
+    { label: 'Ruta', href: '/una-ruta-para-argentina' },
     { label: 'Mapa', href: '/el-mapa' },
     { label: 'Explorar', href: '/explorar-datos' },
     { label: 'Mandato', href: '/el-mandato-vivo' },
@@ -93,10 +96,15 @@ const Header = () => {
 
   return (
     <>
-      <motion.header 
+      <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
+        style={{
+          opacity: isImmersive ? 0 : 1,
+          pointerEvents: isImmersive ? 'none' as const : 'auto' as const,
+          transition: 'opacity 0.2s ease-out',
+        }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${
           showSolid
             ? 'bg-white/90 backdrop-blur-md border-slate-200 shadow-sm py-3'

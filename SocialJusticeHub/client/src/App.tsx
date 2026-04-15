@@ -7,6 +7,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import { Analytics } from "@vercel/analytics/react";
+import { ImmersionProvider } from '@/components/ImmersionContext';
 
 const Home = React.lazy(() => import("@/pages/Home"));
 const Login = React.lazy(() => import("@/pages/Login"));
@@ -22,6 +23,7 @@ const EditResource = React.lazy(() => import("@/pages/EditResource"));
 const ResourceDetail = React.lazy(() => import("@/pages/ResourceDetail"));
 const ElInstanteDelHombreGris = React.lazy(() => import("@/pages/ElInstanteDelHombreGris"));
 const LaSemillaDeBasta = React.lazy(() => import("@/pages/LaSemillaDeBasta"));
+const UnaRutaParaArgentina = React.lazy(() => import("@/pages/UnaRutaParaArgentina"));
 const ElMapa = React.lazy(() => import("@/pages/ElMapa"));
 const BlogVlog = React.lazy(() => import("@/pages/BlogVlog"));
 const BlogPostDetail = React.lazy(() => import("@/pages/BlogPostDetail"));
@@ -96,6 +98,7 @@ function Router() {
       <Route path="/detalles-calculo-costo-humano" component={DetallesCalculoCostoHumano} />
       <Route path="/el-instante-del-hombre-gris" component={ElInstanteDelHombreGris} />
       <Route path="/la-semilla-de-basta" component={LaSemillaDeBasta} />
+      <Route path="/una-ruta-para-argentina" component={UnaRutaParaArgentina} />
       <Route path="/el-mapa" component={ElMapa} />
       {/* Legacy route - redirect to new resources structure */}
       <Route path="/blog-vlog" component={BlogVlog} />
@@ -223,6 +226,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <UserContext.Provider value={contextValue}>
+        <ImmersionProvider>
         <TooltipProvider>
           <ErrorBoundary>
             <Analytics />
@@ -241,6 +245,7 @@ function App() {
             </React.Suspense>
           </ErrorBoundary>
         </TooltipProvider>
+        </ImmersionProvider>
       </UserContext.Provider>
     </QueryClientProvider>
   );
