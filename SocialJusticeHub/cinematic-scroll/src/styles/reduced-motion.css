@@ -1,0 +1,41 @@
+@media (prefers-reduced-motion: reduce) {
+  .cin-chapter {
+    scroll-behavior: auto;
+  }
+
+  .cin-horizontal-container {
+    scroll-behavior: auto;
+  }
+
+  [data-parallax] {
+    transform: none !important;
+  }
+
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .cin-scroll-indicator {
+    animation: none;
+  }
+
+  [data-stat-animated] {
+    transition: none !important;
+  }
+
+  [data-word-reveal] span {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .cin-transition-overlay {
+    transition: none !important;
+  }
+
+  .cin-grain::after {
+    animation: none !important;
+  }
+}
