@@ -14,6 +14,7 @@ export default defineConfig({
       "@": path.resolve(import.meta.dirname, "client", "src"),
       "@shared": path.resolve(import.meta.dirname, "shared"),
       "@assets": path.resolve(import.meta.dirname, "attached_assets"),
+      "@cinematic-scroll": path.resolve(import.meta.dirname, "cinematic-scroll", "src"),
       // Force single instance of scheduler and react-reconciler
       "scheduler": path.resolve(import.meta.dirname, "node_modules", "scheduler"),
       "react-reconciler": path.resolve(import.meta.dirname, "node_modules", "react-reconciler"),
