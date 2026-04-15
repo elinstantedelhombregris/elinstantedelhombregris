@@ -1,0 +1,11 @@
+{
+  "name": "@local/cinematic-scroll",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Reusable cinematic scroll engine — horizontal chapters, vertical scroll, color interpolation, documentary aesthetics",
+  "main": "src/index.ts",
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "framer-motion": "^11.0.0"
+  }
+}
