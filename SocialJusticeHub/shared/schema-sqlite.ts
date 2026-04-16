@@ -26,6 +26,9 @@ export const users = sqliteTable("users", {
   passwordResetToken: text("password_reset_token"),
   passwordResetExpires: text("password_reset_expires"),
   
+  // Free-form bio, capped at 500 chars by Zod validation
+  bio: text("bio"),
+
   // Onboarding
   onboardingCompleted: integer("onboarding_completed", { mode: 'boolean' }).default(false),
 
