@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { UserContext } from '@/App';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -7,9 +7,10 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { motion } from 'framer-motion';
-import { Flame, Trophy, Target, ShieldCheck, Activity, ArrowRight, Zap, Crown, BookOpen } from 'lucide-react';
+import { Flame, Trophy, Target, ShieldCheck, Activity, ArrowRight, Zap, Crown, BookOpen, Camera, Loader2, X } from 'lucide-react';
 import { useQuery } from '@tanstack/react-query';
 import { apiRequest } from '@/lib/queryClient';
+import { useAvatarUpload } from '@/hooks/useAvatarUpload';
 import { Link } from 'wouter';
 import EmailVerificationBanner from '@/components/EmailVerificationBanner';
 import GettingStartedChecklist from '@/components/GettingStartedChecklist';
@@ -37,6 +38,12 @@ interface UserStats {
 
 const InsightDashboard = () => {
   const userContext = useContext(UserContext);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const {
+    uploadMutation: avatarUploadMutation,
+    deleteMutation: avatarDeleteMutation,
+    handleFileChange: handleAvatarChange,
+  } = useAvatarUpload(fileInputRef);
   const [authCheckTimeout, setAuthCheckTimeout] = useState(false);
 
   useEffect(() => {
@@ -129,15 +136,52 @@ const InsightDashboard = () => {
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
             <div className="flex items-center gap-5">
               <div className="relative group">
-                <div className="w-16 h-16 rounded-2xl bg-white/5 overflow-hidden border border-white/10 group-hover:border-blue-500/30 transition-colors duration-300">
+                <button
+                  type="button"
+                  onClick={() => fileInputRef.current?.click()}
+                  disabled={avatarUploadMutation.isPending}
+                  aria-label="Cambiar foto de perfil"
+                  title="Cambiar foto de perfil"
+                  className="block w-16 h-16 rounded-2xl bg-white/5 overflow-hidden border border-white/10 group-hover:border-blue-500/30 transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/60"
+                >
                   <Avatar className="h-full w-full rounded-none">
                     <AvatarImage src={user.avatarUrl || `https://api.dicebear.com/7.x/avataaars/svg?seed=${user.username}`} className={`${user.avatarUrl ? 'object-cover' : 'opacity-80'} group-hover:opacity-100 transition-opacity`} />
                     <AvatarFallback className="bg-slate-900 text-slate-400 font-bold text-xl">
                       {user.name.charAt(0)}
                     </AvatarFallback>
                   </Avatar>
-                </div>
-                <div className="absolute -bottom-1 -right-1 bg-emerald-500 w-3.5 h-3.5 rounded-full border-[3px] border-[#0a0a0a]" />
+                  <span className="absolute inset-0 flex items-center justify-center bg-black/55 opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl pointer-events-none">
+                    {avatarUploadMutation.isPending ? (
+                      <Loader2 className="h-5 w-5 text-white animate-spin" />
+                    ) : (
+                      <Camera className="h-5 w-5 text-white" />
+                    )}
+                  </span>
+                </button>
+                <input
+                  ref={fileInputRef}
+                  type="file"
+                  accept="image/png,image/jpeg,image/webp,image/gif"
+                  onChange={handleAvatarChange}
+                  className="hidden"
+                />
+                {user.avatarUrl && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (window.confirm('¿Eliminar tu foto de perfil?')) {
+                        avatarDeleteMutation.mutate();
+                      }
+                    }}
+                    disabled={avatarDeleteMutation.isPending}
+                    aria-label="Eliminar foto de perfil"
+                    title="Eliminar foto de perfil"
+                    className="absolute -top-1.5 -right-1.5 z-20 p-1 rounded-full bg-slate-800 hover:bg-red-600 text-slate-200 hover:text-white border-2 border-[#0a0a0a] transition-colors"
+                  >
+                    <X className="h-3 w-3" />
+                  </button>
+                )}
+                <div className="absolute -bottom-1 -right-1 bg-emerald-500 w-3.5 h-3.5 rounded-full border-[3px] border-[#0a0a0a] pointer-events-none" />
               </div>
               <div>
                 <h1 className="text-2xl font-bold text-white font-serif tracking-tight">{user.name}</h1>
