@@ -11,6 +11,7 @@ export interface AuthUser {
   name: string;
   location?: string | null;
   avatarUrl?: string | null;
+  bio?: string | null;
 }
 
 export interface JWTPayload {
