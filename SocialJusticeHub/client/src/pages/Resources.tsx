@@ -4,14 +4,12 @@ import { useEffect, useState } from 'react';
 import { Link } from 'wouter';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { FileText, Video, GraduationCap, ArrowRight, Sparkles, BookOpen, PlayCircle, Rocket, Lightbulb } from 'lucide-react';
+import { FileText, Video, GraduationCap, ArrowRight, Sparkles, BookOpen, PlayCircle, Map, Compass } from 'lucide-react';
 import { apiRequest } from '@/lib/queryClient';
 import FluidBackground from '@/components/ui/FluidBackground';
 import GlassCard from '@/components/ui/GlassCard';
 import SmoothReveal from '@/components/ui/SmoothReveal';
 import PowerCTA from '@/components/PowerCTA';
-import { STRATEGIC_INITIATIVES } from '../../../shared/strategic-initiatives';
-import { PHASE_META } from '@/lib/initiative-utils';
 
 const Resources = () => {
   const [blogCount, setBlogCount] = useState(0);
@@ -167,67 +165,62 @@ const Resources = () => {
           })}
         </section>
 
-        {/* Featured: Iniciativas Estratégicas */}
+        {/* Featured: Una Ruta Para Argentina */}
         <SmoothReveal delay={0.5} className="mb-32">
           <Link href="/recursos/ruta">
             <div className="bg-white rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 cursor-pointer overflow-hidden group relative">
               {/* Hover gradient */}
-              <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
               <div className="relative z-10 p-8 md:p-12 flex flex-col md:flex-row items-start md:items-center gap-8">
                 {/* Left side: icon + text */}
                 <div className="flex-1">
                   <div className="flex items-start gap-5 mb-6">
-                    <div className="p-4 rounded-2xl bg-amber-100 text-amber-700 shadow-inner shrink-0">
-                      <Rocket className="w-8 h-8" />
+                    <div className="p-4 rounded-2xl bg-purple-100 text-purple-700 shadow-inner shrink-0">
+                      <Compass className="w-8 h-8" />
                     </div>
                     <div>
-                      <span className="text-xs font-bold tracking-[0.2em] text-amber-600 uppercase block mb-2">
-                        Política Pública
+                      <span className="text-xs font-bold tracking-[0.2em] text-purple-600 uppercase block mb-2">
+                        Ejercicio Estratégico
                       </span>
-                      <h2 className="text-3xl md:text-4xl font-bold text-slate-900 group-hover:text-amber-700 transition-colors">
-                        Iniciativas Estratégicas
+                      <h2 className="text-3xl md:text-4xl font-bold text-slate-900 group-hover:text-purple-700 transition-colors">
+                        Una Ruta Para Argentina
                       </h2>
                     </div>
                   </div>
 
                   <p className="text-lg text-slate-600 leading-relaxed mb-6 max-w-2xl">
-                    Propuestas de rediseño de país usando Diseño Idealizado: del problema a la solución ideal,
-                    con un camino concreto y métricas para medir el avance. Cada iniciativa es un plan de acción completo.
+                    Un ejercicio para imaginar otro camino: iniciativas estratégicas documentadas,
+                    una herramienta que analiza sus dependencias y ruta crítica, y una mini novela
+                    que cuenta — desde el futuro — cómo podríamos haberlas aplicado.
                   </p>
 
                   <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-2xl font-bold text-slate-900">{STRATEGIC_INITIATIVES.length}</p>
-                      <p className="text-xs text-slate-500 font-medium uppercase">Propuestas</p>
+                    <div className="flex items-center gap-6">
+                      <div>
+                        <p className="text-sm font-semibold text-slate-700">Iniciativas</p>
+                        <p className="text-xs text-slate-500">Propuestas de rediseño</p>
+                      </div>
+                      <div className="w-px h-8 bg-slate-200" />
+                      <div>
+                        <p className="text-sm font-semibold text-slate-700">El Arquitecto</p>
+                        <p className="text-xs text-slate-500">Dependencias y ruta crítica</p>
+                      </div>
+                      <div className="w-px h-8 bg-slate-200 hidden sm:block" />
+                      <div className="hidden sm:block">
+                        <p className="text-sm font-semibold text-slate-700">5 Capítulos</p>
+                        <p className="text-xs text-slate-500">Mini novela del futuro</p>
+                      </div>
                     </div>
-                    <div className="flex items-center text-amber-600 font-bold text-sm tracking-wide group-hover:translate-x-2 transition-transform">
-                      Ver Iniciativas <ArrowRight className="w-4 h-4 ml-2" />
+                    <div className="flex items-center text-purple-600 font-bold text-sm tracking-wide group-hover:translate-x-2 transition-transform">
+                      Explorar <ArrowRight className="w-4 h-4 ml-2" />
                     </div>
                   </div>
                 </div>
 
-                {/* Right side: phase journey preview */}
-                <div className="hidden md:flex flex-col items-center gap-0 shrink-0 pr-4">
-                  {PHASE_META.map((phase, i) => {
-                    const PhaseIcon = phase.icon;
-                    return (
-                      <div key={phase.key} className="flex flex-col items-center">
-                        <div
-                          className="w-11 h-11 rounded-full flex items-center justify-center border-2 bg-white shadow-sm"
-                          style={{ borderColor: phase.accent }}
-                        >
-                          <PhaseIcon className="w-4 h-4" style={{ color: phase.accent }} />
-                        </div>
-                        <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider mt-1 max-w-[70px] text-center leading-tight">
-                          {phase.label}
-                        </span>
-                        {i < PHASE_META.length - 1 && (
-                          <div className="w-px h-4 bg-slate-200 my-1" />
-                        )}
-                      </div>
-                    );
-                  })}
+                {/* Right side: route icon */}
+                <div className="hidden md:flex flex-col items-center shrink-0 pr-4">
+                  <Map className="w-24 h-24 text-purple-200" strokeWidth={1} />
                 </div>
               </div>
             </div>

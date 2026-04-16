@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, lazy, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Lightbulb, Search, Network, Loader2,
+  Lightbulb, Search, Network, Loader2, Rocket,
   GitBranch, Route, DollarSign, BarChart3,
   Activity, Zap, Shield, Edit3, Swords,
 } from 'lucide-react';
@@ -16,7 +16,7 @@ import {
 } from '@cinematic-scroll/index';
 import type { ChapterPalette } from '@cinematic-scroll/types';
 import InitiativeCard from '@/components/iniciativas/InitiativeCard';
-import { INITIATIVE_CATEGORIES } from '@/lib/initiative-utils';
+import { INITIATIVE_CATEGORIES, PHASE_META } from '@/lib/initiative-utils';
 import { STRATEGIC_INITIATIVES } from '../../../shared/strategic-initiatives';
 import type { InitiativeCategory } from '../../../shared/strategic-initiatives';
 
@@ -189,29 +189,67 @@ export default function UnaRutaParaArgentina() {
       {/* ═══════════════ INICIATIVAS ESTRATÉGICAS ═══════════════ */}
       <section id="iniciativas" className="py-24 scroll-mt-20">
         <div className="container mx-auto px-4">
-          {/* Section header */}
+          {/* Featured card */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="max-w-4xl mx-auto text-center mb-16"
+            className="max-w-5xl mx-auto mb-16"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-6">
-              <Lightbulb className="w-4 h-4 text-amber-400" />
-              <span className="text-xs font-medium text-white/60 uppercase tracking-wider">
-                Diseño Idealizado
-              </span>
+            <div className="bg-white/5 rounded-3xl border border-white/10 backdrop-blur-md overflow-hidden">
+              <div className="p-8 md:p-12 flex flex-col md:flex-row items-start md:items-center gap-8">
+                {/* Left side: icon + text */}
+                <div className="flex-1">
+                  <div className="flex items-start gap-5 mb-6">
+                    <div className="p-4 rounded-2xl bg-amber-500/10 text-amber-400 shrink-0">
+                      <Rocket className="w-8 h-8" />
+                    </div>
+                    <div>
+                      <span className="text-xs font-bold tracking-[0.2em] text-amber-400 uppercase block mb-2">
+                        Política Pública
+                      </span>
+                      <h2 className="text-3xl md:text-4xl font-bold text-white">
+                        Iniciativas Estratégicas
+                      </h2>
+                    </div>
+                  </div>
+
+                  <p className="text-lg text-white/50 leading-relaxed mb-6 max-w-2xl">
+                    Propuestas de rediseño de país usando Diseño Idealizado: del problema a la solución ideal,
+                    con un camino concreto y métricas para medir el avance. Cada iniciativa es un plan de acción completo.
+                  </p>
+
+                  <div>
+                    <p className="text-2xl font-bold text-white">{STRATEGIC_INITIATIVES.length}</p>
+                    <p className="text-xs text-white/40 font-medium uppercase">Propuestas</p>
+                  </div>
+                </div>
+
+                {/* Right side: phase journey preview */}
+                <div className="hidden md:flex flex-col items-center gap-0 shrink-0 pr-4">
+                  {PHASE_META.map((phase, i) => {
+                    const PhaseIcon = phase.icon;
+                    return (
+                      <div key={phase.key} className="flex flex-col items-center">
+                        <div
+                          className="w-11 h-11 rounded-full flex items-center justify-center border-2 bg-white/5"
+                          style={{ borderColor: phase.accent }}
+                        >
+                          <PhaseIcon className="w-4 h-4" style={{ color: phase.accent }} />
+                        </div>
+                        <span className="text-[9px] font-bold text-white/40 uppercase tracking-wider mt-1 max-w-[70px] text-center leading-tight">
+                          {phase.label}
+                        </span>
+                        {i < PHASE_META.length - 1 && (
+                          <div className="w-px h-4 bg-white/10 my-1" />
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
             </div>
-            <h2 className="text-4xl md:text-5xl font-serif font-bold tracking-tight mb-6">
-              <span className="bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-transparent">
-                Iniciativas Estratégicas
-              </span>
-            </h2>
-            <p className="text-lg text-white/50 leading-relaxed max-w-2xl mx-auto">
-              Propuestas detalladas de rediseño de país. Cada iniciativa presenta el problema,
-              la proyección sin cambios, el diseño ideal y un camino concreto con indicadores medibles.
-            </p>
           </motion.div>
 
           {/* Search + Filters (dark adapted) */}
