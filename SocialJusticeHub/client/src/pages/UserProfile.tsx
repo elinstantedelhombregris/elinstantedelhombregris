@@ -423,7 +423,7 @@ const UserProfile = () => {
                     rows={4}
                     className="bg-white/5 border-white/10 text-slate-200 placeholder:text-slate-600 focus-visible:ring-blue-500/40"
                   />
-                  <div className={`text-[10px] font-mono text-right ${editForm.bio.length > 500 ? 'text-red-400' : 'text-slate-500'}`}>
+                  <div className={`text-[10px] font-mono text-right ${editForm.bio.length >= 500 ? 'text-red-400' : 'text-slate-500'}`}>
                     {editForm.bio.length}/500
                   </div>
                 </div>
