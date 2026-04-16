@@ -35,7 +35,7 @@ const Header = () => {
     '/bienvenida', '/dashboard', '/profile', '/challenges',
     '/life-areas', '/evaluacion', '/metas', '/checkin-semanal',
     '/coaching', '/datos-abiertos', '/kit-de-prensa',
-    '/explorar-datos',
+    '/explorar-datos', '/recursos/ruta',
   ];
   const isDarkPage = darkHeroRoutes.includes(location) ||
     location.startsWith('/mandato/pulso/') ||

@@ -145,8 +145,8 @@ export default function UnaRutaParaArgentina() {
       {/* ═══════════════ HERO ═══════════════ */}
       <section className="relative pt-32 pb-24 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gradient-radial from-purple-600/8 via-transparent to-transparent" />
-          <div className="absolute bottom-0 left-0 w-[400px] h-[300px] bg-gradient-radial from-blue-500/5 via-transparent to-transparent" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] rounded-full blur-[120px] bg-purple-600/[0.08]" />
+          <div className="absolute bottom-0 left-0 w-[400px] h-[300px] rounded-full blur-[120px] bg-blue-500/[0.05]" />
         </div>
 
         <div className="relative container mx-auto px-4 max-w-4xl text-center">
