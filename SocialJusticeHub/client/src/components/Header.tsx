@@ -35,7 +35,6 @@ const Header = () => {
     '/bienvenida', '/dashboard', '/profile', '/challenges',
     '/life-areas', '/evaluacion', '/metas', '/checkin-semanal',
     '/coaching', '/datos-abiertos', '/kit-de-prensa',
-    '/recursos/el-arquitecto',
     '/explorar-datos',
   ];
   const isDarkPage = darkHeroRoutes.includes(location) ||
@@ -85,13 +84,10 @@ const Header = () => {
     { label: 'Visión', href: '/la-vision' },
     { label: 'Hombre Gris', href: '/el-instante-del-hombre-gris' },
     { label: 'Semilla', href: '/la-semilla-de-basta' },
-    { label: 'Ruta', href: '/una-ruta-para-argentina' },
     { label: 'Mapa', href: '/el-mapa' },
-    { label: 'Explorar', href: '/explorar-datos' },
     { label: 'Mandato', href: '/el-mandato-vivo' },
     { label: 'Círculos', href: '/community' },
     { label: 'Recursos', href: '/recursos' },
-    { label: 'Arquitecto', href: '/recursos/el-arquitecto' },
   ];
 
   return (

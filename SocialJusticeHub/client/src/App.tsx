@@ -58,13 +58,11 @@ const DatosAbiertos = React.lazy(() => import("@/pages/DatosAbiertos"));
 const ExplorarDatos = React.lazy(() => import("@/pages/ExplorarDatos"));
 const PulsoDetalle = React.lazy(() => import("@/pages/PulsoDetalle"));
 const PropuestaDetalle = React.lazy(() => import("@/pages/PropuestaDetalle"));
-const IniciativasEstrategicas = React.lazy(() => import("@/pages/IniciativasEstrategicas"));
 const IniciativaDetalle = React.lazy(() => import("@/pages/IniciativaDetalle"));
 const IniciativaDocumento = React.lazy(() => import("@/pages/IniciativaDocumento"));
 const Feedback = React.lazy(() => import("@/pages/Feedback"));
 const AdminFeedback = React.lazy(() => import("@/pages/AdminFeedback"));
 const KitDePrensa = React.lazy(() => import("@/pages/KitDePrensa"));
-const ElArquitecto = React.lazy(() => import("@/pages/ElArquitecto"));
 const MisionDetalle = React.lazy(() => import("@/pages/MisionDetalle"));
 const ApoyaAlMovimiento = React.lazy(() => import("@/pages/ApoyaAlMovimiento"));
 
@@ -98,7 +96,6 @@ function Router() {
       <Route path="/detalles-calculo-costo-humano" component={DetallesCalculoCostoHumano} />
       <Route path="/el-instante-del-hombre-gris" component={ElInstanteDelHombreGris} />
       <Route path="/la-semilla-de-basta" component={LaSemillaDeBasta} />
-      <Route path="/una-ruta-para-argentina" component={UnaRutaParaArgentina} />
       <Route path="/el-mapa" component={ElMapa} />
       {/* Legacy route - redirect to new resources structure */}
       <Route path="/blog-vlog" component={BlogVlog} />
@@ -113,10 +110,9 @@ function Router() {
       <Route path="/recursos/guias-estudio/:slug" component={CourseDetail} />
       <Route path="/recursos/guias-estudio/:courseSlug/leccion/:lessonId" component={LessonView} />
       <Route path="/recursos/guias-estudio/:courseSlug/quiz" component={QuizView} />
-      <Route path="/recursos/iniciativas" component={IniciativasEstrategicas} />
-      <Route path="/recursos/el-arquitecto" component={ElArquitecto} />
-      <Route path="/recursos/iniciativas/:slug/documento" component={IniciativaDocumento} />
-      <Route path="/recursos/iniciativas/:slug" component={IniciativaDetalle} />
+      <Route path="/recursos/ruta" component={UnaRutaParaArgentina} />
+      <Route path="/recursos/ruta/iniciativas/:slug/documento" component={IniciativaDocumento} />
+      <Route path="/recursos/ruta/iniciativas/:slug" component={IniciativaDetalle} />
       <Route path="/login" component={Login} />
       <Route path="/register" component={Register} />
       <Route path="/bienvenida" component={Bienvenida} />
@@ -155,6 +151,13 @@ function Router() {
       <Route path="/el-pulso">{() => <Redirect to="/el-mandato-vivo" />}</Route>
       <Route path="/pulso/:id">{(params) => <Redirect to={`/mandato/pulso/${params.id}`} />}</Route>
       <Route path="/propuesta/:id">{(params) => <Redirect to={`/mandato/propuesta/${params.id}`} />}</Route>
+
+      {/* Legacy redirects — old Ruta/Arquitecto/Iniciativas URLs */}
+      <Route path="/una-ruta-para-argentina">{() => <Redirect to="/recursos/ruta" />}</Route>
+      <Route path="/recursos/el-arquitecto">{() => <Redirect to="/recursos/ruta" />}</Route>
+      <Route path="/recursos/iniciativas">{() => <Redirect to="/recursos/ruta" />}</Route>
+      <Route path="/recursos/iniciativas/:slug/documento">{(params) => <Redirect to={`/recursos/ruta/iniciativas/${params.slug}/documento`} />}</Route>
+      <Route path="/recursos/iniciativas/:slug">{(params) => <Redirect to={`/recursos/ruta/iniciativas/${params.slug}`} />}</Route>
 
       {/* Kit de Prensa */}
       <Route path="/kit-de-prensa" component={KitDePrensa} />

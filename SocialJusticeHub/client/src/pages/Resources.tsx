@@ -169,7 +169,7 @@ const Resources = () => {
 
         {/* Featured: Iniciativas Estratégicas */}
         <SmoothReveal delay={0.5} className="mb-32">
-          <Link href="/recursos/iniciativas">
+          <Link href="/recursos/ruta">
             <div className="bg-white rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 cursor-pointer overflow-hidden group relative">
               {/* Hover gradient */}
               <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
