@@ -252,6 +252,69 @@ export default function UnaRutaParaArgentina() {
             </div>
           </motion.div>
 
+          {/* Diseño Idealizado — 5 steps box */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="max-w-5xl mx-auto mb-16"
+          >
+            <div className="bg-white/[0.03] rounded-3xl border border-white/10 backdrop-blur-md p-8 md:p-10">
+              <div className="text-center mb-10">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-5">
+                  <Lightbulb className="w-3.5 h-3.5 text-amber-400" />
+                  <span className="text-xs font-bold tracking-[0.2em] text-amber-400 uppercase">
+                    Metodología
+                  </span>
+                </div>
+                <h3 className="text-2xl md:text-3xl font-serif font-bold text-white mb-3">
+                  Las 5 Fases del Diseño Idealizado
+                </h3>
+                <p className="text-white/50 max-w-2xl mx-auto leading-relaxed">
+                  Cada iniciativa sigue el mismo recorrido: del problema a la solución ideal,
+                  con un camino concreto y métricas para medir el avance.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+                {[
+                  { meta: PHASE_META[0], desc: 'Identificar con claridad qué está roto hoy.' },
+                  { meta: PHASE_META[1], desc: 'Proyectar el costo de no cambiar nada.' },
+                  { meta: PHASE_META[2], desc: 'Imaginar la solución sin restricciones.' },
+                  { meta: PHASE_META[3], desc: 'Trazar el recorrido desde el ideal al presente.' },
+                  { meta: PHASE_META[4], desc: 'Medir el avance con métricas concretas.' },
+                ].map(({ meta, desc }) => {
+                  const PhaseIcon = meta.icon;
+                  return (
+                    <div
+                      key={meta.key}
+                      className="relative rounded-2xl border border-white/10 bg-white/[0.02] p-5 hover:bg-white/[0.04] hover:border-white/15 transition-all duration-300"
+                    >
+                      <div className="flex items-center justify-between mb-4">
+                        <div
+                          className="w-10 h-10 rounded-xl flex items-center justify-center"
+                          style={{ backgroundColor: `${meta.accent}1a`, border: `1px solid ${meta.accent}33` }}
+                        >
+                          <PhaseIcon className="w-5 h-5" style={{ color: meta.accent }} />
+                        </div>
+                        <span className="text-3xl font-serif font-bold text-white/10 leading-none">
+                          0{meta.number}
+                        </span>
+                      </div>
+                      <h4 className="text-sm font-bold text-white mb-2 leading-tight">
+                        {meta.label}
+                      </h4>
+                      <p className="text-xs text-white/40 leading-relaxed">
+                        {desc}
+                      </p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </motion.div>
+
           {/* Search + Filters (dark adapted) */}
           <div className="max-w-4xl mx-auto space-y-4 mb-12">
             <div className="relative">

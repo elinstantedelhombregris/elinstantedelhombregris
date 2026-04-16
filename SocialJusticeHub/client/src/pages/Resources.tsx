@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'wouter';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { FileText, Video, GraduationCap, ArrowRight, Sparkles, BookOpen, PlayCircle, Map, Compass } from 'lucide-react';
+import { FileText, Video, GraduationCap, ArrowRight, Sparkles, BookOpen, PlayCircle, Lightbulb } from 'lucide-react';
 import { apiRequest } from '@/lib/queryClient';
 import FluidBackground from '@/components/ui/FluidBackground';
 import GlassCard from '@/components/ui/GlassCard';
@@ -165,62 +165,70 @@ const Resources = () => {
           })}
         </section>
 
-        {/* Featured: Una Ruta Para Argentina */}
+        {/* Featured: Una Ruta Para Argentina — idealized design exercise */}
         <SmoothReveal delay={0.5} className="mb-32">
           <Link href="/recursos/ruta">
-            <div className="bg-white rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 cursor-pointer overflow-hidden group relative">
-              {/* Hover gradient */}
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="relative rounded-[2.5rem] overflow-hidden cursor-pointer group transition-all duration-500 hover:-translate-y-1 shadow-2xl hover:shadow-purple-500/20 bg-gradient-to-br from-slate-950 via-slate-900 to-purple-950 text-white">
+              {/* Ambient glow */}
+              <div className="absolute inset-0 pointer-events-none">
+                <div className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full bg-purple-600/20 blur-[120px]" />
+                <div className="absolute -bottom-32 -left-32 w-[400px] h-[400px] rounded-full bg-blue-600/10 blur-[100px]" />
+              </div>
 
-              <div className="relative z-10 p-8 md:p-12 flex flex-col md:flex-row items-start md:items-center gap-8">
-                {/* Left side: icon + text */}
-                <div className="flex-1">
-                  <div className="flex items-start gap-5 mb-6">
-                    <div className="p-4 rounded-2xl bg-purple-100 text-purple-700 shadow-inner shrink-0">
-                      <Compass className="w-8 h-8" />
-                    </div>
-                    <div>
-                      <span className="text-xs font-bold tracking-[0.2em] text-purple-600 uppercase block mb-2">
-                        Ejercicio Estratégico
+              <div className="relative z-10 p-8 md:p-14">
+                <div className="flex flex-col lg:flex-row gap-10 lg:gap-16">
+                  {/* Left: intro */}
+                  <div className="flex-1">
+                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/15 mb-6 backdrop-blur-sm">
+                      <Lightbulb className="w-3.5 h-3.5 text-amber-300" />
+                      <span className="text-[11px] font-bold tracking-[0.2em] text-amber-100 uppercase">
+                        Ejercicio de Diseño Idealizado
                       </span>
-                      <h2 className="text-3xl md:text-4xl font-bold text-slate-900 group-hover:text-purple-700 transition-colors">
+                    </div>
+
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold tracking-tight mb-6 leading-[1.05]">
+                      <span className="bg-gradient-to-br from-white via-purple-50 to-purple-300 bg-clip-text text-transparent">
                         Una Ruta Para Argentina
-                      </h2>
+                      </span>
+                    </h2>
+
+                    <p className="text-lg text-slate-300 leading-relaxed max-w-xl mb-8">
+                      ¿Y si empezáramos de cero? En lugar de mejorar lo que existe, imaginar
+                      la solución ideal sin restricciones — y recién después trazar el camino
+                      desde el presente hasta ese ideal.
+                    </p>
+
+                    <div className="inline-flex items-center gap-2 text-purple-200 font-bold text-sm tracking-wide group-hover:translate-x-2 transition-transform">
+                      Comenzar el Ejercicio
+                      <ArrowRight className="w-4 h-4" />
                     </div>
                   </div>
 
-                  <p className="text-lg text-slate-600 leading-relaxed mb-6 max-w-2xl">
-                    Un ejercicio para imaginar otro camino: iniciativas estratégicas documentadas,
-                    una herramienta que analiza sus dependencias y ruta crítica, y una mini novela
-                    que cuenta — desde el futuro — cómo podríamos haberlas aplicado.
-                  </p>
-
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-6">
-                      <div>
-                        <p className="text-sm font-semibold text-slate-700">Iniciativas</p>
-                        <p className="text-xs text-slate-500">Propuestas de rediseño</p>
+                  {/* Right: three-part journey */}
+                  <div className="flex-1 w-full space-y-3">
+                    {[
+                      { num: '01', label: 'Iniciativas Estratégicas', sub: 'Propuestas de rediseño de país' },
+                      { num: '02', label: 'El Arquitecto', sub: 'Dependencias, ruta crítica, presupuesto' },
+                      { num: '03', label: 'Imaginá Qué Pasaría', sub: 'Mini novela desde el futuro' },
+                    ].map((step) => (
+                      <div
+                        key={step.num}
+                        className="flex items-start gap-4 p-5 rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-sm group-hover:bg-white/[0.07] group-hover:border-white/15 transition-colors"
+                      >
+                        <span className="text-2xl font-serif font-bold text-purple-300/70 shrink-0 leading-none pt-0.5">
+                          {step.num}
+                        </span>
+                        <div>
+                          <h3 className="font-bold text-white text-base mb-1 leading-tight">
+                            {step.label}
+                          </h3>
+                          <p className="text-sm text-slate-400 leading-relaxed">
+                            {step.sub}
+                          </p>
+                        </div>
                       </div>
-                      <div className="w-px h-8 bg-slate-200" />
-                      <div>
-                        <p className="text-sm font-semibold text-slate-700">El Arquitecto</p>
-                        <p className="text-xs text-slate-500">Dependencias y ruta crítica</p>
-                      </div>
-                      <div className="w-px h-8 bg-slate-200 hidden sm:block" />
-                      <div className="hidden sm:block">
-                        <p className="text-sm font-semibold text-slate-700">5 Capítulos</p>
-                        <p className="text-xs text-slate-500">Mini novela del futuro</p>
-                      </div>
-                    </div>
-                    <div className="flex items-center text-purple-600 font-bold text-sm tracking-wide group-hover:translate-x-2 transition-transform">
-                      Explorar <ArrowRight className="w-4 h-4 ml-2" />
-                    </div>
+                    ))}
                   </div>
-                </div>
-
-                {/* Right side: route icon */}
-                <div className="hidden md:flex flex-col items-center shrink-0 pr-4">
-                  <Map className="w-24 h-24 text-purple-200" strokeWidth={1} />
                 </div>
               </div>
             </div>

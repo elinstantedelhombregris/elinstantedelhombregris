@@ -166,10 +166,10 @@ const Home = () => {
         <HeroCinema
           title={
             <span className="flex flex-col items-center">
-              <span className="block text-[clamp(2.2rem,6vw,4.5rem)] font-black tracking-tight leading-[1.05] text-transparent bg-clip-text bg-gradient-to-b from-white via-slate-200 to-slate-400 mb-2 filter drop-shadow-2xl">
+              <span className="block text-[clamp(2.2rem,6vw,4.5rem)] font-black tracking-tight leading-[1.15] pb-[0.1em] text-transparent bg-clip-text bg-gradient-to-b from-white via-slate-200 to-slate-400 mb-2 filter drop-shadow-2xl">
                 Votaste. Marchaste. Esperaste.
               </span>
-              <span className="block text-[clamp(2.2rem,6vw,4.5rem)] font-black tracking-tight leading-[1.05] text-transparent bg-clip-text bg-gradient-to-b from-slate-300 to-slate-500">
+              <span className="block text-[clamp(2.2rem,6vw,4.5rem)] font-black tracking-tight leading-[1.15] pb-[0.1em] text-transparent bg-clip-text bg-gradient-to-b from-slate-300 to-slate-500">
                 Y todo sigue igual.
               </span>
             </span>
