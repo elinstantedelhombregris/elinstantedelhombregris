@@ -7,10 +7,12 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { motion } from 'framer-motion';
-import { Flame, Trophy, Target, ShieldCheck, Activity, ArrowRight, Zap, Crown, BookOpen, Camera, Loader2, X } from 'lucide-react';
-import { useQuery } from '@tanstack/react-query';
+import { Flame, Trophy, Target, ShieldCheck, Activity, ArrowRight, Zap, Crown, BookOpen, Camera, Loader2, X, Pencil, Check } from 'lucide-react';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { apiRequest } from '@/lib/queryClient';
 import { useAvatarUpload } from '@/hooks/useAvatarUpload';
+import { Textarea } from '@/components/ui/textarea';
+import { toast } from '@/hooks/use-toast';
 import { Link } from 'wouter';
 import EmailVerificationBanner from '@/components/EmailVerificationBanner';
 import GettingStartedChecklist from '@/components/GettingStartedChecklist';
@@ -44,6 +46,29 @@ const InsightDashboard = () => {
     deleteMutation: avatarDeleteMutation,
     handleFileChange: handleAvatarChange,
   } = useAvatarUpload(fileInputRef);
+  const queryClient = useQueryClient();
+  const [bioEditing, setBioEditing] = useState(false);
+  const [bioDraft, setBioDraft] = useState('');
+
+  const bioMutation = useMutation({
+    mutationFn: async (bio: string | null) => {
+      const response = await apiRequest('PUT', '/api/auth/profile', { bio });
+      if (!response.ok) {
+        const err = await response.json().catch(() => ({}));
+        throw new Error(err.message || 'No se pudo guardar la bio');
+      }
+      return response.json();
+    },
+    onSuccess: (data) => {
+      if (userContext) userContext.setUser(data.user);
+      queryClient.invalidateQueries({ queryKey: ['/api/auth/me'] });
+      toast({ title: 'Bio actualizada', description: 'Tu bio fue guardada.' });
+      setBioEditing(false);
+    },
+    onError: (error: Error) => {
+      toast({ title: 'Error', description: error.message, variant: 'destructive' });
+    }
+  });
   const [authCheckTimeout, setAuthCheckTimeout] = useState(false);
 
   useEffect(() => {
@@ -183,7 +208,7 @@ const InsightDashboard = () => {
                 )}
                 <div className="absolute -bottom-1 -right-1 bg-emerald-500 w-3.5 h-3.5 rounded-full border-[3px] border-[#0a0a0a] pointer-events-none" />
               </div>
-              <div>
+              <div className="min-w-0 max-w-md">
                 <h1 className="text-2xl font-bold text-white font-serif tracking-tight">{user.name}</h1>
                 <div className="flex items-center gap-2 mt-1.5">
                   {archetype ? (
@@ -194,6 +219,57 @@ const InsightDashboard = () => {
                     <Badge variant="outline" className="border-slate-700 text-slate-500 text-[10px] uppercase tracking-wider">
                       Sin evaluar
                     </Badge>
+                  )}
+                </div>
+                <div className="mt-2.5">
+                  {bioEditing ? (
+                    <div className="space-y-1.5">
+                      <Textarea
+                        value={bioDraft}
+                        onChange={(e) => setBioDraft(e.target.value)}
+                        placeholder="Contá quién sos en pocas palabras."
+                        maxLength={500}
+                        rows={3}
+                        autoFocus
+                        className="bg-white/5 border-white/10 text-slate-200 placeholder:text-slate-600 focus-visible:ring-blue-500/40 text-sm"
+                      />
+                      <div className="flex items-center justify-between gap-3">
+                        <span className={`text-[10px] font-mono ${bioDraft.length >= 500 ? 'text-red-400' : 'text-slate-500'}`}>
+                          {bioDraft.length}/500
+                        </span>
+                        <div className="flex items-center gap-2">
+                          <button
+                            type="button"
+                            onClick={() => setBioEditing(false)}
+                            disabled={bioMutation.isPending}
+                            className="px-2.5 py-1 text-xs text-slate-400 hover:text-slate-200 transition-colors"
+                          >
+                            Cancelar
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => bioMutation.mutate(bioDraft.trim() || null)}
+                            disabled={bioMutation.isPending || bioDraft.length > 500}
+                            className="inline-flex items-center gap-1 px-2.5 py-1 text-xs rounded bg-blue-600 hover:bg-blue-500 text-white disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                          >
+                            {bioMutation.isPending ? <Loader2 className="h-3 w-3 animate-spin" /> : <Check className="h-3 w-3" />}
+                            Guardar
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={() => { setBioDraft(user.bio || ''); setBioEditing(true); }}
+                      className="group/bio flex items-start gap-2 text-left text-sm text-slate-400 hover:text-slate-200 transition-colors max-w-full"
+                      aria-label="Editar bio"
+                    >
+                      <span className="line-clamp-2 whitespace-pre-wrap">
+                        {user.bio || <span className="italic text-slate-500">Agregá una bio para contar quién sos.</span>}
+                      </span>
+                      <Pencil className="h-3 w-3 mt-1 flex-shrink-0 opacity-0 group-hover/bio:opacity-100 transition-opacity" />
+                    </button>
                   )}
                 </div>
               </div>
