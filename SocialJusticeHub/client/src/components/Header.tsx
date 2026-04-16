@@ -161,6 +161,18 @@ const Header = () => {
                   </div>
                 </Link>
 
+                <Link href="/profile">
+                  <div className={`hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-full border transition-all cursor-pointer ${
+                    showSolid
+                      ? 'border-slate-200 bg-slate-50 hover:bg-white text-slate-700'
+                      : 'border-white/20 bg-white/10 text-white hover:bg-white/20'
+                  }`}
+                  title="Mi Perfil">
+                    <User className="w-3.5 h-3.5" />
+                    <span className="text-xs font-medium">Mi Perfil</span>
+                  </div>
+                </Link>
+
                 <Button
                   onClick={async () => {
                     try {
