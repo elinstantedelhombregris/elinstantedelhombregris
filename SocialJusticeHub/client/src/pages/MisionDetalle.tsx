@@ -387,7 +387,7 @@ export default function MisionDetalle() {
                       <GlassCard
                         className="p-4 cursor-pointer hover:border-white/20 transition-all"
                         onClick={() =>
-                          setLocation(`/recursos/iniciativas/${initiative.slug}`)
+                          setLocation(`/recursos/ruta/iniciativas/${initiative.slug}`)
                         }
                       >
                         <h4 className="text-sm font-bold text-white mb-1">

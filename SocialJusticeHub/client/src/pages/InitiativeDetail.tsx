@@ -174,7 +174,7 @@ function MissionBanner({ missionSlug }: { missionSlug: string }) {
             {missionInitiatives.map(initiative => (
               <a
                 key={initiative.slug}
-                href={`/recursos/iniciativas/${initiative.slug}`}
+                href={`/recursos/ruta/iniciativas/${initiative.slug}`}
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-white border border-slate-200 text-slate-700 hover:border-slate-300 hover:shadow-sm transition-all"
               >
                 {initiative.state && (

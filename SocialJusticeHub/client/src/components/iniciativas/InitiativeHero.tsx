@@ -86,7 +86,7 @@ export default function InitiativeHero({ initiative, onScrollToContent }: Initia
             </motion.button>
 
             {initiative.documentFile && (
-              <Link href={`/recursos/iniciativas/${initiative.slug}/documento`}>
+              <Link href={`/recursos/ruta/iniciativas/${initiative.slug}/documento`}>
                 <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-slate-200 bg-white/80 backdrop-blur-sm text-slate-600 hover:text-slate-900 hover:border-slate-300 text-sm font-medium transition-all cursor-pointer shadow-sm">
                   <FileText className="w-4 h-4" />
                   Ver Documento Completo / Descargar PDF

@@ -725,8 +725,7 @@ Todo es abierto. Todo es auditable. Todo el código es público. El movimiento s
               { label: 'Ver La Visión de Argentina', href: '/la-vision', icon: Eye },
               { label: 'Explorar El Mapa Soberano', href: '/el-mapa', icon: MapPin },
               { label: 'Ver El Mandato Vivo', href: '/el-mandato-vivo', icon: Vote },
-              { label: 'Explorar El Arquitecto', href: '/recursos/el-arquitecto', icon: Brain },
-              { label: 'Conocer las Iniciativas Estratégicas', href: '/recursos/iniciativas', icon: BookOpen },
+              { label: 'Explorar Una Ruta Para Argentina', href: '/recursos/ruta', icon: Brain },
             ].map((link, i) => {
               const Icon = link.icon;
               return (

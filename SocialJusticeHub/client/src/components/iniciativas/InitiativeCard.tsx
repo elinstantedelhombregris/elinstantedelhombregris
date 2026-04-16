@@ -16,7 +16,7 @@ export default function InitiativeCard({ initiative, index, delay = 0 }: Initiat
 
   return (
     <SmoothReveal delay={delay} className="h-full">
-      <Link href={`/recursos/iniciativas/${initiative.slug}`}>
+      <Link href={`/recursos/ruta/iniciativas/${initiative.slug}`}>
         <div className="h-full bg-white rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 cursor-pointer overflow-hidden group flex flex-col relative">
           {/* Hover gradient */}
           <div className={`absolute inset-0 bg-gradient-to-br ${categoryMeta.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />

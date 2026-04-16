@@ -417,7 +417,7 @@ export default function PlanDetailDrawer({ plan, onClose }: PlanDetailDrawerProp
 
               {/* Link to full initiative */}
               <Link
-                href={`/recursos/iniciativas/${plan.slug}`}
+                href={`/recursos/ruta/iniciativas/${plan.slug}`}
                 className="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl
                            bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20
                            text-sm font-semibold text-white/70 hover:text-white transition-all"

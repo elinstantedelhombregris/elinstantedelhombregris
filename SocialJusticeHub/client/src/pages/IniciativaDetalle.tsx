@@ -78,7 +78,7 @@ export default function IniciativaDetalle() {
         <main className="container mx-auto px-4 pt-32 pb-20 text-center">
           <h1 className="text-3xl font-serif font-bold mb-4">Iniciativa no encontrada</h1>
           <p className="text-slate-600 mb-8">La iniciativa que buscás no existe o fue movida.</p>
-          <Link href="/recursos/iniciativas" className="text-blue-600 hover:underline font-medium">
+          <Link href="/recursos/ruta#iniciativas" className="text-blue-600 hover:underline font-medium">
             ← Volver a Iniciativas Estratégicas
           </Link>
         </main>
@@ -176,13 +176,13 @@ export default function IniciativaDetalle() {
                     </p>
                   </div>
                   <div className="flex flex-col sm:flex-row gap-3 shrink-0 w-full md:w-auto">
-                    <Link href={`/recursos/iniciativas/${initiative.slug}/documento`}>
+                    <Link href={`/recursos/ruta/iniciativas/${initiative.slug}/documento`}>
                       <button className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-slate-900 text-white hover:bg-slate-800 text-sm font-medium transition-colors w-full sm:w-auto">
                         <FileText className="w-4 h-4" />
                         Leer Documento
                       </button>
                     </Link>
-                    <Link href={`/recursos/iniciativas/${initiative.slug}/documento`}>
+                    <Link href={`/recursos/ruta/iniciativas/${initiative.slug}/documento`}>
                       <button className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-50 text-sm font-medium transition-colors w-full sm:w-auto">
                         <Download className="w-4 h-4" />
                         Descargar PDF
@@ -238,7 +238,7 @@ export default function IniciativaDetalle() {
               <h3 className="text-2xl font-serif font-bold text-slate-900 mb-6">Iniciativas Relacionadas</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {relatedInitiatives.map((related) => related && (
-                  <Link key={related.slug} href={`/recursos/iniciativas/${related.slug}`}>
+                  <Link key={related.slug} href={`/recursos/ruta/iniciativas/${related.slug}`}>
                     <div className="p-5 rounded-2xl border border-slate-200 hover:border-blue-200 hover:shadow-md transition-all cursor-pointer">
                       <h4 className="font-serif font-bold text-slate-900 mb-1">{related.title}</h4>
                       <p className="text-sm text-slate-500 line-clamp-2">{related.summary}</p>
@@ -277,7 +277,7 @@ export default function IniciativaDetalle() {
                 animate
                 className="bg-white text-slate-900 hover:bg-slate-100"
               />
-              <Link href="/recursos/iniciativas">
+              <Link href="/recursos/ruta#iniciativas">
                 <button className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/30 text-white hover:bg-white/10 text-lg font-medium backdrop-blur-sm transition-all">
                   <ArrowLeft className="w-5 h-5" />
                   Ver Todas las Iniciativas

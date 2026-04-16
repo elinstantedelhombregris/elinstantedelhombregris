@@ -57,7 +57,7 @@ export default function IniciativaDocumento() {
         <main className="container mx-auto px-4 pt-32 pb-20 text-center">
           <h1 className="text-3xl font-serif font-bold mb-4">Documento no encontrado</h1>
           <p className="text-slate-600 mb-8">El documento que buscás no existe o fue movido.</p>
-          <Link href="/recursos/iniciativas" className="text-blue-600 hover:underline font-medium">
+          <Link href="/recursos/ruta#iniciativas" className="text-blue-600 hover:underline font-medium">
             ← Volver a Iniciativas Estratégicas
           </Link>
         </main>
@@ -76,7 +76,7 @@ export default function IniciativaDocumento() {
       {/* Sticky action bar */}
       <div className="sticky top-16 z-30 bg-white/90 backdrop-blur-md border-b border-slate-200 print:hidden">
         <div className="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
-          <Link href={`/recursos/iniciativas/${initiative.slug}`}>
+          <Link href={`/recursos/ruta/iniciativas/${initiative.slug}`}>
             <span className="inline-flex items-center gap-2 text-sm text-slate-500 hover:text-slate-900 transition-colors cursor-pointer">
               <ArrowLeft className="w-4 h-4" />
               Volver al resumen
@@ -113,9 +113,9 @@ export default function IniciativaDocumento() {
           <nav className="flex items-center gap-2 text-sm text-slate-500 flex-wrap">
             <Link href="/recursos" className="hover:text-blue-600 transition-colors">Recursos</Link>
             <ChevronRight className="w-4 h-4 shrink-0" />
-            <Link href="/recursos/iniciativas" className="hover:text-blue-600 transition-colors">Iniciativas</Link>
+            <Link href="/recursos/ruta#iniciativas" className="hover:text-blue-600 transition-colors">Iniciativas</Link>
             <ChevronRight className="w-4 h-4 shrink-0" />
-            <Link href={`/recursos/iniciativas/${initiative.slug}`} className="hover:text-blue-600 transition-colors">{initiative.title}</Link>
+            <Link href={`/recursos/ruta/iniciativas/${initiative.slug}`} className="hover:text-blue-600 transition-colors">{initiative.title}</Link>
             <ChevronRight className="w-4 h-4 shrink-0" />
             <span className="text-slate-900 font-medium">Documento Completo</span>
           </nav>
