@@ -30,6 +30,9 @@ export const users = pgTable("users", {
   // Profile image (base64 data URI)
   avatarUrl: text("avatar_url"),
 
+  // Free-form bio, capped at 500 chars by Zod validation
+  bio: text("bio"),
+
   // Onboarding
   onboardingCompleted: boolean("onboarding_completed").default(false),
 
