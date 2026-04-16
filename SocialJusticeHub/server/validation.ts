@@ -69,15 +69,21 @@ export const updateProfileSchema = z.object({
     .max(100, 'El nombre no puede exceder 100 caracteres')
     .regex(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/, 'El nombre solo puede contener letras y espacios')
     .optional(),
-  
+
   email: z.string()
     .email('Formato de email inválido')
     .max(255, 'El email no puede exceder 255 caracteres')
     .toLowerCase()
     .optional(),
-  
+
   location: z.string()
     .max(255, 'La ubicación no puede exceder 255 caracteres')
+    .optional(),
+
+  bio: z.string()
+    .trim()
+    .max(500, 'La bio no puede superar los 500 caracteres')
+    .nullable()
     .optional(),
 
   dataShareOptOut: z.boolean().optional()
