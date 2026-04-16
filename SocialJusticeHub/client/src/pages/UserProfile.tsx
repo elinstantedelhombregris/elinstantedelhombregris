@@ -8,6 +8,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import EmailVerificationBanner from '@/components/EmailVerificationBanner';
@@ -97,7 +98,8 @@ const UserProfile = () => {
   const [editForm, setEditForm] = useState({
     name: userContext?.user?.name || '',
     email: userContext?.user?.email || '',
-    location: userContext?.user?.location || ''
+    location: userContext?.user?.location || '',
+    bio: userContext?.user?.bio || ''
   });
 
   useEffect(() => {
@@ -189,7 +191,7 @@ const UserProfile = () => {
   const { uploadMutation: avatarUploadMutation, deleteMutation: avatarDeleteMutation, handleFileChange: handleAvatarChange } = useAvatarUpload(fileInputRef);
 
   const profileMutation = useMutation({
-    mutationFn: async (data: { name?: string; email?: string; location?: string }) => {
+    mutationFn: async (data: { name?: string; email?: string; location?: string; bio?: string | null }) => {
       const response = await apiRequest('PUT', '/api/auth/profile', data);
       if (!response.ok) throw new Error('Failed to update profile');
       return response.json();
@@ -231,14 +233,20 @@ const UserProfile = () => {
       setEditForm({
         name: user.name || '',
         email: user.email || '',
-        location: user.location || ''
+        location: user.location || '',
+        bio: user.bio || ''
       });
     }
     setIsEditing(!isEditing);
   };
 
   const handleSave = () => {
-    profileMutation.mutate({ name: editForm.name, email: editForm.email, location: editForm.location });
+    profileMutation.mutate({
+      name: editForm.name,
+      email: editForm.email,
+      location: editForm.location,
+      bio: editForm.bio.trim() || null,
+    });
   };
 
   const memberSince = user.createdAt
@@ -404,6 +412,21 @@ const UserProfile = () => {
                     />
                   </div>
                 </div>
+                <div className="space-y-2 mt-4">
+                  <Label htmlFor="bio" className="text-slate-400 text-xs uppercase tracking-wider">Bio</Label>
+                  <Textarea
+                    id="bio"
+                    value={editForm.bio}
+                    onChange={(e) => setEditForm({ ...editForm, bio: e.target.value })}
+                    placeholder="Contá quién sos en pocas palabras."
+                    maxLength={500}
+                    rows={4}
+                    className="bg-white/5 border-white/10 text-slate-200 placeholder:text-slate-600 focus-visible:ring-blue-500/40"
+                  />
+                  <div className={`text-[10px] font-mono text-right ${editForm.bio.length > 500 ? 'text-red-400' : 'text-slate-500'}`}>
+                    {editForm.bio.length}/500
+                  </div>
+                </div>
                 <div className="flex gap-3 mt-6">
                   <Button
                     onClick={handleSave}
@@ -464,6 +487,12 @@ const UserProfile = () => {
                   <div className="flex justify-between items-center py-2 border-b border-white/5">
                     <span className="text-slate-500 text-sm">Ubicación</span>
                     <span className="text-slate-200 font-medium text-sm">{user.location || '—'}</span>
+                  </div>
+                  <div className="py-2 border-b border-white/5 space-y-1.5">
+                    <span className="text-slate-500 text-sm">Bio</span>
+                    <p className="text-sm text-slate-300 whitespace-pre-wrap min-h-[1.25rem]">
+                      {user.bio || <span className="text-slate-600 italic">Sin bio.</span>}
+                    </p>
                   </div>
                   <div className="flex justify-between items-center py-2">
                     <span className="text-slate-500 text-sm">Miembro desde</span>

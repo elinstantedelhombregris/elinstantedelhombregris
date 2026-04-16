@@ -73,6 +73,7 @@ type User = {
   email: string;
   location?: string | null;
   avatarUrl?: string | null;
+  bio?: string | null;
   emailVerified?: boolean;
   onboardingCompleted?: boolean;
   createdAt?: string | null;
