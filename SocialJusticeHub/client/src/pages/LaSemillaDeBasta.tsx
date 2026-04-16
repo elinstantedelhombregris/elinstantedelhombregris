@@ -408,14 +408,15 @@ const LaSemillaDeBasta = () => {
           <div className="container-content relative z-10">
             <div className="max-w-5xl mx-auto text-center">
               <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 1.5 }}
-                className="mb-8"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="flex items-center justify-center gap-2 mb-8"
               >
-                <div className="inline-flex items-center justify-center p-4 rounded-full bg-emerald-900/30 border border-emerald-500/30 mb-6 shadow-[0_0_30px_rgba(16,185,129,0.2)]">
-                  <Sprout className="w-12 h-12 text-emerald-400" />
-                </div>
+                <Sprout className="w-4 h-4 text-emerald-400 animate-pulse" />
+                <span className="text-emerald-400 font-mono text-xs tracking-[0.3em] uppercase">
+                  Del compromiso que transforma
+                </span>
               </motion.div>
 
               <motion.h1

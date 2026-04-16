@@ -61,12 +61,23 @@ const LaVision = () => {
           />
 
           <div className="container-content relative z-10">
-            <div className="max-w-3xl mx-auto">
+            <div className="max-w-3xl mx-auto text-center">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1.2, delay: 0.5 }}
+                className="mb-4"
+              >
+                <span className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/[0.08] text-[11px] uppercase tracking-[0.3em] text-blue-300/70">
+                  El diseño de lo que viene
+                </span>
+              </motion.div>
+
               <motion.h1
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.15 }}
-                className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold leading-tight mb-10"
+                className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold leading-tight mb-8"
               >
                 <span className="text-white">La</span>
                 <br />
