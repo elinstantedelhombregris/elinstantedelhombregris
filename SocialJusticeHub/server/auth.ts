@@ -275,6 +275,7 @@ export function createAuthResponse(user: AuthUser) {
       name: user.name,
       location: user.location,
       avatarUrl: user.avatarUrl ?? null,
+      bio: user.bio ?? null,
       emailVerified: (user as any).emailVerified ?? false,
       onboardingCompleted: (user as any).onboardingCompleted ?? false,
       createdAt: (user as any).createdAt ?? null,

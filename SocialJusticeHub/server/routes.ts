@@ -2192,7 +2192,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
         email: user.email,
         name: user.name,
         location: user.location,
-        avatarUrl: user.avatarUrl
+        avatarUrl: user.avatarUrl,
+        bio: user.bio
       });
 
       res.status(201).json({
@@ -2273,7 +2274,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
         email: user.email,
         name: user.name,
         location: user.location,
-        avatarUrl: user.avatarUrl
+        avatarUrl: user.avatarUrl,
+        bio: user.bio
       });
 
       res.json({
@@ -2627,7 +2629,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
         email: user.email,
         name: user.name,
         location: user.location,
-        avatarUrl: user.avatarUrl
+        avatarUrl: user.avatarUrl,
+        bio: user.bio
       });
 
       res.json({
