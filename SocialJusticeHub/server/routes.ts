@@ -2319,6 +2319,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         name: user.name,
         location: user.location,
         avatarUrl: user.avatarUrl,
+        bio: user.bio,
         lastLogin: user.lastLogin,
         emailVerified: user.emailVerified,
         onboardingCompleted: user.onboardingCompleted,
@@ -2362,6 +2363,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
           name: updatedUser.name,
           location: updatedUser.location,
           avatarUrl: updatedUser.avatarUrl,
+          bio: updatedUser.bio,
           emailVerified: updatedUser.emailVerified,
           onboardingCompleted: updatedUser.onboardingCompleted,
           createdAt: updatedUser.createdAt,
@@ -2431,6 +2433,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
           name: updatedUser.name,
           location: updatedUser.location,
           avatarUrl: updatedUser.avatarUrl,
+          bio: updatedUser.bio,
           emailVerified: updatedUser.emailVerified,
           onboardingCompleted: updatedUser.onboardingCompleted,
           createdAt: updatedUser.createdAt
@@ -2459,6 +2462,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
           name: updatedUser.name,
           location: updatedUser.location,
           avatarUrl: updatedUser.avatarUrl,
+          bio: updatedUser.bio,
           emailVerified: updatedUser.emailVerified,
           onboardingCompleted: updatedUser.onboardingCompleted,
           createdAt: updatedUser.createdAt
