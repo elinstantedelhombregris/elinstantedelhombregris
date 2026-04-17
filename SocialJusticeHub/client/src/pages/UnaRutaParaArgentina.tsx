@@ -172,6 +172,9 @@ export default function UnaRutaParaArgentina() {
             </p>
 
             <div className="flex flex-wrap justify-center gap-4 mt-12">
+              <a href="#diseno-idealizado" className="px-6 py-3 rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-white hover:bg-white/10 transition-all text-sm font-medium">
+                Diseño Idealizado
+              </a>
               <a href="#iniciativas" className="px-6 py-3 rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-white hover:bg-white/10 transition-all text-sm font-medium">
                 Iniciativas Estratégicas
               </a>
@@ -181,6 +184,111 @@ export default function UnaRutaParaArgentina() {
               <a href="#imagina" className="px-6 py-3 rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-white hover:bg-white/10 transition-all text-sm font-medium">
                 Imaginá Qué Pasaría
               </a>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ═══════════════ DISEÑO IDEALIZADO (explicación + 5 fases) ═══════════════ */}
+      <section id="diseno-idealizado" className="py-20 scroll-mt-20">
+        <div className="container mx-auto px-4">
+          {/* ¿Qué es el Diseño Idealizado? */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="max-w-4xl mx-auto mb-16 bg-white/5 rounded-3xl border border-white/10 backdrop-blur-md p-8 md:p-12"
+          >
+            <div className="flex flex-col md:flex-row items-start gap-6">
+              <div className="p-4 rounded-2xl bg-amber-500/10 text-amber-400 shrink-0">
+                <Lightbulb className="w-8 h-8" />
+              </div>
+              <div>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 mb-4">
+                  <span className="text-[10px] font-bold tracking-[0.2em] text-amber-400 uppercase">
+                    Metodología
+                  </span>
+                </div>
+                <h2 className="text-3xl md:text-4xl font-serif font-bold text-white/95 mb-4 leading-tight">
+                  ¿Qué es el Diseño Idealizado?
+                </h2>
+                <p className="text-white/60 leading-relaxed mb-4">
+                  El Diseño Idealizado es una metodología creada por <strong className="text-white/80">Russell Ackoff</strong>,
+                  pionero del pensamiento sistémico. En lugar de mejorar lo que existe, propone
+                  diseñar desde cero el sistema ideal y luego trabajar hacia atrás para crear un
+                  camino viable desde el presente hasta ese ideal.
+                </p>
+                <p className="text-white/60 leading-relaxed">
+                  Cada iniciativa de esta página sigue el mismo recorrido: identificar el problema,
+                  proyectar qué pasa sin cambios, diseñar la solución ideal sin restricciones,
+                  trazar el camino desde la meta hacia el presente, y definir indicadores para
+                  medir el avance.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Las 5 Fases del Diseño Idealizado */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="max-w-5xl mx-auto"
+          >
+            <div className="bg-white/[0.03] rounded-3xl border border-white/10 backdrop-blur-md p-8 md:p-10">
+              <div className="text-center mb-10">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-5">
+                  <span className="text-xs font-bold tracking-[0.2em] text-white/60 uppercase">
+                    Las 5 Fases
+                  </span>
+                </div>
+                <h3 className="text-2xl md:text-3xl font-serif font-bold text-white mb-3">
+                  El recorrido de cada iniciativa
+                </h3>
+                <p className="text-white/50 max-w-2xl mx-auto leading-relaxed">
+                  Del problema a la solución ideal, con un camino concreto y métricas
+                  para medir el avance. Cada iniciativa del ecosistema sigue exactamente
+                  estas cinco fases.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+                {[
+                  { meta: PHASE_META[0], desc: 'Identificar con claridad qué está roto hoy.' },
+                  { meta: PHASE_META[1], desc: 'Proyectar el costo de no cambiar nada.' },
+                  { meta: PHASE_META[2], desc: 'Imaginar la solución sin restricciones.' },
+                  { meta: PHASE_META[3], desc: 'Trazar el recorrido desde el ideal al presente.' },
+                  { meta: PHASE_META[4], desc: 'Medir el avance con métricas concretas.' },
+                ].map(({ meta, desc }) => {
+                  const PhaseIcon = meta.icon;
+                  return (
+                    <div
+                      key={meta.key}
+                      className="relative rounded-2xl border border-white/10 bg-white/[0.02] p-5 hover:bg-white/[0.04] hover:border-white/15 transition-all duration-300"
+                    >
+                      <div className="flex items-center justify-between mb-4">
+                        <div
+                          className="w-10 h-10 rounded-xl flex items-center justify-center"
+                          style={{ backgroundColor: `${meta.accent}1a`, border: `1px solid ${meta.accent}33` }}
+                        >
+                          <PhaseIcon className="w-5 h-5" style={{ color: meta.accent }} />
+                        </div>
+                        <span className="text-3xl font-serif font-bold text-white/10 leading-none">
+                          0{meta.number}
+                        </span>
+                      </div>
+                      <h4 className="text-sm font-bold text-white mb-2 leading-tight">
+                        {meta.label}
+                      </h4>
+                      <p className="text-xs text-white/40 leading-relaxed">
+                        {desc}
+                      </p>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </motion.div>
         </div>
@@ -248,69 +356,6 @@ export default function UnaRutaParaArgentina() {
                     );
                   })}
                 </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Diseño Idealizado — 5 steps box */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="max-w-5xl mx-auto mb-16"
-          >
-            <div className="bg-white/[0.03] rounded-3xl border border-white/10 backdrop-blur-md p-8 md:p-10">
-              <div className="text-center mb-10">
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-5">
-                  <Lightbulb className="w-3.5 h-3.5 text-amber-400" />
-                  <span className="text-xs font-bold tracking-[0.2em] text-amber-400 uppercase">
-                    Metodología
-                  </span>
-                </div>
-                <h3 className="text-2xl md:text-3xl font-serif font-bold text-white mb-3">
-                  Las 5 Fases del Diseño Idealizado
-                </h3>
-                <p className="text-white/50 max-w-2xl mx-auto leading-relaxed">
-                  Cada iniciativa sigue el mismo recorrido: del problema a la solución ideal,
-                  con un camino concreto y métricas para medir el avance.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
-                {[
-                  { meta: PHASE_META[0], desc: 'Identificar con claridad qué está roto hoy.' },
-                  { meta: PHASE_META[1], desc: 'Proyectar el costo de no cambiar nada.' },
-                  { meta: PHASE_META[2], desc: 'Imaginar la solución sin restricciones.' },
-                  { meta: PHASE_META[3], desc: 'Trazar el recorrido desde el ideal al presente.' },
-                  { meta: PHASE_META[4], desc: 'Medir el avance con métricas concretas.' },
-                ].map(({ meta, desc }) => {
-                  const PhaseIcon = meta.icon;
-                  return (
-                    <div
-                      key={meta.key}
-                      className="relative rounded-2xl border border-white/10 bg-white/[0.02] p-5 hover:bg-white/[0.04] hover:border-white/15 transition-all duration-300"
-                    >
-                      <div className="flex items-center justify-between mb-4">
-                        <div
-                          className="w-10 h-10 rounded-xl flex items-center justify-center"
-                          style={{ backgroundColor: `${meta.accent}1a`, border: `1px solid ${meta.accent}33` }}
-                        >
-                          <PhaseIcon className="w-5 h-5" style={{ color: meta.accent }} />
-                        </div>
-                        <span className="text-3xl font-serif font-bold text-white/10 leading-none">
-                          0{meta.number}
-                        </span>
-                      </div>
-                      <h4 className="text-sm font-bold text-white mb-2 leading-tight">
-                        {meta.label}
-                      </h4>
-                      <p className="text-xs text-white/40 leading-relaxed">
-                        {desc}
-                      </p>
-                    </div>
-                  );
-                })}
               </div>
             </div>
           </motion.div>
@@ -383,29 +428,6 @@ export default function UnaRutaParaArgentina() {
             </div>
           )}
 
-          {/* Methodology callout (dark) */}
-          <div className="max-w-4xl mx-auto mt-24 bg-white/5 rounded-3xl border border-white/10 backdrop-blur-md p-8 md:p-12">
-            <div className="flex flex-col md:flex-row items-start gap-6">
-              <div className="p-4 rounded-2xl bg-amber-500/10 text-amber-400 shrink-0">
-                <Lightbulb className="w-8 h-8" />
-              </div>
-              <div>
-                <h3 className="text-2xl font-serif font-bold text-white/90 mb-3">
-                  ¿Qué es el Diseño Idealizado?
-                </h3>
-                <p className="text-white/50 leading-relaxed mb-4">
-                  El Diseño Idealizado es una metodología creada por Russell Ackoff, pionero del pensamiento sistémico.
-                  En lugar de mejorar lo que existe, propone diseñar desde cero el sistema ideal y luego trabajar
-                  hacia atrás para crear un camino viable desde el presente hasta ese ideal.
-                </p>
-                <p className="text-white/50 leading-relaxed">
-                  Cada iniciativa sigue 5 fases: identificar el problema, proyectar qué pasa sin cambios,
-                  diseñar la solución ideal sin restricciones, trazar el camino desde la meta hacia el presente,
-                  y definir indicadores para medir el avance.
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -432,7 +454,7 @@ export default function UnaRutaParaArgentina() {
               </span>
             </h2>
             <p className="text-lg text-white/50 max-w-2xl mx-auto leading-relaxed">
-              16 mandatos. Un organismo vivo. Esta herramienta combina todas las iniciativas
+              22 mandatos. Un organismo vivo. Esta herramienta combina todas las iniciativas
               para analizar dependencias, ruta crítica y presupuesto como un sistema interconectado.
             </p>
           </motion.div>
