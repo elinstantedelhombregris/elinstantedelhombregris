@@ -1123,39 +1123,66 @@ Rieles como columna múltiple, integración trilateral.
 
 Hidrovía articulada con Personalidad Jurídica del río Paraná.
 
+### 10.11 Con PLANDIG (ampliada)
+
+LNMA se hospeda sobre LANIA como laboratorio vertical del corredor móvil, con cómputo soberano compartido y colas de entrenamiento priorizadas para escenarios viales argentinos. Todo data-logging de vehículos AV, BAMD, BLF y Red Metropolitana Federal se persiste en ArgenCloud con auditoría pública. El gemelo digital de corredores (ANMov) se integra al gemelo territorial de El Mapa, cruzando flujos con demografía, productividad y cuidado. La ecología de la atención PLANDIG aplica a apps de movilidad: se prohíben patrones oscuros, gamificación manipulatoria y dark UX en interfaces BAMD, BLF, MKC y cualquier app certificada por ANMov.
+
+### 10.12 Con PLANREP (ampliada)
+
+Se crea la ruta dedicada "Reconversión Móvil" dentro de PLANREP como vector preventivo para transportistas desplazados por automatización o reconversión modal. El Arquitecto de Fuerza Laboral IA (componente PLANDIG) se articula con el Fondo de Reconversión Móvil (FRM) para producir matching individualizado entre trabajador, ruta de reconversión, formación requerida y ubicación geográfica. La Pensión Puente Móvil (PPM) queda supervisada conjuntamente por ANMov (criterio técnico-sectorial) y PLANREP (criterio laboral-integral), con ventanilla única y ningún trabajador librado a derivaciones burocráticas entre agencias.
+
+### 10.13 Con PLANEB
+
+BAMD funciona como caso piloto de Bastarda de Activos dentro del Protocolo Bastardo de PLANEB, demostrando que la figura del Contrato Bastardo sirve no solo para empresas productivas sino también para pools de activos ociosos. El Canon de Automatización Logística es replicable como Canon de Automatización Sectorial en otros dominios con activos ociosos: BAMD inmobiliaria (galpones, depósitos, espacios comerciales vacíos), BAMD computacional (servidores infrautilizados), BAMD agrícola (maquinaria compartida). El 20% de los excedentes operativos de BAMD alimenta directamente al Protocolo Bastardo federal como capital semilla para nuevas bastardas.
+
+### 10.14 Con PLANEN
+
+La electrificación ferroviaria se coordina con el despliegue de la malla energética AV de PLANEN, evitando duplicación de tendido y aprovechando corredores compartidos. El cómputo LNMA se abastece prioritariamente de la malla energética soberana con renovables (solar patagónico, eólico austral, geotérmico noroeste) vía contratos bilaterales ANMov-PLANEN. Los rieles como columna múltiple (carga + pasajeros + fibra + energía) se integran físicamente al tendido de media y alta tensión planificado por ANEN, convirtiendo cada corredor ferroviario reactivado en un vector energético nacional de doble uso.
+
+### 10.15 Con PLANMON
+
+El Fondo Soberano de Contingencia Móvil, activable ante externalidad AV grave (accidente masivo, falla sistémica de certificación), queda articulado con el FSE de PLANMON como línea específica. Los Bonos Soberanos Infraestructura 30-40 años son instrumento principal del financiamiento PLANMOV, emitidos bajo el régimen monetario de PLANMON con cobertura contra volatilidad cambiaria. La política de tipo de cambio se articula estrechamente: los Créditos de Kilómetros BAMD se indexan al Tablero PLANMON para preservar valor real frente a oscilaciones, manteniendo el kilómetro como unidad de cuenta estable de la economía móvil.
+
 ---
 
 ## SECCIÓN 11: MODELO ECONÓMICO
 
 ### 11.1 Inversión Total 20 Años
 
-**TABLA 11.1: Inversión Proyectada PLANMOV (USD M)**
+**TABLA 11.1: Inversión Proyectada PLANMOV por Capa (USD M)**
 
-| Fase | Período | Inversión |
-|---|---|---|
-| Fase 0-1 | Años 1-3 | 8.500 |
-| Fase 2 | Años 4-7 | 24.000 |
-| Fase 3 | Años 8-15 | 45.000 |
-| Fase 4 | Años 16-20 | 22.000 |
-| **Total 20 años** | | **99.500** |
+| Concepto | Fase 0-1 (2026-30) | Fase 2 (2031-34) | Fase 3 (2035-40) | Fase 4 (2041-46) | Total |
+|---|---|---|---|---|---|
+| Capa I (MKC + Metropolitanas + MRM + Accesibilidad) | 1.200 | 3.500 | 5.800 | 3.000 | 13.500 |
+| Capa II (Infraestructura ferroviaria, hidroviaria, portuaria) | 7.000 | 19.000 | 37.000 | 17.500 | 80.500 |
+| Capa III (BAMD + LNMA + FRM) | 800 | 2.500 | 4.500 | 2.200 | 10.000 |
+| **Total** | **9.000** | **25.000** | **47.300** | **22.700** | **104.000** |
+
+La Capa II concentra casi el 77% de la inversión total porque es el núcleo físico insustituible: rieles, puertos, electrificación, material rodante. La Capa I (13%) es tejido ciudadano y accesibilidad. La Capa III (10%) es la infraestructura tecnológico-institucional que ordena la transición AV. El total 20 años es USD 104.000M, consistente con los precedentes internacionales (España invirtió USD 50.000M en su red en 30 años partiendo de una base menos degradada).
 
 ### 11.2 Operación Anual Régimen Pleno
 
-- ANMov operación: USD 3.200M.
+- ANMov operación: USD 3.400M.
 - Subsidios MKC: USD 4.800M.
 - Mantenimiento ferroviario: USD 2.800M.
-- Operación BLF: autofinanciado at-cost.
-- AMBA operación: USD 2.800M.
-- **Total operativo anual:** **USD 13.600M**.
+- BAMD operación: autofinanciado at-cost (no consume erogación fiscal).
+- LNMA operación: USD 180M.
+- FRM distribuido: USD 1.100M (variable según Canon recaudado).
+- Red Metropolitana Federal (AMBA-T y homólogas): USD 3.600M.
+- **Total operativo anual:** **USD 15.880M**.
 
 ### 11.3 Retorno
 
 - Reducción flete 18-25% sobre USD 60.000M/año de flete total: USD 10.800-15.000M/año ahorro.
-- Reducción costos AMBA para usuarios: USD 3.200M/año.
+- Reducción costos AMBA y metropolitanas para usuarios: USD 3.200M/año.
 - Productividad recuperada: USD 2.400-4.800M/año.
-- **Retorno bruto anual:** **USD 16.400-23.000M**.
+- Valor de activos movilizados vía BAMD (cabotaje productivo que antes estaba ocioso): USD 800-1.400M/año.
+- Canon AV recaudado en régimen pleno (financia FRM y Tesoro): USD 1.200-2.800M/año.
+- Reducción de siniestralidad vial (costo directo + oportunidad): USD 1.800-3.200M/año.
+- Exportaciones logísticas adicionales por competitividad recuperada: USD 3.200-4.800M/año.
+- **Retorno bruto anual:** **USD 23.400-32.000M**.
 
-ROI: Break-even en Fase 3 (año 10-12). Positivo desde entonces.
+ROI: Break-even en Fase 3 (año 10-12). Positivo desde entonces con margen creciente.
 
 ### 11.4 Fuentes de Financiamiento
 
@@ -1164,6 +1191,177 @@ ROI: Break-even en Fase 3 (año 10-12). Positivo desde entonces.
 - Emisión de Bonos Soberanos Infraestructura 30-40 años.
 - Articulación con FSC del PLANTER (parte de regalías extractivas a infraestructura ferroviaria).
 - Aportes provinciales coparticipados.
+- Canon AV (desde Fase 2 creciente) aplicado a FRM y refinanciación de deuda.
+
+### 11.5 Sensibilidad del Modelo
+
+El modelo económico responde con elasticidad distinta a cada uno de los tres escenarios AV. En escenario Acelerado (adopción SAE 4-5 antes de 2038), el Canon de Automatización Logística genera aproximadamente +USD 1.200M/año adicionales sobre baseline, pero requiere inversión FRM anticipada de +USD 800M/año para absorber desplazamiento laboral concentrado en ventana corta; el retorno neto adicional es positivo pero la tensión social exige blindaje reforzado de la PPM y refuerzo de Tallers PLANTALLER. En escenario Conservador (adopción SAE 4-5 pospuesta a 2044+), el retorno demora 3 años más en alcanzar régimen pleno, el Canon recauda menos en la ventana 2030-2040, y el riesgo de reversión política durante el plazo extendido es materialmente mayor. En escenario Moderado baseline (el diseñado en PLANMOV), la curva de adopción AV coincide con la curva de reconversión laboral, el Canon financia sin déficit al FRM, y el ROI se ordena como fue modelado. Moderado baseline es óptimo: maximiza retorno neto ajustado por riesgo social y político.
+
+---
+
+## SECCIÓN 12: MARCO LEGAL — QUÉ LEYES SE NECESITAN
+
+PLANMOV v2.0 no se despliega por decreto ni por voluntarismo administrativo. Requiere un paquete legislativo de nueve leyes que fundan agencias, regulan tecnologías, disciplinan transiciones laborales y garantizan derechos ciudadanos móviles. Algunas son creación agencial (ANMov, AMBA-T), otras son regulación técnica (LNMA y el Protocolo de Certificación AV), otras son régimen económico (Canon, BAMD) y otras régimen laboral (Reconversión del Transportista). El orden de sanción es crítico: primero las leyes que crean las instituciones operativas (ANMov, AMBA-T) para que exista sujeto jurídico responsable; luego las leyes que habilitan la Capa III tecnológica (BAMD, LNMA, PCAV); después las leyes económicas (Canon) y régimen laboral en Fase 1. La estrategia política admite dos caminos: paquete único con tratamiento conjunto (más vulnerable a veto total, más coherente si hay mayoría) o sanción secuencial por bloques (más maniobrable, requiere sostener urgencia política durante 24-36 meses). La correlación de fuerzas en Congreso al momento de lanzamiento determina la elección.
+
+### 12.1 Ley de Movilidad y Logística Federal (creación de ANMov)
+
+Crea la Agencia Nacional de Movilidad como ente autárquico con presupuesto constitucional protegido del 0,50% del PBI, blindado contra recortes por Ley de Presupuesto ordinaria. Establece directorio de 13 miembros (6 Ejecutivo, 4 provincias rotativas, 2 sindicatos, 1 usuarios), mandatos escalonados de 6 años. Define competencias exclusivas (corredores federales, certificación AV, MKC, BAMD, BLF, LNMA, FRM). Articula con PLANREP para Pensión Puente Móvil y con PLANEN para electrificación. Sanción en Fase 0, año 1. Es la ley madre: sin ANMov no hay agencia capaz de administrar el resto del paquete. Su aprobación urgente condiciona todo el cronograma.
+
+### 12.2 Ley BAMD (Bastarda de Activos Móviles Disponibles)
+
+Crea la figura jurídica del Contrato Bastardo aplicada a pool mutualista de camiones, taxis, remises, vehículos livianos y utilitarios aportados voluntariamente por propietarios individuales. Establece régimen de Créditos de Kilómetros (CK) como unidad de cuenta indexada al Tablero PLANMON, reglas de aportación y retiro, obligaciones de mantenimiento colectivo, distribución de excedentes operativos (20% a Protocolo Bastardo PLANEB, 80% a reinversión y aportantes). Articula con Ley PLANEB madre como régimen especial sectorial. Sanción en Fase 0, año 1-2. Es novedad jurídica: no hay precedente argentino de propiedad bastarda sobre activos móviles.
+
+### 12.3 Ley LNMA y PCAV
+
+Crea el Laboratorio Nacional de Movilidad Autónoma como ente técnico-científico bajo órbita ANMov, con cómputo hospedado en LANIA (PLANDIG) y mandato de certificación pública obligatoria para todo vehículo AV Nivel 3+ que circule en territorio argentino. Instituye el Protocolo de Certificación AV con niveles SAE, régimen de responsabilidad civil y penal, requisitos de data-logging obligatorio en ArgenCloud bajo auditoría pública. Prohíbe la circulación comercial AV sin certificación LNMA. Articula con Ley PLANDIG para hospedaje y con Código de Tránsito reformado. Sanción en Fase 0, año 2.
+
+### 12.4 Ley del Canon de Automatización Logística
+
+Establece régimen tributario del Canon AV sobre vehículos y operaciones logísticas con nivel SAE 3+ y horas efectivas de desplazamiento automatizado. Fórmula HEDA (Horas Efectivas de Desplazamiento Automatizado) × CAR (Coeficiente de Automatización por Ruta) indexada al Tablero PLANMON y actualizada semestralmente por ANMov con audiencia pública. Destino específico obligatorio: 100% al Fondo de Reconversión Móvil (FRM), inembargable y no reasignable por Ley de Presupuesto. Articula con Ley Régimen Laboral de Transición del Transportista. Sanción en Fase 1, año 3-4. Es la ley más política de todas: grava capital tecnológico para financiar trabajo desplazado.
+
+### 12.5 Ley de la Autoridad Metropolitana de Transporte (AMBA-T y homólogas)
+
+Crea AMBA-T como autoridad unificada del Área Metropolitana de Buenos Aires con jurisdicción conjunta sobre CABA, provincia de Buenos Aires y los 40 municipios del conurbano, con directorio tripartito y presupuesto protegido. Habilita réplica legal homóloga en Gran Córdoba, Gran Rosario, Gran Mendoza, Gran Tucumán y Gran La Plata mediante adhesión provincial. Supera el caos jurisdiccional histórico del transporte metropolitano. Articula con Ley ANMov para subsidios MKC y estándares interoperables. Sanción en Fase 0, año 1-2. Requiere Pacto Metropolitano previo entre CABA, provincia y municipios.
+
+### 12.6 Ley de Hidrovía Soberana
+
+Rescinde o renegocia sustantivamente la concesión vigente del Canal Troncal de la Hidrovía Paraná-Paraguay. Crea Bastarda Fluvial como operadora pública-mutualista del dragado, balizamiento, peaje y logística portuaria aguas arriba. Establece régimen de tarifas, estándares ambientales alineados con Personalidad Jurídica del río Paraná (PLANTER), obligación de data-logging hidroviario en ArgenCloud. Articula con Ley PLANTER y Ley PLANEB. Sanción en Fase 1, año 3-5. Requiere preparación jurídica intensiva por exposición a litigio internacional (arbitraje CIADI probable).
+
+### 12.7 Reformas al Código de Tránsito
+
+Incorpora niveles SAE (0-5) al Código de Tránsito vigente, con régimen diferenciado de responsabilidad civil y penal según nivel de autonomía, modo de operación y condiciones ambientales. Establece seguro AV obligatorio con pool de riesgo sectorial, responsabilidad objetiva del fabricante/operador en SAE 4-5, responsabilidad compartida en SAE 3. Crea la figura penal de "manipulación de sistema AV certificado" con pena grave. Articula con Ley LNMA/PCAV y régimen asegurador. Sanción en Fase 1, año 3.
+
+### 12.8 Régimen del Mandato Kilométrico Ciudadano
+
+Establece el Mandato Kilométrico Ciudadano como derecho ciudadano universal con cupo base mensual de kilómetros en transporte público federal y metropolitano, intransferible, validado en Cédula Civil. Define cupo diferencial por edad, condición de cuidado, ubicación territorial; acumulación mensual limitada; reglas de uso y fiscalización. Articula con Ley ANMov y AMBA-T. Sanción en Fase 0, año 2. Es el dispositivo ciudadano más visible: redefine la movilidad como derecho exigible, no como consumo.
+
+### 12.9 Régimen Laboral de Transición del Transportista
+
+Crea la Pensión Puente Móvil (PPM) con monto equivalente al 85-100% del salario previo según edad y antigüedad, duración variable según ruta de reconversión. Establece obligatoriedad de reconversión asistida vía Tallers PLANTALLER, UTNs regionales y Arquitecto de Fuerza Laboral IA. Articula con PLANREP (ruta "Reconversión Móvil"), FRM (financiamiento), y programa "Cinco Años Dignos" para mayores de 50. Sanción en Fase 1, año 3-4. Es la ley que convierte la promesa política de "ningún chofer queda atrás" en contrato jurídico exigible.
+
+---
+
+## SECCIÓN 13: ESTRATEGIA DE STAKEHOLDERS — TEJER, NO DESTRUIR
+
+PLANMOV v2.0 es imposible si se trata a los actores actuales del sistema de movilidad como enemigos que deben ser derrotados. Sindicatos del camión, colectiveros, taxistas, operadores privados, concesionarios ferroviarios, plataformas digitales, provincias, municipios, usuarios: cada uno tiene intereses legítimos, puntos de dolor concretos y capacidad de bloqueo si se los excluye. La estrategia de PLANMOV es integrar con plazos y garantías, no arrasar con heridos en el camino. Cada actor recibe tres cosas: reconocimiento explícito de su interés, ventana temporal para adaptarse, y ruta de integración al nuevo esquema con beneficios concretos. El plan asume que las transformaciones duraderas se tejen con los actores que las habitan, no contra ellos. Las únicas excepciones son los actores que se niegan a migrar al stack soberano y cuyo modelo es estructuralmente incompatible con soberanía cognitiva y movilidad como derecho: con esos se negocia salida ordenada, no integración.
+
+### 13.1 Sindicatos del camión (Camioneros, FeTCAP)
+
+Interés: preservar puestos de trabajo frente a la automatización AV, mantener peso político histórico como sindicato fuerte. Puntos de dolor: amenaza existencial percibida del AV, pérdida de base afiliatoria, temor a reconversión sin garantías. Propuesta de integración: asiento permanente en el Directorio de ANMov (2 cuadros sindicales), Pensión Puente Móvil garantizada por ley con monto del 85-100% del salario previo, supervisión sindical obligatoria sobre el proceso de reconversión, ruta preferente de transición a Coordinador AV Supervisado con salario igual o superior. La conversación histórica con Camioneros define la viabilidad política del plan entero.
+
+### 13.2 Sindicatos ferroviarios (La Fraternidad, Unión Ferroviaria)
+
+Interés: recuperar puestos históricos perdidos con el desguace de los 90, dignificar el oficio ferroviario, restaurar las escuelas técnicas ferroviarias. Puntos de dolor: memoria del abandono sistemático, desconfianza en que "ahora sí" se vuelve en serio. Propuesta: 60.000 puestos formales en régimen pleno de la red reactivada, cuadros de Coordinador AV Ferroviario con salario +35% sobre base, recuperación de las escuelas técnicas ferroviarias de la red (Junín, Tafí Viejo, Remedios de Escalada, Laguna Paiva), participación directa en el diseño del material rodante nacional. Es el aliado natural más fuerte del plan.
+
+### 13.3 Taxistas y remiseros
+
+Interés: proteger la concesión de la licencia contra plataformas digitales (Uber, DiDi), resistir la irrupción del robotaxi AV. Puntos de dolor: erosión progresiva del ingreso por apps ilegales no reguladas, miedo al AV como amenaza terminal. Propuesta: incorporación voluntaria a BAMD como aportantes profesionales con régimen preferencial (CK adicionales por experiencia), ruta de reconversión a Operador BAMD y Gestor de Flota Bastarda, protección legal efectiva contra plataformas no autorizadas mediante clausura de operación ilegal. Reconvierte la lucha "Uber sí/no" en integración productiva al pool mutualista.
+
+### 13.4 Colectiveros (UTA)
+
+Interés: dignificar el oficio del colectivero, mejorar condiciones salariales y de descanso, renovar el material rodante obsoleto. Puntos de dolor: maltrato cotidiano del pasajero por servicio degradado que el colectivero sufre pero no genera, salarios insuficientes, jornada extenuante. Propuesta: Red Metropolitana Federal con material rodante nuevo eléctrico y AV-asistido, integración MKC que reduce conflicto tarifario al conductor, reconversión gradual con reperfilamiento salarial al alza, cuadros de Coordinador de Línea Metropolitana con función dignificada. La UTA es aliada si ve obra concreta y material rodante nuevo.
+
+### 13.5 Operadores privados del camión (Expreso Lo Bruno, Expreso Norte, TNT Argentina)
+
+Interés: mantener cuota de mercado logístico, resistir el crecimiento de BLF como competencia pública. Puntos de dolor: margen comprimido por costos de combustible y mantenimiento, escala insuficiente para inversión AV propia. Propuesta: interoperabilidad con BLF para rutas mixtas con tarifas negociadas, Canon AV preferencial (20% de descuento) para empresas con plan de reconversión laboral propio validado por ANMov, acceso a certificación LNMA subsidiada para sus flotas. No se busca destruir al camión privado sino integrarlo al ecosistema con incentivos correctos.
+
+### 13.6 Concesionarios ferroviarios actuales (Ferrovías, Trenes de Buenos Aires)
+
+Interés: preservar contratos vigentes, mantener flujo de subsidios. Puntos de dolor: contratos mal diseñados heredados, material rodante degradado que no pueden renovar al ritmo requerido. Propuesta: coexistencia transitoria durante Fase 0 y Fase 1 con supervisión técnica ANMov reforzada, revisión integral de contratos en Fase 2 con criterio de interés nacional, incorporación opcional como operadores regionales dentro de la Red Metropolitana Federal si aceptan términos nuevos. La renegociación es inevitable pero ordenada.
+
+### 13.7 Plataformas digitales extranjeras (Uber, Cabify, DiDi, Rappi, PedidosYa)
+
+Interés: mantener operación con algoritmos propios opaco-extractivos, recolección de data argentina, lógica de contratista independiente precarizada. Puntos de dolor: regulación creciente en varios países, presión por reclasificación laboral. Propuesta: migración obligatoria al stack argentino soberano con plazo 2028-2035, publicación de algoritmos bajo régimen ArgenCloud, reclasificación laboral de trabajadores bajo derecho argentino, aportes al Canon AV y FRM. Penalidad progresiva por incumplimiento y revocación de licencia operativa si no migran. Con este grupo no hay integración "amable": hay plazo firme y consecuencia clara.
+
+### 13.8 Operadores logísticos globales (Mercado Libre, Amazon, DHL, MSC)
+
+Interés: seguir operando con estructura de costos actual, mantener opacidad de sus operaciones logísticas, escalar automatización sin contribución fiscal extraordinaria. Puntos de dolor: reputación en disputa, presión regulatoria internacional creciente. Propuesta: Canon AV plenamente aplicable sin excepciones, data-logging obligatorio en ArgenCloud para operaciones domésticas, interoperabilidad con BLF mediante convenios preferenciales para operadores que aceptan el régimen, contribución proporcional al FRM. Es integración con contrato técnico claro.
+
+### 13.9 Provincias (24)
+
+Interés: coparticipación federal del Canon AV, autonomía territorial, preservar empleo provincial ligado al transporte, reactivación del ramal local. Puntos de dolor: abandono histórico por centralización porteña del plan, ramales deactivados por décadas. Propuesta: representación rotativa permanente en el Directorio de ANMov (4 provincias rotan mandatos de 6 años), 50% del Canon AV recaudado en cada provincia queda en ella para obras provinciales de movilidad, priorización de ramales regionales en cronograma de reactivación, Tallers PLANTALLER en cada provincia con financiamiento FRM. Federaliza el plan material, simbólica y fiscalmente.
+
+### 13.10 Municipios del AMBA y metropolitanos
+
+Interés: control de tránsito local, ingresos por estacionamiento y habilitaciones, respuesta a demanda ciudadana barrial. Puntos de dolor: conflicto jurisdiccional crónico con provincia y Nación, presupuesto insuficiente para obras de movilidad local. Propuesta: asiento formal en AMBA-T (y autoridades homólogas en otras metrópolis), integración de políticas urbanas municipales con estándares interoperables de la Red Metropolitana Federal, fondo municipal para movilidad no motorizada financiado por porcentaje del MKC metropolitano. Los 40 municipios del conurbano bonaerense son actor decisivo.
+
+### 13.11 Usuarios y organizaciones barriales
+
+Interés: acceso efectivo al servicio, tarifa justa, seguridad, frecuencia razonable, accesibilidad para personas con movilidad reducida y adultos mayores. Puntos de dolor: servicio degradado crónico, tarifa creciente sin mejora, inaccesibilidad estructural. Propuesta: Credencial de Materia Movilidad habilita participación directa en Mesas Civiles de Corredor con voto vinculante en prioridades locales, MKC como derecho universal, estándar de accesibilidad universal obligatorio auditado, canal de reclamo con respuesta obligatoria en 72h. Es la base social del plan.
+
+### 13.12 Comunidad tech/AV internacional
+
+Interés: acceso al mercado argentino, convenios de investigación, ensayo de tecnología AV en condiciones reales diversas. Puntos de dolor: incertidumbre regulatoria, protección de propiedad intelectual. Propuesta: convenios de transferencia tecnológica con obligatoriedad de código abierto para el stack crítico certificado por LNMA, co-desarrollo con universidades argentinas con royalty compartido, acceso preferencial a data argentina anonimizada para entrenamiento bajo régimen ArgenCloud. Argentina ofrece laboratorio real y diversidad de escenarios a cambio de soberanía tecnológica.
+
+---
+
+## SECCIÓN 14: RECONVERSIÓN LABORAL DEL TRANSPORTISTA — NINGÚN CHOFER QUEDA ATRÁS
+
+En PLANEN se escribió "ningún trabajador queda atrás" cuando la transición energética amenazaba con desguazar comunidades enteras vinculadas al petróleo y al gas. En PLANMOV esa consigna se traduce al corredor, al volante, al puerto, al andén: ningún chofer queda atrás. Diego del Preámbulo, camionero rutero de la Pampa húmeda, es la cara humana concreta de este problema. No es una abstracción estadística: es un hombre de 49 años que manejó 26 años para que su pueblo siguiera comiendo y que mira el horizonte automatizado con la mezcla exacta de miedo y esperanza que merece un Estado que le respete la historia. La reconversión no es promesa política: es contrato jurídico exigible, con Pensión Puente Móvil protegida por ley, con ruta de formación garantizada, con programa "Cinco Años Dignos" para mayores de 50 años, y con el Arquitecto de Fuerza Laboral IA acompañando caso por caso. Esta sección detalla el mapa operativo.
+
+### 14.1 Mapa de Puestos en Riesgo
+
+El universo laboral directamente expuesto a desplazamiento por automatización AV, reconversión modal (camión a tren) y digitalización logística en el horizonte 2030-2046 se compone así:
+
+1. Choferes de larga distancia (camión y ómnibus interurbano): aproximadamente 120.000 puestos.
+2. Taxistas y remiseros (urbano y provincial): aproximadamente 180.000 puestos.
+3. Colectiveros (UTA en AMBA y metropolitanas): aproximadamente 80.000 puestos.
+4. Operarios portuarios (carga, descarga, estiba tradicional): aproximadamente 35.000 puestos.
+5. Dispatchers y operadores logísticos (gestión de flota pre-automatización): aproximadamente 25.000 puestos.
+6. Mecánicos de flota tradicional (motores combustión, sin formación AV): aproximadamente 60.000 puestos.
+
+Total: aproximadamente 500.000 puestos laborales en riesgo de desplazamiento en horizonte 2030-2046. Es la mayor transición laboral sectorial concentrada que enfrentará Argentina en el siglo XXI. Requiere mandato político sostenido, financiamiento predecible y ejecución ordenada.
+
+### 14.2 Rutas de Reconversión
+
+Cada oficio desplazado tiene ruta definida de reconversión con formación asociada y duración estimada, establecida por ANMov en coordinación con PLANREP y validada con sindicatos:
+
+| Oficio desplazado | Ruta de reconversión | Formación | Duración |
+|---|---|---|---|
+| Chofer larga distancia | Coordinador de Corredor AV Supervisado | Tallers PLANTALLER + UTN | 6-12 meses |
+| Taxista/remisero | Operador BAMD / Gestor de Flota Bastarda | Tallers PLANTALLER | 3-6 meses |
+| Colectivero | Operador Red Metropolitana + Técnico Mantenimiento | Tallers PLANTALLER | 4-8 meses |
+| Operario portuario | Técnico de Automatización Portuaria | Tallers PLANTALLER | 6-12 meses |
+| Dispatcher privado | Operador LNMA / Analista de Tablero | UTN + LNMA | 12-18 meses |
+| Mecánico tradicional | Técnico de Mantenimiento AV certificado | Tallers PLANTALLER + OEM | 6-12 meses |
+
+El matching individualizado entre trabajador concreto y ruta óptima lo realiza el Arquitecto de Fuerza Laboral IA según habilidades previas, edad, ubicación geográfica, composición familiar y preferencia declarada.
+
+### 14.3 Programa "Cinco Años Dignos" para Mayores de 50
+
+Para trabajadores desplazados mayores de 50 años al momento del desplazamiento, el Estado argentino asume compromiso diferenciado: la Pensión Puente Móvil completa se mantiene hasta la edad jubilatoria, con media jornada de capacitación opcional no obligatoria, cobertura total de salud y continuidad de aportes previsionales a cargo del FRM. El objetivo no es reentrenar forzadamente a un trabajador de 55 años para una función que posiblemente no quiera ejercer: es garantizar dignidad económica, continuidad sanitaria y aporte jubilatorio pleno hasta la jubilación ordinaria. Aplica a aproximadamente 85.000 trabajadores estimados en ventana 2030-2046. Costo estimado: USD 780M/año en régimen pleno, financiado íntegramente por el Canon de Automatización Logística. Es la traducción económica del principio de que quien dio 30 años al volante no debe terminar limpiando fondos en su vejez.
+
+### 14.4 Articulación con Arquitecto de Fuerza Laboral IA (PLANDIG)
+
+El Arquitecto de Fuerza Laboral IA, componente institucional de PLANDIG, opera en dos escalas simultáneas. A escala macro modela el sistema productivo argentino entero y recomienda qué funciones automatizar en qué secuencia temporal según capacidad de absorción laboral, disponibilidad de rutas de reconversión y tensión social acumulada, evitando ventanas de desplazamiento concentrado. A escala micro acompaña a cada trabajador individualmente con matching óptimo de ruta, proyección salarial, plan de formación y seguimiento longitudinal. Para PLANMOV, el Arquitecto se articula con ANMov y FRM para producir recomendaciones personalizadas por trabajador desplazado considerando habilidades, edad, ubicación, composición familiar y preferencia.
+
+### 14.5 Formación en Tallers PLANTALLER y UTNs Regionales
+
+La red de formación técnica requerida para absorber 500.000 reconversiones en 15 años se compone de 120 Tallers PLANTALLER regionales con capacidad de formación dual (capacitación teórico-práctica con componente productivo remunerado) distribuidos en todas las provincias, y una red complementaria de UTNs regionales (Pergamino, Rafaela, Río Cuarto, Tandil, Mar del Plata, Bahía Blanca, Trelew, Comodoro Rivadavia, Concepción del Uruguay, San Francisco, Concordia, entre otras) que incorporan nuevas tecnicaturas universitarias específicas en Automatización Logística, Coordinación AV Supervisada, Mantenimiento Predictivo de Flota Eléctrica, Análisis de Tablero LNMA, Operación BAMD y Técnica Portuaria Automatizada. El FRM financia becas íntegras para cursos de actualización y formación de cero, incluyendo costo de vida durante la formación. Ningún trabajador desplazado se endeuda para reconvertirse.
+
+### 14.6 Caso Diego Maidana en Detalle
+
+Diego Maidana, presentado ya en el Preámbulo cuatrivocal y en Sección 9.8, es el caso testigo operativo de la reconversión PLANMOV. Su trayectoria detallada:
+
+- 2028 (49 años): Diego, camionero rutero con 24 años en ruta Pergamino-Rosario-Buenos Aires, se inscribe en la ruta "Reconversión Móvil" de PLANREP con carácter preventivo (antes de perder el puesto). Inicia capacitación en el Taller PLANTALLER Pergamino con objetivo de certificarse como Operador AV Nivel 2. Sigue manejando full-time; capacitación 4 horas semanales sábado mañana, con ingreso complementario por FRM durante capacitación.
+- 2029-2031: Diego sigue manejando para BLF (transicionó de Expreso Pampa a BLF cuando su empleador fue absorbido parcialmente) con supervisión AV asistida creciente. Capacitación continúa: 2 horas semanales en sede y 2 módulos intensivos anuales de una semana con estadía en CNEA Pergamino.
+- 2032 (53 años): Diego es certificado por LNMA como Coordinador AV Supervisado Nivel 3 y asignado al corredor Pergamino-Rosario donde supervisa simultáneamente 4 camiones AV Nivel 3-4 desde centro de operaciones regional. Su salario sube 15% respecto a 2028, con jornada acotada a 8 horas, sin viajes nocturnos, cerca de su familia.
+- 2034 (55 años): promoción a Coordinador Nivel 4 tras certificación avanzada. Salario sube otro 20% acumulado. Supervisa 8 camiones simultáneos. Función dignificada y reconocida sindicalmente.
+- 2040 (61 años): programa "Cinco Años Dignos" parcial aplicado — Diego reduce jornada a 6 horas diarias con aportes previsionales completos al sistema jubilatorio y cobertura de salud íntegra, sosteniendo función de mentor de nuevos Coordinadores.
+- 2046 (67 años): jubilación con aporte integral sin laguna previsional, más beneficio PPM post-jubilación para complementar haber si fuera necesario. Sus dos hijos trabajan en la red: Matías como técnico en el LNMA Córdoba, Camila como ingeniera ferroviaria en la reactivación del Belgrano Cargas.
+
+El caso Diego no es propaganda: es el estándar operativo que el Estado argentino se compromete a cumplir por cada uno de los 500.000 trabajadores del mapa de puestos en riesgo.
+
+### 14.7 Métricas de Reconversión
+
+ANMov reporta trimestralmente al Tablero Nacional de Movilidad las siguientes métricas de reconversión, con acceso público auditable:
+
+- Porcentaje de transportistas desplazados colocados en nueva función con ingreso igual o superior al 80% del previo a los 3 años del desplazamiento.
+- Dignidad percibida en encuestas semestrales a trabajadores en reconversión (índice compuesto de estabilidad, proyección, sentido de función).
+- Continuidad en sector movilidad vs. emigración forzada a otros sectores no deseados.
+- Satisfacción efectiva con programa "Cinco Años Dignos" entre mayores de 50 que lo habitan.
+- Latencia media del matching Arquitecto-trabajador (tiempo desde desplazamiento hasta inicio de ruta de reconversión).
+- Tasa de deserción en formación Tallers/UTN y causas identificadas.
 
 ---
 
