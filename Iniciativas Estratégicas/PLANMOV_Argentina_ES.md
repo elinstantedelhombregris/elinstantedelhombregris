@@ -205,7 +205,7 @@ Julia del Preámbulo — bibliotecaria jubilada en Mar del Plata, con un Ford Fi
 
 ---
 
-## SECCIÓN 1: LA CRISIS — EL PAÍS QUE NO PUEDE MOVERSE
+## SECCIÓN 1: LA CRISIS — EL PAÍS QUE NO PUEDE MOVERSE Y ESTÁ POR PERDER EL VOLANTE
 
 ### 1.1 Dimensión del Problema Logístico Argentino
 
@@ -220,9 +220,39 @@ Julia del Preámbulo — bibliotecaria jubilada en Mar del Plata, con un Ford Fi
 
 La matriz argentina es la más desbalanceada de América Latina. Brasil, Chile, Colombia, México tienen participación ferroviaria/fluvial mayor.
 
-### 1.2 Costo Social del Desbalance
+### 1.2 La ola AV/IA que se viene
 
-**TABLA 1.2: Costos Estimados Anuales de la Logística Capturada**
+El régimen logístico argentino entra en la década del 2030 sin plan para la mayor disrupción técnica desde la contenedorización marítima de los '60s. La automatización vehicular y la inteligencia artificial aplicada a logística no son tendencia lejana ni ciencia ficción ni promesa de inversores: son régimen industrial en despliegue, con fechas concretas, actores concretos, capital concreto. Waymo opera robotaxis comerciales en Phoenix y San Francisco. China exporta trenes autónomos. Samsara y Fleet Complete ya consolidan el dispatching logístico mundial. Los plazos de madurez técnica dependen menos de la tecnología —que avanza sola— que de los marcos regulatorios, las condiciones de ruta, y la decisión política de cada país de recibir la ola con planificación o sufrirla con improvisación.
+
+**TABLA 1.2-A: Escenarios de despliegue AV en Argentina**
+
+| Hito | Conservador | Moderado (baseline) | Acelerado |
+|---|---|---|---|
+| AV Nivel 4 en rutas principales | 2035 | 2032 | 2030 |
+| AV Nivel 5 comercial general | 2045 | 2040 | 2037 |
+| Trenes autónomos en corredores dedicados | 2032 | 2029 | 2028 |
+| Automatización portuaria parcial | 2033 | 2030 | 2028 |
+| Penetración AV en flota larga distancia (año 10) | 15% | 25% | 40% |
+| Penetración AV (año 15) | 40% | 60% | 75% |
+
+Argentina viene 5 a 8 años atrás de EE.UU. y China en madurez regulatoria, técnica y de infraestructura AV. Ese atraso, leído al revés, es ventana de soberanía. Hay tiempo —no mucho, pero hay— para armar el Laboratorio Nacional de Movilidad Autónoma (LNMA), el Protocolo de Certificación AV (PCAV), la Bastarda de Activos Móviles Distribuidos (BAMD), y el Fondo de Reconversión de Movilidad (FRM) antes de que la ola llegue con toda su fuerza. Los países que reciban la disrupción sin estos dispositivos verán sus mercados capturados por plataformas extranjeras con flotas AV importadas, algoritmos foráneos, y extracción de renta sobre cada trayecto. Los que armen el régimen soberano antes podrán capturar la disrupción como palanca de desarrollo, reconversión laboral justa, y matriz logística reequilibrada.
+
+**TABLA 1.2-B: Efectos esperados por dispositivo del régimen actual**
+
+| Dispositivo afectado | Efecto si Argentina no planifica | Efecto si Argentina captura la disrupción | Ventana temporal |
+|---|---|---|---|
+| Camión de larga distancia | Oligopolio reconfigurado con flotas AV extranjeras; 120.000 choferes desplazados sin plan | BLF multimodal + AV supervisado en corredores dedicados + FRM activo | 2029-2035 |
+| Taxi/remís urbano | Uber/Cabify/DiDi robotaxi captura 60% del mercado con algoritmos extranjeros | BAMD agrega activos ociosos + LNMA despliega matching soberano | 2030-2036 |
+| Colectivo urbano | Fleet AV de operadores concesionarios con recorte de personal | Red Metropolitana Federal integrada con MKC + AV supervisado progresivo | 2032-2040 |
+| Ferrocarril de carga | Operadores privados importan trenes autónomos chinos o europeos | Reactivación + trenes autónomos en corredores dedicados, control público | 2029-2035 |
+| Puerto | Grúas automatizadas privadas con reducción de mano de obra | Red Federal de Puertos con automatización gradual y reconversión sin despidos | 2028-2034 |
+| Dispatching logístico | Samsara/Fleet Complete consolidan dominio; datos a EE.UU. | LNMA + ArgenCloud + data-logging obligatorio | 2028-2032 |
+
+La ventana de 6 a 8 años es la única oportunidad de capturar la disrupción con soberanía. Perdida la ventana, el régimen se consolida privatizado y extranjero: flotas AV importadas, plataformas de matching que remiten renta a Silicon Valley o Shenzhen, datos logísticos argentinos procesados en la nube de otros, y un saldo social de 500.000 trabajadores desplazados sin plan de reconversión. La automatización no es neutra: o la planifica el pueblo a través del Estado, o la planifica el capital a través del mercado. PLANMOV elige la primera vía y pone los dispositivos para ejecutarla.
+
+### 1.3 Costo Social del Desbalance
+
+**TABLA 1.3: Costos Estimados Anuales de la Logística Capturada**
 
 | Categoría | Estimación anual USD M |
 |---|---|
@@ -232,9 +262,29 @@ La matriz argentina es la más desbalanceada de América Latina. Brasil, Chile, 
 | Producto regional no competitivo | 2.800-4.500 |
 | Mantenimiento de rutas vs. ferroviario | 800-1.400 |
 | Pérdida productiva por aislamiento territorial | 1.800-3.200 |
-| **Total estimado** | **18.000-28.100** |
+| Renta extractiva de plataformas logísticas extranjeras | 600-1.400 |
+| **Total estimado** | **18.600-29.500** |
 
-### 1.3 Lo Que Sí Funcionó
+### 1.4 El valor del activo ocioso
+
+El activo ocioso no es falla individual, es falla sistémica. Cada uno de los 13 millones de autos argentinos parados 22 horas por día es una microdecisión racional —auto propio como seguridad frente a un transporte público deficiente, como conveniencia frente a una ciudad mal organizada, como status frente a una sociedad que mide pertenencia por objetos— cuyo agregado social es un patrimonio paralizado de escala continental. Lo mismo con los galpones ferroviarios clausurados, los ramales levantados que nadie recuperó, las flotas estatales subutilizadas, y la capacidad computacional doméstica que sólo corre videojuegos unas horas por semana. El stock está. El problema es que nadie lo convierte en flujo.
+
+**TABLA 1.4: Inventario aproximado de activos ociosos movilizables**
+
+| Tipología | Volumen nacional | Valor estimado USD M | Utilización actual |
+|---|---|---|---|
+| Autos particulares | 13,2M unidades | 28.000-32.000 | ~3% del tiempo |
+| Utilitarios PyMEs | 1,8M unidades | 7.500 | ~15% del tiempo |
+| Galpones ferroviarios cerrados | ~450 inmuebles, 380.000 m² | 1.200 | 0% |
+| Estaciones clausuradas | ~280 inmuebles | 600 | 0% |
+| Ramales levantados recuperables | ~2.800 km | 2.100 | 0% |
+| Flotas estatales subutilizadas (Correo, YPF, ENARSA, Ejército, municipales) | ~85.000 unidades | 4.300 | ~20% del tiempo |
+| Capacidad computacional doméstica agregable | ~2,4M GPUs viables | 5.800 | <1% para cómputo útil |
+| **Total stock ocioso movilizable** | | **~49.500-52.500** | |
+
+La BAMD convierte este stock en flujo de malla pública. No expropia: agrega. No obliga: coordina con incentivos, seguros mutualistas, y compensación trazable. El auto de Julia —la enfermera del Preámbulo que trabaja doble turno en dos hospitales y paga cuotas por un Corsa 2015 que usa 90 minutos por día y deja parado 22 horas— es la cara cotidiana de este problema. Julia es también la primera beneficiaria del dispositivo que la BAMD construye: un sistema donde su auto, cuando ella no lo usa, puede sumar ingreso mensual compartiendo turno con vecinos del barrio, bajo seguro mutualista del Estado, con matching operado por el LNMA, con garantía de devolución y de mantenimiento. El activo ocioso argentino sumado supera los cincuenta mil millones de dólares parados. Es el mayor stock latente de desarrollo que el país tiene. La pregunta no es si existe: existe. La pregunta es quién lo va a agregar y en beneficio de quién. PLANMOV responde: el pueblo, vía BAMD, bajo gobernanza pública.
+
+### 1.5 Lo Que Sí Funcionó
 
 **Subtes de CABA (1913-presente).** Red de 60 km funcional. Modelo probado de transporte urbano masivo en Argentina.
 
@@ -298,7 +348,37 @@ La matriz argentina es la más desbalanceada de América Latina. Brasil, Chile, 
 
 **Yangtze (China).** Control estatal total.
 
-### 2.5 Combinación Argentina
+### 2.5 AV e IA en movilidad pública
+
+**Helsinki — MaaS (Mobility as a Service) desde 2016.** Modelo de suscripción multimodal pública con integración tarifaria entre metro, bus, tren regional, bicicleta compartida y taxi, dispatching centralizado, y app Whim operando con subsidio público y licencia regulatoria. El usuario paga una mensualidad y accede al abanico completo sin tener que contratar servicios por separado. Lección: la plataforma de movilidad tiene que ser pública o reguladamente pública, nunca propiedad privada que captura renta sobre cada trayecto. Helsinki demuestra que la integración tarifaria más la app pública es política de Estado replicable.
+
+**Shenzhen — corredor AV AutoX desde 2020.** Piloto de robotaxis Nivel 4 en área delimitada del distrito de Pingshan con autorización gradual y escalonada por zonas, horarios y condiciones climáticas. El Estado chino licencia por corredor específico, no por ciudad general, con data-logging permanente al regulador y métricas de seguridad públicas. Lección: certificación granular por corredor, no habilitación general; data-logging obligatorio al Estado; operación limitada a condiciones técnicas probadas. Es el modelo exacto que el PCAV adopta para Argentina.
+
+**Oslo — zero-emissions metropolitano.** Electrificación acelerada de flotas municipales, taxis y buses urbanos combinada con peaje dinámico por emisiones de CO2 en ingreso al centro urbano. Lección: palanca fiscal para reorientar comportamiento sin prohibir; el precio de la externalidad lo paga quien la genera; equivale en lógica al Canon de Automatización Logística como instrumento regulador del PLANMOV argentino.
+
+**Singapur — LTA (Land Transport Authority).** Autoridad unificada con control técnico, regulación integral del transporte terrestre, y operación parcial directa de infraestructura crítica. Concentra en un solo órgano técnico la planificación vial, la regulación de taxis y privados, la operación del MRT, y la supervisión AV. Lección: modelo de gobernanza técnica que inspira directamente el diseño institucional de la ANMov argentina.
+
+**China — trenes autónomos Guangzhou-Zhuhai (Guangdong).** Nivel 4 en operación comercial desde 2023, con trenes de carga y pasajeros sin maquinista en corredor dedicado de más de 140 km. Lección: viabilidad técnica ya probada de trenes autónomos en corredor dedicado con señalización moderna y sin cruces a nivel, aplicable directamente al piloto Retiro-Tigre y otros ramales metropolitanos reactivados del PLANMOV.
+
+**EE.UU. — Waymo en Phoenix y San Francisco.** Robotaxis Nivel 4 en operación comercial desde 2023 con más de un millón de viajes sin conductor por mes. Lección: modelo de despliegue urbano con supervisión humana remota en los primeros años, escalado por barrios, con reportes de seguridad obligatorios al regulador NHTSA. Es la arquitectura que PLANMOV adopta bajo la figura del Operador AV certificado, ajustado a condiciones y gobernanza argentinas.
+
+**Alemania — Deutschlandticket.** Pase federal de transporte público unificado a €49 por mes con validez en todo el territorio nacional —metro, bus, tren regional— financiado en cofinanciación entre el gobierno federal, los Länder y las empresas operadoras. Más de 13 millones de suscriptores en el primer año. Lección: el MKC es política pública estándar en países comparables, no populismo argentino ni experimento marginal; la integración tarifaria universal a precio accesible es régimen probado a escala continental.
+
+### 2.6 Commons vehiculares y asset-sharing cooperativo
+
+**BlaBlaCar (Francia/Europa).** Plataforma de carpooling de larga distancia con más de 100 millones de usuarios en Europa. Cooperativa frustrada porque ganó la lógica privada de captación de renta sobre cada trayecto, pero demuestra viabilidad técnica, económica y cultural del matching entre particulares con auto propio para compartir viajes interurbanos. Su existencia prueba que hay demanda y oferta; el problema es que la intermediación la hace un actor privado extranjero y no una infraestructura pública soberana.
+
+**Modo Berlín / CarUnity (Alemania).** Modelo cooperativo de auto-compartido entre vecinos de un mismo barrio o edificio con seguro mutualista, matching vía app cooperativa, y compensación trazable entre propietario y usuario. Caso de estudio obligatorio para el diseño técnico de la BAMD: arquitectura de matching fino, modelo de compensación por kilómetro y por hora, gobernanza cooperativa con participación de propietarios y usuarios, protocolos de resolución de conflictos.
+
+**Shinkansen Commuter Pass (Japón).** Derecho kilométrico mensual para trabajadores que usan el Shinkansen cotidianamente, financiado parcialmente por las empresas empleadoras y con descuentos regulados por el Estado. Precedente directo del MKC con cupo base universal más extensiones vinculadas al trabajo: Japón ya cofinancia desde hace décadas el kilometraje de sus trabajadores y lo trata como derecho laboral estándar, no como subsidio asistencial.
+
+**Bicing Barcelona y Ecobici Buenos Aires.** Public bike como infraestructura municipal operada por concesión regulada o por empresa municipal, con estaciones en toda la ciudad y suscripción a tarifa baja. Lección: la micromovilidad pública puede operar como commons a escala urbana aun sin apoyo ferroviario o multimodal, y escalar a millones de viajes anuales con inversión modesta; en Argentina, Ecobici ya funciona y puede integrarse directamente a la red MKC urbana.
+
+**BlaBlaCar Daily.** Carpooling diario intraurbano para conmuting casa-trabajo, con matching fino por barrio, horario y ruta habitual. Demuestra viabilidad técnica y económica del matching a nivel ciudad para trayectos repetidos, no solo para viajes largos esporádicos; es el patrón que la BAMD replica bajo lógica pública, con usuarios que se conocen, rutas estables, y compensación menor pero sostenida.
+
+**Avancar Barcelona.** Carsharing cooperativo barcelonés con tarifas reguladas, flota mixta eléctrica-híbrida, y retorno social explícito de excedentes a la red cooperativa en lugar de distribución a accionistas. Modelo de referencia directa para la BAMD: demuestra que el carsharing puede operar con tarifa regulada, servicio de calidad, y gobernanza cooperativa, sin necesidad de extraer renta extraordinaria sobre cada trayecto.
+
+### 2.7 Combinación Argentina
 
 Ningún país tiene simultáneamente:
 1. Mandato Kilométrico Ciudadano universal.
@@ -308,6 +388,8 @@ Ningún país tiene simultáneamente:
 5. Hidrovía soberana como Bastarda Fluvial.
 6. AMBA con autoridad metropolitana plena.
 7. Integración con plataforma cívica digital.
+8. Laboratorio Nacional de Movilidad Autónoma (LNMA) montado sobre LANIA (PLANDIG).
+9. Doctrina del Doble Desplazamiento operativizada por Canon de Automatización Logística.
 
 Cada pieza con precedente. La combinación es invención argentina.
 
