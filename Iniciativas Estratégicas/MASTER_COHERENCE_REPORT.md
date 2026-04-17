@@ -386,3 +386,66 @@ Las 7 clases de falla originales están resueltas:
 - F7 (déficit adversarial): 44 actores, 7 vectores, 5 escenarios modelados ✓
 
 **La calidad del diseño (9/10) ahora tiene una ejecución documental a su altura (8.7/10).**
+
+---
+
+## Actualización Abril 2026 — Ampliación del Ecosistema a 22 PLANes
+
+En abril de 2026 el ecosistema se amplía de 16 a 22 PLANes temáticos + PLANRUTA con tres movimientos arquitectónicos:
+
+### 1. Cuatro PLANes Transversales Nuevos (Categoría Cívica)
+
+- **PLANMESA** (decisional): Mesa Civil con mérito demostrado vía LDEA.
+- **PLANTALLER** (productivo experimental): Red Federal de Tallers con hipótesis y archivo de hallazgos.
+- **PLANCUIDADO** (relacional): Pacto de Cuidado con parentesco plural + Jornada 6+2.
+- **PLANMEMORIA** (temporal): Archivo Federado con Bastón Memorial + Consulta Ancestral obligatoria.
+
+### 2. Dos PLANes Sectoriales Nuevos
+
+- **PLANTER**: Tierra, Subsuelo, Pueblos Originarios (Personalidad Jurídica Territorial + Commons Subsuelo + DCM + Licencia Territorial + Co-Soberanía).
+- **PLANMOV**: Movilidad, Logística y Conectividad (MKC + Bastarda Logística + Reactivación Ferroviaria + AMBA-T + Hidrovía Soberana).
+
+### 3. PLANDIG Expandido a v2.0
+
+Absorbe el alcance de lo que se consideraba PLANCOG (Soberanía Cognitiva) como capa interna. Título actualizado: "Plan Nacional de Soberanía Digital, Cognitiva y Ecología de la Atención".
+
+### Impacto en la Coherencia Estratégica
+
+**Fortalezas adicionales del ecosistema ampliado:**
+
+1. **Cierre del gap de decisión republicana.** PLANMESA resuelve el interrogante "¿cómo se decide operativamente en el ecosistema ¡BASTA!?" que quedaba abierto.
+2. **Cierre del gap de experimentación material.** PLANTALLER resuelve el interrogante "¿dónde se piloteán las iniciativas antes de escalarlas?".
+3. **Cierre del gap relacional.** PLANCUIDADO reconoce la base invisible sobre la cual opera cualquier política pública.
+4. **Cierre del gap temporal.** PLANMEMORIA instala la anti-reversibilidad estructural.
+5. **Cierre del gap ecológico-territorial.** PLANTER resuelve soberanía sobre recursos estratégicos y derechos originarios.
+6. **Cierre del gap de movilidad.** PLANMOV resuelve la conectividad física.
+7. **Cierre del gap cognitivo.** PLANDIG 2.0 extiende soberanía digital a soberanía cognitiva.
+
+**Riesgos adicionales del ecosistema ampliado:**
+
+1. **Sobre-extensión fiscal.** Presupuesto consolidado pasa de 4-6% PBI incremental a 7-9%. Requiere disciplina fiscal estricta.
+2. **Guerra simultánea ampliada.** Más frentes de confrontación (extractivismo, oligopolio camión, plataformas globales).
+3. **Proliferación de agencias.** 6 agencias autárquicas nuevas. Aunque justificadas, incrementan la superficie de captura potencial.
+4. **Complejidad de ejecución en Fase 2.** La Fase 2 de PLANRUTA (provincia con stack completo) requiere integración de 22 PLANes simultáneos. Muy exigente.
+
+### Revisión del Score de Coherencia
+
+- **Score diseño (pre-expansión):** 9/10.
+- **Score diseño (post-expansión):** 9.2/10 (mejora por cierre de gaps identificados).
+- **Score ejecución documental:** 8.7/10 (mantiene; actualización documental ampliada no reescribe — parche quirúrgico).
+- **Score factibilidad fiscal:** pasó de 7.5/10 a 7.0/10 (mayor ambición fiscal requiere mayor disciplina).
+- **Score coherencia interna:** 9.4/10 (los 4 transversales + PLANTER + PLANMOV cierran huecos lógicos).
+
+### Hallazgo Nuevo — H8: La Arquitectura Transversal
+
+El ecosistema ¡BASTA! anterior tenía 16 PLANes sectoriales + PLANRUTA como protocolo. La ampliación introduce por primera vez **la categoría de PLAN transversal** (MESA, TALLER, CUIDADO, MEMORIA) — PLANes que no responden a sector sino a función republicana. Esto es un salto cualitativo en la arquitectura, no meramente cuantitativo. Los PLANes transversales atraviesan todos los sectoriales y les aportan infraestructura cívica común (decisión, producción experimental, relación, memoria).
+
+### Nuevas Preguntas Abiertas
+
+- ¿PLANCYT (Ciencia, Tecnología, Industria Soberana) amerita ser vigésimo cuarto mandato? Evaluación post-Año 2.
+- ¿Los 22 PLANes saturan la capacidad de absorción política? Medición en Fase 1.
+- ¿La integración de los 4 transversales con los 18 sectoriales es operativamente viable en plataforma ¡BASTA! ya existente? Test en Fase 1.
+
+---
+
+*Actualización Abril 2026 por ampliación del ecosistema ¡BASTA! de 16 a 22 PLANes temáticos + PLANRUTA. Referencia cruzada con ANALISIS_CONEXIONES_20_PLANES.md Sección 6 (Rol arquitectónico), PLANTER_Argentina_ES.md, PLANMOV_Argentina_ES.md, PLANDIG_Argentina_ES.md v2.0.*

@@ -1046,3 +1046,63 @@ Si las 6 auditorias de ¡BASTA! se ejecutan como reglas automaticas, los problem
 *El sistema propuesto convierte la inspeccion reactiva en prevencion proactiva: no audita documentos terminados — impide que los errores se cometan.*
 
 *Nota: Las 7 clases de falla (F1-F7) fueron resueltas manualmente durante marzo de 2026. El Arquitecto automatizaria la prevencion de recurrencias a medida que el ecosistema crece mas alla de 16 PLANes.*
+
+---
+
+## Actualización Abril 2026 — Arquitectura del Sistema de 22 PLANes
+
+Con la expansión del ecosistema de 16 a 22 PLANes temáticos + PLANRUTA, la arquitectura propuesta por este PDR se adapta:
+
+### Clasificación Actualizada de PLANes
+
+**Categoría 1 — Sectoriales de piso vital (Misión 1):**
+- PLANAGUA, PLANVIV, PLANSAL, PLANSEG.
+
+**Categoría 2 — Infraestructura técnica y cognitiva (Misión 2):**
+- PLANDIG 2.0 (absorbe PLANCOG).
+
+**Categoría 3 — Sectoriales productivos (Misión 3):**
+- PLANISV, PLANEB, PLANREP, PLANEN.
+
+**Categoría 4 — Sectoriales humanos (Misión 4):**
+- PLANEDU, PLANCUL.
+
+**Categoría 5 — Sectoriales institucionales (Misión 5):**
+- PLANJUS, PLANSUS, PLANMON, PLANGEO.
+
+**Categoría 6 — Sectoriales territoriales emergentes:**
+- PLAN24CN, **PLANTER** (nuevo), **PLANMOV** (nuevo).
+
+**Categoría 7 — Transversales cívicos (NUEVA CATEGORÍA):**
+- **PLANMESA** (decisional).
+- **PLANTALLER** (productivo experimental).
+- **PLANCUIDADO** (relacional).
+- **PLANMEMORIA** (temporal).
+
+**Protocolo Madre:** PLANRUTA.
+
+### Implicancias para el Arquitecto
+
+El Arquitecto como sistema de escritura de PLANes nacionales, al escalar de 16 a 22 PLANes + 1 protocolo madre, enfrenta nuevas clases de falla:
+
+- **F8 — Incoherencia transversal:** cuando un PLAN transversal (Categoría 7) debería articular con todos pero olvida uno. Detección: matriz 22×22 con celdas vacías no justificadas.
+- **F9 — Duplicación de agencias:** riesgo creciente con 22 agencias. Detección: solapamiento de competencias formales.
+- **F10 — Sobre-extensión fiscal:** con 7-9% PBI incremental, riesgo de inviabilidad. Detección: proyecciones fiscales consolidadas con pruebas de estrés.
+
+### Reglas de Validación Ampliadas
+
+Se agregan reglas al sistema del Arquitecto:
+
+- **R.NUEVA-1:** todo PLAN debe declarar explícitamente su articulación con los 4 transversales nuevos (MESA, TALLER, CUIDADO, MEMORIA).
+- **R.NUEVA-2:** toda nueva agencia debe justificar su autarquía y presentar directorio plural con representación obligatoria de beneficiarios.
+- **R.NUEVA-3:** todo proyecto extractivo referido en un PLAN debe pasar por Licencia Territorial del PLANTER.
+- **R.NUEVA-4:** todo PLAN con sistema algorítmico significativo debe cumplir Protocolo Soberano de Atención del PLANDIG 2.0.
+- **R.NUEVA-5:** toda propuesta presupuestaria debe conciliar con PRESUPUESTO_CONSOLIDADO ampliado.
+
+### Gap Arquitectónico Remanente
+
+El único gap ahora pendiente (PLANCYT — Ciencia, Tecnología, Industria Soberana) queda para evaluación en segunda ronda, post-Año 2 de ejecución. El Arquitecto debe incluir regla para evaluar si los 22 PLANes cubren su dominio o si PLANCYT amerita documento propio.
+
+---
+
+*Actualización Abril 2026 por ampliación del ecosistema ¡BASTA! de 16 a 22 PLANes temáticos + PLANRUTA. Referencia cruzada con ANALISIS_CONEXIONES_20_PLANES.md.*

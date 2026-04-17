@@ -352,3 +352,46 @@ Honestidad brutal para cerrar:
 - **No sabemos si los sindicatos negocian o destruyen.** La Coalicion Sindical-Corporativa puede ser cooptada (negociacion, concesiones, inclusion de dirigentes en la transicion) o puede ser implacable (paro general hasta la caida del gobierno). La diferencia depende de variables humanas — ego, ambicion, miedo — que no se modelan.
 
 > *"El optimismo sin inventario de riesgos es propaganda. El pesimismo sin plan de defensa es parlisis. Este documento es el inventario. Los planes de defensa estan distribuidos en cada mandato. La pregunta que queda es si tenemos la disciplina para ejecutar la secuencia cuando la presion exija atajos. Los atajos matan."*
+
+---
+
+## Actualización Abril 2026 — Adversarios Adicionales con la Ampliación del Ecosistema
+
+Con la expansión a 22 PLANes (PLANMESA, PLANTALLER, PLANCUIDADO, PLANMEMORIA, PLANTER, PLANMOV + PLANDIG 2.0), se incorporan las siguientes categorías de adversarios al inventario:
+
+### Adversarios Específicos de PLANTER
+
+- **Concesionarias extractivas con inversión hundida RIGI** (Vaca Muerta, litio, minería). Respuesta probable: arbitrajes CIADI, presión diplomática, lobby, intimidación a síndicos territoriales.
+- **Gobiernos provinciales con dependencia fiscal de regalías extractivas.** Respuesta probable: resistencia a coparticipación del FSC, pleiteos por autonomía provincial.
+- **Flota pesquera extranjera (principalmente china) en ZEE.** Respuesta probable: incidentes diplomáticos, violaciones sistemáticas.
+- **Empresas forestales del Gran Chaco.** Respuesta probable: resistencia a monitoreo satelital, judicialización de sanciones.
+- **Aparato judicial capturado por intereses extractivos.** Respuesta probable: obstrucción procesal de Personas Territoriales.
+
+### Adversarios Específicos de PLANMOV
+
+- **Oligopolio del camión** (8 empresas con 50%+ del flete). Respuesta probable: paros operativos nacionales, campañas contra reactivación ferroviaria.
+- **Concesionarios actuales de peajes.** Respuesta probable: judicialización de rescisiones.
+- **Hidrovía S.A.** Respuesta probable: litigio internacional.
+- **Operadores privados tren suburbano AMBA.** Respuesta probable: presión política.
+- **Sindicato camionero.** Respuesta probable: paro prolongado si la reconversión se mal maneja.
+
+### Adversarios Específicos de PLANDIG 2.0 (Capa Cognitiva)
+
+- **Plataformas globales (Meta, Google, TikTok, ByteDance).** Respuesta probable: lobby internacional, presión diplomática de EE.UU., amenaza de retiro de servicios.
+- **Industria de publicidad digital + data brokers.** Respuesta probable: campañas mediáticas, cabildeo parlamentario, reingeniería para evadir auditoría.
+
+### Adversarios Compartidos de los 4 PLANes Transversales
+
+- **Clase política profesional** (amenazada por PLANMESA).
+- **Medios tradicionales** (caricaturizan los 4 nuevos).
+- **Sectores conservadores religiosos** (PLANCUIDADO por pluralización del parentesco).
+
+### Riesgo Compuesto Crítico — Guerra Simultánea Ampliada
+
+Los 22 PLANes abren más frentes de confrontación. La alerta original del análisis se confirma y se amplía. La Fase 2 (cuando PLANTER + PLANMOV + PLANDIG 2.0 empiezan a afectar intereses consolidados) es la ventana de máxima exposición. Sin path dependency cívica ya consolidada en Fase 1 (Bastón Memorial, Credencial, Pactos registrados, DCM piloto), la Fase 2 es insostenible.
+
+**Mitigación:** secuenciación PLANRUTA + coaliciones específicas por dominio + priorización fiscal + respeto absoluto de "una confrontación grande por semestre" como límite operativo.
+
+---
+
+*Actualización Abril 2026 por ampliación del ecosistema ¡BASTA!. Referencia cruzada con ANALISIS_CONEXIONES_20_PLANES.md Sección 10, PLANTER_Argentina_ES.md Sección 12, PLANMOV_Argentina_ES.md Sección 9.*
