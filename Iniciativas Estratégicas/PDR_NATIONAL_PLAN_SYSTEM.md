@@ -1071,7 +1071,13 @@ Con la expansión del ecosistema de 16 a 22 PLANes temáticos + PLANRUTA, la arq
 - PLANJUS, PLANSUS, PLANMON, PLANGEO.
 
 **Categoría 6 — Sectoriales territoriales emergentes:**
-- PLAN24CN, **PLANTER** (nuevo), **PLANMOV** (nuevo).
+- PLAN24CN, **PLANTER** (nuevo), **PLANMOV v2.0** (nuevo — refundación con IA/AV y Doctrina de Activos Disponibles: tres capas + 11 dispositivos + doctrina transversal, USD 104.000M, horizonte Visión 2046; ver subclasificación abajo).
+
+**Sub-clasificación PLANMOV v2.0 (caso único en ecosistema — PLAN con arquitectura multicapa):**
+- **Capa I — Derecho a Moverse** (4 dispositivos): MKC, MRM, Red Metropolitana Federal (AMBA-T + homólogas), Protocolo Accesibilidad Universal.
+- **Capa II — Infraestructura Común** (4 dispositivos): BLF, Reactivación Ferroviaria + Columna Múltiple, Red Federal de Puertos, Hidrovía Soberana.
+- **Capa III — Soberanía Cognitiva y Activos Disponibles** (3 dispositivos): BAMD, LNMA (sobre LANIA de PLANDIG), FRM + Canon de Automatización Logística.
+- **Doctrina transversal — Doble Desplazamiento:** marco obligatorio sobre las once piezas; establece que toda automatización desplaza renta capturada antes que trabajo humano.
 
 **Categoría 7 — Transversales cívicos (NUEVA CATEGORÍA):**
 - **PLANMESA** (decisional).

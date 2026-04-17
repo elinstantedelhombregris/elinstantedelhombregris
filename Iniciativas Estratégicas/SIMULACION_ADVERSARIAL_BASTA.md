@@ -367,13 +367,31 @@ Con la expansión a 22 PLANes (PLANMESA, PLANTALLER, PLANCUIDADO, PLANMEMORIA, P
 - **Empresas forestales del Gran Chaco.** Respuesta probable: resistencia a monitoreo satelital, judicialización de sanciones.
 - **Aparato judicial capturado por intereses extractivos.** Respuesta probable: obstrucción procesal de Personas Territoriales.
 
-### Adversarios Específicos de PLANMOV
+### Adversarios Específicos de PLANMOV v2.0
+
+**Adversarios v1.0 confirmados (Capas I-II):**
 
 - **Oligopolio del camión** (8 empresas con 50%+ del flete). Respuesta probable: paros operativos nacionales, campañas contra reactivación ferroviaria.
 - **Concesionarios actuales de peajes.** Respuesta probable: judicialización de rescisiones.
-- **Hidrovía S.A.** Respuesta probable: litigio internacional.
-- **Operadores privados tren suburbano AMBA.** Respuesta probable: presión política.
-- **Sindicato camionero.** Respuesta probable: paro prolongado si la reconversión se mal maneja.
+- **Hidrovía S.A.** (consorcio paraguayo-luxemburgués). Respuesta probable: litigio internacional CIADI sobre la concesión del Canal Troncal.
+- **Operadores privados tren suburbano AMBA** (Ferrovías, Trenes de Buenos Aires). Respuesta probable: presión política sobre renegociación contratos.
+- **Sindicato camionero (Camioneros, FeTCAP).** Respuesta probable: paro prolongado si la reconversión se mal maneja o se anuncia moratoria AV sin garantías laborales firmes.
+
+**Adversarios v2.0 nuevos (Capa III — ola AV/IA y Activos Disponibles):**
+
+- **Operadores AV globales (Tesla, Waymo, Daimler, Alphabet, ByteDance).** Respuesta probable: demandas internacionales contra el Canon de Automatización Logística (arbitraje en foros ISDS); amenaza de retiro de inversión; lobby diplomático sobre Embajada USA y UE; presión por eximir sus flotas del Protocolo PCAV.
+- **Plataformas digitales extranjeras de movilidad (Uber, Cabify, DiDi) y de logística (Rappi, PedidosYa, Amazon, DHL).** Respuesta probable: resistencia a migración obligatoria a ArgenCloud y data-logging; campañas "el usuario pierde" con precios agresivos temporarios; judicialización de revocación de licencia operativa si no migran.
+- **Fabricantes de vehículos automotores tradicionales** (Toyota, GM, Ford, Stellantis en Argentina). Respuesta probable: resistencia a certificación LNMA obligatoria; presión por reconocer certificaciones extranjeras sin re-ensayo argentino; lobby para diluir Canon.
+- **Sindicato camionero ante anuncio de moratoria AV.** Respuesta probable agravada: paro general de transporte de carga por 48-72 hs en Fase 1 si el Régimen Laboral de Transición del Transportista se percibe insuficiente o se atrasa respecto a la certificación de primer corredor dual AV. Mitigación: asiento permanente en Directorio ANMov desde Fase 0, PPM blindada por ley antes que cualquier certificación AV comercial.
+- **Captura regulatoria del PCAV.** Riesgo interno: operadores internacionales grandes (Waymo, Daimler, Tesla Semi) capturan el Protocolo de Certificación AV vía lobby técnico, logrando estándares que solo ellos pueden cumplir; Argentina queda sin capacidad de certificación soberana. Mitigación: Directorio LNMA con mayoría pública + universidades argentinas + prohibición de "puerta giratoria" certificador-certificado.
+- **Ciberataque masivo a flota AV pública.** Clase F6-F9 del Protocolo de Falla PLANMOV v2.0 (Sección 18): vector de ataque a corredores duales AV controlados por ANMov; apagón coordinado con interferencia GPS/GNSS; secuestro de data-logging en ArgenCloud. Mitigación: Kill-Switch Soberano + Protocolo de Incidente AV + auditoría anual LNMA + arquitectura de ciberseguridad aislada por corredor.
+- **Fuga de cómputo AV a jurisdicciones extranjeras.** Operadores internacionales intentan procesar datos argentinos fuera del país para evadir régimen ArgenCloud. Mitigación: penalidades progresivas por no migrar (2028-2035) con revocación de licencia.
+
+**Riesgos político-institucionales v2.0:**
+
+- **Litigio internacional por Canon de Automatización.** Demanda de Tesla/Waymo/Daimler/Alphabet ante foros ISDS / CIADI citando trato injusto e inequitativo. Mitigación: preparación jurídica intensiva pre-sanción de Ley L.N-19; articulación diplomática con bloque UE + Brasil + México para apoyo estratégico; doctrina argentina de "renta de automatización es atributo del Estado anfitrión, no derecho adquirido".
+- **Litigio CIADI por rescisión Hidrovía.** Hidrovía S.A. cita concesión original + tratados bilaterales Paraguay-Luxemburgo-Argentina. Mitigación: preparación por 18 meses pre-sanción de Ley L.N-21 + reservas presupuestarias para eventual compensación ordenada + articulación con Paraguay como co-ribereño.
+- **Colapso político por ventana AV-reconversión desalineada.** Si la certificación LNMA de un corredor AV ocurre antes de que el FRM haya colocado al primer cohorte de Diegos en rutas de reconversión con PPM efectiva, crisis social aguda. Mitigación: Doctrina del Doble Desplazamiento como bloqueo regulatorio estricto — ANMov no autoriza PCAV sin evidencia demostrable de plan de reconversión ejecutado.
 
 ### Adversarios Específicos de PLANDIG 2.0 (Capa Cognitiva)
 

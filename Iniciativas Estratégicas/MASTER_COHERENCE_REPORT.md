@@ -403,7 +403,7 @@ En abril de 2026 el ecosistema se amplía de 16 a 22 PLANes temáticos + PLANRUT
 ### 2. Dos PLANes Sectoriales Nuevos
 
 - **PLANTER**: Tierra, Subsuelo, Pueblos Originarios (Personalidad Jurídica Territorial + Commons Subsuelo + DCM + Licencia Territorial + Co-Soberanía).
-- **PLANMOV**: Movilidad, Logística y Conectividad (MKC + Bastarda Logística + Reactivación Ferroviaria + AMBA-T + Hidrovía Soberana).
+- **PLANMOV v2.0**: Movilidad, Logística y Conectividad Territorial — refundación con IA/AV y Doctrina de Activos Disponibles. Tres capas (Derecho a Moverse + Infraestructura Común + Soberanía Cognitiva y Activos Disponibles), once dispositivos (MKC + MRM + Red Metropolitana Federal + Accesibilidad Universal + BLF + Reactivación Ferroviaria + Rieles Columna Múltiple + Red Federal de Puertos + Hidrovía Soberana + BAMD + LNMA + FRM con Canon de Automatización Logística) y **Doctrina del Doble Desplazamiento** como marco transversal. Inversión USD 104.000M en 20 años (v1.0 era 99.500). Horizonte Visión 2046 (v1.0 era 2040). Agencias: ANMov + BAMD + LNMA + FRM + AMBA-T + CAAAV + Protocolo PCAV.
 
 ### 3. PLANDIG Expandido a v2.0
 
@@ -448,4 +448,42 @@ El ecosistema ¡BASTA! anterior tenía 16 PLANes sectoriales + PLANRUTA como pro
 
 ---
 
-*Actualización Abril 2026 por ampliación del ecosistema ¡BASTA! de 16 a 22 PLANes temáticos + PLANRUTA. Referencia cruzada con ANALISIS_CONEXIONES_20_PLANES.md Sección 6 (Rol arquitectónico), PLANTER_Argentina_ES.md, PLANMOV_Argentina_ES.md, PLANDIG_Argentina_ES.md v2.0.*
+## Actualización Abril 2026 (2) — PLANMOV v2.0: Refundación con IA/AV y Doctrina de Activos Disponibles
+
+PLANMOV se refunda de v1.0 (7 dispositivos + 4 fases + USD 99.500M + horizonte 2040) a **v2.0** (tres capas + 11 dispositivos + 5 fases + 1 doctrina transversal + USD 104.000M + horizonte Visión 2046) **sin cambiar el conteo total de PLANes** — sigue siendo el vigésimo tercer mandato. La refundación absorbe dos ventanas que v1.0 no podía ver: la ola de vehículos autónomos e IA logística que llega a Argentina 2029-2046 + el stock de activos móviles ociosos (13M de autos parados 22 h/día + cómputo disperso + galpones clausurados + flota estatal subutilizada).
+
+### Recomputación de Métricas Globales del Ecosistema (22 PLANes)
+
+| Métrica | Pre-PLANMOV v2.0 | Post-PLANMOV v2.0 | Delta |
+|---|---|---|---|
+| Total planes temáticos | 22 | **22** | 0 (refundación, no suma) |
+| Inversión PLANMOV | USD 99.500M | **USD 104.000M** | +USD 4.500M |
+| Inversión ecosistema agregada (techo) | ~USD 720.500M | **~USD 725.000M** | +USD 4.500M |
+| Horizonte PLANMOV | 2040 | **Visión 2046** | +6 años |
+| Piso constitucional PLANMOV | 0,35% PBI | **0,50% PBI** | +0,15 puntos |
+| Agencias del ecosistema | 21 autárquicas + 1 Consejo + 2 sin agencia | **21 autárquicas + 1 Consejo + 2 sin agencia + 4 sub-entidades PLANMOV v2.0 (BAMD, LNMA, FRM, AMBA-T) + 5 homólogas metropolitanas + CAAAV + Protocolo PCAV** | + 4 sub-entidades + 5 homólogas + 1 comisión + 1 protocolo |
+| Leyes en Cascada nuevas (2026) | 23 | **25** (PLANMOV v2.0 suma 9 leyes del Marco Legal; PLANDIG 2.0 renumeradas a L.N-23/24/25) | +2 |
+| Dependencias críticas entre planes | 71 | **74** (+3 nuevas: LNMA↔LANIA/PLANDIG, Reconversión Móvil/PLANREP, BAMD/PLANEB) | +3 |
+| Densidad documental PLANMOV | ~1.070 líneas | **~2.135 líneas** | paridad con PLANEN y PLANDIG v2.0 |
+| Retorno bruto PLANMOV régimen pleno | USD 12.000-22.000M/año | **USD 23.400-32.000M/año** | casi duplicado por Capa III (Canon + BAMD + reducción siniestralidad AV + exportaciones logísticas) |
+
+### Conceptos Transversales Replicables Introducidos por PLANMOV v2.0
+
+La refundación no solo mejora PLANMOV — introduce tres conceptos replicables al resto del ecosistema:
+
+1. **Doctrina de Activos Disponibles.** Principio económico que categoriza el activo ocioso (flota privada + cómputo + infraestructura subutilizada + trabajo desplazado) como valor económico capturable para malla pública. Replicable a PLANVIV (stock inmobiliario ocioso), PLANDIG (cómputo doméstico ocioso ya parcialmente tratado), PLANSAL (capacidad sanitaria subutilizada en turnos nocturnos), PLAN24CN (suelo público ocioso), PLANEB (patrón bastarda aplicado a activos ociosos sectoriales).
+
+2. **Doctrina del Doble Desplazamiento.** Marco obligatorio que establece que toda automatización debe desplazar renta capturada antes que trabajo humano. Replicable a PLANSAL (IA médica), PLANJUS (IA legal), PLANEDU (IA educativa), PLANDIG (IA de servicios), PLANGEO (IA diplomática). Habilita arquitectura de Canon sectorial de Automatización que fondea Fondos de Reconversión específicos.
+
+3. **Canon como mecanismo redistributivo pre-captura.** Grava capital tecnológico antes de que la renta se fugue al exterior. Replicable como modelo fiscal general del ecosistema ¡BASTA! para toda industria donde IA/automatización concentre productividad.
+
+### Impacto en Puntajes de Coherencia
+
+- **Score diseño:** 9.2/10 → **9.3/10** (PLANMOV v2.0 cierra el hueco de soberanía cognitiva sectorial y establece doctrina replicable).
+- **Score factibilidad fiscal:** 7.0/10 → **7.1/10** (el Canon de Automatización Logística financia FRM y reduce presión fiscal neta).
+- **Score coherencia interna:** 9.4/10 → **9.5/10** (tres nuevas dependencias críticas con PLANDIG/PLANREP/PLANEB cierran bucles).
+- **Riesgo adversarial:** incrementa — v2.0 abre frente con operadores AV globales (Tesla/Waymo/Daimler/Alphabet) y plataformas digitales extranjeras. Mitigación documentada en SIMULACION_ADVERSARIAL_BASTA.md Sección actualizada.
+
+---
+
+*Actualización Abril 2026 por ampliación del ecosistema ¡BASTA! de 16 a 22 PLANes temáticos + PLANRUTA + refundación PLANMOV v2.0 (IA/AV y Doctrina de Activos Disponibles). Referencia cruzada con ANALISIS_CONEXIONES_20_PLANES.md Sección 6 y 8.3.bis (Rol arquitectónico), PLANTER_Argentina_ES.md, PLANMOV_Argentina_ES.md v2.0, PLANDIG_Argentina_ES.md v2.0.*

@@ -47,7 +47,7 @@ Los 16 PLANes originales respondían la pregunta *"¿qué construir?"*. Los 4 nu
 | **19** | **PLANCUIDADO** | **Plan Nacional de Vínculo y Parentesco Plural** | **Transversal** | **Capa relacional** | **Nuevo** |
 | **20** | **PLANMEMORIA** | **Plan Nacional de Memoria Operativa** | **Transversal** | **Capa temporal** | **Nuevo** |
 | **21** | **PLANTER** | **Plan Nacional de Tierra, Subsuelo, Pueblos Originarios y Soberanía Territorial** | **M3 / M5** | **Sectorial territorial profundo** | **Nuevo** |
-| **22** | **PLANMOV** | **Plan Nacional de Movilidad, Logística y Conectividad Territorial** | **M1 / M3** | **Sectorial infraestructura** | **Nuevo** |
+| **22** | **PLANMOV v2.0** | **Plan Nacional de Movilidad, Logística y Conectividad Territorial (v2.0 — refundación con IA/AV y Doctrina de Activos Disponibles)** | **M1 / M3** | **Sectorial infraestructura + soberanía cognitiva** | **Nuevo (v2.0: 3 capas + 11 dispositivos + Doctrina del Doble Desplazamiento, USD 104.000M, horizonte Visión 2046)** |
 | -- | PLANRUTA | Plan Nacional de Ruta de Arranque | Protocolo madre | Fuera de conteo (bootstrap) | |
 
 ### 2.2 Cambio cualitativo
@@ -727,6 +727,28 @@ Los PLANes transversales ya escritos en la primera ronda requieren actualizació
 
 **PLANMEMORIA:** agregar fila para PLANTER (Archivo Territorial con depósitos originarios y técnicos tipo Emiliano; Inscripción de Captura por deforestación y pesca ilegal) y PLANMOV (Archivo Técnico Ferroviario y Portuario con testimonios tipo Héctor; Memoria Operativa de cada corredor reactivado).
 
+### 8.3.bis Ajustes por PLANMOV v2.0 — Refundación con IA/AV y Doctrina de Activos Disponibles
+
+La refundación de PLANMOV v1.0 → v2.0 (tres capas + 11 dispositivos + Doctrina del Doble Desplazamiento) intensifica sinergias existentes y abre nuevas:
+
+**PLANMOV ↔ PLANDIG (CRÍTICA, Capa III):** el Laboratorio Nacional de Movilidad Autónoma (LNMA) es una **capa vertical sobre LANIA** de PLANDIG. Hospedaje obligatorio de cómputo AV en ArgenCloud. Data-logging AV como commons argentino bajo régimen PLANDIG 2.0 (Mesa MAAP audita algoritmos de flotas). Protocolo PCAV articulado con Protocolo Soberano de Atención. Sin PLANDIG no hay Capa III.
+
+**PLANMOV ↔ PLANREP (CRÍTICA, Capa III):** la ruta **"Reconversión Móvil"** de PLANREP absorbe 500.000 transportistas desplazados por automatización (120.000 camioneros + 180.000 taxistas/remiseros + 80.000 colectiveros + 35.000 portuarios + 25.000 dispatchers + 60.000 mecánicos tradicionales). Pensión Puente Móvil (85-100% del salario previo) financiada 100% por el FRM con los ingresos del Canon de Automatización Logística. Arquitecto de Fuerza Laboral IA (PLANDIG) acompaña caso por caso. Programa "Cinco Años Dignos" para +50 años.
+
+**PLANMOV ↔ PLANEB (CRÍTICA, Capa III):** la **BAMD (Bastarda de Activos Móviles Disponibles)** aplica Contrato Bastardo PLANEB a flotas privadas ociosas, cómputo disperso, galpones clausurados y flota estatal subutilizada; Créditos de Kilómetros como unidad de cuenta indexada al Tablero PLANMON. La BLF y la Bastarda Fluvial son formas bastardas sectoriales. El **Canon de Automatización Logística** establece precedente replicable a otros sectores donde la IA desplaza trabajo capturado por plataformas (retail, servicios financieros, contenido).
+
+**PLANMOV ↔ PLANEN (IMPORTANTE, Capa II + Capa III):** rieles como columna múltiple llevan tendido eléctrico de media-alta tensión + fibra óptica sobre misma traza (amortización múltiple). Electrificación masiva de los 25.000 km ferroviarios reactivados. Cómputo del LNMA consume energía limpia de la matriz PLANEN. Corredores duales AV para camión eléctrico se articulan con red de carga de PLANEN.
+
+**PLANMOV ↔ PLANTER (IMPORTANTE):** Hidrovía Paraná-Paraguay Soberana articulada con Personalidad Jurídica del río Paraná (PLANTER); Bastarda Fluvial bajo estándares ambientales PLANTER. Rescisión de concesión a Hidrovía S.A. expone a litigio internacional CIADI (compartido con PLANTER sobre RIGI).
+
+**PLANMOV ↔ PLANCUIDADO (IMPORTANTE, Capa I):** MKC diferencial para personas en situación de cuidado y cuidadoras reconocidas; Red Metropolitana Federal con Protocolo de Accesibilidad Universal obligatorio; Movilidad Rural Mínima para acceso al hospital y al trámite.
+
+**PLANMOV ↔ PLANMESA (IMPORTANTE):** Mesas Civiles de Corredor con voto vinculante sobre priorización de reactivación ferroviaria; Credencial de Materia Movilidad habilita participación ciudadana.
+
+**PLANMOV ↔ PLANMEMORIA (IMPORTANTE):** Archivo Técnico Ferroviario y Portuario con Testimonios tipo Héctor Arredondo (Laguna Paiva). Biblioteca técnica ferroviaria como input de IA argentina de mantenimiento de vías del LNMA (código abierto default).
+
+**PLANMOV ↔ PLANTALLER (IMPORTANTE):** red de 120 Tallers regionales distribuidos en todas las provincias absorbe formación dual de 500.000 reconvertidos + UTNs regionales complementarias con nuevas tecnicaturas en Automatización Logística, Coordinación AV Supervisada, Operación BAMD y Técnica Portuaria Automatizada.
+
 ### 8.4 Caso Especial — PLANCOG Absorbido por PLANDIG 2.0
 
 El gap identificado originalmente como PLANCOG se resuelve sin documento separado por absorción en PLANDIG reformulado como **Plan Nacional de Soberanía Digital, Cognitiva y Ecología de la Atención (v2.0)**.
@@ -779,7 +801,7 @@ El documento **MATRIZ_MISIONES_Y_PLANES_ES.md** debe ampliarse con las 6 nuevas 
 | PLANCUIDADO_Argentina_ES.md | Plan Nacional de Vínculo y Parentesco Plural | Transversal M1-M4 | Emergencia / Transición | Ejecutar fase 1 | Alta | Marco legal del Pacto, red Referentes | Media | Alta | Privacidad, backlash conservador | Pactos activos, horas reconocidas | Registro de Pacto, servicio como Referente | Verde |
 | PLANMEMORIA_Argentina_ES.md | Plan Nacional de Memoria Operativa y Archivo Federado | Transversal M5 | Transición | Ejecutar fase 1 | Alta | Infraestructura federada, ley de ANM | Media | Baja-Media | Politización, ataque técnico | Depósitos, Consultas, integridad hash | Bastón, Depósito, Testimonio, Síndico | Verde |
 | PLANTER_Argentina_ES.md | Plan Nacional de Tierra, Subsuelo, Pueblos Originarios y Soberanía Territorial | M3 / M5 | Transición | Ejecutar fase 1 escalonada | Alta | Derogación RIGI, Ley ANTSPO, Ley Personalidad Jurídica Territorial | Alta | Media-Alta | Litigio RIGI, backlash provincial, captura FSC | DCM depositado, Personas Territoriales activas, deforestación, Mar soberano | Síndicos comunitarios, Mesas Territoriales, voto territorial | Ámbar a Verde |
-| PLANMOV_Argentina_ES.md | Plan Nacional de Movilidad, Logística y Conectividad Territorial | M1 / M3 | Transición sostenida | Ejecutar fase 0-1 | Alta | Ley ANMov, financiamiento multilateral 20 años | Alta | Media | Paros camioneros, reversión, corrupción en obra pública | Km ferroviarios reactivados, flete reducido, MKC activos | Usuarios MKC, Mesas de Corredor, Tallers ferroviarios | Verde a Ámbar |
+| PLANMOV_Argentina_ES.md (v2.0) | Plan Nacional de Movilidad, Logística y Conectividad Territorial — 3 capas, 11 dispositivos + Doctrina del Doble Desplazamiento, USD 104.000M, horizonte 2046 | M1 / M3 | Transición sostenida 20 años (Fases 0-4) | Ejecutar Fase 0 (2026-27) | Alta | Ley ANMov + AMBA-T + BAMD + LNMA/PCAV + Canon de Automatización Logística + financiamiento multilateral 30-40 años | Alta | Media | Paros del camión ante moratoria AV, litigio internacional CIADI por Canon y Hidrovía, ciberataque a flota AV pública, captura regulatoria PCAV | Km ferroviarios reactivados, flete reducido a 10-12%, MKC activos, aportantes BAMD, reconvertidos vía FRM, corredores duales AV certificados | Usuarios MKC, Mesas de Corredor, Tallers ferroviarios, aportantes BAMD, transportistas en ruta "Reconversión Móvil" | Verde a Ámbar |
 
 **Modificación a la fila PLANDIG existente:**
 
@@ -827,9 +849,15 @@ El gap de articulación con pueblos originarios, soberanía sobre subsuelo, pers
 
 El gap de derecho a la atención no algorítmica, auditoría de sistemas que modelan a argentinos, y ecología atencional se resuelve sin crear PLAN separado por absorción en el PLANDIG renombrado y expandido. Ver Sección 8.4 para detalle. PLANCOG ya no es PLAN independiente — es capa del PLANDIG 2.0.
 
-### 9.3 Gap de Transporte y Logística — RESUELTO con PLANMOV
+### 9.3 Gap de Transporte y Logística — RESUELTO con PLANMOV v2.0
 
-El gap de movilidad ciudadana, reactivación ferroviaria, AMBA estructural, Hidrovía Soberana, Red Federal de Puertos y Bastarda Logística se resuelve con el nuevo **PLANMOV — Plan Nacional de Movilidad, Logística y Conectividad Territorial** (vigésimo tercer mandato temático). Arquitectura de siete dispositivos: Mandato Kilométrico Ciudadano, Bastarda Logística Federal, Reactivación Ferroviaria Estructural, Rieles como Columna Múltiple, Red Federal de Puertos, Hidrovía Soberana, AMBA Estructural con AMBA-T.
+El gap de movilidad ciudadana, reactivación ferroviaria, AMBA estructural, Hidrovía Soberana, Red Federal de Puertos, Bastarda Logística, soberanía cognitiva sobre IA/AV y activación de activos móviles ociosos se resuelve con **PLANMOV v2.0 — Plan Nacional de Movilidad, Logística y Conectividad Territorial** (vigésimo tercer mandato temático, refundación Abril 2026 con IA/AV y Doctrina de Activos Disponibles). Arquitectura de tres capas + once dispositivos + una doctrina transversal:
+- **Capa I — Derecho a Moverse:** Mandato Kilométrico Ciudadano (MKC), Movilidad Rural Mínima (MRM), Red Metropolitana Federal (AMBA-T como caso modelo + homólogas en Gran Córdoba/Rosario/Mendoza/Tucumán/La Plata), Protocolo de Accesibilidad Universal.
+- **Capa II — Infraestructura Común:** Bastarda Logística Federal (BLF), Reactivación Ferroviaria + Rieles como Columna Múltiple, Red Federal de Puertos, Hidrovía Paraná-Paraguay Soberana.
+- **Capa III — Soberanía Cognitiva y Activos Disponibles:** Bastarda de Activos Móviles Disponibles (BAMD), Laboratorio Nacional de Movilidad Autónoma (LNMA) sobre LANIA de PLANDIG, Fondo de Reconversión Móvil (FRM) + Canon de Automatización Logística.
+- **Doctrina transversal — Doble Desplazamiento:** toda automatización desplaza renta capturada antes que trabajo humano; ninguna flota AV se autoriza sin plan de reconversión demostrable.
+
+Inversión USD 104.000M en 20 años, horizonte Visión 2046, agencias ANMov + BAMD + LNMA + FRM + AMBA-T + CAAAV + Protocolo PCAV.
 
 ### 9.4 Gap de Industria y Ciencia Sistemática — PENDIENTE DE EVALUACIÓN
 
@@ -985,15 +1013,15 @@ Nadie combina los siete componentes simultáneamente bajo plataforma cívica com
 | PLANCUIDADO | 4.800-7.200 | 0.75-1.12% |
 | PLANMEMORIA | 680-920 | 0.10-0.14% |
 | **PLANTER (operativo, sin flujos FSC)** | **1.480-2.200** | **0.23-0.34%** |
-| **PLANMOV (operativo + inversión anual promedio 20 años)** | **13.600 + 4.975 inversión = 18.575 año promedio** | **2.90%** |
+| **PLANMOV v2.0 (operativo + inversión anual promedio 20 años)** | **15.880 + 5.200 inversión = 21.080 año promedio** | **3.05%** |
 | PLANRUTA | Integrado en otros | — |
-| **TOTAL ANUAL RÉGIMEN PLENO** | **46.935-58.925** | **7.32-9.20%** |
+| **TOTAL ANUAL RÉGIMEN PLENO** | **49.440-61.430** | **7.47-9.35%** |
 
 **Nota sobre PLANTER:** el cuadro no incluye los flujos del Fondo Soberano Ciudadano, que son ingresos al FSC (no costo del sistema) y redistribución del DCM (USD 6.600-18.000M/año). El FSC es autofinanciado con regalías extractivas; el PLANTER captura renta hoy fugada y la redistribuye. El efecto neto fiscal es positivo.
 
-**Nota sobre PLANMOV:** el costo es pesado porque incluye inversión anual promediada (USD 99.500M en 20 años = ~USD 5.000M/año) más operación (USD 13.600M/año). Es inversión amortizable en infraestructura de 50-80 años. Parte se cubre con deuda multilateral larga.
+**Nota sobre PLANMOV v2.0:** el costo es pesado porque incluye inversión anual promediada (USD 104.000M en 20 años = ~USD 5.200M/año) más operación régimen pleno (USD 15.880M/año con BAMD, LNMA, FRM y AMBA-T y homólogas). Es inversión amortizable en infraestructura de 50-80 años con retorno bruto régimen pleno de USD 23.400-32.000M/año (ahorro flete 10.800-15.000 + AMBA 3.200 + productividad 2.400-4.800 + BAMD 800-1.400 + Canon AV 1.200-2.800 + siniestralidad 1.800-3.200 + exportaciones 3.200-4.800). ROI break-even Fase 3 (año 10-12). Parte se cubre con deuda multilateral larga (BID/CAF/BM 30-40 años) + Bonos Soberanos PLANMOV + Canon de Automatización Logística + Fondo Fiduciario BAMD.
 
-**Comparación:** presupuesto actual de gasto público consolidado argentino está en el 36% del PBI. El ecosistema ¡BASTA! completo representa 7-9% adicional en régimen pleno — sin reasignaciones, significativamente mayor al estimado previo (4-6%). La mayor parte del incremento es PLANMOV (inversión amortizable en infraestructura pública) y PLANCUIDADO (capa cero del pacto social). Reasignaciones de gastos existentes de baja productividad + deuda multilateral larga + DCM como redistribución neutra fiscal pueden cubrir el incremento. Auditoría fiscal específica: necesaria. Presupuesto sostenible: sí, con disciplina.
+**Comparación:** presupuesto actual de gasto público consolidado argentino está en el 36% del PBI. El ecosistema ¡BASTA! completo representa 7-9% adicional en régimen pleno — sin reasignaciones, significativamente mayor al estimado previo (4-6%). La mayor parte del incremento es PLANMOV v2.0 (inversión amortizable en infraestructura pública + Capa III de soberanía cognitiva) y PLANCUIDADO (capa cero del pacto social). Reasignaciones de gastos existentes de baja productividad + deuda multilateral larga + Canon de Automatización + DCM como redistribución neutra fiscal pueden cubrir el incremento. Auditoría fiscal específica: necesaria. Presupuesto sostenible: sí, con disciplina.
 
 ---
 

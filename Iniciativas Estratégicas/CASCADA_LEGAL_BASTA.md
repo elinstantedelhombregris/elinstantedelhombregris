@@ -445,38 +445,54 @@ Con la expansión del ecosistema a 22 PLANes temáticos (incorporación de PLANM
 | L.N-12 | Ley Integral de Protección del Mar Argentino | PLANTER | Nueva | Alta | Fase 1 |
 | L.N-13 | Ley de Deforestación Cero Operativa (actualización Ley 26.331) | PLANTER | Reforma | Alta | Fase 1 |
 
-### Leyes del PLANMOV
+### Leyes del PLANMOV v2.0 (Marco Legal de 9 leyes — refundación con IA/AV y Doctrina de Activos Disponibles)
+
+El Marco Legal PLANMOV v2.0 se compone de nueve leyes con orden de sanción crítico: primero las leyes que crean instituciones operativas (ANMov, AMBA-T) para que exista sujeto jurídico responsable; luego las leyes que habilitan la Capa III tecnológica (BAMD, LNMA/PCAV) + el dispositivo ciudadano visible (MKC); después las leyes económicas (Canon de Automatización) y técnicas (Código de Tránsito con niveles SAE, Hidrovía) + régimen laboral en Fase 1. La estrategia política admite paquete único con tratamiento conjunto (más vulnerable a veto total, más coherente si hay mayoría) o sanción secuencial por bloques (más maniobrable, requiere sostener urgencia política durante 24-36 meses).
+
+**Bloque A — Fase 0 (2026-2027): leyes madre institucionales + dispositivo ciudadano + Capa III tecnológica**
 
 | # | Ley | Plan | Tipo | Prioridad | Ventana |
 |---|-----|------|------|-----------|---------|
-| L.N-14 | Ley de Creación de la Agencia Nacional de Movilidad (ANMov) | PLANMOV | Nueva | CRÍTICA | Fase 0-1 |
-| L.N-15 | Ley del Mandato Kilométrico Ciudadano (MKC) | PLANMOV | Nueva | Alta | Fase 1 |
-| L.N-16 | Ley de Bastarda Logística Federal y Bastarda Fluvial | PLANMOV + PLANEB | Nueva/Adaptador | Alta | Fase 1 |
-| L.N-17 | Ley de Reactivación Ferroviaria Estructural (20 años) | PLANMOV | Nueva | Alta | Fase 0-4 |
-| L.N-18 | Ley de Autoridad Metropolitana de Transporte AMBA (AMBA-T) | PLANMOV | Nueva | Alta | Fase 1-2 |
-| L.N-19 | Ley de Revisión de Concesión Hidrovía Paraná-Paraguay | PLANMOV + PLANTER | Reforma | Alta | Fase 1 |
-| L.N-20 | Ley de Red Federal de Puertos (reforma AGP) | PLANMOV | Reforma | Media-Alta | Fase 1-2 |
+| L.N-14 | Ley de Movilidad y Logística Federal (creación de ANMov con presupuesto 0,50% PBI constitucional) | PLANMOV v2.0 | Nueva | CRÍTICA | Fase 0 (año 1) — ley madre |
+| L.N-15 | Ley de la Autoridad Metropolitana de Transporte (AMBA-T y homólogas en Gran Córdoba, Gran Rosario, Gran Mendoza, Gran Tucumán, Gran La Plata) | PLANMOV v2.0 | Nueva | CRÍTICA | Fase 0 (año 1-2) — requiere Pacto Metropolitano previo |
+| L.N-16 | Ley BAMD (Bastarda de Activos Móviles Disponibles) — Contrato Bastardo aplicado a pool mutualista; Créditos de Kilómetros | PLANMOV v2.0 + PLANEB | Nueva | Alta | Fase 0 (año 1-2) — novedad jurídica sin precedente |
+| L.N-17 | Ley LNMA y PCAV (Laboratorio Nacional de Movilidad Autónoma + Protocolo de Certificación AV) | PLANMOV v2.0 + PLANDIG | Nueva | Alta | Fase 0 (año 2) — hospeda cómputo en LANIA |
+| L.N-18 | Régimen del Mandato Kilométrico Ciudadano (cupo base universal activado en Cédula Civil) | PLANMOV v2.0 + PLANMESA | Nueva | Alta | Fase 0 (año 2) — dispositivo ciudadano más visible |
+
+**Bloque B — Fase 1 (2028-2030): leyes económicas, técnicas e infraestructura**
+
+| # | Ley | Plan | Tipo | Prioridad | Ventana |
+|---|-----|------|------|-----------|---------|
+| L.N-19 | Ley del Canon de Automatización Logística (HEDA × CAR; destino 100% al FRM, inembargable) | PLANMOV v2.0 | Nueva | CRÍTICA | Fase 1 (año 3-4) — ley más política de todas |
+| L.N-20 | Reformas al Código de Tránsito (niveles SAE 0-5, régimen de responsabilidad AV, seguro obligatorio) | PLANMOV v2.0 | Reforma | Alta | Fase 1 (año 3) |
+| L.N-21 | Ley de Hidrovía Soberana (rescisión o renegociación concesión Paraná-Paraguay + Bastarda Fluvial) | PLANMOV v2.0 + PLANTER | Reforma | Alta | Fase 1 (año 3-5) — exposición litigio CIADI |
+| L.N-22 | Régimen Laboral de Transición del Transportista (Pensión Puente Móvil 85-100% salario previo + "Cinco Años Dignos" + reconversión asistida) | PLANMOV v2.0 + PLANREP | Nueva | CRÍTICA | Fase 1 (año 3-4) — "ningún chofer queda atrás" como contrato jurídico |
+
+**Leyes residuales (Ley de Reactivación Ferroviaria Estructural a 20 años y Ley de Red Federal de Puertos):** absorbidas respectivamente en la Ley de Movilidad y Logística Federal (L.N-14) como programa obligatorio de ANMov y en la Ley de Hidrovía Soberana (L.N-21) como parte de la reforma portuaria + AGP.
 
 ### Leyes del PLANDIG 2.0
 
 | # | Ley | Plan | Tipo | Prioridad | Ventana |
 |---|-----|------|------|-----------|---------|
-| L.N-21 | Ley de Ecología de la Atención y Derechos Cognitivos | PLANDIG 2.0 | Nueva | Media-Alta | Fase 1 |
-| L.N-22 | Ley de Auditoría Pública de Sistemas Algorítmicos (Mesa MAAP) | PLANDIG 2.0 | Nueva | Muy Alta | Fase 1-2 |
-| L.N-23 | Ley del Protocolo Soberano de Atención (PSA) | PLANDIG 2.0 | Nueva | Media | Fase 1 |
+| L.N-23 | Ley de Ecología de la Atención y Derechos Cognitivos | PLANDIG 2.0 | Nueva | Media-Alta | Fase 1 |
+| L.N-24 | Ley de Auditoría Pública de Sistemas Algorítmicos (Mesa MAAP) | PLANDIG 2.0 | Nueva | Muy Alta | Fase 1-2 |
+| L.N-25 | Ley del Protocolo Soberano de Atención (PSA) | PLANDIG 2.0 | Nueva | Media | Fase 1 |
 
 ### Totales Ampliados
 
 - **Leyes en Cascada original:** 62 leyes principales + subleyes sectoriales.
-- **Leyes nuevas Abril 2026:** 23 leyes (cubriendo PLANes 17-22 + PLANDIG 2.0).
-- **Total Cascada ampliada:** aproximadamente 85 leyes constitutivas + subleyes sectoriales para ejecución plena del ecosistema de 22 PLANes.
+- **Leyes nuevas Abril 2026:** 25 leyes (cubriendo PLANes 17-22 + PLANDIG 2.0; PLANMOV v2.0 aporta 9 leyes del Marco Legal).
+- **Total Cascada ampliada:** aproximadamente 87 leyes constitutivas + subleyes sectoriales para ejecución plena del ecosistema de 22 PLANes.
 
 ### Notas Adicionales a la Cascada
 
 - Todas las leyes constitutivas de los 4 PLANes transversales (L.N-1 a L.N-4) pueden sancionarse en paralelo en Fase 1 de PLANRUTA.
 - La Ley de Derogación del RIGI (L.N-10) requiere preparación diplomática por litigios internacionales esperables; se sugiere secuenciarla después de las leyes de ANTSPO y Licencia Territorial.
 - La Ley de Personalidad Jurídica de los Territorios (L.N-8) es reforma codicial con complejidad doctrinaria alta; puede requerir consulta con academia jurídica y precedentes internacionales.
-- Las leyes de PLANDIG 2.0 (L.N-21, L.N-22, L.N-23) generarán presión internacional de plataformas globales; se sugiere articulación con bloque UE + Brasil + México para apoyo estratégico.
+- El Bloque A de PLANMOV v2.0 (L.N-14 a L.N-18) puede sancionarse en paralelo como paquete único en Fase 0 (2026-2027) dado que crea instituciones operativas sin confrontación directa con capital; el Bloque B (L.N-19 a L.N-22) concentra la tensión política y debe secuenciarse con cuidado en Fase 1.
+- La Ley del Canon de Automatización Logística (L.N-19) es la ley más política del ecosistema PLANMOV: grava capital tecnológico para financiar trabajo desplazado y expone al Estado a litigio internacional (demandas de Tesla/Waymo/Daimler/Alphabet probables). Requiere preparación jurídica previa + articulación diplomática con bloque UE + Brasil + México.
+- La Ley de Hidrovía Soberana (L.N-21) requiere preparación intensiva por exposición a arbitraje CIADI sobre la concesión vigente a Hidrovía S.A. (consorcio paraguayo-luxemburgués).
+- Las leyes de PLANDIG 2.0 (L.N-23, L.N-24, L.N-25) generarán presión internacional de plataformas globales; se sugiere articulación con bloque UE + Brasil + México para apoyo estratégico.
 
 ---
 
