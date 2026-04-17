@@ -331,6 +331,8 @@ var init_schema = __esm({
       passwordResetExpires: text("password_reset_expires"),
       // Profile image (base64 data URI)
       avatarUrl: text("avatar_url"),
+      // Free-form bio, capped at 500 chars by Zod validation
+      bio: text("bio"),
       // Onboarding
       onboardingCompleted: boolean("onboarding_completed").default(false),
       // 2FA
@@ -3229,6 +3231,7 @@ function createAuthResponse(user) {
       name: user.name,
       location: user.location,
       avatarUrl: user.avatarUrl ?? null,
+      bio: user.bio ?? null,
       emailVerified: user.emailVerified ?? false,
       onboardingCompleted: user.onboardingCompleted ?? false,
       createdAt: user.createdAt ?? null,
@@ -16495,6 +16498,7 @@ var updateProfileSchema = z4.object({
   name: z4.string().min(2, "El nombre debe tener al menos 2 caracteres").max(100, "El nombre no puede exceder 100 caracteres").regex(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/, "El nombre solo puede contener letras y espacios").optional(),
   email: z4.string().email("Formato de email inv\xE1lido").max(255, "El email no puede exceder 255 caracteres").toLowerCase().optional(),
   location: z4.string().max(255, "La ubicaci\xF3n no puede exceder 255 caracteres").optional(),
+  bio: z4.string().trim().max(500, "La bio no puede superar los 500 caracteres").nullable().optional(),
   dataShareOptOut: z4.boolean().optional()
 });
 var createDreamSchema = z4.object({
@@ -20080,7 +20084,8 @@ async function registerRoutes(app2) {
         email: user.email,
         name: user.name,
         location: user.location,
-        avatarUrl: user.avatarUrl
+        avatarUrl: user.avatarUrl,
+        bio: user.bio
       });
       res.status(201).json({
         message: "Usuario registrado exitosamente",
@@ -20144,7 +20149,8 @@ async function registerRoutes(app2) {
         email: user.email,
         name: user.name,
         location: user.location,
-        avatarUrl: user.avatarUrl
+        avatarUrl: user.avatarUrl,
+        bio: user.bio
       });
       res.json({
         message: "Inicio de sesi\xF3n exitoso",
@@ -20186,6 +20192,7 @@ async function registerRoutes(app2) {
         name: user.name,
         location: user.location,
         avatarUrl: user.avatarUrl,
+        bio: user.bio,
         lastLogin: user.lastLogin,
         emailVerified: user.emailVerified,
         onboardingCompleted: user.onboardingCompleted,
@@ -20223,6 +20230,7 @@ async function registerRoutes(app2) {
           name: updatedUser.name,
           location: updatedUser.location,
           avatarUrl: updatedUser.avatarUrl,
+          bio: updatedUser.bio,
           emailVerified: updatedUser.emailVerified,
           onboardingCompleted: updatedUser.onboardingCompleted,
           createdAt: updatedUser.createdAt,
@@ -20283,6 +20291,7 @@ async function registerRoutes(app2) {
           name: updatedUser.name,
           location: updatedUser.location,
           avatarUrl: updatedUser.avatarUrl,
+          bio: updatedUser.bio,
           emailVerified: updatedUser.emailVerified,
           onboardingCompleted: updatedUser.onboardingCompleted,
           createdAt: updatedUser.createdAt
@@ -20308,6 +20317,7 @@ async function registerRoutes(app2) {
           name: updatedUser.name,
           location: updatedUser.location,
           avatarUrl: updatedUser.avatarUrl,
+          bio: updatedUser.bio,
           emailVerified: updatedUser.emailVerified,
           onboardingCompleted: updatedUser.onboardingCompleted,
           createdAt: updatedUser.createdAt
@@ -20449,7 +20459,8 @@ async function registerRoutes(app2) {
         email: user.email,
         name: user.name,
         location: user.location,
-        avatarUrl: user.avatarUrl
+        avatarUrl: user.avatarUrl,
+        bio: user.bio
       });
       res.json({
         message: "Tokens actualizados exitosamente",
