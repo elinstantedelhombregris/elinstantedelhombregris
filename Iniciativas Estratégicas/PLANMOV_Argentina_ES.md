@@ -743,6 +743,16 @@ Donde:
 - **Presupuesto:** 0.50% PBI en régimen (USD 3.200M/año) para operación + fondo de inversión ferroviaria extra protegido.
 - **Estructura:** Directorio + Dirección Ejecutiva + Secretarías Modales (Ferroviaria, Vial, Portuaria, Fluvial, AMBA) + Red de Coordinadores Territoriales.
 
+#### 4.1.1 Presupuesto por Capa
+
+El 0,50% del PBI operativo de la ANMov se asigna en forma vinculada a las tres capas de la arquitectura, de modo que ninguna capa pueda ser desfinanciada por presión coyuntural sin pasar por el Congreso.
+
+- **0,20% PBI para la Capa I — Derecho a Moverse.** Financia el MKC, la MRM, la Red Metropolitana Federal y el Protocolo de Accesibilidad Universal. Es la capa que garantiza que Florencia pueda salir de Humahuaca y que Diego pueda llegar al taller sin que el boleto se le coma el jornal.
+- **0,20% PBI para la Capa II — Infraestructura Común.** Financia la BLF, la Reactivación Ferroviaria, la Red Federal de Puertos y la Hidrovía Paraná-Paraguay Soberana. Es la capa que Héctor mantiene viva con cada noche de guardia.
+- **0,10% PBI para la Capa III — Soberanía Cognitiva y Activos.** Financia la BAMD, el LNMA y el FRM más la recaudación del Canon de Automatización Logística. Es la capa que evita que la ola AV nos tome sin modelo propio ni fondo de reconversión.
+
+Total: 0,50% PBI operativo más el fondo ferroviario constitucionalmente protegido. La transferibilidad entre capas se habilita solo por ley del Congreso con mayoría especial; así se evita que una crisis cambiaria desarme la Capa III o que un gobierno vacíe la Capa I para financiar infraestructura prestigiosa.
+
 ### 4.2 Directorio
 
 11 miembros:
@@ -755,6 +765,13 @@ Donde:
 
 Mandato: 5 años no renovables. Dietas acotadas. Auditoría anual.
 
+**Ampliación v2.0 — Directorio de 13 miembros.** Con la incorporación de la Capa III el Directorio suma dos sillas técnicas nuevas para no dejar la soberanía cognitiva y la reconversión subordinadas a la Dirección Ejecutiva:
+
+- **1 Coordinador del LNMA** por concurso técnico abierto, con perfil mixto de ciencia de datos e ingeniería vehicular o ferroviaria. Es la voz institucional del modelo argentino de percepción y del régimen de certificación PCAV en el cuerpo colegiado.
+- **1 representante del FRM electo por los reconvertidos**, con mandato rotativo cada 3 años y elegible solo entre quienes cobran del Fondo o pasaron por él. Es la voz de los choferes, maquinistas y portuarios en proceso de reconversión.
+
+Justificación: el modelo v1.0 configuraba una agencia de movilidad tradicional, sin contemplar soberanía cognitiva ni reconversión como objeto institucional propio. La v2.0 exige que ambas tengan silla y voto, no solo ventanilla.
+
 ### 4.3 Funciones
 
 - Custodia del Protocolo Movilidad.
@@ -765,6 +782,10 @@ Mandato: 5 años no renovables. Dietas acotadas. Auditoría anual.
 - Coordinación Hidrovía Soberana.
 - AMBA-T como autoridad operativa.
 - Tablero público.
+- Administración de la BAMD en coordinación con el Fideicomiso bastardo.
+- Supervisión técnica del LNMA y certificación PCAV por corredor.
+- Gestión del FRM y recaudación del Canon de Automatización Logística.
+- Auditoría del cumplimiento de la Doctrina del Doble Desplazamiento.
 
 ### 4.4 Mecanismos Anti-Captura
 
@@ -773,6 +794,14 @@ Mandato: 5 años no renovables. Dietas acotadas. Auditoría anual.
 - Directorio plural.
 - Transparencia radical.
 - Presupuesto constitucional.
+
+### 4.5 Relación ANMov ↔ ANDIG (PLANDIG)
+
+La Capa III exige un protocolo de co-gobernanza de datos de movilidad con la Agencia Nacional de Datos, Información y Gobernanza (ANDIG), creada por PLANDIG. El principio es simple: los datos crudos de movilidad son bien común soberano, y la soberanía se administra en dos manos.
+
+- **Data-logging vía ArgenCloud.** Toda telemetría de BLF, trenes de carga, flota BAMD y sistemas de peaje fluvial se deposita en ArgenCloud bajo administración técnica de ANDIG. ANMov accede en forma curada, con logs de acceso públicos, y no puede extraer datos personales sin orden judicial.
+- **Modelos LANIA compartidos.** Los modelos fundacionales entrenados por LANIA (el laboratorio de IA soberana de PLANDIG) se ponen a disposición del LNMA bajo contrato de uso prioritario, con derechos recíprocos de fine-tuning: el modelo argentino de percepción ferroviaria vuelve al stock común.
+- **Auditoría conjunta.** Los Tres Mandamientos de la Doctrina del Doble Desplazamiento, en su dimensión de datos (no extracción, no exportación, no mercantilización sin consentimiento agregado), se auditan en forma conjunta ANMov-ANDIG con informe anual al Congreso.
 
 ---
 
@@ -813,6 +842,27 @@ Año 1-2:
 
 Año 3-5: expansión a 40+ corredores.
 
+### 5.4 Integración de AV Supervisado en la Flota BLF
+
+La BLF no se automatiza de golpe ni se entrega al camión sin cabina. Se automatiza por tramos, por corredor certificado, con cronograma público y con operador humano en cada turno hasta bien entrada la década del cuarenta. La lógica es que el Doble Desplazamiento obliga a que la automatización venga acompañada de reconversión y no de despido.
+
+- **Fase 1 (2028-2030).** 2% de la flota BLF opera en AV Nivel 3 supervisado, exclusivamente en el corredor Pergamino-Rosario. Camionero humano en cabina, asistencia AV para frenado, mantenimiento de carril y monitoreo de fatiga. La fase es de calibración del modelo LNMA con condiciones argentinas.
+- **Fase 2 (2031-2034).** 15% de la flota en AV Nivel 3 supervisado, sobre tres corredores: Pergamino-Rosario, Humahuaca-Buenos Aires parcial (tramo pampeano certificado) y San Juan-Buenos Aires. Expansión controlada con certificación PCAV por tramo.
+- **Fase 3 (2035-2040).** 40% de la flota BLF opera en AV supervisado sobre siete corredores productivos críticos. Primeros tramos con supervisor remoto en Nivel 4 acotado.
+- **Fase 4 (2041-2046).** 65% de la flota BLF opera en corredores certificados PCAV, siempre con Operador AV certificado PLANREP en cada turno. El techo del 65% no es tecnológico sino doctrinario: la Doctrina del Doble Desplazamiento prohíbe el reemplazo total.
+
+### 5.5 Data-logging BLF al LNMA
+
+Toda unidad BLF incorpora telemetría que reporta en tiempo real al LNMA vía ArgenCloud. Los datos registrados comprenden velocidad, ubicación, carga transportada, consumo de combustible, eventos de fatiga del conductor, fallos mecánicos y condiciones de ruta. Estos datos alimentan el modelo argentino de percepción logística y ferroviaria, permiten calibrar umbrales de intervención AV sobre geografías propias (el ripio cuyano, la neblina pampeana, el ganado en banquina) y se publican en forma agregada como bien común. La curaduría la realiza ANMov en coordinación con ANDIG bajo el protocolo de la Sección 4.5. Código abierto, datos abiertos, modelo soberano.
+
+### 5.6 Operadores BLF con Credencial PLANREP
+
+Cada chofer de BLF porta Credencial PLANREP de "Operador de Flota Bastarda" con 5 niveles progresivos de capacitación, desde la conducción básica (Nivel 1) hasta la supervisión de convoyes AV en corredor certificado (Nivel 5). La credencial se obtiene y se asciende en los Tallers PLANTALLER regionales, que articulan la formación con la memoria técnica de los choferes veteranos. Renovación obligatoria cada 2 años, con módulos de actualización sobre nueva doctrina PCAV. El paso de Nivel 3 a Nivel 4 habilita el salario incremental financiado por el FRM, de modo que la reconversión sea experimentada como ascenso y no como amenaza.
+
+### 5.7 Ejemplo Operativo — Corredor Humahuaca-Buenos Aires 2030
+
+En 2030 el corredor Humahuaca-Buenos Aires opera con flota mixta: 70% camioneros tradicionales y 30% AV Nivel 3 supervisado sobre los tramos pampeanos certificados (el tramo de altura sigue íntegramente humano). Florencia —la del Preámbulo, la que producía conservas en la quebrada— despacha su producción con BLF: la mercadería viaja con un camionero humano en cabina, como siempre, pero con asistencia AV que monitorea fatiga, ruta y consumo en los tramos largos. El costo logístico de Florencia cae del 47% al 14% del valor del producto, porque la BLF opera at-cost y porque la asistencia AV recorta tiempos muertos y consumo. Diego —de haber elegido la ruta de reconversión temprana en lugar de esperar al 32— es uno de los choferes del 70% humano que conviven con el 30% AV, con Credencial PLANREP Nivel 4 y salario incrementado por el FRM. La Doctrina se cumple: la mercadería se mueve más barata, el chofer sigue en cabina, el modelo aprende del camino.
+
 ---
 
 ## SECCIÓN 6: REACTIVACIÓN FERROVIARIA EN DETALLE
@@ -847,6 +897,41 @@ Año 3-5: expansión a 40+ corredores.
 - SOFSE opera pasajeros.
 - Trenes Argentinos Cargas + Bastarda Logística opera cargas.
 - Co-gestión con usuarios y trabajadores.
+
+### 6.4 Trenes Autónomos en Corredores Dedicados
+
+La automatización ferroviaria argentina no se proyecta como copia del Rio Tinto australiano ni como sueño tecnócrata, sino como un proceso acotado, con corredores piloto, modelo soberano y operador humano en cabina hasta 2040. La doctrina es: en Argentina no hay trenes de carga completamente automatizados en territorio nacional hasta la Fase 4, y aun allí la ocupación humana es obligatoria bajo PCAV.
+
+- **Corredor piloto 1 — Retiro-Tigre (Línea Mitre eléctrica).** Fase 2 (2031-2034). 30 km de línea existente electrificada, con señalización moderna y cruces controlados. Se arranca con conducción humana más co-piloto AV durante 18 meses; una vez validado el modelo sobre condiciones argentinas, se asciende a AV Nivel 4 con supervisor humano obligatorio en cabina hasta 2040. Es línea de pasajeros: ningún nivel superior se habilita hasta que PCAV certifique índices de seguridad equivalentes a los tres operadores humanos mejor puntuados del mismo corredor.
+- **Corredor piloto 2 — Rosario-San Lorenzo cargas.** Fase 3 (2035-2040). Corredor dedicado sin tráfico de pasajeros, con control de accesos, que habilita operación AV Nivel 4 con operador remoto y coordinador local. Se eligió por tratarse del tramo de mayor densidad de cargas agroindustriales, con perfil físico acotado y segregable del tráfico vehicular.
+- **Integración con el LNMA.** El LNMA entrena un modelo de percepción ferroviaria específico para condiciones argentinas: cruces a nivel sin barrera, presencia de ganado en la traza, niebla del Paraná, crecidas litoraleñas, vandalismo puntual de vías. El modelo genérico importado no sirve; el modelo argentino se construye con los datos crudos del corredor piloto 1.
+- **Certificación PCAV ferroviaria.** Cuatro niveles: L0 sin asistencia, L1 asistencia al maquinista, L3 automatización condicional con operador en cabina, L4 alta autonomía con supervisor humano. No se habilita L5 en territorio nacional dentro del horizonte PLANMOV.
+- **Operador humano obligatorio en cabina hasta 2040** bajo PCAV, incluso en tramos L4 certificados. No hay trenes de carga completamente automatizados en territorio argentino hasta la Fase 4, y en esa fase la automatización total solo se admite en corredores dedicados sin cruces a nivel activos.
+- **Reconversión.** Los maquinistas existentes de Trenes Argentinos Cargas pasan a la categoría de Coordinadores de Corredor AV Ferroviario, con aumento del 35% sobre el salario base (diferencial compensado por el FRM). La reconversión es ascenso profesional: del puesto de mando se pasa al puesto de coordinación de flota AV, con salario superior y mayor responsabilidad técnica.
+
+### 6.5 Mantenimiento Predictivo con IA
+
+La segunda capa cognitiva de la reactivación ferroviaria no está en la cabina sino en el taller. Sensores instalados en material rodante —vagones, locomotoras, bogies, sistemas de freno— reportan en tiempo real al LNMA: temperatura de rodamientos, vibraciones anómalas, patrón de desgaste de zapatas, consumo eléctrico de equipos auxiliares, integridad de acoples. El modelo predictivo detecta fallas con 60 a 90 días de antelación sobre fallas críticas (rodamientos recalentados, frenos fatigados, acoples con microfisura).
+
+La articulación con saber ancestral es constitutiva, no decorativa. Los modelos LNMA se entrenan sobre la biblioteca técnica depositada en el Archivo Ferroviario Nacional, incluida la de Héctor del Preámbulo: cincuenta años de anotaciones propias sobre reparaciones sin repuesto original en locomotoras GEC Alsthom y Montreal Locomotive Works, registros de tolerancia por fuera de manual, soluciones criollas documentadas con fotografía y croquis. El modelo argentino sabe lo que sabe el taller argentino.
+
+Reducción estimada en régimen pleno: 30% del costo de mantenimiento (con cambio de régimen correctivo a preventivo) y 45% de reducción en interrupciones no planificadas (el tren ya no se detiene en medio del corredor porque el modelo lo llamó al taller antes). La ejecución de reparaciones se articula con los Tallers PLANTALLER regionales, con cuadros técnicos reconvertidos que operan con la misma credencial PLANREP usada en BLF.
+
+### 6.6 Columna Múltiple — Especificación Técnica por Km
+
+La doctrina de Rieles como Columna Múltiple (Sección 3.6.2) se traduce en una especificación técnica comparable en términos de costo de obra y retorno operativo. La tabla siguiente resume, en valores de proyecto 2026, las cuatro configuraciones posibles más la configuración integrada:
+
+| Configuración | Costo USD/km | Ingreso incremental anual USD/km | Payback (años) |
+|---|---|---|---|
+| Riel solo | 1.870.000 | 0 (flete ferroviario) | — |
+| Riel + tendido eléctrico media-alta tensión | 2.150.000 | 14.000 (peaje energético) | ~20 |
+| Riel + fibra óptica troncal | 2.320.000 | 22.000 (arriendo fibra) | ~21 |
+| Riel + ducto gas o agua | 2.610.000 | 38.000 (peaje ductos) | ~20 |
+| **Multicapa completa (los 4)** | **2.520.000** | **74.000** | **~34** |
+
+El dato contraintuitivo es que la multicapa completa cuesta menos que la suma de las capas individuales. La razón es que el costo dominante de todas las configuraciones es la excavación, el terraplenado, la servidumbre de paso y la gestión ambiental; una vez hecho ese trabajo, sumar fibra o ducto sobre la misma traza tiene costo marginal acotado. El ingreso incremental por km de multicapa supera al del riel solo en la proporción exacta que necesita la reactivación para financiarse sin depender exclusivamente del flete ferroviario.
+
+Ejemplo corredor Belgrano Cargas 1.500 km multicapa: USD 3.780M de inversión total contra USD 2.800M del riel solo, lo que arroja un sobrecosto de USD 980M. Ese sobrecosto genera USD 110M/año de ingresos incrementales (peaje energético, arriendo de fibra, peaje de ductos), amortizable en nueve años. El valor financiero y estratégico de la multicapa es indiscutible, pero requiere un consorcio de ejecución entre ANMov, ANEN (energía), ARSAT (fibra) y las Bastardas sectoriales de cada materia. Sin ese consorcio la obra se hace como riel solo y se pierde la ventana.
 
 ---
 
