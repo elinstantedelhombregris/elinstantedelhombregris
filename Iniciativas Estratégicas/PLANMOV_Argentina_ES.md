@@ -1143,6 +1143,34 @@ La electrificación ferroviaria se coordina con el despliegue de la malla energ�
 
 El Fondo Soberano de Contingencia Móvil, activable ante externalidad AV grave (accidente masivo, falla sistémica de certificación), queda articulado con el FSE de PLANMON como línea específica. Los Bonos Soberanos Infraestructura 30-40 años son instrumento principal del financiamiento PLANMOV, emitidos bajo el régimen monetario de PLANMON con cobertura contra volatilidad cambiaria. La política de tipo de cambio se articula estrechamente: los Créditos de Kilómetros BAMD se indexan al Tablero PLANMON para preservar valor real frente a oscilaciones, manteniendo el kilómetro como unidad de cuenta estable de la economía móvil.
 
+### 10.16 Tabla Resumen de Sinergias con el Ecosistema ¡BASTA!
+
+**TABLA 10.16: Sinergias PLANMOV × Otros PLANes**
+
+| PLAN | Sinergia |
+|---|---|
+| PLANMESA | Mesas de Corredor, Credencial Movilidad |
+| PLANTALLER | Tallers de reparación ferroviaria, construcción portuaria |
+| PLANCUIDADO | Movilidad accesible universal |
+| PLANMEMORIA | Archivo técnico ferroviario (Héctor) |
+| PLANTER | Hidrovía articulada con Personalidad Jurídica Paraná |
+| PLANEB | Bastarda Logística, Bastarda Fluvial, BLF |
+| PLANEN | Rieles columna múltiple energética |
+| PLANDIG | Fibra óptica en rieles, plataforma técnica |
+| PLANREP | Reconversión cuadros ferroviarios y portuarios |
+| PLANEDU | Carreras técnicas articuladas con Tallers |
+| PLANCUL | Trenes culturales, circuitos patrimoniales |
+| PLANJUS | Disputas con operadores concesionarios |
+| PLANSEG | Seguridad en transporte público |
+| PLANVIV | Integración movilidad-hábitat |
+| PLANISV | Logística agroecológica |
+| PLANSAL | Ambulancias territoriales, acceso a APS |
+| PLANGEO | Conectividad binacional estratégica |
+| PLAN24CN | Ciudades nuevas con transporte desde día 1 |
+| PLANAGUA | Logística hídrica interior |
+| PLANSUS | Logística medicinal |
+| PLANMON | Infraestructura como palanca productiva |
+
 ---
 
 ## SECCIÓN 11: MODELO ECONÓMICO
@@ -1365,11 +1393,11 @@ ANMov reporta trimestralmente al Tablero Nacional de Movilidad las siguientes m�
 
 ---
 
-## SECCIÓN 9: RIESGOS Y RESPUESTAS
+## SECCIÓN 22: RIESGOS Y RESPUESTAS
 
-### 9.1 Matriz
+### 22.1 Matriz
 
-**TABLA 9.1: Riesgos PLANMOV**
+**TABLA 22.1: Riesgos PLANMOV**
 
 | # | Riesgo | Probabilidad | Impacto | Mitigación | Residual |
 |---|---|---|---|---|---|
@@ -1384,7 +1412,7 @@ ANMov reporta trimestralmente al Tablero Nacional de Movilidad las siguientes m�
 | R9 | Clima político adverso a obra pública | Media | Alto | Comunicación, casos demostración, beneficio visible usuarios | Medio |
 | R10 | Capacidad de absorción de la economía | Media | Medio | Escalamiento progresivo, capacidad productiva incremental | Bajo-medio |
 
-### 9.2 Críticas Anticipadas
+### 22.2 Críticas Anticipadas
 
 **"USD 100.000M es imposible."**
 España invirtió USD 50.000M en 30 años con PBI menor al argentino. La escala es comparable. El plazo acompaña.
@@ -1400,9 +1428,9 @@ Londres, Singapur, Seúl, Ciudad de México tienen autoridades metropolitanas un
 
 ---
 
-## SECCIÓN 10: HOJA DE RUTA
+## SECCIÓN 25: HOJA DE RUTA
 
-### 10.1 Cronograma
+### 25.1 Cronograma
 
 **Año 1:**
 - Ley ANMov.
@@ -1436,7 +1464,7 @@ Londres, Singapur, Seúl, Ciudad de México tienen autoridades metropolitanas un
 - Nuevas rutas emergentes.
 - Exportación de modelo a la región.
 
-### 10.2 Lo Que No Sabemos
+### 25.2 Lo Que No Sabemos
 
 - Respuesta del sector camión.
 - Tasa de adopción real del MKC.
@@ -1445,9 +1473,9 @@ Londres, Singapur, Seúl, Ciudad de México tienen autoridades metropolitanas un
 
 ---
 
-## SECCIÓN 11: TABLERO NACIONAL DE MOVILIDAD
+## SECCIÓN 21: TABLERO NACIONAL DE MOVILIDAD
 
-### 11.1 Métricas
+### 21.1 Métricas
 
 - Km ferroviarios operativos.
 - Toneladas por modo.
@@ -1459,7 +1487,7 @@ Londres, Singapur, Seúl, Ciudad de México tienen autoridades metropolitanas un
 - Trabajadores formales.
 - Satisfacción usuaria.
 
-### 11.2 Triggers Correctivos
+### 21.2 Triggers Correctivos
 
 - Corredor con saturación: inversión ampliada.
 - MKC subutilizado en territorio: campaña + análisis.
@@ -1467,43 +1495,13 @@ Londres, Singapur, Seúl, Ciudad de México tienen autoridades metropolitanas un
 
 ---
 
-## SECCIÓN 12: INTEGRACIÓN CON EL MARCO ¡BASTA!
+## SECCIÓN 24: DIMENSIÓN FEDERAL
 
-**TABLA 12.1: Sinergias PLANMOV × Otros PLANes**
-
-| PLAN | Sinergia |
-|---|---|
-| PLANMESA | Mesas de Corredor, Credencial Movilidad |
-| PLANTALLER | Tallers de reparación ferroviaria, construcción portuaria |
-| PLANCUIDADO | Movilidad accesible universal |
-| PLANMEMORIA | Archivo técnico ferroviario (Héctor) |
-| PLANTER | Hidrovía articulada con Personalidad Jurídica Paraná |
-| PLANEB | Bastarda Logística, Bastarda Fluvial, BLF |
-| PLANEN | Rieles columna múltiple energética |
-| PLANDIG | Fibra óptica en rieles, plataforma técnica |
-| PLANREP | Reconversión cuadros ferroviarios y portuarios |
-| PLANEDU | Carreras técnicas articuladas con Tallers |
-| PLANCUL | Trenes culturales, circuitos patrimoniales |
-| PLANJUS | Disputas con operadores concesionarios |
-| PLANSEG | Seguridad en transporte público |
-| PLANVIV | Integración movilidad-hábitat |
-| PLANISV | Logística agroecológica |
-| PLANSAL | Ambulancias territoriales, acceso a APS |
-| PLANGEO | Conectividad binacional estratégica |
-| PLAN24CN | Ciudades nuevas con transporte desde día 1 |
-| PLANAGUA | Logística hídrica interior |
-| PLANSUS | Logística medicinal |
-| PLANMON | Infraestructura como palanca productiva |
-
----
-
-## SECCIÓN 13: DIMENSIÓN FEDERAL
-
-### 13.1 Pacto Federal Movilidad
+### 24.1 Pacto Federal Movilidad
 
 Convenios ANMov-Provincia. Coparticipación ferroviaria. Priorización territorial participativa.
 
-### 13.2 Casos Especiales
+### 24.2 Casos Especiales
 
 - Patagonia: inversión específica por densidad demográfica y distancias.
 - NOA/NEA: priorización alta por impacto productivo.
@@ -1512,9 +1510,9 @@ Convenios ANMov-Provincia. Coparticipación ferroviaria. Priorización territori
 
 ---
 
-## SECCIÓN 14: VISIÓN 2040
+## SECCIÓN 26: VISIÓN 2040
 
-### 14.1 Lo Que Se Ve
+### 26.1 Lo Que Se Ve
 
 - 25.000 km ferroviarios de carga operativos.
 - 8.000 km ferroviarios pasajeros regionales.
@@ -1526,19 +1524,19 @@ Convenios ANMov-Provincia. Coparticipación ferroviaria. Priorización territori
 - 60.000 trabajadores ferroviarios formales.
 - 20.000 trabajadores portuarios formales.
 
-### 14.2 Lo Que No Se Ve Pero Está
+### 26.2 Lo Que No Se Ve Pero Está
 
 Héctor a los 84, invitado como Testigo de los 60 para la inauguración del tramo Tucumán-Laguna Paiva reactivado, con su biblioteca técnica depositada en el Archivo Ferroviario Nacional; Florencia a los 62, produciendo 10 veces más conservas, exportando a Chile y Uruguay porque la Bastarda Fluvial opera a costo, con dos hijos que están haciendo reconversión en Taller metalúrgico ferroviario; una chica de 14 años de Ingeniero Jacobacci que nunca vio caer un tren, solo vio renacer uno; y 45 millones de argentinos usando su Mandato Kilométrico sin saber exactamente qué es PLANMOV pero sintiéndolo cada vez que suben a un tren moderno, a un subte nuevo, a un buque fluvial que los lleva a Rosario en 14 horas.
 
-### 14.3 La Pregunta Final
+### 26.3 La Pregunta Final
 
 ¿Puede Argentina volver a estar conectada consigo misma? Sí. Canadá, Australia, España lo hicieron. Argentina tiene la infraestructura histórica parcialmente preservada, el saber técnico parcialmente vivo, el territorio para hacerlo. Lo que necesita es lo que nunca tuvo junto: **plan de 20 años, presupuesto protegido, Bastarda, Mandato Kilométrico, Autoridad Metropolitana, Red Federal de Puertos, Hidrovía Soberana**. PLANMOV es ese paquete.
 
 ---
 
-## SECCIÓN 15: PROTOCOLO DE FALLA
+## SECCIÓN 23: PROTOCOLO DE FALLA
 
-### 15.1 Matriz
+### 23.1 Matriz
 
 **F1 — Crisis fiscal:** priorización reforzada de AMBA y 3 corredores críticos; demás se pospone; obra iniciada se completa.
 
@@ -1550,13 +1548,13 @@ Héctor a los 84, invitado como Testigo de los 60 para la inauguración del tram
 
 **F5 — Reversión política:** obra iniciada difícil de desarmar; MKC ya en bolsillos; path dependency cívica.
 
-### 15.2 Cláusula de Continuidad
+### 23.2 Cláusula de Continuidad
 
 Si colapsa régimen, MKC con saldo preservado vía Bastarda si es necesario; obras iniciadas con contratos públicos se terminan; AMBA-T como autoridad se preserva.
 
 ---
 
-## CIERRE
+## SECCIÓN 27: CIERRE
 
 Héctor, el ex-ferroviario de Laguna Paiva, sigue hoy en su casa con sus libros técnicos en dos estanterías. Florencia, la productora de conservas de Humahuaca, sigue en su cocina ampliada del patio de su casa pagando cuarenta y siete por ciento de flete. Pero en la Argentina que PLANMOV construye, dentro de seis años, Héctor está participando en el primer ciclo LDEA de la Mesa Civil del Corredor Belgrano Cargas — depositó su archivo técnico, los ingenieros nuevos lo consultan semanalmente, su saber de cuarenta años no es arqueología sino input operativo; y Florencia tiene contrato con la Bastarda Logística Federal para flete que le captura 11% del valor del producto en lugar de 47%, exporta a Chile vía corredor trasandino reactivado, contrató a dos vecinas más, y su hijo está por estudiar Ingeniería Ferroviaria en la UTN regional porque ahora es carrera con futuro, no con fantasma.
 
