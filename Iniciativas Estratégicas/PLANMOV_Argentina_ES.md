@@ -603,6 +603,138 @@ El río también es dato. La navegación fluvial soberana exige instrumentación
 
 ---
 
+### 3.C CAPA III — SOBERANÍA COGNITIVA Y ACTIVOS DISPONIBLES
+
+Esta es la capa enteramente nueva de la v2.0, la que no existía en la versión anterior del PLANMOV y que responde a dos problemas convergentes que las Capas I y II no alcanzaban a cubrir. El primero es la disrupción algorítmica: vehículos autónomos, dispatching por IA, gemelos digitales de rutas, flotas que aprenden. Si Argentina no ordena esa disrupción con mandamientos explícitos de soberanía cognitiva, la sufre como extracción — los datos de cada ruta argentina entrenan modelos ajenos, el ahorro por automatización se fuga a accionistas offshore, y los choferes desplazados terminan en la economía informal sin red. El segundo problema es la existencia, en el territorio, de un stock enorme de activos ociosos: millones de autos particulares parados 23 horas por día, galpones ferroviarios cerrados, GPUs domésticas subutilizadas, flotas estatales operando al 40% de capacidad. La Doctrina de Activos Disponibles dice que mientras haya un solo argentino sin poder moverse, ningún activo de movilidad puede quedar ocioso si existe manera bastarda de ponerlo a rodar.
+
+La Capa III tiene cuatro elementos: tres dispositivos técnicos — **Bastarda de Activos Móviles Disponibles (BAMD)**, **Laboratorio Nacional de Movilidad Autónoma (LNMA)**, **Fondo de Reconversión Móvil (FRM) más Canon de Automatización Logística** — y una doctrina constitucional transversal, la **Doctrina del Doble Desplazamiento**, que atraviesa todas las decisiones sobre IA y autonomía vehicular. Esta capa existe porque Diego (Voz III del Preámbulo), camionero desplazado por el AV de larga distancia, y Julia (Voz IV), dueña de un Ford Fiesta 2018 que pasa parado en un estacionamiento del conurbano, lo pidieron. La Capa III les responde: Diego con reconversión financiada y trayecto productivo; Julia con renta mensual por aportar el auto a la malla pública bastarda.
+
+### 3.9 Bastarda de Activos Móviles Disponibles (BAMD)
+
+**Concepto:** La BAMD es una empresa bastarda de arquitectura PLANEB — cero propiedad individual, gobernanza DAO, operación a costo más reinversión — cuya misión única es convertir activos de movilidad ociosos en malla pública de transporte. Es la Doctrina de Activos Disponibles hecha dispositivo operativo. Julia del Preámbulo es la beneficiaria modelo: su Ford Fiesta 2018, aportado a la BAMD bajo Contrato Bastardo, deja de ser un costo hundido que duerme en un estacionamiento y pasa a ser un activo que le genera renta mensual mientras suma capacidad a la red de movilidad metropolitana. La BAMD no compite con los usuarios del MKC — los sirve. No compite con el ferrocarril ni con la BLF — los complementa en última milla, baja densidad y horarios no-pico.
+
+**Cuatro tipologías de activo:**
+
+| Tipo | Ejemplos | Aportante |
+|---|---|---|
+| Flotas privadas ociosas | Autos particulares (13,2M), utilitarios de PyMEs (1,8M), motos, combis | Ciudadanos, comerciantes |
+| Capacidad computacional | GPUs domésticas, nodos edge computing, cómputo doméstico | Hogares, escuelas, cooperativas |
+| Infraestructura subutilizada | Galpones ferroviarios, estaciones cerradas, puertos semi-operativos, flotas estatales (Correo Argentino, YPF, ENARSA, Ejército) | Estado, provincias, municipios |
+| Trabajo desplazado por AV/IA | Choferes, dispatchers, operarios redirigidos vía FRM | Transportistas reconvertidos |
+
+**Modelo económico del aportante:** El aportante firma **Contrato Bastardo renovable cada 12 meses** y recibe **Créditos de Kilómetros (CK)** por uso efectivo del activo aportado, intercambiables con MKC+ o convertibles a pesos al tipo de cambio publicado por el Tablero Nacional de Movilidad. La BAMD se hace cargo del **seguro colectivo bastardo** (pool mutualista), del **mantenimiento subvencionado** con talleres acreditados, de la **certificación técnica trimestral** y del **dispatching** vía plataforma soberana. El aportante conserva la propiedad del activo y puede retirarlo con preaviso de 30 días sin penalidad. Caso Julia: su Ford Fiesta 2018 aportado con uso promedio de la flota devuelve aproximadamente **USD 1.900 netos por año en CK**, más cobertura integral de mantenimiento, más seguro, más una red de respaldo si el auto se rompe o lo chocan.
+
+**Garantías al usuario BAMD:** La contraparte del sistema — el ciudadano que usa la BAMD para moverse — recibe **tarifa igual o menor al 60% de la tarifa taxi/Uber/remís equivalente** por trayecto; **seguro integral incluido** vía pool mutualista bastardo; **rastreo y botón de emergencia 24/7** integrado con el sistema PLANSEG; y **vehículo certificado trimestralmente** en condiciones técnicas y de higiene publicadas en la ficha visible del viaje.
+
+**Escala proyectada:**
+
+- Año 2: 8.000 activos en malla.
+- Año 5: 180.000 activos.
+- Año 10: 900.000 activos, aproximadamente el 7% del parque privado nacional.
+
+**Pilotos regionales:**
+
+- Año 1-2: AMBA, con universo potencial de 4,2M unidades.
+- Año 2-3: Gran Córdoba, Gran Rosario, Gran Mendoza.
+- Año 3-5: interior productivo (NEA, NOA, Cuyo, Patagonia Norte).
+- Año 5-10: territorio rural con adaptación específica a baja densidad y distancias largas.
+
+**Gobernanza:** **Fideicomiso de Propósito Perpetuo PLANEB** como envoltura jurídica, **DAO operativa** con panel ciudadano rotativo de 120 miembros por sorteo, y **Directorio mixto** compuesto por técnicos designados por ANMov, aportantes elegidos entre las tipologías de activo, usuarios elegidos por sorteo del padrón de viajes, y un representante del FRM para asegurar articulación con la reconversión laboral. La BAMD no tiene accionistas y no puede ser vendida, escindida ni fusionada con un privado bajo ninguna circunstancia.
+
+**Inversión estimada BAMD:** USD 450M en 10 años, destinados mayoritariamente a infraestructura de plataforma tecnológica, pool de seguro mutualista inicial, red de talleres acreditados y campañas de onboarding de aportantes.
+
+### 3.10 Laboratorio Nacional de Movilidad Autónoma (LNMA)
+
+**Concepto:** El LNMA es la **capa vertical aplicada de soberanía cognitiva sobre movilidad**, montada sobre la infraestructura base de LANIA (Laboratorio Nacional de Inteligencia Artificial del PLANDIG). No duplica modelos fundacionales — eso lo resuelve LANIA para todo el ecosistema ¡BASTA! — sino que entrena **modelos verticales específicos de movilidad argentina**: percepción en rutas de ripio, animales en banquina, neblina del litoral, viento patagónico, señalización precaria, tránsito mixto con sulky y moto en el mismo corredor. El LNMA es la condición técnica para que la movilidad autónoma en Argentina sea operada con doctrina propia y no concesionada como servicio cerrado de un proveedor extranjero.
+
+**Stack soberano:**
+
+| Capa | Qué hace | Relación con LANIA |
+|---|---|---|
+| Percepción | Cámaras, LiDAR, radar adaptado a ripio, señalización precaria, animales en ruta, neblina litoral, viento patagónico | Fine-tune sobre modelos LANIA |
+| Planificación | Trip planning multimodal MKC+BLF+BAMD | Modelo propio sobre cómputo LANIA |
+| Control | Algoritmos de control para flota heterogénea | Modelo propio |
+| Simulación | Gemelo digital de corredores argentinos | Integrado al gemelo de El Mapa (PLANDIG) |
+| V2X | Vehicle-to-vehicle / vehicle-to-infrastructure | Estándar ANMov + ANDIG |
+| Certificación | PCAV — Protocolo de Certificación de Autonomía Vehicular | Regulado por ANMov |
+
+**Principios no-negociables:**
+
+1. **Código abierto como default.** Todo modelo, dataset y algoritmo entrenado con fondos públicos o con datos argentinos es open source publicado en el repositorio nacional. La única excepción es por seguridad de infraestructura crítica, y requiere aprobación expresa del Directorio de ANMov más dictamen del Síndico de Archivo.
+2. **Datos argentinos se quedan en Argentina.** Toda operación AV sobre territorio nacional tiene **data-logging obligatorio al LNMA vía ArgenCloud**. No hay excepción contractual posible: un fabricante extranjero que no acepte data-logging, no opera.
+3. **Datos de movilidad como commons público auditable.** Los datasets generados por flotas bastardas, privadas y estatales se publican con acceso prioritario para investigadores argentinos, universidades públicas y Bastardas, con ventanas de embargo mínimas definidas por protocolo público.
+4. **Human-in-the-loop durante la transición.** Hasta 2040 toda operación AV Nivel 3 o superior requiere **Operador AV certificado PLANREP** a bordo o en control remoto supervisado, salvo autorización especial por corredor específico emitida por ANMov con audiencia pública previa.
+
+**Corredores piloto AV:**
+
+- **Fase 1 (2028-2030):** corredor Pergamino-Rosario con camiones AV supervisados para granos; tren autónomo Retiro-Tigre con Operador de cabecera.
+- **Fase 2 (2031-2034):** automatización parcial de patio de contenedores en Dock Sud; corredor Buenos Aires-Mar del Plata para transporte de pasajeros de media distancia; puerto de Ushuaia con grúas autónomas.
+- **Fase 3 (2035-2040):** red extendida con niveles SAE diferenciados por corredor, integración plena con BAMD y BLF, operación sostenida en Hidrovía con remolcadores semi-autónomos.
+
+**Protocolo PCAV:** La certificación se emite sobre el par **nivel SAE × corredor específico**. No se certifica "AV en general", se certifica "AV Nivel 4 en ruta 9, tramo Pergamino-Rosario". Un camión Nivel 4 certificado en ruta 9 **no está certificado para ruta 40**, y operar fuera del corredor certificado es infracción con revocación automática. Auditoría obligatoria cada 6 meses sobre la flota certificada, revocable en cualquier momento por incidente grave o desvío estadístico sobre la línea de base del corredor.
+
+**Presupuesto LNMA:** USD 1.200M en 10 años. El cómputo compartido con LANIA permite reducir el costo de infraestructura de cómputo en aproximadamente un 60% respecto a un laboratorio autónomo equivalente.
+
+### 3.11 Fondo de Reconversión Móvil (FRM) + Canon de Automatización Logística
+
+**Concepto:** El FRM es el **dispositivo económico que operativiza la Doctrina del Doble Desplazamiento**. El principio es directo: toda automatización que desplaza trabajo humano sobre territorio argentino paga por las consecuencias humanas que genera, y ese pago financia la reconversión productiva de quienes fueron desplazados. Diego del Preámbulo es el beneficiario modelo: camionero de larga distancia con 22 años de oficio, desplazado por un AV Nivel 4 en el corredor Rosario-Buenos Aires, entra al FRM con **Pensión Puente Móvil** garantizada mientras dura su trayecto formativo hacia supervisor de flota autónoma, técnico de mantenimiento AV o, si así lo elige, emprendedor post-transportista en una Bastarda local.
+
+**Fórmula del Canon:**
+
+```
+Canon_Anual(AV_k) = HEDA(AV_k) × CAR
+```
+
+Donde:
+
+- **HEDA(AV_k)** = Horas de Trabajo Humano Equivalente Desplazadas Anualmente por el vehículo autónomo k, calculadas sobre horas operadas y factor de nivel SAE.
+- **CAR** = Costo Anual de Reconversión por hora de trabajo desplazada, fijado por ANMov con indexación anual según canasta laboral del sector transporte.
+
+**Factor HEDA por nivel SAE:**
+
+- Nivel 2 (asistencia al conductor): 0,10 × horas operadas
+- Nivel 3 (conducción condicional): 0,35 × horas operadas
+- Nivel 4 (alta autonomía): 0,75 × horas operadas
+- Nivel 5 (plena autonomía): 1,00 × horas operadas
+
+**Ejemplo operativo:** Un camión AV Nivel 4 de larga distancia opera 3.200 horas por año sobre el corredor Pergamino-Rosario. HEDA = 3.200 × 0,75 = **2.400 horas desplazadas por año**. El CAR fijado por ANMov para el año en curso es de USD 9,50 por hora. Canon anual del vehículo = 2.400 × 9,50 = **USD 22.800 por año por vehículo**. Una flota privada de 500 camiones Nivel 4 en operación sostenida paga **USD 11,4M por año al FRM**, monto destinado íntegramente a reconversión de los transportistas desplazados por esa misma flota.
+
+**Destino del Fondo:**
+
+| Rubro | % del Fondo |
+|---|---|
+| Pensión Puente Móvil (PPM) — ingreso durante reconversión | 45 |
+| Formación técnica (Tallers PLANTALLER + UTNs) | 20 |
+| Salud y aportes durante transición | 15 |
+| Subsidio reconversión en Bastardas (BAMD, BLF, PLANEB) | 12 |
+| Kit emprendedor post-transportista | 5 |
+| Administración y auditoría | 3 |
+
+**Otras fuentes del Fondo:**
+
+- 20% de ingresos excedentes anuales de la BAMD.
+- 10% de los Créditos de Kilómetros emitidos y no cobrados en ventana de caducidad.
+- Asignación presupuestaria nacional de 0,08% del PBI como piso.
+- Contribuciones cruzadas de otras Bastardas bajo Protocolo Bastardo PLANEB (reciprocidad entre Fondos sectoriales de reconversión).
+
+**Articulación con PLANREP:** El transportista desplazado no queda librado al mercado. Ingresa al sistema PLANREP con **ruta específica "Reconversión Móvil"**, supervisada conjuntamente por ANMov y el Arquitecto de Fuerza Laboral IA del PLANDIG. La ruta incluye diagnóstico inicial, elección entre tres trayectos formativos (técnico AV, operador supervisor, emprendedor bastardo), asignación de tutor, seguimiento trimestral y garantía de primer empleo o contrato bastardo a la salida del trayecto.
+
+### 3.12 Doctrina del Doble Desplazamiento (marco transversal)
+
+**Marco transversal:** La Doctrina del Doble Desplazamiento no es un dispositivo técnico más. Es el **principio constitucional que rige toda la Capa III** y, por extensión, toda decisión del Estado argentino sobre IA y autonomía vehicular en movilidad. Se enuncia como tres mandamientos aplicables ex ante a cada proyecto de automatización, cada certificación PCAV, cada autorización de corredor, cada contrato de dispatching algorítmico.
+
+**Los Tres Mandamientos:**
+
+**1. La automatización desplaza renta capturada, no trabajo humano.** Si una flota AV se despliega sin plan de reconversión demostrable y financiado del trabajo humano que desplaza, no se autoriza — punto. La ecuación argentina siempre es la misma: primero se desplaza la renta oligopólica concentrada en intermediarios, dispatchers privados, importadores de autopartes y concesionarios; después, y solo con plan explícito, se desplaza el trabajo humano directo. La automatización no es un fenómeno neutral que "simplemente ocurre" — tiene sesgo redistributivo que el Estado argentino elige explícitamente en el momento de autorizar cada tecnología.
+
+**2. El ahorro por automatización se reparte entre usuarios y reconvertidos, no entre accionistas.** Si una Bastarda pone AV, el **100% del ahorro** generado se reparte entre tarifas más bajas para los usuarios y aporte al FRM para los reconvertidos. Si un operador privado pone AV, paga **Canon proporcional al trabajo desplazado** más **Revenue Sharing con usuarios** vía tarifa regulada por corredor. Si el privado intenta eludir el Canon reclasificando su flota como Nivel 2 cuando opera Nivel 4, **pierde la certificación PCAV** y no puede operar.
+
+**3. Los datos generados por algoritmos en rutas argentinas son commons argentino.** Lo que un auto, un camión, un tren o un barco aprende circulando sobre rutas argentinas queda en servidores argentinos y alimenta modelos argentinos. No existe operación AV sobre territorio nacional sin **data-logging obligatorio al LNMA vía ArgenCloud**, y el aprendizaje algorítmico extraído sobre ese territorio es **recurso nacional no transable** — no se exporta, no se concesiona, no se vende como dataset a terceros sin autorización expresa del Directorio de ANMov.
+
+**Implementación operativa:** ANMov ejecuta los tres mandamientos sobre cada decisión de autorización. **Síndicos de Archivo** del PLANDIG auditan el data-logging; **Coordinadores de Materia Movilidad** auditan la articulación con PLANREP y el cumplimiento del Canon. La Doctrina es excepcionable **solo por ley del Congreso con mayoría de dos tercios de cada cámara**, con audiencia pública previa y dictamen del Sistema de Contrapesos Ciudadanos. La articulación horizontal es permanente: **PLANDIG** provee la infraestructura de datos y el gemelo digital; **PLANREP** ejecuta la reconversión; **PLANEB** provee la arquitectura bastarda y replica el mecanismo del Canon hacia otros sectores donde la automatización desplace trabajo humano de manera análoga.
+
+---
+
 ## SECCIÓN 4: LA AGENCIA NACIONAL DE MOVILIDAD (ANMOV)
 
 ### 4.1 Diseño Institucional
