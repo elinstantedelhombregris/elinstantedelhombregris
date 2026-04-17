@@ -1607,7 +1607,19 @@ Decisión integrada: diseño de corredores de movilidad que atraviesan ecosistem
 - Trabajadores formales.
 - Satisfacción usuaria.
 
-### 21.2 Triggers Correctivos
+### 21.2 Métricas Humanas y Civilizatorias
+
+El Tablero Nacional no reporta solamente métricas técnicas — kilómetros de vía operativa, toneladas movidas por modo, precios de flete por corredor. Un régimen de movilidad que solo mide fierro deja afuera lo que está en juego: la dignidad de los que se mueven y de los que quedan reconvertidos. Por eso el Tablero incorpora, con igual jerarquía y publicación semestral, un conjunto de indicadores de dignidad y soberanía. Estos indicadores son auditados por la Defensoría del Pueblo y no pueden ser desactivados ni por decreto.
+
+- **Dignidad del transportista reconvertido:** porcentaje de trabajadores del FRM con ingreso igual o mayor al 80% del previo al ingreso al programa, medido a los 3 años post-reconversión. Target en régimen pleno: al menos 85%.
+- **Tiempo familiar recuperado en AMBA y metropolitanas:** horas por semana liberadas gracias a la mejora del transporte (target: reducir el tiempo promedio de commuting en AMBA de 3,5 horas/día actuales a 2,2 horas/día para 2040).
+- **Acceso de ciudadanos rurales a servicios críticos:** porcentaje de habitantes rurales con MRM (Mandato Rural de Movilidad) activa conectándolos a servicios de salud (target 95%), educación (target 90%) y justicia (target 85%).
+- **Soberanía cognitiva de movilidad:** porcentaje de datos de movilidad generados en Argentina que residen en ArgenCloud bajo custodia soberana (target: 98% en 2035).
+- **Participación ciudadana en BAMD:** cantidad de aportantes de activos cada 1.000 habitantes (target 70 por cada 1.000 en 2040).
+- **Poder adquisitivo vía MKC:** porcentaje del sueldo promedio liberado del gasto de transporte gracias al Mandato Kilométrico (target: del 18% actual al 8% en 2040).
+- **Confianza en la flota autónoma pública:** encuestas semestrales de aprobación del PCAV y de la operación AV supervisada (target de al menos 65% de aprobación en 2035).
+
+### 21.3 Triggers Correctivos
 
 - Corredor con saturación: inversión ampliada.
 - MKC subutilizado en territorio: campaña + análisis.
@@ -1633,6 +1645,13 @@ Decisión integrada: diseño de corredores de movilidad que atraviesan ecosistem
 | R8 | Conflicto con provincias por AMBA-T | Alta | Medio | Pacto Metropolitano, diálogo sostenido | Medio |
 | R9 | Clima político adverso a obra pública | Media | Alto | Comunicación, casos demostración, beneficio visible usuarios | Medio |
 | R10 | Capacidad de absorción de la economía | Media | Medio | Escalamiento progresivo, capacidad productiva incremental | Bajo-medio |
+| R11 | Fallas masivas de flota AV por bug o ataque coordinado | Media | Catastrófico | Kill-switch soberano, CAAAV, protocolo de respuesta rápida | Medio |
+| R12 | Captura regulatoria del PCAV por operadores | Media-alta | Alto | Gobernanza plural ANMov, rotación técnica, transparencia radical | Medio |
+| R13 | Concentración indebida en BAMD (>3% por grupo económico) | Media | Medio-alto | Tope regulatorio, auditoría antimonopolio automática | Bajo |
+| R14 | Resistencia sindical extrema si PPM no llega a tiempo | Alta | Alto | FRM activo desde Fase 0, sindicatos en Directorio ANMov, mecanismo acelerado | Medio |
+| R15 | Obsolescencia tecnológica del LNMA | Media | Medio | Inversión continua, alianzas internacionales, open-source con actualización constante | Bajo-medio |
+| R16 | Litigio internacional por Canon (demandas de operadores extranjeros) | Alta | Medio-alto | Defensa jurídica nacional + internacional, marco Mercosur, precedente Uber-Londres | Medio |
+| R17 | Fuga masiva de datos de movilidad | Media | Catastrófico | Ciberseguridad con Sistema Inmune PLANDIG, auditoría anual LNMA, kill-switch | Medio |
 
 ### 22.2 Críticas Anticipadas
 
@@ -1647,6 +1666,22 @@ Alemania tiene abonos ferroviarios subsidiados universales. Francia tiene precio
 
 **"AMBA-T va a ser burocracia."**
 Londres, Singapur, Seúl, Ciudad de México tienen autoridades metropolitanas unificadas. Funciona.
+
+### 22.3 Críticas Anticipadas AV-específicas
+
+Las seis críticas que más se van a repetir contra la capa autónoma del plan tienen respuesta técnica y política:
+
+**"La IA no es confiable y pone vidas en riesgo."** Por eso PCAV corredor por corredor con certificación acotada, auditoría semestral obligatoria, operador humano supervisando hasta 2040 como mínimo, y kill-switch soberano. La confiabilidad se construye con evidencia empírica por tramo, no con promesas de marketing.
+
+**"Los algoritmos argentinos no pueden competir con Waymo, con Tesla, con Baidu."** No competimos — adaptamos. El LNMA no pretende ganar la carrera global de AV de uso general; hace fine-tune sobre datos argentinos (rutas específicas, clima, comportamiento peatonal local, señalización real) y con eso obtiene rendimiento superior en terreno argentino al que ofrecen los modelos extranjeros entrenados sobre California o Shanghái.
+
+**"El Canon de Automatización es proteccionismo disfrazado."** No lo es. Es contabilidad de externalidades negativas, similar al impuesto europeo al CO2 o al impuesto argentino a combustibles líquidos. Captura el valor del empleo desplazado y lo devuelve al sistema vía FRM.
+
+**"La BAMD es un Uber estatal."** No. Uber es una empresa extractiva extranjera con márgenes del 25-30%. La BAMD es una cooperativa multiparte con transparencia radical, at-cost, seguro bastardo integrado y aportantes con voz en el Directorio. Es estructuralmente distinta — más cerca de un fondo común de activos que de una plataforma depredadora.
+
+**"Los datos de movilidad son privados y el LNMA los va a vigilar."** Los datos AGREGADOS (patrones de tráfico, tiempos, densidades) son commons porque sirven al sistema. Los datos INDIVIDUALES siguen siendo privados, con cifrado extremo-a-extremo al aportante, y no se pueden desagregar ni siquiera por orden judicial sin el protocolo PLANDIG §9.
+
+**"USD 104.000M es insostenible e inflacionario."** La infraestructura se amortiza en 50-80 años, con ROI desde el año 11. Además, no-infraestructura también es inflacionaria: el flete capturado por actores extranjeros equivale a USD 7.000M/año que se va del país sin retorno. Invertir es menos caro que no invertir.
 
 ---
 
@@ -1663,6 +1698,14 @@ Londres, Singapur, Seúl, Ciudad de México tienen autoridades metropolitanas un
 **F4 — Fracaso técnico corredor:** revisión LDEA, posible redirección a corredor alternativo.
 
 **F5 — Reversión política:** obra iniciada difícil de desarmar; MKC ya en bolsillos; path dependency cívica.
+
+**F6 — Falla de algoritmo AV en flota pública:** revocación del PCAV en el corredor afectado por 90 días corridos. Modo degradado supervisado en rutas vecinas mientras dura la investigación. CAAAV (Consejo Auditor de Algoritmos AV) conduce investigación técnica con informe público en 72 horas. Si la causa determinante es del modelo LNMA, actualización con release en 30 días y re-certificación; si es operacional, capacitación obligatoria a operadores antes de reanudar. Comunicación pública proactiva, sin opacidad ni eufemismos.
+
+**F7 — Concentración indebida en BAMD (más del 3% de activos bajo un mismo grupo económico):** auditoría antimonopolio automática activada por el Directorio BAMD al detectarse el umbral. Desinversión forzosa en 180 días. Penalidad económica equivalente al excedente obtenido por la concentración. Prohibición de incorporar nuevos activos por parte del grupo infractor durante 2 años. Revisión pública del caso en Mesa Civil ANMov.
+
+**F8 — Captura del LNMA por intereses privados:** activación del protocolo Síndicos de Archivo (PLANDIG §14) más rotación obligatoria de la dirección técnica en 90 días. Auditoría externa con consultora internacional rotativa (no puede repetirse la misma firma en 5 años). Reversión de decisiones sesgadas. Publicación open-source obligatoria del stack completo en 180 días como garantía pública contra reincidencia.
+
+**F9 — Fuga masiva de datos de movilidad:** plan de respuesta coordinado con ANDIG bajo el Sistema Inmune (PLANDIG §10). Notificación obligatoria a ciudadanos afectados en 72 horas con canal de consulta. Investigación forense con firma digital y cadena de custodia. Sanciones económicas proporcionales al daño (5-20% de ingresos anuales del operador responsable). Remediación técnica con release en 30 días y auditoría cruzada externa antes de reanudar operaciones.
 
 ### 23.2 Cláusula de Continuidad
 
@@ -1683,43 +1726,31 @@ Convenios ANMov-Provincia. Coparticipación ferroviaria. Priorización territori
 - Centro-Pampas: optimización intermodal.
 - Cuyo: corredor trasandino binacional.
 
+### 24.3 Pacto Federal AV
+
+Los estándares PCAV argentinos son de aplicación nacional con armonización interjurisdiccional: una certificación emitida para un corredor AV rige en todas las provincias que el corredor atraviesa, sin duplicación de trámites. El Canon de Automatización recaudado se reparte 50% federal / 50% provincial, con la provincia de origen del AV (lugar de matriculación operativa) como beneficiaria directa de la mitad provincial. Las provincias mantienen poder de policía para certificación en corredores íntegramente provinciales, pero siempre bajo supervisión técnica de ANMov para evitar fragmentación de estándares. Las resistencias provinciales — rechazos a corredores, demoras en habilitación, reclamos de coparticipación — se resuelven en el Consejo Federal de Movilidad, órgano nuevo con presidencia rotativa provincial anual y capacidad vinculante.
+
+### 24.4 Pacto Federal BAMD
+
+Cada provincia define sus pilotos regionales de BAMD con apoyo técnico directo de ANMov. Las provincias con alta densidad de activos ociosos susceptibles de incorporación (CABA, Buenos Aires, Córdoba, Santa Fe, Mendoza) acceden a líneas de crédito preferenciales del Banco Nación para onboarding masivo de aportantes en los primeros 3 años. Las provincias con baja densidad de activos — Patagonia austral, NOA profundo — reciben subsidio complementario para viabilidad operativa mínima, financiado con un 10% del Canon federal. Auditoría conjunta federación-provincia cada 12 meses, con resultados públicos.
+
+### 24.5 Representación Provincial en Directorio ANMov
+
+El Directorio ANMov incluye representación provincial obligatoria por rotación cada 2 años entre los seis bloques regionales (NOA, NEA, Cuyo, Centro, Pampas, Patagonia). Cada bloque elige su representante por mecanismo interno — asamblea de gobernadores del bloque o procedimiento equivalente. Los bloques que no alcancen acuerdo interno en plazo tienen su representante designado por el Consejo Federal de Movilidad. Los representantes provinciales tienen voz y voto pleno en Directorio — no son observadores ni asesores — y participan de todas las decisiones estratégicas de la Agencia.
+
 ---
 
 ## SECCIÓN 25: HOJA DE RUTA
 
-### 25.1 Cronograma
+### 25.1 Cronograma en 5 Fases
 
-**Año 1:**
-- Ley ANMov.
-- Ley Bastarda Logística.
-- Ley AMBA-T.
-- Renegociación Hidrovía iniciada.
-- Primeros 3 corredores ferroviarios piloto.
-- MKC piloto en 3 provincias.
-
-**Años 2-3:**
-- Reactivación parcial de 4.500 km ferroviarios.
-- BLF opera 20 corredores productivos.
-- AMBA-T constituida y funcional.
-- MKC nacional.
-- Primera inversión portuaria (Madryn, Ushuaia).
-
-**Años 4-7:**
-- 15.000 km ferroviarios reactivados.
-- 8 puertos federales operativos.
-- Material rodante AMBA renovado 60%.
-- Bastarda Fluvial operativa.
-
-**Años 8-15:**
-- 25.000 km ferroviarios.
-- Hidrovía Soberana completa.
-- AMBA Estructural completo.
-- Red de Puertos completa.
-
-**Años 16-20:**
-- Consolidación.
-- Nuevas rutas emergentes.
-- Exportación de modelo a la región.
+| Fase | Período | Hitos clave |
+|---|---|---|
+| **Fase 0 — Preparación** | 2026-2027 | Leyes ANMov, AMBA-T, BAMD, LNMA, FRM+Canon, PCAV · LNMA fundado sobre LANIA · 3 corredores ferroviarios críticos designados · Corredor piloto Pergamino-Rosario para AV supervisado · Renegociación Hidrovía iniciada |
+| **Fase 1 — Arranque** | 2028-2030 | MKC nacional · BLF en 20 corredores · AMBA-T operativa · 4.500 km ferroviarios · Puertos Madryn/Ushuaia · BAMD piloto AMBA (8.000 activos) · Primer modelo LNMA open source · 5 AV supervisados en corredor piloto |
+| **Fase 2 — Consolidación** | 2031-2034 | 15.000 km ferroviarios · 8 puertos federales · Tren autónomo Retiro-Tigre · BAMD 180.000 activos · PCAV con 200+ vehículos · Hidrovía Soberana transición · FRM con 5.000 reconvertidos |
+| **Fase 3 — Maduración** | 2035-2040 | 25.000 km ferroviarios · Rieles Columna Múltiple en 12.000 km · BAMD 500.000 activos · AV Nivel 4 en 3 corredores productivos · FRM con 80.000 reconvertidos · Flete 15-18% |
+| **Fase 4 — Régimen Pleno** | 2041-2046 | Red consolidada · BAMD 900.000 activos · FRM con 200.000 reconvertidos · AV Nivel 5 en corredores dedicados · Flete 10-11% · MKC para 45M · 415K trabajadores formales |
 
 ### 25.2 Lo Que No Sabemos
 
@@ -1728,9 +1759,18 @@ Convenios ANMov-Provincia. Coparticipación ferroviaria. Priorización territori
 - Capacidad de ejecución obra pública sostenida.
 - Nuevas tecnologías (eléctrico, hidrógeno) que cambien el panorama.
 
+### 25.3 Triggers de Activación y Moderación
+
+El cronograma de 5 fases no es rígido. Cuatro triggers — dos aceleradores y dos moderadores — ajustan el ritmo en función de la realidad medida, no del deseo político.
+
+- **A1 Acelerador — penetración AV temprana en corredores productivos:** si la penetración AV en rutas 9, 5 u 8 supera el 15% antes de 2030, la Fase AV del plan se adelanta 18 meses y el presupuesto del FRM se incrementa un 25% para acompañar la velocidad real del desplazamiento laboral.
+- **A2 Acelerador — Canon sobre meta:** si el Canon recaudado supera los USD 400M/año antes de 2032, el Programa de Preservación Móvil (PPM) amplía su cobertura para incluir a colectiveros del AMBA que queden afectados por expansión de corredores BRT autónomos.
+- **M1 Moderador — penetración AV por debajo de lo previsto:** si la penetración AV no llega al 5% en 2030, la Fase AV se pospone 24 meses y el presupuesto previsto se reinvierte íntegramente en BLF tradicional y reactivación ferroviaria adicional, que siguen siendo prioritarias en cualquier escenario.
+- **M2 Moderador — seguridad AV bajo umbral:** si las fallas AV superan 2 muertes por cada 100M de kilómetros recorridos en promedio móvil de 12 meses, suspensión automática del PCAV en el corredor afectado hasta que CAAAV emita dictamen de reanudación.
+
 ---
 
-## SECCIÓN 26: VISIÓN 2040
+## SECCIÓN 26: VISIÓN 2046
 
 ### 26.1 Lo Que Se Ve
 
@@ -1752,15 +1792,43 @@ Héctor a los 84, invitado como Testigo de los 60 para la inauguración del tram
 
 ¿Puede Argentina volver a estar conectada consigo misma? Sí. Canadá, Australia, España lo hicieron. Argentina tiene la infraestructura histórica parcialmente preservada, el saber técnico parcialmente vivo, el territorio para hacerlo. Lo que necesita es lo que nunca tuvo junto: **plan de 20 años, presupuesto protegido, Bastarda, Mandato Kilométrico, Autoridad Metropolitana, Red Federal de Puertos, Hidrovía Soberana**. PLANMOV es ese paquete.
 
+### 26.4 Visión 2046 Extendida
+
+En 2046, bajo escenario moderado baseline, Argentina llega al régimen pleno del PLANMOV v2.0 con un perfil de movilidad que el país no había tenido nunca y que pocos países del mundo alcanzaron: una combinación virtuosa de red pública, flota cooperativa y capa autónoma soberana.
+
+El flete promedio bajó del 30% del valor del producto que capturaba en 2026 a un rango de 10-11% en 2046. La BAMD opera 900.000 activos aportados, equivalente al 7% del parque privado argentino integrado en una cooperativa at-cost. El FRM acumula 200.000 trabajadores reconvertidos desde 2028 con ingreso preservado y trayectoria formal completa. Hay AV de Nivel 5 operando en 8 corredores dedicados y AV Nivel 4 en 27 corredores más, todos bajo PCAV argentino. El Canon AV recauda USD 2.800M/año que financia la reconversión sin costo fiscal neto. El MKC está activo para 45M de argentinos y el 78% lo usa al menos una vez por mes. Hay 415.000 trabajadores formales en el sector movilidad (60K ferroviarios, 30K portuarios, 45K en LNMA y ecosistema cognitivo, 80K en BAMD operativa, 200K reconvertidos vía FRM). La Hidrovía es operada por Bastarda Fluvial, con tarifas at-cost. La Red Metropolitana Federal está operativa en 6 metrópolis con autoridades plenas. Argentina exporta el Protocolo Mercosur AV a Brasil, Paraguay, Uruguay y Chile, y cobra por licenciamiento del stack LNMA.
+
+### 26.5 Lo Que Podría Salir Mal
+
+Honestidad sobre riesgos residuales. El plan no es inmune — ningún plan de 20 años lo es. Hay cinco escenarios de fracaso plausibles que conviene enunciar para que el sistema esté atento.
+
+Si se pierde la ventana 2028-2032 por reversión política, la penetración AV extranjera captura el mercado de corredores productivos antes de que el LNMA madure; recuperar la soberanía cognitiva después de ese momento sería mucho más caro y quizá ya inviable económicamente. Si el Canon se diluye por presión corporativa — exenciones, descuentos, prórrogas — el FRM queda sub-financiado y la reconversión laboral se interrumpe en medio de la ola, con costo social y político enorme. Si la BAMD no alcanza masa crítica (menos de 100.000 activos en 2030), no logra tarifas competitivas contra Uber/Cabify y se colapsa en un nicho irrelevante. Si las provincias no firman Pacto Federal AV, los estándares PCAV se fragmentan y Argentina termina con una colcha de retazos regulatoria que imposibilita corredores interprovinciales. Y hay escenarios externos que no controlamos: guerra global, recesión mundial profunda sostenida, colapso de proveedores técnicos clave (semiconductores, LIDAR, conectividad satelital), cualquiera de los cuales puede desplazar el cronograma varios años.
+
 ---
 
 ## SECCIÓN 27: CIERRE
 
-Héctor, el ex-ferroviario de Laguna Paiva, sigue hoy en su casa con sus libros técnicos en dos estanterías. Florencia, la productora de conservas de Humahuaca, sigue en su cocina ampliada del patio de su casa pagando cuarenta y siete por ciento de flete. Pero en la Argentina que PLANMOV construye, dentro de seis años, Héctor está participando en el primer ciclo LDEA de la Mesa Civil del Corredor Belgrano Cargas — depositó su archivo técnico, los ingenieros nuevos lo consultan semanalmente, su saber de cuarenta años no es arqueología sino input operativo; y Florencia tiene contrato con la Bastarda Logística Federal para flete que le captura 11% del valor del producto en lugar de 47%, exporta a Chile vía corredor trasandino reactivado, contrató a dos vecinas más, y su hijo está por estudiar Ingeniería Ferroviaria en la UTN regional porque ahora es carrera con futuro, no con fantasma.
+El Preámbulo de este plan abrió con cuatro voces — Héctor el ferroviario, Florencia la productora, Diego el camionero, Julia la jubilada con auto ocioso. Cada voz representaba un nudo real del régimen de movilidad argentino en 2026: saber técnico arqueologizado, productor periférico ahogado por flete, trabajador a punto de ser desplazado por automatización ajena, propietario de activo subutilizado sin forma de ponerlo al servicio del país. Este cierre vuelve a esas cuatro voces veinte años después, en 2046, como fue posible bajo PLANMOV v2.0 ejecutado en Escenario Moderado baseline — no el mejor caso, no el peor, el razonable.
 
-No es utopía. Es veinte años de inversión sostenida en columna múltiple, con Mandato Kilométrico universal, Bastarda Logística at-cost, Autoridad Metropolitana Plena, Red Federal de Puertos, Hidrovía Soberana, y la decisión política de dejar de aceptar que la logística capture treinta por ciento del valor del país cada año. Argentina tiene todo para hacerlo salvo el atrevimiento. PLANMOV es el atrevimiento en forma de plan.
+### 27.1 Héctor a los 84
 
-*"Un país no se conoce en el mapa. Se conoce en los movimientos que permite. Argentina se conoció demasiado tiempo como filamento frágil. Puede conocerse de otra manera."*
+Héctor Arredondo tiene 84 años. Asistió en 2032, con 70, como Testigo de los 60 a la inauguración del tramo Tucumán-Laguna Paiva del Belgrano Cargas reactivado — un tramo que él había recorrido durante 42 años como maquinista y que en 2018 lo vio cortar la última corrida antes del cierre. Depositó su biblioteca técnica completa — manuales, libretas de anotaciones, fotos de fallas mecánicas documentadas a mano — en el Archivo Ferroviario Nacional, y los modelos del LNMA de mantenimiento predictivo se entrenaron, entre otras fuentes, sobre sus anotaciones. Los ingenieros del LNMA lo consultaron semanalmente durante cuatro años, grabaron sus respuestas, las transcribieron, las incorporaron al dataset. Héctor murió tranquilo sabiendo que el saber que pasó cincuenta años acumulando no se perdió con él — quedó operativo, corriendo trenes que no lo conocieron.
+
+### 27.2 Florencia a los 62
+
+Florencia Zárate tiene 62 años. Su producción de conservas pasó de 800 frascos por mes en 2026 a 8.000 frascos por mes en 2042, con la misma cocina ampliada tres veces, el mismo huerto de zapallos, las mismas manos. Exporta a Chile, Uruguay y Brasil usando el corredor trasandino reactivado y la Hidrovía Soberana. El flete le captura hoy el 11% del valor del producto, contra el 47% que le capturaba en 2026 — la diferencia es plata que se queda en Humahuaca. Contrató a dos vecinas más, Valeria y Carmen, con salario formal y aportes al día. Su hijo Mariano está estudiando Ingeniería Ferroviaria en la UTN Jujuy, carrera que reabrió en 2035 justamente porque hay demanda real de cuadros técnicos para operar los 25.000 km de vía reactivada. Florencia lo dice simple: la Bastarda le cambió la matemática de producir lejos.
+
+### 27.3 Diego a los 67
+
+Diego Maidana tiene 67 años. Trabajó diez años como Coordinador de Corredor AV Supervisado en la ruta 5 entre 2032 y 2042, supervisando ocho camiones AV Nivel 4 desde un centro de control en Bolívar. Su salario como Coordinador fue un 35% superior al que tenía como camionero tradicional en 2026, con aportes completos y obra social del sindicato. El Programa Cinco Años Dignos, en su variante parcial, le permitió desde 2040 reducir jornada a 6 horas con preservación del ingreso. Se jubiló normalmente a los 65, en 2044, con todos sus aportes al día y la historia laboral completa. Sus dos hijos trabajan en el sector: uno como Ingeniero en el LNMA Córdoba — trabaja en modelos de percepción ferroviaria — y el otro como Ingeniero Ferroviario en Trenes Argentinos Cargas. Diego les dice a todos los que lo escuchan que la reconversión no fue dolor: fue orgullo de haber cruzado la ola con dignidad y no debajo de ella.
+
+### 27.4 Julia a los 72
+
+Julia Iannelli tiene 72 años. Se jubiló de la biblioteca municipal en 2038. En veinte años — entre 2028 y 2048 — aportó primero a la BAMD su Ford Fiesta 2018, que durante ocho años generó rendimiento estable sin que ella tuviera que preocuparse por nada, y después un Peugeot 208 eléctrico que compró en 2034 financiado parcialmente con los Créditos Kilométricos acumulados. El total de CK convertidos a pesos a lo largo de esas dos décadas equivale a USD 38.000 en poder adquisitivo real. Su Peugeot 208 eléctrico sigue aportado a la BAMD en 2046 y sigue generando CK mensuales. Julia hoy da charlas en centros de jubilados de su barrio explicando cómo funciona la Bastarda — lo hace con orgullo didáctico, porque le cambió la vida económica. Su jubilación sola no le hubiera alcanzado para vivir como vive. Hoy viaja a visitar a sus sobrinos en Chascomús usando MKC más BAMD, sin pagar un peso extra por el viaje.
+
+### 27.5 La Cita Final
+
+> *"Un país no se conoce en el mapa. Se conoce en los movimientos que permite, y en las inteligencias que pone al servicio del movimiento. Argentina se conoció demasiado tiempo como filamento frágil con algoritmos ajenos decidiendo por ella. Puede conocerse de otra manera."*
 
 ---
 
