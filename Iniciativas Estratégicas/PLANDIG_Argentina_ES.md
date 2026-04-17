@@ -1,8 +1,10 @@
 ```
 TENEMOS LOS DATOS
 PERO NO NOS PERTENECEN
+TENEMOS LA ATENCIÓN
+PERO NOS LA ESTÁN MODELANDO
 
-Plan Nacional de Soberanía Digital e Inteligencia Artificial
+Plan Nacional de Soberanía Digital, Cognitiva y Ecología de la Atención
 PLANDIG
 
 Soberanía de Datos · Nube Soberana · Laboratorio Nacional de IA
@@ -13,6 +15,9 @@ Malla Comunitaria de Cómputo · Ciberseguridad Soberana
 Reversión de Fuga de Cerebros · Integración CONAE/Satelital
 Protocolo Bastardo · Ecosistema Digital Ciudadano · Vida Digital Soberana
 Reconversión IA del Estado · Arquitecto de Fuerza Laboral IA
+**Ecología de la Atención · Auditoría Pública de Sistemas Algorítmicos**
+**Declaración de Atención · Derecho a la Desconexión · Slow Media**
+**Commons Atencional · Atención No Algorítmica**
 ANDIG · Tablero Nacional Digital · Cascada en 10 Años
 
 Preparado para la República Argentina
@@ -20,9 +25,15 @@ Ministerio de Ciencia, Tecnología e Innovación · Secretaría de Innovación P
 ARSAT · CONICET · CONAE · ENACOM · Ministerio de Economía
 Ministerio de Capital Humano · Congreso de la Nación
 
-Marzo 2026 | Versión 1.0
+Abril 2026 | Versión 2.0 (ampliación con capa cognitiva y ecología de la atención)
 DOCUMENTO ESTRATÉGICO — PARA REVISIÓN AUTORIZADA
 ```
+
+---
+
+## NOTA DE LA VERSIÓN 2.0
+
+La versión 1.0 de este plan (Marzo 2026) propuso construir soberanía digital en tres capas: infraestructura soberana, arquitectura de datos, vida digital ciudadana. La versión 2.0 (Abril 2026) absorbe el alcance de lo que se había considerado un PLAN aparte — PLANCOG, Plan Nacional de Soberanía Cognitiva — dentro del propio PLANDIG, reconociendo que la soberanía sobre los datos sin soberanía sobre la atención es incompleta. No hay soberanía digital real si las plataformas que usamos siguen modelando qué vemos, qué pensamos, y cómo decidimos, aunque los datos queden en servidores argentinos. El cuerpo de la versión 2.0 incorpora esto en el Preámbulo (actualizado), en la Tesis Central (ajustada), y fundamentalmente en tres subsecciones nuevas dentro de la SECCIÓN 9 (LA CONSCIENCIA) — **9.4 Ecología de la Atención**, **9.5 Auditoría Pública de Sistemas Algorítmicos**, **9.6 Declaración de Atención y Derecho a la Desconexión** — que tipifican los derechos cognitivos ciudadanos, los mecanismos de auditoría de plataformas que modelan a argentinos a escala, y los efectos legales del derecho a la desconexión en articulación con la Jornada 6+2 del PLANCUIDADO. El resto de la arquitectura documental se preserva sin reescritura, salvo las referencias cruzadas menores actualizadas y el glosario final extendido.
 
 ---
 
@@ -747,6 +758,149 @@ La transición no es un corte — es una migración gradual. Nadie va a dejar de
 2. **Empezar por lo cautivo.** El Estado adopta primero: todos los sistemas gubernamentales migran al ecosistema soberano en los primeros 3 años. Eso genera demanda crítica, prueba el sistema, y crea una base de usuarios.
 3. **Incentivos, no mandatos.** Descuentos impositivos para empresas que usen infraestructura soberana. Créditos de Cómputo Nacional para ciudadanos que participen en la malla. Prioridad en contrataciones públicas para proveedores que operen sobre protocolos PLANDIG.
 4. **Interoperabilidad con el mundo.** El ecosistema soberano no es una isla — se conecta con el mundo a través de estándares internacionales. Un argentino puede enviar un mensaje desde el Mensajero Nacional a un contacto en WhatsApp (vía puente de protocolo). Puede pagar con SAPI en un comercio que también acepta Visa. La soberanía no es aislamiento — es la capacidad de participar en el mundo desde una posición de fuerza, no de dependencia.
+
+### 9.4 Ecología de la Atención — el Derecho a la Atención No Algorítmica
+
+> *"Si construimos nube soberana pero seguimos dejando que Meta, Google, TikTok y ByteDance modelen qué piensan cuarenta y cinco millones de argentinos cada mañana al abrir el celular, no construimos soberanía digital. Construimos colonialismo con servidores propios."*
+
+La soberanía digital tradicional — protección de datos, identidad soberana, nube local — resuelve la pregunta *¿dónde están mis datos?* pero deja sin responder la pregunta más profunda: *¿quién decide qué veo, qué leo, qué pienso, qué siento al final del día?* En el siglo XXI, la respuesta a esa pregunta no la dan los servidores. La dan los **algoritmos de recomendación** de unas pocas corporaciones globales. Y esos algoritmos no son instrumentos neutros — son sistemas de modelado de comportamiento diseñados para maximizar tiempo de atención capturada y conversiones publicitarias, con efectos secundarios documentados: polarización política, deterioro de salud mental adolescente, desplazamiento del pensamiento deliberado por reacción emocional, erosión de la capacidad cívica de discernimiento.
+
+La **Ecología de la Atención** reconoce la atención humana como un **recurso escaso, renovable con cuidado, capturable sin consentimiento**. Así como Argentina necesita gestión soberana del agua, del suelo y del subsuelo, necesita gestión soberana de la atención de sus ciudadanos. No como control estatal — lo contrario: como *protección del ciudadano ante el modelado algorítmico sin consentimiento real*.
+
+**Los cuatro derechos cognitivos que PLANDIG 2.0 consagra:**
+
+1. **Derecho a la Atención No Algorítmica.** Todo ciudadano tiene derecho a acceder a espacios públicos — físicos y digitales — donde ningún sistema algorítmico esté modelando su comportamiento. Esto implica que los espacios cívicos financiados o certificados por el Estado (bibliotecas populares, plazas públicas, salas de Mesa Civil, Casas JUS, Centros de Cuidado, Tallers Federales) operan bajo **modo algorítmicamente off**: sin recomendación personalizada, sin perfilado, sin publicidad comportamental, sin tracking.
+
+2. **Derecho al Commons Atencional.** El Estado garantiza la existencia y mantenimiento de **espacios atencionales públicos de alta calidad** — infraestructura cívica del pensamiento humano. La biblioteca popular del siglo XXI — no librería, no café, no coworking — es el espacio donde un ciudadano puede leer, pensar, escribir, conversar con otros, durante horas, sin ser monetizado ni perfilado. Red nacional de 3.000+ Commons Atencionales en régimen (uno cada 15.000 habitantes).
+
+3. **Derecho a la Desconexión.** Ninguna relación laboral, cívica, educativa o de cuidado puede exigir conectividad digital permanente. Articulación con la Jornada 6+2 del PLANCUIDADO: las dos horas de cuidado comunitario son, por definición, offline. El empleador, el Estado, la institución educativa que viole el derecho a la desconexión enfrenta sanción proporcional.
+
+4. **Derecho a Ser No Predecible.** Todo ciudadano tiene derecho a que ningún sistema algorítmico construya un modelo predictivo de su comportamiento, decisiones o emociones sin consentimiento explícito, informado, revocable. El consentimiento por defecto no es consentimiento — requiere *opt-in* activo, específico por tipo de modelado, con revocación efectiva (incluyendo borrado del modelo ya construido).
+
+**TABLA 21: Los Cuatro Derechos Cognitivos de PLANDIG 2.0**
+
+| Derecho | Qué garantiza | Mecanismo de ejecución | Responsable |
+|---|---|---|---|
+| Atención No Algorítmica | Espacios públicos sin modelado | Certificación de Commons Atencional; sanción a espacio que viole | ANDIG + inspección cívica |
+| Commons Atencional | Red de 3.000+ espacios de pensamiento público | Presupuesto constitucional, convenio con bibliotecas populares, municipios, universidades | ANDIG + Secretaría de Cultura |
+| Desconexión | Offline garantizado fuera de jornada | Ley Integral de Derecho a la Desconexión, articulada con Jornada 6+2 | Ministerio de Trabajo + ANCV |
+| No Predecibilidad | Consentimiento real sobre modelado | Ley de Consentimiento Algorítmico, opt-in activo, revocación con borrado | ANDIG + Defensoría del Pueblo |
+
+**Integración con ecosistema:** la Ecología de la Atención articula directamente con PLANEDU (alfabetización algorítmica como materia desde secundaria), PLANCUIDADO (Jornada 6+2, espacios de cuidado algorítmicamente off), PLANMESA (las Salas de Deliberación de Mesa operan sin perfilado), PLANCUL (Dendritas Culturales son Commons Atencionales por diseño), PLANMEMORIA (el Archivo de Depósito Ciudadano no tiene publicidad ni recomendación).
+
+### 9.5 Auditoría Pública de Sistemas Algorítmicos
+
+> *"No se puede regular lo que no se puede ver. La auditoría algorítmica no es intrusión a la propiedad intelectual — es condición de posibilidad de cualquier regulación efectiva en el siglo XXI."*
+
+El mayor vacío regulatorio de la era digital es que los **sistemas algorítmicos que afectan a millones de personas son cajas negras corporativas**. Nadie — ni el Estado, ni el ciudadano, ni el regulador sectorial — puede verificar qué hace efectivamente el algoritmo de recomendación de Instagram sobre adolescentes argentinos, qué sesgos tiene el sistema de scoring crediticio de un banco, qué reglas ocultas aplica un sistema de moderación de contenido a activistas. PLANDIG 2.0 establece el principio: **si un sistema algorítmico afecta a escala a argentinos, debe ser auditable por argentinos**.
+
+**Umbral de auditabilidad obligatoria:**
+
+Todo sistema algorítmico (modelo de IA, sistema de recomendación, motor de decisión automatizada, sistema de puntuación) que:
+
+- opere sobre más de 100.000 usuarios argentinos activos mensuales, o
+- sea usado en decisión que afecta derecho fundamental (crédito, empleo, acceso a servicio público, salud, educación, seguridad), o
+- sea operado o contratado por el Estado en cualquier nivel,
+
+queda **bajo régimen de auditabilidad obligatoria** por la **Mesa de Auditoría Algorítmica Pública** (MAAP) — Mesa Civil especializada con Credencial de Materia en Soberanía Digital + Ética de IA + Estadística Aplicada, articulada con ANDIG.
+
+**Qué se audita:**
+
+1. **Arquitectura del modelo** (tipo de sistema, estructura, parámetros generales).
+2. **Datos de entrenamiento** (origen, composición demográfica, consentimiento, sesgos documentados).
+3. **Reglas de decisión** (cómo se llega del input al output).
+4. **Métricas de equidad** (diferencias de resultado por género, etnia, edad, clase socioeconómica, territorio).
+5. **Impacto medido** (efectos observables sobre usuarios: cambios de comportamiento, dependencia, salud mental).
+6. **Mecanismos de reversión** (cómo un usuario puede apelar una decisión automatizada).
+
+**Qué NO se audita (protección de secreto comercial):**
+
+- Código fuente completo del modelo (se audita *comportamiento observable*, no implementación específica).
+- Estrategia comercial derivada del modelo.
+- Datos individuales identificados de usuarios (se audita sobre agregados con anonimización).
+
+**Protocolo de auditoría:**
+
+- Sistema alcanzado declara su existencia y alcance ante ANDIG.
+- MAAP aplica el ciclo LDEA: APRENDER (documentación técnica, testigos, evidencia comparada) — DISEÑAR (batería de tests) — EXPERIMENTAR (ejecución controlada de tests con muestras reales) — ANALIZAR (Informe Público de Auditoría).
+- Resultado se publica con 3 niveles: **Verde** (cumple), **Ámbar** (cumple con observaciones subsanables en plazo), **Rojo** (incumple, se activan sanciones).
+
+**Sanciones en caso Rojo:**
+
+- Multa proporcional a facturación argentina (no facturación global).
+- Obligación de corrección con plazo.
+- Inscripción en PLANMEMORIA como captura algorítmica documentada.
+- En casos graves con daño documentado: suspensión temporal del sistema en territorio argentino.
+- Reiteración: prohibición de operar en Argentina hasta corrección auditada.
+
+**Excepciones y modulaciones:**
+
+- Cooperativas, Bastardas, software open-source con código público: auditoría simplificada (el código ya es transparente por diseño).
+- Sistemas de investigación académica: régimen diferenciado coordinado con CONICET.
+- Pequeños operadores (sub-100K usuarios): auditoría voluntaria incentivada con sello Verde.
+
+**TABLA 22: Régimen de Auditoría Algorítmica — Escala y Obligatoriedad**
+
+| Escala del sistema | Régimen | Frecuencia de auditoría |
+|---|---|---|
+| Menos de 100K usuarios | Voluntario con sello | No obligatoria |
+| 100K-1M usuarios | Auditabilidad obligatoria básica | Cada 24 meses |
+| 1M-10M usuarios | Auditabilidad plena | Cada 12 meses |
+| Más de 10M usuarios | Auditabilidad continua con oficina enlace | Revisión continua |
+| Sistemas estatales | Auditabilidad plena permanente | Continua |
+| Sistemas con impacto sobre derechos fundamentales | Auditabilidad intensificada | Cada 6-12 meses |
+
+### 9.6 Declaración de Atención y Derecho a la Desconexión
+
+> *"El tiempo es lo único realmente tuyo. Cualquier cosa que lo capture sin tu autorización activa es robo. Empezá por saber a quién le dijiste que sí sin darte cuenta."*
+
+La **Declaración de Atención** es una herramienta ciudadana en la plataforma ¡BASTA! que permite a cada usuario registrar — con consentimiento explícito, informado, revocable — qué aplicaciones, qué servicios, qué empleadores, qué instituciones educativas, qué grupos cívicos tienen derecho sobre su atención, en qué franja horaria, con qué intensidad, con qué propósito. Es contrato vinculante digital de tiempo y atención — el equivalente digital del contrato laboral formal para la vida digital.
+
+**Componentes de la Declaración:**
+
+1. **Whitelist y Blacklist de Notificaciones:** el usuario declara qué aplicaciones pueden notificarle, en qué rango horario, con qué frecuencia máxima. Las aplicaciones que violen la declaración quedan bloqueadas a nivel de sistema operativo en dispositivos que implementen el Protocolo Soberano de Atención (preinstalado en dispositivos adquiridos por el Estado; voluntario en el resto).
+
+2. **Franjas Offline Garantizadas:** el usuario declara rangos horarios cero-notificación-cero-publicidad-cero-recomendación (ej.: 22:00-07:00, los domingos completos, las 2 horas de cuidado de la Jornada 6+2).
+
+3. **Presupuesto Atencional por Plataforma:** el usuario asigna tope de minutos/día por plataforma. Superado el tope, la plataforma envía mensaje de cierre respetuoso. El usuario puede extender manualmente o dejar que se corte.
+
+4. **Revocación Unilateral con Efecto de Borrado:** el usuario puede revocar cualquier consentimiento previo. La plataforma afectada tiene 30 días para:
+   - cesar todo modelado de comportamiento del usuario,
+   - borrar el modelo predictivo ya construido,
+   - confirmar el borrado con certificado firmado.
+
+5. **Informe Mensual de Extracción Atencional:** cada usuario recibe informe automatizado de su Cédula Civil con datos agregados: cuánto tiempo pasó en cada plataforma, cuánta publicidad recibió, cuántas veces fue perfilado para recomendación, qué decisiones automatizadas lo afectaron. Autoconocimiento como primer paso de soberanía cognitiva.
+
+**Derecho a la Desconexión — Articulación Laboral y Cívica:**
+
+La Declaración de Atención tiene fuerza legal en tres relaciones específicas:
+
+- **Laboral:** el empleador no puede exigir conectividad fuera de jornada acordada. Violación reiterada genera sanción y derecho a indemnización específica.
+- **Cívica:** ningún órgano cívico del ecosistema ¡BASTA! (Mesa, Taller, Círculo, Referente de Cuidado, Síndico de Archivo) puede exigir disponibilidad fuera de franja declarada. La Credencial de Materia reconoce el derecho al tiempo propio.
+- **Educativa:** instituciones educativas (públicas y privadas) no pueden exigir conectividad nocturna ni de fin de semana a estudiantes menores de 18. Plataformas educativas están algorítmicamente off por defecto.
+
+**Protocolo Soberano de Atención (PSA):**
+
+Estándar técnico abierto desarrollado por ANDIG en coordinación con LANIA que especifica:
+
+- Formato estándar de Declaración de Atención exportable entre dispositivos.
+- API pública para que cualquier aplicación consulte y respete la Declaración del usuario.
+- Auditoría automatizada de cumplimiento (las aplicaciones que sistemáticamente violan la Declaración reciben alerta y, si no corrigen, son clasificadas como **No Conformes con PSA** — marca visible al usuario al instalarlas).
+- Certificación **PSA Compliant** para aplicaciones que respetan el protocolo completo.
+
+El PSA se propone como estándar internacional a través de diplomacia digital (ver Sección 25), en articulación con Gaia-X, con Digital Markets Act europeo, y con legislaciones emergentes en Brasil, Chile, Uruguay y México. Argentina no es primer país en regular plataformas — es primer país en proponer el estándar técnico completo de soberanía atencional, auditable, abierto, y aplicable.
+
+**TABLA 23: Sanciones por Violación del Protocolo Soberano de Atención**
+
+| Nivel | Infracción | Sanción |
+|---|---|---|
+| 1 | Plataforma no consulta la Declaración | Alerta pública, corrección en 60 días |
+| 2 | Plataforma consulta pero ignora | Multa equivalente al 2% de facturación argentina mensual, obligación de corrección |
+| 3 | Plataforma modela a usuarios con Declaración activa contra el modelado | Multa equivalente al 8% facturación argentina anual, inscripción en PLANMEMORIA |
+| 4 | Patrón sistemático de violación con daño documentado | Suspensión temporal del servicio en territorio argentino |
+| 5 | Reincidencia con daño grave | Bloqueo indefinido hasta cumplimiento auditado |
+
+La soberanía cognitiva no es filosofía — es arquitectura legal y técnica con sanción proporcional. Y la plataforma ¡BASTA! es el primer espacio donde el Protocolo se implementa completamente, como demostración viva de que *se puede* construir vida digital soberana sin renunciar a la utilidad de las herramientas digitales.
 
 ---
 
