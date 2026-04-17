@@ -2,7 +2,7 @@
 
 ## Vigésimo Tercer Mandato del Proyecto ¡BASTA!
 
-### Versión 1.0 — Abril 2026
+### Versión 2.0 — Abril 2026
 
 ```
 NO SE DELIBERA SI NO SE PUEDE LLEGAR
@@ -17,16 +17,27 @@ Red de Puertos Federales · Hidrovía Paraná-Paraguay Soberana
 AMBA Estructural · Movilidad Rural Mínima
 Rieles como Columna Múltiple de Energía y Fibra
 Movilidad como Derecho, Logística como Commons At-Cost
+Bastarda de Activos Móviles Disponibles · Laboratorio Nacional de Movilidad Autónoma
+Fondo de Reconversión Móvil · Canon de Automatización Logística
+Doctrina del Doble Desplazamiento · Datos de Movilidad como Commons
+Corredores Duales · Certificación PCAV · Operador AV Certificado
 
 Preparado para la República Argentina
 Presidencia de la Nación · Congreso de la Nación · Consejo de Continuidad Nacional
 Ministerio de Transporte · ADIF · SOFSE · Trenes Argentinos · Aerolíneas Argentinas
 ANSV · CNRT · AGP · Vialidad Nacional · Prefectura Naval
 AMCC · ANT · ANCV · ANM · ANTSPO
+ANMov · BAMD · LNMA · FRM · AMBA-T · PCAV
 
-Abril 2026 | Versión 1.0
+Abril 2026 | Versión 2.0 (refundación con IA/AV y Doctrina de Activos Disponibles)
 DOCUMENTO ESTRATÉGICO — PARA REVISIÓN AUTORIZADA
 ```
+
+---
+
+## NOTA DE LA VERSIÓN 2.0
+
+La versión 1.0 (Abril 2026) organizó la movilidad argentina en siete dispositivos que respondían a siete fallas estructurales: flete capturado, ferrocarril desguazado, puertos concentrados, hidrovía extranjerizada, AMBA colapsado, rural abandonado, rieles reducidos a una sola función. La v2.0 no reemplaza nada — preserva el marco narrativo, las voces de Héctor Arredondo y Florencia Zárate, los siete dispositivos originales y las siete fallas diagnosticadas — pero los refunda dentro de una arquitectura más amplia que reconoce lo que la v1.0 no podía ver: la ola de la inteligencia artificial y los vehículos autónomos ya está entrando al país, y, sin doctrina propia, Argentina la va a recibir como sujeto pasivo, con transportistas expulsados del trabajo y autos ociosos capturados por plataformas extranjeras. La v2.0 reorganiza los siete dispositivos en tres capas con once dispositivos totales más una doctrina transversal: **Capa I Derecho a Moverse, Capa II Infraestructura Común, Capa III Soberanía Cognitiva y Activos Disponibles**. Agrega la **Capa III completa**: Bastarda de Activos Móviles Disponibles (BAMD), Laboratorio Nacional de Movilidad Autónoma (LNMA), Fondo de Reconversión Móvil con Canon de Automatización Logística (FRM), y la Doctrina del Doble Desplazamiento, que obliga al Estado a hacerse cargo del transportista desplazado antes de dejar circular un camión autónomo. Incorpora secciones enteras nuevas: Marco Legal, Estrategia de Stakeholders, Reconversión del Transportista, Estrategia de Comunicación, Migración de Datos y Soberanía Operativa, Infraestructura Financiera, Seguridad Operativa y Ciberseguridad AV, Diplomacia Logística, Nexos Multi-Recurso, Métricas Humanas y Civilizatorias, Visión 2046 extendida, Anexos A-G. Suma dos voces al Preámbulo: **Diego Maidana**, camionero de Pergamino que ve venir la ola AV; **Julia Iannelli**, bibliotecaria de Villa Devoto con un auto ocioso veintidós horas por día. El horizonte se extiende de Visión 2040 a **Visión 2046**, y la inversión sube de USD 99.500M a **USD 104.000M** en veinte años.
 
 ---
 
