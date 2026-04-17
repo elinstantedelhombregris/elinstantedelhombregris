@@ -350,3 +350,93 @@ La secuencia es coherente: los planes que generan ahorro (PLANREP, PLANSUS) arra
 ---
 
 > *"La pregunta no es si podemos pagarlo. La pregunta es si podemos seguir pagando lo que tenemos -- USD 50.000M/año en sobreempleo, USD 26.000M/año en enfermedad prevenible, USD 15.000M/año en subsidios energéticos que no resuelven nada, USD 33.000-67.000M en costos hídricos evitables. El status quo no es gratis. Es el presupuesto mas caro que existe."*
+
+---
+
+## Actualización Abril 2026 — Presupuesto Ampliado a 22 PLANes
+
+Con la expansión del ecosistema, se agregan 6 nuevos PLANes + PLANDIG 2.0 al presupuesto consolidado:
+
+### Inversión y Operación de los PLANes Nuevos — Régimen Pleno (Año 10+)
+
+| PLAN | Costo operativo anual (USD M) | Inversión acumulada | % PBI operativo |
+|---|---|---|---|
+| **PLANMESA** | 420-630 | Infraestructura inicial + plataforma | 0.07-0.10% |
+| **PLANTALLER** | 640-1.000 | USD 720M inicial (4.000 Tallers × 180K) | 0.10-0.16% |
+| **PLANCUIDADO** | 4.800-7.200 | Formación + plataforma Registro + Red Referentes | 0.75-1.12% |
+| **PLANMEMORIA** | 680-920 | 7 nodos federados + sistemas criptográficos | 0.10-0.14% |
+| **PLANTER (operativo)** | 1.480-2.200 | USD 4.200M Guardacostas + sistemas monitoreo | 0.23-0.34% |
+| **PLANMOV (operativo + inversión)** | 13.600 operación + 5.000 inversión anual promedio | USD 99.500M en 20 años | 2.90% (combinado) |
+| **PLANDIG 2.0 (incremento)** | +160-400 sobre base 1.100-1.700 | Auditoría algorítmica + Commons Atencional | +0.02-0.06% |
+| **Subtotal nuevo** | **21.460-25.750** | - | **~4.2-4.8%** |
+
+### Flujos Autofinanciados del PLANTER
+
+PLANTER genera más ingresos que gastos operativos:
+
+- **Ingresos FSC anuales (régimen):** USD 16.500-31.000M (regalías extractivas + cánones pesqueros + forestales + rendimiento capital).
+- **Distribución:**
+  - 40% Dividendo Ciudadano Mensual (DCM): USD 6.600-12.400M → transferencia directa a 33M argentinos adultos.
+  - 20% Compensación a Territorios Afectados: USD 3.300-6.200M.
+  - 15% Fondo Intergeneracional (preservación de capital): USD 2.475-4.650M.
+  - 15% Restauración Ecológica Obligatoria: USD 2.475-4.650M.
+  - 10% Operación ANTSPO: USD 1.650-3.100M.
+
+**Efecto neto fiscal de PLANTER:** positivo. El costo operativo se autofinancia con las regalías; el DCM es redistribución (no gasto nuevo — es captura de renta hoy fugada y redirección a ciudadanos).
+
+### Fuentes de Financiamiento Ampliadas
+
+**Fuente 1 — Reasignación de gastos actuales de baja productividad.**
+- Publicidad oficial consolidada: USD 450M/año (eliminable en 40-60%).
+- Consultorías externas federales: USD 320M/año (eliminables en 50%).
+- Subsidios al flete privado vía rutas: reasignables a ferroviario con ahorro neto.
+- Gasto en extractivismo desincentivado: ~USD 600M/año revertidos.
+
+**Fuente 2 — Deuda multilateral larga (BID, CAF, BM, NDB).**
+PLANMOV específicamente financiable con deuda de 30-40 años por ser infraestructura amortizable. Acceso a líneas de crédito verdes internacionales.
+
+**Fuente 3 — Bonos Soberanos Infraestructura 30-40 años.**
+Instrumento financiero específico para PLANMOV y PLANVIV combinados.
+
+**Fuente 4 — Fondo Soberano Ciudadano (PLANTER).**
+Parte de regalías extractivas se puede canalizar a infraestructura estratégica (PLANMOV) vía reglamentación del FSC.
+
+**Fuente 5 — Recaudación de Bastardas y servicios cívicos.**
+Las Bastardas generan margen mínimo para amortización. La BLF y Bastarda Fluvial aportan al sistema.
+
+### Presupuesto Total del Ecosistema de 22 PLANes — Régimen Pleno (Año 10+)
+
+**TABLA: Presupuesto Anual Consolidado**
+
+| Categoría | Costo anual régimen (USD M) | % PBI |
+|---|---|---|
+| 16 PLANes originales (estimado agregado) | 22.000-32.000 | 3.4-5.0% |
+| PLANDIG 2.0 (incremento capa cognitiva) | +160-400 | +0.02-0.06% |
+| 4 PLANes transversales (MESA+TALLER+CUIDADO+MEMORIA) | 6.540-9.750 | 1.02-1.52% |
+| PLANTER (operativo; flujos FSC aparte) | 1.480-2.200 | 0.23-0.34% |
+| PLANMOV (operación + inversión anual) | 18.575 | 2.90% |
+| **TOTAL ANUAL RÉGIMEN PLENO** | **48.755-62.925** | **7.6-9.8%** |
+
+### Observaciones Críticas
+
+1. **PLANMOV es el driver principal del crecimiento presupuestario.** La inversión en infraestructura ferroviaria de 20 años es grande pero amortizable sobre 50-80 años de vida útil. Puede estructurarse como deuda de largo plazo.
+
+2. **PLANCUIDADO es el segundo driver.** Reconocimiento del trabajo de cuidado implica transferencia fiscal significativa. Sin embargo, parte se autocompensa por reducción de costos evitables: USD 14.600M/año en hospitalización evitable, institucionalización innecesaria, sobrecarga de cuidadoras documentados en PLANCUIDADO Sección 1.3.
+
+3. **PLANTER es fiscalmente positivo neto.** Captura renta hoy fugada al exterior (litio, shale, pesca), redistribuye DCM (USD 6.600-12.400M), y financia operación propia con regalías.
+
+4. **El 7-9% de incremento de gasto no es sostenible sin disciplina fiscal concurrente.** Recomendación: implementar con gradualidad de 10 años, con auditoría anual, y con reasignación progresiva de gastos actuales de baja productividad.
+
+### Prueba de Estrés Fiscal Ampliada
+
+**Pregunta crítica: ¿es sostenible 7-9% del PBI de incremento?**
+
+- **Contexto actual:** gasto público consolidado argentino ~36% PBI.
+- **Proyección con ecosistema pleno:** ~43-45% PBI — comparable con Francia (47%), Bélgica (54%), Italia (50%). Inferior a la media de OECD en servicios sociales.
+- **Sostenibilidad:** sí, si se implementa con disciplina fiscal, renegociación de deuda existente, reducción efectiva de gasto corriente improductivo, y crecimiento de PBI 3-4% anual sostenido (habilitado por el propio ecosistema).
+
+**Riesgo residual:** si el crecimiento del PBI es inferior al 2.5% anual durante más de 3 años consecutivos, el ecosistema requiere redimensionamiento (extender plazos, reducir ambición PLANMOV, diferir PLANCUIDADO Jornada 6+2).
+
+---
+
+*Actualización Abril 2026 por ampliación del ecosistema ¡BASTA! de 16 a 22 PLANes temáticos. Referencia cruzada con ANALISIS_CONEXIONES_20_PLANES.md Sección 12, PLANTER_Argentina_ES.md, PLANMOV_Argentina_ES.md, PLANDIG_Argentina_ES.md v2.0.*

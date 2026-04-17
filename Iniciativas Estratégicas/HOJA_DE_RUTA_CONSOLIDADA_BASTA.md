@@ -317,3 +317,51 @@ PLANGEO no aparece como lanzamiento discreto porque opera como capa geopolitica 
 ---
 
 *Documento generado como consolidacion de las hojas de ruta individuales de los 16 mandatos del ecosistema ¡BASTA!. Cada dato de fase, plazo, inversion y meta proviene del plan fuente correspondiente. PLANSEG, PLANVIV y PLANCUL integrados en esta version. Las fechas son objetivos, no compromisos — la evidencia dicta el ritmo, como establece cada plan individual.*
+
+---
+
+## Actualización Abril 2026 — Hoja de Ruta Ampliada a 22 PLANes
+
+Con la expansión del ecosistema se agregan 6 PLANes a la secuencia (4 transversales + PLANTER + PLANMOV). PLANDIG se expande internamente a v2.0 sin cambio de ventana. La integración respeta los principios de secuenciación original.
+
+### Ventanas Ampliadas
+
+| Ventana | PLANes nuevos agregados | Justificación |
+|---|---|---|
+| **Pre-Fase (Año -1)** | PLANDIG 2.0 (capa cognitiva + PSA piloto), PLANMOV (Pre-Fase — plan ferroviario maestro + auditoría Hidrovía) | Capa cognitiva de PLANDIG requiere formación de MAAP piloto; PLANMOV requiere preparación técnica de 12-18 meses antes de ley ANMov. |
+| **Año 0 Q1-Q2** | **PLANMESA + PLANTALLER + PLANMEMORIA** (Fase 0 — arranque técnico) | Los 3 arrancan simultáneamente: AMCC se constituye, Protocolo de Mesa Civil piloto en 3 materias, primer Taller prototipo operativo, infraestructura de Archivo Federado inicial con 2 nodos. Bastón Memorial piloto en 20 escuelas. Sin sobrecarga legislativa porque las 3 leyes pueden sancionarse juntas (mismo paquete). |
+| **Año 0 Q3-Q4** | **PLANCUIDADO** (Fase 0 — ley ANCV, registro piloto) | Se agrega a la misma ventana que PLANEB + PLANISV + PLANVIV Fase 0. Ley del Pacto al Congreso. Primeros 500 Referentes en formación. |
+| **Año 1 Q1-Q2** | **PLANMOV (Fase 0-1 — Ley ANMov, 3 corredores ferroviarios piloto)** | Se agrega a la ventana PLANEDU + PLANSUS. Ley ANMov, piloto MKC, Bastarda Logística Federal constituida. Reactivación ferroviaria arranca en Belgrano Cargas Salta-Rosario, San Martín, y Mitre Cargas. |
+| **Año 1 Q3-Q4** | **PLANTER (Fase 1 escalonada — Ley ANTSPO, 10 Personas Territoriales piloto, Mar Soberano arranca)** | Se agrega a la ventana PLAN24CN + PLANSAL + PLANVIV Fase 1. Ley ANTSPO al Congreso. Primeros 10 territorios reconocidos como Personas Jurídicas. Expansión Guardacostas arranca. Derogación del RIGI iniciada. |
+| **Año 2** | **PLANTER Fase 2 (Commons Subsuelo + DCM piloto + Licencia Territorial) + PLANMOV Fase 2 (AMBA-T, Hidrovía Soberana arrancada)** | Ventana de mayor densidad confrontativa — requiere que PLANSEG, PLANJUS, PLANDIG 2.0 ya estén operativos. DCM piloto a 2M adultos. AMBA-T constituida. |
+| **Años 3-5** | Consolidación conjunta con otros mandatos | Integración plena de los 22 PLANes. Al Año 5: DCM universal, 40 Personas Territoriales, 15.000 km ferroviarios reactivados, 1.000 Mesas activas, 2.500 Tallers, 20.000 Referentes, 3.000 Síndicos de Archivo, Ecología de la Atención plenamente operativa. |
+| **Años 6-10** | Régimen pleno | Todos los 22 PLANes en régimen pleno. Reducción medible de reversión de política pública. |
+| **Años 10-20** | PLANMOV en ejecución sostenida | PLANMOV es el único PLAN cuya inversión amortizable se extiende naturalmente a 20 años (reactivación ferroviaria completa, Red Federal de Puertos, Hidrovía Soberana consolidada). |
+
+### Dependencias Críticas Nuevas
+
+- **PLANMESA requiere PLANDIG (plataforma), PLANEDU (formación), PLANMEMORIA (Consulta Ancestral), PLANTALLER (ejecutor Fase 3), PLANCUIDADO (sustrato), PLANJUS (control legal).**
+- **PLANTER requiere PLANSEG (protección defensores), PLANJUS (co-jurisdicción), PLANDIG (plataforma + monitoreo satelital), PLANCUIDADO (Pactos Interculturales), PLANMEMORIA (Archivo Territorial).**
+- **PLANMOV requiere PLANDIG (plataforma), PLANEB (Bastarda Logística canal), PLANREP (reconversión cuadros técnicos), PLANMESA (Mesas de Corredor), PLANMEMORIA (Archivo Técnico Ferroviario).**
+- **PLANCUIDADO requiere PLANSAL (APS), PLANREP (reconversión cuidadoras), PLANEDU (formación Referentes), PLANJUS (mediación Pactos).**
+
+### Principios de Secuenciación Preservados
+
+- Ningún mandato nuevo se lanza antes de que sus dependencias críticas estén operativas.
+- La Cascada Legal ampliada distribuye las 21 leyes nuevas en 4-5 ventanas para no saturar capacidad legislativa.
+- Los pilotos preceden al escalamiento.
+- El gasto fiscal se incrementa gradualmente desde 4-6% del PBI proyectado originalmente a 7-9% en régimen pleno (2040+) por integración de PLANTER (operativo, FSC genera renta neta) + PLANMOV (inversión amortizable en infraestructura 50-80 años).
+
+### Estado del Ecosistema por Fase
+
+| Fase PLANRUTA | Ecosistema ampliado a | Hito principal |
+|---|---|---|
+| Fase 0 (Años -1 a 0) | 6 agencias constituidas | Plataforma ¡BASTA! operativa + pilotos |
+| Fase 1 (Años 1-3) | 18 PLANes activos parcialmente | Primera Bastarda + primeras Mesas + Tallers + DCM piloto |
+| Fase 2 (Años 4-6) | 22 PLANes activos | Consolidación + reactivación ferroviaria Fase 1 + Commons del Subsuelo |
+| Fase 3 (Años 7-12) | 22 PLANes maduros | Régimen pleno con DCM universal + deforestación cero + AMBA-T completo |
+| Fase 4 (Años 13-20+) | 22 PLANes consolidados | Path dependency cívica consolidada + infraestructura ferroviaria 25K km |
+
+---
+
+*Actualización Abril 2026 por ampliación del ecosistema ¡BASTA! de 16 a 22 PLANes temáticos. Referencia cruzada con ANALISIS_CONEXIONES_20_PLANES.md, PLANTER_Argentina_ES.md, PLANMOV_Argentina_ES.md, PLANDIG_Argentina_ES.md v2.0.*
