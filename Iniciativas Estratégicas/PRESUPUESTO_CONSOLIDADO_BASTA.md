@@ -366,7 +366,7 @@ Con la expansión del ecosistema, se agregan 6 nuevos PLANes + PLANDIG 2.0 al pr
 | **PLANCUIDADO** | 4.800-7.200 | Formación + plataforma Registro + Red Referentes | 0.75-1.12% |
 | **PLANMEMORIA** | 680-920 | 7 nodos federados + sistemas criptográficos | 0.10-0.14% |
 | **PLANTER (operativo)** | 1.480-2.200 | USD 4.200M Guardacostas + sistemas monitoreo | 0.23-0.34% |
-| **PLANMOV (operativo + inversión)** | 13.600 operación + 5.000 inversión anual promedio | USD 99.500M en 20 años | 2.90% (combinado) |
+| **PLANMOV v2.0 (operativo + inversión, 3 capas + 11 dispositivos + Doctrina)** | 15.880 operación régimen pleno + 5.200 inversión anual promedio | **USD 104.000M en 20 años** (Capa I 13.500 + Capa II 80.500 + Capa III 10.000). Desglose por fases: Fase 0-1 9.000 + Fase 2 25.000 + Fase 3 47.300 + Fase 4 22.700. **Retorno bruto régimen pleno USD 23.400-32.000M/año** (ahorro flete 10.800-15.000 + ahorro AMBA 3.200 + productividad 2.400-4.800 + BAMD 800-1.400 + Canon 1.200-2.800 + siniestralidad 1.800-3.200 + exportaciones 3.200-4.800). ROI break-even Fase 3 (años 10-12). | 3.05% (combinado, piso constitucional 0,50% PBI) |
 | **PLANDIG 2.0 (incremento)** | +160-400 sobre base 1.100-1.700 | Auditoría algorítmica + Commons Atencional | +0.02-0.06% |
 | **Subtotal nuevo** | **21.460-25.750** | - | **~4.2-4.8%** |
 
@@ -414,12 +414,14 @@ Las Bastardas generan margen mínimo para amortización. La BLF y Bastarda Fluvi
 | PLANDIG 2.0 (incremento capa cognitiva) | +160-400 | +0.02-0.06% |
 | 4 PLANes transversales (MESA+TALLER+CUIDADO+MEMORIA) | 6.540-9.750 | 1.02-1.52% |
 | PLANTER (operativo; flujos FSC aparte) | 1.480-2.200 | 0.23-0.34% |
-| PLANMOV (operación + inversión anual) | 18.575 | 2.90% |
-| **TOTAL ANUAL RÉGIMEN PLENO** | **48.755-62.925** | **7.6-9.8%** |
+| PLANMOV v2.0 (operación + inversión anual) | 21.080 | 3.05% |
+| **TOTAL ANUAL RÉGIMEN PLENO** | **51.260-65.430** | **7.75-9.95%** |
+
+*Nota: PLANMOV v2.0 suma USD +2.505M anuales sobre baseline v1.0 (USD 18.575 → 21.080) por la Capa III nueva (BAMD + LNMA + FRM) y la extensión de la inversión a Visión 2046.*
 
 ### Observaciones Críticas
 
-1. **PLANMOV es el driver principal del crecimiento presupuestario.** La inversión en infraestructura ferroviaria de 20 años es grande pero amortizable sobre 50-80 años de vida útil. Puede estructurarse como deuda de largo plazo.
+1. **PLANMOV v2.0 es el driver principal del crecimiento presupuestario.** La inversión en infraestructura ferroviaria de 20 años (USD 104.000M total) es grande pero amortizable sobre 50-80 años de vida útil y acompañada por un retorno bruto régimen pleno de USD 23.400-32.000M/año (ahorro flete + productividad + Canon AV + exportaciones + reducción siniestralidad). ROI break-even en Fase 3 (año 10-12). Puede estructurarse como deuda de largo plazo (multilateral 30-40 años) + Bonos Soberanos PLANMOV 30/40 años + Canon de Automatización Logística (100% al FRM) + Fondo Fiduciario BAMD.
 
 2. **PLANCUIDADO es el segundo driver.** Reconocimiento del trabajo de cuidado implica transferencia fiscal significativa. Sin embargo, parte se autocompensa por reducción de costos evitables: USD 14.600M/año en hospitalización evitable, institucionalización innecesaria, sobrecarga de cuidadoras documentados en PLANCUIDADO Sección 1.3.
 
