@@ -1573,6 +1573,106 @@ Londres, Singapur, Seúl, Ciudad de México tienen autoridades metropolitanas un
 
 ---
 
+## SECCIÓN 18: SEGURIDAD OPERATIVA Y CIBERSEGURIDAD DE FLOTA AUTÓNOMA
+
+> *"Un camión autónomo conectado a un servidor en Mountain View es una llave colgada afuera de la casa."*
+
+### 18.1 Arquitectura de Ciberseguridad de Flota
+
+La arquitectura de ciberseguridad de la flota autónoma argentina se articula con el Sistema Inmune definido en PLANDIG §10 y se construye sobre tres principios no negociables. Primero, defensa en profundidad: múltiples capas de protección concéntricas, de modo que la caída de una capa no compromete al conjunto. Segundo, zero-trust: ningún componente confía en otro por defecto, ni siquiera dentro de la misma subred; toda comunicación exige autenticación mutua y autorización granular. Tercero, cifrado integral: data-in-transit sobre canales TLS 1.3 o superior, data-at-rest sobre volúmenes con cifrado de disco completo y llaves custodiadas por HSM soberanos. Cada vehículo AV porta firmware firmado criptográficamente, módulo TPM físico soldado al chasis para atestación remota, y canal cifrado dedicado contra el LNMA. La red V2X (vehicle-to-everything) opera íntegramente sobre infraestructura argentina: ArgenCloud para cómputo y almacenamiento, y fibra óptica tendida en los rieles columna múltiple como backbone nacional. Auditoría de vulnerabilidades semanal, con reporte público desagregado por severidad CVSS y tiempo medio de remediación, publicado en Tablero Nacional de Movilidad.
+
+### 18.2 Protocolo de Incidente AV
+
+Todo incidente de flota autónoma activa una cascada de respuesta prescripta, sin espacio para improvisación. Primer paso: detección automática por sensores del vehículo —colisión, desviación no nominal, falla de sistema crítico— o reporte humano presencial o remoto. Segundo paso: notificación al LNMA en menos de 60 segundos desde la detección, con paquete inicial de telemetría firmada. Tercer paso: activación de modo degradado supervisado, en el que los vehículos cercanos reducen velocidad, aumentan distancia de seguimiento y priorizan percepción redundante. Cuarto paso: revocación temporal del PCAV (Permiso de Conducción Autónoma de Vehículo) del corredor afectado si el incidente lo justifica, con comunicación a todos los operadores en 15 minutos. Quinto paso: investigación por la CAAAV (Comisión Argentina de Accidentes AV), órgano técnico independiente dependiente funcionalmente de ANMov con autonomía de investigación. Sexto paso: comunicación pública con datos anonimizados en 24 horas, sin excepciones. Séptimo paso: lecciones integradas al modelo del LNMA con release de actualización obligatoria en no más de 90 días. La cascada se audita en cada ejecución por los Síndicos de Archivo.
+
+### 18.3 Protección Física de Infraestructura
+
+La protección física cubre cuatro categorías de activos críticos: rieles columna múltiple, puertos federales, centros LNMA y datacenters ArgenCloud. Cada uno cuenta con perímetro físico delimitado, videovigilancia con retención de 90 días en almacenamiento soberano, control de acceso biométrico multifactor para personal autorizado y guardias físicos 24/7 en los centros catalogados como críticos. La articulación operativa con PLANSEG asegura coordinación permanente con fuerzas federales y policías provinciales, con protocolo de escalamiento de amenazas y ejercicios conjuntos trimestrales. Ningún activo crítico queda tercerizado a proveedor extranjero sin presencia física argentina continua.
+
+### 18.4 Mitigación de Interferencias GPS/GNSS
+
+El spoofing y jamming deliberados de señales satelitales son riesgo real y documentado a nivel global. PLANMOV responde con sistema redundante de posicionamiento: GPS (Estados Unidos), Galileo (Unión Europea), GLONASS (Rusia) y navegación inercial como respaldo autónomo. Los corredores AV operan con posicionamiento dual obligatorio, combinando GNSS con fiducials físicos instalados en la ruta —marcadores visuales y electromagnéticos— que permiten al vehículo validar su posición incluso con señal satelital comprometida. La detección de anomalías posicionales dispara alerta inmediata al LNMA y pone la unidad afectada en modo degradado. En paralelo, se desarrolla capacidad argentina nativa en articulación con CONAE para una constelación de aumentación satelital regional, objetivo Fase 2, que reduzca dependencia de sistemas extranjeros y provea corrección diferencial de alta precisión sobre territorio nacional.
+
+### 18.5 Chain of Custody de Datos de Movilidad
+
+Los datos generados por la flota AV tienen trazabilidad completa desde el sensor que los captura hasta su ingreso al LNMA, con firma digital en cada paso de la cadena. Cada evento queda registrado con marca temporal, identidad del emisor y hash del payload, en un log inmutable del tipo append-only sobre almacenamiento WORM. El acceso al repositorio de datos queda auditado íntegramente, con registro de quién consultó qué y cuándo, disponible para los Síndicos de Archivo y la Auditoría General de la Nación. La arquitectura previene alteración retrospectiva: toda modificación deja rastro y exige contrafirma de dos o más roles. Esta chain of custody se articula con la legislación de evidencia digital y permite uso judicial directo de los registros de flota si un incidente lo requiere, sin necesidad de peritaje adicional que cuestione la integridad de la cadena.
+
+### 18.6 Kill-Switch Soberano
+
+Ante ciberataque masivo contra la flota AV o escenario de compromiso sistémico, ANMov tiene facultad de activar el kill-switch soberano: comando cifrado que detiene la operación autónoma en modo seguro. Seguro significa no frenar bruscamente —lo que causaría accidentes en masa— sino conducir a paro controlado en una ventana de 5 a 15 minutos, con cada vehículo buscando banquina o estación más cercana. La llave criptográfica para activar el kill-switch se fracciona entre tres roles obligatorios: Directorio de ANMov, Jefatura de Gabinete y Ejército Argentino (este último sólo por su rol de custodia de infraestructura crítica). La activación exige quórum mínimo de los tres y queda auditada en registro público posterior. El kill-switch nunca se usa en simulacros: se entrena con subsistemas aislados. Sólo activable en incidente real verificado.
+
+### 18.7 Auditoría Anual del LNMA
+
+El LNMA es auditado anualmente en ciberseguridad por los Síndicos de Archivo en conjunto con una consultora internacional rotativa —rotativa para prevenir captura por proveedor único. El reporte anual es público y se estructura sobre el modelo de madurez CMMI, con niveles del 1 (inicial) al 5 (optimizado) por dominio de control, más plan de remediación con hitos comprometidos. En paralelo, ANMov contrata pentest externo con empresas especializadas bajo régimen de disclosure responsable: las vulnerabilidades encontradas se remedian antes de publicarse, pero se publican sin excepción una vez mitigadas.
+
+---
+
+## SECCIÓN 19: DIPLOMACIA LOGÍSTICA — CORREDORES BINACIONALES Y ESTÁNDARES AV REGIONALES
+
+> *"La soberanía logística argentina se defiende en Mercosur, en Ginebra, y en Bruselas — no solo en Buenos Aires."*
+
+PLANMOV no es plan aislado ni puede serlo. Argentina comparte la Hidrovía con Brasil, Paraguay, Uruguay y Bolivia; los corredores trasandinos conectan con Chile; los pasos del NEA desembocan en el mercado brasileño. Las flotas autónomas argentinas cruzarán fronteras o no existirán a escala relevante. El Canon AV argentino puede volverse modelo continental o puede quedar aislado si otros países adoptan estándares contrarios. La diplomacia logística es componente estratégico del plan, no anexo decorativo: sin ella, la infraestructura física queda huérfana de mercado y sin apoyo regulatorio regional.
+
+### 19.1 Corredores Binacionales
+
+| Corredor | País contraparte | Modalidad | Inversión conjunta estimada |
+|---|---|---|---|
+| Trasandino Central | Chile | Ferroviario reactivado (Mendoza-Los Andes) | USD 2.800M |
+| Bolivia Norte | Bolivia | Ferroviario Belgrano Cargas extendido | USD 1.400M |
+| Paraguay Hidrovía | Paraguay | Fluvial coordinada | USD 900M |
+| Uruguay Colonia-BsAs | Uruguay | Marítimo y ferroviario a tren suburbano AMBA | USD 600M |
+| Brasil NEA | Brasil | Ferroviario NEA → Paso de los Libres | USD 3.200M |
+
+Cinco corredores priorizados con inversión conjunta total de USD 8.900M en horizonte Fase 2-3. Cada corredor exige convenio binacional con reparto de costos, operación coordinada y tribunal arbitral propio para disputas técnicas; ninguno queda sujeto a jurisdicción unilateral de la contraparte ni abandona jurisdicción argentina en tramo nacional.
+
+### 19.2 Coordinación Hidrovía con Países Ribereños
+
+La Hidrovía Paraguay-Paraná es bien compartido y exige gobernanza compartida. PLANMOV propone una mesa técnica permanente con Argentina, Brasil, Paraguay, Uruguay y Bolivia, con agenda fija de coordinación de dragado, balizamiento, calados operativos, peajes y reparto de costos. La referencia institucional es el Comité del Rin europeo: reglamento común vinculante, autoridades nacionales con coordinación obligatoria, reparto transparente de costos y beneficios, y resolución de disputas en tribunal técnico especializado. Argentina lleva a la mesa su posición ya definida en PLANMOV: dragado soberano tercerizado bajo control argentino, no cesión concesional a operador privado multinacional. El convenio quinquenal se negocia en Fase 2 del plan, ventana 2031-2034, con vigencia renovable y con cláusula de revisión cada cinco años. Mientras tanto, coordinación operativa diaria a través de Comisión Mixta Argentina-Paraguay ya existente, ampliada con los demás ribereños.
+
+### 19.3 Estándares AV Regionales — Protocolo Mercosur AV
+
+Argentina propone formalmente al Mercosur, y eventualmente a la Comunidad Andina de Naciones, un Protocolo AV Regional basado en el PCAV argentino como estándar de referencia. El objetivo operativo es directo: que un camión autónomo certificado en Argentina pueda operar en Brasil, Paraguay, Uruguay y Chile sin requerir recertificación, y recíprocamente. Los beneficios son de tres órdenes. Primero, economía de escala: una flota autónoma certificada una sola vez opera en mercado de 280 millones de habitantes, lo que abarata tarifas y viabiliza capital para reposición. Segundo, datos compartidos: los eventos de flota alimentan un LNMA regional —con protocolos de privacidad nacional— y mejoran modelos predictivos para todos. Tercero, mercado común para operadores argentinos: BLF y BAMD pueden operar en corredores regionales sin fricción regulatoria. El riesgo contrario es real: Brasil puede preferir estándar chino, estadounidense o europeo si Argentina llega tarde. Argentina lidera por acción, con el PCAV ya en operación y datos auditables, antes que por diplomacia formal que llega después.
+
+### 19.4 Convenios de Transferencia Tecnológica
+
+PLANMOV negocia convenios bilaterales de transferencia tecnológica con países de referencia en cada dominio. Con España, para alta velocidad ferroviaria de pasajeros (modelo AVE aplicable a futuro tren argentino). Con Francia, para gestión estatal ferroviaria moderna (modelo SNCF, operación pública con eficiencia). Con Alemania, para modelo mixto operador-infraestructura (Deutsche Bahn). Con Suecia, para gestión pública ferroviaria de corredores de carga (VR Group). Con China, para trenes de alta velocidad y stack AV a costo competitivo. El objetivo es aprender sin depender: capacidad instalada argentina, no llave en mano. Todo convenio incluye cláusula obligatoria e innegociable de código abierto del stack crítico, compartido con LNMA, y de capacitación de cuadros argentinos que puedan sostener la tecnología sin asistencia permanente del proveedor.
+
+### 19.5 Posición Argentina Ante Regulaciones AV Internacionales
+
+Argentina sostiene voz activa en los foros multilaterales donde se definen los estándares AV globales: Foro Mundial de Vehículos de la ONU, UNECE (Comisión Económica para Europa, donde se negocian los reglamentos técnicos vehiculares de referencia global), OMS (aspectos de seguridad vial), OACI y OMI (para tramos intermodales). El PCAV argentino participa en armonización global y aporta datos reales de operación, no sólo posiciones declarativas. La posición negociadora tiene eje único: estándares mínimos comunes que habiliten interoperabilidad, con espacio explícito para soberanía técnica local en todo lo que exceda esos mínimos. Argentina previene activamente imposiciones unilaterales de Estados Unidos o Unión Europea que favorezcan a sus fabricantes locales y bloqueen entrada de stack argentino al mercado global.
+
+### 19.6 Articulación con PLANGEO
+
+La política exterior argentina se integra con PLANMOV a través de PLANGEO. Las embajadas argentinas en países prioritarios del plan suman agregado técnico-logístico con rango y presupuesto propio. El financiamiento multilateral de BID, CAF, Banco Mundial y bancos regionales se alinea explícitamente con objetivos PLANMOV, con fiscalización del Tablero Nacional de Movilidad. La diplomacia científica se articula con el LNMA a través de convenios de investigación conjunta y movilidad de cuadros técnicos.
+
+---
+
+## SECCIÓN 20: NEXOS MULTI-RECURSO
+
+La movilidad no existe en el vacío. Mover personas, bienes y datos consume energía, ocupa territorio, requiere infraestructura digital, organiza mercados de trabajo y conforma hábitats urbanos y rurales. Ningún plan de movilidad serio puede decidirse sin coordinación explícita con los planes hermanos del ecosistema ¡BASTA!. Los nexos multi-recurso son los puntos de articulación obligatoria con otros PLANes: puntos donde una decisión de PLANMOV afecta directamente a otro plan y viceversa. Cada nexo tiene tres elementos definidos: la decisión integrada que exige gobernanza conjunta, los trade-offs principales que se negocian entre los planes, y el mecanismo institucional que resuelve la coordinación.
+
+### 20.1 Nexo Movilidad-Energía (con PLANEN)
+
+Decisión integrada: electrificación del sistema ferroviario nacional y provisión de energía eléctrica al LNMA a nivel de demanda sostenida. Trade-off principal: la electrificación reduce el consumo operativo ferroviario en torno al 40% frente a tracción diésel, pero exige CAPEX alto en subestaciones, catenaria y material rodante compatible; el cómputo del LNMA en régimen pleno consume aproximadamente 180 GWh/año, equivalente a ciudad mediana argentina, lo que desplaza demanda de otros usos. Segundo trade-off: priorización temporal, dado que PLANEN tiene cronograma propio de generación renovable y no puede comprometer capacidad que aún no existe. Mecanismo institucional: consorcio ANMov más ANEN (Agencia Nacional de Energía) coordina planificación conjunta con reuniones trimestrales, presupuesto compartido para tramos críticos y Tablero común de demanda proyectada. Los rieles columna múltiple llevan tendido eléctrico de media y alta tensión como parte estructural, lo que capitaliza una sola obra civil para ambos planes.
+
+### 20.2 Nexo Movilidad-Digital (con PLANDIG)
+
+Decisión integrada: operación del LNMA sobre la infraestructura LANIA y custodia de los datos de movilidad en ArgenCloud. Trade-off principal: soberanía total versus velocidad de despliegue, dado que montar todo el stack argentino desde cero demora más que contratar proveedor extranjero; PLANMOV acepta el costo de tiempo como condición no negociable de soberanía, pero fija primer milestone operativo —modelo de percepción básico capaz de certificar un corredor piloto— en 18 meses desde inicio. Segundo trade-off: ecología de la atención en apps BAMD, BLF y MKC, donde la captación comercial de atención entraría en conflicto con la norma antipatrón oscuro del PLANDIG. Mecanismo institucional: Directorio LNMA integrado con representación formal de ANDIG (Agencia Nacional Digital), protocolo de auditoría cruzada de modelos y política de desarrollo de apps con revisión obligatoria de ecología de atención previa a despliegue público.
+
+### 20.3 Nexo Movilidad-Hábitat (con PLANVIV)
+
+Decisión integrada: diseño urbano orientado a ciudades densas, walkable y transit-oriented development (TOD), que reduce dependencia del automóvil individual. Trade-off principal: la densificación urbana reduce significativamente la necesidad de auto particular pero exige inversión urbana sostenida —espacios públicos, servicios, equipamiento— y puede generar resistencia política local; en contraste, la dispersión urbana de baja densidad consume más kilómetros de BLF y MKC, lo que eleva el costo operativo global de movilidad. Segundo trade-off: ritmo de densificación frente a disponibilidad de vivienda social alineada. Mecanismo institucional: PLANVIV prioriza desarrollo TOD alrededor de estaciones ferroviarias reactivadas por PLANMOV, reduce densidad prescripta en corredores de BLF intensos para evitar fricción logística-residencial, e integra la Red Metropolitana Federal como capa obligatoria de zonificación municipal armonizada vía Consejo Federal.
+
+### 20.4 Nexo Movilidad-Trabajo (con PLANREP)
+
+Decisión integrada: ritmo y forma de la reconversión laboral del transportista, articulada con el despliegue de automatización de flota. Trade-off principal: ritmo de automatización frente a ritmo de reconversión; si el primero supera al segundo, se genera desempleo estructural con costo social y político severo, y el plan entero pierde legitimidad pública. Segundo trade-off: concentración geográfica de la automatización —corredores AV primero, que desplazan camioneros de larga distancia— frente a distribución territorial de la oferta de reconversión. Mecanismo institucional: el Arquitecto de Fuerza Laboral IA previsto en PLANREP sincroniza cuotas de certificación PCAV anuales con capacidad real y verificada de reconversión formal; el Canon de Automatización financia la articulación con fondos etiquetados, auditados mensualmente, y libera nueva cuota PCAV sólo si los Cinco Años Dignos del cohorte previo están cubiertos.
+
+### 20.5 Nexo Movilidad-Territorio (con PLANTER)
+
+Decisión integrada: diseño de corredores de movilidad que atraviesan ecosistemas sensibles y articulación de la Personalidad Jurídica de la Cuenca Paraná con la Hidrovía Soberana. Trade-off principal: desarrollo logístico frente a preservación ambiental; los corredores ferroviarios son siempre preferibles a autopistas nuevas en impacto ambiental por unidad transportada, pero no toda reactivación es equivalente y algunos tramos exigen rediseño para respetar corredores biológicos. Segundo trade-off: dragado operativo de la Hidrovía frente a protección del humedal continuo. Mecanismo institucional: Evaluación de Impacto Ambiental obligatoria con enfoque de Personalidad Jurídica —la Cuenca tiene voz jurídica propia, representada por defensor designado—, Mesa Civil de Corredor constituida según PLANMESA que delibera en cada territorio atravesado, y veto ambiental sustantivo cuando el daño documentado supera el umbral definido por PLANTER.
+
+---
+
 ## SECCIÓN 21: TABLERO NACIONAL DE MOVILIDAD
 
 ### 21.1 Métricas
