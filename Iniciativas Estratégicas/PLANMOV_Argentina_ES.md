@@ -103,7 +103,7 @@ La Argentina contemporánea es, en términos de movilidad y logística, un país
 
 ---
 
-## SECCIÓN 0: LAS SIETE FALLAS ESTRUCTURALES DEL RÉGIMEN DE MOVILIDAD ARGENTINO
+## SECCIÓN 0: LAS NUEVE FALLAS ESTRUCTURALES DEL RÉGIMEN DE MOVILIDAD ARGENTINO
 
 > *"Nos acostumbramos a la idea de que Argentina es un país geográficamente difícil. No es eso. Es un país logísticamente rifado. La geografía no cambió. Lo que cambió fue el desprecio sistemático por la infraestructura pública."*
 
@@ -174,6 +174,34 @@ La Argentina contemporánea es, en términos de movilidad y logística, un país
 **Por qué persiste:** la invisibilización del flete sirve al oligopolio del camión. Mostrar el 30% del precio como flete generaría presión política.
 
 **Cómo PLANMOV lo resuelve:** transparencia radical. Bastarda Logística publica costos desagregados. Cada producto de la Red Bastarda muestra componente logístico. El ciudadano ve cuánto le cuesta la distancia.
+
+### 0.8 La Falla de la Captura Algorítmica
+
+**La falla:** cada vez que un camionero argentino abre Google Maps para salir de Zárate rumbo a Salta, cada vez que un repartidor de Rappi, PedidosYa o DiDi acepta un pedido en Palermo, cada vez que una flota corporativa de Mercedes-Benz o Toyota usa Samsara o Fleet Complete para optimizar ruteo, cada vez que una operadora logística mediana tira de PTV Map&Guide o de ORS para planificar un despacho — el trayecto, el tiempo de espera, el patrón de frenado, la zona con mejor demanda, la hora pico local, el comportamiento del conductor, todo eso se va a servidores en Virginia, Dublín o Fráncfort, propiedad de corporaciones que no pagan impuestos en Argentina y que después nos venden el resultado agregado como servicio premium.
+
+Los algoritmos de ruteo, matching y dispatching que sostienen hoy la operación logística argentina son, sin excepción relevante, propiedad de Google, Uber, Cabify, Rappi, PedidosYa, DiDi, Samsara, Fleet Complete, PTV y ORS — todas corporaciones extranjeras. Argentina no tiene un solo algoritmo de ruteo propio operando a escala sobre infraestructura argentina. Cada mensajería, cada camión, cada taxi, cada colectivo, cada furgón de reparto es entrenamiento gratuito para inteligencias artificiales que después nos cobran suscripción mensual por acceso a la versión que nosotros mismos ayudamos a entrenar con nuestros datos territoriales.
+
+El valor extraído se estima entre USD 600M y USD 1.400M/año solamente en movilidad urbana — componente software más datos de movilidad revendidos a agencias publicitarias, aseguradoras y mercados inmobiliarios — sin contar el agregado logístico de carga, fletes y última milla. Es la misma mecánica extractiva que PLANDIG denuncia en plataformas digitales, aplicada ahora al movimiento físico del país: el territorio como dato, la ruta como commodity, el argentino como entrenador no remunerado de IA ajena.
+
+**Por qué persiste:** ningún actor argentino tiene incentivo ni escala para entrenar un algoritmo de ruteo propio con reconocimiento territorial real. El costo marginal de usar Google Maps es cero para el operador individual; el costo de soberanía se paga en datos cedidos que no aparecen en ningún balance. El Estado no ha encargado ni financiado el stack soberano. La soberanía algorítmica no aparece como ítem de política pública explícita en ningún gobierno desde la aparición del smartphone.
+
+**Cómo PLANMOV lo resuelve:** Laboratorio Nacional de Movilidad Autónoma (LNMA) montado sobre LANIA de PLANDIG para desarrollar algoritmos propios de ruteo, matching y dispatching; Protocolo PCAV que obliga data-logging en ArgenCloud para toda flota que opere sobre infraestructura argentina; Doctrina del Doble Desplazamiento en su tercer mandamiento — los datos generados por algoritmos en rutas argentinas son commons argentino.
+
+**Riesgo residual:** resistencia de operadores extranjeros a migrar datos y cómputo a infraestructura soberana. Mitigación: plazo de transición 2028-2035 con penalidad progresiva — cuotas de tráfico, después auditoría fiscal, después revocación de licencia de operación.
+
+### 0.9 La Falla del Activo Ocioso y la Infraestructura Desaprovechada
+
+**La falla:** Argentina tiene 13 millones de autos particulares parados 22 horas por día — aproximadamente USD 30.000M en valor de activos inmovilizados en garajes, calles y estacionamientos, rindiendo cero al sistema de movilidad nacional. Tiene 380.000 m² de galpones ferroviarios cerrados con superficie cubierta inutilizada en las estaciones del interior. Tiene 2.800 km de ramales levantados en los 90 con durmientes de quebracho todavía sólidos pudriéndose al sol. Tiene flotas estatales — Correo Argentino, YPF, ENARSA, Ejército, Gendarmería, municipales — operando al 20% de capacidad útil por fragmentación, falta de coordinación y ausencia de plataforma agregadora.
+
+Tiene, además, una capacidad computacional doméstica dispersa estimada en alrededor de 2,4 millones de GPUs domésticas viables para cómputo distribuido que nadie agrega en malla pública — el mismo patrón del auto ocioso aplicado al silicio. El patrimonio ocioso nacional en dimensión movilidad supera los USD 50.000M cuyo valor hoy se evapora por ausencia de plataforma agregadora con seguro colectivo, protocolo técnico, certificación, y modelo económico justo para el aportante.
+
+Julia del Preámbulo — bibliotecaria jubilada en Mar del Plata, con un Ford Fiesta 2018 parado 22 horas por día en la puerta de su casa — es la cara cotidiana de esta falla. No es pereza ni falta de voluntad: no existe la institución que le permita aportar ese auto al commons con seguridad jurídica, respaldo técnico y remuneración decente. El activo está. El dispositivo no.
+
+**Por qué persiste:** no hay mecanismo institucional ni empresa bastarda capaz de agregar micro-activos dispersos bajo gobernanza commons. El mercado privado de carsharing argentino (Zipcar, Europcar, Fiat FastLine) no resolvió el problema porque opera con lógica de empresa con incentivo a escala, no de commons con incentivo a distribución territorial. Los operadores extranjeros de ride-share — Uber, Cabify, DiDi — extraen renta sobre el auto del aportante y no devuelven commons. Falta marco jurídico para el Contrato Bastardo que reconozca al aportante como titular de Créditos de Kilómetros.
+
+**Cómo PLANMOV lo resuelve:** Bastarda de Activos Móviles Disponibles (BAMD) con arquitectura PLANEB — empresa bastarda al costo con gobernanza distribuida que agrega flota privada ociosa, cómputo disperso, galpones clausurados y flota estatal subutilizada; Créditos de Kilómetros (CK) como remuneración intercambiable al aportante; pilotos escalonados por región — AMBA primero, aglomerados metropolitanos después, interior productivo, y rural al final.
+
+**Riesgo residual:** adopción lenta por desconfianza inicial del aportante a ceder uso de su auto. Mitigación: seguro colectivo bastardo integral, transparencia radical en uso y mantenimiento, panel ciudadano rotativo en la gobernanza de BAMD.
 
 ---
 
