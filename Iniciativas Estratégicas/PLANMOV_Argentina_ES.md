@@ -1493,86 +1493,6 @@ Cualquier Bastarda del ecosistema —BAMD, BLF, futuras Bastardas de Puerto, Ene
 
 ---
 
-## SECCIÓN 22: RIESGOS Y RESPUESTAS
-
-### 22.1 Matriz
-
-**TABLA 22.1: Riesgos PLANMOV**
-
-| # | Riesgo | Probabilidad | Impacto | Mitigación | Residual |
-|---|---|---|---|---|---|
-| R1 | Paros del sector camión | Alta | Alto | Diálogo sindical, reconversión gradual, compensación | Medio |
-| R2 | Dificultad financiar 20 años de inversión | Alta | Catastrófico | Deuda multilateral larga, bonos, coparticipación | Medio-alto |
-| R3 | Reversión por cambio de gobierno | Media-alta | Alto | Blindaje institucional, presupuesto constitucional, obras iniciadas no reversibles | Medio |
-| R4 | Litigio internacional por Hidrovía | Media | Medio | Defensa jurídica, continuidad operativa | Bajo-medio |
-| R5 | Corrupción en obras de gran escala | Alta | Alto | Transparencia radical, auditoría continua, Inscripción Captura | Medio |
-| R6 | Captura del MKC para fraudes | Media | Medio | Validación en Cédula Civil, intransferibilidad | Bajo |
-| R7 | Técnica insuficiente para reactivar 25.000 km | Media | Alto | Reconstrucción del Estado técnico (PLANREP), convenios internacionales | Medio |
-| R8 | Conflicto con provincias por AMBA-T | Alta | Medio | Pacto Metropolitano, diálogo sostenido | Medio |
-| R9 | Clima político adverso a obra pública | Media | Alto | Comunicación, casos demostración, beneficio visible usuarios | Medio |
-| R10 | Capacidad de absorción de la economía | Media | Medio | Escalamiento progresivo, capacidad productiva incremental | Bajo-medio |
-
-### 22.2 Críticas Anticipadas
-
-**"USD 100.000M es imposible."**
-España invirtió USD 50.000M en 30 años con PBI menor al argentino. La escala es comparable. El plazo acompaña.
-
-**"El tren nunca va a volver a ser competitivo."**
-Los números internacionales dicen lo contrario. El tren es 3-5x más barato por ton-km. Lo que pasa es que requiere inversión inicial.
-
-**"El MKC es populismo."**
-Alemania tiene abonos ferroviarios subsidiados universales. Francia tiene precios regulados. El MKC es política pública estándar.
-
-**"AMBA-T va a ser burocracia."**
-Londres, Singapur, Seúl, Ciudad de México tienen autoridades metropolitanas unificadas. Funciona.
-
----
-
-## SECCIÓN 25: HOJA DE RUTA
-
-### 25.1 Cronograma
-
-**Año 1:**
-- Ley ANMov.
-- Ley Bastarda Logística.
-- Ley AMBA-T.
-- Renegociación Hidrovía iniciada.
-- Primeros 3 corredores ferroviarios piloto.
-- MKC piloto en 3 provincias.
-
-**Años 2-3:**
-- Reactivación parcial de 4.500 km ferroviarios.
-- BLF opera 20 corredores productivos.
-- AMBA-T constituida y funcional.
-- MKC nacional.
-- Primera inversión portuaria (Madryn, Ushuaia).
-
-**Años 4-7:**
-- 15.000 km ferroviarios reactivados.
-- 8 puertos federales operativos.
-- Material rodante AMBA renovado 60%.
-- Bastarda Fluvial operativa.
-
-**Años 8-15:**
-- 25.000 km ferroviarios.
-- Hidrovía Soberana completa.
-- AMBA Estructural completo.
-- Red de Puertos completa.
-
-**Años 16-20:**
-- Consolidación.
-- Nuevas rutas emergentes.
-- Exportación de modelo a la región.
-
-### 25.2 Lo Que No Sabemos
-
-- Respuesta del sector camión.
-- Tasa de adopción real del MKC.
-- Capacidad de ejecución obra pública sostenida.
-- Nuevas tecnologías (eléctrico, hidrógeno) que cambien el panorama.
-
----
-
 ## SECCIÓN 18: SEGURIDAD OPERATIVA Y CIBERSEGURIDAD DE FLOTA AUTÓNOMA
 
 > *"Un camión autónomo conectado a un servidor en Mountain View es una llave colgada afuera de la casa."*
@@ -1695,6 +1615,61 @@ Decisión integrada: diseño de corredores de movilidad que atraviesan ecosistem
 
 ---
 
+## SECCIÓN 22: RIESGOS Y RESPUESTAS
+
+### 22.1 Matriz
+
+**TABLA 22.1: Riesgos PLANMOV**
+
+| # | Riesgo | Probabilidad | Impacto | Mitigación | Residual |
+|---|---|---|---|---|---|
+| R1 | Paros del sector camión | Alta | Alto | Diálogo sindical, reconversión gradual, compensación | Medio |
+| R2 | Dificultad financiar 20 años de inversión | Alta | Catastrófico | Deuda multilateral larga, bonos, coparticipación | Medio-alto |
+| R3 | Reversión por cambio de gobierno | Media-alta | Alto | Blindaje institucional, presupuesto constitucional, obras iniciadas no reversibles | Medio |
+| R4 | Litigio internacional por Hidrovía | Media | Medio | Defensa jurídica, continuidad operativa | Bajo-medio |
+| R5 | Corrupción en obras de gran escala | Alta | Alto | Transparencia radical, auditoría continua, Inscripción Captura | Medio |
+| R6 | Captura del MKC para fraudes | Media | Medio | Validación en Cédula Civil, intransferibilidad | Bajo |
+| R7 | Técnica insuficiente para reactivar 25.000 km | Media | Alto | Reconstrucción del Estado técnico (PLANREP), convenios internacionales | Medio |
+| R8 | Conflicto con provincias por AMBA-T | Alta | Medio | Pacto Metropolitano, diálogo sostenido | Medio |
+| R9 | Clima político adverso a obra pública | Media | Alto | Comunicación, casos demostración, beneficio visible usuarios | Medio |
+| R10 | Capacidad de absorción de la economía | Media | Medio | Escalamiento progresivo, capacidad productiva incremental | Bajo-medio |
+
+### 22.2 Críticas Anticipadas
+
+**"USD 100.000M es imposible."**
+España invirtió USD 50.000M en 30 años con PBI menor al argentino. La escala es comparable. El plazo acompaña.
+
+**"El tren nunca va a volver a ser competitivo."**
+Los números internacionales dicen lo contrario. El tren es 3-5x más barato por ton-km. Lo que pasa es que requiere inversión inicial.
+
+**"El MKC es populismo."**
+Alemania tiene abonos ferroviarios subsidiados universales. Francia tiene precios regulados. El MKC es política pública estándar.
+
+**"AMBA-T va a ser burocracia."**
+Londres, Singapur, Seúl, Ciudad de México tienen autoridades metropolitanas unificadas. Funciona.
+
+---
+
+## SECCIÓN 23: PROTOCOLO DE FALLA
+
+### 23.1 Matriz
+
+**F1 — Crisis fiscal:** priorización reforzada de AMBA y 3 corredores críticos; demás se pospone; obra iniciada se completa.
+
+**F2 — Paro ferroviario grande:** diálogo inmediato con sindicatos, participación en gobernanza, compromiso laboral.
+
+**F3 — Litigio Hidrovía internacional:** continuidad operativa con concesionario hasta resolución, Bastarda Fluvial paralela desde Año 1.
+
+**F4 — Fracaso técnico corredor:** revisión LDEA, posible redirección a corredor alternativo.
+
+**F5 — Reversión política:** obra iniciada difícil de desarmar; MKC ya en bolsillos; path dependency cívica.
+
+### 23.2 Cláusula de Continuidad
+
+Si colapsa régimen, MKC con saldo preservado vía Bastarda si es necesario; obras iniciadas con contratos públicos se terminan; AMBA-T como autoridad se preserva.
+
+---
+
 ## SECCIÓN 24: DIMENSIÓN FEDERAL
 
 ### 24.1 Pacto Federal Movilidad
@@ -1707,6 +1682,51 @@ Convenios ANMov-Provincia. Coparticipación ferroviaria. Priorización territori
 - NOA/NEA: priorización alta por impacto productivo.
 - Centro-Pampas: optimización intermodal.
 - Cuyo: corredor trasandino binacional.
+
+---
+
+## SECCIÓN 25: HOJA DE RUTA
+
+### 25.1 Cronograma
+
+**Año 1:**
+- Ley ANMov.
+- Ley Bastarda Logística.
+- Ley AMBA-T.
+- Renegociación Hidrovía iniciada.
+- Primeros 3 corredores ferroviarios piloto.
+- MKC piloto en 3 provincias.
+
+**Años 2-3:**
+- Reactivación parcial de 4.500 km ferroviarios.
+- BLF opera 20 corredores productivos.
+- AMBA-T constituida y funcional.
+- MKC nacional.
+- Primera inversión portuaria (Madryn, Ushuaia).
+
+**Años 4-7:**
+- 15.000 km ferroviarios reactivados.
+- 8 puertos federales operativos.
+- Material rodante AMBA renovado 60%.
+- Bastarda Fluvial operativa.
+
+**Años 8-15:**
+- 25.000 km ferroviarios.
+- Hidrovía Soberana completa.
+- AMBA Estructural completo.
+- Red de Puertos completa.
+
+**Años 16-20:**
+- Consolidación.
+- Nuevas rutas emergentes.
+- Exportación de modelo a la región.
+
+### 25.2 Lo Que No Sabemos
+
+- Respuesta del sector camión.
+- Tasa de adopción real del MKC.
+- Capacidad de ejecución obra pública sostenida.
+- Nuevas tecnologías (eléctrico, hidrógeno) que cambien el panorama.
 
 ---
 
@@ -1731,26 +1751,6 @@ Héctor a los 84, invitado como Testigo de los 60 para la inauguración del tram
 ### 26.3 La Pregunta Final
 
 ¿Puede Argentina volver a estar conectada consigo misma? Sí. Canadá, Australia, España lo hicieron. Argentina tiene la infraestructura histórica parcialmente preservada, el saber técnico parcialmente vivo, el territorio para hacerlo. Lo que necesita es lo que nunca tuvo junto: **plan de 20 años, presupuesto protegido, Bastarda, Mandato Kilométrico, Autoridad Metropolitana, Red Federal de Puertos, Hidrovía Soberana**. PLANMOV es ese paquete.
-
----
-
-## SECCIÓN 23: PROTOCOLO DE FALLA
-
-### 23.1 Matriz
-
-**F1 — Crisis fiscal:** priorización reforzada de AMBA y 3 corredores críticos; demás se pospone; obra iniciada se completa.
-
-**F2 — Paro ferroviario grande:** diálogo inmediato con sindicatos, participación en gobernanza, compromiso laboral.
-
-**F3 — Litigio Hidrovía internacional:** continuidad operativa con concesionario hasta resolución, Bastarda Fluvial paralela desde Año 1.
-
-**F4 — Fracaso técnico corredor:** revisión LDEA, posible redirección a corredor alternativo.
-
-**F5 — Reversión política:** obra iniciada difícil de desarmar; MKC ya en bolsillos; path dependency cívica.
-
-### 23.2 Cláusula de Continuidad
-
-Si colapsa régimen, MKC con saldo preservado vía Bastarda si es necesario; obras iniciadas con contratos públicos se terminan; AMBA-T como autoridad se preserva.
 
 ---
 
