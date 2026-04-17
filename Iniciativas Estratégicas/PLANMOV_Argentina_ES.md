@@ -935,58 +935,201 @@ Ejemplo corredor Belgrano Cargas 1.500 km multicapa: USD 3.780M de inversión to
 
 ---
 
-## SECCIÓN 7: INTEGRACIÓN CON LA PLATAFORMA ¡BASTA!
+## SECCIÓN 7: BASTARDA DE ACTIVOS MÓVILES DISPONIBLES EN PROFUNDIDAD
 
-### 7.1 Con El Mapa
+> *"El auto parado no es propiedad privada — es un préstamo no cobrado a la malla pública. Cada kilómetro desaprovechado es flete que no llega a Humahuaca, un taxi que no está, una bibliotecaria que paga por no moverse."*
+
+La Sección 3.9 introdujo la Bastarda de Activos Móviles Disponibles (BAMD) como el dispositivo de Capa III que convierte la capacidad ociosa del stock privado argentino en infraestructura pública fungible. Esta sección desarrolla la arquitectura operativa: qué tipos de activos integra, cómo se construye la plataforma técnica, con qué fórmula paga al aportante, cómo se bastardea el seguro, por dónde arrancan los pilotos, cómo conversa con el resto del ecosistema y quién la gobierna.
+
+### 7.1 Tipología de Activos
+
+La BAMD recoge cuatro familias de activos. Primero, las flotas privadas ociosas: 4,2 millones de autos particulares en AMBA que permanecen parados 23 horas al día en promedio, 1,8 millones de utilitarios de PyMEs del Gran Buenos Aires, Córdoba y Rosario que operan con un aprovechamiento temporal estimado del 8% (el 92% del tiempo están sin uso). Segundo, el cómputo distribuido: GPUs domésticas de gamers y mineros reconvertidos, nodos edge instalados en 2.400 escuelas técnicas bajo convenio con PLANEDU, servidores cooperativos de cámaras empresariales, clusters comunitarios de bibliotecas populares. Tercero, la infraestructura física subutilizada: galpones ferroviarios recuperables identificados en Gálvez, Laguna Paiva, Villa María, Sunchales y otros 38 puntos del mapa del Belgrano Cargas y el San Martín; depósitos portuarios ociosos; playones de municipios rurales. Cuarto, el trabajo desplazado vía FRM: mecánicos, choferes y despachantes cuya capacidad operativa se reinyecta como mano de obra certificada en los corredores BAMD y BLF. Las cuatro familias confluyen en un registro único: el Catastro de Activos Móviles, administrado por la ANMov con participación del Protocolo Bastardo del PLANEB.
+
+### 7.2 Arquitectura Técnica de la Plataforma
+
+La plataforma BAMD corre sobre backend soberano alojado en ArgenCloud (infraestructura del PLANDIG), con código liberado bajo licencia MIT y auditoría continua de Síndicos de Archivo. Dos aplicaciones móviles: la del aportante (Julia registra su Ford Fiesta, declara ventanas de disponibilidad, monitorea los Créditos Kilómetro ganados, solicita mantenimiento, gestiona el seguro colectivo) y la del usuario (reserva vehículo o nodo de cómputo, paga con MKC, pesos o CK, califica la experiencia). El dispatching usa los modelos entrenados por el LNMA (Sección 8) para asignar activos según demanda, distancia, condición y preferencias. La API pública permite que la BLF consuma capacidad de carga liviana, que el MKC descuente viajes pagos con Créditos Kilómetro, y que el Mapa de ¡BASTA! visualice la densidad territorial de activos activos en tiempo real.
+
+### 7.3 Modelo Económico del Aportante
+
+El aportante recibe un Crédito Kilómetro (CK) por cada kilómetro que su activo es usado por un tercero en la red BAMD. Un CK equivale a un kilómetro del MKC+ o a su valor en pesos al tipo de cambio oficial del Tablero Nacional. Caso Julia, bibliotecaria de Liniers con un Ford Fiesta 2018 que hoy le cuesta USD 4.300 anuales estar parada (patente, seguro tradicional, garaje, depreciación acelerada por no uso). Julia declara 8 horas diarias de disponibilidad, 5 días por semana. La BAMD efectivamente usa su auto el 15% de esas ventanas — unos 30 km promedio por día útil. En 365 días calendario Julia acumula 10.950 CK, equivalentes a USD 380 anuales líquidos. Ese ingreso no tributa como renta (el CK es reconocido por la AFIP Bastarda como compensación por cesión de activo comunal, no como ingreso). La BAMD además cubre el mantenimiento subvencionado del vehículo (aceite, filtros, frenos, cubiertas proporcionales) por un ahorro estimado de USD 800 anuales, y la incorpora al seguro colectivo bastardo por un ahorro adicional de USD 1.100 anuales sobre lo que hoy paga Julia en seguro comercial. Resultado neto: Julia deja de perder USD 4.300 al año y pasa a ganar USD 1.900 netos más 10.950 CK fungibles. El auto, que era un pasivo parado, pasa a ser un activo productivo sin que Julia cambie su rutina.
+
+### 7.4 Protocolo de Seguridad, Privacidad y Seguro Colectivo Bastardo
+
+El "bastardeo" del seguro consiste en reemplazar el modelo comercial por un pool mutualista público-social con primas al costo, administrado bajo el Protocolo Bastardo PLANEB. Todos los vehículos de la BAMD pasan por certificación técnica trimestral gratuita en Tallers PLANTALLER (verificación mecánica, frenos, luces, neumáticos, emisiones). Los datos del aportante — ubicación del auto, horas de uso, patrón de trayectos — se almacenan anonimizados y agregados: el repositorio LNMA recibe estadísticas, no identidades. El rastreo anti-robo está integrado con PLANSEG y funciona por defecto, pero el aportante puede consultar solo su propio dispositivo. El seguro colectivo bastardo cubre al 100% daños al vehículo en uso BAMD, daños a terceros y lesiones a usuarios, con franquicia cero para el aportante de buena fe. El pool es autoalimentado: las primas de todos los aportantes y los ingresos residuales de la BAMD financian los siniestros, con excedente derivable al FRM.
+
+### 7.5 Pilotos por Región
+
+El despliegue territorial sigue un roadmap de diez años. Años 1-2: tres corredores piloto en AMBA — Devoto, Caballito y Liniers — con 8.000 activos totales integrados y 40.000 usuarios proyectados. Años 2-3: extensión a Gran Córdoba (Nueva Córdoba, barrio Jardín, Alta Córdoba), Gran Rosario (Pichincha, Fisherton) y Gran Mendoza (Godoy Cruz, Guaymallén), sumando 28.000 activos adicionales. Años 3-5: escalado a las 24 cabeceras provinciales con mesa local de Activos Móviles en cada una. Años 5-10: foco en el interior productivo con corredores intermodales rural-cabecera, donde la BAMD se articula con la Bastarda Logística Federal para resolver el último tramo del flete granario y el primero del turismo disperso. Al año 10 se proyectan 1,2 millones de activos integrados y 9 millones de usuarios activos.
+
+### 7.6 Interoperabilidad con BLF, LNMA, MKC
+
+La BAMD expone una API pública que define protocolos de intercambio de datos con los otros dispositivos de Capa III y II. Los Créditos Kilómetro son fungibles en cualquier Bastarda del ecosistema movilidad: valen en la BLF para pagar flete liviano, en el MKC para bonificar viaje urbano, en la Bastarda Fluvial para abonar pasaje de lancha. El dispatching de la BAMD corre sobre modelos del LNMA, y los datos agregados de uso retroalimentan al Laboratorio para mejorar la predicción de demanda. La integración con el Tablero Nacional de Movilidad permite al ciudadano ver en un solo mapa qué activos BAMD, colectivos MKC y trenes operan en su zona.
+
+### 7.7 Gobernanza
+
+La BAMD se constituye bajo Fideicomiso de Propósito Perpetuo del PLANEB, con una DAO complementaria que incorpora un panel ciudadano rotativo: 120 miembros sorteados entre aportantes activos y usuarios registrados, con mandato de 6 meses y rotación escalonada. El Directorio mixto lo componen 4 técnicos ANMov (designados por concurso), 2 aportantes electos, 2 usuarios electos, 1 representante del FRM y 1 representante del Protocolo Bastardo PLANEB. Las decisiones de tarifa de CK, ampliación de pilotos, cambios al seguro y admisión de nuevas tipologías de activos requieren mayoría simple del Directorio más ratificación del panel ciudadano. Los Síndicos de Archivo auditan los libros trimestralmente y cualquier ciudadano puede solicitar rendición extraordinaria mediante 500 firmas certificadas por Credencial de Materia Movilidad.
+
+---
+
+## SECCIÓN 8: LABORATORIO NACIONAL DE MOVILIDAD AUTÓNOMA EN PROFUNDIDAD
+
+> *"El algoritmo que maneja un camión por la ruta 9 es política pública tanto como el asfalto. Dejarlo en manos extranjeras es como licitar la luz de cada semáforo a un país distinto."*
+
+La Sección 3.10 introdujo el Laboratorio Nacional de Movilidad Autónoma (LNMA) como la respuesta argentina a la asimetría algorítmica que se viene. Esta sección detalla su relación con LANIA, el stack técnico soberano, los corredores piloto con cronograma, la política de código abierto, la arquitectura de datos como commons, el proceso de certificación PCAV, la pipeline de formación y el diseño anti-captura de su gobernanza.
+
+### 8.1 Misión y Relación con LANIA (PLANDIG)
+
+El LNMA es un laboratorio sectorial: su misión es soberanía algorítmica en movilidad. LANIA — el Laboratorio Nacional de Inteligencia Artificial del PLANDIG — es su contraparte general: entrena modelos fundacionales en español rioplatense, provee infraestructura de cómputo compartida en ArgenCloud y audita el conjunto de la política algorítmica del Estado. La división de responsabilidades es explícita. LANIA entrena los modelos base y los libera con licencia abierta; el LNMA hace fine-tuning con corpus específico de movilidad argentina: señalización rural, comportamiento del ganado en ruta, nieblas del litoral, ripio patagónico, colectivos mixtos con pasajeros parados, pasos a nivel sin barrera, cortes de ruta por manifestación. LANIA provee cómputo a granel; el LNMA aporta los datos específicos, la telemetría de los pilotos, las simulaciones del gemelo digital. LANIA dicta la auditoría algorítmica general del Estado; el LNMA certifica sectorialmente cada modelo que toca un vehículo físico en territorio nacional. La bisagra institucional es el Consejo Conjunto LANIA-LNMA, que se reúne trimestralmente y decide prioridades compartidas de investigación.
+
+### 8.2 Stack Técnico Soberano
+
+El stack del LNMA cubre las cuatro capas de software que sostienen cualquier sistema autónomo. La capa de percepción incluye modelos entrenados con video de rutas argentinas en condiciones reales: detectar ganado vacuno cruzando a 180 km/h en la Patagonia con neblina, reconocer un paso a nivel rural sin barrera, distinguir un gendarme con bandera roja, clasificar un corte piquetero. La capa de planificación resuelve re-ruteo dinámico: un corte en la ruta provincial 11 debe disparar en cuestión de minutos una alternativa que contemple flete cargado, ventanas de entrega, peajes y combustible disponible. La capa de control adapta el vehículo a la superficie: el ripio NOA y NEA pierde tracción de forma impredecible y el controlador tiene que ajustar torque y frenos con modelos locales, no con los parámetros importados que asumen asfalto europeo. La capa de simulación opera un gemelo digital del corredor Pergamino-Rosario con 180 km modelados con todas las variables climáticas mensuales y toda la infraestructura relevante — peajes, pasos a nivel, estaciones de servicio, playones, puntos negros de accidentes — donde cada modelo se prueba 100.000 veces antes de certificarse para ruta real. Todo el stack corre sobre ArgenCloud con redundancia federal y backup físico en tres puntos del país.
+
+### 8.3 Corredores Piloto AV (detalle)
+
+Fase 1 (2028-2030). Corredor Pergamino-Rosario, 180 km, camiones de carga Nivel 3 SAE con supervisor humano en cabina, apertura Q3 2028, flota inicial de 40 camiones con ampliación a 120 al cierre de fase. Corredor ferroviario Retiro-Tigre, 30 km, formaciones de pasajeros Nivel 4 con supervisor en cabina de respaldo, apertura Q2 2029, 24 formaciones. Fase 2 (2031-2034). Corredor AMBA-Mar del Plata, 400 km, autos y autobuses Nivel 4 supervisados, apertura Q1 2032, 200 autobuses interurbanos + pool BAMD de autos certificados. Puerto Dock Sud, grúas automatizadas y vehículos guiados autónomos (AGV) para contenedores Nivel 4 bajo área cerrada, apertura Q2 2032, 18 grúas y 60 AGV. Fase 3 (2035-2040). Red extendida con 12 corredores interurbanos Nivel 4 certificados (NOA, NEA, Cuyo, Patagonia Norte y Sur, Litoral) más 3 corredores Nivel 5 en condiciones controladas: dos mineros (Salar de Olaroz y Bajo de la Alumbrera) y uno portuario (Rosario-Timbúes). Cada corredor aprueba el tránsito a su nivel SAE solo después de 100.000 km acumulados sin incidentes por operador.
+
+### 8.4 Código Abierto como Default
+
+La política de licencias del LNMA es simple: todo el código es abierto por defecto, MIT o Apache 2.0 según compatibilidad con dependencias. La política de contribución permite que cualquier investigador argentino certificado contribuya vía repositorio GitHub gestionado por ArgenCloud, con revisión por pares de tres niveles y auditoría final del Síndico técnico. Las excepciones al código abierto son taxativas: solo seguridad crítica probada aprobada por el Directorio por unanimidad, con revisión trimestral de esa excepción. Ningún modelo del LNMA opera sin que sus pesos estén publicados y reproducibles.
+
+### 8.5 Datos de Movilidad como Commons
+
+El repositorio LNMA está organizado en tres capas de acceso. La capa pública-abierta contiene telemetría agregada y anonimizada: flujos de tráfico, patrones estacionales, incidentes reportados sin datos personales, mapas de infraestructura. La capa intergubernamental-auditada contiene datos sensibles compartidos entre ANMov, Vialidad Nacional, Prefectura y LANIA, con trazabilidad de accesos y auditoría semestral. La capa aportante-privada-cifrada guarda telemetría individual de vehículos BAMD y AV, cifrada con clave del aportante, que solo se descifra con consentimiento explícito para investigación. El acceso diferenciado: investigadores argentinos consumen la capa pública vía API libre y la intergubernamental con convenio formal; las Bastardas del ecosistema acceden a telemetría sectorial con convenio interinstitucional; corporaciones extranjeras que pidan datos pagan licencia cuyo ingreso va al FRM.
+
+### 8.6 Certificación PCAV en Detalle
+
+El Protocolo de Certificación Argentina de Vehículos Autónomos (PCAV) estructura el acceso al mercado. Paso 1: solicitud formal del fabricante u operador con documentación técnica y declaración jurada de responsabilidad. Paso 2: evaluación técnica en gemelo digital (100.000 corridas de simulación sobre el corredor solicitado). Paso 3: prueba física en corredor piloto con supervisor LNMA a bordo durante 20.000 km sin intervención crítica. Paso 4: certificación específica por corredor y nivel SAE; un camión certificado Nivel 4 para Pergamino-Rosario no está autorizado para Mendoza-San Juan hasta que apruebe ese corredor por separado. Paso 5: auditoría semestral obligatoria con revisión de telemetría completa, análisis de incidentes y pruebas de regresión. Paso 6: revocación automática por incidente grave, desvío estadístico de seguridad (más de 2 sigma respecto al bench del corredor) o hallazgo de código no declarado. La matriz nivel × corredor se publica en el Tablero Nacional de Movilidad en tiempo real.
+
+### 8.7 Formación y Talento
+
+El LNMA se nutre del sistema educativo vía articulación con PLANEDU. Carreras técnicas ferroviarias ampliadas en las UTN de Haedo, Buenos Aires, Rosario, Córdoba, Mendoza y Neuquén. Tecnicaturas en Mantenimiento AV en los Tallers PLANTALLER de cabecera. Maestrías conjuntas LANIA-LNMA en aprendizaje por refuerzo aplicado a movilidad. La proyección al año 2035 es de 1.500 graduados anuales entre ingenieros, técnicos y científicos de datos. La retención de talento se gestiona con salarios competitivos respecto al sector privado argentino y extranjero, equiparados por el Arquitecto de Fuerza Laboral IA (dispositivo del PLANDIG) que cruza demanda y oferta sectorial y dispara ajustes salariales automáticos cuando la brecha supera umbral.
+
+### 8.8 Gobernanza y Anti-Captura
+
+El Directorio del LNMA opera bajo la órbita de la ANMov con cinco miembros: dos técnicos de carrera, uno designado por LANIA, uno por sorteo entre aportantes de datos BAMD y uno electo por asamblea de personal científico. Los Síndicos de Archivo rotan cada tres años con tope de dos mandatos no consecutivos. La transparencia radical es obligatoria: todos los contratos con proveedores, todos los convenios internacionales, todas las licencias extraordinarias cerradas se publican en el repositorio público del LNMA en plazo máximo de 15 días hábiles. La rotación de dirección técnica es obligatoria cada 4 años con veda post-mandato de 5 años para trabajar en operadores privados de AV. Las puertas giratorias con operadores privados están prohibidas por régimen equivalente al de la ANDIG, con sanciones penales por incumplimiento.
+
+---
+
+## SECCIÓN 9: FONDO DE RECONVERSIÓN MÓVIL + CANON DE AUTOMATIZACIÓN EN DETALLE
+
+> *"La automatización no es inevitable. La consecuencia sí. La pregunta es si alguien la paga — y cuya vida queda intacta del otro lado."*
+
+La Sección 3.11 presentó el Fondo de Reconversión Móvil (FRM) y el Canon de Automatización como el par fiscal-social que hace operable la Doctrina del Doble Desplazamiento (Sección 3.12). Esta sección desarrolla la operación: fórmula formal, casos de cálculo con números reales, destino de los fondos, fuentes complementarias, articulación con PLANREP, diseño de la Pensión Puente Móvil y una proyección de caso concreto sobre la trayectoria de Diego Maidana entre 2026 y 2046.
+
+### 9.1 La Doctrina del Doble Desplazamiento operativizada
+
+El FRM y el Canon son la maquinaria económica de la Doctrina del Doble Desplazamiento. Sin Canon, la Doctrina es proclamación retórica; con Canon, es contabilidad. El principio es que cada vehículo autónomo que se despliega debe pagar, antes de operar, el costo social de la hora-humana que reemplaza. Esa hora no se mide en abstracto: se mide contra el salario bruto, las cargas sociales y la expectativa de vida laboral del trabajador desplazado en el corredor específico donde el AV opera. La Doctrina dice que la automatización es legítima si y solo si cubre ese costo, y establece el FRM como caja donde se acumula ese pago y se desembolsa a los desplazados. El Canon es lo que entra; el FRM es donde se acumula y desde donde se paga. Ambos son inseparables: un vehículo AV que no haya integrado el Canon no puede recibir certificación PCAV.
+
+### 9.2 Fórmula del Canon
+
+La fórmula operativa es:
+
+```
+Canon_Anual(AV_k) = HEDA(AV_k) × CAR
+```
+
+Donde HEDA es Horas Efectivas Desplazadas Anuales del vehículo autónomo k, calculado como Horas Operativas Anuales Efectivas × Factor SAE. El Factor SAE ajusta por grado real de reemplazo humano: Nivel 2 (asistencia) = 0,10; Nivel 3 (supervisado crítico) = 0,35; Nivel 4 (autónomo por corredor) = 0,75; Nivel 5 (completamente autónomo) = 1,00. CAR es Costo Anual de Reconversión por hora — unidad tarifaria anual definida por la ANMov, indexada a IPC, que suma cuatro componentes: base salarial del corredor afectado + costo de Pensión Puente Móvil prorrateado + costo de formación en PLANREP + aporte de salud al sistema público. Para 2028, año proyectado de inicio del Canon, la ANMov fija CAR = USD 9,50 por hora sobre base de un salario bruto camionero de USD 1.400 mensuales más cargas, PPM, formación y salud.
+
+### 9.3 Casos de Cálculo del Canon
+
+Con CAR = USD 9,50/h, los casos representativos de aplicación son:
+
+| Tipo de vehículo | Nivel SAE | Horas/año | HEDA | Canon anual |
+|---|---|---|---|---|
+| Camión larga distancia | 4 | 3.200 | 2.400 | USD 22.800 |
+| Taxi urbano | 5 | 2.800 | 2.800 | USD 26.600 |
+| Colectivo urbano | 3 | 4.200 | 1.470 | USD 13.965 |
+| Locomotora carga | 4 | 4.500 | 3.375 | USD 32.063 |
+| Buque fluvial | 3 | 7.200 | 2.520 | USD 23.940 |
+
+Un operador que despliegue una flota de 200 camiones Nivel 4 en Pergamino-Rosario paga al FRM USD 4,56 millones anuales. Una cooperativa portuaria que automatice 18 grúas Nivel 4 en Dock Sud (4.000 horas/año cada una) aporta USD 513.000 anuales. La tarifa CAR se actualiza trimestralmente por el Consejo FRM según inflación, cambio en el salario base del corredor y demanda real de la Pensión Puente.
+
+### 9.4 Destino del Fondo
+
+Los ingresos del FRM se distribuyen por fórmula fija aprobada en la ley fundante:
+
+| Rubro | % del FRM |
+|---|---|
+| Pensión Puente Móvil (PPM) para desplazados | 45% |
+| Formación en rutas PLANREP | 20% |
+| Aportes a sistema público de salud de los cubiertos | 15% |
+| Subsidios de reconversión (movilidad, relocalización, alquiler puente) | 12% |
+| Kit emprendedor (crédito blando para iniciar cooperativa o PyME) | 5% |
+| Administración y auditoría | 3% |
+
+La distribución es inamovible salvo reforma por mayoría especial del Congreso con ratificación del Directorio FRM y consulta ciudadana territorial en los corredores afectados.
+
+### 9.5 Otras Fuentes del Fondo
+
+El Canon es la columna principal, pero el FRM se alimenta de cuatro flujos complementarios: 20% del excedente operativo anual de la BAMD, 10% de los Créditos Kilómetro no cobrados en plazo (caducidad a 18 meses), 0,08% del PBI presupuestado por ley como piso irreductible, y aportes directos del Protocolo Bastardo PLANEB cuando una Bastarda registra superávit excepcional. Esas fuentes permiten al FRM operar los primeros años cuando el Canon todavía no alcanza régimen pleno.
+
+### 9.6 Articulación con PLANREP — Ruta "Reconversión Móvil"
+
+El trabajador desplazado transita un proceso formal de seis estaciones. Inscripción en la ventanilla PLANREP del corredor. Evaluación de habilidades con el test estandarizado ANMov-PLANREP que identifica aptitudes mecánicas, lógicas, relacionales y de coordinación. Asignación de ruta de reconversión con seis opciones principales — Coordinador AV Supervisado, Operador BAMD, Técnico de Mantenimiento AV, Operador LNMA, Técnico Portuario, Emprendedor Cooperativo — más opciones específicas por corredor. Formación efectiva con duración entre 6 y 18 meses según la ruta, con PPM cubriendo el 85% del salario previo durante el período. Colocación en nuevo puesto con convenio de estabilidad de 24 meses. Acompañamiento de 12 meses post-colocación con mentor asignado, ajuste salarial negociado si hubiera brecha y derecho a retomar PPM por una sola vez si la colocación falla por motivo no imputable al trabajador.
+
+### 9.7 Pensión Puente Móvil (PPM) en detalle
+
+La PPM es el instrumento concreto que traduce la Doctrina en vida cotidiana. Monto: 85% del último salario bruto del trabajador desplazado, indexado mensualmente a IPC. Duración: hasta 5 años o hasta colocación efectiva en nuevo puesto, lo que sea menor; con extensiones excepcionales de hasta 2 años más por causa de salud o carga familiar probada. Cobertura de salud: aportes plenos a la obra social del trabajador sostenidos por el FRM durante todo el período, sin lapsos ni copagos. Condiciones: inscripción formal en PLANREP, asistencia certificada a la ruta asignada (80% de presentismo) y participación en evaluaciones trimestrales. Excepción "Cinco Años Dignos": para trabajadores mayores de 50 años al momento del desplazamiento, la PPM se abona en forma completa hasta la jubilación normal sin exigencia de reinserción plena; solo se requiere capacitación de media jornada en formatos compatibles con la edad y el rubro, a los fines de mantener red social y sentido productivo. Esta excepción reconoce que reinsertar a un camionero de 55 años con 35 años de volante en un nuevo oficio a tiempo completo es cruel y contraproducente.
+
+### 9.8 Caso Concreto — Diego Maidana
+
+Diego Maidana, la Voz III del Preámbulo, tiene 47 años en 2026, 28 de ellos al volante, conduce el camión que carga soja de Pergamino a Rosario tres veces por semana. La proyección de su trayectoria entre 2026 y 2046 materializa lo que el Canon y la PPM le compran. Años 2028-2032, Diego entre 49 y 53. El sector camión todavía es estable y Diego sigue manejando la misma ruta; la diferencia es que integra por convenio con la Bastarda Logística Federal la flota supervisada por BLF, con peajes reducidos, gasoil subsidiado MKC, descanso certificado y seguro bastardo. Se inscribe voluntariamente en Tallers PLANTALLER y se capacita en horario extendido como Operador AV Nivel 2 (asistencia), sumando 1.200 horas de formación acumuladas sin afectar su ingreso. Años 2032-2036, Diego entre 53 y 57. Ingresa a la ruta "Reconversión Móvil" en modalidad parcial: sigue manejando camión tradicional 60% del tiempo y opera 40% como Coordinador AV Supervisado en el corredor Pergamino-Rosario ya abierto en Fase 1. La PPM prorrateada cubre la reducción de ingreso por la baja de horas al volante, y Diego no pierde salario neto. Años 2036-2040, Diego entre 57 y 61. Transición plena a Coordinador AV Supervisado Nivel 4. Supervisa desde cabecera de turno 8 camiones autónomos circulando simultáneamente en el corredor, con intervención remota ante incidentes. Su salario es un 35% superior al que tenía como camionero tradicional en 2026, indexado. Años 2040-2046, Diego entre 61 y 67. Sigue como Coordinador con carga reducida gradual en los últimos dos años. Jubilación normal a los 65 con haber calculado sobre los 20 años más altos de aportes, que son los años como Coordinador AV. Sus dos hijos: uno se recibe de Ingeniero en Sistemas en la UTN Rosario y entra al LNMA Córdoba como analista de telemetría; el otro egresa como Ingeniero Ferroviario de la UTN Haedo y se incorpora a la reactivación del Belgrano Cargas. Diego los ve estudiando carreras que son carrera con futuro, no fantasma.
+
+---
+
+## SECCIÓN 10: INTEGRACIÓN CON LA PLATAFORMA ¡BASTA!
+
+### 10.1 Con El Mapa
 
 Nuevos tipos de señal:
 - `necesidad de corredor`: territorio demanda conexión.
 - `saturación logística`: corredor con cuello de botella.
 - `oportunidad productiva aislada`: productor sin acceso a flete justo.
 
-### 7.2 Con Mandato Vivo
+### 10.2 Con Mandato Vivo
 
 Síntesis territorial detecta corredores prioritarios. Reporta satisfacción con servicios de transporte.
 
-### 7.3 Con Arquitecto
+### 10.3 Con Arquitecto
 
 Cada corredor con Biografía Operativa (intentos previos, resultados).
 
-### 7.4 Con Mesa Civil
+### 10.4 Con Mesa Civil
 
 Mesas Civiles de Corredor deliberan prioridades. Credencial de Materia Movilidad.
 
-### 7.5 Con Memoria
+### 10.5 Con Memoria
 
 Archivo técnico de Héctor y sus pares como depósito obligatorio. Consulta Ancestral en cada proyecto de reactivación.
 
-### 7.6 Con Cuidado
+### 10.6 Con Cuidado
 
 Movilidad accesible universal. Pactos de Cuidado con movilidad prioritaria.
 
-### 7.7 Con Taller
+### 10.7 Con Taller
 
 Tallers de reparación ferroviaria, de construcción portuaria.
 
-### 7.8 Con PLANEB
+### 10.8 Con PLANEB
 
 Bastarda Logística, Bastarda Fluvial, Bastarda Metropolitana.
 
-### 7.9 Con PLANEN y PLANDIG
+### 10.9 Con PLANEN y PLANDIG
 
 Rieles como columna múltiple, integración trilateral.
 
-### 7.10 Con PLANTER
+### 10.10 Con PLANTER
 
 Hidrovía articulada con Personalidad Jurídica del río Paraná.
 
 ---
 
-## SECCIÓN 8: MODELO ECONÓMICO
+## SECCIÓN 11: MODELO ECONÓMICO
 
-### 8.1 Inversión Total 20 Años
+### 11.1 Inversión Total 20 Años
 
-**TABLA 8.1: Inversión Proyectada PLANMOV (USD M)**
+**TABLA 11.1: Inversión Proyectada PLANMOV (USD M)**
 
 | Fase | Período | Inversión |
 |---|---|---|
@@ -996,7 +1139,7 @@ Hidrovía articulada con Personalidad Jurídica del río Paraná.
 | Fase 4 | Años 16-20 | 22.000 |
 | **Total 20 años** | | **99.500** |
 
-### 8.2 Operación Anual Régimen Pleno
+### 11.2 Operación Anual Régimen Pleno
 
 - ANMov operación: USD 3.200M.
 - Subsidios MKC: USD 4.800M.
@@ -1005,7 +1148,7 @@ Hidrovía articulada con Personalidad Jurídica del río Paraná.
 - AMBA operación: USD 2.800M.
 - **Total operativo anual:** **USD 13.600M**.
 
-### 8.3 Retorno
+### 11.3 Retorno
 
 - Reducción flete 18-25% sobre USD 60.000M/año de flete total: USD 10.800-15.000M/año ahorro.
 - Reducción costos AMBA para usuarios: USD 3.200M/año.
@@ -1014,7 +1157,7 @@ Hidrovía articulada con Personalidad Jurídica del río Paraná.
 
 ROI: Break-even en Fase 3 (año 10-12). Positivo desde entonces.
 
-### 8.4 Fuentes de Financiamiento
+### 11.4 Fuentes de Financiamiento
 
 - Reasignación desde ruta (reducción del 30% en subsidios viales que ya no se justifican).
 - Endeudamiento multilateral (BID, CAF, BM) con plazos largos.
