@@ -1832,6 +1832,304 @@ Julia Iannelli tiene 72 años. Se jubiló de la biblioteca municipal en 2038. En
 
 ---
 
+## ANEXO A: GLOSARIO TÉCNICO
+
+Este glosario define los términos técnicos e institucionales usados a lo largo del documento, con el objetivo de que cualquier lector — sindical, productivo, académico, legislativo, ciudadano — pueda leer el plan sin traducciones paralelas. El orden es alfabético. Cada entrada remite, cuando corresponde, al dispositivo, capa, ley o sección del plan donde el término se opera con mayor detalle.
+
+- **ADIF** — Administración de Infraestructuras Ferroviarias. Empresa estatal responsable del mantenimiento de vías y estaciones. Interlocutor técnico de ANMov para obra de reactivación.
+- **AGP** — Administración General de Puertos. Ente autárquico de puertos públicos, contraparte institucional de la Red Federal de Puertos.
+- **AMBA-T** — Autoridad Metropolitana de Transporte del Área Metropolitana de Buenos Aires. Protocolo replicable en Gran Córdoba, Gran Rosario, Gran Mendoza, Gran Tucumán, Gran La Plata.
+- **ANDIG** — Agencia Nacional de Infraestructura Digital y Soberanía Tecnológica (PLANDIG). Opera ArgenCloud y la arquitectura de tres capas de datos.
+- **ANMov** — Agencia Nacional de Movilidad. Ente autárquico creado por Ley de Movilidad y Logística Federal. Gobierna PLANMOV, emite certificaciones PCAV, administra el FRM.
+- **Aportante** — persona física o jurídica que cede el uso de un activo (vehículo, infraestructura, cómputo, trabajo desplazado) a la BAMD bajo Contrato Bastardo.
+- **ArgenCloud** — infraestructura cloud soberana argentina (PLANDIG) que aloja datos y cómputo del LNMA y de los microservicios BAMD.
+- **BAMD** — Bastarda de Activos Móviles Disponibles. Empresa bastarda que agrega activos ociosos (autos particulares, cómputo, infraestructura, trabajo desplazado) en malla pública de movilidad.
+- **Bastarda** — figura empresarial PLANEB con arquitectura Fideicomiso de Propósito Perpetuo + DAO + panel ciudadano rotativo. Opera a costo, sin dueño, con gobernanza plural.
+- **BLF** — Bastarda Logística Federal. Empresa bastarda de flete de carga general, multimodal, at-cost, con tarifa pública regulada.
+- **CAAAV** — Comisión Argentina de Accidentes AV. Ente dependiente de ANMov para investigación técnica independiente de incidentes AV.
+- **Canon de Automatización Logística** — impuesto que toda flota AV comercial paga al FRM, proporcional al trabajo humano desplazado.
+- **CAR** — Costo Anual de Reconversión por hora de trabajo desplazada. Variable de la fórmula del Canon, fijada por ANMov e indexada al IPC-INDEC.
+- **CK** — Créditos de Kilómetros. Cuasi-moneda regulada que remunera al aportante BAMD. Intercambiable con MKC+ o pesos a tasa publicada.
+- **Commons Vehicular** — modelo cooperativo de auto-compartido con seguro mutualista y gobernanza plural (referencias: Modo Berlín, Avancar Barcelona).
+- **Contrato Bastardo** — contrato tipo BAMD entre aportante y Bastarda, renovable cada 12 meses, que cede uso del activo a cambio de CK.
+- **Coordinador AV** — persona certificada por PLANREP para supervisión humana de flota AV Nivel 3-4 desde centro de control remoto.
+- **Corredor Dual** — dispositivo de piloto y escalamiento AV en infraestructura dedicada (autopista AV-only, corredor ferroviario dedicado, puerto) convivendo con rutas mixtas humanas.
+- **Credencial de Materia Movilidad** — credencial ciudadana (PLANMESA) que habilita participación en Directorio ANMov y Mesas Civiles de Corredor.
+- **Differential privacy** — técnica matemática de anonimización que inyecta ruido calibrado (ε) a consultas sobre datos sensibles. Usada en G.3 para acceso público a datos LNMA.
+- **Doctrina del Doble Desplazamiento** — principio constitucional de la Capa III de PLANMOV. Tres mandamientos: automatización desplaza renta capturada antes que trabajo humano; ahorro a usuarios + reconvertidos no accionistas; datos argentinos son commons argentino.
+- **FPP** — Fideicomiso de Propósito Perpetuo. Forma jurídica de propiedad bastarda, sin accionistas, con beneficiario perpetuo el pueblo argentino.
+- **FRM** — Fondo de Reconversión Móvil. Fondo financiado por el Canon de Automatización y otras fuentes, que paga PPM, formación, salud y aportes del transportista desplazado.
+- **Gemelo digital** — réplica de simulación alta fidelidad de un corredor físico, usada por LNMA y PCAV para prueba técnica de AV antes de corredor real.
+- **HEDA** — Horas de Trabajo Humano Equivalente Desplazadas Anualmente por un vehículo AV. Variable de la fórmula del Canon.
+- **Hidrovía Paraná-Paraguay** — eje fluvial clave para exportación argentina, actualmente concesionado. PLANMOV propone Bastarda Fluvial y recuperación de soberanía técnica (dragado, balizamiento, peaje).
+- **Human-in-the-Loop** — principio que obliga operador humano supervisando AV Nivel 3-4 en cabina o remoto durante la transición, hasta 2040 según PCAV.
+- **K-anonimato** — técnica de anonimización que garantiza que cada registro sea indistinguible de al menos k-1 otros. PLANMOV exige k=20 para datos agregados públicos.
+- **LANIA** — Laboratorio Nacional de Inteligencia Artificial (PLANDIG). Entrena modelos fundacionales que el LNMA especializa para movilidad.
+- **LNMA** — Laboratorio Nacional de Movilidad Autónoma. Capa vertical aplicada sobre LANIA, especializada en movilidad. Dispositivo 3.10 de PLANMOV.
+- **MaaS** — Mobility as a Service. Modelo de suscripción multimodal integrada (precedente: Helsinki Whim).
+- **MKC** — Mandato Kilométrico Ciudadano. Cupo universal mínimo de kilómetros/año por ciudadano (2.400 km/año adulto, 1.200 menor), transferible y acumulable.
+- **MKC+** — kilómetros adicionales comprables a precio regulado, más allá del cupo MKC base.
+- **MRM** — Movilidad Rural Mínima. Garantía de tres frecuencias semanales entre todo núcleo rural >80 habitantes y su cabecera departamental.
+- **Nivel SAE** — clasificación internacional de automatización vehicular de 0 (sin asistencia) a 5 (plena autonomía).
+- **Operador AV** — persona certificada por PLANREP para supervisión humana de flota AV Nivel 3-4.
+- **Pacto Federal AV** — acuerdo interjurisdiccional propuesto en PLANMOV que unifica estándares PCAV entre Nación y provincias para evitar fragmentación regulatoria.
+- **PCAV** — Protocolo de Certificación de Autonomía Vehicular. Régimen argentino que certifica AV por nivel SAE y por corredor específico.
+- **PPM** — Pensión Puente Móvil. Ingreso puente al 85% del último salario bruto durante la reconversión (hasta 5 años), financiada por FRM.
+- **Protocolo Bastardo** — marco jurídico-financiero PLANEB que articula a las Bastardas con cross-solidaridad y contribuciones cruzadas.
+- **Red Federal de Puertos** — red desconcentrada de puertos federales (Ushuaia, Madryn, Bahía Blanca, Mar del Plata, Quequén, Barranqueras, Formosa, Posadas, Corrientes, Santa Fe, San Nicolás, Ibicuy).
+- **Red Metropolitana Federal** — extensión del AMBA Estructural a Gran Córdoba, Gran Rosario, Gran Mendoza, Gran Tucumán, Gran La Plata.
+- **Rieles Columna Múltiple** — estándar técnico que obliga a todo km de riel reconstruido a llevar simultáneamente riel + tendido eléctrico + fibra óptica + ductos gas/agua cuando el trazado lo justifique.
+- **SOFSE** — Sociedad Operadora Ferroviaria Sociedad del Estado. Opera trenes de pasajeros.
+- **Síndicos de Archivo** — figura de gobernanza plural para auditoría institucional (PLANMEMORIA + ANMov en PLANMOV) del repositorio LNMA y datasets públicos.
+- **Tablero Nacional de Movilidad** — tablero público con métricas técnicas y humanas operado por ANMov, actualizado en tiempo cuasi-real.
+- **Taller** — centro técnico regional PLANTALLER con capacitación dual (formación + práctica productiva). Sede de reconversión territorial financiada por FRM.
+- **Testigos de los 60** — figura ceremonial-técnica de PLANMEMORIA: trabajadores veteranos cuyo saber se archiva, se entrena y se honra antes del desplazamiento tecnológico.
+- **UTN** — Universidad Tecnológica Nacional. Red de universidades regionales con nuevas tecnicaturas en Automatización Logística, Coordinación AV y Mantenimiento Predictivo.
+- **V2X** — Vehicle-to-Everything. Comunicación vehículo-a-vehículo y vehículo-a-infraestructura, estándar técnico obligatorio en corredores AV certificados.
+- **Ventana 2028-2032** — período crítico identificado por el plan en el que Argentina debe instalar ANMov, LNMA piloto, BAMD masa crítica y Canon operativo antes de que la penetración AV extranjera capture el mercado.
+
+---
+
+## ANEXO B: ESPECIFICACIÓN TÉCNICA DE LA BAMD
+
+Este anexo describe con nivel técnico operativo la arquitectura de la Bastarda de Activos Móviles Disponibles: plataforma, APIs, niveles de servicio, modelo de datos, seguridad e interoperabilidad. Es el documento de referencia para equipos de ingeniería que implementen la BAMD y para auditores técnicos que verifiquen su cumplimiento.
+
+### B.1 Arquitectura de la Plataforma
+
+Backend desplegado en ArgenCloud (PLANDIG) con arquitectura de microservicios independientes: onboarding (alta de aportantes y verificación KYC), matching (pareo usuario-activo), reserva (bloqueo atómico del activo), pagos CK (liquidación cuasi-moneda y conversión), telemetría (ingestión de datos de viaje), seguro (activación pólizas mutualista), certificación (estado PCAV del vehículo). API pública versionada en REST + GraphQL con documentación OpenAPI 3.1. Base de datos relacional PostgreSQL para transacciones; datalake (formato columnar) para analítica y entrenamiento de modelos LNMA. Sistema de mensajería asíncrona para eventos (telemetría, incidentes). Frontend ciudadano en web progresiva + apps nativas Android/iOS con SDK común.
+
+### B.2 APIs Públicas
+
+Endpoints principales (v1):
+
+- `POST /api/v1/aportantes` — registro de aportante, con verificación KYC y documentación del activo.
+- `GET /api/v1/activos/disponibles` — búsqueda paramétrica por geo, horario, tipo de vehículo, certificación PCAV.
+- `POST /api/v1/reservas` — reserva atómica de activo con confirmación en ≤3 segundos.
+- `POST /api/v1/ck/transfer` — transferencia de Créditos Kilométricos entre cuentas o conversión a pesos.
+- `GET /api/v1/telemetria/{vehiculo_id}` — monitoreo en tiempo cuasi-real para operador y para aportante.
+- `GET /api/v1/certificacion/{vin}` — estado PCAV del vehículo.
+- `POST /api/v1/incidentes` — reporte ciudadano o automático; dispara flujo CAAAV si corresponde.
+
+### B.3 SLAs Operativos
+
+- Disponibilidad API: 99,9% mensual (máximo 43 minutos de downtime por mes).
+- Tiempo de respuesta p95: <400ms.
+- Tiempo de matching p95: <15 segundos.
+- Tiempo de resolución de incidente crítico: <2 horas desde alerta.
+- RPO (datos): <5 minutos. RTO (servicio): <30 minutos.
+
+### B.4 Modelo de Datos
+
+Datos del aportante: identidad (CUIL/CUIT), cuenta bancaria, activo aportado, horarios de disponibilidad, preferencias de geozona. Cifrados a nivel de campo para PII. Anonimizados en logs operativos y datalake analítico.
+
+Datos del viaje: ubicación inicial/final (cifradas para no-operadores, accesibles sólo a aportante, usuario y ANMov bajo orden judicial), duración, kms, precio, identificador de vehículo, rating mutuo.
+
+Datos del activo: VIN/patente, marca/modelo/año, certificación PCAV vigente, historial de mantenimiento, telemetría histórica (kilometraje, perfil de uso).
+
+### B.5 Seguridad y Certificados
+
+TLS 1.3 obligatorio en toda comunicación. Autenticación multifactor para aportantes y operadores. Firma digital de certificaciones PCAV con PKI argentina. Pentest semestral por laboratorio acreditado externo con publicación de resumen ejecutivo al Tablero Nacional de Movilidad. Bug bounty público con recompensas escalonadas.
+
+### B.6 Interoperabilidad
+
+API compatible con MKC (consumo de kms del cupo ciudadano), BLF (trasbordos multimodales y consolidación de carga), LNMA (dispatching y ruteo por modelos de optimización), Tablero Nacional de Movilidad (métricas públicas agregadas). Formato de datos abierto: GTFS-RT para trazas, OpenTraveler para reservas multimodales.
+
+---
+
+## ANEXO C: FÓRMULA Y CÁLCULO DEL CANON DE AUTOMATIZACIÓN
+
+Este anexo desarrolla la fórmula del Canon de Automatización Logística, sus variables, el factor HEDA por nivel SAE y modo, cinco casos de cálculo paso-a-paso, el mecanismo de indexación y la aplicación a flotas mixtas. Es el instrumento técnico que alimenta al FRM y regula el precio de la automatización desplazante.
+
+### C.1 Derivación de la Fórmula
+
+La fórmula base es:
+
+`Canon_Anual(AV_k) = HEDA(AV_k) × CAR`
+
+Donde:
+- HEDA(AV_k) = Horas_Operación(AV_k) × Factor_SAE(nivel_k, modo)
+- CAR = base_ANMov × (1 + IPC_año) ≈ USD 9,50/hora indexada a 2026.
+
+La fórmula parte del supuesto ético y técnico de que una hora de operación automatizada desplaza una fracción conocida de hora de trabajo humano, y que esa hora desplazada tiene un costo social de reconversión (el CAR) que la flota debe internalizar.
+
+### C.2 Factor HEDA por Nivel SAE y Modo
+
+```
+| Modo           | Nivel 2 | Nivel 3 | Nivel 4 | Nivel 5 |
+|----------------|---------|---------|---------|---------|
+| Camión         | 0,10    | 0,35    | 0,75    | 1,00    |
+| Taxi           | 0,10    | 0,40    | 0,80    | 1,00    |
+| Colectivo      | 0,10    | 0,35    | 0,75    | 1,00    |
+| Tren           | 0,05    | 0,30    | 0,70    | 1,00    |
+| Buque fluvial  | 0,05    | 0,35    | 0,70    | 1,00    |
+```
+
+La asimetría entre modos responde a que tren y buque fluvial tienen históricamente menor coeficiente de trabajo humano por hora de operación (un solo maquinista para 2.000 toneladas vs. un camionero por 30 toneladas), por lo que el desplazamiento marginal es menor en Niveles 2-3.
+
+### C.3 Cinco Casos Paso-a-Paso
+
+1. **Camión larga distancia Nivel 4** operando ruta 9 (Rosario–Tucumán): 3.200 h/año × 0,75 = 2.400 HEDA. Canon = 2.400 × USD 9,50 = **USD 22.800/año**.
+2. **Taxi urbano Nivel 5** en CABA: 2.800 h/año × 1,00 = 2.800 HEDA. Canon = **USD 26.600/año**.
+3. **Colectivo urbano Nivel 3** AMBA-T: 4.200 h/año × 0,35 = 1.470 HEDA. Canon = **USD 13.965/año**.
+4. **Locomotora de carga Nivel 4** Belgrano Cargas: 4.500 h/año × 0,75 = 3.375 HEDA. Canon = **USD 32.063/año**.
+5. **Buque fluvial Nivel 3** Hidrovía: 7.200 h/año × 0,35 = 2.520 HEDA. Canon = **USD 23.940/año**.
+
+### C.4 Indexación del CAR
+
+El CAR se indexa mensualmente al IPC-INDEC más un factor de corrección proyectado por ANMov según necesidades del FRM (techo +2% real anual sobre IPC). Reporte trimestral al Congreso con desagregación por modo y corredor. La base USD 9,50/hora de 2026 se recalcula cada enero con publicación obligatoria en Boletín Oficial antes del 15 de febrero.
+
+### C.5 Aplicación a Flotas Mixtas
+
+Para una flota con 500 AV Nivel 4 camión + 200 AV Nivel 3 taxi, el cálculo es vehículo-por-vehículo y se agrega: (500 × USD 22.800) + (200 × taxi_N3_anual) = USD 11,4M + ajuste proporcional. Las flotas >50 unidades presentan declaración anual consolidada y pagos trimestrales anticipados. Auditoría cruzada ANMov/AFIP con telemetría ArgenCloud como prueba irrebatible de horas de operación efectivas.
+
+---
+
+## ANEXO D: ESCENARIOS DE DESPLIEGUE AV
+
+Este anexo presenta tres escenarios de despliegue de vehículos autónomos en Argentina — Conservador, Moderado (baseline del plan) y Acelerado — con hitos, asunciones, triggers de transición y sensibilidad del modelo financiero. Los números no son profecía: son hipótesis de trabajo explícitas para que el monitoreo anual de ANMov pueda ajustar la trayectoria.
+
+### D.1 Tabla Completa de Escenarios
+
+```
+| Hito                                              | Conservador | Moderado (baseline) | Acelerado |
+|---------------------------------------------------|-------------|---------------------|-----------|
+| AV Nivel 4 en rutas principales                   | 2035        | 2032                | 2030      |
+| AV Nivel 5 comercial general                      | 2045        | 2040                | 2037      |
+| Trenes autónomos corredores dedicados             | 2032        | 2029                | 2028      |
+| Automatización portuaria parcial                  | 2033        | 2030                | 2028      |
+| Penetración AV en flota larga distancia (año 10)  | 15%         | 25%                 | 40%       |
+| Penetración AV (año 15)                           | 40%         | 60%                 | 75%       |
+| Canon recaudado régimen pleno (USD M/año)         | 800         | 1.800               | 3.200     |
+| FRM cobertura (trabajadores/año)                  | 60K         | 100K                | 160K      |
+```
+
+### D.2 Asunciones
+
+- Argentina arrastra 5-8 años respecto a EE.UU./China en madurez tecnológica AV, con ventana de catch-up vía LNMA.
+- Electrificación ferroviaria viable hasta 35% de red reactivada para 2046 (4.500 km de red eléctrica integrada al Rieles Columna Múltiple).
+- Resistencia sindical se coopta constructivamente si PPM llega a tiempo y si el Programa Cinco Años Dignos cumple el 85% del salario bruto sin interrupciones.
+- Disponibilidad de semiconductores y LIDAR accesibles; si se interrumpe, la curva se desplaza 2-4 años.
+- Estabilidad macroeconómica mínima (IPC <30% anual sostenido) para que el CAR indexado no colapse el FRM.
+
+### D.3 Triggers de Transición Entre Escenarios
+
+- **Hacia Acelerado:** penetración >15% en ruta 9 antes de 2030; Canon >USD 400M antes de 2032; BAMD >300.000 activos en 2030.
+- **Hacia Conservador:** penetración <5% en 2030; fallos AV >2 muertes/100M km; Canon <USD 150M en 2032; conflictividad sindical sostenida >12 meses.
+
+ANMov revisa el escenario activo anualmente en abril, con publicación obligatoria del dictamen técnico al Congreso y al Tablero Nacional de Movilidad.
+
+### D.4 Sensibilidad del Modelo Financiero
+
+- **Conservador:** ROI break-even año 12-14, retorno bruto a 2046 de USD 18K M/año. FRM cómodo pero cobertura de reconversión más lenta.
+- **Moderado baseline:** ROI break-even año 10-12, retorno bruto USD 23-32K M/año. FRM bien calibrado, tasa de reconversión absorbe ~90% del desplazamiento.
+- **Acelerado:** ROI break-even año 8-10, retorno bruto USD 35K M/año. Requiere FRM ampliado (CAR +25%) y capacidad PLANTALLER reforzada; riesgo de saturación formativa si no se duplican los talleres.
+
+---
+
+## ANEXO E: PROTOCOLO DE CERTIFICACIÓN AV ARGENTINA (PCAV)
+
+Este anexo describe el Protocolo de Certificación de Autonomía Vehicular argentino: cómo se solicita, cómo se audita, cómo se revoca, y qué niveles SAE son certificables en qué corredores a lo largo del horizonte 2028-2046. El PCAV es el instrumento soberano que impide que Argentina acepte pasivamente estándares de certificación definidos por fabricantes extranjeros.
+
+### E.1 Proceso de Solicitud de Certificación
+
+1. **Solicitud documental.** Operador presenta formulario público con especificaciones técnicas, modelo de vehículo, nivel SAE declarado, corredor solicitado, hoja de ruta de operación.
+2. **Evaluación documental por LNMA** (30 días). Revisión de arquitectura de percepción, planificación, control; evaluación de la pila de software; revisión del data-logging.
+3. **Prueba técnica en simulador gemelo digital** (60 días). Simulación sobre réplica alta fidelidad del corredor solicitado, con inyección de escenarios adversariales definidos por CAAAV.
+4. **Prueba supervisada en corredor piloto específico** (90-180 días según nivel SAE solicitado). Con human-in-the-loop obligatorio y auditoría telemétrica continua.
+5. **Certificación por corredor** emitida por Directorio ANMov, con publicación en Boletín Oficial y Tablero Nacional de Movilidad. Vigencia inicial: 24 meses.
+
+### E.2 Auditoría Semestral
+
+Cada AV certificado se re-audita cada 6 meses. Criterios: tasa de incidentes, desvío estadístico de métricas de seguridad respecto a baseline, cumplimiento de data-logging continuo, mantenimiento predictivo al día. La re-auditoría supera la mayoría de casos sin intervención, con reporte automático al operador y al Tablero.
+
+### E.3 Revocación
+
+Causales: incidente con víctima; desvío >2 sigma en métricas de seguridad sostenido; falta de data-logging; operación en corredor no certificado; intentos de modificación no autorizada de la pila de software. Revocación inmediata con apelación en 15 días ante el Directorio ampliado de ANMov con participación de Mesa Civil de Corredor afectada. Proceso de re-certificación disponible pasado 180 días si el operador remedia y presenta auditoría externa.
+
+### E.4 Matriz Niveles SAE × Corredores
+
+```
+| Corredor                                  | Nivel SAE máximo certificable | Fecha apertura |
+|-------------------------------------------|-------------------------------|----------------|
+| Pergamino–Rosario                         | 3 (camiones supervisados)     | 2028           |
+| Retiro–Tigre (ferroviario)                | 4                             | 2029           |
+| BsAs–Mar del Plata                        | 4                             | 2032           |
+| Puerto Dock Sud                           | 4 (AGV + grúas)               | 2032           |
+| Rosario–San Lorenzo (ferroviario)         | 4                             | 2035           |
+| Corredor Nacional 9 (BsAs–La Quiaca)      | 5                             | 2040           |
+| Hidrovía Paraná–Paraguay (tramo Rosario)  | 4 (buque fluvial)             | 2036           |
+| AMBA-T (colectivo urbano)                 | 4                             | 2038           |
+```
+
+La matriz es dinámica: ANMov agrega corredores anualmente según lectura técnica del LNMA y consulta a Mesas Civiles de Corredor.
+
+---
+
+## ANEXO F: IMPACTO AMBIENTAL Y EMISIONES
+
+Este anexo cuantifica los impactos ambientales proyectados del PLANMOV v2.0 en el horizonte 2026-2046: emisiones CO2 evitadas, reducción de contaminantes locales, ruido urbano, consumo de agua y articulación con PLANAGUA y PLANISV. Los números son estimaciones técnicas basadas en benchmarks internacionales ajustados al factor argentino.
+
+### F.1 Emisiones CO2
+
+Tren de carga eléctrico o diésel moderno: 10-40 g CO2/ton-km. Camión de larga distancia: 50-150 g CO2/ton-km. La sustitución modal proyectada por la reactivación ferroviaria (25.000 km de vía, 35% electrificada) evita emisiones anuales estimadas en **4-8 millones de toneladas de CO2 para 2046** respecto al escenario inercial. Sumado a electrificación urbana AMBA-T y Red Metropolitana Federal, el total evitado escala a 10-14 M t CO2/año.
+
+### F.2 NOx y PM2.5 (Contaminación Local Urbana)
+
+AMBA y metropolitanas reducen PM2.5 en **18-25%** y NOx en **22-30%** por sustitución de flotas diésel por eléctricas y AV eficientes. Impacto en salud pública proyectado: reducción de 3.000-5.000 muertes prematuras anuales evitadas a 2046 (benchmark OMS aplicado a AMBA).
+
+### F.3 Ruido Urbano
+
+Reducción de **8-12 dB** promedio en corredores reformados (eléctricos + AV), con impacto medible en salud pública (sueño, estrés cardiovascular). Mediciones obligatorias trimestrales publicadas al Tablero por municipios adheridos al AMBA-T.
+
+### F.4 Consumo de Agua
+
+Operación ferroviaria consume aproximadamente **1/12 del agua por ton-km** que el camión (cifra técnica derivada de ciclo completo incluyendo producción de combustible). Articulación obligatoria con PLANAGUA para dragado Hidrovía soberano que minimice impacto hidrológico y preserve humedales.
+
+### F.5 Articulación con PLANAGUA y PLANISV
+
+PLANAGUA coordina dragado soberano de la Hidrovía Paraná-Paraguay con estándares ambientales auditables por Síndicos de Archivo. PLANISV integra logística agroecológica: la reactivación ferroviaria permite cadenas cortas productor–mercado sin flete capturado, habilitando modelos de agricultura regenerativa que serían económicamente inviables con el régimen de flete de 2026. PLANMOV reporta anualmente a ambos planes la métrica de ton-km trasbordada a modo de bajo impacto.
+
+---
+
+## ANEXO G: DATOS DE MOVILIDAD COMO COMMONS
+
+Este anexo desarrolla la operativa del tercer mandamiento de la Doctrina del Doble Desplazamiento: los datos de movilidad argentinos son commons argentino. Define gobernanza del repositorio LNMA, niveles de acceso diferenciado, técnicas de anonimización, articulación con la arquitectura de tres capas de PLANDIG, y catálogo de datasets públicos.
+
+### G.1 Gobernanza del Repositorio LNMA
+
+Directorio LNMA con representación plural: Síndicos de Archivo (PLANMEMORIA), representantes de usuarios BAMD, academia (UTN + CONICET), sindicatos (Camioneros + La Fraternidad + taxi), ANMov como secretaría técnica. Políticas de acceso auditadas trimestralmente con publicación de log de accesos agregado. Código abierto de infraestructura en repositorios argentinos (GitLab argentino o instancia soberana federada). Ningún contrato con terceros puede clausurar datasets públicos.
+
+### G.2 Acceso Diferenciado
+
+- **Pública abierta:** datasets agregados, anonimizados, sin PII (ejemplo: flujo vehicular por corredor por hora). Sin autenticación, API pública rate-limited.
+- **Investigadores argentinos:** acceso a datos granularidad media vía API con autenticación institucional (universidades, CONICET, think tanks registrados).
+- **Bastardas y universidades:** acceso a datos granularidad fina para investigación y desarrollo de modelos bajo acuerdo de uso commons.
+- **Aportantes individuales:** acceso completo a sus propios datos cifrados con portabilidad garantizada (exportación en formato abierto).
+- **Corporaciones extranjeras:** acceso pagado al FRM según tarifario público, con auditoría de uso, prohibición de re-exportación sin licencia y cláusula de reciprocidad técnica.
+
+### G.3 Anonimización Técnica
+
+- K-anonimato mínimo **k=20** para datos agregados públicos.
+- Differential privacy con **ε=0,5** para consultas sensibles individuales.
+- Eliminación sistemática de cuasi-identificadores (patente, nombre, DNI, CUIL) antes de cualquier publicación.
+- Auditoría anual externa de pipelines de anonimización con publicación de resumen ejecutivo.
+
+### G.4 Relación con Arquitectura de Tres Capas de PLANDIG
+
+El repositorio LNMA respeta la arquitectura de tres capas de PLANDIG: capa pública abierta (commons irrestricto con anonimización fuerte), capa intergubernamental auditada (acceso entre ANMov, ANDIG, AFIP, provincias bajo log público de consultas), capa ciudadana-privada cifrada (datos personales del aportante cifrados con llave controlada por el propio aportante). Ninguna capa permite exfiltración no auditable.
+
+### G.5 Ejemplos de Datasets Públicos
+
+- **Flujos de tránsito** por corredor y hora (resolución 15 min, actualización diaria).
+- **Eventos AV agregados** por tipo, corredor, severidad (actualización semanal).
+- **Tasas de ocupación BAMD** por región y tipo de activo (mensual).
+- **Métricas de reconversión FRM** anonimizadas: cohortes de trabajadores desplazados, tasas de finalización de formación, salarios post-reconversión (trimestral).
+- **Mantenimiento predictivo ferroviario** agregado: tasas de falla por tipo de componente y corredor (mensual).
+
+Cada dataset con ficha técnica (DOI argentino), licencia CC BY-SA 4.0, responsable de mantenimiento identificado y contacto técnico público.
+
+---
+
 **FIN DEL DOCUMENTO**
 
 *Documento técnico del vigésimo tercer mandato del Proyecto ¡BASTA! — Abril 2026*
