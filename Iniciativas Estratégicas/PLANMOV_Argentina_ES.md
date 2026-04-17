@@ -395,7 +395,21 @@ Cada pieza con precedente. La combinación es invención argentina.
 
 ---
 
-## SECCIÓN 3: LA SOLUCIÓN — ARQUITECTURA DE LOS SIETE DISPOSITIVOS
+## SECCIÓN 3: LA SOLUCIÓN — TRES CAPAS, ONCE DISPOSITIVOS + UNA DOCTRINA TRANSVERSAL
+
+La v1.0 alineaba siete dispositivos en una sola fila horizontal, como si todos respondieran a la misma pregunta. No era así. Respondían a tres preguntas distintas —qué se le garantiza a cada ciudadano cuando necesita moverse, qué infraestructura común debe construirse y operarse para que ese derecho sea posible, y qué hace el país frente a la llegada simultánea de la inteligencia artificial, los vehículos autónomos y el auto parado veintidós horas por día— y mezclarlas en un mismo plano ocultaba que cada una tiene su propio sujeto, su propio presupuesto, su propia agencia responsable y su propia auditoría. La v2.0 ordena la arquitectura en tres capas ontológicamente distintas, separables y auditables por separado, y agrega los dispositivos que faltaban.
+
+**Capa I — Derecho a Moverse.** Lo que el Estado le garantiza a cada ciudadano como piso universal de movilidad: kilómetros, conexión rural mínima, red metropolitana tarifariamente integrada, accesibilidad real para quien tiene el cuerpo, la edad o la circunstancia que exige diseño específico. Cuatro dispositivos.
+
+**Capa II — Infraestructura Común.** Lo que se construye y se opera para que la Capa I sea materialmente posible: flete federal a costo, rieles multicapa, puertos federales, hidrovía soberana. Cuatro dispositivos, operados como commons at-cost por Bastardas especializadas.
+
+**Capa III — Soberanía Cognitiva y Activos Disponibles.** La respuesta argentina a la ola AV/IA y al auto parado: laboratorio nacional de movilidad autónoma, protocolo de certificación soberano, bastarda de datos viales, red ciudadana de movilidad distribuida, fondo de reconversión. Cinco dispositivos, tratados en bloque aparte porque requieren su propia lógica institucional.
+
+Son **once dispositivos más una doctrina transversal**: la **Doctrina del Doble Desplazamiento** (camión→tren para lo pesado y largo, auto propietario→flota ciudadana para lo urbano y corto) no es un dispositivo sino el principio rector que atraviesa las tres capas y las vuelve un mismo plan. Cada capa se aloja bajo ANMov con presupuesto, tablero y procedimiento de falla separados.
+
+### 3.A CAPA I — DERECHO A MOVERSE
+
+La Capa I contiene lo que ¡BASTA! le promete a cada argentino como piso de movilidad, con independencia de dónde viva, cuánto gane, qué cuerpo habite o qué edad tenga. Son cuatro dispositivos que, juntos, convierten la movilidad en un derecho efectivamente reclamable ante una agencia responsable, y no una mercancía que se paga a precio de mercado capturado. El Mandato Kilométrico Ciudadano fija el piso universal de kilómetros; la Movilidad Rural Mínima garantiza que ningún núcleo rural quede desconectado; la Red Metropolitana Federal integra tarifariamente las seis grandes metrópolis argentinas; el Protocolo de Accesibilidad Universal asegura que ese derecho sea operable para todos los cuerpos y edades.
 
 ### 3.1 Mandato Kilométrico Ciudadano (MKC)
 
@@ -412,7 +426,73 @@ Cada pieza con precedente. La combinación es invención argentina.
 
 **Financiamiento:** presupuesto nacional (subsidio transversal al transporte público) + aportes cruzados de Bastardas (PLANEB).
 
-### 3.2 Bastarda Logística Federal (BLF)
+**Integración con BAMD.** El MKC es consumible en vehículos de la Bastarda Automotriz de Movilidad Distribuida (Capa III) al mismo tarifario kilométrico que rige en el transporte público formal: un kilómetro en auto BAMD vale lo mismo que un kilómetro en colectivo urbano o en tren suburbano, y se descuenta del mismo cupo. Simétricamente, el ciudadano que pone su auto al servicio de la red BAMD recibe **Créditos de Kilómetros (CK)** convertibles a MKC ampliado (MKC+): quien aporta vehículo gana derecho a moverse gratis más allá del cupo base. Derecho a moverse y activo ocioso quedan atados por una misma unidad de cuenta.
+
+### 3.2 Movilidad Rural Mínima (MRM)
+
+**Concepto:** garantía nacional de que ningún núcleo rural de más de 80 habitantes quede sin conexión regular con su cabecera departamental. Piso no negociable: **tres frecuencias por semana** mínimo, en vehículo apto para las condiciones del corredor. La Capa I fijó el derecho a moverse en kilómetros; la MRM lo vuelve real ahí donde hoy el Estado directamente no llega, donde el remís cobra lo que quiere cuando hay remís, donde la ambulancia viene si puede cuando puede, donde ir al médico implica pagar un día entero de trabajo en flete informal.
+
+**Modalidades operativas** —combinables según geografía del corredor—:
+
+- **Colectivo rural** operado por **Bastarda Logística Federal** (BLF, Capa II) como servicio at-cost en unidades adaptadas a caminos de tierra o ripio.
+- **Ambulancia Territorial** articulada con **PLANSAL**, que cumple doble función: servicio sanitario de Atención Primaria de la Salud con ruta programada y, en frecuencias compatibles, transporte civil regular.
+- **Tren Rural** cuando existe vía ferroviaria disponible o reactivable en el trazado: formaciones cortas, bajas velocidades, horarios fijos semanales.
+- **Bote fluvial** en litoral fluvial, delta bonaerense, Mesopotamia, Patagonia-Andes y zonas insulares donde el agua es el camino: embarcaciones de cabotaje con concesión pública o Bastarda Fluvial.
+
+**Financiamiento:** la MRM tiene cupo propio dentro del financiamiento MKC equivalente a **USD 4,20 por habitante rural por mes** en régimen pleno, imputado a ANMov con coparticipación provincial del 30%. Subsidio transversal al transporte rural, no al rentista rural.
+
+**Métricas auditadas por el Tablero Nacional:**
+
+- Cobertura: porcentaje de núcleos rurales >80 habitantes efectivamente conectados con al menos tres frecuencias semanales.
+- Frecuencia efectiva promedio: viajes/semana por núcleo.
+- Costo por viaje al usuario (debe ser cero dentro del cupo MKC).
+- Satisfacción usuaria medida por encuesta trimestral del PLANMESA.
+
+**Articulación institucional:** Mesa Civil de Corredor (**PLANMESA**) para priorización de núcleos y definición de frecuencias; **PLANSAL** para la articulación sanitaria de la Ambulancia Territorial; **PLANEDU** para coordinación de trayectos escolares y acceso a secundaria rural; **PLANTER** para integración con el Fondo de Soberanía Comunal en corredores con regalías asociadas.
+
+### 3.3 Red Metropolitana Federal (ex-AMBA Estructural, ampliada)
+
+La v1.0 trataba al AMBA como un caso único, con un sub-plan dedicado de USD 11.400M. El diagnóstico era correcto y la inversión sigue firme, pero el recorte era federalmente injusto: el AMBA concentra trece millones de personas, pero las otras seis aglomeraciones metropolitanas del país suman más de cinco millones y sufren colapsos equivalentes, con menos historia pública de discusión. La v2.0 eleva la categoría: **Red Metropolitana Federal**, de la cual el AMBA es el caso modelo y el laboratorio de protocolo.
+
+La red incorpora a **Gran Córdoba (1,6M habitantes)**, **Gran Rosario (1,4M)**, **Gran Mendoza (1,1M)**, **Gran Tucumán (870K)** y **Gran La Plata (870K)** como metrópolis con plan estructural propio. Cada una con su **Autoridad Metropolitana de Transporte** constituida bajo el protocolo **AMBA-T** replicado: unificación de gobernanza entre capital provincial, provincia, municipios del conurbano y representación ciudadana del PLANMESA. Integración tarifaria nacional con MKC: un kilómetro de subte porteño, un kilómetro de trolebús mendocino y un kilómetro de colectivo rosarino se descuentan del mismo cupo, con la misma tarjeta, al mismo precio unitario. Inversión específica por metrópoli estimada en rangos de **USD 600M a USD 2.800M** según escala urbana, déficit acumulado de material rodante y obras de infraestructura de integración (Metrobús, BRT, tren urbano, metro ligero donde aplique).
+
+#### 3.3.1 AMBA Estructural (caso modelo)
+
+**Sub-plan dedicado:**
+
+**Componentes:**
+
+- **Renovación de material rodante** de las 5 líneas de tren suburbano: USD 3.800M.
+- **Expansión del subte:** nueva línea G (proyecto existente), extensiones de A, B, C, D, E, H: USD 4.200M.
+- **Nuevo metro regional ligero** (conexión tercera corona-Capital): USD 2.800M.
+- **Metrobús completado** sobre corredores estratégicos: USD 600M.
+- **Integración tarifaria real** con Mandato Kilométrico.
+- **Autoridad Metropolitana de Transporte (AMBA-T)** unificada: CABA + provincia + 40 municipios.
+
+**Inversión total AMBA Estructural:** USD 11.400M en 10 años.
+
+### 3.4 Protocolo de Accesibilidad Universal
+
+**Principio.** La movilidad como derecho no se declama: se diseña. El MKC, la MRM y la Red Metropolitana Federal son promesas vacías si la persona con discapacidad motriz o sensorial, la persona mayor con movilidad reducida, la embarazada en tercer trimestre, la persona en postoperatorio, el cuidador acompañante, no pueden subirse al vehículo, leer la parada, oír la estación, bajar con autonomía en destino. La accesibilidad no es una capa de corrección posterior: es requisito de diseño desde el día uno. El Protocolo fija el estándar técnico y el cronograma de cumplimiento con fuerza de ley.
+
+**Requisitos técnicos de cumplimiento obligatorio:**
+
+- **Flota pública o Bastarda nueva accesible desde día 1:** todo vehículo incorporado a partir de la entrada en vigor del Protocolo (colectivo urbano, colectivo rural, metrobús, tren suburbano, tren de larga distancia, buque fluvial de cabotaje) debe incluir rampa o piso bajo, anclajes homologados para silla de ruedas, y sistemas de anuncio audio-visual para personas ciegas y sordas.
+- **40% mínimo de la flota BAMD certificada accesible para 2035**, con trazabilidad pública por flota y por ciudad en el Tablero Nacional.
+- **Toda estación ferroviaria o metropolitana nueva** con rampa de acceso y ascensor hasta andén; plan de retrofit de 15 años para la red existente.
+- **Toda parada de colectivo nueva** con piso elevado o rampa portátil homologada operable por chofer sin asistencia externa.
+
+**Articulación institucional.** El Protocolo se ejecuta en articulación con **PLANCUIDADO** (Pacto de Cuidado, que prioriza movilidad accesible dentro de su cartera de derechos materiales) y otorga representación con voz y voto en el Directorio ANMov a la **Credencial de Materia Movilidad** por sector de accesibilidad: discapacidad motriz, discapacidad sensorial, adultos mayores, cuidadores. La accesibilidad tiene quien la reclame institucionalmente.
+
+**Presupuesto.** **USD 1.400M en 15 años**, imputado a ANMov como partida específica y auditable separadamente.
+
+**Tablero.** Indicador de accesibilidad real por modo (tren, subte, colectivo, BAMD, hidrovía, vuelo doméstico regulado) y por ciudad, reportado al Tablero Nacional de Movilidad con actualización semestral. El Protocolo de Falla (Sección 15) se activa cuando un modo o una ciudad se desvía más de 20% del cronograma comprometido.
+
+### 3.B CAPA II — INFRAESTRUCTURA COMÚN
+
+La Capa II contiene la infraestructura material y operativa que vuelve posible la Capa I: los rieles por donde corre el tren que consume el MKC, los puertos que absorben lo que el tren lleva, la hidrovía que mueve lo que el puerto exporta, el flete federal que compite al oligopolio del camión. Esta capa se organiza como **commons at-cost**: Empresas Bastardas especializadas (PLANEB) operan cada dispositivo con margen cero, costos auditables línea a línea en el Tablero Nacional, gobernanza DAO con panel ciudadano rotativo, e interoperabilidad obligatoria con privados que respeten estándares. La infraestructura vuelve a ser bien común operado transparentemente, no activo capturable.
+
+### 3.5 Bastarda Logística Federal (BLF)
 
 **Concepto:** empresa bastarda con arquitectura PLANEB que opera flete at-cost para carga general.
 
@@ -431,7 +511,11 @@ Cada pieza con precedente. La combinación es invención argentina.
 - Año 5: 200.000 ton/mes.
 - Año 10: 1.2M ton/mes.
 
-### 3.3 Reactivación Ferroviaria Estructural
+### 3.6 Reactivación Ferroviaria + Rieles Columna Múltiple
+
+*Separar reactivación ferroviaria y rieles como columna múltiple en dispositivos distintos fue un error arquitectónico de v1.0: ningún kilómetro de riel se reactiva sin decidir al mismo tiempo si es multicapa. Los dos son una sola decisión técnica y presupuestaria. La v2.0 los fusiona para que el corredor ferroviario reactivado lleve desde el primer clavo el tendido eléctrico, la fibra óptica, y los ductos de gas o agua cuando el trazado lo justifique.*
+
+#### 3.6.1 Reactivación Ferroviaria Estructural
 
 **Plan de 20 años con priorización LDEA por corredor.**
 
@@ -454,7 +538,7 @@ Cada pieza con precedente. La combinación es invención argentina.
 10. Red secundaria de pasajeros regionales.
 11. Integración binacional selectiva.
 
-### 3.4 Rieles como Columna Múltiple
+#### 3.6.2 Rieles como Columna Múltiple
 
 **Cada km de riel reconstruido lleva:**
 
@@ -467,7 +551,17 @@ Cada pieza con precedente. La combinación es invención argentina.
 
 **Gobernanza:** consorcio técnico ANMov + Secretaría de Energía + ARSAT + Empresas Bastardas de cada sector.
 
-### 3.5 Red Federal de Puertos
+#### 3.6.3 Gobernanza técnica unificada
+
+La fusión de los dos dispositivos exige gobernanza unificada: un **consorcio único** coordina la planificación, la licitación y la obra de cada corredor, integrando a **ANMov** como cabeza, a la **Secretaría de Energía** para el tendido eléctrico, a **ARSAT** para la fibra óptica troncal, y a las **Empresas Bastardas sectoriales** correspondientes (Bastarda Energética, Bastarda Digital, Bastarda de Aguas cuando aplica ducto hidráulico) como operadoras de la capa que les toca. Una sola mesa técnica, una sola autoridad de obra, cuatro utilidades amortizadas sobre la misma traza. El Tablero reporta kilómetros por capa y desvío por sector.
+
+#### 3.6.4 Capa Autónoma del Ferrocarril
+
+La ola AV/IA no llega sólo al asfalto: llega también al riel, y el riel es el terreno donde Argentina puede jugar primero y mejor, porque el corredor ferroviario es cerrado, dedicado, sin peatones ni ciclistas, con señalización controlada de punta a punta. La v2.0 agrega una capa autónoma a la reactivación ferroviaria, articulada con la Capa III del plan.
+
+**Trenes autónomos en corredores dedicados** se despliegan en la **Fase 2 (años 2031-2034)** sobre tramos ya reactivados y multicapa, con señalización ETCS Nivel 3 o equivalente soberano. **Piloto fundacional: tren autónomo Retiro-Tigre** sobre el ramal Mitre suburbano —corredor corto, de alto tráfico, completamente urbano, ideal para medir en condiciones reales—. La capa se integra al **Laboratorio Nacional de Movilidad Autónoma (LNMA)** de la Capa III para data-logging soberano, al **Protocolo de Certificación AV (PCAV)** con módulo ferroviario específico, y mantiene **operador humano en cabina hasta 2040** por decisión regulatoria: el tren puede conducir solo, pero el país no saca al humano del puente de mando en esta década. Certificación cruzada con operador europeo referente (SNCF, DB Systel o RFI) para validación técnica independiente.
+
+### 3.7 Red Federal de Puertos
 
 **Puertos federales estratégicos a activar:**
 
@@ -487,7 +581,11 @@ Cada pieza con precedente. La combinación es invención argentina.
 **Gobernanza:** Agencia General de Puertos (AGP) ampliada y autárquica.
 **Inversión estimada:** USD 6.200-9.800M en 15 años.
 
-### 3.6 Hidrovía Paraná-Paraguay Soberana
+#### 3.7.3 Automatización Portuaria Gradual
+
+La automatización portuaria no es una amenaza a evitar: es un horizonte que llega, y si Argentina no lo opera con doctrina propia, se lo operarán desde afuera con terminales concesionadas a multinacionales de terminal automatizada. La v2.0 agrega un piloto soberano y un camino de reconversión. **Piloto Dock Sud Fase 2** incorpora grúas pórtico automatizadas (ASC) y vehículos guiados automáticamente (AGV) sobre patio de contenedores, con operación mixta humano-máquina durante cinco años de medición. Toda persona trabajando en operación portuaria autónoma obtiene **credencial de Operador Portuario AV** bajo protocolo **PLANREP** (Plan de Reconversión Productiva), que certifica competencias y habilita trayecto formativo pago. **Cero despidos** como principio: quien operaba grúa manual pasa a supervisar flota autónoma, coordinar AGVs o monitorear sistemas, con salario sostenido y formación financiada por el **Fondo de Reconversión de la Movilidad (FRM)** de la Capa III. Los datos de operación se publican abiertos al **Laboratorio Nacional de Movilidad Autónoma (LNMA)** para entrenamiento de modelos soberanos y auditoría ciudadana.
+
+### 3.8 Hidrovía Paraná-Paraguay Soberana
 
 **Acciones:**
 
@@ -499,20 +597,9 @@ Cada pieza con precedente. La combinación es invención argentina.
 
 **Inversión estimada:** USD 2.200-3.400M en 10 años.
 
-### 3.7 AMBA Estructural
+#### 3.8.6 Capa Cognitiva Fluvial
 
-**Sub-plan dedicado:**
-
-**Componentes:**
-
-- **Renovación de material rodante** de las 5 líneas de tren suburbano: USD 3.800M.
-- **Expansión del subte:** nueva línea G (proyecto existente), extensiones de A, B, C, D, E, H: USD 4.200M.
-- **Nuevo metro regional ligero** (conexión tercera corona-Capital): USD 2.800M.
-- **Metrobús completado** sobre corredores estratégicos: USD 600M.
-- **Integración tarifaria real** con Mandato Kilométrico.
-- **Autoridad Metropolitana de Transporte (AMBA-T)** unificada: CABA + provincia + 40 municipios.
-
-**Inversión total AMBA Estructural:** USD 11.400M en 10 años.
+El río también es dato. La navegación fluvial soberana exige instrumentación soberana: **sistema nacional de monitoreo de calado y navegación** operado por Bastarda Fluvial sobre sensores propios en boyas, balizas y remolcadores, con **data-logging abierto al LNMA** para calibración de modelos hidrológicos. **Dragado asistido por IA** desarrollado en conjunto con **Astilleros Argentinos**, que integra batimetría en tiempo real a la planificación de operaciones de dragado para optimizar consumo de gasoil y reducir sedimentación reactiva. **Predicción de bajantes** como servicio público en articulación con **PLANAGUA** y los institutos hidrológicos nacionales, con ventana de pronóstico 90 días y comunicación directa a productores, operadores portuarios y municipios costeros. La soberanía hidroviaria no termina en la concesión: empieza ahí.
 
 ---
 
