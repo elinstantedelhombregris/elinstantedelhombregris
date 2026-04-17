@@ -3010,4 +3010,772 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
     stateCapacity: 'media',
     socialCapacity: 'alta',
   },
+
+  // ═══════════════ PLANMESA — Mesa Civil y República que Aprende (17) ═══════════════
+  {
+    slug: 'planmesa-mesa-civil',
+    title: 'PLANMESA',
+    subtitle: 'Plan Nacional de Mesa Civil, Decisión por Mérito Demostrado y República que Aprende',
+    category: 'instituciones',
+    summary: 'La república no se decide solo en urna — se decide en mesa. PLANMESA crea Mesas Civiles donde la silla se gana por track record ciudadano auditable (Credencial de Materia) y toda intervención pasa por ciclo LDEA (Aprender, Diseñar, Experimentar, Analizar). Rompe la trampa entre elección política profesional y credencialismo académico: la decisión se gana practicando.',
+    iconName: 'Landmark',
+    documentFile: 'PLANMESA_Argentina_ES.md',
+    elProblema: {
+      title: 'El Problema',
+      content: `<p>La legitimidad política argentina se apoya sobre dos mecanismos — elección y designación — que producen sistemáticamente tres patologías: la brecha entre elegibles y capaces, la imposibilidad de deliberación técnica seria, y la invisibilización del saber cívico.</p>
+<p>Cada provincia tiene entre 500 y 2.000 personas con track record operativo demostrable (cuadros públicos de carrera, extensionistas del INTA, productores con décadas en su materia, asambleístas del 2001, maestras, enfermeras, curanderas, albañiles). Nunca son convocadas a decidir. La decisión queda en manos de la clase política profesional, los consultores privados y las figuras mediáticas — tres categorías con autoridad que no deriva de haber hecho el trabajo.</p>
+<p>La Citizens' Assembly irlandesa, la Convention citoyenne francesa y las asambleas del 2001 argentino demostraron los límites de la deliberación ciudadana pura sin disciplina: la formación breve no sustituye años de práctica, y la asamblea abierta sin ciclo termina capturada por quien tenga la agenda preparada.</p>
+<p>El resultado cuantificable: más del 40% de las políticas públicas estructurales argentinas son revertidas por el siguiente gobierno. El país opina más que casi cualquier otro y aprende menos que casi cualquier otro. La relación no es casualidad.</p>`,
+      pullQuote: 'Una república no aprende porque sus ciudadanos opinen más. Una república aprende porque sus ciudadanos practican y la práctica está inscrita.',
+      stats: [
+        { label: 'Reversión de política estructural', value: '42%' },
+        { label: 'Tasa de consulta de precedente', value: '11%' },
+        { label: 'Rotación técnica al 1er año', value: '60%' },
+        { label: 'Evaluación ex-post de programas', value: '8%' },
+      ],
+    },
+    quePasaSiNoCambiamos: {
+      title: '¿Qué pasa si no cambiamos?',
+      content: `<p><strong>Costo acumulado de reversión:</strong> USD 420.000M en reversiones de política pública entre 2000 y 2024. Dos PBI argentinos. Más del triple de la deuda con el FMI. El costo no lo perdió un gobierno corrupto — lo perdió un sistema que decide sin aprender.</p>
+<p><strong>Captura profesional permanente:</strong> sin mecanismo de acceso meritocrático ciudadano, la política profesional mantiene su monopolio sobre la decisión. Cada generación vuelve a elegir entre los mismos cuadros rotados, los mismos consultores tercerizados, las mismas figuras mediáticas.</p>
+<p><strong>Acumulación sin aprendizaje:</strong> el Plan Federal de Vivienda fracasó con patrones idénticos en 1995, 2005, 2012 y 2019. El Plan de Reconversión de Trenes de Carga fracasó tres veces con las mismas razones. Cada generación redescubre los mismos errores porque no hay archivo operativo consultable antes de decidir.</p>
+<p><strong>Degradación civil:</strong> el ciudadano promedio se resigna al voto cada 2-4 años como único mecanismo de participación. La competencia técnica acumulada en el territorio se queda en carpetas de escritorios que nadie va a leer. La sociedad civil se profesionaliza por ONG o se apaga por desánimo.</p>
+<p><strong>Próximos 25 años sin PLANMESA:</strong> USD 500.000M+ adicionales en reversiones de política pública, agudización de la brecha entre capacidad real de la sociedad y calidad decisional del Estado, y la consolidación de una democracia delegativa incapaz de corregirse.</p>`,
+      pullQuote: 'Argentina reabsorbió USD 180.000M en reversiones de política pública entre 2000 y 2024. La cifra es aritmética del desaprendizaje estructural.',
+      stats: [
+        { label: 'Costo acumulado de reversiones', value: 'USD 420 mil M' },
+        { label: 'Reformas previsionales en 30 años', value: '4' },
+        { label: 'Modelos monetarios en 30 años', value: '5' },
+        { label: 'Red ferroviaria perdida', value: '95%' },
+      ],
+    },
+    elDisenoIdeal: {
+      title: 'El Diseño Ideal',
+      content: `<p>La <strong>Mesa Civil</strong> es un órgano de deliberación y decisión vinculante donde la silla se gana por <strong>mérito demostrado en la materia y en el territorio</strong>, y donde la decisión no es acto aislado sino ciclo de cuatro fases: <strong>Aprender, Diseñar, Experimentar, Analizar (LDEA)</strong>.</p>
+<p><strong>La Credencial de Materia.</strong> Track record ciudadano auditable por dominio (agua, vivienda, salud, energía, cuidado, memoria, justicia, producción). Se construye cumpliendo cinco capas simultáneas: <strong>Estudio, Declaración, Decisión, Producción, Vínculo</strong>. Las cinco o nada — un académico que leyó todo pero nunca contribuyó no tiene Credencial; un militante que contribuyó mucho pero nunca estudió tampoco.</p>
+<p><strong>Activación automática.</strong> Cuando el Mandato Vivo detecta tensión territorial sobre una materia, se abre Caso de Mesa con jurisdicción específica. Los ciudadanos con Credencial se auto-postulan en ventana pública de 15 días. Composición equilibrada: practicantes + afectados + estudiosos + ejecutores.</p>
+<p><strong>El ciclo LDEA.</strong> Fase APRENDER con Consulta Ancestral obligatoria del Archivo de Memoria. Fase DISEÑAR con 2-3 propuestas rivales, teoría de cambio, métricas. Fase EXPERIMENTAR con piloto acotado ejecutado en Tallers (piel en el juego real). Fase ANALIZAR con voto firmado: qué escala, qué se mantiene experimental, qué se descarta.</p>
+<p><strong>La AMCC.</strong> Agencia de Mesa y Cédula Civil — ente autárquico con presupuesto constitucional protegido, gobernado por sorteo estratificado entre Síndicos de Archivo y paneles técnicos. Administra el Protocolo de Mesa, valida Credenciales, audita composición, sortea dietas de servicio. No decide dentro de las Mesas — custodia la infraestructura.</p>
+<p><strong>Path dependency cívica.</strong> Las Resoluciones firmadas se inyectan al Arquitecto como activación de iniciativa, y a PLANMEMORIA con lineage completo. Un gobierno nuevo que quiera revertir debe convocar nuevo ciclo LDEA con evidencia más robusta que la original. La rotación de gobiernos no rompe el aprendizaje.</p>`,
+      pullQuote: 'Mesas no es deliberación. Es la disciplina republicana del aprender haciendo.',
+      stats: [
+        { label: 'Reducción de reversión de políticas', value: '25-40%' },
+        { label: 'Reducción litigiosidad post-decisión', value: '60%' },
+        { label: 'Reducción adjudicación con conflicto', value: '30-50%' },
+        { label: 'Mandato por ciclo LDEA', value: '7-14 meses' },
+      ],
+    },
+    elCamino: {
+      overview: 'PLANMESA se despliega en 4 fases trabajando hacia atrás desde una república donde la decisión vinculante se gana por Credencial de Materia construida en el territorio, no por padrinazgo político ni pedigree académico.',
+      steps: [
+        {
+          id: 1,
+          title: 'Régimen Pleno — Mesa Civil como capa decisional universal',
+          description: 'Las 22+ materias del ecosistema ¡BASTA! operan con Mesa Civil activa. Más de 500.000 ciudadanos con Credencial Consolidada. Los ciclos LDEA son mecanismo estándar para toda política pública estructural. Reducción medible de 25-40% en reversión de políticas. La clase política profesional se subordina a las Resoluciones firmadas. La Cédula Civil acumula biografía cívica multi-dominio. Argentina: primer país del mundo con república deliberativa meritocrática ciudadana implementada sistémicamente.',
+          timeline: 'Año 7-15 — META',
+          dependencies: [],
+          orderIndex: 1,
+        },
+        {
+          id: 2,
+          title: 'Expansión — 40+ Mesas activas en 18 materias',
+          description: 'Mesa Civil operativa en 18 de las 22+ materias estratégicas. Más de 120.000 ciudadanos con Credencial Consolidada. Plataforma técnica integrada con PLANDIG (Cédula Civil, auto-postulación, Consulta Ancestral). Primeros ciclos LDEA escalados cierran con Resolución inyectada al Arquitecto. Path dependency cívica demostrable: 3 intentos de reversión por cambio de gobierno bloqueados por falta de evidencia contraria suficiente.',
+          timeline: 'Año 3-6',
+          dependencies: ['Régimen Pleno — Mesa Civil como capa decisional universal'],
+          orderIndex: 2,
+        },
+        {
+          id: 3,
+          title: 'Piloto — 3 materias con ciclo LDEA completo',
+          description: 'Protocolo de Mesa Civil piloto en 3 materias de distinta complejidad (cuidado, agua, empleo público). Primeras 500 Credenciales de Materia emitidas. Dietas de servicio calibradas. Documento "Precedentes Considerados" estandarizado. Primera Resolución firmada con inyección al Arquitecto. Primeros Síndicos de Archivo designados. Integración con plataforma ¡BASTA! (Mapa, Mandato Vivo, Semilla, Life Areas). Evaluación intermedia con ciclo LDEA aplicado al propio protocolo.',
+          timeline: 'Año 1-2',
+          dependencies: ['Expansión — 40+ Mesas activas en 18 materias'],
+          orderIndex: 3,
+        },
+        {
+          id: 4,
+          title: 'Fase 0 — Arranque técnico y ley AMCC',
+          description: 'Ley de Mesa Civil al Congreso (sancionada en paquete con PLANTALLER y PLANMEMORIA). AMCC constituida como ente autárquico con presupuesto protegido 0.07% PBI. Protocolo de Credencial de Materia v1 publicado. Primer Tablero Nacional de Mesas online. 3 materias piloto seleccionadas. Gobernanza por sorteo estratificado diseñada y auditada por Defensoría de Integridad.',
+          timeline: 'Año 0 Q1-Q2',
+          dependencies: ['Piloto — 3 materias con ciclo LDEA completo'],
+          orderIndex: 4,
+        },
+      ],
+    },
+    kpis: [
+      { id: 'credenciales-consolidadas', metric: 'Credenciales de Materia Consolidadas', currentValue: 0, targetValue: 500000, unit: 'ciudadanos', source: 'AMCC', milestones: [{ date: 'Año 2', targetValue: 500 }, { date: 'Año 6', targetValue: 120000 }, { date: 'Año 15', targetValue: 500000 }] },
+      { id: 'mesas-activas', metric: 'Mesas Civiles Activas', currentValue: 0, targetValue: 180, unit: 'mesas', source: 'AMCC — tablero nacional', milestones: [{ date: 'Año 2', targetValue: 6 }, { date: 'Año 6', targetValue: 40 }, { date: 'Año 15', targetValue: 180 }] },
+      { id: 'resoluciones-firmadas', metric: 'Resoluciones LDEA Firmadas / año', currentValue: 0, targetValue: 220, unit: 'resoluciones/año', source: 'AMCC', milestones: [{ date: 'Año 2', targetValue: 6 }, { date: 'Año 6', targetValue: 60 }, { date: 'Año 15', targetValue: 220 }] },
+      { id: 'reduccion-reversion', metric: 'Reducción de Reversión de Políticas', currentValue: 0, targetValue: 35, unit: '%', source: 'Benchmark OECD 2020 adaptado', milestones: [{ date: 'Año 6', targetValue: 10 }, { date: 'Año 15', targetValue: 35 }] },
+    ],
+    tags: ['mesa civil', 'deliberación', 'credencial', 'ciclo LDEA', 'mérito', 'república', 'AMCC', 'auto-postulación'],
+    relatedInitiativeSlugs: ['plantaller-talleres-federales', 'planmemoria-memoria-operativa', 'plancuidado-cuidado-vinculo', 'plandig-soberania-digital'],
+    sources: [
+      { title: 'PLANMESA — Plan Nacional de Mesa Civil (Documento Estratégico, Abr 2026)' },
+      { title: 'OECD — Innovative Citizen Participation and New Democratic Institutions (2020)' },
+      { title: 'Citizens\' Assembly Irlanda — Informes 2016-2022' },
+      { title: 'Convention citoyenne pour le climat (Francia) — Evaluación oficial' },
+      { title: 'Russell Ackoff — Idealized Design (Metodología LDEA)' },
+    ],
+    missionSlug: 'instituciones-y-futuro',
+    temporalOrder: 'transicion',
+    priority: 'alta',
+    state: 'verde',
+    stateDecision: 'Ejecutar temprano — habilita resto del ecosistema',
+    citizenRoles: ['declarante', 'custodio', 'organizador', 'narrador'],
+    citizenAsk: 'Construir Credencial en tu materia, servir en Mesas, auditar decisiones',
+    mainRisk: 'Burocratización del protocolo o captura por activistas profesionales',
+    stateCapacity: 'media',
+    socialCapacity: 'alta',
+  },
+
+  // ═══════════════ PLANTALLER — Talleres Federales (18) ═══════════════
+  {
+    slug: 'plantaller-talleres-federales',
+    title: 'PLANTALLER',
+    subtitle: 'Plan Nacional de Talleres Federales, Experimentación Productiva y Pertenencia Económica Universal',
+    category: 'economia',
+    summary: 'Nadie está desempleado — simplemente no encontró todavía su Taller. PLANTALLER convierte a la Argentina en el primer país donde el Estado no da plata ni cursos sino infraestructura productiva compartida: 4.000 galpones federales con herramental, insumos al costo, mentoría, canal Bastarda y método LDEA. 4,5 millones de argentinos con oficio y sin galpón recuperan pertenencia productiva.',
+    iconName: 'Hammer',
+    documentFile: 'PLANTALLER_Argentina_ES.md',
+    elProblema: {
+      title: 'El Problema',
+      content: `<p>La economía argentina tiene un problema estructural de distribución de infraestructura productiva que ningún plan de empleo, ningún subsidio, ninguna capacitación resuelve — porque todos operan sobre la pregunta equivocada.</p>
+<p>La pregunta equivocada es <em>¿cómo conseguimos que la gente trabaje?</em>. La pregunta correcta es <em>¿cómo ponemos infraestructura productiva al alcance de cualquier ciudadano que quiera producir?</em>.</p>
+<p>Argentina tiene <strong>4,5 millones de personas con oficio demostrable</strong> (manual, técnico, agrario, de servicio) que están fuera del empleo formal por edad, reconversión, ubicación territorial, sector desplomado o falta de capital inicial. Tiene además 400+ fábricas recuperadas activas, 15.000+ cooperativas registradas, y entre 12.000 y 18.000 galpones subutilizados (clubes de barrio, ex-YPF, ex-Somisa, estaciones ferroviarias desactivadas, escuelas técnicas, laboratorios universitarios).</p>
+<p>Lo que falta es lo que ningún país implementó a escala sistémica: <strong>infraestructura pública productiva distribuida con protocolo común</strong>. Un galpón donde Dalma, ex-costurera de calzado con 33 años de oficio, pueda llegar un lunes, sentarse con otras, usar una máquina compartida, recibir insumos al costo y producir. No existe. Los programas argentinos de empleabilidad tienen tasas de inserción sostenida inferiores al 20% a los 24 meses.</p>`,
+      pullQuote: 'En Argentina sobra oficio y falta galpón. Todo lo demás es literatura.',
+      stats: [
+        { label: 'Personas con oficio sin infraestructura', value: '4,5 M' },
+        { label: 'Inserción sostenida programas empleo', value: '<20%' },
+        { label: 'Galpones subutilizados en el país', value: '12-18 mil' },
+        { label: 'Inversión empleo 2015-2024', value: 'USD 11 mil M' },
+      ],
+    },
+    quePasaSiNoCambiamos: {
+      title: '¿Qué pasa si no cambiamos?',
+      content: `<p><strong>Desperdicio masivo acumulativo:</strong> USD 11.000M+ gastados en programas de empleo entre 2015 y 2024 que insertaron aproximadamente 280.000 personas (USD 39.000 por persona insertada). La misma inversión, canalizada en infraestructura productiva compartida, habría capitalizado 60.000 Tallers con 1,5 millones de practicantes activos.</p>
+<p><strong>Pérdida de saber obrero:</strong> Argentina pierde cada año decenas de miles de años-persona de experticia productiva acumulada. El electromecánico con 25 años en fábrica, el ferroviario jubilado, la costurera con oficio intergeneracional — todo se pierde cuando no hay dónde volcarlo ni aprendiz sistemático.</p>
+<p><strong>Fuga emprendedora:</strong> sobrevivencia de microemprendimientos argentinos a los 36 meses: 18%. Cuatro de cada cinco cierran, arrastrando deudas personales que destruyen dos generaciones familiares.</p>
+<p><strong>Sectores reconvertibles sin aplicación:</strong> textiles, calzado, petroquímica menor, industria editorial, industria frigorífica de pequeña escala dejaron cientos de miles de trabajadores con oficio sin reconversión posible. Los "programas de reconversión" ofrecen capacitaciones en sectores que tampoco contratan.</p>
+<p><strong>Monopolio del herramental caro:</strong> el 90% del herramental productivo moderno (torno CNC, impresora 3D industrial, pasteurizador) está concentrado en menos del 5% de las empresas. Los ciudadanos con oficio quedan técnicamente desplazados de la producción moderna.</p>`,
+      pullQuote: 'USD 11.000M gastados en empleo para insertar 280.000 personas. La misma plata, en 60.000 Tallers, habría puesto 1,5 millones a producir.',
+      stats: [
+        { label: 'Sobrevivencia microemprendimiento 36 meses', value: '18%' },
+        { label: 'Herramental moderno concentrado en', value: '<5% empresas' },
+        { label: 'Años-persona de experticia perdidos / año', value: 'Decenas de miles' },
+        { label: 'Costo / persona insertada (vs. Taller)', value: 'USD 39K vs USD 7K' },
+      ],
+    },
+    elDisenoIdeal: {
+      title: 'El Diseño Ideal',
+      content: `<p>El <strong>Taller Federal</strong> es una primitiva institucional nueva: laboratorio productivo con hipótesis declarada, método LDEA (Aprender, Diseñar, Experimentar, Analizar), archivo de hallazgos replicables, conexión automática a Red Bastarda como canal at-cost, integración con Mesa Civil como ejecutor de pilotos, y registro en Credencial del practicante.</p>
+<p><strong>No es fábrica, cooperativa ni coworking.</strong> No es fábrica porque no tiene dueño ni finalidad de acumulación. No es cooperativa porque el miembro no es dueño sino practicante con hipótesis a probar y hallazgo a publicar. No es coworking porque no es alquiler de espacio sino infraestructura productiva con propósito compartido.</p>
+<p><strong>Tres atributos nunca antes combinados a escala nacional:</strong></p>
+<p><strong>1. Acceso universal:</strong> cualquier argentino con Credencial Básica de la materia entra. El oficio ya está — no hay examen, no hay pedigree, no hay filtro de capital.</p>
+<p><strong>2. Disciplina científica:</strong> cada Taller declara Hipótesis Productiva y la prueba con método LDEA. El practicante aprende haciendo, con mentor al lado, con hallazgo a publicar.</p>
+<p><strong>3. Archivo común:</strong> los hallazgos circulan en la red federal permitiendo replicación y aprendizaje cruzado. El saber obrero se inscribe. Los fracasos se documentan como <em>Archivo de Fracaso Productivo</em>.</p>
+<p><strong>La ANT.</strong> Agencia Nacional de Talleres — ente autárquico con presupuesto constitucional protegido y gobernanza mixta (Síndicos de Archivo + Coordinadores Consolidados + representantes técnicos). Administra el Protocolo Taller, audita la red, certifica nuevos Tallers, articula con Red Bastarda y AMCC.</p>
+<p><strong>Primer prototipo:</strong> Taller de Reparación de Electrodomésticos y Reconstrucción Doméstica en La Matanza. Sector con demanda clara (familias argentinas gastan 12-18% del ingreso anual en reposición evitable), umbral técnico accesible y valor visible. Inversión inicial por Taller: USD 120-180K (galpón, herramental base, insumos, 6 meses de operación).</p>
+<p><strong>Proyección 2040:</strong> 4.000 Tallers operativos, 1,5-2 millones de practicantes activos, 12.000+ hallazgos publicados, producción al costo equivalente al 6-9% del PBI manufacturero nacional.</p>`,
+      pullQuote: 'Un Taller no es un lugar para trabajar. Es un lugar para probar. Y una república donde millones pueden probar es una república que aprende.',
+      stats: [
+        { label: 'Tallers meta al año 15', value: '4.000' },
+        { label: 'Practicantes activos meta', value: '1,5-2 M' },
+        { label: 'Inversión inicial / Taller', value: 'USD 120-180K' },
+        { label: 'Producción al costo meta / PBI manufacturero', value: '6-9%' },
+      ],
+    },
+    elCamino: {
+      overview: 'PLANTALLER se despliega en 4 fases trabajando hacia atrás desde una Argentina donde 4.000 galpones federales acogen a 1,5-2M de practicantes con Credencial Productiva. Es la única política de empleo que invierte la pregunta: no "¿cómo consigo que trabajen?", sino "¿cómo les abro el galpón?".',
+      steps: [
+        {
+          id: 1,
+          title: 'Régimen — 4.000 Tallers Federales operativos',
+          description: '4.000 Tallers distribuidos en todas las provincias, cubriendo 50+ sectores productivos. Entre 1,5 y 2 millones de practicantes con Credencial Productiva activa. Más de 12.000 hallazgos publicados en la red. Archivo de Fracaso Productivo consolidado como saber público. Producción al costo equivalente al 6-9% del PBI manufacturero. Modelo exportado a otros países de América Latina.',
+          timeline: 'Año 7-15 — META',
+          dependencies: [],
+          orderIndex: 1,
+        },
+        {
+          id: 2,
+          title: 'Expansión — 500 Tallers + integración Bastarda plena',
+          description: '500 Tallers Federales operativos. 300.000 practicantes activos. Red Bastarda como canal at-cost plenamente integrado — los productos de Tallers se comercializan al costo vía Bastardas sectoriales. Primeros hallazgos escalan a producción industrial cooperativa. Integración con Mesa Civil como ejecutor natural de Fase EXPERIMENTAR. Reconversión masiva de sectores desplomados (textiles, calzado, reparación doméstica).',
+          timeline: 'Año 3-6',
+          dependencies: ['Régimen — 4.000 Tallers Federales operativos'],
+          orderIndex: 2,
+        },
+        {
+          id: 3,
+          title: 'Red Piloto — 50 Tallers en 10 provincias',
+          description: '50 Tallers Federales en 10 provincias piloto (CABA, Buenos Aires, Santa Fe, Córdoba, Mendoza, Tucumán, Chaco, Neuquén, Salta, Entre Ríos). Protocolo Taller v2 con ciclo LDEA cerrado. Primeros 200 Coordinadores con Credencial Productiva Consolidada. Convenios con 15 clubes de barrio, 5 fábricas recuperadas y 3 universidades nacionales para uso compartido de galpón. Primera Feria Federal de Hallazgos.',
+          timeline: 'Año 1-2',
+          dependencies: ['Expansión — 500 Tallers + integración Bastarda plena'],
+          orderIndex: 3,
+        },
+        {
+          id: 4,
+          title: 'Fase 0 — Primer Taller prototipo operativo',
+          description: 'Ley ANT al Congreso (sancionada junto con AMCC y ANM). ANT constituida. Primer Taller prototipo — Reparación de Electrodomésticos y Reconstrucción Doméstica en La Matanza — operativo con 30 practicantes, herramental base, mentor técnico, canal Bastarda piloto. Protocolo Taller v1 publicado en open-source. Relevamiento nacional de galpones subutilizados (meta: 2.000 identificados).',
+          timeline: 'Año 0 Q1-Q2',
+          dependencies: ['Red Piloto — 50 Tallers en 10 provincias'],
+          orderIndex: 4,
+        },
+      ],
+    },
+    kpis: [
+      { id: 'tallers-operativos', metric: 'Tallers Federales Operativos', currentValue: 0, targetValue: 4000, unit: 'tallers', source: 'ANT', milestones: [{ date: 'Año 2', targetValue: 50 }, { date: 'Año 6', targetValue: 500 }, { date: 'Año 15', targetValue: 4000 }] },
+      { id: 'practicantes-activos', metric: 'Practicantes Activos', currentValue: 0, targetValue: 1700000, unit: 'personas', source: 'ANT — Registro Productivo', milestones: [{ date: 'Año 2', targetValue: 15000 }, { date: 'Año 6', targetValue: 300000 }, { date: 'Año 15', targetValue: 1700000 }] },
+      { id: 'hallazgos-publicados', metric: 'Hallazgos Productivos Replicables', currentValue: 0, targetValue: 12000, unit: 'hallazgos', source: 'ANT — Archivo Federal', milestones: [{ date: 'Año 6', targetValue: 1200 }, { date: 'Año 15', targetValue: 12000 }] },
+      { id: 'produccion-costo', metric: 'Producción al Costo / PBI Manufacturero', currentValue: 0, targetValue: 7, unit: '%', source: 'ANT + BCRA', milestones: [{ date: 'Año 6', targetValue: 1 }, { date: 'Año 15', targetValue: 7 }] },
+    ],
+    tags: ['taller federal', 'empleo', 'reconversión', 'hallazgo productivo', 'oficio', 'bastarda', 'pertenencia', 'galpón'],
+    relatedInitiativeSlugs: ['planeb-empresas-bastardas', 'planrep-reconversion-empleo-publico', 'planmesa-mesa-civil', 'planmemoria-memoria-operativa'],
+    sources: [
+      { title: 'PLANTALLER — Plan Nacional de Talleres Federales (Documento Estratégico, Abr 2026)' },
+      { title: 'Facultad Abierta UBA — Relevamiento de Fábricas Recuperadas' },
+      { title: 'Programa Lavaca — Archivo Operativo de Autogestión Económica' },
+      { title: 'OECD — Active Labour Market Policies: Connecting People with Jobs (2021)' },
+      { title: 'Russell Ackoff — Idealized Design (Metodología LDEA)' },
+    ],
+    missionSlug: 'produccion-y-suelo-vivo',
+    temporalOrder: 'transicion',
+    priority: 'alta',
+    state: 'verde',
+    stateDecision: 'Ejecutar junto con PLANMESA — ejecutor del ciclo LDEA',
+    citizenRoles: ['constructor', 'narrador', 'organizador'],
+    citizenAsk: 'Declarar hipótesis productiva, producir, publicar hallazgo, mentorear',
+    mainRisk: 'Convertirse en coworking sin disciplina de hipótesis/hallazgo',
+    stateCapacity: 'media',
+    socialCapacity: 'alta',
+  },
+
+  // ═══════════════ PLANCUIDADO — Vínculo, Parentesco Plural y Obligación de Sostén (19) ═══════════════
+  {
+    slug: 'plancuidado-cuidado-vinculo',
+    title: 'PLANCUIDADO',
+    subtitle: 'Plan Nacional de Vínculo, Parentesco Jurídicamente Plural y Obligación de Sostén',
+    category: 'salud',
+    summary: 'Nadie vive ni muere solo en esta república. PLANCUIDADO es la capa cero del pacto republicano — Pacto de Cuidado Registrado, Libro de Cuidado redimible en jubilación, Jornada 6+2, Registro Nacional de Vínculos y Alerta de Soledad Total. Convierte al cuidado de deuda invisible de mujeres en infraestructura cívica con protocolo, Referente y derechos legales.',
+    iconName: 'HandHeart',
+    documentFile: 'PLANCUIDADO_Argentina_ES.md',
+    elProblema: {
+      title: 'El Problema',
+      content: `<p>El cuidado es la infraestructura invisible sobre la cual opera cualquier sistema económico, político y social. Argentina, como toda sociedad moderna capturada por la lógica del mercado laboral asalariado, lo trató durante un siglo como externalidad privada de la familia nuclear.</p>
+<p><strong>16,2 millones de argentinos</strong> están en alguna forma de responsabilidad de cuidado no remunerada: madres cuidando niños, hijas cuidando madres, vecinas cuidando vecinas, abuelas criando nietos. El <strong>82% lo hacen mujeres</strong>. El valor económico estimado equivale al <strong>18-21% del PBI</strong> — más que el sector bancario, más que telecomunicaciones, más que la industria automotriz. Cero en las cuentas nacionales.</p>
+<p>Un cuarto de millón de Gabrielas — ancianas con soledad crónica documentada sin red formal de contención. Un millón doscientos mil personas con discapacidad dependientes casi exclusivamente de cuidado familiar sin protección. Trescientos mil cuidadoras en negro, sin obra social, sin aporte jubilatorio.</p>
+<p>El Código Civil reconoce casi exclusivamente la familia nuclear y el matrimonio como unidades legales. Las demás relaciones que sostienen el país — amigas de décadas, vecinas que te crían, sobrinas postizas, compadres de fondo, crianzas compartidas — son jurídicamente invisibles. Una mujer que cuidó a sus padres 10 años, luego a sus suegros 5, luego a un nieto con discapacidad 3 — termina con 18 años sin aporte y jubilación mínima.</p>`,
+      pullQuote: 'Una república que no cuenta el cuidado se mintió desde el principio. Todo lo demás son rebarbas de esa mentira.',
+      stats: [
+        { label: 'Personas en cuidado no remunerado', value: '16,2 M' },
+        { label: 'Valor del cuidado / PBI', value: '18-21%' },
+        { label: '% del cuidado lo hacen mujeres', value: '82%' },
+        { label: 'Adultos mayores solos sin contacto', value: '~320.000' },
+      ],
+    },
+    quePasaSiNoCambiamos: {
+      title: '¿Qué pasa si no cambiamos?',
+      content: `<p><strong>Costo evitable absorbido por el Estado — USD 14.600M/año:</strong></p>
+<ul><li>Hospitalizaciones evitables por caídas y complicaciones en mayores con soledad: USD 2.800M/año</li>
+<li>Institucionalización innecesaria en geriátricos privados: USD 3.200M/año</li>
+<li>Rehospitalizaciones por falta de cuidado post-alta: USD 1.600M/año</li>
+<li>Violencia de género no detectada tempranamente: USD 1.100M/año en costo sanitario y judicial</li>
+<li>Ausentismo laboral por sobrecarga de cuidado: USD 2.400M/año</li>
+<li>Pérdida previsional de cuidadoras no reconocidas: USD 3.500M/año en valor presente</li></ul>
+<p>El Estado argentino absorbe costos de la no intervención superiores al costo de la intervención. Esto no es debate ideológico — es aritmética presupuestaria.</p>
+<p><strong>Desgaste intergeneracional:</strong> cada generación de mujeres argentinas carga con el trabajo de cuidado no remunerado, lo que reduce sus ingresos de por vida, sus jubilaciones, su participación política y su salud mental. El patrón se reproduce: cada generación ve a sus madres cuidando y naturaliza el modelo.</p>
+<p><strong>Soledad crónica masiva:</strong> 2,8 millones de personas en soledad estructural — más que la población de una provincia argentina entera — siguen sin ningún protocolo formal de detección temprana ni acompañamiento preventivo. El Estado llega solo ante la emergencia médica o social — cuando ya hay crisis visible.</p>
+<p><strong>Reproducción de la precariedad:</strong> 75% de las cuidadoras domiciliarias siguen trabajando en negro. Las familias no pueden pagar las cargas de la formalidad. El Estado no provee alternativa suficiente. Ambas partes pierden — la cuidadora en derechos, la familia en calidad.</p>`,
+      pullQuote: 'El Estado argentino absorbe USD 14.600M/año en costo evitable por no tener infraestructura cívica de cuidado. No es ideología — es aritmética.',
+      stats: [
+        { label: 'Costo anual de no-intervención', value: 'USD 14,6 mil M' },
+        { label: 'Personas en soledad estructural', value: '2,8 M' },
+        { label: 'Cuidadoras en negro', value: '75%' },
+        { label: 'Años-persona de cuidado sin aporte', value: '~12 M' },
+      ],
+    },
+    elDisenoIdeal: {
+      title: 'El Diseño Ideal',
+      content: `<p>PLANCUIDADO es la <strong>capa cero del pacto republicano</strong> — la primitiva que faltaba para que la palabra "ciudadanía" deje de ser abstracción y se vuelva relación. Ser ciudadano, en la república que PLANCUIDADO construye, es primero <strong>estar vinculado</strong>. Y estar vinculado no es haber nacido en una familia — es haber declarado por quién respondés y quién responde por vos.</p>
+<p><strong>Cinco dispositivos integrados:</strong></p>
+<p><strong>1. Pacto de Cuidado.</strong> Figura jurídica nueva que permite a dos personas registrar bilateralmente un vínculo de cuidado con consentimiento, tipo declarado (niñez, vejez, enfermedad, discapacidad, duelo, compadrazgo, fraterno), frecuencia, protocolo, y efectos legales concretos: visita hospitalaria prioritaria, decisión médica conjunta, herencia reconocida, licencias laborales, previsión social, derechos migratorios.</p>
+<p><strong>2. Libro de Cuidado.</strong> Registro público de horas dadas y recibidas, redimibles en derechos previsionales, sanitarios y habitacionales. Convierte la hora de cuidado de fantasma invisible en <em>unidad contable republicana</em>.</p>
+<p><strong>3. Jornada 6+2.</strong> Rediseño de la jornada laboral legal a 6 horas de trabajo remunerado + 2 horas de cuidado comunitario acreditable, financiado por empleador como responsabilidad sobre la sociedad que lo sostiene. Progresividad según tamaño y sector.</p>
+<p><strong>4. Registro Nacional de Vínculos.</strong> Base de datos pública (opt-in con privacidad garantizada) de Pactos activos. Permite ver quién te sostiene, a quién sostenés, y qué redes de cuidado existen en tu territorio.</p>
+<p><strong>5. Alerta de Soledad Total.</strong> Detección algorítmica de ciudadanos sin Pactos activos durante más de 6 meses con señales de necesidad latente. Dispara protocolo territorial de acompañamiento ejecutado por Círculo de Cuidado más cercano. Respuesta humana — personas que se presentan, escuchan, proponen Pacto.</p>
+<p><strong>El Referente Territorial.</strong> Rol institucional nuevo pago por ANCV (Agencia Nacional de Cuidado y Vínculo). Ciudadano con Credencial de Cuidado Consolidada que acompaña Pactos en su territorio, detecta sobrecargas, media conflictos, facilita formación, articula con otros órganos del ¡BASTA!.</p>`,
+      pullQuote: 'Cuidar no es acompañar al débil. Es admitir que todos somos débiles, y que una república decente es la que se organiza explícitamente para que el sostén sea derecho — no suerte, no género, no deuda invisible.',
+      stats: [
+        { label: 'Reducción gasto evitable en mayores', value: '45-60%' },
+        { label: 'Reducción institucionalización PCD', value: '25%' },
+        { label: 'Inversión régimen pleno / año', value: 'USD 4,8-7,2 mil M' },
+        { label: 'Años-persona previsión restituida', value: '~12 M' },
+      ],
+    },
+    elCamino: {
+      overview: 'PLANCUIDADO se despliega en 4 fases trabajando hacia atrás desde una república donde nadie es invisible en su soledad, donde el vínculo es estructura republicana y donde 16 millones de argentinos que sostienen el país con cuidado no pago ven ese trabajo reconocido, registrado y redimible.',
+      steps: [
+        {
+          id: 1,
+          title: 'Régimen Pleno — Pacto universal, Jornada 6+2 nacional',
+          description: 'Jornada 6+2 vigente en todas las empresas con más de 50 empleados. Libro de Cuidado con aporte previsional real para más de 10 millones de ciudadanos. Pacto de Cuidado como figura jurídica consolidada — más de 8M de Pactos activos. Alerta de Soledad Total opera en todo el territorio. 40.000 Referentes Territoriales de Cuidado pagos. Argentina: primer país del mundo con capa cero del pacto republicano como infraestructura cívica.',
+          timeline: 'Año 8-15 — META',
+          dependencies: [],
+          orderIndex: 1,
+        },
+        {
+          id: 2,
+          title: 'Jornada 6+2 progresiva + Libro redimible',
+          description: 'Jornada 6+2 escalada a empresas con 200+ empleados. Libro de Cuidado con conversión efectiva a años de aporte previsional (fórmula definida por Mesa Civil especializada). Alerta de Soledad Total en 15 provincias. 10.000 Referentes Territoriales. 1,5M de Pactos activos. Integración con PLANSAL (APS), PLANVIV (vivienda intergeneracional), PLANSEG (detección de violencia de género vía red de Pactos).',
+          timeline: 'Año 4-7',
+          dependencies: ['Régimen Pleno — Pacto universal, Jornada 6+2 nacional'],
+          orderIndex: 2,
+        },
+        {
+          id: 3,
+          title: 'Expansión de Pactos + Registro Nacional',
+          description: 'Registro Nacional de Vínculos operativo. 200.000 Pactos activos. 1.500 Referentes Territoriales formados. Primeras Alertas de Soledad Total ejecutadas en 3 provincias piloto. Jornada 6+2 en piloto con 50 empresas voluntarias de 1.000+ empleados. Formación en cuidado integrada en PLANEDU (currículum desde primaria). Primera cohorte de cuidadoras domiciliarias formalizadas como Referentes.',
+          timeline: 'Año 1-3',
+          dependencies: ['Jornada 6+2 progresiva + Libro redimible'],
+          orderIndex: 3,
+        },
+        {
+          id: 4,
+          title: 'Fase 0 — Ley ANCV + Registro piloto',
+          description: 'Ley del Pacto de Cuidado al Congreso. ANCV constituida con presupuesto protegido 0,75-1,1% PBI. Protocolo de Pacto v1 publicado. Primeros 500 Referentes Territoriales en formación. Fondo Federal de Cuidado capitalizado. Registro Nacional de Vínculos en versión piloto con 3.000 Pactos iniciales. Cuentas Satélite de Cuidado integradas al INDEC.',
+          timeline: 'Año 0 Q3-Q4',
+          dependencies: ['Expansión de Pactos + Registro Nacional'],
+          orderIndex: 4,
+        },
+      ],
+    },
+    kpis: [
+      { id: 'pactos-activos', metric: 'Pactos de Cuidado Activos', currentValue: 0, targetValue: 8000000, unit: 'pactos', source: 'ANCV — Registro Nacional', milestones: [{ date: 'Año 3', targetValue: 200000 }, { date: 'Año 7', targetValue: 1500000 }, { date: 'Año 15', targetValue: 8000000 }] },
+      { id: 'referentes-territoriales', metric: 'Referentes Territoriales Formados', currentValue: 0, targetValue: 40000, unit: 'referentes', source: 'ANCV', milestones: [{ date: 'Año 3', targetValue: 1500 }, { date: 'Año 7', targetValue: 10000 }, { date: 'Año 15', targetValue: 40000 }] },
+      { id: 'reduccion-hospitalizacion', metric: 'Reducción Hospitalización Evitable Mayores', currentValue: 0, targetValue: 50, unit: '%', source: 'Superintendencia de Salud', milestones: [{ date: 'Año 7', targetValue: 15 }, { date: 'Año 15', targetValue: 50 }] },
+      { id: 'cobertura-jornada', metric: 'Cobertura Jornada 6+2', currentValue: 0, targetValue: 80, unit: '% empresas +50 empl.', source: 'Ministerio de Trabajo', milestones: [{ date: 'Año 4', targetValue: 5 }, { date: 'Año 7', targetValue: 25 }, { date: 'Año 15', targetValue: 80 }] },
+    ],
+    tags: ['cuidado', 'pacto', 'jornada 6+2', 'soledad', 'vínculo', 'parentesco plural', 'referente', 'ANCV', 'capa cero'],
+    relatedInitiativeSlugs: ['plansal-salud-integral', 'planrep-reconversion-empleo-publico', 'planedu-refundacion-educativa', 'planmesa-mesa-civil'],
+    sources: [
+      { title: 'PLANCUIDADO — Plan Nacional de Vínculo y Cuidado (Documento Estratégico, Abr 2026)' },
+      { title: 'INDEC — Indicadores de Uso del Tiempo' },
+      { title: 'ONU Mujeres + CEPAL — Economía del Cuidado en América Latina' },
+      { title: 'Observatorio de Cuidados — Argentina' },
+      { title: 'Russell Ackoff — Idealized Design (Metodología LDEA)' },
+    ],
+    missionSlug: 'la-base-esta',
+    secondaryMissionSlug: 'infancia-escuela-cultura',
+    temporalOrder: 'transicion',
+    priority: 'alta',
+    state: 'verde',
+    stateDecision: 'Ejecutar — capa cero del pacto',
+    citizenRoles: ['constructor', 'custodio', 'organizador'],
+    citizenAsk: 'Registrar Pactos, sostener vínculos, formar Referentes, activar Alertas',
+    mainRisk: 'Mercantilización del cuidado o burocratización del Pacto',
+    stateCapacity: 'media',
+    socialCapacity: 'alta',
+  },
+
+  // ═══════════════ PLANMEMORIA — Memoria Operativa y No-Reversibilidad (20) ═══════════════
+  {
+    slug: 'planmemoria-memoria-operativa',
+    title: 'PLANMEMORIA',
+    subtitle: 'Plan Nacional de Memoria Operativa, Vínculo Ancestral y No-Reversibilidad Republicana',
+    category: 'cultura',
+    summary: 'Lo que no se graba se repite. PLANMEMORIA construye la infraestructura memorial operativa que a Argentina le falta — Archivo de Depósito Ciudadano, Bastón Memorial de los 12, Consulta Ancestral Obligatoria, Inscripción de Captura en tiempo real, Síndico de Archivo y red federada criptográfica de 7 nodos. Convierte al país que olvida mejor que recuerda en uno que, por fin, puede aprender.',
+    iconName: 'Archive',
+    documentFile: 'PLANMEMORIA_Argentina_ES.md',
+    elProblema: {
+      title: 'El Problema',
+      content: `<p>Argentina tiene un problema único: <strong>su capacidad técnica de olvidar es superior a su capacidad técnica de cualquier otra función republicana</strong>. Olvida mejor que recuerda, mejor que legisla, mejor que juzga, mejor que educa. Su política pública se reformula cada cuatro años partiendo de cero.</p>
+<p>El ciclo argentino de destrucción institucional repetida no se sostiene por incompetencia, corrupción, falta de ideas o mala suerte — se sostiene por <strong>ausencia de infraestructura memorial operativa</strong>. El país no tiene archivo consultable de precedente operativo, no tiene protocolo obligatorio de consulta de memoria antes de decisión, no tiene mecanismo federal distribuido que haga imposible el borrado selectivo.</p>
+<p>Los Planes Federales de Vivienda fracasaron con patrones idénticos en 1995, 2005, 2012 y 2019. Los Planes de Reconversión de Trenes de Carga fracasaron tres veces con las mismas razones. Cada generación de cuadros técnicos redescubre los mismos errores. Cada movimiento social aprende desde cero. Cada fábrica recuperada no tiene registrado para las de 2028 qué funcionó y qué no.</p>
+<p>Más del 40% de las políticas públicas estructurales argentinas son revertidas por el siguiente gobierno. Cada ciudadano argentino contemporáneo es depositario sin saberlo — sin protocolo, sin archivo — de memoria operativa irrecuperable. Ochenta y cuatro cartas, mil doscientas fotos, el uniforme, los cuadernos técnicos, el carnet, los folletos — todo al volquete cuando el abuelo muere.</p>`,
+      pullQuote: 'Un país que no se acuerda de sus derrotas no aprende. Un país que se acuerda pero no inscribe, olvida después de dos generaciones. Un país que inscribe con protocolo — recién ése es un país que puede corregirse.',
+      stats: [
+        { label: 'Costo acumulado de reversiones', value: 'USD 420 mil M+' },
+        { label: 'Tasa de reversión política estructural', value: '42%' },
+        { label: 'Tasa de consulta de precedente', value: '11%' },
+        { label: 'Evaluación ex-post de programas', value: '8%' },
+      ],
+    },
+    quePasaSiNoCambiamos: {
+      title: '¿Qué pasa si no cambiamos?',
+      content: `<p><strong>Repetición estructural perpetua:</strong> sin archivo operativo, cada generación redescubre los mismos errores. Planes de vivienda, reformas previsionales, políticas monetarias, modelos educativos — todos reescritos cada ciclo, todos fracasando con patrones idénticos, todos costando dinero y décadas perdidas.</p>
+<p><strong>Pérdida intergeneracional masiva:</strong> 45 millones de argentinos contemporáneos son depositarios de memoria operativa irrecuperable — oficios, saberes, procedimientos, testimonios, cuadernos técnicos. Ese corpus se pierde al volquete en las próximas 2 décadas sin protocolo de depósito.</p>
+<p><strong>Archivo como arena política:</strong> el Archivo Nacional de Datos Genéticos fue amenazado de desmantelamiento en 2016. El Archivo de la ESMA tuvo intentos de reducción en 2024. Los datos de INDEC fueron manipulados entre 2007 y 2015. Cada gobierno archiva lo que le conviene y desactiva lo incómodo. La memoria queda al servicio del gobierno de turno.</p>
+<p><strong>Captura sin costo reputacional:</strong> entre 2001 y 2024, más de 1.400 casos documentados de captura de política pública con responsables nominales identificados. Menos del 3% sancionado judicialmente. Menos del 1% con consecuencia reputacional que le cierre carreras futuras. Los capturadores reciclan. La vida mediática ciclea en semanas — el costo reputacional se diluye.</p>
+<p><strong>Testimonio oral perdido:</strong> los ferroviarios de la privatización, las trabajadoras de INTA del primer CONICET, los militantes del 2001, los cuadros de la transición democrática, las sobrevivientes de fábricas cerradas — su testimonio muere con ellos porque no hay protocolo de depósito, no hay archivo receptivo, no hay entrenamiento para extraer el saber.</p>
+<p><strong>Próximos 25 años sin PLANMEMORIA:</strong> USD 500.000M+ adicionales en reversiones, pérdida irreversible de una generación entera de memoria operativa, y consolidación del modelo argentino de país que se reescribe cada cambio de humor político.</p>`,
+      pullQuote: 'Entre 2000 y 2024 Argentina reabsorbió USD 420.000M en reversión de política pública. Dos PBI. Más del triple de la deuda con el FMI. No fue corrupción — fue amnesia institucional.',
+      stats: [
+        { label: 'Costo de reversión 2000-2024', value: 'USD 420 mil M' },
+        { label: 'Casos documentados de captura', value: '1.400+' },
+        { label: 'Capturadores sancionados', value: '<3%' },
+        { label: 'Planes de Vivienda fracasados igual', value: '4 ciclos' },
+      ],
+    },
+    elDisenoIdeal: {
+      title: 'El Diseño Ideal',
+      content: `<p>PLANMEMORIA construye la infraestructura memorial operativa mediante una arquitectura de <strong>seis dispositivos integrados bajo disciplina común</strong>.</p>
+<p><strong>1. Archivo de Depósito Ciudadano.</strong> Sistema federal distribuido que recibe de cada argentino, en tres momentos vitales, depósitos estructurados con cuatro componentes: historia familiar heredada, cicatriz comunitaria vivida, aprendizaje de fracaso propio, deseo para las generaciones que vienen.</p>
+<p><strong>2. Consulta Ancestral Obligatoria.</strong> Protocolo que se dispara automáticamente en Fase APRENDER de todo ciclo LDEA de toda Mesa Civil. Trae del Archivo los precedentes relevantes, resoluciones previas y su destino, capturas documentadas, depósitos ciudadanos. Exige firma de "Precedentes Considerados" antes de avanzar a Fase DISEÑAR.</p>
+<p><strong>3. Inscripción de Captura en Tiempo Real.</strong> Cada desviación documentada de una Resolución, cada promesa rota, cada conflicto de interés escondido se inscribe con nombre del responsable, fecha, evidencia y consecuencia. No es acusación judicial — es registro histórico con efecto sobre Credencial del actor.</p>
+<p><strong>4. Memoria Operativa del Arquitecto.</strong> Cada iniciativa del Arquitecto carga su historia viva: cuántas veces fue intentada, qué versiones se probaron, qué capturas sufrió, qué cicatrices dejó. El plano deja de ser abstracto y se vuelve biografía republicana viva.</p>
+<p><strong>5. Síndico de Archivo.</strong> Ciudadano con Credencial Consolidada en Memoria que custodia partes del corpus con responsabilidad pública — validación cruzada, marcado de precedentes, transcripción de relatos originarios y de mayores, auditoría de integridad de hash. Remunerado por la ANM, mandato rotativo.</p>
+<p><strong>6. Ritual del Bastón Memorial.</strong> Rito de pasaje obligatorio para chicos y chicas de 12 años. Depositan sus primeras tres historias heredadas en ceremonia pública en sus escuelas, con acompañamiento de un mayor del territorio.</p>
+<p><strong>Arquitectura federada.</strong> Cada inscripción memorial se replica en siete nodos distribuidos (uno en cada región del país, uno en Archivo General de la Nación, uno en universidad rotativa, uno en cooperativa ciudadana) con hash que hace detectable cualquier alteración. Ningún gobierno puede borrar el Archivo porque no está en un solo servidor ni bajo una sola jurisdicción.</p>`,
+      pullQuote: 'La memoria no se pide. Se inscribe con protocolo. Y la república que inscribe es la que, por fin, puede diferenciarse de sí misma.',
+      stats: [
+        { label: 'Nodos federados con hash', value: '7' },
+        { label: 'Inversión régimen / año', value: 'USD 680-920M' },
+        { label: 'Reducción reversiones esperada', value: '30-45%' },
+        { label: 'Valor preservado en 15 años', value: 'USD 125-190 mil M' },
+      ],
+    },
+    elCamino: {
+      overview: 'PLANMEMORIA se despliega en 4 fases trabajando hacia atrás desde una Argentina donde la Consulta Ancestral es paso obligatorio de toda decisión pública estructural y donde todos los ciudadanos depositaron, en al menos un momento vital, su memoria inscripta.',
+      steps: [
+        {
+          id: 1,
+          title: 'Régimen — Archivo Activo y No-Reversibilidad',
+          description: '7 nodos federados con hash criptográfico operativos. Archivo de Depósito Ciudadano con más de 12M de argentinos con Depósito inscrito. Bastón Memorial ejecutado en todas las escuelas del país. Consulta Ancestral obligatoria en el 100% de ciclos LDEA de Mesa Civil. 2.000 Síndicos de Archivo activos. Inscripción de Captura como mecanismo de rendición de cuentas estructural. Reducción medible de 30-45% en reversión de políticas.',
+          timeline: 'Año 6-15 — META',
+          dependencies: [],
+          orderIndex: 1,
+        },
+        {
+          id: 2,
+          title: 'Red de 7 Nodos + Consulta Ancestral universal',
+          description: '7 nodos federados desplegados (regional + AGN + universitario rotativo + cooperativo). Consulta Ancestral integrada en Protocolo de Mesa Civil. 800 Síndicos de Archivo con Credencial Consolidada. Primeras Inscripciones de Captura firmadas con efecto sobre Credencial. Memoria Operativa del Arquitecto integrada en tablero. 3M de argentinos con Depósito activo.',
+          timeline: 'Año 3-5',
+          dependencies: ['Régimen — Archivo Activo y No-Reversibilidad'],
+          orderIndex: 2,
+        },
+        {
+          id: 3,
+          title: 'Bastón Memorial Piloto + 2 Nodos',
+          description: 'Primeros 2 nodos federados con hash criptográfico activos. Bastón Memorial piloto en 20 escuelas distribuidas en 5 provincias. Primer Ritual del Bastón ejecutado. 50.000 Depósitos Ciudadanos ingresados. Protocolo Memorial v1. 100 Síndicos de Archivo formados. Primera Consulta Ancestral ejecutada en Mesa Civil piloto.',
+          timeline: 'Año 1-2',
+          dependencies: ['Red de 7 Nodos + Consulta Ancestral universal'],
+          orderIndex: 3,
+        },
+        {
+          id: 4,
+          title: 'Fase 0 — Arranque federado y Ley ANM',
+          description: 'Ley de Memoria al Congreso (paquete con AMCC y ANT). ANM constituida con presupuesto protegido 0,10-0,14% PBI. Protocolo Memorial v0.5 publicado. Infraestructura de Archivo Federado inicial con 2 nodos. Convenios con Archivo General de la Nación, 3 universidades nacionales y 1 cooperativa de preservación digital. Primer Tablero Nacional de Memoria Activa.',
+          timeline: 'Año 0 Q1-Q2',
+          dependencies: ['Bastón Memorial Piloto + 2 Nodos'],
+          orderIndex: 4,
+        },
+      ],
+    },
+    kpis: [
+      { id: 'depositos-ciudadanos', metric: 'Depósitos Ciudadanos Inscritos', currentValue: 0, targetValue: 12000000, unit: 'depósitos', source: 'ANM — Archivo Federal', milestones: [{ date: 'Año 2', targetValue: 50000 }, { date: 'Año 5', targetValue: 3000000 }, { date: 'Año 15', targetValue: 12000000 }] },
+      { id: 'nodos-activos', metric: 'Nodos Federados con Hash Activos', currentValue: 0, targetValue: 7, unit: 'nodos', source: 'ANM', milestones: [{ date: 'Año 2', targetValue: 2 }, { date: 'Año 5', targetValue: 7 }] },
+      { id: 'consultas-ancestrales', metric: 'Consultas Ancestrales Firmadas / año', currentValue: 0, targetValue: 2000, unit: 'consultas/año', source: 'AMCC + ANM', milestones: [{ date: 'Año 2', targetValue: 6 }, { date: 'Año 5', targetValue: 200 }, { date: 'Año 15', targetValue: 2000 }] },
+      { id: 'baston-escuelas', metric: 'Escuelas con Bastón Memorial', currentValue: 0, targetValue: 35000, unit: 'escuelas', source: 'ANM + Ministerios de Educación', milestones: [{ date: 'Año 2', targetValue: 20 }, { date: 'Año 5', targetValue: 3000 }, { date: 'Año 15', targetValue: 35000 }] },
+    ],
+    tags: ['memoria', 'archivo', 'consulta ancestral', 'bastón memorial', 'captura', 'síndico', 'no-reversibilidad', 'federado'],
+    relatedInitiativeSlugs: ['planmesa-mesa-civil', 'planedu-refundacion-educativa', 'plandig-soberania-digital', 'planjus-justicia-popular'],
+    sources: [
+      { title: 'PLANMEMORIA — Plan Nacional de Memoria Operativa (Documento Estratégico, Abr 2026)' },
+      { title: 'Abuelas de Plaza de Mayo — Archivo Nacional de Datos Genéticos' },
+      { title: 'CONADEP — Nunca Más (1984)' },
+      { title: 'Whanganui Treaty Settlement Act 2017 (Nueva Zelanda)' },
+      { title: 'Internet Archive — Modelo de preservación distribuida' },
+      { title: 'Russell Ackoff — Idealized Design (Metodología)' },
+    ],
+    missionSlug: 'instituciones-y-futuro',
+    secondaryMissionSlug: 'infancia-escuela-cultura',
+    temporalOrder: 'transicion',
+    priority: 'alta',
+    state: 'verde',
+    stateDecision: 'Ejecutar temprano — habilita path dependency cívica',
+    citizenRoles: ['narrador', 'custodio', 'testigo'],
+    citizenAsk: 'Depositar tu memoria, servir como Síndico, participar del Bastón',
+    mainRisk: 'Burocratización del Depósito o ataque coordinado a nodos',
+    stateCapacity: 'media',
+    socialCapacity: 'alta',
+  },
+
+  // ═══════════════ PLANTER — Tierra, Subsuelo y Soberanía Territorial (21) ═══════════════
+  {
+    slug: 'planter-tierra-subsuelo-soberania',
+    title: 'PLANTER',
+    subtitle: 'Plan Nacional de Tierra, Subsuelo, Pueblos Originarios y Soberanía Territorial',
+    category: 'medio-ambiente',
+    summary: 'La tierra se posee a sí misma. Los humanos somos síndicos, no dueños. PLANTER reemplaza al RIGI por Licencia Territorial de 12 años, declara Commons del Subsuelo, crea Fondo Soberano Ciudadano con Dividendo Ciudadano Mensual, reconoce Personalidad Jurídica de ríos/acuíferos/bosques/mar, da co-soberanía operativa a 35 pueblos originarios y termina con la deforestación impune. Le devuelve a Argentina la palabra "no".',
+    iconName: 'Mountain',
+    documentFile: 'PLANTER_Argentina_ES.md',
+    elProblema: {
+      title: 'El Problema',
+      content: `<p>Argentina entregó, en las últimas cinco décadas, control estratégico sobre su tierra y su subsuelo a una combinación de corporaciones extranjeras y aparatos extractivos privados que no tienen obligación fiduciaria hacia los argentinos vivos, ni hacia los que vendrán, ni hacia los pueblos originarios, ni hacia los ecosistemas.</p>
+<p>El <strong>RIGI de 2024</strong> consolida la entrega: concesiones de 30 años con estabilidad tributaria, libre disponibilidad de divisas, cláusula CIADI automática, exenciones varias. Treinta años son dos generaciones. Ningún proyecto económico soberano puede comprometer decisiones de generaciones futuras en cláusula internacional sin destrozar la capacidad argentina de corregirse.</p>
+<p>El <strong>triángulo del litio</strong> con el 40% de las reservas mundiales. El segundo reservorio mundial de shale gas en <strong>Vaca Muerta</strong>. Más de 15.000 km de costa marítima con <strong>saqueo documentado de flota china</strong> (300-500 buques). 8 millones de hectáreas de bosque nativo del Gran Chaco <strong>perdidas en 25 años</strong>. Cientos de miles de hectáreas de acuíferos estratégicos (Guaraní, Puelche) sin protocolo soberano de uso.</p>
+<p>Simultáneamente, los <strong>35 pueblos originarios</strong> reconocidos por el artículo 75 inciso 17 de la Constitución siguen esperando la ejecución operativa de su derecho constitucional. La Ley 26.160 de relevamiento territorial indígena lleva <strong>19 años sin completarse</strong>. La consulta previa, libre e informada es ritual cosmético en el 80% de los casos de proyecto extractivo sobre territorio ancestral. El Convenio 169 de la OIT fue ratificado en 2000 y su aplicación es fragmentaria.</p>`,
+      pullQuote: 'Una república que no puede decir no es una república. Argentina, sobre la tierra y el subsuelo, lleva cincuenta años sin poder decir no. PLANTER es el mandato que le devuelve al país la palabra no.',
+      stats: [
+        { label: 'RIGI: concesiones en años', value: '30' },
+        { label: 'Reservas mundiales de litio', value: '40%' },
+        { label: 'Bosque nativo perdido (25 años)', value: '8M ha' },
+        { label: 'Buques chinos en límite ZEE', value: '300-500' },
+      ],
+    },
+    quePasaSiNoCambiamos: {
+      title: '¿Qué pasa si no cambiamos?',
+      content: `<p><strong>Costo anual actual USD 9.900-19.900M:</strong></p>
+<ul><li>Regalías subcolectadas vs. benchmarks internacionales: USD 3.200-5.800M</li>
+<li>Pesca ilegal y subpagada en ZEE: USD 1.000-2.800M</li>
+<li>Valor ambiental perdido por deforestación: USD 2.400-4.200M</li>
+<li>Regalías no redistribuidas a territorios afectados: USD 800-1.400M</li>
+<li>Litigios y arbitrajes internacionales (RIGI) proyectados: USD 600-1.800M</li>
+<li>Fuga de capital vía estabilidad fiscal extractiva: USD 1.500-3.000M</li></ul>
+<p>Entre USD 10.000M y USD 20.000M por año. Tres a seis puntos del PBI. Perdidos sin que la mayoría de los argentinos entiendan que se están perdiendo.</p>
+<p><strong>Irreversibilidad del RIGI:</strong> cada año de vigencia del RIGI consolida concesiones que después solo pueden revertirse con costo fiscal internacional altísimo por incumplimiento. Una generación futura que quiera cambiar de modelo se encuentra con contratos vigentes hasta 2054.</p>
+<p><strong>Deforestación irreversible:</strong> 400.000 ha/año de pérdida forestal en el Gran Chaco. La regeneración natural toma 80-150 años. Las comunidades afectadas pierden medios de subsistencia, agua, fauna y memoria cultural.</p>
+<p><strong>Derechos indígenas congelados:</strong> sin ejecución operativa de la Ley 26.160, los 35 pueblos siguen con reconocimiento formal sin efecto real. La continuidad cultural se debilita generacionalmente. La consulta libre previa e informada se vacía.</p>
+<p><strong>Mar Argentino saqueado:</strong> se pierden anualmente entre USD 1.000 y USD 2.800M en recurso pesquero no controlado, y se degrada el stock reproductivo de merluza, calamar y langostino.</p>`,
+      pullQuote: 'Argentina pierde entre USD 10 mil y USD 20 mil millones por año en soberanía territorial, sin que la mayoría entienda que se está perdiendo.',
+      stats: [
+        { label: 'Costo anual sin PLANTER', value: 'USD 10-20 mil M' },
+        { label: 'Deforestación anual', value: '~400.000 ha' },
+        { label: 'Regeneración forestal natural', value: '80-150 años' },
+        { label: 'Años sin completar Ley 26.160', value: '19' },
+      ],
+    },
+    elDisenoIdeal: {
+      title: 'El Diseño Ideal',
+      content: `<p>PLANTER propone <strong>seis dispositivos integrados</strong> que rompen el paradigma colonial de propiedad territorial.</p>
+<p><strong>1. Personalidad Jurídica de los Territorios.</strong> Figura legal nueva inspirada en precedentes comparados (Whanganui, Nueva Zelanda 2017; Atrato, Colombia 2016; Ganges-Yamuna, India 2017). Otorga a ríos estratégicos (Paraná, Uruguay, Colorado, Limay), acuíferos (Guaraní, Puelche), montañas (Aconcagua, Fitz Roy), bosques nativos (Chaco, Yungas), Mar Argentino y humedales (Iberá) la condición de sujetos de derecho con <strong>síndicos</strong> que ejercen personería con mandato fiduciario público, auditable, rotativo.</p>
+<p><strong>2. Commons del Subsuelo.</strong> Declaración constitucional de que los recursos del subsuelo (hidrocarburos, litio, minerales críticos, aguas profundas) pertenecen al conjunto de argentinos vivos e intergeneracionales como <strong>bien común irrepartible</strong>. Articulado por el <strong>Fondo Soberano Ciudadano (FSC)</strong> que centraliza regalías y distribuye <strong>Dividendo Ciudadano Mensual</strong> (USD 40-120/adulto) — modelo Alaska Permanent Dividend + Fondo Pensión Noruega adaptado.</p>
+<p><strong>3. Licencia Territorial.</strong> Reemplaza al RIGI. Todo proyecto extractivo requiere simultáneamente: (a) voto vinculante de la población afectada, (b) consentimiento del síndico de la persona jurídica territorial, (c) CLPI de la comunidad originaria afectada, (d) internalización total del costo ecológico en el FSC. Plazo máximo 12 años (no 30), revisión trimestral, potestad de revocación con compensación proporcional limitada.</p>
+<p><strong>4. Co-Soberanía Intercultural.</strong> Doble pista jurisdiccional en territorio ancestral. Representación política reservada (8 senadurías + 10 diputaciones adicionales). Veto vinculante sobre proyectos extractivos en territorio ancestral. Bilingüismo operativo. Cronograma efectivo de completamiento de Ley 26.160.</p>
+<p><strong>5. Mar Argentino Soberano.</strong> Incremento del Servicio de Guardacostas de 15 a 60 buques con patrullaje continuo hasta la milla 200. Régimen de cuotas pesqueras como commons gestionado por Mesa Civil con Credencial Pesca. Expulsión y sanción por pesca ilegal. Flota cooperativa argentina vía Bastardas Pesqueras.</p>
+<p><strong>6. Bosques con Deforestación Cero Operativa.</strong> Monitoreo satelital de alta resolución (ARSAT + CONAE). Verificación cívica por Referentes de Territorio. Responsabilidad penal nominal de directores. Restauración obligatoria proporcional al daño. Reconversión con PLANISV.</p>
+<p><strong>La ANTSPO.</strong> Agencia Nacional autárquica con presupuesto protegido 0,20% PBI y gobernanza plural (5 miembros originarios en directorio de 11).</p>`,
+      pullQuote: 'La tierra no es un bien. La tierra es el soporte de todos los bienes. Confundir la tierra con los bienes es el error civilizatorio que queremos desandar.',
+      stats: [
+        { label: 'Dividendo Ciudadano Mensual', value: 'USD 40-120/adulto' },
+        { label: 'Beneficiarios DCM', value: '~33 M' },
+        { label: 'Guardacostas ampliados a', value: '60 buques' },
+        { label: 'Plazo máximo Licencia Territorial', value: '12 años' },
+      ],
+    },
+    elCamino: {
+      overview: 'PLANTER se despliega en 4 fases trabajando hacia atrás desde una Argentina donde ríos, bosques, montañas y mar son sujetos de derecho; donde el subsuelo es commons intergeneracional; donde los 35 pueblos originarios co-gobiernan sus territorios; y donde cada argentino recibe dividendo mensual por la riqueza del país.',
+      steps: [
+        {
+          id: 1,
+          title: 'Régimen — FSC consolidado + DCM universal',
+          description: 'Fondo Soberano Ciudadano consolidado con USD 80-150B de activos. Dividendo Ciudadano Mensual pagado a 33M+ argentinos adultos. Todas las concesiones extractivas migradas a Licencia Territorial. Deforestación del Chaco reducida en 80% vs. línea base 2024. Servicio de Guardacostas con 60 buques operativos. 35 pueblos originarios con relevamiento territorial completo. Modelo exportado regionalmente.',
+          timeline: 'Año 8-15 — META',
+          dependencies: [],
+          orderIndex: 1,
+        },
+        {
+          id: 2,
+          title: 'Fase 3 — Mar Soberano + Deforestación Cero',
+          description: 'Servicio de Guardacostas expandido a 40 buques. Bastardas Pesqueras operativas en 5 provincias costeras. Monitoreo satelital forestal en tiempo real. Primeras sanciones penales nominales a directores por deforestación ilegal. FSC con USD 20-40B acumulados. DCM activo para 15M de adultos. 15 pueblos originarios con relevamiento territorial finalizado.',
+          timeline: 'Año 4-7',
+          dependencies: ['Régimen — FSC consolidado + DCM universal'],
+          orderIndex: 2,
+        },
+        {
+          id: 3,
+          title: 'Fase 2 — Commons Subsuelo + DCM piloto',
+          description: 'Personalidad Jurídica otorgada a Paraná, Iberá, Chaco nativo, Aconcagua y Mar Argentino. Commons del Subsuelo aprobado. DCM piloto para 2M de adultos. Primeras 10 Licencias Territoriales en reemplazo de contratos RIGI expirados. Bastarda Fluvial Soberana arrancada — renegociación de Hidrovía iniciada. Expansión Guardacostas a 25 buques.',
+          timeline: 'Año 2-3',
+          dependencies: ['Fase 3 — Mar Soberano + Deforestación Cero'],
+          orderIndex: 3,
+        },
+        {
+          id: 4,
+          title: 'Fase 1 — Ley ANTSPO + 10 Personas Territoriales piloto',
+          description: 'Ley ANTSPO al Congreso. ANTSPO constituida con presupuesto protegido 0,20% PBI y 5 miembros originarios en directorio. Primeras 10 personas territoriales reconocidas (3 ríos + 2 acuíferos + 2 bosques + 1 montaña + Mar Argentino + 1 humedal). Derogación del RIGI iniciada. Expansión Guardacostas comienza (de 15 a 20 buques). Cronograma vinculante de cumplimiento Ley 26.160.',
+          timeline: 'Año 1 Q3-Q4',
+          dependencies: ['Fase 2 — Commons Subsuelo + DCM piloto'],
+          orderIndex: 4,
+        },
+      ],
+    },
+    kpis: [
+      { id: 'dcm-beneficiarios', metric: 'Argentinos Recibiendo DCM', currentValue: 0, targetValue: 33000000, unit: 'adultos', source: 'ANTSPO — FSC', milestones: [{ date: 'Año 3', targetValue: 2000000 }, { date: 'Año 7', targetValue: 15000000 }, { date: 'Año 15', targetValue: 33000000 }] },
+      { id: 'deforestacion-chaco', metric: 'Reducción Deforestación del Chaco', currentValue: 0, targetValue: 80, unit: '% vs. 2024', source: 'ARSAT + CONAE', milestones: [{ date: 'Año 3', targetValue: 20 }, { date: 'Año 7', targetValue: 50 }, { date: 'Año 15', targetValue: 80 }] },
+      { id: 'fsc-activos', metric: 'Fondo Soberano Ciudadano — Activos', currentValue: 0, targetValue: 100000, unit: 'USD M', source: 'ANTSPO — Balance Público', milestones: [{ date: 'Año 3', targetValue: 5000 }, { date: 'Año 7', targetValue: 30000 }, { date: 'Año 15', targetValue: 100000 }] },
+      { id: 'guardacostas-operativos', metric: 'Buques Guardacostas Operativos', currentValue: 15, targetValue: 60, unit: 'buques', source: 'Prefectura Naval', milestones: [{ date: 'Año 3', targetValue: 25 }, { date: 'Año 7', targetValue: 40 }, { date: 'Año 15', targetValue: 60 }] },
+      { id: 'pueblos-relevamiento', metric: 'Pueblos Originarios con Relevamiento Completo (Ley 26.160)', currentValue: 3, targetValue: 35, unit: 'pueblos', source: 'ANTSPO + Ministerio del Interior', milestones: [{ date: 'Año 3', targetValue: 10 }, { date: 'Año 7', targetValue: 25 }, { date: 'Año 15', targetValue: 35 }] },
+    ],
+    tags: ['tierra', 'subsuelo', 'pueblos originarios', 'FSC', 'dividendo ciudadano', 'RIGI', 'licencia territorial', 'mar argentino', 'deforestación'],
+    relatedInitiativeSlugs: ['planisv-infraestructura-suelo-vivo', 'planagua-soberania-hidrica', 'planen-soberania-energetica', 'planseg-seguridad-ciudadana'],
+    sources: [
+      { title: 'PLANTER — Plan Nacional de Tierra, Subsuelo y Pueblos Originarios (Documento Estratégico, Abr 2026)' },
+      { title: 'Constitución Nacional Argentina — Art. 75 inc. 17' },
+      { title: 'Ley 26.160 de Relevamiento Territorial Indígena' },
+      { title: 'Convenio 169 OIT (ratificado Arg. 2000)' },
+      { title: 'Whanganui Treaty Settlement Act 2017' },
+      { title: 'Alaska Permanent Dividend Fund (1982)' },
+      { title: 'Statens Pensjonsfond Utland (Noruega, 1990)' },
+      { title: 'Russell Ackoff — Idealized Design (Metodología)' },
+    ],
+    missionSlug: 'la-base-esta',
+    secondaryMissionSlug: 'instituciones-y-futuro',
+    temporalOrder: 'transicion',
+    priority: 'alta',
+    state: 'ambar',
+    stateDecision: 'Ejecutar con ventana legislativa amplia — requiere reforma constitucional complementaria',
+    citizenRoles: ['constructor', 'custodio', 'declarante'],
+    citizenAsk: 'Votar en referéndums territoriales, servir como Referente de Territorio, auditar Licencias',
+    mainRisk: 'Litigio internacional CIADI por derogación RIGI + resistencia provincial fuerte',
+    stateCapacity: 'baja',
+    socialCapacity: 'alta',
+  },
+
+  // ═══════════════ PLANMOV — Movilidad, Logística y Conectividad Territorial (22) — v2.0 ═══════════════
+  {
+    slug: 'planmov-movilidad-logistica',
+    title: 'PLANMOV',
+    subtitle: 'Plan Nacional de Movilidad, Logística y Conectividad Territorial (v2.0)',
+    category: 'infraestructura',
+    summary: 'No se delibera si no se puede llegar, y no hay soberanía si la ola AV atropella sin plan. PLANMOV v2.0 refunda movilidad y logística en tres capas con once dispositivos más una doctrina transversal: Capa I (Derecho a Moverse — MKC, Red Metropolitana Federal, Movilidad Rural Mínima, Accesibilidad Universal), Capa II (Infraestructura Común — Bastarda Logística Federal, Reactivación Ferroviaria 25.000 km + Columna Múltiple, Red Federal de Puertos, Hidrovía Soberana), Capa III (Soberanía Cognitiva y Activos Disponibles — Bastarda de Activos Móviles Disponibles BAMD, Laboratorio Nacional de Movilidad Autónoma LNMA, Fondo de Reconversión Móvil FRM + Canon de Automatización Logística), y Doctrina del Doble Desplazamiento que obliga al Estado a hacerse cargo del transportista antes de dejar circular un camión autónomo. Inversión USD 104.000M en 20 años, horizonte Visión 2046, agencias ANMov + BAMD + LNMA + FRM + AMBA-T + PCAV.',
+    iconName: 'Train',
+    documentFile: 'PLANMOV_Argentina_ES.md',
+    elProblema: {
+      title: 'El Problema',
+      content: `<p>La Argentina contemporánea es, en términos de movilidad y logística, <strong>un país estructuralmente más chico de lo que aparece en el mapa</strong>. Tiene 2,8 millones de km² y 4.700 km de costa, pero opera con el <strong>77% de su carga terrestre moviéndose por camión</strong> sobre rutas subinvertidas — el inverso casi exacto de países con matriz diversificada.</p>
+<p>De los <strong>60.000 km históricos de red ferroviaria</strong> quedan menos del 15% operativo. La carga ferroviaria funciona a menos del 15% de su capacidad técnica. El 85% de la carga portuaria pasa por el eje Buenos Aires-Rosario. La Hidrovía Paraná-Paraguay está concesionada a un consorcio paraguayo-luxemburgués con casi cero retorno soberano. El AMBA transporta 8 millones de personas por día con material rodante de 20-40 años de antigüedad.</p>
+<p>El costo es <strong>cuantificable y bestial</strong>: los argentinos pagan un flete equivalente al <strong>30% del valor de su alimento</strong>, al 25% de la ropa, al 40% de productos de economía regional. Un "impuesto logístico invisible" que recauda el oligopolio del camión más los operadores portuarios concentrados.</p>
+<p>Una productora de dulces de Humahuaca paga al flete entre el 40 y el 50% del precio final de venta. El conurbano norte consume mermelada industrial uruguaya, chilena y brasileña que viaja por las mismas rutas, mientras la producción regional argentina se queda anclada en origen. NOA, NEA y Patagonia pagan 2-4 veces lo que pagan las regiones centrales por productos de la misma categoría.</p>`,
+      pullQuote: 'La distancia no es destino. Es infraestructura. Y la infraestructura se elige — se construye o se entrega. Argentina llevaba cincuenta años entregándola.',
+      stats: [
+        { label: 'Carga en camión', value: '77%' },
+        { label: 'Red ferroviaria operativa vs. histórica', value: '<15%' },
+        { label: 'Flete / valor alimento', value: '~30%' },
+        { label: 'Material rodante AMBA — antigüedad', value: '20-40 años' },
+      ],
+    },
+    quePasaSiNoCambiamos: {
+      title: '¿Qué pasa si no cambiamos?',
+      content: `<p><strong>Costo anual actual USD 18.000-28.100M:</strong></p>
+<ul><li>Sobrepago en flete vs. matriz eficiente: USD 8.000-12.000M</li>
+<li>Emisiones de CO₂ evitables (costo social): USD 1.400-2.200M</li>
+<li>Horas perdidas en transporte AMBA (valor económico): USD 3.200-4.800M</li>
+<li>Producto regional no competitivo: USD 2.800-4.500M</li>
+<li>Mantenimiento de rutas vs. ferroviario: USD 800-1.400M</li>
+<li>Pérdida productiva por aislamiento territorial: USD 1.800-3.200M</li></ul>
+<p><strong>Colonización logística acelerada:</strong> cada año sin reactivación ferroviaria profundiza la dependencia del camión y el oligopolio que lo captura. El sector tiene 8 empresas controlando más del 50% del flete nacional, capacidad de paro operativo que paraliza al país en 48 hs, y cero competencia efectiva desde hace 30 años.</p>
+<p><strong>Desaparición del saber ferroviario:</strong> los Héctores de Laguna Paiva — ex-ferroviarios con 40+ años de oficio, biblioteca técnica de manuales GEC Alsthom y Montreal Locomotive Works, libretas con anotaciones sobre reparaciones sin repuesto original — se mueren en los próximos 15 años. Con ellos muere la memoria operativa para reactivar.</p>
+<p><strong>AMBA colapsado permanente:</strong> el usuario promedio del conurbano dedica 2,5 a 4 horas diarias a transporte. Pérdida acumulada de productividad, salud mental, tiempo familiar. Fragmentación política (CABA + provincia + 40 municipios sin autoridad unificada) impide cualquier reforma estructural.</p>
+<p><strong>Hidrovía y puertos entregados:</strong> concesión de Hidrovía a Hidrovía S.A. se renueva sin revisión profunda. Eje portuario Buenos Aires-Rosario consolida su concentración. Ushuaia, Madryn, Bahía Blanca, Mar del Plata, Quequén, Barranqueras y Formosa quedan sin inversión relevante.</p>
+<p><strong>Aislamiento territorial perpetuo:</strong> las economías regionales de NOA, NEA y Patagonia no pueden competir. La concentración poblacional en AMBA se profundiza. El federalismo real se vacía de contenido económico.</p>`,
+      pullQuote: 'USD 18 a USD 28 mil millones por año. El 30% del precio de tu comida es flete que captura el oligopolio del camión. No está en ningún debate macro — por diseño.',
+      stats: [
+        { label: 'Costo anual sin PLANMOV', value: 'USD 18-28 mil M' },
+        { label: '% flete del valor alimento', value: '30%' },
+        { label: 'Concentración flete (8 empresas)', value: '>50%' },
+        { label: 'Horas/día AMBA transporte', value: '2,5-4' },
+      ],
+    },
+    elDisenoIdeal: {
+      title: 'El Diseño Ideal',
+      content: `<p>PLANMOV v2.0 convierte la movilidad de mercancía vendida a <strong>derecho ciudadano con infraestructura pública</strong>, la logística de oligopolio privado a <strong>commons at-cost con auditoría radical</strong>, y la ola AV/IA de colonización pasiva a <strong>soberanía cognitiva con doble desplazamiento blindado</strong>. Tres capas, once dispositivos y una doctrina transversal:</p>
+<p><strong>CAPA I — Derecho a Moverse.</strong></p>
+<p><strong>1. Mandato Kilométrico Ciudadano (MKC).</strong> Cupo base universal anual (2.400 km/adulto, 1.200 km/menor), transferible entre familia, acumulable 6 meses, activable desde la Cédula Civil.</p>
+<p><strong>2. Movilidad Rural Mínima (MRM).</strong> Garantía de acceso mínimo al hospital, escuela, mercado y trámite para cada argentino rural.</p>
+<p><strong>3. Red Metropolitana Federal.</strong> AMBA Estructural como caso modelo + homólogas en Gran Córdoba, Gran Rosario, Gran Mendoza, Gran Tucumán, Gran La Plata bajo Autoridad AMBA-T.</p>
+<p><strong>4. Protocolo de Accesibilidad Universal.</strong> Todo el stock público móvil accesible a personas con movilidad reducida y adultos mayores.</p>
+<p><strong>CAPA II — Infraestructura Común.</strong></p>
+<p><strong>5. Bastarda Logística Federal (BLF).</strong> Empresa bastarda multimodal que opera flete at-cost en rutas productivas capturadas, techo 10-12% del valor del producto.</p>
+<p><strong>6. Reactivación Ferroviaria + Rieles Columna Múltiple.</strong> 25.000 km de carga + 8.000 km de pasajeros regionales con priorización técnica LDEA. Cada km reconstruido lleva tendido eléctrico (PLANEN), fibra óptica (PLANDIG) y ductos de gas/agua cuando corresponde.</p>
+<p><strong>7. Red Federal de Puertos.</strong> Desconcentración del eje Buenos Aires-Rosario activando Ushuaia, Madryn, Bahía Blanca, Mar del Plata, Quequén, Barranqueras y Formosa.</p>
+<p><strong>8. Hidrovía Paraná-Paraguay Soberana.</strong> Rescisión o renegociación de la concesión a Hidrovía S.A. + Bastarda Fluvial con gobernanza ciudadana.</p>
+<p><strong>CAPA III — Soberanía Cognitiva y Activos Disponibles.</strong></p>
+<p><strong>9. Bastarda de Activos Móviles Disponibles (BAMD).</strong> Agrega flotas privadas ociosas, cómputo disperso, galpones clausurados y flota estatal subutilizada en pool mutualista. Remunera aportantes en Créditos de Kilómetros. Es el dispositivo de Julia.</p>
+<p><strong>10. Laboratorio Nacional de Movilidad Autónoma (LNMA).</strong> Ente técnico-científico montado sobre LANIA (PLANDIG) que desarrolla algoritmos, sensores, flotas AV y la Certificación PCAV. Código abierto como default. Datos de movilidad como commons.</p>
+<p><strong>11. Fondo de Reconversión Móvil (FRM) + Canon de Automatización Logística.</strong> Canon sobre operadores AV nivel SAE 3+ fondea Pensión Puente Móvil (85-100% salario previo), programa "Cinco Años Dignos" para +50 años, rutas de reconversión vía PLANREP y PLANTALLER. Es el dispositivo de Diego.</p>
+<p><strong>DOCTRINA TRANSVERSAL — Doble Desplazamiento.</strong> Toda automatización desplaza <em>renta capturada</em> antes que <em>trabajo humano</em>: ninguna flota AV se autoriza sin plan de reconversión demostrable; ahorro automatizado se reparte entre usuarios (tarifas bajas) y reconvertidos (FRM), no entre accionistas; datos generados en rutas argentinas son commons argentino sobre ArgenCloud.</p>
+<p>Todo bajo la <strong>ANMov</strong> (ente autárquico, presupuesto 0,50% PBI), articulado con PLANDIG, PLANEN, PLANTER, PLANEB, PLANTALLER, PLANREP, PLANMESA, PLANMEMORIA, PLANCUIDADO, PLANCUL, PLANSEG y PLANVIV.</p>`,
+      pullQuote: 'Un país no está conectado cuando tiene rutas entre sus ciudades. Está conectado cuando un producto del norte llega al sur sin perder la mitad en flete, cuando el chofer ve venir la ola AV sin aterrorizarse porque el país armó un plan para él, y cuando el auto de la bibliotecaria trabaja para la malla pública los días que su dueña no lo necesita.',
+      stats: [
+        { label: 'Inversión 20 años', value: 'USD 104 mil M' },
+        { label: 'Red ferroviaria recuperada meta', value: '25.000 km carga' },
+        { label: 'MKC base / adulto / año', value: '2.400 km' },
+        { label: 'Reducción flete régimen pleno', value: '30% → 10-12%' },
+      ],
+    },
+    elCamino: {
+      overview: 'PLANMOV v2.0 se despliega en 5 fases (Fase 0 a Fase 4) hacia Visión 2046 trabajando hacia atrás desde una Argentina con red ferroviaria reactivada (25.000 km), hidrovía soberana, puertos federales activos, AMBA reformado, BAMD consolidada, régimen AV público soberano y cada argentino con MKC activado. Las fases respetan la amortización natural de infraestructura ferroviaria y portuaria (50-80 años) y la curva de absorción laboral de la ola AV. Inversión total USD 104.000M: Capa I USD 13.500M, Capa II USD 80.500M, Capa III USD 10.000M.',
+      steps: [
+        {
+          id: 1,
+          title: 'Fase 4 — Régimen Pleno (Visión 2046)',
+          description: '25.000 km ferroviarios de carga + 8.000 km de pasajeros regionales operativos. 415.000 puestos formales (60.000 ferroviarios + 30.000 portuarios + 45.000 LNMA + 80.000 BAMD + 200.000 reconvertidos vía FRM). AMBA-T y homólogas (Gran Córdoba, Gran Rosario, Gran Mendoza, Gran Tucumán, Gran La Plata) con material rodante nuevo eléctrico y AV-asistido. BAMD consolidada con Créditos de Kilómetros integrados a PLANMON. Régimen AV público soberano con Certificación PCAV auditada por LNMA. MKC efectivo para 45M argentinos. Flete reducido al 10-12% del valor. Retorno bruto USD 23.400-32.000M/año. Inversión Fase 4: USD 22.700M.',
+          timeline: 'Año 15-20 (2041-2046) — META',
+          dependencies: [],
+          orderIndex: 1,
+        },
+        {
+          id: 2,
+          title: 'Fase 3 — Maduración (2035-2040)',
+          description: 'Reactivación ferroviaria masiva a 18.000 km operativos. Columna múltiple completa en corredores principales (carga + eléctrico + fibra). AMBA estructural — renovación integral de 3 líneas suburbanas + extensiones subte A/B/C. Bastarda Fluvial operativa con Hidrovía Soberana. 5 puertos federales activos. Piloto AV soberano en corredores dedicados. BAMD en pilotos metropolitanos y interior productivo. LNMA certifica primeros vehículos AV Nivel 4 en rutas argentinas. Inversión Fase 3: USD 47.300M.',
+          timeline: 'Año 9-14 (2035-2040)',
+          dependencies: ['Fase 4 — Régimen Pleno (Visión 2046)'],
+          orderIndex: 2,
+        },
+        {
+          id: 3,
+          title: 'Fase 2 — Consolidación (2031-2034)',
+          description: 'AMBA-T operando con CABA + provincia + 40 municipios. Renovación de material rodante Sarmiento y Mitre. Hidrovía renegociada o rescindida; Bastarda Fluvial Soberana arrancada. 12 corredores ferroviarios piloto operativos (12.000 km). BLF en 15 rutas productivas. MKC universal activado sobre Cédula Civil. BAMD escalada a AMBA. Canon de Automatización Logística genera primeros ingresos al FRM. Diego Maidana y colegas en rutas de reconversión con PPM garantizada. Inversión Fase 2: USD 25.000M.',
+          timeline: 'Año 5-8 (2031-2034)',
+          dependencies: ['Fase 3 — Maduración (2035-2040)'],
+          orderIndex: 3,
+        },
+        {
+          id: 4,
+          title: 'Fase 1 — Arranque (2028-2030)',
+          description: 'Reactivación ferroviaria piloto en 3 corredores: Belgrano Cargas Salta-Rosario, San Martín y Mitre Cargas. Bastarda Logística Federal constituida y operativa en corredor Humahuaca-Buenos Aires. Ley del Canon de Automatización Logística sancionada (Fase 1). Reformas al Código de Tránsito (niveles SAE integrados). Ley de Hidrovía Soberana y Régimen Laboral de Transición del Transportista en trámite. Primer piloto BAMD en Villa Devoto. LNMA certifica primer corredor dual AV. Inversión Fase 1: cubierta en USD 9.000M junto con Fase 0.',
+          timeline: 'Año 2-4 (2028-2030)',
+          dependencies: ['Fase 2 — Consolidación (2031-2034)'],
+          orderIndex: 4,
+        },
+        {
+          id: 5,
+          title: 'Fase 0 — Preparación (2026-2027)',
+          description: 'Ley de Movilidad y Logística Federal (crea ANMov). Ley de Autoridad Metropolitana de Transporte (AMBA-T y homólogas). Ley BAMD. Ley LNMA + Protocolo PCAV. Régimen del Mandato Kilométrico Ciudadano. ANMov constituida con presupuesto 0,50% PBI. Pacto Metropolitano previo entre CABA, provincia y municipios. Plan ferroviario maestro + auditoría Hidrovía + formación de 500 cuadros técnicos. Arquitectura de tres capas institucionalizada. Inversión Fase 0-1: USD 9.000M.',
+          timeline: 'Año 0-1 (2026-2027)',
+          dependencies: ['Fase 1 — Arranque (2028-2030)'],
+          orderIndex: 5,
+        },
+      ],
+    },
+    kpis: [
+      { id: 'km-ferroviarios', metric: 'Km Ferroviarios de Carga Operativos', currentValue: 9000, targetValue: 25000, unit: 'km', source: 'ADIF + ANMov', milestones: [{ date: 'Año 5', targetValue: 13000 }, { date: 'Año 10', targetValue: 18000 }, { date: 'Año 20', targetValue: 25000 }] },
+      { id: 'flete-alimento', metric: 'Peso del Flete en Valor del Producto', currentValue: 30, targetValue: 12, unit: '%', source: 'BCRA + ANMov', milestones: [{ date: 'Año 7', targetValue: 24 }, { date: 'Año 15', targetValue: 17 }, { date: 'Año 20', targetValue: 12 }] },
+      { id: 'mkc-activado', metric: 'Argentinos con MKC Activado', currentValue: 0, targetValue: 42000000, unit: 'personas', source: 'ANMov — Cédula Civil', milestones: [{ date: 'Año 2', targetValue: 1000000 }, { date: 'Año 7', targetValue: 10000000 }, { date: 'Año 20', targetValue: 42000000 }] },
+      { id: 'puestos-ferroviarios', metric: 'Puestos Ferroviarios Formales', currentValue: 22000, targetValue: 82000, unit: 'puestos', source: 'ANMov + PLANREP', milestones: [{ date: 'Año 7', targetValue: 40000 }, { date: 'Año 15', targetValue: 65000 }, { date: 'Año 20', targetValue: 82000 }] },
+      { id: 'puertos-federales', metric: 'Puertos Federales Activos', currentValue: 2, targetValue: 7, unit: 'puertos', source: 'ANMov + AGP', milestones: [{ date: 'Año 3', targetValue: 3 }, { date: 'Año 10', targetValue: 5 }, { date: 'Año 20', targetValue: 7 }] },
+    ],
+    tags: ['movilidad', 'logística', 'ferroviario', 'MKC', 'BLF', 'BAMD', 'LNMA', 'FRM', 'PCAV', 'AMBA-T', 'hidrovía', 'puertos', 'columna múltiple', 'AV', 'doble desplazamiento', 'activos disponibles'],
+    relatedInitiativeSlugs: ['planen-soberania-energetica', 'plandig-soberania-digital', 'planeb-empresas-bastardas', 'planter-tierra-subsuelo-soberania', 'planrep-reconversion-empleo-publico', 'plantaller-talleres-federales'],
+    sources: [
+      { title: 'PLANMOV — Plan Nacional de Movilidad, Logística y Conectividad Territorial v2.0 (Abr 2026, refundación con IA/AV y Doctrina de Activos Disponibles)' },
+      { title: 'ADIF + SOFSE — Plan Ferroviario Argentino 2015-2024' },
+      { title: 'España — Plan Ferroviario 1987-2020 (SNCF + TGV de referencia)' },
+      { title: 'Canadá — Sistema Intermodal CN/CPR' },
+      { title: 'Waymo / Daimler / Tesla Semi — Corredor Los Ángeles-Phoenix autónomo 2026' },
+      { title: 'Russell Ackoff — Idealized Design (Metodología)' },
+    ],
+    missionSlug: 'la-base-esta',
+    secondaryMissionSlug: 'produccion-y-suelo-vivo',
+    temporalOrder: 'transicion',
+    priority: 'alta',
+    state: 'ambar',
+    stateDecision: 'Ejecutar con horizonte 20 años hacia Visión 2046 — amortización natural de infraestructura + curva de absorción AV + doble desplazamiento blindado',
+    citizenRoles: ['constructor', 'testigo', 'custodio', 'declarante'],
+    citizenAsk: 'Activar MKC, participar en Mesas de Corredor, depositar saber técnico en Archivo, aportar a la BAMD los días que no usás tu vehículo',
+    mainRisk: 'Paros del sector camión ante anuncio de moratoria AV + litigio internacional por Canon de Automatización + ciberataque a flota AV pública + captura regulatoria del PCAV',
+    stateCapacity: 'media',
+    socialCapacity: 'media',
+  },
 ];

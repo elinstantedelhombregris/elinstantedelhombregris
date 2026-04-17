@@ -1,5 +1,5 @@
 // El Arquitecto — Structured ecosystem data for the ¡BASTA! strategic planning platform
-// Extracted from 16 PLANes + support documents (March 2026)
+// Extracted from 22 PLANes + support documents (April 2026)
 
 import type { MissionSlug, TemporalOrder, InitiativePriority, InitiativeState } from './strategic-initiatives';
 
@@ -57,7 +57,7 @@ export interface CriticalChain {
   dangerLevel: 'HIGH' | 'CRITICAL' | 'EXTREME';
 }
 
-// === PLAN NODES (16 mandatos) ===
+// === PLAN NODES (22 mandatos) ===
 
 export const PLAN_NODES: PlanNode[] = [
   {
@@ -220,6 +220,66 @@ export const PLAN_NODES: PlanNode[] = [
     color: '#a855f7', slug: 'plancul-cultura-viva',
     missionSlug: 'infancia-escuela-cultura', temporalOrder: 'emergencia', priority: 'alta', state: 'verde',
   },
+  {
+    id: 'PLANMESA', name: 'Plan Nacional de Mesa Civil', ordinal: 17,
+    category: 'instituciones', agency: 'AMCC', agencyFull: 'Agencia de Mesa y Cédula Civil',
+    organMetaphor: 'corteza deliberativa', organLabel: 'Deliberative Cortex',
+    status: 'PUBLISHED', budgetLow: 4200, budgetHigh: 6800, timelineYears: 15,
+    legalInstruments: 3, constitutionalFloor: '0.07% PBI',
+    mainSource: 'Piso constitucional + dietas de servicio + presupuesto nacional',
+    color: '#8b5cf6', slug: 'planmesa-mesa-civil',
+    missionSlug: 'instituciones-y-futuro', temporalOrder: 'transicion', priority: 'alta', state: 'verde',
+  },
+  {
+    id: 'PLANTALLER', name: 'Plan Nacional de Talleres Federales', ordinal: 18,
+    category: 'economia', agency: 'ANT', agencyFull: 'Agencia Nacional de Talleres',
+    organMetaphor: 'manos', organLabel: 'Hands',
+    status: 'PUBLISHED', budgetLow: 3600, budgetHigh: 6000, timelineYears: 15,
+    legalInstruments: 2, constitutionalFloor: '0.08% PBI',
+    mainSource: 'Reasignación programas empleo + convenio galpones públicos + Red Bastarda',
+    color: '#f97316', slug: 'plantaller-talleres-federales',
+    missionSlug: 'produccion-y-suelo-vivo', temporalOrder: 'transicion', priority: 'alta', state: 'verde',
+  },
+  {
+    id: 'PLANCUIDADO', name: 'Plan Nacional de Cuidado y Vínculo', ordinal: 19,
+    category: 'salud', agency: 'ANCV', agencyFull: 'Agencia Nacional de Cuidado y Vínculo',
+    organMetaphor: 'capa cero', organLabel: 'Zero Layer',
+    status: 'PUBLISHED', budgetLow: 30000, budgetHigh: 45000, timelineYears: 15,
+    legalInstruments: 5, constitutionalFloor: '0.75-1.1% PBI',
+    mainSource: 'Piso constitucional + Fondo Federal de Cuidado + jornada 6+2 a empleadores',
+    color: '#ec4899', slug: 'plancuidado-cuidado-vinculo',
+    missionSlug: 'la-base-esta', secondaryMissionSlug: 'infancia-escuela-cultura', temporalOrder: 'transicion', priority: 'alta', state: 'verde',
+  },
+  {
+    id: 'PLANMEMORIA', name: 'Plan Nacional de Memoria Operativa', ordinal: 20,
+    category: 'cultura', agency: 'ANM', agencyFull: 'Agencia Nacional de Memoria',
+    organMetaphor: 'columna memorial', organLabel: 'Memorial Spine',
+    status: 'PUBLISHED', budgetLow: 6800, budgetHigh: 9200, timelineYears: 15,
+    legalInstruments: 2, constitutionalFloor: '0.10-0.14% PBI',
+    mainSource: 'Piso constitucional + convenios universidades + Archivo General de la Nación',
+    color: '#a78bfa', slug: 'planmemoria-memoria-operativa',
+    missionSlug: 'instituciones-y-futuro', secondaryMissionSlug: 'infancia-escuela-cultura', temporalOrder: 'transicion', priority: 'alta', state: 'verde',
+  },
+  {
+    id: 'PLANTER', name: 'Plan Nacional de Tierra, Subsuelo y Pueblos Originarios', ordinal: 21,
+    category: 'medio-ambiente', agency: 'ANTSPO', agencyFull: 'Agencia Nacional de Tierra, Subsuelo y Pueblos Originarios',
+    organMetaphor: 'raíz territorial', organLabel: 'Territorial Root',
+    status: 'PUBLISHED', budgetLow: 18000, budgetHigh: 28000, timelineYears: 15,
+    legalInstruments: 6, constitutionalFloor: '0.20% PBI',
+    mainSource: 'Fondo Soberano Ciudadano (regalías extractivas) — autofinancia + genera dividendo',
+    color: '#84cc16', slug: 'planter-tierra-subsuelo-soberania',
+    missionSlug: 'la-base-esta', secondaryMissionSlug: 'instituciones-y-futuro', temporalOrder: 'transicion', priority: 'alta', state: 'ambar',
+  },
+  {
+    id: 'PLANMOV', name: 'Plan Nacional de Movilidad, Logística y Conectividad Territorial (v2.0)', ordinal: 22,
+    category: 'infraestructura', agency: 'ANMov', agencyFull: 'Agencia Nacional de Movilidad',
+    organMetaphor: 'arterias', organLabel: 'Arteries',
+    status: 'PUBLISHED', budgetLow: 80000, budgetHigh: 104000, timelineYears: 20,
+    legalInstruments: 9, constitutionalFloor: '0.50% PBI',
+    mainSource: 'Presupuesto nacional + multilaterales (BID/CAF/BM) + BAMD + BLF + peaje fluvial + Canon de Automatización Logística',
+    color: '#0891b2', slug: 'planmov-movilidad-logistica',
+    missionSlug: 'la-base-esta', secondaryMissionSlug: 'produccion-y-suelo-vivo', temporalOrder: 'transicion', priority: 'alta', state: 'ambar',
+  },
 ];
 
 // === DEPENDENCIES (~41 critical edges) ===
@@ -287,6 +347,53 @@ export const DEPENDENCIES: Dependency[] = [
   { id: 'd39', source: 'PLANISV', target: 'PLANMON', nature: 'IMPORTANT', type: 'DATA', description: 'Datos de producción agrícola alimentan canasta del peso-canasta' },
   { id: 'd40', source: 'PLANSUS', target: 'PLANMON', nature: 'IMPORTANT', type: 'FINANCIAL', description: 'Recaudación fiscal de sustancias capitaliza Fondo Soberano' },
   { id: 'd41', source: 'PLANSAL', target: 'PLANSUS', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'Sustancias como herramienta terapéutica; psicodélicos para salud mental' },
+
+  // PLANMESA (Mesa Civil) — capa deliberativa que alimenta todos los mandatos
+  { id: 'd42', source: 'PLANMESA', target: 'PLANDIG', nature: 'CRITICAL', type: 'TECHNICAL', description: 'Plataforma técnica para auto-postulación, Credencial de Materia y Cédula Civil' },
+  { id: 'd43', source: 'PLANMESA', target: 'PLANEDU', nature: 'CRITICAL', type: 'INSTITUTIONAL', description: 'Capa de Estudio de la Credencial se construye en PLANEDU' },
+  { id: 'd44', source: 'PLANMESA', target: 'PLANMEMORIA', nature: 'CRITICAL', type: 'INSTITUTIONAL', description: 'Consulta Ancestral obligatoria en Fase APRENDER de cada ciclo LDEA' },
+  { id: 'd45', source: 'PLANMESA', target: 'PLANTALLER', nature: 'CRITICAL', type: 'INSTITUTIONAL', description: 'Tallers son ejecutores de Fase EXPERIMENTAR del ciclo LDEA' },
+  { id: 'd46', source: 'PLANMESA', target: 'PLANCUIDADO', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'Capa de Vínculo de Credencial; sostén relacional del servidor de Mesa' },
+  { id: 'd47', source: 'PLANMESA', target: 'PLANJUS', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'Control legal de Resoluciones y disputas sobre auto-postulación' },
+
+  // PLANTALLER — infraestructura productiva federal
+  { id: 'd48', source: 'PLANTALLER', target: 'PLANEB', nature: 'CRITICAL', type: 'INSTITUTIONAL', description: 'Red Bastarda es canal de salida at-cost de producción de Tallers' },
+  { id: 'd49', source: 'PLANTALLER', target: 'PLANDIG', nature: 'IMPORTANT', type: 'TECHNICAL', description: 'Protocolo Taller como plataforma federada de inventario y hallazgos' },
+  { id: 'd50', source: 'PLANTALLER', target: 'PLANREP', nature: 'IMPORTANT', type: 'LABOR', description: 'Reconversión del empleo público hacia coordinación y mentoría de Tallers' },
+
+  // PLANCUIDADO — capa cero del pacto
+  { id: 'd51', source: 'PLANCUIDADO', target: 'PLANSAL', nature: 'CRITICAL', type: 'INSTITUTIONAL', description: 'APS territorial integra Pactos como dato clínico; articula con Referentes' },
+  { id: 'd52', source: 'PLANCUIDADO', target: 'PLANREP', nature: 'CRITICAL', type: 'LABOR', description: 'Reconversión de cuidadoras domiciliarias a Referentes Territoriales formales' },
+  { id: 'd53', source: 'PLANCUIDADO', target: 'PLANEDU', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'Formación inicial de cada tipo de Pacto; currículum de cuidado desde primaria' },
+  { id: 'd54', source: 'PLANCUIDADO', target: 'PLANJUS', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'Mediación de disputas de Pactos en primera instancia no-jurisdiccional' },
+  { id: 'd55', source: 'PLANCUIDADO', target: 'PLANDIG', nature: 'IMPORTANT', type: 'TECHNICAL', description: 'Registro Nacional de Vínculos, Libro de Cuidado y Alerta de Soledad Total' },
+
+  // PLANMEMORIA — archivo distribuido y Consulta Ancestral
+  { id: 'd56', source: 'PLANMEMORIA', target: 'PLANDIG', nature: 'CRITICAL', type: 'TECHNICAL', description: 'Red federada criptográfica: 7 nodos con hash, resistente a borrado' },
+  { id: 'd57', source: 'PLANMEMORIA', target: 'PLANEDU', nature: 'CRITICAL', type: 'INSTITUTIONAL', description: 'Bastón Memorial a los 12 años como rito cívico en la escuela' },
+  { id: 'd58', source: 'PLANMEMORIA', target: 'PLANJUS', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'Inscripción de Captura coopera con investigaciones sin reemplazarlas' },
+
+  // PLANTER — soberanía territorial, FSC y co-soberanía indígena
+  { id: 'd59', source: 'PLANTER', target: 'PLANSEG', nature: 'CRITICAL', type: 'INSTITUTIONAL', description: 'Protección de defensores territoriales y Guardacostas ampliada' },
+  { id: 'd60', source: 'PLANTER', target: 'PLANJUS', nature: 'CRITICAL', type: 'INSTITUTIONAL', description: 'Co-jurisdicción con derecho originario; disputas territoriales' },
+  { id: 'd61', source: 'PLANTER', target: 'PLANDIG', nature: 'CRITICAL', type: 'TECHNICAL', description: 'Monitoreo satelital + registro ciudadano + dashboard del Dividendo' },
+  { id: 'd62', source: 'PLANTER', target: 'PLANCUIDADO', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'Pactos Interculturales reconocen parentescos originarios' },
+  { id: 'd63', source: 'PLANTER', target: 'PLANMEMORIA', nature: 'IMPORTANT', type: 'DATA', description: 'Archivo Territorial con depósitos de comunidades originarias' },
+  { id: 'd64', source: 'PLANMON', target: 'PLANTER', nature: 'IMPORTANT', type: 'FINANCIAL', description: 'Fondo Soberano Ciudadano es palanca macro de la soberanía monetaria' },
+  { id: 'd65', source: 'PLANEN', target: 'PLANTER', nature: 'IMPORTANT', type: 'LEGAL', description: 'Licencia Territorial reemplaza RIGI para proyectos de hidrocarburos y minería' },
+
+  // PLANMOV — movilidad y logística federal
+  { id: 'd66', source: 'PLANMOV', target: 'PLANDIG', nature: 'CRITICAL', type: 'TECHNICAL', description: 'Plataforma técnica de gestión de MKC, BLF y Red Federal de Puertos' },
+  { id: 'd67', source: 'PLANMOV', target: 'PLANEB', nature: 'CRITICAL', type: 'INSTITUTIONAL', description: 'Bastarda Logística Federal y Bastarda Fluvial como canales at-cost' },
+  { id: 'd68', source: 'PLANMOV', target: 'PLANREP', nature: 'IMPORTANT', type: 'LABOR', description: 'Reconversión de cuadros técnicos ferroviarios y portuarios' },
+  { id: 'd69', source: 'PLANMOV', target: 'PLANMESA', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'Mesas Civiles de Corredor deciden priorización de reactivación ferroviaria' },
+  { id: 'd70', source: 'PLANMOV', target: 'PLANMEMORIA', nature: 'IMPORTANT', type: 'DATA', description: 'Archivo Técnico Ferroviario con depósitos de ex-ferroviarios tipo Héctor' },
+  { id: 'd71', source: 'PLANMOV', target: 'PLANEN', nature: 'IMPORTANT', type: 'TECHNICAL', description: 'Rieles como columna múltiple: tendido eléctrico y fibra sobre misma traza; electrificación masiva de red ferroviaria reactivada' },
+
+  // PLANMOV v2.0 — nuevas dependencias por Capa III (IA/AV y Activos Disponibles)
+  { id: 'd72', source: 'PLANMOV', target: 'PLANDIG', nature: 'CRITICAL', type: 'TECHNICAL', description: 'LNMA (Laboratorio Nacional de Movilidad Autónoma) se monta sobre LANIA de PLANDIG como capa vertical; data-logging obligatorio en ArgenCloud' },
+  { id: 'd73', source: 'PLANMOV', target: 'PLANREP', nature: 'CRITICAL', type: 'LABOR', description: 'Ruta "Reconversión Móvil" absorbe 500.000 transportistas desplazados por automatización; PPM financiada por FRM' },
+  { id: 'd74', source: 'PLANMOV', target: 'PLANEB', nature: 'CRITICAL', type: 'INSTITUTIONAL', description: 'BAMD (Bastarda de Activos Móviles Disponibles) como forma bastarda piloto; Canon de Automatización Logística replicable a otros sectores' },
 ];
 
 // === TIMELINE PHASES ===
@@ -377,6 +484,37 @@ export const TIMELINE_PHASES: TimelinePhase[] = [
   { planId: 'PLANCUL', name: 'Masa Crítica', startYear: 4, endYear: 5 },
   { planId: 'PLANCUL', name: 'Transformación', startYear: 6, endYear: 10 },
   { planId: 'PLANCUL', name: 'Madurez', startYear: 11, endYear: 15 },
+  // PLANMESA
+  { planId: 'PLANMESA', name: 'Fase 0 — Arranque Técnico', startYear: 0, endYear: 0 },
+  { planId: 'PLANMESA', name: 'Piloto — 3 materias', startYear: 1, endYear: 2 },
+  { planId: 'PLANMESA', name: 'Expansión', startYear: 3, endYear: 6 },
+  { planId: 'PLANMESA', name: 'Régimen Pleno', startYear: 7, endYear: 15 },
+  // PLANTALLER
+  { planId: 'PLANTALLER', name: 'Fase 0 — Primer Prototipo', startYear: 0, endYear: 0 },
+  { planId: 'PLANTALLER', name: 'Red Piloto — 50 Tallers', startYear: 1, endYear: 2 },
+  { planId: 'PLANTALLER', name: 'Expansión — 500 Tallers', startYear: 3, endYear: 6 },
+  { planId: 'PLANTALLER', name: 'Régimen — 4000 Tallers', startYear: 7, endYear: 15 },
+  // PLANCUIDADO
+  { planId: 'PLANCUIDADO', name: 'Fase 0 — Ley ANCV + Registro Piloto', startYear: 0, endYear: 0 },
+  { planId: 'PLANCUIDADO', name: 'Expansión de Pactos', startYear: 1, endYear: 3 },
+  { planId: 'PLANCUIDADO', name: 'Jornada 6+2 Progresiva', startYear: 4, endYear: 7 },
+  { planId: 'PLANCUIDADO', name: 'Régimen Pleno', startYear: 8, endYear: 15 },
+  // PLANMEMORIA
+  { planId: 'PLANMEMORIA', name: 'Fase 0 — Arranque Federado', startYear: 0, endYear: 0 },
+  { planId: 'PLANMEMORIA', name: 'Bastón Memorial Piloto + 2 Nodos', startYear: 1, endYear: 2 },
+  { planId: 'PLANMEMORIA', name: 'Red de 7 Nodos + Consulta Ancestral', startYear: 3, endYear: 5 },
+  { planId: 'PLANMEMORIA', name: 'Régimen — Archivo Activo', startYear: 6, endYear: 15 },
+  // PLANTER
+  { planId: 'PLANTER', name: 'Fase 1 Escalonada — Ley ANTSPO', startYear: 1, endYear: 1 },
+  { planId: 'PLANTER', name: 'Fase 2 — Commons Subsuelo + DCM Piloto', startYear: 2, endYear: 3 },
+  { planId: 'PLANTER', name: 'Fase 3 — Mar Soberano + Deforestación Cero', startYear: 4, endYear: 7 },
+  { planId: 'PLANTER', name: 'Régimen — FSC Consolidado', startYear: 8, endYear: 15 },
+  // PLANMOV v2.0 — 5 fases (tres capas + 11 dispositivos + Doctrina del Doble Desplazamiento)
+  { planId: 'PLANMOV', name: 'Fase 0 — Preparación (Ley ANMov + AMBA-T + BAMD + LNMA/PCAV + MKC)', startYear: 0, endYear: 1 },
+  { planId: 'PLANMOV', name: 'Fase 1 — Arranque (3 corredores ferroviarios piloto + BLF + Canon + Hidrovía + Régimen Laboral)', startYear: 2, endYear: 4 },
+  { planId: 'PLANMOV', name: 'Fase 2 — Consolidación (AMBA-T + Hidrovía Soberana + escalado BAMD)', startYear: 5, endYear: 8 },
+  { planId: 'PLANMOV', name: 'Fase 3 — Maduración (25.000 km ferroviarios + columna múltiple + piloto AV soberano)', startYear: 9, endYear: 14 },
+  { planId: 'PLANMOV', name: 'Fase 4 — Régimen Pleno (AV público + BAMD consolidada + Visión 2046)', startYear: 15, endYear: 20 },
 ];
 
 // === CRITICAL CHAINS ===
@@ -408,15 +546,15 @@ export const CRITICAL_CHAINS: CriticalChain[] = [
 // === CONSOLIDATED METRICS ===
 
 export const ECOSYSTEM_METRICS = {
-  totalPlans: 16,
-  totalBudgetLow: 283000,  // USD millions
-  totalBudgetHigh: 526000,
-  totalLegalInstruments: 58,
-  constitutionalFloorNet: '2.17-2.92% PBI',
-  timelineHorizon: 20, // years
-  totalDependencies: 41,
-  criticalDependencies: 14,
-  agencies: 15, // 14 + PLANCUL with none
+  totalPlans: 22,
+  totalBudgetLow: 425600,  // USD millions (base 283000 + 6 nuevos: 137600 low + PLANMOV v2.0 +5000 low)
+  totalBudgetHigh: 725000, // base 526000 + 6 nuevos: 194500 high + PLANMOV v2.0 +4500 high (99500→104000)
+  totalLegalInstruments: 85, // +5 por PLANMOV v2.0 (9 leyes en lugar de 4)
+  constitutionalFloorNet: '3.87-4.84% PBI', // piso PLANMOV sube 0.35% → 0.50% PBI
+  timelineHorizon: 20, // years (PLANMOV v2.0 extiende Visión a 2046, mismo horizonte de ejecución 20 años)
+  totalDependencies: 74, // +3 por PLANMOV v2.0 (d72-d74: LNMA↔LANIA, Reconversión Móvil, BAMD)
+  criticalDependencies: 27, // +3 críticas de PLANMOV v2.0
+  agencies: 21, // 15 originales + 6 nuevas agencias (AMCC, ANT, ANCV, ANM, ANTSPO, ANMov). PLANMOV v2.0 suma 4 sub-entidades: BAMD, LNMA, FRM, AMBA-T (y homólogas) + protocolo PCAV
 };
 
 // === HELPER FUNCTIONS ===
