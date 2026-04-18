@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, lazy, Suspense } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import {
   Lightbulb, Search, Network, Loader2, Rocket,
   GitBranch, Route, DollarSign, BarChart3,
@@ -96,6 +96,71 @@ function TabFallback() {
   );
 }
 
+/* ── Novela swipe affordances ── */
+function SwipeInPrompt() {
+  const reduce = useReducedMotion();
+  return (
+    <div
+      aria-label="Deslizá para entrar en la historia"
+      className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 text-sm text-white/60 mb-8"
+    >
+      <span>Deslizá para entrar en la historia</span>
+      <motion.span
+        aria-hidden="true"
+        animate={reduce ? undefined : { x: [0, 5, 0] }}
+        transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
+        className="text-purple-300"
+      >
+        →
+      </motion.span>
+    </div>
+  );
+}
+
+function FirstChapterSwipeHint() {
+  const [hidden, setHidden] = useState(false);
+  const reduce = useReducedMotion();
+
+  useEffect(() => {
+    if (hidden) return;
+    const container = document.querySelector<HTMLElement>('.cin-horizontal-container');
+    if (!container) return;
+    const onScroll = () => {
+      if (container.scrollLeft > 8) setHidden(true);
+    };
+    container.addEventListener('scroll', onScroll, { passive: true });
+    return () => container.removeEventListener('scroll', onScroll);
+  }, [hidden]);
+
+  return (
+    <motion.div
+      aria-hidden="true"
+      className="pointer-events-none absolute right-0 top-0 h-full w-24 flex items-center justify-end pr-4"
+      style={{
+        background: 'linear-gradient(to left, rgba(125, 91, 222, 0.18), transparent)',
+        zIndex: 5,
+      }}
+      animate={{ opacity: hidden ? 0 : 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      <motion.svg
+        animate={reduce ? undefined : { x: [0, 6, 0] }}
+        transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
+        width="28"
+        height="44"
+        viewBox="0 0 28 44"
+        fill="none"
+        stroke="rgb(187, 136, 238)"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <polyline points="10,12 20,22 10,32" />
+      </motion.svg>
+    </motion.div>
+  );
+}
+
 /* ── Main page ── */
 export default function UnaRutaParaArgentina() {
   const { setImmersive } = useImmersion();
@@ -163,15 +228,20 @@ export default function UnaRutaParaArgentina() {
 
             <p className="text-lg md:text-xl text-white/50 leading-relaxed max-w-3xl mx-auto">
               En esta página vas a encontrar un ejercicio que hice para imaginar otro camino.
-              Primero, una serie de <strong className="text-white/70">iniciativas estratégicas</strong> bien
-              documentadas — propuestas de rediseño de país usando Diseño Idealizado.
-              Después, una herramienta que llamé <strong className="text-white/70">El Arquitecto</strong>,
-              que combina todas las iniciativas para analizar dependencias, ruta crítica y presupuesto.
-              Y al final, una especie de mini novela que cuenta — desde el futuro — cómo podríamos
-              haberlas aplicado. Un ejercicio para ver que otro camino es posible.
+              Empieza imaginando: una <strong className="text-white/70">mini novela</strong> en
+              cinco capítulos que cuenta, desde el futuro, qué podría pasar si un día decimos
+              <strong className="text-white/70"> ¡BASTA!</strong> y nos organizamos en serio.
+              Después te explico la metodología detrás — el <strong className="text-white/70">Diseño Idealizado</strong> —
+              y cómo, al aplicarla, fueron saliendo las <strong className="text-white/70">iniciativas estratégicas</strong> que
+              componen este ecosistema. Y al final, <strong className="text-white/70">El Arquitecto</strong>:
+              la herramienta que las combina para analizar dependencias, ruta crítica y presupuesto.
+              Un ejercicio para ver que otro camino es posible.
             </p>
 
             <div className="flex flex-wrap justify-center gap-4 mt-12">
+              <a href="#imagina" className="px-6 py-3 rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-white hover:bg-white/10 transition-all text-sm font-medium">
+                Imaginá Qué Pasaría
+              </a>
               <a href="#diseno-idealizado" className="px-6 py-3 rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-white hover:bg-white/10 transition-all text-sm font-medium">
                 Diseño Idealizado
               </a>
@@ -181,338 +251,8 @@ export default function UnaRutaParaArgentina() {
               <a href="#arquitecto" className="px-6 py-3 rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-white hover:bg-white/10 transition-all text-sm font-medium">
                 El Arquitecto
               </a>
-              <a href="#imagina" className="px-6 py-3 rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-white hover:bg-white/10 transition-all text-sm font-medium">
-                Imaginá Qué Pasaría
-              </a>
             </div>
           </motion.div>
-        </div>
-      </section>
-
-      {/* ═══════════════ DISEÑO IDEALIZADO (explicación + 5 fases) ═══════════════ */}
-      <section id="diseno-idealizado" className="py-20 scroll-mt-20">
-        <div className="container mx-auto px-4">
-          {/* ¿Qué es el Diseño Idealizado? */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="max-w-4xl mx-auto mb-16 bg-white/5 rounded-3xl border border-white/10 backdrop-blur-md p-8 md:p-12"
-          >
-            <div className="flex flex-col md:flex-row items-start gap-6">
-              <div className="p-4 rounded-2xl bg-amber-500/10 text-amber-400 shrink-0">
-                <Lightbulb className="w-8 h-8" />
-              </div>
-              <div>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 mb-4">
-                  <span className="text-[10px] font-bold tracking-[0.2em] text-amber-400 uppercase">
-                    Metodología
-                  </span>
-                </div>
-                <h2 className="text-3xl md:text-4xl font-serif font-bold text-white/95 mb-4 leading-tight">
-                  ¿Qué es el Diseño Idealizado?
-                </h2>
-                <p className="text-white/60 leading-relaxed mb-4">
-                  El Diseño Idealizado es una metodología creada por <strong className="text-white/80">Russell Ackoff</strong>,
-                  pionero del pensamiento sistémico. En lugar de mejorar lo que existe, propone
-                  diseñar desde cero el sistema ideal y luego trabajar hacia atrás para crear un
-                  camino viable desde el presente hasta ese ideal.
-                </p>
-                <p className="text-white/60 leading-relaxed">
-                  Cada iniciativa de esta página sigue el mismo recorrido: identificar el problema,
-                  proyectar qué pasa sin cambios, diseñar la solución ideal sin restricciones,
-                  trazar el camino desde la meta hacia el presente, y definir indicadores para
-                  medir el avance.
-                </p>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Las 5 Fases del Diseño Idealizado */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="max-w-5xl mx-auto"
-          >
-            <div className="bg-white/[0.03] rounded-3xl border border-white/10 backdrop-blur-md p-8 md:p-10">
-              <div className="text-center mb-10">
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-5">
-                  <span className="text-xs font-bold tracking-[0.2em] text-white/60 uppercase">
-                    Las 5 Fases
-                  </span>
-                </div>
-                <h3 className="text-2xl md:text-3xl font-serif font-bold text-white mb-3">
-                  El recorrido de cada iniciativa
-                </h3>
-                <p className="text-white/50 max-w-2xl mx-auto leading-relaxed">
-                  Del problema a la solución ideal, con un camino concreto y métricas
-                  para medir el avance. Cada iniciativa del ecosistema sigue exactamente
-                  estas cinco fases.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
-                {[
-                  { meta: PHASE_META[0], desc: 'Identificar con claridad qué está roto hoy.' },
-                  { meta: PHASE_META[1], desc: 'Proyectar el costo de no cambiar nada.' },
-                  { meta: PHASE_META[2], desc: 'Imaginar la solución sin restricciones.' },
-                  { meta: PHASE_META[3], desc: 'Trazar el recorrido desde el ideal al presente.' },
-                  { meta: PHASE_META[4], desc: 'Medir el avance con métricas concretas.' },
-                ].map(({ meta, desc }) => {
-                  const PhaseIcon = meta.icon;
-                  return (
-                    <div
-                      key={meta.key}
-                      className="relative rounded-2xl border border-white/10 bg-white/[0.02] p-5 hover:bg-white/[0.04] hover:border-white/15 transition-all duration-300"
-                    >
-                      <div className="flex items-center justify-between mb-4">
-                        <div
-                          className="w-10 h-10 rounded-xl flex items-center justify-center"
-                          style={{ backgroundColor: `${meta.accent}1a`, border: `1px solid ${meta.accent}33` }}
-                        >
-                          <PhaseIcon className="w-5 h-5" style={{ color: meta.accent }} />
-                        </div>
-                        <span className="text-3xl font-serif font-bold text-white/10 leading-none">
-                          0{meta.number}
-                        </span>
-                      </div>
-                      <h4 className="text-sm font-bold text-white mb-2 leading-tight">
-                        {meta.label}
-                      </h4>
-                      <p className="text-xs text-white/40 leading-relaxed">
-                        {desc}
-                      </p>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ═══════════════ INICIATIVAS ESTRATÉGICAS ═══════════════ */}
-      <section id="iniciativas" className="py-24 scroll-mt-20">
-        <div className="container mx-auto px-4">
-          {/* Featured card */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="max-w-5xl mx-auto mb-16"
-          >
-            <div className="bg-white/5 rounded-3xl border border-white/10 backdrop-blur-md overflow-hidden">
-              <div className="p-8 md:p-12 flex flex-col md:flex-row items-start md:items-center gap-8">
-                {/* Left side: icon + text */}
-                <div className="flex-1">
-                  <div className="flex items-start gap-5 mb-6">
-                    <div className="p-4 rounded-2xl bg-amber-500/10 text-amber-400 shrink-0">
-                      <Rocket className="w-8 h-8" />
-                    </div>
-                    <div>
-                      <span className="text-xs font-bold tracking-[0.2em] text-amber-400 uppercase block mb-2">
-                        Política Pública
-                      </span>
-                      <h2 className="text-3xl md:text-4xl font-bold text-white">
-                        Iniciativas Estratégicas
-                      </h2>
-                    </div>
-                  </div>
-
-                  <p className="text-lg text-white/50 leading-relaxed mb-6 max-w-2xl">
-                    Propuestas de rediseño de país usando Diseño Idealizado: del problema a la solución ideal,
-                    con un camino concreto y métricas para medir el avance. Cada iniciativa es un plan de acción completo.
-                  </p>
-
-                  <div>
-                    <p className="text-2xl font-bold text-white">{STRATEGIC_INITIATIVES.length}</p>
-                    <p className="text-xs text-white/40 font-medium uppercase">Propuestas</p>
-                  </div>
-                </div>
-
-                {/* Right side: phase journey preview */}
-                <div className="hidden md:flex flex-col items-center gap-0 shrink-0 pr-4">
-                  {PHASE_META.map((phase, i) => {
-                    const PhaseIcon = phase.icon;
-                    return (
-                      <div key={phase.key} className="flex flex-col items-center">
-                        <div
-                          className="w-11 h-11 rounded-full flex items-center justify-center border-2 bg-white/5"
-                          style={{ borderColor: phase.accent }}
-                        >
-                          <PhaseIcon className="w-4 h-4" style={{ color: phase.accent }} />
-                        </div>
-                        <span className="text-[9px] font-bold text-white/40 uppercase tracking-wider mt-1 max-w-[70px] text-center leading-tight">
-                          {phase.label}
-                        </span>
-                        {i < PHASE_META.length - 1 && (
-                          <div className="w-px h-4 bg-white/10 my-1" />
-                        )}
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Search + Filters (dark adapted) */}
-          <div className="max-w-4xl mx-auto space-y-4 mb-12">
-            <div className="relative">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/30" />
-              <input
-                type="text"
-                placeholder="Buscar iniciativas..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-12 pr-4 py-3 rounded-2xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-amber-500/30 focus:border-amber-400/30 transition-all"
-              />
-            </div>
-
-            <div className="flex flex-wrap gap-2">
-              <button
-                onClick={() => setSelectedCategory('todas')}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                  selectedCategory === 'todas'
-                    ? 'bg-white/15 text-white border border-white/20'
-                    : 'bg-white/5 text-white/50 border border-white/10 hover:bg-white/10'
-                }`}
-              >
-                Todas ({STRATEGIC_INITIATIVES.length})
-              </button>
-              {categoriesWithCount.map(([key, meta]) => {
-                const count = STRATEGIC_INITIATIVES.filter(i => i.category === key).length;
-                return (
-                  <button
-                    key={key}
-                    onClick={() => setSelectedCategory(key as InitiativeCategory)}
-                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all inline-flex items-center gap-2 ${
-                      selectedCategory === key
-                        ? 'bg-white/15 text-white border border-white/20'
-                        : 'bg-white/5 text-white/50 border border-white/10 hover:bg-white/10'
-                    }`}
-                  >
-                    <meta.icon className="w-3.5 h-3.5" />
-                    {meta.label} ({count})
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Initiative Cards Grid */}
-          {filtered.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-              {filtered.map((initiative, index) => (
-                <InitiativeCard
-                  key={initiative.slug}
-                  initiative={initiative}
-                  index={index}
-                  delay={0.1 * index}
-                />
-              ))}
-            </div>
-          ) : (
-            <div className="text-center py-20">
-              <Lightbulb className="w-16 h-16 text-white/20 mx-auto mb-4" />
-              <h3 className="text-xl font-serif font-bold text-white/60 mb-2">
-                No se encontraron iniciativas
-              </h3>
-              <p className="text-white/30">
-                Probá ajustando los filtros o la búsqueda.
-              </p>
-            </div>
-          )}
-
-        </div>
-      </section>
-
-      {/* ═══════════════ EL ARQUITECTO ═══════════════ */}
-      <section id="arquitecto" className="py-24 scroll-mt-20">
-        <div className="container mx-auto px-4">
-          {/* Section header */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-12"
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-6">
-              <Network className="w-4 h-4 text-blue-400" />
-              <span className="text-xs font-medium text-white/60 uppercase tracking-wider">
-                Sistema de Planificación Estratégica
-              </span>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-serif font-bold tracking-tight mb-6">
-              <span className="bg-gradient-to-r from-white via-white/90 to-white/70 bg-clip-text text-transparent">
-                El Arquitecto
-              </span>
-            </h2>
-            <p className="text-lg text-white/50 max-w-2xl mx-auto leading-relaxed">
-              22 mandatos. Un organismo vivo. Esta herramienta combina todas las iniciativas
-              para analizar dependencias, ruta crítica y presupuesto como un sistema interconectado.
-            </p>
-          </motion.div>
-
-          {/* Tab Navigation */}
-          <div className="sticky top-16 z-30 bg-[#0a0a0a]/80 backdrop-blur-xl border-y border-white/5 -mx-4 px-4">
-            <nav className="container mx-auto flex overflow-x-auto scrollbar-hide gap-1 py-2" role="tablist">
-              {TABS.map((tab) => {
-                const Icon = tab.icon;
-                const isActive = activeTab === tab.id;
-                return (
-                  <button
-                    key={tab.id}
-                    role="tab"
-                    aria-selected={isActive}
-                    onClick={() => setActiveTab(tab.id)}
-                    className={`
-                      relative flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium
-                      whitespace-nowrap transition-all duration-200
-                      ${isActive
-                        ? 'text-white bg-white/10 border border-white/15'
-                        : 'text-white/40 hover:text-white/70 hover:bg-white/5 border border-transparent'
-                      }
-                    `}
-                  >
-                    <Icon className="w-4 h-4" />
-                    {tab.label}
-                    {isActive && (
-                      <motion.div
-                        layoutId="rutaActiveTabIndicator"
-                        className="absolute inset-0 rounded-xl bg-white/5 border border-white/10"
-                        style={{ zIndex: -1 }}
-                        transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                      />
-                    )}
-                  </button>
-                );
-              })}
-            </nav>
-          </div>
-
-          {/* Tab Content */}
-          <div className="py-8 min-h-[60vh]">
-            <AnimatePresence mode="wait">
-              <Suspense fallback={<TabFallback />} key={activeTab}>
-                {activeTab === 'organismo' && <ArquitectoOverview />}
-                {activeTab === 'dependencias' && <DependencyGraph onSelectPlan={() => {}} />}
-                {activeTab === 'ruta' && <CriticalPathTimeline onSelectPlan={() => {}} />}
-                {activeTab === 'presupuesto' && <BudgetFlow />}
-                {activeTab === 'indicadores' && <KPICommandBoard />}
-                {activeTab === 'comando' && <CommandCenter />}
-                {activeTab === 'whatif' && <WhatIfSimulator />}
-                {activeTab === 'validacion' && <ValidationDashboard />}
-                {activeTab === 'editor' && <PlanEditor />}
-                {activeTab === 'adversarial' && <AdversarialSimulator />}
-              </Suspense>
-            </AnimatePresence>
-          </div>
         </div>
       </section>
 
@@ -530,20 +270,19 @@ export default function UnaRutaParaArgentina() {
                 Imaginá Qué Pasaría
               </span>
             </h2>
-            <p className="text-lg text-white/50 max-w-2xl mx-auto leading-relaxed mb-4">
+            <p className="text-lg text-white/50 max-w-2xl mx-auto leading-relaxed mb-8">
               Una mini novela en cinco capítulos que cuenta — desde el futuro — cómo podríamos
               haber aplicado estas ideas. No es una predicción. Es un ejercicio para ver que
               otro camino es posible.
             </p>
-            <p className="text-sm text-white/30 mb-8">
-              Desplazá hacia abajo para comenzar la lectura inmersiva.
-            </p>
+            <SwipeInPrompt />
           </motion.div>
         </div>
 
         <div ref={cinematicRef}>
           <CinematicScroll palettes={RUTA_PALETTES} chapters={CHAPTER_TITLES}>
             <CinematicChapter index={0}>
+              <FirstChapterSwipeHint />
               <ChapterTitle
                 number={1}
                 title="La Semilla"
@@ -1035,6 +774,333 @@ export default function UnaRutaParaArgentina() {
               </NarratorBlock>
             </CinematicChapter>
           </CinematicScroll>
+        </div>
+      </section>
+
+      {/* ═══════════════ DISEÑO IDEALIZADO (explicación + 5 fases) ═══════════════ */}
+      <section id="diseno-idealizado" className="py-20 scroll-mt-20">
+        <div className="container mx-auto px-4">
+          {/* ¿Qué es el Diseño Idealizado? */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="max-w-4xl mx-auto mb-16 bg-white/5 rounded-3xl border border-white/10 backdrop-blur-md p-8 md:p-12"
+          >
+            <div className="flex flex-col md:flex-row items-start gap-6">
+              <div className="p-4 rounded-2xl bg-amber-500/10 text-amber-400 shrink-0">
+                <Lightbulb className="w-8 h-8" />
+              </div>
+              <div>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 mb-4">
+                  <span className="text-[10px] font-bold tracking-[0.2em] text-amber-400 uppercase">
+                    Metodología
+                  </span>
+                </div>
+                <h2 className="text-3xl md:text-4xl font-serif font-bold text-white/95 mb-4 leading-tight">
+                  ¿Qué es el Diseño Idealizado?
+                </h2>
+                <p className="text-white/60 leading-relaxed mb-4">
+                  El Diseño Idealizado es una metodología creada por <strong className="text-white/80">Russell Ackoff</strong>,
+                  pionero del pensamiento sistémico. En lugar de mejorar lo que existe, propone
+                  diseñar desde cero el sistema ideal y luego trabajar hacia atrás para crear un
+                  camino viable desde el presente hasta ese ideal.
+                </p>
+                <p className="text-white/60 leading-relaxed">
+                  Cada iniciativa de esta página sigue el mismo recorrido: identificar el problema,
+                  proyectar qué pasa sin cambios, diseñar la solución ideal sin restricciones,
+                  trazar el camino desde la meta hacia el presente, y definir indicadores para
+                  medir el avance.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Las 5 Fases del Diseño Idealizado */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="max-w-5xl mx-auto"
+          >
+            <div className="bg-white/[0.03] rounded-3xl border border-white/10 backdrop-blur-md p-8 md:p-10">
+              <div className="text-center mb-10">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-5">
+                  <span className="text-xs font-bold tracking-[0.2em] text-white/60 uppercase">
+                    Las 5 Fases
+                  </span>
+                </div>
+                <h3 className="text-2xl md:text-3xl font-serif font-bold text-white mb-3">
+                  El recorrido de cada iniciativa
+                </h3>
+                <p className="text-white/50 max-w-2xl mx-auto leading-relaxed">
+                  Del problema a la solución ideal, con un camino concreto y métricas
+                  para medir el avance. Cada iniciativa del ecosistema sigue exactamente
+                  estas cinco fases.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+                {[
+                  { meta: PHASE_META[0], desc: 'Identificar con claridad qué está roto hoy.' },
+                  { meta: PHASE_META[1], desc: 'Proyectar el costo de no cambiar nada.' },
+                  { meta: PHASE_META[2], desc: 'Imaginar la solución sin restricciones.' },
+                  { meta: PHASE_META[3], desc: 'Trazar el recorrido desde el ideal al presente.' },
+                  { meta: PHASE_META[4], desc: 'Medir el avance con métricas concretas.' },
+                ].map(({ meta, desc }) => {
+                  const PhaseIcon = meta.icon;
+                  return (
+                    <div
+                      key={meta.key}
+                      className="relative rounded-2xl border border-white/10 bg-white/[0.02] p-5 hover:bg-white/[0.04] hover:border-white/15 transition-all duration-300"
+                    >
+                      <div className="flex items-center justify-between mb-4">
+                        <div
+                          className="w-10 h-10 rounded-xl flex items-center justify-center"
+                          style={{ backgroundColor: `${meta.accent}1a`, border: `1px solid ${meta.accent}33` }}
+                        >
+                          <PhaseIcon className="w-5 h-5" style={{ color: meta.accent }} />
+                        </div>
+                        <span className="text-3xl font-serif font-bold text-white/10 leading-none">
+                          0{meta.number}
+                        </span>
+                      </div>
+                      <h4 className="text-sm font-bold text-white mb-2 leading-tight">
+                        {meta.label}
+                      </h4>
+                      <p className="text-xs text-white/40 leading-relaxed">
+                        {desc}
+                      </p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ═══════════════ INICIATIVAS ESTRATÉGICAS ═══════════════ */}
+      <section id="iniciativas" className="py-24 scroll-mt-20">
+        <div className="container mx-auto px-4">
+          {/* Featured card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="max-w-5xl mx-auto mb-16"
+          >
+            <div className="bg-white/5 rounded-3xl border border-white/10 backdrop-blur-md overflow-hidden">
+              <div className="p-8 md:p-12 flex flex-col md:flex-row items-start md:items-center gap-8">
+                {/* Left side: icon + text */}
+                <div className="flex-1">
+                  <div className="flex items-start gap-5 mb-6">
+                    <div className="p-4 rounded-2xl bg-amber-500/10 text-amber-400 shrink-0">
+                      <Rocket className="w-8 h-8" />
+                    </div>
+                    <div>
+                      <span className="text-xs font-bold tracking-[0.2em] text-amber-400 uppercase block mb-2">
+                        Política Pública
+                      </span>
+                      <h2 className="text-3xl md:text-4xl font-bold text-white">
+                        Iniciativas Estratégicas
+                      </h2>
+                    </div>
+                  </div>
+
+                  <p className="text-lg text-white/50 leading-relaxed mb-6 max-w-2xl">
+                    Propuestas de rediseño de país usando Diseño Idealizado: del problema a la solución ideal,
+                    con un camino concreto y métricas para medir el avance. Cada iniciativa es un plan de acción completo.
+                  </p>
+
+                  <div>
+                    <p className="text-2xl font-bold text-white">{STRATEGIC_INITIATIVES.length}</p>
+                    <p className="text-xs text-white/40 font-medium uppercase">Propuestas</p>
+                  </div>
+                </div>
+
+                {/* Right side: phase journey preview */}
+                <div className="hidden md:flex flex-col items-center gap-0 shrink-0 pr-4">
+                  {PHASE_META.map((phase, i) => {
+                    const PhaseIcon = phase.icon;
+                    return (
+                      <div key={phase.key} className="flex flex-col items-center">
+                        <div
+                          className="w-11 h-11 rounded-full flex items-center justify-center border-2 bg-white/5"
+                          style={{ borderColor: phase.accent }}
+                        >
+                          <PhaseIcon className="w-4 h-4" style={{ color: phase.accent }} />
+                        </div>
+                        <span className="text-[9px] font-bold text-white/40 uppercase tracking-wider mt-1 max-w-[70px] text-center leading-tight">
+                          {phase.label}
+                        </span>
+                        {i < PHASE_META.length - 1 && (
+                          <div className="w-px h-4 bg-white/10 my-1" />
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Search + Filters (dark adapted) */}
+          <div className="max-w-4xl mx-auto space-y-4 mb-12">
+            <div className="relative">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/30" />
+              <input
+                type="text"
+                placeholder="Buscar iniciativas..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-12 pr-4 py-3 rounded-2xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-amber-500/30 focus:border-amber-400/30 transition-all"
+              />
+            </div>
+
+            <div className="flex flex-wrap gap-2">
+              <button
+                onClick={() => setSelectedCategory('todas')}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                  selectedCategory === 'todas'
+                    ? 'bg-white/15 text-white border border-white/20'
+                    : 'bg-white/5 text-white/50 border border-white/10 hover:bg-white/10'
+                }`}
+              >
+                Todas ({STRATEGIC_INITIATIVES.length})
+              </button>
+              {categoriesWithCount.map(([key, meta]) => {
+                const count = STRATEGIC_INITIATIVES.filter(i => i.category === key).length;
+                return (
+                  <button
+                    key={key}
+                    onClick={() => setSelectedCategory(key as InitiativeCategory)}
+                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all inline-flex items-center gap-2 ${
+                      selectedCategory === key
+                        ? 'bg-white/15 text-white border border-white/20'
+                        : 'bg-white/5 text-white/50 border border-white/10 hover:bg-white/10'
+                    }`}
+                  >
+                    <meta.icon className="w-3.5 h-3.5" />
+                    {meta.label} ({count})
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Initiative Cards Grid */}
+          {filtered.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+              {filtered.map((initiative, index) => (
+                <InitiativeCard
+                  key={initiative.slug}
+                  initiative={initiative}
+                  index={index}
+                  delay={0.1 * index}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-20">
+              <Lightbulb className="w-16 h-16 text-white/20 mx-auto mb-4" />
+              <h3 className="text-xl font-serif font-bold text-white/60 mb-2">
+                No se encontraron iniciativas
+              </h3>
+              <p className="text-white/30">
+                Probá ajustando los filtros o la búsqueda.
+              </p>
+            </div>
+          )}
+
+        </div>
+      </section>
+
+      {/* ═══════════════ EL ARQUITECTO ═══════════════ */}
+      <section id="arquitecto" className="py-24 scroll-mt-20">
+        <div className="container mx-auto px-4">
+          {/* Section header */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-center mb-12"
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-6">
+              <Network className="w-4 h-4 text-blue-400" />
+              <span className="text-xs font-medium text-white/60 uppercase tracking-wider">
+                Sistema de Planificación Estratégica
+              </span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-serif font-bold tracking-tight mb-6">
+              <span className="bg-gradient-to-r from-white via-white/90 to-white/70 bg-clip-text text-transparent">
+                El Arquitecto
+              </span>
+            </h2>
+            <p className="text-lg text-white/50 max-w-2xl mx-auto leading-relaxed">
+              22 mandatos. Un organismo vivo. Esta herramienta combina todas las iniciativas
+              para analizar dependencias, ruta crítica y presupuesto como un sistema interconectado.
+            </p>
+          </motion.div>
+
+          {/* Tab Navigation */}
+          <div className="sticky top-16 z-30 bg-[#0a0a0a]/80 backdrop-blur-xl border-y border-white/5 -mx-4 px-4">
+            <nav className="container mx-auto flex overflow-x-auto scrollbar-hide gap-1 py-2" role="tablist">
+              {TABS.map((tab) => {
+                const Icon = tab.icon;
+                const isActive = activeTab === tab.id;
+                return (
+                  <button
+                    key={tab.id}
+                    role="tab"
+                    aria-selected={isActive}
+                    onClick={() => setActiveTab(tab.id)}
+                    className={`
+                      relative flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium
+                      whitespace-nowrap transition-all duration-200
+                      ${isActive
+                        ? 'text-white bg-white/10 border border-white/15'
+                        : 'text-white/40 hover:text-white/70 hover:bg-white/5 border border-transparent'
+                      }
+                    `}
+                  >
+                    <Icon className="w-4 h-4" />
+                    {tab.label}
+                    {isActive && (
+                      <motion.div
+                        layoutId="rutaActiveTabIndicator"
+                        className="absolute inset-0 rounded-xl bg-white/5 border border-white/10"
+                        style={{ zIndex: -1 }}
+                        transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                      />
+                    )}
+                  </button>
+                );
+              })}
+            </nav>
+          </div>
+
+          {/* Tab Content */}
+          <div className="py-8 min-h-[60vh]">
+            <AnimatePresence mode="wait">
+              <Suspense fallback={<TabFallback />} key={activeTab}>
+                {activeTab === 'organismo' && <ArquitectoOverview />}
+                {activeTab === 'dependencias' && <DependencyGraph onSelectPlan={() => {}} />}
+                {activeTab === 'ruta' && <CriticalPathTimeline onSelectPlan={() => {}} />}
+                {activeTab === 'presupuesto' && <BudgetFlow />}
+                {activeTab === 'indicadores' && <KPICommandBoard />}
+                {activeTab === 'comando' && <CommandCenter />}
+                {activeTab === 'whatif' && <WhatIfSimulator />}
+                {activeTab === 'validacion' && <ValidationDashboard />}
+                {activeTab === 'editor' && <PlanEditor />}
+                {activeTab === 'adversarial' && <AdversarialSimulator />}
+              </Suspense>
+            </AnimatePresence>
+          </div>
         </div>
       </section>
 
