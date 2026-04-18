@@ -547,26 +547,79 @@ export default function UnaRutaParaArgentina() {
               <ChapterTitle
                 number={1}
                 title="La Semilla"
-                subtitle="2026 — 2028"
-                epigraph="Todo empieza con alguien que hace las cuentas."
+                subtitle="2026"
+                epigraph="Dejar de esperar — ese fue el verbo que faltaba."
               />
               <NarratorBlock>
-                Seis crisis en 135 años. El patrón no era un accidente — era una arquitectura.
-                Dependencia de commodities, bimonetarismo peso-dólar, federalismo fiscal
-                disfuncional, impunidad judicial, especulación inmobiliaria. Las mismas cinco
-                fracturas estructurales desde 1890.
+                Al principio nadie creía. &quot;Ya lo intentamos.&quot; &quot;Argentina es así.&quot;
+                &quot;No va a funcionar.&quot; La frase más repetida del país desde hacía
+                generaciones era también la más cómoda: no se puede.
+              </NarratorBlock>
+              <NarratorBlock>
+                Seis crisis en 135 años habían entrenado a un pueblo entero para esperar lo
+                peor. El cinismo se había vuelto sabiduría popular. &quot;¿Otra utopía? Ya
+                vimos esta película.&quot;
               </NarratorBlock>
               <NarratorBlock emphasis="strong">
-                Pero esta vez fue diferente. Esta vez alguien hizo las cuentas.
+                Pero el cambio, esta vez, no empezó por arriba.
               </NarratorBlock>
               <NarratorBlock>
-                La idea era una locura. Una aseguradora cooperativa, construida por ciudadanos,
-                a costo. Contra el mercado. Contra 200 mil millones de dólares anuales en rentas
-                capturadas. Con $320 dólares por persona.
+                Empezó en una cocina en Tafí del Valle, donde una maestra jubilada abrió El
+                Mapa y marcó un pozo que hacía quince años no andaba. Tardó seis minutos.
+                Fue su primer acto cívico en dos décadas.
               </NarratorBlock>
               <NarratorBlock>
-                25.000 personas invirtieron sin saber si iban a volver a ver esa plata. Eso no
-                era comercio. Era un acto político.
+                Empezó en un banco de plaza en Caballito, donde un jubilado que nunca había
+                militado en nada subió una señal sobre una rampa rota. Escribió tres líneas.
+                Las corrigió dos veces. Le dio &quot;enviar&quot;.
+              </NarratorBlock>
+              <NarratorBlock>
+                Empezó en Resistencia, en un taller mecánico, donde un pibe de veintitrés
+                años que había pensado en irse del país escribió una propuesta para recuperar
+                una escuela abandonada del barrio. Nunca antes le había dicho a nadie que
+                quería quedarse.
+              </NarratorBlock>
+              <NarratorBlock>
+                No se conocían. No se coordinaron. Cada uno pensó que era el único.
+              </NarratorBlock>
+              <NarratorBlock emphasis="strong">
+                Y sin embargo, en el primer trimestre, treinta y seis mil personas hicieron
+                lo mismo. Sin liderazgo central. Sin campaña de marketing. Porque alguien,
+                en algún lado, había dejado de esperar — y esa es la única noticia que se
+                contagia más rápido que el miedo.
+              </NarratorBlock>
+              <NarratorBlock>
+                Los incrédulos miraban. &quot;No va a servir para nada.&quot; &quot;¿Qué
+                cambia marcar un pozo?&quot; Y sin embargo, el pozo de Tafí se reparó en
+                cuarenta días. Con plata de una partida municipal que se había estado
+                perdiendo desde 2019 y que salió a la luz cuando trescientas firmas
+                aparecieron en El Mapa pidiendo lo mismo.
+              </NarratorBlock>
+              <NarratorBlock>
+                La rampa de Caballito se arregló en dos semanas. La escuela de Resistencia
+                — esa tardó ocho meses, pero se recuperó. Y fueron los mismos vecinos los
+                que pintaron las aulas.
+              </NarratorBlock>
+              <NarratorBlock>
+                Fueron victorias pequeñas. Microscópicas frente al tamaño del país. Y sin
+                embargo cada una llegaba acompañada de algo nuevo: la sensación, tan vieja
+                que ya nadie la reconocía, de que hacer algo había servido para algo.
+              </NarratorBlock>
+              <NarratorBlock>
+                La palabra que empezó a circular en esos meses no fue &quot;revolución&quot;.
+                Fue &quot;probar&quot;. &quot;Vamos a probar.&quot; &quot;Probá vos
+                también.&quot; Era un verbo tímido, casi vergonzoso — y exactamente por eso
+                se contagió.
+              </NarratorBlock>
+              <NarratorBlock emphasis="strong">
+                Al final de 2026, seiscientas mil personas habían usado El Mapa al menos
+                una vez. Ninguna encuesta lo había predicho. Ninguna consultora lo había
+                diseñado.
+              </NarratorBlock>
+              <NarratorBlock emphasis="strong">
+                La herramienta no cambió a la gente. La gente cambió cuando se animó a
+                usarla. Y una vez que una persona se anima, la que está al lado empieza a
+                mirar distinto.
               </NarratorBlock>
             </CinematicChapter>
 
@@ -574,23 +627,94 @@ export default function UnaRutaParaArgentina() {
               <ChapterTitle
                 number={2}
                 title="La Prueba"
-                subtitle="2028 — 2032"
+                subtitle="2026 — 2027"
                 epigraph="Gobernar no es mandar. Gobernar es escuchar."
               />
               <NarratorBlock>
-                El movimiento decidió probar el modelo. Un municipio. La pregunta era simple
-                y brutal: ¿puede gobernar gente que nunca gobernó?
+                El primer pueblo entero que dijo &quot;probemos acá&quot; fue un pueblo de
+                tres mil habitantes en Córdoba que casi nadie podía ubicar en el mapa. Se
+                reían cuando lo anunciaron.
+              </NarratorBlock>
+              <NarratorBlock>
+                &quot;¿Qué va a cambiar un pueblo de tres mil? Ni siquiera tienen
+                semáforos.&quot; Lo dijeron en la tele nacional. Lo dijeron vecinos del mismo
+                pueblo. Lo dijo el intendente, que aceptó &quot;por probar&quot;, convencido
+                de que no iba a pasar nada.
               </NarratorBlock>
               <NarratorBlock emphasis="strong">
-                Lo primero que hicieron fue escuchar.
+                Lo primero que hicieron fue callarse y escuchar.
               </NarratorBlock>
               <NarratorBlock>
-                10.000 voces en el primer mes. Sueños, necesidades, declaraciones de ¡BASTA!
-                Las señales se hicieron visibles en el mapa. Se agruparon alrededor de problemas.
-                Agua. Seguridad. Escuelas.
+                Diez mil señales en el primer mes. Una por cada tres habitantes. Sueños.
+                Necesidades. Declaraciones de ¡BASTA!. Un señor de ochenta años tipeando
+                con un dedo sobre el celular de su nieta.
               </NarratorBlock>
               <NarratorBlock>
-                Demostraron que funciona. Una ciudad. Ahora la pregunta era: ¿puede escalar?
+                Las señales se agruparon solas en el Mandato Vivo. Agua. Seguridad.
+                Escuelas. Los tres problemas de siempre — pero ahora visibles, cuantificados,
+                mapeados, imposibles de negar.
+              </NarratorBlock>
+              <NarratorBlock>
+                Una maestra jubilada fue quien propuso la solución al agua. No un ingeniero.
+                Una maestra. Conocía cada cañería del pueblo porque había enseñado a los
+                hijos de los plomeros.
+              </NarratorBlock>
+              <NarratorBlock>
+                Un vecino que nunca había hablado en público facilitó el primer Panel
+                Ciudadano. Le temblaban las manos. Cuando terminó, su esposa lloraba en la
+                puerta — no lo había visto hablar así nunca.
+              </NarratorBlock>
+              <NarratorBlock>
+                El intendente resistente — el que había aceptado &quot;por probar&quot; —
+                en el tercer mes pidió la palabra en un Panel y dijo: &quot;Estoy aprendiendo
+                más en estas semanas que en doce años de gestión.&quot; Lo dijo llorando.
+              </NarratorBlock>
+              <NarratorBlock emphasis="strong">
+                Nadie previó que el cambio más profundo iba a ser el de los que gobernaban.
+              </NarratorBlock>
+              <NarratorBlock>
+                Para fin de año, el agua andaba. Las escuelas tenían calefacción. La
+                inseguridad había bajado un cuarenta por ciento — no por más policía, sino
+                porque el alumbrado de tres calles se había arreglado después de que
+                sesenta vecinos marcaron el mismo problema.
+              </NarratorBlock>
+              <NarratorBlock>
+                Y entonces, sin que nadie hiciera campaña, cuatro pueblos vecinos pidieron
+                entrar. Después cuarenta. Después cuatrocientos. El contagio fue más rápido
+                que cualquier estrategia de comunicación.
+              </NarratorBlock>
+              <NarratorBlock>
+                El año 2027 terminó con mil doscientos municipios usando algo del sistema —
+                algunos todo, algunos partes. No hubo un plan de expansión. Hubo fuego.
+              </NarratorBlock>
+              <NarratorBlock>
+                Los problemas aparecieron, claro. Un concejal de un pueblo bonaerense
+                intentó inflar señales falsas. La misma comunidad lo detectó en tres días.
+                No hizo falta denuncia penal: le tocaron el timbre los vecinos. Renunció al
+                quinto día.
+              </NarratorBlock>
+              <NarratorBlock>
+                En otro pueblo, un grupo quiso usar el Mandato para empujar un proyecto que
+                beneficiaba solo a veinte familias. El sistema — que publica todas las
+                señales — lo mostró tan descarnadamente que el proyecto se cayó solo.
+              </NarratorBlock>
+              <NarratorBlock>
+                La transparencia no era una regla impuesta. Era una consecuencia
+                arquitectónica. Cuando todo se ve, muchas cosas, simplemente, se vuelven
+                imposibles.
+              </NarratorBlock>
+              <NarratorBlock emphasis="strong">
+                Y mientras tanto, algo más profundo estaba pasando. Algo que no salía en
+                ninguna métrica.
+              </NarratorBlock>
+              <NarratorBlock>
+                Donde antes se decía &quot;algún día alguien va a hacer algo&quot;, ahora se
+                decía &quot;lo estamos haciendo nosotros&quot;. En los almacenes. En las
+                reuniones de padres. En los grupos de WhatsApp del barrio.
+              </NarratorBlock>
+              <NarratorBlock emphasis="strong">
+                El idioma cambió primero. Y cuando el idioma de un país cambia, todo lo
+                demás termina cediendo.
               </NarratorBlock>
             </CinematicChapter>
 
@@ -598,19 +722,93 @@ export default function UnaRutaParaArgentina() {
               <ChapterTitle
                 number={3}
                 title="La Circunscripción"
-                subtitle="2032 — 2036"
+                subtitle="2027 — 2029"
                 epigraph="No fue un partido. Fue una forma de vivir que se expandió."
               />
               <NarratorBlock>
-                De un municipio a una provincia. El efecto red. Pero la política provincial
-                tiene depredadores más grandes. Narcos, sindicatos, la vieja guardia.
+                La primera provincia que adoptó el sistema completo fue un caso inesperado.
+                No fue una provincia grande. Tampoco una rica. Fue una que no quería seguir
+                siendo el furgón de cola.
               </NarratorBlock>
               <NarratorBlock>
-                Necesitaban articular lo que querían. No eslóganes — sistemas. No promesas —
-                diseños idealizados con métricas y caminos concretos.
+                La incredulidad volvió, más fuerte. &quot;A un pueblo quizás. ¿Pero una
+                provincia entera? ¿Coordinando a un millón de personas? No lo vas a
+                ver.&quot;
+              </NarratorBlock>
+              <NarratorBlock>
+                Y sin embargo. Tres mil barrios usando El Mapa al mismo tiempo. Cuarenta mil
+                señales por semana en el pico.
+              </NarratorBlock>
+              <NarratorBlock>
+                Abuelas de cerámica. Adolescentes que nunca habían votado. Productores
+                rurales que veían su primer panel participativo por streaming desde el
+                tractor.
               </NarratorBlock>
               <NarratorBlock emphasis="strong">
-                Tenían las ideas. Tenían el territorio. Ahora necesitaban ver cómo encajaba todo.
+                La provincia redactó su propio Diseño Idealizado. No un plan quinquenal. Un
+                documento escrito por miles de personas, en miles de paneles, durante
+                dieciocho meses.
+              </NarratorBlock>
+              <NarratorBlock>
+                No lo escribieron consultores. Lo escribieron vecinos. Los técnicos hicieron
+                lo que siempre deberían haber hecho: traducir, no decidir.
+              </NarratorBlock>
+              <NarratorBlock>
+                Y cuando ese documento salió, los primeros de la lista de planes fueron los
+                que más señales habían generado. PLANAGUA no nació en un ministerio — nació
+                de trescientas mil señales de vecinos que habían marcado pozos secos,
+                cañerías rotas, arroyos contaminados.
+              </NarratorBlock>
+              <NarratorBlock>
+                PLANEDU no lo diseñaron expertos. Lo diseñaron maestros, padres, pibes.
+                PLANSAL salió de pacientes y enfermeras cansadas de escribir en cuadernos.
+                Cada plan era una constelación de voces ciudadanas hecha política pública.
+              </NarratorBlock>
+              <NarratorBlock emphasis="strong">
+                Por primera vez en décadas, el Estado no le contaba al pueblo lo que iba a
+                hacer. El pueblo le contaba al Estado.
+              </NarratorBlock>
+              <NarratorBlock>
+                Los problemas aparecieron, como siempre. Pero aparecieron y se resolvieron
+                casi en el mismo movimiento.
+              </NarratorBlock>
+              <NarratorBlock>
+                Un grupo narco intentó capturar un Panel de una localidad fronteriza,
+                plantando voluntarios falsos. El sistema — diseñado para visibilidad radical
+                — mostró patrones de votación sospechosos en cuarenta y ocho horas. La
+                comunidad reaccionó antes que la justicia.
+              </NarratorBlock>
+              <NarratorBlock>
+                Un intendente quiso comprar señales. Se descubrió en dos días. El propio
+                pueblo — no un auditor externo — lo sacó con una asamblea. La palabra
+                &quot;revocatoria&quot; se volvió parte del idioma cotidiano.
+              </NarratorBlock>
+              <NarratorBlock>
+                Los jóvenes que se iban empezaron a volver. No de golpe. Goteo. Pero en el
+                segundo año, más matrículas en las universidades provinciales que en
+                cualquier momento del siglo.
+              </NarratorBlock>
+              <NarratorBlock>
+                Llegaron periodistas. De Uruguay, de Chile, de Colombia. Después de Brasil.
+                Después de España. Se paraban en las plazas, entrevistaban a cualquier
+                vecino, y se iban con cara de no entender cómo era posible.
+              </NarratorBlock>
+              <NarratorBlock>
+                Un periodista alemán escribió: &quot;Lo sorprendente no es el sistema. Lo
+                sorprendente es la forma en que la gente habla acá. Como si el país fuera
+                de ellos. Porque es de ellos.&quot;
+              </NarratorBlock>
+              <NarratorBlock emphasis="strong">
+                Y entonces pasó algo que no estaba en ninguna agenda.
+              </NarratorBlock>
+              <NarratorBlock>
+                En una reunión de vecinos, en una localidad de cinco mil habitantes, alguien
+                dijo en voz alta: &quot;Nos está saliendo bien.&quot; Hubo un silencio.
+              </NarratorBlock>
+              <NarratorBlock emphasis="strong">
+                Nadie se rió. Hacía décadas que una frase así no podía decirse sin ironía.
+                Pero esa tarde, en esa sala, se pudo decir — y el silencio que siguió fue
+                el sonido de un país empezando a creerse capaz de sí mismo.
               </NarratorBlock>
             </CinematicChapter>
 
@@ -618,19 +816,110 @@ export default function UnaRutaParaArgentina() {
               <ChapterTitle
                 number={4}
                 title="La Cabecera de Puente"
-                subtitle="2036 — 2038"
-                epigraph="Dieciséis planes. Un organismo vivo."
+                subtitle="2029 — 2034"
+                epigraph="Veintidós planes. Un organismo vivo, hecho por millones de manos."
               />
               <NarratorBlock>
-                Congreso Nacional. Bancas ganadas. El movimiento entró en la institución
-                que estaba diseñado para transformar.
+                &quot;Un pueblo, sí. Una provincia, con suerte. ¿Pero el país entero?&quot;
+                La incredulidad había subido de escala porque el movimiento había subido de
+                escala.
               </NarratorBlock>
               <NarratorBlock>
-                16 planes. Cientos de dependencias. USD 283-526 mil millones. Un horizonte
-                de 20 años. ¿Quién orquesta esto?
+                Las elecciones nacionales de 2029 fueron las más raras que se recuerdan. Los
+                candidatos del movimiento no se presentaban como políticos. Se presentaban
+                como vecinos-legisladores.
+              </NarratorBlock>
+              <NarratorBlock>
+                Postulantes validados por sus propios barrios. Mandatos cortos. Revocabilidad
+                permanente. Salarios atados a la mediana de sus comunidades.
+              </NarratorBlock>
+              <NarratorBlock>
+                Muchos perdieron. Muchos ganaron. Y entre los que ganaron había maestras
+                jubiladas, mecánicos, médicas rurales, trabajadores de comedor escolar.
               </NarratorBlock>
               <NarratorBlock emphasis="strong">
-                Por primera vez, la nación vio su propio rediseño como un sistema interconectado.
+                Por primera vez en décadas, una fotografía del Congreso se parecía a una
+                fotografía del país.
+              </NarratorBlock>
+              <NarratorBlock>
+                Y entonces llegó el desafío real: veintidós planes que tenían que
+                articularse entre sí. PLANAGUA, PLANEDU, PLANSAL, PLANMOV, PLANVIV, PLANJUS,
+                PLANEN — cada uno una consolidación de millones de señales ciudadanas hecha
+                política pública.
+              </NarratorBlock>
+              <NarratorBlock>
+                Cientos de dependencias cruzadas. Un horizonte de veinte años. La pregunta
+                no era &quot;¿quién lo paga?&quot;. La pregunta era &quot;¿quién lo orquesta
+                sin capturarlo?&quot;.
+              </NarratorBlock>
+              <NarratorBlock>
+                La respuesta ya estaba escrita — en los paneles, en los mandatos, en las
+                señales. El pueblo orquestaba lo que el pueblo había diseñado.
+              </NarratorBlock>
+              <NarratorBlock>
+                La vieja política intentó, por supuesto, lo que siempre intenta: sabotaje
+                institucional. Tecnicismos legales. Presupuestos bloqueados en comisiones.
+                Demandas de inconstitucionalidad a cada ley.
+              </NarratorBlock>
+              <NarratorBlock>
+                Casi todas fracasaron. No porque los abogados del movimiento fueran mejores
+                — sino porque cada ley llegaba al Congreso con la firma de millones de
+                personas detrás. Sacar una ley significaba sacarle la palabra a los que la
+                habían escrito.
+              </NarratorBlock>
+              <NarratorBlock emphasis="strong">
+                La legitimidad había cambiado de domicilio. Ya no vivía en el Congreso.
+                Vivía en los barrios. Y el Congreso, por primera vez, tenía que negociar con
+                ese domicilio.
+              </NarratorBlock>
+              <NarratorBlock>
+                El discurso público cambió. Se dejó de hablar de &quot;la crisis&quot; y se
+                empezó a hablar de &quot;el rediseño&quot;. Las noticias dejaron de ser
+                sobre qué ministro iba a renunciar — y empezaron a ser sobre qué panel
+                ciudadano había aprobado qué tramo de qué plan.
+              </NarratorBlock>
+              <NarratorBlock>
+                Los chicos crecieron con otra gramática. La palabra &quot;política&quot;
+                dejó de ser una mala palabra. Volvió a significar lo que significaba antes
+                de perderse: el arte de construir juntos la ciudad.
+              </NarratorBlock>
+              <NarratorBlock>
+                Y entonces empezaron a llegar las llamadas de afuera.
+              </NarratorBlock>
+              <NarratorBlock>
+                No embajadores. Presidentes. Alcaldes de ciudades extranjeras. Ministros de
+                otros países. Querían entender. Querían copiar. Querían mandar gente a
+                aprender.
+              </NarratorBlock>
+              <NarratorBlock>
+                La respuesta argentina fue inesperada: &quot;No copien. Adapten.&quot; El
+                código del sistema era libre. Los protocolos eran públicos. Pero el espíritu
+                — el de hacerse cargo — eso se tenía que inventar localmente.
+              </NarratorBlock>
+              <NarratorBlock>
+                En Brasil, equipos comunitarios empezaron a mapear favelas con una versión
+                propia de El Mapa. En México, colectivos en Oaxaca armaron sus paneles
+                indígenas. En España, barrios de Madrid y Barcelona experimentaron con
+                asambleas al estilo del Mandato Vivo. En Filipinas, maestras de Cebú
+                adaptaron la herramienta al tagalo. En Nigeria, organizadores de Lagos y
+                Kano hicieron lo mismo en yoruba y en hausa.
+              </NarratorBlock>
+              <NarratorBlock>
+                No imitaban. Diseñaban. Argentina había dejado de exportar soja: exportaba
+                método — y ni siquiera el método era el punto. El punto era el permiso. La
+                prueba viva de que la gente común podía.
+              </NarratorBlock>
+              <NarratorBlock emphasis="strong">
+                Una escuela primaria de Humahuaca recibió una carta de una escuela de
+                Senegal pidiéndole consejos sobre cómo habían organizado los Paneles
+                Escolares.
+              </NarratorBlock>
+              <NarratorBlock>
+                La maestra la leyó en voz alta frente a sus alumnos. Los chicos escucharon
+                en silencio, sin entender del todo, pero entendiéndolo todo. Una nena de
+                ocho años preguntó, al final: &quot;¿Podemos contestar?&quot; Y contestaron
+                — con un dibujo y tres párrafos que la maestra subió al Mapa esa misma
+                tarde.
               </NarratorBlock>
             </CinematicChapter>
 
@@ -638,21 +927,111 @@ export default function UnaRutaParaArgentina() {
               <ChapterTitle
                 number={5}
                 title="La Ejecución"
-                subtitle="2038 — 2040+"
-                epigraph="La crisis llegó. Pero esta vez, el pueblo tenía un plan."
+                subtitle="2034 — 2040+"
+                epigraph="La crisis llegó. Pero esta vez el pueblo ya no esperaba."
               />
+              <NarratorBlock>
+                La crisis llegó — como siempre en Argentina, como había llegado seis veces
+                en 135 años. Cíclica. Estructural. Inevitable.
+              </NarratorBlock>
               <NarratorBlock emphasis="strong">
-                La crisis. Como siempre en Argentina — cíclica, estructural, inevitable.
-                Pero esta vez: plataforma, asambleas, gobierno alternativo, organización.
-                Todo construido. Todo probado.
+                Pero esta vez no encontró a un país esperando al gobierno. Encontró a un
+                país que ya había aprendido a no esperar.
               </NarratorBlock>
               <NarratorBlock>
-                72 horas. Esa era la ventana. La Regla de la Ventana: desplegá lo que tenés.
-                Un ¡BASTA! a medio construir es infinitamente mejor que ningún plan.
+                Setenta y dos horas. Esa era la ventana. La Regla de la Ventana, la habían
+                llamado los que construyeron el protocolo: desplegá lo que tenés, aunque
+                esté a medio hacer.
+              </NarratorBlock>
+              <NarratorBlock>
+                Un ¡BASTA! incompleto era infinitamente mejor que ningún plan. Eso lo
+                sabían. Eso lo habían ensayado.
+              </NarratorBlock>
+              <NarratorBlock>
+                Al primer día, los Paneles Ciudadanos — cientos de miles, distribuidos por
+                todo el país — se convirtieron en nodos de coordinación de asistencia.
+                Comida. Agua. Transporte. Información confiable.
+              </NarratorBlock>
+              <NarratorBlock>
+                En Rosario, una red de doscientos Paneles redirigió toneladas de alimentos
+                en cuarenta y ocho horas, con una precisión logística que los organismos
+                oficiales no habían alcanzado en ninguna crisis anterior.
+              </NarratorBlock>
+              <NarratorBlock>
+                En Jujuy, las comunidades andinas que habían sido invisibilizadas durante
+                décadas coordinaron directamente con sus pares del altiplano boliviano y
+                chileno, sin pedir permiso. Nadie lo prohibió. Nadie hubiera podido.
+              </NarratorBlock>
+              <NarratorBlock>
+                En el Gran Buenos Aires, vecinos de villas y de countries se sentaron en los
+                mismos Paneles porque el sistema no sabía distinguir, y no le importaba.
+              </NarratorBlock>
+              <NarratorBlock emphasis="strong">
+                No hubo saqueos generalizados. No hubo pánico. Porque donde hay sistema, el
+                miedo tiene menos lugar para crecer.
+              </NarratorBlock>
+              <NarratorBlock>
+                No fue perfecto. Hubo errores. Un sector de adultos mayores sin acceso a
+                internet quedó afuera los primeros cinco días, hasta que se montaron
+                brigadas puerta a puerta. Hubo capturas locales de recursos que se demoraron
+                en detectar. Hubo zonas rurales donde la conectividad falló.
+              </NarratorBlock>
+              <NarratorBlock>
+                Y todo eso se admitió en público. Sin eufemismos. Sin rueda de prensa
+                defensiva. Se publicó en El Mapa. Se discutió en los Paneles. Se aprendió.
+              </NarratorBlock>
+              <NarratorBlock emphasis="strong">
+                La costumbre de admitir errores sin vergüenza fue, quizás, la exportación
+                más poderosa del movimiento.
+              </NarratorBlock>
+              <NarratorBlock>
+                Países en crisis parecida copiaron el protocolo en semanas. Equipos de
+                Chile, de Grecia, de Sri Lanka, de Túnez pidieron el código, pidieron los
+                manuales, pidieron formación.
+              </NarratorBlock>
+              <NarratorBlock>
+                Y Argentina, que durante un siglo había recibido misiones del FMI, empezó a
+                mandar las suyas. Sin condicionamientos. Sin deudas. Misiones de enseñanza
+                mutua.
+              </NarratorBlock>
+              <NarratorBlock>
+                En Grecia, un intendente de una isla pequeña implementó la versión adaptada
+                y ganó la reelección con el sesenta y ocho por ciento. En Filipinas, una red
+                de barangays replicó los Mandatos Vivos. En Senegal — la escuela que había
+                escrito a Humahuaca — ahora coordinaba los Paneles Escolares de media
+                África occidental.
+              </NarratorBlock>
+              <NarratorBlock>
+                La gente en otros países dejó de mirar a sus políticos esperando. Empezó a
+                diseñar. Con sus códigos propios. En sus idiomas. Con sus paisajes.
+              </NarratorBlock>
+              <NarratorBlock>
+                Y cada vez que alguien en Lima, o en Tel Aviv, o en Dakar, abría un mapa
+                propio y marcaba un problema, estaba haciendo — sin saberlo — el mismo
+                gesto que aquella maestra de Tafí del Valle había hecho en 2026, con un
+                pozo que hacía quince años no andaba.
+              </NarratorBlock>
+              <NarratorBlock emphasis="strong">
+                El gesto se había vuelto planetario. Pero había nacido en una cocina, con
+                una sola persona que un día decidió dejar de esperar.
+              </NarratorBlock>
+              <NarratorBlock>
+                Un chico de catorce años en Córdoba le escribió un mensaje a su tío, que
+                hacía veinte años se había ido a Madrid buscando una vida que acá no
+                encontraba.
+              </NarratorBlock>
+              <NarratorBlock>
+                &quot;Tío, ya no necesitás volver. Las cosas cambiaron. Pero si querés, te
+                esperamos. Te guardé un lugar en el Panel de nuestro barrio.&quot;
+              </NarratorBlock>
+              <NarratorBlock>
+                El tío leyó el mensaje en un café de Lavapiés. Lo leyó dos veces. Y por
+                primera vez en veinte años, lo pensó en serio.
               </NarratorBlock>
               <NarratorBlock emphasis="strong">
                 Lo que pasó en Argentina entre 2026 y 2040 no tiene precedente. No porque
-                fuera perfecto. Porque fue nuestro.
+                fuera perfecto. Porque fue nuestro. Porque lo hicimos nosotros. Y porque,
+                sin quererlo, le dimos permiso al mundo entero para que también pudiera.
               </NarratorBlock>
             </CinematicChapter>
           </CinematicScroll>
