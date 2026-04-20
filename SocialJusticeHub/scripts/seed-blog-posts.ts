@@ -201,6 +201,17 @@ const baseBlogPostsData = [
     publishedAt: new Date("2026-04-11").toISOString(),
     tags: ["sistemas", "pasado", "diseño", "Argentina", "inteligencia artificial", "organización"],
   },
+  {
+    title: "El abrazo que no supimos sostener",
+    slug: createSlug("El abrazo que no supimos sostener"),
+    category: "Filosofía",
+    type: "blog" as const,
+    featured: true,
+    imageUrl: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=400&fit=crop",
+    authorId: 1,
+    publishedAt: new Date("2026-04-17").toISOString(),
+    tags: ["Argentina", "identidad", "Mundial", "comunidad", "transformación", "coreografía social"],
+  },
 ];
 
 const blogPostsData = baseBlogPostsData.map((post) => {
