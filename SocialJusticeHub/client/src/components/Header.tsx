@@ -115,11 +115,11 @@ const Header = () => {
               <img
                 src="/logo.png"
                 alt="El Instante del Hombre Gris"
-                className="w-9 h-9 md:w-11 md:h-11 object-contain group-hover:scale-105 transition-transform drop-shadow"
+                className="w-11 h-11 md:w-14 md:h-14 object-contain group-hover:scale-105 transition-transform drop-shadow"
               />
-              <div className={`font-serif font-bold text-lg md:text-xl leading-none transition-colors ${showSolid ? 'text-slate-900' : 'text-white'}`}>
-                El Instante<br/>
-                <span className="text-blue-500 font-sans text-sm tracking-widest uppercase">del Hombre Gris</span>
+              <div className={`flex flex-col leading-none transition-colors ${showSolid ? 'text-slate-900' : 'text-white'}`}>
+                <span className="font-serif font-bold text-lg md:text-xl">El Instante</span>
+                <span className="text-blue-500 font-sans text-xs md:text-sm tracking-widest uppercase mt-0.5">del Hombre Gris</span>
               </div>
             </div>
           </Link>
