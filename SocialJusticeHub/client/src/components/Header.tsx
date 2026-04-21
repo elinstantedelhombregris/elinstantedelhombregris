@@ -112,9 +112,11 @@ const Header = () => {
           {/* Logo */}
           <Link href="/">
             <div className="flex items-center gap-2 cursor-pointer group">
-              <div className="relative w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center text-white font-bold text-lg shadow-lg group-hover:scale-105 transition-transform">
-                HG
-              </div>
+              <img
+                src="/logo.png"
+                alt="El Instante del Hombre Gris"
+                className="w-9 h-9 md:w-11 md:h-11 object-contain group-hover:scale-105 transition-transform drop-shadow"
+              />
               <div className={`font-serif font-bold text-lg md:text-xl leading-none transition-colors ${showSolid ? 'text-slate-900' : 'text-white'}`}>
                 El Instante<br/>
                 <span className="text-blue-500 font-sans text-sm tracking-widest uppercase">del Hombre Gris</span>
