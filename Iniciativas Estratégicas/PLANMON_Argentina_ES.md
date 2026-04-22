@@ -2170,3 +2170,38 @@ Versión 1.0 | Marzo 2026
 Preparado bajo el marco ¡BASTA! — ¡Basta de vivir apagados!
 
 *Todo lo que PLANMON propone es la primera mejor alternativa basada en la mejor evidencia disponible. Un plan que no cambia no es valiente — es sordo. Y un plan sordo sobre dinero en un país que destruyó cinco monedas es un plan suicida.*
+
+---
+
+## INTEGRACIÓN CON EL MARCO ¡BASTA!
+
+Esta sección documenta cómo PLANMON se acopla al resto del ecosistema de mandatos. Todo vínculo declarado acá tiene su contraparte espejo en el plan referenciado: si acá aparece *"aporta a PLANXXX"*, en PLANXXX aparecerá *"recibe de PLANMON"*.
+
+### Lo que PLANMON aporta al ecosistema
+
+| Plan destinatario | Naturaleza | Tipo | Qué aporta |
+|---|---|---|---|
+| **PLANEB** | IMPORTANT | FINANCIAL | Red Bastarda provee infraestructura anti-inflacionaria al costo |
+| **PLANVIV** | IMPORTANT | FINANCIAL | Crédito Hipotecario Bastardo denominado en peso-canasta (necesario en Fase 1, no en pre-fase de censo) |
+| **PLANGEO** | IMPORTANT | INSTITUTIONAL | Peso-canasta regional para comercio Mercosur |
+| **PLANISV** | IMPORTANT | DATA | Datos de producción agrícola alimentan canasta del peso-canasta |
+| **PLANSUS** | IMPORTANT | FINANCIAL | Recaudación fiscal de sustancias capitaliza Fondo Soberano |
+| **PLANDIG** | CRITICAL | TECHNICAL | IDS provee los nodos soberanos sobre los cuales corren los rieles SAPI y el registro del Pulso monetario |
+| **PLANJUS** | CRITICAL | INSTITUTIONAL | Sala Financiera de JUS arbitra disputas on-chain del Pulso y del Fondo Soberano con enforcement automatizado |
+| **PLANEN** | CRITICAL | FINANCIAL | Regalías energéticas (USD 800M-3500M+/año) por hidrocarburos, minería y renovables capitalizan el Fondo Soberano Ciudadano |
+| **PLANTER** | IMPORTANT | FINANCIAL | El Dividendo del Suelo y el FSC son la palanca territorial que ancla al Fondo Soberano Ciudadano en activos reales |
+
+### Lo que PLANMON necesita de otros
+
+| Plan fuente | Naturaleza | Tipo | Qué recibe |
+|---|---|---|---|
+| **PLANDIG** | CRITICAL | TECHNICAL | SAPI payment rails — backbone del Pulso |
+| **PLANJUS** | CRITICAL | INSTITUTIONAL | Disputas financieras y enforcement on-chain |
+| **PLANEB** | CRITICAL | FINANCIAL | Bastarda Financiera es nodo ancla del Pulso |
+| **PLANEN** | CRITICAL | FINANCIAL | Regalías energéticas (USD 800M-3500M+/año) capitalizan Fondo Soberano |
+| **PLANTER** | IMPORTANT | FINANCIAL | Fondo Soberano Ciudadano es palanca macro de la soberanía monetaria |
+| **PLANVIV** | IMPORTANT | FINANCIAL | Peso-canasta denomina el Crédito Hipotecario Bastardo; el Pulso provee liquidez estable a la vivienda familiar |
+| **PLANGEO** | IMPORTANT | INSTITUTIONAL | Peso-canasta y Pulso son exportables como estándar monetario regional para el comercio Mercosur |
+| **PLANISV** | IMPORTANT | DATA | El Pulso consume la telemetría de producción agrícola y rendimientos de Suelo Vivo como insumo para la estabilidad del peso-canasta |
+| **PLANSUS** | IMPORTANT | FINANCIAL | El Fondo Soberano Ciudadano absorbe la recaudación fiscal de sustancias legalizadas como uno de sus pilares de capitalización |
+

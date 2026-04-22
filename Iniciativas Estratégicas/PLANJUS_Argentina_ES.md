@@ -1377,115 +1377,6 @@ La regla de oro de la comunicación de PLANJUS: **nunca prometas lo que no podé
 
 ---
 
-## SECCIÓN 20: INTEGRACIÓN CON ¡BASTA! — EL QUINTO PILAR
-
-> *"Cada dedo tiene su función. Pero solo juntos forman una mano. Y solo la mano puede decir: ¡BASTA!."*
-
-### 20.1 PLANJUS en el Cuerpo de ¡BASTA!
-
-¡BASTA! es un proyecto de mandatos populares — cada uno diseñado desde cero para un dominio esencial de la vida argentina. Los primeros cinco son los mandatos fundacionales: PLAN24CN reimagina las ciudades. PLANREP reimagina el trabajo. PLANISV reimagina el suelo. PLANEDU reimagina la educación. PLANJUS reimagina la justicia. Los que siguen — salud, seguridad, energía, cultura, ciencia — se desarrollan sobre los cimientos que estos cinco establecen.
-
-Pero PLANJUS tiene un rol especial. En la arquitectura del cuerpo humano, el sistema inmunológico no es un órgano como los demás — es el sistema que protege a todos los otros órganos. Sin sistema inmune, el corazón se infecta, los pulmones colapsan, el cerebro se inflama. De la misma manera, sin justicia funcional, los otros mandatos son vulnerables:
-
-| Plan | Sin PLANJUS | Con PLANJUS |
-|---|---|---|
-| **PLANEDU** | Un funcionario desvía fondos educativos → juicio de 11 años → impunidad | Denuncia en PLANJUS → investigación en 30 días → sanción efectiva |
-| **PLANISV** | Un productor contamina y no cumple compromisos → juicio de 7 años | Reclamo en PLANJUS → resolución en 45 días → cumplimiento o ejecución |
-| **PLANREP** | Un trabajador reconvertido no recibe la formación prometida → juicio laboral de 4 años | Disputas simples de reconversión (formación, emprendimiento, microcrédito) → JUS-1, resolución en 15 días. Disputas complejas de reconversión (conflictos con empleador anterior, indemnizaciones, beneficios) → JUS-2, resolución en 45 días |
-| **PLAN24CN** | Un contratista incumple en la construcción de una ciudad nueva → litigio de 6 años | Disputa comercial en PLANJUS → resolución en 45 días → la ciudad avanza |
-
-PLANJUS es el sistema inmunológico de ¡BASTA!. Sin él, los otros mandatos pueden ser saboteados, demorados, corrompidos. Con él, tienen un mecanismo de protección y ejecución que funciona a la velocidad de la vida real.
-
-La función protectora de PLANJUS se extiende a la nueva infraestructura post-laboral que PLANREP Sección 15 establece. Los Fideicomisos de Propósito Perpetuo necesitan resolución de disputas cuando surgen conflictos de gobernanza. La Economía de la Contribución necesita arbitraje cuando se cuestiona la validación de contribuciones. El DNP necesita un mecanismo para resolver disputas de elegibilidad. En todos estos casos, la misma arquitectura aplica: panelistas por sorteo, escalamiento en tres niveles, resolución en 15/45/90 días. A medida que la Argentina transita los Tres Horizontes (de una economía centrada en el empleo a una centrada en la contribución), los tipos de conflictos que PLANJUS resuelve van a evolucionar — pero la arquitectura está diseñada para manejar cualquier disputa entre ciudadanos, no solo las comerciales o laborales tradicionales. Esa es la belleza de un sistema construido sobre el juicio humano en vez de la tecnicidad legal: se adapta a lo que sea que la sociedad se convierta.
-
-### 20.3 PLANJUS y PLANEDU: Justicia y Educación
-
-PLANJUS y PLANEDU no son dos mandatos que conviven en paralelo — son dos mandatos que se necesitan como el oxígeno necesita a los pulmones.
-
-**Formación de panelistas como extensión de PLANEDU.** La infraestructura educativa de PLANEDU — las Escuelas del Futuro, los centros de formación continua, las plataformas de aprendizaje — es el canal natural para formar panelistas ciudadanos. La capacidad de "Colaborar" que PLANEDU define como uno de los ejes fundamentales de la educación del futuro incluye la justicia cívica como competencia central. Un ciudadano que pasó por el sistema educativo de PLANEDU llega a PLANJUS con las herramientas de escucha activa, análisis crítico y resolución colaborativa ya integradas. No empieza de cero — termina de especializarse.
-
-**PLANJUS como escudo de PLANEDU.** Los conflictos educativos — desvío de fondos, disputas laborales docentes, vulneración de derechos estudiantiles, incumplimiento de compromisos de infraestructura escolar — se resuelven hoy en tribunales que tardan años. Cuando un funcionario desvía recursos educativos, para el momento en que la justicia actúa el daño ya es irreversible: una generación de chicos que no tuvo la escuela que le correspondía. PLANJUS resuelve estos casos en 30–45 días. La impunidad educativa muere cuando la justicia funciona a la velocidad del ciclo lectivo.
-
-**La Semana PLANJUS en las escuelas.** Cada año, las escuelas que integran el sistema PLANEDU realizan una rotación de "Semana PLANJUS": los estudiantes de los últimos años visitan Casas JUS, observan paneles en funcionamiento (con consentimiento de las partes), y realizan simulaciones de casos reales simplificados. El objetivo no es formar abogados — es formar ciudadanos que entienden que la justicia les pertenece, que saben cómo funciona, y que llegan a la vida adulta con la convicción de que resolver conflictos es un acto cívico, no un trámite burocrático. La Semana PLANJUS produce algo que ningún curso de Educación Cívica logró jamás: experiencia directa con la justicia funcionando bien.
-
-**Completación educativa como puente.** Dado que PLANJUS requiere educación secundaria completa para ser panelista, PLANEDU provee los programas de completación educativa que cierran la brecha — especialmente en provincias con tasas de finalización por debajo del 70%. No es un requisito excluyente: es una oportunidad de inclusión que los dos mandatos construyen juntos.
-
-### 20.2 La Arquitectura de Gobernanza Popular
-
-La visión de ¡BASTA! es profunda: **el pueblo diseña, el pueblo vigila, el gobierno ejecuta**. Cada mandato es una expresión de la voluntad popular para un dominio específico. PLANJUS es el mecanismo por el cual esa voluntad se hace cumplir. Si el gobierno no ejecuta lo que el pueblo diseñó — PLANJUS es la herramienta para exigirlo. Si un funcionario desvía recursos — PLANJUS es el sistema que lo detecta y lo sanciona. Si un interés privado sabotea un mandato — PLANJUS es el escudo que lo frena.
-
-En la arquitectura de ¡BASTA!, PLANJUS no es un pilar más. Es el sistema que mantiene en pie a todos los demás.
-
-### 20.4 PLANJUS y PLANDIG: La Justicia que Habita la Red
-
-PLANDIG construye el sistema nervioso digital de la Argentina soberana. PLANJUS lo habita como inquilino principal y como primer caso de uso de alto impacto social. La integración es total: los tres niveles del sistema JUS (JUS-1, JUS-2, JUS-3) operan sobre infraestructura soberana construida por PLANDIG. Los expedientes digitales viven en la Capa 2 con audit trail completo e inviolable. Las resoluciones se publican en la Capa 1 — transparencia radical, verificable por cualquier ciudadano. Las audiencias remotas fluyen por el Mensajero Nacional cifrado, no por Zoom.
-
-El **Modelo Legal Argentino** del LANIA — entrenado sobre todo el corpus jurídico argentino, la jurisprudencia, y los dictámenes — es la herramienta de asistencia más poderosa que un panel ciudadano puede tener. "Casos similares a este se resolvieron así en el 85% de las veces" — no como instrucción sino como información. La IA informa, nunca decide. Esa regla, que PLANJUS definió en su Sección 5.2.1, se implementa con la gobernanza de IA que PLANDIG provee.
-
-La plataforma JUS Digital permite resolución de disputas online para casos JUS-1 simples — un consumidor reclama desde Ushuaia a las 11 de la noche y el sistema ya clasificó, notificó, y agendó mediación antes del amanecer. PLANDIG construye la infraestructura. PLANJUS la habita. Sin PLANDIG, la justicia popular sigue siendo presencial y lenta. Sin PLANJUS, la infraestructura digital más sofisticada del continente no tiene su caso de uso más transformador.
-
-### 20.5 PLANJUS y PLANEB: El Sistema Inmunológico de las Bastardas
-
-Las Empresas Bastardas de PLANEB son entidades sin dueño — DAOs híbridas que operan al costo, gobernadas por sus usuarios. Son el experimento de organización económica más radical de ¡BASTA!. Y como todo organismo radical, necesitan un sistema inmunológico que las proteja de la infección interna sin matarlas con burocracia externa.
-
-PLANJUS provee ese sistema inmunológico en tres niveles. **JUS-1:** mediación comunitaria para disputas entre usuarios de una Bastarda — un socio de la Bastarda Energética que cuestiona su factura, un usuario de la Bastarda Sanitaria que reclama por un turno. Resolución en 15 días, sin abogados, sin costos. **JUS-2:** arbitraje por panel ciudadano especializado para disputas entre Bastardas y reguladores, o entre Bastardas entre sí — la Bastarda Financiera y la ANEB no se ponen de acuerdo sobre estándares de transparencia. Panel en 45 días. **JUS-3:** tribunal de apelación para conflictos estructurales que ponen en riesgo la integridad de la Red Bastarda.
-
-El modelo Kleros de justicia descentralizada — fundado por el argentino Federico Ast — se adapta para el arbitraje interno de las Bastardas: jurado aleatorio de usuarios, incentivos económicos, resolución rápida. Las Casas JUS pueden hospedar las oficinas físicas de las Bastardas en municipios donde se necesite presencia compartida. Sin PLANJUS, la confianza pública en las Bastardas se erosiona al primer conflicto mal resuelto. Con PLANJUS, cada disputa resuelta justamente es una demostración de que las empresas sin dueño funcionan mejor que las empresas con dueño — porque hasta su justicia es del pueblo.
-
-### 20.6 PLANJUS y PLANSAL: Cuando la Salud Necesita Justicia
-
-La incertidumbre legal es un factor de enfermedad tan potente como el tabaco — PLANSAL lo identifica como Raíz 7 del modelo de Doce Raíces. PLANJUS ataca esa raíz directamente: justicia que resuelve en días reduce el cortisol crónico que enferma. Pero la integración va mucho más allá del efecto indirecto.
-
-Las disputas sanitarias en la Argentina de hoy son un calvario: mala praxis médica con juicios de 8 años, conflictos con obras sociales que niegan prestaciones mientras el paciente se deteriora, negligencia hospitalaria que se pierde en expedientes. Las Casas JUS se convierten en punto de entrada para estos conflictos. Un paciente al que la obra social le niega una cirugía presenta su caso en JUS-1 — mediación en 15 días. Si la obra social no cede, JUS-2 con panel especializado en salud resuelve en 45 días. Mientras tanto, la medida cautelar de PLANJUS ordena la cobertura provisoria — porque en salud, esperar es enfermarse más.
-
-PLANJUS protege jurídicamente a la ANVIP (Agencia Nacional de Vitalidad Popular) contra captura política. Los Centros de Vitalidad incorporan mediación familiar como servicio permanente — porque buena parte de las enfermedades crónicas argentinas tienen raíz en conflictos familiares que supuran durante décadas sin resolución. Si la ANVIP rechaza la certificación de un facilitador comunitario elegido por asamblea barrial, la asamblea apela ante PLANJUS. El sistema inmunológico no solo protege contra amenazas externas — protege contra la esclerosis interna de las propias instituciones de ¡BASTA!.
-
-### 20.7 PLANJUS y PLANSUS: La Justicia del Mercado que No Existía
-
-PLANSUS legaliza las sustancias. PLANJUS le da al mercado legal algo que el mercado ilegal nunca tuvo ni podrá tener: un sistema de resolución de disputas. Sin PLANJUS, PLANSUS es regulación sin enforcement — letra muerta en un mercado donde los conflictos se resolvían a los tiros.
-
-Las Casas JUS absorben las disputas comerciales del mercado regulado de sustancias. Un conflicto entre un productor cannábico y un dispensario se resuelve en JUS-1 en 15 días. Un consumidor que recibió producto adulterado reclama en JUS-1 y tiene resolución antes de que el daño se multiplique. Un regulador de ANSUS que excede sus atribuciones enfrenta panel JUS-2 en 45 días. Los mecanismos anticorrupción del triple candado de PLANJUS protegen a ANSUS con la misma arquitectura que protege a ANJUS — porque la tentación de capturar el regulador de un mercado de miles de millones de dólares va a ser feroz.
-
-La justicia restaurativa de PLANJUS aplica especialmente a los conflictos de transición — operadores del mercado ilegal que se integran al mercado legal y necesitan resolver disputas con la comunidad que sufrió la violencia del narcotráfico. Los Paneles Ciudadanos barriales que PLANSUS crea para gobernar El Puente (Sección 6 de PLANSUS) operan con el modelo PLANJUS: sorteo democrático, deliberación informada, resolución vinculante. PLANJUS es la infraestructura de enforcement que hace creíble la promesa de PLANSUS. Sin ella, la legalización es un decreto. Con ella, es un sistema.
-
-### 20.8 PLANJUS y PLANMON: El Escudo de la Nueva Moneda
-
-Toda moneda se sostiene sobre confianza. Y toda confianza se sostiene sobre justicia. Si alguien te roba Pulsos y no tenés dónde reclamar, dejás de usar Pulsos. Si un contrato en peso-canasta se incumple y la resolución tarda cinco años, nadie firma contratos en peso-canasta. PLANJUS es el sistema inmunológico que protege la confianza en la nueva arquitectura monetaria de PLANMON.
-
-Las disputas financieras del nuevo sistema encuentran en PLANJUS su mecanismo natural. Conflictos con El Pulso — un comerciante al que le retuvieron fondos, un usuario que sufrió fraude en una transacción — se resuelven en JUS-1, no en tribunales comerciales colapsados. Disputas con la Bastarda Financiera — un socio que cuestiona tasas, un prestatario que reclama por condiciones crediticias — van a JUS-2 con panel especializado en finanzas. Las Casas JUS funcionan como puntos de acceso físico al Pulso — inclusión financiera con respaldo de justicia en el mismo edificio.
-
-El embargo judicial on-chain es una innovación que solo funciona si PLANJUS y PLANMON operan integrados: una resolución firme de PLANJUS puede congelar Pulsos en la wallet del incumplidor vía protocolo JUS, sin intermediarios bancarios, sin oficios a bancos que tardan semanas. Y cuando PLANMON enfrente su mayor vulnerabilidad — la manipulación de los oracles que alimentan la canasta del peso-canasta — la cadena de bloques será la evidencia forense, y los responsables enfrentarán las consecuencias en el marco de PLANJUS. La nueva moneda necesita nueva justicia. PLANJUS la provee.
-
-### 20.9 PLANJUS y PLANAGUA: El Río que Demanda
-
-PLANAGUA le da a PLANJUS su primer cliente no humano: el río. Cuando el Paraná tiene personería jurídica, necesita un sistema de justicia que la haga real. No la justicia ordinaria — que tarda años, que cuesta fortunas, que diluye todo en tecnicismos procesales. El sistema JUS.
-
-Los guardianes de personería jurídica de ríos — formados conjuntamente por ANAGUA y PLANJUS — representan al río en el sistema de tres niveles. JUS-1 para disputas menores: un agricultor desvía más agua de la que le corresponde, el guardián presenta el caso, mediación en 15 días. JUS-2 para contaminación: una industria vierte efluentes, panel especializado en medio ambiente resuelve en 45 días con los datos del Tablero Nacional del Agua como evidencia primaria — el sensor IoT que registró cromo hexavalente a las 3:47 AM es prueba suficiente, sin esperar seis meses al perito judicial. JUS-3 para conflictos estructurales: una provincia se niega a cumplir el Pacto Federal Hídrico, ANAGUA escala, resolución vinculante con retención de coparticipación como mecanismo de cumplimiento.
-
-PLANJUS procesa la Ley de Criosfera — la protección legal de glaciares y ambientes periglaciares que PLANAGUA establece. Las denuncias por violación de esta ley entran al sistema JUS con prioridad ambiental. Los ríos demandan a quien los contamina. Los glaciares tienen voz a través de sus guardianes. PLANJUS es el sistema donde esa voz se escucha y donde la sentencia se ejecuta — porque una justicia ambiental que tarda diez años es complicidad disfrazada de proceso.
-
-### 20.10 PLANJUS y PLANGEO: La Justicia que Se Exporta
-
-PLANGEO organiza los dieciséis mandatos de ¡BASTA! en siete Stacks de Soberanía exportables. PLANJUS ocupa uno entero: el **Stack de Soberanía Jurídica** — tribunales ciudadanos, resolución algorítmica, acceso a justicia. 5.100 millones de personas en el mundo no tienen acceso efectivo a justicia. 140 países tienen sistemas judiciales colapsados. PLANJUS no es solo una reforma argentina — es un producto exportable que resuelve un problema global.
-
-Pero la integración con PLANGEO tiene un segundo eje, defensivo y urgente: la protección de las reformas ¡BASTA! contra litigios internacionales. Cuando las Bastardas desplacen a aseguradoras multinacionales, van a llover demandas en el CIADI y en tribunales UNCITRAL por "expropiación regulatoria." PLANJUS provee el argumento jurídico: la Argentina tiene un sistema de justicia funcional, transparente, verificable, que resuelve en semanas lo que otros tardan años. La defensa anti-CIADI se construye mostrando que las reformas no son arbitrarias — son producto de gobernanza popular legítima, con mecanismos de resolución de disputas que superan en velocidad, transparencia y acceso a cualquier tribunal internacional.
-
-El reconocimiento internacional de las resoluciones JUS — vía standards track en IEEE, convenios bilaterales de reconocimiento recíproco, y alianzas con países con sistemas judiciales colapsados — convierte a PLANJUS en la punta de lanza diplomática de ¡BASTA!. Es difícil oponerse públicamente a "mejorar el acceso a la justicia." La resistencia será sorda, no vocal. Y mientras resisten en silencio, la Red Soberana adopta el Stack Jurídico y PLANJUS se convierte en estándar de facto para resolución de disputas rápida, transparente y verificable.
-
-### 20.11 PLANJUS × PLANEN: Disputas Energéticas
-
-Las Casas JUS resuelven disputas energéticas: conflictos tarifarios con la Bastarda Energética, disputas ambientales por fracking, y conflictos de generación distribuida (net metering). Los ríos con personería jurídica (PLANAGUA) también demandan por impacto energético — PLANJUS procesa esas causas.
-
-### 20.12 PLANJUS × PLANSEG: La Frontera entre Justicia y Seguridad
-
-PLANJUS resuelve conflictos; PLANSEG previene delitos. La línea entre ambos es nítida por diseño: cuando un conflicto vecinal escala a amenaza concreta, la Estación Barrial de PLANSEG interviene; cuando un delito genera una víctima que necesita reparación, la Casa JUS de PLANJUS procesa el caso. Las Casas JUS y las Estaciones Barriales son infraestructura complementaria — en muchos barrios, co-localizadas en el mismo edificio, compartiendo datos y protocolos de derivación. PLANSEG aporta la presencia disuasoria que permite que PLANJUS funcione sin miedo; PLANJUS aporta la resolución rápida que descomprime la tensión social antes de que se convierta en inseguridad.
-
-### 20.13 PLANJUS × PLANVIV: La Justicia del Techo
-
-La urbanización de 1.800 asentamientos informales genera el mayor volumen de disputas de propiedad en la historia argentina — y PLANJUS las resuelve. Regularización de títulos, conflictos de posesión entre familias que ocuparon el mismo lote en décadas distintas, disputas entre vecinos por límites que nunca tuvieron agrimensura, y protección de inquilinos contra desalojos abusivos — todo pasa por las Casas JUS. El sistema de tres niveles de PLANJUS (autogestión asistida, mediación, paneles ciudadanos) es la única infraestructura capaz de procesar esa escala de conflictos sin colapsar: el Poder Judicial actual tardaría décadas en titular una sola villa. PLANJUS lo hace en meses. Sin justicia de propiedad rápida y accesible, la urbanización de PLANVIV es obra pública sin seguridad jurídica — y un título sin certeza no vale más que el papel donde está impreso.
-
----
-
 ## SECCIÓN 21: VISIÓN 2040 — LA ARGENTINA DONDE LA JUSTICIA LLEGA ANTES QUE EL DAÑO
 
 > *"Un día, en este país, una madre va a tener un problema con el colegio de su hijo, va a abrir el celular, va a presentar su reclamo en PLANJUS, y en diez días va a tener una respuesta justa. Ese día, la Argentina va a ser un país diferente. No porque haya cambiado una ley. Porque habrá cambiado una experiencia."*
@@ -2473,3 +2364,38 @@ Un sistema de justicia que funciona no solo protege a los que están adentro. At
 **PLANJUS v1.1 — Marzo 2026**
 **Proyecto ¡BASTA! — El Instante del Hombre Gris**
 **Preparado para la República Argentina**
+
+---
+
+## INTEGRACIÓN CON EL MARCO ¡BASTA!
+
+Esta sección documenta cómo PLANJUS se acopla al resto del ecosistema de mandatos. Todo vínculo declarado acá tiene su contraparte espejo en el plan referenciado: si acá aparece *"aporta a PLANXXX"*, en PLANXXX aparecerá *"recibe de PLANJUS"*.
+
+### Lo que PLANJUS aporta al ecosistema
+
+| Plan destinatario | Naturaleza | Tipo | Qué aporta |
+|---|---|---|---|
+| **PLANEB** | CRITICAL | INSTITUTIONAL | Resolución de disputas de usuarios de cada Bastarda |
+| **PLANMON** | CRITICAL | INSTITUTIONAL | Disputas financieras y enforcement on-chain |
+| **PLANSUS** | IMPORTANT | INSTITUTIONAL | Conflictos de licencias y zonificación de sustancias |
+| **PLANVIV** | IMPORTANT | INSTITUTIONAL | Disputas de propiedad, derechos de inquilinos |
+| **PLANMESA** | IMPORTANT | INSTITUTIONAL | Control legal de Resoluciones y disputas sobre auto-postulación |
+| **PLANCUIDADO** | IMPORTANT | INSTITUTIONAL | Mediación de disputas de Pactos en primera instancia no-jurisdiccional |
+| **PLANMEMORIA** | IMPORTANT | INSTITUTIONAL | Inscripción de Captura coopera con investigaciones sin reemplazarlas |
+| **PLANTER** | CRITICAL | INSTITUTIONAL | Co-jurisdicción con derecho originario; disputas territoriales |
+| **PLANDIG** | IMPORTANT | TECHNICAL | LANIA y la plataforma de Resolución Popular proveen el modelo IA legal y la traza digital de disputas |
+
+### Lo que PLANJUS necesita de otros
+
+| Plan fuente | Naturaleza | Tipo | Qué recibe |
+|---|---|---|---|
+| **PLANDIG** | IMPORTANT | TECHNICAL | Plataforma digital de resolución y modelo IA legal |
+| **PLANEB** | CRITICAL | INSTITUTIONAL | Resolución Popular resuelve disputas de usuarios de cada Bastarda en primera instancia no-jurisdiccional, con apelación a JUS formal |
+| **PLANMON** | CRITICAL | INSTITUTIONAL | Sala Financiera de JUS arbitra disputas on-chain del Pulso y del Fondo Soberano con enforcement automatizado |
+| **PLANSUS** | IMPORTANT | INSTITUTIONAL | Sala de Sustancias resuelve conflictos de licencias, zonificación y disputas comunitarias sobre uso de sustancias |
+| **PLANVIV** | IMPORTANT | INSTITUTIONAL | Sala de Propiedad resuelve disputas de inquilinos, fideicomisos y títulos digitales de vivienda |
+| **PLANMESA** | IMPORTANT | INSTITUTIONAL | JUS aporta control legal de las Resoluciones de Mesa y arbitra disputas sobre auto-postulación o Credenciales revocadas |
+| **PLANCUIDADO** | IMPORTANT | INSTITUTIONAL | JUS provee mediación de disputas de Pactos en primera instancia no-jurisdiccional antes de escalar al sistema formal |
+| **PLANMEMORIA** | IMPORTANT | INSTITUTIONAL | JUS coopera con la Inscripción de Captura en investigaciones sin sustituir su función mnémica autónoma |
+| **PLANTER** | CRITICAL | INSTITUTIONAL | JUS implementa la co-jurisdicción con derecho originario y arbitra disputas territoriales entre pueblos y Estado |
+

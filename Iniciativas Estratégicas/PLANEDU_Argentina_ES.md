@@ -1641,128 +1641,6 @@ Si la Fase 2 demuestra que el modelo funciona, la Fase 3 lo escala. De 50 escuel
 
 ---
 
-## SECCIÓN 18: INTEGRACIÓN CON EL PROYECTO ¡BASTA! — EL ORGANISMO COMPLETO
-
-> *"PLANEDU no existe solo. Es un órgano de un organismo. Sin los otros cuatro, late pero no vive. Con los otros cuatro, transforma todo."*
-
-PLANEDU es una de las cinco piezas de un rompecabezas que solo funciona completo. Cada iniciativa del proyecto ¡BASTA! — PLAN24CN, PLANISV, PLANREP, PLANEDU, PLANJUS — aborda una crisis específica, pero las cinco crisis están interconectadas y las cinco soluciones se potencian mutuamente. Un egresado de PLANEDU que vive en una ciudad de PLAN24CN, come alimentos de un campo PLANISV, y trabaja en un emprendimiento nacido de PLANREP es un argentino que vive en un ecosistema completo de bienestar — no en un parche aislado.
-
-### 18.1 El Aula Viva: La Educación que Sale del Edificio
-
-Las Escuelas del Futuro no terminan en sus paredes. PLANEDU propone que cada alumno, durante su trayectoria escolar, participe en rotaciones inmersivas por las otras cuatro iniciativas del proyecto ¡BASTA!. No como excursión turística — como experiencia formativa profunda, integrada en el currículo, evaluada como parte del portfolio.
-
-**TABLA 34: El Aula Viva — Rotaciones Inmersivas ¡BASTA!**
-
-| Rotación | Duración | Edad | Capacidades que Desarrolla | Qué Hace el Alumno | Conexión ¡BASTA! |
-|---|---|---|---|---|---|
-| **Semana PLANISV** (en un sitio de restauración de suelo o finca regenerativa) | 5-7 días (2 veces en la trayectoria: a los 10 y a los 15) | 10 y 15 años | CUIDAR + CONOCER + CONSTRUIR + COLABORAR | Trabaja con las manos en el suelo: analiza microbiología, planta coberturas, mide infiltración de agua, cocina con lo que cosecha. Documenta todo para su portfolio. Convive con productores reales. | La biología del suelo deja de ser un capítulo de un libro y se convierte en tierra bajo las uñas |
-| **Semana PLAN24CN** (en una ciudad nueva en construcción o ya habitada) | 5-7 días (2 veces: a los 12 y a los 16) | 12 y 16 años | PENSAR + CREAR + COLABORAR + COMUNICAR | Participa en un taller de diseño urbano real: analiza cómo se diseñó la ciudad, propone mejoras, entrevista a habitantes, mapea flujos. Presenta sus conclusiones al Consejo Ciudadano de la ciudad. | El urbanismo como creación colectiva — la ciudad no es algo que te pasa, es algo que se diseña |
-| **Semana PLANREP** (en un Centro de la Vida o Centro de Inteligencia) | 5-7 días (1 vez, a los 14) | 14 años | CONSTRUIR + CREAR + CUIDAR + CONOCER | Trabaja junto a adultos en reconversión: aprende un oficio artesanal durante una semana, ve a personas adultas aprendiendo cosas nuevas, entiende que el aprendizaje no termina a los 18. Produce una pieza artesanal que se suma a su portfolio. | La educación no es solo para chicos. Ver a un adulto de 45 años aprendiendo carpintería cambia la perspectiva de un adolescente sobre el aprendizaje para siempre |
-| **Semana PLANJUS** (en una Casa JUS o panel ciudadano) | 5-7 días (1 vez, a los 16) | 16 años | PENSAR + COMUNICAR + COLABORAR + CUIDAR | Estudiantes visitan Casas JUS, observan paneles ciudadanos en acción, participan en casos simulados, aprenden resolución de conflictos y justicia restaurativa | Comprensión de justicia como servicio comunitario, no como institución lejana |
-
-**El efecto de polinización cruzada:** Cuando un alumno de 15 años vuelve de una semana en una finca PLANISV y cuenta en su Escuela del Futuro lo que aprendió sobre micorrizas, sobre la relación entre suelo y agua, sobre el amanecer trabajando con las manos — está haciendo algo que ningún libro de texto puede hacer: está transmitiendo experiencia vivida. Y cuando un productor de PLANISV ve a un grupo de adolescentes analizando su suelo con instrumentos científicos y explicándole en qué consiste la red de micorrizas que sostiene sus cultivos, está viendo el futuro de la producción argentina. El proyecto ¡BASTA! se convierte en un aula viva donde cada pieza educa a las otras.
-
-### 18.2 Lo Que PLANEDU Aporta a Cada Iniciativa
-
-**TABLA 35: Matriz de Contribución — PLANEDU Aporta a →**
-
-| PLANEDU aporta → | PLAN24CN (Ciudades Nuevas) | PLANISV (Suelo Vivo) | PLANREP (Reconversión) |
-|---|---|---|---|
-| **Ciudadanos formados** | Habitantes que saben gobernar participativamente, cuidar espacios públicos, innovar en economía circular | Productores que entienden biología del suelo, consumidores que demandan alimento de calidad | Personas que no necesitan empleo público como refugio — tienen capacidades para crear valor |
-| **Maestros Creadores** | Docentes de excelencia para escuelas en ciudades nuevas (cada ciudad PLAN24CN tiene al menos 1 EdF) | Formadores para la Red de Conocimiento PLANISV: la educación en suelo vivo necesita pedagogos, no solo agrónomos | Formadores para Centros de la Vida y Centros de Inteligencia: PLANREP necesita los mejores educadores de adultos |
-| **PAA (Plataforma de Aprendizaje)** | Plataforma para participación cívica digital, formación continua de habitantes, gobernanza participativa | Plataforma para capacitación de productores: módulos de suelo vivo, ganadería regenerativa, mercado de carbono | Plataforma para reconversión laboral: formación en oficios, habilidades digitales, Economía de la Inteligencia |
-| **Portfolio** | Identidad digital de cada ciudadano: sus capacidades, su historia de aprendizaje, sus creaciones | — | Herramienta de reconversión: el portfolio documenta las nuevas capacidades del adulto en reconversión y lo presenta ante empleadores |
-| **Siete Capacidades** | Marco de habilidades para ciudadanos de las 24 ciudades | CUIDAR como filosofía de producción regenerativa | CREAR y CONSTRUIR como base de las Ocho Ramas del Trabajo Vivo |
-| **Bilingüismo** | Ciudades conectadas con el mundo: comercio, turismo, academia internacional | Acceso a literatura científica sobre suelo y regeneración (95% en inglés) | Exportación de servicios en la Economía de la Inteligencia requiere inglés |
-| **Alfabetización post-laboral** | Ciudadanos que entienden transición económica y participan en diseño del futuro | Productores que entienden fideicomisos de suelo y DNP | Egresados que entienden fideicomisos, DNP, Economía de la Contribución, y participan activamente en Paneles Ciudadanos de Futuro Económico |
-
-### 18.3 Lo Que PLANEDU Recibe de Cada Iniciativa
-
-**TABLA 36: Matriz de Contribución — PLANEDU Recibe de ←**
-
-| ← PLANEDU recibe de | PLAN24CN (Ciudades Nuevas) | PLANISV (Suelo Vivo) | PLANREP (Reconversión) |
-|---|---|---|---|
-| **Infraestructura física** | Escuelas del Futuro integradas en ciudades nuevas: edificios bioclimáticos, red digital soberana, espacios públicos educativos | Huertos escolares con suelo vivo real (no tierra de vivero) + alimento local de calidad para comedores escolares | Centros de la Vida como "escuelas nocturnas" para Escuela Abierta. Infraestructura compartida |
-| **Financiamiento** | Economías de escala en construcción: cada EdF en ciudad PLAN24CN cuesta 20-30% menos (infraestructura compartida) | — | Ahorro fiscal de PLANREP redirigido a PLANEDU: USD 1.500-3.500M/año a régimen (asignación consolidada del 10-15% del ahorro neto, disponible a partir del Año 4 — ver PLANREP Sección 5.1.1) |
-| **Contenido curricular** | Urbanismo como currículo: diseño de ciudades, gobernanza participativa, arquitectura bioclimática, economía circular | Ecología como currículo: biología del suelo, ciclo del agua, producción regenerativa, relación humano-tierra | Oficios como currículo: carpintería, cocina, textil, construcción, reparación — todo lo que PLANREP enseña a adultos, PLANEDU lo integra para jóvenes |
-| **Red de pasantías** | Empresas y organizaciones de ciudades nuevas como sitios de pasantía para alumnos EdF | Fincas y sitios PLANISV como destinos de pasantía y rotación inmersiva | Centros de la Vida como sitios de pasantía: alumnos trabajan junto a adultos en reconversión |
-| **Legitimidad social** | La calidad de las ciudades nuevas valida el proyecto ¡BASTA! entero | La mejora visible del campo valida la filosofía del cuidado que PLANEDU enseña | La reconversión exitosa de adultos valida la promesa de que la educación transforma vidas a cualquier edad |
-| **Infraestructura post-laboral** | Fideicomisos de energía y vivienda como contenido curricular vivo | Fideicomisos de suelo vivo como experiencia de campo | Fideicomisos de Propósito Perpetuo, DNP, Nodos de Contribución como destinos para egresados, Economía de la Contribución como marco de actividad post-escolar |
-
-### 18.4 El Efecto Multiplicador del Proyecto ¡BASTA!
-
-Ninguno de los dieciséis mandatos funciona a su máximo potencial sin los otros quince. El efecto no es aditivo — es multiplicador.
-
-**TABLA 37: Efecto Multiplicador ¡BASTA!**
-
-| Sin integración (cada plan solo) | Con ¡BASTA! (los 5 integrados) | Multiplicador |
-|---|---|---|
-| PLANEDU forma buenos alumnos que egresan a ciudades que no funcionan | PLANEDU forma buenos alumnos que habitan ciudades diseñadas para el bienestar (PLAN24CN) | ×2-3 en impacto sobre calidad de vida |
-| PLANISV capacita productores que no consiguen mano de obra formada | PLANISV recibe egresados de PLANEDU que entienden biología del suelo y eligen producción regenerativa | ×2 en adopción de prácticas regenerativas |
-| PLANREP reconvierte adultos que no encuentran demanda para sus oficios | PLANREP reconvierte adultos hacia ciudades nuevas (PLAN24CN) que necesitan carpinteros, cocineros, artesanos, cuidadores | ×3 en tasa de inserción laboral post-reconversión |
-| PLAN24CN construye ciudades con habitantes que no están preparados para gobernarlas | PLAN24CN recibe habitantes formados por PLANEDU en pensamiento crítico, participación cívica, y cuidado ambiental | ×2 en calidad de gobernanza participativa |
-| PLANEDU + PLANJUS: Justicia lenta e inaccesible | Panelistas formados en PLANEDU; conflictos educativos resueltos en 45 días; justicia como capacidad cívica enseñada en escuelas | ×2-3 en confianza ciudadana en el sistema de justicia |
-
-### 18.5 PLANEDU ↔ PLANDIG — El Cerebro Soberano del Aula
-
-> *"Un co-tutor de IA que no corre en suelo argentino no es soberano — es un servicio que te pueden cortar."*
-
-La PAA (Plataforma Adaptativa de Aprendizaje) es el corazón tecnológico de PLANEDU. Pero un corazón necesita un cuerpo — y ese cuerpo es PLANDIG. La infraestructura cloud soberana de ArgenCloud aloja los datos educativos de cada estudiante argentino en territorio nacional: ningún patrón de aprendizaje de un chico de Florencio Varela viaja a un servidor de Virginia. El Modelo Educativo Argentino del LANIA — fine-tuned en español rioplatense, entrenado sobre el currículo de las Siete Capacidades — corre en los Nodos Escuela que PLANDIG despliega en cada establecimiento educativo: racks pequeños con edge computing que permiten al co-tutor de IA funcionar con baja latencia incluso donde la conectividad es precaria. La Capa 3 de protección de datos de PLANDIG garantiza que los registros de aprendizaje de menores operen bajo estándares superiores: perfilado exclusivamente pedagógico, visibilidad total para padres, auditoría semestral. PLANEDU forma, a su vez, el talento digital que el ecosistema soberano necesita: los egresados de las Escuelas del Futuro que eligen carreras de computación, IA, o ingeniería de datos son la cantera humana de ArgenCloud, del LANIA, y de la Bastarda Digital. El módulo curricular de Soberanía Digital — integrado en las Siete Capacidades desde cuarto grado — enseña qué son los datos, cómo funciona un algoritmo, y por qué importa quién controla la infraestructura. PLANDIG provee el sistema nervioso; PLANEDU, la conciencia que lo habita.
-
-### 18.6 PLANEDU ↔ PLANEB — La Escuela Que No Termina Nunca
-
-> *"La Bastarda Educativa no es competencia de la Escuela del Futuro — es su continuación natural."*
-
-Las Escuelas del Futuro tienen un límite temporal: forman personas durante la infancia, la adolescencia y los primeros años de vida adulta. La Bastarda Educativa de PLANEB disuelve ese límite. Es la extensión del aprendizaje de por vida — una plataforma cooperativa, de propiedad cero, donde cualquier educador puede publicar contenido, cualquier persona puede aprender, y las credenciales se certifican en blockchain sin depender de ninguna institución. Los graduados de PLANEDU que pasan por los Centros de la Vida de PLANREP se convierten en formadores de la Bastarda Educativa: el ciclo se cierra. Pero la integración es más profunda que la infraestructura. Las Siete Capacidades incluyen CONSTRUIR y CREAR — y el emprendimiento cooperativo es contenido curricular. Los emprendimientos estudiantiles de la Sección 4.7 de PLANEDU operan bajo la lógica del Protocolo Bastardo: transparencia radical, gobernanza distribuida, creación de valor sin extracción. La ANCE y la ANEB comparten estándares de gobernanza: auditoría ciudadana, rotación de directivos, incompatibilidades cruzadas. Lo que un alumno aprende en una Escuela del Futuro sobre crear valor con transparencia es exactamente lo que va a practicar toda su vida en la Red Bastarda. PLANEDU forma la capacidad; PLANEB la despliega en el mercado.
-
-### 18.7 PLANEDU ↔ PLANSAL — La Escuela Como Nodo de Vitalidad
-
-> *"Un chico que come mal, duerme mal y sufre en silencio no aprende — no importa cuán buena sea la pedagogía."*
-
-No existe transformación educativa sin salud. Las 12 Raíces de Vitalidad Popular que PLANSAL identifica — alimentación real, movimiento diario, sueño, vínculo, propósito, contacto con la naturaleza, contención emocional, comunidad, silencio, creatividad, espiritualidad laica, conexión intergeneracional — se integran en las Siete Capacidades de PLANEDU. CUIDAR no es solo un eje curricular abstracto: es un chico que aprende a cocinar con verduras de la huerta escolar (articulación con PLANISV), que tiene actividad física diaria como parte de la jornada (no como "hora de gimnasia" opcional), que accede a contención emocional profesional cuando algo le pesa. La Escuela del Futuro es un nodo de salud — el punto de contacto más constante y universal que el Estado tiene con la infancia. Los comedores escolares dejan de servir comida procesada y se transforman en espacios de educación alimentaria viva. Las Escuelas Abiertas — que PLANEDU extiende a la comunidad en horario vespertino y fines de semana — funcionan como Centros de Vitalidad para adultos mayores, familias, y vecinos. La formación ciudadana que PLANEDU sostiene genera la demanda popular que las leyes de PLANSAL necesitan para aprobarse. PLANSAL cuida el cuerpo; PLANEDU enseña a habitarlo con conciencia.
-
-### 18.8 PLANEDU ↔ PLANSUS — Información Real, No Propaganda del Miedo
-
-> *"Decirle 'no' a un adolescente no es educación — es pereza. Darle los datos para que decida es respeto."*
-
-Sesenta años de educación antidrogas basada en el miedo no redujeron el consumo — solo redujeron la confianza de los jóvenes en las instituciones que les mentían. PLANSUS propone regulación basada en evidencia; PLANEDU es el canal educativo de esa evidencia. La integración opera en tres ejes curriculares. En CONOCER: farmacología real — cómo funcionan las sustancias en el cerebro, qué riesgos tienen según su perfil (no todos iguales), qué dice la neurociencia sobre el cerebro adolescente en desarrollo y por qué la edad de inicio importa. En CUIDAR: reducción de daños como marco ético — si alguien va a consumir, que sepa cómo minimizar el riesgo; exploración de la conciencia y conocimiento indígena sobre plantas maestras como herencia cultural, no como tabú. En CREAR: los emprendimientos estudiantiles de mayores de 18 pueden incluir proyectos vinculados a la economía legal de sustancias que PLANSUS habilita. Las universidades, articuladas por PLANEDU, se convierten en socios de I+D del Track Terapéutico y del Track de Conciencia de PLANSUS. El resultado es una generación que no necesita propaganda porque tiene ciencia. PLANSUS regula el mercado; PLANEDU forma al ciudadano que lo navega con criterio.
-
-### 18.9 PLANEDU ↔ PLANMON — Aprender Lo Que Nadie Nos Enseñó Sobre La Plata
-
-> *"Un país que destruyó cinco monedas en cuarenta años no puede darse el lujo de no enseñar qué es una moneda."*
-
-La alfabetización financiera no es un contenido optativo — es un componente estructural de las Siete Capacidades. La Argentina es un país donde millones de personas toman decisiones económicas todos los días sin entender qué es la inflación, cómo funciona un tipo de cambio, o por qué el peso se devalúa cíclicamente. PLANMON propone El Pulso — una moneda respaldada por una canasta de bienes reales, gobernada por protocolo transparente. PLANEDU enseña por qué eso importa. Desde primaria: qué es el dinero, por qué existe, qué significa que algo tenga valor. Desde secundaria: historia monetaria argentina — el austral, el peso convertible, el corralito, los cinco signos monetarios destruidos — como caso de estudio en economía y en ética pública. Qué es una canasta de respaldo. Cómo funciona el SAPI (el riel de pagos de PLANDIG). Por qué la transparencia del protocolo es una defensa contra la confiscación. Los emprendimientos estudiantiles de PLANEDU operan en Pulso desde su lanzamiento: los chicos aprenden economía transaccionando, no memorizando. La Bastarda Educativa de PLANEB también opera en Pulso — extendiendo la experiencia monetaria soberana más allá de la edad escolar. PLANMON diseña la moneda; PLANEDU forma a la generación que la entiende, la usa, y la defiende.
-
-### 18.10 PLANEDU ↔ PLANAGUA — El Laboratorio En Cada Canilla
-
-> *"El agua no es un tema de ciencias naturales — es el eje transversal de todo el currículo."*
-
-PLANAGUA le da a PLANEDU algo que ningún libro de texto puede ofrecer: un laboratorio vivo en cada escuela. El programa Agua Escuela — diseñado conjuntamente entre ANAGUA y la ANCE — convierte el análisis de agua en ciencia ciudadana real. En primaria, los chicos miden pH, turbiedad y temperatura todas las semanas: aprenden qué es un dato, una serie temporal, una tendencia. En secundaria, miden arsénico, nitratos, cloro residual y conductividad — los datos se cargan al Tablero Nacional del Agua y ANAGUA los usa. No es simulación. Es participación real en el monitoreo de su propia comunidad. En el nivel universitario, PLANEDU y PLANAGUA cofinancian 500 becas anuales para carreras de ingeniería hidráulica, sanitaria, ambiental y glaciología — la Argentina forma 200 ingenieros hidráulicos por año y necesita formar 500+. Pero el agua no vive solo en el laboratorio: es eje transversal del currículo. Biología (ecosistemas acuáticos, ciclo del agua), química (potabilización, contaminantes), geografía (cuencas, glaciares, acuífero Guaraní), ética (¿a quién le pertenece el agua? ¿puede tener derechos un río?). Los 20.000 kits distribuidos en los primeros tres años cuestan USD 8-12M. El retorno: una generación que sabe leer el agua — y que exige que se la cuide.
-
-### 18.11 PLANEDU ↔ PLANGEO — El Producto Exportable Que Nadie Puede Sancionar
-
-> *"Nadie te pone sanciones por mejorar tus escuelas. Es el caballo de Troya perfecto."*
-
-PLANGEO clasifica a PLANEDU como un "inobjetable" — una de las primeras iniciativas ¡BASTA! que se proyectan internacionalmente porque ningún actor geopolítico puede oponerse sin quedar en ridículo. ¿Quién sanciona a un país por transformar su sistema educativo? El paquete exportable es concreto: las Siete Capacidades como marco curricular adaptable, la PAA como plataforma de aprendizaje personalizado sin dependencia de Big Tech, los Maestros Creadores como modelo de formación docente, la ANCE como arquitectura de gobernanza educativa anti-captura política. PLANGEO ubica este Stack de Transición Humana — PLANEDU + PLANREP — como la oferta más atractiva de la Red de Soberanías para los 180+ países con sistemas educativos en crisis. Pero PLANEDU impone una condición que PLANGEO respeta: no se exporta antes de evaluar. La proyección internacional comienza en Año 4, después de que las primeras 500 Escuelas del Futuro hayan completado un ciclo completo y la evaluación de impacto muestre resultados verificables. No se vende humo — se comparte evidencia. Argentina primero lo prueba, lo mide, lo ajusta. Después lo ofrece. El modelo se exporta como conocimiento abierto, no como franquicia: el Protocolo Educativo se publica en GitHub, los materiales son Creative Commons, la asistencia técnica opera a través de los Embajadores Bastardos de PLANGEO. PLANGEO abre la puerta; PLANEDU entrega el contenido que la sostiene.
-
-### 18.12 PLANEDU × PLANEN: Ingeniería Energética como Capacidad Nacional
-
-Las Escuelas del Futuro incluyen energía como eje transversal: termodinámica aplicada, diseño de microredes, y eficiencia energética. Las universidades forman la cohorte de ingenieros que PLANEN necesita (nuclear, renovables, litio). 500 becas anuales en ingeniería energética financiadas por las regalías del Fondo Soberano.
-
-### 18.13 PLANEDU ↔ PLANSEG — La Escuela Que Previene la Violencia
-
-La prevención de la violencia empieza en el aula, no en la comisaría. PLANEDU integra resolución de conflictos como eje transversal de las 7 Capacidades — especialmente dentro de COLABORAR — y PLANSEG provee los protocolos de alerta temprana para jóvenes en riesgo que la escuela detecta antes que ninguna otra institución. Los sistemas de alerta temprana de la ANSEG se conectan con las Escuelas del Futuro: un docente que identifica señales de violencia intrafamiliar, reclutamiento por bandas, o consumo problemático activa un protocolo PLANSEG-PLANEDU que interviene en días, no en meses. La escuela es la primera línea de seguridad — porque un chico que sabe resolver conflictos sin violencia es un adulto que no necesita policía.
-
-### 18.14 PLANEDU ↔ PLANVIV — La Escuela Como Ancla del Barrio Urbanizado
-
-Cuando PLANVIV urbaniza una villa, lo primero que construye después de agua y cloacas es una Escuela del Futuro. No es casualidad — es arquitectura social. La escuela es el ancla comunitaria que transforma un asentamiento regularizado en un barrio con identidad: el lugar donde los chicos aprenden, donde los padres se encuentran, donde la comunidad se organiza. Cada barrio rehabilitado por PLANVIV incorpora una Escuela del Futuro de PLANEDU como equipamiento obligatorio — con huerta comunitaria, Centro de Vitalidad adyacente, y conexión directa a los Centros de la Vida de PLANREP para los adultos del barrio. PLANEDU no llega al barrio después de la urbanización: llega con ella, porque una villa sin escuela digna no es un barrio urbanizado — es una villa con cloacas.
-
-### 18.15 PLANEDU ↔ PLANCUL — La Escuela como Nodo de la Red de Dendritas
-
-Las escuelas son nodos naturales de la Red de Dendritas de PLANCUL — infraestructura cultural que ya existe en cada barrio. Las Siete Capacidades de PLANEDU incluyen CREAR, y PLANCUL aporta las Siete Raíces (Tierra, Memoria, Creación, Cuerpo, Conexión, Juego, Identidad) como contenido transversal que enriquece cada capacidad. Los Maestros Creadores de PLANEDU son facilitadores naturales de las Mesas Largas de PLANCUL: personas formadas para abrir espacios donde la creatividad, la conversación y el encuentro se vuelven actos pedagógicos. La escuela que PLANEDU construye y la cultura que PLANCUL cataliza son dos nombres para el mismo proyecto: formar personas enteras.
-
----
-
 ## SECCIÓN 19: LOS FIDEICOMISOS Y LA EDUCACIÓN — APRENDER PARTICIPANDO EN EL FUTURO
 
 > *"No les enseñamos sobre los fideicomisos para que los entiendan. Les enseñamos participando en su gobernanza — para que los hagan mejores."*
@@ -1917,3 +1795,33 @@ La respuesta es: para que cada argentino pueda vivir la mejor vida posible y ayu
 **Dieciséis mandatos. Un solo propósito: que la Argentina sea el mejor lugar del planeta para vivir una experiencia humana.**
 
 **¡BASTA!.**
+
+---
+
+## INTEGRACIÓN CON EL MARCO ¡BASTA!
+
+Esta sección documenta cómo PLANEDU se acopla al resto del ecosistema de mandatos. Todo vínculo declarado acá tiene su contraparte espejo en el plan referenciado: si acá aparece *"aporta a PLANXXX"*, en PLANXXX aparecerá *"recibe de PLANEDU"*.
+
+### Lo que PLANEDU aporta al ecosistema
+
+| Plan destinatario | Naturaleza | Tipo | Qué aporta |
+|---|---|---|---|
+| **PLANCUL** | IMPORTANT | INSTITUTIONAL | Escuelas enseñan Rondas de Escucha; niños son Dendritas nativas |
+| **PLANMESA** | CRITICAL | INSTITUTIONAL | A partir de Fase 1: Capa de Estudio de la Credencial se construye en PLANEDU (Fase 0 de PLANMESA es arranque técnico autónomo) |
+| **PLANCUIDADO** | IMPORTANT | INSTITUTIONAL | Formación inicial de cada tipo de Pacto; currículum de cuidado desde primaria |
+| **PLANMEMORIA** | CRITICAL | INSTITUTIONAL | A partir de Fase 1: Bastón Memorial a los 12 años como rito cívico en la escuela (Fase 0 de PLANMEMORIA es arranque del archivo federado de 7 nodos) |
+| **PLANDIG** | IMPORTANT | TECHNICAL | Plataforma de Aprendizaje Adaptativo (PAA) corre sobre ArgenCloud con modelos educativos abiertos y gobernanza pública |
+| **PLANREP** | CRITICAL | FINANCIAL | 15% del ahorro neto fiscal de la reconversión financia el lanzamiento de PLANEDU; además los graduados del Camino se convierten en Maestros de Oficio docentes |
+
+### Lo que PLANEDU necesita de otros
+
+| Plan fuente | Naturaleza | Tipo | Qué recibe |
+|---|---|---|---|
+| **PLANDIG** | IMPORTANT | TECHNICAL | Plataforma de Aprendizaje Adaptativo (PAA) |
+| **PLANREP** | CRITICAL | FINANCIAL | 15% del ahorro neto de PLANREP financia educación |
+| **PLANREP** | IMPORTANT | LABOR | Graduados PLANREP se convierten en Maestros de Oficio |
+| **PLANCUL** | IMPORTANT | INSTITUTIONAL | La escuela enseña Rondas de Escucha desde primaria: los niños crecen como Dendritas nativas |
+| **PLANMESA** | CRITICAL | INSTITUTIONAL | A partir de Fase 1: PLANEDU construye la Capa de Estudio de la Credencial de Materia — currículum obligatorio y evaluación continua de servidores de Mesa |
+| **PLANCUIDADO** | IMPORTANT | INSTITUTIONAL | PLANEDU incluye currículum de cuidado desde primaria y formación inicial diferenciada para cada tipo de Pacto |
+| **PLANMEMORIA** | CRITICAL | INSTITUTIONAL | A partir de Fase 1: la escuela incorpora el rito cívico del Bastón Memorial a los 12 años como ceremonia de ingreso a la memoria activa |
+

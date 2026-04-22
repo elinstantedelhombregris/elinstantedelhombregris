@@ -1196,58 +1196,53 @@ PLANJUS ya propone IA para categorización de casos, análisis de consistencia, 
 - **Gobernanza de la IA judicial** — siguiendo las reglas que PLANJUS ya definió (Sección 5.2.1): la IA informa, nunca decide. Cada recomendación es transparente. Los panelistas pueden desviarse pero justifican.
 
 ---
+## INTEGRACIÓN CON EL MARCO ¡BASTA!
 
-## SECCIÓN 18: INTEGRACIÓN CON EL MARCO ¡BASTA!
+Esta sección documenta cómo PLANDIG se acopla al resto del ecosistema de mandatos. Todo vínculo declarado acá tiene su contraparte espejo en el plan referenciado: si acá aparece *"aporta a PLANXXX"*, en PLANXXX aparecerá *"recibe de PLANDIG"*.
 
-PLANDIG es el sistema nervioso que conecta todos los órganos de ¡BASTA!. La integración es total:
+### Lo que PLANDIG aporta al ecosistema
 
-**TABLA 23: PLANDIG como Sistema Nervioso de ¡BASTA!**
+| Plan destinatario | Naturaleza | Tipo | Qué aporta |
+|---|---|---|---|
+| **PLANMON** | CRITICAL | TECHNICAL | SAPI payment rails — backbone del Pulso |
+| **PLANEB** | CRITICAL | TECHNICAL | Protocolo Bastardo requiere infraestructura digital soberana |
+| **PLAN24CN** | CRITICAL | TECHNICAL | Ciudades inteligentes necesitan IDS + SAPI + El Mapa |
+| **PLANAGUA** | CRITICAL | DATA | Red IoT y Gemelo Digital del Agua sobre nodos soberanos |
+| **PLANJUS** | IMPORTANT | TECHNICAL | Plataforma digital de resolución y modelo IA legal |
+| **PLANSEG** | IMPORTANT | TECHNICAL | Body cams, video IA, sensores urbanos sobre infra soberana |
+| **PLANVIV** | IMPORTANT | TECHNICAL | Housing OS y títulos digitales de propiedad |
+| **PLANEN** | IMPORTANT | TECHNICAL | Smart grid IoT y Tablero Nacional de Energía |
+| **PLANEDU** | IMPORTANT | TECHNICAL | Plataforma de Aprendizaje Adaptativo (PAA) |
+| **PLANGEO** | IMPORTANT | INSTITUTIONAL | ArgenCloud como producto exportable para Red Soberana |
+| **PLANMESA** | CRITICAL | TECHNICAL | Plataforma técnica para auto-postulación, Credencial de Materia y Cédula Civil |
+| **PLANTALLER** | IMPORTANT | TECHNICAL | Protocolo Taller como plataforma federada de inventario y hallazgos |
+| **PLANCUIDADO** | IMPORTANT | TECHNICAL | Registro Nacional de Vínculos, Libro de Cuidado y Alerta de Soledad Total |
+| **PLANMEMORIA** | CRITICAL | TECHNICAL | Red federada criptográfica: 7 nodos con hash, resistente a borrado |
+| **PLANTER** | CRITICAL | TECHNICAL | Monitoreo satelital + registro ciudadano + dashboard del Dividendo |
+| **PLANMOV** | CRITICAL | TECHNICAL | Plataforma técnica para gestión de MKC, BLF y Red Federal de Puertos; LNMA (Laboratorio Nacional de Movilidad Autónoma) se monta sobre LANIA como capa vertical con data-logging obligatorio en ArgenCloud |
+| **PLANSAL** | CRITICAL | TECHNICAL | Historia Clínica Unificada, telemedicina rural y Registro de Salud Integral sobre infraestructura digital soberana |
 
-| PLAN | Qué necesita de PLANDIG | Qué le da a PLANDIG |
-|---|---|---|
-| **PLAN24CN** | Datacenters soberanos en cada ciudad; conectividad; IA de gestión urbana | Infraestructura física de los nodos del núcleo soberano; demanda de servicios |
-| **PLANREP** | Arquitecto de Fuerza Laboral IA; Compañero de Transición; datos integrados de empleo | Edificios públicos vacíos para reconvertir en datacenters; talento humano reconvertido hacia el sector digital |
-| **PLANEDU** | Co-tutor IA; plataforma educativa soberana; Portfolio Ciudadano | Formación de talento digital para el ecosistema; investigación desde universidades |
-| **PLANJUS** | Modelo Legal IA; plataforma JUS Digital; categorización de casos | Marco legal para la soberanía digital; mecanismos de resolución de disputas del ecosistema |
-| **PLANEB** | Protocolo Bastardo (que PLANDIG construye); infraestructura de transparencia; SAPI para pagos de Bastardas | Bastardas como proveedoras de servicios en el ecosistema soberano (Bastarda Digital, Bastarda Financiera) |
-| **PLANSAL** | Sistema de Vitalidad digital; cruce de datos de salud con determinantes sociales; IA de diagnóstico preventivo | Datos de salud que alimentan modelos de bienestar; demanda de infraestructura para plataforma de vitalidad |
-| **PLANAGUA** | Gemelo Digital del Agua; Red IoT hídrica; integración SAOCOM para monitoreo | Datos hídricos para El Mapa; sensores que alimentan la capa terrestre |
-| **PLANISV** | Censo de suelo digital; análisis IA de imágenes satelitales; MRV | Datos de suelo para El Mapa; calibración terrestre de datos SAOCOM |
-| **PLANSUS** | Trazabilidad de cadena de suministro; transparencia de mercado regulado | Datos de consumo y distribución que alimentan modelos de salud pública |
-| **PLANGEO** | ArgenCloud como infraestructura exportable; escudo diplomático contra represalias Big Tech | Protección geopolítica del ecosistema soberano; Red Soberana como mercado de servicios cloud |
-| **PLANMON** | SAPI como riel de pagos del Pulso; IDS como base del sistema anti-confiscación; nodos comunitarios como validadores | Arquitectura monetaria soberana que genera demanda masiva de infraestructura digital |
+### Lo que PLANDIG necesita de otros
 
-### 18.1 PLANDIG ↔ PLANGEO — La Soberanía Digital Sale al Mundo
-
-PLANDIG construye la infraestructura soberana. PLANGEO la protege y la proyecta internacionalmente.
-
-**ArgenCloud como infraestructura exportable.** Los nodos internacionales de ArgenCloud — desplegados en embajadas y consulados según el esquema de PLANGEO — no solo sirven al Estado argentino en el exterior. Son la punta de lanza de una oferta de servicios cloud soberanos para la Red Soberana de naciones aliadas. Paraguay necesita cloud soberano y no puede construirlo solo. Bolivia necesita IA en quechua-aymara. Uruguay necesita SAPI regional. ArgenCloud, con nodos federados e interoperables, es la alternativa al duopolio AWS-Azure para toda la región. PLANGEO lo posiciona como cooperación Sur-Sur con retorno estratégico.
-
-**Escudo diplomático contra represalias.** Cuando PLANDIG migre los datos del Estado fuera de los hyperscalers, habrá represalias. Microsoft puede condicionar licencias de software. Google puede degradar servicios. El CLOUD Act permite a EE.UU. exigir acceso a datos almacenados por empresas estadounidenses en cualquier jurisdicción. PLANGEO articula el escudo diplomático: tratados bilaterales de protección de datos, coaliciones con la UE (que tiene la misma preocupación), y posicionamiento en foros multilaterales. La Soberanía Digital como Stack exportable — ArgenCloud + SAPI + IDS + Mensajero Nacional — es más fuerte cuando la respalda una red diplomática activa.
-
-### 18.2 PLANDIG ↔ PLANMON — Los Rieles Digitales del Peso Soberano
-
-PLANMON diseña la moneda. PLANDIG construye los rieles por donde circula.
-
-**SAPI como infraestructura de pagos del Pulso.** El sistema de pagos soberano de PLANDIG — SAPI — es el riel sobre el cual corre el Pulso, la moneda-canasta de PLANMON. Cada transacción en peso-canasta se procesa en infraestructura argentina, con latencia de milisegundos, cero comisiones para el usuario, y trazabilidad completa sin vigilancia. SAPI no es solo un sistema de pagos: es la columna vertebral transaccional de toda la arquitectura monetaria soberana.
-
-**Nodos comunitarios como validadores monetarios.** Los 100.000 nodos comunitarios de la malla de PLANDIG no solo procesan datos y cachean contenido — actúan como validadores distribuidos de la red monetaria de PLANMON. Cada cooperativa, cada escuela, cada centro comunitario con un nodo es un punto de verificación que hace imposible la manipulación centralizada del registro monetario. Descentralización real, no blockchain especulativa.
-
-**Identidad descentralizada como base anti-confiscación.** El sistema de Identidad Digital Soberana (IDS) de PLANDIG es el cimiento del sistema anti-confiscación de PLANMON. Sin identidad soberana no hay billetera soberana. Sin billetera soberana no hay protección contra el congelamiento arbitrario de fondos. IDS garantiza que cada argentino controla su identidad financiera con llave propia — ni ANDIG, ni el banco, ni el gobierno pueden congelar lo que no controlan.
-
-### 18.3 PLANDIG × PLANEN: Smart Grid Soberana
-
-La red eléctrica inteligente de PLANEN corre sobre infraestructura PLANDIG: sensores IoT en cada nodo de generación, ArgenCloud procesando datos de consumo en tiempo real, IA optimizando distribución. El Tablero Nacional de Energía es una aplicación del Mapa. La Bastarda Energética usa SAPI como riel de cobro.
-
-### 18.4 PLANDIG ↔ PLANSEG — Vigilancia con Derechos
-
-PLANSEG necesita tecnología de monitoreo — cámaras corporales, análisis de video por IA, sensores urbanos, bases de datos integradas — y PLANDIG provee la infraestructura soberana donde todo eso corre. Pero la relación tiene un límite constitucional que ninguna eficiencia justifica cruzar: toda la vigilancia opera bajo supervisión judicial, con datos almacenados en ArgenCloud (no en servidores extranjeros), y con protocolos de acceso que impiden la vigilancia masiva sin causa. PLANDIG define la infraestructura y los límites técnicos; PLANSEG define los protocolos operativos; y PLANJUS provee la supervisión judicial que impide que la seguridad se convierta en panóptico. La seguridad soberana se construye con datos soberanos — pero los datos de las personas son de las personas, no del Estado.
-
-### 18.5 PLANDIG ↔ PLANVIV — La Inteligencia del Hábitat
-
-PLANDIG digitaliza lo que PLANVIV construye. Cada edificio de la Bastarda Inmobiliaria lleva sensores IoT de monitoreo estructural — humedad, vibraciones, asentamientos — conectados a ArgenCloud, que detectan problemas antes de que se conviertan en colapsos. La regularización dominial de las 1.800 villas que PLANVIV urbaniza se ejecuta a través del sistema de titulación digital de PLANDIG: identidad soberana del titular, registro blockchain de la propiedad, título verificable sin intermediario notarial. Y los edificios inteligentes de la Bastarda Inmobiliaria gestionan energía, agua y residuos con algoritmos de optimización que corren sobre infraestructura PLANDIG — porque un edificio que sabe cuánta energía consume en tiempo real es un edificio que consume menos.
-
----
+| Plan fuente | Naturaleza | Tipo | Qué recibe |
+|---|---|---|---|
+| **PLANMON** | CRITICAL | TECHNICAL | IDS provee los nodos soberanos sobre los cuales corren los rieles SAPI y el registro del Pulso monetario |
+| **PLANEB** | CRITICAL | TECHNICAL | IDS provee el substrato on-chain y los servicios federados que el Protocolo Bastardo necesita para operar sin dependencias extranjeras |
+| **PLAN24CN** | CRITICAL | TECHNICAL | IDS + SAPI + El Mapa proveen la capa operativa de las ciudades inteligentes antes de que reciban residentes |
+| **PLANAGUA** | CRITICAL | DATA | ArgenCloud y la Red IoT soberana alojan el Gemelo Digital del Agua y la telemetría de cuencas |
+| **PLANJUS** | IMPORTANT | TECHNICAL | LANIA y la plataforma de Resolución Popular proveen el modelo IA legal y la traza digital de disputas |
+| **PLANSEG** | IMPORTANT | TECHNICAL | Red soberana provee cadena de custodia criptográfica a body cams, video IA y sensores urbanos |
+| **PLANVIV** | IMPORTANT | TECHNICAL | Housing OS y el registro digital de títulos de propiedad corren sobre nodos IDS con firma criptográfica soberana |
+| **PLANEN** | IMPORTANT | TECHNICAL | IDS provee Smart Grid IoT y Tablero Nacional de Energía con telemetría en tiempo real sobre nodos federados |
+| **PLANEDU** | IMPORTANT | TECHNICAL | Plataforma de Aprendizaje Adaptativo (PAA) corre sobre ArgenCloud con modelos educativos abiertos y gobernanza pública |
+| **PLANGEO** | IMPORTANT | INSTITUTIONAL | IDS produce ArgenCloud como producto exportable que PLANGEO comercializa en la Red Soberana de América Latina |
+| **PLANMESA** | CRITICAL | TECHNICAL | IDS aloja la plataforma de auto-postulación, la Credencial de Materia y la Cédula Civil sobre nodos federados soberanos |
+| **PLANTALLER** | IMPORTANT | TECHNICAL | Protocolo Taller corre sobre ArgenCloud como plataforma federada de inventario, hallazgos y coordinación inter-Taller |
+| **PLANCUIDADO** | IMPORTANT | TECHNICAL | IDS aloja el Registro Nacional de Vínculos, el Libro de Cuidado y la Alerta de Soledad Total con criptografía y consentimiento granular |
+| **PLANMEMORIA** | CRITICAL | TECHNICAL | IDS provee los 7 nodos federados con hash criptográfico resistente a borrado donde vive el archivo distribuido de la Memoria |
+| **PLANTER** | CRITICAL | TECHNICAL | IDS provee monitoreo satelital soberano, registro ciudadano territorial y dashboard público del Dividendo del Suelo |
+| **PLANMOV** | CRITICAL | TECHNICAL | IDS + LANIA alojan la gestión de MKC, BLF, Red Federal de Puertos y el Laboratorio Nacional de Movilidad Autónoma con data-logging obligatorio |
+| **PLANSAL** | CRITICAL | TECHNICAL | IDS aloja la Historia Clínica Unificada, telemedicina rural y el Registro de Salud Integral con criptografía y consentimiento explícito del paciente |
 
 ## SECCIÓN 19: TABLERO NACIONAL DIGITAL — MÉTRICAS Y MONITOREO
 

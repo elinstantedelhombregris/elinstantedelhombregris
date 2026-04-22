@@ -2003,229 +2003,6 @@ PLANISV no opera en un vacío global. Hay un ecosistema internacional creciente 
 
 ---
 
-## SECCIÓN 21: INTEGRACIÓN CON EL PROYECTO ¡BASTA! — LAS PATAS DE LA MESA
-
-> *"Un país no se arregla con un solo plan. Se arregla cuando varios planes se miran entre sí y descubren que son partes del mismo cuerpo."*
-
----
-
-### 21.1 El Proyecto ¡BASTA!: Arquitectura de una Transformación Nacional
-
-La Argentina no necesita un programa. Necesita un sistema. Un programa resuelve un problema aislado — el suelo, el empleo, la vivienda, la tecnología — y lo deja a merced del próximo ciclo político. Un sistema conecta esos problemas entre sí, de modo que la solución de uno alimenta la solución de los otros, y el conjunto se vuelve más difícil de destruir que cualquiera de sus partes.
-
-El proyecto ¡BASTA! es ese sistema. Dieciséis mandatos estratégicos que funcionan cada uno de forma independiente pero que, conectadas, constituyen la transformación nacional más ambiciosa intentada en la Argentina desde la Generación del 80 — con la diferencia decisiva de que esta transformación no se basa en la acumulación extractiva sino en la regeneración productiva.
-
-**¡BASTA!** es un acrónimo operativo, no publicitario:
-
-- **B** — **Bienestar**: PLANREP. La reconversión de 1.200.000-1.800.000 empleados públicos improductivos hacia la Economía de la Vida (ocho ramas: oficios artesanales, cuidado de personas, regeneración ambiental, construcción viva, alimentación de origen, economía de la experiencia, industria creativa y economía circular) y la Economía de la Inteligencia (habilidades AI-aumentadas para exportación de servicios).
-- **A** — **Alimentación**: PLANISV. La reconstrucción de la infraestructura biológica del suelo argentino. 25+ millones de hectáreas restauradas. Soberanía alimentaria real, no retórica. Este documento.
-- **S** — **Sistemas inteligentes**: PLANDIG, PLANEB, PLANMON. La soberania digital (nube, IA, datos), las empresas al costo real (Protocolo Bastardo), y la arquitectura monetaria (El Pulso) — los sistemas que hacen funcionar la transformación como un organismo integrado.
-- **T** — **Territorio**: PLAN24CN. La construcción de 24 nuevas ciudades en la Argentina, redistribuyendo población, creando polos productivos regionales, y rompiendo la macrocefalia de Buenos Aires.
-- **A** — **Autonomía**: El resultado emergente de las cuatro anteriores. Autonomía alimentaria (PLANISV), autonomía laboral (PLANREP), autonomía territorial (PLAN24CN), autonomía tecnológica (PLANREP-Inteligencia). Un país que no depende de nadie para comer, trabajar, vivir y pensar.
-
-PLANJUS — Justicia Popular — es la quinta iniciativa fundacional: el sistema inmunológico que protege a las otras cuatro. Sin justicia que funcione, ningún plan sobrevive al sabotaje, la corrupción o la inercia institucional. PLANJUS es el escudo de ¡BASTA!.
-
-El proyecto madre que contiene a ¡BASTA! es **El Instante del Hombre Gris** — un marco filosófico sobre el despertar del argentino atrapado en el letargo de un sistema que lo apaga. El Hombre Gris no es la persona dormida — es la que despierta. Es la que decide pulir su carácter, encender su espíritu, brillar. Cada uno de los dieciséis mandatos es un camino concreto desde el apagón hacia la creación.
-
-### 21.2 PLANISV × PLAN24CN: Suelo Vivo para Ciudades Nuevas
-
-PLAN24CN propone la construcción de 24 nuevas ciudades a lo largo y ancho de la Argentina — no como experimentos utópicos sino como polos de desarrollo territorial diseñados para absorber crecimiento demográfico, redistribuir actividad económica y romper la concentración porteña. Cada ciudad está concebida para 100.000-250.000 habitantes en su madurez, con identidad arquitectónica regional, infraestructura de primer nivel y vocación productiva específica.
-
-Cada una de esas ciudades necesita comer. Y no de cualquier modo: necesitan un sistema alimentario local que reduzca dependencia logística, que provea alimentos frescos y nutritivos, y que sea resiliente a shocks de transporte.
-
-Acá entra PLANISV. La integración opera en tres niveles:
-
-**Cinturones alimentarios.** Cada una de las 24 ciudades nuevas se diseña con un **cinturón alimentario** — una zona periurbana de 5.000-15.000 hectáreas donde se aplican protocolos PLANISV de restauración biológica del suelo para producción hortícola, frutícola, avícola y láctea de proximidad. Estos cinturones no son huertas comunitarias simbólicas: son sistemas productivos profesionales, con suelo restaurado, riego optimizado, monitoreo MRV, y trazabilidad completa. Cada cinturón alimenta al menos el 40% de la demanda de alimentos frescos de su ciudad.
-
-**Infraestructura verde.** Los corredores de biodiversidad que PLANISV despliega a escala nacional (ver Sección 16) se integran con la planificación territorial de PLAN24CN. Las ciudades nuevas no se construyen contra el paisaje: se construyen dentro de él. Parques lineales con suelo vivo, bosques urbanos con especies nativas, sistemas de retención hídrica con humedales construidos. La infraestructura verde de la ciudad es infraestructura PLANISV.
-
-**Agua limpia.** Los sistemas de optimización de física del agua de PLANISV (ver Sección 6) protegen las cuencas que abastecen a las ciudades nuevas. Suelo sano aguas arriba significa agua limpia aguas abajo. Cada ciudad de PLAN24CN tiene un plan de cuenca asociado que es, en esencia, un plan PLANISV aplicado a la zona de captación hídrica.
-
-**Escala de inversión compartida.** PLAN24CN genera una demanda de infraestructura de suelo que justifica inversiones PLANISV que serían más difíciles de financiar aisladamente. Los caminos rurales que conectan cinturones alimentarios con ciudades nuevas sirven también como red logística de distribución de insumos biológicos. Los centros de procesamiento de alimentos en las ciudades generan demanda estable para los productores PLANISV de la zona.
-
-### 21.3 PLANISV × PLANREP-Belleza: Del Escritorio al Campo
-
-PLANREP-Belleza propone reconvertir a cientos de miles de empleados públicos improductivos en productores de la Economía de la Belleza — artesanos, oficios manuales, productores gastronómicos, constructores especializados. La intersección con PLANISV es directa y masiva:
-
-**Fuerza laboral de restauración.** Los egresados de PLANREP-Belleza en tracks de agroecología, viverismo, remediación de suelos, y gastronomía artesanal se convierten en la fuerza laboral de PLANISV. El técnico de salud del suelo que mide biomasa microbiana en una estación INTA puede ser un ex-empleado del Registro Civil de Florencio Varela que pasó por el Centro de Oficios de Buenos Aires. La viverista que produce inoculantes biológicos para la zona de Mar del Plata puede ser una ex-administrativa del Ministerio de Desarrollo Social que descubrió que tenía mano verde.
-
-**Cadena alimentaria artesanal.** Los suelos restaurados por PLANISV producen alimentos de mayor densidad nutricional y sabor superior (ver Sección 8). Esos alimentos alimentan la cadena gastronómica artesanal que PLANREP-Belleza crea: panaderos con masa madre de trigo cultivado en suelo vivo, queseros artesanales con leche de vacas que pastan en pasturas biodiversas, viñateros orgánicos con uvas de cepas en suelo sin agroquímicos. El producto PLANISV se convierte en materia prima de la Economía de la Belleza. El circuito se cierra: suelo sano → alimento excepcional → gastronomía artesanal → exportación premium → orgullo nacional.
-
-**Turismo regenerativo.** Los paisajes restaurados por PLANISV — corredores de biodiversidad, fincas agroecológicas, humedales recuperados — se convierten en destinos de turismo rural gestionados por cooperativas PLANREP-Belleza. Un paisaje degradado no atrae turistas. Un paisaje vivo, sí. El ecoturismo vinculado a fincas regenerativas genera entre USD 50-200 por hectárea por año en ingresos complementarios — un flujo que PLANISV no captura solo, pero que la integración con PLANREP-Belleza activa.
-
-**Empleo estimado en la intersección:** 80.000-150.000 puestos de trabajo directos generados en la zona de superposición PLANISV × PLANREP-Belleza, incluyendo técnicos de suelo, viveristas, productores orgánicos certificados, artesanos gastronómicos, guías de turismo regenerativo, y monitores ambientales.
-
-### 21.4 PLANISV × PLANREP-Inteligencia: La Inteligencia que Sana el Suelo
-
-PLANREP-Inteligencia forma trabajadores en habilidades AI-aumentadas para la exportación de servicios digitales. Pero esa misma capacidad tecnológica es exactamente lo que PLANISV necesita para operar a escala nacional:
-
-**Operadores de drones.** PLANISV despliega miles de drones para mapeo multispectral, aplicación de bioinsumos, y monitoreo de cultivos de cobertura. Esos drones necesitan pilotos certificados. Los egresados de PLANREP-Inteligencia con track en robótica/drones son esos pilotos.
-
-**Analistas de datos de suelo con IA.** El Tablero Nacional de Salud del Suelo (ver Sección 10) genera terabytes de datos sensoriales, de laboratorio, satelitales y de campo. Analizar esos datos a escala nacional requiere modelos de machine learning y analistas humanos que sepan interpretarlos. Los egresados de PLANREP-Inteligencia con track en análisis de datos son esos analistas.
-
-**Desarrolladores del Tablero.** La infraestructura digital de PLANISV — el tablero nacional, las apps de campo para productores, el sistema MRV, la plataforma de créditos de carbono — necesita desarrollo y mantenimiento continuo. Los egresados de PLANREP-Inteligencia con track en desarrollo son esos desarrolladores.
-
-**Técnicos de IoT y sensores.** La red de sensores de suelo que PLANISV despliega en 25+ millones de hectáreas necesita instaladores, técnicos de mantenimiento, y especialistas en conectividad rural. Los egresados de PLANREP-Inteligencia con track en IoT son esos técnicos.
-
-**Especialistas en trazabilidad blockchain.** La certificación de créditos de carbono y la trazabilidad de producción regenerativa para cumplimiento EUDR (ver Sección 9) requieren infraestructura blockchain. Los egresados de PLANREP-Inteligencia con track en blockchain son esos especialistas.
-
-**Exportación del modelo.** Cuando Brasil, Paraguay, Uruguay y otros países adopten programas similares a PLANISV — lo cual es cuestión de tiempo dado el marco regulatorio EUDR — van a necesitar la misma infraestructura tecnológica que Argentina construyó. Los egresados de PLANREP-Inteligencia pueden exportar esos servicios: análisis de datos de suelo como servicio, operación remota de drones, desarrollo de tableros, consultoría en MRV. La Argentina no solo exporta carbono del suelo: exporta la inteligencia para medirlo.
-
-**Empleo estimado en la intersección:** 30.000-60.000 puestos tecnológicos vinculados directamente a la operación de PLANISV, más un potencial de exportación de servicios de USD 500M-2.000M/año una vez que el modelo se replica regionalmente.
-
-### 21.5 PLANISV × PLANJUS: Justicia para el Suelo
-
-PLANJUS aporta al ecosistema PLANISV lo que ningún programa técnico puede: la certeza de que los conflictos ambientales y contractuales se resuelven antes de que destruyan la confianza en el sistema.
-
-**Conflictos ambientales resueltos en 45 días.** Las disputas por contaminación de suelos, envenenamiento de napas y deriva de agroquímicos — que hoy tardan 7-12 años en la justicia ordinaria — se resuelven a través de PLANJUS JUS-2 (juicio completo) en un máximo de 45 días, con peritos ambientales especializados y resolución vinculante. El productor que contamina la cuenca de un vecino enfrenta consecuencias reales antes de que el daño se vuelva irreversible.
-
-**Contratos de manejo regenerativo con dientes.** Los compromisos que los productores asumen al ingresar al programa PLANISV — rotación de cultivos, eliminación gradual de agroquímicos, implementación de cultivos de cobertura — no son declaraciones de buena voluntad. Los incumplimientos se resuelven en PLANJUS JUS-1 (resolución simple) en 15 días. Esto protege tanto al programa como a los productores honestos que cumplen mientras sus vecinos hacen trampa.
-
-**Conflictos de uso del suelo entre productores y comunidades.** Las disputas territoriales entre establecimientos agropecuarios y comunidades rurales — fumigaciones cerca de escuelas, contaminación de agua comunitaria, avance sobre tierras indígenas — se canalizan a través de PLANJUS JUS-3 (apelación especializada) con paneles que incluyen peritos ambientales y representantes comunitarios. Resolución en 90 días máximo, no en décadas.
-
-**Empleo estimado en la intersección:** 2.000-5.000 peritos ambientales, mediadores especializados en conflictos de suelo, y operadores de justicia rural formados en la intersección PLANISV-PLANJUS.
-
-### 21.6 Sinergia de Financiamiento
-
-Los cinco programas de ¡BASTA! comparten infraestructura, reducen costos por escala y amplifican la capacidad de captación de financiamiento internacional:
-
-- **Infraestructura compartida.** Los Centros de Oficios de PLANREP-Belleza y los Centros de Inteligencia de PLANREP-Inteligencia pueden co-ubicarse en las 24 ciudades nuevas de PLAN24CN, compartiendo campus, conectividad, vivienda estudiantil y servicios. Los laboratorios de suelo de PLANISV pueden operar dentro de Centros de Excelencia universitarios que también sirven como centros de formación PLANREP.
-- **Financiamiento internacional combinado.** Una propuesta al Green Climate Fund que combine restauración de suelos (PLANISV), ciudades resilientes (PLAN24CN) y empleo verde (PLANREP) tiene un perfil de impacto enormemente superior a cualquiera de los tres por separado. Lo mismo aplica a BID, Banco Mundial, CAF, y fondos bilaterales europeos.
-- **Economías de escala en comunicación.** Una campaña nacional de ¡BASTA! tiene mayor impacto mediático y menor costo por programa que cinco campañas separadas.
-- **Sinergia fiscal.** Los egresados de PLANREP que se emplean en PLANISV y PLAN24CN generan recaudación impositiva que financia parcialmente los programas mismos. El circuito fiscal se cierra: inversión pública → empleo genuino → recaudación → reinversión.
-
-**Ahorro estimado por sinergias:** USD 2.000-5.000M en el horizonte de 15 años por compartición de infraestructura, financiamiento combinado y eliminación de duplicaciones.
-
-### 21.7 PLANISV y la Transición Económica: El Suelo como Infraestructura de los Tres Horizontes
-
-PLANREP Sección 15.1 establece cinco Fideicomisos de Propósito Perpetuo — estructuras patrimoniales diseñadas para que los activos estratégicos de la Argentina generen valor a perpetuidad sin depender de decisiones políticas coyunturales. Uno de ellos es el **Fideicomiso de Suelo Vivo**, cuyos activos productivos son precisamente las tierras y la infraestructura biológica que PLANISV restaura. Cada hectárea que pasa de suelo degradado a suelo biológicamente activo engrosa la base patrimonial de ese fideicomiso. El trabajo de PLANISV no es solo un programa de empleo — es la construcción del activo subyacente de una de las cinco columnas financieras del país.
-
-En la **Economía de la Contribución** que PLANREP desarrolla en la Sección 15.4, "Regeneración ambiental" es una de las siete categorías de contribución cívica formalmente reconocidas. A medida que el sistema madure, el trabajo de restauración de suelos que hoy hacen los Técnicos de Suelo Vivo como empleados será también valorado como contribución cívica a través del Índice de Contribución — un mecanismo de validación que mide impacto real, no horas sentado en una oficina. El productor que regenera su campo contribuye; el técnico que lo acompaña contribuye; la comunidad que protege su cuenca contribuye.
-
-A medida que el Fideicomiso de Suelo Vivo madure, sus retornos — agricultura regenerativa, créditos de carbono, arrendamientos productivos — alimentarán el **Dividendo Nacional de Productividad (DNP)**, convirtiendo a los trabajadores rurales del suelo en co-propietarios del valor que su trabajo genera. No es metáfora: es arquitectura financiera concreta.
-
-**Mapeo por horizontes temporales:**
-- **Horizonte 1 (2026-2035):** Centrado en empleo. PLANISV crea puestos de trabajo, forma técnicos, restaura hectáreas. El valor se mide en empleos, salarios y toneladas de carbono secuestrado.
-- **Horizonte 2 (2035-2045):** Parte del trabajo de suelo opera a través de Nodos de Contribución. El Fideicomiso automatiza monitoreo y distribuye retornos. Los técnicos más experimentados coordinan redes, no solo campos.
-- **Horizonte 3 (2045+):** El suelo regenerado es infraestructura fideicomisaria que financia el DNP. La restauración se convirtió en patrimonio nacional productivo.
-
-Estos conceptos están desarrollados en profundidad en PLANREP Sección 15. PLANISV no los replica — los reconoce. Nuestra fuerza laboral existe dentro de una transición económica más amplia, y esta sección explicita esa conexión para que ningún técnico, productor o funcionario que lea este documento crea que estamos diseñando empleos en el vacío.
-
-### 21.8 El Instante del Hombre Gris: Del Apagón al Despertar Verde
-
-El Instante del Hombre Gris es la filosofía madre del proyecto ¡BASTA!. Su premisa es simple y devastadora: millones de argentinos están atrapados en el letargo — empleos que no generan valor, trabajos de subsistencia, desempleo disfrazado de changas — no por incapacidad personal sino por un sistema que los mantiene apagados, dormidos, en piloto automático.
-
-El Hombre Gris no es esa persona dormida. El Hombre Gris es el que **despierta**. Es el empleado público que un día se cansa de sellar expedientes que nadie lee y decide aprender un oficio. Es el joven que encuentra su propósito. Es la mujer que siempre supo que podía más y finalmente encuentra el camino. Es el productor que mira su suelo moribundo y dice: *esto se puede sanar*. El Hombre Gris es gris como la plata que se pule — no como el cemento que aplasta. Es el color de la transformación, no del sometimiento.
-
-PLANISV le da al Hombre Gris un destino verde. El ex-empleado administrativo que se forma como técnico de salud del suelo y empieza a medir biomasa microbiana en campos de la Pampa Húmeda tuvo su instante — se convirtió en Hombre Gris, y eligió lo verde. La ex-recepcionista que se forma como operadora de drones y monitorea cultivos de cobertura desde una estación INTA tuvo su instante. El productor que deja de fumigar, empieza a compostar y ve cómo su suelo revive tuvo su instante.
-
-Del apagón al despertar. De lo extractivo a lo regenerativo. De administrar la decadencia a construir fertilidad. Esa es la transformación que PLANISV opera a nivel de cada persona que toca.
-
-Y cuando esa transformación se multiplica por 500.000 personas en diversas modalidades de actividad productiva — técnicos, productores, operadores, analistas, artesanos alimentarios, monitores ambientales — deja de ser una política pública y se convierte en un movimiento civilizatorio. La Argentina que extraía se convierte en la Argentina que regenera. El instante del Hombre Gris fue el instante en que eligió despertar — y despertar significó sanar el suelo.
-
-### 21.9 PLANISV × PLANAGUA: El Nexo Suelo-Agua
-
-PLANISV y PLANAGUA son el mismo plan visto desde dos ángulos. Uno mira hacia abajo — la capa viva que cubre la roca — y el otro mira hacia lo que fluye a través de ella. Pero el suelo y el agua no son dos sistemas: son uno. Suelo sano retiene agua; agua limpia alimenta suelo sano. Romper ese ciclo es lo que hicimos durante décadas de monocultivo con agroquímicos, y restaurarlo es la tarea central de ambos planes.
-
-**El suelo como infraestructura hídrica invisible.** Cada incremento de 1% en materia orgánica del suelo (MOS) permite retener aproximadamente 80.000 litros adicionales de agua por hectárea. Si PLANISV logra recuperar 1 punto porcentual de MOS en 15 millones de hectáreas — una fracción del objetivo total — la Argentina gana 1,2 billones de litros de capacidad de retención hídrica adicional. Es un embalse sin cemento, sin licitación, sin costo de mantenimiento. Lo construyen los microorganismos del suelo, no las constructoras. PLANAGUA dedicó 44 referencias y una sección completa a esta relación, porque entendió que la mejor infraestructura hídrica del país está a 30 centímetros bajo la superficie.
-
-**Infraestructura compartida de monitoreo.** Las estaciones IoT de suelo que PLANISV despliega dentro de 1 km de cursos de agua comparten nodos de comunicación, energía solar y conectividad satelital con la red de monitoreo de PLANAGUA. Un sensor que mide humedad de suelo a 20 cm de profundidad genera datos que PLANAGUA necesita para modelar recarga de acuíferos. Un sensor que mide conductividad eléctrica del agua superficial genera datos que PLANISV necesita para detectar lixiviación de nitratos. La misma infraestructura, los mismos técnicos de mantenimiento, el mismo tablero de datos. Duplicar redes sería un desperdicio criminal.
-
-**Corredores riparios como infraestructura dual.** Los corredores de biodiversidad que PLANISV despliega a lo largo de cursos de agua (ver Sección 16) son simultáneamente franjas de amortiguación hídrica de PLANAGUA. Las raíces de la vegetación riparia filtran escorrentía agrícola, reducen erosión de márgenes y estabilizan napas freáticas. Un corredor de 30 metros de ancho a lo largo de un arroyo cumple funciones de biodiversidad (PLANISV), filtración hídrica (PLANAGUA), secuestro de carbono (créditos ambientales) y hábitat de polinizadores (productividad agrícola). Mismo metro cuadrado, cuatro funciones, un solo financiamiento.
-
-**Mercado unificado de créditos ambientales.** Los créditos hídricos que PLANAGUA genera por protección de cuencas y los créditos de carbono de suelo que PLANISV genera por incremento de MOS se integran en un mercado unificado de créditos ambientales. Un productor que restaura suelo en cabecera de cuenca genera ambos tipos de crédito simultáneamente. La plataforma de verificación MRV es la misma. La tokenización on-chain es la misma. El comprador internacional — una empresa europea que necesita compensar huella hídrica y huella de carbono — accede a un solo mercado argentino de servicios ecosistémicos.
-
-**Remediación compartida.** PLANISV reduce lo que entra al suelo (agroquímicos, fertilizantes sintéticos, contaminantes); PLANAGUA elimina lo que ya contaminó el agua. Las nanoburbujas de oxígeno — tecnología de remediación que ambos planes despliegan — funcionan tanto para revitalizar suelos compactados como para oxigenar cuerpos de agua contaminados. Misma tecnología, mismos proveedores, misma curva de aprendizaje. Los extensionistas de INTA que PLANISV forma en salud del suelo reciben formación básica en hidrología para poder leer el paisaje completo — porque un técnico de suelo que no entiende el agua es un técnico incompleto.
-
-### 21.10 PLANISV × PLANDIG: Los Ojos en el Suelo
-
-El suelo argentino ya tiene satélites mirándolo desde arriba. Los SAOCOM 1A y 1B — orgullo de la ingeniería nacional — generan datos de radar de apertura sintética que penetran nubes y vegetación para medir humedad del suelo a escala continental. Pero un satélite sin datos terrestres de calibración es un ojo miope. PLANDIG propone construir la infraestructura digital soberana que convierte datos brutos en inteligencia territorial. PLANISV provee la verdad terrestre que le da sentido.
-
-**Calibración satelital con datos de campo.** Los satélites SAOCOM generan mapas de humedad de suelo con resolución de 100 metros. Pero esos mapas necesitan calibración con datos reales de campo — mediciones de humedad gravimétrica, textura, contenido de MOS, compactación — que solo existen si alguien los toma. El censo digital de suelo de PLANISV (ver Sección 10) genera exactamente esos datos. Cada parcela muestreada es un punto de calibración que mejora la precisión del modelo satelital. A escala nacional, la red de muestreo de PLANISV convierte a los SAOCOM en los sensores de salud edáfica más precisos del hemisferio sur.
-
-**Red de sensores IoT.** PLANDIG despliega entre 10.000 y 20.000 sensores de humedad de suelo en las principales zonas agrícolas, transmitiendo datos en tiempo real al Tablero Nacional. Estos sensores miden humedad a múltiples profundidades (10, 30, 60 cm), temperatura del suelo y conductividad eléctrica — las tres variables que determinan actividad biológica. A esa red se suman 3.000 a 5.000 estaciones meteorológicas compactas que alimentan modelos de predicción hídrica y gestión de suelo. La infraestructura física es de PLANDIG; la inteligencia agronómica que le da sentido es de PLANISV.
-
-**Modelo territorial de IA.** Los datos combinados de El Mapa (PLANDIG), SAOCOM, el censo digital de suelo de PLANISV y las estaciones IoT alimentan un modelo de inteligencia artificial fine-tuned para asistir decisiones de manejo de suelo. El modelo puede predecir riesgo de erosión, recomendar cultivos de cobertura según la condición del lote, detectar anomalías en imágenes satelitales que indican degradación temprana, y generar alertas automáticas para productores. Los analistas IA formados por PLANREP-Inteligencia operan este modelo; los datos de campo de PLANISV lo entrenan.
-
-**Tablero Nacional de Salud del Suelo.** PLANDIG provee la infraestructura de datos — servidores soberanos, APIs, interfaces, seguridad — para el Tablero Nacional que PLANISV necesita. Y en el Navegante Ciudadano de PLANDIG, la pregunta "¿qué puedo hacer con mi vida?" tiene una respuesta concreta: "PLANISV necesita 15.000 regeneradores de suelo en tu provincia". El mapeo de carreras incluye técnico de salud del suelo, operador de drones agrícolas, analista de datos edáficos y viverista de bioinsumos como profesiones del futuro.
-
-### 21.11 PLANISV × PLANEB: De Campo a Mesa con Transparencia Radical
-
-La producción regenerativa que PLANISV genera necesita un canal de distribución que no la traicione. De nada sirve que un productor restaure su suelo durante cinco años, elimine agroquímicos, certifique carbono secuestrado y produzca alimentos de densidad nutricional superior si ese alimento termina en una cadena de supermercados que paga lo mismo que por la soja transgénica del vecino y le carga un 300% de margen al consumidor. El intermediario extractivo destruye el incentivo económico de regenerar.
-
-**La Bastarda Alimentaria.** PLANEB crea empresas al costo real bajo Protocolo Bastardo — sin dueños, sin accionistas, sin extracción de valor. La Bastarda Alimentaria es la empresa de distribución que conecta producción PLANISV con consumidores, operando con margen cero. El productor que regeneró su campo recibe un precio que refleja el costo real de regenerar — no el precio de pizarra que refleja el costo de explotar. El consumidor paga lo justo por comida real de suelo vivo. El diferencial entre ambos no se lo queda nadie: es transparencia radical.
-
-**Trazabilidad blockchain de campo a mesa.** Cada kilo de trigo, cada litro de leche, cada corte de carne que sale de un campo PLANISV lleva trazabilidad blockchain desde la parcela hasta el plato. El consumidor escanea un código y ve: en qué campo creció, qué nivel de MOS tiene ese suelo, qué prácticas regenerativas se usaron, cuánto carbono se secuestró, quién es el productor. La denominación de origen verificada para suelo vivo no es un sello más: es un certificado de integridad biológica respaldado por datos on-chain que nadie puede falsificar.
-
-**Cooperativas de insumos bajo Protocolo Bastardo.** Los productores en transición hacia regeneración necesitan insumos biológicos — inoculantes, compost, semillas de cobertura, biocontroladores — y esos insumos hoy tienen precios inflados por cadenas de distribución extractivas. Las cooperativas PLANEB de insumos agrícolas operan al costo, reduciendo la barrera económica de la transición. Un productor que duda entre seguir con glifosato barato o empezar con bioinsumos caros ya no tiene esa excusa: el Protocolo Bastardo le da acceso a insumos regenerativos al costo real de producción.
-
-### 21.12 PLANISV × PLANSAL: La Tierra que Sana el Cuerpo
-
-No se puede construir salud pública sobre un suelo envenenado. PLANSAL puede abrir mil Centros de Vitalidad, formar diez mil médicos en medicina preventiva, diseñar las mejores guías alimentarias del continente — y nada de eso funciona si la comida que come la población sale de tierra muerta cargada de residuos de glifosato, atrazina y clorpirifós. PLANISV suministra la condición sine qua non de PLANSAL: comida real de suelo vivo.
-
-**Dos caras de la misma moneda.** PLANISV regenera la tierra; PLANSAL regenera el cuerpo que come de esa tierra. Una cara mira hacia abajo (el suelo); la otra mira hacia adentro (el organismo humano). Pero el vínculo biológico es directo y mensurable: los alimentos cultivados en suelo con mayor contenido de materia orgánica y actividad microbiana tienen mayor densidad de micronutrientes — zinc, selenio, hierro, vitaminas del complejo B — que los alimentos de suelo degradado tratado con fertilizantes sintéticos. La diferencia no es marginal: estudios en suelos regenerados muestran incrementos de 20-40% en contenido mineral de granos y hortalizas.
-
-**Los Centros de Vitalidad como punto de contacto.** Los Centros de Vitalidad que PLANSAL despliega en todo el país enseñan a comer bien — pero "comer bien" empieza por tener acceso a comida que vale la pena comer. Cada Centro de Vitalidad incorpora una huerta comunitaria gestionada con protocolos PLANISV: suelo restaurado, compostaje in situ, diversidad de cultivos, cero agroquímicos. La huerta no es decorativa — es pedagógica y productiva. El paciente que llega al Centro con diabetes tipo 2 no solo recibe una guía alimentaria: ve crecer la comida que lo va a sanar, en tierra que fue sanada primero.
-
-**La mayor intervención preventiva posible.** PLANSAL habla de medicina preventiva. PLANISV ejecuta la intervención preventiva más masiva que existe: dejar de envenenar la cadena alimentaria en su origen. La regulación de agroquímicos que PLANISV impulsa — prohibición de los más tóxicos, restricción progresiva de los demás, transición obligatoria hacia bioinsumos — no es solo política agrícola: es la mayor política de salud pública que el país puede implementar. No se puede crear salud en una población envenenada. PLANISV deja de envenenar; PLANSAL empieza a sanar. El orden importa.
-
-### 21.13 PLANISV × PLANMON: El 43% del Respaldo Monetario
-
-La arquitectura monetaria de PLANMON ancla el peso-canasta a una cesta de bienes reales verificables. De esa canasta, el 43% proviene directamente de la producción agrícola que depende del suelo que PLANISV regenera: soja (18%), maíz (10%), trigo (7%) y carne vacuna (8%). Si el suelo argentino se degrada, la canasta se contrae. Si la canasta se contrae, el peso pierde respaldo. La estabilidad monetaria de la Argentina depende, literalmente, de la salud biológica de sus primeros 30 centímetros de suelo.
-
-**Créditos de carbono como componente monetario.** PLANMON asigna un 5% de la canasta a créditos de carbono de suelo — los mismos créditos que PLANISV genera a través de su programa de incremento de MOS verificado por MRV. Esos créditos no son un derivado financiero abstracto: son toneladas de CO₂ equivalente secuestradas en suelo argentino, medidas con sensores, verificadas con satélites, tokenizadas on-chain. Cada crédito de carbono que PLANISV certifica engrosa el respaldo del peso-canasta.
-
-**Verificación cruzada de producción.** Los datos de producción agrícola que PLANISV recopila a través de su red de monitoreo — rendimiento por hectárea, volumen cosechado, calidad del grano — se tokenizan on-chain para verificación de respaldo monetario. Si PLANISV reporta una cosecha de trigo que diverge significativamente de los datos de la Bolsa de Cereales o de los precios CBOT, algo no cierra. La triple verificación — datos de campo PLANISV, datos de mercado, datos satelitales — es el mecanismo anticorrupción que garantiza que el respaldo de la moneda es real.
-
-**Microcréditos agrícolas en peso-canasta.** Los productores en transición regenerativa necesitan financiamiento para cubrir el período de 3-5 años en que los rendimientos pueden caer antes de estabilizarse y superarse. La Bastarda Financiera de PLANEB canaliza microcréditos agrícolas denominados en peso-canasta, con tasas reales y plazos alineados con el ciclo biológico del suelo. El productor no se endeuda en dólares para regenerar su campo: se endeuda en la misma moneda que su producción respalda.
-
-**Dependencia estructural.** Sin PLANISV regenerando hectáreas, la producción agrícola argentina declina. Si declina, la canasta se contrae. Si la canasta se contrae, el peso-canasta pierde estabilidad. PLANMON necesita a PLANISV como el cuerpo necesita al corazón: no como complemento, sino como órgano vital.
-
-### 21.14 PLANISV × PLANGEO: La Marca Argentina Regenerativa
-
-La Argentina tiene una ventaja geopolítica que casi nadie articula: es uno de los pocos países del mundo que puede alimentar a 400 millones de personas, y el único que puede hacerlo regenerativamente a escala continental. Esa no es solo una capacidad productiva — es una posición estratégica. PLANGEO convierte esa posición en influencia.
-
-**Stack de Soberanía de Recursos.** PLANISV + PLANAGUA constituyen un paquete exportable de conocimiento: tecnología de regeneración de suelos + gestión hídrica integrada. El mundo tiene 2.000 millones de hectáreas degradadas. Los países africanos del Sahel pierden entre 3% y 5% de su PBI anual por degradación de suelo. Los países del sudeste asiático enfrentan salinización costera masiva. La Argentina que domina la regeneración de suelos y la gestión del agua no exporta commodities — exporta la capacidad de producir commodities. Eso vale órdenes de magnitud más.
-
-**Diplomacia del conocimiento agrícola.** PLANGEO despliega la diplomacia argentina como herramienta de proyección estratégica. PLANISV le da contenido concreto: misiones técnicas de regeneración de suelos en África, programas de cooperación sur-sur en gestión de cuencas, transferencia de tecnología de bioinsumos a países en desarrollo. La Argentina no llega a la mesa diplomática con discursos — llega con datos de 25 millones de hectáreas regeneradas, con protocolos probados, con técnicos que saben medir biomasa microbiana y diseñar rotaciones para cada tipo de suelo.
-
-**Alineamiento con la UE como estrategia de mercado.** La Unión Europea avanza hacia el Green Deal, la regulación EUDR (deforestación), y requisitos de trazabilidad para toda importación agrícola. Muchos países productores ven esto como una amenaza. PLANISV lo ve como una oportunidad: la Argentina que cumple EUDR con trazabilidad blockchain, que certifica suelo vivo, que documenta cero deforestación con datos satelitales, accede a mercados premium europeos que sus competidores no pueden alcanzar. La regulación ambiental europea se convierte en barrera de entrada para otros y ventaja competitiva para Argentina.
-
-**Gastro-diplomacia y marca-país.** Los restaurantes argentinos en el mundo — y hay miles — se convierten en embajadas informales de la marca-país regenerativa. Un bife de chorizo de vaca criada en pastura biodiversa sobre suelo PLANISV, con trazabilidad verificable, no es solo carne: es un argumento geopolítico. La gastro-diplomacia que PLANGEO articula necesita el producto que PLANISV genera. Sin suelo vivo, no hay historia que contar.
-
-**El argumento inobjetable.** PLANISV es geopolíticamente inobjetable. Ningún organismo internacional sanciona por regenerar suelos. Ningún bloque comercial penaliza por secuestrar carbono. Ninguna potencia se opone a que la Argentina alimente mejor a su población. En un mundo donde casi toda acción estratégica genera resistencia, regenerar suelo es la jugada que nadie puede criticar — y que todos necesitan.
-
-### 21.15 PLANISV × PLANEN: Bioenergía y el Nexo Suelo-Energía
-
-Los residuos agrícolas de la producción regenerativa de PLANISV alimentan la cadena de bioenergía de PLANEN. El cáñamo industrial (PLANSUS/PLANISV) es biomasa para cogeneración. La tensión fracking-suelo (Vaca Muerta) se gestiona con protocolo conjunto ENSV-ANEN: zonas de exclusión para suelo productivo, remediación obligatoria, monitoreo IoT compartido.
-
-### 21.16 PLANISV × PLANSEG: Seguridad Rural para la Transición Regenerativa
-
-La conversión de millones de hectáreas de monocultivo a agricultura regenerativa no ocurre en el vacío — ocurre contra los intereses de un agronegocio concentrado que factura miles de millones en agroquímicos. PLANSEG provee la protección física y jurídica para los productores en transición: respuesta rápida ante intimidación, vigilancia de zonas de conversión donde los intereses del glifosato tienen incentivos para sabotear, y escolta de extensionistas de PLANISV en regiones donde el poder terrateniente todavía opera como feudalismo del siglo XIX. Sin el paraguas de seguridad de PLANSEG, la transición agroecológica que PLANISV propone es vulnerable a la violencia silenciosa que el campo argentino conoce pero rara vez nombra.
-
-### 21.17 PLANISV × PLANVIV: El Suelo Vivo Construye Casas
-
-PLANISV produce los materiales que PLANVIV necesita para construir distinto. El cáñamo industrial que PLANSUS legaliza y PLANISV cultiva se convierte en hempcrete — bloques de construcción livianos, aislantes, secuestradores de carbono. La madera de plantaciones forestales regenerativas de PLANISV se transforma en CLT (cross-laminated timber) para construcción en altura. Los residuos agrícolas — cáscaras de arroz, bagazo de caña, paja de trigo — se procesan como aislantes térmicos bio-based que reemplazan el poliestireno derivado del petróleo. PLANVIV urbaniza 1.800 asentamientos y rehabilita miles de edificios: si lo hace con materiales regenerativos de PLANISV en vez de cemento Portland y acero convencional, cada vivienda construida es también un sumidero de carbono. El suelo vivo no solo alimenta a la Argentina — la casa donde vivís también puede nacer de él.
-
-**TABLA 27: Matriz de Integración de ¡BASTA! con PLANISV**
-
-| Intersección | Recursos que fluyen hacia PLANISV | Recursos que fluyen desde PLANISV | Impacto conjunto estimado |
-|---|---|---|---|
-| **PLAN24CN → PLANISV** | Demanda de cinturones alimentarios; infraestructura territorial; inversión en cuencas hídricas | Suelo restaurado alimenta ciudades; infraestructura verde urbana; protección de cuencas | 24 cinturones alimentarios de 5.000-15.000 ha cada uno; 40% de autosuficiencia alimentaria local |
-| **PLANISV → PLAN24CN** | Paisajes regenerados como atractivo territorial; calidad de agua superior | Mercado cautivo para producción PLANISV; logística compartida | Valor inmobiliario +15-25% en ciudades con cinturón alimentario activo |
-| **PLANREP-Belleza → PLANISV** | 80.000-150.000 trabajadores formados: técnicos de suelo, viveristas, agroecólogos, artesanos alimentarios | Materia prima de alta calidad para gastronomía artesanal; paisajes para turismo regenerativo | Cadena completa campo→mesa→exportación; turismo regenerativo USD 200M+/año |
-| **PLANREP-Inteligencia → PLANISV** | 30.000-60.000 trabajadores tech: pilotos de drones, analistas IA, desarrolladores, técnicos IoT | Demanda de servicios exportables (MRV, drones, análisis de suelo como servicio) | Exportación de servicios de suelo inteligente USD 500M-2.000M/año |
-| **PLANISV + PLANJUS** | Resolución rápida de conflictos ambientales, de contratos agrícolas y de uso del suelo | Productores que incumplen compromisos de regeneración enfrentan resolución en 45 días, no en 7 años | 2.000-5.000 peritos y mediadores ambientales especializados |
-| **PLANISV + PLANAGUA** | Red IoT compartida; nanoburbujas de remediación; formación hidrológica de extensionistas | 1,2 billones de litros de retención hídrica adicional; corredores riparios duales; datos de calibración hídrica | Embalse invisible de 1,2T litros; mercado unificado de créditos ambientales |
-| **PLANISV + PLANDIG** | Infraestructura de datos soberana; modelo IA territorial; Navegante Ciudadano | Verdad terrestre para calibración SAOCOM; censo digital de suelo; red de 10.000-20.000 sensores IoT | Tablero Nacional de Salud del Suelo en tiempo real; mapeo de carreras regenerativas |
-| **PLANISV + PLANEB** | Bastarda Alimentaria como canal de distribución al costo; cooperativas de insumos Protocolo Bastardo | Producción regenerativa trazable; demanda de bioinsumos al costo | Trazabilidad blockchain campo→mesa; eliminación del intermediario extractivo |
-| **PLANISV + PLANSAL** | Centros de Vitalidad como punto pedagógico; demanda de comida de suelo vivo | Alimentos de mayor densidad nutricional (+20-40% micronutrientes); huertas comunitarias PLANISV | Mayor intervención preventiva de salud pública posible |
-| **PLANISV + PLANMON** | Microcréditos agrícolas en peso-canasta; estabilidad monetaria para planificación a largo plazo | 43% del respaldo de la canasta monetaria; créditos de carbono (5%); datos de producción tokenizados | Respaldo monetario anclado en suelo vivo; verificación cruzada anticorrupción |
-| **PLANISV + PLANGEO** | Diplomacia como canal de exportación de conocimiento; acceso a mercados premium UE | Stack de soberanía de recursos exportable; marca-país regenerativa; cumplimiento EUDR | Exportación de capacidad regenerativa a 2.000M ha degradadas globales; gastro-diplomacia |
-| **¡BASTA! completo** | Sistema integrado de financiamiento, infraestructura, talento, mercados y justicia | Seguridad alimentaria como base de todo el sistema productivo | USD 30-50B/año de nuevo valor económico; 2M+ empleos genuinos |
-
----
-
 ## SECCIÓN 22: LECCIONES INTERNACIONALES — QUÉ PUEDE APRENDER ARGENTINA
 
 > *"Ningún país inventó la agricultura regenerativa. Pero algunos tuvieron la lucidez de escalar lo que funciona. Argentina puede ser el primero en hacerlo con esta amplitud, esta ciencia y esta urgencia."*
@@ -2809,3 +2586,26 @@ PLAN24CN · PLANISV · PLANREP-Belleza · PLANREP-Inteligencia · PLANJUS
 
 — Fin del Documento —
 ```
+
+---
+
+## INTEGRACIÓN CON EL MARCO ¡BASTA!
+
+Esta sección documenta cómo PLANISV se acopla al resto del ecosistema de mandatos. Todo vínculo declarado acá tiene su contraparte espejo en el plan referenciado: si acá aparece *"aporta a PLANXXX"*, en PLANXXX aparecerá *"recibe de PLANISV"*.
+
+### Lo que PLANISV aporta al ecosistema
+
+| Plan destinatario | Naturaleza | Tipo | Qué aporta |
+|---|---|---|---|
+| **PLAN24CN** | CRITICAL | TECHNICAL | Suelo regenerado para agricultura urbana e infraestructura verde |
+| **PLANMON** | IMPORTANT | DATA | El Pulso consume la telemetría de producción agrícola y rendimientos de Suelo Vivo como insumo para la estabilidad del peso-canasta |
+| **PLANTER** | IMPORTANT | INSTITUTIONAL | PLANTER provee la Licencia Territorial y el marco de co-soberanía indígena donde PLANISV regenera suelo en tierras fiscales y comunidades originarias |
+
+### Lo que PLANISV necesita de otros
+
+| Plan fuente | Naturaleza | Tipo | Qué recibe |
+|---|---|---|---|
+| **PLANMON** | IMPORTANT | DATA | Datos de producción agrícola alimentan canasta del peso-canasta |
+| **PLANTER** | IMPORTANT | INSTITUTIONAL | Plan Suelo Vivo se coordina con Licencia Territorial y co-soberanía indígena en tierras fiscales y comunidades originarias |
+| **PLAN24CN** | CRITICAL | TECHNICAL | Suelo regenerado y balances agua-suelo-carbono recalibrados se destinan a agricultura urbana y anillos verdes de las Ciudades Nuevas |
+

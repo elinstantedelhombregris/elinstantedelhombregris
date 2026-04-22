@@ -2231,3 +2231,26 @@ Eso lo hacés vos.
 ---
 
 *Marzo 2026 · República Argentina · PLANSAL v1.0*
+
+---
+
+## INTEGRACIÓN CON EL MARCO ¡BASTA!
+
+Esta sección documenta cómo PLANSAL se acopla al resto del ecosistema de mandatos. Todo vínculo declarado acá tiene su contraparte espejo en el plan referenciado: si acá aparece *"aporta a PLANXXX"*, en PLANXXX aparecerá *"recibe de PLANSAL"*.
+
+### Lo que PLANSAL aporta al ecosistema
+
+| Plan destinatario | Naturaleza | Tipo | Qué aporta |
+|---|---|---|---|
+| **PLANCUIDADO** | CRITICAL | INSTITUTIONAL | A partir de Fase 1: APS territorial integra Pactos como dato clínico; articula con Referentes (Fase 0 de PLANCUIDADO es Ley ANCV + piloto registral) |
+| **PLANSUS** | IMPORTANT | INSTITUTIONAL | PLANSUS habilita el uso terapéutico de sustancias e incluidos psicodélicos; los protocolos clínicos resultantes alimentan la medicina mental de PLANSAL |
+| **PLANDIG** | CRITICAL | TECHNICAL | IDS aloja la Historia Clínica Unificada, telemedicina rural y el Registro de Salud Integral con criptografía y consentimiento explícito del paciente |
+
+### Lo que PLANSAL necesita de otros
+
+| Plan fuente | Naturaleza | Tipo | Qué recibe |
+|---|---|---|---|
+| **PLANSUS** | IMPORTANT | INSTITUTIONAL | Sustancias como herramienta terapéutica; psicodélicos para salud mental |
+| **PLANDIG** | CRITICAL | TECHNICAL | Historia Clínica Unificada, telemedicina rural y Registro de Salud Integral sobre infraestructura digital soberana |
+| **PLANCUIDADO** | CRITICAL | INSTITUTIONAL | A partir de Fase 1: APS territorial provee la ventana clínica que lee Pactos como dato de salud; Referentes articulan con médicos de cabecera |
+

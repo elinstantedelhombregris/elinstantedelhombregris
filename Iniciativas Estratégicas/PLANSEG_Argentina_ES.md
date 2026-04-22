@@ -1116,76 +1116,30 @@ Esta fase coincide exactamente con la cascada de legalización de PLANSUS. Es la
 | Reconocimiento internacional | Argentina como modelo de referencia en seguridad ciudadana para América Latina |
 
 ---
+## INTEGRACIÓN CON EL MARCO ¡BASTA!
 
-## SECCIÓN 10: INTEGRACIÓN CON EL ECOSISTEMA ¡BASTA! — DIECISÉIS MANDATOS, UNA ARQUITECTURA
+Esta sección documenta cómo PLANSEG se acopla al resto del ecosistema de mandatos. Todo vínculo declarado acá tiene su contraparte espejo en el plan referenciado: si acá aparece *"aporta a PLANXXX"*, en PLANXXX aparecerá *"recibe de PLANSEG"*.
 
-> *"PLANSEG no funciona solo. Ningún mandato ¡BASTA! funciona solo. Funcionan juntos — o no funcionan."*
+### Lo que PLANSEG aporta al ecosistema
 
-PLANSEG es el decimocuarto mandato de ¡BASTA!. Se integra con cada uno de los otros quince:
-
-### 10.1 PLANSUS — Plan Nacional de Soberanía sobre Sustancias
-**LA INTEGRACIÓN CRÍTICA.** PLANSEG es el brazo de seguridad de PLANSUS. Sin PLANSEG, la legalización de sustancias crea un vacío de seguridad territorial que puede ser peor que el problema original. La sincronización es milimétrica: Pre-Fase de PLANSEG coincide con Pre-Fase de PLANSUS. Cada fase de la cascada de legalización tiene un protocolo de seguridad PLANSEG correspondiente. El Puente de PLANSUS tiene un componente de protección de seguridad operado por PLANSEG. Los indicadores de seguridad son condición necesaria para que PLANSUS avance de una fase a la siguiente — si la seguridad está en ROJO, la cascada se pausa.
-
-### 10.2 PLANJUS — Plan Nacional de Justicia Popular
-PLANSEG previene. PLANJUS resuelve. La frontera es clara: PLANSEG trabaja para que los conflictos no escalen a violencia; cuando escalan, PLANJUS los resuelve. El sistema JUS absorbe los conflictos menores que hoy sobrecargan el sistema penal — disputas vecinales, conflictos comerciales, problemas de convivencia — y los resuelve en 15/45/90 días sin necesidad de policía. ANJUS y ANSEG operan en coordinación permanente. Los Paneles Ciudadanos de Seguridad (PCS) de PLANSEG y los Paneles Ciudadanos de PLANJUS comparten la base de sorteo democrático. La justicia restaurativa de PLANJUS es el complemento de la reforma carcelaria de PLANSEG.
-
-### 10.3 PLANREP — Plan Nacional de Reconversión del Empleo Público
-PLANREP es la infraestructura de reconversión que PLANSEG necesita. Los 50.000-80.000 efectivos de enforcement que la legalización vuelve innecesarios se reconvierten a través de los Centros de la Vida de PLANREP. Los soldaditos y jóvenes del Programa Primer Puente se forman en los oficios de la Economía de la Vida. Los presos liberados por la reforma carcelaria se insertan en el mercado laboral a través de PLANREP. Sin PLANREP, la reconversión de PLANSEG no tiene infraestructura.
-
-### 10.4 PLAN24CN — Plan Nacional de 24 Ciudades Nuevas
-Las ciudades de PLAN24CN nacen seguras por diseño: CPTED integrado, vigilancia natural, estaciones comunitarias en el plano original, iluminación inteligente, mixtura social que evita la segregación. PLANSEG lleva esos mismos principios a las ciudades existentes que PLAN24CN no reemplaza. La especificación de seguridad de PLAN24CN (percepción de seguridad >8/10, diseño CPTED en cada manzana) es el estándar que PLANSEG persigue para todo el territorio.
-
-### 10.5 PLANDIG — Plan Nacional de Soberanía Digital
-PLANDIG provee la infraestructura tecnológica de PLANSEG: almacenamiento soberano para cámaras corporales y cámaras comunitarias, plataforma digital del Tablero Nacional de Seguridad, infraestructura de comunicaciones para EB, herramientas de IA de análisis de datos. PLANSEG define las reglas de uso (vigilancia con derechos); PLANDIG construye y opera la infraestructura. La ciberseguridad soberana de PLANDIG protege los datos de seguridad. Los efectivos reconvertidos a ciberseguridad (Sección 6) operan bajo la órbita de PLANDIG.
-
-### 10.6 PLANEB — Plan Nacional de Empresas Bastardas
-¿Los servicios de seguridad comunitaria pueden organizarse como Bastardas? PLANSEG dice que la seguridad pública es función del Estado y no se privatiza. Pero los servicios complementarios — mantenimiento de iluminación, limpieza de espacios públicos, gestión de RCAT, soporte técnico de cámaras — pueden operarse como Bastardas barriales: cooperativas de propósito perpetuo, sin extracción de ganancia, al servicio de la comunidad. El protocolo Bastardo se aplica a estos servicios bajo supervisión de ANSEG.
-
-### 10.7 PLANSAL — Plan Nacional de Salud
-La seguridad es un determinante de salud. El trauma — individual y colectivo — generado por la violencia urbana produce PTSD, depresión, ansiedad, adicciones, enfermedades cardiovasculares. PLANSAL atiende las consecuencias de salud de la inseguridad; PLANSEG ataca la causa. La coordinación es directa: los centros de salud de PLANSAL operan dentro de la órbita de las EB (derivación directa de casos de violencia de género, sobredosis, crisis de salud mental). Los oficiales comunitarios de PLANSEG tienen formación en primeros auxilios psicológicos y naloxona (Sección 4.1.2).
-
-### 10.8 PLANEDU — Plan Nacional de Educación
-La prevención de violencia empieza en la escuela. PLANEDU incluye contenidos de resolución pacífica de conflictos, inteligencia emocional, y ciudadanía. PLANSEG coordina con PLANEDU para los programas de intervención temprana (Primer Puente) — la escuela es el punto de detección de jóvenes en riesgo. Cada EB tiene relación directa con las escuelas de su zona: los oficiales comunitarios visitan escuelas, participan en actividades, y son el punto de contacto si la escuela detecta una situación de riesgo.
-
-### 10.9 PLANAGUA — Plan Nacional de Soberanía Hídrica
-El enforcement ambiental es una de las nuevas funciones para efectivos reconvertidos. La protección de cuencas, el control de vertidos industriales, la vigilancia de extracción ilegal de agua — todas son funciones que requieren personal con capacidad de enforcement, y los efectivos reconvertidos de PLANSEG las pueden cubrir. ANAGUA define qué se controla; PLANSEG provee el personal reconvertido y formado.
-
-### 10.10 PLANISV — Plan Nacional de Soberanía del Suelo Vivo
-La seguridad rural es la dimensión olvidada de la seguridad argentina. El robo de maquinaria agrícola, el cuatrerismo, los conflictos por tierra, la violencia contra comunidades indígenas, el enforcement de legislación ambiental en zonas rurales — todo esto requiere presencia de seguridad que hoy no existe o es deficiente. Los efectivos reconvertidos al enforcement ambiental (Sección 6.2) cubren esta función en coordinación con PLANISV.
-
-### 10.11 PLANMON — Plan Nacional de Soberanía Monetaria
-La transición monetaria que PLANMON propone genera riesgos de seguridad específicos: protección de la nueva infraestructura financiera, prevención de fraude en nuevos sistemas de pago, seguridad de reservas, y enforcement contra lavado de activos (especialmente relevante durante la transición narco de PLANSUS, cuando las organizaciones desmanteladas intentarán lavar sus activos). PLANSEG coordina con PLANMON en la seguridad de la transición financiera.
-
-### 10.12 PLANGEO — Plan Nacional de Geopolítica
-La cooperación de seguridad con países vecinos es fundamental: el narcotráfico argentino está integrado en redes que cruzan Bolivia, Paraguay, Brasil, y más allá. PLANSUS legaliza en Argentina, pero los países vecinos pueden no hacerlo al mismo tiempo. PLANSEG coordina con PLANGEO para: (a) cooperación de inteligencia transfronteriza, (b) gestión de fronteras comerciales post-legalización, (c) prevención de arbitraje criminal (organizaciones que se mudan a países vecinos), (d) diplomacia de seguridad para promover reformas regionales similares.
-
-### 10.13 PLANEN — Plan Nacional de Soberanía Energética
-La infraestructura energética es infraestructura crítica. Oleoductos, gasoductos, centrales generadoras, redes de transmisión, parques eólicos y solares — todos requieren protección física. PLANSEG asigna efectivos reconvertidos a la protección de infraestructura energética en coordinación con PLANEN. No seguridad privada — seguridad pública especializada.
-
-### 10.13b PLANVIV — Plan Nacional de Vivienda Digna y Hábitat
-La urbanización de 1.800 asentamientos informales es una operación de seguridad tanto como de vivienda. Muchas villas están bajo control territorial narco — PLANSEG lo sabe porque es la realidad que el Protocolo de Transición Narco (Sección 4.2) enfrenta. Cuando PLANVIV entra a urbanizar, PLANSEG entra primero: pacificación del territorio, desarticulación de redes de control, presencia permanente de Estaciones Barriales que acompañan la urbanización durante los años más vulnerables de la transición. Sin el sobre de seguridad de PLANSEG, los tractores de PLANVIV no llegan a la segunda cuadra. Con PLANSEG, la urbanización avanza metro a metro y cada metro ganado es un metro donde el narco pierde pie y el Estado gana legitimidad.
-
-### 10.14 Mapa de Integración Completo
-
-**TABLA 21B: Matriz de Integración PLANSEG × Ecosistema ¡BASTA!**
-
-| Mandato | Qué le da PLANSEG | Qué le da a PLANSEG | Intensidad |
+| Plan destinatario | Naturaleza | Tipo | Qué aporta |
 |---|---|---|---|
-| PLANSUS | Protocolo de seguridad para la cascada. Protección de El Puente. Enforcement residual | Financiamiento (earmark). Reducción de mercado negro. Alternativas económicas | CRITICA |
-| PLANJUS | Prevención (reduce carga procesal). Derivación a justicia restaurativa | Resolución de conflictos que descargan al sistema penal. Paneles Ciudadanos | ALTA |
-| PLANREP | Personal reconvertido. Jóvenes de Primer Puente formados | Infraestructura de reconversión (Centros de la Vida). Formación laboral | ALTA |
-| PLAN24CN | Principios CPTED para ciudades existentes | Diseño seguro desde cero en ciudades nuevas. Laboratorio de modelos | ALTA |
-| PLANDIG | Reglas de vigilancia con derechos. Personal de ciberseguridad | Infraestructura digital: almacenamiento, IA, comunicaciones, SOC | ALTA |
-| PLANEB | Supervisión de Bastardas de servicio comunitario | Servicios complementarios: mantenimiento, limpieza, soporte técnico | MEDIA |
-| PLANSAL | Primeros auxilios. Derivación desde EB. Prevención de trauma | Atención de salud mental de oficiales (PBOC). Tratamiento de trauma comunitario | MEDIA |
-| PLANEDU | Programas en escuelas. Detección de jóvenes en riesgo | Contenidos de resolución pacífica de conflictos. Reinserción escolar | MEDIA |
-| PLANAGUA | Personal de enforcement ambiental reconvertido | Definición de qué se controla (cuencas, vertidos, extracción) | MEDIA |
-| PLANISV | Seguridad rural. Enforcement ambiental | Definición de protección de suelo y recursos rurales | MEDIA |
-| PLANMON | Seguridad durante transición monetaria. Anti-lavado | Estabilidad financiera durante la transición | BAJA |
-| PLANGEO | Cooperación de seguridad transfronteriza | Marco diplomático. Coordinación con fuerzas vecinas | MEDIA |
-| PLANEN | Protección de infraestructura energética | Definición de infraestructura crítica a proteger | BAJA |
+| **PLANSUS** | CRITICAL | TEMPORAL | PLANSEG debe tener 250+ EB operativas 12 meses ANTES de legalización |
+| **PLANSUS** | CRITICAL | INSTITUTIONAL | Protocolo de transición narco sincronizado GREEN/YELLOW/RED |
+| **PLANVIV** | IMPORTANT | INSTITUTIONAL | CPTED (prevención por diseño ambiental) en urbanizaciones |
+| **PLANTER** | CRITICAL | INSTITUTIONAL | Protección de defensores territoriales y Guardacostas ampliada |
+| **PLANDIG** | IMPORTANT | TECHNICAL | Red soberana provee cadena de custodia criptográfica a body cams, video IA y sensores urbanos |
+| **PLANREP** | IMPORTANT | LABOR | Oficiales reconvertidos de fuerzas desmanteladas migran a seguridad comunitaria y enforcement sin violencia |
 
----
+### Lo que PLANSEG necesita de otros
+
+| Plan fuente | Naturaleza | Tipo | Qué recibe |
+|---|---|---|---|
+| **PLANDIG** | IMPORTANT | TECHNICAL | Body cams, video IA, sensores urbanos sobre infra soberana |
+| **PLANREP** | IMPORTANT | LABOR | Oficiales de enforcement reconvertidos a seguridad comunitaria |
+| **PLANSUS** | CRITICAL | TEMPORAL | Reforma policial + 250+ EB operativas + protocolo GREEN/YELLOW/RED son precondición para la legalización escalonada: PLANSEG marca el pulso temporal de la transición narco |
+| **PLANVIV** | IMPORTANT | INSTITUTIONAL | Protocolos CPTED (prevención del delito por diseño ambiental) aplicados en urbanizaciones y retrofits |
+| **PLANTER** | CRITICAL | INSTITUTIONAL | PLANSEG extiende protección formal a defensores territoriales y amplía la Guardia Costera para soberanía marítima |
 
 ## SECCIÓN 11: MARCO PRESUPUESTARIO Y ROI
 

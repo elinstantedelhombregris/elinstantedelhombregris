@@ -698,70 +698,33 @@ Una Resolución ejecutada no es "fin de historia". La Mesa queda en estado *segu
 Los reportes de seguimiento son públicos y se inscriben en Memoria. Si la Mesa detecta desviaciones graves, convoca Mesa de Corrección. Si detecta ejecución exitosa, contribuye a la Capa de Decisión de sus miembros como logro de impacto.
 
 ---
+## INTEGRACIÓN CON EL MARCO ¡BASTA!
 
-## SECCIÓN 7: INTEGRACIÓN CON LA PLATAFORMA ¡BASTA!
+Esta sección documenta cómo PLANMESA se acopla al resto del ecosistema de mandatos. Todo vínculo declarado acá tiene su contraparte espejo en el plan referenciado: si acá aparece *"aporta a PLANXXX"*, en PLANXXX aparecerá *"recibe de PLANMESA"*.
 
-> *"PLANMESA no es un documento separado que espera ser implementado — es un módulo que se acopla a la plataforma cívica que ya funciona, y cada pieza existente gana un sentido nuevo."*
+### Lo que PLANMESA aporta al ecosistema
 
-### 7.1 Con El Mapa — Señal a Decisión
+| Plan destinatario | Naturaleza | Tipo | Qué aporta |
+|---|---|---|---|
+| **PLANMOV** | IMPORTANT | INSTITUTIONAL | Mesas Civiles de Corredor deciden priorización de reactivación ferroviaria |
+| **PLANDIG** | CRITICAL | TECHNICAL | IDS aloja la plataforma de auto-postulación, la Credencial de Materia y la Cédula Civil sobre nodos federados soberanos |
+| **PLANEDU** | CRITICAL | INSTITUTIONAL | A partir de Fase 1: PLANEDU construye la Capa de Estudio de la Credencial de Materia — currículum obligatorio y evaluación continua de servidores de Mesa |
+| **PLANMEMORIA** | CRITICAL | INSTITUTIONAL | PLANMEMORIA opera la Consulta Ancestral obligatoria en Fase APRENDER: el archivo federado responde en cada ciclo LDEA |
+| **PLANTALLER** | CRITICAL | INSTITUTIONAL | Tallers son los ejecutores operativos de Fase EXPERIMENTAR: prototipan, miden y retornan hallazgos a Mesa |
+| **PLANCUIDADO** | IMPORTANT | INSTITUTIONAL | Red de Cuidado provee la Capa de Vínculo de la Credencial y el sostén relacional de quienes sirven en Mesa |
+| **PLANJUS** | IMPORTANT | INSTITUTIONAL | JUS aporta control legal de las Resoluciones de Mesa y arbitra disputas sobre auto-postulación o Credenciales revocadas |
 
-El Mapa hoy captura seis tipos de señal (sueño, valor, necesidad, basta, compromiso, recurso). PLANMESA extiende con dos tipos más:
+### Lo que PLANMESA necesita de otros
 
-- **Capacidad:** qué sé hacer, en qué escala, con qué evidencia (alimenta Capa Productiva de Credencial);
-- **Precedente invocado:** el usuario identifica un precedente en Memoria que quiere traer al debate actual (alimenta Consulta Ancestral).
-
-El Mandato Vivo ya sintetiza señales en mandatos territoriales. PLANMESA agrega la lógica de activación de Caso de Mesa: el Mandato Vivo dispara automáticamente un Caso cuando detecta el patrón "densidad suficiente + discordancia + falta de ciclo LDEA reciente".
-
-### 7.2 Con el Arquitecto — Decisión a Iniciativa
-
-El Arquitecto hoy muestra 200+ iniciativas estratégicas con dependencias y presupuesto. PLANMESA extiende con:
-
-- Cada iniciativa carga su **historia memorial** (intentos previos, resultados, capturas conocidas);
-- Estado de cada iniciativa incluye **fase LDEA actual** si está en ciclo;
-- Cuando una Mesa cierra Resolución, **la iniciativa correspondiente se activa automáticamente** con cronograma firmado;
-- Dependencias visibles entre iniciativas incluyen **dependencia de Credencial** — no se activa algo si no hay ciudadanos con Credencial suficiente en el territorio.
-
-### 7.3 Con los Círculos — Comunidad a Experimentación
-
-Los Círculos hoy son la unidad de organización territorial. PLANMESA agrega tres tipos especializados:
-
-- **Círculo de Estudio** — donde miembros en construcción de Capa de Estudio se reúnen periódicamente;
-- **Círculo de Experimentación** — anfitrión de Taller piloto de Fase 3 de un ciclo LDEA;
-- **Círculo de Cuidado** (ver PLANCUIDADO).
-
-Los Círculos existentes pueden declararse especializados por decisión de sus miembros.
-
-### 7.4 Con la Semilla — Compromiso a Ejecución
-
-La Semilla hoy registra compromisos individuales. PLANMESA extiende:
-
-- **Semilla compartida** entre dos usuarios como forma de Pacto de Cuidado (ver PLANCUIDADO);
-- **Semilla derivada de Resolución de Mesa** — compromiso territorial post-decisión, firmado por ciudadanos que acompañan la ejecución;
-- La germinación de Semilla cuenta para la Capa correspondiente de la Credencial.
-
-### 7.5 Con Life Areas — Diagnóstico a Vocación
-
-Life Areas hoy diagnostica al individuo en 12 áreas. PLANMESA integra:
-
-- El diagnóstico de Life Areas orienta recomendaciones de qué **Credenciales podrían tener sentido cultivar** para el usuario;
-- La señal de vínculo alimenta el matching de Pactos de Cuidado.
-
-### 7.6 Con los Cursos — Aprendizaje a Credencial
-
-La plataforma ya tiene un sistema de cursos con markdown + quizzes. PLANMESA integra:
-
-- Cursos marcados por **materia** y por **capa de Credencial que habilitan**;
-- Depósitos ciudadanos de Memoria como **material pedagógico primario** (historia oral, testimonio de mayores);
-- Certificación de curso cuenta para Capa de Estudio de la Credencial correspondiente, con registro automático.
-
-### 7.7 Con el Coaching — Guía a Ruta
-
-El Coaching actual matchea necesidades con misiones. PLANMESA integra:
-
-- Coaching sugiere al usuario **próximo paso hacia Credencial** basado en su perfil;
-- Coaching conecta al usuario con **Círculos, Tallers y Mesas activas** en su territorio que podrían interesarle.
-
----
+| Plan fuente | Naturaleza | Tipo | Qué recibe |
+|---|---|---|---|
+| **PLANDIG** | CRITICAL | TECHNICAL | Plataforma técnica para auto-postulación, Credencial de Materia y Cédula Civil |
+| **PLANEDU** | CRITICAL | INSTITUTIONAL | A partir de Fase 1: Capa de Estudio de la Credencial se construye en PLANEDU (Fase 0 de PLANMESA es arranque técnico autónomo) |
+| **PLANMEMORIA** | CRITICAL | INSTITUTIONAL | Consulta Ancestral obligatoria en Fase APRENDER de cada ciclo LDEA |
+| **PLANTALLER** | CRITICAL | INSTITUTIONAL | Tallers son ejecutores de Fase EXPERIMENTAR del ciclo LDEA |
+| **PLANCUIDADO** | IMPORTANT | INSTITUTIONAL | Capa de Vínculo de Credencial; sostén relacional del servidor de Mesa |
+| **PLANJUS** | IMPORTANT | INSTITUTIONAL | Control legal de Resoluciones y disputas sobre auto-postulación |
+| **PLANMOV** | IMPORTANT | INSTITUTIONAL | Mesas Civiles de Corredor son los cuerpos deliberativos que priorizan la reactivación ferroviaria kilómetro por kilómetro |
 
 ## SECCIÓN 8: MODELO ECONÓMICO Y FISCAL
 
@@ -1007,51 +970,6 @@ Cada uno de estos puntos se monitorea y ajusta.
 - Más de 3 Mesas consecutivas con impasse: revisión del protocolo de composición.
 - Tasa de Resoluciones ejecutadas cayendo por debajo de 75%: diagnóstico de fricción Ejecutivo/Mesa.
 - Credencial desafiada por más de 10 denuncias en trimestre: revisión del proceso de adquisición.
-
----
-
-## SECCIÓN 13: INTEGRACIÓN CON EL MARCO ¡BASTA!
-
-### 13.1 PLANMESA como Capa Decisional Transversal
-
-Todos los PLANes requieren mecanismos decisionales para activarse, adaptarse y escalarse. PLANMESA es esa capa transversal.
-
-**TABLA 13.1: Sinergias PLANMESA × Otros PLANes**
-
-| PLAN receptor | Qué aporta PLANMESA | Qué recibe PLANMESA |
-|---|---|---|
-| PLANAGUA | Mesas de Agua por cuenca con ciclo LDEA | Materia crítica para primeras Mesas, problemas operativos definidos |
-| PLANVIV | Mesas de Hábitat con pilotos habitacionales | Formación de Credencial en Vivienda, memoria de programas fallidos |
-| PLANSAL | Mesas de Salud por territorio con APS como foco | Credencial en Salud, red de Pactos de Cuidado activa |
-| PLANSEG | Mesas de Seguridad de Proximidad | Integración con Círculos territoriales |
-| PLANEDU | Cursos que habilitan Capa de Estudio de Credencial | Formación continua, plataforma pedagógica |
-| PLANCUL | Mesa de Cultura Viva con pilotos culturales | Narrativa, ritos cívicos, apropiación comunitaria |
-| PLANEN | Mesas de Energía Distribuida | Credencial en Energía, Tallers energéticos |
-| PLANEB | Mesas aportan Resoluciones que activan nuevas Bastardas | Tallers como ejecutores, Bastardas como canal |
-| PLANREP | Reconversión orientada por mandato de Mesa | Cuadros formados, profesionales en transición |
-| PLANJUS | Mesas especializadas en resolución de conflictos | Marco jurídico de integridad |
-| PLANDIG | Plataforma técnica donde operan las Mesas | Infraestructura cívica, señal territorial |
-| PLANSUS | Mesa de Sustancias cuando corresponda en fase | Credencial en materia compleja |
-| PLANMON | Mesa de Política Monetaria en Año 5+ | Materia de alta sensibilidad |
-| PLAN24CN | Mesas de Ciudad Nueva para pilotaje integral | Laboratorio de ciclo LDEA urbano completo |
-| PLANGEO | Mesa de Geopolítica | Credencial en materia estratégica |
-| PLANISV | Mesa de Suelo Vivo | Credencial productiva agroecológica |
-| PLANTALLER | Tallers son el ejecutor de Fase 3 | Infraestructura productiva experimental |
-| PLANCUIDADO | Pactos alimentan Capa de Vínculo | Sostén de miembros de Mesa |
-| PLANMEMORIA | Archivo es input de Fase APRENDER | Inscripción de Resoluciones |
-| PLANRUTA | PLANMESA se despliega como parte del kit de despliegue | Secuencia de bootstrap |
-
-### 13.2 Distinciones Fundamentales
-
-**PLANMESA vs. Jurados Populares de PLANJUS:** los jurados populares resuelven casos concretos aplicando ley existente. Las Mesas Civiles diseñan y ejecutan intervenciones públicas con ciclo LDEA. Comparten la arquitectura de sorteo y deliberación, pero operan en dominios distintos.
-
-**PLANMESA vs. Paneles Ciudadanos de PLANEB:** los Paneles supervisan Bastardas específicas en gobernanza de empresas. Las Mesas deciden políticas públicas en territorios. Son primos institucionales.
-
-**PLANMESA vs. Consejos Consultivos tradicionales:** los Consejos Consultivos opinan sin efecto vinculante. Las Mesas deciden con efecto vinculante sobre activación de iniciativas.
-
-### 13.3 PLAN24CN como Laboratorio Integral
-
-Las Ciudades Nuevas de PLAN24CN son el laboratorio natural de PLANMESA pleno: se construyen con Mesas de Ciudad desde el día uno, con todos los PLANes activos, con ciclos LDEA ejecutándose desde el kilómetro cero. Cada Ciudad Nueva es una instancia completa del sistema ¡BASTA! en miniatura y un caso de estudio vivo.
 
 ---
 

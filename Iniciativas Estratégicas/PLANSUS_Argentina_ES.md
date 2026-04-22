@@ -1379,80 +1379,6 @@ Cuando una Puerta tiene una o más métricas en ROJO:
 
 ---
 
-## SECCIÓN 19: INTEGRACIÓN CON ¡BASTA! — DOCE MANDATOS, UNA TRANSFORMACIÓN
-
-> *"PLANSUS no existe en el vacío. Existe dentro de ¡BASTA! — y cada mandato fortalece a los otros. Esta no es una colección de planes. Es un sistema."*
-
-### 19.1 PLANSUS ↔ PLANJUS
-
-Las Casas JUS absorben las disputas comerciales del mercado de sustancias. Un conflicto entre un productor y un distribuidor se resuelve en JUS-1 (15 días) si es simple, JUS-2 (45 días) si es mediano. Sin abogados obligatorios, sin años de espera, sin tribunales comerciales colapsados. La justicia restaurativa de PLANJUS aplica a los conflictos de transición — operadores ilegales que se integran al mercado legal y necesitan resolver disputas con la comunidad. Los mecanismos anticorrupción del triple candado de PLANJUS protegen a ANSUS con la misma arquitectura que protege a ANJUS.
-
-### 19.2 PLANSUS ↔ PLANEDU
-
-PLANEDU integra farmacología, neurociencia y reducción de daños en CONOCER — el eje de conocimiento del currículo transformado. No educación antidrogas del tipo "di que no" (que nunca funcionó), sino información científica real sobre cómo funcionan las sustancias en el cerebro, qué riesgos tienen, cómo se minimiza el daño. CUIDAR incorpora exploración de la conciencia y conocimiento indígena sobre plantas maestras como parte de la herencia cultural argentina. Los emprendimientos estudiantiles de PLANEDU (mayores de 18) pueden incluir proyectos vinculados a la economía legal de sustancias. Las universidades se convierten en socios de I+D del Track Terapéutico.
-
-### 19.3 PLANSUS ↔ PLANREP
-
-El Puente funciona como una **vía de especialización transversal** dentro de las ramas existentes de PLANREP — particularmente La Mesa, La Reparación y La Imaginación — no como una novena rama independiente. Los trabajadores que eligen la economía de sustancias se forman dentro de la infraestructura de PLANREP y acceden al Índice de Contribución como cualquier otro egresado. Cultivadores, procesadores, operadores de retiros terapéuticos, guías ceremoniales, técnicos de laboratorio de control de calidad — todos son oficios nuevos que PLANREP puede capacitar a través de los Centros de la Vida. El modelo cooperativo que PLANREP promueve aplica directamente a las cooperativas cannábicas. El Monotributo Digital se adapta para micro-licenciatarios de PLANSUS.
-
-### 19.4 PLANSUS ↔ PLANISV
-
-El cannabis y el cáñamo industrial son **cultivos de rotación ideales** para la restauración del suelo que PLANISV propone. El cáñamo tiene raíces profundas que descompactan el suelo, requiere menos agua que la soja, y puede usarse para biorremediación de suelos contaminados. La infraestructura del INTA que PLANISV fortalece sirve para asistencia técnica a productores de cannabis. Y en los "pueblos fumigados" — comunidades devastadas por agroquímicos — el cannabis orgánico ofrece una alternativa económica que no envenena la tierra ni a la gente.
-
-### 19.5 PLANSUS ↔ PLAN24CN
-
-Las 24 nuevas ciudades incluyen infraestructura PLANSUS de diseño: zonas agrícolas para cannabis y cáñamo en los cinturones productivos, centros de I+D en los campus universitarios de las nuevas ciudades, infraestructura turística para retiros terapéuticos y ceremoniales. El hempcrete — hormigón de cáñamo — es un material de construcción sustentable que PLAN24CN puede incorporar a escala: aislante térmico, captura de carbono, producción local. Las nuevas ciudades nacen post-prohibición. No tienen que desaprender nada.
-
-**TABLA 19.1: Mapa de Integración ¡BASTA! x PLANSUS**
-
-| Plan ¡BASTA! | Integración con PLANSUS | Beneficio mutuo |
-|---|---|---|
-| PLANJUS | Casas JUS para disputas comerciales; anticorrupción compartida | Justicia rápida para mercado legal; carga judicial reducida |
-| PLANEDU | Farmacología en CONOCER; conciencia en CUIDAR; emprendimiento | Educación real reemplaza propaganda; talento para la industria |
-| PLANREP | Especialización transversal en ramas existentes; Centros de la Vida; cooperativas | Nuevos oficios dignos; reconversión con destino productivo |
-| PLANISV | Rotación de cultivos; biorremediación; alternativa a agroquímicos | Suelo restaurado con valor económico; "pueblos fumigados" liberados |
-| PLAN24CN | Hempcrete; zonas agrícolas; turismo terapéutico; I+D | Ciudades sustentables desde el diseño; economía diversificada |
-| PLANSAL | Puente Sanitario de 36 meses (Sección 24); CAPAs como futura infraestructura PLANSAL; capacitación de profesionales de salud | Infraestructura sanitaria construida por PLANSUS se integra a PLANSAL; demand de tratamiento atendida desde el Día 1 |
-| PLANEB | Bastarda Financiera bancariza mercado; Bastarda Farmacéutica distribuye al costo; trazabilidad Bastarda | Infraestructura comercial ética desde el Día 1; cadena de custodia verificable |
-| PLANAGUA | Protección hídrica por cultivo legal regulado; fin de deforestación narco | Cuencas protegidas; cultivo regenerativo reemplaza producción clandestina |
-| PLANDIG | Tablero Nacional en infraestructura soberana; blockchain de trazabilidad; datos en suelo argentino | Soberanía sobre datos de consumo; política basada en evidencia real |
-| PLANGEO | Coalición reformista internacional; Fase 3 confrontativa; judo diplomático | Masa crítica para denuncia de convenciones; legitimidad internacional |
-| PLANMON | Recaudación fiscal al Fondo Soberano; mercado en Pulso; cannabis exportable | Financiamiento estable; moneda real para industria real |
-
-### 19.6 PLANSUS ↔ PLANEB
-
-La Bastarda Financiera resuelve desde el Día 1 lo que la banca tradicional tarda años en aceptar: bancarizar a los operadores del mercado regulado de sustancias. Donde el Banco Nación duda, la Bastarda Financiera abre cuentas sin estigma porque su razón de existir es servir a la economía real, no al compliance de Wall Street. La Bastarda Farmacéutica distribuye sustancias certificadas por ANMAT al costo — cannabis medicinal, psilocibina de grado terapéutico, kits de reducción de daños — eliminando el margen especulativo que convierte medicinas en lujo. El Protocolo Bastardo de trazabilidad se aplica a la cadena completa de sustancias: desde el cultivador con licencia ANSUS-Micro hasta el dispensario, cada gramo tiene historia verificable. La arquitectura de cero-propiedad de PLANEB garantiza que ningún actor acumule poder de mercado — la industria legal de sustancias nace distribuida o no nace.
-
-### 19.7 PLANSUS ↔ PLANAGUA
-
-La producción clandestina de sustancias es una catástrofe hídrica invisible. Los laboratorios de cocaína en el norte argentino vierten precursores químicos directamente a los arroyos. Los cultivos ilegales de marihuana en el litoral deforestan riberas y contaminan napas con fertilizantes no regulados. Cada hectárea de producción clandestina es una hectárea de cuenca envenenada. PLANSUS desactiva esa cadena al legalizar y regular: el cultivo legal opera bajo los estándares de PLANISV — regenerativo, sin agroquímicos, con rotación — y bajo la vigilancia hídrica de PLANAGUA. El cannabis legal no solo no contamina: el cáñamo industrial es un cultivo de biorremediación que absorbe metales pesados del suelo y reduce la escorrentía contaminante. Legalizar es proteger el agua. Prohibir es envenenarla.
-
-### 19.8 PLANSUS ↔ PLANDIG
-
-El Tablero Nacional de Sustancias — el sistema de monitoreo en tiempo real que mide cada indicador de PLANSUS desde consumo hasta violencia — corre sobre infraestructura soberana de PLANDIG. No sobre AWS. No sobre Azure. Los datos de consumo de 47 millones de argentinos, los patrones epidemiológicos, los registros de licenciatarios, la trazabilidad blockchain del mercado regulado: todo almacenado en suelo argentino, bajo jurisdicción argentina. Esto no es capricho ideológico — es necesidad operativa. Un gobierno que no controla sus propios datos de política de drogas no controla su política de drogas. La trazabilidad blockchain que PLANDIG soporta permite que cada unidad de sustancia certificada tenga un registro inmutable desde la semilla hasta el consumidor. Y los datos de consumo agregados y anonimizados se convierten en el insumo más valioso para calibrar la cascada: evidencia real, no encuestas, no estimaciones.
-
-### 19.9 PLANSUS ↔ PLANGEO
-
-La denuncia de las Convenciones de 1961 y 1971 no puede ser un acto solitario. PLANGEO estructura la coalición reformista internacional que da a PLANSUS la masa crítica diplomática para sobrevivir la presión de Washington y Viena. La Fase 3 de PLANGEO — Los Confrontativos — dedica un eje específico a la reforma del régimen internacional de sustancias: no se puede hablar de soberanía geopolítica sin incluir la soberanía sobre la conciencia. El judo diplomático es devastador: 24 estados de los Estados Unidos ya legalizaron el cannabis recreativo mientras el gobierno federal persigue a países que hacen lo mismo. Esa hipocresía es el punto de presión. Argentina lidera una coalición del Sur Global que no pide permiso para regular — exige coherencia. Cada país que se suma a la coalición es un voto menos para sostener convenciones que sus propios autores ya no respetan.
-
-### 19.10 PLANSUS ↔ PLANMON
-
-La recaudación fiscal de PLANSUS — estimada en más de USD 10.000 millones anuales a régimen — es una de las fuentes primarias del Fondo Soberano que PLANMON capitaliza. Esa conexión no puede ser informal: cada peso recaudado por ANSUS en impuestos al mercado regulado tiene destino presupuestario atado — salud, educación, infraestructura — y se denomina en Pulso, la unidad de cuenta estable de PLANMON. El mercado regulado opera en moneda real porque vende productos reales a personas reales: no hay especulación posible cuando el precio del cannabis medicinal se ancla a la canasta de bienes que Pulso refleja. El cannabis y el cáñamo industrial son componentes naturales de la canasta de exportación argentina — y su precio en Pulso permite a los productores planificar sin que una devaluación los arruine de un día para el otro. Soberanía monetaria y soberanía sobre sustancias son dos caras de la misma moneda: un país que no controla su dinero ni lo que su gente consume no es soberano. Es administrado.
-
-### 19.11 PLANSUS × PLANEN: Cáñamo como Biomasa Energética
-
-El cáñamo industrial legalizado por PLANSUS es biomasa para la cadena de bioenergía de PLANEN. Los residuos de la producción de cáñamo alimentan plantas de cogeneración en las ciudades de PLAN24CN. La fibra de cáñamo también sirve como aislante térmico, reduciendo la demanda energética de calefacción.
-
-### 19.12 PLANSUS × PLANSEG: El Sobre de Seguridad para la Transición
-
-Esta es la integración más crítica de todo el ecosistema ¡BASTA!. PLANSUS legaliza y regula sustancias en una cascada de cinco años — pero sin un protocolo de seguridad que cubra la transición, la legalización crea un vacío donde los narcos pierden mercado pero no pierden armas. PLANSEG provee el sobre de seguridad: protección de dispensarios regulados durante los primeros años vulnerables, desarticulación acelerada de redes narco que pierden su modelo de negocio, y presencia territorial en las zonas donde el narcotráfico va a pelear por retener control. Sin PLANSEG, PLANSUS es una reforma valiente pero peligrosa. Con PLANSEG, es una reforma viable — porque el Estado ocupa cada metro cuadrado que el narco abandona.
-
-### 19.13 PLANSUS × PLANVIV: El Cáñamo Que Se Vuelve Pared
-
-PLANSUS legaliza el cannabis y el cáñamo industrial. PLANVIV los convierte en casas. El hempcrete — mezcla de fibra de cáñamo con cal — es un material de construcción liviano, aislante térmico, resistente al fuego, y secuestrador neto de carbono: cada metro cúbico de pared de hempcrete captura más CO2 del que emitió durante su fabricación. PLANVIV incorpora hempcrete como material prioritario para la construcción nueva de la Bastarda Inmobiliaria y para el retrofit de edificios existentes. La cadena es completa: PLANSUS regula, PLANISV cultiva, PLANREP forma a los albañiles, y PLANVIV construye — una pared de cáñamo a la vez.
-
----
-
 ## SECCIÓN 20: VISIÓN 2040 — LA ARGENTINA DONDE LA CONCIENCIA ES LIBRE
 
 > *"Toda visión del futuro es un acto de fe informada. Fe en lo que los datos muestran que es posible. Fe en lo que la historia demuestra que es inevitable. Fe en lo que las personas hacen cuando les sacás las cadenas."*
@@ -2093,3 +2019,31 @@ Bajo PLANSUS, eso no pasa. El equipo europeo necesita consentimiento previo, lib
 *PLANSUS — Plan Nacional de Soberanía sobre Sustancias y Desarrollo Productivo del Conocimiento Expandido*
 *Sexto Mandato ¡BASTA!*
 *República Argentina — Marzo 2026 — Versión 1.0*
+
+---
+
+## INTEGRACIÓN CON EL MARCO ¡BASTA!
+
+Esta sección documenta cómo PLANSUS se acopla al resto del ecosistema de mandatos. Todo vínculo declarado acá tiene su contraparte espejo en el plan referenciado: si acá aparece *"aporta a PLANXXX"*, en PLANXXX aparecerá *"recibe de PLANSUS"*.
+
+### Lo que PLANSUS aporta al ecosistema
+
+| Plan destinatario | Naturaleza | Tipo | Qué aporta |
+|---|---|---|---|
+| **PLANGEO** | IMPORTANT | LEGAL | Cascada diplomática para denuncia de convenciones de drogas |
+| **PLANSAL** | IMPORTANT | INSTITUTIONAL | Sustancias como herramienta terapéutica; psicodélicos para salud mental |
+| **PLANJUS** | IMPORTANT | INSTITUTIONAL | Sala de Sustancias resuelve conflictos de licencias, zonificación y disputas comunitarias sobre uso de sustancias |
+| **PLANSEG** | CRITICAL | TEMPORAL | Reforma policial + 250+ EB operativas + protocolo GREEN/YELLOW/RED son precondición para la legalización escalonada: PLANSEG marca el pulso temporal de la transición narco |
+| **PLANMON** | IMPORTANT | FINANCIAL | El Fondo Soberano Ciudadano absorbe la recaudación fiscal de sustancias legalizadas como uno de sus pilares de capitalización |
+
+### Lo que PLANSUS necesita de otros
+
+| Plan fuente | Naturaleza | Tipo | Qué recibe |
+|---|---|---|---|
+| **PLANJUS** | IMPORTANT | INSTITUTIONAL | Conflictos de licencias y zonificación de sustancias |
+| **PLANSEG** | CRITICAL | TEMPORAL | PLANSEG debe tener 250+ EB operativas 12 meses ANTES de legalización |
+| **PLANSEG** | CRITICAL | INSTITUTIONAL | Protocolo de transición narco sincronizado GREEN/YELLOW/RED |
+| **PLANMON** | IMPORTANT | FINANCIAL | Recaudación fiscal de sustancias capitaliza Fondo Soberano |
+| **PLANGEO** | IMPORTANT | LEGAL | Cuerpo legal de salida de convenciones internacionales de drogas provisto por PLANSUS permite a PLANGEO ejecutar la cascada diplomática |
+| **PLANSAL** | IMPORTANT | INSTITUTIONAL | PLANSUS habilita el uso terapéutico de sustancias e incluidos psicodélicos; los protocolos clínicos resultantes alimentan la medicina mental de PLANSAL |
+

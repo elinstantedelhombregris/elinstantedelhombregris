@@ -563,53 +563,33 @@ ROI: Break-even a 4-6 años, beneficio neto creciente a partir de entonces.
 - Co-financiamiento provincial.
 
 ---
+## INTEGRACIÓN CON EL MARCO ¡BASTA!
 
-## SECCIÓN 8: INTEGRACIÓN CON LA PLATAFORMA ¡BASTA!
+Esta sección documenta cómo PLANCUIDADO se acopla al resto del ecosistema de mandatos. Todo vínculo declarado acá tiene su contraparte espejo en el plan referenciado: si acá aparece *"aporta a PLANXXX"*, en PLANXXX aparecerá *"recibe de PLANCUIDADO"*.
 
-### 8.1 Con el Mapa
+### Lo que PLANCUIDADO aporta al ecosistema
 
-Nuevos tipos de señal:
-- `cuidado necesario`: quién lo declara, geolocalizado, con tipo.
-- `cuidado disponible`: oferta de capacidad, con tipo.
-- `soledad latente`: auto-declaración opcional de necesidad de vínculo.
+| Plan destinatario | Naturaleza | Tipo | Qué aporta |
+|---|---|---|---|
+| **PLANMESA** | IMPORTANT | INSTITUTIONAL | Capa de Vínculo de Credencial; sostén relacional del servidor de Mesa |
+| **PLANTER** | IMPORTANT | INSTITUTIONAL | Pactos Interculturales reconocen parentescos originarios |
+| **PLANSAL** | CRITICAL | INSTITUTIONAL | A partir de Fase 1: APS territorial provee la ventana clínica que lee Pactos como dato de salud; Referentes articulan con médicos de cabecera |
+| **PLANREP** | CRITICAL | LABOR | Cuidadoras domiciliarias informales son reconvertidas por PLANREP en Referentes Territoriales con salario, formación y protección |
+| **PLANEDU** | IMPORTANT | INSTITUTIONAL | PLANEDU incluye currículum de cuidado desde primaria y formación inicial diferenciada para cada tipo de Pacto |
+| **PLANJUS** | IMPORTANT | INSTITUTIONAL | JUS provee mediación de disputas de Pactos en primera instancia no-jurisdiccional antes de escalar al sistema formal |
+| **PLANDIG** | IMPORTANT | TECHNICAL | IDS aloja el Registro Nacional de Vínculos, el Libro de Cuidado y la Alerta de Soledad Total con criptografía y consentimiento granular |
 
-### 8.2 Con Mandato Vivo
+### Lo que PLANCUIDADO necesita de otros
 
-Detecta concentraciones territoriales de soledad, de violencia de género, de sobrecarga de cuidadoras. Dispara Casos de Mesa en materia Cuidado.
-
-### 8.3 Con Arquitecto
-
-Iniciativas de cuidado (políticas sanitarias, habitacionales, previsionales) se linkean con Referentes Territoriales y Mesa Civil Cuidado.
-
-### 8.4 Con Círculos
-
-Nuevo tipo especializado: Círculo de Cuidado. Protocolo propio de privacidad. Reuniones regulares. Sostenimiento mutuo de pactantes.
-
-### 8.5 Con Semilla
-
-Semilla Compartida: compromiso de a dos, que puede ser Pacto de Cuidado. Germinación cuenta para Capa de Vínculo de Credencial.
-
-### 8.6 Con Life Areas
-
-Diagnóstico de área vincular sugiere exploración de Pactos. Signos de soledad disparan exploración asistida.
-
-### 8.7 Con PLANEDU
-
-Cursos específicos por tipo de Pacto. Formación de Referentes. Currículum escolar integrado.
-
-### 8.8 Con PLANMESA
-
-Capa de Vínculo de Credencial es requisito para materias donde el vínculo es constitutivo. Mesa especializada en Cuidado opera continua.
-
-### 8.9 Con PLANTALLER
-
-Taller de Cuidado produce ayudas técnicas, dispositivos, adaptaciones habitacionales al costo.
-
-### 8.10 Con PLANMEMORIA
-
-Pactos sostenidos décadas como fuente de depósito testimonial. Cuidado como materia de inscripción memorial.
-
----
+| Plan fuente | Naturaleza | Tipo | Qué recibe |
+|---|---|---|---|
+| **PLANSAL** | CRITICAL | INSTITUTIONAL | A partir de Fase 1: APS territorial integra Pactos como dato clínico; articula con Referentes (Fase 0 de PLANCUIDADO es Ley ANCV + piloto registral) |
+| **PLANREP** | CRITICAL | LABOR | Reconversión de cuidadoras domiciliarias a Referentes Territoriales formales |
+| **PLANEDU** | IMPORTANT | INSTITUTIONAL | Formación inicial de cada tipo de Pacto; currículum de cuidado desde primaria |
+| **PLANJUS** | IMPORTANT | INSTITUTIONAL | Mediación de disputas de Pactos en primera instancia no-jurisdiccional |
+| **PLANDIG** | IMPORTANT | TECHNICAL | Registro Nacional de Vínculos, Libro de Cuidado y Alerta de Soledad Total |
+| **PLANMESA** | IMPORTANT | INSTITUTIONAL | Red de Cuidado provee la Capa de Vínculo de la Credencial y el sostén relacional de quienes sirven en Mesa |
+| **PLANTER** | IMPORTANT | INSTITUTIONAL | La red de Pactos reconoce y formaliza los parentescos interculturales de comunidades originarias como Pactos Interculturales |
 
 ## SECCIÓN 9: LA DIMENSIÓN DE GÉNERO
 
@@ -764,36 +744,6 @@ Solo si el Pacto activo de 5+ años se usa para sucesión, y no desplaza hereder
 - Soledad detectada no respondida en 14 días: protocolo de emergencia.
 - Sobrecarga de Referente: relevo temporal, Círculo de apoyo.
 - Pactos sin revisión en plazo: recordatorio y acompañamiento.
-
----
-
-## SECCIÓN 15: INTEGRACIÓN CON EL MARCO ¡BASTA!
-
-PLANCUIDADO es **capa transversal del ecosistema**. Los demás PLANes operan mejor porque sus practicantes están sostenidos.
-
-**TABLA 15.1: Sinergias**
-
-| PLAN | Sinergia |
-|---|---|
-| PLANSAL | Referentes articulan con APS, cuidado reduce hospitalización |
-| PLANVIV | Diseño habitacional con capa de cuidado |
-| PLANSEG | Red de Pactos detecta violencia temprano |
-| PLANEDU | Formación de cuidado en currículum escolar |
-| PLANCUL | Cuidado como materia cultural, ritos públicos |
-| PLANEB | Bastarda Sanitaria provee salud plural a pactantes |
-| PLANREP | Cuidadoras domiciliarias se reconvierten a Referentes |
-| PLANJUS | Mesa de Cuidado resuelve disputas de Pactos |
-| PLANMESA | Capa de Vínculo en Credencial |
-| PLANTALLER | Taller de Cuidado (ayudas técnicas) |
-| PLANMEMORIA | Pactos de décadas → depósito memorial |
-| PLANDIG | Plataforma operativa |
-| PLAN24CN | Ciudades intergeneracionales |
-| PLANISV | Producción alimentaria al costo como cuidado material |
-| PLANEN | Energía distribuida incluye cuidado de hogares vulnerables |
-| PLANMON | Reconocimiento económico del cuidado en cuentas |
-| PLANGEO | Diplomacia del cuidado como soft power |
-| PLANSUS | Cuidado en recuperación de adicciones |
-| PLANRUTA | Cuidado como kit de despliegue en crisis |
 
 ---
 

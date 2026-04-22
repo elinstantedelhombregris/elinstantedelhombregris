@@ -1241,69 +1241,35 @@ PLANREP tiene un "Tablero de Impacto Humano — KPIs No Económicos" — indicad
 Estos no son indicadores cosméticos. Si Confianza cae por debajo del 60%, activa el mismo circuit breaker que una alerta financiera (ver TABLA 21, S13.3). Si Comprensión baja del 70%, el problema no es el usuario — es la factura. La respuesta correcta no es "educar" a la gente para que entienda un documento confuso; es rediseñar el documento hasta que sea imposible no entenderlo. Si Agencia cae por debajo del 5%, significa que la Bastarda dejó de ser de la gente y se convirtió en otro servicio más que te llega por débito automático. Y si Comunidad cae, si la gente no siente que pertenece a algo más grande que una póliza barata, entonces la Bastarda está ganando la batalla económica pero perdiendo la guerra cultural. El punto es claro: la Bastarda existe para servir a personas, no a números. Si los números dan bien pero las personas no lo sienten, algo anda mal.
 
 ---
+## INTEGRACIÓN CON EL MARCO ¡BASTA!
 
-## SECCIÓN 14: INTEGRACIÓN CON EL MARCO ¡BASTA!
+Esta sección documenta cómo PLANEB se acopla al resto del ecosistema de mandatos. Todo vínculo declarado acá tiene su contraparte espejo en el plan referenciado: si acá aparece *"aporta a PLANXXX"*, en PLANXXX aparecerá *"recibe de PLANEB"*.
 
-> *"PLANEB no es un plan más. Es la capa económica que hace funcionar a todos los demás."*
+### Lo que PLANEB aporta al ecosistema
 
-### 14.1 Tabla de Sinergias
+| Plan destinatario | Naturaleza | Tipo | Qué aporta |
+|---|---|---|---|
+| **PLANMON** | CRITICAL | FINANCIAL | Bastarda Financiera es nodo ancla del Pulso |
+| **PLAN24CN** | CRITICAL | INSTITUTIONAL | Ciudades nacen Bastarda-nativas: todos los servicios al costo |
+| **PLANVIV** | IMPORTANT | INSTITUTIONAL | Bastarda Inmobiliaria usa Protocolo Bastardo para fideicomiso perpetuo (ambos lanzan Año 0) |
+| **PLANGEO** | IMPORTANT | INSTITUTIONAL | Protocolo Bastardo como estándar internacional open-source |
+| **PLANTALLER** | CRITICAL | INSTITUTIONAL | Red Bastarda es canal de salida at-cost de producción de Tallers |
+| **PLANMOV** | CRITICAL | INSTITUTIONAL | Bastarda Logística Federal y Bastarda Fluvial como canales at-cost + BAMD (Bastarda de Activos Móviles Disponibles) como forma bastarda piloto; Canon de Automatización Logística replicable a otros sectores |
+| **PLANDIG** | CRITICAL | TECHNICAL | IDS provee el substrato on-chain y los servicios federados que el Protocolo Bastardo necesita para operar sin dependencias extranjeras |
+| **PLANJUS** | CRITICAL | INSTITUTIONAL | Resolución Popular resuelve disputas de usuarios de cada Bastarda en primera instancia no-jurisdiccional, con apelación a JUS formal |
 
-**TABLA 22: PLANEB × Los Doce Mandatos de ¡BASTA!**
+### Lo que PLANEB necesita de otros
 
-| PLAN | Sinergia Específica |
-|---|---|
-| **PLANREP** | Los trabajadores de las Bastardas se compensan vía Índice de Contribución. Se forman en los Centros de la Vida. Las Bastardas son un destino de reconversión para empleados públicos. Los Fideicomisos de Propósito Perpetuo de PLANREP (macro-infraestructura) y los de PLANEB (servicios de mercado) comparten la misma arquitectura legal pero con distintos propósitos. |
-| **PLANJUS** | El sistema JUS de tres niveles es el backstop de disputas en toda la Red. El modelo Kleros de PLANJUS se adapta para arbitraje interno de las Bastardas. Las Casas JUS pueden hospedar las oficinas físicas de las Bastardas en municipios donde se necesite presencia. |
-| **PLANSUS** | La Bastarda Financiera provee bancarización para el mercado regulado de sustancias (resolving el "problema de la puerta trasera" bancaria que PLANSUS S21 identifica). Las Bastardas operan con la misma lógica de cascada con puertas de PLANSUS. |
-| **PLANEDU** | La Bastarda Educativa extiende el aprendizaje de por vida más allá de las Escuelas del Futuro. Los graduados de PLANEDU construyen la tecnología del Protocolo Bastardo. La ANCE y la ANEB comparten estándares de gobernanza. |
-| **PLAN24CN** | Las 24 ciudades nuevas nacen con servicios Bastardos integrados desde el día uno: seguros al costo, energía distribuida, telecomunicaciones comunitarias, banca sin extracción, vivienda sin especulación. Las ciudades PLAN24CN son el laboratorio natural de la Red Bastarda a escala urbana. |
-| **PLANISV** | La Bastarda Alimentaria distribuye la producción de agricultura regenerativa de PLANISV. Trazabilidad blockchain de campo a mesa. Denominación de origen verificada para suelo vivo. |
-| **PLANSAL** | La Bastarda Sanitaria complementa el sistema público de salud de PLANSAL. Los Centros de Vitalidad de PLANSAL y las redes de prestadores de la Bastarda Sanitaria se interconectan. Farmacia al costo con genéricos. |
-| **PLANMON** | La Contribución de Soberanía (1-2% de ingresos brutos de cada Bastarda) fluye al Fondo Soberano Bastardo como capitalización recurrente. La Bastarda Financiera es nodo ancla de la Red del Pulso y custodio de reservas del Fondo. Las Bastardas operan en peso-canasta, funcionando como anclas sectoriales de estabilidad de precios. |
-
-### 14.2 Distinción Fundamental: Fideicomisos PLANREP vs. Bastardas PLANEB
-
-Esto es importante y se presta a confusión. Ambos usan Fideicomisos de Propósito Perpetuo. Pero son cosas distintas:
-
-**TABLA 23: PLANREP vs. PLANEB — Misma Herramienta, Distinto Propósito**
-
-| Dimensión | Fideicomisos PLANREP | Empresas Bastardas PLANEB |
-|---|---|---|
-| **Creador** | El Estado (por ley del Congreso) | Los ciudadanos (por petición + crowdfunding) |
-| **Propósito** | Poseer macro-infraestructura productiva (energía, suelo, conectividad, vivienda, vialidad) | Proveer servicios de mercado al costo (seguros, banca, telecom, etc.) |
-| **Financiamiento** | Contribución estatal inicial + Licencia Social de Automatización | Capital semilla ciudadano + cuotas de usuarios |
-| **Retorno** | Dividendo Nacional de Productividad (DNP) — ingreso universal | Menor costo de servicios — ahorro directo |
-| **Gobernanza** | Directorio de 9 (3 técnicos, 3 sorteo, 2 ANCE, 1 Panel) | 4 capas (Asamblea, Panel, Consejo, Auditoría) |
-| **Escala** | 5 fideicomisos nacionales, infraestructura macro | Red de Bastardas sectoriales, servicios específicos |
-
-Los dos sistemas se refuerzan mutuamente: los Fideicomisos de PLANREP construyen la infraestructura sobre la que las Bastardas operan (conectividad, energía, vivienda), y las Bastardas proveen los servicios que los ciudadanos beneficiarios de los Fideicomisos necesitan.
-
-### 14.3 PLAN24CN: Ciudades Bastardas desde el Día Uno
-
-Las 24 ciudades nuevas de PLAN24CN representan la oportunidad más potente de la Red Bastarda: diseñar una ciudad donde los servicios esenciales no están capturados por intereses extractivos desde el primer día.
-
-Cada ciudad nueva incluye en su carta fundacional:
-- **Bastarda Aseguradora:** Seguros al costo para todos los residentes
-- **Bastarda Energética:** Generación distribuida renovable, trading peer-to-peer
-- **Bastarda Conectada:** Red de telecomunicaciones comunitaria
-- **Bastarda Financiera:** Banca al costo, crédito para emprendedores PLANREP
-- **Bastarda Habitacional:** Vivienda sin especulación, suelo en fideicomiso perpetuo
-
-Una ciudad Bastarda-nativa no es una utopía — es un laboratorio. Los aprendizajes se replican en el resto de la Red. Las métricas se comparan con ciudades convencionales. Y cuando la diferencia sea visible — cuando los residentes de una ciudad PLAN24CN paguen 30% menos por los mismos servicios, con mejor transparencia y mayor satisfacción — la pregunta no será "¿por qué hay Bastardas?" sino "¿por qué no hay Bastardas en mi ciudad?"
-
-### 14.4 PLANEB × PLANEN: La Bastarda Energética
-
-PLANEN crea la Bastarda Energética siguiendo el Protocolo Bastardo de PLANEB: energía al costo real, cero ganancia, transparencia radical. Es la Bastarda más grande por volumen de facturación. ANEB supervisa su gobernanza DAO. La generación distribuida renovable reemplaza las concesiones monopólicas (Edenor/Edesur) con infraestructura ciudadana.
-
-### 14.5 PLANEB × PLANSEG: Seguridad, ¿Bastarda o Pública?
-
-La seguridad es uno de los pocos servicios donde la pregunta "¿puede existir una Bastarda?" tiene respuesta compleja. PLANSEG define la seguridad como función inherentemente pública — el monopolio legítimo de la fuerza no se privatiza ni se bastardiza. Pero hay un espacio de colaboración preciso: la Bastarda Aseguradora de PLANEB cubre las pérdidas patrimoniales que el delito genera (robo, vandalismo, fraude), mientras PLANSEG previene el delito que genera esas pérdidas. El círculo es virtuoso: cuanto mejor funciona PLANSEG, menos siniestros paga la Bastarda Aseguradora, y menores son las cuotas que pagan los ciudadanos. La seguridad es pública; el seguro contra sus fallas es Bastardo.
-
-### 14.6 PLANEB × PLANVIV: La Bastarda Inmobiliaria
-
-La Bastarda Inmobiliaria es la aplicación más visible del Protocolo Bastardo al problema más doloroso de la Argentina urbana: el acceso a la vivienda. Sigue las reglas de PLANEB al pie de la letra — fideicomiso de propósito perpetuo, cero propiedad privada de la entidad, gobernanza DAO, operación al costo, transparencia radical — y las aplica a la construcción y administración de vivienda digna. PLANVIV define qué se construye y dónde; PLANEB define cómo se gobierna lo construido. La ANEB supervisa que cada Bastarda Inmobiliaria cumpla el Protocolo: que el alquiler refleje costo real y no renta especulativa, que las decisiones de mantenimiento las tome la asamblea de residentes, que las cuentas se publiquen en tiempo real. Cuando un argentino vive en una Bastarda Inmobiliaria, no es inquilino de un dueño invisible — es habitante de una estructura que le pertenece a nadie y le sirve a todos.
-
----
+| Plan fuente | Naturaleza | Tipo | Qué recibe |
+|---|---|---|---|
+| **PLANDIG** | CRITICAL | TECHNICAL | Protocolo Bastardo requiere infraestructura digital soberana |
+| **PLANJUS** | CRITICAL | INSTITUTIONAL | Resolución de disputas de usuarios de cada Bastarda |
+| **PLANMON** | IMPORTANT | FINANCIAL | Red Bastarda provee infraestructura anti-inflacionaria al costo |
+| **PLAN24CN** | CRITICAL | INSTITUTIONAL | Red Bastarda aloja al costo todos los servicios urbanos de las 24 ciudades: energía, agua, telecomunicaciones y transporte |
+| **PLANVIV** | IMPORTANT | INSTITUTIONAL | Protocolo Bastardo implementa el fideicomiso perpetuo de la Bastarda Inmobiliaria: propiedad perpetua del ocupante, no especulable |
+| **PLANGEO** | IMPORTANT | INSTITUTIONAL | Protocolo Bastardo open-source es la pieza central del estándar internacional de empresas al costo que PLANGEO promociona |
+| **PLANTALLER** | CRITICAL | INSTITUTIONAL | Red Bastarda es el canal de distribución at-cost de todo lo que produce la Red Taller: insumos a Bastardas y excedentes al mercado popular |
+| **PLANMOV** | CRITICAL | INSTITUTIONAL | Bastarda Logística Federal, Bastarda Fluvial y BAMD son las formas bastardas que operan canales at-cost y redistribuyen el Canon de Automatización Logística |
 
 ## SECCIÓN 15: ESTRATEGIA DE STAKEHOLDERS — TEJER, NO DESTRUIR
 

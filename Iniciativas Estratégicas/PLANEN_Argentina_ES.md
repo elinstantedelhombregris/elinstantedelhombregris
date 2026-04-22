@@ -1483,171 +1483,29 @@ El gemelo digital es open-source. Cualquier universidad, cualquier investigador,
 Estas restricciones son severas. Son deliberadamente severas. El lobby energético es el más poderoso de la Argentina — más que el agropecuario, más que el financiero. Si la ANEN es capturable, PLANEN fracasa.
 
 ---
+## INTEGRACIÓN CON EL MARCO ¡BASTA!
 
-## SECCIÓN 10: INTEGRACIÓN CON EL ECOSISTEMA ¡BASTA! — DIECISÉIS MANDATOS, UN SISTEMA
+Esta sección documenta cómo PLANEN se acopla al resto del ecosistema de mandatos. Todo vínculo declarado acá tiene su contraparte espejo en el plan referenciado: si acá aparece *"aporta a PLANXXX"*, en PLANXXX aparecerá *"recibe de PLANEN"*.
 
-> *"Ningún PLAN funciona solo. Un plan de energía sin plan de agua se queda sin refrigeración. Un plan de energía sin plan monetario se queda sin financiamiento. Un plan de energía sin plan de trabajo se queda sin gente. Los dieciséis mandatos son un solo sistema — como las arterias de un cuerpo, que si cortás una, las demás dejan de funcionar."*
+### Lo que PLANEN aporta al ecosistema
 
-### 10.1 PLANMON — La Articulación Más Importante
-
-**Dirección del flujo:** PLANEN → PLANMON (regalías y datos) + PLANMON → PLANEN (financiamiento del Fondo).
-
-**Integración específica:**
-
-1. **Regalías al Fondo Soberano Bastardo.** PLANEN provee USD 2.000-4.800M/año (Sección 6). Esto convierte las "proyecciones condicionales" de PLANMON en arquitectura operativa. PLANEN resuelve el asterisco más importante de PLANMON.
-
-2. **Datos para la canasta del peso-canasta.** PLANEN provee datos verificables de producción de gas, petróleo, litio y energía renovable — el 35% de la ponderación de la canasta. Sin estos datos, la canasta no tiene ancla energética. El Índice Canasta Argentina (ICA) no puede calcularse sin PLANEN.
-
-3. **Inversión del Fondo en infraestructura energética.** Una vez capitalizado, el Fondo Soberano invierte parte de su cartera en infraestructura productiva doméstica (PLANMON Sección 6.3: "10-15% de la cartera en inversión productiva doméstica vía PLANes"). PLANEN es uno de los principales destinos: plantas de GNL, parques renovables, Hub de litio. El ciclo es virtuoso: las regalías capitalizan el fondo → el fondo invierte en infraestructura energética → la infraestructura genera más regalías.
-
-4. **Contratos de obra pública en Pulso.** Los contratos de construcción de infraestructura energética se denominan en peso-canasta (PLANMON Sección 9.2). Esto genera demanda de Pulsos y ancla la moneda en proyectos reales.
-
-5. **Swap deuda-por-infraestructura energética.** PLANMON (Sección 8.2) propone que acreedores conviertan deuda en participación en proyectos de PLANEN. Los acreedores obtienen retorno vinculado al flujo de caja de la infraestructura energética (GNL, parques solares, Hub de litio) — más seguro y más rentable que un cupón de deuda soberana argentina.
-
-### 10.2 PLANEB — La Red Bastarda Energética
-
-**Dirección del flujo:** PLANEB → PLANEN (modelo institucional) + PLANEN → PLANEB (Bastarda Energética).
-
-- La **Bastarda Energética** (Sección 5) es una EPP bajo el Protocolo Bastardo de PLANEB. Opera con cero extracción, transparencia radical, y gobernanza distribuida.
-- PLANEB provee el marco legal, el protocolo de constitución, la certificación de la ANEB. PLANEN provee la implementación sectorial: generación distribuida, net metering, comunidades solares, trading peer-to-peer.
-- La Bastarda Energética se integra en la **Red Bastarda** — comparte infraestructura de datos con la Bastarda Conectada (telecomunicaciones), comparte pool de mantenimiento con la Bastarda Habitacional, y mutualiza su fondo de catástrofe con otras Bastardas del sistema.
-
-### 10.3 PLANDIG — Smart Grid e IoT Energético
-
-**Dirección del flujo:** PLANDIG → PLANEN (infraestructura digital) + PLANEN → PLANDIG (datos energéticos).
-
-- **Smart grid.** La red eléctrica inteligente requiere infraestructura de telecomunicaciones (fibra, 5G, LoRaWAN) que PLANDIG despliega. Cada medidor inteligente, cada sensor de red, cada controlador de generación distribuida se conecta a través de la infraestructura de PLANDIG.
-- **IoT energético.** Sensores en cada transformador, cada línea, cada generador — datos en tiempo real sobre estado, consumo, pérdidas, temperatura. Los datos alimentan el Tablero Nacional de Energía y el Gemelo Digital del sistema eléctrico.
-- **Nodos de validación renovables.** Los nodos de la red del Pulso (PLANMON) que validan transacciones se alimentan con energía renovable generada por PLANEN. Una blockchain alimentada por energía limpia — no como Bitcoin.
-
-### 10.4 PLAN24CN — Ciudades Energéticamente Soberanas
-
-**Dirección del flujo:** PLANEN → PLAN24CN (infraestructura energética) + PLAN24CN → PLANEN (laboratorio).
-
-- Cada una de las 24 ciudades nuevas nace con:
-  - Generación distribuida (solar en cada techo, mini-eólica donde corresponda).
-  - Almacenamiento comunitario (baterías de litio, fabricadas en el Hub del NOA).
-  - Bastarda Energética operando desde el Día 1.
-  - Red eléctrica inteligente (smart grid nativa, sin cables de 1960).
-  - Net metering universal.
-- Las ciudades PLAN24CN son el **laboratorio natural** de la transición energética. Lo que funciona ahí se escala al territorio nacional. Lo que no funciona se ajusta antes de escalar.
-
-### 10.5 PLANAGUA — El Nexo Agua-Energía
-
-**Dirección del flujo:** Bidireccional (PLANEN ↔ PLANAGUA).
-
-- Desarrollado en Sección 7. Fracking vs. agua, hidro vs. caudales ecológicos, hidrógeno verde vs. consumo de agua, gobernanza conjunta ANEN-ANAGUA.
-- **PLANAGUA necesita energía:** Las plantas potabilizadoras, estaciones de bombeo, sistemas de desalinización, y red IoT de monitoreo hídrico de PLANAGUA consumen electricidad. PLANEN la provee al costo vía la Bastarda Energética. La desalinización — la tecnología que resuelve el acceso al agua en zonas áridas — es viable solo si la energía es barata. Renovables baratas hacen posible desalinización accesible.
-
-### 10.6 PLANISV — Bioenergía y Suelo Vivo
-
-**Dirección del flujo:** PLANISV → PLANEN (biomasa) + PLANEN → PLANISV (energía para agricultura).
-
-- **Bioenergía de residuos agrícolas.** Los 70 millones de hectáreas agropecuarias generan residuos que PLANISV puede convertir en biogás, bioetanol, y biodiesel. PLANEN integra esa bioenergía en la matriz.
-- **Digestión anaeróbica.** El biodigestor produce dos cosas: biogás (energía) y digestato (fertilizante orgánico). Es la intersección perfecta entre PLANISV (suelo vivo) y PLANEN (energía renovable).
-- **Energía para agricultura de precisión.** La agricultura regenerativa de PLANISV requiere tecnología (sensores, drones, riego inteligente) que consume energía. PLANEN provee esa energía vía generación distribuida renovable en zonas rurales.
-
-### 10.7 PLANEDU — Formación Para La Transición
-
-**Dirección del flujo:** Bidireccional (PLANEN ↔ PLANEDU).
-
-- **Ingeniería energética.** Las Escuelas del Futuro de PLANEDU incluyen formación técnica en energía renovable, almacenamiento, nuclear, y smart grid. Argentina necesita decenas de miles de técnicos e ingenieros para la transición — PLANEDU los forma.
-- **Educación sobre transición energética.** Desde la escuela primaria: qué es la energía, de dónde viene, cómo se genera, por qué importa la transición. Ciudadanos informados toman mejores decisiones energéticas.
-- **Universidad y investigación.** Programas de posgrado en energías renovables, hidrógeno, nuclear, baterías. Conexión con CONICET, CNEA, INVAP.
-
-### 10.8 PLANREP — Los Oficios de la Energía
-
-**Dirección del flujo:** PLANEN → PLANREP (empleos) + PLANREP → PLANEN (mano de obra calificada).
-
-- **Reconversión de trabajadores del sector fósil.** La transición no puede dejar atrás a los trabajadores de centrales térmicas, minas de carbón, o transporte de combustible. PLANREP (los Centros de la Vida) proveen programas de reconversión: de operador de central térmica a operador de parque solar, de camionero de combustible a técnico de red eléctrica, de minero de carbón a técnico de batería.
-- **Los oficios de la energía como rama del trabajo vivo.** Instalador de paneles solares, técnico de turbinas eólicas, operador de planta de almacenamiento, técnico de smart grid, inspector de red — son los oficios del siglo XXI. PLANREP los dignifica, los remunera, y los integra al Índice de Contribución.
-
-### 10.9 PLANJUS — Disputas Energéticas
-
-**Dirección del flujo:** PLANJUS → PLANEN (resolución de conflictos).
-
-- Las disputas del sector energético — tarifas, conexiones, acceso a red, compensaciones por servidumbre, impacto ambiental de obras — se resuelven en el sistema JUS de PLANJUS. En semanas, no en años.
-- Las Casas JUS son puntos de acceso para el ciudadano que tiene un reclamo contra la distribuidora, contra una petrolera, contra un parque eólico que afecta su tierra.
-
-### 10.10 PLANSUS — Biocombustibles y Biomasa
-
-**Dirección del flujo:** PLANSUS → PLANEN (biomasa industrial).
-
-- PLANSUS legaliza la marihuana y regula sustancias. Pero la marihuana industrial (cáñamo) tiene un subproducto relevante para PLANEN: **biomasa**.
-- El cáñamo es una de las plantas que más biomasa produce por hectárea por año. Esa biomasa se puede convertir en biocombustible, biogás, o pellets para calefacción.
-- Adicionalmente, los aceites de cáñamo tienen aplicaciones como biocombustible líquido alternativo.
-- Es un nicho — no un pilar de la matriz. Pero es un eslabón más de la cadena de bioenergía.
-
-### 10.11 PLANSAL — La Pobreza Energética Como Problema de Salud
-
-**Dirección del flujo:** PLANEN → PLANSAL (reducción de pobreza energética = mejora de salud).
-
-- La pobreza energética es un determinante social de la salud. Hogares sin calefacción en invierno → enfermedades respiratorias. Hogares sin refrigeración en verano en el norte → golpes de calor. Cocinas a leña → contaminación intradomiciliaria → EPOC, cáncer de pulmón.
-- PLANEN reduce la pobreza energética. PLANSAL mide el impacto en salud. El círculo es virtuoso: cada hogar que accede a energía limpia y accesible es un hogar con menos internaciones, menos ausentismo escolar, menos gasto en salud.
-
-### 10.12 PLANGEO — Energía Como Leverage Geopolítico
-
-> *"Un país con gas, litio, sol, viento, agua, alimentos y cerebros no es un país dependiente. Es un país que otros dependen de él — si tiene la inteligencia de darse cuenta."*
-
-**Dirección del flujo:** Bidireccional (PLANEN ↔ PLANGEO).
-
-PLANGEO documenta extensamente la dimensión geopolítica de la energía argentina (Secciones 5.2, 5.3, 8.1, 8.2). PLANEN ejecuta:
-
-- **GNL para Europa.** Contratos de suministro a 15-20 años condicionados a transferencia tecnológica en hidrógeno verde y eólica offshore. "El gas compra tecnología. La tecnología compra futuro."
-- **Litio para la transición global.** El acceso preferencial al litio argentino se condiciona a: transferencia tecnológica en baterías, inversión en procesamiento local, acuerdos de no-sanción ante reformas ¡BASTA!.
-- **Hidrógeno verde como exportación del futuro.** La Patagonia + energía eólica + agua desalinizada = hidrógeno verde competitivo a nivel global. El hidrógeno verde es el GNL de 2040.
-- **Defensa de infraestructura energética.** PLANGEO (Sección 9.1) asigna a las FFAA la protección de infraestructura soberana crítica: plantas de procesamiento de litio, puertos GNL, nodos de ArgenCloud. PLANEN provee la infraestructura que las FFAA protegen.
-
-### 10.13b PLANSEG — Protección de Infraestructura Energética Crítica
-
-**Dirección del flujo:** PLANSEG → PLANEN (protección física y cibernética).
-
-La infraestructura energética es infraestructura de seguridad nacional. Gasoductos, refinerías, plantas de procesamiento de litio, reactores nucleares, parques eólicos y solares de gran escala, puertos de GNL — un solo atentado, un solo sabotaje, un solo ciberataque a la red eléctrica puede paralizar regiones enteras. PLANSEG provee la arquitectura de protección: vigilancia perimetral de activos críticos, ciberdefensa de los sistemas SCADA de la red eléctrica, protocolos de respuesta rápida ante sabotaje, y coordinación con las FFAA (que PLANGEO asigna como última línea de defensa). PLANEN construye la infraestructura; PLANSEG garantiza que siga funcionando.
-
-**TABLA 10: Mapa de Integraciones PLANEN con el Ecosistema ¡BASTA!**
-
-| PLAN | Integración con PLANEN | Dirección del flujo |
-|---|---|---|
-| **PLANMON** | Regalías → Fondo Soberano. Datos energéticos → canasta peso-canasta. Inversión del Fondo → infraestructura energética | PLANEN ↔ PLANMON |
-| **PLANEB** | Bastarda Energética como EPP del Protocolo Bastardo | PLANEB → PLANEN (modelo) / PLANEN → PLANEB (implementación) |
-| **PLANDIG** | Smart grid, IoT energético, nodos de validación renovables | PLANDIG → PLANEN (infraestructura) / PLANEN → PLANDIG (datos) |
-| **PLAN24CN** | Ciudades energéticamente soberanas, laboratorio de transición | PLANEN → PLAN24CN (energía) / PLAN24CN → PLANEN (laboratorio) |
-| **PLANAGUA** | Nexo agua-energía, fracking, hidro, H2 verde, gobernanza conjunta | Bidireccional |
-| **PLANISV** | Bioenergía de residuos agrícolas, digestión anaeróbica | PLANISV → PLANEN (biomasa) / PLANEN → PLANISV (energía rural) |
-| **PLANEDU** | Formación técnica, investigación, educación ciudadana | Bidireccional |
-| **PLANREP** | Reconversión laboral, oficios de la energía | PLANEN → PLANREP (demanda) / PLANREP → PLANEN (mano de obra) |
-| **PLANJUS** | Resolución de disputas energéticas en sistema JUS | PLANJUS → PLANEN |
-| **PLANSUS** | Biomasa de cáñamo, biocombustibles | PLANSUS → PLANEN |
-| **PLANSAL** | Pobreza energética como determinante de salud | PLANEN → PLANSAL |
-| **PLANGEO** | GNL como leverage, litio como moneda diplomática, H2 verde, defensa de infraestructura | Bidireccional |
-| **PLANSEG** | Protección física y cibernética de infraestructura energética crítica (gasoductos, plantas de litio, reactores, red eléctrica) | PLANSEG → PLANEN |
-| **PLANVIV** | Eficiencia energética en retrofit reduce demanda. Generación distribuida en barrios urbanizados. Solar en edificios Bastarda Inmobiliaria | PLANEN ↔ PLANVIV |
-
-### 10.14 PLANEN × PLANVIV: Eficiencia y Generación en el Hábitat Existente
-
-El retrofit energético que PLANVIV ejecuta en miles de edificios existentes es la forma más barata de reducir la demanda eléctrica — más barata que construir una central nueva. Aislación térmica, carpintería con doble vidrio, techos reflectivos en el norte, y eliminación de filtraciones reducen el consumo de calefacción y refrigeración hasta un 40% por vivienda. PLANEN diseña los estándares de eficiencia; PLANVIV los ejecuta en cada rehabilitación. Pero la relación es bidireccional: los barrios urbanizados por PLANVIV se convierten en nodos de generación distribuida — paneles solares en cada edificio de la Bastarda Inmobiliaria, microrredes barriales que venden excedente a la red, y comunidades energéticas que reducen la dependencia de distribuidoras monopólicas. PLANVIV reduce la demanda por un lado y suma oferta distribuida por el otro — y PLANEN gana por las dos puntas.
-
----
-
-### 10.13 Resumen Cuantitativo de Integraciones
-
-**TABLA 10b: Flujos Financieros entre PLANEN y el Ecosistema ¡BASTA! (Año 10 — Estimación)**
-
-| Flujo | Dirección | Monto estimado (USD M/año) | Mecanismo |
+| Plan destinatario | Naturaleza | Tipo | Qué aporta |
 |---|---|---|---|
-| Regalías energéticas → Fondo Soberano | PLANEN → PLANMON | 3.500-5.000 | Smart contract on-chain, transferencia automática |
-| Inversión del Fondo → infraestructura energética | PLANMON → PLANEN | 1.500-3.000 | 10-15% de la cartera del Fondo |
-| Servicios Bastarda Energética (facturación) | PLANEN → usuarios (en Pulso) | 5.000-8.000 | Operación al costo en peso-canasta |
-| Swap deuda-por-infraestructura | Acreedores → PLANEN | 500-1.000 | Bonos de proyecto vinculados a flujo de caja |
-| Exportaciones GNL + litio + H2 verde (divisas) | PLANEN → PLANMON (balanza de pagos) | 20.000-35.000 | Exportaciones genuinas de energía |
-| Empleo del sector (masa salarial) | PLANEN → PLANREP | 2.000-4.000 | 250.000-350.000 empleos directos |
-| Bioenergía (compra de biomasa) | PLANEN → PLANISV | 200-500 | Contratos de suministro de residuos agrícolas |
-| Infraestructura digital (smart grid) | PLANDIG → PLANEN | 300-600 | Telecomunicaciones para IoT energético |
-| **Flujo neto PLANEN al ecosistema** | | **~30.000-50.000** | |
+| **PLAN24CN** | CRITICAL | TECHNICAL | Bastarda Energética antes de que la primera ciudad reciba residentes |
+| **PLANMON** | CRITICAL | FINANCIAL | Regalías energéticas (USD 800M-3500M+/año) capitalizan Fondo Soberano |
+| **PLANMOV** | IMPORTANT | TECHNICAL | Rieles como columna múltiple: tendido eléctrico y fibra sobre misma traza; electrificación masiva de red ferroviaria reactivada |
+| **PLANDIG** | IMPORTANT | TECHNICAL | IDS provee Smart Grid IoT y Tablero Nacional de Energía con telemetría en tiempo real sobre nodos federados |
+| **PLANTER** | IMPORTANT | LEGAL | Licencia Territorial (reemplazo del RIGI) condiciona cualquier proyecto hidrocarburífero o minero a consulta previa y retorno comunitario |
 
-PLANEN es, después de PLANMON, el plan con mayor flujo financiero del ecosistema. Genera divisas, capitaliza el fondo, crea empleo, y reduce el mayor gasto discrecional del Estado (subsidios). Es el motor económico de ¡BASTA! — no porque sea más importante que los otros, sino porque la energía es el insumo de todo.
+### Lo que PLANEN necesita de otros
 
----
+| Plan fuente | Naturaleza | Tipo | Qué recibe |
+|---|---|---|---|
+| **PLANDIG** | IMPORTANT | TECHNICAL | Smart grid IoT y Tablero Nacional de Energía |
+| **PLANTER** | IMPORTANT | LEGAL | Licencia Territorial reemplaza RIGI para proyectos de hidrocarburos y minería |
+| **PLAN24CN** | CRITICAL | TECHNICAL | Bastarda Energética y red 100% renovable provistas antes de que cada Ciudad Nueva reciba residentes |
+| **PLANMON** | CRITICAL | FINANCIAL | Regalías energéticas (USD 800M-3500M+/año) por hidrocarburos, minería y renovables capitalizan el Fondo Soberano Ciudadano |
+| **PLANMOV** | IMPORTANT | TECHNICAL | Red eléctrica + fibra sobre la misma traza ferroviaria: PLANEN electrifica la red reactivada con energía renovable soberana |
 
 ## SECCIÓN 11: GOBERNANZA ENERGÉTICA — QUIÉN DECIDE QUÉ
 

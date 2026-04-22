@@ -1474,3 +1474,28 @@ Porque la alternativa siempre existió. Solo faltaba quien se atreviera a constr
 **Fecha:** Marzo 2026
 **Clasificación:** DOCUMENTO ESTRATÉGICO — PARA REVISIÓN AUTORIZADA
 **Integración:** Plataforma ¡BASTA! — Décimo Mandato Popular
+
+---
+
+## INTEGRACIÓN CON EL MARCO ¡BASTA!
+
+Esta sección documenta cómo PLANGEO se acopla al resto del ecosistema de mandatos. Todo vínculo declarado acá tiene su contraparte espejo en el plan referenciado: si acá aparece *"aporta a PLANXXX"*, en PLANXXX aparecerá *"recibe de PLANGEO"*.
+
+### Lo que PLANGEO aporta al ecosistema
+
+| Plan destinatario | Naturaleza | Tipo | Qué aporta |
+|---|---|---|---|
+| **PLANDIG** | IMPORTANT | INSTITUTIONAL | IDS produce ArgenCloud como producto exportable que PLANGEO comercializa en la Red Soberana de América Latina |
+| **PLANSUS** | IMPORTANT | LEGAL | Cuerpo legal de salida de convenciones internacionales de drogas provisto por PLANSUS permite a PLANGEO ejecutar la cascada diplomática |
+| **PLANMON** | IMPORTANT | INSTITUTIONAL | Peso-canasta y Pulso son exportables como estándar monetario regional para el comercio Mercosur |
+| **PLANEB** | IMPORTANT | INSTITUTIONAL | Protocolo Bastardo open-source es la pieza central del estándar internacional de empresas al costo que PLANGEO promociona |
+
+### Lo que PLANGEO necesita de otros
+
+| Plan fuente | Naturaleza | Tipo | Qué recibe |
+|---|---|---|---|
+| **PLANDIG** | IMPORTANT | INSTITUTIONAL | ArgenCloud como producto exportable para Red Soberana |
+| **PLANSUS** | IMPORTANT | LEGAL | Cascada diplomática para denuncia de convenciones de drogas |
+| **PLANMON** | IMPORTANT | INSTITUTIONAL | Peso-canasta regional para comercio Mercosur |
+| **PLANEB** | IMPORTANT | INSTITUTIONAL | Protocolo Bastardo como estándar internacional open-source |
+

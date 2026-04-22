@@ -207,7 +207,7 @@ const baseBlogPostsData = [
     category: "Filosofía",
     type: "blog" as const,
     featured: true,
-    imageUrl: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=400&fit=crop",
+    imageUrl: "https://images.unsplash.com/photo-1522778034537-20a2486be803?w=800&h=400&fit=crop",
     authorId: 1,
     publishedAt: new Date("2026-04-17").toISOString(),
     tags: ["Argentina", "identidad", "Mundial", "comunidad", "transformación", "coreografía social"],

@@ -684,3 +684,28 @@ o para prender el fuego del asado de la Mesa Larga.
 
 Es cultura. Es libre. Es de todos.
 ```
+
+---
+
+## INTEGRACIÓN CON EL MARCO ¡BASTA!
+
+Esta sección documenta cómo PLANCUL se acopla al resto del ecosistema de mandatos. Todo vínculo declarado acá tiene su contraparte espejo en el plan referenciado: si acá aparece *"aporta a PLANXXX"*, en PLANXXX aparecerá *"recibe de PLANCUL"*.
+
+### Lo que PLANCUL aporta al ecosistema
+
+| Plan destinatario | Naturaleza | Tipo | Qué aporta |
+|---|---|---|---|
+| **PLAN24CN** | IMPORTANT | INSTITUTIONAL | Las Ciudades Nuevas son lienzos donde Dendritas (células culturales) nacen nativas en comunidades vírgenes |
+| **PLANREP** | IMPORTANT | INSTITUTIONAL | Centros de la Vida (ex-oficinas públicas reconvertidas) son los puntos físicos de reunión donde cristaliza la comunidad cultural |
+| **PLANEDU** | IMPORTANT | INSTITUTIONAL | La escuela enseña Rondas de Escucha desde primaria: los niños crecen como Dendritas nativas |
+| **PLANVIV** | IMPORTANT | INSTITUTIONAL | Barrios urbanizados proveen el tejido social territorial sobre el cual se reconstruye la cultura comunitaria |
+
+### Lo que PLANCUL necesita de otros
+
+| Plan fuente | Naturaleza | Tipo | Qué recibe |
+|---|---|---|---|
+| **PLAN24CN** | IMPORTANT | INSTITUTIONAL | Ciudades nuevas proveen comunidades vírgenes donde Dendritas son nativas |
+| **PLANREP** | IMPORTANT | INSTITUTIONAL | Centros de la Vida son puntos de reunión donde la comunidad se forma |
+| **PLANEDU** | IMPORTANT | INSTITUTIONAL | Escuelas enseñan Rondas de Escucha; niños son Dendritas nativas |
+| **PLANVIV** | IMPORTANT | INSTITUTIONAL | Barrios urbanizados proveen tejido social para reconstrucción cultural |
+

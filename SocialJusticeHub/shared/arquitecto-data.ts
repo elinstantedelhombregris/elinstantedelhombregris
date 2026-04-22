@@ -350,7 +350,7 @@ export const DEPENDENCIES: Dependency[] = [
 
   // PLANMESA (Mesa Civil) — capa deliberativa que alimenta todos los mandatos
   { id: 'd42', source: 'PLANMESA', target: 'PLANDIG', nature: 'CRITICAL', type: 'TECHNICAL', description: 'Plataforma técnica para auto-postulación, Credencial de Materia y Cédula Civil' },
-  { id: 'd43', source: 'PLANMESA', target: 'PLANEDU', nature: 'CRITICAL', type: 'INSTITUTIONAL', description: 'Capa de Estudio de la Credencial se construye en PLANEDU' },
+  { id: 'd43', source: 'PLANMESA', target: 'PLANEDU', nature: 'CRITICAL', type: 'INSTITUTIONAL', description: 'A partir de Fase 1: Capa de Estudio de la Credencial se construye en PLANEDU (Fase 0 de PLANMESA es arranque técnico autónomo)' },
   { id: 'd44', source: 'PLANMESA', target: 'PLANMEMORIA', nature: 'CRITICAL', type: 'INSTITUTIONAL', description: 'Consulta Ancestral obligatoria en Fase APRENDER de cada ciclo LDEA' },
   { id: 'd45', source: 'PLANMESA', target: 'PLANTALLER', nature: 'CRITICAL', type: 'INSTITUTIONAL', description: 'Tallers son ejecutores de Fase EXPERIMENTAR del ciclo LDEA' },
   { id: 'd46', source: 'PLANMESA', target: 'PLANCUIDADO', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'Capa de Vínculo de Credencial; sostén relacional del servidor de Mesa' },
@@ -362,7 +362,7 @@ export const DEPENDENCIES: Dependency[] = [
   { id: 'd50', source: 'PLANTALLER', target: 'PLANREP', nature: 'IMPORTANT', type: 'LABOR', description: 'Reconversión del empleo público hacia coordinación y mentoría de Tallers' },
 
   // PLANCUIDADO — capa cero del pacto
-  { id: 'd51', source: 'PLANCUIDADO', target: 'PLANSAL', nature: 'CRITICAL', type: 'INSTITUTIONAL', description: 'APS territorial integra Pactos como dato clínico; articula con Referentes' },
+  { id: 'd51', source: 'PLANCUIDADO', target: 'PLANSAL', nature: 'CRITICAL', type: 'INSTITUTIONAL', description: 'A partir de Fase 1: APS territorial integra Pactos como dato clínico; articula con Referentes (Fase 0 de PLANCUIDADO es Ley ANCV + piloto registral)' },
   { id: 'd52', source: 'PLANCUIDADO', target: 'PLANREP', nature: 'CRITICAL', type: 'LABOR', description: 'Reconversión de cuidadoras domiciliarias a Referentes Territoriales formales' },
   { id: 'd53', source: 'PLANCUIDADO', target: 'PLANEDU', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'Formación inicial de cada tipo de Pacto; currículum de cuidado desde primaria' },
   { id: 'd54', source: 'PLANCUIDADO', target: 'PLANJUS', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'Mediación de disputas de Pactos en primera instancia no-jurisdiccional' },
@@ -370,7 +370,7 @@ export const DEPENDENCIES: Dependency[] = [
 
   // PLANMEMORIA — archivo distribuido y Consulta Ancestral
   { id: 'd56', source: 'PLANMEMORIA', target: 'PLANDIG', nature: 'CRITICAL', type: 'TECHNICAL', description: 'Red federada criptográfica: 7 nodos con hash, resistente a borrado' },
-  { id: 'd57', source: 'PLANMEMORIA', target: 'PLANEDU', nature: 'CRITICAL', type: 'INSTITUTIONAL', description: 'Bastón Memorial a los 12 años como rito cívico en la escuela' },
+  { id: 'd57', source: 'PLANMEMORIA', target: 'PLANEDU', nature: 'CRITICAL', type: 'INSTITUTIONAL', description: 'A partir de Fase 1: Bastón Memorial a los 12 años como rito cívico en la escuela (Fase 0 de PLANMEMORIA es arranque del archivo federado de 7 nodos)' },
   { id: 'd58', source: 'PLANMEMORIA', target: 'PLANJUS', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'Inscripción de Captura coopera con investigaciones sin reemplazarlas' },
 
   // PLANTER — soberanía territorial, FSC y co-soberanía indígena
@@ -382,18 +382,128 @@ export const DEPENDENCIES: Dependency[] = [
   { id: 'd64', source: 'PLANMON', target: 'PLANTER', nature: 'IMPORTANT', type: 'FINANCIAL', description: 'Fondo Soberano Ciudadano es palanca macro de la soberanía monetaria' },
   { id: 'd65', source: 'PLANEN', target: 'PLANTER', nature: 'IMPORTANT', type: 'LEGAL', description: 'Licencia Territorial reemplaza RIGI para proyectos de hidrocarburos y minería' },
 
-  // PLANMOV — movilidad y logística federal
-  { id: 'd66', source: 'PLANMOV', target: 'PLANDIG', nature: 'CRITICAL', type: 'TECHNICAL', description: 'Plataforma técnica de gestión de MKC, BLF y Red Federal de Puertos' },
-  { id: 'd67', source: 'PLANMOV', target: 'PLANEB', nature: 'CRITICAL', type: 'INSTITUTIONAL', description: 'Bastarda Logística Federal y Bastarda Fluvial como canales at-cost' },
-  { id: 'd68', source: 'PLANMOV', target: 'PLANREP', nature: 'IMPORTANT', type: 'LABOR', description: 'Reconversión de cuadros técnicos ferroviarios y portuarios' },
+  // PLANMOV — movilidad y logística federal (v1 + v2.0 fusionadas para eliminar duplicados)
+  // NOTA: d66/d67/d68 fueron fusionadas con d72/d73/d74 — las descripciones absorben ambos alcances.
   { id: 'd69', source: 'PLANMOV', target: 'PLANMESA', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'Mesas Civiles de Corredor deciden priorización de reactivación ferroviaria' },
   { id: 'd70', source: 'PLANMOV', target: 'PLANMEMORIA', nature: 'IMPORTANT', type: 'DATA', description: 'Archivo Técnico Ferroviario con depósitos de ex-ferroviarios tipo Héctor' },
   { id: 'd71', source: 'PLANMOV', target: 'PLANEN', nature: 'IMPORTANT', type: 'TECHNICAL', description: 'Rieles como columna múltiple: tendido eléctrico y fibra sobre misma traza; electrificación masiva de red ferroviaria reactivada' },
+  { id: 'd72', source: 'PLANMOV', target: 'PLANDIG', nature: 'CRITICAL', type: 'TECHNICAL', description: 'Plataforma técnica para gestión de MKC, BLF y Red Federal de Puertos; LNMA (Laboratorio Nacional de Movilidad Autónoma) se monta sobre LANIA como capa vertical con data-logging obligatorio en ArgenCloud' },
+  { id: 'd73', source: 'PLANMOV', target: 'PLANREP', nature: 'CRITICAL', type: 'LABOR', description: 'Reconversión de cuadros técnicos ferroviarios y portuarios + Ruta "Reconversión Móvil" que absorbe 500.000 transportistas desplazados por automatización (PPM financiada por FRM)' },
+  { id: 'd74', source: 'PLANMOV', target: 'PLANEB', nature: 'CRITICAL', type: 'INSTITUTIONAL', description: 'Bastarda Logística Federal y Bastarda Fluvial como canales at-cost + BAMD (Bastarda de Activos Móviles Disponibles) como forma bastarda piloto; Canon de Automatización Logística replicable a otros sectores' },
 
-  // PLANMOV v2.0 — nuevas dependencias por Capa III (IA/AV y Activos Disponibles)
-  { id: 'd72', source: 'PLANMOV', target: 'PLANDIG', nature: 'CRITICAL', type: 'TECHNICAL', description: 'LNMA (Laboratorio Nacional de Movilidad Autónoma) se monta sobre LANIA de PLANDIG como capa vertical; data-logging obligatorio en ArgenCloud' },
-  { id: 'd73', source: 'PLANMOV', target: 'PLANREP', nature: 'CRITICAL', type: 'LABOR', description: 'Ruta "Reconversión Móvil" absorbe 500.000 transportistas desplazados por automatización; PPM financiada por FRM' },
-  { id: 'd74', source: 'PLANMOV', target: 'PLANEB', nature: 'CRITICAL', type: 'INSTITUTIONAL', description: 'BAMD (Bastarda de Activos Móviles Disponibles) como forma bastarda piloto; Canon de Automatización Logística replicable a otros sectores' },
+  // Conexiones nuevas para resolver aislamiento (V-REF-04)
+  { id: 'd75', source: 'PLANSAL', target: 'PLANDIG', nature: 'CRITICAL', type: 'TECHNICAL', description: 'Historia Clínica Unificada, telemedicina rural y Registro de Salud Integral sobre infraestructura digital soberana' },
+  { id: 'd76', source: 'PLANISV', target: 'PLANTER', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'Plan Suelo Vivo se coordina con Licencia Territorial y co-soberanía indígena en tierras fiscales y comunidades originarias' },
+
+  // ============================================================================
+  // === DEPENDENCIAS INVERSAS (d77–d145) — lado "aporta" de cada vínculo.      ===
+  // === Cada inversa se lee desde la perspectiva del proveedor y cierra la     ===
+  // === reciprocidad ecosistémica (satisface V-REF-01). El único par ya       ===
+  // === balanceado en v1 era PLANMON↔PLANEB (d14/d15); el resto se completa.  ===
+  // ============================================================================
+
+  // Inversas de PLANDIG (sistema nervioso) → consumidores
+  { id: 'd77', source: 'PLANDIG', target: 'PLANMON', nature: 'CRITICAL', type: 'TECHNICAL', description: 'IDS provee los nodos soberanos sobre los cuales corren los rieles SAPI y el registro del Pulso monetario' },
+  { id: 'd78', source: 'PLANDIG', target: 'PLANEB', nature: 'CRITICAL', type: 'TECHNICAL', description: 'IDS provee el substrato on-chain y los servicios federados que el Protocolo Bastardo necesita para operar sin dependencias extranjeras' },
+  { id: 'd79', source: 'PLANDIG', target: 'PLAN24CN', nature: 'CRITICAL', type: 'TECHNICAL', description: 'IDS + SAPI + El Mapa proveen la capa operativa de las ciudades inteligentes antes de que reciban residentes' },
+  { id: 'd80', source: 'PLANDIG', target: 'PLANAGUA', nature: 'CRITICAL', type: 'DATA', description: 'ArgenCloud y la Red IoT soberana alojan el Gemelo Digital del Agua y la telemetría de cuencas' },
+  { id: 'd81', source: 'PLANDIG', target: 'PLANJUS', nature: 'IMPORTANT', type: 'TECHNICAL', description: 'LANIA y la plataforma de Resolución Popular proveen el modelo IA legal y la traza digital de disputas' },
+  { id: 'd82', source: 'PLANDIG', target: 'PLANSEG', nature: 'IMPORTANT', type: 'TECHNICAL', description: 'Red soberana provee cadena de custodia criptográfica a body cams, video IA y sensores urbanos' },
+  { id: 'd83', source: 'PLANDIG', target: 'PLANVIV', nature: 'IMPORTANT', type: 'TECHNICAL', description: 'Housing OS y el registro digital de títulos de propiedad corren sobre nodos IDS con firma criptográfica soberana' },
+  { id: 'd84', source: 'PLANDIG', target: 'PLANEN', nature: 'IMPORTANT', type: 'TECHNICAL', description: 'IDS provee Smart Grid IoT y Tablero Nacional de Energía con telemetría en tiempo real sobre nodos federados' },
+  { id: 'd85', source: 'PLANDIG', target: 'PLANEDU', nature: 'IMPORTANT', type: 'TECHNICAL', description: 'Plataforma de Aprendizaje Adaptativo (PAA) corre sobre ArgenCloud con modelos educativos abiertos y gobernanza pública' },
+
+  // Inversas de PLANJUS (sistema inmunológico) → demandantes de justicia
+  { id: 'd86', source: 'PLANJUS', target: 'PLANEB', nature: 'CRITICAL', type: 'INSTITUTIONAL', description: 'Resolución Popular resuelve disputas de usuarios de cada Bastarda en primera instancia no-jurisdiccional, con apelación a JUS formal' },
+  { id: 'd87', source: 'PLANJUS', target: 'PLANMON', nature: 'CRITICAL', type: 'INSTITUTIONAL', description: 'Sala Financiera de JUS arbitra disputas on-chain del Pulso y del Fondo Soberano con enforcement automatizado' },
+  { id: 'd88', source: 'PLANJUS', target: 'PLANSUS', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'Sala de Sustancias resuelve conflictos de licencias, zonificación y disputas comunitarias sobre uso de sustancias' },
+  { id: 'd89', source: 'PLANJUS', target: 'PLANVIV', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'Sala de Propiedad resuelve disputas de inquilinos, fideicomisos y títulos digitales de vivienda' },
+
+  // Inversa de PLANSUS→PLANSEG (d16/d17 comparten esta inversa)
+  { id: 'd90', source: 'PLANSEG', target: 'PLANSUS', nature: 'CRITICAL', type: 'TEMPORAL', description: 'Reforma policial + 250+ EB operativas + protocolo GREEN/YELLOW/RED son precondición para la legalización escalonada: PLANSEG marca el pulso temporal de la transición narco' },
+
+  // Inversas de PLANEN
+  { id: 'd91', source: 'PLANEN', target: 'PLAN24CN', nature: 'CRITICAL', type: 'TECHNICAL', description: 'Bastarda Energética y red 100% renovable provistas antes de que cada Ciudad Nueva reciba residentes' },
+  { id: 'd92', source: 'PLANEN', target: 'PLANMON', nature: 'CRITICAL', type: 'FINANCIAL', description: 'Regalías energéticas (USD 800M-3500M+/año) por hidrocarburos, minería y renovables capitalizan el Fondo Soberano Ciudadano' },
+
+  // Inversas de PLANREP (motor fiscal)
+  { id: 'd93', source: 'PLANREP', target: 'PLANEDU', nature: 'CRITICAL', type: 'FINANCIAL', description: '15% del ahorro neto fiscal de la reconversión financia el lanzamiento de PLANEDU; además los graduados del Camino se convierten en Maestros de Oficio docentes' },
+  { id: 'd94', source: 'PLANREP', target: 'PLANVIV', nature: 'IMPORTANT', type: 'LABOR', description: 'Artesanos del Refugio formados por PLANREP construyen y retrofitean las 1800 urbanizaciones planificadas' },
+  { id: 'd95', source: 'PLANREP', target: 'PLANSEG', nature: 'IMPORTANT', type: 'LABOR', description: 'Oficiales reconvertidos de fuerzas desmanteladas migran a seguridad comunitaria y enforcement sin violencia' },
+
+  // Inversas de PLAN24CN
+  { id: 'd96', source: 'PLANISV', target: 'PLAN24CN', nature: 'CRITICAL', type: 'TECHNICAL', description: 'Suelo regenerado y balances agua-suelo-carbono recalibrados se destinan a agricultura urbana y anillos verdes de las Ciudades Nuevas' },
+  { id: 'd97', source: 'PLANAGUA', target: 'PLAN24CN', nature: 'IMPORTANT', type: 'TECHNICAL', description: 'Red hídrica troncal, acueductos y tratamiento provistos por ANAGUA cuando la ciudad pasa de diseño a ocupación' },
+  { id: 'd98', source: 'PLANEB', target: 'PLAN24CN', nature: 'CRITICAL', type: 'INSTITUTIONAL', description: 'Red Bastarda aloja al costo todos los servicios urbanos de las 24 ciudades: energía, agua, telecomunicaciones y transporte' },
+
+  // Inversas de PLANVIV (transversal)
+  { id: 'd99', source: 'PLANMON', target: 'PLANVIV', nature: 'IMPORTANT', type: 'FINANCIAL', description: 'Peso-canasta denomina el Crédito Hipotecario Bastardo; el Pulso provee liquidez estable a la vivienda familiar' },
+  { id: 'd100', source: 'PLANEB', target: 'PLANVIV', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'Protocolo Bastardo implementa el fideicomiso perpetuo de la Bastarda Inmobiliaria: propiedad perpetua del ocupante, no especulable' },
+  { id: 'd101', source: 'PLANAGUA', target: 'PLANVIV', nature: 'IMPORTANT', type: 'TECHNICAL', description: 'Co-ejecución hídrica con ANAGUA para las 1800 urbanizaciones nuevas: conexión, tratamiento y rehúso' },
+  { id: 'd102', source: 'PLANSEG', target: 'PLANVIV', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'Protocolos CPTED (prevención del delito por diseño ambiental) aplicados en urbanizaciones y retrofits' },
+
+  // Inversas de PLANGEO (modelo que se exporta)
+  { id: 'd103', source: 'PLANDIG', target: 'PLANGEO', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'IDS produce ArgenCloud como producto exportable que PLANGEO comercializa en la Red Soberana de América Latina' },
+  { id: 'd104', source: 'PLANSUS', target: 'PLANGEO', nature: 'IMPORTANT', type: 'LEGAL', description: 'Cuerpo legal de salida de convenciones internacionales de drogas provisto por PLANSUS permite a PLANGEO ejecutar la cascada diplomática' },
+  { id: 'd105', source: 'PLANMON', target: 'PLANGEO', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'Peso-canasta y Pulso son exportables como estándar monetario regional para el comercio Mercosur' },
+  { id: 'd106', source: 'PLANEB', target: 'PLANGEO', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'Protocolo Bastardo open-source es la pieza central del estándar internacional de empresas al costo que PLANGEO promociona' },
+
+  // Inversas de PLANCUL (hospedaje cultural)
+  { id: 'd107', source: 'PLAN24CN', target: 'PLANCUL', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'Las Ciudades Nuevas son lienzos donde Dendritas (células culturales) nacen nativas en comunidades vírgenes' },
+  { id: 'd108', source: 'PLANREP', target: 'PLANCUL', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'Centros de la Vida (ex-oficinas públicas reconvertidas) son los puntos físicos de reunión donde cristaliza la comunidad cultural' },
+  { id: 'd109', source: 'PLANEDU', target: 'PLANCUL', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'La escuela enseña Rondas de Escucha desde primaria: los niños crecen como Dendritas nativas' },
+  { id: 'd110', source: 'PLANVIV', target: 'PLANCUL', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'Barrios urbanizados proveen el tejido social territorial sobre el cual se reconstruye la cultura comunitaria' },
+
+  // Inversas de data/financial flows transversales
+  { id: 'd111', source: 'PLANMON', target: 'PLANISV', nature: 'IMPORTANT', type: 'DATA', description: 'El Pulso consume la telemetría de producción agrícola y rendimientos de Suelo Vivo como insumo para la estabilidad del peso-canasta' },
+  { id: 'd112', source: 'PLANMON', target: 'PLANSUS', nature: 'IMPORTANT', type: 'FINANCIAL', description: 'El Fondo Soberano Ciudadano absorbe la recaudación fiscal de sustancias legalizadas como uno de sus pilares de capitalización' },
+  { id: 'd113', source: 'PLANSUS', target: 'PLANSAL', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'PLANSUS habilita el uso terapéutico de sustancias e incluidos psicodélicos; los protocolos clínicos resultantes alimentan la medicina mental de PLANSAL' },
+
+  // Inversas de PLANMESA (ciclo LDEA)
+  { id: 'd114', source: 'PLANDIG', target: 'PLANMESA', nature: 'CRITICAL', type: 'TECHNICAL', description: 'IDS aloja la plataforma de auto-postulación, la Credencial de Materia y la Cédula Civil sobre nodos federados soberanos' },
+  { id: 'd115', source: 'PLANEDU', target: 'PLANMESA', nature: 'CRITICAL', type: 'INSTITUTIONAL', description: 'A partir de Fase 1: PLANEDU construye la Capa de Estudio de la Credencial de Materia — currículum obligatorio y evaluación continua de servidores de Mesa' },
+  { id: 'd116', source: 'PLANMEMORIA', target: 'PLANMESA', nature: 'CRITICAL', type: 'INSTITUTIONAL', description: 'PLANMEMORIA opera la Consulta Ancestral obligatoria en Fase APRENDER: el archivo federado responde en cada ciclo LDEA' },
+  { id: 'd117', source: 'PLANTALLER', target: 'PLANMESA', nature: 'CRITICAL', type: 'INSTITUTIONAL', description: 'Tallers son los ejecutores operativos de Fase EXPERIMENTAR: prototipan, miden y retornan hallazgos a Mesa' },
+  { id: 'd118', source: 'PLANCUIDADO', target: 'PLANMESA', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'Red de Cuidado provee la Capa de Vínculo de la Credencial y el sostén relacional de quienes sirven en Mesa' },
+  { id: 'd119', source: 'PLANJUS', target: 'PLANMESA', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'JUS aporta control legal de las Resoluciones de Mesa y arbitra disputas sobre auto-postulación o Credenciales revocadas' },
+
+  // Inversas de PLANTALLER (red productiva)
+  { id: 'd120', source: 'PLANEB', target: 'PLANTALLER', nature: 'CRITICAL', type: 'INSTITUTIONAL', description: 'Red Bastarda es el canal de distribución at-cost de todo lo que produce la Red Taller: insumos a Bastardas y excedentes al mercado popular' },
+  { id: 'd121', source: 'PLANDIG', target: 'PLANTALLER', nature: 'IMPORTANT', type: 'TECHNICAL', description: 'Protocolo Taller corre sobre ArgenCloud como plataforma federada de inventario, hallazgos y coordinación inter-Taller' },
+  { id: 'd122', source: 'PLANREP', target: 'PLANTALLER', nature: 'IMPORTANT', type: 'LABOR', description: 'Empleo público reconvertido se redirige hacia coordinación, mentoría técnica y gestión operativa de los Tallers federales' },
+
+  // Inversas de PLANCUIDADO (capa cero del pacto)
+  { id: 'd123', source: 'PLANSAL', target: 'PLANCUIDADO', nature: 'CRITICAL', type: 'INSTITUTIONAL', description: 'A partir de Fase 1: APS territorial provee la ventana clínica que lee Pactos como dato de salud; Referentes articulan con médicos de cabecera' },
+  { id: 'd124', source: 'PLANREP', target: 'PLANCUIDADO', nature: 'CRITICAL', type: 'LABOR', description: 'Cuidadoras domiciliarias informales son reconvertidas por PLANREP en Referentes Territoriales con salario, formación y protección' },
+  { id: 'd125', source: 'PLANEDU', target: 'PLANCUIDADO', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'PLANEDU incluye currículum de cuidado desde primaria y formación inicial diferenciada para cada tipo de Pacto' },
+  { id: 'd126', source: 'PLANJUS', target: 'PLANCUIDADO', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'JUS provee mediación de disputas de Pactos en primera instancia no-jurisdiccional antes de escalar al sistema formal' },
+  { id: 'd127', source: 'PLANDIG', target: 'PLANCUIDADO', nature: 'IMPORTANT', type: 'TECHNICAL', description: 'IDS aloja el Registro Nacional de Vínculos, el Libro de Cuidado y la Alerta de Soledad Total con criptografía y consentimiento granular' },
+
+  // Inversas de PLANMEMORIA (archivo federado)
+  { id: 'd128', source: 'PLANDIG', target: 'PLANMEMORIA', nature: 'CRITICAL', type: 'TECHNICAL', description: 'IDS provee los 7 nodos federados con hash criptográfico resistente a borrado donde vive el archivo distribuido de la Memoria' },
+  { id: 'd129', source: 'PLANEDU', target: 'PLANMEMORIA', nature: 'CRITICAL', type: 'INSTITUTIONAL', description: 'A partir de Fase 1: la escuela incorpora el rito cívico del Bastón Memorial a los 12 años como ceremonia de ingreso a la memoria activa' },
+  { id: 'd130', source: 'PLANJUS', target: 'PLANMEMORIA', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'JUS coopera con la Inscripción de Captura en investigaciones sin sustituir su función mnémica autónoma' },
+
+  // Inversas de PLANTER (soberanía territorial)
+  { id: 'd131', source: 'PLANSEG', target: 'PLANTER', nature: 'CRITICAL', type: 'INSTITUTIONAL', description: 'PLANSEG extiende protección formal a defensores territoriales y amplía la Guardia Costera para soberanía marítima' },
+  { id: 'd132', source: 'PLANJUS', target: 'PLANTER', nature: 'CRITICAL', type: 'INSTITUTIONAL', description: 'JUS implementa la co-jurisdicción con derecho originario y arbitra disputas territoriales entre pueblos y Estado' },
+  { id: 'd133', source: 'PLANDIG', target: 'PLANTER', nature: 'CRITICAL', type: 'TECHNICAL', description: 'IDS provee monitoreo satelital soberano, registro ciudadano territorial y dashboard público del Dividendo del Suelo' },
+  { id: 'd134', source: 'PLANCUIDADO', target: 'PLANTER', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'La red de Pactos reconoce y formaliza los parentescos interculturales de comunidades originarias como Pactos Interculturales' },
+  { id: 'd135', source: 'PLANMEMORIA', target: 'PLANTER', nature: 'IMPORTANT', type: 'DATA', description: 'PLANMEMORIA aloja el Archivo Territorial con los depósitos testimoniales y documentales de comunidades originarias' },
+  { id: 'd136', source: 'PLANTER', target: 'PLANMON', nature: 'IMPORTANT', type: 'FINANCIAL', description: 'El Dividendo del Suelo y el FSC son la palanca territorial que ancla al Fondo Soberano Ciudadano en activos reales' },
+  { id: 'd137', source: 'PLANTER', target: 'PLANEN', nature: 'IMPORTANT', type: 'LEGAL', description: 'Licencia Territorial (reemplazo del RIGI) condiciona cualquier proyecto hidrocarburífero o minero a consulta previa y retorno comunitario' },
+
+  // Inversas de PLANMOV (arterias logísticas)
+  { id: 'd138', source: 'PLANMESA', target: 'PLANMOV', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'Mesas Civiles de Corredor son los cuerpos deliberativos que priorizan la reactivación ferroviaria kilómetro por kilómetro' },
+  { id: 'd139', source: 'PLANMEMORIA', target: 'PLANMOV', nature: 'IMPORTANT', type: 'DATA', description: 'Archivo Técnico Ferroviario (con depósitos de ex-ferroviarios) aloja el conocimiento operativo histórico de los 25.000 km de red' },
+  { id: 'd140', source: 'PLANEN', target: 'PLANMOV', nature: 'IMPORTANT', type: 'TECHNICAL', description: 'Red eléctrica + fibra sobre la misma traza ferroviaria: PLANEN electrifica la red reactivada con energía renovable soberana' },
+  { id: 'd141', source: 'PLANDIG', target: 'PLANMOV', nature: 'CRITICAL', type: 'TECHNICAL', description: 'IDS + LANIA alojan la gestión de MKC, BLF, Red Federal de Puertos y el Laboratorio Nacional de Movilidad Autónoma con data-logging obligatorio' },
+  { id: 'd142', source: 'PLANREP', target: 'PLANMOV', nature: 'CRITICAL', type: 'LABOR', description: 'Cuadros técnicos ferroviarios y portuarios son reconvertidos por PLANREP; la Ruta "Reconversión Móvil" absorbe 500.000 transportistas desplazados por automatización' },
+  { id: 'd143', source: 'PLANEB', target: 'PLANMOV', nature: 'CRITICAL', type: 'INSTITUTIONAL', description: 'Bastarda Logística Federal, Bastarda Fluvial y BAMD son las formas bastardas que operan canales at-cost y redistribuyen el Canon de Automatización Logística' },
+
+  // Inversas de conexiones nuevas (d75, d76)
+  { id: 'd144', source: 'PLANDIG', target: 'PLANSAL', nature: 'CRITICAL', type: 'TECHNICAL', description: 'IDS aloja la Historia Clínica Unificada, telemedicina rural y el Registro de Salud Integral con criptografía y consentimiento explícito del paciente' },
+  { id: 'd145', source: 'PLANTER', target: 'PLANISV', nature: 'IMPORTANT', type: 'INSTITUTIONAL', description: 'PLANTER provee la Licencia Territorial y el marco de co-soberanía indígena donde PLANISV regenera suelo en tierras fiscales y comunidades originarias' },
 ];
 
 // === TIMELINE PHASES ===
@@ -406,50 +516,60 @@ export const TIMELINE_PHASES: TimelinePhase[] = [
   { planId: 'PLANDIG', name: 'Consolidación', startYear: 4, endYear: 6 },
   { planId: 'PLANDIG', name: 'Soberanía', startYear: 7, endYear: 10 },
   // PLANJUS
+  { planId: 'PLANJUS', name: 'Pre-Fase — Diseño del Nuevo Código y Selección de Salas', startYear: -1, endYear: -1 },
   { planId: 'PLANJUS', name: 'Fase 1', startYear: 0, endYear: 2 },
   { planId: 'PLANJUS', name: 'La Preferencia', startYear: 3, endYear: 7 },
   { planId: 'PLANJUS', name: 'La Sucesión Natural', startYear: 8, endYear: 10 },
   // PLANREP
+  { planId: 'PLANREP', name: 'Pre-Fase — Auditoría del Empleo Público y Ley de Reconversión', startYear: -1, endYear: -1 },
   { planId: 'PLANREP', name: 'Lanzamiento', startYear: 0, endYear: 1 },
   { planId: 'PLANREP', name: 'Inversión', startYear: 2, endYear: 3 },
   { planId: 'PLANREP', name: 'Primer Superávit', startYear: 4, endYear: 4 },
   { planId: 'PLANREP', name: 'Régimen', startYear: 5, endYear: 10 },
   { planId: 'PLANREP', name: 'Economía Contribución', startYear: 11, endYear: 20 },
   // PLANEB
+  { planId: 'PLANEB', name: 'Pre-Fase — Diseño del Protocolo Bastardo', startYear: -1, endYear: -1 },
   { planId: 'PLANEB', name: 'Semilla', startYear: 0, endYear: 0 },
   { planId: 'PLANEB', name: 'Auto Simple', startYear: 0, endYear: 1 },
   { planId: 'PLANEB', name: 'Expansión', startYear: 1, endYear: 2 },
   { planId: 'PLANEB', name: 'Espectro Completo', startYear: 3, endYear: 5 },
   { planId: 'PLANEB', name: 'Red Madura', startYear: 5, endYear: 15 },
   // PLANMON
+  { planId: 'PLANMON', name: 'Diseño Fundacional — Auditoría BCRA + Marco Legal del Pulso', startYear: -1, endYear: -1 },
   { planId: 'PLANMON', name: 'Pre-Fase', startYear: 2, endYear: 2 },
   { planId: 'PLANMON', name: 'Pulso Beta', startYear: 3, endYear: 3 },
   { planId: 'PLANMON', name: 'Expansión', startYear: 4, endYear: 5 },
   { planId: 'PLANMON', name: 'Desdolarización', startYear: 7, endYear: 10 },
   { planId: 'PLANMON', name: 'Pulso Dominante', startYear: 11, endYear: 15 },
   // PLANSUS
+  { planId: 'PLANSUS', name: 'Pre-Fase — Estudios Epidemiológicos y Ley Marco', startYear: -1, endYear: -1 },
   { planId: 'PLANSUS', name: 'El Alivio', startYear: 1, endYear: 1 },
   { planId: 'PLANSUS', name: 'La Expansión', startYear: 2, endYear: 3 },
   { planId: 'PLANSUS', name: 'La Soberanía', startYear: 4, endYear: 5 },
   // PLANEDU
+  { planId: 'PLANEDU', name: 'Pre-Fase — Diseño Curricular y Movilización Docente', startYear: -1, endYear: 0 },
   { planId: 'PLANEDU', name: 'Escudo', startYear: 1, endYear: 7 },
   { planId: 'PLANEDU', name: 'Transición', startYear: 8, endYear: 14 },
   { planId: 'PLANEDU', name: 'Abundancia', startYear: 15, endYear: 20 },
   // PLANSAL
+  { planId: 'PLANSAL', name: 'Pre-Fase — Diagnóstico Sanitario Nacional', startYear: -1, endYear: -1 },
   { planId: 'PLANSAL', name: 'Demostrar', startYear: 1, endYear: 2 },
   { planId: 'PLANSAL', name: 'Escalar', startYear: 3, endYear: 5 },
   { planId: 'PLANSAL', name: 'Consolidar', startYear: 6, endYear: 10 },
   // PLANISV
+  { planId: 'PLANISV', name: 'Pre-Fase — Mapeo de Suelos Degradados y Ley ANSV', startYear: -1, endYear: -1 },
   { planId: 'PLANISV', name: 'Demostrar', startYear: 0, endYear: 0 },
   { planId: 'PLANISV', name: 'Regionalizar', startYear: 1, endYear: 2 },
   { planId: 'PLANISV', name: 'Escala Nacional', startYear: 3, endYear: 10 },
   { planId: 'PLANISV', name: 'Consolidación', startYear: 11, endYear: 15 },
   // PLANAGUA
+  { planId: 'PLANAGUA', name: 'Pre-Fase — Diagnóstico Hídrico Nacional', startYear: -1, endYear: -1 },
   { planId: 'PLANAGUA', name: 'Emergencia', startYear: 2, endYear: 2 },
   { planId: 'PLANAGUA', name: 'Infraestructura', startYear: 3, endYear: 5 },
   { planId: 'PLANAGUA', name: 'Modernización', startYear: 6, endYear: 8 },
   { planId: 'PLANAGUA', name: 'Excelencia', startYear: 9, endYear: 10 },
   // PLAN24CN
+  { planId: 'PLAN24CN', name: 'Pre-Fase — Censo de Sitios y Diseño Urbano', startYear: -1, endYear: -1 },
   { planId: 'PLAN24CN', name: 'Cimentar', startYear: 1, endYear: 2 },
   { planId: 'PLAN24CN', name: 'Escalar', startYear: 2, endYear: 5 },
   { planId: 'PLAN24CN', name: 'Completar', startYear: 5, endYear: 8 },
@@ -485,31 +605,37 @@ export const TIMELINE_PHASES: TimelinePhase[] = [
   { planId: 'PLANCUL', name: 'Transformación', startYear: 6, endYear: 10 },
   { planId: 'PLANCUL', name: 'Madurez', startYear: 11, endYear: 15 },
   // PLANMESA
+  { planId: 'PLANMESA', name: 'Pre-Fase — Diseño del Protocolo de Credencial', startYear: -1, endYear: -1 },
   { planId: 'PLANMESA', name: 'Fase 0 — Arranque Técnico', startYear: 0, endYear: 0 },
   { planId: 'PLANMESA', name: 'Piloto — 3 materias', startYear: 1, endYear: 2 },
   { planId: 'PLANMESA', name: 'Expansión', startYear: 3, endYear: 6 },
   { planId: 'PLANMESA', name: 'Régimen Pleno', startYear: 7, endYear: 15 },
   // PLANTALLER
+  { planId: 'PLANTALLER', name: 'Pre-Fase — Diseño del Protocolo Taller y Red de Oficios', startYear: -1, endYear: -1 },
   { planId: 'PLANTALLER', name: 'Fase 0 — Primer Prototipo', startYear: 0, endYear: 0 },
   { planId: 'PLANTALLER', name: 'Red Piloto — 50 Tallers', startYear: 1, endYear: 2 },
   { planId: 'PLANTALLER', name: 'Expansión — 500 Tallers', startYear: 3, endYear: 6 },
   { planId: 'PLANTALLER', name: 'Régimen — 4000 Tallers', startYear: 7, endYear: 15 },
   // PLANCUIDADO
+  { planId: 'PLANCUIDADO', name: 'Pre-Fase — Diseño de Pactos Tipo y Ley ANCV', startYear: -1, endYear: -1 },
   { planId: 'PLANCUIDADO', name: 'Fase 0 — Ley ANCV + Registro Piloto', startYear: 0, endYear: 0 },
   { planId: 'PLANCUIDADO', name: 'Expansión de Pactos', startYear: 1, endYear: 3 },
   { planId: 'PLANCUIDADO', name: 'Jornada 6+2 Progresiva', startYear: 4, endYear: 7 },
   { planId: 'PLANCUIDADO', name: 'Régimen Pleno', startYear: 8, endYear: 15 },
   // PLANMEMORIA
+  { planId: 'PLANMEMORIA', name: 'Pre-Fase — Arquitectura de Nodos y Curaduría Inicial', startYear: -1, endYear: -1 },
   { planId: 'PLANMEMORIA', name: 'Fase 0 — Arranque Federado', startYear: 0, endYear: 0 },
   { planId: 'PLANMEMORIA', name: 'Bastón Memorial Piloto + 2 Nodos', startYear: 1, endYear: 2 },
   { planId: 'PLANMEMORIA', name: 'Red de 7 Nodos + Consulta Ancestral', startYear: 3, endYear: 5 },
   { planId: 'PLANMEMORIA', name: 'Régimen — Archivo Activo', startYear: 6, endYear: 15 },
   // PLANTER
+  { planId: 'PLANTER', name: 'Pre-Fase — Diagnóstico Territorial y Consulta Previa', startYear: -1, endYear: -1 },
   { planId: 'PLANTER', name: 'Fase 1 Escalonada — Ley ANTSPO', startYear: 1, endYear: 1 },
   { planId: 'PLANTER', name: 'Fase 2 — Commons Subsuelo + DCM Piloto', startYear: 2, endYear: 3 },
   { planId: 'PLANTER', name: 'Fase 3 — Mar Soberano + Deforestación Cero', startYear: 4, endYear: 7 },
   { planId: 'PLANTER', name: 'Régimen — FSC Consolidado', startYear: 8, endYear: 15 },
   // PLANMOV v2.0 — 5 fases (tres capas + 11 dispositivos + Doctrina del Doble Desplazamiento)
+  { planId: 'PLANMOV', name: 'Pre-Fase — Auditoría Ferroviaria/Portuaria y Ley ANMov', startYear: -1, endYear: -1 },
   { planId: 'PLANMOV', name: 'Fase 0 — Preparación (Ley ANMov + AMBA-T + BAMD + LNMA/PCAV + MKC)', startYear: 0, endYear: 1 },
   { planId: 'PLANMOV', name: 'Fase 1 — Arranque (3 corredores ferroviarios piloto + BLF + Canon + Hidrovía + Régimen Laboral)', startYear: 2, endYear: 4 },
   { planId: 'PLANMOV', name: 'Fase 2 — Consolidación (AMBA-T + Hidrovía Soberana + escalado BAMD)', startYear: 5, endYear: 8 },

@@ -6542,6 +6542,166 @@ var init_blogContent = __esm({
         </p>
       </article>
     `
+      },
+      [slugify("El abrazo que no supimos sostener")]: {
+        excerpt: "Una tarde libre, una b\xFAsqueda extra\xF1a, y la pregunta que nadie quiere hacerse: si fuimos capaces de abrazarnos todos durante 48 horas, \xBFpor qu\xE9 elegimos no serlo el resto del tiempo?",
+        content: `
+      <article>
+        <h1>El abrazo que no supimos sostener</h1>
+
+        <p>
+          Hoy me qued\xE9 solo en casa una tarde entera. Mi mujer se fue con dos de los chicos, mi hija mayor trajo una amiga y se metieron primero en la cocina y despu\xE9s se fueron a andar en bici. Dos horas. Dos horas sin que nadie me pidiera nada. Despu\xE9s de una semana intensa, de esas que te dejan la cabeza llena de voces ajenas, me dije: <em>hoy hago exactamente lo que quiera</em>.
+        </p>
+
+        <p>
+          Lo curioso \u2014 y por eso estoy escribiendo esto \u2014 es que lo que quise hacer fue investigar. Pero no cualquier cosa. Me pas\xE9 dos horas buscando, casi compulsivamente, dos tipos de contenido muy espec\xEDficos: <strong>argentinos haci\xE9ndole bien a otros argentinos, y extranjeros hablando de Argentina y de los argentinos</strong>. No lo plane\xE9. Sali\xF3 solo. Y en alg\xFAn momento, entre un video y otro, entend\xED por qu\xE9.
+        </p>
+
+        <blockquote>
+          Hay preguntas que uno no se anima a hacerse con la agenda abierta. Aparecen de costado, en las tardes raras, cuando por fin nadie te est\xE1 mirando.
+        </blockquote>
+
+        <h2>Vivir donde nadie te conoce</h2>
+        <p>
+          Hace a\xF1os viv\xED en Europa. Fue una \xE9poca divertida \u2014 un laboratorio, m\xE1s bien. Cuando nadie te conoce, te pod\xE9s probar versiones de vos mismo que en tu propio barrio no te anim\xE1s. Romp\xE9s conceptos, teste\xE1s l\xEDmites, te redise\xF1\xE1s sin p\xFAblico. Es un regalo raro: el anonimato como espacio de crecimiento.
+        </p>
+        <p>
+          En esos a\xF1os aprend\xED algo que no esperaba: aprend\xED c\xF3mo nos ven desde afuera. Y las primeras devoluciones fueron, honestamente, halagadoras. Hay una versi\xF3n liviana y agradable de la noticia \u2014 muchas mujeres, de nacionalidades muy distintas, describ\xEDan al argentino como "encantador": c\xE1lido, atento, presente. La primera vez pens\xE9 que era casualidad. A la d\xE9cima tuve que aceptar que era un patr\xF3n. Pero lo que me interesa ac\xE1 no es la an\xE9cdota rom\xE1ntica: es que esa misma calidez \u2014 descrita por alemanas, francesas, holandesas, mexicanas, polacas \u2014 aparec\xEDa en conversaciones con y sin contexto de cortejo. La describ\xEDan los hombres tambi\xE9n. La describ\xEDan los viejos. La describ\xEDan los que hab\xEDan venido un mes a Buenos Aires y volv\xEDan intentando explicar en su casa qu\xE9 les hab\xEDa pasado.
+        </p>
+
+        <p>Me describ\xEDan as\xED:</p>
+        <ul>
+          <li><strong>Abiertos.</strong> "Los argentinos te abren la puerta de la casa el d\xEDa que te conocen."</li>
+          <li><strong>Apasionados.</strong> "Hablan de todo como si les fuera la vida."</li>
+          <li><strong>Presentes.</strong> "Te miran a los ojos, te preguntan, se quedan."</li>
+          <li><strong>Generosos.</strong> "Comparten lo que tienen, aunque tengan poco."</li>
+        </ul>
+
+        <p>
+          Pero \u2014 y esto tambi\xE9n me lo dijeron, porque hay gente que tiene la gentileza de decirte las dos cosas \u2014 tambi\xE9n escuch\xE9 la otra lista:
+        </p>
+        <ul>
+          <li><strong>Cre\xEDdos.</strong></li>
+          <li><strong>Soberbios.</strong></li>
+          <li><strong>Mentirosos.</strong></li>
+          <li><strong>"Se creen que saben todo."</strong></li>
+        </ul>
+
+        <p>
+          No voy a esconder la segunda. Nos acompa\xF1a hace demasiado como para fingir que no existe. Pero conviene leerlas juntas, porque las dos son ciertas al mismo tiempo \u2014 y esa convivencia, como vas a ver, es el n\xFAcleo de todo lo que vino despu\xE9s.
+        </p>
+
+        <h2>El espejo extranjero</h2>
+        <p>
+          Esa tarde libre volv\xED a esa vieja curiosidad. Pero esta vez en YouTube, en Reddit, en TikTok. Miles de extranjeros viviendo en Argentina, o de paso por ac\xE1, contando qu\xE9 les pasa con nosotros. El patr\xF3n se repite con una consistencia casi aburrida:
+        </p>
+        <ul>
+          <li>La <strong>alemana</strong> que cuenta, todav\xEDa sacudida, que en su primera semana la invitaron a un asado tres familias distintas \u2014 y que en Alemania hubiera tardado tres a\xF1os en entrar a la casa de alguien que no fuera de su sangre.</li>
+          <li>El <strong>franc\xE9s</strong> que no entiende c\xF3mo en cualquier reuni\xF3n aparece un guitarrista, alguien que cocina para doce sin avisar, y conversaciones que terminan a las cuatro de la ma\xF1ana hablando de filosof\xEDa, de f\xFAtbol y del dolor de la abuela.</li>
+          <li>La <strong>holandesa</strong> que describe la sobremesa como "un ritual que no existe en mi pa\xEDs y que explica por qu\xE9 ustedes tienen amigos de verdad".</li>
+          <li>El <strong>mexicano</strong> que dice, casi con envidia, "ustedes tratan a los amigos como familia \u2014 para nosotros es al rev\xE9s".</li>
+          <li>La <strong>inglesa</strong> que se quiebra contando que en su primer viaje en colectivo una se\xF1ora desconocida se dio cuenta de que estaba perdida, la acompa\xF1\xF3 hasta su hostel, y no acept\xF3 ni un caf\xE9 de agradecimiento.</li>
+        </ul>
+
+        <p>
+          Y dale. Y dale. Y dale. Argentinos haciendo cosas chicas que para los de afuera no son chicas. En la vereda. En el colectivo. En la cocina. Abriendo puertas, compartiendo comida, acompa\xF1ando desconocidos. Millones de microactos de una cultura que, vista desde afuera, se ve profundamente humana.
+        </p>
+
+        <blockquote>
+          Lo que para nosotros es "lo que se hace", para el resto del mundo es un milagro cotidiano que no saben replicar.
+        </blockquote>
+
+        <h2>Lo que encontr\xE9 de este lado del espejo</h2>
+        <p>
+          Me pas\xE9 la primera mitad de la tarde, en realidad, buscando la otra cosa. Porque la b\xFAsqueda original no empez\xF3 por los extranjeros: empez\xF3 por <strong>argentinos haci\xE9ndole bien a otros argentinos</strong>. Y lo que encontr\xE9 me vol\xF3 un poco la cabeza.
+        </p>
+        <p>
+          Hay tres o cuatro cuentas que identifiqu\xE9 como <em>recurrentes</em>: gente que se dedica, sistem\xE1ticamente, a salir a la calle y ayudar. A uno le dan plata. Al otro le compran un par de zapatillas. A otro le pagan una pensi\xF3n por una semana. A otro lo llevan a comer, le hacen una entrevista corta, se preocupan por saber c\xF3mo lleg\xF3 a la calle y qu\xE9 necesita para salir. Lo graban, lo suben, y vuelven a salir al d\xEDa siguiente.
+        </p>
+        <p>
+          Lo primero que me llam\xF3 la atenci\xF3n \u2014 y que me qued\xF3 golpeando toda la tarde \u2014 fue lo <strong>poquitos</strong> que son. En un pa\xEDs de 46 millones, donde cualquier asado tiene cinco tipos que se enganchan con una causa antes del postre, las cuentas que se dedican <em>de verdad</em>, sistem\xE1ticamente, a recaudar plata, a sumar sponsors, a salir a buscar a qui\xE9n ayudar, se cuentan con los dedos de una mano. Hay algo en esa proporci\xF3n que no cierra con el pa\xEDs que los extranjeros describen tres p\xE1rrafos m\xE1s arriba.
+        </p>
+        <p>
+          Y no soy ingenuo. Entiendo perfectamente que una parte de la motivaci\xF3n es el like, la audiencia, el seguidor que banca para que puedan seguir haci\xE9ndolo. S\xE9 que el lente cambia lo que pasa delante del lente. Pero ac\xE1 est\xE1 lo que me detuvo y no me dej\xF3 seguir scrolleando:
+        </p>
+        <blockquote>
+          El fin est\xE1 lindo. El tipo que estaba en la calle, esa noche, esa esquina, se fue con comida, con plata, con abrigo, con un rato de conversaci\xF3n que no iba a tener si no hubiera existido el video. La c\xE1mara puede ser vanidosa. El resultado no deja de ser real.
+        </blockquote>
+        <p>
+          Y me qued\xE9 imaginando algo \u2014 una idea que no se me fue m\xE1s en toda la tarde: <strong>\xBFqu\xE9 pasar\xEDa si eso se volviera pol\xEDtica de estado?</strong> No pol\xEDtica de gobierno. <strong>Pol\xEDtica de la gente.</strong>
+        </p>
+        <p>
+          Si cada barrio tuviera sus tres o cuatro vecinos que salen, de manera recurrente, a ayudar. No como gesto heroico aislado, no como campa\xF1a de fin de a\xF1o, no esperando a que alguien los organice desde arriba. Como costumbre. Como lo que hacemos los martes, porque s\xED. Como infraestructura blanda del barrio, tejida con el mismo material con que ya tejemos el asado y la sobremesa. Sin ministerio, sin convocatoria, sin permiso.
+        </p>
+        <p>
+          Y ahora sub\xED la vara. <strong>\xBFY si en vez de tres o cuatro cuentas, fuera una legi\xF3n?</strong> No cientos \u2014 miles. Miles de argentinos comunes, la mayor\xEDa sin c\xE1mara, sin marca personal, cada uno con su radio de diez cuadras, saliendo a buscar a qui\xE9n ayudar. En ese escenario la capacidad de localizaci\xF3n ser\xEDa monstruosa: cualquiera de nosotros conoce a tres personas que la est\xE1n pasando mal en su cuadra. Esa informaci\xF3n \u2014 a qui\xE9n, d\xF3nde, qu\xE9 necesita \u2014 no la va a tener nunca un programa dise\xF1ado desde un despacho a trescientos kil\xF3metros, por muy bien intencionado que sea.
+        </p>
+        <p>
+          Y ahora imaginate el combustible. Una l\xEDnea en la declaraci\xF3n de impuestos \u2014 simple, clara \u2014 donde la plata que don\xE1s a una de esas misiones se descuenta de lo que pag\xE1s. Que el Estado, por una vez, se corra del medio y diga: <em>"vos sab\xE9s mejor que yo a qui\xE9n hay que ayudar en tu barrio; banc\xE1 la misi\xF3n del vecino y yo te lo reconozco"</em>. Plata que hoy se evapora en circuitos opacos o en partidas que nadie extra\xF1a demasiado, redirigida quir\xFArgicamente a la esquina concreta, al nombre propio, a la pensi\xF3n de una semana que le cambia la trayectoria a alguien. No es limosna con recibo: es <strong>redirecci\xF3n inteligente de recursos que ya existen</strong>, conectados por primera vez con la inteligencia distribuida de la gente que conoce el terreno.
+        </p>
+        <p>
+          No ser\xEDa caridad. Ser\xEDa coreograf\xEDa. Y ser\xEDa profundamente nuestra \u2014 porque esa calidez que los extranjeros describen no es abstracta: es exactamente lo que estas cuentas hacen, solo que lo filman. Lo que hoy son cuatro personas con una c\xE1mara podr\xEDan ser cuatro millones sin ella.
+        </p>
+
+        <h2>Y entonces, el abrazo</h2>
+        <p>
+          Acordate del 18 de diciembre de 2022.
+        </p>
+        <p>
+          Por 48 horas fuimos <em>exactamente</em> lo que los extranjeros describen. No una versi\xF3n exagerada: esa versi\xF3n. Abrazamos al vecino con el que no nos habl\xE1bamos. Al tipo del kiosco que nos ca\xEDa p\xE9simo. Al desconocido de la esquina. Nos abrazamos con gente que vota distinto, que piensa distinto, que nos rob\xF3 un lugar en la cola alguna vez. Durante dos d\xEDas dejamos de ser 46 millones de individuos resentidos entre s\xED y fuimos, por una vez, <strong>un pueblo</strong>.
+        </p>
+        <p>
+          Fue hermoso. Fue raro. Fue una anomal\xEDa estad\xEDstica en la historia emocional del pa\xEDs.
+        </p>
+        <p>
+          Y despu\xE9s \u2014 volvimos.
+        </p>
+        <p>
+          Volvimos al robo en la esquina. Al grito en el tr\xE1nsito. Al "yo primero". Al vivillo. A la pol\xEDtica como insulto. A la desconfianza como default. En una semana ya nos est\xE1bamos puteando otra vez. En un mes ya nos hab\xEDamos olvidado de que hab\xEDamos sido capaces de eso. Y yo me qued\xE9 con una pregunta que todav\xEDa no s\xE9 contestar del todo, pero que vuelve y vuelve:
+        </p>
+
+        <blockquote>
+          Si somos capaces de ser eso \u2014 aunque sea por 48 horas \u2014 \xBFpor qu\xE9 elegimos no serlo el resto del tiempo?
+        </blockquote>
+
+        <h2>Lo que tenemos en el ADN, lo que no sabemos sostener</h2>
+        <p>
+          La respuesta f\xE1cil es decir "la crisis nos rompi\xF3", "la pol\xEDtica nos corrompi\xF3", "el hambre no deja pensar". Y todas esas cosas son ciertas. Pero son solo la mitad del mapa. La otra mitad es m\xE1s inc\xF3moda: <strong>la grandeza la mostramos todo el tiempo, pero la mostramos en dosis chicas</strong>.
+        </p>
+        <p>
+          En la casa del vecino. En el colectivo. En la cena con el extranjero que no habla una palabra de castellano y al que tratamos como si lo conoci\xE9ramos hace veinte a\xF1os. En el asado donde alguien trae a un desconocido y nadie pregunta qui\xE9n es. En el velorio donde aparece gente que hace diez a\xF1os no ve\xEDas. En la vereda cuando se inunda.
+        </p>
+        <p>
+          Lo que no sabemos \u2014 o lo que no nos animamos \u2014 es a hacer lo mismo a escala colectiva. En el Estado. En la empresa. En la pol\xEDtica. En el barrio organizado. En las decisiones que afectan a millones en vez de a cinco. Ah\xED aparece la soberbia, la viveza, el "yo primero", la mentira c\xF3moda. Ah\xED dejamos de ser ese argentino que la alemana describe con los ojos brillantes y pasamos a ser el otro \u2014 el cre\xEDdo, el soberbio, el mentiroso \u2014 que tambi\xE9n somos, porque tambi\xE9n est\xE1 en nosotros.
+        </p>
+        <p>
+          Las dos versiones son reales. Las dos son nuestras. Y la pregunta no es cu\xE1l de las dos <em>es</em> el verdadero argentino. Las dos lo son. La pregunta es cu\xE1l elegimos alimentar \u2014 individualmente y en conjunto.
+        </p>
+
+        <h2>El problema no es la capacidad. Es la coordinaci\xF3n.</h2>
+        <p>
+          No nos falta grandeza. La tenemos. La mostramos todos los d\xEDas en las cocinas, en las veredas, en los asados, en las canchas. El Mundial fue la prueba p\xFAblica de que sabemos hacerlo, aunque sea por 48 horas, a escala de pa\xEDs entero. Lo que nos falta no es capacidad: nos falta <strong>un dise\xF1o colectivo</strong> \u2014 un marco, un m\xE9todo, un lenguaje com\xFAn \u2014 que nos permita escalar esa grandeza dom\xE9stica a la vida p\xFAblica.
+        </p>
+        <p>
+          Porque mientras tanto seguimos regal\xE1ndole lo mejor de nosotros al desconocido de la vereda, y lo peor a nuestro propio pa\xEDs.
+        </p>
+        <p>
+          Ese es el dise\xF1o que le debemos a nuestra generaci\xF3n. No un l\xEDder salvador. No una revoluci\xF3n mesi\xE1nica. Un <strong>m\xE9todo</strong> para que el argentino del asado sea tambi\xE9n el argentino del presupuesto municipal, el argentino de la escuela, el argentino de la esquina que no se banca m\xE1s que le roben. Para que la hospitalidad de una casa se convierta, sin perder nada por el camino, en la forma en que tratamos a los pibes que crecen a diez cuadras de la nuestra.
+        </p>
+
+        <h2>La tarde que termina, el pa\xEDs que empieza</h2>
+        <p>
+          Cuando cerr\xE9 la computadora, mi hija estaba volviendo de andar en bici, sudada, feliz, hablando a mil con la amiga. Les pregunt\xE9 qu\xE9 hab\xEDan cocinado. Me contaron \u2014 con el entusiasmo detallado que solo tienen los chicos cuando algo les sali\xF3 bien \u2014 una receta que ni siquiera ten\xEDa nombre, inventada entre las dos. Y pens\xE9: esto tambi\xE9n es lo que los extranjeros ven. Esta escena. Esta casa. Esta tarde.
+        </p>
+        <p>
+          No somos el pa\xEDs que merecemos todav\xEDa. Pero tampoco somos el pa\xEDs que nos dicen que somos cuando prendemos el noticiero. En alg\xFAn lugar entre esos dos extremos, en dosis chicas, en veredas, en cocinas, en abrazos de 48 horas que se escapan demasiado r\xE1pido, est\xE1 la materia prima de algo mucho m\xE1s grande. No es cuesti\xF3n de inventar un argentino nuevo. Es cuesti\xF3n de <em>sostener</em>, de manera organizada y deliberada, al argentino que ya existe en cada uno de nosotros.
+        </p>
+
+        <blockquote>
+          El Mundial nos mostr\xF3 qui\xE9nes somos cuando nos damos permiso. Lo que nos falta no es ese permiso: lo que nos falta es la arquitectura para no soltarnos la mano cuando se termine la fiesta. Ese plano est\xE1 por hacerse. Y el \xFAnico arquitecto posible sos vos \u2014 somos nosotros \u2014 cada vez que elegimos no olvidarnos.
+        </blockquote>
+      </article>
+    `
       }
     };
   }
@@ -7504,7 +7664,7 @@ var init_storage = __esm({
       }
       async getUnreadMessageCount(userId) {
         const result = await db.select({ count: sql4`count(*)` }).from(communityMessages).where(and2(eq2(communityMessages.receiverId, userId), eq2(communityMessages.read, false)));
-        return result[0]?.count || 0;
+        return Number(result[0]?.count ?? 0);
       }
       // Community Activity
       async recordPostActivity(data) {
@@ -8239,7 +8399,7 @@ var init_storage = __esm({
         const count3 = await db.select({ count: sql4`count(*)` }).from(postLikes).where(eq2(postLikes.postId, postId));
         return {
           liked: !existingLike,
-          count: count3[0].count
+          count: Number(count3[0]?.count ?? 0)
         };
       }
       async getPostLikes(postId) {
@@ -8432,7 +8592,7 @@ var init_storage = __esm({
       }
       async getCommunityPostLikesCount(postId) {
         const result = await db.select({ count: sql4`count(*)` }).from(communityPostLikes).where(eq2(communityPostLikes.postId, postId));
-        return result[0]?.count || 0;
+        return Number(result[0]?.count ?? 0);
       }
       async recordCommunityPostView(postId, userId, ipAddress, userAgent) {
         const [view] = await db.insert(communityPostViews).values({
@@ -8448,7 +8608,7 @@ var init_storage = __esm({
       }
       async getCommunityPostViewsCount(postId) {
         const result = await db.select({ count: sql4`count(*)` }).from(communityPostViews).where(eq2(communityPostViews.postId, postId));
-        return result[0]?.count || 0;
+        return Number(result[0]?.count ?? 0);
       }
       // ==================== GEOGRAPHIC SEARCH METHODS ====================
       async searchPostsByLocation(province, city, radiusKm, userLat, userLng) {
@@ -8672,39 +8832,47 @@ var init_storage = __esm({
         return { province, city };
       }
       async getLeaderboard(type, limit) {
-        let query;
+        let rows;
         switch (type) {
-          case "weekly":
+          case "weekly": {
             const weekStart = /* @__PURE__ */ new Date();
             weekStart.setDate(weekStart.getDate() - weekStart.getDay());
             const weekStartStr = weekStart.toISOString().split("T")[0];
-            query = db.select({
+            rows = await db.select({
               userId: weeklyRankings.userId,
               points: weeklyRankings.points,
               rank: weeklyRankings.rank,
               user: {
                 id: users.id,
                 name: users.name,
-                username: users.username
+                username: users.username,
+                location: users.location,
+                avatarUrl: users.avatarUrl,
+                createdAt: users.createdAt
               }
             }).from(weeklyRankings).innerJoin(users, eq2(weeklyRankings.userId, users.id)).where(eq2(weeklyRankings.weekStart, weekStartStr)).orderBy(asc2(weeklyRankings.rank)).limit(limit);
             break;
-          case "monthly":
+          }
+          case "monthly": {
             const monthStart = (/* @__PURE__ */ new Date()).toISOString().substring(0, 7);
-            query = db.select({
+            rows = await db.select({
               userId: monthlyRankings.userId,
               points: monthlyRankings.points,
               rank: monthlyRankings.rank,
               user: {
                 id: users.id,
                 name: users.name,
-                username: users.username
+                username: users.username,
+                location: users.location,
+                avatarUrl: users.avatarUrl,
+                createdAt: users.createdAt
               }
             }).from(monthlyRankings).innerJoin(users, eq2(monthlyRankings.userId, users.id)).where(eq2(monthlyRankings.monthStart, monthStart)).orderBy(asc2(monthlyRankings.rank)).limit(limit);
             break;
+          }
           case "global":
-          default:
-            query = db.select({
+          default: {
+            rows = await db.select({
               userId: userProgress.userId,
               points: userProgress.points,
               rank: userProgress.rank,
@@ -8712,12 +8880,104 @@ var init_storage = __esm({
               user: {
                 id: users.id,
                 name: users.name,
-                username: users.username
+                username: users.username,
+                location: users.location,
+                avatarUrl: users.avatarUrl,
+                createdAt: users.createdAt
               }
             }).from(userProgress).innerJoin(users, eq2(userProgress.userId, users.id)).orderBy(desc2(userProgress.points)).limit(limit);
             break;
+          }
         }
-        return await query;
+        if (rows.length === 0) return [];
+        const userIds = rows.map((r) => r.userId);
+        const badgeCounts = await db.select({
+          userId: userBadges.userId,
+          count: sql4`cast(count(*) as int)`
+        }).from(userBadges).where(inArray(userBadges.userId, userIds)).groupBy(userBadges.userId);
+        const badgeCountMap = new Map(badgeCounts.map((bc) => [bc.userId, bc.count]));
+        const topBadgeRows = await db.select({
+          userId: userBadges.userId,
+          earnedAt: userBadges.earnedAt,
+          badgeId: badges.id,
+          name: badges.name,
+          iconName: badges.iconName,
+          rarity: badges.rarity
+        }).from(userBadges).innerJoin(badges, eq2(userBadges.badgeId, badges.id)).where(inArray(userBadges.userId, userIds)).orderBy(desc2(userBadges.earnedAt));
+        const topBadgesByUser = /* @__PURE__ */ new Map();
+        for (const row of topBadgeRows) {
+          const list = topBadgesByUser.get(row.userId) ?? [];
+          if (list.length < 3) {
+            list.push({ id: row.badgeId, name: row.name, iconName: row.iconName, rarity: row.rarity });
+            topBadgesByUser.set(row.userId, list);
+          }
+        }
+        let levelMap = /* @__PURE__ */ new Map();
+        if (type !== "global") {
+          const progressRows = await db.select({ userId: userProgress.userId, level: userProgress.level }).from(userProgress).where(inArray(userProgress.userId, userIds));
+          levelMap = new Map(progressRows.map((p) => [p.userId, p.level ?? 1]));
+        }
+        return rows.map((row) => ({
+          ...row,
+          level: row.level ?? levelMap.get(row.userId) ?? 1,
+          badgeCount: badgeCountMap.get(row.userId) ?? 0,
+          topBadges: topBadgesByUser.get(row.userId) ?? []
+        }));
+      }
+      async getPublicProfileByUsername(username) {
+        const [user] = await db.select({
+          id: users.id,
+          username: users.username,
+          name: users.name,
+          location: users.location,
+          avatarUrl: users.avatarUrl,
+          bio: users.bio,
+          createdAt: users.createdAt
+        }).from(users).where(eq2(users.username, username)).limit(1);
+        if (!user) return null;
+        const [progress] = await db.select({
+          points: userProgress.points,
+          rank: userProgress.rank,
+          level: userProgress.level
+        }).from(userProgress).where(eq2(userProgress.userId, user.id)).limit(1);
+        const userLevelRow = await this.getUserLevel(user.id);
+        const posts = await db.select({
+          id: communityPosts.id,
+          title: communityPosts.title,
+          description: communityPosts.description,
+          type: communityPosts.type,
+          location: communityPosts.location,
+          status: communityPosts.status,
+          likesCount: communityPosts.likesCount,
+          createdAt: communityPosts.createdAt
+        }).from(communityPosts).where(and2(
+          eq2(communityPosts.userId, user.id),
+          eq2(communityPosts.type, "project")
+        )).orderBy(desc2(communityPosts.createdAt)).limit(50);
+        const earnedBadges = await db.select({
+          id: badges.id,
+          name: badges.name,
+          description: badges.description,
+          iconName: badges.iconName,
+          category: badges.category,
+          rarity: badges.rarity,
+          earnedAt: userBadges.earnedAt
+        }).from(userBadges).innerJoin(badges, eq2(userBadges.badgeId, badges.id)).where(eq2(userBadges.userId, user.id)).orderBy(desc2(userBadges.earnedAt));
+        return {
+          user,
+          stats: {
+            level: progress?.level ?? userLevelRow?.currentLevel ?? 1,
+            points: progress?.points ?? 0,
+            rank: progress?.rank ?? null,
+            streak: userLevelRow?.streak ?? 0,
+            experience: userLevelRow?.experience ?? 0,
+            experienceToNext: userLevelRow?.experienceToNext ?? 500,
+            initiativesCount: posts.length,
+            badgesCount: earnedBadges.length
+          },
+          posts,
+          badges: earnedBadges
+        };
       }
       async recordAction(userId, actionType, metadata) {
         const points = ACTION_POINTS[actionType] ?? 10;
@@ -18252,7 +18512,8 @@ function scoreDreamForMission(dream, mission) {
   return {
     missionSlug: mission.slug,
     score: matchedKeywords.length,
-    matchedKeywords
+    matchedKeywords,
+    matchCount: matchedKeywords.length
   };
 }
 function matchDreamToMissions(dream, missions) {
@@ -22407,6 +22668,28 @@ async function registerRoutes(app2) {
       res.status(500).json({
         error: "Internal Server Error",
         message: "Error fetching user badges"
+      });
+    }
+  });
+  app2.get("/api/users/:username/profile", optionalAuth, async (req, res) => {
+    try {
+      const { username } = req.params;
+      const profile = await storage.getPublicProfileByUsername(username);
+      if (!profile) {
+        return res.status(404).json({
+          error: "Not Found",
+          message: "Usuario no encontrado"
+        });
+      }
+      res.json({
+        success: true,
+        data: profile
+      });
+    } catch (error) {
+      console.error("Error fetching public profile:", error);
+      res.status(500).json({
+        error: "Internal Server Error",
+        message: "Error fetching public profile"
       });
     }
   });

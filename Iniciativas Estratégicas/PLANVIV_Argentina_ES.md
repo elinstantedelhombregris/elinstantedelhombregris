@@ -1753,70 +1753,35 @@ El rango inferior (71B) es ajustado contra el costo (80-120B). En escenario pesi
 El costo de no hacer nada se estima en USD 15.000-30.000 millones por década en gastos de salud evitables (hacinamiento → tuberculosis, estrés crónico), productividad perdida (commute de 3 horas → ausentismo, menor rendimiento), subsidios energéticos mal focalizados (vivienda sin aislación → 40% más de consumo), y costos de seguridad (asentamientos sin urbanizar → mayor tasa de violencia). El status quo no es gratis — es el plan más caro de todos. Solo que nadie le puso un número en una tabla hasta ahora.
 
 ---
+## INTEGRACIÓN CON EL MARCO ¡BASTA!
 
-## SECCIÓN 14: INTEGRACIÓN CON EL ECOSISTEMA ¡BASTA!
+Esta sección documenta cómo PLANVIV se acopla al resto del ecosistema de mandatos. Todo vínculo declarado acá tiene su contraparte espejo en el plan referenciado: si acá aparece *"aporta a PLANXXX"*, en PLANXXX aparecerá *"recibe de PLANVIV"*.
 
-> *"PLANVIV es el decimoquinto mandato. El que completa el sistema. El que conecta el techo con todo lo demás."*
+### Lo que PLANVIV aporta al ecosistema
 
-Con PLANVIV, el ecosistema ¡BASTA! alcanza su diseño completo: dieciséis mandatos interconectados que cubren cada dimensión de la vida argentina. Ningún plan opera solo. Todos se refuerzan mutuamente. PLANVIV se integra con cada uno de los otros quince:
+| Plan destinatario | Naturaleza | Tipo | Qué aporta |
+|---|---|---|---|
+| **PLANCUL** | IMPORTANT | INSTITUTIONAL | Barrios urbanizados proveen tejido social para reconstrucción cultural |
+| **PLANDIG** | IMPORTANT | TECHNICAL | Housing OS y el registro digital de títulos de propiedad corren sobre nodos IDS con firma criptográfica soberana |
+| **PLANJUS** | IMPORTANT | INSTITUTIONAL | Sala de Propiedad resuelve disputas de inquilinos, fideicomisos y títulos digitales de vivienda |
+| **PLANREP** | IMPORTANT | LABOR | Artesanos del Refugio formados por PLANREP construyen y retrofitean las 1800 urbanizaciones planificadas |
+| **PLANMON** | IMPORTANT | FINANCIAL | Peso-canasta denomina el Crédito Hipotecario Bastardo; el Pulso provee liquidez estable a la vivienda familiar |
+| **PLANEB** | IMPORTANT | INSTITUTIONAL | Protocolo Bastardo implementa el fideicomiso perpetuo de la Bastarda Inmobiliaria: propiedad perpetua del ocupante, no especulable |
+| **PLANAGUA** | IMPORTANT | TECHNICAL | Co-ejecución hídrica con ANAGUA para las 1800 urbanizaciones nuevas: conexión, tratamiento y rehúso |
+| **PLANSEG** | IMPORTANT | INSTITUTIONAL | Protocolos CPTED (prevención del delito por diseño ambiental) aplicados en urbanizaciones y retrofits |
 
-**TABLA 8: PLANVIV × Ecosistema ¡BASTA! Completo**
+### Lo que PLANVIV necesita de otros
 
-| PLAN | Conexión con PLANVIV |
-|---|---|
-| **PLANREP** | La rama "El Refugio" de la Economía de la Vida provee la fuerza laboral para construcción Bastarda y retrofit. Los Centros de la Vida forman Artesanos del Refugio con módulos específicos de aislación térmica, energía solar, construcción industrializada. 50.000+ empleos directos para graduados de PLANREP. |
-| **PLANEDU** | Las Escuelas del Futuro se construyen en los barrios urbanizados — no en el centro. Los módulos de formación técnica de PLANEDU incluyen oficios de construcción sustentable. Los proyectos de la Bastarda Inmobiliaria incluyen guarderías y centros educativos integrados. |
-| **PLANSAL** | El hacinamiento genera enfermedad. La vivienda digna es infraestructura de salud. Los Centros de Vitalidad de PLANSAL se instalan en los barrios urbanizados y en los proyectos de la Bastarda Inmobiliaria. El retrofit térmico reduce enfermedades respiratorias y pobreza energética. PLANSAL provee datos de morbilidad para priorizar intervenciones de PLANVIV. |
-| **PLANJUS** | Sucesiones aceleradas (libera vivienda atrapada en trámites hereditarios). Regularización dominial rápida (títulos en 24 meses, no en 20 años). Paneles JUS para conflictos de alquiler (resolución en 15 días). Mediación en disputas vecinales durante la urbanización. |
-| **PLANSEG** | Estaciones Barriales PLANSEG en cada asentamiento urbanizado. Diseño CPTED (Crime Prevention Through Environmental Design) obligatorio en todos los proyectos Bastarda. Protocolo de seguridad durante urbanización de villas. Coordinación con protocolo de transición de PLANSUS en barrios con narcotráfico. |
-| **PLANEN** | Toda vivienda Bastarda nace preparada para energía solar. El retrofit térmico ahorra 40-60% de energía por unidad. Las 500.000 viviendas retrofiteadas equivalen a una planta de 200-300 MW que no hay que construir. La Bastarda Energética opera en los barrios urbanizados desde el primer día. |
-| **PLANDIG** | Internet de banda ancha en cada asentamiento urbanizado (fibra + WiFi comunitario). La plataforma del Tablero Nacional de Vivienda corre sobre infraestructura PLANDIG. Los contratos inteligentes de la Bastarda Inmobiliaria (alquiler, compra, crédito) operan sobre blockchain soberana PLANDIG. |
-| **PLANISV** | Huertas urbanas en los proyectos de la Bastarda Inmobiliaria (azoteas verdes, jardines comunitarios). Los barrios urbanizados incluyen espacio para agricultura urbana comunitaria. PLANISV provee suelos regenerados para los cinturones verdes alrededor de los nuevos desarrollos. |
-| **PLANAGUA** | Agua y cloacas para los 1.800 asentamientos — la inversión más grande de la urbanización. ANAGUA y ANVIV co-diseñan la infraestructura hídrica. Bastarda Hídrica como operadora al costo. Doble cañería obligatoria (potable + gris reciclada) en toda vivienda nueva Bastarda — reducción del 40-50% del consumo de agua potable per cápita. |
-| **PLANSUS** | Housing First para personas en situación de calle con adicciones (PLANVIV provee la vivienda, PLANSUS y PLANSAL proveen el tratamiento). Coordinación de urbanización de villas con protocolo de transición de legalización de sustancias (PLANSUS elimina el mercado negro que financia violencia en asentamientos). |
-| **PLANEB** | La Bastarda Inmobiliaria ES una Empresa Bastarda — sigue el Protocolo Bastardo con exactitud. La Bastarda Financiera canaliza los créditos hipotecarios. La Bastarda Aseguradora provee seguros de vivienda al costo. La Bastarda Hídrica provee agua al costo en barrios urbanizados. La Bastarda Energética provee energía en los nuevos desarrollos. Toda la Red Bastarda converge en PLANVIV. |
-| **PLAN24CN** | La Bastarda Inmobiliaria opera en las 24 ciudades nuevas Y en las ciudades existentes. PLAN24CN resuelve la vivienda para poblaciones nuevas. PLANVIV resuelve la vivienda para las poblaciones existentes. El Protocolo de Simbiosis (PLAN24CN §16.5) conecta las ciudades nuevas con las ciudades hermanas existentes donde PLANVIV opera — la transformación es territorial, no puntual. |
-| **PLANGEO** | La cooperación Sur-Sur de PLANGEO incluye transferencia de tecnología constructiva (impresión 3D, prefabricado, materiales sustentables). Los acuerdos con Uruguay (FUCVAM) y Colombia (urbanismo social de Medellín) se canalizan a través de ANVIV. Los bonos de impacto social de PLANVIV pueden incluirse en la estrategia de financiamiento internacional de PLANGEO. |
-| **PLANMON** | El peso-canasta es la unidad de cuenta del Crédito Hipotecario Bastardo — sin él, no hay crédito a 30 años en Argentina. El Fondo Soberano financia la capitalización inicial de la Bastarda Inmobiliaria. Los alquileres en peso-canasta estabilizan la relación propietario-inquilino. La Bastarda Financiera (PLANMON/PLANEB) es el canal de los créditos. Sin PLANMON, PLANVIV opera en modo degradado — con unidades de cuenta alternativas, pero con menor eficiencia y estabilidad. |
-| **PLANDIG** | Housing OS corre sobre la infraestructura soberana de PLANDIG: nube argentina, identidad digital Mi Argentina, blockchain de auditoría, red de fibra óptica. Sin PLANDIG, Housing OS tendría que depender de infraestructura extranjera. Con PLANDIG, la soberanía digital de la vivienda está garantizada. |
-
-### La Convergencia Total
-
-PLANVIV es, en un sentido muy concreto, el plan que más depende de los otros — porque la vivienda está en la intersección de todo. No podés construir vivienda sin agua (PLANAGUA), sin energía (PLANEN), sin conectividad (PLANDIG), sin trabajadores (PLANREP), sin financiamiento (PLANMON/PLANEB), sin seguridad (PLANSEG), sin justicia (PLANJUS), sin salud (PLANSAL), sin educación (PLANEDU). La vivienda es el nodo donde todos los hilos se cruzan.
-
-Y por eso es el decimoquinto mandato — el que cierra el sistema. No porque sea el menos importante sino porque para que funcione, los otros catorce tienen que estar avanzando. PLANVIV es la prueba de fuego del ecosistema ¡BASTA!: si podemos darle vivienda digna a 3,5 millones de familias argentinas en 15 años, es porque los quince planes funcionan. Y si los quince planes funcionan, la Argentina que sale del otro lado no se parece en nada a la que entró.
-
-### 14.2 Matriz de Dependencias Críticas y Capacidades Requeridas
-
-**La honestidad que ningún plan de gobierno argentino tiene:** PLANVIV no puede ejecutarse solo. Depende de otros 6 planes del ecosistema ¡BASTA! para funciones críticas — y si alguno de esos planes falla o se atrasa, PLANVIV necesita saber qué se rompe y qué hace al respecto.
-
-**TABLA 9B: Dependencias Críticas de PLANVIV**
-
-| Componente PLANVIV | Depende de | Qué necesita exactamente | Para cuándo | Capacidad actual del plan dependiente | Brecha | Qué pasa si falla |
-|---|---|---|---|---|---|---|
-| Crédito Hipotecario Bastardo | PLANMON (peso-canasta) | Unidad de cuenta funcionando | Año 0 | No existe todavía | 100% | **Canasta-Lite (§6.4)** opera independientemente desde el Día 1 — el crédito funciona en modo degradado pero funciona |
-| Urbanización de 1.800 barrios | PLANAGUA (agua y cloacas) | Infraestructura hídrica para 120 barrios/año | Año 1+ | ANAGUA no creada; capacidad desconocida | **CRÍTICA — sin cuantificar** | Si ANAGUA puede servir <60 barrios/año, la urbanización toma 30 años en vez de 15. Se debe solicitar evaluación de capacidad en el Mes 6 de la Pre-Fase |
-| Urbanización de 1.800 barrios | PLANEN (electricidad) | Conexiones eléctricas para 120 barrios/año | Año 1+ | Empresas provinciales de distribución tienen capacidad ociosa | Baja | Conexión a red existente — riesgo bajo |
-| Urbanización de 1.800 barrios | PLANDIG (internet) | Conectividad para barrios urbanizados | Año 1+ | ANDIG no creada; rollout de fibra incierto | Media | Conectividad celular existente como puente; fibra óptica cuando PLANDIG esté operativo |
-| Fuerza laboral (80.000 trabajadores) | PLANREP (El Refugio) | 5.000+ graduados/año | Año -1 en adelante | 800-1.000 graduados/año (capacidad actual de los Centros de la Vida) | **Muy grande** | Modelo de fuerza laboral multi-fuente (§12.1b): UOCRA existentes + certificación rápida + inmigración regional |
-| Housing OS (plataforma) | PLANDIG (nube soberana) | Infraestructura cloud operativa | Año -1 | ANDIG no creada; nube soberana no existe | Alta | Hosting temporal en cloud comercial argentino (centros de datos Telecom/Claro) con plan de migración cuando PLANDIG esté operativo |
-| Bastarda Inmobiliaria | PLANEB (Protocolo Bastardo) | Marco legal para entidades de propósito perpetuo | Año -1 | Ley PLANEB en Cascada Legal Año 0-S2 | Media | Bastarda arranca como fideicomiso estándar bajo Ley 24.441 existente; se convierte a estructura Bastarda cuando la ley PLANEB se sancione |
-| Centros de Vitalidad en Células | PLANSAL (salud) | Centros de salud primaria operativos | Año 1+ | Depende de despliegue PLANSAL | Media | Células arrancan sin Centro propio; salud primaria en infraestructura existente hasta que PLANSAL alcance |
-| Seguridad en barrios urbanizados | PLANSEG (Estaciones Barriales) | Presencia policial y diseño CPTED | Año 1+ | PLANSEG diseñado pero no implementado | Media | CPTED se implementa desde el diseño; Estaciones Barriales dependen de PLANSEG — si se atrasa, se coordinan fuerzas provinciales existentes |
-
-**Preguntas que DEBEN responderse en la Pre-Fase 0 (no después):**
-
-1. **PLANAGUA:** ¿Cuántos barrios por año puede recibir infraestructura de agua y cloacas? Esta es la pregunta más importante sin responder en todo el ecosistema ¡BASTA!. Si la respuesta es "40 por año," la urbanización toma 45 años — y PLANVIV necesita re-secuenciar completamente la Hoja de Ruta.
-
-2. **PLANREP:** ¿Puede "El Refugio" escalar de 1.000 a 3.000 graduados/año sin que colapse la calidad de formación? ¿Cuál es la tasa de deserción? ¿Cuántos graduados realmente terminan trabajando en construcción?
-
-3. **PLANDIG:** ¿Cuándo estará operativa la nube soberana? Si la respuesta es "Año 3," Housing OS necesita 3 años de hosting comercial — y el costo y la soberanía de datos deben planificarse.
-
-4. **PLANMON:** ¿Cuál es la fecha más temprana realista para un piloto de Canasta-Lite? ¿Y para el peso-canasta completo? Si la respuesta a la segunda es "Año 5+," entonces Canasta-Lite debe diseñarse para ser permanente, no transitoria.
-
-**Protocolo de coordinación inter-plan:** ANVIV envía a cada Agencia hermana (ANAGUA, ANREP, ANDIG, ANMON, ANSEG, ANSAL) un cuestionario estandarizado en el Mes 1 de la Pre-Fase, con las preguntas anteriores y plazos de respuesta de 90 días. Las respuestas se publican en el Tablero Nacional de Vivienda. Si alguna Agencia no responde en 90 días, PLANVIV publica "respuesta pendiente" con el impacto estimado — la transparencia genera presión.
-
----
+| Plan fuente | Naturaleza | Tipo | Qué recibe |
+|---|---|---|---|
+| **PLANDIG** | IMPORTANT | TECHNICAL | Housing OS y títulos digitales de propiedad |
+| **PLANJUS** | IMPORTANT | INSTITUTIONAL | Disputas de propiedad, derechos de inquilinos |
+| **PLANREP** | IMPORTANT | LABOR | Artesanos del Refugio construyen y retrofitean viviendas |
+| **PLANMON** | IMPORTANT | FINANCIAL | Crédito Hipotecario Bastardo denominado en peso-canasta (necesario en Fase 1, no en pre-fase de censo) |
+| **PLANEB** | IMPORTANT | INSTITUTIONAL | Bastarda Inmobiliaria usa Protocolo Bastardo para fideicomiso perpetuo (ambos lanzan Año 0) |
+| **PLANAGUA** | IMPORTANT | TECHNICAL | 1800 urbanizaciones necesitan co-ejecución hídrica con ANAGUA |
+| **PLANSEG** | IMPORTANT | INSTITUTIONAL | CPTED (prevención por diseño ambiental) en urbanizaciones |
+| **PLANCUL** | IMPORTANT | INSTITUTIONAL | Barrios urbanizados proveen el tejido social territorial sobre el cual se reconstruye la cultura comunitaria |
 
 ## SECCIÓN 15: RIESGOS Y MITIGACIÓN
 

@@ -585,54 +585,35 @@ Toda decisión territorial significativa pasa por ciclo LDEA articulado con Mesa
 La Licencia Territorial es ciclo LDEA aplicado. La revocación es ciclo LDEA aplicado. La designación de Síndicos es ciclo LDEA aplicado.
 
 ---
+## INTEGRACIÓN CON EL MARCO ¡BASTA!
 
-## SECCIÓN 10: INTEGRACIÓN CON LA PLATAFORMA ¡BASTA!
+Esta sección documenta cómo PLANTER se acopla al resto del ecosistema de mandatos. Todo vínculo declarado acá tiene su contraparte espejo en el plan referenciado: si acá aparece *"aporta a PLANXXX"*, en PLANXXX aparecerá *"recibe de PLANTER"*.
 
-### 10.1 Con El Mapa
+### Lo que PLANTER aporta al ecosistema
 
-- Nuevos tipos de señal: `alerta territorial` (comunidad declara amenaza sobre su territorio), `deforestación detectada` (satélite + verificación cívica), `pesca ilegal observada` (costas + denuncia marítima).
+| Plan destinatario | Naturaleza | Tipo | Qué aporta |
+|---|---|---|---|
+| **PLANMON** | IMPORTANT | FINANCIAL | Fondo Soberano Ciudadano es palanca macro de la soberanía monetaria |
+| **PLANEN** | IMPORTANT | LEGAL | Licencia Territorial reemplaza RIGI para proyectos de hidrocarburos y minería |
+| **PLANISV** | IMPORTANT | INSTITUTIONAL | Plan Suelo Vivo se coordina con Licencia Territorial y co-soberanía indígena en tierras fiscales y comunidades originarias |
+| **PLANSEG** | CRITICAL | INSTITUTIONAL | PLANSEG extiende protección formal a defensores territoriales y amplía la Guardia Costera para soberanía marítima |
+| **PLANJUS** | CRITICAL | INSTITUTIONAL | JUS implementa la co-jurisdicción con derecho originario y arbitra disputas territoriales entre pueblos y Estado |
+| **PLANDIG** | CRITICAL | TECHNICAL | IDS provee monitoreo satelital soberano, registro ciudadano territorial y dashboard público del Dividendo del Suelo |
+| **PLANCUIDADO** | IMPORTANT | INSTITUTIONAL | La red de Pactos reconoce y formaliza los parentescos interculturales de comunidades originarias como Pactos Interculturales |
+| **PLANMEMORIA** | IMPORTANT | DATA | PLANMEMORIA aloja el Archivo Territorial con los depósitos testimoniales y documentales de comunidades originarias |
 
-### 10.2 Con Mandato Vivo
+### Lo que PLANTER necesita de otros
 
-- Síntesis territorial semanal por cuenca, por provincia.
-- Alertas de concentración extractiva.
-- Tendencias en Dividendo Ciudadano.
-
-### 10.3 Con Arquitecto
-
-- Cada iniciativa territorial lleva Biografía Operativa (PLANMEMORIA).
-- Proyectos extractivos requieren Licencia visible en plataforma.
-
-### 10.4 Con PLANMESA
-
-- Mesas Civiles especializadas en materia territorial.
-- Credencial de Materia en Tierra, Subsuelo, Mar, Bosques.
-
-### 10.5 Con PLANMEMORIA
-
-- Archivo Territorial con depósitos originarios + técnicos.
-- Inscripción de capturas extractivas.
-- Memoria de cada Licencia concedida, mantenida, revocada.
-
-### 10.6 Con PLANCUIDADO
-
-- Pactos de Cuidado Intercultural reconocidos.
-- Referentes con formación intercultural.
-
-### 10.7 Con PLANTALLER
-
-- Tallers de restauración ecológica.
-- Tallers pesqueros cooperativos.
-- Tallers de tecnología minera soberana.
-
-### 10.8 Con PLANDIG
-
-- Plataforma de monitoreo satelital.
-- Dashboard del FSC y DCM.
-- Registro de Personas Territoriales.
-- Sistema de consulta previa, libre e informada digital.
-
----
+| Plan fuente | Naturaleza | Tipo | Qué recibe |
+|---|---|---|---|
+| **PLANSEG** | CRITICAL | INSTITUTIONAL | Protección de defensores territoriales y Guardacostas ampliada |
+| **PLANJUS** | CRITICAL | INSTITUTIONAL | Co-jurisdicción con derecho originario; disputas territoriales |
+| **PLANDIG** | CRITICAL | TECHNICAL | Monitoreo satelital + registro ciudadano + dashboard del Dividendo |
+| **PLANCUIDADO** | IMPORTANT | INSTITUTIONAL | Pactos Interculturales reconocen parentescos originarios |
+| **PLANMEMORIA** | IMPORTANT | DATA | Archivo Territorial con depósitos de comunidades originarias |
+| **PLANMON** | IMPORTANT | FINANCIAL | El Dividendo del Suelo y el FSC son la palanca territorial que ancla al Fondo Soberano Ciudadano en activos reales |
+| **PLANEN** | IMPORTANT | LEGAL | Licencia Territorial (reemplazo del RIGI) condiciona cualquier proyecto hidrocarburífero o minero a consulta previa y retorno comunitario |
+| **PLANISV** | IMPORTANT | INSTITUTIONAL | PLANTER provee la Licencia Territorial y el marco de co-soberanía indígena donde PLANISV regenera suelo en tierras fiscales y comunidades originarias |
 
 ## SECCIÓN 11: MODELO ECONÓMICO
 
@@ -777,35 +758,6 @@ El Artículo 75 inciso 17 constitucionaliza la preexistencia indígena. PLANTER 
 - DCM por debajo de proyección: revisión de regalías y ajuste fiscal.
 - Licencia rechazada reiteradamente sin ingreso fiscal: revisión de criterios.
 - Judicialización masiva: revisión de Protocolo Territorial.
-
----
-
-## SECCIÓN 15: INTEGRACIÓN CON EL MARCO ¡BASTA!
-
-**TABLA 15.1: Sinergias PLANTER × Otros PLANes**
-
-| PLAN | Sinergia |
-|---|---|
-| PLANMESA | Mesa de Territorio con Credencial de Materia |
-| PLANMEMORIA | Archivo Territorial + Consulta Ancestral |
-| PLANCUIDADO | Pactos Interculturales, Referentes |
-| PLANTALLER | Tallers de restauración y pesca cooperativa |
-| PLANEB | Bastardas Mineras, Pesqueras, Restauración |
-| PLANISV | Reconversión agropecuaria regenerativa |
-| PLANAGUA | Ríos con personalidad jurídica |
-| PLANEN | Soberanía energética con gestión soberana |
-| PLANDIG | Plataforma técnica monitoreo |
-| PLANCUL | Cultura originaria visibilizada |
-| PLANJUS | Co-jurisdicción con derecho originario |
-| PLANSEG | Control marítimo coordinado |
-| PLANGEO | Diplomacia de recursos |
-| PLANSUS | Medicina originaria |
-| PLANMON | FSC como palanca monetaria |
-| PLAN24CN | Ciudades respetan Personas Territoriales |
-| PLANVIV | Tierra rural no especulable |
-| PLANEDU | Educación intercultural bilingüe |
-| PLANREP | Reconversión hacia roles ambientales |
-| PLANMOV | Logística respeta territorialidad |
 
 ---
 

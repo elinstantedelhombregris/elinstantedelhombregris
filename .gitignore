@@ -63,3 +63,6 @@ backend.pid
 frontend.log
 backend.log
 
+# Superpowers scratch data
+.superpowers/
+

@@ -2813,197 +2813,6 @@ Las ciudades del PLAN24CN son la prueba física de la tesis central del proyecto
 
 ---
 
-## SECCIÓN 16: INTEGRACIÓN CON OTRAS INICIATIVAS ESTRATÉGICAS
-
-### 16.1 PLAN24CN + PLANISV (Suelo Vivo)
-
-El PLAN24CN y el PLANISV — el Plan Nacional de Inversión en Suelo Vivo — no son programas paralelos: son dos caras de la misma moneda. El PLANISV regenera el suelo para producir alimentos sanos y capturar carbono. El PLAN24CN crea las ciudades donde viven las personas que producen, procesan y consumen esos alimentos. Separar suelo y ciudad es el error del siglo XX. Integrarlos es la oportunidad del siglo XXI.
-
-**Cinturones agroecológicos periurbanos.** Cada ciudad del PLAN24CN está rodeada de un cinturón de producción agroecológica de 2.000–5.000 hectáreas que opera bajo los protocolos del PLANISV: suelo vivo (no agroquímicos), enmiendas biológicas (biochar, compost, inoculantes micorrícicos), rotaciones diversificadas, agroforestería. Este cinturón cumple tres funciones simultáneas:
-
-1. **Soberanía alimentaria local.** El 60–80% de las frutas, verduras, lácteos y proteínas que consume la ciudad se produce dentro de un radio de 30 km. Reducción drástica de huella logística. Alimentos frescos, de estación, con trazabilidad completa.
-
-2. **Captura de carbono.** Los suelos regenerados mediante protocolos PLANISV capturan entre 2 y 5 toneladas de CO₂-equivalente por hectárea por año. Sobre 100.000 hectáreas periurbanas (24 ciudades), eso representa entre 200.000 y 500.000 toneladas anuales de carbono secuestrado — que se suman a los créditos de las ciudades net-zero.
-
-3. **Barrera ecológica.** El cinturón agroecológico funciona como barrera contra la expansión urbana desordenada. No se puede construir sobre suelo productivo: es una protección legal y económica contra el sprawl que destruyó los cinturones hortícolas de Buenos Aires, Córdoba y Rosario.
-
-**Laboratorios de enmienda de suelo.** Cada ciudad tiene un laboratorio de análisis y desarrollo de enmiendas biológicas que provee servicios al PLANISV regional. La tecnología de biochar desarrollada en Ciudad Sol Alto se aplica en los campos de la quebrada jujeña. Los inoculantes micorrícicos producidos en Ciudad Selva se distribuyen por toda la mesopotamia. Las ciudades son nodos de innovación para la regeneración del suelo nacional.
-
-**Formación conjunta.** Los programas de formación del PLANISV y del PLAN24CN se integran: un técnico agropecuario que trabaja en el cinturón periurbano de Ciudad Raíz se forma tanto en regeneración de suelo (PLANISV) como en agricultura urbana y logística de proximidad (PLAN24CN). El resultado es un profesional integral, capaz de operar en la intersección entre campo y ciudad — exactamente donde Argentina necesita más inteligencia aplicada.
-
----
-
-### 16.2 PLAN24CN + Educación
-
-Las ciudades nuevas son la oportunidad más grande de la historia argentina para diseñar sistemas educativos desde cero. Sin herencia de burocracia sindical esclerotizada, sin edificios deteriorados que condicionan la pedagogía, sin currículos desactualizados que nadie actualiza porque "siempre se hizo así."
-
-Cada ciudad tiene un **sistema educativo integrado** que incluye: escuelas primarias barriales (una cada 3.000–5.000 habitantes, a distancia caminable), escuelas secundarias técnicas especializadas en la vocación productiva de la ciudad, un centro de formación profesional permanente para adultos, y un campus universitario o terciario asociado a una universidad nacional.
-
-El diseño pedagógico es radicalmente distinto: aprendizaje basado en proyectos reales (los chicos de Ciudad Selva estudian biología en la selva, no en un libro sobre la selva), integración curricular con la vida productiva de la ciudad (la escuela técnica de Ciudad Sol Alto forma técnicos en energía solar con los paneles de la ciudad como aula), multilingüismo (español + inglés + lengua originaria local donde corresponda) y evaluación por competencias, no por memorización.
-
-El sistema educativo de las ciudades nuevas funciona como laboratorio nacional: las innovaciones pedagógicas que se prueban y validan se ofrecen al Ministerio de Educación para su adopción progresiva en todo el sistema educativo argentino.
-
----
-
-### 16.3 PLAN24CN + Salud
-
-El sistema de salud de las ciudades nuevas invierte la lógica del sistema argentino existente. En Argentina, la infraestructura de salud se construye para tratar enfermedad: hospitales, clínicas, salas de emergencia. En las ciudades del PLAN24CN, la infraestructura de salud se diseña para producir salud.
-
-En el centro de cada ciudad hay un **Centro de Bienestar** — no un hospital. El Centro ofrece medicina preventiva, nutrición, actividad física guiada, salud mental, atención materno-infantil, vacunación, seguimiento de enfermedades crónicas y educación sanitaria. Los hospitales existen (uno regional cada 4–6 ciudades), pero su demanda es estructuralmente menor porque la ciudad misma es una máquina de salud: se camina, se anda en bicicleta, se come alimento local y fresco, se respira aire limpio, se vive en vivienda digna sin hacinamiento, se duerme en silencio.
-
-La evidencia es contundente: un habitante de una ciudad bien diseñada tiene un riesgo 30–40% menor de diabetes tipo 2, 20–30% menor de enfermedad cardiovascular y 25–35% menor de trastornos de ansiedad y depresión que un habitante de una ciudad dispersa y contaminada. La mejor infraestructura de salud es una buena ciudad.
-
----
-
-### 16.4 PLAN24CN + Economía
-
-La Argentina tiene una economía concentrada en pocas actividades y pocos territorios. El 60% del PBI se genera en un radio de 300 km alrededor de Buenos Aires. Las exportaciones dependen críticamente de soja, carne, petróleo y minería. La industrialización es insuficiente, la economía del conocimiento está subdesarrollada y las economías regionales sobreviven con subsidios.
-
-Las 24 ciudades del PLAN24CN son 24 motores económicos nuevos que diversifican la matriz productiva por diseño. No por accidente ni por esperanza: por decisión estratégica. Cada ciudad tiene una vocación productiva definida en función de sus ventajas comparativas regionales: biotecnología agrícola en la pampa, litio valor agregado en el NOA, bioeconomía forestal en el NEA, energía eólica en Patagonia, turismo de calidad en Cuyo, economía del conocimiento en el centro.
-
-El resultado agregado: menos dependencia de commodities, mayor valor agregado por tonelada exportada, mayor complejidad económica, mayor resiliencia frente a shocks de precios internacionales. Las 24 ciudades no reemplazan la economía existente — la complementan, la diversifican y la modernizan.
-
----
-
-### 16.5 PLAN24CN + Ciudades Existentes: El Protocolo de Simbiosis
-
-Cada Ciudad Célula tiene una **ciudad hermana existente** — la ciudad más cercana dentro de su zona de influencia. La relación no es de competencia sino de nutrición mutua, formalizada en un convenio de simbiosis.
-
-**Pares simbióticos de las ciudades piloto:**
-
-| Ciudad Célula | Ciudad Hermana Existente | Flujos de Simbiosis |
-|---|---|---|
-| Ciudad Raíz (Buenos Aires) | Trenque Lauquen / Pehuajó | Mercado laboral agrícola ↔ biotecnología de semillas; hospital regional compartido |
-| Ciudad Sol Alto (Jujuy) | Humahuaca / Tilcara | Turismo cultural ↔ tecnología solar; formación técnica compartida |
-| Ciudad Viento (Chubut) | Rawson / Trelew | Industria existente ↔ hidrógeno verde; infraestructura portuaria compartida |
-| Ciudad Selva (Misiones) | Oberá / Eldorado | Yerba mate ↔ bioeconomía CLT; campus universitario compartido UNaM |
-
-Cada convenio de simbiosis incluye: **planificación conjunta de infraestructura** (no duplicar hospitales, universidades ni plantas de tratamiento que pueden servir a ambas poblaciones), **estrategia económica compartida** (la ciudad nueva no le roba los comercios a la vieja sino que genera nueva demanda), **monitoreo de impacto bidireccional** (si el PBI o la población de la ciudad hermana empieza a caer, se activan mecanismos correctivos), y **resolución de conflictos** vía el Comité de Proyecto mixto.
-
-La simbiosis no es caridad: es inteligencia territorial. Una Ciudad Célula aislada de su contexto regional es frágil. Una Ciudad Célula integrada con su entorno es un catalizador de transformación regional — que es el objetivo real del PLAN24CN.
-
----
-
-### 16.6 PLAN24CN + PLANJUS (Justicia Popular)
-
-Las ciudades nuevas del PLAN24CN nacen con justicia incorporada — no como un servicio que se agrega después, sino como parte del diseño original. La integración con PLANJUS es estructural desde el primer día.
-
-**Casa JUS integrada en cada centro comunitario.** Cada Ciudad Célula incluye al menos una Casa JUS en su Núcleo Cívico, integrada en el centro comunitario principal. No es un juzgado: es un espacio de resolución de conflictos accesible, cercano, diseñado para que cualquier vecino pueda presentar un caso sin abogado, sin trámites kafkianos, sin esperar años. La Casa JUS ofrece mediación comunitaria, paneles ciudadanos por sorteo, y justicia restaurativa — todo dentro de los plazos PLANJUS: 15 días para casos simples, 45 días para casos intermedios, 90 días para casos complejos.
-
-**Conflictos de construcción resueltos en tiempo real.** Los contratos de construcción de las ciudades nuevas — miles de acuerdos entre cooperativas, proveedores, trabajadores y la Corporación Nacional de Desarrollo Urbano — generan disputas inevitables. En el sistema actual, una disputa contractual tarda 4-6 años en resolverse. Con PLANJUS, los conflictos de construcción del PLAN24CN se resuelven en paneles JUS-2 (45 días), con panelistas capacitados en contratos de obra pública y construcción cooperativa. La ciudad no se detiene porque un conflicto se pudre en un juzgado.
-
-**Gobernanza ciudadana con resolución de conflictos integrada.** Las Asambleas Ciudadanas y los Consejos de Ciudad del PLAN24CN generan tensiones legítimas: disputas sobre uso del suelo, conflictos entre barrios por asignación de recursos, desacuerdos sobre normas de convivencia. En vez de judicializar estos conflictos — lo que los sacaría de la esfera comunitaria y los metería en el aparato judicial tradicional — los paneles PLANJUS los resuelven localmente, con vecinos que entienden el contexto porque lo viven.
-
-**Conflictos ambientales y de planificación urbana.** Los paneles ambientales de PLANJUS resuelven disputas sobre impacto ambiental de obras, conflictos entre el cinturón agroecológico y la expansión urbana, y tensiones entre desarrollo económico y preservación ecológica. Los panelistas incluyen expertos en urbanismo y ecología designados por el Consejo de Sabiduría de cada ciudad.
-
-**Efecto sobre la cultura cívica.** Una ciudad donde los conflictos se resuelven en 15-45 días, donde la justicia es visible y accesible, donde los vecinos participan como panelistas — es una ciudad que genera confianza institucional desde el nacimiento. Los habitantes de las ciudades PLAN24CN no heredan la desconfianza argentina hacia la justicia: crecen en un sistema donde la justicia funciona, donde es rápida, transparente y comunitaria. Esa experiencia se transmite a la generación siguiente como normalidad — no como excepción.
-
-Las ciudades del PLAN24CN nacen con justicia incorporada — no como un servicio que se agrega después, sino como parte del diseño original.
-
-### 16.7 PLAN24CN + PLANREP: Las Ciudades como Infraestructura de la Transición Económica
-
-PLANREP ya aparece en este documento como fuente demográfica para la planificación de las ciudades. Pero PLANREP v4.0 (Sección 15) ahora incluye la arquitectura completa de la transición post-laboral: Fideicomisos de Propósito Perpetuo, Dividendo Nacional de Productividad, Economía de la Contribución, Paneles Ciudadanos de Futuro Económico. Esa arquitectura no flota en el vacío — necesita territorio, edificios, redes y gente. Las 24 ciudades son donde esa transición FÍSICAMENTE ocurre.
-
-La intersección es concreta y múltiple:
-
-- **Los Fideicomisos poseen infraestructura EN estas ciudades.** El Fideicomiso de Energía Renovable es dueño de los parques solares y eólicos. El de Infraestructura Digital es dueño de los datacenters. El de Vivienda Social es dueño del stock habitacional cooperativo. La base patrimonial de los fideicomisos no es financiera — es física, y está en las 24 ciudades.
-
-- **Los Nodos de Contribución operan en espacios construidos por PLAN24CN.** Los talleres, incubadoras y laboratorios de cada ciudad son los lugares donde la Economía de la Contribución se practica concretamente — donde la gente cuida, crea, enseña, investiga y emprende socialmente.
-
-- **Los Paneles Ciudadanos de Futuro Económico se reúnen en los Núcleos Cívicos.** Los edificios diseñados para la gobernanza participativa de cada ciudad son donde los ciudadanos deliberan sobre los parámetros del DNP, los umbrales de automatización y la velocidad de la transición.
-
-- **El Portfolio Ciudadano Único corre sobre la red de datacenters.** El sistema educativo de PLANEDU que prepara a los estudiantes para una relación diferente entre actividad e ingreso — los Tres Horizontes educativos — funciona sobre infraestructura digital construida y localizada en estas ciudades. Y las escuelas donde eso se enseña ESTÁN en estas ciudades.
-
-Las ciudades no son solo edificios. Son el escenario donde Argentina ensaya, prueba y ejecuta la transición de una economía centrada en el empleo a una economía de la contribución. PLAN24CN provee el escenario. PLANREP provee el guión. PLANEDU provee los actores. PLANJUS provee las reglas. PLANISV provee la tierra.
-
-### 16.8 PLAN24CN × PLANAGUA: Ciudades que Nacen con el Agua del Siglo XXI
-
-Las ciudades argentinas existentes pierden entre el 30 y el 50% del agua potable en redes obsoletas de PVC y hierro fundido. Las 24 ciudades del PLAN24CN no heredan esa patología — nacen con la infraestructura hídrica del siglo XXI integrada desde el diseño.
-
-**Doble red y tratamiento avanzado.** Toda construcción nueva del PLAN24CN incorpora doble cañería obligatoria: una red de agua potable y una red de agua gris reciclada para riego, limpieza y descarga sanitaria. Eso reduce el consumo de agua potable per cápita entre un 40 y un 50%. Cada ciudad incluye una planta potabilizadora con AOP integrada — ozonización, UV y peróxido de hidrógeno — capaz de tratar agua de cualquier fuente local sin depender de químicos importados.
-
-**Drenaje sostenible.** Los Sistemas Urbanos de Drenaje Sostenible (SUDS) son infraestructura obligatoria: superficies permeables en calles y plazas, jardines de lluvia en cada manzana, techos verdes en edificios públicos. El objetivo cuantificado es absorber el 80% de la precipitación in situ, eliminando el modelo de entubamiento que inunda a Buenos Aires cada vez que llueve 40 mm.
-
-**Red inteligente y gobernanza.** Toda la red hídrica opera con sensores IoT en cada punto de distribución, válvula y empalme. Pérdidas toleradas: menos del 5%, sobre tuberías de PEAD con vida útil de 50+ años. La Bastarda Hídrica — entidad de propiedad comunitaria bajo el Protocolo Bastardo de PLANEB — es la proveedora fundacional de agua al costo real, sin margen de ganancia ni concesión privada. Cada ciudad tiene un Gemelo Digital Hídrico conectado al Gemelo Digital Nacional del Agua de PLANAGUA. Y el equipo de diseño de infraestructura hídrica de cada ciudad incluye ingenieros de la ANAGUA — la Agencia Nacional del Agua creada por PLANAGUA — que garantizan coherencia técnica con los estándares nacionales.
-
-### 16.9 PLAN24CN × PLANDIG: La Capa Digital Nativa
-
-Las ciudades del PLAN24CN no "digitalizan" servicios existentes — nacen digitales. La integración con PLANDIG convierte cada ciudad en un nodo de soberanía tecnológica desde su inauguración.
-
-**Infraestructura soberana distribuida.** Cada ciudad incluye un nodo de datacenter soberano de entre 2 y 5 MW, alimentado por energía renovable local — solar, eólica o biomasa según la región. Los 24 nodos conforman la red nacional de procesamiento distribuido de PLANDIG, eliminando la dependencia de datacenters extranjeros para datos críticos del Estado y de los ciudadanos. La fibra óptica es infraestructura core: llega a cada vivienda, cada escuela, cada taller productivo. No es un servicio opcional — es parte del diseño urbano, como el agua o la electricidad.
-
-**Monitoreo de infraestructura.** Toda la infraestructura crítica — puentes, edificios públicos, redes de agua, tendido eléctrico — opera con sensores IoT que miden vibración, temperatura, deformación y flujo en tiempo real. Los datos alimentan un sistema de IA de gestión urbana que optimiza distribución de energía vía microgrid management, anticipa fallas estructurales y ajusta servicios según demanda real, no estimada.
-
-**Zonas de Desarrollo de Inteligencia.** Cada ciudad tiene una Zona de Desarrollo de Inteligencia con incubadoras de tecnología, acceso a capacidad de GPU del Laboratorio Nacional de Inteligencia Artificial (LANIA) de PLANDIG, y programas de formación en IA aplicada. Las startups que nacen en estas zonas no compiten por banda ancha ni por potencia de cómputo — la tienen garantizada como infraestructura pública. La ciudad no espera a que el sector privado decida invertir en conectividad: la conectividad es parte del hormigón fundacional.
-
-### 16.10 PLAN24CN × PLANEB: Ciudades Bastardas desde el Día Uno
-
-Las ciudades existentes están capturadas por oligopolios de servicios: una empresa de energía, una de agua, una de telecomunicaciones, una de seguros — todas maximizando margen sobre usuarios cautivos. Las ciudades del PLAN24CN nacen libres de esa captura porque incorporan Empresas Bastardas como infraestructura fundacional.
-
-**Cinco Bastardas en la carta fundacional.** Cada Ciudad Célula se inaugura con cinco Empresas Bastardas operativas desde el primer día: **Bastarda Aseguradora** (seguros de vivienda, salud y actividad productiva al costo real), **Bastarda Energética** (generación distribuida renovable — no upgrade futuro sino diseño original, con paneles solares en techos, microturbinas eólicas y almacenamiento por batería), **Bastarda Conectada** (red de telecomunicaciones comunitaria como infraestructura core, no como servicio privado), **Bastarda Financiera** (crédito cooperativo, ahorro y pagos sin extracción bancaria), y **Bastarda Habitacional** (vivienda sin especulación inmobiliaria — propiedad cooperativa con restricción de reventa especulativa).
-
-**Transparencia radical.** Las cinco Bastardas operan bajo el Protocolo Bastardo de PLANEB: propiedad distribuida (ningún individuo ni entidad posee más del 1%), gobernanza DAO con voto ciudadano, y publicación en tiempo real de costos, márgenes y decisiones operativas. Los habitantes de la ciudad saben exactamente cuánto cuesta producir cada kilowatt-hora, cada litro de agua, cada megabyte. No hay letra chica porque no hay ganancia que ocultar.
-
-**Efecto demostración.** Las ciudades del PLAN24CN funcionan como prueba viviente de que una economía de servicios al costo es viable, eficiente y preferida por los ciudadanos. Cuando los habitantes de Rosario o Córdoba vean que en Ciudad Raíz la electricidad cuesta la mitad y la cobertura de salud es mejor, la presión política para adoptar el modelo Bastardo en ciudades existentes será imparable. Las ciudades nuevas no son un experimento aislado — son la vanguardia de la Red Bastarda nacional.
-
-### 16.11 PLAN24CN × PLANSAL: La Ciudad como Máquina de Vitalidad
-
-El sistema de salud argentino gasta el 80% de sus recursos en tratar enfermedad y el 20% en prevenirla. Las ciudades del PLAN24CN invierten esa proporción — no por voluntarismo sino por diseño urbano. La integración con PLANSAL convierte cada ciudad en infraestructura sanitaria activa.
-
-**Espacio verde como derecho no negociable.** Mínimo 10 m² de espacio verde público por habitante — el estándar OMS que ninguna ciudad argentina existente cumple de manera uniforme. Pero no son plazas decorativas: son espacios activos con equipamiento para actividad física, senderos peatonales y ciclovías seguras que conectan barrios, escuelas y centros de trabajo. La ciudad se diseña para caminar y pedalear, no para conducir. El auto no desaparece — deja de ser la opción por defecto.
-
-**Centros de Vitalidad.** Cada unidad barrial de 5.000 habitantes tiene un Centro de Vitalidad integrado — el equivalente barrial de los centros de bienestar de PLANSAL. Ofrecen medicina preventiva, nutrición, actividad física guiada, salud mental y seguimiento de enfermedades crónicas. Pero el Centro no está aislado: está conectado con instalaciones deportivas accesibles (cancha, pileta, gimnasio al aire libre) dentro de un radio de 400 metros caminables.
-
-**Arbolado y corredores verdes.** El arbolado urbano masivo y los corredores verdes que conectan parques, plazas y cinturones periurbanos no son paisajismo — son infraestructura de salud. Reducen la temperatura urbana entre 3 y 5 °C, filtran partículas, reducen el estrés medido por cortisol y aumentan la actividad física espontánea. El diseño urbano ES la primera intervención sanitaria — antes que el médico, antes que el medicamento, antes que el hospital.
-
-### 16.12 PLAN24CN × PLANSUS: Arquitectura Regulatoria Integrada desde el Diseño
-
-El paradigma prohibicionista no fracasó solo como política de seguridad — fracasó como política urbana. Generó zonas de exclusión, violencia territorial y economías informales que deforman la traza urbana de toda ciudad argentina. Las ciudades del PLAN24CN nacen en el paradigma post-prohibición de PLANSUS y se diseñan en consecuencia.
-
-**Cinturones productivos de cannabis y cáñamo.** Las zonas agrícolas periurbanas de cada ciudad incluyen parcelas específicas para cultivo de cannabis medicinal, recreativo y cáñamo industrial, bajo el régimen de licencias de cuatro tracks de PLANSUS. El cáñamo no es solo un cultivo: es un material de construcción. El hempcrete — concreto de cáñamo — se utiliza en la vivienda social del PLAN24CN como aislante térmico y acústico, con huella de carbono negativa y producción local. Cada ciudad que construye con hempcrete reduce importaciones de materiales y genera empleo agroindustrial en su propio cinturón periurbano.
-
-**Infraestructura de investigación y turismo terapéutico.** Cada ciudad con vocación agroclimática adecuada incluye centros de investigación en cannabinoides conectados con universidades nacionales, laboratorios de control de calidad y, donde el perfil turístico lo justifique, infraestructura planificada de turismo terapéutico — no improvisada sobre la marcha sino diseñada con estándares sanitarios y urbanísticos desde el plano original.
-
-**Justicia y resolución de conflictos.** Las Casas JUS del PLAN24CN incluyen paneles especializados en resolución de disputas comerciales relacionadas con sustancias — contratos de producción, distribución, licencias y propiedad intelectual. No se judicializan en el sistema penal: se resuelven en el sistema JUS como conflictos comerciales ordinarios. El paradigma post-prohibición no es un agregado ideológico — está construido en el hormigón, en la zonificación y en las instituciones de cada ciudad desde el día uno.
-
-### 16.13 PLAN24CN × PLANMON: Laboratorios de Economía Desdolarizada
-
-Argentina lleva décadas atrapada en un ciclo de dolarización informal que destruye la soberanía monetaria y la capacidad de planificación a largo plazo. Las 24 ciudades del PLAN24CN son el territorio donde PLANMON puede demostrar que una economía funcional denominada en moneda soberana es posible — no como teoría sino como experiencia cotidiana de 2,4 millones de personas.
-
-**Contratos en peso-canasta.** Todos los contratos de obra pública del PLAN24CN se denominan en El Pulso — el peso-canasta de PLANMON, indexado a una canasta de bienes reales que elimina la volatilidad nominal. Los obreros que construyen las ciudades cobran en una unidad de cuenta estable. Los proveedores que venden cemento, acero y madera facturan en una unidad que no se licúa entre la fecha de contrato y la fecha de pago. Los salarios del sector público de cada ciudad se pagan en Pulso desde el primer día.
-
-**Economía 100% operativa en Pulso.** Cada ciudad del PLAN24CN funciona como un experimento controlado de economía desdolarizada: las Bastardas facturan en Pulso, los comercios locales operan en Pulso, el crédito de desarrollo se canaliza a través de la Bastarda Financiera en peso-canasta. La Unidad Ciudad — una subdivisión del protocolo monetario adaptada a la escala urbana — permite medir en tiempo real la velocidad de circulación, la demanda de crédito y la estabilidad de precios dentro de cada ciudad.
-
-**Financiamiento internacional sin trampa.** Los mecanismos de debt-for-infrastructure swaps permiten a acreedores internacionales convertir deuda soberana en inversión directa en infraestructura urbana — con retorno medido en activos físicos, no en papeles financieros. El Fondo Soberano de PLANMON invierte en infraestructura urbana de las 24 ciudades como activo de largo plazo. Las ciudades no son un gasto: son un activo productivo denominado en moneda propia.
-
-### 16.14 PLAN24CN × PLANGEO: El Stack Urbano Exportable
-
-Argentina construye 24 ciudades. Pero el verdadero producto no son las ciudades — es el conocimiento de cómo construirlas. La integración con PLANGEO convierte el PLAN24CN en una plataforma de exportación de soberanía urbana.
-
-**Kit de diseño urbano paramétrico open-source.** Todo el diseño de las 24 ciudades — desde la traza vial hasta los protocolos de gobernanza, desde los estándares de vivienda hasta los sistemas de drenaje sostenible — se publica como un kit paramétrico open-source adaptable a cualquier terreno, clima y cultura. Un municipio en Senegal, una región en Indonesia, una provincia en Bolivia pueden descargar el modelo, modificar los parámetros y generar su propio diseño urbano. Sin consultoras internacionales. Sin condicionalidades. Sin deuda.
-
-**Alternativa al BID/Banco Mundial y al Belt & Road.** El modelo PLAN24CN ofrece una tercera vía para el desarrollo urbano del Sur Global: ciudades sin deuda condicionada (la alternativa al BID y al Banco Mundial, que financian infraestructura a cambio de reformas estructurales que benefician a los acreedores) y ciudades sin deuda-trampa (la alternativa al Belt & Road chino, que financia infraestructura a cambio de control portuario y dependencia geopolítica). La oferta argentina es diferente: el diseño se publica, se copia, se adapta — y Argentina lidera sin imponer.
-
-**Red de Ciudades Soberanas.** Las ciudades construidas con el stack PLAN24CN en otros países conforman una Red de Ciudades Soberanas — no una alianza militar ni un bloque comercial, sino una comunidad de práctica urbana que comparte datos, iteraciones de diseño y aprendizajes operativos. La diplomacia argentina del siglo XXI no se hace solo en cancillerías: se hace en código, en planos y en ciudades que funcionan. Ese es el producto de exportación más valioso que Argentina puede ofrecer al mundo — no materias primas, sino inteligencia territorial aplicada.
-
-### 16.15 PLAN24CN × PLANEN: Energía Soberana para Ciudades Nuevas
-
-Las 24 ciudades nacen con generación distribuida de la Bastarda Energética (PLANEN). Cada ciudad es un nodo de la red energética renovable — solar en las del NOA, eólica en las patagónicas, biomasa en las del NEA. La infraestructura energética se diseña junto con la hídrica (PLANAGUA) y la digital (PLANDIG) como capa fundacional. PLANEN provee la Bastarda Energética; PLAN24CN provee la demanda cautiva que justifica la inversión.
-
-### 16.16 PLAN24CN × PLANSEG: Seguridad por Diseño
-
-Las 24 ciudades nuevas nacen con la arquitectura de seguridad de PLANSEG integrada desde el primer trazo urbanístico. CPTED (Crime Prevention Through Environmental Design) — iluminación continua, líneas de visión abiertas, espacios públicos sin rincones muertos — es parte del código urbanístico fundacional, no un parche posterior. Cada ciudad incluye una Estación Barrial de PLANSEG como equipamiento obligatorio: presencia comunitaria permanente, no comisaría tradicional. PLANSEG define la arquitectura de seguridad; PLAN24CN provee la infraestructura física que la hace posible desde el día uno.
-
-### 16.17 PLAN24CN × PLANVIV: El Par Simbiótico — Ciudades Nuevas y Ciudades Existentes
-
-PLAN24CN y PLANVIV son hermanos de sangre — el primero construye ciudades nuevas, el segundo rehabilita las existentes. La Bastarda Inmobiliaria opera en ambos territorios con el mismo Protocolo Bastardo: fideicomiso de propósito perpetuo, cero propiedad, vivienda al costo. El Protocolo de Simbiosis (Sección 16.5) crea "pares simbióticos" donde cada ciudad nueva revitaliza una ciudad existente cercana — y PLANVIV provee el marco operativo para el lado existente de ese par: urbanización de villas, retrofit de edificios degradados, regularización dominial, infraestructura de agua y cloacas. Donde PLAN24CN es la pregunta "¿qué puede ser una ciudad si la diseñás desde cero?", PLANVIV es la pregunta más difícil y más urgente: "¿qué puede ser una ciudad que ya existe, con millones de personas adentro, si dejás de abandonarla?" Juntos cubren el 100% del territorio urbano argentino — lo nuevo y lo heredado, lo diseñado y lo construido a los ponchazos por generaciones que no tuvieron otra opción.
-
-### 16.18 PLAN24CN × PLANCUL: El Alma de las Ciudades Nuevas
-
-Las 24 ciudades nuevas nacen con infraestructura cultural integrada desde el primer trazo urbanístico — no como agregado decorativo, sino como órgano vital. Cada ciudad tiene espacios diseñados para Mesas Largas: plazas cubiertas, cocinas comunitarias, salas de encuentro que no son auditorios sino círculos. La Red de Dendritas de PLANCUL crece orgánicamente en comunidades que se construyen desde cero — sin la inercia de instituciones culturales capturadas ni la burocracia de una agenda cultural heredada. PLANCUL es el alma de las ciudades que PLAN24CN construye como cuerpo: sin cultura compartida, una ciudad nueva es un campamento con infraestructura; con ella, es una comunidad.
-
----
-
 ## SECCIÓN 17: ESTRUCTURA DE GOBERNANZA DEL PROGRAMA NACIONAL
 
 ### 17.1 Arquitectura Institucional
@@ -3111,3 +2920,32 @@ Este documento no es un estudio académico. No es un informe de consultoría. Es
 *PLAN24CN — Plan Nacional de 24 Ciudades Nuevas para la Argentina*
 *Documento Estratégico — Secciones 9 a 18*
 *Iniciativa del Proyecto ¡BASTA!*
+
+---
+
+## INTEGRACIÓN CON EL MARCO ¡BASTA!
+
+Esta sección documenta cómo PLAN24CN se acopla al resto del ecosistema de mandatos. Todo vínculo declarado acá tiene su contraparte espejo en el plan referenciado: si acá aparece *"aporta a PLANXXX"*, en PLANXXX aparecerá *"recibe de PLAN24CN"*.
+
+### Lo que PLAN24CN aporta al ecosistema
+
+| Plan destinatario | Naturaleza | Tipo | Qué aporta |
+|---|---|---|---|
+| **PLANCUL** | IMPORTANT | INSTITUTIONAL | Ciudades nuevas proveen comunidades vírgenes donde Dendritas son nativas |
+| **PLANDIG** | CRITICAL | TECHNICAL | IDS + SAPI + El Mapa proveen la capa operativa de las ciudades inteligentes antes de que reciban residentes |
+| **PLANEN** | CRITICAL | TECHNICAL | Bastarda Energética y red 100% renovable provistas antes de que cada Ciudad Nueva reciba residentes |
+| **PLANISV** | CRITICAL | TECHNICAL | Suelo regenerado y balances agua-suelo-carbono recalibrados se destinan a agricultura urbana y anillos verdes de las Ciudades Nuevas |
+| **PLANAGUA** | IMPORTANT | TECHNICAL | Red hídrica troncal, acueductos y tratamiento provistos por ANAGUA cuando la ciudad pasa de diseño a ocupación |
+| **PLANEB** | CRITICAL | INSTITUTIONAL | Red Bastarda aloja al costo todos los servicios urbanos de las 24 ciudades: energía, agua, telecomunicaciones y transporte |
+
+### Lo que PLAN24CN necesita de otros
+
+| Plan fuente | Naturaleza | Tipo | Qué recibe |
+|---|---|---|---|
+| **PLANDIG** | CRITICAL | TECHNICAL | Ciudades inteligentes necesitan IDS + SAPI + El Mapa |
+| **PLANEN** | CRITICAL | TECHNICAL | Bastarda Energética antes de que la primera ciudad reciba residentes |
+| **PLANISV** | CRITICAL | TECHNICAL | Suelo regenerado para agricultura urbana e infraestructura verde |
+| **PLANAGUA** | IMPORTANT | TECHNICAL | Infraestructura hídrica para ciudades en construcción (necesaria cuando llegan residentes, no en fase de diseño) |
+| **PLANEB** | CRITICAL | INSTITUTIONAL | Ciudades nacen Bastarda-nativas: todos los servicios al costo |
+| **PLANCUL** | IMPORTANT | INSTITUTIONAL | Las Ciudades Nuevas son lienzos donde Dendritas (células culturales) nacen nativas en comunidades vírgenes |
+

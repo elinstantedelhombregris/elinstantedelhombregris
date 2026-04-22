@@ -1077,101 +1077,31 @@ La PPM es el instrumento concreto que traduce la Doctrina en vida cotidiana. Mon
 Diego Maidana, la Voz III del Preámbulo, tiene 47 años en 2026, 28 de ellos al volante, conduce el camión que carga soja de Pergamino a Rosario tres veces por semana. La proyección de su trayectoria entre 2026 y 2046 materializa lo que el Canon y la PPM le compran. Años 2028-2032, Diego entre 49 y 53. El sector camión todavía es estable y Diego sigue manejando la misma ruta; la diferencia es que integra por convenio con la Bastarda Logística Federal la flota supervisada por BLF, con peajes reducidos, gasoil subsidiado MKC, descanso certificado y seguro bastardo. Se inscribe voluntariamente en Tallers PLANTALLER y se capacita en horario extendido como Operador AV Nivel 2 (asistencia), sumando 1.200 horas de formación acumuladas sin afectar su ingreso. Años 2032-2036, Diego entre 53 y 57. Ingresa a la ruta "Reconversión Móvil" en modalidad parcial: sigue manejando camión tradicional 60% del tiempo y opera 40% como Coordinador AV Supervisado en el corredor Pergamino-Rosario ya abierto en Fase 1. La PPM prorrateada cubre la reducción de ingreso por la baja de horas al volante, y Diego no pierde salario neto. Años 2036-2040, Diego entre 57 y 61. Transición plena a Coordinador AV Supervisado Nivel 4. Supervisa desde cabecera de turno 8 camiones autónomos circulando simultáneamente en el corredor, con intervención remota ante incidentes. Su salario es un 35% superior al que tenía como camionero tradicional en 2026, indexado. Años 2040-2046, Diego entre 61 y 67. Sigue como Coordinador con carga reducida gradual en los últimos dos años. Jubilación normal a los 65 con haber calculado sobre los 20 años más altos de aportes, que son los años como Coordinador AV. Sus dos hijos: uno se recibe de Ingeniero en Sistemas en la UTN Rosario y entra al LNMA Córdoba como analista de telemetría; el otro egresa como Ingeniero Ferroviario de la UTN Haedo y se incorpora a la reactivación del Belgrano Cargas. Diego los ve estudiando carreras que son carrera con futuro, no fantasma.
 
 ---
+## INTEGRACIÓN CON EL MARCO ¡BASTA!
 
-## SECCIÓN 10: INTEGRACIÓN CON LA PLATAFORMA ¡BASTA!
+Esta sección documenta cómo PLANMOV se acopla al resto del ecosistema de mandatos. Todo vínculo declarado acá tiene su contraparte espejo en el plan referenciado: si acá aparece *"aporta a PLANXXX"*, en PLANXXX aparecerá *"recibe de PLANMOV"*.
 
-### 10.1 Con El Mapa
+### Lo que PLANMOV aporta al ecosistema
 
-Nuevos tipos de señal:
-- `necesidad de corredor`: territorio demanda conexión.
-- `saturación logística`: corredor con cuello de botella.
-- `oportunidad productiva aislada`: productor sin acceso a flete justo.
+| Plan destinatario | Naturaleza | Tipo | Qué aporta |
+|---|---|---|---|
+| **PLANMESA** | IMPORTANT | INSTITUTIONAL | Mesas Civiles de Corredor son los cuerpos deliberativos que priorizan la reactivación ferroviaria kilómetro por kilómetro |
+| **PLANMEMORIA** | IMPORTANT | DATA | Archivo Técnico Ferroviario (con depósitos de ex-ferroviarios) aloja el conocimiento operativo histórico de los 25.000 km de red |
+| **PLANEN** | IMPORTANT | TECHNICAL | Red eléctrica + fibra sobre la misma traza ferroviaria: PLANEN electrifica la red reactivada con energía renovable soberana |
+| **PLANDIG** | CRITICAL | TECHNICAL | IDS + LANIA alojan la gestión de MKC, BLF, Red Federal de Puertos y el Laboratorio Nacional de Movilidad Autónoma con data-logging obligatorio |
+| **PLANREP** | CRITICAL | LABOR | Cuadros técnicos ferroviarios y portuarios son reconvertidos por PLANREP; la Ruta "Reconversión Móvil" absorbe 500.000 transportistas desplazados por automatización |
+| **PLANEB** | CRITICAL | INSTITUTIONAL | Bastarda Logística Federal, Bastarda Fluvial y BAMD son las formas bastardas que operan canales at-cost y redistribuyen el Canon de Automatización Logística |
 
-### 10.2 Con Mandato Vivo
+### Lo que PLANMOV necesita de otros
 
-Síntesis territorial detecta corredores prioritarios. Reporta satisfacción con servicios de transporte.
-
-### 10.3 Con Arquitecto
-
-Cada corredor con Biografía Operativa (intentos previos, resultados).
-
-### 10.4 Con Mesa Civil
-
-Mesas Civiles de Corredor deliberan prioridades. Credencial de Materia Movilidad.
-
-### 10.5 Con Memoria
-
-Archivo técnico de Héctor y sus pares como depósito obligatorio. Consulta Ancestral en cada proyecto de reactivación.
-
-### 10.6 Con Cuidado
-
-Movilidad accesible universal. Pactos de Cuidado con movilidad prioritaria.
-
-### 10.7 Con Taller
-
-Tallers de reparación ferroviaria, de construcción portuaria.
-
-### 10.8 Con PLANEB
-
-Bastarda Logística, Bastarda Fluvial, Bastarda Metropolitana.
-
-### 10.9 Con PLANEN y PLANDIG
-
-Rieles como columna múltiple, integración trilateral.
-
-### 10.10 Con PLANTER
-
-Hidrovía articulada con Personalidad Jurídica del río Paraná.
-
-### 10.11 Con PLANDIG (ampliada)
-
-LNMA se hospeda sobre LANIA como laboratorio vertical del corredor móvil, con cómputo soberano compartido y colas de entrenamiento priorizadas para escenarios viales argentinos. Todo data-logging de vehículos AV, BAMD, BLF y Red Metropolitana Federal se persiste en ArgenCloud con auditoría pública. El gemelo digital de corredores (ANMov) se integra al gemelo territorial de El Mapa, cruzando flujos con demografía, productividad y cuidado. La ecología de la atención PLANDIG aplica a apps de movilidad: se prohíben patrones oscuros, gamificación manipulatoria y dark UX en interfaces BAMD, BLF, MKC y cualquier app certificada por ANMov.
-
-### 10.12 Con PLANREP (ampliada)
-
-Se crea la ruta dedicada "Reconversión Móvil" dentro de PLANREP como vector preventivo para transportistas desplazados por automatización o reconversión modal. El Arquitecto de Fuerza Laboral IA (componente PLANDIG) se articula con el Fondo de Reconversión Móvil (FRM) para producir matching individualizado entre trabajador, ruta de reconversión, formación requerida y ubicación geográfica. La Pensión Puente Móvil (PPM) queda supervisada conjuntamente por ANMov (criterio técnico-sectorial) y PLANREP (criterio laboral-integral), con ventanilla única y ningún trabajador librado a derivaciones burocráticas entre agencias.
-
-### 10.13 Con PLANEB
-
-BAMD funciona como caso piloto de Bastarda de Activos dentro del Protocolo Bastardo de PLANEB, demostrando que la figura del Contrato Bastardo sirve no solo para empresas productivas sino también para pools de activos ociosos. El Canon de Automatización Logística es replicable como Canon de Automatización Sectorial en otros dominios con activos ociosos: BAMD inmobiliaria (galpones, depósitos, espacios comerciales vacíos), BAMD computacional (servidores infrautilizados), BAMD agrícola (maquinaria compartida). El 20% de los excedentes operativos de BAMD alimenta directamente al Protocolo Bastardo federal como capital semilla para nuevas bastardas.
-
-### 10.14 Con PLANEN
-
-La electrificación ferroviaria se coordina con el despliegue de la malla energética AV de PLANEN, evitando duplicación de tendido y aprovechando corredores compartidos. El cómputo LNMA se abastece prioritariamente de la malla energética soberana con renovables (solar patagónico, eólico austral, geotérmico noroeste) vía contratos bilaterales ANMov-PLANEN. Los rieles como columna múltiple (carga + pasajeros + fibra + energía) se integran físicamente al tendido de media y alta tensión planificado por ANEN, convirtiendo cada corredor ferroviario reactivado en un vector energético nacional de doble uso.
-
-### 10.15 Con PLANMON
-
-El Fondo Soberano de Contingencia Móvil, activable ante externalidad AV grave (accidente masivo, falla sistémica de certificación), queda articulado con el FSE de PLANMON como línea específica. Los Bonos Soberanos Infraestructura 30-40 años son instrumento principal del financiamiento PLANMOV, emitidos bajo el régimen monetario de PLANMON con cobertura contra volatilidad cambiaria. La política de tipo de cambio se articula estrechamente: los Créditos de Kilómetros BAMD se indexan al Tablero PLANMON para preservar valor real frente a oscilaciones, manteniendo el kilómetro como unidad de cuenta estable de la economía móvil.
-
-### 10.16 Tabla Resumen de Sinergias con el Ecosistema ¡BASTA!
-
-**TABLA 10.16: Sinergias PLANMOV × Otros PLANes**
-
-| PLAN | Sinergia |
-|---|---|
-| PLANMESA | Mesas de Corredor, Credencial Movilidad |
-| PLANTALLER | Tallers de reparación ferroviaria, construcción portuaria |
-| PLANCUIDADO | Movilidad accesible universal |
-| PLANMEMORIA | Archivo técnico ferroviario (Héctor) |
-| PLANTER | Hidrovía articulada con Personalidad Jurídica Paraná |
-| PLANEB | Bastarda Logística, Bastarda Fluvial, BLF |
-| PLANEN | Rieles columna múltiple energética |
-| PLANDIG | Fibra óptica en rieles, plataforma técnica |
-| PLANREP | Reconversión cuadros ferroviarios y portuarios |
-| PLANEDU | Carreras técnicas articuladas con Tallers |
-| PLANCUL | Trenes culturales, circuitos patrimoniales |
-| PLANJUS | Disputas con operadores concesionarios |
-| PLANSEG | Seguridad en transporte público |
-| PLANVIV | Integración movilidad-hábitat |
-| PLANISV | Logística agroecológica |
-| PLANSAL | Ambulancias territoriales, acceso a APS |
-| PLANGEO | Conectividad binacional estratégica |
-| PLAN24CN | Ciudades nuevas con transporte desde día 1 |
-| PLANAGUA | Logística hídrica interior |
-| PLANSUS | Logística medicinal |
-| PLANMON | Infraestructura como palanca productiva |
-
----
+| Plan fuente | Naturaleza | Tipo | Qué recibe |
+|---|---|---|---|
+| **PLANMESA** | IMPORTANT | INSTITUTIONAL | Mesas Civiles de Corredor deciden priorización de reactivación ferroviaria |
+| **PLANMEMORIA** | IMPORTANT | DATA | Archivo Técnico Ferroviario con depósitos de ex-ferroviarios tipo Héctor |
+| **PLANEN** | IMPORTANT | TECHNICAL | Rieles como columna múltiple: tendido eléctrico y fibra sobre misma traza; electrificación masiva de red ferroviaria reactivada |
+| **PLANDIG** | CRITICAL | TECHNICAL | Plataforma técnica para gestión de MKC, BLF y Red Federal de Puertos; LNMA (Laboratorio Nacional de Movilidad Autónoma) se monta sobre LANIA como capa vertical con data-logging obligatorio en ArgenCloud |
+| **PLANREP** | CRITICAL | LABOR | Reconversión de cuadros técnicos ferroviarios y portuarios + Ruta "Reconversión Móvil" que absorbe 500.000 transportistas desplazados por automatización (PPM financiada por FRM) |
+| **PLANEB** | CRITICAL | INSTITUTIONAL | Bastarda Logística Federal y Bastarda Fluvial como canales at-cost + BAMD (Bastarda de Activos Móviles Disponibles) como forma bastarda piloto; Canon de Automatización Logística replicable a otros sectores |
 
 ## SECCIÓN 11: MODELO ECONÓMICO
 

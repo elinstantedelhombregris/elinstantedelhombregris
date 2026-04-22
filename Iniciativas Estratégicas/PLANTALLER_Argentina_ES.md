@@ -588,51 +588,27 @@ Usos:
 - Emergencia ante shock productivo regional.
 
 ---
+## INTEGRACIÓN CON EL MARCO ¡BASTA!
 
-## SECCIÓN 7: INTEGRACIÓN CON LA PLATAFORMA ¡BASTA!
+Esta sección documenta cómo PLANTALLER se acopla al resto del ecosistema de mandatos. Todo vínculo declarado acá tiene su contraparte espejo en el plan referenciado: si acá aparece *"aporta a PLANXXX"*, en PLANXXX aparecerá *"recibe de PLANTALLER"*.
 
-### 7.1 Con el Mapa
+### Lo que PLANTALLER aporta al ecosistema
 
-Nuevos tipos de señal:
+| Plan destinatario | Naturaleza | Tipo | Qué aporta |
+|---|---|---|---|
+| **PLANMESA** | CRITICAL | INSTITUTIONAL | Tallers son ejecutores de Fase EXPERIMENTAR del ciclo LDEA |
+| **PLANEB** | CRITICAL | INSTITUTIONAL | Red Bastarda es el canal de distribución at-cost de todo lo que produce la Red Taller: insumos a Bastardas y excedentes al mercado popular |
+| **PLANDIG** | IMPORTANT | TECHNICAL | Protocolo Taller corre sobre ArgenCloud como plataforma federada de inventario, hallazgos y coordinación inter-Taller |
+| **PLANREP** | IMPORTANT | LABOR | Empleo público reconvertido se redirige hacia coordinación, mentoría técnica y gestión operativa de los Tallers federales |
 
-- `capacidad productiva`: qué sé hacer y a qué escala.
-- `hipótesis productiva abierta`: Tallers declarando al Mapa qué están probando.
-- `insumo disponible`: oferta de material al costo.
-- `encargo territorial`: demanda específica de producto territorial.
+### Lo que PLANTALLER necesita de otros
 
-### 7.2 Con Mandato Vivo
-
-El Mandato Vivo detecta cuándo una región tiene masa crítica de capacidades productivas sin galpón y sugiere apertura de Taller en el territorio. También detecta cuándo un Taller reporta hipótesis que otros Tallers podrían replicar y activa alerta.
-
-### 7.3 Con Arquitecto
-
-Cada iniciativa del Arquitecto que requiere capacidad productiva experimental se linkea automáticamente a Tallers existentes que pueden ejecutar el piloto. Si no hay Taller adecuado, sugiere apertura.
-
-### 7.4 Con Círculos
-
-Un Taller necesita Círculo anfitrión. El Círculo provee comunidad, sostén social, y continuidad. Los Círculos de Experimentación (tipo especializado introducido por PLANTALLER) son anfitriones naturales.
-
-### 7.5 Con Semilla
-
-La Semilla de un usuario puede ser apertura o sostenimiento de un Taller específico. La germinación de Semilla productiva cuenta como Capa Productiva de Credencial.
-
-### 7.6 Con Life Areas
-
-Life Areas diagnostica al individuo. Si detecta señal fuerte en áreas de trabajo/producción, sugiere explorar Tallers de la materia correspondiente.
-
-### 7.7 Con Cursos / PLANEDU
-
-Los Cursos marcan Tallers asociados: completar un curso de técnicas de soldadura habilita preferente en Taller de Herrería. Los Tallers mismos ofrecen formación integrada a producción.
-
-### 7.8 Con Mesa Civil
-
-Mesa Civil convoca Tallers para Fase EXPERIMENTAR de ciclo LDEA. El Taller ejecuta el piloto de la propuesta de Mesa con presupuesto y cronograma firmado.
-
-### 7.9 Con Red Bastarda
-
-La Red Bastarda es el canal at-cost de salida de la producción del Taller. La Bastarda Aseguradora cubre al Taller ante contingencias. La Bastarda Financiera provee cuenta para la administración del Taller. Y así.
-
----
+| Plan fuente | Naturaleza | Tipo | Qué recibe |
+|---|---|---|---|
+| **PLANEB** | CRITICAL | INSTITUTIONAL | Red Bastarda es canal de salida at-cost de producción de Tallers |
+| **PLANDIG** | IMPORTANT | TECHNICAL | Protocolo Taller como plataforma federada de inventario y hallazgos |
+| **PLANREP** | IMPORTANT | LABOR | Reconversión del empleo público hacia coordinación y mentoría de Tallers |
+| **PLANMESA** | CRITICAL | INSTITUTIONAL | Tallers son los ejecutores operativos de Fase EXPERIMENTAR: prototipan, miden y retornan hallazgos a Mesa |
 
 ## SECCIÓN 8: MODELO FINANCIERO NACIONAL
 
@@ -779,40 +755,6 @@ Con inversión promedio USD 180K por Taller y 4.000 Tallers, total USD 720M. Arg
 - Taller con ciclo excedido 30%: revisión de método.
 - Hallazgos no replicables en >50% de los casos: revisión de protocolo.
 - Accidentes graves: protocolo de emergencia.
-
----
-
-## SECCIÓN 12: INTEGRACIÓN CON EL MARCO ¡BASTA!
-
-### 12.1 Tabla de Sinergias
-
-**TABLA 12.1: Sinergias PLANTALLER × Otros PLANes**
-
-| PLAN | Sinergia |
-|---|---|
-| PLANMESA | Tallers ejecutan Fase 3 del ciclo LDEA de cada Mesa |
-| PLANEB | Bastardas son canal at-cost de los productos de Tallers |
-| PLANREP | Reconversión laboral se dirige a coordinación/mentoría de Tallers |
-| PLANEDU | Cursos articulan con Tallers como laboratorios de práctica |
-| PLANCUL | Tallers culturales producen instrumentos, escenografía, textiles |
-| PLANCUIDADO | Círculos de Cuidado sostienen a practicantes en sobrecarga |
-| PLANMEMORIA | Hallazgos y fracasos se inscriben en Archivo |
-| PLANISV | Tallers agroecológicos apoyan soberanía alimentaria |
-| PLANEN | Tallers energéticos construyen nodos distribuidos |
-| PLANVIV | Tallers de construcción apoyan autoconstrucción asistida |
-| PLANSAL | Tallers de insumos médicos sencillos al costo |
-| PLANSEG | Tallers de fabricación de equipamiento cívico de seguridad |
-| PLANJUS | Tallers como espacio de reinserción post-litigio |
-| PLANSUS | Tallers de producción de derivados regulados al costo |
-| PLANDIG | Tallers de software/código abierto |
-| PLAN24CN | Ciudades nuevas nacen con red de Tallers incorporada |
-| PLANMON | Tallers acumulan experiencia para soberanía productiva |
-| PLANGEO | Red de Tallers como capacidad productiva estratégica |
-| PLANRUTA | Tallers son parte del kit de despliegue de crisis |
-
-### 12.2 PLANTALLER como Capa de Experimentación Material
-
-PLANTALLER es el **brazo productivo experimental del ecosistema**. Los demás PLANes aportan visión; PLANTALLER aporta fábrica distribuida para probar esa visión.
 
 ---
 

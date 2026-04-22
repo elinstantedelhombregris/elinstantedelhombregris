@@ -531,46 +531,31 @@ Cada Mesa de otras materias (Agua, Salud, Cuidado, etc.) dispara Consulta Ancest
 - Curaduría temática por Síndicos.
 
 ---
+## INTEGRACIÓN CON EL MARCO ¡BASTA!
 
-## SECCIÓN 7: INTEGRACIÓN CON LA PLATAFORMA ¡BASTA!
+Esta sección documenta cómo PLANMEMORIA se acopla al resto del ecosistema de mandatos. Todo vínculo declarado acá tiene su contraparte espejo en el plan referenciado: si acá aparece *"aporta a PLANXXX"*, en PLANXXX aparecerá *"recibe de PLANMEMORIA"*.
 
-### 7.1 Con el Mapa
+### Lo que PLANMEMORIA aporta al ecosistema
 
-Nuevo tipo de señal: `precedente invocado`. El usuario declara en El Mapa que un precedente del Archivo es relevante al debate actual. Alimenta Consulta Ancestral y Capa Memorial de Credencial.
+| Plan destinatario | Naturaleza | Tipo | Qué aporta |
+|---|---|---|---|
+| **PLANMESA** | CRITICAL | INSTITUTIONAL | Consulta Ancestral obligatoria en Fase APRENDER de cada ciclo LDEA |
+| **PLANTER** | IMPORTANT | DATA | Archivo Territorial con depósitos de comunidades originarias |
+| **PLANMOV** | IMPORTANT | DATA | Archivo Técnico Ferroviario con depósitos de ex-ferroviarios tipo Héctor |
+| **PLANDIG** | CRITICAL | TECHNICAL | IDS provee los 7 nodos federados con hash criptográfico resistente a borrado donde vive el archivo distribuido de la Memoria |
+| **PLANEDU** | CRITICAL | INSTITUTIONAL | A partir de Fase 1: la escuela incorpora el rito cívico del Bastón Memorial a los 12 años como ceremonia de ingreso a la memoria activa |
+| **PLANJUS** | IMPORTANT | INSTITUTIONAL | JUS coopera con la Inscripción de Captura en investigaciones sin sustituir su función mnémica autónoma |
 
-### 7.2 Con Mandato Vivo
+### Lo que PLANMEMORIA necesita de otros
 
-Síntesis semanal del Mandato Vivo incorpora peso memorial. Cuando señala necesidad de Mesa en una materia, adjunta precedentes clave del Archivo.
-
-### 7.3 Con Arquitecto
-
-Cada iniciativa del Arquitecto linkea a su Memoria Operativa. La vista pública del Arquitecto muestra biografía completa.
-
-### 7.4 Con Mesa Civil (PLANMESA)
-
-Consulta Ancestral es paso obligatorio de Fase APRENDER. Resolución de Mesa se inscribe en Memoria automáticamente. Cada captura detectada se inscribe con Credencial del actor impactada.
-
-### 7.5 Con Taller (PLANTALLER)
-
-Hallazgos y fracasos de Tallers se inscriben automáticamente en Archivo como depósito sectorial.
-
-### 7.6 Con Cuidado (PLANCUIDADO)
-
-Pactos sostenidos décadas son fuente natural de Testimonio de los 60. Cuidadoras con Credencial Consolidada son Síndicas naturales.
-
-### 7.7 Con Educación (PLANEDU)
-
-Bastón Memorial se ejecuta en escuelas. Depósitos son material pedagógico primario. Currículum escolar integra lectura crítica del Archivo.
-
-### 7.8 Con Cultura (PLANCUL)
-
-Rituales culturales incorporan consulta al Archivo. La cultura viva es archivo viviente.
-
-### 7.9 Con los Pueblos Originarios
-
-Cada comunidad originaria decide qué se integra al Archivo republicano y qué se preserva en sus propios protocolos ancestrales. Articulación con respeto absoluto de autonomía comunitaria.
-
----
+| Plan fuente | Naturaleza | Tipo | Qué recibe |
+|---|---|---|---|
+| **PLANDIG** | CRITICAL | TECHNICAL | Red federada criptográfica: 7 nodos con hash, resistente a borrado |
+| **PLANEDU** | CRITICAL | INSTITUTIONAL | A partir de Fase 1: Bastón Memorial a los 12 años como rito cívico en la escuela (Fase 0 de PLANMEMORIA es arranque del archivo federado de 7 nodos) |
+| **PLANJUS** | IMPORTANT | INSTITUTIONAL | Inscripción de Captura coopera con investigaciones sin reemplazarlas |
+| **PLANMESA** | CRITICAL | INSTITUTIONAL | PLANMEMORIA opera la Consulta Ancestral obligatoria en Fase APRENDER: el archivo federado responde en cada ciclo LDEA |
+| **PLANTER** | IMPORTANT | DATA | PLANMEMORIA aloja el Archivo Territorial con los depósitos testimoniales y documentales de comunidades originarias |
+| **PLANMOV** | IMPORTANT | DATA | Archivo Técnico Ferroviario (con depósitos de ex-ferroviarios) aloja el conocimiento operativo histórico de los 25.000 km de red |
 
 ## SECCIÓN 8: MODELO ECONÓMICO
 
@@ -761,37 +746,6 @@ Van a tenerla. Podrán ignorarla, releerla, reinterpretarla. Pero no podrán dec
 - Integridad caída por debajo de 99.9%: emergencia técnica.
 - Consulta Ancestral omitida por 3+ Mesas: revisión de Protocolo.
 - Baja adopción de Ratificación de los 30: revisión de incentivos.
-
----
-
-## SECCIÓN 13: INTEGRACIÓN CON EL MARCO ¡BASTA!
-
-PLANMEMORIA es **capa temporal transversal** que atraviesa todos los demás PLANes.
-
-**TABLA 13.1: Sinergias**
-
-| PLAN | Sinergia |
-|---|---|
-| PLANMESA | Consulta Ancestral en cada ciclo LDEA; Resoluciones inscritas |
-| PLANTALLER | Hallazgos y fracasos inscritos; Archivo de saber productivo |
-| PLANCUIDADO | Pactos largos → Testimonios; Cuidadoras → Síndicas |
-| PLANEDU | Bastón Memorial en escuelas; Archivo como material pedagógico |
-| PLANCUL | Archivo viviente; rituales culturales conectados |
-| PLANJUS | Cooperación con justicia; registro de capturas |
-| PLANSEG | Memoria territorial de violencias y respuestas |
-| PLANSAL | Memoria epidemiológica; aprendizaje sanitario |
-| PLANEB | Inscripción operativa de Bastardas |
-| PLANDIG | Plataforma técnica federada |
-| PLANMON | Memoria de políticas monetarias y sus efectos |
-| PLANGEO | Archivo diplomático |
-| PLANSUS | Memoria de prohibicionismo y alternativas |
-| PLANREP | Memoria operativa del empleo público |
-| PLAN24CN | Ciudades nuevas nacen con Archivo activo |
-| PLANISV | Memoria ecológica y agrícola |
-| PLANEN | Memoria de infraestructura energética |
-| PLANVIV | Memoria habitacional |
-| PLANRUTA | Archivos de crisis argentinas previas en Kit |
-| PLANAGUA | Memoria hidrológica por cuenca |
 
 ---
 
