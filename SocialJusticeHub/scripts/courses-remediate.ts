@@ -896,8 +896,8 @@ async function remediateCourse(slug: string) {
   await writeIfChanged(path.join(PUBLIC_ROOT, "course-thumbnails", `${slug}.svg`), thumbnailSvg);
   await writeIfChanged(path.join(PUBLIC_ROOT, "course-og", `${slug}.svg`), ogSvg);
 
-  manifest.thumbnailUrl = thumbnailPath;
-  manifest.ogImageUrl = ogPath;
+  if (!manifest.thumbnailUrl) manifest.thumbnailUrl = thumbnailPath;
+  if (!manifest.ogImageUrl) manifest.ogImageUrl = ogPath;
   manifest.excerpt = excerpt;
   manifest.seoTitle = courseSeoTitle(manifest.title, manifest.category);
   manifest.seoDescription = normalizeSummary(excerpt || manifest.description, 160);
