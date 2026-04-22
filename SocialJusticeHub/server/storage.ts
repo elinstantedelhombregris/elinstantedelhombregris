@@ -1801,7 +1801,7 @@ export class DatabaseStorage implements IStorage {
     const result = await db.select({ count: sql<number>`count(*)` })
       .from(communityMessages)
       .where(and(eq(communityMessages.receiverId, userId), eq(communityMessages.read, false)));
-    return result[0]?.count || 0;
+    return Number(result[0]?.count ?? 0);
   }
 
   // Community Activity
@@ -2749,7 +2749,7 @@ export class DatabaseStorage implements IStorage {
 
     return {
       liked: !existingLike,
-      count: count[0].count
+      count: Number(count[0]?.count ?? 0)
     };
   }
 
@@ -3031,7 +3031,7 @@ export class DatabaseStorage implements IStorage {
     const result = await db.select({ count: sql<number>`count(*)` })
       .from(communityPostLikes)
       .where(eq(communityPostLikes.postId, postId));
-    return result[0]?.count || 0;
+    return Number(result[0]?.count ?? 0);
   }
 
   async recordCommunityPostView(postId: number, userId: number | null, ipAddress?: string, userAgent?: string): Promise<CommunityPostView> {
@@ -3055,7 +3055,7 @@ export class DatabaseStorage implements IStorage {
     const result = await db.select({ count: sql<number>`count(*)` })
       .from(communityPostViews)
       .where(eq(communityPostViews.postId, postId));
-    return result[0]?.count || 0;
+    return Number(result[0]?.count ?? 0);
   }
 
   // ==================== GEOGRAPHIC SEARCH METHODS ====================

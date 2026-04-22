@@ -141,6 +141,36 @@
       "points": 2,
       "orderIndex": 10,
       "legacyQuestionId": 498
+    },
+    {
+      "question": "¿Cuál es el foco principal de la lección \"Herramientas Digitales de Gestión Financiera\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Apps y herramientas para gestionar tus finanzas en Argentina.",
+        "Entender qué es la inflación, cómo te afecta y por qué Argentina la sufre crónicamente.",
+        "La psicología de vivir en una economía traumada y cómo afecta tus decisiones financieras.",
+        "El método adaptativo de presupuesto personal diseñado para contextos de alta inflación."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se centra en apps y herramientas para gestionar tus finanzas en argentina..",
+      "points": 1,
+      "orderIndex": 11,
+      "legacyQuestionId": null
+    },
+    {
+      "question": "¿Cuál es el foco principal de la lección \"Tu Plan Financiero Personal: Primeros 6 Meses\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Crear un plan financiero personal adaptado a la realidad argentina.",
+        "Entender qué es la inflación, cómo te afecta y por qué Argentina la sufre crónicamente.",
+        "La psicología de vivir en una economía traumada y cómo afecta tus decisiones financieras.",
+        "El método adaptativo de presupuesto personal diseñado para contextos de alta inflación."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se centra en crear un plan financiero personal adaptado a la realidad argentina..",
+      "points": 1,
+      "orderIndex": 12,
+      "legacyQuestionId": null
     }
   ]
 }

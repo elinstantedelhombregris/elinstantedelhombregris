@@ -111,6 +111,66 @@
       "points": 2,
       "orderIndex": 8,
       "legacyQuestionId": 654
+    },
+    {
+      "question": "¿Cuál es el foco principal de la lección \"La Crisis de 2001: El Colapso Sistémico\"?",
+      "type": "multiple_choice",
+      "options": [
+        "El estallido de diciembre de 2001 como falla sistémica total.",
+        "El peronismo como transformación del sistema y origen de la polarización permanente.",
+        "El golpe de 1955 como inicio del ciclo pendular peronismo/antiperonismo.",
+        "Los intentos democráticos bajo tutela militar y la proscripción peronista."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se centra en el estallido de diciembre de 2001 como falla sistémica total..",
+      "points": 1,
+      "orderIndex": 9,
+      "legacyQuestionId": null
+    },
+    {
+      "question": "¿Cuál es el foco principal de la lección \"Los Patrones del Péndulo: El Ciclo que Se Repite\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Análisis sistémico de los patrones recurrentes en la historia 1945-2001.",
+        "El peronismo como transformación del sistema y origen de la polarización permanente.",
+        "El golpe de 1955 como inicio del ciclo pendular peronismo/antiperonismo.",
+        "Los intentos democráticos bajo tutela militar y la proscripción peronista."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se centra en análisis sistémico de los patrones recurrentes en la historia 1945-2001..",
+      "points": 1,
+      "orderIndex": 10,
+      "legacyQuestionId": null
+    },
+    {
+      "question": "¿Cuál es el foco principal de la lección \"Economía y Sociedad: Lo Que los Números No Dicen\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Cómo los indicadores económicos ocultan realidades humanas en cada período.",
+        "El peronismo como transformación del sistema y origen de la polarización permanente.",
+        "El golpe de 1955 como inicio del ciclo pendular peronismo/antiperonismo.",
+        "Los intentos democráticos bajo tutela militar y la proscripción peronista."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se centra en cómo los indicadores económicos ocultan realidades humanas en cada período..",
+      "points": 1,
+      "orderIndex": 11,
+      "legacyQuestionId": null
+    },
+    {
+      "question": "¿Cuál es el foco principal de la lección \"Lecciones para el Futuro: Lo Que Este Medio Siglo Nos Enseña\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Síntesis de aprendizajes sistémicos para construir una Argentina diferente.",
+        "El peronismo como transformación del sistema y origen de la polarización permanente.",
+        "El golpe de 1955 como inicio del ciclo pendular peronismo/antiperonismo.",
+        "Los intentos democráticos bajo tutela militar y la proscripción peronista."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se centra en síntesis de aprendizajes sistémicos para construir una argentina diferente..",
+      "points": 1,
+      "orderIndex": 12,
+      "legacyQuestionId": null
     }
   ]
 }

@@ -106,6 +106,51 @@
       "points": 1,
       "orderIndex": 8,
       "legacyQuestionId": 638
+    },
+    {
+      "question": "¿Cuál es el foco principal de la lección \"Ética Narrativa: El Poder y la Responsabilidad\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Los límites éticos del storytelling para el cambio social.",
+        "Por qué las historias transforman más que los argumentos racionales.",
+        "Los fundamentos del storytelling aplicado a causas sociales y cívicas.",
+        "Descubrir y contar tu propia historia para conectar e inspirar."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se centra en los límites éticos del storytelling para el cambio social..",
+      "points": 1,
+      "orderIndex": 9,
+      "legacyQuestionId": null
+    },
+    {
+      "question": "¿Cuál es el foco principal de la lección \"Tu Proyecto Narrativo: Crear Tu Primera Historia de Impacto\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Ejercicio integrador: diseñar y ejecutar un proyecto narrativo real.",
+        "Por qué las historias transforman más que los argumentos racionales.",
+        "Los fundamentos del storytelling aplicado a causas sociales y cívicas.",
+        "Descubrir y contar tu propia historia para conectar e inspirar."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se centra en ejercicio integrador: diseñar y ejecutar un proyecto narrativo real..",
+      "points": 1,
+      "orderIndex": 10,
+      "legacyQuestionId": null
+    },
+    {
+      "question": "¿Cuál es el foco principal de la lección \"Escribir Bajo Presión: Crónica Urgente\"?",
+      "type": "multiple_choice",
+      "options": [
+        "El perfil de 30 minutos y el ejercicio de escritura cronometrada para emergencias narrativas.",
+        "Por qué las historias transforman más que los argumentos racionales.",
+        "Los fundamentos del storytelling aplicado a causas sociales y cívicas.",
+        "Descubrir y contar tu propia historia para conectar e inspirar."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se centra en el perfil de 30 minutos y el ejercicio de escritura cronometrada para emergencias narrativas..",
+      "points": 1,
+      "orderIndex": 11,
+      "legacyQuestionId": null
     }
   ]
 }

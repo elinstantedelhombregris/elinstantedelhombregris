@@ -96,3 +96,13 @@ Ejemplos:
 - "Estoy acá para demostrar que se puede vivir con integridad y abundancia al mismo tiempo"
 
 > Tu declaración de propósito no necesita ser perfecta hoy. Necesita ser honesta hoy. Se va a refinar con el tiempo, pero tiene que empezar con verdad.
+
+## Aplicación práctica
+
+La diferencia entre visión y propósito. Los 5 Por Qué, propósito emergente del dolor, y la declaración de propósito personal. Cobra valor cuando lo conviertes en una decisión observable dentro de tu visión personal y tu capacidad de sostenerla. El objetivo no es repetir una definición, sino usar esta idea para leer mejor una situación, ordenar prioridades y elegir un siguiente paso con menos improvisación.
+
+Busca un caso cercano donde este principio te permita ver algo que antes pasabas por alto: un cuello de botella, un incentivo mal diseñado, una conversación mal planteada o un recurso mal aprovechado. Si el concepto no mejora tu lectura de lo concreto, todavía no terminó de asentarse.
+
+## Idea fuerza
+
+Visión y Propósito: El Hilo que Todo lo Conecta vale por su capacidad para mejorar decisiones reales dentro de tu visión personal y tu capacidad de sostenerla. Cuando una lección te ayuda a ver mejor, priorizar mejor y actuar con mayor consistencia, deja de ser información suelta y se convierte en capacidad acumulable.

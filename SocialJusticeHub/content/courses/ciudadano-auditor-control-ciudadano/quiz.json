@@ -111,6 +111,36 @@
       "points": 2,
       "orderIndex": 8,
       "legacyQuestionId": 602
+    },
+    {
+      "question": "¿Cuál es el foco principal de la lección \"Periodismo Ciudadano y Denuncia Efectiva\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Cómo documentar, denunciar y visibilizar irregularidades de manera efectiva.",
+        "Por qué el control ciudadano es un derecho y un deber cívico.",
+        "Cómo usar la ley de acceso a la información para obtener datos del Estado.",
+        "Cómo leer e interpretar un presupuesto municipal."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se centra en cómo documentar, denunciar y visibilizar irregularidades de manera efectiva..",
+      "points": 1,
+      "orderIndex": 9,
+      "legacyQuestionId": null
+    },
+    {
+      "question": "¿Cuál es el foco principal de la lección \"Tu Plan de Auditoría: 30 Días de Control Ciudadano\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Un plan práctico de 30 días para ejercer control ciudadano real.",
+        "Por qué el control ciudadano es un derecho y un deber cívico.",
+        "Cómo usar la ley de acceso a la información para obtener datos del Estado.",
+        "Cómo leer e interpretar un presupuesto municipal."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se centra en un plan práctico de 30 días para ejercer control ciudadano real..",
+      "points": 1,
+      "orderIndex": 10,
+      "legacyQuestionId": null
     }
   ]
 }

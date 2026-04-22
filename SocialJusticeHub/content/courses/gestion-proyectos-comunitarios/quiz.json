@@ -106,6 +106,66 @@
       "points": 1,
       "orderIndex": 8,
       "legacyQuestionId": 576
+    },
+    {
+      "question": "¿Cuál es el foco principal de la lección \"Sostenibilidad: Que Tu Proyecto Sobreviva a Tu Entusiasmo\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Cómo hacer que un proyecto comunitario perdure más allá de sus fundadores.",
+        "Los componentes esenciales de un proyecto comunitario bien diseñado.",
+        "Cómo armar un presupuesto realista para un proyecto sin fines de lucro.",
+        "Cómo motivar, organizar y retener voluntarios en proyectos comunitarios."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se centra en cómo hacer que un proyecto comunitario perdure más allá de sus fundadores..",
+      "points": 1,
+      "orderIndex": 9,
+      "legacyQuestionId": null
+    },
+    {
+      "question": "¿Cuál es el foco principal de la lección \"Tu Proyecto Empieza Hoy: De la Lección a la Acción\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Integrar todo lo aprendido en el diseño de tu propio proyecto comunitario.",
+        "Los componentes esenciales de un proyecto comunitario bien diseñado.",
+        "Cómo armar un presupuesto realista para un proyecto sin fines de lucro.",
+        "Cómo motivar, organizar y retener voluntarios en proyectos comunitarios."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se centra en integrar todo lo aprendido en el diseño de tu propio proyecto comunitario..",
+      "points": 1,
+      "orderIndex": 10,
+      "legacyQuestionId": null
+    },
+    {
+      "question": "¿Cuál es el foco principal de la lección \"Historia Completa: La Huerta Comunitaria de Flores\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Una narrativa real que muestra cómo una vecina usó cada herramienta de este curso para transformar un terreno baldío en un espacio de encuentro y producción.",
+        "Los componentes esenciales de un proyecto comunitario bien diseñado.",
+        "Cómo armar un presupuesto realista para un proyecto sin fines de lucro.",
+        "Cómo motivar, organizar y retener voluntarios en proyectos comunitarios."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se centra en una narrativa real que muestra cómo una vecina usó cada herramienta de este curso para transformar un terreno baldío en un espacio de encuentro y producción..",
+      "points": 1,
+      "orderIndex": 11,
+      "legacyQuestionId": null
+    },
+    {
+      "question": "¿Cuál es el foco principal de la lección \"Historia Completa: El Grupo de WhatsApp que Cambió el Barrio\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Cómo un simple grupo de mensajería se transformó en una organización formal que resolvió problemas concretos durante 3 años.",
+        "Los componentes esenciales de un proyecto comunitario bien diseñado.",
+        "Cómo armar un presupuesto realista para un proyecto sin fines de lucro.",
+        "Cómo motivar, organizar y retener voluntarios en proyectos comunitarios."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se centra en cómo un simple grupo de mensajería se transformó en una organización formal que resolvió problemas concretos durante 3 años..",
+      "points": 1,
+      "orderIndex": 12,
+      "legacyQuestionId": null
     }
   ]
 }

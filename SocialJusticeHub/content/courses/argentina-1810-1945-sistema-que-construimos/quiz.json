@@ -111,6 +111,66 @@
       "points": 2,
       "orderIndex": 8,
       "legacyQuestionId": 646
+    },
+    {
+      "question": "¿Cuál es el foco principal de la lección \"Yrigoyen y el Radicalismo: La Primera Democracia Popular\"?",
+      "type": "multiple_choice",
+      "options": [
+        "El primer gobierno democrático real y sus contradicciones sistémicas.",
+        "La independencia como cambio de régimen analizada desde el pensamiento sistémico.",
+        "Los costos humanos, económicos y políticos de forjar una nación por las armas.",
+        "La era de los caudillos provinciales vista como fragmentación sistémica."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se centra en el primer gobierno democrático real y sus contradicciones sistémicas..",
+      "points": 1,
+      "orderIndex": 9,
+      "legacyQuestionId": null
+    },
+    {
+      "question": "¿Cuál es el foco principal de la lección \"El Golpe de 1930: El Primer Cortocircuito\"?",
+      "type": "multiple_choice",
+      "options": [
+        "El primer golpe militar como ruptura del sistema democrático y precedente fatal.",
+        "La independencia como cambio de régimen analizada desde el pensamiento sistémico.",
+        "Los costos humanos, económicos y políticos de forjar una nación por las armas.",
+        "La era de los caudillos provinciales vista como fragmentación sistémica."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se centra en el primer golpe militar como ruptura del sistema democrático y precedente fatal..",
+      "points": 1,
+      "orderIndex": 10,
+      "legacyQuestionId": null
+    },
+    {
+      "question": "¿Cuál es el foco principal de la lección \"La Década Infame: Fraude, Dependencia y Exclusión\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Los años 30 como laboratorio de todos los vicios del sistema argentino.",
+        "La independencia como cambio de régimen analizada desde el pensamiento sistémico.",
+        "Los costos humanos, económicos y políticos de forjar una nación por las armas.",
+        "La era de los caudillos provinciales vista como fragmentación sistémica."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se centra en los años 30 como laboratorio de todos los vicios del sistema argentino..",
+      "points": 1,
+      "orderIndex": 11,
+      "legacyQuestionId": null
+    },
+    {
+      "question": "¿Cuál es el foco principal de la lección \"1943-1945: El Huevo de la Serpiente — Los Orígenes de Perón\"?",
+      "type": "multiple_choice",
+      "options": [
+        "El surgimiento de Perón como producto del sistema y punto de inflexión histórico.",
+        "La independencia como cambio de régimen analizada desde el pensamiento sistémico.",
+        "Los costos humanos, económicos y políticos de forjar una nación por las armas.",
+        "La era de los caudillos provinciales vista como fragmentación sistémica."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se centra en el surgimiento de perón como producto del sistema y punto de inflexión histórico..",
+      "points": 1,
+      "orderIndex": 12,
+      "legacyQuestionId": null
     }
   ]
 }

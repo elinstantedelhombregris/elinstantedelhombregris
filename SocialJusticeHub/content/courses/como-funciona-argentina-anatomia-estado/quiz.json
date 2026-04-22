@@ -136,6 +136,36 @@
       "points": 1,
       "orderIndex": 10,
       "legacyQuestionId": 594
+    },
+    {
+      "question": "¿Cuál es el foco principal de la lección \"Medios y Poder: La Relación Que No Se Enseña\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Entender la relación entre medios de comunicación y poder político en Argentina.",
+        "Visión general del Estado como sistema: qué es, qué hace y por qué importa entenderlo.",
+        "Cómo funciona realmente el Poder Ejecutivo y su estructura de decisión.",
+        "El proceso legislativo real, más allá del esquema del manual escolar."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se centra en entender la relación entre medios de comunicación y poder político en argentina..",
+      "points": 1,
+      "orderIndex": 11,
+      "legacyQuestionId": null
+    },
+    {
+      "question": "¿Cuál es el foco principal de la lección \"Tu Mapa del Poder: Diagnóstico de Tu Territorio\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Ejercicio integrador: mapear la estructura de poder en tu territorio local.",
+        "Visión general del Estado como sistema: qué es, qué hace y por qué importa entenderlo.",
+        "Cómo funciona realmente el Poder Ejecutivo y su estructura de decisión.",
+        "El proceso legislativo real, más allá del esquema del manual escolar."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se centra en ejercicio integrador: mapear la estructura de poder en tu territorio local..",
+      "points": 1,
+      "orderIndex": 12,
+      "legacyQuestionId": null
     }
   ]
 }

@@ -1,49 +1,51 @@
+## La palabra que mueve el mundo
 
-<h2>La palabra que mueve el mundo</h2>
+Hay palabras que cuando las decís, no pasa nada. Y hay palabras que cuando las entendés de verdad, te cambian la vida. **Acción** es una de esas.
 
-<p>Hay palabras que cuando las decís, no pasa nada. Y hay palabras que cuando las entendés de verdad, te cambian la vida. <strong>Acción</strong> es una de esas.</p>
+### Agere: hacer, mover, conducir
 
-<h3>Agere: hacer, mover, conducir</h3>
+La palabra *acción* viene del latín ***actio***, que a su vez viene del verbo ***agere***. Y *agere* no significa simplemente "hacer". Significa **mover, conducir, llevar adelante, poner en marcha**. Es un verbo con dirección, con fuerza, con intención.
 
-<p>La palabra <em>acción</em> viene del latín <strong><em>actio</em></strong>, que a su vez viene del verbo <strong><em>agere</em></strong>. Y <em>agere</em> no significa simplemente "hacer". Significa <strong>mover, conducir, llevar adelante, poner en marcha</strong>. Es un verbo con dirección, con fuerza, con intención.</p>
+De esa raíz nacen palabras que deberían darte un escalofrío cuando las entendés juntas:
 
-<p>De esa raíz nacen palabras que deberían darte un escalofrío cuando las entendés juntas:</p>
+- ***Agente*** — el que actúa, el que hace, el que mueve las cosas. No el que mira. No el que opina. El que *hace*.
+- ***Agenda*** — literalmente, "las cosas que deben hacerse". No las cosas que hay que pensar o discutir. Las que hay que *hacer*.
+- ***Agitar*** — poner en movimiento lo que está quieto. Sacudir lo estancado.
+- ***Protagonista*** — del griego *proto* (primero) + *agonistes* (el que actúa). El protagonista no es el más importante — es el **primero en actuar**.
+- ***Acto*** — una unidad de acción con sentido. En el teatro, cada acto cambia la historia. En la vida, también.
 
-<ul>
-  <li><strong><em>Agente</em></strong> — el que actúa, el que hace, el que mueve las cosas. No el que mira. No el que opina. El que <em>hace</em>.</li>
-  <li><strong><em>Agenda</em></strong> — literalmente, "las cosas que deben hacerse". No las cosas que hay que pensar o discutir. Las que hay que <em>hacer</em>.</li>
-  <li><strong><em>Agitar</em></strong> — poner en movimiento lo que está quieto. Sacudir lo estancado.</li>
-  <li><strong><em>Protagonista</em></strong> — del griego <em>proto</em> (primero) + <em>agonistes</em> (el que actúa). El protagonista no es el más importante — es el <strong>primero en actuar</strong>.</li>
-  <li><strong><em>Acto</em></strong> — una unidad de acción con sentido. En el teatro, cada acto cambia la historia. En la vida, también.</li>
-</ul>
+> Ser agente no es un título. Es una decisión: la decisión de dejar de ser movido por las circunstancias y empezar a mover las circunstancias.
 
-<blockquote>
-  <p>Ser agente no es un título. Es una decisión: la decisión de dejar de ser movido por las circunstancias y empezar a mover las circunstancias.</p>
-</blockquote>
+### Reaccionar vs. actuar
 
-<h3>Reaccionar vs. actuar</h3>
+Hay una diferencia enorme entre estas dos palabras que en el día a día confundimos todo el tiempo:
 
-<p>Hay una diferencia enorme entre estas dos palabras que en el día a día confundimos todo el tiempo:</p>
+**Reaccionar** es responder a algo que te pasó. Es automático. Es reflejo. Es el perro que ladra cuando suena el timbre. No eligió ladrar — le salió. *Re-acción* significa literalmente "acción de vuelta" — algo te empuja y vos empujás para atrás. No hay dirección propia. Hay defensa.
 
-<p><strong>Reaccionar</strong> es responder a algo que te pasó. Es automático. Es reflejo. Es el perro que ladra cuando suena el timbre. No eligió ladrar — le salió. <em>Re-acción</em> significa literalmente "acción de vuelta" — algo te empuja y vos empujás para atrás. No hay dirección propia. Hay defensa.</p>
+**Actuar** es iniciar algo desde adentro. Es elegido. Es deliberado. Es el que mira la situación, piensa, y decide qué hacer — no porque algo lo obligó, sino porque algo lo mueve desde adentro. La acción tiene **origen propio y dirección elegida**.
 
-<p><strong>Actuar</strong> es iniciar algo desde adentro. Es elegido. Es deliberado. Es el que mira la situación, piensa, y decide qué hacer — no porque algo lo obligó, sino porque algo lo mueve desde adentro. La acción tiene <strong>origen propio y dirección elegida</strong>.</p>
+Argentina vive en modo reactivo. Reaccionamos a la inflación. Reaccionamos a la inseguridad. Reaccionamos al gobierno de turno. Reaccionamos a la crisis. Siempre respondiendo, nunca iniciando. Siempre corriendo detrás de lo que pasa, nunca adelante diseñando lo que queremos que pase.
 
-<p>Argentina vive en modo reactivo. Reaccionamos a la inflación. Reaccionamos a la inseguridad. Reaccionamos al gobierno de turno. Reaccionamos a la crisis. Siempre respondiendo, nunca iniciando. Siempre corriendo detrás de lo que pasa, nunca adelante diseñando lo que queremos que pase.</p>
+**El Hombre Gris no reacciona. Actúa.** No espera a que la crisis le diga qué hacer. Ve el mineral gris, enciende el fuego, y empieza a refinar. Eso es *agere* — mover el mundo desde adentro.
 
-<p><strong>El Hombre Gris no reacciona. Actúa.</strong> No espera a que la crisis le diga qué hacer. Ve el mineral gris, enciende el fuego, y empieza a refinar. Eso es <em>agere</em> — mover el mundo desde adentro.</p>
+### La acción como pilar del refinamiento
 
-<h3>La acción como pilar del refinamiento</h3>
+En la metáfora de la plata que vimos en el curso introductorio, la Visión es *ver* la plata dentro del mineral. Pero ver no alcanza. Podés ver el potencial de algo durante toda tu vida y no cambiar nada. **La Acción es encender el fuego.**
 
-<p>En la metáfora de la plata que vimos en el curso introductorio, la Visión es <em>ver</em> la plata dentro del mineral. Pero ver no alcanza. Podés ver el potencial de algo durante toda tu vida y no cambiar nada. <strong>La Acción es encender el fuego.</strong></p>
+Sin fuego no hay refinamiento. Sin calor no salen las impurezas. Sin acción la plata queda gris para siempre — llena de potencial pero sin brillo. Y el fuego no se enciende solo. Alguien tiene que juntar la leña, preparar el crisol, sostener la llama. Ese alguien sos vos.
 
-<p>Sin fuego no hay refinamiento. Sin calor no salen las impurezas. Sin acción la plata queda gris para siempre — llena de potencial pero sin brillo. Y el fuego no se enciende solo. Alguien tiene que juntar la leña, preparar el crisol, sostener la llama. Ese alguien sos vos.</p>
+---
 
-<hr />
+### Reflexión
 
-<h3>🪞 Reflexión</h3>
+> Pensá en tu semana pasada. ¿Cuántas de tus acciones fueron genuinamente iniciadas por vos — nacidas de una decisión propia, con una dirección elegida? ¿Y cuántas fueron reacciones — respuestas automáticas a lo que te pasó, a lo que dijo alguien, a lo que salió en las noticias? Si la mayoría fueron reacciones, no te juzgues: simplemente observalo. Ese es el primer paso para pasar de reactor a agente.
 
-<blockquote>
-  <p>Pensá en tu semana pasada. ¿Cuántas de tus acciones fueron genuinamente iniciadas por vos — nacidas de una decisión propia, con una dirección elegida? ¿Y cuántas fueron reacciones — respuestas automáticas a lo que te pasó, a lo que dijo alguien, a lo que salió en las noticias? Si la mayoría fueron reacciones, no te juzgues: simplemente observalo. Ese es el primer paso para pasar de reactor a agente.</p>
-</blockquote>
-      
+## Aplicación práctica
+
+De dónde viene la palabra "acción", qué significa ser agente, y por qué reaccionar no es lo mismo que actuar. Cobra valor cuando lo conviertes en una decisión observable dentro de tu proyecto, tu barrio y tu capacidad de organizarte. El objetivo no es repetir una definición, sino usar esta idea para leer mejor una situación, ordenar prioridades y elegir un siguiente paso con menos improvisación.
+
+Busca un caso cercano donde este principio te permita ver algo que antes pasabas por alto: un cuello de botella, un incentivo mal diseñado, una conversación mal planteada o un recurso mal aprovechado. Si el concepto no mejora tu lectura de lo concreto, todavía no terminó de asentarse.
+
+## Idea fuerza
+
+Agere — La etimología de la acción vale por su capacidad para mejorar decisiones reales dentro de tu proyecto, tu barrio y tu capacidad de organizarte. Cuando una lección te ayuda a ver mejor, priorizar mejor y actuar con mayor consistencia, deja de ser información suelta y se convierte en capacidad acumulable.

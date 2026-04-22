@@ -136,6 +136,36 @@
       "points": 1,
       "orderIndex": 10,
       "legacyQuestionId": 480
+    },
+    {
+      "question": "¿Cuál es el foco principal de la lección \"Comunicación Interna Que No Queme\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Diseñar flujos de comunicación que informen sin saturar.",
+        "Por qué las organizaciones que dependen de una sola persona están condenadas a morir.",
+        "Introducción al modelo sociocrático de gobernanza y toma de decisiones.",
+        "Separar los roles de las personas para crear organizaciones más flexibles."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se centra en diseñar flujos de comunicación que informen sin saturar..",
+      "points": 1,
+      "orderIndex": 11,
+      "legacyQuestionId": null
+    },
+    {
+      "question": "¿Cuál es el foco principal de la lección \"De la Organización al Movimiento: Escalar Sin Perder Esencia\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Cómo crecer manteniendo los valores y la estructura distribuida.",
+        "Por qué las organizaciones que dependen de una sola persona están condenadas a morir.",
+        "Introducción al modelo sociocrático de gobernanza y toma de decisiones.",
+        "Separar los roles de las personas para crear organizaciones más flexibles."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se centra en cómo crecer manteniendo los valores y la estructura distribuida..",
+      "points": 1,
+      "orderIndex": 12,
+      "legacyQuestionId": null
     }
   ]
 }

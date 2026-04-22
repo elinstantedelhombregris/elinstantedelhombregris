@@ -111,6 +111,36 @@
       "points": 2,
       "orderIndex": 8,
       "legacyQuestionId": 488
+    },
+    {
+      "question": "¿Cuál es el foco principal de la lección \"Gestión de la Diversidad Ideológica en Coaliciones\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Manejar las diferencias políticas e ideológicas dentro de una red territorial.",
+        "La lógica sistémica de conectar organizaciones barriales en redes territoriales.",
+        "Identificar quiénes tienen poder en tu territorio y cómo interactúan.",
+        "Estrategias para construir alianzas entre organizaciones diversas."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se centra en manejar las diferencias políticas e ideológicas dentro de una red territorial..",
+      "points": 1,
+      "orderIndex": 9,
+      "legacyQuestionId": null
+    },
+    {
+      "question": "¿Cuál es el foco principal de la lección \"Tu Proyecto Capstone: Diseñar una Red Territorial\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Ejercicio integrador: diseñar una red territorial para tu zona.",
+        "La lógica sistémica de conectar organizaciones barriales en redes territoriales.",
+        "Identificar quiénes tienen poder en tu territorio y cómo interactúan.",
+        "Estrategias para construir alianzas entre organizaciones diversas."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se centra en ejercicio integrador: diseñar una red territorial para tu zona..",
+      "points": 1,
+      "orderIndex": 10,
+      "legacyQuestionId": null
     }
   ]
 }

@@ -106,6 +106,36 @@
       "points": 1,
       "orderIndex": 8,
       "legacyQuestionId": 514
+    },
+    {
+      "question": "¿Cuál es el foco principal de la lección \"Tecnología Accesible: Digitalizar Sin Complicar\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Herramientas digitales gratuitas o baratas para potenciar tu emprendimiento.",
+        "Redefinir qué significa emprender en Argentina: no solo hacer dinero, sino construir confianza.",
+        "Cómo identificar problemas reales que se convierten en oportunidades de emprendimiento.",
+        "Adaptar el Business Model Canvas a la realidad argentina de alta incertidumbre."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se centra en herramientas digitales gratuitas o baratas para potenciar tu emprendimiento..",
+      "points": 1,
+      "orderIndex": 9,
+      "legacyQuestionId": null
+    },
+    {
+      "question": "¿Cuál es el foco principal de la lección \"Redes y Ecosistema: Emprender Nunca Es Solitario\"?",
+      "type": "multiple_choice",
+      "options": [
+        "El ecosistema emprendedor argentino y cómo conectarte para crecer.",
+        "Redefinir qué significa emprender en Argentina: no solo hacer dinero, sino construir confianza.",
+        "Cómo identificar problemas reales que se convierten en oportunidades de emprendimiento.",
+        "Adaptar el Business Model Canvas a la realidad argentina de alta incertidumbre."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se centra en el ecosistema emprendedor argentino y cómo conectarte para crecer..",
+      "points": 1,
+      "orderIndex": 10,
+      "legacyQuestionId": null
     }
   ]
 }

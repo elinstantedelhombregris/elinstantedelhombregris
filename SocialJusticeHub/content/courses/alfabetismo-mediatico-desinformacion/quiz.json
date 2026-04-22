@@ -111,6 +111,36 @@
       "points": 2,
       "orderIndex": 8,
       "legacyQuestionId": 630
+    },
+    {
+      "question": "¿Cuál es el foco principal de la lección \"Inteligencia Artificial y el Futuro de la Desinformación\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Cómo la IA está transformando la creación y detección de contenido falso.",
+        "Mapear el paisaje de medios argentinos y entender quién es dueño de qué.",
+        "Entender cómo los algoritmos de redes sociales amplifican la desinformación.",
+        "Diferenciar tipos de desinformación y entender cómo se fabrican."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se centra en cómo la ia está transformando la creación y detección de contenido falso..",
+      "points": 1,
+      "orderIndex": 9,
+      "legacyQuestionId": null
+    },
+    {
+      "question": "¿Cuál es el foco principal de la lección \"Tu Kit de Supervivencia Mediática\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Protocolo personal para navegar el ecosistema informativo con inteligencia.",
+        "Mapear el paisaje de medios argentinos y entender quién es dueño de qué.",
+        "Entender cómo los algoritmos de redes sociales amplifican la desinformación.",
+        "Diferenciar tipos de desinformación y entender cómo se fabrican."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se centra en protocolo personal para navegar el ecosistema informativo con inteligencia..",
+      "points": 1,
+      "orderIndex": 10,
+      "legacyQuestionId": null
     }
   ]
 }

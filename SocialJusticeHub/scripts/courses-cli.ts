@@ -44,6 +44,7 @@ const SITE_URL = [process.env.BASE_URL, process.env.CORS_ORIGIN, "https://elinst
   || process.env.BASE_URL
   || process.env.CORS_ORIGIN
   || "https://elinstantedelhombregris.com";
+const SKIP_LEGACY_PROGRESS_SYNC = process.env.SKIP_LEGACY_PROGRESS_SYNC === "true";
 
 type LoadedLesson = LessonManifestEntry & {
   absolutePath: string;
@@ -87,6 +88,148 @@ function computeContentHash(payload: unknown) {
     .createHash("sha256")
     .update(JSON.stringify(payload))
     .digest("hex");
+}
+
+async function revisionMatchesPackage(revisionId: number, coursePackage: LoadedCoursePackage) {
+  const [lessonCountRow] = await db
+    .select({ count: sql<number>`count(*)` })
+    .from(courseRevisionLessons)
+    .where(eq(courseRevisionLessons.courseRevisionId, revisionId));
+
+  if (Number(lessonCountRow?.count ?? 0) !== coursePackage.lessons.length) {
+    return false;
+  }
+
+  const [quizRevision] = await db
+    .select({ id: courseRevisionQuizzes.id })
+    .from(courseRevisionQuizzes)
+    .where(eq(courseRevisionQuizzes.courseRevisionId, revisionId))
+    .limit(1);
+
+  if (Boolean(quizRevision) !== Boolean(coursePackage.quiz)) {
+    return false;
+  }
+
+  if (!quizRevision || !coursePackage.quiz) {
+    return true;
+  }
+
+  const [questionCountRow] = await db
+    .select({ count: sql<number>`count(*)` })
+    .from(courseRevisionQuizQuestions)
+    .where(eq(courseRevisionQuizQuestions.quizRevisionId, quizRevision.id));
+
+  return Number(questionCountRow?.count ?? 0) === coursePackage.quiz.questions.length;
+}
+
+async function syncRevisionContent(courseDefinitionId: number, revisionId: number, coursePackage: LoadedCoursePackage) {
+  await db
+    .delete(courseRevisionLessons)
+    .where(eq(courseRevisionLessons.courseRevisionId, revisionId));
+
+  const publishedLessonIds: number[] = [];
+  for (const lesson of coursePackage.lessons) {
+    const identity = await upsertLessonIdentity(courseDefinitionId, lesson);
+    publishedLessonIds.push(identity.id);
+
+    await db.insert(courseRevisionLessons).values({
+      courseRevisionId: revisionId,
+      lessonIdentityId: identity.id,
+      title: lesson.title,
+      description: lesson.description ?? null,
+      contentMarkdown: lesson.sourceMarkdown,
+      contentHtml: lesson.renderedHtml,
+      orderIndex: lesson.orderIndex,
+      type: lesson.type,
+      videoUrl: lesson.videoUrl ?? null,
+      documentUrl: lesson.documentUrl ?? null,
+      duration: lesson.duration ?? null,
+      isRequired: lesson.isRequired ?? true,
+      legacyLessonId: identity.legacyLessonId ?? lesson.legacyLessonId ?? null,
+      seoTitle: lesson.seoTitle ?? null,
+      seoDescription: lesson.seoDescription ?? null,
+      searchSummary: lesson.searchSummary ?? null,
+      indexable: lesson.indexable ?? true,
+    });
+  }
+
+  const [existingQuizRevision] = await db
+    .select()
+    .from(courseRevisionQuizzes)
+    .where(eq(courseRevisionQuizzes.courseRevisionId, revisionId))
+    .limit(1);
+
+  if (existingQuizRevision) {
+    await db
+      .delete(courseRevisionQuizQuestions)
+      .where(eq(courseRevisionQuizQuestions.quizRevisionId, existingQuizRevision.id));
+  }
+
+  if (!coursePackage.quiz) {
+    if (existingQuizRevision) {
+      await db
+        .update(quizAttempts)
+        .set({
+          courseQuizRevisionId: null,
+        })
+        .where(eq(quizAttempts.courseQuizRevisionId, existingQuizRevision.id));
+
+      await db
+        .delete(courseRevisionQuizzes)
+        .where(eq(courseRevisionQuizzes.id, existingQuizRevision.id));
+    }
+
+    return publishedLessonIds;
+  }
+
+  const quizRevisionId = existingQuizRevision
+    ? (
+      await db
+        .update(courseRevisionQuizzes)
+        .set({
+          legacyQuizId: coursePackage.quiz.legacyQuizId ?? null,
+          title: coursePackage.quiz.title,
+          description: coursePackage.quiz.description ?? null,
+          passingScore: coursePackage.quiz.passingScore,
+          timeLimit: coursePackage.quiz.timeLimit ?? null,
+          allowRetakes: coursePackage.quiz.allowRetakes,
+          maxAttempts: coursePackage.quiz.maxAttempts ?? null,
+          updatedAt: new Date().toISOString(),
+        })
+        .where(eq(courseRevisionQuizzes.id, existingQuizRevision.id))
+        .returning({ id: courseRevisionQuizzes.id })
+    )[0].id
+    : (
+      await db
+        .insert(courseRevisionQuizzes)
+        .values({
+          courseRevisionId: revisionId,
+          legacyQuizId: coursePackage.quiz.legacyQuizId ?? null,
+          title: coursePackage.quiz.title,
+          description: coursePackage.quiz.description ?? null,
+          passingScore: coursePackage.quiz.passingScore,
+          timeLimit: coursePackage.quiz.timeLimit ?? null,
+          allowRetakes: coursePackage.quiz.allowRetakes,
+          maxAttempts: coursePackage.quiz.maxAttempts ?? null,
+        })
+        .returning({ id: courseRevisionQuizzes.id })
+    )[0].id;
+
+  for (const question of coursePackage.quiz.questions) {
+    await db.insert(courseRevisionQuizQuestions).values({
+      quizRevisionId,
+      legacyQuestionId: question.legacyQuestionId ?? null,
+      question: question.question,
+      type: question.type,
+      options: question.options ? JSON.stringify(question.options) : null,
+      correctAnswer: JSON.stringify(question.correctAnswer),
+      explanation: question.explanation ?? null,
+      points: question.points ?? 1,
+      orderIndex: question.orderIndex,
+    });
+  }
+
+  return publishedLessonIds;
 }
 
 function parseStoredJson(value: string | null | undefined) {
@@ -754,17 +897,78 @@ async function syncCoursePackage(coursePackage: LoadedCoursePackage) {
     .orderBy(desc(courseRevisions.revisionNumber))
     .limit(1);
 
-  if (currentRevision?.contentHash === contentHash) {
+  const [matchingRevision] = currentRevision?.contentHash === contentHash
+    ? [currentRevision]
+    : await db
+      .select()
+      .from(courseRevisions)
+      .where(
+        and(
+          eq(courseRevisions.courseDefinitionId, definition.id),
+          eq(courseRevisions.contentHash, contentHash),
+        ),
+      )
+      .limit(1);
+
+  if (matchingRevision) {
+    const revisionIsComplete = await revisionMatchesPackage(matchingRevision.id, coursePackage);
+
+    if (!revisionIsComplete) {
+      console.warn(
+        `[${coursePackage.manifest.slug}] revision ${matchingRevision.id} matched content hash but is incomplete; repairing it in place.`,
+      );
+
+      const publishedLessonIds = await syncRevisionContent(definition.id, matchingRevision.id, coursePackage);
+
+      await db
+        .update(courseDefinitions)
+        .set({
+          legacyCourseId: coursePackage.manifest.legacyCourseId ?? definition.legacyCourseId ?? null,
+          currentPublishedRevisionId: matchingRevision.id,
+          sourcePath: path.relative(ROOT_DIR, path.join(CONTENT_ROOT, coursePackage.directory)),
+          updatedAt: new Date().toISOString(),
+        })
+        .where(eq(courseDefinitions.id, definition.id));
+
+      if (!SKIP_LEGACY_PROGRESS_SYNC) {
+        await syncLegacyProgressMappings(definition.id);
+      }
+
+      if (coursePackage.manifest.isPublished) {
+        const lessonUrls = publishedLessonIds
+          .map((lessonId, index) => ({ lessonId, lesson: coursePackage.lessons[index] }))
+          .filter(({ lesson }) => lesson.indexable !== false)
+          .map(({ lessonId }) => `${SITE_URL}/recursos/guias-estudio/${coursePackage.manifest.slug}/leccion/${lessonId}`);
+
+        await maybeNotifyIndexNow([
+          ...(coursePackage.manifest.indexable === false
+            ? []
+            : [`${SITE_URL}/recursos/guias-estudio/${coursePackage.manifest.slug}`]),
+          ...lessonUrls,
+        ]);
+      }
+
+      return { status: "repaired", definitionId: definition.id, revisionId: matchingRevision.id };
+    }
+
     await db
       .update(courseDefinitions)
       .set({
-        currentPublishedRevisionId: currentRevision.id,
+        legacyCourseId: coursePackage.manifest.legacyCourseId ?? definition.legacyCourseId ?? null,
+        currentPublishedRevisionId: matchingRevision.id,
+        sourcePath: path.relative(ROOT_DIR, path.join(CONTENT_ROOT, coursePackage.directory)),
         updatedAt: new Date().toISOString(),
       })
       .where(eq(courseDefinitions.id, definition.id));
 
-    await syncLegacyProgressMappings(definition.id);
-    return { status: "unchanged", definitionId: definition.id, revisionId: currentRevision.id };
+    if (!SKIP_LEGACY_PROGRESS_SYNC) {
+      await syncLegacyProgressMappings(definition.id);
+    }
+    return {
+      status: matchingRevision.id === currentRevision?.id ? "unchanged" : "reused",
+      definitionId: definition.id,
+      revisionId: matchingRevision.id,
+    };
   }
 
   const revisionNumber = (currentRevision?.revisionNumber ?? 0) + 1;
@@ -798,61 +1002,7 @@ async function syncCoursePackage(coursePackage: LoadedCoursePackage) {
     })
     .returning();
 
-  const publishedLessonIds: number[] = [];
-  for (const lesson of coursePackage.lessons) {
-    const identity = await upsertLessonIdentity(definition.id, lesson);
-    publishedLessonIds.push(identity.id);
-
-    await db.insert(courseRevisionLessons).values({
-      courseRevisionId: revision.id,
-      lessonIdentityId: identity.id,
-      title: lesson.title,
-      description: lesson.description ?? null,
-      contentMarkdown: lesson.sourceMarkdown,
-      contentHtml: lesson.renderedHtml,
-      orderIndex: lesson.orderIndex,
-      type: lesson.type,
-      videoUrl: lesson.videoUrl ?? null,
-      documentUrl: lesson.documentUrl ?? null,
-      duration: lesson.duration ?? null,
-      isRequired: lesson.isRequired ?? true,
-      legacyLessonId: identity.legacyLessonId ?? lesson.legacyLessonId ?? null,
-      seoTitle: lesson.seoTitle ?? null,
-      seoDescription: lesson.seoDescription ?? null,
-      searchSummary: lesson.searchSummary ?? null,
-      indexable: lesson.indexable ?? true,
-    });
-  }
-
-  if (coursePackage.quiz) {
-    const [quizRevision] = await db
-      .insert(courseRevisionQuizzes)
-      .values({
-        courseRevisionId: revision.id,
-        legacyQuizId: coursePackage.quiz.legacyQuizId ?? null,
-        title: coursePackage.quiz.title,
-        description: coursePackage.quiz.description ?? null,
-        passingScore: coursePackage.quiz.passingScore,
-        timeLimit: coursePackage.quiz.timeLimit ?? null,
-        allowRetakes: coursePackage.quiz.allowRetakes,
-        maxAttempts: coursePackage.quiz.maxAttempts ?? null,
-      })
-      .returning();
-
-    for (const question of coursePackage.quiz.questions) {
-      await db.insert(courseRevisionQuizQuestions).values({
-        quizRevisionId: quizRevision.id,
-        legacyQuestionId: question.legacyQuestionId ?? null,
-        question: question.question,
-        type: question.type,
-        options: question.options ? JSON.stringify(question.options) : null,
-        correctAnswer: JSON.stringify(question.correctAnswer),
-        explanation: question.explanation ?? null,
-        points: question.points ?? 1,
-        orderIndex: question.orderIndex,
-      });
-    }
-  }
+  const publishedLessonIds = await syncRevisionContent(definition.id, revision.id, coursePackage);
 
   await db
     .update(courseDefinitions)
@@ -864,7 +1014,9 @@ async function syncCoursePackage(coursePackage: LoadedCoursePackage) {
     })
     .where(eq(courseDefinitions.id, definition.id));
 
-  await syncLegacyProgressMappings(definition.id);
+  if (!SKIP_LEGACY_PROGRESS_SYNC) {
+    await syncLegacyProgressMappings(definition.id);
+  }
 
   if (coursePackage.manifest.isPublished) {
     const lessonUrls = publishedLessonIds
@@ -935,30 +1087,41 @@ async function auditPackages(targetSlug?: string) {
       .where(eq(courseLessons.courseId, legacyCourse.id))
       .orderBy(asc(courseLessons.orderIndex));
 
-    if (legacyLessons.length !== coursePackage.lessons.length) {
+    const requiresLegacyLessonParity = coursePackage.lessons.every((lesson) => Boolean(lesson.legacyLessonId));
+
+    if (requiresLegacyLessonParity && legacyLessons.length !== coursePackage.lessons.length) {
       issues.push({
         slug: coursePackage.manifest.slug,
         message: `Lesson count mismatch: package has ${coursePackage.lessons.length}, legacy has ${legacyLessons.length}.`,
       });
     }
 
-    for (let index = 0; index < Math.min(legacyLessons.length, coursePackage.lessons.length); index += 1) {
-      const packageLesson = coursePackage.lessons[index];
-      const legacyLesson = legacyLessons[index];
+    if (requiresLegacyLessonParity) {
+      for (let index = 0; index < Math.min(legacyLessons.length, coursePackage.lessons.length); index += 1) {
+        const packageLesson = coursePackage.lessons[index];
+        const legacyLesson = legacyLessons[index];
 
-      if (packageLesson.legacyLessonId !== legacyLesson.id) {
-        issues.push({
-          slug: coursePackage.manifest.slug,
-          message: `Lesson ${index + 1} legacyLessonId mismatch: package has ${packageLesson.legacyLessonId}, legacy has ${legacyLesson.id}.`,
-        });
-      }
+        if (packageLesson.legacyLessonId !== legacyLesson.id) {
+          issues.push({
+            slug: coursePackage.manifest.slug,
+            message: `Lesson ${index + 1} legacyLessonId mismatch: package has ${packageLesson.legacyLessonId}, legacy has ${legacyLesson.id}.`,
+          });
+        }
 
-      if (packageLesson.orderIndex !== legacyLesson.orderIndex) {
-        issues.push({
-          slug: coursePackage.manifest.slug,
-          message: `Lesson ${packageLesson.title} orderIndex mismatch: package has ${packageLesson.orderIndex}, legacy has ${legacyLesson.orderIndex}.`,
-        });
+        if (packageLesson.orderIndex !== legacyLesson.orderIndex) {
+          issues.push({
+            slug: coursePackage.manifest.slug,
+            message: `Lesson ${packageLesson.title} orderIndex mismatch: package has ${packageLesson.orderIndex}, legacy has ${legacyLesson.orderIndex}.`,
+          });
+        }
       }
+    }
+
+    if (!requiresLegacyLessonParity && coursePackage.manifest.legacyCourseId && legacyLessons.length === 0) {
+      issues.push({
+        slug: coursePackage.manifest.slug,
+        message: `Legacy course ${coursePackage.manifest.legacyCourseId} has no lessons to compare against.`,
+      });
     }
 
     const [legacyQuiz] = await db
@@ -1051,7 +1214,11 @@ async function auditPackages(targetSlug?: string) {
     );
 
     for (const lesson of coursePackage.lessons) {
-      const identity = lesson.legacyLessonId ? identityByLegacyLessonId.get(lesson.legacyLessonId) : null;
+      if (!lesson.legacyLessonId) {
+        continue;
+      }
+
+      const identity = identityByLegacyLessonId.get(lesson.legacyLessonId);
       if (!identity) {
         issues.push({
           slug: coursePackage.manifest.slug,

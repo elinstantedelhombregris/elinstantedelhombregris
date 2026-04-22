@@ -3,6 +3,7 @@
 const fs = require("fs");
 const path = require("path");
 const { spawn } = require("child_process");
+const dotenv = require("dotenv");
 
 const projectRoot = path.resolve(__dirname, "..");
 const distEntry = path.join(projectRoot, "dist", "index.js");
@@ -15,6 +16,22 @@ const fallbackJwtSecret =
   "runtime-test-jwt-secret-at-least-32-characters";
 const fallbackSessionSecret =
   "runtime-test-session-secret-at-least-32-characters";
+
+function loadLocalEnv() {
+  for (const filename of [".env", ".env.local"]) {
+    const envPath = path.join(projectRoot, filename);
+    if (!fs.existsSync(envPath)) continue;
+
+    const parsed = dotenv.parse(fs.readFileSync(envPath));
+    for (const [key, value] of Object.entries(parsed)) {
+      if (process.env[key] === undefined) {
+        process.env[key] = value;
+      }
+    }
+  }
+}
+
+loadLocalEnv();
 
 if (!fs.existsSync(distEntry)) {
   console.error("dist/index.js was not found.");

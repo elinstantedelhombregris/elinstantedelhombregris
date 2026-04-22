@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#111827" />
+      <stop offset="100%" stop-color="#6b7280" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" rx="36" />
+  <circle cx="1020" cy="113" r="96" fill="#e5e7eb" opacity="0.18" />
+  <circle cx="192" cy="491" r="144" fill="#e5e7eb" opacity="0.12" />
+  <text x="96" y="100" fill="#e5e7eb" font-size="28" font-family="Georgia, serif" letter-spacing="4">EL INSTANTE DEL HOMBRE GRIS</text>
+  <text x="96" y="220" fill="#ffffff" font-size="54" font-family="Georgia, serif" font-weight="700">Argentina 1810-1945: El</text>
+  <text x="96" y="294" fill="#ffffff" font-size="54" font-family="Georgia, serif" font-weight="700">Sistema que Construimos</text>
+  <text x="96" y="422" fill="#ffffff" opacity="0.88" font-size="24" font-family="Arial, sans-serif">La historia argentina desde la independencia hasta</text>
+  <text x="96" y="460" fill="#ffffff" opacity="0.88" font-size="24" font-family="Arial, sans-serif">Perón, vista como dinámica de sistemas.</text>
+  <rect x="96" y="538" width="260" height="44" rx="22" fill="#e5e7eb" opacity="0.92" />
+  <text x="118" y="568" fill="#111827" font-size="24" font-family="Arial, sans-serif" font-weight="700">Hombre Gris</text>
+</svg>

@@ -116,6 +116,36 @@
       "points": 2,
       "orderIndex": 8,
       "legacyQuestionId": 470
+    },
+    {
+      "question": "¿Cuál es el foco principal de la lección \"Rituales y Espacios de Encuentro\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Crear rituales y espacios regulares que sostengan al grupo barrial en el tiempo.",
+        "Comprender por qué la organización barrial es la unidad mínima de transformación.",
+        "Técnica de mapeo de recursos y activos comunitarios existentes en tu barrio.",
+        "Estrategias probadas para convocar a vecinos a una primera reunión comunitaria."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se centra en crear rituales y espacios regulares que sostengan al grupo barrial en el tiempo..",
+      "points": 1,
+      "orderIndex": 9,
+      "legacyQuestionId": null
+    },
+    {
+      "question": "¿Cuál es el foco principal de la lección \"Tu Plan de Acción Barrial: Primeros 90 Días\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Crear un plan concreto de organización barrial para los próximos tres meses.",
+        "Comprender por qué la organización barrial es la unidad mínima de transformación.",
+        "Técnica de mapeo de recursos y activos comunitarios existentes en tu barrio.",
+        "Estrategias probadas para convocar a vecinos a una primera reunión comunitaria."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se centra en crear un plan concreto de organización barrial para los próximos tres meses..",
+      "points": 1,
+      "orderIndex": 10,
+      "legacyQuestionId": null
     }
   ]
 }

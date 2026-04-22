@@ -120,6 +120,36 @@
       "points": 1,
       "orderIndex": 8,
       "legacyQuestionId": 560
+    },
+    {
+      "question": "¿Cuál es el foco principal de la lección \"Argentina Como Laboratorio\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Las crisis repetidas como invitaciones permanentes a transformarse.",
+        "Diagnosticar las cargas heredadas que llevás sin haberlas elegido.",
+        "Confrontar el vacío que aparece cuando dejás de cargar lo que no te pertenece.",
+        "La segunda transformación: de la obediencia a los límites sagrados."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se centra en las crisis repetidas como invitaciones permanentes a transformarse..",
+      "points": 1,
+      "orderIndex": 9,
+      "legacyQuestionId": null
+    },
+    {
+      "question": "¿Cuál es el foco principal de la lección \"Tu Instante del Hombre Gris\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Síntesis final: tu rol, tu compromiso, tu manifiesto personal.",
+        "Diagnosticar las cargas heredadas que llevás sin haberlas elegido.",
+        "Confrontar el vacío que aparece cuando dejás de cargar lo que no te pertenece.",
+        "La segunda transformación: de la obediencia a los límites sagrados."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se centra en síntesis final: tu rol, tu compromiso, tu manifiesto personal..",
+      "points": 1,
+      "orderIndex": 10,
+      "legacyQuestionId": null
     }
   ]
 }

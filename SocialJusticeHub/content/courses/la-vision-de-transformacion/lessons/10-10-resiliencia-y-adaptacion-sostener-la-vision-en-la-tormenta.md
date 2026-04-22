@@ -78,7 +78,7 @@ Cuando estés en crisis, preguntate: "¿cómo voy a ver esta situación dentro d
 Tené un ritual personal para reconectarte con tu visión: puede ser releer tu declaración de visión, meditar, caminar por un lugar que te inspire, escuchar una canción que te conecte. Usalo cada vez que sientas que la visión se debilita.
 
 **5. La regla del 80%**
-No intentes mantener tu visión con intensidad máxima el 100% del tiempo. Eso es una receta para el burnout. Apuntá al 80%: la mayoría de los días alineado, con espacio para los días en que simplemente no podés.
+No intentes mantener tu visión con intensidad máxima el 100% del tiempo. Eso es una receta para el agotamiento. Apuntá al 80%: la mayoría de los días alineado, con espacio para los días en que simplemente no podés.
 
 > Ejercicio: diseñá tu propio "kit de emergencia visionaria" — las 3-5 prácticas o recursos que vas a usar cuando la visión se tambalee. Escribilos y tenelos a mano. Cuando estés en el valle, no vas a tener energía para inventar estrategias. Necesitás tenerlas listas.
 
@@ -91,3 +91,19 @@ La rigidez mata más visiones que el fracaso. Las visiones que sobreviven son la
 Esto significa que los "cómo" pueden cambiar (estrategias, plazos, medios) pero el "para qué" permanece (propósito, valores, dirección).
 
 El signo de una visión madura no es que nunca cambia — es que evoluciona inteligentemente en respuesta a la realidad, sin perder su norte existencial.
+
+## Aplicación práctica
+
+La Curva J, Teoría U de Scharmer, crecimiento postraumático y prácticas concretas de resiliencia visionaria. Cobra valor cuando lo conviertes en una decisión observable dentro de tu visión personal y tu capacidad de sostenerla. El objetivo no es repetir una definición, sino usar esta idea para leer mejor una situación, ordenar prioridades y elegir un siguiente paso con menos improvisación.
+
+Busca un caso cercano donde este principio te permita ver algo que antes pasabas por alto: un cuello de botella, un incentivo mal diseñado, una conversación mal planteada o un recurso mal aprovechado. Si el concepto no mejora tu lectura de lo concreto, todavía no terminó de asentarse.
+
+## Ejercicio guiado
+
+1. Resume la idea central de la lección en dos o tres frases propias.
+2. Elige una situación de tu visión personal y tu capacidad de sostenerla donde este contenido cambie tu diagnóstico o tu forma de intervenir.
+3. Define una acción pequeña, verificable y realizable en los próximos siete días para poner el aprendizaje en práctica.
+
+## Idea fuerza
+
+Resiliencia y Adaptación: Sostener la Visión en la Tormenta vale por su capacidad para mejorar decisiones reales dentro de tu visión personal y tu capacidad de sostenerla. Cuando una lección te ayuda a ver mejor, priorizar mejor y actuar con mayor consistencia, deja de ser información suelta y se convierte en capacidad acumulable.

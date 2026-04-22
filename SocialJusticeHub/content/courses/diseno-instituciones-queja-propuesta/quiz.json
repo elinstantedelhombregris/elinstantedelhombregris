@@ -111,6 +111,36 @@
       "points": 2,
       "orderIndex": 8,
       "legacyQuestionId": 610
+    },
+    {
+      "question": "¿Cuál es el foco principal de la lección \"Comunicar Tu Propuesta: De la Idea al Apoyo Público\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Cómo comunicar propuestas institucionales para generar apoyo.",
+        "Pasar de la queja al diseño de soluciones institucionales.",
+        "Herramientas para analizar por qué una institución no funciona.",
+        "Principios básicos para diseñar políticas públicas efectivas."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se centra en cómo comunicar propuestas institucionales para generar apoyo..",
+      "points": 1,
+      "orderIndex": 9,
+      "legacyQuestionId": null
+    },
+    {
+      "question": "¿Cuál es el foco principal de la lección \"Tu Propuesta Institucional: Proyecto Final\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Diseñar una propuesta institucional concreta y un plan para implementarla.",
+        "Pasar de la queja al diseño de soluciones institucionales.",
+        "Herramientas para analizar por qué una institución no funciona.",
+        "Principios básicos para diseñar políticas públicas efectivas."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se centra en diseñar una propuesta institucional concreta y un plan para implementarla..",
+      "points": 1,
+      "orderIndex": 10,
+      "legacyQuestionId": null
     }
   ]
 }

@@ -106,6 +106,36 @@
       "points": 1,
       "orderIndex": 8,
       "legacyQuestionId": 544
+    },
+    {
+      "question": "¿Cuál es el foco principal de la lección \"El Duelo Como Portal: Llorar lo que Pudo Ser\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Procesar el duelo colectivo argentino como paso necesario hacia la transformación.",
+        "Distinguir la resiliencia genuina de la cultura del aguante que enferma.",
+        "Convertir las crisis vividas en fortalezas conscientes y transferibles.",
+        "Viktor Frankl y la búsqueda de sentido aplicada a la inestabilidad crónica argentina."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se centra en procesar el duelo colectivo argentino como paso necesario hacia la transformación..",
+      "points": 1,
+      "orderIndex": 9,
+      "legacyQuestionId": null
+    },
+    {
+      "question": "¿Cuál es el foco principal de la lección \"Tu Manifiesto Personal: El Fuego que No Se Apaga\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Integrar todo lo aprendido en una declaración personal de propósito y resiliencia.",
+        "Distinguir la resiliencia genuina de la cultura del aguante que enferma.",
+        "Convertir las crisis vividas en fortalezas conscientes y transferibles.",
+        "Viktor Frankl y la búsqueda de sentido aplicada a la inestabilidad crónica argentina."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se centra en integrar todo lo aprendido en una declaración personal de propósito y resiliencia..",
+      "points": 1,
+      "orderIndex": 10,
+      "legacyQuestionId": null
     }
   ]
 }

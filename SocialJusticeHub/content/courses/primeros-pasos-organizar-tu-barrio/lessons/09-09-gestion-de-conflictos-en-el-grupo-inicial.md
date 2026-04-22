@@ -1,21 +1,51 @@
+## El Conflicto Va a Llegar: Preparate
 
-        <h2>El Conflicto Va a Llegar: Preparate</h2>
-        <p>Si tu grupo barrial no tiene conflictos, probablemente no está haciendo nada importante. El conflicto es señal de que hay <strong>diversidad de opiniones y pasión genuina</strong>. El problema no es el conflicto sino cómo lo manejamos.</p>
-        <h3>Los 4 Conflictos Más Comunes en Grupos Barriales</h3>
-        <ol>
-          <li><strong>El que quiere mandar:</strong> Alguien que empieza a tomar decisiones solo, sin consultar. Solución: recordar los acuerdos de funcionamiento y rotar roles.</li>
-          <li><strong>El que critica todo pero no hace nada:</strong> Tiene opinión sobre todo pero nunca se ofrece a hacer algo. Solución: "¿Vos qué proponés? ¿Te animás a encargarte?"</li>
-          <li><strong>La pelea política:</strong> Alguien mete la grieta partidaria en el grupo. Solución: recordar que en el grupo somos vecinos, no militantes.</li>
-          <li><strong>El abandono silencioso:</strong> Gente que deja de venir sin decir por qué. Solución: llamar personalmente y preguntar con genuina curiosidad.</li>
-        </ol>
-        <h3>Protocolo Básico de Resolución</h3>
-        <ul>
-          <li><strong>Paso 1:</strong> Nombrar el conflicto. "Parece que hay un desacuerdo sobre X. ¿Podemos hablarlo?"</li>
-          <li><strong>Paso 2:</strong> Escuchar ambas partes sin interrumpir. Usar un objeto que se pasa (el que tiene el objeto, habla).</li>
-          <li><strong>Paso 3:</strong> Buscar la necesidad detrás de la posición. "¿Qué necesitás realmente?"</li>
-          <li><strong>Paso 4:</strong> Proponer soluciones que atiendan ambas necesidades.</li>
-          <li><strong>Paso 5:</strong> Si no hay acuerdo, votar. La mayoría decide, la minoría acepta.</li>
-        </ul>
-        <h3>La Regla de las 24 Horas</h3>
-        <p>Cuando un conflicto se pone caliente: nadie responde en el momento. Esperá 24 horas. Lo que parece urgente hoy, mañana se ve distinto. Esta regla aplica especialmente a los grupos de WhatsApp, donde los conflictos escalan en segundos.</p>
-      
+Si tu grupo barrial no tiene conflictos, probablemente no está haciendo nada importante. El conflicto es señal de que hay **diversidad de opiniones y pasión genuina**. El problema no es el conflicto sino cómo lo manejamos.
+
+### Los 4 Conflictos Más Comunes en Grupos Barriales
+
+1. **El que quiere mandar:** Alguien que empieza a tomar decisiones solo, sin consultar. Solución: recordar los acuerdos de funcionamiento y rotar roles.
+2. **El que critica todo pero no hace nada:** Tiene opinión sobre todo pero nunca se ofrece a hacer algo. Solución: "¿Vos qué proponés? ¿Te animás a encargarte?"
+3. **La pelea política:** Alguien mete la grieta partidaria en el grupo. Solución: recordar que en el grupo somos vecinos, no militantes.
+4. **El abandono silencioso:** Gente que deja de venir sin decir por qué. Solución: llamar personalmente y preguntar con genuina curiosidad.
+
+### Protocolo Básico de Resolución
+
+- **Paso 1:** Nombrar el conflicto. "Parece que hay un desacuerdo sobre X. ¿Podemos hablarlo?"
+- **Paso 2:** Escuchar ambas partes sin interrumpir. Usar un objeto que se pasa (el que tiene el objeto, habla).
+- **Paso 3:** Buscar la necesidad detrás de la posición. "¿Qué necesitás realmente?"
+- **Paso 4:** Proponer soluciones que atiendan ambas necesidades.
+- **Paso 5:** Si no hay acuerdo, votar. La mayoría decide, la minoría acepta.
+
+### La Regla de las 24 Horas
+
+Cuando un conflicto se pone caliente: nadie responde en el momento. Esperá 24 horas. Lo que parece urgente hoy, mañana se ve distinto. Esta regla aplica especialmente a los grupos de WhatsApp, donde los conflictos escalan en segundos.
+
+### Aplicación práctica
+
+Cómo manejar los conflictos inevitables que surgen en grupos barriales. Para que esta idea no quede en el plano conceptual, conviene traducirla a decisiones observables, criterios de prioridad y conversaciones concretas. La pregunta útil no es solo "qué significa", sino "qué cambia en mi forma de actuar cuando entiendo este punto con claridad". Si esta lección modifica cómo miras tu organización, tu red y tu territorio, entonces ya empezó a producir efecto.
+
+En términos operativos, este contenido sirve para distinguir señales reales de ruido, ordenar problemas antes de actuar y evitar respuestas impulsivas. También ayuda a poner nombre a procesos que muchas veces aparecen mezclados: causas, consecuencias, actores involucrados, límites prácticos y oportunidades de intervención. Cuando separas esas capas, mejoras tu capacidad de decidir con menos ansiedad y más precisión.
+
+### Cómo se ve en el territorio
+
+En Argentina, muchas discusiones se traban porque se habla desde consignas generales y no desde situaciones concretas. Por eso, la mejor prueba para una idea es verla en el barrio, en una organización, en una familia o en un equipo de trabajo. Si este tema no puede explicarse en términos de decisiones reales, entonces todavía no está del todo aprendido.
+
+Llévalo a un caso cercano: identifica una situación donde este concepto aparezca con claridad, describe qué actores participan, qué intereses están en juego y qué haría una persona bien preparada después de estudiar esta lección. Ese ejercicio convierte el contenido en criterio y el criterio en acción sostenida.
+
+### Errores comunes
+
+- Confundir el nombre del problema con su causa de fondo.
+- Querer aplicar la idea de forma abstracta sin adaptarla al contexto local.
+- Pasar demasiado rápido de la explicación a la opinión.
+- Buscar una solución única para situaciones que exigen secuencia y prioridades.
+
+### Ejercicio guiado
+
+1. Resume la idea central de la lección en dos frases propias.
+2. Identifica un caso de tu realidad donde este contenido te permita ver algo que antes no estabas viendo.
+3. Define una acción concreta, pequeña y verificable que podrías tomar en los próximos siete días a partir de este aprendizaje.
+
+### Idea fuerza
+
+Gestión de Conflictos en el Grupo Inicial no es solo un tema para entender: es una herramienta para ordenar la mirada, mejorar tu criterio y actuar con más consistencia dentro de tu organización, tu red y tu territorio. Cuando un aprendizaje se traduce en decisiones mejores, deja de ser información y se convierte en capacidad.

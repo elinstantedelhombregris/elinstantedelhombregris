@@ -79,3 +79,13 @@ Antes de pasar a construir tu visión, necesitás poder responder tres preguntas
 3. **¿Qué dolor me importa lo suficiente como para hacer algo al respecto?** (Mark Manson lo planteó así: no se trata de qué te hace sentir bien, sino de qué problema estás dispuesto a resolver aunque te cueste)
 
 > Escribí las respuestas. No las pienses — escribilas. El pensamiento gira en círculos; la escritura avanza.
+
+## Aplicación práctica
+
+Autoconocimiento profundo como base no negociable. Jung, la Ventana de Johari, excavación de valores y guiones de vida. Cobra valor cuando lo conviertes en una decisión observable dentro de tu visión personal y tu capacidad de sostenerla. El objetivo no es repetir una definición, sino usar esta idea para leer mejor una situación, ordenar prioridades y elegir un siguiente paso con menos improvisación.
+
+Busca un caso cercano donde este principio te permita ver algo que antes pasabas por alto: un cuello de botella, un incentivo mal diseñado, una conversación mal planteada o un recurso mal aprovechado. Si el concepto no mejora tu lectura de lo concreto, todavía no terminó de asentarse.
+
+## Idea fuerza
+
+Conocerte: La Raíz de Toda Visión Auténtica vale por su capacidad para mejorar decisiones reales dentro de tu visión personal y tu capacidad de sostenerla. Cuando una lección te ayuda a ver mejor, priorizar mejor y actuar con mayor consistencia, deja de ser información suelta y se convierte en capacidad acumulable.

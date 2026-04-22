@@ -87,3 +87,19 @@ En sistemas complejos existe un fenómeno llamado **emergencia**: cuando los com
 Lo mismo pasa con los grupos humanos alineados: cuando las visiones individuales convergen en una visión colectiva auténtica, emerge algo que ningún individuo podría crear solo. Una energía, una creatividad, una capacidad de acción que es cualitativamente diferente.
 
 Esto no es magia. Es la física social de los sistemas complejos. Y es la razón por la que los movimientos más poderosos de la historia siempre fueron colectivos.
+
+## Aplicación práctica
+
+Peter Senge, movimientos sociales y el proceso paso a paso para construir una visión compartida auténtica. Cobra valor cuando lo conviertes en una decisión observable dentro de tu visión personal y tu capacidad de sostenerla. El objetivo no es repetir una definición, sino usar esta idea para leer mejor una situación, ordenar prioridades y elegir un siguiente paso con menos improvisación.
+
+Busca un caso cercano donde este principio te permita ver algo que antes pasabas por alto: un cuello de botella, un incentivo mal diseñado, una conversación mal planteada o un recurso mal aprovechado. Si el concepto no mejora tu lectura de lo concreto, todavía no terminó de asentarse.
+
+## Ejercicio guiado
+
+1. Resume la idea central de la lección en dos o tres frases propias.
+2. Elige una situación de tu visión personal y tu capacidad de sostenerla donde este contenido cambie tu diagnóstico o tu forma de intervenir.
+3. Define una acción pequeña, verificable y realizable en los próximos siete días para poner el aprendizaje en práctica.
+
+## Idea fuerza
+
+De la Visión Individual a la Colectiva vale por su capacidad para mejorar decisiones reales dentro de tu visión personal y tu capacidad de sostenerla. Cuando una lección te ayuda a ver mejor, priorizar mejor y actuar con mayor consistencia, deja de ser información suelta y se convierte en capacidad acumulable.

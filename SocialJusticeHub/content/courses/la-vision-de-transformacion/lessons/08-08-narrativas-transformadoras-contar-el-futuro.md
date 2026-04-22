@@ -84,3 +84,19 @@ La narrativa no se escribe una vez y listo. Se practica, se ajusta, se enriquece
 - No tienen miedo de mostrar vulnerabilidad
 
 > Tu visión necesita una voz. Esa voz sos vos. No tiene que ser perfecta — tiene que ser auténtica.
+
+## Aplicación práctica
+
+Marshall Ganz, el viaje del héroe y el arte de comunicar tu visión de forma que mueva a otros a la acción. Cobra valor cuando lo conviertes en una decisión observable dentro de tu visión personal y tu capacidad de sostenerla. El objetivo no es repetir una definición, sino usar esta idea para leer mejor una situación, ordenar prioridades y elegir un siguiente paso con menos improvisación.
+
+Busca un caso cercano donde este principio te permita ver algo que antes pasabas por alto: un cuello de botella, un incentivo mal diseñado, una conversación mal planteada o un recurso mal aprovechado. Si el concepto no mejora tu lectura de lo concreto, todavía no terminó de asentarse.
+
+## Ejercicio guiado
+
+1. Resume la idea central de la lección en dos o tres frases propias.
+2. Elige una situación de tu visión personal y tu capacidad de sostenerla donde este contenido cambie tu diagnóstico o tu forma de intervenir.
+3. Define una acción pequeña, verificable y realizable en los próximos siete días para poner el aprendizaje en práctica.
+
+## Idea fuerza
+
+Narrativas Transformadoras: Contar el Futuro vale por su capacidad para mejorar decisiones reales dentro de tu visión personal y tu capacidad de sostenerla. Cuando una lección te ayuda a ver mejor, priorizar mejor y actuar con mayor consistencia, deja de ser información suelta y se convierte en capacidad acumulable.

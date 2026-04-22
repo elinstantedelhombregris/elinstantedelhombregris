@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b" />
+      <stop offset="100%" stop-color="#7c3aed" />
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)" rx="36" />
+  <circle cx="1360" cy="162" r="128" fill="#fbbf24" opacity="0.18" />
+  <circle cx="256" cy="702" r="192" fill="#fbbf24" opacity="0.12" />
+  <text x="128" y="100" fill="#fbbf24" font-size="34" font-family="Georgia, serif" letter-spacing="4">EL INSTANTE DEL HOMBRE GRIS</text>
+  <text x="128" y="270" fill="#ffffff" font-size="62" font-family="Georgia, serif" font-weight="700">Primeros Pasos: Cómo</text>
+  <text x="128" y="344" fill="#ffffff" font-size="62" font-family="Georgia, serif" font-weight="700">Organizar tu Barrio</text>
+  <text x="128" y="472" fill="#ffffff" opacity="0.88" font-size="28" font-family="Arial, sans-serif">Herramientas prácticas para organizar tu</text>
+  <text x="128" y="510" fill="#ffffff" opacity="0.88" font-size="28" font-family="Arial, sans-serif">barrio desde cero.</text>
+  <rect x="128" y="808" width="260" height="44" rx="22" fill="#fbbf24" opacity="0.92" />
+  <text x="150" y="838" fill="#1e293b" font-size="24" font-family="Arial, sans-serif" font-weight="700">Comunidad</text>
+</svg>

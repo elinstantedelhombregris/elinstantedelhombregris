@@ -1,141 +1,251 @@
 {
   "title": "Quiz: Argentina como Sistema Viviente",
-  "description": "Evalúa tu comprensión de los principios sistémicos desde primeros principios hasta aplicaciones prácticas.",
+  "description": "Evalúa tu comprensión del recorrido sistémico desde los primeros principios hasta la aplicación territorial en Argentina.",
   "passingScore": 75,
-  "timeLimit": 30,
+  "timeLimit": 25,
   "allowRetakes": true,
   "maxAttempts": 3,
   "legacyQuizId": 4,
   "questions": [
     {
-      "question": "Según la primera ley de termodinámica, ¿qué ocurre con la energía?",
+      "question": "¿Cuál es la idea central de la lección \"Energía y entropía: las dos leyes que ordenan todo sistema\"?",
       "type": "multiple_choice",
       "options": [
-        "La energía desaparece cuando se usa",
-        "La energía se crea y se destruye",
-        "La energía no se crea ni se destruye, solo se transforma",
-        "La energía solo existe en sistemas físicos"
+        "Comprende cómo la conservación de la energía y la entropía explican por qué los sistemas prosperan, se desgastan o colapsan cuando no transforman bien sus recursos.",
+        "Aprende a leer cómo las leyes de conservación, las curvas exponenciales y la acumulación compuesta convierten pequeñas diferencias en trayectorias totalmente distintas.",
+        "Estudia cómo circula la información en un sistema, cómo distinguir señal de ruido y cómo mejorar la comunicación para coordinar mejor en familia, trabajo y comunidad.",
+        "Mapea las entradas, salidas, flujos y bucles de retroalimentación que determinan el comportamiento real de un sistema y su capacidad de autorregularse."
       ],
-      "correctAnswer": 2,
-      "explanation": "La energía se conserva y se transforma, no desaparece. Este principio aplica a todos los sistemas, desde físicos hasta sociales.",
-      "points": 3,
+      "correctAnswer": 0,
+      "explanation": "La lección se concentra en comprende cómo la conservación de la energía y la entropía explican por qué los sistemas prosperan, se desgastan o colapsan cuando no transforman bien sus recursos.",
+      "points": 2,
       "orderIndex": 1,
-      "legacyQuestionId": 31
+      "legacyQuestionId": null
     },
     {
-      "question": "La entropía es la tendencia natural de los sistemas hacia el desorden.",
-      "type": "true_false",
-      "options": null,
-      "correctAnswer": true,
-      "explanation": "Sí, la entropía es la tendencia natural al desorden. Los sistemas vivos deben invertir energía constantemente para mantener el orden.",
+      "question": "¿Cuál es la idea central de la lección \"Conservación, exponenciales y acumulación\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Aprende a leer cómo las leyes de conservación, las curvas exponenciales y la acumulación compuesta convierten pequeñas diferencias en trayectorias totalmente distintas.",
+        "Comprende cómo la conservación de la energía y la entropía explican por qué los sistemas prosperan, se desgastan o colapsan cuando no transforman bien sus recursos.",
+        "Estudia cómo circula la información en un sistema, cómo distinguir señal de ruido y cómo mejorar la comunicación para coordinar mejor en familia, trabajo y comunidad.",
+        "Mapea las entradas, salidas, flujos y bucles de retroalimentación que determinan el comportamiento real de un sistema y su capacidad de autorregularse."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se concentra en aprende a leer cómo las leyes de conservación, las curvas exponenciales y la acumulación compuesta convierten pequeñas diferencias en trayectorias totalmente distintas.",
       "points": 2,
       "orderIndex": 2,
-      "legacyQuestionId": 32
+      "legacyQuestionId": null
     },
     {
-      "question": "¿Cuál es la clave para mejorar el rendimiento de un sistema según este curso?",
+      "question": "¿Cuál es la idea central de la lección \"Información, señales y comunicación efectiva\"?",
       "type": "multiple_choice",
       "options": [
-        "Aumentar las entradas sin límite",
-        "Mejorar las relaciones entre las partes del sistema",
-        "Reducir todas las salidas",
-        "Eliminar todas las partes del sistema"
+        "Estudia cómo circula la información en un sistema, cómo distinguir señal de ruido y cómo mejorar la comunicación para coordinar mejor en familia, trabajo y comunidad.",
+        "Comprende cómo la conservación de la energía y la entropía explican por qué los sistemas prosperan, se desgastan o colapsan cuando no transforman bien sus recursos.",
+        "Aprende a leer cómo las leyes de conservación, las curvas exponenciales y la acumulación compuesta convierten pequeñas diferencias en trayectorias totalmente distintas.",
+        "Mapea las entradas, salidas, flujos y bucles de retroalimentación que determinan el comportamiento real de un sistema y su capacidad de autorregularse."
       ],
-      "correctAnswer": 1,
-      "explanation": "La clave es mejorar las relaciones entre las partes. Cuando las partes se relacionan mejor, el sistema completo mejora su rendimiento.",
-      "points": 3,
+      "correctAnswer": 0,
+      "explanation": "La lección se concentra en estudia cómo circula la información en un sistema, cómo distinguir señal de ruido y cómo mejorar la comunicación para coordinar mejor en familia, trabajo y comunidad.",
+      "points": 2,
       "orderIndex": 3,
-      "legacyQuestionId": 33
+      "legacyQuestionId": null
     },
     {
-      "question": "¿Qué nivel de sistema es el primero que debemos optimizar según el curso?",
+      "question": "¿Cuál es la idea central de la lección \"Flujos, entradas y bucles de retroalimentación\"?",
       "type": "multiple_choice",
       "options": [
-        "El barrio",
-        "La familia",
-        "El municipio",
-        "La nación"
+        "Mapea las entradas, salidas, flujos y bucles de retroalimentación que determinan el comportamiento real de un sistema y su capacidad de autorregularse.",
+        "Comprende cómo la conservación de la energía y la entropía explican por qué los sistemas prosperan, se desgastan o colapsan cuando no transforman bien sus recursos.",
+        "Aprende a leer cómo las leyes de conservación, las curvas exponenciales y la acumulación compuesta convierten pequeñas diferencias en trayectorias totalmente distintas.",
+        "Estudia cómo circula la información en un sistema, cómo distinguir señal de ruido y cómo mejorar la comunicación para coordinar mejor en familia, trabajo y comunidad."
       ],
-      "correctAnswer": 1,
-      "explanation": "La familia es el primer sistema que debemos optimizar, ya que es desde allí que se irradia la transformación hacia la sociedad.",
+      "correctAnswer": 0,
+      "explanation": "La lección se concentra en mapea las entradas, salidas, flujos y bucles de retroalimentación que determinan el comportamiento real de un sistema y su capacidad de autorregularse.",
       "points": 2,
       "orderIndex": 4,
-      "legacyQuestionId": 34
+      "legacyQuestionId": null
     },
     {
-      "question": "El crecimiento exponencial significa que pequeños cambios pueden generar transformaciones masivas.",
-      "type": "true_false",
-      "options": null,
-      "correctAnswer": true,
-      "explanation": "Exacto. El crecimiento exponencial muestra que pequeños cambios pueden multiplicarse rápidamente, generando transformaciones masivas.",
+      "question": "¿Cuál es la idea central de la lección \"Emergencia, mantenimiento y efectos de red\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Descubre cómo emergen propiedades nuevas, cómo se sostienen los sistemas en el tiempo y por qué la conectividad puede multiplicar o degradar resultados.",
+        "Comprende cómo la conservación de la energía y la entropía explican por qué los sistemas prosperan, se desgastan o colapsan cuando no transforman bien sus recursos.",
+        "Aprende a leer cómo las leyes de conservación, las curvas exponenciales y la acumulación compuesta convierten pequeñas diferencias en trayectorias totalmente distintas.",
+        "Estudia cómo circula la información en un sistema, cómo distinguir señal de ruido y cómo mejorar la comunicación para coordinar mejor en familia, trabajo y comunidad."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se concentra en descubre cómo emergen propiedades nuevas, cómo se sostienen los sistemas en el tiempo y por qué la conectividad puede multiplicar o degradar resultados.",
       "points": 2,
       "orderIndex": 5,
-      "legacyQuestionId": 35
+      "legacyQuestionId": null
     },
     {
-      "question": "¿Qué indica una fuga energética en un sistema?",
+      "question": "¿Cuál es la idea central de la lección \"Teoría de control, cibernética y sistemas vivos\"?",
       "type": "multiple_choice",
       "options": [
-        "Que el sistema está en equilibrio",
-        "Que se pierde energía en conflictos, fricción o procesos ineficientes",
-        "Que hay demasiada inversión",
-        "Que no hay suficiente complejidad"
+        "Integra principios de control, cibernética y biología para dirigir sistemas con propósito sin caer en microgestión, rigidez ni desgaste innecesario.",
+        "Comprende cómo la conservación de la energía y la entropía explican por qué los sistemas prosperan, se desgastan o colapsan cuando no transforman bien sus recursos.",
+        "Aprende a leer cómo las leyes de conservación, las curvas exponenciales y la acumulación compuesta convierten pequeñas diferencias en trayectorias totalmente distintas.",
+        "Estudia cómo circula la información en un sistema, cómo distinguir señal de ruido y cómo mejorar la comunicación para coordinar mejor en familia, trabajo y comunidad."
       ],
-      "correctAnswer": 1,
-      "explanation": "Las fugas energéticas muestran dónde se pierde energía por conflictos, ineficiencia o desalineación.",
+      "correctAnswer": 0,
+      "explanation": "La lección se concentra en integra principios de control, cibernética y biología para dirigir sistemas con propósito sin caer en microgestión, rigidez ni desgaste innecesario.",
       "points": 2,
       "orderIndex": 6,
-      "legacyQuestionId": 36
+      "legacyQuestionId": null
     },
     {
-      "question": "Los diagramas de sistemas anidados muestran cómo cada nivel contiene y depende de otro.",
-      "type": "true_false",
-      "options": null,
-      "correctAnswer": true,
-      "explanation": "Los sistemas anidados (familia, barrio, municipio, provincia, nación) se afectan mutuamente y deben optimizarse en conjunto.",
+      "question": "¿Cuál es la idea central de la lección \"Psicología, vínculos y hábitos en sistemas humanos\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Aplica la mirada sistémica a la mente, las relaciones y los hábitos para entender cómo se forman patrones estables y cómo modificarlos sin violencia.",
+        "Comprende cómo la conservación de la energía y la entropía explican por qué los sistemas prosperan, se desgastan o colapsan cuando no transforman bien sus recursos.",
+        "Aprende a leer cómo las leyes de conservación, las curvas exponenciales y la acumulación compuesta convierten pequeñas diferencias en trayectorias totalmente distintas.",
+        "Estudia cómo circula la información en un sistema, cómo distinguir señal de ruido y cómo mejorar la comunicación para coordinar mejor en familia, trabajo y comunidad."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se concentra en aplica la mirada sistémica a la mente, las relaciones y los hábitos para entender cómo se forman patrones estables y cómo modificarlos sin violencia.",
       "points": 2,
       "orderIndex": 7,
-      "legacyQuestionId": 37
+      "legacyQuestionId": null
     },
     {
-      "question": "Selecciona el ejemplo correcto de bucle reforzador positivo.",
+      "question": "¿Cuál es la idea central de la lección \"Economía, incentivos y teoría de juegos\"?",
       "type": "multiple_choice",
       "options": [
-        "Malas relaciones → menos comunicación → más conflictos",
-        "Mejor educación → mejores empleos → más inversión en educación",
-        "Mayor entropía → más orden automático",
-        "Menos energía → mejor rendimiento"
+        "Conecta recursos, costos de oportunidad, incentivos y estrategias interdependientes para diseñar mejores decisiones personales, comunitarias y nacionales.",
+        "Comprende cómo la conservación de la energía y la entropía explican por qué los sistemas prosperan, se desgastan o colapsan cuando no transforman bien sus recursos.",
+        "Aprende a leer cómo las leyes de conservación, las curvas exponenciales y la acumulación compuesta convierten pequeñas diferencias en trayectorias totalmente distintas.",
+        "Estudia cómo circula la información en un sistema, cómo distinguir señal de ruido y cómo mejorar la comunicación para coordinar mejor en familia, trabajo y comunidad."
       ],
-      "correctAnswer": 1,
-      "explanation": "Un bucle reforzador positivo es un ciclo virtuoso: mejor educación genera más ingresos que vuelven a invertirse en educación.",
-      "points": 3,
+      "correctAnswer": 0,
+      "explanation": "La lección se concentra en conecta recursos, costos de oportunidad, incentivos y estrategias interdependientes para diseñar mejores decisiones personales, comunitarias y nacionales.",
+      "points": 2,
       "orderIndex": 8,
-      "legacyQuestionId": 38
+      "legacyQuestionId": null
     },
     {
-      "question": "El principio \"No cambies personas, cambia sistemas\" resume la aplicación práctica de la teoría de juegos al diseño nacional.",
-      "type": "true_false",
-      "options": null,
-      "correctAnswer": true,
-      "explanation": "Modificar incentivos, reglas y relaciones cambia comportamientos más rápido que intentar cambiar personas individualmente.",
+      "question": "¿Cuál es la idea central de la lección \"Ciencia de la complejidad y transiciones de fase\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Explora cómo los sistemas complejos se autoorganizan, acumulan tensiones y atraviesan transiciones abruptas que cambian las reglas del juego.",
+        "Comprende cómo la conservación de la energía y la entropía explican por qué los sistemas prosperan, se desgastan o colapsan cuando no transforman bien sus recursos.",
+        "Aprende a leer cómo las leyes de conservación, las curvas exponenciales y la acumulación compuesta convierten pequeñas diferencias en trayectorias totalmente distintas.",
+        "Estudia cómo circula la información en un sistema, cómo distinguir señal de ruido y cómo mejorar la comunicación para coordinar mejor en familia, trabajo y comunidad."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se concentra en explora cómo los sistemas complejos se autoorganizan, acumulan tensiones y atraviesan transiciones abruptas que cambian las reglas del juego.",
       "points": 2,
       "orderIndex": 9,
-      "legacyQuestionId": 39
+      "legacyQuestionId": null
     },
     {
-      "question": "¿Qué estrategia propone el curso para reducir entropía en provincias?",
+      "question": "¿Cuál es la idea central de la lección \"Gestión de energía personal y salud sistémica\"?",
       "type": "multiple_choice",
       "options": [
-        "Centralizar decisiones en Buenos Aires",
-        "Mejorar conectividad, liderazgos facilitadores y círculos de colaboración",
-        "Eliminar autonomía local",
-        "Incrementar trámites"
+        "Traduce los principios sistémicos al cuerpo y la vida cotidiana para optimizar energía, salud y sostenibilidad personal.",
+        "Comprende cómo la conservación de la energía y la entropía explican por qué los sistemas prosperan, se desgastan o colapsan cuando no transforman bien sus recursos.",
+        "Aprende a leer cómo las leyes de conservación, las curvas exponenciales y la acumulación compuesta convierten pequeñas diferencias en trayectorias totalmente distintas.",
+        "Estudia cómo circula la información en un sistema, cómo distinguir señal de ruido y cómo mejorar la comunicación para coordinar mejor en familia, trabajo y comunidad."
       ],
-      "correctAnswer": 1,
-      "explanation": "El curso propone liderazgos facilitadores, conectividad y colaboración multinivel para reducir entropía territorial.",
-      "points": 3,
+      "correctAnswer": 0,
+      "explanation": "La lección se concentra en traduce los principios sistémicos al cuerpo y la vida cotidiana para optimizar energía, salud y sostenibilidad personal.",
+      "points": 2,
       "orderIndex": 10,
-      "legacyQuestionId": 40
+      "legacyQuestionId": null
+    },
+    {
+      "question": "¿Cuál es la idea central de la lección \"Aprendizaje, habilidades y pensamiento estratégico\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Aprende a diseñar procesos de aprendizaje y toma de decisiones que acumulen capacidad real en vez de solo información dispersa.",
+        "Comprende cómo la conservación de la energía y la entropía explican por qué los sistemas prosperan, se desgastan o colapsan cuando no transforman bien sus recursos.",
+        "Aprende a leer cómo las leyes de conservación, las curvas exponenciales y la acumulación compuesta convierten pequeñas diferencias en trayectorias totalmente distintas.",
+        "Estudia cómo circula la información en un sistema, cómo distinguir señal de ruido y cómo mejorar la comunicación para coordinar mejor en familia, trabajo y comunidad."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se concentra en aprende a diseñar procesos de aprendizaje y toma de decisiones que acumulen capacidad real en vez de solo información dispersa.",
+      "points": 2,
+      "orderIndex": 11,
+      "legacyQuestionId": null
+    },
+    {
+      "question": "¿Cuál es la idea central de la lección \"Recursos, riqueza y diseño de objetivos\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Ordena tu relación con los recursos y los objetivos para construir riqueza, foco y sistemas de ejecución que sostengan resultados.",
+        "Comprende cómo la conservación de la energía y la entropía explican por qué los sistemas prosperan, se desgastan o colapsan cuando no transforman bien sus recursos.",
+        "Aprende a leer cómo las leyes de conservación, las curvas exponenciales y la acumulación compuesta convierten pequeñas diferencias en trayectorias totalmente distintas.",
+        "Estudia cómo circula la información en un sistema, cómo distinguir señal de ruido y cómo mejorar la comunicación para coordinar mejor en familia, trabajo y comunidad."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se concentra en ordena tu relación con los recursos y los objetivos para construir riqueza, foco y sistemas de ejecución que sostengan resultados.",
+      "points": 2,
+      "orderIndex": 12,
+      "legacyQuestionId": null
+    },
+    {
+      "question": "¿Cuál es la idea central de la lección \"La familia: el sistema base de toda transformación\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Analiza la familia como el primer sistema donde se aprenden reglas, límites, cooperación y reparación; allí comienza cualquier transformación duradera.",
+        "Comprende cómo la conservación de la energía y la entropía explican por qué los sistemas prosperan, se desgastan o colapsan cuando no transforman bien sus recursos.",
+        "Aprende a leer cómo las leyes de conservación, las curvas exponenciales y la acumulación compuesta convierten pequeñas diferencias en trayectorias totalmente distintas.",
+        "Estudia cómo circula la información en un sistema, cómo distinguir señal de ruido y cómo mejorar la comunicación para coordinar mejor en familia, trabajo y comunidad."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se concentra en analiza la familia como el primer sistema donde se aprenden reglas, límites, cooperación y reparación; allí comienza cualquier transformación duradera.",
+      "points": 2,
+      "orderIndex": 13,
+      "legacyQuestionId": null
+    },
+    {
+      "question": "¿Cuál es la idea central de la lección \"Barrio y municipio: donde la coordinación se vuelve visible\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Lleva los primeros principios al territorio inmediato para entender cómo se coordinan familias, organizaciones y Estado local en problemas concretos.",
+        "Comprende cómo la conservación de la energía y la entropía explican por qué los sistemas prosperan, se desgastan o colapsan cuando no transforman bien sus recursos.",
+        "Aprende a leer cómo las leyes de conservación, las curvas exponenciales y la acumulación compuesta convierten pequeñas diferencias en trayectorias totalmente distintas.",
+        "Estudia cómo circula la información en un sistema, cómo distinguir señal de ruido y cómo mejorar la comunicación para coordinar mejor en familia, trabajo y comunidad."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se concentra en lleva los primeros principios al territorio inmediato para entender cómo se coordinan familias, organizaciones y Estado local en problemas concretos.",
+      "points": 2,
+      "orderIndex": 14,
+      "legacyQuestionId": null
+    },
+    {
+      "question": "¿Cuál es la idea central de la lección \"Provincia y nación: Argentina como sistema multinivel\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Integra escalas territoriales para leer a Argentina como un sistema complejo donde las decisiones provinciales y nacionales se condicionan mutuamente.",
+        "Comprende cómo la conservación de la energía y la entropía explican por qué los sistemas prosperan, se desgastan o colapsan cuando no transforman bien sus recursos.",
+        "Aprende a leer cómo las leyes de conservación, las curvas exponenciales y la acumulación compuesta convierten pequeñas diferencias en trayectorias totalmente distintas.",
+        "Estudia cómo circula la información en un sistema, cómo distinguir señal de ruido y cómo mejorar la comunicación para coordinar mejor en familia, trabajo y comunidad."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se concentra en integra escalas territoriales para leer a Argentina como un sistema complejo donde las decisiones provinciales y nacionales se condicionan mutuamente.",
+      "points": 2,
+      "orderIndex": 15,
+      "legacyQuestionId": null
+    },
+    {
+      "question": "¿Cuál es la idea central de la lección \"La clave maestra: mejorar relaciones para mejorar rendimiento\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Cierra el curso sintetizando la idea central: cuando mejoran las relaciones entre las partes, mejora el rendimiento del sistema completo.",
+        "Comprende cómo la conservación de la energía y la entropía explican por qué los sistemas prosperan, se desgastan o colapsan cuando no transforman bien sus recursos.",
+        "Aprende a leer cómo las leyes de conservación, las curvas exponenciales y la acumulación compuesta convierten pequeñas diferencias en trayectorias totalmente distintas.",
+        "Estudia cómo circula la información en un sistema, cómo distinguir señal de ruido y cómo mejorar la comunicación para coordinar mejor en familia, trabajo y comunidad."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se concentra en cierra el curso sintetizando la idea central: cuando mejoran las relaciones entre las partes, mejora el rendimiento del sistema completo.",
+      "points": 2,
+      "orderIndex": 16,
+      "legacyQuestionId": null
     }
   ]
 }

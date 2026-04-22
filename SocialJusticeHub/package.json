@@ -12,7 +12,7 @@
     "verify": "npm run check && npm run check:routes && npm run build",
     "test": "npm run verify:full",
     "test:smoke": "node scripts/verify-runtime.cjs",
-    "verify:full": "npm run verify && npm run courses:audit && npm run courses:qa && npm run test:smoke",
+    "verify:full": "npm run courses:sync && npm run verify && npm run courses:audit && npm run courses:lint-content && npm run courses:qa && npm run test:smoke",
     "db:push": "drizzle-kit push",
     "db:migrate-auth": "tsx scripts/migrate-auth.ts",
     "db:migrate-advanced": "tsx scripts/migrate-advanced-auth.ts",
@@ -22,6 +22,8 @@
     "courses:validate": "tsx scripts/courses-cli.ts validate",
     "courses:sync": "tsx scripts/courses-cli.ts sync",
     "courses:audit": "tsx scripts/courses-cli.ts audit",
+    "courses:lint-content": "tsx scripts/courses-content-audit.ts",
+    "courses:remediate": "tsx scripts/courses-remediate.ts",
     "courses:route-manifest": "tsx scripts/course-route-manifest.ts",
     "courses:qa": "tsx scripts/courses-qa.ts",
     "prerender:courses": "tsx scripts/prerender-course-seo.ts"

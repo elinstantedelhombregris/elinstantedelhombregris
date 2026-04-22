@@ -106,6 +106,66 @@
       "points": 1,
       "orderIndex": 8,
       "legacyQuestionId": 662
+    },
+    {
+      "question": "¿Cuál es el foco principal de la lección \"El Estado como Botín: Captura Institucional\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Cómo los intereses privados capturan las instituciones públicas.",
+        "Introducción al pensamiento sistémico aplicado a la realidad argentina.",
+        "El patrón económico más persistente de Argentina.",
+        "La búsqueda recurrente de un líder mesiánico que lo resuelva todo."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se centra en cómo los intereses privados capturan las instituciones públicas..",
+      "points": 1,
+      "orderIndex": 9,
+      "legacyQuestionId": null
+    },
+    {
+      "question": "¿Cuál es el foco principal de la lección \"El Patrón de la Queja sin Acción\"?",
+      "type": "multiple_choice",
+      "options": [
+        "La cultura del lamento como mecanismo de descarga que reemplaza la acción.",
+        "Introducción al pensamiento sistémico aplicado a la realidad argentina.",
+        "El patrón económico más persistente de Argentina.",
+        "La búsqueda recurrente de un líder mesiánico que lo resuelva todo."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se centra en la cultura del lamento como mecanismo de descarga que reemplaza la acción..",
+      "points": 1,
+      "orderIndex": 10,
+      "legacyQuestionId": null
+    },
+    {
+      "question": "¿Cuál es el foco principal de la lección \"Puntos de Apalancamiento: Dónde Intervenir\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Los lugares del sistema argentino donde pequeñas intervenciones producen grandes cambios.",
+        "Introducción al pensamiento sistémico aplicado a la realidad argentina.",
+        "El patrón económico más persistente de Argentina.",
+        "La búsqueda recurrente de un líder mesiánico que lo resuelva todo."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se centra en los lugares del sistema argentino donde pequeñas intervenciones producen grandes cambios..",
+      "points": 1,
+      "orderIndex": 11,
+      "legacyQuestionId": null
+    },
+    {
+      "question": "¿Cuál es el foco principal de la lección \"Diseño Idealizado: La Argentina que Podemos Construir\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Ejercicio de diseño idealizado: si pudieras diseñar Argentina desde cero, ¿cómo sería?",
+        "Introducción al pensamiento sistémico aplicado a la realidad argentina.",
+        "El patrón económico más persistente de Argentina.",
+        "La búsqueda recurrente de un líder mesiánico que lo resuelva todo."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se centra en ejercicio de diseño idealizado: si pudieras diseñar argentina desde cero, ¿cómo sería?.",
+      "points": 1,
+      "orderIndex": 12,
+      "legacyQuestionId": null
     }
   ]
 }

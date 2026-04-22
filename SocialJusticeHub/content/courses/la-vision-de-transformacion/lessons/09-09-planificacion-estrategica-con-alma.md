@@ -89,3 +89,19 @@ La cultura del "hack" y el "growth" te vende la idea de que todo puede acelerars
 La paciencia estratégica no es pasividad. Es actuar consistentemente con la consciencia de que los resultados importantes son acumulativos. Como un árbol: no crece más rápido si le gritás, pero si lo regás todos los días, eventualmente da sombra para todos.
 
 > Preguntate: ¿estás dispuesto a trabajar 2 años en algo sin ver resultados dramáticos, si sabés que en el año 3 todo cambia? Si la respuesta es no, tu visión necesita más raíces de propósito.
+
+## Aplicación práctica
+
+Teoría del Cambio, backcasting, OKRs con propósito y pensamiento sistémico para transformar visión en acción. Cobra valor cuando lo conviertes en una decisión observable dentro de tu visión personal y tu capacidad de sostenerla. El objetivo no es repetir una definición, sino usar esta idea para leer mejor una situación, ordenar prioridades y elegir un siguiente paso con menos improvisación.
+
+Busca un caso cercano donde este principio te permita ver algo que antes pasabas por alto: un cuello de botella, un incentivo mal diseñado, una conversación mal planteada o un recurso mal aprovechado. Si el concepto no mejora tu lectura de lo concreto, todavía no terminó de asentarse.
+
+## Ejercicio guiado
+
+1. Resume la idea central de la lección en dos o tres frases propias.
+2. Elige una situación de tu visión personal y tu capacidad de sostenerla donde este contenido cambie tu diagnóstico o tu forma de intervenir.
+3. Define una acción pequeña, verificable y realizable en los próximos siete días para poner el aprendizaje en práctica.
+
+## Idea fuerza
+
+Planificación Estratégica con Alma vale por su capacidad para mejorar decisiones reales dentro de tu visión personal y tu capacidad de sostenerla. Cuando una lección te ayuda a ver mejor, priorizar mejor y actuar con mayor consistencia, deja de ser información suelta y se convierte en capacidad acumulable.

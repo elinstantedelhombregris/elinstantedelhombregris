@@ -1,50 +1,85 @@
+## De la Teoría a Tu Mesa
 
-        <h2>De la Teoría a Tu Mesa</h2>
-        <p>Este curso te dio herramientas. Ahora es momento de armar tu <strong>plan de resiliencia económica</strong>: un sistema de protección para tu familia y tu comunidad que funcione hoy, en la próxima crisis, y en cualquier escenario que Argentina invente.</p>
-        <h3>El Plan de 4 Anillos</h3>
-        <h4>Anillo 1: Tu persona (inmediato)</h4>
-        <ul>
-          <li>Registro de gastos durante 30 días</li>
-          <li>Presupuesto familiar escrito</li>
-          <li>Regla del 10% de ahorro automático</li>
-          <li>Eliminar deudas tóxicas (tarjeta, préstamos de consumo)</li>
-          <li>Colchón de emergencia de 1-3 meses</li>
-        </ul>
-        <h4>Anillo 2: Tu hogar (1-3 meses)</h4>
-        <ul>
-          <li>Conversar sobre finanzas en familia (romper el tabú)</li>
-          <li>Implementar educación financiera con tus hijos</li>
-          <li>Revisar todos los servicios: ¿estás pagando de más?</li>
-          <li>Evaluar oportunidades de ingreso adicional</li>
-          <li>Diversificar ahorros en las 4 capas</li>
-        </ul>
-        <h4>Anillo 3: Tu barrio (3-6 meses)</h4>
-        <ul>
-          <li>Identificar vecinos con complementariedad económica</li>
-          <li>Organizar una compra colectiva (empezá con frutas y verduras)</li>
-          <li>Crear un grupo de WhatsApp de intercambio vecinal</li>
-          <li>Evaluar un círculo de ahorro con personas de confianza</li>
-          <li>Participar en la feria o mercado más cercano</li>
-        </ul>
-        <h4>Anillo 4: Tu comunidad (6-12 meses)</h4>
-        <ul>
-          <li>Explorar el modelo cooperativo para tu sector</li>
-          <li>Conectar con redes de economía social en tu zona</li>
-          <li>Promover educación financiera en tu escuela / club / parroquia</li>
-          <li>Impulsar un banco de tiempo o moneda complementaria local</li>
-          <li>Incentivar el consumo consciente en tu red</li>
-        </ul>
-        <h3>La Hoja de Resiliencia</h3>
-        <p>Completá esta hoja y colgala en tu heladera:</p>
-        <table style="width:100%; border-collapse: collapse;">
-          <tr style="background:#f0f0f0;"><th style="padding:8px; border:1px solid #ddd;">Indicador</th><th style="padding:8px; border:1px solid #ddd;">Hoy</th><th style="padding:8px; border:1px solid #ddd;">Meta 6 meses</th></tr>
-          <tr><td style="padding:8px; border:1px solid #ddd;">Ahorro mensual</td><td style="padding:8px; border:1px solid #ddd;">$___</td><td style="padding:8px; border:1px solid #ddd;">$___</td></tr>
-          <tr><td style="padding:8px; border:1px solid #ddd;">Deuda total</td><td style="padding:8px; border:1px solid #ddd;">$___</td><td style="padding:8px; border:1px solid #ddd;">$___</td></tr>
-          <tr><td style="padding:8px; border:1px solid #ddd;">Meses de colchón</td><td style="padding:8px; border:1px solid #ddd;">___</td><td style="padding:8px; border:1px solid #ddd;">___</td></tr>
-          <tr><td style="padding:8px; border:1px solid #ddd;">% ingreso en ahorro</td><td style="padding:8px; border:1px solid #ddd;">___</td><td style="padding:8px; border:1px solid #ddd;">10%</td></tr>
-          <tr><td style="padding:8px; border:1px solid #ddd;">Vecinos en mi red económica</td><td style="padding:8px; border:1px solid #ddd;">___</td><td style="padding:8px; border:1px solid #ddd;">___</td></tr>
+Este curso te dio herramientas. Ahora es momento de armar tu **plan de resiliencia económica**: un sistema de protección para tu familia y tu comunidad que funcione hoy, en la próxima crisis, y en cualquier escenario que Argentina invente.
+
+### El Plan de 4 Anillos
+
+#### Anillo 1: Tu persona (inmediato)
+
+- Registro de gastos durante 30 días
+- Presupuesto familiar escrito
+- Regla del 10% de ahorro automático
+- Eliminar deudas tóxicas (tarjeta, préstamos de consumo)
+- Colchón de emergencia de 1-3 meses
+
+#### Anillo 2: Tu hogar (1-3 meses)
+
+- Conversar sobre finanzas en familia (romper el tabú)
+- Implementar educación financiera con tus hijos
+- Revisar todos los servicios: ¿estás pagando de más?
+- Evaluar oportunidades de ingreso adicional
+- Diversificar ahorros en las 4 capas
+
+#### Anillo 3: Tu barrio (3-6 meses)
+
+- Identificar vecinos con complementariedad económica
+- Organizar una compra colectiva (empezá con frutas y verduras)
+- Crear un grupo de WhatsApp de intercambio vecinal
+- Evaluar un círculo de ahorro con personas de confianza
+- Participar en la feria o mercado más cercano
+
+#### Anillo 4: Tu comunidad (6-12 meses)
+
+- Explorar el modelo cooperativo para tu sector
+- Conectar con redes de economía social en tu zona
+- Promover educación financiera en tu escuela / club / parroquia
+- Impulsar un banco de tiempo o moneda complementaria local
+- Incentivar el consumo consciente en tu red
+
+### La Hoja de Resiliencia
+
+Completá esta hoja y colgala en tu heladera:
+
+<table>
+          <tr><th>Indicador</th><th>Hoy</th><th>Meta 6 meses</th></tr>
+          <tr><td>Ahorro mensual</td><td>$___</td><td>$___</td></tr>
+          <tr><td>Deuda total</td><td>$___</td><td>$___</td></tr>
+          <tr><td>Meses de colchón</td><td>___</td><td>___</td></tr>
+          <tr><td>% ingreso en ahorro</td><td>___</td><td>10%</td></tr>
+          <tr><td>Vecinos en mi red económica</td><td>___</td><td>___</td></tr>
         </table>
-        <h3>El Verdadero Indicador de Riqueza</h3>
-        <p>La verdadera riqueza no es cuánta plata tenés en el banco. Es <strong>cuánto tiempo podés mantener tu nivel de vida sin ingresos</strong>. Si perdés tu trabajo hoy, ¿cuántos meses sobrevivís? Ese número es tu indicador real de resiliencia. Trabajá para aumentarlo.</p>
-        <blockquote>"La economía familiar y comunitaria no es una segunda opción para los que no pudieron con la economía 'de verdad'. Es la economía de verdad: la que te alimenta, te cuida, te sostiene y te conecta. El PBI no te va a salvar en una crisis. Tu familia y tu comunidad sí."</blockquote>
-      
+
+### El Verdadero Indicador de Riqueza
+
+La verdadera riqueza no es cuánta plata tenés en el banco. Es **cuánto tiempo podés mantener tu nivel de vida sin ingresos**. Si perdés tu trabajo hoy, ¿cuántos meses sobrevivís? Ese número es tu indicador real de resiliencia. Trabajá para aumentarlo.
+
+> "La economía familiar y comunitaria no es una segunda opción para los que no pudieron con la economía 'de verdad'. Es la economía de verdad: la que te alimenta, te cuida, te sostiene y te conecta. El PBI no te va a salvar en una crisis. Tu familia y tu comunidad sí."
+
+### Aplicación práctica
+
+Integrar todo lo aprendido en un plan concreto para tu familia y tu comunidad. Para que esta idea no quede en el plano conceptual, conviene traducirla a decisiones observables, criterios de prioridad y conversaciones concretas. La pregunta útil no es solo "qué significa", sino "qué cambia en mi forma de actuar cuando entiendo este punto con claridad". Si esta lección modifica cómo miras tu hogar, tus ingresos y tus decisiones económicas, entonces ya empezó a producir efecto.
+
+En términos operativos, este contenido sirve para distinguir señales reales de ruido, ordenar problemas antes de actuar y evitar respuestas impulsivas. También ayuda a poner nombre a procesos que muchas veces aparecen mezclados: causas, consecuencias, actores involucrados, límites prácticos y oportunidades de intervención. Cuando separas esas capas, mejoras tu capacidad de decidir con menos ansiedad y más precisión.
+
+### Cómo se ve en el territorio
+
+En Argentina, muchas discusiones se traban porque se habla desde consignas generales y no desde situaciones concretas. Por eso, la mejor prueba para una idea es verla en el barrio, en una organización, en una familia o en un equipo de trabajo. Si este tema no puede explicarse en términos de decisiones reales, entonces todavía no está del todo aprendido.
+
+Llévalo a un caso cercano: identifica una situación donde este concepto aparezca con claridad, describe qué actores participan, qué intereses están en juego y qué haría una persona bien preparada después de estudiar esta lección. Ese ejercicio convierte el contenido en criterio y el criterio en acción sostenida.
+
+### Errores comunes
+
+- Confundir el nombre del problema con su causa de fondo.
+- Querer aplicar la idea de forma abstracta sin adaptarla al contexto local.
+- Pasar demasiado rápido de la explicación a la opinión.
+- Buscar una solución única para situaciones que exigen secuencia y prioridades.
+
+### Ejercicio guiado
+
+1. Resume la idea central de la lección en dos frases propias.
+2. Identifica un caso de tu realidad donde este contenido te permita ver algo que antes no estabas viendo.
+3. Define una acción concreta, pequeña y verificable que podrías tomar en los próximos siete días a partir de este aprendizaje.
+
+### Idea fuerza
+
+Tu Plan de Resiliencia Económica Familiar no es solo un tema para entender: es una herramienta para ordenar la mirada, mejorar tu criterio y actuar con más consistencia dentro de tu hogar, tus ingresos y tus decisiones económicas. Cuando un aprendizaje se traduce en decisiones mejores, deja de ser información y se convierte en capacidad.

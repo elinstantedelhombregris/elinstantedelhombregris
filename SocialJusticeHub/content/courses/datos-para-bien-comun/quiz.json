@@ -106,6 +106,36 @@
       "points": 1,
       "orderIndex": 8,
       "legacyQuestionId": 584
+    },
+    {
+      "question": "¿Cuál es el foco principal de la lección \"Rendición de Cuentas Basada en Datos\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Cómo usar datos para exigir transparencia y combatir la corrupción.",
+        "Los datos públicos son tu derecho y tu herramienta más poderosa de rendición de cuentas.",
+        "Métodos prácticos para relevar datos que no existen en fuentes oficiales.",
+        "Cómo transformar datos crudos en información útil usando hojas de cálculo."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se centra en cómo usar datos para exigir transparencia y combatir la corrupción..",
+      "points": 1,
+      "orderIndex": 9,
+      "legacyQuestionId": null
+    },
+    {
+      "question": "¿Cuál es el foco principal de la lección \"Tu Proyecto de Datos: De Este Curso a la Transformación\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Diseñar y ejecutar tu primer proyecto de datos para el bien común.",
+        "Los datos públicos son tu derecho y tu herramienta más poderosa de rendición de cuentas.",
+        "Métodos prácticos para relevar datos que no existen en fuentes oficiales.",
+        "Cómo transformar datos crudos en información útil usando hojas de cálculo."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se centra en diseñar y ejecutar tu primer proyecto de datos para el bien común..",
+      "points": 1,
+      "orderIndex": 10,
+      "legacyQuestionId": null
     }
   ]
 }

@@ -120,6 +120,36 @@
       "points": 1,
       "orderIndex": 8,
       "legacyQuestionId": 552
+    },
+    {
+      "question": "¿Cuál es el foco principal de la lección \"Liderar en Crisis\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Mantener un grupo funcional cuando el contexto se derrumba — la especialidad argentina.",
+        "Por qué la cultura del caudillo sigue arruinando todo y qué alternativa existe.",
+        "Descubrir dónde ya tenés poder real y cómo expandirlo estratégicamente.",
+        "Construir confianza real en una sociedad que aprendió a desconfiar de todo."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se centra en mantener un grupo funcional cuando el contexto se derrumba — la especialidad argentina..",
+      "points": 1,
+      "orderIndex": 9,
+      "legacyQuestionId": null
+    },
+    {
+      "question": "¿Cuál es el foco principal de la lección \"Tu Proyecto de Liderazgo\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Diseñar tu experimento de liderazgo distribuido de 90 días.",
+        "Por qué la cultura del caudillo sigue arruinando todo y qué alternativa existe.",
+        "Descubrir dónde ya tenés poder real y cómo expandirlo estratégicamente.",
+        "Construir confianza real en una sociedad que aprendió a desconfiar de todo."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se centra en diseñar tu experimento de liderazgo distribuido de 90 días..",
+      "points": 1,
+      "orderIndex": 10,
+      "legacyQuestionId": null
     }
   ]
 }

@@ -106,6 +106,36 @@
       "points": 1,
       "orderIndex": 8,
       "legacyQuestionId": 506
+    },
+    {
+      "question": "¿Cuál es el foco principal de la lección \"Economía del Conocimiento: El Sector Que Puede Romper el Ciclo\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Cómo la economía del conocimiento puede transformar el modelo argentino.",
+        "Introducción al pensamiento sistémico aplicado a la economía argentina.",
+        "Entender la inflación como fenómeno sistémico multicausal.",
+        "Por qué Argentina tiene una relación única con el dólar y qué significa sistémicamente."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se centra en cómo la economía del conocimiento puede transformar el modelo argentino..",
+      "points": 1,
+      "orderIndex": 9,
+      "legacyQuestionId": null
+    },
+    {
+      "question": "¿Cuál es el foco principal de la lección \"Diseñar la Salida: Qué Debería Hacer Argentina\"?",
+      "type": "multiple_choice",
+      "options": [
+        "Síntesis de intervenciones sistémicas para transformar la economía argentina.",
+        "Introducción al pensamiento sistémico aplicado a la economía argentina.",
+        "Entender la inflación como fenómeno sistémico multicausal.",
+        "Por qué Argentina tiene una relación única con el dólar y qué significa sistémicamente."
+      ],
+      "correctAnswer": 0,
+      "explanation": "La lección se centra en síntesis de intervenciones sistémicas para transformar la economía argentina..",
+      "points": 1,
+      "orderIndex": 10,
+      "legacyQuestionId": null
     }
   ]
 }

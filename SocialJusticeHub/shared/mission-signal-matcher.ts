@@ -15,6 +15,7 @@ export interface SignalScore {
   missionSlug: string;
   score: number;
   matchedKeywords: string[];
+  matchCount: number;
 }
 
 // Hardcoded domain keywords per mission slug
@@ -141,6 +142,7 @@ export function scoreDreamForMission(dream: DreamLike, mission: MissionDefinitio
     missionSlug: mission.slug,
     score: matchedKeywords.length,
     matchedKeywords,
+    matchCount: matchedKeywords.length,
   };
 }
 

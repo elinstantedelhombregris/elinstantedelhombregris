@@ -108,3 +108,19 @@ Hace 10 lecciones empezaste con una pregunta: ¿tenés una visión? Ahora te hac
 La respuesta no se da con palabras. Se da con acciones.
 
 Gracias por llegar hasta acá. El verdadero curso empieza cuando cerrás esta pantalla y abrís tu vida.
+
+## Aplicación práctica
+
+Poné todo junto en un mapa personal de 7 componentes. Ritual de compromiso, práctica de revisión y el comienzo real. Cobra valor cuando lo conviertes en una decisión observable dentro de tu visión personal y tu capacidad de sostenerla. El objetivo no es repetir una definición, sino usar esta idea para leer mejor una situación, ordenar prioridades y elegir un siguiente paso con menos improvisación.
+
+Busca un caso cercano donde este principio te permita ver algo que antes pasabas por alto: un cuello de botella, un incentivo mal diseñado, una conversación mal planteada o un recurso mal aprovechado. Si el concepto no mejora tu lectura de lo concreto, todavía no terminó de asentarse.
+
+## Ejercicio guiado
+
+1. Resume la idea central de la lección en dos o tres frases propias.
+2. Elige una situación de tu visión personal y tu capacidad de sostenerla donde este contenido cambie tu diagnóstico o tu forma de intervenir.
+3. Define una acción pequeña, verificable y realizable en los próximos siete días para poner el aprendizaje en práctica.
+
+## Idea fuerza
+
+Integración: Tu Mapa de Transformación Personal vale por su capacidad para mejorar decisiones reales dentro de tu visión personal y tu capacidad de sostenerla. Cuando una lección te ayuda a ver mejor, priorizar mejor y actuar con mayor consistencia, deja de ser información suelta y se convierte en capacidad acumulable.
