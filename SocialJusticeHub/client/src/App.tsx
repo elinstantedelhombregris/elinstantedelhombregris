@@ -32,6 +32,7 @@ const Manifiesto = React.lazy(() => import("@/pages/Manifiesto"));
 const DetallesCalculoCostoHumano = React.lazy(() => import("@/pages/DetallesCalculoCostoHumano"));
 const UserDashboard = React.lazy(() => import("@/pages/UserDashboard"));
 const UserProfile = React.lazy(() => import("@/pages/UserProfile"));
+const PublicProfile = React.lazy(() => import("@/pages/PublicProfile"));
 const Challenges = React.lazy(() => import("@/pages/Challenges"));
 const ChallengeDetail = React.lazy(() => import("@/pages/ChallengeDetail"));
 const InitiativeDetail = React.lazy(() => import("@/pages/InitiativeDetail"));
@@ -132,6 +133,7 @@ function Router() {
       <Route path="/dashboard" component={InsightDashboard} />
       <Route path="/dashboard-legacy" component={UserDashboard} />
       <Route path="/profile" component={UserProfile} />
+      <Route path="/u/:username" component={PublicProfile} />
       <Route path="/challenges" component={Challenges} />
       <Route path="/challenges/:id" component={ChallengeDetail} />
       <Route path="/evaluacion" component={CivicAssessment} />

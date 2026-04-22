@@ -3,7 +3,7 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { useLocation } from 'wouter';
 import {
   Users, Target, Sparkles, MapPin,
-  Zap, Trophy, Bell, Flame, Award, ShieldCheck
+  Zap, Trophy, Bell, Flame, Compass
 } from 'lucide-react';
 
 import { UserContext } from '@/App';
@@ -35,8 +35,10 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import ShockStats from '@/components/ShockStats';
-import MisionesSection from '@/components/community/MisionesSection';
 import ComunidadSection from '@/components/community/ComunidadSection';
+import LeaderboardPeriodTabs, { type LeaderboardPeriod } from '@/components/community/LeaderboardPeriodTabs';
+import LeaderHeroCard, { type Leader } from '@/components/community/LeaderHeroCard';
+import LeaderTile from '@/components/community/LeaderTile';
 
 type CommunityPost = {
   id: number;
@@ -83,7 +85,7 @@ const Community = () => {
   const [showOnlyMine, setShowOnlyMine] = useState(false);
   const [showMyMemberships, setShowMyMemberships] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
-  const [section, setSection] = useState<'misiones' | 'comunidad'>('misiones');
+  const [leaderboardPeriod, setLeaderboardPeriod] = useState<LeaderboardPeriod>('global');
 
   // New Post State
   const [newPost, setNewPost] = useState({
@@ -115,25 +117,6 @@ const Community = () => {
       if (response.ok) return response.json();
       return [];
     },
-  });
-
-  const { data: missionPosts = [] } = useQuery({
-    queryKey: ['mission-posts'],
-    queryFn: async () => {
-      const response = await apiRequest('GET', '/api/community?type=mission');
-      if (response.ok) return response.json();
-      return [];
-    },
-  });
-
-  const { data: missionStatsData = [] } = useQuery({
-    queryKey: ['mission-stats'],
-    queryFn: async () => {
-      const res = await apiRequest('GET', '/api/missions');
-      if (!res.ok) return [];
-      return res.json();
-    },
-    staleTime: 300000,
   });
 
   // Real community stats
@@ -179,9 +162,9 @@ const Community = () => {
 
   // Leaderboard
   const { data: leaderboardData } = useQuery({
-    queryKey: ['community-leaderboard'],
+    queryKey: ['community-leaderboard', leaderboardPeriod],
     queryFn: async () => {
-      const res = await apiRequest('GET', '/api/leaderboard?type=global&limit=5');
+      const res = await apiRequest('GET', `/api/leaderboard?type=${leaderboardPeriod}&limit=10`);
       if (!res.ok) return null;
       return res.json();
     },
@@ -364,21 +347,21 @@ const Community = () => {
       <main className="relative z-10 pt-20">
         <TribalPulse />
 
-        {/* HERO: The Call to Assembly */}
+        {/* HERO: La Hermandad */}
         <section className="relative py-32 overflow-hidden">
           <div className="container-content relative z-10">
             <div className="max-w-5xl mx-auto text-center">
               <SmoothReveal direction="down">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-900/20 border border-blue-500/30 text-blue-400 text-sm font-mono mb-8 tracking-widest uppercase backdrop-blur-md">
                   <Users className="w-4 h-4" />
-                  Los Círculos de Reconstrucción
+                  La Hermandad
                 </div>
               </SmoothReveal>
 
               <SmoothReveal delay={0.2}>
                 <h1 className="heading-hero mb-8">
                   <span className="block text-transparent bg-clip-text bg-gradient-to-b from-white via-slate-200 to-slate-500">
-                    El Ágora Viva
+                    La Hermandad
                   </span>
                   <span className="block text-2xl md:text-4xl font-sans font-light text-slate-400 mt-4 tracking-wide">
                     Donde la voluntad individual se hace <span className="text-blue-400">Poder Colectivo</span>
@@ -388,9 +371,9 @@ const Community = () => {
 
               <SmoothReveal delay={0.4}>
                 <p className="text-xl md:text-2xl text-slate-400/80 max-w-3xl mx-auto mb-12 leading-relaxed font-light">
-                  Has despertado. Has sembrado. Ahora es momento de conectar.
+                  Has despertado. Has sembrado. Ahora es momento de reconocernos.
                   <br />
-                  Aquí las ideas encuentran recursos, y los líderes encuentran su tribu.
+                  Aquí las ideas encuentran recursos, y los faros encuentran su tribu.
                 </p>
               </SmoothReveal>
 
@@ -405,12 +388,12 @@ const Community = () => {
                     icon={<Sparkles className="w-5 h-5" />}
                   />
                   <PowerCTA
-                    text="EXPLORAR MISIONES"
+                    text="VER LÍDERES"
                     variant="secondary"
-                    onClick={() => window.scrollTo({ top: 900, behavior: 'smooth' })}
+                    onClick={() => document.getElementById('faros-hermandad')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
                     size="lg"
                     animate={true}
-                    icon={<Target className="w-5 h-5" />}
+                    icon={<Compass className="w-5 h-5" />}
                   />
                 </div>
               </SmoothReveal>
@@ -487,119 +470,80 @@ const Community = () => {
           </section>
         )}
 
-        {/* SECTION NAVIGATOR */}
-        <div className="sticky top-20 z-40 py-4 bg-[#0a0a0a]/80 backdrop-blur-xl border-y border-white/5">
-          <div className="container-content flex justify-center gap-3">
-            <button
-              onClick={() => setSection('misiones')}
-              className={`flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium transition-all border ${
-                section === 'misiones'
-                  ? 'bg-blue-500/20 border-blue-500/50 text-white shadow-[0_0_15px_rgba(59,130,246,0.3)]'
-                  : 'bg-white/5 border-white/10 text-slate-400 hover:bg-white/10 hover:text-white'
-              }`}
-            >
-              <ShieldCheck className="w-4 h-4" />
-              <span className="font-mono text-xs tracking-[0.2em] uppercase">Misiones</span>
-            </button>
-            <button
-              onClick={() => setSection('comunidad')}
-              className={`flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium transition-all border ${
-                section === 'comunidad'
-                  ? 'bg-blue-500/20 border-blue-500/50 text-white shadow-[0_0_15px_rgba(59,130,246,0.3)]'
-                  : 'bg-white/5 border-white/10 text-slate-400 hover:bg-white/10 hover:text-white'
-              }`}
-            >
-              <Users className="w-4 h-4" />
-              <span className="font-mono text-xs tracking-[0.2em] uppercase">Comunidad</span>
-            </button>
-          </div>
-        </div>
+        {/* COMUNIDAD */}
+        <ComunidadSection
+          ayudaCompartirPost={ayudaCompartirPost}
+          posts={posts}
+          onNavigateToPost={(id) => setLocation(`/community/${id}`)}
+          onNavigate={setLocation}
+          onCreatePost={() => setShowCreateModal(true)}
+        />
 
-        {/* SECTION CONTENT */}
-        {section === 'misiones' ? (
-          <MisionesSection
-            missionStatsData={missionStatsData}
-            missionPosts={missionPosts}
-            onNavigate={setLocation}
-          />
-        ) : (
-          <ComunidadSection
-            ayudaCompartirPost={ayudaCompartirPost}
-            posts={posts}
-            onNavigateToPost={(id) => setLocation(`/community/${id}`)}
-            onNavigate={setLocation}
-            onCreatePost={() => setShowCreateModal(true)}
-          />
-        )}
-
-        {/* HALL OF GUARDIANS */}
-        <section className="py-16 bg-[#0a0a0a] relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-blue-900/5 to-transparent" />
+        {/* FAROS DE LA HERMANDAD */}
+        <section id="faros-hermandad" className="py-20 bg-[#0a0a0a] relative overflow-hidden scroll-mt-24">
+          <div className="absolute inset-0 bg-gradient-to-b from-blue-900/5 to-transparent pointer-events-none" />
           <div className="container-content relative z-10">
-            <div className="flex flex-col md:flex-row gap-8 items-start">
-              <div className="flex-1">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-900/20 border border-purple-500/30 text-purple-400 text-xs font-mono mb-6 tracking-widest uppercase">
-                  <Trophy className="w-3 h-3" />
-                  Hall of Guardians
+            <div className="flex flex-col lg:flex-row gap-10 items-start">
+              <div className="flex-1 w-full min-w-0">
+                <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8">
+                  <div>
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-400/10 border border-yellow-400/20 text-yellow-300 text-xs font-mono mb-4 tracking-[0.2em] uppercase">
+                      <Trophy className="w-3 h-3" />
+                      Faros de la Hermandad
+                    </div>
+                    <h2 className="heading-section mb-4 text-white">
+                      Líderes del Despertar
+                    </h2>
+                    <p className="text-slate-400 leading-relaxed max-w-2xl">
+                      Reconocemos a quienes transforman la realidad con acciones consistentes. Su impacto es el faro que guía a la hermandad.
+                    </p>
+                  </div>
+                  <LeaderboardPeriodTabs value={leaderboardPeriod} onChange={setLeaderboardPeriod} />
                 </div>
-                <h2 className="heading-section mb-6 text-white">
-                  Líderes del Despertar
-                </h2>
-                <p className="text-slate-400 leading-relaxed mb-8">
-                  Reconocemos a quienes transforman la realidad con acciones consistentes. Su impacto es el faro que guía a la tribu.
-                </p>
-                <div className="grid grid-cols-1 gap-4">
-                  {leaderboard.length === 0 ? (
-                    <GlassCard className="p-8 text-center">
-                      <Trophy className="w-10 h-10 text-slate-600 mx-auto mb-3" />
-                      <p className="text-slate-500">Todavia no hay lideres en el ranking.</p>
-                      <p className="text-slate-600 text-sm mt-1">Se el primero en escalar.</p>
-                    </GlassCard>
-                  ) : (
-                    leaderboard.map((entry: any, idx: number) => (
-                      <GlassCard key={entry.userId} className="flex items-center gap-4 p-4 hover:bg-white/5 transition-colors">
-                        <div className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg border ${
-                          idx === 0 ? 'bg-yellow-500/20 text-yellow-400 border-yellow-500/50' :
-                          idx === 1 ? 'bg-slate-400/20 text-slate-300 border-slate-400/50' :
-                          idx === 2 ? 'bg-orange-700/20 text-orange-400 border-orange-700/50' :
-                          'bg-white/10 text-slate-400 border-white/20'
-                        }`}>
-                          {idx + 1}
-                        </div>
-                        <div className="flex-1">
-                          <h4 className="text-white font-bold">{entry.user?.name || 'Anonimo'}</h4>
-                          <div className="flex items-center gap-2 text-xs text-slate-500 font-mono mt-1">
-                            <Award className="w-3 h-3" /> Nivel {entry.level || 1}
-                          </div>
-                        </div>
-                        <div className="text-right">
-                          <div className="text-xl font-bold text-white">{(entry.points || 0).toLocaleString()}</div>
-                          <div className="text-xs text-slate-500 uppercase">XP</div>
-                        </div>
-                      </GlassCard>
-                    ))
-                  )}
-                </div>
+
+                {leaderboard.length === 0 ? (
+                  <GlassCard className="p-10 text-center">
+                    <Trophy className="w-10 h-10 text-slate-600 mx-auto mb-3" />
+                    <p className="text-slate-500">Todavía no hay faros en el horizonte.</p>
+                    <p className="text-slate-600 text-sm mt-1">Sé el primero en encender la llama.</p>
+                  </GlassCard>
+                ) : (
+                  <div className="space-y-6">
+                    <LeaderHeroCard leader={leaderboard[0] as Leader} />
+
+                    {leaderboard.length > 1 && (
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        {leaderboard.slice(1).map((entry: Leader, idx: number) => (
+                          <LeaderTile key={entry.userId} leader={entry} index={idx} />
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                )}
               </div>
 
               {/* My Stats Card */}
-              <div className="w-full md:w-96">
+              <div className="w-full lg:w-96 lg:flex-shrink-0">
                 <GlassCard className="bg-gradient-to-br from-blue-900/10 to-purple-900/10 border-blue-500/20">
                   <div className="text-center p-6 border-b border-white/5">
-                    <div className="w-20 h-20 mx-auto bg-slate-800 rounded-full mb-4 flex items-center justify-center border-2 border-blue-500/30">
-                      <span className="text-2xl font-bold text-white">
-                        {userContext?.user?.name?.charAt(0) || '?'}
-                      </span>
+                    <div className="w-20 h-20 mx-auto bg-slate-800 rounded-full mb-4 flex items-center justify-center border-2 border-blue-500/30 overflow-hidden">
+                      {userContext?.user?.avatarUrl ? (
+                        <img src={userContext.user.avatarUrl} alt={userContext.user.name} className="w-full h-full object-cover" />
+                      ) : (
+                        <span className="text-2xl font-bold text-white">
+                          {userContext?.user?.name?.charAt(0) || '?'}
+                        </span>
+                      )}
                     </div>
                     <h3 className="text-white font-bold text-lg">Tu Legado</h3>
                     <p className="text-slate-400 text-sm">
-                      {userContext?.user ? userContext.user.username : 'Inicia sesion para ver tu progreso'}
+                      {userContext?.user ? `@${userContext.user.username}` : 'Iniciá sesión para ver tu progreso'}
                     </p>
                   </div>
                   {userContext?.user && userStats ? (
                     <div className="p-6 space-y-4">
                       <div className="flex justify-between items-center">
-                        <span className="text-slate-400 text-sm">Nivel Actual</span>
+                        <span className="text-slate-400 text-sm">Nivel actual</span>
                         <Badge className="bg-blue-500/20 text-blue-300 border-blue-500/30">Nivel {userStats.level || 1}</Badge>
                       </div>
                       <div className="space-y-2">
@@ -625,18 +569,24 @@ const Community = () => {
                         </div>
                         <div className="text-center">
                           <div className="text-lg font-bold text-white">{userStats.completedChallenges || 0}</div>
-                          <div className="text-[10px] text-slate-500 uppercase">Desafios</div>
+                          <div className="text-[10px] text-slate-500 uppercase">Desafíos</div>
                         </div>
                       </div>
+                      <Button
+                        className="w-full bg-white/5 hover:bg-white/10 text-white border border-white/10"
+                        onClick={() => setLocation(`/u/${userContext.user!.username}`)}
+                      >
+                        Ver mi perfil público
+                      </Button>
                     </div>
                   ) : (
                     <div className="p-6 text-center">
-                      <p className="text-slate-500 text-sm mb-4">Inicia sesion para desbloquear tu perfil de impacto.</p>
+                      <p className="text-slate-500 text-sm mb-4">Iniciá sesión para desbloquear tu perfil de impacto.</p>
                       <Button
                         className="w-full bg-white/10 hover:bg-white/20 text-white border border-white/10"
                         onClick={() => setLocation('/login')}
                       >
-                        Iniciar Sesion
+                        Iniciar sesión
                       </Button>
                     </div>
                   )}
@@ -698,13 +648,13 @@ const Community = () => {
           <DialogHeader>
             <DialogTitle className="text-2xl font-serif font-bold text-white">Lanzar Iniciativa</DialogTitle>
             <DialogDescription className="text-slate-400">
-              Define tu misión y convoca a la tribu.
+              Definí tu iniciativa y convocá a la hermandad.
             </DialogDescription>
           </DialogHeader>
 
           <div className="space-y-6 py-4">
             <div className="space-y-2">
-              <label className="text-sm font-medium text-slate-400">Título de la Misión</label>
+              <label className="text-sm font-medium text-slate-400">Título de la Iniciativa</label>
               <Input
                 value={newPost.title}
                 onChange={(e) => setNewPost({ ...newPost, title: e.target.value })}
@@ -715,7 +665,7 @@ const Community = () => {
 
             <div className="grid md:grid-cols-2 gap-4">
               <div className="space-y-2">
-                <label className="text-sm font-medium text-slate-400">Tipo de Acción</label>
+                <label className="text-sm font-medium text-slate-400">Tipo de Iniciativa</label>
                 <Select value={newPost.type} onValueChange={(v: any) => setNewPost({ ...newPost, type: v })}>
                   <SelectTrigger className="bg-white/5 border-white/10 text-white">
                     <SelectValue />
@@ -803,7 +753,7 @@ const Community = () => {
                 disabled={createPostMutation.isPending || !newPost.title.trim()}
                 className="bg-blue-600 hover:bg-blue-700 text-white shadow-[0_0_20px_rgba(37,99,235,0.3)]"
               >
-                {createPostMutation.isPending ? 'Lanzando...' : 'Lanzar Misión'}
+                {createPostMutation.isPending ? 'Lanzando...' : 'Lanzar Iniciativa'}
               </Button>
             </div>
           </div>

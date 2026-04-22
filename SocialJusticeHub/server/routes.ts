@@ -5038,6 +5038,32 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Get public profile by username
+  app.get("/api/users/:username/profile", optionalAuth, async (req: AuthRequest, res) => {
+    try {
+      const { username } = req.params;
+      const profile = await storage.getPublicProfileByUsername(username);
+
+      if (!profile) {
+        return res.status(404).json({
+          error: "Not Found",
+          message: "Usuario no encontrado"
+        });
+      }
+
+      res.json({
+        success: true,
+        data: profile
+      });
+    } catch (error) {
+      console.error("Error fetching public profile:", error);
+      res.status(500).json({
+        error: "Internal Server Error",
+        message: "Error fetching public profile"
+      });
+    }
+  });
+
   // Get leaderboard
   app.get("/api/leaderboard", optionalAuth, async (req: AuthRequest, res) => {
     try {

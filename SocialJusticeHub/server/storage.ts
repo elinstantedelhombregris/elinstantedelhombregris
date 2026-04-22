@@ -393,6 +393,7 @@ export interface IStorage {
   }>;
   getUserBadges(userId: number): Promise<any[]>;
   getLeaderboard(type: string, limit: number): Promise<any[]>;
+  getPublicProfileByUsername(username: string): Promise<any | null>;
   recordAction(userId: number, actionType: string, metadata?: any): Promise<any>;
   getUserProgress(userId: number): Promise<any>;
   awardBadge(userId: number, badgeId: number): Promise<any>;
@@ -3390,15 +3391,15 @@ export class DatabaseStorage implements IStorage {
   }
 
   async getLeaderboard(type: string, limit: number): Promise<any[]> {
-    let query;
-    
+    let rows: any[];
+
     switch (type) {
-      case 'weekly':
+      case 'weekly': {
         const weekStart = new Date();
         weekStart.setDate(weekStart.getDate() - weekStart.getDay());
         const weekStartStr = weekStart.toISOString().split('T')[0];
-        
-        query = db
+
+        rows = await db
           .select({
             userId: weeklyRankings.userId,
             points: weeklyRankings.points,
@@ -3406,7 +3407,10 @@ export class DatabaseStorage implements IStorage {
             user: {
               id: users.id,
               name: users.name,
-              username: users.username
+              username: users.username,
+              location: users.location,
+              avatarUrl: users.avatarUrl,
+              createdAt: users.createdAt
             }
           })
           .from(weeklyRankings)
@@ -3415,11 +3419,12 @@ export class DatabaseStorage implements IStorage {
           .orderBy(asc(weeklyRankings.rank))
           .limit(limit);
         break;
-        
-      case 'monthly':
+      }
+
+      case 'monthly': {
         const monthStart = new Date().toISOString().substring(0, 7); // YYYY-MM
-        
-        query = db
+
+        rows = await db
           .select({
             userId: monthlyRankings.userId,
             points: monthlyRankings.points,
@@ -3427,7 +3432,10 @@ export class DatabaseStorage implements IStorage {
             user: {
               id: users.id,
               name: users.name,
-              username: users.username
+              username: users.username,
+              location: users.location,
+              avatarUrl: users.avatarUrl,
+              createdAt: users.createdAt
             }
           })
           .from(monthlyRankings)
@@ -3436,10 +3444,11 @@ export class DatabaseStorage implements IStorage {
           .orderBy(asc(monthlyRankings.rank))
           .limit(limit);
         break;
-        
+      }
+
       case 'global':
-      default:
-        query = db
+      default: {
+        rows = await db
           .select({
             userId: userProgress.userId,
             points: userProgress.points,
@@ -3448,7 +3457,10 @@ export class DatabaseStorage implements IStorage {
             user: {
               id: users.id,
               name: users.name,
-              username: users.username
+              username: users.username,
+              location: users.location,
+              avatarUrl: users.avatarUrl,
+              createdAt: users.createdAt
             }
           })
           .from(userProgress)
@@ -3456,9 +3468,147 @@ export class DatabaseStorage implements IStorage {
           .orderBy(desc(userProgress.points))
           .limit(limit);
         break;
+      }
     }
 
-    return await query;
+    if (rows.length === 0) return [];
+
+    const userIds = rows.map(r => r.userId);
+
+    // Fetch badge counts in one query
+    const badgeCounts = await db
+      .select({
+        userId: userBadges.userId,
+        count: sql<number>`cast(count(*) as int)`
+      })
+      .from(userBadges)
+      .where(inArray(userBadges.userId, userIds))
+      .groupBy(userBadges.userId);
+
+    const badgeCountMap = new Map(badgeCounts.map(bc => [bc.userId, bc.count]));
+
+    // Fetch top 3 badges per user in one query, then group in memory
+    const topBadgeRows = await db
+      .select({
+        userId: userBadges.userId,
+        earnedAt: userBadges.earnedAt,
+        badgeId: badges.id,
+        name: badges.name,
+        iconName: badges.iconName,
+        rarity: badges.rarity
+      })
+      .from(userBadges)
+      .innerJoin(badges, eq(userBadges.badgeId, badges.id))
+      .where(inArray(userBadges.userId, userIds))
+      .orderBy(desc(userBadges.earnedAt));
+
+    const topBadgesByUser = new Map<number, Array<{ id: number; name: string; iconName: string; rarity: string }>>();
+    for (const row of topBadgeRows) {
+      const list = topBadgesByUser.get(row.userId) ?? [];
+      if (list.length < 3) {
+        list.push({ id: row.badgeId, name: row.name, iconName: row.iconName, rarity: row.rarity });
+        topBadgesByUser.set(row.userId, list);
+      }
+    }
+
+    // For weekly/monthly, also fetch level from userProgress
+    let levelMap = new Map<number, number>();
+    if (type !== 'global') {
+      const progressRows = await db
+        .select({ userId: userProgress.userId, level: userProgress.level })
+        .from(userProgress)
+        .where(inArray(userProgress.userId, userIds));
+      levelMap = new Map(progressRows.map(p => [p.userId, p.level ?? 1]));
+    }
+
+    return rows.map(row => ({
+      ...row,
+      level: row.level ?? levelMap.get(row.userId) ?? 1,
+      badgeCount: badgeCountMap.get(row.userId) ?? 0,
+      topBadges: topBadgesByUser.get(row.userId) ?? []
+    }));
+  }
+
+  async getPublicProfileByUsername(username: string): Promise<any | null> {
+    const [user] = await db
+      .select({
+        id: users.id,
+        username: users.username,
+        name: users.name,
+        location: users.location,
+        avatarUrl: users.avatarUrl,
+        bio: users.bio,
+        createdAt: users.createdAt
+      })
+      .from(users)
+      .where(eq(users.username, username))
+      .limit(1);
+
+    if (!user) return null;
+
+    const [progress] = await db
+      .select({
+        points: userProgress.points,
+        rank: userProgress.rank,
+        level: userProgress.level
+      })
+      .from(userProgress)
+      .where(eq(userProgress.userId, user.id))
+      .limit(1);
+
+    const userLevelRow = await this.getUserLevel(user.id);
+
+    // Posts (iniciativas) lanzadas por el usuario
+    const posts = await db
+      .select({
+        id: communityPosts.id,
+        title: communityPosts.title,
+        description: communityPosts.description,
+        type: communityPosts.type,
+        location: communityPosts.location,
+        status: communityPosts.status,
+        likesCount: communityPosts.likesCount,
+        createdAt: communityPosts.createdAt
+      })
+      .from(communityPosts)
+      .where(and(
+        eq(communityPosts.userId, user.id),
+        eq(communityPosts.type as any, 'project')
+      ))
+      .orderBy(desc(communityPosts.createdAt))
+      .limit(50);
+
+    // Badges earned (all)
+    const earnedBadges = await db
+      .select({
+        id: badges.id,
+        name: badges.name,
+        description: badges.description,
+        iconName: badges.iconName,
+        category: badges.category,
+        rarity: badges.rarity,
+        earnedAt: userBadges.earnedAt
+      })
+      .from(userBadges)
+      .innerJoin(badges, eq(userBadges.badgeId, badges.id))
+      .where(eq(userBadges.userId, user.id))
+      .orderBy(desc(userBadges.earnedAt));
+
+    return {
+      user,
+      stats: {
+        level: progress?.level ?? userLevelRow?.currentLevel ?? 1,
+        points: progress?.points ?? 0,
+        rank: progress?.rank ?? null,
+        streak: userLevelRow?.streak ?? 0,
+        experience: userLevelRow?.experience ?? 0,
+        experienceToNext: userLevelRow?.experienceToNext ?? 500,
+        initiativesCount: posts.length,
+        badgesCount: earnedBadges.length
+      },
+      posts,
+      badges: earnedBadges
+    };
   }
 
   async recordAction(userId: number, actionType: string, metadata?: any): Promise<any> {
