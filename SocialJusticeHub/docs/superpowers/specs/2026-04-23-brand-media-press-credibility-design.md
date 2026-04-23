@@ -143,7 +143,7 @@ Add this block on three surfaces:
 
 > ### Diseño Idealizado
 >
-> La Ruta para Argentina y sus 22 planes son un ejercicio de **diseño idealizado**, en el sentido que Russell Ackoff le dio al término: no son una hoja de ruta cerrada ni una promesa de gobierno.
+> La Ruta para Argentina y sus 22 planes son un ejercicio de **diseño idealizado**: no son una hoja de ruta cerrada ni una promesa de gobierno.
 >
 > Son un mapa de hacia dónde **podríamos apuntar** si las personas dejan de esperar y empiezan a diseñar. Sirven como **ejemplo e inspiración** — muestran lo que se puede pensar, medir, proponer y ordenar cuando la ciudadanía se toma en serio el rediseño del país.
 >
