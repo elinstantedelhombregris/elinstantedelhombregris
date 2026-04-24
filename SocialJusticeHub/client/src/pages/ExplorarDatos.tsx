@@ -3,11 +3,6 @@ import { motion, useInView, useMotionValue, animate, AnimatePresence } from 'fra
 import { Scrollama, Step } from 'react-scrollama';
 import { ResponsiveSankey } from '@nivo/sankey';
 import { ResponsiveChord } from '@nivo/chord';
-import DeckGL from '@deck.gl/react';
-import { HexagonLayer } from '@deck.gl/aggregation-layers';
-import { ArcLayer } from '@deck.gl/layers';
-import { Map } from 'react-map-gl/maplibre';
-import 'maplibre-gl/dist/maplibre-gl.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ConstellationGraph from '@/components/ConstellationGraph';
@@ -21,8 +16,8 @@ import {
   type DreamType,
   type ConvergenceData,
 } from '@/hooks/useConvergenceAnalysis';
-import { useDeckGLLayers } from '@/hooks/useDeckGLLayers';
 import { useAIInsights } from '@/hooks/useAIInsights';
+import ConvergenceMap from '@/components/radiografia-map/ConvergenceMap';
 import {
   Microscope,
   Target,
@@ -31,8 +26,6 @@ import {
   Compass,
   Database,
   Sparkles,
-  BarChart3,
-  Network,
   Globe,
 } from 'lucide-react';
 
@@ -301,142 +294,6 @@ const ScrollytellingSection: React.FC<{ convergence: ConvergenceData }> = ({ con
               ))}
             </Scrollama>
           </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-// ─── Section: deck.gl Convergence Map ───
-
-const INITIAL_VIEW_STATE = {
-  latitude: -38.416,
-  longitude: -63.617,
-  zoom: 4,
-  pitch: 45,
-  bearing: 0,
-};
-
-const MAP_STYLE = 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json';
-
-const ConvergenceMapSection: React.FC = () => {
-  const { hexagonData, arcData } = useDeckGLLayers();
-
-  const [activeLayer, setActiveLayer] = useState<'hexagon' | 'arc'>('hexagon');
-  const [hasWebGL2] = useState(() => {
-    try {
-      const canvas = document.createElement('canvas');
-      return !!canvas.getContext('webgl2');
-    } catch { return false; }
-  });
-
-  const layers = useMemo(() => {
-    if (activeLayer === 'hexagon') {
-      return [
-        new HexagonLayer({
-          id: 'hexagon-layer',
-          data: hexagonData,
-          getPosition: (d: any) => d.position,
-          getElevationWeight: (d: any) => d.weight,
-          elevationScale: 200,
-          extruded: true,
-          radius: 15000,
-          coverage: 0.85,
-          upperPercentile: 100,
-          colorRange: [
-            [30, 30, 80],
-            [60, 40, 140],
-            [100, 60, 180],
-            [140, 80, 200],
-            [180, 100, 220],
-            [220, 130, 240],
-          ],
-          material: {
-            ambient: 0.6,
-            diffuse: 0.6,
-            shininess: 40,
-            specularColor: [125, 91, 222],
-          },
-        }),
-      ];
-    }
-
-    return [
-      new ArcLayer({
-        id: 'arc-layer',
-        data: arcData,
-        getSourcePosition: (d: any) => d.source,
-        getTargetPosition: (d: any) => d.target,
-        getSourceColor: [125, 91, 222, 180],
-        getTargetColor: [59, 130, 246, 180],
-        getWidth: 2,
-        greatCircle: true,
-      }),
-    ];
-  }, [activeLayer, hexagonData, arcData]);
-
-  if (!hasWebGL2) {
-    return (
-      <section className="py-24">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-slate-400">
-            Tu navegador no soporta WebGL2. Visitá{' '}
-            <a href="/el-mapa" className="text-blue-400 underline">El Mapa</a>{' '}
-            para ver las señales en el mapa interactivo.
-          </p>
-        </div>
-      </section>
-    );
-  }
-
-  return (
-    <section className="py-24 relative overflow-hidden border-t border-white/5">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <span className="text-blue-500 font-mono text-xs tracking-[0.3em] uppercase">
-            Visualización GPU
-          </span>
-          <h2 className="text-4xl font-bold text-white mt-4 mb-6">
-            El Territorio en 3D
-          </h2>
-          <p className="text-slate-400 max-w-2xl mx-auto">
-            Cada hexágono representa la densidad de voces en una zona.
-            Las montañas son donde más se concentra la verdad.
-          </p>
-        </div>
-
-        {/* Layer toggle */}
-        <div className="flex justify-center gap-3 mb-8">
-          {[
-            { id: 'hexagon' as const, label: 'Hexágonos 3D', icon: BarChart3 },
-            { id: 'arc' as const, label: 'Arcos Territoriales', icon: Network },
-          ].map((layer) => (
-            <button
-              key={layer.id}
-              onClick={() => setActiveLayer(layer.id)}
-              aria-pressed={activeLayer === layer.id}
-              aria-label={`Visualizar ${layer.label}`}
-              className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-colors border ${
-                activeLayer === layer.id
-                  ? 'bg-white/10 border-white/20 text-white'
-                  : 'bg-white/5 border-white/10 text-slate-400 hover:bg-white/[0.08]'
-              }`}
-            >
-              <layer.icon className="w-4 h-4" />
-              {layer.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Map container */}
-        <div className="rounded-2xl overflow-hidden border border-white/10" style={{ height: 'clamp(400px, 60vh, 700px)' }} role="application" aria-label="Mapa de convergencia territorial en 3D">
-          <DeckGL
-            initialViewState={INITIAL_VIEW_STATE}
-            controller={true}
-            layers={layers}
-          >
-            <Map mapStyle={MAP_STYLE} />
-          </DeckGL>
         </div>
       </div>
     </section>
@@ -730,7 +587,7 @@ const ExplorarDatos = () => {
 
         <NarrativeBridge text="Ahora que viste los números, mirá cómo se distribuyen en el territorio." />
 
-        <ConvergenceMapSection />
+        <ConvergenceMap />
 
         <NarrativeBridge text="Los datos fluyen. De la voz al tema, del tema al territorio." />
 
