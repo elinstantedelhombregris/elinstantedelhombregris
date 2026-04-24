@@ -304,8 +304,6 @@ const ScrollytellingSection: React.FC<{ convergence: ConvergenceData }> = ({ con
 
 const SankeySection: React.FC<{ convergence: ConvergenceData }> = ({ convergence }) => {
   const { streamLinks, themeCards, typeDistribution } = convergence;
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-60px' });
 
   const sankeyData = useMemo(() => {
     if (!streamLinks.length) return null;
@@ -343,7 +341,7 @@ const SankeySection: React.FC<{ convergence: ConvergenceData }> = ({ convergence
   }
 
   return (
-    <section ref={ref} className="py-24 bg-[#0f1116] border-y border-white/5">
+    <section className="py-24 bg-[#0f1116] border-y border-white/5">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <span className="text-pink-500 font-mono text-xs tracking-[0.3em] uppercase">
@@ -360,7 +358,8 @@ const SankeySection: React.FC<{ convergence: ConvergenceData }> = ({ convergence
 
         <motion.div
           initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.8 }}
           className="overflow-x-auto"
         >
@@ -397,8 +396,6 @@ const SankeySection: React.FC<{ convergence: ConvergenceData }> = ({ convergence
 
 const ChordSection: React.FC<{ convergence: ConvergenceData }> = ({ convergence }) => {
   const { themeCards } = convergence;
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-60px' });
 
   const { chordMatrix, chordLabels, chordColors } = useMemo(() => {
     if (!themeCards.length) return { chordMatrix: [], chordLabels: [], chordColors: [] };
@@ -423,7 +420,7 @@ const ChordSection: React.FC<{ convergence: ConvergenceData }> = ({ convergence 
   if (!chordMatrix.length) return null;
 
   return (
-    <section ref={ref} className="py-24 relative overflow-hidden">
+    <section className="py-24 relative overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <span className="text-amber-500 font-mono text-xs tracking-[0.3em] uppercase">
@@ -440,7 +437,8 @@ const ChordSection: React.FC<{ convergence: ConvergenceData }> = ({ convergence 
 
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
-          animate={isInView ? { opacity: 1, scale: 1 } : {}}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.8 }}
           className="max-w-lg mx-auto"
         >

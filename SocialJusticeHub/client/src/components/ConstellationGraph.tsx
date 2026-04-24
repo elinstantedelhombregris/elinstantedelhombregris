@@ -377,20 +377,6 @@ const ConstellationGraph: React.FC = () => {
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.8 }}
       >
-        {/* Header */}
-        <div className="text-center mb-10">
-          <span className="text-amber-500 font-mono text-xs tracking-[0.3em] uppercase">
-            Grafo de Conocimiento
-          </span>
-          <h2 className="text-4xl font-bold text-white mt-4 mb-4 font-serif">
-            Constelacion Soberana
-          </h2>
-          <p className="text-slate-400 max-w-2xl mx-auto">
-            Cada nodo agrupa voces que comparten tipo y tema. Cada linea es un puente de significado.
-            Cuantas mas voces convergen, mas grande el nodo. Haz click para explorar.
-          </p>
-        </div>
-
         {/* Graph Container */}
         <div className="relative rounded-2xl border border-white/10 overflow-hidden bg-[#050510]">
           {/* Controls */}
