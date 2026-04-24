@@ -25,6 +25,8 @@ build/
 *.sqlite3
 local.db
 data/
+# Allow static GeoJSON assets served from the public folder
+!client/public/data/
 
 # IDE
 .vscode/
