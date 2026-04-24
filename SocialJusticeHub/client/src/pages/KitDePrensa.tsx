@@ -1,5 +1,6 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import StatusBadge from '@/components/StatusBadge';
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useQuery } from '@tanstack/react-query';
@@ -535,7 +536,10 @@ Todo es abierto. Todo es auditable. Todo el código es público. El movimiento s
                       <Icon className="w-5 h-5 text-purple-400" />
                     </div>
                     <div>
-                      <p className="font-mono text-xs text-purple-400 mb-1">{plan.code}</p>
+                      <div className="flex items-start justify-between gap-2 mb-1">
+                        <p className="font-mono text-xs text-purple-400">{plan.code}</p>
+                        <StatusBadge kind="idealizado" />
+                      </div>
                       <p className="text-sm font-semibold text-white">{plan.name}</p>
                       <p className="text-xs text-slate-500 mt-1">{plan.desc}</p>
                     </div>

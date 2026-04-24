@@ -3,6 +3,7 @@ import { ArrowRight } from 'lucide-react';
 import SmoothReveal from '@/components/ui/SmoothReveal';
 import { INITIATIVE_CATEGORIES, PHASE_META } from '@/lib/initiative-utils';
 import type { StrategicInitiative } from '../../../../shared/strategic-initiatives';
+import StatusBadge from '@/components/StatusBadge';
 
 interface InitiativeCardProps {
   initiative: StrategicInitiative;
@@ -24,9 +25,12 @@ export default function InitiativeCard({ initiative, index, delay = 0 }: Initiat
           <div className="p-8 relative z-10 flex-1 flex flex-col">
             {/* Header: category badge + index */}
             <div className="flex justify-between items-start mb-6">
-              <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full ${categoryMeta.bgLight} ${categoryMeta.color}`}>
-                <CategoryIcon className="w-4 h-4" />
-                <span className="text-xs font-bold tracking-wide uppercase">{categoryMeta.label}</span>
+              <div className="flex flex-col gap-2">
+                <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full ${categoryMeta.bgLight} ${categoryMeta.color}`}>
+                  <CategoryIcon className="w-4 h-4" />
+                  <span className="text-xs font-bold tracking-wide uppercase">{categoryMeta.label}</span>
+                </div>
+                <StatusBadge kind="idealizado" className="border-slate-200 bg-slate-50 text-slate-600" />
               </div>
               <span className="text-4xl font-serif font-bold text-slate-100 group-hover:text-slate-200 transition-colors">
                 0{index + 1}
