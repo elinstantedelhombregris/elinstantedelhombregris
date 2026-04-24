@@ -3,6 +3,7 @@ import booleanPointInPolygon from '@turf/boolean-point-in-polygon';
 import type { Feature, Polygon } from 'geojson';
 import type { DreamType, MapEntry, MapFilters, LassoPolygon } from './types';
 import { ALL_TYPES, initialFilters } from './types';
+import { normalizePlaceName } from './utils';
 
 export interface RadiografiaFiltersApi {
   filters: MapFilters;
@@ -66,11 +67,15 @@ export function useRadiografiaFilters(entries: MapEntry[]): RadiografiaFiltersAp
   const filteredEntries = useMemo(() => {
     const { types, province, city, lasso } = filters;
     const polygon = lasso ? buildPolygonFeature(lasso) : null;
+    // Normalize the selected province/city once per filter change — compare on
+    // normalized keys so accents and casing never drop entries silently.
+    const provinceKey = normalizePlaceName(province);
+    const cityKey = normalizePlaceName(city);
 
     return entries.filter((e) => {
       if (!types.has(e.type)) return false;
-      if (province && e.province !== province) return false;
-      if (city && e.city !== city) return false;
+      if (provinceKey && e.provinceKey !== provinceKey) return false;
+      if (cityKey && e.cityKey !== cityKey) return false;
       if (polygon) {
         try {
           if (!booleanPointInPolygon([e.lng, e.lat], polygon)) return false;

@@ -7,8 +7,14 @@ export interface MapEntry {
   lat: number;
   lng: number;
   location: string;
+  /** Display name, may carry accents and original casing. */
   province: string | null;
+  /** Display name, may carry accents and original casing. */
   city: string | null;
+  /** Normalized province name for accent-insensitive matching. See utils.normalizePlaceName. */
+  provinceKey: string | null;
+  /** Normalized city name for accent-insensitive matching. See utils.normalizePlaceName. */
+  cityKey: string | null;
   type: DreamType;
   text: string;
 }

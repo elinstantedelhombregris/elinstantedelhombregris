@@ -3,6 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import { Dream } from '@shared/schema';
 import type { DreamType } from '@/hooks/useConvergenceAnalysis';
 import type { MapEntry } from '@/components/radiografia-map/types';
+import { normalizePlaceName } from '@/components/radiografia-map/utils';
 
 // ─── Types ───
 
@@ -95,6 +96,8 @@ export const useDeckGLLayers = (): DeckGLData => {
         location: (d as any).location || 'Sin ubicación',
         province: null,
         city: null,
+        provinceKey: null,
+        cityKey: null,
         type: normalizeType((d as any).type),
         text,
       });
@@ -105,13 +108,17 @@ export const useDeckGLLayers = (): DeckGLData => {
       const lat = parseCoord(c.latitude);
       const lng = parseCoord(c.longitude);
       if (lat == null || lng == null) continue;
+      const province = c.province ?? null;
+      const city = c.city ?? null;
       entries.push({
         id: `commitment-${c.id}`,
         lat,
         lng,
-        location: [c.city, c.province].filter(Boolean).join(', ') || 'Sin ubicación',
-        province: c.province ?? null,
-        city: c.city ?? null,
+        location: [city, province].filter(Boolean).join(', ') || 'Sin ubicación',
+        province,
+        city,
+        provinceKey: normalizePlaceName(province),
+        cityKey: normalizePlaceName(city),
         type: 'compromiso',
         text: c.commitmentText || '',
       });
@@ -122,13 +129,17 @@ export const useDeckGLLayers = (): DeckGLData => {
       const lat = parseCoord(r.latitude);
       const lng = parseCoord(r.longitude);
       if (lat == null || lng == null) continue;
+      const province = r.province ?? null;
+      const city = r.city ?? null;
       entries.push({
         id: `resource-${r.id}`,
         lat,
         lng,
-        location: [r.city, r.province].filter(Boolean).join(', ') || r.location || 'Sin ubicación',
-        province: r.province ?? null,
-        city: r.city ?? null,
+        location: [city, province].filter(Boolean).join(', ') || r.location || 'Sin ubicación',
+        province,
+        city,
+        provinceKey: normalizePlaceName(province),
+        cityKey: normalizePlaceName(city),
         type: 'recurso',
         text: r.description || '',
       });

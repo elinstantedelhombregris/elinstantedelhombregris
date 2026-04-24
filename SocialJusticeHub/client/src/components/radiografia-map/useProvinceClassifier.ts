@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from 'react';
 import booleanPointInPolygon from '@turf/boolean-point-in-polygon';
 import { apiRequest } from '@/lib/queryClient';
 import type { MapEntry } from './types';
+import { normalizePlaceName } from './utils';
 
 type Feature = {
   type: 'Feature';
@@ -49,48 +50,101 @@ function haversineKm(a: [number, number], b: [number, number]): number {
   return 2 * R * Math.asin(Math.min(1, Math.sqrt(h)));
 }
 
+// ─── Persistent cache ───
+// Two layers:
+//  1. Module-level singleton — dedupes concurrent fetches within a page load.
+//  2. localStorage — survives hard-refresh for CACHE_TTL_MS.
+// Bump CACHE_VERSION whenever the boundaries file or the shape of
+// ClassifierData changes.
+
+const CACHE_VERSION = 'v1';
+const CACHE_KEY = `radiografia-classifier:${CACHE_VERSION}`;
+const CACHE_TTL_MS = 24 * 60 * 60 * 1000; // 24 hours
+
+interface CacheEnvelope {
+  cachedAt: number;
+  data: ClassifierData;
+}
+
+function readLocalCache(): ClassifierData | null {
+  try {
+    const raw = typeof localStorage !== 'undefined' ? localStorage.getItem(CACHE_KEY) : null;
+    if (!raw) return null;
+    const env = JSON.parse(raw) as CacheEnvelope;
+    if (typeof env.cachedAt !== 'number') return null;
+    if (Date.now() - env.cachedAt > CACHE_TTL_MS) return null;
+    if (!env.data?.boundaries?.features) return null;
+    return env.data;
+  } catch {
+    return null;
+  }
+}
+
+function writeLocalCache(data: ClassifierData): void {
+  try {
+    if (typeof localStorage === 'undefined') return;
+    const env: CacheEnvelope = { cachedAt: Date.now(), data };
+    localStorage.setItem(CACHE_KEY, JSON.stringify(env));
+  } catch {
+    // Quota exceeded, Safari private mode, etc. — silent OK.
+    // In-memory singleton still keeps this session fast.
+  }
+}
+
+async function fetchClassifierData(): Promise<ClassifierData> {
+  const res = await fetch('/data/argentina-provinces-simplified.geojson');
+  if (!res.ok) throw new Error(`Boundaries fetch failed: ${res.status}`);
+  const boundaries = (await res.json()) as FeatureCollection;
+
+  const cityByProvince: Record<string, City[]> = {};
+  try {
+    const provRes = await apiRequest('GET', '/api/geographic/provinces');
+    if (provRes.ok) {
+      const provinces = (await provRes.json()) as Province[];
+      await Promise.all(
+        provinces.map(async (p) => {
+          try {
+            const r = await apiRequest('GET', `/api/geographic/provinces/${p.id}/cities`);
+            if (!r.ok) return;
+            const cities = (await r.json()) as City[];
+            cityByProvince[p.name] = cities.filter((c) => c.latitude != null && c.longitude != null);
+          } catch {
+            // ignore per-province failure — classifier still works on polygons
+          }
+        }),
+      );
+    }
+  } catch {
+    // city lookup is optional; boundaries alone are enough for province filtering
+  }
+
+  return { boundaries, cityByProvince };
+}
+
 // ─── Session-wide singleton ───
-// The classifier data (polygons + city centroids) is fetched once per page load
-// and reused by every map mount. Prevents a 24-request burst on every nav.
+// Prevents a 24-request burst on every nav within the same page load.
 
 let singleton: Promise<ClassifierData> | null = null;
 
 function loadClassifierData(): Promise<ClassifierData> {
   if (singleton) return singleton;
 
-  singleton = (async () => {
-    const res = await fetch('/data/argentina-provinces-simplified.geojson');
-    if (!res.ok) throw new Error(`Boundaries fetch failed: ${res.status}`);
-    const boundaries = (await res.json()) as FeatureCollection;
+  const cached = readLocalCache();
+  if (cached) {
+    singleton = Promise.resolve(cached);
+    return singleton;
+  }
 
-    const cityByProvince: Record<string, City[]> = {};
-    try {
-      const provRes = await apiRequest('GET', '/api/geographic/provinces');
-      if (provRes.ok) {
-        const provinces = (await provRes.json()) as Province[];
-        await Promise.all(
-          provinces.map(async (p) => {
-            try {
-              const r = await apiRequest('GET', `/api/geographic/provinces/${p.id}/cities`);
-              if (!r.ok) return;
-              const cities = (await r.json()) as City[];
-              cityByProvince[p.name] = cities.filter((c) => c.latitude != null && c.longitude != null);
-            } catch {
-              // ignore per-province failure — classifier still works on polygons
-            }
-          }),
-        );
-      }
-    } catch {
-      // city lookup is optional; boundaries alone are enough for province filtering
-    }
-
-    return { boundaries, cityByProvince };
-  })().catch((e: unknown) => {
-    // Reset so a future mount can retry instead of being poisoned forever
-    singleton = null;
-    throw e;
-  });
+  singleton = fetchClassifierData()
+    .then((data) => {
+      writeLocalCache(data);
+      return data;
+    })
+    .catch((e: unknown) => {
+      // Reset so a future mount can retry instead of being poisoned forever
+      singleton = null;
+      throw e;
+    });
 
   return singleton;
 }
@@ -98,6 +152,11 @@ function loadClassifierData(): Promise<ClassifierData> {
 /** Test-only. Lets tests start from a clean module state. */
 export function __resetProvinceClassifierSingleton() {
   singleton = null;
+  try {
+    if (typeof localStorage !== 'undefined') localStorage.removeItem(CACHE_KEY);
+  } catch {
+    // noop
+  }
 }
 
 // ─── Hook ───
@@ -175,7 +234,13 @@ export function useProvinceClassifier(): ProvinceClassifier {
           if (best && bestKm <= MAX_CITY_KM) city = best.name;
         }
 
-        const enriched: MapEntry = { ...entry, province, city };
+        const enriched: MapEntry = {
+          ...entry,
+          province,
+          city,
+          provinceKey: normalizePlaceName(province),
+          cityKey: normalizePlaceName(city),
+        };
         cache.set(entry, enriched);
         return enriched;
       });
