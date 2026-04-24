@@ -9,6 +9,8 @@ import {
   Target,
   Scale,
 } from 'lucide-react';
+import ProposalModal from './ProposalModal';
+import { proposalsByTerritory } from '@/lib/mandato-vivo-proposals';
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
@@ -351,8 +353,12 @@ function AlignmentCircle({
 
 export default function PoliticalSimulation() {
   const [activeTab, setActiveTab] = useState(0);
+  const [proposalOpen, setProposalOpen] = useState(false);
   const territory = territories[activeTab];
   const alignColor = getAlignmentColor(territory.alignmentScore);
+  const activeProposal = proposalsByTerritory[territory.name] ?? null;
+  const modalAccent: 'amber' | 'rose' | 'emerald' =
+    alignColor === 'emerald' ? 'emerald' : alignColor === 'amber' ? 'amber' : 'rose';
 
   return (
     <motion.div
@@ -692,7 +698,10 @@ export default function PoliticalSimulation() {
 
                   {/* Link */}
                   <button
-                    className={`flex items-center gap-1 text-xs font-medium transition-colors ${
+                    type="button"
+                    onClick={() => setProposalOpen(true)}
+                    disabled={!activeProposal}
+                    className={`flex items-center gap-1 text-xs font-medium transition-colors disabled:opacity-40 disabled:cursor-not-allowed ${
                       alignColor === 'amber'
                         ? 'text-amber-400 hover:text-amber-300'
                         : 'text-rose-400 hover:text-rose-300'
@@ -726,6 +735,13 @@ export default function PoliticalSimulation() {
           </motion.div>
         </motion.div>
       </AnimatePresence>
+
+      <ProposalModal
+        proposal={activeProposal}
+        accent={modalAccent}
+        open={proposalOpen}
+        onOpenChange={setProposalOpen}
+      />
     </motion.div>
   );
 }
