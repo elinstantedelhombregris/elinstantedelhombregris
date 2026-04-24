@@ -14,8 +14,9 @@ const CARD_STYLE: Record<string, string> = {
   pointerEvents: 'none',
 };
 
-function esc(s: string): string {
-  return s
+function esc(s: unknown): string {
+  const str = typeof s === 'string' ? s : s == null ? '' : String(s);
+  return str
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
@@ -70,7 +71,7 @@ export function pointTooltipHtml(entry: MapEntry): string {
         <span style="width:9px;height:9px;border-radius:50%;background:${color}"></span>
         ${esc(label)}
       </div>
-      <div style="margin-top:6px;color:#e2e8f0;line-height:1.45">"${esc(truncate(entry.text || '', 120))}"</div>
+      <div style="margin-top:6px;color:#e2e8f0;line-height:1.45">&ldquo;${esc(truncate(entry.text || '', 120))}&rdquo;</div>
       ${loc ? `<div style="margin-top:6px;color:#94a3b8;font-size:11px">${esc(loc)}</div>` : ''}
     </div>
   `;

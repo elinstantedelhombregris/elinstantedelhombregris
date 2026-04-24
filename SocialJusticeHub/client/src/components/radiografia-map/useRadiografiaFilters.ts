@@ -1,5 +1,6 @@
 import { useCallback, useMemo, useState } from 'react';
 import booleanPointInPolygon from '@turf/boolean-point-in-polygon';
+import type { Feature, Polygon } from 'geojson';
 import type { DreamType, MapEntry, MapFilters, LassoPolygon } from './types';
 import { ALL_TYPES, initialFilters } from './types';
 
@@ -14,25 +15,21 @@ export interface RadiografiaFiltersApi {
   hasActiveFilters: boolean;
 }
 
-function matchLasso(entry: MapEntry, lasso: LassoPolygon): boolean {
-  if (lasso.coordinates.length < 3) return false;
-  // Ensure polygon is closed for turf
+/**
+ * Build the turf-ready Polygon Feature once per lasso. The filter loop below
+ * reuses it for every entry instead of rebuilding per call.
+ */
+function buildPolygonFeature(lasso: LassoPolygon): Feature<Polygon> | null {
+  if (lasso.coordinates.length < 3) return null;
   const ring = [...lasso.coordinates];
   const [firstLng, firstLat] = ring[0];
   const [lastLng, lastLat] = ring[ring.length - 1];
   if (firstLng !== lastLng || firstLat !== lastLat) ring.push([firstLng, firstLat]);
-
-  const polygon = {
-    type: 'Feature' as const,
+  return {
+    type: 'Feature',
     properties: {},
-    geometry: { type: 'Polygon' as const, coordinates: [ring] },
+    geometry: { type: 'Polygon', coordinates: [ring] },
   };
-  const point = { type: 'Point' as const, coordinates: [entry.lng, entry.lat] as [number, number] };
-  try {
-    return booleanPointInPolygon(point, polygon);
-  } catch {
-    return false;
-  }
 }
 
 export function useRadiografiaFilters(entries: MapEntry[]): RadiografiaFiltersApi {
@@ -68,11 +65,19 @@ export function useRadiografiaFilters(entries: MapEntry[]): RadiografiaFiltersAp
 
   const filteredEntries = useMemo(() => {
     const { types, province, city, lasso } = filters;
+    const polygon = lasso ? buildPolygonFeature(lasso) : null;
+
     return entries.filter((e) => {
       if (!types.has(e.type)) return false;
       if (province && e.province !== province) return false;
       if (city && e.city !== city) return false;
-      if (lasso && !matchLasso(e, lasso)) return false;
+      if (polygon) {
+        try {
+          if (!booleanPointInPolygon([e.lng, e.lat], polygon)) return false;
+        } catch {
+          return false;
+        }
+      }
       return true;
     });
   }, [entries, filters]);

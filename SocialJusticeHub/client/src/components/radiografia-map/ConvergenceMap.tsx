@@ -18,7 +18,17 @@ import { useProvinceClassifier } from './useProvinceClassifier';
 import { useRadiografiaFilters } from './useRadiografiaFilters';
 import type { LassoPolygon, MapEntry } from './types';
 
-const INITIAL_VIEW_STATE = {
+interface MapViewState {
+  latitude: number;
+  longitude: number;
+  zoom: number;
+  pitch: number;
+  bearing: number;
+  transitionDuration?: number;
+  transitionInterpolator?: unknown;
+}
+
+const INITIAL_VIEW_STATE: MapViewState = {
   latitude: -38.416,
   longitude: -63.617,
   zoom: 4,
@@ -61,7 +71,7 @@ export default function ConvergenceMap() {
   } = api;
 
   const [activeLayer, setActiveLayer] = useState<'hexagon' | 'arc'>('hexagon');
-  const [viewState, setViewState] = useState<any>(INITIAL_VIEW_STATE);
+  const [viewState, setViewState] = useState<MapViewState>(INITIAL_VIEW_STATE);
   const [lassoMode, setLassoMode] = useState(false);
   const [mapReady, setMapReady] = useState(false);
 
@@ -73,10 +83,18 @@ export default function ConvergenceMap() {
     [],
   );
 
+  const handleViewStateChange = useCallback((e: { viewState: MapViewState }) => {
+    setViewState(e.viewState);
+  }, []);
+
+  const handleMapLoad = useCallback(() => setMapReady(true), []);
+
+  const clearLasso = useCallback(() => setLasso(null), [setLasso]);
+
   // Fly-to province / city
   const flyTo = useCallback((lat?: number, lng?: number, zoom = 7) => {
     if (lat == null || lng == null) return;
-    setViewState((vs: any) => ({
+    setViewState((vs) => ({
       ...vs,
       latitude: lat,
       longitude: lng,
@@ -187,10 +205,11 @@ export default function ConvergenceMap() {
       }
     } else {
       // Arc layer — rebuild from filtered entries (location-bucketed)
-      const buckets: Record<string, { lng: number; lat: number; count: number; topType: string; topCount: number; location: string }> = {};
+      type ArcBucket = { lng: number; lat: number; count: number; location: string };
+      const buckets: Record<string, ArcBucket> = {};
       for (const e of filteredEntries) {
         const key = e.location || `${e.lat.toFixed(2)},${e.lng.toFixed(2)}`;
-        if (!buckets[key]) buckets[key] = { lng: e.lng, lat: e.lat, count: 0, topType: e.type, topCount: 0, location: key };
+        if (!buckets[key]) buckets[key] = { lng: e.lng, lat: e.lat, count: 0, location: key };
         buckets[key].count++;
       }
       const locs = Object.values(buckets).filter((b) => b.count >= 3).slice(0, 12);
@@ -271,7 +290,7 @@ export default function ConvergenceMap() {
           onSetProvince={handleSetProvince}
           onSetCity={handleSetCity}
           onStartLasso={startLasso}
-          onClearLasso={() => setLasso(null)}
+          onClearLasso={clearLasso}
           onClearAll={clear}
           hasActiveFilters={hasActiveFilters}
         />
@@ -284,9 +303,10 @@ export default function ConvergenceMap() {
           ].map((layer) => (
             <button
               key={layer.id}
+              type="button"
               onClick={() => setActiveLayer(layer.id)}
               aria-pressed={activeLayer === layer.id}
-              className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-colors border ${
+              className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-colors border focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400/60 ${
                 activeLayer === layer.id
                   ? 'bg-white/10 border-white/20 text-white'
                   : 'bg-white/5 border-white/10 text-slate-400 hover:bg-white/[0.08]'
@@ -307,12 +327,12 @@ export default function ConvergenceMap() {
         >
           <DeckGL
             ref={deckRef}
-            viewState={viewState}
-            onViewStateChange={(e: any) => setViewState(e.viewState)}
+            viewState={viewState as unknown as Record<string, unknown>}
+            onViewStateChange={handleViewStateChange as unknown as (e: unknown) => void}
             controller={!lassoMode}
             layers={layers}
             getTooltip={lassoMode ? undefined : getTooltip}
-            onLoad={() => setMapReady(true)}
+            onLoad={handleMapLoad}
           >
             <Map mapStyle={MAP_STYLE} />
           </DeckGL>
@@ -339,7 +359,7 @@ export default function ConvergenceMap() {
       <SelectionPanel
         entries={filteredEntries}
         visible={filters.lasso != null}
-        onClose={() => setLasso(null)}
+        onClose={clearLasso}
         onRowClick={flyToEntry}
       />
     </section>

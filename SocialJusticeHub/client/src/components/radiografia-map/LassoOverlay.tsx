@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import type { LassoPolygon } from './types';
 
 interface Point {
@@ -23,6 +23,19 @@ export default function LassoOverlay({ getViewport, onComplete, onCancel }: Lass
   const svgRef = useRef<SVGSVGElement>(null);
   const [drawing, setDrawing] = useState(false);
   const [path, setPath] = useState<Point[]>([]);
+
+  // Escape key cancels the lasso
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setPath([]);
+        setDrawing(false);
+        onCancel();
+      }
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [onCancel]);
 
   const handleDown = useCallback((e: React.PointerEvent<SVGSVGElement>) => {
     e.preventDefault();
@@ -95,6 +108,8 @@ export default function LassoOverlay({ getViewport, onComplete, onCancel }: Lass
     <>
       <svg
         ref={svgRef}
+        role="presentation"
+        aria-label="Área de dibujo del lazo"
         onPointerDown={handleDown}
         onPointerMove={handleMove}
         onPointerUp={handleUp}
@@ -117,8 +132,10 @@ export default function LassoOverlay({ getViewport, onComplete, onCancel }: Lass
         {d && <path d={d + (drawing ? '' : ' Z')} fill={drawing ? 'none' : FILL} stroke={STROKE} strokeWidth={2} />}
       </svg>
 
-      {/* Mobile-friendly instruction / cancel bar */}
+      {/* Instruction / cancel bar — works on desktop (mouse) and touch */}
       <div
+        role="status"
+        aria-live="polite"
         style={{
           position: 'absolute',
           bottom: 16,
@@ -137,12 +154,14 @@ export default function LassoOverlay({ getViewport, onComplete, onCancel }: Lass
           pointerEvents: 'auto',
         }}
       >
-        <span>Dibujá el área con el dedo</span>
+        <span>Dibujá el área para seleccionarla</span>
         <button
+          type="button"
           onClick={() => {
             setPath([]);
             onCancel();
           }}
+          className="focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400/60"
           style={{
             color: '#94a3b8',
             background: 'transparent',
@@ -152,7 +171,7 @@ export default function LassoOverlay({ getViewport, onComplete, onCancel }: Lass
             cursor: 'pointer',
           }}
         >
-          Cancelar
+          Cancelar (Esc)
         </button>
       </div>
     </>

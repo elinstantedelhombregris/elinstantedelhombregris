@@ -38,9 +38,10 @@ export default function MapFiltersBar({
   onClearAll,
   hasActiveFilters,
 }: MapFiltersBarProps) {
+  // Uses the project-wide default staleTime: Infinity — provinces/cities
+  // are reference data that doesn't change during a session.
   const { data: provinces = [] } = useQuery<Province[]>({
     queryKey: ['/api/geographic/provinces'],
-    staleTime: 300000,
   });
 
   const selectedProvinceObj = useMemo(
@@ -57,7 +58,6 @@ export default function MapFiltersBar({
       return r.json();
     },
     enabled: selectedProvinceObj != null,
-    staleTime: 300000,
   });
 
   return (
@@ -70,11 +70,12 @@ export default function MapFiltersBar({
           return (
             <button
               key={t}
+              type="button"
               role="switch"
               aria-checked={active}
               onClick={() => onToggleType(t)}
               className={cn(
-                'px-3 py-1.5 rounded-full text-xs font-medium border transition-colors',
+                'px-3 py-1.5 rounded-full text-xs font-medium border transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400/60',
                 active
                   ? 'text-white'
                   : 'text-slate-400 border-white/10 bg-white/[0.02] hover:bg-white/5',
@@ -104,7 +105,7 @@ export default function MapFiltersBar({
             const p = name ? provinces.find((x) => x.name === name) : null;
             onSetProvince(name, p?.latitude, p?.longitude);
           }}
-          className="h-9 px-3 rounded-md bg-white/5 border border-white/10 text-sm text-slate-200"
+          className="h-9 px-3 rounded-md bg-white/5 border border-white/10 text-sm text-slate-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400/60"
         >
           <option value="">Todas las provincias</option>
           {provinces.map((p) => (
@@ -121,7 +122,7 @@ export default function MapFiltersBar({
             const c = name ? cities.find((x) => x.name === name) : null;
             onSetCity(name, c?.latitude, c?.longitude);
           }}
-          className="h-9 px-3 rounded-md bg-white/5 border border-white/10 text-sm text-slate-200 disabled:opacity-40"
+          className="h-9 px-3 rounded-md bg-white/5 border border-white/10 text-sm text-slate-200 disabled:opacity-40 focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400/60"
         >
           <option value="">Todas las ciudades</option>
           {cities.map((c) => (
@@ -130,12 +131,13 @@ export default function MapFiltersBar({
         </select>
 
         <button
+          type="button"
           onClick={onStartLasso}
           aria-pressed={lassoActive}
           disabled={lassoDisabled}
           title={lassoDisabled ? 'Esperá a que cargue el mapa' : undefined}
           className={cn(
-            'h-9 px-3 rounded-md border text-sm inline-flex items-center gap-2 transition-colors disabled:opacity-40 disabled:cursor-not-allowed',
+            'h-9 px-3 rounded-md border text-sm inline-flex items-center gap-2 transition-colors disabled:opacity-40 disabled:cursor-not-allowed focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400/60',
             lassoActive
               ? 'bg-purple-600/30 border-purple-400/50 text-white animate-pulse'
               : filters.lasso
@@ -149,8 +151,9 @@ export default function MapFiltersBar({
 
         {hasActiveFilters && (
           <button
+            type="button"
             onClick={onClearAll}
-            className="h-9 px-3 rounded-md border border-white/10 text-sm text-slate-400 hover:text-white hover:bg-white/5 inline-flex items-center gap-1.5 ml-auto"
+            className="h-9 px-3 rounded-md border border-white/10 text-sm text-slate-400 hover:text-white hover:bg-white/5 inline-flex items-center gap-1.5 ml-auto focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400/60"
           >
             <X className="w-3.5 h-3.5" />
             Limpiar
@@ -181,9 +184,10 @@ function Chip({ label, onRemove }: { label: string; onRemove: () => void }) {
     <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-slate-200">
       {label}
       <button
+        type="button"
         onClick={onRemove}
         aria-label={`Quitar filtro ${label}`}
-        className="text-slate-400 hover:text-white"
+        className="text-slate-400 hover:text-white rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400/60"
       >
         <X className="w-3 h-3" />
       </button>

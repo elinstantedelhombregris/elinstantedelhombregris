@@ -1,5 +1,5 @@
 // client/src/components/radiografia-map/useProvinceClassifier.ts
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import booleanPointInPolygon from '@turf/boolean-point-in-polygon';
 import { apiRequest } from '@/lib/queryClient';
 import type { MapEntry } from './types';
@@ -7,7 +7,7 @@ import type { MapEntry } from './types';
 type Feature = {
   type: 'Feature';
   properties: { name: string } & Record<string, unknown>;
-  geometry: { type: 'Polygon' | 'MultiPolygon'; coordinates: any };
+  geometry: { type: 'Polygon' | 'MultiPolygon'; coordinates: unknown };
 };
 
 type FeatureCollection = { type: 'FeatureCollection'; features: Feature[] };
@@ -15,12 +15,18 @@ type FeatureCollection = { type: 'FeatureCollection'; features: Feature[] };
 type Province = { id: number; name: string };
 type City = { id: number; name: string; latitude?: number; longitude?: number };
 
+interface ClassifierData {
+  boundaries: FeatureCollection;
+  cityByProvince: Record<string, City[]>;
+}
+
 const MAX_CITY_KM = 50;
 
 /**
- * Map GeoJSON province names that differ from the API's canonical names.
- * Natural Earth uses "Ciudad de Buenos Aires" but the API uses the official
- * "Ciudad Autónoma de Buenos Aires".
+ * Natural Earth uses "Ciudad de Buenos Aires" but the backend's
+ * /api/geographic/provinces returns the official "Ciudad Autónoma de Buenos Aires".
+ * Silent filter mismatches are the failure mode if this drifts — see
+ * memory/project_radiografia_map_geojson.md.
  */
 const GEOJSON_TO_API_NAME: Record<string, string> = {
   'Ciudad de Buenos Aires': 'Ciudad Autónoma de Buenos Aires',
@@ -43,73 +49,117 @@ function haversineKm(a: [number, number], b: [number, number]): number {
   return 2 * R * Math.asin(Math.min(1, Math.sqrt(h)));
 }
 
-export function useProvinceClassifier() {
-  const [boundaries, setBoundaries] = useState<FeatureCollection | null>(null);
-  const [cityByProvince, setCityByProvince] = useState<Record<string, City[]>>({});
-  const [error, setError] = useState<string | null>(null);
-  const loadedRef = useRef(false);
+// ─── Session-wide singleton ───
+// The classifier data (polygons + city centroids) is fetched once per page load
+// and reused by every map mount. Prevents a 24-request burst on every nav.
 
-  useEffect(() => {
-    if (loadedRef.current) return;
-    loadedRef.current = true;
+let singleton: Promise<ClassifierData> | null = null;
 
-    (async () => {
-      try {
-        // Load boundaries
-        const res = await fetch('/data/argentina-provinces-simplified.geojson');
-        if (!res.ok) throw new Error(`Boundaries fetch failed: ${res.status}`);
-        const geo = (await res.json()) as FeatureCollection;
-        setBoundaries(geo);
+function loadClassifierData(): Promise<ClassifierData> {
+  if (singleton) return singleton;
 
-        // Load provinces then cities
-        const provRes = await apiRequest('GET', '/api/geographic/provinces');
-        if (!provRes.ok) return; // city lookup optional; province still works from polygons
+  singleton = (async () => {
+    const res = await fetch('/data/argentina-provinces-simplified.geojson');
+    if (!res.ok) throw new Error(`Boundaries fetch failed: ${res.status}`);
+    const boundaries = (await res.json()) as FeatureCollection;
+
+    const cityByProvince: Record<string, City[]> = {};
+    try {
+      const provRes = await apiRequest('GET', '/api/geographic/provinces');
+      if (provRes.ok) {
         const provinces = (await provRes.json()) as Province[];
-
-        const map: Record<string, City[]> = {};
         await Promise.all(
           provinces.map(async (p) => {
             try {
               const r = await apiRequest('GET', `/api/geographic/provinces/${p.id}/cities`);
               if (!r.ok) return;
               const cities = (await r.json()) as City[];
-              map[p.name] = cities.filter((c) => c.latitude != null && c.longitude != null);
+              cityByProvince[p.name] = cities.filter((c) => c.latitude != null && c.longitude != null);
             } catch {
-              // ignore per-province failure
+              // ignore per-province failure — classifier still works on polygons
             }
           }),
         );
-        setCityByProvince(map);
-      } catch (e: any) {
-        console.warn('[useProvinceClassifier] load failed:', e?.message || e);
-        setError(e?.message || 'load failed');
       }
-    })();
+    } catch {
+      // city lookup is optional; boundaries alone are enough for province filtering
+    }
+
+    return { boundaries, cityByProvince };
+  })().catch((e: unknown) => {
+    // Reset so a future mount can retry instead of being poisoned forever
+    singleton = null;
+    throw e;
+  });
+
+  return singleton;
+}
+
+/** Test-only. Lets tests start from a clean module state. */
+export function __resetProvinceClassifierSingleton() {
+  singleton = null;
+}
+
+// ─── Hook ───
+
+export interface ProvinceClassifier {
+  classify: (entries: MapEntry[]) => MapEntry[];
+  loaded: boolean;
+  error: string | null;
+}
+
+export function useProvinceClassifier(): ProvinceClassifier {
+  const [data, setData] = useState<ClassifierData | null>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    loadClassifierData()
+      .then((d) => { if (!cancelled) setData(d); })
+      .catch((e: unknown) => {
+        if (cancelled) return;
+        const msg = e instanceof Error ? e.message : String(e);
+        console.warn('[useProvinceClassifier] load failed:', msg);
+        setError(msg);
+      });
+    return () => { cancelled = true; };
   }, []);
 
   const classify = useMemo(() => {
+    // Per-entry cache keyed by identity — re-render passing the same MapEntry
+    // instances doesn't re-run point-in-polygon.
+    const cache = new WeakMap<MapEntry, MapEntry>();
+
     return (entries: MapEntry[]): MapEntry[] => {
-      if (!boundaries) return entries;
+      if (!data) return entries;
+      const { boundaries, cityByProvince } = data;
 
       return entries.map((entry) => {
-        if (entry.province != null) return entry; // already assigned
+        if (entry.province != null) return entry; // already assigned upstream
+        const cached = cache.get(entry);
+        if (cached) return cached;
 
-        const point = { type: 'Point' as const, coordinates: [entry.lng, entry.lat] as [number, number] };
+        const point = {
+          type: 'Point' as const,
+          coordinates: [entry.lng, entry.lat] as [number, number],
+        };
         let province: string | null = null;
         for (const f of boundaries.features) {
           try {
-            if (booleanPointInPolygon(point, f as any)) {
-              province = normalizeProvinceName((f.properties as any).name ?? '');
-              if (!province) province = null;
+            if (booleanPointInPolygon(point, f as never)) {
+              const raw = (f.properties as { name?: string }).name ?? '';
+              province = raw ? normalizeProvinceName(raw) : null;
               break;
             }
           } catch {
             // skip malformed features
           }
         }
-        if (!province) return entry;
+        if (!province) {
+          cache.set(entry, entry);
+          return entry;
+        }
 
-        // Nearest city within province (if data available)
         const cities = cityByProvince[province];
         let city: string | null = null;
         if (cities && cities.length > 0) {
@@ -125,10 +175,12 @@ export function useProvinceClassifier() {
           if (best && bestKm <= MAX_CITY_KM) city = best.name;
         }
 
-        return { ...entry, province, city };
+        const enriched: MapEntry = { ...entry, province, city };
+        cache.set(entry, enriched);
+        return enriched;
       });
     };
-  }, [boundaries, cityByProvince]);
+  }, [data]);
 
-  return { classify, loaded: boundaries != null, error };
+  return { classify, loaded: data != null, error };
 }
