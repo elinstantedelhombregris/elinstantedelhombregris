@@ -1,10 +1,13 @@
 import { useMemo } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Dream } from '@shared/schema';
+import type { DreamType } from '@/hooks/useConvergenceAnalysis';
+import type { MapEntry } from '@/components/radiografia-map/types';
 
 // ─── Types ───
 
 export interface DeckGLData {
+  allEntries: MapEntry[];
   hexagonData: Array<{ position: [number, number]; weight: number }>;
   arcData: Array<{
     source: [number, number];
@@ -44,6 +47,11 @@ function getTopTheme(themes: Record<string, number>): string | null {
   return best;
 }
 
+function normalizeType(raw: unknown): DreamType {
+  const allowed: DreamType[] = ['dream', 'value', 'need', 'basta', 'compromiso', 'recurso'];
+  return allowed.includes(raw as DreamType) ? (raw as DreamType) : 'dream';
+}
+
 // ─── Hook ───
 
 export const useDeckGLLayers = (): DeckGLData => {
@@ -69,56 +77,58 @@ export const useDeckGLLayers = (): DeckGLData => {
 
   const isLoading = dreamsLoading || commitmentsLoading || resourcesLoading;
 
-  // Unify all entries with lat/lng
-  const allEntries = useMemo(() => {
+  // Unify all entries with lat/lng + id + normalized fields
+  const allEntries: MapEntry[] = useMemo(() => {
     const commitments = commitmentsResponse?.data?.commitments || [];
+    const entries: MapEntry[] = [];
 
-    const entries: Array<{
-      lat: number;
-      lng: number;
-      location: string;
-      type: string;
-      text: string;
-    }> = [];
-
-    // Dreams
+    // Dreams — no DB province/city; left null for the classifier
     for (const d of dreams) {
       const lat = parseCoord((d as any).latitude);
       const lng = parseCoord((d as any).longitude);
       if (lat == null || lng == null) continue;
       const text = (d as any).dream || (d as any).value || (d as any).need || (d as any).basta || '';
       entries.push({
+        id: `dream-${(d as any).id}`,
         lat,
         lng,
         location: (d as any).location || 'Sin ubicación',
-        type: (d as any).type || 'dream',
+        province: null,
+        city: null,
+        type: normalizeType((d as any).type),
         text,
       });
     }
 
-    // Commitments
+    // Commitments — DB has city + province
     for (const c of commitments) {
       const lat = parseCoord(c.latitude);
       const lng = parseCoord(c.longitude);
       if (lat == null || lng == null) continue;
       entries.push({
+        id: `commitment-${c.id}`,
         lat,
         lng,
         location: [c.city, c.province].filter(Boolean).join(', ') || 'Sin ubicación',
+        province: c.province ?? null,
+        city: c.city ?? null,
         type: 'compromiso',
         text: c.commitmentText || '',
       });
     }
 
-    // Resources
+    // Resources — DB has city + province
     for (const r of (resourcesData || [])) {
       const lat = parseCoord(r.latitude);
       const lng = parseCoord(r.longitude);
       if (lat == null || lng == null) continue;
       entries.push({
+        id: `resource-${r.id}`,
         lat,
         lng,
         location: [r.city, r.province].filter(Boolean).join(', ') || r.location || 'Sin ubicación',
+        province: r.province ?? null,
+        city: r.city ?? null,
         type: 'recurso',
         text: r.description || '',
       });
@@ -139,7 +149,6 @@ export const useDeckGLLayers = (): DeckGLData => {
 
   // Build arc data — connect locations sharing a top theme
   const arcData = useMemo(() => {
-    // Group by location
     const buckets: Record<string, LocationBucket> = {};
 
     for (const entry of allEntries) {
@@ -154,15 +163,12 @@ export const useDeckGLLayers = (): DeckGLData => {
         };
       }
       buckets[key].count++;
-      // Simple theme detection: use entry type as a lightweight theme proxy
       const theme = entry.type;
       buckets[key].themes[theme] = (buckets[key].themes[theme] || 0) + 1;
     }
 
-    // Filter locations with 3+ entries
     const qualifiedLocations = Object.values(buckets).filter((b) => b.count >= 3);
 
-    // Group qualified locations by their top theme
     const themeGroups: Record<string, LocationBucket[]> = {};
     for (const loc of qualifiedLocations) {
       const top = getTopTheme(loc.themes);
@@ -171,11 +177,9 @@ export const useDeckGLLayers = (): DeckGLData => {
       themeGroups[top].push(loc);
     }
 
-    // Create arcs between locations sharing the same top theme
     const arcs: DeckGLData['arcData'] = [];
     for (const [theme, locations] of Object.entries(themeGroups)) {
       if (locations.length < 2) continue;
-      // Connect each pair (limit to first 10 locations per theme to avoid arc explosion)
       const limited = locations.slice(0, 10);
       for (let i = 0; i < limited.length; i++) {
         for (let j = i + 1; j < limited.length; j++) {
@@ -193,5 +197,5 @@ export const useDeckGLLayers = (): DeckGLData => {
     return arcs;
   }, [allEntries]);
 
-  return { hexagonData, arcData, isLoading };
+  return { allEntries, hexagonData, arcData, isLoading };
 };
