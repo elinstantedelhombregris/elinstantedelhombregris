@@ -106,7 +106,7 @@ Component names and code identifiers stay in English or mixed (e.g. `HeroSection
 
 ## Key Domain Concepts
 
-- **!BASTA!** — Always written with exclamation marks. A popular governance framework with 17+ PLANs (mandates). Citizens design, State administers, Politics executes.
+- **!BASTA!** — Always written with exclamation marks. A popular governance framework with 22 PLANs (al 23 de abril de 2026), framed as idealized design — they show where the country could aim, not commitments. Citizens design, State administers, Politics executes. `PLANRUTA` is the meta/bootstrap plan and is not counted among the 22.
 - **Hombre Gris** — "Grey" means silver (plata), connecting to Argentina (argentum). NOT steel.
 - **Life Areas** — 12 areas, 60 subcategories. Quiz scale: 0-10 frontend, mapped to 0-100 backend via SCORE_MAPPING.
 - **Mandato Vivo** — Territory-based citizen governance with pulse signals and proposals.

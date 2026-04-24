@@ -44,7 +44,7 @@ Strategic verdict: the brand should keep its mythic and philosophical force, but
    - Founder name and headshot, team/advisors if any, legal entity status, public code repository link if intended, privacy/data handling summary, methodology notes, contact address, media email, product screenshots, current platform metrics with timestamp.
 
 6. Normalize the claims:
-   - The site says `16 planes estratégicos`; repo guidance mentions `17+ PLANs`; older narrative says `4 planes`. Pick one current number and add "as of [date]."
+   - Resolved: 22 planes estratégicos (al 23 de abril de 2026), framed as idealized design. Source of truth: `shared/arquitecto-data.ts` (ordinal 1 through 22). `PLANRUTA` is the meta/bootstrap plan and is not counted among the 22.
 
 ---
 
@@ -112,7 +112,7 @@ Structure:
 Recommended information architecture:
 1. Home: what it is, why now, what exists today, primary CTA.
 2. Platform: tools, screenshots, live/beta status.
-3. Plans: 16 strategic plans with evidence and downloadable docs.
+3. Plans: 22 strategic planes (idealized design, al 23 de abril de 2026) with evidence and downloadable docs.
 4. Method: design idealizado, intelligence collective, data/auditability.
 5. Community: Círculos, participation model, commitments.
 6. About: founder, origin story, legal/accountability, contact.
@@ -288,7 +288,7 @@ Use only after confirmation:
 - `TBC`: Platform launched publicly at elinstantedelhombregris.com.
 - `TBC`: Personal diagnostic and civic participation tools released.
 - `TBC`: El Mapa / La Brújula Soberana released.
-- `TBC`: Strategic plan library expanded to 16 plans.
+- `TBC`: Strategic plan library of 22 planes estratégicos (idealized design, al 23 de abril de 2026) published.
 - `TBC`: Press kit and media resources released.
 
 ### Brand Story
@@ -342,7 +342,7 @@ What exists today?
 Observed: a live website, manifesto/philosophy pages, map and mandate concepts, community/resources sections, public plan documents, and a press-kit page. Exact feature maturity should be labeled page by page.
 
 How many strategic plans are there?
-The live press-kit page presents 16 strategic plans. Repo guidance mentions 17+ and older copy mentions 4. Confirm the current official number and date-stamp it.
+Resolved: 22 planes estratégicos (al 23 de abril de 2026), framed as idealized design. Source of truth: `shared/arquitecto-data.ts` (ordinal 1 through 22). `PLANRUTA` is the meta/bootstrap plan and is not counted among the 22.
 
 Is the code open source?
 The site copy references public/open code in places. Add the actual repository URL before making this claim in press materials.
@@ -395,7 +395,7 @@ Core capabilities:
 Personal diagnostics, civic mapping, live citizen signals, community circles, strategic plans, open documents.
 
 Current plan count:
-16 strategic plans on live press-kit page; final official count TBC.
+22 planes estratégicos (al 23 de abril de 2026), framed as idealized design. Source of truth: `shared/arquitecto-data.ts`.
 
 Languages:
 Spanish currently observed. English media kit recommended.
@@ -912,7 +912,7 @@ Current press-kit SVGs use an `HG` placeholder mark and blue/purple gradients. T
 Add founder full name, approved bio, headshot, role, city/country, legal entity status, and contact. Anonymous/unnamed founder language is a barrier for journalists and partners.
 
 4. Resolve plan-count inconsistency.
-Live press kit says 16 plans. Repo guidance says 17+ PLANs. Older narrative says 4 plans. Publish one official count with "last updated" date.
+Resolved: 22 planes estratégicos (al 23 de abril de 2026), framed as idealized design. Sourced from `shared/arquitecto-data.ts`.
 
 5. Separate live features from in-development concepts.
 Add status badges across press and platform pages: Live, Beta, In development, Strategic proposal.
