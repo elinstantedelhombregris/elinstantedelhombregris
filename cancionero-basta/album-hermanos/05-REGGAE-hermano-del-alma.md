@@ -512,3 +512,109 @@ SEGMENTO VIRAL:
       idioma lo entiende
   Resultado: PASA
 ```
+
+---
+
+## Sección 8: Letra Limpia (para Suno)
+
+```
+[Verso 1]
+Me cansé de las peleas que no son mías
+me cansé de los bandos que me armaron solos
+Me cansé del teléfono roto del barrio
+donde todo lo que llega es bronca que otros soplan
+
+Pero ayer crucé al Martín que no era de mi lista
+me dio un mate largo y me habló como se habla
+Y me acordé que éramos amigos antes
+de que la tele nos dijera que ya no podíamos
+
+[Pre-Estribillo]
+Iyah, lo vi claro como día —
+lo vi claro como el agua
+La única pelea real
+es la que nos agarra juntos
+
+[Estribillo]
+Hermano del alma, no de la sangre
+no importa el color, no importa la clase
+Hermano del alma, la misma lucha,
+el mismo fuego, la misma escucha
+
+Hermano del alma, no de la sangre
+no importa el color, no importa la clase
+Hermano del alma, la misma lucha,
+el mismo fuego, la misma escucha
+
+[Verso 2]
+Nos dijeron que los pibes de esa cuadra eran enemigos
+y los del otro barrio traían problema
+Nos dijeron que el que piensa distinto es el contrario
+y que el que reza distinto no es cristiano
+
+Todo era mentira — todo era mentira
+el truco más viejo: partí para poder mandar
+El que te dice "ellos contra nosotros"
+ya te metió el dedo en la garganta sin que te des cuenta
+
+[Pre-Estribillo 2]
+Jah lo vio — yo lo vi
+un solo pueblo, un solo corazón, un solo latir
+La única pelea real
+es la que nos agarra juntos
+
+[Estribillo]
+Hermano del alma, no de la sangre
+no importa el color, no importa la clase
+Hermano del alma, la misma lucha,
+el mismo fuego, la misma escucha
+
+Hermano del alma, no de la sangre
+no importa el color, no importa la clase
+Hermano del alma, la misma lucha,
+el mismo fuego, la misma escucha
+
+[Puente — Dub]
+Si te venden un enemigo
+fijate primero si te venden un espejo —
+el que te invita a odiar
+casi siempre te necesita dividido.
+
+Ellos-nosotros —
+ellos-nosotros...
+
+Es mentira vieja
+con camisa nueva.
+
+El hermano del alma —
+no necesita sangre —
+solo necesita escucha.
+
+[Estribillo Final]
+Hermano del alma, no de la sangre
+no importa el color, no importa la clase
+Hermano del alma, la misma lucha,
+el mismo fuego, la misma escucha
+
+Hermano del alma, no de la sangre
+no importa el color, no importa la clase
+Hermano del alma, la misma lucha,
+el mismo fuego, la misma escucha
+
+Un solo pecho —
+un solo pueblo
+un solo fuego —
+roots.
+
+[Outro]
+Hermano del alma...
+hermano del alma...
+hermano...
+...alma.
+```
+
+## Sección 9: Descripción de Estilo (para Suno, ≤1000 caracteres)
+
+```
+Reggae roots argentino one-drop con vientos y cierre épico. 82 BPM. Mi menor. 4/4 con one-drop clásico: bombo SOLO en tiempo 3 (silencio en 1), snare en 3 doble golpe, hi-hat en corcheas acento 2-4. Guitarra eléctrica rítmica con chop offbeat limpio (cortado, reverb corta). Bajo eléctrico Fender profundo melódico protagonista (dialoga con voz). Órgano Hammond con bubble en estribillos. Clavinet en verso 2 y puente funky. Voz tenor masculino cálido rioplatense tipo Guillermo Bonetto (Los Cafres) o Dread Mar-I, sin imitación jamaicana. Coros masculinos 2-3 voces en terceras paralelas. Vientos (trompeta, trombón, saxo tenor) con hits en estribillo 2 y melodía ascendente en estribillo final. Melódica en puente estilo Augustus Pablo. Dub effects (delays, reverb) en puente y outro. Mood: cálido, hipnótico, comunitario, consciente. Referencias: Los Cafres, Nonpalidece, Dread Mar-I. NO dancehall, NO reggaeton, NO ska, NO autotune.
+```

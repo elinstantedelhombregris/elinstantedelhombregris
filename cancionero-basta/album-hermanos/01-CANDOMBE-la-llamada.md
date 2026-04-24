@@ -489,3 +489,100 @@ SEGMENTO VIRAL:
       ¡BASTA! entiende que es una canción sobre hermandad y tambores.
       Quiere oír más. Busca la canción. El anzuelo pescó
 ```
+
+---
+
+## Sección 8: Letra Limpia (para Suno)
+
+```
+[Verso 1]
+Hoy el barrio se despierta sin alarma
+alguien toca un tambor en la terraza
+Se abre una ventana, sale un mate,
+y otro tambor responde desde el fondo de la cuadra
+
+Antes de cualquier palabra
+los dedos ya saben lo que hay que hacer
+Tres maderas, tres madrugadas de ensayo,
+y un silencio que sostiene lo que viene después
+
+[Pre-Estribillo]
+Vení, vení, que ya suena la llamada
+Vení, vení, que el barrio te está esperando
+Vení, vení, que no hay apuro ni prisa
+Vení, vení, que esto es nuestro y empieza cantando
+
+[Estribillo]
+Soná tambor, soná repique, soná piano
+Tres madera, un solo hermano
+Se abre el barrio, se abre el río
+Tres tambores, un solo pecho
+
+Soná tambor, soná repique, soná piano
+Tres madera, un solo hermano
+Se abre el barrio, se abre el río
+Tres tambores, un solo pecho
+
+[Verso 2]
+El tambor no sabe de apellidos
+el tambor no pregunta de dónde venís
+Si tenés mano tenés lugar,
+si tenés ganas tenés toda la noche por vivir
+
+Mi abuelo tocaba en la costa uruguaya
+mi abuela bordaba en San Telmo su saya
+Ahora soy yo el que pasa el tambor
+a la piba que recién llegó y ya tiene la mano y la rabia
+
+[Pre-Estribillo 2]
+Vení, vení, que ya somos comparsa
+Vení, vení, que este barrio no se calla
+Vení, vení, que la llamada es más vieja
+Vení, vení, que la patria también tiene tambor en la garganta
+
+[Estribillo]
+Soná tambor, soná repique, soná piano
+Tres madera, un solo hermano
+Se abre el barrio, se abre el río
+Tres tambores, un solo pecho
+
+Soná tambor, soná repique, soná piano
+Tres madera, un solo hermano
+Se abre el barrio, se abre el río
+Tres tambores, un solo pecho
+
+[Puente]
+¡Eh, hermano!
+¡Eh, hermana!
+Sacá el tambor que no se guarda
+Sacá el tambor que la noche es larga
+
+Ayayay, ayayay
+ayayay, mi corazón en la madera
+Ayayay, ayayay,
+cada golpe es Argentina entera
+
+[Estribillo Final]
+Soná tambor, soná repique, soná piano
+Tres madera, un solo hermano
+Se abre el barrio, se abre el río
+Tres tambores, un solo pecho
+
+Soná tambor, soná repique, soná piano
+Tres madera, un solo hermano
+El país se despierta escuchándonos
+Tres tambores, un solo pecho
+
+[Outro]
+Soná...
+soná...
+Tres tambores...
+un solo...
+pecho.
+```
+
+## Sección 9: Descripción de Estilo (para Suno, ≤1000 caracteres)
+
+```
+Candombe rioplatense afro-argentino-uruguayo. 108 BPM. Sol menor dórico con modulación breve a Si bemol mayor en estribillo. 4/4 con subdivisión ternaria interna (swing afro). Instrumentación sagrada: tres tambores de mano — chico (agudo, repique), repique (medio, improvisa), piano (grave, pulso cardíaco), más madera (clave imperturbable). Bajo discreto desde segundo estribillo. Guitarra criolla arpegiada sutil en versos. Guitarra eléctrica limpia con chorus solo como aura en clímax final. Quena procesada ad-lib en puente. Voz barítona cálida tipo Rubén Rada/Jaime Roos, sin autotune, con garganta audible. Coro mixto de 8 voces en unísono y terceras paralelas — debe sonar a terraza, no a conservatorio. Mood: ritual, cálido, imparable, fraternal. Referencias: Rubén Rada "Candombe del 31", Jaime Roos "Durazno y Convención", La Vela Puerca acústica. NO drum machine, NO 808, NO autotune, NO percusión programada. Tambores tocados a mano siempre. Producción analógica cálida.
+```

@@ -645,7 +645,7 @@ SEGMENTO VIRAL:
 Pegar directamente en el campo "Style of Music" de Suno:
 
 ```
-Argentine punk rock, 175 bpm, E minor, aggressive, fast, raw, distorted guitar, power chords, punk bass, D-beat drums, shouted male vocals, gang vocals, hardcore, garage, lo-fi, angry, rebellious, Latin American punk, protest, half-time breakdown, mosh pit, short fast loud, abrupt ending, no effects, Marshall distortion, 2 Minutos, Attaque 77
+Argentine street punk anthem, hardcore melodic punk, 175 bpm, E minor, four-chord singalong hook, crowd chant chorus "basta basta", shouted male vocals raw cracking gritty, gang vocals full band unison shouting same mic, call and response crowd chant, D-beat drums machine-gun snare hi-hat eighths, palm-muted tense verses, explosive open power-chord chorus E5 C5 D5 E5, distorted Marshall guitar no effects, punk bass pick constant eighths gritty, half-time breakdown 88 bpm heavy slow chords, dead silence drop half a second, unison scream "basta" full volume crash, instant slam back to 175 bpm, four hammered "basta basta basta basta" outro chant, mosh pit pogo energy, terrace football chant, stadium singalong ready, protest anthem rebellious furious determined, lo-fi sotano garage recording, abrupt cold ending no fade no reverb, viral sing-along, instantly memorable, meme-ready four-letter hook, 2 Minutos Attaque 77 Flema Sin Ley era
 ```
 
 ---

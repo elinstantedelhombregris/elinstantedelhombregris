@@ -21,7 +21,7 @@ PILAR ¡BASTA!: Liderazgo Distribuido + Transparencia Radical
   El trap — que nació como género del poder autoasignado, del "mira
   lo que logré yo" — se invierte aquí: el poder ahora es colectivo.
   El boast del trap se convierte en empoderamiento del pueblo.
-  "Ahora manda el que laburaba" es transparencia radical sobre quién
+  "Ahora manda el que labura" es transparencia radical sobre quién
   produce el valor de un país
 MANDATO: PLANREP (República — nosotros decidimos) + PLAN24CN (Constitución 24)
   — La canción declara, en el idioma de la juventud urbana, que el
@@ -43,7 +43,7 @@ NIVEL DE MENSAJE: 3 — Abierto. La letra nombra el poder directamente.
 ARCO EMOCIONAL: Bronca contenida (nos pisaron toda la vida) →
   Punchline consciente (sabemos quiénes son) → Declaración fría
   (el poder cambió) → Flow de empoderamiento → Mantra final (manda
-  el que laburaba)
+  el que labura)
 ```
 
 ## Sección 2: Especificación Musical
@@ -210,7 +210,7 @@ CONTORNO MELÓDICO:
     — Salto de 3ra menor ascendente en "manos" (hook, compás 1)
     — Descenso de 5ta en "baby" (hook, compás 2) — gesto
       característico del trap melódico
-    — 4ta justa ascendente en "laburaba" (hook, compás 6) — la
+    — 4ta justa ascendente en "labura" (hook, compás 6) — la
       palabra clave política se eleva levemente
   PUNTOS DE FRISSON:
     — Punto 1: Entrada del 808 en el compás 5 de la intro. Los
@@ -283,42 +283,42 @@ y nos quedamos laburando para pagarles el asado
 
 Nos dijeron "portate bien" mientras ellos manguean
 nos dijeron "hay que esperar" mientras ellos firman
-Nos dijeron "ustedes no saben" mientras ellos se pierden
-en las mismas preguntas que nosotros ya tenemos la respuesta
+nos dijeron "no entendés" mientras ellos rompen
+las reglas que ellos mismos nos obligaron a firmar
 
 Pero algo se rompió — *(micro-pausa)*
-algo se rompió en el espejo de ellos
+se les cayó el cuento, se les cayó el telón
 [hi-hat roll]
-y cuando se rompió,
-se nos destapó la cabeza — *(hi-hat roll doble)*
+y atrás del decorado no había rey ni mago —
+había vos, había yo, había la cuadra entera *(hi-hat roll doble)*
 
 [Pre-Hook — build]
-Tic tic, ya se empezó a caer,
-tic tic, ya nadie cree —
-ya nadie cree.
+Tic tic, se cae el decorado,
+tic tic, ya nadie aplaude —
+ya nadie aplaude.
 
 [Hook — voz melódica con autotune suave]
 EL PODER CAMBIÓ DE MANOS, BABY *(salto de 3ra en "manos")*
 ya no manda el que mandaba
 EL PODER CAMBIÓ DE MANOS, BABY
-[4ta ascendente en "laburaba"]
-ahora manda el que laburaba *(PIVOTE NOSOTROS implícito)*
+[4ta ascendente en "labura"]
+ahora manda el que labura *(PIVOTE NOSOTROS implícito)*
 
 El poder cambió de manos, baby
 ya no manda el que mandaba
 El poder cambió de manos, baby
-ahora manda el que laburaba
+ahora manda el que labura
 
 [Verso 2 — flow más denso, punchlines marcadas]
 No necesito pancarta para saber lo que pasa
 leo el precio de la leche, leo el precio de la carne
-Leo el vacío en el bolsillo de mi vieja
-y leo las mentiras escritas con letra arial en los titulares — real *(hi-hat roll)*
+leo el vacío en el bolsillo de mi vieja
+y leo entre líneas lo que el diario no te dice — real *(hi-hat roll)*
 
 Me contaron que la política es para los grandes
 pero los grandes se agrandaron comiendo lo nuestro
-Y cuando nos quedamos con lo justo lo justo
-nos llamaron "vagos" los que nunca pusieron ni un posillo — prra *(hi-hat roll)*
+y cuando nos quedamos con lo justo lo justo
+nos llamaron "vagos" los que nunca pusieron el lomo — prra *(hi-hat roll)*
 
 Pero el poder no es lo que ellos te pintan —
 el poder es el pibe que organiza la copa de leche
@@ -326,7 +326,7 @@ el poder es la piba que para una patada
 el poder es el viejo que todavía se acuerda cómo se dice "basta"
 
 [Pre-Hook 2 — ad-libs de multitud procesada]
-Tic tic, ya se está viendo claro,
+Tic tic, ya se ve el truco,
 tic tic, ya no hay vuelta —
 no hay vuelta atrás.
 
@@ -334,12 +334,12 @@ no hay vuelta atrás.
 EL PODER CAMBIÓ DE MANOS, BABY
 ya no manda el que mandaba
 EL PODER CAMBIÓ DE MANOS, BABY
-ahora manda el que laburaba
+ahora manda el que labura
 
 El poder cambió de manos, baby
 ya no manda el que mandaba
 El poder cambió de manos, baby
-ahora manda el que laburaba
+ahora manda el que labura
 
 [Puente — se quitan batería y 808, entra GUITARRA ACÚSTICA, voz cantada con autotune suave]
 *(quiebre — queda piano + pad + guitarra acústica entrando)*
@@ -368,12 +368,12 @@ Somos la actual.
 EL PODER CAMBIÓ DE MANOS, BABY *(voces en capas)*
 ya no manda el que mandaba
 EL PODER CAMBIÓ DE MANOS, BABY
-ahora manda el que laburaba
+ahora manda el que labura
 
 EL PODER CAMBIÓ DE MANOS, BABY
 ya no manda el que mandaba
 EL PODER CAMBIÓ DE MANOS, BABY
-AHORA MANDA EL QUE LABURABA
+AHORA MANDA EL QUE LABURA
 
 El poder...
 *(ad-lib en delay)*
@@ -382,13 +382,13 @@ el poder...
 ...de manos, baby.
 Ya no manda el que mandaba.
 Ahora manda...
-el que laburaba.
+el que labura.
 
 [Outro — 808 se va, queda piano + guitarra acústica]
 Ahora manda...
 *(voz con delay largo)*
 ahora manda...
-el que laburaba.
+el que labura.
 
 *(piano toca el loop inicial solo, guitarra acústica lo acompaña con arpegio)*
 
@@ -414,7 +414,7 @@ MOMENTO DE DESPERTAR: "Ya no somos la próxima generación. Somos la
   son el futuro — son el presente. El oyente de 22 años lo siente
   como ya
 PIVOTE "NOSOTROS": Múltiple. El hook usa la tercera persona ("el que
-  laburaba") pero el oyente se reconoce — todo el que labura es
+  labura") pero el oyente se reconoce — todo el que labura es
   "nosotros". El puente declara "te habito" (singular) pero el
   "habito" es colectivo — la patria es habitada por todos. Final:
   "somos la actual"
@@ -472,10 +472,11 @@ TEST DEL DÍA DESPUÉS:
   Resultado: PASA
   Justificación: El hook "el poder cambió de manos, baby / ya no
     manda el que mandaba / el poder cambió de manos, baby / ahora
-    manda el que laburaba" tiene paralelismo sintáctico y repetición
+    manda el que labura" tiene contraste temporal (mandaba → labura)
+    y repetición
     que pega. La melodía es simple, ascendente-descendente. El
     "baby" al final de la línea es un earworm diseñado. Open loop
-    final: la canción termina con "el que laburaba" — el cerebro
+    final: la canción termina con "el que labura" — el cerebro
     lo repite
 
 TEST DE ESCALABILIDAD EN VIVO:
@@ -542,7 +543,7 @@ SEGMENTO VIRAL:
      EL PODER CAMBIÓ DE MANOS, BABY
      ya no manda el que mandaba
      EL PODER CAMBIÓ DE MANOS, BABY
-     ahora manda el que laburaba"
+     ahora manda el que labura"
 
   Por qué funciona como clip standalone:
     - Emocionalmente autocontenido: SÍ. El quiebre acústico genera
@@ -561,4 +562,122 @@ SEGMENTO VIRAL:
       que escucha trap entiende la energía. El mensaje "somos la
       actual" es traducible globalmente
   Resultado: PASA
+```
+
+---
+
+## Sección 8: Letra Limpia (para Suno)
+
+```
+[Verso 1]
+Vengo caminando desde una generación rota
+que heredó la deuda pero nunca vio el contrato
+Nos vendieron el futuro con interés compuesto
+y nos quedamos laburando para pagarles el asado
+
+Nos dijeron "portate bien" mientras ellos manguean
+nos dijeron "hay que esperar" mientras ellos firman
+nos dijeron "no entendés" mientras ellos rompen
+las reglas que ellos mismos nos obligaron a firmar
+
+Pero algo se rompió —
+se les cayó el cuento, se les cayó el telón
+y atrás del decorado no había rey ni mago —
+había vos, había yo, había la cuadra entera.
+
+[Pre-Hook]
+Tic tic, se cae el decorado,
+tic tic, ya nadie aplaude —
+ya nadie aplaude.
+
+[Hook — melódico con autotune suave]
+El poder cambió de manos, baby
+ya no manda el que mandaba
+El poder cambió de manos, baby
+ahora manda el que labura
+
+El poder cambió de manos, baby
+ya no manda el que mandaba
+El poder cambió de manos, baby
+ahora manda el que labura
+
+[Verso 2 — flow denso con punchlines]
+No necesito pancarta para saber lo que pasa
+leo el precio de la leche, leo el precio de la carne
+leo el vacío en el bolsillo de mi vieja
+y leo entre líneas lo que el diario no te dice — real
+
+Me contaron que la política es para los grandes
+pero los grandes se agrandaron comiendo lo nuestro
+y cuando nos quedamos con lo justo lo justo
+nos llamaron "vagos" los que nunca pusieron el lomo — prra
+
+Pero el poder no es lo que ellos te pintan —
+el poder es el pibe que organiza la copa de leche
+el poder es la piba que para una patada
+el poder es el viejo que todavía se acuerda cómo se dice "basta"
+
+[Pre-Hook 2]
+Tic tic, ya se ve el truco,
+tic tic, ya no hay vuelta —
+no hay vuelta atrás.
+
+[Hook]
+El poder cambió de manos, baby
+ya no manda el que mandaba
+El poder cambió de manos, baby
+ahora manda el que labura
+
+El poder cambió de manos, baby
+ya no manda el que mandaba
+El poder cambió de manos, baby
+ahora manda el que labura
+
+[Puente — guitarra acústica, voz cantada con autotune suave]
+Mi vieja plantó semillas en la vereda
+para que alguien las viera un día
+Ese día es hoy —
+ese día es hoy —
+
+Mi abuelo laburó cuarenta años en la misma fábrica
+para que yo pudiera estudiar
+Ese estudio es hoy —
+ese estudio es hoy —
+
+Argentina de plata abierta —
+ya no te vendo —
+ya no te mendigo —
+te habito.
+
+Ya no somos la próxima generación.
+Somos la actual.
+
+[Hook Final — todo regresa, voces en capas]
+El poder cambió de manos, baby
+ya no manda el que mandaba
+El poder cambió de manos, baby
+ahora manda el que labura
+
+El poder cambió de manos, baby
+ya no manda el que mandaba
+El poder cambió de manos, baby
+ahora manda el que labura
+
+El poder...
+el poder...
+...de manos, baby.
+Ya no manda el que mandaba.
+Ahora manda...
+el que labura.
+
+[Outro]
+Ahora manda...
+ahora manda...
+el que labura.
+```
+
+## Sección 9: Descripción de Estilo (para Suno, ≤1000 caracteres)
+
+```
+Trap argentino melódico con filo de drill. 75 BPM half-time (percibido al doble, 150). Fa sostenido menor (F#m). 4/4. Instrumentación: 808 sub-bass con glide (pega en el pecho, distorsión sutil), kick en 1 y 3, snare/clap en 3, hi-hats programados 16th con rolls triples y quintillos en fills, open hi-hat en offbeats. Piano melódico melancólico con reverb larga y reverse delay (loop principal). Synth pad atmosférico. Synth plucks tipo flute en hook. Sample vocal procesado (chop, pitch-shift). GUITARRA ACÚSTICA en puente como cita folklórica (esencial, sorpresa). Voz tenor masculino rioplatense urbano, acento porteño, cadencia trap argentino, flow fluido con enunciación clara, tipo Wos en 'Arrancármelo'. Hook melódico con autotune suave no robótico tipo Duki. Ad-libs 'eh', 'baby', 'prra', 'real'. Capas vocales. Producción Bizarrap. Mood: oscuro-declarativo, empoderado, nocturno urbano. Referencias: Wos, Trueno, Bizarrap. NO trap americano, NO drill UK, NO reggaeton, NO inglés.
 ```

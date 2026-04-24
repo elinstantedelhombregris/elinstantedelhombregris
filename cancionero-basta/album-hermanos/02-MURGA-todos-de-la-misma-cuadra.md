@@ -512,3 +512,107 @@ SEGMENTO VIRAL:
       El quiebre silencio-grito es pura física emocional
   Resultado: PASA
 ```
+
+---
+
+## Sección 8: Letra Limpia (para Suno)
+
+```
+[Saludo hablado]
+¡Atención, atención!
+Llegó la murga que el barrio mandó
+No vinimos a pedirle nada a nadie
+Solamente a decirles lo que ya saben...
+
+[Verso 1]
+Le cambian la bandera, le cambian la camiseta,
+lo ponen en el palco, lo ponen en la tribuna
+Pero cuando cae el sol todos comen de la misma olla
+y a la olla la pagamos los del fondo de la cuadra
+
+Mirá cómo se pelean por ver quién grita más fuerte
+en el canal de las siete, en la radio del amigo
+Pero el pan es pan y el gas es gas y el laburo es laburo
+y eso no cambia porque grite el del traje caro
+
+[Pre-Estribillo]
+Ya nos vieron la jugada, ya la tenemos estudiada
+Ya sabemos cómo termina esta novela barata
+Ahora sale la murga y les canta la posta
+
+[Estribillo]
+Somos todos de la misma cuadra
+aunque te pinten de otro color
+Somos todos de la misma cuadra
+la patria es un barrio sin dueño ni señor
+
+Somos todos de la misma cuadra
+aunque te pinten de otro color
+Somos todos de la misma cuadra
+la patria es un barrio sin dueño ni señor
+
+[Verso 2]
+Al de allá lo llaman "casta", al de acá lo llaman "pueblo",
+al del centro "elegante", al del fondo "choriplanero"
+Pero si te fijás bien debajo del rótulo
+todos tenemos la misma cuenta que no cierra a fin de mes
+
+Nos quieren muy lejos, nos quieren bien peleados,
+nos quieren muy distintos para que no nos veamos
+Pero el viejo de la esquina, la piba del comedor,
+el pibe de la fábrica — somos la misma cuadra, y hoy nos dimos cuenta
+
+[Pre-Estribillo 2]
+Ya no nos van a pintar más la misma pelea vieja
+Ya no nos van a vender más el cuento del extranjero
+Ahora canta la murga y el barrio sale entero
+
+[Estribillo]
+Somos todos de la misma cuadra
+aunque te pinten de otro color
+Somos todos de la misma cuadra
+la patria es un barrio sin dueño ni señor
+
+Somos todos de la misma cuadra
+aunque te pinten de otro color
+Somos todos de la misma cuadra
+la patria es un barrio sin dueño ni señor
+
+[Puente hablado]
+Yo vine a decirles una cosa sola
+una cosa sola que no se les olvide:
+el que les dice "ellos y nosotros"
+siempre está del lado del que manda.
+
+No hay ellos.
+Hay nosotros.
+Y somos todos...
+
+¡DE LA MISMA CUADRA!
+
+[Estribillo Final]
+Somos todos de la misma cuadra
+aunque te pinten de otro color
+Somos todos de la misma cuadra
+la patria es un barrio sin dueño ni señor
+
+Somos todos de la misma cuadra
+aunque te pinten de otro color
+Somos todos de la misma cuadra
+la patria es un barrio sin dueño ni señor
+
+La patria...
+la patria...
+¡es un barrio sin dueño ni señor!
+
+[Retirada]
+Hasta el año que viene, barrio...
+Hasta el año que viene, patria...
+Hasta el año que viene...
+```
+
+## Sección 9: Descripción de Estilo (para Suno, ≤1000 caracteres)
+
+```
+Murga porteña con toque de rock murga. 118 BPM paso de marcha. Do menor en versos modulando a Do mayor en estribillo (gesto dramático esencial), Re mayor en estribillo final. 4/4. Percusión murguera: bombo con platillo (grave 1-3, platillo 2-4), redoblante con redobles en cierres, silbato marcando secciones. Palmas del público. Coro masivo de 10-20 voces mixtas imperfectas — sonido de barrio, no de coro pulido. Voz solista baritona teatral con acento porteño marcado, declamativo estilo Polaco Goyeneche murguero. Guitarra acústica en verso 2, bajo, guitarra eléctrica con distorsión suave tipo Bersuit en estribillo 2. Trompeta ad-libs en puente. Mood: satírico, carnavalesco, marchante. Referencias: Falta y Resto, Bersuit 'Sr. Cobranza', Agarrate Catalina. Quiebre teatral en puente con redoblante crescendo. NO drum machine, NO sintetizador, NO autotune, NO samba. Producción orgánica callejera.
+```

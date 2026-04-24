@@ -18,8 +18,8 @@ El oyente que escucha el álbum en orden hace un viaje emocional completo:
 3. Alas de Plata (Zamba)            — El primer vuelo: LIBERTAD
 4. Todo lo que Somos (Pop/Indie)    — El abrazo íntimo: AMOR
 5. Hermano del Alma (Reggae)        — El pacto de sangre: AMOR FRATERNAL
-6. Corazón de Fierro (Cuarteto)     — La fiesta del atrevido: CORAJE
-7. 2030 (Electrónica/Folktronica)   — La visión compartida: VISIÓN
+6. Nos Vemos en el Baile (Cuarteto) — La cita semanal: CONVERGENCIA
+7. Amanece (Electrónica ritual)     — La profecía ancestral: VISIÓN
 8. El Poder Cambió de Manos (Trap)  — La declaración: PODER
 ```
 
@@ -36,20 +36,20 @@ El oyente que escucha el álbum en orden hace un viaje emocional completo:
 | 3. Alas de Plata | Argentina profunda, NOA, público amplio | Todo el país | Peña, fogón, escuela, radio |
 | 4. Todo lo que Somos | Clase media joven, indie/pop | AMBA, ciudades universitarias | Streaming, cafés, auriculares |
 | 5. Hermano del Alma | Rockeros/reggaeros 20-45 | Nacional | Asado, playa, auto, recital |
-| 6. Corazón de Fierro | Córdoba y centro, clase trabajadora | Córdoba, Santa Fe, interior | Boliche, cumpleaños, cancha |
-| 7. 2030 | Jóvenes urbanos sofisticados, intelectuales jóvenes | AMBA, Rosario, Córdoba capital | Streaming, auto, club electrónico, oficina |
+| 6. Nos Vemos en el Baile | Córdoba y centro, clase trabajadora rota | Córdoba, Santa Fe, interior | Boliche, cumpleaños, cancha, auto, acto sindical |
+| 7. Amanece | Transversal — urbanos sofisticados + argentina profunda | Nacional | Auriculares en madrugada, cierre épico de acto, cine, meditación |
 | 8. El Poder Cambió de Manos | Jóvenes urbanos 15-28 | AMBA, conurbano, nacional urbano | TikTok, auriculares, fiesta, gym |
 
 **Resultado:** Combinado con el Cancionero previo, el movimiento ¡BASTA! ahora tiene canción para TODA demografía argentina — de 15 a 75 años, de villa a country, de puna a delta, de peña a rave.
 
 ### Pilares ¡BASTA! completados
 
-- **Amabilidad Radical**: canciones 1, 4, 5 — la ternura como arma revolucionaria
+- **Amabilidad Radical**: canciones 1, 4, 5, 6 — la ternura como arma revolucionaria
 - **Diseño Idealizado**: canciones 3, 7 — la visión como combustible
 - **Liderazgo Distribuido**: canciones 2, 6, 8 — el poder distribuido entre pares
 
 ### Mandatos tocados
-PLANCUL (1, 5) • PLANREP (2, 3, 8) • PLAN24CN (7) • PLANRUTA (6) • PLANJUS (eco en 5) • Transversal (4 — amor como fundamento de todo)
+PLANCUL (1, 5, 6) • PLANREP (2, 3, 8) • PLAN24CN (7) • PLANRUTA (6) • PLANJUS (eco en 5) • Transversal (4 — amor como fundamento de todo)
 
 ## Secuencia y Ritmo Emocional
 
@@ -60,8 +60,8 @@ La secuencia NO es casual. Cada track prepara al siguiente:
 3. **Alas de Plata** baja la intensidad — zamba contemplativa. Después del encuentro, el sueño de libertad. El oyente respira.
 4. **Todo lo que Somos** desciende más — al núcleo íntimo. Amor, hogar, vínculo. Lo que se defiende.
 5. **Hermano del Alma** sube gradualmente — reggae pacífico pero firme. El pacto se sella.
-6. **Corazón de Fierro** explota — cuarteto, fiesta, coraje. Después de pactar, atreverse.
-7. **2030** quiebra — electrónica sofisticada, visión compartida. La fiesta lleva a soñar.
+6. **Nos Vemos en el Baile** estalla — cuarteto que arranca íntimo y explota en catarsis colectiva. Después del pacto, la cita semanal: cada sábado la gente rota converge al baile sin que nadie la convoque.
+7. **Amanece** quiebra — electrónica ritual ancestral. Después de la fiesta, la profecía: la noche ya no puede sostenerse más.
 8. **El Poder Cambió de Manos** cierra — trap declarativo. El álbum termina con la declaración: ya no es pedido, es hecho.
 
 **Curva de tensión del álbum:**
@@ -81,7 +81,7 @@ La secuencia NO es casual. Cada track prepara al siguiente:
 Para que el álbum SE SIENTA como una unidad, no 8 canciones sueltas:
 
 ### Melódico
-- **Célula de tres notas descendentes** (La-Sol-Fa o Mi-Re-Do) aparece en los estribillos de 1, 3, 5 y 7. Es la "firma melódica de HERMANOS".
+- **Célula de tres notas descendentes** (La-Sol-Fa o Mi-Re-Do) aparece en los estribillos de 1, 3 y 5. Es la "firma melódica de HERMANOS". En 7 (Amanece) se reduce a su mínima expresión ritual: dos notas Re-Fa repetidas hipnóticamente.
 - **Salto de 6ta mayor ascendente** en palabras emocionales clave (hermano, vuelo, amor, poder) en 1, 3, 4, 8.
 
 ### Lírico
@@ -106,8 +106,8 @@ Para que el álbum SE SIENTA como una unidad, no 8 canciones sueltas:
 | 3. Alas de Plata | Cuchi Leguizamón "Zamba de Lozano", Yupanqui "El payador perseguido" |
 | 4. Todo lo que Somos | Fito Páez "Yo vengo a ofrecer mi corazón", Spinetta "Seguir viviendo sin tu amor" |
 | 5. Hermano del Alma | Los Cafres "Si el amor se cae", Dread Mar-I "Tú sin mí" |
-| 6. Corazón de Fierro | Rodrigo "Lo mejor del amor", La Mona "Quién se ha tomado todo el vino" |
-| 7. 2030 | Bajofondo "Pa' bailar", Gustavo Cerati "Raíz" |
+| 6. Nos Vemos en el Baile | Rodrigo "Y hoy te voy a extrañar", La Mona "Beso a beso", La Konga "Sácame a Bailar" |
+| 7. Amanece | Bajofondo "Perfume", Chancha Vía Circuito "Quimey Neuquen", Nicola Cruz "Colibria", Cerati "Crimen" |
 | 8. El Poder Cambió de Manos | Wos "Arrancármelo", Trueno "MAMICHULA" |
 
 **Test del asado** pasado: el abuelo canta 3 y 5, el padre 2 y 6, la madre 1 y 4, el pibe 7 y 8 — pero todos entran en los estribillos de todas.

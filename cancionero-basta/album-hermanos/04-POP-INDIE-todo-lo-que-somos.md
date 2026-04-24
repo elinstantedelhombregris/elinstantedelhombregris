@@ -500,3 +500,99 @@ SEGMENTO VIRAL:
       palabra "patria" redefinida
   Resultado: PASA
 ```
+
+---
+
+## Sección 8: Letra Limpia (para Suno)
+
+```
+[Verso 1]
+Tengo una lista de cosas que tenía que aprender
+antes de los treinta, antes de saber vivir
+La mayoría no la aprendí, pero aprendí otra cosa —
+aprendí a escucharte mientras hacés el té
+
+Afuera la ciudad grita cosas que no son ciertas
+adentro tu risa hace sonido de guitarra rota
+Yo nunca tuve mucho plan, más que llegar a esta mesa
+y decirte lo que nunca me animé a decir
+
+[Pre-Estribillo]
+Todo lo que fui, todo lo que tuve miedo
+todo lo que di, todo lo que no supe dar
+cabe entre tus brazos, cabe entre tus brazos
+
+[Estribillo]
+Todo lo que somos cabe en un abrazo
+todo lo que fuimos nos trajo hasta acá
+Todo lo que somos cabe en un abrazo,
+y ese abrazo es patria, es amor, es hogar
+
+Todo lo que somos cabe en un abrazo
+todo lo que fuimos nos trajo hasta acá
+Todo lo que somos cabe en un abrazo,
+y ese abrazo es patria, es amor, es hogar
+
+[Verso 2]
+Conocimos la tristeza con nombre y apellido
+sobrevivimos años que la gente prefiere olvidar
+No nos hicimos duros — nos hicimos cuidadosos,
+y ahora sabemos exactamente qué no vamos a romper
+
+Hay una Argentina que no sale en los diarios
+vive en los gestos chiquitos de la gente buena
+en el vecino que te deja algo en la puerta
+en la mesa que se agranda cuando alguien no tiene cena
+
+[Pre-Estribillo 2 — entra voz masculina en armonía baja]
+Todo lo que somos, todo lo que vamos siendo
+todo lo que nos dimos cuando nadie nos miraba
+cabe entre tus brazos, cabe entre nuestros brazos
+
+[Estribillo — dueto]
+Todo lo que somos cabe en un abrazo
+todo lo que fuimos nos trajo hasta acá
+Todo lo que somos cabe en un abrazo,
+y ese abrazo es patria, es amor, es hogar
+
+Todo lo que somos cabe en un abrazo
+todo lo que fuimos nos trajo hasta acá
+Todo lo que somos cabe en un abrazo,
+y ese abrazo es patria, es amor, es hogar
+
+[Puente]
+Si la patria es esto
+—tu mano en mi mano,
+el pan que alcanza para cuatro cuando vinieron seis,
+la radio bajita mientras alguien llora a las tres de la mañana—
+
+entonces no hay que soñar con otra patria
+la patria ya está acá,
+entre la gente que elige quedarse
+y lo que elige cuidar.
+
+Todo lo que somos...
+
+[Estribillo Final]
+Todo lo que somos cabe en un abrazo
+todo lo que fuimos nos trajo hasta acá
+Todo lo que somos cabe en un abrazo,
+y ese abrazo es patria, es amor, es hogar
+
+Todo lo que somos cabe en un abrazo
+todo lo que fuimos nos trajo hasta acá
+Todo lo que somos cabe en un abrazo,
+y ese abrazo es patria, es amor, es hogar
+
+[Outro]
+Es patria...
+...es amor...
+es hogar...
+...es hogar.
+```
+
+## Sección 9: Descripción de Estilo (para Suno, ≤1000 caracteres)
+
+```
+Indie pop / folk-pop argentino íntimo con desarrollo orquestal. 92 BPM. Fa sostenido menor modulando a La mayor en estribillo. 4/4 con corcheas flotantes. Instrumentación: guitarra acústica de acero con fingerpicking limpio, batería con escobas o drum machine LinnDrum sutil, bajo eléctrico melódico que dialoga con voz, synth pad analógico Juno sostenido, synth arpegio en pre-estribillos, piano eléctrico Rhodes en puente, cuerdas (violines, viola, cello) entrando en puente y plenas en estribillo final. Voz femenina mezzo-soprano íntima con aire tipo Zoe Gotusso o Juana Molina, cercana al micrófono, sin esfuerzo. Voz masculina barítono-tenor tipo Mateo Sujatovich en armonía baja en estribillo 2 (dueto). Coros en capas con delay. Mood: íntimo, cálido, melancólico-luminoso. Referencias: Conociendo Rusia, Zoe Gotusso, Lisandro Aristimuño. NO distorsión, NO 808, NO trap, NO grito vocal.
+```

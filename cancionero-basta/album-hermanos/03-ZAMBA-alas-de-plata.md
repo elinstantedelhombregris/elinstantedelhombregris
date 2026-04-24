@@ -503,3 +503,103 @@ SEGMENTO VIRAL:
       argentino reacciona
   Resultado: PASA
 ```
+
+---
+
+## Sección 8: Letra Limpia (para Suno)
+
+```
+[Verso 1]
+Cuántos años pedí permiso
+para decir lo que sé
+Cuántos años crucé callando
+campos que eran míos también
+
+La tierra tiene memoria de tanta ala cortada
+y el río también canta lo que no se escribió
+Pero algo despertó al amanecer sin pedirme nada,
+y entendí que si no volaba, no volaba nadie por mí
+
+[Pre-Estribillo]
+Ay, madrugada,
+dame tu luz —
+Se abre el camino,
+se abre la cruz.
+
+[Estribillo]
+Que vuele el que quiso volar
+que cante el que quiso cantar
+Argentina de plata abierta,
+que vuele el que quiso soñar
+
+Que vuele el que quiso volar
+que cante el que quiso cantar
+Argentina de plata abierta,
+que vuele el que quiso soñar
+
+[Verso 2]
+Mi abuela enterraba coplas en el fondo del patio
+para que el hambre no se las pudiera tragar
+Hoy las estoy desenterrando con manos de la sangre
+y las canto en voz alta donde ya no me pueden callar
+
+Nos dijeron que no se podía, que éramos muy pocos
+Nos dijeron que soñar despierto era pecado
+Pero la plata estaba en el nombre mismo de la patria
+y nadie puede enterrar para siempre lo que es sagrado
+
+[Pre-Estribillo 2]
+Ay, Argentina,
+hoy te nombré —
+en el silencio,
+te escuché.
+
+[Estribillo]
+Que vuele el que quiso volar
+que cante el que quiso cantar
+Argentina de plata abierta,
+que vuele el que quiso soñar
+
+Que vuele el que quiso volar
+que cante el que quiso cantar
+Argentina de plata abierta,
+que vuele el que quiso soñar
+
+[Puente]
+Yo miré el horizonte
+y el horizonte tenía mi cara
+Yo escuché el viento
+y el viento tenía mi voz
+
+Y aprendí que libertad
+no es irse del país —
+es que el país te deje ser
+lo que siempre quisiste ser.
+
+Tierra mía...
+
+[Estribillo Final]
+Que vuele el que quiso volar
+que cante el que quiso cantar
+Argentina de plata abierta,
+que vuele el que quiso soñar
+
+Que vuele el que quiso volar
+que cante el que quiso cantar
+Argentina de plata abierta,
+que vuele el que quiso soñar
+
+Que vuele el que quiso volar
+que cante el que quiso cantar
+Argentina de plata abierta,
+que vuele el que quiso soñar...
+
+[Outro]
+...soñar...
+```
+
+## Sección 9: Descripción de Estilo (para Suno, ≤1000 caracteres)
+
+```
+Zamba argentina del NOA clásica con fusión contemporánea. 86 BPM respirado con arrastre (no mecánico). 6/8 con hemiola 3 contra 2. Re menor en versos modulando a Re mayor en estribillo (luz tras sombra, estilo Cuchi Leguizamón). Instrumentación acústica: guitarra criolla de nylon tocada con uñas (protagonista, bordoneo en intro, rasguido zambero con chasquido en versos), bombo legüero con patrón parche-aro zambero, segunda guitarra criolla de contrapunto en verso 2, charango con trémolo en puente, violín entrando solo en estribillo final con contracanto ascendente. Voz femenina contralto cálida tipo Mercedes Sosa, con hondura y vibrato controlado — nunca gritada. Coro masculino 2-3 voces tipo Los Fronterizos en terceras y sextas paralelas. Acordes con novenas agregadas. Mood: honda, libre, luminosa, contemplativa-épica. Referencias: Cuchi 'Zamba de Lozano', Mercedes Sosa, Raly Barrionuevo. NO batería, NO bajo eléctrico, NO sintetizador. Producción acústica peña salteña.
+```
