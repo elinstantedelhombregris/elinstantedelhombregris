@@ -308,22 +308,6 @@ const SankeySection: React.FC<{ convergence: ConvergenceData }> = ({ convergence
   const sankeyData = useMemo(() => {
     if (!streamLinks.length) return null;
 
-    // Build nodes: types (left) + themes (right)
-    const typeNodes = DREAM_TYPES.map((t) => ({
-      id: `type-${t}`,
-      label: TYPE_LABELS[t],
-      color: TYPE_COLORS[t],
-    }));
-
-    const themeNodes = themeCards.map((tc) => ({
-      id: `theme-${tc.theme}`,
-      label: tc.label,
-      color: '#7D5BDE',
-    }));
-
-    const nodes = [...typeNodes, ...themeNodes];
-
-    // Build links from streamLinks
     const links = streamLinks
       .filter((sl) => sl.strength > 0)
       .map((sl) => ({
@@ -333,7 +317,33 @@ const SankeySection: React.FC<{ convergence: ConvergenceData }> = ({ convergence
       }));
 
     if (links.length === 0) return null;
-    return { nodes, links };
+
+    // Only include nodes that actually participate in a link — otherwise
+    // d3-sankey places orphans in a separate column and they render as
+    // disconnected labels next to the diagram.
+    const connectedIds = new Set<string>();
+    for (const l of links) {
+      connectedIds.add(l.source);
+      connectedIds.add(l.target);
+    }
+
+    const typeNodes = DREAM_TYPES
+      .filter((t) => connectedIds.has(`type-${t}`))
+      .map((t) => ({
+        id: `type-${t}`,
+        label: TYPE_LABELS[t],
+        color: TYPE_COLORS[t],
+      }));
+
+    const themeNodes = themeCards
+      .filter((tc) => connectedIds.has(`theme-${tc.theme}`))
+      .map((tc) => ({
+        id: `theme-${tc.theme}`,
+        label: tc.label,
+        color: '#7D5BDE',
+      }));
+
+    return { nodes: [...typeNodes, ...themeNodes], links };
   }, [streamLinks, themeCards]);
 
   if (!sankeyData) {
@@ -363,20 +373,21 @@ const SankeySection: React.FC<{ convergence: ConvergenceData }> = ({ convergence
           transition={{ duration: 0.8 }}
           className="overflow-x-auto"
         >
-          <div style={{ minWidth: 600, height: 450 }}>
+          <div style={{ minWidth: 720, height: 450 }}>
             <ResponsiveSankey
               data={sankeyData}
               theme={NIVO_THEME}
-              margin={{ top: 20, right: 160, bottom: 20, left: 20 }}
+              margin={{ top: 20, right: 180, bottom: 20, left: 140 }}
               align="justify"
               colors={(node: any) => node.color || '#7D5BDE'}
+              label={(node: any) => node.label}
               nodeOpacity={1}
               nodeHoverOthersOpacity={0.35}
               nodeThickness={18}
               nodeSpacing={24}
               nodeBorderWidth={0}
               nodeBorderRadius={3}
-              linkOpacity={0.3}
+              linkOpacity={0.55}
               linkHoverOthersOpacity={0.1}
               linkContract={3}
               enableLinkGradient={true}
