@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="El Instante del Hombre Gris — social card landscape">
+  <title>El Instante del Hombre Gris — social card</title>
+  <rect width="1200" height="630" fill="#0A0A0A"/>
+  <g transform="translate(120 130) scale(0.38)">
+    <g fill="#C8A64A">
+      <g id="ltooth"><path d="M0 -240 L-10 -205 L10 -205 Z"/></g>
+      <use href="#ltooth"/>
+      <use href="#ltooth" transform="rotate(15)"/>
+      <use href="#ltooth" transform="rotate(30)"/>
+      <use href="#ltooth" transform="rotate(45)"/>
+      <use href="#ltooth" transform="rotate(60)"/>
+      <use href="#ltooth" transform="rotate(75)"/>
+      <use href="#ltooth" transform="rotate(90)"/>
+      <use href="#ltooth" transform="rotate(105)"/>
+      <use href="#ltooth" transform="rotate(120)"/>
+      <use href="#ltooth" transform="rotate(135)"/>
+      <use href="#ltooth" transform="rotate(150)"/>
+      <use href="#ltooth" transform="rotate(165)"/>
+      <use href="#ltooth" transform="rotate(180)"/>
+      <use href="#ltooth" transform="rotate(195)"/>
+      <use href="#ltooth" transform="rotate(210)"/>
+      <use href="#ltooth" transform="rotate(225)"/>
+      <use href="#ltooth" transform="rotate(240)"/>
+      <use href="#ltooth" transform="rotate(255)"/>
+      <use href="#ltooth" transform="rotate(270)"/>
+      <use href="#ltooth" transform="rotate(285)"/>
+      <use href="#ltooth" transform="rotate(300)"/>
+      <use href="#ltooth" transform="rotate(315)"/>
+      <use href="#ltooth" transform="rotate(330)"/>
+      <use href="#ltooth" transform="rotate(345)"/>
+      <circle r="200" fill="none" stroke="#C8A64A" stroke-width="14"/>
+    </g>
+    <circle r="160" fill="#C8CDD2"/>
+    <g fill="#0A0A0A">
+      <ellipse cx="0" cy="-100" rx="18" ry="54"/>
+      <ellipse cx="0" cy="100" rx="18" ry="54"/>
+      <ellipse cx="-100" cy="0" rx="54" ry="18"/>
+      <ellipse cx="100" cy="0" rx="54" ry="18"/>
+      <circle r="82" fill="none" stroke="#0A0A0A" stroke-width="3"/>
+    </g>
+    <g fill="#0A0A0A">
+      <path d="M 0 38 C -34 4, -68 -18, -48 -48 C -28 -72, 0 -60, 0 -30 C 0 -60, 28 -72, 48 -48 C 68 -18, 34 4, 0 38 Z"/>
+    </g>
+  </g>
+  <g font-family="Georgia, 'Playfair Display', serif" fill="#C8CDD2">
+    <text x="280" y="280" font-size="72" font-weight="600">El Instante</text>
+    <text x="280" y="360" font-size="56" fill="#8A8F95">del Hombre Gris</text>
+  </g>
+  <rect x="280" y="400" width="180" height="3" fill="#C8A64A"/>
+  <g font-family="Inter, Arial, sans-serif" fill="#C8CDD2">
+    <text x="280" y="440" font-size="22" opacity="0.85">Ciudadanos con herramientas para diseñar Argentina</text>
+  </g>
+  <g font-family="'JetBrains Mono', monospace" fill="#C8A64A">
+    <text x="1080" y="580" font-size="18" text-anchor="end">elinstantedelhombregris.com</text>
+  </g>
+</svg>

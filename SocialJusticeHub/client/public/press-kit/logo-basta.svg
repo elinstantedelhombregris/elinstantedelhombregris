@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 240" role="img" aria-label="El Instante del Hombre Gris / ¡BASTA!">
+  <title>El Instante del Hombre Gris / ¡BASTA!</title>
+  <g transform="translate(100 120) scale(0.42)">
+    <g fill="#C8A64A">
+      <g id="btooth"><path d="M0 -240 L-10 -205 L10 -205 Z"/></g>
+      <use href="#btooth"/>
+      <use href="#btooth" transform="rotate(15)"/>
+      <use href="#btooth" transform="rotate(30)"/>
+      <use href="#btooth" transform="rotate(45)"/>
+      <use href="#btooth" transform="rotate(60)"/>
+      <use href="#btooth" transform="rotate(75)"/>
+      <use href="#btooth" transform="rotate(90)"/>
+      <use href="#btooth" transform="rotate(105)"/>
+      <use href="#btooth" transform="rotate(120)"/>
+      <use href="#btooth" transform="rotate(135)"/>
+      <use href="#btooth" transform="rotate(150)"/>
+      <use href="#btooth" transform="rotate(165)"/>
+      <use href="#btooth" transform="rotate(180)"/>
+      <use href="#btooth" transform="rotate(195)"/>
+      <use href="#btooth" transform="rotate(210)"/>
+      <use href="#btooth" transform="rotate(225)"/>
+      <use href="#btooth" transform="rotate(240)"/>
+      <use href="#btooth" transform="rotate(255)"/>
+      <use href="#btooth" transform="rotate(270)"/>
+      <use href="#btooth" transform="rotate(285)"/>
+      <use href="#btooth" transform="rotate(300)"/>
+      <use href="#btooth" transform="rotate(315)"/>
+      <use href="#btooth" transform="rotate(330)"/>
+      <use href="#btooth" transform="rotate(345)"/>
+      <circle r="200" fill="none" stroke="#C8A64A" stroke-width="14"/>
+    </g>
+    <circle r="160" fill="#C8CDD2"/>
+    <g fill="#0A0A0A">
+      <ellipse cx="0" cy="-100" rx="18" ry="54"/>
+      <ellipse cx="0" cy="100" rx="18" ry="54"/>
+      <ellipse cx="-100" cy="0" rx="54" ry="18"/>
+      <ellipse cx="100" cy="0" rx="54" ry="18"/>
+      <circle r="82" fill="none" stroke="#0A0A0A" stroke-width="3"/>
+    </g>
+    <g fill="#0A0A0A">
+      <path d="M 0 38 C -34 4, -68 -18, -48 -48 C -28 -72, 0 -60, 0 -30 C 0 -60, 28 -72, 48 -48 C 68 -18, 34 4, 0 38 Z"/>
+    </g>
+  </g>
+  <g font-family="Georgia, 'Playfair Display', serif" fill="#C8CDD2">
+    <text x="220" y="115" font-size="36" font-weight="500">El Instante</text>
+    <text x="220" y="155" font-size="26" fill="#8A8F95" letter-spacing="2">del Hombre Gris</text>
+  </g>
+  <g font-family="'JetBrains Mono', monospace" fill="#C8A64A">
+    <text x="220" y="195" font-size="14" letter-spacing="3">¡BASTA!</text>
+  </g>
+</svg>

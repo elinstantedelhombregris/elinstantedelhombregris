@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" role="img" aria-label="El Instante del Hombre Gris — social card square">
+  <title>El Instante del Hombre Gris — social card square</title>
+  <rect width="1080" height="1080" fill="#0A0A0A"/>
+  <g transform="translate(540 380) scale(0.55)">
+    <g fill="#C8A64A">
+      <g id="sqtooth"><path d="M0 -240 L-10 -205 L10 -205 Z"/></g>
+      <use href="#sqtooth"/>
+      <use href="#sqtooth" transform="rotate(15)"/>
+      <use href="#sqtooth" transform="rotate(30)"/>
+      <use href="#sqtooth" transform="rotate(45)"/>
+      <use href="#sqtooth" transform="rotate(60)"/>
+      <use href="#sqtooth" transform="rotate(75)"/>
+      <use href="#sqtooth" transform="rotate(90)"/>
+      <use href="#sqtooth" transform="rotate(105)"/>
+      <use href="#sqtooth" transform="rotate(120)"/>
+      <use href="#sqtooth" transform="rotate(135)"/>
+      <use href="#sqtooth" transform="rotate(150)"/>
+      <use href="#sqtooth" transform="rotate(165)"/>
+      <use href="#sqtooth" transform="rotate(180)"/>
+      <use href="#sqtooth" transform="rotate(195)"/>
+      <use href="#sqtooth" transform="rotate(210)"/>
+      <use href="#sqtooth" transform="rotate(225)"/>
+      <use href="#sqtooth" transform="rotate(240)"/>
+      <use href="#sqtooth" transform="rotate(255)"/>
+      <use href="#sqtooth" transform="rotate(270)"/>
+      <use href="#sqtooth" transform="rotate(285)"/>
+      <use href="#sqtooth" transform="rotate(300)"/>
+      <use href="#sqtooth" transform="rotate(315)"/>
+      <use href="#sqtooth" transform="rotate(330)"/>
+      <use href="#sqtooth" transform="rotate(345)"/>
+      <circle r="200" fill="none" stroke="#C8A64A" stroke-width="14"/>
+    </g>
+    <circle r="160" fill="#C8CDD2"/>
+    <g fill="#0A0A0A">
+      <ellipse cx="0" cy="-100" rx="18" ry="54"/>
+      <ellipse cx="0" cy="100" rx="18" ry="54"/>
+      <ellipse cx="-100" cy="0" rx="54" ry="18"/>
+      <ellipse cx="100" cy="0" rx="54" ry="18"/>
+      <circle r="82" fill="none" stroke="#0A0A0A" stroke-width="3"/>
+    </g>
+    <g fill="#0A0A0A">
+      <path d="M 0 38 C -34 4, -68 -18, -48 -48 C -28 -72, 0 -60, 0 -30 C 0 -60, 28 -72, 48 -48 C 68 -18, 34 4, 0 38 Z"/>
+    </g>
+  </g>
+  <g font-family="Georgia, 'Playfair Display', serif" fill="#C8CDD2" text-anchor="middle">
+    <text x="540" y="790" font-size="68" font-weight="600">El Instante</text>
+    <text x="540" y="860" font-size="52" fill="#8A8F95">del Hombre Gris</text>
+  </g>
+  <rect x="450" y="900" width="180" height="3" fill="#C8A64A"/>
+  <g font-family="'JetBrains Mono', monospace" fill="#C8A64A" text-anchor="middle">
+    <text x="540" y="1020" font-size="20">elinstantedelhombregris.com</text>
+  </g>
+</svg>

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="El Instante del Hombre Gris">
+  <title>El Instante del Hombre Gris emblem</title>
+  <g fill="#C8A64A">
+    <g transform="translate(256 256)">
+      <g id="tooth"><path d="M0 -240 L-10 -205 L10 -205 Z"/></g>
+      <use href="#tooth"/>
+      <use href="#tooth" transform="rotate(15)"/>
+      <use href="#tooth" transform="rotate(30)"/>
+      <use href="#tooth" transform="rotate(45)"/>
+      <use href="#tooth" transform="rotate(60)"/>
+      <use href="#tooth" transform="rotate(75)"/>
+      <use href="#tooth" transform="rotate(90)"/>
+      <use href="#tooth" transform="rotate(105)"/>
+      <use href="#tooth" transform="rotate(120)"/>
+      <use href="#tooth" transform="rotate(135)"/>
+      <use href="#tooth" transform="rotate(150)"/>
+      <use href="#tooth" transform="rotate(165)"/>
+      <use href="#tooth" transform="rotate(180)"/>
+      <use href="#tooth" transform="rotate(195)"/>
+      <use href="#tooth" transform="rotate(210)"/>
+      <use href="#tooth" transform="rotate(225)"/>
+      <use href="#tooth" transform="rotate(240)"/>
+      <use href="#tooth" transform="rotate(255)"/>
+      <use href="#tooth" transform="rotate(270)"/>
+      <use href="#tooth" transform="rotate(285)"/>
+      <use href="#tooth" transform="rotate(300)"/>
+      <use href="#tooth" transform="rotate(315)"/>
+      <use href="#tooth" transform="rotate(330)"/>
+      <use href="#tooth" transform="rotate(345)"/>
+      <circle r="200" fill="none" stroke="#C8A64A" stroke-width="14"/>
+    </g>
+  </g>
+  <g transform="translate(256 256)">
+    <circle r="160" fill="#C8CDD2"/>
+    <g fill="#0A0A0A">
+      <ellipse cx="0" cy="-100" rx="18" ry="54"/>
+      <ellipse cx="0" cy="100" rx="18" ry="54"/>
+      <ellipse cx="-100" cy="0" rx="54" ry="18"/>
+      <ellipse cx="100" cy="0" rx="54" ry="18"/>
+      <circle r="82" fill="none" stroke="#0A0A0A" stroke-width="3"/>
+    </g>
+  </g>
+  <g transform="translate(256 256)" fill="#0A0A0A">
+    <path d="M 0 38
+             C -34 4, -68 -18, -48 -48
+             C -28 -72, 0 -60, 0 -30
+             C 0 -60, 28 -72, 48 -48
+             C 68 -18, 34 4, 0 38 Z"/>
+  </g>
+</svg>
