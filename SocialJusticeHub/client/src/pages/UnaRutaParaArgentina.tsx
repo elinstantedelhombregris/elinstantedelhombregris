@@ -886,7 +886,7 @@ export default function UnaRutaParaArgentina() {
       <aside
         role="note"
         aria-label="Diseño Idealizado"
-        className="mx-auto max-w-3xl my-12 p-8 rounded-xl bg-white/[0.03] border border-white/20 ring-1 ring-white/10"
+        className="mx-auto max-w-3xl my-12 p-8 rounded-xl bg-white/[0.03] border border-silver/20 ring-1 ring-gold/10"
       >
         <h3 className="font-serif text-2xl md:text-3xl text-white mb-4 tracking-wide">
           Diseño Idealizado

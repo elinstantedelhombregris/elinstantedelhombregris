@@ -163,48 +163,54 @@ Todo es abierto. Todo es auditable. Todo el código es público. El movimiento s
           SECTION 1: HERO
       ══════════════════════════════════════════════════════════════ */}
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
-        {/* Atmospheric gradient orbs */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/4 -left-32 w-[500px] h-[500px] bg-blue-600/[0.08] rounded-full blur-[120px]" />
-          <div className="absolute bottom-1/4 -right-32 w-[400px] h-[400px] bg-purple-600/[0.06] rounded-full blur-[100px]" />
-        </div>
-        {/* Subtle grid texture */}
-        <div className="absolute inset-0 opacity-[0.03]" style={{
-          backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
-          backgroundSize: '60px 60px'
-        }} />
+        {/* Metallic emblem */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="relative z-10 mb-8"
+        >
+          <img
+            src="/press-kit/el-instante-logo-metallic-hero-1024.png"
+            alt="El Instante del Hombre Gris emblem"
+            className="w-40 h-40 md:w-56 md:h-56 mx-auto drop-shadow-2xl"
+          />
+        </motion.div>
 
-        <div className="container mx-auto px-4 relative z-10 text-center py-32">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        {/* Title + subtitle */}
+        <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="font-serif text-5xl md:text-7xl text-silver tracking-tight mb-6"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-sm text-slate-400 mb-8">
-              <FileText className="w-4 h-4 text-blue-400" />
-              Recursos para prensa y comunidad
-            </div>
-            <h1 className="text-5xl md:text-7xl font-serif font-bold mb-6 leading-[0.95] tracking-tight">
-              Kit de{' '}
-              <span className="bg-gradient-to-r from-blue-400 via-blue-500 to-purple-500 bg-clip-text text-transparent">
-                Prensa
-              </span>
-            </h1>
-            <p className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed font-light">
-              Todo lo que necesitás para contar esta historia. Para periodistas,
-              creadores y cualquiera que quiera compartir el movimiento con claridad.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.2, duration: 0.8 }}
-            className="mt-16"
+            Kit de Prensa
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.35, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="text-lg md:text-xl text-silver/80 leading-relaxed max-w-2xl mx-auto"
           >
-            <ChevronDown className="w-6 h-6 text-slate-600 mx-auto animate-bounce" />
-          </motion.div>
+            Recursos aprobados, fichas, logos y descripciones para periodistas, aliados y comunidades que cubren El Instante del Hombre Gris y el marco ¡BASTA!
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, scaleX: 0 }}
+            animate={{ opacity: 1, scaleX: 1 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+            className="mt-10 h-0.5 w-24 bg-gold mx-auto origin-left"
+          />
         </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2, duration: 0.8 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        >
+          <ChevronDown className="w-6 h-6 text-slate-600 mx-auto animate-bounce" />
+        </motion.div>
       </section>
 
       {/* ══════════════════════════════════════════════════════════════
@@ -497,7 +503,7 @@ Todo es abierto. Todo es auditable. Todo el código es público. El movimiento s
           <aside
             role="note"
             aria-label="Diseño Idealizado"
-            className="mx-auto max-w-3xl my-12 p-8 rounded-xl bg-white/[0.03] border border-white/20 ring-1 ring-white/10"
+            className="mx-auto max-w-3xl my-12 p-8 rounded-xl bg-white/[0.03] border border-silver/20 ring-1 ring-gold/10"
           >
             <h3 className="font-serif text-2xl md:text-3xl text-white mb-4 tracking-wide">
               Diseño Idealizado

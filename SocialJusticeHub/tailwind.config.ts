@@ -21,6 +21,12 @@ export default {
         "steel-blue": "#6477C0",
         "iris-violet": "#7D5BDE",
 
+        // Tokens metálicos ceremoniales
+        silver: "#C8CDD2",
+        "silver-dim": "#8A8F95",
+        gold: "#C8A64A",
+        "gold-shadow": "#8A6A24",
+
         // Colores del sistema
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",

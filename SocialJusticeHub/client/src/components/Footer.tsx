@@ -30,10 +30,18 @@ const Footer = () => {
           <div className="space-y-6">
             <Link href="/">
               <div className="cursor-pointer group">
-                <h3 className="text-2xl font-serif font-bold leading-none tracking-tight text-white group-hover:text-blue-200 transition-colors">
-                  El Instante del<br />
-                  <span className="text-blue-500 group-hover:text-blue-400 transition-colors">Hombre Gris</span>
-                </h3>
+                <div className="flex items-center gap-3">
+                  <img
+                    src="/press-kit/logo-principal.svg"
+                    alt="El Instante del Hombre Gris emblem"
+                    className="h-10 w-10 shrink-0"
+                    loading="lazy"
+                  />
+                  <h3 className="text-2xl font-serif font-bold leading-none tracking-tight text-white group-hover:text-blue-200 transition-colors">
+                    El Instante del<br />
+                    <span className="text-blue-500 group-hover:text-blue-400 transition-colors">Hombre Gris</span>
+                  </h3>
+                </div>
               </div>
             </Link>
             <p className="text-slate-400 leading-relaxed font-light text-sm max-w-xs">
