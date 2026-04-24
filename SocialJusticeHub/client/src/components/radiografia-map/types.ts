@@ -14,7 +14,8 @@ export interface MapEntry {
 }
 
 export interface LassoPolygon {
-  // GeoJSON Polygon coordinates: [[[lng, lat], ...]]
+  // Outer ring of a GeoJSON Polygon: [[lng, lat], ...]
+  // Callers wrap this in [ring] before handing it to turf.
   coordinates: [number, number][];
 }
 

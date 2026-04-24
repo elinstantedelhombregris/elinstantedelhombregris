@@ -1,5 +1,5 @@
 // client/src/components/radiografia-map/ConvergenceMap.tsx
-import { useCallback, useMemo, useRef, useState } from 'react';
+import { memo, useCallback, useMemo, useRef, useState } from 'react';
 import DeckGL from '@deck.gl/react';
 import { HexagonLayer } from '@deck.gl/aggregation-layers';
 import { ArcLayer, ScatterplotLayer } from '@deck.gl/layers';
@@ -9,13 +9,14 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 import { BarChart3, Network } from 'lucide-react';
 import { TYPE_COLORS } from '@/hooks/useConvergenceAnalysis';
 import { useDeckGLLayers } from '@/hooks/useDeckGLLayers';
+import { useToast } from '@/hooks/use-toast';
 import MapFiltersBar from './MapFiltersBar';
 import LassoOverlay from './LassoOverlay';
 import SelectionPanel from './SelectionPanel';
 import { hexagonTooltipHtml, pointTooltipHtml, TOOLTIP_STYLE } from './MapTooltip';
 import { useProvinceClassifier } from './useProvinceClassifier';
 import { useRadiografiaFilters } from './useRadiografiaFilters';
-import type { MapEntry } from './types';
+import type { LassoPolygon, MapEntry } from './types';
 
 const INITIAL_VIEW_STATE = {
   latitude: -38.416,
@@ -62,8 +63,15 @@ export default function ConvergenceMap() {
   const [activeLayer, setActiveLayer] = useState<'hexagon' | 'arc'>('hexagon');
   const [viewState, setViewState] = useState<any>(INITIAL_VIEW_STATE);
   const [lassoMode, setLassoMode] = useState(false);
+  const [mapReady, setMapReady] = useState(false);
 
   const deckRef = useRef<any>(null);
+  const { toast } = useToast();
+
+  const getDeckViewport = useCallback(
+    () => deckRef.current?.deck?.getViewports?.()?.[0] ?? null,
+    [],
+  );
 
   // Fly-to province / city
   const flyTo = useCallback((lat?: number, lng?: number, zoom = 7) => {
@@ -98,11 +106,20 @@ export default function ConvergenceMap() {
   const startLasso = useCallback(() => setLassoMode(true), []);
   const cancelLasso = useCallback(() => setLassoMode(false), []);
   const completeLasso = useCallback(
-    (poly: any) => {
+    (poly: LassoPolygon | null) => {
       setLassoMode(false);
-      if (poly) setLasso(poly);
+      if (!poly) return;
+      try {
+        setLasso(poly);
+      } catch {
+        toast({
+          title: 'No pudimos procesar el área',
+          description: 'Intentá dibujar el lazo de nuevo.',
+          variant: 'destructive',
+        });
+      }
     },
-    [setLasso],
+    [setLasso, toast],
   );
 
   // Derived: count inside current lasso (for chip label)
@@ -145,9 +162,6 @@ export default function ConvergenceMap() {
             shininess: 40,
             specularColor: [125, 91, 222],
           },
-          updateTriggers: {
-            data: filteredEntries,
-          },
         }),
       );
       // Individual dots at high zoom
@@ -166,7 +180,6 @@ export default function ConvergenceMap() {
             lineWidthMinPixels: 1,
             pickable: true,
             updateTriggers: {
-              data: filteredEntries,
               getFillColor: filters.types,
             },
           }),
@@ -252,6 +265,7 @@ export default function ConvergenceMap() {
         <MapFiltersBar
           filters={filters}
           lassoActive={lassoMode}
+          lassoDisabled={!mapReady}
           lassoEntriesCount={lassoCount}
           onToggleType={toggleType}
           onSetProvince={handleSetProvince}
@@ -298,21 +312,19 @@ export default function ConvergenceMap() {
             controller={!lassoMode}
             layers={layers}
             getTooltip={lassoMode ? undefined : getTooltip}
+            onLoad={() => setMapReady(true)}
           >
             <Map mapStyle={MAP_STYLE} />
           </DeckGL>
 
           {/* Persistent lasso polygon overlay when a lasso is committed */}
           {filters.lasso && !lassoMode && (
-            <CommittedLassoOverlay
-              polygon={filters.lasso}
-              getViewport={() => deckRef.current?.deck?.getViewports?.()?.[0] ?? null}
-            />
+            <CommittedLassoOverlay polygon={filters.lasso} getViewport={getDeckViewport} />
           )}
 
           {lassoMode && (
             <LassoOverlay
-              getViewport={() => deckRef.current?.deck?.getViewports?.()?.[0] ?? null}
+              getViewport={getDeckViewport}
               onComplete={completeLasso}
               onCancel={cancelLasso}
             />
@@ -334,12 +346,18 @@ export default function ConvergenceMap() {
   );
 }
 
-/** Renders the committed lasso polygon as an SVG overlay that rerenders on viewState changes. */
-function CommittedLassoOverlay({ polygon, getViewport }: { polygon: any; getViewport: () => any }) {
+/** Renders the committed lasso polygon as an SVG overlay. Memoized so pan/zoom ticks don't reproject the path unless the polygon itself changes. */
+const CommittedLassoOverlay = memo(function CommittedLassoOverlay({
+  polygon,
+  getViewport,
+}: {
+  polygon: LassoPolygon;
+  getViewport: () => any;
+}) {
   const vp = getViewport();
   if (!vp) return null;
   const projected: string[] = [];
-  for (const [lng, lat] of polygon.coordinates as [number, number][]) {
+  for (const [lng, lat] of polygon.coordinates) {
     try {
       const px = vp.project([lng, lat]);
       projected.push(`${px[0]},${px[1]}`);
@@ -359,4 +377,4 @@ function CommittedLassoOverlay({ polygon, getViewport }: { polygon: any; getView
       />
     </svg>
   );
-}
+});

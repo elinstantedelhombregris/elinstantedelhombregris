@@ -43,7 +43,7 @@ function extractTopThemes(entries: MapEntry[]): string[] {
 }
 
 export default function SelectionPanel({ entries, visible, onClose, onRowClick }: SelectionPanelProps) {
-  const { byType, locationList, topThemes } = useMemo(() => {
+  const { byType, locationList, locationOverflow, topThemes } = useMemo(() => {
     const bt: Record<DreamType, number> = {
       dream: 0, value: 0, need: 0, basta: 0, compromiso: 0, recurso: 0,
     };
@@ -57,13 +57,12 @@ export default function SelectionPanel({ entries, visible, onClose, onRowClick }
     return {
       byType: bt,
       locationList: sortedLocs.slice(0, MAX_LOCATIONS).map(([name]) => name),
-      locationOverflow: sortedLocs.length - MAX_LOCATIONS,
+      locationOverflow: Math.max(0, sortedLocs.length - MAX_LOCATIONS),
       topThemes: extractTopThemes(entries),
     };
   }, [entries]);
 
   const maxBarCount = Math.max(1, ...ALL_TYPES.map((t) => byType[t]));
-  const locationOverflow = Math.max(0, new Set(entries.map((e) => e.city || e.location).filter(Boolean)).size - MAX_LOCATIONS);
   const shown = entries.slice(0, MAX_LIST);
 
   return (

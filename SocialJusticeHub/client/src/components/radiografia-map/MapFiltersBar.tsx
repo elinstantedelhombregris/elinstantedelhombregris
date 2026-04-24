@@ -14,6 +14,7 @@ interface City { id: number; name: string; latitude?: number; longitude?: number
 interface MapFiltersBarProps {
   filters: MapFilters;
   lassoActive: boolean; // drawing mode
+  lassoDisabled?: boolean; // true while the DeckGL viewport is still loading
   lassoEntriesCount: number; // count of entries inside current lasso, for chip label
   onToggleType: (t: DreamType) => void;
   onSetProvince: (name: string | null, lat?: number, lng?: number) => void;
@@ -27,6 +28,7 @@ interface MapFiltersBarProps {
 export default function MapFiltersBar({
   filters,
   lassoActive,
+  lassoDisabled = false,
   lassoEntriesCount,
   onToggleType,
   onSetProvince,
@@ -130,8 +132,10 @@ export default function MapFiltersBar({
         <button
           onClick={onStartLasso}
           aria-pressed={lassoActive}
+          disabled={lassoDisabled}
+          title={lassoDisabled ? 'Esperá a que cargue el mapa' : undefined}
           className={cn(
-            'h-9 px-3 rounded-md border text-sm inline-flex items-center gap-2 transition-colors',
+            'h-9 px-3 rounded-md border text-sm inline-flex items-center gap-2 transition-colors disabled:opacity-40 disabled:cursor-not-allowed',
             lassoActive
               ? 'bg-purple-600/30 border-purple-400/50 text-white animate-pulse'
               : filters.lasso
