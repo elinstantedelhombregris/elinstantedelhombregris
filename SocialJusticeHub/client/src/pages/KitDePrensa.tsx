@@ -486,6 +486,26 @@ Todo es abierto. Todo es auditable. Todo el código es público. El movimiento s
             </div>
           </motion.div>
 
+          {/* Diseño Idealizado — framing */}
+          <aside
+            role="note"
+            aria-label="Diseño Idealizado"
+            className="mx-auto max-w-3xl my-12 p-8 rounded-xl bg-white/[0.03] border border-white/20 ring-1 ring-white/10"
+          >
+            <h3 className="font-serif text-2xl md:text-3xl text-white mb-4 tracking-wide">
+              Diseño Idealizado
+            </h3>
+            <p className="text-base md:text-lg leading-relaxed text-white/90">
+              La Ruta para Argentina y sus 22 planes son un ejercicio de <strong>diseño idealizado</strong>: no son una hoja de ruta cerrada ni una promesa de gobierno.
+            </p>
+            <p className="mt-4 text-base md:text-lg leading-relaxed text-white/90">
+              Son un mapa de hacia dónde <em>podríamos apuntar</em> si las personas dejan de esperar y empiezan a diseñar. Sirven como <strong>ejemplo e inspiración</strong> — muestran lo que se puede pensar, medir, proponer y ordenar cuando la ciudadanía se toma en serio el rediseño del país.
+            </p>
+            <p className="mt-4 text-base md:text-lg leading-relaxed text-white/90">
+              Construirlos de verdad <strong>requiere la participación de las personas</strong>. Vos, tu barrio, tu oficio, tu comunidad. Sin ese aporte, ninguno de estos planes es real.
+            </p>
+          </aside>
+
           {/* 16 Strategic Plans */}
           <motion.div
             initial="hidden"
