@@ -11,7 +11,7 @@ import {
   Palette, Type, Image, Monitor, Smartphone, Square,
   Code2, Shield, BarChart3, Heart, Mail, HeartPulse, Store,
   FlaskConical, Droplets, Landmark, Cpu, Flame, ShieldCheck,
-  Home, Music
+  Home, Music, Hammer, HeartHandshake, Archive, Mountain, Route
 } from 'lucide-react';
 
 const fadeUp = {
@@ -46,11 +46,11 @@ const KitDePrensa = () => {
   const descriptions = [
     {
       label: 'Una línea',
-      text: 'El Instante del Hombre Gris es una plataforma argentina de inteligencia colectiva con 16 planes estratégicos para rediseñar el país desde la participación ciudadana, los datos abiertos y la acción organizada.',
+      text: 'El Instante del Hombre Gris es una plataforma argentina de inteligencia colectiva con 22 planes estratégicos para rediseñar el país desde la participación ciudadana, los datos abiertos y la acción organizada.',
     },
     {
       label: 'Un párrafo',
-      text: 'El Instante del Hombre Gris es una plataforma de inteligencia colectiva nacida en Argentina que opera en tres niveles: transformación personal (diagnóstico de 12 áreas de vida con 60 dimensiones y coaching con IA), inteligencia colectiva (un viaje de 6 pasos donde sueños, valores y necesidades se vuelven visibles en el territorio a través de El Mapa y se convierten en mandatos ciudadanos en tiempo real) y diseño de país (16 planes estratégicos completos que cubren justicia, economía, educación, salud, energía, seguridad, cultura, vivienda, soberanía digital y más — cada uno con diagnóstico, solución, costos y métricas auditables). El nombre viene de una profecía que habla de un momento bisagra para Argentina — no un líder mesiánico, sino el despertar de las personas comunes que eligen construir en vez de destruir.',
+      text: 'El Instante del Hombre Gris es una plataforma de inteligencia colectiva nacida en Argentina que opera en tres niveles: transformación personal (diagnóstico de 12 áreas de vida con 60 dimensiones y coaching con IA), inteligencia colectiva (un viaje de 6 pasos donde sueños, valores y necesidades se vuelven visibles en el territorio a través de El Mapa y se convierten en mandatos ciudadanos en tiempo real) y diseño de país (22 planes estratégicos completos que cubren justicia, economía, educación, salud, energía, seguridad, cultura, vivienda, soberanía digital y más — cada uno con diagnóstico, solución, costos y métricas auditables). El nombre viene de una profecía que habla de un momento bisagra para Argentina — no un líder mesiánico, sino el despertar de las personas comunes que eligen construir en vez de destruir.',
     },
     {
       label: 'Descripción completa',
@@ -58,7 +58,7 @@ const KitDePrensa = () => {
 
 El "Hombre Gris" no es un líder mesiánico. Es exactamente lo contrario: es alguien común que decide dejar de culpar y empezar a crear. Gris no es ausencia de color — es la mezcla de todos. Es quien se salió de la cancha de la grieta y eligió construir.
 
-La plataforma funciona en tres niveles. Primero, la transformación personal: un sistema de diagnóstico sobre 12 áreas de vida con 60 dimensiones, contenido de estudio real, coaching con inteligencia artificial y herramientas concretas para el cambio. Segundo, la inteligencia colectiva: un viaje de seis pasos que va desde la Visión de Argentina hasta la Tribu activa, pasando por El Mapa donde los sueños se vuelven visibles en el territorio, el Mandato Vivo donde los datos construyen democracia directa en tiempo real, y El Arquitecto donde los 16 planes estratégicos se visualizan como un sistema vivo de dependencias. Tercero, el diseño de un país nuevo: 16 planes estratégicos completos que cubren justicia popular, reconversión del empleo público, empresas al costo real, soberanía monetaria, soberanía digital, regulación de sustancias, refundación educativa, salud integral, suelo vivo, soberanía hídrica, 24 ciudades nuevas, posicionamiento geopolítico, soberanía energética, seguridad ciudadana, vivienda digna y cultura viva.
+La plataforma funciona en tres niveles. Primero, la transformación personal: un sistema de diagnóstico sobre 12 áreas de vida con 60 dimensiones, contenido de estudio real, coaching con inteligencia artificial y herramientas concretas para el cambio. Segundo, la inteligencia colectiva: un viaje de seis pasos que va desde la Visión de Argentina hasta la Tribu activa, pasando por El Mapa donde los sueños se vuelven visibles en el territorio, el Mandato Vivo donde los datos construyen democracia directa en tiempo real, y El Arquitecto donde los 22 planes estratégicos se visualizan como un sistema vivo de dependencias. Tercero, el diseño de un país nuevo: 22 planes estratégicos completos que cubren justicia popular, reconversión del empleo público, empresas al costo real, soberanía monetaria, soberanía digital, regulación de sustancias, refundación educativa, salud integral, suelo vivo, soberanía hídrica, 24 ciudades nuevas, posicionamiento geopolítico, soberanía energética, seguridad ciudadana, vivienda digna, cultura viva, mesa civil deliberativa, talleres federales, cuidado y vínculo, memoria operativa, tierra y pueblos originarios, y movilidad y logística.
 
 Todo es abierto. Todo es auditable. Todo el código es público. El movimiento se llama ¡BASTA! — no como grito de enojo, sino como el susurro que cambia todo por dentro cuando decidís hacerte cargo. No depende de ningún partido político. Depende de vos.`,
     },
@@ -137,6 +137,12 @@ Todo es abierto. Todo es auditable. Todo el código es público. El movimiento s
     { code: 'PLANSEG', name: 'Seguridad Ciudadana', icon: ShieldCheck, desc: 'Transición del orden público sincronizada con PLANSUS. Justicia restaurativa y sistema guardián.' },
     { code: 'PLANVIV', name: 'Vivienda Digna', icon: Home, desc: '1.800+ urbanizaciones en ciudades existentes. Hábitat digno como derecho, no como negocio.' },
     { code: 'PLANCUL', name: 'Cultura Viva', icon: Music, desc: 'Red de Dendritas culturales barriales. El alma del sistema, con presupuesto cero del Estado — sostenida por la comunidad.' },
+    { code: 'PLANMESA', name: 'Mesa Civil', icon: Users, desc: 'Corteza deliberativa: mesas ciudadanas institucionales, cédula civil y dietas de servicio. Representación rotativa sin profesionalización política.' },
+    { code: 'PLANTALLER', name: 'Talleres Federales', icon: Hammer, desc: 'Red nacional de talleres productivos federales. Galpones públicos + Red Bastarda: manos que producen, formación en oficios y empleo con sentido.' },
+    { code: 'PLANCUIDADO', name: 'Cuidado y Vínculo', icon: HeartHandshake, desc: 'Capa cero del sistema: infancia, mayores, discapacidad y salud mental. Fondo Federal de Cuidado y jornada 6+2 para que cuidar no sea invisible.' },
+    { code: 'PLANMEMORIA', name: 'Memoria Operativa', icon: Archive, desc: 'Columna memorial: archivo vivo del país. Convenios con universidades y el Archivo General para que lo aprendido no se vuelva a perder.' },
+    { code: 'PLANTER', name: 'Tierra, Subsuelo y Pueblos Originarios', icon: Mountain, desc: 'Raíz territorial: soberanía sobre tierra y subsuelo, con Fondo Soberano Ciudadano de regalías extractivas que paga dividendo a todos.' },
+    { code: 'PLANMOV', name: 'Movilidad, Logística y Conectividad Territorial', icon: Route, desc: 'Arterias del país: reconstrucción ferroviaria, hidrovía, corredores federales y logística soberana. 20 años, financiamiento mixto.' },
   ];
 
   const downloadAsset = (url: string, filename: string) => {
@@ -513,7 +519,7 @@ Todo es abierto. Todo es auditable. Todo el código es público. El movimiento s
             viewport={{ once: true }}
           >
             <motion.h3 variants={fadeUp} custom={0} className="text-xl font-semibold mb-8">
-              Los 16 planes estratégicos — Diseño de País
+              Los 22 planes estratégicos — Diseño de País
             </motion.h3>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {strategicPlans.map((plan, i) => {
@@ -564,7 +570,7 @@ Todo es abierto. Todo es auditable. Todo el código es público. El movimiento s
             {[
               { icon: Brain, title: 'Diagnóstico Personal', desc: '12 áreas de vida, 60 dimensiones, cuestionario conversacional con contenido de estudio real.' },
               { icon: BarChart3, title: 'Inteligencia Colectiva', desc: 'Sueños, valores y necesidades mapeados en el territorio. Datos que construyen democracia directa.' },
-              { icon: BookOpen, title: 'Planes Estratégicos', desc: '16 documentos completos con diagnóstico, solución, costos y métricas. Todo abierto y auditable.' },
+              { icon: BookOpen, title: 'Planes Estratégicos', desc: '22 documentos completos con diagnóstico, solución, costos y métricas. Todo abierto y auditable.' },
             ].map((feat, i) => {
               const Icon = feat.icon;
               return (
@@ -684,7 +690,7 @@ Todo es abierto. Todo es auditable. Todo el código es público. El movimiento s
                       Nietzsche, Buckminster Fuller y el Kybalión — nació algo concreto: no un blog
                       ni una red social más, sino un sistema completo de transformación que opera en
                       tres niveles — personal, colectivo y de país. Con herramientas reales, datos
-                      abiertos y 16 planes estratégicos auditables.
+                      abiertos y 22 planes estratégicos auditables.
                     </p>
                     <p>
                       Su objetivo no es fundar un partido político ni postularse a nada. Es exactamente
