@@ -198,11 +198,11 @@ export default function MandatoTerritorial() {
             No pudimos obtener la información de este territorio. Intentá de nuevo más tarde.
           </p>
           <Link
-            href="/el-mapa"
+            href="/el-mandato-vivo"
             className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
-            Volver al mapa
+            Volver a los mandatos
           </Link>
         </div>
       </div>
@@ -222,11 +222,11 @@ export default function MandatoTerritorial() {
             Cuando suficientes voces se expresen, el mandato colectivo se generará automáticamente.
           </p>
           <Link
-            href="/el-mapa"
+            href="/el-mandato-vivo"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
-            Volver al mapa
+            Volver a los mandatos
           </Link>
         </div>
       </div>
@@ -255,11 +255,11 @@ export default function MandatoTerritorial() {
           custom={0}
         >
           <Link
-            href="/el-mapa"
+            href="/el-mandato-vivo"
             className="inline-flex items-center gap-2 text-white/50 hover:text-white transition-colors text-sm mb-6"
           >
             <ArrowLeft className="w-4 h-4" />
-            Volver al mapa
+            Volver a los mandatos
           </Link>
 
           <div className="flex flex-wrap items-center gap-4 mb-3">

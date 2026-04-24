@@ -16,7 +16,6 @@ import {
   ShieldCheck,
   Brain,
   Wrench,
-  BarChart3,
   ChevronDown,
 } from 'lucide-react';
 
@@ -335,14 +334,6 @@ const ElMapa = () => {
           href="/el-mandato-vivo"
           gradient="from-[#1a1500] to-[#1e1a0b]"
           icon={<Target className="w-5 h-5" />}
-        />
-
-        <NextStepCard
-          title="Explorar Datos"
-          description="La radiografía del territorio. Visualizaciones avanzadas, conexiones entre provincias, y la inteligencia que emerge de los datos."
-          href="/explorar-datos"
-          gradient="from-[#001a15] to-[#0b1a16]"
-          icon={<BarChart3 className="w-5 h-5" />}
         />
 
       </main>

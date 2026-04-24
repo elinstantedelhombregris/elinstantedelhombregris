@@ -4,8 +4,8 @@ import { useEffect, useState, useMemo } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { motion } from 'framer-motion';
 import SystemHierarchy from '@/components/SystemHierarchy';
-import { Link } from 'wouter';
-import { ArrowRight } from 'lucide-react';
+import NextStepCard from '@/components/NextStepCard';
+import { MoonStar } from 'lucide-react';
 
 const LaVision = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -375,21 +375,19 @@ const LaVision = () => {
                 <p className="text-2xl md:text-3xl font-black text-white leading-tight tracking-tight">
                   Ese tipo de persona tiene un nombre.
                 </p>
-
-                <div className="pt-10">
-                  <Link href="/el-instante-del-hombre-gris">
-                    <span className="group inline-flex items-center gap-3 cursor-pointer">
-                      <span className="text-xl md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-slate-300 via-white to-slate-300 group-hover:from-white group-hover:via-white group-hover:to-white transition-all duration-500">
-                        El Instante del Hombre Gris
-                      </span>
-                      <ArrowRight className="w-6 h-6 text-slate-500 group-hover:text-white group-hover:translate-x-2 transition-all duration-500" />
-                    </span>
-                  </Link>
-                </div>
               </motion.div>
             </div>
           </div>
         </section>
+
+        {/* ═══ 6. NEXT STEP — El Instante del Hombre Gris ═════════════ */}
+        <NextStepCard
+          title="El Instante del Hombre Gris"
+          description="La arquitectura no se sostiene sola. Se sostiene con personas que pueden mirar la niebla sin inventar certezas, sostener la visión cuando todo empuja para atrás, y no convertirse en lo que vinieron a reemplazar."
+          href="/el-instante-del-hombre-gris"
+          gradient="from-[#10131f] to-[#1f2335]"
+          icon={<MoonStar className="w-5 h-5" />}
+        />
 
       </main>
       <Footer />
