@@ -347,21 +347,21 @@ const Community = () => {
       <main className="relative z-10 pt-20">
         <TribalPulse />
 
-        {/* HERO: La Hermandad */}
+        {/* HERO: Círculos */}
         <section className="relative py-32 overflow-hidden">
           <div className="container-content relative z-10">
             <div className="max-w-5xl mx-auto text-center">
               <SmoothReveal direction="down">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-900/20 border border-blue-500/30 text-blue-400 text-sm font-mono mb-8 tracking-widest uppercase backdrop-blur-md">
                   <Users className="w-4 h-4" />
-                  La Hermandad
+                  Círculos
                 </div>
               </SmoothReveal>
 
               <SmoothReveal delay={0.2}>
                 <h1 className="heading-hero mb-8">
                   <span className="block text-transparent bg-clip-text bg-gradient-to-b from-white via-slate-200 to-slate-500">
-                    La Hermandad
+                    Círculos
                   </span>
                   <span className="block text-2xl md:text-4xl font-sans font-light text-slate-400 mt-4 tracking-wide">
                     Donde la voluntad individual se hace <span className="text-blue-400">Poder Colectivo</span>
@@ -524,9 +524,9 @@ const Community = () => {
 
               {/* My Stats Card */}
               <div className="w-full lg:w-96 lg:flex-shrink-0">
-                <GlassCard className="bg-gradient-to-br from-blue-900/10 to-purple-900/10 border-blue-500/20">
-                  <div className="text-center p-6 border-b border-white/5">
-                    <div className="w-20 h-20 mx-auto bg-slate-800 rounded-full mb-4 flex items-center justify-center border-2 border-blue-500/30 overflow-hidden">
+                <GlassCard className="!bg-slate-950/60 bg-gradient-to-br from-blue-900/30 to-purple-900/20 border-blue-500/30">
+                  <div className="text-center p-6 border-b border-white/10">
+                    <div className="w-20 h-20 mx-auto bg-slate-800 rounded-full mb-4 flex items-center justify-center border-2 border-blue-500/40 overflow-hidden">
                       {userContext?.user?.avatarUrl ? (
                         <img src={userContext.user.avatarUrl} alt={userContext.user.name} className="w-full h-full object-cover" />
                       ) : (
@@ -536,7 +536,7 @@ const Community = () => {
                       )}
                     </div>
                     <h3 className="text-white font-bold text-lg">Tu Legado</h3>
-                    <p className="text-slate-400 text-sm">
+                    <p className="text-slate-300 text-sm">
                       {userContext?.user ? `@${userContext.user.username}` : 'Iniciá sesión para ver tu progreso'}
                     </p>
                   </div>
@@ -581,9 +581,9 @@ const Community = () => {
                     </div>
                   ) : (
                     <div className="p-6 text-center">
-                      <p className="text-slate-500 text-sm mb-4">Iniciá sesión para desbloquear tu perfil de impacto.</p>
+                      <p className="text-slate-300 text-sm mb-4">Iniciá sesión para desbloquear tu perfil de impacto.</p>
                       <Button
-                        className="w-full bg-white/10 hover:bg-white/20 text-white border border-white/10"
+                        className="w-full bg-blue-500/20 hover:bg-blue-500/30 text-white border border-blue-500/40"
                         onClick={() => setLocation('/login')}
                       >
                         Iniciar sesión
