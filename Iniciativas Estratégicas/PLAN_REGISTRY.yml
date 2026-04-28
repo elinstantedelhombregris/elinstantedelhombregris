@@ -388,8 +388,8 @@ support_documents:
     status: current
     role: binding_prioritization
   - file: CASCADA_LEGAL_BASTA.md
-    status: superseded
-    successor_pending: "Recompute en Fase 6"
+    status: current
+    note: "Recomputada en Fase 6 con LMV de 8 instrumentos para tranche-1; histórico 16-mandatos preservado al final"
   - file: PROTOCOLOS_OPERATIVOS_BASTA.md
     status: superseded
     successor_pending: "Recompute en Fase 15"

@@ -1,13 +1,66 @@
 # CASCADA LEGAL ¡BASTA!
 
-> **STATUS:** superseded (cuerpo "16 Mandatos" obsoleto post-auditoría 2026-04-26)
+> **STATUS:** current (LMV de 8 instrumentos para tranche-1 al inicio; histórico 16-mandatos preservado abajo)
 > **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol
 > **REGISTRY:** ver `PLAN_REGISTRY.yml`
-> **SUCCESSOR_PENDING:** recompute en Fase 6 — Paquete Legal Mínimo Viable (LMV)
+> **LMV TRANCHE-1:** ver primera sección abajo (8 instrumentos)
 > **NOTA AUDITORÍA 2026-04-26:** El conteo "16 Mandatos" abajo corresponde a versión obsoleta. Conteo canónico: 22 thematic + PLANRUTA.
 > **LAST_AUDIT:** 2026-04-26
 
-## Secuencia Legislativa Unificada para los 16 Mandatos (HISTÓRICO)
+## Paquete Legal Mínimo Viable (LMV) — Tranche-1 (CANÓNICO post-auditoría 2026-04-26)
+
+> **PRINCIPIO:** capear la legislación del primer año al mínimo necesario para entregar servicios visibles y proteger pilotos. Diferir reformas constitucionales y leyes estructurales de alto conflicto.
+
+### Clasificación de instrumentos
+
+Cada instrumento legal tiene una clase:
+
+- `pilot_required`: ley/decreto necesario para que un piloto opere legalmente.
+- `ordinary_law`: ley nacional, baja conflictividad.
+- `decree`: decreto reglamentario.
+- `provincial_adhesion`: requiere adhesión provincial.
+- `constitutional`: reforma constitucional. **Diferida a tranche-3+ por defecto.**
+- `not_needed_phase_1`: existe pero se difiere.
+
+### Tabla LMV (8 instrumentos para tranche-1)
+
+| ID | Instrumento | Clase | PLAN | Ventana | Riesgo legal |
+|----|-------------|-------|------|---------|--------------|
+| LMV-01 | Decreto de emergencia hídrica + reparaciones | decree | PLANAGUA | 0–3m | bajo |
+| LMV-02 | Ley marco PLANDIG (datos abiertos + identidad-lite, estadio A solamente) | ordinary_law | PLANDIG | 6–12m | medio |
+| LMV-03 | Reforma FONAVI/RENABAP integración | ordinary_law | PLANVIV | 6–12m | medio |
+| LMV-04 | Decreto APS + medicamentos esenciales | decree | PLANSAL | 3–6m | bajo |
+| LMV-05 | Programa de alfabetización + asistencia | decree + provincial_adhesion | PLANEDU | 3–9m | bajo |
+| LMV-06 | Marco contable de Empresas Bastardas (piloto) | ordinary_law | PLANEB | 12–18m | medio |
+| LMV-07 | Convenios INTA-pilotos suelo | decree | PLANISV | 0–6m | bajo |
+| LMV-08 | Protocolo PLANRUTA readiness | decreto interno | PLANRUTA | 0m | nulo |
+
+**Total instrumentos LMV: 8** (vs 58 de la cascada original 16-mandatos).
+
+### Diferidos por defecto
+
+- Reforma constitucional de la justicia.
+- Constitucionalización de pisos presupuestarios.
+- Ley nacional PLANSUS de legalización plena.
+- Ley marco PLANMON (moneda alternativa) — requiere reforma Carta Orgánica BCRA.
+- Reforma judicial profunda (PLANJUS Fase II).
+- Ley de derechos territoriales originarios profunda (PLANTER L3 expandida).
+- Régimen AV pleno dentro de PLANMOV (línea L4 — research-only indefinida).
+- LANIA / SAPI completa (capacidades del estadio B de PLANDIG).
+- Ley de blindaje institucional con mayoría especial.
+
+### Reglas de gobierno legal
+
+1. **Máximo 2 leyes nuevas por wave de 6 meses.**
+2. **Toda ley pre-tranche-1 requiere PIA aprobado si toca datos personales.**
+3. **Toda ley con conflicto provincial requiere mapa de adhesión antes de envío.**
+4. **Ningún instrumento `constitutional` sale de research a project sin gate del PEO + opinión legal externa firmada.**
+5. **Cada instrumento LMV tiene cláusula de revisión a 36m.**
+6. **Pre-clearance CSJN obligatorio** para LMV con riesgo legal `medio` o superior.
+
+---
+
+## Secuencia Legislativa Unificada para los 16 Mandatos (HISTÓRICO — SUPERSEDED)
 
 > *"Un plan sin ley es un discurso. Una ley sin plan es papel. ¡BASTA! necesita ambos: la fuerza del diseño y la precisión de la norma."*
 
