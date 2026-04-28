@@ -2609,3 +2609,18 @@ Esta sección documenta cómo PLANISV se acopla al resto del ecosistema de manda
 | **PLANTER** | IMPORTANT | INSTITUTIONAL | Plan Suelo Vivo se coordina con Licencia Territorial y co-soberanía indígena en tierras fiscales y comunidades originarias |
 | **PLAN24CN** | CRITICAL | TECHNICAL | Suelo regenerado y balances agua-suelo-carbono recalibrados se destinan a agricultura urbana y anillos verdes de las Ciudades Nuevas |
 
+
+## Interconexiones críticas con PLANMOV y PLANTER (post-auditoría 2026-04-26)
+
+> **NOTA:** PLANMOV y PLANTER siguen siendo **un solo PLAN cada uno**. Las referencias a líneas internas (L1, L2, L3, L4) corresponden al estadiamiento dentro de su propio archivo, no a PLANes nuevos. Ver `DEPENDENCY_GRAPH.yml`.
+
+### Con PLANMOV
+- Demanda que este PLAN deposita en PLANMOV: logística de insumos y muestras de suelo a laboratorios (línea L1).
+- Capacidad que PLANMOV deposita en este PLAN: datos de uso de suelo para planificar trazas ferroviarias y servidumbres.
+- Punto de conflicto identificado: servidumbres extractivas que afectan suelo medido se gateaña por RACI.
+- RACI: ver `RACI_MATRIX.md`.
+
+### Con PLANTER
+- Demanda territorial que este PLAN deposita en PLANTER: datos de suelo en territorios originarios solo con consulta previa (línea L3).
+- Restricción ecológica/originaria que PLANTER impone a este PLAN: enforcement ambiental sobre contaminación de suelo (L1); regalías por uso intensivo (L2).
+- Mecanismo de resolución: RACI cruzada en `RACI_MATRIX.md`.

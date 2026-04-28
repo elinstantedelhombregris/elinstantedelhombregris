@@ -4369,3 +4369,18 @@ El agua que perdemos es la vida que nos falta. Es hora de dejar de perderla.
 
 *Versión 1.0 — Marzo 2026*
 *Documento estratégico preparado en el marco de El Instante del Hombre Gris*
+
+## Interconexiones críticas con PLANMOV y PLANTER (post-auditoría 2026-04-26)
+
+> **NOTA:** PLANMOV y PLANTER siguen siendo **un solo PLAN cada uno**. Las referencias a líneas internas (L1, L2, L3, L4) corresponden al estadiamiento dentro de su propio archivo, no a PLANes nuevos. Ver `DEPENDENCY_GRAPH.yml`.
+
+### Con PLANMOV
+- Demanda que este PLAN deposita en PLANMOV: logística para químicos de potabilización + acceso vehicular a estaciones de tratamiento (línea L1 movilidad básica).
+- Capacidad que PLANMOV deposita en este PLAN: datos de cuencas para planificar trazas ferroviarias (línea L2 flete ferroviario).
+- Punto de conflicto identificado: trazas ferroviarias que cruzan cuencas críticas requieren convenio explícito.
+- RACI: ver `RACI_MATRIX.md`.
+
+### Con PLANTER
+- Demanda territorial que este PLAN deposita en PLANTER: declaración de cuencas en territorio originario (línea L3 consulta previa).
+- Restricción ecológica/originaria que PLANTER impone a este PLAN: explotación de cuencas en territorio originario solo con consulta previa documentada (línea L3); enforcement ambiental sobre quien contamine cuencas (línea L1).
+- Mecanismo de resolución: RACI cruzada en `RACI_MATRIX.md`.

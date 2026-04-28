@@ -1825,3 +1825,18 @@ Esta sección documenta cómo PLANEDU se acopla al resto del ecosistema de manda
 | **PLANCUIDADO** | IMPORTANT | INSTITUTIONAL | PLANEDU incluye currículum de cuidado desde primaria y formación inicial diferenciada para cada tipo de Pacto |
 | **PLANMEMORIA** | CRITICAL | INSTITUTIONAL | A partir de Fase 1: la escuela incorpora el rito cívico del Bastón Memorial a los 12 años como ceremonia de ingreso a la memoria activa |
 
+
+## Interconexiones críticas con PLANMOV y PLANTER (post-auditoría 2026-04-26)
+
+> **NOTA:** PLANMOV y PLANTER siguen siendo **un solo PLAN cada uno**. Las referencias a líneas internas (L1, L2, L3, L4) corresponden al estadiamiento dentro de su propio archivo, no a PLANes nuevos. Ver `DEPENDENCY_GRAPH.yml`.
+
+### Con PLANMOV
+- Demanda que este PLAN deposita en PLANMOV: transporte escolar accesible (línea L1) + accesibilidad universal en escuelas.
+- Capacidad que PLANMOV deposita en este PLAN: datos de localización escolar para planificar redes de transporte.
+- Punto de conflicto identificado: ninguno significativo en tranche-1; en tranche-3 se sincroniza con AMBA-T (L3).
+- RACI: ver `RACI_MATRIX.md`.
+
+### Con PLANTER
+- Demanda territorial que este PLAN deposita en PLANTER: contenidos de educación intercultural en territorios originarios (línea L3).
+- Restricción ecológica/originaria que PLANTER impone a este PLAN: ninguna directa; coordinación con INAI para contenidos culturales.
+- Mecanismo de resolución: RACI cruzada en `RACI_MATRIX.md`.

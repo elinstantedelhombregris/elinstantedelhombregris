@@ -2949,3 +2949,18 @@ Esta sección documenta cómo PLAN24CN se acopla al resto del ecosistema de mand
 | **PLANEB** | CRITICAL | INSTITUTIONAL | Ciudades nacen Bastarda-nativas: todos los servicios al costo |
 | **PLANCUL** | IMPORTANT | INSTITUTIONAL | Las Ciudades Nuevas son lienzos donde Dendritas (células culturales) nacen nativas en comunidades vírgenes |
 
+
+## Interconexiones críticas con PLANMOV y PLANTER (post-auditoría 2026-04-26)
+
+> **NOTA:** PLANMOV y PLANTER siguen siendo **un solo PLAN cada uno**. Las referencias a líneas internas (L1, L2, L3, L4) corresponden al estadiamiento dentro de su propio archivo, no a PLANes nuevos. Ver `DEPENDENCY_GRAPH.yml`.
+
+### Con PLANMOV
+- Demanda que este PLAN deposita en PLANMOV: conectividad ferroviaria a sitio piloto (línea L2) + movilidad interna autónoma (línea L4 research).
+- Capacidad que PLANMOV deposita en este PLAN: datos de planificación urbana para columna múltiple.
+- Punto de conflicto identificado: diseño de ciudad nueva en research-only no implica compromisos de infraestructura.
+- RACI: ver `RACI_MATRIX.md`.
+
+### Con PLANTER
+- Demanda territorial que este PLAN deposita en PLANTER: consulta previa originaria obligatoria sobre cualquier sitio (línea L3).
+- Restricción ecológica/originaria que PLANTER impone a este PLAN: auditoría de regalías sobre actividades extractivas adyacentes (L2); enforcement ambiental sobre el sitio (L1).
+- Mecanismo de resolución: RACI cruzada en `RACI_MATRIX.md`.

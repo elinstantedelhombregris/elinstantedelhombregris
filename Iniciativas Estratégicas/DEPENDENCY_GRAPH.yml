@@ -1,0 +1,193 @@
+# DEPENDENCY_GRAPH.yml — grafo estructurado, autoridad sobre prosa de los PLANes individuales
+# Generado: 2026-04-28 a partir de auditoría 2026-04-26 (cross-reference scan)
+# Si hay desajuste con el texto del PLAN, gana este grafo.
+
+format_version: 1
+canonical_count: 22_thematic_plus_PLANRUTA
+last_updated: 2026-04-28
+
+# Cada nodo declara qué necesita (depends_on) y qué entrega (provides_to).
+# PLANes con estadios/líneas internas (PLANDIG, PLANTER, PLANMOV) son UN solo nodo.
+# Sus dependencias se marcan con la capacidad/línea aplicable, no creando nodos nuevos.
+
+nodes:
+  PLANAGUA:
+    depends_on: [PLANDIG, PLANISV, PLANTER (L1 enforcement ambiental), PLANRUTA]
+    provides_to: [PLANSAL, PLANISV, PLANVIV, PLANEN, PLANTER]
+    integration_strength: alta
+    blocking_for_tranche_1: [PLANSAL]
+
+  PLANVIV:
+    depends_on: [PLANDIG, PLANTER (L1), PLANISV, PLANRUTA]
+    provides_to: [PLANSAL, PLANCUIDADO, PLANEDU]
+    integration_strength: alta
+    blocking_for_tranche_1: []
+
+  PLANSAL:
+    depends_on: [PLANAGUA, PLANDIG, PLANRUTA]
+    provides_to: [PLANEDU, PLANCUIDADO]
+    integration_strength: alta
+    blocking_for_tranche_1: []
+
+  PLANEDU:
+    depends_on: [PLANDIG, PLANRUTA]
+    provides_to: [PLANCUL, PLANEB, PLANTALLER, PLANCUIDADO]
+    integration_strength: media
+    blocking_for_tranche_1: []
+
+  PLANISV:
+    depends_on: [PLANRUTA]
+    provides_to: [PLANAGUA, PLANTER (L1), PLANEN, PLANSAL]
+    integration_strength: alta
+    blocking_for_tranche_1: [PLANAGUA, PLANVIV]
+
+  PLANEB:
+    depends_on: [PLANDIG, PLANRUTA, PLANEDU]
+    provides_to: [PLANCUL, PLANCUIDADO, PLANTALLER]
+    integration_strength: media
+    blocking_for_tranche_1: []
+
+  PLANDIG:
+    depends_on: [PLANRUTA]
+    provides_to: [todos los thematic salvo PLANGEO en tranche-1, vía estadio A]
+    integration_strength: critica
+    blocking_for_tranche_1: [todo]
+    notas: "PLANDIG es UN solo PLAN. Sus capacidades del estadio A (núcleo) se entregan en tranche-1. Las capacidades del estadio B (soberanas) se difieren a tranche-3+ con condiciones duras. Ver PLANDIG_ESTADIOS_INTERNOS.md."
+
+  PLANRUTA:
+    depends_on: []
+    provides_to: [todos]
+    integration_strength: protocolo
+    blocking_for_tranche_1: [todo]
+    notas: "Protocolo, no PLAN sectorial. Anclado al PEO."
+
+  # Tranche-2
+  PLANSEG:
+    depends_on: [PLANRUTA, PLANDIG, PLANJUS (piloto)]
+    provides_to: [PLANJUS, PLANSUS, PLANTER, PLANMOV, PLANCUIDADO]
+    integration_strength: alta
+    blocking_for_tranche_2: [PLANJUS-piloto]
+
+  PLANREP:
+    depends_on: [PLANRUTA, PLANEDU]
+    provides_to: [presupuesto general]
+    integration_strength: media
+    blocking_for_tranche_2: []
+    sub_mandatos: [Procurement OS (con PLANDIG), Civil Service Operating Model, Coparticipación]
+
+  PLANMESA:
+    depends_on: [PLANDIG, PLANRUTA]
+    provides_to: [todos]
+    integration_strength: alta
+    blocking_for_tranche_2: []
+
+  PLANTALLER:
+    depends_on: [PLANEDU, PLANRUTA]
+    provides_to: [PLANEB, PLANCUL, PLANCUIDADO]
+    integration_strength: media
+    blocking_for_tranche_2: []
+
+  PLANCUIDADO:
+    depends_on: [PLANSAL, PLANEDU, PLANDIG, PLANRUTA]
+    provides_to: [PLANEB, PLANCUL]
+    integration_strength: media
+    blocking_for_tranche_2: []
+
+  PLANEN:
+    depends_on: [PLANISV, PLANAGUA, PLANTER (L2 regalías), PLANDIG, PLANRUTA]
+    provides_to: [PLAN24CN, PLANMOV, PLANEB]
+    integration_strength: alta
+    blocking_for_tranche_2: []
+
+  PLANCUL:
+    depends_on: [PLANEDU, PLANMEMORIA, PLANRUTA]
+    provides_to: [legitimidad transversal]
+    integration_strength: baja
+    blocking_for_tranche_2: []
+
+  # Tranche-3 / diferidos
+  PLANJUS:
+    depends_on: [PLANSEG, PLANDIG, PLANRUTA]
+    provides_to: [PLANSUS, PLANTER, PLANCUIDADO, PLANMEMORIA]
+    integration_strength: alta
+    blocking_for_tranche_3: [PLANSUS, PLANTER (L3)]
+
+  PLANTER:
+    depends_on: [PLANISV, PLANJUS (piloto), PLANSEG, PLANDIG, PLANRUTA]
+    provides_to: [PLANEN, PLAN24CN, PLANAGUA, PLANMOV (L2 servidumbres ferroviarias)]
+    integration_strength: alta
+    blocking_for_tranche_3: [PLANEN extendido, PLAN24CN]
+    internal_lines:
+      - L1: enforcement ambiental
+      - L2: auditoría de regalías extractivas
+      - L3: pilotos de consulta previa originaria
+    notas: "PLANTER es UN solo PLAN con tres líneas operativas internas. Una entrada en el registro, un nodo en el grafo."
+
+  PLANMOV:
+    depends_on: [PLANSEG, PLANJUS (piloto), PLANDIG, PLANMESA, PLANMEMORIA, PLANEN, PLANTALLER, PLANCUIDADO, PLANRUTA]
+    provides_to: [PLAN24CN]
+    integration_strength: critica_pero_subintegrada
+    blocking_for_tranche_3: []
+    internal_lines:
+      - L1: movilidad básica (transporte público existente, peatonal, ciclo)
+      - L2: flete ferroviario
+      - L3: gobernanza AMBA-T
+      - L4: investigación AV (research-only, sin implementación operativa en ningún tranche)
+    notas: "PLANMOV es UN solo PLAN con cuatro líneas operativas internas. Auditoría 2026-04-26 advierte 13 inbound vs 41 outbound a PLANDIG. Sub-integrado para su escala. Estadiar internamente en 4 fases operativas dentro del mismo PLAN; no se parte."
+
+  PLANMEMORIA:
+    depends_on: [PLANDIG, PLANRUTA]
+    provides_to: [PLANCUL, PLANJUS, anti-reversion]
+    integration_strength: media
+    blocking_for_tranche_3: []
+
+  PLANSUS:
+    depends_on: [PLANSEG, PLANJUS, PLANSAL, PLANRUTA]
+    provides_to: [PLANSEG (fase posterior)]
+    integration_strength: alta
+    blocking_for_tranche_3: []
+    diferido: true
+    notas: "Research-only + reducción de daños (bajo PLANSAL) en tranche-1/2/3."
+
+  PLANMON:
+    depends_on: [PLANDIG (estadio B activado), BCRA estabilizado, PLANRUTA]
+    provides_to: [reflujos]
+    integration_strength: critica
+    diferido: true
+    notas: "Research académico únicamente. Sin presupuesto operativo en tranche-1/2."
+
+  PLANGEO:
+    depends_on: [PLANRUTA]
+    provides_to: [análisis interno]
+    integration_strength: baja
+    publico: false
+    notas: "Análisis interno + diplomacia sobria pública. Material confrontacional permanece privado."
+
+  PLAN24CN:
+    depends_on: [PLANTER, PLANEN, PLANDIG (estadio B activado), PLANRUTA]
+    provides_to: []
+    integration_strength: alta
+    diferido: true
+    notas: "Labs de diseño únicamente. Sin construcción en tranche-1/2/3."
+
+# Métricas del grafo (de la auditoría 2026-04-26)
+metrics:
+  total_thematic: 22
+  highest_outbound_pre_audit:
+    - PLANVIV: 230
+    - PLANDIG: 196
+    - PLANMON: 193
+    - PLANSEG: 189
+    - PLANGEO: 184
+    - PLANMOV: 181
+  highest_inbound_pre_audit:
+    - PLANREP: 340
+    - PLANISV: 202
+    - PLAN24CN: 177
+    - PLANDIG: 167
+    - PLANEB: 165
+  sparse_outbound: [PLANTALLER, PLANJUS, PLANCUL, PLANCUIDADO, PLANMEMORIA, PLAN24CN]
+  under_integrated_high_strategic: [PLANMOV (13 inbound), PLANTER (26), PLANCUL (25), PLANCUIDADO (32)]
+  remediation_actions:
+    - "Fase 8.2 inserta secciones de interconexión con PLANMOV y PLANTER en 8 PLANes huésped"
+    - "Sweep 13.C.6 verifica anclaje a líneas internas de PLANMOV/PLANTER"

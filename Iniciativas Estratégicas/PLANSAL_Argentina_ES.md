@@ -2254,3 +2254,18 @@ Esta sección documenta cómo PLANSAL se acopla al resto del ecosistema de manda
 | **PLANDIG** | CRITICAL | TECHNICAL | Historia Clínica Unificada, telemedicina rural y Registro de Salud Integral sobre infraestructura digital soberana |
 | **PLANCUIDADO** | CRITICAL | INSTITUTIONAL | A partir de Fase 1: APS territorial provee la ventana clínica que lee Pactos como dato de salud; Referentes articulan con médicos de cabecera |
 
+
+## Interconexiones críticas con PLANMOV y PLANTER (post-auditoría 2026-04-26)
+
+> **NOTA:** PLANMOV y PLANTER siguen siendo **un solo PLAN cada uno**. Las referencias a líneas internas (L1, L2, L3, L4) corresponden al estadiamiento dentro de su propio archivo, no a PLANes nuevos. Ver `DEPENDENCY_GRAPH.yml`.
+
+### Con PLANMOV
+- Demanda que este PLAN deposita en PLANMOV: logística de medicamentos esenciales + acceso vehicular a APS (línea L1) + traslados sanitarios.
+- Capacidad que PLANMOV deposita en este PLAN: datos de prevalencia para priorizar conectividad sanitaria.
+- Punto de conflicto identificado: cobertura de APS en zonas con flete L2 inadecuado requiere reserva fiscal adicional.
+- RACI: ver `RACI_MATRIX.md`.
+
+### Con PLANTER
+- Demanda territorial que este PLAN deposita en PLANTER: atención sanitaria intercultural en territorios originarios (línea L3).
+- Restricción ecológica/originaria que PLANTER impone a este PLAN: enforcement ambiental sobre contaminación que afecta salud (L1); coordinación INAI.
+- Mecanismo de resolución: RACI cruzada en `RACI_MATRIX.md`.

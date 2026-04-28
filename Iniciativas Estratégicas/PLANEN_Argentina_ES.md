@@ -2058,3 +2058,18 @@ Versión 1.0 | Marzo 2026
 Preparado bajo el marco ¡BASTA! — ¡Basta de vivir apagados!
 
 *Todo lo que PLANEN propone es la primera mejor alternativa basada en la mejor evidencia disponible. Un plan que no cambia no es valiente — es sordo. Y un plan sordo sobre energía en un siglo de transición climática es un plan suicida.*
+
+## Interconexiones críticas con PLANMOV y PLANTER (post-auditoría 2026-04-26)
+
+> **NOTA:** PLANMOV y PLANTER siguen siendo **un solo PLAN cada uno**. Las referencias a líneas internas (L1, L2, L3, L4) corresponden al estadiamiento dentro de su propio archivo, no a PLANes nuevos. Ver `DEPENDENCY_GRAPH.yml`.
+
+### Con PLANMOV
+- Demanda que este PLAN deposita en PLANMOV: electrificación gradual del transporte público (línea L1) + tendido eléctrico en corredores ferroviarios (línea L2).
+- Capacidad que PLANMOV deposita en este PLAN: datos de demanda energética para planificar columna múltiple ferroviaria.
+- Punto de conflicto identificado: servidumbres ferroviarias y de tendido eléctrico se coordinan vía RACI.
+- RACI: ver `RACI_MATRIX.md`.
+
+### Con PLANTER
+- Demanda territorial que este PLAN deposita en PLANTER: auditoría de regalías de hidrocarburos y litio para fondear transición (línea L2).
+- Restricción ecológica/originaria que PLANTER impone a este PLAN: extracción de minerales críticos para baterías requiere consulta previa originaria (L3); enforcement ambiental sobre infraestructura energética (L1).
+- Mecanismo de resolución: RACI cruzada en `RACI_MATRIX.md`.

@@ -821,3 +821,18 @@ Esto no es política social. Es un órgano nuevo del cuerpo cívico argentino: l
 **FIN DEL DOCUMENTO**
 
 *Documento técnico del vigésimo mandato del Proyecto ¡BASTA! — Abril 2026*
+
+## Interconexiones críticas con PLANMOV y PLANTER (post-auditoría 2026-04-26)
+
+> **NOTA:** PLANMOV y PLANTER siguen siendo **un solo PLAN cada uno**. Las referencias a líneas internas (L1, L2, L3, L4) corresponden al estadiamiento dentro de su propio archivo, no a PLANes nuevos. Ver `DEPENDENCY_GRAPH.yml`.
+
+### Con PLANMOV
+- Demanda que este PLAN deposita en PLANMOV: accesibilidad universal en transporte público (línea L1) + traslados de cuidadores y dependientes.
+- Capacidad que PLANMOV deposita en este PLAN: datos de hogares con dependencia para priorizar conectividad.
+- Punto de conflicto identificado: ninguno crítico; coordinación de accesibilidad universal.
+- RACI: ver `RACI_MATRIX.md`.
+
+### Con PLANTER
+- Demanda territorial que este PLAN deposita en PLANTER: cuidado intercultural en comunidades originarias (línea L3).
+- Restricción ecológica/originaria que PLANTER impone a este PLAN: ninguna directa; coordinación con INAI.
+- Mecanismo de resolución: RACI cruzada en `RACI_MATRIX.md`.

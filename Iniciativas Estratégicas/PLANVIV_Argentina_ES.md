@@ -2304,3 +2304,18 @@ Las metas cuantificadas son estimaciones basadas en la mejor evidencia disponibl
 *Documento estratégico preparado en el marco de El Instante del Hombre Gris*
 *Proyecto ¡BASTA! — Decimoquinto Mandato*
 *El pueblo manda, el gobierno ejecuta.*
+
+## Interconexiones críticas con PLANMOV y PLANTER (post-auditoría 2026-04-26)
+
+> **NOTA:** PLANMOV y PLANTER siguen siendo **un solo PLAN cada uno**. Las referencias a líneas internas (L1, L2, L3, L4) corresponden al estadiamiento dentro de su propio archivo, no a PLANes nuevos. Ver `DEPENDENCY_GRAPH.yml`.
+
+### Con PLANMOV
+- Demanda que este PLAN deposita en PLANMOV: integración de vivienda con corredores de transporte público (línea L1) + accesibilidad universal (transversal).
+- Capacidad que PLANMOV deposita en este PLAN: reservas de suelo cerca de estaciones para alquiler protegido.
+- Punto de conflicto identificado: expansión urbana en suelo bajo servidumbre ferroviaria requiere RACI con PLANMOV L2.
+- RACI: ver `RACI_MATRIX.md`.
+
+### Con PLANTER
+- Demanda territorial que este PLAN deposita en PLANTER: regularización dominial en territorio bajo conflicto.
+- Restricción ecológica/originaria que PLANTER impone a este PLAN: expansión urbana sobre suelo productivo o ecológico bloqueada por enforcement ambiental (L1); expansión sobre territorio originario requiere consulta (L3).
+- Mecanismo de resolución: RACI cruzada en `RACI_MATRIX.md`.
