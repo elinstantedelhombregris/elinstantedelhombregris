@@ -31,9 +31,23 @@ DOCUMENTO ESTRATÉGICO — PARA REVISIÓN AUTORIZADA
 
 ---
 
+> **REVISION_PROFUNDA:** completed 2026-04-28 per PLAYBOOK_REVISION_PROFUNDA.md
+>
+> **REVISIÓN 2026-04-26 (aplicada 2026-04-28) — marco editorial:** este PLAN fue editado en profundidad para alinear su prosa con la arquitectura de **estadios internos A/B** insertada al final del archivo (`PLANDIG_ESTADIOS_INTERNOS.md`), el libro mayor de fuentes de fondos (`SOURCE_OF_FUNDS_LEDGER.md`, línea PLANDIG estadio A: USD 0.4B/año + USD 1.2B inversión 24m, fuentes F01/F03), la cascada legal (`CASCADA_LEGAL_BASTA.md`, instrumento LMV-02 — ley marco PLANDIG datos abiertos + identidad-lite, **estadio A solamente**), las compuertas adversariales (`READINESS_GATES_ADVERSARIAL.md`, top-3 ataques: ciberataque crítico, brecha identidad-lite, captura proveedor cloud), y el PIA stub (`PIA/PLANDIG.md`, gate obligatorio). **PLANDIG sigue siendo un solo PLAN.** Sin split. La visión de largo plazo (ANDIG plena, ArgenCloud completo, LANIA, SAPI completa, El Mapa con gemelo digital, Cofre Digital ciudadano universal, ecosistema digital soberano) se preserva en el cuerpo como **horizonte 2040 / estadio B condicional**, no como compromiso de tranche-1.
+>
+> **Lo que entrega tranche-1 (estadio A, 2026-05 a 2028-05) — máximo 8 servicios:** (1) identidad-lite no biométrica, (2) estándares de datos abiertos publicados, (3) logs de auditoría inmutables open source, (4) mensajería segura entre agencias, (5) reglas de interoperabilidad publicadas, (6) dashboards públicos básicos por PLAN, (7) cyber resilience básica (SOC 24/7 + red team trimestral + certificación externa anual), (8) offline-first as policy (todo servicio público crítico debe operar 30 días sin PLANDIG).
+>
+> **Lo que NO entrega tranche-1 (queda en estadio B condicional o anexo 2040):** ArgenCloud a escala, SAPI completa, LANIA con cómputo de frontera, El Mapa con gemelo digital nacional, IA generativa de Estado, gobernanza algorítmica, rieles monetarios protocolares, voto digital vinculante, computación cuántica, blockchain protocolar, identidad biométrica masiva, "ciudadanía digital obligatoria" (esta última eliminada de cualquier estadio: nunca obligatoria).
+>
+> **Owner tranche-1:** Subsecretaría de Datos como **execution cell en Jefatura de Gabinete** (no agencia autónoma con autarquía constitucional). ANDIG plena, presupuesto constitucional protegido y autarquía se evalúan al cierre del estadio A — ver Sección 13 reformulada.
+>
+> **Gate PIA:** este PLAN no avanza a piloto sin PIA aprobado. Estadio B requiere PIA por componente. Ver `PIA/PLANDIG.md`.
+
 ## NOTA DE LA VERSIÓN 2.0
 
 La versión 1.0 de este plan (Marzo 2026) propuso construir soberanía digital en tres capas: infraestructura soberana, arquitectura de datos, vida digital ciudadana. La versión 2.0 (Abril 2026) absorbe el alcance de lo que se había considerado un PLAN aparte — PLANCOG, Plan Nacional de Soberanía Cognitiva — dentro del propio PLANDIG, reconociendo que la soberanía sobre los datos sin soberanía sobre la atención es incompleta. No hay soberanía digital real si las plataformas que usamos siguen modelando qué vemos, qué pensamos, y cómo decidimos, aunque los datos queden en servidores argentinos. El cuerpo de la versión 2.0 incorpora esto en el Preámbulo (actualizado), en la Tesis Central (ajustada), y fundamentalmente en tres subsecciones nuevas dentro de la SECCIÓN 9 (LA CONSCIENCIA) — **9.4 Ecología de la Atención**, **9.5 Auditoría Pública de Sistemas Algorítmicos**, **9.6 Declaración de Atención y Derecho a la Desconexión** — que tipifican los derechos cognitivos ciudadanos, los mecanismos de auditoría de plataformas que modelan a argentinos a escala, y los efectos legales del derecho a la desconexión en articulación con la Jornada 6+2 del PLANCUIDADO. El resto de la arquitectura documental se preserva sin reescritura, salvo las referencias cruzadas menores actualizadas y el glosario final extendido.
+
+> **REVISIÓN 2026-04-26:** la revisión profunda del 2026-04-28 mantiene íntegra la versión 2.0 como **horizonte de diseño**. Las subsecciones 9.4-9.6 (Ecología de la Atención, Auditoría Algorítmica, Protocolo Soberano de Atención) se ejecutan en modo **piloto regulatorio** durante tranche-1 — diagnóstico, marco legal habilitante y certificación voluntaria, sin sanciones masivas hasta que el estadio A esté en operación estable y exista autoridad de protección de datos plenamente constituida. Las sanciones del 2-8% de facturación, los bloqueos territoriales y la MAAP plenamente equipada se difieren a tranche-2/3 con LMV específicos (L.N-23, L.N-24, L.N-25 de la cascada legal).
 
 ---
 
