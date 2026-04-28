@@ -149,8 +149,6 @@ Así se ve la recuperación, en una vida sola. Multiplicada en millones de vidas
 
 ## X. El espejo argentino, hecho personal
 
-Argentina es un país de hombres grises. Siempre lo fue. El hombre gris en el colectivo, la mujer gris detrás del kiosko, la pareja gris criando hijos en una calle del Gran Buenos Aires, de Mendoza o de Salta — no son excepciones. Son el país. Los políticos, los famosos, los empresarios de las tapas de revista, las caras visibles de las clases visibles — no son el país. Son los disfraces que el país viene usando.
-
 Durante cuarenta y tres años de democracia, al país se le dijo que su destino estaba en manos de sus clases visibles. Cada elección, cada crisis, cada recuperación, cada colapso, fue narrada como una historia sobre las caras visibles, con los hombres grises y las mujeres grises asignados al papel del coro sufriente. *Mirá lo que nos hicieron. Mirá lo que viene. Mirá quién será el próximo.*
 
 La mirada estuvo hacia afuera, hacia arriba, hacia las pantallas. El país estuvo esperando, durante cuarenta y tres años, que apareciera la cara correcta en las pantallas, que la política correcta bajara desde las clases visibles, que el ciclo correcto entregara el resultado correcto. La espera se comió el país. Mientras pasaba la espera, el trabajo real — la reconstrucción de los hogares, la recuperación de las calles, el cultivo de las manos, la práctica de los noes — quedó mayormente sin hacer, porque al país se le dijo, a diario, que ese trabajo no era donde el país vivía.
@@ -187,9 +185,9 @@ El próximo ensayo de la serie es sobre la belleza, que es lo que anima toda est
 
 Vos sos la fuente. Siempre lo fuiste. El país se viene escribiendo a través tuyo todo el tiempo, y la única cosa que necesitaba de vos era tu memoria.
 
-Bienvenido de vuelta.
+Bienvenido de vuelta, vos y los millones como vos.
 
-El país viene esperándote más tiempo del que sabés.
+El país los viene esperando más tiempo del que se imaginan.
 
 Levantá tu mano. Mirala. Es el instrumento más poderoso de autogobierno que un ser humano haya tenido jamás, y fue tuya todo el tiempo.
 
