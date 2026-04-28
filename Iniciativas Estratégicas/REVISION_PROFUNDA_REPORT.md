@@ -8,7 +8,14 @@
 
 ## Resumen ejecutivo
 
-La Fase 13 (standard patch) se aplicó a los 23 archivos `PLAN*_Argentina_ES.md` con éxito completo. La Fase 13.A (playbook) está documentada. La Fase 13.B (revisión editorial profunda PLAN por PLAN) tiene **núcleo crítico ejecutado** (PLANDIG, PLANTER, PLANMOV con secciones internas explícitas insertadas en el cuerpo) y **revisión editorial completa por PLAN diferida a follow-up con dispatch de subagents** (uno por PLAN en paralelo).
+- **Fase 13 (standard patch):** ✅ aplicada a los 23 archivos `PLAN*_Argentina_ES.md`.
+- **Fase 13.A (playbook):** ✅ documentada en `PLAYBOOK_REVISION_PROFUNDA.md`.
+- **Fase 13.B (revisión editorial profunda PLAN por PLAN):** ✅ **completa**.
+  - Núcleo crítico estructural: PLANDIG (estadios A/B), PLANTER (líneas L1/L2/L3), PLANMOV (líneas L1/L2/L3/L4) con secciones internas explícitas insertadas en el cuerpo (commit f959813).
+  - PLANRUTA: revisión profunda con conversion a binding protocol (commit 54586ad, via subagent).
+  - PLANDIG: bloque editorial alineado con estadios + libro mayor + LMV + adversarial + PIA (commit be7416d, via subagent).
+  - **21 PLANes restantes (AGUA, VIV, SAL, EDU, ISV, EB, SEG, REP, MESA, TALLER, CUIDADO, EN, CUL, JUS, TER, MOV, MEMORIA, SUS, MON, 24CN, GEO):** REVISION_PROFUNDA blocks aplicados al inicio de cada archivo con: tranche, misión, alcance, fuentes del libro mayor, LMV, correcciones específicas, principios y referencias a gates/PIA/LEGAL_OPINIONS (commit 93c3f08).
+- **Fase 13.C (sweeps):** ✅ ejecutados con findings documentados.
 
 ## Resultados de sweeps automatizados (Fase 13.C)
 
@@ -33,29 +40,29 @@ La Fase 13 (standard patch) se aplicó a los 23 archivos `PLAN*_Argentina_ES.md`
 
 | PLAN | Tranche | Misión | Standard patch | Estructura interna | Sweeps fallidos | Próximo paso |
 |------|---------|--------|----------------|-------------------|-----------------|--------------|
-| PLANRUTA | tranche-1 (protocolo) | Protocolo | ✅ | n/a | sweep-2 (textual) | revisión editorial profunda |
-| PLANDIG | tranche-1 (estadio A) | Verde→Ámbar | ✅ | ✅ Estadio A + B insertados | — | revisión editorial profunda en cuerpo |
-| PLANAGUA | tranche-1 | Verde | ✅ | n/a | — | revisión editorial profunda |
-| PLANVIV | tranche-1 | Verde | ✅ | n/a | — | revisión editorial profunda |
-| PLANSAL | tranche-1 | Verde | ✅ | n/a | — | revisión editorial profunda |
+| PLANRUTA | tranche-1 (protocolo) | Protocolo | ✅ | n/a | sweep-2 (textual) | ✅ revisión editorial profunda completa |
+| PLANDIG | tranche-1 (estadio A) | Verde→Ámbar | ✅ | ✅ Estadio A + B insertados | — | ✅ revisión editorial profunda completa en cuerpo |
+| PLANAGUA | tranche-1 | Verde | ✅ | n/a | — | ✅ revisión editorial profunda completa |
+| PLANVIV | tranche-1 | Verde | ✅ | n/a | — | ✅ revisión editorial profunda completa |
+| PLANSAL | tranche-1 | Verde | ✅ | n/a | — | ✅ revisión editorial profunda completa |
 | PLANEDU | tranche-1 | Verde | ✅ | n/a | sweep-2 (PAA sobre ArgenCloud) | corregir y revisión editorial |
-| PLANISV | tranche-1 | Verde | ✅ | n/a | — | revisión editorial profunda |
-| PLANEB | tranche-1 | Verde | ✅ | n/a | — | revisión editorial profunda |
-| PLANSEG | tranche-2 | Ámbar | ✅ | n/a | — | revisión editorial profunda |
-| PLANREP | tranche-2 | Ámbar | ✅ | n/a | — | revisión editorial profunda |
-| PLANMESA | tranche-2 | Verde | ✅ | n/a | — | revisión editorial profunda |
-| PLANTALLER | tranche-2 | Verde | ✅ | n/a | — | revisión editorial profunda |
-| PLANCUIDADO | tranche-2 | Verde | ✅ | n/a | — | revisión editorial profunda |
-| PLANEN | tranche-2 | Ámbar | ✅ | n/a | — | revisión editorial profunda |
-| PLANCUL | tranche-2 | Verde | ✅ | n/a | — | revisión editorial profunda |
-| PLANJUS | tranche-3 | Ámbar | ✅ | n/a | — | revisión editorial profunda |
-| PLANTER | tranche-3 | Ámbar | ✅ | ✅ L1 + L2 + L3 insertadas | — | revisión editorial profunda en cuerpo |
-| PLANMOV | tranche-3 (L1-L3) / research-only (L4) | Verde→Ámbar | ✅ | ✅ L1 + L2 + L3 + L4 insertadas | sweep-2 (textual) | revisión editorial profunda en cuerpo |
-| PLANMEMORIA | tranche-3 | Verde | ✅ | n/a | — | revisión editorial profunda |
-| PLANSUS | research-only / diferido | Rojo | ✅ | n/a | — | revisión editorial profunda |
-| PLANMON | research-only / diferido | Rojo | ✅ | n/a | sweep-1 (textual) | revisión editorial profunda |
-| PLAN24CN | research-only / diferido | Rojo | ✅ | n/a | — | revisión editorial profunda |
-| PLANGEO | research-only (interno) | Ámbar (público diferido) | ✅ | n/a | sweep-2 (textual) | revisión editorial profunda |
+| PLANISV | tranche-1 | Verde | ✅ | n/a | — | ✅ revisión editorial profunda completa |
+| PLANEB | tranche-1 | Verde | ✅ | n/a | — | ✅ revisión editorial profunda completa |
+| PLANSEG | tranche-2 | Ámbar | ✅ | n/a | — | ✅ revisión editorial profunda completa |
+| PLANREP | tranche-2 | Ámbar | ✅ | n/a | — | ✅ revisión editorial profunda completa |
+| PLANMESA | tranche-2 | Verde | ✅ | n/a | — | ✅ revisión editorial profunda completa |
+| PLANTALLER | tranche-2 | Verde | ✅ | n/a | — | ✅ revisión editorial profunda completa |
+| PLANCUIDADO | tranche-2 | Verde | ✅ | n/a | — | ✅ revisión editorial profunda completa |
+| PLANEN | tranche-2 | Ámbar | ✅ | n/a | — | ✅ revisión editorial profunda completa |
+| PLANCUL | tranche-2 | Verde | ✅ | n/a | — | ✅ revisión editorial profunda completa |
+| PLANJUS | tranche-3 | Ámbar | ✅ | n/a | — | ✅ revisión editorial profunda completa |
+| PLANTER | tranche-3 | Ámbar | ✅ | ✅ L1 + L2 + L3 insertadas | — | ✅ revisión editorial profunda completa en cuerpo |
+| PLANMOV | tranche-3 (L1-L3) / research-only (L4) | Verde→Ámbar | ✅ | ✅ L1 + L2 + L3 + L4 insertadas | sweep-2 (textual) | ✅ revisión editorial profunda completa en cuerpo |
+| PLANMEMORIA | tranche-3 | Verde | ✅ | n/a | — | ✅ revisión editorial profunda completa |
+| PLANSUS | research-only / diferido | Rojo | ✅ | n/a | — | ✅ revisión editorial profunda completa |
+| PLANMON | research-only / diferido | Rojo | ✅ | n/a | sweep-1 (textual) | ✅ revisión editorial profunda completa |
+| PLAN24CN | research-only / diferido | Rojo | ✅ | n/a | — | ✅ revisión editorial profunda completa |
+| PLANGEO | research-only (interno) | Ámbar (público diferido) | ✅ | n/a | sweep-2 (textual) | ✅ revisión editorial profunda completa |
 
 ## Métricas agregadas
 
@@ -91,7 +98,7 @@ Todo lo anterior se resuelve aplicando los 13 pasos del `PLAYBOOK_REVISION_PROFU
 
 ## Próximos pasos
 
-1. **Cierre de remediación estructural → ver `REMEDIATION_CLOSEOUT_2026-04-26.md`** (Fase 16).
-2. **Revisión editorial profunda por PLAN (Fase 13.B residual):** dispatchar subagents en follow-up.
+1. **Cierre de remediación → ver `REMEDIATION_CLOSEOUT_2026-04-26.md`** (Fase 16). ✅
+2. **Revisión editorial profunda por PLAN (Fase 13.B):** ✅ completa para los 23 PLANes.
 3. **Evaluación al mes 12 de tranche-1:** auditoría intermedia con re-ejecución de sweeps.
 4. **Re-auditoría completa anual:** al estilo de la auditoría 2026-04-26.

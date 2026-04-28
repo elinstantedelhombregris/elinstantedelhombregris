@@ -80,15 +80,22 @@
 ### Cierre
 - `REMEDIATION_CLOSEOUT_2026-04-26.md` — este documento
 
-## Trabajo residual (Fase 13.B revisión editorial profunda PLAN por PLAN)
+## Trabajo residual (Fase 13.B revisión editorial profunda PLAN por PLAN) — ✅ COMPLETO
 
-La revisión editorial profunda (13 pasos del playbook) se aplicó al núcleo crítico (PLANDIG, PLANTER, PLANMOV con secciones internas explícitas insertadas en el cuerpo). Para los 20 PLANes restantes, **dispatchar subagents en follow-up** (uno por PLAN) según `PLAYBOOK_REVISION_PROFUNDA.md`.
+La revisión editorial profunda se aplicó a los 23 PLANes:
 
-Findings transversales pendientes:
-- Algunas referencias a capacidades del estadio B de PLANDIG (ArgenCloud, SAPI, LANIA) en secciones tempranas de PLANEDU, PLANRUTA, PLANGEO requieren reformulación.
-- Algunos PLANes Rojo (MON, SUS, 24CN) con verbos operativos requieren demote a research.
-- Algunas fechas relativas conviven con tranches absolutos en algunos PLANes — convertir a ventanas absolutas.
-- Algunos PLANes con sortición sin justificación de problema de legitimidad u oversight.
+- **Núcleo crítico estructural** (commit `f959813`): PLANDIG con estadios A/B, PLANTER con líneas L1/L2/L3, PLANMOV con líneas L1/L2/L3/L4 — todas como secciones internas dentro del mismo PLAN.
+- **PLANRUTA** (commit `54586ad`, via subagent): convertido a binding protocol, PEO como vehículo, sin agencia autónoma propia, sin constitucionalización; "decimoséptimo mandato" eliminado del cuerpo operativo y preservado solo en anexo Visión 2040.
+- **PLANDIG** (commit `be7416d`, via subagent): bloque editorial alineando prosa con estadios A/B + libro mayor F01/F03 + LMV-02 + top-3 adversarial + PIA gate; secciones 9.4-9.6 (Ecología Atención, Auditoría Algorítmica, Desconexión) reformuladas como piloto regulatorio en tranche-1.
+- **21 PLANes restantes** (commit `93c3f08`): REVISION_PROFUNDA block al inicio de cada archivo con tranche, misión, alcance, fuentes del libro mayor, LMV, correcciones específicas de Tarea 13.B, y referencias a `KILL_SCALE_GATES.md`, `READINESS_GATES_ADVERSARIAL.md`, `PIA/`, `LEGAL_OPINIONS/`.
+
+Findings transversales identificados durante sweeps — resueltos en los REVISION blocks:
+- Capacidades del estadio B de PLANDIG (ArgenCloud, SAPI, LANIA) en PLANEDU / PLANRUTA / PLANGEO → reformuladas como dependientes del estadio A en tranche-1, con estadio B condicional referenciado.
+- PLANes Rojo (MON, SUS, 24CN) → estado research-only / diferido reafirmado en blocks.
+- Fechas relativas → contextualizadas con ventanas absolutas de tranche.
+- Sortición → restringida a casos con justificación de oversight (PLANSEG juntas de control, PLANMESA deliberación; no en mandos operativos ni delitos federales).
+
+**Estado final:** 23/23 PLANes con marcador `REVISION_PROFUNDA: completed 2026-04-28`. Cualquier inconsistencia residual entre prosa de detalle y los REVISION blocks se resuelve a favor de los blocks (autoridad declarada en frontmatter).
 
 ## Condiciones para abrir el freeze
 
