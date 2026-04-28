@@ -2615,3 +2615,39 @@ El instante del Hombre Gris. Gris como la **plata**. Como el amanecer. Como la c
 *Versión 1.0 — Marzo 2026*
 *Documento estratégico preparado en el marco de El Instante del Hombre Gris*
 *Proyecto ¡BASTA! — Decimoséptimo Mandato*
+
+---
+
+## Parche post-auditoría 2026-04-26
+
+> **STATUS LOCAL:** alineado con auditoría 2026-04-26.
+> **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol — este PLAN sigue siendo **uno** de los 22 (o el protocolo, si es PLANRUTA). **Sin splits.**
+
+### 1. Tranche assignment
+- **Tranche:** tranche-1 (protocolo)
+- **Misión matrix:** Protocolo
+- **Justificación:** ver `MATRIZ_MISIONES_Y_PLANES_ES.md` y `HOJA_DE_RUTA_CONSOLIDADA_BASTA.md`.
+
+### 2. Lo que NO haremos en fase 1 / qué simplificamos
+Para cada gate del PEO, ver KILL_SCALE_GATES.md sección PLANRUTA.
+
+### 3. Kill/Scale gates
+Ver `KILL_SCALE_GATES.md` sección `PLANRUTA`. Tres gates con 5 criterios cada uno y condición de KILL automática. El PEO no firma promoción sin gate cerrado.
+
+### 4. Top-3 attack paths
+Ver `READINESS_GATES_ADVERSARIAL.md` sección `PLANRUTA`. Cada attack path con mitigación nombrada, owner, fallback budget e indicador de activación. Vinculante para promoción de tranche.
+
+### 5. Promesa pública medible
+> "En 24 meses, ningún PLAN del sistema vivió fuera del registro, fuera del libro mayor o fuera de los gates."
+
+### 6. Dependencias canónicas
+Ver `DEPENDENCY_GRAPH.yml` sección `PLANRUTA`. Esta prosa cede ante el grafo en caso de conflicto.
+- Depende de: PLANRUTA.
+- Provee a: todos.
+
+### 7. Privacy Impact Assessment
+No requiere PIA específico (este PLAN no toca datos personales sensibles directamente). Si en fase de implementación se identifican datos personales, generar PIA antes de piloto.
+
+### 8. Opinión legal
+No requiere opinión legal stub específica en tranche-1 (riesgo legal bajo). Reevaluar al cierre de cada gate.
+

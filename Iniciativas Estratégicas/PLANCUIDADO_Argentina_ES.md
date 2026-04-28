@@ -836,3 +836,39 @@ Esto no es política social. Es un órgano nuevo del cuerpo cívico argentino: l
 - Demanda territorial que este PLAN deposita en PLANTER: cuidado intercultural en comunidades originarias (línea L3).
 - Restricción ecológica/originaria que PLANTER impone a este PLAN: ninguna directa; coordinación con INAI.
 - Mecanismo de resolución: RACI cruzada en `RACI_MATRIX.md`.
+
+---
+
+## Parche post-auditoría 2026-04-26
+
+> **STATUS LOCAL:** alineado con auditoría 2026-04-26.
+> **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol — este PLAN sigue siendo **uno** de los 22 (o el protocolo, si es PLANRUTA). **Sin splits.**
+
+### 1. Tranche assignment
+- **Tranche:** tranche-2
+- **Misión matrix:** Verde
+- **Justificación:** ver `MATRIZ_MISIONES_Y_PLANES_ES.md` y `HOJA_DE_RUTA_CONSOLIDADA_BASTA.md`.
+
+### 2. Lo que NO haremos en fase 1 / qué simplificamos
+Registro y soporte limitados con PIA aprobado.
+
+### 3. Kill/Scale gates
+Ver `KILL_SCALE_GATES.md` sección `PLANCUIDADO`. Tres gates con 5 criterios cada uno y condición de KILL automática. El PEO no firma promoción sin gate cerrado.
+
+### 4. Top-3 attack paths
+Ver `READINESS_GATES_ADVERSARIAL.md` sección `PLANCUIDADO`. Cada attack path con mitigación nombrada, owner, fallback budget e indicador de activación. Vinculante para promoción de tranche.
+
+### 5. Promesa pública medible
+> "En 24 meses, las familias en piloto van a tener apoyo medible para cuidar adultos mayores, niñez y personas con discapacidad."
+
+### 6. Dependencias canónicas
+Ver `DEPENDENCY_GRAPH.yml` sección `PLANCUIDADO`. Esta prosa cede ante el grafo en caso de conflicto.
+- Depende de: PLANSAL, PLANEDU, PLANDIG, PLANRUTA.
+- Provee a: PLANEB, PLANCUL.
+
+### 7. Privacy Impact Assessment
+Ver `PIA/PLANCUIDADO.md`. **Gate:** este PLAN no avanza a piloto operativo sin PIA aprobado.
+
+### 8. Opinión legal
+No requiere opinión legal stub específica en tranche-1 (riesgo legal bajo). Reevaluar al cierre de cada gate.
+

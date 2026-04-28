@@ -2056,3 +2056,39 @@ El instante del Hombre Gris digital es ahora. Y la Argentina eligió despertar.
 **Porque la soberanía del siglo XXI no se ejerce solo con ejércitos, con fábricas, con campos y con leyes. Se ejerce con datos, con algoritmos, con infraestructura, y con la decisión irrevocable de que la inteligencia argentina — toda ella, cada byte, cada modelo, cada decisión — nos pertenezca.**
 
 **Los datos que tenemos. Ahora nos van a pertenecer.**
+
+---
+
+## Parche post-auditoría 2026-04-26
+
+> **STATUS LOCAL:** alineado con auditoría 2026-04-26.
+> **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol — este PLAN sigue siendo **uno** de los 22 (o el protocolo, si es PLANRUTA). **Sin splits.**
+
+### 1. Tranche assignment
+- **Tranche:** tranche-1 (estadio A)
+- **Misión matrix:** Verde→Ámbar
+- **Justificación:** ver `MATRIZ_MISIONES_Y_PLANES_ES.md` y `HOJA_DE_RUTA_CONSOLIDADA_BASTA.md`.
+
+### 2. Lo que NO haremos en fase 1 / qué simplificamos
+Estadio A: identidad-lite, datos abiertos, audit logs, mensajería segura, dashboards, interoperabilidad, cyber-min, offline-first.
+
+### 3. Kill/Scale gates
+Ver `KILL_SCALE_GATES.md` sección `PLANDIG`. Tres gates con 5 criterios cada uno y condición de KILL automática. El PEO no firma promoción sin gate cerrado.
+
+### 4. Top-3 attack paths
+Ver `READINESS_GATES_ADVERSARIAL.md` sección `PLANDIG`. Cada attack path con mitigación nombrada, owner, fallback budget e indicador de activación. Vinculante para promoción de tranche.
+
+### 5. Promesa pública medible
+> "En 24 meses, vas a poder identificarte sin DNI físico para trámites comunes y vas a ver dashboards públicos por ministerio actualizados."
+
+### 6. Dependencias canónicas
+Ver `DEPENDENCY_GRAPH.yml` sección `PLANDIG`. Esta prosa cede ante el grafo en caso de conflicto.
+- Depende de: PLANRUTA.
+- Provee a: todos los thematic vía estadio A.
+
+### 7. Privacy Impact Assessment
+Ver `PIA/PLANDIG.md`. **Gate:** este PLAN no avanza a piloto operativo sin PIA aprobado.
+
+### 8. Opinión legal
+No requiere opinión legal stub específica en tranche-1 (riesgo legal bajo). Reevaluar al cierre de cada gate.
+

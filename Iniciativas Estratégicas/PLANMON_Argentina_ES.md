@@ -2205,3 +2205,39 @@ Esta sección documenta cómo PLANMON se acopla al resto del ecosistema de manda
 | **PLANISV** | IMPORTANT | DATA | El Pulso consume la telemetría de producción agrícola y rendimientos de Suelo Vivo como insumo para la estabilidad del peso-canasta |
 | **PLANSUS** | IMPORTANT | FINANCIAL | El Fondo Soberano Ciudadano absorbe la recaudación fiscal de sustancias legalizadas como uno de sus pilares de capitalización |
 
+
+---
+
+## Parche post-auditoría 2026-04-26
+
+> **STATUS LOCAL:** alineado con auditoría 2026-04-26.
+> **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol — este PLAN sigue siendo **uno** de los 22 (o el protocolo, si es PLANRUTA). **Sin splits.**
+
+### 1. Tranche assignment
+- **Tranche:** research-only / diferido
+- **Misión matrix:** Rojo
+- **Justificación:** ver `MATRIZ_MISIONES_Y_PLANES_ES.md` y `HOJA_DE_RUTA_CONSOLIDADA_BASTA.md`.
+
+### 2. Lo que NO haremos en fase 1 / qué simplificamos
+Laboratorio académico convenio universidades + BCRA; sin curso legal.
+
+### 3. Kill/Scale gates
+Ver `KILL_SCALE_GATES.md` sección `PLANMON`. Tres gates con 5 criterios cada uno y condición de KILL automática. El PEO no firma promoción sin gate cerrado.
+
+### 4. Top-3 attack paths
+Ver `READINESS_GATES_ADVERSARIAL.md` sección `PLANMON`. Cada attack path con mitigación nombrada, owner, fallback budget e indicador de activación. Vinculante para promoción de tranche.
+
+### 5. Promesa pública medible
+> "En 24 meses, no vamos a haber lanzado moneda nueva; vamos a tener resultados de laboratorio publicados sin compromiso de implementación."
+
+### 6. Dependencias canónicas
+Ver `DEPENDENCY_GRAPH.yml` sección `PLANMON`. Esta prosa cede ante el grafo en caso de conflicto.
+- Depende de: PLANDIG (estadio B activado), BCRA estabilizado, PLANRUTA.
+- Provee a: reflujos.
+
+### 7. Privacy Impact Assessment
+Ver `PIA/PLANMON.md`. **Gate:** este PLAN no avanza a piloto operativo sin PIA aprobado.
+
+### 8. Opinión legal
+Ver `LEGAL_OPINIONS/PLANMON.md`. Stub identifica riesgos; opinión externa firmada requerida antes de promoción a piloto.
+

@@ -2063,3 +2063,39 @@ Cada dataset con ficha técnica (DOI argentino), licencia CC BY-SA 4.0, responsa
 **FIN DEL DOCUMENTO**
 
 *Documento técnico del vigésimo segundo mandato del Proyecto ¡BASTA! — Abril 2026*
+
+---
+
+## Parche post-auditoría 2026-04-26
+
+> **STATUS LOCAL:** alineado con auditoría 2026-04-26.
+> **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol — este PLAN sigue siendo **uno** de los 22 (o el protocolo, si es PLANRUTA). **Sin splits.**
+
+### 1. Tranche assignment
+- **Tranche:** tranche-3 (L1-L3); research-only (L4)
+- **Misión matrix:** Verde→Ámbar
+- **Justificación:** ver `MATRIZ_MISIONES_Y_PLANES_ES.md` y `HOJA_DE_RUTA_CONSOLIDADA_BASTA.md`.
+
+### 2. Lo que NO haremos en fase 1 / qué simplificamos
+4 líneas internas (L1 movilidad básica, L2 flete ferroviario, L3 AMBA-T, L4 AV research-only) dentro del mismo PLAN.
+
+### 3. Kill/Scale gates
+Ver `KILL_SCALE_GATES.md` sección `PLANMOV`. Tres gates con 5 criterios cada uno y condición de KILL automática. El PEO no firma promoción sin gate cerrado.
+
+### 4. Top-3 attack paths
+Ver `READINESS_GATES_ADVERSARIAL.md` sección `PLANMOV`. Cada attack path con mitigación nombrada, owner, fallback budget e indicador de activación. Vinculante para promoción de tranche.
+
+### 5. Promesa pública medible
+> "En 24 meses de operación piloto, vas a tener transporte público mejorado en AMBA y datos abiertos de flete ferroviario; AV queda en investigación."
+
+### 6. Dependencias canónicas
+Ver `DEPENDENCY_GRAPH.yml` sección `PLANMOV`. Esta prosa cede ante el grafo en caso de conflicto.
+- Depende de: PLANSEG, PLANJUS (piloto), PLANDIG, PLANMESA, PLANMEMORIA, PLANEN, PLANTALLER, PLANCUIDADO, PLANRUTA.
+- Provee a: PLAN24CN.
+
+### 7. Privacy Impact Assessment
+Ver `PIA/PLANMOV.md`. **Gate:** este PLAN no avanza a piloto operativo sin PIA aprobado.
+
+### 8. Opinión legal
+Ver `LEGAL_OPINIONS/PLANMOV.md`. Stub identifica riesgos; opinión externa firmada requerida antes de promoción a piloto.
+

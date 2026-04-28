@@ -830,3 +830,39 @@ No es utopía. Es arquitectura ejecutable con leyes argentinas, plataforma ¡BAS
 **FIN DEL DOCUMENTO**
 
 *Documento técnico del vigésimo segundo mandato del Proyecto ¡BASTA! — Abril 2026*
+
+---
+
+## Parche post-auditoría 2026-04-26
+
+> **STATUS LOCAL:** alineado con auditoría 2026-04-26.
+> **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol — este PLAN sigue siendo **uno** de los 22 (o el protocolo, si es PLANRUTA). **Sin splits.**
+
+### 1. Tranche assignment
+- **Tranche:** tranche-3
+- **Misión matrix:** Ámbar
+- **Justificación:** ver `MATRIZ_MISIONES_Y_PLANES_ES.md` y `HOJA_DE_RUTA_CONSOLIDADA_BASTA.md`.
+
+### 2. Lo que NO haremos en fase 1 / qué simplificamos
+3 líneas internas (L1 enforcement, L2 regalías, L3 consulta) dentro del mismo PLAN.
+
+### 3. Kill/Scale gates
+Ver `KILL_SCALE_GATES.md` sección `PLANTER`. Tres gates con 5 criterios cada uno y condición de KILL automática. El PEO no firma promoción sin gate cerrado.
+
+### 4. Top-3 attack paths
+Ver `READINESS_GATES_ADVERSARIAL.md` sección `PLANTER`. Cada attack path con mitigación nombrada, owner, fallback budget e indicador de activación. Vinculante para promoción de tranche.
+
+### 5. Promesa pública medible
+> "En 24 meses de operación piloto, las regalías extractivas y los conflictos territoriales van a estar auditados públicamente, sin sumar litigios federales."
+
+### 6. Dependencias canónicas
+Ver `DEPENDENCY_GRAPH.yml` sección `PLANTER`. Esta prosa cede ante el grafo en caso de conflicto.
+- Depende de: PLANISV, PLANJUS (piloto), PLANSEG, PLANDIG, PLANRUTA.
+- Provee a: PLANEN, PLAN24CN, PLANAGUA, PLANMOV (L2).
+
+### 7. Privacy Impact Assessment
+No requiere PIA específico (este PLAN no toca datos personales sensibles directamente). Si en fase de implementación se identifican datos personales, generar PIA antes de piloto.
+
+### 8. Opinión legal
+Ver `LEGAL_OPINIONS/PLANTER.md`. Stub identifica riesgos; opinión externa firmada requerida antes de promoción a piloto.
+
