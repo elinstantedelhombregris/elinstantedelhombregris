@@ -82,6 +82,18 @@ const Resources = () => {
       iconColor: 'bg-emerald-100 text-emerald-700',
       cta: 'Explorar Rutas',
       delay: 0.4
+    },
+    {
+      title: 'Ensayos',
+      subtitle: 'PENSAMIENTO',
+      description: 'Textos largos para pensar la república desde abajo. Un cuaderno abierto del Hombre Gris donde se ensayan ideas, se discuten arquitecturas y se busca la palabra justa.',
+      icon: BookOpen,
+      href: '/recursos/ensayos',
+      count: 7,
+      gradient: 'from-amber-500/10 to-rose-500/10',
+      iconColor: 'bg-amber-100 text-amber-700',
+      cta: 'Leer Ensayos',
+      delay: 0.5
     }
   ];
 
