@@ -2,7 +2,7 @@
 
 **Documento de trabajo — 28 de abril de 2026**
 
-Complemento de `00-ANALISIS.md` que cubre el séptimo ensayo, escrito después del análisis original.
+Este es un complemento de `00-ANALISIS.md` que cubre el séptimo ensayo, escrito después del análisis original.
 
 ## I. ¿Cumple el rol asignado?
 
