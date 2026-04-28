@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "NODE_ENV=development tsx server/index.ts",
-    "build": "vite build && tsx scripts/course-route-manifest.ts --out=dist/public/course-route-manifest.json && tsx scripts/prerender-course-seo.ts && tsx scripts/prerender-blog-seo.ts && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist && esbuild server/vercel-handler.ts --platform=node --packages=external --bundle --format=esm --outfile=api/index.mjs",
+    "build": "vite build && tsx scripts/course-route-manifest.ts --out=dist/public/course-route-manifest.json && tsx scripts/prerender-course-seo.ts && tsx scripts/prerender-blog-seo.ts && tsx scripts/build-ensayos.ts && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist && esbuild server/vercel-handler.ts --platform=node --packages=external --bundle --format=esm --outfile=api/index.mjs",
+    "ensayos:build": "tsx scripts/build-ensayos.ts",
     "start": "NODE_ENV=production node dist/index.js",
     "check": "tsc",
     "check:routes": "node scripts/check-route-duplicates.cjs",
