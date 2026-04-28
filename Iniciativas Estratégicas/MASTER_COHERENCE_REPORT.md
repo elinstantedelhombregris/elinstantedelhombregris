@@ -1,6 +1,6 @@
 # INFORME MAESTRO DE COHERENCIA ESTRATEGICA
 
-> **STATUS:** superseded (mezcla 16 / 22 / "23er mandato" — contradictorio post-auditoría 2026-04-26)
+> **STATUS:** current (purgado de la frase contradictoria "vigesimo tercer mandato"; análisis previo preservado como anexo)
 > **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol
 > **REGISTRY:** ver `PLAN_REGISTRY.yml`
 > **SUCCESSOR_PENDING:** update en Fase 15 con resumen canónico actualizado y purga de la frase "vigesimo tercer mandato"
@@ -9,6 +9,34 @@
 ## Proyecto ¡BASTA! — 22 Iniciativas Temáticas + PLANRUTA Protocolo (CANÓNICO)
 
 > **NOTA:** El cuerpo histórico abajo se refería a "16 Iniciativas Estratégicas" o usaba la frase "vigesimo tercer mandato" para PLANMOV. Esa frase es **contradictoria** con el conteo canónico. **PLANMOV es el 22° plan temático del ecosistema canónico (22 thematic + PLANRUTA protocol).**
+
+## Estado canónico (post-auditoría 2026-04-26 + remediación 2026-04-28)
+
+- **Conteo:** 22 PLANes temáticos + PLANRUTA protocolo. **Sin splits** durante remediación.
+- **Registro:** `PLAN_REGISTRY.yml` (única fuente de verdad).
+- **Grafo de dependencias:** `DEPENDENCY_GRAPH.yml`.
+- **Hoja de ruta:** `HOJA_DE_RUTA_CONSOLIDADA_BASTA.md` (recomputada con tranches absolutos).
+- **Cascada legal:** `CASCADA_LEGAL_BASTA.md` (LMV con 8 instrumentos en tranche-1).
+- **Libro mayor fiscal:** `SOURCE_OF_FUNDS_LEDGER.md` (tope 3.5% PBI tranche-1).
+- **Stress tests:** `STRESS_TESTS_TRANCHE_1.md`.
+- **RACI:** `RACI_MATRIX.md`.
+- **PEO:** `PORTFOLIO_EXECUTION_OFFICE.md`.
+- **Riesgo:** `portfolio_risk_register.md`.
+- **Gates:** `KILL_SCALE_GATES.md`, `READINESS_GATES_ADVERSARIAL.md`.
+- **Protocolos operativos:** `PROTOCOLOS_OPERATIVOS_BASTA.md` (recomputado con flujos para 22 PLANes + fallbacks manuales).
+- **Plataforma pública:** `PLATAFORMA_PUBLICA_5_MISIONES.md`.
+- **Mapa de coalición:** `COALITION_MAP.md`.
+- **Primer tranche:** `PRIMER_TRANCHE_24M.md`.
+- **PIAs:** `PIA/` (template + 7 stubs).
+- **Opiniones legales:** `LEGAL_OPINIONS/` (template + 6 stubs).
+- **Estadios internos PLANDIG:** `PLANDIG_ESTADIOS_INTERNOS.md`.
+- **Asignación de huecos:** `COVERAGE_GAPS_ASSIGNMENTS.md` (sin nuevos PLANes).
+- **Baselines:** `BASELINES_REFRESH_2026.md`.
+- **Playbook revisión profunda:** `PLAYBOOK_REVISION_PROFUNDA.md`.
+- **Reporte revisión profunda:** `REVISION_PROFUNDA_REPORT.md`.
+
+**Eliminado:** la frase "vigesimo tercer mandato" referida a PLANMOV.
+**Eliminado:** referencias a "20/21/16 mandatos" en docs current. Se conservan en histórico/superseded con nota.
 
 ## Proyecto ¡BASTA! — 16 Iniciativas Estrategicas (HISTÓRICO)
 **Fecha:** 26 de marzo de 2026

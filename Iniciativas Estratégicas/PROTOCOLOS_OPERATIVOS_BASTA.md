@@ -1,11 +1,61 @@
 # PROTOCOLOS OPERATIVOS INTER-PLAN ¡BASTA!
 
-> **STATUS:** superseded (cuerpo "16 mandatos / 20 flujos críticos" obsoleto post-auditoría 2026-04-26)
+> **STATUS:** current (recomputado en Fase 15 con flujos para 22 PLANes + PLANRUTA y fallbacks manuales obligatorios)
 > **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol
 > **REGISTRY:** ver `PLAN_REGISTRY.yml`
-> **SUCCESSOR_PENDING:** recompute en Fase 15 con flujos para 22 PLANes + PLANRUTA y fallbacks manuales obligatorios
-> **NOTA AUDITORÍA 2026-04-26:** El conteo "16 mandatos" abajo corresponde a versión obsoleta.
 > **LAST_AUDIT:** 2026-04-26
+
+## Protocolos Operativos — Versión 22 PLANes + PLANRUTA (CANÓNICO)
+
+> **PRINCIPIO:** los flujos críticos se enumeran respecto del registro canónico (`PLAN_REGISTRY.yml`) y del grafo (`DEPENDENCY_GRAPH.yml`).
+
+### Reglas
+
+1. Todo flujo crítico tiene fallback manual operable durante 30 días.
+2. La indisponibilidad del estadio A de PLANDIG activa los fallbacks manuales automáticamente.
+3. Cada flujo tiene retención clara y privacy class por su PIA.
+4. Los flujos de capacidades del estadio B de PLANDIG no operan en tranche-1/2.
+5. Los flujos que tocan datos personales requieren PIA aprobado antes de activarse.
+
+### Flujos críticos
+
+| ID | Flujo | Origen | Destino | Dato/recurso | Frecuencia | Owner | Fallback |
+|----|-------|--------|---------|--------------|------------|-------|----------|
+| F-01 | Datos de cuenca | PLANAGUA | PLANISV / PLANTER (L1) | métricas hídricas | mensual | Cabeza PLANAGUA | reportes manuales triplicados |
+| F-02 | Métricas escolares | PLANEDU | PLANCUIDADO / PLANSAL | asistencia + nutrición | semanal | Cabeza PLANEDU | reportes provinciales |
+| F-03 | Identidad-lite (estadio A PLANDIG) | PLANDIG | todos | autenticación | tiempo real | Subsecretaría Datos | DNI físico |
+| F-04 | Stock medicamentos | PLANSAL | PLANCUIDADO / PEO | inventario | semanal | Cabeza PLANSAL | reportes manuales |
+| F-05 | Mapa de pobreza | PLANVIV | PLANSAL / PLANEDU | RENABAP | mensual | MinHabitat | INDEC |
+| F-06 | Suelo medido | PLANISV | PLANAGUA / PLANEN / PLANTER (L1) | datos | trimestral | INTA + universidades | universidades públicas |
+| F-07 | Costos Bastardas | PLANEB | público + PEO | precios | mensual | ANEB | publicación manual |
+| F-08 | Logs auditoría (estadio A PLANDIG) | PLANDIG | PEO | inmutables | tiempo real | Subsecretaría Datos | logs locales firmados |
+| F-09 | Riesgo fiscal | Tesorero PEO | Mesa Gobierno | libro mayor | mensual | Tesorero PEO | reporte físico |
+| F-10 | Avance gates | Director PEO | Mesa Gobierno | matriz kill/scale | mensual | Director PEO | reporte físico |
+| F-11 | Adhesión provincial | Oficial Legal PEO | PEO + cabezas | estado convenios | mensual | Oficial Legal | reporte físico |
+| F-12 | Coalición | Oficial Comunicación | Mesa Gobierno | mapa de aliados | trimestral | Oficial Comunicación | reporte físico |
+| F-13 | Investigación PLANSUS | research cell | PEO | informes académicos | trimestral | Cabeza PLANSUS | reporte físico |
+| F-14 | Métricas evaluación | Oficial Evaluación | Mesa Gobierno | KPIs por PLAN | trimestral | Oficial Evaluación | reporte físico |
+| F-15 | PIA status | Oficial Seguridad | PEO + Mesa | tablero PIA | mensual | Oficial Seguridad | reporte físico |
+| F-16 | Gates kill/scale | Director PEO | público | dashboard | mensual | Director PEO | publicación manual |
+| F-17 | Conflictos territoriales | PLANTER (L1/L2/L3) | PEO | bitácora | semanal | Cabeza PLANTER | reporte físico |
+| F-18 | Pulso PLANMESA | PLANMESA | PEO | resumen deliberativo | mensual | Cabeza PLANMESA | reporte físico |
+| F-19 | Stress tests | Tesorero PEO | Mesa | escenarios | trimestral | Tesorero PEO | reporte físico |
+| F-20 | Convenios multilaterales | Oficial Legal PEO | Tesorero | estado F02/F09 | mensual | Oficial Legal | reporte físico |
+| F-21 | Censo escolar | PLANEDU | PEO | rendimiento por escuela | trimestral | Cabeza PLANEDU | INDEC |
+| F-22 | Salud APS | PLANSAL | PEO | cobertura por centro | mensual | Cabeza PLANSAL | provincias |
+| F-23 | Ciberseguridad (estadio A PLANDIG) | Oficial Seguridad PEO | PEO + Mesa | incidentes | tiempo real | Oficial Seguridad | reporte físico firmado |
+| F-24 | Coalición pública | Oficial Comunicación | público | dashboard | mensual | Oficial Comunicación | publicación manual |
+| F-25 | Re-auditoría anual | auditor externo | Mesa | informe | anual | auditor externo | reporte físico |
+
+### Activación del modo de fallback
+
+- **Trigger automático:** caída de capacidad del estadio A de PLANDIG > 24h, o evento adversarial categorizado como crítico en `READINESS_GATES_ADVERSARIAL.md`.
+- **Owner del fallback:** quien aparece en la tabla.
+- **Restablecimiento:** ningún flujo vuelve a digital sin firma del Oficial Seguridad PEO + auditoría.
+
+---
+
+## Anexo histórico — Protocolos 16-mandatos (SUPERSEDED)
 
 **Documento Complementario al Marco ¡BASTA!**
 Versión 1.0 | Marzo 2026

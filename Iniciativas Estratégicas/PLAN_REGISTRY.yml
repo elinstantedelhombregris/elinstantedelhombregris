@@ -391,8 +391,8 @@ support_documents:
     status: current
     note: "Recomputada en Fase 6 con LMV de 8 instrumentos para tranche-1; histórico 16-mandatos preservado al final"
   - file: PROTOCOLOS_OPERATIVOS_BASTA.md
-    status: superseded
-    successor_pending: "Recompute en Fase 15"
+    status: current
+    note: "Recomputado en Fase 15 con 25 flujos críticos para 22 PLANes + PLANRUTA y fallbacks manuales obligatorios; histórico 16-mandatos preservado como anexo"
   - file: HOJA_DE_RUTA_CONSOLIDADA_BASTA.md
     status: current
     note: "Rebuilt en Fase 2 con tranches absolutos honrando matriz vinculante; histórico 16-mandatos preservado como anexo"
@@ -422,8 +422,8 @@ support_documents:
   - file: "MASTER_PLAN HOUSING OS.md"
     status: supporting
   - file: MASTER_COHERENCE_REPORT.md
-    status: superseded
-    successor_pending: "Update en Fase 15"
+    status: current
+    note: "Updated en Fase 15 con resumen canónico actualizado y purga de la frase 'vigesimo tercer mandato'; análisis previo preservado como anexo"
   - file: PDR_NATIONAL_PLAN_SYSTEM.md
     status: supporting
   - file: FIRST_PRINCIPLES_STRATEGIC_REVIEW_EN.md
