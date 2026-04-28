@@ -19,6 +19,7 @@ export interface Ensayo {
   slug: string;
   order: number;
   type: 'ensayo' | 'carta';
+  category: string;
   title: string;
   subtitle: string;
   opening: string;

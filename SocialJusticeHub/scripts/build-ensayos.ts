@@ -9,15 +9,38 @@ const REPO_ROOT = resolve(SCRIPT_DIR, '../..');
 const ENSAYOS_DIR = resolve(REPO_ROOT, 'Ensayos/castellano');
 const OUT_FILE = resolve(SCRIPT_DIR, '../client/src/content/ensayos.generated.ts');
 
-const FILES: Array<{ order: number; file: string; slug: string; type: 'ensayo' | 'carta' }> = [
-  { order: 1, file: '01-presidencia.md', slug: 'presidencia',     type: 'ensayo' },
-  { order: 2, file: '02-democracia.md',  slug: 'democracia',       type: 'ensayo' },
-  { order: 3, file: '03-poder.md',       slug: 'poder',            type: 'ensayo' },
-  { order: 4, file: '04-arquitectura.md',slug: 'arquitectura',     type: 'ensayo' },
-  { order: 5, file: '05-soberania.md',   slug: 'soberania',        type: 'ensayo' },
-  { order: 6, file: '06-belleza.md',     slug: 'belleza',          type: 'ensayo' },
-  { order: 7, file: '07-carta.md',       slug: 'carta-al-nieto',   type: 'carta'  },
+const FILES: Array<{ order: number; file: string; slug: string; type: 'ensayo' | 'carta'; category: string }> = [
+  { order: 1, file: '01-presidencia.md', slug: 'presidencia',     type: 'ensayo', category: 'Sobre presidentes, democracia y la belleza' },
+  { order: 2, file: '02-democracia.md',  slug: 'democracia',       type: 'ensayo', category: 'Sobre presidentes, democracia y la belleza' },
+  { order: 3, file: '03-poder.md',       slug: 'poder',            type: 'ensayo', category: 'Sobre presidentes, democracia y la belleza' },
+  { order: 4, file: '04-arquitectura.md',slug: 'arquitectura',     type: 'ensayo', category: 'Sobre presidentes, democracia y la belleza' },
+  { order: 5, file: '05-soberania.md',   slug: 'soberania',        type: 'ensayo', category: 'Sobre presidentes, democracia y la belleza' },
+  { order: 6, file: '06-belleza.md',     slug: 'belleza',          type: 'ensayo', category: 'Sobre presidentes, democracia y la belleza' },
+  { order: 7, file: '07-carta.md',       slug: 'carta-al-nieto',   type: 'carta',  category: 'Sobre presidentes, democracia y la belleza' },
 ];
+
+function decodeHtmlEntities(s: string): string {
+  return s
+    .replace(/&quot;/g, '"')
+    .replace(/&#34;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&apos;/g, "'")
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&amp;/g, '&');
+}
+
+function stripTitleSubtitle(md: string): string {
+  const lines = md.split('\n');
+  const isNumberedSection = (line: string) =>
+    /^## (I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII)\. /.test(line);
+  let i = 0;
+  while (i < lines.length && lines[i].trim() === '') i++;
+  if (i < lines.length && /^# (?!#)/.test(lines[i])) i++;
+  while (i < lines.length && lines[i].trim() === '') i++;
+  if (i < lines.length && /^## /.test(lines[i]) && !isNumberedSection(lines[i])) i++;
+  return lines.slice(i).join('\n');
+}
 
 function slugifyHeading(text: string): string {
   return text
@@ -63,7 +86,7 @@ function parseCartografia(md: string | null): EnsayoCartografiaGroup[] {
 
 function injectHeadingIds(html: string): string {
   return html.replace(/<h([23])>([\s\S]*?)<\/h\1>/g, (_, lvl, inner) => {
-    const cleanText = String(inner).replace(/<[^>]+>/g, '').trim();
+    const cleanText = decodeHtmlEntities(String(inner).replace(/<[^>]+>/g, '').trim());
     return `<h${lvl} id="${slugifyHeading(cleanText)}">${inner}</h${lvl}>`;
   });
 }
@@ -75,7 +98,7 @@ function buildToc(html: string): EnsayoTocItem[] {
   while ((m = re.exec(html)) !== null) {
     const level = Number(m[1]) as 2 | 3;
     const id = m[2];
-    const text = m[3].replace(/<[^>]+>/g, '').trim();
+    const text = decodeHtmlEntities(m[3].replace(/<[^>]+>/g, '').trim());
     if (text === 'Cartografía') continue;
     toc.push({ id, level, text });
   }
@@ -130,10 +153,11 @@ function build(): Ensayo[] {
     const { body, cartografia: cartoMd } = splitBodyAndCartografia(md);
     const { title, subtitle } = extractTitleSubtitle(body);
     const opening = extractOpening(body);
-    const html = injectHeadingIds(marked.parse(body) as string);
+    const bodyForRender = stripTitleSubtitle(body);
+    const html = injectHeadingIds(marked.parse(bodyForRender) as string);
     const toc = buildToc(html);
     const cartografia = parseCartografia(cartoMd);
-    const wordCount = countWords(body);
+    const wordCount = countWords(bodyForRender);
     const readingMinutes = Math.max(1, Math.round(wordCount / 200));
 
     const next = FILES.find((f) => f.order === meta.order + 1);
@@ -141,6 +165,7 @@ function build(): Ensayo[] {
       slug: meta.slug,
       order: meta.order,
       type: meta.type,
+      category: meta.category,
       title,
       subtitle,
       opening,
