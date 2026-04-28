@@ -149,8 +149,6 @@ This is what the recovery looks like, in a single life. Multiplied across millio
 
 ## X. The Argentine Mirror, Made Personal
 
-Argentina is a country of grey men. It always has been. The grey man on the bus, the grey woman behind the kiosco, the grey couple raising children on a street in Greater Buenos Aires or Mendoza or Salta — they are not exceptions. They are the country. The politicians, the celebrities, the businessmen on the magazine covers, the visible faces of the visible classes — they are not the country. They are the costumes the country has been wearing.
-
 For forty-three years of democracy, the country has been told that its destiny was in the hands of its visible classes. Every election, every crisis, every recovery, every collapse has been narrated as a story about the visible faces, with the grey men and women cast as the suffering chorus. *Mirá lo que nos hicieron. Mirá lo que viene. Mirá quién será el próximo.* Look what they have done to us. Look what is coming. Look who will be next.
 
 The look has been outward, upward, toward the screens. The country has been waiting, for forty-three years, for the right face to appear on the screens, for the right policy to descend from the visible classes, for the right cycle to deliver the right result. The waiting has consumed the country. While the waiting happened, the actual work — the rebuilding of the hearths, the recovery of the streets, the cultivation of the hands, the practice of the no's — went mostly undone, because the country had been told, daily, that this work was not where the country lived.
@@ -187,9 +185,9 @@ The next essay in the series is about beauty, which is what animates this whole 
 
 You are the source. You always were. The country has been writing itself through you all along, and the only thing it needed from you was your remembering.
 
-Welcome back.
+Welcome back, you and the millions like you.
 
-The country has been waiting for you longer than you know.
+The country has been waiting for all of you longer than you know.
 
 Pick up your hand. Look at it. It is the most powerful instrument of self-government any human being has ever held, and it has been yours the entire time.
 
