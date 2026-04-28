@@ -1,6 +1,12 @@
 # PRESUPUESTO CONSOLIDADO DEL ECOSISTEMA ¡BASTA!
 
-## 16 Mandatos — Arquitectura Financiera Integrada
+> **STATUS:** superseded (estimación de régimen completo, mezcla de tablas de % PBI; obsoleto para gobernar tranche-1 post-auditoría 2026-04-26)
+> **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol
+> **REGISTRY:** ver `PLAN_REGISTRY.yml`
+> **SUCCESSOR:** `SOURCE_OF_FUNDS_LEDGER.md` (libro mayor único con clase, confianza, dueño y disponibilidad por fuente)
+> **LAST_AUDIT:** 2026-04-26
+
+## 16 Mandatos — Arquitectura Financiera Integrada (HISTÓRICO)
 
 > *"Dieciséis planes. Un ecosistema. Un solo bolsillo: el del pueblo argentino. Si las fuentes no cierran, los planes no se ejecutan. Si los pisos suman más de lo que el PBI puede sostener, la Constitución se convierte en ficción. Este documento es la prueba de estrés."*
 

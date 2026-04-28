@@ -1,5 +1,12 @@
 # Análisis de Conexiones — Los 22 PLANes del Proyecto ¡BASTA!
 
+> **STATUS:** superseded (mezcla de conteos 20/21/22 obsoleta post-auditoría 2026-04-26)
+> **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol
+> **REGISTRY:** ver `PLAN_REGISTRY.yml`
+> **NOTA RENOMBRE:** archivo se renombra a `ANALISIS_CONEXIONES_22_PLANES.md` en Fase 1.3.
+> **SUCCESSOR:** `DEPENDENCY_GRAPH.yml` (estructurado, autoridad sobre la prosa)
+> **LAST_AUDIT:** 2026-04-26
+
 ## Evaluación integrada de los PLANes nuevos (MESA, TALLER, CUIDADO, MEMORIA, TER, MOV) y PLANDIG expandido en el ecosistema
 
 **Fecha:** 2026-04-16
@@ -10,7 +17,7 @@
 
 ## 1. Resumen ejecutivo
 
-El Proyecto ¡BASTA! completa con este análisis la arquitectura de 21 mandatos (20 temáticos + PLANRUTA como protocolo madre de arranque). La ampliación agrega cuatro **órganos transversales** que no existían como PLANes y que cierran el ecosistema: MESA (decisión con mérito LDEA), TALLER (experimentación productiva con hipótesis), CUIDADO (vínculo con epistemología propia), MEMORIA (validación temporal activa).
+El Proyecto ¡BASTA! completa con este análisis la arquitectura de 22 mandatos (20 temáticos + PLANRUTA como protocolo madre de arranque). La ampliación agrega cuatro **órganos transversales** que no existían como PLANes y que cierran el ecosistema: MESA (decisión con mérito LDEA), TALLER (experimentación productiva con hipótesis), CUIDADO (vínculo con epistemología propia), MEMORIA (validación temporal activa).
 
 Los 16 PLANes originales respondían la pregunta *"¿qué construir?"*. Los 4 nuevos responden la pregunta complementaria *"¿cómo se decide, cómo se produce, cómo se sostiene, cómo se inscribe lo que construimos?"*. No son políticas sectoriales — son la infraestructura cívica que permite que las políticas sectoriales se ejecuten con aprendizaje, dignidad relacional y continuidad intergeneracional.
 
@@ -20,7 +27,7 @@ Los 16 PLANes originales respondían la pregunta *"¿qué construir?"*. Los 4 nu
 
 ---
 
-## 2. Inventario actualizado de los 20 PLANes
+## 2. Inventario actualizado de los 22 PLANes
 
 ### 2.1 Tabla canónica ampliada
 
@@ -221,7 +228,7 @@ Los 4 nuevos son mutuamente constitutivos. Ninguno funciona sin los otros tres.
 
 ## 5. Clusters temáticos de conexión
 
-Los 20 PLANes forman clusters temáticos donde se ven sinergias naturales:
+Los 22 PLANes forman clusters temáticos donde se ven sinergias naturales:
 
 ### 5.1 Cluster de Piso Vital Cívico
 
@@ -851,7 +858,7 @@ El gap de derecho a la atención no algorítmica, auditoría de sistemas que mod
 
 ### 9.3 Gap de Transporte y Logística — RESUELTO con PLANMOV v2.0
 
-El gap de movilidad ciudadana, reactivación ferroviaria, AMBA estructural, Hidrovía Soberana, Red Federal de Puertos, Bastarda Logística, soberanía cognitiva sobre IA/AV y activación de activos móviles ociosos se resuelve con **PLANMOV v2.0 — Plan Nacional de Movilidad, Logística y Conectividad Territorial** (vigésimo tercer mandato temático, refundación Abril 2026 con IA/AV y Doctrina de Activos Disponibles). Arquitectura de tres capas + once dispositivos + una doctrina transversal:
+El gap de movilidad ciudadana, reactivación ferroviaria, AMBA estructural, Hidrovía Soberana, Red Federal de Puertos, Bastarda Logística, soberanía cognitiva sobre IA/AV y activación de activos móviles ociosos se resuelve con **PLANMOV v2.0 — Plan Nacional de Movilidad, Logística y Conectividad Territorial** (vigésimo segundo mandato temático, refundación Abril 2026 con IA/AV y Doctrina de Activos Disponibles). Arquitectura de tres capas + once dispositivos + una doctrina transversal:
 - **Capa I — Derecho a Moverse:** Mandato Kilométrico Ciudadano (MKC), Movilidad Rural Mínima (MRM), Red Metropolitana Federal (AMBA-T como caso modelo + homólogas en Gran Córdoba/Rosario/Mendoza/Tucumán/La Plata), Protocolo de Accesibilidad Universal.
 - **Capa II — Infraestructura Común:** Bastarda Logística Federal (BLF), Reactivación Ferroviaria + Rieles como Columna Múltiple, Red Federal de Puertos, Hidrovía Paraná-Paraguay Soberana.
 - **Capa III — Soberanía Cognitiva y Activos Disponibles:** Bastarda de Activos Móviles Disponibles (BAMD), Laboratorio Nacional de Movilidad Autónoma (LNMA) sobre LANIA de PLANDIG, Fondo de Reconversión Móvil (FRM) + Canon de Automatización Logística.
@@ -868,7 +875,7 @@ La reconstrucción de CONICET, INVAP, ARSAT, CONEA y la industria soberana sigue
 De los cuatro gaps identificados en 2026:
 
 - **PLANTER:** escrito a escala completa como vigésimo segundo mandato.
-- **PLANMOV:** escrito a escala completa como vigésimo tercer mandato.
+- **PLANMOV:** escrito a escala completa como vigésimo segundo mandato.
 - **PLANCOG:** absorbido en PLANDIG 2.0 sin documento separado.
 - **PLANCYT:** pendiente de evaluación.
 
@@ -950,7 +957,7 @@ Nadie combina los siete componentes simultáneamente bajo plataforma cívica com
 
 ## 12. Cronograma consolidado
 
-### 12.1 Cronograma de 20 PLANes integrado
+### 12.1 Cronograma de 22 PLANes integrado
 
 **Años 0-1 (Fundación):**
 - Plataforma ¡BASTA! consolidada (PLANDIG).
@@ -982,11 +989,11 @@ Nadie combina los siete componentes simultáneamente bajo plataforma cívica com
 - Activación de SUS, MON, GEO, 24CN en su fase correspondiente.
 
 **Años 11+ (Maduración Sistémica):**
-- 20 PLANes en régimen pleno.
+- 22 PLANes en régimen pleno.
 - Reducción medible de reversión de política pública.
 - Exportación del modelo a la región.
 
-### 12.2 Presupuesto Consolidado (20 PLANes + PLANRUTA)
+### 12.2 Presupuesto Consolidado (22 PLANes + PLANRUTA)
 
 **TABLA 12.2: Presupuesto Anual a Régimen Pleno (Año 10+) — Ecosistema Ampliado 22 PLANes**
 
@@ -1087,7 +1094,7 @@ Nadie combina los siete componentes simultáneamente bajo plataforma cívica com
 
 ### 14.4 Comunicación pública
 
-1. La ampliación de 16 a 20 PLANes debe comunicarse como **completamiento del ecosistema**, no como adición de complejidad.
+1. La ampliación de 16 a 22 PLANes debe comunicarse como **completamiento del ecosistema**, no como adición de complejidad.
 2. Enfatizar que los 4 nuevos son **capas transversales**, no sectores adicionales.
 3. Usar la metáfora de **los órganos** (decisión, producción, cuidado, memoria) para explicar el salto cualitativo.
 4. Narrar casos concretos: Ramiro en PLANMESA, Dalma en PLANTALLER, Gabriela en PLANCUIDADO, América en PLANMEMORIA.
@@ -1112,6 +1119,6 @@ La pregunta ya no es si el Proyecto ¡BASTA! es ambicioso. La pregunta es si ten
 
 **FIN DEL DOCUMENTO**
 
-*Análisis técnico de integración de los 20 mandatos (más PLANRUTA) del Proyecto ¡BASTA! — Abril 2026*
+*Análisis técnico de integración de los 22 mandatos (más PLANRUTA) del Proyecto ¡BASTA! — Abril 2026*
 
 *Documento de referencia para: MATRIZ_MISIONES_Y_PLANES_ES.md, HOJA_DE_RUTA_CONSOLIDADA_BASTA.md, PRESUPUESTO_CONSOLIDADO_BASTA.md, CASCADA_LEGAL_BASTA.md, SIMULACION_ADVERSARIAL_BASTA.md, TABLA_AGENCIAS_BASTA.md, PDR_NATIONAL_PLAN_SYSTEM.md, MASTER_COHERENCE_REPORT.md*

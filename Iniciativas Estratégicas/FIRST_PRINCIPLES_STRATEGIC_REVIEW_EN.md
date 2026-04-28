@@ -1,5 +1,10 @@
 # First-Principles Strategic Review of the `Iniciativas Estratégicas` Folder
 
+> **STATUS:** historical (reference document; superseded by FULL_STRATEGIC_AUDIT_2026-04-26.md)
+> **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol
+> **REGISTRY:** see `PLAN_REGISTRY.yml`
+> **LAST_AUDIT:** 2026-04-26
+
 **Date:** March 31, 2026  
 **Scope reviewed:** 17 mandate documents (`PLAN24CN`, `PLANREP`, `PLANISV`, `PLANEDU`, `PLANJUS`, `PLANSUS`, `PLANEB`, `PLANSAL`, `PLANAGUA`, `PLANDIG`, `PLANGEO`, `PLANMON`, `PLANEN`, `PLANSEG`, `PLANVIV`, `PLANCUL`, `PLANRUTA`) plus the cross-cutting documents on coherence, roadmap, budget, legal cascade, operational protocols, political vehicle, institutional shielding, and adversarial simulation.
 

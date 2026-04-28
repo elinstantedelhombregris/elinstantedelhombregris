@@ -1,5 +1,11 @@
 # ARQUITECTURA DE PLATAFORMA CÍVICA Y NARRATIVA
 
+> **STATUS:** superseded (narrativa de 22 PLANes para el público; obsoleto post-auditoría)
+> **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol
+> **REGISTRY:** ver `PLAN_REGISTRY.yml`
+> **SUCCESSOR:** `PLATAFORMA_PUBLICA_5_MISIONES.md` (cinco misiones para el público; los 22 PLANes quedan en doctrina interna)
+> **LAST_AUDIT:** 2026-04-26
+
 ## La plataforma no es un anexo
 
 Si el país se rompe, el primer problema no es sólo material. También es de legibilidad. Nadie sabe con suficiente precisión qué está pasando, qué duele primero, qué capacidades hay vivas, quién está dispuesto a poner el cuerpo, dónde están las brechas y qué parte del relato público todavía corresponde con la realidad.

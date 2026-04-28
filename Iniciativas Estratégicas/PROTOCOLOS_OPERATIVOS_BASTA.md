@@ -1,5 +1,12 @@
 # PROTOCOLOS OPERATIVOS INTER-PLAN ¡BASTA!
 
+> **STATUS:** superseded (cuerpo "16 mandatos / 20 flujos críticos" obsoleto post-auditoría 2026-04-26)
+> **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol
+> **REGISTRY:** ver `PLAN_REGISTRY.yml`
+> **SUCCESSOR_PENDING:** recompute en Fase 15 con flujos para 22 PLANes + PLANRUTA y fallbacks manuales obligatorios
+> **NOTA AUDITORÍA 2026-04-26:** El conteo "16 mandatos" abajo corresponde a versión obsoleta.
+> **LAST_AUDIT:** 2026-04-26
+
 **Documento Complementario al Marco ¡BASTA!**
 Versión 1.0 | Marzo 2026
 

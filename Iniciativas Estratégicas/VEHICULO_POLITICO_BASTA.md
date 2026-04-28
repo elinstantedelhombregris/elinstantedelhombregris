@@ -1,5 +1,11 @@
 # VEHICULO POLITICO ¡BASTA!
 
+> **STATUS:** supporting (doctrina interna; separar de plataforma pública)
+> **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol
+> **REGISTRY:** ver `PLAN_REGISTRY.yml`
+> **NOTA AUDITORÍA 2026-04-26:** este documento es **doctrina interna**. La plataforma pública civil vive en `PLATAFORMA_PUBLICA_5_MISIONES.md`. No usar lenguaje confrontacional ni místico en plataforma pública.
+> **LAST_AUDIT:** 2026-04-26
+
 ## Condiciones Estratégicas para la Implementación del Marco ¡BASTA!
 
 > Este documento NO es un plan. No prescribe partido, candidato ni identidad política.

@@ -1,5 +1,11 @@
 # GUÍA DE VOZ DEL HOMBRE GRIS APLICADA A LA RECONSTRUCCIÓN
 
+> **STATUS:** current
+> **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol
+> **REGISTRY:** ver `PLAN_REGISTRY.yml`
+> **APLICACIÓN VINCULANTE:** doctrina interna en docs internos; voz pública civil en `PLATAFORMA_PUBLICA_5_MISIONES.md`.
+> **LAST_AUDIT:** 2026-04-26
+
 ## Propósito
 
 Esta guía existe para que [PLAN_MAESTRO_RECONSTRUCCION_ARGENTINA_ES.md](/Users/juanb/Desktop/ElInstantedelHombreGris/Iniciativas Estratégicas/PLAN_MAESTRO_RECONSTRUCCION_ARGENTINA_ES.md), [MATRIZ_MISIONES_Y_PLANES_ES.md](/Users/juanb/Desktop/ElInstantedelHombreGris/Iniciativas Estratégicas/MATRIZ_MISIONES_Y_PLANES_ES.md) y [ARQUITECTURA_PLATAFORMA_CIVICA_Y_NARRATIVA_ES.md](/Users/juanb/Desktop/ElInstantedelHombreGris/Iniciativas Estratégicas/ARQUITECTURA_PLATAFORMA_CIVICA_Y_NARRATIVA_ES.md) hablen con una sola alma.

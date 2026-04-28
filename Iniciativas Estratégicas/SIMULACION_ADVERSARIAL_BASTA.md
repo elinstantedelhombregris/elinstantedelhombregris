@@ -1,5 +1,12 @@
 # SIMULACION ADVERSARIAL ¡BASTA!
 
+> **STATUS:** current (análisis de actores válido; traducción operativa pendiente)
+> **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol
+> **REGISTRY:** ver `PLAN_REGISTRY.yml`
+> **TRANSFORMATION_PENDING:** convertirse en gates de readiness operativos en Fase 7 (`READINESS_GATES_ADVERSARIAL.md`)
+> **NOTA POST-AUDITORÍA 2026-04-26:** este documento aporta análisis de actores y escenarios. Su **traducción operativa** vive en `READINESS_GATES_ADVERSARIAL.md`, que es **vinculante** para promoción de PLANes entre fases.
+> **LAST_AUDIT:** 2026-04-26
+
 ## Quien Pierde, Como Ataca, Como Nos Defendemos
 
 > *"No se puede disenar una arquitectura de gobernanza que amenace USD 200.000M en rentas capturadas y esperar que nadie responda. Los que pierden con ¡BASTA! no son abstractos — tienen nombres, tienen abogados, tienen medios, tienen armas. Este documento es el inventario de sus capacidades y el mapa de nuestras respuestas. Si te incomoda leerlo, imaginate enfrentarlo sin haberlo leido."*

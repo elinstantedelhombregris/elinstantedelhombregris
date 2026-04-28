@@ -1,5 +1,39 @@
 # Tabla Canonica de Agencias del Ecosistema ¡BASTA!
 
+> **STATUS:** superseded (asume agencias autónomas; obsoleto post-auditoría 2026-04-26)
+> **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol
+> **REGISTRY:** ver `PLAN_REGISTRY.yml`
+> **SUCCESSOR_PENDING:** reclassify en Fase 5 — default execution cells dentro de ministerios existentes; autonomía solo tras 24m de prueba
+> **LAST_AUDIT:** 2026-04-26
+
+## Reclasificación post-auditoría 2026-04-26
+
+**Default nuevo:** las funciones nuevas se cumplen mediante **execution cells dentro de ministerios existentes** o programas temporales. Las agencias autónomas se crean **solo después de que un piloto pruebe demanda durable, financiamiento estable y necesidad legal**.
+
+### Tabla de transición
+
+| Agencia propuesta originalmente | Estado revisado | Vehículo recomendado tranche-1 | Condición para autonomía |
+|--------------------------------|-----------------|-------------------------------|--------------------------|
+| Agencia Nacional de Aguas | piloto como execution cell | Subsecretaría dedicada en MinAmbiente | 24m de operación + ley marco |
+| ANEB (Empresas Bastardas) | execution cell + registro | Programa en Min Producción | 12m con ≥ 1 Bastarda viva |
+| Agencia de Datos / SAPI | piloto como subsecretaría | Subsecretaría Datos en Jefatura | 36m + PIA aprobado |
+| LANIA (IA pública, capacidad del estadio B de PLANDIG) | diferido | n/a hasta estadio B activado | tranche-3+ |
+| Agencia de Suelo (PLANISV) | execution cell | Programa en INTA + MinAgro | 24m con resultados públicos |
+| Agencia de Cuidado | execution cell | Programa interministerial | 36m + PIA |
+| Agencia de Memoria | diferida | Comisión asesora | tranche-3 |
+| Agencia de Tierras (PLANTER) | execution cell | Programa interministerial + INAI | 36m sin litigio mayor |
+| Agencia de Movilidad (PLANMOV) | piloto AMBA | Coordinación interjurisdiccional | 24m + procurement OS |
+| Lab Monetario (PLANMON) | laboratorio académico | Convenio universidades + BCRA | sin rollout nacional |
+| Agencias de PLAN24CN | diferidas | labs de diseño | tranche-3+ |
+
+### Principio
+
+Toda agencia con presupuesto protegido por ley/constitución requiere **prueba previa de servicio entregado durante 24+ meses bajo execution cell**. La autonomía se gana por desempeño, no por diseño.
+
+---
+
+## Tabla histórica original
+
 | # | Plan | Agencia | Sigla | Patron | Justificacion de la desviacion |
 |---|------|---------|-------|--------|-------------------------------|
 | 1 | PLANEB | Agencia Nacional de la Red Bastarda | ANEB | AN+EB | Estandar |

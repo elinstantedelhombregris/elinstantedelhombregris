@@ -1,5 +1,13 @@
 # CASCADA LEGAL ¡BASTA!
-## Secuencia Legislativa Unificada para los 16 Mandatos
+
+> **STATUS:** superseded (cuerpo "16 Mandatos" obsoleto post-auditoría 2026-04-26)
+> **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol
+> **REGISTRY:** ver `PLAN_REGISTRY.yml`
+> **SUCCESSOR_PENDING:** recompute en Fase 6 — Paquete Legal Mínimo Viable (LMV)
+> **NOTA AUDITORÍA 2026-04-26:** El conteo "16 Mandatos" abajo corresponde a versión obsoleta. Conteo canónico: 22 thematic + PLANRUTA.
+> **LAST_AUDIT:** 2026-04-26
+
+## Secuencia Legislativa Unificada para los 16 Mandatos (HISTÓRICO)
 
 > *"Un plan sin ley es un discurso. Una ley sin plan es papel. ¡BASTA! necesita ambos: la fuerza del diseño y la precisión de la norma."*
 

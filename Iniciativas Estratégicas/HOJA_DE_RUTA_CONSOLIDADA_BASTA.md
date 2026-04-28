@@ -1,6 +1,13 @@
 # HOJA DE RUTA CONSOLIDADA DEL ECOSISTEMA ¡BASTA!
 
-## 16 Mandatos Estratégicos — Línea de Tiempo Unificada
+> **STATUS:** superseded (lógica dual 16/22-plan obsoleta post-auditoría 2026-04-26)
+> **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol
+> **REGISTRY:** ver `PLAN_REGISTRY.yml`
+> **SUCCESSOR_PENDING:** rebuild en Fase 2 con tranches absolutos honrando matriz vinculante (`MATRIZ_MISIONES_Y_PLANES_ES.md`)
+> **NOTA AUDITORÍA 2026-04-26:** El conteo "16 Mandatos" abajo corresponde a versión obsoleta.
+> **LAST_AUDIT:** 2026-04-26
+
+## 16 Mandatos Estratégicos — Línea de Tiempo Unificada (HISTÓRICO)
 
 > *"Dieciséis mandatos no pueden lanzarse el mismo día, ni necesitan hacerlo. El orden importa porque las dependencias importan: no se puede construir un sistema monetario soberano sin infraestructura digital, ni una justicia popular sin identidad verificable, ni legalizar sustancias sin presencia de seguridad territorial. La secuencia es arquitectura, no accidente."*
 

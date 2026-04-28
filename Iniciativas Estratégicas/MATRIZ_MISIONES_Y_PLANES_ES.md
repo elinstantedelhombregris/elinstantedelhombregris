@@ -1,5 +1,22 @@
 # MATRIZ DE MISIONES Y PLANES
 
+> **STATUS:** current
+> **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol
+> **REGISTRY:** ver `PLAN_REGISTRY.yml`
+> **ROL:** binding_prioritization (vinculante para sequenciación post-auditoría 2026-04-26)
+> **LAST_AUDIT:** 2026-04-26
+
+## Carácter Vinculante (post-auditoría 2026-04-26)
+
+Esta matriz es **vinculante** para sequenciación. Reglas:
+
+1. **Ningún PLAN clasificado `Rojo` puede tener launch operativo en el primer tranche (primeros 24 meses).** Solo investigación, diseño, o pilotos contenidos.
+2. **PLANes `Ámbar` deben simplificarse o dividir en líneas internas antes de ingresar al primer tranche.** No se parten en PLANes nuevos: se estadian dentro del mismo documento.
+3. **Solo PLANes `Verde` o `Verde a Ámbar` con simplificación documentada pueden integrar el paquete inicial de gobierno.**
+4. **El PEO (Portfolio Execution Office) es responsable de aplicar esta matriz al recomputar la hoja de ruta.**
+
+Conflictos con `HOJA_DE_RUTA_CONSOLIDADA_BASTA.md` se resuelven a favor de esta matriz hasta que la hoja de ruta sea recomputada (Fase 2 de remediación).
+
 ## Para que simplificar no suene a renunciar
 
 Nos acostumbramos a defender los sueños como si defenderlos implicara negar cualquier límite. Pero un país roto no se salva juntando todas las ideas buenas en una sola bolsa y rezando para que no explote. Se salva cuando alguien se anima a decir qué va primero, qué depende de qué, qué puede caminar con la capacidad actual y qué hay que dejar madurar sin vergüenza.

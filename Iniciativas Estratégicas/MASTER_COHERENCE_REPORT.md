@@ -1,6 +1,16 @@
 # INFORME MAESTRO DE COHERENCIA ESTRATEGICA
 
-## Proyecto ¡BASTA! — 16 Iniciativas Estrategicas
+> **STATUS:** superseded (mezcla 16 / 22 / "23er mandato" — contradictorio post-auditoría 2026-04-26)
+> **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol
+> **REGISTRY:** ver `PLAN_REGISTRY.yml`
+> **SUCCESSOR_PENDING:** update en Fase 15 con resumen canónico actualizado y purga de la frase "vigesimo tercer mandato"
+> **LAST_AUDIT:** 2026-04-26
+
+## Proyecto ¡BASTA! — 22 Iniciativas Temáticas + PLANRUTA Protocolo (CANÓNICO)
+
+> **NOTA:** El cuerpo histórico abajo se refería a "16 Iniciativas Estratégicas" o usaba la frase "vigesimo tercer mandato" para PLANMOV. Esa frase es **contradictoria** con el conteo canónico. **PLANMOV es el 22° plan temático del ecosistema canónico (22 thematic + PLANRUTA protocol).**
+
+## Proyecto ¡BASTA! — 16 Iniciativas Estrategicas (HISTÓRICO)
 **Fecha:** 26 de marzo de 2026
 **Clasificacion:** Documento de trabajo interno — evaluacion de coherencia, logica e inteligencia estrategica
 **Base documental:** 6 auditorias especializadas (ver directorio `audit/`)
@@ -450,7 +460,7 @@ El ecosistema ¡BASTA! anterior tenía 16 PLANes sectoriales + PLANRUTA como pro
 
 ## Actualización Abril 2026 (2) — PLANMOV v2.0: Refundación con IA/AV y Doctrina de Activos Disponibles
 
-PLANMOV se refunda de v1.0 (7 dispositivos + 4 fases + USD 99.500M + horizonte 2040) a **v2.0** (tres capas + 11 dispositivos + 5 fases + 1 doctrina transversal + USD 104.000M + horizonte Visión 2046) **sin cambiar el conteo total de PLANes** — sigue siendo el vigésimo tercer mandato. La refundación absorbe dos ventanas que v1.0 no podía ver: la ola de vehículos autónomos e IA logística que llega a Argentina 2029-2046 + el stock de activos móviles ociosos (13M de autos parados 22 h/día + cómputo disperso + galpones clausurados + flota estatal subutilizada).
+PLANMOV se refunda de v1.0 (7 dispositivos + 4 fases + USD 99.500M + horizonte 2040) a **v2.0** (tres capas + 11 dispositivos + 5 fases + 1 doctrina transversal + USD 104.000M + horizonte Visión 2046) **sin cambiar el conteo total de PLANes** — es el **22° plan temático** del ecosistema canónico (22 thematic + PLANRUTA protocol). [CORREGIDO 2026-04-26: la frase original "vigésimo tercer mandato" era contradictoria con el conteo canónico. Ver `PLAN_REGISTRY.yml`.] La refundación absorbe dos ventanas que v1.0 no podía ver: la ola de vehículos autónomos e IA logística que llega a Argentina 2029-2046 + el stock de activos móviles ociosos (13M de autos parados 22 h/día + cómputo disperso + galpones clausurados + flota estatal subutilizada).
 
 ### Recomputación de Métricas Globales del Ecosistema (22 PLANes)
 

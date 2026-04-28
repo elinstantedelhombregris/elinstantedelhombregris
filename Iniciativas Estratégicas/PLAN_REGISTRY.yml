@@ -1,0 +1,491 @@
+# PLAN_REGISTRY.yml — Fuente única de verdad de la arquitectura ¡BASTA!
+# Generado: 2026-04-28 a partir de FULL_STRATEGIC_AUDIT_2026-04-26.md
+# Conteo canónico: 22 thematic + PLANRUTA protocol
+#
+# REGLA: este archivo es la única fuente de verdad sobre el conteo, estado y secuencia.
+# Cualquier prosa en otro documento que contradiga esto cede ante este registro.
+# Ningún PLAN se crea, divide ni elimina sin actualizar este archivo primero.
+
+architecture:
+  thematic_count: 22
+  protocol: PLANRUTA
+  total_documents: 23
+  freeze_status: ACTIVE
+  freeze_motivo: "Cierre del primer tranche (24m) o auditoría adicional"
+  source_of_truth_audit: FULL_STRATEGIC_AUDIT_2026-04-26.md
+  last_updated: 2026-04-28
+
+plans:
+  - code: PLANAGUA
+    title: Agua, Saneamiento y Cuencas
+    version: 2026-04
+    status: current
+    phase: tranche-1
+    mission_matrix: Verde
+    budget_class: L
+    public_visibility: ambos
+    owner: TBD-PEO-asignar
+    dependencies: [PLANDIG, PLANISV, PLANTER, PLANRUTA]
+    legal_instruments:
+      - LMV-01 Decreto de emergencia hídrica + reparaciones
+      - Decreto reglamentario de cánones de uso (piloto)
+    last_updated: 2026-04-22
+
+  - code: PLANVIV
+    title: Vivienda y Ciudad Existente
+    version: 2026-04
+    status: current
+    phase: tranche-1
+    mission_matrix: Verde
+    budget_class: XL
+    public_visibility: ambos
+    owner: TBD-PEO-asignar
+    dependencies: [PLANDIG, PLANTER, PLANISV, PLANRUTA]
+    legal_instruments:
+      - LMV-03 Reforma FONAVI/RENABAP integración
+    last_updated: 2026-04-22
+
+  - code: PLANSAL
+    title: Salud — APS, Esenciales, Materno-Infantil, Nutrición
+    version: 2026-04
+    status: current
+    phase: tranche-1
+    mission_matrix: Verde
+    budget_class: L
+    public_visibility: ambos
+    owner: TBD-PEO-asignar
+    dependencies: [PLANAGUA, PLANDIG, PLANRUTA]
+    legal_instruments:
+      - LMV-04 Decreto APS + medicamentos esenciales
+    last_updated: 2026-04-22
+
+  - code: PLANSEG
+    title: Seguridad Pública — Mando, Integridad, Presencia Comunitaria
+    version: 2026-04
+    status: current
+    phase: tranche-2
+    mission_matrix: Ámbar
+    budget_class: M
+    public_visibility: ambos
+    owner: TBD-PEO-asignar
+    dependencies: [PLANRUTA, PLANDIG, PLANJUS]
+    legal_instruments:
+      - Ley orgánica de fuerzas (tranche-2)
+    last_updated: 2026-04-22
+
+  - code: PLANDIG
+    title: Núcleo Digital y Capacidades Soberanas (estadios A y B internos)
+    version: 2026-04
+    status: current
+    phase: tranche-1
+    mission_matrix: "Verde→Ámbar"
+    budget_class: L
+    public_visibility: ambos
+    owner: TBD-PEO-asignar
+    dependencies: [PLANRUTA]
+    legal_instruments:
+      - LMV-02 Ley marco PLANDIG (datos abiertos + identidad-lite)
+    last_updated: 2026-04-22
+    internal_stages:
+      - id: A
+        name: Núcleo Digital
+        phase: tranche-1
+        capabilities:
+          - identidad-lite
+          - datos abiertos
+          - audit logs inmutables
+          - mensajería segura entre agencias
+          - dashboards públicos
+          - interoperabilidad
+        cost_estimate_24m: USD 1.2B operativo + USD 1.2B inversión
+      - id: B
+        name: Capacidades Soberanas
+        phase: deferred-tranche-3+
+        capabilities:
+          - sovereign cloud
+          - SAPI completa
+          - LANIA
+          - gemelo digital nacional
+          - rieles monetarios protocolares
+          - gobernanza algorítmica
+        condiciones_activacion:
+          - Estadio A en operación estable ≥ 18 meses
+          - PIA aprobado por componente
+          - Auditoría externa de seguridad firmada
+          - Demanda concreta de ≥ 3 PLANes consumidores en operación
+          - Marco legal de protección de datos vigente y aplicado
+
+  - code: PLANISV
+    title: Suelo, Insumos y Soberanía Vegetal
+    version: 2026-04
+    status: current
+    phase: tranche-1
+    mission_matrix: Verde
+    budget_class: S
+    public_visibility: ambos
+    owner: TBD-PEO-asignar
+    dependencies: [PLANRUTA]
+    legal_instruments:
+      - LMV-07 Convenios INTA-pilotos suelo
+    last_updated: 2026-04-22
+
+  - code: PLANEB
+    title: Empresas Bastardas
+    version: 2026-04
+    status: current
+    phase: tranche-1
+    mission_matrix: Verde
+    budget_class: M
+    public_visibility: ambos
+    owner: TBD-PEO-asignar
+    dependencies: [PLANDIG, PLANRUTA, PLANEDU]
+    legal_instruments:
+      - LMV-06 Marco contable de Empresas Bastardas (piloto)
+    last_updated: 2026-04-22
+
+  - code: PLANREP
+    title: Reforma del Estado — Empleo y Procurement
+    version: 2026-04
+    status: current
+    phase: tranche-2
+    mission_matrix: Ámbar
+    budget_class: M
+    public_visibility: ambos
+    owner: TBD-PEO-asignar
+    dependencies: [PLANRUTA, PLANEDU]
+    legal_instruments:
+      - Marco de retiro voluntario asistido (tranche-2)
+    last_updated: 2026-04-22
+    sub_mandatos:
+      - "Procurement OS (tranche-1, conjunto con PLANDIG)"
+      - "Civil Service Operating Model (tranche-2)"
+      - "Coparticipación y Tributación (tranche-2)"
+
+  - code: PLANEN
+    title: Energía — Resiliencia y Datos Abiertos
+    version: 2026-04
+    status: current
+    phase: tranche-2
+    mission_matrix: Ámbar
+    budget_class: XL
+    public_visibility: ambos
+    owner: TBD-PEO-asignar
+    dependencies: [PLANISV, PLANAGUA, PLANTER, PLANDIG, PLANRUTA]
+    legal_instruments:
+      - Marco de datos energéticos abiertos (tranche-2)
+    last_updated: 2026-04-22
+
+  - code: PLANEDU
+    title: Educación — Alfabetización, Asistencia, Tutoría
+    version: 2026-04
+    status: current
+    phase: tranche-1
+    mission_matrix: Verde
+    budget_class: M
+    public_visibility: ambos
+    owner: TBD-PEO-asignar
+    dependencies: [PLANDIG, PLANRUTA]
+    legal_instruments:
+      - LMV-05 Programa de alfabetización + asistencia
+    last_updated: 2026-04-22
+    sub_mandatos:
+      - "CyT distribuido (tranche-2, sección interna)"
+
+  - code: PLANCUL
+    title: Cultura — Atada a Servicios
+    version: 2026-04
+    status: current
+    phase: tranche-2
+    mission_matrix: Verde
+    budget_class: S
+    public_visibility: ambos
+    owner: TBD-PEO-asignar
+    dependencies: [PLANEDU, PLANMEMORIA, PLANRUTA]
+    legal_instruments: []
+    last_updated: 2026-04-22
+
+  - code: PLANJUS
+    title: Justicia — Pilotos de Disputas y Anti-Backlog
+    version: 2026-04
+    status: current
+    phase: tranche-3
+    mission_matrix: Ámbar
+    budget_class: M
+    public_visibility: ambos
+    owner: TBD-PEO-asignar
+    dependencies: [PLANSEG, PLANDIG, PLANRUTA]
+    legal_instruments:
+      - Marco de mediación piloto (tranche-3)
+    last_updated: 2026-04-22
+
+  - code: PLANSUS
+    title: Sustancias — Investigación y Reducción de Daños
+    version: 2026-04
+    status: current
+    phase: research-only
+    mission_matrix: Rojo
+    budget_class: XS
+    public_visibility: interno
+    owner: TBD-PEO-asignar
+    dependencies: [PLANSEG, PLANJUS, PLANSAL, PLANRUTA]
+    legal_instruments: []
+    last_updated: 2026-04-22
+    diferido: true
+
+  - code: PLANMON
+    title: Laboratorio Monetario
+    version: 2026-04
+    status: current
+    phase: research-only
+    mission_matrix: Rojo
+    budget_class: XS
+    public_visibility: interno
+    owner: TBD-PEO-asignar
+    dependencies: [PLANDIG, BCRA estabilizado, PLANRUTA]
+    legal_instruments: []
+    last_updated: 2026-04-22
+    diferido: true
+
+  - code: PLANGEO
+    title: Análisis Estratégico Internacional + Diplomacia Sobria
+    version: 2026-04
+    status: current
+    phase: research-only
+    mission_matrix: Ámbar
+    budget_class: XS
+    public_visibility: interno
+    owner: TBD-PEO-asignar
+    dependencies: [PLANRUTA]
+    legal_instruments: []
+    last_updated: 2026-04-22
+
+  - code: PLAN24CN
+    title: Capital Nacional — Labs de Diseño
+    version: 2026-04
+    status: current
+    phase: research-only
+    mission_matrix: Rojo
+    budget_class: XS
+    public_visibility: interno
+    owner: TBD-PEO-asignar
+    dependencies: [PLANTER, PLANEN, PLANDIG, PLANRUTA]
+    legal_instruments: []
+    last_updated: 2026-04-22
+    diferido: true
+
+  - code: PLANMESA
+    title: Deliberación Ciudadana y Revisión de Portfolio
+    version: 2026-04
+    status: current
+    phase: tranche-2
+    mission_matrix: Verde
+    budget_class: S
+    public_visibility: ambos
+    owner: TBD-PEO-asignar
+    dependencies: [PLANDIG, PLANRUTA]
+    legal_instruments: []
+    last_updated: 2026-04-22
+
+  - code: PLANTALLER
+    title: Talleres Barriales Certificados
+    version: 2026-04
+    status: current
+    phase: tranche-2
+    mission_matrix: Verde
+    budget_class: S
+    public_visibility: ambos
+    owner: TBD-PEO-asignar
+    dependencies: [PLANEDU, PLANRUTA]
+    legal_instruments:
+      - Estándares de seguridad y seguro obligatorio (tranche-2)
+    last_updated: 2026-04-22
+
+  - code: PLANCUIDADO
+    title: Cuidado — Niñez, Dependencia, Vejez
+    version: 2026-04
+    status: current
+    phase: tranche-2
+    mission_matrix: Verde
+    budget_class: M
+    public_visibility: ambos
+    owner: TBD-PEO-asignar
+    dependencies: [PLANSAL, PLANEDU, PLANDIG, PLANRUTA]
+    legal_instruments: []
+    last_updated: 2026-04-22
+
+  - code: PLANMEMORIA
+    title: Memoria de Política Pública
+    version: 2026-04
+    status: current
+    phase: tranche-3
+    mission_matrix: Verde
+    budget_class: S
+    public_visibility: ambos
+    owner: TBD-PEO-asignar
+    dependencies: [PLANDIG, PLANRUTA]
+    legal_instruments: []
+    last_updated: 2026-04-22
+
+  - code: PLANTER
+    title: Territorio, Regalías y Consulta Originaria
+    version: 2026-04
+    status: current
+    phase: tranche-3
+    mission_matrix: Ámbar
+    budget_class: M
+    public_visibility: ambos
+    owner: TBD-PEO-asignar
+    dependencies: [PLANISV, PLANJUS, PLANSEG, PLANDIG, PLANRUTA]
+    legal_instruments:
+      - Pre-clearance CSJN antes de cualquier launch (tranche-3)
+    last_updated: 2026-04-22
+    internal_lines:
+      - id: L1
+        name: Enforcement ambiental
+      - id: L2
+        name: Auditoría de regalías extractivas
+      - id: L3
+        name: Pilotos de consulta previa originaria
+
+  - code: PLANMOV
+    title: Movilidad — Básica, Ferroviaria, AMBA, Investigación AV
+    version: 2026-04
+    status: current
+    phase: tranche-3
+    mission_matrix: "Verde→Ámbar"
+    budget_class: XL
+    public_visibility: ambos
+    owner: TBD-PEO-asignar
+    dependencies: [PLANSEG, PLANJUS, PLANDIG, PLANMESA, PLANMEMORIA, PLANEN, PLANTALLER, PLANCUIDADO, PLANRUTA]
+    legal_instruments: []
+    last_updated: 2026-04-22
+    internal_lines:
+      - id: L1
+        name: Movilidad básica (transporte público existente, peatonal, ciclo)
+        phase: tranche-3
+      - id: L2
+        name: Flete ferroviario
+        phase: tranche-3
+      - id: L3
+        name: Gobernanza AMBA-T
+        phase: tranche-3
+      - id: L4
+        name: Investigación AV (research-only, sin implementación operativa)
+        phase: research-only-indefinida
+
+protocol:
+  - code: PLANRUTA
+    title: Protocolo de Bootstrap, Readiness y Secuenciación
+    version: 2026-03
+    status: current
+    role: bootstrap_protocol
+    binding: true
+    phase: tranche-1
+    last_updated: 2026-03-31
+
+support_documents:
+  - file: MATRIZ_MISIONES_Y_PLANES_ES.md
+    status: current
+    role: binding_prioritization
+  - file: CASCADA_LEGAL_BASTA.md
+    status: superseded
+    successor_pending: "Recompute en Fase 6"
+  - file: PROTOCOLOS_OPERATIVOS_BASTA.md
+    status: superseded
+    successor_pending: "Recompute en Fase 15"
+  - file: HOJA_DE_RUTA_CONSOLIDADA_BASTA.md
+    status: superseded
+    successor_pending: "Rebuild en Fase 2"
+  - file: ANALISIS_CONEXIONES_22_PLANES.md
+    status: superseded
+    note: "Renombrado de 20 → 22 en Fase 1.3"
+  - file: PRESUPUESTO_CONSOLIDADO_BASTA.md
+    status: superseded
+    successor: SOURCE_OF_FUNDS_LEDGER.md
+  - file: TABLA_AGENCIAS_BASTA.md
+    status: superseded
+    successor_pending: "Reclassify en Fase 5"
+  - file: SIMULACION_ADVERSARIAL_BASTA.md
+    status: current
+    transformation_pending: "Convert to readiness gates en Fase 7"
+  - file: BLINDAJE_INSTITUCIONAL_BASTA.md
+    status: supporting
+  - file: VEHICULO_POLITICO_BASTA.md
+    status: supporting
+  - file: GUIA_DE_VOZ_HOMBRE_GRIS_APLICADA_A_RECONSTRUCCION_ES.md
+    status: current
+  - file: ARQUITECTURA_PLATAFORMA_CIVICA_Y_NARRATIVA_ES.md
+    status: superseded
+    successor: PLATAFORMA_PUBLICA_5_MISIONES.md
+  - file: PLAN_MAESTRO_RECONSTRUCCION_ARGENTINA_ES.md
+    status: supporting
+  - file: "MASTER_PLAN HOUSING OS.md"
+    status: supporting
+  - file: MASTER_COHERENCE_REPORT.md
+    status: superseded
+    successor_pending: "Update en Fase 15"
+  - file: PDR_NATIONAL_PLAN_SYSTEM.md
+    status: supporting
+  - file: FIRST_PRINCIPLES_STRATEGIC_REVIEW_EN.md
+    status: historical
+  - file: TEMPLATE_INTERCONEXIONES.md
+    status: current
+  - file: FULL_STRATEGIC_AUDIT_2026-04-26.md
+    status: current
+    role: source_of_truth
+  - file: PLAN_REMEDIACION_AUDITORIA_2026-04-26.md
+    status: current
+    role: remediation_plan
+
+control_artifacts:
+  - file: SOURCE_OF_FUNDS_LEDGER.md
+    purpose: "Libro mayor único de fuentes de fondos"
+    created_in_phase: 3
+  - file: RACI_MATRIX.md
+    purpose: "Responsabilidades por dependencia inter-PLAN"
+    created_in_phase: 5
+  - file: PORTFOLIO_EXECUTION_OFFICE.md
+    purpose: "Diseño del PEO"
+    created_in_phase: 5
+  - file: portfolio_risk_register.md
+    purpose: "Riesgos por PLAN y transversales"
+    created_in_phase: 9
+  - file: DEPENDENCY_GRAPH.yml
+    purpose: "Grafo estructurado de dependencias"
+    created_in_phase: 8
+  - file: KILL_SCALE_GATES.md
+    purpose: "Compuertas kill/scale por PLAN"
+    created_in_phase: 9
+  - file: PRIMER_TRANCHE_24M.md
+    purpose: "Paquete de gobierno inicial"
+    created_in_phase: 10
+  - file: PLATAFORMA_PUBLICA_5_MISIONES.md
+    purpose: "Narrativa pública en 5 misiones"
+    created_in_phase: 12
+  - file: READINESS_GATES_ADVERSARIAL.md
+    purpose: "Top-3 attack paths gates por PLAN"
+    created_in_phase: 7
+  - file: COVERAGE_GAPS_ASSIGNMENTS.md
+    purpose: "Asignación de huecos a PLANes existentes (sin crear nuevos PLANes)"
+    created_in_phase: 14
+  - file: COALITION_MAP.md
+    purpose: "Mapa de aliados (complementa adversarial)"
+    created_in_phase: 12
+  - file: BASELINES_REFRESH_2026.md
+    purpose: "Chequeo pre-publicación de PBI/leyes/datos"
+    created_in_phase: 14
+  - file: PLAYBOOK_REVISION_PROFUNDA.md
+    purpose: "Protocolo editorial 13 pasos por PLAN"
+    created_in_phase: 13.A
+  - file: REVISION_PROFUNDA_REPORT.md
+    purpose: "Reporte final de revisión profunda + sweeps"
+    created_in_phase: 13.C
+  - file: STRESS_TESTS_TRANCHE_1.md
+    purpose: "Stress tests por PLAN del primer tranche"
+    created_in_phase: 3
+  - file: PLANDIG_ESTADIOS_INTERNOS.md
+    purpose: "Estadios internos A/B de PLANDIG (no es split)"
+    created_in_phase: 4
+  - file: REMEDIATION_CLOSEOUT_2026-04-26.md
+    purpose: "Cierre de remediación con C1-C10 status"
+    created_in_phase: 16
