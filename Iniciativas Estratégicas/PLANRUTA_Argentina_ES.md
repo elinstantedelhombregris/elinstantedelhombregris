@@ -1,8 +1,94 @@
-# PLANRUTA — Plan Nacional de Ruta de Arranque y Preparación para la Crisis Sistémica
+# PLANRUTA — Protocolo Nacional de Ruta de Arranque y Disciplina de Portfolio
 
-## Decimoséptimo Mandato del Proyecto ¡BASTA!
+> **STATUS:** current
+> **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol
+> **REGISTRY:** ver `PLAN_REGISTRY.yml`
+> **NATURE:** protocolo vinculante de readiness, secuencia y disciplina de portfolio. **No** es un mandato sectorial. **No** tiene políticas públicas propias. Su producto es la disciplina de portfolio.
+> **VEHICLE:** Portfolio Execution Office (PEO) — ver `PORTFOLIO_EXECUTION_OFFICE.md`. Célula temporal de ejecución, **no** agencia autónoma.
+> **REVISION_PROFUNDA:** completed 2026-04-28 per PLAYBOOK_REVISION_PROFUNDA.md
+> **LAST_AUDIT:** 2026-04-26
 
-### Versión 1.0 — Marzo 2026
+> **REVISIÓN 2026-04-26 (aplicada 2026-04-28):** este PLAN se reencuadra como **protocolo, no mandato sectorial**. Se elimina la formulación "decimoséptimo mandato" del cuerpo operativo (preservada como prosa histórica en la Sección 18 — Anexo Visión 2040). El conteo canónico es **22 thematic + PLANRUTA protocol** (`PLAN_REGISTRY.yml`). PLANRUTA no compite con los 22 PLANes sectoriales: los gobierna como portfolio. La Fase 0 narrada en este documento (aseguradora Bastarda como semilla cívica) se preserva como **prosa histórica de visión** y como **piloto privado opcional bajo PLANEB** — no es la unidad operativa de tranche-1 de PLANRUTA. La unidad operativa de tranche-1 de PLANRUTA es el **PEO + sus gates** (ver Sección Protocolo Vinculante, abajo).
+
+---
+
+## Protocolo Vinculante (tranche-1) — lo que PLANRUTA hace y lo que NO hace
+
+### Qué hace PLANRUTA en tranche-1
+
+1. Mantiene `PLAN_REGISTRY.yml` como única fuente de verdad sobre el portfolio.
+2. Opera el `SOURCE_OF_FUNDS_LEDGER.md` como libro mayor único.
+3. Custodia `KILL_SCALE_GATES.md` y firma promociones entre tranches.
+4. Custodia `DEPENDENCY_GRAPH.yml` y resuelve conflictos cruzados.
+5. Ejecuta `portfolio_risk_register.md` con revisión mensual.
+6. Activa `READINESS_GATES_ADVERSARIAL.md` y verifica que cada PLAN tenga top-3 firmado antes del launch.
+7. Coordina la `RACI_MATRIX.md` y, ante disputa de competencias entre dos PLANes, decide.
+8. Publica el dashboard mensual del primer tranche.
+9. Activa stress tests cuando una fuente del libro mayor cae a confianza `baja`.
+10. Coordina con auditor externo permanente y canal de denuncia OEA.
+
+### Qué NO hace PLANRUTA
+
+- **No** diseña política sectorial (eso lo hacen los 22 PLANes temáticos).
+- **No** crea una "agencia PLANRUTA" autónoma con presupuesto protegido.
+- **No** crea un "Ministerio de Reconstrucción". No reemplaza ministerios.
+- **No** se constitucionaliza. No tiene piso presupuestario constitucional ni autonomía blindada. PLANRUTA vive por desempeño, no por blindaje constitucional.
+- **No** firma leyes ni decretos. Recomienda secuencia.
+- **No** ejecuta presupuesto sectorial. Lo hace cada PLAN.
+- **No** comunica políticamente. Solo publica datos canónicos.
+
+### Vehículo: PEO (no agencia)
+
+El PEO es una célula temporal con **máximo 25 personas** y duración prevista de **36 meses**, vinculada al primer tranche. **No es agencia autónoma**. No tiene rango ministerial. Reporta a la Mesa de Coordinación de Gobierno + (cuando exista) PLANMESA piloto. Para roles, independencia, mitigaciones de captura y sunset clauses, ver `PORTFOLIO_EXECUTION_OFFICE.md`.
+
+### Gates vinculantes (tranche-1) — ver `KILL_SCALE_GATES.md`
+
+Los compromisos verificables de PLANRUTA en tranche-1 **no** son las "5 fases" narradas en las Secciones 4–11 (que son visión histórica, ver anexo). Son los **3 gates** del PEO:
+
+- **Gate 1 (0–3m):** PEO operativo; `PLAN_REGISTRY.yml` vivo; `SOURCE_OF_FUNDS_LEDGER` vivo; `DEPENDENCY_GRAPH` publicado; top-3 adversarial firmado para los 22 PLANes. **KILL si:** captura del PEO documentada con 2 vetos sin justificación.
+- **Gate 2 (12–24m):** 0 desvíos de matriz misiones; 100% gates documentados; dashboard público mensual; auditor externo activo; al menos 1 stress test por PLAN. **KILL si:** 3 gates saltados sin justificación.
+- **Gate 3 (36m+ — sunset clause):** si tranche-1 cumplió ≥ 70%, PEO se reduce a oficina permanente ≤ 10 personas; si cumplió 50–70%, PEO continúa otros 12 meses; si cumplió < 50%, **PEO se disuelve y reactiva freeze + auditor externo**.
+
+### Sunset clause (vinculante)
+
+Si tranche-1 falla — definido como cumplir < 50% de las métricas de Gate 2 — **PLANRUTA vuelve a freeze**. Se disuelve el PEO. Se convoca auditor externo independiente. No hay reintento automático. La reactivación de PLANRUTA requiere nueva auditoría externa publicada y nuevo mandato político explícito. **PLANRUTA no se autoperpetúa por inercia.**
+
+### Promesa pública medible
+
+> "En 24 meses, ningún PLAN del sistema vivió fuera del registro, fuera del libro mayor o fuera de los gates."
+
+Frase verificable a 24 meses contra `PLAN_REGISTRY.yml`, `SOURCE_OF_FUNDS_LEDGER.md` y `KILL_SCALE_GATES.md`. Si al mes 24 algún PLAN aparece operando fuera del registro, el libro mayor o sin gate cerrado, la promesa falla y se activa la sunset clause.
+
+### Top-3 attack paths
+
+Ver `READINESS_GATES_ADVERSARIAL.md` sección PLANRUTA. Cada uno con mitigación nombrada, owner, fallback budget e indicador de activación: (1) captura interna del PEO; (2) parálisis por consenso; (3) dilución de gates por presión política. Vinculante para promoción de tranche.
+
+### Referencias canónicas
+
+Este protocolo cede ante los siguientes artefactos en caso de conflicto:
+
+- `PLAN_REGISTRY.yml` — fuente de verdad sobre PLANes y conteo canónico.
+- `SOURCE_OF_FUNDS_LEDGER.md` — libro mayor de fuentes de fondos.
+- `KILL_SCALE_GATES.md` — gates de promoción/kill por PLAN.
+- `READINESS_GATES_ADVERSARIAL.md` — top-3 adversarial por PLAN.
+- `RACI_MATRIX.md` — responsabilidades cruzadas.
+- `DEPENDENCY_GRAPH.yml` — dependencias entre PLANes.
+- `PORTFOLIO_EXECUTION_OFFICE.md` — diseño operativo del PEO.
+- `PRIMER_TRANCHE_24M.md` — alcance del primer tranche.
+- `MATRIZ_MISIONES_Y_PLANES_ES.md` — clasificación misional.
+- `CASCADA_LEGAL_BASTA.md` — instrumentos legales secuenciados.
+
+---
+
+## Anexo Histórico — Visión narrativa original (no compromete tranche-1)
+
+> **REVISIÓN 2026-04-26 (aplicada 2026-04-28):** las secciones 0–18 originales (preámbulo de Lucía, diez modos de falla, diagnóstico del punto cero, 5 fases con La Semilla / La Prueba / La Circunscripción / La Cabecera / La Ejecución, Kit de Despliegue de Crisis, bootstrap fiscal, mapa adversarial por fase, cronograma indicativo, Visión 2040) **se conservan como prosa histórica de visión 2040**. Tienen valor narrativo y de doctrina interna. **No constituyen el compromiso operativo de tranche-1 de PLANRUTA**, que se reduce al protocolo vinculante de arriba (PEO + 3 gates + sunset clause + promesa medible). Cualquier referencia en estas secciones a "decimoséptimo mandato", "agencia PLANRUTA", "constitucionalización", o a la primera Bastarda como entregable obligatorio de PLANRUTA debe leerse como visión narrativa, no como compromiso vinculante. La narrativa de la primera Bastarda (Fase 0 original) corresponde, si avanza, a un piloto privado dentro de PLANEB tranche-1, no a un entregable de PLANRUTA. La narrativa de gobiernos municipal/provincial/legislativo (Fases 1–3 originales) corresponde, si ocurre, al `VEHICULO_POLITICO_BASTA.md` y a la dinámica electoral, no a un entregable de PLANRUTA. La Fase 4 original (gobierno nacional) corresponde a la `HOJA_DE_RUTA_CONSOLIDADA_BASTA.md`. **PLANRUTA, como protocolo, no produce gobierno: produce disciplina de portfolio sobre los gobiernos que efectivamente ocurran.**
+
+---
+
+## Decimoséptimo Mandato del Proyecto ¡BASTA! [HISTÓRICO — ver revisión arriba]
+
+### Versión 1.0 — Marzo 2026 (narrativa original preservada como visión)
 
 ```
 CUANDO EL SISTEMA CAIGA
