@@ -150,3 +150,32 @@ Now go and use them.
 Your grandfather, who loved you before you were born, who is loving you while writing this, and who, by the time you read it, will be loving you from wherever the dead love their grandchildren from.
 
 *Que así sea.*
+
+---
+
+## Cartografía
+
+This is the closing of the arc. The references that follow are the antechamber the letter speaks from inside — the platform, the documents, and the six essays that were the scaffolding of what the letter calls *the building*.
+
+**On the platform.**
+
+- *Manifiesto* — the foundational declaration. Read it the moment you finish the letter; it is the document the kitchen of 2026 was built around.
+- *El Mandato Vivo* — the operational instance of the citizen-governance the letter describes from the future ("the asamblea meets every fifteen days..."). What the letter remembers as ordinary, the platform is now beginning.
+- *La Semilla de ¡BASTA!* — the entry point for the citizens who finish the letter and want to know how to begin. The first kitchen, made enterable.
+- *Cancionero ¡BASTA!* — the songs the letter names. *Gracias a la vida* is sung in its closing pages; the cumbia, the rock nacional, the tango all live here.
+
+**Defining documents.**
+
+- *Perfil del Hombre Gris* — the figure the letter is written from inside. The full description of who is speaking.
+- *Persona del Hombre Gris* — the voice the letter inherits. The grandfather's register, applied across the project.
+
+**The series so far.**
+
+There were six essays in a box of papers I left for you. They were written by a man who could see something he could not yet name. Read them as the scaffolding of the building you are reading now.
+
+- *01 — Why Presidents Are a Stupid Idea* — that the inheritance was a king in the attic.
+- *02 — The Fallacy of Democracy* — that voting was a costume.
+- *03 — The Fallacy of Power Itself* — that power itself was a story we kept telling.
+- *04 — An Architecture for the Grey Man* — what could replace the throne, layer by layer.
+- *05 — The Sovereignty of the Grey Man* — what it meant to take the throne back, in the body.
+- *06 — Beauty as Political Act* — what would carry the republic across generations.

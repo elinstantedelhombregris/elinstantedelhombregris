@@ -1,13 +1,78 @@
 # HOJA DE RUTA CONSOLIDADA DEL ECOSISTEMA ¡BASTA!
 
-> **STATUS:** superseded (lógica dual 16/22-plan obsoleta post-auditoría 2026-04-26)
+> **STATUS:** current (recomputada en Fase 2 de remediación 2026-04-28)
 > **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol
 > **REGISTRY:** ver `PLAN_REGISTRY.yml`
-> **SUCCESSOR_PENDING:** rebuild en Fase 2 con tranches absolutos honrando matriz vinculante (`MATRIZ_MISIONES_Y_PLANES_ES.md`)
-> **NOTA AUDITORÍA 2026-04-26:** El conteo "16 Mandatos" abajo corresponde a versión obsoleta.
+> **MATRIZ VINCULANTE:** ver `MATRIZ_MISIONES_Y_PLANES_ES.md` (esta hoja de ruta la respeta; conflictos se resuelven a favor de la matriz)
 > **LAST_AUDIT:** 2026-04-26
 
-## 16 Mandatos Estratégicos — Línea de Tiempo Unificada (HISTÓRICO)
+## Principios de Secuenciación (post-auditoría 2026-04-26)
+
+- La matriz de misiones es vinculante (`MATRIZ_MISIONES_Y_PLANES_ES.md`).
+- Ningún PLAN `Rojo` arranca en tranche-1.
+- Cada wave introduce máximo 2 leyes nuevas y máximo 1 PLAN nuevo a operación.
+- Antes de cualquier launch, su PIA, opinión legal y top-3 adversarial deben estar firmados.
+- El conteo es **22 thematic + PLANRUTA**. PLANes que la auditoría sugería partir (PLANDIG, PLANTER, PLANMOV) operan con **estadios / líneas internas** dentro del mismo PLAN.
+
+## Tranche-1 (Meses 0–24, ventana 2026-05 a 2028-05)
+
+| Mes | PLAN | Acción | Misión | Pre-requisitos |
+|-----|------|--------|--------|----------------|
+| 0–6  | PLANRUTA | Activar protocolo readiness + PEO | Protocolo | Ninguno |
+| 0–6  | PLANDIG (estadio A) | Identidad-lite, datos públicos, audit logs, mensajería segura | Verde | PEO operativo |
+| 0–6  | PLANAGUA | Reparación de emergencia + mapeo de contaminación en 5 cuencas piloto | Verde | Censo de cuencas críticas |
+| 0–6  | PLANSAL | APS + medicamentos esenciales + materno-infantil + nutrición | Verde | Stock auditado |
+| 0–12 | PLANEDU | Alfabetización + asistencia + apoyo docente + tutoría | Verde | Censo escolar |
+| 0–12 | PLANVIV | Retrofit + alquileres protegidos + hogares críticos | Verde | RENABAP refresh |
+| 6–18 | PLANISV | 50–300 pilotos de suelo medidos | Verde | Convenio INTA |
+| 12–24| PLANEB | 1–2 Bastardas piloto bajo riesgo | Verde | Marco contable transparente |
+
+## Tranche-2 (Meses 24–48, ventana 2028-05 a 2030-05)
+
+| Mes | PLAN | Acción | Misión | Gate de entrada |
+|-----|------|--------|--------|-----------------|
+| 24–36 | PLANREP | Pilotos voluntarios + atrición + Procurement OS conjunto con PLANDIG (heredado) | Ámbar | Demanda real verificada |
+| 24–36 | PLANSEG | Estabilización + mando + integridad | Ámbar | Auditoría de fuerzas |
+| 24–36 | PLANMESA | Piloto deliberativo de portfolio | Verde | PEO maduro |
+| 24–36 | PLANTALLER | Pilotos certificados con seguro | Verde | Estándares de seguridad firmados |
+| 24–36 | PLANCUIDADO | Registro y soporte limitados | Verde | PIA aprobado |
+| 36–48 | PLANEN | Nodos de resiliencia + datos energéticos abiertos | Ámbar | Tranche-1 cumplido |
+| 36–48 | PLANCUL | Atado a escuelas/memoria/cuidado | Verde | Métricas de servicio |
+
+## Tranche-3 (Meses 48+, ventana 2030+) — sujeto a confianza visible
+
+| PLAN | Línea interna activable primero | Condición de activación |
+|------|-------------------------------|-------------------------|
+| PLANJUS (piloto) | mediación + anti-backlog | PLANSEG estabilizado + PIA aprobado |
+| PLANTER | L1 enforcement ambiental + L2 auditoría regalías + L3 consulta originaria piloto (todo dentro del mismo PLAN) | Sin litigios pendientes federales mayores |
+| PLANMOV | L1 movilidad básica + L2 flete ferroviario + L3 gobernanza AMBA-T (L4 AV permanece research-only) | Tranche-2 cerrado + procurement OS operativo |
+| PLANMEMORIA | memoria de política pública (no archivos personales sensibles) | PEO + PIA |
+| PLANGEO | diplomacia sobria | Solo análisis interno hasta gobierno operativo |
+
+## Diferidos (sin ventana hasta nueva auditoría)
+
+- `PLANMON` — solo laboratorio monetario, sin rollout nacional.
+- `PLANSUS` (cascada completa) — solo investigación + reducción de daños.
+- `PLAN24CN` — labs de diseño, sin construcción.
+- `PLANGEO` confrontacional — material privado.
+- Capacidades del **estadio B de PLANDIG** (sovereign cloud, frontier AI, SAPI completo, gemelo digital, gobernanza algorítmica, rieles monetarios) — diferidas a tranche-3+ con condiciones de activación duras.
+- Régimen AV completo dentro de PLANMOV (línea L4) — research-only indefinido.
+
+## Reglas de promoción entre tranches
+
+Un PLAN solo avanza al siguiente tranche si:
+1. Su fase actual cumplió métricas durante 24 meses continuos.
+2. Su gate kill/scale firmó "scale" (ver `KILL_SCALE_GATES.md`).
+3. Su top-3 adversarial tiene mitigaciones operativas (ver `READINESS_GATES_ADVERSARIAL.md`).
+4. Su impacto fiscal está en el `SOURCE_OF_FUNDS_LEDGER.md` con confianza ≥ media.
+
+## Conflictos con la versión anterior
+
+Esta versión reemplaza la lógica dual (16-plan base + 22-plan addendum). Cualquier referencia previa a "Año 0/1/2/3" se reinterpreta a través de las ventanas de meses absolutos especificadas arriba.
+
+---
+
+## 16 Mandatos Estratégicos — Línea de Tiempo Unificada (HISTÓRICO — SUPERSEDED)
 
 > *"Dieciséis mandatos no pueden lanzarse el mismo día, ni necesitan hacerlo. El orden importa porque las dependencias importan: no se puede construir un sistema monetario soberano sin infraestructura digital, ni una justicia popular sin identidad verificable, ni legalizar sustancias sin presencia de seguridad territorial. La secuencia es arquitectura, no accidente."*
 
