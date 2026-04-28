@@ -65,8 +65,6 @@ Argentina viene haciendo elecciones más o menos continuas desde 1983. Cuarenta 
 
 Esto no es un argumento a favor de lo que vino antes. Lo que vino antes fue monstruoso, y la democracia en Argentina debería defenderse para siempre en esos términos: gratitud por que las desapariciones se hayan terminado. Pero cuatro décadas son tiempo suficiente para hacer una pregunta honesta. Si la pregunta era "cómo paramos a los militares de matarnos", la democracia respondió. Si la pregunta era "cómo nos gobernamos sabiamente", no respondió, y fingir lo contrario es la clase de mentira cortés que nos impide hacer el trabajo más difícil.
 
-El mismo espejo funciona en Estados Unidos, en Brasil, en México, en Francia, en Filipinas, en India. Toda democracia está atravesando alguna versión de la misma crisis: una población que votó religiosamente durante décadas, mirando alrededor y preguntándose por qué nada de eso produjo el país que le habían prometido. La crisis no es el fracaso de un líder en particular. La crisis es que está saliendo a la luz: el mecanismo en sí no entrega lo que su nombre implica.
-
 ## VII. Lo que la democracia se suponía que era
 
 Acá es donde el ensayo gira, porque la crítica sin alternativa es solo sofisticación.
