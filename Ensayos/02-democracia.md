@@ -65,8 +65,6 @@ Argentina has held more or less continuous elections since 1983. Forty-three yea
 
 This is not an argument for what came before. What came before was monstrous, and democracy in Argentina should be defended forever in those terms: gratitude that the disappearances stopped. But four decades is enough time to ask an honest question. If the question was "how do we stop the military from killing us," democracy answered it. If the question was "how do we govern ourselves wisely," it has not answered it, and pretending otherwise is the kind of polite lie that keeps us from doing the harder work.
 
-The same mirror works in the United States, in Brazil, in Mexico, in France, in the Philippines, in India. Every democracy is currently undergoing some version of the same crisis: a population that voted faithfully for decades, looking around and asking why none of it produced the country they were promised. The crisis is not a failure of any particular leader. The crisis is the dawning recognition that the mechanism itself does not deliver what its name implies.
-
 ## VII. What Democracy Was Supposed to Be
 
 Here is where the essay turns, because criticism without alternative is just sophistication.
