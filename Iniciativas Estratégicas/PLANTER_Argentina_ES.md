@@ -866,3 +866,45 @@ No requiere PIA específico (este PLAN no toca datos personales sensibles direct
 ### 8. Opinión legal
 Ver `LEGAL_OPINIONS/PLANTER.md`. Stub identifica riesgos; opinión externa firmada requerida antes de promoción a piloto.
 
+
+---
+
+## Líneas Operativas Internas de PLANTER (insertadas en revisión profunda 2026-04-28)
+
+> **REVISIÓN 2026-04-26 (aplicada 2026-04-28):** PLANTER se reorganiza en tres líneas operativas internas, sin partir el PLAN. **PLANTER sigue siendo un solo PLAN.** Sin split. Una sola entrada en `PLAN_REGISTRY.yml`, un solo nodo en `DEPENDENCY_GRAPH.yml`, un solo top-3 adversarial agregado. Cada línea tiene gates separados, presupuesto separado y owner.
+
+### Línea L1 — Enforcement ambiental
+
+- **Tranche:** 3 (2030+).
+- **Alcance:** sanciones por contaminación, control de explotación no autorizada, monitoreo ambiental con datos abiertos.
+- **Pre-requisitos:** pre-clearance CSJN del marco; LMV-correspondiente firmado; convenio con ≥ 8 provincias.
+- **Owner:** programa interministerial Min Ambiente + Min Producción (execution cell).
+- **Gate:** ver `KILL_SCALE_GATES.md` PLANTER Gate 1.
+- **KILL si:** 1 arbitraje internacional iniciado contra L1.
+
+### Línea L2 — Auditoría de regalías extractivas
+
+- **Tranche:** 3 (60–72m); requiere L1 estable.
+- **Alcance:** auditoría de regalías hidrocarburos, litio, minería; sin auditoría retroactiva pre-RIGI sin opinión externa firmada.
+- **Pre-requisitos:** L1 estable; mapa de adhesión provincial; cláusulas anti-CIADI activas.
+- **Owner:** programa interministerial Min Economía + Min Ambiente (execution cell).
+- **Gate:** ver `KILL_SCALE_GATES.md` PLANTER Gate 2.
+- **KILL si:** amparo nacional contra L2.
+
+### Línea L3 — Pilotos de consulta previa originaria
+
+- **Tranche:** 3 (72m+); requiere L1 + L2 estables.
+- **Alcance:** protocolo de consulta previa, libre e informada (Convenio 169 OIT) en proyectos extractivos y de infraestructura sobre territorio originario.
+- **Pre-requisitos:** Convenio 169 OIT cumplido; INAI fortalecido como observador permanente; comunidades convocadas firmaron protocolo de consulta.
+- **Owner:** programa interministerial INAI + cabezas PLANTER (execution cell).
+- **Gate:** ver `KILL_SCALE_GATES.md` PLANTER Gate 3.
+- **KILL si:** comunidades rechazan protocolo unánimemente.
+
+### Excluido de las tres líneas (diferido)
+
+- "Personería jurídica de la naturaleza" → diferida a anexo de visión 2040.
+- "Derechos territoriales originarios constitucionalizados" → diferida a tranche-3+ con reforma constitucional.
+- "Expropiación de extracción" → caso por caso vía RACI; sin política general en tranche-1/2/3.
+
+> **PIA gate:** L1, L2 y L3 cada una con PIA específico antes de activarse. Datos catastrales y comunitarios son sensibles.
+> **Opinión legal:** ver `LEGAL_OPINIONS/PLANTER.md`.

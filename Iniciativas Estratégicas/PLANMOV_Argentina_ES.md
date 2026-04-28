@@ -2099,3 +2099,59 @@ Ver `PIA/PLANMOV.md`. **Gate:** este PLAN no avanza a piloto operativo sin PIA a
 ### 8. Opinión legal
 Ver `LEGAL_OPINIONS/PLANMOV.md`. Stub identifica riesgos; opinión externa firmada requerida antes de promoción a piloto.
 
+
+---
+
+## Líneas Operativas Internas de PLANMOV (insertadas en revisión profunda 2026-04-28)
+
+> **REVISIÓN 2026-04-26 (aplicada 2026-04-28):** PLANMOV se reorganiza en cuatro líneas operativas internas, sin partir el PLAN. **PLANMOV sigue siendo un solo PLAN — el 22° plan temático del ecosistema canónico (22 thematic + PLANRUTA).** Sin split. Una sola entrada en `PLAN_REGISTRY.yml`, un solo nodo en `DEPENDENCY_GRAPH.yml`, un solo top-3 adversarial agregado. Cada línea tiene gates separados, presupuesto separado y owner.
+
+### Línea L1 — Movilidad básica
+
+- **Tranche:** 3 (48–54m).
+- **Alcance:** transporte público existente mejorado, peatonal, ciclovías, accesibilidad universal en transporte.
+- **Pre-requisitos:** Procurement OS operativo; mesa tripartita transporte firmada; PIA desplazamiento + geolocalización aprobado; AMBA + 5 ciudades con convenio.
+- **Owner:** Coordinación interjurisdiccional + cabeza PLANMOV (execution cell).
+- **Gate:** ver `KILL_SCALE_GATES.md` PLANMOV Gate 1.
+- **KILL si:** paro nacional transporte > 7 días sin acuerdo.
+
+### Línea L2 — Flete ferroviario
+
+- **Tranche:** 3 (60–72m); requiere L1 estable.
+- **Alcance:** datos de flete abiertos publicados + reactivación ferroviaria gradual + columna múltiple (electricidad + fibra óptica + ductos) en corredores reactivados.
+- **Pre-requisitos:** L1 estable; auditoría de concesiones vigentes con cláusulas anti-CIADI; convenios provinciales para servidumbres ferroviarias.
+- **Owner:** ADIF + SOFSE + cabeza PLANMOV (execution cell, no agencia autónoma).
+- **Gate:** ver `KILL_SCALE_GATES.md` PLANMOV Gate 2.
+- **KILL si:** arbitraje internacional por concesiones renegociadas.
+
+### Línea L3 — Gobernanza AMBA-T
+
+- **Tranche:** 3 (60–84m); puede operar en paralelo a L1/L2.
+- **Alcance:** acuerdo interjurisdiccional CABA + Provincia BA + Nación; coordinación de transporte metropolitano; tarifa unificada; planificación integrada.
+- **Pre-requisitos:** acuerdo interjurisdiccional firmado; coordinación operativa establecida.
+- **Owner:** Coordinación interjurisdiccional AMBA (no nueva agencia; convenio entre jurisdicciones existentes).
+- **Gate:** ver `KILL_SCALE_GATES.md` PLANMOV Gate 3.
+- **KILL si:** disputa sin resolución > 12m.
+
+### Línea L4 — Investigación AV (research-only indefinida)
+
+- **Tranche:** **research-only indefinida**. Sin operación pública en ningún tranche del horizonte.
+- **Alcance:** investigación académica de vehículos autónomos + algoritmos + sensores con propiedad pública. Sin implementación operativa pre-evaluación independiente firmada.
+- **Pre-requisitos para research:** convenio universitario; datos sintéticos en research; auditoría externa de research.
+- **Pre-requisitos para implementación operativa (no aplica en tranche-1/2/3):** marco legal específico + PIA + opinión legal externa + nueva auditoría completa + matriz vinculante + Mesa Gobierno + auditor externo. **Por defecto: no se implementa.**
+- **Owner research:** convenio universitario + cabeza PLANMOV.
+- **KILL si:** filtración de operación AV no autorizada o intento de implementación sin condiciones.
+
+### Excluido de las cuatro líneas (diferido)
+
+- "Régimen AV pleno" → research-only indefinida (línea L4).
+- LNMA / PCAV / Canon de Automatización como entregables tranche-1/2 → diferidos.
+- BAMD/MKC como leyes tranche-1 → diferidos.
+- Agencia Nacional de Movilidad (ANMov) autónoma con presupuesto constitucional → execution cell hasta tranche-3 estable.
+
+### Cap presupuestario agregado
+
+Las cuatro líneas sumadas no exceden 25% del libro mayor anual de tranche-3.
+
+> **PIA gate:** L1, L2, L3, L4 cada una con PIA específico. L4 con datos sintéticos en research; datos reales requieren PIA específico antes de cualquier piloto.
+> **Opinión legal:** ver `LEGAL_OPINIONS/PLANMOV.md`.
