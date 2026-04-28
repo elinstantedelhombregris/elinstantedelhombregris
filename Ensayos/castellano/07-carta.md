@@ -150,3 +150,32 @@ Ahora andá y usalas.
 Tu abuelo, que te quiso antes de que nacieras, que te está queriendo mientras escribe esto, y que, para cuando lo leas, te va a estar queriendo desde donde quiera que los muertos quieran a sus nietos.
 
 *Que así sea.*
+
+---
+
+## Cartografía
+
+Este es el cierre del arco. Las referencias que siguen son la antesala desde la que la carta habla por adentro — la plataforma, los documentos, y los seis ensayos que fueron el andamiaje de lo que la carta llama *el edificio*.
+
+**En la plataforma.**
+
+- *Manifiesto* — la declaración fundacional. Leelo apenas termines la carta; es el documento alrededor del cual se construyó la cocina del 2026.
+- *El Mandato Vivo* — la instancia operativa de la gobernanza ciudadana que la carta describe desde el futuro ("la asamblea se reúne cada quince días..."). Lo que la carta recuerda como cosa común, la plataforma lo está empezando ahora.
+- *La Semilla de ¡BASTA!* — el punto de entrada para los ciudadanos que terminan la carta y quieren saber por dónde empezar. La primera cocina, hecha entrable.
+- *Cancionero ¡BASTA!* — las canciones que la carta nombra. *Gracias a la vida* se canta en sus páginas finales; la cumbia, el rock nacional, el tango también viven acá.
+
+**Documentos definitorios.**
+
+- *Perfil del Hombre Gris* — la figura desde adentro de la cual está escrita la carta. La descripción completa de quién está hablando.
+- *Persona del Hombre Gris* — la voz que la carta hereda. El registro del abuelo, aplicado a través del proyecto.
+
+**La serie hasta acá.**
+
+Hubo seis ensayos en una caja de papeles que te dejé. Los escribió un hombre que veía algo que todavía no podía nombrar. Leelos como el andamiaje del edificio que estás leyendo ahora.
+
+- *01 — Por qué los presidentes son una idea estúpida* — que la herencia era un rey en el altillo.
+- *02 — La falacia de la democracia* — que el voto era un disfraz.
+- *03 — La falacia del poder mismo* — que el poder mismo era un cuento que nos seguíamos contando.
+- *04 — Una arquitectura para el hombre gris* — qué podía reemplazar al trono, capa por capa.
+- *05 — La soberanía del hombre gris* — qué significaba volver a tomar el trono, en el cuerpo.
+- *06 — La belleza como acto político* — qué iba a cargar la república a través de las generaciones.
