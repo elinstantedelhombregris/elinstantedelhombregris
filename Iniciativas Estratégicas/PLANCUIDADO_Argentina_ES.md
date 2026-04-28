@@ -1,3 +1,32 @@
+> **REVISION_PROFUNDA:** completed 2026-04-28 per PLAYBOOK_REVISION_PROFUNDA.md
+> **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol — este PLAN sigue siendo **uno** de los 22, sin split.
+> **REGISTRY:** ver `PLAN_REGISTRY.yml`
+> **LAST_AUDIT:** 2026-04-26
+>
+> **REVISIÓN 2026-04-26 (aplicada 2026-04-28) — marco editorial:** este PLAN fue alineado con los 13 pasos del `PLAYBOOK_REVISION_PROFUNDA.md` y con los artefactos canónicos creados en la remediación de la auditoría 2026-04-26.
+>
+> **Tranche assignment:** tranche-2 (misión matrix: Verde).
+>
+> **Alcance entregable:** registro y soporte limitados con PIA aprobado.
+>
+> **Presupuesto canónico:** (tranche-2) (línea PLANCUIDADO del `SOURCE_OF_FUNDS_LEDGER.md`). **Fuentes:** (tranche-2).
+>
+> **Instrumento legal:** (tranche-2: marco soporte limitado).
+>
+> **Correcciones específicas aplicadas (Tarea 13.B):** Registro limitado tranche-2, no universal en tranche-1. PIA aprobado como gate (datos sensibles: salud, dependencia, infancia). Ley nacional de cuidado como derecho exigible → diferida a tranche-3. Backlash religioso/conservador: mesa de diálogo + lenguaje aplicable + transparencia. Conexión con PLANSAL (materno-infantil), PLANEDU (primera infancia), PLANVIV (vivienda accesible). Sub-mandato discapacidad y vejez → integrado a tranche-2. Agencia de cuidado autónoma → diferida; programa interministerial.
+>
+> **Principios aplicados (no negociables):** sin splits del PLAN; sin future returns en tranche-1; sin nuevas agencias autónomas en tranche-1; sin reformas constitucionales en tranche-1; sin capacidades del estadio B de PLANDIG en tranche-1; visión 2040 preservada como anexo.
+>
+> **Top-3 attack paths con mitigación, owner, fallback budget e indicador:** ver `READINESS_GATES_ADVERSARIAL.md` sección PLANCUIDADO. Vinculante para promoción de tranche.
+>
+> **Kill/Scale gates:** ver `KILL_SCALE_GATES.md` sección PLANCUIDADO. Tres gates con 5 criterios cada uno y condición de KILL automática.
+>
+> **PIA gate:** ver `PIA/PLANCUIDADO.md` si existe; este PLAN no avanza a piloto sin PIA aprobado donde aplica.
+>
+> **Opinión legal:** ver `LEGAL_OPINIONS/PLANCUIDADO.md` si existe.
+
+---
+
 # PLANCUIDADO — Plan Nacional de Vínculo, Parentesco Jurídicamente Plural y Obligación de Sostén
 
 ## Vigésimo Mandato del Proyecto ¡BASTA!

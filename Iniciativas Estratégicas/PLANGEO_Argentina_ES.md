@@ -1,3 +1,32 @@
+> **REVISION_PROFUNDA:** completed 2026-04-28 per PLAYBOOK_REVISION_PROFUNDA.md
+> **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol — este PLAN sigue siendo **uno** de los 22, sin split.
+> **REGISTRY:** ver `PLAN_REGISTRY.yml`
+> **LAST_AUDIT:** 2026-04-26
+>
+> **REVISIÓN 2026-04-26 (aplicada 2026-04-28) — marco editorial:** este PLAN fue alineado con los 13 pasos del `PLAYBOOK_REVISION_PROFUNDA.md` y con los artefactos canónicos creados en la remediación de la auditoría 2026-04-26.
+>
+> **Tranche assignment:** research-only (interno) (misión matrix: Ámbar (público diferido)).
+>
+> **Alcance entregable:** análisis interno + diplomacia sobria pública.
+>
+> **Presupuesto canónico:** (research budget) (línea PLANGEO del `SOURCE_OF_FUNDS_LEDGER.md`). **Fuentes:** (sin presupuesto operativo).
+>
+> **Instrumento legal:** (sin LMV).
+>
+> **Correcciones específicas aplicadas (Tarea 13.B):** Estado research interno + diplomacia sobria. Sin material confrontacional público en tranche-1/2/3. Doctrina antiimperialista → eliminada de plataforma pública; queda en doctrina interna (VEHICULO_POLITICO_BASTA.md). Diplomacia sobria como modo público. Conexión con PLANDIG estadio A (ciberdefensa básica como sub-mandato cyber-min). Retaliación geopolítica: mitigación con relaciones multilaterales + comunicación medida. Soberanía total → reformulada como autonomía estratégica selectiva. PLANGEO no firma declaraciones unilaterales sin RACI cruzada con Cancillería.
+>
+> **Principios aplicados (no negociables):** sin splits del PLAN; sin future returns en tranche-1; sin nuevas agencias autónomas en tranche-1; sin reformas constitucionales en tranche-1; sin capacidades del estadio B de PLANDIG en tranche-1; visión 2040 preservada como anexo.
+>
+> **Top-3 attack paths con mitigación, owner, fallback budget e indicador:** ver `READINESS_GATES_ADVERSARIAL.md` sección PLANGEO. Vinculante para promoción de tranche.
+>
+> **Kill/Scale gates:** ver `KILL_SCALE_GATES.md` sección PLANGEO. Tres gates con 5 criterios cada uno y condición de KILL automática.
+>
+> **PIA gate:** ver `PIA/PLANGEO.md` si existe; este PLAN no avanza a piloto sin PIA aprobado donde aplica.
+>
+> **Opinión legal:** ver `LEGAL_OPINIONS/PLANGEO.md` si existe.
+
+---
+
 ```
 EL MUNDO QUE TENEMOS
 NO ES EL MUNDO QUE MERECEMOS

@@ -1,3 +1,32 @@
+> **REVISION_PROFUNDA:** completed 2026-04-28 per PLAYBOOK_REVISION_PROFUNDA.md
+> **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol — este PLAN sigue siendo **uno** de los 22, sin split.
+> **REGISTRY:** ver `PLAN_REGISTRY.yml`
+> **LAST_AUDIT:** 2026-04-26
+>
+> **REVISIÓN 2026-04-26 (aplicada 2026-04-28) — marco editorial:** este PLAN fue alineado con los 13 pasos del `PLAYBOOK_REVISION_PROFUNDA.md` y con los artefactos canónicos creados en la remediación de la auditoría 2026-04-26.
+>
+> **Tranche assignment:** tranche-3 (L1-L3); research-only (L4) (misión matrix: Verde→Ámbar).
+>
+> **Alcance entregable:** 4 líneas internas (L1 movilidad básica, L2 flete ferroviario, L3 AMBA-T, L4 AV research-only) dentro del mismo PLAN.
+>
+> **Presupuesto canónico:** (tranche-3) (línea PLANMOV del `SOURCE_OF_FUNDS_LEDGER.md`). **Fuentes:** (tranche-3).
+>
+> **Instrumento legal:** (tranche-3, sin LMV en tranche-1).
+>
+> **Correcciones específicas aplicadas (Tarea 13.B):** Estructura interna L1/L2/L3/L4 ya insertada al final del archivo (Fase 13.B core). Esta revisión cubre los OTROS pasos del playbook. Régimen AV pleno eliminado de tranche-1/2/3 — research-only indefinido (L4). LNMA / PCAV / Canon de Automatización → diferidos. BAMD/MKC → diferidos. Tranche-3 entrada solo para L1, L2, L3. Conflicto AMBA-provincias: acuerdo interjurisdiccional documentado pre-launch. Captura sindical transporte: mesa tripartita + transición. Procurement OS operativo antes de capital pesado. PIA desplazamiento + geolocalización. Cap presupuestario: sin exceder 25% del libro mayor anual de tranche-3.
+>
+> **Principios aplicados (no negociables):** sin splits del PLAN; sin future returns en tranche-1; sin nuevas agencias autónomas en tranche-1; sin reformas constitucionales en tranche-1; sin capacidades del estadio B de PLANDIG en tranche-1; visión 2040 preservada como anexo.
+>
+> **Top-3 attack paths con mitigación, owner, fallback budget e indicador:** ver `READINESS_GATES_ADVERSARIAL.md` sección PLANMOV. Vinculante para promoción de tranche.
+>
+> **Kill/Scale gates:** ver `KILL_SCALE_GATES.md` sección PLANMOV. Tres gates con 5 criterios cada uno y condición de KILL automática.
+>
+> **PIA gate:** ver `PIA/PLANMOV.md` si existe; este PLAN no avanza a piloto sin PIA aprobado donde aplica.
+>
+> **Opinión legal:** ver `LEGAL_OPINIONS/PLANMOV.md` si existe.
+
+---
+
 # PLANMOV — Plan Nacional de Movilidad, Logística y Conectividad Territorial
 
 ## Vigésimo Tercer Mandato del Proyecto ¡BASTA!

@@ -1,3 +1,32 @@
+> **REVISION_PROFUNDA:** completed 2026-04-28 per PLAYBOOK_REVISION_PROFUNDA.md
+> **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol — este PLAN sigue siendo **uno** de los 22, sin split.
+> **REGISTRY:** ver `PLAN_REGISTRY.yml`
+> **LAST_AUDIT:** 2026-04-26
+>
+> **REVISIÓN 2026-04-26 (aplicada 2026-04-28) — marco editorial:** este PLAN fue alineado con los 13 pasos del `PLAYBOOK_REVISION_PROFUNDA.md` y con los artefactos canónicos creados en la remediación de la auditoría 2026-04-26.
+>
+> **Tranche assignment:** research-only / diferido (misión matrix: Rojo).
+>
+> **Alcance entregable:** labs de diseño con universidades, sin construcción ni compromisos de tierra.
+>
+> **Presupuesto canónico:** (research budget) (línea PLAN24CN del `SOURCE_OF_FUNDS_LEDGER.md`). **Fuentes:** (sin presupuesto operativo).
+>
+> **Instrumento legal:** (sin LMV en tranche-1/2/3).
+>
+> **Correcciones específicas aplicadas (Tarea 13.B):** Estado research-only / diferido completo. Construcción de Capital Nacional o ciudades nuevas → eliminada de tranche-1/2/3; solo labs de diseño. PLANVIV gana competencia urbana en tranche-1/2/3. Sin compromisos de tierra hasta resultados PLANVIV. Conexión con PLANTER (consulta previa originaria sobre cualquier sitio), PLANEN (sin compromisos energéticos de gran escala), estadio B de PLANDIG (gemelo digital de ciudad diferido). Captura inmobiliaria: sin compromisos de tierra. Labs de diseño: convenio con universidades, sin presupuesto de inversión.
+>
+> **Principios aplicados (no negociables):** sin splits del PLAN; sin future returns en tranche-1; sin nuevas agencias autónomas en tranche-1; sin reformas constitucionales en tranche-1; sin capacidades del estadio B de PLANDIG en tranche-1; visión 2040 preservada como anexo.
+>
+> **Top-3 attack paths con mitigación, owner, fallback budget e indicador:** ver `READINESS_GATES_ADVERSARIAL.md` sección PLAN24CN. Vinculante para promoción de tranche.
+>
+> **Kill/Scale gates:** ver `KILL_SCALE_GATES.md` sección PLAN24CN. Tres gates con 5 criterios cada uno y condición de KILL automática.
+>
+> **PIA gate:** ver `PIA/PLAN24CN.md` si existe; este PLAN no avanza a piloto sin PIA aprobado donde aplica.
+>
+> **Opinión legal:** ver `LEGAL_OPINIONS/PLAN24CN.md` si existe.
+
+---
+
 ```
 LAS CIUDADES QUE TENEMOS
 NO SON LAS CIUDADES QUE MERECEMOS

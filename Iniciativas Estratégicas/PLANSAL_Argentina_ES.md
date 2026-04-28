@@ -1,3 +1,32 @@
+> **REVISION_PROFUNDA:** completed 2026-04-28 per PLAYBOOK_REVISION_PROFUNDA.md
+> **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol — este PLAN sigue siendo **uno** de los 22, sin split.
+> **REGISTRY:** ver `PLAN_REGISTRY.yml`
+> **LAST_AUDIT:** 2026-04-26
+>
+> **REVISIÓN 2026-04-26 (aplicada 2026-04-28) — marco editorial:** este PLAN fue alineado con los 13 pasos del `PLAYBOOK_REVISION_PROFUNDA.md` y con los artefactos canónicos creados en la remediación de la auditoría 2026-04-26.
+>
+> **Tranche assignment:** tranche-1 (misión matrix: Verde).
+>
+> **Alcance entregable:** APS + medicamentos esenciales + materno-infantil + nutrición.
+>
+> **Presupuesto canónico:** 1.8B/año + 2.0B inv 24m (línea PLANSAL del `SOURCE_OF_FUNDS_LEDGER.md`). **Fuentes:** F09 (Banco Mundial salud), F01.
+>
+> **Instrumento legal:** LMV-04 (Decreto APS + medicamentos esenciales).
+>
+> **Correcciones específicas aplicadas (Tarea 13.B):** Paradigma Vitalidad → preservado como anexo Visión 2040. Reforma sistema único de salud → diferida. HCE básica → solo 5.000 centros piloto, no nacional. Telemedicina nacional como pilar → diferida. Materno-infantil compartido con PLANCUIDADO. Nutrición escolar conjunta con PLANEDU.
+>
+> **Principios aplicados (no negociables):** sin splits del PLAN; sin future returns en tranche-1; sin nuevas agencias autónomas en tranche-1; sin reformas constitucionales en tranche-1; sin capacidades del estadio B de PLANDIG en tranche-1; visión 2040 preservada como anexo.
+>
+> **Top-3 attack paths con mitigación, owner, fallback budget e indicador:** ver `READINESS_GATES_ADVERSARIAL.md` sección PLANSAL. Vinculante para promoción de tranche.
+>
+> **Kill/Scale gates:** ver `KILL_SCALE_GATES.md` sección PLANSAL. Tres gates con 5 criterios cada uno y condición de KILL automática.
+>
+> **PIA gate:** ver `PIA/PLANSAL.md` si existe; este PLAN no avanza a piloto sin PIA aprobado donde aplica.
+>
+> **Opinión legal:** ver `LEGAL_OPINIONS/PLANSAL.md` si existe.
+
+---
+
 ```
 LA FABRICA DE ENFERMOS
 (POR QUE EL SISTEMA DE SALUD NO PUEDE SANARTE — Y QUE SI PUEDE)

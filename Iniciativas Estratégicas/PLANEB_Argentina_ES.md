@@ -1,3 +1,32 @@
+> **REVISION_PROFUNDA:** completed 2026-04-28 per PLAYBOOK_REVISION_PROFUNDA.md
+> **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol — este PLAN sigue siendo **uno** de los 22, sin split.
+> **REGISTRY:** ver `PLAN_REGISTRY.yml`
+> **LAST_AUDIT:** 2026-04-26
+>
+> **REVISIÓN 2026-04-26 (aplicada 2026-04-28) — marco editorial:** este PLAN fue alineado con los 13 pasos del `PLAYBOOK_REVISION_PROFUNDA.md` y con los artefactos canónicos creados en la remediación de la auditoría 2026-04-26.
+>
+> **Tranche assignment:** tranche-1 (misión matrix: Verde).
+>
+> **Alcance entregable:** 1–2 Bastardas piloto bajo riesgo (medicamentos genéricos + fertilizantes/materiales).
+>
+> **Presupuesto canónico:** 0.1B/año + 0.5B inv 24m (línea PLANEB del `SOURCE_OF_FUNDS_LEDGER.md`). **Fuentes:** F07 (capital cooperativo).
+>
+> **Instrumento legal:** LMV-06 (Marco contable Bastardas piloto).
+>
+> **Correcciones específicas aplicadas (Tarea 13.B):** Cap 1–2 Bastardas piloto. ANEB → execution cell en MinProducción, no agencia autónoma con presupuesto protegido. Marco contable público publicado ANTES de la primera Bastarda. DAO governance sin asumir blockchain — sortición + auditoría comunitaria primero. Red Bastarda Nacional → diferida. Ley sistema Bastardo → diferida (solo marco contable LMV-06 en tranche-1).
+>
+> **Principios aplicados (no negociables):** sin splits del PLAN; sin future returns en tranche-1; sin nuevas agencias autónomas en tranche-1; sin reformas constitucionales en tranche-1; sin capacidades del estadio B de PLANDIG en tranche-1; visión 2040 preservada como anexo.
+>
+> **Top-3 attack paths con mitigación, owner, fallback budget e indicador:** ver `READINESS_GATES_ADVERSARIAL.md` sección PLANEB. Vinculante para promoción de tranche.
+>
+> **Kill/Scale gates:** ver `KILL_SCALE_GATES.md` sección PLANEB. Tres gates con 5 criterios cada uno y condición de KILL automática.
+>
+> **PIA gate:** ver `PIA/PLANEB.md` si existe; este PLAN no avanza a piloto sin PIA aprobado donde aplica.
+>
+> **Opinión legal:** ver `LEGAL_OPINIONS/PLANEB.md` si existe.
+
+---
+
 ```
 EL MERCADO QUE TENEMOS
 NO ES EL MERCADO QUE MERECEMOS

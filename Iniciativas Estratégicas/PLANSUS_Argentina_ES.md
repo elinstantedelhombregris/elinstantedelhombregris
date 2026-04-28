@@ -1,3 +1,32 @@
+> **REVISION_PROFUNDA:** completed 2026-04-28 per PLAYBOOK_REVISION_PROFUNDA.md
+> **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol — este PLAN sigue siendo **uno** de los 22, sin split.
+> **REGISTRY:** ver `PLAN_REGISTRY.yml`
+> **LAST_AUDIT:** 2026-04-26
+>
+> **REVISIÓN 2026-04-26 (aplicada 2026-04-28) — marco editorial:** este PLAN fue alineado con los 13 pasos del `PLAYBOOK_REVISION_PROFUNDA.md` y con los artefactos canónicos creados en la remediación de la auditoría 2026-04-26.
+>
+> **Tranche assignment:** research-only / diferido (misión matrix: Rojo).
+>
+> **Alcance entregable:** investigación + reducción de daños bajo PLANSAL.
+>
+> **Presupuesto canónico:** (research budget) (línea PLANSUS del `SOURCE_OF_FUNDS_LEDGER.md`). **Fuentes:** (sin presupuesto operativo).
+>
+> **Instrumento legal:** (sin LMV en tranche-1/2/3).
+>
+> **Correcciones específicas aplicadas (Tarea 13.B):** Estado research-only / diferido tranche-1/2/3. Legalización plena → eliminada de cualquier ventana de tranche; solo research + reducción de daños. PLANSUS no avanza a piloto operativo mientras PLANSEG no haya estabilizado fuerzas. Reducción de daños sí en tranche-2/3 (programas de salud, no comercialización). Captura narco: inteligencia + auditoría + cooperación internacional. Backlash religioso: diálogo + lenguaje aplicable + transparencia. Conexión con PLANSAL (salud mental + adicciones sí en tranche-1/2), PLANJUS (despenalización selectiva pre-comercialización investigación). ANRD agencia → eliminada de cualquier tranche; research cell académica.
+>
+> **Principios aplicados (no negociables):** sin splits del PLAN; sin future returns en tranche-1; sin nuevas agencias autónomas en tranche-1; sin reformas constitucionales en tranche-1; sin capacidades del estadio B de PLANDIG en tranche-1; visión 2040 preservada como anexo.
+>
+> **Top-3 attack paths con mitigación, owner, fallback budget e indicador:** ver `READINESS_GATES_ADVERSARIAL.md` sección PLANSUS. Vinculante para promoción de tranche.
+>
+> **Kill/Scale gates:** ver `KILL_SCALE_GATES.md` sección PLANSUS. Tres gates con 5 criterios cada uno y condición de KILL automática.
+>
+> **PIA gate:** ver `PIA/PLANSUS.md` si existe; este PLAN no avanza a piloto sin PIA aprobado donde aplica.
+>
+> **Opinión legal:** ver `LEGAL_OPINIONS/PLANSUS.md` si existe.
+
+---
+
 ```
 LA SOBERANÍA QUE NOS FALTA
 ES LA QUE LLEVAMOS DENTRO

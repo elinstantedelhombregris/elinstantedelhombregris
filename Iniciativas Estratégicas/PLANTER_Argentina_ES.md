@@ -1,3 +1,32 @@
+> **REVISION_PROFUNDA:** completed 2026-04-28 per PLAYBOOK_REVISION_PROFUNDA.md
+> **CANONICAL_ARCHITECTURE:** 22 thematic + PLANRUTA protocol — este PLAN sigue siendo **uno** de los 22, sin split.
+> **REGISTRY:** ver `PLAN_REGISTRY.yml`
+> **LAST_AUDIT:** 2026-04-26
+>
+> **REVISIÓN 2026-04-26 (aplicada 2026-04-28) — marco editorial:** este PLAN fue alineado con los 13 pasos del `PLAYBOOK_REVISION_PROFUNDA.md` y con los artefactos canónicos creados en la remediación de la auditoría 2026-04-26.
+>
+> **Tranche assignment:** tranche-3 (misión matrix: Ámbar).
+>
+> **Alcance entregable:** 3 líneas internas (L1 enforcement, L2 regalías, L3 consulta) dentro del mismo PLAN.
+>
+> **Presupuesto canónico:** (tranche-3) (línea PLANTER del `SOURCE_OF_FUNDS_LEDGER.md`). **Fuentes:** (tranche-3).
+>
+> **Instrumento legal:** (tranche-3: pre-clearance CSJN).
+>
+> **Correcciones específicas aplicadas (Tarea 13.B):** Estructura interna L1/L2/L3 ya insertada al final del archivo (Fase 13.B core). Esta revisión cubre los OTROS pasos del playbook. Tranche-3 entrada solo si tranche-2 cerró sin litigios federales mayores. Personería jurídica de la naturaleza y derechos territoriales constitucionalizados → diferidas a anexo Visión 2040. Expropiación de extracción → diferida; evaluación caso por caso vía RACI. Pre-clearance CSJN del marco antes de cualquier launch. Adhesión provincial crítica. Conexión con PLANISV (datos suelo), PLANEN (litio/hidrocarburos), PLANAGUA (cuencas en territorio), PLANVIV (expansión urbana). PIA catastro. Comunidades originarias: consulta previa documentada por proyecto.
+>
+> **Principios aplicados (no negociables):** sin splits del PLAN; sin future returns en tranche-1; sin nuevas agencias autónomas en tranche-1; sin reformas constitucionales en tranche-1; sin capacidades del estadio B de PLANDIG en tranche-1; visión 2040 preservada como anexo.
+>
+> **Top-3 attack paths con mitigación, owner, fallback budget e indicador:** ver `READINESS_GATES_ADVERSARIAL.md` sección PLANTER. Vinculante para promoción de tranche.
+>
+> **Kill/Scale gates:** ver `KILL_SCALE_GATES.md` sección PLANTER. Tres gates con 5 criterios cada uno y condición de KILL automática.
+>
+> **PIA gate:** ver `PIA/PLANTER.md` si existe; este PLAN no avanza a piloto sin PIA aprobado donde aplica.
+>
+> **Opinión legal:** ver `LEGAL_OPINIONS/PLANTER.md` si existe.
+
+---
+
 # PLANTER — Plan Nacional de Tierra, Subsuelo, Pueblos Originarios y Soberanía Territorial
 
 ## Vigésimo Segundo Mandato del Proyecto ¡BASTA!
