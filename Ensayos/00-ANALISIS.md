@@ -320,3 +320,9 @@ Insumo de ejecución para el plan `SocialJusticeHub/docs/superpowers/plans/2026-
 8. **Tarjeta Ensayos** en Recursos — gradient `from-amber-500/10 to-rose-500/10`, ícono `BookOpen`, subtítulo "PENSAMIENTO".
 
 Cualquier decisión que se revise durante la ejecución se anota acá con fecha y razón.
+
+## Cierre de Fase 1 — 2026-04-28
+
+Los siete ensayos en `/Ensayos/*.md` fueron polishados según el plan `SocialJusticeHub/docs/superpowers/plans/2026-04-28-ensayos-audit-and-platform-integration.md`. Las decisiones abiertas (§6 del spec) fueron resueltas y aplicadas. La Fase 2 (propagación al rioplatense en `/Ensayos/castellano/`) puede arrancar.
+
+Status del Credo (decisión #4): postergado, sin urgencia. La Carta absorbió la dimensión litúrgica vía el bloque "las palabras para leer en voz alta"; ver `00-ANALISIS-07.md` §III. El Credo se reconsiderará si el uso real lo pide (apertura de asambleas sin leer la Carta entera, etc.).
