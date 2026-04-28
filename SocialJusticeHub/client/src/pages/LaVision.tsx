@@ -1,5 +1,6 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import EnsayoLinkCard from '@/components/EnsayoLinkCard';
 import { useEffect, useState, useMemo } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { motion } from 'framer-motion';
@@ -388,6 +389,15 @@ const LaVision = () => {
           gradient="from-[#10131f] to-[#1f2335]"
           icon={<MoonStar className="w-5 h-5" />}
         />
+
+        <section className="max-w-4xl mx-auto px-4 py-16">
+          <div className="space-y-2 mb-8">
+            <p className="uppercase tracking-widest text-xs text-amber-300/80">Pensamiento</p>
+            <h2 className="font-serif text-3xl">La arquitectura, en largo</h2>
+            <p className="text-mist-white/60 max-w-2xl">La visión condensa. El ensayo despliega — capa por capa, rol por rol, lo que ¡BASTA! pretende.</p>
+          </div>
+          <EnsayoLinkCard slug="arquitectura" />
+        </section>
 
       </main>
       <Footer />

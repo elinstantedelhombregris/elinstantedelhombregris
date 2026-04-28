@@ -1,5 +1,6 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import EnsayoLinkCard from '@/components/EnsayoLinkCard';
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import {
@@ -472,6 +473,15 @@ const ElInstanteDelHombreGris = () => {
           gradient="from-[#1f2335] to-[#3b275c]"
           icon={<Sprout className="w-5 h-5" />}
         />
+
+        <section className="max-w-4xl mx-auto px-4 py-16">
+          <div className="space-y-2 mb-8">
+            <p className="uppercase tracking-widest text-xs text-amber-300/80">Pensamiento</p>
+            <h2 className="font-serif text-3xl">Qué soberanía recuperás</h2>
+            <p className="text-mist-white/60 max-w-2xl">El instante es el verbo. Este ensayo es el cuerpo del verbo: atención, voz, agencia, mano, hogar, calle, no.</p>
+          </div>
+          <EnsayoLinkCard slug="soberania" />
+        </section>
 
       </main>
       <Footer />

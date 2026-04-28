@@ -1,5 +1,6 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import EnsayoLinkCard from '@/components/EnsayoLinkCard';
 import { Button } from '@/components/ui/button';
 import { useContext, useEffect, useState, useRef } from 'react';
 import { useLocation } from 'wouter';
@@ -766,6 +767,19 @@ const LaSemillaDeBasta = () => {
           gradient="from-emerald-900 to-blue-900"
           icon={<MapPin className="w-5 h-5" />}
         />
+
+        <section className="max-w-4xl mx-auto px-4 py-16">
+          <div className="space-y-2 mb-8">
+            <p className="uppercase tracking-widest text-xs text-amber-300/80">Pensamiento</p>
+            <h2 className="font-serif text-3xl">Qué clase de movida</h2>
+            <p className="text-emerald-100/70 max-w-2xl">Tres lecturas para entender qué pesa cuando uno firma la semilla y se mete a construir.</p>
+          </div>
+          <div className="grid gap-4 md:grid-cols-3">
+            <EnsayoLinkCard slug="arquitectura" />
+            <EnsayoLinkCard slug="soberania" />
+            <EnsayoLinkCard slug="carta-al-nieto" />
+          </div>
+        </section>
 
 
       </main>

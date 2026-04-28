@@ -1,5 +1,6 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import EnsayoLinkCard from '@/components/EnsayoLinkCard';
 import { useEffect, useState, useRef } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
@@ -775,6 +776,19 @@ Y vos, que llegaste hasta acá leyendo, ya sos parte de ese día.`,
             </motion.div>
           </div>
         </motion.section>
+
+        <section className="max-w-4xl mx-auto px-4 py-16">
+          <div className="space-y-2 mb-8">
+            <p className="uppercase tracking-widest text-xs text-amber-300/80">Pensamiento</p>
+            <h2 className="font-serif text-3xl">El pensamiento detrás del manifiesto</h2>
+            <p className="text-mist-white/60 max-w-2xl">El manifiesto nombra. Los ensayos argumentan. Empezá por dónde duele más, leélos en orden, o salteálos hasta que algo te pinche.</p>
+          </div>
+          <div className="grid gap-4 md:grid-cols-3">
+            <EnsayoLinkCard slug="presidencia" />
+            <EnsayoLinkCard slug="democracia" />
+            <EnsayoLinkCard slug="poder" />
+          </div>
+        </section>
       </div>
 
       <Footer />

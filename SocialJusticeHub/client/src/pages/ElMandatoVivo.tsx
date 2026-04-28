@@ -22,6 +22,7 @@ import {
 } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import EnsayoLinkCard from '@/components/EnsayoLinkCard';
 import PoliticalSimulation from '@/components/PoliticalSimulation';
 import MandateCascade from '@/components/MandateCascade';
 import ImpactCaseStudy from '@/components/ImpactCaseStudy';
@@ -682,6 +683,18 @@ const ElMandatoVivo = () => {
           gradient="from-[#0f172a] to-[#1e293b]"
           icon={<Users className="w-5 h-5" />}
         />
+
+        <section className="max-w-4xl mx-auto px-4 py-16">
+          <div className="space-y-2 mb-8">
+            <p className="uppercase tracking-widest text-xs text-amber-300/80">Pensamiento</p>
+            <h2 className="font-serif text-3xl">Por qué el mandato es vivo</h2>
+            <p className="text-slate-400 max-w-2xl">Las dos piezas que explican por qué la asamblea barrial — sorteada, deliberativa, anti-captura — es la unidad real de la república nueva.</p>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2">
+            <EnsayoLinkCard slug="democracia" />
+            <EnsayoLinkCard slug="arquitectura" />
+          </div>
+        </section>
 
       </main>
       <Footer />
