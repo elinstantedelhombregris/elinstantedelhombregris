@@ -326,3 +326,58 @@ Cualquier decisión que se revise durante la ejecución se anota acá con fecha 
 Los siete ensayos en `/Ensayos/*.md` fueron polishados según el plan `SocialJusticeHub/docs/superpowers/plans/2026-04-28-ensayos-audit-and-platform-integration.md`. Las decisiones abiertas (§6 del spec) fueron resueltas y aplicadas. La Fase 2 (propagación al rioplatense en `/Ensayos/castellano/`) puede arrancar.
 
 Status del Credo (decisión #4): postergado, sin urgencia. La Carta absorbió la dimensión litúrgica vía el bloque "las palabras para leer en voz alta"; ver `00-ANALISIS-07.md` §III. El Credo se reconsiderará si el uso real lo pide (apertura de asambleas sin leer la Carta entera, etc.).
+
+---
+
+## Fase 2 — Re-weave bilingüe (corrección de la visión + dimensión de urgencia)
+
+Insumo de ejecución para el plan `SocialJusticeHub/docs/superpowers/plans/2026-04-28-ensayos-fase-2-reweave.md` (spec en `…/specs/2026-04-28-ensayos-fase-2-reweave-design.md`).
+
+**Por qué Fase 2.** La Fase 1 cerró con dos vacíos estructurales que el cuerpo de ensayos no podía sostener mucho más tiempo:
+
+1. El ensayo 1 hedgeaba donde el resto de la serie no hedgeaba. Su sección VI proponía como alternativa headline a la presidencia un Consejo Federal suizo de siete personas — reformista donde la serie es revolucionaria. Sustituía un trono más chico por uno más grande en lugar de desmantelar el trono.
+2. La urgencia de construir herramientas cívicas soberanas faltaba en toda la serie. La serie nombraba la arquitectura pero no nombraba la carrera. La ventana para construir infraestructura cívica soberana está abierta en 2026 y se está cerrando; quien construya las herramientas que median la vida cívica fija la arquitectura del próximo siglo.
+
+**Visión corregida.** La alternativa a un presidente no es un consejo. Es **infraestructura cívica nacional que le permite a los ciudadanos cumplir la función ejecutiva ellos mismos — de manera continua, a escala, a través de herramientas diseñadas para agregar su juicio, hacer aflorar sus prioridades, deliberar en cada capa, y convertir inteligencia colectiva en acción coordinada.** El hombre gris es co-constructor y co-gobernante continuo, no destinatario de un gobierno mejor diseñado.
+
+**Decisiones de Fase 2** (locked en brainstorm 2026-04-28):
+
+| # | Decisión |
+|---|---|
+| Q1 | Híbrido con costura deliberada. Voz literaria en 1–6; ¡BASTA! visible solo en Cartografía + Carta. |
+| Q2 | Definición de herramientas soberanas se difiere a PLANDIG. Se internaliza la sustancia conceptual; nunca se referencia el plan en la prosa. |
+| Q3 | IA nombrada, pero lateral. Específica (motores de recomendación, modelos entrenados con nosotros, aumento opaco) sin ser headline. Filo más afilado en la Carta. |
+| Q4 | Construir alternativas superiores (postura PLANDIG) + reconocimiento de que parte del trabajo es bifurcar lo que ya funciona. Sin abstinencia puritana. |
+| Q5 | Especificidad argentina por capas. Cuerpos universales; Espejos cargan la urgencia en registro argentino; Carta más afilada. |
+| Q6 | Ciudadanos gobiernan, especialistas con rendición ejecutan (operativo); primera generación construye, la siguiente hereda (espiritual). Ambos registros sostenidos por la prosa juntos. |
+| Q7 | Modos de fallo nombrados concretamente en el cuerpo de la sección de urgencia del ensayo 1 **y** en la Carta. Filo analítico en cuerpo, voz de mirada-hacia-atrás en Carta. |
+
+**Disciplina de protección de voz.** Tres pasadas en inglés (re-weave / lectura-en-voz-alta para flagear tono manifiesto / lectura contra los otros ensayos). Cuatro pasadas en castellano (sense-translate / rewrite rioplatense / lectura-en-voz-alta / fidelidad cross-version). Ninguna referencia a docs de plataforma en cuerpo de ensayo. Cada ensayo recibe su delta acá.
+
+---
+
+### Fase 2 — Ensayo 01 delta — 2026-04-29
+
+**Inglés (`Ensayos/01-presidencia.md`):**
+
+- §II — agregado un párrafo al final ("the pyramid did not flatten when the technology became cheap; it migrated") que planta la urgencia temprano sin nombrarla todavía. Funciona como semilla rítmica que aflora en V y se cumple en VI.
+- §IV (Espejo argentino) — condensado de cuatro a tres párrafos según recomendación Fase 1, y reescrito el segundo párrafo para absorber el registro del sistema nervioso secuestrado (identidad, pagos, deliberaciones, archivos en infraestructuras ajenas) sin nombrar PLANDIG ni la plataforma. La frase "más de cuatro décadas" generaliza al "forty-three years" original (decisión #6 Fase 1).
+- §V — agregado un cierre de tres oraciones que tiende el puente a VI ("the question is not whether it will be replaced; it is by what, and on whose terms").
+- §VI — REESCRITO. Apertura desmantelando la sustitución de consejo (siete tronos siguen siendo tronos). Headline: arquitectura cívica de información a escala nacional como función ejecutiva ciudadana continua. Registro cívico primero (ciudadanos aportan, sistema agrega, deliberación aflora, acción sigue), después especificidad técnica brevemente, siempre anclada en lo que hace por el ciudadano. Suiza demoted a una oración como ejemplo histórico parcial. Metáfora de la montaña-y-el-ejército. Modos de fallo nombrados concretamente (memoria archivada por terceros que la pueden cerrar, identidad como permiso revocable, deliberaciones afinadas para indignación, decisiones aumentadas por sistemas entrenados con valores que no elegimos). La carrera contra intereses ya construyendo. Cierre: "El consejo suizo fue un ejemplo. La infraestructura es la respuesta."
+- §VII — reescrito así el hombre gris no es destinatario de mejor gobierno sino co-constructor. "Citizens commission, accountable specialists execute" articulado en una capa de prosa (no como bullet). Primera generación construye / siguiente hereda como cierre del párrafo penúltimo.
+- §VIII — la "asamblea barrial que decide algo" reframeada como nodo funcional de la infraestructura mayor, no como ensayo para algo más grande. Una oración sobre bifurcar-no-construir-de-cero (Q4). Cierre actualizado: "the country he is holding up is not finished yet."
+- Cartografía — agregado bullet PLANDIG (la arquitectura cívica de información de §VI vive en forma operativa allí). Bullet del Consejo Federal Suizo eliminado (ya no es referencia comparativa headline).
+
+**Castellano (`Ensayos/castellano/01-presidencia.md`):**
+
+- Reescritura sense-by-sense de los nuevos pasajes. La metáfora de la montaña: *el acto de libertad más grande que tenemos al alcance no es cruzar la montaña con un ejército; es construir las herramientas que nos permiten organizarnos, gobernarnos, y vivir vidas con sentido a la escala de un país*.
+- Vos sostenido en todo el texto.
+- §VI — "arquitectura cívica de información" como traducción de "civic information stack" — más sonora en castellano que el calco "stack". "Una identidad que el ciudadano lleva como una llave, no un permiso que una plataforma le concede" — la imagen rinde mejor en castellano.
+- §IV (Espejo) — el registro del sistema nervioso secuestrado vive más naturalmente en castellano; el español carga la imagen sin la fricción del inglés.
+- Cierre §VIII: "el país que está sosteniendo todavía no está terminado."
+
+**Lo que se preservó:** I, III íntegros. Apertura de II, V (los cuatro reclamos vs realidad), VII (apertura), VIII (apertura) — los huesos rítmicos que el análisis Fase 1 marcó como sólidos.
+
+**Lo que NO se hizo:** ningún cambio estructural. Sin nuevas secciones, sin secciones eliminadas. Las secciones existentes carga el contenido nuevo donde corresponde.
+
+**Flags:** ninguno. La voz se sostiene a través de la reescritura de VI, que era el riesgo principal.
