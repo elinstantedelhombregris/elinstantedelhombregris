@@ -103,7 +103,11 @@ El ciclo argentino de destrucción institucional repetida no se sostiene por inc
 
 **Por qué persiste:** el archivo bajo jurisdicción ministerial es modificable por decreto. No hay protección constitucional específica al registro operativo.
 
-**Cómo PLANMEMORIA lo resuelve:** federalización radical. Siete nodos distribuidos con hash criptográfico. Ningún gobierno tiene control sobre los siete. La Agencia Nacional de Memoria es autárquica con presupuesto protegido. El archivo es, por arquitectura técnica y jurídica, resistente al borrado selectivo.
+**Cómo PLANMEMORIA lo resuelve:**
+
+> **REVISIÓN 2026-04-28:** la "Agencia Nacional de Memoria autárquica con presupuesto protegido" se difiere a tranche-3 con activación tras 24m de prueba. En tranche-3 inicial opera como **execution cell** (Comisión asesora interministerial; ver `TABLA_AGENCIAS_BASTA.md`). Federalización técnica con nodos distribuidos sí es entregable de tranche-3. La autonomía con presupuesto constitucional protegido se evalúa al cierre de tranche-3.
+
+federalización radical. Siete nodos distribuidos con hash criptográfico. Ningún gobierno tiene control sobre los siete. La gobernanza de tranche-3 es una **execution cell** (Comisión Asesora Interministerial de Memoria) con consejo plural rotativo y auditoría externa; la conversión a Agencia autárquica con presupuesto protegido se evalúa al cierre de tranche-3 si los pilotos cumplen métricas. El archivo es, por arquitectura técnica y jurídica, resistente al borrado selectivo.
 
 **Riesgo residual:** ataque técnico coordinado podría comprometer varios nodos simultáneamente. Mitigación: nodos en jurisdicciones distintas (provincial, universitario, cooperativo internacional) con diversidad tecnológica.
 
@@ -620,11 +624,13 @@ Esta sección documenta cómo PLANMEMORIA se acopla al resto del ecosistema de m
 
 ### 8.3 Financiamiento
 
-**Fase inicial (Año 1-3):** Presupuesto público + convenios universidades + convenios con organizaciones memoriales existentes (ENM, Abuelas, sitios).
+> **REVISIÓN 2026-04-28:** las fechas se reescriben como ventanas absolutas alineadas con tranches. "Presupuesto constitucional protegido" se difiere a tranche-3+ con cláusula explícita; en tranche-3 inicial el financiamiento es por reasignación + convenios + presupuesto operativo, no constitucionalizado.
 
-**Fase consolidación (Año 4-7):** Presupuesto constitucional + aportes provinciales + fondo cultural Iberoamericano.
+**Fase inicial (tranche-3 inicial, ventana 2030-2033):** Presupuesto público + convenios universidades + convenios con organizaciones memoriales existentes (ENM, Abuelas, sitios).
 
-**Régimen pleno (Año 8+):** Presupuesto constitucional protegido.
+**Fase consolidación (tranche-3+, ventana 2033-2037, condicional):** Presupuesto operativo estable + aportes provinciales + fondo cultural Iberoamericano.
+
+**Régimen pleno (post-2037, condicional a 24m de prueba):** Presupuesto constitucional protegido **(diferida a evaluación al cierre de tranche-3+; reforma constitucional fuera del horizonte de la remediación 2026-04-26)**.
 
 ---
 
@@ -710,20 +716,22 @@ Van a tenerla. Podrán ignorarla, releerla, reinterpretarla. Pero no podrán dec
 
 ### 11.1 Cronograma
 
-**Año 1:**
-- Ley de ANM.
+> **REVISIÓN 2026-04-28:** PLANMEMORIA es **tranche-3** (entrada a piloto al mes 48+, ventana absoluta 2030+). El cronograma original "Año 1/2/3" se reescribe como tres etapas dentro del tranche-3 inicial.
+
+**Etapa M1 — Tranche-3 inicial (2030-2031):**
+- Marco legal de Comisión Asesora de Memoria (decreto, no ley constitucional).
 - Protocolo Memorial v1.0.
 - Infraestructura base (2 nodos iniciales).
 - Primeros 300 Síndicos.
 - Piloto de Bastón Memorial en 20 escuelas.
 
-**Año 2:**
+**Etapa M2 — Tranche-3 consolidación (2031-2032):**
 - 7 nodos operativos (arquitectura federada completa).
 - 2.000 Síndicos.
 - Bastón Memorial en 200 escuelas.
 - Primeros 10.000 Testimonios de los 60.
 
-**Año 3:**
+**Etapa M3 — Tranche-3 maduración (2032-2033):**
 - Protocolo v2.0 con aprendizajes.
 - Bastón Memorial como política nacional.
 - Integración plena con Mesa Civil.
