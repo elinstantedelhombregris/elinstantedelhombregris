@@ -430,3 +430,39 @@ Insumo de ejecución para el plan `SocialJusticeHub/docs/superpowers/plans/2026-
 **Lo que NO se hizo:** §IV stays at four reasons. §VIII (Argument Against the Argument) intact. §IX-X intact.
 
 **Flags:** ninguno.
+
+---
+
+### Fase 2 — Ensayo 04 delta — 2026-04-29
+
+**Inglés (`Ensayos/04-arquitectura.md`):**
+
+- §V (El stack de capacidades cívicas) — REESCRITO. Las seis capacidades (Identidad, Deliberación, Decisión, Memoria, Comunicación, Educación) reescritas como herramientas concretas, propiedad de los ciudadanos, resistentes a captura por diseño de protocolo:
+  - **Identidad** — "una llave que el ciudadano lleva, no un permiso que una plataforma le concede". Portable entre jurisdicciones; protocolo gobernado por la ciudadanía, no contratado.
+  - **Deliberación** — sostiene argumento largo, hace aflorar disenso, envejece bien, premia el pensar; con rechazo deliberado de las métricas de enganche.
+  - **Decisión** — sorteo, delegación líquida, presupuesto participativo a escala de barrio, presupuesto transparente a escala de federación; herramientas manejables por los ciudadanos, no mediadas por plataforma.
+  - **Memoria** — archivos que ningún gobierno futuro, ningún directorio futuro, ninguna guerra futura puedan borrar; federada, en muchas manos, resistente al borrado por propiedad del protocolo.
+  - **Comunicación** — federada, propiedad ciudadana, libre de algoritmos de recomendación afinados para indignación; "discurso que sobrevive sin premiar la furia".
+  - **Educación** — sin cambios mayores; agregado "materiales abiertos y revisables por los ciudadanos cuyos hijos los van a estudiar".
+- §V cierre — agregado un párrafo extenso de urgencia sobria al final: las capacidades no son extras opcionales; el mundo ya tiene infraestructuras construidas por actores con intereses que no son los nuestros; las alternativas tienen que construirse ahora, mientras la ciudadanía tiene literacy, cultural memory, institutional space; los ciudadanos que construyen ahora fijan la arquitectura del próximo siglo, los que esperan heredan lo que otros construyeron. Reconocimiento de bifurcar/federar/inventar como mismo trabajo (Q4).
+- §I párrafo de cambio de registro (captura de permisos no de sustancias) — preservado intacto. Ya estaba bien instalado en Fase 1.
+- §III Layer Five — preservado intacto. Las tres oraciones de cierre ya cumplían la decisión Fase 1 §VII.
+- §IV Sortition — preservado. "They are far harder to capture by donors" ya era la formulación softeneada (no "cannot be captured"); decisión Fase 1 §III tensión #2 ya aplicada.
+- §VI mecanismos anti-captura — preservados intactos. La urgencia ya está absorbida en el nuevo cierre de §V; agregar más en §VI corría el riesgo de manifesto-tone.
+- §VII Phases of Construction — preservado. La urgencia se siente desde §V hacia adelante sin tener que decirse otra vez.
+- §IX (lo que el ensayo no resuelve) — preservado intacto. Las cuatro deudas ya están direccionadas con sus principios mínimos (decisión Fase 1).
+- §X-XI — preservados intactos.
+
+**Castellano (`Ensayos/castellano/04-arquitectura.md`):**
+
+- Las seis capacidades reescritas en sense-translate rioplatense.
+- "una llave que el ciudadano lleva" — la imagen castellana sostiene mejor que el inglés.
+- "Discurso que sobrevive sin premiar la furia" — la cadencia castellana es más sonora que el original.
+- El párrafo de urgencia al cierre de §V — sostiene el ritmo. Vos sostenido en todo el texto.
+- "ciudadanía inerte como equilibrio que prefieren" — eco con §VI de 02 democracia, simétrico cross-essay.
+
+**Lo que se preservó:** §I, §II, §III, §IV, §VI, §VII, §VIII, §IX, §X, §XI, Cartografía, footnote ¡BASTA! — todo intacto. La intervención principal vivió íntegramente en §V.
+
+**Lo que NO se hizo:** la sobre-enumeración (5 capas, 3 roles, 6 capacidades, 8 mecanismos, 4 fases) NO fue aliviada en prosa, según restricción Fase 1 ("**No tocar sin autorización explícita**"). Se mantuvo el formato enumerado.
+
+**Flags:** ninguno. La voz se sostiene a través de la reescritura de §V; la urgencia se instala donde corresponde; los huesos se mantienen.
