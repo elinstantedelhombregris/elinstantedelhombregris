@@ -1418,15 +1418,15 @@ PLANSAL mide vitalidad. Mide lo que el sistema *produce*, no lo que el sistema *
 | Salud mental | Personas con depresión diagnosticada | ~5M [est.] | ~3,5M (-30%) |
 | Alimentación | Consumo de ultraprocesados (% calorías) | >30% [est.] | <15% (-50%) |
 | Familia | Conflicto familiar como fuente de estrés | ~65% [est.] | ~39% (-40%) |
-| Comunidad | Índice de soledad percibida | [línea base a establecer Año 1] | -50% |
-| Adicciones | Consumo problemático de sustancias | [línea base a establecer Año 1] | -35% |
+| Comunidad | Índice de soledad percibida | [línea base a establecer en tranche-1 (2026-2027)] | -50% |
+| Adicciones | Consumo problemático de sustancias | [línea base a establecer en tranche-1 (2026-2027)] | -35% |
 | Movimiento | Sedentarismo en adultos | ~64,9% (ENFR 2018) | ~39% (-40%) |
-| Sistema médico | Consultas por enfermedad crónica prevenible | [línea base a establecer Año 1] | -60% |
-| Gasto | Gasto en medicamentos crónicos per cápita | [línea base a establecer Año 1] | -50% |
+| Sistema médico | Consultas por enfermedad crónica prevenible | [línea base a establecer en tranche-1 (2026-2027)] | -60% |
+| Gasto | Gasto en medicamentos crónicos per cápita | [línea base a establecer en tranche-1 (2026-2027)] | -50% |
 | Satisfacción | Satisfacción ciudadana con la salud propia | <40% [est.] | >70% |
 | Cobertura Centros | Barrios con Centro de Vitalidad operativo | 0 | 80% |
 | Cobertura Familias | Familias con acceso a Familia Mentora | 0 | 80% |
-| Primeros 1.000 días | Tasa de parto respetado | [línea base a establecer Año 1] | >70% |
+| Primeros 1.000 días | Tasa de parto respetado | [línea base a establecer en tranche-1 (2026-2027)] | >70% |
 | Primeros 1.000 días | Lactancia materna exclusiva hasta 6 meses | ~40% [est.] | >60% |
 | Ancianos | Adultos mayores integrados en programas comunitarios | ~5% [est.] | >50% |
 
@@ -2147,7 +2147,11 @@ Agua limpia es la intervención preventiva más barata y más potente que existe
 
 ### 21.7 PLANSAL × PLANDIG: El Cuerpo Soberano en la Nube Soberana
 
-La plataforma de autodiagnóstico de PLANSAL, la historia clínica digital única y la telemedicina rural corren sobre infraestructura soberana de PLANDIG — ArgenCloud, no Amazon. Los datos de salud de 47 millones de argentinos se almacenan en suelo argentino, bajo jurisdicción argentina. La IA que detecta patrones tempranos de diabetes o depresión en datos poblacionales existe porque PLANDIG provee capacidad de cómputo nacional. Sin soberanía digital, los datos del cuerpo argentino son propiedad de corporaciones extranjeras.
+> **REVISIÓN 2026-04-28:** ArgenCloud + IA poblacional son **capacidades del estadio B de PLANDIG**, diferidas a tranche-3+ con condiciones duras (ver `PLANDIG_ESTADIOS_INTERNOS.md`). En tranche-1, PLANSAL opera con capacidades del estadio A: HCE básica + identidad-lite + audit logs + datos abiertos básicos, **sin ArgenCloud a escala ni IA generativa**. Los párrafos abajo describen el horizonte 2040; el compromiso operativo de tranche-1 es la versión mínima.
+
+En el horizonte 2040 (estadio B de PLANDIG activado): la plataforma de autodiagnóstico de PLANSAL, la historia clínica digital única y la telemedicina rural correrían sobre infraestructura soberana de PLANDIG — ArgenCloud, no Amazon. Los datos de salud de 47 millones de argentinos se almacenarían en suelo argentino, bajo jurisdicción argentina. La IA que detecta patrones tempranos de diabetes o depresión en datos poblacionales existiría porque PLANDIG proveería capacidad de cómputo nacional. Sin soberanía digital, los datos del cuerpo argentino son propiedad de corporaciones extranjeras — esta es la motivación del estadio B; su activación requiere las 6 condiciones documentadas.
+
+**En tranche-1 (estadio A de PLANDIG):** HCE básica para los 5.000 centros piloto, sin ArgenCloud; telemedicina sólo donde haya conectividad probada; datos cifrados en reposo y tránsito con stack open source; sin IA poblacional. La plataforma de autodiagnóstico se difiere al estadio B.
 
 ### 21.8 PLANSAL × PLANGEO: La Vitalidad como Producto Exportable
 

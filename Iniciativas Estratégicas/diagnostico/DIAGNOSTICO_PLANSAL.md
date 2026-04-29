@@ -16,18 +16,10 @@ Source: `PLANSAL_Argentina_ES.md`
 ```
 
 ## Patrón 4 — Capacidades estadio B PLANDIG en tranche-1/2
-```
-2150:La plataforma de autodiagnóstico de PLANSAL, la historia clínica digital única y la telemedicina rural corren sobre infraestructura soberana de PLANDIG — ArgenCloud, no Amazon. Los datos de salud de 47 millones de argentinos se almacenan en suelo argentino, bajo jurisdicción argentina. La IA que detecta patrones tempranos de diabetes o depresión en datos poblacionales existe porque PLANDIG provee capacidad de cómputo nacional. Sin soberanía digital, los datos del cuerpo argentino son propiedad de corporaciones extranjeras.
-```
+(no findings)
 
 ## Patrón 6 — Fechas relativas (Año X) en cronograma
-```
-1421:| Comunidad | Índice de soledad percibida | [línea base a establecer Año 1] | -50% |
-1422:| Adicciones | Consumo problemático de sustancias | [línea base a establecer Año 1] | -35% |
-1424:| Sistema médico | Consultas por enfermedad crónica prevenible | [línea base a establecer Año 1] | -60% |
-1425:| Gasto | Gasto en medicamentos crónicos per cápita | [línea base a establecer Año 1] | -50% |
-1429:| Primeros 1.000 días | Tasa de parto respetado | [línea base a establecer Año 1] | >70% |
-```
+(no findings)
 
 ## Patrón 7 — Sortición sin justificación de oversight
 (no findings)
@@ -35,4 +27,4 @@ Source: `PLANSAL_Argentina_ES.md`
 ## Patrón 8 — Lenguaje místico/espiritual en sección de plataforma pública
 (no findings)
 
-## Total findings: 7
+## Total findings: 1
