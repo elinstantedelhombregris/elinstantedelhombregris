@@ -44,6 +44,8 @@
 > **Presupuesto canónico:** 1.2B/año + 3.5B inv 24m — fuentes: F02 (BID), F03 (bonos largos). **Future returns prohibidos como fuente activa de tranche-1.**
 >
 > **Instrumento legal:** LMV-01. Reformas constitucionales **diferidas a horizonte 2040** por defecto.
+>
+> **REFORMAS CONSTITUCIONALES DE PLANAGUA — ESTADO POST-AUDITORÍA 2026-04-26:** este PLAN propone en su cuerpo varias reformas constitucionales (Presupuesto Mínimo Hídrico 0.15% PBI, Derecho de Primer Trago, Personería Jurídica de Ríos y Acuíferos, Constitucionalización del Derecho al Agua). **TODAS estas reformas constitucionales están diferidas a horizonte 2040+ (Visión, no compromiso operativo de remediación).** En tranche-1/2/3, PLANAGUA opera con: (a) decreto LMV-01 + ley ordinaria, (b) ANAGUA como execution cell en MinAmbiente con presupuesto operativo (no constitucional), (c) protección de ríos/acuíferos vía leyes ambientales existentes + adhesión provincial. Cuerpo del PLAN preserva la propuesta constitucional como aspiración de largo plazo; los compromisos de tranche-1/2/3 NO incluyen reforma constitucional.
 
 ---
 
