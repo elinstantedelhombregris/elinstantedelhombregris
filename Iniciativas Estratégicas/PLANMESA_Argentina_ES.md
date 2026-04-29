@@ -769,9 +769,9 @@ El sistema PLANMESA tiene cuatro componentes de costo:
 
 **C4 — Dietas de Secretarios Técnicos y personal de apoyo.**
 
-### 8.2 Proyección de Costos — Escala Plena
+### 8.2 Proyección de Costos — Escala Plena (Horizonte 2040, Visión)
 
-**TABLA 8.2: Proyección de Costo Anual — Escala Plena (Año 7+)**
+**TABLA 8.2: Proyección de Costo Anual — Escala Plena (Horizonte 2040, Visión, no compromiso operativo)**
 
 | Componente | Supuesto | Monto estimado |
 |---|---|---|
@@ -817,7 +817,7 @@ ROI estimado: entre 10:1 y 25:1 en horizonte 15 años sobre la inversión de ré
 
 > *"Las Mesas no van a activarse todas el mismo día. Las primeras son las que tienen señal acumulada más clara, Credencial disponible en territorio, e iniciativas del Arquitecto listas para pilotear."*
 
-### 9.1 Mesas de Primera Ola (Año 1-2)
+### 9.1 Mesas de Primera Ola (Tranche-2 inicial, 2028-2030)
 
 **Mesa de Agua y Saneamiento** — se activa en territorios críticos (Matanza-Riachuelo, Reconquista, provincias del NOA con cuencas degradadas).
 
@@ -831,7 +831,7 @@ ROI estimado: entre 10:1 y 25:1 en horizonte 15 años sobre la inversión de ré
 
 **Mesa de Cuidado de Mayores** — se activa en territorios con densidad alta de adultos mayores y Credencial de Vínculo disponible.
 
-### 9.2 Mesas de Segunda Ola (Año 3-4)
+### 9.2 Mesas de Segunda Ola (Tranche-2 consolidación a Tranche-3 entrada, 2030-2032)
 
 **Mesa de Producción Local** — articulación con PLANEB, PLANTALLER.
 
@@ -845,7 +845,7 @@ ROI estimado: entre 10:1 y 25:1 en horizonte 15 años sobre la inversión de ré
 
 **Mesa de Movilidad y Transporte Urbano.**
 
-### 9.3 Mesas de Tercera Ola (Año 5+)
+### 9.3 Mesas de Tercera Ola (Tranche-3 maduración, 2032+)
 
 **Mesa de Política Monetaria y Fiscal** — alta sensibilidad, requiere Credencial consolidada ampliamente.
 
@@ -924,33 +924,36 @@ Múltiples filtros concurrentes: composición plural obligatoria, rotación entr
 
 ### 11.1 Cronograma Maestro
 
-**Año 1 (Fase de Fundamentos):**
-- Trimestre 1: Ley de creación de la AMCC. Protocolo inicial versión 1.0. Plataforma base.
-- Trimestre 2: Infraestructura técnica: Credencial de Materia, Cédula Civil en plataforma. Formación de AMCC (directorio).
-- Trimestre 3: Pilotos de Credencial en 3 materias seleccionadas. Apertura de formación pública para Capa de Estudio.
-- Trimestre 4: Primeras 6 Mesas Piloto Territoriales. Primer ciclo LDEA completado en cada una.
+> **REVISIÓN 2026-04-28:** PLANMESA es **tranche-2** (entrada 24-30m, ventana absoluta 2028-2030). El cronograma original "Año 1-6+" se reescribe como etapas dentro de tranche-2 + tranche-3. **PLANMESA no sustituye al Congreso ni al PEO** — es consulta, no decisión vinculante. **Presupuesto constitucional + régimen pleno con 2.000+ Mesas → diferidos a horizonte 2040 (Visión, no compromiso operativo de remediación 2026-04-26).**
 
-**Año 2 (Fase de Escalamiento Inicial):**
+**Tranche-2 inicial — Fase de Fundamentos (2028-2030):**
+- Decreto + ley ordinaria de marco AMCC piloto (sin agencia autárquica). Protocolo v1.0. Plataforma base sobre estadio A de PLANDIG.
+- Credencial de Materia, Cédula Civil en plataforma. Formación de directorio AMCC (execution cell).
+- Pilotos de Credencial en 3 materias seleccionadas.
+- Primeras 6 Mesas Piloto Territoriales. Primer ciclo LDEA completado.
+
+**Tranche-2 consolidación — Fase de Escalamiento Inicial (2030-2032):**
 - 40 Mesas activas en 8 provincias piloto.
-- Protocolo refinado a versión 2.0 con aprendizaje de pilotos.
+- Protocolo v2.0 con aprendizaje de pilotos.
 - Primera Mesa Federal piloto (materia: Infancia y Niñez Crítica).
 - Primera Mesa de Síntesis Intermateria.
 
-**Año 3 (Fase de Maduración):**
+**Tranche-3 entrada — Fase de Maduración (2032-2034, condicional a tranche-2 cerrado):**
 - 200 Mesas activas en todas las provincias.
 - Cobertura completa de las materias de primera ola.
-- Presupuesto constitucional aprobado.
-- Primera revisión externa del sistema (Mesa de Arquitectura del Sistema LDEA).
+- Presupuesto operativo estable (NO constitucional).
+- Primera revisión externa del sistema.
 
-**Años 4-5 (Fase de Régimen):**
+**Tranche-3 maduración (2034-2036):**
 - 800-1.200 Mesas activas.
 - Segunda ola de materias activada.
 - Mesas transversales permanentes operando.
 - Integración con PLANMEMORIA completa.
 
-**Año 6+ (Régimen pleno):**
+**Horizonte 2040 (Visión, NO compromiso operativo de remediación):**
 - 2.000-2.500 Mesas activas a escala nacional.
 - Tercera ola de materias activada.
+- Presupuesto constitucional consolidado (diferido).
 - Sistema auto-revisante con Mesa de Arquitectura operando continuo.
 
 ### 11.2 Lo Que No Sabemos Todavía
@@ -1019,7 +1022,7 @@ Tipo de convenio escalable:
 
 ### 14.3 Provincias Piloto
 
-Criterio de selección de las primeras 8 provincias piloto (Año 2):
+Criterio de selección de las primeras 8 provincias piloto (tranche-2 consolidación, ventana 2030-2032):
 
 - Densidad de usuarios activos en plataforma ¡BASTA!.
 - Diversidad demográfica (una del NEA, una del NOA, una cuyana, una bonaerense, una patagónica, una de litoral, CABA, y una intermedia).

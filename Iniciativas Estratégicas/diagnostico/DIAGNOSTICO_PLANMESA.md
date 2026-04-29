@@ -19,17 +19,7 @@ Source: `PLANMESA_Argentina_ES.md`
 (no findings)
 
 ## Patrón 6 — Fechas relativas (Año X) en cronograma
-```
-774:**TABLA 8.2: Proyección de Costo Anual — Escala Plena (Año 7+)**
-820:### 9.1 Mesas de Primera Ola (Año 1-2)
-834:### 9.2 Mesas de Segunda Ola (Año 3-4)
-848:### 9.3 Mesas de Tercera Ola (Año 5+)
-927:**Año 1 (Fase de Fundamentos):**
-933:**Año 2 (Fase de Escalamiento Inicial):**
-939:**Año 3 (Fase de Maduración):**
-951:**Año 6+ (Régimen pleno):**
-1022:Criterio de selección de las primeras 8 provincias piloto (Año 2):
-```
+(no findings)
 
 ## Patrón 7 — Sortición sin justificación de oversight
 ```
@@ -39,4 +29,4 @@ Source: `PLANMESA_Argentina_ES.md`
 ## Patrón 8 — Lenguaje místico/espiritual en sección de plataforma pública
 (no findings)
 
-## Total findings: 11
+## Total findings: 2

@@ -783,12 +783,14 @@ Veinticinco mil personas poniendo entre USD 320 y USD 680 cada una. No son inver
 
 **TABLA 13: Bastarda Aseguradora — Proyección por Fase**
 
+> **REVISIÓN 2026-04-28:** PLANEB es **tranche-1** con cap **1-2 Bastardas piloto** (medicamentos genéricos como sugerida; aseguradora opcional). El "Año 5: Escala" se reformula como **horizonte 2040 (Visión, no compromiso operativo de remediación)**. Las cifras de la tabla son proyecciones estimadas; las metas de tranche-1 son las del piloto, no las del régimen pleno.
+
 | Fase | Usuarios | Producto | Ingreso Anual (al costo) | Costo Anual | Ahorro vs. Mercado (por usuario/año) |
 |---|---|---|---|---|---|
-| **Año 1: Auto Simple** | 10.000 | Resp. civil automotor | USD 6-8M | USD 6-8M | USD 150-300 |
-| **Año 2: Expansión** | 30.000 | Auto + Hogar + Micro | USD 20-30M | USD 20-30M | USD 200-400 |
-| **Año 3: Multi-producto** | 50.000 | Todo lo anterior + Vida | USD 30-50M | USD 30-50M | USD 250-500 |
-| **Año 5: Escala** | 200.000 | Espectro completo | USD 120-200M | USD 120-200M | USD 300-600 |
+| **Tranche-1 inicial (2026-2027): Auto Simple** | 10.000 | Resp. civil automotor | USD 6-8M | USD 6-8M | USD 150-300 |
+| **Tranche-1 consolidación (2027-2028): Expansión** | 30.000 | Auto + Hogar + Micro | USD 20-30M | USD 20-30M | USD 200-400 |
+| **Tranche-2 entrada (2028-2030): Multi-producto** | 50.000 | Todo lo anterior + Vida | USD 30-50M | USD 30-50M | USD 250-500 |
+| **Horizonte 2040 (Visión, no compromiso operativo): Escala** | 200.000 | Espectro completo | USD 120-200M | USD 120-200M | USD 300-600 |
 
 **Nota fundamental:** En una Empresa Bastarda, "ingreso" y "costo" son el mismo número. No hay margen. No hay ganancia. El ingreso es exactamente lo que se necesita para cubrir el costo. Si al final del año hay un excedente, se devuelve como menor cuota. Si hay un déficit, se cubre con reservas o se ajusta la cuota.
 
@@ -796,9 +798,9 @@ Veinticinco mil personas poniendo entre USD 320 y USD 680 cada una. No son inver
 
 PLANEB no genera retorno financiero. No hay inversores que esperen dividendos. Pero genera un retorno social masivo y cuantificable:
 
-**TABLA 14: Retorno Social de la Red Bastarda — Proyección a 5 Años**
+**TABLA 14: Retorno Social de la Red Bastarda — Proyección a horizonte 2040**
 
-| Métrica | Año 1 | Año 3 | Año 5 |
+| Métrica | Tranche-1 inicial (2027) | Tranche-2 entrada (2030) | Horizonte 2040 (Visión, no compromiso) |
 |---|---|---|---|
 | Usuarios en la Red (todas las Bastardas) | 10.000 | 80.000 | 300.000+ |
 | Ahorro promedio por usuario vs. mercado | USD 150-300/año | USD 200-500/año | USD 300-600/año |
@@ -1172,7 +1174,7 @@ Las siete disposiciones de arriba son principios. Pero un principio sin articula
 | **Cap. IV — Régimen Fiscal** | Exención de impuesto a las ganancias (no hay base imponible), IVA reducido para servicios esenciales al costo, contribuciones patronales estándar | 27-32 |
 | **Cap. V — Régimen Regulatorio** | Vía simplificada de habilitación ante SSN/BCRA/ENACOM/ENRE para EPPs que cumplan estándares de transparencia del Protocolo Bastardo | 33-38 |
 | **Cap. VI — Protección contra Conversión** | Nulidad absoluta de conversión de EPP a entidad con fines de lucro, prohibición de distribución de patrimonio, cláusula de "muerte digna" | 39-42 |
-| **Cap. VII — ANEB** | Creación legal del ente autárquico, competencias, presupuesto protegido, directorio por sorteo y representación técnica | 43-50 |
+| **Cap. VII — ANEB** | En tranche-1: creación de **execution cell en MinProducción** con marco contable transparente (LMV-06). Conversión a ente autárquico con presupuesto protegido, directorio por sorteo y representación técnica **diferida a tranche-2/3 condicional** (24m de prueba con ≥ 1 Bastarda viva, según `TABLA_AGENCIAS_BASTA.md`). Reforma constitucional con piso presupuestario diferida a horizonte 2040. | 43-50 |
 | **Cap. VIII — Disposiciones Transitorias** | Adaptación de Bastardas existentes (constituidas como fideicomisos) al nuevo régimen, plazo de 24 meses | 51-55 |
 
 Algunos capítulos merecen aclaración. El Capítulo III es el corazón ideológico: establece que una votación verificada on-chain tiene la misma validez legal que una resolución de asamblea de accionistas. Esto no tiene precedente en el derecho argentino. El articulado deberá resolver cuestiones de identidad (¿cómo se verifica que un voto on-chain corresponde a una persona real?), de impugnación (¿cómo se cuestiona una decisión tomada por smart contract?), y de integración con el sistema judicial existente. El Capítulo VI incluye la cláusula de "muerte digna" — si una EPP no puede continuar operando, su patrimonio se transfiere al Fondo de Solidaridad Bastarda o a otra EPP del mismo sector, jamás a manos privadas. No hay liquidación con reparto de remanente. La entidad nace sin dueño y muere sin heredero.
@@ -1500,16 +1502,18 @@ Las crisis van a llegar. Lo que importa no es evitarlas — es cómo respondés.
 
 ### 18.1 Cronograma
 
-**TABLA 26: Hoja de Ruta de PLANEB — 5 Años**
+**TABLA 26: Hoja de Ruta de PLANEB**
 
-| Año | Hito Principal | Bastardas Activas | Usuarios Estimados |
+> **REVISIÓN 2026-04-28:** PLANEB es **tranche-1** (entrada 12-24m, ventana 2026-2028). Cap **1-2 Bastardas piloto**. El cronograma original "Año 0-5" se reescribe como etapas de tranche-1 + tranche-2/3 + horizonte 2040. **Red Bastarda con 5+ Bastardas + Ley EPP en Congreso → diferidos a horizonte 2040 (Visión, no compromiso operativo)**. Marco contable LMV-06 es la única ley de tranche-1.
+
+| Etapa | Hito Principal | Bastardas Activas | Usuarios Estimados |
 |---|---|---|---|
-| **Año 0** | PLANEB publicado. Formación de la ANEB. Desarrollo del Protocolo Bastardo v1.0. Petición de la Bastarda Aseguradora. | 0 | 0 (25.000 firmantes) |
-| **Año 1** | Bastarda Aseguradora constituida, piloto, lanzamiento público (auto RC). | 1 | 10.000 |
-| **Año 2** | Bastarda Aseguradora en expansión (multi-producto). Petición de Bastarda Financiera alcanza 25.000 firmas. | 1 | 30.000 |
-| **Año 3** | Bastarda Financiera en piloto. Bastarda Conectada en petición. Bastarda Aseguradora consolida. | 2 | 80.000 |
-| **Año 4** | Bastarda Conectada + Bastarda Energética en estudio/constitución. Primera ciudad PLAN24CN con servicios Bastardos. | 3-4 | 150.000 |
-| **Año 5** | Red Bastarda con 5+ Bastardas activas. Ahorro ciudadano >USD 100M/año. Proyecto de Ley de EPP en Congreso. | 5+ | 300.000+ |
+| **Pre-tranche-1 (2026-Q2)** | PLANEB publicado. Execution cell ANEB en MinProducción. Marco contable LMV-06 publicado. | 0 | 25.000 firmantes |
+| **Tranche-1 inicial (2026-2027)** | 1 Bastarda piloto (medicamentos genéricos esenciales OR aseguradora) constituida, marco contable transparente. | 1 | 10.000 |
+| **Tranche-1 consolidación (2027-2028)** | 1-2 Bastardas piloto operando con costos públicos. Evaluación de cierre tranche-1. | 1-2 | 30.000 |
+| **Tranche-2 entrada (2028-2030, condicional a tranche-1 cerrado)** | Promoción a sistema. Posible 2da Bastarda. | 2 | 80.000 |
+| **Tranche-3 (2030-2034, condicional)** | Bastarda Financiera, Energética en estudio. Coordinación con PLAN24CN diferida. | 2-3 | 150.000 |
+| **Horizonte 2040 (Visión, NO compromiso operativo)** | Red Bastarda con 5+ Bastardas activas. Ley sistema EPP en Congreso (diferida). | 5+ | 300.000+ |
 
 ### 18.2 Lo Que No Sabemos
 
