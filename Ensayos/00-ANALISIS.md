@@ -381,3 +381,30 @@ Insumo de ejecución para el plan `SocialJusticeHub/docs/superpowers/plans/2026-
 **Lo que NO se hizo:** ningún cambio estructural. Sin nuevas secciones, sin secciones eliminadas. Las secciones existentes carga el contenido nuevo donde corresponde.
 
 **Flags:** ninguno. La voz se sostiene a través de la reescritura de VI, que era el riesgo principal.
+
+---
+
+### Fase 2 — Ensayo 02 delta — 2026-04-29
+
+**Inglés (`Ensayos/02-democracia.md`):**
+
+- §VI (Espejo argentino) — agregado un tercer párrafo que absorbe el registro del sistema nervioso secuestrado aplicado al frame democrático: cuatro décadas de elecciones produjeron una clase electoral pero nunca la arquitectura del autogobierno. Los cuartos detrás de la silla se llenaron de infraestructuras que no respondían a los ciudadanos, sino a intereses para quienes "una ciudadanía inerte es el equilibrio que prefieren". Cierra la simetría con el §IV de 01.
+- §VI — "forty-three years" → "more than four decades" en la segunda aparición, manteniendo el ancla histórica original en la primera (decisión #6 Fase 1).
+- §VIII — agregado un párrafo entre las cinco subsecciones (sortition, subsidiariedad, delegación líquida, deliberación, anti-captura) y el cierre actual: las cinco no son propuestas de política compitiendo por atención, son cinco componentes de una sola arquitectura — sorteo el cuerpo que decide, subsidiariedad la escala donde decide, delegación líquida el mecanismo por el que la voz fluye, deliberación la sustancia, anti-captura el sistema inmune. "Cinco órganos de un mismo cuerpo que todavía nadie tuvo permiso de armar entero." Cierre del §VIII actualizado para sostener la pregunta de urgencia ("la pregunta es si la vamos a construir nosotros o si la van a construir intereses para quienes una ciudadanía inerte es más rentable, antes de que lleguemos").
+- §VIII — la oración "Voting is the last and least important step of democracy" eliminada para resolver la oscilación que el análisis Fase 1 §III tensión #3 marcó. La declaración "Voting is necessary and radically insufficient" queda como única postura sobre el voto. La frase "Deliberation is the heart of democracy" mantiene la jerarquía sin la formulación que minimizaba el voto.
+- §IX — agregada una oración cerca del cierre que reconoce que la mayor parte de la construcción es bifurcar lo que ya funciona en otros lados, no invención heroica de cero (Q4). "La obra está medio hecha en cincuenta lugares, y las piezas, en algún momento, van a tener que hablarse."
+- Cartografía — actualizado el bullet PLANDIG para reflejar el "cinco componentes de una sola arquitectura" del nuevo cierre §VIII.
+
+**Castellano (`Ensayos/castellano/02-democracia.md`):**
+
+- Reescritura sense-by-sense de los pasajes nuevos.
+- §VI — "Más de cuatro décadas de democracia que no entregó autogobierno" — la cadencia castellana suena más natural que la traducción literal del inglés.
+- §VIII — la imagen anatómica ("cinco órganos de un mismo cuerpo") rinde con mayor sonoridad en castellano. Se mantuvo.
+- §IX — "La obra es grande. También está medio hecha en cincuenta lugares, y las piezas, en algún momento, van a tener que hablarse." Mantiene el ritmo del inglés con sintaxis castellana.
+- Vos sostenido en todo el texto.
+
+**Lo que se preservó:** I, II, III, IV, V, VII, X íntegros. Los huesos de la argumentación se sostienen.
+
+**Lo que NO se hizo:** sin cambios estructurales. Las cinco subsecciones de §VIII permanecen en su orden y formato. El cierre del ensayo (§X) intacto.
+
+**Flags:** ninguno.
