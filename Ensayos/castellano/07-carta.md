@@ -63,6 +63,14 @@ Estás leyendo esta carta porque ellos se rehusaron. *Esa es toda la historia.*
 
 * * *
 
+Hay una cosa de esos años que quiero que sepas, porque para cuando leas esto va a sonar a historia y en su momento era todo lo contrario. El país en el que vivís estuvo a punto de no ser posible. Los archivos que guardan lo que sabemos sobre nosotros mismos casi quedan en lugares que no eran nuestros, en manos de gente que tenía todo el derecho a cerrarlos. Las credenciales por las que un ciudadano era ciudadano casi quedan reducidas a permisos que una empresa extranjera podía revocar sin explicación. Las deliberaciones de un continente entero estaban corriendo sobre sistemas diseñados para mantenernos enojados, y los sistemas que estaban empezando a pensar por nosotros ya estaban siendo entrenados, con paciencia, sobre valores que no eran nuestros y con datos que no consentimos entregar.
+
+Construimos las catedrales del tiempo cívico a tiempo. Estuvo cerca. *El estar a tiempo era el trabajo* — el trabajo de cada cocina que se volvió red y de cada red que se volvió federación, mientras intereses con razones de peso para mantenernos inertes corrían a instalar su propia arquitectura en el espacio vacío que las democracias nuestras estaban dejando. No los frenamos por la fuerza. Construimos antes de que terminaran ellos. La generación que sigue va a enfrentar su propia versión de la misma carrera, con actores distintos y la misma lógica. El trabajo del estar a tiempo va a ser tuyo.
+
+Esa es la parte de la historia que los ensayos todavía no sabían. Para cuando estoy escribiendo esto, ya la sabemos. Te la pongo por escrito para que vos también la sepas, y para que sepas, cuando empiece tu propia versión de la carrera, que la gente que construyó el país en el que vivís ganó la suya no por ser heroica sino por haber llegado temprano.
+
+* * *
+
 Quiero dejarte, de mí, seis cosas chicas. Son las cosas que aprendí que los ensayos no decían, porque los ensayos se escribieron antes de que yo hubiera vivido lo suficiente como para saberlas.
 
 **La primera es el mate.** No el mate como bebida — eso lo vas a saber — sino el mate como disciplina. Cómo pasa el mate. Cómo esperás. Cómo dejás que el agua caliente haga lo que hace. El mate te enseña qué se siente realmente la democracia. Hay un cebador a la vez, y todos en la ronda esperan, y la espera no es impaciente porque el mate va a volver. Una ronda de mate es la asamblea funcional más chica de la historia humana. Prestale atención. Casi todo lo que necesitás saber sobre cómo estar con otros está en el mate.
@@ -112,6 +120,8 @@ Acá van las palabras.
 > *La cosa que llamaron poder fue siempre un permiso. El permiso fue nuestro desde el principio. Lo recuperamos no apropiándonos de nada, sino dejando de darlo.*
 >
 > *La arquitectura es nuestra. No la heredamos. La construimos. Donde se queda corta, la vamos a volver a construir, en formas mejores. Donde se sostiene, la vamos a custodiar para los que todavía no nacieron.*
+>
+> *Las herramientas no nos las dieron. Las construimos — los protocolos y los archivos, las catedrales del tiempo cívico — en los años en los que la elección era construirlas o ser construidos en contra. Elegimos construir, a tiempo.*
 >
 > *La fuente somos nosotros. Siempre fuimos nosotros. Cada régimen que nos gobernó gobernó porque acordamos. Cada régimen que terminó terminó porque dejamos de acordar. El acuerdo y el final son los únicos soberanos verdaderos.*
 >

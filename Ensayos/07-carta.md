@@ -63,6 +63,14 @@ You are reading this letter because they refused. *That is the whole story.*
 
 * * *
 
+There is one thing about those years I want you to know, because by the time you read this it will sound like history and at the time it was anything but. The country you live in came close to not being possible. The archives that hold what we know about ourselves were nearly held in places we did not own, by people who had every right to close them. The credentials by which a citizen was a citizen were nearly permissions a foreign company could revoke without explanation. The deliberations of an entire continent were running on systems engineered to keep us angry, and the systems that were beginning to think for us were already being trained, patiently, on values that were not ours and on data we had not consented to give.
+
+We built the cathedrals of the civic age in time. It was close. *The being-in-time was the work* — the work of every kitchen that became a network and every network that became a federation, while interests with substantial reasons to keep us inert were racing to install their own architecture in the empty space our democracies were leaving. We did not stop them by force. We built before they finished. The next generation will face its own version of the same race, with different actors and the same logic. The work of being in time will be yours.
+
+That is the part of the story the essays did not yet know. By the time I am writing this, we know it. I am writing it down for you so that you will know it too, and so that you will know, when your own version of the race begins, that the people who built the country you live in won theirs not by being heroic but by being early.
+
+* * *
+
 I want to leave you, from me, six small things. They are the things I learned that the essays did not say, because the essays were written before I had lived enough to know them.
 
 **The first is mate.** Not mate as a drink — you will know that — but mate as a discipline. The way the gourd passes. The way you wait. The way you let the hot water do what it does. Mate teaches you what democracy actually feels like. There is one drinker at a time, and everyone in the circle waits, and the waiting is not impatient because the gourd is going to come around. A circle of people drinking mate is the smallest functional asamblea in human history. Pay attention to it. Most of what you need to know about how to be with other people is in the gourd.
@@ -112,6 +120,8 @@ Here are the words.
 > *The thing they called power was always a permission. The permission was ours from the beginning. We took it back not by seizing anything, but by stopping the giving.*
 >
 > *The architecture is ours. We did not inherit it. We built it. Where it falls short, we will build it again, in better forms. Where it stands, we will steward it for those not yet born.*
+>
+> *The tools were not given. We built them — the protocols and the archives, the cathedrals of the civic age — in the years when the choice was to build them or to be built against. We chose to build, in time.*
 >
 > *The source is us. It was always us. Every regime that ruled us ruled because we agreed. Every regime that ended ended because we stopped agreeing. The agreement and the ending are the only true sovereigns.*
 >

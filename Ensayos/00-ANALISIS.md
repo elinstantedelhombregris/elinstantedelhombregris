@@ -514,3 +514,27 @@ Insumo de ejecución para el plan `SocialJusticeHub/docs/superpowers/plans/2026-
 **Lo que NO se hizo:** §II tightening (preservado por flag-not-revise). §VIII Sublime corte (preservado por flag-not-revise — el cierre Fase 1 ya había decidido lightening, pero ningún párrafo del Sublime se mostró cortable sin pérdida).
 
 **Flags:** dos casos donde flag-not-revise se aplicó (§II §VIII). Ninguno requirió consulta porque la disciplina dijo: si el corte amenaza voz/peso y no es necesario para el contenido nuevo, no se hace.
+
+---
+
+### Fase 2 — Ensayo 07 (Carta) delta — 2026-04-29
+
+**Inglés (`Ensayos/07-carta.md`):**
+
+- Cuerpo de la carta — agregada una sección entera entre "*That is the whole story.*" y el bloque "I want to leave you, from me, six small things." La sección nueva tiene tres párrafos cortos: (1) el país en el que vivís estuvo a punto de no ser posible — los archivos casi en lugares que no eran nuestros, las credenciales casi reducidas a permisos revocables, las deliberaciones corriendo sobre sistemas diseñados para mantenernos enojados, los sistemas empezando a pensar por nosotros entrenados con valores que no elegimos; (2) construimos las catedrales del tiempo cívico a tiempo, "the being-in-time was the work", la generación que sigue enfrentará su propia versión de la misma carrera; (3) "the people who built the country you live in won theirs not by being heroic but by being early."
+- Manifesto block (las palabras para leer en voz alta) — agregada una nueva cláusula entre "The architecture is ours..." y "The source is us...": *"The tools were not given. We built them — the protocols and the archives, the cathedrals of the civic age — in the years when the choice was to build them or to be built against. We chose to build, in time."* Cierra el arco del manifesto: arquitectura → tools → fuente.
+- AI named once con filo: "the systems that were beginning to think for us were already being trained, patiently, on values that were not ours and on data we had not consented to give." Decisión Q3 cumplida.
+- Failure-modes register — vivido en la voz de mirada-hacia-atrás del abuelo (decisión Q7-D); los modos concretos nombrados (memoria revocable, identidad como permiso, deliberación tuneada para indignación, decisiones aumentadas por sistemas opacos).
+- Cartografía — preservada intacta (ya estaba bien instalada del Fase 1 polish per `00-ANALISIS-07.md`).
+
+**Castellano (`Ensayos/castellano/07-carta.md`):**
+
+- La nueva sección y la nueva cláusula del manifiesto, ambas en sense-translate rioplatense.
+- "Construimos las catedrales del tiempo cívico a tiempo. Estuvo cerca. *El estar a tiempo era el trabajo*." Cadencia castellana sostenida.
+- "ganó la suya no por ser heroica sino por haber llegado temprano." Cierre con simpleza argentina.
+- La cláusula nueva del manifiesto: *"Las herramientas no nos las dieron. Las construimos — los protocolos y los archivos, las catedrales del tiempo cívico — en los años en los que la elección era construirlas o ser construidos en contra. Elegimos construir, a tiempo."*
+- Vos sostenido. Voz del abuelo intacta.
+
+**Lo que se preservó:** todo el resto de la carta intacta. La voz del abuelo no admite intervención sin pérdida (decisión `00-ANALISIS-07.md`). Las dos adiciones (la sección nueva en el cuerpo, la cláusula nueva en el manifiesto) se diseñaron como adiciones de bajo peso sobre la prosa existente.
+
+**Flags:** ninguno. Lo que el `00-ANALISIS-07.md` recomendó como "minimum intervention" se cumplió: dos adiciones cuidadosas, ningún corte, ningún cambio en la voz, Cartografía intacta.
