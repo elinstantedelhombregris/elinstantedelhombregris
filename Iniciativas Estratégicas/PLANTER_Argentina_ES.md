@@ -108,7 +108,11 @@ Argentina entregó, en las últimas cinco décadas, control estratégico sobre s
 
 **Cómo PLANTER lo resuelve:** Commons del Subsuelo como declaración constitucional complementaria que mantiene el dominio originario en el cuerpo ciudadano intergeneracional. Las provincias conservan participación en gestión y en regalías, pero no la potestad unilateral de concesión — esta se decide con concurrencia nacional, consulta territorial vinculante, y Licencia Territorial.
 
-**Riesgo residual:** reformas constitucionales son complejas. Mitigación: etapa pre-constitucional vía ley nacional que implementa Licencia Territorial como condición adicional a concesión provincial (no sustituye — agrega), con ruta hacia reforma constitucional en Fase 3.
+**Riesgo residual:** reformas constitucionales son complejas.
+
+> **REVISIÓN 2026-04-28:** la "ruta hacia reforma constitucional" se difiere a horizonte 2040+ (fuera del horizonte de la remediación 2026-04-26). En tranche-1/2/3, **solo opera la etapa pre-constitucional** vía ley nacional (línea L1 enforcement ambiental + L2 auditoría regalías + L3 piloto consulta). Reforma constitucional **no es entregable de tranche-3**.
+
+Mitigación: etapa pre-constitucional vía ley nacional que implementa Licencia Territorial como condición adicional a concesión provincial (no sustituye — agrega). Reforma constitucional **diferida a anexo Visión 2040** (no es entregable operativo en tranche-1/2/3).
 
 ### 0.2 La Falla del RIGI y las Concesiones de Treinta Años
 
@@ -579,15 +583,17 @@ Mapuche, Tehuelche, Ranquel, Qom (Toba), Mocoví, Pilagá, Wichí, Nivaclé, Cho
 
 ### 8.2 Bosques Nativos — Plan de Deforestación Cero
 
-**Año 1:** sistema de monitoreo satelital operativo con alerta diaria. 500 Referentes de Territorio formados.
+> **REVISIÓN 2026-04-28:** PLANTER es **tranche-3** (entrada a piloto al mes 48+, ventana absoluta 2030+). El cronograma se reescribe como etapas dentro del tranche-3 (línea L1 enforcement ambiental). El "Año 10" se ubica en horizonte 2040 como meta consolidada, no como compromiso operativo.
 
-**Año 2:** sanciones penales efectivas comenzando con responsabilidad nominal. Restauración obligatoria 3:1 aplicada.
+**Etapa T1 — Tranche-3 inicial L1 (2030-2031):** sistema de monitoreo satelital operativo con alerta diaria. 500 Referentes de Territorio formados.
 
-**Año 3:** reconversión agropecuaria con PLANISV ofreciendo alternativas productivas.
+**Etapa T2 — Tranche-3 L1 consolidación (2031-2032):** sanciones penales efectivas comenzando con responsabilidad nominal. Restauración obligatoria 3:1 aplicada.
 
-**Año 5:** deforestación ilegal reducida al 15% del promedio histórico.
+**Etapa T3 — Tranche-3 L1 + L2 (2032-2033):** reconversión agropecuaria con PLANISV ofreciendo alternativas productivas.
 
-**Año 10:** deforestación cero operativa; expansión silvopastoril y agroforestal consolidada.
+**Etapa T4 — Tranche-3 L1 + L2 + L3 (2033-2035):** deforestación ilegal reducida al 15% del promedio histórico.
+
+**Horizonte 2040 (Visión, no compromiso operativo de remediación):** deforestación cero operativa; expansión silvopastoril y agroforestal consolidada.
 
 **Bosques prioritarios:**
 - Gran Chaco (Santiago del Estero, Salta, Chaco, Formosa).
@@ -729,35 +735,33 @@ El Artículo 75 inciso 17 constitucionaliza la preexistencia indígena. PLANTER 
 
 ### 13.1 Cronograma
 
-**Año 1 (Fase 0):**
-- Ley de ANTSPO.
-- Ley de Commons del Subsuelo.
-- Ley de Personalidad Jurídica Territorial (primera generación: 5 territorios piloto).
-- Derogación escalonada del RIGI (proyecto de ley presentado).
-- Inicio expansión Guardacostas.
+> **REVISIÓN 2026-04-28:** PLANTER es **tranche-3** (entrada al mes 48+, ventana 2030+). El cronograma original "Año 1-11+" se reescribe alineado con tranches absolutos. La línea L1 (enforcement ambiental) entra primero, L2 (regalías) requiere L1 estable, L3 (consulta originaria) requiere L1+L2 estables. **Reforma constitucional, RIGI extinción completa, DCM universal y Personalidad Jurídica masiva → diferidos a horizonte 2040 (Visión, no compromiso operativo de remediación 2026-04-26).**
 
-**Años 2-3 (Fase 1):**
-- FSC operativo con primeros ingresos.
-- DCM piloto a 2M adultos (escalamiento progresivo).
-- 10 Personas Territoriales reconocidas.
-- Cronograma acelerado de Ley 26.160.
+**Tranche-3 inicial — L1 enforcement ambiental (2030-2031):**
+- Marco legal de Comisión Asesora interministerial PLANTER (decreto + ley ordinaria; sin agencia autárquica con presupuesto constitucional).
+- Pre-clearance CSJN del marco.
+- Adhesión provincial L1 ≥ 8 provincias.
+- Sistema de monitoreo satelital operativo.
+- Inicio expansión Guardacostas (sin compromiso de cifras AV).
 
-**Años 4-6 (Fase 2):**
-- DCM universal a todos los argentinos adultos.
-- 20 Personas Territoriales.
-- Sistema de Licencia Territorial operativo.
-- Servicio de Guardacostas duplicado.
-- Deforestación ilegal reducida 50%.
+**Tranche-3 — activación L2 auditoría regalías (2031-2033, requiere L1 estable):**
+- Auditoría de regalías sin retroactividad pre-RIGI sin opinión externa firmada.
+- Mapa de adhesión provincial L2.
+- Cláusulas anti-CIADI activas.
 
-**Años 7-10 (Fase 3):**
-- Régimen pleno.
-- 40+ Personas Territoriales.
+**Tranche-3 — activación L3 piloto consulta originaria (2033-2035, requiere L1+L2 estables):**
+- Convenio 169 OIT cumplido.
+- Comunidades convocadas firmaron protocolo de consulta.
+- 5-10 territorios piloto (no 40+).
+- Cronograma de Ley 26.160 acelerado.
+
+**Horizonte 2040 (Visión, NO compromiso operativo):**
+- Régimen pleno con 40+ Personas Territoriales.
+- DCM universal.
 - RIGI extinguido por vencimientos.
 - Flota de Guardacostas completa.
 - Co-soberanía plena con 35 pueblos.
-
-**Años 11+ (Maduración):**
-- Expansión a nuevas categorías territoriales.
+- Reforma constitucional Commons del Subsuelo (diferida).
 - Exportación del modelo a países de la región.
 
 ### 13.2 Lo Que No Sabemos
