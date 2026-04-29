@@ -490,3 +490,27 @@ Insumo de ejecución para el plan `SocialJusticeHub/docs/superpowers/plans/2026-
 **Lo que se preservó:** todo lo demás del ensayo intacto. Es probablemente el ensayo más logrado de la serie; la disciplina manda no tocarlo donde no hace falta.
 
 **Flags:** ninguno.
+
+---
+
+### Fase 2 — Ensayo 06 delta — 2026-04-29
+
+**Inglés (`Ensayos/06-belleza.md`):**
+
+- §IX (La belleza del trabajo mismo) — agregado un párrafo entre "the participants knew they were building something for the long term..." y "This is the closing recognition of the entire series." El párrafo nombra la belleza específica de la infraestructura de autogobierno cuando se construye con cuidado, transparencia y resistencia a la captura: "Not the beauty of ornament, but the beauty of structure that holds without coercion." Las herramientas no son feas necesidades; son "the cathedrals of the civic age", construidas "with the discipline that cathedrals deserved — patiently, by hand, by craftsmen who knew they would not see them finished, on plans that would carry across generations." Cierre del párrafo: un país que reconoce su infraestructura cívica como dominio de la belleza la defiende como herencia, no como política.
+- §VIII (Politics of the Sublime) — preservado intacto (decisión Fase 1 #2: "queda y se aliviana", pero la lectura sostenida muestra que el ensayo se lee bien sin recorte; flag-not-revise aplicado: no se cortaron párrafos del Sublime sin pérdida demostrable).
+- §II (Aesthetic of Capture) — preservado intacto. La recomendación Fase 1 era apretar un párrafo, pero la lectura cross-essay con la nueva urgencia ya plantada en 01, 02, 03, 04 mostró que el §II carga peso necesario. Flag-not-revise aplicado.
+- Cartografía — preservada intacta. Las referencias a las canciones específicas (TANGO-el-ultimo-gris, etc.) ya están al pie. La Cartografía no se tocó.
+
+**Castellano (`Ensayos/castellano/06-belleza.md`):**
+
+- El párrafo nuevo en sense-translate rioplatense.
+- "las catedrales del tiempo cívico" — la imagen sostenida castellana.
+- "no como política, sino como herencia" — cierre con cadencia argentina.
+- Vos sostenido en todo el texto.
+
+**Lo que se preservó:** todas las demás secciones intactas. La intervención principal vivió íntegramente en §IX.
+
+**Lo que NO se hizo:** §II tightening (preservado por flag-not-revise). §VIII Sublime corte (preservado por flag-not-revise — el cierre Fase 1 ya había decidido lightening, pero ningún párrafo del Sublime se mostró cortable sin pérdida).
+
+**Flags:** dos casos donde flag-not-revise se aplicó (§II §VIII). Ninguno requirió consulta porque la disciplina dijo: si el corte amenaza voz/peso y no es necesario para el contenido nuevo, no se hace.
