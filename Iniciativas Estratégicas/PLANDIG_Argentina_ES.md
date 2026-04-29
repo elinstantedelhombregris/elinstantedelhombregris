@@ -478,13 +478,13 @@ El LANIA es la institución que le da cerebro al sistema nervioso. No es un labo
 
 Argentina no puede ni debe competir frontalmente con OpenAI, Google o Anthropic en la carrera por el modelo más grande del mundo. Esos modelos cuestan cientos de millones de dólares y requieren miles de GPUs que Argentina no tiene (todavía). Pero Argentina no necesita el modelo más grande del mundo. Necesita **modelos que entiendan a Argentina** — su idioma (español rioplatense, no castellano peninsular), su derecho, su historia, su cultura, su territorio, sus datos administrativos, sus necesidades específicas. Y para eso, la estrategia óptima es la soberanía por capas:
 
-**Estrato 1 — Modelos base de código abierto (Año 1–3).** Argentina adopta modelos de código abierto de última generación (Llama, Mistral, Qwen, DeepSeek, y los que surjan) como base. Estos modelos se descargan — los pesos son públicos — y se despliegan en infraestructura soberana. No hay dependencia de API. No hay pago de suscripción. No hay riesgo de que un proveedor extranjero corte el acceso. El modelo corre en nuestros servidores, y nadie más ve nuestros datos. Para aplicaciones que requieran capacidades de frontera no disponibles en modelos abiertos, se establecen **convenios de API transitoria** con proveedores como Anthropic u OpenAI — con cláusulas estrictas de no-retención de datos y con plan de migración a alternativas soberanas.
+**Estrato 1 — Modelos base de código abierto (2027 (tranche-1)–3).** Argentina adopta modelos de código abierto de última generación (Llama, Mistral, Qwen, DeepSeek, y los que surjan) como base. Estos modelos se descargan — los pesos son públicos — y se despliegan en infraestructura soberana. No hay dependencia de API. No hay pago de suscripción. No hay riesgo de que un proveedor extranjero corte el acceso. El modelo corre en nuestros servidores, y nadie más ve nuestros datos. Para aplicaciones que requieran capacidades de frontera no disponibles en modelos abiertos, se establecen **convenios de API transitoria** con proveedores como Anthropic u OpenAI — con cláusulas estrictas de no-retención de datos y con plan de migración a alternativas soberanas.
 
-**Estrato 2 — Fine-tuning argentino (Año 1–5).** Los modelos base se *fine-tunean* (ajuste fino: proceso de especializar un modelo general alimentándolo con datos de un dominio específico para que se vuelva experto en ese dominio) con datos argentinos curados: corpus legal argentino completo (todas las leyes nacionales y provinciales, jurisprudencia, dictámenes), corpus educativo (contenido de PLANEDU, materiales curriculares), corpus médico (guías de PLANSAL, protocolos clínicos del sistema público), corpus administrativo (normativas, resoluciones, expedientes del Estado), corpus geográfico-ambiental (datos de El Mapa, PLANAGUA, PLANISV), y corpus cultural (literatura argentina, producción periodística, acervo académico del CONICET y las universidades). El resultado es un modelo que no solo habla español — habla *argentino*. Que no solo entiende derecho — entiende *derecho argentino*. Que no solo procesa datos — procesa *datos de la realidad argentina*.
+**Estrato 2 — Fine-tuning argentino (2027 (tranche-1)–5).** Los modelos base se *fine-tunean* (ajuste fino: proceso de especializar un modelo general alimentándolo con datos de un dominio específico para que se vuelva experto en ese dominio) con datos argentinos curados: corpus legal argentino completo (todas las leyes nacionales y provinciales, jurisprudencia, dictámenes), corpus educativo (contenido de PLANEDU, materiales curriculares), corpus médico (guías de PLANSAL, protocolos clínicos del sistema público), corpus administrativo (normativas, resoluciones, expedientes del Estado), corpus geográfico-ambiental (datos de El Mapa, PLANAGUA, PLANISV), y corpus cultural (literatura argentina, producción periodística, acervo académico del CONICET y las universidades). El resultado es un modelo que no solo habla español — habla *argentino*. Que no solo entiende derecho — entiende *derecho argentino*. Que no solo procesa datos — procesa *datos de la realidad argentina*.
 
 El costo estimado de fine-tuning de un modelo de 70B parámetros sobre datos argentinos: USD 1–5M. Una fracción de lo que el Estado gasta en consultoría extranjera en un año.
 
-**Estrato 3 — Modelos especializados (Año 3–7).** A medida que la infraestructura de cómputo soberana crece y la capacidad del LANIA madura, se entrenan modelos especializados desde cero para dominios donde la soberanía es crítica y los modelos genéricos no alcanzan. *Nota: Los primeros modelos especializados (Año 3–5) serán de escala moderada (7–13 mil millones de parámetros), alcanzable con la capacidad de la fase "Crecimiento" (1.024–2.048 GPUs). Los modelos de mayor escala se entrenan a partir de la fase "Escala" (Año 5–8, 4.096+ GPUs):*
+**Estrato 3 — Modelos especializados (2029 (tranche-2 entrada)–7).** A medida que la infraestructura de cómputo soberana crece y la capacidad del LANIA madura, se entrenan modelos especializados desde cero para dominios donde la soberanía es crítica y los modelos genéricos no alcanzan. *Nota: Los primeros modelos especializados (2029 (tranche-2 entrada)–5) serán de escala moderada (7–13 mil millones de parámetros), alcanzable con la capacidad de la fase "Crecimiento" (1.024–2.048 GPUs). Los modelos de mayor escala se entrenan a partir de la fase "Escala" (2031 (tranche-2)–8, 4.096+ GPUs):*
 
 - **Modelo Legal Argentino:** Entrenado exclusivamente sobre derecho argentino, capaz de analizar causas, sugerir jurisprudencia relevante, y asistir a los paneles ciudadanos de PLANJUS
 - **Modelo Educativo Argentino:** El co-tutor de IA de PLANEDU, entrenado sobre el currículo de las Siete Capacidades, adaptado a cada estudiante
@@ -492,7 +492,7 @@ El costo estimado de fine-tuning de un modelo de 70B parámetros sobre datos arg
 - **Modelo Territorial:** Entrenado sobre datos de El Mapa, SAOCOM, y censos para asistir en planificación urbana (PLAN24CN), gestión hídrica (PLANAGUA), y salud del suelo (PLANISV)
 - **Modelo de Gobernanza:** El cerebro del Arquitecto de Fuerza Laboral (Sección 11) y del sistema de transparencia de PLANEB
 
-**Estrato 4 — Contribución al commons global (Año 5+).** Argentina no solo consume modelos abiertos — contribuye. Los modelos fine-tuneados y especializados que no contengan datos sensibles se publican como código abierto, posicionando a Argentina como líder en IA en español y como contribuyente al ecosistema global de código abierto. Esto no es altruismo — es estrategia: un país que contribuye al commons atrae talento, gana reputación, influye en los estándares, y construye alianzas. Israel no se hizo potencia tecnológica siendo hermético — se hizo potencia siendo el país que más contribuye per cápita al open-source mundial.
+**Estrato 4 — Contribución al commons global (2031+ (tranche-2)).** Argentina no solo consume modelos abiertos — contribuye. Los modelos fine-tuneados y especializados que no contengan datos sensibles se publican como código abierto, posicionando a Argentina como líder en IA en español y como contribuyente al ecosistema global de código abierto. Esto no es altruismo — es estrategia: un país que contribuye al commons atrae talento, gana reputación, influye en los estándares, y construye alianzas. Israel no se hizo potencia tecnológica siendo hermético — se hizo potencia siendo el país que más contribuye per cápita al open-source mundial.
 
 ### 5.3 Infraestructura de Cómputo para IA
 
@@ -502,10 +502,10 @@ Entrenar modelos de IA requiere hardware especializado — GPUs de alto rendimie
 
 | Fase | Periodo | Capacidad objetivo | Costo estimado | Capacidad equivalente |
 |---|---|---|---|---|
-| **Semilla** | Año 1–2 | 256 GPUs H200 (o equivalente futuro) | USD 10–15M | Suficiente para fine-tunear modelos de hasta 70B parámetros |
-| **Crecimiento** | Año 3–5 | 1.024–2.048 GPUs | USD 40–80M | Suficiente para entrenar modelos de hasta 70B desde cero y fine-tunear modelos de 405B+ |
-| **Escala** | Año 5–8 | 4.096–8.192 GPUs | USD 150–300M | Capacidad de entrenamiento de frontera regional; servicio de inferencia para todo el ecosistema ¡BASTA! |
-| **Soberanía** | Año 8–10 | 16.000+ GPUs (o equivalente de nueva generación) | USD 300–600M | Argentina como centro de cómputo IA de referencia en América Latina |
+| **Semilla** | 2027 (tranche-1)–2 | 256 GPUs H200 (o equivalente futuro) | USD 10–15M | Suficiente para fine-tunear modelos de hasta 70B parámetros |
+| **Crecimiento** | 2029 (tranche-2 entrada)–5 | 1.024–2.048 GPUs | USD 40–80M | Suficiente para entrenar modelos de hasta 70B desde cero y fine-tunear modelos de 405B+ |
+| **Escala** | 2031 (tranche-2)–8 | 4.096–8.192 GPUs | USD 150–300M | Capacidad de entrenamiento de frontera regional; servicio de inferencia para todo el ecosistema ¡BASTA! |
+| **Soberanía** | 2034 (tranche-3)–10 | 16.000+ GPUs (o equivalente de nueva generación) | USD 300–600M | Argentina como centro de cómputo IA de referencia en América Latina |
 
 *Nota: El costo por FLOP de computación IA decrece ~30% anual, lo que permite que cada dólar invertido rinda más capacidad con cada generación de hardware. Los presupuestos de esta tabla son conservadores — es probable que la misma inversión compre significativamente más capacidad de la proyectada si las tendencias de eficiencia se mantienen.*
 
@@ -751,16 +751,16 @@ La visión final de PLANDIG — el horizonte a 10 años — es un ecosistema dig
 
 | Función de la vida digital | Plataforma corporativa actual | Alternativa soberana PLANDIG | Estado (año 1 → año 10) |
 |---|---|---|---|
-| **Identidad** | Google/Apple ID, Facebook Login | IDS (Identidad Digital Soberana) | Año 1: lanzamiento para trámites del Estado. Año 5: adopción masiva. Año 10: estándar nacional |
-| **Pagos** | Visa, Mastercard, Mercado Pago | SAPI (Sistema Argentino de Pagos Instantáneos) | Año 2: piloto con 5M usuarios. Año 5: 25M usuarios. Año 10: 35M+ usuarios, 80%+ de transacciones |
-| **Mensajería** | WhatsApp, Telegram | Mensajero Nacional (protocolo abierto) | Año 2: lanzamiento. Año 5: 10M usuarios. Año 10: alternativa principal para comunicación cívica |
-| **Red social cívica** | Instagram, TikTok, Twitter/X | La Tribu (capa cívica) + red social abierta | Año 3: lanzamiento La Tribu. Año 5: red social con contenido educativo/cívico. Año 10: ecosistema social completo |
-| **Educación** | Google Classroom, YouTube | Plataforma PLANEDU sobre infraestructura PLANDIG | Año 2: piloto en 500 escuelas. Año 5: todas las escuelas públicas. Año 10: estándar nacional |
-| **Salud** | Apps privadas sobre AWS/Azure | Sistema Integral de Vitalidad (PLANSAL) sobre núcleo soberano | Año 3: piloto. Año 5: integración con PAMI y hospitales públicos. Año 10: plataforma nacional |
-| **Comercio** | MercadoLibre, Amazon | Marketplace abierto sobre protocolo PLANDIG + SAPI | Año 4: protocolo de comercio abierto. Año 7: marketplace de referencia. Año 10: ecosistema competitivo |
-| **Almacenamiento personal** | Google Drive, iCloud, Dropbox | Cofre Digital Ciudadano | Año 1: lanzamiento con IDS. Crecimiento orgánico con cada servicio soberano |
-| **Búsqueda** | Google | Motor de búsqueda soberano sobre datos de Capa 1 + web argentina | Año 5: prototipo. Año 8: motor funcional para contenido argentino |
-| **Medios y contenido** | Netflix, Spotify, YouTube | Plataforma de contenido argentino sobre infraestructura soberana | Año 5: piloto con producción del INCAA y música argentina. Año 10: plataforma regional |
+| **Identidad** | Google/Apple ID, Facebook Login | IDS (Identidad Digital Soberana) | 2027 (tranche-1): lanzamiento para trámites del Estado. 2031 (tranche-2): adopción masiva. 2036 (tranche-3 maduración): estándar nacional |
+| **Pagos** | Visa, Mastercard, Mercado Pago | SAPI (Sistema Argentino de Pagos Instantáneos) | 2028 (tranche-1): piloto con 5M usuarios. 2031 (tranche-2): 25M usuarios. 2036 (tranche-3 maduración): 35M+ usuarios, 80%+ de transacciones |
+| **Mensajería** | WhatsApp, Telegram | Mensajero Nacional (protocolo abierto) | 2028 (tranche-1): lanzamiento. 2031 (tranche-2): 10M usuarios. 2036 (tranche-3 maduración): alternativa principal para comunicación cívica |
+| **Red social cívica** | Instagram, TikTok, Twitter/X | La Tribu (capa cívica) + red social abierta | 2029 (tranche-2 entrada): lanzamiento La Tribu. 2031 (tranche-2): red social con contenido educativo/cívico. 2036 (tranche-3 maduración): ecosistema social completo |
+| **Educación** | Google Classroom, YouTube | Plataforma PLANEDU sobre infraestructura PLANDIG | 2028 (tranche-1): piloto en 500 escuelas. 2031 (tranche-2): todas las escuelas públicas. 2036 (tranche-3 maduración): estándar nacional |
+| **Salud** | Apps privadas sobre AWS/Azure | Sistema Integral de Vitalidad (PLANSAL) sobre núcleo soberano | 2029 (tranche-2 entrada): piloto. 2031 (tranche-2): integración con PAMI y hospitales públicos. 2036 (tranche-3 maduración): plataforma nacional |
+| **Comercio** | MercadoLibre, Amazon | Marketplace abierto sobre protocolo PLANDIG + SAPI | 2030 (tranche-2): protocolo de comercio abierto. 2033 (tranche-3): marketplace de referencia. 2036 (tranche-3 maduración): ecosistema competitivo |
+| **Almacenamiento personal** | Google Drive, iCloud, Dropbox | Cofre Digital Ciudadano | 2027 (tranche-1): lanzamiento con IDS. Crecimiento orgánico con cada servicio soberano |
+| **Búsqueda** | Google | Motor de búsqueda soberano sobre datos de Capa 1 + web argentina | 2031 (tranche-2): prototipo. 2034 (tranche-3): motor funcional para contenido argentino |
+| **Medios y contenido** | Netflix, Spotify, YouTube | Plataforma de contenido argentino sobre infraestructura soberana | 2031 (tranche-2): piloto con producción del INCAA y música argentina. 2036 (tranche-3 maduración): plataforma regional |
 
 ### 9.3 Transición: Del Colonialismo a la Soberanía
 
@@ -993,10 +993,10 @@ La automatización no es un evento — es un proceso gradual que se despliega en
 
 | Fase | Período | Funciones automatizadas | Impacto estimado en empleo | Capacidad PLANREP requerida |
 |---|---|---|---|---|
-| **Piloto** | Año 1–2 | Trámites simples, consultas de información, procesamiento de formularios, data entry, archivo | 50.000–80.000 puestos automatizables identificados; primeras 10.000 transiciones | 20 Centros de la Vida + 10 Centros de Inteligencia |
-| **Escala** | Año 3–5 | Análisis de expedientes, categorización de casos, detección de fraude, gestión de turnos, logística interna, contabilidad básica | 200.000–300.000 puestos adicionales; 100.000 transiciones en curso | 60 Centros de la Vida + 30 Centros de Inteligencia |
-| **Profundización** | Año 5–8 | Análisis legal, redacción de documentos, diagnóstico asistido, planificación logística, gestión de proyectos, negociación de contratos | 300.000–500.000 puestos adicionales; transición masiva | 120 Centros de la Vida + 50 Centros de Inteligencia |
-| **Madurez** | Año 8–10 | Coordinación inter-ministerial, análisis de políticas, prospectiva, diseño de servicios | Estabilización; los puestos que quedan son los que requieren presencia humana irreemplazable | Red completa de PLANREP en operación |
+| **Piloto** | 2027 (tranche-1)–2 | Trámites simples, consultas de información, procesamiento de formularios, data entry, archivo | 50.000–80.000 puestos automatizables identificados; primeras 10.000 transiciones | 20 Centros de la Vida + 10 Centros de Inteligencia |
+| **Escala** | 2029 (tranche-2 entrada)–5 | Análisis de expedientes, categorización de casos, detección de fraude, gestión de turnos, logística interna, contabilidad básica | 200.000–300.000 puestos adicionales; 100.000 transiciones en curso | 60 Centros de la Vida + 30 Centros de Inteligencia |
+| **Profundización** | 2031 (tranche-2)–8 | Análisis legal, redacción de documentos, diagnóstico asistido, planificación logística, gestión de proyectos, negociación de contratos | 300.000–500.000 puestos adicionales; transición masiva | 120 Centros de la Vida + 50 Centros de Inteligencia |
+| **Madurez** | 2034 (tranche-3)–10 | Coordinación inter-ministerial, análisis de políticas, prospectiva, diseño de servicios | Estabilización; los puestos que quedan son los que requieren presencia humana irreemplazable | Red completa de PLANREP en operación |
 
 Cada fase requiere que la IA esté lista (PLANDIG), que los centros de reconversión estén operativos (PLANREP), que las oportunidades productivas existan (PLANEB, las Ocho Ramas), y que el sistema de protección social funcione (PLANSAL). Es un engranaje de cuatro PLANs — y el Arquitecto de Fuerza Laboral es el relojero que sincroniza los cuatro.
 
@@ -1119,7 +1119,7 @@ ANDIG está diseñada para resistir la captura por tres vectores: (1) el poder p
 
 ### 14.3 Retorno Esperado
 
-**TABLA 22: Retorno Económico de PLANDIG en Régimen (Año 10+)**
+**TABLA 22: Retorno Económico de PLANDIG en Régimen (2036+ (tranche-3 maduración))**
 
 | Fuente de retorno | Valor anual estimado (USD M) | Mecanismo |
 |---|---|---|
@@ -1127,7 +1127,7 @@ ANDIG está diseñada para resistir la captura por tres vectores: (1) el poder p
 | Ahorro sistémico en comisiones de pago (SAPI) | 1.000–3.000 | Reducción de comisiones del 1,5–3,5% al 0,3–0,5% |
 | Ingresos por servicios cloud soberanos (mercado doméstico y regional) | 500–2.000 | Venta de cómputo, almacenamiento y IA a empresas y gobiernos LATAM |
 | Retención de valor de exportaciones de servicios de conocimiento | 500–1.500 | Más developers trabajando en proyectos soberanos vs. para empresas extranjeras |
-| Ahorro fiscal adicional generado por la automatización digital de PLANDIG (no incluido en el ahorro de PLANREP) | 2.000–5.000 | Ahorro propio de PLANDIG a partir del Año 3, proveniente de eficiencia en trámites digitalizados, eliminación de duplicaciones entre sistemas, y optimización de compras públicas vía datos integrados. Este ahorro es adicional y separado del ahorro fiscal de PLANREP (que proviene de la reducción de sobreempleo). No hay doble conteo: PLANREP ahorra por sacar gente de la nómina; PLANDIG ahorra por hacer que los procesos del Estado restante funcionen mejor |
+| Ahorro fiscal adicional generado por la automatización digital de PLANDIG (no incluido en el ahorro de PLANREP) | 2.000–5.000 | Ahorro propio de PLANDIG a partir del 2029 (tranche-2 entrada), proveniente de eficiencia en trámites digitalizados, eliminación de duplicaciones entre sistemas, y optimización de compras públicas vía datos integrados. Este ahorro es adicional y separado del ahorro fiscal de PLANREP (que proviene de la reducción de sobreempleo). No hay doble conteo: PLANREP ahorra por sacar gente de la nómina; PLANDIG ahorra por hacer que los procesos del Estado restante funcionen mejor |
 | Valor de datos integrados para mejora de políticas públicas | Incalculable | Mejores decisiones = mejor uso de todo el presupuesto público |
 | **TOTAL** | **4.300–12.300/año** | |
 
@@ -1332,10 +1332,10 @@ La negociación no es confrontacional — es de valor compartido. MercadoLibre n
 
 SAPI necesita que los bancos participen. La estrategia no es el mandato inmediato (como PIX lo hizo en Brasil) sino la construcción de coalición:
 
-- **Año 1:** Alianza con los bancos públicos (Banco Nación, Banco Provincia, BICE) como primeros adoptantes — son del Estado, adoptan por mandato
-- **Año 1–2:** Fintechs como early adopters — Ualá, Naranja X, Brubank ven en SAPI una oportunidad de diferenciarse a costo cero
-- **Año 2–3:** Bancos privados — el volumen de SAPI generado por bancos públicos y fintechs crea presión competitiva; los bancos privados se suman para no perder clientes
-- **Año 3–4:** Mandato de participación para toda entidad financiera con más de 500.000 cuentas (modelo PIX)
+- **2027 (tranche-1):** Alianza con los bancos públicos (Banco Nación, Banco Provincia, BICE) como primeros adoptantes — son del Estado, adoptan por mandato
+- **2027 (tranche-1)–2:** Fintechs como early adopters — Ualá, Naranja X, Brubank ven en SAPI una oportunidad de diferenciarse a costo cero
+- **2028 (tranche-1)–3:** Bancos privados — el volumen de SAPI generado por bancos públicos y fintechs crea presión competitiva; los bancos privados se suman para no perder clientes
+- **2029 (tranche-2 entrada)–4:** Mandato de participación para toda entidad financiera con más de 500.000 cuentas (modelo PIX)
 
 **Telecom / Conectividad — ARSAT y las Privadas**
 
@@ -1366,9 +1366,9 @@ Los sindicatos del Estado son aliados o bloqueadores. PLANREP ya define la relac
 
 | Fase | Aliados a activar | Neutrales a ganar | Adversarios a gestionar |
 |---|---|---|---|
-| **Año 1** | ARSAT, CONICET, universidades, bancos públicos | Gobiernos provinciales, fintechs | Hyperscalers (negociación de migración); Visa/MC (diseño de coexistencia SAPI) |
-| **Año 2–3** | Comunidad open-source, cooperativas, escuelas | MercadoLibre, telcos, bancos privados | Meta/Google (regulación de datos de menores) |
-| **Año 4–5** | Todo el ecosistema soberano operativo genera aliados orgánicos | Empresas que ven valor en la infraestructura soberana | Lobby corporativo en el Congreso (contra-narrativa con datos de ahorro) |
+| **2027 (tranche-1)** | ARSAT, CONICET, universidades, bancos públicos | Gobiernos provinciales, fintechs | Hyperscalers (negociación de migración); Visa/MC (diseño de coexistencia SAPI) |
+| **2028 (tranche-1)–3** | Comunidad open-source, cooperativas, escuelas | MercadoLibre, telcos, bancos privados | Meta/Google (regulación de datos de menores) |
+| **2030 (tranche-2)–5** | Todo el ecosistema soberano operativo genera aliados orgánicos | Empresas que ven valor en la infraestructura soberana | Lobby corporativo en el Congreso (contra-narrativa con datos de ahorro) |
 
 ---
 
@@ -1447,10 +1447,10 @@ Si el sector privado hiciera infraestructura digital soberana, ya existiría. Pe
 | Fase | Período | Mensaje dominante | Acciones clave |
 |---|---|---|---|
 | **Despertar** | 6 meses previos a la ley | "¿Sabías que tus datos valen más que la soja?" — conciencia del problema | Documental "Los Ferreyra" (ficción basada en el preámbulo); series de datos en redes ("cada día, Argentina regala..."); foro público con panelistas tech, académicos, y ciudadanos |
-| **Fundar** | Año 1 | "Empezamos. La soberanía digital ya tiene ley, agencia, y plan." | Lanzamiento público de ANDIG; ceremonia de sorteo del primer Directorio (transmitida en vivo); primeras 500 becas LANIA con convocatoria masiva; lanzamiento de IDS |
-| **Primeras victorias** | Año 2 | "Ya funciona. Mirá lo que es tuyo." | SAPI en piloto — testimonios de usuarios; primeros nodos comunitarios — historias de vecinos que conectaron su nodo; primeras escuelas con plataforma soberana |
-| **Escala** | Año 3–5 | "Cada vez somos más. Cada vez dependemos menos." | Tablero Nacional Digital en vivo con métricas de ahorro; historias de repatriados del LANIA; mapa de nodos comunitarios creciendo en tiempo real |
-| **Madurez** | Año 5–10 | "Lo que era de otros, ahora es nuestro." | Argentina exportando IA a LATAM; modelos LANIA citados en papers internacionales; comparativa de costos antes/después de la soberanía |
+| **Fundar** | 2027 (tranche-1) | "Empezamos. La soberanía digital ya tiene ley, agencia, y plan." | Lanzamiento público de ANDIG; ceremonia de sorteo del primer Directorio (transmitida en vivo); primeras 500 becas LANIA con convocatoria masiva; lanzamiento de IDS |
+| **Primeras victorias** | 2028 (tranche-1) | "Ya funciona. Mirá lo que es tuyo." | SAPI en piloto — testimonios de usuarios; primeros nodos comunitarios — historias de vecinos que conectaron su nodo; primeras escuelas con plataforma soberana |
+| **Escala** | 2029 (tranche-2 entrada)–5 | "Cada vez somos más. Cada vez dependemos menos." | Tablero Nacional Digital en vivo con métricas de ahorro; historias de repatriados del LANIA; mapa de nodos comunitarios creciendo en tiempo real |
+| **Madurez** | 2031 (tranche-2)–10 | "Lo que era de otros, ahora es nuestro." | Argentina exportando IA a LATAM; modelos LANIA citados en papers internacionales; comparativa de costos antes/después de la soberanía |
 
 ### 22.4 La Contra-Narrativa: Cómo Responder al FUD
 
@@ -1472,11 +1472,11 @@ Respuesta: La soberanía digital no tiene ideología. Israel (derecha) invierte 
 
 La familia Ferreyra — Marcos, Lucía, Sol, Néstor — aparece en el preámbulo como víctimas del colonialismo digital y en la Visión 2040 como ciudadanos de una Argentina soberana. Pero la campaña de comunicación los usa como hilo narrativo a lo largo de toda la implementación:
 
-- **Año 1:** "Marcos ya no paga comisión a Visa cuando le transfiere a Lucía — SAPI es instantáneo y gratis."
-- **Año 2:** "Sol ya no entrena el algoritmo de TikTok en la escuela — su co-tutor la conoce y le pertenece."
-- **Año 3:** "Néstor fue al hospital y su historia clínica estaba ahí, completa, sin que nadie se la vendiera a un laboratorio."
-- **Año 5:** "Marcos volvió al LANIA. Escribe código que es de todos."
-- **Año 10:** "Los datos de los Ferreyra — al fin — les pertenecen."
+- **2027 (tranche-1):** "Marcos ya no paga comisión a Visa cuando le transfiere a Lucía — SAPI es instantáneo y gratis."
+- **2028 (tranche-1):** "Sol ya no entrena el algoritmo de TikTok en la escuela — su co-tutor la conoce y le pertenece."
+- **2029 (tranche-2 entrada):** "Néstor fue al hospital y su historia clínica estaba ahí, completa, sin que nadie se la vendiera a un laboratorio."
+- **2031 (tranche-2):** "Marcos volvió al LANIA. Escribe código que es de todos."
+- **2036 (tranche-3 maduración):** "Los datos de los Ferreyra — al fin — les pertenecen."
 
 Los Ferreyra no son reales — pero representan a cada familia argentina. Su historia es la historia de la soberanía, contada en primera persona.
 
@@ -1559,10 +1559,10 @@ Migrar los datos del Estado desde AWS, Azure y Google Cloud al núcleo soberano 
 
 | Oleada | Período | Qué se migra | Complejidad | Alternativa soberana |
 |---|---|---|---|---|
-| **1 — Lo nuevo** | Año 1–2 | Todo sistema NUEVO del Estado se despliega directamente en el núcleo soberano. No se crea más deuda cloud | Baja | Infraestructura soberana estándar |
-| **2 — Lo simple** | Año 2–3 | Almacenamiento de archivos, backups, bases de datos relacionales estándar, sitios web estáticos | Media-baja | Object storage soberano, PostgreSQL/MySQL sobre núcleo, CDN de la malla comunitaria |
-| **3 — Lo complejo** | Año 3–5 | Aplicaciones que usan servicios cloud nativos: se refactorizan hacia estándares abiertos (Kubernetes, PostgreSQL, Redis, RabbitMQ) | Media-alta | Stack open-source sobre núcleo soberano |
-| **4 — Lo difícil** | Año 5–7 | Ecosistemas de productividad (Microsoft 365, Google Workspace): migración a alternativas soberanas (Nextcloud, LibreOffice Online, plataformas propias) | Alta | Suite de productividad soberana (a desarrollar o adaptar de open-source) |
+| **1 — Lo nuevo** | 2027 (tranche-1)–2 | Todo sistema NUEVO del Estado se despliega directamente en el núcleo soberano. No se crea más deuda cloud | Baja | Infraestructura soberana estándar |
+| **2 — Lo simple** | 2028 (tranche-1)–3 | Almacenamiento de archivos, backups, bases de datos relacionales estándar, sitios web estáticos | Media-baja | Object storage soberano, PostgreSQL/MySQL sobre núcleo, CDN de la malla comunitaria |
+| **3 — Lo complejo** | 2029 (tranche-2 entrada)–5 | Aplicaciones que usan servicios cloud nativos: se refactorizan hacia estándares abiertos (Kubernetes, PostgreSQL, Redis, RabbitMQ) | Media-alta | Stack open-source sobre núcleo soberano |
+| **4 — Lo difícil** | 2031 (tranche-2)–7 | Ecosistemas de productividad (Microsoft 365, Google Workspace): migración a alternativas soberanas (Nextcloud, LibreOffice Online, plataformas propias) | Alta | Suite de productividad soberana (a desarrollar o adaptar de open-source) |
 
 ### 24.3 Financiamiento de la Migración
 
@@ -1697,12 +1697,12 @@ La Pre-Fase no requiere legislación ni creación de ANDIG. Opera como proyecto 
 
 | Fase | Período | Hitos principales |
 |---|---|---|
-| **Fundación** | Año 1 | **Gobernanza de transición:** Hasta que ANDIG se constituya formalmente, una Comisión de Implementación (alojada en la Secretaría de Innovación Pública, con participación de ARSAT y CONICET) ejecuta las primeras acciones con mandato y presupuesto acotados, y cláusula de disolución automática al constituirse ANDIG. Ley de Soberanía Digital al Congreso. Creación de ANDIG. Designación de Directorio por sorteo/concurso. Auditoría de infraestructura reconvertible. Convenio con ARSAT para expansión del CNData. Lanzamiento de IDS v1 para trámites del Estado. Adquisición de primeras 256 GPUs para LANIA. Convocatoria de primeras 500 Becas LANIA. Diseño del protocolo SAPI con BCRA |
-| **Primeros frutos** | Año 2 | Primeros 3 nodos del núcleo soberano operativos (reconversión completada). SAPI en piloto con 5M de usuarios. Fine-tuning del primer Modelo Argentino (Llama o equivalente sobre datos argentinos). Primer lote de 10.000 nodos comunitarios desplegados (programa de subsidio). Lanzamiento de Mensajero Nacional v1. Plataforma educativa soberana en 500 escuelas |
-| **Escala** | Año 3–4 | 10 nodos del núcleo operativos. 50.000 nodos comunitarios. SAPI con 15M de usuarios. IDS con 15M de usuarios. Modelo Legal Argentino en piloto con PLANJUS. Modelo Educativo en 5.000 escuelas. El Mapa v1 operativo (integración SAOCOM + primeros 15.000 sensores IoT). Arquitecto de Fuerza Laboral en piloto con PLANREP. Lanzamiento de La Tribu v1 |
-| **Consolidación** | Año 5–6 | 15–20 nodos del núcleo. 70.000 nodos comunitarios. SAPI con 25M de usuarios. IDS universal. Migración del 60% de datos del Estado a infraestructura soberana. LANIA con 300 investigadores y 2.048 GPUs. Primeros modelos especializados entrenados desde cero. 30.000 sensores IoT. Gemelo Digital v1. Programa brain drain revierte la tendencia |
-| **Soberanía** | Año 7–8 | 25+ nodos del núcleo. 90.000 nodos comunitarios. SAPI con 30M+ de usuarios — método de pago dominante. 95% de datos del Estado soberanos. LANIA como centro de referencia IA en español. Ecosistema digital soberano completo (mensajería, pagos, identidad, educación, salud, gobernanza). Argentina exporta servicios cloud y IA a LATAM |
-| **Madurez** | Año 9–10 | Capacidad plena del núcleo (140–270 MW). 100.000 nodos comunitarios. Modelos argentinos de frontera en producción. Gemelo Digital completo. La Argentina se conoce a sí misma en tiempo real. PLANDIG genera ingresos netos — la inversión se paga sola. El sistema nervioso de ¡BASTA! está completo: conecta, procesa, coordina, y aprende. Argentina es digitalmente soberana |
+| **Fundación** | 2027 (tranche-1) | **Gobernanza de transición:** Hasta que ANDIG se constituya formalmente, una Comisión de Implementación (alojada en la Secretaría de Innovación Pública, con participación de ARSAT y CONICET) ejecuta las primeras acciones con mandato y presupuesto acotados, y cláusula de disolución automática al constituirse ANDIG. Ley de Soberanía Digital al Congreso. Creación de ANDIG. Designación de Directorio por sorteo/concurso. Auditoría de infraestructura reconvertible. Convenio con ARSAT para expansión del CNData. Lanzamiento de IDS v1 para trámites del Estado. Adquisición de primeras 256 GPUs para LANIA. Convocatoria de primeras 500 Becas LANIA. Diseño del protocolo SAPI con BCRA |
+| **Primeros frutos** | 2028 (tranche-1) | Primeros 3 nodos del núcleo soberano operativos (reconversión completada). SAPI en piloto con 5M de usuarios. Fine-tuning del primer Modelo Argentino (Llama o equivalente sobre datos argentinos). Primer lote de 10.000 nodos comunitarios desplegados (programa de subsidio). Lanzamiento de Mensajero Nacional v1. Plataforma educativa soberana en 500 escuelas |
+| **Escala** | 2029 (tranche-2 entrada)–4 | 10 nodos del núcleo operativos. 50.000 nodos comunitarios. SAPI con 15M de usuarios. IDS con 15M de usuarios. Modelo Legal Argentino en piloto con PLANJUS. Modelo Educativo en 5.000 escuelas. El Mapa v1 operativo (integración SAOCOM + primeros 15.000 sensores IoT). Arquitecto de Fuerza Laboral en piloto con PLANREP. Lanzamiento de La Tribu v1 |
+| **Consolidación** | 2031 (tranche-2)–6 | 15–20 nodos del núcleo. 70.000 nodos comunitarios. SAPI con 25M de usuarios. IDS universal. Migración del 60% de datos del Estado a infraestructura soberana. LANIA con 300 investigadores y 2.048 GPUs. Primeros modelos especializados entrenados desde cero. 30.000 sensores IoT. Gemelo Digital v1. Programa brain drain revierte la tendencia |
+| **Soberanía** | 2033 (tranche-3)–8 | 25+ nodos del núcleo. 90.000 nodos comunitarios. SAPI con 30M+ de usuarios — método de pago dominante. 95% de datos del Estado soberanos. LANIA como centro de referencia IA en español. Ecosistema digital soberano completo (mensajería, pagos, identidad, educación, salud, gobernanza). Argentina exporta servicios cloud y IA a LATAM |
+| **Madurez** | 2035 (tranche-3)–10 | Capacidad plena del núcleo (140–270 MW). 100.000 nodos comunitarios. Modelos argentinos de frontera en producción. Gemelo Digital completo. La Argentina se conoce a sí misma en tiempo real. PLANDIG genera ingresos netos — la inversión se paga sola. El sistema nervioso de ¡BASTA! está completo: conecta, procesa, coordina, y aprende. Argentina es digitalmente soberana |
 
 ### Escenarios de Falla y Fallbacks
 
@@ -1968,7 +1968,7 @@ ArgenCloud funciona, pero la red de datacenters soberanos y la malla comunitaria
 
 1. **Infraestructura híbrida con encriptación soberana.** Los planes dependientes operan sobre un modelo mixto: ArgenCloud para lo que ya funciona + servicios cloud comerciales (AWS, Azure, GCP) con encriptación de extremo a extremo gestionada por ANDIG. Los datos viajan por rieles extranjeros pero están cifrados con llaves que solo el Estado argentino controla. No es soberanía plena — es soberanía de los datos aunque no de la infraestructura. Es la diferencia entre alquilar la casa y que el dueño tenga copia de tu llave versus alquilar con cerradura propia.
 
-2. **PLANMON lanza SAPI sobre infraestructura bancaria existente.** PLANMON ya documenta una beta de SAPI sobre la red interbancaria en Año 1. En este escenario, esa beta se convierte en el modo de operación principal por más tiempo. SAPI funciona, pero con mayor latencia y dependencia de la infraestructura bancaria tradicional como puente hasta que ArgenCloud alcance capacidad.
+2. **PLANMON lanza SAPI sobre infraestructura bancaria existente.** PLANMON ya documenta una beta de SAPI sobre la red interbancaria en 2027 (tranche-1). En este escenario, esa beta se convierte en el modo de operación principal por más tiempo. SAPI funciona, pero con mayor latencia y dependencia de la infraestructura bancaria tradicional como puente hasta que ArgenCloud alcance capacidad.
 
 3. **PLANEB opera sobre blockchain pública.** Las Empresas Bastardas usan Ethereum L2 (o equivalente) como capa de gobernanza y transparencia, con migración programada a ArgenCloud cuando la infraestructura soberana esté lista. El Protocolo Bastardo se diseña desde el inicio con portabilidad de cadena — la lógica de gobernanza no puede estar atada a una infraestructura específica.
 
@@ -2018,9 +2018,9 @@ La diferencia entre un retraso manejable y un fracaso es el tiempo de reacción.
 
 | Plazo | Indicador | Umbral de alerta | Protocolo activado |
 |---|---|---|---|
-| **Año 1** | Nodos activos de la malla comunitaria | < 5.000 nodos | Activar Escenario A — infraestructura híbrida. Reforzar incentivos de adopción de nodos. Revisión del modelo de participación comunitaria |
-| **Año 2** | Latencia promedio para servicios críticos (SAPI, IDS, plataforma educativa) | > 200 ms | Reforzar inversión en infraestructura core. Si no mejora en 6 meses, activar Escenario B — modelo federado |
-| **Año 3** | Costo por transacción en ArgenCloud vs. servicios comerciales equivalentes | > 3x el costo comercial | Evaluación formal de viabilidad. Si la tendencia no se revierte en 12 meses, activar Escenario C — ANDIG como regulador |
+| **2027 (tranche-1)** | Nodos activos de la malla comunitaria | < 5.000 nodos | Activar Escenario A — infraestructura híbrida. Reforzar incentivos de adopción de nodos. Revisión del modelo de participación comunitaria |
+| **2028 (tranche-1)** | Latencia promedio para servicios críticos (SAPI, IDS, plataforma educativa) | > 200 ms | Reforzar inversión en infraestructura core. Si no mejora en 6 meses, activar Escenario B — modelo federado |
+| **2029 (tranche-2 entrada)** | Costo por transacción en ArgenCloud vs. servicios comerciales equivalentes | > 3x el costo comercial | Evaluación formal de viabilidad. Si la tendencia no se revierte en 12 meses, activar Escenario C — ANDIG como regulador |
 | **Continuo** | Adopción de servicios soberanos vs. proyección | < 40% de la meta anual durante 2 trimestres consecutivos | Auditoría de barreras de adopción. Revisión UX. Ajuste de incentivos |
 
 **Revisión trimestral obligatoria.** ANDIG publica un reporte trimestral de estado de ArgenCloud con los indicadores de esta tabla. El reporte es público — Capa 1, acceso abierto — y se presenta ante el Panel Ciudadano de Soberanía Digital. No hay opacidad posible: si ArgenCloud está fallando, la ciudadanía lo sabe al mismo tiempo que ANDIG.
@@ -2112,14 +2112,14 @@ PLANDIG es **tranche-1 (estadio A)** con entrada operativa en 2026-Q2. El estadi
 
 | Texto original | Ventana absoluta | Tranche |
 |----------------|------------------|---------|
-| Año 0 | 2026 | tranche-1 inicial (estadio A) |
-| Año 1 | 2027 | tranche-1 (estadio A) |
-| Año 2 | 2028 | tranche-1 → tranche-2 (estadio A) |
-| Año 3 | 2029 | tranche-2 (estadio A) |
-| Año 5 | 2031 | tranche-2 cierre (estadio A) |
-| Año 7 | 2033 | tranche-3 (posible activación parcial estadio B) |
-| Año 10 | 2036 | tranche-3 maduración (estadio B condicional) |
-| Año 15+ | 2041+ | Horizonte 2040 (estadio B pleno, Visión) |
+| 2026 (tranche-1 inicial) | 2026 | tranche-1 inicial (estadio A) |
+| 2027 (tranche-1) | 2027 | tranche-1 (estadio A) |
+| 2028 (tranche-1) | 2028 | tranche-1 → tranche-2 (estadio A) |
+| 2029 (tranche-2 entrada) | 2029 | tranche-2 (estadio A) |
+| 2031 (tranche-2) | 2031 | tranche-2 cierre (estadio A) |
+| 2033 (tranche-3) | 2033 | tranche-3 (posible activación parcial estadio B) |
+| 2036 (tranche-3 maduración) | 2036 | tranche-3 maduración (estadio B condicional) |
+| 2041+ (Visión 2040+) | 2041+ | Horizonte 2040 (estadio B pleno, Visión) |
 
 **Reglas de tranche aplicadas:**
 - ≤ 8 servicios listados en estadio A (tranche-1).

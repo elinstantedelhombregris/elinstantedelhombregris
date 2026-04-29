@@ -125,7 +125,7 @@ En la Argentina donde vamos, el Hombre Gris despertó. Y cuando despertó, descu
 
 ---
 
-**Tesis Central:** La prohibición de sustancias en la Argentina es un fracaso absoluto por cualquier métrica: no redujo el consumo, no redujo la oferta, no protegió a los menores, no detuvo al narcotráfico — y le regaló al crimen organizado un mercado de USD 3.000–8.000 millones anuales que no paga impuestos, no controla calidad, no protege trabajadores, y mata gente. PLANSUS propone la ruptura soberana con las convenciones de la ONU sobre drogas (siguiendo el precedente de Bolivia 2011) y la implementación de un sistema de **regulación integral en cascada**: cannabis legal en el Año 1, psicodélicos terapéuticos y ceremoniales en el Año 3, regulación completa de todas las sustancias en el Año 5. El sistema opera a través de **cuatro vías de licenciamiento** — Ceremonial (protección de tradiciones ancestrales), Terapéutica (investigación y tratamiento clínico), Recreativa (uso adulto regulado), e Industrial (cáñamo, farmacéutica, cosmética) — administradas por la **ANSUS** (Agencia Nacional de Soberanía sobre Sustancias), ente autárquico blindado contra el ciclo electoral. La **Amnistía Graduada "El Puente"** ofrece a los operadores actuales del mercado negro una transición hacia la legalidad — porque la única forma de destruir el narcotráfico es quitarle el mercado, no dispararle a sus soldados. El sistema incluye **penalidades máximas para venta a menores** (las más duras del continente), **control de calidad obligatorio** (ANMAT), **fiscalidad progresiva**, y un **Hub de Investigación y Desarrollo** que posiciona a la Argentina como líder mundial en neurociencia aplicada y medicina psicodélica. Los ingresos proyectados son de USD 2.000–8.000 millones/año al Año 5 (impuestos + licencias + exportación + turismo terapéutico + ahorro en enforcement). El costo de implementación es de USD 500M–1.500M en 5 años. El ROI estimado es de 5:1 a 15:1 en 10 años. La protección de menores se refuerza — no se debilita — porque un mercado regulado con controles de edad funciona mejor que un mercado negro donde nadie pide documento. PLANSUS se integra con los otros quince mandatos de ¡BASTA!: con PLAN24CN (infraestructura de dispensarios y clínicas en las nuevas ciudades), con PLANREP (reconversión de trabajadores del enforcement hacia el mercado legal), con PLANISV (cannabis y cáñamo como cultivos regenerativos), con PLANEDU (educación sobre sustancias basada en evidencia, no en propaganda), y con PLANJUS (resolución rápida de conflictos del nuevo mercado regulado).
+**Tesis Central:** La prohibición de sustancias en la Argentina es un fracaso absoluto por cualquier métrica: no redujo el consumo, no redujo la oferta, no protegió a los menores, no detuvo al narcotráfico — y le regaló al crimen organizado un mercado de USD 3.000–8.000 millones anuales que no paga impuestos, no controla calidad, no protege trabajadores, y mata gente. PLANSUS propone la ruptura soberana con las convenciones de la ONU sobre drogas (siguiendo el precedente de Bolivia 2011) y la implementación de un sistema de **regulación integral en cascada**: cannabis legal en el 2027 (tranche-1), psicodélicos terapéuticos y ceremoniales en el 2029 (tranche-2 entrada), regulación completa de todas las sustancias en el 2031 (tranche-2). El sistema opera a través de **cuatro vías de licenciamiento** — Ceremonial (protección de tradiciones ancestrales), Terapéutica (investigación y tratamiento clínico), Recreativa (uso adulto regulado), e Industrial (cáñamo, farmacéutica, cosmética) — administradas por la **ANSUS** (Agencia Nacional de Soberanía sobre Sustancias), ente autárquico blindado contra el ciclo electoral. La **Amnistía Graduada "El Puente"** ofrece a los operadores actuales del mercado negro una transición hacia la legalidad — porque la única forma de destruir el narcotráfico es quitarle el mercado, no dispararle a sus soldados. El sistema incluye **penalidades máximas para venta a menores** (las más duras del continente), **control de calidad obligatorio** (ANMAT), **fiscalidad progresiva**, y un **Hub de Investigación y Desarrollo** que posiciona a la Argentina como líder mundial en neurociencia aplicada y medicina psicodélica. Los ingresos proyectados son de USD 2.000–8.000 millones/año al 2031 (tranche-2) (impuestos + licencias + exportación + turismo terapéutico + ahorro en enforcement). El costo de implementación es de USD 500M–1.500M en 5 años. El ROI estimado es de 5:1 a 15:1 en 10 años. La protección de menores se refuerza — no se debilita — porque un mercado regulado con controles de edad funciona mejor que un mercado negro donde nadie pide documento. PLANSUS se integra con los otros quince mandatos de ¡BASTA!: con PLAN24CN (infraestructura de dispensarios y clínicas en las nuevas ciudades), con PLANREP (reconversión de trabajadores del enforcement hacia el mercado legal), con PLANISV (cannabis y cáñamo como cultivos regenerativos), con PLANEDU (educación sobre sustancias basada en evidencia, no en propaganda), y con PLANJUS (resolución rápida de conflictos del nuevo mercado regulado).
 
 ---
 
@@ -163,7 +163,7 @@ Holanda lo demostró durante cincuenta años con su política de coffeeshops: to
 
 **Carolina, 45 años, Córdoba.** Su hijo Matías tenía 23 años. Fue a una fiesta electrónica. Compró lo que le dijeron que era MDMA. Era MDMA cortada con metanfetamina y fentanilo. Matías murió en la ambulancia. Carolina no pudo enterrar a su hijo sin que los medios titularan "Joven muere por sobredosis" — como si la culpa fuera de Matías y no de un sistema que le hizo imposible saber qué estaba consumiendo. En un mercado regulado, Matías habría comprado MDMA testeada, con dosis estandarizada, con información de reducción de daños en el envase. Estaría vivo. PLANSUS no elimina el riesgo — elimina el riesgo *evitable*. El que existe solamente porque la prohibición impide el control de calidad.
 
-**Dra. Gabriela, 38 años, CONICET Buenos Aires.** Neurocientífica. Publicó en *Nature Neuroscience*. Tiene un protocolo de investigación para tratar depresión resistente al tratamiento con psilocibina — la sustancia activa de los hongos psilocybe. Johns Hopkins y el Imperial College de Londres publican resultados extraordinarios: remisión del 67% en depresión resistente, comparado con el 25% de los antidepresivos convencionales. Gabriela quiere hacer lo mismo en Argentina. No puede. Porque la psilocibina es Schedule I — "sin uso médico reconocido y alto potencial de abuso." Una clasificación que la ciencia desmintió hace una década pero que la burocracia prohibicionista mantiene como dogma. Bajo PLANSUS, Gabriela tiene una licencia de Vía Terapéutica en el Año 3. Su laboratorio recibe financiamiento del Hub de I+D. Argentina se convierte en el primer país de América Latina en ofrecer terapia asistida con psilocibina para depresión. Los pacientes que hoy toman su quinto antidepresivo sin resultado tienen una alternativa que funciona.
+**Dra. Gabriela, 38 años, CONICET Buenos Aires.** Neurocientífica. Publicó en *Nature Neuroscience*. Tiene un protocolo de investigación para tratar depresión resistente al tratamiento con psilocibina — la sustancia activa de los hongos psilocybe. Johns Hopkins y el Imperial College de Londres publican resultados extraordinarios: remisión del 67% en depresión resistente, comparado con el 25% de los antidepresivos convencionales. Gabriela quiere hacer lo mismo en Argentina. No puede. Porque la psilocibina es Schedule I — "sin uso médico reconocido y alto potencial de abuso." Una clasificación que la ciencia desmintió hace una década pero que la burocracia prohibicionista mantiene como dogma. Bajo PLANSUS, Gabriela tiene una licencia de Vía Terapéutica en el 2029 (tranche-2 entrada). Su laboratorio recibe financiamiento del Hub de I+D. Argentina se convierte en el primer país de América Latina en ofrecer terapia asistida con psilocibina para depresión. Los pacientes que hoy toman su quinto antidepresivo sin resultado tienen una alternativa que funciona.
 
 **Barrio Las Flores, Rosario.** Cuarenta manzanas donde el Estado se fue y el narco se quedó. Los pibes no se preguntan si van a terminar la secundaria — se preguntan para cuál banda van a trabajar. Las madres caminan agachadas por la calle porque las balas no distinguen. En los últimos tres años, diecisiete personas murieron en disputas territoriales entre bandas que se pelean esquinas — esquinas donde se vende pasta base con un margen del 2.000%. Esa violencia no existe porque las drogas son malas. Existe porque las drogas son **ilegales** — y cuando un mercado es ilegal, los conflictos comerciales no se resuelven en un juzgado. Se resuelven con un tiro. Bajo PLANSUS, no hay esquinas que defender porque no hay mercado negro que proteger. Las sustancias se compran en dispensarios regulados. Los ex-dealers tienen acceso a la Amnistía "El Puente". Y los pibes de Las Flores tienen la opción que hoy no tienen: un trabajo legal que pague mejor que ser soldadito.
 
@@ -391,19 +391,19 @@ Toda esta ciencia se hizo **a pesar de** la prohibición, no gracias a ella. Cad
 
 **ANTES:** Laura tiene 41 años. Es neurocientífica investigadora del CONICET en Buenos Aires. Su laboratorio estudia los mecanismos neurológicos de la depresión. Publicó quince papers en revistas de impacto. Sabe — porque lee todo lo que se publica en Johns Hopkins, en Imperial College, en la Universidad de Zúrich — que la psilocibina produce neuroplasticidad, que genera conexiones sinápticas nuevas, que en ensayos clínicos tiene una tasa de remisión de depresión resistente al tratamiento del 67%. Laura tiene el equipo, tiene el conocimiento, tiene los pacientes que la buscan desesperados después de probar tres, cuatro, cinco antidepresivos sin resultado. Lo que no tiene es permiso. La psilocibina es Schedule I. El trámite para obtener una licencia de investigación es un laberinto burocrático que puede tardar años y que ninguna institución quiere firmar por miedo a la exposición mediática. Laura se frustra. Sus colegas en Londres y Baltimore publican resultados que cambian paradigmas. Ella completa formularios.
 
-**DESPUÉS:** PLANSUS crea el Hub de Investigación y Desarrollo en el Año 2. Laura obtiene una licencia de Vía Terapéutica para investigación clínica. CONICET cofinancia su laboratorio. Las trabas burocráticas desaparecen porque ANSUS centraliza los permisos en un proceso de 90 días. Los grants internacionales — que antes evitaban a Argentina por el marco prohibitivo — empiezan a fluir. Laura publica el primer ensayo clínico de psilocibina para depresión resistente en América Latina. Los resultados confirman lo que Johns Hopkins encontró: remisión en dos tercios de los pacientes. Los medios internacionales cubren la noticia. Argentina se posiciona como el hub de neurociencia psicodélica de América Latina. Y los pacientes de Laura — personas que llevaban años sin sentir alegría, sin dormir, sin querer levantarse — empiezan a vivir de nuevo.
+**DESPUÉS:** PLANSUS crea el Hub de Investigación y Desarrollo en el 2028 (tranche-1). Laura obtiene una licencia de Vía Terapéutica para investigación clínica. CONICET cofinancia su laboratorio. Las trabas burocráticas desaparecen porque ANSUS centraliza los permisos en un proceso de 90 días. Los grants internacionales — que antes evitaban a Argentina por el marco prohibitivo — empiezan a fluir. Laura publica el primer ensayo clínico de psilocibina para depresión resistente en América Latina. Los resultados confirman lo que Johns Hopkins encontró: remisión en dos tercios de los pacientes. Los medios internacionales cubren la noticia. Argentina se posiciona como el hub de neurociencia psicodélica de América Latina. Y los pacientes de Laura — personas que llevaban años sin sentir alegría, sin dormir, sin querer levantarse — empiezan a vivir de nuevo.
 
 ### 3.4 Don Ernesto — De Invisible a Reconocido
 
 **ANTES:** Ernesto tiene 68 años. Es referente espiritual de una comunidad kolla en Jujuy. Su familia trabaja con el San Pedro — el cactus huachuma — desde antes de que existiera la República Argentina. Don Ernesto conduce ceremonias de sanación que combinan el cactus con cantos, con oraciones, con un conocimiento de la planta que se transmite de generación en generación desde hace siglos. Legalmente, lo que Ernesto hace es un delito — la mescalina, el principio activo del San Pedro, está prohibida por la ley argentina. Nadie lo persigue activamente, pero la amenaza está siempre ahí. Los turistas que vienen a participar de sus ceremonias lo hacen en un limbo legal. Ernesto no puede formalizar su actividad, no puede cobrar de forma transparente, no puede proteger su tradición con ningún marco legal.
 
-**DESPUÉS:** PLANSUS establece la Vía Ceremonial en el Año 2. Ernesto y su comunidad registran su práctica bajo el amparo del artículo 75 inciso 17 de la Constitución. La Vía Ceremonial no regula la ceremonia — Ernesto sigue conduciendo como siempre, con las reglas de su tradición, sin interferencia estatal. Lo que la Vía Ceremonial hace es *proteger*: protege legalmente a Ernesto, protege a los participantes, protege a la comunidad contra cualquier persecución. Y abre una puerta: turismo ceremonial regulado. Visitantes de todo el mundo que quieren participar de ceremonias ancestrales en un marco seguro y legal. La comunidad de Ernesto recibe ingresos que invierte en educación bilingüe, en infraestructura comunitaria, en la preservación de su lengua y su cultura. El San Pedro no es una droga. Es patrimonio cultural inmaterial. PLANSUS lo trata como tal.
+**DESPUÉS:** PLANSUS establece la Vía Ceremonial en el 2028 (tranche-1). Ernesto y su comunidad registran su práctica bajo el amparo del artículo 75 inciso 17 de la Constitución. La Vía Ceremonial no regula la ceremonia — Ernesto sigue conduciendo como siempre, con las reglas de su tradición, sin interferencia estatal. Lo que la Vía Ceremonial hace es *proteger*: protege legalmente a Ernesto, protege a los participantes, protege a la comunidad contra cualquier persecución. Y abre una puerta: turismo ceremonial regulado. Visitantes de todo el mundo que quieren participar de ceremonias ancestrales en un marco seguro y legal. La comunidad de Ernesto recibe ingresos que invierte en educación bilingüe, en infraestructura comunitaria, en la preservación de su lengua y su cultura. El San Pedro no es una droga. Es patrimonio cultural inmaterial. PLANSUS lo trata como tal.
 
 ### 3.5 Sofía — De la Ruleta Rusa a la Información
 
 **ANTES:** Sofía tiene 26 años. Trabaja en marketing digital en Buenos Aires. Sale los sábados. A veces toma MDMA con sus amigos. Lo compra a un dealer que le pasa una pastilla cuyo contenido desconoce completamente. ¿Es MDMA? ¿Es metanfetamina? ¿Tiene fentanilo? ¿Cuántos miligramos? Sofía no lo sabe. Nadie lo sabe. Toma la pastilla y espera. Es una ruleta rusa bioquímica que los jóvenes argentinos juegan cada fin de semana — no porque sean irresponsables, sino porque el sistema les quitó toda herramienta de responsabilidad. No hay testing. No hay información de dosificación. No hay control de pureza. Sofía sabe que lo que hace tiene riesgo. Lo que no sabe es cuánto riesgo — porque la prohibición le quitó hasta eso.
 
-**DESPUÉS:** PLANSUS legaliza el MDMA recreativo en el Año 5 (después de tres años de vía terapéutica). Sofía va a un dispensario autorizado. La pastilla tiene un sello que indica: MDMA puro, 120mg, producido en laboratorio certificado por ANMAT, lote verificable por código QR. El dispensario le entrega una tarjeta con información de reducción de daños: no mezclar con alcohol, hidratarse, no consumir más de una dosis por noche, no conducir, y un número de emergencia 24hs. Sofía sabe exactamente qué toma, cuánto toma, y qué hacer si algo sale mal. La ruleta rusa se convirtió en una decisión informada de un adulto responsable. Que es exactamente lo que el artículo 19 de la Constitución siempre protegió.
+**DESPUÉS:** PLANSUS legaliza el MDMA recreativo en el 2031 (tranche-2) (después de tres años de vía terapéutica). Sofía va a un dispensario autorizado. La pastilla tiene un sello que indica: MDMA puro, 120mg, producido en laboratorio certificado por ANMAT, lote verificable por código QR. El dispensario le entrega una tarjeta con información de reducción de daños: no mezclar con alcohol, hidratarse, no consumir más de una dosis por noche, no conducir, y un número de emergencia 24hs. Sofía sabe exactamente qué toma, cuánto toma, y qué hacer si algo sale mal. La ruleta rusa se convirtió en una decisión informada de un adulto responsable. Que es exactamente lo que el artículo 19 de la Constitución siempre protegió.
 
 ---
 
@@ -835,7 +835,7 @@ Integración con **PLANISV**: el cáñamo industrial entra en rotaciones de cult
 
 **TABLA 9A: Cannabis Agrícola — Productos, Mercado, Empleo**
 
-| Categoría | Productos | Mercado Estimado (Año 5) | Empleos Directos |
+| Categoría | Productos | Mercado Estimado (2031 (tranche-2)) | Empleos Directos |
 |---|---|---|---|
 | Flor premium (exportación) | Variedades INTA certificadas, denominación de origen | USD 800M-1.5B | 15,000-30,000 |
 | CBD / extractos | Aceites, tinturas, cápsulas, cremas | USD 300M-600M | 8,000-15,000 |
@@ -876,7 +876,7 @@ La planta más versátil del planeta fue prohibida no por peligrosa sino por com
 - **Hempcrete** (concreto de cáñamo): material de construcción que secuestra carbono. Integración directa con **PLAN24CN** — las 24 nuevas ciudades pueden usar hempcrete en vivienda social, reduciendo huella ambiental y costos
 - **Textiles**: fibra de cáñamo para la rama artesanal de **PLANREP**
 - **Bioplásticos y biocombustibles**: sustitución de derivados del petróleo. Integración con **PLANISV** — reducción de deforestación al reemplazar pulpa de madera con pulpa de cáñamo
-- Potencial: **USD 1-3B/año para el Año 10**
+- Potencial: **USD 1-3B/año para el 2036 (tranche-3 maduración)**
 
 ### 9.6 Impacto Económico Total
 
@@ -884,10 +884,10 @@ La planta más versátil del planeta fue prohibida no por peligrosa sino por com
 
 | Horizonte | Ingresos Estimados | Empleos Directos | Empleos Indirectos | Recaudación Fiscal |
 |---|---|---|---|---|
-| Año 1 | USD 500M-1B | 20,000-40,000 | 40,000-80,000 | USD 100-200M |
-| Año 3 | USD 1.5-3B | 50,000-100,000 | 100,000-200,000 | USD 300-600M |
-| Año 5 | USD 2-8B | 100,000-200,000 | 150,000-350,000 | USD 500M-1.5B |
-| Año 10 | USD 5-15B | 150,000-300,000 | 250,000-500,000 | USD 1-3B |
+| 2027 (tranche-1) | USD 500M-1B | 20,000-40,000 | 40,000-80,000 | USD 100-200M |
+| 2029 (tranche-2 entrada) | USD 1.5-3B | 50,000-100,000 | 100,000-200,000 | USD 300-600M |
+| 2031 (tranche-2) | USD 2-8B | 100,000-200,000 | 150,000-350,000 | USD 500M-1.5B |
+| 2036 (tranche-3 maduración) | USD 5-15B | 150,000-300,000 | 250,000-500,000 | USD 1-3B |
 
 Para contexto: la cadena sojera — el motor agro-exportador argentino — genera aproximadamente USD 20B/año. PLANSUS tiene el potencial de crear una segunda cadena de valor de magnitud comparable. No reemplaza a la soja. **Se le suma.**
 
@@ -965,10 +965,10 @@ No podemos esperar a construir 30 laboratorios para empezar a vender. Convenios 
 **Fase de despliegue doméstico (Meses 6-24): 5 laboratorios regionales ANSUS.**
 Un laboratorio en cada provincia prioritaria — Santa Fe, Salta/Jujuy, Mendoza, Buenos Aires, Córdoba — equipado con cromatografía (HPLC/GC-MS), espectrometría de masas, y capacidad microbiológica completa. Cada laboratorio acreditado ISO 17025 antes de operar. Personal: mínimo 15 analistas por laboratorio, reclutados de CONICET, universidades nacionales y sector privado farmacéutico, con certificación adicional en análisis de sustancias controladas.
 
-**Fase de escalamiento (Años 2-5):** 15 laboratorios al Año 2, 30+ al Año 5 — cobertura federal completa. Ningún productor licenciado a más de 300 km de un laboratorio ANSUS.
+**Fase de escalamiento (Años 2-5):** 15 laboratorios al 2028 (tranche-1), 30+ al 2031 (tranche-2) — cobertura federal completa. Ningún productor licenciado a más de 300 km de un laboratorio ANSUS.
 
-**Pipeline de inspectores: 200 en el Año 1.**
-No se arrancan de cero. ANMAT tiene inspectores de alimentos. SENASA tiene inspectores fitosanitarios. Esa gente ya sabe auditar, tomar muestras, documentar cadenas de custodia, levantar actas. Se los reconvierte con módulos de certificación de 120 horas: farmacología de sustancias reguladas, protocolos de muestreo específicos, detección de adulteración, uso de kits de testeo rápido en campo. 200 inspectores operativos en 12 meses. 500 al Año 3. 1.000 al Año 5.
+**Pipeline de inspectores: 200 en el 2027 (tranche-1).**
+No se arrancan de cero. ANMAT tiene inspectores de alimentos. SENASA tiene inspectores fitosanitarios. Esa gente ya sabe auditar, tomar muestras, documentar cadenas de custodia, levantar actas. Se los reconvierte con módulos de certificación de 120 horas: farmacología de sustancias reguladas, protocolos de muestreo específicos, detección de adulteración, uso de kits de testeo rápido en campo. 200 inspectores operativos en 12 meses. 500 al 2029 (tranche-2 entrada). 1.000 al 2031 (tranche-2).
 
 **Cadena de custodia: del cultivo a la góndola, cada muestra rastreada.**
 Protocolo completo: sellado y etiquetado en punto de cosecha/síntesis, transporte en condiciones controladas, recepción en laboratorio con verificación cruzada, análisis con doble ciego, resultado vinculado a lote. Cada quiebre en la cadena invalida el lote. No hay excepciones. No hay "se nos perdió la muestra." Si se perdió, el lote no sale.
@@ -1096,7 +1096,7 @@ Argentina es federal. PLANSUS lo respeta — pero con una asimetría deliberada:
 | **Buenos Aires (AMBA)** | Mayor mercado del país — donde vive el 37% de la población y donde se concentra el consumo actual | Regulación de mercado + El Puente + recaudación fiscal |
 | **Córdoba** | Universidades + infraestructura turística de sierras + base científica | Pilar 2 (I+D) + Pilar 4 (retiros terapéuticos) |
 
-La implementación no es simultánea en las 24 jurisdicciones. Es progresiva: provincias pioneras en el Año 1, segunda ola en el Año 2-3, cobertura nacional para el Año 5. Las pioneras generan evidencia, las que siguen aprenden de esa evidencia. Federalismo inteligente — no uniformidad burocrática.
+La implementación no es simultánea en las 24 jurisdicciones. Es progresiva: provincias pioneras en el 2027 (tranche-1), segunda ola en el 2028-2029 (tranche-2 entrada), cobertura nacional para el 2031 (tranche-2). Las pioneras generan evidencia, las que siguen aprenden de esa evidencia. Federalismo inteligente — no uniformidad burocrática.
 
 ---
 
@@ -1136,7 +1136,7 @@ La prohibición produce exactamente cero pesos de recaudación tributaria. Cada 
 
 **TABLA 13.2: Proyección de Ingresos PLANSUS**
 
-| Fuente de ingreso | Año 1 | Año 3 | Año 5 | Año 10 |
+| Fuente de ingreso | 2027 (tranche-1) | 2029 (tranche-2 entrada) | 2031 (tranche-2) | 2036 (tranche-3 maduración) |
 |---|---|---|---|---|
 | Impuesto cannabis | USD 200-400M | USD 500M-1B | USD 1-2B | USD 2-4B |
 | Impuesto psicodélicos | - | USD 100-300M | USD 300-600M | USD 500M-1B |
@@ -1146,7 +1146,7 @@ La prohibición produce exactamente cero pesos de recaudación tributaria. Cada 
 | Decomiso Activos Tier 3 | USD 200-500M | - | - | - |
 | **TOTAL** | **USD 500M-1.1B** | **USD 900M-2B** | **USD 2.2-4.4B** | **USD 4.2-8.4B** |
 
-Las proyecciones son conservadoras. Colorado (5.8 millones de habitantes) recaudó USD 423M en impuestos al cannabis en 2023. Argentina tiene 46 millones de habitantes, un clima agrícola superior y una posición geográfica estratégica para el turismo internacional. Las cifras de Año 10 podrían ser significativamente mayores.
+Las proyecciones son conservadoras. Colorado (5.8 millones de habitantes) recaudó USD 423M en impuestos al cannabis en 2023. Argentina tiene 46 millones de habitantes, un clima agrícola superior y una posición geográfica estratégica para el turismo internacional. Las cifras de 2036 (tranche-3 maduración) podrían ser significativamente mayores.
 
 ### 13.3 Ahorro por Reducción de Costos
 
@@ -1162,7 +1162,7 @@ Lo que dejás de gastar es tan importante como lo que empezás a recaudar:
 
 Sumando ingresos nuevos más ahorro por costos eliminados, el ROI de PLANSUS es de **5:1 a 15:1 en diez años**. Cada dólar invertido en la implementación devuelve entre cinco y quince dólares en recaudación, ahorro fiscal y valor económico generado.
 
-Para contexto: PLANJUS proyecta un ROI de 6:1 a 10:1 en quince años. PLANREP proyecta un ahorro fiscal de USD 15-25B/año. PLANSUS no solo se autofinancia desde el Año 1 — genera un excedente fiscal que puede alimentar a los otros mandatos ¡BASTA!. **La legalización no compite con la educación, la justicia o la reconversión laboral. Las financia.**
+Para contexto: PLANJUS proyecta un ROI de 6:1 a 10:1 en quince años. PLANREP proyecta un ahorro fiscal de USD 15-25B/año. PLANSUS no solo se autofinancia desde el 2027 (tranche-1) — genera un excedente fiscal que puede alimentar a los otros mandatos ¡BASTA!. **La legalización no compite con la educación, la justicia o la reconversión laboral. Las financia.**
 
 ---
 
@@ -1215,7 +1215,7 @@ Las 24 nuevas ciudades propuestas por PLAN24CN incorporan infraestructura PLANSU
 | Falla bancaria sistémica | Media | Alto | Safe harbor BCRA + banca pública como primera línea + corresponsalía diversificada (Sección 21) |
 | Incidente DUI mediático | Alta | Alto | Marco legal pre-existente + DRE operativos + campaña pública (Sección 23) |
 | Saturación del sistema de salud | Media | Alto | Puente Sanitario de 36 meses + earmark fiscal automático (Sección 24) |
-| Precio legal no competitivo | Media | Alto | Excise escalonado + subsidio de testeo Año 1 + premiums de calidad/conveniencia (Sección 25) |
+| Precio legal no competitivo | Media | Alto | Excise escalonado + subsidio de testeo 2027 (tranche-1) + premiums de calidad/conveniencia (Sección 25) |
 | Represalia violenta de carteles | Alta | Alto | Protocolo escalonado VERDE/AMARILLO/ROJO + inteligencia focalizada + protección de cooperadores (Sección 22) |
 | Biopiratería / captura de conocimiento tradicional | Baja | Alto | Marco Nagoya + registro defensivo + consentimiento comunitario vinculante (Sección 27) |
 
@@ -1263,7 +1263,7 @@ PLANSUS tiene un marco de conducción bajo influencia más completo que el de la
 
 **"¿De dónde sale la gente para trabajar en todo esto?"**
 
-De un pipeline de capacitación concreto (Sección 25.3): agronomía cannábica con INTA, técnicos de control de calidad con certificación ANMAT, operadores de dispensario a través de los Centros de la Vida de PLANREP, facilitadores de terapia psicodélica con programa de 200 horas modelo Oregon. 5.000 trabajadores certificados en el Mes 6, 20.000 en el Año 2, 80.000+ en el Año 5. Las curriculas se desarrollan en la Pre-Fase, meses antes de que la ley se sancione. No improvisamos.
+De un pipeline de capacitación concreto (Sección 25.3): agronomía cannábica con INTA, técnicos de control de calidad con certificación ANMAT, operadores de dispensario a través de los Centros de la Vida de PLANREP, facilitadores de terapia psicodélica con programa de 200 horas modelo Oregon. 5.000 trabajadores certificados en el Mes 6, 20.000 en el 2028 (tranche-1), 80.000+ en el 2031 (tranche-2). Las curriculas se desarrollan en la Pre-Fase, meses antes de que la ley se sancione. No improvisamos.
 
 **"¿Y si los bancos no cooperan?"**
 
@@ -1305,7 +1305,7 @@ Las historias de la Sección 3 — las personas reales atrapadas por la prohibic
 
 > *"No es un plan a 20 años donde nadie rinde cuentas. Son 5 años, 4 fases, hitos medibles, y puertas que no se cruzan sin evidencia. Si no cumplimos, nos echan. Si la evidencia dice que no estamos listos, frenamos. Así tiene que ser."*
 
-La versión original de esta hoja de ruta era un cronograma fijo: cannabis legal en el Mes 6, psicodélicos en el Año 2, legalización total en el Año 5. Eso era un error. No porque los plazos fueran irrealistas — pueden serlo. Sino porque un cronograma fijo es una promesa política, y las promesas políticas se cumplen por presión, no por evidencia. Un gobierno que se comprometió a vender cannabis en el Mes 6 va a vender cannabis en el Mes 6 aunque los laboratorios de testeo no estén listos, aunque los bancos no hayan abierto cuentas, aunque el marco de conducción bajo influencia no exista. Y si un lote contaminado mata a alguien en el Mes 7 porque los controles no estaban listos, la reforma entera muere con esa persona.
+La versión original de esta hoja de ruta era un cronograma fijo: cannabis legal en el Mes 6, psicodélicos en el 2028 (tranche-1), legalización total en el 2031 (tranche-2). Eso era un error. No porque los plazos fueran irrealistas — pueden serlo. Sino porque un cronograma fijo es una promesa política, y las promesas políticas se cumplen por presión, no por evidencia. Un gobierno que se comprometió a vender cannabis en el Mes 6 va a vender cannabis en el Mes 6 aunque los laboratorios de testeo no estén listos, aunque los bancos no hayan abierto cuentas, aunque el marco de conducción bajo influencia no exista. Y si un lote contaminado mata a alguien en el Mes 7 porque los controles no estaban listos, la reforma entera muere con esa persona.
 
 **PLANSUS usa una cascada controlada: la secuencia es fija, el cronograma lo dicta la evidencia.** Cada fase avanza cuando las precondiciones están verificadas — no cuando el calendario dice. Los hitos del cronograma son *objetivos*, no *compromisos*. Si el Mes 6 llega y los laboratorios no están acreditados, no se bajan los estándares — se retrasa la venta hasta que la infraestructura esté lista. La credibilidad de la reforma es su activo más valioso. Un mes de retraso responsable vale infinitamente más que un titular de "cannabis legal mata a joven por contaminación."
 
@@ -1337,7 +1337,7 @@ Antes de que la ley se sancione. El año más importante — porque todo lo que 
 
 **Si algún hito de Los Cimientos no se cumple en plazo, la ley no se sanciona.** No por debilidad — por inteligencia. Sancionar una ley sin infraestructura es construir el techo antes que los cimientos.
 
-### Fase 1 — Año 1: "El Alivio" (Cannabis + Despenalización)
+### Fase 1 — 2027 (tranche-1): "El Alivio" (Cannabis + Despenalización)
 
 | Mes | Hito |
 |---|---|
@@ -1368,15 +1368,15 @@ Antes de que la ley se sancione. El año más importante — porque todo lo que 
 
 | Período | Hito |
 |---|---|
-| Año 2 Q1 | Legalización plena de psicodélicos — **SOLO si Puerta 2 está VERDE** |
-| Año 2 Q2 | Primeros centros terapéuticos con licencia funcionando |
-| Año 2 Q3 | Track Ceremonial completamente operativo — comunidades indígenas con autonomía plena |
-| Año 2 Q4 | El Puente Tier 2 a plena operación |
-| Año 3 Q1 | Hub de I+D operativo — primeras patentes argentinas en farmacología psicodélica (Sección 27.2) |
-| Año 3 Q2 | Primeras exportaciones de cannabis medicinal y recreativo. Denominación de origen registrada (Sección 27.1) |
-| Año 3 Q4 | Comisión de Revisión de Presos completa todos los casos pendientes |
+| 2028 (tranche-1) Q1 | Legalización plena de psicodélicos — **SOLO si Puerta 2 está VERDE** |
+| 2028 (tranche-1) Q2 | Primeros centros terapéuticos con licencia funcionando |
+| 2028 (tranche-1) Q3 | Track Ceremonial completamente operativo — comunidades indígenas con autonomía plena |
+| 2028 (tranche-1) Q4 | El Puente Tier 2 a plena operación |
+| 2029 (tranche-2 entrada) Q1 | Hub de I+D operativo — primeras patentes argentinas en farmacología psicodélica (Sección 27.2) |
+| 2029 (tranche-2 entrada) Q2 | Primeras exportaciones de cannabis medicinal y recreativo. Denominación de origen registrada (Sección 27.1) |
+| 2029 (tranche-2 entrada) Q4 | Comisión de Revisión de Presos completa todos los casos pendientes |
 
-**🚪 PUERTA 2 — Requisito para expansión a psicodélicos (fin del Año 1)**
+**🚪 PUERTA 2 — Requisito para expansión a psicodélicos (fin del 2027 (tranche-1))**
 
 | Métrica | Criterio VERDE | Criterio ROJO (bloquea) |
 |---|---|---|
@@ -1393,14 +1393,14 @@ Antes de que la ley se sancione. El año más importante — porque todo lo que 
 
 | Período | Hito |
 |---|---|
-| Año 3-4 | MDMA legalizado — regulación completa con todos los tracks. **SOLO si Puerta 3 está VERDE** |
-| Año 4 | Cocaína legalizada — Track Adulto con controles de pureza y dosis |
-| Año 4-5 | Todas las sustancias restantes incorporadas al marco regulatorio |
-| Año 4-5 | El Puente Tier 3 — transición completa de operadores ilegales |
-| Año 5 | Mercado plenamente operativo. Primer Panel de Adversarios convocado (Sección 10.4) |
-| Año 5 | Evaluación integral: Tablero publica informe de 5 años. Comparación con baseline C1 |
+| 2029-2030 (tranche-2) | MDMA legalizado — regulación completa con todos los tracks. **SOLO si Puerta 3 está VERDE** |
+| 2030 (tranche-2) | Cocaína legalizada — Track Adulto con controles de pureza y dosis |
+| 2030-2031 (tranche-2) | Todas las sustancias restantes incorporadas al marco regulatorio |
+| 2030-2031 (tranche-2) | El Puente Tier 3 — transición completa de operadores ilegales |
+| 2031 (tranche-2) | Mercado plenamente operativo. Primer Panel de Adversarios convocado (Sección 10.4) |
+| 2031 (tranche-2) | Evaluación integral: Tablero publica informe de 5 años. Comparación con baseline C1 |
 
-**🚪 PUERTA 3 — Requisito para legalización de sustancias de mayor riesgo (fin del Año 3)**
+**🚪 PUERTA 3 — Requisito para legalización de sustancias de mayor riesgo (fin del 2029 (tranche-2 entrada))**
 
 | Métrica | Criterio VERDE | Criterio ROJO (bloquea) |
 |---|---|---|
@@ -1513,9 +1513,9 @@ Argentina tiene un problema adicional: la **cadena de corresponsalía bancaria i
 | Acuerdos de corresponsalía internacional | Mes 6-12 | Cancillería + BCRA + ANSUS | Diplomacia financiera |
 | Full digital en dispensarios (nacional) | Mes 12 | ANSUS | Piloto exitoso |
 | Cuentas en USD para exportadores | Mes 12-18 | Banco Nación + BCRA | Corresponsalía establecida |
-| Evaluación: % de transacciones digitales vs. efectivo | Año 2 | ANSUS (Tablero Nacional) | Datos de 12 meses |
-| Integración con SWIFT / códigos de actividad normalizados | Año 2-3 | BCRA + Cancillería | Masa crítica de operadores |
-| Acceso pleno a banca privada (Galicia, Macro, BBVA, etc.) | Año 3-5 | Mercado + regulación | Track record de compliance |
+| Evaluación: % de transacciones digitales vs. efectivo | 2028 (tranche-1) | ANSUS (Tablero Nacional) | Datos de 12 meses |
+| Integración con SWIFT / códigos de actividad normalizados | 2028-2029 (tranche-2 entrada) | BCRA + Cancillería | Masa crítica de operadores |
+| Acceso pleno a banca privada (Galicia, Macro, BBVA, etc.) | 2029-2031 (tranche-2) | Mercado + regulación | Track record de compliance |
 
 ### 21.3 Marco de Seguros — Sin Seguro No Hay Industria
 
@@ -1577,7 +1577,7 @@ Acá es donde los prohibicionistas creen que te agarran. "Si legalizás, vas a g
 
 Argentina no es México ni Colombia — pero no es Suiza. El narcotráfico opera en cuatro corredores principales, cada uno con su lógica y sus actores. Entender esa geografía es condición previa para cualquier protocolo de seguridad.
 
-**Rosario / Santa Fe.** El epicentro. Los Monos fragmentados dejaron una constelación de bandas menores que se disputan el control barrial del menudeo y, más importante, el acceso al puerto de Rosario como punto de salida de cocaína hacia Europa y África. La violencia es retail: ajustes de cuentas, tiroteos entre bandas, intimidación a vecinos. La legalización les saca el negocio minorista — que es lo que financia su estructura — pero van a pelear por mantenerlo. Rosario es la zona de máximo riesgo en Año 1.
+**Rosario / Santa Fe.** El epicentro. Los Monos fragmentados dejaron una constelación de bandas menores que se disputan el control barrial del menudeo y, más importante, el acceso al puerto de Rosario como punto de salida de cocaína hacia Europa y África. La violencia es retail: ajustes de cuentas, tiroteos entre bandas, intimidación a vecinos. La legalización les saca el negocio minorista — que es lo que financia su estructura — pero van a pelear por mantenerlo. Rosario es la zona de máximo riesgo en 2027 (tranche-1).
 
 **Triple Frontera (Misiones).** Corredor de tránsito, no de consumo. Las redes conectan con el PCC brasileño y Comando Vermelho para mover cocaína paraguaya y boliviana. La amenaza acá no es el ataque a dispensarios — es el sabotaje logístico a la cadena legal para mantener relevancia del circuito ilegal. Requiere inteligencia coordinada con Brasil y Paraguay más que presencia territorial.
 
@@ -1637,7 +1637,7 @@ El resultado neto: más recursos efectivos con el mismo presupuesto. Porque dej�
 
 **Prioridades de inteligencia.** Mapear las redes ilegales residuales — las que rechazaron El Puente. Identificar a los líderes que buscan sabotear la transición. Rastrear flujos financieros que migren a otros delitos. Coordinación permanente entre la unidad de inteligencia ANSUS, policía federal, Gendarmería, y (cuando el nivel ROJO lo requiera) inteligencia militar — siempre bajo mando civil.
 
-**CLÁUSULA DE OCASO.** El aparato de seguridad de la transición no es permanente. Año 1-2: despliegue máximo. Año 3-4: reducción gradual a medida que el mercado legal se consolida y la violencia desciende. Año 5 en adelante: ANSUS Seguridad se transforma en un cuerpo de fiscalización regulatoria — inspecciones, compliance, auditorías — no una operación cuasi-militar. **Si para el Año 5 seguimos necesitando Protocolo ROJO, algo falló en las otras 21 secciones.** La seguridad en la transición es un medio, no un fin. El fin es un mercado tan legal, tan regulado y tan integrado a la economía formal que la violencia narco no tenga razón de existir.
+**CLÁUSULA DE OCASO.** El aparato de seguridad de la transición no es permanente. 2027-2028 (tranche-1): despliegue máximo. 2029-2030 (tranche-2): reducción gradual a medida que el mercado legal se consolida y la violencia desciende. 2031 (tranche-2) en adelante: ANSUS Seguridad se transforma en un cuerpo de fiscalización regulatoria — inspecciones, compliance, auditorías — no una operación cuasi-militar. **Si para el 2031 (tranche-2) seguimos necesitando Protocolo ROJO, algo falló en las otras 21 secciones.** La seguridad en la transición es un medio, no un fin. El fin es un mercado tan legal, tan regulado y tan integrado a la economía formal que la violencia narco no tenga razón de existir.
 
 ---
 
@@ -1699,8 +1699,8 @@ Desarrollado por LAPD/NHTSA, usado en EE.UU., Canadá, Reino Unido. El oficial c
 Adaptación del programa DRE de NHTSA al contexto argentino, coordinada por ANSUS con el Ministerio de Seguridad:
 
 - **Mes 1-6:** 500 oficiales DRE-certificados en provincias prioritarias (Buenos Aires, Córdoba, Mendoza, Santa Fe, Tucumán)
-- **Año 2:** 2.000 oficiales certificados, cobertura en todas las provincias
-- **Año 5:** 5.000+ oficiales, capacidad de evaluación DRE en cada puesto de control vial del país
+- **2028 (tranche-1):** 2.000 oficiales certificados, cobertura en todas las provincias
+- **2031 (tranche-2):** 5.000+ oficiales, capacidad de evaluación DRE en cada puesto de control vial del país
 
 **Módulo de certificación — 80 horas:**
 Farmacología básica de cada clase de sustancia | Signos de reconocimiento por categoría | Operación de dispositivos de fluido oral | Administración de SFST | Protocolo DRE de 12 pasos | Preparación para testimonio judicial | Derechos del conductor durante la evaluación
@@ -1765,7 +1765,7 @@ Y entre PLANSUS Día 1 y el día en que PLANSALUD funcione, hay un vacío. Un va
 
 Un programa de transición de tres años, diseñado para cubrir la brecha entre la despenalización y la implementación plena de PLANSALUD. Financiado íntegramente con ingresos PLANSUS — no depende de partidas presupuestarias discrecionales.
 
-**500 consejeros en adicciones formados en el Año 1.** Certificación fast-track de 12 meses para egresados de psicología, trabajo social y enfermería. Programa diseñado por UBA, UNC, UNR y CONICET, con módulos en: trastornos por uso de sustancias, reducción de daños, entrevista motivacional, intervención en crisis, y acompañamiento comunitario. No son terapeutas de consultorio — son profesionales de trinchera, formados para ir donde está el problema.
+**500 consejeros en adicciones formados en el 2027 (tranche-1).** Certificación fast-track de 12 meses para egresados de psicología, trabajo social y enfermería. Programa diseñado por UBA, UNC, UNR y CONICET, con módulos en: trastornos por uso de sustancias, reducción de daños, entrevista motivacional, intervención en crisis, y acompañamiento comunitario. No son terapeutas de consultorio — son profesionales de trinchera, formados para ir donde está el problema.
 
 **50 CAPAs (Centros de Atención Primaria en Adicciones) reforzados.** Los CAPAs existentes — afiliados a SEDRONAR, repartidos en todo el país — están subfuncionando por falta de presupuesto y personal. Se duplica su presupuesto operativo, se completan sus planteles profesionales, y se extiende su horario a 24/7 en las 20 zonas de mayor prevalencia. Un CAPA cerrado a las 18:00 no sirve — las crisis no respetan horarios de oficina.
 
@@ -1799,13 +1799,13 @@ El sistema de áreas de vida de PLANSAL — que mapea el bienestar personal a tr
 
 ### 24.5 Presupuesto del Puente Sanitario
 
-**USD 50–120 millones en 3 años**, financiados por una afectación específica del 5% sobre TODA la recaudación tributaria PLANSUS desde el Año 1. La afectación es constitucional y automática — no depende de negociaciones presupuestarias anuales, no pasa por Jefatura de Gabinete, no se puede reasignar por DNU. Si PLANSUS recauda, el Puente Sanitario se financia. Punto.
+**USD 50–120 millones en 3 años**, financiados por una afectación específica del 5% sobre TODA la recaudación tributaria PLANSUS desde el 2027 (tranche-1). La afectación es constitucional y automática — no depende de negociaciones presupuestarias anuales, no pasa por Jefatura de Gabinete, no se puede reasignar por DNU. Si PLANSUS recauda, el Puente Sanitario se financia. Punto.
 
 **Distribución:** 30% refuerzo de CAPAs | 25% personal (consejeros + equipos móviles + pares comunitarios) | 20% programas de formación | 15% espacios de consumo supervisado | 10% línea telefónica + infraestructura tecnológica.
 
 **TABLA 24.1: Proyección de Demanda de Tratamiento y Brecha de Capacidad (Años 1–3)**
 
-| Indicador | Año 1 | Año 2 | Año 3 |
+| Indicador | 2027 (tranche-1) | 2028 (tranche-1) | 2029 (tranche-2 entrada) |
 |---|---|---|---|
 | Personas en consumo problemático (estimado SEDRONAR) | ~400.000 | ~400.000 | ~400.000 |
 | Tasa de búsqueda de tratamiento pre-PLANSUS | 8–12% | — | — |
@@ -1839,7 +1839,7 @@ El mercado legal arrastra una carga de costos que el narco no paga: impuestos es
 
 **TABLA 25.1: Modelo de Competitividad de Precios — Cannabis Recreativo (por gramo, retail)**
 
-| Componente de costo | Mercado Negro | Mercado Legal (Año 1) | Mercado Legal (Año 3) | Mercado Legal (Año 5) |
+| Componente de costo | Mercado Negro | Mercado Legal (2027 (tranche-1)) | Mercado Legal (2029 (tranche-2 entrada)) | Mercado Legal (2031 (tranche-2)) |
 |---|---|---|---|---|
 | Costo base de producción | $800–1.200 | $600–900 (escala + tecnología) | $400–700 | $300–500 |
 | Impuesto especial (excise) | $0 | 8% = $48–72 | 15% = $60–105 | 20% = $60–100 |
@@ -1853,7 +1853,7 @@ El mercado legal arrastra una carga de costos que el narco no paga: impuestos es
 
 Las claves de la estrategia:
 
-**Impuesto escalonado — la lección de Colorado.** La Sección 5.3 fija el excise tax de cannabis recreativo en 15-20%. Eso es la tasa objetivo. Pero el Año 1 no arranca ahí. Arranca en 8%, sube a 15% en el Año 3 y llega a 20% en el Año 5. Colorado empezó con 10% y subió gradualmente — el primer año es para capturar mercado, no para recaudar. Un mercado que capturás al 8% y después gravás al 20% rinde infinitamente más que un mercado que nunca capturás porque arrancaste caro.
+**Impuesto escalonado — la lección de Colorado.** La Sección 5.3 fija el excise tax de cannabis recreativo en 15-20%. Eso es la tasa objetivo. Pero el 2027 (tranche-1) no arranca ahí. Arranca en 8%, sube a 15% en el 2029 (tranche-2 entrada) y llega a 20% en el 2031 (tranche-2). Colorado empezó con 10% y subió gradualmente — el primer año es para capturar mercado, no para recaudar. Un mercado que capturás al 8% y después gravás al 20% rinde infinitamente más que un mercado que nunca capturás porque arrancaste caro.
 
 **Subsidio de testing para Micro licenciatarios.** ANSUS subsidia el 50% de los costos de laboratorio para operadores Micro durante los primeros 12 meses (ref. Sección 10.5). El testeo obligatorio es innegociable — la calidad es lo que separa al mercado legal del ilegal — pero el costo no puede ser la barrera que mata al productor artesanal. El subsidio sale del 10% de ANSUS del excise tax (ref. Sección 5.3) y se elimina una vez que los laboratorios domésticos estén operativos y los costos bajen por escala.
 
@@ -1887,7 +1887,7 @@ La Sección 13 proyecta entre 50.000 y 200.000 empleos nuevos en cinco años. Es
 
 El pipeline de capacitación se estructura a través de los Centros de la Vida de PLANREP, como especialización transversal dentro de las ramas existentes (La Mesa, La Reparación, La Imaginación), con articulación universitaria vía PLANEDU:
 
-**Agronomía cannábica.** Diploma técnico de 6 meses. Convenio INTA + UNCuyo + UNL (Universidad Nacional del Litoral). Contenido: genética de cultivares, técnicas de cultivo indoor y outdoor, manejo de suelos, nutrición, control de plagas sin agroquímicos, cosecha, post-cosecha, secado, curado, certificación orgánica. Práctica obligatoria en campo experimental INTA. Capacidad: 2.000 egresados/año a partir del Año 1.
+**Agronomía cannábica.** Diploma técnico de 6 meses. Convenio INTA + UNCuyo + UNL (Universidad Nacional del Litoral). Contenido: genética de cultivares, técnicas de cultivo indoor y outdoor, manejo de suelos, nutrición, control de plagas sin agroquímicos, cosecha, post-cosecha, secado, curado, certificación orgánica. Práctica obligatoria en campo experimental INTA. Capacidad: 2.000 egresados/año a partir del 2027 (tranche-1).
 
 **Técnicos de control de calidad.** Certificación ANMAT de 4 meses intensivos + 2 meses de pasantía en laboratorios ANSUS (ref. Sección 10.5). Dirigido a graduados de química, bioquímica, farmacia — y a no graduados con formación técnica secundaria que completen un módulo nivelatorio de 2 meses. Contenido: cromatografía básica (HPLC/GC-MS), protocolos de muestreo, detección de contaminantes, cadena de custodia, documentación ISO 17025. Capacidad: 500 egresados/año.
 
@@ -1901,7 +1901,7 @@ El pipeline de capacitación se estructura a través de los Centros de la Vida d
 
 **TABLA 25.2: Demanda Laboral vs. Capacidad de Formación por Fase**
 
-| Categoría | Demanda Año 1 | Capacidad Año 1 | Demanda Año 3 | Capacidad acumulada Año 3 | Demanda Año 5 | Capacidad acumulada Año 5 |
+| Categoría | Demanda 2027 (tranche-1) | Capacidad 2027 (tranche-1) | Demanda 2029 (tranche-2 entrada) | Capacidad acumulada 2029 (tranche-2 entrada) | Demanda 2031 (tranche-2) | Capacidad acumulada 2031 (tranche-2) |
 |---|---|---|---|---|---|---|
 | Agronomía cannábica | 3.000–5.000 | 2.000 | 15.000–25.000 | 6.000 | 40.000–60.000 | 10.000 |
 | Técnicos de calidad | 500–800 | 500 | 2.000–3.000 | 1.500 | 4.000–6.000 | 2.500 |
@@ -1911,14 +1911,14 @@ El pipeline de capacitación se estructura a través de los Centros de la Vida d
 | Compliance regulatorio | 200–400 | 300 | 800–1.200 | 900 | 2.000–3.000 | 1.500 |
 | **TOTAL** | **6.300–11.400** | **9.000** | **30.300–48.000** | **27.000** | **77.000–119.000** | **45.000** |
 
-La brecha entre demanda y capacidad de formación en Año 3-5 se cierra con tres mecanismos: (1) escalamiento de cohortes en los programas existentes, (2) habilitación de instituciones privadas que cumplan estándares ANSUS para replicar las currículas, y (3) capacitación en servicio — los empleados Año 1 forman a los del Año 2 bajo supervisión certificada. Al Año 5, las instituciones de formación se autofinancian con matrícula de mercado — dejan de depender de subsidio estatal.
+La brecha entre demanda y capacidad de formación en 2029-2031 (tranche-2) se cierra con tres mecanismos: (1) escalamiento de cohortes en los programas existentes, (2) habilitación de instituciones privadas que cumplan estándares ANSUS para replicar las currículas, y (3) capacitación en servicio — los empleados 2027 (tranche-1) forman a los del 2028 (tranche-1) bajo supervisión certificada. Al 2031 (tranche-2), las instituciones de formación se autofinancian con matrícula de mercado — dejan de depender de subsidio estatal.
 
 **Cronograma:**
 
 - **Mes -6 a 0 (pre-cascada):** Diseño curricular, convenios con INTA/UNCuyo/UNL/UBA/UNC, selección de primeras cohortes, acondicionamiento de aulas en Centros de la Vida.
 - **Mes 6:** 5.000 trabajadores certificados — agronomía cannábica y operaciones de dispensario. Listos para operar el día que abran las primeras licencias.
-- **Año 2:** 20.000 certificados acumulados en todas las categorías. Pipeline estable.
-- **Año 5:** 80.000+ certificados. Red de formación federal y autosustentable. Argentina exportando know-how regulatorio a la región.
+- **2028 (tranche-1):** 20.000 certificados acumulados en todas las categorías. Pipeline estable.
+- **2031 (tranche-2):** 80.000+ certificados. Red de formación federal y autosustentable. Argentina exportando know-how regulatorio a la región.
 
 ---
 
@@ -1972,7 +1972,7 @@ La otra cara del problema es ambiental. Si repetimos el error de Colorado — do
 
 **Orgánico obligatorio para producto de consumo.** Todo cannabis, hongos o preparados psicodélicos destinados al consumidor final deben cumplir con el estándar de certificación orgánica argentina (Ley 25.127 y resoluciones SENASA). **Lista de pesticidas prohibidos** alineada con el estándar EU-MRL (Maximum Residue Levels). No se permiten organofosforados, neonicotinoides ni glifosato en ninguna etapa del cultivo regulado. **IPM (Manejo Integrado de Plagas)** obligatorio: control biológico, rotación de cultivos, trampas, antes de cualquier intervención química.
 
-**Gestión de residuos.** Residuo verde (tallos, raíces, recortes): compostaje o reciclaje de biomasa para fibra/construcción — cross-ref con PLANISV para integración con cadena de cáñamo industrial. Residuos de extracción (solventes usados): protocolo de residuos peligrosos según Ley 24.051. Packaging: a partir del Año 3, **100% del packaging debe ser reciclable o compostable.** Los envases de plástico virgen no reciclable quedan prohibidos.
+**Gestión de residuos.** Residuo verde (tallos, raíces, recortes): compostaje o reciclaje de biomasa para fibra/construcción — cross-ref con PLANISV para integración con cadena de cáñamo industrial. Residuos de extracción (solventes usados): protocolo de residuos peligrosos según Ley 24.051. Packaging: a partir del 2029 (tranche-2 entrada), **100% del packaging debe ser reciclable o compostable.** Los envases de plástico virgen no reciclable quedan prohibidos.
 
 **Huella de carbono para licenciatarios Macro.** Evaluación de impacto ambiental obligatoria antes de la habilitación. Informe anual de huella de carbono. Operaciones indoor de más de 1.000 m² deben presentar plan de compensación de emisiones. **Incentivo:** los licenciatarios Macro que operen con 100% energía renovable (solar, eólica, biomasa) obtienen una reducción del 5% en el impuesto especial. Argentina tiene sol para sobrar y un sector renovable que necesita demanda. Que la demanda venga de acá.
 
@@ -1987,7 +1987,7 @@ La otra cara del problema es ambiental. Si repetimos el error de Colorado — do
 | **Evaluación de impacto ambiental** | No requerida | Simplificada (declaración jurada) | EIA completa antes de habilitación |
 | **Gestión de residuos peligrosos** | Protocolo simplificado | Plan de gestión registrado | Plan + auditoría semestral + trazabilidad |
 | **Huella de carbono** | Exenta | Informe anual voluntario | Informe anual obligatorio + plan de compensación |
-| **Packaging sustentable (desde Año 3)** | 80% reciclable | 100% reciclable | 100% reciclable/compostable + informe de ciclo de vida |
+| **Packaging sustentable (desde 2029 (tranche-2 entrada))** | 80% reciclable | 100% reciclable | 100% reciclable/compostable + informe de ciclo de vida |
 | **Incentivo energía renovable** | Mención en etiqueta | 3% reducción excise | 5% reducción excise |
 
 ### 26.3 Dimensión Municipal

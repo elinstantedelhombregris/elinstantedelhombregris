@@ -14,8 +14,8 @@ Source: `PLANAGUA_Argentina_ES.md`
 2134:**Protección constitucional del piso:** El 0.15% del PBI no puede reducirse por decreto, por ley ordinaria, ni por decisión del Poder Ejecutivo. Es un piso constitucional — como el 6% del PBI para educación que la Ley de Educación Nacional establece (y que nunca se cumple, porque no está en la Constitución). La diferencia es que PLANAGUA propone poner el piso en la Constitución, no en una ley que cualquier gobierno puede modificar. Para bajarlo, se necesita una reforma constitucional. Para subirlo, alcanza con una ley.
 2268:| **Presupuesto constitucional ANAGUA (0.15% PBI)** | 7.500-9.000 | 40-50% | Partida automática, no negociable. Piso constitucional ajustado por PBI. | Alta — depende de reforma constitucional |
 2863:*"Reconocer la preexistencia étnica y cultural de los pueblos indígenas argentinos. Garantizar el respeto a su identidad y el derecho a una educación bilingüe e intercultural; reconocer la personería jurídica de sus comunidades, y la posesión y propiedad comunitarias de las tierras que tradicionalmente ocupan; y regular la entrega de otras aptas y suficientes para el desarrollo humano; ninguna de ellas será enajenable, transmisible, ni susceptible de gravámenes o embargos. Asegurar su participación en la gestión referida a sus recursos naturales y a los demás intereses que los afecten."*
-3231:| 2 | **Presupuesto Mínimo Hídrico (reforma constitucional)** | Garantizar 0.15% PBI como piso no negociable | Presupuesto hídrico depende de voluntad del gobierno de turno | Año 1-2 (convocatoria a convención) | 2° (simultáneo con Ley ANAGUA) |
-3232:| 3 | **Derecho de Primer Trago (reforma constitucional)** | Prioridad constitucional del consumo humano | No existe prioridad legal explícita | Año 1-2 (misma convención constituyente) | 2° (mismo paquete constitucional) |
+3231:| 2 | **Presupuesto Mínimo Hídrico (reforma constitucional)** | Garantizar 0.15% PBI como piso no negociable | Presupuesto hídrico depende de voluntad del gobierno de turno | 2027-2028 (tranche-1) (convocatoria a convención) | 2° (simultáneo con Ley ANAGUA) |
+3232:| 3 | **Derecho de Primer Trago (reforma constitucional)** | Prioridad constitucional del consumo humano | No existe prioridad legal explícita | 2027-2028 (tranche-1) (misma convención constituyente) | 2° (mismo paquete constitucional) |
 3352:- **Accountability.** Si el Tablero dice que tu zona está en verde pero tu kit dice que el agua está turbia y con olor, tenés evidencia. Podés reclamar con datos. Podés llevar esos datos a ANAGUA, al defensor del agua (personería jurídica del río), o al sistema JUS. Los datos ciudadanos son poder.
 3387:**Alerta Nivel 2 — Operativa.** Un indicador cruzó un umbral regulatorio (ej: arsénico alcanzó 12 μg/L en agua de red, superando el límite OMS de 10 μg/L). Se notifica al operador, al municipio, a ANAGUA, y al guardián de la personería jurídica de la cuenca afectada. El ciudadano ve rojo. El operador tiene 24 horas para reportar causa y plan de acción. Si no reporta, ANAGUA interviene directamente.
 3522:Las corporaciones tampoco son personas. Y sin embargo, tienen personería jurídica desde el siglo XIX. Una sociedad anónima puede demandar, ser demandada, poseer bienes, celebrar contratos, tener derechos constitucionales. ¿Por qué? Porque la sociedad decidió que era útil tratarla como persona jurídica para que pudiera operar en el sistema legal.
@@ -49,37 +49,7 @@ Source: `PLANAGUA_Argentina_ES.md`
 ```
 
 ## Patrón 6 — Fechas relativas (Año X) en cronograma
-```
-768:**Cronograma:** Desarrollo paralelo a la Red IoT. Prototipo funcional con cuencas piloto en el Año 2. Gemelo completo operativo en el Año 4. Refinamiento continuo a medida que la Red IoT se densifica.
-808:| Indicador | Línea base (2026) | Meta Año 3 | Meta Año 5 | Meta Año 10 |
-882:**Resultado esperado:** Para el Año 10, el 90% de la población argentina recibirá agua tratada con alguna combinación de AOP — capaz de destruir contaminantes emergentes que hoy pasan de largo por las plantas. Raúl va a tener, por fin, las herramientas que sabe usar.
-1165:**Ingresos estimados del sistema de créditos:** El sistema genera ingresos por dos vías: (a) las **tasas por uso hídrico** que pagan las industrias y explotaciones agrícolas que extraen agua por encima del umbral (USD 150–300M/año a régimen, a partir del Año 5), y (b) la **compraventa de créditos** entre usuarios (USD 30–80M/año a régimen). En los primeros años, los ingresos son menores (USD 30–40M acumulados en los primeros 3 años de piloto). A régimen completo (Año 5+), el sistema puede generar USD 150–350M/año que se destinan íntegramente al Fondo ANAGUA para financiar remediación, monitoreo, y las Bastardas Hídricas. El sistema se autofinancia parcialmente — pero su valor principal no es financiero sino conductual: internaliza el costo del agua en cada decisión industrial y agrícola.
-1249:**2. Infraestructura verde de absorción urbana.** En coordinación con PLAN24CN (Sección 14): cada ciudad nueva se diseña para absorber el 80% de la precipitación in situ mediante superficies permeables, jardines de lluvia, bioretención, techos verdes, y humedales construidos. Para las ciudades existentes, programas de "desimpermeabilización" progresiva que reemplacen superficies de concreto por superficies absorbentes en plazas, estacionamientos, medianas, y espacios públicos. Meta nacional: reducir la escorrentía urbana en 30% en las 20 ciudades más vulnerables para el Año 10.
-2197:- **Año 1:** Creación legal de ANAGUA. Nombramiento del Directorio. Absorción administrativa del INA y ENOHSA. Convenio marco con AySA y ACUMAR.
-2198:- **Año 2:** Integración de bases de datos. Censo Nacional del Agua (complementando datos existentes). Despliegue de sedes regionales. Inicio de estándares nacionales para operadores provinciales.
-2199:- **Año 3:** Operación plena de las seis direcciones. INA y ENOHSA completamente integrados. SSRH disuelta. COFEMA reformado como sub-órgano consultivo.
-2350:| Programa | Año 1 | Año 2 | Año 3 | Año 4 | Año 5 | Año 6 | Año 7 | Año 8 | Año 9 | Año 10 | Total |
-2475:| **Piloto** | Año 1 | 5.000 | Cuenca Matanza-Riachuelo, red AMBA, 10 plantas prioritarias, Acuífero Puelche | 80 |
-2476:| **Expansión 1** | Año 2 | 15.000 | Río Paraná (estaciones cada 20 km), cuenca Reconquista, redes de 10 ciudades grandes, zonas de arsénico Chaco/Sgo. del Estero | 150 |
-2477:| **Expansión 2** | Año 3 | 15.000 | Río Salí-Dulce, Bermejo, Colorado; redes de 30 ciudades intermedias; criosfera (glaciares referencia Andes Centrales) | 120 |
-3230:| 1 | **Ley de Creación de ANAGUA** | Crear la agencia que implementa todo lo demás | No existe autoridad hídrica nacional integral | Año 1 — **primera ley** (sin ANAGUA no hay quién ejecute) | 1° |
-3231:| 2 | **Presupuesto Mínimo Hídrico (reforma constitucional)** | Garantizar 0.15% PBI como piso no negociable | Presupuesto hídrico depende de voluntad del gobierno de turno | Año 1-2 (convocatoria a convención) | 2° (simultáneo con Ley ANAGUA) |
-3232:| 3 | **Derecho de Primer Trago (reforma constitucional)** | Prioridad constitucional del consumo humano | No existe prioridad legal explícita | Año 1-2 (misma convención constituyente) | 2° (mismo paquete constitucional) |
-3233:| 4 | **Ley de Criosfera** | Proteger todo el sistema criosférico como reserva estratégica | Ley 26.639 es insuficiente — solo glaciares y periglacial | Año 1-2 | 3° |
-3234:| 5 | **Ley de Personería Jurídica Hídrica** | Dar derechos legales a ríos, acuíferos, glaciares | No existe en Argentina | Año 2-3 | 4° |
-3235:| 6 | **Ley de Créditos Hídricos** | Crear mercado anti-especulativo de asignación eficiente | No existe mecanismo de mercado para asignación de agua | Año 2-3 | 5° |
-3236:| 7 | **Ley de Reúso de Agua** | Establecer estándar nacional de reúso y obligaciones | No existe marco nacional | Año 2-3 | 5° (simultáneo con Créditos) |
-3237:| 8 | **Reforma del Código de Aguas** | Presupuestos mínimos + registro de usuarios + prioridad de usos | Mosaico provincial desigual | Año 3-4 | 6° |
-3682:### 22.1 Fase 1: DIAGNÓSTICO Y EMERGENCIA (Año 0 - Año 2)
-3704:### 22.2 Fase 2: CONSTRUCCIÓN (Año 2 - Año 5)
-3726:### 22.3 Fase 3: EXPANSIÓN (Año 5 - Año 8)
-3745:### 22.4 Fase 4: CONSOLIDACIÓN (Año 8 - Año 10)
-3768:| **F1: Diagnóstico y Emergencia** | Año 0-2 | 753-1.235 | Censo, ANAGUA, emergencia indígena, emergencia arsénico, IoT piloto, Ley de Criosfera presentada, primera Bastarda | ANAGUA + Poder Ejecutivo |
-3769:| **F2: Construcción** | Año 2-5 | 2.245-3.505 | Censo completo, 50K IoT, Gemelo Digital, 20 AOP, pérdidas 30%, Criosfera ley, personería jurídica, 5 Bastardas, remediación iniciada | ANAGUA + Bastardas |
-3770:| **F3: Expansión** | Año 5-8 | 4.880-8.180 | 100+ AOP, pérdidas <20%, desalinización, 30% reúso, 20+ Bastardas, diplomacia bilateral, co-manejo indígena | ANAGUA + Bastardas + Diplomacia |
-3771:| **F4: Consolidación** | Año 8-10 | 2.620-4.230 | Pérdidas <15%, AOP estándar, Riachuelo nadable, 50% reúso, líder global, autosustentable | ANAGUA + Bastardas + sistema |
-3814:**Meta:** 18 de 24 provincias adheridas en Fase 2 (Año 5). Las 24 en Fase 3 (Año 8).
-```
+(no findings)
 
 ## Patrón 7 — Sortición sin justificación de oversight
 (no findings)
@@ -87,4 +57,4 @@ Source: `PLANAGUA_Argentina_ES.md`
 ## Patrón 8 — Lenguaje místico/espiritual en sección de plataforma pública
 (no findings)
 
-## Total findings: 58
+## Total findings: 29

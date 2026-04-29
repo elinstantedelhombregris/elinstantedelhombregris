@@ -765,7 +765,7 @@ Todo en tiempo real. Todo verificable. Todo abierto.
 
 **Inversión estimada:** USD 150–250M para desarrollo e implementación del Gemelo Digital (incluye software, hardware de procesamiento, equipo de modelado, integración con la Red IoT). Operación: USD 30–50M/año.
 
-**Cronograma:** Desarrollo paralelo a la Red IoT. Prototipo funcional con cuencas piloto en el Año 2. Gemelo completo operativo en el Año 4. Refinamiento continuo a medida que la Red IoT se densifica.
+**Cronograma:** Desarrollo paralelo a la Red IoT. Prototipo funcional con cuencas piloto en el 2028 (tranche-1). Gemelo completo operativo en el 2030 (tranche-2). Refinamiento continuo a medida que la Red IoT se densifica.
 
 **Precedente:** Deltares (Países Bajos) opera el Digital Twin del Delta del Rin-Mosa-Escalda — uno de los gemelos digitales de agua más avanzados del mundo. Singapur tiene un gemelo digital de su sistema de agua completo operado por PUB. La empresa danesa DHI desplegó gemelos digitales de agua en más de 50 ciudades. La tecnología existe, está madura, y está probada. Lo que no existe es la voluntad de aplicarla a escala nacional en un país emergente. PLANAGUA propone ser el primero.
 
@@ -805,7 +805,7 @@ Esto no es un problema técnico misterioso. Es un problema de mantenimiento dife
 
 **TABLA 5.4: Plan de Retrofitting — Metas Quinquenales**
 
-| Indicador | Línea base (2026) | Meta Año 3 | Meta Año 5 | Meta Año 10 |
+| Indicador | Línea base (2026) | Meta 2029 (tranche-2 entrada) | Meta 2031 (tranche-2) | Meta 2036 (tranche-3 maduración) |
 |---|---|---|---|---|
 | Pérdidas en red (% nacional) | ~40% | 32% | 25% | <15% |
 | Km de cañería reemplazada | 0 (acumulado PLANAGUA) | 5.000 | 10.000 | 25.000 |
@@ -879,7 +879,7 @@ PLANAGUA no propone instalar AOP en las 2.000+ plantas potabilizadoras del país
 
 **Inversión estimada:** USD 1.500–2.500M en 10 años para equipamiento, instalación, capacitación del personal (los Raúles de todo el país) y primeros años de operación. Operación posterior: USD 200–350M/año (consumibles, energía, mantenimiento).
 
-**Resultado esperado:** Para el Año 10, el 90% de la población argentina recibirá agua tratada con alguna combinación de AOP — capaz de destruir contaminantes emergentes que hoy pasan de largo por las plantas. Raúl va a tener, por fin, las herramientas que sabe usar.
+**Resultado esperado:** Para el 2036 (tranche-3 maduración), el 90% de la población argentina recibirá agua tratada con alguna combinación de AOP — capaz de destruir contaminantes emergentes que hoy pasan de largo por las plantas. Raúl va a tener, por fin, las herramientas que sabe usar.
 
 ---
 
@@ -1162,7 +1162,7 @@ Los **Créditos Hídricos No Especulativos** de PLANAGUA son el mecanismo para i
 | ¿Riesgo de burbuja? | Mínimo — precios controlados, expiración, no derivados | Alto — documentado en mercados de carbono |
 | Objetivo | Reducir consumo, internalizar externalidades | Generar instrumentos financieros transables |
 
-**Ingresos estimados del sistema de créditos:** El sistema genera ingresos por dos vías: (a) las **tasas por uso hídrico** que pagan las industrias y explotaciones agrícolas que extraen agua por encima del umbral (USD 150–300M/año a régimen, a partir del Año 5), y (b) la **compraventa de créditos** entre usuarios (USD 30–80M/año a régimen). En los primeros años, los ingresos son menores (USD 30–40M acumulados en los primeros 3 años de piloto). A régimen completo (Año 5+), el sistema puede generar USD 150–350M/año que se destinan íntegramente al Fondo ANAGUA para financiar remediación, monitoreo, y las Bastardas Hídricas. El sistema se autofinancia parcialmente — pero su valor principal no es financiero sino conductual: internaliza el costo del agua en cada decisión industrial y agrícola.
+**Ingresos estimados del sistema de créditos:** El sistema genera ingresos por dos vías: (a) las **tasas por uso hídrico** que pagan las industrias y explotaciones agrícolas que extraen agua por encima del umbral (USD 150–300M/año a régimen, a partir del 2031 (tranche-2)), y (b) la **compraventa de créditos** entre usuarios (USD 30–80M/año a régimen). En los primeros años, los ingresos son menores (USD 30–40M acumulados en los primeros 3 años de piloto). A régimen completo (2031+ (tranche-2)), el sistema puede generar USD 150–350M/año que se destinan íntegramente al Fondo ANAGUA para financiar remediación, monitoreo, y las Bastardas Hídricas. El sistema se autofinancia parcialmente — pero su valor principal no es financiero sino conductual: internaliza el costo del agua en cada decisión industrial y agrícola.
 
 **Precedente:** Los mercados de créditos de carbono — con sus éxitos y fracasos — ofrecen lecciones cruciales. El principal fracaso del mercado de carbono europeo (EU ETS) fue la sobreemisión de permisos gratuitos, que colapsó el precio del carbono durante años. PLANAGUA evita esto con el presupuesto hídrico ajustado anualmente por datos reales (Red IoT + Gemelo Digital). El principal fracaso del mercado de agua en Wall Street (futuros sobre el Nasdaq Veles California Water Index, lanzados en diciembre de 2020) fue convertir el agua en un activo financiero para especuladores que nunca tocan una gota. PLANAGUA previene esto por diseño: solo operan usuarios hídricos reales, y la prohibición de derivados es constitucional.
 
@@ -1246,7 +1246,7 @@ La Argentina tiene un historial trágico: la inundación de Santa Fe en 2003 mat
 
 **1. Alerta temprana integrada al Gemelo Digital.** El Gemelo Digital Nacional del Agua (5.3) modela en tiempo real la capacidad de absorción de cada cuenca. Cuando los datos de precipitación (estaciones meteorológicas + satélite), los niveles de ríos (Red IoT) y la humedad del suelo (datos PLANISV) convergen hacia un escenario de desborde, el sistema emite alertas escalonadas — 72 horas, 48 horas, 24 horas — a autoridades municipales, provinciales y a la población directamente vía app del Tablero Nacional del Agua.
 
-**2. Infraestructura verde de absorción urbana.** En coordinación con PLAN24CN (Sección 14): cada ciudad nueva se diseña para absorber el 80% de la precipitación in situ mediante superficies permeables, jardines de lluvia, bioretención, techos verdes, y humedales construidos. Para las ciudades existentes, programas de "desimpermeabilización" progresiva que reemplacen superficies de concreto por superficies absorbentes en plazas, estacionamientos, medianas, y espacios públicos. Meta nacional: reducir la escorrentía urbana en 30% en las 20 ciudades más vulnerables para el Año 10.
+**2. Infraestructura verde de absorción urbana.** En coordinación con PLAN24CN (Sección 14): cada ciudad nueva se diseña para absorber el 80% de la precipitación in situ mediante superficies permeables, jardines de lluvia, bioretención, techos verdes, y humedales construidos. Para las ciudades existentes, programas de "desimpermeabilización" progresiva que reemplacen superficies de concreto por superficies absorbentes en plazas, estacionamientos, medianas, y espacios públicos. Meta nacional: reducir la escorrentía urbana en 30% en las 20 ciudades más vulnerables para el 2036 (tranche-3 maduración).
 
 **3. Protección y restauración de humedales como infraestructura anti-inundaciones.** Los humedales son esponjas naturales. El Delta del Paraná, los Esteros del Iberá, los bañados del Chaco, y los humedales pampeanos absorben crecidas que de otro modo arrasarían ciudades río abajo. PLANAGUA prohíbe el drenaje, la quema y la conversión de humedales estratégicos, y financia la restauración de humedales degradados. Los Esteros del Iberá — 12.000 km² de humedal subtropical, uno de los más importantes de Sudamérica — reciben protección reforzada como infraestructura hídrica nacional, no solo como reserva de biodiversidad.
 
@@ -2194,9 +2194,9 @@ ANAGUA no desaparece a los organismos existentes — los reorganiza. Cada uno co
 
 La transición no es de un día. Es de 3-5 años:
 
-- **Año 1:** Creación legal de ANAGUA. Nombramiento del Directorio. Absorción administrativa del INA y ENOHSA. Convenio marco con AySA y ACUMAR.
-- **Año 2:** Integración de bases de datos. Censo Nacional del Agua (complementando datos existentes). Despliegue de sedes regionales. Inicio de estándares nacionales para operadores provinciales.
-- **Año 3:** Operación plena de las seis direcciones. INA y ENOHSA completamente integrados. SSRH disuelta. COFEMA reformado como sub-órgano consultivo.
+- **2027 (tranche-1):** Creación legal de ANAGUA. Nombramiento del Directorio. Absorción administrativa del INA y ENOHSA. Convenio marco con AySA y ACUMAR.
+- **2028 (tranche-1):** Integración de bases de datos. Censo Nacional del Agua (complementando datos existentes). Despliegue de sedes regionales. Inicio de estándares nacionales para operadores provinciales.
+- **2029 (tranche-2 entrada):** Operación plena de las seis direcciones. INA y ENOHSA completamente integrados. SSRH disuelta. COFEMA reformado como sub-órgano consultivo.
 - **Años 4-5:** AySA en transición a Bastarda Hídrica del AMBA. ACUMAR integrado a la Dirección de Cuencas. Estándares nacionales en vigor para todos los operadores provinciales.
 
 > *"No se trata de crear una superestructura burocrática más. Se trata de que el agua tenga, por primera vez, un sistema nervioso central. Un cerebro que integre las señales de todos los órganos. Un corazón que bombee recursos donde hacen falta. Y una conciencia que no duerma cuando alguien abre una canilla y sale veneno."*
@@ -2347,7 +2347,7 @@ Desde el primer año — *desde el primer año* — la inacción es más cara qu
 
 **TABLA 11.6: Inversión Anual por Programa (USD M, escenario medio)**
 
-| Programa | Año 1 | Año 2 | Año 3 | Año 4 | Año 5 | Año 6 | Año 7 | Año 8 | Año 9 | Año 10 | Total |
+| Programa | 2027 (tranche-1) | 2028 (tranche-1) | 2029 (tranche-2 entrada) | 2030 (tranche-2) | 2031 (tranche-2) | 2032 (tranche-3 entrada) | 2033 (tranche-3) | 2034 (tranche-3) | 2035 (tranche-3) | 2036 (tranche-3 maduración) | Total |
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | Retrofitting | 600 | 800 | 1.000 | 1.200 | 1.200 | 1.100 | 1.000 | 900 | 800 | 700 | 9.300 |
 | AOP | 50 | 100 | 200 | 250 | 250 | 200 | 150 | 100 | 50 | 50 | 1.400 |
@@ -2472,9 +2472,9 @@ La plataforma usa estándares abiertos (OGC SensorThings API, WaterML 2.0) para 
 
 | Fase | Período | Nodos | Ubicación prioritaria | Inversión (USD M) |
 |---|---|---|---|---|
-| **Piloto** | Año 1 | 5.000 | Cuenca Matanza-Riachuelo, red AMBA, 10 plantas prioritarias, Acuífero Puelche | 80 |
-| **Expansión 1** | Año 2 | 15.000 | Río Paraná (estaciones cada 20 km), cuenca Reconquista, redes de 10 ciudades grandes, zonas de arsénico Chaco/Sgo. del Estero | 150 |
-| **Expansión 2** | Año 3 | 15.000 | Río Salí-Dulce, Bermejo, Colorado; redes de 30 ciudades intermedias; criosfera (glaciares referencia Andes Centrales) | 120 |
+| **Piloto** | 2027 (tranche-1) | 5.000 | Cuenca Matanza-Riachuelo, red AMBA, 10 plantas prioritarias, Acuífero Puelche | 80 |
+| **Expansión 1** | 2028 (tranche-1) | 15.000 | Río Paraná (estaciones cada 20 km), cuenca Reconquista, redes de 10 ciudades grandes, zonas de arsénico Chaco/Sgo. del Estero | 150 |
+| **Expansión 2** | 2029 (tranche-2 entrada) | 15.000 | Río Salí-Dulce, Bermejo, Colorado; redes de 30 ciudades intermedias; criosfera (glaciares referencia Andes Centrales) | 120 |
 | **Cobertura plena** | Años 4-5 | 15.000 | Acuífero Guaraní (red de pozos de monitoreo), Patagonia, humedales (Iberá, Delta), comunidades rurales e indígenas | 100 |
 | **TOTAL** | 5 años | **50.000+** | **Nacional** | **450-600** |
 
@@ -3227,14 +3227,14 @@ No es retórica. Es norma. Y si es constitucional, ningún decreto, ninguna ley,
 
 | # | Ley | Propósito | Brecha actual | Plazo legislativo estimado | Secuencia estratégica |
 |---|---|---|---|---|---|
-| 1 | **Ley de Creación de ANAGUA** | Crear la agencia que implementa todo lo demás | No existe autoridad hídrica nacional integral | Año 1 — **primera ley** (sin ANAGUA no hay quién ejecute) | 1° |
-| 2 | **Presupuesto Mínimo Hídrico (reforma constitucional)** | Garantizar 0.15% PBI como piso no negociable | Presupuesto hídrico depende de voluntad del gobierno de turno | Año 1-2 (convocatoria a convención) | 2° (simultáneo con Ley ANAGUA) |
-| 3 | **Derecho de Primer Trago (reforma constitucional)** | Prioridad constitucional del consumo humano | No existe prioridad legal explícita | Año 1-2 (misma convención constituyente) | 2° (mismo paquete constitucional) |
-| 4 | **Ley de Criosfera** | Proteger todo el sistema criosférico como reserva estratégica | Ley 26.639 es insuficiente — solo glaciares y periglacial | Año 1-2 | 3° |
-| 5 | **Ley de Personería Jurídica Hídrica** | Dar derechos legales a ríos, acuíferos, glaciares | No existe en Argentina | Año 2-3 | 4° |
-| 6 | **Ley de Créditos Hídricos** | Crear mercado anti-especulativo de asignación eficiente | No existe mecanismo de mercado para asignación de agua | Año 2-3 | 5° |
-| 7 | **Ley de Reúso de Agua** | Establecer estándar nacional de reúso y obligaciones | No existe marco nacional | Año 2-3 | 5° (simultáneo con Créditos) |
-| 8 | **Reforma del Código de Aguas** | Presupuestos mínimos + registro de usuarios + prioridad de usos | Mosaico provincial desigual | Año 3-4 | 6° |
+| 1 | **Ley de Creación de ANAGUA** | Crear la agencia que implementa todo lo demás | No existe autoridad hídrica nacional integral | 2027 (tranche-1) — **primera ley** (sin ANAGUA no hay quién ejecute) | 1° |
+| 2 | **Presupuesto Mínimo Hídrico (reforma constitucional)** | Garantizar 0.15% PBI como piso no negociable | Presupuesto hídrico depende de voluntad del gobierno de turno | 2027-2028 (tranche-1) (convocatoria a convención) | 2° (simultáneo con Ley ANAGUA) |
+| 3 | **Derecho de Primer Trago (reforma constitucional)** | Prioridad constitucional del consumo humano | No existe prioridad legal explícita | 2027-2028 (tranche-1) (misma convención constituyente) | 2° (mismo paquete constitucional) |
+| 4 | **Ley de Criosfera** | Proteger todo el sistema criosférico como reserva estratégica | Ley 26.639 es insuficiente — solo glaciares y periglacial | 2027-2028 (tranche-1) | 3° |
+| 5 | **Ley de Personería Jurídica Hídrica** | Dar derechos legales a ríos, acuíferos, glaciares | No existe en Argentina | 2028-2029 (tranche-2 entrada) | 4° |
+| 6 | **Ley de Créditos Hídricos** | Crear mercado anti-especulativo de asignación eficiente | No existe mecanismo de mercado para asignación de agua | 2028-2029 (tranche-2 entrada) | 5° |
+| 7 | **Ley de Reúso de Agua** | Establecer estándar nacional de reúso y obligaciones | No existe marco nacional | 2028-2029 (tranche-2 entrada) | 5° (simultáneo con Créditos) |
+| 8 | **Reforma del Código de Aguas** | Presupuestos mínimos + registro de usuarios + prioridad de usos | Mosaico provincial desigual | 2029-2030 (tranche-2) | 6° |
 | 9 | **Reforma Ley de Glaciares 26.639** | Subsumir en Ley de Criosfera (ampliación, no derogación) | — | Automática con sanción de Ley de Criosfera | Simultánea con #4 |
 
 **Secuencia estratégica explicada:**
@@ -3679,7 +3679,7 @@ No se mide por likes. Se mide por cambio de comportamiento:
 
 La cascada de PLANAGUA se despliega en 4 fases durante 10 años. Cada fase tiene hitos verificables, inversión asignada, y responsables identificados. Si un hito no se cumple en plazo, se activa el protocolo de revisión — no se posterga en silencio.
 
-### 22.1 Fase 1: DIAGNÓSTICO Y EMERGENCIA (Año 0 - Año 2)
+### 22.1 Fase 1: DIAGNÓSTICO Y EMERGENCIA (2026 (tranche-1 inicial) - 2028 (tranche-1))
 
 Los primeros dos años no son de construcción a gran escala. Son de emergencia + medición + diseño. No podés construir una casa sin planos — y los planos de la Argentina del agua no existen. El Censo Nacional del Agua los crea.
 
@@ -3701,7 +3701,7 @@ Los primeros dos años no son de construcción a gran escala. Son de emergencia 
 
 **La urgencia moral de Fase 1:** los primeros 24 meses no son opcionales. Comunidades indígenas sin agua potable — eso se resuelve en 2 años o se resuelve en 2 años. No hay Fase 2 posible si la emergencia del Fase 1 no se atiende. No es aceptable decir "primero medimos, después actuamos" cuando hay niños tomando arsénico. Se mide Y se actúa al mismo tiempo. El Censo avanza mientras las plantas de ósmosis inversa se instalan. Los sensores se despliegan mientras los camiones cisterna llegan a las comunidades. No hay secuencia — hay simultaneidad.
 
-### 22.2 Fase 2: CONSTRUCCIÓN (Año 2 - Año 5)
+### 22.2 Fase 2: CONSTRUCCIÓN (2028 (tranche-1) - 2031 (tranche-2))
 
 Con el Censo completo, el Gemelo Digital operativo, y ANAGUA consolidada, comienza la construcción a escala.
 
@@ -3723,7 +3723,7 @@ Con el Censo completo, el Gemelo Digital operativo, y ANAGUA consolidada, comien
 | Pactos Federales Hídricos firmados | Mes 24-48 | (incentivos en fondo federal) | ANAGUA + 24 provincias | Mínimo 18 provincias adheridas |
 | **TOTAL FASE 2** | **24-60 meses** | **USD 2.245-3.505M** | | |
 
-### 22.3 Fase 3: EXPANSIÓN (Año 5 - Año 8)
+### 22.3 Fase 3: EXPANSIÓN (2031 (tranche-2) - 2034 (tranche-3))
 
 La infraestructura base está. El Tablero funciona. Las Bastardas operan. Ahora se escala.
 
@@ -3742,7 +3742,7 @@ La infraestructura base está. El Tablero funciona. Las Bastardas operan. Ahora 
 | Red IoT: 80.000+ nodos | Mes 60-96 | 300-400 | ANAGUA | Cobertura del 90% del territorio con servicios de agua |
 | **TOTAL FASE 3** | **60-96 meses** | **USD 4.880-8.180M** | | |
 
-### 22.4 Fase 4: CONSOLIDACIÓN (Año 8 - Año 10)
+### 22.4 Fase 4: CONSOLIDACIÓN (2034 (tranche-3) - 2036 (tranche-3 maduración))
 
 Los últimos dos años son de consolidación, optimización, y preparación para la autosustentabilidad del sistema.
 
@@ -3765,10 +3765,10 @@ Los últimos dos años son de consolidación, optimización, y preparación para
 
 | Fase | Período | Inversión (USD M) | Hitos clave | Responsable principal |
 |---|---|---|---|---|
-| **F1: Diagnóstico y Emergencia** | Año 0-2 | 753-1.235 | Censo, ANAGUA, emergencia indígena, emergencia arsénico, IoT piloto, Ley de Criosfera presentada, primera Bastarda | ANAGUA + Poder Ejecutivo |
-| **F2: Construcción** | Año 2-5 | 2.245-3.505 | Censo completo, 50K IoT, Gemelo Digital, 20 AOP, pérdidas 30%, Criosfera ley, personería jurídica, 5 Bastardas, remediación iniciada | ANAGUA + Bastardas |
-| **F3: Expansión** | Año 5-8 | 4.880-8.180 | 100+ AOP, pérdidas <20%, desalinización, 30% reúso, 20+ Bastardas, diplomacia bilateral, co-manejo indígena | ANAGUA + Bastardas + Diplomacia |
-| **F4: Consolidación** | Año 8-10 | 2.620-4.230 | Pérdidas <15%, AOP estándar, Riachuelo nadable, 50% reúso, líder global, autosustentable | ANAGUA + Bastardas + sistema |
+| **F1: Diagnóstico y Emergencia** | 2026-2028 (tranche-1) | 753-1.235 | Censo, ANAGUA, emergencia indígena, emergencia arsénico, IoT piloto, Ley de Criosfera presentada, primera Bastarda | ANAGUA + Poder Ejecutivo |
+| **F2: Construcción** | 2028-2031 (tranche-2) | 2.245-3.505 | Censo completo, 50K IoT, Gemelo Digital, 20 AOP, pérdidas 30%, Criosfera ley, personería jurídica, 5 Bastardas, remediación iniciada | ANAGUA + Bastardas |
+| **F3: Expansión** | 2031-2034 (tranche-3) | 4.880-8.180 | 100+ AOP, pérdidas <20%, desalinización, 30% reúso, 20+ Bastardas, diplomacia bilateral, co-manejo indígena | ANAGUA + Bastardas + Diplomacia |
+| **F4: Consolidación** | 2034-2036 (tranche-3 maduración) | 2.620-4.230 | Pérdidas <15%, AOP estándar, Riachuelo nadable, 50% reúso, líder global, autosustentable | ANAGUA + Bastardas + sistema |
 | **TOTAL** | **10 años** | **USD 10.498-17.150M** | | |
 
 **Nota sobre la inversión total:** La cascada detalla USD 10.498–17.150M en inversión directa ejecutada por ANAGUA y las Bastardas Hídricas. El Modelo Financiero (Sección 11.2) totaliza USD 15.300–26.800M porque incluye partidas que la cascada no desglosa individualmente: la reserva de contingencia (10%, USD 1.500–2.500M), la infraestructura institucional de ANAGUA (USD 1.000–2.000M en los primeros años), y la co-inversión con otros PLANs (PLAN24CN financia la infraestructura hídrica de las ciudades nuevas; PLANREP financia la capacitación de los oficios del agua; PLANISV financia la remediación compartida suelo-agua). La Tesis Central utiliza el rango redondeado de USD 15.000–25.000M, que refleja la inversión total del ecosistema PLANAGUA incluyendo estas co-inversiones. Las tres cifras son consistentes — representan diferentes niveles de alcance del mismo plan.
@@ -3811,7 +3811,7 @@ A cambio, la provincia recibe:
 
 La provincia que no firma no pierde nada de lo que ya tiene. Pero no accede al fondo. Y cuando sus vecinas — las que firmaron — empiecen a tener agua limpia, IoT, plantas AOP, y Bastardas Hídricas que proveen agua al costo, la presión política interna va a ser insostenible. Ningún gobernador puede explicarle a su pueblo por qué la provincia de al lado tiene agua limpia y la suya no.
 
-**Meta:** 18 de 24 provincias adheridas en Fase 2 (Año 5). Las 24 en Fase 3 (Año 8).
+**Meta:** 18 de 24 provincias adheridas en Fase 2 (2031 (tranche-2)). Las 24 en Fase 3 (2034 (tranche-3)).
 
 ### 23.3 Comités de Cuenca Interprovinciales
 

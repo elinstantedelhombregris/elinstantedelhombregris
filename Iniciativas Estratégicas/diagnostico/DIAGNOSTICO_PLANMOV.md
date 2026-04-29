@@ -71,22 +71,7 @@ Source: `PLANMOV_Argentina_ES.md`
 ```
 
 ## Patrón 6 — Fechas relativas (Año X) en cronograma
-```
-559:- Año 2: 10.000 ton/mes capacidad.
-560:- Año 5: 200.000 ton/mes.
-561:- Año 10: 1.2M ton/mes.
-680:- Año 2: 8.000 activos en malla.
-681:- Año 5: 180.000 activos.
-682:- Año 10: 900.000 activos, aproximadamente el 7% del parque privado nacional.
-686:- Año 1-2: AMBA, con universo potencial de 4,2M unidades.
-687:- Año 2-3: Gran Córdoba, Gran Rosario, Gran Mendoza.
-688:- Año 3-5: interior productivo (NEA, NOA, Cuyo, Patagonia Norte).
-689:- Año 5-10: territorio rural con adaptación específica a baja densidad y distancias largas.
-886:Año 1-2:
-892:Año 3-5: expansión a 40+ corredores.
-1437:La escalera de penalidades está calibrada para dar tiempo real de adaptación sin ser decorativa. **Año 1 de no-cumplimiento:** advertencia formal de ANMov + plan de migración exigible en doce meses con hitos trimestrales auditables. **Año 2:** auditoría fiscal exhaustiva por AFIP sobre la totalidad de la operación argentina del operador; multa equivalente al 3% de ingresos brutos anuales en territorio argentino. **Año 3:** restricción progresiva de cuotas de tráfico asignables al operador, con prioridad para competidores que sí migraron; multa 8% de ingresos brutos. **Año 4:** revocación de licencia operativa en territorio argentino y prohibición de reingreso por dos años. La estrategia es progresiva para permitir transición genuina, pero irreversible pasado el punto de no-retorno; no hay indulto silencioso.
-1675:**F3 — Litigio Hidrovía internacional:** continuidad operativa con concesionario hasta resolución, Bastarda Fluvial paralela desde Año 1.
-```
+(no findings)
 
 ## Patrón 7 — Sortición sin justificación de oversight
 ```
@@ -106,4 +91,4 @@ Source: `PLANMOV_Argentina_ES.md`
 41:Los datos generados por la flota AV tienen trazabilidad completa desde el sensor que los captura hasta su ingreso al LNMA, con firma digital en cada paso de la cadena. Cada evento queda registrado con marca temporal, identidad del emisor y hash del payload, en un log inmutable del tipo append-only sobre almacenamiento WORM. El acceso al repositorio de datos queda auditado íntegramente, con registro de quién consultó qué y cuándo, disponible para los Síndicos de Archivo y la Auditoría General de la Nación. La arquitectura previene alteración retrospectiva: toda modificación deja rastro y exige contrafirma de dos o más roles. Esta chain of custody se articula con la legislación de evidencia digital y permite uso judicial directo de los registros de flota si un incidente lo requiere, sin necesidad de peritaje adicional que cuestione la integridad de la cadena.
 ```
 
-## Total findings: 75
+## Total findings: 61

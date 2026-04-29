@@ -556,9 +556,9 @@ La Capa II contiene la infraestructura material y operativa que vuelve posible l
 **Garantía al productor:** logística ≤ 12% del valor del producto (contra 30-50% actual).
 
 **Escala proyectada:**
-- Año 2: 10.000 ton/mes capacidad.
-- Año 5: 200.000 ton/mes.
-- Año 10: 1.2M ton/mes.
+- 2032 (tranche-1): 10.000 ton/mes capacidad.
+- 2035 (tranche-2): 200.000 ton/mes.
+- 2040 (tranche-3 maduración): 1.2M ton/mes.
 
 ### 3.6 Reactivación Ferroviaria + Rieles Columna Múltiple
 
@@ -677,16 +677,16 @@ La Capa III tiene cuatro elementos: tres dispositivos técnicos — **Bastarda d
 
 **Escala proyectada:**
 
-- Año 2: 8.000 activos en malla.
-- Año 5: 180.000 activos.
-- Año 10: 900.000 activos, aproximadamente el 7% del parque privado nacional.
+- 2032 (tranche-1): 8.000 activos en malla.
+- 2035 (tranche-2): 180.000 activos.
+- 2040 (tranche-3 maduración): 900.000 activos, aproximadamente el 7% del parque privado nacional.
 
 **Pilotos regionales:**
 
-- Año 1-2: AMBA, con universo potencial de 4,2M unidades.
-- Año 2-3: Gran Córdoba, Gran Rosario, Gran Mendoza.
-- Año 3-5: interior productivo (NEA, NOA, Cuyo, Patagonia Norte).
-- Año 5-10: territorio rural con adaptación específica a baja densidad y distancias largas.
+- 2031-2032 (tranche-1): AMBA, con universo potencial de 4,2M unidades.
+- 2032-2033 (tranche-2 entrada): Gran Córdoba, Gran Rosario, Gran Mendoza.
+- 2033-2035 (tranche-2): interior productivo (NEA, NOA, Cuyo, Patagonia Norte).
+- 2035-2040 (tranche-3 maduración): territorio rural con adaptación específica a baja densidad y distancias largas.
 
 **Gobernanza:** **Fideicomiso de Propósito Perpetuo PLANEB** como envoltura jurídica, **DAO operativa** con panel ciudadano rotativo de 120 miembros por sorteo, y **Directorio mixto** compuesto por técnicos designados por ANMov, aportantes elegidos entre las tipologías de activo, usuarios elegidos por sorteo del padrón de viajes, y un representante del FRM para asegurar articulación con la reconversión laboral. La BAMD no tiene accionistas y no puede ser vendida, escindida ni fusionada con un privado bajo ninguna circunstancia.
 
@@ -883,13 +883,13 @@ Diferencia efectiva al productor: ~25-30% de ahorro.
 
 ### 5.3 Corredores Piloto
 
-Año 1-2:
+2031-2032 (tranche-1):
 1. Humahuaca → Buenos Aires (conservas regionales).
 2. Formosa → Rosario (algodón, yerba).
 3. Comodoro Rivadavia → Bahía Blanca (productos patagónicos).
 4. San Juan → Buenos Aires (vinos cooperativos).
 
-Año 3-5: expansión a 40+ corredores.
+2033-2035 (tranche-2): expansión a 40+ corredores.
 
 ### 5.4 Integración de AV Supervisado en la Flota BLF
 
@@ -1434,7 +1434,7 @@ Cada fila representa un frente de migración con dueño técnico, presupuesto as
 
 ### 16.3 Penalidades por No Migrar
 
-La escalera de penalidades está calibrada para dar tiempo real de adaptación sin ser decorativa. **Año 1 de no-cumplimiento:** advertencia formal de ANMov + plan de migración exigible en doce meses con hitos trimestrales auditables. **Año 2:** auditoría fiscal exhaustiva por AFIP sobre la totalidad de la operación argentina del operador; multa equivalente al 3% de ingresos brutos anuales en territorio argentino. **Año 3:** restricción progresiva de cuotas de tráfico asignables al operador, con prioridad para competidores que sí migraron; multa 8% de ingresos brutos. **Año 4:** revocación de licencia operativa en territorio argentino y prohibición de reingreso por dos años. La estrategia es progresiva para permitir transición genuina, pero irreversible pasado el punto de no-retorno; no hay indulto silencioso.
+La escalera de penalidades está calibrada para dar tiempo real de adaptación sin ser decorativa. **2031 (tranche-1) de no-cumplimiento:** advertencia formal de ANMov + plan de migración exigible en doce meses con hitos trimestrales auditables. **2032 (tranche-1):** auditoría fiscal exhaustiva por AFIP sobre la totalidad de la operación argentina del operador; multa equivalente al 3% de ingresos brutos anuales en territorio argentino. **2033 (tranche-2 entrada):** restricción progresiva de cuotas de tráfico asignables al operador, con prioridad para competidores que sí migraron; multa 8% de ingresos brutos. **2034 (tranche-2):** revocación de licencia operativa en territorio argentino y prohibición de reingreso por dos años. La estrategia es progresiva para permitir transición genuina, pero irreversible pasado el punto de no-retorno; no hay indulto silencioso.
 
 ### 16.4 Caso de Estudio — Migración de un Operador Logístico Grande
 
@@ -1672,7 +1672,7 @@ Las seis críticas que más se van a repetir contra la capa autónoma del plan t
 
 **F2 — Paro ferroviario grande:** diálogo inmediato con sindicatos, participación en gobernanza, compromiso laboral.
 
-**F3 — Litigio Hidrovía internacional:** continuidad operativa con concesionario hasta resolución, Bastarda Fluvial paralela desde Año 1.
+**F3 — Litigio Hidrovía internacional:** continuidad operativa con concesionario hasta resolución, Bastarda Fluvial paralela desde 2031 (tranche-1).
 
 **F4 — Fracaso técnico corredor:** revisión LDEA, posible redirección a corredor alternativo.
 

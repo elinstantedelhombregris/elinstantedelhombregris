@@ -713,8 +713,8 @@ El promedio combinado es notablemente estable a lo largo del año — variación
 
 **A. Hub de Manufactura del NOA**
 - Ubicación: corredor Jujuy-Salta-Catamarca, proximidad a salares + energía solar.
-- Etapa 1 (Años 1-3): Planta de materiales catódicos (NMC, LFP). Joint venture con socio tecnológico (condicionada a transferencia real: ingenieros argentinos operan la planta en Año 3, no el socio extranjero).
-- Etapa 2 (Años 3-7): Planta de celdas. Capacidad inicial: 2 GWh/año. Objetivo: 10 GWh/año al Año 10.
+- Etapa 1 (Años 1-3): Planta de materiales catódicos (NMC, LFP). Joint venture con socio tecnológico (condicionada a transferencia real: ingenieros argentinos operan la planta en 2031 (tranche-2 entrada), no el socio extranjero).
+- Etapa 2 (Años 3-7): Planta de celdas. Capacidad inicial: 2 GWh/año. Objetivo: 10 GWh/año al 2038 (tranche-3 maduración).
 - Etapa 3 (Años 7-12): Ensamblaje de baterías para vehículos eléctricos y almacenamiento estacionario. Integración con Bastarda Energética (baterías domésticas) y PLAN24CN (almacenamiento de red para ciudades nuevas).
 - Etapa 4 (Años 10-15): Planta de reciclaje de baterías. Cierre del ciclo.
 
@@ -722,7 +722,7 @@ El promedio combinado es notablemente estable a lo largo del año — variación
 - Toda empresa que extraiga litio en Argentina debe comprometerse a:
   - Procesar a nivel de hidróxido/carbonato como mínimo (ya se cumple mayoritariamente).
   - Instalar capacidad de procesamiento de cátodos o celdas en territorio nacional dentro de 5 años, o aportar al fondo de industrialización un porcentaje equivalente.
-  - Emplear un porcentaje mínimo creciente de mano de obra local (30% Año 1, 60% Año 5, 80% Año 10).
+  - Emplear un porcentaje mínimo creciente de mano de obra local (30% 2029 (tranche-1), 60% 2033 (tranche-2), 80% 2038 (tranche-3 maduración)).
   - Cumplir con el protocolo PLANAGUA de gestión de agua en salares.
 - No cumplir = no renovar concesión. No es expropiación — es condicionamiento legítimo del acceso a un recurso soberano.
 
@@ -734,7 +734,7 @@ El promedio combinado es notablemente estable a lo largo del año — variación
 
 **D. Financiamiento**
 - Inversión total estimada: USD 5.000-10.000M en 15 años.
-- Fuentes: inversión extranjera condicionada (China, Corea, Japón, UE compiten por acceso al litio — la condición es transferencia tecnológica), fondos multilaterales de desarrollo, bonos verdes, y cofinanciamiento del Fondo Soberano (Año 5+).
+- Fuentes: inversión extranjera condicionada (China, Corea, Japón, UE compiten por acceso al litio — la condición es transferencia tecnológica), fondos multilaterales de desarrollo, bonos verdes, y cofinanciamiento del Fondo Soberano (2033+ (tranche-2)).
 
 ### 4.4 PILAR 4: Nuclear de Nueva Generación — La Base Firme
 
@@ -749,7 +749,7 @@ El promedio combinado es notablemente estable a lo largo del año — variación
 
 **B. Programa SMR Nacional**
 - Sobre la base de CAREM, desarrollar una línea de SMRs de 100-300 MW fabricados en serie.
-- Objetivo: 3-5 SMRs operativos al Año 15, sumando 500-1.500 MW de base firme.
+- Objetivo: 3-5 SMRs operativos al 2043 (Visión 2040+), sumando 500-1.500 MW de base firme.
 - Cada SMR se instala en 3-5 años (vs. 10-15 años para un reactor convencional de 1.000 MW).
 - Ubicación: zonas industriales con demanda de base firme y proximidad a agua de refrigeración.
 
@@ -894,7 +894,7 @@ Argentina tiene 5.117 km de costa atlántica. Las corrientes patagónicas son de
 
 **Sede:** CENPAT-CONICET (Puerto Madryn/Comodoro Rivadavia) + Universidad Nacional de la Patagonia
 **Inversión estimada:** USD 800-1.500M en 15 años
-**Primer hito:** Piloto de 5-10 MW con turbinas mareales en el Golfo San Matías (Año 7-10)
+**Primer hito:** Piloto de 5-10 MW con turbinas mareales en el Golfo San Matías (2035-2038 (tranche-3 maduración))
 
 ### 4B.6 Programa 5: Almacenamiento Avanzado de Energía
 
@@ -939,13 +939,13 @@ Argentina tiene una de las pocas comunidades de físicos de plasmas y nucleares 
 
 | Programa | Inversión 15 años (USD M) | Horizonte de transferencia industrial | Potencial de exportación |
 |---|---|---|---|
-| Electrolizadores ultra-eficientes | 1.350-2.250 | Año 8-10 | USD 900M-2.500M/año |
-| Cosecha electromagnética ambiental | 530-990 | Año 7-9 (sensores); 15+ (escalamiento) | Mercado emergente |
-| Geotermia profunda (EGS) | 2.600-4.900 | Año 9-15 | Tecnología + consultoría |
-| Energía mareal atlántica | 800-1.500 | Año 10-15 | Regional |
-| Almacenamiento avanzado | 1.000-2.000 | Año 8-12 | USD 500M-2.000M/año |
+| Electrolizadores ultra-eficientes | 1.350-2.250 | 2036-2038 (tranche-3 maduración) | USD 900M-2.500M/año |
+| Cosecha electromagnética ambiental | 530-990 | 2035-2037 (tranche-3) (sensores); 15+ (escalamiento) | Mercado emergente |
+| Geotermia profunda (EGS) | 2.600-4.900 | 2037-2043 (Visión 2040+) | Tecnología + consultoría |
+| Energía mareal atlántica | 800-1.500 | 2038-2043 (Visión 2040+) | Regional |
+| Almacenamiento avanzado | 1.000-2.000 | 2036-2040 (tranche-3 maduración) | USD 500M-2.000M/año |
 | Fusión (participación) | 200-500 | 20+ años | Posicional |
-| Sistemas biológicos | 300-600 | Año 5-10 | Con PLANISV |
+| Sistemas biológicos | 300-600 | 2033-2038 (tranche-3 maduración) | Con PLANISV |
 | **TOTAL LANEF** | **USD 6.780-12.740M** | | |
 
 **Promedio anual:** USD 450-850M/año — comparable a lo que Israel invierte en I+D energético per cápita.
@@ -987,7 +987,7 @@ PLANEB (Sección 9.4) define la Bastarda Energética como una Empresa de Propós
 **Cobertura:**
 - Fase 1 (Años 1-3): Operación en las primeras ciudades PLAN24CN. Las ciudades nuevas nacen Bastarda-nativas — no hay concesiones preexistentes que renegociar.
 - Fase 2 (Años 3-7): Expansión a ciudades existentes donde expiren concesiones de distribución. No se revocan concesiones vigentes — se espera a que venzan y se ofrece la alternativa Bastarda.
-- Fase 3 (Años 7-15): Cobertura nacional progresiva. Objetivo: 50% del territorio servido por la Bastarda al Año 15.
+- Fase 3 (Años 7-15): Cobertura nacional progresiva. Objetivo: 50% del territorio servido por la Bastarda al 2043 (Visión 2040+).
 
 **TABLA 5.2: Comparación — Distribuidora Tradicional vs. Bastarda Energética**
 
@@ -1059,7 +1059,7 @@ Precio al usuario = Costo real - Subsidio
 Subsidio = USD 10.000-15.000M/año
 ```
 
-**Con PLANEN (Año 10):**
+**Con PLANEN (2038 (tranche-3 maduración)):**
 ```
 Costo real de energía = (generación barata [renovables LCOE USD 25-45/MWh])
                       + (transmisión eficiente [pérdidas 5-7% con smart grid])
@@ -1070,15 +1070,15 @@ Subsidio = ~USD 0
 
 **La magia está en los componentes:**
 
-1. **Generación.** El costo nivelado de energía eólica en la Patagonia es USD 30-45/MWh. El de solar en el NOA, USD 25-40/MWh. El de una central térmica a gas natural, USD 50-80/MWh (dependiendo del precio del gas). Las renovables son más baratas que el gas. Cuantas más renovables hay en la matriz, menor es el costo promedio de generación. Al Año 10, con 60%+ de renovables, el costo promedio de generación cae entre un 20% y un 40%.
+1. **Generación.** El costo nivelado de energía eólica en la Patagonia es USD 30-45/MWh. El de solar en el NOA, USD 25-40/MWh. El de una central térmica a gas natural, USD 50-80/MWh (dependiendo del precio del gas). Las renovables son más baratas que el gas. Cuantas más renovables hay en la matriz, menor es el costo promedio de generación. Al 2038 (tranche-3 maduración), con 60%+ de renovables, el costo promedio de generación cae entre un 20% y un 40%.
 
 2. **Transmisión y distribución.** Las pérdidas pasan del 15-25% al 6-10% con smart grid y modernización de red. Eso significa que por cada 100 kWh generados, llegan 90-94 al usuario en vez de 75-85. Más energía entregada por cada peso invertido en generación.
 
 3. **Distribución Bastarda.** Sin margen de accionistas, sin ineficiencias operativas incentivadas por el modelo de retorno sobre patrimonio, el costo de distribución cae entre un 15% y un 30%.
 
-**TABLA 5.5: Descomposición del Costo de Energía — Hoy vs. PLANEN Año 10**
+**TABLA 5.5: Descomposición del Costo de Energía — Hoy vs. PLANEN 2038 (tranche-3 maduración)**
 
-| Componente | Costo actual (USD/MWh promedio) | Costo PLANEN Año 10 (USD/MWh promedio) | Reducción |
+| Componente | Costo actual (USD/MWh promedio) | Costo PLANEN 2038 (tranche-3 maduración) (USD/MWh promedio) | Reducción |
 |---|---|---|---|
 | Generación | 55-75 | 35-50 | -30 a -40% |
 | Transmisión | 5-8 | 4-6 | -20 a -25% |
@@ -1092,11 +1092,11 @@ El subsidio no se elimina de un día para otro. Se reduce gradualmente a medida 
 | Año | Subsidio estimado (USD M) | % del nivel 2026 | Mecanismo de reducción |
 |---|---|---|---|
 | 2026 (actual) | 10.000-15.000 | 100% | — |
-| Año 3 | 8.000-12.000 | 80% | Primeros parques renovables + Bastarda en ciudades PLAN24CN |
-| Año 5 | 5.000-8.000 | 50-55% | Más renovables + reducción de pérdidas + Bastarda expandida |
-| Año 7 | 3.000-5.000 | 30-35% | Penetración renovable >50% + Bastarda >20% del territorio |
-| Año 10 | 1.000-2.000 | 10-15% | Solo subsidio residual para zonas aún no alcanzadas por la transición |
-| Año 15 | ~0 | ~0% | Transición completa — energía más barata que tarifa subsidiada actual |
+| 2031 (tranche-2 entrada) | 8.000-12.000 | 80% | Primeros parques renovables + Bastarda en ciudades PLAN24CN |
+| 2033 (tranche-2) | 5.000-8.000 | 50-55% | Más renovables + reducción de pérdidas + Bastarda expandida |
+| 2035 (tranche-3) | 3.000-5.000 | 30-35% | Penetración renovable >50% + Bastarda >20% del territorio |
+| 2038 (tranche-3 maduración) | 1.000-2.000 | 10-15% | Solo subsidio residual para zonas aún no alcanzadas por la transición |
+| 2043 (Visión 2040+) | ~0 | ~0% | Transición completa — energía más barata que tarifa subsidiada actual |
 
 Lo que se ahorra en subsidios cada año se reasigna a inversión en la transición (TABLA 12.2). El subsidio se consume a sí mismo — financia la infraestructura que lo vuelve innecesario. Es un mecanismo autoextintivo.
 
@@ -1180,9 +1180,9 @@ PLANEN es responsable de proveer los datos verificables que alimentan esas ponde
 | 10 | 3.500 | 800 | 500 | 4.800 | 42.000 |
 | 15 | 3.000 | 1.000 | 700 | 4.700 | 85.000 |
 
-**Nota:** Las regalías de gas/petróleo caen después del Año 10 a medida que la transición renovable avanza y la demanda global de gas se estabiliza o cae. Las regalías de litio y créditos de carbono crecen compensando parcialmente la caída. El fondo sigue creciendo por efecto compuesto.
+**Nota:** Las regalías de gas/petróleo caen después del 2038 (tranche-3 maduración) a medida que la transición renovable avanza y la demanda global de gas se estabiliza o cae. Las regalías de litio y créditos de carbono crecen compensando parcialmente la caída. El fondo sigue creciendo por efecto compuesto.
 
-Esta proyección muestra que **solo con las regalías energéticas** el Fondo acumularía ~USD 85.000M al Año 15. Sumando las otras fuentes de capitalización de PLANMON (PLANSUS, Bastarda Financiera, recupero de evasión, repatriación), el objetivo de USD 100.000M+ al Año 10-15 es alcanzable.
+Esta proyección muestra que **solo con las regalías energéticas** el Fondo acumularía ~USD 85.000M al 2043 (Visión 2040+). Sumando las otras fuentes de capitalización de PLANMON (PLANSUS, Bastarda Financiera, recupero de evasión, repatriación), el objetivo de USD 100.000M+ al 2038-2043 (Visión 2040+) es alcanzable.
 
 PLANMON ya no necesita el asterisco. Las cifras dejan de ser condicionales.
 
@@ -1246,7 +1246,7 @@ PLANAGUA (Sección 10.3) establece salvaguardas para el fracking:
 
 PLANEN complementa con:
 
-- **Inversión obligatoria en reciclaje de agua de flowback** por parte de las operadoras de Vaca Muerta. Meta: 80% de reciclaje al Año 5.
+- **Inversión obligatoria en reciclaje de agua de flowback** por parte de las operadoras de Vaca Muerta. Meta: 80% de reciclaje al 2033 (tranche-2).
 - **Tasa hídrica por metro cúbico de agua dulce consumida en fracking.** El ingreso de la tasa se destina a PLANAGUA para inversión en infraestructura hídrica en la cuenca del Neuquén.
 - **Protocolo de gobernanza conjunta ANEN-ANAGUA** para la cuenca neuquina: toda autorización de nuevo pozo de fracking requiere dictamen conjunto de ambas agencias.
 
@@ -1357,7 +1357,7 @@ La inversión en transmisión es enorme — pero sin ella, los parques eólicos 
 4. **Diseño regulatorio.** Marco legal para la Bastarda Energética, regalías progresivas, condicionamiento de concesiones de litio, net metering ciudadano.
 5. **Negociaciones internacionales iniciales.** Acuerdos marco con potenciales socios para plantas de GNL, joint ventures de baterías, contratos de suministro de largo plazo con Europa.
 
-### 8.2 Fase 0: Fundacional (Año 0)
+### 8.2 Fase 0: Fundacional (2028 (tranche-1 inicial))
 
 **Duración:** 12 meses.
 
@@ -1376,7 +1376,7 @@ La inversión en transmisión es enorme — pero sin ella, los parques eólicos 
 ### 8.3 Fase 1: Gas como Puente + Renovables Escalables (Años 1-5)
 
 **Acciones clave:**
-1. **Infraestructura de GNL.** Inicio de construcción de la primera planta de licuefacción. Objetivo: operativa al Año 4-5.
+1. **Infraestructura de GNL.** Inicio de construcción de la primera planta de licuefacción. Objetivo: operativa al 2032-2033 (tranche-2).
 2. **Plan Eólico Patagónico — Primera Ola.** 5.000-8.000 MW eólicos nuevos. Líneas de transmisión asociadas.
 3. **Plan Solar del NOA — Primera Ola.** 3.000-5.000 MW solares nuevos.
 4. **Hub de Litio — Etapa 1.** Planta piloto de cátodos en el NOA. Joint venture firmada con socio tecnológico.
@@ -1386,7 +1386,7 @@ La inversión en transmisión es enorme — pero sin ella, los parques eólicos 
 8. **Polo Petroquímico — Diseño e inicio de construcción.**
 9. **Regalías al Fondo Soberano:** USD 1.000-3.500M/año (creciente).
 
-**Hitos verificables al Año 5:**
+**Hitos verificables al 2033 (tranche-2):**
 - Renovables representan 28%+ de la generación eléctrica (desde ~15% actual).
 - Exportaciones de GNL iniciadas (primera planta operativa).
 - Planta piloto de cátodos produciendo.
@@ -1408,7 +1408,7 @@ La inversión en transmisión es enorme — pero sin ella, los parques eólicos 
 9. **Programa de Techos Solares.** 500.000 acumulados.
 10. **Extensión de vida de Atucha I/II + Embalse completada.**
 
-**Hitos verificables al Año 10:**
+**Hitos verificables al 2038 (tranche-3 maduración):**
 - Renovables + nuclear representan 60%+ de la generación eléctrica.
 - Exportaciones energéticas (GNL + petróleo + litio procesado): USD 20.000-35.000M/año.
 - Fondo Soberano: USD 42.000M+ (solo regalías energéticas).
@@ -1427,7 +1427,7 @@ La inversión en transmisión es enorme — pero sin ella, los parques eólicos 
 6. **1 millón de techos solares.** Generación distribuida masiva.
 7. **Tercera/cuarta planta de GNL** (si la demanda global lo justifica; evaluación cada 5 años).
 
-**Hitos verificables al Año 15:**
+**Hitos verificables al 2043 (Visión 2040+):**
 - Renovables + nuclear: 85%+ de la generación eléctrica.
 - Argentina es exportadora neta de energía (gas + petróleo + litio procesado + hidrógeno verde + baterías + tecnología nuclear).
 - Fondo Soberano: USD 85.000M+ (solo regalías energéticas).
@@ -1441,7 +1441,7 @@ La inversión en transmisión es enorme — pero sin ella, los parques eólicos 
 | Fase | Período | Inversión estimada (USD M) | Hitos clave | Empleos generados |
 |---|---|---|---|---|
 | Pre-Fase | Año -1 | 200-500 | Auditoría, mapeo, diseño regulatorio | 2.000-5.000 (consultoría y planificación) |
-| Fase 0 | Año 0 | 500-1.000 | ANEN, marco legal, Tablero, primera Bastarda | 5.000-10.000 |
+| Fase 0 | 2028 (tranche-1 inicial) | 500-1.000 | ANEN, marco legal, Tablero, primera Bastarda | 5.000-10.000 |
 | Fase 1 | Años 1-5 | 15.000-25.000 | GNL, 8.000-13.000 MW renovables, Hub litio piloto, CAREM | 80.000-120.000 |
 | Fase 2 | Años 5-10 | 20.000-30.000 | 18.000+ MW renovables, baterías a escala, polo petroquímico, SMRs | 120.000-180.000 |
 | Fase 3 | Años 10-15 | 10.000-20.000 | 85% renovable+nuclear, H2 verde, ciclo completo litio | 80.000-120.000 (más mantenimiento permanente de 40.000-60.000) |
@@ -1629,7 +1629,7 @@ PLANEN cuesta menos de la mitad de lo que cuestan los subsidios energéticos en 
 
 **TABLA 12.3: Retorno Estimado de PLANEN**
 
-| Flujo de ingreso | Estimación anual (USD M, Año 10) | Concepto |
+| Flujo de ingreso | Estimación anual (USD M, 2038 (tranche-3 maduración)) | Concepto |
 |---|---|---|
 | Exportaciones de GNL | 10.000-20.000 | 2-4 plantas a plena capacidad |
 | Exportaciones de litio procesado (baterías, celdas) | 5.000-15.000 | Hub del NOA a escala industrial |
@@ -1638,9 +1638,9 @@ PLANEN cuesta menos de la mitad de lo que cuestan los subsidios energéticos en 
 | Ahorro en subsidios energéticos | 5.000-10.000 | Reducción del 50-70% del subsidio actual |
 | Regalías al Fondo Soberano | 3.500-5.000 | Gas + litio + créditos de carbono |
 | Exportación de tecnología nuclear (CAREM/SMRs) | 500-2.000 | 1-3 reactores vendidos |
-| **Total flujos generados (Año 10)** | **28.000-63.000** | |
+| **Total flujos generados (2038 (tranche-3 maduración))** | **28.000-63.000** | |
 
-El retorno de inversión es claro: PLANEN se paga a sí mismo en menos de 5 años con los flujos que genera. A partir del Año 5, genera excedente neto. A partir del Año 10, el excedente anual supera la inversión total acumulada.
+El retorno de inversión es claro: PLANEN se paga a sí mismo en menos de 5 años con los flujos que genera. A partir del 2033 (tranche-2), genera excedente neto. A partir del 2038 (tranche-3 maduración), el excedente anual supera la inversión total acumulada.
 
 ---
 
@@ -1719,7 +1719,7 @@ La transición de PLANEN afecta a trabajadores del sector fósil: operadores de 
 
 **TABLA 14.1: Balance de Empleo — Destrucción y Creación**
 
-| Sector | Empleos actuales (estimación) | Tendencia con PLANEN | Empleos al Año 10 (estimación) |
+| Sector | Empleos actuales (estimación) | Tendencia con PLANEN | Empleos al 2038 (tranche-3 maduración) (estimación) |
 |---|---|---|---|
 | Centrales térmicas (gas, carbón, fuel oil) | 15.000-20.000 | Declina gradualmente (gas como base → gas como respaldo) | 8.000-12.000 |
 | Transporte de combustibles fósiles | 10.000-15.000 | Declina parcialmente | 7.000-10.000 |
@@ -1763,7 +1763,7 @@ La transición no solo reconvierte trabajadores existentes — crea una nueva fu
 
 **TABLA 14.4: Nuevos Perfiles Laborales de la Transición Energética**
 
-| Perfil | Formación requerida | Demanda estimada (Año 10) | Formación vía | Salario estimado (USD/año) |
+| Perfil | Formación requerida | Demanda estimada (2038 (tranche-3 maduración)) | Formación vía | Salario estimado (USD/año) |
 |---|---|---|---|---|
 | Instalador de paneles solares | Técnico (6-12 meses) | 20.000-30.000 | PLANREP Centros de la Vida | 8.000-15.000 |
 | Técnico de turbinas eólicas | Técnico especializado (12-18 meses) | 5.000-8.000 | PLANREP + PLANEDU (UTN) | 15.000-25.000 |
@@ -1990,7 +1990,7 @@ A plena capacidad, Argentina producirá más de 200.000 toneladas de carbonato d
 
 Solo se implementa la mitad del plan: una planta de GNL (en vez de 2-4), 15.000 MW de renovables (en vez de 30.000+), Hub de litio a nivel piloto (sin escala industrial), CAREM operativo pero sin programa SMR, Bastarda Energética solo en ciudades PLAN24CN.
 
-| Indicador | Año 10 — Escenario conservador |
+| Indicador | 2038 (tranche-3 maduración) — Escenario conservador |
 |---|---|
 | Renovables + nuclear | 50-55% de la generación (desde 45%) |
 | Exportaciones energéticas | USD 12.000-18.000M/año |
@@ -2005,7 +2005,7 @@ Incluso en el escenario conservador, PLANEN genera más de lo que cuesta. El Fon
 
 Implementación completa según la Hoja de Ruta (Sección 8).
 
-| Indicador | Año 10 — Escenario base |
+| Indicador | 2038 (tranche-3 maduración) — Escenario base |
 |---|---|
 | Renovables + nuclear | 60-65% de la generación |
 | Exportaciones energéticas | USD 20.000-35.000M/año |
@@ -2018,7 +2018,7 @@ Implementación completa según la Hoja de Ruta (Sección 8).
 
 PLANEN pleno + precios de commodities altos + financiamiento internacional abundante + contexto geopolítico favorable (Europa compra todo el GNL que Argentina produce).
 
-| Indicador | Año 10 — Escenario optimista |
+| Indicador | 2038 (tranche-3 maduración) — Escenario optimista |
 |---|---|
 | Renovables + nuclear | 70%+ de la generación |
 | Exportaciones energéticas | USD 35.000-50.000M/año |
@@ -2031,7 +2031,7 @@ PLANEN pleno + precios de commodities altos + financiamiento internacional abund
 
 Crisis global, caída de precios de commodities, financiamiento internacional cerrado, inestabilidad política doméstica.
 
-| Indicador | Año 10 — Escenario adverso |
+| Indicador | 2038 (tranche-3 maduración) — Escenario adverso |
 |---|---|
 | Renovables + nuclear | 50% (solo proyectos ya financiados se completan) |
 | Exportaciones energéticas | USD 8.000-12.000M/año |
@@ -2086,7 +2086,7 @@ Cada una de estas mitigaciones tiene costo. Ese costo está incluido en las esti
 
 | Impacto | Positivo / Negativo | Magnitud | Mitigación |
 |---|---|---|---|
-| Reducción de emisiones de CO₂ por reemplazo de térmicas | Positivo | -50-80 Mt CO₂/año al Año 15 | — (es el objetivo) |
+| Reducción de emisiones de CO₂ por reemplazo de térmicas | Positivo | -50-80 Mt CO₂/año al 2043 (Visión 2040+) | — (es el objetivo) |
 | Reducción de contaminación urbana (particulado, NOx) | Positivo | Mejora sustancial en ciudades con centrales térmicas | — |
 | Consumo de agua por minería de litio | Negativo | 50-200M litros/año por proyecto | Protocolo PLANAGUA, monitoreo, principio precautorio |
 | Consumo de agua por fracking | Negativo | Cientos de millones de m³ acumulados | Reciclaje obligatorio, tasa hídrica, gobernanza conjunta |
@@ -2096,7 +2096,7 @@ Cada una de estas mitigaciones tiene costo. Ese costo está incluido en las esti
 | Mejora de salud por reducción de pobreza energética | Positivo | Reducción de enfermedades respiratorias, mortalidad por frío/calor | — |
 | **Balance neto** | **Fuertemente positivo** | | |
 
-La transición energética de PLANEN reduce las emisiones de CO₂ de Argentina entre 50 y 80 millones de toneladas por año al Año 15 — un tercio de las emisiones actuales totales del país. Esto posiciona a Argentina para cumplir sus compromisos climáticos internacionales (Acuerdo de París) y genera créditos de carbono que alimentan el Fondo Soberano. La descarbonización no es solo ética — es económicamente rentable.
+La transición energética de PLANEN reduce las emisiones de CO₂ de Argentina entre 50 y 80 millones de toneladas por año al 2043 (Visión 2040+) — un tercio de las emisiones actuales totales del país. Esto posiciona a Argentina para cumplir sus compromisos climáticos internacionales (Acuerdo de París) y genera créditos de carbono que alimentan el Fondo Soberano. La descarbonización no es solo ética — es económicamente rentable.
 
 ---
 

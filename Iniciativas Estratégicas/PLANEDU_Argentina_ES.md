@@ -505,9 +505,9 @@ Decirle a un chico de 13 años que leer es importante no funciona. Decírselo tr
 
 Las Escuelas del Futuro no van a abrir sus puertas y encontrar alumnos que leen perfecto. Van a recibir a los alumnos que el sistema actual les entregue — y el sistema actual les entrega un 46% por debajo del mínimo. La transición requiere un plan de emergencia:
 
-**Año 1-2 de cada nueva EdF:** Sprint de alfabetización de emergencia. Todo alumno por debajo del nivel recibe **60-90 minutos diarios** de Motor de Aceleración Lectora como primera prioridad del bloque matutino. Esto es más del 50% del bloque matutino dedicado exclusivamente a lectura. Es agresivo. Es necesario. Sin este sprint, nada de lo que viene después funciona.
+**2027-2028 (tranche-1) de cada nueva EdF:** Sprint de alfabetización de emergencia. Todo alumno por debajo del nivel recibe **60-90 minutos diarios** de Motor de Aceleración Lectora como primera prioridad del bloque matutino. Esto es más del 50% del bloque matutino dedicado exclusivamente a lectura. Es agresivo. Es necesario. Sin este sprint, nada de lo que viene después funciona.
 
-**Año 3+:** A medida que el pipeline madura — los CDT alimentan primer grado con chicos que ya tienen exposición temprana a la lectura, el Programa Familiar estabiliza los hogares, los alumnos que pasaron por el sprint llegan a nivel — la proporción de intervención intensiva baja naturalmente. El Motor sigue activo para los que lo necesitan, pero la Inmersión se convierte en el modo dominante.
+**2029+ (tranche-2 entrada):** A medida que el pipeline madura — los CDT alimentan primer grado con chicos que ya tienen exposición temprana a la lectura, el Programa Familiar estabiliza los hogares, los alumnos que pasaron por el sprint llegan a nivel — la proporción de intervención intensiva baja naturalmente. El Motor sigue activo para los que lo necesitan, pero la Inmersión se convierte en el modo dominante.
 
 **Tutores humanos de lectura:** Para los alumnos en nivel Crítico, la PAA no alcanza sola. PLANEDU incorpora un tutor humano de lectura por cada 15 alumnos en nivel Crítico. Estos tutores pueden ser Maestros Creadores en formación, estudiantes universitarios de Letras en práctica profesional, o voluntarios capacitados del programa Escuela Abierta. La tecnología es poderosa. Pero un ser humano que se sienta al lado de un chico y lee con él — eso es irremplazable.
 
@@ -772,10 +772,10 @@ La revolución salarial es progresiva — no se multiplica por tres el salario d
 
 | Fase | Docentes con Salario PLANEDU | Salario Objetivo | Costo Incremental/Año | Financiamiento |
 |---|---|---|---|---|
-| Año 1-3 | ~5.000 (en 50 Escuelas del Futuro) | USD 1.200-2.500/mes | ~USD 200M | Reasignación + PLANREP |
-| Año 4-7 | ~25.000 (en 200 EdF + formadores) | USD 1.200-2.500/mes | ~USD 800M | Reasignación + PLANREP + incremento PBI |
-| Año 8-12 | ~100.000 (en 500 EdF + irradiación) | USD 1.200-2.500/mes | ~USD 3.000M | Incremento presupuestario (6% PBI) |
-| Año 12+ | ~500.000 (sistema completo) | USD 1.200-3.500/mes | ~USD 8.000M | 7% del PBI en educación |
+| 2027-2029 (tranche-2 entrada) | ~5.000 (en 50 Escuelas del Futuro) | USD 1.200-2.500/mes | ~USD 200M | Reasignación + PLANREP |
+| 2030-2033 (tranche-3) | ~25.000 (en 200 EdF + formadores) | USD 1.200-2.500/mes | ~USD 800M | Reasignación + PLANREP + incremento PBI |
+| 2034-2038 (tranche-3 maduración) | ~100.000 (en 500 EdF + irradiación) | USD 1.200-2.500/mes | ~USD 3.000M | Incremento presupuestario (6% PBI) |
+| 2038+ (tranche-3 maduración) | ~500.000 (sistema completo) | USD 1.200-3.500/mes | ~USD 8.000M | 7% del PBI en educación |
 
 **C. Carrera con Mérito Real:**
 1. **Maestro Creador** (nivel inicial)
@@ -819,7 +819,7 @@ El Dash Argentino es el cerebro operativo de la PAA 2.0 — un motor de orquesta
 
 | Componente | Costo | Justificación |
 |---|---|---|
-| Desarrollo de PAA 2.0 (Año 1-5) | USD 800M-2.000M | Scope expandido: Socrática + Adaptativa + Leer para Encender + Dash Argentino + motor de talleres + tracking de emprendimientos |
+| Desarrollo de PAA 2.0 (2027-2031 (tranche-2)) | USD 800M-2.000M | Scope expandido: Socrática + Adaptativa + Leer para Encender + Dash Argentino + motor de talleres + tracking de emprendimientos |
 | Dispositivos (tabletas/laptops) para 12M alumnos | USD 1.000-2.000M (progresivo) | ~USD 100-150 por dispositivo a escala × 12M alumnos = desplegado en 5 años |
 | Operación anual | USD 150-300M/año | Plataforma más compleja: más servidores, más soporte, actualizaciones continuas, equipo de desarrollo permanente |
 | **Costo por alumno (a régimen)** | **~USD 50-120/año** | **Menos que un set de libros de texto. Más impacto que cualquier material impreso.** |
@@ -834,7 +834,7 @@ Distribuidas en todo el país (mínimo 10 por provincia, prioridad en zonas vuln
 
 ### Pilar IV: Bilingüismo Universal
 
-Inmersión desde los 4 años (30% del tiempo en inglés). AI como entrenador de idiomas 24/7. Contenido real en inglés integrado con las Capacidades. Tercer idioma opcional: quechua, guaraní, mapuzugun, portugués. Objetivo: 70% de los alumnos de 16 años en nivel B2 de inglés en el Año 10.
+Inmersión desde los 4 años (30% del tiempo en inglés). AI como entrenador de idiomas 24/7. Contenido real en inglés integrado con las Capacidades. Tercer idioma opcional: quechua, guaraní, mapuzugun, portugués. Objetivo: 70% de los alumnos de 16 años en nivel B2 de inglés en el 2036 (tranche-3 maduración).
 
 ### Pilar V: Gobernanza Educativa Distribuida
 
@@ -864,7 +864,7 @@ PLANEDU respeta la **autonomía universitaria** (Art. 75 inc. 19 de la Constituc
 - Los **Institutos Superiores de Formación Docente (ISFDs)** — 1.300+ en todo el país — son el punto de entrada a la carrera de Maestro Creador. La ANCE acredita los programas de formación y certifica a los egresados.
 - Se crean **convenios con universidades nacionales** para que co-diseñen los programas de 5 años, aporten investigación, y reciban a los Maestros Creadores como investigadores-docentes.
 - **CONEAU** certifica los programas de formación de Maestros Creadores con estándares específicos PLANEDU.
-- Los primeros egresados completos del modelo (Año 7+) ingresan a universidades que voluntariamente adaptaron sus sistemas de admisión para aceptar portfolios además de exámenes.
+- Los primeros egresados completos del modelo (2033+ (tranche-3)) ingresan a universidades que voluntariamente adaptaron sus sistemas de admisión para aceptar portfolios además de exámenes.
 
 ### 7.3 Educación Técnica: Integración con INET
 
@@ -910,7 +910,7 @@ El Aprendizaje por Dominio es **inherentemente inclusivo**: cada alumno avanza a
 PLANEDU no puede transformar 50.000 escuelas de golpe. Pero sí puede crear las condiciones para que la transformación se propague:
 
 - Cada Escuela del Futuro **mentora a 100 escuelas vecinas**: comparte prácticas, forma docentes, abre sus talleres, conecta a la PAA
-- **Acceso gratuito a la PAA** para todas las escuelas del país desde el Año 3
+- **Acceso gratuito a la PAA** para todas las escuelas del país desde el 2029 (tranche-2 entrada)
 - **Adopción Gradual de las Siete Capacidades**: un pathway de 5 años para que escuelas convencionales incorporen progresivamente el modelo (empezando por 1-2 Capacidades, expandiendo cada año)
 - Convergencia salarial gradual: el objetivo es que todo el sistema alcance salarios PLANEDU en 12-15 años
 - **Efecto demostración**: cuando los egresados de las EdF obtengan mejores resultados, mejores empleos, y mejor calidad de vida que los egresados convencionales, la demanda de transformación vendrá de abajo — de los padres, de los alumnos, de los propios docentes
@@ -969,7 +969,7 @@ Tablero público en tiempo real, inspirado en el Tablero Nacional del PLANISV:
 
 **TABLA 12: KPIs del Tablero Nacional de Educación**
 
-| Indicador | Medición | Target Año 5 | Target Año 10 | Target Año 15 | Responsable |
+| Indicador | Medición | Target 2031 (tranche-2) | Target 2036 (tranche-3 maduración) | Target 2041 (Visión 2040+) | Responsable |
 |---|---|---|---|---|---|
 | Capacidades demostradas (portfolio) | Evaluación anual por rúbrica ANCE | 80% de alumnos EdF en nivel "competente" o superior | 80% en EdF + 50% en convencionales | 80% en todo el sistema | ANCE |
 | Comprensión lectora (comparable PISA) | Evaluación muestral cada 3 años | Top 50 mundial en cohortes EdF | Top 40 | Top 25 | ANCE + OCDE |
@@ -1028,12 +1028,12 @@ Las escuelas técnicas se integran al modelo como Escuelas del Futuro prioritari
 
 | Instrumento Legal | Prioridad | Plazo | Complejidad Política | Aliados Naturales | Riesgo Principal |
 |---|---|---|---|---|---|
-| Ley de Refundación Educativa | CRÍTICA | Año 1 | Muy alta | Docentes innovadores + padres + provincias progresistas + academia | Resistencia sindical si no hay Pacto de la Dignidad previo |
-| Ley de Dignidad Docente | CRÍTICA | Año 1 | Media-Alta | CTERA + UDA + CEA + padres | Costo fiscal requiere articulación con PLANREP |
-| Reforma del Estatuto Docente | Alta | Año 2 | Alta | UDA + AMET + CEA (los más dialoguistas) | Resistencia de sectores sindicales duros |
-| Decreto de creación transitoria de ANCE | Alta | Año 1 (si la ley se demora) | Media | Poder Ejecutivo | Debilidad jurídica sin ley |
-| Integración ETP-PLANEDU | Media | Año 2-3 | Baja | AMET + INET | Complejidad técnica |
-| Ley de Primera Infancia | Alta | Año 2 | Media | Ministerio de Salud + UNICEF + ONGs de infancia | Fragmentación de responsabilidades Nación/provincias |
+| Ley de Refundación Educativa | CRÍTICA | 2027 (tranche-1) | Muy alta | Docentes innovadores + padres + provincias progresistas + academia | Resistencia sindical si no hay Pacto de la Dignidad previo |
+| Ley de Dignidad Docente | CRÍTICA | 2027 (tranche-1) | Media-Alta | CTERA + UDA + CEA + padres | Costo fiscal requiere articulación con PLANREP |
+| Reforma del Estatuto Docente | Alta | 2028 (tranche-1) | Alta | UDA + AMET + CEA (los más dialoguistas) | Resistencia de sectores sindicales duros |
+| Decreto de creación transitoria de ANCE | Alta | 2027 (tranche-1) (si la ley se demora) | Media | Poder Ejecutivo | Debilidad jurídica sin ley |
+| Integración ETP-PLANEDU | Media | 2028-2029 (tranche-2 entrada) | Baja | AMET + INET | Complejidad técnica |
+| Ley de Primera Infancia | Alta | 2028 (tranche-1) | Media | Ministerio de Salud + UNICEF + ONGs de infancia | Fragmentación de responsabilidades Nación/provincias |
 ## SECCIÓN 10: ESTRATEGIA SINDICAL — LOS SINDICATOS NO SON EL ENEMIGO
 
 > *"Un sindicato que solo pelea por salario es un sindicato incompleto. Un sindicato que pelea por la dignidad del oficio es invencible."*
@@ -1109,7 +1109,7 @@ El sistema de paritarias docentes argentino produce un resultado predecible: cad
 | Piso salarial docente resultante | ~USD 1.200/mes | Ajuste trimestral automático |
 | Mecanismo de ajuste | IPC trimestral + coeficiente de productividad sectorial (0-2% adicional/año) | INDEC + ANCE |
 | Techo salarial (Maestro Referente Nacional) | 4× piso (~USD 4.800/mes) | Carrera docente PLANEDU |
-| Fuente de financiamiento del incremento | 40% reasignación interna + 30% ahorro PLANREP (disponible a partir del Año 4; en Años 1-3 cubierto con créditos internacionales) + 30% incremento presupuestario | Ley de Financiamiento Educativo PLANEDU |
+| Fuente de financiamiento del incremento | 40% reasignación interna + 30% ahorro PLANREP (disponible a partir del 2030 (tranche-2); en Años 1-3 cubierto con créditos internacionales) + 30% incremento presupuestario | Ley de Financiamiento Educativo PLANEDU |
 
 Cuando el salario deja de ser tema de disputa, la energía del sistema se libera para lo que importa: cómo enseñar mejor, cómo evaluar mejor, cómo formar mejor, cómo aprender mejor. La experiencia escandinava es inequívoca: en Finlandia, Suecia y Noruega, los sindicatos docentes son los principales aliados de la calidad educativa — porque no necesitan pelear por sobrevivir.
 
@@ -1174,13 +1174,13 @@ PLANEDU no pretende que la transformación educativa sea barata. Pretende que se
 
 **TABLA 13: Costo Incremental de PLANEDU — Desglose por Componente y Fase**
 
-| Componente | Año 1-3 (USD M/año) | Año 4-7 (USD M/año) | Año 8-12 (USD M/año) | Año 12+ Régimen (USD M/año) | Nota |
+| Componente | 2027-2029 (tranche-2 entrada) (USD M/año) | 2030-2033 (tranche-3) (USD M/año) | 2034-2038 (tranche-3 maduración) (USD M/año) | 2038+ (tranche-3 maduración) Régimen (USD M/año) | Nota |
 |---|---|---|---|---|---|
 | **Pilar I: Formación de Maestros Creadores** | 500 | 1.000 | 800 | 300 | Residencia de Transformación (2.000→10.000→25.000 docentes), infraestructura de formación, formadores |
-| **Pilar I: Incremento salarial docente** | 200 | 800 | 3.000 | 8.000 | Phased: Año 1-3: 5.000 docentes al nuevo salario (EdF). Año 4-7: 25.000. Año 8-12: 100.000. Régimen: 500.000 |
+| **Pilar I: Incremento salarial docente** | 200 | 800 | 3.000 | 8.000 | Phased: 2027-2029 (tranche-2 entrada): 5.000 docentes al nuevo salario (EdF). 2030-2033 (tranche-3): 25.000. 2034-2038 (tranche-3 maduración): 100.000. Régimen: 500.000 |
 | **Pilar II: PAA 2.0 — Plataforma AI Socrática + Adaptativa** | 400 | 600 | 500 | 300 | Desarrollo expandido: Socrática + Adaptativa + Leer para Encender + Dash Argentino + motor de talleres + tracking de emprendimientos. Incluye infraestructura de servidores, equipo de desarrollo |
 | **Equipamiento de talleres + fondo semilla de emprendimientos** | 200 | 300 | 200 | 100 | Equipamiento para 24+ talleres por EdF (herramientas, materiales, tecnología) + fondo semilla para emprendimientos estudiantiles (edades 14+). Incluye reposición y actualización |
-| **Pilar III: 500 Escuelas del Futuro** | 1.500 | 2.000 | 1.000 | 500 | Construcción nueva: ~50 (Año 1-3), ~200 (Año 4-7), ~250 (Año 8-12). Mantenimiento en régimen |
+| **Pilar III: 500 Escuelas del Futuro** | 1.500 | 2.000 | 1.000 | 500 | Construcción nueva: ~50 (2027-2029 (tranche-2 entrada)), ~200 (2030-2033 (tranche-3)), ~250 (2034-2038 (tranche-3 maduración)). Mantenimiento en régimen |
 | **Pilar IV: Bilingüismo** | — | — | — | — | Incluido en Pilar I (formación) y Pilar II (PAA). No es costo separado |
 | **Pilar V: ANCE + Gobernanza** | 100 | 80 | 80 | 80 | Creación del organismo, staff técnico, sistemas de evaluación, tablero público |
 | **S6: Primera Infancia (Centros 0-5 años)** | 300 | 500 | 700 | 500 | Construcción y operación de Centros de Primera Infancia vinculados a EdF. 500 centros en 12 años |
@@ -1191,7 +1191,7 @@ PLANEDU no pretende que la transformación educativa sea barata. Pretende que se
 
 | Verificación | Cálculo | Resultado |
 |---|---|---|
-| Incremento salarial Año 12+ | 500.000 docentes × incremento promedio de ~USD 16.000/año (~USD 1.333/mes de aumento) | ~USD 8.000M/año ✓ |
+| Incremento salarial 2038+ (tranche-3 maduración) | 500.000 docentes × incremento promedio de ~USD 16.000/año (~USD 1.333/mes de aumento) | ~USD 8.000M/año ✓ |
 | Costo por Escuela del Futuro (construcción) | USD 4.500M total ÷ 500 escuelas | ~USD 9M/escuela (consistente con estándares internacionales para escuelas de 500-800 alumnos con infraestructura avanzada) ✓ |
 | Costo PAA por alumno (a régimen) | USD 200M ÷ 12M alumnos | ~USD 17/alumno/año (comparable a plataformas edtech internacionales) ✓ |
 | Costo primera infancia por centro | USD 2.000M total ÷ 500 centros | ~USD 4M/centro (construcción + equipamiento) ✓ |
@@ -1202,12 +1202,12 @@ PLANEDU no pretende que la transformación educativa sea barata. Pretende que se
 
 | Fuente | Monto Disponible (USD M/año) | Plazo | Mecanismo Específico | Nivel de Certeza |
 |---|---|---|---|---|
-| **Reasignación de burocracia educativa existente** | 1.500–2.500 | Inmediato (Año 1+) | Reducción de capas administrativas redundantes (de 4 niveles de supervisión a 2), digitalización de trámites, fusión de programas duplicados, cierre de direcciones de línea sin función verificable. Estimación: ~30-50% del gasto en administración no docente (USD 4.500M) es reasignable | Alto |
-| **Ahorro fiscal de PLANREP (asignación consolidada)** | 1.500–3.500 | Año 4+ | Disponible a partir del Año 4, cuando PLANREP alcanza superávit fiscal (Años 1-3 opera en déficit — los costos de reconversión superan los ahorros). Asignación consolidada: 10-15% del ahorro neto de PLANREP, que incluye tanto el piso constitucional educativo como el Fondo de Convergencia Educativa (Sección 12.4). Mecanismo: asignación específica en Ley de Presupuesto, con piso constitucional. Ver PLANREP Sección 5.1.1 para la tabla de asignación por fase | Medio-Alto (depende de PLANREP) |
-| **Incremento gradual del gasto educativo (5%→7% del PBI)** | 2.000–4.000 | Año 5+ | Cada 0.1% del PBI = ~USD 500M (PBI estimado ~USD 500.000M). Incremento progresivo: +0.2%/año durante 10 años. Financiado con crecimiento económico + ahorro fiscal combinado | Alto (si hay crecimiento) |
-| **Eficiencia en infraestructura (sinergias PLAN24CN)** | 500–1.000 | Año 3+ | Las Escuelas del Futuro en ciudades nuevas de PLAN24CN comparten infraestructura urbana (red digital, energía renovable, espacios públicos), reduciendo costo por escuela en 20-30%. 24 escuelas integradas en 24 ciudades | Alto |
-| **Asociaciones público-privadas (edtech)** | 200–500 | Año 2+ | Co-desarrollo de módulos de la PAA con empresas tecnológicas. El gobierno provee API, estándares y datos; las empresas desarrollan contenido. Modelo: plataforma abierta con módulos propietarios opcionales. Revenue share en licenciamiento internacional | Medio |
-| **Créditos internacionales (BID, Banco Mundial, CAF)** | 1.000–3.000 | Año 1+ | Préstamos blandos para infraestructura educativa. Tasa preferencial (~2-3% anual, plazo 20-30 años). El BID ya tiene líneas de crédito activas para educación en Argentina (~USD 500M). CAF tiene programa de infraestructura escolar. Ampliable a USD 1.000-3.000M con proyecto PLANEDU como respaldo | Alto |
+| **Reasignación de burocracia educativa existente** | 1.500–2.500 | Inmediato (2027+ (tranche-1)) | Reducción de capas administrativas redundantes (de 4 niveles de supervisión a 2), digitalización de trámites, fusión de programas duplicados, cierre de direcciones de línea sin función verificable. Estimación: ~30-50% del gasto en administración no docente (USD 4.500M) es reasignable | Alto |
+| **Ahorro fiscal de PLANREP (asignación consolidada)** | 1.500–3.500 | 2030+ (tranche-2) | Disponible a partir del 2030 (tranche-2), cuando PLANREP alcanza superávit fiscal (Años 1-3 opera en déficit — los costos de reconversión superan los ahorros). Asignación consolidada: 10-15% del ahorro neto de PLANREP, que incluye tanto el piso constitucional educativo como el Fondo de Convergencia Educativa (Sección 12.4). Mecanismo: asignación específica en Ley de Presupuesto, con piso constitucional. Ver PLANREP Sección 5.1.1 para la tabla de asignación por fase | Medio-Alto (depende de PLANREP) |
+| **Incremento gradual del gasto educativo (5%→7% del PBI)** | 2.000–4.000 | 2031+ (tranche-2) | Cada 0.1% del PBI = ~USD 500M (PBI estimado ~USD 500.000M). Incremento progresivo: +0.2%/año durante 10 años. Financiado con crecimiento económico + ahorro fiscal combinado | Alto (si hay crecimiento) |
+| **Eficiencia en infraestructura (sinergias PLAN24CN)** | 500–1.000 | 2029+ (tranche-2 entrada) | Las Escuelas del Futuro en ciudades nuevas de PLAN24CN comparten infraestructura urbana (red digital, energía renovable, espacios públicos), reduciendo costo por escuela en 20-30%. 24 escuelas integradas en 24 ciudades | Alto |
+| **Asociaciones público-privadas (edtech)** | 200–500 | 2028+ (tranche-1) | Co-desarrollo de módulos de la PAA con empresas tecnológicas. El gobierno provee API, estándares y datos; las empresas desarrollan contenido. Modelo: plataforma abierta con módulos propietarios opcionales. Revenue share en licenciamiento internacional | Medio |
+| **Créditos internacionales (BID, Banco Mundial, CAF)** | 1.000–3.000 | 2027+ (tranche-1) | Préstamos blandos para infraestructura educativa. Tasa preferencial (~2-3% anual, plazo 20-30 años). El BID ya tiene líneas de crédito activas para educación en Argentina (~USD 500M). CAF tiene programa de infraestructura escolar. Ampliable a USD 1.000-3.000M con proyecto PLANEDU como respaldo | Alto |
 | **TOTAL DISPONIBLE** | **6.200–13.000** | **Progresivo** | **Cubre el costo incremental de PLANEDU en todas las fases con margen de 20-50%** | — |
 
 ### 11.4 La Ruta Fiscal: Del 5% al 7% del PBI en 12 Años
@@ -1232,10 +1232,10 @@ PLANEDU no pretende que la transformación educativa sea barata. Pretende que se
 
 **Supuestos clave:**
 - Crecimiento del PBI: 2-3% anual promedio (conservador, dado efecto combinado de las iniciativas ¡BASTA!)
-- PBI base: ~USD 500.000M (2026), creciendo a ~USD 650.000-700.000M en Año 12
+- PBI base: ~USD 500.000M (2026), creciendo a ~USD 650.000-700.000M en 2038 (tranche-3 maduración)
 - Cada 0.1% de un PBI de USD 600.000M = USD 600M
-- Ahorro PLANREP: PLANREP opera en déficit los Años 1-3. El superávit comienza en el Año 4 con ~USD 12.200M/año, escalando a ~USD 26.150M/año en régimen (Año 10+). Ver PLANREP Sección 5.1.1
-- Asignación consolidada a PLANEDU: 10-15% del ahorro neto de PLANREP (incluye piso educativo + Fondo de Convergencia) = USD 1.500-3.500M/año a régimen. Disponible a partir del Año 4
+- Ahorro PLANREP: PLANREP opera en déficit los Años 1-3. El superávit comienza en el 2030 (tranche-2) con ~USD 12.200M/año, escalando a ~USD 26.150M/año en régimen (2036+ (tranche-3 maduración)). Ver PLANREP Sección 5.1.1
+- Asignación consolidada a PLANEDU: 10-15% del ahorro neto de PLANREP (incluye piso educativo + Fondo de Convergencia) = USD 1.500-3.500M/año a régimen. Disponible a partir del 2030 (tranche-2)
 
 ### 11.5 ROI — Por Qué Esto Es La Mejor Inversión del País
 
@@ -1329,7 +1329,7 @@ PLANEDU no se impone por decreto nacional. Se negocia provincia por provincia a 
 | Componente | Compromiso Nacional (ANCE) | Compromiso Provincial |
 |---|---|---|
 | **Escuelas del Futuro** | Financia 70% de construcción/adaptación + equipamiento + PAA | Provee terrenos + financia 30% + garantiza personal no docente |
-| **Maestros Creadores** | Financia formación + certificación + diferencial salarial Años 1-5 | Absorbe costo salarial a partir de Año 6 (con apoyo del Fondo de Convergencia) |
+| **Maestros Creadores** | Financia formación + certificación + diferencial salarial Años 1-5 | Absorbe costo salarial a partir de 2032 (tranche-3 entrada) (con apoyo del Fondo de Convergencia) |
 | **PAA** | Provee plataforma + dispositivos + conectividad (integrado con PLAN24CN) | Provee contenido local + soporte técnico provincial |
 | **Evaluación** | Evaluación externa anual de cada escuela (publicada) | Acepta evaluación + implementa planes de mejora |
 | **KPIs** | Define KPIs nacionales + provee asistencia técnica | Publica resultados + rinde cuentas ante comunidad |
@@ -1351,7 +1351,7 @@ La coparticipación federal distribuye recursos con criterios que no tienen nada
 
 | Parámetro | Valor | Justificación |
 |---|---|---|
-| **Tamaño del Fondo** | USD 1.000–2.000M/año (a régimen, Año 5+) | Incluido dentro de la asignación consolidada del 10-15% del ahorro neto de PLANREP destinada a PLANEDU (ver Tabla 14 y PLANREP Sección 5.1.1). Disponible a partir del Año 4 cuando PLANREP alcanza superávit. No es una fuente separada sino una partida dentro de la asignación educativa total |
+| **Tamaño del Fondo** | USD 1.000–2.000M/año (a régimen, 2031+ (tranche-2)) | Incluido dentro de la asignación consolidada del 10-15% del ahorro neto de PLANREP destinada a PLANEDU (ver Tabla 14 y PLANREP Sección 5.1.1). Disponible a partir del 2030 (tranche-2) cuando PLANREP alcanza superávit. No es una fuente separada sino una partida dentro de la asignación educativa total |
 | **Criterio de distribución** | Inversamente proporcional a resultados educativos + directamente proporcional a pobreza infantil | Las provincias que más necesitan reciben más. Principio de equidad, no de premio |
 | **Condicionalidad** | Adopción de Siete Capacidades + firma de Pacto Bilateral + transparencia presupuestaria + publicación de resultados | No se impone el modelo completo de golpe — se exige compromiso con estándares mínimos y transparencia |
 | **Mecanismo de asignación** | Fórmula automática (no discrecional) publicada y auditable | Elimina negociación política. Cada provincia sabe exactamente cuánto le corresponde y por qué |
@@ -1504,17 +1504,17 @@ Ningún plan de esta magnitud está exento de riesgo. La diferencia entre un pla
 |---|---|---|---|---|---|
 | 1 | **Resistencia sindical masiva** — Sindicatos rechazan el Pacto de la Dignidad y convocan paro nacional indefinido | Alta | Alto | Sindicatos como co-arquitectos (Sección 10) + piso salarial elimina causa principal de conflicto + implementación gradual y voluntaria para docentes actuales + representación sindical en ANCE | Si >50% de docentes en paro por >30 días consecutivos → mesa de diálogo de emergencia con mediador internacional (OIT) + congelamiento de implementación en jurisdicciones conflictivas + aceleración en jurisdicciones receptivas |
 | 2 | **Captura política de la ANCE** — Un gobierno futuro intenta cooptar la ANCE para fines partidarios, reemplazando directores técnicos por operadores políticos | Media | Crítico | Mandatos escalonados de 6 años (no coincidentes con ciclo electoral) + directores seleccionados por concurso internacional + piso presupuestario con rango constitucional + publicación obligatoria de todas las decisiones | Si el gobierno intenta remover a un director sin causa justificada → activación automática de recurso judicial (la ley de creación de ANCE incluye cláusula de amparo automático) + denuncia pública + intervención del Defensor del Pueblo |
-| 3 | **Provincias que se niegan a adoptar** — Más de 5 provincias rechazan firmar el Pacto Bilateral y se niegan a implementar las Siete Capacidades | Alta | Alto | Modelo 70/30 respeta autonomía provincial + Fondo de Convergencia como incentivo financiero poderoso + Pactos Bilaterales negociados individualmente | Si >5 provincias rechazan en Año 3 → programa piloto solo en provincias dispuestas. Efecto demostración: cuando las provincias piloto muestren resultados superiores, las resistentes se suman (precedente: reforma educativa de Ontario, Canadá) |
+| 3 | **Provincias que se niegan a adoptar** — Más de 5 provincias rechazan firmar el Pacto Bilateral y se niegan a implementar las Siete Capacidades | Alta | Alto | Modelo 70/30 respeta autonomía provincial + Fondo de Convergencia como incentivo financiero poderoso + Pactos Bilaterales negociados individualmente | Si >5 provincias rechazan en 2029 (tranche-2 entrada) → programa piloto solo en provincias dispuestas. Efecto demostración: cuando las provincias piloto muestren resultados superiores, las resistentes se suman (precedente: reforma educativa de Ontario, Canadá) |
 | 4 | **Insuficiencia presupuestaria** — Crisis económica o cambio de prioridades gubernamental reduce el presupuesto disponible por debajo del mínimo | Media | Alto | Fuentes de financiamiento diversificadas (6 fuentes independientes) + phasing gradual que permite reducir velocidad sin reducir calidad + piso constitucional de gasto educativo | Si déficit presupuestario >20% del plan → reducción de velocidad de expansión (menos EdF por año), NUNCA reducción de calidad ni de salarios. Prioridad: mantener lo que ya funciona |
-| 5 | **Fracaso de la plataforma AI** — La PAA no alcanza los estándares de calidad necesarios en el plazo previsto, o la tecnología elegida queda obsoleta | Media | Medio | Desarrollo incremental (MVP → iteración) + plataformas internacionales existentes (Khan Academy, Duolingo, etc.) como backup inmediato + arquitectura modular que permite reemplazar componentes | Si PAA no alcanza estándares mínimos en Año 3 → licencia de plataforma internacional (adaptada al currículo argentino) mientras se mejora la versión nacional. Funcionamiento de EdF no depende de PAA — PAA potencia, no sostiene |
-| 6 | **Rechazo de padres al sistema de portfolio** — Familias exigen "notas numéricas" tradicionales y rechazan el portfolio como sistema de evaluación | Media | Medio | Campaña de comunicación desde Año 1 + embajadores de padres en EdF piloto + período de transición con sistema dual (portfolio Y nota numérica equivalente) | Si >40% de familias en encuesta rechazan portfolio → mantener sistema dual (portfolio + nota numérica derivada de rúbricas) por 5 años más. El portfolio se gana la confianza con evidencia, no con imposición |
+| 5 | **Fracaso de la plataforma AI** — La PAA no alcanza los estándares de calidad necesarios en el plazo previsto, o la tecnología elegida queda obsoleta | Media | Medio | Desarrollo incremental (MVP → iteración) + plataformas internacionales existentes (Khan Academy, Duolingo, etc.) como backup inmediato + arquitectura modular que permite reemplazar componentes | Si PAA no alcanza estándares mínimos en 2029 (tranche-2 entrada) → licencia de plataforma internacional (adaptada al currículo argentino) mientras se mejora la versión nacional. Funcionamiento de EdF no depende de PAA — PAA potencia, no sostiene |
+| 6 | **Rechazo de padres al sistema de portfolio** — Familias exigen "notas numéricas" tradicionales y rechazan el portfolio como sistema de evaluación | Media | Medio | Campaña de comunicación desde 2027 (tranche-1) + embajadores de padres en EdF piloto + período de transición con sistema dual (portfolio Y nota numérica equivalente) | Si >40% de familias en encuesta rechazan portfolio → mantener sistema dual (portfolio + nota numérica derivada de rúbricas) por 5 años más. El portfolio se gana la confianza con evidencia, no con imposición |
 | 7 | **Fuga de Maestros Creadores al sector privado** — Los mejores docentes formados por PLANEDU son reclutados por empresas privadas o escuelas privadas de élite | Media | Medio | Salarios competitivos con sector privado + bonos por permanencia (3, 5, 7 años) + prestigio profesional (el Maestro Creador es una marca de excelencia) + carrera atractiva con cuatro niveles + año sabático cada 7 años | Si rotación de Maestros Creadores >15% anual → revisión salarial de emergencia + bonos de retención incrementados + encuesta de salida para identificar causas reales |
 | 8 | **Oposición política que lo convierte en "batalla cultural"** — Sectores políticos instalan la narrativa de que PLANEDU es "adoctrinamiento" o "ideología" | Alta | Alto | Las Siete Capacidades son transversales y no ideológicas: crear, pensar, comunicar, cuidar, construir, colaborar, conocer. No hay contenido partidario que capturar. Foco permanente en habilidades, no en contenidos | Si oposición logra instalar narrativa → activación de campaña con testimonios reales: padres de EdF, docentes, alumnos mostrando sus portfolios. Desafío público: "Señalá cuál de las Siete Capacidades es ideológica" |
-| 9 | **Resistencia universitaria a reforma de formación docente** — Universidades e ISFDs se niegan a modificar sus planes de estudio para alinearse con PLANEDU | Media | Medio | Autonomía universitaria respetada (no se impone) + incentivos financieros fuertes para ISFDs que adopten nuevo plan + ANCE puede certificar Maestros Creadores directamente, creando camino alternativo | Si <50% de ISFDs adoptan nuevo plan en Año 5 → ANCE crea red paralela de formación (Residencias de Transformación como centros autónomos) + certificación directa. Los ISFDs que no se adaptan quedan como opción pero sus egresados no acceden a carrera de Maestro Creador |
-| 10 | **Conectividad insuficiente para PAA en zonas rurales** — La infraestructura digital no llega a escuelas rurales o de zonas aisladas, limitando el acceso a la PAA | Alta | Medio | Modo offline robusto de PAA (contenido precargado + sincronización cuando hay conexión) + integración con red digital de PLAN24CN + Starlink como backup para zonas sin fibra | Si cobertura digital <80% de escuelas en Año 5 → distribución de dispositivos con contenido precargado completo + actualización periódica por USB/SD. La PAA offline funciona al 85% de capacidad |
+| 9 | **Resistencia universitaria a reforma de formación docente** — Universidades e ISFDs se niegan a modificar sus planes de estudio para alinearse con PLANEDU | Media | Medio | Autonomía universitaria respetada (no se impone) + incentivos financieros fuertes para ISFDs que adopten nuevo plan + ANCE puede certificar Maestros Creadores directamente, creando camino alternativo | Si <50% de ISFDs adoptan nuevo plan en 2031 (tranche-2) → ANCE crea red paralela de formación (Residencias de Transformación como centros autónomos) + certificación directa. Los ISFDs que no se adaptan quedan como opción pero sus egresados no acceden a carrera de Maestro Creador |
+| 10 | **Conectividad insuficiente para PAA en zonas rurales** — La infraestructura digital no llega a escuelas rurales o de zonas aisladas, limitando el acceso a la PAA | Alta | Medio | Modo offline robusto de PAA (contenido precargado + sincronización cuando hay conexión) + integración con red digital de PLAN24CN + Starlink como backup para zonas sin fibra | Si cobertura digital <80% de escuelas en 2031 (tranche-2) → distribución de dispositivos con contenido precargado completo + actualización periódica por USB/SD. La PAA offline funciona al 85% de capacidad |
 | 11 | **Deterioro económico general que destruye el presupuesto** — Crisis macroeconómica severa (tipo 2001) que elimina todo espacio fiscal | Media | Crítico | Piso presupuestario con rango constitucional + fuentes diversificadas + ANCE como ente autárquico con presupuesto propio | Si crisis fiscal severa → ANCE prioriza en este orden: (1) salarios docentes de EdF, (2) operación de PAA, (3) formación de Maestros Creadores. Se congela expansión de infraestructura. Se activan créditos de emergencia con organismos internacionales |
 | 12 | **Los Maestros Creadores iniciales no alcanzan el estándar** — La primera cohorte de 2.000 docentes no logra el nivel de excelencia esperado después de la Residencia de Transformación | Baja | Alto | Selección rigurosa (tercio superior + evaluación de aptitudes) + Residencia de Transformación intensiva de 12 meses con evaluación continua + mentores experimentados | Si >20% de la cohorte no pasa evaluación final → extensión de Residencia por 6 meses + tutoría individualizada + revisión del programa de formación con panel externo. Nadie se certifica sin alcanzar el estándar |
-| 13 | **El sistema dual (EdF + convencionales) crea segregación** — Las Escuelas del Futuro se perciben como "escuelas de élite" y las convencionales como "escuelas de descarte", profundizando la desigualdad | Media | Alto | EdF ubicadas prioritariamente en zonas de ALTA vulnerabilidad (no en barrios ricos) + irradiación obligatoria (cada EdF forma docentes de 10 escuelas vecinas) + PAA disponible para TODO el sistema | Si brecha de resultados entre EdF y convencionales crece >30% en Año 5 → acelerar programa de irradiación + asignar más recursos del Fondo de Convergencia a escuelas convencionales + meta: 50% de escuelas convencionales adoptan al menos 3 de las 7 Capacidades en Año 8 |
+| 13 | **El sistema dual (EdF + convencionales) crea segregación** — Las Escuelas del Futuro se perciben como "escuelas de élite" y las convencionales como "escuelas de descarte", profundizando la desigualdad | Media | Alto | EdF ubicadas prioritariamente en zonas de ALTA vulnerabilidad (no en barrios ricos) + irradiación obligatoria (cada EdF forma docentes de 10 escuelas vecinas) + PAA disponible para TODO el sistema | Si brecha de resultados entre EdF y convencionales crece >30% en 2031 (tranche-2) → acelerar programa de irradiación + asignar más recursos del Fondo de Convergencia a escuelas convencionales + meta: 50% de escuelas convencionales adoptan al menos 3 de las 7 Capacidades en 2034 (tranche-3) |
 | 14 | **Cambio de gobierno abandona PLANEDU** — Un nuevo gobierno decide desmantelar PLANEDU por razones políticas, presupuestarias o ideológicas | Alta | Crítico | ANCE autárquica con blindaje legal (ley especial + piso presupuestario constitucional) + resultados tan visibles y medibles que abandonar PLANEDU tenga costo político prohibitivo + comunidad de Maestros Creadores organizada como grupo de presión cívica | Si nuevo gobierno intenta desmantelar → movilización de la comunidad de Maestros Creadores + padres de alumnos de EdF + visibilidad internacional (OCDE, UNESCO, BID como aliados) + recurso judicial por violación de ley de ANCE + publicación de datos comparativos (resultados EdF vs. convencionales) para que la sociedad vea qué se pierde |
 | 15 | **Brecha de lectura demasiado profunda para la PAA sola** — El motor de lectura adaptativo no logra recuperar a estudiantes con analfabetismo funcional severo (3+ años por debajo del nivel) | Alta | Alto | Motor "Leer para Encender" con tecnología adaptativa + repetición espaciada + gamificación + sistema de umbrales + programa familiar "Encender en Casa" + contenido multi-género en español argentino | Si <50% de los estudiantes por debajo del nivel se recuperan dentro de 24 meses → despliegue de tutores humanos de lectura (1 cada 15 estudiantes en nivel crítico) como complemento de PAA + extensión del período intensivo de Leer para Encender + revisión del algoritmo adaptativo con panel de expertos en lectoescritura |
 | 16 | **Emprendimientos estudiantiles generan responsabilidad legal/financiera** — Accidentes, deudas, conflictos legales o fraude en los emprendimientos reales de estudiantes de 14+ años | Media | Medio | Marco legal simplificado "Micro-Emprendimiento Educativo" + seguro obligatorio + supervisión de Maestro Creador + mentoría de Maestros de Oficio PLANREP + límites de capital y operación | Si ocurre un incidente de responsabilidad → seguro cubre daños + revisión del marco legal dentro de 30 días + suspensión temporal del tipo de emprendimiento afectado pendiente revisión + mediación PLANJUS para disputas |
@@ -1577,10 +1577,10 @@ La comunicación institucional no alcanza. Los mensajes más poderosos vienen de
 
 | Tipo de Embajador | Quiénes Son | Cantidad Objetivo | Rol Comunicacional | Plataforma |
 |---|---|---|---|---|
-| **Maestros Creadores** | Los 500-2.000 mejores docentes del país, formados por PLANEDU | 500 (Año 3), 2.000 (Año 7) | Hablan desde la experiencia: "Esto es lo que cambió en mi aula, en mis alumnos, en mi vida" | Redes sociales personales + canal PLANEDU + medios + charlas en escuelas convencionales |
-| **Padres Embajadores** | Madres y padres de alumnos de Escuelas del Futuro | 200 (Año 3), 1.000 (Año 7) | Hablan desde el corazón: "Esto es lo que mi hijo puede hacer ahora — mirá su portfolio" | WhatsApp groups, radio local, TV, redes sociales |
-| **Alumnos Embajadores** | Estudiantes de 14-18 años de Escuelas del Futuro | 100 (Año 4), 500 (Año 7) | Hablan desde la creación: muestran sus proyectos, sus portfolios, sus pasantías. Son la prueba viviente | TikTok, Instagram, YouTube, festivales de innovación |
-| **Directores de EdF** | Los líderes de las 500 Escuelas del Futuro | 50 (Año 3), 200 (Año 7) | Hablan desde los datos: resultados, comparaciones, lecciones aprendidas, transparencia total | Conferencias, publicaciones académicas, medios especializados, Tablero público |
+| **Maestros Creadores** | Los 500-2.000 mejores docentes del país, formados por PLANEDU | 500 (2029 (tranche-2 entrada)), 2.000 (2033 (tranche-3)) | Hablan desde la experiencia: "Esto es lo que cambió en mi aula, en mis alumnos, en mi vida" | Redes sociales personales + canal PLANEDU + medios + charlas en escuelas convencionales |
+| **Padres Embajadores** | Madres y padres de alumnos de Escuelas del Futuro | 200 (2029 (tranche-2 entrada)), 1.000 (2033 (tranche-3)) | Hablan desde el corazón: "Esto es lo que mi hijo puede hacer ahora — mirá su portfolio" | WhatsApp groups, radio local, TV, redes sociales |
+| **Alumnos Embajadores** | Estudiantes de 14-18 años de Escuelas del Futuro | 100 (2030 (tranche-2)), 500 (2033 (tranche-3)) | Hablan desde la creación: muestran sus proyectos, sus portfolios, sus pasantías. Son la prueba viviente | TikTok, Instagram, YouTube, festivales de innovación |
+| **Directores de EdF** | Los líderes de las 500 Escuelas del Futuro | 50 (2029 (tranche-2 entrada)), 200 (2033 (tranche-3)) | Hablan desde los datos: resultados, comparaciones, lecciones aprendidas, transparencia total | Conferencias, publicaciones académicas, medios especializados, Tablero público |
 | **Aliados internacionales** | Expertos en educación, organizaciones internacionales (OCDE, UNESCO, BID), académicos | 20-50 | Validan desde la evidencia: "Lo que Argentina está haciendo es innovador, riguroso, y funciona" | Prensa internacional, informes técnicos, visitas a EdF |
 
 ### 16.3 Build in Public: Transparencia Radical
@@ -1620,7 +1620,7 @@ PLANEDU va a ser atacado. Es inevitable. La pregunta no es si habrá ataques sin
 
 > *"Un plan sin cronograma es un deseo. Un cronograma sin KPIs es una mentira. KPIs sin contingencias es soberbia. PLANEDU tiene los tres."*
 
-### Fase 1: Siembra (Año 1-2)
+### Fase 1: Siembra (2027-2028 (tranche-1))
 
 La fase de siembra no produce resultados visibles para el público — pero es la fase que determina si todo lo demás funciona. Se crean las instituciones, se forman las personas, se diseñan los instrumentos, y se construyen los primeros espacios físicos. Si esta fase falla, todo lo que sigue es castillo de arena.
 
@@ -1628,18 +1628,18 @@ La fase de siembra no produce resultados visibles para el público — pero es l
 
 | Hito | KPI Específico | Target | Responsable | Trigger de Contingencia | Contingencia |
 |---|---|---|---|---|---|
-| Creación de ANCE | Ley aprobada por Congreso | Año 1, Semestre 1 | Poder Ejecutivo + Congreso | Si no hay ley en Año 1 → | Decreto de necesidad y urgencia para crear ente transitorio con las mismas funciones. Ley en paralelo |
-| Designación del Directorio de ANCE | 9 directores seleccionados por concurso internacional | Año 1, Semestre 2 | Comisión de selección (5 miembros: 2 del PEN, 2 del Congreso, 1 de sindicatos) | Si concurso no completa 9 puestos → | Directorio inicial con 5-7 miembros + búsqueda extendida para restantes |
-| Diseño del currículo de Siete Capacidades | Documento publicado con estándares de dominio por nivel | Año 2, Semestre 1 | ANCE + equipo interdisciplinario (40-60 personas) | Si retraso >6 meses → | Equipo de emergencia: 20 consultores internacionales (Finlandia, Singapur, Canadá) refuerzan diseño |
-| Selección Maestros Creadores (cohorte fundacional) | 2.000 docentes seleccionados del tercio superior | Año 1-2 | ANCE + ISFDs asociados | Si <1.500 candidatos cumplen estándar → | Ampliar convocatoria a profesionales de otras áreas con vocación docente + programa puente de formación pedagógica |
-| Residencia de Transformación | 2.000 docentes completaron 12 meses intensivos | Año 2 | ANCE + 10 centros de formación designados | Si >20% abandona → | Revisar condiciones (carga, salario durante residencia, apoyo familiar) + incrementar beca |
-| Diseño de 50 Escuelas del Futuro | 50 proyectos arquitectónicos completados | Año 1 | ANCE + estudios de arquitectura (concurso) | Si retrasos en diseño → | Usar 3 modelos estándar adaptables (urbano, suburbano, rural) en vez de 50 diseños únicos |
-| Inicio construcción/adaptación 50 escuelas | 50 sitios en obra o adaptación activa | Año 2 | ANCE + empresas constructoras + gobiernos provinciales | Si retrasos de obra → | Priorizar adaptación de escuelas existentes (30) sobre construcción nueva (20). Más rápido, más barato |
-| Prototipo PAA | Versión beta funcional en 5 escuelas piloto | Año 2, Semestre 2 | Equipo técnico ANCE + empresas tech contratadas | Si tecnología no funciona → | Usar plataformas internacionales (Khan Academy, etc.) adaptadas al currículo como puente |
-| Firma de primeros Pactos Bilaterales | 6-8 provincias firmaron | Año 1-2 | ANCE + gobernadores | Si <4 provincias firman → | Concentrar en las que firmaron + intensificar incentivos del Fondo de Convergencia |
-| Campaña nacional de comunicación | 70% de la población conoce PLANEDU (encuesta) | Año 2 | ANCE + agencia de comunicación | Si <50% conoce → | Intensificar campaña + reclutar embajadores de alto perfil + pauta en medios masivos |
+| Creación de ANCE | Ley aprobada por Congreso | 2027 (tranche-1), Semestre 1 | Poder Ejecutivo + Congreso | Si no hay ley en 2027 (tranche-1) → | Decreto de necesidad y urgencia para crear ente transitorio con las mismas funciones. Ley en paralelo |
+| Designación del Directorio de ANCE | 9 directores seleccionados por concurso internacional | 2027 (tranche-1), Semestre 2 | Comisión de selección (5 miembros: 2 del PEN, 2 del Congreso, 1 de sindicatos) | Si concurso no completa 9 puestos → | Directorio inicial con 5-7 miembros + búsqueda extendida para restantes |
+| Diseño del currículo de Siete Capacidades | Documento publicado con estándares de dominio por nivel | 2028 (tranche-1), Semestre 1 | ANCE + equipo interdisciplinario (40-60 personas) | Si retraso >6 meses → | Equipo de emergencia: 20 consultores internacionales (Finlandia, Singapur, Canadá) refuerzan diseño |
+| Selección Maestros Creadores (cohorte fundacional) | 2.000 docentes seleccionados del tercio superior | 2027-2028 (tranche-1) | ANCE + ISFDs asociados | Si <1.500 candidatos cumplen estándar → | Ampliar convocatoria a profesionales de otras áreas con vocación docente + programa puente de formación pedagógica |
+| Residencia de Transformación | 2.000 docentes completaron 12 meses intensivos | 2028 (tranche-1) | ANCE + 10 centros de formación designados | Si >20% abandona → | Revisar condiciones (carga, salario durante residencia, apoyo familiar) + incrementar beca |
+| Diseño de 50 Escuelas del Futuro | 50 proyectos arquitectónicos completados | 2027 (tranche-1) | ANCE + estudios de arquitectura (concurso) | Si retrasos en diseño → | Usar 3 modelos estándar adaptables (urbano, suburbano, rural) en vez de 50 diseños únicos |
+| Inicio construcción/adaptación 50 escuelas | 50 sitios en obra o adaptación activa | 2028 (tranche-1) | ANCE + empresas constructoras + gobiernos provinciales | Si retrasos de obra → | Priorizar adaptación de escuelas existentes (30) sobre construcción nueva (20). Más rápido, más barato |
+| Prototipo PAA | Versión beta funcional en 5 escuelas piloto | 2028 (tranche-1), Semestre 2 | Equipo técnico ANCE + empresas tech contratadas | Si tecnología no funciona → | Usar plataformas internacionales (Khan Academy, etc.) adaptadas al currículo como puente |
+| Firma de primeros Pactos Bilaterales | 6-8 provincias firmaron | 2027-2028 (tranche-1) | ANCE + gobernadores | Si <4 provincias firman → | Concentrar en las que firmaron + intensificar incentivos del Fondo de Convergencia |
+| Campaña nacional de comunicación | 70% de la población conoce PLANEDU (encuesta) | 2028 (tranche-1) | ANCE + agencia de comunicación | Si <50% conoce → | Intensificar campaña + reclutar embajadores de alto perfil + pauta en medios masivos |
 
-### Fase 2: Demostración (Año 3-5)
+### Fase 2: Demostración (2029-2031 (tranche-2))
 
 La fase de demostración es la más importante de todo el programa. Si las primeras 50 Escuelas del Futuro funcionan — si los chicos aprenden más, si los docentes están mejor, si los padres están contentos, si los datos lo muestran — entonces PLANEDU es imparable. Si fallan, el programa está en riesgo existencial. Por eso la Fase 2 combina ambición con honestidad brutal: se mide todo, se publica todo, y se ajusta en tiempo real.
 
@@ -1647,16 +1647,16 @@ La fase de demostración es la más importante de todo el programa. Si las prime
 
 | Hito | KPI Específico | Target | Responsable | Trigger de Contingencia | Contingencia |
 |---|---|---|---|---|---|
-| 50 Escuelas del Futuro operativas | Todas funcionando a régimen completo (14 hs/día, 350 días/año) | Año 3 | ANCE + directores de EdF | Si <40 operativas → | Escalonar apertura: 40 en Año 3, 10 en Año 3.5. No abrir escuelas que no estén listas |
-| 5.000 Maestros Creadores activos | 2.000 en EdF + 3.000 formados y activos en sistema convencional | Año 5 | ANCE | Si <3.000 → | Acelerar Residencia de Transformación: abrir 5 centros de formación adicionales + programa intensivo de 9 meses (en vez de 12) para cohortes de emergencia |
-| PAA v1.0 lanzada | Plataforma operativa en las 50 EdF, con AI co-tutor funcional | Año 3 | Equipo técnico ANCE | Si PAA no está lista → | Plataformas internacionales como backup inmediato (Khan Academy + Duolingo + herramientas de AI generativa adaptadas) |
-| Primera evaluación de impacto | Diferencia medible en Siete Capacidades entre alumnos de EdF vs. convencionales | Año 4 | ANCE + evaluadores externos independientes (contratados por concurso) | Si diferencia no significativa → | Revisión profunda del modelo con panel externo internacional (10 expertos). Ajuste antes de expandir |
-| Programa bilingüismo operativo | Inmersión desde 4 años en todas las EdF; nivel A2 medible en alumnos de 8 años | Año 5 | ANCE + coordinadores de bilingüismo | Si docentes bilingües insuficientes → | AI como tutor de inglés (conversacional) + docentes nativos por videoconferencia desde países anglófonos + programa de voluntariado con Fulbright/British Council |
-| Comedores PLANISV | 50% de EdF con comida de origen local (cadenas cortas) | Año 5 | ANCE + coordinación con PLANISV | Si cadena de suministro insuficiente → | Complementar con proveedores convencionales manteniendo estándares nutricionales mínimos. Priorizar huertos escolares propios |
-| Expansión de Pactos Bilaterales | 16-18 provincias firmaron | Año 5 | ANCE | Si <12 → | Concentrar recursos en provincias comprometidas. Publicar comparación de resultados para generar presión ciudadana en las rezagadas |
-| Tablero público operativo | Datos de cada EdF disponibles en tiempo real para cualquier ciudadano | Año 3 | ANCE + equipo de datos | Si retrasos → | Versión simplificada (PDF mensual por escuela) mientras se desarrolla plataforma completa |
+| 50 Escuelas del Futuro operativas | Todas funcionando a régimen completo (14 hs/día, 350 días/año) | 2029 (tranche-2 entrada) | ANCE + directores de EdF | Si <40 operativas → | Escalonar apertura: 40 en 2029 (tranche-2 entrada), 10 en 2029 (tranche-2 entrada).5. No abrir escuelas que no estén listas |
+| 5.000 Maestros Creadores activos | 2.000 en EdF + 3.000 formados y activos en sistema convencional | 2031 (tranche-2) | ANCE | Si <3.000 → | Acelerar Residencia de Transformación: abrir 5 centros de formación adicionales + programa intensivo de 9 meses (en vez de 12) para cohortes de emergencia |
+| PAA v1.0 lanzada | Plataforma operativa en las 50 EdF, con AI co-tutor funcional | 2029 (tranche-2 entrada) | Equipo técnico ANCE | Si PAA no está lista → | Plataformas internacionales como backup inmediato (Khan Academy + Duolingo + herramientas de AI generativa adaptadas) |
+| Primera evaluación de impacto | Diferencia medible en Siete Capacidades entre alumnos de EdF vs. convencionales | 2030 (tranche-2) | ANCE + evaluadores externos independientes (contratados por concurso) | Si diferencia no significativa → | Revisión profunda del modelo con panel externo internacional (10 expertos). Ajuste antes de expandir |
+| Programa bilingüismo operativo | Inmersión desde 4 años en todas las EdF; nivel A2 medible en alumnos de 8 años | 2031 (tranche-2) | ANCE + coordinadores de bilingüismo | Si docentes bilingües insuficientes → | AI como tutor de inglés (conversacional) + docentes nativos por videoconferencia desde países anglófonos + programa de voluntariado con Fulbright/British Council |
+| Comedores PLANISV | 50% de EdF con comida de origen local (cadenas cortas) | 2031 (tranche-2) | ANCE + coordinación con PLANISV | Si cadena de suministro insuficiente → | Complementar con proveedores convencionales manteniendo estándares nutricionales mínimos. Priorizar huertos escolares propios |
+| Expansión de Pactos Bilaterales | 16-18 provincias firmaron | 2031 (tranche-2) | ANCE | Si <12 → | Concentrar recursos en provincias comprometidas. Publicar comparación de resultados para generar presión ciudadana en las rezagadas |
+| Tablero público operativo | Datos de cada EdF disponibles en tiempo real para cualquier ciudadano | 2029 (tranche-2 entrada) | ANCE + equipo de datos | Si retrasos → | Versión simplificada (PDF mensual por escuela) mientras se desarrolla plataforma completa |
 
-### Fase 3: Irradiación (Año 5-10)
+### Fase 3: Irradiación (2031-2036 (tranche-3 maduración))
 
 Si la Fase 2 demuestra que el modelo funciona, la Fase 3 lo escala. De 50 escuelas a 500. De 5.000 Maestros Creadores a 25.000. De una plataforma piloto a una plataforma nacional. Y — crucialmente — de un modelo alternativo a un modelo que empieza a transformar todo el sistema por efecto demostración.
 
@@ -1664,29 +1664,29 @@ Si la Fase 2 demuestra que el modelo funciona, la Fase 3 lo escala. De 50 escuel
 
 | Hito | KPI Específico | Target | Responsable | Trigger de Contingencia | Contingencia |
 |---|---|---|---|---|---|
-| 500 Escuelas del Futuro | Todas operativas, distribuidas en 24 provincias | Año 10 | ANCE + gobiernos provinciales | Si ritmo <40 nuevas/año → | Priorizar calidad sobre cantidad. 300 EdF excelentes > 500 EdF mediocres |
-| 25.000 Maestros Creadores | Activos en EdF + irradiación al sistema convencional | Año 10 | ANCE | Si <15.000 → | Revisar pipeline de formación: abrir más centros, reducir residencia a 9 meses para docentes experimentados, crear track acelerado |
-| PAA disponible para todo el sistema | 12M de estudiantes con acceso (EdF + escuelas convencionales) | Año 7 | ANCE + equipo técnico | Si cobertura <60% → | Conectividad como bottleneck: intensificar modo offline + alianza con operadores de telecomunicaciones + Starlink para zonas rurales |
-| Resultados PISA | Argentina top 40 mundial con cohortes que incluyen alumnos de EdF | Año 8 (PISA se toma cada 3 años) | ANCE + Ministerio de Educación | Si no hay mejora significativa → | Panel diagnóstico internacional + revisión de currículo + intensificación de formación docente |
-| Salario docente convergiendo | Docentes EdF al 100% del target (~USD 1.500-4.000/mes según nivel); sistema convencional al 50% del target | Año 10 | ANCE + Ministerio de Educación + sindicatos | Si brecha salarial persiste → | Acelerar con Fondo de Convergencia + presión presupuestaria + publicación de comparación salarial internacional |
-| Bilingüismo | 50% de alumnos de 16 años en EdF alcanzan nivel B2 de inglés | Año 8 | ANCE | Si <30% → | Intensificar inmersión: 40% del tiempo en inglés (en vez de 30%) + AI conversacional obligatoria 30 min/día + programa de intercambio virtual con escuelas anglófonas |
-| Irradiación al sistema convencional | 30% de escuelas convencionales adoptaron al menos 3 de las 7 Capacidades voluntariamente | Año 10 | ANCE + direcciones provinciales de educación | Si <15% → | Publicar comparación de resultados EdF vs. convencionales + ofrecer programa de adopción con financiamiento + PAA gratuita como incentivo |
-| Exportación PAA | 2+ países adoptando o piloteando PAA | Año 8 | ANCE + Cancillería | Si no hay demanda internacional → | Foco en calidad doméstica. La exportación es bonus, no objetivo primario |
+| 500 Escuelas del Futuro | Todas operativas, distribuidas en 24 provincias | 2036 (tranche-3 maduración) | ANCE + gobiernos provinciales | Si ritmo <40 nuevas/año → | Priorizar calidad sobre cantidad. 300 EdF excelentes > 500 EdF mediocres |
+| 25.000 Maestros Creadores | Activos en EdF + irradiación al sistema convencional | 2036 (tranche-3 maduración) | ANCE | Si <15.000 → | Revisar pipeline de formación: abrir más centros, reducir residencia a 9 meses para docentes experimentados, crear track acelerado |
+| PAA disponible para todo el sistema | 12M de estudiantes con acceso (EdF + escuelas convencionales) | 2033 (tranche-3) | ANCE + equipo técnico | Si cobertura <60% → | Conectividad como bottleneck: intensificar modo offline + alianza con operadores de telecomunicaciones + Starlink para zonas rurales |
+| Resultados PISA | Argentina top 40 mundial con cohortes que incluyen alumnos de EdF | 2034 (tranche-3) (PISA se toma cada 3 años) | ANCE + Ministerio de Educación | Si no hay mejora significativa → | Panel diagnóstico internacional + revisión de currículo + intensificación de formación docente |
+| Salario docente convergiendo | Docentes EdF al 100% del target (~USD 1.500-4.000/mes según nivel); sistema convencional al 50% del target | 2036 (tranche-3 maduración) | ANCE + Ministerio de Educación + sindicatos | Si brecha salarial persiste → | Acelerar con Fondo de Convergencia + presión presupuestaria + publicación de comparación salarial internacional |
+| Bilingüismo | 50% de alumnos de 16 años en EdF alcanzan nivel B2 de inglés | 2034 (tranche-3) | ANCE | Si <30% → | Intensificar inmersión: 40% del tiempo en inglés (en vez de 30%) + AI conversacional obligatoria 30 min/día + programa de intercambio virtual con escuelas anglófonas |
+| Irradiación al sistema convencional | 30% de escuelas convencionales adoptaron al menos 3 de las 7 Capacidades voluntariamente | 2036 (tranche-3 maduración) | ANCE + direcciones provinciales de educación | Si <15% → | Publicar comparación de resultados EdF vs. convencionales + ofrecer programa de adopción con financiamiento + PAA gratuita como incentivo |
+| Exportación PAA | 2+ países adoptando o piloteando PAA | 2034 (tranche-3) | ANCE + Cancillería | Si no hay demanda internacional → | Foco en calidad doméstica. La exportación es bonus, no objetivo primario |
 
-### Fase 4: Transformación Sistémica (Año 10-15)
+### Fase 4: Transformación Sistémica (2036-2041 (Visión 2040+))
 
 **TABLA 33: Fase 4 — Hitos de Transformación Nacional**
 
 | Hito | KPI Específico | Target | Trigger de Contingencia | Contingencia |
 |---|---|---|---|---|
-| Siete Capacidades como marco nacional | 70% de las escuelas argentinas (públicas y privadas subvencionadas) operan con las Siete Capacidades | Año 15 | Si <50% → | Legislación que establece Siete Capacidades como marco obligatorio para escuelas con financiamiento público. Plazo de adaptación: 5 años adicionales |
-| 100.000+ Maestros Creadores | Masa crítica que transforma la profesión | Año 15 | Si <50.000 → | Crear programa express para docentes experimentados: certificación ANCE basada en portfolio + evaluación, sin residencia completa |
-| Tasa de graduación secundaria >85% | Medida por INDEC + ANCE | Año 15 | Si <75% → | Intensificar programas de retención: becas, comedores, transporte, acompañamiento psicosocial en zonas de mayor deserción |
-| Argentina top 20 mundial en educación | Medido por PISA + indicadores propios de Siete Capacidades | Año 15 | Si entre puesto 20-30 → | Revisión de modelo con benchmark contra top 10. Ajuste fino, no reformulación |
-| Bilingüismo funcional generalizado | 70% de alumnos de 16 años a nivel B2+ de inglés en todo el sistema | Año 15 | Si <50% → | Inmersión desde sala de 3 + AI como tutor principal de inglés para escuelas sin docentes bilingües |
-| PAA en 10+ países | Plataforma exportada y operativa en al menos 10 países hispanohablantes | Año 15 | Si <5 países → | Alianza con BID/UNESCO para distribución + licenciamiento gratuito para países de bajos ingresos |
-| Profesión docente entre las 3 más prestigiosas | Medido por encuestas de percepción social (como Gallup) | Año 15 | Si fuera del top 5 → | Incrementar salarios + campaña de prestigio + programa de reconocimiento nacional anual con visibilidad máxima |
-| PLANEDU autofinanciable | Ingresos por exportación de PAA + eficiencias del sistema cubren >30% del costo incremental | Año 15 | Si <15% → | No es crítico — el financiamiento principal es presupuestario. La autofinanciación es deseable, no necesaria |
+| Siete Capacidades como marco nacional | 70% de las escuelas argentinas (públicas y privadas subvencionadas) operan con las Siete Capacidades | 2041 (Visión 2040+) | Si <50% → | Legislación que establece Siete Capacidades como marco obligatorio para escuelas con financiamiento público. Plazo de adaptación: 5 años adicionales |
+| 100.000+ Maestros Creadores | Masa crítica que transforma la profesión | 2041 (Visión 2040+) | Si <50.000 → | Crear programa express para docentes experimentados: certificación ANCE basada en portfolio + evaluación, sin residencia completa |
+| Tasa de graduación secundaria >85% | Medida por INDEC + ANCE | 2041 (Visión 2040+) | Si <75% → | Intensificar programas de retención: becas, comedores, transporte, acompañamiento psicosocial en zonas de mayor deserción |
+| Argentina top 20 mundial en educación | Medido por PISA + indicadores propios de Siete Capacidades | 2041 (Visión 2040+) | Si entre puesto 20-30 → | Revisión de modelo con benchmark contra top 10. Ajuste fino, no reformulación |
+| Bilingüismo funcional generalizado | 70% de alumnos de 16 años a nivel B2+ de inglés en todo el sistema | 2041 (Visión 2040+) | Si <50% → | Inmersión desde sala de 3 + AI como tutor principal de inglés para escuelas sin docentes bilingües |
+| PAA en 10+ países | Plataforma exportada y operativa en al menos 10 países hispanohablantes | 2041 (Visión 2040+) | Si <5 países → | Alianza con BID/UNESCO para distribución + licenciamiento gratuito para países de bajos ingresos |
+| Profesión docente entre las 3 más prestigiosas | Medido por encuestas de percepción social (como Gallup) | 2041 (Visión 2040+) | Si fuera del top 5 → | Incrementar salarios + campaña de prestigio + programa de reconocimiento nacional anual con visibilidad máxima |
+| PLANEDU autofinanciable | Ingresos por exportación de PAA + eficiencias del sistema cubren >30% del costo incremental | 2041 (Visión 2040+) | Si <15% → | No es crítico — el financiamiento principal es presupuestario. La autofinanciación es deseable, no necesaria |
 
 ---
 

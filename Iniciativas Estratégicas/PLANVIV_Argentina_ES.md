@@ -607,7 +607,7 @@ La Bastarda Inmobiliaria ofrece tres modalidades:
 - **La cooperativa provee:** mano de obra de los socios (mínimo 20 horas/semana por familia), gestión del proyecto, gobernanza comunitaria.
 - **Escala:** 20-50 familias por cooperativa. Formación de cooperativas a través de PLANREP (los mismos Centros de la Vida que forman Artesanos del Refugio).
 - **Costo por unidad:** USD 15.000-25.000 (vs. USD 32.000-48.000 de la Bastarda).
-- **Meta:** 10.000 unidades/año a partir del Año 3. 150.000 unidades acumuladas en 15 años.
+- **Meta:** 10.000 unidades/año a partir del 2029 (tranche-2 entrada). 150.000 unidades acumuladas en 15 años.
 
 **Kits de Construcción Bastarda para cooperativas:** Los Hubs de Manufactura Local (§10.3) no solo producen componentes para las constructoras — producen kits completos de vivienda para las cooperativas. Un Kit Bastardo es un paquete pre-diseñado, pre-cortado, y pre-calculado que contiene todos los materiales necesarios para construir una vivienda de 40-60 m²:
 
@@ -652,7 +652,7 @@ La Bastarda Inmobiliaria ofrece tres modalidades:
 
 **Costo:** USD 2.000-4.000/año por familia. Para 300.000 familias (las más vulnerables): USD 600M-1.200M/año. En 5 años: USD 3.000-6.000M. Es una fracción del costo de construir 300.000 unidades nuevas (USD 9.000-14.000M).
 
-**Transitoriedad:** El voucher es un puente, no un destino. A medida que la Bastarda, las cooperativas, y la densificación generan oferta, las familias con voucher migran a vivienda propia. El gasto en vouchers baja progresivamente. Meta: de 300.000 familias con voucher en el Año 3 a menos de 50.000 en el Año 15.
+**Transitoriedad:** El voucher es un puente, no un destino. A medida que la Bastarda, las cooperativas, y la densificación generan oferta, las familias con voucher migran a vivienda propia. El gasto en vouchers baja progresivamente. Meta: de 300.000 familias con voucher en el 2029 (tranche-2 entrada) a menos de 50.000 en el 2041 (Visión 2040+).
 
 **La Escalera PLANVIV — De Voucher a Propietario**
 
@@ -1024,7 +1024,7 @@ La regularización de la tenencia de la tierra en los asentamientos es un proces
 
 ### 7.7 Los 50 Barrios Piloto: Selección y Criterios
 
-PLANVIV no empieza con los 1.800 asentamientos simultáneamente — empieza con 50 barrios piloto en el Año 0. La selección de los 50 pilotos no es política — es técnica, con criterios transparentes:
+PLANVIV no empieza con los 1.800 asentamientos simultáneamente — empieza con 50 barrios piloto en el 2026 (tranche-1 inicial). La selección de los 50 pilotos no es política — es técnica, con criterios transparentes:
 
 **Criterios de selección (ponderados):**
 
@@ -1221,7 +1221,7 @@ Y la participación en el ecosistema PLANVIV es voluntaria. Nadie obliga a un Py
 
 **Tecnología:** Housing OS gestiona el matching (algoritmo de aceptación diferida conecta propietarios con inquilinos óptimos), la verificación de confianza (ViviendaCover garantiza ambas partes), y la gestión de pagos (denominados en peso-canasta, cobrados automáticamente).
 
-**Escala objetivo:** 100.000 unidades en la Bolsa al final de la Fase 1 (Año 5). 300.000 en la Fase 2. 500.000+ en la Fase 3. Si el servicio es lo suficientemente bueno — y lo será, porque la Bastarda no tiene margen que defender — los propietarios vienen solos.
+**Escala objetivo:** 100.000 unidades en la Bolsa al final de la Fase 1 (2031 (tranche-2)). 300.000 en la Fase 2. 500.000+ en la Fase 3. Si el servicio es lo suficientemente bueno — y lo será, porque la Bastarda no tiene margen que defender — los propietarios vienen solos.
 
 **Las 2 Millones de Viviendas Vacías: No Todas Son Iguales**
 
@@ -1443,7 +1443,7 @@ Housing OS no se construye sobre AWS ni sobre Azure — se construye sobre la in
 | **MVP (Fase 0)** | Portal ciudadano + DHV + datos abiertos + tracker de obras + Stack Morosidad capas 1-3 + Bolsa de Alquiler listing | Meses 1-12 | 15-25 | 40-60 ingenieros/diseñadores/PMs |
 | **Core (Fase 1)** | Housing Switch completo + ATC básico + matching algorítmico + supply chain v1 + ViviendaCover v1 | Meses 12-24 | 20-35 | 60-80 |
 | **Nacional (Fase 2)** | ATC completo + incentivos dinámicos + event sourcing + AI agents + digital twin + 24 provincias | Meses 24-48 | 25-40 | 80-120 |
-| **Madurez (Fase 3+)** | Optimización continua + ML avanzado + escenarios what-if + gobernanza comunitaria digital completa | Año 4-15 | 10-15/año | 50-80 (mantenimiento + evolución) |
+| **Madurez (Fase 3+)** | Optimización continua + ML avanzado + escenarios what-if + gobernanza comunitaria digital completa | 2030-2041 (Visión 2040+) | 10-15/año | 50-80 (mantenimiento + evolución) |
 | **TOTAL 15 años** | | | **USD 200-400M** | |
 
 **¿Es mucho?** Es el 0,2-0,5% del presupuesto total de PLANVIV (USD 80-120B). Es menos de lo que PROCREAR gastó en publicidad. Y es la diferencia entre un programa de vivienda aislado (que construye 100K unidades en 10 años como PROCREAR) y un ecosistema coordinado (que construye 500K+).
@@ -1454,7 +1454,7 @@ Housing OS no se construye sobre AWS ni sobre Azure — se construye sobre la in
 
 El error más común de las plataformas de gobierno es intentar lanzar todo junto. Housing OS lanza lo mínimo que genera valor inmediato:
 
-| En el MVP (Año 0-1) | NO en el MVP (Año 2+) |
+| En el MVP (2026-2027 (tranche-1)) | NO en el MVP (2028+ (tranche-1)) |
 |---|---|
 | Portal ciudadano (aplicar, trackear, pagar) | ATC completo de construcción |
 | DHV (identidad habitacional portable) | Matching algorítmico completo |
@@ -1482,7 +1482,7 @@ El MVP funciona como una app funcional, no como un PowerPoint. Genera valor desd
 
 **Incentivo de adopción:** Las transferencias del Fondo Nacional de Vivienda se condicionan a "interacción digital mínima" — no a adopción completa. Un municipio Nivel 3 que usa el WhatsApp-bot para cargar 10 trámites por mes cuenta como "conectado." La vara es baja para los chicos y alta para los grandes.
 
-**Meta:** Año 5: 100% de municipios Nivel 1 en Housing OS completo, 80% de Nivel 2 en Estándar, 50% de Nivel 3 en Lite. Año 10: 100% de adopción en los tres niveles.
+**Meta:** 2031 (tranche-2): 100% de municipios Nivel 1 en Housing OS completo, 80% de Nivel 2 en Estándar, 50% de Nivel 3 en Lite. 2036 (tranche-3 maduración): 100% de adopción en los tres niveles.
 
 ---
 
@@ -1519,7 +1519,7 @@ El Tablero Nacional de Vivienda es una plataforma digital pública — accesible
 - **Créditos hipotecarios otorgados.** Cantidad, monto promedio, tasa de morosidad, distribución geográfica.
 - **Inteligencia de mercado.** Datos públicos de precios, oferta, demanda y tendencias del mercado inmobiliario — powered by Housing OS.
 - **Retrofits realizados.** Unidades intervenidas, ahorro energético medido, satisfacción de usuarios.
-- **Satisfacción residencial.** Encuesta anual a residentes de Células, barrios urbanizados, y unidades de la Bolsa. 10 preguntas: calidad constructiva, espacios comunes (¿se usan?), seguridad, transporte, servicios, comunidad, mantenimiento, satisfacción general. Resultados publicados por Célula, por barrio, por región. **Si un tipo de espacio compartido tiene satisfacción <5/10 en el 60% de las Células, se revisa el estándar de diseño.** Si el maker space no se usa, se deja de construir maker spaces y se pregunta a los residentes qué necesitan en su lugar. Los datos de satisfacción alimentan el ciclo de co-diseño (§5.4, principio 5) — las Células del Año 5 se diseñan con los datos de las Células del Año 1. **La retroalimentación no es un adorno — es el mecanismo que impide que PLANVIV repita el mismo diseño 500.000 veces sin preguntar si funciona.**
+- **Satisfacción residencial.** Encuesta anual a residentes de Células, barrios urbanizados, y unidades de la Bolsa. 10 preguntas: calidad constructiva, espacios comunes (¿se usan?), seguridad, transporte, servicios, comunidad, mantenimiento, satisfacción general. Resultados publicados por Célula, por barrio, por región. **Si un tipo de espacio compartido tiene satisfacción <5/10 en el 60% de las Células, se revisa el estándar de diseño.** Si el maker space no se usa, se deja de construir maker spaces y se pregunta a los residentes qué necesitan en su lugar. Los datos de satisfacción alimentan el ciclo de co-diseño (§5.4, principio 5) — las Células del 2031 (tranche-2) se diseñan con los datos de las Células del 2027 (tranche-1). **La retroalimentación no es un adorno — es el mecanismo que impide que PLANVIV repita el mismo diseño 500.000 veces sin preguntar si funciona.**
 
 El Tablero es la herramienta de rendición de cuentas más poderosa del programa. Si ANVIV se atrasa, se ve. Si un gobernador no coopera, se ve. Si un municipio bloquea la urbanización de un asentamiento, se ve. La transparencia radical no es un adorno — es el mecanismo de presión que hace que el plan funcione independientemente de la voluntad política coyuntural.
 
@@ -1558,19 +1558,19 @@ La vivienda es jurisdicción provincial en la Argentina. ANVIV no puede imponer 
 
 **TABLA: Modelo de Fuerza Laboral PLANVIV — Años 1-5**
 
-| Fuente | Trabajadores disponibles (Año 1-5) | Mecanismo | Costo adicional |
+| Fuente | Trabajadores disponibles (2027-2031 (tranche-2)) | Mecanismo | Costo adicional |
 |---|---|---|---|
 | **Sector constructor existente (UOCRA)** | 30.000-40.000 | Argentina tiene ~450.000 trabajadores registrados en UOCRA. El subempleo en el sector es del 25-30%. La Bastarda y las PyMEs absorben trabajadores actualmente subutilizados. No hay que formarlos — hay que emplearlos. | Cero (ya son costos laborales normales de construcción) |
-| **PLANREP "El Refugio" — graduados certificados** | 5.000-8.000 (acumulado 5 años, escalando de 1.000 a 2.000/año) | Escalar los Centros de la Vida de El Refugio de 800-1.000 a 2.000-3.000 graduados/año para el Año 3. Satélites de formación en cada Hub de Manufactura. | USD 50-80M adicionales en capacidad formativa |
+| **PLANREP "El Refugio" — graduados certificados** | 5.000-8.000 (acumulado 5 años, escalando de 1.000 a 2.000/año) | Escalar los Centros de la Vida de El Refugio de 800-1.000 a 2.000-3.000 graduados/año para el 2029 (tranche-2 entrada). Satélites de formación en cada Hub de Manufactura. | USD 50-80M adicionales en capacidad formativa |
 | **Certificación rápida (3-6 meses)** | 15.000-20.000 | NO es la certificación completa de Artesano del Refugio. Es un programa acelerado de 3-6 meses para habilidades específicas: instalación de aislación, ensamblaje de steel frame, operación de impresora 3D, montaje de paneles prefabricados. Dictado EN los Hubs de Manufactura. Convenio con UOCRA para reconocimiento. | USD 100-150M (programa de certificación) |
 | **Trabajadores de la construcción regionales** | 5.000-10.000 | Bolivia, Paraguay y Perú ya proveen el 20%+ de la mano de obra del sector constructor argentino. Formalizar con visas de trabajo vinculadas a proyectos PLANVIV. Mismos salarios de convenio, mismas condiciones laborales, misma cobertura de ART. | Costo de gestión migratoria: USD 10-20M |
-| **TOTAL Año 5** | **55.000-78.000** | | **USD 160-250M adicional** |
+| **TOTAL 2031 (tranche-2)** | **55.000-78.000** | | **USD 160-250M adicional** |
 
 **¿Alcanza?** El rango inferior (55.000) queda 25.000 corto del objetivo de 80.000. Hay dos mitigaciones:
 
 1. **La industrialización reduce la intensidad laboral.** Los Hubs de Manufactura permiten que cada trabajador produzca más. Una vivienda en steel frame requiere un 30% menos de horas-hombre que una en construcción húmeda. Si el 40% de la producción de Fase 1 usa Hubs, la demanda efectiva baja de 80.000 a ~65.000.
 
-2. **La escala no es lineal.** Los 80.000 son el pico de Fase 1 (Año 5). En los Años 1-2, la demanda es menor (30.000-40.000) porque la producción está escalando. El workforce model se construye año a año, no de golpe.
+2. **La escala no es lineal.** Los 80.000 son el pico de Fase 1 (2031 (tranche-2)). En los Años 1-2, la demanda es menor (30.000-40.000) porque la producción está escalando. El workforce model se construye año a año, no de golpe.
 
 **Contingencia de inflación salarial:** Si la demanda de 80.000 trabajadores empuja los salarios por encima de las proyecciones:
 - Los costos laborales ya representan solo el 25-30% del costo por unidad (ver Tabla 7 en §17.4). Un aumento del 15% en salarios sube el costo total por unidad un 4-5%.
@@ -1579,7 +1579,7 @@ La vivienda es jurisdicción provincial en la Argentina. ANVIV no puede imponer 
 
 **Go/No-Go en Pre-Fase 0:** El piloto de la Célula en GBA (§4.1) mide el costo laboral real por unidad. Si el costo laboral supera en más del 25% la proyección, PLANVIV re-calibra la Hoja de Ruta antes de escalar.
 
-**Fase 0 (Año 0): Impacto Inmediato — Lo Que No Necesita Esperar**
+**Fase 0 (2026 (tranche-1 inicial)): Impacto Inmediato — Lo Que No Necesita Esperar**
 
 > *"Las familias no pueden esperar a que construyamos instituciones perfectas. Fase 0 ayuda con lo que ya existe."*
 
@@ -1602,7 +1602,7 @@ La vivienda es jurisdicción provincial en la Argentina. ANVIV no puede imponer 
 
 **Carril A — Escala (intervenciones probadas):**
 
-| Indicador | Meta acumulada Año 5 | Mecanismo |
+| Indicador | Meta acumulada 2031 (tranche-2) | Mecanismo |
 |---|---|---|
 | Vouchers activos | 300.000 familias | Escala nacional |
 | Bolsa de Alquiler | 100.000 unidades | Expansión a 24 provincias |
@@ -1617,7 +1617,7 @@ La vivienda es jurisdicción provincial en la Argentina. ANVIV no puede imponer 
 
 **Carril B — Piloto (innovaciones PLANVIV):**
 
-| Indicador | Meta Año 5 | Mecanismo |
+| Indicador | Meta 2031 (tranche-2) | Mecanismo |
 |---|---|---|
 | Bastarda Inmobiliaria | 1ra Célula completa (150-250 familias) + 10 proyectos (5.000 unidades en construcción) | Bastarda constituida como fideicomiso; si la ley PLANEB pasa, convierte a Empresa Bastarda |
 | Housing OS Core | 12 provincias conectadas | Fase 1 de la plataforma: Switch + ATC básico + matching + supply chain v1 |
@@ -1629,9 +1629,9 @@ La vivienda es jurisdicción provincial en la Argentina. ANVIV no puede imponer 
 
 **Fase 2 (Años 5-10): Escala Completa — El Ecosistema Funciona**
 
-Para el Año 5, PLANVIV tiene: credibilidad operativa (730K familias ayudadas), datos reales de costos, Housing OS Core funcionando, 5 Hubs validados, 50 PyMEs probadas, y retornos financieros empezando a fluir.
+Para el 2031 (tranche-2), PLANVIV tiene: credibilidad operativa (730K familias ayudadas), datos reales de costos, Housing OS Core funcionando, 5 Hubs validados, 50 PyMEs probadas, y retornos financieros empezando a fluir.
 
-| Indicador | Meta acumulada Año 10 | Mecanismo |
+| Indicador | Meta acumulada 2036 (tranche-3 maduración) | Mecanismo |
 |---|---|---|
 | Retrofit térmico | 400.000 unidades | Escala con Artesanos + Hubs |
 | Barrios urbanizados | 1.000 | PLANAGUA a capacidad |
@@ -1723,14 +1723,14 @@ El retorno social de la inversión en vivienda es de los más altos que existen 
 
 ### 13.5 Flujo de Caja Año por Año — La Honestidad Financiera
 
-**El problema que hay que decir en voz alta:** PLANVIV gasta primero y cobra después. Los primeros créditos hipotecarios no generan retorno significativo hasta el Año 3-4. La urbanización de villas no genera retorno financiero directo nunca — es inversión social pura. Los fees de Housing OS requieren que la plataforma esté operativa y que los actores la usen. Hay un "valle de la muerte" financiero en los Años 0-3 que este plan debe resolver honestamente.
+**El problema que hay que decir en voz alta:** PLANVIV gasta primero y cobra después. Los primeros créditos hipotecarios no generan retorno significativo hasta el 2029-2030 (tranche-2). La urbanización de villas no genera retorno financiero directo nunca — es inversión social pura. Los fees de Housing OS requieren que la plataforma esté operativa y que los actores la usen. Hay un "valle de la muerte" financiero en los Años 0-3 que este plan debe resolver honestamente.
 
 **TABLA 10: Flujo de Caja Estimado de PLANVIV — Año por Año**
 
 | Período | Gasto anual (USD M) | Ingresos recurrentes (USD M) | Gap anual (USD M) | Financiamiento del gap |
 |---|---|---|---|---|
 | **Año -1** (Pre-Fase) | 500-800 | 0 | -500 a -800 | Fondo Soberano (PLANMON) seed + crédito multilateral preparación (BID Facility) |
-| **Año 0** (Lanzamiento) | 2.000-3.000 | ~100 (primeros fees Bolsa) | -1.900 a -2.900 | Fondo Soberano + multilateral (BID/CAF) |
+| **2026 (tranche-1 inicial)** (Lanzamiento) | 2.000-3.000 | ~100 (primeros fees Bolsa) | -1.900 a -2.900 | Fondo Soberano + multilateral (BID/CAF) |
 | **Años 1-2** | 5.000-7.000/año | 500-1.000/año (primeras cuotas hipotecarias + Bolsa + primeros fees Hub) | -4.000 a -6.000/año | Piso presupuestario nacional (2% PBI) + multilateral |
 | **Años 3-5** | 6.000-8.000/año | 2.000-4.000/año (cartera hipotecaria creciendo, ecosystem fees escalando, retrofit savings) | -2.000 a -6.000/año | Piso presupuestario + multilateral + Fondo Soberano |
 | **Años 5-10** | 7.000-10.000/año | 5.000-8.000/año (cartera madura, 250K créditos activos, ecosystem a escala) | -2.000 a -2.000 o equilibrio | Trayectoria hacia auto-sustentabilidad |
@@ -1779,9 +1779,9 @@ El rango inferior (71B) es ajustado contra el costo (80-120B). En escenario pesi
 | Inflación de costos constructivos | +0% real | +20% real sostenido | +USD 10.000-15.000M | +2-3 años para alcanzar metas |
 | Morosidad hipotecaria | <10% | 15-20% | +USD 3.000-5.000M (menor reciclaje) | Créditos se ralentizan |
 | Adhesión provincial | 24 provincias | Solo 16 adhieren (8 no) | -30% de cobertura territorial | Déficit residual de 700K (no 500K) |
-| PLANMON atraso | Peso-canasta Año 2 | Peso-canasta Año 7+ | Canasta-Lite opera; cuota +/- 5pp | Menor uptake de crédito por desconfianza |
+| PLANMON atraso | Peso-canasta 2028 (tranche-1) | Peso-canasta 2033+ (tranche-3) | Canasta-Lite opera; cuota +/- 5pp | Menor uptake de crédito por desconfianza |
 | PLANAGUA atraso | 120 barrios/año | 60 barrios/año | Urbanización a 30 años, no 15 | +15 años para 1.800 barrios |
-| Adopción Housing OS | >80% municipios Año 5 | <50% municipios Año 5 | Coordinación manual; +15% costos admin | Menor eficiencia de ecosystem fees |
+| Adopción Housing OS | >80% municipios 2031 (tranche-2) | <50% municipios 2031 (tranche-2) | Coordinación manual; +15% costos admin | Menor eficiencia de ecosystem fees |
 | Escenario combinado (2+ adversos) | — | Inflación +20% + PLANAGUA a 60/año + 8 provincias afuera | +USD 15-20B + 5-8 años | Déficit residual ~1M unidades en 2040 |
 
 **¿Qué pasa si PLANVIV no existiera? La contrafactual.**
@@ -1824,7 +1824,7 @@ Esta sección documenta cómo PLANVIV se acopla al resto del ecosistema de manda
 | **PLANJUS** | IMPORTANT | INSTITUTIONAL | Disputas de propiedad, derechos de inquilinos |
 | **PLANREP** | IMPORTANT | LABOR | Artesanos del Refugio construyen y retrofitean viviendas |
 | **PLANMON** | IMPORTANT | FINANCIAL | Crédito Hipotecario Bastardo denominado en peso-canasta (necesario en Fase 1, no en pre-fase de censo) |
-| **PLANEB** | IMPORTANT | INSTITUTIONAL | Bastarda Inmobiliaria usa Protocolo Bastardo para fideicomiso perpetuo (ambos lanzan Año 0) |
+| **PLANEB** | IMPORTANT | INSTITUTIONAL | Bastarda Inmobiliaria usa Protocolo Bastardo para fideicomiso perpetuo (ambos lanzan 2026 (tranche-1 inicial)) |
 | **PLANAGUA** | IMPORTANT | TECHNICAL | 1800 urbanizaciones necesitan co-ejecución hídrica con ANAGUA |
 | **PLANSEG** | IMPORTANT | INSTITUTIONAL | CPTED (prevención por diseño ambiental) en urbanizaciones |
 | **PLANCUL** | IMPORTANT | INSTITUTIONAL | Barrios urbanizados proveen el tejido social territorial sobre el cual se reconstruye la cultura comunitaria |
@@ -1849,7 +1849,7 @@ Esta sección documenta cómo PLANVIV se acopla al resto del ecosistema de manda
 | **Control de calidad de PyMEs a escala** | Media | Medio | Scoring automático de Housing OS. Inspecciones aleatorias de ANVIV. Las PyMEs con mal scoring pierden acceso al ecosistema. La transparencia del scoring es la mejor prevención. |
 | **Demoras en Hubs de Manufactura** | Media | Medio | Priorizar tecnologías maduras (steel frame, prefabricados) en Fase 1. Reservar tecnologías emergentes (impresión 3D, CLT) para pilotos. Los Hubs de tecnología madura no tienen riesgo tecnológico — solo riesgo de ejecución, mitigado por el ATC de Construcción. |
 | **Respuesta adversarial del sector inmobiliario privado** | Alta | Alto | El sector (IRSA, Consultatio, TGLT, cámaras inmobiliarias) enfrentará compresión de márgenes. Respuestas esperadas: (a) lobby legislativo para bloquear Ley ANVIV, (b) campaña mediática "competencia desleal," (c) impugnación judicial. **Defensa:** la base social de PLANVIV (3,5M familias + 4M inquilinos) supera al lobby inmobiliario. La Ley ANVIV se presenta como "vivienda digna," no como "regulación del mercado." La Bastarda compite con precio y transparencia, no con privilegio regulatorio — un juez no puede declarar inconstitucional que el Estado construya al costo. La Pre-Fase 0 genera hechos consumados: cuando el lobby reaccione, ya hay 50 barrios urbanizados y 5.000 familias con crédito. |
-| **Sobrevivencia de ANVIV ante gobierno hostil** | Media (en 15 años) | **Existencial** | La autonomía constitucional es necesaria pero no suficiente. **Defensa en 4 capas:** (1) Social — para el Año 5, 200K+ familias viven en unidades Bastarda, 80K tienen hipotecas, 500K usan la Bolsa. Cerrar ANVIV = cancelar 80K hipotecas. Suicidio político. (2) Internacional — los préstamos del BID/CAF/Banco Mundial se condicionan a la continuidad institucional de ANVIV. Cerrar ANVIV = default técnico de deuda multilateral. (3) Constitucional — el piso presupuestario requiere reforma constituyente (2/3 + convocatoria). (4) Legal — la Ley ANVIV incluye "cláusula de continuidad": la disolución requiere creación simultánea de entidad sucesora con mandato y presupuesto idénticos. **Imperativo de velocidad:** ANVIV debe alcanzar masa crítica de beneficiarios antes del Año 5 para que la reversión sea políticamente imposible. |
+| **Sobrevivencia de ANVIV ante gobierno hostil** | Media (en 15 años) | **Existencial** | La autonomía constitucional es necesaria pero no suficiente. **Defensa en 4 capas:** (1) Social — para el 2031 (tranche-2), 200K+ familias viven en unidades Bastarda, 80K tienen hipotecas, 500K usan la Bolsa. Cerrar ANVIV = cancelar 80K hipotecas. Suicidio político. (2) Internacional — los préstamos del BID/CAF/Banco Mundial se condicionan a la continuidad institucional de ANVIV. Cerrar ANVIV = default técnico de deuda multilateral. (3) Constitucional — el piso presupuestario requiere reforma constituyente (2/3 + convocatoria). (4) Legal — la Ley ANVIV incluye "cláusula de continuidad": la disolución requiere creación simultánea de entidad sucesora con mandato y presupuesto idénticos. **Imperativo de velocidad:** ANVIV debe alcanzar masa crítica de beneficiarios antes del 2031 (tranche-2) para que la reversión sea políticamente imposible. |
 | **Gap financiero en escenario pesimista** | Media | Alto | El flujo de caja sin doble conteo (§13.5) muestra financiamiento de USD 71-120B vs. costos de USD 80-120B. En escenario pesimista, el gap es de USD 9-49B. **Mitigación:** (a) la reducción de costos por tecnología (no es cash pero estira el presupuesto — equivale a USD 5-10B de "presupuesto virtual"), (b) el Fondo Soberano puede asignar más si PLANMON prospera, (c) crédito multilateral adicional si Argentina mejora riesgo país, (d) en el peor caso, se extiende la Fase 3 de 5 a 8 años — el déficit se cierra en 2043 en vez de 2040. No es ideal, pero es sostenible. |
 
 ### 15.2 Indicadores de Alerta Temprana
@@ -1911,7 +1911,7 @@ PLANVIV se inscribe en la Cascada Legal del ecosistema ¡BASTA! — el orden de 
 
 ### 16.4 Estrategia Legislativa — El Marco Legal Mínimo Viable
 
-**El elefante en la sala:** La Cascada Legal ¡BASTA! programa 55 instrumentos legales en 3,5 años. Las leyes de PLANVIV dependen de que PLANEB (Año 0-S2) y PLANMON (Año 2-S1) ya estén sancionadas. Si el Congreso argentino se atrasa — y se va a atrasar, porque el Congreso argentino siempre se atrasa — PLANVIV necesita un plan que funcione con lo mínimo.
+**El elefante en la sala:** La Cascada Legal ¡BASTA! programa 55 instrumentos legales en 3,5 años. Las leyes de PLANVIV dependen de que PLANEB (2026 (tranche-1 inicial)-S2) y PLANMON (2028 (tranche-1)-S1) ya estén sancionadas. Si el Congreso argentino se atrasa — y se va a atrasar, porque el Congreso argentino siempre se atrasa — PLANVIV necesita un plan que funcione con lo mínimo.
 
 **El Marco Legal Mínimo Viable (MLMV):** Lo que PLANVIV necesita para arrancar y operar 2-3 años SIN una sola ley nueva del Congreso:
 
@@ -1931,10 +1931,10 @@ PLANVIV se inscribe en la Cascada Legal del ecosistema ¡BASTA! — el orden de 
 
 | Ley | Se vuelve bloqueante en... | Por qué |
 |---|---|---|
-| Ley de creación de ANVIV (permanente) | Año 2 | El DNU es renovable pero políticamente costoso de mantener más de 2 años. ANVIV necesita autonomía constitucional, no precariedad. |
-| Ley de Fideicomiso de Suelo Perpetuo | Año 3 | Cuando la Bastarda necesite adquirir suelo a gran escala, el marco fiduciario estándar es insuficiente — necesita la protección de irreversibilidad del fideicomiso perpetuo. |
-| Ley Marco de Housing OS | Año 3-4 | Cuando Housing OS escale a 12+ provincias, el intercambio de datos inter-jurisdiccional necesita marco legal (protección de datos, interoperabilidad obligatoria). |
-| Ley de Acreditación de PyMEs (formal) | Año 4-5 | Cuando haya 200+ PyMEs, la resolución ANVIV no es suficiente — se necesita ley con mecanismos de sanción y protección al consumidor. |
+| Ley de creación de ANVIV (permanente) | 2028 (tranche-1) | El DNU es renovable pero políticamente costoso de mantener más de 2 años. ANVIV necesita autonomía constitucional, no precariedad. |
+| Ley de Fideicomiso de Suelo Perpetuo | 2029 (tranche-2 entrada) | Cuando la Bastarda necesite adquirir suelo a gran escala, el marco fiduciario estándar es insuficiente — necesita la protección de irreversibilidad del fideicomiso perpetuo. |
+| Ley Marco de Housing OS | 2029-2030 (tranche-2) | Cuando Housing OS escale a 12+ provincias, el intercambio de datos inter-jurisdiccional necesita marco legal (protección de datos, interoperabilidad obligatoria). |
+| Ley de Acreditación de PyMEs (formal) | 2030-2031 (tranche-2) | Cuando haya 200+ PyMEs, la resolución ANVIV no es suficiente — se necesita ley con mecanismos de sanción y protección al consumidor. |
 | Integración con PLANEB (Bastarda → Empresa Bastarda) | Cuando PLANEB se sancione | La Bastarda Inmobiliaria se convierte legalmente en Empresa Bastarda. Hasta entonces, opera como fideicomiso. |
 
 ### 16.5 Secuenciación Política — La Cascada PLANVIV
@@ -1945,13 +1945,13 @@ PLANVIV se inscribe en la Cascada Legal del ecosistema ¡BASTA! — el orden de 
 
 1. **La Ley ANVIV va sola.** No se bundlea con leyes controversiales. Se presenta como "agencia de vivienda con autonomía para que ningún gobierno pueda cancelar los créditos hipotecarios." Ningún legislador quiere votar en contra del techo para 3,5 millones de familias en el registro público.
 
-2. **Los pilotos generan presión social.** Para cuando la Ley ANVIV llegue al Congreso (Año 1-2), ya hay 50 barrios urbanizados, 5.000 familias con crédito Canasta-Lite, 1 Célula construida, y los datos están en el Tablero Nacional de Vivienda. La pregunta para el legislador ya no es "¿apruebo esto?" sino "¿cancelo lo que ya funciona?"
+2. **Los pilotos generan presión social.** Para cuando la Ley ANVIV llegue al Congreso (2027-2028 (tranche-1)), ya hay 50 barrios urbanizados, 5.000 familias con crédito Canasta-Lite, 1 Célula construida, y los datos están en el Tablero Nacional de Vivienda. La pregunta para el legislador ya no es "¿apruebo esto?" sino "¿cancelo lo que ya funciona?"
 
 3. **La fecha límite más tardía aceptable para cada ley** (trabajando hacia atrás desde cuándo se vuelve bloqueante):
-   - Ley ANVIV: debe estar sancionada antes del Año 2 (Mes 24). Si no, el DNU se renueva y PLANVIV pierde credibilidad institucional.
-   - Fideicomiso Perpetuo: antes del Año 3 (Mes 36).
-   - Housing OS: antes del Año 4 (Mes 48).
-   - PyMEs formal: antes del Año 5 (Mes 60).
+   - Ley ANVIV: debe estar sancionada antes del 2028 (tranche-1) (Mes 24). Si no, el DNU se renueva y PLANVIV pierde credibilidad institucional.
+   - Fideicomiso Perpetuo: antes del 2029 (tranche-2 entrada) (Mes 36).
+   - Housing OS: antes del 2030 (tranche-2) (Mes 48).
+   - PyMEs formal: antes del 2031 (tranche-2) (Mes 60).
 
 4. **Contingencia si el Congreso bloquea:** PLANVIV opera en modo MLMV (DNU + BCRA + convenios) hasta que la composición del Congreso cambie. El programa se degrada (escala más lento, ANVIV no tiene autonomía constitucional) pero no muere. La construcción continúa. Los créditos continúan. Los pilotos continúan. La presión social se acumula. No hay escenario donde PLANVIV se apague por falta de una ley — se ralentiza, no se detiene.
 
@@ -2064,7 +2064,7 @@ Basado en el modelo finlandés, adaptado al contexto argentino:
 1. **Primero la vivienda.** Unidades individuales (no dormitorios compartidos, no albergues) — una habitación con baño, cocina mínima y puerta con llave. La dignidad de la privacidad.
 2. **Sin condiciones previas.** No tenés que estar sobrio, no tenés que tener trabajo, no tenés que demostrar "voluntad de reinserción." La vivienda es un derecho, no un premio.
 3. **Servicios asociados pero no obligatorios.** Cada residente tiene acceso a: acompañamiento de salud mental (PLANSAL), tratamiento de adicciones si lo desea (PLANSUS/PLANSAL), orientación laboral (PLANREP), acompañamiento legal (PLANJUS). Pero nada es obligatorio — la autonomía del residente se respeta.
-4. **Escala inicial:** 2.000 unidades en CABA (Año 0-2), escalando a 5.000 en todo el país (Año 5). Meta: vivienda Housing First disponible para el 100% de la población en situación de calle identificada (Año 10).
+4. **Escala inicial:** 2.000 unidades en CABA (2026-2028 (tranche-1)), escalando a 5.000 en todo el país (2031 (tranche-2)). Meta: vivienda Housing First disponible para el 100% de la población en situación de calle identificada (2036 (tranche-3 maduración)).
 5. **Financiamiento:** Las unidades Housing First son propiedad de la Bastarda Inmobiliaria. El costo de operación se financia con una asignación específica de ANVIV. La evidencia internacional muestra que el costo de Housing First es MENOR que el costo de la situación de calle (internaciones hospitalarias, policía, sistema judicial, albergues de emergencia) — en Finlandia, el ahorro neto es de EUR 15.000 por persona por año.
 
 ---
@@ -2164,7 +2164,7 @@ Cada proyecto Bastarda incluye en su estructura de costos un Fondo de Mantenimie
 1. **Diagnóstico anual.** Un Artesano del Refugio certificado en mantenimiento (módulo específico de PLANREP) realiza una inspección anual de cada Célula: estado de techos, cañerías, instalación eléctrica, espacios comunes, aislación térmica, jardines. El informe se carga en Housing OS y es público.
 2. **Plan de mantenimiento trienal.** Basado en los diagnósticos, el Consejo Barrial (con asesoramiento técnico del Artesano) aprueba un plan de 3 años: qué se hace cada año, cuánto cuesta, cómo se financia con el Fondo.
 3. **Ejecución local.** Las reparaciones menores (hasta USD 500) las resuelven los propios vecinos capacitados o el Artesano residente. Las mayores las contrata el Consejo Barrial con PyMEs acreditadas (Track 2) — misma transparencia, mismo scoring.
-4. **Renovación mayor (Año 15-20).** La aislación térmica dura 30+ años, pero las cañerías, la pintura, las carpinterías necesitan renovación a los 15-20 años. El Fondo de Mantenimiento Perpetuo acumula reserva específica para esto: el 30% del fondo se destina a una "reserva de renovación" que no se toca hasta el Año 15.
+4. **Renovación mayor (2041-2046 (Visión 2040+)).** La aislación térmica dura 30+ años, pero las cañerías, la pintura, las carpinterías necesitan renovación a los 15-20 años. El Fondo de Mantenimiento Perpetuo acumula reserva específica para esto: el 30% del fondo se destina a una "reserva de renovación" que no se toca hasta el 2041 (Visión 2040+).
 5. **Infraestructura pública circundante.** El Fondo cubre la Célula, pero las calles, el alumbrado, y el drenaje son responsabilidad municipal. ANVIV firma convenios con municipios donde se comprometen a un nivel de servicio mínimo para los barrios PLANVIV. Si el municipio incumple, Housing OS lo publica en el Tablero — la transparencia como mecanismo de presión.
 
 **Cuando el fondo no alcanza:** Si una emergencia (terremoto, inundación, deterioro acelerado) supera la capacidad del Fondo, ANVIV activa un "Fondo de Emergencia Barrial" — una reserva nacional que cubre intervenciones extraordinarias. Financiado con el 2% de los fees de la plataforma Housing OS.
@@ -2306,7 +2306,7 @@ Cada indicador se mide, se publica en el Tablero Nacional de Vivienda, y se eval
 
 Marta Soledad Aguirre tiene sesenta y ocho años y ya no duerme en el living. Duerme en su cuarto — el cuarto que le construyó el equipo de ampliación de la Bastarda Inmobiliaria cuando el barrio de González Catán fue urbanizado en la Fase 1. Dos ambientes más: uno para ella y Raúl, otro para los nenes — que ya no son nenes, pero que vuelven a comer los domingos. Yanina y su familia se mudaron — con Crédito Hipotecario Bastardo pudieron comprar un dos ambientes en un proyecto mixto de la Bastarda en Laferrere. La cuota es el 22% de sus ingresos combinados. Denominada en peso-canasta. Estable. Predecible. Saben lo que van a pagar dentro de diez años — algo que ninguna generación de argentinos pudo decir.
 
-El barrio de atrás del Mercado Central ya no se llama "el barrio de atrás del Mercado Central." Se llama Barrio 8 de Enero — el nombre que eligieron los vecinos en asamblea, porque fue un 8 de enero de 1998 cuando las primeras familias pusieron un pie en ese terreno vacío. Tiene calles con nombre: Calle de los Fundadores, Calle de la Resistencia, Calle de la Esperanza — cursis, quizás, pero puestos por gente que se los ganó. Tiene cloacas. Tiene agua potable — no de manguera, de canilla, tratada, monitoreada por la Bastarda Hídrica con sensores IoT. Tiene internet de fibra. Tiene una plaza con árboles que todavía son chicos pero que en diez años van a dar sombra donde antes había barro. Tiene una Estación Barrial de PLANSEG donde los pibes conocen al oficial por nombre. Tiene un Centro de Vitalidad de PLANSAL donde Roberto — el de Barracas — ahora se atiende el EPOC en un consultorio ventilado. Lo mudaron a una unidad Housing First de la Bastarda cuando el programa llegó a CABA en el Año 2. Ya no duerme con la puerta abierta. Ya no le robaron más.
+El barrio de atrás del Mercado Central ya no se llama "el barrio de atrás del Mercado Central." Se llama Barrio 8 de Enero — el nombre que eligieron los vecinos en asamblea, porque fue un 8 de enero de 1998 cuando las primeras familias pusieron un pie en ese terreno vacío. Tiene calles con nombre: Calle de los Fundadores, Calle de la Resistencia, Calle de la Esperanza — cursis, quizás, pero puestos por gente que se los ganó. Tiene cloacas. Tiene agua potable — no de manguera, de canilla, tratada, monitoreada por la Bastarda Hídrica con sensores IoT. Tiene internet de fibra. Tiene una plaza con árboles que todavía son chicos pero que en diez años van a dar sombra donde antes había barro. Tiene una Estación Barrial de PLANSEG donde los pibes conocen al oficial por nombre. Tiene un Centro de Vitalidad de PLANSAL donde Roberto — el de Barracas — ahora se atiende el EPOC en un consultorio ventilado. Lo mudaron a una unidad Housing First de la Bastarda cuando el programa llegó a CABA en el 2028 (tranche-1). Ya no duerme con la puerta abierta. Ya no le robaron más.
 
 Y los 43 departamentos vacíos de Puerto Madero — bueno, 31 de ellos están ocupados ahora. Algunos por sus dueños originales, que descubrieron que la Bolsa de Alquiler Bastarda les ofrecía renta garantizada en peso-canasta sin tener que lidiar con inquilinos, reparaciones ni abogados. Otros por inquilinos que encontraron en la Bolsa un alquiler accesible con vista al Río de la Plata — algo impensable hace quince años. Los otros 12 siguen vacíos — sus dueños son libres de hacer lo que quieran con su propiedad, como corresponde. Pero la ironía es que ya nadie necesita esos 12 departamentos para cerrar el déficit. La Bastarda y las PyMEs acreditadas, coordinadas por Housing OS y abastecidas por los Hubs de Manufactura, construyeron más rápido y más barato de lo que cualquier impuesto podría haber activado. La competencia resolvió lo que la regulación nunca pudo.
 
