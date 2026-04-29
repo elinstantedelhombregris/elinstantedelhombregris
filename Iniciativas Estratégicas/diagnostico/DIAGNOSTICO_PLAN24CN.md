@@ -37,13 +37,8 @@ Source: `PLAN24CN_Argentina_ES.md`
 497:| Año 10 | <80 kg | 80% | Circuitos cerrados de textiles, electrónica y construcción; biodigestión total |
 498:| Año 15 | **<50 kg** | **87.5%** | Sistema circular maduro; cultura de zero waste consolidada |
 843:**Plan B — Ciudad Delta Terrestre:** Si la vía diplomática se bloquea, Ciudad Delta se reconvierte en un proyecto de transformación de la **Costanera Sur y su reserva ecológica expandida** — territorio 100% argentino, sin necesidad de acuerdo internacional. La superficie disponible (combinando terrenos del antiguo puerto, áreas de relleno existentes y la Reserva Ecológica ampliada) alcanza las 400–600 hectáreas, suficientes para una ciudad de 20.000–30.000 habitantes con los mismos principios de diseño. Se pierde la audacia de la isla artificial pero se gana viabilidad inmediata. El Plan B se estudia en paralelo desde el Año 0 para que esté listo como alternativa si la diplomacia fracasa.
-2014:| Componente | Fase 1 (Año 0–3) 4 piloto | Fase 2 (Año 3–7) +12 ciudades | Fase 3 (Año 7–15) 24 ciudades | Total |
-2651:| 1 – Cimentar | Año 0–1.5 | 4 piloto | 0 (en construcción) | USD 3–7 mil M | Ley aprobada; tierra asegurada; diseño listo |
-2652:| 2 – Escalar | Año 1.5–5 | 16 | 50.000–100.000 | USD 12–28 mil M | Primeros residentes en pilotos; 12 en construcción |
-2653:| 3 – Completar | Año 5–10 | 24 | 300.000–800.000 | USD 25–70 mil M | Todas en operación; primeras se autofinancian |
-2654:| 4 – Transformar | Año 10–25 | 24 (madurando) | 1.000.000–1.800.000 | Autofinanciamiento | Efecto faro; exportación del modelo |
-2740:| Bloqueo diplomático de Ciudad Delta | Proyecto emblemático inviable; daño político al programa | Plan B Costanera terrestre (Sección 4.3, ficha Ciudad Delta); desacople temporal; estudios de variante terrestre en paralelo desde Año 0 | Decisión Go/No-Go en Año 3 con alternativa lista |
-2765:| "Ciudad Delta es inviable por Uruguay" | Plan B terrestre listo en paralelo. Ciudad Delta desacoplada del resto del programa. Decisión Go/No-Go en Año 3. | Ficha Ciudad Delta (Sección 4.3) |
+2742:| Bloqueo diplomático de Ciudad Delta | Proyecto emblemático inviable; daño político al programa | Plan B Costanera terrestre (Sección 4.3, ficha Ciudad Delta); desacople temporal; estudios de variante terrestre en paralelo desde Año 0 | Decisión Go/No-Go en Año 3 con alternativa lista |
+2767:| "Ciudad Delta es inviable por Uruguay" | Plan B terrestre listo en paralelo. Ciudad Delta desacoplada del resto del programa. Decisión Go/No-Go en Año 3. | Ficha Ciudad Delta (Sección 4.3) |
 ```
 
 ## Patrón 7 — Sortición sin justificación de oversight
@@ -54,4 +49,4 @@ Source: `PLAN24CN_Argentina_ES.md`
 ## Patrón 8 — Lenguaje místico/espiritual en sección de plataforma pública
 (no findings)
 
-## Total findings: 23
+## Total findings: 18

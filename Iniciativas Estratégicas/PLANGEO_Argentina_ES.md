@@ -341,15 +341,19 @@ Hay 4.200 millones de personas en el mundo pagando más de lo que deberían por 
 
 ### 4.1 Qué Exporta Este Stack
 
-PLANDIG produce una infraestructura de soberanía digital completa. El Stack exportable incluye:
+PLANDIG produce una infraestructura de soberanía digital completa.
 
-| Componente | Descripción | Estado de madurez |
+> **REVISIÓN 2026-04-28:** TODOS los componentes del "Stack exportable" listados abajo son **capacidades del estadio B de PLANDIG** (ArgenCloud, IA Nacional con cómputo de frontera, Sistema de Identidad Digital Soberana plena, Sistema de Pagos Soberano protocolar). En tranche-1/2 PLANDIG opera con **estadio A** (datos abiertos + identidad-lite + audit logs + interop básica) — no hay "Stack exportable" hasta que el estadio B esté activado tras cumplir las 6 condiciones de `PLANDIG_ESTADIOS_INTERNOS.md`. **Toda la estrategia de exportación de PLANGEO descrita abajo se difiere a horizonte 2040+ (Visión, no compromiso operativo de remediación 2026-04-26).** PLANGEO es además research-only / diferido en su totalidad (clasificación matriz). En tranche-1/2/3 PLANGEO opera como análisis estratégico interno + diplomacia sobria.
+
+El Stack exportable (Visión 2040+, condicional a estadio B activado) incluye:
+
+| Componente | Descripción | Estado de madurez (Visión, no compromiso operativo) |
 |---|---|---|
-| ArgenCloud | Infraestructura de nube soberana distribuida — 20-31 nodos según escala | Replicable como "SovereignCloud-in-a-Box" |
-| Marco de Gobernanza de Datos | Legislación + protocolos técnicos para control ciudadano de datos | Template legal + SDK de implementación |
-| IA Nacional | Framework de IA entrenada con datos locales, sin dependencia de OpenAI/Google/Baidu | Modelos base + metodología de entrenamiento soberano |
-| Sistema de Identidad Digital Soberana | Identidad descentralizada, no dependiente de Google/Apple/Meta | Protocolo abierto + apps de referencia |
-| Sistema de Pagos Soberano | Alternativa a SWIFT/Visa/Mastercard para transacciones domésticas | Protocolo basado en experiencia PIX (Brasil) + SPEI (México) |
+| ArgenCloud | Infraestructura de nube soberana distribuida — 20-31 nodos según escala | Capacidad estadio B PLANDIG; diferida a tranche-3+ con condiciones |
+| Marco de Gobernanza de Datos | Legislación + protocolos técnicos para control ciudadano de datos | Template legal en estadio A; SDK de implementación pleno en estadio B |
+| IA Nacional | Framework de IA entrenada con datos locales, sin dependencia de OpenAI/Google/Baidu | LANIA = capacidad estadio B; en estadio A sólo metodología documentada |
+| Sistema de Identidad Digital Soberana | Identidad descentralizada, no dependiente de Google/Apple/Meta | Identidad-lite en estadio A; sistema completo en estadio B |
+| Sistema de Pagos Soberano | Alternativa a SWIFT/Visa/Mastercard para transacciones domésticas | Capacidad estadio B + dependiente de PLANMON (también research-only) |
 
 ### 4.2 El Mercado Global de la Soberanía Digital
 

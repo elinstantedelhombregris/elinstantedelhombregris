@@ -2009,9 +2009,9 @@ El rango amplio de la estimación (USD 20.000M–210.000M) refleja la incertidum
 
 El despliegue financiero sigue la lógica de fases del plan general: cuatro ciudades piloto primero, luego doce ciudades más, finalmente las 24 operativas. Cada fase se financia parcialmente con los retornos de la fase anterior, generando un efecto de snowball fiscal.
 
-**TABLA 14 — Inversión Total por Fase y Componente**
+**TABLA 14 — Inversión Total por Fase y Componente (Visión 2040+, NO compromiso operativo de remediación)**
 
-| Componente | Fase 1 (Año 0–3) 4 piloto | Fase 2 (Año 3–7) +12 ciudades | Fase 3 (Año 7–15) 24 ciudades | Total |
+| Componente | Fase 1 Visión (post-2040, 4 piloto) | Fase 2 Visión (post-2045, +12 ciudades) | Fase 3 Visión (post-2055, 24 ciudades) | Total |
 |---|---|---|---|---|
 | Adquisición/preparación tierra | USD 200–500M | USD 500–1.500M | USD 1.000–3.000M | USD 1.700–5.000M |
 | Infraestructura básica (vialidad, redes) | USD 1.000–2.500M | USD 3.000–8.000M | USD 5.000–15.000M | USD 9.000–25.500M |
@@ -2646,12 +2646,14 @@ La Fase 4 es la de cosecha. Las 24 ciudades avanzan hacia su población de dise�
 
 **TABLA 22: Hoja de Ruta del PLAN24CN — Fases de Implementación**
 
-| Fase | Período | Ciudades | Población Acumulada | Inversión Acumulada | Hito Clave |
+> **REVISIÓN 2026-04-28:** PLAN24CN es **research-only / diferido** (clasificación Rojo en matriz de misiones). En tranche-1/2/3 **NO HAY CONSTRUCCIÓN**, solo labs de diseño con universidades. La tabla siguiente es **Visión 2040+** (no compromiso operativo de remediación 2026-04-26). PLANVIV gana la competencia urbana en tranche-1/2/3. Cualquier ciudad nueva requiere primero: (1) resultados visibles de PLANVIV en ciudad existente, (2) consulta previa originaria documentada (PLANTER L3), (3) sin compromisos de tierra hasta nueva auditoría.
+
+| Fase | Período (Visión 2040+) | Ciudades | Población Acumulada | Inversión Acumulada | Hito Clave |
 |---|---|---|---|---|---|
-| 1 – Cimentar | Año 0–1.5 | 4 piloto | 0 (en construcción) | USD 3–7 mil M | Ley aprobada; tierra asegurada; diseño listo |
-| 2 – Escalar | Año 1.5–5 | 16 | 50.000–100.000 | USD 12–28 mil M | Primeros residentes en pilotos; 12 en construcción |
-| 3 – Completar | Año 5–10 | 24 | 300.000–800.000 | USD 25–70 mil M | Todas en operación; primeras se autofinancian |
-| 4 – Transformar | Año 10–25 | 24 (madurando) | 1.000.000–1.800.000 | Autofinanciamiento | Efecto faro; exportación del modelo |
+| 1 – Cimentar | Visión, NO operativo | 4 piloto (labs de diseño únicamente en remediación) | 0 (research) | research budget académico | Marco legal preliminar; estudios; sin tierra asegurada |
+| 2 – Escalar | Visión 2040+ | 16 (Visión, no compromiso) | 50.000–100.000 (Visión) | USD 12–28 mil M (Visión) | Primeros residentes en pilotos hipotéticos |
+| 3 – Completar | Visión 2050+ | 24 (Visión) | 300.000–800.000 (Visión) | USD 25–70 mil M (Visión) | Todas en operación (Visión) |
+| 4 – Transformar | Visión 2055+ | 24 madurando (Visión) | 1.000.000–1.800.000 (Visión) | Autofinanciamiento (Visión) | Efecto faro (Visión) |
 
 ---
 
