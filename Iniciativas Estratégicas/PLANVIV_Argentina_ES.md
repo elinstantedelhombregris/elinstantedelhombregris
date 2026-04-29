@@ -24,6 +24,23 @@
 > **PIA gate:** ver `PIA/PLANVIV.md` si existe; este PLAN no avanza a piloto sin PIA aprobado donde aplica.
 >
 > **Opinión legal:** ver `LEGAL_OPINIONS/PLANVIV.md` si existe.
+>
+> **MARCO TEMPORAL CANÓNICO (REVISIÓN 2026-04-28):** PLANVIV es **tranche-1** con entrada operativa en 2026-Q2. Todas las referencias "Año X" del cuerpo del documento (incluyendo cronogramas, tablas de inversión, metas de cobertura, financial gap, escalamiento de Bolsa, Housing OS adoption, workforce model, cronograma legal, Housing First scale, Fondo de Mantenimiento) se anchorean según esta tabla:
+>
+> | Texto original | Ventana absoluta | Tranche |
+> |----------------|------------------|---------|
+> | Año 0 | 2026 | tranche-1 inicial |
+> | Año 1 | 2027 | tranche-1 |
+> | Año 2 | 2028 | tranche-1 → tranche-2 |
+> | Año 3 | 2029 | tranche-2 |
+> | Año 4 | 2030 | tranche-2 |
+> | Año 5 | 2031 | tranche-2 cierre |
+> | Año 7 | 2033 | tranche-3 |
+> | Año 10 | 2036 | tranche-3 maduración |
+> | Año 15 | 2041 | Horizonte 2040 (Visión, no compromiso operativo) |
+> | Año 20 | 2046 | Visión |
+>
+> **Reglas de tranche-1 ya aplicadas:** ningún voucher ni célula nueva financiada con future returns (F06 prohibida); ANVIV opera como **execution cell en MinHabitat** (no agencia autárquica con autonomía constitucional — eso se evalúa al cierre de tranche-2/3); LMV-03 (Reforma FONAVI/RENABAP integración) es la **única ley de tranche-1**, el resto del paquete legal (Ley ANVIV permanente, Ley Fideicomiso Suelo Perpetuo, Ley Marco Housing OS, Ley Acreditación PyMEs) se difiere a tranche-2/3 con cláusulas explícitas.
 
 ---
 
