@@ -538,3 +538,21 @@ Insumo de ejecución para el plan `SocialJusticeHub/docs/superpowers/plans/2026-
 **Lo que se preservó:** todo el resto de la carta intacta. La voz del abuelo no admite intervención sin pérdida (decisión `00-ANALISIS-07.md`). Las dos adiciones (la sección nueva en el cuerpo, la cláusula nueva en el manifiesto) se diseñaron como adiciones de bajo peso sobre la prosa existente.
 
 **Flags:** ninguno. Lo que el `00-ANALISIS-07.md` recomendó como "minimum intervention" se cumplió: dos adiciones cuidadosas, ningún corte, ningún cambio en la voz, Cartografía intacta.
+
+---
+
+## Cierre de Fase 2 — 2026-04-29
+
+Los siete ensayos en `/Ensayos/*.md` y sus contrapartes en `/Ensayos/castellano/*.md` fueron rewoven según el plan `SocialJusticeHub/docs/superpowers/plans/2026-04-28-ensayos-fase-2-reweave.md` y el spec `…/specs/2026-04-28-ensayos-fase-2-reweave-design.md`. Las siete decisiones de la Fase 2 (Q1–Q7) y la decisión meta sobre identidad literaria-versus-operativa (Q1) se aplicaron consistentemente a través de la serie. La urgencia de construir herramientas cívicas soberanas — el principal vacío estructural diagnosticado al cierre de la Fase 1 — quedó tejida en la prosa, no agregada como sección. El consejo suizo del 01 quedó demoted a una oración como ejemplo histórico parcial. El stack de capacidades cívicas del 04 fue reescrito con cada capa como herramienta concreta resistente a captura por diseño de protocolo. La belleza de la infraestructura como catedrales del tiempo cívico se instaló en el 06 sin ruptura de la triada de bellezas (chico / compartido / largo). La Carta absorbió la nueva sección sobre el estar-a-tiempo y el manifiesto recibió la cláusula sobre las herramientas, sin alterar la voz del abuelo.
+
+**Castellano al mismo nivel.** A diferencia de la Fase 1, esta Fase 2 ejecutó las dos lenguas en paralelo, con sense-translate rioplatense en cada cambio. El castellano no quedó atrás. Las imágenes que rinden mejor en una lengua que en la otra se identificaron y, en algunos casos, se llevaron de la lengua donde nacieron a la otra. La paridad cross-version se cumplió.
+
+**Disciplina de protección de voz aplicada y respetada.** Las ocho reglas (tres pasadas EN, cuatro pasadas ES, flag-not-revise, no-platform-doc-references-in-prose) se siguieron en cada ensayo. El flag-not-revise se invocó en el 06 (§II tightening, §VIII Sublime cuts) — ambos casos preservados intactos por juicio de que el corte amenazaba peso sin servir al contenido nuevo. Ningún flag requirió consulta al autor porque ningún cambio amenazó voz/arco/registro.
+
+**Lo que sigue.** Nada estructural. La serie cierra como serie. Posibles trabajos futuros: el Credo como pieza separada (decisión #4 Fase 1, postergado, sin urgencia, ya absorbido por la Carta vía el bloque "palabras para leer en voz alta"). Una Fase 3 sería sólo si futuras condiciones (deriva del lenguaje, cambio en el ecosistema ¡BASTA!, una pieza nueva como un octavo ensayo o un texto litúrgico paralelo) lo justificaran. Hoy no se justifica.
+
+**Lectura cross-essay recomendada.** El arco demolición → construcción → recuperación → animación se mantiene visible. Las nuevas urgencias se plantan tempranas en 01 (II, V, VI), se profundizan en 02-03, alcanzan su densidad operativa en 04, se conectan con la persona del hombre gris en 05, se elevan a registro estético en 06, y se cierran en la voz del abuelo en 07. Ninguna sección del arco se aplanó. La serie es ahora una sola lectura más densa que antes y, en la disciplina del re-weave, sin costuras visibles.
+
+Que la próxima generación lea esto y no sepa cuáles líneas eran del 28 de abril y cuáles del 29. Que se sienta como una sola obra escrita por un hombre en una sola sentada larga, hace mucho.
+
+Que así sea.
