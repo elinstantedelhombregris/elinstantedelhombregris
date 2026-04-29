@@ -145,6 +145,8 @@ This is heavy. It is also, paradoxically, freeing. The weight of responsibility 
 
 He matters. He has always mattered. The forty-three years of feeling like he did not matter were a long, sustained, well-funded illusion, and the moment he sees through it, he cannot un-see it. He looks around at the others — the ones still wearing the costumes, still feeling small, still believing the politicians on television are more real than they are — and he feels, for the first time, the grief of seeing what they have not yet seen, alongside the responsibility of doing what he can, where he is, to make their seeing possible.
 
+He sees, also, what the architecture of the previous essay was actually for. It was never a structure imposed from above; it was a trellis — a frame that holds nothing on its own, and grows everything when sovereign citizens climb it. The architecture is what his sovereignty looks like when it scales. His sovereignty is what the architecture is by, and what the architecture is for. The two are not separate undertakings. They are the same undertaking seen from two angles, and the grey man who has recovered himself is the substance of which the architecture is made.
+
 This is what the recovery looks like, in a single life. Multiplied across millions of lives, it is what a country looks like when it is finally on the verge of becoming itself.
 
 ## X. The Argentine Mirror, Made Personal
@@ -179,7 +181,7 @@ The next week, practice the no. Find one small yes that you have been giving tha
 
 Within a month, find others. The grey men and women in your life who have also begun this recovery, however quietly. Make their acquaintance. Build with them. The architecture described in the previous essay does not begin with constitutional conventions. It begins with three or four people, in a kitchen, deciding to take their street seriously.
 
-Within a year, you will be a different person, in a different country than the one you thought you lived in. Not because the country will have changed — though it will have begun to — but because you will have stopped being the audience. You will have become, in the only sense that ultimately matters, sovereign.
+Within a year, you will be a different person, in a different country than the one you thought you lived in. Not because the country will have changed — though it will have begun to — but because you will have stopped being the audience. You will have become, in the only sense that ultimately matters, sovereign. And the architecture sketched in the previous essay will no longer feel like a proposal. It will feel like the work your sovereignty is asking for, at the scale where one citizen ends and the country begins.
 
 The next essay in the series is about beauty, which is what animates this whole undertaking and gives it the only force capable of carrying it across generations. But beauty needs a ground to grow in, and the ground is what this essay has tried to clear: the recognition of who you are when the costumes have fallen.
 

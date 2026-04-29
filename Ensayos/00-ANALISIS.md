@@ -466,3 +466,27 @@ Insumo de ejecución para el plan `SocialJusticeHub/docs/superpowers/plans/2026-
 **Lo que NO se hizo:** la sobre-enumeración (5 capas, 3 roles, 6 capacidades, 8 mecanismos, 4 fases) NO fue aliviada en prosa, según restricción Fase 1 ("**No tocar sin autorización explícita**"). Se mantuvo el formato enumerado.
 
 **Flags:** ninguno. La voz se sostiene a través de la reescritura de §V; la urgencia se instala donde corresponde; los huesos se mantienen.
+
+---
+
+### Fase 2 — Ensayo 05 delta — 2026-04-29
+
+**Inglés (`Ensayos/05-soberania.md`):**
+
+- §IX (Lo que el hombre gris descubre) — agregado un párrafo que conecta las soberanías personales con la arquitectura del ensayo anterior: "the architecture is what his sovereignty looks like when it scales; his sovereignty is what the architecture is by, and what the architecture is for; the grey man who has recovered himself is the substance of which the architecture is made". Se inserta entre el párrafo "He matters. He has always mattered..." y el cierre "This is what the recovery looks like..." El párrafo carga la conexión recovery→architecture sin tipo manifesto.
+- §XI (La movida) — agregada una oración después de "you will have become, in the only sense that ultimately matters, sovereign": la arquitectura del ensayo anterior dejará de parecer propuesta, parecerá "the work your sovereignty is asking for, at the scale where one citizen ends and the country begins". Cierre del bridge entre 05 (sovereignty) y la arquitectura ya construida en 04.
+- Sin más cambios. Todo lo demás se mantuvo intacto.
+
+**Sin cambios necesarios** (decisiones Fase 1 ya aplicadas):
+- §X comienza directamente con su párrafo central; no hay frase introductoria diluyendo (decisión Fase 1 §VII).
+- "Welcome back, you and the millions like you" — ya pluralizado (decisión Fase 1 §VII).
+
+**Castellano (`Ensayos/castellano/05-soberania.md`):**
+
+- Las dos adiciones en sense-translate rioplatense.
+- "La arquitectura es lo que su soberanía parece cuando escala. Su soberanía es lo que la arquitectura es por dentro, y para qué la arquitectura está hecha." Cadencia castellana sostenida.
+- "Va a parecerte el trabajo que tu soberanía está pidiendo, en la escala donde un ciudadano termina y el país empieza." Vos sostenido.
+
+**Lo que se preservó:** todo lo demás del ensayo intacto. Es probablemente el ensayo más logrado de la serie; la disciplina manda no tocarlo donde no hace falta.
+
+**Flags:** ninguno.

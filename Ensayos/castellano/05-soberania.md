@@ -145,6 +145,8 @@ Esto es pesado. Es también, paradójicamente, liberador. El peso de la responsa
 
 Importa. Siempre importó. Los cuarenta y tres años de sentir que no importaba fueron una ilusión larga, sostenida y bien financiada, y en el momento en que la atraviesa, no la puede dejar de ver. Mira alrededor a los otros — los que todavía usan los disfraces, los que todavía se sienten chicos, los que todavía creen que los políticos de la tele son más reales que ellos — y siente, por primera vez, el duelo de ver lo que ellos todavía no ven, junto con la responsabilidad de hacer lo que pueda, donde está, para que ellos lo vean también.
 
+Ve también, quizás por primera vez, para qué era la arquitectura del ensayo anterior. Nunca fue una estructura impuesta desde arriba; fue un enrejado — un marco que solo no sostiene nada, y que hace crecer todo cuando ciudadanos soberanos trepan por él. La arquitectura es lo que su soberanía parece cuando escala. Su soberanía es lo que la arquitectura es por dentro, y para qué la arquitectura está hecha. Las dos no son empresas separadas. Son la misma empresa vista desde dos ángulos, y el hombre gris que se recuperó es la sustancia de la que la arquitectura está hecha.
+
 Así se ve la recuperación, en una vida sola. Multiplicada en millones de vidas, así se ve un país cuando finalmente está al borde de volverse él mismo.
 
 ## X. El espejo argentino, hecho personal
@@ -179,7 +181,7 @@ A la semana siguiente, practicá el no. Encontrá un pequeño sí que vienes dan
 
 Dentro de un mes, encontrá a otros. Los hombres grises y las mujeres grises de tu vida que también empezaron esta recuperación, por más calladito que haya sido. Acercate. Construí con ellos. La arquitectura descrita en el ensayo anterior no empieza con convenciones constitucionales. Empieza con tres o cuatro personas, en una cocina, decidiendo tomarse en serio su calle.
 
-Dentro de un año, vas a ser otra persona, en un país distinto del que pensabas que vivías. No porque el país vaya a haber cambiado — aunque va a haber empezado — sino porque vos vas a haber dejado de ser la audiencia. Te vas a haber vuelto, en el único sentido que en última instancia importa, soberano.
+Dentro de un año, vas a ser otra persona, en un país distinto del que pensabas que vivías. No porque el país vaya a haber cambiado — aunque va a haber empezado — sino porque vos vas a haber dejado de ser la audiencia. Te vas a haber vuelto, en el único sentido que en última instancia importa, soberano. Y la arquitectura que el ensayo anterior bosquejó ya no va a parecerte una propuesta. Va a parecerte el trabajo que tu soberanía está pidiendo, en la escala donde un ciudadano termina y el país empieza.
 
 El próximo ensayo de la serie es sobre la belleza, que es lo que anima toda esta empresa y le da la única fuerza capaz de cargarla a través de las generaciones. Pero la belleza necesita un suelo donde crecer, y el suelo es lo que este ensayo intentó despejar: el reconocimiento de quién sos cuando los disfraces caen.
 
