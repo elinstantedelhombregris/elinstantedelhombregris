@@ -13,13 +13,13 @@ const CATEGORY_PRIMER = 'Sobre presidentes, democracia y la belleza';
 const CATEGORY_INDAGACIONES = 'Indagaciones — sobre las condiciones interiores de la república';
 
 const FILES: Array<{ order: number; file: string; slug: string; type: 'ensayo' | 'carta'; category: string }> = [
-  { order: 1, file: 'castellano/01-presidencia.md',  slug: 'presidencia',     type: 'ensayo', category: CATEGORY_PRIMER },
-  { order: 2, file: 'castellano/02-democracia.md',   slug: 'democracia',      type: 'ensayo', category: CATEGORY_PRIMER },
-  { order: 3, file: 'castellano/03-poder.md',        slug: 'poder',           type: 'ensayo', category: CATEGORY_PRIMER },
-  { order: 4, file: 'castellano/04-arquitectura.md', slug: 'arquitectura',    type: 'ensayo', category: CATEGORY_PRIMER },
-  { order: 5, file: 'castellano/05-soberania.md',    slug: 'soberania',       type: 'ensayo', category: CATEGORY_PRIMER },
-  { order: 6, file: 'castellano/06-belleza.md',      slug: 'belleza',         type: 'ensayo', category: CATEGORY_PRIMER },
-  { order: 7, file: 'castellano/07-carta.md',        slug: 'carta-al-nieto',  type: 'carta',  category: CATEGORY_PRIMER },
+  { order: 1, file: 'presidencia, democracia y belleza/01-presidencia.md',  slug: 'presidencia',     type: 'ensayo', category: CATEGORY_PRIMER },
+  { order: 2, file: 'presidencia, democracia y belleza/02-democracia.md',   slug: 'democracia',      type: 'ensayo', category: CATEGORY_PRIMER },
+  { order: 3, file: 'presidencia, democracia y belleza/03-poder.md',        slug: 'poder',           type: 'ensayo', category: CATEGORY_PRIMER },
+  { order: 4, file: 'presidencia, democracia y belleza/04-arquitectura.md', slug: 'arquitectura',    type: 'ensayo', category: CATEGORY_PRIMER },
+  { order: 5, file: 'presidencia, democracia y belleza/05-soberania.md',    slug: 'soberania',       type: 'ensayo', category: CATEGORY_PRIMER },
+  { order: 6, file: 'presidencia, democracia y belleza/06-belleza.md',      slug: 'belleza',         type: 'ensayo', category: CATEGORY_PRIMER },
+  { order: 7, file: 'presidencia, democracia y belleza/07-carta.md',        slug: 'carta-al-nieto',  type: 'carta',  category: CATEGORY_PRIMER },
   { order: 1, file: 'indagaciones/01-fabrica-obediencia.md',                slug: 'fabrica-obediencia',              type: 'ensayo', category: CATEGORY_INDAGACIONES },
   { order: 2, file: 'indagaciones/02-caudillo-camino-sin-camino.md',        slug: 'caudillo-camino-sin-camino',      type: 'ensayo', category: CATEGORY_INDAGACIONES },
   { order: 3, file: 'indagaciones/03-miedo-y-devenir.md',                   slug: 'miedo-y-devenir',                 type: 'ensayo', category: CATEGORY_INDAGACIONES },
