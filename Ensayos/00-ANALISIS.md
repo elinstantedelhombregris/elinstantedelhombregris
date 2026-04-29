@@ -408,3 +408,25 @@ Insumo de ejecución para el plan `SocialJusticeHub/docs/superpowers/plans/2026-
 **Lo que NO se hizo:** sin cambios estructurales. Las cinco subsecciones de §VIII permanecen en su orden y formato. El cierre del ensayo (§X) intacto.
 
 **Flags:** ninguno.
+
+---
+
+### Fase 2 — Ensayo 03 delta — 2026-04-29
+
+**Inglés (`Ensayos/03-poder.md`):**
+
+- §VI (Reencuadre) — agregado un párrafo al cierre, después de "the difference between fighting over a throne and dismantling the room the throne sits in." El reencuadre crea una apertura; las aperturas se llenan; las habitaciones que no desarmemos se reconstruyen este año por actores con razones de peso para mantener viva la ficción del poder en un disfraz algorítmico nuevo. La ventana está abierta hoy por accidente histórico y no por intención. El reencuadre hace posible el trabajo, no lo hace.
+- §VII (Lo que se vuelve posible) — agregadas tres oraciones al final del párrafo de Wikipedia: la misma lógica abierta-federada-ciudadana recién empieza a aplicarse al resto de la vida pública; la única pregunta es por quién y en términos de quién; ciudadanos que construyen ahora fijan las condiciones del próximo siglo, los que esperan heredan lo que otros construyeron durante la espera.
+- Sin cambios en I, II, III, IV (§IV Why-the-Fiction-Persists queda con cuatro razones, decisión Fase 1 #3), V, VIII, IX, X.
+
+**Castellano (`Ensayos/castellano/03-poder.md`):**
+
+- Las dos adiciones en sense-by-sense rioplatense.
+- §VI cierre — "Reconocer la ficción abre un espacio. Los espacios se llenan." La cadencia castellana sostiene la imagen.
+- §VII — "Los ciudadanos que esperan, heredan las arquitecturas que otros construyen mientras esperan." Frase declarativa argentina, vos sostenido.
+
+**Lo que se preservó:** todo el resto del ensayo intacto. Es uno de los ensayos más logrados de la serie y la disciplina manda no tocarlo donde no hace falta.
+
+**Lo que NO se hizo:** §IV stays at four reasons. §VIII (Argument Against the Argument) intact. §IX-X intact.
+
+**Flags:** ninguno.
