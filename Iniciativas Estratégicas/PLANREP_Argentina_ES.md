@@ -380,9 +380,11 @@ Todo egresado de la Economía de la Vida — sin excepción, sin importar su ram
 
 **TABLA 6B: El Módulo "Artesano Aumentado" por Rama**
 
+> **REVISIÓN 2026-04-28:** las herramientas de IA mencionadas en esta tabla son **herramientas comerciales / open source de uso individual** que el artesano usa como usuario (CAD comerciales, IA generativa accesible públicamente, marketing tools). **NO son capacidades del estadio B de PLANDIG** (que sería IA generativa **de Estado** o gobernanza algorítmica). El artesano accede a estas herramientas como cualquier usuario consumidor. Si en algún momento se desarrolla LANIA / IA pública soberana, será una opción adicional disponible en horizonte 2040+ tras activación del estadio B.
+
 | Rama | IA aplicada al oficio | Resultado |
 |---|---|---|
-| La Belleza | Diseño asistido (CAD + IA generativa), optimización de cortes de material, marketing digital automatizado, pricing inteligente | Artesano que diseña mejor, desperdicia menos, y vende globalmente |
+| La Belleza | Diseño asistido (CAD + IA generativa, herramientas comerciales/open source), optimización de cortes de material, marketing digital automatizado, pricing inteligente | Artesano que diseña mejor, desperdicia menos, y vende globalmente |
 | El Amparo | Monitoreo remoto de signos vitales con sensores, alertas tempranas de deterioro cognitivo, gestión de agendas de cuidado, documentación automatizada | Cuidador que detecta problemas antes y documenta sin perder tiempo |
 | La Reparación | Análisis de imágenes satelitales y de drones, modelado predictivo de salud del suelo, identificación de especies por IA, mapeo de contaminación | Remediador que diagnostica ecosistemas con precisión satelital |
 | El Refugio | Diseño arquitectónico asistido por IA, simulación térmica de materiales, optimización de energía solar, BIM simplificado | Constructor que diseña casas que respiran y no desperdician energía |
@@ -962,7 +964,9 @@ PLANREP no es un gasto: es una inversión con retorno positivo desde el tercer a
 
 **TABLA 11: Ecuación Fiscal de PLANREP — Costos vs. Ahorros (Dual Track)**
 
-| Concepto | Año 1–2 | Año 3–5 | Año 6–10 | Año 11–20 |
+> **REVISIÓN 2026-04-28:** PLANREP es **tranche-2** (entrada 24-30m, ventana absoluta 2028-2030). Los "Año X" en esta tabla se reinterpretan como ventanas absolutas. **Los ahorros de PLANREP (F06 del libro mayor) están PROHIBIDOS como fuente activa para tranche-1 según `SOURCE_OF_FUNDS_LEDGER.md`.** Los reflujos a otros PLANes (PLANEDU, etc.) **solo se cuentan a partir del cierre de tranche-2 con métricas verificadas**, no antes.
+
+| Concepto | Tranche-2 inicial (2028-2030) | Tranche-3 inicial (2030-2032) | Tranche-3 maduración (2032-2036) | Horizonte 2040+ (Visión) |
 |---|---|---|---|---|
 | **COSTOS — ECONOMÍA DE LA VIDA (8 ramas)** | | | | |
 | Infraestructura (120 Centros de la Vida + 50 PLANREP-Móvil) | USD 400M | USD 500M | USD 250M (mantenimiento) | USD 150M/año |
@@ -1752,7 +1756,7 @@ Eso se puede medir. No con la precisión del PBI, pero sí con instrumentos vali
 
 **TABLA: Tablero de Impacto Humano — KPIs No Económicos**
 
-| Indicador | Cómo Se Mide | Frecuencia | Meta Año 5 | Meta Año 10 |
+| Indicador | Cómo Se Mide | Frecuencia | Meta tranche-3 inicial (2032) | Meta horizonte 2040 |
 |---|---|---|---|---|
 | **Satisfacción vital** | Encuesta de bienestar estandarizada (escala 1-10, basada en OECD Better Life Index, adaptada al contexto argentino) | Semestral | 7.5/10 | 8.5/10 |
 | **Sentido de propósito** | Pregunta directa: "¿Sentís que tu trabajo importa?" (% que responde afirmativamente) | Anual | 75% | 90% |
@@ -2106,7 +2110,7 @@ La piedra angular legal del programa. Debe establecer:
 
 **TABLA 18: Indicadores Clave de Desempeño de PLANREP — Dual Track**
 
-| KPI | Frecuencia | Meta Año 5 | Meta Año 10 | Meta Año 20 |
+| KPI | Frecuencia | Meta tranche-3 inicial (2032) | Meta tranche-3 maduración (2036) | Meta horizonte 2040+ (Visión) |
 |---|---|---|---|---|
 | **GENERALES** | | | | |
 | Personas ingresadas al programa (acumulado) | Mensual | 500.000 | 1.200.000 | 1.800.000 |
