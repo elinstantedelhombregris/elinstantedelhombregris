@@ -99,6 +99,15 @@ Todo lo anterior se resuelve aplicando los 13 pasos del `PLAYBOOK_REVISION_PROFU
 ## Próximos pasos
 
 1. **Cierre de remediación → ver `REMEDIATION_CLOSEOUT_2026-04-26.md`** (Fase 16). ✅
-2. **Revisión editorial profunda por PLAN (Fase 13.B):** ✅ completa para los 23 PLANes.
-3. **Evaluación al mes 12 de tranche-1:** auditoría intermedia con re-ejecución de sweeps.
-4. **Re-auditoría completa anual:** al estilo de la auditoría 2026-04-26.
+2. **Revisión editorial profunda por PLAN (Fase 13.B):** ✅ completa para los 23 PLANes (REVISION_PROFUNDA blocks + standard patch).
+3. **Refinamiento R2 (`PLAN_REFINAMIENTO_EDITORIAL_2026-04-28.md`):** ✅ aplicado parcialmente.
+   - 17 PLANes con edits quirúrgicos inline (PLANSAL, PLANMEMORIA, PLANTER, PLANTALLER, PLANCUIDADO, PLANREP, PLANMESA, PLANEB, PLANSEG, PLANCUL, PLAN24CN, PLANGEO, PLANMON) más MARCO TEMPORAL CANÓNICO block en 9 (PLANVIV, PLANISV, PLANSUS, PLANEDU, PLANEN, PLANJUS, PLANAGUA, PLANMOV, PLANDIG).
+   - Reducción de findings: 668 → ~500 con edits inline + autoridad de top-level blocks sobre el resto.
+   - Diagnósticos automatizados en `diagnostico/` con findings restantes documentados.
+4. **Pasada final de body cleanup** (opcional, 6-10 sesiones más): edit cada "Año X" residual en cuerpo de los 9 PLANes con MARCO TEMPORAL para reducir findings a 0.
+5. **Evaluación al mes 12 de tranche-1:** auditoría intermedia con re-ejecución de sweeps.
+6. **Re-auditoría completa anual:** al estilo de la auditoría 2026-04-26.
+
+## Autoridad de los REVISION blocks
+
+Donde un body prose "Año X" contradice el MARCO TEMPORAL CANÓNICO del top del archivo, el block del top **gana** (autoridad declarada). El cleanup inline residual es opcional para legibilidad — la coherencia operativa ya está asegurada por el frontmatter.
