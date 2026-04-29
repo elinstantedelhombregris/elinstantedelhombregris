@@ -348,10 +348,12 @@ Registro público (con privacidad opt-in) de horas dadas y recibidas por cada ci
 
 **Aplicación progresiva:**
 
-- Año 1: piloto en empresas públicas y grandes empresas privadas voluntarias.
-- Año 2-3: obligatoriedad para empresas de más de 500 empleados.
-- Año 4-5: obligatoriedad para empresas de más de 100 empleados.
-- Año 6+: universalidad escalonada con regímenes especiales para PYMES.
+> **REVISIÓN 2026-04-28:** PLANCUIDADO es **tranche-2**; la jornada 6+2 inicia como **piloto voluntario**. La obligatoriedad universal se reformula como horizonte 2040 (Visión, no compromiso operativo de remediación) condicional a evaluación de pilotos + diálogo religioso/empresarial + PIA aprobado.
+
+- Tranche-2 inicial (2028-2030): piloto en empresas públicas y grandes empresas privadas **voluntarias**.
+- Tranche-2 consolidación (2030-2032): evaluación + propuesta de marco voluntario expandido para empresas de más de 500 empleados.
+- Tranche-3 (2032-2034, condicional a tranche-2 cerrado con métricas): obligatoriedad para empresas de más de 500 empleados.
+- Horizonte 2040 (Visión, NO compromiso operativo): universalidad escalonada con regímenes especiales para PYMES.
 
 **Flexibilidad:**
 
@@ -551,7 +553,7 @@ Mandato: 4 años no renovables. Dietas acotadas. Auditoría anual.
 
 ### 7.1 Estructura de Costos
 
-**TABLA 7.1: Costos Anuales del Sistema — Régimen Pleno (Año 8+)**
+**TABLA 7.1: Costos Anuales del Sistema — Régimen Pleno (Horizonte 2040, Visión, no compromiso operativo de remediación)**
 
 | Rubro | Monto Estimado (USD M) |
 |---|---|
@@ -718,26 +720,32 @@ Solo si el Pacto activo de 5+ años se usa para sucesión, y no desplaza hereder
 
 ### 13.1 Cronograma
 
-**Año 1:**
-- Ley de ANCV y del Pacto de Cuidado.
-- Plataforma técnica básica.
+> **REVISIÓN 2026-04-28:** PLANCUIDADO es **tranche-2** (entrada 24-30m, ventana 2028-2030). El cronograma original "Año 1-5" se reescribe como etapas dentro de tranche-2 + tranche-3. **PIA aprobado** es gate obligatorio antes de cualquier piloto (datos de salud, dependencia, niñez son sensibles). **ANCV autárquica con presupuesto constitucional protegido** se difiere a horizonte 2040.
+
+**Tranche-2 inicial (2028-2030):**
+- Decreto de marco Pacto de Cuidado piloto (sin ley nacional de cuidado universal en tranche-2).
+- PIA aprobado.
+- Plataforma técnica básica sobre estadio A de PLANDIG.
 - Primeros 500 Referentes en formación.
-- 10 provincias piloto.
+- 10 provincias piloto (limitadas).
 
-**Año 2:**
+**Tranche-2 consolidación (2030-2032):**
 - 3.000 Referentes.
-- 100.000 Pactos registrados.
-- Piloto Jornada 6+2 en empresas públicas.
+- 100.000 Pactos registrados (no universal).
+- Piloto Jornada 6+2 en empresas públicas voluntarias.
 
-**Año 3:**
+**Tranche-3 entrada (2032-2034, condicional a tranche-2 cerrado):**
 - 10.000 Referentes.
 - 500.000 Pactos.
-- Jornada 6+2 en grandes empresas.
+- Jornada 6+2 en grandes empresas voluntarias.
 
-**Años 4-5:**
+**Tranche-3 maduración (2034+):**
 - 20.000 Referentes.
 - 2M Pactos.
-- Jornada 6+2 en empresas medianas.
+- Jornada 6+2 voluntaria en empresas medianas.
+
+**Horizonte 2040 (Visión, NO compromiso operativo de remediación):**
+- Régimen pleno con ANCV autárquica + presupuesto constitucional + universalidad escalonada de Jornada 6+2.
 - Primer balance nacional.
 
 **Años 6-8:**

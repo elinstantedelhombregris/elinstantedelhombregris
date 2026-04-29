@@ -441,7 +441,7 @@ Fracasos documentados tienen **igual peso** que éxitos. Lo que Argentina no apr
 
 ## SECCIÓN 4: CATÁLOGO DE TALLERS SECTORIALES
 
-### 4.1 Primera Ola (Año 1-2)
+### 4.1 Primera Ola (Tranche-2 inicial, 2028-2030)
 
 **Taller de Reparación de Electrodomésticos y Reconstrucción Doméstica.** Prototipo. Ataque al right to repair argentino. Impacto: familias ahorran 40-60% de su gasto anual en reposición de artefactos.
 
@@ -455,7 +455,7 @@ Fracasos documentados tienen **igual peso** que éxitos. Lo que Argentina no apr
 
 **Taller Textil de Ciclo Corto.** Indumentaria básica adulta y infantil, reciclado textil.
 
-### 4.2 Segunda Ola (Año 3-4)
+### 4.2 Segunda Ola (Tranche-2 consolidación, 2030-2032)
 
 **Taller de Bicicletas y Reparación Urbana.** Bicicletas al costo, reparación abierta.
 
@@ -471,7 +471,7 @@ Fracasos documentados tienen **igual peso** que éxitos. Lo que Argentina no apr
 
 **Taller de Instrumentos Musicales.** Cuerdas, percusión, tradicionales y contemporáneos. Conexión con PLANCUL.
 
-### 4.3 Tercera Ola (Año 5+)
+### 4.3 Tercera Ola (Tranche-3+, 2032+)
 
 **Taller de Fabricación Digital Avanzada.** Impresión 3D industrial, CNC, prototipado. Articula con universidades.
 
@@ -627,7 +627,7 @@ Esta sección documenta cómo PLANTALLER se acopla al resto del ecosistema de ma
 |---|---|---|---|
 | **PLANMESA** | CRITICAL | INSTITUTIONAL | Tallers son ejecutores de Fase EXPERIMENTAR del ciclo LDEA |
 | **PLANEB** | CRITICAL | INSTITUTIONAL | Red Bastarda es el canal de distribución at-cost de todo lo que produce la Red Taller: insumos a Bastardas y excedentes al mercado popular |
-| **PLANDIG** | IMPORTANT | TECHNICAL | Protocolo Taller corre sobre ArgenCloud como plataforma federada de inventario, hallazgos y coordinación inter-Taller |
+| **PLANDIG** | IMPORTANT | TECHNICAL | Protocolo Taller corre sobre **estadio A de PLANDIG** (datos abiertos + audit logs + interoperabilidad) en tranche-2; ArgenCloud federado es **capacidad del estadio B**, diferida a tranche-3+ con condiciones de `PLANDIG_ESTADIOS_INTERNOS.md` |
 | **PLANREP** | IMPORTANT | LABOR | Empleo público reconvertido se redirige hacia coordinación, mentoría técnica y gestión operativa de los Tallers federales |
 
 ### Lo que PLANTALLER necesita de otros
@@ -641,7 +641,7 @@ Esta sección documenta cómo PLANTALLER se acopla al resto del ecosistema de ma
 
 ## SECCIÓN 8: MODELO FINANCIERO NACIONAL
 
-### 8.1 Proyección de Escala — Régimen Pleno (Año 7+)
+### 8.1 Proyección de Escala — Régimen Pleno (Horizonte 2040, no compromiso operativo)
 
 **TABLA 8.1: Proyección Escala Nacional**
 
@@ -720,32 +720,35 @@ Con inversión promedio USD 180K por Taller y 4.000 Tallers, total USD 720M. Arg
 
 ### 10.1 Cronograma Maestro
 
-**Año 1:**
-- Q1: Ley de ANT. Protocolo Taller v1.0.
-- Q2: Apertura primer Taller prototipo (La Matanza, reparación electrodomésticos). Capitalización y contratación inicial.
-- Q3: 20 Tallers en 8 provincias piloto.
-- Q4: Archivo Federal de Hallazgos lanzado. Primeras 500 publicaciones.
+> **REVISIÓN 2026-04-28:** PLANTALLER es **tranche-2** (entrada 24-30m, ventana absoluta 2028-2030). El cronograma original "Año 1-7" se reescribe como etapas dentro de tranche-2 + tranche-3. **"Presupuesto constitucional consolidado" diferido a horizonte 2040 (Visión, no compromiso operativo de remediación 2026-04-26).** Estándares de seguridad firmados + seguro obligatorio + auditoría externa son pre-requisitos antes de cualquier piloto.
 
-**Año 2:**
+**Tranche-2 inicial (2028-2030):**
+- Decreto de marco taller piloto + estándares de seguridad firmados + seguro obligatorio.
+- Apertura primer Taller prototipo (La Matanza, reparación electrodomésticos). Capitalización inicial vía cooperativas + F07.
+- 20 Tallers en 8 provincias piloto.
+- Archivo Federal de Hallazgos lanzado.
+
+**Tranche-2 consolidación (2030-2032):**
 - 200 Tallers operativos.
-- Protocolo v2.0 con aprendizajes de pilotos.
-- Convenios con universidades nacionales para afiliaciones.
+- Protocolo v2.0 con aprendizajes.
+- Convenios universitarios para afiliaciones.
 - Primeros Tallers regionales especializados.
 
-**Año 3:**
+**Tranche-3 entrada (2032-2034, condicional a tranche-2 cerrado):**
 - 1.000 Tallers.
 - Integración plena con Red Bastarda.
 - Tallers de segunda ola (energía, construcción, agroindustria).
 
-**Años 4-5:**
+**Tranche-3 maduración (2034+):**
 - 2.500 Tallers.
-- Presupuesto constitucional consolidado.
+- Presupuesto operativo estable (sin constitucionalización).
 - Tallers de tercera ola (fabricación digital, investigación aplicada).
 
-**Años 6-7:**
+**Horizonte 2040 (Visión, NO compromiso operativo):**
 - 4.000 Tallers. Régimen pleno.
+- Presupuesto constitucional consolidado (diferido).
 - Cobertura completa de materias prioritarias.
-- Exportación del modelo: protocolos para América Latina.
+- Exportación del modelo a América Latina.
 
 ### 10.2 Lo Que No Sabemos
 
