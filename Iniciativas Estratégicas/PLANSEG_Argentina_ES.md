@@ -774,7 +774,7 @@ Esta sección detalla año por año la estrategia de seguridad sincronizada con 
 | -6 a 0 | **Establecimiento de canales de comunicación con operadores Tier 1 y 2.** A través de organizaciones comunitarias, mediadores barriales, y referentes de confianza. Mensaje: El Puente está abierto. La transición viene. Hay lugar para todos los que quieran cruzar | ANSEG + ANSUS + organizaciones comunitarias |
 | -3 a 0 | **Activación de Protocolo VERDE en todo el país. Protocolo AMARILLO en zonas rojas.** Presencia reforzada preventiva. Sin operativos ofensivos — presencia comunitaria, no militarización | ANSEG |
 
-### 5.2 Fase 1: "El Alivio" (Año 1) — Cannabis legal + despenalización
+### 5.2 Fase 1: "El Alivio" (Tranche-2 inicial, 2028-2030) — Cannabis legal + despenalización
 
 **Contexto PLANSUS:** Cannabis legal para adultos. Despenalización de uso personal de todas las sustancias. Primeras licencias Micro para ex-operadores Tier 1. Liberación de primeros presos por drogas.
 
@@ -784,7 +784,7 @@ Esta sección detalla año por año la estrategia de seguridad sincronizada con 
 - La despenalización del uso reduce la presión policial sobre consumidores (positivo)
 - La liberación de presos genera un flujo de personas al que hay que dar contención (PLANREP)
 
-**TABLA 13: Acciones de Seguridad — Año 1**
+**TABLA 13: Acciones de Seguridad — Tranche-2 inicial (2028-2030)**
 
 | Trimestre | Acción | Indicador de éxito | Protocolo de escalamiento |
 |---|---|---|---|
@@ -1080,13 +1080,13 @@ Mismo modelo que ANSUS (Tablero Nacional de Sustancias), ANJUS, y ANAGUA. Plataf
 
 **TABLA 21: Fases de PLANSEG**
 
-| Fase | Período | Nombre | Objetivo central |
+| Fase | Ventana absoluta | Nombre | Objetivo central |
 |---|---|---|---|
-| Pre-Fase | Año -1 | "Los Ojos" | Mapeo, auditoría, piloto de EB, capacitación inicial |
-| Fase 0 | Año 0 | "La Fundación" | Ley, ANSEG creada, protocolo narco activado, primeras 250 EB |
-| Fase 1 | Años 1-5 | "La Transición" | Despliegue comunitario + transición narco sincronizada con PLANSUS + reforma carcelaria |
-| Fase 2 | Años 5-10 | "La Consolidación" | Modelo comunitario completo + 50% reducción carcelaria + infraestructura digital |
-| Fase 3 | Años 10-15 | "La Madurez" | Consolidación, reconocimiento internacional, metas 2040 alcanzadas |
+| Pre-Fase | Pre-tranche-2 (2027-2028) | "Los Ojos" | Mapeo, auditoría externa, piloto de EB, capacitación inicial |
+| Fase 0 | Tranche-2 entrada (2028) | "La Fundación" | Decreto + ley ordinaria, ANSEG execution cell creada, protocolo narco activado, primeras 250 EB |
+| Fase 1 | Tranche-2 + Tranche-3 entrada (2028-2032) | "La Transición" | Despliegue comunitario + transición narco coordinada con PLANSUS research + reforma carcelaria piloto |
+| Fase 2 | Tranche-3 maduración (2032-2036) | "La Consolidación" | Modelo comunitario completo + 50% reducción carcelaria + infraestructura digital sobre estadio A de PLANDIG |
+| Fase 3 | Horizonte 2040 (Visión, no compromiso operativo) | "La Madurez" | Consolidación, reconocimiento internacional, metas 2040 — autonomía ANSEG diferida |
 
 ### 9.1 Pre-Fase: "Los Ojos" (Año -1)
 
@@ -1099,7 +1099,7 @@ Mismo modelo que ANSUS (Tablero Nacional de Sustancias), ANJUS, y ANAGUA. Plataf
 | Protocolo VERDE activado | Mes 0 | Todo el país. AMARILLO en zonas rojas |
 | Canales con El Puente | Meses -6 a 0 | Comunicación abierta con operadores que quieren transicionar |
 
-### 9.2 Fase 0: "La Fundación" (Año 0)
+### 9.2 Fase 0: "La Fundación" (Pre-tranche-2, 2027-2028)
 
 | Hito | Descripción |
 |---|---|
@@ -1298,7 +1298,7 @@ El enfoque no es purga masiva (se intentó varias veces y fracasó siempre, porq
 |---|---|---|---|
 | Violencia de bandas durante transición narco | Alta | Alto | Protocolo VERDE/AMARILLO/ROJO + inteligencia focalizada + presencia comunitaria + pausa de cascada si necesario |
 | Resistencia de fuerzas de seguridad a la reforma | Alta | Alto | Incentivos de reconversión + mantención de sueldos + participación de fuerzas en diseño + gradualismo |
-| Resistencia política (gobernadores, intendentes) | Alta | Alto | Autonomía constitucional de ANSEG + presupuesto protegido + presión ciudadana desde PCS |
+| Resistencia política (gobernadores, intendentes) | Alta | Alto | En tranche-2: auditoría externa permanente + canal OEA + presión ciudadana desde PCS. Autonomía constitucional de ANSEG diferida a horizonte 2040. |
 | Captura de ANSEG por intereses políticos | Media | Alto | Sorteo democrático + mandatos no renovables + transparencia radical + Panel Ciudadano con poder de veto |
 | Fracaso de modelo comunitario en zonas de alto riesgo | Media | Medio | Pilotaje gradual + evaluación continua + ajuste de modelo + soporte táctico para EB en zonas difíciles |
 | Abuso de tecnología de vigilancia | Media | Alto | Candados (Sección 7) + JCVD + prohibiciones constitucionales + auditoría permanente |
@@ -1369,7 +1369,9 @@ Halden Prison existe. Los koban de Japón existen. La policía de proximidade de
 
 **"¿Y si el próximo gobierno desarma todo?"**
 
-ANSEG tiene autonomía constitucional, presupuesto protegido, y gobernanza por sorteo democrático. Desarmar PLANSEG requeriría reforma constitucional — el mismo blindaje que tienen las demás agencias ¡BASTA!. Además, los Paneles Ciudadanos de Seguridad generan una base social de personas que vivieron la diferencia. Destruir algo que funciona y tiene apoyo ciudadano visible tiene un costo político enorme. No imposible — pero caro.
+> **REVISIÓN 2026-04-28:** PLANSEG es **tranche-2** (entrada 24-30m, ventana 2028-2030). En tranche-2, ANSEG opera como **execution cell con auditoría externa permanente + canal denuncia OEA** (no agencia autárquica con autonomía constitucional). **Autonomía constitucional + presupuesto protegido + reforma constitucional como blindaje → diferidos a horizonte 2040 (Visión, no compromiso operativo de remediación 2026-04-26).** El blindaje real en tranche-2/3 es operativo: auditoría, transparencia, canal externo.
+
+En el horizonte 2040 (Visión, no compromiso operativo): ANSEG tendría autonomía constitucional, presupuesto protegido, y gobernanza por sorteo democrático. Desarmar PLANSEG requeriría reforma constitucional. En tranche-2/3 actual, el blindaje principal es **operativo** (auditoría externa + canal OEA + transparencia), no constitucional. Los Paneles Ciudadanos de Seguridad generan base social. Destruir algo que funciona y tiene apoyo ciudadano visible tiene un costo político enorme. No imposible — pero caro.
 
 Pero hay una protección más poderosa que la constitucional: la material. Cuando un barrio tiene una EB que funciona, un oficial comunitario que conoce a los vecinos, una RCAT que los conecta, y una percepción de seguridad que mejoró — ese barrio no va a dejar que le saquen eso sin pelear. La mejor protección contra la regresión política no es un artículo en la Constitución. Es un millón de personas que experimentaron la diferencia y no están dispuestas a volver atrás.
 

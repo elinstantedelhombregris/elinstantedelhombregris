@@ -5,14 +5,11 @@ Generado: 2026-04-28
 Source: `PLANSEG_Argentina_ES.md`
 
 ## Patrón 1 — Reformas constitucionales sin diferimiento
-```
-1372:ANSEG tiene autonomía constitucional, presupuesto protegido, y gobernanza por sorteo democrático. Desarmar PLANSEG requeriría reforma constitucional — el mismo blindaje que tienen las demás agencias ¡BASTA!. Además, los Paneles Ciudadanos de Seguridad generan una base social de personas que vivieron la diferencia. Destruir algo que funciona y tiene apoyo ciudadano visible tiene un costo político enorme. No imposible — pero caro.
-```
+(no findings)
 
 ## Patrón 2 — Agencias autónomas en tranche-1/2
 ```
-1301:| Resistencia política (gobernadores, intendentes) | Alta | Alto | Autonomía constitucional de ANSEG + presupuesto protegido + presión ciudadana desde PCS |
-1372:ANSEG tiene autonomía constitucional, presupuesto protegido, y gobernanza por sorteo democrático. Desarmar PLANSEG requeriría reforma constitucional — el mismo blindaje que tienen las demás agencias ¡BASTA!. Además, los Paneles Ciudadanos de Seguridad generan una base social de personas que vivieron la diferencia. Destruir algo que funciona y tiene apoyo ciudadano visible tiene un costo político enorme. No imposible — pero caro.
+1374:En el horizonte 2040 (Visión, no compromiso operativo): ANSEG tendría autonomía constitucional, presupuesto protegido, y gobernanza por sorteo democrático. Desarmar PLANSEG requeriría reforma constitucional. En tranche-2/3 actual, el blindaje principal es **operativo** (auditoría externa + canal OEA + transparencia), no constitucional. Los Paneles Ciudadanos de Seguridad generan base social. Destruir algo que funciona y tiene apoyo ciudadano visible tiene un costo político enorme. No imposible — pero caro.
 ```
 
 ## Patrón 3 — Future returns como fuente activa de tranche-1
@@ -25,8 +22,6 @@ Source: `PLANSEG_Argentina_ES.md`
 ```
 558:| Fase 1 ("El Alivio") | Año 1 | Cannabis + despenalización total de uso personal | Reducción moderada del mercado negro de cannabis. Tensión en redes de distribución que pierden ingresos. Liberación de presos por drogas |
 612:| **Zona Amarilla** — Riesgo moderado | CABA sur (Lugano, Barracas), Conurbano oeste (Moreno, Merlo, La Matanza), Córdoba zona sureste, Tucumán capital | Redes de distribución presentes pero sin control territorial total. Riesgo de vacío parcial | Despliegue de EB en Año 0-1. Monitoreo activo. Protocolo VERDE con escalamiento rápido |
-777:### 5.2 Fase 1: "El Alivio" (Año 1) — Cannabis legal + despenalización
-787:**TABLA 13: Acciones de Seguridad — Año 1**
 794:| Q4 | Informe de seguridad del Año 1 al Panel Ciudadano de ANSEG. Decisión: ¿estamos listos para Fase 2 de PLANSUS (psicodélicos)? | Indicadores VERDE en >80% de zonas. Ninguna zona en ROJO sostenido | Si hay zonas en ROJO sostenido → PLANSUS Fase 2 se pausa en esas zonas |
 807:| Año 2 Q1-Q2 | **"Amnistía inteligente" activa.** Operadores Tier 1 y Tier 2 que no se sumaron a El Puente en el Año 1 reciben una segunda ventana de transición: últimos 6 meses para cruzar el puente con todos los beneficios. Después, los beneficios se reducen. Mensaje: ahora o nunca | 60%+ de operadores Tier 1 en El Puente. 40%+ de Tier 2 | Si <30% de operadores cruzan → inteligencia focalizada en los que no cruzan |
 808:| Año 2 Q2-Q4 | **Despliegue masivo de EB.** 500 EB adicionales (total: 750). Prioridad: zonas donde el mercado negro se resiste. Cada EB en zona roja opera en modo AMARILLO permanente | Cobertura EB en 100% de zonas rojas y 50% de zonas amarillas | Si violencia aumenta en zona con EB → refuerzo + evaluación de gestión del EB |
@@ -35,8 +30,6 @@ Source: `PLANSEG_Argentina_ES.md`
 824:| Año 4-5 | **Transición de protocolo AMARILLO a VERDE en zonas que lo permitan.** Evaluación zona por zona. Cada zona que cumple métricas baja de AMARILLO a VERDE | 80%+ de zonas en VERDE al final del Año 5 |
 825:| Año 5 | **Evaluación final de la transición narco.** Informe al Panel Ciudadano de ANSEG y al Panel de ANSUS. Publicación de resultados completos | Homicidios vinculados a narco ↓60-70%. Percepción de seguridad en zonas de transición ↑40%+ |
 863:**Meta: 200 equipos PAC desplegados en zonas rojas y amarillas para el Año 1.** Costo estimado: USD 30-50M/año.
-1086:| Fase 0 | Año 0 | "La Fundación" | Ley, ANSEG creada, protocolo narco activado, primeras 250 EB |
-1102:### 9.2 Fase 0: "La Fundación" (Año 0)
 ```
 
 ## Patrón 7 — Sortición sin justificación de oversight
@@ -47,4 +40,4 @@ Source: `PLANSEG_Argentina_ES.md`
 ## Patrón 8 — Lenguaje místico/espiritual en sección de plataforma pública
 (no findings)
 
-## Total findings: 18
+## Total findings: 12

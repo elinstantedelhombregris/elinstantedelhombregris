@@ -276,7 +276,7 @@ Fundamentalmente física la Red — pero necesita complemento digital para tres 
 
 **Mecanismo de Aprendizaje — "¿Qué Funcionó?":** Esta es la función que falta en todos los movimientos descentralizados: cómo aprende la red de sí misma. Cada Nodo puede publicar un relato de un párrafo sobre algo que intentó: "Probamos abrir la Mesa Larga con un minuto de silencio. Raro al principio. Después alguien lloró. Después todos se rieron. Lo vamos a repetir." No es un reporte. No tiene métricas. Es una historia de práctica. Estas historias se propagan por la red a la velocidad de la red. Un Nodo en Jujuy lee lo que funcionó en Bahía Blanca y lo prueba con su propia variación. La Plataforma no solo mapea y archiva — es la memoria colectiva de lo que funciona.
 
-**Técnicamente:** Open source, federada (ActivityPub), hosteada en ArgenCloud pero migrable, sin datos personales innecesarios, sin publicidad nunca, diseño austero y rápido.
+**Técnicamente:** Open source, federada (ActivityPub), migrable. **En tranche-2 (entrada 2030):** hosteada en proveedores comerciales con cláusula de portabilidad, o sobre estadio A de PLANDIG si está disponible. **ArgenCloud federado** es capacidad del estadio B de PLANDIG, diferida a tranche-3+ (`PLANDIG_ESTADIOS_INTERNOS.md`). La Plataforma Dendrita **no depende** de ArgenCloud — es portable. Sin datos personales innecesarios, sin publicidad nunca, diseño austero y rápido.
 
 ## 2.4 Cómo Se Propaga la Cultura
 
@@ -403,7 +403,7 @@ Las prácticas que generan sentido son inherentemente baratas: un Círculo de Me
 | **PLANISV** | Bosques comestibles = Nodos naturales; plantar juntos = Raíz Tierra + Vínculo |
 | **PLANEDU** | Raíz Creación + Memoria en currículo; Rondas de Escucha desde primer grado |
 | **PLANJUS** | Paneles Ciudadanos practican Rondas de Escucha; justicia restaurativa es fundamentalmente cultural |
-| **PLANDIG** | ArgenCloud hostea Plataforma Dendrita; soberanía digital = infraestructura propia |
+| **PLANDIG** | En tranche-2: estadio A (datos abiertos + audit logs + interop) sobre proveedor comercial portable. ArgenCloud federado (capacidad estadio B) diferido a tranche-3+. Plataforma Dendrita open-source, migrable, no dependiente de capacidad soberana. |
 | **PLANEB** | Bastardas Culturales: editoriales, estudios de grabación al costo |
 | **PLANSUS** | Ceremonias ancestrales son prácticas culturales; responsabilidad sobre el cuerpo = Raíz Identidad |
 | **PLANSAL** | PLANCUL ataca la soledad (que mata más que el tabaco); sentido de propósito reduce mortalidad |
@@ -513,11 +513,13 @@ Si ¡BASTA! pierde todas las elecciones. Si el proyecto político colapsa. ¿Qu�
 
 ## 7.1 Lo Que Se Ve en Cada Etapa (Los Retardos Son Reales)
 
-Cada efecto de PLANCUL tiene un retardo. El sistema político quiere resultados en 4 años. Los efectos más profundos tardan 15-30. Esta tabla maneja las expectativas:
+Cada efecto de PLANCUL tiene un retardo. El sistema político quiere resultados en 4 años. Los efectos más profundos tardan 15-30.
+
+> **REVISIÓN 2026-04-28:** PLANCUL es **tranche-2** (entrada 24-30m, ventana absoluta 2028-2030). Los "Año X" en la tabla siguiente representan **arcos generacionales conceptuales** (la metáfora original del PLAN: "un nene nacido en el Año 0 será Granadero en el Año 65"). Estos arcos son intrínsecos al diseño cultural y se preservan como **Visión generacional**. **El Año 0 se ancla en el lanzamiento operativo del PLAN (entrada tranche-2, 2028); el Año 1 = 2029, Año 5 = 2033, Año 15 = 2043, Año 30 = 2058, Año 65 = 2093.** Sólo los hitos hasta tranche-3 maduración (Año 6, 2034) son compromiso operativo de remediación; el resto es Visión.
 
 | Momento | Lo Que Es Visible | Lo Que Está Pasando Debajo |
 |---|---|---|
-| **Año 1** | Mesas Largas existen. Es todo. | Vecinos se conocen por primera vez. Semillas de confianza. |
+| **Año 1 (2029, tranche-2)** | Mesas Largas existen. Es todo. | Vecinos se conocen por primera vez. Semillas de confianza. |
 | **Año 3** | Nodos formándose. Algunos barrios se conocen por nombre. | Primeras Dendritas reconocidas. Primeros Círculos de Memoria. |
 | **Año 5** | Granaderos visiblemente más activos y sanos. Algún arte en las paredes. | Peldaños 3-4 de la Escalera. Primeros Oficios Compartidos. |
 | **Año 10** | La cultura está cambiando pero solo quien recuerda "antes" lo ve. | Primera generación de niños PLANEDU con Rondas de Escucha tiene 10 años. Son Dendritas nativas. |
