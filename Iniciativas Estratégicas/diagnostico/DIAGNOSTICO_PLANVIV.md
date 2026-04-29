@@ -18,15 +18,6 @@ Source: `PLANVIV_Argentina_ES.md`
 
 ## Patrón 6 — Fechas relativas (Año X) en cronograma
 ```
-32:> | Año 0 | 2026 | tranche-1 inicial |
-33:> | Año 1 | 2027 | tranche-1 |
-34:> | Año 2 | 2028 | tranche-1 → tranche-2 |
-35:> | Año 3 | 2029 | tranche-2 |
-36:> | Año 4 | 2030 | tranche-2 |
-37:> | Año 5 | 2031 | tranche-2 cierre |
-38:> | Año 7 | 2033 | tranche-3 |
-39:> | Año 10 | 2036 | tranche-3 maduración |
-41:> | Año 20 | 2046 | Visión |
 610:- **Meta:** 10.000 unidades/año a partir del Año 3. 150.000 unidades acumuladas en 15 años.
 655:**Transitoriedad:** El voucher es un puente, no un destino. A medida que la Bastarda, las cooperativas, y la densificación generan oferta, las familias con voucher migran a vivienda propia. El gasto en vouchers baja progresivamente. Meta: de 300.000 familias con voucher en el Año 3 a menos de 50.000 en el Año 15.
 1027:PLANVIV no empieza con los 1.800 asentamientos simultáneamente — empieza con 50 barrios piloto en el Año 0. La selección de los 50 pilotos no es política — es técnica, con criterios transparentes:
@@ -48,6 +39,15 @@ Source: `PLANVIV_Argentina_ES.md`
 1733:| **Año 0** (Lanzamiento) | 2.000-3.000 | ~100 (primeros fees Bolsa) | -1.900 a -2.900 | Fondo Soberano + multilateral (BID/CAF) |
 1782:| PLANMON atraso | Peso-canasta Año 2 | Peso-canasta Año 7+ | Canasta-Lite opera; cuota +/- 5pp | Menor uptake de crédito por desconfianza |
 1784:| Adopción Housing OS | >80% municipios Año 5 | <50% municipios Año 5 | Coordinación manual; +15% costos admin | Menor eficiencia de ecosystem fees |
+1827:| **PLANEB** | IMPORTANT | INSTITUTIONAL | Bastarda Inmobiliaria usa Protocolo Bastardo para fideicomiso perpetuo (ambos lanzan Año 0) |
+1914:**El elefante en la sala:** La Cascada Legal ¡BASTA! programa 55 instrumentos legales en 3,5 años. Las leyes de PLANVIV dependen de que PLANEB (Año 0-S2) y PLANMON (Año 2-S1) ya estén sancionadas. Si el Congreso argentino se atrasa — y se va a atrasar, porque el Congreso argentino siempre se atrasa — PLANVIV necesita un plan que funcione con lo mínimo.
+1934:| Ley de creación de ANVIV (permanente) | Año 2 | El DNU es renovable pero políticamente costoso de mantener más de 2 años. ANVIV necesita autonomía constitucional, no precariedad. |
+1935:| Ley de Fideicomiso de Suelo Perpetuo | Año 3 | Cuando la Bastarda necesite adquirir suelo a gran escala, el marco fiduciario estándar es insuficiente — necesita la protección de irreversibilidad del fideicomiso perpetuo. |
+1936:| Ley Marco de Housing OS | Año 3-4 | Cuando Housing OS escale a 12+ provincias, el intercambio de datos inter-jurisdiccional necesita marco legal (protección de datos, interoperabilidad obligatoria). |
+1937:| Ley de Acreditación de PyMEs (formal) | Año 4-5 | Cuando haya 200+ PyMEs, la resolución ANVIV no es suficiente — se necesita ley con mecanismos de sanción y protección al consumidor. |
+1948:2. **Los pilotos generan presión social.** Para cuando la Ley ANVIV llegue al Congreso (Año 1-2), ya hay 50 barrios urbanizados, 5.000 familias con crédito Canasta-Lite, 1 Célula construida, y los datos están en el Tablero Nacional de Vivienda. La pregunta para el legislador ya no es "¿apruebo esto?" sino "¿cancelo lo que ya funciona?"
+2067:4. **Escala inicial:** 2.000 unidades en CABA (Año 0-2), escalando a 5.000 en todo el país (Año 5). Meta: vivienda Housing First disponible para el 100% de la población en situación de calle identificada (Año 10).
+2167:4. **Renovación mayor (Año 15-20).** La aislación térmica dura 30+ años, pero las cañerías, la pintura, las carpinterías necesitan renovación a los 15-20 años. El Fondo de Mantenimiento Perpetuo acumula reserva específica para esto: el 30% del fondo se destina a una "reserva de renovación" que no se toca hasta el Año 15.
 ```
 
 ## Patrón 7 — Sortición sin justificación de oversight

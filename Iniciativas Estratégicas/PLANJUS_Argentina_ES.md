@@ -24,6 +24,26 @@
 > **PIA gate:** ver `PIA/PLANJUS.md` si existe; este PLAN no avanza a piloto sin PIA aprobado donde aplica.
 >
 > **Opinión legal:** ver `LEGAL_OPINIONS/PLANJUS.md` si existe.
+>
+> **MARCO TEMPORAL CANÓNICO (REVISIÓN 2026-04-28):** este PLAN es **tranche-3** con entrada operativa en 2030-Q2. Todas las referencias "Año X" en el cuerpo del documento (cronogramas, tablas de inversión, metas de cobertura, planes de escalamiento, financial gap, fases) se anchorean según esta tabla:
+>
+> | Texto original | Ventana absoluta | Tranche |
+> |----------------|------------------|---------|
+> | Año 0 | 2030 | tranche-1 inicial |
+> | Año 1 | 2031 | tranche-1 |
+> | Año 2 | 2032 | tranche-1 → tranche-2 |
+> | Año 3 | 2033 | tranche-2 |
+> | Año 4 | 2034 | tranche-2 |
+> | Año 5 | 2035 | tranche-2 cierre |
+> | Año 7 | 2037 | tranche-3 |
+> | Año 10 | 2040 | tranche-3 maduración |
+> | Año 15+ | 2045+ | Horizonte 2040 (Visión, no compromiso operativo) |
+>
+> **Reglas de tranche aplicadas:** "Tranche-3 piloto mediación + anti-backlog; sin reforma judicial profunda; reforma constitucional justicia diferida indefinidamente; tribunales populares eliminados; sortición de juradistas solo en delitos menores"
+>
+> **Presupuesto canónico:** (tranche-3) — fuentes: F01, multilateral. **Future returns prohibidos como fuente activa de tranche-1.**
+>
+> **Instrumento legal:** (tranche-3). Reformas constitucionales **diferidas a horizonte 2040** por defecto.
 
 ---
 

@@ -24,6 +24,26 @@
 > **PIA gate:** ver `PIA/PLANMOV.md` si existe; este PLAN no avanza a piloto sin PIA aprobado donde aplica.
 >
 > **Opinión legal:** ver `LEGAL_OPINIONS/PLANMOV.md` si existe.
+>
+> **MARCO TEMPORAL CANÓNICO (REVISIÓN 2026-04-28):** este PLAN es **tranche-3** con entrada operativa en 2030-Q2. Todas las referencias "Año X" en el cuerpo del documento (cronogramas, tablas de inversión, metas de cobertura, planes de escalamiento, financial gap, fases) se anchorean según esta tabla:
+>
+> | Texto original | Ventana absoluta | Tranche |
+> |----------------|------------------|---------|
+> | Año 0 | 2030 | tranche-1 inicial |
+> | Año 1 | 2031 | tranche-1 |
+> | Año 2 | 2032 | tranche-1 → tranche-2 |
+> | Año 3 | 2033 | tranche-2 |
+> | Año 4 | 2034 | tranche-2 |
+> | Año 5 | 2035 | tranche-2 cierre |
+> | Año 7 | 2037 | tranche-3 |
+> | Año 10 | 2040 | tranche-3 maduración |
+> | Año 15+ | 2045+ | Horizonte 2040 (Visión, no compromiso operativo) |
+>
+> **Reglas de tranche aplicadas:** "4 líneas internas (L1 movilidad básica, L2 flete ferroviario, L3 AMBA-T, L4 AV research-only INDEFINIDA); régimen AV pleno eliminado de tranche-1/2/3; LNMA/PCAV/Canon Automatización diferidos; Procurement OS antes de capital pesado; cap presupuestario 25% libro mayor anual de tranche-3"
+>
+> **Presupuesto canónico:** (tranche-3, cap 25% libro mayor) — fuentes: F03 bonos largos, multilateral. **Future returns prohibidos como fuente activa de tranche-1.**
+>
+> **Instrumento legal:** (tranche-3). Reformas constitucionales **diferidas a horizonte 2040** por defecto.
 
 ---
 

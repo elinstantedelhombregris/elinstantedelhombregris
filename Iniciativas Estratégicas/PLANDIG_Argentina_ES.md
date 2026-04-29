@@ -2104,8 +2104,34 @@ Ver `DEPENDENCY_GRAPH.yml` sección `PLANDIG`. Esta prosa cede ante el grafo en 
 Ver `PIA/PLANDIG.md`. **Gate:** este PLAN no avanza a piloto operativo sin PIA aprobado.
 
 ### 8. Opinión legal
-No requiere opinión legal stub específica en tranche-1 (riesgo legal bajo). Reevaluar al cierre de cada gate.
+No requiere opinión legal stub específica en tranche-1 (riesgo legal bajo). Estadio B requiere `LEGAL_OPINIONS/PLANDIG_estadio_B.md` firmada por constitucionalista externo. Reevaluar al cierre de cada gate.
 
+### 9. Marco temporal canónico (REVISIÓN 2026-04-28)
+
+PLANDIG es **tranche-1 (estadio A)** con entrada operativa en 2026-Q2. El estadio B (capacidades soberanas: ArgenCloud, SAPI completa, LANIA, gemelo digital, gobernanza algorítmica, rieles monetarios) está **diferido a tranche-3+** con 6 condiciones de activación duras (ver `PLANDIG_ESTADIOS_INTERNOS.md`).
+
+| Texto original | Ventana absoluta | Tranche |
+|----------------|------------------|---------|
+| Año 0 | 2026 | tranche-1 inicial (estadio A) |
+| Año 1 | 2027 | tranche-1 (estadio A) |
+| Año 2 | 2028 | tranche-1 → tranche-2 (estadio A) |
+| Año 3 | 2029 | tranche-2 (estadio A) |
+| Año 5 | 2031 | tranche-2 cierre (estadio A) |
+| Año 7 | 2033 | tranche-3 (posible activación parcial estadio B) |
+| Año 10 | 2036 | tranche-3 maduración (estadio B condicional) |
+| Año 15+ | 2041+ | Horizonte 2040 (estadio B pleno, Visión) |
+
+**Reglas de tranche aplicadas:**
+- ≤ 8 servicios listados en estadio A (tranche-1).
+- Offline-first as policy en todo servicio crítico.
+- Subsecretaría de Datos = execution cell en Jefatura (no agencia autárquica).
+- Identidad biométrica masiva, "ciudadanía digital obligatoria", voto digital vinculante **eliminados de cualquier estadio**.
+- Estadio A no se desactiva nunca para "migrar" al B; ambos coexisten cuando B se active.
+- IA generativa de Estado, gobernanza algorítmica, rieles monetarios → exclusivamente estadio B con PIA por componente.
+
+**Presupuesto canónico:** USD 0.4B operativo/año + USD 1.2B inversión 24m — fuentes F01 (reasignación) + F03 (bonos largos). **Future returns (F11) prohibidos como fuente activa de tranche-1.**
+
+**Instrumento legal:** LMV-02 (Ley marco PLANDIG datos abiertos + identidad-lite, **estadio A solamente**). Reformas constitucionales sobre identidad o datos **diferidas a horizonte 2040+**.
 
 ---
 

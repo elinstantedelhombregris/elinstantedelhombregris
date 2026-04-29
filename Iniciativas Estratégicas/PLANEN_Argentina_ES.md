@@ -24,6 +24,26 @@
 > **PIA gate:** ver `PIA/PLANEN.md` si existe; este PLAN no avanza a piloto sin PIA aprobado donde aplica.
 >
 > **Opinión legal:** ver `LEGAL_OPINIONS/PLANEN.md` si existe.
+>
+> **MARCO TEMPORAL CANÓNICO (REVISIÓN 2026-04-28):** este PLAN es **tranche-2** con entrada operativa en 2028-Q2. Todas las referencias "Año X" en el cuerpo del documento (cronogramas, tablas de inversión, metas de cobertura, planes de escalamiento, financial gap, fases) se anchorean según esta tabla:
+>
+> | Texto original | Ventana absoluta | Tranche |
+> |----------------|------------------|---------|
+> | Año 0 | 2028 | tranche-1 inicial |
+> | Año 1 | 2029 | tranche-1 |
+> | Año 2 | 2030 | tranche-1 → tranche-2 |
+> | Año 3 | 2031 | tranche-2 |
+> | Año 4 | 2032 | tranche-2 |
+> | Año 5 | 2033 | tranche-2 cierre |
+> | Año 7 | 2035 | tranche-3 |
+> | Año 10 | 2038 | tranche-3 maduración |
+> | Año 15+ | 2043+ | Horizonte 2040 (Visión, no compromiso operativo) |
+>
+> **Reglas de tranche aplicadas:** "Tranche-2 = nodos de resiliencia + datos energéticos abiertos; sin reforma corporativa profunda en tranche-1/2; estatización generadoras diferida; transición acelerada → gradual con métricas"
+>
+> **Presupuesto canónico:** (tranche-2) — fuentes: F01 reasignación, F03 bonos largos, multilateral. **Future returns prohibidos como fuente activa de tranche-1.**
+>
+> **Instrumento legal:** (tranche-2). Reformas constitucionales **diferidas a horizonte 2040** por defecto.
 
 ---
 

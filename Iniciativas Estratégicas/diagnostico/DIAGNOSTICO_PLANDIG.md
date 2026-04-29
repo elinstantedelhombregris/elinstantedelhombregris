@@ -130,10 +130,11 @@ Source: `PLANDIG_Argentina_ES.md`
 2052:La Tribu coordina la gobernanza de ¡BASTA! a escala nacional. Cinco millones de argentinos participan activamente — deliberando en Paneles Ciudadanos, votando presupuestos participativos, fiscalizando la transparencia radical de las Empresas Bastardas, auditando los algoritmos del LANIA. La democracia argentina no se agota en una elección cada cuatro años. Vive cada día, en cada espacio de La Tribu, en cada decisión que el pueblo toma informado por la mejor inteligencia disponible — inteligencia que le pertenece.
 2054:El LANIA publica sus modelos como código abierto. Investigadores de toda América Latina usan el Modelo Educativo Argentino para mejorar sus sistemas educativos. El Modelo Legal Argentino se adapta al derecho brasileño, al chileno, al colombiano. Argentina exporta inteligencia artificial en español al mundo — no como producto de una corporación, sino como contribución a los commons globales. Los mejores investigadores de IA en español quieren trabajar en el LANIA — porque es donde se hace el trabajo más importante, con los datos más ricos, para el propósito más noble: que un continente entero se gobierne con inteligencia propia.
 2056:Marcos Ferreyra tiene 52 años. Ya no escribe código para una empresa de San Francisco — trabaja en el LANIA, en la división de IA para la Ciudadanía, construyendo herramientas que ayudan a la gente a entender sus derechos digitales. Lucía enseña con una plataforma educativa soberana que ella misma ayudó a diseñar — y que conoce a sus alumnos mejor de lo que Google jamás los conoció. Sol tiene 26 años; estudió ciencia de datos en la UTN y hace su doctorado en el LANIA sobre IA aplicada a la detección de contaminantes emergentes en agua — los datos de PLANAGUA procesados con los modelos del LANIA. Néstor tiene 85 años. Su historia clínica está en su Cofre Digital. Su PAMI funciona sobre infraestructura argentina. Sus datos de salud no viajan a Virginia — se quedan en Córdoba, en un datacenter que funciona donde antes había un taller ferroviario abandonado.
-2129:- Cloud soberano a escala / ArgenCloud completo.
-2130:- IA de frontera / IA generativa de Estado.
-2131:- SAPI completa.
-2135:- LANIA, El Mapa completos.
+2128:- Identidad biométrica masiva, "ciudadanía digital obligatoria", voto digital vinculante **eliminados de cualquier estadio**.
+2155:- Cloud soberano a escala / ArgenCloud completo.
+2156:- IA de frontera / IA generativa de Estado.
+2157:- SAPI completa.
+2161:- LANIA, El Mapa completos.
 ```
 
 ## Patrón 6 — Fechas relativas (Año X) en cronograma
@@ -180,4 +181,4 @@ Source: `PLANDIG_Argentina_ES.md`
 ## Patrón 8 — Lenguaje místico/espiritual en sección de plataforma pública
 (no findings)
 
-## Total findings: 151
+## Total findings: 152

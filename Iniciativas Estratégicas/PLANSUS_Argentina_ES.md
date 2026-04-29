@@ -24,6 +24,26 @@
 > **PIA gate:** ver `PIA/PLANSUS.md` si existe; este PLAN no avanza a piloto sin PIA aprobado donde aplica.
 >
 > **Opinión legal:** ver `LEGAL_OPINIONS/PLANSUS.md` si existe.
+>
+> **MARCO TEMPORAL CANÓNICO (REVISIÓN 2026-04-28):** este PLAN es **research-only** con entrada operativa en 2026-Q2. Todas las referencias "Año X" en el cuerpo del documento (cronogramas, tablas de inversión, metas de cobertura, planes de escalamiento, financial gap, fases) se anchorean según esta tabla:
+>
+> | Texto original | Ventana absoluta | Tranche |
+> |----------------|------------------|---------|
+> | Año 0 | 2026 | tranche-1 inicial |
+> | Año 1 | 2027 | tranche-1 |
+> | Año 2 | 2028 | tranche-1 → tranche-2 |
+> | Año 3 | 2029 | tranche-2 |
+> | Año 4 | 2030 | tranche-2 |
+> | Año 5 | 2031 | tranche-2 cierre |
+> | Año 7 | 2033 | tranche-3 |
+> | Año 10 | 2036 | tranche-3 maduración |
+> | Año 15+ | 2041+ | Horizonte 2040 (Visión, no compromiso operativo) |
+>
+> **Reglas de tranche aplicadas:** "Research-only / diferido en tranche-1/2/3; legalización plena eliminada de cualquier ventana; sin comercialización; reducción de daños bajo PLANSAL"
+>
+> **Presupuesto canónico:** research budget académico — fuentes: convenio universitario. **Future returns prohibidos como fuente activa de tranche-1.**
+>
+> **Instrumento legal:** (sin LMV). Reformas constitucionales **diferidas a horizonte 2040** por defecto.
 
 ---
 

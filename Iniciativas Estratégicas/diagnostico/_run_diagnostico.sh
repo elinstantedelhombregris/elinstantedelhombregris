@@ -61,7 +61,7 @@ fi
 # Patrón 6 — Fechas relativas en cronograma
 echo "## Patrón 6 — Fechas relativas (Año X) en cronograma" >> "$OUT"
 P6=$(grep -nE "Año [0-9]+" "$F" 2>/dev/null \
-  | grep -v "REVISIÓN\|anexo\|histórico\|2040\|hace [0-9]+ años\|antes del Año\|al año\|por año" || true)
+  | grep -v "REVISIÓN\|anexo\|histórico\|2040\|hace [0-9]+ años\|antes del Año\|al año\|por año\|MARCO TEMPORAL\|Texto original\|Ventana absoluta\|tranche-[123]\|Horizonte 2040\|VISIÓN\|Visión" || true)
 if [ -z "$P6" ]; then echo "(no findings)" >> "$OUT"; else echo '```' >> "$OUT"; echo "$P6" | head -30 >> "$OUT"; echo '```' >> "$OUT"; fi
 echo "" >> "$OUT"
 
