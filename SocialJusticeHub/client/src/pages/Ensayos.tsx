@@ -35,7 +35,7 @@ const Ensayos = () => {
             <p className="uppercase tracking-widest text-xs text-amber-300/80">Pensamiento</p>
             <h1 className="font-serif text-5xl md:text-6xl leading-tight">Ensayos</h1>
             <p className="text-lg text-mist-white/70 max-w-2xl">
-              Un cuaderno abierto del Hombre Gris. Acá se ensayan ideas, se discuten arquitecturas, y se busca la palabra justa antes de bajar al gesto. Empieza con siete piezas. Va a haber más.
+              Un cuaderno abierto del Hombre Gris. Acá se ensayan ideas, se discuten arquitecturas, y se busca la palabra justa antes de bajar al gesto. Dos ciclos hasta ahora: el primero diseña la arquitectura de la república; el segundo indaga las condiciones interiores que la hacen posible. Va a haber más.
             </p>
           </motion.header>
 

@@ -6,17 +6,27 @@ import { CARTOGRAFIA_HREF_MAP } from '../shared/ensayo-cartografia-map';
 
 const SCRIPT_DIR = import.meta.dirname;
 const REPO_ROOT = resolve(SCRIPT_DIR, '../..');
-const ENSAYOS_DIR = resolve(REPO_ROOT, 'Ensayos/castellano');
+const ENSAYOS_DIR = resolve(REPO_ROOT, 'Ensayos');
 const OUT_FILE = resolve(SCRIPT_DIR, '../client/src/content/ensayos.generated.ts');
 
+const CATEGORY_PRIMER = 'Sobre presidentes, democracia y la belleza';
+const CATEGORY_INDAGACIONES = 'Indagaciones — sobre las condiciones interiores de la república';
+
 const FILES: Array<{ order: number; file: string; slug: string; type: 'ensayo' | 'carta'; category: string }> = [
-  { order: 1, file: '01-presidencia.md', slug: 'presidencia',     type: 'ensayo', category: 'Sobre presidentes, democracia y la belleza' },
-  { order: 2, file: '02-democracia.md',  slug: 'democracia',       type: 'ensayo', category: 'Sobre presidentes, democracia y la belleza' },
-  { order: 3, file: '03-poder.md',       slug: 'poder',            type: 'ensayo', category: 'Sobre presidentes, democracia y la belleza' },
-  { order: 4, file: '04-arquitectura.md',slug: 'arquitectura',     type: 'ensayo', category: 'Sobre presidentes, democracia y la belleza' },
-  { order: 5, file: '05-soberania.md',   slug: 'soberania',        type: 'ensayo', category: 'Sobre presidentes, democracia y la belleza' },
-  { order: 6, file: '06-belleza.md',     slug: 'belleza',          type: 'ensayo', category: 'Sobre presidentes, democracia y la belleza' },
-  { order: 7, file: '07-carta.md',       slug: 'carta-al-nieto',   type: 'carta',  category: 'Sobre presidentes, democracia y la belleza' },
+  { order: 1, file: 'castellano/01-presidencia.md',  slug: 'presidencia',     type: 'ensayo', category: CATEGORY_PRIMER },
+  { order: 2, file: 'castellano/02-democracia.md',   slug: 'democracia',      type: 'ensayo', category: CATEGORY_PRIMER },
+  { order: 3, file: 'castellano/03-poder.md',        slug: 'poder',           type: 'ensayo', category: CATEGORY_PRIMER },
+  { order: 4, file: 'castellano/04-arquitectura.md', slug: 'arquitectura',    type: 'ensayo', category: CATEGORY_PRIMER },
+  { order: 5, file: 'castellano/05-soberania.md',    slug: 'soberania',       type: 'ensayo', category: CATEGORY_PRIMER },
+  { order: 6, file: 'castellano/06-belleza.md',      slug: 'belleza',         type: 'ensayo', category: CATEGORY_PRIMER },
+  { order: 7, file: 'castellano/07-carta.md',        slug: 'carta-al-nieto',  type: 'carta',  category: CATEGORY_PRIMER },
+  { order: 1, file: 'indagaciones/01-fabrica-obediencia.md',                slug: 'fabrica-obediencia',              type: 'ensayo', category: CATEGORY_INDAGACIONES },
+  { order: 2, file: 'indagaciones/02-caudillo-camino-sin-camino.md',        slug: 'caudillo-camino-sin-camino',      type: 'ensayo', category: CATEGORY_INDAGACIONES },
+  { order: 3, file: 'indagaciones/03-miedo-y-devenir.md',                   slug: 'miedo-y-devenir',                 type: 'ensayo', category: CATEGORY_INDAGACIONES },
+  { order: 4, file: 'indagaciones/04-libertad-de-lo-conocido.md',           slug: 'libertad-de-lo-conocido',         type: 'ensayo', category: CATEGORY_INDAGACIONES },
+  { order: 5, file: 'indagaciones/05-conocerse-sin-espejo.md',              slug: 'conocerse-sin-espejo',            type: 'ensayo', category: CATEGORY_INDAGACIONES },
+  { order: 6, file: 'indagaciones/06-amor-sin-apego.md',                    slug: 'amor-sin-apego',                  type: 'ensayo', category: CATEGORY_INDAGACIONES },
+  { order: 7, file: 'indagaciones/07-sensibilidad-como-infraestructura.md', slug: 'sensibilidad-como-infraestructura', type: 'ensayo', category: CATEGORY_INDAGACIONES },
 ];
 
 function decodeHtmlEntities(s: string): string {
@@ -160,7 +170,7 @@ function build(): Ensayo[] {
     const wordCount = countWords(bodyForRender);
     const readingMinutes = Math.max(1, Math.round(wordCount / 200));
 
-    const next = FILES.find((f) => f.order === meta.order + 1);
+    const next = FILES.find((f) => f.order === meta.order + 1 && f.category === meta.category);
     ensayos.push({
       slug: meta.slug,
       order: meta.order,
