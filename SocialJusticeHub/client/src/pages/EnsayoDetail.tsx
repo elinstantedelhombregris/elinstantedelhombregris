@@ -92,7 +92,7 @@ const EnsayoDetail = () => {
             </header>
 
             <div
-              className="prose prose-invert max-w-none font-serif prose-headings:font-serif prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4 prose-h3:text-xl prose-p:leading-[1.8] prose-p:text-mist-white/85 prose-em:text-amber-200/90 prose-strong:text-mist-white prose-blockquote:border-amber-300/40"
+              className="prose prose-invert max-w-none font-sans prose-headings:font-serif prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4 prose-h3:text-xl prose-p:text-[1.0625rem] prose-p:leading-[1.8] prose-p:text-mist-white/85 prose-em:text-amber-200/90 prose-em:font-serif prose-strong:text-mist-white prose-blockquote:font-serif prose-blockquote:border-amber-300/40"
               dangerouslySetInnerHTML={{ __html: ensayo.bodyHtml }}
             />
 
