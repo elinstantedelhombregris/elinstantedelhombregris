@@ -116,3 +116,39 @@ Escuchá.
 Quedate.
 
 El país lo hace eso, todos los días, en silencio, sin que nadie aplauda.
+
+---
+
+## Cartografía
+
+Este es el ensayo de cierre del segundo ciclo. La frase del título — *sensibilidad como infraestructura* — es el gesto sintético: lo que parecía adorno se nombra como obra pública. La cartografía siguiente es ancha, porque la atención cruza cada plan, cada página, cada práctica del proyecto.
+
+**En la plataforma.**
+
+- *Manifiesto del Hombre Gris* — el ciudadano atento como sustrato. Lo que la sección V llama "estado colectivo de atención", encarnado en la figura.
+- *La Visión* — la república sostenida por la sumatoria de atenciones. El marco sistémico para la frase de cierre.
+- *El Mandato Vivo* — el escuchar hecho infraestructura cívica: deliberación que no es turno de hablar, es turno de oír.
+- *Mandato Territorial* — la escala correcta llevada al barrio. La sección III sobre la naturaleza grande tiene su versión cívica en la escala local.
+- *Rutas de Transformación* — el cultivo paciente de la sensibilidad. Lo que la sección IV nombra como "trabajo paciente que casi nadie hace", hecho ruta disponible.
+- *Challenges* — actos cotidianos que suben, una unidad por vez, el océano del que habla la sección IV.
+- *Una Ruta para Argentina* — el país posible imaginado en concreto. La imagen final de la pampa al atardecer (sección VI), traducida al diseño.
+
+**En los planes estratégicos (¡BASTA!).**
+
+- *PLANCUL* (*Cultura Viva*) — la sensibilidad como política cultural. Rondas de Escucha, arte público, ritos compartidos: la frase del título hecha plan.
+- *PLANTER* (*Tierra, Subsuelo y Pueblos Originarios*) — la naturaleza grande reconocida como maestra y como infraestructura cívica, no como recurso. La sección III hecha política territorial.
+- *PLANISV* (*Suelo Vivo*) — la condición material de la sensibilidad: tierra que respira, ecosistema en función. Sin esto, la sensibilidad pierde su soporte concreto.
+- *PLANCUIDADO* — vínculo, escucha, atención al otro hechos infraestructura social. La sección II sobre escuchar como acto político tiene su forma sistémica acá.
+- *PLANSAL* — salud que incluye la quietud, el silencio, el estado de atención. La frase del título tomada también en el plano del cuerpo.
+
+**Documentos definitorios.**
+
+- *Persona del Hombre Gris* — la cualidad de atención hecha persona. La belleza interior de la sección IV no como concepto sino como voz.
+- *La belleza como acto político* — el cierre del primer ciclo. Este ensayo del segundo lo retoma desde otro ángulo: la belleza que la otra serie nombra como sustrato, esta la nombra como infraestructura.
+- *Carta al Nieto* — la herencia que la atención sostiene a través de las generaciones.
+
+**Continúa de / Cierra el segundo ciclo.**
+
+- *El amor sin apego* — el ensayo anterior; el amor sin propiedad es la sustancia. La sensibilidad es el sustrato sobre el que esa sustancia se sostiene en una población entera.
+- Todos los ensayos del segundo ciclo — el arco interior cerrado: educación, caudillo, miedo, herencia, autoconocimiento, amor, sensibilidad. Siete operaciones interiores que sostienen, en silencio, la arquitectura pública del primer ciclo.
+

@@ -124,3 +124,34 @@ La conversión es soltar al padre.
 Lo que queda después no es la nada.
 
 Es vos.
+
+---
+
+## Cartografía
+
+Este ensayo trabaja la dependencia argentina del redentor político. Donde el primer ciclo desarmó la silla — *Por qué los presidentes son una idea estúpida*, *La falacia de la democracia* —, este ensayo desarma la operación interior que produce, en cada generación, candidatos al cargo del salvador. La cartografía siguiente es densa: la pregunta por el padre toca casi cada pieza del proyecto.
+
+**En la plataforma.**
+
+- *La Visión* — la arquitectura sin cabeza. Donde la sección VI nombra "una comunidad de adultos que se administra a sí misma porque ya no espera que nadie venga a administrarla por ella", la versión sistémica de esa frase se desarrolla acá.
+- *El Mandato Vivo* — la práctica concreta de "qué tenemos que hacer nosotros" reemplazando a "quién nos va a salvar". La pregunta colectiva que la sección VI propone, hecha infraestructura cotidiana.
+- *Mandato Territorial* — la subsidiariedad llevada al barrio: la silla rota en mil sillas chicas, ninguna lo bastante grande como para contener un padre.
+- *La Semilla de ¡BASTA!* — el punto de entrada para el ciudadano que terminó este ensayo y se preguntó *¿con quién hago la operación?*
+
+**En los planes estratégicos (¡BASTA!).**
+
+- *PLANJUS* — justicia popular por sorteo: la silla del juez también desmesianizada, ocupada por ciudadanos comunes en lugar de figuras.
+- *PLANMESA* — mesa civil: cargos ejecutivos por auto-postulación y rotación, diseñados estructuralmente para que no quepa un padre.
+- *PLANEB* (*Empresas Bastardas*) — la propiedad cero llevada al ámbito económico. Si la patria no tiene dueño, la empresa tampoco lo necesita; misma operación, otro plano.
+- *PLANREP* — reconversión del empleo público: la maquinaria que producía cuadros leales pasa a producir funcionarios técnicos rotativos.
+
+**Documentos definitorios.**
+
+- *Manifiesto del Hombre Gris* — el ciudadano que ya no busca padre. La conversión silenciosa de la sección VI, hecha declaración pública.
+- *Persona del Hombre Gris* — la voz adulta de esa conversión, aplicada a lo largo del proyecto.
+
+**Continúa de / Continúa en.**
+
+- *La fábrica de obediencia* — el ensayo anterior; el alumno que aprendió a esperar permiso es el adulto que después busca padre. Una lección, dos vidas.
+- *El miedo y el devenir* — el siguiente ensayo. Cuando se suelta al padre aparece el terror sin red que la sección VI nombra. El tercer ensayo se ocupa de ese terror.
+

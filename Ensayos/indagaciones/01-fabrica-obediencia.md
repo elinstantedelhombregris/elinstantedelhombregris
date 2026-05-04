@@ -138,3 +138,31 @@ Una a una.
 Mirada por mirada.
 
 Pregunta por pregunta.
+
+---
+
+## Cartografía
+
+Este ensayo abre el segundo ciclo. Trabaja la condición interior — la facultad de mirar sin miedo — sin la cual ninguna arquitectura pública sostiene mucho. Las referencias acá son menos densas que en el primer ciclo, porque la materia es más fina y porque el chico que se rindió, dentro de cada lector, todavía está aprendiendo a levantar la mano.
+
+**En la plataforma.**
+
+- *Rutas de Transformación* — el reverso operativo de la fábrica: recorridos donde la pregunta del que aprende no es interrupción del guion sino el guion. La forma adulta del aula que la sección VI describe.
+- *Challenges* — la práctica modesta y repetida — un adulto, un día, una pregunta no contestada rápido — que la sección VI nombra como única salida posible.
+- *Manifiesto del Hombre Gris* — la figura adulta que decidió no reproducir la fábrica con los chicos que tiene cerca.
+
+**En los planes estratégicos (¡BASTA!).**
+
+- *PLANEDU* — el plan de refundación educativa. Lo que la sección VI sugiere como dirección — relación adulto-chico, error, pregunta, silencio, autoridad coherente — vive ahí en forma operativa.
+- *PLANCUIDADO* — el vínculo entre adultos y chicos rediseñado fuera de la lógica del miedo, dentro del hogar y de la escuela.
+- *PLANCUL* — Rondas de Escucha y formas culturales que practican el silencio sostenido y la pregunta no apurada — el músculo cívico que el aula apaga.
+
+**Documentos definitorios.**
+
+- *Persona del Hombre Gris* — el adulto que no archivó la pregunta a los catorce años, y que ahora, a los cuarenta, vuelve a hacérsela.
+- *Carta al Nieto* — el ensayo final del primer ciclo; la herencia escrita por un adulto que se animó a no reproducir lo que se reprodujo sobre él.
+
+**Continúa en.**
+
+- *El caudillo y el camino sin camino* — el alumno disciplinado, ya adulto, busca un padre político. El segundo ensayo trabaja esa búsqueda.
+

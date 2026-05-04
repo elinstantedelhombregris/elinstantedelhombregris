@@ -138,3 +138,34 @@ Volvé al cuerpo. Volvé al barrio. Volvé al oficio. Volvé a la cara que tené
 El laberinto no se sale por una puerta secreta.
 
 Se sale dándose cuenta de que el laberinto era el rato que perdiste buscándola.
+
+---
+
+## Cartografía
+
+Este ensayo trabaja la economía emocional del país: la inflación como pedagogía, el futuro condicional como hábito, la ambición como motor del laberinto. La cartografía siguiente conecta cada una de esas operaciones interiores con la versión operativa que el proyecto ya está construyendo.
+
+**En la plataforma.**
+
+- *Datos Abiertos / Explorar Datos* — la opacidad del futuro nombrada en la sección II, contestada con visibilidad radical de lo que efectivamente está pasando hoy. La pedagogía de la sospecha pierde fuerza cuando el dato deja de mentir.
+- *Áreas de Vida* — la invitación a habitar el escalón en el que estás (sección V) hecha estructura: doce áreas concretas donde se vuelve al cuerpo, al barrio, al oficio, en lugar de fugarse al próximo escenario.
+- *Rutas de Transformación* — el músculo del estar acá, reentrenado. Lo que la sección VI llama "un acto privado de presencia, repetido suficientes veces".
+- *Challenges* — actos pequeños en tiempo presente; la cura modesta que la sección VI describe.
+
+**En los planes estratégicos (¡BASTA!).**
+
+- *PLANMON* — soberanía monetaria. La respuesta operativa a la inflación como pedagogía. No corrige la huella emocional acumulada, pero detiene la clase diaria que la profundiza.
+- *PLANCUIDADO* — vínculo y cuidado en presente: lo opuesto de la ambición de figura nombrada en la sección IV.
+- *PLANCUL* (*Cultura Viva*) — cultura vivida ahora, en los espacios chicos, no performada para el próximo escalón.
+- *PLANTALLER* — el oficio bien hecho como antídoto al "ser alguien" en abstracto. El que vuelve al taller dejó de medirse contra el otro.
+
+**Documentos definitorios.**
+
+- *Manifiesto del Hombre Gris* — el ciudadano que dejó de vivir en futuro condicional.
+- *Carta al Nieto* — el legado de lo cumplido en el escalón propio, no de lo proyectado al escalón siguiente.
+
+**Continúa de / Continúa en.**
+
+- *El caudillo y el camino sin camino* — el ensayo anterior; soltar al padre destapa el miedo de fondo. Este ensayo se ocupa de ese miedo.
+- *La libertad de lo conocido* — el siguiente ensayo; con el miedo visto, el peso heredado se vuelve mirar.
+

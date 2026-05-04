@@ -116,3 +116,33 @@ Antes de votar, antes de opinar, antes de decir lo siguiente que vayas a decir �
 Y desde ahí, después, hablá.
 
 El país, pacientemente, espera el resultado.
+
+---
+
+## Cartografía
+
+Este es el ensayo bisagra del segundo ciclo. Sin la facultad que nombra — la atención sin interpretación, la soledad como facultad cívica, la mirada propia sin etiqueta — los demás ensayos son letra. La cartografía siguiente conecta esa operación íntima con los lugares del proyecto donde el ciudadano puede ejercitarla.
+
+**En la plataforma.**
+
+- *Áreas de Vida* — doce áreas, sesenta subcategorías. La invitación estructurada a observarse sin las etiquetas de bando, profesión o clase. La sección II desarmada en interfaz.
+- *Rutas de Transformación* — el entrenamiento paciente de la atención. Lo que la sección III distingue entre análisis y atención, hecho práctica sostenida.
+- *Challenges* — el músculo de la soledad activa, ejercitado en actos chicos: caminata sin auriculares, café sin teléfono, veinte minutos antes de dormir.
+- *Manifiesto del Hombre Gris* — la figura que aprendió a presentarse sin etiqueta, y por eso puede mirar al otro sin etiqueta.
+
+**En los planes estratégicos (¡BASTA!).**
+
+- *PLANSAL* (*Salud Integral y Vitalidad*) — salud que incluye la quietud interior, no solo la intervención clínica. La sección IV nombra la soledad activa como signo de salud; el plan la reconoce.
+- *PLANCUIDADO* — vínculo desde la atención, no desde la dependencia. La sección II distinguía el yo etiquetado del yo presente; el plan trabaja el segundo.
+- *PLANEDU* — atención formada desde el aula, no apagada. Lo que el primer ensayo de este ciclo nombró como ausencia, este plan lo trata como contenido central.
+
+**Documentos definitorios.**
+
+- *Persona del Hombre Gris* — la voz que se mira sin espejo. La cualidad descrita en la sección VI, hecha persona.
+- *La belleza como acto político* — el cierre del primer ciclo nombra la belleza interior como sustrato. Este ensayo del segundo ciclo nombra la atención que la produce. Las dos páginas se sostienen mutuamente.
+
+**Continúa de / Continúa en.**
+
+- *La libertad de lo conocido* — el ensayo anterior; con la herencia soltada, queda la pregunta por la mirada que mira sin filtro.
+- *El amor sin apego* — el siguiente ensayo. La atención sostenida hacia uno mismo es la condición para la atención sostenida hacia el otro. El amor real es lo que sigue.
+

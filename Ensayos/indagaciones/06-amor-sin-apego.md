@@ -120,3 +120,34 @@ Quedá.
 Trabajá lo que te toque, donde te toque.
 
 El país no se construye de otra manera.
+
+---
+
+## Cartografía
+
+Este ensayo trabaja la patria como bien común sin dueños y la militancia como dependencia disfrazada de amor. La cartografía siguiente conecta el "servir sin poseer" de la sección V con los lugares del proyecto donde esa forma de amor ya tiene estructura.
+
+**En la plataforma.**
+
+- *El Mandato Vivo* — la práctica cotidiana del servir sin propiedad: voz ciudadana, deliberación, decisión local, sin que el participante tenga que pertenecer a un bando para sostenerla.
+- *Mandato Territorial* — el barrio cuidado como bien común. La calle, la plaza, la escuela atendidas por personas que no son sus dueños y que por eso las cuidan mejor.
+- *Una Ruta para Argentina* — diseño compartido de país, no propiedad de bando. El ejercicio idealizado se hace, justamente, sin reclamarse para ninguna agrupación.
+- *Manifiesto del Hombre Gris* — el ciudadano que ama al país sin necesitar poseerlo.
+
+**En los planes estratégicos (¡BASTA!).**
+
+- *PLANEB* (*Empresas Bastardas*) — la propiedad cero hecha estructura económica. La sección IV ("la patria sin dueños") tiene su forma operativa en el ámbito empresarial: entidades sin propietarios, gobernadas a costo, imposibles de capturar.
+- *PLANMESA* (*Mesa Civil*) — cargos ejecutivos que no pertenecen a ningún partido, ocupados por ciudadanos que se postulan y rotan. La militancia como dependencia (sección II) pierde piso cuando los cargos no se reparten entre bandos.
+- *PLANJUS* — justicia popular por sorteo. Una justicia que no le pertenece a ningún bando, y por eso puede ser justa para todos.
+- *PLANTER* (*Tierra, Subsuelo y Pueblos Originarios*) — la tierra como bien común, no como propiedad fragmentada. La misma operación de la sección IV, en el plano territorial.
+
+**Documentos definitorios.**
+
+- *Persona del Hombre Gris* — la voz que sirve sin poseer. La sección V nombra a la "república invisible" sostenida por gente sin nombre; la persona es esa voz.
+- *La belleza como acto político* — el ensayo de cierre del primer ciclo nombra la belleza como acto sin propiedad. Este ensayo del segundo lo nombra como amor sin apego. Misma operación, dos vocabularios.
+
+**Continúa de / Continúa en.**
+
+- *Conocerse sin espejo* — el ensayo anterior; la atención hacia uno mismo es condición de la atención hacia el otro. El amor real depende de eso.
+- *La sensibilidad como infraestructura* — el siguiente y último ensayo. El amor sin apego es la sustancia; la sensibilidad es el sustrato sobre el cual esa sustancia puede sostenerse en una población entera.
+

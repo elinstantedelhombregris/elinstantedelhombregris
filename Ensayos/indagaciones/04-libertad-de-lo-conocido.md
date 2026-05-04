@@ -130,3 +130,33 @@ Soltala.
 Mirala desde afuera.
 
 Y desde afuera, recién, vas a poder mirarla como lo que es: un país que necesita ciudadanos vivos, no herederos cumpliendo sentencia.
+
+---
+
+## Cartografía
+
+Este ensayo trabaja el peso heredado: la nostalgia como ideología, la grieta como inheritance no examinada, el damnificado interno, la memoria sin identificación. La cartografía siguiente conecta esas operaciones con los lugares del proyecto donde la herencia se mira sin reproducirse.
+
+**En la plataforma.**
+
+- *Datos Abiertos / Explorar Datos* — la mitología nostálgica reemplazada por la radiografía sobria de lo que efectivamente pasa. El "antes era mejor" pierde piso cuando el dato presente está abierto.
+- *La Visión* — el país imaginado sin la lente del bando heredado; el ejercicio sostenido de pensar política sin filtro previo que la sección III propone.
+- *Una Ruta para Argentina* — el ejercicio de diseño idealizado: imaginar el país desde cero, sin restaurar lo perdido. La salida operativa de la nostalgia.
+- *El Mandato Vivo* — la voz ciudadana formada en presente, en el barrio, en lo concreto, no en la pelea heredada de los abuelos.
+
+**En los planes estratégicos (¡BASTA!).**
+
+- *PLANMEMORIA* (*Memoria Operativa*) — la memoria sin identificación de la sección V, hecha plan nacional. Recordar 1976, 2001, los planes fallidos, sin reproducirlos en la cabeza de los hijos.
+- *PLANCUL* (*Cultura Viva*) — cultura presente que no necesita la dulzura del velo nostálgico para sostenerse.
+- *PLANTER* (*Tierra, Subsuelo y Pueblos Originarios*) — memoria territorial verdadera, plural, no la mítica del país blanco europeo. La sección II desarmada también acá, en el plano de la tierra.
+
+**Documentos definitorios.**
+
+- *Manifiesto del Hombre Gris* — el ciudadano que dejó caer la herencia y descubrió, debajo, una mirada propia (sección VI).
+- *Persona del Hombre Gris* — la voz adulta que ya no acumula agravio como identidad.
+
+**Continúa de / Continúa en.**
+
+- *El miedo y el devenir* — el ensayo anterior; con el miedo visto, conviene mirar el peso heredado que lo alimenta.
+- *Conocerse sin espejo* — el siguiente ensayo. Soltar la herencia abre la pregunta por quién queda. El quinto ensayo trabaja esa pregunta.
+

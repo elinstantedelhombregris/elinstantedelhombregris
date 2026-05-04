@@ -1,5 +1,6 @@
 export const CARTOGRAFIA_HREF_MAP: Record<string, string> = {
   'El Manifiesto del Hombre Gris': '/manifiesto',
+  'Manifiesto del Hombre Gris': '/manifiesto',
   'Manifiesto': '/manifiesto',
   'La Visión': '/la-vision',
   'El Mandato Vivo': '/el-mandato-vivo',
@@ -24,4 +25,11 @@ export const CARTOGRAFIA_HREF_MAP: Record<string, string> = {
   'La soberanía del hombre gris': '/recursos/ensayos/soberania',
   'La belleza como acto político': '/recursos/ensayos/belleza',
   'Carta al Nieto': '/recursos/ensayos/carta-al-nieto',
+  'La fábrica de obediencia': '/recursos/ensayos/fabrica-obediencia',
+  'El caudillo y el camino sin camino': '/recursos/ensayos/caudillo-camino-sin-camino',
+  'El miedo y el devenir': '/recursos/ensayos/miedo-y-devenir',
+  'La libertad de lo conocido': '/recursos/ensayos/libertad-de-lo-conocido',
+  'Conocerse sin espejo': '/recursos/ensayos/conocerse-sin-espejo',
+  'El amor sin apego': '/recursos/ensayos/amor-sin-apego',
+  'La sensibilidad como infraestructura': '/recursos/ensayos/sensibilidad-como-infraestructura',
 };
