@@ -1,5 +1,4 @@
 import dotenv from 'dotenv';
-import crypto from 'crypto';
 
 // Load environment variables
 dotenv.config();
@@ -63,16 +62,14 @@ function isProductionLikeEnv() {
   return nodeEnv === 'production' || Boolean(process.env.VERCEL);
 }
 
-function ensureSecret(envKey: 'JWT_SECRET' | 'SESSION_SECRET') {
+function assertStrongSecret(envKey: 'JWT_SECRET' | 'SESSION_SECRET') {
   const current = process.env[envKey];
-  if (current && current.length >= 32) return;
-
-  const replacement = crypto.randomBytes(32).toString('hex'); // 64 chars
-  process.env[envKey] = replacement;
-  console.warn(
-    `[config] ${envKey} missing/weak; generated an ephemeral secret. ` +
-      `Set ${envKey} in your environment for stable auth/session behavior.`
-  );
+  if (!current || current.length < 32) {
+    throw new Error(
+      `[config] ${envKey} is required and must be at least 32 characters. ` +
+      `Set it in the deployment environment before booting.`
+    );
+  }
 }
 
 function validateConfig(): Config {
@@ -81,27 +78,8 @@ function validateConfig(): Config {
     'SESSION_SECRET'
   ];
   
-  const missingVars = requiredEnvVars.filter(varName => !process.env[varName]);
-  
-  if (missingVars.length > 0) {
-    if (isProductionLikeEnv()) {
-      // On Vercel (or production-like) we prefer to serve the app rather than hard-crash.
-      // Auth/session will be unstable until the secrets are configured.
-      for (const varName of missingVars) {
-        ensureSecret(varName as 'JWT_SECRET' | 'SESSION_SECRET');
-      }
-    } else {
-      throw new Error(`Missing required environment variables: ${missingVars.join(', ')}`);
-    }
-  }
-  
-  // Validate JWT secret strength
-  if (process.env.JWT_SECRET!.length < 32) {
-    if (isProductionLikeEnv()) {
-      ensureSecret('JWT_SECRET');
-    } else {
-      throw new Error('JWT_SECRET must be at least 32 characters long');
-    }
+  for (const varName of requiredEnvVars) {
+    assertStrongSecret(varName as 'JWT_SECRET' | 'SESSION_SECRET');
   }
 
   const defaultCorsOrigin = isProductionLikeEnv()
