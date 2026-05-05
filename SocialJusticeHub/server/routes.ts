@@ -125,12 +125,16 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.use('/api', generalRateLimit);
 
   // Health check endpoint
-  app.get('/api/health', (req, res) => {
-    res.json({ 
-      status: 'ok', 
-      timestamp: new Date().toISOString(),
-      uptime: process.uptime()
-    });
+  app.get('/api/health', async (_req, res) => {
+    try {
+      const start = Date.now();
+      await db.execute(drizzleSql`SELECT 1`);
+      const dbLatencyMs = Date.now() - start;
+      res.status(200).json({ status: 'ok', dbLatencyMs });
+    } catch (error) {
+      console.error('[health] DB check failed:', error);
+      res.status(503).json({ status: 'degraded', reason: 'database_unreachable' });
+    }
   });
 
   // Test database endpoint
