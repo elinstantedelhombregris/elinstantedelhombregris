@@ -277,7 +277,7 @@ export interface IStorage {
   useBackupCode(userId: number, codeIndex: number): Promise<void>;
   
   // Dreams
-  getDreams(): Promise<Dream[]>;
+  getDreams(opts?: { limit?: number; offset?: number }): Promise<Dream[]>;
   getDreamsByUser(userId: number): Promise<Dream[]>;
   createDream(dream: InsertDream): Promise<Dream>;
 
@@ -300,7 +300,7 @@ export interface IStorage {
   activateSuggestion(id: number, userId: number, initiativeId: number): Promise<MandateSuggestion | undefined>;
 
   // Community Posts
-  getCommunityPosts(type?: string): Promise<CommunityPost[]>;
+  getCommunityPosts(type?: string, opts?: { limit?: number; offset?: number }): Promise<CommunityPost[]>;
   getCommunityPostById(id: number): Promise<CommunityPost | undefined>;
   createCommunityPost(post: InsertCommunityPost): Promise<CommunityPost>;
   updateCommunityPost(id: number, updates: Partial<InsertCommunityPost>, userId: number): Promise<CommunityPost | undefined>;
@@ -648,8 +648,9 @@ export class MemStorage implements Partial<IStorage> {
   }
   
   // Dreams methods
-  async getDreams(): Promise<Dream[]> {
-    return Array.from(this.dreams.values());
+  async getDreams({ limit = 20, offset = 0 }: { limit?: number; offset?: number } = {}): Promise<Dream[]> {
+    const all = Array.from(this.dreams.values());
+    return all.slice(offset, offset + limit);
   }
   
   async getDreamsByUser(userId: number): Promise<Dream[]> {
@@ -706,12 +707,12 @@ export class MemStorage implements Partial<IStorage> {
   async activateSuggestion(): Promise<MandateSuggestion | undefined> { return undefined; }
 
   // Community Posts methods
-  async getCommunityPosts(type?: string): Promise<CommunityPost[]> {
-    const posts = Array.from(this.communityPosts.values());
+  async getCommunityPosts(type?: string, { limit = 20, offset = 0 }: { limit?: number; offset?: number } = {}): Promise<CommunityPost[]> {
+    let posts = Array.from(this.communityPosts.values());
     if (type && type !== 'all') {
-      return posts.filter(post => post.type === type);
+      posts = posts.filter(post => post.type === type);
     }
-    return posts;
+    return posts.slice(offset, offset + limit);
   }
   
   async getCommunityPostById(id: number): Promise<CommunityPost | undefined> {
@@ -1536,8 +1537,8 @@ export class DatabaseStorage implements IStorage {
   }
   
   // Dreams methods
-  async getDreams(): Promise<Dream[]> {
-    return await db.select().from(dreams).orderBy(desc(dreams.createdAt));
+  async getDreams({ limit = 20, offset = 0 }: { limit?: number; offset?: number } = {}): Promise<Dream[]> {
+    return await db.select().from(dreams).orderBy(desc(dreams.createdAt)).limit(limit).offset(offset);
   }
   
   async getDreamsByUser(userId: number): Promise<Dream[]> {
@@ -1640,11 +1641,18 @@ export class DatabaseStorage implements IStorage {
   }
 
   // Community Posts methods
-  async getCommunityPosts(type?: string): Promise<CommunityPost[]> {
+  async getCommunityPosts(type?: string, { limit = 20, offset = 0 }: { limit?: number; offset?: number } = {}): Promise<CommunityPost[]> {
     if (type && type !== 'all') {
-      return await db.select().from(communityPosts).where(eq(communityPosts.type, type));
+      return await db.select().from(communityPosts)
+        .where(eq(communityPosts.type, type))
+        .orderBy(desc(communityPosts.createdAt))
+        .limit(limit)
+        .offset(offset);
     }
-    return await db.select().from(communityPosts).orderBy(desc(communityPosts.createdAt));
+    return await db.select().from(communityPosts)
+      .orderBy(desc(communityPosts.createdAt))
+      .limit(limit)
+      .offset(offset);
   }
   
   async getCommunityPostById(id: number): Promise<CommunityPost | undefined> {

@@ -178,7 +178,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Get all dreams
   app.get("/api/dreams", publicReadRateLimit, optionalAuth, async (req: AuthRequest, res) => {
     try {
-      const dreams = await storage.getDreams();
+      const { limit, offset } = parsePagination(req);
+      const dreams = await storage.getDreams({ limit, offset });
       res.json(dreams);
     } catch (error) {
       res.status(500).json({ message: "Failed to fetch dreams" });
@@ -802,8 +803,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const type = req.query.type as string | undefined;
       const search = req.query.search as string | undefined;
       const category = req.query.category as string | undefined;
+      const { limit, offset } = parsePagination(req);
 
-      let posts = await storage.getCommunityPosts(type);
+      let posts = await storage.getCommunityPosts(type, { limit, offset });
       
       // Apply search filter if provided
       if (search) {
