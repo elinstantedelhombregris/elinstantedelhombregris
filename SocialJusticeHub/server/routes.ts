@@ -1,6 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
+import { parsePagination } from './lib/pagination';
 import advancedAuthRoutes from './routes-advanced-auth';
 import { registerInitiativeRoutes } from './routes-initiatives';
 import { registerCourseRoutes } from './routes-courses';
@@ -1968,15 +1969,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.get("/api/community/:postId/messages", async (req, res) => {
     try {
       const { postId } = req.params;
-      const { limit, offset } = req.query;
       const id = parseInt(postId);
-      
+
       if (isNaN(id)) {
         return res.status(400).json({ message: "Invalid post ID" });
       }
 
-      const limitNum = limit ? parseInt(limit as string) : 50;
-      const offsetNum = offset ? parseInt(offset as string) : 0;
+      const { limit: limitNum, offset: offsetNum } = parsePagination(req);
 
       const messages = await storage.getInitiativeMessages(id, limitNum, offsetNum);
       const messagesWithUsers = await Promise.all(messages.map(async (msg) => {
@@ -2036,9 +2035,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Activity Feed Endpoints
   app.get("/api/activity-feed", async (req, res) => {
     try {
-      const { type, limit, offset } = req.query;
-      const limitNum = limit ? parseInt(limit as string) : 20;
-      const offsetNum = offset ? parseInt(offset as string) : 0;
+      const { type } = req.query;
+      const { limit: limitNum, offset: offsetNum } = parsePagination(req);
 
       const feed = await storage.getActivityFeed({
         type: type as string,
@@ -4471,17 +4469,18 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Search posts
   app.get("/api/blog/search", async (req, res) => {
     try {
-      const { q: query, type, category, page = '1', limit = '10' } = req.query;
-      
+      const { q: query, type, category } = req.query;
+      const { limit, page } = parsePagination(req);
+
       if (!query || query.toString().trim().length < 2) {
         return res.status(400).json({ message: "Query debe tener al menos 2 caracteres" });
       }
-      
+
       const results = await storage.searchPosts(query as string, {
         type: type as string,
         category: category as string,
-        page: parseInt(page as string),
-        limit: parseInt(limit as string)
+        page: page ?? 1,
+        limit
       });
       
       res.json(results);
@@ -4494,8 +4493,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Get trending posts
   app.get("/api/blog/trending", async (req, res) => {
     try {
-      const { days = '7', limit = '10' } = req.query;
-      const posts = await storage.getTrendingPosts(parseInt(days as string), parseInt(limit as string));
+      const { days = '7' } = req.query;
+      const { limit } = parsePagination(req);
+      const posts = await storage.getTrendingPosts(parseInt(days as string), limit);
       
       res.json(posts);
     } catch (error) {
@@ -4508,8 +4508,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.get("/api/blog/posts/:id/related", async (req, res) => {
     try {
       const { id } = req.params;
-      const { limit = '4' } = req.query;
-      const posts = await storage.getRelatedPosts(parseInt(id), parseInt(limit as string));
+      const { limit } = parsePagination(req);
+      const posts = await storage.getRelatedPosts(parseInt(id), limit);
       
       res.json(posts);
     } catch (error) {
@@ -4521,8 +4521,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Get popular tags
   app.get("/api/blog/tags/popular", async (req, res) => {
     try {
-      const { limit = '20' } = req.query;
-      const tags = await storage.getPopularTags(parseInt(limit as string));
+      const { limit } = parsePagination(req);
+      const tags = await storage.getPopularTags(limit);
       
       res.json(tags);
     } catch (error) {
@@ -4536,14 +4536,15 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Get all inspiring stories with optional filters
   app.get("/api/stories", async (req, res) => {
     try {
-      const { category, status, featured, limit, offset } = req.query;
-      
+      const { category, status, featured } = req.query;
+      const { limit, offset } = parsePagination(req);
+
       const filters: any = {};
       if (category) filters.category = category as string;
       if (status) filters.status = status as string;
       if (featured !== undefined) filters.featured = featured === 'true';
-      if (limit) filters.limit = parseInt(limit as string);
-      if (offset) filters.offset = parseInt(offset as string);
+      filters.limit = limit;
+      filters.offset = offset;
       
       const stories = await storage.getInspiringStories(filters);
       

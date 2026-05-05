@@ -1,6 +1,7 @@
 import type { Express } from "express";
 import { storage } from "./storage";
 import { authenticateToken, optionalAuth, type AuthRequest } from './auth';
+import { parsePagination } from './lib/pagination';
 
 export function registerCourseRoutes(app: Express) {
   // ==================== COURSE ENDPOINTS ====================
@@ -11,8 +12,8 @@ export function registerCourseRoutes(app: Express) {
       const category = req.query.category as string | undefined;
       const level = req.query.level as string | undefined;
       const search = req.query.search as string | undefined;
-      const page = req.query.page ? parseInt(req.query.page as string) : 1;
-      const limit = req.query.limit ? parseInt(req.query.limit as string) : 12;
+      const { limit, page: parsedPage } = parsePagination(req);
+      const page = parsedPage ?? 1;
       const sortBy = req.query.sortBy as string | undefined;
       // Only filter by featured if explicitly provided in query
       const featured = req.query.featured !== undefined ? req.query.featured === 'true' : undefined;
