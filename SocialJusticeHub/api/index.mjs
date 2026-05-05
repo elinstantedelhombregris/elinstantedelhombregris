@@ -3070,7 +3070,6 @@ var init_db = __esm({
     if (!databaseUrl) {
       throw new Error("DATABASE_URL is required. Set it to your Neon connection string.");
     }
-    console.log("Connecting to Neon Postgres...");
     sql2 = neon(databaseUrl);
     db = drizzle(sql2, { schema: schema_exports });
   }
@@ -3078,41 +3077,25 @@ var init_db = __esm({
 
 // server/config.ts
 import dotenv from "dotenv";
-import crypto from "crypto";
 function isProductionLikeEnv() {
   const nodeEnv = process.env.NODE_ENV || "development";
   return nodeEnv === "production" || Boolean(process.env.VERCEL);
 }
-function ensureSecret(envKey) {
+function assertStrongSecret(envKey) {
   const current = process.env[envKey];
-  if (current && current.length >= 32) return;
-  const replacement = crypto.randomBytes(32).toString("hex");
-  process.env[envKey] = replacement;
-  console.warn(
-    `[config] ${envKey} missing/weak; generated an ephemeral secret. Set ${envKey} in your environment for stable auth/session behavior.`
-  );
+  if (!current || current.length < 32) {
+    throw new Error(
+      `[config] ${envKey} is required and must be at least 32 characters. Set it in the deployment environment before booting.`
+    );
+  }
 }
 function validateConfig() {
   const requiredEnvVars = [
     "JWT_SECRET",
     "SESSION_SECRET"
   ];
-  const missingVars = requiredEnvVars.filter((varName) => !process.env[varName]);
-  if (missingVars.length > 0) {
-    if (isProductionLikeEnv()) {
-      for (const varName of missingVars) {
-        ensureSecret(varName);
-      }
-    } else {
-      throw new Error(`Missing required environment variables: ${missingVars.join(", ")}`);
-    }
-  }
-  if (process.env.JWT_SECRET.length < 32) {
-    if (isProductionLikeEnv()) {
-      ensureSecret("JWT_SECRET");
-    } else {
-      throw new Error("JWT_SECRET must be at least 32 characters long");
-    }
+  for (const varName of requiredEnvVars) {
+    assertStrongSecret(varName);
   }
   const defaultCorsOrigin = isProductionLikeEnv() ? process.env.CORS_ORIGIN || "https://elinstantedelhombregris.com" : "http://localhost:5173";
   return {
@@ -7487,8 +7470,8 @@ var init_storage = __esm({
         }).where(eq2(users.id, userId));
       }
       // Dreams methods
-      async getDreams() {
-        return await db.select().from(dreams).orderBy(desc2(dreams.createdAt));
+      async getDreams({ limit = 20, offset = 0 } = {}) {
+        return await db.select().from(dreams).orderBy(desc2(dreams.createdAt)).limit(limit).offset(offset);
       }
       async getDreamsByUser(userId) {
         return await db.select().from(dreams).where(eq2(dreams.userId, userId));
@@ -7558,11 +7541,11 @@ var init_storage = __esm({
         return updated;
       }
       // Community Posts methods
-      async getCommunityPosts(type) {
+      async getCommunityPosts(type, { limit = 20, offset = 0 } = {}) {
         if (type && type !== "all") {
-          return await db.select().from(communityPosts).where(eq2(communityPosts.type, type));
+          return await db.select().from(communityPosts).where(eq2(communityPosts.type, type)).orderBy(desc2(communityPosts.createdAt)).limit(limit).offset(offset);
         }
-        return await db.select().from(communityPosts).orderBy(desc2(communityPosts.createdAt));
+        return await db.select().from(communityPosts).orderBy(desc2(communityPosts.createdAt)).limit(limit).offset(offset);
       }
       async getCommunityPostById(id) {
         const [post] = await db.select().from(communityPosts).where(eq2(communityPosts.id, id));
@@ -8948,7 +8931,6 @@ var init_storage = __esm({
           type: communityPosts.type,
           location: communityPosts.location,
           status: communityPosts.status,
-          likesCount: communityPosts.likesCount,
           createdAt: communityPosts.createdAt
         }).from(communityPosts).where(and2(
           eq2(communityPosts.userId, user.id),
@@ -9370,6 +9352,10 @@ var init_storage = __esm({
           userId
         }).returning();
         return notification;
+      }
+      async createNotificationsBatch(items) {
+        if (items.length === 0) return [];
+        return await db.insert(notifications).values(items).returning();
       }
       // ==================== COURSE METHODS ====================
       // Courses
@@ -11101,11 +11087,36 @@ import express from "express";
 init_storage();
 import { createServer } from "http";
 
+// server/lib/pagination.ts
+import { z as z2 } from "zod";
+var ABSOLUTE_MAX_LIMIT = 100;
+var ABSOLUTE_MAX_OFFSET = 1e4;
+var ABSOLUTE_MAX_PAGE = 500;
+function parsePagination(req, opts = {}) {
+  const maxLimit = Math.min(opts.maxLimit ?? ABSOLUTE_MAX_LIMIT, ABSOLUTE_MAX_LIMIT);
+  const defaultLimit = Math.min(opts.defaultLimit ?? 20, maxLimit);
+  const schema = z2.object({
+    // Out-of-range numeric limit is clamped to maxLimit; non-numeric falls back to defaultLimit.
+    limit: z2.coerce.number().int().catch(defaultLimit).transform((v) => Math.min(Math.max(v, 1), maxLimit)),
+    offset: z2.coerce.number().int().min(0).max(ABSOLUTE_MAX_OFFSET).catch(0),
+    page: z2.coerce.number().int().min(1).max(ABSOLUTE_MAX_PAGE).optional().catch(void 0)
+  });
+  const result = schema.safeParse(req.query);
+  if (!result.success) {
+    return { limit: defaultLimit, offset: 0 };
+  }
+  const { limit, offset, page } = result.data;
+  if (page !== void 0) {
+    return { limit, offset: (page - 1) * limit, page };
+  }
+  return { limit, offset };
+}
+
 // server/routes-advanced-auth.ts
 init_storage();
 init_auth();
 import { Router } from "express";
-import crypto3 from "crypto";
+import crypto2 from "crypto";
 
 // server/email.ts
 import { Resend } from "resend";
@@ -11451,7 +11462,7 @@ var emailService = new EmailService();
 // server/two-factor.ts
 import * as speakeasy from "speakeasy";
 import * as QRCode from "qrcode";
-import crypto2 from "crypto";
+import crypto from "crypto";
 var TwoFactorAuth = class {
   /**
    * Genera un secreto para 2FA
@@ -11496,7 +11507,7 @@ var TwoFactorAuth = class {
   static generateBackupCodes(count3 = 10) {
     const codes = [];
     for (let i = 0; i < count3; i++) {
-      const code = crypto2.randomBytes(5).toString("hex").toUpperCase();
+      const code = crypto.randomBytes(5).toString("hex").toUpperCase();
       codes.push(code);
     }
     return codes;
@@ -11518,7 +11529,7 @@ var TwoFactorAuth = class {
 };
 
 // server/routes-advanced-auth.ts
-import { z as z2 } from "zod";
+import { z as z3 } from "zod";
 var router = Router();
 router.post("/send-verification", authenticateToken, async (req, res) => {
   try {
@@ -11535,7 +11546,7 @@ router.post("/send-verification", authenticateToken, async (req, res) => {
         message: "El email ya est\xE1 verificado"
       });
     }
-    const token = crypto3.randomBytes(32).toString("hex");
+    const token = crypto2.randomBytes(32).toString("hex");
     const expires = /* @__PURE__ */ new Date();
     expires.setHours(expires.getHours() + 24);
     await storage.setEmailVerificationToken(user.id, token, expires);
@@ -11562,8 +11573,8 @@ router.post("/send-verification", authenticateToken, async (req, res) => {
 });
 router.post("/verify-email", async (req, res) => {
   try {
-    const schema = z2.object({
-      token: z2.string().min(1, "Token es requerido")
+    const schema = z3.object({
+      token: z3.string().min(1, "Token es requerido")
     });
     const { token } = schema.parse(req.body);
     const user = await storage.verifyEmail(token);
@@ -11584,7 +11595,7 @@ router.post("/verify-email", async (req, res) => {
       }
     });
   } catch (error) {
-    if (error instanceof z2.ZodError) {
+    if (error instanceof z3.ZodError) {
       return res.status(400).json({
         error: "Validation error",
         message: "Datos de entrada inv\xE1lidos",
@@ -11600,8 +11611,8 @@ router.post("/verify-email", async (req, res) => {
 });
 router.post("/forgot-password", async (req, res) => {
   try {
-    const schema = z2.object({
-      email: z2.string().email("Email inv\xE1lido")
+    const schema = z3.object({
+      email: z3.string().email("Email inv\xE1lido")
     });
     const { email } = schema.parse(req.body);
     const user = await storage.getUserByEmail(email);
@@ -11610,7 +11621,7 @@ router.post("/forgot-password", async (req, res) => {
         message: "Si el email existe, recibir\xE1s instrucciones para restablecer tu contrase\xF1a"
       });
     }
-    const token = crypto3.randomBytes(32).toString("hex");
+    const token = crypto2.randomBytes(32).toString("hex");
     const expires = /* @__PURE__ */ new Date();
     expires.setHours(expires.getHours() + 1);
     await storage.setPasswordResetToken(user.id, token, expires);
@@ -11627,7 +11638,7 @@ router.post("/forgot-password", async (req, res) => {
       });
     }
   } catch (error) {
-    if (error instanceof z2.ZodError) {
+    if (error instanceof z3.ZodError) {
       return res.status(400).json({
         error: "Validation error",
         message: "Email inv\xE1lido",
@@ -11643,9 +11654,9 @@ router.post("/forgot-password", async (req, res) => {
 });
 router.post("/reset-password", async (req, res) => {
   try {
-    const schema = z2.object({
-      token: z2.string().min(1, "Token es requerido"),
-      newPassword: z2.string().min(8, "La contrase\xF1a debe tener al menos 8 caracteres").regex(
+    const schema = z3.object({
+      token: z3.string().min(1, "Token es requerido"),
+      newPassword: z3.string().min(8, "La contrase\xF1a debe tener al menos 8 caracteres").regex(
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>])/,
         "La contrase\xF1a debe contener may\xFAsculas, min\xFAsculas, n\xFAmeros y caracteres especiales"
       )
@@ -11664,7 +11675,7 @@ router.post("/reset-password", async (req, res) => {
       message: "Contrase\xF1a restablecida exitosamente"
     });
   } catch (error) {
-    if (error instanceof z2.ZodError) {
+    if (error instanceof z3.ZodError) {
       return res.status(400).json({
         error: "Validation error",
         message: "Datos de entrada inv\xE1lidos",
@@ -11718,10 +11729,10 @@ router.post("/2fa/setup", authenticateToken, async (req, res) => {
 });
 router.post("/2fa/enable", authenticateToken, async (req, res) => {
   try {
-    const schema = z2.object({
-      secret: z2.string().min(1, "Secret es requerido"),
-      token: z2.string().length(6, "Token debe tener 6 d\xEDgitos"),
-      backupCodes: z2.array(z2.string())
+    const schema = z3.object({
+      secret: z3.string().min(1, "Secret es requerido"),
+      token: z3.string().length(6, "Token debe tener 6 d\xEDgitos"),
+      backupCodes: z3.array(z3.string())
     });
     const { secret, token, backupCodes } = schema.parse(req.body);
     const isValid = TwoFactorAuth.verifyToken(secret, token);
@@ -11742,7 +11753,7 @@ router.post("/2fa/enable", authenticateToken, async (req, res) => {
       // Return unhashed codes for user to save
     });
   } catch (error) {
-    if (error instanceof z2.ZodError) {
+    if (error instanceof z3.ZodError) {
       return res.status(400).json({
         error: "Validation error",
         message: "Datos de entrada inv\xE1lidos",
@@ -11758,9 +11769,9 @@ router.post("/2fa/enable", authenticateToken, async (req, res) => {
 });
 router.post("/2fa/verify", authenticateToken, async (req, res) => {
   try {
-    const schema = z2.object({
-      token: z2.string().length(6, "Token debe tener 6 d\xEDgitos"),
-      useBackupCode: z2.boolean().optional()
+    const schema = z3.object({
+      token: z3.string().length(6, "Token debe tener 6 d\xEDgitos"),
+      useBackupCode: z3.boolean().optional()
     });
     const { token, useBackupCode } = schema.parse(req.body);
     const secret = await storage.get2FASecret(req.user.userId);
@@ -11798,7 +11809,7 @@ router.post("/2fa/verify", authenticateToken, async (req, res) => {
       verified: true
     });
   } catch (error) {
-    if (error instanceof z2.ZodError) {
+    if (error instanceof z3.ZodError) {
       return res.status(400).json({
         error: "Validation error",
         message: "Datos de entrada inv\xE1lidos",
@@ -11814,8 +11825,8 @@ router.post("/2fa/verify", authenticateToken, async (req, res) => {
 });
 router.post("/2fa/disable", authenticateToken, async (req, res) => {
   try {
-    const schema = z2.object({
-      password: z2.string().min(1, "Contrase\xF1a es requerida")
+    const schema = z3.object({
+      password: z3.string().min(1, "Contrase\xF1a es requerida")
     });
     const { password } = schema.parse(req.body);
     const user = await storage.getUser(req.user.userId);
@@ -11842,7 +11853,7 @@ router.post("/2fa/disable", authenticateToken, async (req, res) => {
       message: "2FA deshabilitado exitosamente"
     });
   } catch (error) {
-    if (error instanceof z2.ZodError) {
+    if (error instanceof z3.ZodError) {
       return res.status(400).json({
         error: "Validation error",
         message: "Datos de entrada inv\xE1lidos",
@@ -11862,7 +11873,7 @@ var routes_advanced_auth_default = router;
 init_storage();
 init_auth();
 init_schema();
-import { z as z3 } from "zod";
+import { z as z4 } from "zod";
 function parseId(value) {
   const id = Number.parseInt(value, 10);
   return Number.isNaN(id) ? null : id;
@@ -11889,7 +11900,7 @@ function registerInitiativeRoutes(app2) {
         await storage.updateMilestone(milestoneId, updates);
         res.json({ message: "Milestone updated" });
       } catch (error) {
-        if (error instanceof z3.ZodError) {
+        if (error instanceof z4.ZodError) {
           return res.status(400).json({
             error: "Validation error",
             details: error.errors
@@ -11920,7 +11931,7 @@ function registerInitiativeRoutes(app2) {
         await storage.updateTask(taskId, updates);
         res.json({ message: "Task updated" });
       } catch (error) {
-        if (error instanceof z3.ZodError) {
+        if (error instanceof z4.ZodError) {
           return res.status(400).json({
             error: "Validation error",
             details: error.errors
@@ -11976,8 +11987,8 @@ function registerCourseRoutes(app2) {
       const category = req.query.category;
       const level = req.query.level;
       const search = req.query.search;
-      const page = req.query.page ? parseInt(req.query.page) : 1;
-      const limit = req.query.limit ? parseInt(req.query.limit) : 12;
+      const { limit, page: parsedPage } = parsePagination(req);
+      const page = parsedPage ?? 1;
       const sortBy = req.query.sortBy;
       const featured = req.query.featured !== void 0 ? req.query.featured === "true" : void 0;
       const result = await storage.getCourses({
@@ -15724,13 +15735,256 @@ function registerCoachingRoutes(app2) {
 init_db();
 init_schema();
 import { eq as eq9, and as and8, isNull as isNull2, or as or3, sql as sql7 } from "drizzle-orm";
-import rateLimit from "express-rate-limit";
+import rateLimit2 from "express-rate-limit";
 import { stringify } from "csv-stringify/sync";
 import initSqlJs from "sql.js";
 import archiver from "archiver";
 import { PassThrough } from "stream";
 import { readFileSync } from "fs";
 import { createRequire } from "module";
+
+// server/middleware.ts
+init_config();
+import rateLimit from "express-rate-limit";
+import helmet from "helmet";
+import cors from "cors";
+function securityHeaders() {
+  const backendOrigin = `http://localhost:${config.server.port}`;
+  const frontendOrigin = config.cors.origin.split(",")[0].trim();
+  const isDevelopment = config.server.nodeEnv === "development";
+  const connectSrc = [
+    "'self'",
+    backendOrigin,
+    "http://localhost:*",
+    "ws://localhost:*",
+    "https://cdn.jsdelivr.net",
+    "https://unpkg.com"
+  ];
+  if (frontendOrigin && frontendOrigin !== "*") {
+    connectSrc.splice(2, 0, frontendOrigin);
+  }
+  return helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://unpkg.com"],
+        // Always allow unpkg.com for Leaflet in both dev and production
+        scriptSrc: isDevelopment ? ["'self'", "'unsafe-inline'", "'unsafe-eval'", "https://unpkg.com"] : ["'self'", "https://unpkg.com"],
+        // Allow Leaflet in production
+        scriptSrcElem: isDevelopment ? ["'self'", "'unsafe-inline'", "'unsafe-eval'", "https://unpkg.com", "https://www.googletagmanager.com", "https://www.google-analytics.com", "https://va.vercel-scripts.com"] : ["'self'", "https://unpkg.com", "https://www.googletagmanager.com", "https://www.google-analytics.com", "https://va.vercel-scripts.com"],
+        // Allow Leaflet + analytics in production
+        styleSrcElem: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://unpkg.com"],
+        // Explicit style-src-elem for <style> and <link> tags
+        imgSrc: ["'self'", "data:", "https:"],
+        connectSrc,
+        fontSrc: ["'self'", "https://fonts.gstatic.com", "data:"],
+        workerSrc: ["'self'", "blob:", "https://unpkg.com"],
+        // Allow blob URLs for workers (troika-worker-utils) and unpkg
+        objectSrc: ["'none'"],
+        mediaSrc: ["'self'"],
+        frameSrc: ["'none'"]
+      }
+    },
+    crossOriginEmbedderPolicy: false,
+    crossOriginResourcePolicy: { policy: "cross-origin" }
+  });
+}
+function corsConfig() {
+  const allowedOrigins = config.cors.origin.split(",").map((o) => o.trim());
+  const originFunction = (origin, callback) => {
+    if (!origin) {
+      return callback(null, true);
+    }
+    if (allowedOrigins.includes(origin) || allowedOrigins.includes("*")) {
+      return callback(null, origin);
+    }
+    callback(new Error("Not allowed by CORS"));
+  };
+  return cors({
+    origin: allowedOrigins.length === 1 && allowedOrigins[0] !== "*" ? allowedOrigins[0] : originFunction,
+    credentials: config.cors.credentials,
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Accept", "Origin"],
+    exposedHeaders: ["X-Total-Count", "X-Page-Count"],
+    preflightContinue: false,
+    optionsSuccessStatus: 204
+  });
+}
+var generalRateLimit = (() => {
+  if (config.server.nodeEnv === "development") {
+    return (req, res, next) => {
+      return next();
+    };
+  }
+  return rateLimit({
+    windowMs: config.security.rateLimitWindowMs,
+    max: config.security.rateLimitMaxRequests,
+    message: {
+      error: "Too many requests",
+      message: "Demasiadas solicitudes. Intenta nuevamente m\xE1s tarde.",
+      retryAfter: Math.ceil(config.security.rateLimitWindowMs / 1e3)
+    },
+    standardHeaders: true,
+    legacyHeaders: false,
+    skip: (req) => {
+      if (!req.path.startsWith("/api")) {
+        return true;
+      }
+      return req.path === "/api/health";
+    },
+    handler: (req, res) => {
+      res.status(429).json({
+        error: "Too many requests",
+        message: "Demasiadas solicitudes. Intenta nuevamente m\xE1s tarde.",
+        retryAfter: Math.ceil(config.security.rateLimitWindowMs / 1e3)
+      });
+    }
+  });
+})();
+var authRateLimit = rateLimit({
+  windowMs: config.security.loginRateLimitWindowMs,
+  max: config.security.loginRateLimitMax,
+  message: {
+    error: "Too many authentication attempts",
+    message: "Demasiados intentos de autenticaci\xF3n. Intenta nuevamente m\xE1s tarde.",
+    retryAfter: Math.ceil(config.security.loginRateLimitWindowMs / 1e3)
+  },
+  standardHeaders: true,
+  legacyHeaders: false,
+  skipSuccessfulRequests: true,
+  handler: (req, res) => {
+    res.status(429).json({
+      error: "Too many authentication attempts",
+      message: "Demasiados intentos de autenticaci\xF3n. Intenta nuevamente m\xE1s tarde.",
+      retryAfter: Math.ceil(config.security.loginRateLimitWindowMs / 1e3)
+    });
+  }
+});
+var publicReadRateLimit = (() => {
+  if (config.server.nodeEnv === "development") {
+    return (_req, _res, next) => next();
+  }
+  return rateLimit({
+    windowMs: 60 * 1e3,
+    max: 60,
+    standardHeaders: true,
+    legacyHeaders: false,
+    handler: (_req, res) => {
+      res.status(429).json({
+        error: "Too many requests",
+        message: "Demasiadas solicitudes. Esper\xE1 un momento."
+      });
+    }
+  });
+})();
+function requestLogger(req, res, next) {
+  const start = Date.now();
+  const originalSend = res.send;
+  res.send = function(data) {
+    const duration = Date.now() - start;
+    const logData = {
+      method: req.method,
+      url: req.url,
+      statusCode: res.statusCode,
+      duration: `${duration}ms`,
+      userAgent: req.get("User-Agent"),
+      ip: req.ip || req.connection.remoteAddress,
+      timestamp: (/* @__PURE__ */ new Date()).toISOString()
+    };
+    if (config.server.nodeEnv === "development" || res.statusCode >= 400) {
+      console.log(JSON.stringify(logData));
+    }
+    return originalSend.call(this, data);
+  };
+  next();
+}
+function errorHandler(error, req, res, next) {
+  console.error("Error:", {
+    message: error.message,
+    stack: error.stack,
+    url: req.url,
+    method: req.method,
+    ip: req.ip,
+    timestamp: (/* @__PURE__ */ new Date()).toISOString()
+  });
+  if (config.server.nodeEnv === "production") {
+    res.status(500).json({
+      error: "Internal Server Error",
+      message: "Ha ocurrido un error interno del servidor"
+    });
+  } else {
+    res.status(500).json({
+      error: "Internal Server Error",
+      message: error.message,
+      stack: error.stack
+    });
+  }
+}
+function notFoundHandler(req, res) {
+  res.status(404).json({
+    error: "Not Found",
+    message: `Ruta no encontrada: ${req.method} ${req.url}`
+  });
+}
+function requestSizeLimiter(maxSize = "10mb") {
+  return (req, res, next) => {
+    const contentLength = parseInt(req.get("content-length") || "0");
+    const maxSizeBytes = parseSize(maxSize);
+    if (contentLength > maxSizeBytes) {
+      res.status(413).json({
+        error: "Payload Too Large",
+        message: `El tama\xF1o de la solicitud excede el l\xEDmite de ${maxSize}`
+      });
+      return;
+    }
+    next();
+  };
+}
+function parseSize(size) {
+  const units = {
+    "b": 1,
+    "kb": 1024,
+    "mb": 1024 * 1024,
+    "gb": 1024 * 1024 * 1024
+  };
+  const match = size.toLowerCase().match(/^(\d+(?:\.\d+)?)\s*(b|kb|mb|gb)?$/);
+  if (!match) return 0;
+  const value = parseFloat(match[1]);
+  const unit = match[2] || "b";
+  return value * (units[unit] || 1);
+}
+function sanitizeInput(req, res, next) {
+  try {
+    const sanitize = (obj) => {
+      if (typeof obj === "string") {
+        return obj.trim().replace(/[<>]/g, "");
+      }
+      if (Array.isArray(obj)) {
+        return obj.map(sanitize);
+      }
+      if (obj && typeof obj === "object") {
+        const sanitized = {};
+        for (const [key, value] of Object.entries(obj)) {
+          sanitized[key] = sanitize(value);
+        }
+        return sanitized;
+      }
+      return obj;
+    };
+    if (req.body) {
+      req.body = sanitize(req.body);
+    }
+    if (req.query) {
+      req.query = sanitize(req.query);
+    }
+    next();
+  } catch (error) {
+    console.error("[SanitizeInput] Error:", error);
+    next();
+  }
+}
+
+// server/routes-open-data.ts
 var cache = /* @__PURE__ */ new Map();
 var CACHE_TTL = 60 * 60 * 1e3;
 function isCacheFresh(key) {
@@ -15738,7 +15992,7 @@ function isCacheFresh(key) {
   if (!entry) return false;
   return Date.now() - entry.generatedAt.getTime() < CACHE_TTL;
 }
-var openDataRateLimit = rateLimit({
+var openDataRateLimit = rateLimit2({
   windowMs: 15 * 60 * 1e3,
   max: 5,
   message: { error: "Demasiadas descargas. Intent\xE1 nuevamente en 15 minutos." },
@@ -15946,7 +16200,7 @@ async function generateSQLite(data) {
   return Buffer.from(binary);
 }
 function registerOpenDataRoutes(app2) {
-  app2.get("/api/open-data/stats", async (_req, res) => {
+  app2.get("/api/open-data/stats", publicReadRateLimit, async (_req, res) => {
     try {
       const [dreamsCount] = await db.select({ count: sql7`count(*)` }).from(dreams).leftJoin(users, eq9(dreams.userId, users.id)).where(or3(isNull2(dreams.userId), isNull2(users.dataShareOptOut), eq9(users.dataShareOptOut, false)));
       const [commitmentsCount] = await db.select({ count: sql7`count(*)` }).from(userCommitments).leftJoin(users, eq9(userCommitments.userId, users.id)).where(or3(isNull2(userCommitments.userId), isNull2(users.dataShareOptOut), eq9(users.dataShareOptOut, false)));
@@ -16721,321 +16975,97 @@ function registerAnalyticsRoutes(app2) {
 init_mandato_engine();
 init_schema();
 init_auth();
-import { z as z5 } from "zod";
+import { z as z6 } from "zod";
 
 // server/validation.ts
-import { z as z4 } from "zod";
-var registerUserSchema = z4.object({
-  name: z4.string().min(2, "El nombre debe tener al menos 2 caracteres").max(100, "El nombre no puede exceder 100 caracteres").regex(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/, "El nombre solo puede contener letras y espacios"),
-  email: z4.string().email("Formato de email inv\xE1lido").max(255, "El email no puede exceder 255 caracteres").toLowerCase(),
-  username: z4.string().min(3, "El nombre de usuario debe tener al menos 3 caracteres").max(50, "El nombre de usuario no puede exceder 50 caracteres").regex(/^[a-zA-Z0-9_]+$/, "El nombre de usuario solo puede contener letras, n\xFAmeros y guiones bajos"),
-  password: z4.string().min(8, "La contrase\xF1a debe tener al menos 8 caracteres").max(128, "La contrase\xF1a no puede exceder 128 caracteres").regex(
+import { z as z5 } from "zod";
+var registerUserSchema = z5.object({
+  name: z5.string().min(2, "El nombre debe tener al menos 2 caracteres").max(100, "El nombre no puede exceder 100 caracteres").regex(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/, "El nombre solo puede contener letras y espacios"),
+  email: z5.string().email("Formato de email inv\xE1lido").max(255, "El email no puede exceder 255 caracteres").toLowerCase(),
+  username: z5.string().min(3, "El nombre de usuario debe tener al menos 3 caracteres").max(50, "El nombre de usuario no puede exceder 50 caracteres").regex(/^[a-zA-Z0-9_]+$/, "El nombre de usuario solo puede contener letras, n\xFAmeros y guiones bajos"),
+  password: z5.string().min(8, "La contrase\xF1a debe tener al menos 8 caracteres").max(128, "La contrase\xF1a no puede exceder 128 caracteres").regex(
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z0-9])/,
     "La contrase\xF1a debe contener al menos una letra min\xFAscula, una may\xFAscula, un n\xFAmero y un car\xE1cter especial"
   ),
-  confirmPassword: z4.string(),
-  location: z4.string().max(255, "La ubicaci\xF3n no puede exceder 255 caracteres").optional()
+  confirmPassword: z5.string(),
+  location: z5.string().max(255, "La ubicaci\xF3n no puede exceder 255 caracteres").optional()
 }).refine((data) => data.password === data.confirmPassword, {
   message: "Las contrase\xF1as no coinciden",
   path: ["confirmPassword"]
 });
-var loginSchema = z4.object({
-  username: z4.string().min(1, "El nombre de usuario es requerido").max(50, "El nombre de usuario no puede exceder 50 caracteres"),
-  password: z4.string().min(1, "La contrase\xF1a es requerida").max(128, "La contrase\xF1a no puede exceder 128 caracteres")
+var loginSchema = z5.object({
+  username: z5.string().min(1, "El nombre de usuario es requerido").max(50, "El nombre de usuario no puede exceder 50 caracteres"),
+  password: z5.string().min(1, "La contrase\xF1a es requerida").max(128, "La contrase\xF1a no puede exceder 128 caracteres")
 });
-var changePasswordSchema = z4.object({
-  currentPassword: z4.string().min(1, "La contrase\xF1a actual es requerida"),
-  newPassword: z4.string().min(8, "La nueva contrase\xF1a debe tener al menos 8 caracteres").max(128, "La nueva contrase\xF1a no puede exceder 128 caracteres").regex(
+var changePasswordSchema = z5.object({
+  currentPassword: z5.string().min(1, "La contrase\xF1a actual es requerida"),
+  newPassword: z5.string().min(8, "La nueva contrase\xF1a debe tener al menos 8 caracteres").max(128, "La nueva contrase\xF1a no puede exceder 128 caracteres").regex(
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z0-9])/,
     "La nueva contrase\xF1a debe contener al menos una letra min\xFAscula, una may\xFAscula, un n\xFAmero y un car\xE1cter especial"
   ),
-  confirmNewPassword: z4.string()
+  confirmNewPassword: z5.string()
 }).refine((data) => data.newPassword === data.confirmNewPassword, {
   message: "Las contrase\xF1as no coinciden",
   path: ["confirmNewPassword"]
 });
-var updateProfileSchema = z4.object({
-  name: z4.string().min(2, "El nombre debe tener al menos 2 caracteres").max(100, "El nombre no puede exceder 100 caracteres").regex(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/, "El nombre solo puede contener letras y espacios").optional(),
-  email: z4.string().email("Formato de email inv\xE1lido").max(255, "El email no puede exceder 255 caracteres").toLowerCase().optional(),
-  location: z4.string().max(255, "La ubicaci\xF3n no puede exceder 255 caracteres").optional(),
-  bio: z4.string().trim().max(500, "La bio no puede superar los 500 caracteres").nullable().optional(),
-  dataShareOptOut: z4.boolean().optional()
+var updateProfileSchema = z5.object({
+  name: z5.string().min(2, "El nombre debe tener al menos 2 caracteres").max(100, "El nombre no puede exceder 100 caracteres").regex(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/, "El nombre solo puede contener letras y espacios").optional(),
+  email: z5.string().email("Formato de email inv\xE1lido").max(255, "El email no puede exceder 255 caracteres").toLowerCase().optional(),
+  location: z5.string().max(255, "La ubicaci\xF3n no puede exceder 255 caracteres").optional(),
+  bio: z5.string().trim().max(500, "La bio no puede superar los 500 caracteres").nullable().optional(),
+  dataShareOptOut: z5.boolean().optional()
 });
-var createDreamSchema = z4.object({
-  dream: z4.string().min(10, "El sue\xF1o debe tener al menos 10 caracteres").max(1e3, "El sue\xF1o no puede exceder 1000 caracteres").optional(),
-  value: z4.string().min(5, "El valor debe tener al menos 5 caracteres").max(500, "El valor no puede exceder 500 caracteres").optional(),
-  need: z4.string().min(5, "La necesidad debe tener al menos 5 caracteres").max(500, "La necesidad no puede exceder 500 caracteres").optional(),
-  basta: z4.string().min(5, "El basta debe tener al menos 5 caracteres").max(500, "El basta no puede exceder 500 caracteres").optional(),
-  location: z4.string().max(255, "La ubicaci\xF3n no puede exceder 255 caracteres").optional(),
-  latitude: z4.string().regex(/^-?([1-8]?[0-9](\.[0-9]+)?|90(\.0+)?)$/, "Latitud inv\xE1lida").optional(),
-  longitude: z4.string().regex(/^-?((1[0-7][0-9])|([1-9]?[0-9]))(\.[0-9]+)?$/, "Longitud inv\xE1lida").optional(),
-  type: z4.enum(["dream", "value", "need", "basta"]).default("dream")
+var createDreamSchema = z5.object({
+  dream: z5.string().min(10, "El sue\xF1o debe tener al menos 10 caracteres").max(1e3, "El sue\xF1o no puede exceder 1000 caracteres").optional(),
+  value: z5.string().min(5, "El valor debe tener al menos 5 caracteres").max(500, "El valor no puede exceder 500 caracteres").optional(),
+  need: z5.string().min(5, "La necesidad debe tener al menos 5 caracteres").max(500, "La necesidad no puede exceder 500 caracteres").optional(),
+  basta: z5.string().min(5, "El basta debe tener al menos 5 caracteres").max(500, "El basta no puede exceder 500 caracteres").optional(),
+  location: z5.string().max(255, "La ubicaci\xF3n no puede exceder 255 caracteres").optional(),
+  latitude: z5.string().regex(/^-?([1-8]?[0-9](\.[0-9]+)?|90(\.0+)?)$/, "Latitud inv\xE1lida").optional(),
+  longitude: z5.string().regex(/^-?((1[0-7][0-9])|([1-9]?[0-9]))(\.[0-9]+)?$/, "Longitud inv\xE1lida").optional(),
+  type: z5.enum(["dream", "value", "need", "basta"]).default("dream")
 }).refine((data) => {
   return data.dream || data.value || data.need || data.basta;
 }, {
   message: "Debe proporcionar al menos un contenido (sue\xF1o, valor, necesidad o basta)",
   path: ["dream"]
 });
-var createCommunityPostSchema = z4.object({
-  title: z4.string().min(5, "El t\xEDtulo debe tener al menos 5 caracteres").max(200, "El t\xEDtulo no puede exceder 200 caracteres"),
-  description: z4.string().min(20, "La descripci\xF3n debe tener al menos 20 caracteres").max(2e3, "La descripci\xF3n no puede exceder 2000 caracteres"),
-  type: z4.enum(["job", "project", "resource", "volunteer", "donation"]).default("project"),
-  location: z4.string().min(2, "La ubicaci\xF3n debe tener al menos 2 caracteres").max(255, "La ubicaci\xF3n no puede exceder 255 caracteres"),
-  participants: z4.number().int("El n\xFAmero de participantes debe ser un entero").min(1, "Debe haber al menos 1 participante").max(1e3, "No puede haber m\xE1s de 1000 participantes").optional()
+var createCommunityPostSchema = z5.object({
+  title: z5.string().min(5, "El t\xEDtulo debe tener al menos 5 caracteres").max(200, "El t\xEDtulo no puede exceder 200 caracteres"),
+  description: z5.string().min(20, "La descripci\xF3n debe tener al menos 20 caracteres").max(2e3, "La descripci\xF3n no puede exceder 2000 caracteres"),
+  type: z5.enum(["job", "project", "resource", "volunteer", "donation"]).default("project"),
+  location: z5.string().min(2, "La ubicaci\xF3n debe tener al menos 2 caracteres").max(255, "La ubicaci\xF3n no puede exceder 255 caracteres"),
+  participants: z5.number().int("El n\xFAmero de participantes debe ser un entero").min(1, "Debe haber al menos 1 participante").max(1e3, "No puede haber m\xE1s de 1000 participantes").optional()
 });
-var createStorySchema = z4.object({
-  name: z4.string().min(2, "El nombre debe tener al menos 2 caracteres").max(100, "El nombre no puede exceder 100 caracteres"),
-  location: z4.string().min(2, "La ubicaci\xF3n debe tener al menos 2 caracteres").max(255, "La ubicaci\xF3n no puede exceder 255 caracteres"),
-  story: z4.string().min(50, "La historia debe tener al menos 50 caracteres").max(5e3, "La historia no puede exceder 5000 caracteres"),
-  imageUrl: z4.string().url("URL de imagen inv\xE1lida").optional()
+var createStorySchema = z5.object({
+  name: z5.string().min(2, "El nombre debe tener al menos 2 caracteres").max(100, "El nombre no puede exceder 100 caracteres"),
+  location: z5.string().min(2, "La ubicaci\xF3n debe tener al menos 2 caracteres").max(255, "La ubicaci\xF3n no puede exceder 255 caracteres"),
+  story: z5.string().min(50, "La historia debe tener al menos 50 caracteres").max(5e3, "La historia no puede exceder 5000 caracteres"),
+  imageUrl: z5.string().url("URL de imagen inv\xE1lida").optional()
 });
-var createInspiringStorySchema = z4.object({
-  title: z4.string().min(5, "El t\xEDtulo debe tener al menos 5 caracteres").max(200, "El t\xEDtulo no puede exceder 200 caracteres"),
-  excerpt: z4.string().min(20, "El extracto debe tener al menos 20 caracteres").max(500, "El extracto no puede exceder 500 caracteres"),
-  content: z4.string().min(100, "El contenido debe tener al menos 100 caracteres").max(5e3, "El contenido no puede exceder 5000 caracteres"),
-  category: z4.enum(["employment", "volunteering", "community_project", "personal_growth", "resource_sharing", "connection"]).default("connection"),
-  location: z4.string().min(2, "La ubicaci\xF3n debe tener al menos 2 caracteres").max(255, "La ubicaci\xF3n no puede exceder 255 caracteres"),
-  province: z4.string().max(100, "La provincia no puede exceder 100 caracteres").optional(),
-  city: z4.string().max(100, "La ciudad no puede exceder 100 caracteres").optional(),
-  impactType: z4.enum(["job_created", "lives_changed", "hours_volunteered", "people_helped", "project_completed", "resource_shared"]).default("lives_changed"),
-  impactCount: z4.number().int("El n\xFAmero de impacto debe ser un entero").min(1, "El impacto debe ser al menos 1").max(1e5, "El impacto no puede exceder 100,000"),
-  impactDescription: z4.string().min(5, "La descripci\xF3n del impacto debe tener al menos 5 caracteres").max(200, "La descripci\xF3n del impacto no puede exceder 200 caracteres"),
-  imageUrl: z4.string().url("URL de imagen inv\xE1lida").optional(),
-  videoUrl: z4.string().url("URL de video inv\xE1lida").optional(),
-  tags: z4.string().max(500, "Las etiquetas no pueden exceder 500 caracteres").optional(),
-  authorName: z4.string().min(2, "El nombre del autor debe tener al menos 2 caracteres").max(100, "El nombre del autor no puede exceder 100 caracteres").optional(),
-  authorEmail: z4.string().email("Formato de email del autor inv\xE1lido").max(255, "El email del autor no puede exceder 255 caracteres").optional()
+var createInspiringStorySchema = z5.object({
+  title: z5.string().min(5, "El t\xEDtulo debe tener al menos 5 caracteres").max(200, "El t\xEDtulo no puede exceder 200 caracteres"),
+  excerpt: z5.string().min(20, "El extracto debe tener al menos 20 caracteres").max(500, "El extracto no puede exceder 500 caracteres"),
+  content: z5.string().min(100, "El contenido debe tener al menos 100 caracteres").max(5e3, "El contenido no puede exceder 5000 caracteres"),
+  category: z5.enum(["employment", "volunteering", "community_project", "personal_growth", "resource_sharing", "connection"]).default("connection"),
+  location: z5.string().min(2, "La ubicaci\xF3n debe tener al menos 2 caracteres").max(255, "La ubicaci\xF3n no puede exceder 255 caracteres"),
+  province: z5.string().max(100, "La provincia no puede exceder 100 caracteres").optional(),
+  city: z5.string().max(100, "La ciudad no puede exceder 100 caracteres").optional(),
+  impactType: z5.enum(["job_created", "lives_changed", "hours_volunteered", "people_helped", "project_completed", "resource_shared"]).default("lives_changed"),
+  impactCount: z5.number().int("El n\xFAmero de impacto debe ser un entero").min(1, "El impacto debe ser al menos 1").max(1e5, "El impacto no puede exceder 100,000"),
+  impactDescription: z5.string().min(5, "La descripci\xF3n del impacto debe tener al menos 5 caracteres").max(200, "La descripci\xF3n del impacto no puede exceder 200 caracteres"),
+  imageUrl: z5.string().url("URL de imagen inv\xE1lida").optional(),
+  videoUrl: z5.string().url("URL de video inv\xE1lida").optional(),
+  tags: z5.string().max(500, "Las etiquetas no pueden exceder 500 caracteres").optional(),
+  authorName: z5.string().min(2, "El nombre del autor debe tener al menos 2 caracteres").max(100, "El nombre del autor no puede exceder 100 caracteres").optional(),
+  authorEmail: z5.string().email("Formato de email del autor inv\xE1lido").max(255, "El email del autor no puede exceder 255 caracteres").optional()
 });
-var createResourceSchema = z4.object({
-  title: z4.string().min(5, "El t\xEDtulo debe tener al menos 5 caracteres").max(200, "El t\xEDtulo no puede exceder 200 caracteres"),
-  description: z4.string().min(20, "La descripci\xF3n debe tener al menos 20 caracteres").max(1e3, "La descripci\xF3n no puede exceder 1000 caracteres"),
-  category: z4.string().min(2, "La categor\xEDa debe tener al menos 2 caracteres").max(50, "La categor\xEDa no puede exceder 50 caracteres"),
-  url: z4.string().url("URL inv\xE1lida").optional()
+var createResourceSchema = z5.object({
+  title: z5.string().min(5, "El t\xEDtulo debe tener al menos 5 caracteres").max(200, "El t\xEDtulo no puede exceder 200 caracteres"),
+  description: z5.string().min(20, "La descripci\xF3n debe tener al menos 20 caracteres").max(1e3, "La descripci\xF3n no puede exceder 1000 caracteres"),
+  category: z5.string().min(2, "La categor\xEDa debe tener al menos 2 caracteres").max(50, "La categor\xEDa no puede exceder 50 caracteres"),
+  url: z5.string().url("URL inv\xE1lida").optional()
 });
-
-// server/middleware.ts
-init_config();
-import rateLimit2 from "express-rate-limit";
-import helmet from "helmet";
-import cors from "cors";
-function securityHeaders() {
-  const backendOrigin = `http://localhost:${config.server.port}`;
-  const frontendOrigin = config.cors.origin.split(",")[0].trim();
-  const isDevelopment = config.server.nodeEnv === "development";
-  const connectSrc = [
-    "'self'",
-    backendOrigin,
-    "http://localhost:*",
-    "ws://localhost:*",
-    "https://cdn.jsdelivr.net",
-    "https://unpkg.com"
-  ];
-  if (frontendOrigin && frontendOrigin !== "*") {
-    connectSrc.splice(2, 0, frontendOrigin);
-  }
-  return helmet({
-    contentSecurityPolicy: {
-      directives: {
-        defaultSrc: ["'self'"],
-        styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://unpkg.com"],
-        // Always allow unpkg.com for Leaflet in both dev and production
-        scriptSrc: isDevelopment ? ["'self'", "'unsafe-inline'", "'unsafe-eval'", "https://unpkg.com"] : ["'self'", "https://unpkg.com"],
-        // Allow Leaflet in production
-        scriptSrcElem: isDevelopment ? ["'self'", "'unsafe-inline'", "'unsafe-eval'", "https://unpkg.com", "https://www.googletagmanager.com", "https://www.google-analytics.com", "https://va.vercel-scripts.com"] : ["'self'", "https://unpkg.com", "https://www.googletagmanager.com", "https://www.google-analytics.com", "https://va.vercel-scripts.com"],
-        // Allow Leaflet + analytics in production
-        styleSrcElem: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://unpkg.com"],
-        // Explicit style-src-elem for <style> and <link> tags
-        imgSrc: ["'self'", "data:", "https:"],
-        connectSrc,
-        fontSrc: ["'self'", "https://fonts.gstatic.com", "data:"],
-        workerSrc: ["'self'", "blob:", "https://unpkg.com"],
-        // Allow blob URLs for workers (troika-worker-utils) and unpkg
-        objectSrc: ["'none'"],
-        mediaSrc: ["'self'"],
-        frameSrc: ["'none'"]
-      }
-    },
-    crossOriginEmbedderPolicy: false,
-    crossOriginResourcePolicy: { policy: "cross-origin" }
-  });
-}
-function corsConfig() {
-  const allowedOrigins = config.cors.origin.split(",").map((o) => o.trim());
-  const originFunction = (origin, callback) => {
-    if (!origin) {
-      return callback(null, true);
-    }
-    if (allowedOrigins.includes(origin) || allowedOrigins.includes("*")) {
-      return callback(null, origin);
-    }
-    callback(new Error("Not allowed by CORS"));
-  };
-  return cors({
-    origin: allowedOrigins.length === 1 && allowedOrigins[0] !== "*" ? allowedOrigins[0] : originFunction,
-    credentials: config.cors.credentials,
-    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Accept", "Origin"],
-    exposedHeaders: ["X-Total-Count", "X-Page-Count"],
-    preflightContinue: false,
-    optionsSuccessStatus: 204
-  });
-}
-var generalRateLimit = (() => {
-  if (config.server.nodeEnv === "development") {
-    return (req, res, next) => {
-      return next();
-    };
-  }
-  return rateLimit2({
-    windowMs: config.security.rateLimitWindowMs,
-    max: config.security.rateLimitMaxRequests,
-    message: {
-      error: "Too many requests",
-      message: "Demasiadas solicitudes. Intenta nuevamente m\xE1s tarde.",
-      retryAfter: Math.ceil(config.security.rateLimitWindowMs / 1e3)
-    },
-    standardHeaders: true,
-    legacyHeaders: false,
-    skip: (req) => {
-      if (!req.path.startsWith("/api")) {
-        return true;
-      }
-      return req.path === "/api/health";
-    },
-    handler: (req, res) => {
-      res.status(429).json({
-        error: "Too many requests",
-        message: "Demasiadas solicitudes. Intenta nuevamente m\xE1s tarde.",
-        retryAfter: Math.ceil(config.security.rateLimitWindowMs / 1e3)
-      });
-    }
-  });
-})();
-var authRateLimit = rateLimit2({
-  windowMs: config.security.loginRateLimitWindowMs,
-  max: config.security.loginRateLimitMax,
-  message: {
-    error: "Too many authentication attempts",
-    message: "Demasiados intentos de autenticaci\xF3n. Intenta nuevamente m\xE1s tarde.",
-    retryAfter: Math.ceil(config.security.loginRateLimitWindowMs / 1e3)
-  },
-  standardHeaders: true,
-  legacyHeaders: false,
-  skipSuccessfulRequests: true,
-  handler: (req, res) => {
-    res.status(429).json({
-      error: "Too many authentication attempts",
-      message: "Demasiados intentos de autenticaci\xF3n. Intenta nuevamente m\xE1s tarde.",
-      retryAfter: Math.ceil(config.security.loginRateLimitWindowMs / 1e3)
-    });
-  }
-});
-function requestLogger(req, res, next) {
-  const start = Date.now();
-  const originalSend = res.send;
-  res.send = function(data) {
-    const duration = Date.now() - start;
-    const logData = {
-      method: req.method,
-      url: req.url,
-      statusCode: res.statusCode,
-      duration: `${duration}ms`,
-      userAgent: req.get("User-Agent"),
-      ip: req.ip || req.connection.remoteAddress,
-      timestamp: (/* @__PURE__ */ new Date()).toISOString()
-    };
-    if (config.server.nodeEnv === "development" || res.statusCode >= 400) {
-      console.log(JSON.stringify(logData));
-    }
-    return originalSend.call(this, data);
-  };
-  next();
-}
-function errorHandler(error, req, res, next) {
-  console.error("Error:", {
-    message: error.message,
-    stack: error.stack,
-    url: req.url,
-    method: req.method,
-    ip: req.ip,
-    timestamp: (/* @__PURE__ */ new Date()).toISOString()
-  });
-  if (config.server.nodeEnv === "production") {
-    res.status(500).json({
-      error: "Internal Server Error",
-      message: "Ha ocurrido un error interno del servidor"
-    });
-  } else {
-    res.status(500).json({
-      error: "Internal Server Error",
-      message: error.message,
-      stack: error.stack
-    });
-  }
-}
-function notFoundHandler(req, res) {
-  res.status(404).json({
-    error: "Not Found",
-    message: `Ruta no encontrada: ${req.method} ${req.url}`
-  });
-}
-function requestSizeLimiter(maxSize = "10mb") {
-  return (req, res, next) => {
-    const contentLength = parseInt(req.get("content-length") || "0");
-    const maxSizeBytes = parseSize(maxSize);
-    if (contentLength > maxSizeBytes) {
-      res.status(413).json({
-        error: "Payload Too Large",
-        message: `El tama\xF1o de la solicitud excede el l\xEDmite de ${maxSize}`
-      });
-      return;
-    }
-    next();
-  };
-}
-function parseSize(size) {
-  const units = {
-    "b": 1,
-    "kb": 1024,
-    "mb": 1024 * 1024,
-    "gb": 1024 * 1024 * 1024
-  };
-  const match = size.toLowerCase().match(/^(\d+(?:\.\d+)?)\s*(b|kb|mb|gb)?$/);
-  if (!match) return 0;
-  const value = parseFloat(match[1]);
-  const unit = match[2] || "b";
-  return value * (units[unit] || 1);
-}
-function sanitizeInput(req, res, next) {
-  try {
-    const sanitize = (obj) => {
-      if (typeof obj === "string") {
-        return obj.trim().replace(/[<>]/g, "");
-      }
-      if (Array.isArray(obj)) {
-        return obj.map(sanitize);
-      }
-      if (obj && typeof obj === "object") {
-        const sanitized = {};
-        for (const [key, value] of Object.entries(obj)) {
-          sanitized[key] = sanitize(value);
-        }
-        return sanitized;
-      }
-      return obj;
-    };
-    if (req.body) {
-      req.body = sanitize(req.body);
-    }
-    if (req.query) {
-      req.query = sanitize(req.query);
-    }
-    next();
-  } catch (error) {
-    console.error("[SanitizeInput] Error:", error);
-    next();
-  }
-}
 
 // server/nlp-service.ts
 import { pipeline, env } from "@xenova/transformers";
@@ -18734,18 +18764,17 @@ async function requireMembership(postId, userId) {
 }
 async function notifyInitiativeMembers(postId, excludeUserId, data) {
   const members = await storage.getInitiativeMembers(postId);
-  for (const m of members) {
-    if (m.userId && m.userId !== excludeUserId) {
-      try {
-        await storage.createNotification(m.userId, {
-          ...data,
-          postId,
-          userId: m.userId,
-          type: data.type
-        });
-      } catch (_) {
-      }
-    }
+  const items = members.filter((m) => m.userId && m.userId !== excludeUserId).map((m) => ({
+    ...data,
+    postId,
+    userId: m.userId,
+    type: data.type
+  }));
+  if (items.length === 0) return;
+  try {
+    await storage.createNotificationsBatch(items);
+  } catch (error) {
+    console.error("[notifyInitiativeMembers] batch insert failed:", error);
   }
 }
 async function registerRoutes(app2) {
@@ -18753,12 +18782,16 @@ async function registerRoutes(app2) {
   app2.use(sanitizeInput);
   app2.use(requestSizeLimiter("10mb"));
   app2.use("/api", generalRateLimit);
-  app2.get("/api/health", (req, res) => {
-    res.json({
-      status: "ok",
-      timestamp: (/* @__PURE__ */ new Date()).toISOString(),
-      uptime: process.uptime()
-    });
+  app2.get("/api/health", async (_req, res) => {
+    try {
+      const start = Date.now();
+      await db.execute(drizzleSql`SELECT 1`);
+      const dbLatencyMs = Date.now() - start;
+      res.status(200).json({ status: "ok", dbLatencyMs });
+    } catch (error) {
+      console.error("[health] DB check failed:", error);
+      res.status(503).json({ status: "degraded", reason: "database_unreachable" });
+    }
   });
   app2.get("/api/test-db", async (req, res) => {
     try {
@@ -18787,9 +18820,10 @@ async function registerRoutes(app2) {
   registerPulseRoutes(app2);
   registerAnalyticsRoutes(app2);
   startMandatoCron();
-  app2.get("/api/dreams", optionalAuth, async (req, res) => {
+  app2.get("/api/dreams", publicReadRateLimit, optionalAuth, async (req, res) => {
     try {
-      const dreams3 = await storage.getDreams();
+      const { limit, offset } = parsePagination(req);
+      const dreams3 = await storage.getDreams({ limit, offset });
       res.json(dreams3);
     } catch (error) {
       res.status(500).json({ message: "Failed to fetch dreams" });
@@ -18804,7 +18838,7 @@ async function registerRoutes(app2) {
       const dream = await storage.createDream(validatedData);
       res.status(201).json(dream);
     } catch (error) {
-      if (error instanceof z5.ZodError) {
+      if (error instanceof z6.ZodError) {
         res.status(400).json({ message: "Invalid dream data", errors: error.errors });
       } else {
         res.status(500).json({ message: "Failed to create dream" });
@@ -18828,7 +18862,7 @@ async function registerRoutes(app2) {
       const resource = await storage.createUserResource(validatedData);
       res.status(201).json(resource);
     } catch (error) {
-      if (error instanceof z5.ZodError) {
+      if (error instanceof z6.ZodError) {
         res.status(400).json({ message: "Invalid resource data", errors: error.errors });
       } else {
         res.status(500).json({ message: "Failed to create resource" });
@@ -19227,12 +19261,13 @@ async function registerRoutes(app2) {
       });
     }
   });
-  app2.get("/api/community", optionalAuth, async (req, res) => {
+  app2.get("/api/community", publicReadRateLimit, optionalAuth, async (req, res) => {
     try {
       const type = req.query.type;
       const search = req.query.search;
       const category = req.query.category;
-      let posts = await storage.getCommunityPosts(type);
+      const { limit, offset } = parsePagination(req);
+      let posts = await storage.getCommunityPosts(type, { limit, offset });
       if (search) {
         posts = posts.filter(
           (post) => post.title.toLowerCase().includes(search.toLowerCase()) || post.description.toLowerCase().includes(search.toLowerCase())
@@ -19305,7 +19340,7 @@ async function registerRoutes(app2) {
       }
       res.status(201).json(post);
     } catch (error) {
-      if (error instanceof z5.ZodError) {
+      if (error instanceof z6.ZodError) {
         res.status(400).json({ message: "Invalid post data", errors: error.errors });
       } else {
         res.status(500).json({ message: "Failed to create community post" });
@@ -19410,11 +19445,11 @@ async function registerRoutes(app2) {
       const validatedData = insertCommunityPostSchema.partial().parse(req.body);
       const updatedPost = await storage.updateCommunityPost(postId, validatedData, req.user.userId);
       if (!updatedPost) {
-        return res.status(404).json({ message: "Post not found or you don't have permission to edit it" });
+        return res.status(403).json({ message: "No autorizado para esta acci\xF3n" });
       }
       res.json(updatedPost);
     } catch (error) {
-      if (error instanceof z5.ZodError) {
+      if (error instanceof z6.ZodError) {
         res.status(400).json({ message: "Invalid post data", errors: error.errors });
       } else {
         res.status(500).json({ message: "Failed to update post" });
@@ -19430,7 +19465,7 @@ async function registerRoutes(app2) {
       }
       const success = await storage.deleteCommunityPost(postId, req.user.userId);
       if (!success) {
-        return res.status(404).json({ message: "Post not found or you don't have permission to delete it" });
+        return res.status(403).json({ message: "No autorizado para esta acci\xF3n" });
       }
       res.json({ message: "Post deleted successfully" });
     } catch (error) {
@@ -19450,7 +19485,7 @@ async function registerRoutes(app2) {
       }
       const updatedPost = await storage.updateCommunityPost(postId, { status }, req.user.userId);
       if (!updatedPost) {
-        return res.status(404).json({ message: "Post not found or you don't have permission to edit it" });
+        return res.status(403).json({ message: "No autorizado para esta acci\xF3n" });
       }
       res.json(updatedPost);
     } catch (error) {
@@ -19478,7 +19513,7 @@ async function registerRoutes(app2) {
       const interaction = await storage.createPostInteraction(validatedData);
       res.status(201).json(interaction);
     } catch (error) {
-      if (error instanceof z5.ZodError) {
+      if (error instanceof z6.ZodError) {
         res.status(400).json({ message: "Invalid interaction data", errors: error.errors });
       } else {
         res.status(500).json({ message: "Failed to create interaction" });
@@ -19515,7 +19550,7 @@ async function registerRoutes(app2) {
       }
       const success = await storage.updateInteractionStatus(interactionId, status, req.user.userId);
       if (!success) {
-        return res.status(404).json({ message: "Interaction not found or you don't have permission to update it" });
+        return res.status(403).json({ message: "No autorizado para esta acci\xF3n" });
       }
       res.json({ message: "Interaction status updated successfully" });
     } catch (error) {
@@ -19539,7 +19574,7 @@ async function registerRoutes(app2) {
       const message = await storage.createCommunityMessage(validatedData);
       res.status(201).json(message);
     } catch (error) {
-      if (error instanceof z5.ZodError) {
+      if (error instanceof z6.ZodError) {
         res.status(400).json({ message: "Invalid message data", errors: error.errors });
       } else {
         res.status(500).json({ message: "Failed to send message" });
@@ -19555,7 +19590,7 @@ async function registerRoutes(app2) {
       }
       const success = await storage.markMessageAsRead(messageId, req.user.userId);
       if (!success) {
-        return res.status(404).json({ message: "Message not found or you don't have permission to read it" });
+        return res.status(403).json({ message: "No autorizado para esta acci\xF3n" });
       }
       res.json({ message: "Message marked as read" });
     } catch (error) {
@@ -19600,7 +19635,7 @@ async function registerRoutes(app2) {
       }
       const analytics = await storage.getPostAnalytics(postId, req.user.userId);
       if (!analytics) {
-        return res.status(404).json({ message: "Post not found or you don't have permission to view analytics" });
+        return res.status(403).json({ message: "No autorizado para esta acci\xF3n" });
       }
       res.json(analytics);
     } catch (error) {
@@ -19901,7 +19936,7 @@ async function registerRoutes(app2) {
       const milestone = await storage.createMilestone(id, validatedData);
       res.status(201).json(milestone);
     } catch (error) {
-      if (error instanceof z5.ZodError) {
+      if (error instanceof z6.ZodError) {
         res.status(400).json({
           error: "Validation error",
           details: error.errors
@@ -19926,7 +19961,7 @@ async function registerRoutes(app2) {
       await storage.updateMilestone(id, updates);
       res.json({ message: "Milestone updated" });
     } catch (error) {
-      if (error instanceof z5.ZodError) {
+      if (error instanceof z6.ZodError) {
         res.status(400).json({
           error: "Validation error",
           details: error.errors
@@ -20012,7 +20047,7 @@ async function registerRoutes(app2) {
       const task = await storage.createTask(id, validatedData);
       res.status(201).json(task);
     } catch (error) {
-      if (error instanceof z5.ZodError) {
+      if (error instanceof z6.ZodError) {
         res.status(400).json({
           error: "Validation error",
           details: error.errors
@@ -20037,7 +20072,7 @@ async function registerRoutes(app2) {
       await storage.updateTask(id, updates);
       res.json({ message: "Task updated" });
     } catch (error) {
-      if (error instanceof z5.ZodError) {
+      if (error instanceof z6.ZodError) {
         res.status(400).json({
           error: "Validation error",
           details: error.errors
@@ -20168,13 +20203,11 @@ async function registerRoutes(app2) {
   app2.get("/api/community/:postId/messages", async (req, res) => {
     try {
       const { postId } = req.params;
-      const { limit, offset } = req.query;
       const id = parseInt(postId);
       if (isNaN(id)) {
         return res.status(400).json({ message: "Invalid post ID" });
       }
-      const limitNum = limit ? parseInt(limit) : 50;
-      const offsetNum = offset ? parseInt(offset) : 0;
+      const { limit: limitNum, offset: offsetNum } = parsePagination(req, { defaultLimit: 50 });
       const messages = await storage.getInitiativeMessages(id, limitNum, offsetNum);
       const messagesWithUsers = await Promise.all(messages.map(async (msg) => {
         const user = msg.userId ? await storage.getUser(msg.userId) : null;
@@ -20223,9 +20256,8 @@ async function registerRoutes(app2) {
   });
   app2.get("/api/activity-feed", async (req, res) => {
     try {
-      const { type, limit, offset } = req.query;
-      const limitNum = limit ? parseInt(limit) : 20;
-      const offsetNum = offset ? parseInt(offset) : 0;
+      const { type } = req.query;
+      const { limit: limitNum, offset: offsetNum } = parsePagination(req);
       const feed = await storage.getActivityFeed({
         type,
         limit: limitNum,
@@ -20335,8 +20367,8 @@ async function registerRoutes(app2) {
         password: validatedData.password,
         location: validatedData.location || null
       });
-      const crypto4 = await import("crypto");
-      const verifyToken = crypto4.randomBytes(32).toString("hex");
+      const crypto3 = await import("crypto");
+      const verifyToken = crypto3.randomBytes(32).toString("hex");
       const verifyExpires = new Date(Date.now() + 24 * 60 * 60 * 1e3);
       storage.setEmailVerificationToken(user.id, verifyToken, verifyExpires).then(() => emailService.sendVerificationEmail(user.email, verifyToken, user.name)).catch((err) => console.error("Auto-send verification email failed:", err));
       const authResponse = createAuthResponse({
@@ -20353,7 +20385,7 @@ async function registerRoutes(app2) {
         ...authResponse
       });
     } catch (error) {
-      if (error instanceof z5.ZodError) {
+      if (error instanceof z6.ZodError) {
         res.status(400).json({
           error: "Validation error",
           message: "Datos de entrada inv\xE1lidos",
@@ -20418,7 +20450,7 @@ async function registerRoutes(app2) {
         ...authResponse
       });
     } catch (error) {
-      if (error instanceof z5.ZodError) {
+      if (error instanceof z6.ZodError) {
         res.status(400).json({
           error: "Validation error",
           message: "Datos de entrada inv\xE1lidos",
@@ -20499,7 +20531,7 @@ async function registerRoutes(app2) {
         }
       });
     } catch (error) {
-      if (error instanceof z5.ZodError) {
+      if (error instanceof z6.ZodError) {
         res.status(400).json({
           error: "Validation error",
           message: "Datos de entrada inv\xE1lidos",
@@ -20670,7 +20702,7 @@ async function registerRoutes(app2) {
         message: "Contrase\xF1a actualizada exitosamente"
       });
     } catch (error) {
-      if (error instanceof z5.ZodError) {
+      if (error instanceof z6.ZodError) {
         res.status(400).json({
           error: "Validation error",
           message: "Datos de entrada inv\xE1lidos",
@@ -22072,7 +22104,7 @@ async function registerRoutes(app2) {
       });
       res.status(201).json(post);
     } catch (error) {
-      if (error instanceof z5.ZodError) {
+      if (error instanceof z6.ZodError) {
         res.status(400).json({ message: "Datos de post inv\xE1lidos", errors: error.errors });
       } else {
         console.error("Create blog post error:", error);
@@ -22086,11 +22118,11 @@ async function registerRoutes(app2) {
       const validatedData = insertBlogPostSchema.parse(req.body);
       const post = await storage.updateBlogPost(parseInt(id), validatedData, req.user.userId);
       if (!post) {
-        return res.status(404).json({ message: "Post no encontrado o sin permisos" });
+        return res.status(403).json({ message: "No autorizado para esta acci\xF3n" });
       }
       res.json(post);
     } catch (error) {
-      if (error instanceof z5.ZodError) {
+      if (error instanceof z6.ZodError) {
         res.status(400).json({ message: "Datos de post inv\xE1lidos", errors: error.errors });
       } else {
         console.error("Update blog post error:", error);
@@ -22103,7 +22135,7 @@ async function registerRoutes(app2) {
       const { id } = req.params;
       const success = await storage.deleteBlogPost(parseInt(id), req.user.userId);
       if (!success) {
-        return res.status(404).json({ message: "Post no encontrado o sin permisos" });
+        return res.status(403).json({ message: "No autorizado para esta acci\xF3n" });
       }
       res.json({ message: "Post eliminado exitosamente" });
     } catch (error) {
@@ -22164,7 +22196,7 @@ async function registerRoutes(app2) {
       }
       const comment = await storage.updatePostComment(parseInt(id), content, req.user.userId);
       if (!comment) {
-        return res.status(404).json({ message: "Comentario no encontrado o sin permisos" });
+        return res.status(403).json({ message: "No autorizado para esta acci\xF3n" });
       }
       res.json(comment);
     } catch (error) {
@@ -22177,7 +22209,7 @@ async function registerRoutes(app2) {
       const { id } = req.params;
       const success = await storage.deletePostComment(parseInt(id), req.user.userId);
       if (!success) {
-        return res.status(404).json({ message: "Comentario no encontrado o sin permisos" });
+        return res.status(403).json({ message: "No autorizado para esta acci\xF3n" });
       }
       res.json({ message: "Comentario eliminado exitosamente" });
     } catch (error) {
@@ -22217,15 +22249,16 @@ async function registerRoutes(app2) {
   });
   app2.get("/api/blog/search", async (req, res) => {
     try {
-      const { q: query, type, category, page = "1", limit = "10" } = req.query;
+      const { q: query, type, category } = req.query;
+      const { limit, page } = parsePagination(req);
       if (!query || query.toString().trim().length < 2) {
         return res.status(400).json({ message: "Query debe tener al menos 2 caracteres" });
       }
       const results = await storage.searchPosts(query, {
         type,
         category,
-        page: parseInt(page),
-        limit: parseInt(limit)
+        page: page ?? 1,
+        limit
       });
       res.json(results);
     } catch (error) {
@@ -22235,8 +22268,9 @@ async function registerRoutes(app2) {
   });
   app2.get("/api/blog/trending", async (req, res) => {
     try {
-      const { days = "7", limit = "10" } = req.query;
-      const posts = await storage.getTrendingPosts(parseInt(days), parseInt(limit));
+      const { days = "7" } = req.query;
+      const { limit } = parsePagination(req, { defaultLimit: 10 });
+      const posts = await storage.getTrendingPosts(parseInt(days), limit);
       res.json(posts);
     } catch (error) {
       console.error("Get trending posts error:", error);
@@ -22246,8 +22280,8 @@ async function registerRoutes(app2) {
   app2.get("/api/blog/posts/:id/related", async (req, res) => {
     try {
       const { id } = req.params;
-      const { limit = "4" } = req.query;
-      const posts = await storage.getRelatedPosts(parseInt(id), parseInt(limit));
+      const { limit } = parsePagination(req, { defaultLimit: 4 });
+      const posts = await storage.getRelatedPosts(parseInt(id), limit);
       res.json(posts);
     } catch (error) {
       console.error("Get related posts error:", error);
@@ -22256,8 +22290,8 @@ async function registerRoutes(app2) {
   });
   app2.get("/api/blog/tags/popular", async (req, res) => {
     try {
-      const { limit = "20" } = req.query;
-      const tags = await storage.getPopularTags(parseInt(limit));
+      const { limit } = parsePagination(req);
+      const tags = await storage.getPopularTags(limit);
       res.json(tags);
     } catch (error) {
       console.error("Get popular tags error:", error);
@@ -22266,13 +22300,14 @@ async function registerRoutes(app2) {
   });
   app2.get("/api/stories", async (req, res) => {
     try {
-      const { category, status, featured, limit, offset } = req.query;
+      const { category, status, featured } = req.query;
+      const { limit, offset } = parsePagination(req);
       const filters = {};
       if (category) filters.category = category;
       if (status) filters.status = status;
       if (featured !== void 0) filters.featured = featured === "true";
-      if (limit) filters.limit = parseInt(limit);
-      if (offset) filters.offset = parseInt(offset);
+      filters.limit = limit;
+      filters.offset = offset;
       const stories2 = await storage.getInspiringStories(filters);
       res.json({
         success: true,
@@ -22367,7 +22402,7 @@ async function registerRoutes(app2) {
         message: "Story created successfully and submitted for moderation"
       });
     } catch (error) {
-      if (error instanceof z5.ZodError) {
+      if (error instanceof z6.ZodError) {
         return res.status(400).json({
           error: "Validation Error",
           message: "Invalid story data",
@@ -22413,7 +22448,7 @@ async function registerRoutes(app2) {
         message: "Story updated successfully"
       });
     } catch (error) {
-      if (error instanceof z5.ZodError) {
+      if (error instanceof z6.ZodError) {
         return res.status(400).json({
           error: "Validation Error",
           message: "Invalid story data",
