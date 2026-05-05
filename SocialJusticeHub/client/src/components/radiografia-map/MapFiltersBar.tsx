@@ -38,8 +38,8 @@ export default function MapFiltersBar({
   onClearAll,
   hasActiveFilters,
 }: MapFiltersBarProps) {
-  // Uses the project-wide default staleTime: Infinity — provinces/cities
-  // are reference data that doesn't change during a session.
+  // Uses project-wide default staleTime: 60s — provinces/cities are
+  // reference data that rarely change, and 60s is appropriate.
   const { data: provinces = [] } = useQuery<Province[]>({
     queryKey: ['/api/geographic/provinces'],
   });
