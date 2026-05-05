@@ -1975,7 +1975,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(400).json({ message: "Invalid post ID" });
       }
 
-      const { limit: limitNum, offset: offsetNum } = parsePagination(req);
+      const { limit: limitNum, offset: offsetNum } = parsePagination(req, { defaultLimit: 50 });
 
       const messages = await storage.getInitiativeMessages(id, limitNum, offsetNum);
       const messagesWithUsers = await Promise.all(messages.map(async (msg) => {
@@ -4494,7 +4494,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.get("/api/blog/trending", async (req, res) => {
     try {
       const { days = '7' } = req.query;
-      const { limit } = parsePagination(req);
+      const { limit } = parsePagination(req, { defaultLimit: 10 });
       const posts = await storage.getTrendingPosts(parseInt(days as string), limit);
       
       res.json(posts);
@@ -4508,7 +4508,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.get("/api/blog/posts/:id/related", async (req, res) => {
     try {
       const { id } = req.params;
-      const { limit } = parsePagination(req);
+      const { limit } = parsePagination(req, { defaultLimit: 4 });
       const posts = await storage.getRelatedPosts(parseInt(id), limit);
       
       res.json(posts);
