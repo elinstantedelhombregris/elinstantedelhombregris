@@ -16,6 +16,7 @@ import { Button } from '@/components/ui/button';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import YouTubeEmbed from '@/components/YouTubeEmbed';
+import BlogMediaSection from '@/components/BlogMediaSection';
 import LikeButton from '@/components/LikeButton';
 import BookmarkButton from '@/components/BookmarkButton';
 import CommentsSection from '@/components/CommentsSection';
@@ -487,6 +488,9 @@ export default function BlogPostDetail() {
               />
             </div>
           )}
+
+          {/* Podcast & Video Media Section */}
+          <BlogMediaSection slug={post.slug} />
 
           {/* Tags + Actions Bar */}
           <div className="px-8 md:px-12 pt-8 pb-4">

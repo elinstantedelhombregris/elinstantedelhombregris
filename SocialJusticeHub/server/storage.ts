@@ -3567,7 +3567,6 @@ export class DatabaseStorage implements IStorage {
         type: communityPosts.type,
         location: communityPosts.location,
         status: communityPosts.status,
-        likesCount: communityPosts.likesCount,
         createdAt: communityPosts.createdAt
       })
       .from(communityPosts)

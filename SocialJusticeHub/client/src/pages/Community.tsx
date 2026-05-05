@@ -354,7 +354,7 @@ const Community = () => {
               <SmoothReveal direction="down">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-900/20 border border-blue-500/30 text-blue-400 text-sm font-mono mb-8 tracking-widest uppercase backdrop-blur-md">
                   <Users className="w-4 h-4" />
-                  Círculos
+                  Los hermanos sean unidos
                 </div>
               </SmoothReveal>
 

@@ -341,7 +341,7 @@ les EXIJO todo — [mas fuerte, la voz se quiebra de furia]
  abiertos E5-C5-D5-E5, crash en cada 1, POGO]
 !BASTA! *(golpe en el 1, toda la banda, 4ta descendente E4→B3)*
 !BASTA! *(mismo golpe, misma furia)*
-De la mentira, de la jeta, del curro — [gritado rapido, como
+De la mentira, del verso, del curro — [gritado rapido, como
  una lista que no se puede frenar]
 !BASTA! *(golpe)*
 !BASTA! *(golpe)*
@@ -365,7 +365,7 @@ les ROMPO todo — [cambio: "exijo" → "rompo", la escalada]
  el punk no varia: INSISTE]
 !BASTA!
 !BASTA!
-De la mentira, de la jeta, del curro
+De la mentira, del verso, del curro
 !BASTA!
 !BASTA!
 La calle es nuestra y no la van a callar
@@ -397,7 +397,7 @@ porque el pueblo no pide permiso... *(la voz crece, CRECE...)*
 
 !BASTA! *(fff, toda la banda, mas fuerte que nunca)*
 !BASTA!
-De la mentira, de la jeta, del curro
+De la mentira, del verso, del curro
 !BASTA!
 !BASTA!
 La calle es nuestra y no la van a callar
@@ -414,7 +414,7 @@ La calle es nuestra y no la van a callar
  El corazon late a 175. El silencio dice: ahora muevan]
 ```
 
-**Registro linguistico:** Rioplatense crudo, callejero, sin filtro. "Nos vendieron", "jeta", "curro", "afanan", "trucha", "pibe". Es el castellano de la calle — no del libro, no del discurso, no del tweet. Es el idioma que se habla gritando en una esquina de Lanus a las 2 de la maniana. Cada palabra es corta, directa, imposible de malinterpretar. Cero metafora. El punk no simboliza: NOMBRA.
+**Registro linguistico:** Rioplatense crudo, callejero, sin filtro. "Nos vendieron", "verso", "curro", "afanan", "trucha", "pibe". Es el castellano de la calle — no del libro, no del discurso, no del tweet. Es el idioma que se habla gritando en una esquina de Lanus a las 2 de la maniana. Cada palabra es corta, directa, imposible de malinterpretar. Cero metafora. El punk no simboliza: NOMBRA.
 
 **Modo de mensaje:** Furia directa y exigencia. La cancion no sugiere — GRITA. No describe el problema — te lo escupe en la cara y despues te dice que vas a hacer al respecto. "Nos vendieron un pais de rodillas" no es poesia: es un HECHO. "No les pido nada / les EXIJO todo" no es retorica: es una POSICION. "Vamos a escribir la constitucion de nuevo" no es promesa: es ANUNCIO. El punk es el genero con menor distancia entre la emocion y la palabra. Lo que siente lo dice. Lo que dice lo grita.
 
@@ -512,7 +512,7 @@ TEST DE AUTENTICIDAD DE GENERO:
     sin tercera, voz gritada (no cantada), breakdown a mitad de tempo con
     grito unisono, final de corte abrupto, duracion menor a 2:30. La
     progresion E5-C5-D5-E5 es la misma familia armonica de 2 Minutos y
-    Attaque. El registro lirico es callejero sin adornos — "jeta", "curro",
+    Attaque. El registro lirico es callejero sin adornos — "verso", "curro",
     "afanan", "trucha" son vocabulario de esquina, no de academia. Un punk
     escucharia los primeros 5 segundos y diria "esto es de los nuestros".
     El mensaje !BASTA! no esta SOBRE el genero — ES el genero. El punk
@@ -535,7 +535,7 @@ TEST DEL DIA DESPUES:
   Resultado: PASA
   Justificacion: El estribillo es UNA PALABRA repetida cuatro veces con
     un contorno ritmico imposible de olvidar: "!BASTA! !BASTA! / de la
-    mentira de la jeta del curro / !BASTA! !BASTA! / la calle es nuestra
+    mentira del verso del curro / !BASTA! !BASTA! / la calle es nuestra
     y no la van a callar". La estructura 2-golpes / frase rapida /
     2-golpes / frase rapida crea un patron de call-and-response que el
     cerebro completa solo. Pero sobre todo: "!BASTA!" es una palabra
@@ -548,7 +548,7 @@ TEST DE ESCALABILIDAD EN VIVO:
     rasgueo furioso. Un pibe con una guitarra de 3 cuerdas en un centro
     cultural puede tocar este tema ENTERO. Eso es punk.
   - Fogon (5-10 personas): FUNCIONA. Los 4 "!BASTA!" del estribillo los
-    grita cualquiera. La frase "de la mentira de la jeta del curro" la
+    grita cualquiera. La frase "de la mentira del verso del curro" la
     grita cualquiera porque es EXACTAMENTE lo que dicen en la mesa del
     bar. No necesita ensayo — necesita bronca.
   - Cancha (miles): FUNCIONA. "!BASTA! !BASTA!" se corea como "dale dale
@@ -568,7 +568,7 @@ TEST DE CLIP VIRAL:
   Segmento: Breakdown compas 5 → Estribillo Final compas 4
   Contenido: "Veinticuatro articulos que escriba el pueblo / porque el
     pueblo no pide permiso... [SILENCIO] ...!BASTA! [EXPLOSION] ...!BASTA!
-    !BASTA! / De la mentira de la jeta del curro"
+    !BASTA! / De la mentira del verso del curro"
   Duracion: ~18 segundos
   Justificacion: El arco completo en 18 segundos: declaracion → silencio →
     explosion → pogo. Es visual sin video — al leerlo ya ves las caras
@@ -601,7 +601,7 @@ TEST DE COHERENCIA !BASTA!:
 ```
 SEGMENTO VIRAL:
   Inicio: Breakdown, compas 5 ("Veinticuatro articulos...")
-  Fin: Estribillo Final, compas 4 ("...de la jeta del curro")
+  Fin: Estribillo Final, compas 4 ("...del verso del curro")
   Duracion: ~18 segundos
 
   Contenido lirico:
@@ -612,7 +612,7 @@ SEGMENTO VIRAL:
      [EXPLOSION a 175 BPM]
      Vamos!
      !BASTA! !BASTA!
-     De la mentira, de la jeta, del curro"
+     De la mentira, del verso, del curro"
 
   Por que funciona como clip standalone:
     - Emocionalmente autocontenido: Si — arco completo en 18 segundos:
@@ -667,7 +667,7 @@ les exijo todo
 
 [Chorus]
 Basta, basta
-De la mentira, de la jeta, del curro
+De la mentira, del verso, del curro
 Basta, basta
 La calle es nuestra y no la van a callar
 
@@ -683,7 +683,7 @@ les rompo todo
 
 [Chorus]
 Basta, basta
-De la mentira, de la jeta, del curro
+De la mentira, del verso, del curro
 Basta, basta
 La calle es nuestra y no la van a callar
 
@@ -696,7 +696,7 @@ Basta!
 
 [Chorus]
 Basta, basta
-De la mentira, de la jeta, del curro
+De la mentira, del verso, del curro
 Basta, basta
 La calle es nuestra y no la van a callar
 

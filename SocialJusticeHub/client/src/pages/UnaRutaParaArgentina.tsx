@@ -117,6 +117,28 @@ function SwipeInPrompt() {
   );
 }
 
+function EndOfChapterSwipeHint() {
+  const reduce = useReducedMotion();
+  return (
+    <div className="mt-16 mb-8 flex justify-center">
+      <div
+        aria-label="Deslizá hacia la derecha para seguir leyendo"
+        className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/5 border border-white/10 text-sm text-white/60"
+      >
+        <span>Deslizá para continuar leyendo</span>
+        <motion.span
+          aria-hidden="true"
+          animate={reduce ? undefined : { x: [0, 5, 0] }}
+          transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
+          className="text-purple-300"
+        >
+          →
+        </motion.span>
+      </div>
+    </div>
+  );
+}
+
 function FirstChapterSwipeHint() {
   const [hidden, setHidden] = useState(false);
   const reduce = useReducedMotion();
@@ -360,6 +382,7 @@ export default function UnaRutaParaArgentina() {
                 usarla. Y una vez que una persona se anima, la que está al lado empieza a
                 mirar distinto.
               </NarratorBlock>
+              <EndOfChapterSwipeHint />
             </CinematicChapter>
 
             <CinematicChapter index={1}>
@@ -455,6 +478,7 @@ export default function UnaRutaParaArgentina() {
                 El idioma cambió primero. Y cuando el idioma de un país cambia, todo lo
                 demás termina cediendo.
               </NarratorBlock>
+              <EndOfChapterSwipeHint />
             </CinematicChapter>
 
             <CinematicChapter index={2}>
@@ -549,6 +573,7 @@ export default function UnaRutaParaArgentina() {
                 Pero esa tarde, en esa sala, se pudo decir — y el silencio que siguió fue
                 el sonido de un país empezando a creerse capaz de sí mismo.
               </NarratorBlock>
+              <EndOfChapterSwipeHint />
             </CinematicChapter>
 
             <CinematicChapter index={3}>
@@ -660,6 +685,7 @@ export default function UnaRutaParaArgentina() {
                 — con un dibujo y tres párrafos que la maestra subió al Mapa esa misma
                 tarde.
               </NarratorBlock>
+              <EndOfChapterSwipeHint />
             </CinematicChapter>
 
             <CinematicChapter index={4}>

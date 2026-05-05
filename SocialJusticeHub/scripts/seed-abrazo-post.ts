@@ -31,7 +31,7 @@ async function seedAbrazoPost() {
       category: "Filosofía",
       type: "blog",
       featured: true,
-      imageUrl: "https://images.unsplash.com/photo-1522778034537-20a2486be803?w=800&h=400&fit=crop",
+      imageUrl: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=800&h=400&fit=crop",
       authorId: 1,
       publishedAt: new Date("2026-04-17").toISOString(),
     }).returning();

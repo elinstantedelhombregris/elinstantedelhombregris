@@ -40,6 +40,22 @@ const INITIAL_VIEW_STATE: MapViewState = {
 const MAP_STYLE = 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json';
 const POINT_ZOOM_THRESHOLD = 7;
 
+// Hexagon sizing: radius is in meters, but Argentina-scale needs it to shrink as
+// users zoom in or hexes swallow whole provinces. Halve per zoom level (≈ pixel-
+// constant), clamp to a sane band, and step in 500m increments to avoid constant
+// re-aggregation in HexagonLayer as the user pans.
+const HEX_BASE_RADIUS_M = 15000;
+const HEX_BASE_ZOOM = 4;
+const HEX_MIN_RADIUS_M = 500;
+const HEX_MAX_RADIUS_M = 30000;
+const HEX_STEP_M = 500;
+
+function computeHexRadius(zoom: number): number {
+  const raw = HEX_BASE_RADIUS_M * Math.pow(2, HEX_BASE_ZOOM - zoom);
+  const clamped = Math.max(HEX_MIN_RADIUS_M, Math.min(HEX_MAX_RADIUS_M, raw));
+  return Math.round(clamped / HEX_STEP_M) * HEX_STEP_M;
+}
+
 function hexToRgb(hex: string): [number, number, number] {
   const h = hex.replace('#', '');
   return [parseInt(h.slice(0, 2), 16), parseInt(h.slice(2, 4), 16), parseInt(h.slice(4, 6), 16)];
@@ -149,6 +165,8 @@ export default function ConvergenceMap() {
     [filteredEntries],
   );
 
+  const hexRadius = useMemo(() => computeHexRadius(viewState.zoom ?? HEX_BASE_ZOOM), [viewState.zoom]);
+
   // Build layers
   const layers = useMemo(() => {
     const built: any[] = [];
@@ -162,7 +180,7 @@ export default function ConvergenceMap() {
           getElevationWeight: (d: any) => d.weight,
           elevationScale: 200,
           extruded: true,
-          radius: 15000,
+          radius: hexRadius,
           coverage: 0.85,
           upperPercentile: 100,
           pickable: true,
@@ -239,7 +257,7 @@ export default function ConvergenceMap() {
     }
 
     return built;
-  }, [activeLayer, filteredHex, filteredEntries, viewState.zoom, filters.types]);
+  }, [activeLayer, filteredHex, filteredEntries, viewState.zoom, filters.types, hexRadius]);
 
   const getTooltip = useCallback((info: any) => {
     if (!info?.object) return null;

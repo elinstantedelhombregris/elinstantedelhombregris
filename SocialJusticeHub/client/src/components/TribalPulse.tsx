@@ -49,7 +49,7 @@ const TribalPulse = () => {
 
   // Use feed items or a placeholder if empty
   const items = feedItems.length > 0 ? feedItems : [
-    { id: 0, type: 'update' as const, title: 'La Tribu esta esperando tu primer movimiento...', createdAt: new Date().toISOString() }
+    { id: 0, type: 'update' as const, title: 'Tu Círculo esta esperando tu primer movimiento...', createdAt: new Date().toISOString() }
   ];
 
   return (
