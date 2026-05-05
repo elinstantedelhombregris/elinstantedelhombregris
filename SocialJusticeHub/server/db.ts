@@ -8,7 +8,6 @@ if (!databaseUrl) {
   throw new Error("DATABASE_URL is required. Set it to your Neon connection string.");
 }
 
-console.log("Connecting to Neon Postgres...");
 const sql = neon(databaseUrl);
 const db = drizzle(sql, { schema });
 
