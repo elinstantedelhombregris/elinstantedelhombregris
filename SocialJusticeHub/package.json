@@ -13,6 +13,8 @@
     "verify": "npm run check && npm run check:routes && npm run build",
     "test": "npm run verify:full",
     "test:smoke": "node scripts/verify-runtime.cjs",
+    "test:unit": "vitest run",
+    "test:watch": "vitest",
     "verify:full": "npm run courses:sync && npm run verify && npm run courses:audit && npm run courses:lint-content && npm run courses:qa && npm run test:smoke",
     "db:push": "drizzle-kit push",
     "db:migrate-auth": "tsx scripts/migrate-auth.ts",
@@ -164,19 +166,23 @@
     "@types/react-dom": "^18.3.1",
     "@types/speakeasy": "^2.0.10",
     "@types/sql.js": "^1.4.9",
+    "@types/supertest": "^7.2.0",
     "@types/ws": "^8.5.13",
     "@vercel/node": "^5.5.16",
     "@vitejs/plugin-react": "^4.3.2",
+    "@vitest/ui": "^4.1.5",
     "autoprefixer": "^10.4.20",
     "baseline-browser-mapping": "^2.10.0",
     "drizzle-kit": "^0.31.0",
     "esbuild": "^0.25.0",
     "postcss": "^8.4.47",
+    "supertest": "^7.2.2",
     "tailwindcss": "^3.4.17",
     "ts-node": "^10.9.2",
     "tsx": "^4.19.1",
     "typescript": "5.6.3",
-    "vite": "^5.4.14"
+    "vite": "^5.4.14",
+    "vitest": "^4.1.5"
   },
   "optionalDependencies": {
     "bufferutil": "^4.0.8"
