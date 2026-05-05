@@ -104,17 +104,22 @@ async function notifyInitiativeMembers(
   data: { type: string; title: string; content: string; targetId?: number | null }
 ) {
   const members = await storage.getInitiativeMembers(postId);
-  for (const m of members) {
-    if (m.userId && m.userId !== excludeUserId) {
-      try {
-        await storage.createNotification(m.userId, {
-          ...data,
-          postId,
-          userId: m.userId,
-          type: data.type as any,
-        });
-      } catch (_) { /* non-critical */ }
-    }
+  const items = members
+    .filter(m => m.userId && m.userId !== excludeUserId)
+    .map(m => ({
+      ...data,
+      postId,
+      userId: m.userId as number,
+      type: data.type as any,
+    }));
+
+  if (items.length === 0) return;
+
+  try {
+    await storage.createNotificationsBatch(items);
+  } catch (error) {
+    console.error('[notifyInitiativeMembers] batch insert failed:', error);
+    /* non-critical: notifications are best-effort */
   }
 }
 

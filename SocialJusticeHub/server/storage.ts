@@ -497,7 +497,8 @@ export interface IStorage {
   markNotificationAsRead(notificationId: number): Promise<void>;
   markAllNotificationsAsRead(userId: number): Promise<void>;
   createNotification(userId: number, data: InsertNotification): Promise<Notification>;
-  
+  createNotificationsBatch(items: Array<InsertNotification & { userId: number }>): Promise<Notification[]>;
+
   // ==================== COURSE METHODS ====================
   
   // Courses
@@ -1296,6 +1297,11 @@ export class MemStorage implements Partial<IStorage> {
     const updated: PlatformFeedback = { ...feedback, status, adminNotes: adminNotes ?? feedback.adminNotes };
     this.platformFeedbacks.set(id, updated);
     return updated;
+  }
+
+  async createNotificationsBatch(_items: Array<InsertNotification & { userId: number }>): Promise<Notification[]> {
+    // MemStorage is dev-only fallback; no-op batch (notifications are best-effort)
+    return [];
   }
 }
 
@@ -4265,6 +4271,11 @@ export class DatabaseStorage implements IStorage {
       .returning();
 
     return notification;
+  }
+
+  async createNotificationsBatch(items: Array<InsertNotification & { userId: number }>): Promise<Notification[]> {
+    if (items.length === 0) return [];
+    return await db.insert(notifications).values(items).returning();
   }
 
   // ==================== COURSE METHODS ====================
