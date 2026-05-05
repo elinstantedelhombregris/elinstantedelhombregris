@@ -151,6 +151,26 @@ export const authRateLimit = rateLimit({
   }
 });
 
+// Read-rate limiting for unauthenticated public list endpoints (60 req/min/IP)
+// No-op in development.
+export const publicReadRateLimit = (() => {
+  if (config.server.nodeEnv === 'development') {
+    return (_req: Request, _res: Response, next: NextFunction) => next();
+  }
+  return rateLimit({
+    windowMs: 60 * 1000,
+    max: 60,
+    standardHeaders: true,
+    legacyHeaders: false,
+    handler: (_req: Request, res: Response) => {
+      res.status(429).json({
+        error: 'Too many requests',
+        message: 'Demasiadas solicitudes. Esperá un momento.',
+      });
+    },
+  });
+})();
+
 // Request logging middleware
 export function requestLogger(req: Request, res: Response, next: NextFunction) {
   const start = Date.now();

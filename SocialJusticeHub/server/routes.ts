@@ -65,6 +65,7 @@ import {
 import {
   generalRateLimit,
   authRateLimit,
+  publicReadRateLimit,
   requestLogger,
   errorHandler,
   notFoundHandler,
@@ -175,7 +176,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   startMandatoCron();
 
   // Get all dreams
-  app.get("/api/dreams", optionalAuth, async (req: AuthRequest, res) => {
+  app.get("/api/dreams", publicReadRateLimit, optionalAuth, async (req: AuthRequest, res) => {
     try {
       const dreams = await storage.getDreams();
       res.json(dreams);
@@ -796,12 +797,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // Get community posts with optional filters
-  app.get("/api/community", optionalAuth, async (req: AuthRequest, res) => {
+  app.get("/api/community", publicReadRateLimit, optionalAuth, async (req: AuthRequest, res) => {
     try {
       const type = req.query.type as string | undefined;
       const search = req.query.search as string | undefined;
       const category = req.query.category as string | undefined;
-      
+
       let posts = await storage.getCommunityPosts(type);
       
       // Apply search filter if provided

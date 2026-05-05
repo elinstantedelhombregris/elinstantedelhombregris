@@ -9,6 +9,7 @@ import archiver from 'archiver';
 import { PassThrough } from 'stream';
 import { readFileSync } from 'fs';
 import { createRequire } from 'module';
+import { publicReadRateLimit } from './middleware';
 
 // In-memory cache for generated exports
 const cache = new Map<string, { buffer: Buffer; generatedAt: Date; counts: { dreams: number; commitments: number; resources: number } }>();
@@ -267,7 +268,7 @@ async function generateSQLite(data: Awaited<ReturnType<typeof fetchAllData>>): P
 export function registerOpenDataRoutes(app: Express) {
 
   // GET /api/open-data/stats — public stats
-  app.get('/api/open-data/stats', async (_req, res) => {
+  app.get('/api/open-data/stats', publicReadRateLimit, async (_req, res) => {
     try {
       const [dreamsCount] = await db
         .select({ count: sql<number>`count(*)` })
