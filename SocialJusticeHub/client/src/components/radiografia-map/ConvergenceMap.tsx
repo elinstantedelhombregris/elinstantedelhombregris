@@ -42,13 +42,13 @@ const POINT_ZOOM_THRESHOLD = 7;
 
 // Hexagon sizing: radius is in meters, but Argentina-scale needs it to shrink as
 // users zoom in or hexes swallow whole provinces. Halve per zoom level (≈ pixel-
-// constant), clamp to a sane band, and step in 500m increments to avoid constant
+// constant), clamp to a sane band, and snap to discrete steps to avoid constant
 // re-aggregation in HexagonLayer as the user pans.
 const HEX_BASE_RADIUS_M = 15000;
 const HEX_BASE_ZOOM = 4;
-const HEX_MIN_RADIUS_M = 500;
+const HEX_MIN_RADIUS_M = 25;
 const HEX_MAX_RADIUS_M = 30000;
-const HEX_STEP_M = 500;
+const HEX_STEP_M = 25;
 
 function computeHexRadius(zoom: number): number {
   const raw = HEX_BASE_RADIUS_M * Math.pow(2, HEX_BASE_ZOOM - zoom);
