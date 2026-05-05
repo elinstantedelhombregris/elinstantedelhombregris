@@ -1017,9 +1017,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const updatedPost = await storage.updateCommunityPost(postId, validatedData, req.user!.userId);
       
       if (!updatedPost) {
-        return res.status(404).json({ message: "Post not found or you don't have permission to edit it" });
+        return res.status(403).json({ message: "No autorizado para esta acción" });
       }
-      
+
       res.json(updatedPost);
     } catch (error) {
       if (error instanceof z.ZodError) {
@@ -1041,7 +1041,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       const success = await storage.deleteCommunityPost(postId, req.user!.userId);
       if (!success) {
-        return res.status(404).json({ message: "Post not found or you don't have permission to delete it" });
+        return res.status(403).json({ message: "No autorizado para esta acción" });
       }
       
       res.json({ message: "Post deleted successfully" });
@@ -1067,7 +1067,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       const updatedPost = await storage.updateCommunityPost(postId, { status }, req.user!.userId);
       if (!updatedPost) {
-        return res.status(404).json({ message: "Post not found or you don't have permission to edit it" });
+        return res.status(403).json({ message: "No autorizado para esta acción" });
       }
       
       res.json(updatedPost);
@@ -1153,7 +1153,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       const success = await storage.updateInteractionStatus(interactionId, status, req.user!.userId);
       if (!success) {
-        return res.status(404).json({ message: "Interaction not found or you don't have permission to update it" });
+        return res.status(403).json({ message: "No autorizado para esta acción" });
       }
       
       res.json({ message: "Interaction status updated successfully" });
@@ -1206,7 +1206,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       const success = await storage.markMessageAsRead(messageId, req.user!.userId);
       if (!success) {
-        return res.status(404).json({ message: "Message not found or you don't have permission to read it" });
+        return res.status(403).json({ message: "No autorizado para esta acción" });
       }
       
       res.json({ message: "Message marked as read" });
@@ -1265,7 +1265,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       const analytics = await storage.getPostAnalytics(postId, req.user!.userId);
       if (!analytics) {
-        return res.status(404).json({ message: "Post not found or you don't have permission to view analytics" });
+        return res.status(403).json({ message: "No autorizado para esta acción" });
       }
       
       res.json(analytics);
@@ -4296,9 +4296,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const validatedData = insertBlogPostSchema.parse(req.body);
       
       const post = await storage.updateBlogPost(parseInt(id), validatedData, req.user!.userId);
-      
+
       if (!post) {
-        return res.status(404).json({ message: "Post no encontrado o sin permisos" });
+        return res.status(403).json({ message: "No autorizado para esta acción" });
       }
       
       res.json(post);
@@ -4317,9 +4317,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const { id } = req.params;
       const success = await storage.deleteBlogPost(parseInt(id), req.user!.userId);
-      
+
       if (!success) {
-        return res.status(404).json({ message: "Post no encontrado o sin permisos" });
+        return res.status(403).json({ message: "No autorizado para esta acción" });
       }
       
       res.json({ message: "Post eliminado exitosamente" });
@@ -4400,9 +4400,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
       
       const comment = await storage.updatePostComment(parseInt(id), content, req.user!.userId);
-      
+
       if (!comment) {
-        return res.status(404).json({ message: "Comentario no encontrado o sin permisos" });
+        return res.status(403).json({ message: "No autorizado para esta acción" });
       }
       
       res.json(comment);
@@ -4417,9 +4417,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const { id } = req.params;
       const success = await storage.deletePostComment(parseInt(id), req.user!.userId);
-      
+
       if (!success) {
-        return res.status(404).json({ message: "Comentario no encontrado o sin permisos" });
+        return res.status(403).json({ message: "No autorizado para esta acción" });
       }
       
       res.json({ message: "Comentario eliminado exitosamente" });
