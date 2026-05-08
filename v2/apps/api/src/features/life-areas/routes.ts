@@ -16,6 +16,8 @@ import { z } from 'zod';
 import { authenticate } from '../../middleware/auth.js';
 import { HttpError } from '../../middleware/error-handler.js';
 
+import { rescoreUser } from './scoring.js';
+
 const router: RouterType = Router();
 
 /** Scale up: frontend 0-10 → backend 0-100. */
@@ -80,10 +82,14 @@ router.post('/quiz/responses', authenticate, async (req, res, next) => {
       if (isText) inputArgs.textValue = r.value as string;
       else inputArgs.currentValue = Math.round((r.value as number) * SCALE_FACTOR);
 
-       
+
       const row = await repo.upsertResponse(inputArgs);
       saved.push(row);
     }
+
+    // Recompute aggregates after the batch lands. Cheap at this scale.
+    await rescoreUser(req.user.id);
+
     res.json({ data: { saved: saved.length } });
   } catch (err) {
     next(err);

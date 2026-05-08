@@ -82,6 +82,10 @@ const LifeAreaDetail = lazy(async () => {
   const m = await import('~/pages/LifeAreaDetail');
   return { default: m.LifeAreaDetail };
 });
+const CivicAssessment = lazy(async () => {
+  const m = await import('~/pages/CivicAssessment');
+  return { default: m.CivicAssessment };
+});
 
 function PageFallback() {
   return (
@@ -124,6 +128,9 @@ export function App() {
               {/* Life areas (auth-gated) */}
               <Route path="/areas" component={LifeAreasDashboard} />
               <Route path="/areas/:slug" component={LifeAreaDetail} />
+
+              {/* Civic assessment (auth-gated) */}
+              <Route path="/auto-evaluacion-civica" component={CivicAssessment} />
 
               <Route component={NotFound} />
             </Switch>
