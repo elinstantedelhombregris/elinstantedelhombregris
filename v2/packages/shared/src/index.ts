@@ -5,3 +5,4 @@
  * the api and web apps depend on.
  */
 export * from './validation/index.js';
+export * from './content/index.js';
