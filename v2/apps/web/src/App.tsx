@@ -13,6 +13,26 @@ const NotFound = lazy(async () => {
   const m = await import('~/pages/NotFound');
   return { default: m.NotFound };
 });
+const Login = lazy(async () => {
+  const m = await import('~/pages/Login');
+  return { default: m.Login };
+});
+const Register = lazy(async () => {
+  const m = await import('~/pages/Register');
+  return { default: m.Register };
+});
+const ForgotPassword = lazy(async () => {
+  const m = await import('~/pages/ForgotPassword');
+  return { default: m.ForgotPassword };
+});
+const ResetPassword = lazy(async () => {
+  const m = await import('~/pages/ResetPassword');
+  return { default: m.ResetPassword };
+});
+const VerifyEmail = lazy(async () => {
+  const m = await import('~/pages/VerifyEmail');
+  return { default: m.VerifyEmail };
+});
 
 function PageFallback() {
   return (
@@ -29,6 +49,11 @@ export function App() {
         <Suspense fallback={<PageFallback />}>
           <Switch>
             <Route path="/" component={Home} />
+            <Route path="/ingresar" component={Login} />
+            <Route path="/registrarse" component={Register} />
+            <Route path="/recuperar-contrasena" component={ForgotPassword} />
+            <Route path="/restablecer-contrasena" component={ResetPassword} />
+            <Route path="/verificar-email" component={VerifyEmail} />
             <Route component={NotFound} />
           </Switch>
         </Suspense>

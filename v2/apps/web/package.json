@@ -16,6 +16,8 @@
     "test:integration": "echo 'no integration tests' && exit 0"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.10.0",
+    "@radix-ui/react-label": "^2.1.1",
     "@radix-ui/react-slot": "^1.1.1",
     "@tanstack/react-query": "^5.62.7",
     "@v2/shared": "workspace:*",
@@ -24,8 +26,11 @@
     "lucide-react": "^0.468.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-hook-form": "^7.54.2",
+    "sonner": "^1.7.1",
     "tailwind-merge": "^2.5.5",
-    "wouter": "^3.3.5"
+    "wouter": "^3.3.5",
+    "zod": "^3.24.1"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.6.3",

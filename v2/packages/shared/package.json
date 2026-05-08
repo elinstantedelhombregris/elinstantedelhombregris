@@ -10,7 +10,8 @@
   "exports": {
     ".": "./src/index.ts",
     "./validation": "./src/validation/index.ts",
-    "./content": "./src/content/index.ts"
+    "./content": "./src/content/index.ts",
+    "./content/loader": "./src/content/loader.ts"
   },
   "scripts": {
     "lint": "eslint src --max-warnings 0",
