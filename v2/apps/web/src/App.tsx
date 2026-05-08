@@ -2,6 +2,7 @@ import { QueryClientProvider } from '@tanstack/react-query';
 import { lazy, StrictMode, Suspense } from 'react';
 import { Route, Switch } from 'wouter';
 
+import { RootLayout } from '~/layouts/RootLayout';
 import { queryClient } from '~/lib/query-client';
 
 // Lazy-load every page so each route ships its own chunk.
@@ -33,6 +34,38 @@ const VerifyEmail = lazy(async () => {
   const m = await import('~/pages/VerifyEmail');
   return { default: m.VerifyEmail };
 });
+const Manifiesto = lazy(async () => {
+  const m = await import('~/pages/Manifiesto');
+  return { default: m.Manifiesto };
+});
+const LaVision = lazy(async () => {
+  const m = await import('~/pages/LaVision');
+  return { default: m.LaVision };
+});
+const LaSemillaDeBasta = lazy(async () => {
+  const m = await import('~/pages/LaSemillaDeBasta');
+  return { default: m.LaSemillaDeBasta };
+});
+const UnaRutaParaArgentina = lazy(async () => {
+  const m = await import('~/pages/UnaRutaParaArgentina');
+  return { default: m.UnaRutaParaArgentina };
+});
+const ElMapa = lazy(async () => {
+  const m = await import('~/pages/ElMapa');
+  return { default: m.ElMapa };
+});
+const ElInstanteDelHombreGris = lazy(async () => {
+  const m = await import('~/pages/ElInstanteDelHombreGris');
+  return { default: m.ElInstanteDelHombreGris };
+});
+const DetallesCalculoCostoHumano = lazy(async () => {
+  const m = await import('~/pages/DetallesCalculoCostoHumano');
+  return { default: m.DetallesCalculoCostoHumano };
+});
+const KitDePrensa = lazy(async () => {
+  const m = await import('~/pages/KitDePrensa');
+  return { default: m.KitDePrensa };
+});
 
 function PageFallback() {
   return (
@@ -46,17 +79,32 @@ export function App() {
   return (
     <StrictMode>
       <QueryClientProvider client={queryClient}>
-        <Suspense fallback={<PageFallback />}>
-          <Switch>
-            <Route path="/" component={Home} />
-            <Route path="/ingresar" component={Login} />
-            <Route path="/registrarse" component={Register} />
-            <Route path="/recuperar-contrasena" component={ForgotPassword} />
-            <Route path="/restablecer-contrasena" component={ResetPassword} />
-            <Route path="/verificar-email" component={VerifyEmail} />
-            <Route component={NotFound} />
-          </Switch>
-        </Suspense>
+        <RootLayout>
+          <Suspense fallback={<PageFallback />}>
+            <Switch>
+              <Route path="/" component={Home} />
+
+              {/* Auth */}
+              <Route path="/ingresar" component={Login} />
+              <Route path="/registrarse" component={Register} />
+              <Route path="/recuperar-contrasena" component={ForgotPassword} />
+              <Route path="/restablecer-contrasena" component={ResetPassword} />
+              <Route path="/verificar-email" component={VerifyEmail} />
+
+              {/* ¡BASTA! framework */}
+              <Route path="/manifiesto" component={Manifiesto} />
+              <Route path="/la-vision" component={LaVision} />
+              <Route path="/la-semilla-de-basta" component={LaSemillaDeBasta} />
+              <Route path="/una-ruta-para-argentina" component={UnaRutaParaArgentina} />
+              <Route path="/el-mapa" component={ElMapa} />
+              <Route path="/el-instante-del-hombre-gris" component={ElInstanteDelHombreGris} />
+              <Route path="/detalles-calculo-costo-humano" component={DetallesCalculoCostoHumano} />
+              <Route path="/kit-de-prensa" component={KitDePrensa} />
+
+              <Route component={NotFound} />
+            </Switch>
+          </Suspense>
+        </RootLayout>
       </QueryClientProvider>
     </StrictMode>
   );
