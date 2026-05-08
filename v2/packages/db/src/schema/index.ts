@@ -25,3 +25,4 @@ export * from './iniciativas.js';
 export * from './mandato.js';
 export * from './pulso.js';
 export * from './gamification.js';
+export * from './life-areas.js';
