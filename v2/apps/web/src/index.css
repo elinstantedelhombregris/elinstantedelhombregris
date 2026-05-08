@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Semantic tokens — dark theme by default (the v1 brand identity). */
+    --background: 0 0% 4%;
+    --foreground: 220 14% 96%;
+    --muted: 220 8% 15%;
+    --muted-foreground: 220 5% 65%;
+    --primary: 256 65% 62%;
+    --primary-foreground: 220 14% 96%;
+    --border: 220 8% 18%;
+    --ring: 256 65% 62%;
+    --radius: 0.75rem;
+  }
+
+  html {
+    color-scheme: dark;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+
+  ::selection {
+    background-color: hsl(var(--primary) / 0.3);
+  }
+}
+
+@layer utilities {
+  /* Glassmorphism preset — matches the v1 visual signature. */
+  .glass {
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
+  }
+
+  /* Gradient title preset. */
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-b from-mist-white to-mist-white/70;
+  }
+}
