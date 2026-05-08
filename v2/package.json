@@ -1,0 +1,51 @@
+{
+  "name": "el-instante-del-hombre-gris",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "description": "El Instante del Hombre Gris — Argentine civic engagement platform built around the ¡BASTA! popular governance framework. v2 rebuild.",
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "packageManager": "pnpm@10.16.1",
+  "scripts": {
+    "dev": "pnpm --parallel --filter './apps/*' dev",
+    "build": "pnpm -r --filter './apps/*' --filter './packages/*' build",
+    "lint": "pnpm -r --parallel lint",
+    "lint:fix": "pnpm -r --parallel lint:fix",
+    "type-check": "pnpm -r --parallel type-check",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,mdx,css,yml,yaml}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md,mdx,css,yml,yaml}\"",
+    "test": "pnpm test:unit && pnpm test:integration",
+    "test:unit": "pnpm -r --parallel test:unit",
+    "test:integration": "pnpm -r --parallel test:integration",
+    "test:e2e": "playwright test",
+    "size": "pnpm --filter @v2/web size",
+    "verify": "pnpm lint && pnpm type-check && pnpm test && pnpm build",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.10",
+    "prettier": "^3.4.2",
+    "prettier-plugin-tailwindcss": "^0.6.9",
+    "typescript": "^5.6.3"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,mdx,css,yml,yaml}": [
+      "prettier --write"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  }
+}
