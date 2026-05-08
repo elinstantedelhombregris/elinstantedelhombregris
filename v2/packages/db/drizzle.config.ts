@@ -31,6 +31,7 @@ export default defineConfig({
     './src/schema/resources.ts',
     './src/schema/dreams.ts',
     './src/schema/feedback.ts',
+    './src/schema/courses.ts',
   ],
   dialect: 'postgresql',
   dbCredentials: { url },

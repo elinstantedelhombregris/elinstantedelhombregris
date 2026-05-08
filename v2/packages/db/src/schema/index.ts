@@ -20,3 +20,4 @@ export * from './coaching.js';
 export * from './resources.js';
 export * from './dreams.js';
 export * from './feedback.js';
+export * from './courses.js';
