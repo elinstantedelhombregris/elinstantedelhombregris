@@ -1,2 +1,7 @@
-// Placeholder. Zod schemas land in P0.6.
-export const placeholder = true;
+/**
+ * Public surface of @v2/shared.
+ *
+ * Cross-cutting Zod schemas, types, and content registries that both
+ * the api and web apps depend on.
+ */
+export * from './validation/index.js';
