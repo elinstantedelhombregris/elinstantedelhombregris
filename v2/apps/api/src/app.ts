@@ -15,6 +15,7 @@ import { goalsRouter } from './features/goals/routes.js';
 import { iniciativasRouter } from './features/iniciativas/routes.js';
 import { lifeAreasRouter } from './features/life-areas/routes.js';
 import { notificationsRouter } from './features/notifications/routes.js';
+import { openDataRouter } from './features/open-data/routes.js';
 import { pulsoRouter } from './features/pulso/routes.js';
 import { logger } from './lib/logger.js';
 import { csrfProtect } from './middleware/csrf.js';
@@ -66,6 +67,7 @@ export function createApp(): Express {
   app.use('/api/blog', blogRouter);
   app.use('/api/community', communityRouter);
   app.use('/api/notifications', notificationsRouter);
+  app.use('/api/open-data', openDataRouter);
 
   // CSRF guard for everything else that mutates state.
   app.use('/api', csrfProtect);
