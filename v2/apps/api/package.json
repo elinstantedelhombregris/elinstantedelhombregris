@@ -29,6 +29,7 @@
     "jsonwebtoken": "^9.0.2",
     "pino": "^9.5.0",
     "pino-pretty": "^11.3.0",
+    "@anthropic-ai/sdk": "^0.78.0",
     "qrcode": "^1.5.4",
     "resend": "^4.0.1",
     "speakeasy": "^2.0.0",
