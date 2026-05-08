@@ -1,7 +1,10 @@
 /**
  * Production entry point. Binds the Express app to a port.
+ *
+ * `./load-env.js` MUST be the first import — it has the side effect of
+ * pulling .env values into process.env before any module reads config.
  */
-import 'dotenv/config';
+import './load-env.js';
 
 import { createApp } from './app.js';
 import { getConfig } from './lib/config.js';

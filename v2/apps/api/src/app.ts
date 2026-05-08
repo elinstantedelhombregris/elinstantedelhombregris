@@ -4,8 +4,9 @@
 import cookieParser from 'cookie-parser';
 import express from 'express';
 
-
+import { authRouter } from './features/auth/routes.js';
 import { logger } from './lib/logger.js';
+import { csrfProtect } from './middleware/csrf.js';
 import { errorHandler, notFoundHandler } from './middleware/error-handler.js';
 import { generalRateLimit } from './middleware/rate-limit.js';
 import { requestId } from './middleware/request-id.js';
@@ -35,6 +36,13 @@ export function createApp(): Express {
 
   // Routes
   app.use('/api/health', healthRouter);
+  // Auth routes — register/login don't have a CSRF cookie yet, so CSRF
+  // is enforced per-route on /me/refresh/logout where it matters. The
+  // login/register endpoints are state-changing but rely on the
+  // password / username uniqueness as their primary defense.
+  app.use('/api/auth', authRouter);
+  // CSRF guard for everything else that mutates state.
+  app.use('/api', csrfProtect);
 
   // Tail middleware
   app.use(notFoundHandler());
