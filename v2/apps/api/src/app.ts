@@ -4,6 +4,7 @@
 import cookieParser from 'cookie-parser';
 import express from 'express';
 
+import { authEmailRouter } from './features/auth/email-routes.js';
 import { authRouter } from './features/auth/routes.js';
 import { logger } from './lib/logger.js';
 import { csrfProtect } from './middleware/csrf.js';
@@ -41,6 +42,7 @@ export function createApp(): Express {
   // login/register endpoints are state-changing but rely on the
   // password / username uniqueness as their primary defense.
   app.use('/api/auth', authRouter);
+  app.use('/api/auth', authEmailRouter);
   // CSRF guard for everything else that mutates state.
   app.use('/api', csrfProtect);
 
