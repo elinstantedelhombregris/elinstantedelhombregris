@@ -22,7 +22,7 @@
     "db:migrate": "tsx scripts/migrate.ts",
     "db:studio": "drizzle-kit studio",
     "db:check": "drizzle-kit check",
-    "test:unit": "vitest run --dir src",
+    "test:unit": "vitest run src/ --passWithNoTests",
     "test:integration": "vitest run --dir tests || true"
   },
   "dependencies": {

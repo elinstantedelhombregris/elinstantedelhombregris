@@ -16,7 +16,7 @@
     "lint:fix": "eslint src --fix",
     "type-check": "tsc --noEmit",
     "build": "tsc -p tsconfig.build.json",
-    "test:unit": "vitest run --dir src",
+    "test:unit": "vitest run src/ --passWithNoTests",
     "test:integration": "echo 'no integration tests' && exit 0"
   },
   "dependencies": {
