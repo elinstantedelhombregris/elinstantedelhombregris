@@ -86,6 +86,14 @@ const CivicAssessment = lazy(async () => {
   const m = await import('~/pages/CivicAssessment');
   return { default: m.CivicAssessment };
 });
+const Goals = lazy(async () => {
+  const m = await import('~/pages/Goals');
+  return { default: m.Goals };
+});
+const CoachingChat = lazy(async () => {
+  const m = await import('~/pages/CoachingChat');
+  return { default: m.CoachingChat };
+});
 
 function PageFallback() {
   return (
@@ -131,6 +139,10 @@ export function App() {
 
               {/* Civic assessment (auth-gated) */}
               <Route path="/auto-evaluacion-civica" component={CivicAssessment} />
+
+              {/* Goals + coaching (auth-gated) */}
+              <Route path="/objetivos" component={Goals} />
+              <Route path="/coaching" component={CoachingChat} />
 
               <Route component={NotFound} />
             </Switch>
