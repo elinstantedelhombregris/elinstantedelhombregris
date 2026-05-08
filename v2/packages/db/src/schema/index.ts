@@ -11,3 +11,6 @@ export * from './users.js';
 export * from './auth.js';
 export * from './notifications.js';
 export * from './geographic.js';
+export * from './community.js';
+export * from './blog.js';
+export * from './ensayos.js';

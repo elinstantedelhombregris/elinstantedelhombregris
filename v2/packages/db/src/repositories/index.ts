@@ -9,3 +9,6 @@ export { UsersRepository } from './users.js';
 export { AuthRepository } from './auth.js';
 export { NotificationsRepository } from './notifications.js';
 export { GeographicRepository, normalizeProvinceName } from './geographic.js';
+export { CommunityRepository } from './community.js';
+export { BlogRepository } from './blog.js';
+export { EnsayosRepository } from './ensayos.js';
