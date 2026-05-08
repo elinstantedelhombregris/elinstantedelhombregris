@@ -15,3 +15,6 @@ export { EnsayosRepository } from './ensayos.js';
 export { CivicAssessmentRepository } from './civic-assessment.js';
 export { GoalsRepository } from './goals.js';
 export { CoachingRepository } from './coaching.js';
+export { ResourcesRepository } from './resources.js';
+export { DreamsRepository } from './dreams.js';
+export { FeedbackRepository } from './feedback.js';

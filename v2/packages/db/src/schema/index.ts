@@ -17,3 +17,6 @@ export * from './ensayos.js';
 export * from './civic-assessment.js';
 export * from './goals.js';
 export * from './coaching.js';
+export * from './resources.js';
+export * from './dreams.js';
+export * from './feedback.js';
