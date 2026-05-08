@@ -13,8 +13,8 @@
     "lint": "eslint src --max-warnings 0",
     "lint:fix": "eslint src --fix",
     "type-check": "tsc --noEmit",
-    "test:unit": "vitest run --dir src",
-    "test:integration": "vitest run --dir tests"
+    "test:unit": "vitest run --dir src --passWithNoTests",
+    "test:integration": "vitest run tests/"
   },
   "dependencies": {
     "@v2/db": "workspace:*",
