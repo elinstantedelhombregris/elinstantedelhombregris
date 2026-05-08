@@ -12,3 +12,6 @@ export { GeographicRepository, normalizeProvinceName } from './geographic.js';
 export { CommunityRepository } from './community.js';
 export { BlogRepository } from './blog.js';
 export { EnsayosRepository } from './ensayos.js';
+export { CivicAssessmentRepository } from './civic-assessment.js';
+export { GoalsRepository } from './goals.js';
+export { CoachingRepository } from './coaching.js';

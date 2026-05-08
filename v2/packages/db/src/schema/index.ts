@@ -14,3 +14,6 @@ export * from './geographic.js';
 export * from './community.js';
 export * from './blog.js';
 export * from './ensayos.js';
+export * from './civic-assessment.js';
+export * from './goals.js';
+export * from './coaching.js';
