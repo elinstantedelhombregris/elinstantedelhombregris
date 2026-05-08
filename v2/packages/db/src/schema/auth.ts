@@ -12,7 +12,7 @@ import { boolean, index, integer, pgTable, serial, text, timestamp, uniqueIndex 
 // `.js` extension intentionally omitted: drizzle-kit's CJS loader
 // resolves with no-extension paths; tsx and the runtime ESM loader
 // handle both.
-// eslint-disable-next-line import/extensions
+ 
 import { users } from './users';
 
 /**

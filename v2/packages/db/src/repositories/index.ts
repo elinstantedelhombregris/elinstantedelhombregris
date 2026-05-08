@@ -7,3 +7,5 @@
  */
 export { UsersRepository } from './users.js';
 export { AuthRepository } from './auth.js';
+export { NotificationsRepository } from './notifications.js';
+export { GeographicRepository, normalizeProvinceName } from './geographic.js';
