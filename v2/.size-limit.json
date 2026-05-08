@@ -1,0 +1,24 @@
+[
+  {
+    "name": "homepage initial JS (gzipped)",
+    "path": [
+      "apps/web/dist/assets/index-*.js",
+      "apps/web/dist/assets/react-*.js",
+      "apps/web/dist/assets/Home-*.js"
+    ],
+    "limit": "250 KB",
+    "gzip": true
+  },
+  {
+    "name": "homepage CSS (gzipped)",
+    "path": "apps/web/dist/assets/index-*.css",
+    "limit": "30 KB",
+    "gzip": true
+  },
+  {
+    "name": "404 page chunk (gzipped)",
+    "path": "apps/web/dist/assets/NotFound-*.js",
+    "limit": "10 KB",
+    "gzip": true
+  }
+]
