@@ -14,6 +14,7 @@ import { z } from 'zod';
 import { getConfig } from '../../lib/config.js';
 import { getEmailSender } from '../../lib/email.js';
 import { logger } from '../../lib/logger.js';
+import { emailVerificationRateLimit, passwordResetRequestRateLimit } from '../../middleware/rate-limit.js';
 
 import { emailVerificationTemplate, passwordResetTemplate } from './email-templates.js';
 import { hashPassword } from './password.js';
@@ -37,7 +38,7 @@ const resetPasswordSchema = z.object({
 const VERIFY_TTL_MS = 24 * 60 * 60 * 1000; // 24h
 const RESET_TTL_MS = 60 * 60 * 1000; // 1h
 
-router.post('/email/send-verification', async (req, res, next) => {
+router.post('/email/send-verification', emailVerificationRateLimit(), async (req, res, next) => {
   try {
     const parsed = requestVerificationSchema.parse(req.body ?? {});
     const cfg = getConfig();
@@ -92,7 +93,7 @@ router.post('/email/verify', async (req, res, next) => {
   }
 });
 
-router.post('/password/request-reset', async (req, res, next) => {
+router.post('/password/request-reset', passwordResetRequestRateLimit(), async (req, res, next) => {
   try {
     const { email } = requestResetSchema.parse(req.body);
     const cfg = getConfig();

@@ -6,6 +6,7 @@ import express from 'express';
 
 import { authEmailRouter } from './features/auth/email-routes.js';
 import { authRouter } from './features/auth/routes.js';
+import { twoFactorRouter } from './features/auth/two-factor-routes.js';
 import { logger } from './lib/logger.js';
 import { csrfProtect } from './middleware/csrf.js';
 import { errorHandler, notFoundHandler } from './middleware/error-handler.js';
@@ -43,6 +44,7 @@ export function createApp(): Express {
   // password / username uniqueness as their primary defense.
   app.use('/api/auth', authRouter);
   app.use('/api/auth', authEmailRouter);
+  app.use('/api/auth', twoFactorRouter);
   // CSRF guard for everything else that mutates state.
   app.use('/api', csrfProtect);
 

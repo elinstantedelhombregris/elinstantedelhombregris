@@ -12,6 +12,7 @@ import { loginInputSchema, registerInputSchema } from '@v2/shared';
 import { Router, type Router as RouterType } from 'express';
 
 import { authenticate } from '../../middleware/auth.js';
+import { loginRateLimit, registerRateLimit } from '../../middleware/rate-limit.js';
 
 import { AuthService } from './service.js';
 import {
@@ -35,7 +36,7 @@ function fingerprint(req: { header: (n: string) => string | undefined; ip?: stri
   };
 }
 
-router.post('/register', async (req, res, next) => {
+router.post('/register', registerRateLimit(), async (req, res, next) => {
   try {
     const input = registerInputSchema.parse(req.body);
     const result = await buildService().register(input, fingerprint(req));
@@ -46,7 +47,7 @@ router.post('/register', async (req, res, next) => {
   }
 });
 
-router.post('/login', async (req, res, next) => {
+router.post('/login', loginRateLimit(), async (req, res, next) => {
   try {
     const input = loginInputSchema.parse(req.body);
     const result = await buildService().login(input, fingerprint(req));
