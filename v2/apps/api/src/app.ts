@@ -8,6 +8,7 @@ import { authEmailRouter } from './features/auth/email-routes.js';
 import { authRouter } from './features/auth/routes.js';
 import { twoFactorRouter } from './features/auth/two-factor-routes.js';
 import { iniciativasRouter } from './features/iniciativas/routes.js';
+import { lifeAreasRouter } from './features/life-areas/routes.js';
 import { pulsoRouter } from './features/pulso/routes.js';
 import { logger } from './lib/logger.js';
 import { csrfProtect } from './middleware/csrf.js';
@@ -52,6 +53,7 @@ export function createApp(): Express {
   // the global guard to keep them clearly identified).
   app.use('/api/iniciativas', iniciativasRouter);
   app.use('/api', pulsoRouter);
+  app.use('/api/life-areas', lifeAreasRouter);
 
   // CSRF guard for everything else that mutates state.
   app.use('/api', csrfProtect);

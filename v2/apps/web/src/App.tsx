@@ -74,6 +74,14 @@ const PlanDetail = lazy(async () => {
   const m = await import('~/pages/PlanDetail');
   return { default: m.PlanDetail };
 });
+const LifeAreasDashboard = lazy(async () => {
+  const m = await import('~/pages/LifeAreasDashboard');
+  return { default: m.LifeAreasDashboard };
+});
+const LifeAreaDetail = lazy(async () => {
+  const m = await import('~/pages/LifeAreaDetail');
+  return { default: m.LifeAreaDetail };
+});
 
 function PageFallback() {
   return (
@@ -112,6 +120,10 @@ export function App() {
               {/* PLAN catalog */}
               <Route path="/planes" component={Planes} />
               <Route path="/planes/:slug" component={PlanDetail} />
+
+              {/* Life areas (auth-gated) */}
+              <Route path="/areas" component={LifeAreasDashboard} />
+              <Route path="/areas/:slug" component={LifeAreaDetail} />
 
               <Route component={NotFound} />
             </Switch>
