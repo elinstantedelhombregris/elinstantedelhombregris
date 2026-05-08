@@ -21,3 +21,6 @@ export * from './resources.js';
 export * from './dreams.js';
 export * from './feedback.js';
 export * from './courses.js';
+export * from './iniciativas.js';
+export * from './mandato.js';
+export * from './pulso.js';

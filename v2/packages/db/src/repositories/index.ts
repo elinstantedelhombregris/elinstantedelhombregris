@@ -19,3 +19,6 @@ export { ResourcesRepository } from './resources.js';
 export { DreamsRepository } from './dreams.js';
 export { FeedbackRepository } from './feedback.js';
 export { CoursesRepository } from './courses.js';
+export { IniciativasRepository } from './iniciativas.js';
+export { MandatoRepository } from './mandato.js';
+export { PulsoRepository } from './pulso.js';
