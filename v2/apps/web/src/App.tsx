@@ -66,6 +66,14 @@ const KitDePrensa = lazy(async () => {
   const m = await import('~/pages/KitDePrensa');
   return { default: m.KitDePrensa };
 });
+const Planes = lazy(async () => {
+  const m = await import('~/pages/Planes');
+  return { default: m.Planes };
+});
+const PlanDetail = lazy(async () => {
+  const m = await import('~/pages/PlanDetail');
+  return { default: m.PlanDetail };
+});
 
 function PageFallback() {
   return (
@@ -100,6 +108,10 @@ export function App() {
               <Route path="/el-instante-del-hombre-gris" component={ElInstanteDelHombreGris} />
               <Route path="/detalles-calculo-costo-humano" component={DetallesCalculoCostoHumano} />
               <Route path="/kit-de-prensa" component={KitDePrensa} />
+
+              {/* PLAN catalog */}
+              <Route path="/planes" component={Planes} />
+              <Route path="/planes/:slug" component={PlanDetail} />
 
               <Route component={NotFound} />
             </Switch>

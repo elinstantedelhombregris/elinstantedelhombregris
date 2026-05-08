@@ -6,6 +6,7 @@
     "paths": {
       "~/*": ["./src/*"]
     },
+    "types": ["vite/client"],
     "noEmit": true
   },
   "include": ["src/**/*", "src/types/*.d.ts", "vite.config.ts", "vitest.config.ts", "tailwind.config.ts"]
