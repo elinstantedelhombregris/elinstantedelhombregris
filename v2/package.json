@@ -22,17 +22,21 @@
     "test:integration": "pnpm -r --parallel test:integration",
     "test:e2e": "playwright test",
     "size": "pnpm --filter @v2/web size",
-    "verify": "pnpm lint && pnpm type-check && pnpm test && pnpm build",
-    "prepare": "husky"
+    "verify": "pnpm lint && pnpm type-check && pnpm test && pnpm build"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.5.0",
     "@commitlint/config-conventional": "^19.5.0",
-    "husky": "^9.1.7",
+    "eslint": "^9.17.0",
     "lint-staged": "^15.2.10",
     "prettier": "^3.4.2",
     "prettier-plugin-tailwindcss": "^0.6.9",
     "typescript": "^5.6.3"
+  },
+  "pnpm": {
+    "overrides": {
+      "eslint": "^9.17.0"
+    }
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": [
