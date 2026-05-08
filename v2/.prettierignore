@@ -1,0 +1,14 @@
+node_modules
+dist
+build
+coverage
+.turbo
+.next
+.vite
+pnpm-lock.yaml
+*.min.js
+*.min.css
+.github/CODEOWNERS
+playwright-report
+test-results
+content/**/*.mdx

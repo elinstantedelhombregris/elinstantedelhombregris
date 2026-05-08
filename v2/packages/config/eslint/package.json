@@ -1,0 +1,33 @@
+{
+  "name": "@v2/config-eslint",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "description": "Shared ESLint configuration for v2 workspaces.",
+  "type": "module",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./node": "./node.js",
+    "./react": "./react.js"
+  },
+  "files": [
+    "index.js",
+    "node.js",
+    "react.js"
+  ],
+  "peerDependencies": {
+    "eslint": ">=9.0.0"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.18.0",
+    "@typescript-eslint/parser": "^8.18.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-react-refresh": "^0.4.16",
+    "globals": "^15.13.0",
+    "typescript-eslint": "^8.18.0"
+  }
+}

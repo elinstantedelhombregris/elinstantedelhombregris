@@ -1,0 +1,13 @@
+{
+  "name": "@v2/config-typescript",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "description": "Shared TypeScript configuration presets for v2 workspaces.",
+  "files": [
+    "base.json",
+    "node.json",
+    "react.json"
+  ],
+  "type": "module"
+}
