@@ -17,7 +17,7 @@ export default defineConfig({
   // on the `.js`-suffixed ESM-relative imports inside index.ts, so we
   // bypass the barrel here and add new files explicitly when domains
   // are introduced.
-  schema: ['./src/schema/users.ts'],
+  schema: ['./src/schema/users.ts', './src/schema/auth.ts'],
   dialect: 'postgresql',
   dbCredentials: { url },
   verbose: true,

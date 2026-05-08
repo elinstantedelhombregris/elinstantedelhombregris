@@ -6,3 +6,4 @@
  * test branch's client.
  */
 export { UsersRepository } from './users.js';
+export { AuthRepository } from './auth.js';
