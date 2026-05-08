@@ -35,6 +35,7 @@ export default defineConfig({
     './src/schema/iniciativas.ts',
     './src/schema/mandato.ts',
     './src/schema/pulso.ts',
+    './src/schema/gamification.ts',
   ],
   dialect: 'postgresql',
   dbCredentials: { url },

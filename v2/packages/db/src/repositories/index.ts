@@ -22,3 +22,4 @@ export { CoursesRepository } from './courses.js';
 export { IniciativasRepository } from './iniciativas.js';
 export { MandatoRepository } from './mandato.js';
 export { PulsoRepository } from './pulso.js';
+export { GamificationRepository } from './gamification.js';

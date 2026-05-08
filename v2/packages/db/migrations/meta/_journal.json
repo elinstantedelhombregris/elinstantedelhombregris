@@ -57,6 +57,13 @@
       "when": 1778235973516,
       "tag": "0007_normal_vapor",
       "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1778236099789,
+      "tag": "0008_fuzzy_stark_industries",
+      "breakpoints": true
     }
   ]
 }
