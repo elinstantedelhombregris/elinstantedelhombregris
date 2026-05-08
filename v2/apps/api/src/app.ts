@@ -7,8 +7,14 @@ import express from 'express';
 import { authEmailRouter } from './features/auth/email-routes.js';
 import { authRouter } from './features/auth/routes.js';
 import { twoFactorRouter } from './features/auth/two-factor-routes.js';
+import { blogRouter } from './features/blog/routes.js';
+import { civicAssessmentRouter } from './features/civic-assessment/routes.js';
+import { coachingRouter } from './features/coaching/routes.js';
+import { communityRouter } from './features/community/routes.js';
+import { goalsRouter } from './features/goals/routes.js';
 import { iniciativasRouter } from './features/iniciativas/routes.js';
 import { lifeAreasRouter } from './features/life-areas/routes.js';
+import { notificationsRouter } from './features/notifications/routes.js';
 import { pulsoRouter } from './features/pulso/routes.js';
 import { logger } from './lib/logger.js';
 import { csrfProtect } from './middleware/csrf.js';
@@ -54,6 +60,12 @@ export function createApp(): Express {
   app.use('/api/iniciativas', iniciativasRouter);
   app.use('/api', pulsoRouter);
   app.use('/api/life-areas', lifeAreasRouter);
+  app.use('/api/civic-assessment', civicAssessmentRouter);
+  app.use('/api', goalsRouter);
+  app.use('/api/coaching', coachingRouter);
+  app.use('/api/blog', blogRouter);
+  app.use('/api/community', communityRouter);
+  app.use('/api/notifications', notificationsRouter);
 
   // CSRF guard for everything else that mutates state.
   app.use('/api', csrfProtect);

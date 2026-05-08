@@ -94,6 +94,30 @@ const CoachingChat = lazy(async () => {
   const m = await import('~/pages/CoachingChat');
   return { default: m.CoachingChat };
 });
+const Ensayos = lazy(async () => {
+  const m = await import('~/pages/Ensayos');
+  return { default: m.Ensayos };
+});
+const EnsayoDetail = lazy(async () => {
+  const m = await import('~/pages/EnsayoDetail');
+  return { default: m.EnsayoDetail };
+});
+const Blog = lazy(async () => {
+  const m = await import('~/pages/Blog');
+  return { default: m.Blog };
+});
+const BlogPostDetail = lazy(async () => {
+  const m = await import('~/pages/BlogPostDetail');
+  return { default: m.BlogPostDetail };
+});
+const Community = lazy(async () => {
+  const m = await import('~/pages/Community');
+  return { default: m.Community };
+});
+const Notifications = lazy(async () => {
+  const m = await import('~/pages/Notifications');
+  return { default: m.Notifications };
+});
 
 function PageFallback() {
   return (
@@ -143,6 +167,14 @@ export function App() {
               {/* Goals + coaching (auth-gated) */}
               <Route path="/objetivos" component={Goals} />
               <Route path="/coaching" component={CoachingChat} />
+
+              {/* Content + community */}
+              <Route path="/ensayos" component={Ensayos} />
+              <Route path="/ensayos/:slug" component={EnsayoDetail} />
+              <Route path="/blog" component={Blog} />
+              <Route path="/blog/:slug" component={BlogPostDetail} />
+              <Route path="/comunidad" component={Community} />
+              <Route path="/notificaciones" component={Notifications} />
 
               <Route component={NotFound} />
             </Switch>
