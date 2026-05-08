@@ -1,26 +1,44 @@
 /**
- * Auth HTTP slice. Validates input → calls service → sets cookies → returns user.
- * Never returns the raw access/refresh tokens in the JSON body.
+ * Auth HTTP slice.
+ *
+ * Validates input → calls service → sets cookies → returns user.
+ * Never returns the raw access/refresh tokens in the JSON body — they
+ * live in httpOnly cookies. The CSRF token is returned both as a
+ * non-httpOnly cookie (for the browser) and in the JSON (so SPAs that
+ * boot from a fresh Set-Cookie can read it without an extra fetch).
  */
-import { getDb, UsersRepository } from '@v2/db';
+import { AuthRepository, getDb, UsersRepository } from '@v2/db';
 import { loginInputSchema, registerInputSchema } from '@v2/shared';
 import { Router, type Router as RouterType } from 'express';
 
 import { authenticate } from '../../middleware/auth.js';
 
 import { AuthService } from './service.js';
-import { clearAuthCookies, COOKIE_REFRESH, setAuthCookies, signAccessToken, signRefreshToken, verifyRefreshToken } from './tokens.js';
+import {
+  COOKIE_REFRESH,
+  clearAuthCookies,
+  setAuthCookies,
+  verifyRefreshToken,
+} from './tokens.js';
 
 const router: RouterType = Router();
 
 function buildService(): AuthService {
-  return new AuthService(new UsersRepository(getDb()));
+  const db = getDb();
+  return new AuthService(new UsersRepository(db), new AuthRepository(db));
+}
+
+function fingerprint(req: { header: (n: string) => string | undefined; ip?: string | undefined }) {
+  return {
+    userAgent: req.header('user-agent'),
+    ipAddress: req.ip,
+  };
 }
 
 router.post('/register', async (req, res, next) => {
   try {
     const input = registerInputSchema.parse(req.body);
-    const result = await buildService().register(input);
+    const result = await buildService().register(input, fingerprint(req));
     setAuthCookies(res, result.accessToken, result.refreshToken, result.csrfToken);
     res.status(201).json({ data: { user: result.user, csrfToken: result.csrfToken } });
   } catch (err) {
@@ -31,7 +49,7 @@ router.post('/register', async (req, res, next) => {
 router.post('/login', async (req, res, next) => {
   try {
     const input = loginInputSchema.parse(req.body);
-    const result = await buildService().login(input);
+    const result = await buildService().login(input, fingerprint(req));
     setAuthCookies(res, result.accessToken, result.refreshToken, result.csrfToken);
     res.json({ data: { user: result.user, csrfToken: result.csrfToken } });
   } catch (err) {
@@ -39,9 +57,21 @@ router.post('/login', async (req, res, next) => {
   }
 });
 
-router.post('/logout', (_req, res) => {
-  clearAuthCookies(res);
-  res.json({ data: { ok: true } });
+router.post('/logout', async (req, res, next) => {
+  try {
+    const cookies = req.cookies as Record<string, string> | undefined;
+    const refresh = cookies?.[COOKIE_REFRESH];
+    if (refresh) {
+      const claims = verifyRefreshToken(refresh);
+      if (claims) {
+        await buildService().logout(claims.jti);
+      }
+    }
+    clearAuthCookies(res);
+    res.json({ data: { ok: true } });
+  } catch (err) {
+    next(err);
+  }
 });
 
 router.get('/me', authenticate, async (req, res, next) => {
@@ -90,18 +120,9 @@ router.post('/refresh', async (req, res, next) => {
       res.status(401).json({ error: { code: 'INVALID_REFRESH', message: 'Refresh inválido.' } });
       return;
     }
-    const repo = new UsersRepository(getDb());
-    const user = await repo.findById(claims.sub);
-    if (!user?.isActive) {
-      res.status(401).json({ error: { code: 'USER_INACTIVE', message: 'Usuario inactivo.' } });
-      return;
-    }
-    const newAccess = signAccessToken({ sub: user.id, username: user.username, email: user.email });
-    const newRefresh = signRefreshToken({ sub: user.id, jti: claims.jti });
-    const cookies2 = req.cookies as Record<string, string> | undefined;
-    const csrfToken = cookies2?.eihg_csrf ?? '';
-    setAuthCookies(res, newAccess, newRefresh, csrfToken);
-    res.json({ data: { ok: true } });
+    const result = await buildService().rotate(claims.jti, fingerprint(req));
+    setAuthCookies(res, result.accessToken, result.refreshToken, result.csrfToken);
+    res.json({ data: { user: result.user, csrfToken: result.csrfToken } });
   } catch (err) {
     next(err);
   }
