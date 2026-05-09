@@ -223,7 +223,7 @@ router.post('/2fa/verify', twoFactorVerifyRateLimit(), async (req, res, next) =>
     // proves the password step; this verify call closes the loop.
     const db = getDb();
     const service = new AuthService(new UsersRepository(db), new AuthRepository(db));
-    const result = await service.loginAfterTwoFactor(claims.sub, {
+    const result = await service.loginAlreadyVerified(claims.sub, {
       userAgent: req.header('user-agent'),
       ipAddress: req.ip,
     });
