@@ -48,16 +48,24 @@ export function createApp(): Express {
 
   // Routes
   app.use('/api/health', healthRouter);
-  // Auth routes — register/login don't have a CSRF cookie yet, so CSRF
-  // is enforced per-route on /me/refresh/logout where it matters. The
-  // login/register endpoints are state-changing but rely on the
-  // password / username uniqueness as their primary defense.
+
+  // CSRF guard runs before all feature routers. Safe methods
+  // (GET/HEAD/OPTIONS) and a small allow-list of public mutations
+  // (login, register, password/email flows, 2fa/verify, anonymous
+  // pulso + dream submission, blog view tracking) bypass the check.
+  // Everything else must echo the eihg_csrf cookie value as
+  // X-CSRF-Token. See middleware/csrf.ts for the allow-list.
+  app.use('/api', csrfProtect);
+
+  // Auth routes. Most endpoints are exempted at the middleware level
+  // (login/register/email/password/2fa-verify); refresh, logout, /me,
+  // 2fa-setup/enable/disable require the CSRF header.
   app.use('/api/auth', authRouter);
   app.use('/api/auth', authEmailRouter);
   app.use('/api/auth', twoFactorRouter);
 
-  // Public reads (no CSRF needed for GETs anyway, but mounted before
-  // the global guard to keep them clearly identified).
+  // Feature routes. GETs pass through CSRF unchanged. Mutating
+  // endpoints expect X-CSRF-Token + matching cookie.
   app.use('/api/iniciativas', iniciativasRouter);
   app.use('/api', pulsoRouter);
   app.use('/api/life-areas', lifeAreasRouter);
@@ -68,9 +76,6 @@ export function createApp(): Express {
   app.use('/api/community', communityRouter);
   app.use('/api/notifications', notificationsRouter);
   app.use('/api/open-data', openDataRouter);
-
-  // CSRF guard for everything else that mutates state.
-  app.use('/api', csrfProtect);
 
   // Tail middleware
   app.use(notFoundHandler());

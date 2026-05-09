@@ -66,11 +66,11 @@ dsuite('Life areas flows', () => {
     expect(res.status).toBe(404);
   });
 
-  it('POST /api/life-areas/quiz/responses requires authentication', async () => {
+  it('POST /api/life-areas/quiz/responses is rejected without auth + csrf', async () => {
     const res = await request
       .post('/api/life-areas/quiz/responses')
       .send({ responses: [{ questionId: questionIds[0]!, value: 5 }] });
-    expect(res.status).toBe(401);
+    expect([401, 403]).toContain(res.status);
   });
 
   it('POST /api/life-areas/quiz/responses saves a batch and rescores', async () => {

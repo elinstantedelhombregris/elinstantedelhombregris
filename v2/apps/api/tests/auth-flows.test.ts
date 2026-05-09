@@ -90,15 +90,22 @@ dsuite('Phase 2 auth flows', () => {
       expect(login.status).toBe(200);
       const cookies1 = (login.headers['set-cookie'] as unknown as string[]) ?? [];
       const cookieHeader1 = cookies1.map((c) => c.split(';')[0]).join('; ');
+      const csrf1 = login.body.data.csrfToken as string;
 
       // First refresh succeeds, gives new cookies.
-      const r1 = await request.post('/api/auth/refresh').set('Cookie', cookieHeader1);
+      const r1 = await request
+        .post('/api/auth/refresh')
+        .set('Cookie', cookieHeader1)
+        .set('X-CSRF-Token', csrf1);
       expect(r1.status).toBe(200);
       const cookies2 = (r1.headers['set-cookie'] as unknown as string[]) ?? [];
       expect(cookies2.length).toBeGreaterThan(0);
 
       // The OLD refresh cookie can no longer be used: 401.
-      const r2 = await request.post('/api/auth/refresh').set('Cookie', cookieHeader1);
+      const r2 = await request
+        .post('/api/auth/refresh')
+        .set('Cookie', cookieHeader1)
+        .set('X-CSRF-Token', csrf1);
       expect(r2.status).toBe(401);
       expect(r2.body.error.code).toBe('INVALID_REFRESH');
     });
@@ -107,14 +114,21 @@ dsuite('Phase 2 auth flows', () => {
       const login = await request.post('/api/auth/login').send({ identifier: emailB, password });
       const cookies = (login.headers['set-cookie'] as unknown as string[]) ?? [];
       const cookieHeader = cookies.map((c) => c.split(';')[0]).join('; ');
+      const csrf = login.body.data.csrfToken as string;
 
-      const lo = await request.post('/api/auth/logout').set('Cookie', cookieHeader);
+      const lo = await request
+        .post('/api/auth/logout')
+        .set('Cookie', cookieHeader)
+        .set('X-CSRF-Token', csrf);
       expect(lo.status).toBe(200);
 
       // The refresh cookie is now revoked (server-side); the cookie
       // jar is cleared, but even if a client still had it, /refresh
       // should refuse.
-      const after = await request.post('/api/auth/refresh').set('Cookie', cookieHeader);
+      const after = await request
+        .post('/api/auth/refresh')
+        .set('Cookie', cookieHeader)
+        .set('X-CSRF-Token', csrf);
       expect(after.status).toBe(401);
     });
   });
@@ -178,8 +192,12 @@ dsuite('Phase 2 auth flows', () => {
       expect(login.status).toBe(200);
       const cookies = (login.headers['set-cookie'] as unknown as string[]) ?? [];
       const cookieHeader = cookies.map((c) => c.split(';')[0]).join('; ');
+      const csrf = login.body.data.csrfToken as string;
 
-      const setup = await request.post('/api/auth/2fa/setup').set('Cookie', cookieHeader);
+      const setup = await request
+        .post('/api/auth/2fa/setup')
+        .set('Cookie', cookieHeader)
+        .set('X-CSRF-Token', csrf);
       expect(setup.status).toBe(200);
       expect(setup.body.data.secret).toBeTypeOf('string');
       expect(setup.body.data.qrDataUrl).toMatch(/^data:image\/png;base64,/);
@@ -187,7 +205,11 @@ dsuite('Phase 2 auth flows', () => {
       const secret = setup.body.data.secret as string;
       const code = speakeasy.totp({ secret, encoding: 'base32' });
 
-      const enable = await request.post('/api/auth/2fa/enable').set('Cookie', cookieHeader).send({ code });
+      const enable = await request
+        .post('/api/auth/2fa/enable')
+        .set('Cookie', cookieHeader)
+        .set('X-CSRF-Token', csrf)
+        .send({ code });
       expect(enable.status).toBe(200);
       expect(enable.body.data.backupCodes).toHaveLength(10);
       for (const c of enable.body.data.backupCodes as string[]) {
@@ -198,6 +220,7 @@ dsuite('Phase 2 auth flows', () => {
       const disable = await request
         .post('/api/auth/2fa/disable')
         .set('Cookie', cookieHeader)
+        .set('X-CSRF-Token', csrf)
         .send({ currentPassword: password });
       expect(disable.status).toBe(200);
     });
@@ -206,11 +229,16 @@ dsuite('Phase 2 auth flows', () => {
       const login = await request.post('/api/auth/login').send({ identifier: emailA, password });
       const cookies = (login.headers['set-cookie'] as unknown as string[]) ?? [];
       const cookieHeader = cookies.map((c) => c.split(';')[0]).join('; ');
+      const csrf = login.body.data.csrfToken as string;
 
-      await request.post('/api/auth/2fa/setup').set('Cookie', cookieHeader);
+      await request
+        .post('/api/auth/2fa/setup')
+        .set('Cookie', cookieHeader)
+        .set('X-CSRF-Token', csrf);
       const enable = await request
         .post('/api/auth/2fa/enable')
         .set('Cookie', cookieHeader)
+        .set('X-CSRF-Token', csrf)
         .send({ code: '000000' });
       expect(enable.status).toBe(400);
       expect(enable.body.error.code).toBe('INVALID_2FA_CODE');
@@ -224,19 +252,27 @@ dsuite('Phase 2 auth flows', () => {
       expect(login1.status).toBe(200);
       const cookies1 = (login1.headers['set-cookie'] as unknown as string[]) ?? [];
       const cookieHeader1 = cookies1.map((c) => c.split(';')[0]).join('; ');
+      const csrf1 = login1.body.data.csrfToken as string;
 
-      const setup = await request.post('/api/auth/2fa/setup').set('Cookie', cookieHeader1);
+      const setup = await request
+        .post('/api/auth/2fa/setup')
+        .set('Cookie', cookieHeader1)
+        .set('X-CSRF-Token', csrf1);
       expect(setup.status).toBe(200);
       const secret = setup.body.data.secret as string;
       const enrollCode = speakeasy.totp({ secret, encoding: 'base32' });
       const enable = await request
         .post('/api/auth/2fa/enable')
         .set('Cookie', cookieHeader1)
+        .set('X-CSRF-Token', csrf1)
         .send({ code: enrollCode });
       expect(enable.status).toBe(200);
 
       // Now logout and try to login again — should get the 2FA challenge.
-      await request.post('/api/auth/logout').set('Cookie', cookieHeader1);
+      await request
+        .post('/api/auth/logout')
+        .set('Cookie', cookieHeader1)
+        .set('X-CSRF-Token', csrf1);
       const login2 = await request.post('/api/auth/login').send({ identifier: emailE, password });
       expect(login2.status).toBe(200);
       expect(login2.body.data.needsTwoFactor).toBe(true);

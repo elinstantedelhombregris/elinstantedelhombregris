@@ -102,9 +102,9 @@ dsuite('Pulso + propuestas flows', () => {
   });
 
   describe('POST /api/propuestas/:id/vote', () => {
-    it('requires authentication', async () => {
+    it('is rejected without auth + csrf', async () => {
       const res = await request.post(`/api/propuestas/${String(proposalId)}/vote`).send({ value: 1 });
-      expect(res.status).toBe(401);
+      expect([401, 403]).toContain(res.status);
     });
 
     it('casts a +1 vote and returns updated aggregate', async () => {

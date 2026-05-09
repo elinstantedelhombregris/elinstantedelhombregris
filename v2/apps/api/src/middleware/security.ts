@@ -14,18 +14,24 @@ import type { RequestHandler } from 'express';
  *   - No `'unsafe-eval'` in any environment.
  *   - `'unsafe-inline'` styles allowed only because Tailwind/Radix may
  *     emit them at runtime; investigate before tightening further.
- *   - No third-party CDN allowances. All assets self-hosted.
+ *   - The style.json itself is self-hosted under `/maps/`. Map tiles,
+ *     fonts, and sprites still come from carto's CDN — full vector
+ *     tile self-hosting is impractical at this size — so we explicitly
+ *     allow `tiles.basemaps.cartocdn.com` in connect-src + img-src.
+ *     The origin is pinned (not a wildcard) and used only inside the
+ *     mapStyle JSON we control.
  */
 export function securityHeaders(): RequestHandler {
+  const cartoTiles = 'https://tiles.basemaps.cartocdn.com';
   return helmet({
     contentSecurityPolicy: {
       directives: {
         defaultSrc: ["'self'"],
         scriptSrc: ["'self'"],
         styleSrc: ["'self'", "'unsafe-inline'"],
-        imgSrc: ["'self'", 'data:', 'https:'],
-        connectSrc: ["'self'"],
-        fontSrc: ["'self'", 'data:'],
+        imgSrc: ["'self'", 'data:', 'blob:', cartoTiles],
+        connectSrc: ["'self'", cartoTiles],
+        fontSrc: ["'self'", 'data:', cartoTiles],
         objectSrc: ["'none'"],
         frameSrc: ["'none'"],
         workerSrc: ["'self'", 'blob:'],

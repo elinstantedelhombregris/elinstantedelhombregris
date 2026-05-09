@@ -43,9 +43,9 @@ dsuite('Community feed flows', () => {
     await deleteTestUsers([user.email]);
   });
 
-  it('POST /api/community/posts requires auth', async () => {
+  it('POST /api/community/posts is rejected without auth + csrf', async () => {
     const res = await request.post('/api/community/posts').send({ title: 't', content: 'c' });
-    expect(res.status).toBe(401);
+    expect([401, 403]).toContain(res.status);
   });
 
   it('POST /api/community/posts creates a post', async () => {

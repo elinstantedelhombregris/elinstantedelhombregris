@@ -88,9 +88,9 @@ dsuite('Iniciativas flows', () => {
     expect(res.status).toBe(404);
   });
 
-  it('POST /api/iniciativas/:id/join requires authentication', async () => {
+  it('POST /api/iniciativas/:id/join is rejected without auth + csrf', async () => {
     const res = await request.post(`/api/iniciativas/${String(iniciativaId)}/join`);
-    expect(res.status).toBe(401);
+    expect([401, 403]).toContain(res.status);
   });
 
   it('POST /api/iniciativas/:id/join adds the user as member', async () => {

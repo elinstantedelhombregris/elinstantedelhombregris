@@ -46,9 +46,9 @@ dsuite('Civic assessment flows', () => {
     expect(res.body.data.questions.length).toBeGreaterThanOrEqual(CIVIC_QUESTIONS.length);
   });
 
-  it('POST /api/civic-assessment/start requires auth', async () => {
+  it('POST /api/civic-assessment/start is rejected without auth + csrf', async () => {
     const res = await request.post('/api/civic-assessment/start');
-    expect(res.status).toBe(401);
+    expect([401, 403]).toContain(res.status);
   });
 
   it('POST /api/civic-assessment/start creates an in-progress assessment', async () => {

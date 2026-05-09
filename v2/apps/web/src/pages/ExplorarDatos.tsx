@@ -95,7 +95,7 @@ export function ExplorarDatos() {
           <div className="h-[480px]">
             <Map
               initialViewState={ARGENTINA_CENTER}
-              mapStyle="https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json"
+              mapStyle="/maps/dark-matter.json"
             >
               {provinces.map((p) => {
                 if (!p.latitude || !p.longitude) return null;
