@@ -15,6 +15,7 @@ import { BlogRepository, getDb } from '@v2/db';
 import { Router, type Router as RouterType } from 'express';
 import { z } from 'zod';
 
+import { getConfig } from '../../lib/config.js';
 import { authenticate, optionalAuthenticate } from '../../middleware/auth.js';
 import { HttpError } from '../../middleware/error-handler.js';
 import { notifyBlogCommentPosted, notifyBlogPostLiked } from '../notifications/producers.js';
@@ -35,11 +36,38 @@ const viewSchema = z.object({
   sessionId: z.string().max(64).optional(),
 });
 
+const createPostSchema = z.object({
+  slug: z
+    .string()
+    .trim()
+    .min(1)
+    .max(140)
+    .regex(/^[a-z0-9-]+$/, 'El slug solo admite minúsculas, números y guiones.'),
+  title: z.string().trim().min(1).max(200),
+  summary: z.string().trim().max(500).optional(),
+  content: z.string().trim().min(1),
+  status: z.enum(['draft', 'published']).default('draft'),
+});
+
+const updatePostSchema = z.object({
+  title: z.string().trim().min(1).max(200).optional(),
+  summary: z.string().trim().max(500).optional(),
+  content: z.string().trim().min(1).optional(),
+  status: z.enum(['draft', 'published']).optional(),
+});
+
 function parseId(idStr: string | string[] | undefined): number {
   if (typeof idStr !== 'string') throw new HttpError(400, 'INVALID_ID', 'Id requerido.');
   const id = Number.parseInt(idStr, 10);
   if (Number.isNaN(id)) throw new HttpError(400, 'INVALID_ID', 'Id inválido.');
   return id;
+}
+
+function requireAdmin(username: string): void {
+  const allowed = new Set(getConfig().admin.usernames);
+  if (!allowed.has(username)) {
+    throw new HttpError(403, 'NOT_ADMIN', 'Esta acción requiere permisos de administrador.');
+  }
 }
 
 router.get('/posts', async (req, res, next) => {
@@ -182,6 +210,55 @@ router.post('/posts/:id/comments', authenticate, async (req, res, next) => {
       void notifyBlogCommentPosted(post.authorId, id, req.user.username);
     }
     res.status(201).json({ data: { comment } });
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.post('/posts', authenticate, async (req, res, next) => {
+  try {
+    if (!req.user) throw new HttpError(401, 'UNAUTHENTICATED', 'No autenticado.');
+    requireAdmin(req.user.username);
+    const input = createPostSchema.parse(req.body);
+    const repo = new BlogRepository(getDb());
+    const insertArgs: Parameters<typeof repo.create>[0] = {
+      slug: input.slug,
+      title: input.title,
+      content: input.content,
+      authorId: req.user.id,
+      status: input.status,
+    };
+    if (input.summary !== undefined) insertArgs.summary = input.summary;
+    if (input.status === 'published') insertArgs.publishedAt = new Date();
+    const post = await repo.create(insertArgs);
+    res.status(201).json({ data: { post } });
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.patch('/posts/:id', authenticate, async (req, res, next) => {
+  try {
+    if (!req.user) throw new HttpError(401, 'UNAUTHENTICATED', 'No autenticado.');
+    requireAdmin(req.user.username);
+    const id = parseId(req.params.id);
+    const patch = updatePostSchema.parse(req.body);
+    const repo = new BlogRepository(getDb());
+    const cleaned: Record<string, unknown> = {};
+    for (const [k, v] of Object.entries(patch)) {
+      if (v !== undefined) cleaned[k] = v;
+    }
+    // Auto-stamp publishedAt the first time a draft transitions to published.
+    if (patch.status === 'published') {
+      const existing = await repo.findById(id);
+      if (existing?.publishedAt === null) cleaned.publishedAt = new Date();
+    }
+    const post = await repo.update(id, cleaned);
+    if (!post) {
+      res.status(404).json({ error: { code: 'NOT_FOUND', message: 'Post no encontrado.' } });
+      return;
+    }
+    res.json({ data: { post } });
   } catch (err) {
     next(err);
   }

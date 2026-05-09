@@ -122,6 +122,18 @@ const Notifications = lazy(async () => {
   const m = await import('~/pages/Notifications');
   return { default: m.Notifications };
 });
+const WeeklyCheckin = lazy(async () => {
+  const m = await import('~/pages/WeeklyCheckin');
+  return { default: m.WeeklyCheckin };
+});
+const ElMandatoVivo = lazy(async () => {
+  const m = await import('~/pages/ElMandatoVivo');
+  return { default: m.ElMandatoVivo };
+});
+const BlogAuthor = lazy(async () => {
+  const m = await import('~/pages/BlogAuthor');
+  return { default: m.BlogAuthor };
+});
 
 function PageFallback() {
   return (
@@ -171,12 +183,15 @@ export function App() {
 
               {/* Goals + coaching (auth-gated) */}
               <Route path="/objetivos" component={Goals} />
+              <Route path="/check-in-semanal" component={WeeklyCheckin} />
               <Route path="/coaching" component={CoachingChat} />
+              <Route path="/mandato-vivo" component={ElMandatoVivo} />
 
               {/* Content + community */}
               <Route path="/ensayos" component={Ensayos} />
               <Route path="/ensayos/:slug" component={EnsayoDetail} />
               <Route path="/blog" component={Blog} />
+              <Route path="/blog/escribir" component={BlogAuthor} />
               <Route path="/blog/:slug" component={BlogPostDetail} />
               <Route path="/comunidad" component={Community} />
               <Route path="/notificaciones" component={Notifications} />

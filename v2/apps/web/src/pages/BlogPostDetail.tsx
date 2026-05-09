@@ -37,11 +37,58 @@ interface CommentsResponse {
   comments: Comment[];
 }
 
+interface CommentTreeProps {
+  comments: Comment[];
+  user: boolean;
+  onReply: (id: number | null) => void;
+  replyTo: number | null;
+}
+
+function CommentTree({ comments, user, onReply, replyTo }: CommentTreeProps) {
+  // Group comments by parentId. Top-level = parentId === null.
+  const byParent = new Map<number | null, Comment[]>();
+  for (const c of comments) {
+    const key = c.parentId ?? null;
+    const list = byParent.get(key) ?? [];
+    list.push(c);
+    byParent.set(key, list);
+  }
+
+  function render(parent: number | null, depth: number): React.JSX.Element[] {
+    const list = byParent.get(parent) ?? [];
+    return list.map((c) => (
+      <li key={c.id} className={`glass rounded-xl p-4 ${depth > 0 ? 'ml-6 border-l border-iris-violet/20' : ''}`}>
+        <p className="text-sm text-foreground/85">{c.body}</p>
+        <div className="mt-1 flex items-center gap-3 text-xs text-muted-foreground">
+          <time dateTime={c.createdAt}>{new Date(c.createdAt).toLocaleDateString('es-AR')}</time>
+          {user ? (
+            <button
+              type="button"
+              onClick={() => {
+                onReply(replyTo === c.id ? null : c.id);
+              }}
+              className="text-iris-violet hover:underline"
+            >
+              {replyTo === c.id ? 'cancelar' : 'responder'}
+            </button>
+          ) : null}
+        </div>
+        {byParent.has(c.id) ? (
+          <ul className="mt-3 space-y-3">{render(c.id, depth + 1)}</ul>
+        ) : null}
+      </li>
+    ));
+  }
+
+  return <ul className="space-y-3">{render(null, 0)}</ul>;
+}
+
 export function BlogPostDetail() {
   const [match, params] = useRoute<{ slug: string }>('/blog/:slug');
   const queryClient = useQueryClient();
   const { user } = useAuth();
   const [draft, setDraft] = useState('');
+  const [replyTo, setReplyTo] = useState<number | null>(null);
 
   const postQuery = useQuery<PostResponse>({
     queryKey: ['blog', 'post', params?.slug ?? ''],
@@ -65,9 +112,15 @@ export function BlogPostDetail() {
   });
 
   const commentMutation = useMutation({
-    mutationFn: async () => api.post(`/api/blog/posts/${String(postId)}/comments`, { body: draft }, { csrfToken: readCsrfToken() }),
+    mutationFn: async () =>
+      api.post(
+        `/api/blog/posts/${String(postId)}/comments`,
+        { body: draft, parentId: replyTo ?? undefined },
+        { csrfToken: readCsrfToken() },
+      ),
     onSuccess: () => {
       setDraft('');
+      setReplyTo(null);
       void queryClient.invalidateQueries({ queryKey: ['blog', 'post', postId, 'comments'] });
     },
   });
@@ -134,12 +187,26 @@ export function BlogPostDetail() {
               if (draft.trim()) commentMutation.mutate();
             }}
           >
+            {replyTo !== null ? (
+              <p className="mb-2 text-xs text-muted-foreground">
+                Respondiendo a comentario #{replyTo} ·{' '}
+                <button
+                  type="button"
+                  onClick={() => {
+                    setReplyTo(null);
+                  }}
+                  className="text-iris-violet hover:underline"
+                >
+                  cancelar
+                </button>
+              </p>
+            ) : null}
             <textarea
               value={draft}
               onChange={(e) => {
                 setDraft(e.target.value);
               }}
-              placeholder="Sumá tu comentario…"
+              placeholder={replyTo !== null ? 'Tu respuesta…' : 'Sumá tu comentario…'}
               className="min-h-[80px] w-full rounded-md border border-white/10 bg-white/5 p-3 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
               maxLength={4000}
             />
@@ -153,16 +220,7 @@ export function BlogPostDetail() {
         {comments.length === 0 ? (
           <p className="text-sm text-muted-foreground">Todavía no hay comentarios. Sé el primero.</p>
         ) : (
-          <ul className="space-y-3">
-            {comments.map((c) => (
-              <li key={c.id} className="glass rounded-xl p-4">
-                <p className="text-sm text-foreground/85">{c.body}</p>
-                <p className="mt-1 text-xs text-muted-foreground">
-                  {new Date(c.createdAt).toLocaleDateString('es-AR')}
-                </p>
-              </li>
-            ))}
-          </ul>
+          <CommentTree comments={comments} user={Boolean(user)} onReply={setReplyTo} replyTo={replyTo} />
         )}
       </section>
     </main>

@@ -44,6 +44,14 @@ const ConfigSchema = z.object({
   log: z.object({
     level: z.enum(['debug', 'info', 'warn', 'error']).default('info'),
   }),
+  admin: z.object({
+    /** Comma-separated usernames allowed to use admin-only endpoints
+     *  (e.g. blog post creation/edit). Empty = no admins. */
+    usernames: z
+      .string()
+      .default('')
+      .transform((v) => v.split(',').map((s) => s.trim()).filter(Boolean)),
+  }),
 });
 
 export type Config = z.infer<typeof ConfigSchema>;
@@ -83,6 +91,9 @@ export function getConfig(): Config {
     },
     log: {
       level: process.env.LOG_LEVEL,
+    },
+    admin: {
+      usernames: process.env.ADMIN_USERNAMES,
     },
   });
 
