@@ -19,10 +19,20 @@ interface MeResponse {
   user: AuthenticatedUser;
 }
 
-interface LoginResponse {
+interface LoginSuccess {
   user: AuthenticatedUser;
   csrfToken: string;
+  needsTwoFactor?: undefined;
 }
+
+interface LoginNeedsTwoFactor {
+  needsTwoFactor: true;
+  ticket: string;
+  user?: undefined;
+  csrfToken?: undefined;
+}
+
+type LoginResponse = LoginSuccess | LoginNeedsTwoFactor;
 
 interface LoginVars {
   identifier: string;
@@ -62,13 +72,14 @@ export function useAuth() {
     mutationFn: async (vars) =>
       api.post<LoginResponse>('/api/auth/login', vars, { csrfToken: readCsrfToken() }),
     onSuccess: (data) => {
-      queryClient.setQueryData(ME_KEY, data.user);
+      // 2FA challenges don't carry a user — leave the cache as-is.
+      if (data.user) queryClient.setQueryData(ME_KEY, data.user);
     },
   });
 
-  const registerMutation = useMutation<LoginResponse, ApiError, RegisterVars>({
+  const registerMutation = useMutation<LoginSuccess, ApiError, RegisterVars>({
     mutationFn: async (vars) =>
-      api.post<LoginResponse>('/api/auth/register', vars, { csrfToken: readCsrfToken() }),
+      api.post<LoginSuccess>('/api/auth/register', vars, { csrfToken: readCsrfToken() }),
     onSuccess: (data) => {
       queryClient.setQueryData(ME_KEY, data.user);
     },

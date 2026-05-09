@@ -53,6 +53,7 @@ dsuite('Phase 2 auth flows', () => {
   const emailB = `flow_b_${String(stamp)}@test.local`;
   const emailC = `flow_c_${String(stamp)}@test.local`;
   const emailD = `flow_d_${String(stamp)}@test.local`;
+  const emailE = `flow_e_${String(stamp)}@test.local`;
   let mailbox: CapturingEmailSender;
 
   beforeAll(async () => {
@@ -67,6 +68,7 @@ dsuite('Phase 2 auth flows', () => {
       repo.create({ username: `flow_logout_${String(stamp)}`, email: emailB, name: 'Logout', passwordHash }),
       repo.create({ username: `flow_verify_${String(stamp)}`, email: emailC, name: 'Verify', passwordHash }),
       repo.create({ username: `flow_reset_${String(stamp)}`, email: emailD, name: 'Reset', passwordHash }),
+      repo.create({ username: `flow_2fa_${String(stamp)}`, email: emailE, name: 'TwoFA', passwordHash }),
     ]);
   });
 
@@ -76,7 +78,7 @@ dsuite('Phase 2 auth flows', () => {
 
   afterAll(async () => {
     const repo = new UsersRepository(getDb());
-    for (const email of [emailA, emailB, emailC, emailD]) {
+    for (const email of [emailA, emailB, emailC, emailD, emailE]) {
       const u = await repo.findByEmail(email);
       if (u) await getDb().delete(users).where(eq(users.id, u.id));
     }
@@ -212,6 +214,56 @@ dsuite('Phase 2 auth flows', () => {
         .send({ code: '000000' });
       expect(enable.status).toBe(400);
       expect(enable.body.error.code).toBe('INVALID_2FA_CODE');
+    });
+  });
+
+  describe('login → 2FA challenge → verify (R.3)', () => {
+    it('login returns needsTwoFactor + ticket; verify mints cookies', async () => {
+      // Enroll user E in 2FA.
+      const login1 = await request.post('/api/auth/login').send({ identifier: emailE, password });
+      expect(login1.status).toBe(200);
+      const cookies1 = (login1.headers['set-cookie'] as unknown as string[]) ?? [];
+      const cookieHeader1 = cookies1.map((c) => c.split(';')[0]).join('; ');
+
+      const setup = await request.post('/api/auth/2fa/setup').set('Cookie', cookieHeader1);
+      expect(setup.status).toBe(200);
+      const secret = setup.body.data.secret as string;
+      const enrollCode = speakeasy.totp({ secret, encoding: 'base32' });
+      const enable = await request
+        .post('/api/auth/2fa/enable')
+        .set('Cookie', cookieHeader1)
+        .send({ code: enrollCode });
+      expect(enable.status).toBe(200);
+
+      // Now logout and try to login again — should get the 2FA challenge.
+      await request.post('/api/auth/logout').set('Cookie', cookieHeader1);
+      const login2 = await request.post('/api/auth/login').send({ identifier: emailE, password });
+      expect(login2.status).toBe(200);
+      expect(login2.body.data.needsTwoFactor).toBe(true);
+      expect(typeof login2.body.data.ticket).toBe('string');
+      expect(login2.body.data.user).toBeUndefined();
+      expect(login2.headers['set-cookie']).toBeUndefined();
+
+      // Submit the TOTP — should mint cookies + return user.
+      const ticket = login2.body.data.ticket as string;
+      const totpCode = speakeasy.totp({ secret, encoding: 'base32' });
+      const verify = await request.post('/api/auth/2fa/verify').send({ ticket, code: totpCode });
+      expect(verify.status).toBe(200);
+      expect(verify.body.data.user.email).toBe(emailE);
+      const verifyCookies = (verify.headers['set-cookie'] as unknown as string[]) ?? [];
+      expect(verifyCookies.length).toBeGreaterThan(0);
+      const cookieNames = verifyCookies.map((c) => c.split('=')[0]);
+      expect(cookieNames).toContain('eihg_access');
+      expect(cookieNames).toContain('eihg_refresh');
+      expect(cookieNames).toContain('eihg_csrf');
+    });
+
+    it('rejects /2fa/verify with an invalid ticket', async () => {
+      const r = await request
+        .post('/api/auth/2fa/verify')
+        .send({ ticket: 'definitely-not-a-real-jwt', code: '000000' });
+      expect(r.status).toBe(401);
+      expect(r.body.error.code).toBe('INVALID_TICKET');
     });
   });
 });

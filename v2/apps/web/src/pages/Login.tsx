@@ -28,7 +28,11 @@ export function Login() {
 
   const onSubmit = handleSubmit(async (values) => {
     try {
-      await login.mutateAsync(values);
+      const result = await login.mutateAsync(values);
+      if (result.needsTwoFactor) {
+        navigate(`/2fa-desafio?ticket=${encodeURIComponent(result.ticket)}`);
+        return;
+      }
       navigate('/');
     } catch (err) {
       setError('root', { message: err instanceof Error ? err.message : 'Algo salió mal.' });

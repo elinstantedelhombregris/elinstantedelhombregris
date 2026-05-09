@@ -34,6 +34,10 @@ const VerifyEmail = lazy(async () => {
   const m = await import('~/pages/VerifyEmail');
   return { default: m.VerifyEmail };
 });
+const TwoFactorChallenge = lazy(async () => {
+  const m = await import('~/pages/TwoFactorChallenge');
+  return { default: m.TwoFactorChallenge };
+});
 const Manifiesto = lazy(async () => {
   const m = await import('~/pages/Manifiesto');
   return { default: m.Manifiesto };
@@ -142,6 +146,7 @@ export function App() {
               <Route path="/recuperar-contrasena" component={ForgotPassword} />
               <Route path="/restablecer-contrasena" component={ResetPassword} />
               <Route path="/verificar-email" component={VerifyEmail} />
+              <Route path="/2fa-desafio" component={TwoFactorChallenge} />
 
               {/* ¡BASTA! framework */}
               <Route path="/manifiesto" component={Manifiesto} />

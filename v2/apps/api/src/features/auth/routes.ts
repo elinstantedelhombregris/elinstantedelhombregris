@@ -14,6 +14,7 @@ import { Router, type Router as RouterType } from 'express';
 import { authenticate } from '../../middleware/auth.js';
 import { loginRateLimit, registerRateLimit } from '../../middleware/rate-limit.js';
 
+import { verifyPassword } from './password.js';
 import { AuthService } from './service.js';
 import {
   COOKIE_REFRESH,
@@ -21,6 +22,7 @@ import {
   setAuthCookies,
   verifyRefreshToken,
 } from './tokens.js';
+import { signTwoFaTicket } from './two-factor-routes.js';
 
 const router: RouterType = Router();
 
@@ -50,6 +52,44 @@ router.post('/register', registerRateLimit(), async (req, res, next) => {
 router.post('/login', loginRateLimit(), async (req, res, next) => {
   try {
     const input = loginInputSchema.parse(req.body);
+    const db = getDb();
+    const usersRepo = new UsersRepository(db);
+    const authRepo = new AuthRepository(db);
+
+    // Resolve the candidate user without leaking which field matched.
+    const candidate =
+      (await usersRepo.findByEmail(input.identifier)) ??
+      (await usersRepo.findByUsername(input.identifier));
+    if (!candidate || !(await verifyPassword(input.password, candidate.passwordHash))) {
+      // Same shape as service.login() to avoid timing/error-shape leaks.
+      res.status(401).json({
+        error: { code: 'INVALID_CREDENTIALS', message: 'Email o contraseña incorrectos.' },
+      });
+      return;
+    }
+    if (!candidate.isActive) {
+      res.status(401).json({
+        error: { code: 'ACCOUNT_INACTIVE', message: 'Tu cuenta está desactivada.' },
+      });
+      return;
+    }
+
+    // 2FA short-circuit: if the user has TOTP enabled, don't issue
+    // cookies yet — return a partial-auth ticket and let the front
+    // end collect the code via /api/auth/2fa/verify.
+    const twoFa = await authRepo.findTwoFactorSecret(candidate.id);
+    if (twoFa?.enabled) {
+      res.json({
+        data: {
+          needsTwoFactor: true,
+          ticket: signTwoFaTicket(candidate.id),
+        },
+      });
+      return;
+    }
+
+    // Standard path: validate via the service (re-runs password check
+    // for symmetry, then records login + issues tokens).
     const result = await buildService().login(input, fingerprint(req));
     setAuthCookies(res, result.accessToken, result.refreshToken, result.csrfToken);
     res.json({ data: { user: result.user, csrfToken: result.csrfToken } });

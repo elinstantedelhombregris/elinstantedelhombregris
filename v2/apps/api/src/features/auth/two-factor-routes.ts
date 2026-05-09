@@ -32,6 +32,8 @@ import { HttpError } from '../../middleware/error-handler.js';
 import { twoFactorVerifyRateLimit } from '../../middleware/rate-limit.js';
 
 import { hashPassword, verifyPassword } from './password.js';
+import { AuthService } from './service.js';
+import { setAuthCookies } from './tokens.js';
 
 const router: RouterType = Router();
 
@@ -217,11 +219,16 @@ router.post('/2fa/verify', twoFactorVerifyRateLimit(), async (req, res, next) =>
 
     if (!valid) throw new HttpError(400, 'INVALID_2FA_CODE', 'Código inválido.');
 
-    // Caller wires this verify endpoint up to the AuthService rotation
-    // logic in the next commit; for now just confirm success and let
-    // the front end call /api/auth/login again with a "skip 2FA" hint.
-    // The proper integration happens in P2.6's frontend slice.
-    res.json({ data: { ok: true, sub: claims.sub } });
+    // Mint a real session for the user. The partial-auth ticket only
+    // proves the password step; this verify call closes the loop.
+    const db = getDb();
+    const service = new AuthService(new UsersRepository(db), new AuthRepository(db));
+    const result = await service.loginAfterTwoFactor(claims.sub, {
+      userAgent: req.header('user-agent'),
+      ipAddress: req.ip,
+    });
+    setAuthCookies(res, result.accessToken, result.refreshToken, result.csrfToken);
+    res.json({ data: { user: result.user, csrfToken: result.csrfToken } });
   } catch (err) {
     next(err);
   }

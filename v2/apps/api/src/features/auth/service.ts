@@ -116,6 +116,20 @@ export class AuthService {
     await this.authRepo.revokeSession(jti);
   }
 
+  /**
+   * Issue a fresh session for a user who has just cleared a 2FA
+   * challenge. Mirrors `login` minus the password check (the caller
+   * has already validated the TOTP/backup code and the partial-auth
+   * ticket).
+   */
+  async loginAfterTwoFactor(userId: number, fingerprint: SessionFingerprint = {}): Promise<AuthResult> {
+    const user = await this.users.findById(userId);
+    if (!user) throw new HttpError(401, 'INVALID_CREDENTIALS', 'Usuario no encontrado.');
+    if (!user.isActive) throw new HttpError(401, 'ACCOUNT_INACTIVE', 'Tu cuenta está desactivada.');
+    await this.users.recordLogin(user.id);
+    return this.issueTokens(user, fingerprint);
+  }
+
   /** Sign a fresh access+refresh+csrf triple, persisting the session. */
   private async issueTokens(user: User, fingerprint: SessionFingerprint): Promise<AuthResult> {
     const cfg = getConfig();
