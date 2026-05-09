@@ -121,7 +121,6 @@ router.post('/:id/complete', authenticate, async (req, res, next) => {
     // Best-effort XP + civic-baseline badge on completion.
     try {
       const gamification = new GamificationRepository(getDb());
-      await gamification.getOrCreateUserLevel(req.user.id);
       await gamification.logActivity({
         userId: req.user.id,
         kind: 'civic_assessment_completed',

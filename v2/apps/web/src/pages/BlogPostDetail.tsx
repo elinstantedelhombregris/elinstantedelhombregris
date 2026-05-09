@@ -54,30 +54,42 @@ function CommentTree({ comments, user, onReply, replyTo }: CommentTreeProps) {
     byParent.set(key, list);
   }
 
+  // Cycle protection: even though the DB lacks a constraint preventing
+  // A.parent=B, B.parent=A, the frontend should never recurse forever.
+  const seen = new Set<number>();
+
   function render(parent: number | null, depth: number): React.JSX.Element[] {
     const list = byParent.get(parent) ?? [];
-    return list.map((c) => (
-      <li key={c.id} className={`glass rounded-xl p-4 ${depth > 0 ? 'ml-6 border-l border-iris-violet/20' : ''}`}>
-        <p className="text-sm text-foreground/85">{c.body}</p>
-        <div className="mt-1 flex items-center gap-3 text-xs text-muted-foreground">
-          <time dateTime={c.createdAt}>{new Date(c.createdAt).toLocaleDateString('es-AR')}</time>
-          {user ? (
-            <button
-              type="button"
-              onClick={() => {
-                onReply(replyTo === c.id ? null : c.id);
-              }}
-              className="text-iris-violet hover:underline"
-            >
-              {replyTo === c.id ? 'cancelar' : 'responder'}
-            </button>
-          ) : null}
-        </div>
-        {byParent.has(c.id) ? (
-          <ul className="mt-3 space-y-3">{render(c.id, depth + 1)}</ul>
-        ) : null}
-      </li>
-    ));
+    return list
+      .filter((c) => !seen.has(c.id))
+      .map((c) => {
+        seen.add(c.id);
+        return (
+          <li
+            key={c.id}
+            className={`glass rounded-xl p-4 ${depth > 0 ? 'ml-6 border-l border-iris-violet/20' : ''}`}
+          >
+            <p className="text-sm text-foreground/85">{c.body}</p>
+            <div className="mt-1 flex items-center gap-3 text-xs text-muted-foreground">
+              <time dateTime={c.createdAt}>{new Date(c.createdAt).toLocaleDateString('es-AR')}</time>
+              {user ? (
+                <button
+                  type="button"
+                  onClick={() => {
+                    onReply(replyTo === c.id ? null : c.id);
+                  }}
+                  className="text-iris-violet hover:underline"
+                >
+                  {replyTo === c.id ? 'cancelar' : 'responder'}
+                </button>
+              ) : null}
+            </div>
+            {byParent.has(c.id) ? (
+              <ul className="mt-3 space-y-3">{render(c.id, depth + 1)}</ul>
+            ) : null}
+          </li>
+        );
+      });
   }
 
   return <ul className="space-y-3">{render(null, 0)}</ul>;

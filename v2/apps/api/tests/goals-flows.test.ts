@@ -99,4 +99,23 @@ dsuite('Goals + check-ins flows', () => {
     expect(res.status).toBe(201);
     expect(res.body.data.checkin.progressScore).toBe(4);
   });
+
+  it('POST /api/checkins upserts within the same week (no duplicates)', async () => {
+    const weekStart = new Date();
+    weekStart.setUTCHours(0, 0, 0, 0);
+    weekStart.setUTCDate(weekStart.getUTCDate() - ((weekStart.getUTCDay() === 0 ? 7 : weekStart.getUTCDay()) - 1));
+    // Send a second submission with a different score for the same week.
+    const res = await csrfed(app, session).post('/api/checkins').send({
+      weekStart: weekStart.toISOString(),
+      progressScore: 2,
+      reflection: 'Cambié de opinión.',
+      actedOnGoals: false,
+    });
+    expect(res.status).toBe(201);
+    expect(res.body.data.checkin.progressScore).toBe(2);
+    // GET /current-week reflects the overwrite.
+    const current = await csrfed(app, session).get('/api/checkins/current-week');
+    expect(current.body.data.checkin.progressScore).toBe(2);
+    expect(current.body.data.checkin.reflection).toBe('Cambié de opinión.');
+  });
 });

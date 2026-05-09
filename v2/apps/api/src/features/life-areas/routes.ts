@@ -93,9 +93,7 @@ router.post('/quiz/responses', authenticate, async (req, res, next) => {
 
     // Best-effort XP for the quiz batch.
     try {
-      const gamification = new GamificationRepository(getDb());
-      await gamification.getOrCreateUserLevel(req.user.id);
-      await gamification.logActivity({
+      await new GamificationRepository(getDb()).logActivity({
         userId: req.user.id,
         kind: 'quiz_completed',
         xpAwarded: 25,

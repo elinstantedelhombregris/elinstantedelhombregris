@@ -151,6 +151,9 @@ export class GamificationRepository {
     const [row] = await this.db.insert(dailyActivity).values(input).returning();
     if (!row) throw new Error('Failed to log activity');
     if (input.xpAwarded && input.xpAwarded !== 0) {
+      // addXp is a bare UPDATE — it silently no-ops if user_levels has
+      // no row yet. Guarantee the row exists so XP never gets dropped.
+      await this.getOrCreateUserLevel(input.userId);
       await this.addXp(input.userId, input.xpAwarded);
     }
     return row;

@@ -26,27 +26,36 @@ const SAFE = new Set(['GET', 'HEAD', 'OPTIONS']);
  * cookie (login, register, password reset) or are intentionally
  * unauthenticated by design (pulso submit, dream submit, blog view).
  *
- * Each entry is `${METHOD} ${pathStartsWith}` — exact method, prefix
- * match on the path so `/api/auth/email/verify` and
- * `/api/auth/email/send-verification` are both covered by `/api/auth/`.
+ * Each entry is `${METHOD} ${path}` — exact method, exact path or
+ * "directory" path (ending in `/`) where the path must either equal
+ * the entry exactly or extend it past the slash. This rules out
+ * accidental greedy matches like `/api/pulso-evil` against
+ * `/api/pulso`.
  */
-const ANON_ALLOWED: { method: string; prefix: string }[] = [
-  { method: 'POST', prefix: '/api/auth/login' },
-  { method: 'POST', prefix: '/api/auth/register' },
-  { method: 'POST', prefix: '/api/auth/email/' },
-  { method: 'POST', prefix: '/api/auth/password/' },
-  { method: 'POST', prefix: '/api/auth/2fa/verify' },
-  { method: 'POST', prefix: '/api/pulso' },
-  { method: 'POST', prefix: '/api/open-data/dreams' },
-  // Blog view tracking is mounted as POST /api/blog/posts/:id/view —
-  // the `/view` suffix is what we test for after stripping the id.
+const ANON_ALLOWED: { method: string; path: string }[] = [
+  { method: 'POST', path: '/api/auth/login' },
+  { method: 'POST', path: '/api/auth/register' },
+  { method: 'POST', path: '/api/auth/email/' },
+  { method: 'POST', path: '/api/auth/password/' },
+  { method: 'POST', path: '/api/auth/2fa/verify' },
+  { method: 'POST', path: '/api/pulso' },
+  { method: 'POST', path: '/api/open-data/dreams' },
 ];
 
 function isAnonAllowed(method: string, path: string): boolean {
-  for (const { method: m, prefix } of ANON_ALLOWED) {
-    if (method === m && path.startsWith(prefix)) return true;
+  for (const { method: m, path: p } of ANON_ALLOWED) {
+    if (method !== m) continue;
+    if (p.endsWith('/')) {
+      // Directory-style — match the prefix only when the next char
+      // is past the trailing slash.
+      if (path.startsWith(p)) return true;
+    } else {
+      // Exact-path or exact-path followed by `/` (defensive — none of
+      // the current entries have sub-routes).
+      if (path === p || path.startsWith(`${p}/`)) return true;
+    }
   }
-  // /api/blog/posts/:id/view — match the literal suffix.
+  // Blog view tracking: POST /api/blog/posts/:id/view
   if (method === 'POST' && /^\/api\/blog\/posts\/\d+\/view$/.test(path)) return true;
   return false;
 }

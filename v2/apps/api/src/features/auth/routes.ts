@@ -56,12 +56,11 @@ router.post('/login', loginRateLimit(), async (req, res, next) => {
     const usersRepo = new UsersRepository(db);
     const authRepo = new AuthRepository(db);
 
-    // Resolve the candidate user without leaking which field matched.
+    // Resolve + verify in one place — bcrypt is expensive, never run it twice.
     const candidate =
       (await usersRepo.findByEmail(input.identifier)) ??
       (await usersRepo.findByUsername(input.identifier));
     if (!candidate || !(await verifyPassword(input.password, candidate.passwordHash))) {
-      // Same shape as service.login() to avoid timing/error-shape leaks.
       res.status(401).json({
         error: { code: 'INVALID_CREDENTIALS', message: 'Email o contraseña incorrectos.' },
       });
@@ -88,9 +87,9 @@ router.post('/login', loginRateLimit(), async (req, res, next) => {
       return;
     }
 
-    // Standard path: validate via the service (re-runs password check
-    // for symmetry, then records login + issues tokens).
-    const result = await buildService().login(input, fingerprint(req));
+    // Standard path: skip the password check (already done above) and
+    // jump straight to issuing tokens.
+    const result = await buildService().loginAlreadyVerified(candidate.id, fingerprint(req));
     setAuthCookies(res, result.accessToken, result.refreshToken, result.csrfToken);
     res.json({ data: { user: result.user, csrfToken: result.csrfToken } });
   } catch (err) {

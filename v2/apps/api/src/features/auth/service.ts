@@ -90,6 +90,19 @@ export class AuthService {
   }
 
   /**
+   * Internal: variant of `login` that skips the password check. Used
+   * by the route handler when the password has already been verified
+   * (e.g. after the 2FA branching logic). Keeps issueTokens private.
+   */
+  async loginAlreadyVerified(userId: number, fingerprint: SessionFingerprint = {}): Promise<AuthResult> {
+    const user = await this.users.findById(userId);
+    if (!user) throw new HttpError(401, 'INVALID_CREDENTIALS', 'Usuario no encontrado.');
+    if (!user.isActive) throw new HttpError(401, 'ACCOUNT_INACTIVE', 'Tu cuenta está desactivada.');
+    await this.users.recordLogin(user.id);
+    return this.issueTokens(user, fingerprint);
+  }
+
+  /**
    * Rotate a refresh token. Verifies the incoming jti is still active,
    * revokes it, and issues a new pair. Throws if the jti was already
    * revoked — that's a strong signal of refresh-token theft.

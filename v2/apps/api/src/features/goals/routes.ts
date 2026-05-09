@@ -113,11 +113,10 @@ router.post('/goals/:id/complete', authenticate, async (req, res, next) => {
       return;
     }
     await repo.completeGoal(id);
-    // Best-effort XP grant.
+    // Best-effort XP grant. logActivity self-bootstraps the
+    // user_levels row, so callers don't have to pre-create it.
     try {
-      const gamification = new GamificationRepository(db);
-      await gamification.getOrCreateUserLevel(req.user.id);
-      await gamification.logActivity({
+      await new GamificationRepository(db).logActivity({
         userId: req.user.id,
         kind: 'goal_completed',
         xpAwarded: 50,
