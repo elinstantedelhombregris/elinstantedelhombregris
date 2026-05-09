@@ -8,7 +8,7 @@
  *   POST /api/civic-assessment/:id/complete (auth) — score + persist profile
  *   GET  /api/civic-assessment/profile    (auth) — latest scored profile
  */
-import { CivicAssessmentRepository, getDb } from '@v2/db';
+import { CivicAssessmentRepository, GamificationRepository, getDb } from '@v2/db';
 import {
   archetypeFor,
   CIVIC_QUESTIONS,
@@ -18,6 +18,7 @@ import {
 import { Router, type Router as RouterType } from 'express';
 import { z } from 'zod';
 
+import { logger } from '../../lib/logger.js';
 import { authenticate } from '../../middleware/auth.js';
 import { HttpError } from '../../middleware/error-handler.js';
 
@@ -116,6 +117,29 @@ router.post('/:id/complete', authenticate, async (req, res, next) => {
       archetype,
       lastAssessmentId: id,
     });
+
+    // Best-effort XP + civic-baseline badge on completion.
+    try {
+      const gamification = new GamificationRepository(getDb());
+      await gamification.getOrCreateUserLevel(req.user.id);
+      await gamification.logActivity({
+        userId: req.user.id,
+        kind: 'civic_assessment_completed',
+        xpAwarded: 100,
+        activityDate: new Date().toISOString().slice(0, 10),
+      });
+      const badge = await gamification.findBadgeBySlug('civic-baseline');
+      if (badge) {
+        try {
+          await gamification.awardBadge({ userId: req.user.id, badgeId: badge.id });
+        } catch (awardErr) {
+          // Composite unique violation = already has the badge. Idempotent.
+          if (!(awardErr instanceof Error && /unique/i.test(awardErr.message))) throw awardErr;
+        }
+      }
+    } catch (gErr) {
+      logger.warn({ err: gErr, userId: req.user.id }, 'gamification log failed for civic_assessment_completed');
+    }
 
     res.json({ data: { profile } });
   } catch (err) {

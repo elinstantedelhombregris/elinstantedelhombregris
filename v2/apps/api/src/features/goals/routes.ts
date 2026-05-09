@@ -8,10 +8,11 @@
  *   GET   /api/checkins/current-week    (auth) — checkin for the running week
  *   POST  /api/checkins                 (auth) — submit
  */
-import { GoalsRepository, getDb } from '@v2/db';
+import { GamificationRepository, GoalsRepository, getDb } from '@v2/db';
 import { Router, type Router as RouterType } from 'express';
 import { z } from 'zod';
 
+import { logger } from '../../lib/logger.js';
 import { authenticate } from '../../middleware/auth.js';
 import { HttpError } from '../../middleware/error-handler.js';
 
@@ -104,13 +105,27 @@ router.post('/goals/:id/complete', authenticate, async (req, res, next) => {
     if (typeof idStr !== 'string') throw new HttpError(400, 'INVALID_ID', 'Id requerido.');
     const id = Number.parseInt(idStr, 10);
     if (Number.isNaN(id)) throw new HttpError(400, 'INVALID_ID', 'Id inválido.');
-    const repo = new GoalsRepository(getDb());
+    const db = getDb();
+    const repo = new GoalsRepository(db);
     const goal = await repo.findGoal(id);
     if (goal?.userId !== req.user.id) {
       res.status(404).json({ error: { code: 'NOT_FOUND', message: 'Objetivo no encontrado.' } });
       return;
     }
     await repo.completeGoal(id);
+    // Best-effort XP grant.
+    try {
+      const gamification = new GamificationRepository(db);
+      await gamification.getOrCreateUserLevel(req.user.id);
+      await gamification.logActivity({
+        userId: req.user.id,
+        kind: 'goal_completed',
+        xpAwarded: 50,
+        activityDate: new Date().toISOString().slice(0, 10),
+      });
+    } catch (gErr) {
+      logger.warn({ err: gErr, userId: req.user.id, goalId: id }, 'gamification log failed for goal_completed');
+    }
     res.json({ data: { ok: true } });
   } catch (err) {
     next(err);

@@ -9,10 +9,11 @@
  * Frontend uses 0-10 scale; backend stores 0-100. SCORE_MAPPING_FACTOR
  * lives here so the contract is explicit.
  */
-import { getDb, LifeAreasRepository } from '@v2/db';
+import { GamificationRepository, getDb, LifeAreasRepository } from '@v2/db';
 import { Router, type Router as RouterType } from 'express';
 import { z } from 'zod';
 
+import { logger } from '../../lib/logger.js';
 import { authenticate } from '../../middleware/auth.js';
 import { HttpError } from '../../middleware/error-handler.js';
 
@@ -89,6 +90,20 @@ router.post('/quiz/responses', authenticate, async (req, res, next) => {
 
     // Recompute aggregates after the batch lands. Cheap at this scale.
     await rescoreUser(req.user.id);
+
+    // Best-effort XP for the quiz batch.
+    try {
+      const gamification = new GamificationRepository(getDb());
+      await gamification.getOrCreateUserLevel(req.user.id);
+      await gamification.logActivity({
+        userId: req.user.id,
+        kind: 'quiz_completed',
+        xpAwarded: 25,
+        activityDate: new Date().toISOString().slice(0, 10),
+      });
+    } catch (gErr) {
+      logger.warn({ err: gErr, userId: req.user.id }, 'gamification log failed for quiz_completed');
+    }
 
     res.json({ data: { saved: saved.length } });
   } catch (err) {

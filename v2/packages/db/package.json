@@ -22,6 +22,7 @@
     "db:migrate": "tsx scripts/migrate.ts",
     "db:studio": "drizzle-kit studio",
     "db:check": "drizzle-kit check",
+    "db:seed-badges": "tsx scripts/seed-badges.ts",
     "test:unit": "vitest run src/ --passWithNoTests",
     "test:integration": "vitest run --dir tests || true"
   },
