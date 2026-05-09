@@ -5,8 +5,8 @@ test.describe('public home', () => {
     await page.goto('/');
     await expect(page).toHaveTitle(/El Instante del Hombre Gris/i);
     await expect(page.getByRole('heading', { level: 1 })).toContainText(/El Instante/i);
-    await expect(page.getByRole('link', { name: /Leer el manifiesto/i })).toBeVisible();
-    await expect(page.getByRole('link', { name: /Crear cuenta/i })).toBeVisible();
+    await expect(page.getByRole('main').getByRole('link', { name: /Leer el manifiesto/i })).toBeVisible();
+    await expect(page.getByRole('main').getByRole('link', { name: /Crear cuenta/i }).first()).toBeVisible();
   });
 
   test('shows 404 page for unknown routes', async ({ page }) => {

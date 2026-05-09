@@ -93,6 +93,12 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Apply migrations to ci-test branch
+        env:
+          DATABASE_URL: ${{ secrets.V2_DATABASE_URL }}
+          DATABASE_URL_UNPOOLED: ${{ secrets.V2_DATABASE_URL_UNPOOLED }}
+        run: pnpm --filter @v2/db db:migrate
+
       - name: Run integration tests
         env:
           DATABASE_URL: ${{ secrets.V2_DATABASE_URL }}
