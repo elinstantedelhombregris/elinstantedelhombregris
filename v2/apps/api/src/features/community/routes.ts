@@ -83,21 +83,27 @@ router.post('/posts', authenticate, async (req, res, next) => {
   }
 });
 
+/**
+ * Returns `true` only when this call actually changed state — used by
+ * the like route to decide whether to fire a notification (so repeated
+ * POSTs don't spam the post author).
+ */
 async function toggleInteraction(
   repo: CommunityRepository,
   kind: 'like' | 'save',
   postId: number,
   userId: number,
   add: boolean,
-): Promise<void> {
+): Promise<boolean> {
   if (add) {
-    if (await repo.hasInteraction(postId, userId, kind)) return;
+    if (await repo.hasInteraction(postId, userId, kind)) return false;
     await repo.addInteraction({ postId, userId, kind });
     if (kind === 'like') await repo.incrementPostCounter(postId, 'likeCount');
-  } else {
-    await repo.removeInteraction(postId, userId, kind);
-    if (kind === 'like') await repo.decrementPostCounter(postId, 'likeCount');
+    return true;
   }
+  await repo.removeInteraction(postId, userId, kind);
+  if (kind === 'like') await repo.decrementPostCounter(postId, 'likeCount');
+  return true;
 }
 
 router.post('/posts/:id/like', authenticate, async (req, res, next) => {
@@ -105,11 +111,14 @@ router.post('/posts/:id/like', authenticate, async (req, res, next) => {
     if (!req.user) throw new HttpError(401, 'UNAUTHENTICATED', 'No autenticado.');
     const id = parseId(req.params.id);
     const repo = new CommunityRepository(getDb());
-    await toggleInteraction(repo, 'like', id, req.user.id, true);
-    // Best-effort notify the post author (skip self-likes).
-    const post = await repo.findPostById(id);
-    if (post && post.userId !== req.user.id) {
-      void notifyCommunityPostLiked(post.userId, id, req.user.username);
+    const changed = await toggleInteraction(repo, 'like', id, req.user.id, true);
+    // Only notify on first like — repeated POSTs return early so the
+    // post author doesn't get spammed.
+    if (changed) {
+      const post = await repo.findPostById(id);
+      if (post && post.userId !== req.user.id) {
+        void notifyCommunityPostLiked(post.userId, id, req.user.username);
+      }
     }
     res.json({ data: { ok: true } });
   } catch (err) {
