@@ -1,38 +1,9 @@
+import { OPEN_DATASETS } from '@v2/shared';
 import { Download } from 'lucide-react';
 import { Link } from 'wouter';
 
-import { Button } from '~/components/ui/button';
 
-const DATASETS = [
-  {
-    id: 'sueños',
-    title: 'Sueños ciudadanos por provincia',
-    description: 'Cada sueño que la red registra, normalizado por provincia. Texto + categoría + fecha. Anonimizado.',
-    format: 'JSON · CSV',
-    licenseHint: 'CC0 — uso libre con atribución apreciada.',
-  },
-  {
-    id: 'pulse',
-    title: 'Señales de pulso (mandato vivo)',
-    description: 'Statements espontáneos de la ciudadanía clasificados por sentimiento + tema (cuando aplica).',
-    format: 'JSON',
-    licenseHint: 'CC0',
-  },
-  {
-    id: 'civic',
-    title: 'Perfiles cívicos agregados',
-    description: 'Distribución de arquetipos cívicos por provincia + cohorte temporal. Sin datos personales.',
-    format: 'JSON',
-    licenseHint: 'CC0',
-  },
-  {
-    id: 'iniciativas',
-    title: 'Iniciativas activas',
-    description: 'Listado público de iniciativas, sus PLANs asociados y métricas de actividad.',
-    format: 'JSON',
-    licenseHint: 'CC0',
-  },
-];
+import { Button } from '~/components/ui/button';
 
 export function DatosAbiertos() {
   return (
@@ -52,7 +23,7 @@ export function DatosAbiertos() {
       <section className="space-y-4">
         <h2 className="mb-2 font-serif text-2xl font-semibold">Datasets disponibles</h2>
         <ul className="space-y-3">
-          {DATASETS.map((d) => (
+          {OPEN_DATASETS.map((d) => (
             <li key={d.id} className="glass rounded-2xl p-6">
               <div className="flex items-start justify-between gap-4">
                 <div className="flex-1">
@@ -63,12 +34,19 @@ export function DatosAbiertos() {
                     <span>{d.licenseHint}</span>
                   </div>
                 </div>
-                <Button asChild size="sm" variant="secondary" disabled>
-                  <span>
+                {d.available && d.downloadUrl ? (
+                  <Button asChild size="sm" variant="secondary">
+                    <a href={d.downloadUrl} download>
+                      <Download className="h-4 w-4" />
+                      <span>Descargar</span>
+                    </a>
+                  </Button>
+                ) : (
+                  <Button size="sm" variant="secondary" disabled>
                     <Download className="h-4 w-4" />
                     <span>Próximo</span>
-                  </span>
-                </Button>
+                  </Button>
+                )}
               </div>
             </li>
           ))}

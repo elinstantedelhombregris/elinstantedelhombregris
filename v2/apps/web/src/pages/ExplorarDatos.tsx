@@ -1,16 +1,7 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment,
-                  @typescript-eslint/no-unsafe-call,
-                  @typescript-eslint/no-unsafe-member-access,
-                  @typescript-eslint/no-explicit-any */
-// react-map-gl/maplibre's TS types are noisy under strict + react-19
-// candidate types. The library is mature and well-tested at runtime;
-// we relax type-safety inside this file only.
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { useState } from 'react';
-import { default as MapDefault, Marker as MarkerDefault } from 'react-map-gl/maplibre';
-const Map = MapDefault as any;
-const Marker = MarkerDefault as any;
+import { Map as MapView, Marker } from 'react-map-gl/maplibre';
 
 import { Button } from '~/components/ui/button';
 import { Input } from '~/components/ui/input';
@@ -93,7 +84,7 @@ export function ExplorarDatos() {
       <div className="grid gap-6 md:grid-cols-[1fr_360px]">
         <section className="glass overflow-hidden rounded-2xl">
           <div className="h-[480px]">
-            <Map
+            <MapView
               initialViewState={ARGENTINA_CENTER}
               mapStyle="/maps/dark-matter.json"
             >
@@ -118,7 +109,7 @@ export function ExplorarDatos() {
                   </Marker>
                 );
               })}
-            </Map>
+            </MapView>
           </div>
         </section>
 
