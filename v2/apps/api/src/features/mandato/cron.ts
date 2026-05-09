@@ -33,8 +33,10 @@ export async function runMandatoEngine(): Promise<{ classified: number; aggregat
   const repo = new PulsoRepository(db);
   const pending = await repo.listUnclassified(BATCH_SIZE);
   if (pending.length === 0) {
+    // Nothing changed — skip the rollup recompute. The previous
+    // territory_mandates rows are still correct.
     logger.debug('mandato-engine: nothing to classify');
-    return { classified: 0, aggregatesUpdated: await recomputeAggregates() };
+    return { classified: 0, aggregatesUpdated: 0 };
   }
 
   // Classify with limited concurrency.

@@ -41,9 +41,40 @@ export class GamificationRepository {
   async getOrCreateUserLevel(userId: number): Promise<UserLevel> {
     const [existing] = await this.db.select().from(userLevels).where(eq(userLevels.userId, userId)).limit(1);
     if (existing) return existing;
-    const [row] = await this.db.insert(userLevels).values({ userId } as NewUserLevel).returning();
+    // Race-safe: two concurrent callers might both miss the SELECT;
+    // onConflictDoNothing turns the second INSERT into a no-op, then
+    // we re-SELECT to return the row that won.
+    const inserted = await this.db
+      .insert(userLevels)
+      .values({ userId } as NewUserLevel)
+      .onConflictDoNothing()
+      .returning();
+    const [insertedRow] = inserted;
+    if (insertedRow) return insertedRow;
+    const [row] = await this.db.select().from(userLevels).where(eq(userLevels.userId, userId)).limit(1);
     if (!row) throw new Error('Failed to insert user level');
     return row;
+  }
+
+  /**
+   * Has the user already logged this activity kind on a given date?
+   * Used by the route handlers to skip XP grants on replay (e.g. a
+   * user retaking the life-areas quiz five times in a single day
+   * shouldn't farm 5×25 XP).
+   */
+  async hasActivityOnDate(userId: number, kind: string, activityDate: string): Promise<boolean> {
+    const [row] = await this.db
+      .select({ id: dailyActivity.id })
+      .from(dailyActivity)
+      .where(
+        and(
+          eq(dailyActivity.userId, userId),
+          eq(dailyActivity.kind, kind),
+          eq(dailyActivity.activityDate, activityDate),
+        ),
+      )
+      .limit(1);
+    return Boolean(row);
   }
 
   async addXp(userId: number, xpDelta: number): Promise<UserLevel | undefined> {

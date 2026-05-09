@@ -88,9 +88,10 @@ dsuite('Iniciativas flows', () => {
     expect(res.status).toBe(404);
   });
 
-  it('POST /api/iniciativas/:id/join is rejected without auth + csrf', async () => {
+  it('POST /api/iniciativas/:id/join without csrf cookie is 403 CSRF_FAILED', async () => {
     const res = await request.post(`/api/iniciativas/${String(iniciativaId)}/join`);
-    expect([401, 403]).toContain(res.status);
+    expect(res.status).toBe(403);
+    expect(res.body.error.code).toBe('CSRF_FAILED');
   });
 
   it('POST /api/iniciativas/:id/join adds the user as member', async () => {

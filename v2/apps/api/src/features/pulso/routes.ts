@@ -17,6 +17,7 @@ import { z } from 'zod';
 
 import { authenticate, optionalAuthenticate } from '../../middleware/auth.js';
 import { HttpError } from '../../middleware/error-handler.js';
+import { anonSubmitRateLimit } from '../../middleware/rate-limit.js';
 
 const router: RouterType = Router();
 
@@ -42,7 +43,7 @@ const voteSchema = z.object({
   value: z.union([z.literal(-1), z.literal(0), z.literal(1)]),
 });
 
-router.post('/pulso', optionalAuthenticate, async (req, res, next) => {
+router.post('/pulso', anonSubmitRateLimit(), optionalAuthenticate, async (req, res, next) => {
   try {
     const input = submitSchema.parse(req.body);
     const repo = new PulsoRepository(getDb());

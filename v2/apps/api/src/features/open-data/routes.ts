@@ -11,6 +11,7 @@ import { Router, type Router as RouterType } from 'express';
 import { z } from 'zod';
 
 import { optionalAuthenticate } from '../../middleware/auth.js';
+import { anonSubmitRateLimit } from '../../middleware/rate-limit.js';
 
 const router: RouterType = Router();
 
@@ -62,7 +63,7 @@ router.get('/dreams', async (req, res, next) => {
   }
 });
 
-router.post('/dreams', optionalAuthenticate, async (req, res, next) => {
+router.post('/dreams', anonSubmitRateLimit(), optionalAuthenticate, async (req, res, next) => {
   try {
     const input = submitSchema.parse(req.body);
     const dreamsRepo = new DreamsRepository(getDb());

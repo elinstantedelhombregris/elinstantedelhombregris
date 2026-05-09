@@ -134,6 +134,18 @@ const BlogAuthor = lazy(async () => {
   const m = await import('~/pages/BlogAuthor');
   return { default: m.BlogAuthor };
 });
+const ExplorarDatos = lazy(async () => {
+  const m = await import('~/pages/ExplorarDatos');
+  return { default: m.ExplorarDatos };
+});
+const DatosAbiertos = lazy(async () => {
+  const m = await import('~/pages/DatosAbiertos');
+  return { default: m.DatosAbiertos };
+});
+const InsightDashboard = lazy(async () => {
+  const m = await import('~/pages/InsightDashboard');
+  return { default: m.InsightDashboard };
+});
 
 function PageFallback() {
   return (
@@ -195,6 +207,11 @@ export function App() {
               <Route path="/blog/:slug" component={BlogPostDetail} />
               <Route path="/comunidad" component={Community} />
               <Route path="/notificaciones" component={Notifications} />
+
+              {/* Open data + analytics */}
+              <Route path="/explorar-datos" component={ExplorarDatos} />
+              <Route path="/datos-abiertos" component={DatosAbiertos} />
+              <Route path="/tablero" component={InsightDashboard} />
 
               <Route component={NotFound} />
             </Switch>

@@ -43,9 +43,10 @@ dsuite('Community feed flows', () => {
     await deleteTestUsers([user.email]);
   });
 
-  it('POST /api/community/posts is rejected without auth + csrf', async () => {
+  it('POST /api/community/posts without csrf cookie is 403 CSRF_FAILED', async () => {
     const res = await request.post('/api/community/posts').send({ title: 't', content: 'c' });
-    expect([401, 403]).toContain(res.status);
+    expect(res.status).toBe(403);
+    expect(res.body.error.code).toBe('CSRF_FAILED');
   });
 
   it('POST /api/community/posts creates a post', async () => {

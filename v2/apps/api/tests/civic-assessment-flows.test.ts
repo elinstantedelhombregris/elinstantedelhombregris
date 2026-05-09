@@ -46,9 +46,10 @@ dsuite('Civic assessment flows', () => {
     expect(res.body.data.questions.length).toBeGreaterThanOrEqual(CIVIC_QUESTIONS.length);
   });
 
-  it('POST /api/civic-assessment/start is rejected without auth + csrf', async () => {
+  it('POST /api/civic-assessment/start without csrf cookie is 403 CSRF_FAILED', async () => {
     const res = await request.post('/api/civic-assessment/start');
-    expect([401, 403]).toContain(res.status);
+    expect(res.status).toBe(403);
+    expect(res.body.error.code).toBe('CSRF_FAILED');
   });
 
   it('POST /api/civic-assessment/start creates an in-progress assessment', async () => {

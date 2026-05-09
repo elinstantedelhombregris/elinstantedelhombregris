@@ -102,9 +102,10 @@ dsuite('Pulso + propuestas flows', () => {
   });
 
   describe('POST /api/propuestas/:id/vote', () => {
-    it('is rejected without auth + csrf', async () => {
+    it('without csrf cookie is 403 CSRF_FAILED', async () => {
       const res = await request.post(`/api/propuestas/${String(proposalId)}/vote`).send({ value: 1 });
-      expect([401, 403]).toContain(res.status);
+      expect(res.status).toBe(403);
+      expect(res.body.error.code).toBe('CSRF_FAILED');
     });
 
     it('casts a +1 vote and returns updated aggregate', async () => {

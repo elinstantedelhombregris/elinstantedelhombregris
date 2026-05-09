@@ -18,7 +18,7 @@ import { readCsrfToken, useAuth } from '~/lib/auth';
 
 
 interface CreatePostResponse {
-  post: { id: number; slug: string };
+  post: { id: number; slug: string; status: 'draft' | 'published' };
 }
 
 export function BlogAuthor() {
@@ -45,7 +45,14 @@ export function BlogAuthor() {
         { csrfToken: readCsrfToken() },
       ),
     onSuccess: (data) => {
-      navigate(`/blog/${data.post.slug}`);
+      // Public detail page only renders 'published' posts. After saving
+      // a draft, send the author back to the blog index instead of
+      // straight to a 404.
+      if (data.post.status === 'published') {
+        navigate(`/blog/${data.post.slug}`);
+      } else {
+        navigate('/blog');
+      }
     },
     onError: (err) => {
       setErrorMessage(err.message);

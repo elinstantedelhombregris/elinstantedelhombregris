@@ -112,20 +112,24 @@ router.post('/goals/:id/complete', authenticate, async (req, res, next) => {
       res.status(404).json({ error: { code: 'NOT_FOUND', message: 'Objetivo no encontrado.' } });
       return;
     }
+    // Idempotency: completing an already-completed goal returns
+    // success but DOES NOT grant XP again (prevents double-click /
+    // replay XP farming).
+    const wasAlreadyCompleted = goal.status === 'completed';
     await repo.completeGoal(id);
-    // Best-effort XP grant. logActivity self-bootstraps the
-    // user_levels row, so callers don't have to pre-create it.
-    try {
-      await new GamificationRepository(db).logActivity({
-        userId: req.user.id,
-        kind: 'goal_completed',
-        xpAwarded: 50,
-        activityDate: new Date().toISOString().slice(0, 10),
-      });
-    } catch (gErr) {
-      logger.warn({ err: gErr, userId: req.user.id, goalId: id }, 'gamification log failed for goal_completed');
+    if (!wasAlreadyCompleted) {
+      try {
+        await new GamificationRepository(db).logActivity({
+          userId: req.user.id,
+          kind: 'goal_completed',
+          xpAwarded: 50,
+          activityDate: new Date().toISOString().slice(0, 10),
+        });
+      } catch (gErr) {
+        logger.warn({ err: gErr, userId: req.user.id, goalId: id }, 'gamification log failed for goal_completed');
+      }
     }
-    res.json({ data: { ok: true } });
+    res.json({ data: { ok: true, alreadyCompleted: wasAlreadyCompleted } });
   } catch (err) {
     next(err);
   }
@@ -164,8 +168,8 @@ router.post('/checkins', authenticate, async (req, res, next) => {
       actedOnGoals: input.actedOnGoals,
     };
     if (input.reflection !== undefined) insertArgs.reflection = input.reflection;
-    const checkin = await repo.addCheckin(insertArgs);
-    res.status(201).json({ data: { checkin } });
+    const { checkin, created } = await repo.addCheckin(insertArgs);
+    res.status(created ? 201 : 200).json({ data: { checkin } });
   } catch (err) {
     next(err);
   }

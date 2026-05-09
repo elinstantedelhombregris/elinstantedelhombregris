@@ -91,14 +91,20 @@ router.post('/quiz/responses', authenticate, async (req, res, next) => {
     // Recompute aggregates after the batch lands. Cheap at this scale.
     await rescoreUser(req.user.id);
 
-    // Best-effort XP for the quiz batch.
+    // Best-effort XP for the quiz batch — but only the first time
+    // today, so retaking the quiz repeatedly doesn't farm XP.
     try {
-      await new GamificationRepository(getDb()).logActivity({
-        userId: req.user.id,
-        kind: 'quiz_completed',
-        xpAwarded: 25,
-        activityDate: new Date().toISOString().slice(0, 10),
-      });
+      const gamification = new GamificationRepository(getDb());
+      const today = new Date().toISOString().slice(0, 10);
+      const alreadyToday = await gamification.hasActivityOnDate(req.user.id, 'quiz_completed', today);
+      if (!alreadyToday) {
+        await gamification.logActivity({
+          userId: req.user.id,
+          kind: 'quiz_completed',
+          xpAwarded: 25,
+          activityDate: today,
+        });
+      }
     } catch (gErr) {
       logger.warn({ err: gErr, userId: req.user.id }, 'gamification log failed for quiz_completed');
     }

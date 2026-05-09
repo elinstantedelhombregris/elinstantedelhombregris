@@ -66,11 +66,12 @@ dsuite('Life areas flows', () => {
     expect(res.status).toBe(404);
   });
 
-  it('POST /api/life-areas/quiz/responses is rejected without auth + csrf', async () => {
+  it('POST /api/life-areas/quiz/responses without csrf cookie is 403 CSRF_FAILED', async () => {
     const res = await request
       .post('/api/life-areas/quiz/responses')
       .send({ responses: [{ questionId: questionIds[0]!, value: 5 }] });
-    expect([401, 403]).toContain(res.status);
+    expect(res.status).toBe(403);
+    expect(res.body.error.code).toBe('CSRF_FAILED');
   });
 
   it('POST /api/life-areas/quiz/responses saves a batch and rescores', async () => {

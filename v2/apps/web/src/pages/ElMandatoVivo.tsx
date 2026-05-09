@@ -19,7 +19,7 @@ interface Signal {
   id: number;
   body: string;
   theme: string | null;
-  sentiment: string | null;
+  sentiment: number | null;
   createdAt: string;
 }
 
@@ -131,8 +131,14 @@ export function ElMandatoVivo() {
                         {s.theme}
                       </span>
                     ) : null}
-                    {s.sentiment ? (
-                      <span className="rounded-full bg-white/5 px-2 py-0.5">{s.sentiment}</span>
+                    {s.sentiment !== null ? (
+                      <span className="rounded-full bg-white/5 px-2 py-0.5">
+                        {s.sentiment > 0.2
+                          ? 'positivo'
+                          : s.sentiment < -0.2
+                            ? 'negativo'
+                            : 'neutro'}
+                      </span>
                     ) : null}
                     <time dateTime={s.createdAt}>
                       {new Date(s.createdAt).toLocaleDateString('es-AR', {

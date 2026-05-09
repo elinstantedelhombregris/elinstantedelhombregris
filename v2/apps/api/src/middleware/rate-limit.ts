@@ -84,6 +84,21 @@ export function emailVerificationRateLimit(): RequestHandler {
   });
 }
 
+/**
+ * Anonymous citizen submissions (pulso, dreams). Tighter than the
+ * general 120/min so a single IP can't fill the public dataset
+ * with garbage. 30 per hour per IP.
+ */
+export function anonSubmitRateLimit(): RequestHandler {
+  return rateLimit({
+    windowMs: 60 * 60 * 1000,
+    max: 30,
+    standardHeaders: 'draft-7',
+    legacyHeaders: false,
+    message: SPANISH_LIMITED,
+  });
+}
+
 /** 2FA verify: 5 per 15 minutes per IP+ticket-prefix. */
 export function twoFactorVerifyRateLimit(): RequestHandler {
   return rateLimit({

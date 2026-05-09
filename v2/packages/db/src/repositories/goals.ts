@@ -63,8 +63,11 @@ export class GoalsRepository {
    * the rate at which a single user submits; concurrent submits
    * from the same user would still produce a duplicate, which is
    * acceptable.
+   *
+   * `created` is `true` for fresh inserts, `false` when an existing
+   * row was overwritten — the route uses it to choose 201 vs 200.
    */
-  async addCheckin(input: NewWeeklyCheckin): Promise<WeeklyCheckin> {
+  async addCheckin(input: NewWeeklyCheckin): Promise<{ checkin: WeeklyCheckin; created: boolean }> {
     const existing = await this.findCurrentWeekCheckin(input.userId, input.weekStart);
     if (existing) {
       const [row] = await this.db
@@ -77,11 +80,11 @@ export class GoalsRepository {
         .where(eq(weeklyCheckins.id, existing.id))
         .returning();
       if (!row) throw new Error('Failed to update check-in');
-      return row;
+      return { checkin: row, created: false };
     }
     const [row] = await this.db.insert(weeklyCheckins).values(input).returning();
     if (!row) throw new Error('Failed to insert check-in');
-    return row;
+    return { checkin: row, created: true };
   }
 
   async findCurrentWeekCheckin(userId: number, weekStart: Date): Promise<WeeklyCheckin | undefined> {
