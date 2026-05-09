@@ -15,6 +15,7 @@ import { z } from 'zod';
 
 import { authenticate } from '../../middleware/auth.js';
 import { HttpError } from '../../middleware/error-handler.js';
+import { notifyCommunityPostLiked } from '../notifications/producers.js';
 
 const router: RouterType = Router();
 
@@ -105,6 +106,11 @@ router.post('/posts/:id/like', authenticate, async (req, res, next) => {
     const id = parseId(req.params.id);
     const repo = new CommunityRepository(getDb());
     await toggleInteraction(repo, 'like', id, req.user.id, true);
+    // Best-effort notify the post author (skip self-likes).
+    const post = await repo.findPostById(id);
+    if (post && post.userId !== req.user.id) {
+      void notifyCommunityPostLiked(post.userId, id, req.user.username);
+    }
     res.json({ data: { ok: true } });
   } catch (err) {
     next(err);

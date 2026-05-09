@@ -15,6 +15,7 @@ import { z } from 'zod';
 
 import { authenticate } from '../../middleware/auth.js';
 import { HttpError } from '../../middleware/error-handler.js';
+import { notifyIniciativaMemberJoined } from '../notifications/producers.js';
 
 const router: RouterType = Router();
 
@@ -90,6 +91,15 @@ router.post('/:id/join', authenticate, async (req, res, next) => {
         return;
       }
       throw sqlErr;
+    }
+    // Best-effort notify the owner.
+    if (iniciativa.createdByUserId && iniciativa.createdByUserId !== req.user.id) {
+      void notifyIniciativaMemberJoined(
+        iniciativa.createdByUserId,
+        id,
+        iniciativa.slug,
+        req.user.username,
+      );
     }
     res.json({ data: { ok: true } });
   } catch (err) {

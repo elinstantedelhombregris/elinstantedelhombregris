@@ -2,6 +2,7 @@ import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { Link, useLocation } from 'wouter';
 
+import { NotificationBell } from '~/components/NotificationBell';
 import { Button } from '~/components/ui/button';
 import { useAuth } from '~/lib/auth';
 import { cn } from '~/lib/utils';
@@ -58,6 +59,7 @@ export function Header() {
         <div className="hidden items-center gap-3 md:flex">
           {user ? (
             <>
+              <NotificationBell enabled={true} />
               <span className="text-xs text-muted-foreground">Hola, {user.name.split(' ')[0]}</span>
               <Button
                 size="sm"

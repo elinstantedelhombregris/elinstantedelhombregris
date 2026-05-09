@@ -17,6 +17,7 @@ import { z } from 'zod';
 
 import { authenticate, optionalAuthenticate } from '../../middleware/auth.js';
 import { HttpError } from '../../middleware/error-handler.js';
+import { notifyBlogCommentPosted, notifyBlogPostLiked } from '../notifications/producers.js';
 
 const router: RouterType = Router();
 
@@ -96,6 +97,11 @@ router.post('/posts/:id/like', authenticate, async (req, res, next) => {
       }
       throw e;
     }
+    // Best-effort notify the post author (skip self-likes).
+    const post = await repo.findById(id);
+    if (post && post.authorId !== req.user.id) {
+      void notifyBlogPostLiked(post.authorId, id, req.user.username);
+    }
     res.json({ data: { ok: true } });
   } catch (err) {
     next(err);
@@ -170,6 +176,11 @@ router.post('/posts/:id/comments', authenticate, async (req, res, next) => {
     };
     if (input.parentId !== undefined) insertArgs.parentId = input.parentId;
     const comment = await repo.addComment(insertArgs);
+    // Best-effort notify the post author (skip self-comments).
+    const post = await repo.findById(id);
+    if (post && post.authorId !== req.user.id) {
+      void notifyBlogCommentPosted(post.authorId, id, req.user.username);
+    }
     res.status(201).json({ data: { comment } });
   } catch (err) {
     next(err);
