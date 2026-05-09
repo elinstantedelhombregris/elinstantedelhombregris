@@ -5,11 +5,11 @@ on:
     branches: [main]
     paths:
       - 'v2/**'
-      - '.github/workflows/ci.yml'
+      - '.github/workflows/v2-ci.yml'
   pull_request:
     paths:
       - 'v2/**'
-      - '.github/workflows/ci.yml'
+      - '.github/workflows/v2-ci.yml'
 
 defaults:
   run:
@@ -55,9 +55,6 @@ jobs:
 
       - name: Build all workspaces
         env:
-          # Build doesn't actually need a real DB; the api skips DB
-          # access at build time. Provide a placeholder so any zod
-          # boot-time guards don't trip.
           DATABASE_URL: postgres://placeholder:placeholder@localhost:5432/placeholder
           JWT_SECRET: ci_jwt_secret_placeholder_at_least_32_chars_xxxxxxxxxxxx
           SESSION_SECRET: ci_session_secret_placeholder_at_least_32_chars_xxxxxxxxxxxx
@@ -74,8 +71,6 @@ jobs:
     name: integration tests (api ↔ Neon)
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    # Integration tests hit a real Postgres. Until we wire ephemeral
-    # Neon branches per CI run (Phase 1), only run on main.
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
 
     steps:
@@ -111,7 +106,6 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     needs: build-and-test
-    # Only on PR + main push. Pull requests verify, main confirms.
 
     steps:
       - name: Checkout
