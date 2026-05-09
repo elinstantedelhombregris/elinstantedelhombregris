@@ -44,6 +44,26 @@ export class PulsoRepository {
       : q.orderBy(desc(pulseSignals.createdAt)).limit(limit);
   }
 
+  /** Signals awaiting AI classification (theme IS NULL). */
+  async listUnclassified(limit = 50): Promise<PulseSignal[]> {
+    return this.db
+      .select()
+      .from(pulseSignals)
+      .where(sql`${pulseSignals.theme} IS NULL`)
+      .orderBy(pulseSignals.createdAt)
+      .limit(limit);
+  }
+
+  async updateClassification(
+    id: number,
+    patch: { theme: string; sentiment: number; topics: string[] },
+  ): Promise<void> {
+    await this.db
+      .update(pulseSignals)
+      .set({ theme: patch.theme, sentiment: patch.sentiment, topics: patch.topics })
+      .where(eq(pulseSignals.id, id));
+  }
+
   // ---------- Proposals ----------
 
   async createProposal(input: NewProposal): Promise<Proposal> {
