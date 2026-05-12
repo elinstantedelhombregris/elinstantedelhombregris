@@ -150,7 +150,7 @@ const InsightDashboard = lazy(async () => {
 });
 const MiPerfil = lazy(async () => {
   const m = await import('~/pages/MiPerfil');
-  return { default: m.default };
+  return { default: m.MiPerfil };
 });
 
 function GamificationCacheBridge(): null {
