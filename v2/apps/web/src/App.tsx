@@ -156,6 +156,10 @@ const Leaderboard = lazy(async () => {
   const m = await import('~/pages/Leaderboard');
   return { default: m.Leaderboard };
 });
+const Desafios = lazy(async () => {
+  const m = await import('~/pages/Desafios');
+  return { default: m.Desafios };
+});
 
 function GamificationCacheBridge(): null {
   const queryClient = useQueryClient();
@@ -220,6 +224,7 @@ export function App() {
               <Route path="/mandato-vivo" component={ElMandatoVivo} />
               <Route path="/mi-perfil" component={MiPerfil} />
               <Route path="/clasificacion" component={Leaderboard} />
+              <Route path="/desafios" component={Desafios} />
 
               {/* Content + community */}
               <Route path="/ensayos" component={Ensayos} />

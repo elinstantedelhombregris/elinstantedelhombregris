@@ -1,6 +1,7 @@
-import { useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
 import { api } from '~/lib/api';
+import { readCsrfToken } from '~/lib/auth/csrf';
 
 export interface GamificationMe {
   xp: number;
@@ -100,5 +101,37 @@ export function useLeaderboard(period: 'weekly' | 'all_time') {
         `/api/gamification/leaderboard?period=${period}`,
       ),
     staleTime: 5 * 60_000,
+  });
+}
+
+export function useStartChallenge() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: async (slug: string) =>
+      api.post<{ progress: { id: number; status: string } }>(
+        `/api/gamification/challenges/${slug}/start`,
+        {},
+        { csrfToken: readCsrfToken() },
+      ),
+    onSuccess: () => {
+      void qc.invalidateQueries({ queryKey: ['gamification', 'challenges'] });
+      void qc.invalidateQueries({ queryKey: ['gamification', 'me'] });
+    },
+  });
+}
+
+export function useAdvanceChallenge() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: async (input: { slug: string; orderIndex: number }) =>
+      api.post<{ progress: { id: number; status: string }; completed: boolean }>(
+        `/api/gamification/challenges/${input.slug}/advance`,
+        { orderIndex: input.orderIndex },
+        { csrfToken: readCsrfToken() },
+      ),
+    onSuccess: () => {
+      void qc.invalidateQueries({ queryKey: ['gamification', 'challenges'] });
+      void qc.invalidateQueries({ queryKey: ['gamification', 'me'] });
+    },
   });
 }
