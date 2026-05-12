@@ -152,6 +152,10 @@ const MiPerfil = lazy(async () => {
   const m = await import('~/pages/MiPerfil');
   return { default: m.MiPerfil };
 });
+const Leaderboard = lazy(async () => {
+  const m = await import('~/pages/Leaderboard');
+  return { default: m.Leaderboard };
+});
 
 function GamificationCacheBridge(): null {
   const queryClient = useQueryClient();
@@ -215,6 +219,7 @@ export function App() {
               <Route path="/coaching" component={CoachingChat} />
               <Route path="/mandato-vivo" component={ElMandatoVivo} />
               <Route path="/mi-perfil" component={MiPerfil} />
+              <Route path="/clasificacion" component={Leaderboard} />
 
               {/* Content + community */}
               <Route path="/ensayos" component={Ensayos} />
