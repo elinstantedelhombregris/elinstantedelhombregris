@@ -8,13 +8,13 @@
  *   GET   /api/checkins/current-week    (auth) — checkin for the running week
  *   POST  /api/checkins                 (auth) — submit
  */
-import { GamificationRepository, GoalsRepository, getDb } from '@v2/db';
+import { GoalsRepository, getDb } from '@v2/db';
 import { Router, type Router as RouterType } from 'express';
 import { z } from 'zod';
 
-import { logger } from '../../lib/logger.js';
 import { authenticate } from '../../middleware/auth.js';
 import { HttpError } from '../../middleware/error-handler.js';
+import { GamificationService } from '../gamification/service.js';
 
 const router: RouterType = Router();
 
@@ -117,19 +117,16 @@ router.post('/goals/:id/complete', authenticate, async (req, res, next) => {
     // replay XP farming).
     const wasAlreadyCompleted = goal.status === 'completed';
     await repo.completeGoal(id);
+    let xpEvent: Awaited<ReturnType<GamificationService['safeRecord']>> = null;
     if (!wasAlreadyCompleted) {
-      try {
-        await new GamificationRepository(db).logActivity({
-          userId: req.user.id,
-          kind: 'goal_completed',
-          xpAwarded: 50,
-          activityDate: new Date().toISOString().slice(0, 10),
-        });
-      } catch (gErr) {
-        logger.warn({ err: gErr, userId: req.user.id, goalId: id }, 'gamification log failed for goal_completed');
-      }
+      xpEvent = await new GamificationService(getDb()).safeRecord({
+        userId: req.user.id,
+        kind: 'goal_completed',
+        xpAwarded: 50,
+        badgesToAward: ['first-goal'],
+      });
     }
-    res.json({ data: { ok: true, alreadyCompleted: wasAlreadyCompleted } });
+    res.json({ data: xpEvent ? { ok: true, alreadyCompleted: wasAlreadyCompleted, xpEvent } : { ok: true, alreadyCompleted: wasAlreadyCompleted } });
   } catch (err) {
     next(err);
   }

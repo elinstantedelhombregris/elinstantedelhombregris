@@ -60,6 +60,8 @@ export const proposals = pgTable(
     bodyMarkdown: text('body_markdown'),
     provinceId: integer('province_id').references(() => geographicLocations.id, { onDelete: 'set null' }),
     theme: text('theme'),
+    /** User who authored this proposal (null = system-derived from NLP pipeline). */
+    authorId: integer('author_id').references(() => users.id, { onDelete: 'set null' }),
     /** 'draft' | 'voting' | 'accepted' | 'rejected' | 'archived' */
     status: text('status').notNull().default('draft'),
     /** Aggregate vote score (positive minus negative). */
@@ -74,6 +76,7 @@ export const proposals = pgTable(
   (t) => [
     index('proposals_province_status_idx').on(t.provinceId, t.status),
     index('proposals_theme_idx').on(t.theme),
+    index('proposals_author_idx').on(t.authorId),
   ],
 );
 

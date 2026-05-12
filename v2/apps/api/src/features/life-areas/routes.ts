@@ -9,13 +9,13 @@
  * Frontend uses 0-10 scale; backend stores 0-100. SCORE_MAPPING_FACTOR
  * lives here so the contract is explicit.
  */
-import { GamificationRepository, getDb, LifeAreasRepository } from '@v2/db';
+import { getDb, LifeAreasRepository } from '@v2/db';
 import { Router, type Router as RouterType } from 'express';
 import { z } from 'zod';
 
-import { logger } from '../../lib/logger.js';
 import { authenticate } from '../../middleware/auth.js';
 import { HttpError } from '../../middleware/error-handler.js';
+import { GamificationService } from '../gamification/service.js';
 
 import { rescoreUser } from './scoring.js';
 
@@ -93,23 +93,15 @@ router.post('/quiz/responses', authenticate, async (req, res, next) => {
 
     // Best-effort XP for the quiz batch — but only the first time
     // today, so retaking the quiz repeatedly doesn't farm XP.
-    try {
-      const gamification = new GamificationRepository(getDb());
-      const today = new Date().toISOString().slice(0, 10);
-      const alreadyToday = await gamification.hasActivityOnDate(req.user.id, 'quiz_completed', today);
-      if (!alreadyToday) {
-        await gamification.logActivity({
-          userId: req.user.id,
-          kind: 'quiz_completed',
-          xpAwarded: 25,
-          activityDate: today,
-        });
-      }
-    } catch (gErr) {
-      logger.warn({ err: gErr, userId: req.user.id }, 'gamification log failed for quiz_completed');
-    }
+    const xpEvent = await new GamificationService(getDb()).safeRecord({
+      userId: req.user.id,
+      kind: 'quiz_completed',
+      xpAwarded: 25,
+      dedup: 'daily',
+      badgesToAward: ['first-quiz'],
+    });
 
-    res.json({ data: { saved: saved.length } });
+    res.json({ data: xpEvent ? { saved: saved.length, xpEvent } : { saved: saved.length } });
   } catch (err) {
     next(err);
   }

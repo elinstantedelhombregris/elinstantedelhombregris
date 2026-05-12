@@ -18,6 +18,7 @@ import { z } from 'zod';
 import { authenticate, optionalAuthenticate } from '../../middleware/auth.js';
 import { HttpError } from '../../middleware/error-handler.js';
 import { anonSubmitRateLimit } from '../../middleware/rate-limit.js';
+import { GamificationService } from '../gamification/service.js';
 
 const router: RouterType = Router();
 
@@ -54,7 +55,16 @@ router.post('/pulso', anonSubmitRateLimit(), optionalAuthenticate, async (req, r
     if (req.user) insertInput.userId = req.user.id;
     if (input.provinceId !== undefined) insertInput.provinceId = input.provinceId;
     const signal = await repo.addSignal(insertInput);
-    res.status(201).json({ data: { id: signal.id } });
+    let xpEvent: Awaited<ReturnType<GamificationService['safeRecord']>> = null;
+    if (req.user) {
+      xpEvent = await new GamificationService(getDb()).safeRecord({
+        userId: req.user.id,
+        kind: 'pulse_submitted',
+        xpAwarded: 10,
+        badgesToAward: ['first-pulse'],
+      });
+    }
+    res.status(201).json({ data: xpEvent ? { id: signal.id, xpEvent } : { id: signal.id } });
   } catch (err) {
     next(err);
   }
@@ -79,6 +89,41 @@ router.get('/pulso', async (req, res, next) => {
         createdAt: s.createdAt,
       })),
     });
+  } catch (err) {
+    next(err);
+  }
+});
+
+const createProposalSchema = z.object({
+  title: z.string().trim().min(3, 'El título es muy corto.').max(200, 'Máximo 200 caracteres.'),
+  summary: z.string().trim().min(10, 'El resumen es muy corto.').max(500, 'Máximo 500 caracteres.'),
+  bodyMarkdown: z.string().trim().max(5000, 'Máximo 5000 caracteres.').optional(),
+  provinceId: z.number().int().positive().optional(),
+});
+
+router.post('/propuestas', authenticate, async (req, res, next) => {
+  try {
+    if (!req.user) throw new HttpError(401, 'UNAUTHENTICATED', 'No autenticado.');
+    const input = createProposalSchema.parse(req.body);
+    const repo = new PulsoRepository(getDb());
+    const insertInput: Parameters<typeof repo.createProposal>[0] = {
+      title: input.title,
+      summary: input.summary,
+      authorId: req.user.id,
+      status: 'voting',
+    };
+    if (input.bodyMarkdown !== undefined) insertInput.bodyMarkdown = input.bodyMarkdown;
+    if (input.provinceId !== undefined) insertInput.provinceId = input.provinceId;
+    const proposal = await repo.createProposal(insertInput);
+
+    const xpEvent = await new GamificationService(getDb()).safeRecord({
+      userId: req.user.id,
+      kind: 'propuesta_submitted',
+      xpAwarded: 15,
+      badgesToAward: ['propuesta-author'],
+    });
+
+    res.status(201).json({ data: xpEvent ? { proposal, xpEvent } : { proposal } });
   } catch (err) {
     next(err);
   }

@@ -190,6 +190,26 @@ export class GamificationRepository {
     return row;
   }
 
+  /**
+   * Has the user already logged a `content_read` event for this slug?
+   * Used for lifetime dedup so re-reading the same post doesn't farm XP.
+   */
+  async hasContentBeenRead(userId: number, kind: 'blog' | 'ensayo', slug: string): Promise<boolean> {
+    const [row] = await this.db
+      .select({ id: dailyActivity.id })
+      .from(dailyActivity)
+      .where(
+        and(
+          eq(dailyActivity.userId, userId),
+          eq(dailyActivity.kind, 'content_read'),
+          sql`${dailyActivity.payload}->>'kind' = ${kind}`,
+          sql`${dailyActivity.payload}->>'slug' = ${slug}`,
+        ),
+      )
+      .limit(1);
+    return Boolean(row);
+  }
+
   async listRecentActivity(userId: number, limit = 50): Promise<DailyActivity[]> {
     return this.db
       .select()

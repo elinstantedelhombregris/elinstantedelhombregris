@@ -15,6 +15,7 @@ import { z } from 'zod';
 
 import { authenticate } from '../../middleware/auth.js';
 import { HttpError } from '../../middleware/error-handler.js';
+import { GamificationService } from '../gamification/service.js';
 import { notifyCommunityPostLiked } from '../notifications/producers.js';
 
 const router: RouterType = Router();
@@ -77,7 +78,16 @@ router.post('/posts', authenticate, async (req, res, next) => {
       content: input.content,
       kind: input.kind,
     });
-    res.status(201).json({ data: { post } });
+
+    const xpEvent = await new GamificationService(getDb()).safeRecord({
+      userId: req.user.id,
+      kind: 'community_post_created',
+      xpAwarded: 5,
+      dedup: 'daily',
+      badgesToAward: ['community-voice'],
+    });
+
+    res.status(201).json({ data: xpEvent ? { post, xpEvent } : { post } });
   } catch (err) {
     next(err);
   }
