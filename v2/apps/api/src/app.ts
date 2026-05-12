@@ -12,6 +12,7 @@ import { blogRouter } from './features/blog/routes.js';
 import { civicAssessmentRouter } from './features/civic-assessment/routes.js';
 import { coachingRouter } from './features/coaching/routes.js';
 import { communityRouter } from './features/community/routes.js';
+import { gamificationRouter } from './features/gamification/routes.js';
 import { goalsRouter } from './features/goals/routes.js';
 import { iniciativasRouter } from './features/iniciativas/routes.js';
 import { lifeAreasRouter } from './features/life-areas/routes.js';
@@ -78,6 +79,7 @@ export function createApp(): Express {
   app.use('/api/notifications', notificationsRouter);
   app.use('/api/open-data', openDataRouter);
   app.use('/api/analytics', analyticsRouter);
+  app.use('/api/gamification', gamificationRouter);
 
   // Tail middleware
   app.use(notFoundHandler());

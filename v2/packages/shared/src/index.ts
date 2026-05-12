@@ -8,3 +8,4 @@ export * from './validation/index.js';
 export * from './content/index.js';
 export * from './civic-assessment/index.js';
 export * from './datasets/index.js';
+export { xpForLevel, levelForXp, xpToNextLevel } from './gamification/levels.js';
