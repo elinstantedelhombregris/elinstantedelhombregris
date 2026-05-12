@@ -8,6 +8,7 @@
  *   `useCsrfToken()`. The token is read from a non-httpOnly cookie set
  *   by the API on first navigation.
  */
+import { xpEventBus, type XpEvent } from './xp-event-bus.js';
 export class ApiError extends Error {
   constructor(
     public readonly status: number,
@@ -71,7 +72,18 @@ async function request<T>(method: string, path: string, opts: RequestOptions = {
     throw new ApiError(res.status, code, message, json.error?.details);
   }
 
-  return json.data as T;
+  const data = json.data as T;
+  if (data && typeof data === 'object') {
+    const record = data as Record<string, unknown>;
+    if ('xpEvent' in record) {
+      const evt = record.xpEvent as XpEvent | undefined;
+      if (evt) {
+        xpEventBus.publish(evt);
+      }
+      delete record.xpEvent;
+    }
+  }
+  return data;
 }
 
 export const api = {

@@ -2,6 +2,7 @@ import { QueryClientProvider } from '@tanstack/react-query';
 import { lazy, StrictMode, Suspense } from 'react';
 import { Route, Switch } from 'wouter';
 
+import { XpToast } from '~/components/XpToast';
 import { RootLayout } from '~/layouts/RootLayout';
 import { queryClient } from '~/lib/query-client';
 
@@ -217,6 +218,7 @@ export function App() {
             </Switch>
           </Suspense>
         </RootLayout>
+        <XpToast />
       </QueryClientProvider>
     </StrictMode>
   );
