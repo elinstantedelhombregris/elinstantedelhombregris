@@ -4,6 +4,7 @@ import { Link, useLocation } from 'wouter';
 
 import { NotificationBell } from '~/components/NotificationBell';
 import { Button } from '~/components/ui/button';
+import { XPChip } from '~/components/XPChip';
 import { useAuth } from '~/lib/auth';
 import { cn } from '~/lib/utils';
 
@@ -60,6 +61,7 @@ export function Header() {
           {user ? (
             <>
               <NotificationBell enabled={true} />
+              <XPChip />
               <span className="text-xs text-muted-foreground">Hola, {user.name.split(' ')[0]}</span>
               <Button
                 size="sm"

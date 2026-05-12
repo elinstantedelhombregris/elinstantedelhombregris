@@ -1,10 +1,11 @@
-import { QueryClientProvider } from '@tanstack/react-query';
-import { lazy, StrictMode, Suspense } from 'react';
+import { QueryClientProvider, useQueryClient } from '@tanstack/react-query';
+import { lazy, StrictMode, Suspense, useEffect } from 'react';
 import { Route, Switch } from 'wouter';
 
 import { XpToast } from '~/components/XpToast';
 import { RootLayout } from '~/layouts/RootLayout';
 import { queryClient } from '~/lib/query-client';
+import { xpEventBus } from '~/lib/xp-event-bus';
 
 // Lazy-load every page so each route ships its own chunk.
 const Home = lazy(async () => {
@@ -147,6 +148,20 @@ const InsightDashboard = lazy(async () => {
   const m = await import('~/pages/InsightDashboard');
   return { default: m.InsightDashboard };
 });
+const MiPerfil = lazy(async () => {
+  const m = await import('~/pages/MiPerfil');
+  return { default: m.default };
+});
+
+function GamificationCacheBridge(): null {
+  const queryClient = useQueryClient();
+  useEffect(() => {
+    return xpEventBus.subscribe(() => {
+      void queryClient.invalidateQueries({ queryKey: ['gamification', 'me'] });
+    });
+  }, [queryClient]);
+  return null;
+}
 
 function PageFallback() {
   return (
@@ -199,6 +214,7 @@ export function App() {
               <Route path="/check-in-semanal" component={WeeklyCheckin} />
               <Route path="/coaching" component={CoachingChat} />
               <Route path="/mandato-vivo" component={ElMandatoVivo} />
+              <Route path="/mi-perfil" component={MiPerfil} />
 
               {/* Content + community */}
               <Route path="/ensayos" component={Ensayos} />
@@ -218,6 +234,7 @@ export function App() {
             </Switch>
           </Suspense>
         </RootLayout>
+        <GamificationCacheBridge />
         <XpToast />
       </QueryClientProvider>
     </StrictMode>
