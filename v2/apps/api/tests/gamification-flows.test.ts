@@ -108,6 +108,17 @@ dsuite('Gamification flows', () => {
     expect(res.body.error.code).toBe('NOT_STARTED');
   });
 
+  it('POST /challenges/:slug/advance returns 400 INVALID_STEP for an out-of-range orderIndex', async () => {
+    // lector-diario has 1 step (orderIndex 0). Start it, then try to
+    // advance with an orderIndex that doesn't exist.
+    await csrfed(app, session).post('/api/gamification/challenges/voz-de-la-comunidad/start');
+    const res = await csrfed(app, session)
+      .post('/api/gamification/challenges/voz-de-la-comunidad/advance')
+      .send({ orderIndex: 999 });
+    expect(res.status).toBe(400);
+    expect(res.body.error.code).toBe('INVALID_STEP');
+  });
+
   it('GET /api/gamification/leaderboard?period=weekly returns 200', async () => {
     const res = await request.get('/api/gamification/leaderboard?period=weekly');
     expect(res.status).toBe(200);

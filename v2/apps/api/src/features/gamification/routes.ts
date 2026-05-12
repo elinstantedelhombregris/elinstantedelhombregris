@@ -205,6 +205,11 @@ router.post('/challenges/:slug/advance', authenticate, async (req, res, next) =>
       res.status(409).json({ error: { code: 'NOT_STARTED', message: 'Empezá el desafío primero.' } });
       return;
     }
+    const validIndices = new Set(steps.map((s) => s.orderIndex));
+    if (!validIndices.has(orderIndex)) {
+      res.status(400).json({ error: { code: 'INVALID_STEP', message: 'Paso no válido.' } });
+      return;
+    }
     const completed = Array.isArray(progress.stepsCompleted) ? [...(progress.stepsCompleted as number[])] : [];
     if (!completed.includes(orderIndex)) completed.push(orderIndex);
     const isComplete = completed.length >= totalSteps;
