@@ -56,6 +56,36 @@ const STARTER_BADGES: SeedBadge[] = [
     description: 'Publicaste tu primer post en la comunidad.',
     tier: 'silver',
   },
+  {
+    slug: 'propuesta-author',
+    title: 'Primera propuesta',
+    description: 'Publicaste tu primera propuesta para el mandato vivo.',
+    tier: 'silver',
+  },
+  {
+    slug: 'lector-curioso',
+    title: 'Lector curioso',
+    description: 'Leíste cinco artículos del blog.',
+    tier: 'bronze',
+  },
+  {
+    slug: 'lector-voraz',
+    title: 'Lector voraz',
+    description: 'Leíste veinticinco artículos del blog.',
+    tier: 'silver',
+  },
+  {
+    slug: 'streak-7',
+    title: 'Constancia · 7 días',
+    description: 'Mantuviste actividad cívica siete días seguidos.',
+    tier: 'bronze',
+  },
+  {
+    slug: 'streak-30',
+    title: 'Constancia · 30 días',
+    description: 'Mantuviste actividad cívica treinta días seguidos.',
+    tier: 'silver',
+  },
 ];
 
 const url = process.env['DATABASE_URL_UNPOOLED'] ?? process.env['DATABASE_URL'];
