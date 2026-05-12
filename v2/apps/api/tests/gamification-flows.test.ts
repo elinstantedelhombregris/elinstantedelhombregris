@@ -70,6 +70,17 @@ dsuite('Gamification flows', () => {
     expect(lectorDiario.progress).toBeNull();
   });
 
+  it('GET /api/gamification/challenges includes progress when authed', async () => {
+    const res = await request
+      .get('/api/gamification/challenges')
+      .set('Cookie', session.cookieHeader);
+    expect(res.status).toBe(200);
+    const lectorDiario = res.body.data.challenges.find((c: { slug: string }) => c.slug === 'lector-diario');
+    expect(lectorDiario).toBeTruthy();
+    // progress is null before this test runs ANY mutating call
+    expect(lectorDiario.progress).toBeNull();
+  });
+
   it('POST /challenges/:slug/start is idempotent', async () => {
     const r1 = await csrfed(app, session).post('/api/gamification/challenges/lector-diario/start');
     expect(r1.status).toBe(201);
