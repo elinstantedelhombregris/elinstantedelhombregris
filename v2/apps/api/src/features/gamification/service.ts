@@ -61,15 +61,8 @@ export class GamificationService {
       if (!input.contentSlug || !input.contentKind) {
         throw new Error('content_read dedup requires contentSlug + contentKind');
       }
-      // Phase 7+ adds hasContentBeenRead on GamificationRepository in Task 7;
-      // until then this branch is unused. Guard rather than crash.
-      const reader = repo as GamificationRepository & {
-        hasContentBeenRead?: (u: number, k: 'blog' | 'ensayo', s: string) => Promise<boolean>;
-      };
-      if (typeof reader.hasContentBeenRead === 'function') {
-        const already = await reader.hasContentBeenRead(input.userId, input.contentKind, input.contentSlug);
-        if (already) return null;
-      }
+      const already = await repo.hasContentBeenRead(input.userId, input.contentKind, input.contentSlug);
+      if (already) return null;
     }
 
     const before = await repo.getOrCreateUserLevel(input.userId);

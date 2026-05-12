@@ -14,7 +14,7 @@ import { z } from 'zod';
 
 import { authenticate } from '../../middleware/auth.js';
 import { HttpError } from '../../middleware/error-handler.js';
-import { GamificationService } from '../gamification/service.js';
+import { GamificationService, type XpEventPayload } from '../gamification/service.js';
 
 const router: RouterType = Router();
 
@@ -117,7 +117,7 @@ router.post('/goals/:id/complete', authenticate, async (req, res, next) => {
     // replay XP farming).
     const wasAlreadyCompleted = goal.status === 'completed';
     await repo.completeGoal(id);
-    let xpEvent: Awaited<ReturnType<GamificationService['safeRecord']>> = null;
+    let xpEvent: XpEventPayload | null = null;
     if (!wasAlreadyCompleted) {
       xpEvent = await new GamificationService(getDb()).safeRecord({
         userId: req.user.id,

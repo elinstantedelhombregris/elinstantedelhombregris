@@ -210,6 +210,18 @@ export class GamificationRepository {
     return Boolean(row);
   }
 
+  /**
+   * Cheap count of lifetime content_read events for a user. Used by
+   * the blog view hook to know which read-milestone badges to grant.
+   */
+  async countContentReads(userId: number): Promise<number> {
+    const [row] = await this.db
+      .select({ n: sql<number>`count(*)::int` })
+      .from(dailyActivity)
+      .where(and(eq(dailyActivity.userId, userId), eq(dailyActivity.kind, 'content_read')));
+    return row?.n ?? 0;
+  }
+
   async listRecentActivity(userId: number, limit = 50): Promise<DailyActivity[]> {
     return this.db
       .select()

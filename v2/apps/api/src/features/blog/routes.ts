@@ -18,7 +18,7 @@ import { z } from 'zod';
 import { getConfig } from '../../lib/config.js';
 import { authenticate, optionalAuthenticate } from '../../middleware/auth.js';
 import { HttpError } from '../../middleware/error-handler.js';
-import { GamificationService } from '../gamification/service.js';
+import { GamificationService, type XpEventPayload } from '../gamification/service.js';
 import { notifyBlogCommentPosted, notifyBlogPostLiked } from '../notifications/producers.js';
 
 const router: RouterType = Router();
@@ -275,16 +275,12 @@ router.post('/posts/:id/view', optionalAuthenticate, async (req, res, next) => {
     if (input.sessionId !== undefined) insertArgs.sessionId = input.sessionId;
     await repo.recordView(insertArgs);
 
-    let xpEvent: Awaited<ReturnType<GamificationService['safeRecord']>> = null;
+    let xpEvent: XpEventPayload | null = null;
     if (req.user) {
       const post = await repo.findById(id);
       if (post) {
-        // Count prior content_read events to know whether to grant
-        // lector-curioso (>=5) / lector-voraz (>=25). The service is
-        // idempotent on already-owned badges so passing both eagerly is fine.
         const gamificationRepo = new GamificationRepository(getDb());
-        const recent = await gamificationRepo.listRecentActivity(req.user.id, 10_000);
-        const priorReads = recent.filter((r) => r.kind === 'content_read').length;
+        const priorReads = await gamificationRepo.countContentReads(req.user.id);
         const slugsToBadge: string[] = [];
         if (priorReads + 1 >= 5) slugsToBadge.push('lector-curioso');
         if (priorReads + 1 >= 25) slugsToBadge.push('lector-voraz');

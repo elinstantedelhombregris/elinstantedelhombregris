@@ -18,7 +18,7 @@ import { z } from 'zod';
 import { authenticate, optionalAuthenticate } from '../../middleware/auth.js';
 import { HttpError } from '../../middleware/error-handler.js';
 import { anonSubmitRateLimit } from '../../middleware/rate-limit.js';
-import { GamificationService } from '../gamification/service.js';
+import { GamificationService, type XpEventPayload } from '../gamification/service.js';
 
 const router: RouterType = Router();
 
@@ -55,7 +55,7 @@ router.post('/pulso', anonSubmitRateLimit(), optionalAuthenticate, async (req, r
     if (req.user) insertInput.userId = req.user.id;
     if (input.provinceId !== undefined) insertInput.provinceId = input.provinceId;
     const signal = await repo.addSignal(insertInput);
-    let xpEvent: Awaited<ReturnType<GamificationService['safeRecord']>> = null;
+    let xpEvent: XpEventPayload | null = null;
     if (req.user) {
       xpEvent = await new GamificationService(getDb()).safeRecord({
         userId: req.user.id,
