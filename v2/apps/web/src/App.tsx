@@ -180,6 +180,10 @@ const Bienvenida = lazy(async () => {
   const m = await import('~/pages/Bienvenida');
   return { default: m.Bienvenida };
 });
+const ApoyaAlMovimiento = lazy(async () => {
+  const m = await import('~/pages/ApoyaAlMovimiento');
+  return { default: m.ApoyaAlMovimiento };
+});
 
 function GamificationCacheBridge(): null {
   const queryClient = useQueryClient();
@@ -216,6 +220,7 @@ export function App() {
               <Route path="/verificar-email" component={VerifyEmail} />
               <Route path="/2fa-desafio" component={TwoFactorChallenge} />
               <Route path="/bienvenida" component={Bienvenida} />
+              <Route path="/apoyo" component={ApoyaAlMovimiento} />
 
               {/* ¡BASTA! framework */}
               <Route path="/manifiesto" component={Manifiesto} />
