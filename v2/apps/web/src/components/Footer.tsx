@@ -67,8 +67,11 @@ export function Footer() {
             </div>
           ))}
         </div>
-        <div className="mt-12 border-t border-white/5 pt-6 text-xs text-muted-foreground">
+        <div className="mt-12 flex flex-wrap items-center justify-between gap-3 border-t border-white/5 pt-6 text-xs text-muted-foreground">
           <p>© {year} El Instante del Hombre Gris. Hecho con manos argentinas.</p>
+          <Link href="/politica-privacidad" className="hover:text-foreground">
+            Política de privacidad
+          </Link>
         </div>
       </div>
     </footer>

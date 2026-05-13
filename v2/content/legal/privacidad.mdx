@@ -1,0 +1,32 @@
+---
+slug: privacidad
+title: Política de Privacidad
+updatedAt: 2026-05-13
+---
+
+## ¿Qué datos guardamos?
+
+Cuando creás una cuenta en El Instante del Hombre Gris, guardamos tu correo, una contraseña hasheada con bcrypt (nadie en el equipo la puede leer), y los datos que vos cargás a la plataforma — auto-evaluación cívica, pulsos, propuestas, áreas de vida.
+
+Para que la sesión funcione usamos cookies httpOnly: el navegador las manda con cada pedido pero JavaScript no las puede leer. No usamos cookies de terceros, ni pixels de redes sociales, ni Google Analytics.
+
+## ¿Para qué los usamos?
+
+Para que la plataforma haga lo que prometemos: mostrarte tu progreso, ubicar tus pulsos en el mapa territorial, agregarte a la clasificación cívica, alimentar el Mandato Vivo. Nada de tus datos personales se vende, se comparte con terceros, ni se procesa con fines publicitarios.
+
+## ¿Quién los puede ver?
+
+Tu correo y datos privados los ve el equipo de desarrollo cuando es indispensable para arreglar bugs. Tus pulsos pueden hacerse visibles agregados en el mapa público; tu nombre aparece sólo si elegís hacerlo visible en tu perfil.
+
+## ¿Cómo los borrás?
+
+Mandando un mail a `privacidad@elinstantedelhombregris.org` con el asunto "Borrame". Borramos tu cuenta y los datos personales asociados en 30 días. Los pulsos agregados anónimamente quedan; el dato individual no.
+
+## ¿Qué cambió en esta versión?
+
+Esta política reemplaza la anterior versión 1 del 2026-03-01. Cambios principales:
+
+- Migración de JWT en localStorage a cookies httpOnly + CSRF doble-cookie. Más seguro: si una pieza de JavaScript de terceros entrara, no podría robar el token de sesión.
+- Eliminación de cualquier rastro de scripts de terceros. Toda la analítica que hacemos es de primera mano y no sale de nuestros servidores.
+
+Si tenés preguntas, escribinos.

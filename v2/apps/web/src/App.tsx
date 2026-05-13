@@ -184,6 +184,10 @@ const ApoyaAlMovimiento = lazy(async () => {
   const m = await import('~/pages/ApoyaAlMovimiento');
   return { default: m.ApoyaAlMovimiento };
 });
+const PoliticaPrivacidad = lazy(async () => {
+  const m = await import('~/pages/PoliticaPrivacidad');
+  return { default: m.PoliticaPrivacidad };
+});
 
 function GamificationCacheBridge(): null {
   const queryClient = useQueryClient();
@@ -221,6 +225,7 @@ export function App() {
               <Route path="/2fa-desafio" component={TwoFactorChallenge} />
               <Route path="/bienvenida" component={Bienvenida} />
               <Route path="/apoyo" component={ApoyaAlMovimiento} />
+              <Route path="/politica-privacidad" component={PoliticaPrivacidad} />
 
               {/* ¡BASTA! framework */}
               <Route path="/manifiesto" component={Manifiesto} />
