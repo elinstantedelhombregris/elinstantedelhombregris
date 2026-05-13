@@ -176,6 +176,10 @@ const PropuestaDetail = lazy(async () => {
   const m = await import('~/pages/PropuestaDetail');
   return { default: m.PropuestaDetail };
 });
+const Bienvenida = lazy(async () => {
+  const m = await import('~/pages/Bienvenida');
+  return { default: m.Bienvenida };
+});
 
 function GamificationCacheBridge(): null {
   const queryClient = useQueryClient();
@@ -211,6 +215,7 @@ export function App() {
               <Route path="/restablecer-contrasena" component={ResetPassword} />
               <Route path="/verificar-email" component={VerifyEmail} />
               <Route path="/2fa-desafio" component={TwoFactorChallenge} />
+              <Route path="/bienvenida" component={Bienvenida} />
 
               {/* ¡BASTA! framework */}
               <Route path="/manifiesto" component={Manifiesto} />
