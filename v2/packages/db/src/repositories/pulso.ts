@@ -32,6 +32,11 @@ export class PulsoRepository {
     return row;
   }
 
+  async findSignal(id: number): Promise<PulseSignal | undefined> {
+    const [row] = await this.db.select().from(pulseSignals).where(eq(pulseSignals.id, id)).limit(1);
+    return row;
+  }
+
   async listSignals(opts: { provinceId?: number; theme?: string; limit?: number } = {}): Promise<PulseSignal[]> {
     const { provinceId, theme, limit = 100 } = opts;
     const filters = [];

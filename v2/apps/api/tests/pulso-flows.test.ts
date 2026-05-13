@@ -81,6 +81,34 @@ dsuite('Pulso + propuestas flows', () => {
     });
   });
 
+  describe('GET /api/pulso/:id', () => {
+    it('returns the signal by id and redacts userId for anonymous viewers', async () => {
+      // Submit as the authed user so userId is set on the row.
+      const created = await csrfed(app, session)
+        .post('/api/pulso')
+        .send({ body: 'Falta agua en mi barrio.' });
+      expect(created.status).toBe(201);
+      const id = created.body.data.id as number;
+      seededSignalIds.push(id);
+
+      const res = await request.get(`/api/pulso/${String(id)}`);
+      expect(res.status).toBe(200);
+      expect(res.body.data.signal.id).toBe(id);
+      expect(res.body.data.signal.body).toBe('Falta agua en mi barrio.');
+      expect(res.body.data.signal.userId).toBe(null);
+    });
+
+    it('returns 404 on unknown id', async () => {
+      const res = await request.get('/api/pulso/99999999');
+      expect(res.status).toBe(404);
+    });
+
+    it('returns 400 on non-numeric id', async () => {
+      const res = await request.get('/api/pulso/abc');
+      expect(res.status).toBe(400);
+    });
+  });
+
   describe('GET /api/propuestas', () => {
     it('lists voting proposals', async () => {
       const res = await request.get('/api/propuestas?status=voting');

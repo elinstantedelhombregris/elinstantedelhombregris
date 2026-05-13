@@ -94,6 +94,41 @@ router.get('/pulso', async (req, res, next) => {
   }
 });
 
+router.get('/pulso/:id', optionalAuthenticate, async (req, res, next) => {
+  try {
+    const idStr = req.params.id;
+    if (typeof idStr !== 'string') throw new HttpError(400, 'INVALID_ID', 'Id requerido.');
+    const id = Number.parseInt(idStr, 10);
+    if (Number.isNaN(id) || id <= 0) {
+      throw new HttpError(400, 'INVALID_ID', 'Id inválido.');
+    }
+    const repo = new PulsoRepository(getDb());
+    const signal = await repo.findSignal(id);
+    if (!signal) {
+      res.status(404).json({ error: { code: 'NOT_FOUND', message: 'Pulso no encontrado.' } });
+      return;
+    }
+    // Redact userId unless the caller is the owner.
+    const isOwner = req.user !== undefined && req.user.id === signal.userId;
+    res.json({
+      data: {
+        signal: {
+          id: signal.id,
+          body: signal.body,
+          provinceId: signal.provinceId,
+          theme: signal.theme,
+          sentiment: signal.sentiment,
+          source: signal.source,
+          createdAt: signal.createdAt,
+          userId: isOwner ? signal.userId : null,
+        },
+      },
+    });
+  } catch (err) {
+    next(err);
+  }
+});
+
 const createProposalSchema = z.object({
   title: z.string().trim().min(3, 'El título es muy corto.').max(200, 'Máximo 200 caracteres.'),
   summary: z.string().trim().min(10, 'El resumen es muy corto.').max(500, 'Máximo 500 caracteres.'),
