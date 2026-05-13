@@ -1,7 +1,11 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render, screen } from '@testing-library/react';
-import type { ReactNode } from 'react';
 import { describe, expect, it, vi } from 'vitest';
+
+import { IniciativaDetail } from '../IniciativaDetail';
+
+import type { ReactNode } from 'react';
+import type * as Wouter from 'wouter';
 
 vi.mock('~/lib/queries/iniciativas', () => ({
   useIniciativa: () => ({
@@ -29,7 +33,7 @@ vi.mock('~/lib/queries/iniciativas', () => ({
 }));
 
 vi.mock('wouter', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('wouter')>();
+  const actual = await importOriginal<typeof Wouter>();
   return {
     ...actual,
     useRoute: () => [true, { slug: 'mejor-barrio' }] as const,
@@ -39,8 +43,6 @@ vi.mock('wouter', async (importOriginal) => {
     ),
   };
 });
-
-import { IniciativaDetail } from '../IniciativaDetail';
 
 describe('IniciativaDetail', () => {
   it('renders title, summary and member count', () => {

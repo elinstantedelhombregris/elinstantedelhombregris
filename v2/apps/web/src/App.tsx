@@ -160,6 +160,14 @@ const Desafios = lazy(async () => {
   const m = await import('~/pages/Desafios');
   return { default: m.Desafios };
 });
+const IniciativaDetail = lazy(async () => {
+  const m = await import('~/pages/IniciativaDetail');
+  return { default: m.IniciativaDetail };
+});
+const IniciativaDocumento = lazy(async () => {
+  const m = await import('~/pages/IniciativaDocumento');
+  return { default: m.IniciativaDocumento };
+});
 
 function GamificationCacheBridge(): null {
   const queryClient = useQueryClient();
@@ -234,6 +242,10 @@ export function App() {
               <Route path="/blog/:slug" component={BlogPostDetail} />
               <Route path="/comunidad" component={Community} />
               <Route path="/notificaciones" component={Notifications} />
+
+              {/* Iniciativas — documento route MUST come before bare :slug. */}
+              <Route path="/iniciativas/:slug/documento" component={IniciativaDocumento} />
+              <Route path="/iniciativas/:slug" component={IniciativaDetail} />
 
               {/* Open data + analytics */}
               <Route path="/explorar-datos" component={ExplorarDatos} />

@@ -56,12 +56,19 @@ export function IniciativaDetail() {
       </section>
 
       <div className="mb-12 flex flex-wrap gap-3">
-        <Button onClick={() => join.mutate(iniciativa.id)} disabled={join.isPending}>
+        <Button
+          onClick={() => {
+            join.mutate(iniciativa.id);
+          }}
+          disabled={join.isPending}
+        >
           Unirme
         </Button>
         <Button
           variant="secondary"
-          onClick={() => leave.mutate(iniciativa.id)}
+          onClick={() => {
+            leave.mutate(iniciativa.id);
+          }}
           disabled={leave.isPending}
         >
           Salir

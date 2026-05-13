@@ -11,7 +11,7 @@ export function IniciativaDocumento() {
   if (isLoading) {
     return <main className="container mx-auto max-w-3xl px-4 py-20">Cargando…</main>;
   }
-  if (isError || !data || !data.iniciativa.bodyMarkdown) {
+  if (isError || !data?.iniciativa.bodyMarkdown) {
     return (
       <main className="container mx-auto max-w-3xl px-4 py-20">
         <p>No hay documento para esta iniciativa.</p>
