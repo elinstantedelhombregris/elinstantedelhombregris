@@ -168,6 +168,14 @@ const IniciativaDocumento = lazy(async () => {
   const m = await import('~/pages/IniciativaDocumento');
   return { default: m.IniciativaDocumento };
 });
+const PulsoDetail = lazy(async () => {
+  const m = await import('~/pages/PulsoDetail');
+  return { default: m.PulsoDetail };
+});
+const PropuestaDetail = lazy(async () => {
+  const m = await import('~/pages/PropuestaDetail');
+  return { default: m.PropuestaDetail };
+});
 
 function GamificationCacheBridge(): null {
   const queryClient = useQueryClient();
@@ -229,6 +237,10 @@ export function App() {
               <Route path="/objetivos" component={Goals} />
               <Route path="/check-in-semanal" component={WeeklyCheckin} />
               <Route path="/coaching" component={CoachingChat} />
+
+              {/* Mandato Vivo — detail routes MUST come before the bare landing. */}
+              <Route path="/mandato-vivo/pulso/:id" component={PulsoDetail} />
+              <Route path="/mandato-vivo/propuesta/:id" component={PropuestaDetail} />
               <Route path="/mandato-vivo" component={ElMandatoVivo} />
               <Route path="/mi-perfil" component={MiPerfil} />
               <Route path="/clasificacion" component={Leaderboard} />

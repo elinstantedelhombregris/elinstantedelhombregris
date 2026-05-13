@@ -109,7 +109,7 @@ router.get('/pulso/:id', optionalAuthenticate, async (req, res, next) => {
       return;
     }
     // Redact userId unless the caller is the owner.
-    const isOwner = req.user !== undefined && req.user.id === signal.userId;
+    const isOwner = req.user?.id === signal.userId;
     res.json({
       data: {
         signal: {
