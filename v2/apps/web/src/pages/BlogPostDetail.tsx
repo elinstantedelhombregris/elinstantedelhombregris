@@ -6,23 +6,7 @@ import { MdxContent } from '~/components/MdxContent';
 import { Button } from '~/components/ui/button';
 import { api } from '~/lib/api';
 import { readCsrfToken, useAuth } from '~/lib/auth';
-
-interface BlogPost {
-  id: number;
-  slug: string;
-  title: string;
-  summary: string | null;
-  content: string;
-  coverImageUrl: string | null;
-  publishedAt: string | null;
-  likeCount: number;
-  commentCount: number;
-}
-
-interface PostResponse {
-  post: BlogPost;
-  tags: string[];
-}
+import { findBlogPost } from '~/lib/blog-registry';
 
 interface Comment {
   id: number;
@@ -102,44 +86,40 @@ export function BlogPostDetail() {
   const [draft, setDraft] = useState('');
   const [replyTo, setReplyTo] = useState<number | null>(null);
 
-  const postQuery = useQuery<PostResponse>({
-    queryKey: ['blog', 'post', params?.slug ?? ''],
-    queryFn: () => api.get<PostResponse>(`/api/blog/posts/${params?.slug ?? ''}`),
-    enabled: Boolean(params?.slug),
-  });
-
-  const postId = postQuery.data?.post.id;
+  const slug = params?.slug;
+  const post = slug ? findBlogPost(slug) : undefined;
 
   const commentsQuery = useQuery<CommentsResponse>({
-    queryKey: ['blog', 'post', postId, 'comments'],
-    queryFn: () => api.get<CommentsResponse>(`/api/blog/posts/${String(postId)}/comments`),
-    enabled: postId !== undefined,
+    queryKey: ['blog', 'post', slug ?? '', 'comments'],
+    queryFn: () => api.get<CommentsResponse>(`/api/blog/posts/${slug ?? ''}/comments`),
+    enabled: Boolean(post),
+    retry: false,
   });
 
   const likeMutation = useMutation({
-    mutationFn: async () => api.post(`/api/blog/posts/${String(postId)}/like`, undefined, { csrfToken: readCsrfToken() }),
+    mutationFn: async () =>
+      api.post(`/api/blog/posts/${slug ?? ''}/like`, undefined, { csrfToken: readCsrfToken() }),
     onSuccess: () => {
-      void queryClient.invalidateQueries({ queryKey: ['blog', 'post', params?.slug ?? ''] });
+      void queryClient.invalidateQueries({ queryKey: ['blog', 'post', slug ?? ''] });
     },
   });
 
   const commentMutation = useMutation({
     mutationFn: async () =>
       api.post(
-        `/api/blog/posts/${String(postId)}/comments`,
+        `/api/blog/posts/${slug ?? ''}/comments`,
         { body: draft, parentId: replyTo ?? undefined },
         { csrfToken: readCsrfToken() },
       ),
     onSuccess: () => {
       setDraft('');
       setReplyTo(null);
-      void queryClient.invalidateQueries({ queryKey: ['blog', 'post', postId, 'comments'] });
+      void queryClient.invalidateQueries({ queryKey: ['blog', 'post', slug ?? '', 'comments'] });
     },
   });
 
   if (!match) return null;
-  if (postQuery.isLoading) return <p className="container mx-auto max-w-md px-4 py-24 text-center font-mono text-sm text-muted-foreground">cargando…</p>;
-  if (postQuery.isError || !postQuery.data) {
+  if (!post) {
     return (
       <main className="container mx-auto max-w-md px-4 py-24 text-center">
         <h1 className="font-serif text-3xl font-semibold">Post no encontrado.</h1>
@@ -150,7 +130,6 @@ export function BlogPostDetail() {
     );
   }
 
-  const { post, tags } = postQuery.data;
   const comments = commentsQuery.data?.comments ?? [];
 
   return (
@@ -158,10 +137,23 @@ export function BlogPostDetail() {
       <header className="mb-8">
         <h1 className="font-serif text-4xl font-semibold leading-tight">{post.title}</h1>
         {post.summary ? <p className="mt-3 text-lg text-muted-foreground">{post.summary}</p> : null}
-        {tags.length > 0 ? (
+        <p className="mt-2 text-sm text-muted-foreground">
+          <time dateTime={post.publishedAt}>
+            {new Date(post.publishedAt).toLocaleDateString('es-AR', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            })}
+          </time>
+          {post.readingMinutes > 0 ? ` · ${String(post.readingMinutes)} min` : null}
+        </p>
+        {post.tags.length > 0 ? (
           <div className="mt-4 flex flex-wrap gap-2">
-            {tags.map((tag) => (
-              <span key={tag} className="rounded-full bg-iris-violet/10 px-3 py-0.5 text-xs text-iris-violet">
+            {post.tags.map((tag) => (
+              <span
+                key={tag}
+                className="rounded-full bg-iris-violet/10 px-3 py-0.5 text-xs text-iris-violet"
+              >
                 #{tag}
               </span>
             ))}
@@ -169,7 +161,7 @@ export function BlogPostDetail() {
         ) : null}
       </header>
 
-      <MdxContent raw={post.content} />
+      <MdxContent raw={post.body} />
 
       <div className="mt-10 flex items-center gap-3 border-t border-white/5 pt-6">
         <Button
@@ -180,11 +172,14 @@ export function BlogPostDetail() {
             likeMutation.mutate();
           }}
         >
-          ♥ {post.likeCount}
+          ♥
         </Button>
         {!user ? (
           <p className="text-xs text-muted-foreground">
-            <Link href="/ingresar" className="text-iris-violet hover:underline">Ingresá</Link> para reaccionar y comentar
+            <Link href="/ingresar" className="text-iris-violet hover:underline">
+              Ingresá
+            </Link>{' '}
+            para reaccionar y comentar
           </p>
         ) : null}
       </div>
@@ -232,7 +227,12 @@ export function BlogPostDetail() {
         {comments.length === 0 ? (
           <p className="text-sm text-muted-foreground">Todavía no hay comentarios. Sé el primero.</p>
         ) : (
-          <CommentTree comments={comments} user={Boolean(user)} onReply={setReplyTo} replyTo={replyTo} />
+          <CommentTree
+            comments={comments}
+            user={Boolean(user)}
+            onReply={setReplyTo}
+            replyTo={replyTo}
+          />
         )}
       </section>
     </main>
