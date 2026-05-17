@@ -59,8 +59,13 @@ function estimateReadingMinutes(body: string): number {
 }
 
 function yamlEscape(s: string): string {
+  if (s.includes("'")) {
+    // Downstream registry parser strips outer quotes but does NOT
+    // un-double YAML ''. Emit a double-quoted scalar instead.
+    return `"${s.replace(/\\/g, '\\\\').replace(/"/g, '\\"')}"`;
+  }
   if (/[:#]|^\s*-/.test(s) || /^['"]/.test(s) || /^\s/.test(s)) {
-    return `'${s.replace(/'/g, "''")}'`;
+    return `'${s}'`;
   }
   return s;
 }
