@@ -15,14 +15,27 @@ function collapseWhitespace(s: string): string {
   return s.replace(/\s+/g, ' ').trim();
 }
 
+// Whitespace-free placeholder for <br> so it survives collapseWhitespace.
+// Swapped for a Markdown hard break ("  \n") as the final step.
+const BR_SENTINEL = 'BRHARDBREAK';
+
 function renderInline(s: string): string {
   let out = s;
-  out = out.replace(/<br\s*\/?>/gi, '\n');
+  // Replace <br>, <br/>, <br /> (case-insensitive) with a whitespace-free
+  // sentinel so the deliberate line break is not flattened by
+  // collapseWhitespace below. Padded with spaces so adjacent words don't
+  // glue onto the sentinel before it's restored.
+  out = out.replace(/<br\s*\/?>/gi, ` ${BR_SENTINEL} `);
   out = out.replace(/<strong[^>]*>([\s\S]*?)<\/strong>/gi, (_m, t: string) => `**${collapseWhitespace(t)}**`);
   out = out.replace(/<em[^>]*>([\s\S]*?)<\/em>/gi, (_m, t: string) => `*${collapseWhitespace(t)}*`);
   out = out.replace(/<a\s+[^>]*href=(['"])([^'"]+)\1[^>]*>([\s\S]*?)<\/a>/gi, (_m, _q, href: string, t: string) => `[${collapseWhitespace(t)}](${href})`);
   out = out.replace(/&nbsp;/gi, ' ').replace(/&amp;/gi, '&').replace(/&lt;/gi, '<').replace(/&gt;/gi, '>').replace(/&quot;/gi, '"').replace(/&#39;/gi, "'");
-  return collapseWhitespace(out);
+  out = collapseWhitespace(out);
+  // Restore as a Markdown hard break: two trailing spaces + newline.
+  // marked (configured with breaks:false in apps/web/src/lib/markdown.ts)
+  // honors this form. Tolerate any whitespace collapseWhitespace left
+  // around the sentinel.
+  return out.replace(new RegExp(`\\s*${BR_SENTINEL}\\s*`, 'g'), '  \n');
 }
 
 function parseListItems(inner: string): string[] {

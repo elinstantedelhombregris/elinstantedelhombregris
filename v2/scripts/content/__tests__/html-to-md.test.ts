@@ -64,4 +64,20 @@ describe('htmlToMarkdown', () => {
       htmlToMarkdown('<article><ul><li><strong>Clave:</strong> resto del item</li></ul></article>'),
     ).toBe('- **Clave:** resto del item');
   });
+
+  it('13. <br/> becomes a Markdown hard break (two spaces + newline)', () => {
+    expect(htmlToMarkdown('<article><p>a<br/>b</p></article>')).toBe('a  \nb');
+  });
+
+  it('14. <br />, <br>, <br/> variants all become hard breaks', () => {
+    expect(htmlToMarkdown('<article><p>uno<br />dos<br>tres</p></article>')).toBe(
+      'uno  \ndos  \ntres',
+    );
+  });
+
+  it('15. <br/> inside a blockquote keeps the hard break per line', () => {
+    expect(htmlToMarkdown('<article><blockquote>l1<br/>l2</blockquote></article>')).toBe(
+      '> l1  \n> l2',
+    );
+  });
 });
