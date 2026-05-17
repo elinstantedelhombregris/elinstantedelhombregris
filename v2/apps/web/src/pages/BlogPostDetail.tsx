@@ -99,9 +99,6 @@ export function BlogPostDetail() {
   const likeMutation = useMutation({
     mutationFn: async () =>
       api.post(`/api/blog/posts/${slug ?? ''}/like`, undefined, { csrfToken: readCsrfToken() }),
-    onSuccess: () => {
-      void queryClient.invalidateQueries({ queryKey: ['blog', 'post', slug ?? ''] });
-    },
   });
 
   const commentMutation = useMutation({
