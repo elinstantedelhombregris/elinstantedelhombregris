@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+
 import { BLOG_POSTS, findBlogPost } from '../blog-registry';
 
 describe('BLOG_POSTS registry', () => {
@@ -21,12 +22,18 @@ describe('BLOG_POSTS registry', () => {
 
   it('sorts newest first by publishedAt', () => {
     for (let i = 1; i < BLOG_POSTS.length; i++) {
-      expect(BLOG_POSTS[i - 1]!.publishedAt >= BLOG_POSTS[i]!.publishedAt).toBe(true);
+      const prev = BLOG_POSTS[i - 1];
+      const curr = BLOG_POSTS[i];
+      expect(prev).toBeDefined();
+      expect(curr).toBeDefined();
+      expect((prev?.publishedAt ?? '') >= (curr?.publishedAt ?? '')).toBe(true);
     }
   });
 
   it('findBlogPost returns by slug, undefined for unknown', () => {
-    const slug = BLOG_POSTS[0]!.slug;
+    const first = BLOG_POSTS[0];
+    expect(first).toBeDefined();
+    const slug = first?.slug ?? '';
     expect(findBlogPost(slug)?.slug).toBe(slug);
     expect(findBlogPost('does-not-exist')).toBeUndefined();
   });

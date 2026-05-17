@@ -49,7 +49,7 @@ function parseFrontmatter(raw: string): ParsedFrontmatter {
   for (const line of lines) {
     if (inTags) {
       const tagMatch = /^ {2}- (.+)$/.exec(line);
-      if (tagMatch && tagMatch[1] !== undefined) {
+      if (tagMatch?.[1] !== undefined) {
         tags.push(unquote(tagMatch[1].trim()));
         continue;
       }
