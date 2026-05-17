@@ -12,6 +12,7 @@ describe('BLOG_POSTS registry', () => {
       expect(p.title.length).toBeGreaterThan(0);
       expect(p.summary.length).toBeGreaterThan(0);
       expect(p.body.length).toBeGreaterThan(0);
+      expect(p.body).not.toMatch(/^---\n/);
       expect(p.type).toBe('blog');
       expect(p.readingMinutes).toBeGreaterThanOrEqual(1);
       expect(p.tags.length).toBeGreaterThan(0);

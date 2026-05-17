@@ -104,7 +104,17 @@ function buildRegistry(): BlogPost[] {
       body: stripFrontmatter(raw),
     });
   }
-  return entries.sort((a, b) => (a.publishedAt < b.publishedAt ? 1 : a.publishedAt > b.publishedAt ? -1 : 0));
+  return entries.sort((a, b) =>
+    a.publishedAt < b.publishedAt
+      ? 1
+      : a.publishedAt > b.publishedAt
+        ? -1
+        : a.slug < b.slug
+          ? -1
+          : a.slug > b.slug
+            ? 1
+            : 0,
+  );
 }
 
 export const BLOG_POSTS: readonly BlogPost[] = buildRegistry();
