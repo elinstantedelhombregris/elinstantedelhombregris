@@ -15,17 +15,20 @@ function collapseWhitespace(s: string): string {
   return s.replace(/\s+/g, ' ').trim();
 }
 
-// Whitespace-free placeholder for <br> so it survives collapseWhitespace.
-// Swapped for a Markdown hard break ("  \n") as the final step.
-const BR_SENTINEL = 'BRHARDBREAK';
+// NUL-delimited sentinel for <br>. The \0 delimiters cannot occur in
+// HTML source or author prose, and \s does not match NUL, so the sentinel
+// survives collapseWhitespace yet can never collide with the bare word
+// "BRHARDBREAK" appearing in text. Swapped for a Markdown hard break
+// ("  \n") as the final step.
+const BR_SENTINEL = '\0BRHARDBREAK\0';
 
 function renderInline(s: string): string {
   let out = s;
-  // Replace <br>, <br/>, <br /> (case-insensitive) with a whitespace-free
+  // Replace <br>, <br/>, <br /> (case-insensitive) with the NUL-delimited
   // sentinel so the deliberate line break is not flattened by
-  // collapseWhitespace below. Padded with spaces so adjacent words don't
-  // glue onto the sentinel before it's restored.
-  out = out.replace(/<br\s*\/?>/gi, ` ${BR_SENTINEL} `);
+  // collapseWhitespace below (NUL is not matched by \s) and so adjacent
+  // words can never be confused with the sentinel before it is restored.
+  out = out.replace(/<br\s*\/?>/gi, BR_SENTINEL);
   out = out.replace(/<strong[^>]*>([\s\S]*?)<\/strong>/gi, (_m, t: string) => `**${collapseWhitespace(t)}**`);
   out = out.replace(/<em[^>]*>([\s\S]*?)<\/em>/gi, (_m, t: string) => `*${collapseWhitespace(t)}*`);
   out = out.replace(/<a\s+[^>]*href=(['"])([^'"]+)\1[^>]*>([\s\S]*?)<\/a>/gi, (_m, _q, href: string, t: string) => `[${collapseWhitespace(t)}](${href})`);

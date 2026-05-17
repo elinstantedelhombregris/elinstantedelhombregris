@@ -80,4 +80,10 @@ describe('htmlToMarkdown', () => {
       '> l1  \n> l2',
     );
   });
+
+  it('16. the bare word BRHARDBREAK in prose passes through untouched', () => {
+    expect(htmlToMarkdown('<article><p>el token BRHARDBREAK no rompe</p></article>')).toBe(
+      'el token BRHARDBREAK no rompe',
+    );
+  });
 });
