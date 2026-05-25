@@ -14,26 +14,55 @@ export interface BlogContentEntry {
 export const blogContentUpdates: Record<string, BlogContentEntry> = {
   [slugify("¿Quién tiene el timón?")]: {
     excerpt:
-      "En 1810 nos cansamos de esperar permiso y fuimos al Cabildo. Esta semana el gobierno anunció un \"gemelo digital\" para predecirnos y prescribirnos. Pero el futuro no se predice: se construye. La pregunta de este 25 de Mayo es una sola — ¿de quién es la mano en el timón?",
+      "El 25 de Mayo es casi mi fecha patria favorita: el día en que se organizó el Primer Gobierno Patrio. 216 años después, el Gobierno anunció un \"gemelo digital\" de los argentinos. El paralelo con 1810 existe —pero invertido. La pregunta es una sola: ¿de quién es la mano en el timón?",
     content: `
       <article>
         <h1>¿Quién tiene el timón?</h1>
         <p>
-          Hace 216 años, un 25 de mayo, un grupo de vecinos se cansó de esperar permiso.
+          El 25 de Mayo es, casi, mi fecha patria favorita.
         </p>
         <p>
-          No esperaron al rey. No esperaron al virrey. No esperaron al líder, al partido ni al milagro.
-          Caminaron hasta el Cabildo —el único lugar donde, en 1810, se podía agarrar el timón de lo común—
-          y empezaron a gobernarse.
+          No por el desfile ni por el locro —aunque el locro ayuda. La quiero porque no celebra una batalla
+          ni a un hombre: celebra el día en que un grupo de personas se organizó. El 25 de mayo de 1810 no nació
+          un país terminado; se alcanzó un hito en el largo proceso de organizarnos, y se plantó la semilla que
+          seis años más tarde, en 1816, daría el fruto de la independencia. Fue el día en que se formó el
+          <strong>Primer Gobierno Patrio</strong>.
         </p>
         <p>
-          Hoy es 25 de mayo otra vez. Y el timón cambió de lugar.
+          Detené la mirada en esas tres palabras, porque cada una guarda un secreto.
+        </p>
+        <ul>
+          <li><strong>Primer</strong> —del latín <em>primarius</em>, de <em>primus</em>: "el que va delante". No el mejor: el que abre. El que se anima a caminar cuando todavía no hay camino, y al hacerlo lo abre para los que vienen detrás.</li>
+          <li><strong>Gobierno</strong> —del latín <em>gubernare</em>, "pilotar un barco", tomado del griego <em>kybernáo</em>: manejar el timón. Gobernar nunca quiso decir mandar desde un trono. Quiso decir, desde el principio, llevar el timón de algo que se mueve. Acordate de esta palabra: vamos a volver a ella.</li>
+          <li><strong>Patrio</strong> —de <em>patria</em>, "la tierra de los padres". No la tierra que poseemos, sino la que heredamos y la que les debemos a los que todavía no nacieron. Patria es una deuda hacia adelante.</li>
+        </ul>
+        <p>
+          Eso fue 1810: gente común que se organizó, que creó una estructura nueva donde antes no había nada,
+          que aceptó que el deseo de fundar una nación —con todo lo que eso significaba— valía el esfuerzo.
+          Y valía también el riesgo: en el camino murió gente. La libertad que hoy tenemos se pagó con sangre.
+        </p>
+        <p>
+          Por eso existe El Instante del Hombre Gris. Para que la próxima refundación la podamos ver suceder
+          <strong>sin sangre en la calle</strong> —o, al menos, sin sangre de inocentes. No venimos a repetir la
+          batalla: venimos a hacer obsoleta la necesidad de pelearla. La revolución que proponemos se libra con
+          diseño, con código y con organización. No con muertos.
+        </p>
+        <p>
+          Hoy es 25 de mayo otra vez. Y hay algo que tenemos que mirar de frente, porque el timón —ese del que
+          habla la palabra "gobierno"— cambió de lugar.
         </p>
         <p>
           Ya no está en una plaza. No está en un balcón. Está en los protocolos que usamos para hablarnos,
           en los pagos que cruzan nuestras manos, en las nubes donde guardamos la memoria, en las inteligencias
           artificiales que empiezan a pensar por nosotros. Y mientras seguimos discutiendo quién será la próxima
           cara en el balcón, alguien ya puso la mano en el timón nuevo.
+        </p>
+        <p>
+          Voy a adelantar la tesis, porque es incómoda y conviene decirla temprano: <strong>el paralelo con 1810
+          existe, pero está invertido.</strong> En 1810, Argentina rompió una dependencia con un centro de poder
+          remoto. En 2026, está negociando los términos de una dependencia nueva —ya no de soberanía política, sino
+          de soberanía cognitiva, a través de la infraestructura de datos. En 1810 recuperamos el timón. Hoy estamos
+          a punto de entregarlo, y encima creyendo que nos modernizamos.
         </p>
         <p>
           Hay una verdad que pocos quieren mirar de frente: mientras esperamos permiso para gobernarnos,
@@ -66,24 +95,56 @@ export const blogContentUpdates: Record<string, BlogContentEntry> = {
           El problema es de quién es la casa de muñecas. Porque el que mueve los muñequitos, te mueve a vos.
         </blockquote>
         <p>
-          Esto no es una metáfora lejana. Esta semana, el gobierno presentó algo que llamó
-          <strong>"Gemelo Digital Social"</strong>: un sistema de inteligencia artificial que arma una réplica
-          de la población para —dicen— simular, anticipar y optimizar las políticas. Tiene cuatro niveles.
-          Empieza describiendo lo que pasa, sigue explicando por qué pasa, después predice lo que va a pasar,
-          y termina en el nivel más delicado de todos: <strong>prescribiendo</strong>. Es decir: no solo te mira.
-          Te dice qué hay que hacer con vos.
+          Esto ya no es una metáfora lejana, ni una hipótesis. Pasó esta semana.
+        </p>
+
+        <h2>Separemos la señal del ruido</h2>
+        <p>
+          Un texto que pide rigor tiene que empezar por el suyo. Así que separemos lo que está confirmado de lo
+          que es inferencia, porque acá la diferencia importa muchísimo.
+        </p>
+        <p><strong>Lo confirmado:</strong></p>
+        <ul>
+          <li>El 22 de mayo de 2026 —a pocos días de un nuevo aniversario patrio— el Gobierno presentó el <strong>"Gemelo Digital Social"</strong>, bajo el Ministerio de Capital Humano. Cruza datos de los ciudadanos para diseñar políticas públicas: promete "simular escenarios, anticipar impactos y optimizar decisiones en tiempo real". Trabaja en cuatro niveles, que van desde describir lo que pasa hasta —en el último— <strong>prescribir</strong>: decir qué hay que hacer.</li>
+          <li>"Gemelo digital" (<em>digital twin</em>) es uno de los servicios que comercializa Palantir Foundry —la empresa que cofundó Peter Thiel—, aunque también lo ofrecen Microsoft y otras.</li>
+          <li>Thiel visitó la Argentina hace poco, compró una mansión en Barrio Parque y se reunió con Milei, Caputo y otros funcionarios.</li>
+          <li>La Fundación Vía Libre presentó un pedido formal de información: qué normativa rige, qué datos se usan, qué organismos intervienen y si participan empresas privadas.</li>
+        </ul>
+        <p><strong>Lo no confirmado —y es crítico no confundirlo:</strong></p>
+        <ul>
+          <li>No hay evidencia de que Palantir haya sido contratada. El propio Gobierno aclaró que todavía no eligió proveedor.</li>
+          <li>No hay licitación pública conocida. No hay marco normativo específico publicado. No hay arquitectura técnica detallada.</li>
+        </ul>
+        <blockquote>
+          El riesgo real no necesita que Palantir esté contratada hoy. El riesgo es estructural, no nominal:
+          no depende de un nombre, depende de una arquitectura. Vamos a eso.
+        </blockquote>
+
+        <h2>Qué es, de verdad, un gemelo digital social</h2>
+        <p>
+          Despojado del marketing: un gemelo digital social es una <strong>representación computacional unificada
+          de una población</strong>, armada cruzando las bases de datos administrativas del Estado —ANSES, AFIP,
+          salud, educación, registro civil, y eventualmente las telefónicas y bancarias— sobre las que se corren
+          modelos que predicen comportamiento.
         </p>
         <p>
-          Y hay un detalle que no conviene esquivar. Semanas antes, uno de los hombres que en el mundo le vende
-          esta clase de "gemelos digitales" a los gobiernos se reunió con el presidente y mudó a su familia a
-          Buenos Aires. No hay contrato firmado —el propio gobierno dice que todavía no eligió proveedor— y no se
-          trata de perseguir a una persona. Se trata de una pregunta que nadie respondió: cuando exista esa casa
-          de muñecas con cada argentino adentro, <strong>¿de quién van a ser las manos que la manejen?</strong>
+          Es, exactamente, la casa de muñecas. Pero ahora con el nombre técnico puesto.
         </p>
+
+        <h2>Tres propiedades que no dependen de quién lo opere</h2>
         <p>
-          Hay una pista de lo que está en juego. Hace pocas semanas, la Corte Suprema falló que el Estado no puede
-          pasar tus datos de un organismo a otro sin tu permiso específico. Tu información es tuya, dijo. Poco después,
-          llegó el anuncio del gemelo. Las instituciones van por un carril; la vida real, por otro.
+          Acá está lo que casi nadie dice. Un gemelo digital tiene tres propiedades estructurales que existen
+          <em>al margen</em> de las intenciones de quien lo maneje —sea bueno o malo, argentino o extranjero,
+          público o privado:
+        </p>
+        <ul>
+          <li><strong>Centralización.</strong> Hoy cada base de datos pública vive en su silo. Eso no es solo desorden: la fragmentación es un cortafuegos contra el abuso. Que ANSES no hable en automático con salud, y salud con tu banco, te protege. El gemelo digital es, por diseño, una herramienta para <em>derribar ese cortafuegos</em>.</li>
+          <li><strong>Asimetría informacional.</strong> El que opera el gemelo sabe más sobre la población que la población sobre sí misma —y muchísimo más de lo que la población sabe sobre él. Esa asimetría es la materia prima del poder moderno: comercial, electoral y, llegado el caso, coercitivo.</li>
+          <li><strong>Opacidad algorítmica.</strong> Las decisiones que salen del modelo no son auditables por quienes las sufren. "Lo dijo el algoritmo" se vuelve una autoridad sin contraparte: sin apelación, sin rostro.</li>
+        </ul>
+        <p>
+          Leé esto despacio: esas tres propiedades redistribuyen poder <strong>por sí solas</strong>. Discutir las
+          intenciones del operador es discutir lo secundario. La arquitectura es el mensaje.
         </p>
 
         <h2>Gobernar es llevar el timón</h2>
@@ -147,6 +208,77 @@ export const blogContentUpdates: Record<string, BlogContentEntry> = {
           Es contra un diseño.
         </p>
 
+        <h2>El espejo invertido: 1810 y 2026</h2>
+        <p>
+          En mayo de 1810 había varios vectores empujando a la vez: un nodo central vacío (España ocupada),
+          milicias criollas ya operativas, una doctrina jurídica que daba legitimidad —la retroversión de la
+          soberanía al pueblo—, intereses económicos desalineados con la metrópoli, y una noticia de afuera que
+          ofició de detonante. ¿El resultado? El poder volvió a lo local: al Cabildo.
+        </p>
+        <p>
+          Hoy los mismos vectores están dados vuelta:
+        </p>
+        <table>
+          <thead>
+            <tr><th>Vector</th><th>1810</th><th>2026</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Nodo central</td><td>España (vacío)</td><td>Silicon Valley / Palantir (en expansión)</td></tr>
+            <tr><td>Recurso crítico</td><td>Comercio marítimo</td><td>Datos ciudadanos</td></tr>
+            <tr><td>Doctrina que legitima</td><td>Retroversión de la soberanía</td><td>"Eficiencia", "modernización", "evidencia"</td></tr>
+            <tr><td>Capacidad local</td><td>Milicias criollas</td><td>Limitada: no hay industria de IA soberana comparable</td></tr>
+            <tr><td>Detonante de afuera</td><td>Caída de la Junta de Sevilla</td><td>Llegada de Thiel + presión geopolítica</td></tr>
+            <tr><td>Dirección del poder</td><td>Periferia → centro local</td><td>Periferia → centro extranjero</td></tr>
+          </tbody>
+        </table>
+        <blockquote>
+          El 25 de mayo de 1810 fue una relocalización del poder hacia abajo, hacia lo nuestro. El 22 de mayo de
+          2026 puede ser exactamente lo contrario: una transferencia del timón hacia un centro nuevo, y más lejos
+          que España. Esa es la simetría invertida.
+        </blockquote>
+
+        <h2>Lo que tenemos que ver, como argentinos</h2>
+        <p>En orden de importancia, no de comodidad:</p>
+        <p>
+          <strong>1. El problema no es Thiel. Es la arquitectura.</strong> Si ponemos el foco en una persona, el
+          día que el contrato lo gane Microsoft, una empresa china o una startup local, el argumento se desinfla.
+          Aunque Palantir no firme nunca, si la herramienta se construye con centralización, opacidad y asimetría,
+          el daño estructural ya está hecho. Y las herramientas de vigilancia <em>nunca</em> se desarman: cambian
+          de operador. El próximo gobierno —del signo que sea— la hereda. Pasó con el aparato de inteligencia en
+          cada cambio desde 1983: todos prometieron reformarlo, todos terminaron usándolo.
+        </p>
+        <p>
+          <strong>2. La pregunta no es "¿qué van a hacer con los datos?".</strong> Esa pregunta tiene respuestas
+          tranquilizadoras ("políticas sociales más justas"). La pregunta de verdad es: <strong>¿qué arquitectura
+          de poder estamos construyendo?</strong> Y esa no tiene respuesta tranquilizadora, porque una arquitectura
+          tiene propiedades que emergen solas, más allá del uso que le den el primer día.
+        </p>
+        <p>
+          <strong>3. La soberanía del siglo XXI se juega en tres capas, no en una.</strong>
+        </p>
+        <ul>
+          <li>Capa física: el territorio. La vieja soberanía —Malvinas, recursos.</li>
+          <li>Capa energética: quién opera la red, el gas, el litio —Vaca Muerta, lo nuclear.</li>
+          <li><strong>Capa cognitiva: quién opera los datos, los modelos y la inferencia.</strong></li>
+        </ul>
+        <p>
+          Tenemos vocabulario para discutir las dos primeras. La tercera todavía no tiene palabras en la conversación
+          pública. El gemelo digital es, justamente, el evento que está obligando a ese vocabulario a nacer. Que nazca.
+        </p>
+        <p>
+          <strong>4. El envoltorio es el mecanismo de adopción.</strong> En 1810, la doctrina de la retroversión
+          hizo que una ruptura revolucionaria <em>pareciera conservadora</em>. En 2026, las palabras "eficiencia",
+          "evidencia" y "modernización" hacen que entregar soberanía cognitiva <em>parezca un trámite técnico</em>.
+          Cuidado: <strong>cuando una decisión política se disfraza de decisión técnica, ese disfraz ya es la
+          decisión política.</strong>
+        </p>
+        <p>
+          <strong>5. La ventana de intervención es ahora —antes de la infraestructura, no después.</strong> Una vez
+          que las bases se integran, los modelos se entrenan, los contratos se firman y las dependencias técnicas se
+          acumulan, dar marcha atrás se vuelve carísimo. Es como la deuda: lo decisivo no es el día del pago, es el
+          día de la firma.
+        </p>
+
         <h2>El gemelo es necesario. El dueño es el problema.</h2>
         <p>
           Repitámoslo, porque es el corazón de todo: <strong>el peligro no es la tecnología. Es de quién es la llave.</strong>
@@ -189,6 +321,36 @@ export const blogContentUpdates: Record<string, BlogContentEntry> = {
           A la casa de muñecas centralizada no se le gana rompiéndola: se le gana levantando una que sea de todos,
           y que nadie —ni de afuera ni de arriba— pueda usar para movernos como fichas.
         </p>
+
+        <h2>No nos equivoquemos de pelea</h2>
+        <p>
+          Si vamos a dar esta discusión, démosla bien. Estos son los cinco errores que harían fracasar la crítica
+          —y cómo no caer en ellos:
+        </p>
+        <ul>
+          <li><strong>"Todo es Palantir."</strong> Si colgamos todo de Thiel, el día que gane otro proveedor el argumento se cae. Hay que pelear sobre la arquitectura, no sobre los actores.</li>
+          <li><strong>"Tecnofobia."</strong> Un gemelo digital también puede mejorar de verdad las políticas: focalizar transferencias, detectar fraude. Negarlo nos quita credibilidad. Hay que separar la tecnología de su gobernanza.</li>
+          <li><strong>"Total, ya estamos vigilados."</strong> Sí, el Estado ya tiene tus datos. Pero hay una diferencia de categoría entre <em>tener bases separadas</em> y <em>operar inferencias cruzadas en tiempo real</em>. No es más de lo mismo: es un cambio de fase.</li>
+          <li><strong>"Purismo."</strong> Exigir cero gemelo digital es perder. Hay que pelear por arquitectura federada, código abierto, auditoría independiente y cláusulas de caducidad —no por la prohibición.</li>
+          <li><strong>"Polarización."</strong> Esto se va a querer leer como "kirchnerismo contra libertarios". Si se queda ahí, pierde. Es un tema de <strong>soberanía nacional</strong>, y la soberanía, en Argentina, históricamente convoca a izquierda y a derecha por igual.</li>
+        </ul>
+        <p>
+          Lo dije antes y lo repito: no es contra una persona ni contra un gobierno. Es a favor de una arquitectura
+          —y de quién tiene la llave.
+        </p>
+
+        <h2>Cómo saber si vamos bien o mal</h2>
+        <p>
+          No hace falta ser técnico para evaluar esto. Alcanza con cinco preguntas que cualquier ciudadano debería
+          poder hacer —y que merecen respuesta:
+        </p>
+        <ul>
+          <li>¿Hay licitación pública con criterios técnicos publicados? <em>(Si no, mala señal.)</em></li>
+          <li>¿El código y los modelos los puede auditar un tercero independiente? <em>(Si no, mala señal.)</em></li>
+          <li>¿Los datos viven en infraestructura bajo jurisdicción argentina, con cláusulas de no transferencia? <em>(Si no, señal de riesgo crítico.)</em></li>
+          <li>¿Hay una ley votada en el Congreso, con revisión periódica? <em>(Si no, la herramienta vive sin contrapeso democrático.)</em></li>
+          <li>¿Puede una persona impugnar una decisión que el algoritmo tomó sobre ella? <em>(Si no, no hay debido proceso.)</em></li>
+        </ul>
 
         <h2>Diseñar es marcar el destino</h2>
         <p>
@@ -285,22 +447,60 @@ export const blogContentUpdates: Record<string, BlogContentEntry> = {
           concreto, y con vínculos entre ciudadanos que decidieron dejar de esperar.
         </p>
 
+        <h2>Lo que podemos hacer ya</h2>
+        <p>
+          Construir lleva tiempo, pero hay palancas que se accionan ahora. En orden de impacto sobre tiempo:
+        </p>
+        <p><strong>En las próximas semanas:</strong></p>
+        <ul>
+          <li>Exigir transparencia documental: qué bases se integran, bajo qué marco legal, con qué proveedores, con qué auditoría. Sumarse a —o citar— el pedido de información de la Fundación Vía Libre.</li>
+          <li>Reclamar una evaluación de impacto en los derechos fundamentales <em>antes</em> de implementar, no después.</li>
+        </ul>
+        <p><strong>En los próximos meses:</strong></p>
+        <ul>
+          <li>Pedir un marco legal específico —ley votada, no decreto— con cláusulas de caducidad y participación ciudadana.</li>
+          <li>Pedir que las capacidades críticas (los modelos, el cómputo, las claves criptográficas) residan en soberanía argentina. No por nacionalismo: por prudencia, como quien no pone todos los huevos en una canasta ajena.</li>
+        </ul>
+        <p><strong>Y de fondo, lo estructural:</strong></p>
+        <ul>
+          <li>Empujar un debate público sobre <strong>soberanía cognitiva</strong>, tan en serio como el que ya damos sobre soberanía energética. Es el debate del siglo, y llegamos tarde si no lo empezamos hoy.</li>
+        </ul>
+
         <h2>La ventana está abierta. No va a quedarse abierta.</h2>
         <p>
-          Cada día que demoramos, otro sistema de afuera se instala en el hueco. Cada día que esperamos permiso
-          institucional, otro protocolo se decide en una sala de reuniones de otro país, con intereses que no son
-          los nuestros. Esta semana fue un gemelo digital. La que viene será otra cosa.
+          Cada día que demoramos, otro sistema de afuera se instala en el hueco. Y hay un reloj concreto: mientras
+          el gemelo está en fase de diseño, la pelea se puede dar. Una vez que las bases se integren y los modelos
+          se entrenen, la pelea se vuelve estructuralmente perdida —no por mala fe de nadie, sino por pura física de
+          sistemas. La ventana son estas semanas, no estos años.
         </p>
         <p>
-          El mapa es el paso cero: el lugar donde marcamos el destino. La arquitectura completa de esa soberanía
-          digital ya está escrita, con nombre y con plan.
+          En 1810, los criollos vieron una ventana estructural y la accionaron a tiempo. La pregunta de hoy no es
+          si tenemos enfrente un nuevo 25 de Mayo. Es si lo vamos a ver <strong>mientras la ventana está abierta</strong>,
+          o si lo vamos a contar como historia dentro de unas décadas, cuando ya se cerró.
         </p>
         <p>
-          <strong><a href="https://elinstantedelhombregris.com/recursos/ruta/iniciativas/plandig-soberania-digital">Conocé el PLANDIG — el Plan Nacional de Soberanía Digital →</a></strong>
+          El mapa es el paso cero: el lugar donde marcamos el destino. Falta lo otro —la arquitectura completa de la
+          soberanía digital—, y esto es clave: <strong>la tenemos que diseñar entre todos</strong>. No la baja una
+          empresa, no la baja un ministerio, no la baja un iluminado. La construye un pueblo, como en 1810.
         </p>
         <p>
-          Los vecinos del 25 de mayo de 1810 entendieron algo que estamos a tiempo de recordar: el primer gobierno
-          patrio no fue un hombre en un balcón. Fue un pueblo que decidió agarrar el timón.
+          Para no arrancar de una hoja en blanco, te comparto un borrador: junté un montón de ideas en un plan que
+          puede servir de inspiración —un ejemplo de cómo se <em>podría</em> armar la arquitectura completa de
+          soberanía digital, capa por capa. No es la verdad revelada. Es un punto de partida para discutir, romper
+          y mejorar entre todos.
+        </p>
+        <p>
+          <strong><a href="https://elinstantedelhombregris.com/recursos/ruta/iniciativas/plandig-soberania-digital">Mirá el PLANDIG — un borrador del Plan Nacional de Soberanía Digital, para construir entre todos →</a></strong>
+        </p>
+        <p>
+          Los vecinos del 25 de mayo de 1810 entendieron algo que estamos a tiempo de recordar: el Primer Gobierno
+          Patrio no fue un hombre en un balcón. Fue un pueblo que se organizó y decidió agarrar el timón. Ese timón
+          lo pagaron con esfuerzo, y a veces con sangre.
+        </p>
+        <p>
+          Nosotros tenemos una oportunidad que ellos no tuvieron: hacer la próxima refundación con diseño, con código
+          y con organización. Verla suceder sin sangre en la calle. Esa es, exactamente, la razón por la que existe
+          El Instante del Hombre Gris.
         </p>
         <p>
           Vos no necesitás permiso para volverte soberano. Lo sos por origen. Lo único que te falta son las
