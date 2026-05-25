@@ -14,15 +14,15 @@ export interface BlogContentEntry {
 export const blogContentUpdates: Record<string, BlogContentEntry> = {
   [slugify("¿Quién tiene el timón?")]: {
     excerpt:
-      "El 25 de Mayo es casi mi fecha patria favorita: el día en que se organizó el Primer Gobierno Patrio. 216 años después, el Gobierno anunció un \"gemelo digital\" de los argentinos. El paralelo con 1810 existe —pero invertido. La pregunta es una sola: ¿de quién es la mano en el timón?",
+      "El 25 de Mayo es mi fecha patria preferida: el día en que se organizó el Primer Gobierno Patrio. 216 años después, el Gobierno anunció un \"gemelo digital\" de los argentinos. El paralelo con 1810 existe —pero invertido. La pregunta es una sola: ¿de quién es la mano en el timón?",
     content: `
       <article>
         <h1>¿Quién tiene el timón?</h1>
         <p>
-          El 25 de Mayo es, casi, mi fecha patria favorita.
+          Te confieso algo: el 25 de Mayo es mi fecha patria preferida.
         </p>
         <p>
-          No por el desfile ni por el locro —aunque el locro ayuda. La quiero porque no celebra una batalla
+          No por el desfile ni por el locro —aunque el locro ayuda. La prefiero porque no celebra una batalla
           ni a un hombre: celebra el día en que un grupo de personas se organizó. El 25 de mayo de 1810 no nació
           un país terminado; se alcanzó un hito en el largo proceso de organizarnos, y se plantó la semilla que
           seis años más tarde, en 1816, daría el fruto de la independencia. Fue el día en que se formó el
@@ -120,20 +120,15 @@ export const blogContentUpdates: Record<string, BlogContentEntry> = {
           no depende de un nombre, depende de una arquitectura. Vamos a eso.
         </blockquote>
 
-        <h2>Qué es, de verdad, un gemelo digital social</h2>
+        <h2>Qué es de verdad —y por qué el peligro no depende de quién la maneje</h2>
         <p>
           Despojado del marketing: un gemelo digital social es una <strong>representación computacional unificada
           de una población</strong>, armada cruzando las bases de datos administrativas del Estado —ANSES, AFIP,
           salud, educación, registro civil, y eventualmente las telefónicas y bancarias— sobre las que se corren
-          modelos que predicen comportamiento.
+          modelos que predicen comportamiento. Es, exactamente, la casa de muñecas, con el nombre técnico puesto.
         </p>
         <p>
-          Es, exactamente, la casa de muñecas. Pero ahora con el nombre técnico puesto.
-        </p>
-
-        <h2>Tres propiedades que no dependen de quién lo opere</h2>
-        <p>
-          Acá está lo que casi nadie dice. Un gemelo digital tiene tres propiedades estructurales que existen
+          Y acá está lo que casi nadie dice: un gemelo digital tiene tres propiedades estructurales que existen
           <em>al margen</em> de las intenciones de quien lo maneje —sea bueno o malo, argentino o extranjero,
           público o privado:
         </p>
@@ -236,9 +231,9 @@ export const blogContentUpdates: Record<string, BlogContentEntry> = {
           2026 puede ser exactamente lo contrario: una transferencia del timón hacia un centro nuevo, y más lejos
           que España. Esa es la simetría invertida.
         </blockquote>
-
-        <h2>Lo que tenemos que ver, como argentinos</h2>
-        <p>En orden de importancia, no de comodidad:</p>
+        <p>
+          Ese espejo nos obliga a ver cinco cosas —en orden de importancia, no de comodidad:
+        </p>
         <p>
           <strong>1. El problema no es Thiel. Es la arquitectura.</strong> Si ponemos el foco en una persona, el
           día que el contrato lo gane Microsoft, una empresa china o una startup local, el argumento se desinfla.
@@ -299,29 +294,6 @@ export const blogContentUpdates: Record<string, BlogContentEntry> = {
           es la fogata.
         </p>
 
-        <h2>Por qué la bronca no alcanza</h2>
-        <p>
-          Durante décadas nos enseñaron a resistir. A protestar. A votar mejor. A esperar al salvador de turno.
-        </p>
-        <p>
-          Nada de eso frena una casa de muñecas. No se frena con una marcha ni con un tuit indignado.
-        </p>
-        <p>
-          Pensalo como las tres metamorfosis del que despierta. Primero fuimos <strong>camello</strong>: cargamos
-          en silencio con la inflación como castigo y la corrupción como destino. Después rugimos como
-          <strong>león</strong>: dijimos ¡BASTA! y pateamos los ídolos. Y está bien rugir —pero rugir es apenas el
-          primer paso. El que de verdad transforma es el <strong>niño</strong>: el que vuelve a mirar con ojos
-          frescos y se sienta a <em>crear</em>.
-        </p>
-        <blockquote>
-          No se vence un sistema atacándolo. Se vuelve obsoleto construyendo algo mejor, que la gente prefiera.
-        </blockquote>
-        <p>
-          Esa es la diferencia entre la revuelta y la refundación. La revuelta quema. La refundación construye.
-          A la casa de muñecas centralizada no se le gana rompiéndola: se le gana levantando una que sea de todos,
-          y que nadie —ni de afuera ni de arriba— pueda usar para movernos como fichas.
-        </p>
-
         <h2>No nos equivoquemos de pelea</h2>
         <p>
           Si vamos a dar esta discusión, démosla bien. Estos son los cinco errores que harían fracasar la crítica
@@ -338,11 +310,9 @@ export const blogContentUpdates: Record<string, BlogContentEntry> = {
           Lo dije antes y lo repito: no es contra una persona ni contra un gobierno. Es a favor de una arquitectura
           —y de quién tiene la llave.
         </p>
-
-        <h2>Cómo saber si vamos bien o mal</h2>
         <p>
-          No hace falta ser técnico para evaluar esto. Alcanza con cinco preguntas que cualquier ciudadano debería
-          poder hacer —y que merecen respuesta:
+          ¿Y cómo sabés si la cosa va por buen o mal camino? No hace falta ser técnico. Alcanza con cinco preguntas
+          que cualquier ciudadano debería poder hacer —y que merecen respuesta:
         </p>
         <ul>
           <li>¿Hay licitación pública con criterios técnicos publicados? <em>(Si no, mala señal.)</em></li>
@@ -352,9 +322,29 @@ export const blogContentUpdates: Record<string, BlogContentEntry> = {
           <li>¿Puede una persona impugnar una decisión que el algoritmo tomó sobre ella? <em>(Si no, no hay debido proceso.)</em></li>
         </ul>
 
-        <h2>Diseñar es marcar el destino</h2>
+        <h2>No alcanza con resistir: hay que construir</h2>
         <p>
-          Una palabra más, porque cierra el círculo.
+          Llegados acá aparece la tentación de siempre: indignarse, marchar, esperar al salvador de turno. Durante
+          décadas nos enseñaron a resistir. Pero nada de eso frena una casa de muñecas: no se frena con una marcha
+          ni con un tuit indignado.
+        </p>
+        <p>
+          Pensalo como las tres metamorfosis del que despierta. Primero fuimos <strong>camello</strong>: cargamos
+          en silencio con la inflación como castigo y la corrupción como destino. Después rugimos como
+          <strong>león</strong>: dijimos ¡BASTA! y pateamos los ídolos. Y está bien rugir —pero rugir es apenas el
+          primer paso. El que de verdad transforma es el <strong>niño</strong>: el que vuelve a mirar con ojos
+          frescos y se sienta a <em>crear</em>.
+        </p>
+        <blockquote>
+          No se vence un sistema atacándolo. Se vuelve obsoleto construyendo algo mejor, que la gente prefiera.
+        </blockquote>
+        <p>
+          Esa es la diferencia entre la revuelta y la refundación. La revuelta quema. La refundación construye.
+          A la casa de muñecas centralizada no se le gana rompiéndola: se le gana levantando una que sea de todos,
+          y que nadie —ni de afuera ni de arriba— pueda usar para movernos como fichas.
+        </p>
+        <p>
+          ¿Y cómo se construye algo así? Empieza por una palabra que cierra el círculo.
         </p>
         <p>
           <strong>Diseñar</strong> viene del latín <em>designare</em>: <em>de-</em> más <em>signare</em>,
@@ -430,10 +420,8 @@ export const blogContentUpdates: Record<string, BlogContentEntry> = {
           El Cabildo de hoy no se inaugura: se programa. Es abierto, es federado, es del ciudadano. Y se levanta igual
           que aquel —con un grupo de personas que se cansaron de esperar permiso.
         </p>
-
-        <h2>Qué construimos, concretamente</h2>
         <p>
-          Una contraofensiva real necesita piezas reales. No metáforas. No declaraciones. Piezas.
+          ¿Y de qué está hecho ese Cabildo nuevo? De piezas reales. No de metáforas ni de declaraciones. Piezas:
         </p>
         <ul>
           <li>Una capa de <strong>coordinación cívica</strong> que no dependa de las plataformas de Silicon Valley.</li>
@@ -465,8 +453,9 @@ export const blogContentUpdates: Record<string, BlogContentEntry> = {
         <ul>
           <li>Empujar un debate público sobre <strong>soberanía cognitiva</strong>, tan en serio como el que ya damos sobre soberanía energética. Es el debate del siglo, y llegamos tarde si no lo empezamos hoy.</li>
         </ul>
-
-        <h2>La ventana está abierta. No va a quedarse abierta.</h2>
+        <p>
+          Y hay que hacerlo rápido, porque la ventana está abierta —pero no va a quedarse abierta.
+        </p>
         <p>
           Cada día que demoramos, otro sistema de afuera se instala en el hueco. Y hay un reloj concreto: mientras
           el gemelo está en fase de diseño, la pelea se puede dar. Una vez que las bases se integren y los modelos
