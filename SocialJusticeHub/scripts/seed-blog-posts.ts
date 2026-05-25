@@ -1,3 +1,4 @@
+import { eq } from 'drizzle-orm';
 import { db, schema } from './db-neon';
 const { blogPosts, postTags } = schema;
 import { blogContentUpdates } from "../shared/blogContent";
@@ -14,6 +15,17 @@ function createSlug(title: string): string {
 
 // Posts de blog con contenido completo
 const baseBlogPostsData = [
+  {
+    title: "¿Quién tiene el timón?",
+    slug: createSlug("¿Quién tiene el timón?"),
+    category: "Visión",
+    type: "blog" as const,
+    featured: true,
+    imageUrl: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=400&fit=crop",
+    authorId: 1,
+    publishedAt: new Date("2026-05-25").toISOString(),
+    tags: ["soberanía digital", "gemelo digital", "25 de mayo", "cibernética", "diseño"],
+  },
   {
     title: "El Cansancio Sagrado: Por qué ya no podemos esperar",
     slug: createSlug("El Cansancio Sagrado: Por qué ya no podemos esperar"),
@@ -259,31 +271,41 @@ async function seedBlogPosts() {
   console.log("🌱 Seeding blog posts...");
   
   try {
-    // Insert blog posts
+    // Insert blog posts (skip slugs that already exist — idempotent)
     for (const post of blogPostsData) {
       const { tags, ...postData } = post;
+      const existing = await db.select({ id: blogPosts.id }).from(blogPosts).where(eq(blogPosts.slug, post.slug));
+      if (existing.length > 0) {
+        console.log(`⏭️  Skipped (already exists): ${post.title}`);
+        continue;
+      }
       const result = await db.insert(blogPosts).values(postData).returning();
       const postId = result[0].id;
-      
+
       // Insert tags
       for (const tag of tags) {
         await db.insert(postTags).values({ postId, tag });
       }
-      
+
       console.log(`✅ Created blog post: ${post.title}`);
     }
 
-    // Insert vlog posts
+    // Insert vlog posts (skip slugs that already exist — idempotent)
     for (const post of vlogPostsData) {
       const { tags, ...postData } = post;
+      const existing = await db.select({ id: blogPosts.id }).from(blogPosts).where(eq(blogPosts.slug, post.slug));
+      if (existing.length > 0) {
+        console.log(`⏭️  Skipped (already exists): ${post.title}`);
+        continue;
+      }
       const result = await db.insert(blogPosts).values(postData).returning();
       const postId = result[0].id;
-      
+
       // Insert tags
       for (const tag of tags) {
         await db.insert(postTags).values({ postId, tag });
       }
-      
+
       console.log(`✅ Created vlog post: ${post.title}`);
     }
     

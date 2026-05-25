@@ -12,6 +12,307 @@ export interface BlogContentEntry {
 }
 
 export const blogContentUpdates: Record<string, BlogContentEntry> = {
+  [slugify("¿Quién tiene el timón?")]: {
+    excerpt:
+      "En 1810 nos cansamos de esperar permiso y fuimos al Cabildo. Esta semana el gobierno anunció un \"gemelo digital\" para predecirnos y prescribirnos. Pero el futuro no se predice: se construye. La pregunta de este 25 de Mayo es una sola — ¿de quién es la mano en el timón?",
+    content: `
+      <article>
+        <h1>¿Quién tiene el timón?</h1>
+        <p>
+          Hace 216 años, un 25 de mayo, un grupo de vecinos se cansó de esperar permiso.
+        </p>
+        <p>
+          No esperaron al rey. No esperaron al virrey. No esperaron al líder, al partido ni al milagro.
+          Caminaron hasta el Cabildo —el único lugar donde, en 1810, se podía agarrar el timón de lo común—
+          y empezaron a gobernarse.
+        </p>
+        <p>
+          Hoy es 25 de mayo otra vez. Y el timón cambió de lugar.
+        </p>
+        <p>
+          Ya no está en una plaza. No está en un balcón. Está en los protocolos que usamos para hablarnos,
+          en los pagos que cruzan nuestras manos, en las nubes donde guardamos la memoria, en las inteligencias
+          artificiales que empiezan a pensar por nosotros. Y mientras seguimos discutiendo quién será la próxima
+          cara en el balcón, alguien ya puso la mano en el timón nuevo.
+        </p>
+        <p>
+          Hay una verdad que pocos quieren mirar de frente: mientras esperamos permiso para gobernarnos,
+          otros ya nos están gobernando. No con tanques. No con decretos. Con protocolos diseñados en otra parte,
+          para otros fines, en otro idioma, bajo otra lógica.
+        </p>
+        <blockquote>
+          El vacío no se queda vacío. Esa es la primera ley.
+        </blockquote>
+
+        <h2>La casa de muñecas</h2>
+        <p>
+          Te lo voy a explicar como se lo explicaría a un chico de cinco años, porque las cosas importantes
+          se entienden mejor así.
+        </p>
+        <p>
+          Imaginate que alguien construye una casa de muñecas gigante. Pero no es cualquier casa: es una copia
+          en miniatura de todo el país. Y adentro hay un muñequito por cada persona. Uno de esos muñequitos sos vos:
+          con tus datos, tu plata, tu salud, tu escuela, tu trabajo, tu barrio.
+        </p>
+        <p>
+          El que tiene la casa de muñecas puede mover los muñequitos. Puede probar qué pasa si a este grupo le saca
+          algo, si a aquel le da otra cosa, si los empuja para acá o para allá. Lo ensaya primero en los muñequitos
+          y después lo aplica sobre las personas de verdad.
+        </p>
+        <p>
+          Suena práctico. Y en parte lo es. El problema no es la casa de muñecas.
+        </p>
+        <blockquote>
+          El problema es de quién es la casa de muñecas. Porque el que mueve los muñequitos, te mueve a vos.
+        </blockquote>
+        <p>
+          Esto no es una metáfora lejana. Esta semana, el gobierno presentó algo que llamó
+          <strong>"Gemelo Digital Social"</strong>: un sistema de inteligencia artificial que arma una réplica
+          de la población para —dicen— simular, anticipar y optimizar las políticas. Tiene cuatro niveles.
+          Empieza describiendo lo que pasa, sigue explicando por qué pasa, después predice lo que va a pasar,
+          y termina en el nivel más delicado de todos: <strong>prescribiendo</strong>. Es decir: no solo te mira.
+          Te dice qué hay que hacer con vos.
+        </p>
+        <p>
+          Y hay un detalle que no conviene esquivar. Semanas antes, uno de los hombres que en el mundo le vende
+          esta clase de "gemelos digitales" a los gobiernos se reunió con el presidente y mudó a su familia a
+          Buenos Aires. No hay contrato firmado —el propio gobierno dice que todavía no eligió proveedor— y no se
+          trata de perseguir a una persona. Se trata de una pregunta que nadie respondió: cuando exista esa casa
+          de muñecas con cada argentino adentro, <strong>¿de quién van a ser las manos que la manejen?</strong>
+        </p>
+        <p>
+          Hay una pista de lo que está en juego. Hace pocas semanas, la Corte Suprema falló que el Estado no puede
+          pasar tus datos de un organismo a otro sin tu permiso específico. Tu información es tuya, dijo. Poco después,
+          llegó el anuncio del gemelo. Las instituciones van por un carril; la vida real, por otro.
+        </p>
+
+        <h2>Gobernar es llevar el timón</h2>
+        <p>
+          Pará un segundo conmigo, porque acá hay una palabra que guarda un secreto.
+        </p>
+        <p>
+          <strong>Gobernar</strong> viene del latín <em>gubernare</em>: pilotar un barco. Y el latín lo tomó del
+          griego <em>kybernáo</em> (κυβερνάω), que significaba exactamente eso —manejar el timón. Al que llevaba el
+          timón lo llamaban <em>kybernétes</em>: el piloto.
+        </p>
+        <p>
+          ¿Te suena esa raíz? <em>Kyber</em>. De ahí sale la palabra <strong>cibernética</strong>: la ciencia de
+          cómo se controla y se dirige un sistema. Gobernar y cibernética no son primas: son la misma palabra.
+          Las dos significan, desde hace tres mil años, lo mismo —tener la mano en el timón.
+        </p>
+        <p>
+          Encendé esa linterna y mirá de nuevo el "Gemelo Digital Social":
+        </p>
+        <blockquote>
+          Una inteligencia artificial que te describe, te predice y te <em>prescribe</em> no es una herramienta
+          administrativa. Es, en el sentido más antiguo y más exacto de la palabra, una máquina de gobernar.
+        </blockquote>
+        <p>
+          Entonces la discusión deja de ser técnica y se vuelve la más política de todas. Y acá está la trampa que
+          casi nadie ve: la pregunta no es si vamos a tener un gemelo digital. <strong>Lo vamos a tener.</strong>
+          Un país que se quiere diseñar a sí mismo necesita verse a sí mismo —necesita datos, modelos, capacidad de
+          ensayar antes de aplicar. Negarlo sería como negar la imprenta.
+        </p>
+        <p>
+          La pregunta es otra, y es una sola: ¿el timón lo lleva el ciudadano, o lo llevan por él?
+        </p>
+
+        <h2>El futuro no se predice. Se construye.</h2>
+        <p>
+          Fijate en para qué se construye la casa de muñecas. Para <em>predecir</em>. Para <em>prescribir</em>.
+          Para saber, antes que vos, qué vas a hacer —y empujarte hacia donde a otros les conviene que vayas.
+        </p>
+        <p>
+          Y ahí está la grieta filosófica que lo cambia todo.
+        </p>
+        <blockquote>
+          El futuro no se predice. Se construye.
+        </blockquote>
+        <p>
+          El que te predice, te administra. Te trata como materia prima a procesar, como muñequito a mover.
+          El que se construye, manda. Esa es la diferencia entre ser objeto y ser fuente, entre ser administrado
+          y ser soberano.
+        </p>
+        <p>
+          Por eso hay dos fuerzas avanzando sobre el espacio que dejamos libre, y las dos comparten la misma premisa.
+        </p>
+        <ul>
+          <li><strong>Una es externa:</strong> corporaciones que no le rinden cuentas a nadie, que extraen el valor argentino y lo procesan en otro continente.</li>
+          <li><strong>La otra es interna y más sutil:</strong> la casta que se atribuye el derecho a gobernarte no porque la hayas elegido, sino porque "entiende". Porque tiene los títulos. Porque maneja la complejidad. Porque vos no.</li>
+        </ul>
+        <p>
+          Las dos te ven igual: como un dato, no como un dueño. Y esto no es izquierda contra derecha, ni de un
+          gobierno contra otro. El conflicto real es más viejo y más simple: es entre quienes crean valor y quienes
+          viven de extraerlo, entre quienes construyen caminos y quienes administran atajos. No es contra una persona.
+          Es contra un diseño.
+        </p>
+
+        <h2>El gemelo es necesario. El dueño es el problema.</h2>
+        <p>
+          Repitámoslo, porque es el corazón de todo: <strong>el peligro no es la tecnología. Es de quién es la llave.</strong>
+        </p>
+        <p>
+          El mismo gemelo digital puede ser dos cosas opuestas según quién lo controle.
+        </p>
+        <ul>
+          <li>Si lo controla una empresa de afuera o un puñado de funcionarios, es una <strong>correa</strong>: una máquina para anticipar y dirigir tu conducta sin que te des cuenta.</li>
+          <li>Si lo controlan los ciudadanos, repartido, sin un único dueño, es un <strong>servicio público</strong>: una utilidad común, como el agua o las rutas. Una herramienta para que un pueblo se vea a sí mismo y decida sobre sí mismo, con las manos en su propio timón.</li>
+        </ul>
+        <p>
+          La misma tecnología. Centralizada, te dirige. Distribuida, te sirve. El liderazgo que no se estanca en
+          una sola mano es el mismo principio llevado al código: poder que fluye, timón que rota, llave que es de todos.
+        </p>
+        <p>
+          El Hombre Gris no le tiene miedo a la herramienta. No vino a prohibir el fuego: vino a discutir de quién
+          es la fogata.
+        </p>
+
+        <h2>Por qué la bronca no alcanza</h2>
+        <p>
+          Durante décadas nos enseñaron a resistir. A protestar. A votar mejor. A esperar al salvador de turno.
+        </p>
+        <p>
+          Nada de eso frena una casa de muñecas. No se frena con una marcha ni con un tuit indignado.
+        </p>
+        <p>
+          Pensalo como las tres metamorfosis del que despierta. Primero fuimos <strong>camello</strong>: cargamos
+          en silencio con la inflación como castigo y la corrupción como destino. Después rugimos como
+          <strong>león</strong>: dijimos ¡BASTA! y pateamos los ídolos. Y está bien rugir —pero rugir es apenas el
+          primer paso. El que de verdad transforma es el <strong>niño</strong>: el que vuelve a mirar con ojos
+          frescos y se sienta a <em>crear</em>.
+        </p>
+        <blockquote>
+          No se vence un sistema atacándolo. Se vuelve obsoleto construyendo algo mejor, que la gente prefiera.
+        </blockquote>
+        <p>
+          Esa es la diferencia entre la revuelta y la refundación. La revuelta quema. La refundación construye.
+          A la casa de muñecas centralizada no se le gana rompiéndola: se le gana levantando una que sea de todos,
+          y que nadie —ni de afuera ni de arriba— pueda usar para movernos como fichas.
+        </p>
+
+        <h2>Diseñar es marcar el destino</h2>
+        <p>
+          Una palabra más, porque cierra el círculo.
+        </p>
+        <p>
+          <strong>Diseñar</strong> viene del latín <em>designare</em>: <em>de-</em> más <em>signare</em>,
+          "marcar con un signo". De <em>signum</em> —la señal, la marca. Diseñar, en su raíz, es
+          <strong>señalar hacia dónde</strong>. Marcar el destino antes de dar el primer paso. Trazar el rumbo de
+          lo que algo va a llegar a ser.
+        </p>
+        <p>
+          Y ahí las dos palabras se abrazan. Si <strong>gobernar</strong> es llevar el timón,
+          <strong>diseñar</strong> es marcar el rumbo hacia el que ese timón apunta. El que dibuja el mapa y sostiene
+          el timón, gobierna. Siempre. Por eso la batalla de fondo es por quién dibuja el mapa.
+        </p>
+        <p>
+          No venimos a administrar ruinas. Venimos a estrenar país.
+        </p>
+
+        <h2>El mapa: el paso cero</h2>
+        <p>
+          Acá entra esta plataforma, y conviene ser honesto sobre lo que es y lo que todavía no es.
+        </p>
+        <p>
+          El mapa de <em>El Instante del Hombre Gris</em> <strong>no es la solución</strong>. No es la infraestructura
+          terminada. No es todavía el gemelo digital soberano.
+        </p>
+        <p>
+          Es el <strong>paso cero</strong>.
+        </p>
+        <p>
+          Antes de construir cualquier cosa hay que hacer lo que dice la palabra <em>diseñar</em>: marcar el destino.
+          Hacer visible lo invisible. Y para eso necesitás un mapa —un lugar donde mirar dónde estamos, qué se decide
+          sobre nuestra vida, y sobre todo la pregunta que casi ningún sistema se anima a hacer:
+        </p>
+        <blockquote>
+          ¿Qué tipo de experiencia humana queremos diseñar?
+        </blockquote>
+        <p>
+          Casi todo lo que usamos fue diseñado por alguien que ya decidió por vos qué clase de vida deberías querer.
+          El mapa invierte eso. Empieza por la pregunta antes que por la respuesta. Y de esa pregunta nace una
+          paradoja que lo ordena todo: la soberanía tiene que hacer dos cosas a la vez.
+        </p>
+        <ul>
+          <li>Tiene que <strong>expandirse</strong> —llegar a todos los rincones donde se decide algo sobre tu vida. No alcanza con un voto cada cuatro años; la soberanía tiene que vivir en lo económico, en lo digital, en lo informativo, en lo cotidiano.</li>
+          <li>Y tiene que <strong>unificarse</strong> —converger sobre el individuo. Porque la soberanía repartida en pedazos es soberanía capturable: si tu poder político vive en una institución, el económico en otra y el digital en una tercera, cada pedazo puede caer por separado, porque ninguno sos vos. El único punto que nadie puede capturar sin tu permiso sos vos mismo.</li>
+        </ul>
+        <p>
+          Esto no es individualismo. Es arquitectura. Sos un pozo tallado en tiempo, lleno de todo lo vivido, y sos
+          el nodo donde todas las soberanías se reúnen y se sostienen. Desde ahí, la coordinación voluntaria construye
+          lo demás: la familia, el barrio, la comunidad, la región, la nación. Pero el que carga el peso, siempre,
+          sos vos. Sin ciudadano soberano hay gestión, hay administración, hay tecnocracia. República, no.
+        </p>
+
+        <h2>En 1810 era el Cabildo. Hoy es la infraestructura.</h2>
+        <p>
+          Volvamos al principio, porque ahora se ve claro.
+        </p>
+        <p>
+          En 1810, caminar hasta el Cabildo era lo más sensato del mundo. ¿Por qué ahí? Porque ahí estaba el timón.
+          El poder de decidir sobre lo común pasaba por ese edificio, por esa asamblea de vecinos. Ir al Cabildo era
+          ir a donde se gobernaba.
+        </p>
+        <p>
+          Hoy el timón no está en ningún edificio. Está en la infraestructura digital: en quién controla la identidad,
+          los pagos, la información, la coordinación, los modelos de inteligencia artificial que empiezan a prescribir
+          cómo vivimos.
+        </p>
+        <p>
+          Entonces, ¿cuál es el acto patrio de nuestra generación?
+        </p>
+        <blockquote>
+          No es marchar a una plaza. No es esperar la próxima elección. Es construir infraestructura digital soberana.
+        </blockquote>
+        <p>
+          El Cabildo de hoy no se inaugura: se programa. Es abierto, es federado, es del ciudadano. Y se levanta igual
+          que aquel —con un grupo de personas que se cansaron de esperar permiso.
+        </p>
+
+        <h2>Qué construimos, concretamente</h2>
+        <p>
+          Una contraofensiva real necesita piezas reales. No metáforas. No declaraciones. Piezas.
+        </p>
+        <ul>
+          <li>Una capa de <strong>coordinación cívica</strong> que no dependa de las plataformas de Silicon Valley.</li>
+          <li>Una capa de <strong>intercambio económico</strong> que no dependa de rieles de pago extranjeros ni de intermediarios que solo extraen.</li>
+          <li>Una capa de <strong>identidad</strong> que controle el ciudadano. No el Estado. No Google. No Meta.</li>
+          <li>Una capa de <strong>información</strong> donde podamos hablar, escuchar y decidir, sin que un algoritmo diseñado afuera module qué le llega a quién.</li>
+          <li>Una capa <strong>real</strong>: hubs comunitarios, redes de formación entre pares, infraestructura física que convierta la soberanía digital en vida cotidiana concreta.</li>
+        </ul>
+        <p>
+          Eso no son apps. Eso es infraestructura constitucional. Es el ágora nueva. Y se construye con código, con
+          concreto, y con vínculos entre ciudadanos que decidieron dejar de esperar.
+        </p>
+
+        <h2>La ventana está abierta. No va a quedarse abierta.</h2>
+        <p>
+          Cada día que demoramos, otro sistema de afuera se instala en el hueco. Cada día que esperamos permiso
+          institucional, otro protocolo se decide en una sala de reuniones de otro país, con intereses que no son
+          los nuestros. Esta semana fue un gemelo digital. La que viene será otra cosa.
+        </p>
+        <p>
+          El mapa es el paso cero: el lugar donde marcamos el destino. La arquitectura completa de esa soberanía
+          digital ya está escrita, con nombre y con plan.
+        </p>
+        <p>
+          <strong><a href="https://elinstantedelhombregris.com/recursos/ruta/iniciativas/plandig-soberania-digital">Conocé el PLANDIG — el Plan Nacional de Soberanía Digital →</a></strong>
+        </p>
+        <p>
+          Los vecinos del 25 de mayo de 1810 entendieron algo que estamos a tiempo de recordar: el primer gobierno
+          patrio no fue un hombre en un balcón. Fue un pueblo que decidió agarrar el timón.
+        </p>
+        <p>
+          Vos no necesitás permiso para volverte soberano. Lo sos por origen. Lo único que te falta son las
+          herramientas —y las herramientas se construyen.
+        </p>
+        <blockquote>
+          Construir o ser construidos. No hay opción intermedia. Y la decisión, como toda decisión soberana,
+          la tomamos nosotros. Hoy.
+        </blockquote>
+      </article>
+    `,
+  },
   [slugify("El Cansancio Sagrado: Por qué ya no podemos esperar")]: {
     excerpt:
       "Hay un cansancio que no pide almohada: pide planos. Es la lucidez incómoda de saber que Argentina puede ser rediseñada — ahora, no mañana.",
