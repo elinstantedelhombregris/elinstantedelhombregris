@@ -105,7 +105,7 @@ export const blogContentUpdates: Record<string, BlogContentEntry> = {
         </p>
         <p><strong>Lo confirmado:</strong></p>
         <ul>
-          <li>El 22 de mayo de 2026 —a pocos días de un nuevo aniversario patrio— el Gobierno presentó el <strong>"Gemelo Digital Social"</strong>, bajo el Ministerio de Capital Humano. Cruza datos de los ciudadanos para diseñar políticas públicas: promete "simular escenarios, anticipar impactos y optimizar decisiones en tiempo real". Trabaja en cuatro niveles, que van desde describir lo que pasa hasta —en el último— <strong>prescribir</strong>: decir qué hay que hacer.</li>
+          <li>El 25 de mayo de 2026 —216 años exactos después de aquel primer Cabildo— el Gobierno presentó el <strong>"Gemelo Digital Social"</strong>, bajo el Ministerio de Capital Humano. Cruza datos de los ciudadanos para diseñar políticas públicas: promete "simular escenarios, anticipar impactos y optimizar decisiones en tiempo real". Trabaja en cuatro niveles, que van desde describir lo que pasa hasta —en el último— <strong>prescribir</strong>: decir qué hay que hacer.</li>
           <li>"Gemelo digital" (<em>digital twin</em>) es uno de los servicios que comercializa Palantir Foundry —la empresa que cofundó Peter Thiel—, aunque también lo ofrecen Microsoft y otras.</li>
           <li>Thiel visitó la Argentina hace poco, compró una mansión en Barrio Parque y se reunió con Milei, Caputo y otros funcionarios.</li>
           <li>La Fundación Vía Libre presentó un pedido formal de información: qué normativa rige, qué datos se usan, qué organismos intervienen y si participan empresas privadas.</li>
@@ -213,21 +213,49 @@ export const blogContentUpdates: Record<string, BlogContentEntry> = {
         <p>
           Hoy los mismos vectores están dados vuelta:
         </p>
-        <table>
+        <table style="width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.95rem;overflow:hidden;border-radius:10px;">
           <thead>
-            <tr><th>Vector</th><th>1810</th><th>2026</th></tr>
+            <tr>
+              <th style="background:#7D5BDE;color:#ffffff;padding:0.7rem 0.9rem;text-align:left;border:1px solid #6a4cc4;">Vector</th>
+              <th style="background:#7D5BDE;color:#ffffff;padding:0.7rem 0.9rem;text-align:left;border:1px solid #6a4cc4;">1810</th>
+              <th style="background:#7D5BDE;color:#ffffff;padding:0.7rem 0.9rem;text-align:left;border:1px solid #6a4cc4;">2026</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><td>Nodo central</td><td>España (vacío)</td><td>Silicon Valley / Palantir (en expansión)</td></tr>
-            <tr><td>Recurso crítico</td><td>Comercio marítimo</td><td>Datos ciudadanos</td></tr>
-            <tr><td>Doctrina que legitima</td><td>Retroversión de la soberanía</td><td>"Eficiencia", "modernización", "evidencia"</td></tr>
-            <tr><td>Capacidad local</td><td>Milicias criollas</td><td>Limitada: no hay industria de IA soberana comparable</td></tr>
-            <tr><td>Detonante de afuera</td><td>Caída de la Junta de Sevilla</td><td>Llegada de Thiel + presión geopolítica</td></tr>
-            <tr><td>Dirección del poder</td><td>Periferia → centro local</td><td>Periferia → centro extranjero</td></tr>
+            <tr>
+              <td style="padding:0.6rem 0.9rem;border:1px solid #e5e7eb;color:#2F3545;font-weight:600;">Nodo central</td>
+              <td style="padding:0.6rem 0.9rem;border:1px solid #e5e7eb;color:#374151;">España (vacío)</td>
+              <td style="padding:0.6rem 0.9rem;border:1px solid #e5e7eb;color:#374151;">Silicon Valley / Palantir (en expansión)</td>
+            </tr>
+            <tr style="background:#f4f1fb;">
+              <td style="padding:0.6rem 0.9rem;border:1px solid #e5e7eb;color:#2F3545;font-weight:600;">Recurso crítico</td>
+              <td style="padding:0.6rem 0.9rem;border:1px solid #e5e7eb;color:#374151;">Comercio marítimo</td>
+              <td style="padding:0.6rem 0.9rem;border:1px solid #e5e7eb;color:#374151;">Datos ciudadanos</td>
+            </tr>
+            <tr>
+              <td style="padding:0.6rem 0.9rem;border:1px solid #e5e7eb;color:#2F3545;font-weight:600;">Doctrina que legitima</td>
+              <td style="padding:0.6rem 0.9rem;border:1px solid #e5e7eb;color:#374151;">Retroversión de la soberanía</td>
+              <td style="padding:0.6rem 0.9rem;border:1px solid #e5e7eb;color:#374151;">"Eficiencia", "modernización", "evidencia"</td>
+            </tr>
+            <tr style="background:#f4f1fb;">
+              <td style="padding:0.6rem 0.9rem;border:1px solid #e5e7eb;color:#2F3545;font-weight:600;">Capacidad local</td>
+              <td style="padding:0.6rem 0.9rem;border:1px solid #e5e7eb;color:#374151;">Milicias criollas</td>
+              <td style="padding:0.6rem 0.9rem;border:1px solid #e5e7eb;color:#374151;">Limitada: no hay industria de IA soberana comparable</td>
+            </tr>
+            <tr>
+              <td style="padding:0.6rem 0.9rem;border:1px solid #e5e7eb;color:#2F3545;font-weight:600;">Detonante de afuera</td>
+              <td style="padding:0.6rem 0.9rem;border:1px solid #e5e7eb;color:#374151;">Caída de la Junta de Sevilla</td>
+              <td style="padding:0.6rem 0.9rem;border:1px solid #e5e7eb;color:#374151;">Llegada de Thiel + presión geopolítica</td>
+            </tr>
+            <tr style="background:#f4f1fb;">
+              <td style="padding:0.6rem 0.9rem;border:1px solid #e5e7eb;color:#2F3545;font-weight:600;">Dirección del poder</td>
+              <td style="padding:0.6rem 0.9rem;border:1px solid #e5e7eb;color:#374151;">Periferia → centro local</td>
+              <td style="padding:0.6rem 0.9rem;border:1px solid #e5e7eb;color:#374151;">Periferia → centro extranjero</td>
+            </tr>
           </tbody>
         </table>
         <blockquote>
-          El 25 de mayo de 1810 fue una relocalización del poder hacia abajo, hacia lo nuestro. El 22 de mayo de
+          El 25 de mayo de 1810 fue una relocalización del poder hacia abajo, hacia lo nuestro. El 25 de mayo de
           2026 puede ser exactamente lo contrario: una transferencia del timón hacia un centro nuevo, y más lejos
           que España. Esa es la simetría invertida.
         </blockquote>
