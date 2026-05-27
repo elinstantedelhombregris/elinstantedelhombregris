@@ -16,6 +16,17 @@ function createSlug(title: string): string {
 // Posts de blog con contenido completo
 const baseBlogPostsData = [
   {
+    title: "¿Contra quién estás peleando, en serio?",
+    slug: createSlug("¿Contra quién estás peleando, en serio?"),
+    category: "Filosofía",
+    type: "blog" as const,
+    featured: true,
+    imageUrl: "https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?w=800&h=400&fit=crop",
+    authorId: 1,
+    publishedAt: new Date("2026-05-26").toISOString(),
+    tags: ["polaridad", "grieta", "atención", "trabajo", "Gibran", "acción"],
+  },
+  {
     title: "¿Quién tiene el timón?",
     slug: createSlug("¿Quién tiene el timón?"),
     category: "Visión",

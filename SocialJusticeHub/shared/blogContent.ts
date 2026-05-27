@@ -12,6 +12,391 @@ export interface BlogContentEntry {
 }
 
 export const blogContentUpdates: Record<string, BlogContentEntry> = {
+  [slugify("¿Contra quién estás peleando, en serio?")]: {
+    excerpt:
+      "Kuka, libertardo, cucaracha de izquierda, cerdo de derecha. Nos pasamos el día tirándonos etiquetas como piedras. Pero pará un segundo: ¿y si la pelea misma fuera la trampa? El principio más viejo del universo explica por qué la grieta no se gana —se trasciende. Y mientras vos oscilás, alguien se está llevando el timón de verdad.",
+    content: `
+      <article>
+        <h1>¿Contra quién estás peleando, en serio?</h1>
+        <p>
+          Kuka. Libertardo. Gorila. Zurdo de mierda. Cucaracha de izquierda. Cerdo de derecha.
+        </p>
+        <p>
+          Abrí cualquier red social hoy y vas a encontrar estas palabras volando como piedras. Y si
+          mirás un poco más abajo, en los comentarios, encontrás cosas peores: «hay que matar a la
+          derecha», «hay que quemar a la izquierda», listas de a quiénes habría que «colgar» cuando
+          le toque a cada bando. Gente común —probablemente buena gente, que ama a sus hijos y saluda
+          al panadero— escribiendo, con el pulgar, que habría que eliminar físicamente a la mitad del país.
+        </p>
+        <p>
+          Y nos parece normal. Nos parece, incluso, militancia. Compromiso. «Yo por lo menos no me callo».
+        </p>
+        <p>
+          Pará un segundo. Pará de verdad, no como forma de hablar.
+        </p>
+        <p>
+          No te voy a pedir que elijas mejor tu bando. No te voy a decir que la izquierda tiene razón,
+          ni que la derecha tiene razón, ni que la verdad está en un cómodo punto medio. Te voy a pedir
+          algo más raro y más difícil: que por un rato dejemos de mirar la pelea desde adentro de la pelea,
+          y subamos a mirarla desde arriba. Porque desde adentro, la pelea es todo. Desde arriba, se ve
+          otra cosa. Se ve la forma de la trampa.
+        </p>
+        <blockquote>
+          La pregunta no es quién tiene razón en la grieta. La pregunta es a quién le sirve que la grieta exista.
+        </blockquote>
+
+        <h2>Una ley que no aprendiste en la escuela pero comprobás todos los días</h2>
+        <p>
+          Antes de hablar de política, hablemos del universo. Porque hay una ley que gobierna todo lo que
+          existe, y entenderla cambia la forma en que ves la pelea.
+        </p>
+        <p>
+          <strong>Todo lo que existe tiene dos polos.</strong> Y acá viene lo que casi nadie se detiene a pensar:
+          los dos polos no son dos cosas distintas. Son la misma cosa, medida en dos extremos.
+        </p>
+        <p>
+          Pensá en la temperatura. No existe un aparato para medir «el frío» y otro para medir «el calor».
+          Existe un solo termómetro, con una sola escala. El frío y el calor no son enemigos: son el mismo
+          fenómeno —el movimiento de las moléculas— visto en dos puntas de una misma regla. ¿Dónde termina el
+          frío y empieza el calor? En ningún lado fijo. Es un solo gradiente. Lo mismo con la luz y la oscuridad:
+          no hay «partículas de oscuridad» peleando contra la luz. Hay una sola cosa —cantidad de luz— y la
+          oscuridad es, simplemente, su extremo bajo.
+        </p>
+        <p>
+          Grande y chico. Duro y blando. Amor y odio. Todos son pares. Y todos comparten una propiedad que,
+          una vez que la ves, ya no podés dejar de verla:
+        </p>
+        <blockquote>
+          Cada polo necesita al otro para existir. Sacale una punta a un imán y no te queda media verdad:
+          te quedás sin imán, y al instante aparecen dos polos nuevos en lo que sobró.
+        </blockquote>
+        <p>
+          Esto no es una metáfora linda. Es física. Partí un imán al medio para «quedarte solo con el norte»,
+          y lo que obtenés son dos imanes, cada uno con su norte y su sur. La naturaleza no conoce un polo solo.
+          El polo solo no existe. Es un imposible.
+        </p>
+
+        <h2>El palo de una sola punta</h2>
+        <p>
+          Y ahora sí, bajemos a la grieta. Porque izquierda y derecha son, exactamente, las dos puntas de un
+          mismo palo.
+        </p>
+        <p>
+          «Izquierda» y «derecha» no nombran dos sustancias distintas. Nombran posiciones relativas sobre un
+          mismo eje: cuánto Estado, cuánto mercado, cuánta tradición, cuánto cambio. Son grados, no especies.
+          Y como todo par de polos, se definen el uno contra el otro. La derecha existe porque hay una izquierda
+          de la cual diferenciarse, y al revés. Quitale una y la otra pierde sentido en el acto.
+        </p>
+        <p>
+          Por eso, cuando alguien escribe «hay que matar a la derecha» o «hay que quemar a la izquierda», está
+          diciendo, sin saberlo, una incoherencia metafísica. Es como gritar que vas a cortarle la punta fría
+          al termómetro para que solo haya calor. Lo único que conseguís —si por un milagro lo lograras— es que
+          el eje entero se reorganice y aparezca un nuevo «frío» donde antes había un tibio. Eliminá a todos los
+          que hoy llamás «de derecha» y mañana, dentro de los que quedan, va a haber una derecha. Y una izquierda.
+          Porque el palo, mientras exista gente que piensa, va a tener dos puntas.
+        </p>
+        <blockquote>
+          No se puede ganar una guerra contra la mitad de un imán. Y, sin embargo, es la guerra a la que nos
+          invitan todos los días.
+        </blockquote>
+        <p>
+          Fijate en la palabra que usamos para esto: <strong>partido</strong>. Viene del latín <em>pars, partis</em>:
+          una parte. Una porción. Un pedazo de algo más grande. Afiliarte a un partido es, literalmente, declararte
+          un fragmento. Y un fragmento, por definición, nunca puede ver el todo: solo ve desde su esquina. No es un
+          insulto, es geometría. El que se vuelve <em>parte</em> renuncia a ver el conjunto.
+        </p>
+
+        <h2>Los extremos se tocan</h2>
+        <p>
+          Hay un segundo secreto en la ley de los polos, y es todavía más incómodo que el primero: las dos puntas
+          del palo, las que están más lejos una de la otra, terminan siendo las más parecidas entre sí.
+        </p>
+        <p>
+          Lo ves en la temperatura otra vez. Tocá hielo seco a ochenta grados bajo cero y tocá una plancha al rojo:
+          las dos cosas te queman la piel igual. El frío extremo y el calor extremo producen la misma quemadura.
+          Lo ves en el péndulo: cuanto más fuerte lo empujás hacia un lado, con más violencia vuelve hacia el otro.
+          Y lo ves en la historia, una y otra vez: casi todas las revoluciones que prometieron liberar a un pueblo
+          terminaron pareciéndose, hasta el escalofrío, a la tiranía que habían venido a derrocar. El que llega
+          gritando «libertad» desde un extremo suele gobernar, al poco tiempo, con los métodos del extremo opuesto.
+        </p>
+        <p>
+          El eje izquierda-derecha, entonces, no es una línea recta con dos puntas alejadas. Es una herradura: las
+          puntas se curvan hasta casi tocarse. Por eso el que quiere «quemar a la izquierda» y el que quiere «colgar
+          a la derecha» no son opuestos. Son gemelos. Misma certeza absoluta, mismo desprecio por el que piensa
+          distinto, misma fantasía de un país más limpio sin la otra mitad, mismo dedo apretando «enviar» a las tres
+          de la mañana. Cambian la camiseta. No cambian el gesto.
+        </p>
+        <blockquote>
+          Fijate bien: el que más odia al fanático del otro lado es el fanático de este lado. Se necesitan. Se
+          alimentan. Son la misma persona mirándose en un espejo, y creyendo que el reflejo es el enemigo.
+        </blockquote>
+        <p>
+          Si esto te resulta difícil de aceptar, es buena señal: quiere decir que estás parado en una de las puntas.
+          Y desde la punta, la herradura parece una línea recta infinita, con el enemigo del otro lado de un abismo
+          imposible de cruzar. Solo cuando subís un poco ves que el abismo era un dobladillo, y que tu enemigo jurado
+          está, en realidad, a un paso tuyo, haciendo lo mismo que vos.
+        </p>
+
+        <h2>La trampa no es que pierdas. Es que oscilés.</h2>
+        <p>
+          Acá está el truco, y es más fino de lo que parece.
+        </p>
+        <p>
+          A quien diseñó este juego no le importa qué punta del palo gane. Le importa que vos no dejes de mirar
+          el palo. Que pases el día yendo de una punta a la otra, indignándote, respondiendo, citando al enemigo
+          para destrozarlo. Porque mientras tu atención está clavada en el eje izquierda-derecha, no estás mirando
+          <em>fuera</em> del eje. Y afuera del eje es donde pasan las cosas que de verdad te cambian la vida.
+        </p>
+        <p>
+          La grieta no es un accidente de la época. No es que «se nos fue de las manos». Es un producto. Tiene
+          dueños, tiene ingeniería y tiene un modelo de negocio. Y el modelo es asombrosamente simple:
+        </p>
+        <blockquote>
+          Las plataformas no venden información. Venden tu atención. Y descubrieron, midiéndolo millones de veces
+          por segundo, que nada retiene tu atención como la bronca.
+        </blockquote>
+        <p>
+          Un posteo que te da paz no genera ni una décima parte de la reacción que genera uno que te hace hervir.
+          El algoritmo no es ideológico: es codicioso. No quiere que ganes la discusión —quiere que sigas discutiendo,
+          porque cada respuesta tuya es otro aviso publicitario servido, otro dato sobre vos capturado, otro minuto
+          que no pasaste en ningún otro lado. Vos creés que estás militando una causa. En realidad estás trabajando
+          gratis en una fábrica de indignación cuyos dueños viven —muy bien, dicho sea de paso— de tu enojo.
+        </p>
+        <p>
+          Y el mecanismo es más sucio todavía, porque toca lo más íntimo: la identidad. Cuando «soy de izquierda» o
+          «soy de derecha» deja de ser una opinión que tenés y pasa a ser <em>quién sos</em>, cada crítica al bando
+          se siente como un ataque a tu persona. Ya no defendés una idea: te defendés a vos. Y entonces no podés
+          ceder, no podés dudar, no podés escuchar, porque dudar se siente como morir un poco. La máquina sabe esto.
+          Por eso no te muestra argumentos para que pienses: te muestra al enemigo en su peor momento, para que
+          sientas. El golpe de dopamina de humillar al otro —el «dato mata relato», la captura triunfal, el zócalo
+          ingenioso— es real, es químico, y es exactamente igual al de cualquier otra cosa que engancha y no nutre.
+        </p>
+        <p>
+          Hasta el nombre que le pusieron es honesto, si lo escuchás bien. A esto lo llaman <em>engagement</em>:
+          enganche. No te informan, no te conectan, no te elevan. Te <strong>enganchan</strong>. Y un anzuelo no
+          está hecho para alimentar al pez.
+        </p>
+        <p>
+          La grieta es el producto. Vos sos el obrero. Y no te pagan.
+        </p>
+
+        <h2>Cómo se sale: no se elige punta, se cambia de palo</h2>
+        <p>
+          Entonces, ¿qué hacés? ¿Te volvés «neutral»? ¿Te ponés en el medio tibio del palo, equidistante,
+          sin opinar de nada?
+        </p>
+        <p>
+          No. El medio tibio sigue siendo el mismo palo. El que se para en el centro sigue mirando el eje
+          izquierda-derecha como si fuera la única dimensión que existe. Sigue atrapado, solo que sin convicciones.
+        </p>
+        <p>
+          La salida es otra, y es la parte más linda de la ley de los polos: <strong>no se gana un eje quedándote
+          en él. Se trasciende cambiando de eje.</strong> Subís a una pregunta más alta, una donde las dos viejas
+          puntas se revelan como lo que siempre fueron —una falsa elección— y aparece un eje nuevo que las contiene
+          a las dos y las deja chicas.
+        </p>
+        <p>
+          Mirá la diferencia:
+        </p>
+        <ul>
+          <li>El eje viejo pregunta: <em>¿izquierda o derecha?</em></li>
+          <li>El eje nuevo pregunta: <em>¿soberano o gobernado por otro? ¿constructor o construido? ¿despierto o dormido?</em></li>
+        </ul>
+        <p>
+          En el eje nuevo, el kuka y el libertardo que se insultan a las tres de la mañana de pronto descubren algo
+          incómodo: están del mismo lado. Los dos están <em>gobernados</em> por una plataforma que les vende su propia
+          bronca. Los dos están <em>dormidos</em> respecto de quién se está llevando lo importante mientras ellos pelean.
+          Los dos son <em>construidos</em> por un algoritmo, en vez de estar construyendo algo.
+        </p>
+        <p>
+          Probalo con cualquier pelea de esta semana. Tomá la discusión del dólar, o de una ley que se vota, o del
+          funcionario de turno. En el eje viejo te pasás dos horas demostrando que tu bando tiene razón y el otro es
+          un imbécil o un traidor, y al final del día el dólar está igual, la ley la decidieron sin vos, y el
+          funcionario sigue ahí. Cambiaste cero. En el eje nuevo hacés otra pregunta: <em>¿quién está tomando
+          realmente esta decisión, con qué información, y por qué no la estamos tomando nosotros?</em> Esa pregunta no
+          tiene bando. No la podés responder insultando a tu vecino. Solo la podés responder construyendo la capacidad
+          de decidir juntos. La primera pregunta te deja agotado y en el mismo lugar. La segunda te deja de pie y
+          mirando hacia adelante. Misma realidad, otro eje, vida distinta.
+        </p>
+        <blockquote>
+          El que te convence de que tu enemigo es tu vecino, ya ganó. Porque mientras ustedes dos se destrozan,
+          él trabaja tranquilo.
+        </blockquote>
+
+        <h2>Lo que pasa de verdad, mientras vos oscilás</h2>
+        <p>
+          Te lo digo sin vueltas: mientras la mitad del país se pelea con la otra mitad por etiquetas, el poder
+          de verdad —el que decide cómo va a ser tu vida concreta dentro de diez años— está cambiando de manos.
+          Y casi nadie lo está mirando, porque no entra en la grieta. Está afuera del palo.
+        </p>
+        <p>
+          Hace unos días escribí sobre esto en detalle, así que lo resumo: el timón ya no está en el balcón ni en
+          la plaza. Está en los protocolos con los que nos hablamos, en los rieles por donde corre nuestra plata,
+          en las nubes donde guardamos la memoria, en las inteligencias artificiales que empiezan a decidir qué
+          ves, qué cobrás, qué crédito te dan, qué tratamiento te toca. El timón cambió de forma. Y mientras
+          discutimos quién va a ser la próxima cara en la pantalla, alguien —que no votamos y que muchas veces ni
+          siquiera vive acá— ya puso la mano en el timón nuevo.
+        </p>
+        <p>
+          Esto es lo que pasa de verdad, y tiene el efecto más profundo que algo puede tener sobre una vida humana,
+          porque toca todo a la vez:
+        </p>
+        <ul>
+          <li><strong>Quién piensa por vos.</strong> Cada vez más decisiones —qué información te llega, qué precio
+          pagás, si calificás o no— las toma un sistema diseñado afuera, con una lógica que no podés auditar, en un
+          idioma que no es el tuyo. Es soberanía, pero la palabra nueva es soberanía <em>cognitiva</em>: quién es
+          dueño de la infraestructura que piensa, paga y recuerda en tu lugar.</li>
+          <li><strong>Dónde se concentra el poder.</strong> Mientras peleamos por categorías de pensamiento, lo
+          material —los datos, los rieles de pago, los modelos de IA, el cómputo— se concentra en muy pocas manos,
+          casi siempre lejos de acá. La grieta es ruidosa y gratis; la concentración es silenciosa y carísima.</li>
+          <li><strong>Adónde va tu energía.</strong> Tenés una cantidad finita de fuerza vital por día. Atención,
+          tiempo, capacidad de indignarte, capacidad de amar. Y la estás gastando casi entera en una acción que no
+          mueve nada: el insulto digital, el hilo, la captura de pantalla del enemigo. Acción que se siente como algo
+          y no es nada.</li>
+        </ul>
+        <p>
+          Y esto no es ciencia ficción ni paranoia. Es esta semana. Las decisiones que un sistema automatizado ya
+          empieza a tomar por vos no son abstractas: son si te dan o no un crédito, qué precio te muestra una
+          plataforma, qué tratamiento prioriza un sistema de salud, qué le llega a tu hijo en la pantalla seis horas
+          por día. Eso te toca la vida mucho más que cualquier posteo del enemigo. Y hay un reloj: mientras estas
+          arquitecturas están en diseño, se las puede discutir, auditar, reclamar que sean nuestras. Una vez que se
+          instalan y se vuelven el piso invisible sobre el que caminamos todos, discutirlas es como discutir la ley
+          de gravedad. La ventana está abierta ahora. No se va a quedar abierta mientras nosotros nos entretenemos
+          peleando por quién es más kuka o más libertardo.
+        </p>
+        <p>
+          Esa última es la más cara de todas. Porque la bronca, en el fondo, es amor. Es amor herido. Nadie se
+          enoja por lo que no le importa. Te indignás con el país porque lo querés, porque querés que a tu gente le
+          vaya bien, porque algo adentro tuyo sabe que esto podría ser mejor. Esa furia es combustible nobilísimo.
+          Y lo estás quemando en el lugar donde no enciende nada.
+        </p>
+
+        <h2>La misma pantalla, el dedo opuesto</h2>
+        <p>
+          Acá está la buena noticia, y es asombrosamente práctica.
+        </p>
+        <p>
+          La acción digital sin sentido y la acción digital con sentido usan exactamente lo mismo: una pantalla,
+          unos minutos, tu pulgar. La diferencia no está en la herramienta. Está en hacia dónde apuntás.
+        </p>
+        <p>
+          El mismo dedo que escribe «kuka de mierda» en un comentario que nadie va a recordar mañana, puede
+          escribir <em>«tengo una camioneta y los sábados a la mañana estoy libre»</em> en un mapa donde alguien,
+          a veinte cuadras, está buscando exactamente eso para llevar donaciones a un comedor. Tardan los dos lo
+          mismo: diez segundos. Pero uno alimenta una máquina de bronca ajena, y el otro conecta una necesidad
+          con un recurso.
+        </p>
+        <blockquote>
+          Acción digital sin sentido: producir indignación para que otro la venda.
+          Acción digital con sentido: declarar lo que tenés, lo que necesitás y lo que soñás, para que se
+          encuentre con su par.
+        </blockquote>
+        <p>
+          Eso es, exactamente, lo que es un mapa de necesidades y recursos. No es una app más. Es el lugar donde
+          tu energía, en vez de evaporarse en una discusión, se vuelve una coordenada concreta: acá hay una falta,
+          allá hay con qué llenarla, juntémoslas.
+        </p>
+        <p>
+          Bajémoslo a tierra, porque suena abstracto y no lo es. Una maestra jubilada en Tucumán tiene tres tardes
+          libres por semana y cuarenta años enseñando a leer. A doce cuadras, una madre no sabe a quién pedirle que
+          le dé una mano con su hijo que quedó atrás en la escuela. Hoy esas dos personas no se encuentran nunca:
+          ninguna de las dos sabe que la otra existe. No les falta voluntad ni amor. Les falta el mapa. Les falta el
+          lugar donde la maestra escriba «puedo enseñar» y la madre escriba «necesito» y un sistema, sin grieta y
+          sin algoritmo de bronca, las cruce. Eso no es caridad ni es política: es ingeniería de lo obvio. Es dejar
+          de desperdiciar el amor que ya está, ahí, suelto, sin encontrarse.
+        </p>
+        <p>
+          Multiplicá esos dos puntos por un millón de personas que dejaron de tirar piedras y empezaron a poner
+          coordenadas, y tenés algo que ningún algoritmo de bronca puede darte: un país que se teje a sí mismo.
+        </p>
+
+        <h2>Y entonces, ¿qué es el trabajo?</h2>
+        <p>
+          Hay una palabra que usamos para todo esto y que conviene rescatar, porque la dejamos secar hasta que
+          quedó significando «el lugar donde sufro de 9 a 18 para llegar a fin de mes». Esa palabra es <strong>trabajo</strong>.
+        </p>
+        <p>
+          Khalil Gibran, en <em>El Profeta</em>, cuando le piden que hable del trabajo, no habla de empleo, ni de
+          sueldo, ni de jefes. Dice algo que parece simple y es vertiginoso:
+        </p>
+        <blockquote>
+          «El trabajo es el amor hecho visible.»
+        </blockquote>
+        <p>
+          El amor hecho visible. El amor que deja de ser un sentimiento adentro tuyo y se vuelve un acto afuera, en
+          el mundo, donde otro lo puede recibir. Amor hecho acción. Esa es la definición. Y por eso Gibran agrega
+          que, si no podés trabajar con amor sino solo con disgusto, mejor sería que dejaras el trabajo y te
+          sentaras a la puerta de un templo a pedir limosna, porque el pan amasado con desgano alimenta a medias.
+        </p>
+        <p>
+          Mirá lo que esto hace con todo lo anterior. Insultar en una red no es trabajo: es amor herido girando en
+          falso, sin volverse visible, sin construir nada. En cambio, poner una verdad en un mapa para que otro la
+          encuentre —ofrecer tu camioneta, declarar que sabés enseñar a leer, pedir la mano que te falta— eso sí es
+          trabajo en el sentido más hondo de la palabra. Es amor que se hizo acción. Es el sentimiento más noble que
+          tenés, convertido en algo que otro puede tocar.
+        </p>
+        <p>
+          Gibran va más lejos todavía, y vale la pena seguirlo. Trabajar con amor, dice, es tejer la tela con hilos
+          sacados de tu corazón, como si la fuera a usar la persona que amás; es construir una casa con cariño, como
+          si en ella fuera a vivir la persona que amás; es sembrar la semilla con ternura y cosechar con alegría,
+          como si el fruto lo fuera a comer la persona que amás. Esa es la vara. No «¿me conviene?». No «¿quién gana?».
+          Sino: <em>¿lo haría así si del otro lado estuviera alguien que amo?</em> Cuando ponés una necesidad o un
+          recurso en un mapa pensando en el desconocido que lo va a recibir como si fuera de los tuyos, eso —y no el
+          insulto, nunca el insulto— es trabajo. Es amor hecho visible entre extraños. Es, si lo pensás, la definición
+          exacta de lo que le falta a un país roto.
+        </p>
+        <blockquote>
+          La grieta te pide que odies a una mitad. El trabajo —el de verdad— te pide que ames a alguien lo bastante
+          como para hacer algo. Las dos cosas empiezan con tu energía. Solo una la transforma en mundo.
+        </blockquote>
+
+        <h2>El país a la altura de nuestros ideales</h2>
+        <p>
+          Nos quejamos del país donde vivimos. Y tenemos motivos: hay cosas rotas, hay injusticia, hay cansancio.
+          Pero hay una verdad que cuesta tragar y conviene mirar de frente.
+        </p>
+        <p>
+          Un país no es un lugar que nos pasa. Es la suma de dónde cada uno de nosotros pone su energía, todos los
+          días, con el pulgar y con las manos. Si ponemos la energía en la bronca, tenemos un país de bronca —que es,
+          mírenlo, bastante parecido al que tenemos—. Si la pusiéramos en conectar, en construir, en hacer visible
+          el amor, tendríamos otro. No por magia. Por física social: cosechamos exactamente lo que sembramos con la
+          atención.
+        </p>
+        <blockquote>
+          El lugar donde vivimos nunca está por encima de la estatura de nuestros ideales. Se levanta, justo,
+          hasta donde estamos dispuestos a llevarlos con las manos. Ni un centímetro más.
+        </blockquote>
+        <p>
+          Tenemos el país que alimentamos. Y lo alimentamos con cada gesto, mínimo, repetido, multiplicado por
+          millones. La grieta es lo que pasa cuando una sociedad entera decide, sin darse cuenta, alimentar lo peor
+          de sí misma porque alguien hizo que eso fuera lo más fácil de hacer con el pulgar.
+        </p>
+        <p>
+          La pregunta del título, entonces, ya tiene otra forma. No es contra quién estás peleando. Es: ¿por qué
+          estás peleando, en vez de construir? ¿A quién le sirve que tu amor se gaste en odio? Y, sobre todo:
+          ¿qué pasaría si mañana el millón de personas que hoy tira piedras pusiera, en cambio, un millón de
+          coordenadas en un mapa?
+        </p>
+        <p>
+          Ese mapa existe. Es el paso cero, el lugar donde ponés tu verdad —un sueño, una necesidad, un recurso—
+          y dejás que se encuentre con la de otro. No te pide que elijas bando. Te pide algo mucho más difícil y
+          mucho más digno: que dejes de pelear por una parte y empieces a construir el todo.
+        </p>
+        <p>
+          <strong><a href="https://elinstantedelhombregris.com/el-mapa">Poné tu verdad en El Mapa — conectá lo que tenés con lo que falta →</a></strong>
+        </p>
+        <p>
+          El mismo dedo que escribe un insulto puede poner una coordenada en un mapa. Las dos cosas tardan diez
+          segundos. Solo una construye un país.
+        </p>
+        <blockquote>
+          Tu enemigo no está del otro lado de la grieta. Tu enemigo es la grieta. Y la grieta se cierra de un
+          solo modo: no eligiendo una punta del palo, sino soltándolo para tener, por fin, las dos manos libres
+          para construir.
+        </blockquote>
+      </article>
+    `,
+  },
   [slugify("¿Quién tiene el timón?")]: {
     excerpt:
       "El 25 de Mayo es mi fecha patria preferida: el día en que se organizó el Primer Gobierno Patrio. 216 años después, el Gobierno anunció un \"gemelo digital\" de los argentinos. El paralelo con 1810 existe —pero invertido. La pregunta es una sola: ¿de quién es la mano en el timón?",
