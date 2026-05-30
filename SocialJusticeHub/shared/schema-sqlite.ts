@@ -339,6 +339,7 @@ export const postLikes = sqliteTable("post_likes", {
   id: integer("id").primaryKey({ autoIncrement: true }),
   postId: integer("post_id").references(() => blogPosts.id),
   userId: integer("user_id").references(() => users.id),
+  sessionId: text("session_id"), // For anonymous likes (null when userId is set)
   createdAt: text("created_at").default("CURRENT_TIMESTAMP"),
 });
 

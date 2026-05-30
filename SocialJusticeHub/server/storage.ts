@@ -415,13 +415,13 @@ export interface IStorage {
     limit?: number;
   }): Promise<BlogPost[]>;
   getBlogPostStats(): Promise<{ total: number; blog: number; vlog: number }>;
-  getBlogPost(slug: string): Promise<BlogPost | undefined>;
+  getBlogPost(slug: string, viewer?: { userId?: number; sessionId?: string }): Promise<BlogPost | undefined>;
   createBlogPost(post: InsertBlogPost): Promise<BlogPost>;
   updateBlogPost(id: number, post: InsertBlogPost, userId: number): Promise<BlogPost | undefined>;
   deleteBlogPost(id: number, userId: number): Promise<boolean>;
-  
+
   // Post Interactions
-  togglePostLike(postId: number, userId: number): Promise<{ liked: boolean; count: number }>;
+  togglePostLike(postId: number, viewer: { userId?: number; sessionId?: string }): Promise<{ liked: boolean; count: number }>;
   getPostLikes(postId: number): Promise<{ count: number; users: User[] }>;
   createPostComment(postId: number, userId: number, content: string, parentId?: number): Promise<PostComment>;
   getPostComments(postId: number): Promise<PostComment[]>;
@@ -2572,7 +2572,7 @@ export class DatabaseStorage implements IStorage {
     }
   }
 
-  async getBlogPost(slug: string): Promise<BlogPost | undefined> {
+  async getBlogPost(slug: string, viewer?: { userId?: number; sessionId?: string }): Promise<BlogPost | undefined> {
     try {
       const result = await db.select({
         id: blogPosts.id,
@@ -2661,6 +2661,13 @@ export class DatabaseStorage implements IStorage {
         };
       }));
 
+      // Did the current viewer (auth user or anonymous session) already like this post?
+      const userLiked = viewer?.userId != null
+        ? likesRecords.some((l) => l.userId === viewer.userId)
+        : viewer?.sessionId
+          ? likesRecords.some((l) => l.sessionId === viewer.sessionId)
+          : false;
+
       // Get comments with user info
       const commentsRecords = await db.select()
         .from(postComments)
@@ -2699,7 +2706,8 @@ export class DatabaseStorage implements IStorage {
         ...post,
         tags: tags || [],
         likes: likes || [],
-        comments: comments || []
+        comments: comments || [],
+        userLiked
       });
     } catch (error) {
       console.error('Error in getBlogPost:', error);
@@ -2743,9 +2751,14 @@ export class DatabaseStorage implements IStorage {
   }
 
   // Post Interactions
-  async togglePostLike(postId: number, userId: number): Promise<{ liked: boolean; count: number }> {
+  async togglePostLike(postId: number, viewer: { userId?: number; sessionId?: string }): Promise<{ liked: boolean; count: number }> {
+    // Identify the liker either by authenticated userId or by anonymous sessionId
+    const identityFilter = viewer.userId != null
+      ? eq(postLikes.userId, viewer.userId)
+      : eq(postLikes.sessionId, viewer.sessionId ?? '');
+
     const existingLike = await db.query.postLikes.findFirst({
-      where: and(eq(postLikes.postId, postId), eq(postLikes.userId, userId))
+      where: and(eq(postLikes.postId, postId), identityFilter)
     });
 
     if (existingLike) {
@@ -2753,7 +2766,11 @@ export class DatabaseStorage implements IStorage {
       await db.delete(postLikes).where(eq(postLikes.id, existingLike.id));
     } else {
       // Like
-      await db.insert(postLikes).values({ postId, userId });
+      await db.insert(postLikes).values({
+        postId,
+        userId: viewer.userId,
+        sessionId: viewer.userId != null ? undefined : viewer.sessionId,
+      });
     }
 
     // Get updated count

@@ -4258,15 +4258,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.get("/api/blog/posts/:slug", optionalAuth, async (req: AuthRequest, res) => {
     try {
       const { slug } = req.params;
-      const post = await storage.getBlogPost(slug);
-      
+      const sessionId = typeof req.query.sessionId === 'string' ? req.query.sessionId : undefined;
+      const post = await storage.getBlogPost(slug, { userId: req.user?.userId, sessionId });
+
       if (!post) {
         return res.status(404).json({ message: "Post no encontrado" });
-      }
-
-      // Record view if user is authenticated
-      if (req.user) {
-        await storage.recordPostView(post.id, req.user.userId);
       }
 
       res.json(post);
@@ -4339,11 +4335,21 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // ==================== BLOG INTERACTION ENDPOINTS ====================
 
   // Like/Unlike post
-  app.post("/api/blog/posts/:id/like", authenticateToken, async (req: AuthRequest, res) => {
+  app.post("/api/blog/posts/:id/like", optionalAuth, async (req: AuthRequest, res) => {
     try {
       const { id } = req.params;
-      const result = await storage.togglePostLike(parseInt(id), req.user!.userId);
-      
+      const sessionId = typeof req.body?.sessionId === 'string' ? req.body.sessionId : undefined;
+
+      // Anonymous likes require a session id; authenticated likes use the user id.
+      if (req.user?.userId == null && !sessionId) {
+        return res.status(400).json({ message: "Falta el identificador de sesión" });
+      }
+
+      const result = await storage.togglePostLike(parseInt(id), {
+        userId: req.user?.userId,
+        sessionId,
+      });
+
       res.json(result);
     } catch (error) {
       console.error('Toggle post like error:', error);

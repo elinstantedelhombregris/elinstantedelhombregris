@@ -666,6 +666,8 @@ var init_schema = __esm({
       id: serial("id").primaryKey(),
       postId: integer("post_id").references(() => blogPosts.id),
       userId: integer("user_id").references(() => users.id),
+      sessionId: text("session_id"),
+      // For anonymous likes (null when userId is set)
       createdAt: text("created_at").default(sql`now()`)
     });
     postComments = pgTable("post_comments", {
@@ -3385,6 +3387,907 @@ var init_blogContent = __esm({
     "use strict";
     slugify = (title) => title.toLowerCase().replace(/[^\w\s-]/g, "").replace(/\s+/g, "-").replace(/-+/g, "-").trim();
     blogContentUpdates = {
+      [slugify("\xBFContra qui\xE9n est\xE1s peleando, en serio?")]: {
+        excerpt: "Kuka, libertardo, cucaracha de izquierda, cerdo de derecha. Nos pasamos el d\xEDa tir\xE1ndonos etiquetas como piedras. Pero par\xE1 un segundo: \xBFy si la pelea misma fuera la trampa? El principio m\xE1s viejo del universo explica por qu\xE9 la grieta no se gana \u2014se trasciende. Y mientras vos oscil\xE1s, alguien se est\xE1 llevando el tim\xF3n de verdad.",
+        content: `
+      <article>
+        <h1>\xBFContra qui\xE9n est\xE1s peleando, en serio?</h1>
+        <p>
+          Kuka. Libertardo. Gorila. Zurdo de mierda. Cucaracha de izquierda. Cerdo de derecha.
+        </p>
+        <p>
+          Abr\xED cualquier red social hoy y vas a encontrar estas palabras volando como piedras. Y si
+          mir\xE1s un poco m\xE1s abajo, en los comentarios, encontr\xE1s cosas peores: \xABhay que matar a la
+          derecha\xBB, \xABhay que quemar a la izquierda\xBB, listas de a qui\xE9nes habr\xEDa que \xABcolgar\xBB cuando
+          le toque a cada bando. Gente com\xFAn \u2014probablemente buena gente, que ama a sus hijos y saluda
+          al panadero\u2014 escribiendo, con el pulgar, que habr\xEDa que eliminar f\xEDsicamente a la mitad del pa\xEDs.
+        </p>
+        <p>
+          Y nos parece normal. Nos parece, incluso, militancia. Compromiso. \xABYo por lo menos no me callo\xBB.
+        </p>
+        <p>
+          Par\xE1 un segundo. Par\xE1 de verdad, no como forma de hablar.
+        </p>
+        <p>
+          No te voy a pedir que elijas mejor tu bando. No te voy a decir que la izquierda tiene raz\xF3n,
+          ni que la derecha tiene raz\xF3n, ni que la verdad est\xE1 en un c\xF3modo punto medio. Te voy a pedir
+          algo m\xE1s raro y m\xE1s dif\xEDcil: que por un rato dejemos de mirar la pelea desde adentro de la pelea,
+          y subamos a mirarla desde arriba. Porque desde adentro, la pelea es todo. Desde arriba, se ve
+          otra cosa. Se ve la forma de la trampa.
+        </p>
+        <blockquote>
+          La pregunta no es qui\xE9n tiene raz\xF3n en la grieta. La pregunta es a qui\xE9n le sirve que la grieta exista.
+        </blockquote>
+
+        <h2>Una ley que no aprendiste en la escuela pero comprob\xE1s todos los d\xEDas</h2>
+        <p>
+          Antes de hablar de pol\xEDtica, hablemos del universo. Porque hay una ley que gobierna todo lo que
+          existe, y entenderla cambia la forma en que ves la pelea.
+        </p>
+        <p>
+          <strong>Todo lo que existe tiene dos polos.</strong> Y ac\xE1 viene lo que casi nadie se detiene a pensar:
+          los dos polos no son dos cosas distintas. Son la misma cosa, medida en dos extremos.
+        </p>
+        <p>
+          Pens\xE1 en la temperatura. No existe un aparato para medir \xABel fr\xEDo\xBB y otro para medir \xABel calor\xBB.
+          Existe un solo term\xF3metro, con una sola escala. El fr\xEDo y el calor no son enemigos: son el mismo
+          fen\xF3meno \u2014el movimiento de las mol\xE9culas\u2014 visto en dos puntas de una misma regla. \xBFD\xF3nde termina el
+          fr\xEDo y empieza el calor? En ning\xFAn lado fijo. Es un solo gradiente. Lo mismo con la luz y la oscuridad:
+          no hay \xABpart\xEDculas de oscuridad\xBB peleando contra la luz. Hay una sola cosa \u2014cantidad de luz\u2014 y la
+          oscuridad es, simplemente, su extremo bajo.
+        </p>
+        <p>
+          Grande y chico. Duro y blando. Amor y odio. Todos son pares. Y todos comparten una propiedad que,
+          una vez que la ves, ya no pod\xE9s dejar de verla:
+        </p>
+        <blockquote>
+          Cada polo necesita al otro para existir. Sacale una punta a un im\xE1n y no te queda media verdad:
+          te qued\xE1s sin im\xE1n, y al instante aparecen dos polos nuevos en lo que sobr\xF3.
+        </blockquote>
+        <p>
+          Esto no es una met\xE1fora linda. Es f\xEDsica. Part\xED un im\xE1n al medio para \xABquedarte solo con el norte\xBB,
+          y lo que obten\xE9s son dos imanes, cada uno con su norte y su sur. La naturaleza no conoce un polo solo.
+          El polo solo no existe. Es un imposible.
+        </p>
+
+        <h2>El palo de una sola punta</h2>
+        <p>
+          Y ahora s\xED, bajemos a la grieta. Porque izquierda y derecha son, exactamente, las dos puntas de un
+          mismo palo.
+        </p>
+        <p>
+          \xABIzquierda\xBB y \xABderecha\xBB no nombran dos sustancias distintas. Nombran posiciones relativas sobre un
+          mismo eje: cu\xE1nto Estado, cu\xE1nto mercado, cu\xE1nta tradici\xF3n, cu\xE1nto cambio. Son grados, no especies.
+          Y como todo par de polos, se definen el uno contra el otro. La derecha existe porque hay una izquierda
+          de la cual diferenciarse, y al rev\xE9s. Quitale una y la otra pierde sentido en el acto.
+        </p>
+        <p>
+          Por eso, cuando alguien escribe \xABhay que matar a la derecha\xBB o \xABhay que quemar a la izquierda\xBB, est\xE1
+          diciendo, sin saberlo, una incoherencia metaf\xEDsica. Es como gritar que vas a cortarle la punta fr\xEDa
+          al term\xF3metro para que solo haya calor. Lo \xFAnico que consegu\xEDs \u2014si por un milagro lo lograras\u2014 es que
+          el eje entero se reorganice y aparezca un nuevo \xABfr\xEDo\xBB donde antes hab\xEDa un tibio. Elimin\xE1 a todos los
+          que hoy llam\xE1s \xABde derecha\xBB y ma\xF1ana, dentro de los que quedan, va a haber una derecha. Y una izquierda.
+          Porque el palo, mientras exista gente que piensa, va a tener dos puntas.
+        </p>
+        <blockquote>
+          No se puede ganar una guerra contra la mitad de un im\xE1n. Y, sin embargo, es la guerra a la que nos
+          invitan todos los d\xEDas.
+        </blockquote>
+        <p>
+          Fijate en la palabra que usamos para esto: <strong>partido</strong>. Viene del lat\xEDn <em>pars, partis</em>:
+          una parte. Una porci\xF3n. Un pedazo de algo m\xE1s grande. Afiliarte a un partido es, literalmente, declararte
+          un fragmento. Y un fragmento, por definici\xF3n, nunca puede ver el todo: solo ve desde su esquina. No es un
+          insulto, es geometr\xEDa. El que se vuelve <em>parte</em> renuncia a ver el conjunto.
+        </p>
+
+        <h2>Los extremos se tocan</h2>
+        <p>
+          Hay un segundo secreto en la ley de los polos, y es todav\xEDa m\xE1s inc\xF3modo que el primero: las dos puntas
+          del palo, las que est\xE1n m\xE1s lejos una de la otra, terminan siendo las m\xE1s parecidas entre s\xED.
+        </p>
+        <p>
+          Lo ves en la temperatura otra vez. Toc\xE1 hielo seco a ochenta grados bajo cero y toc\xE1 una plancha al rojo:
+          las dos cosas te queman la piel igual. El fr\xEDo extremo y el calor extremo producen la misma quemadura.
+          Lo ves en el p\xE9ndulo: cuanto m\xE1s fuerte lo empuj\xE1s hacia un lado, con m\xE1s violencia vuelve hacia el otro.
+          Y lo ves en la historia, una y otra vez: casi todas las revoluciones que prometieron liberar a un pueblo
+          terminaron pareci\xE9ndose, hasta el escalofr\xEDo, a la tiran\xEDa que hab\xEDan venido a derrocar. El que llega
+          gritando \xABlibertad\xBB desde un extremo suele gobernar, al poco tiempo, con los m\xE9todos del extremo opuesto.
+        </p>
+        <p>
+          El eje izquierda-derecha, entonces, no es una l\xEDnea recta con dos puntas alejadas. Es una herradura: las
+          puntas se curvan hasta casi tocarse. Por eso el que quiere \xABquemar a la izquierda\xBB y el que quiere \xABcolgar
+          a la derecha\xBB no son opuestos. Son gemelos. Misma certeza absoluta, mismo desprecio por el que piensa
+          distinto, misma fantas\xEDa de un pa\xEDs m\xE1s limpio sin la otra mitad, mismo dedo apretando \xABenviar\xBB a las tres
+          de la ma\xF1ana. Cambian la camiseta. No cambian el gesto.
+        </p>
+        <blockquote>
+          Fijate bien: el que m\xE1s odia al fan\xE1tico del otro lado es el fan\xE1tico de este lado. Se necesitan. Se
+          alimentan. Son la misma persona mir\xE1ndose en un espejo, y creyendo que el reflejo es el enemigo.
+        </blockquote>
+        <p>
+          Si esto te resulta dif\xEDcil de aceptar, es buena se\xF1al: quiere decir que est\xE1s parado en una de las puntas.
+          Y desde la punta, la herradura parece una l\xEDnea recta infinita, con el enemigo del otro lado de un abismo
+          imposible de cruzar. Solo cuando sub\xEDs un poco ves que el abismo era un dobladillo, y que tu enemigo jurado
+          est\xE1, en realidad, a un paso tuyo, haciendo lo mismo que vos.
+        </p>
+
+        <h2>La trampa no es que pierdas. Es que oscil\xE9s.</h2>
+        <p>
+          Ac\xE1 est\xE1 el truco, y es m\xE1s fino de lo que parece.
+        </p>
+        <p>
+          A quien dise\xF1\xF3 este juego no le importa qu\xE9 punta del palo gane. Le importa que vos no dejes de mirar
+          el palo. Que pases el d\xEDa yendo de una punta a la otra, indign\xE1ndote, respondiendo, citando al enemigo
+          para destrozarlo. Porque mientras tu atenci\xF3n est\xE1 clavada en el eje izquierda-derecha, no est\xE1s mirando
+          <em>fuera</em> del eje. Y afuera del eje es donde pasan las cosas que de verdad te cambian la vida.
+        </p>
+        <p>
+          La grieta no es un accidente de la \xE9poca. No es que \xABse nos fue de las manos\xBB. Es un producto. Tiene
+          due\xF1os, tiene ingenier\xEDa y tiene un modelo de negocio. Y el modelo es asombrosamente simple:
+        </p>
+        <blockquote>
+          Las plataformas no venden informaci\xF3n. Venden tu atenci\xF3n. Y descubrieron, midi\xE9ndolo millones de veces
+          por segundo, que nada retiene tu atenci\xF3n como la bronca.
+        </blockquote>
+        <p>
+          Un posteo que te da paz no genera ni una d\xE9cima parte de la reacci\xF3n que genera uno que te hace hervir.
+          El algoritmo no es ideol\xF3gico: es codicioso. No quiere que ganes la discusi\xF3n \u2014quiere que sigas discutiendo,
+          porque cada respuesta tuya es otro aviso publicitario servido, otro dato sobre vos capturado, otro minuto
+          que no pasaste en ning\xFAn otro lado. Vos cre\xE9s que est\xE1s militando una causa. En realidad est\xE1s trabajando
+          gratis en una f\xE1brica de indignaci\xF3n cuyos due\xF1os viven \u2014muy bien, dicho sea de paso\u2014 de tu enojo.
+        </p>
+        <p>
+          Y el mecanismo es m\xE1s sucio todav\xEDa, porque toca lo m\xE1s \xEDntimo: la identidad. Cuando \xABsoy de izquierda\xBB o
+          \xABsoy de derecha\xBB deja de ser una opini\xF3n que ten\xE9s y pasa a ser <em>qui\xE9n sos</em>, cada cr\xEDtica al bando
+          se siente como un ataque a tu persona. Ya no defend\xE9s una idea: te defend\xE9s a vos. Y entonces no pod\xE9s
+          ceder, no pod\xE9s dudar, no pod\xE9s escuchar, porque dudar se siente como morir un poco. La m\xE1quina sabe esto.
+          Por eso no te muestra argumentos para que pienses: te muestra al enemigo en su peor momento, para que
+          sientas. El golpe de dopamina de humillar al otro \u2014el \xABdato mata relato\xBB, la captura triunfal, el z\xF3calo
+          ingenioso\u2014 es real, es qu\xEDmico, y es exactamente igual al de cualquier otra cosa que engancha y no nutre.
+        </p>
+        <p>
+          Hasta el nombre que le pusieron es honesto, si lo escuch\xE1s bien. A esto lo llaman <em>engagement</em>:
+          enganche. No te informan, no te conectan, no te elevan. Te <strong>enganchan</strong>. Y un anzuelo no
+          est\xE1 hecho para alimentar al pez.
+        </p>
+        <p>
+          La grieta es el producto. Vos sos el obrero. Y no te pagan.
+        </p>
+
+        <h2>C\xF3mo se sale: no se elige punta, se cambia de palo</h2>
+        <p>
+          Entonces, \xBFqu\xE9 hac\xE9s? \xBFTe volv\xE9s \xABneutral\xBB? \xBFTe pon\xE9s en el medio tibio del palo, equidistante,
+          sin opinar de nada?
+        </p>
+        <p>
+          No. El medio tibio sigue siendo el mismo palo. El que se para en el centro sigue mirando el eje
+          izquierda-derecha como si fuera la \xFAnica dimensi\xF3n que existe. Sigue atrapado, solo que sin convicciones.
+        </p>
+        <p>
+          La salida es otra, y es la parte m\xE1s linda de la ley de los polos: <strong>no se gana un eje qued\xE1ndote
+          en \xE9l. Se trasciende cambiando de eje.</strong> Sub\xEDs a una pregunta m\xE1s alta, una donde las dos viejas
+          puntas se revelan como lo que siempre fueron \u2014una falsa elecci\xF3n\u2014 y aparece un eje nuevo que las contiene
+          a las dos y las deja chicas.
+        </p>
+        <p>
+          Mir\xE1 la diferencia:
+        </p>
+        <ul>
+          <li>El eje viejo pregunta: <em>\xBFizquierda o derecha?</em></li>
+          <li>El eje nuevo pregunta: <em>\xBFsoberano o gobernado por otro? \xBFconstructor o construido? \xBFdespierto o dormido?</em></li>
+        </ul>
+        <p>
+          En el eje nuevo, el kuka y el libertardo que se insultan a las tres de la ma\xF1ana de pronto descubren algo
+          inc\xF3modo: est\xE1n del mismo lado. Los dos est\xE1n <em>gobernados</em> por una plataforma que les vende su propia
+          bronca. Los dos est\xE1n <em>dormidos</em> respecto de qui\xE9n se est\xE1 llevando lo importante mientras ellos pelean.
+          Los dos son <em>construidos</em> por un algoritmo, en vez de estar construyendo algo.
+        </p>
+        <p>
+          Probalo con cualquier pelea de esta semana. Tom\xE1 la discusi\xF3n del d\xF3lar, o de una ley que se vota, o del
+          funcionario de turno. En el eje viejo te pas\xE1s dos horas demostrando que tu bando tiene raz\xF3n y el otro es
+          un imb\xE9cil o un traidor, y al final del d\xEDa el d\xF3lar est\xE1 igual, la ley la decidieron sin vos, y el
+          funcionario sigue ah\xED. Cambiaste cero. En el eje nuevo hac\xE9s otra pregunta: <em>\xBFqui\xE9n est\xE1 tomando
+          realmente esta decisi\xF3n, con qu\xE9 informaci\xF3n, y por qu\xE9 no la estamos tomando nosotros?</em> Esa pregunta no
+          tiene bando. No la pod\xE9s responder insultando a tu vecino. Solo la pod\xE9s responder construyendo la capacidad
+          de decidir juntos. La primera pregunta te deja agotado y en el mismo lugar. La segunda te deja de pie y
+          mirando hacia adelante. Misma realidad, otro eje, vida distinta.
+        </p>
+        <blockquote>
+          El que te convence de que tu enemigo es tu vecino, ya gan\xF3. Porque mientras ustedes dos se destrozan,
+          \xE9l trabaja tranquilo.
+        </blockquote>
+
+        <h2>Lo que pasa de verdad, mientras vos oscil\xE1s</h2>
+        <p>
+          Te lo digo sin vueltas: mientras la mitad del pa\xEDs se pelea con la otra mitad por etiquetas, el poder
+          de verdad \u2014el que decide c\xF3mo va a ser tu vida concreta dentro de diez a\xF1os\u2014 est\xE1 cambiando de manos.
+          Y casi nadie lo est\xE1 mirando, porque no entra en la grieta. Est\xE1 afuera del palo.
+        </p>
+        <p>
+          Hace unos d\xEDas escrib\xED sobre esto en detalle, as\xED que lo resumo: el tim\xF3n ya no est\xE1 en el balc\xF3n ni en
+          la plaza. Est\xE1 en los protocolos con los que nos hablamos, en los rieles por donde corre nuestra plata,
+          en las nubes donde guardamos la memoria, en las inteligencias artificiales que empiezan a decidir qu\xE9
+          ves, qu\xE9 cobr\xE1s, qu\xE9 cr\xE9dito te dan, qu\xE9 tratamiento te toca. El tim\xF3n cambi\xF3 de forma. Y mientras
+          discutimos qui\xE9n va a ser la pr\xF3xima cara en la pantalla, alguien \u2014que no votamos y que muchas veces ni
+          siquiera vive ac\xE1\u2014 ya puso la mano en el tim\xF3n nuevo.
+        </p>
+        <p>
+          Esto es lo que pasa de verdad, y tiene el efecto m\xE1s profundo que algo puede tener sobre una vida humana,
+          porque toca todo a la vez:
+        </p>
+        <ul>
+          <li><strong>Qui\xE9n piensa por vos.</strong> Cada vez m\xE1s decisiones \u2014qu\xE9 informaci\xF3n te llega, qu\xE9 precio
+          pag\xE1s, si calific\xE1s o no\u2014 las toma un sistema dise\xF1ado afuera, con una l\xF3gica que no pod\xE9s auditar, en un
+          idioma que no es el tuyo. Es soberan\xEDa, pero la palabra nueva es soberan\xEDa <em>cognitiva</em>: qui\xE9n es
+          due\xF1o de la infraestructura que piensa, paga y recuerda en tu lugar.</li>
+          <li><strong>D\xF3nde se concentra el poder.</strong> Mientras peleamos por categor\xEDas de pensamiento, lo
+          material \u2014los datos, los rieles de pago, los modelos de IA, el c\xF3mputo\u2014 se concentra en muy pocas manos,
+          casi siempre lejos de ac\xE1. La grieta es ruidosa y gratis; la concentraci\xF3n es silenciosa y car\xEDsima.</li>
+          <li><strong>Ad\xF3nde va tu energ\xEDa.</strong> Ten\xE9s una cantidad finita de fuerza vital por d\xEDa. Atenci\xF3n,
+          tiempo, capacidad de indignarte, capacidad de amar. Y la est\xE1s gastando casi entera en una acci\xF3n que no
+          mueve nada: el insulto digital, el hilo, la captura de pantalla del enemigo. Acci\xF3n que se siente como algo
+          y no es nada.</li>
+        </ul>
+        <p>
+          Y esto no es ciencia ficci\xF3n ni paranoia. Es esta semana. Las decisiones que un sistema automatizado ya
+          empieza a tomar por vos no son abstractas: son si te dan o no un cr\xE9dito, qu\xE9 precio te muestra una
+          plataforma, qu\xE9 tratamiento prioriza un sistema de salud, qu\xE9 le llega a tu hijo en la pantalla seis horas
+          por d\xEDa. Eso te toca la vida mucho m\xE1s que cualquier posteo del enemigo. Y hay un reloj: mientras estas
+          arquitecturas est\xE1n en dise\xF1o, se las puede discutir, auditar, reclamar que sean nuestras. Una vez que se
+          instalan y se vuelven el piso invisible sobre el que caminamos todos, discutirlas es como discutir la ley
+          de gravedad. La ventana est\xE1 abierta ahora. No se va a quedar abierta mientras nosotros nos entretenemos
+          peleando por qui\xE9n es m\xE1s kuka o m\xE1s libertardo.
+        </p>
+        <p>
+          Esa \xFAltima es la m\xE1s cara de todas. Porque la bronca, en el fondo, es amor. Es amor herido. Nadie se
+          enoja por lo que no le importa. Te indign\xE1s con el pa\xEDs porque lo quer\xE9s, porque quer\xE9s que a tu gente le
+          vaya bien, porque algo adentro tuyo sabe que esto podr\xEDa ser mejor. Esa furia es combustible nobil\xEDsimo.
+          Y lo est\xE1s quemando en el lugar donde no enciende nada.
+        </p>
+
+        <h2>La misma pantalla, el dedo opuesto</h2>
+        <p>
+          Ac\xE1 est\xE1 la buena noticia, y es asombrosamente pr\xE1ctica.
+        </p>
+        <p>
+          La acci\xF3n digital sin sentido y la acci\xF3n digital con sentido usan exactamente lo mismo: una pantalla,
+          unos minutos, tu pulgar. La diferencia no est\xE1 en la herramienta. Est\xE1 en hacia d\xF3nde apunt\xE1s.
+        </p>
+        <p>
+          El mismo dedo que escribe \xABkuka de mierda\xBB en un comentario que nadie va a recordar ma\xF1ana, puede
+          escribir <em>\xABtengo una camioneta y los s\xE1bados a la ma\xF1ana estoy libre\xBB</em> en un mapa donde alguien,
+          a veinte cuadras, est\xE1 buscando exactamente eso para llevar donaciones a un comedor. Tardan los dos lo
+          mismo: diez segundos. Pero uno alimenta una m\xE1quina de bronca ajena, y el otro conecta una necesidad
+          con un recurso.
+        </p>
+        <blockquote>
+          Acci\xF3n digital sin sentido: producir indignaci\xF3n para que otro la venda.
+          Acci\xF3n digital con sentido: declarar lo que ten\xE9s, lo que necesit\xE1s y lo que so\xF1\xE1s, para que se
+          encuentre con su par.
+        </blockquote>
+        <p>
+          Eso es, exactamente, lo que es un mapa de necesidades y recursos. No es una app m\xE1s. Es el lugar donde
+          tu energ\xEDa, en vez de evaporarse en una discusi\xF3n, se vuelve una coordenada concreta: ac\xE1 hay una falta,
+          all\xE1 hay con qu\xE9 llenarla, junt\xE9moslas.
+        </p>
+        <p>
+          Baj\xE9moslo a tierra, porque suena abstracto y no lo es. Una maestra jubilada en Tucum\xE1n tiene tres tardes
+          libres por semana y cuarenta a\xF1os ense\xF1ando a leer. A doce cuadras, una madre no sabe a qui\xE9n pedirle que
+          le d\xE9 una mano con su hijo que qued\xF3 atr\xE1s en la escuela. Hoy esas dos personas no se encuentran nunca:
+          ninguna de las dos sabe que la otra existe. No les falta voluntad ni amor. Les falta el mapa. Les falta el
+          lugar donde la maestra escriba \xABpuedo ense\xF1ar\xBB y la madre escriba \xABnecesito\xBB y un sistema, sin grieta y
+          sin algoritmo de bronca, las cruce. Eso no es caridad ni es pol\xEDtica: es ingenier\xEDa de lo obvio. Es dejar
+          de desperdiciar el amor que ya est\xE1, ah\xED, suelto, sin encontrarse.
+        </p>
+        <p>
+          Multiplic\xE1 esos dos puntos por un mill\xF3n de personas que dejaron de tirar piedras y empezaron a poner
+          coordenadas, y ten\xE9s algo que ning\xFAn algoritmo de bronca puede darte: un pa\xEDs que se teje a s\xED mismo.
+        </p>
+
+        <h2>Y entonces, \xBFqu\xE9 es el trabajo?</h2>
+        <p>
+          Hay una palabra que usamos para todo esto y que conviene rescatar, porque la dejamos secar hasta que
+          qued\xF3 significando \xABel lugar donde sufro de 9 a 18 para llegar a fin de mes\xBB. Esa palabra es <strong>trabajo</strong>.
+        </p>
+        <p>
+          Khalil Gibran, en <em>El Profeta</em>, cuando le piden que hable del trabajo, no habla de empleo, ni de
+          sueldo, ni de jefes. Dice algo que parece simple y es vertiginoso:
+        </p>
+        <blockquote>
+          \xABEl trabajo es el amor hecho visible.\xBB
+        </blockquote>
+        <p>
+          El amor hecho visible. El amor que deja de ser un sentimiento adentro tuyo y se vuelve un acto afuera, en
+          el mundo, donde otro lo puede recibir. Amor hecho acci\xF3n. Esa es la definici\xF3n. Y por eso Gibran agrega
+          que, si no pod\xE9s trabajar con amor sino solo con disgusto, mejor ser\xEDa que dejaras el trabajo y te
+          sentaras a la puerta de un templo a pedir limosna, porque el pan amasado con desgano alimenta a medias.
+        </p>
+        <p>
+          Mir\xE1 lo que esto hace con todo lo anterior. Insultar en una red no es trabajo: es amor herido girando en
+          falso, sin volverse visible, sin construir nada. En cambio, poner una verdad en un mapa para que otro la
+          encuentre \u2014ofrecer tu camioneta, declarar que sab\xE9s ense\xF1ar a leer, pedir la mano que te falta\u2014 eso s\xED es
+          trabajo en el sentido m\xE1s hondo de la palabra. Es amor que se hizo acci\xF3n. Es el sentimiento m\xE1s noble que
+          ten\xE9s, convertido en algo que otro puede tocar.
+        </p>
+        <p>
+          Gibran va m\xE1s lejos todav\xEDa, y vale la pena seguirlo. Trabajar con amor, dice, es tejer la tela con hilos
+          sacados de tu coraz\xF3n, como si la fuera a usar la persona que am\xE1s; es construir una casa con cari\xF1o, como
+          si en ella fuera a vivir la persona que am\xE1s; es sembrar la semilla con ternura y cosechar con alegr\xEDa,
+          como si el fruto lo fuera a comer la persona que am\xE1s. Esa es la vara. No \xAB\xBFme conviene?\xBB. No \xAB\xBFqui\xE9n gana?\xBB.
+          Sino: <em>\xBFlo har\xEDa as\xED si del otro lado estuviera alguien que amo?</em> Cuando pon\xE9s una necesidad o un
+          recurso en un mapa pensando en el desconocido que lo va a recibir como si fuera de los tuyos, eso \u2014y no el
+          insulto, nunca el insulto\u2014 es trabajo. Es amor hecho visible entre extra\xF1os. Es, si lo pens\xE1s, la definici\xF3n
+          exacta de lo que le falta a un pa\xEDs roto.
+        </p>
+        <blockquote>
+          La grieta te pide que odies a una mitad. El trabajo \u2014el de verdad\u2014 te pide que ames a alguien lo bastante
+          como para hacer algo. Las dos cosas empiezan con tu energ\xEDa. Solo una la transforma en mundo.
+        </blockquote>
+
+        <h2>El pa\xEDs a la altura de nuestros ideales</h2>
+        <p>
+          Nos quejamos del pa\xEDs donde vivimos. Y tenemos motivos: hay cosas rotas, hay injusticia, hay cansancio.
+          Pero hay una verdad que cuesta tragar y conviene mirar de frente.
+        </p>
+        <p>
+          Un pa\xEDs no es un lugar que nos pasa. Es la suma de d\xF3nde cada uno de nosotros pone su energ\xEDa, todos los
+          d\xEDas, con el pulgar y con las manos. Si ponemos la energ\xEDa en la bronca, tenemos un pa\xEDs de bronca \u2014que es,
+          m\xEDrenlo, bastante parecido al que tenemos\u2014. Si la pusi\xE9ramos en conectar, en construir, en hacer visible
+          el amor, tendr\xEDamos otro. No por magia. Por f\xEDsica social: cosechamos exactamente lo que sembramos con la
+          atenci\xF3n.
+        </p>
+        <blockquote>
+          El lugar donde vivimos nunca est\xE1 por encima de la estatura de nuestros ideales. Se levanta, justo,
+          hasta donde estamos dispuestos a llevarlos con las manos. Ni un cent\xEDmetro m\xE1s.
+        </blockquote>
+        <p>
+          Tenemos el pa\xEDs que alimentamos. Y lo alimentamos con cada gesto, m\xEDnimo, repetido, multiplicado por
+          millones. La grieta es lo que pasa cuando una sociedad entera decide, sin darse cuenta, alimentar lo peor
+          de s\xED misma porque alguien hizo que eso fuera lo m\xE1s f\xE1cil de hacer con el pulgar.
+        </p>
+        <p>
+          La pregunta del t\xEDtulo, entonces, ya tiene otra forma. No es contra qui\xE9n est\xE1s peleando. Es: \xBFpor qu\xE9
+          est\xE1s peleando, en vez de construir? \xBFA qui\xE9n le sirve que tu amor se gaste en odio? Y, sobre todo:
+          \xBFqu\xE9 pasar\xEDa si ma\xF1ana el mill\xF3n de personas que hoy tira piedras pusiera, en cambio, un mill\xF3n de
+          coordenadas en un mapa?
+        </p>
+        <p>
+          Ese mapa existe. Es el paso cero, el lugar donde pon\xE9s tu verdad \u2014un sue\xF1o, una necesidad, un recurso\u2014
+          y dej\xE1s que se encuentre con la de otro. No te pide que elijas bando. Te pide algo mucho m\xE1s dif\xEDcil y
+          mucho m\xE1s digno: que dejes de pelear por una parte y empieces a construir el todo.
+        </p>
+        <p>
+          <strong><a href="https://elinstantedelhombregris.com/el-mapa">Pon\xE9 tu verdad en El Mapa \u2014 conect\xE1 lo que ten\xE9s con lo que falta \u2192</a></strong>
+        </p>
+        <p>
+          El mismo dedo que escribe un insulto puede poner una coordenada en un mapa. Las dos cosas tardan diez
+          segundos. Solo una construye un pa\xEDs.
+        </p>
+        <blockquote>
+          Tu enemigo no est\xE1 del otro lado de la grieta. Tu enemigo es la grieta. Y la grieta se cierra de un
+          solo modo: no eligiendo una punta del palo, sino solt\xE1ndolo para tener, por fin, las dos manos libres
+          para construir.
+        </blockquote>
+      </article>
+    `
+      },
+      [slugify("\xBFQui\xE9n tiene el tim\xF3n?")]: {
+        excerpt: 'El 25 de Mayo es mi fecha patria preferida: el d\xEDa en que se organiz\xF3 el Primer Gobierno Patrio. 216 a\xF1os despu\xE9s, el Gobierno anunci\xF3 un "gemelo digital" de los argentinos. El paralelo con 1810 existe \u2014pero invertido. La pregunta es una sola: \xBFde qui\xE9n es la mano en el tim\xF3n?',
+        content: `
+      <article>
+        <h1>\xBFQui\xE9n tiene el tim\xF3n?</h1>
+        <p>
+          Te confieso algo: el 25 de Mayo es mi fecha patria preferida.
+        </p>
+        <p>
+          No por el desfile ni por el locro \u2014aunque el locro ayuda. La prefiero porque no celebra una batalla
+          ni a un hombre: celebra el d\xEDa en que un grupo de personas se organiz\xF3. El 25 de mayo de 1810 no naci\xF3
+          un pa\xEDs terminado; se alcanz\xF3 un hito en el largo proceso de organizarnos, y se plant\xF3 la semilla que
+          seis a\xF1os m\xE1s tarde, en 1816, dar\xEDa el fruto de la independencia. Fue el d\xEDa en que se form\xF3 el
+          <strong>Primer Gobierno Patrio</strong>.
+        </p>
+        <p>
+          Deten\xE9 la mirada en esas tres palabras, porque cada una guarda un secreto.
+        </p>
+        <ul>
+          <li><strong>Primer</strong> \u2014del lat\xEDn <em>primarius</em>, de <em>primus</em>: "el que va delante". No el mejor: el que abre. El que se anima a caminar cuando todav\xEDa no hay camino, y al hacerlo lo abre para los que vienen detr\xE1s.</li>
+          <li><strong>Gobierno</strong> \u2014del lat\xEDn <em>gubernare</em>, "pilotar un barco", tomado del griego <em>kybern\xE1o</em>: manejar el tim\xF3n. Gobernar nunca quiso decir mandar desde un trono. Quiso decir, desde el principio, llevar el tim\xF3n de algo que se mueve. Acordate de esta palabra: vamos a volver a ella.</li>
+          <li><strong>Patrio</strong> \u2014de <em>patria</em>, "la tierra de los padres". No la tierra que poseemos, sino la que heredamos y la que les debemos a los que todav\xEDa no nacieron. Patria es una deuda hacia adelante.</li>
+        </ul>
+        <p>
+          Eso fue 1810: gente com\xFAn que se organiz\xF3, que cre\xF3 una estructura nueva donde antes no hab\xEDa nada,
+          que acept\xF3 que el deseo de fundar una naci\xF3n \u2014con todo lo que eso significaba\u2014 val\xEDa el esfuerzo.
+          Y val\xEDa tambi\xE9n el riesgo: en el camino muri\xF3 gente. La libertad que hoy tenemos se pag\xF3 con sangre.
+        </p>
+        <p>
+          Por eso existe El Instante del Hombre Gris. Para que la pr\xF3xima refundaci\xF3n la podamos ver suceder
+          <strong>sin sangre en la calle</strong> \u2014o, al menos, sin sangre de inocentes. No venimos a repetir la
+          batalla: venimos a hacer obsoleta la necesidad de pelearla. La revoluci\xF3n que proponemos se libra con
+          dise\xF1o, con c\xF3digo y con organizaci\xF3n. No con muertos.
+        </p>
+        <p>
+          Hoy es 25 de mayo otra vez. Y hay algo que tenemos que mirar de frente, porque el tim\xF3n \u2014ese del que
+          habla la palabra "gobierno"\u2014 cambi\xF3 de lugar.
+        </p>
+        <p>
+          Ya no est\xE1 en una plaza. No est\xE1 en un balc\xF3n. Est\xE1 en los protocolos que usamos para hablarnos,
+          en los pagos que cruzan nuestras manos, en las nubes donde guardamos la memoria, en las inteligencias
+          artificiales que empiezan a pensar por nosotros. Y mientras seguimos discutiendo qui\xE9n ser\xE1 la pr\xF3xima
+          cara en el balc\xF3n, alguien ya puso la mano en el tim\xF3n nuevo.
+        </p>
+        <p>
+          Voy a adelantar la tesis, porque es inc\xF3moda y conviene decirla temprano: <strong>el paralelo con 1810
+          existe, pero est\xE1 invertido.</strong> En 1810, Argentina rompi\xF3 una dependencia con un centro de poder
+          remoto. En 2026, est\xE1 negociando los t\xE9rminos de una dependencia nueva \u2014ya no de soberan\xEDa pol\xEDtica, sino
+          de soberan\xEDa cognitiva, a trav\xE9s de la infraestructura de datos. En 1810 recuperamos el tim\xF3n. Hoy estamos
+          a punto de entregarlo, y encima creyendo que nos modernizamos.
+        </p>
+        <p>
+          Hay una verdad que pocos quieren mirar de frente: mientras esperamos permiso para gobernarnos,
+          otros ya nos est\xE1n gobernando. No con tanques. No con decretos. Con protocolos dise\xF1ados en otra parte,
+          para otros fines, en otro idioma, bajo otra l\xF3gica.
+        </p>
+        <blockquote>
+          El vac\xEDo no se queda vac\xEDo. Esa es la primera ley.
+        </blockquote>
+
+        <h2>La casa de mu\xF1ecas</h2>
+        <p>
+          Te lo voy a explicar como se lo explicar\xEDa a un chico de cinco a\xF1os, porque las cosas importantes
+          se entienden mejor as\xED.
+        </p>
+        <p>
+          Imaginate que alguien construye una casa de mu\xF1ecas gigante. Pero no es cualquier casa: es una copia
+          en miniatura de todo el pa\xEDs. Y adentro hay un mu\xF1equito por cada persona. Uno de esos mu\xF1equitos sos vos:
+          con tus datos, tu plata, tu salud, tu escuela, tu trabajo, tu barrio.
+        </p>
+        <p>
+          El que tiene la casa de mu\xF1ecas puede mover los mu\xF1equitos. Puede probar qu\xE9 pasa si a este grupo le saca
+          algo, si a aquel le da otra cosa, si los empuja para ac\xE1 o para all\xE1. Lo ensaya primero en los mu\xF1equitos
+          y despu\xE9s lo aplica sobre las personas de verdad.
+        </p>
+        <p>
+          Suena pr\xE1ctico. Y en parte lo es. El problema no es la casa de mu\xF1ecas.
+        </p>
+        <blockquote>
+          El problema es de qui\xE9n es la casa de mu\xF1ecas. Porque el que mueve los mu\xF1equitos, te mueve a vos.
+        </blockquote>
+        <p>
+          Esto ya no es una met\xE1fora lejana, ni una hip\xF3tesis. Pas\xF3 esta semana.
+        </p>
+
+        <h2>Separemos la se\xF1al del ruido</h2>
+        <p>
+          Un texto que pide rigor tiene que empezar por el suyo. As\xED que separemos lo que est\xE1 confirmado de lo
+          que es inferencia, porque ac\xE1 la diferencia importa much\xEDsimo.
+        </p>
+        <p><strong>Lo confirmado:</strong></p>
+        <ul>
+          <li>El 25 de mayo de 2026 \u2014216 a\xF1os exactos despu\xE9s de aquel primer Cabildo\u2014 el Gobierno present\xF3 el <strong>"Gemelo Digital Social"</strong>, bajo el Ministerio de Capital Humano. Cruza datos de los ciudadanos para dise\xF1ar pol\xEDticas p\xFAblicas: promete "simular escenarios, anticipar impactos y optimizar decisiones en tiempo real". Trabaja en cuatro niveles, que van desde describir lo que pasa hasta \u2014en el \xFAltimo\u2014 <strong>prescribir</strong>: decir qu\xE9 hay que hacer.</li>
+          <li>"Gemelo digital" (<em>digital twin</em>) es uno de los servicios que comercializa Palantir Foundry \u2014la empresa que cofund\xF3 Peter Thiel\u2014, aunque tambi\xE9n lo ofrecen Microsoft y otras.</li>
+          <li>Thiel visit\xF3 la Argentina hace poco, compr\xF3 una mansi\xF3n en Barrio Parque y se reuni\xF3 con Milei, Caputo y otros funcionarios.</li>
+          <li>La Fundaci\xF3n V\xEDa Libre present\xF3 un pedido formal de informaci\xF3n: qu\xE9 normativa rige, qu\xE9 datos se usan, qu\xE9 organismos intervienen y si participan empresas privadas.</li>
+        </ul>
+        <p><strong>Lo no confirmado \u2014y es cr\xEDtico no confundirlo:</strong></p>
+        <ul>
+          <li>No hay evidencia de que Palantir haya sido contratada. El propio Gobierno aclar\xF3 que todav\xEDa no eligi\xF3 proveedor.</li>
+          <li>No hay licitaci\xF3n p\xFAblica conocida. No hay marco normativo espec\xEDfico publicado. No hay arquitectura t\xE9cnica detallada.</li>
+        </ul>
+        <blockquote>
+          El riesgo real no necesita que Palantir est\xE9 contratada hoy. El riesgo es estructural, no nominal:
+          no depende de un nombre, depende de una arquitectura. Vamos a eso.
+        </blockquote>
+
+        <h2>Qu\xE9 es de verdad \u2014y por qu\xE9 el peligro no depende de qui\xE9n la maneje</h2>
+        <p>
+          Despojado del marketing: un gemelo digital social es una <strong>representaci\xF3n computacional unificada
+          de una poblaci\xF3n</strong>, armada cruzando las bases de datos administrativas del Estado \u2014ANSES, AFIP,
+          salud, educaci\xF3n, registro civil, y eventualmente las telef\xF3nicas y bancarias\u2014 sobre las que se corren
+          modelos que predicen comportamiento. Es, exactamente, la casa de mu\xF1ecas, con el nombre t\xE9cnico puesto.
+        </p>
+        <p>
+          Y ac\xE1 est\xE1 lo que casi nadie dice: un gemelo digital tiene tres propiedades estructurales que existen
+          <em>al margen</em> de las intenciones de quien lo maneje \u2014sea bueno o malo, argentino o extranjero,
+          p\xFAblico o privado:
+        </p>
+        <ul>
+          <li><strong>Centralizaci\xF3n.</strong> Hoy cada base de datos p\xFAblica vive en su silo. Eso no es solo desorden: la fragmentaci\xF3n es un cortafuegos contra el abuso. Que ANSES no hable en autom\xE1tico con salud, y salud con tu banco, te protege. El gemelo digital es, por dise\xF1o, una herramienta para <em>derribar ese cortafuegos</em>.</li>
+          <li><strong>Asimetr\xEDa informacional.</strong> El que opera el gemelo sabe m\xE1s sobre la poblaci\xF3n que la poblaci\xF3n sobre s\xED misma \u2014y much\xEDsimo m\xE1s de lo que la poblaci\xF3n sabe sobre \xE9l. Esa asimetr\xEDa es la materia prima del poder moderno: comercial, electoral y, llegado el caso, coercitivo.</li>
+          <li><strong>Opacidad algor\xEDtmica.</strong> Las decisiones que salen del modelo no son auditables por quienes las sufren. "Lo dijo el algoritmo" se vuelve una autoridad sin contraparte: sin apelaci\xF3n, sin rostro.</li>
+        </ul>
+        <p>
+          Le\xE9 esto despacio: esas tres propiedades redistribuyen poder <strong>por s\xED solas</strong>. Discutir las
+          intenciones del operador es discutir lo secundario. La arquitectura es el mensaje.
+        </p>
+
+        <h2>Gobernar es llevar el tim\xF3n</h2>
+        <p>
+          Par\xE1 un segundo conmigo, porque ac\xE1 hay una palabra que guarda un secreto.
+        </p>
+        <p>
+          <strong>Gobernar</strong> viene del lat\xEDn <em>gubernare</em>: pilotar un barco. Y el lat\xEDn lo tom\xF3 del
+          griego <em>kybern\xE1o</em> (\u03BA\u03C5\u03B2\u03B5\u03C1\u03BD\u03AC\u03C9), que significaba exactamente eso \u2014manejar el tim\xF3n. Al que llevaba el
+          tim\xF3n lo llamaban <em>kybern\xE9tes</em>: el piloto.
+        </p>
+        <p>
+          \xBFTe suena esa ra\xEDz? <em>Kyber</em>. De ah\xED sale la palabra <strong>cibern\xE9tica</strong>: la ciencia de
+          c\xF3mo se controla y se dirige un sistema. Gobernar y cibern\xE9tica no son primas: son la misma palabra.
+          Las dos significan, desde hace tres mil a\xF1os, lo mismo \u2014tener la mano en el tim\xF3n.
+        </p>
+        <p>
+          Encend\xE9 esa linterna y mir\xE1 de nuevo el "Gemelo Digital Social":
+        </p>
+        <blockquote>
+          Una inteligencia artificial que te describe, te predice y te <em>prescribe</em> no es una herramienta
+          administrativa. Es, en el sentido m\xE1s antiguo y m\xE1s exacto de la palabra, una m\xE1quina de gobernar.
+        </blockquote>
+        <p>
+          Entonces la discusi\xF3n deja de ser t\xE9cnica y se vuelve la m\xE1s pol\xEDtica de todas. Y ac\xE1 est\xE1 la trampa que
+          casi nadie ve: la pregunta no es si vamos a tener un gemelo digital. <strong>Lo vamos a tener.</strong>
+          Un pa\xEDs que se quiere dise\xF1ar a s\xED mismo necesita verse a s\xED mismo \u2014necesita datos, modelos, capacidad de
+          ensayar antes de aplicar. Negarlo ser\xEDa como negar la imprenta.
+        </p>
+        <p>
+          La pregunta es otra, y es una sola: \xBFel tim\xF3n lo lleva el ciudadano, o lo llevan por \xE9l?
+        </p>
+
+        <h2>El futuro no se predice. Se construye.</h2>
+        <p>
+          Fijate en para qu\xE9 se construye la casa de mu\xF1ecas. Para <em>predecir</em>. Para <em>prescribir</em>.
+          Para saber, antes que vos, qu\xE9 vas a hacer \u2014y empujarte hacia donde a otros les conviene que vayas.
+        </p>
+        <p>
+          Y ah\xED est\xE1 la grieta filos\xF3fica que lo cambia todo.
+        </p>
+        <blockquote>
+          El futuro no se predice. Se construye.
+        </blockquote>
+        <p>
+          El que te predice, te administra. Te trata como materia prima a procesar, como mu\xF1equito a mover.
+          El que se construye, manda. Esa es la diferencia entre ser objeto y ser fuente, entre ser administrado
+          y ser soberano.
+        </p>
+        <p>
+          Por eso hay dos fuerzas avanzando sobre el espacio que dejamos libre, y las dos comparten la misma premisa.
+        </p>
+        <ul>
+          <li><strong>Una es externa:</strong> corporaciones que no le rinden cuentas a nadie, que extraen el valor argentino y lo procesan en otro continente.</li>
+          <li><strong>La otra es interna y m\xE1s sutil:</strong> la casta que se atribuye el derecho a gobernarte no porque la hayas elegido, sino porque "entiende". Porque tiene los t\xEDtulos. Porque maneja la complejidad. Porque vos no.</li>
+        </ul>
+        <p>
+          Las dos te ven igual: como un dato, no como un due\xF1o. Y esto no es izquierda contra derecha, ni de un
+          gobierno contra otro. El conflicto real es m\xE1s viejo y m\xE1s simple: es entre quienes crean valor y quienes
+          viven de extraerlo, entre quienes construyen caminos y quienes administran atajos. No es contra una persona.
+          Es contra un dise\xF1o.
+        </p>
+
+        <h2>El espejo invertido: 1810 y 2026</h2>
+        <p>
+          En mayo de 1810 hab\xEDa varios vectores empujando a la vez: un nodo central vac\xEDo (Espa\xF1a ocupada),
+          milicias criollas ya operativas, una doctrina jur\xEDdica que daba legitimidad \u2014la retroversi\xF3n de la
+          soberan\xEDa al pueblo\u2014, intereses econ\xF3micos desalineados con la metr\xF3poli, y una noticia de afuera que
+          ofici\xF3 de detonante. \xBFEl resultado? El poder volvi\xF3 a lo local: al Cabildo.
+        </p>
+        <p>
+          Hoy los mismos vectores est\xE1n dados vuelta:
+        </p>
+        <table style="width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.95rem;overflow:hidden;border-radius:10px;">
+          <thead>
+            <tr>
+              <th style="background:#7D5BDE;color:#ffffff;padding:0.7rem 0.9rem;text-align:left;border:1px solid #6a4cc4;">Vector</th>
+              <th style="background:#7D5BDE;color:#ffffff;padding:0.7rem 0.9rem;text-align:left;border:1px solid #6a4cc4;">1810</th>
+              <th style="background:#7D5BDE;color:#ffffff;padding:0.7rem 0.9rem;text-align:left;border:1px solid #6a4cc4;">2026</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding:0.6rem 0.9rem;border:1px solid #e5e7eb;color:#2F3545;font-weight:600;">Nodo central</td>
+              <td style="padding:0.6rem 0.9rem;border:1px solid #e5e7eb;color:#374151;">Espa\xF1a (vac\xEDo)</td>
+              <td style="padding:0.6rem 0.9rem;border:1px solid #e5e7eb;color:#374151;">Silicon Valley / Palantir (en expansi\xF3n)</td>
+            </tr>
+            <tr style="background:#f4f1fb;">
+              <td style="padding:0.6rem 0.9rem;border:1px solid #e5e7eb;color:#2F3545;font-weight:600;">Recurso cr\xEDtico</td>
+              <td style="padding:0.6rem 0.9rem;border:1px solid #e5e7eb;color:#374151;">Comercio mar\xEDtimo</td>
+              <td style="padding:0.6rem 0.9rem;border:1px solid #e5e7eb;color:#374151;">Datos ciudadanos</td>
+            </tr>
+            <tr>
+              <td style="padding:0.6rem 0.9rem;border:1px solid #e5e7eb;color:#2F3545;font-weight:600;">Doctrina que legitima</td>
+              <td style="padding:0.6rem 0.9rem;border:1px solid #e5e7eb;color:#374151;">Retroversi\xF3n de la soberan\xEDa</td>
+              <td style="padding:0.6rem 0.9rem;border:1px solid #e5e7eb;color:#374151;">"Eficiencia", "modernizaci\xF3n", "evidencia"</td>
+            </tr>
+            <tr style="background:#f4f1fb;">
+              <td style="padding:0.6rem 0.9rem;border:1px solid #e5e7eb;color:#2F3545;font-weight:600;">Capacidad local</td>
+              <td style="padding:0.6rem 0.9rem;border:1px solid #e5e7eb;color:#374151;">Milicias criollas</td>
+              <td style="padding:0.6rem 0.9rem;border:1px solid #e5e7eb;color:#374151;">Limitada: no hay industria de IA soberana comparable</td>
+            </tr>
+            <tr>
+              <td style="padding:0.6rem 0.9rem;border:1px solid #e5e7eb;color:#2F3545;font-weight:600;">Detonante de afuera</td>
+              <td style="padding:0.6rem 0.9rem;border:1px solid #e5e7eb;color:#374151;">Ca\xEDda de la Junta de Sevilla</td>
+              <td style="padding:0.6rem 0.9rem;border:1px solid #e5e7eb;color:#374151;">Llegada de Thiel + presi\xF3n geopol\xEDtica</td>
+            </tr>
+            <tr style="background:#f4f1fb;">
+              <td style="padding:0.6rem 0.9rem;border:1px solid #e5e7eb;color:#2F3545;font-weight:600;">Direcci\xF3n del poder</td>
+              <td style="padding:0.6rem 0.9rem;border:1px solid #e5e7eb;color:#374151;">Periferia \u2192 centro local</td>
+              <td style="padding:0.6rem 0.9rem;border:1px solid #e5e7eb;color:#374151;">Periferia \u2192 centro extranjero</td>
+            </tr>
+          </tbody>
+        </table>
+        <blockquote>
+          El 25 de mayo de 1810 fue una relocalizaci\xF3n del poder hacia abajo, hacia lo nuestro. El 25 de mayo de
+          2026 puede ser exactamente lo contrario: una transferencia del tim\xF3n hacia un centro nuevo, y m\xE1s lejos
+          que Espa\xF1a. Esa es la simetr\xEDa invertida.
+        </blockquote>
+        <p>
+          Ese espejo nos obliga a ver cinco cosas \u2014en orden de importancia, no de comodidad:
+        </p>
+        <p>
+          <strong>1. El problema no es Thiel. Es la arquitectura.</strong> Si ponemos el foco en una persona, el
+          d\xEDa que el contrato lo gane Microsoft, una empresa china o una startup local, el argumento se desinfla.
+          Aunque Palantir no firme nunca, si la herramienta se construye con centralizaci\xF3n, opacidad y asimetr\xEDa,
+          el da\xF1o estructural ya est\xE1 hecho. Y las herramientas de vigilancia <em>nunca</em> se desarman: cambian
+          de operador. El pr\xF3ximo gobierno \u2014del signo que sea\u2014 la hereda. Pas\xF3 con el aparato de inteligencia en
+          cada cambio desde 1983: todos prometieron reformarlo, todos terminaron us\xE1ndolo.
+        </p>
+        <p>
+          <strong>2. La pregunta no es "\xBFqu\xE9 van a hacer con los datos?".</strong> Esa pregunta tiene respuestas
+          tranquilizadoras ("pol\xEDticas sociales m\xE1s justas"). La pregunta de verdad es: <strong>\xBFqu\xE9 arquitectura
+          de poder estamos construyendo?</strong> Y esa no tiene respuesta tranquilizadora, porque una arquitectura
+          tiene propiedades que emergen solas, m\xE1s all\xE1 del uso que le den el primer d\xEDa.
+        </p>
+        <p>
+          <strong>3. La soberan\xEDa del siglo XXI se juega en tres capas, no en una.</strong>
+        </p>
+        <ul>
+          <li>Capa f\xEDsica: el territorio. La vieja soberan\xEDa \u2014Malvinas, recursos.</li>
+          <li>Capa energ\xE9tica: qui\xE9n opera la red, el gas, el litio \u2014Vaca Muerta, lo nuclear.</li>
+          <li><strong>Capa cognitiva: qui\xE9n opera los datos, los modelos y la inferencia.</strong></li>
+        </ul>
+        <p>
+          Tenemos vocabulario para discutir las dos primeras. La tercera todav\xEDa no tiene palabras en la conversaci\xF3n
+          p\xFAblica. El gemelo digital es, justamente, el evento que est\xE1 obligando a ese vocabulario a nacer. Que nazca.
+        </p>
+        <p>
+          <strong>4. El envoltorio es el mecanismo de adopci\xF3n.</strong> En 1810, la doctrina de la retroversi\xF3n
+          hizo que una ruptura revolucionaria <em>pareciera conservadora</em>. En 2026, las palabras "eficiencia",
+          "evidencia" y "modernizaci\xF3n" hacen que entregar soberan\xEDa cognitiva <em>parezca un tr\xE1mite t\xE9cnico</em>.
+          Cuidado: <strong>cuando una decisi\xF3n pol\xEDtica se disfraza de decisi\xF3n t\xE9cnica, ese disfraz ya es la
+          decisi\xF3n pol\xEDtica.</strong>
+        </p>
+        <p>
+          <strong>5. La ventana de intervenci\xF3n es ahora \u2014antes de la infraestructura, no despu\xE9s.</strong> Una vez
+          que las bases se integran, los modelos se entrenan, los contratos se firman y las dependencias t\xE9cnicas se
+          acumulan, dar marcha atr\xE1s se vuelve car\xEDsimo. Es como la deuda: lo decisivo no es el d\xEDa del pago, es el
+          d\xEDa de la firma.
+        </p>
+
+        <h2>El gemelo es necesario. El due\xF1o es el problema.</h2>
+        <p>
+          Repit\xE1moslo, porque es el coraz\xF3n de todo: <strong>el peligro no es la tecnolog\xEDa. Es de qui\xE9n es la llave.</strong>
+        </p>
+        <p>
+          El mismo gemelo digital puede ser dos cosas opuestas seg\xFAn qui\xE9n lo controle.
+        </p>
+        <ul>
+          <li>Si lo controla una empresa de afuera o un pu\xF1ado de funcionarios, es una <strong>correa</strong>: una m\xE1quina para anticipar y dirigir tu conducta sin que te des cuenta.</li>
+          <li>Si lo controlan los ciudadanos, repartido, sin un \xFAnico due\xF1o, es un <strong>servicio p\xFAblico</strong>: una utilidad com\xFAn, como el agua o las rutas. Una herramienta para que un pueblo se vea a s\xED mismo y decida sobre s\xED mismo, con las manos en su propio tim\xF3n.</li>
+        </ul>
+        <p>
+          La misma tecnolog\xEDa. Centralizada, te dirige. Distribuida, te sirve. El liderazgo que no se estanca en
+          una sola mano es el mismo principio llevado al c\xF3digo: poder que fluye, tim\xF3n que rota, llave que es de todos.
+        </p>
+        <p>
+          El Hombre Gris no le tiene miedo a la herramienta. No vino a prohibir el fuego: vino a discutir de qui\xE9n
+          es la fogata.
+        </p>
+
+        <h2>No nos equivoquemos de pelea</h2>
+        <p>
+          Si vamos a dar esta discusi\xF3n, d\xE9mosla bien. Estos son los cinco errores que har\xEDan fracasar la cr\xEDtica
+          \u2014y c\xF3mo no caer en ellos:
+        </p>
+        <ul>
+          <li><strong>"Todo es Palantir."</strong> Si colgamos todo de Thiel, el d\xEDa que gane otro proveedor el argumento se cae. Hay que pelear sobre la arquitectura, no sobre los actores.</li>
+          <li><strong>"Tecnofobia."</strong> Un gemelo digital tambi\xE9n puede mejorar de verdad las pol\xEDticas: focalizar transferencias, detectar fraude. Negarlo nos quita credibilidad. Hay que separar la tecnolog\xEDa de su gobernanza.</li>
+          <li><strong>"Total, ya estamos vigilados."</strong> S\xED, el Estado ya tiene tus datos. Pero hay una diferencia de categor\xEDa entre <em>tener bases separadas</em> y <em>operar inferencias cruzadas en tiempo real</em>. No es m\xE1s de lo mismo: es un cambio de fase.</li>
+          <li><strong>"Purismo."</strong> Exigir cero gemelo digital es perder. Hay que pelear por arquitectura federada, c\xF3digo abierto, auditor\xEDa independiente y cl\xE1usulas de caducidad \u2014no por la prohibici\xF3n.</li>
+          <li><strong>"Polarizaci\xF3n."</strong> Esto se va a querer leer como "kirchnerismo contra libertarios". Si se queda ah\xED, pierde. Es un tema de <strong>soberan\xEDa nacional</strong>, y la soberan\xEDa, en Argentina, hist\xF3ricamente convoca a izquierda y a derecha por igual.</li>
+        </ul>
+        <p>
+          Lo dije antes y lo repito: no es contra una persona ni contra un gobierno. Es a favor de una arquitectura
+          \u2014y de qui\xE9n tiene la llave.
+        </p>
+        <p>
+          \xBFY c\xF3mo sab\xE9s si la cosa va por buen o mal camino? No hace falta ser t\xE9cnico. Alcanza con cinco preguntas
+          que cualquier ciudadano deber\xEDa poder hacer \u2014y que merecen respuesta:
+        </p>
+        <ul>
+          <li>\xBFHay licitaci\xF3n p\xFAblica con criterios t\xE9cnicos publicados? <em>(Si no, mala se\xF1al.)</em></li>
+          <li>\xBFEl c\xF3digo y los modelos los puede auditar un tercero independiente? <em>(Si no, mala se\xF1al.)</em></li>
+          <li>\xBFLos datos viven en infraestructura bajo jurisdicci\xF3n argentina, con cl\xE1usulas de no transferencia? <em>(Si no, se\xF1al de riesgo cr\xEDtico.)</em></li>
+          <li>\xBFHay una ley votada en el Congreso, con revisi\xF3n peri\xF3dica? <em>(Si no, la herramienta vive sin contrapeso democr\xE1tico.)</em></li>
+          <li>\xBFPuede una persona impugnar una decisi\xF3n que el algoritmo tom\xF3 sobre ella? <em>(Si no, no hay debido proceso.)</em></li>
+        </ul>
+
+        <h2>No alcanza con resistir: hay que construir</h2>
+        <p>
+          Llegados ac\xE1 aparece la tentaci\xF3n de siempre: indignarse, marchar, esperar al salvador de turno. Durante
+          d\xE9cadas nos ense\xF1aron a resistir. Pero nada de eso frena una casa de mu\xF1ecas: no se frena con una marcha
+          ni con un tuit indignado.
+        </p>
+        <p>
+          Pensalo como las tres metamorfosis del que despierta. Primero fuimos <strong>camello</strong>: cargamos
+          en silencio con la inflaci\xF3n como castigo y la corrupci\xF3n como destino. Despu\xE9s rugimos como
+          <strong>le\xF3n</strong>: dijimos \xA1BASTA! y pateamos los \xEDdolos. Y est\xE1 bien rugir \u2014pero rugir es apenas el
+          primer paso. El que de verdad transforma es el <strong>ni\xF1o</strong>: el que vuelve a mirar con ojos
+          frescos y se sienta a <em>crear</em>.
+        </p>
+        <blockquote>
+          No se vence un sistema atac\xE1ndolo. Se vuelve obsoleto construyendo algo mejor, que la gente prefiera.
+        </blockquote>
+        <p>
+          Esa es la diferencia entre la revuelta y la refundaci\xF3n. La revuelta quema. La refundaci\xF3n construye.
+          A la casa de mu\xF1ecas centralizada no se le gana rompi\xE9ndola: se le gana levantando una que sea de todos,
+          y que nadie \u2014ni de afuera ni de arriba\u2014 pueda usar para movernos como fichas.
+        </p>
+        <p>
+          \xBFY c\xF3mo se construye algo as\xED? Empieza por una palabra que cierra el c\xEDrculo.
+        </p>
+        <p>
+          <strong>Dise\xF1ar</strong> viene del lat\xEDn <em>designare</em>: <em>de-</em> m\xE1s <em>signare</em>,
+          "marcar con un signo". De <em>signum</em> \u2014la se\xF1al, la marca. Dise\xF1ar, en su ra\xEDz, es
+          <strong>se\xF1alar hacia d\xF3nde</strong>. Marcar el destino antes de dar el primer paso. Trazar el rumbo de
+          lo que algo va a llegar a ser.
+        </p>
+        <p>
+          Y ah\xED las dos palabras se abrazan. Si <strong>gobernar</strong> es llevar el tim\xF3n,
+          <strong>dise\xF1ar</strong> es marcar el rumbo hacia el que ese tim\xF3n apunta. El que dibuja el mapa y sostiene
+          el tim\xF3n, gobierna. Siempre. Por eso la batalla de fondo es por qui\xE9n dibuja el mapa.
+        </p>
+        <p>
+          No venimos a administrar ruinas. Venimos a estrenar pa\xEDs.
+        </p>
+
+        <h2>El mapa: el paso cero</h2>
+        <p>
+          Ac\xE1 entra esta plataforma, y conviene ser honesto sobre lo que es y lo que todav\xEDa no es.
+        </p>
+        <p>
+          El mapa de <em>El Instante del Hombre Gris</em> <strong>no es la soluci\xF3n</strong>. No es la infraestructura
+          terminada. No es todav\xEDa el gemelo digital soberano.
+        </p>
+        <p>
+          Es el <strong>paso cero</strong>.
+        </p>
+        <p>
+          Antes de construir cualquier cosa hay que hacer lo que dice la palabra <em>dise\xF1ar</em>: marcar el destino.
+          Hacer visible lo invisible. Y para eso necesit\xE1s un mapa \u2014un lugar donde mirar d\xF3nde estamos, qu\xE9 se decide
+          sobre nuestra vida, y sobre todo la pregunta que casi ning\xFAn sistema se anima a hacer:
+        </p>
+        <blockquote>
+          \xBFQu\xE9 tipo de experiencia humana queremos dise\xF1ar?
+        </blockquote>
+        <p>
+          Casi todo lo que usamos fue dise\xF1ado por alguien que ya decidi\xF3 por vos qu\xE9 clase de vida deber\xEDas querer.
+          El mapa invierte eso. Empieza por la pregunta antes que por la respuesta. Y de esa pregunta nace una
+          paradoja que lo ordena todo: la soberan\xEDa tiene que hacer dos cosas a la vez.
+        </p>
+        <ul>
+          <li>Tiene que <strong>expandirse</strong> \u2014llegar a todos los rincones donde se decide algo sobre tu vida. No alcanza con un voto cada cuatro a\xF1os; la soberan\xEDa tiene que vivir en lo econ\xF3mico, en lo digital, en lo informativo, en lo cotidiano.</li>
+          <li>Y tiene que <strong>unificarse</strong> \u2014converger sobre el individuo. Porque la soberan\xEDa repartida en pedazos es soberan\xEDa capturable: si tu poder pol\xEDtico vive en una instituci\xF3n, el econ\xF3mico en otra y el digital en una tercera, cada pedazo puede caer por separado, porque ninguno sos vos. El \xFAnico punto que nadie puede capturar sin tu permiso sos vos mismo.</li>
+        </ul>
+        <p>
+          Esto no es individualismo. Es arquitectura. Sos un pozo tallado en tiempo, lleno de todo lo vivido, y sos
+          el nodo donde todas las soberan\xEDas se re\xFAnen y se sostienen. Desde ah\xED, la coordinaci\xF3n voluntaria construye
+          lo dem\xE1s: la familia, el barrio, la comunidad, la regi\xF3n, la naci\xF3n. Pero el que carga el peso, siempre,
+          sos vos. Sin ciudadano soberano hay gesti\xF3n, hay administraci\xF3n, hay tecnocracia. Rep\xFAblica, no.
+        </p>
+
+        <h2>En 1810 era el Cabildo. Hoy es la infraestructura.</h2>
+        <p>
+          Volvamos al principio, porque ahora se ve claro.
+        </p>
+        <p>
+          En 1810, caminar hasta el Cabildo era lo m\xE1s sensato del mundo. \xBFPor qu\xE9 ah\xED? Porque ah\xED estaba el tim\xF3n.
+          El poder de decidir sobre lo com\xFAn pasaba por ese edificio, por esa asamblea de vecinos. Ir al Cabildo era
+          ir a donde se gobernaba.
+        </p>
+        <p>
+          Hoy el tim\xF3n no est\xE1 en ning\xFAn edificio. Est\xE1 en la infraestructura digital: en qui\xE9n controla la identidad,
+          los pagos, la informaci\xF3n, la coordinaci\xF3n, los modelos de inteligencia artificial que empiezan a prescribir
+          c\xF3mo vivimos.
+        </p>
+        <p>
+          Entonces, \xBFcu\xE1l es el acto patrio de nuestra generaci\xF3n?
+        </p>
+        <blockquote>
+          No es marchar a una plaza. No es esperar la pr\xF3xima elecci\xF3n. Es construir infraestructura digital soberana.
+        </blockquote>
+        <p>
+          El Cabildo de hoy no se inaugura: se programa. Es abierto, es federado, es del ciudadano. Y se levanta igual
+          que aquel \u2014con un grupo de personas que se cansaron de esperar permiso.
+        </p>
+        <p>
+          \xBFY de qu\xE9 est\xE1 hecho ese Cabildo nuevo? De piezas reales. No de met\xE1foras ni de declaraciones. Piezas:
+        </p>
+        <ul>
+          <li>Una capa de <strong>coordinaci\xF3n c\xEDvica</strong> que no dependa de las plataformas de Silicon Valley.</li>
+          <li>Una capa de <strong>intercambio econ\xF3mico</strong> que no dependa de rieles de pago extranjeros ni de intermediarios que solo extraen.</li>
+          <li>Una capa de <strong>identidad</strong> que controle el ciudadano. No el Estado. No Google. No Meta.</li>
+          <li>Una capa de <strong>informaci\xF3n</strong> donde podamos hablar, escuchar y decidir, sin que un algoritmo dise\xF1ado afuera module qu\xE9 le llega a qui\xE9n.</li>
+          <li>Una capa <strong>real</strong>: hubs comunitarios, redes de formaci\xF3n entre pares, infraestructura f\xEDsica que convierta la soberan\xEDa digital en vida cotidiana concreta.</li>
+        </ul>
+        <p>
+          Eso no son apps. Eso es infraestructura constitucional. Es el \xE1gora nueva. Y se construye con c\xF3digo, con
+          concreto, y con v\xEDnculos entre ciudadanos que decidieron dejar de esperar.
+        </p>
+
+        <h2>Lo que podemos hacer ya</h2>
+        <p>
+          Construir lleva tiempo, pero hay palancas que se accionan ahora. En orden de impacto sobre tiempo:
+        </p>
+        <p><strong>En las pr\xF3ximas semanas:</strong></p>
+        <ul>
+          <li>Exigir transparencia documental: qu\xE9 bases se integran, bajo qu\xE9 marco legal, con qu\xE9 proveedores, con qu\xE9 auditor\xEDa. Sumarse a \u2014o citar\u2014 el pedido de informaci\xF3n de la Fundaci\xF3n V\xEDa Libre.</li>
+          <li>Reclamar una evaluaci\xF3n de impacto en los derechos fundamentales <em>antes</em> de implementar, no despu\xE9s.</li>
+        </ul>
+        <p><strong>En los pr\xF3ximos meses:</strong></p>
+        <ul>
+          <li>Pedir un marco legal espec\xEDfico \u2014ley votada, no decreto\u2014 con cl\xE1usulas de caducidad y participaci\xF3n ciudadana.</li>
+          <li>Pedir que las capacidades cr\xEDticas (los modelos, el c\xF3mputo, las claves criptogr\xE1ficas) residan en soberan\xEDa argentina. No por nacionalismo: por prudencia, como quien no pone todos los huevos en una canasta ajena.</li>
+        </ul>
+        <p><strong>Y de fondo, lo estructural:</strong></p>
+        <ul>
+          <li>Empujar un debate p\xFAblico sobre <strong>soberan\xEDa cognitiva</strong>, tan en serio como el que ya damos sobre soberan\xEDa energ\xE9tica. Es el debate del siglo, y llegamos tarde si no lo empezamos hoy.</li>
+        </ul>
+        <p>
+          Y hay que hacerlo r\xE1pido, porque la ventana est\xE1 abierta \u2014pero no va a quedarse abierta.
+        </p>
+        <p>
+          Cada d\xEDa que demoramos, otro sistema de afuera se instala en el hueco. Y hay un reloj concreto: mientras
+          el gemelo est\xE1 en fase de dise\xF1o, la pelea se puede dar. Una vez que las bases se integren y los modelos
+          se entrenen, la pelea se vuelve estructuralmente perdida \u2014no por mala fe de nadie, sino por pura f\xEDsica de
+          sistemas. La ventana son estas semanas, no estos a\xF1os.
+        </p>
+        <p>
+          En 1810, los criollos vieron una ventana estructural y la accionaron a tiempo. La pregunta de hoy no es
+          si tenemos enfrente un nuevo 25 de Mayo. Es si lo vamos a ver <strong>mientras la ventana est\xE1 abierta</strong>,
+          o si lo vamos a contar como historia dentro de unas d\xE9cadas, cuando ya se cerr\xF3.
+        </p>
+        <p>
+          El mapa es el paso cero: el lugar donde marcamos el destino. Falta lo otro \u2014la arquitectura completa de la
+          soberan\xEDa digital\u2014, y esto es clave: <strong>la tenemos que dise\xF1ar entre todos</strong>. No la baja una
+          empresa, no la baja un ministerio, no la baja un iluminado. La construye un pueblo, como en 1810.
+        </p>
+        <p>
+          Para no arrancar de una hoja en blanco, te comparto un borrador: junt\xE9 un mont\xF3n de ideas en un plan que
+          puede servir de inspiraci\xF3n \u2014un ejemplo de c\xF3mo se <em>podr\xEDa</em> armar la arquitectura completa de
+          soberan\xEDa digital, capa por capa. No es la verdad revelada. Es un punto de partida para discutir, romper
+          y mejorar entre todos.
+        </p>
+        <p>
+          <strong><a href="https://elinstantedelhombregris.com/recursos/ruta/iniciativas/plandig-soberania-digital">Mir\xE1 el PLANDIG \u2014 un borrador del Plan Nacional de Soberan\xEDa Digital, para construir entre todos \u2192</a></strong>
+        </p>
+        <p>
+          Los vecinos del 25 de mayo de 1810 entendieron algo que estamos a tiempo de recordar: el Primer Gobierno
+          Patrio no fue un hombre en un balc\xF3n. Fue un pueblo que se organiz\xF3 y decidi\xF3 agarrar el tim\xF3n. Ese tim\xF3n
+          lo pagaron con esfuerzo, y a veces con sangre.
+        </p>
+        <p>
+          Nosotros tenemos una oportunidad que ellos no tuvieron: hacer la pr\xF3xima refundaci\xF3n con dise\xF1o, con c\xF3digo
+          y con organizaci\xF3n. Verla suceder sin sangre en la calle. Esa es, exactamente, la raz\xF3n por la que existe
+          El Instante del Hombre Gris.
+        </p>
+        <p>
+          Vos no necesit\xE1s permiso para volverte soberano. Lo sos por origen. Lo \xFAnico que te falta son las
+          herramientas \u2014y las herramientas se construyen.
+        </p>
+        <blockquote>
+          Construir o ser construidos. No hay opci\xF3n intermedia. Y la decisi\xF3n, como toda decisi\xF3n soberana,
+          la tomamos nosotros. Hoy.
+        </blockquote>
+      </article>
+    `
+      },
       [slugify("El Cansancio Sagrado: Por qu\xE9 ya no podemos esperar")]: {
         excerpt: "Hay un cansancio que no pide almohada: pide planos. Es la lucidez inc\xF3moda de saber que Argentina puede ser redise\xF1ada \u2014 ahora, no ma\xF1ana.",
         content: `
@@ -8242,7 +9145,7 @@ var init_storage = __esm({
           return { total: 0, blog: 0, vlog: 0 };
         }
       }
-      async getBlogPost(slug) {
+      async getBlogPost(slug, viewer) {
         try {
           const result = await db.select({
             id: blogPosts.id,
@@ -8311,6 +9214,7 @@ var init_storage = __esm({
               user: { id: like2.userId || 0, name: "Usuario", username: "usuario" }
             };
           }));
+          const userLiked = viewer?.userId != null ? likesRecords.some((l) => l.userId === viewer.userId) : viewer?.sessionId ? likesRecords.some((l) => l.sessionId === viewer.sessionId) : false;
           const commentsRecords = await db.select().from(postComments).where(eq2(postComments.postId, post.id));
           const comments = await Promise.all(commentsRecords.map(async (comment) => {
             let user = { id: comment.userId || 0, name: "Usuario", username: "usuario" };
@@ -8338,7 +9242,8 @@ var init_storage = __esm({
             ...post,
             tags: tags || [],
             likes: likes || [],
-            comments: comments || []
+            comments: comments || [],
+            userLiked
           });
         } catch (error) {
           console.error("Error in getBlogPost:", error);
@@ -8370,14 +9275,19 @@ var init_storage = __esm({
         return true;
       }
       // Post Interactions
-      async togglePostLike(postId, userId) {
+      async togglePostLike(postId, viewer) {
+        const identityFilter = viewer.userId != null ? eq2(postLikes.userId, viewer.userId) : eq2(postLikes.sessionId, viewer.sessionId ?? "");
         const existingLike = await db.query.postLikes.findFirst({
-          where: and2(eq2(postLikes.postId, postId), eq2(postLikes.userId, userId))
+          where: and2(eq2(postLikes.postId, postId), identityFilter)
         });
         if (existingLike) {
           await db.delete(postLikes).where(eq2(postLikes.id, existingLike.id));
         } else {
-          await db.insert(postLikes).values({ postId, userId });
+          await db.insert(postLikes).values({
+            postId,
+            userId: viewer.userId,
+            sessionId: viewer.userId != null ? void 0 : viewer.sessionId
+          });
         }
         const count3 = await db.select({ count: sql4`count(*)` }).from(postLikes).where(eq2(postLikes.postId, postId));
         return {
@@ -22082,12 +22992,10 @@ async function registerRoutes(app2) {
   app2.get("/api/blog/posts/:slug", optionalAuth, async (req, res) => {
     try {
       const { slug } = req.params;
-      const post = await storage.getBlogPost(slug);
+      const sessionId = typeof req.query.sessionId === "string" ? req.query.sessionId : void 0;
+      const post = await storage.getBlogPost(slug, { userId: req.user?.userId, sessionId });
       if (!post) {
         return res.status(404).json({ message: "Post no encontrado" });
-      }
-      if (req.user) {
-        await storage.recordPostView(post.id, req.user.userId);
       }
       res.json(post);
     } catch (error) {
@@ -22143,10 +23051,17 @@ async function registerRoutes(app2) {
       res.status(500).json({ message: "Error al eliminar el post" });
     }
   });
-  app2.post("/api/blog/posts/:id/like", authenticateToken, async (req, res) => {
+  app2.post("/api/blog/posts/:id/like", optionalAuth, async (req, res) => {
     try {
       const { id } = req.params;
-      const result = await storage.togglePostLike(parseInt(id), req.user.userId);
+      const sessionId = typeof req.body?.sessionId === "string" ? req.body.sessionId : void 0;
+      if (req.user?.userId == null && !sessionId) {
+        return res.status(400).json({ message: "Falta el identificador de sesi\xF3n" });
+      }
+      const result = await storage.togglePostLike(parseInt(id), {
+        userId: req.user?.userId,
+        sessionId
+      });
       res.json(result);
     } catch (error) {
       console.error("Toggle post like error:", error);

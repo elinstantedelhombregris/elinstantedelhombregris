@@ -370,6 +370,7 @@ export const postLikes = pgTable("post_likes", {
   id: serial("id").primaryKey(),
   postId: integer("post_id").references(() => blogPosts.id),
   userId: integer("user_id").references(() => users.id),
+  sessionId: text("session_id"), // For anonymous likes (null when userId is set)
   createdAt: text("created_at").default(sql`now()`),
 });
 
