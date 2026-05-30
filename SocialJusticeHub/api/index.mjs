@@ -8951,7 +8951,7 @@ var init_storage = __esm({
         });
       }
       // ==================== BLOG METHODS ====================
-      async getBlogPosts(filters) {
+      async getBlogPosts(filters, viewer) {
         try {
           const offset = filters?.page ? (filters.page - 1) * (filters.limit || 10) : 0;
           const limit = filters?.limit || 10;
@@ -9065,6 +9065,7 @@ var init_storage = __esm({
             const likes = postLikesData.map((like2) => ({
               user: like2.userId && userMap.get(like2.userId) ? userMap.get(like2.userId) : { id: like2.userId || 0, name: "Usuario", username: "usuario" }
             }));
+            const userLiked = viewer?.userId != null ? postLikesData.some((l) => l.userId === viewer.userId) : viewer?.sessionId ? postLikesData.some((l) => l.sessionId === viewer.sessionId) : false;
             const comments = postCommentsData.map((comment) => ({
               id: comment.id,
               content: comment.content,
@@ -9090,6 +9091,8 @@ var init_storage = __esm({
               author: author || { id: post.authorId || 0, name: "Usuario", username: "usuario", email: "" },
               tags: postTags2.map((t) => ({ tag: t.tag })),
               likes,
+              likeCount: likes.length,
+              userLiked,
               comments
             };
           });
@@ -9110,6 +9113,8 @@ var init_storage = __esm({
             author: post.author || { id: 0, name: "Usuario", username: "usuario", email: "" },
             tags: Array.isArray(post.tags) ? post.tags : [],
             likes: Array.isArray(post.likes) ? post.likes : [],
+            likeCount: Number(post.likeCount || 0),
+            userLiked: Boolean(post.userLiked),
             comments: Array.isArray(post.comments) ? post.comments : []
           }));
           return applyEnhancementsToList(validatedPosts);
@@ -9242,6 +9247,7 @@ var init_storage = __esm({
             ...post,
             tags: tags || [],
             likes: likes || [],
+            likeCount: likesRecords.length,
             comments: comments || [],
             userLiked
           });
@@ -9276,7 +9282,10 @@ var init_storage = __esm({
       }
       // Post Interactions
       async togglePostLike(postId, viewer) {
-        const identityFilter = viewer.userId != null ? eq2(postLikes.userId, viewer.userId) : eq2(postLikes.sessionId, viewer.sessionId ?? "");
+        if (viewer.userId == null && !viewer.sessionId) {
+          throw new Error("togglePostLike requires either userId or sessionId");
+        }
+        const identityFilter = viewer.userId != null ? eq2(postLikes.userId, viewer.userId) : eq2(postLikes.sessionId, viewer.sessionId);
         const existingLike = await db.query.postLikes.findFirst({
           where: and2(eq2(postLikes.postId, postId), identityFilter)
         });
@@ -9287,13 +9296,10 @@ var init_storage = __esm({
             postId,
             userId: viewer.userId,
             sessionId: viewer.userId != null ? void 0 : viewer.sessionId
-          });
+          }).onConflictDoNothing();
         }
-        const count3 = await db.select({ count: sql4`count(*)` }).from(postLikes).where(eq2(postLikes.postId, postId));
-        return {
-          liked: !existingLike,
-          count: Number(count3[0]?.count ?? 0)
-        };
+        const [{ count: count3 }] = await db.select({ count: sql4`count(*)::int` }).from(postLikes).where(eq2(postLikes.postId, postId));
+        return { liked: !existingLike, count: Number(count3) };
       }
       async getPostLikes(postId) {
         const likes = await db.query.postLikes.findMany({
@@ -9380,17 +9386,10 @@ var init_storage = __esm({
         return applyEnhancementsToList(bookmarks.map((bookmark) => bookmark.post));
       }
       async recordPostView(postId, userId, sessionId) {
-        try {
-          await db.insert(postViews).values({
-            postId,
-            userId,
-            sessionId
-          });
-        } catch (error) {
-          console.error("[recordPostView] Error:", error);
-          throw error;
-        }
-        await db.update(blogPosts).set({ viewCount: sql4`${blogPosts.viewCount} + 1` }).where(eq2(blogPosts.id, postId));
+        await db.transaction(async (tx) => {
+          await tx.insert(postViews).values({ postId, userId, sessionId });
+          await tx.update(blogPosts).set({ viewCount: sql4`${blogPosts.viewCount} + 1` }).where(eq2(blogPosts.id, postId));
+        });
       }
       // Search & Recommendations
       async searchPosts(query, filters) {
@@ -22956,7 +22955,7 @@ async function registerRoutes(app2) {
       });
     }
   });
-  app2.get("/api/blog/posts", async (req, res) => {
+  app2.get("/api/blog/posts", optionalAuth, async (req, res) => {
     try {
       const {
         type,
@@ -22978,7 +22977,8 @@ async function registerRoutes(app2) {
       if (search) filters.search = search;
       if (featured === "true") filters.featured = true;
       if (featured === "false") filters.featured = false;
-      const posts = await storage.getBlogPosts(filters);
+      const sessionId = typeof req.query.sessionId === "string" ? req.query.sessionId : void 0;
+      const posts = await storage.getBlogPosts(filters, { userId: req.user?.userId, sessionId });
       res.json(posts);
     } catch (error) {
       console.error("Get blog posts error:", error);
@@ -23151,10 +23151,11 @@ async function registerRoutes(app2) {
       res.status(500).json({ message: "Error al obtener bookmarks" });
     }
   });
-  app2.post("/api/blog/posts/:id/view", async (req, res) => {
+  app2.post("/api/blog/posts/:id/view", optionalAuth, async (req, res) => {
     try {
       const { id } = req.params;
-      const { userId, sessionId } = req.body;
+      const sessionId = typeof req.body?.sessionId === "string" ? req.body.sessionId : void 0;
+      const userId = req.user?.userId;
       await storage.recordPostView(parseInt(id), userId, sessionId);
       res.json({ message: "View registrada" });
     } catch (error) {
@@ -23740,13 +23741,14 @@ async function registerRoutes(app2) {
   app2.get("/api/blog-posts", optionalAuth, async (req, res) => {
     try {
       const { category, type, search, page = 1, limit = 10 } = req.query;
+      const sessionId = typeof req.query.sessionId === "string" ? req.query.sessionId : void 0;
       const posts = await storage.getBlogPosts({
         category,
         type,
         search,
         page: parseInt(page),
         limit: parseInt(limit)
-      });
+      }, { userId: req.user?.userId, sessionId });
       res.json({
         success: true,
         data: posts

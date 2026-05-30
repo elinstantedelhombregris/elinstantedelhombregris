@@ -23,6 +23,8 @@ import CommentsSection from '@/components/CommentsSection';
 import ShareButtons from '@/components/ShareButtons';
 import { Link } from 'wouter';
 import MarkdownRenderer from '@/components/MarkdownRenderer';
+import { apiRequest } from '@/lib/queryClient';
+import { getAnonSessionId } from '@/lib/anonSession';
 import { useSeoMetadata } from '@/lib/seo';
 import {
   BLOG_HUB_PATH,
@@ -54,6 +56,7 @@ interface BlogPost {
   };
   tags: Array<{ tag: string }>;
   likes: Array<{ user: { id: number; name: string } }>;
+  likeCount: number;
   comments: Array<{
     id: number;
     content: string;
@@ -65,19 +68,6 @@ interface BlogPost {
   }>;
   userLiked?: boolean;
   userBookmarked?: boolean;
-}
-
-// Stable per-browser id so anonymous readers can like posts and have views
-// counted once per session. Persisted in localStorage; SSR/prerender-safe.
-function getAnonSessionId(): string {
-  if (typeof window === 'undefined') return '';
-  const KEY = 'eihg_anon_id';
-  let id = window.localStorage.getItem(KEY);
-  if (!id) {
-    id = (window.crypto?.randomUUID?.() ?? `anon-${Date.now()}-${Math.random().toString(36).slice(2)}`);
-    window.localStorage.setItem(KEY, id);
-  }
-  return id;
 }
 
 export default function BlogPostDetail() {
@@ -139,7 +129,10 @@ export default function BlogPostDetail() {
     try {
       setLoading(true);
       const sessionId = getAnonSessionId();
-      const response = await fetch(`/api/blog/posts/${postSlug}?sessionId=${encodeURIComponent(sessionId)}`);
+      const response = await apiRequest(
+        'GET',
+        `/api/blog/posts/${postSlug}?sessionId=${encodeURIComponent(sessionId)}`,
+      );
 
       if (!response.ok) {
         throw new Error('Post no encontrado');
@@ -155,63 +148,49 @@ export default function BlogPostDetail() {
     }
   };
 
-  // Count one view per browser session per post via the public /view endpoint.
+  // Count one view per browser session per post. The sessionStorage guard is
+  // set before the await so React StrictMode's double-invoke can't double-count;
+  // it is intentionally NOT cleared on failure — if the server actually
+  // recorded the view but the response was lost, retrying on next load would
+  // double-count. We'd rather miss a view than inflate one.
   const recordView = async (postId: number) => {
     const key = `eihg_viewed_${postId}`;
     if (typeof window === 'undefined' || window.sessionStorage.getItem(key)) return;
-    window.sessionStorage.setItem(key, '1'); // set before await so StrictMode double-invoke can't double-count
+    window.sessionStorage.setItem(key, '1');
     try {
-      await fetch(`/api/blog/posts/${postId}/view`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ sessionId: getAnonSessionId() }),
+      const response = await apiRequest('POST', `/api/blog/posts/${postId}/view`, {
+        sessionId: getAnonSessionId(),
       });
+      if (!response.ok) throw new Error('view request failed');
       setPost(prev => (prev ? { ...prev, viewCount: (prev.viewCount || 0) + 1 } : prev));
     } catch (error) {
-      window.sessionStorage.removeItem(key); // allow a retry on next load if it failed
       console.error('Error recording view:', error);
     }
   };
 
   const handleLike = async (postId: number) => {
-    const response = await fetch(`/api/blog/posts/${postId}/like`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ sessionId: getAnonSessionId() }),
+    const response = await apiRequest('POST', `/api/blog/posts/${postId}/like`, {
+      sessionId: getAnonSessionId(),
     });
 
-    // Throw on failure so LikeButton reverts its optimistic update.
     if (!response.ok) {
       throw new Error('No se pudo registrar el like');
     }
 
     const result: { liked: boolean; count: number } = await response.json();
-    // Reflect the server's authoritative state. likes.length drives the
-    // displayed count, so resize it to the real count from the DB.
     setPost(prev => prev ? {
       ...prev,
       userLiked: result.liked,
-      likes: Array.from({ length: result.count }, () => ({ user: { id: 0, name: 'Usuario' } })),
+      likeCount: result.count,
     } : prev);
   };
 
   const handleBookmark = async (postId: number) => {
     try {
-      const response = await fetch(`/api/blog/posts/${postId}/bookmark`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-
+      const response = await apiRequest('POST', `/api/blog/posts/${postId}/bookmark`);
       if (response.ok) {
         const result = await response.json();
-        if (post) {
-          setPost({
-            ...post,
-            userBookmarked: result.bookmarked
-          });
-        }
+        setPost(prev => (prev ? { ...prev, userBookmarked: result.bookmarked } : prev));
       }
     } catch (error) {
       console.error('Error bookmarking post:', error);
@@ -542,7 +521,7 @@ export default function BlogPostDetail() {
                 <LikeButton
                   postId={post.id}
                   initialLiked={post.userLiked || false}
-                  initialCount={post.likes.length}
+                  initialCount={post.likeCount ?? post.likes.length}
                   onLike={handleLike}
                   onUnlike={handleLike}
                   size="sm"
@@ -605,7 +584,7 @@ export default function BlogPostDetail() {
                   <LikeButton
                     postId={post.id}
                     initialLiked={post.userLiked || false}
-                    initialCount={post.likes.length}
+                    initialCount={post.likeCount ?? post.likes.length}
                     onLike={handleLike}
                     onUnlike={handleLike}
                     size="sm"

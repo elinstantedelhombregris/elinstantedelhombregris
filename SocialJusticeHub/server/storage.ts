@@ -413,7 +413,7 @@ export interface IStorage {
     featured?: boolean;
     page?: number;
     limit?: number;
-  }): Promise<BlogPost[]>;
+  }, viewer?: { userId?: number; sessionId?: string }): Promise<BlogPost[]>;
   getBlogPostStats(): Promise<{ total: number; blog: number; vlog: number }>;
   getBlogPost(slug: string, viewer?: { userId?: number; sessionId?: string }): Promise<BlogPost | undefined>;
   createBlogPost(post: InsertBlogPost): Promise<BlogPost>;
@@ -2324,7 +2324,7 @@ export class DatabaseStorage implements IStorage {
     featured?: boolean;
     page?: number;
     limit?: number;
-  }): Promise<BlogPost[]> {
+  }, viewer?: { userId?: number; sessionId?: string }): Promise<BlogPost[]> {
     try {
       // Apply pagination
       const offset = filters?.page ? (filters.page - 1) * (filters.limit || 10) : 0;
@@ -2469,12 +2469,18 @@ export class DatabaseStorage implements IStorage {
         const postTags = tagsByPost.get(post.id) || [];
         const postLikesData = likesByPost.get(post.id) || [];
         const postCommentsData = commentsByPost.get(post.id) || [];
-        
+
         const likes = postLikesData.map((like: any) => ({
-          user: like.userId && userMap.get(like.userId) 
+          user: like.userId && userMap.get(like.userId)
             ? userMap.get(like.userId)!
             : { id: like.userId || 0, name: 'Usuario', username: 'usuario' }
         }));
+
+        const userLiked = viewer?.userId != null
+          ? postLikesData.some((l: any) => l.userId === viewer.userId)
+          : viewer?.sessionId
+            ? postLikesData.some((l: any) => l.sessionId === viewer.sessionId)
+            : false;
         
         const comments = postCommentsData.map((comment: any) => ({
           id: comment.id,
@@ -2504,6 +2510,8 @@ export class DatabaseStorage implements IStorage {
           author: author || { id: post.authorId || 0, name: 'Usuario', username: 'usuario', email: '' },
           tags: postTags.map((t: any) => ({ tag: t.tag })),
           likes: likes,
+          likeCount: likes.length,
+          userLiked,
           comments: comments
         };
       });
@@ -2527,6 +2535,8 @@ export class DatabaseStorage implements IStorage {
         author: post.author || { id: 0, name: 'Usuario', username: 'usuario', email: '' },
         tags: Array.isArray(post.tags) ? post.tags : [],
         likes: Array.isArray(post.likes) ? post.likes : [],
+        likeCount: Number(post.likeCount || 0),
+        userLiked: Boolean(post.userLiked),
         comments: Array.isArray(post.comments) ? post.comments : []
       }));
       
@@ -2706,6 +2716,7 @@ export class DatabaseStorage implements IStorage {
         ...post,
         tags: tags || [],
         likes: likes || [],
+        likeCount: likesRecords.length,
         comments: comments || [],
         userLiked
       });
@@ -2752,36 +2763,37 @@ export class DatabaseStorage implements IStorage {
 
   // Post Interactions
   async togglePostLike(postId: number, viewer: { userId?: number; sessionId?: string }): Promise<{ liked: boolean; count: number }> {
-    // Identify the liker either by authenticated userId or by anonymous sessionId
+    // Exactly one identity must be supplied. Mixing them, or supplying neither,
+    // would let an anonymous viewer accidentally match another anon's row or
+    // create an unattributable like.
+    if (viewer.userId == null && !viewer.sessionId) {
+      throw new Error('togglePostLike requires either userId or sessionId');
+    }
     const identityFilter = viewer.userId != null
       ? eq(postLikes.userId, viewer.userId)
-      : eq(postLikes.sessionId, viewer.sessionId ?? '');
+      : eq(postLikes.sessionId, viewer.sessionId!);
 
     const existingLike = await db.query.postLikes.findFirst({
       where: and(eq(postLikes.postId, postId), identityFilter)
     });
 
     if (existingLike) {
-      // Unlike
       await db.delete(postLikes).where(eq(postLikes.id, existingLike.id));
     } else {
-      // Like
+      // Partial unique indexes (post_likes_post_user_uq / post_likes_post_session_uq)
+      // make concurrent inserts race-safe; the second one no-ops.
       await db.insert(postLikes).values({
         postId,
         userId: viewer.userId,
         sessionId: viewer.userId != null ? undefined : viewer.sessionId,
-      });
+      }).onConflictDoNothing();
     }
 
-    // Get updated count
-    const count = await db.select({ count: sql<number>`count(*)` })
+    const [{ count }] = await db.select({ count: sql<number>`count(*)::int` })
       .from(postLikes)
       .where(eq(postLikes.postId, postId));
 
-    return {
-      liked: !existingLike,
-      count: Number(count[0]?.count ?? 0)
-    };
+    return { liked: !existingLike, count: Number(count) };
   }
 
   async getPostLikes(postId: number): Promise<{ count: number; users: User[] }> {
@@ -2890,21 +2902,15 @@ export class DatabaseStorage implements IStorage {
   }
 
   async recordPostView(postId: number, userId?: number, sessionId?: string): Promise<void> {
-    try {
-      await db.insert(postViews).values({
-        postId,
-        userId,
-        sessionId
-      });
-    } catch (error) {
-      console.error('[recordPostView] Error:', error);
-      throw error;
-    }
-
-    // Increment view count
-    await db.update(blogPosts)
-      .set({ viewCount: sql`${blogPosts.viewCount} + 1` })
-      .where(eq(blogPosts.id, postId));
+    // INSERT and counter bump must agree — wrap them so the cache (view_count)
+    // never drifts from the source of truth (post_views row count) on a
+    // partial failure.
+    await db.transaction(async (tx) => {
+      await tx.insert(postViews).values({ postId, userId, sessionId });
+      await tx.update(blogPosts)
+        .set({ viewCount: sql`${blogPosts.viewCount} + 1` })
+        .where(eq(blogPosts.id, postId));
+    });
   }
 
   // Search & Recommendations

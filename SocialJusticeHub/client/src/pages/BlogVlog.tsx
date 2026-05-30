@@ -10,6 +10,8 @@ import { Calendar, Clock, Play, FileText, User, Search, X, Loader2, ArrowUpRight
 import { Link, useLocation } from 'wouter';
 import LikeButton from '@/components/LikeButton';
 import BookmarkButton from '@/components/BookmarkButton';
+import { apiRequest } from '@/lib/queryClient';
+import { getAnonSessionId } from '@/lib/anonSession';
 import FluidBackground from '@/components/ui/FluidBackground';
 import GlassCard from '@/components/ui/GlassCard';
 import SmoothReveal from '@/components/ui/SmoothReveal';
@@ -36,6 +38,8 @@ interface BlogPost {
   };
   tags: Array<{ tag: string }>;
   likes: Array<any>;
+  likeCount?: number;
+  userLiked?: boolean;
   comments: Array<any>;
 }
 
@@ -109,7 +113,10 @@ const BlogVlog = () => {
         params.append('search', searchQuery.trim());
       }
 
-      const response = await fetch(`/api/blog/posts?${params}`);
+      // Pass sessionId so the server can mark each post's userLiked
+      // for this anonymous viewer in the list response.
+      params.append('sessionId', getAnonSessionId());
+      const response = await apiRequest('GET', `/api/blog/posts?${params}`);
       
       if (!response.ok) {
         throw new Error(`Error al cargar los posts: ${response.status}`);
@@ -158,44 +165,24 @@ const BlogVlog = () => {
     };
   }, [fetchPosts, hasMore, isLoadingMore]);
 
+  // LikeButton handles the local optimistic flip and reverts on throw. This
+  // handler is only responsible for hitting the API and propagating the
+  // server's authoritative count/userLiked back into the list.
   const handleLike = async (postId: number) => {
-    try {
-        // Optimistic UI update
-        setPosts(prev => prev.map(post => {
-            if (post.id !== postId) return post;
-            const isLiked = post.likes.some(like => like.user?.id === 1); // Assuming user id 1 for optimistic update
-            return {
-                ...post,
-                likes: isLiked 
-                    ? post.likes.filter(like => like.user?.id !== 1)
-                    : [...post.likes, { user: { id: 1, name: 'Usuario' } }]
-            };
-        }));
+    const response = await apiRequest('POST', `/api/blog/posts/${postId}/like`, {
+      sessionId: getAnonSessionId(),
+    });
 
-      const response = await fetch(`/api/blog/posts/${postId}/like`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-
-      if (response.ok) {
-        const result = await response.json();
-        // Sync with server state
-        setPosts(prev => prev.map(post => 
-          post.id === postId 
-            ? { 
-                ...post, 
-                likes: result.liked 
-                  ? [...post.likes, { user: { id: 1, name: 'Usuario' } }]
-                  : post.likes.filter(like => like.user?.id !== 1)
-              }
-            : post
-        ));
-      }
-    } catch (error) {
-      console.error('Error liking post:', error);
+    if (!response.ok) {
+      throw new Error('No se pudo registrar el like');
     }
+
+    const result: { liked: boolean; count: number } = await response.json();
+    setPosts(prev => prev.map(post =>
+      post.id === postId
+        ? { ...post, userLiked: result.liked, likeCount: result.count }
+        : post,
+    ));
   };
 
   const handleBookmark = async (postId: number) => {
@@ -319,8 +306,8 @@ const BlogVlog = () => {
              <div className="flex items-center gap-4">
                 <LikeButton
                     postId={post.id}
-                    initialLiked={false}
-                    initialCount={(post.likes || []).length}
+                    initialLiked={post.userLiked || false}
+                    initialCount={post.likeCount ?? (post.likes || []).length}
                     onLike={handleLike}
                     onUnlike={handleLike}
                     size="sm"

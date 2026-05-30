@@ -4218,7 +4218,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get("/api/blog/posts", async (req, res) => {
+  app.get("/api/blog/posts", optionalAuth, async (req: AuthRequest, res) => {
     try {
       const {
         type, // 'blog' | 'vlog'
@@ -4242,7 +4242,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
       if (featured === 'true') filters.featured = true;
       if (featured === 'false') filters.featured = false;
 
-      const posts = await storage.getBlogPosts(filters);
+      const sessionId = typeof req.query.sessionId === 'string' ? req.query.sessionId : undefined;
+      const posts = await storage.getBlogPosts(filters, { userId: req.user?.userId, sessionId });
       res.json(posts);
     } catch (error) {
       console.error('Get blog posts error:', error);
@@ -4467,14 +4468,17 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Record post view
-  app.post("/api/blog/posts/:id/view", async (req, res) => {
+  // Record post view. Prefer the authenticated userId from the JWT (sent via
+  // apiRequest) over anything in the body, so attribution can't be spoofed by
+  // a client passing someone else's id.
+  app.post("/api/blog/posts/:id/view", optionalAuth, async (req: AuthRequest, res) => {
     try {
       const { id } = req.params;
-      const { userId, sessionId } = req.body;
-      
+      const sessionId = typeof req.body?.sessionId === 'string' ? req.body.sessionId : undefined;
+      const userId = req.user?.userId;
+
       await storage.recordPostView(parseInt(id), userId, sessionId);
-      
+
       res.json({ message: "View registrada" });
     } catch (error) {
       console.error('Record view error:', error);
@@ -5207,14 +5211,15 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const { category, type, search, page = 1, limit = 10 } = req.query;
       
+      const sessionId = typeof req.query.sessionId === 'string' ? req.query.sessionId : undefined;
       const posts = await storage.getBlogPosts({
         category: category as string,
         type: type as string,
         search: search as string,
         page: parseInt(page as string),
         limit: parseInt(limit as string)
-      });
-      
+      }, { userId: req.user?.userId, sessionId });
+
       res.json({
         success: true,
         data: posts
