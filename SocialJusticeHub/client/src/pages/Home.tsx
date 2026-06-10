@@ -179,7 +179,7 @@ const Home = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-slate-200 selection:bg-blue-500/30 font-sans">
+    <div className="min-h-screen bg-[#0a0a0a] text-slate-200 selection:bg-[#7D5BDE]/30 font-sans">
       <Header />
 
       <main>
@@ -198,12 +198,12 @@ const Home = () => {
           subtitle={
             <div className="max-w-2xl mx-auto space-y-4">
               <p className="text-[clamp(1rem,1.8vw,1.25rem)] leading-relaxed text-slate-300/90">
-                Un grupo de ciudadanos dejó de esperar y empezó a construir herramientas
-                para hacer evidente lo que queremos, lo que soñamos, lo que necesitamos
-                y lo que ya no aguantamos — cada uno desde su barrio, su provincia, su lugar.
+                Un grupo de ciudadanos dejó de esperar y empezó a construir
+                herramientas para hacer evidente lo que queremos y lo que ya no
+                aguantamos — cada uno desde su barrio, su provincia, su lugar.
               </p>
               <p className="text-[clamp(1.1rem,2vw,1.4rem)] font-semibold text-white/90">
-                Se llama <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 font-bold">¡BASTA!</span>:
+                Se llama <span className="text-[#9D85E8] font-bold">¡BASTA!</span>:
                 la ciudadanía diseña, el Estado administra, la política ejecuta.
                 Sin líder, sin partido, sin promesas.
               </p>
