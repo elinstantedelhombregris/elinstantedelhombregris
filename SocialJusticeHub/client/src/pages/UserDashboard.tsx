@@ -384,13 +384,13 @@ const UserDashboard = () => {
                         const radius = 55;
                         const x = 50 + radius * Math.cos(angle);
                         const y = 50 + radius * Math.sin(angle);
-                        // Life area identity palette — semantic data-viz (rule 6)
-                        const colors = ['bg-emerald-400', 'bg-teal-400', 'bg-cyan-400', 'bg-green-400', 'bg-emerald-300', 'bg-teal-300', 'bg-cyan-300', 'bg-green-300', 'bg-emerald-500', 'bg-teal-500', 'bg-cyan-500', 'bg-green-500'];
+                        // Anillo decorativo en familia violeta (opacidad variable, sin loops)
+                        const colors = ['bg-[#7D5BDE]', 'bg-[#7D5BDE]/80', 'bg-[#7D5BDE]/60', 'bg-[#7D5BDE]/40', 'bg-[#9D85E8]', 'bg-[#9D85E8]/80', 'bg-[#9D85E8]/60', 'bg-[#9D85E8]/40', 'bg-[#B5A3EF]', 'bg-[#B5A3EF]/80', 'bg-[#B5A3EF]/60', 'bg-[#B5A3EF]/40'];
                         return (
                           <div
                             key={i}
-                            className={`absolute w-2.5 h-2.5 rounded-full ${colors[i]} shadow-[0_0_8px_rgba(52,211,153,0.5)] animate-[constellationPulse_2.5s_ease-in-out_infinite]`}
-                            style={{ left: `${x}%`, top: `${y}%`, transform: 'translate(-50%, -50%)', animationDelay: `${i * 0.2}s` }}
+                            className={`absolute w-2.5 h-2.5 rounded-full ${colors[i]} shadow-[0_0_8px_rgba(125,91,222,0.5)]`}
+                            style={{ left: `${x}%`, top: `${y}%`, transform: 'translate(-50%, -50%)' }}
                           />
                         );
                       })}

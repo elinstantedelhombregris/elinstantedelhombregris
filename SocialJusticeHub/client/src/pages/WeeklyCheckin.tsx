@@ -251,8 +251,7 @@ const WeeklyCheckin = () => {
             <Button
               onClick={handleSubmit}
               disabled={isSubmitting}
-              /* final submit = success action — emerald (rule 6) */
-              className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-8 h-11 rounded-xl transition-colors duration-300"
+              className={`${ACCENT_BUTTON} font-bold px-8 h-11 rounded-xl transition-colors duration-300`}
             >
               {isSubmitting ? <Loader2 className="h-5 w-5 animate-spin" /> : 'Enviar check-in'}
             </Button>

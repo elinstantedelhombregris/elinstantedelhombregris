@@ -29,7 +29,7 @@ const CATEGORIES = [
   { value: 'personal_growth', label: 'Crecimiento Personal', dotColor: '#a78bfa' },
   { value: 'community_building', label: 'Comunidad', dotColor: '#6ee7b7' },
   { value: 'accountability', label: 'Rendición de Cuentas', dotColor: '#fcd34d' },
-  { value: 'learning', label: 'Aprendizaje', dotColor: '#93c5fd' },
+  { value: 'learning', label: 'Aprendizaje', dotColor: '#c4b5fd' },
 ];
 
 interface Goal {
