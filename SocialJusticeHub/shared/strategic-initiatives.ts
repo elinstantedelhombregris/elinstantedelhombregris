@@ -154,7 +154,9 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
 <p><strong>Pilar II — Red de Despliegue Tecnológico:</strong> Sistemas de inoculación biológica + optimización de física del agua desplegados en 4 niveles (demostración → centros regionales → escala comercial → acceso comunitario).</p>
 <p><strong>Pilar III — Pagos por Resultados Verificados:</strong> Los productores obtienen pagos vinculados a mejoras medidas (+MOS, +biomasa microbiana, −insumos químicos, CO₂e secuestrado), no por adopción de prácticas.</p>
 <p><strong>Pilar IV — Mercado de Carbono Agroecológico:</strong> Protocolo verificado por el Estado que permite monetizar el carbono secuestrado. Argentina como exportador de un nuevo commodity: carbono del suelo.</p>
-<p><strong>Pilar V — Red de Conocimiento y Formación:</strong> Capacitación nacional de técnicos, extensionistas y productores líderes a través de la red de INTA (52 Estaciones Experimentales, 350+ Unidades de Extensión).</p>`,
+<p><strong>Pilar V — Red de Conocimiento y Formación:</strong> Capacitación nacional de técnicos, extensionistas y productores líderes a través de la red de INTA (52 Estaciones Experimentales, 350+ Unidades de Extensión).</p>
+
+<p>La implementación queda a cargo del <strong>ENSV (Ente Nacional de Suelo Vivo)</strong> — el ente que coordina el Censo, la Red de Despliegue, los Pagos por Resultados y el Mercado de Carbono, con INTA como brazo operativo territorial. Nace como Oficina de Programa dentro de SAGyP y se consolida como ente autárquico al escalar el plan.</p>`,
       pullQuote: 'La Argentina alimenta a 400 millones de personas a partir de un suelo en el que nunca invirtió sistemáticamente. Imaginen lo que sucede cuando empezamos.',
       stats: [
         { label: 'Retorno de inversión (10 años)', value: '8:1 a 15:1' },
@@ -333,7 +335,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
       title: '¿Qué pasa si no cambiamos?',
       content: `<p>Estamos ante un caso de <strong>rendimientos decrecientes de la inversión en parcheo</strong>. Cada peso invertido en mejorar una ciudad mal diseñada rinde menos que el peso anterior, porque la estructura subyacente trabaja en contra de la intervención. Es como tratar de mejorar la aerodinámica de un ladrillo.</p>
 
-<p><strong>Costos acumulados en 25 años:</strong> USD 625.000–1.000.000 millones en pérdidas por mal diseño urbano. Eso es entre el 5% y el 8% del PBI cada año — más de lo que cuesta construir las 24 ciudades que propone este plan.</p>
+<p><strong>Costos acumulados en 25 años:</strong> USD 625.000–1.000.000 millones en pérdidas por mal diseño urbano — estimación de orden de magnitud que surge de proyectar el costo anual actual (USD 25.000–40.000 millones, entre el 4% y el 7% del PBI) a 25 años, sin siquiera contar el agravamiento. Solo un año de esa pérdida supera lo que cuesta iniciar las 24 ciudades que propone este plan.</p>
 
 <p><strong>Infraestructura en colapso:</strong> Las redes de agua tienen 50 a 100 años y pierden el 40% del agua tratada — pero repararlas requiere romper calles que a su vez interrumpen el tránsito caótico. Los edificios sin aislación térmica consumen energía subsidiada que drena las cuentas fiscales — pero aislarlos cuesta más que construir vivienda nueva con estándares pasivos. Los subsidios energéticos cuestan USD 10.000–15.000 millones por año.</p>
 
@@ -360,7 +362,11 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
 <p><strong>5. Ciudadanía Activa:</strong> 30% del presupuesto anual decidido directamente por los ciudadanos. Gobernanza participativa vinculante.</p>
 <p><strong>6. Interconexión Vital:</strong> Las 24 ciudades como células de un organismo nacional. Protocolos de cooperación inter-ciudad.</p>
 
-<p><strong>Siete Anillos Concéntricos:</strong> Cada ciudad se estructura desde un Núcleo Cívico (plaza central, gobierno, mercado) hacia afuera: anillo residencial denso, barrios con identidad propia, anillo productivo (talleres, laboratorios, cooperativas), anillo agro-productivo, ecotono de transición, y paisaje circundante (1:10 — 10 hectáreas gestionadas por cada 1 urbana). Más una capa digital (fibra óptica soberana, datacenter, IoT, IA, plataforma de gobernanza participativa).</p>`,
+<p><strong>Siete Anillos Concéntricos:</strong> Cada ciudad se estructura desde un Núcleo Cívico (plaza central, gobierno, mercado) hacia afuera: anillo residencial denso, barrios con identidad propia, anillo productivo (talleres, laboratorios, cooperativas), anillo agro-productivo, ecotono de transición, y paisaje circundante (1:10 — 10 hectáreas gestionadas por cada 1 urbana). Más una capa digital (fibra óptica soberana, datacenter, IoT, IA, plataforma de gobernanza participativa).</p>
+
+<p><strong>Lo que este plan es — y lo que no es:</strong> las 24 ciudades albergan entre 1 y 1,8 millones de personas. No resuelven por sí solas el déficit habitacional de 3,5 millones de viviendas, y este plan no lo pretende. Su caso es otro: crear polos de atracción que descompriman el AMBA, reequilibren el mapa federal y demuestren — con ciudades reales, medibles, habitadas — un estándar urbano que las ciudades existentes puedan copiar. El déficit masivo se ataca con PLANVIV; PLAN24CN ataca la macrocefalia.</p>
+
+<p><strong>Financiamiento — captura de valorización del suelo:</strong> el mecanismo central es que el Estado compra tierra fiscal o rural barata, la urbaniza, y la valorización resultante repaga la inversión: la diferencia entre el precio del suelo rural y el del suelo urbano con servicios es la fuente de fondeo más grande y menos usada del urbanismo argentino. Se complementa con el FGS de ANSES como inversor ancla y con bonos de ciudad atados a la recaudación futura de cada ciudad. Por eso las ciudades pueden autofinanciarse: el valor lo crea el plan, y el plan lo captura para el público en vez de regalárselo a la especulación.</p>`,
       pullQuote: 'No pedimos mejores ciudades. Pedimos ciudades dignas de la vida humana. Ciudades que nos hagan mejores personas por el solo hecho de habitarlas.',
       stats: [
         { label: 'Ciudades nuevas', value: '24' },
@@ -376,7 +382,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
           id: 1,
           title: 'Efecto faro: 24 ciudades maduras',
           description: '1 a 1,8 millones de residentes en total. Ciudades autofinanciadas por valorización de tierra, economía circular y recaudación propia. Modelo exportado a otras naciones latinoamericanas. Efecto faro: cada ciudad demuestra que otra forma de vivir es posible. Índice Nacional de Ciudades Nuevas (INCN) establece ranking público. Las ciudades con puntaje >80 durante 3 años reciben estatus de "Faro".',
-          timeline: 'Año 10-25 — META',
+          timeline: 'Año 15-20 — META',
           dependencies: [],
           orderIndex: 1,
         },
@@ -384,7 +390,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
           id: 2,
           title: 'Las 24 ciudades operativas',
           description: 'Todas las 24 ciudades en funcionamiento con 300.000 a 800.000 residentes en total. Primeras ciudades alcanzando autofinanciamiento. Economías circulares locales generando empleo y reduciendo dependencia externa. Tablero Nacional público con datos en tiempo real de cada ciudad en 7 dimensiones: construcción, población, economía, bienestar, medio ambiente, gobernanza y finanzas.',
-          timeline: 'Año 5-10',
+          timeline: 'Año 10-15',
           dependencies: ['Efecto faro: 24 ciudades maduras'],
           orderIndex: 2,
         },
@@ -392,7 +398,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
           id: 3,
           title: 'Escalamiento a 16 ciudades',
           description: 'Expansión a 16 ciudades adicionales en todas las provincias restantes. Primeros residentes habitando las 4 ciudades piloto. 50.000+ trabajadores capacitados en oficios de construcción viva. Protocolo de diseño urbano validado y documentado para replicación. Lecciones de las 4 ciudades piloto integradas en los diseños posteriores.',
-          timeline: 'Año 1,5-5',
+          timeline: 'Año 3-10',
           dependencies: ['Las 24 ciudades operativas'],
           orderIndex: 3,
         },
@@ -417,7 +423,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
         milestones: [
           { date: 'Año 5', targetValue: 50 },
           { date: 'Año 10', targetValue: 800 },
-          { date: 'Año 25', targetValue: 1800 },
+          { date: 'Año 20', targetValue: 1800 },
         ],
       },
       {
@@ -430,7 +436,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
         milestones: [
           { date: 'Año 5', targetValue: 25 },
           { date: 'Año 10', targetValue: 35 },
-          { date: 'Año 25', targetValue: 40 },
+          { date: 'Año 20', targetValue: 40 },
         ],
       },
       {
@@ -443,7 +449,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
         milestones: [
           { date: 'Año 5', targetValue: 50 },
           { date: 'Año 10', targetValue: 65 },
-          { date: 'Año 25', targetValue: 80 },
+          { date: 'Año 20', targetValue: 80 },
         ],
       },
       {
@@ -452,11 +458,12 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
         currentValue: 0,
         targetValue: 24,
         unit: 'ciudades',
-        source: 'PLAN24CN — Cronograma',
+        source: 'PLAN24CN — Cronograma (operativa = con primeros residentes)',
         milestones: [
-          { date: 'Año 1,5', targetValue: 4 },
-          { date: 'Año 5', targetValue: 12 },
-          { date: 'Año 10', targetValue: 24 },
+          { date: 'Año 3', targetValue: 2 },
+          { date: 'Año 5', targetValue: 8 },
+          { date: 'Año 10', targetValue: 16 },
+          { date: 'Año 15', targetValue: 24 },
         ],
       },
       {
@@ -469,7 +476,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
         milestones: [
           { date: 'Año 5', targetValue: 60 },
           { date: 'Año 10', targetValue: 85 },
-          { date: 'Año 25', targetValue: 100 },
+          { date: 'Año 20', targetValue: 100 },
         ],
       },
       {
@@ -482,7 +489,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
         milestones: [
           { date: 'Año 5', targetValue: 40 },
           { date: 'Año 10', targetValue: 60 },
-          { date: 'Año 25', targetValue: 80 },
+          { date: 'Año 20', targetValue: 80 },
         ],
       },
     ],
@@ -493,6 +500,8 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
       { title: 'INDEC — Censo Nacional de Población, Hogares y Viviendas' },
       { title: 'OMS — Recomendaciones de Espacios Verdes Urbanos' },
       { title: 'CEPAL — Panorama de la Gestión Urbana en América Latina' },
+      { title: 'Brasília (1960) y Songdo (2003) — ciudades planificadas: lecciones de éxito parcial' },
+      { title: 'NEOM (Arabia Saudita) — anti-ejemplo: escala sin demanda ni gobernanza' },
       { title: 'Russell Ackoff — Idealized Design (Metodología)' },
     ],
     // Mission-centric classification
@@ -791,7 +800,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
 
 <p><strong>Maestros Creadores:</strong> Seleccionados del tercio superior, formados en 5 años, con salario piso de 1,5× el mediano profesional (~USD 1.200-1.500/mes inicial, escalando a USD 2.500+). Carrera por mérito: 4 niveles hasta Maestro Referente Nacional.</p>
 
-<p><strong>Leer para Encender — El Pilar Cero:</strong> Sin lectura, nada funciona. Motor adaptativo de lectura con repetición espaciada y gamificación para alumnos por debajo del nivel + lectura integrada en TODAS las Capacidades y talleres. Programa familiar "Encender en Casa": padres usan PAA, círculos de lectura comunitarios, desafíos intergeneracionales. Objetivo: 80% de alumnos por debajo del nivel recuperados en 18 meses.</p>
+<p><strong>Leer para Encender — El Pilar Cero:</strong> Sin lectura, nada funciona. Motor adaptativo de lectura con repetición espaciada y gamificación para alumnos por debajo del nivel + lectura integrada en TODAS las Capacidades y talleres. Programa familiar "Encender en Casa": padres usan PAA, círculos de lectura comunitarios, desafíos intergeneracionales. Objetivo: primeros resultados medibles a los 18 meses; 60% de los alumnos por debajo del nivel recuperados al Año 5, 90% al Año 15.</p>
 
 <p><strong>El Modelo 3+5:</strong> Inspirado en Alpha School (EE.UU., top 1-2% nacional con solo 2 horas de academia adaptativa), PLANEDU estructura la jornada en <strong>3 horas de dominio adaptativo</strong> (PAA con repetición espaciada + sesiones socráticas con Maestro Creador) + <strong>5 horas de talleres, proyectos y emprendimientos</strong>. 24+ talleres rotativos mapeados a las Siete Capacidades. Sin tarea para el hogar — todo sucede en la jornada escolar.</p>
 
@@ -821,7 +830,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
           id: 1,
           title: 'Argentina: referente educativo mundial',
           description: 'Top 20 en evaluaciones internacionales. 70% de egresados secundarios con nivel B2+ de inglés. La profesión de Maestro Creador entre las 3 más prestigiosas del país. PAA usada por 50 millones de hispanohablantes en 12+ países. Tasa de graduación secundaria >85%. Primera generación completa de egresados PLANEDU en el mercado laboral — la más creativa, capaz y empática que Argentina produjo.',
-          timeline: 'Año 10-15 — META',
+          timeline: 'Año 15-20 — META',
           dependencies: [],
           orderIndex: 1,
         },
@@ -1041,18 +1050,18 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
       steps: [
         {
           id: 1,
-          title: 'Ley de Justicia Popular y creación de ANJUS',
-          description: 'Sanción de la ley habilitante que crea la Agencia Nacional de Justicia Popular (ANJUS), establece los tres niveles JUS, reconoce resoluciones con fuerza ejecutoria, y elimina el patrocinio letrado obligatorio para procedimientos PLANJUS.',
-          timeline: 'Año 0',
+          title: 'Fase 3 — La Sucesión Natural: PLANJUS como sistema primario',
+          description: '90%+ de conflictos en PLANJUS. Reforma constitucional para formalizar. Sistema judicial tradicional reducido a jurisdicción penal compleja y constitucional. Argentina como referente internacional en justicia comunitaria.',
+          timeline: 'Años 7-15 — META',
           dependencies: [],
           orderIndex: 1,
         },
         {
           id: 2,
-          title: 'Plataforma digital y primeras 50 Casas JUS',
-          description: 'Desarrollo del MVP de la plataforma digital PLANJUS, construcción o adaptación de las primeras 50 Casas JUS en 4 provincias piloto, y formación del primer contingente de 1.000 panelistas JUS-1.',
-          timeline: 'Año 0-1',
-          dependencies: ['1'],
+          title: 'Fase 2 — La Preferencia: Cobertura nacional + JUS-2 y JUS-3',
+          description: 'Cobertura en 24 provincias + CABA. JUS-1, JUS-2 y JUS-3 operativos. 5+ millones de casos/año. 70% de conflictos civiles/comerciales/laborales en PLANJUS. 500+ Casas JUS. Inicio de reasignación presupuestaria desde el sistema judicial.',
+          timeline: 'Años 3-7',
+          dependencies: ['Fase 3 — La Sucesión Natural: PLANJUS como sistema primario'],
           orderIndex: 2,
         },
         {
@@ -1060,23 +1069,23 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
           title: 'Fase 1 — El Alivio: Lanzamiento en 4 provincias piloto',
           description: 'JUS-1 operativo completo en 4 provincias. 500.000 casos resueltos en el primer año. Satisfacción >65%. Demostración de velocidad y calidad. Expansión a 12 provincias al tercer año con 2 millones de casos/año.',
           timeline: 'Años 1-3',
-          dependencies: ['2'],
+          dependencies: ['Fase 2 — La Preferencia: Cobertura nacional + JUS-2 y JUS-3'],
           orderIndex: 3,
         },
         {
           id: 4,
-          title: 'Fase 2 — La Preferencia: Cobertura nacional + JUS-2 y JUS-3',
-          description: 'Cobertura en 24 provincias + CABA. JUS-1, JUS-2 y JUS-3 operativos. 5+ millones de casos/año. 70% de conflictos civiles/comerciales/laborales en PLANJUS. 500+ Casas JUS. Inicio de reasignación presupuestaria desde el sistema judicial.',
-          timeline: 'Años 3-7',
-          dependencies: ['3'],
+          title: 'Plataforma digital y primeras 50 Casas JUS',
+          description: 'Desarrollo del MVP de la plataforma digital PLANJUS, construcción o adaptación de las primeras 50 Casas JUS en 4 provincias piloto, y formación del primer contingente de 1.000 panelistas JUS-1.',
+          timeline: 'Año 0-1',
+          dependencies: ['Fase 1 — El Alivio: Lanzamiento en 4 provincias piloto'],
           orderIndex: 4,
         },
         {
           id: 5,
-          title: 'Fase 3 — La Sucesión Natural: PLANJUS como sistema primario',
-          description: '90%+ de conflictos en PLANJUS. Reforma constitucional para formalizar. Sistema judicial tradicional reducido a jurisdicción penal compleja y constitucional. Argentina como referente internacional en justicia comunitaria.',
-          timeline: 'Años 7-15',
-          dependencies: ['4'],
+          title: 'Ley de Justicia Popular y creación de ANJUS',
+          description: 'Sanción de la ley habilitante que crea la Agencia Nacional de Justicia Popular (ANJUS), establece los tres niveles JUS, reconoce resoluciones con fuerza ejecutoria, y elimina el patrocinio letrado obligatorio para procedimientos PLANJUS.',
+          timeline: 'Año 0',
+          dependencies: ['Plataforma digital y primeras 50 Casas JUS'],
           orderIndex: 5,
         },
       ],
@@ -1084,11 +1093,11 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
     kpis: [
       {
         id: 'tiempo-resolucion-jus1',
-        metric: 'Tiempo Promedio Resolución JUS-1',
-        currentValue: 0,
+        metric: 'Tiempo Promedio Resolución de Conflictos Simples (línea de base: justicia tradicional)',
+        currentValue: 1095,
         targetValue: 7,
         unit: 'días',
-        source: 'PLANJUS — Tablero Nacional de Justicia',
+        source: 'PLANJUS — Tablero Nacional de Justicia (base: ~3 años en juicio civil tradicional)',
         milestones: [
           { date: 'Año 1', targetValue: 15 },
           { date: 'Año 5', targetValue: 10 },
@@ -1166,7 +1175,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
     relatedInitiativeSlugs: ['planisv-infraestructura-suelo-vivo', 'plan24cn-24-ciudades-nuevas', 'planrep-reconversion-empleo-publico', 'planedu-refundacion-educativa'],
     sources: [
       { title: 'PLANJUS — Plan Nacional de Justicia Popular y Resolución de Conflictos (Documento Estratégico, Mar 2026)' },
-      { title: 'PISA Judicial — Duración de causas de corrupción en Argentina (4.161 días promedio)' },
+      { title: 'ACIJ / CIPCE — Duración de causas de corrupción (4.161 días promedio)' },
       { title: 'Kleros — Decentralized Justice & Blockchain Arbitration (Stanford Law)' },
       { title: 'México — Ley General de Mecanismos Alternativos de Solución de Controversias (2024)' },
       { title: 'Rwanda — Gacaca Courts: 1.9 millones de casos procesados (2002-2012)' },
@@ -1200,7 +1209,9 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
       title: 'El Problema',
       content: `<p>La Argentina gasta aproximadamente el 10% de su PBI en salud — comparable a Alemania — pero obtiene resultados de país en desarrollo. El 28.3% de los adultos son obesos. El 12.7% tiene diabetes tipo 2. Cinco millones de personas tienen depresión diagnosticada. El 64.9% de adultos son sedentarios. Más del 30% de las calorías provienen de ultraprocesados. El consumo de psicofármacos es el segundo más alto de América Latina.</p>
 <p>El sistema no falla. Funciona exactamente como fue diseñado: para administrar enfermedad, no para cultivar salud. Cada enfermedad crónica es un cliente de por vida — medicamentos, estudios, consultas — que nunca se cura pero tampoco se muere. La industria farmacéutica global factura USD 1.6 billones anuales, y el 70% proviene de enfermedades crónicas.</p>
-<p>Detrás de cada estadística hay una familia como los Ramírez de Lomas de Zamora: Ricardo con hipertensión por estrés laboral crónico, Silvia con depresión y clonazepam, Tomás de 16 años con ataques de pánico, y Nélida de 72 con diabetes y siete pastillas diarias. No están enfermos porque el sistema de salud falló — están enfermos porque el sistema de vida los enfermó: comida industrial, trabajo sin sentido, incertidumbre económica, aislamiento digital, barrios hostiles.</p>`,
+<p>Detrás de cada estadística hay una familia como los Ramírez de Lomas de Zamora: Ricardo con hipertensión por estrés laboral crónico, Silvia con depresión y clonazepam, Tomás de 16 años con ataques de pánico, y Nélida de 72 con diabetes y siete pastillas diarias. No están enfermos porque el sistema de salud falló — están enfermos porque el sistema de vida los enfermó: comida industrial, trabajo sin sentido, incertidumbre económica, aislamiento digital, barrios hostiles.</p>
+<p>La fragmentación agrava todo: tres subsistemas (público, obras sociales, prepagas) que no comparten historia clínica, ni compras, ni incentivos. Cada uno factura por acto médico — cobra cuando hay enfermos, no cuando hay sanos. La atención primaria territorial, que en cualquier sistema serio resuelve el 80% de las consultas, está desfinanciada y desprestigiada: los CAPS atienden sin turnos protegidos, sin laboratorio propio y sin continuidad de equipo. El resultado es que la puerta de entrada al sistema es la guardia del hospital — el lugar más caro y más tardío para encontrarse con una enfermedad.</p>
+<p>Y la prevención no tiene quien la cobre. Ningún actor del sistema actual captura el retorno de evitar una diabetes a diez años: la prepaga ve al afiliado irse antes, la obra social administra escasez, el hospital factura por episodio. La inversión más rentable del sistema sanitario — cada peso en prevención ahorra entre 6 y 10 en tratamiento — no tiene dueño institucional. No es un accidente: es el agujero de diseño que PLANSAL viene a ocupar.</p>`,
       pullQuote: 'La Argentina no tiene una crisis de salud — tiene un sistema de vida que manufactura enfermedad y un sistema médico que la administra como negocio.',
       stats: [
         { label: 'Gasto en salud (% PBI)', value: '~10%' },
@@ -1226,7 +1237,9 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
       title: 'El Diseño Ideal',
       content: `<p>PLANSAL propone la primera arquitectura integral de salud que no gestiona enfermedad sino que cultiva vitalidad, organizada en torno a las 12 Raíces de la Salud: alimentación, movimiento, sueño, propósito, vínculo, entorno, trabajo, economía, espiritualidad, creatividad, aprendizaje y comunidad.</p>
 <p>Cuatro pilares de infraestructura: una <strong>Red Nacional de Centros de Vitalidad</strong> (3.000+, uno por barrio, operados por la comunidad), un <strong>Sistema de Familias Mentoras</strong> (25.000+ familias que transmiten bienestar horizontalmente), <strong>Ancianos de Sabiduría</strong> (5M+ adultos mayores reposicionados como activos comunitarios), y una <strong>Plataforma Digital Nacional</strong> de autodiagnóstico por las 12 dimensiones.</p>
-<p>La reconversión del sistema médico opera en 3 fases a lo largo de 15 años: de la coexistencia a la especialización hospitalaria en emergencias y trauma, mientras las enfermedades crónicas prevenibles migran a los Centros de Vitalidad. Se funda en un Pacto de Co-responsabilidad: el Estado deja de envenenar, el ciudadano elige sanarse.</p>`,
+<p>La reconversión del sistema médico opera en cuatro fases a lo largo de 15 años: de la coexistencia a la especialización hospitalaria en emergencias y trauma, mientras las enfermedades crónicas prevenibles migran a los Centros de Vitalidad. Se funda en un Pacto de Co-responsabilidad: el Estado deja de envenenar, el ciudadano elige sanarse.</p>
+<p>El mecanismo institucional es la <strong>ANVIP</strong> (Agencia Nacional de Vitalidad Popular): ente autárquico que acredita los Centros de Vitalidad, certifica Guías y Familias Mentoras, publica el Tablero Nacional con datos abiertos y administra los contratos de resultado. La ANVIP no atiende pacientes — financia vitalidad medida. Los Centros operan como la capa de <strong>atención primaria territorial</strong> que el sistema nunca tuvo: nutrición, movimiento, salud mental comunitaria y detección temprana, articulados con los CAPS y derivando al hospital solo lo que el barrio no resuelve. La prevención deja de ser gasto sin dueño y pasa a ser inversión con retorno medible.</p>
+<p><strong>Financiamiento:</strong> no requiere gasto nuevo neto — reasigna progresivamente entre el 3% y el 8% del gasto sanitario consolidado desde el tratamiento de enfermedad prevenible hacia prevención con contratos por resultado: cada Centro cobra por indicadores de vitalidad verificados, no por prestaciones facturadas. La resistencia está anticipada: la industria farmacéutica y las prepagas pierden clientes crónicos si PLANSAL funciona, y van a dar pelea regulatoria y mediática. La respuesta del diseño es evidencia abierta — medición cuasi-experimental publicada desde la Fase 1 — y la alianza con quienes pagan la cuenta: provincias, obras sociales sindicales y PAMI.</p>`,
       pullQuote: 'PLANSAL no es un plan de hospitales — es un plan de transformación humana.',
       stats: [
         { label: 'Inversión total (10 años)', value: 'USD 6.000M' },
@@ -1254,7 +1267,8 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
         source: 'PLANSAL — Tablero Nacional de Vitalidad',
         milestones: [
           { date: 'Año 5', targetValue: 68 },
-          { date: 'Año 10', targetValue: 71 },
+          { date: 'Año 10', targetValue: 70 },
+          { date: 'Año 15', targetValue: 71 },
         ],
       },
       {
@@ -1266,7 +1280,8 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
         source: 'PLANSAL — Indicador de enfermedad crónica',
         milestones: [
           { date: 'Año 5', targetValue: 10 },
-          { date: 'Año 10', targetValue: 7.6 },
+          { date: 'Año 10', targetValue: 8.5 },
+          { date: 'Año 15', targetValue: 7.6 },
         ],
       },
       {
@@ -1291,7 +1306,8 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
         source: 'PLANSAL — Indicador de movimiento',
         milestones: [
           { date: 'Año 5', targetValue: 55 },
-          { date: 'Año 10', targetValue: 39 },
+          { date: 'Año 10', targetValue: 45 },
+          { date: 'Año 15', targetValue: 39 },
         ],
       },
       {
@@ -1303,7 +1319,8 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
         source: 'PLANSAL — Encuesta Nacional',
         milestones: [
           { date: 'Año 5', targetValue: 55 },
-          { date: 'Año 10', targetValue: 70 },
+          { date: 'Año 10', targetValue: 63 },
+          { date: 'Año 15', targetValue: 70 },
         ],
       },
     ],
@@ -1313,7 +1330,8 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
       { title: 'PLANSAL — Plan Nacional de Salud Integral y Vitalidad Popular (Documento Estratégico, Mar 2026)' },
       { title: 'OMS — Esperanza de vida saludable (HALE) por país' },
       { title: 'Ministerio de Salud — Encuesta Nacional de Factores de Riesgo (ENFR 4ta edición)' },
-      { title: 'Krishnamurti — No es signo de buena salud estar bien adaptado a una sociedad enferma' },
+      { title: 'IDF — Diabetes Atlas (prevalencia de diabetes tipo 2 en Argentina)' },
+      { title: 'Ministerio de Salud — Estadísticas vitales y de gasto sanitario (DEIS)' },
       { title: 'Russell Ackoff — Idealized Design (Metodología)' },
     ],
     // Mission-centric classification
@@ -1324,7 +1342,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
     stateDecision: 'Ejecutar primero',
     citizenRoles: ['testigo', 'constructor', 'organizador'],
     citizenAsk: 'Promotores, acompanamiento, red de cuidado, datos barriales',
-    mainRisk: 'Querer pasar a salud integral sin cerrar urgencias',
+    mainRisk: 'Querer pasar a salud integral sin cerrar urgencias; resistencia coordinada de la industria farmacéutica y las prepagas, que pierden clientes crónicos',
     stateCapacity: 'media',
     socialCapacity: 'media',
   },
@@ -1368,7 +1386,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
       title: 'El Diseño Ideal',
       content: `<p>PLANEB propone el derecho de los ciudadanos a crear <strong>Empresas Bastardas</strong> — entidades constituidas como Fideicomisos de Propósito Perpetuo, gobernadas como DAOs (Organizaciones Autónomas Descentralizadas), sin dueño, sin accionistas, sin fines de lucro, que proveen servicios esenciales al costo real con transparencia radical: cada peso que entra y cada peso que sale es auditable en tiempo real por cualquier ciudadano.</p>
 <p>La <strong>Red Bastarda</strong> — la red de Empresas Bastardas interconectadas — opera sobre el <strong>Protocolo Bastardo</strong>, infraestructura compartida open-source con identidad descentralizada, tesorería on-chain, gobernanza por sorteo democrático, y un motor de transparencia que publica automáticamente cada dato financiero.</p>
-<p>La primera Bastarda ataca el sector de seguros: producto obligatorio, alta demanda, riesgo bien modelado. Los usuarios pagan el costo real dinámico con un techo mensual. La capitalización es ciudadana: 25.000 fundadores eliminan la necesidad de inversores. El ROI social es de 6:1 a 20:1 en cinco años.</p>`,
+<p>La primera Bastarda ataca el sector de seguros: producto obligatorio, alta demanda, riesgo bien modelado. Los usuarios pagan el costo real dinámico con un techo mensual. La capitalización es ciudadana: 25.000 fundadores eliminan la necesidad de inversores. El ROI social es de 6:1 a 20:1 en cinco años. Capitalización pública de la red: USD 500–600M (piso constitucional de 0,10% del PBI), adicional a los USD 8–17M de inversión privada-ciudadana de la primera Bastarda.</p>`,
       pullQuote: 'Bastarda: sin padre, sin dueño, sin patrón. Pero con propósito, con transparencia, con la gente.',
       stats: [
         { label: 'Ahorro por usuario', value: '20-35%' },
@@ -1407,7 +1425,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
         metric: 'Ahorro Ciudadano Acumulado',
         currentValue: 0,
         targetValue: 180,
-        unit: 'USD M/año',
+        unit: 'USD M',
         source: 'PLANEB — Impacto económico',
         milestones: [
           { date: 'Año 1', targetValue: 3 },
@@ -1541,13 +1559,13 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
         id: 'recaudacion-fiscal',
         metric: 'Recaudación Fiscal por Sustancias',
         currentValue: 0,
-        targetValue: 1500,
+        targetValue: 2200,
         unit: 'USD M/año',
-        source: 'PLANSUS — Ingresos proyectados',
+        source: 'PLANSUS — Ingresos proyectados (piso del rango USD 2.200-4.400M al Año 5)',
         milestones: [
           { date: 'Año 1', targetValue: 100 },
-          { date: 'Año 3', targetValue: 500 },
-          { date: 'Año 5', targetValue: 1500 },
+          { date: 'Año 3', targetValue: 800 },
+          { date: 'Año 5', targetValue: 2200 },
         ],
       },
       {
@@ -1638,7 +1656,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
     quePasaSiNoCambiamos: {
       title: '¿Qué pasa si no cambiamos?',
       content: `<p>La inacción a 10 años (2026-2036) cuesta entre USD 33.500 y 67.000 millones en pérdidas acumuladas. PLANAGUA cuesta USD 15.000-25.000M — la inacción cuesta entre USD 18.500 y 42.000 millones MÁS que la inversión propuesta.</p>
-<p>Las pérdidas por fugas representan USD 8.000-12.000M. Los costos sanitarios por enfermedades hídricas suman USD 5.000-8.000M. Las pérdidas agrícolas por sequías y bajantes alcanzan USD 3.000-8.000M. El impacto de inundaciones agrega USD 3.000-7.000M. La pérdida de reservas glaciares — agua que nunca volverá — vale USD 5.000-12.000M.</p>
+<p>Las pérdidas por fugas representan USD 8.000-12.000M. Los costos sanitarios por enfermedades hídricas suman USD 5.000-8.000M. Las pérdidas agrícolas por sequías y bajantes alcanzan USD 3.000-8.000M. El impacto de inundaciones agrega USD 3.000-7.000M. La pérdida de reservas glaciares — agua que nunca volverá — vale USD 5.000-12.000M. Y el costo de oportunidad económico — inversión que no se radica, producción que no se instala y horas de vida perdidas en acarreo de agua no segura — suma los USD 9.500-20.000M restantes.</p>
 <p>Cada centímetro de profundidad que el Paraná pierde equivale a cientos de toneladas menos por buque y millones en costos de flete. Los glaciares que alimentan Mendoza pierden 1-2% por año — y sin ellos, Mendoza es literalmente desierto. La pregunta no es si podemos pagar PLANAGUA. Es si podemos pagar el costo de no tenerlo.</p>`,
       pullQuote: 'La pregunta no es si podemos pagar PLANAGUA. La pregunta es si podemos pagar el costo de no tenerlo.',
       stats: [
@@ -1765,7 +1783,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
     title: 'PLANGEO',
     subtitle: 'Plan Nacional de Posicionamiento Geopolítico y Plataforma de Soberanía Exportable',
     category: 'geopolitica',
-    summary: 'Argentina con BASTA no es una anomalía aislada — es diez. PLANGEO es el plan que hace que los otros diez mandatos lleguen al mundo sin que el mundo los destruya. Propone una estrategia de doble capa (diplomacia convencional + infraestructura paralela) y una Plataforma de Soberanía Exportable: siete Stacks open-source que empaquetan cada herramienta BASTA como infraestructura adoptable por cualquier país. La Red Soberana — una comunidad de países y ciudades que comparten estos Stacks — convierte a Argentina en un nodo demasiado útil para sancionar, demasiado interconectado para aislar y demasiado transparente para difamar.',
+    summary: 'Argentina con ¡BASTA! no es una anomalía aislada — son 22 PLANes simultáneos (al 23 de abril de 2026). PLANGEO es el plan que hace que los demás PLANes lleguen al mundo sin que el mundo los destruya. Propone una estrategia de doble capa (diplomacia convencional + infraestructura paralela) y una Plataforma de Soberanía Exportable: siete Stacks open-source que empaquetan cada herramienta ¡BASTA! como infraestructura adoptable por cualquier país. La Red Soberana — una comunidad de países y ciudades que comparten estos Stacks — convierte a Argentina en un nodo demasiado útil para sancionar, demasiado interconectado para aislar y demasiado transparente para difamar.',
     iconName: 'Globe',
     documentFile: 'PLANGEO_Argentina_ES.md',
     elProblema: {
@@ -1773,24 +1791,24 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
       content: `<p>Argentina posee uno de los inventarios estratégicos más completos del planeta: terceras reservas mundiales de litio, segundas de shale gas (Vaca Muerta), capacidad alimentaria para 400 millones de personas, participación en el Acuífero Guaraní, presencia antártica continua más antigua del mundo (desde 1904) y el mayor porcentaje de universitarios de América Latina.</p>
 <p>Sin embargo, exporta litio como carbonato (USD 10.000-15.000/t) e importa baterías (USD 100.000-200.000/t) — un multiplicador perdido de 7 a 25 veces. Exporta datos por cero dólares hacia servidores en Virginia. Exporta cerebros y reimporta consultores. La estructura del comercio global está diseñada para que países como Argentina sean proveedores de insumos baratos y compradores de productos caros.</p>
 <p>Peor aún: cuando un país intenta cambiar esta estructura, el sistema responde. No necesita coordinación. Calificadoras bajan el rating en 48 horas, mercados financieros mueven capitales en minutos, el FMI condiciona préstamos en meses, SWIFT puede desconectar en días, y medios internacionales instalan narrativas en horas. Es un sistema inmunológico que detecta la anomalía, moviliza anticuerpos y ataca.</p>
-<p>BASTA propone diez reformas simultáneas que amenazan a aseguradoras multinacionales (PLANEB), al régimen prohibicionista de drogas (PLANSUS), a la hegemonía digital de Silicon Valley (PLANDIG), al control sobre recursos estratégicos (PLANAGUA, litio), al modelo de ciudades financiarizadas (PLAN24CN) y a la lógica misma del capitalismo accionarial (PLANREP). Cada una de estas iniciativas, lanzada individualmente, podría sobrevivir. Las diez juntas activan el sistema inmunológico completo: corporaciones presionan Estados, Estados presionan multilaterales, multilaterales imponen condiciones. Sin una estrategia geopolítica que anticipe esta cascada, BASTA es una revolución doméstica brillante que el mundo puede asfixiar.</p>`,
+<p>¡BASTA! propone 22 PLANes simultáneos (al 23 de abril de 2026) que amenazan a aseguradoras multinacionales (PLANEB), al régimen prohibicionista de drogas (PLANSUS), a la hegemonía digital de Silicon Valley (PLANDIG), al control sobre recursos estratégicos (PLANAGUA, litio), al modelo de ciudades financiarizadas (PLAN24CN) y a la lógica misma del capitalismo accionarial (PLANREP). Cada una de estas iniciativas, lanzada individualmente, podría sobrevivir. Los 22 juntos activan el sistema inmunológico completo: corporaciones presionan Estados, Estados presionan multilaterales, multilaterales imponen condiciones. Sin una estrategia geopolítica que anticipe esta cascada, ¡BASTA! es una revolución doméstica brillante que el mundo puede asfixiar.</p>`,
       pullQuote: 'La Argentina no tiene un problema de recursos. Tiene un problema de arquitectura: el sistema global está diseñado para extraer valor del Sur y procesarlo en el Norte. No por maldad — por estructura. La maldad sería más fácil de combatir.',
       stats: [
         { label: 'Multiplicador perdido (litio)', value: '7-25x' },
-        { label: 'Datos soberanos en servidores extranjeros', value: '93% de países' },
+        { label: 'Datos soberanos en servidores extranjeros', value: '~93% de países (estimación propia)' },
         { label: 'Velocidad de respuesta del sistema', value: 'Horas a días' },
-        { label: 'PLANs BASTA que activan fricción', value: '10 simultáneos' },
+        { label: 'PLANes ¡BASTA! que activan fricción', value: '22 simultáneos' },
       ],
     },
     quePasaSiNoCambiamos: {
       title: '¿Qué pasa si no cambiamos?',
-      content: `<p><strong>Sin PLANGEO, cada PLAN de BASTA queda expuesto:</strong> PLANEB enfrenta demandas millonarias en tribunales de inversión sin estrategia de defensa legal internacional. PLANSUS denuncia convenciones de drogas sin coalición reformista, aislando a Argentina. PLANDIG construye soberanía digital sin alianza con la UE, permitiendo que Big Tech restrinja servicios. El litio se sigue exportando como materia prima porque no hay acuerdos de transferencia tecnológica con India, China o la UE.</p>
+      content: `<p><strong>Sin PLANGEO, cada PLAN de ¡BASTA! queda expuesto:</strong> PLANEB enfrenta demandas millonarias en tribunales de inversión sin estrategia de defensa legal internacional. PLANSUS denuncia convenciones de drogas sin coalición reformista, aislando a Argentina. PLANDIG construye soberanía digital sin alianza con la UE, permitiendo que Big Tech restrinja servicios. El litio se sigue exportando como materia prima porque no hay acuerdos de transferencia tecnológica con India, China o la UE.</p>
 
 <p><strong>Escenario cascada (sin preparación):</strong> Argentina denuncia convenciones → EEUU presiona al FMI → Moody's hace downgrade → capital flight → Big Tech restringe servicios → medios internacionales publican "estado fallido" → oposición interna capitaliza la narrativa. Este escenario no es hipotético — es el playbook estándar que el sistema aplicó a docenas de países que intentaron reformas estructurales sin escudo geopolítico.</p>
 
-<p><strong>Costo de la inacción geopolítica:</strong> Argentina pierde entre USD 5.000-15.000M anuales en valor agregado no capturado (litio, datos, conocimiento). La dependencia del FMI se perpetúa. La presencia antártica se erosiona frente a países con mayor inversión. Las Malvinas siguen congeladas indefinidamente. Y lo más grave: las herramientas de BASTA — que podrían beneficiar a miles de millones de personas en el mundo — quedan encerradas en un solo país del Cono Sur, vulnerables a un cambio de gobierno.</p>
+<p><strong>Costo de la inacción geopolítica:</strong> Argentina pierde entre USD 5.000-15.000M anuales en valor agregado no capturado (litio, datos, conocimiento). La dependencia del FMI se perpetúa. La presencia antártica se erosiona frente a países con mayor inversión. Las Malvinas siguen congeladas indefinidamente. Y lo más grave: las herramientas de ¡BASTA! — que podrían beneficiar a miles de millones de personas en el mundo — quedan encerradas en un solo país del Cono Sur, vulnerables a un cambio de gobierno.</p>
 
-<p><strong>Próximos 25 años sin estrategia:</strong> Argentina sigue siendo proveedor de commodities baratos. El litio se agota sin industrialización. Vaca Muerta genera ingresos decrecientes sin reinversión en renovables. Los mejores cerebros se siguen yendo. Y un día, un gobierno opositor desmantela BASTA sin que nadie en el mundo tenga incentivo para defenderlo — porque nadie en el mundo lo adoptó.</p>`,
+<p><strong>Próximos 25 años sin estrategia:</strong> Argentina sigue siendo proveedor de commodities baratos. El litio se agota sin industrialización. Vaca Muerta genera ingresos decrecientes sin reinversión en renovables. Los mejores cerebros se siguen yendo. Y un día, un gobierno opositor desmantela ¡BASTA! sin que nadie en el mundo tenga incentivo para defenderlo — porque nadie en el mundo lo adoptó.</p>`,
       pullQuote: 'Un país que transforma todo internamente pero no construye alianzas externas es un laboratorio aislado. Los laboratorios aislados se cierran cuando cambia el director.',
       stats: [
         { label: 'Valor no capturado / año', value: 'USD 5-15 mil M' },
@@ -1801,7 +1819,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
     },
     elDisenoIdeal: {
       title: 'El Diseño Ideal',
-      content: `<p><strong>Doctrina de la Plataforma Soberana:</strong> Argentina no solo transforma su gobernanza — empaqueta cada herramienta BASTA como infraestructura soberana exportable. Siete Stacks open-source (Gobernanza Económica, Soberanía Digital, Recursos, Transición Humana, Soberanía Sanitaria, Soberanía Urbana, Soberanía Jurídica) que cualquier país o ciudad puede adoptar, forkear y modificar sin permiso de Buenos Aires. Soberanía como Servicio — sin lock-in, sin dependencia.</p>
+      content: `<p><strong>Doctrina de la Plataforma Soberana:</strong> Argentina no solo transforma su gobernanza — empaqueta cada herramienta ¡BASTA! como infraestructura soberana exportable. Siete Stacks open-source (Gobernanza Económica, Soberanía Digital, Recursos, Transición Humana, Soberanía Sanitaria, Soberanía Urbana, Soberanía Jurídica) que cualquier país o ciudad puede adoptar, forkear y modificar sin permiso de Buenos Aires. Soberanía como Servicio — sin lock-in, sin dependencia.</p>
 
 <p><strong>La Red Soberana:</strong> No es un bloque geopolítico. Es una comunidad de usuarios: países y ciudades que comparten infraestructura de gobernanza open-source, con cooperación técnica, defensa mutua por interdependencia, y mejora continua del código compartido. Cuatro niveles: Observador → Adoptante → Contribuyente → Nodo Fundador. La red crece por necesidad, no por proselitismo.</p>
 
@@ -1809,7 +1827,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
 
 <p><strong>Estrategia de las Mil Puertas:</strong> Hacer que Argentina esté tan profundamente entrelazada con la infraestructura de gobernanza de tantos países que sancionar a la Argentina tendría efectos cascada en medio mundo. No es dependencia (lo que EEUU hace con el dólar) — es utilidad distribuida. Como Linux: cualquiera puede forkear, pero nadie quiere, porque la red comparte el costo de mantenimiento.</p>
 
-<p><strong>Navegación US-China:</strong> Argentina no elige bando. Es el péndulo que oscila según el leverage necesario. GNL y cooperación antinarcóticos para EEUU. Litio procesado y joint ventures para China. Equivalencia GDPR y complementariedad para la UE. Litio-genéricos-pagos para India. El Judo Diplomático: usar los valores declarados de cada potencia como argumento a favor de BASTA.</p>
+<p><strong>Navegación US-China:</strong> Argentina no elige bando. Es el péndulo que oscila según el leverage necesario. GNL y cooperación antinarcóticos para EEUU. Litio procesado y joint ventures para China — el multiplicador de valor del litio (meta 15x) no es un deseo: su mecanismo es la pista de industrialización de PLANEN, que escala de carbonato a cátodos, celdas y baterías. Equivalencia GDPR y complementariedad para la UE. Litio-genéricos-pagos para India. El Judo Diplomático: usar los valores declarados de cada potencia como argumento a favor de ¡BASTA!.</p>
 
 <p><strong>Malvinas — Estrategia Bifurcada:</strong> Capa diplomática: paciencia estratégica, reclamo formal, oferta de diálogo constructivo. Capa de infraestructura: hub logístico austral, monitoreo marítimo total, cables submarinos, trazabilidad pesquera, integración económica gradual de los isleños. No hay "día D." Hay un horizonte donde mantener una base británica a 14.000 km se vuelve insostenible.</p>
 
@@ -1817,13 +1835,13 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
       pullQuote: 'No exportamos ideología. Exportamos infraestructura. La ideología la pone el que la usa.',
       stats: [
         { label: 'Stacks de Soberanía exportables', value: '7' },
-        { label: 'Países con problemas que los Stacks resuelven', value: '150+' },
+        { label: 'Países con problemas que los Stacks resuelven', value: '150+ (estimación propia)' },
         { label: 'Inversión 10 años', value: 'USD 14.200M' },
         { label: 'Retorno estimado', value: 'ROI 3:1 a 6:1' },
       ],
     },
     elCamino: {
-      overview: 'PLANGEO se despliega en cuatro fases coordinadas con el secuenciamiento de todos los PLANs BASTA — primero los inobjetables, luego los estratégicos, después los confrontativos, finalmente los transformativos. La capa de infraestructura siempre adelanta a la diplomática.',
+      overview: 'PLANGEO se despliega en cuatro fases coordinadas con el secuenciamiento de los 22 PLANes de ¡BASTA! — primero los inobjetables, luego los estratégicos, después los confrontativos, finalmente los transformativos. La capa de infraestructura siempre adelanta a la diplomática.',
       steps: [
         {
           id: 1,
@@ -1836,7 +1854,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
         {
           id: 2,
           title: 'Los Estratégicos',
-          description: 'Desplegar nodos internacionales de ArgenCloud. Firmar acuerdo GNL con UE. Ampliar swap con China. Acuerdo litio-genéricos con India. Proponer DAO del Guaraní. Publicar ISN piloto. Lanzar internacionalmente PLANDIG y PLAN24CN. Red Soberana alcanza 15-20 adoptantes.',
+          description: 'Desplegar nodos internacionales de ArgenCloud. Firmar acuerdo GNL con UE. Ampliar swap con China. Acuerdo litio-genéricos con India. Proponer DAO del Guaraní. La CNEG publica el ISN piloto (Calificadora Soberana) y lanza el programa Atlántico Sur: hub logístico austral, trazabilidad pesquera y cables submarinos como base de infraestructura de la estrategia Malvinas. Lanzar internacionalmente PLANDIG y PLAN24CN. Red Soberana alcanza 15-20 adoptantes.',
           timeline: '2028-2030',
           dependencies: ['Los Inobjetables'],
           orderIndex: 2,
@@ -1852,7 +1870,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
         {
           id: 4,
           title: 'Los Transformativos',
-          description: 'Protocolo Bastardo como estándar IEEE. Calificadora Soberana (ISN) con cobertura de 150+ países. Franquicias de Gobernanza en 100+ ciudades. Fondo de Estabilización Soberano como alternativa al FMI. Red Soberana alcanza 50-67 países. Argentina como "forja de gobernanza" del siglo XXI.',
+          description: 'Protocolo Bastardo como estándar IEEE. Calificadora Soberana (ISN) operada por la CNEG con cobertura de 150+ países. Franquicias de Gobernanza en 100+ ciudades. Fondo de Estabilización Soberano como alternativa al FMI. Red Soberana alcanza 50-67 países. Argentina como "forja de gobernanza" del siglo XXI.',
           timeline: '2033-2040',
           dependencies: ['Los Confrontativos'],
           orderIndex: 4,
@@ -1899,6 +1917,19 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
           { date: 'Año 3', targetValue: 5 },
           { date: 'Año 7', targetValue: 20 },
           { date: 'Año 14', targetValue: 47 },
+        ],
+      },
+      {
+        id: 'exportaciones-stack',
+        metric: 'Exportaciones de Stacks Soberanos (servicios, soporte y despliegues)',
+        currentValue: 0,
+        targetValue: 2000,
+        unit: 'USD M/año',
+        source: 'PLANGEO — Balanza de servicios de soberanía (CNEG)',
+        milestones: [
+          { date: 'Año 3', targetValue: 50 },
+          { date: 'Año 7', targetValue: 500 },
+          { date: 'Año 14', targetValue: 2000 },
         ],
       },
       {
@@ -2011,13 +2042,15 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
 
 <p><strong>Desdolarización por obsolescencia:</strong> No se prohíbe el dólar — se lo vuelve innecesario. En 4 fases a lo largo de 15 años, el Pulso coexiste con el peso y el dólar, y la migración es voluntaria. Los argentinos eligen el Pulso no por patriotismo ni por obligación, sino porque es mejor negocio.</p>
 
-<p><strong>Fondo Soberano Bastardo:</strong> Capitalizado con regalías de commodities, ingresos del mercado regulado de sustancias (PLANSUS), superávit de la Red Bastarda, y capital repatriado. Regla de gasto del 3% del valor total (modelo Noruega). Gobernanza mixta: técnicos + ciudadanos por sorteo.</p>
+<p><strong>Fondo Soberano Bastardo:</strong> El Fondo Soberano Ciudadano consolida afluentes: regalías energéticas (PLANEN, USD 85–120 mil M), commons del subsuelo (PLANTER, USD 80–150 mil M) y recaudación de sustancias (PLANSUS), con una meta agregada de USD 165–270 mil M a 15 años. Se suman el superávit de la Red Bastarda y el capital repatriado. Regla de gasto del 3% del valor total (modelo Noruega). Gobernanza mixta: técnicos + ciudadanos por sorteo.</p>
 
-<p><strong>Bastarda Financiera</strong> como banca al costo: reservas 100% (no fraccionarias), crédito productivo desde fondos separados, wallet soberana, puentes nativos a crypto.</p>`,
+<p><strong>Bastarda Financiera</strong> como banca al costo: reservas 100% (no fraccionarias), crédito productivo desde fondos separados, wallet soberana, puentes nativos a crypto.</p>
+
+<p><strong>Mecanismo de redención y arbitraje:</strong> el Pulso sostiene su referencia mediante convertibilidad parcial contra la canasta, con la Bastarda Financiera operando como market maker. El protocolo define una banda de flotación respecto del índice de canasta: si el Pulso se desvía por debajo de la banda, la Bastarda recompra Pulsos liquidando reservas de commodities tokenizadas; si se desvía por encima, vende Pulsos contra peso-canasta. El arbitraje ciudadano hace el resto: cualquier tenedor puede liquidar en peso-canasta al valor del índice, así que ningún desvío persistente es rentable. No es una promesa de paridad fija — es una banda defendida con reservas verificables en cadena.</p>`,
       pullQuote: 'El Pulso no nace estable — nace honesto. La estabilidad se construye con adopción, con commodities verificables, y con la imposibilidad arquitectónica de que alguien imprima más de lo que el protocolo permite.',
       stats: [
         { label: 'Componentes de canasta', value: '12 commodities' },
-        { label: 'Fondo Soberano meta (15 años)', value: 'USD 200-500 mil M' },
+        { label: 'Fondo Soberano meta (15 años)', value: 'USD 165-270 mil M' },
         { label: 'Desdolarización meta (15 años)', value: '<10% depósitos' },
         { label: 'Formalización meta', value: '85%+ economía' },
       ],
@@ -2091,13 +2124,13 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
         id: 'fondo-soberano',
         metric: 'Fondo Soberano Bastardo',
         currentValue: 0,
-        targetValue: 300,
+        targetValue: 270,
         unit: 'USD mil M',
-        source: 'PLANMON — Fondo Soberano',
+        source: 'PLANMON — Fondo Soberano (agregado de afluentes PLANEN + PLANTER + PLANSUS)',
         milestones: [
           { date: 'Año 5', targetValue: 25 },
           { date: 'Año 10', targetValue: 100 },
-          { date: 'Año 15', targetValue: 300 },
+          { date: 'Año 15', targetValue: 270 },
         ],
       },
       {
@@ -2115,11 +2148,11 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
       },
       {
         id: 'poder-adquisitivo',
-        metric: 'Poder Adquisitivo del Pulso (estabilidad anual)',
+        metric: 'Poder Adquisitivo del Pulso (% del poder de compra interanual preservado contra el índice de canasta)',
         currentValue: 0,
         targetValue: 97,
         unit: '% preservado',
-        source: 'ANMON — Índice Canasta Argentina',
+        source: 'ANMON — Índice Canasta Argentina (12 commodities, precios INDEC-verificables en cadena)',
         milestones: [
           { date: 'Año 3', targetValue: 85 },
           { date: 'Año 5', targetValue: 92 },
@@ -2129,7 +2162,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
       },
     ],
     tags: ['moneda', 'soberanía monetaria', 'Pulso', 'peso-canasta', 'desdolarización', 'CBDC alternativa', 'Fondo Soberano', 'commodity-basket', 'anti-confiscación', 'protocolo monetario', 'Bastarda Financiera', 'ANMON', 'inflación', 'deuda', 'economía informal', 'crypto', 'DeFi', 'repatriación'],
-    relatedInitiativeSlugs: ['planeb-empresas-bastardas', 'plansus-soberania-sustancias', 'planisv-infraestructura-suelo-vivo', 'plan24cn-24-ciudades-nuevas', 'planrep-reconversion-empleo', 'plangeo-posicionamiento-geopolitico'],
+    relatedInitiativeSlugs: ['planeb-empresas-bastardas', 'plansus-soberania-sustancias', 'planisv-infraestructura-suelo-vivo', 'plan24cn-24-ciudades-nuevas', 'planrep-reconversion-empleo-publico', 'plangeo-posicionamiento-geopolitico'],
     sources: [
       { title: 'PLANMON — Plan Nacional de Soberanía Monetaria y Arquitectura Financiera (Documento Estratégico, Mar 2026)' },
       { title: 'BCRA — Base Monetaria e Inflación: Series Históricas' },
@@ -2264,8 +2297,8 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
         unit: 'nodos',
         source: 'Plataforma Dendrita — Mapa vivo de Nodos',
         milestones: [
-          { date: 'Año 1', targetValue: 100 },
-          { date: 'Año 3', targetValue: 500 },
+          { date: 'Año 1', targetValue: 600 },
+          { date: 'Año 3', targetValue: 1000 },
           { date: 'Año 7', targetValue: 2000 },
           { date: 'Año 15', targetValue: 5000 },
         ],
@@ -2274,7 +2307,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
         id: 'archivos-vivos',
         metric: 'Grabaciones en Archivos Vivos',
         currentValue: 0,
-        targetValue: 100000,
+        targetValue: 500000,
         unit: 'grabaciones',
         source: 'Plataforma Dendrita — Archivos Vivos',
         milestones: [
@@ -2578,7 +2611,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
         {
           id: 4,
           title: 'Marco legal, ANEN y auditoría energética',
-          description: 'Auditoría energética nacional completa — cada central, cada línea, cada red. Creación de la ANEN (Agencia Nacional de Energía y Frontera Tecnológica) como ente autárquico. Ley de Soberanía Energética: regalías progresivas 18/22/25%, condicionamiento litio, net metering ciudadano. Tablero Nacional de Energía con datos en tiempo real. Primera Bastarda Energética en ciudad PLAN24CN. Inicio de regalías al Fondo Soberano: USD 800–1.000M/año. Diseño regulatorio completo.',
+          description: 'Auditoría energética nacional completa — cada central, cada línea, cada red. Creación de la ANEN (Agencia Nacional de Energía y Transición de Matriz) como ente autárquico. Ley de Soberanía Energética: regalías progresivas 18/22/25%, condicionamiento litio, net metering ciudadano. Tablero Nacional de Energía con datos en tiempo real. Primera Bastarda Energética en ciudad PLAN24CN. Inicio de regalías al Fondo Soberano: USD 800–1.000M/año. Diseño regulatorio completo.',
           timeline: 'Mes 0-12',
           dependencies: ['Gas como puente + renovables primera ola'],
           orderIndex: 4,
@@ -2883,7 +2916,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
     },
     elDisenoIdeal: {
       title: 'El Diseño Ideal',
-      content: `<p>PLANVIV ataca el problema con <strong>seis pilares simultáneos</strong> — porque el problema argentino tiene seis dimensiones al mismo tiempo. Ningún país hizo lo que PLANVIV intenta: combinar construcción al costo, crédito en moneda estable, urbanización de asentamientos, retrofit energético, facilitación del mercado y plataforma tecnológica, todo integrado con un ecosistema de 16 mandatos.</p>
+      content: `<p>PLANVIV ataca el problema con <strong>seis pilares simultáneos</strong> — porque el problema argentino tiene seis dimensiones al mismo tiempo. Ningún país hizo lo que PLANVIV intenta: combinar construcción al costo, crédito en moneda estable, urbanización de asentamientos, retrofit energético, facilitación del mercado y plataforma tecnológica, todo integrado con un ecosistema de 22 PLANes (al 23 de abril de 2026).</p>
 
 <p><strong>Pilar 1 — Bastarda Inmobiliaria + PyMEs Acreditadas:</strong> Vivienda al costo real, sin margen de desarrollador, sobre fideicomiso de suelo perpetuo (el suelo nunca vuelve al mercado especulativo). Construcción organizada en Células de 150-250 familias con patios interiores, comercio en planta baja, escuela, centro de salud y espacio verde — comunidades, no cajas apiladas. Meta: 500.000+ unidades.</p>
 
@@ -3036,14 +3069,14 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
     },
     quePasaSiNoCambiamos: {
       title: '¿Qué pasa si no cambiamos?',
-      content: `<p><strong>Costo acumulado de reversión:</strong> USD 420.000M en reversiones de política pública entre 2000 y 2024. Dos PBI argentinos. Más del triple de la deuda con el FMI. El costo no lo perdió un gobierno corrupto — lo perdió un sistema que decide sin aprender.</p>
+      content: `<p><strong>Costo acumulado de reversión:</strong> USD 180.000–420.000 millones en reversiones de política pública entre 2000 y 2024, según metodología (costo directo vs. costo total con oportunidad). Más de diez presupuestos educativos nacionales. Más del triple de la deuda con el FMI incluso en el piso de la estimación. El costo no lo perdió un gobierno corrupto — lo perdió un sistema que decide sin aprender.</p>
 <p><strong>Captura profesional permanente:</strong> sin mecanismo de acceso meritocrático ciudadano, la política profesional mantiene su monopolio sobre la decisión. Cada generación vuelve a elegir entre los mismos cuadros rotados, los mismos consultores tercerizados, las mismas figuras mediáticas.</p>
 <p><strong>Acumulación sin aprendizaje:</strong> el Plan Federal de Vivienda fracasó con patrones idénticos en 1995, 2005, 2012 y 2019. El Plan de Reconversión de Trenes de Carga fracasó tres veces con las mismas razones. Cada generación redescubre los mismos errores porque no hay archivo operativo consultable antes de decidir.</p>
 <p><strong>Degradación civil:</strong> el ciudadano promedio se resigna al voto cada 2-4 años como único mecanismo de participación. La competencia técnica acumulada en el territorio se queda en carpetas de escritorios que nadie va a leer. La sociedad civil se profesionaliza por ONG o se apaga por desánimo.</p>
 <p><strong>Próximos 25 años sin PLANMESA:</strong> USD 500.000M+ adicionales en reversiones de política pública, agudización de la brecha entre capacidad real de la sociedad y calidad decisional del Estado, y la consolidación de una democracia delegativa incapaz de corregirse.</p>`,
-      pullQuote: 'Argentina reabsorbió USD 180.000M en reversiones de política pública entre 2000 y 2024. La cifra es aritmética del desaprendizaje estructural.',
+      pullQuote: 'Argentina reabsorbió entre USD 180.000 y 420.000 millones en reversiones de política pública entre 2000 y 2024, según se mida el costo directo o el costo total con oportunidad. La cifra es aritmética del desaprendizaje estructural.',
       stats: [
-        { label: 'Costo acumulado de reversiones', value: 'USD 420 mil M' },
+        { label: 'Costo acumulado de reversiones', value: 'USD 180-420 mil M' },
         { label: 'Reformas previsionales en 30 años', value: '4' },
         { label: 'Modelos monetarios en 30 años', value: '5' },
         { label: 'Red ferroviaria perdida', value: '95%' },
@@ -3056,7 +3089,8 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
 <p><strong>Activación automática.</strong> Cuando el Mandato Vivo detecta tensión territorial sobre una materia, se abre Caso de Mesa con jurisdicción específica. Los ciudadanos con Credencial se auto-postulan en ventana pública de 15 días. Composición equilibrada: practicantes + afectados + estudiosos + ejecutores.</p>
 <p><strong>El ciclo LDEA.</strong> Fase APRENDER con Consulta Ancestral obligatoria del Archivo de Memoria. Fase DISEÑAR con 2-3 propuestas rivales, teoría de cambio, métricas. Fase EXPERIMENTAR con piloto acotado ejecutado en Tallers (piel en el juego real). Fase ANALIZAR con voto firmado: qué escala, qué se mantiene experimental, qué se descarta.</p>
 <p><strong>La AMCC.</strong> Agencia de Mesa y Cédula Civil — ente autárquico con presupuesto constitucional protegido, gobernado por sorteo estratificado entre Síndicos de Archivo y paneles técnicos. Administra el Protocolo de Mesa, valida Credenciales, audita composición, sortea dietas de servicio. No decide dentro de las Mesas — custodia la infraestructura.</p>
-<p><strong>Path dependency cívica.</strong> Las Resoluciones firmadas se inyectan al Arquitecto como activación de iniciativa, y a PLANMEMORIA con lineage completo. Un gobierno nuevo que quiera revertir debe convocar nuevo ciclo LDEA con evidencia más robusta que la original. La rotación de gobiernos no rompe el aprendizaje.</p>`,
+<p><strong>Path dependency cívica.</strong> Las Resoluciones firmadas se inyectan al Arquitecto como activación de iniciativa, y a PLANMEMORIA con lineage completo. Un gobierno nuevo que quiera revertir debe convocar nuevo ciclo LDEA con evidencia más robusta que la original. La rotación de gobiernos no rompe el aprendizaje. La reducción de reversiones que PLANMESA reclama (25-40%) es la cuota atribuible a la calidad deliberativa y la continuidad de mandatos; la cuota de PLANMEMORIA (Consulta Ancestral, memoria institucional) es complementaria — juntas, no de forma aditiva, apuntan a la reducción nacional.</p>
+<p><strong>Estadificación constitucional.</strong> Las Resoluciones nacen <strong>consultivas con obligación de respuesta fundada</strong> en las Fases 0-2: el poder político puede apartarse, pero debe explicar por qué, por escrito y con evidencia. Se vuelven <strong>vinculantes solo por adhesión legislativa</strong> — cada Congreso o legislatura que adhiere les da fuerza normativa en su jurisdicción. La <strong>reforma constitucional</strong> que las consagra como capa decisional llega recién en régimen, cuando el track record de los ciclos LDEA la vuelve defendible.</p>`,
       pullQuote: 'Mesas no es deliberación. Es la disciplina republicana del aprender haciendo.',
       stats: [
         { label: 'Reducción de reversión de políticas', value: '25-40%' },
@@ -3124,7 +3158,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
     stateDecision: 'Ejecutar temprano — habilita resto del ecosistema',
     citizenRoles: ['declarante', 'custodio', 'organizador', 'narrador'],
     citizenAsk: 'Construir Credencial en tu materia, servir en Mesas, auditar decisiones',
-    mainRisk: 'Burocratización del protocolo o captura por activistas profesionales',
+    mainRisk: 'Impugnación constitucional por art. 22 CN (el pueblo no delibera ni gobierna sino por sus representantes) y burocratización del protocolo o captura por activistas profesionales',
     stateCapacity: 'media',
     socialCapacity: 'alta',
   },
@@ -3254,7 +3288,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
   {
     slug: 'plancuidado-cuidado-vinculo',
     title: 'PLANCUIDADO',
-    subtitle: 'Plan Nacional de Vínculo, Parentesco Jurídicamente Plural y Obligación de Sostén',
+    subtitle: 'Plan Nacional de Cuidado, Vínculo, Parentesco Jurídicamente Plural y Obligación de Sostén',
     category: 'salud',
     summary: 'Nadie vive ni muere solo en esta república. PLANCUIDADO es la capa cero del pacto republicano — Pacto de Cuidado Registrado, Libro de Cuidado redimible en jubilación, Jornada 6+2, Registro Nacional de Vínculos y Alerta de Soledad Total. Convierte al cuidado de deuda invisible de mujeres en infraestructura cívica con protocolo, Referente y derechos legales.',
     iconName: 'HandHeart',
@@ -3408,7 +3442,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
 <p><strong>Captura sin costo reputacional:</strong> entre 2001 y 2024, más de 1.400 casos documentados de captura de política pública con responsables nominales identificados. Menos del 3% sancionado judicialmente. Menos del 1% con consecuencia reputacional que le cierre carreras futuras. Los capturadores reciclan. La vida mediática ciclea en semanas — el costo reputacional se diluye.</p>
 <p><strong>Testimonio oral perdido:</strong> los ferroviarios de la privatización, las trabajadoras de INTA del primer CONICET, los militantes del 2001, los cuadros de la transición democrática, las sobrevivientes de fábricas cerradas — su testimonio muere con ellos porque no hay protocolo de depósito, no hay archivo receptivo, no hay entrenamiento para extraer el saber.</p>
 <p><strong>Próximos 25 años sin PLANMEMORIA:</strong> USD 500.000M+ adicionales en reversiones, pérdida irreversible de una generación entera de memoria operativa, y consolidación del modelo argentino de país que se reescribe cada cambio de humor político.</p>`,
-      pullQuote: 'Entre 2000 y 2024 Argentina reabsorbió USD 420.000M en reversión de política pública. Dos PBI. Más del triple de la deuda con el FMI. No fue corrupción — fue amnesia institucional.',
+      pullQuote: 'Entre 2000 y 2024 Argentina reabsorbió hasta USD 420.000M en reversión de política pública. Más de diez presupuestos educativos nacionales. Más del triple de la deuda con el FMI. No fue corrupción — fue amnesia institucional.',
       stats: [
         { label: 'Costo de reversión 2000-2024', value: 'USD 420 mil M' },
         { label: 'Casos documentados de captura', value: '1.400+' },
@@ -3425,7 +3459,9 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
 <p><strong>4. Memoria Operativa del Arquitecto.</strong> Cada iniciativa del Arquitecto carga su historia viva: cuántas veces fue intentada, qué versiones se probaron, qué capturas sufrió, qué cicatrices dejó. El plano deja de ser abstracto y se vuelve biografía republicana viva.</p>
 <p><strong>5. Síndico de Archivo.</strong> Ciudadano con Credencial Consolidada en Memoria que custodia partes del corpus con responsabilidad pública — validación cruzada, marcado de precedentes, transcripción de relatos originarios y de mayores, auditoría de integridad de hash. Remunerado por la ANM, mandato rotativo.</p>
 <p><strong>6. Ritual del Bastón Memorial.</strong> Rito de pasaje obligatorio para chicos y chicas de 12 años. Depositan sus primeras tres historias heredadas en ceremonia pública en sus escuelas, con acompañamiento de un mayor del territorio.</p>
-<p><strong>Arquitectura federada.</strong> Cada inscripción memorial se replica en siete nodos distribuidos (uno en cada región del país, uno en Archivo General de la Nación, uno en universidad rotativa, uno en cooperativa ciudadana) con hash que hace detectable cualquier alteración. Ningún gobierno puede borrar el Archivo porque no está en un solo servidor ni bajo una sola jurisdicción.</p>`,
+<p><strong>Arquitectura federada.</strong> Cada inscripción memorial se replica en siete nodos distribuidos (uno en cada región del país, uno en Archivo General de la Nación, uno en universidad rotativa, uno en cooperativa ciudadana) con hash que hace detectable cualquier alteración. Ningún gobierno puede borrar el Archivo porque no está en un solo servidor ni bajo una sola jurisdicción.</p>
+<p><strong>Qué reduce PLANMEMORIA y qué no.</strong> La reducción de reversiones que PLANMEMORIA reclama (30-45%) es la cuota atribuible a la Consulta Ancestral y la memoria institucional; la cuota de PLANMESA (calidad deliberativa, continuidad de mandatos) es complementaria — juntas, no de forma aditiva, apuntan a la reducción nacional.</p>
+<p><strong>Costo total:</strong> USD 6.800–9.200M acumulados a 15 años (rampa inicial + ~10 años de régimen a USD 680–920M/año) — una fracción menor al 8% del valor que el propio plan preserva (USD 125–190 mil M).</p>`,
       pullQuote: 'La memoria no se pide. Se inscribe con protocolo. Y la república que inscribe es la que, por fin, puede diferenciarse de sí misma.',
       stats: [
         { label: 'Nodos federados con hash', value: '7' },
@@ -3525,21 +3561,21 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
     },
     quePasaSiNoCambiamos: {
       title: '¿Qué pasa si no cambiamos?',
-      content: `<p><strong>Costo anual actual USD 9.900-19.900M:</strong></p>
+      content: `<p><strong>Costo anual actual USD 9.500-19.000M:</strong></p>
 <ul><li>Regalías subcolectadas vs. benchmarks internacionales: USD 3.200-5.800M</li>
 <li>Pesca ilegal y subpagada en ZEE: USD 1.000-2.800M</li>
 <li>Valor ambiental perdido por deforestación: USD 2.400-4.200M</li>
 <li>Regalías no redistribuidas a territorios afectados: USD 800-1.400M</li>
 <li>Litigios y arbitrajes internacionales (RIGI) proyectados: USD 600-1.800M</li>
 <li>Fuga de capital vía estabilidad fiscal extractiva: USD 1.500-3.000M</li></ul>
-<p>Entre USD 10.000M y USD 20.000M por año. Tres a seis puntos del PBI. Perdidos sin que la mayoría de los argentinos entiendan que se están perdiendo.</p>
+<p>Entre USD 9.500M y USD 19.000M por año. Entre el 1,6% y el 3,3% del PBI. Perdidos sin que la mayoría de los argentinos entiendan que se están perdiendo.</p>
 <p><strong>Irreversibilidad del RIGI:</strong> cada año de vigencia del RIGI consolida concesiones que después solo pueden revertirse con costo fiscal internacional altísimo por incumplimiento. Una generación futura que quiera cambiar de modelo se encuentra con contratos vigentes hasta 2054.</p>
 <p><strong>Deforestación irreversible:</strong> 400.000 ha/año de pérdida forestal en el Gran Chaco. La regeneración natural toma 80-150 años. Las comunidades afectadas pierden medios de subsistencia, agua, fauna y memoria cultural.</p>
 <p><strong>Derechos indígenas congelados:</strong> sin ejecución operativa de la Ley 26.160, los 35 pueblos siguen con reconocimiento formal sin efecto real. La continuidad cultural se debilita generacionalmente. La consulta libre previa e informada se vacía.</p>
 <p><strong>Mar Argentino saqueado:</strong> se pierden anualmente entre USD 1.000 y USD 2.800M en recurso pesquero no controlado, y se degrada el stock reproductivo de merluza, calamar y langostino.</p>`,
-      pullQuote: 'Argentina pierde entre USD 10 mil y USD 20 mil millones por año en soberanía territorial, sin que la mayoría entienda que se está perdiendo.',
+      pullQuote: 'Argentina pierde entre USD 9.500 y USD 19.000 millones por año en soberanía territorial, sin que la mayoría entienda que se está perdiendo.',
       stats: [
-        { label: 'Costo anual sin PLANTER', value: 'USD 10-20 mil M' },
+        { label: 'Costo anual sin PLANTER', value: 'USD 9,5-19 mil M' },
         { label: 'Deforestación anual', value: '~400.000 ha' },
         { label: 'Regeneración forestal natural', value: '80-150 años' },
         { label: 'Años sin completar Ley 26.160', value: '19' },
@@ -3549,7 +3585,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
       title: 'El Diseño Ideal',
       content: `<p>PLANTER propone <strong>seis dispositivos integrados</strong> que rompen el paradigma colonial de propiedad territorial.</p>
 <p><strong>1. Personalidad Jurídica de los Territorios.</strong> Figura legal nueva inspirada en precedentes comparados (Whanganui, Nueva Zelanda 2017; Atrato, Colombia 2016; Ganges-Yamuna, India 2017). Otorga a ríos estratégicos (Paraná, Uruguay, Colorado, Limay), acuíferos (Guaraní, Puelche), montañas (Aconcagua, Fitz Roy), bosques nativos (Chaco, Yungas), Mar Argentino y humedales (Iberá) la condición de sujetos de derecho con <strong>síndicos</strong> que ejercen personería con mandato fiduciario público, auditable, rotativo.</p>
-<p><strong>2. Commons del Subsuelo.</strong> Declaración constitucional de que los recursos del subsuelo (hidrocarburos, litio, minerales críticos, aguas profundas) pertenecen al conjunto de argentinos vivos e intergeneracionales como <strong>bien común irrepartible</strong>. Articulado por el <strong>Fondo Soberano Ciudadano (FSC)</strong> que centraliza regalías y distribuye <strong>Dividendo Ciudadano Mensual</strong> (USD 40-120/adulto) — modelo Alaska Permanent Dividend + Fondo Pensión Noruega adaptado.</p>
+<p><strong>2. Commons del Subsuelo.</strong> Declaración constitucional de que los recursos del subsuelo (hidrocarburos, litio, minerales críticos, aguas profundas) pertenecen al conjunto de argentinos vivos e intergeneracionales como <strong>bien común irrepartible</strong>. Como el art. 124 CN otorga a las provincias el dominio originario de sus recursos naturales, el Commons no se impone desde Nación: se construye mediante una <strong>ley-convenio de adhesión provincial</strong> — provincia por provincia, como la coparticipación. Lo articula el <strong>Fondo Soberano Ciudadano (FSC)</strong>, que centraliza regalías y distribuye el <strong>Dividendo Ciudadano Mensual (DCM)</strong>: USD 70–180 por adulto por año en régimen, pagado en cuotas mensuales, según la regla noruega de gasto del 3–4% sobre un FSC de USD 80–150 mil M — modelo Alaska Permanent Dividend + Fondo Pensión Noruega adaptado.</p>
 <p><strong>3. Licencia Territorial.</strong> Reemplaza al RIGI. Todo proyecto extractivo requiere simultáneamente: (a) voto vinculante de la población afectada, (b) consentimiento del síndico de la persona jurídica territorial, (c) CLPI de la comunidad originaria afectada, (d) internalización total del costo ecológico en el FSC. Plazo máximo 12 años (no 30), revisión trimestral, potestad de revocación con compensación proporcional limitada.</p>
 <p><strong>4. Co-Soberanía Intercultural.</strong> Doble pista jurisdiccional en territorio ancestral. Representación política reservada (8 senadurías + 10 diputaciones adicionales). Veto vinculante sobre proyectos extractivos en territorio ancestral. Bilingüismo operativo. Cronograma efectivo de completamiento de Ley 26.160.</p>
 <p><strong>5. Mar Argentino Soberano.</strong> Incremento del Servicio de Guardacostas de 15 a 60 buques con patrullaje continuo hasta la milla 200. Régimen de cuotas pesqueras como commons gestionado por Mesa Civil con Credencial Pesca. Expulsión y sanción por pesca ilegal. Flota cooperativa argentina vía Bastardas Pesqueras.</p>
@@ -3557,7 +3593,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
 <p><strong>La ANTSPO.</strong> Agencia Nacional autárquica con presupuesto protegido 0,20% PBI y gobernanza plural (5 miembros originarios en directorio de 11).</p>`,
       pullQuote: 'La tierra no es un bien. La tierra es el soporte de todos los bienes. Confundir la tierra con los bienes es el error civilizatorio que queremos desandar.',
       stats: [
-        { label: 'Dividendo Ciudadano Mensual', value: 'USD 40-120/adulto' },
+        { label: 'Dividendo Ciudadano (régimen)', value: 'USD 70-180/adulto/año' },
         { label: 'Beneficiarios DCM', value: '~33 M' },
         { label: 'Guardacostas ampliados a', value: '60 buques' },
         { label: 'Plazo máximo Licencia Territorial', value: '12 años' },
@@ -3627,7 +3663,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
     stateDecision: 'Ejecutar con ventana legislativa amplia — requiere reforma constitucional complementaria',
     citizenRoles: ['constructor', 'custodio', 'declarante'],
     citizenAsk: 'Votar en referéndums territoriales, servir como Referente de Territorio, auditar Licencias',
-    mainRisk: 'Litigio internacional CIADI por derogación RIGI + resistencia provincial fuerte',
+    mainRisk: 'Art. 124 CN (dominio provincial originario de los recursos) exige ley-convenio de adhesión provincia por provincia + litigio internacional CIADI por derogación del RIGI',
     stateCapacity: 'baja',
     socialCapacity: 'alta',
   },
@@ -3638,7 +3674,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
     title: 'PLANMOV',
     subtitle: 'Plan Nacional de Movilidad, Logística y Conectividad Territorial (v2.0)',
     category: 'infraestructura',
-    summary: 'No se delibera si no se puede llegar, y no hay soberanía si la ola AV atropella sin plan. PLANMOV v2.0 refunda movilidad y logística en tres capas con once dispositivos más una doctrina transversal: Capa I (Derecho a Moverse — MKC, Red Metropolitana Federal, Movilidad Rural Mínima, Accesibilidad Universal), Capa II (Infraestructura Común — Bastarda Logística Federal, Reactivación Ferroviaria 25.000 km + Columna Múltiple, Red Federal de Puertos, Hidrovía Soberana), Capa III (Soberanía Cognitiva y Activos Disponibles — Bastarda de Activos Móviles Disponibles BAMD, Laboratorio Nacional de Movilidad Autónoma LNMA, Fondo de Reconversión Móvil FRM + Canon de Automatización Logística), y Doctrina del Doble Desplazamiento que obliga al Estado a hacerse cargo del transportista antes de dejar circular un camión autónomo. Inversión USD 104.000M en 20 años, horizonte Visión 2046, agencias ANMov + BAMD + LNMA + FRM + AMBA-T + PCAV.',
+    summary: 'No se delibera si no se puede llegar, y no hay soberanía si la ola AV atropella sin plan. PLANMOV v2.0 refunda movilidad y logística en tres capas con once dispositivos más una doctrina transversal: Capa I (Derecho a Moverse — MKC, Red Metropolitana Federal, Movilidad Rural Mínima, Accesibilidad Universal), Capa II (Infraestructura Común — Bastarda Logística Federal, Reactivación Ferroviaria 25.000 km + Columna Múltiple, Red Federal de Puertos, Hidrovía Soberana), Capa III (Soberanía Cognitiva y Activos Disponibles — Bastarda de Activos Móviles Disponibles BAMD, Laboratorio Nacional de Movilidad Autónoma LNMA, Fondo de Reconversión Móvil FRM + Canon de Automatización Logística), y Doctrina del Doble Desplazamiento que obliga al Estado a hacerse cargo del transportista antes de dejar circular un camión autónomo. Inversión USD 80.000–104.000M en 20 años según escenario (austero | pleno), horizonte Visión 2046, agencias ANMov + BAMD + LNMA + FRM + AMBA-T + PCAV.',
     iconName: 'Train',
     documentFile: 'PLANMOV_Argentina_ES.md',
     elProblema: {
@@ -3698,14 +3734,14 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
 <p>Todo bajo la <strong>ANMov</strong> (ente autárquico, presupuesto 0,50% PBI), articulado con PLANDIG, PLANEN, PLANTER, PLANEB, PLANTALLER, PLANREP, PLANMESA, PLANMEMORIA, PLANCUIDADO, PLANCUL, PLANSEG y PLANVIV.</p>`,
       pullQuote: 'Un país no está conectado cuando tiene rutas entre sus ciudades. Está conectado cuando un producto del norte llega al sur sin perder la mitad en flete, cuando el chofer ve venir la ola AV sin aterrorizarse porque el país armó un plan para él, y cuando el auto de la bibliotecaria trabaja para la malla pública los días que su dueña no lo necesita.',
       stats: [
-        { label: 'Inversión 20 años', value: 'USD 104 mil M' },
+        { label: 'Inversión 20 años (según escenario)', value: 'USD 80-104 mil M' },
         { label: 'Red ferroviaria recuperada meta', value: '25.000 km carga' },
         { label: 'MKC base / adulto / año', value: '2.400 km' },
         { label: 'Reducción flete régimen pleno', value: '30% → 10-12%' },
       ],
     },
     elCamino: {
-      overview: 'PLANMOV v2.0 se despliega en 5 fases (Fase 0 a Fase 4) hacia Visión 2046 trabajando hacia atrás desde una Argentina con red ferroviaria reactivada (25.000 km), hidrovía soberana, puertos federales activos, AMBA reformado, BAMD consolidada, régimen AV público soberano y cada argentino con MKC activado. Las fases respetan la amortización natural de infraestructura ferroviaria y portuaria (50-80 años) y la curva de absorción laboral de la ola AV. Inversión total USD 104.000M: Capa I USD 13.500M, Capa II USD 80.500M, Capa III USD 10.000M.',
+      overview: 'PLANMOV v2.0 se despliega en 5 fases (Fase 0 a Fase 4) hacia Visión 2046 trabajando hacia atrás desde una Argentina con red ferroviaria reactivada (25.000 km), hidrovía soberana, puertos federales activos, AMBA reformado, BAMD consolidada, régimen AV público soberano y cada argentino con MKC activado. Las fases respetan la amortización natural de infraestructura ferroviaria y portuaria (50-80 años) y la curva de absorción laboral de la ola AV. Inversión total USD 80.000–104.000M según escenario (austero | pleno; el escenario pleno se compone de Capa I USD 13.500M + Capa II USD 80.500M + Capa III USD 10.000M).',
       steps: [
         {
           id: 1,
@@ -3753,7 +3789,7 @@ export const STRATEGIC_INITIATIVES: StrategicInitiative[] = [
       { id: 'km-ferroviarios', metric: 'Km Ferroviarios de Carga Operativos', currentValue: 9000, targetValue: 25000, unit: 'km', source: 'ADIF + ANMov', milestones: [{ date: 'Año 5', targetValue: 13000 }, { date: 'Año 10', targetValue: 18000 }, { date: 'Año 20', targetValue: 25000 }] },
       { id: 'flete-alimento', metric: 'Peso del Flete en Valor del Producto', currentValue: 30, targetValue: 12, unit: '%', source: 'BCRA + ANMov', milestones: [{ date: 'Año 7', targetValue: 24 }, { date: 'Año 15', targetValue: 17 }, { date: 'Año 20', targetValue: 12 }] },
       { id: 'mkc-activado', metric: 'Argentinos con MKC Activado', currentValue: 0, targetValue: 42000000, unit: 'personas', source: 'ANMov — Cédula Civil', milestones: [{ date: 'Año 2', targetValue: 1000000 }, { date: 'Año 7', targetValue: 10000000 }, { date: 'Año 20', targetValue: 42000000 }] },
-      { id: 'puestos-ferroviarios', metric: 'Puestos Ferroviarios Formales', currentValue: 22000, targetValue: 82000, unit: 'puestos', source: 'ANMov + PLANREP', milestones: [{ date: 'Año 7', targetValue: 40000 }, { date: 'Año 15', targetValue: 65000 }, { date: 'Año 20', targetValue: 82000 }] },
+      { id: 'puestos-ferroviarios', metric: 'Puestos Formales del Sistema Ferroviario (60.000 directos + 22.000 en talleres y logística)', currentValue: 22000, targetValue: 82000, unit: 'puestos', source: 'ANMov + PLANREP', milestones: [{ date: 'Año 7', targetValue: 40000 }, { date: 'Año 15', targetValue: 65000 }, { date: 'Año 20', targetValue: 82000 }] },
       { id: 'puertos-federales', metric: 'Puertos Federales Activos', currentValue: 2, targetValue: 7, unit: 'puertos', source: 'ANMov + AGP', milestones: [{ date: 'Año 3', targetValue: 3 }, { date: 'Año 10', targetValue: 5 }, { date: 'Año 20', targetValue: 7 }] },
     ],
     tags: ['movilidad', 'logística', 'ferroviario', 'MKC', 'BLF', 'BAMD', 'LNMA', 'FRM', 'PCAV', 'AMBA-T', 'hidrovía', 'puertos', 'columna múltiple', 'AV', 'doble desplazamiento', 'activos disponibles'],

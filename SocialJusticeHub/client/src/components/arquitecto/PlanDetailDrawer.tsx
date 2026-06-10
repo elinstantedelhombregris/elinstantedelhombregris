@@ -20,6 +20,7 @@ import {
   getPlanPhases,
   simulateFailure,
 } from '../../../../shared/arquitecto-data';
+import { PLAN_NODES } from '../../../../shared/arquitecto-data';
 import type { PlanNode, Dependency } from '../../../../shared/arquitecto-data';
 
 interface PlanDetailDrawerProps {
@@ -159,7 +160,7 @@ export default function PlanDetailDrawer({ plan, onClose }: PlanDetailDrawerProp
   }, [plan, failureResult]);
 
   // Max budget across all plans for the bar
-  const maxBudget = 120000; // PLANVIV high end
+  const maxBudget = Math.max(...PLAN_NODES.map(p => p.budgetHigh));
 
   return (
     <AnimatePresence>

@@ -141,9 +141,13 @@ function PlanCard({
             {plan.agency || '—'}
           </span>
         </div>
-        {/* Status dot */}
+        {/* Status dot — refleja el estado real del plan (verde/ámbar/rojo) */}
         <div className="flex items-center gap-1.5 shrink-0">
-          <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+          <div
+            className={`w-2 h-2 rounded-full animate-pulse ${
+              plan.state === 'verde' ? 'bg-emerald-400' : plan.state === 'ambar' ? 'bg-amber-400' : 'bg-red-400'
+            }`}
+          />
           <span className="text-[10px] text-white/30 uppercase">{plan.status}</span>
         </div>
       </div>

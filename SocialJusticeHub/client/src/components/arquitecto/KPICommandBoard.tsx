@@ -11,11 +11,18 @@ interface PlanKPIGroup {
 }
 
 function computeProgress(kpi: KPI): number {
-  const { currentValue, targetValue } = kpi;
-  // Handle "reduction" KPIs where target < current (e.g., deficit reduction)
+  const { currentValue, targetValue, milestones } = kpi;
+  // El primer milestone documenta el baseline de partida cuando existe;
+  // sin él, currentValue ES el baseline y el progreso arranca en 0.
+  const baseline = milestones && milestones.length > 0
+    ? Math.min(currentValue, milestones[0].targetValue)
+    : currentValue;
+
+  // KPIs de reducción (target < current): progreso = cuánto se redujo del camino total.
   if (targetValue < currentValue) {
-    // Progress = how much has been reduced already (for initial state, progress = 0)
-    return 0;
+    const start = Math.max(baseline, currentValue);
+    if (start === targetValue) return 100;
+    return Math.min(100, Math.max(0, ((start - currentValue) / (start - targetValue)) * 100));
   }
   if (targetValue === 0) return currentValue === 0 ? 100 : 0;
   return Math.min(100, Math.max(0, (currentValue / targetValue) * 100));

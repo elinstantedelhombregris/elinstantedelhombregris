@@ -89,7 +89,7 @@ export const MISSIONS: MissionDefinition[] = [
       'Cobertura de APS',
       'Eventos violentos priorizados resueltos por protocolo',
     ],
-    plans: ['PLANAGUA', 'PLANVIV', 'PLANSAL', 'PLANSEG', 'PLANEN'],
+    plans: ['PLANAGUA', 'PLANVIV', 'PLANSAL', 'PLANSEG', 'PLANEN', 'PLANCUIDADO', 'PLANTER', 'PLANMOV'],
     temporalOrders: ['emergencia', 'transicion'],
   },
   {
@@ -215,7 +215,7 @@ export const MISSIONS: MissionDefinition[] = [
       'Costo real comparado',
       'Proyectos productivos vivos a 12 meses',
     ],
-    plans: ['PLANISV', 'PLANEB', 'PLANREP', 'PLANEN', 'PLAN24CN'],
+    plans: ['PLANISV', 'PLANEB', 'PLANREP', 'PLANEN', 'PLAN24CN', 'PLANTALLER'],
     temporalOrders: ['transicion', 'permanencia'],
   },
   {
@@ -341,7 +341,7 @@ export const MISSIONS: MissionDefinition[] = [
       'Denuncias procesadas',
       'Conflictos criticos resueltos',
     ],
-    plans: ['PLANJUS', 'PLANSUS', 'PLANMON', 'PLANGEO', 'PLANSEG'],
+    plans: ['PLANJUS', 'PLANSUS', 'PLANMON', 'PLANGEO', 'PLANSEG', 'PLANMESA', 'PLANMEMORIA'],
     temporalOrders: ['transicion', 'permanencia'],
   },
 ];

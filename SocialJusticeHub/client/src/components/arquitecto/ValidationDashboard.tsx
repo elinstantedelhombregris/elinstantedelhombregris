@@ -2,6 +2,7 @@ import { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Shield, AlertTriangle, CheckCircle, ChevronDown, ChevronUp, FileText, XCircle } from 'lucide-react';
 import { runAllValidations, getEcosystemScore, ALL_RULES, CATEGORY_LABELS, type ValidationResult, type RuleCategory } from '@shared/validation-engine';
+import { PLAN_NODES } from '@shared/arquitecto-data';
 
 export default function ValidationDashboard() {
   const [expandedCat, setExpandedCat] = useState<RuleCategory | null>(null);
@@ -145,7 +146,7 @@ export default function ValidationDashboard() {
 {`INFORME DE COHERENCIA — EL ARQUITECTO
 ======================================
 Fecha: ${new Date().toISOString().split('T')[0]}
-Ecosistema: ¡BASTA! — 16 mandatos
+Ecosistema: ¡BASTA! — ${PLAN_NODES.length} mandatos
 
 PUNTUACIÓN GLOBAL: ${score.score}/100
   Errores: ${score.errors}

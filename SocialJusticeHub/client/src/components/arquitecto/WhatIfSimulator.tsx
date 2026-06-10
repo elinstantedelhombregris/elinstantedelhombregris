@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { RotateCcw, Zap, AlertTriangle } from 'lucide-react';
-import { PLAN_NODES, DEPENDENCIES, TIMELINE_PHASES, type PlanNode } from '@shared/arquitecto-data';
+import { PLAN_NODES, REQUIRES_DEPENDENCIES, TIMELINE_PHASES } from '@shared/arquitecto-data';
 
 export default function WhatIfSimulator() {
   const [delays, setDelays] = useState<Record<string, number>>({});
@@ -16,12 +16,10 @@ export default function WhatIfSimulator() {
     while (changed && iterations < 20) {
       changed = false;
       iterations++;
-      for (const dep of DEPENDENCIES.filter(d => d.nature === 'CRITICAL')) {
-        const targetDelay = result[dep.target] || 0;
-        if (targetDelay > (result[dep.source] || 0)) {
-          // If a plan I depend on is delayed, I'm delayed too
-        }
-        // Actually: if TARGET is delayed, SOURCE (which depends on target) is also delayed
+      // Solo aristas 'requires': con las anotaciones espejo incluidas, cualquier
+      // retraso se propagaba a casi todo el ecosistema y el simulador no discriminaba.
+      for (const dep of REQUIRES_DEPENDENCIES.filter(d => d.nature === 'CRITICAL')) {
+        // Si el plan del que dependo (target) se retrasa, yo (source) me retraso también
         const sourceCurrentDelay = result[dep.source] || 0;
         const inheritedDelay = result[dep.target] || 0;
         if (inheritedDelay > sourceCurrentDelay) {

@@ -5,7 +5,7 @@ import { PLAN_NODES, DEPENDENCIES, getPlanPhases, getDependenciesForPlan, type P
 
 const CANONICAL_TERMS = [
   { term: 'plata', forbidden: 'acero', context: 'Metáfora del Hombre Gris — argentum = plata, no acero' },
-  { term: 'dieciséis mandatos', forbidden: 'quince/doce/diez mandatos', context: 'Conteo canónico del ecosistema' },
+  { term: 'veintidós PLANes (al 23 de abril de 2026)', forbidden: 'dieciséis/quince/diez mandatos', context: 'Conteo canónico del ecosistema — PLANRUTA es meta-plan y no se cuenta' },
   { term: '¡BASTA!', forbidden: 'BASTA (sin signos)', context: 'Siempre con signos de exclamación invertidos' },
   { term: 'Contribución de Soberanía', forbidden: 'superávit Bastarda', context: 'Mecanismo 1-2% de ingresos al Fondo Soberano' },
   { term: 'primera mejor alternativa', forbidden: 'primera mejor estrategia', context: 'Concepto de Ackoff' },
@@ -13,6 +13,7 @@ const CANONICAL_TERMS = [
 ];
 
 const VERSION_HISTORY = [
+  { version: '3.0.0', date: '2026-06-10', changes: 'Ecosistema de 22 PLANes — métricas computadas, cadenas críticas ampliadas, dependencias requires/provides' },
   { version: '2.1.0', date: '2026-03-30', changes: 'Integración PLANCUL + conteo 16 mandatos' },
   { version: '2.0.0', date: '2026-03-28', changes: 'Contribución de Soberanía + Fallbacks PLANDIG' },
   { version: '1.5.0', date: '2026-03-26', changes: 'Auditoría de coherencia maestra' },

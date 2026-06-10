@@ -1,7 +1,7 @@
 import { useState, useMemo, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { Swords, Users, Target, BarChart3, RefreshCw } from 'lucide-react';
-import { PLAN_NODES, DEPENDENCIES } from '@shared/arquitecto-data';
+import { PLAN_NODES, REQUIRES_DEPENDENCIES } from '@shared/arquitecto-data';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 
 interface Adversary { name: string; plans: string[]; power: 'VERY_HIGH' | 'HIGH' | 'MEDIUM'; }
@@ -24,6 +24,12 @@ const ADVERSARIES: Adversary[] = [
   { name: 'Beneficiarios de subsidios energéticos', plans: ['PLANEN'], power: 'MEDIUM' },
   { name: 'Agroindustria convencional', plans: ['PLANISV'], power: 'MEDIUM' },
   { name: 'Gobernadores del interior', plans: ['PLAN24CN', 'PLANREP'], power: 'MEDIUM' },
+  { name: 'Sindicato de Camioneros y concesionarios viales', plans: ['PLANMOV'], power: 'VERY_HIGH' },
+  { name: 'Mineras y provincias rentistas (art. 124 CN)', plans: ['PLANTER', 'PLANEN'], power: 'VERY_HIGH' },
+  { name: 'Prepagas y prestadores de salud privados', plans: ['PLANCUIDADO', 'PLANSAL'], power: 'HIGH' },
+  { name: 'Partidos tradicionales y aparatos territoriales', plans: ['PLANMESA'], power: 'HIGH' },
+  { name: 'Negacionismo institucional y desidia archivística', plans: ['PLANMEMORIA'], power: 'MEDIUM' },
+  { name: 'Industria cultural concentrada y plataformas', plans: ['PLANCUL', 'PLANTALLER'], power: 'MEDIUM' },
 ];
 
 const COALITIONS: Coalition[] = [
@@ -42,6 +48,15 @@ const COALITIONS: Coalition[] = [
   { name: 'Coalición Geopolítica', members: ['US State Dept', 'China', 'UK', 'GAFI/FATF'],
     threat: 'EXTREME', plansAffected: ['PLANGEO', 'PLANMON', 'PLANSUS'],
     vectors: ['Sanciones secundarias', 'Lista gris GAFI', 'Litigio CIADI', 'Presión SWIFT'] },
+  { name: 'Coalición Corporativa-Logística', members: ['Camioneros', 'Concesionarios viales', 'Agroexportadores con dragado propio'],
+    threat: 'HIGH', plansAffected: ['PLANMOV', 'PLANEB', 'PLANREP'],
+    vectors: ['Paro general de transporte', 'Bloqueo de corredores piloto', 'Lobby contra el Canon de Automatización', 'Judicialización de la Hidrovía Soberana'] },
+  { name: 'Coalición Extractiva-Federal', members: ['Mineras transnacionales', 'Gobernadores rentistas', 'Estudios de abogados CIADI'],
+    threat: 'HIGH', plansAffected: ['PLANTER', 'PLANEN', 'PLANGEO'],
+    vectors: ['Litigio art. 124 CN', 'Arbitraje CIADI', 'Veto provincial a la ley-convenio', 'Campaña "espantan la inversión"'] },
+  { name: 'Coalición del Statu Quo Político', members: ['Partidos tradicionales', 'Aparatos territoriales', 'Consultoras de opinión'],
+    threat: 'HIGH', plansAffected: ['PLANMESA', 'PLANMEMORIA', 'PLANCUIDADO'],
+    vectors: ['Bloqueo legislativo de la adhesión', 'Captura de paneles por punteros', 'Desfinanciamiento silencioso', 'Narrativa "soviet de sorteados"'] },
 ];
 
 const powerColors = { VERY_HIGH: 'text-red-400 bg-red-500/20', HIGH: 'text-amber-400 bg-amber-500/20', MEDIUM: 'text-yellow-400 bg-yellow-500/20' };
@@ -54,10 +69,12 @@ export default function AdversarialSimulator() {
   const [social, setSocial] = useState(50);
   const [simKey, setSimKey] = useState(0);
 
+  const totalPlans = PLAN_NODES.length;
+
   const monteCarloResults = useMemo(() => {
     const iterations = 1000;
     const histogram: Record<number, number> = {};
-    for (let n = 0; n <= 16; n++) histogram[n] = 0;
+    for (let n = 0; n <= totalPlans; n++) histogram[n] = 0;
 
     for (let i = 0; i < iterations; i++) {
       let completed = 0;
@@ -77,8 +94,8 @@ export default function AdversarialSimulator() {
         // Social acceptance
         const socialFactor = 0.6 + (social / 100) * 0.4;
 
-        // Dependency factor — more critical deps = more fragile
-        const critDeps = DEPENDENCIES.filter(d => d.source === plan.id && d.nature === 'CRITICAL').length;
+        // Dependency factor — more critical deps = more fragile (solo aristas reales)
+        const critDeps = REQUIRES_DEPENDENCIES.filter(d => d.source === plan.id && d.nature === 'CRITICAL').length;
         const depFactor = Math.max(0.5, 1 - critDeps * 0.08);
 
         const prob = baseProb * politicalFactor * fiscalFactor * socialFactor * depFactor;
@@ -93,20 +110,23 @@ export default function AdversarialSimulator() {
       porcentaje: ((count / iterations) * 100).toFixed(1),
     }));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [political, fiscal, social, simKey]);
+  }, [political, fiscal, social, simKey, totalPlans]);
 
   const avgCompleted = useMemo(() => {
     return monteCarloResults.reduce((s, r) => s + r.mandatos * r.frecuencia, 0) / 1000;
   }, [monteCarloResults]);
 
-  const prob16 = useMemo(() => {
-    const p = monteCarloResults.find(r => r.mandatos === 16);
+  const probAll = useMemo(() => {
+    const p = monteCarloResults.find(r => r.mandatos === totalPlans);
     return p ? parseFloat(p.porcentaje) : 0;
-  }, [monteCarloResults]);
+  }, [monteCarloResults, totalPlans]);
+
+  // Mayoría robusta: 2/3 de los planes (15 de 22)
+  const majorityThreshold = Math.ceil(totalPlans * 2 / 3);
 
   const probMajority = useMemo(() => {
-    return monteCarloResults.filter(r => r.mandatos >= 12).reduce((s, r) => s + r.frecuencia, 0) / 10;
-  }, [monteCarloResults]);
+    return monteCarloResults.filter(r => r.mandatos >= majorityThreshold).reduce((s, r) => s + r.frecuencia, 0) / 10;
+  }, [monteCarloResults, majorityThreshold]);
 
   const sections = [
     { id: 'adversaries' as const, label: 'Mapa Adversarial', icon: Target },
@@ -238,16 +258,16 @@ export default function AdversarialSimulator() {
               <div className="text-xs text-white/50">Mandatos promedio</div>
             </div>
             <div className="bg-white/5 rounded-xl border border-white/10 p-4 text-center">
-              <div className={`text-2xl font-bold ${prob16 > 20 ? 'text-emerald-400' : prob16 > 5 ? 'text-amber-400' : 'text-red-400'}`}>
-                {prob16}%
+              <div className={`text-2xl font-bold ${probAll > 20 ? 'text-emerald-400' : probAll > 5 ? 'text-amber-400' : 'text-red-400'}`}>
+                {probAll}%
               </div>
-              <div className="text-xs text-white/50">Prob. 16/16 completos</div>
+              <div className="text-xs text-white/50">Prob. {totalPlans}/{totalPlans} completos</div>
             </div>
             <div className="bg-white/5 rounded-xl border border-white/10 p-4 text-center">
               <div className={`text-2xl font-bold ${probMajority > 50 ? 'text-emerald-400' : 'text-amber-400'}`}>
                 {probMajority.toFixed(0)}%
               </div>
-              <div className="text-xs text-white/50">Prob. ≥12 mandatos</div>
+              <div className="text-xs text-white/50">Prob. ≥{majorityThreshold} mandatos</div>
             </div>
           </div>
 
@@ -263,7 +283,7 @@ export default function AdversarialSimulator() {
                   formatter={(value: number, name: string) => [`${value} iteraciones`, 'Frecuencia']} />
                 <Bar dataKey="frecuencia" radius={[4, 4, 0, 0]}>
                   {monteCarloResults.map((entry, index) => (
-                    <Cell key={index} fill={entry.mandatos >= 12 ? '#22c55e' : entry.mandatos >= 8 ? '#f59e0b' : '#ef4444'} fillOpacity={0.7} />
+                    <Cell key={index} fill={entry.mandatos >= majorityThreshold ? '#22c55e' : entry.mandatos >= totalPlans / 2 ? '#f59e0b' : '#ef4444'} fillOpacity={0.7} />
                   ))}
                 </Bar>
               </BarChart>

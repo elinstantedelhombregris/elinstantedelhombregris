@@ -45,7 +45,8 @@ export default function BudgetFlow() {
   const totalLow = ECOSYSTEM_METRICS.totalBudgetLow;
   const totalHigh = ECOSYSTEM_METRICS.totalBudgetHigh;
   const totalAvg = (totalLow + totalHigh) / 2;
-  const annualAvg = totalAvg / 15; // ~15 year average horizon
+  const horizon = ECOSYSTEM_METRICS.timelineHorizon;
+  const annualAvg = totalAvg / horizon;
   const pbiPercent = ((annualAvg / PBI_USD_M) * 100).toFixed(1);
 
   // Max budget for relative bar sizing
@@ -58,16 +59,16 @@ export default function BudgetFlow() {
   function getSpanClass(plan: PlanNode): string {
     const avg = getBudgetWeight(plan);
     if (avg === 0) return 'col-span-1';
-    if (avg >= 80000) return 'col-span-2 row-span-2'; // PLANVIV, PLANEDU
-    if (avg >= 40000) return 'col-span-2'; // PLANEN
-    if (avg >= 15000) return 'col-span-1 row-span-2'; // PLANREP, PLANAGUA, PLAN24CN
+    if (avg >= 80000) return 'col-span-2 row-span-2'; // PLANVIV, PLANEDU, PLANMOV
+    if (avg >= 40000) return 'col-span-2'; // PLANEN, PLAN24CN
+    if (avg >= 15000) return 'col-span-1 row-span-2'; // PLANAGUA, PLANTER, PLANCUIDADO
     return 'col-span-1';
   }
 
   const summaryStats = [
     {
       icon: DollarSign,
-      label: 'Inversión Total (20 años)',
+      label: `Inversión Total (${horizon} años)`,
       value: `USD ${formatBudget(totalLow)}-${formatBudget(totalHigh)}${budgetUnit(totalHigh)}`,
       sub: `${ECOSYSTEM_METRICS.totalPlans} mandatos`,
     },
@@ -99,7 +100,7 @@ export default function BudgetFlow() {
       className="w-full"
     >
       <h3 className="text-lg font-semibold text-white mb-4">
-        Arquitectura Presupuestaria — 16 Mandatos
+        Arquitectura Presupuestaria — {ECOSYSTEM_METRICS.totalPlans} Mandatos
       </h3>
 
       {/* Summary stats */}
@@ -230,7 +231,7 @@ export default function BudgetFlow() {
       {/* Footer note */}
       <p className="mt-4 text-[11px] text-white/30 text-center">
         Presupuestos en USD millones acumulados sobre el horizonte del plan. Fuentes: documentos
-        estratégicos de cada mandato (marzo 2026). PBI estimado: USD 640 mil M.
+        estratégicos de cada mandato (marzo-abril 2026). PBI estimado: USD 640 mil M.
       </p>
     </motion.div>
   );

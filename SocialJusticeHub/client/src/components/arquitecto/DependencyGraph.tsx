@@ -15,7 +15,7 @@ import {
 
 // ─── Constants ───
 
-type FilterKey = 'ALL' | 'CRITICAL' | 'FINANCIAL' | 'TECHNICAL' | 'INSTITUTIONAL';
+type FilterKey = 'ALL' | 'CRITICAL' | 'FINANCIAL' | 'TECHNICAL' | 'INSTITUTIONAL' | 'LEGAL' | 'LABOR' | 'DATA' | 'TEMPORAL';
 
 const FILTER_BUTTONS: { key: FilterKey; label: string }[] = [
   { key: 'ALL', label: 'Todas' },
@@ -23,6 +23,10 @@ const FILTER_BUTTONS: { key: FilterKey; label: string }[] = [
   { key: 'FINANCIAL', label: 'Financieras' },
   { key: 'TECHNICAL', label: 'Tecnicas' },
   { key: 'INSTITUTIONAL', label: 'Institucionales' },
+  { key: 'LEGAL', label: 'Legales' },
+  { key: 'LABOR', label: 'Laborales' },
+  { key: 'DATA', label: 'Datos' },
+  { key: 'TEMPORAL', label: 'Temporales' },
 ];
 
 const NATURE_COLORS: Record<DependencyNature, string> = {
@@ -70,7 +74,7 @@ function buildGraph(): Graph {
     });
   });
 
-  // Add edges
+  // Add edges (las anotaciones espejo 'provides' se ocultan por defecto en el reducer)
   DEPENDENCIES.forEach((dep) => {
     if (graph.hasNode(dep.source) && graph.hasNode(dep.target)) {
       graph.addEdgeWithKey(dep.id, dep.source, dep.target, {
@@ -78,6 +82,7 @@ function buildGraph(): Graph {
         color: NATURE_COLORS[dep.nature],
         nature: dep.nature,
         depType: dep.type as DependencyType,
+        depKind: dep.kind ?? 'requires',
         description: dep.description,
         type: 'arrow',
       });
@@ -114,6 +119,7 @@ const DependencyGraph: React.FC<DependencyGraphProps> = ({ onSelectPlan }) => {
   const [hoveredNode, setHoveredNode] = useState<string | null>(null);
   const [selectedNode, setSelectedNode] = useState<string | null>(null);
   const [activeFilter, setActiveFilter] = useState<FilterKey>('ALL');
+  const [showProvides, setShowProvides] = useState(false);
   const [failureMode, setFailureMode] = useState(false);
   const [failureTarget, setFailureTarget] = useState<string | null>(null);
   const [failureCascade, setFailureCascade] = useState<{
@@ -125,12 +131,14 @@ const DependencyGraph: React.FC<DependencyGraphProps> = ({ onSelectPlan }) => {
   const hoveredNodeRef = useRef(hoveredNode);
   const selectedNodeRef = useRef(selectedNode);
   const activeFilterRef = useRef(activeFilter);
+  const showProvidesRef = useRef(showProvides);
   const failureModeRef = useRef(failureMode);
   const failureTargetRef = useRef(failureTarget);
   const failureCascadeRef = useRef(failureCascade);
   hoveredNodeRef.current = hoveredNode;
   selectedNodeRef.current = selectedNode;
   activeFilterRef.current = activeFilter;
+  showProvidesRef.current = showProvides;
   failureModeRef.current = failureMode;
   failureTargetRef.current = failureTarget;
   failureCascadeRef.current = failureCascade;
@@ -256,6 +264,14 @@ const DependencyGraph: React.FC<DependencyGraphProps> = ({ onSelectPlan }) => {
         const fCascade = failureCascadeRef.current;
         const nature = graph.getEdgeAttribute(edge, 'nature') as DependencyNature;
         const edgeType = graph.getEdgeAttribute(edge, 'depType') as string;
+        const edgeKind = graph.getEdgeAttribute(edge, 'depKind') as string;
+
+        // Anotaciones espejo 'provides': ocultas por defecto (duplican cada vínculo);
+        // visibles solo con el toggle "Mostrar provisiones" y nunca en modo fallo.
+        if (edgeKind === 'provides' && (!showProvidesRef.current || failureModeRef.current)) {
+          res.hidden = true;
+          return res;
+        }
 
         // Failure mode: only show edges in the cascade
         if (fMode && fTarget && fCascade) {
@@ -312,7 +328,7 @@ const DependencyGraph: React.FC<DependencyGraphProps> = ({ onSelectPlan }) => {
   // Refresh reducers on state change
   useEffect(() => {
     sigmaRef.current?.refresh();
-  }, [hoveredNode, selectedNode, activeFilter, failureMode, failureTarget, failureCascade]);
+  }, [hoveredNode, selectedNode, activeFilter, showProvides, failureMode, failureTarget, failureCascade]);
 
   // ─── Event handlers ───
   useEffect(() => {
@@ -443,6 +459,21 @@ const DependencyGraph: React.FC<DependencyGraphProps> = ({ onSelectPlan }) => {
         </div>
 
         <div className="flex-1" />
+
+        {/* Provides annotations toggle */}
+        <button
+          onClick={() => setShowProvides(v => !v)}
+          title="Mostrar el lado proveedor de cada vínculo (anotaciones espejo)"
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider transition-all"
+          style={{
+            backgroundColor: showProvides ? '#22c55e25' : 'transparent',
+            border: `1px solid ${showProvides ? '#22c55e60' : '#ffffff10'}`,
+            color: showProvides ? '#22c55e' : '#666',
+          }}
+        >
+          <Zap className="w-3.5 h-3.5" />
+          Provisiones
+        </button>
 
         {/* Failure mode toggle */}
         <button

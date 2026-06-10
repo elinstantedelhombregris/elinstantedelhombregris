@@ -94,7 +94,7 @@ export default function CriticalPathTimeline({ onSelectPlan }: CriticalPathTimel
       {/* Header */}
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-lg font-semibold text-white">
-          Ruta Crítica — Cronograma de 16 Mandatos
+          Ruta Crítica — Cronograma de {PLAN_NODES.length} Mandatos
         </h3>
         <div className="flex gap-2">
           <button
@@ -329,7 +329,7 @@ export default function CriticalPathTimeline({ onSelectPlan }: CriticalPathTimel
       </div>
 
       {/* Critical chain details */}
-      <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-3">
+      <div className="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
         {CRITICAL_CHAINS.map((chain) => (
           <motion.div
             key={chain.id}

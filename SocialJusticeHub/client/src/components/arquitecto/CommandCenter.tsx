@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Activity, AlertTriangle, CheckCircle, Clock, Flag, Plus, X } from 'lucide-react';
-import { PLAN_NODES, DEPENDENCIES, getPlanById, type PlanNode } from '@shared/arquitecto-data';
+import { PLAN_NODES, getPlanById } from '@shared/arquitecto-data';
 
 interface StatusEntry { planId: string; status: string; phase: string; progress: number; }
 interface UpdateEntry { id: number; planId: string; type: string; title: string; description: string; timestamp: string; }
@@ -11,9 +11,18 @@ const STATUS_OPTIONS = ['published', 'implementing', 'phase_1', 'phase_2', 'phas
 const UPDATE_TYPES = ['milestone', 'progress', 'blocker', 'decision', 'risk'];
 const typeColors: Record<string, string> = { milestone: 'bg-emerald-500/20 text-emerald-400', progress: 'bg-blue-500/20 text-blue-400', blocker: 'bg-red-500/20 text-red-400', decision: 'bg-purple-500/20 text-purple-400', risk: 'bg-amber-500/20 text-amber-400' };
 
+// Progreso inicial derivado del estado real del plan (antes era Math.random()
+// y cambiaba en cada recarga): verde = listo para ejecutar, ámbar = en revisión,
+// rojo = pausado. La prioridad afina dentro de la banda.
+function initialProgress(state: string, priority: string): number {
+  const base = state === 'verde' ? 22 : state === 'ambar' ? 12 : 4;
+  const boost = priority === 'alta' ? 6 : priority === 'media' ? 3 : 0;
+  return base + boost;
+}
+
 export default function CommandCenter() {
   const [statuses, setStatuses] = useState<StatusEntry[]>(
-    PLAN_NODES.map(p => ({ planId: p.id, status: 'published', phase: 'Fase 0', progress: Math.floor(Math.random() * 30 + 5) }))
+    PLAN_NODES.map(p => ({ planId: p.id, status: 'published', phase: 'Fase 0', progress: initialProgress(p.state, p.priority) }))
   );
   const [updates, setUpdates] = useState<UpdateEntry[]>([
     { id: 1, planId: 'PLANDIG', type: 'milestone', title: 'Pre-fase completada', description: 'Auditoría de ARSAT completada, 200 ingenieros contratados', timestamp: '2026-03-28' },
@@ -49,7 +58,7 @@ export default function CommandCenter() {
       {/* Status Board */}
       <section>
         <h3 className="text-lg font-semibold text-white/90 mb-4 flex items-center gap-2">
-          <Activity className="w-5 h-5" /> Estado de los 16 Mandatos
+          <Activity className="w-5 h-5" /> Estado de los {PLAN_NODES.length} Mandatos
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
           {statuses.map(s => {
