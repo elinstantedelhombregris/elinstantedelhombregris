@@ -10,25 +10,25 @@ import { cn } from '@/lib/utils';
  */
 export type PlatformStatus = 'live' | 'construccion' | 'simulacion' | 'ejercicio';
 
-const STATUS_META: Record<PlatformStatus, { label: string; className: string; title: string }> = {
+const STATUS_META: Record<PlatformStatus, { label: string; dotClass: string; title: string }> = {
   live: {
     label: 'EN VIVO',
-    className: 'bg-emerald-500/10 text-emerald-300 border-emerald-400/30',
+    dotClass: 'bg-emerald-400',
     title: 'Datos reales, funcionando hoy',
   },
   construccion: {
     label: 'EN CONSTRUCCIÓN',
-    className: 'bg-blue-500/10 text-blue-300 border-blue-400/30',
+    dotClass: 'bg-amber-400',
     title: 'Existe y se está desarrollando en abierto',
   },
   simulacion: {
     label: 'SIMULACIÓN',
-    className: 'bg-amber-500/10 text-amber-300 border-amber-400/30',
+    dotClass: 'bg-sky-400',
     title: 'Escenario ilustrativo: así se vería a escala',
   },
   ejercicio: {
     label: 'EJERCICIO DE DISEÑO',
-    className: 'bg-violet-500/10 text-violet-300 border-violet-400/30',
+    dotClass: 'bg-slate-400',
     title: 'Diseño idealizado: muestra a dónde se podría apuntar, no es una promesa',
   },
 };
@@ -44,11 +44,12 @@ export function StatusBadge({ status, className }: StatusBadgeProps) {
     <span
       title={meta.title}
       className={cn(
-        'inline-flex items-center rounded-full border px-2.5 py-0.5 text-[11px] font-mono font-semibold tracking-wider uppercase',
-        meta.className,
+        'inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-2.5 py-0.5',
+        'text-[11px] font-mono font-semibold tracking-wider uppercase text-slate-300',
         className,
       )}
     >
+      <span aria-hidden className={cn('w-1.5 h-1.5 rounded-full shrink-0', meta.dotClass)} />
       {meta.label}
     </span>
   );
