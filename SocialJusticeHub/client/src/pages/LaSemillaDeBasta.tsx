@@ -26,6 +26,16 @@ import { JourneyBadge } from '@/components/ui/JourneyBadge';
 import { apiRequest } from '@/lib/queryClient';
 import { useToast } from '@/hooks/use-toast';
 import { UserContext } from '@/App';
+import {
+  ACCENT,
+  DISPLAY_GRADIENT,
+  GLASS_CARD,
+  GLASS_CARD_HOVER,
+  SECTION_BADGE,
+  PULL_QUOTE,
+  ACCENT_BUTTON,
+  SECTION_PAD
+} from '@/lib/design-tokens';
 
 type CommitmentType = 'initial' | 'intermediate' | 'public';
 
@@ -128,7 +138,7 @@ const LaSemillaDeBasta = () => {
   const [activeStep, setActiveStep] = useState(0);
   const containerRef = useRef(null);
   const prefersReducedMotion = useReducedMotion();
-  
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"]
@@ -242,9 +252,6 @@ const LaSemillaDeBasta = () => {
       id: 'semillas',
       label: 'Semillas plantadas',
       value: semilleroData.stats.total,
-      unit: '',
-      trend: 'up' as const,
-      color: 'green' as const,
       icon: <Sprout className="w-6 h-6" />,
       description: 'Personas que dejaron de contemplar y empezaron a sostener'
     },
@@ -252,9 +259,6 @@ const LaSemillaDeBasta = () => {
       id: 'recientes',
       label: 'Últimas 24 horas',
       value: semilleroData.stats.last24h,
-      unit: '',
-      trend: 'up' as const,
-      color: 'blue' as const,
       icon: <Droplets className="w-6 h-6" />,
       description: 'Compromisos nuevos en el último día'
     },
@@ -262,9 +266,6 @@ const LaSemillaDeBasta = () => {
       id: 'tipos-accion',
       label: 'Tipos de acción',
       value: semilleroData.stats.byType?.length ?? 0,
-      unit: '',
-      trend: 'up' as const,
-      color: 'purple' as const,
       icon: <Target className="w-6 h-6" />,
       description: 'Tipos de acción elegidos por la comunidad'
     }
@@ -277,7 +278,6 @@ const LaSemillaDeBasta = () => {
       subtitle: "Cuando la inspiración no alcanza",
       description: "El primer día es fácil. El compromiso brilla, te sentís parte de algo, la energía sobra. Después llega el martes. Y el siguiente. Y la semilla no creció. La mayoría abandona acá — no por cobardía, sino porque confundieron inspiración con compromiso. La inspiración es un fósforo. El compromiso es leña. Lo que buscás no es motivación. Es la disciplina de regar cuando no sentís nada.",
       icon: <Flame className="w-12 h-12" />,
-      gradient: "from-amber-900/80 to-orange-900/80",
       details: []
     },
     {
@@ -286,7 +286,6 @@ const LaSemillaDeBasta = () => {
       subtitle: "Cuando todo sigue igual menos vos",
       description: "Vas a cambiar y tu entorno no. Tu familia, tu laburo, tu barrio — todo sigue operando con las reglas de siempre. La presión no es explícita. Nadie te dice \"dejá de intentar.\" Es más sutil: una mirada, un chiste, un \"¿y eso para qué sirve?\" La semilla crece contra gravedad. Siempre fue así. El que planta no espera permiso del suelo.",
       icon: <Wind className="w-12 h-12" />,
-      gradient: "from-blue-600/80 to-cyan-600/80",
       details: []
     },
     {
@@ -295,7 +294,6 @@ const LaSemillaDeBasta = () => {
       subtitle: "Cuando el compromiso se vuelve ego",
       description: "Esta es la más peligrosa y nadie la ve venir. Empezás a sostener algo y un día te descubrís juzgando al que no lo hace. Sintiéndote superior. Usando tu compromiso como identidad, no como servicio. La semilla que se mira a sí misma deja de crecer. Humildad no es el punto de partida — es lo que tenés que reconquistar cada vez que te olvidás.",
       icon: <Eye className="w-12 h-12" />,
-      gradient: "from-emerald-600/80 to-green-600/80",
       details: []
     },
     {
@@ -304,7 +302,6 @@ const LaSemillaDeBasta = () => {
       subtitle: "Cuando soltar es el último servicio",
       description: "Si sostenés, algo crece. Pero no crece como vos imaginaste. Otros lo toman, lo transforman, lo llevan donde no esperabas. Eso no es fracaso — es éxito. La semilla nunca fue tuya. El compromiso es plantar. El fruto le pertenece al territorio. Soltar el control es el último acto de servicio.",
       icon: <Sprout className="w-12 h-12" />,
-      gradient: "from-yellow-500/80 to-orange-500/80",
       details: []
     }
   ];
@@ -353,60 +350,27 @@ const LaSemillaDeBasta = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#050a05] text-emerald-50 selection:bg-emerald-500/30 font-sans" ref={containerRef}>
+    <div className="min-h-screen bg-[#0a0a0a] text-white selection:bg-[#7D5BDE]/30 font-sans" ref={containerRef}>
       <Header />
       <main className="overflow-hidden relative">
-        
+
         {/* THE LIVING ROOT - Global Connector */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-6xl pointer-events-none z-0 opacity-20">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-6xl pointer-events-none z-0 opacity-10">
           <svg className="w-full h-full" viewBox="0 0 100 1000" preserveAspectRatio="none">
             <motion.path
               d="M50,0 C50,100 20,200 50,300 C80,400 50,500 50,600 C20,700 80,800 50,900 C20,1000 50,1000 50,1000"
               fill="none"
-              stroke="url(#rootGradient)"
+              stroke={ACCENT}
               strokeWidth="0.5"
               style={{ pathLength: rootPathLength }}
             />
-            <defs>
-              <linearGradient id="rootGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#d97706" />
-                <stop offset="50%" stopColor="#10b981" />
-                <stop offset="100%" stopColor="#3b82f6" />
-              </linearGradient>
-            </defs>
           </svg>
         </div>
 
         {/* Hero Section */}
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-          {/* Organic Background */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-emerald-900/20 via-[#050a05] to-[#050a05]" />
-          
-          {/* Floating Spores */}
-          <div className="absolute inset-0 opacity-30 pointer-events-none" aria-hidden="true">
-            {[...Array(prefersReducedMotion ? 0 : 14)].map((_, i) => (
-              <motion.div
-                key={i}
-                className="absolute bg-emerald-400 rounded-full blur-[1px]"
-                initial={{ 
-                  width: Math.random() * 4 + 'px',
-                  height: Math.random() * 4 + 'px',
-                  x: Math.random() * 100 + '%',
-                  y: Math.random() * 100 + '%',
-                  opacity: 0
-                }}
-                animate={{ 
-                  y: [0, -100],
-                  opacity: [0, 0.8, 0],
-                }}
-                transition={{ 
-                  duration: Math.random() * 10 + 10,
-                  repeat: Infinity,
-                  delay: Math.random() * 5
-                }}
-              />
-            ))}
-          </div>
+        <section className={`relative min-h-screen flex items-center justify-center overflow-hidden pt-20`}>
+          {/* Background */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#7D5BDE]/[0.06] via-[#0a0a0a] to-[#0a0a0a]" />
 
           <div className="container-content relative z-10">
             <div className="max-w-5xl mx-auto text-center">
@@ -416,11 +380,8 @@ const LaSemillaDeBasta = () => {
                 transition={{ duration: 0.6 }}
                 className="flex flex-col items-center justify-center gap-3 mb-8"
               >
-                <div className="flex items-center gap-2">
-                  <Sprout className="w-4 h-4 text-emerald-400 animate-pulse" />
-                  <span className="text-emerald-400 font-mono text-xs tracking-[0.3em] uppercase">
-                    La Semilla de ¡BASTA!
-                  </span>
+                <div className={SECTION_BADGE}>
+                  La Semilla de ¡BASTA!
                 </div>
                 <JourneyBadge step={3} />
               </motion.div>
@@ -431,16 +392,16 @@ const LaSemillaDeBasta = () => {
                 transition={{ duration: 0.7, delay: 0.15 }}
                 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold leading-tight mb-6"
               >
-                <span className="block text-transparent bg-clip-text bg-gradient-to-b from-emerald-200 via-emerald-400 to-green-600">
+                <span className={`block ${DISPLAY_GRADIENT}`}>
                   La Semilla
                 </span>
-                <span className="block text-3xl md:text-5xl font-light text-emerald-100/70 mt-2">
+                <span className="block text-3xl md:text-5xl font-light text-slate-400 mt-2">
                   Del compromiso que te cambia
                 </span>
               </motion.h1>
 
-              <div className="text-xl md:text-2xl text-emerald-100/60 max-w-3xl mx-auto mb-8 leading-relaxed font-light space-y-4">
-                <p className="text-lg md:text-xl text-emerald-100/80">
+              <div className="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto mb-8 leading-relaxed font-light space-y-4">
+                <p className="text-lg md:text-xl text-slate-300">
                   ¿Llegaste acá de una? Corto: <span className="text-white font-medium">¡BASTA!</span> es un movimiento
                   donde la ciudadanía diseña el país que quiere.
                   Y todo arranca con algo chiquito y tuyo: un compromiso concreto.
@@ -466,13 +427,13 @@ const LaSemillaDeBasta = () => {
                   variant="outline"
                   size="lg"
                   onClick={() => document.getElementById('el-ciclo')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="bg-transparent border-emerald-500/30 text-emerald-400 hover:bg-emerald-900/20 hover:text-emerald-200 rounded-full px-8 h-14"
+                  className="bg-transparent border-white/20 text-slate-300 hover:bg-white/5 hover:text-white rounded-full px-8 h-14 transition-all duration-300"
                 >
                   ¿CÓMO FUNCIONA?
                 </Button>
               </div>
 
-              <p className="text-sm text-emerald-100/50 max-w-xl mx-auto mb-20">
+              <p className="text-sm text-slate-500 max-w-xl mx-auto mb-20">
                 Concretamente: escribís tu compromiso, queda anclado a tu territorio
                 y suma evidencia pública de que esto está pasando.
               </p>
@@ -480,19 +441,16 @@ const LaSemillaDeBasta = () => {
               {/* Living Metrics */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl mx-auto">
                 {semillaIndicators.map((stat) => (
-                  <motion.div 
+                  <motion.div
                     key={stat.id}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5 }}
-                    className="relative group"
+                    className={`${GLASS_CARD} ${GLASS_CARD_HOVER} p-6 text-center`}
                   >
-                    <div className="absolute inset-0 bg-emerald-500/10 rounded-2xl blur-md group-hover:bg-emerald-500/20 transition-colors" />
-                    <div className="relative bg-[#0a150a] border border-emerald-500/20 rounded-2xl p-6 text-center">
-                      <div className="text-emerald-400 mb-2 flex justify-center">{stat.icon}</div>
-                      <div className="text-3xl font-bold text-white font-mono">{stat.value.toLocaleString()}</div>
-                      <div className="text-xs text-emerald-500/70 uppercase tracking-wider mt-1">{stat.label}</div>
-                    </div>
+                    <div className="text-[#9D85E8] mb-2 flex justify-center">{stat.icon}</div>
+                    <div className="text-3xl font-bold text-white font-mono">{stat.value.toLocaleString()}</div>
+                    <div className="text-xs text-slate-500 uppercase tracking-wider mt-1">{stat.label}</div>
                   </motion.div>
                 ))}
               </div>
@@ -501,12 +459,11 @@ const LaSemillaDeBasta = () => {
         </section>
 
         {/* El Acto */}
-        <section className="section-spacing bg-gradient-to-b from-[#050a05] via-[#060b06] to-[#050a05]">
+        <section className={`${SECTION_PAD} bg-[#0a0a0a]`}>
           <div className="container-content">
             <div className="max-w-3xl mx-auto">
               <div className="text-center mb-16">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-900/20 border border-emerald-500/20 text-emerald-400 text-sm font-mono mb-6 tracking-widest uppercase">
-                  <Sprout className="w-4 h-4" />
+                <div className={`${SECTION_BADGE} mb-6`}>
                   El verdadero instante
                 </div>
                 <h2 className="heading-section mb-6">
@@ -519,7 +476,7 @@ const LaSemillaDeBasta = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className="space-y-6 text-lg md:text-xl text-emerald-100/70 leading-relaxed font-light"
+                className="space-y-6 text-lg md:text-xl text-slate-400 leading-relaxed font-light"
               >
                 <p>
                   Despertar tiene algo de cómodo.<br />
@@ -541,7 +498,7 @@ const LaSemillaDeBasta = () => {
                   que te incomoda cuando no lo cumplís,<br />
                   que nadie te va a aplaudir por sostener.
                 </p>
-                <p className="text-emerald-200/90 font-normal">
+                <p className="text-slate-300 font-normal">
                   El gris despierta. La semilla actúa.<br />
                   Y entre esas dos cosas hay un abismo<br />
                   que la mayoría no cruza nunca.
@@ -555,7 +512,7 @@ const LaSemillaDeBasta = () => {
                 transition={{ duration: 0.8, delay: 0.3 }}
                 className="mt-16 text-center"
               >
-                <p className="text-xl md:text-2xl text-emerald-100/50 leading-relaxed font-light italic">
+                <p className={`text-xl md:text-2xl ${PULL_QUOTE}`}>
                   La pregunta no es si entendés lo que está mal.<br />
                   La pregunta es si estás dispuesto a ser distinto<br />
                   por algo que no lleva tu nombre.
@@ -566,8 +523,11 @@ const LaSemillaDeBasta = () => {
         </section>
 
         {/* Germination Cycle Interactive */}
-        <section id="el-ciclo" className="section-spacing bg-[#050a05] relative border-t border-emerald-900/20">
-          <div className="container-content">
+        <section id="el-ciclo" className={`${SECTION_PAD} bg-[#0a0a0a] relative border-t border-white/5`}>
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#7D5BDE]/[0.05] rounded-full blur-3xl" />
+          </div>
+          <div className="container-content relative z-10">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-16">
                 <h2 className="heading-section mb-6">No es un plan de 4 pasos. Es lo que pasa cuando lo intentás.</h2>
@@ -578,9 +538,9 @@ const LaSemillaDeBasta = () => {
 
               <div className="grid lg:grid-cols-2 gap-16 items-center">
                 {/* Interactive Visual */}
-                <div className="relative aspect-square rounded-full bg-emerald-900/10 border border-emerald-500/20 flex items-center justify-center overflow-hidden">
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#050a05_70%)]" />
-                  
+                <div className={`relative aspect-square rounded-full ${GLASS_CARD} flex items-center justify-center overflow-hidden`}>
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#0a0a0a_70%)]" />
+
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={activeStep}
@@ -590,11 +550,11 @@ const LaSemillaDeBasta = () => {
                       transition={{ duration: 0.5 }}
                       className="text-center relative z-10"
                     >
-                      <div className={`w-32 h-32 mx-auto rounded-full bg-gradient-to-br ${germinationSteps[activeStep].gradient} flex items-center justify-center mb-8 shadow-[0_0_60px_rgba(16,185,129,0.3)]`}>
-                        <div className="text-white">{germinationSteps[activeStep].icon}</div>
+                      <div className="w-32 h-32 mx-auto rounded-full bg-[#7D5BDE]/20 border border-[#7D5BDE]/30 flex items-center justify-center mb-8">
+                        <div className="text-[#9D85E8]">{germinationSteps[activeStep].icon}</div>
                       </div>
                       <h3 className="text-3xl font-bold text-white mb-2">{germinationSteps[activeStep].title}</h3>
-                      <p className="text-emerald-200/70">{germinationSteps[activeStep].subtitle}</p>
+                      <p className="text-slate-400">{germinationSteps[activeStep].subtitle}</p>
                     </motion.div>
                   </AnimatePresence>
 
@@ -606,7 +566,7 @@ const LaSemillaDeBasta = () => {
                         onClick={() => setActiveStep(idx)}
                         aria-label={`Tensión ${idx + 1}: ${step.title}`}
                         aria-current={activeStep === idx}
-                        className={`h-4 rounded-full transition-all p-0 min-w-[16px] ${activeStep === idx ? 'bg-emerald-400 w-8' : 'w-4 bg-emerald-700 hover:bg-emerald-500'}`}
+                        className={`h-4 rounded-full transition-all duration-300 p-0 min-w-[16px] ${activeStep === idx ? 'bg-[#7D5BDE] w-8' : 'w-4 bg-white/20 hover:bg-white/40'}`}
                       />
                     ))}
                   </div>
@@ -619,22 +579,22 @@ const LaSemillaDeBasta = () => {
                       key={idx}
                       type="button"
                       aria-expanded={activeStep === idx}
-                      className={`w-full text-left p-6 rounded-2xl border transition-all cursor-pointer ${activeStep === idx ? 'bg-emerald-900/20 border-emerald-500/50' : 'bg-transparent border-transparent hover:bg-white/5'}`}
+                      className={`w-full text-left p-6 rounded-2xl border transition-all duration-300 cursor-pointer ${activeStep === idx ? 'bg-[#7D5BDE]/10 border-[#7D5BDE]/30' : 'bg-transparent border-transparent hover:bg-white/5'}`}
                       onClick={() => setActiveStep(idx)}
                     >
                       <div className="flex items-start gap-4">
-                        <div className={`text-sm font-mono mt-1 ${activeStep === idx ? 'text-emerald-400' : 'text-emerald-600'}`}>
+                        <div className={`text-sm font-mono mt-1 ${activeStep === idx ? 'text-[#9D85E8]' : 'text-slate-600'}`}>
                           0{idx + 1}
                         </div>
                         <div>
-                          <h4 className={`text-lg font-bold mb-2 ${activeStep === idx ? 'text-white' : 'text-emerald-100/50'}`}>
+                          <h4 className={`text-lg font-bold mb-2 ${activeStep === idx ? 'text-white' : 'text-slate-500'}`}>
                             {step.title}
                           </h4>
                           {activeStep === idx && (
                             <motion.div
                               initial={{ height: 0, opacity: 0 }}
                               animate={{ height: 'auto', opacity: 1 }}
-                              className="text-emerald-200/70 text-sm leading-relaxed"
+                              className="text-slate-400 text-sm leading-relaxed"
                             >
                               <p>{step.description}</p>
                             </motion.div>
@@ -650,16 +610,15 @@ const LaSemillaDeBasta = () => {
         </section>
 
         {/* La Red */}
-        <section className="section-spacing bg-[#081008]">
+        <section className={`${SECTION_PAD} bg-[#0a0a0a]`}>
           <div className="container-content">
             <div className="max-w-5xl mx-auto">
               <div className="text-center mb-16">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-900/20 border border-emerald-500/20 text-emerald-400 text-sm font-mono mb-6 tracking-widest uppercase">
-                  <Heart className="w-4 h-4" />
+                <div className={`${SECTION_BADGE} mb-6`}>
                   La red
                 </div>
                 <h2 className="heading-section mb-6">
-                  Nadie planta <span className="text-emerald-400">solo.</span>
+                  Nadie planta <span className="text-[#9D85E8]">solo.</span>
                 </h2>
                 <p className="text-body max-w-2xl mx-auto mb-12">
                   Una semilla no hace un bosque. Pero un bosque siempre empezó con una semilla que no pidió permiso.
@@ -678,35 +637,31 @@ const LaSemillaDeBasta = () => {
                     >
                       <div className="relative pl-14 md:pl-24 pb-12 last:pb-0">
                         {/* Connector dot */}
-                        <div className="absolute left-3 md:left-8 top-2 w-5 h-5 rounded-full bg-[#081008] border-2 border-emerald-500 z-10 shadow-[0_0_15px_rgba(16,185,129,0.3)]" aria-hidden="true">
-                          {!prefersReducedMotion && (
-                            <div className="absolute inset-0.5 rounded-full bg-emerald-400/30 animate-ping" style={{ animationDuration: `${3 + idx}s` }} />
-                          )}
-                        </div>
+                        <div className="absolute left-3 md:left-8 top-2 w-5 h-5 rounded-full bg-[#0a0a0a] border-2 border-[#7D5BDE] z-10" aria-hidden="true" />
 
                         {/* Vertical line */}
                         {idx < propagacion.length - 1 && (
-                          <div className="absolute left-[21px] md:left-[38px] top-7 w-px bg-gradient-to-b from-emerald-500/40 to-emerald-500/10 h-full" aria-hidden="true" />
+                          <div className="absolute left-[21px] md:left-[38px] top-7 w-px bg-gradient-to-b from-[#7D5BDE]/30 to-[#7D5BDE]/05 h-full" aria-hidden="true" />
                         )}
 
                         {/* Card */}
-                        <div className="bg-white/[0.03] rounded-2xl p-8 border border-white/5 hover:border-emerald-500/20 transition-all duration-300 group">
+                        <div className={`${GLASS_CARD} ${GLASS_CARD_HOVER} p-8`}>
                           <div className="flex items-center gap-4 mb-4">
-                            <div className="w-11 h-11 rounded-xl bg-emerald-900/30 border border-emerald-500/20 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform">
+                            <div className="w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-300">
                               {nivel.icon}
                             </div>
                             <div className="flex-1">
                               <div className="flex items-center gap-3">
-                                <span className="text-emerald-500 font-mono text-xs">{nivel.nivel}</span>
+                                <span className="text-slate-500 font-mono text-xs">{nivel.nivel}</span>
                                 <h3 className="text-xl font-bold text-white">{nivel.titulo}</h3>
                               </div>
-                              <p className="text-emerald-400/70 text-sm">{nivel.subtitulo}</p>
+                              <p className="text-slate-500 text-sm">{nivel.subtitulo}</p>
                             </div>
-                            <span className="text-xs uppercase tracking-widest text-amber-400/70 px-3 py-1.5 rounded-full border border-amber-500/20 bg-amber-900/10 hidden sm:block font-mono">
+                            <span className="text-xs uppercase tracking-widest text-slate-400 px-3 py-1.5 rounded-full border border-white/10 bg-white/5 hidden sm:block font-mono">
                               {nivel.alcance}
                             </span>
                           </div>
-                          <p className="text-emerald-100/60 leading-relaxed md:pl-[60px]">{nivel.descripcion}</p>
+                          <p className="text-slate-400 leading-relaxed md:pl-[60px]">{nivel.descripcion}</p>
                         </div>
                       </div>
                     </motion.div>
@@ -715,18 +670,18 @@ const LaSemillaDeBasta = () => {
 
                 {/* Final crescendo */}
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
+                  initial={{ opacity: 0, scale: 0.95 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   className="mt-12 text-center relative z-10"
                 >
-                  <div className="inline-block bg-gradient-to-r from-emerald-900/20 to-green-900/20 rounded-3xl p-10 border border-emerald-500/20">
+                  <div className={`inline-block ${GLASS_CARD} rounded-3xl p-10`}>
                     <p className="text-2xl md:text-3xl font-bold text-white mb-4">
                       46 millones es el potencial.
                     </p>
-                    <p className="text-emerald-200/70 text-lg max-w-2xl mx-auto leading-relaxed mb-8">
+                    <p className="text-slate-400 text-lg max-w-2xl mx-auto leading-relaxed mb-8">
                       Pero no empieza con millones. Empieza con uno que dejó de delegar.<br />
-                      <strong className="text-emerald-300">Lo que se prueba se puede exigir. Lo que se sostiene se vuelve irrefutable.</strong>
+                      <strong className="text-slate-300">Lo que se prueba se puede exigir. Lo que se sostiene se vuelve irrefutable.</strong>
                     </p>
                     <PowerCTA
                       text="REGISTRAR MI COMPROMISO"
@@ -744,9 +699,9 @@ const LaSemillaDeBasta = () => {
 
         {/* Next Steps */}
         {/* ━━━ CLOSING PATTERN ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-        <section className="py-20 md:py-28">
+        <section className={SECTION_PAD}>
           <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-sm p-8 md:p-10">
+            <div className={`max-w-3xl mx-auto ${GLASS_CARD} p-8 md:p-10`}>
               <div className="space-y-6">
                 {[
                   { label: "Qué estamos viendo", text: "Gente que dejó de opinar y empezó a sostener. Compromisos concretos, no adhesiones tibias." },
@@ -756,7 +711,7 @@ const LaSemillaDeBasta = () => {
                   { label: "Qué podés hacer vos", text: "Plantar un compromiso, anclarlo a tu territorio y bancártela cuando nadie aplauda." },
                 ].map((item, i) => (
                   <div key={i} className="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-4">
-                    <span className="text-emerald-400 font-bold text-sm whitespace-nowrap min-w-[220px]">{item.label}</span>
+                    <span className="text-[#9D85E8] font-bold text-sm whitespace-nowrap min-w-[220px]">{item.label}</span>
                     <span className="text-slate-400 text-sm leading-relaxed">{item.text}</span>
                   </div>
                 ))}
@@ -769,16 +724,16 @@ const LaSemillaDeBasta = () => {
           title="Llevá tu compromiso al Mapa"
           description="Tu compromiso vale más cuando se ve. Ponelo en el mapa junto a lo que soñás y lo que te falta — y mirá quién más está sosteniendo algo cerca tuyo."
           href="/el-mapa"
-          gradient="from-emerald-900 to-blue-900"
+          gradient="from-[#10132a] to-[#1a1030]"
           icon={<MapPin className="w-5 h-5" />}
           ctaLabel="Ir al Mapa"
         />
 
         <section className="max-w-4xl mx-auto px-4 py-16">
           <div className="space-y-2 mb-8">
-            <p className="uppercase tracking-widest text-xs text-amber-300/80">Pensamiento</p>
+            <p className={SECTION_BADGE}>Pensamiento</p>
             <h2 className="font-serif text-3xl">Para leer antes de sembrar</h2>
-            <p className="text-emerald-100/70 max-w-2xl">Tres lecturas para entender qué pesa cuando uno planta un compromiso y se mete a construir.</p>
+            <p className="text-slate-400 max-w-2xl">Tres lecturas para entender qué pesa cuando uno planta un compromiso y se mete a construir.</p>
           </div>
           <div className="grid gap-4 md:grid-cols-3">
             <EnsayoLinkCard slug="arquitectura" />
