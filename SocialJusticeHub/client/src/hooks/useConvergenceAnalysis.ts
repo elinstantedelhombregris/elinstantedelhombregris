@@ -105,7 +105,7 @@ export const THEME_KEYWORDS: Record<ThemeKey, string[]> = {
 };
 
 export const THEME_META: Record<ThemeKey, { label: string; icon: string }> = {
-  systemic:    { label: 'Transformacion Sistémica', icon: 'RefreshCw' },
+  systemic:    { label: 'Transformación Sistémica', icon: 'RefreshCw' },
   values:      { label: 'Valores Fundamentales',    icon: 'Heart' },
   action:      { label: 'Acción y Agencia',         icon: 'Zap' },
   development: { label: 'Desarrollo Humano',        icon: 'GraduationCap' },

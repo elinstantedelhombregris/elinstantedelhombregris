@@ -5,7 +5,7 @@ import { getQueryFn } from '@/lib/queryClient';
 import { Link } from 'wouter';
 import {
   Scroll,
-  Anchor,
+  ArrowDown,
   Users,
   Brain,
   FileText,
@@ -30,6 +30,8 @@ import PowerCTA from '@/components/PowerCTA';
 import NextStepCard from '@/components/NextStepCard';
 import TrendIcon from '@/components/TrendIcon';
 import ProposalCard from '@/components/ProposalCard';
+import { JourneyBadge } from '@/components/ui/JourneyBadge';
+import { StatusBadge } from '@/components/ui/StatusBadge';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -84,29 +86,29 @@ const howItWorksCards = [
     icon: Users,
     color: "blue-400",
     bg: "blue-500/10",
-    title: "El Pueblo Habla",
-    desc: "El mapa recoge sueños, necesidades, valores, gritos de ¡BASTA! y recursos de cada rincón del territorio argentino.",
+    title: "1. Vos dejás tu voz",
+    desc: "En El Mapa cargás un sueño, una necesidad, un valor, un ¡BASTA! o un recurso. Una voz = una frase tuya, anclada a tu territorio.",
   },
   {
     icon: Brain,
     color: "purple-400",
     bg: "purple-500/10",
-    title: "La Inteligencia Emerge",
-    desc: "Algoritmos de convergencia detectan patrones: qué pide cada territorio, qué tiene disponible, qué le falta.",
+    title: "2. El sistema encuentra los patrones",
+    desc: "Cuando muchas voces coinciden, los algoritmos lo detectan: qué pide cada territorio, qué tiene disponible, qué le falta.",
   },
   {
     icon: FileText,
     color: "amber-400",
     bg: "amber-500/10",
-    title: "El Mandato Se Escribe Solo",
-    desc: "Cada viernes a las 17:55, el motor de convergencia sintetiza las señales del territorio en un mandato legible. No reemplaza la deliberación: la vuelve posible con verdad operativa.",
+    title: "3. Nace el mandato semanal",
+    desc: "Cada viernes a la tarde, el sistema junta todas las voces nuevas y escribe el mandato de la semana: qué se pidió, dónde, y con cuánta fuerza. Nadie lo edita a mano.",
   },
   {
     icon: Rocket,
     color: "emerald-400",
     bg: "emerald-500/10",
-    title: "La Acción Se Activa",
-    desc: "Cada mandato incluye propuestas con plantilla de acción lista para enviar: carta, petición, proyecto de ley.",
+    title: "4. Te da las herramientas para exigir",
+    desc: "Cada mandato incluye propuestas con plantilla lista para enviar: carta, petición, proyecto de ley. Vos las firmás y las movés.",
   },
 ];
 
@@ -142,13 +144,14 @@ const statStyles: Record<string, { text: string; bgIcon: string }> = {
 const ElMandatoVivo = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = 'El Mandato Vivo - Convergencia ciudadana en tiempo real';
+    document.title = 'El Mandato Vivo — ¡BASTA!';
   }, []);
 
   // Map data
-  const { data: dreams = [] } = useQuery<any[]>({ queryKey: ['/api/dreams'] });
-  const { data: resources = [] } = useQuery<any[]>({ queryKey: ['/api/resources-map'] });
-  const { data: mandates = [] } = useQuery<any[]>({ queryKey: ['/api/mandates'] });
+  const { data: dreams = [], isLoading: dreamsLoading } = useQuery<any[]>({ queryKey: ['/api/dreams'] });
+  const { data: resources = [], isLoading: resourcesLoading } = useQuery<any[]>({ queryKey: ['/api/resources-map'] });
+  const { data: mandates = [], isLoading: mandatesLoading } = useQuery<any[]>({ queryKey: ['/api/mandates'] });
+  const statsLoading = dreamsLoading || resourcesLoading || mandatesLoading;
 
   // Pulse data
   const { data: latestPulse } = useQuery<{ data: PulseData | null }>({
@@ -185,7 +188,7 @@ const ElMandatoVivo = () => {
       <main className="overflow-hidden">
 
         {/* ━━━ SECTION 1: HERO ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
-        <section className="relative h-screen flex items-center justify-center overflow-hidden">
+        <section className="relative min-h-[90svh] py-24 flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-amber-950/40 via-[#0a0a0a] to-[#0a0a0a]" />
           <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/dark-matter.png')]" />
 
@@ -194,12 +197,15 @@ const ElMandatoVivo = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="flex items-center justify-center gap-2 mb-8"
+              className="flex flex-col items-center justify-center gap-3 mb-8"
             >
-              <Scroll className="w-4 h-4 text-amber-500 animate-pulse" />
-              <span className="text-amber-500 font-mono text-xs tracking-[0.3em] uppercase">
-                Probar — Convergencia Ciudadana
-              </span>
+              <div className="flex items-center gap-2">
+                <Scroll className="w-4 h-4 text-amber-500 animate-pulse" />
+                <span className="text-amber-500 font-mono text-xs tracking-[0.3em] uppercase">
+                  Qué pide tu territorio — en datos
+                </span>
+              </div>
+              <JourneyBadge step={5} />
             </motion.div>
 
             <motion.h1
@@ -221,8 +227,31 @@ const ElMandatoVivo = () => {
               transition={{ duration: 0.7, delay: 0.3 }}
               className="text-xl md:text-2xl text-slate-400 max-w-2xl mx-auto mb-10"
             >
-              Las señales del mapa se convierten en iniciativa cívica para la gestión pública. Cuando la convergencia es clara, el mandato se vuelve exigible.
+              Vos contás qué te falta y qué soñás en El Mapa. Cada viernes, esas voces
+              se convierten en un mandato: un documento que dice, con datos, qué pide
+              tu territorio — y que la política ya no puede ignorar.
             </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.4 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center mb-10"
+            >
+              <a
+                href="/el-mapa#mapa-interactivo"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-amber-500 hover:bg-amber-400 text-black rounded-full font-bold text-base transition-all duration-300 hover:-translate-y-0.5 shadow-[0_0_30px_rgba(245,158,11,0.25)]"
+              >
+                Dejá tu voz en el mapa
+              </a>
+              <button
+                type="button"
+                onClick={() => document.getElementById('ultimo-mandato')?.scrollIntoView({ behavior: 'smooth' })}
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-white/20 text-white hover:bg-white/5 transition-all font-semibold text-base"
+              >
+                Ver el último mandato
+              </button>
+            </motion.div>
 
             <motion.div
               initial={{ opacity: 0 }}
@@ -235,13 +264,13 @@ const ElMandatoVivo = () => {
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-500" />
               </span>
               <span className="text-white/70 text-sm">
-                <span className="text-amber-400 font-bold">{totalVoices}</span> voces
+                <span className="text-amber-400 font-bold">{statsLoading ? '…' : totalVoices}</span> voces
                 {pulseStats && (
                   <>
                     {' · '}
                     <span className="text-amber-400 font-bold">{pulseStats.totalProposals}</span> propuestas
                     {' · '}
-                    <span className="text-amber-400 font-bold">{pulseStats.totalPulses}</span> mandatos semanales
+                    <span className="text-amber-400 font-bold">{pulseStats.totalPulses}</span> síntesis semanales
                   </>
                 )}
               </span>
@@ -251,7 +280,7 @@ const ElMandatoVivo = () => {
               animate={{ y: [0, 10, 0] }}
               transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
             >
-              <Anchor className="w-5 h-5 text-slate-600 mx-auto" />
+              <ArrowDown className="w-5 h-5 text-slate-500 mx-auto" aria-hidden="true" />
             </motion.div>
           </div>
         </section>
@@ -320,7 +349,7 @@ const ElMandatoVivo = () => {
                     <Icon className={`absolute -bottom-2 -right-2 w-16 h-16 ${style.bgIcon} opacity-30`} />
                     <div className="relative z-10">
                       <span className={`text-3xl font-bold ${style.text}`}>
-                        {stat.value}
+                        {statsLoading ? '—' : stat.value}
                       </span>
                       <p className="text-slate-400 text-xs mt-2">{stat.label}</p>
                     </div>
@@ -347,7 +376,7 @@ const ElMandatoVivo = () => {
 
         {/* ━━━ SECTION 4: LATEST MANDATE (PULSE) ━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
         {pulse ? (
-          <section className="bg-gradient-to-b from-[#0a0a0a] via-[#0f1116] to-[#0a0a0a] py-20 md:py-28">
+          <section id="ultimo-mandato" className="bg-gradient-to-b from-[#0a0a0a] via-[#0f1116] to-[#0a0a0a] py-20 md:py-28">
             <div className="container mx-auto px-4 max-w-5xl">
               <div className="text-center mb-14">
                 <span className="text-amber-500 font-mono text-xs tracking-[0.3em] uppercase">
@@ -425,7 +454,7 @@ const ElMandatoVivo = () => {
             </div>
           </section>
         ) : (
-          <section className="bg-gradient-to-b from-[#0a0a0a] via-[#0f1116] to-[#0a0a0a] py-20 md:py-28">
+          <section id="ultimo-mandato" className="bg-gradient-to-b from-[#0a0a0a] via-[#0f1116] to-[#0a0a0a] py-20 md:py-28">
             <div className="container mx-auto px-4 text-center max-w-3xl">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
@@ -449,14 +478,21 @@ const ElMandatoVivo = () => {
         <section className="py-20 md:py-28">
           <div className="container mx-auto px-4">
             <div className="text-center mb-14">
-              <span className="text-amber-500 font-mono text-xs tracking-[0.3em] uppercase">
-                Simulación a Escala
-              </span>
+              <div className="flex items-center justify-center gap-3 mb-2">
+                <span className="text-amber-500 font-mono text-xs tracking-[0.3em] uppercase">
+                  Así funcionaría a escala
+                </span>
+                <StatusBadge status="simulacion" />
+              </div>
               <h2 className="text-4xl font-bold text-white mt-3 font-serif">
-                Cómo el Sistema Obliga a la Política
+                Cómo el sistema obligaría a la política
               </h2>
               <p className="text-slate-400 max-w-3xl mx-auto mt-4 text-lg">
-                Cuando el mandato es claro y la política no responde, el sistema genera automáticamente las herramientas para exigir cumplimiento.
+                Cuando el mandato es claro y la política no responde, el sistema genera las herramientas para exigir cumplimiento.
+              </p>
+              <p className="text-slate-500 max-w-2xl mx-auto mt-3 text-sm">
+                Los números de esta sección son un ejemplo de cómo se vería el sistema con miles de voces.
+                Los datos reales están más arriba, en "Datos Reales".
               </p>
             </div>
 
@@ -487,7 +523,7 @@ const ElMandatoVivo = () => {
 
             {mandates.length === 0 && (
               <p className="text-center text-slate-500 text-sm mt-8 font-mono">
-                A medida que el mapa crece, los mandatos reales aparecerán aquí.
+                A medida que el mapa crece, los mandatos reales van a aparecer acá. Mientras tanto, sumá tu voz en El Mapa.
               </p>
             )}
           </div>
@@ -497,17 +533,18 @@ const ElMandatoVivo = () => {
         <section className="py-20 md:py-28">
           <div className="container mx-auto px-4">
             <div className="text-center mb-14">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 mb-6">
-                <Map className="w-3 h-3 text-blue-400" />
-                <span className="text-blue-400 font-mono text-[10px] tracking-widest uppercase">
-                  Verificado en Territorio
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 mb-6">
+                <Map className="w-3 h-3 text-amber-400" />
+                <span className="text-amber-400 font-mono text-xs tracking-widest uppercase">
+                  Escenarios posibles
                 </span>
               </div>
               <h2 className="text-4xl font-bold text-white font-serif">
-                Imaginen qué pasaría si dejamos las cosas en claro
+                Imaginate qué pasaría si dejáramos las cosas en claro
               </h2>
               <p className="text-slate-400 max-w-3xl mx-auto mt-4 text-lg">
-                La política ya no tiene excusas; imaginen cuando escenarios como estos sean moneda corriente.
+                Estos testimonios son ilustrativos — todavía no pasaron. Son el tipo de escena
+                que este sistema está diseñado para volver moneda corriente.
               </p>
             </div>
 
@@ -609,7 +646,7 @@ const ElMandatoVivo = () => {
               transition={{ duration: 0.6 }}
               className="text-4xl md:text-6xl font-bold text-white font-serif mb-6"
             >
-              Alimentá el mandato con tu señal
+              Sumá tu voz al mandato
             </motion.h2>
 
             <motion.p
@@ -619,7 +656,8 @@ const ElMandatoVivo = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-slate-400 max-w-2xl mx-auto text-lg mb-10"
             >
-              Cada voz que entra al mapa hace el mandato más fuerte, más preciso, más irrefutable. No hay mínimo. No hay máximo. Solo convergencia.
+              Cargá un sueño, una necesidad o un ¡BASTA! en El Mapa. Eso es todo:
+              cada voz hace el mandato más fuerte, más preciso y más difícil de ignorar.
             </motion.p>
 
             <motion.div
@@ -630,7 +668,7 @@ const ElMandatoVivo = () => {
               className="flex gap-4 justify-center flex-wrap"
             >
               <PowerCTA
-                text="ALIMENTÁ EL MANDATO"
+                text="DEJÁ TU VOZ EN EL MAPA"
                 variant="primary"
                 size="xl"
                 onClick={() => {
@@ -661,7 +699,7 @@ const ElMandatoVivo = () => {
               </div>
               <div className="flex flex-col sm:flex-row sm:items-start gap-2">
                 <span className="font-bold text-blue-400 whitespace-nowrap min-w-[220px]">Qué no vamos a hacer todavía:</span>
-                <span className="text-slate-400">Tratar como representativo un mandato con baja densidad. Los mandatos muestran cobertura y no simulan certeza donde no la hay.</span>
+                <span className="text-slate-400">Tratar como representativo un mandato con pocas voces detrás. Los mandatos muestran su cobertura y no simulan certeza donde no la hay.</span>
               </div>
               <div className="flex flex-col sm:flex-row sm:items-start gap-2">
                 <span className="font-bold text-emerald-400 whitespace-nowrap min-w-[220px]">Cómo se mide:</span>
@@ -677,18 +715,19 @@ const ElMandatoVivo = () => {
 
         {/* ━━━ SECTION 10: NEXT STEP CARD ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */}
         <NextStepCard
-          title="Encontrá tu círculo de reconstrucción"
-          description="El mandato se sostiene en células territoriales. Lo que se probó necesita quien lo multiplique. Encontrá la que necesita tu capacidad."
+          title="Encontrá tu Círculo"
+          description="El mandato no camina solo: lo empujan grupos de vecinos en cada territorio. Buscá el tuyo y sumate con lo que sabés hacer."
           href="/community"
           gradient="from-[#0f172a] to-[#1e293b]"
           icon={<Users className="w-5 h-5" />}
+          ctaLabel="Conocer los Círculos"
         />
 
         <section className="max-w-4xl mx-auto px-4 py-16">
           <div className="space-y-2 mb-8">
             <p className="uppercase tracking-widest text-xs text-amber-300/80">Pensamiento</p>
             <h2 className="font-serif text-3xl">Por qué el mandato es vivo</h2>
-            <p className="text-slate-400 max-w-2xl">Las dos piezas que explican por qué la asamblea barrial — sorteada, deliberativa, anti-captura — es la unidad real de la república nueva.</p>
+            <p className="text-slate-400 max-w-2xl">Las dos piezas que explican por qué la asamblea barrial — sorteada, deliberativa, que nadie puede comprar — es la unidad real de la república nueva.</p>
           </div>
           <div className="grid gap-4 md:grid-cols-2">
             <EnsayoLinkCard slug="democracia" />

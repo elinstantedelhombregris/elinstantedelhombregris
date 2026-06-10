@@ -72,7 +72,7 @@ const ConvergenceNumber: React.FC<{
         >
           de convergencia entre{' '}
           <strong className="text-white">{totalContributions.toLocaleString('es-AR')}</strong>{' '}
-          voces
+          voces — el porcentaje de temas donde distintas señales coinciden
         </motion.p>
 
         <motion.p
@@ -176,7 +176,7 @@ const TopThemeCards: React.FC<{ cards: ThemeCard[] }> = ({ cards }) => {
             </div>
 
             <p className="text-xs text-slate-500 font-mono mb-2">
-              {card.convergenceCount} de 6 tipos convergen
+              {card.convergenceCount} tipos de señal convergen
             </p>
 
             {firstQuote && (
@@ -215,7 +215,7 @@ const ConvergenceDashboard: React.FC = () => {
     return (
       <div className="py-24 text-center">
         <p className="text-slate-400 text-lg">
-          Todavía no hay señales. Sé el primero en cargar tu verdad en el mapa.
+          Todavía no hay señales acá. La primera puede ser la tuya.
         </p>
       </div>
     );

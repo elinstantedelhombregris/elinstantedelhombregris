@@ -114,7 +114,7 @@ const ElLatido: React.FC<{
               />
             ))}
             <span className="text-[10px] text-slate-500 ml-1">
-              {DREAM_TYPES.filter(t => topArticle.penetration[t] > 0).length}/5 tipos convergen
+              {DREAM_TYPES.filter(t => topArticle.penetration[t] > 0).length} tipos de señal convergen
             </span>
           </div>
         )}

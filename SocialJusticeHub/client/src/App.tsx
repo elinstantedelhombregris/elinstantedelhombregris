@@ -124,6 +124,7 @@ function Router() {
       <Route path="/bienvenida" component={Bienvenida} />
       <Route path="/mision/:slug" component={MisionDetalle} />
       <Route path="/community" component={Community} />
+      <Route path="/circulos">{() => <Redirect to="/community" />}</Route>
       <Route path="/community/job/create" component={CreateJob} />
       <Route path="/community/project/create" component={CreateProject} />
       <Route path="/community/resource/create" component={CreateResource} />

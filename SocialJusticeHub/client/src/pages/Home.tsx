@@ -10,12 +10,27 @@ import {
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
+import { StatusBadge, type PlatformStatus } from '@/components/ui/StatusBadge';
 
 /* ── Feature cards data (Section 2) ───────────────────── */
-const features = [
+const features: ReadonlyArray<{
+  title: string;
+  description: string;
+  href: string;
+  status: PlatformStatus;
+  icon: React.ReactNode;
+  color: string;
+  bg: string;
+  border: string;
+  gradient: string;
+  glow: string;
+  hoverBorder: string;
+}> = [
   {
     title: 'Diagnóstico Personal',
     description: 'Mapeá tu vida real en 12 áreas. Tu punto de partida, sin filtro.',
+    href: '/evaluacion',
+    status: 'live',
     icon: <Activity className="w-5 h-5" />,
     color: 'text-blue-400',
     bg: 'bg-blue-500/10',
@@ -25,8 +40,10 @@ const features = [
     hoverBorder: 'group-hover:border-blue-500/40',
   },
   {
-    title: 'Mapa Ciudadano',
-    description: 'Lo que soñás, necesitás y rechazás — visible en tu territorio.',
+    title: 'El Mapa Ciudadano',
+    description: 'Lo que soñás, necesitás y rechazás — visible en tu territorio, junto a miles de voces más.',
+    href: '/el-mapa',
+    status: 'live',
     icon: <MapPin className="w-5 h-5" />,
     color: 'text-emerald-400',
     bg: 'bg-emerald-500/10',
@@ -36,8 +53,10 @@ const features = [
     hoverBorder: 'group-hover:border-emerald-500/40',
   },
   {
-    title: 'Planes Auditables',
-    description: 'Educación, suelo, empleo, ciudades — diseñados en detalle, abiertos a todos.',
+    title: '22 Planes de Ejemplo',
+    description: 'Educación, suelo, justicia, ciudades: el ejercicio completo de diseñar el país desde cero, escrito en detalle para mostrar que se puede. Imaginate hacerlo entre millones.',
+    href: '/recursos/ruta',
+    status: 'ejercicio',
     icon: <FileText className="w-5 h-5" />,
     color: 'text-amber-400',
     bg: 'bg-amber-500/10',
@@ -47,8 +66,10 @@ const features = [
     hoverBorder: 'group-hover:border-amber-500/40',
   },
   {
-    title: 'Mandatos Vivos',
-    description: 'Señales ciudadanas que se convierten en exigencia pública medible.',
+    title: 'El Mandato Vivo',
+    description: 'Lo que pide tu barrio, contado y publicado cada semana — para que nadie pueda decir que no lo sabía.',
+    href: '/el-mandato-vivo',
+    status: 'construccion',
     icon: <ScrollText className="w-5 h-5" />,
     color: 'text-red-400',
     bg: 'bg-red-500/10',
@@ -57,13 +78,13 @@ const features = [
     glow: 'group-hover:shadow-[0_0_40px_rgba(239,68,68,0.12)]',
     hoverBorder: 'group-hover:border-red-500/40',
   },
-] as const;
+];
 
 /* ── Differentiator blocks data (Section 3) ───────────── */
 const differentiators = [
   {
     title: 'Sin caudillo, sin aparato',
-    text: 'No hay nadie a quien seguir. Hay infraestructura que la ciudadanía opera. Si mañana desaparecemos, las herramientas quedan.',
+    text: 'No hay nadie a quien seguir. Hay infraestructura que la ciudadanía opera. ¿Quién la sostiene? El hombre gris: alguien común que se salió de la grieta y eligió construir en vez de pelear. No es uno — somos muchos. Si mañana desaparecemos, las herramientas quedan.',
     borderColor: 'border-l-blue-500',
     dotColor: 'bg-blue-400',
     numColor: 'text-blue-500/[0.07]',
@@ -76,7 +97,7 @@ const differentiators = [
     numColor: 'text-amber-500/[0.07]',
   },
   {
-    title: 'Empieza con vos',
+    title: 'Arranca con vos',
     text: 'No arranca con una marcha ni un voto. Arranca con tu diagnóstico, tu visión, tu territorio. El sistema se construye de abajo hacia arriba.',
     borderColor: 'border-l-emerald-500',
     dotColor: 'bg-emerald-400',
@@ -152,7 +173,7 @@ const Home = () => {
 
   const handleShare = () => {
     const text = encodeURIComponent(
-      `¡BASTA! Un grupo de ciudadanos dejó de esperar y empezó a construir. Herramientas reales para coordinar rumbo. Sin líder. Sin partido. Hay método. ${window.location.origin}`
+      `¡BASTA! Un grupo de ciudadanos dejó de esperar y empezó a construir. La ciudadanía diseña, el Estado administra, la política ejecuta. Sin líder. Sin partido. Hay método. ${window.location.origin}`
     );
     window.open(`https://twitter.com/intent/tweet?text=${text}`, '_blank');
   };
@@ -177,17 +198,21 @@ const Home = () => {
           subtitle={
             <div className="max-w-2xl mx-auto space-y-4">
               <p className="text-[clamp(1rem,1.8vw,1.25rem)] leading-relaxed text-slate-300/90">
-                Un grupo de ciudadanos dejó de esperar y empezó a construir
-                — herramientas reales para que la gente coordine rumbo
-                sin depender de ningún líder, partido ni promesa.
+                Un grupo de ciudadanos dejó de esperar y empezó a construir herramientas
+                para hacer evidente lo que queremos, lo que soñamos, lo que necesitamos
+                y lo que ya no aguantamos — cada uno desde su barrio, su provincia, su lugar.
               </p>
               <p className="text-[clamp(1.1rem,2vw,1.4rem)] font-semibold text-white/90">
-                Se llama <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 font-bold">¡BASTA!</span> y ya está en marcha.
+                Se llama <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 font-bold">¡BASTA!</span>:
+                la ciudadanía diseña, el Estado administra, la política ejecuta.
+                Sin líder, sin partido, sin promesas.
               </p>
             </div>
           }
-          ctaText="Ver La Visión"
+          ctaText="Conocé la Visión"
           ctaLink="/la-vision"
+          secondaryCtaText="Ver los 22 planes de ejemplo"
+          secondaryCtaLink="/recursos/ruta"
           onScrollDown={scrollToContent}
         />
 
@@ -227,6 +252,35 @@ const Home = () => {
                 </p>
               </motion.div>
 
+              {/* El modelo en nueve palabras */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.6 }}
+                className="grid sm:grid-cols-3 gap-4 mb-6"
+              >
+                {[
+                  { who: 'La ciudadanía', verb: 'DISEÑA', color: 'text-blue-400', border: 'border-blue-500/20' },
+                  { who: 'El Estado', verb: 'ADMINISTRA', color: 'text-amber-400', border: 'border-amber-500/20' },
+                  { who: 'La política', verb: 'EJECUTA', color: 'text-emerald-400', border: 'border-emerald-500/20' },
+                ].map((role) => (
+                  <div key={role.verb} className={`rounded-2xl bg-white/[0.02] border ${role.border} px-6 py-5 text-center`}>
+                    <p className="text-sm text-slate-400">{role.who}</p>
+                    <p className={`text-xl md:text-2xl font-black tracking-wide ${role.color}`}>{role.verb}</p>
+                  </div>
+                ))}
+              </motion.div>
+              <motion.p
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-center text-slate-400 text-base md:text-lg mb-14 max-w-2xl mx-auto"
+              >
+                Porque si nos escuchamos de verdad, vamos a descubrir que todos apuntamos para el mismo lado.
+              </motion.p>
+
               {/* Feature Cards — 2×2 grid */}
               <div className="grid sm:grid-cols-2 gap-5 lg:gap-6 mb-14">
                 {features.map((feature, i) => (
@@ -238,31 +292,41 @@ const Home = () => {
                     transition={{ duration: 0.5, delay: i * 0.1 }}
                     className="group relative"
                   >
-                    <div className={`
-                      relative rounded-2xl bg-white/[0.02] border ${feature.border}
-                      ${feature.hoverBorder} ${feature.glow}
-                      transition-all duration-500 hover:-translate-y-1 overflow-hidden
-                    `}>
-                      {/* Top accent line */}
-                      <div className={`h-[3px] bg-gradient-to-r ${feature.gradient} opacity-60 group-hover:opacity-100 transition-opacity duration-500`} />
+                    <Link href={feature.href} className="block h-full">
+                      <div className={`
+                        relative h-full rounded-2xl bg-white/[0.02] border ${feature.border}
+                        ${feature.hoverBorder} ${feature.glow}
+                        transition-all duration-500 hover:-translate-y-1 overflow-hidden cursor-pointer
+                      `}>
+                        {/* Top accent line */}
+                        <div className={`h-[3px] bg-gradient-to-r ${feature.gradient} opacity-60 group-hover:opacity-100 transition-opacity duration-500`} />
 
-                      <div className="p-7 md:p-8 relative">
-                        {/* Icon */}
-                        <div className={`w-12 h-12 rounded-xl ${feature.bg} flex items-center justify-center mb-5 ${feature.color} border ${feature.border} group-hover:scale-110 transition-transform duration-500`}>
-                          {feature.icon}
+                        <div className="p-7 md:p-8 relative">
+                          {/* Icon + status */}
+                          <div className="flex items-start justify-between mb-5">
+                            <div className={`w-12 h-12 rounded-xl ${feature.bg} flex items-center justify-center ${feature.color} border ${feature.border} group-hover:scale-110 transition-transform duration-500`}>
+                              {feature.icon}
+                            </div>
+                            <StatusBadge status={feature.status} />
+                          </div>
+
+                          {/* Title */}
+                          <h3 className="text-xl font-bold text-white mb-3 group-hover:text-slate-50 transition-colors">
+                            {feature.title}
+                          </h3>
+
+                          {/* Description */}
+                          <p className="text-slate-400 text-[15px] leading-relaxed mb-4">
+                            {feature.description}
+                          </p>
+
+                          {/* Affordance */}
+                          <span className={`inline-flex items-center gap-1.5 text-sm font-semibold ${feature.color}`}>
+                            Entrar <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                          </span>
                         </div>
-
-                        {/* Title */}
-                        <h3 className="text-xl font-bold text-white mb-3 group-hover:text-slate-50 transition-colors">
-                          {feature.title}
-                        </h3>
-
-                        {/* Description */}
-                        <p className="text-slate-400 text-[15px] leading-relaxed">
-                          {feature.description}
-                        </p>
                       </div>
-                    </div>
+                    </Link>
                   </motion.div>
                 ))}
               </div>
@@ -385,8 +449,8 @@ const Home = () => {
                   </span>
                 </h2>
                 <p className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
-                  Cada transformación real tiene tres momentos. Este método los convierte
-                  en capacidad ciudadana.
+                  Tres momentos: te das cuenta, construís con otros,
+                  y lo que construiste se mide y se sostiene.
                 </p>
               </motion.div>
 
@@ -518,6 +582,13 @@ const Home = () => {
                     <div className="absolute inset-0 rounded-full bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-md" />
                   </Button>
                 </Link>
+
+                <p className="mt-6 text-sm text-slate-500">
+                  ¿Tenés 2 minutos nomás?{' '}
+                  <Link href="/recursos/ruta" className="text-blue-400 hover:text-blue-300 transition-colors font-medium">
+                    Mirá los 22 planes de ejemplo →
+                  </Link>
+                </p>
               </motion.div>
             </div>
           </div>
@@ -532,7 +603,7 @@ const Home = () => {
               initial={{ opacity: 0, y: 100 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 100 }}
-              className="fixed bottom-6 right-6 z-50"
+              className="fixed bottom-24 right-6 z-50"
             >
               <Button
                 onClick={handleShare}

@@ -21,6 +21,29 @@ export default function StoryScroll({ ayudaCompartirPost, onNavigateToPost }: St
   return (
     <section className="py-12">
       <div className="container-content">
+        {/* What you can create — compact category strip (first: orient the newcomer) */}
+        <SmoothReveal>
+          <div className="mb-12">
+            <h3 className="font-mono text-xs tracking-[0.3em] uppercase text-slate-400 mb-5">Qué podés crear acá</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              {CATEGORIES.map((cat) => (
+                <div
+                  key={cat.type}
+                  className="flex items-start gap-3 p-4 rounded-xl bg-white/[0.03] border border-white/5 hover:bg-white/[0.06] transition-colors"
+                >
+                  <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `${cat.accent}15` }}>
+                    <cat.icon className={`w-4 h-4 ${cat.color}`} />
+                  </div>
+                  <div>
+                    <h4 className={`text-sm font-bold ${cat.color}`}>{cat.type}</h4>
+                    <p className="text-xs text-slate-400 mt-0.5 leading-relaxed">{cat.example}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </SmoothReveal>
+
         {/* Featured CTA — Ayuda a compartir BASTA */}
         {ayudaCompartirPost && (
           <SmoothReveal>
@@ -65,7 +88,7 @@ export default function StoryScroll({ ayudaCompartirPost, onNavigateToPost }: St
                 </div>
 
                 <div className="mt-4 pt-4 border-t border-white/10 flex items-center gap-3">
-                  <span className="text-xs text-slate-500">Compartí con tu tribu:</span>
+                  <span className="text-xs text-slate-400">Compartilo con tus amigos:</span>
                   <ShareButtons
                     title="Ayuda a compartir ¡BASTA! — Hacenos visibles"
                     url={`${window.location.origin}/community`}
@@ -76,28 +99,6 @@ export default function StoryScroll({ ayudaCompartirPost, onNavigateToPost }: St
           </SmoothReveal>
         )}
 
-        {/* What you can create — compact category strip */}
-        <SmoothReveal delay={0.1}>
-          <div className="mb-8">
-            <h3 className="font-mono text-xs tracking-[0.3em] uppercase text-slate-500 mb-5">Qué podés crear acá</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              {CATEGORIES.map((cat, i) => (
-                <div
-                  key={cat.type}
-                  className="flex items-start gap-3 p-4 rounded-xl bg-white/[0.03] border border-white/5 hover:bg-white/[0.06] transition-colors"
-                >
-                  <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `${cat.accent}15` }}>
-                    <cat.icon className={`w-4 h-4 ${cat.color}`} />
-                  </div>
-                  <div>
-                    <h4 className={`text-sm font-bold ${cat.color}`}>{cat.type}</h4>
-                    <p className="text-xs text-slate-500 mt-0.5 leading-relaxed">{cat.example}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </SmoothReveal>
       </div>
     </section>
   );

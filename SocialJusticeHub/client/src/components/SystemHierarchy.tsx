@@ -1,10 +1,24 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Users, Building2, Crown, ArrowDown, ArrowUp, RefreshCw } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
+import { Users, Building2, Crown, RefreshCw } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const SystemHierarchy = () => {
   const [isSovereign, setIsSovereign] = useState(false);
+  const hasAutoFlipped = useRef(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(containerRef, { once: true, margin: '-200px' });
+
+  // El "aha" de la página no puede depender de un click: cuando el componente
+  // entra en pantalla, mostramos primero el sistema actual y al ratito se
+  // invierte solo — después el usuario puede alternar a gusto.
+  useEffect(() => {
+    if (isInView && !hasAutoFlipped.current) {
+      hasAutoFlipped.current = true;
+      const timer = setTimeout(() => setIsSovereign(true), 1600);
+      return () => clearTimeout(timer);
+    }
+  }, [isInView]);
 
   const toggleSystem = () => setIsSovereign(!isSovereign);
 
@@ -41,7 +55,7 @@ const SystemHierarchy = () => {
     : [levels[2], levels[1], levels[0]]; // Politicians -> State -> People
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-8 rounded-3xl bg-slate-950 border border-slate-800 relative overflow-hidden">
+    <div ref={containerRef} className="w-full max-w-4xl mx-auto p-8 rounded-3xl bg-slate-950 border border-slate-800 relative overflow-hidden">
       {/* Background Grid */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
 
@@ -104,6 +118,8 @@ const SystemHierarchy = () => {
 
           <button
             onClick={toggleSystem}
+            aria-pressed={isSovereign}
+            aria-label={isSovereign ? 'Mostrando el sistema cuando diseñamos nosotros. Tocá para ver cómo funciona hoy.' : 'Mostrando el sistema como funciona hoy. Tocá para ver cómo funciona cuando diseñamos nosotros.'}
             className="group relative flex items-center justify-between w-full p-1 bg-slate-900 rounded-2xl border border-slate-700 cursor-pointer hover:border-slate-500 transition-colors"
           >
             <div className={cn(

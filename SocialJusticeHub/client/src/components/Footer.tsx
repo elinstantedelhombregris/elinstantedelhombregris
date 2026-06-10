@@ -1,7 +1,6 @@
 import { Link } from 'wouter';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Facebook, Instagram, Youtube, ArrowRight, Mail, Shield } from 'lucide-react';
+import { Facebook, Instagram, Youtube, ArrowRight } from 'lucide-react';
 
 const XIcon = ({ size = 18 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
@@ -10,11 +9,6 @@ const XIcon = ({ size = 18 }: { size?: number }) => (
 );
 
 const Footer = () => {
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle newsletter subscription
-  };
-
   return (
     <footer className="bg-slate-950 text-white pt-24 pb-12 relative overflow-hidden">
       {/* Background Glow */}
@@ -45,16 +39,16 @@ const Footer = () => {
               </div>
             </Link>
             <p className="text-slate-400 leading-relaxed font-light text-sm max-w-xs">
-              Un movimiento de consciencia colectiva para rediseñar Argentina desde los valores, la visión y la acción.
+              La plataforma del movimiento ¡BASTA!: la ciudadanía diseña, el Estado administra, la política ejecuta. Sin líder, sin partido.
             </p>
             <div className="flex gap-4 pt-2">
               {[
-                { icon: <XIcon size={18} />, href: 'https://x.com/ElInstanteDelHG' },
-                { icon: <Instagram size={18} />, href: 'https://www.instagram.com/elinstantedelhombregris' },
-                { icon: <Facebook size={18} />, href: 'https://www.facebook.com/profile.php?id=61580779013855' },
-                { icon: <Youtube size={18} />, href: 'https://www.youtube.com/@elinstantedelhombregris777' },
+                { icon: <XIcon size={18} />, href: 'https://x.com/ElInstanteDelHG', label: 'Seguinos en X' },
+                { icon: <Instagram size={18} />, href: 'https://www.instagram.com/elinstantedelhombregris', label: 'Seguinos en Instagram' },
+                { icon: <Facebook size={18} />, href: 'https://www.facebook.com/profile.php?id=61580779013855', label: 'Seguinos en Facebook' },
+                { icon: <Youtube size={18} />, href: 'https://www.youtube.com/@elinstantedelhombregris777', label: 'Seguinos en YouTube' },
               ].map((social, i) => (
-                <a key={i} href={social.href} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white transition-all duration-300">
+                <a key={i} href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label} className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white transition-all duration-300">
                   {social.icon}
                 </a>
               ))}
@@ -89,7 +83,8 @@ const Footer = () => {
             <ul className="space-y-4">
               {[
                 { label: 'Blog & Artículos', href: '/recursos/blog' },
-                { label: 'Rutas de Transformación', href: '/recursos/guias-estudio' },
+                { label: 'Guías de Estudio', href: '/recursos/guias-estudio' },
+                { label: 'Los 22 Planes de Ejemplo', href: '/recursos/ruta' },
                 { label: 'Manifiesto', href: '/manifiesto' },
                 { label: 'Kit de Prensa', href: '/kit-de-prensa' },
                 { label: 'Apoyá al Movimiento', href: '/apoya-al-movimiento' }
@@ -103,25 +98,20 @@ const Footer = () => {
             </ul>
           </div>
           
-          {/* Column 4: Newsletter */}
+          {/* Column 4: Join CTA */}
           <div>
-            <h4 className="text-sm font-bold uppercase tracking-widest text-slate-500 mb-6">Únete al cambio</h4>
+            <h4 className="text-sm font-bold uppercase tracking-widest text-slate-500 mb-6">Sumate al cambio</h4>
             <p className="text-slate-400 text-sm mb-6">
-              Recibe actualizaciones semanales sobre el avance del movimiento y nuevas herramientas.
+              Creá tu cuenta para dejar tu señal en el mapa, registrar tu compromiso y seguir el avance del movimiento desde adentro.
             </p>
-            <form onSubmit={handleSubmit} className="space-y-3">
-              <div className="relative">
-                <Mail className="absolute left-3 top-3 text-slate-500 w-5 h-5" />
-                <Input 
-                  type="email" 
-                  placeholder="tu@email.com" 
-                  className="bg-white/5 border-white/10 text-white pl-10 h-12 focus:border-blue-500 focus:ring-blue-500/20 rounded-lg transition-all"
-                />
-              </div>
+            <Link href="/register">
               <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold h-12 rounded-lg shadow-lg shadow-blue-900/20 transition-all">
-                Suscribirse <ArrowRight className="ml-2 w-4 h-4" />
+                Sumarme al movimiento <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
-            </form>
+            </Link>
+            <p className="text-slate-500 text-xs mt-4">
+              ¿Primera vez acá? <Link href="/la-vision" className="text-blue-400 hover:text-blue-300 transition-colors">Empezá por La Visión</Link> — 5 minutos.
+            </p>
           </div>
         </div>
         
@@ -129,8 +119,7 @@ const Footer = () => {
           <p>© {new Date().getFullYear()} El Instante del Hombre Gris. Todos los derechos reservados.</p>
           <div className="flex gap-6">
             <Link href="/politica-privacidad" className="hover:text-white transition-colors">Privacidad</Link>
-            <Link href="/politica-privacidad" className="hover:text-white transition-colors">Términos</Link>
-            <Link href="/politica-privacidad" className="hover:text-white transition-colors">Cookies</Link>
+            <Link href="/feedback" className="hover:text-white transition-colors">Contacto</Link>
           </div>
         </div>
       </div>

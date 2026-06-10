@@ -53,9 +53,14 @@ const ImpactCaseStudy = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent z-10" />
               <img 
                 src={item.image} 
-                alt={item.role} 
+                alt="" 
                 className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 opacity-60 group-hover:opacity-80" 
               />
+              <div className="absolute top-4 right-4 z-20">
+                <span className="inline-flex items-center rounded-full border border-amber-400/30 bg-amber-500/15 px-2.5 py-0.5 text-[11px] font-mono font-semibold tracking-wider uppercase text-amber-300 backdrop-blur-md">
+                  Escenario ilustrativo
+                </span>
+              </div>
               <div className="absolute bottom-4 left-4 z-20">
                 <Badge variant="secondary" className="bg-blue-900/50 text-blue-200 border-blue-500/30 backdrop-blur-md mb-2">
                   {item.role}

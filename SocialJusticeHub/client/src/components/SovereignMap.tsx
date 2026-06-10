@@ -378,8 +378,8 @@ const SovereignMap = () => {
       }
 
       toast({
-        title: "¡Comando Recibido!",
-        description: "Tu declaración ha sido registrada en el mapa soberano.",
+        title: "¡Tu señal ya está en el mapa!",
+        description: "Gracias por ponerle palabras. Ya suma a la voz colectiva de tu territorio.",
       });
       
       // Center map on new point
@@ -458,7 +458,7 @@ const SovereignMap = () => {
         <div className="pointer-events-auto bg-slate-900/80 backdrop-blur-md border border-slate-700 rounded-2xl p-2 shadow-xl flex flex-col gap-1">
           {[
             { id: 'all', label: 'Todos', icon: Layers, color: 'text-slate-300' },
-            { id: 'dream', label: 'Visiones', icon: Eye, color: 'text-blue-400' },
+            { id: 'dream', label: 'Sueños', icon: Eye, color: 'text-blue-400' },
             { id: 'value', label: 'Valores', icon: Heart, color: 'text-pink-400' },
             { id: 'need', label: 'Necesidades', icon: AlertCircle, color: 'text-amber-400' },
             { id: 'basta', label: '¡Basta!', icon: Zap, color: 'text-red-400' },
@@ -498,7 +498,7 @@ const SovereignMap = () => {
         <div className="pointer-events-auto overflow-x-auto flex gap-1.5 pb-1 -mx-1 px-1 scrollbar-hide">
           {[
             { id: 'all', label: 'Todos', icon: Layers, color: 'text-slate-300' },
-            { id: 'dream', label: 'Visiones', icon: Eye, color: 'text-blue-400' },
+            { id: 'dream', label: 'Sueños', icon: Eye, color: 'text-blue-400' },
             { id: 'value', label: 'Valores', icon: Heart, color: 'text-pink-400' },
             { id: 'need', label: 'Necesidades', icon: AlertCircle, color: 'text-amber-400' },
             { id: 'basta', label: '¡Basta!', icon: Zap, color: 'text-red-400' },
@@ -566,7 +566,7 @@ const SovereignMap = () => {
       <div className="absolute bottom-6 right-6 z-[400] w-64 hidden lg:block">
         <div className="bg-slate-900/80 backdrop-blur-md border border-slate-700 rounded-2xl p-4 shadow-xl overflow-hidden">
           <h4 className="text-xs font-mono uppercase tracking-widest text-slate-400 mb-3 flex items-center gap-2">
-            <Radio className="w-3 h-3" /> Últimas Transmisiones
+            <Radio className="w-3 h-3" /> Últimas señales
           </h4>
           <div className="space-y-3 max-h-48 overflow-y-auto custom-scrollbar">
             <AnimatePresence>
@@ -585,7 +585,7 @@ const SovereignMap = () => {
                     item.type === 'compromiso' ? "text-emerald-400" :
                     item.type === 'recurso' ? "text-teal-400" : "text-amber-400"
                   )}>
-                    {item.type === 'dream' ? 'Visión' :
+                    {item.type === 'dream' ? 'Sueño' :
                      item.type === 'value' ? 'Valor' :
                      item.type === 'need' ? 'Necesidad' :
                      item.type === 'basta' ? '¡Basta!' :

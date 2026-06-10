@@ -7,24 +7,30 @@ import { Link } from 'wouter';
 interface HeroCinemaProps {
   title: React.ReactNode;
   subtitle: React.ReactNode;
+  badgeText?: string;
   backgroundImage?: string;
   overlayGradient?: string;
   ctaText?: string;
   ctaLink?: string;
+  secondaryCtaText?: string;
+  secondaryCtaLink?: string;
   onScrollDown?: () => void;
 }
 
 const HeroCinema: React.FC<HeroCinemaProps> = ({
   title,
   subtitle,
+  badgeText = 'El movimiento ¡BASTA!',
   backgroundImage,
   overlayGradient = "bg-gradient-to-b from-[#0a0a0a]/80 via-[#1a1f2e]/60 to-[#0a0a0a]",
   ctaText,
   ctaLink,
+  secondaryCtaText,
+  secondaryCtaLink,
   onScrollDown
 }) => {
   return (
-    <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-[#0a0a0a]">
+    <section className="relative min-h-[100svh] w-full overflow-hidden flex items-center justify-center bg-[#0a0a0a] py-24">
       {/* Background Layer */}
       <div className="absolute inset-0 z-0">
         {backgroundImage && (
@@ -60,7 +66,7 @@ const HeroCinema: React.FC<HeroCinemaProps> = ({
             className="mb-8"
           >
             <span className="inline-block py-1.5 px-4 rounded-full bg-white/5 border border-white/10 text-blue-300 text-xs md:text-sm uppercase backdrop-blur-md shadow-lg tracking-[0.3em]">
-              El Despertar del Hombre Gris
+              {badgeText}
             </span>
           </motion.div>
 
@@ -82,10 +88,11 @@ const HeroCinema: React.FC<HeroCinemaProps> = ({
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.9, duration: 0.8 }}
+              className="flex flex-col sm:flex-row items-center justify-center gap-4"
             >
               <Link href={ctaLink}>
-                <Button 
-                  size="lg" 
+                <Button
+                  size="lg"
                   className="relative group bg-blue-600 hover:bg-blue-500 text-white px-10 py-7 rounded-full text-lg tracking-widest shadow-[0_0_40px_rgba(37,99,235,0.4)] transition-all duration-500 hover:shadow-[0_0_60px_rgba(37,99,235,0.6)] hover:-translate-y-1 overflow-hidden"
                 >
                   <span className="relative z-10 flex items-center font-semibold">
@@ -96,26 +103,39 @@ const HeroCinema: React.FC<HeroCinemaProps> = ({
                   <div className="absolute inset-0 rounded-full bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-md" />
                 </Button>
               </Link>
+              {secondaryCtaText && secondaryCtaLink && (
+                <Link href={secondaryCtaLink}>
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="border-white/20 bg-white/5 text-white hover:bg-white/10 hover:text-white px-8 py-7 rounded-full text-base backdrop-blur-md"
+                  >
+                    {secondaryCtaText}
+                  </Button>
+                </Link>
+              )}
             </motion.div>
           )}
         </motion.div>
       </div>
 
       {/* Scroll Indicator */}
-      <motion.div 
+      <motion.button
+        type="button"
+        aria-label="Bajar para descubrir más"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 1 }}
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 cursor-pointer z-20"
+        className="absolute bottom-6 left-1/2 transform -translate-x-1/2 cursor-pointer z-20 p-3"
         onClick={onScrollDown}
       >
         <div className="flex flex-col items-center gap-3 opacity-60 hover:opacity-100 transition-opacity group">
-          <span className="text-[10px] uppercase tracking-[0.3em] text-slate-400 group-hover:text-white transition-colors">Descubrir</span>
+          <span className="text-xs uppercase tracking-[0.3em] text-slate-300 group-hover:text-white transition-colors">Descubrir</span>
           <div className="w-px h-12 bg-gradient-to-b from-transparent via-slate-400 to-transparent group-hover:via-white transition-colors relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-1/2 bg-white animate-slide-down" />
           </div>
         </div>
-      </motion.div>
+      </motion.button>
     </section>
   );
 };

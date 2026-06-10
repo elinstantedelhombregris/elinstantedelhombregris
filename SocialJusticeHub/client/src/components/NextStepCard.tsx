@@ -8,6 +8,7 @@ interface NextStepCardProps {
   href: string;
   gradient?: string;
   icon?: React.ReactNode;
+  ctaLabel?: string;
 }
 
 const NextStepCard = ({
@@ -16,6 +17,7 @@ const NextStepCard = ({
   href,
   gradient = "from-[#10132a] to-[#1a1030]",
   icon,
+  ctaLabel = 'Continuar el viaje',
 }: NextStepCardProps) => {
   return (
     <section className="py-16 md:py-20 bg-[#0a0a0a] relative overflow-hidden">
@@ -52,7 +54,7 @@ const NextStepCard = ({
                     <Link href={href}>
                       <button className="group inline-flex items-center gap-2.5 px-7 py-3.5 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-semibold text-[15px] transition-all duration-300 hover:-translate-y-0.5 shadow-[0_0_25px_rgba(37,99,235,0.2)] hover:shadow-[0_0_40px_rgba(37,99,235,0.3)]">
                         {icon}
-                        <span>Continuar el Viaje</span>
+                        <span>{ctaLabel}</span>
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </button>
                     </Link>

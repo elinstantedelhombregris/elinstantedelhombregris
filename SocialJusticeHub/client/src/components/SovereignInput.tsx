@@ -43,7 +43,7 @@ interface SovereignInputProps {
 const types: { id: InputType; label: string; icon: any; color: string; desc: string }[] = [
   { 
     id: 'dream', 
-    label: 'Visión', 
+    label: 'Sueño', 
     icon: Eye, 
     color: 'text-blue-400 border-blue-500/30 bg-blue-500/10',
     desc: '¿Qué ves para el futuro?' 
@@ -187,7 +187,7 @@ const SovereignInput = ({ onSubmit, isSubmitting }: SovereignInputProps) => {
             <Textarea
               value={content}
               onChange={handleContentChange}
-              placeholder="Escribe tu declaración aquí..."
+              placeholder="Escribí lo tuyo acá. Con tus palabras, sin vueltas..."
               className="bg-black/30 border-slate-700 focus:border-blue-500 text-slate-200 min-h-[120px] resize-none rounded-xl p-4 text-base"
             />
             
@@ -230,7 +230,7 @@ const SovereignInput = ({ onSubmit, isSubmitting }: SovereignInputProps) => {
                 className="border-slate-600 data-[state=checked]:bg-blue-600 data-[state=checked]:border-blue-600"
               />
               <Label htmlFor="share-loc" className="text-xs text-slate-400 cursor-pointer flex items-center gap-1">
-                <MapPin className="w-3 h-3" /> Geolocalizar
+                <MapPin className="w-3 h-3" /> Usar mi ubicación
               </Label>
             </div>
 

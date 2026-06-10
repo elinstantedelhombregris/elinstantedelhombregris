@@ -39,6 +39,7 @@ import ComunidadSection from '@/components/community/ComunidadSection';
 import LeaderboardPeriodTabs, { type LeaderboardPeriod } from '@/components/community/LeaderboardPeriodTabs';
 import LeaderHeroCard, { type Leader } from '@/components/community/LeaderHeroCard';
 import LeaderTile from '@/components/community/LeaderTile';
+import { JourneyBadge } from '@/components/ui/JourneyBadge';
 
 type CommunityPost = {
   id: number;
@@ -102,12 +103,12 @@ const Community = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = 'Los Círculos - Comunidad de Reconstrucción | ¡BASTA!';
+    document.title = 'Los Círculos — Grupos locales de acción | ¡BASTA!';
   }, []);
 
   // === DATA QUERIES ===
 
-  const { data: posts = [] } = useQuery({
+  const { data: posts = [], isLoading: postsLoading } = useQuery({
     queryKey: ['community-posts', debouncedSearch, selectedType],
     queryFn: async () => {
       const params = new URLSearchParams();
@@ -133,21 +134,21 @@ const Community = () => {
   const communityStats = useMemo(() => [
     {
       id: 'members',
-      label: 'Miembros Activos',
+      label: 'Personas Activas',
       value: statsData?.activeMembers || 0,
       unit: '',
       color: 'blue' as const,
       icon: <Users className="w-5 h-5" />,
-      description: 'Ciudadanos despiertos'
+      description: 'Personas que ya se sumaron'
     },
     {
       id: 'projects',
-      label: 'Proyectos Vivos',
+      label: 'Iniciativas Vivas',
       value: statsData?.totalPosts || 0,
       unit: '',
       color: 'purple' as const,
       icon: <Sparkles className="w-5 h-5" />,
-      description: 'Transformando realidad'
+      description: 'Iniciativas en marcha'
     },
     {
       id: 'impact',
@@ -156,7 +157,7 @@ const Community = () => {
       unit: '+',
       color: 'green' as const,
       icon: <Target className="w-5 h-5" />,
-      description: 'Impacto directo'
+      description: 'Acciones concretadas'
     },
   ], [statsData]);
 
@@ -250,7 +251,7 @@ const Community = () => {
       setNewPost({ title: '', description: '', type: 'project', location: '', participants: '', tags: '', latitude: '', longitude: '' });
       toast({
         title: "Iniciativa lanzada",
-        description: "Tu iniciativa ya esta visible para la tribu.",
+        description: "Tu iniciativa ya está visible para la comunidad.",
       });
     },
     onError: () => {
@@ -279,7 +280,7 @@ const Community = () => {
         setIsGettingLocation(false);
         toast({
           title: "Ubicación obtenida",
-          description: "Tu ubicación ha sido agregada a la iniciativa",
+          description: "Listo: tu ubicación quedó agregada a la iniciativa.",
         });
       },
       (error) => {
@@ -298,13 +299,26 @@ const Community = () => {
     );
   };
 
+  const handleOpenCreate = () => {
+    if (!userContext?.user) {
+      toast({
+        title: "Iniciá sesión para proponer",
+        description: "Necesitás una cuenta para crear iniciativas. Es gratis y rápido.",
+      });
+      setLocation('/login');
+      return;
+    }
+    setShowCreateModal(true);
+  };
+
   const handleCreatePost = () => {
     if (!userContext?.user) {
       toast({
-        title: "Error",
-        description: "Debes estar logueado para crear iniciativas",
+        title: "Iniciá sesión para proponer",
+        description: "Necesitás una cuenta para crear iniciativas. Es gratis y rápido.",
         variant: "destructive",
       });
+      setLocation('/login');
       return;
     }
 
@@ -358,42 +372,48 @@ const Community = () => {
                 </div>
               </SmoothReveal>
 
+              <SmoothReveal delay={0.15}>
+                <div className="flex justify-center mb-6">
+                  <JourneyBadge step={6} />
+                </div>
+              </SmoothReveal>
+
               <SmoothReveal delay={0.2}>
                 <h1 className="heading-hero mb-8">
                   <span className="block text-transparent bg-clip-text bg-gradient-to-b from-white via-slate-200 to-slate-500">
                     Círculos
                   </span>
                   <span className="block text-2xl md:text-4xl font-sans font-light text-slate-400 mt-4 tracking-wide">
-                    Donde la voluntad individual se hace <span className="text-blue-400">Poder Colectivo</span>
+                    Donde la voluntad individual se hace <span className="text-blue-400">poder colectivo</span>
                   </span>
                 </h1>
               </SmoothReveal>
 
               <SmoothReveal delay={0.4}>
-                <p className="text-xl md:text-2xl text-slate-400/80 max-w-3xl mx-auto mb-12 leading-relaxed font-light">
-                  Has despertado. Has sembrado. Ahora es momento de reconocernos.
-                  <br />
-                  Aquí las ideas encuentran recursos, y los faros encuentran su tribu.
+                <p className="text-xl md:text-2xl text-slate-300/90 max-w-3xl mx-auto mb-12 leading-relaxed font-light">
+                  Un Círculo es un grupo de gente de tu zona que se organiza para mejorar
+                  su barrio sin esperar al Estado. Acá ves qué están haciendo, te sumás
+                  a una iniciativa — o arrancás la tuya.
                 </p>
               </SmoothReveal>
 
               <SmoothReveal delay={0.6}>
                 <div className="flex flex-col sm:flex-row gap-6 justify-center">
                   <PowerCTA
-                    text="LANZAR INICIATIVA"
+                    text="VER QUÉ ESTÁ PASANDO"
                     variant="primary"
-                    onClick={() => setShowCreateModal(true)}
-                    size="lg"
-                    animate={true}
-                    icon={<Sparkles className="w-5 h-5" />}
-                  />
-                  <PowerCTA
-                    text="VER LÍDERES"
-                    variant="secondary"
-                    onClick={() => document.getElementById('faros-hermandad')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+                    onClick={() => document.getElementById('iniciativas')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
                     size="lg"
                     animate={true}
                     icon={<Compass className="w-5 h-5" />}
+                  />
+                  <PowerCTA
+                    text="PROPONER UNA INICIATIVA"
+                    variant="secondary"
+                    onClick={handleOpenCreate}
+                    size="lg"
+                    animate={true}
+                    icon={<Sparkles className="w-5 h-5" />}
                   />
                 </div>
               </SmoothReveal>
@@ -402,15 +422,17 @@ const Community = () => {
         </section>
 
         {/* SHOCK STATS: Community Impact */}
-        <section className="py-12 border-t border-white/5 bg-white/[0.02]">
-          <div className="container-content">
-            <ShockStats
-              stats={communityStats}
-              title="PULSO DE LA TRIBU"
-              variant="dark"
-            />
-          </div>
-        </section>
+        {communityStats.some((s) => s.value > 0) && (
+          <section className="py-12 border-t border-white/5 bg-white/[0.02]">
+            <div className="container-content">
+              <ShockStats
+                stats={communityStats}
+                title="PULSO DE LA COMUNIDAD"
+                variant="dark"
+              />
+            </div>
+          </section>
+        )}
 
         {/* MI TRIBU: Personal Dashboard (only when logged in) */}
         {userContext?.user && (
@@ -463,7 +485,7 @@ const Community = () => {
                     <Flame className="w-5 h-5 text-emerald-400" />
                   </div>
                   <div className="text-2xl font-bold text-white">{userStats?.streak || 0}</div>
-                  <div className="text-xs text-slate-500">Dias de Racha</div>
+                  <div className="text-xs text-slate-500">Días de racha</div>
                 </GlassCard>
               </div>
             </div>
@@ -471,13 +493,16 @@ const Community = () => {
         )}
 
         {/* COMUNIDAD */}
-        <ComunidadSection
-          ayudaCompartirPost={ayudaCompartirPost}
-          posts={posts}
-          onNavigateToPost={(id) => setLocation(`/community/${id}`)}
-          onNavigate={setLocation}
-          onCreatePost={() => setShowCreateModal(true)}
-        />
+        <div id="iniciativas" className="scroll-mt-24">
+          <ComunidadSection
+            ayudaCompartirPost={ayudaCompartirPost}
+            posts={posts}
+            isLoading={postsLoading}
+            onNavigateToPost={(id) => setLocation(`/community/${id}`)}
+            onNavigate={setLocation}
+            onCreatePost={handleOpenCreate}
+          />
+        </div>
 
         {/* FAROS DE LA HERMANDAD */}
         <section id="faros-hermandad" className="py-20 bg-[#0a0a0a] relative overflow-hidden scroll-mt-24">
@@ -489,13 +514,13 @@ const Community = () => {
                   <div>
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-yellow-400/10 border border-yellow-400/20 text-yellow-300 text-xs font-mono mb-4 tracking-[0.2em] uppercase">
                       <Trophy className="w-3 h-3" />
-                      Faros de la Hermandad
+                      Reconocimiento
                     </div>
                     <h2 className="heading-section mb-4 text-white">
-                      Líderes del Despertar
+                      Los que más hicieron
                     </h2>
                     <p className="text-slate-400 leading-relaxed max-w-2xl">
-                      Reconocemos a quienes transforman la realidad con acciones consistentes. Su impacto es el faro que guía a la hermandad.
+                      Reconocemos a quienes más aportaron con acciones concretas. Mirá sus perfiles: son gente común, como vos.
                     </p>
                   </div>
                   <LeaderboardPeriodTabs value={leaderboardPeriod} onChange={setLeaderboardPeriod} />
@@ -504,8 +529,8 @@ const Community = () => {
                 {leaderboard.length === 0 ? (
                   <GlassCard className="p-10 text-center">
                     <Trophy className="w-10 h-10 text-slate-600 mx-auto mb-3" />
-                    <p className="text-slate-500">Todavía no hay faros en el horizonte.</p>
-                    <p className="text-slate-600 text-sm mt-1">Sé el primero en encender la llama.</p>
+                    <p className="text-slate-400">Todavía nadie sumó puntos en este período.</p>
+                    <p className="text-slate-500 text-sm mt-1">Participá en una iniciativa y aparecés acá.</p>
                   </GlassCard>
                 ) : (
                   <div className="space-y-6">
@@ -606,7 +631,7 @@ const Community = () => {
           <DialogHeader>
             <DialogTitle className="text-xl font-bold text-white">Notificaciones</DialogTitle>
             <DialogDescription className="text-slate-400">
-              Mantente al día con la actividad de tus iniciativas
+              Enterate de lo que pasa en tus iniciativas
             </DialogDescription>
           </DialogHeader>
           <div className="space-y-2 max-h-96 overflow-y-auto">
@@ -621,7 +646,7 @@ const Community = () => {
                 >
                   <p className="text-sm font-medium text-white">{notif.title}</p>
                   <p className="text-xs text-slate-400">{notif.content}</p>
-                  <p className="text-xs text-slate-600 mt-1">{new Date(notif.createdAt).toLocaleString()}</p>
+                  <p className="text-xs text-slate-600 mt-1">{new Date(notif.createdAt).toLocaleString('es-AR')}</p>
                 </div>
               ))
             )}
@@ -648,7 +673,7 @@ const Community = () => {
           <DialogHeader>
             <DialogTitle className="text-2xl font-serif font-bold text-white">Lanzar Iniciativa</DialogTitle>
             <DialogDescription className="text-slate-400">
-              Definí tu iniciativa y convocá a la hermandad.
+              Contá qué querés hacer y convocá a la gente de tu zona.
             </DialogDescription>
           </DialogHeader>
 
@@ -678,7 +703,7 @@ const Community = () => {
                 </Select>
               </div>
               <div className="space-y-2">
-                <label className="text-sm font-medium text-slate-400">Base de Operaciones</label>
+                <label className="text-sm font-medium text-slate-400">¿Dónde? (ciudad, provincia)</label>
                 <Input
                   value={newPost.location}
                   onChange={(e) => setNewPost({ ...newPost, location: e.target.value })}
@@ -705,7 +730,7 @@ const Community = () => {
                 </Button>
               </div>
               <p className="text-xs text-slate-500">
-                Agrega coordenadas para que tu iniciativa aparezca en el mapa
+                Agregá coordenadas para que tu iniciativa aparezca en el mapa
               </p>
               <div className="grid grid-cols-2 gap-3">
                 <div className="space-y-1">
@@ -734,11 +759,11 @@ const Community = () => {
             </div>
 
             <div className="space-y-2">
-              <label className="text-sm font-medium text-slate-400">Manifiesto / Descripción</label>
+              <label className="text-sm font-medium text-slate-400">Contá de qué se trata</label>
               <textarea
                 value={newPost.description}
                 onChange={(e) => setNewPost({ ...newPost, description: e.target.value })}
-                placeholder="Describe el impacto que buscas generar..."
+                placeholder="Describí el impacto que querés generar..."
                 rows={4}
                 className="w-full p-3 rounded-md bg-white/5 border border-white/10 text-white placeholder:text-slate-600 focus:ring-1 focus:ring-blue-500/50 focus:border-blue-500/50 outline-none text-sm"
               />
@@ -746,7 +771,7 @@ const Community = () => {
 
             <div className="flex justify-end gap-3 pt-4">
               <Button variant="ghost" onClick={() => setShowCreateModal(false)} className="text-slate-400 hover:text-white hover:bg-white/5">
-                Abortar
+                Cancelar
               </Button>
               <Button
                 onClick={handleCreatePost}

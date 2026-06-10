@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { useContext, useEffect, useState, useRef } from 'react';
 import { useLocation } from 'wouter';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { motion, useScroll, useTransform, AnimatePresence, useReducedMotion } from 'framer-motion';
 import {
   Heart,
   Users,
@@ -22,6 +22,7 @@ import {
 import PowerCTA from '@/components/PowerCTA';
 import CommitmentModal from '@/components/CommitmentModal';
 import NextStepCard from '@/components/NextStepCard';
+import { JourneyBadge } from '@/components/ui/JourneyBadge';
 import { apiRequest } from '@/lib/queryClient';
 import { useToast } from '@/hooks/use-toast';
 import { UserContext } from '@/App';
@@ -126,6 +127,7 @@ const LaSemillaDeBasta = () => {
   const [showCommitmentModal, setShowCommitmentModal] = useState(false);
   const [activeStep, setActiveStep] = useState(0);
   const containerRef = useRef(null);
+  const prefersReducedMotion = useReducedMotion();
   
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -176,8 +178,8 @@ const LaSemillaDeBasta = () => {
     const actionLabel = actionTypeLabels[commitmentData.data.actionType] ?? commitmentData.data.actionType;
     const commitmentText = [
       personalCommitment,
-      actionLabel ? `Acción semilla: ${actionLabel}` : '',
-      communityCommitment ? `Plan de riego: ${communityCommitment}` : ''
+      actionLabel ? `Acción elegida: ${actionLabel}` : '',
+      communityCommitment ? `Cómo lo voy a hacer: ${communityCommitment}` : ''
     ].filter(Boolean).join('\n');
 
     const coordinates = await getBrowserCoordinates();
@@ -257,8 +259,8 @@ const LaSemillaDeBasta = () => {
       description: 'Compromisos nuevos en el último día'
     },
     {
-      id: 'misiones',
-      label: 'Misiones activas',
+      id: 'tipos-accion',
+      label: 'Tipos de acción',
       value: semilleroData.stats.byType?.length ?? 0,
       unit: '',
       trend: 'up' as const,
@@ -328,7 +330,7 @@ const LaSemillaDeBasta = () => {
       nivel: "03",
       titulo: "Tu Célula",
       subtitulo: "La unidad mínima de servicio",
-      descripcion: "Varios círculos forman una célula territorial. Relevamiento, verificación, acompañamiento. Lo suficientemente chica para conocerse. Lo suficientemente grande para mover algo.",
+      descripcion: "Varios círculos forman una célula: un grupo de tu zona que releva qué falta, verifica que lo prometido se cumpla y acompaña al que recién arranca. Lo suficientemente chica para conocerse. Lo suficientemente grande para mover algo.",
       alcance: "50–200 personas",
       icon: <Users className="w-6 h-6" />
     },
@@ -336,15 +338,15 @@ const LaSemillaDeBasta = () => {
       nivel: "04",
       titulo: "Tu Misión",
       subtitulo: "La evidencia se acumula",
-      descripcion: "Miles de compromisos alimentan una misión nacional. Lo que empezó como decisión privada se vuelve dato público, propuesta concreta, mandato exigible.",
+      descripcion: "Miles de compromisos alimentan una misión nacional. Lo que empezó como decisión privada se vuelve dato público, propuesta concreta, mandato que se puede exigir.",
       alcance: "Miles",
       icon: <Globe className="w-6 h-6" />
     },
     {
       nivel: "05",
-      titulo: "Tu Evidencia",
+      titulo: "El País",
       subtitulo: "Lo que se prueba no se puede negar",
-      descripcion: "Cuando millones de señales convergen, el país deja de improvisar. No hace falta convencer a nadie — hace falta demostrar que hay otro camino y sostenerlo.",
+      descripcion: "Cuando millones de compromisos quedan a la vista, no hay político que pueda decir que la gente no quiere otra cosa. La evidencia no se discute: se muestra.",
       alcance: "46 millones",
       icon: <Sun className="w-6 h-6" />
     }
@@ -381,8 +383,8 @@ const LaSemillaDeBasta = () => {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-emerald-900/20 via-[#050a05] to-[#050a05]" />
           
           {/* Floating Spores */}
-          <div className="absolute inset-0 opacity-30 pointer-events-none">
-            {[...Array(30)].map((_, i) => (
+          <div className="absolute inset-0 opacity-30 pointer-events-none" aria-hidden="true">
+            {[...Array(prefersReducedMotion ? 0 : 14)].map((_, i) => (
               <motion.div
                 key={i}
                 className="absolute bg-emerald-400 rounded-full blur-[1px]"
@@ -412,12 +414,15 @@ const LaSemillaDeBasta = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="flex items-center justify-center gap-2 mb-8"
+                className="flex flex-col items-center justify-center gap-3 mb-8"
               >
-                <Sprout className="w-4 h-4 text-emerald-400 animate-pulse" />
-                <span className="text-emerald-400 font-mono text-xs tracking-[0.3em] uppercase">
-                  Del compromiso que transforma
-                </span>
+                <div className="flex items-center gap-2">
+                  <Sprout className="w-4 h-4 text-emerald-400 animate-pulse" />
+                  <span className="text-emerald-400 font-mono text-xs tracking-[0.3em] uppercase">
+                    La Semilla de ¡BASTA!
+                  </span>
+                </div>
+                <JourneyBadge step={3} />
               </motion.div>
 
               <motion.h1
@@ -434,18 +439,22 @@ const LaSemillaDeBasta = () => {
                 </span>
               </motion.h1>
 
-              <div className="text-xl md:text-2xl text-emerald-100/60 max-w-3xl mx-auto mb-12 leading-relaxed font-light space-y-4">
-                <p>Viste el tablero. Entendiste el gris.<br />Pero ver no alcanza.</p>
+              <div className="text-xl md:text-2xl text-emerald-100/60 max-w-3xl mx-auto mb-8 leading-relaxed font-light space-y-4">
+                <p className="text-lg md:text-xl text-emerald-100/80">
+                  ¿Llegaste acá de una? Corto: <span className="text-white font-medium">¡BASTA!</span> es un movimiento
+                  donde la ciudadanía diseña el país que quiere.
+                  Y todo arranca con algo chiquito y tuyo: un compromiso concreto.
+                </p>
                 <p>
                   Hay un momento más silencioso que el despertar — y más difícil.<br />
                   Es cuando dejás de entender y empezás a hacer.<br />
                   No una marcha. No un voto. No una opinión.<br />
-                  Un compromiso concreto que te obliga a ser distinto mañana.
+                  Un compromiso que te obliga a ser distinto mañana.
                 </p>
                 <p>Eso es la semilla. No lo que plantás afuera.<br />Lo que plantás en vos.</p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-6 justify-center mb-20">
+              <div className="flex flex-col sm:flex-row gap-6 justify-center mb-6">
                 <PowerCTA
                   text="REGISTRAR MI COMPROMISO"
                   variant="primary"
@@ -453,18 +462,23 @@ const LaSemillaDeBasta = () => {
                   size="lg"
                   animate={true}
                 />
-                <Button 
+                <Button
                   variant="outline"
                   size="lg"
-                  onClick={() => window.scrollTo({ top: 900, behavior: 'smooth' })}
+                  onClick={() => document.getElementById('el-ciclo')?.scrollIntoView({ behavior: 'smooth' })}
                   className="bg-transparent border-emerald-500/30 text-emerald-400 hover:bg-emerald-900/20 hover:text-emerald-200 rounded-full px-8 h-14"
                 >
-                  VER EL CICLO
+                  ¿CÓMO FUNCIONA?
                 </Button>
               </div>
 
+              <p className="text-sm text-emerald-100/50 max-w-xl mx-auto mb-20">
+                Concretamente: escribís tu compromiso, queda anclado a tu territorio
+                y suma evidencia pública de que esto está pasando.
+              </p>
+
               {/* Living Metrics */}
-              <div className="grid grid-cols-3 gap-4 max-w-4xl mx-auto">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl mx-auto">
                 {semillaIndicators.map((stat) => (
                   <motion.div 
                     key={stat.id}
@@ -552,7 +566,7 @@ const LaSemillaDeBasta = () => {
         </section>
 
         {/* Germination Cycle Interactive */}
-        <section className="section-spacing bg-[#050a05] relative border-t border-emerald-900/20">
+        <section id="el-ciclo" className="section-spacing bg-[#050a05] relative border-t border-emerald-900/20">
           <div className="container-content">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-16">
@@ -586,11 +600,13 @@ const LaSemillaDeBasta = () => {
 
                   {/* Controls */}
                   <div className="absolute bottom-8 left-0 right-0 flex justify-center gap-2 z-20">
-                    {germinationSteps.map((_, idx) => (
+                    {germinationSteps.map((step, idx) => (
                       <button
                         key={idx}
                         onClick={() => setActiveStep(idx)}
-                        className={`w-3 h-3 rounded-full transition-all ${activeStep === idx ? 'bg-emerald-400 w-8' : 'bg-emerald-900 hover:bg-emerald-700'}`}
+                        aria-label={`Tensión ${idx + 1}: ${step.title}`}
+                        aria-current={activeStep === idx}
+                        className={`h-4 rounded-full transition-all p-0 min-w-[16px] ${activeStep === idx ? 'bg-emerald-400 w-8' : 'w-4 bg-emerald-700 hover:bg-emerald-500'}`}
                       />
                     ))}
                   </div>
@@ -599,13 +615,15 @@ const LaSemillaDeBasta = () => {
                 {/* Steps List */}
                 <div className="space-y-4">
                   {germinationSteps.map((step, idx) => (
-                    <motion.div
+                    <motion.button
                       key={idx}
-                      className={`p-6 rounded-2xl border transition-all cursor-pointer ${activeStep === idx ? 'bg-emerald-900/20 border-emerald-500/50' : 'bg-transparent border-transparent hover:bg-white/5'}`}
+                      type="button"
+                      aria-expanded={activeStep === idx}
+                      className={`w-full text-left p-6 rounded-2xl border transition-all cursor-pointer ${activeStep === idx ? 'bg-emerald-900/20 border-emerald-500/50' : 'bg-transparent border-transparent hover:bg-white/5'}`}
                       onClick={() => setActiveStep(idx)}
                     >
                       <div className="flex items-start gap-4">
-                        <div className={`text-sm font-mono mt-1 ${activeStep === idx ? 'text-emerald-400' : 'text-emerald-800'}`}>
+                        <div className={`text-sm font-mono mt-1 ${activeStep === idx ? 'text-emerald-400' : 'text-emerald-600'}`}>
                           0{idx + 1}
                         </div>
                         <div>
@@ -623,7 +641,7 @@ const LaSemillaDeBasta = () => {
                           )}
                         </div>
                       </div>
-                    </motion.div>
+                    </motion.button>
                   ))}
                 </div>
               </div>
@@ -648,28 +666,6 @@ const LaSemillaDeBasta = () => {
                 </p>
               </div>
 
-              {/* Editorial prose before timeline */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7 }}
-                className="max-w-3xl mx-auto mb-16 space-y-4 text-lg text-emerald-100/60 leading-relaxed font-light text-center"
-              >
-                <p>
-                  Hay algo que pasa cuando sostenés un compromiso sin hacer ruido:<br />
-                  alguien lo nota.<br />
-                  No porque lo publiques. Porque se nota.<br />
-                  La coherencia es magnética — no convence, atrae.
-                </p>
-                <p>
-                  No vas a reclutar a nadie. No vas a dar discursos.<br />
-                  Vas a sostener algo y el que estaba buscando<br />
-                  lo mismo va a aparecer al lado tuyo.<br />
-                  Así se forma una red. No por diseño. Por resonancia.
-                </p>
-              </motion.div>
-
               <div className="relative">
                 <div className="space-y-0">
                   {propagacion.map((nivel, idx) => (
@@ -680,15 +676,17 @@ const LaSemillaDeBasta = () => {
                       viewport={{ once: true }}
                       transition={{ duration: 0.6, delay: idx * 0.12 }}
                     >
-                      <div className="relative pl-20 md:pl-24 pb-12 last:pb-0">
+                      <div className="relative pl-14 md:pl-24 pb-12 last:pb-0">
                         {/* Connector dot */}
-                        <div className="absolute left-6 md:left-8 top-2 w-5 h-5 rounded-full bg-[#081008] border-2 border-emerald-500 z-10 shadow-[0_0_15px_rgba(16,185,129,0.3)]">
-                          <div className="absolute inset-0.5 rounded-full bg-emerald-400/30 animate-ping" style={{ animationDuration: `${3 + idx}s` }} />
+                        <div className="absolute left-3 md:left-8 top-2 w-5 h-5 rounded-full bg-[#081008] border-2 border-emerald-500 z-10 shadow-[0_0_15px_rgba(16,185,129,0.3)]" aria-hidden="true">
+                          {!prefersReducedMotion && (
+                            <div className="absolute inset-0.5 rounded-full bg-emerald-400/30 animate-ping" style={{ animationDuration: `${3 + idx}s` }} />
+                          )}
                         </div>
 
                         {/* Vertical line */}
                         {idx < propagacion.length - 1 && (
-                          <div className="absolute left-[30px] md:left-[38px] top-7 w-px bg-gradient-to-b from-emerald-500/40 to-emerald-500/10 h-full" />
+                          <div className="absolute left-[21px] md:left-[38px] top-7 w-px bg-gradient-to-b from-emerald-500/40 to-emerald-500/10 h-full" aria-hidden="true" />
                         )}
 
                         {/* Card */}
@@ -708,7 +706,7 @@ const LaSemillaDeBasta = () => {
                               {nivel.alcance}
                             </span>
                           </div>
-                          <p className="text-emerald-100/60 leading-relaxed pl-[60px]">{nivel.descripcion}</p>
+                          <p className="text-emerald-100/60 leading-relaxed md:pl-[60px]">{nivel.descripcion}</p>
                         </div>
                       </div>
                     </motion.div>
@@ -726,10 +724,17 @@ const LaSemillaDeBasta = () => {
                     <p className="text-2xl md:text-3xl font-bold text-white mb-4">
                       46 millones es el potencial.
                     </p>
-                    <p className="text-emerald-200/70 text-lg max-w-2xl mx-auto leading-relaxed">
+                    <p className="text-emerald-200/70 text-lg max-w-2xl mx-auto leading-relaxed mb-8">
                       Pero no empieza con millones. Empieza con uno que dejó de delegar.<br />
                       <strong className="text-emerald-300">Lo que se prueba se puede exigir. Lo que se sostiene se vuelve irrefutable.</strong>
                     </p>
+                    <PowerCTA
+                      text="REGISTRAR MI COMPROMISO"
+                      variant="primary"
+                      onClick={() => setShowCommitmentModal(true)}
+                      size="lg"
+                      animate={false}
+                    />
                   </div>
                 </motion.div>
               </div>
@@ -761,18 +766,19 @@ const LaSemillaDeBasta = () => {
         </section>
 
         <NextStepCard
-          title="Llevá tu declaración al Mapa"
-          description="Tu compromiso cobra vida cuando se carga en el territorio. Servir es poner tu verdad al servicio de los demás."
+          title="Llevá tu compromiso al Mapa"
+          description="Tu compromiso vale más cuando se ve. Ponelo en el mapa junto a lo que soñás y lo que te falta — y mirá quién más está sosteniendo algo cerca tuyo."
           href="/el-mapa"
           gradient="from-emerald-900 to-blue-900"
           icon={<MapPin className="w-5 h-5" />}
+          ctaLabel="Ir al Mapa"
         />
 
         <section className="max-w-4xl mx-auto px-4 py-16">
           <div className="space-y-2 mb-8">
             <p className="uppercase tracking-widest text-xs text-amber-300/80">Pensamiento</p>
-            <h2 className="font-serif text-3xl">Qué clase de movida</h2>
-            <p className="text-emerald-100/70 max-w-2xl">Tres lecturas para entender qué pesa cuando uno firma la semilla y se mete a construir.</p>
+            <h2 className="font-serif text-3xl">Para leer antes de sembrar</h2>
+            <p className="text-emerald-100/70 max-w-2xl">Tres lecturas para entender qué pesa cuando uno planta un compromiso y se mete a construir.</p>
           </div>
           <div className="grid gap-4 md:grid-cols-3">
             <EnsayoLinkCard slug="arquitectura" />

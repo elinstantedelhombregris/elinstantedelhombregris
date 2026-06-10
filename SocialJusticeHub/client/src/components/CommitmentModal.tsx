@@ -131,13 +131,13 @@ const CommitmentModal = ({
   const steps = [
     {
       title: "Reconocer tu Poder",
-      description: "El cambio empieza contigo",
+      description: "El cambio empieza con vos",
       icon: <Sprout className={`w-7 h-7 ${theme.iconClass}`} />,
       content: (
         <div className="space-y-4">
           <p className="text-sm leading-relaxed text-emerald-100/75">
-            Cada persona tiene el poder de crear un cambio positivo en su comunidad. 
-            ¿Qué te motiva a ser parte de la transformación de Argentina?
+            Cada persona tiene el poder de crear un cambio positivo en su comunidad.
+            ¿Qué te mueve a ser parte de la transformación de Argentina?
           </p>
           <div className="space-y-2">
             <Label htmlFor="personalCommitment" className="text-emerald-50 text-sm">
@@ -166,8 +166,8 @@ const CommitmentModal = ({
       content: (
         <div className="space-y-4">
           <p className="text-sm leading-relaxed text-emerald-100/75">
-            Ahora elige una acción concreta que puedas realizar. 
-            Los grandes cambios se construyen con pequeños pasos.
+            Ahora elegí una acción concreta que puedas hacer.
+            Mejor algo chico que puedas sostener todas las semanas que algo enorme que abandones en marzo.
           </p>
           <div className="space-y-2">
             <Label htmlFor="actionType" className="text-emerald-50 text-sm">
@@ -178,7 +178,7 @@ const CommitmentModal = ({
               onValueChange={(value) => setCommitmentData({ ...commitmentData, actionType: value })}
             >
               <SelectTrigger className="h-12 border-emerald-500/25 bg-[#08130d] text-emerald-50 data-[placeholder]:text-emerald-200/45 focus:ring-emerald-400/40 focus:ring-offset-0">
-                <SelectValue placeholder="Selecciona una acción" />
+                <SelectValue placeholder="Elegí una acción" />
               </SelectTrigger>
               <SelectContent className="border-emerald-500/25 bg-[#08130d] text-emerald-50">
                 <SelectItem value="community" className="focus:bg-emerald-500/20 focus:text-emerald-50">Participar en mi comunidad local</SelectItem>
@@ -193,13 +193,13 @@ const CommitmentModal = ({
           </div>
           <div className="space-y-2">
             <Label htmlFor="communityCommitment" className="text-emerald-50 text-sm">
-              Cómo planeas implementarlo
+              Cómo lo vas a llevar adelante
             </Label>
             <Textarea
               id="communityCommitment"
               value={commitmentData.communityCommitment}
               onChange={(e) => setCommitmentData({ ...commitmentData, communityCommitment: e.target.value })}
-              placeholder="Describe específicamente cómo vas a llevar a cabo esta acción..."
+              placeholder="Contá en concreto cómo lo vas a hacer: cuándo, dónde, con quién..."
               className="min-h-[120px] border-emerald-500/25 bg-[#08130d] text-emerald-50 placeholder:text-emerald-200/35 focus-visible:ring-emerald-400/40 focus-visible:ring-offset-0"
               rows={4}
               maxLength={360}

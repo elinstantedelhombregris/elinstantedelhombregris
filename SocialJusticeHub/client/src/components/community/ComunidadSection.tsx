@@ -48,6 +48,18 @@ const POST_TYPES = [
   { value: 'exchange', label: 'Intercambios', icon: Sparkles },
 ];
 
+const TYPE_LABELS: Record<string, string> = {
+  project: 'Proyecto',
+  action: 'Acción',
+  exchange: 'Intercambio',
+  employment: 'Empleo',
+  volunteer: 'Voluntariado',
+  donation: 'Donación',
+  story: 'Historia',
+  idea: 'Idea',
+  question: 'Pregunta',
+};
+
 const TYPE_STYLES: Record<string, { gradient: string; badgeBg: string; badgeColor: string }> = {
   project:  { gradient: 'from-blue-500 to-cyan-500',     badgeBg: 'bg-blue-500/10',    badgeColor: 'text-blue-400' },
   action:   { gradient: 'from-orange-500 to-red-500',    badgeBg: 'bg-orange-500/10',   badgeColor: 'text-orange-400' },
@@ -145,15 +157,19 @@ export default function ComunidadSection({
             <div className="flex border border-white/10 rounded-full p-0.5 bg-white/5">
               <button
                 onClick={() => setViewMode('list')}
-                className={`p-2 rounded-full transition-all ${viewMode === 'list' ? 'bg-blue-500/20 text-white' : 'text-slate-500'}`}
+                aria-label="Ver como lista"
+                aria-pressed={viewMode === 'list'}
+                className={`p-2.5 rounded-full transition-all ${viewMode === 'list' ? 'bg-blue-500/20 text-white' : 'text-slate-400'}`}
               >
-                <List className="w-3.5 h-3.5" />
+                <List className="w-4 h-4" />
               </button>
               <button
                 onClick={() => setViewMode('map')}
-                className={`p-2 rounded-full transition-all ${viewMode === 'map' ? 'bg-blue-500/20 text-white' : 'text-slate-500'}`}
+                aria-label="Ver en el mapa"
+                aria-pressed={viewMode === 'map'}
+                className={`p-2.5 rounded-full transition-all ${viewMode === 'map' ? 'bg-blue-500/20 text-white' : 'text-slate-400'}`}
               >
-                <Map className="w-3.5 h-3.5" />
+                <Map className="w-4 h-4" />
               </button>
             </div>
 
@@ -215,11 +231,11 @@ export default function ComunidadSection({
                       <div className="p-5 flex-1 flex flex-col">
                         {/* Header */}
                         <div className="flex justify-between items-start mb-3">
-                          <Badge variant="outline" className={`capitalize border-0 px-2 py-0.5 text-[11px] ${s.badgeBg} ${s.badgeColor}`}>
-                            {post.type}
+                          <Badge variant="outline" className={`border-0 px-2 py-0.5 text-[11px] ${s.badgeBg} ${s.badgeColor}`}>
+                            {TYPE_LABELS[post.type] || post.type}
                           </Badge>
-                          <span className="text-[10px] text-slate-600 font-mono">
-                            {post.createdAt ? new Date(post.createdAt).toLocaleDateString() : ''}
+                          <span className="text-xs text-slate-500 font-mono">
+                            {post.createdAt ? new Date(post.createdAt).toLocaleDateString('es-AR') : ''}
                           </span>
                         </div>
 
@@ -260,7 +276,8 @@ export default function ComunidadSection({
 
                           <div className="flex items-center gap-2">
                             <button
-                              className={`flex items-center gap-0.5 transition-colors ${post.likedByMe ? 'text-red-400' : 'text-slate-600 hover:text-red-400'}`}
+                              aria-label={post.likedByMe ? 'Quitar me gusta' : 'Me gusta'}
+                              className={`flex items-center gap-0.5 p-1.5 -m-1 transition-colors ${post.likedByMe ? 'text-red-400' : 'text-slate-500 hover:text-red-400'}`}
                               onClick={(e) => {
                                 e.stopPropagation();
                                 if (!userContext?.user) { onNavigate('/login'); return; }
@@ -276,7 +293,8 @@ export default function ComunidadSection({
                               </span>
                             )}
                             <button
-                              className="flex items-center gap-0.5 text-slate-600 hover:text-blue-400 transition-colors"
+                              aria-label="Compartir iniciativa"
+                              className="flex items-center gap-0.5 p-1.5 -m-1 text-slate-500 hover:text-blue-400 transition-colors"
                               onClick={(e) => {
                                 e.stopPropagation();
                                 if (navigator.share) {

@@ -81,13 +81,13 @@ const Header = () => {
   });
 
   const navItems = [
-    { label: 'Visión', href: '/la-vision' },
-    { label: 'Hombre Gris', href: '/el-instante-del-hombre-gris' },
-    { label: 'Semilla', href: '/la-semilla-de-basta' },
-    { label: 'Mapa', href: '/el-mapa' },
-    { label: 'Mandato', href: '/el-mandato-vivo' },
-    { label: 'Círculos', href: '/community' },
-    { label: 'Recursos', href: '/recursos' },
+    { label: 'Visión', href: '/la-vision', desc: 'Qué es ¡BASTA! y cómo funciona' },
+    { label: 'Hombre Gris', href: '/el-instante-del-hombre-gris', desc: 'Quién sostiene esto: gente común' },
+    { label: 'Semilla', href: '/la-semilla-de-basta', desc: 'Tu primer compromiso concreto' },
+    { label: 'Mapa', href: '/el-mapa', desc: 'Lo que el país sueña y necesita' },
+    { label: 'Mandato', href: '/el-mandato-vivo', desc: 'Lo que pide tu territorio, en datos' },
+    { label: 'Círculos', href: '/community', desc: 'Grupos locales de acción' },
+    { label: 'Recursos', href: '/recursos', desc: 'Blog, guías, ensayos y planes' },
   ];
 
   return (
@@ -120,6 +120,7 @@ const Header = () => {
               <div className={`flex flex-col leading-none transition-colors ${showSolid ? 'text-slate-900' : 'text-white'}`}>
                 <span className="font-serif font-bold text-lg md:text-xl">El Instante</span>
                 <span className="text-blue-500 font-sans text-xs md:text-sm tracking-widest uppercase mt-0.5">del Hombre Gris</span>
+                <span className={`hidden md:block font-sans text-[11px] tracking-wide mt-1 ${showSolid ? 'text-amber-600' : 'text-amber-300/90'}`}>El movimiento ¡BASTA!</span>
               </div>
             </div>
           </Link>
@@ -127,11 +128,13 @@ const Header = () => {
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center space-x-1">
             {navItems.map((item) => (
-              <Link 
-                key={item.href} 
+              <Link
+                key={item.href}
                 href={item.href}
+                title={item.desc}
+                aria-current={location === item.href ? 'page' : undefined}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                  location === item.href 
+                  location === item.href
                     ? 'bg-blue-500/10 text-blue-500'
                     : showSolid ? 'text-slate-600 hover:text-blue-600 hover:bg-slate-50' : 'text-slate-200 hover:text-white hover:bg-white/10'
                 }`}
@@ -189,30 +192,38 @@ const Header = () => {
                   }}
                   variant="ghost"
                   size="icon"
+                  aria-label="Cerrar sesión"
                   className={showSolid ? 'text-slate-500 hover:text-red-500' : 'text-white/70 hover:text-white'}
                 >
                   <LogOut className="w-5 h-5" />
                 </Button>
               </>
             ) : (
-              <div className="hidden md:flex items-center gap-3">
-                <Link href="/login">
-                  <Button variant="ghost" className={showSolid ? 'text-slate-700' : 'text-white hover:bg-white/10'}>
-                    Ingresar
-                  </Button>
-                </Link>
-                <Link href="/register">
-                  <Button className="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-6">
+              <>
+                <div className="hidden md:flex items-center gap-3">
+                  <Link href="/login">
+                    <Button variant="ghost" className={showSolid ? 'text-slate-700' : 'text-white hover:bg-white/10'}>
+                      Ingresar
+                    </Button>
+                  </Link>
+                  <Link href="/register">
+                    <Button className="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-6">
+                      Unirse
+                    </Button>
+                  </Link>
+                </div>
+                <Link href="/register" className="md:hidden">
+                  <Button size="sm" className="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-4">
                     Unirse
                   </Button>
                 </Link>
-              </div>
+              </>
             )}
 
             {/* Mobile Menu Toggle */}
             <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className={`lg:hidden ${showSolid ? 'text-slate-900' : 'text-white'}`}>
+                <Button variant="ghost" size="icon" aria-label="Abrir menú" className={`lg:hidden ${showSolid ? 'text-slate-900' : 'text-white'}`}>
                   <Menu className="w-6 h-6" />
                 </Button>
               </SheetTrigger>
@@ -223,18 +234,21 @@ const Header = () => {
                 </VisuallyHidden>
                 <div className="p-6 border-b border-slate-800">
                   <h2 className="text-xl font-bold font-serif">Menú</h2>
+                  <p className="text-xs text-amber-300/90 mt-1 tracking-wide">El movimiento ¡BASTA!</p>
                 </div>
                 <div className="flex flex-col p-4 space-y-2">
                   {navItems.map((item) => (
-                    <Link 
-                      key={item.href} 
-                      href={item.href} 
+                    <Link
+                      key={item.href}
+                      href={item.href}
                       onClick={() => setIsMenuOpen(false)}
-                      className={`block px-4 py-3 rounded-xl text-lg font-medium transition-colors ${
+                      aria-current={location === item.href ? 'page' : undefined}
+                      className={`block px-4 py-3 rounded-xl transition-colors ${
                         location === item.href ? 'bg-blue-600 text-white' : 'text-slate-400 hover:bg-slate-900 hover:text-white'
                       }`}
                     >
-                      {item.label}
+                      <span className="block text-lg font-medium leading-tight">{item.label}</span>
+                      <span className={`block text-xs mt-0.5 ${location === item.href ? 'text-blue-100' : 'text-slate-500'}`}>{item.desc}</span>
                     </Link>
                   ))}
                   

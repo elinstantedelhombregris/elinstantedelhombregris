@@ -6,7 +6,10 @@ import { useQuery } from '@tanstack/react-query';
 import { motion } from 'framer-motion';
 import SystemHierarchy from '@/components/SystemHierarchy';
 import NextStepCard from '@/components/NextStepCard';
-import { MoonStar } from 'lucide-react';
+import { JourneyBadge } from '@/components/ui/JourneyBadge';
+import { StatusBadge } from '@/components/ui/StatusBadge';
+import { Link } from 'wouter';
+import { MoonStar, ArrowRight } from 'lucide-react';
 
 const LaVision = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -67,11 +70,12 @@ const LaVision = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1.2, delay: 0.5 }}
-                className="mb-4"
+                className="mb-4 flex flex-col items-center gap-3"
               >
                 <span className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/[0.08] text-[11px] uppercase tracking-[0.3em] text-blue-300/70">
-                  El diseño de lo que viene
+                  Qué es ¡BASTA! y cómo funciona
                 </span>
+                <JourneyBadge step={1} />
               </motion.div>
 
               <motion.h1
@@ -96,22 +100,27 @@ const LaVision = () => {
                 <p className="text-xl md:text-2xl text-slate-400/90 leading-relaxed">
                   Cada cuatro años te dejan elegir quién te decepciona.
                   <br />
-                  Y te enseñaron a llamarle democracia.
+                  Y a eso te enseñaron a llamarlo democracia.
                 </p>
 
                 <p className="text-xl md:text-2xl text-slate-400/90 leading-relaxed">
                   Crisis, esperanza, líder, traición, crisis.
-                  El ciclo no es un accidente — es el diseño.
-                  Tu rol en ese diseño siempre fue el mismo: elegir entre las opciones de otros.
+                  El ciclo no es un accidente — es el sistema funcionando como fue diseñado. Por otros.
+                  Tu rol siempre fue el mismo: elegir entre las opciones ajenas.
                 </p>
 
-                <h1 className="text-[clamp(2rem,5vw,3.5rem)] font-black text-white leading-[1.1] tracking-tight">
+                <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-black text-white leading-[1.1] tracking-tight">
                   ¿Y si tu rol nunca fue elegir
                   <br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400">
                     — sino diseñar?
                   </span>
-                </h1>
+                </h2>
+
+                <p className="text-lg md:text-xl text-slate-300 leading-relaxed max-w-2xl mx-auto">
+                  Eso es <span className="text-white font-bold">¡BASTA!</span>: un marco de gobernanza popular donde
+                  la ciudadanía diseña los planes, el Estado los administra y la política los ejecuta.
+                </p>
               </motion.div>
             </div>
           </div>
@@ -155,13 +164,8 @@ const LaVision = () => {
                   Diseño idealizado
                 </span>
 
-                <p className="text-lg md:text-xl text-slate-400 leading-relaxed">
-                  Toda tu vida te dijeron que tu rol es elegir. Entre dos candidatos.
-                  Entre dos frustraciones. Entre dos versiones del mismo fracaso.
-                </p>
-
                 <p className="text-lg md:text-xl text-slate-300/90 leading-relaxed font-medium">
-                  Hay otra pregunta, y nadie te la hizo nunca en serio:
+                  Hay una pregunta que nadie te hizo nunca en serio:
                 </p>
 
                 <h2 className="text-[clamp(1.5rem,3.5vw,2.5rem)] font-black text-white leading-[1.15] tracking-tight">
@@ -247,28 +251,57 @@ const LaVision = () => {
                   ¿Y cómo se hace?
                 </h2>
 
-                <p className="text-lg md:text-xl text-slate-400 leading-relaxed">
-                  Cada persona trae lo suyo: su vida real, su territorio, lo que funciona
-                  y lo que no, lo que construiría si pudiera. Eso es materia prima.
-                </p>
+                {/* Tres pasos concretos */}
+                <div className="space-y-6">
+                  {[
+                    {
+                      num: '1',
+                      title: 'Contás tu realidad',
+                      text: 'Tu barrio, tu laburo, lo que funciona y lo que falta, lo que construirías si pudieras. Con tus palabras, en el mapa.',
+                    },
+                    {
+                      num: '2',
+                      title: 'Se cruza con miles de voces',
+                      text: 'Las heridas se repiten. Las ideas coinciden. Lo que parecía caos empieza a tener forma — sin que nadie lo decida desde arriba.',
+                    },
+                    {
+                      num: '3',
+                      title: 'De ahí salen los diseños colectivos',
+                      text: 'Cuando la señal es suficiente, el diseño emerge: planes concretos que ningún político podría haber imaginado solo, porque ninguno vive tu vida.',
+                    },
+                  ].map((step) => (
+                    <div key={step.num} className="flex gap-5 items-start">
+                      <span className="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-500/10 border border-indigo-400/30 flex items-center justify-center text-indigo-300 font-black">
+                        {step.num}
+                      </span>
+                      <div>
+                        <h3 className="text-lg font-bold text-white mb-1">{step.title}</h3>
+                        <p className="text-slate-400 leading-relaxed">{step.text}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
 
-                <p className="text-lg md:text-xl text-slate-400 leading-relaxed">
-                  Cuando miles de personas hacen lo mismo, aparecen patrones.
-                  Las heridas se repiten. Las ideas se cruzan.
-                  Lo que parecía caos empieza a tener forma.
-                </p>
-
-                <p className="text-lg md:text-xl text-slate-300/90 leading-relaxed font-medium">
-                  No hace falta que nadie lo decida desde arriba.
-                  El diseño aparece solo cuando la señal es suficiente.
-                </p>
-
-                <p className="text-lg md:text-xl text-slate-400 leading-relaxed">
-                  La plataforma no te dice qué pensar. Te da la infraestructura para
-                  que tu realidad se sume a un mapa compartido — y de ese mapa
-                  emerge el diseño que ningún político podría haber imaginado solo,
-                  porque ninguno vive tu vida.
-                </p>
+                {/* La demostración: los 22 planes */}
+                <div className="rounded-2xl bg-white/[0.03] backdrop-blur-sm border border-white/[0.08] p-8 space-y-4">
+                  <div className="flex items-center gap-3 flex-wrap">
+                    <h3 className="text-xl font-bold text-white">¿Y esto funciona de verdad?</h3>
+                    <StatusBadge status="ejercicio" />
+                  </div>
+                  <p className="text-slate-400 leading-relaxed">
+                    Todavía no llegamos a esa escala — y no te lo vamos a vender como si hubiéramos llegado.
+                    Pero para que veas a dónde apunta, una sola persona hizo el ejercicio completo:
+                    <span className="text-white font-semibold"> 22 planes</span> que imaginan cómo podría funcionar
+                    cada área del país — educación, suelo, justicia, ciudades — diseñados desde cero, escritos en detalle.
+                  </p>
+                  <p className="text-slate-300/90 leading-relaxed font-medium">
+                    No son promesas ni un programa de gobierno. Son un ejemplo de lo que produce el método.
+                    Ahora imaginate ese mismo ejercicio hecho entre millones.
+                  </p>
+                  <Link href="/recursos/ruta" className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 font-semibold transition-colors pt-2">
+                    Ver los 22 planes de ejemplo <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
               </motion.div>
             </div>
           </div>
@@ -307,8 +340,10 @@ const LaVision = () => {
                   {realStats.uniqueLocations > 0 && (
                     <> Desde <span className="text-white font-semibold">{realStats.uniqueLocations}</span> localidades distintas.</>
                   )}
-                  {realStats.totalContributions > 0 && (
+                  {realStats.totalContributions > 0 ? (
                     <> <span className="text-white font-semibold">{realStats.totalContributions.toLocaleString()}</span> aportes concretos que se cruzan, se confirman y empiezan a dibujar algo que antes no existía.</>
+                  ) : (
+                    <> Hay <span className="text-white font-semibold">22 planes de ejemplo</span> publicados, herramientas funcionando y un mapa de aportes creciendo señal a señal.</>
                   )}
                 </p>
 
@@ -384,10 +419,11 @@ const LaVision = () => {
         {/* ═══ 6. NEXT STEP — El Instante del Hombre Gris ═════════════ */}
         <NextStepCard
           title="El Instante del Hombre Gris"
-          description="La arquitectura no se sostiene sola. Se sostiene con personas que pueden mirar la niebla sin inventar certezas, sostener la visión cuando todo empuja para atrás, y no convertirse en lo que vinieron a reemplazar."
+          description="¿Quién sostiene todo esto? Alguien común: el que labura y sueña con un país mejor, la que enseña sin recursos y no baja los brazos. No es uno — somos muchos. ¿Y por qué gris? Porque es el color del que se salió de la grieta. Y porque gris es plata: argentum, Argentina."
           href="/el-instante-del-hombre-gris"
           gradient="from-[#10131f] to-[#1f2335]"
           icon={<MoonStar className="w-5 h-5" />}
+          ctaLabel="Conocer al Hombre Gris"
         />
 
         <section className="max-w-4xl mx-auto px-4 py-16">
