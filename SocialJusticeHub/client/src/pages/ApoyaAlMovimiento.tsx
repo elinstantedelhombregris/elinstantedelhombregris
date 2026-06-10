@@ -9,6 +9,15 @@ import {
   HandHeart, Landmark, CheckCircle2
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import {
+  GLASS_CARD,
+  GLASS_CARD_HOVER,
+  SECTION_BADGE,
+  DISPLAY_GRADIENT,
+  PULL_QUOTE,
+  ACCENT_BUTTON,
+  SECTION_PAD,
+} from '@/lib/design-tokens';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -29,25 +38,21 @@ const ApoyaAlMovimiento = () => {
       icon: Server,
       title: 'Infraestructura',
       description: 'Servidores, bases de datos y hosting para que la plataforma esté siempre disponible, rápida y segura para todos.',
-      color: 'blue',
     },
     {
       icon: Brain,
       title: 'Inteligencia Artificial',
       description: 'Modelos de IA que potencian el coaching personal, el análisis colectivo y la generación de planes estratégicos para el país.',
-      color: 'purple',
     },
     {
       icon: Building2,
       title: 'ONG Transparente',
       description: 'Estamos construyendo una organización sin fines de lucro que administre la plataforma con total transparencia y rendición de cuentas.',
-      color: 'green',
     },
     {
       icon: Code2,
       title: 'Desarrollo Continuo',
       description: 'Nuevas herramientas, mejoras y funcionalidades que nacen de las necesidades reales de la comunidad.',
-      color: 'orange',
     },
   ];
 
@@ -104,11 +109,8 @@ const ApoyaAlMovimiento = () => {
 
       {/* Hero */}
       <section className="relative pt-32 pb-20 overflow-hidden">
-        {/* Background glows */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-[10%] left-[15%] w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-[120px]" />
-          <div className="absolute bottom-[10%] right-[10%] w-[400px] h-[400px] bg-blue-600/10 rounded-full blur-[120px]" />
-        </div>
+        {/* Single violet ambient blob */}
+        <div className="absolute top-[10%] left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#7D5BDE]/[0.06] rounded-full blur-[140px] pointer-events-none" />
 
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
@@ -119,10 +121,9 @@ const ApoyaAlMovimiento = () => {
             <motion.div
               variants={fadeUp}
               custom={0}
-              className="inline-flex items-center gap-2 bg-purple-500/10 border border-purple-500/20 rounded-full px-4 py-2 mb-8"
+              className="mb-8"
             >
-              <Heart className="w-4 h-4 text-purple-400" />
-              <span className="text-purple-300 text-sm font-medium">Cada aporte construye país</span>
+              <span className={SECTION_BADGE}>Cada aporte construye país</span>
             </motion.div>
 
             <motion.h1
@@ -131,9 +132,7 @@ const ApoyaAlMovimiento = () => {
               className="text-4xl md:text-6xl font-serif font-bold mb-6 leading-tight"
             >
               Apoyá al{' '}
-              <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-                Movimiento
-              </span>
+              <span className={DISPLAY_GRADIENT}>Movimiento</span>
             </motion.h1>
 
             <motion.p
@@ -159,7 +158,7 @@ const ApoyaAlMovimiento = () => {
       </section>
 
       {/* En qué se usa tu aporte */}
-      <section className="py-20 relative">
+      <section className={`${SECTION_PAD} relative`}>
         <div className="container mx-auto px-4">
           <motion.div
             initial="hidden"
@@ -186,18 +185,6 @@ const ApoyaAlMovimiento = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {usosDelAporte.map((uso, i) => {
               const Icon = uso.icon;
-              const colorMap: Record<string, string> = {
-                blue: 'from-blue-500/20 to-blue-600/5 border-blue-500/20 text-blue-400',
-                purple: 'from-purple-500/20 to-purple-600/5 border-purple-500/20 text-purple-400',
-                green: 'from-green-500/20 to-green-600/5 border-green-500/20 text-green-400',
-                orange: 'from-orange-500/20 to-orange-600/5 border-orange-500/20 text-orange-400',
-              };
-              const iconColorMap: Record<string, string> = {
-                blue: 'bg-blue-500/10 text-blue-400',
-                purple: 'bg-purple-500/10 text-purple-400',
-                green: 'bg-green-500/10 text-green-400',
-                orange: 'bg-orange-500/10 text-orange-400',
-              };
               return (
                 <motion.div
                   key={uso.title}
@@ -206,10 +193,10 @@ const ApoyaAlMovimiento = () => {
                   viewport={{ once: true, margin: '-40px' }}
                   variants={fadeUp}
                   custom={i}
-                  className={`bg-gradient-to-br ${colorMap[uso.color]} border rounded-2xl p-8 backdrop-blur-sm`}
+                  className={`${GLASS_CARD} ${GLASS_CARD_HOVER} p-8`}
                 >
-                  <div className={`w-12 h-12 rounded-xl ${iconColorMap[uso.color]} flex items-center justify-center mb-4`}>
-                    <Icon className="w-6 h-6" />
+                  <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-4">
+                    <Icon className="w-6 h-6 text-slate-300" />
                   </div>
                   <h3 className="text-xl font-bold mb-2">{uso.title}</h3>
                   <p className="text-slate-400 leading-relaxed">{uso.description}</p>
@@ -221,10 +208,9 @@ const ApoyaAlMovimiento = () => {
       </section>
 
       {/* Principios */}
-      <section className="py-20 relative">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-900/10 rounded-full blur-[150px]" />
-        </div>
+      <section className={`${SECTION_PAD} relative`}>
+        {/* Single violet blob */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#7D5BDE]/[0.04] rounded-full blur-[150px] pointer-events-none" />
 
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
@@ -260,9 +246,9 @@ const ApoyaAlMovimiento = () => {
                   viewport={{ once: true, margin: '-40px' }}
                   variants={fadeUp}
                   custom={i}
-                  className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 text-center hover:bg-white/[0.07] transition-colors"
+                  className={`${GLASS_CARD} ${GLASS_CARD_HOVER} p-6 text-center`}
                 >
-                  <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-4">
+                  <div className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mx-auto mb-4">
                     <Icon className="w-5 h-5 text-slate-300" />
                   </div>
                   <h3 className="font-bold mb-2">{p.title}</h3>
@@ -275,7 +261,7 @@ const ApoyaAlMovimiento = () => {
       </section>
 
       {/* Formas de ayudar */}
-      <section className="py-20 relative">
+      <section className={`${SECTION_PAD} relative`}>
         <div className="container mx-auto px-4">
           <motion.div
             initial="hidden"
@@ -310,12 +296,12 @@ const ApoyaAlMovimiento = () => {
                 custom={i}
                 className={`rounded-2xl p-8 flex flex-col ${
                   forma.highlight
-                    ? 'bg-gradient-to-br from-purple-500/20 to-blue-500/10 border-2 border-purple-500/30 relative overflow-hidden'
-                    : 'bg-white/5 backdrop-blur-md border border-white/10'
+                    ? `${GLASS_CARD} border-[#7D5BDE]/30 ring-1 ring-[#7D5BDE]/10 relative overflow-hidden`
+                    : `${GLASS_CARD}`
                 }`}
               >
                 {forma.highlight && (
-                  <div className="absolute top-0 right-0 bg-purple-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
+                  <div className="absolute top-0 right-0 bg-[#7D5BDE] text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
                     Más impacto
                   </div>
                 )}
@@ -333,7 +319,7 @@ const ApoyaAlMovimiento = () => {
                   </Link>
                 ) : (
                   <a href={forma.href} target="_blank" rel="noopener noreferrer">
-                    <Button className="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold rounded-xl h-12 shadow-lg shadow-purple-900/30">
+                    <Button className={`w-full ${ACCENT_BUTTON} rounded-xl h-12`}>
                       <HandHeart className="mr-2 w-5 h-5" />
                       {forma.cta}
                     </Button>
@@ -346,10 +332,9 @@ const ApoyaAlMovimiento = () => {
       </section>
 
       {/* Quote / cierre emocional */}
-      <section className="py-24 relative">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute bottom-0 left-[20%] w-[500px] h-[300px] bg-purple-600/5 rounded-full blur-[120px]" />
-        </div>
+      <section className={`${SECTION_PAD} relative`}>
+        {/* Single violet blob */}
+        <div className="absolute bottom-0 left-[20%] w-[500px] h-[300px] bg-[#7D5BDE]/[0.05] rounded-full blur-[120px] pointer-events-none" />
 
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
@@ -359,12 +344,12 @@ const ApoyaAlMovimiento = () => {
             className="max-w-2xl mx-auto text-center"
           >
             <motion.div variants={fadeUp} custom={0}>
-              <Sparkles className="w-8 h-8 text-purple-400 mx-auto mb-6" />
+              <Sparkles className="w-8 h-8 text-[#9D85E8] mx-auto mb-6" />
             </motion.div>
             <motion.blockquote
               variants={fadeUp}
               custom={1}
-              className="text-2xl md:text-3xl font-serif italic text-slate-300 leading-relaxed mb-6"
+              className={`text-2xl md:text-3xl ${PULL_QUOTE} leading-relaxed mb-6`}
             >
               "No necesitamos millones para empezar.
               Necesitamos los que ya dijeron ¡BASTA!"
@@ -380,7 +365,7 @@ const ApoyaAlMovimiento = () => {
 
             <motion.div variants={fadeUp} custom={3} className="mt-10">
               <a href="https://cafecito.app/instantehombregris" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white font-bold rounded-xl px-10 h-14 text-lg shadow-xl shadow-purple-900/30">
+                <Button size="lg" className={`${ACCENT_BUTTON} rounded-xl px-10 h-14 text-lg`}>
                   <Heart className="mr-2 w-5 h-5" />
                   Quiero apoyar
                 </Button>
