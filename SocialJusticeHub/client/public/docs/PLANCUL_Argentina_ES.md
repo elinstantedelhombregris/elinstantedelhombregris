@@ -18,13 +18,14 @@ Independiente del Estado · Autofinanciamiento Comunitario · Sin Agencia
 Sin Presupuesto Dedicado · Sin Punto Único de Falla · Imparable
 Parasitismo Estratégico · Bibliotecas Populares · Clubes de Barrio · Peñas
 Escenario Sin ¡BASTA! · Bucles de Balance · Núcleo Mínimo Superviviente
+Lecciones del Mundo · Dependencias Inversas · Bootstrap Pre-Año 0
 
 Preparado para la República Argentina
 Este plan NO tiene presupuesto dedicado que ningún gobierno pueda recortar.
 Habita la infraestructura que los demás PLANes construyen por sus propios fines.
 Depende de la voluntad humana. Que es lo único que nunca se puede legislar.
 
-Marzo 2026 | Versión 4.0 (Estructura Espiral — la práctica primero, la teoría después)
+Junio 2026 | Versión 4.1 (Estructura Espiral — la práctica primero, la teoría después)
 DOCUMENTO ESTRATÉGICO — PARA REVISIÓN AUTORIZADA
 ```
 
@@ -74,7 +75,7 @@ Este plan no es ingenuo. El sentido necesita un piso mínimo de dignidad materia
 
 ### Tesis Central
 
-La Argentina no tiene una crisis de información. Tiene una crisis de sentido. Millones de personas llegan al final de cada día sin haber hecho nada que les importe, y ese vacío es llenado por una industria mediática que lucra con el miedo. PLANCUL parte de un principio radicalmente distinto: **la cultura no es un sector. Es lo que pasa entre las personas cuando están vivas de verdad.** La Mesa Larga es la semilla. De ella crecen las **Siete Raíces** (Tierra, Memoria, Creación, Cuerpo, Vínculo, Juego, Identidad) y a través de ellas fluyen las **Tres Corrientes** que transforman actividades en conciencia: **Corriente Ambiente** (la cultura satura los espacios donde la vida ya sucede), **Corriente Interior** (el despertar empieza en soledad), **Corriente Temporal** (pensamos en generaciones, no en elecciones). El plan no tiene presupuesto dedicado, ni agencia, ni líder. Habita la infraestructura de los otros PLANes de ¡BASTA! por parasitismo estratégico. El gobierno hace tres cosas — romper monopolios mediáticos, remover burocracia, redistribuir pauta publicitaria — y después se retira. La Red de Dendritas se financia comunitariamente, vive en las personas, y es imparable porque no tiene nada que un gobierno pueda cortar. PLANCUL es el décimosexto mandato de ¡BASTA! y su sistema nervioso: la cultura es el micelio sin el cual los demás planes construyen infraestructura pero no construyen un país. Además, PLANCUL reconoce lo que otros planes culturales evitan: los niños son los productores culturales más naturales (**Niños Dendrita**), la cultura argentina nació de transformar el dolor en belleza (**Alquimia del Dolor**), y el despertar cultural conduce inevitablemente al despertar cívico (**Poder Cívico**).
+La Argentina no tiene una crisis de información. Tiene una crisis de sentido. Millones de personas llegan al final de cada día sin haber hecho nada que les importe, y ese vacío es llenado por una industria mediática que lucra con el miedo. PLANCUL parte de un principio radicalmente distinto: **la cultura no es un sector. Es lo que pasa entre las personas cuando están vivas de verdad.** La Mesa Larga es la semilla. De ella crecen las **Siete Raíces** (Tierra, Memoria, Creación, Cuerpo, Vínculo, Juego, Identidad) y a través de ellas fluyen las **Tres Corrientes** que transforman actividades en conciencia: **Corriente Ambiente** (la cultura satura los espacios donde la vida ya sucede), **Corriente Interior** (el despertar empieza en soledad), **Corriente Temporal** (pensamos en generaciones, no en elecciones). El plan no tiene presupuesto dedicado, ni agencia, ni líder. Habita la infraestructura de los otros PLANes de ¡BASTA! por parasitismo estratégico. El gobierno hace tres cosas — romper monopolios mediáticos, remover burocracia, redistribuir pauta publicitaria — y después se retira. La Red de Dendritas se financia comunitariamente, vive en las personas, y es imparable porque no tiene nada que un gobierno pueda cortar. PLANCUL es el decimosexto de los 22 PLANes de ¡BASTA! (al 23 de abril de 2026) y su sistema nervioso: la cultura es el micelio sin el cual los demás planes construyen infraestructura pero no construyen un país. Además, PLANCUL reconoce lo que otros planes culturales evitan: los niños son los productores culturales más naturales (**Niños Dendrita**), la cultura argentina nació de transformar el dolor en belleza (**Alquimia del Dolor**), y el despertar cultural conduce inevitablemente al despertar cívico (**Poder Cívico**).
 
 Hay una filosofía que atraviesa todo ¡BASTA!: *El Instante del Hombre Gris*. Vivimos en una sociedad que apaga a las personas. El Hombre Gris es el que despierta. Gris como la **plata** que se pule hasta brillar — porque Argentina es argentum, y argentum es plata. Gris como el amanecer antes de que el sol estalle. Marta despertó hace veinte años. Lucía despertó el martes pasado cuando sacó su primer pan del horno y gritó tan fuerte que los perros de la cuadra ladraron. PLANCUL no crea cultura. Remueve lo que la aplasta. Y conecta lo que ya existe — como el micelio conecta los árboles de un bosque.
 
@@ -89,6 +90,8 @@ Hay una filosofía que atraviesa todo ¡BASTA!: *El Instante del Hombre Gris*. V
 La Mesa Larga es el primer peldaño. Pero hay nueve.
 
 La Argentina tiene 17% de confianza interpersonal — uno de los índices más bajos del mundo. No se puede saltar de "no conozco a mi vecino" a "lloremos juntos nuestras pérdidas" en un mes. La confianza se construye en capas, y cada capa requiere una actividad diferente con un nivel diferente de vulnerabilidad.
+
+**TABLA 1: La Escalera de Confianza — nueve peldaños de vulnerabilidad creciente**
 
 | Peldaño | Actividad | Confianza Requerida | Lo Que Se Construye |
 |---|---|---|---|
@@ -172,6 +175,8 @@ No necesitás ir a un Nodo para que la cultura te alcance. Si los espacios donde
 
 Entrás a una estación de tren y hay un poema en la pared. Pasás por una plaza y hay un mural. Esperás en un hospital y una voz lee fragmentos de los Archivos Vivos. No elegiste participar. Pero algo entró. Y un día, sin saber cuándo empezó, te encontrás mirando el mural de tu barrio y diciendo: "Yo también podría hacer algo."
 
+**TABLA 2: Cultura Ambiente — los espacios cotidianos como vehículo cultural**
+
 | Espacio cotidiano | Cómo la cultura lo habita |
 |---|---|
 | Estaciones de tren/colectivo | Poesía en paredes, mini-bibliotecas en andenes, Granaderos como "acompañantes de andén" |
@@ -249,6 +254,8 @@ Fundamentalmente física la Red — pero necesita complemento digital para tres 
 
 **Técnicamente:** Open source, federada (ActivityPub), hosteada en ArgenCloud pero migrable, sin datos personales innecesarios, sin publicidad nunca, diseño austero y rápido.
 
+**Quién la construye y quién la paga:** Acá hay que ser quirúrgicos, porque "sin presupuesto dedicado" no puede ser una excusa para la vaguedad. La Plataforma Dendrita se construye como **un renglón del roadmap de ArgenCloud dentro de PLANDIG** — para PLANDIG es un caso de uso más de su infraestructura de soberanía digital, igual que hostear el padrón de Bastardas o los archivos de PLANMEMORIA. No es un favor: es exactamente el tipo de servicio público federado para el que ArgenCloud existe. El desarrollo inicial — un mapa, un archivo, un calendario, un foro austero sobre protocolos que ya existen (ActivityPub, software libre maduro) — se estima entre **USD 120.000 y 350.000** de desarrollo y entre **USD 1.500 y 4.000 mensuales** de operación a escala nacional (*estimación propia — sujeta a verificación; el rango es amplio porque depende de cuánto software federado existente se reutilice en vez de escribirse desde cero*). La parte que no cubra PLANDIG se cubre por **crowdfunding comunitario** — la primera campaña de la propia plataforma es financiarse a sí misma, lo cual es además el mejor test de demanda real. Y la regla de diseño manda: si PLANDIG no llega, la plataforma es bonus, no núcleo. La Red funcionó sin internet durante doscientos años de peñas. Puede esperar un par de años más.
+
 ## 2.4 Cómo Se Propaga la Cultura
 
 **Modelo 1 — El Micelio (propagación subterránea):** Bajo tierra, una red de hongos conecta todos los árboles. Comparten nutrientes, alertas, y alimentan a los jóvenes. Sin centro, sin jerarquía. La cultura funciona igual: la abuela le enseña al nieto, el vecino presta un libro, el barrio organiza una peña. Conexiones invisibles para el Estado.
@@ -269,14 +276,18 @@ Fundamentalmente física la Red — pero necesita complemento digital para tres 
 
 El diagnóstico habitual — "los medios son tóxicos, hay que regular" — lleva treinta años fracasando. Está al revés. **La sociedad enferma alimenta a los medios**, no al revés. Un medio que vende miedo necesita audiencia que busca emociones intensas. ¿Por qué las buscan en una pantalla? Porque su día no contiene nada que se sienta como estar vivo. La pantalla no es la enfermedad. Es la anestesia.
 
-| Indicador | Argentina | Referencia |
-|---|---|---|
-| "Mi vida carece de propósito" | 67% | OCDE: 38% |
-| Horas de pantalla no-laboral/día | 5.2 | Global: 3.8 |
-| Participación cultural comunitaria (último mes) | 12% | Uruguay: 28% |
-| "No tengo a nadie con quien hablar de cosas importantes" | 31% | OCDE: 18% |
-| Confianza interpersonal | 17% | Noruega: 73% |
-| Mayores "sin razón para levantarse" | 44% | Japón: 31% |
+**TABLA 3: La crisis del sentido en números**
+
+| Indicador | Argentina | Referencia | Fuente |
+|---|---|---|---|
+| "Mi vida carece de propósito" | 67% | OCDE: 38% | Estimación propia — sujeta a verificación |
+| Horas de pantalla no-laboral/día | 5,2 | Global: 3,8 | Aproximación sobre informes DataReportal/We Are Social (uso de internet y redes en Argentina, 2024-2025) — sujeta a verificación |
+| Participación cultural comunitaria (último mes) | 12% | Uruguay: 28% | Estimación propia sobre encuestas de consumos culturales (SInCA) — sujeta a verificación |
+| "No tengo a nadie con quien hablar de cosas importantes" | 31% | OCDE: 18% | Estimación propia — sujeta a verificación |
+| Confianza interpersonal | 17% | Noruega: 73% | Encuesta Mundial de Valores (WVS), olas recientes: Argentina consistentemente entre los países de menor confianza interpersonal |
+| Mayores "sin razón para levantarse" | 44% | Japón: 31% | Estimación propia — sujeta a verificación |
+
+**Honestidad metodológica:** Este plan prefiere un número aproximado y declarado como tal antes que un número preciso e inventado. Donde dice "estimación propia," el orden de magnitud surge de cruzar encuestas parciales, y la cifra exacta debe ser verificada — idealmente por las propias comunidades, que es como PLANCUL mide todo (ver Capa 8). Si algún número resulta mejor de lo estimado, la crisis sigue siendo real. Si resulta peor, también.
 
 ## 3.2 Las Cinco Heridas
 
@@ -287,6 +298,8 @@ El diagnóstico habitual — "los medios son tóxicos, hay que regular" — llev
 5. **La "batalla cultural" que no es cultura** — marketing político disfrazado de cultura. Ambos bandos necesitan gente enojada y pasiva. Seamos honestos: PLANCUL es una posición cultural. La diferencia: nuestra mesa tiene lugar para todos. La mesa importa más que la discusión.
 
 ## 3.3 Por Qué Fracasan los Planes Culturales Estatales
+
+**TABLA 4: Planes culturales estatales argentinos — el patrón del fracaso**
 
 | Plan | Período | Por Qué Fracasó |
 |---|---|---|
@@ -304,6 +317,8 @@ El diagnóstico habitual — "los medios son tóxicos, hay que regular" — llev
 **La cultura es el conjunto de prácticas compartidas a través de las cuales un grupo humano produce y transmite sentido.** Prácticas (cosas que la gente hace), compartidas (requiere mínimo dos personas), que producen sentido (transformar la experiencia en algo significativo) y lo transmiten (de persona a persona, de generación a generación).
 
 **Siete condiciones mínimas para que florezca:**
+
+**TABLA 5: Las siete condiciones del florecimiento cultural — diagnóstico 2026**
 
 | Condición | Estado en Argentina 2026 |
 |---|---|
@@ -357,6 +372,21 @@ Las prácticas que generan sentido son inherentemente baratas: un Círculo de Me
 
 **Acción 3 — Redistribuir pauta publicitaria:** Fórmula transparente (50% audiencia, 30% geografía, 20% diversidad), publicación en tiempo real, prohibición de asignación discrecional.
 
+### Lo que se reforma (y lo que no)
+
+Las tres acciones no son consignas — tienen instrumentos legales concretos. Vale nombrarlos, porque la diferencia entre "habría que romper los monopolios" y "hay que modificar estos cuatro artículos" es la diferencia entre un panfleto y un plan:
+
+**TABLA 6: Instrumentos legales de las Tres Acciones**
+
+| Instrumento | Qué se modifica | Vía | Sirve a |
+|---|---|---|---|
+| **Ley 26.522 de Servicios de Comunicación Audiovisual** | Restituir y endurecer límites de concentración: tope del 25% de audiencia por provincia, desinversión obligatoria con plazos, prohibición de propiedad cruzada (gráfica + TV + cable en un mismo mercado) | Reforma legislativa — la batalla larga | Acción 1 |
+| **Resolución ENACOM** | Licencia automática para radios comunitarias de menos de 50W: trámite de notificación, silencio positivo a los 30 días, sin tasas prohibitivas | Acto administrativo del directorio — no requiere ley | Acción 2 |
+| **Criterios de pauta oficial** | Reemplazar la asignación discrecional por la fórmula transparente (50/30/20) con publicación en tiempo real de cada peso asignado | Decreto + decisión administrativa — no requiere ley | Acción 3 |
+| **Régimen de defensa de la competencia (CNDC)** | Tratar la concentración mediática como cualquier otra concentración de mercado: la CNDC investiga y sanciona posición dominante en el mercado de la atención | Aplicación de la ley existente — requiere voluntad, no reforma | Acción 1 |
+
+Y ahora notá lo que **NO** está en la tabla: **ninguna ley para PLANCUL.** No hay "Ley Nacional de Cultura Viva." No hay artículo que cree la Red de Dendritas, ni registro de Nodos, ni personería de las Mesas Largas. Eso es deliberado y es el corazón del diseño: todo lo que esta tabla reforma es el *entorno* — los obstáculos que aplastan la cultura. La cultura misma no se legisla. Una ley que creara PLANCUL sería una ley que el gobierno siguiente podría derogar. La ausencia de ley es el blindaje.
+
 **Compromiso de no-intervención:** El gobierno NO crea agencia, NO asigna presupuesto, NO certifica Dendritas, NO define qué es cultura, NO organiza festivales. Cada punto de contacto entre gobierno y cultura es un punto de vulnerabilidad.
 
 ---
@@ -365,37 +395,80 @@ Las prácticas que generan sentido son inherentemente baratas: un Círculo de Me
 
 > *"Si los otros PLANes son los órganos, PLANCUL es el sistema nervioso."*
 
-## 5.1 Integración con los 18 Mandatos
+## 5.1 Integración con los 22 PLANes
 
-| PLAN | Cómo PLANCUL le da Sentido |
+El ecosistema ¡BASTA! tiene, al 23 de abril de 2026, **22 PLANes**. PLANCUL es uno de ellos — y a la vez es el tejido que los conecta a todos. Los otros 21 construyen órganos: justicia, moneda, energía, vivienda, trenes. PLANCUL es lo que hace que esos órganos pertenezcan a un cuerpo vivo y no a un cadáver bien equipado. La tabla que sigue lee la relación en las dos direcciones: qué le da PLANCUL a cada plan, y qué infraestructura le presta cada plan al micelio.
+
+**TABLA 7: PLANCUL y los otros 21 PLANes — el sistema nervioso del ecosistema**
+
+| PLAN | Cómo PLANCUL le da Sentido (y qué toma prestado) |
 |---|---|
-| **PLAN24CN** | Ciudades nacen con Nodos Culturales en el plano |
-| **PLANREP** | Centros de la Vida incluyen salas culturales; reconversión laboral incluye Talleres y Círculos |
-| **PLANISV** | Bosques comestibles = Nodos naturales; plantar juntos = Raíz Tierra + Vínculo |
-| **PLANEDU** | Raíz Creación + Memoria en currículo; Rondas de Escucha desde primer grado |
-| **PLANJUS** | Paneles Ciudadanos practican Rondas de Escucha; justicia restaurativa es fundamentalmente cultural |
-| **PLANDIG** | ArgenCloud hostea Plataforma Dendrita; soberanía digital = infraestructura propia |
-| **PLANEB** | Bastardas Culturales: editoriales, estudios de grabación al costo |
-| **PLANSUS** | Ceremonias ancestrales son prácticas culturales; responsabilidad sobre el cuerpo = Raíz Identidad |
-| **PLANSAL** | PLANCUL ataca la soledad (que mata más que el tabaco); sentido de propósito reduce mortalidad |
-| **PLANMON** | Confianza es cultural; vínculos fuertes → más confianza en moneda e instituciones |
-| **PLANAGUA** | Cada río tiene historias; Cartografía Viva incluye relación comunidad-agua |
-| **PLANGEO** | Cultura = soft power; Red de Dendritas puede expandirse a diáspora |
-| **PLANEN** | Transición energética requiere cambio cultural; energía como bien común, no mercancía |
-| **PLANSEG** | Causa profunda de inseguridad = ruptura del tejido social; PLANCUL lo reconstruye |
-| **PLANVIV** | Vivienda sin comunidad = depósito de personas; cada proyecto habitacional se conecta a la Red |
-| **PLANJUB** | **La integración más profunda.** Ver 5.2. |
-| **PLANTRA** | Estaciones como Nodos: bibliotecas en andenes, Granaderos acompañantes, Cultura Ambiente en tránsito |
+| **PLANJUS** | Paneles Ciudadanos practican Rondas de Escucha; la justicia restaurativa es fundamentalmente cultural — no hay reparación sin comunidad que repare |
+| **PLANREP** | Centros de la Vida incluyen salas culturales; la reconversión laboral incluye Talleres y Círculos; los Centros son el piso material desde el cual los Granaderos pueden ser Dendritas (ver 5.2) |
+| **PLANEB** | Bastardas Culturales: editoriales, estudios de grabación, imprentas al costo — Argentina Escribe publica sin discográficas ni editoriales concentradas |
+| **PLANMON** | La confianza es cultural; vínculos fuertes → más confianza en moneda e instituciones. Ninguna moneda sobrevive en un país donde nadie confía en nadie |
+| **PLANDIG** | ArgenCloud hostea la Plataforma Dendrita (renglón de su roadmap — ver 2.3); soberanía digital = el archivo cultural no vive en servidores ajenos |
+| **PLANSUS** | Ceremonias ancestrales son prácticas culturales; responsabilidad sobre el propio cuerpo = Raíz Identidad; la reducción de daños empieza por tener algo mejor que hacer que anestesiarse |
+| **PLANEDU** | Raíz Creación + Memoria en el currículo; Rondas de Escucha desde primer grado; la escuela como primer Nodo que casi todo argentino pisa |
+| **PLANSAL** | PLANCUL ataca la soledad (que mata más que el tabaco); el sentido de propósito reduce mortalidad; las salas de espera son Cultura Ambiente |
+| **PLANISV** | Bosques comestibles = Nodos naturales; plantar juntos = Raíz Tierra + Vínculo; la Carta al Futuro se entierra junto a un árbol de PLANISV |
+| **PLANAGUA** | Cada río tiene historias; la Cartografía Viva registra la relación comunidad-agua; el arroyo entubado del barrio es Raíz Tierra y Raíz Memoria a la vez |
+| **PLAN24CN** | Las ciudades nuevas nacen con Nodos Culturales en el plano — la plaza antes que el shopping, la Mesa Larga como acto fundacional de cada barrio nuevo |
+| **PLANGEO** | Cultura = soft power; la Red de Dendritas se expande a la diáspora — cada argentino afuera es un Nodo potencial en Barcelona, Miami, Tel Aviv |
+| **PLANEN** | La transición energética requiere cambio cultural; energía como bien común, no mercancía — y las cooperativas eléctricas del interior son precedente de Nodo |
+| **PLANSEG** | La causa profunda de la inseguridad es la ruptura del tejido social; PLANCUL lo reconstruye. Un barrio donde los vecinos se conocen por nombre se cuida solo |
+| **PLANVIV** | Vivienda sin comunidad = depósito de personas; cada proyecto habitacional se conecta a la Red; PLANVIV además protege contra la gentrificación que el éxito cultural atrae (ver 6.2) |
+| **PLANMESA** | **Sinapsis deliberativa.** Las Rondas de Escucha son el entrenamiento de base de la deliberación: lo que se practica en el Nodo se ejerce en la Mesa. PLANCUL produce el insumo más escaso de la democracia deliberativa — ciudadanos que saben escuchar sin interrumpir |
+| **PLANTALLER** | **Sinapsis productiva.** Los talleres de oficios son Dendritas productivas: el tornero que enseña es Raíz Creación + Oficios Compartidos con torno. PLANTALLER pone las máquinas; PLANCUL pone la transmisión — el saber que pasa de mano a mano |
+| **PLANCUIDADO** | **Sinapsis vincular.** Los Pactos de Cuidado sostienen la trama de vínculos que la cultura necesita para existir: nadie va a la Mesa Larga si no tiene con quién dejar a su madre postrada. PLANCUIDADO libera el tiempo; PLANCUL lo llena de sentido. Y cuida a los Granaderos para que puedan seguir siendo puentes (ver 5.2) |
+| **PLANMEMORIA** | **Sinapsis archivística.** Los Archivos Vivos de PLANCUL depositan en el archivo federado de PLANMEMORIA: la grabación de la abuela de Humahuaca queda custodiada con el mismo rigor que un expediente de la dictadura. La memoria barrial y la memoria nacional son la misma memoria en escalas distintas |
+| **PLANTER** | **Sinapsis originaria.** Las culturas originarias no son objeto de rescate — son Dendritas vivas: comunidades que nunca dejaron de practicar la transmisión que PLANCUL quiere restablecer. PLANTER devuelve territorio; PLANCUL aprende de quienes nunca se desarraigaron. La Cartografía Viva incluye los nombres originales porque PLANTER existe |
+| **PLANMOV** | **Sinapsis territorial.** Los trenes son el circuito cultural federal: estaciones como Nodos, bibliotecas en andenes, Granaderos como acompañantes de andén, Cultura Ambiente en cada vagón. Las Rutas de Arraigo viajan en tren — la cultura federal necesita un país físicamente conectado |
+
+### Las seis sinapsis nuevas
+
+Las últimas seis filas merecen una pausa, porque son los PLANes que se sumaron al ecosistema después de la versión anterior de este documento, y cada uno resuelve algo que PLANCUL necesitaba y no tenía nombre:
+
+**PLANMESA** le da destino al peldaño 9. La Escalera de Confianza termina en "exigir juntos" — pero exigir ¿dónde, con qué forma? Las Mesas de deliberación de PLANMESA son la respuesta institucional: el barrio que aprendió a escucharse en Rondas tiene ahora un lugar donde esa escucha se vuelve decisión. Sin PLANMESA, el Poder Cívico de PLANCUL desemboca en la plaza y se disuelve. Con PLANMESA, desemboca en gobernanza.
+
+**PLANTALLER** resuelve la frontera entre cultura y producción — borrándola. El Taller Abierto de PLANCUL y el taller de oficios de PLANTALLER son el mismo gesto con distinta herramienta: alguien que sabe, enseñando a alguien que quiere. Donde PLANTALLER instala un torno, PLANCUL ya tiene un Nodo.
+
+**PLANCUIDADO** es la condición de posibilidad silenciosa. La objeción justa de la Capa 0 — la madre del 3°B que no tiene tiempo — se responde de verdad acá: los Pactos de Cuidado le devuelven las horas que la Mesa Larga necesita. La cultura no compite con el cuidado; crece sobre él.
+
+**PLANMEMORIA** le da permanencia a lo que PLANCUL graba. Un Archivo Vivo en un disco rígido de un Nodo es frágil; depositado en el archivo federado, sobrevive incendios, mudanzas y gobiernos. La regla es simple: el Nodo graba, la comunidad es dueña, PLANMEMORIA custodia la copia.
+
+**PLANTER** invierte la dirección del aprendizaje. PLANCUL no le enseña cultura a las comunidades originarias — les pide permiso para aprender. Son las únicas comunidades del territorio que mantuvieron intacta la cadena de transmisión que las Cinco Heridas cortaron en el resto del país.
+
+**PLANMOV** es la Corriente Ambiente sobre rieles. Cada estación reabierta es un Nodo potencial con andén, sala de espera y flujo diario de personas. Y el tren hace posible lo que ningún plan cultural porteño logró: que la cultura circule en las dos direcciones — que Jujuy llegue a Buenos Aires tanto como Buenos Aires llega a Jujuy.
 
 ## 5.2 Los Granaderos Como Dendritas Naturales
 
-La sinapsis más poderosa de ¡BASTA!. Los Granaderos tienen todo: tiempo, saberes, paciencia, credibilidad, libertad, necesidad de propósito, presencia. Un Granadero-Dendrita enseña a amasar (Creación+Vínculo), cuenta historias (Memoria), cuida el bosque (Tierra), cocina en la Mesa Larga (Vínculo), enseña tango (Cuerpo+Memoria), juega al truco (Juego), recibe visitantes (Tierra+Identidad). PLANJUB les da dignidad económica. PLANCUL les da propósito existencial. Juntos, transforman la vejez de carga fiscal en el recurso más valioso de la nación.
+La sinapsis más poderosa de ¡BASTA!. Los Granaderos — los mayores activados del ecosistema — tienen todo: tiempo, saberes, paciencia, credibilidad, libertad, necesidad de propósito, presencia. Un Granadero-Dendrita enseña a amasar (Creación+Vínculo), cuenta historias (Memoria), cuida el bosque (Tierra), cocina en la Mesa Larga (Vínculo), enseña tango (Cuerpo+Memoria), juega al truco (Juego), recibe visitantes (Tierra+Identidad). El piso material se lo dan los Centros de la Vida de **PLANREP**; la trama de cuidado que les permite seguir en pie se la dan los Pactos de **PLANCUIDADO**. PLANCUL les da lo que ningún plan material puede dar: propósito existencial. Juntos, transforman la vejez de carga fiscal en el recurso más valioso de la nación. Y vale decirlo sin vueltas: Marta no espera a ningún plan. Los Granaderos existen hoy — lo único que falta es reconocerlos.
 
 ## 5.3 Del Sentido al Poder Cívico
 
 Una comunidad que reconstruye su tejido social va a empezar a hacer demandas. El barrio que lleva un año de Mesas Largas va a mirar la plaza rota y decir: "Esto lo arreglamos o lo exigimos." PLANCUL no es partidario — la Mesa Larga tiene lugar para todos. Pero sí es CÍVICO: comunidades despiertas exigen gobernanza digna. Cada movimiento cultural real se convirtió en cívico: Teatro Abierto, derechos civiles, Gandhi, las Madres.
 
 **PLANCUL despierta a los ciudadanos que van a exigir que los mandatos se cumplan.** Un plan de vivienda sin ciudadanos despiertos es un plan en un cajón. Una sociedad civil viva es la única garantía contra la captura institucional.
+
+## 5.4 Dependencias Inversas — Lo Que PLANCUL Necesita (Y Qué Pasa Si No Llega)
+
+Hasta acá, el capítulo contó lo que PLANCUL le da al ecosistema. La honestidad exige la pregunta inversa: ¿qué necesita PLANCUL *de* los demás? Porque el parasitismo estratégico tiene una letra chica — el parásito necesita que el bosque exista.
+
+**TABLA 8: Dependencias inversas — el plan B de cada préstamo**
+
+| Qué necesita PLANCUL | De quién | Si llega | Si no llega |
+|---|---|---|---|
+| Espacios físicos dignos | **PLANREP** (Centros de la Vida) | Cada Centro nace con sala cultural, cocina y patio — Nodos llave en mano | La Red habita lo que ya existe: 2.000+ bibliotecas populares, clubes de barrio, peñas, parroquias, cocinas particulares. Más precario, igual de vivo |
+| Plataforma digital | **PLANDIG** (ArgenCloud) | Mapa, archivo y coordinación federados, soberanos, sin publicidad | Cuadernos, pizarras, cadenas de WhatsApp y boca en boca — como las peñas durante 75 años. Se pierde escala de aprendizaje, no se pierde la Red |
+| Tiempo escolar | **PLANEDU** (Rondas de Escucha en currículo, Raíz Creación + Memoria) | Cada generación entra a la cultura por la puerta de la escuela | Los Niños Dendrita se activan fuera del aula: la vereda, la plaza, los martes de Marta. Más lento, más desigual — pero la tiza no necesita resolución ministerial |
+| Tiempo liberado de cuidado | **PLANCUIDADO** (Pactos) | La madre del 3°B llega a la Mesa Larga | La Mesa Larga va hacia ella: se hace en su cuadra, sus pibes ya están incluidos, la comunidad cuida mientras come |
+| Custodia de archivos | **PLANMEMORIA** (archivo federado) | Los Archivos Vivos sobreviven a cualquier Nodo individual | Copias redundantes entre Nodos Compañeros — el protocolo más viejo del mundo: contar la historia muchas veces en muchos lugares |
+| Circulación federal | **PLANMOV** (trenes) | Rutas de Arraigo en tren, estaciones-Nodo, cultura que circula en ambas direcciones | Micros, autos compartidos, y Rutas de Arraigo más cortas — la inmersión en el pueblo de al lado también es inmersión |
+
+**La regla que ordena todo:** cada dependencia tiene un modo degradado, y el modo degradado es siempre **viable**. Esta no es una concesión retórica — es el criterio de diseño. Si alguna práctica de PLANCUL no pudiera existir sin otro PLAN, esa práctica estaría mal diseñada y habría que rediseñarla. La versión con ecosistema completo es un bosque regado; la versión sin ecosistema es un bosque en sequía. Crece más lento. Pero crece.
+
+Porque la verdad última de este capítulo es esta: **la cultura no espera.** No espera la ley, ni el presupuesto, ni el Centro de la Vida, ni la plataforma. La espiral arranca en cualquier living, en cualquier vereda, en cualquier cocina donde una Marta decida que los martes se amasa. Todo lo que el ecosistema aporta es velocidad y alcance. Lo que nunca aporta — porque no puede — es la chispa. Esa ya está en las personas, y estuvo siempre.
 
 ---
 
@@ -413,6 +486,8 @@ Una comunidad que reconstruye su tejido social va a empezar a hacer demandas. El
 
 El plan identifica un ciclo virtuoso (sentido → participación → comunidad → abundancia → más sentido). Pero todo sistema tiene fuerzas que lo frenan. Ignorarlas es ingenuo.
 
+**TABLA 9: Bucles de balance — lo que frena el crecimiento y cómo se responde**
+
 | Bucle de Balance | Qué Pasa | Respuesta de Diseño |
 |---|---|---|
 | **Saturación de atención** | Más Nodos y actividades compiten entre sí por los mismos participantes | Los Nodos no compiten — colaboran. La superposición es sana. La persona que va a dos Nodos es una sinapsis, no un desertor. |
@@ -422,6 +497,8 @@ El plan identifica un ciclo virtuoso (sentido → participación → comunidad �
 | **Dilución de calidad** | Al escalar de 100 a 20.000 Dendritas, la experiencia promedio se degrada | Sistema Nodo Compañero (visitas cruzadas = mejora sin burocracia) + Mecanismo de Aprendizaje ("¿Qué funcionó?" en Plataforma) + selección natural: experiencias malas se autocorrigen (la gente deja de ir). |
 
 ## 6.3 Conflictos Internos
+
+**TABLA 10: Conflictos internos — protocolos de resolución**
 
 | Conflicto | Protocolo |
 |---|---|
@@ -435,6 +512,8 @@ El plan identifica un ciclo virtuoso (sentido → participación → comunidad �
 Principio: resolver lo más local posible. Cuando no se puede, permitir escisión. La Red necesita vitalidad, no unidad.
 
 ## 6.4 Vectores de Ataque Externo
+
+**TABLA 11: Vectores de ataque externo — por qué fracasan**
 
 | Ataque | Por Qué Fracasa |
 |---|---|
@@ -452,7 +531,7 @@ Principio: resolver lo más local posible. Cuando no se puede, permitir escisió
 
 Si ¡BASTA! pierde todas las elecciones. Si el proyecto político colapsa. ¿Qué sobrevive?
 
-**Lo que se pierde:** bosques comestibles como espacios de encuentro (PLANISV defunded), Centros de la Vida (PLANREP cerrados), ArgenCloud (PLANDIG privatizado), programa institucional de Granaderos (PLANJUB cancelado), tres acciones gubernamentales (nunca ejecutadas o revertidas).
+**Lo que se pierde:** bosques comestibles como espacios de encuentro (PLANISV defunded), Centros de la Vida (PLANREP cerrados), ArgenCloud (PLANDIG privatizado), el sostén material y de cuidado de los Granaderos (PLANREP y PLANCUIDADO desmantelados), las Mesas deliberativas (PLANMESA nunca convocadas), tres acciones gubernamentales (nunca ejecutadas o revertidas).
 
 **Lo que sobrevive:**
 - **Mesas Largas** — calles existen con o sin ¡BASTA!. Mesas y sillas existen. Comida existe. Vecinos existen.
@@ -486,6 +565,8 @@ Si ¡BASTA! pierde todas las elecciones. Si el proyecto político colapsa. ¿Qu�
 
 Cada efecto de PLANCUL tiene un retardo. El sistema político quiere resultados en 4 años. Los efectos más profundos tardan 15-30. Esta tabla maneja las expectativas:
 
+**TABLA 12: Los retardos del sistema — qué se ve y qué pasa debajo**
+
 | Momento | Lo Que Es Visible | Lo Que Está Pasando Debajo |
 |---|---|---|
 | **Año 1** | Mesas Largas existen. Es todo. | Vecinos se conocen por primera vez. Semillas de confianza. |
@@ -500,9 +581,21 @@ Cada efecto de PLANCUL tiene un retardo. El sistema político quiere resultados 
 
 **Pre-Año 0 (ahora):** PLANCUL puede empezar HOY. 50 Mesas Largas en 15 provincias — **deliberadamente distribuidas, no concentradas en Buenos Aires.** Si nace porteño, muere porteño. 100 Dendritas auto-identificadas. 30 Nodos existentes conectados en Plataforma mínima.
 
-**Año 0:** Tres acciones gubernamentales. 200 Radio Dendrita. 500 Dendritas. 100 Nodos. Primeros Círculos con jubilados (PLANJUB lanza Año 1 pero los jubilados ya existen).
+**¿Y quién pone la primera mesa?** Un plan sin agencia no es un plan sin manos. Las 50 Mesas Largas iniciales no aparecen por generación espontánea — las siembra una alianza concreta de tres actores que ya existen:
 
-**Años 1-3 (Enraizamiento + Valle de la Apatía):** PLANJUB, PLANEDU, PLANISV activos. 5.000+ Dendritas, 500+ Nodos. 10.000+ grabaciones en Archivos Vivos. 200 publicaciones de Argentina Escribe. 1.000 Radio Dendrita. **ALERTA Año 2-3:** la novedad pasó, fundadores cansados. Diseño anti-apatía: hibernación permitida, rotación inyecta energía, Granaderos llegan como refuerzo fresco, Nodos Compañeros revitalizan con visitas cruzadas.
+**TABLA 13: El bootstrap — quién siembra las primeras 50 Mesas Largas**
+
+| Actor | Qué pone | Por qué él |
+|---|---|---|
+| **El voluntariado del movimiento ¡BASTA!** | Las personas: convocatoria, tablones, primera ronda de puerta a puerta en cada barrio elegido | Es el único actor con presencia militante en las 15 provincias desde el día cero — y la Mesa Larga es su mejor carta de presentación: no pide el voto, ofrece ñoquis |
+| **Los Centros de la Vida de PLANREP** (donde ya existan pilotos) | El espacio techado, la cocina, y los primeros Granaderos activados | Donde hay un Centro, la Mesa Larga tiene casa para los días de lluvia — y los Granaderos tienen dónde encontrarse con los pibes del barrio |
+| **Las bibliotecas populares — red CONABIP** | La legitimidad territorial: 2.000+ instituciones con décadas de arraigo, comisiones directivas vecinales y cero color partidario | Son el Nodo pre-existente perfecto: nadie desconfía de una biblioteca popular. Su sola adhesión le dice al barrio "esto no es de ningún partido" |
+
+La regla del bootstrap es la misma del plan entero: estos tres actores **siembran, no dirigen.** Ponen la primera mesa, presentan a los vecinos entre sí, y a la tercera Mesa Larga ya tienen que ser un comensal más. Si al año la mesa sigue necesitando al voluntariado de ¡BASTA! para existir, esa mesa falló — y vale más aprender de ella que sostenerla artificialmente.
+
+**Año 0:** Tres acciones gubernamentales. 200 Radio Dendrita. 500 Dendritas. 100 Nodos. Primeros Círculos con jubilados (los Centros de la Vida de PLANREP llegan después, pero los jubilados ya existen — y ya saben historias).
+
+**Años 1-3 (Enraizamiento + Valle de la Apatía):** PLANREP, PLANEDU, PLANISV activos. 5.000+ Dendritas, 500+ Nodos. 10.000+ grabaciones en Archivos Vivos. 200 publicaciones de Argentina Escribe. 1.000 Radio Dendrita. **ALERTA Año 2-3:** la novedad pasó, fundadores cansados. Diseño anti-apatía: hibernación permitida, rotación inyecta energía, Granaderos llegan como refuerzo fresco, Nodos Compañeros revitalizan con visitas cruzadas.
 
 **Años 4-7 (Masa Crítica):** 20.000+ Dendritas. 2.000+ Nodos en todas las provincias. 100.000+ grabaciones. 2.000+ publicaciones. Mesas Largas como institución nacional. Audiencia tóxica declina por irrelevancia. Primera generación de niños Dendrita tiene 10-12 años.
 
@@ -520,14 +613,16 @@ Cada efecto de PLANCUL tiene un retardo. El sistema político quiere resultados 
 
 ## 8.2 Señales Concretas
 
+**TABLA 14: Señales concretas — bases 2026 y metas 2041**
+
 | Señal | Base 2026 | Meta 2041 |
 |---|---|---|
 | "Vida con propósito" | 33% | 60%+ |
-| Confianza interpersonal | 17% | 35%+ |
+| Confianza interpersonal | 17% (WVS) | 35%+ |
 | Participación cultural comunitaria | 12% | 40%+ |
 | Mayores "sin razón para levantarse" | 44% | <20% |
 | Ansiolíticos per cápita | 2° LATAM | Descenso sostenido |
-| Pantalla no-laboral/día | 5.2 hs | <3.5 hs |
+| Pantalla no-laboral/día | 5,2 hs | <3,5 hs |
 | Municipios con publicación comunitaria | ~50 | 2.200 |
 | Nodos activos | ~500 | 5.000+ |
 | Mesas Largas mensuales | ~0 | 3.000+ |
@@ -535,9 +630,13 @@ Cada efecto de PLANCUL tiene un retardo. El sistema político quiere resultados 
 | Urgencias por ansiedad (zonas con Nodos) | Base Año 0 | Descenso sostenido |
 | Cartas al Futuro escritas | 0 | 2.200+ acumulativas |
 
+**Sobre estos números, las dos advertencias de rigor:** Primero, las bases 2026 son en su mayoría **estimaciones propias sujetas a verificación** (salvo donde se indica fuente — la confianza interpersonal sale de la Encuesta Mundial de Valores; el resto cruza encuestas parciales y debe medirse en serio antes del Año 0 — esa medición de línea de base es, de hecho, una de las primeras tareas de la Plataforma Dendrita). Segundo, las metas 2041 son **aspiracionales por diseño**: marcan hacia dónde apunta la espiral, no qué se promete. Este documento pertenece a un ecosistema que se presenta como diseño idealizado, no como contrato. Un plan que promete 60% de vida con propósito miente; un plan que se orienta hacia ese número y mide honestamente cada año, no.
+
 ## 8.3 Indicadores de Raíz por Nodo
 
 Observados por Nodo Compañero en visita trimestral. Sin formulario — conversación.
+
+**TABLA 15: Indicadores de raíz — lectura cualitativa por Nodo**
 
 | Raíz | Señal Positiva | Señal de Alarma |
 |---|---|---|
@@ -555,9 +654,72 @@ Número de Dendritas registradas (burocratizar). Presupuesto invertido (no hay).
 
 ---
 
-## APÉNDICE A: MOVIMIENTOS CULTURALES DESCENTRALIZADOS
+## APÉNDICE A: LECCIONES DEL MUNDO — MOVIMIENTOS CULTURALES DESCENTRALIZADOS
 
-Teatro Abierto (1981, quemaron el teatro, se mudaron a uno más grande). Peñas folklóricas (75 años, autofinanciadas, la prueba de que PLANCUL puede funcionar). Puntos de Cultura Brasil (brillante concepto, error: dependencia presupuestaria — PLANCUL aprende). Transition Towns (50+ países, sin líder, sin presupuesto central). Wikipedia (60M artículos, cero empleados escritores). Madres de Plaza de Mayo (14 madres, ningún permiso, caminan todavía). Repair Cafés (el pretexto es el objeto, el resultado es comunidad).
+> *"Nadie inventa solo. Se hereda, se roba con gratitud, y se adapta."*
+
+PLANCUL no nació de un pizarrón. Nació de mirar con atención qué movimientos culturales sobrevivieron décadas sin permiso, sin presupuesto estable y sin líder irremplazable — y qué movimientos brillantes murieron, y de qué murieron. La lista corta argentina ya apareció en el cuerpo del documento: Teatro Abierto (1981 — quemaron el teatro, se mudaron a uno más grande), las Madres de Plaza de Mayo (14 madres, ningún permiso, caminan todavía), los Repair Cafés (el pretexto es el objeto, el resultado es comunidad). Acá van los seis casos que más le enseñaron a este plan — incluyendo, sin falsa modestia, uno propio. Cada caso se cuenta con sus luces y sus sombras, porque un precedente sin sombras no es un precedente: es propaganda.
+
+### A.1 Puntos de Cultura (Brasil) — el concepto brillante que dependía del presupuesto
+
+En 2004, el Ministerio de Cultura de Brasil — con Gilberto Gil al frente — lanzó el programa Cultura Viva con una idea revolucionaria: el Estado no crea cultura, la **reconoce**. En vez de construir centros culturales nuevos, el programa identificó los miles de puntos donde la cultura ya estaba pasando — el grupo de teatro de la favela, la radio comunitaria, el maestro de capoeira, la cuadrilla de maracatu — y los declaró "Puntos de Cultura," dándoles un subsidio modesto y, más importante, legitimidad. Llegaron a reconocerse miles de puntos en todo el territorio. La intuición de fondo es exactamente la de PLANCUL: el mapa antes que la obra, el reconocimiento antes que la creación.
+
+Pero el programa tenía un talón de Aquiles que su propio diseño volvió inevitable: cada Punto de Cultura dependía de la transferencia estatal para sostener lo que el reconocimiento había encendido. Cuando el ciclo político brasileño giró — los gobiernos que siguieron recortaron, demoraron pagos, dejaron convenios sin renovar — miles de puntos quedaron a mitad de camino: con la expectativa creada, el proyecto ampliado y la plata cortada. Muchos sobrevivieron volviendo a lo que eran antes del programa. Otros no, porque habían crecido hasta una escala que solo el subsidio sostenía.
+
+La lección es quirúrgica, y PLANCUL la lleva tatuada: **reconocer lo existente, sí — atarlo al presupuesto, jamás.** PLANCUL toma de Cultura Viva el gesto de mapear y legitimar lo que ya vive (la primera tarea de la Plataforma Dendrita es exactamente esa), y rechaza el mecanismo que lo mató: ningún Nodo de la Red recibe transferencias que un gobierno pueda cortar, porque ningún Nodo debe crecer hasta un tamaño que solo un gobierno pueda sostener.
+
+### A.2 Transition Towns (Reino Unido) — el manual libre que dio la vuelta al mundo
+
+En 2006, en el pueblo de Totnes, Devon, el docente de permacultura Rob Hopkins lanzó una pregunta simple: ¿cómo se prepara una comunidad para un mundo con menos petróleo barato? La respuesta no fue una ONG, ni una federación, ni un partido. Fue un **manual** — una secuencia de pasos replicables (formar un grupo, hacer visible el problema, reaprender oficios, plantar comida, crear moneda local) publicado libre para que cualquier pueblo lo adaptara. Sin sede central, sin presupuesto central, sin permiso: en pocos años había iniciativas de transición en más de 50 países, cada una distinta, cada una local, ninguna esperando instrucciones de Totnes.
+
+El modelo demostró dos cosas que PLANCUL asume como leyes físicas. Primera: **una práctica bien documentada se propaga sola** — el Mecanismo de Aprendizaje de la Plataforma Dendrita ("¿Qué funcionó?") es la versión continua del manual de Hopkins. Segunda: la adaptación local no es una degradación del modelo — es el modelo. La transición de un pueblo pesquero no se parece a la de una ciudad universitaria, y eso está perfecto.
+
+Pero Transition Towns también dejó una sombra instructiva: muchas iniciativas arrancaron con entusiasmo enorme y se apagaron a los dos o tres años, sostenidas por un puñado de fundadores de clase media que se quemaron — el patrón exacto que la Capa 6 llama el Valle de la Apatía. El propio movimiento tuvo que inventar respuestas tardías (grupos de "salud interior," redes de apoyo entre iniciativas) que PLANCUL incorpora desde el día cero: rotación obligatoria, permiso de hibernar, Nodos Compañeros, Corriente Interior. La lección doble: el manual libre propaga; el diseño anti-apatía sostiene.
+
+### A.3 Las peñas y el folklore argentino — el precedente propio que nadie estudia
+
+El caso más importante de este apéndice no está en Inglaterra ni en Brasil. Está acá, hace 75 años, y es tan exitoso que se volvió invisible. Las peñas folklóricas — esos espacios donde se come, se canta, se baila y se transmite el repertorio de generación en generación — sobrevivieron a todo: dictaduras que prohibían reuniones, hiperinflaciones que pulverizaron cualquier presupuesto, modas musicales que las declararon muertas cada década. Sobrevivieron sin ministerio, sin ley de peñas, sin registro nacional de peñeros. Se financian con el buffet, la entrada a voluntad y el trabajo de los que las aman. Cosquín mismo — el festival mayor — nació en 1961 de una comisión de vecinos de un pueblo cordobés, no de una secretaría de cultura.
+
+Mirá la anatomía de una peña y vas a ver el esqueleto entero de PLANCUL: comida compartida (Mesa Larga), música hecha por los presentes y no para los presentes (Raíz Creación), baile social que junta generaciones (Raíz Cuerpo), el viejo que le enseña la zamba al pibe (Círculo de Memoria), el escenario abierto donde cualquiera sube (Taller Abierto), y ninguna autoridad central que decida qué peña es "oficial." La Escalera de Confianza está ahí también: nadie llora en su primera peña, pero el peñero de veinte años ha llorado en varias.
+
+La lección para PLANCUL es la más profunda de todas: **el modelo ya funcionó en Argentina, a escala nacional, durante 75 años.** PLANCUL no propone importar nada — propone reconocer la tecnología social de la peña, nombrar sus piezas y extenderla más allá del folklore: a la cumbia, al rock barrial, al teatro, a la cocina, al oficio. Si alguien objeta que "los argentinos no se organizan sin Estado," la respuesta cabe en una palabra: peñas.
+
+### A.4 Software libre y Wikipedia — el procomún que construyó la civilización digital
+
+El movimiento del software libre (desde 1983, con el kernel Linux en 1991 como hito) y Wikipedia (2001) demostraron algo que la teoría económica de su tiempo consideraba imposible: miles de desconocidos, sin jefe, sin salario y sin contrato, pueden construir y mantener infraestructura de la que depende la civilización. Linux corre en la mayoría de los servidores del planeta. Wikipedia es la obra de referencia más consultada de la historia humana, con decenas de millones de artículos y cero empleados escritores. El mecanismo no es el altruismo — es el diseño: la obra es de todos (licencias libres), la contribución es voluntaria y modular, la coordinación es liviana, y el reconocimiento de los pares vale más que el dinero.
+
+De este procomún PLANCUL roba con gratitud tres mecanismos. El **fork**: cuando una comunidad de software se divide, no destruye el proyecto — lo duplica, y cada rama sigue su camino. Es exactamente el protocolo de mitosis de los Nodos (6.3): la escisión como resolución de conflicto, no como fracaso. La **licencia libre**: la Plataforma Dendrita es open source y este mismo documento no tiene derechos de autor, porque lo que se puede copiar libremente no se puede capturar. Y la **memoria de prácticas**: la documentación pública de qué se intentó y qué pasó — el historial de cambios de Wikipedia es el ancestro directo del Mecanismo de Aprendizaje.
+
+La sombra también enseña: el procomún digital descansa sobre un puñado de mantenedores invisibles y crónicamente quemados — el famoso proyecto crítico mantenido por una sola persona agotada. La cultura comunitaria tiene el mismo punto débil: la Dendrita irremplazable. Por eso la rotación obligatoria de PLANCUL no es una opción simpática — es la diferencia entre una red y una lista de futuros quemados.
+
+### A.5 El Sistema (Venezuela) — la potencia y el peligro del modelo centralizado
+
+En 1975, José Antonio Abreu juntó a once pibes en un garage de Caracas con instrumentos prestados. Cincuenta años después, El Sistema había pasado por sus núcleos a cientos de miles de niños y jóvenes — mayormente de barrios pobres — y había producido directores y orquestas de nivel mundial. Su intuición central es hermana de PLANCUL: la orquesta no es una escuela de música, es una **tecnología de comunidad** — un lugar donde el pibe es necesario, donde su parte importa, donde la belleza se construye junta o no se construye. El "núcleo" de El Sistema es un Nodo con atriles.
+
+Pero El Sistema es también el contraejemplo más instructivo de este apéndice, por tres motivos. Primero: es estatal y centralizado — sobrevivió cinco décadas de gobiernos opuestos no por ser independiente sino por volverse políticamente indispensable para todos, un equilibrio admirable y aterrador que ningún plan debería necesitar. Segundo: giró durante décadas alrededor de un fundador carismático — el tipo de figura que la Capa 6 considera un vector de riesgo, no una bendición. Tercero: su cultura interna de excelencia jerárquica produjo, junto a las maravillas, denuncias documentadas de rigidez y de abusos — el recordatorio de que toda estructura con adultos, niños y poder necesita líneas rojas explícitas, no confianza implícita.
+
+PLANCUL toma de El Sistema la práctica (el conjunto musical comunitario como peldaño 3 de la Escalera — Música Viva existe por esto) y rechaza la arquitectura: sin fundador, sin pirámide, sin dependencia presupuestaria, y con el protocolo de conducta predatoria como línea roja innegociable desde el Apéndice D. La belleza no justifica la jerarquía. La belleza, bien entendida, la vuelve innecesaria.
+
+### A.6 Slow Food (Italia) — la comida como puerta de entrada universal
+
+En 1986, cuando McDonald's anunció su local junto a la Piazza di Spagna en Roma, Carlo Petrini y un grupo de piamonteses respondieron de la manera más italiana posible: no con un juicio, sino con una comida. De esa protesta con plato nació Slow Food — un movimiento que hoy abarca cientos de miles de miembros en más de 150 países, organizado en "convivium": grupos locales cuya actividad fundamental es sentarse a comer juntos lo que el territorio produce. El convivium es, letra por letra, una Mesa Larga con acento italiano. Y su red de proyectos — el Arca del Gusto que cataloga alimentos en peligro de extinción, los encuentros de Terra Madre donde campesinos del mundo intercambian saberes — es Archivos Vivos y Rutas de Arraigo aplicados al alimento.
+
+Slow Food demostró dos tesis que PLANCUL necesitaba ver probadas. Primera: **la comida es la puerta de entrada universal** — el peldaño 1 de la Escalera de Confianza funciona en cualquier cultura, porque comer juntos es anterior a cualquier ideología. Segunda: un movimiento puede sostenerse durante décadas con membresías voluntarias y autofinanciamiento, sin depender de ningún Estado, y aún así incidir en políticas públicas — la dirección causal correcta: primero la práctica, después la incidencia.
+
+Su sombra es el riesgo que PLANCUL más vigila en la Mesa Larga: la **elitización**. Con los años, parte del universo "slow" derivó hacia el gourmet caro — la quinoa orgánica a precio de caviar, la experiencia artesanal para quien puede pagarla. Cuando la comida lenta cuesta el triple que la rápida, el movimiento traicionó su origen. Por eso la Mesa Larga de PLANCUL tiene una regla constitutiva que no se negocia: cada casa trae lo que puede, y los ñoquis de la nonna valen lo mismo que cualquier manjar. El día que una Mesa Larga cobre entrada, dejó de ser una Mesa Larga.
+
+### A.7 El resumen — qué se roba y qué se rechaza
+
+**TABLA A1: Lecciones del mundo — qué le enseña cada caso a PLANCUL**
+
+| Caso | Qué demuestra | Lección para PLANCUL |
+|---|---|---|
+| **Puntos de Cultura (Brasil)** | El Estado puede reconocer cultura existente en vez de crearla | Mapear y legitimar, sí; atar al presupuesto, jamás. El subsidio que te sostiene es el subsidio que te mata |
+| **Transition Towns (Reino Unido)** | Un manual libre se propaga a 50+ países sin estructura central | Documentar prácticas replicables (Mecanismo de Aprendizaje) + diseño anti-apatía desde el día cero, no como parche tardío |
+| **Peñas y folklore (Argentina)** | 75 años de cultura autofinanciada, intergeneracional y sin permiso — acá | El modelo ya funcionó a escala nacional en este país. PLANCUL no importa: reconoce, nombra y extiende la tecnología de la peña |
+| **Software libre / Wikipedia** | Miles de desconocidos sin jefe construyen infraestructura civilizatoria | Fork = mitosis de Nodos; licencias libres = anticaptura; rotación obligatoria contra el mantenedor quemado |
+| **El Sistema (Venezuela)** | El conjunto musical comunitario transforma vidas a escala masiva | Tomar la práctica (Música Viva), rechazar la arquitectura: sin fundador carismático, sin pirámide, con líneas rojas explícitas |
+| **Slow Food (Italia)** | Comer juntos funciona como puerta de entrada en cualquier cultura | El convivium valida la Mesa Larga — y su deriva gourmet advierte: la mesa que cuesta plata expulsa a quien más la necesita |
 
 ## APÉNDICE B: PROTOCOLO DE CÍRCULOS DE MEMORIA
 
@@ -648,7 +810,8 @@ Regla: no saltear peldaños. Peso abajo: muchas Mesas, bastante hacer/crear/move
 | **Parasitismo Estratégico** | PLANCUL habita infraestructura de otros PLANes. Invisible e inextirpable. |
 | **Bucles de Balance** | Fuerzas sistémicas que limitan el crecimiento: saturación, rutinización, gentrificación, éxito paradójico, dilución. |
 | **Núcleo Mínimo Superviviente** | Lo que sobrevive si ¡BASTA! colapsa: todo lo que vive en personas, no en instituciones. |
-| **Granadero/a** | Adulto mayor de PLANJUB. Dendrita natural. |
+| **Granadero/a** | Adulto mayor activado como Dendrita natural. Su piso material lo sostienen los Centros de la Vida (PLANREP) y los Pactos de Cuidado (PLANCUIDADO); su propósito, PLANCUL. |
+| **Dependencias Inversas** | Lo que PLANCUL necesita del ecosistema (espacios, plataforma, tiempo escolar) — con modo degradado viable para cada pieza. La cultura no espera. |
 
 ---
 
@@ -674,8 +837,9 @@ Empezar.
 
 ```
 PLANCUL — Plan Nacional de Cultura Viva y Red de Dendritas
-Versión 4.0 | Marzo 2026 | Estructura Espiral · Siete Raíces · Tres Corrientes
-Mandato popular n°16 de ¡BASTA!
+Versión 4.1 | Junio 2026 | Estructura Espiral · Siete Raíces · Tres Corrientes
+Decimosexto de los 22 PLANes de ¡BASTA! (al 23 de abril de 2026)
+El único sin agencia, sin presupuesto y sin ley — por diseño
 
 Este documento no tiene derechos de autor.
 Se puede copiar, modificar, traducir, imprimir, distribuir, leer en voz alta,

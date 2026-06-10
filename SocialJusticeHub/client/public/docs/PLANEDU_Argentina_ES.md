@@ -27,7 +27,7 @@ Hay una pregunta que nadie le hace al sistema educativo argentino, y es la únic
 
 No para qué les enseñamos matemáticas a los chicos — eso es una pregunta instrumental. No para qué los mandamos a la escuela — eso es una pregunta logística. No para qué les hacemos leer el Martín Fierro — eso es una pregunta cultural. La pregunta es más profunda, más incómoda, más urgente: ¿para qué existe el sistema educativo? ¿Cuál es su razón de ser? ¿Qué tipo de ser humano pretende producir? Y si no pretende producir ningún tipo en particular — si simplemente funciona por inercia, repitiendo fórmulas del siglo XIX porque nadie se animó a cuestionarlas — entonces no es un sistema educativo. Es una máquina de apagar fuegos — de tomar seres humanos que nacen encendidos y apagarlos sistemáticamente hasta que dejen de brillar.
 
-Russell Ackoff — el pensador de sistemas que inspira todo el proyecto BASTA — distinguía entre *hacer las cosas bien* y *hacer las cosas correctas*. Un sistema puede ser impecablemente eficiente haciendo algo que no debería estar haciendo. Puede optimizar cada proceso, medir cada resultado, capacitar cada operador — y estar completamente equivocado en su propósito fundamental. El sistema educativo argentino no fracasa porque los maestros sean malos o los alumnos sean vagos o el presupuesto sea insuficiente. Fracasa porque está diseñado para un propósito que ya no existe: producir obreros obedientes para fábricas del siglo XX, ciudadanos dóciles para democracias de masas, y consumidores predecibles para economías de volumen. Ese mundo ya no existe. Pero la escuela sigue preparando gente para habitarlo.
+Russell Ackoff — el pensador de sistemas que inspira todo el proyecto ¡BASTA! — distinguía entre *hacer las cosas bien* y *hacer las cosas correctas*. Un sistema puede ser impecablemente eficiente haciendo algo que no debería estar haciendo. Puede optimizar cada proceso, medir cada resultado, capacitar cada operador — y estar completamente equivocado en su propósito fundamental. El sistema educativo argentino no fracasa porque los maestros sean malos o los alumnos sean vagos o el presupuesto sea insuficiente. Fracasa porque está diseñado para un propósito que ya no existe: producir obreros obedientes para fábricas del siglo XX, ciudadanos dóciles para democracias de masas, y consumidores predecibles para economías de volumen. Ese mundo ya no existe. Pero la escuela sigue preparando gente para habitarlo.
 
 Y el problema es todavía peor de lo que parece — porque el sistema educativo no solo prepara para un mundo que ya no existe: ni siquiera prepara para el mundo que *viene*. Un mundo donde la inteligencia artificial y la robótica van a transformar radicalmente lo que significa "trabajar", donde una porción creciente de la producción no va a necesitar manos humanas, y donde el desafío central ya no es "conseguir un empleo" sino "diseñar una vida con sentido". PLANEDU no puede repetir el error de diseñar la educación para los empleos de 2026 cuando los egresados de 2040 van a habitar un mundo fundamentalmente distinto. Por eso PLANEDU se diseña en tres horizontes temporales — y construye desde el día uno las capacidades para que cada argentino pueda navegar la transición más profunda de la historia humana.
 
@@ -39,15 +39,15 @@ Este documento no es una reforma educativa. Las reformas educativas las hacemos 
 
 La respuesta de PLANEDU es concreta: construiríamos un sistema cuyo propósito no es producir trabajadores, ni ciudadanos, ni consumidores, sino **seres humanos capaces de crear las mejores experiencias humanas posibles — para sí mismos, para los que los rodean, y para el mundo**. Seres humanos que sepan pensar con rigor, crear con belleza, comunicar con claridad, cuidar con empatía, construir con sus manos, colaborar con inteligencia, y conocer con profundidad. No especialistas estrechos. No generalistas superficiales. Personas completas, potentes, creativas, compasivas — personas que hagan del mundo un lugar mejor por el solo hecho de habitarlo.
 
-PLANEDU forma parte de lo que llamamos el **proyecto BASTA** — cinco iniciativas estratégicas fundacionales interconectadas que abordan las crisis estructurales que la Argentina arrastra como cadenas: PLAN24CN (las 24 ciudades nuevas que descomprimen el colapso urbano), PLANREP (la reconversión del empleo público hacia trabajo creador), PLANISV (la reconstrucción de la infraestructura biológica del suelo), PLANEDU (la refundación del sistema educativo) y PLANJUS (la justicia popular y resolución de conflictos). Cinco iniciativas. Un solo diagnóstico: la Argentina tiene todos los recursos — naturales, humanos, culturales, geográficos — para ser un país extraordinario, y un sistema diseñado para impedirlo. BASTA.
+PLANEDU forma parte de lo que llamamos el **proyecto ¡BASTA!** y sus 22 PLANes (al 23 de abril de 2026) — un ecosistema de iniciativas estratégicas interconectadas que abordan las crisis estructurales que la Argentina arrastra como cadenas: PLAN24CN (las 24 ciudades nuevas que descomprimen el colapso urbano), PLANREP (la reconversión del empleo público hacia trabajo creador), PLANISV (la reconstrucción de la infraestructura biológica del suelo), PLANEDU (la refundación del sistema educativo) y PLANJUS (la justicia popular y resolución de conflictos). 22 PLANes. Un solo diagnóstico: la Argentina tiene todos los recursos — naturales, humanos, culturales, geográficos — para ser un país extraordinario, y un sistema diseñado para impedirlo. ¡BASTA!
 
-Y de las cinco iniciativas, PLANEDU es la que determina si las otras cuatro sobreviven al paso del tiempo. Podés construir 24 ciudades perfectas, pero si la gente que las habita no tiene la formación para cuidarlas, gobernarlas y hacerlas evolucionar, se deterioran en una generación. Podés reconvertir un millón de empleados públicos, pero si el sistema educativo sigue produciendo gente sin habilidades, sin iniciativa y sin capacidad de crear valor, en diez años tenés otro millón pidiendo puesto en el Estado. Podés regenerar cada hectárea de suelo argentino, pero si los hijos de los productores no entienden la biología del suelo porque nadie se la enseñó, vuelven al glifosato en cuanto cambian de generación.
+Y de las iniciativas de ¡BASTA!, PLANEDU es la que determina si las demás sobreviven al paso del tiempo. Podés construir 24 ciudades perfectas, pero si la gente que las habita no tiene la formación para cuidarlas, gobernarlas y hacerlas evolucionar, se deterioran en una generación. Podés reconvertir un millón de empleados públicos, pero si el sistema educativo sigue produciendo gente sin habilidades, sin iniciativa y sin capacidad de crear valor, en diez años tenés otro millón pidiendo puesto en el Estado. Podés regenerar cada hectárea de suelo argentino, pero si los hijos de los productores no entienden la biología del suelo porque nadie se la enseñó, vuelven al glifosato en cuanto cambian de generación.
 
 La educación no es una política pública más. Es **el sistema operativo** de todas las demás. Si funciona mal, todo lo demás falla eventualmente. Si funciona bien, todo lo demás se vuelve posible.
 
-Hay una filosofía que atraviesa las cinco iniciativas del proyecto BASTA. La llamamos *El Instante del Hombre Gris*. La premisa es simple: vivimos en una sociedad que apaga a las personas — que les roba la capacidad de crear, de sentir su potencia, de transformar el mundo con sus manos y su inteligencia. Personas dormidas, en piloto automático, reducidas a engranajes de un sistema que no las necesita despiertas. El sistema educativo argentino es la máquina principal de ese apagón. No por maldad — por diseño. Un sistema que premia la repetición sobre la creación, la obediencia sobre la curiosidad, la memorización sobre la comprensión, y el título sobre la capacidad — es un sistema diseñado para mantener a la gente dormida. Gente que cumple pero no crea. Que obedece pero no pregunta. Que trabaja pero no vive.
+Hay una filosofía que atraviesa los 22 PLANes del proyecto ¡BASTA!. La llamamos *El Instante del Hombre Gris*. La premisa es simple: vivimos en una sociedad que apaga a las personas — que les roba la capacidad de crear, de sentir su potencia, de transformar el mundo con sus manos y su inteligencia. Personas dormidas, en piloto automático, reducidas a engranajes de un sistema que no las necesita despiertas. El sistema educativo argentino es la máquina principal de ese apagón. No por maldad — por diseño. Un sistema que premia la repetición sobre la creación, la obediencia sobre la curiosidad, la memorización sobre la comprensión, y el título sobre la capacidad — es un sistema diseñado para mantener a la gente dormida. Gente que cumple pero no crea. Que obedece pero no pregunta. Que trabaja pero no vive.
 
-El Hombre Gris es lo contrario de esa persona dormida. El Hombre Gris es el que **despierta**. Gris como el acero que se pule hasta brillar. Gris como la piedra que contiene el diamante. Gris como el amanecer antes de que el sol estalle. El Hombre Gris es el que decide despolarizarse — salir de los extremos, encontrar su centro, encender su espíritu, pulir su carácter. No es un estado de carencia — es un estado de transformación. Es la persona que dice: *basta de vivir apagado*.
+El Hombre Gris es lo contrario de esa persona dormida. El Hombre Gris es el que **despierta**. Gris como la plata que se pule hasta brillar — porque Argentina es argentum, y argentum es plata. Gris como la piedra que contiene el diamante. Gris como el amanecer antes de que el sol estalle. El Hombre Gris es el que decide despolarizarse — salir de los extremos, encontrar su centro, encender su espíritu, pulir su carácter. No es un estado de carencia — es un estado de transformación. Es la persona que dice: *basta de vivir apagado*.
 
 El instante del Hombre Gris es el momento en que una persona decide encenderse. Decide crear en vez de repetir. Decide aprender lo que importa en vez de memorizar lo que le dijeron. Decide que su vida no va a ser una fotocopia de la vida que el sistema le programó. En ese instante, deja de ser una persona apagada y se convierte en Hombre Gris — alguien que está puliéndose, que está despertando, que está encendiendo su fuego interior. PLANEDU existe para que ese instante le llegue a cada argentino a los seis años — no a los cuarenta, cuando ya perdió dos décadas.
 
@@ -241,7 +241,7 @@ De los éxitos internacionales — Finlandia, Singapur, Estonia, Ontario — eme
 4. **Co-diseño con los que implementan.** Los docentes, los directores, las familias, las empresas — todos participan en el diseño. Lo que se impone desde arriba, fracasa desde abajo.
 5. **Medición de lo que importa.** No exámenes estandarizados de memorización. Evaluación de capacidades reales, portfolios, inserción laboral y capacidad de contribución, bienestar. Si medís lo fácil en vez de lo importante, optimizás la métrica equivocada.
 
-PLANEDU incorpora las cinco constantes. La ANCE es la institución autónoma. Los Maestros Creadores son el docente primero. El Pacto de la Dignidad es el co-diseño con los sindicatos. El portfolio es la medición de lo que importa. Y el proyecto BASTA es el compromiso de largo plazo — cinco iniciativas estratégicas diseñadas para sobrevivir al ciclo electoral.
+PLANEDU incorpora las cinco constantes. La ANCE es la institución autónoma. Los Maestros Creadores son el docente primero. El Pacto de la Dignidad es el co-diseño con los sindicatos. El portfolio es la medición de lo que importa. Y el proyecto ¡BASTA! es el compromiso de largo plazo — 22 PLANes diseñados para sobrevivir al ciclo electoral.
 
 ### 2.5 Alpha School: La Escuela que Comprimió el Tiempo y Liberó la Creación
 
@@ -267,7 +267,7 @@ Lo que PLANEDU toma de Alpha — y lo que descarta:
 
 - **Toma:** El principio de compresión académica mediante tecnología adaptativa. La liberación de horas para creación. La estructura de talleres rotativos. La eliminación de la tarea.
 - **Descarta:** El modelo de docente minimizado. El costo privado. La desconexión con la comunidad.
-- **Supera:** PLANEDU usa **3 horas** de bloque matutino adaptativo (no 2) porque incorpora Sesiones Socráticas con el Maestro Creador — interacción humana de alto nivel que Alpha no prioriza. El Maestro Creador en PLANEDU es **más** central al proceso, no menos. La PAA es open-source y soberana, no software propietario. El costo objetivo de PLANEDU es **USD 3.000-4.000 por alumno por año** usando infraestructura compartida BASTA, tecnología abierta y economías de escala pública. Y las 5 horas liberadas de la tarde no son solo talleres — son emprendimientos reales conectados con PLANREP, proyectos comunitarios con impacto medible, y una Escuela Abierta que sirve al barrio entero.
+- **Supera:** PLANEDU usa **3 horas** de bloque matutino adaptativo (no 2) porque incorpora Sesiones Socráticas con el Maestro Creador — interacción humana de alto nivel que Alpha no prioriza. El Maestro Creador en PLANEDU es **más** central al proceso, no menos. La PAA es open-source y soberana, no software propietario. El costo objetivo de PLANEDU es **USD 3.000-4.000 por alumno por año** usando infraestructura compartida ¡BASTA!, tecnología abierta y economías de escala pública. Y las 5 horas liberadas de la tarde no son solo talleres — son emprendimientos reales conectados con PLANREP, proyectos comunitarios con impacto medible, y una Escuela Abierta que sirve al barrio entero.
 
 PLANEDU no copia a Alpha — la supera. Alpha demostró que el tiempo sobra. PLANEDU demuestra que el tiempo liberado puede encender a una generación entera.
 
@@ -1182,7 +1182,7 @@ PLANEDU no pretende que la transformación educativa sea barata. Pretende que se
 | 12 | 7.0% | +2.0% | ~10.000 | Régimen: todas las fuentes consolidadas | 500 EdF + transformación sistémica en curso |
 
 **Supuestos clave:**
-- Crecimiento del PBI: 2-3% anual promedio (conservador, dado efecto combinado de las iniciativas BASTA)
+- Crecimiento del PBI: 2-3% anual promedio (conservador, dado efecto combinado de las iniciativas ¡BASTA!)
 - PBI base: ~USD 500.000M (2026), creciendo a ~USD 650.000-700.000M en Año 12
 - Cada 0.1% de un PBI de USD 600.000M = USD 600M
 - Ahorro PLANREP: comienza en Año 3 con ~USD 3.000M/año, escala a ~USD 15.000M/año en Año 8+
@@ -1641,26 +1641,26 @@ Si la Fase 2 demuestra que el modelo funciona, la Fase 3 lo escala. De 50 escuel
 
 ---
 
-## SECCIÓN 18: INTEGRACIÓN CON EL PROYECTO BASTA — EL ORGANISMO COMPLETO
+## SECCIÓN 18: INTEGRACIÓN CON EL PROYECTO ¡BASTA! — EL ORGANISMO COMPLETO
 
 > *"PLANEDU no existe solo. Es un órgano de un organismo. Sin los otros cuatro, late pero no vive. Con los otros cuatro, transforma todo."*
 
-PLANEDU es una de las cinco piezas de un rompecabezas que solo funciona completo. Cada iniciativa del proyecto BASTA — PLAN24CN, PLANISV, PLANREP, PLANEDU, PLANJUS — aborda una crisis específica, pero las cinco crisis están interconectadas y las cinco soluciones se potencian mutuamente. Un egresado de PLANEDU que vive en una ciudad de PLAN24CN, come alimentos de un campo PLANISV, y trabaja en un emprendimiento nacido de PLANREP es un argentino que vive en un ecosistema completo de bienestar — no en un parche aislado.
+PLANEDU es una de las cinco piezas de un rompecabezas que solo funciona completo. Cada iniciativa del proyecto ¡BASTA! — PLAN24CN, PLANISV, PLANREP, PLANEDU, PLANJUS — aborda una crisis específica, pero las cinco crisis están interconectadas y las cinco soluciones se potencian mutuamente. Un egresado de PLANEDU que vive en una ciudad de PLAN24CN, come alimentos de un campo PLANISV, y trabaja en un emprendimiento nacido de PLANREP es un argentino que vive en un ecosistema completo de bienestar — no en un parche aislado.
 
 ### 18.1 El Aula Viva: La Educación que Sale del Edificio
 
-Las Escuelas del Futuro no terminan en sus paredes. PLANEDU propone que cada alumno, durante su trayectoria escolar, participe en rotaciones inmersivas por las otras cuatro iniciativas del proyecto BASTA. No como excursión turística — como experiencia formativa profunda, integrada en el currículo, evaluada como parte del portfolio.
+Las Escuelas del Futuro no terminan en sus paredes. PLANEDU propone que cada alumno, durante su trayectoria escolar, participe en rotaciones inmersivas por las otras cuatro iniciativas del proyecto ¡BASTA!. No como excursión turística — como experiencia formativa profunda, integrada en el currículo, evaluada como parte del portfolio.
 
-**TABLA 34: El Aula Viva — Rotaciones Inmersivas BASTA**
+**TABLA 34: El Aula Viva — Rotaciones Inmersivas ¡BASTA!**
 
-| Rotación | Duración | Edad | Capacidades que Desarrolla | Qué Hace el Alumno | Conexión BASTA |
+| Rotación | Duración | Edad | Capacidades que Desarrolla | Qué Hace el Alumno | Conexión ¡BASTA! |
 |---|---|---|---|---|---|
 | **Semana PLANISV** (en un sitio de restauración de suelo o finca regenerativa) | 5-7 días (2 veces en la trayectoria: a los 10 y a los 15) | 10 y 15 años | CUIDAR + CONOCER + CONSTRUIR + COLABORAR | Trabaja con las manos en el suelo: analiza microbiología, planta coberturas, mide infiltración de agua, cocina con lo que cosecha. Documenta todo para su portfolio. Convive con productores reales. | La biología del suelo deja de ser un capítulo de un libro y se convierte en tierra bajo las uñas |
 | **Semana PLAN24CN** (en una ciudad nueva en construcción o ya habitada) | 5-7 días (2 veces: a los 12 y a los 16) | 12 y 16 años | PENSAR + CREAR + COLABORAR + COMUNICAR | Participa en un taller de diseño urbano real: analiza cómo se diseñó la ciudad, propone mejoras, entrevista a habitantes, mapea flujos. Presenta sus conclusiones al Consejo Ciudadano de la ciudad. | El urbanismo como creación colectiva — la ciudad no es algo que te pasa, es algo que se diseña |
 | **Semana PLANREP** (en un Centro de la Vida o Centro de Inteligencia) | 5-7 días (1 vez, a los 14) | 14 años | CONSTRUIR + CREAR + CUIDAR + CONOCER | Trabaja junto a adultos en reconversión: aprende un oficio artesanal durante una semana, ve a personas adultas aprendiendo cosas nuevas, entiende que el aprendizaje no termina a los 18. Produce una pieza artesanal que se suma a su portfolio. | La educación no es solo para chicos. Ver a un adulto de 45 años aprendiendo carpintería cambia la perspectiva de un adolescente sobre el aprendizaje para siempre |
 | **Semana PLANJUS** (en una Casa JUS o panel ciudadano) | 5-7 días (1 vez, a los 16) | 16 años | PENSAR + COMUNICAR + COLABORAR + CUIDAR | Estudiantes visitan Casas JUS, observan paneles ciudadanos en acción, participan en casos simulados, aprenden resolución de conflictos y justicia restaurativa | Comprensión de justicia como servicio comunitario, no como institución lejana |
 
-**El efecto de polinización cruzada:** Cuando un alumno de 15 años vuelve de una semana en una finca PLANISV y cuenta en su Escuela del Futuro lo que aprendió sobre micorrizas, sobre la relación entre suelo y agua, sobre el amanecer trabajando con las manos — está haciendo algo que ningún libro de texto puede hacer: está transmitiendo experiencia vivida. Y cuando un productor de PLANISV ve a un grupo de adolescentes analizando su suelo con instrumentos científicos y explicándole en qué consiste la red de micorrizas que sostiene sus cultivos, está viendo el futuro de la producción argentina. El proyecto BASTA se convierte en un aula viva donde cada pieza educa a las otras.
+**El efecto de polinización cruzada:** Cuando un alumno de 15 años vuelve de una semana en una finca PLANISV y cuenta en su Escuela del Futuro lo que aprendió sobre micorrizas, sobre la relación entre suelo y agua, sobre el amanecer trabajando con las manos — está haciendo algo que ningún libro de texto puede hacer: está transmitiendo experiencia vivida. Y cuando un productor de PLANISV ve a un grupo de adolescentes analizando su suelo con instrumentos científicos y explicándole en qué consiste la red de micorrizas que sostiene sus cultivos, está viendo el futuro de la producción argentina. El proyecto ¡BASTA! se convierte en un aula viva donde cada pieza educa a las otras.
 
 ### 18.2 Lo Que PLANEDU Aporta a Cada Iniciativa
 
@@ -1686,16 +1686,16 @@ Las Escuelas del Futuro no terminan en sus paredes. PLANEDU propone que cada alu
 | **Financiamiento** | Economías de escala en construcción: cada EdF en ciudad PLAN24CN cuesta 20-30% menos (infraestructura compartida) | — | Ahorro fiscal de PLANREP redirigido a PLANEDU: USD 1.000-2.000M/año (5-8% del ahorro total) |
 | **Contenido curricular** | Urbanismo como currículo: diseño de ciudades, gobernanza participativa, arquitectura bioclimática, economía circular | Ecología como currículo: biología del suelo, ciclo del agua, producción regenerativa, relación humano-tierra | Oficios como currículo: carpintería, cocina, textil, construcción, reparación — todo lo que PLANREP enseña a adultos, PLANEDU lo integra para jóvenes |
 | **Red de pasantías** | Empresas y organizaciones de ciudades nuevas como sitios de pasantía para alumnos EdF | Fincas y sitios PLANISV como destinos de pasantía y rotación inmersiva | Centros de la Vida como sitios de pasantía: alumnos trabajan junto a adultos en reconversión |
-| **Legitimidad social** | La calidad de las ciudades nuevas valida el proyecto BASTA entero | La mejora visible del campo valida la filosofía del cuidado que PLANEDU enseña | La reconversión exitosa de adultos valida la promesa de que la educación transforma vidas a cualquier edad |
+| **Legitimidad social** | La calidad de las ciudades nuevas valida el proyecto ¡BASTA! entero | La mejora visible del campo valida la filosofía del cuidado que PLANEDU enseña | La reconversión exitosa de adultos valida la promesa de que la educación transforma vidas a cualquier edad |
 | **Infraestructura post-laboral** | Fideicomisos de energía y vivienda como contenido curricular vivo | Fideicomisos de suelo vivo como experiencia de campo | Fideicomisos de Propósito Perpetuo, DNP, Nodos de Contribución como destinos para egresados, Economía de la Contribución como marco de actividad post-escolar |
 
-### 18.4 El Efecto Multiplicador del Proyecto BASTA
+### 18.4 El Efecto Multiplicador del Proyecto ¡BASTA!
 
-Ninguna de las cinco iniciativas funciona a su máximo potencial sin las otras cuatro. El efecto no es aditivo — es multiplicador.
+Ninguno de los cinco planes fundacionales funciona a su máximo potencial sin los otros cuatro. El efecto no es aditivo — es multiplicador.
 
-**TABLA 37: Efecto Multiplicador BASTA**
+**TABLA 37: Efecto Multiplicador ¡BASTA!**
 
-| Sin integración (cada plan solo) | Con BASTA (los 5 integrados) | Multiplicador |
+| Sin integración (cada plan solo) | Con ¡BASTA! (los 5 integrados) | Multiplicador |
 |---|---|---|
 | PLANEDU forma buenos alumnos que egresan a ciudades que no funcionan | PLANEDU forma buenos alumnos que habitan ciudades diseñadas para el bienestar (PLAN24CN) | ×2-3 en impacto sobre calidad de vida |
 | PLANISV capacita productores que no consiguen mano de obra formada | PLANISV recibe egresados de PLANEDU que entienden biología del suelo y eligen producción regenerativa | ×2 en adopción de prácticas regenerativas |
@@ -1711,7 +1711,7 @@ Ninguna de las cinco iniciativas funciona a su máximo potencial sin las otras c
 
 Hay una tentación pedagógica que PLANEDU rechaza de raíz: enseñar el futuro como si fuera un tema más del programa. Poner "Fideicomisos de Propósito Perpetuo" en una diapositiva, tomar un examen de opción múltiple, y seguir adelante. Eso es exactamente lo que el sistema viejo haría — y exactamente lo que no funciona. No se puede enseñar gobernanza ciudadana desde un banco. Se aprende gobernando.
 
-Los Fideicomisos de Propósito Perpetuo — las estructuras autónomas que poseen infraestructura energética, de suelo, digital, de vivienda — son probablemente la innovación institucional más importante del proyecto BASTA. Son los que generan los retornos que financian el DNP. Son los que hacen posible que la productividad colectiva se distribuya como dividendo ciudadano en vez de concentrarse como ganancia privada. Y son, por diseño, gobernados por la ciudadanía a través de Paneles Ciudadanos. Si PLANEDU no prepara a cada argentino para participar en esa gobernanza — con rigor, con criterio, con comprensión profunda de las consecuencias de cada decisión — entonces los fideicomisos se degradan en una generación. La educación no es preparación para el futuro. La educación *es* participación en el diseño del futuro.
+Los Fideicomisos de Propósito Perpetuo — las estructuras autónomas que poseen infraestructura energética, de suelo, digital, de vivienda — son probablemente la innovación institucional más importante del proyecto ¡BASTA!. Son los que generan los retornos que financian el DNP. Son los que hacen posible que la productividad colectiva se distribuya como dividendo ciudadano en vez de concentrarse como ganancia privada. Y son, por diseño, gobernados por la ciudadanía a través de Paneles Ciudadanos. Si PLANEDU no prepara a cada argentino para participar en esa gobernanza — con rigor, con criterio, con comprensión profunda de las consecuencias de cada decisión — entonces los fideicomisos se degradan en una generación. La educación no es preparación para el futuro. La educación *es* participación en el diseño del futuro.
 
 PLANEDU integra los fideicomisos en la experiencia educativa a través de la capacidad COLABORAR — no como contenido teórico sino como práctica vivida:
 
@@ -1846,7 +1846,7 @@ La respuesta es: para que cada argentino pueda vivir la mejor vida posible y ayu
 
 ---
 
-**PLANEDU es una de las cinco iniciativas fundacionales del proyecto BASTA.**
+**PLANEDU es una de las iniciativas fundacionales del proyecto ¡BASTA!.**
 
 | Documento | Crisis que Aborda | Visión |
 |---|---|---|
@@ -1856,6 +1856,6 @@ La respuesta es: para que cada argentino pueda vivir la mejor vida posible y ayu
 | **PLANEDU** | Sistema educativo obsoleto que apaga a las personas en vez de encenderlas | Refundación educativa para la soberanía del conocimiento humano — Siete Capacidades, Maestros Creadores, y la promesa de que cada argentino tenga su instante y se convierta en Hombre Gris |
 | **PLANJUS** | Justicia lenta, corrupta e inaccesible; el pueblo no confía en el sistema | Justicia popular en 15/45/90 días — paneles ciudadanos por sorteo, anticorrupción por diseño, justicia restaurativa, Casas JUS en cada municipio |
 
-**Cinco iniciativas. Un solo propósito: que la Argentina sea el mejor lugar del planeta para vivir una experiencia humana.**
+**Cinco documentos fundacionales — y un ecosistema que hoy suma 22 PLANes. Un solo propósito: que la Argentina sea el mejor lugar del planeta para vivir una experiencia humana.**
 
-**BASTA.**
+**¡BASTA!**

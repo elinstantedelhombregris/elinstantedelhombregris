@@ -40,11 +40,11 @@ Y la enfermedad se propaga. Cada persona que pasa por el sistema y sale destruid
 
 PLANJUS es el tratamiento. No un parche. No una reforma cosmética más. No un "plan de modernización judicial" que cambia los muebles de las oficinas y deja intacta la estructura podrida. PLANJUS es un sistema inmunológico nuevo — diseñado desde cero, distribuido en cada comunidad, incorruptible por arquitectura, rápido por diseño, y propiedad del pueblo. Un sistema donde la justicia no es un edificio al que tenés que ir a suplicar. Es un río que fluye hacia donde la gente está. No esperás a la justicia. La justicia te llega.
 
-Hay una filosofía que atraviesa las iniciativas del proyecto BASTA. La llamamos *El Instante del Hombre Gris*. La premisa: vivimos en una sociedad que apaga a las personas — que les roba la capacidad de crear, de sentir su potencia, de transformar el mundo. Personas dormidas, reducidas a engranajes. El Hombre Gris es el que despierta. Gris como el acero que se pule hasta brillar. Gris como el amanecer antes de que el sol estalle. El instante del Hombre Gris es el momento en que alguien dice *basta de vivir apagado*.
+Hay una filosofía que atraviesa las iniciativas del proyecto ¡BASTA!. La llamamos *El Instante del Hombre Gris*. La premisa: vivimos en una sociedad que apaga a las personas — que les roba la capacidad de crear, de sentir su potencia, de transformar el mundo. Personas dormidas, reducidas a engranajes. El Hombre Gris es el que despierta. Gris como la plata que se pule hasta brillar — porque Argentina es argentum, y argentum es plata. Gris como el amanecer antes de que el sol estalle. El instante del Hombre Gris es el momento en que alguien dice *basta de vivir apagado*.
 
 La justicia argentina apaga a la gente. Cada expediente que dura cinco años es una persona apagándose. Cada audiencia que se suspende por tercera vez es una persona que pierde un poco más de fe. Cada sentencia que llega tarde es una persona que ya no cree que el sistema la protege. PLANJUS existe para que cada argentino — cuando tenga un conflicto, cuando sufra una injusticia, cuando necesite que alguien escuche su reclamo y le dé una respuesta justa — pueda resolver su problema en días o semanas, no en años o décadas. Sin necesidad de un abogado caro. Sin necesidad de entender un código procesal incomprensible. Sin necesidad de ir a un edificio a hacer fila y esperar. Con la certeza de que el proceso es limpio, transparente, y que nadie — absolutamente nadie — puede comprar el resultado.
 
-PLANJUS es el quinto pilar de BASTA. Y es, de todos, el que hace posibles los otros. PLANEDU puede diseñar la mejor educación del mundo, pero si el sistema judicial permite que un funcionario desvíe los fondos sin consecuencias, PLANEDU muere. PLANISV puede reconstruir cada hectárea de suelo argentino, pero si la justicia tarda once años en condenar al que contamina, PLANISV es papel. PLANREP puede liberar a un millón de personas del empleo público improductivo, pero si los mecanismos legales de transición se atascan en los tribunales, PLANREP se paraliza. PLAN24CN puede fundar veinticuatro ciudades extraordinarias, pero si los contratos de construcción se litigan durante una década, no se funda nada.
+PLANJUS es el quinto pilar del ecosistema ¡BASTA!. Y es, de todos, el que hace posibles los otros. PLANEDU puede diseñar la mejor educación del mundo, pero si el sistema judicial permite que un funcionario desvíe los fondos sin consecuencias, PLANEDU muere. PLANISV puede reconstruir cada hectárea de suelo argentino, pero si la justicia tarda once años en condenar al que contamina, PLANISV es papel. PLANREP puede liberar a un millón de personas del empleo público improductivo, pero si los mecanismos legales de transición se atascan en los tribunales, PLANREP se paraliza. PLAN24CN puede fundar veinticuatro ciudades extraordinarias, pero si los contratos de construcción se litigan durante una década, no se funda nada.
 
 **La justicia es el sistema inmunológico de una sociedad. Si funciona, todo lo demás tiene oportunidad de funcionar. Si no funciona — si está enfermo, capturado, corrompido — nada funciona. Nada.**
 
@@ -655,7 +655,7 @@ El sorteo democrático es igualitario en teoría. Pero si el pool del que se sor
 
 **El monitoreo:** ANJUS rastrea la demografía del pool de panelistas activos versus la población local en cada provincia — por edad, género, nivel educativo, origen urbano/rural, y pertenencia a comunidades indígenas. Si la representación de cualquier grupo demográfico cae por debajo del 50% de su proporción poblacional, se activa un protocolo de reclutamiento dirigido: campaña específica para ese grupo, ajuste de requisitos si es necesario, y formación adaptada. El dashboard público muestra estos datos. La diversidad del pool no es un objetivo aspiracional — es un KPI medible y publicado.
 
-El modelo de panelista — sorteo democrático, formación estructurada, rotación, salvaguardas de diversidad, progresión por mérito — es la contribución de PLANJUS a la infraestructura cívica argentina más allá de la justicia. PLANREP Sección 15.5 adopta la misma arquitectura para sus Paneles Ciudadanos de Futuro Económico, que deliberan sobre fideicomisos, el DNP, y la Economía de la Contribución. PLANEDU Sección 19 prepara a estudiantes desde los 16 años para participar en paneles simulados usando la misma metodología de sorteo. El panelista no es solo una figura de justicia — es el prototipo del ciudadano-gobernante que todo el proyecto BASTA necesita. Lo que PLANJUS construye como mecanismo de resolución de conflictos se convierte en el modelo operativo de la democracia participativa argentina.
+El modelo de panelista — sorteo democrático, formación estructurada, rotación, salvaguardas de diversidad, progresión por mérito — es la contribución de PLANJUS a la infraestructura cívica argentina más allá de la justicia. PLANREP Sección 15.5 adopta la misma arquitectura para sus Paneles Ciudadanos de Futuro Económico, que deliberan sobre fideicomisos, el DNP, y la Economía de la Contribución. PLANEDU Sección 19 prepara a estudiantes desde los 16 años para participar en paneles simulados usando la misma metodología de sorteo. El panelista no es solo una figura de justicia — es el prototipo del ciudadano-gobernante que todo el proyecto ¡BASTA! necesita. Lo que PLANJUS construye como mecanismo de resolución de conflictos se convierte en el modelo operativo de la democracia participativa argentina.
 
 ### 6.6 Selección y Gobernanza de Expertos
 
@@ -1229,7 +1229,7 @@ El año cero es el año donde se construye todo lo que tiene que estar listo ant
 
 | Hito | KPI Específico | Target | Responsable | Trigger de Contingencia |
 |---|---|---|---|---|
-| Ley PLANJUS sancionada | Aprobación en ambas cámaras | Sanción antes del mes 6 del Año 0 | Comisión de Justicia del Congreso + equipo legislativo BASTA | Si ley no se aprueba en 12 meses → decreto de necesidad y urgencia para ANJUS transitoria con jurisdicción voluntaria en materias no legisladas |
+| Ley PLANJUS sancionada | Aprobación en ambas cámaras | Sanción antes del mes 6 del Año 0 | Comisión de Justicia del Congreso + equipo legislativo ¡BASTA! | Si ley no se aprueba en 12 meses → decreto de necesidad y urgencia para ANJUS transitoria con jurisdicción voluntaria en materias no legisladas |
 | ANJUS constituida | Directorio completo operativo | 9 miembros designados y en funciones antes del mes 8 | Congreso + universidades + sorteo ciudadano | Si el sorteo ciudadano se demora → directorio interino de 5 miembros (Congreso + universidades) mientras se completa el proceso |
 | Plataforma digital MVP | MVP funcional con JUS-1 completo | Plataforma operativa para recibir casos JUS-1 en 4 provincias | Equipo tech de ANJUS + proveedor seleccionado por licitación | Si el MVP no está listo → protocolo 100% presencial en Casas JUS con registro manual hasta la digitalización; no se demora el lanzamiento |
 | Provincias piloto seleccionadas | Convenios firmados con 4 gobernadores | Convenios antes del mes 4 | ANJUS + Ministerio de Justicia | Si alguna provincia se baja → provincia alternativa pre-identificada (lista de 6 candidatas); el programa no se detiene por una firma |
@@ -1377,13 +1377,13 @@ La regla de oro de la comunicación de PLANJUS: **nunca prometas lo que no podé
 
 ---
 
-## SECCIÓN 20: INTEGRACIÓN CON BASTA — EL QUINTO PILAR
+## SECCIÓN 20: INTEGRACIÓN CON ¡BASTA! — EL QUINTO PILAR
 
-> *"Cada dedo tiene su función. Pero solo juntos forman una mano. Y solo la mano puede decir: BASTA."*
+> *"Cada dedo tiene su función. Pero solo juntos forman una mano. Y solo la mano puede decir: ¡BASTA!"*
 
-### 20.1 PLANJUS en el Cuerpo de BASTA
+### 20.1 PLANJUS en el Cuerpo de ¡BASTA!
 
-BASTA es un proyecto de mandatos populares — cada uno diseñado desde cero para un dominio esencial de la vida argentina. Los primeros cinco son los mandatos fundacionales: PLAN24CN reimagina las ciudades. PLANREP reimagina el trabajo. PLANISV reimagina el suelo. PLANEDU reimagina la educación. PLANJUS reimagina la justicia. Los que siguen — salud, seguridad, energía, cultura, ciencia — se desarrollan sobre los cimientos que estos cinco establecen.
+¡BASTA! es un proyecto de mandatos populares — cada uno diseñado desde cero para un dominio esencial de la vida argentina. Los primeros cinco son los mandatos fundacionales: PLAN24CN reimagina las ciudades. PLANREP reimagina el trabajo. PLANISV reimagina el suelo. PLANEDU reimagina la educación. PLANJUS reimagina la justicia. Los que siguen — salud, seguridad, energía, cultura, ciencia — se desarrollan sobre los cimientos que estos cinco establecen.
 
 Pero PLANJUS tiene un rol especial. En la arquitectura del cuerpo humano, el sistema inmunológico no es un órgano como los demás — es el sistema que protege a todos los otros órganos. Sin sistema inmune, el corazón se infecta, los pulmones colapsan, el cerebro se inflama. De la misma manera, sin justicia funcional, los otros mandatos son vulnerables:
 
@@ -1394,7 +1394,7 @@ Pero PLANJUS tiene un rol especial. En la arquitectura del cuerpo humano, el sis
 | **PLANREP** | Un trabajador reconvertido no recibe la formación prometida → juicio laboral de 4 años | Reclamo en PLANJUS → resolución en 15 días → el sistema funciona |
 | **PLAN24CN** | Un contratista incumple en la construcción de una ciudad nueva → litigio de 6 años | Disputa comercial en PLANJUS → resolución en 45 días → la ciudad avanza |
 
-PLANJUS es el sistema inmunológico de BASTA. Sin él, los otros mandatos pueden ser saboteados, demorados, corrompidos. Con él, tienen un mecanismo de protección y ejecución que funciona a la velocidad de la vida real.
+PLANJUS es el sistema inmunológico de ¡BASTA!. Sin él, los otros mandatos pueden ser saboteados, demorados, corrompidos. Con él, tienen un mecanismo de protección y ejecución que funciona a la velocidad de la vida real.
 
 La función protectora de PLANJUS se extiende a la nueva infraestructura post-laboral que PLANREP Sección 15 establece. Los Fideicomisos de Propósito Perpetuo necesitan resolución de disputas cuando surgen conflictos de gobernanza. La Economía de la Contribución necesita arbitraje cuando se cuestiona la validación de contribuciones. El DNP necesita un mecanismo para resolver disputas de elegibilidad. En todos estos casos, la misma arquitectura aplica: panelistas por sorteo, escalamiento en tres niveles, resolución en 15/45/90 días. A medida que la Argentina transita los Tres Horizontes (de una economía centrada en el empleo a una centrada en la contribución), los tipos de conflictos que PLANJUS resuelve van a evolucionar — pero la arquitectura está diseñada para manejar cualquier disputa entre ciudadanos, no solo las comerciales o laborales tradicionales. Esa es la belleza de un sistema construido sobre el juicio humano en vez de la tecnicidad legal: se adapta a lo que sea que la sociedad se convierta.
 
@@ -1412,9 +1412,9 @@ PLANJUS y PLANEDU no son dos mandatos que conviven en paralelo — son dos manda
 
 ### 20.2 La Arquitectura de Gobernanza Popular
 
-La visión de BASTA es profunda: **el pueblo diseña, el pueblo vigila, el gobierno ejecuta**. Cada mandato es una expresión de la voluntad popular para un dominio específico. PLANJUS es el mecanismo por el cual esa voluntad se hace cumplir. Si el gobierno no ejecuta lo que el pueblo diseñó — PLANJUS es la herramienta para exigirlo. Si un funcionario desvía recursos — PLANJUS es el sistema que lo detecta y lo sanciona. Si un interés privado sabotea un mandato — PLANJUS es el escudo que lo frena.
+La visión de ¡BASTA! es profunda: **el pueblo diseña, el pueblo vigila, el gobierno ejecuta**. Cada mandato es una expresión de la voluntad popular para un dominio específico. PLANJUS es el mecanismo por el cual esa voluntad se hace cumplir. Si el gobierno no ejecuta lo que el pueblo diseñó — PLANJUS es la herramienta para exigirlo. Si un funcionario desvía recursos — PLANJUS es el sistema que lo detecta y lo sanciona. Si un interés privado sabotea un mandato — PLANJUS es el escudo que lo frena.
 
-En la arquitectura de BASTA, PLANJUS no es un pilar más. Es el sistema que mantiene en pie a todos los demás.
+En la arquitectura de ¡BASTA!, PLANJUS no es un pilar más. Es el sistema que mantiene en pie a todos los demás.
 
 ---
 
@@ -1440,7 +1440,7 @@ Los empleados judiciales que temían PLANJUS son, hoy, los coordinadores de Casa
 
 Hay 800 Casas JUS en todo el país. En cada pueblo, en cada barrio, en cada ciudad. Espacios luminosos, abiertos, donde la justicia tiene cara de vecino. Donde un panelista puede ser tu prima, tu panadero, tu vecina de enfrente — y eso no es una debilidad del sistema, es su mayor fortaleza. Porque la justicia no pertenece a una casta profesional. Pertenece al pueblo.
 
-Y PLANJUS es más que un sistema de justicia. Es la prueba viviente de que otra forma de gobernarse es posible. Que el pueblo puede diseñar las reglas, vigilar el cumplimiento, y resolver sus conflictos — sin necesitar que una élite le diga cómo, cuándo, y cuánto le va a costar. PLANJUS es el quinto dedo de la mano que dice BASTA. Pero es el dedo que cierra el puño.
+Y PLANJUS es más que un sistema de justicia. Es la prueba viviente de que otra forma de gobernarse es posible. Que el pueblo puede diseñar las reglas, vigilar el cumplimiento, y resolver sus conflictos — sin necesitar que una élite le diga cómo, cuándo, y cuánto le va a costar. PLANJUS es el quinto dedo de la mano que dice ¡BASTA!. Pero es el dedo que cierra el puño.
 
 Porque un pueblo con educación sabe. Un pueblo con trabajo digno produce. Un pueblo con suelo vivo come. Un pueblo con ciudades bellas habita. Pero un pueblo con justicia propia **se gobierna**.
 
@@ -1466,7 +1466,7 @@ No hay más excusas. No hay más "pero primero hay que reformar." No hay más "e
 
 Este es el instante del Hombre Gris. El momento en que el pueblo argentino deja de esperar que la justicia baje de un edificio con columnas y empieza a hacerla — en su barrio, con sus vecinos, con sus propias manos. No porque el Estado se lo permita. Porque el Estado ya no puede impedirlo. PLANJUS no es un plan más. Es el punto de no retorno. Es el instante donde la gente deja de esperar justicia y empieza a producirla.
 
-Y cuando la Argentina complete la transición que los otros cuatro mandatos de BASTA están construyendo — de una economía del empleo a una economía de la contribución — PLANJUS seguirá ahí. Porque donde hay personas, hay conflictos. Y donde hay conflictos, hace falta justicia. La forma del conflicto cambia. La necesidad de resolverlo, nunca.
+Y cuando la Argentina complete la transición que los otros 21 PLANes de ¡BASTA! están construyendo — de una economía del empleo a una economía de la contribución — PLANJUS seguirá ahí. Porque donde hay personas, hay conflictos. Y donde hay conflictos, hace falta justicia. La forma del conflicto cambia. La necesidad de resolverlo, nunca.
 
 ---
 
@@ -1850,7 +1850,7 @@ Y si no vale — tienen PLANJUS para reclamar. Que es, al final, la prueba defin
 
 > *"La paranoia no es una enfermedad cuando te están mirando de verdad. Un sistema que administra la justicia de 46 millones de personas no se puede dar el lujo de confiar — tiene que verificar. Todo. Siempre."*
 
-Un sistema de justicia que resuelve cinco millones de casos por año es un blanco. No porque sea malo — porque tiene poder. Poder sobre conflictos, sobre datos sensibles, sobre la credibilidad de todo el proyecto BASTA. Un ataque exitoso contra PLANJUS no roba dinero — roba confianza. Y la confianza, a diferencia del dinero, no se puede devolver con un reembolso. Se tarda años en construirla y segundos en destruirla.
+Un sistema de justicia que resuelve cinco millones de casos por año es un blanco. No porque sea malo — porque tiene poder. Poder sobre conflictos, sobre datos sensibles, sobre la credibilidad de todo el proyecto ¡BASTA!. Un ataque exitoso contra PLANJUS no roba dinero — roba confianza. Y la confianza, a diferencia del dinero, no se puede devolver con un reembolso. Se tarda años en construirla y segundos en destruirla.
 
 Las amenazas no vienen de un solo frente. Vienen de afuera (un hacker que quiere demostrar que puede), de adentro (un empleado que se corrompe o se equivoca), de arriba (un gobierno que quiere controlar lo que no puede capturar), y del caos (un terremoto, un corte de energía, un bug que nadie vio). Esta sección construye las defensas para todos esos frentes. No con optimismo — con ingeniería.
 
@@ -2396,12 +2396,12 @@ Si PLANJUS logra — y va a lograr — resoluciones comerciales internacionales 
 
 Eso no es solo justicia. Es política exterior. Es competitividad. Es decirle al mundo: "Vengan a hacer negocios con nosotros. Si hay un problema, lo resolvemos en tres meses. No en tres años."
 
-Un sistema de justicia que funciona no solo protege a los que están adentro. Atrae a los que están afuera. Y un país que atrae — negocios, talento, confianza — es un país que crece. PLANJUS no es solo el quinto pilar de BASTA. Es la carta de presentación de la Argentina ante un mundo que dejó de creer en nuestras promesas — y necesita que le mostremos resultados.
+Un sistema de justicia que funciona no solo protege a los que están adentro. Atrae a los que están afuera. Y un país que atrae — negocios, talento, confianza — es un país que crece. PLANJUS no es solo el quinto pilar del ecosistema ¡BASTA!. Es la carta de presentación de la Argentina ante un mundo que dejó de creer en nuestras promesas — y necesita que le mostremos resultados.
 
 ---
 
 **FIN DEL DOCUMENTO**
 
 **PLANJUS v1.1 — Marzo 2026**
-**Proyecto BASTA — El Instante del Hombre Gris**
+**Proyecto ¡BASTA! — El Instante del Hombre Gris**
 **Preparado para la República Argentina**

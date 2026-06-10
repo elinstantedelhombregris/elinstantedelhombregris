@@ -137,7 +137,7 @@ No es un plan perfecto. Es el primer plan honesto.
 
 ---
 
-Hay una filosofía que atraviesa las iniciativas del proyecto BASTA. La llamamos *El Instante del Hombre Gris*. La premisa: vivimos en una sociedad que apaga a las personas — que les roba la capacidad de crear, de sentir su potencia, de transformar el mundo. Personas dormidas, reducidas a engranajes. El Hombre Gris es el que despierta. Gris como el acero que se pule hasta brillar. Gris como el amanecer antes de que el sol estalle. El instante del Hombre Gris es el momento en que alguien dice *basta de vivir apagado*.
+Hay una filosofía que atraviesa las iniciativas del proyecto ¡BASTA!. La llamamos *El Instante del Hombre Gris*. La premisa: vivimos en una sociedad que apaga a las personas — que les roba la capacidad de crear, de sentir su potencia, de transformar el mundo. Personas dormidas, reducidas a engranajes. El Hombre Gris es el que despierta. Gris como la plata que se pule hasta brillar — porque Argentina es argentum, y argentum es plata. Gris como el amanecer antes de que el sol estalle. El instante del Hombre Gris es el momento en que alguien dice *basta de vivir apagado*.
 
 Natalia Ferreyra tuvo su instante. Frente a la canilla marrón, con su hija en brazos, se hizo la pregunta que este plan intenta responder:
 
@@ -149,7 +149,7 @@ Todo lo que PLANAGUA propone es la *primera mejor alternativa* basada en la mejo
 
 ---
 
-**Tesis Central:** La Argentina tiene más agua dulce per cápita que casi cualquier país del mundo — y siete millones de argentinos no pueden abrir la canilla y tomar lo que sale. No tenemos una crisis de escasez. Tenemos una crisis de gestión, de infraestructura, de voluntad política, y de imaginación institucional. PLANAGUA propone la primera arquitectura integral de soberanía hídrica que trata al agua como lo que es: un derecho humano, un activo estratégico, y un ser vivo con derechos propios. Lo hace a través de dos pistas convergentes — la **Pista Infraestructura** (tecnología de tratamiento de vanguardia, redes de monitoreo IoT, gemelos digitales, procesos de oxidación avanzada, desalinización, retrofitting de 40.000 km de cañería que pierde el 40% de lo que transporta, reúso de agua, ciencia ciudadana) y la **Pista Derechos** (personería jurídica para ríos y acuíferos, Ley de Criosfera, derechos indígenas del agua, créditos hídricos no especulativos, diplomacia bilateral para recursos transfronterizos). Ambas pistas convergen en la **ANAGUA** (Agencia Nacional del Agua y Resiliencia Climática), ente autárquico con presupuesto constitucional protegido, gobernado por sorteo democrático, representación técnica, y — por primera vez en una agencia BASTA — representación indígena obligatoria en el directorio; y en las **Bastardas Hídricas** — empresas de propósito perpetuo que proveen servicio de agua al costo real, sin extracción, con transparencia radical, organizadas por cuenca hidrográfica, más una **Bastarda Ambiental** nacional dedicada exclusivamente a la remediación de ríos contaminados (Riachuelo, Reconquista, Salí-Dulce, Bermejo), entidad de misión que se disuelve cuando la misión se completa. El **Censo Nacional del Agua** — el primer inventario completo de cada gota, cada cañería, cada napa, cada glaciar del territorio — es la línea base sobre la que todo se construye. Porque no podés gestionar lo que no medís, y la Argentina nunca midió su agua de forma integral. La **Ley de Criosfera** — que protege glaciares, permafrost, glaciares de escombros, humedales altoandinos y mantos de nieve persistentes como reservas estratégicas de agua — haría de Argentina el primer país del mundo con legislación integral de criosfera. La **personería jurídica** del Paraná, del Río de la Plata y del Acuífero Guaraní los convierte en sujetos de derecho con guardianes designados — representantes indígenas, científicos y ciudadanos — capaces de demandar a quien los contamine. Los **Créditos Hídricos No Especulativos** crean un mercado donde las industrias que reducen su consumo ganan créditos y las que exceden pagan — sin derivados, sin futuros, sin financiarización: anti-Wall Street por diseño constitucional. El **Cuerpo de Diplomacia Hídrica** gestiona los recursos transfronterizos — el Acuífero Guaraní compartido con Brasil, Uruguay y Paraguay; la criosfera andina compartida con Chile — con un cuerpo diplomático especializado que no existe en ningún país del mundo. La inversión estimada es de USD 15.000–25.000M en 10 años. El costo de no actuar — en infraestructura perdida, salud pública, productividad agrícola, migración climática forzada y pérdida irreversible de reservas glaciares — supera los USD 50.000M en el mismo período. Cada dólar invertido en soberanía hídrica devuelve entre 4 y 8 dólares en valor económico, sanitario y ambiental. PLANAGUA es el noveno mandato de BASTA. Se integra con los ocho mandatos existentes: con PLANISV (el suelo sano retiene agua, el agua limpia alimenta suelo sano), con PLAN24CN (las ciudades nuevas nacen con infraestructura hídrica de siglo XXI), con PLANSAL (agua limpia es la primera medicina), con PLANEB (Bastardas Hídricas proveen agua al costo), con PLANJUS (las disputas hídricas se resuelven en el sistema JUS en semanas, no en años), con PLANEDU (educación hídrica y ciencia ciudadana en las Escuelas del Futuro), con PLANREP (los oficios del agua como rama del trabajo vivo), y con PLANSUS (protección de cuencas contra contaminación agroindustrial). Este plan lo escribió alguien que trabaja en tratamiento de aguas. Cada tecnología descrita existe y está desplegada en algún lugar del mundo. El obstáculo no es el conocimiento. Es la voluntad.
+**Tesis Central:** La Argentina tiene más agua dulce per cápita que casi cualquier país del mundo — y siete millones de argentinos no pueden abrir la canilla y tomar lo que sale. No tenemos una crisis de escasez. Tenemos una crisis de gestión, de infraestructura, de voluntad política, y de imaginación institucional. PLANAGUA propone la primera arquitectura integral de soberanía hídrica que trata al agua como lo que es: un derecho humano, un activo estratégico, y un ser vivo con derechos propios. Lo hace a través de dos pistas convergentes — la **Pista Infraestructura** (tecnología de tratamiento de vanguardia, redes de monitoreo IoT, gemelos digitales, procesos de oxidación avanzada, desalinización, retrofitting de 40.000 km de cañería que pierde el 40% de lo que transporta, reúso de agua, ciencia ciudadana) y la **Pista Derechos** (personería jurídica para ríos y acuíferos, Ley de Criosfera, derechos indígenas del agua, créditos hídricos no especulativos, diplomacia bilateral para recursos transfronterizos). Ambas pistas convergen en la **ANAGUA** (Agencia Nacional del Agua y Resiliencia Climática), ente autárquico con presupuesto constitucional protegido, gobernado por sorteo democrático, representación técnica, y — por primera vez en una agencia ¡BASTA! — representación indígena obligatoria en el directorio; y en las **Bastardas Hídricas** — empresas de propósito perpetuo que proveen servicio de agua al costo real, sin extracción, con transparencia radical, organizadas por cuenca hidrográfica, más una **Bastarda Ambiental** nacional dedicada exclusivamente a la remediación de ríos contaminados (Riachuelo, Reconquista, Salí-Dulce, Bermejo), entidad de misión que se disuelve cuando la misión se completa. El **Censo Nacional del Agua** — el primer inventario completo de cada gota, cada cañería, cada napa, cada glaciar del territorio — es la línea base sobre la que todo se construye. Porque no podés gestionar lo que no medís, y la Argentina nunca midió su agua de forma integral. La **Ley de Criosfera** — que protege glaciares, permafrost, glaciares de escombros, humedales altoandinos y mantos de nieve persistentes como reservas estratégicas de agua — haría de Argentina el primer país del mundo con legislación integral de criosfera. La **personería jurídica** del Paraná, del Río de la Plata y del Acuífero Guaraní los convierte en sujetos de derecho con guardianes designados — representantes indígenas, científicos y ciudadanos — capaces de demandar a quien los contamine. Los **Créditos Hídricos No Especulativos** crean un mercado donde las industrias que reducen su consumo ganan créditos y las que exceden pagan — sin derivados, sin futuros, sin financiarización: anti-Wall Street por diseño constitucional. El **Cuerpo de Diplomacia Hídrica** gestiona los recursos transfronterizos — el Acuífero Guaraní compartido con Brasil, Uruguay y Paraguay; la criosfera andina compartida con Chile — con un cuerpo diplomático especializado que no existe en ningún país del mundo. La inversión estimada es de USD 15.000–25.000M en 10 años. El costo de no actuar — en infraestructura perdida, salud pública, productividad agrícola, migración climática forzada y pérdida irreversible de reservas glaciares — supera los USD 50.000M en el mismo período. Cada dólar invertido en soberanía hídrica devuelve entre 4 y 8 dólares en valor económico, sanitario y ambiental. PLANAGUA es uno de los 22 PLANes del ecosistema ¡BASTA!. Se integra con los demás: con PLANISV (el suelo sano retiene agua, el agua limpia alimenta suelo sano), con PLAN24CN (las ciudades nuevas nacen con infraestructura hídrica de siglo XXI), con PLANSAL (agua limpia es la primera medicina), con PLANEB (Bastardas Hídricas proveen agua al costo), con PLANJUS (las disputas hídricas se resuelven en el sistema JUS en semanas, no en años), con PLANEDU (educación hídrica y ciencia ciudadana en las Escuelas del Futuro), con PLANREP (los oficios del agua como rama del trabajo vivo), y con PLANSUS (protección de cuencas contra contaminación agroindustrial). Este plan lo escribió alguien que trabaja en tratamiento de aguas. Cada tecnología descrita existe y está desplegada en algún lugar del mundo. El obstáculo no es el conocimiento. Es la voluntad.
 
 ---
 
@@ -345,7 +345,7 @@ En 2004, Uruguay se convirtió en el primer país del mundo en consagrar en su C
 - **DINAMA:** Dirección Nacional de Medio Ambiente, que integra la gestión del agua con la política ambiental.
 - **Gobernanza del Acuífero Guaraní:** Uruguay fue protagonista del Acuerdo de 2010 sobre el Guaraní.
 
-**Lección para PLANAGUA:** El agua como derecho constitucional — no como mercancía — es el cimiento jurídico. Uruguay lo logró por referéndum. La Argentina puede hacerlo por ley constitucional con el respaldo del marco BASTA.
+**Lección para PLANAGUA:** El agua como derecho constitucional — no como mercancía — es el cimiento jurídico. Uruguay lo logró por referéndum. La Argentina puede hacerlo por ley constitucional con el respaldo del marco ¡BASTA!.
 
 ### 2.5 Nueva Zelanda — El Río Whanganui y la Personería Jurídica
 
@@ -509,7 +509,7 @@ La doble pista es la tesis central de PLANAGUA. No alcanza con arreglar los cañ
 
 Las dos pistas convergen en un tercer elemento que no es infraestructura ni derecho: es **gobernanza ciudadana**. Ni Estado solo ni mercado solo — pueblo organizado.
 
-Los Waterschappen holandeses llevan 800 años demostrando que la gestión democrática del agua funciona. Las cooperativas de agua argentinas — más de 600 — lo demuestran cada día. El modelo BASTA — sorteo democrático, paneles ciudadanos, transparencia radical — es la arquitectura institucional que falta.
+Los Waterschappen holandeses llevan 800 años demostrando que la gestión democrática del agua funciona. Las cooperativas de agua argentinas — más de 600 — lo demuestran cada día. El modelo ¡BASTA! — sorteo democrático, paneles ciudadanos, transparencia radical — es la arquitectura institucional que falta.
 
 ANAGUA no es una agencia del Estado que gestiona agua para los ciudadanos. Es una agencia de los ciudadanos que usa el Estado para gestionar agua. La diferencia no es retórica — es constitutiva. Define quién manda, quién rinde cuentas, y a quién le importa que el agua llegue limpia.
 
@@ -1064,7 +1064,7 @@ PLANAGUA propone pasar de **consulta** a **co-gestión**. La diferencia es radic
 
 **1. Bancada Indígena en los Consejos de Guardianes (5.9).** Tres representantes indígenas en cada Consejo de Guardianes de ríos con personería jurídica. Designados por las comunidades.
 
-**2. Representación indígena obligatoria en el Directorio de ANAGUA.** Al menos 2 de los 13 miembros del Directorio de ANAGUA son representantes de pueblos indígenas (ver Sección 10.3 para la composición completa). Es la primera agencia BASTA con representación indígena garantizada en la gobernanza.
+**2. Representación indígena obligatoria en el Directorio de ANAGUA.** Al menos 2 de los 13 miembros del Directorio de ANAGUA son representantes de pueblos indígenas (ver Sección 10.3 para la composición completa). Es la primera agencia ¡BASTA! con representación indígena garantizada en la gobernanza.
 
 **3. Atlas Hídrico Indígena.** Un relevamiento — dirigido por las propias comunidades, con apoyo técnico de universidades — de las fuentes de agua, los usos ancestrales, los ciclos hidrológicos según el conocimiento tradicional, y los topónimos indígenas de cada cuerpo de agua en territorios de pueblos originarios. Este Atlas se integra al Censo Nacional del Agua como una capa adicional de conocimiento.
 
@@ -1902,7 +1902,7 @@ No suma una isla más al mapa. Integra todas las islas en un continente. No suma
 
 ### 10.2 Diseño Institucional — Blindaje Contra el Ciclo Electoral
 
-La ANAGUA sigue el patrón institucional de las agencias del marco BASTA — el mismo patrón que ya se aplica en ANEB, ANJUS, ANSUS y ANCE. El patrón tiene una premisa simple: **las instituciones que gestionan derechos fundamentales no pueden depender de quién gane una elección.**
+La ANAGUA sigue el patrón institucional de las agencias del marco ¡BASTA! — el mismo patrón que ya se aplica en ANEB, ANJUS, ANSUS y ANCE. El patrón tiene una premisa simple: **las instituciones que gestionan derechos fundamentales no pueden depender de quién gane una elección.**
 
 El agua no puede ser la prioridad de un gobierno y el olvido del siguiente. No puede tener presupuesto en año electoral y ajuste en año de consolidación fiscal. No puede ser la foto del gobernador inaugurando una planta y el silencio cuando esa planta se queda sin insumos tres meses después.
 
@@ -1924,7 +1924,7 @@ El agua no puede ser la prioridad de un gobierno y el olvido del siguiente. No p
 
 ### 10.3 Directorio — 13 Miembros, Cinco Estamentos
 
-El Directorio de la ANAGUA es el órgano máximo de decisión. Trece miembros. Cinco estamentos. La composición más diversa de todas las agencias BASTA — y eso es intencional, porque el agua toca a todos: al ciudadano que abre la canilla, al ingeniero que diseña la planta, al pueblo originario que vive del río, al agricultor que necesita riego, al diplomático que negocia el Guaraní.
+El Directorio de la ANAGUA es el órgano máximo de decisión. Trece miembros. Cinco estamentos. La composición más diversa de todas las agencias ¡BASTA! — y eso es intencional, porque el agua toca a todos: al ciudadano que abre la canilla, al ingeniero que diseña la planta, al pueblo originario que vive del río, al agricultor que necesita riego, al diplomático que negocia el Guaraní.
 
 **TABLA 10.3: Directorio de ANAGUA — 13 Miembros**
 
@@ -1940,7 +1940,7 @@ El Directorio de la ANAGUA es el órgano máximo de decisión. Trece miembros. C
 
 **Total: 13 miembros.** Mayoría calificada para decisiones ordinarias: 8 de 13. Supermayoría para modificaciones al presupuesto, destituciones, y decisiones sobre criosfera/Guaraní: 10 de 13.
 
-**La innovación indígena.** ANAGUA es la primera agencia del marco BASTA que incorpora representantes indígenas con asiento permanente en el directorio. No como invitados. No como observadores. No como "consultados." Como miembros plenos con voz y voto. Esto no es un gesto simbólico — es un reconocimiento operativo de que los pueblos originarios son los guardianes más antiguos y más conocedores de los sistemas hídricos del territorio. Los wichí conocen el Bermejo desde antes de que existiera la Argentina. Los mapuche conocen los ríos de la Patagonia desde antes de que existiera el castellano. Los kolla conocen las aguas de la Puna desde antes de que existiera la escritura. Su conocimiento no es anecdótico — es hidrología milenaria codificada en práctica, ritual y memoria oral. Negarles asiento en la mesa donde se decide el futuro del agua no es un error administrativo: es una estupidez estratégica.
+**La innovación indígena.** ANAGUA es la primera agencia del marco ¡BASTA! que incorpora representantes indígenas con asiento permanente en el directorio. No como invitados. No como observadores. No como "consultados." Como miembros plenos con voz y voto. Esto no es un gesto simbólico — es un reconocimiento operativo de que los pueblos originarios son los guardianes más antiguos y más conocedores de los sistemas hídricos del territorio. Los wichí conocen el Bermejo desde antes de que existiera la Argentina. Los mapuche conocen los ríos de la Patagonia desde antes de que existiera el castellano. Los kolla conocen las aguas de la Puna desde antes de que existiera la escritura. Su conocimiento no es anecdótico — es hidrología milenaria codificada en práctica, ritual y memoria oral. Negarles asiento en la mesa donde se decide el futuro del agua no es un error administrativo: es una estupidez estratégica.
 
 **Poder de veto indígena.** Los dos representantes indígenas tienen poder de veto sobre tres tipos de decisiones específicas:
 
@@ -3368,11 +3368,11 @@ Eso no es un dashboard. Es justicia. Es la herramienta que convierte a un ciudad
 
 ---
 
-## SECCIÓN 18: INTEGRACIÓN CON EL MARCO BASTA
+## SECCIÓN 18: INTEGRACIÓN CON EL MARCO ¡BASTA!
 
-> *"El agua no es un sector. Es el medio por el que todos los otros sectores existen. PLANAGUA no se integra con los mandatos de BASTA — los irriga."*
+> *"El agua no es un sector. Es el medio por el que todos los otros sectores existen. PLANAGUA no se integra con los mandatos de ¡BASTA! — los irriga."*
 
-Cada mandato de BASTA toca el agua. Cada uno. No hay un solo plan de los nueve que no dependa, directa o indirectamente, de que el agua fluya limpia, se mida, se proteja, y llegue. PLANAGUA no es un mandato aislado — es el sistema circulatorio que conecta a todos los demás.
+Cada mandato de ¡BASTA! toca el agua. Cada uno. No hay un solo plan de los nueve que no dependa, directa o indirectamente, de que el agua fluya limpia, se mida, se proteja, y llegue. PLANAGUA no es un mandato aislado — es el sistema circulatorio que conecta a todos los demás.
 
 Esta sección mapea las nueve integraciones principales. No como lista de buenas intenciones — como protocolos operativos concretos: qué se comparte, cómo se comparte, quién lo ejecuta, qué pasa si falla.
 
@@ -3563,7 +3563,7 @@ PLANEN — el plan de soberanía energética — todavía no existe como mandato
 
 ### 18.10 Tabla de Integración Consolidada
 
-**TABLA 18D: Matriz de Integración PLANAGUA con el Marco BASTA**
+**TABLA 18D: Matriz de Integración PLANAGUA con el Marco ¡BASTA!**
 
 | Mandato | Nivel de integración | Componentes compartidos | Responsable de coordinación | Prioridad |
 |---|---|---|---|---|
@@ -3577,7 +3577,7 @@ PLANEN — el plan de soberanía energética — todavía no existe como mandato
 | **PLANSUS** | Regulatoria (protección de cuencas) | Monitoreo IoT aguas abajo, alertas cruzadas | ANAGUA + regulador PLANSUS | Y2 (cuando PLANSUS esté operativo) |
 | **PLANEN (futuro)** | Estratégica (tensión agua-energía) | Evaluación de represas, gestión de fracking, energía para desalinización | ANAGUA + futuro ente energético | Cuando se formalice PLANEN |
 
-> *"Ningún mandato de BASTA funciona sin agua. Pero el agua tampoco funciona sola — necesita suelo sano, ciudades inteligentes, justicia rápida, educación científica, trabajo digno, energía limpia. PLANAGUA es el río. Los otros mandatos son los afluentes. Juntos forman el caudal."*
+> *"Ningún mandato de ¡BASTA! funciona sin agua. Pero el agua tampoco funciona sola — necesita suelo sano, ciudades inteligentes, justicia rápida, educación científica, trabajo digno, energía limpia. PLANAGUA es el río. Los otros mandatos son los afluentes. Juntos forman el caudal."*
 
 ---
 
@@ -4192,7 +4192,7 @@ Y no hubo Wall Street del agua. Los créditos vencen a los 12 meses. No hay merc
 
 ### 25.8 La Filosofía Que Cierra
 
-En la plataforma BASTA, el agua tiene su propia sección. El Tablero Nacional del Agua es la pantalla más visitada — más que el Tablero de la Red Bastarda, más que el de educación, más que el de justicia. Porque el agua es lo primero. Lo más básico. Lo que todos necesitan.
+En la plataforma ¡BASTA!, el agua tiene su propia sección. El Tablero Nacional del Agua es la pantalla más visitada — más que el Tablero de la Red Bastarda, más que el de educación, más que el de justicia. Porque el agua es lo primero. Lo más básico. Lo que todos necesitan.
 
 Y cuando un ciudadano abre el Tablero y ve verde en su barrio — cuando abre la canilla y sale limpia — cuando sabe que el río que cruza su ciudad tiene un guardián con nombre — cuando sabe que el glaciar que alimenta su valle está protegido por ley — cuando sabe que cada peso de su factura de agua va a agua y no a la ganancia de nadie — en ese momento, la Argentina dejó de perder agua. Y empezó a ganar vida.
 
@@ -4559,7 +4559,7 @@ El agua que perdemos es la vida que nos falta. Es hora de dejar de perderla.
 
 ---
 
-*PLANAGUA es el noveno mandato del proyecto BASTA. Se integra con PLANISV (soberanía del suelo), PLAN24CN (ciudades nuevas), PLANSAL (salud pública), PLANEB (empresas bastardas), PLANJUS (justicia popular), PLANEDU (refundación educativa), PLANREP (reconversión laboral), y PLANSUS (soberanía sobre sustancias). Juntos, los nueve mandatos componen la arquitectura de una Argentina donde el pueblo diseña y el gobierno ejecuta.*
+*PLANAGUA es uno de los 22 PLANes del proyecto ¡BASTA!. Se integra con PLANISV (soberanía del suelo), PLAN24CN (ciudades nuevas), PLANSAL (salud pública), PLANEB (empresas bastardas), PLANJUS (justicia popular), PLANEDU (refundación educativa), PLANREP (reconversión laboral), y PLANSUS (soberanía sobre sustancias). Juntos, los 22 PLANes componen la arquitectura de una Argentina donde el pueblo diseña y el gobierno ejecuta.*
 
 *Versión 1.0 — Marzo 2026*
 *Documento estratégico preparado en el marco de El Instante del Hombre Gris*

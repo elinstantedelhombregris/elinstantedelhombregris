@@ -30,9 +30,9 @@ La Argentina es una de las naciones productoras de alimentos más importantes de
 
 Pero este documento no es una elegía. Es un plan de guerra.
 
-PLANISV forma parte de lo que llamamos el **proyecto BASTA** — cinco iniciativas estratégicas fundacionales interconectadas que abordan, en conjunto, las crisis estructurales que la Argentina arrastra como cadenas: PLAN24CN (las 24 ciudades nuevas que descomprimen el colapso urbano), PLANREP (la reconversión del empleo público hacia trabajo creador), PLANISV (la reconstrucción de la infraestructura biológica del suelo), PLANEDU (la refundación del sistema educativo) y PLANJUS (la justicia popular que protege a las otras cuatro). Cinco documentos. Un solo diagnóstico: la Argentina tiene todos los recursos para ser un país extraordinario y un sistema diseñado para impedirlo. BASTA.
+PLANISV forma parte de lo que llamamos el **proyecto ¡BASTA!** y sus 22 PLANes (al 23 de abril de 2026) — un ecosistema de iniciativas estratégicas interconectadas que abordan, en conjunto, las crisis estructurales que la Argentina arrastra como cadenas: PLAN24CN (las 24 ciudades nuevas que descomprimen el colapso urbano), PLANREP (la reconversión del empleo público hacia trabajo creador), PLANISV (la reconstrucción de la infraestructura biológica del suelo), PLANEDU (la refundación del sistema educativo) y PLANJUS (la justicia popular que protege a las otras cuatro). Cinco documentos fundacionales. Un solo diagnóstico: la Argentina tiene todos los recursos para ser un país extraordinario y un sistema diseñado para impedirlo. ¡BASTA!
 
-Hay una filosofía que atraviesa las cinco iniciativas. La llamamos *El Instante del Hombre Gris*. La premisa es simple y brutal: vivimos en una sociedad que apaga a las personas — que les roba la capacidad de crear, de sentir su potencia, de transformar el mundo con sus manos y su inteligencia. Personas dormidas, reducidas a engranajes, a consumidores, a ejecutores de rutinas que no eligieron. El Hombre Gris es el que despierta — el que decide pulir su carácter, encender su espíritu, dejar de aceptar el letargo. Gris como el acero antes de brillar. Gris como el amanecer antes del sol. El suelo argentino necesita su propio instante. Fue forzado a producir bajo un modelo que lo vacía, lo envenena y lo ignora — un suelo apagado, dormido, tratado como insumo descartable. Su microbiología — esa fuerza laboral invisible de miles de millones de organismos por gramo — fue tratada como prescindible, reemplazable por química sintética. No lo es. Nunca lo fue. Y la Argentina está pagando el precio.
+Hay una filosofía que atraviesa el proyecto ¡BASTA! y sus 22 PLANes. La llamamos *El Instante del Hombre Gris*. La premisa es simple y brutal: vivimos en una sociedad que apaga a las personas — que les roba la capacidad de crear, de sentir su potencia, de transformar el mundo con sus manos y su inteligencia. Personas dormidas, reducidas a engranajes, a consumidores, a ejecutores de rutinas que no eligieron. El Hombre Gris es el que despierta — el que decide pulir su carácter, encender su espíritu, dejar de aceptar el letargo. Gris como la plata que se pule hasta brillar — porque Argentina es argentum, y argentum es plata. Gris como el amanecer antes del sol. El suelo argentino necesita su propio instante. Fue forzado a producir bajo un modelo que lo vacía, lo envenena y lo ignora — un suelo apagado, dormido, tratado como insumo descartable. Su microbiología — esa fuerza laboral invisible de miles de millones de organismos por gramo — fue tratada como prescindible, reemplazable por química sintética. No lo es. Nunca lo fue. Y la Argentina está pagando el precio.
 
 El instante del Hombre Gris es el momento en que algo se enciende y la persona decide despertar. Decide crear en vez de consumir. Decide sanar en vez de seguir roto. Se convierte en Hombre Gris — alguien que pule su carácter, que elige brillar. Para la Argentina agropecuaria, ese instante es ahora. No porque seamos idealistas, sino porque la aritmética no miente: el costo de seguir como estamos supera, por órdenes de magnitud, el costo de cambiar.
 
@@ -188,7 +188,7 @@ No le hablemos a Raúl de biodiversidad, de huella de carbono ni de los Objetivo
 
 ### 2.4 El Ingrediente
 
-PLANREP — el Plan de Reconversión del Empleo Público, hermano de este documento en el proyecto BASTA — identifica algo que llama "El Ingrediente": la fuerza interna que hace que una persona decida cambiar. Ningún programa, por más bien diseñado que esté, funciona si no existe ese ingrediente. No se puede reconvertir a un empleado público que no quiere. No se puede regenerar el suelo de un productor que no siente la necesidad.
+PLANREP — el Plan de Reconversión del Empleo Público, hermano de este documento en el proyecto ¡BASTA! — identifica algo que llama "El Ingrediente": la fuerza interna que hace que una persona decida cambiar. Ningún programa, por más bien diseñado que esté, funciona si no existe ese ingrediente. No se puede reconvertir a un empleado público que no quiere. No se puede regenerar el suelo de un productor que no siente la necesidad.
 
 PLANISV necesita el mismo ingrediente. Y la buena noticia es que las condiciones para que ese ingrediente exista nunca fueron tan favorables. La sequía de 2022-2023 fue un trauma colectivo que dejó USD 20.000 millones de pérdidas y una generación de productores que por primera vez se preguntó: *¿y si el modelo no va más?* Los costos de insumos en dólares están en máximos históricos. La resistencia de malezas obliga a usar cócteles cada vez más caros y tóxicos. Las regulaciones europeas amenazan el acceso a mercados premium. Los mercados de carbono ofrecen una fuente de ingresos nueva.
 
@@ -2003,19 +2003,19 @@ PLANISV no opera en un vacío global. Hay un ecosistema internacional creciente 
 
 ---
 
-## SECCIÓN 21: INTEGRACIÓN CON EL PROYECTO BASTA — LAS PATAS DE LA MESA
+## SECCIÓN 21: INTEGRACIÓN CON EL PROYECTO ¡BASTA! — LAS PATAS DE LA MESA
 
 > *"Un país no se arregla con un solo plan. Se arregla cuando varios planes se miran entre sí y descubren que son partes del mismo cuerpo."*
 
 ---
 
-### 21.1 El Proyecto BASTA: Arquitectura de una Transformación Nacional
+### 21.1 El Proyecto ¡BASTA!: Arquitectura de una Transformación Nacional
 
 La Argentina no necesita un programa. Necesita un sistema. Un programa resuelve un problema aislado — el suelo, el empleo, la vivienda, la tecnología — y lo deja a merced del próximo ciclo político. Un sistema conecta esos problemas entre sí, de modo que la solución de uno alimenta la solución de los otros, y el conjunto se vuelve más difícil de destruir que cualquiera de sus partes.
 
-El proyecto BASTA es ese sistema. Cinco iniciativas estratégicas fundacionales que funcionan cada una de forma independiente pero que, conectadas, constituyen la transformación nacional más ambiciosa intentada en la Argentina desde la Generación del 80 — con la diferencia decisiva de que esta transformación no se basa en la acumulación extractiva sino en la regeneración productiva.
+El proyecto ¡BASTA! es ese sistema. 22 PLANes (al 23 de abril de 2026) que funcionan cada uno de forma independiente pero que, conectados, constituyen la transformación nacional más ambiciosa intentada en la Argentina desde la Generación del 80 — con la diferencia decisiva de que esta transformación no se basa en la acumulación extractiva sino en la regeneración productiva.
 
-**BASTA** es un acrónimo operativo, no publicitario:
+**¡BASTA!** es un acrónimo operativo, no publicitario:
 
 - **B** — **Belleza**: PLANREP-Belleza. La reconversión de 600.000-900.000 empleados públicos improductivos en artesanos, oficios y productores de la Economía de la Belleza. Carpinteros, ceramistas, panaderos, agroecólogos, restauradores, cocineros artesanales, viveristas, constructores con oficios de excelencia.
 - **A** — **Alimentación**: PLANISV. La reconstrucción de la infraestructura biológica del suelo argentino. 25+ millones de hectáreas restauradas. Soberanía alimentaria real, no retórica. Este documento.
@@ -2023,9 +2023,9 @@ El proyecto BASTA es ese sistema. Cinco iniciativas estratégicas fundacionales 
 - **T** — **Territorio**: PLAN24CN. La construcción de 24 nuevas ciudades en la Argentina, redistribuyendo población, creando polos productivos regionales, y rompiendo la macrocefalia de Buenos Aires.
 - **A** — **Autonomía**: El resultado emergente de las cuatro anteriores. Autonomía alimentaria (PLANISV), autonomía laboral (PLANREP), autonomía territorial (PLAN24CN), autonomía tecnológica (PLANREP-Inteligencia). Un país que no depende de nadie para comer, trabajar, vivir y pensar.
 
-PLANJUS — Justicia Popular — es la quinta iniciativa fundacional: el sistema inmunológico que protege a las otras cuatro. Sin justicia que funcione, ningún plan sobrevive al sabotaje, la corrupción o la inercia institucional. PLANJUS es el escudo de BASTA.
+PLANJUS — Justicia Popular — es la quinta iniciativa fundacional: el sistema inmunológico que protege a las otras cuatro. Sin justicia que funcione, ningún plan sobrevive al sabotaje, la corrupción o la inercia institucional. PLANJUS es el escudo de ¡BASTA!.
 
-El proyecto madre que contiene a BASTA es **El Instante del Hombre Gris** — un marco filosófico sobre el despertar del argentino atrapado en el letargo de un sistema que lo apaga. El Hombre Gris no es la persona dormida — es la que despierta. Es la que decide pulir su carácter, encender su espíritu, brillar. Cada una de las cinco iniciativas es un camino concreto desde el apagón hacia la creación.
+El proyecto madre que contiene a ¡BASTA! es **El Instante del Hombre Gris** — un marco filosófico sobre el despertar del argentino atrapado en el letargo de un sistema que lo apaga. El Hombre Gris no es la persona dormida — es la que despierta. Es la que decide pulir su carácter, encender su espíritu, brillar. Cada uno de los 22 PLANes es un camino concreto desde el apagón hacia la creación.
 
 ### 21.2 PLANISV × PLAN24CN: Suelo Vivo para Ciudades Nuevas
 
@@ -2087,11 +2087,11 @@ PLANJUS aporta al ecosistema PLANISV lo que ningún programa técnico puede: la 
 
 ### 21.6 Sinergia de Financiamiento
 
-Los cinco programas de BASTA comparten infraestructura, reducen costos por escala y amplifican la capacidad de captación de financiamiento internacional:
+Los programas de ¡BASTA! comparten infraestructura, reducen costos por escala y amplifican la capacidad de captación de financiamiento internacional:
 
 - **Infraestructura compartida.** Los Centros de Oficios de PLANREP-Belleza y los Centros de Inteligencia de PLANREP-Inteligencia pueden co-ubicarse en las 24 ciudades nuevas de PLAN24CN, compartiendo campus, conectividad, vivienda estudiantil y servicios. Los laboratorios de suelo de PLANISV pueden operar dentro de Centros de Excelencia universitarios que también sirven como centros de formación PLANREP.
 - **Financiamiento internacional combinado.** Una propuesta al Green Climate Fund que combine restauración de suelos (PLANISV), ciudades resilientes (PLAN24CN) y empleo verde (PLANREP) tiene un perfil de impacto enormemente superior a cualquiera de los tres por separado. Lo mismo aplica a BID, Banco Mundial, CAF, y fondos bilaterales europeos.
-- **Economías de escala en comunicación.** Una campaña nacional de BASTA tiene mayor impacto mediático y menor costo por programa que cinco campañas separadas.
+- **Economías de escala en comunicación.** Una campaña nacional de ¡BASTA! tiene mayor impacto mediático y menor costo por programa que campañas separadas.
 - **Sinergia fiscal.** Los egresados de PLANREP que se emplean en PLANISV y PLAN24CN generan recaudación impositiva que financia parcialmente los programas mismos. El circuito fiscal se cierra: inversión pública → empleo genuino → recaudación → reinversión.
 
 **Ahorro estimado por sinergias:** USD 2.000-5.000M en el horizonte de 15 años por compartición de infraestructura, financiamiento combinado y eliminación de duplicaciones.
@@ -2113,9 +2113,9 @@ Estos conceptos están desarrollados en profundidad en PLANREP Sección 15. PLAN
 
 ### 21.8 El Instante del Hombre Gris: Del Apagón al Despertar Verde
 
-El Instante del Hombre Gris es la filosofía madre del proyecto BASTA. Su premisa es simple y devastadora: millones de argentinos están atrapados en el letargo — empleos que no generan valor, trabajos de subsistencia, desempleo disfrazado de changas — no por incapacidad personal sino por un sistema que los mantiene apagados, dormidos, en piloto automático.
+El Instante del Hombre Gris es la filosofía madre del proyecto ¡BASTA!. Su premisa es simple y devastadora: millones de argentinos están atrapados en el letargo — empleos que no generan valor, trabajos de subsistencia, desempleo disfrazado de changas — no por incapacidad personal sino por un sistema que los mantiene apagados, dormidos, en piloto automático.
 
-El Hombre Gris no es esa persona dormida. El Hombre Gris es el que **despierta**. Es el empleado público que un día se cansa de sellar expedientes que nadie lee y decide aprender un oficio. Es el joven que encuentra su propósito. Es la mujer que siempre supo que podía más y finalmente encuentra el camino. Es el productor que mira su suelo moribundo y dice: *esto se puede sanar*. El Hombre Gris es gris como el acero que se pule — no como el cemento que aplasta. Es el color de la transformación, no del sometimiento.
+El Hombre Gris no es esa persona dormida. El Hombre Gris es el que **despierta**. Es el empleado público que un día se cansa de sellar expedientes que nadie lee y decide aprender un oficio. Es el joven que encuentra su propósito. Es la mujer que siempre supo que podía más y finalmente encuentra el camino. Es el productor que mira su suelo moribundo y dice: *esto se puede sanar*. El Hombre Gris es gris como la plata que se pule hasta brillar — porque Argentina es argentum, y argentum es plata — no como el cemento que aplasta. Es el color de la transformación, no del sometimiento.
 
 PLANISV le da al Hombre Gris un destino verde. El ex-empleado administrativo que se forma como técnico de salud del suelo y empieza a medir biomasa microbiana en campos de la Pampa Húmeda tuvo su instante — se convirtió en Hombre Gris, y eligió lo verde. La ex-recepcionista que se forma como operadora de drones y monitorea cultivos de cobertura desde una estación INTA tuvo su instante. El productor que deja de fumigar, empieza a compostar y ve cómo su suelo revive tuvo su instante.
 
@@ -2123,7 +2123,7 @@ Del apagón al despertar. De lo extractivo a lo regenerativo. De administrar la 
 
 Y cuando esa transformación se multiplica por 500.000 personas en diversas modalidades de actividad productiva — técnicos, productores, operadores, analistas, artesanos alimentarios, monitores ambientales — deja de ser una política pública y se convierte en un movimiento civilizatorio. La Argentina que extraía se convierte en la Argentina que regenera. El instante del Hombre Gris fue el instante en que eligió despertar — y despertar significó sanar el suelo.
 
-**TABLA 27: Matriz de Integración de BASTA con PLANISV**
+**TABLA 27: Matriz de Integración de ¡BASTA! con PLANISV**
 
 | Intersección | Recursos que fluyen hacia PLANISV | Recursos que fluyen desde PLANISV | Impacto conjunto estimado |
 |---|---|---|---|
@@ -2132,7 +2132,7 @@ Y cuando esa transformación se multiplica por 500.000 personas en diversas moda
 | **PLANREP-Belleza → PLANISV** | 80.000-150.000 trabajadores formados: técnicos de suelo, viveristas, agroecólogos, artesanos alimentarios | Materia prima de alta calidad para gastronomía artesanal; paisajes para turismo regenerativo | Cadena completa campo→mesa→exportación; turismo regenerativo USD 200M+/año |
 | **PLANREP-Inteligencia → PLANISV** | 30.000-60.000 trabajadores tech: pilotos de drones, analistas IA, desarrolladores, técnicos IoT | Demanda de servicios exportables (MRV, drones, análisis de suelo como servicio) | Exportación de servicios de suelo inteligente USD 500M-2.000M/año |
 | **PLANISV + PLANJUS** | Resolución rápida de conflictos ambientales, de contratos agrícolas y de uso del suelo | Productores que incumplen compromisos de regeneración enfrentan resolución en 45 días, no en 7 años |
-| **BASTA completo** | Sistema integrado de financiamiento, infraestructura, talento, mercados y justicia | Seguridad alimentaria como base de todo el sistema productivo | USD 30-50B/año de nuevo valor económico; 2M+ empleos genuinos |
+| **¡BASTA! completo** | Sistema integrado de financiamiento, infraestructura, talento, mercados y justicia | Seguridad alimentaria como base de todo el sistema productivo | USD 30-50B/año de nuevo valor económico; 2M+ empleos genuinos |
 
 ---
 
@@ -2272,10 +2272,10 @@ Antes de que el primer sensor toque la tierra, hay que construir las condiciones
 - Selección de las 6 agro-regiones prioritarias y los 50 sitios de demostración Nivel 1
 - Convenios con universidades para los 6 Centros de Excelencia regionales
 
-**Hitos de BASTA:**
+**Hitos de ¡BASTA!:**
 - Reunión de coordinación PLANISV × PLAN24CN: identificación de los primeros 6 cinturones alimentarios para ciudades piloto
 - Reunión de coordinación PLANISV × PLANREP: diseño de tracks formativos cruzados (agroecología, drones, análisis de suelo)
-- Convenio marco de integración de BASTA firmado por los directores de los 5 programas
+- Convenio marco de integración de ¡BASTA! firmado por los directores de los 5 programas
 
 **Hitos de financiamiento:**
 - Presentación de solicitud al Green Climate Fund (GCF) con perfil de proyecto PLANISV
@@ -2328,7 +2328,7 @@ Antes de que el primer sensor toque la tierra, hay que construir las condiciones
 - Convenios firmados con CREA, AAPRESID, Federación Agraria Argentina, CONINAGRO y Sociedad Rural
 - Al menos 50 grupos CREA participando como multiplicadores
 
-**Hitos de BASTA:**
+**Hitos de ¡BASTA!:**
 - Primera cohorte de 200 egresados PLANREP incorporados como técnicos de campo PLANISV
 - Primeros 3 cinturones alimentarios de ciudades piloto PLAN24CN con protocolo de suelo PLANISV activo
 
@@ -2386,10 +2386,10 @@ Antes de que el primer sensor toque la tierra, hay que construir las condiciones
 - Cooperativas de comercialización de productos PLANISV formadas en 4 regiones
 - Primera exportación de producto con certificación "Suelo Vivo Argentino"
 
-**Hitos de BASTA:**
+**Hitos de ¡BASTA!:**
 - 2.000+ egresados PLANREP trabajando en roles PLANISV (técnicos, operadores de drones, analistas)
 - 6 cinturones alimentarios activos produciendo para ciudades piloto PLAN24CN
-- Primera propuesta de financiamiento internacional conjunta de BASTA (GCF o BID)
+- Primera propuesta de financiamiento internacional conjunta de ¡BASTA! (GCF o BID)
 
 ### 23.3 Fase 3 — Escalar (Meses 36-72): De Programa a Institución
 
@@ -2438,7 +2438,7 @@ Antes de que el primer sensor toque la tierra, hay que construir las condiciones
 - Los "pueblos fumigados" del corredor sojero muestran mejoras en indicadores de salud pública vinculados a reducción de agroquímicos
 - Primer estudio epidemiológico publicado mostrando correlación entre adopción PLANISV y reducción de enfermedades vinculadas a pesticidas
 
-**Hitos de BASTA:**
+**Hitos de ¡BASTA!:**
 - 10.000+ egresados PLANREP integrados al ecosistema PLANISV
 - 12 cinturones alimentarios operativos con autosuficiencia local del 30%+
 - Exportación de servicios de monitoreo de suelos a Paraguay, Uruguay y sur de Brasil
@@ -2484,10 +2484,10 @@ Antes de que el primer sensor toque la tierra, hay que construir las condiciones
 - 100+ cuencas con calidad de agua restaurada
 - Argentina alcanza estándares OMS de calidad de agua en todas las zonas agrícolas con presencia PLANISV
 
-**Hitos de BASTA:**
-- Proyecto BASTA plenamente operativo como sistema integrado
+**Hitos de ¡BASTA!:**
+- Proyecto ¡BASTA! plenamente operativo como sistema integrado
 - 50.000+ egresados PLANREP en roles productivos vinculados a PLANISV, PLAN24CN y la cadena agroalimentaria
-- Argentina exporta el modelo BASTA como paquete completo de transformación nacional
+- Argentina exporta el modelo ¡BASTA! como paquete completo de transformación nacional
 
 **TABLA 29: Hoja de Ruta de Implementación — Línea Temporal**
 
@@ -2509,7 +2509,7 @@ Antes de que el primer sensor toque la tierra, hay que construir las condiciones
 
 ### 24.1 Inversión del Programa por Fase (Presupuesto Expandido)
 
-El presupuesto original de PLANISV contemplaba seis categorías de inversión. El alcance expandido de v3.0 — que integra ganadería, remediación hídrica, agricultura urbana, programas de género e inclusión, comunicación, y coordinación con el proyecto BASTA — requiere un marco presupuestario ampliado.
+El presupuesto original de PLANISV contemplaba seis categorías de inversión. El alcance expandido de v3.0 — que integra ganadería, remediación hídrica, agricultura urbana, programas de género e inclusión, comunicación, y coordinación con el proyecto ¡BASTA! — requiere un marco presupuestario ampliado.
 
 **TABLA 30: Presupuesto Detallado por Fase (en millones de USD)**
 
@@ -2528,7 +2528,7 @@ El presupuesto original de PLANISV contemplaba seis categorías de inversión. E
 | **Comunicación y campaña nacional** | 0,5-1 | 1-2 | 3-5 | 5-8 | 8-12 | **17,5-28** |
 | **Programa de comunidades indígenas** | — | 0,5-1 | 2-3 | 4-8 | 8-15 | **14,5-27** |
 | **Programa de género e inclusión** | — | 0,3-0,5 | 1-2 | 3-5 | 5-8 | **9,3-15,5** |
-| **Coordinación proyecto BASTA** | — | 0,2-0,5 | 1-2 | 2-4 | 4-8 | **7,2-14,5** |
+| **Coordinación proyecto ¡BASTA!** | — | 0,2-0,5 | 1-2 | 2-4 | 4-8 | **7,2-14,5** |
 | **INVERSIÓN TOTAL** | **3-6** | **17,5-36** | **87-166** | **244-543** | **672-2.213** | **1.023,5-2.964** |
 
 **Inversión total estimada a 15 años: USD 1.000-3.000M.**
@@ -2540,7 +2540,7 @@ Para poner esto en contexto: la Argentina gasta anualmente USD 3.000-4.000M en i
 | Fuente | Aporte estimado | Mecanismo |
 |---|---|---|
 | Afectación de retenciones (2-3% de derechos de exportación agropecuarios) | USD 400-750M en 15 años | Ley de Infraestructura de Suelo Vivo; Fondo Nacional |
-| Financiamiento internacional (GCF, BID, Banco Mundial, CAF) | USD 200-500M en 15 años | Préstamos concesionales y donaciones; propuestas conjuntas BASTA |
+| Financiamiento internacional (GCF, BID, Banco Mundial, CAF) | USD 200-500M en 15 años | Préstamos concesionales y donaciones; propuestas conjuntas ¡BASTA! |
 | Fondos climáticos bilaterales (UE, Alemania, Noruega, Japón) | USD 100-300M en 15 años | Cooperación técnica; alineamiento con EUDR y Acuerdo de París |
 | Ingresos por créditos de carbono (autofinanciamiento desde Fase 3) | USD 200-1.000M en 15 años | Mercado Argentino de Carbono Agroecológico; ventas internacionales |
 | Co-inversión provincial | USD 100-200M en 15 años | Matching funds; contrapartida de convenios marco |
@@ -2714,7 +2714,7 @@ ES LA DEUDA REAL
 PLANISV v3.0 — Marzo 2026
 Plan Nacional para la Reconstrucción de la Infraestructura de Suelo Vivo de la Argentina
 
-Parte del proyecto BASTA — El Instante del Hombre Gris
+Parte del proyecto ¡BASTA! — El Instante del Hombre Gris
 PLAN24CN · PLANISV · PLANREP-Belleza · PLANREP-Inteligencia · PLANJUS
 
 — Fin del Documento —

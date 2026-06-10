@@ -1902,7 +1902,7 @@ El instante del Hombre Gris digital es ahora. Y la Argentina eligió despertar.
 
 ---
 
-**PLANDIG es el décimo de los dieciséis mandatos de ¡BASTA!. No el último — porque ¡BASTA! nunca deja de construir. Pero sí el que conecta a todos los demás. Porque un país con educación pero sin datos propios educa para otros. Un país con justicia pero sin infraestructura digital juzga en el vacío. Un país con empresas bastardas pero sin soberanía tecnológica depende del que le alquila los rieles. PLANDIG cierra el circuito. Completa el sistema nervioso. Le da a ¡BASTA! un cuerpo digital donde vivir.**
+**PLANDIG es el décimo de los 22 PLANes de ¡BASTA!. No el último — porque ¡BASTA! nunca deja de construir. Pero sí el que conecta a todos los demás. Porque un país con educación pero sin datos propios educa para otros. Un país con justicia pero sin infraestructura digital juzga en el vacío. Un país con empresas bastardas pero sin soberanía tecnológica depende del que le alquila los rieles. PLANDIG cierra el circuito. Completa el sistema nervioso. Le da a ¡BASTA! un cuerpo digital donde vivir.**
 
 **Porque la soberanía del siglo XXI no se ejerce solo con ejércitos, con fábricas, con campos y con leyes. Se ejerce con datos, con algoritmos, con infraestructura, y con la decisión irrevocable de que la inteligencia argentina — toda ella, cada byte, cada modelo, cada decisión — nos pertenezca.**
 

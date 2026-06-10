@@ -492,7 +492,7 @@ La estrategia tiene cinco ejes:
 
 **2. Redes sociales — contenido diario:** Un equipo de comunicación en cada Centro de la Vida generando contenido permanente: videos cortos de cuidadores en acción, time-lapses de construcciones en curso, testimonios de 60 segundos, showcases de productos artesanales, detrás de escena de las clases de gastronomía, "antes y después" de remediaciones ambientales. Instagram, TikTok, YouTube Shorts — donde está la gente, está PLANREP. El objetivo: que ningún argentino con un celular pueda pasar una semana sin ver al menos un contenido de alguien que hizo la transición y está del otro lado, vivo y produciendo.
 
-**3. Visitas a escuelas secundarias:** Equipos de PLANREP visitan escuelas secundarias de todo el país para mostrar a los estudiantes que las ocho ramas de la Economía de la Vida y las carreras de inteligencia aumentada son opciones de vida viables, dignas y económicamente sólidas. No solo para los que ya están en el Estado: para la próxima generación, que tiene que crecer sabiendo que hay más opciones que el escritorio público o la informalidad. Cada visita incluye una demostración en vivo de un oficio y el testimonio de un embajador. Esta conexión con el sistema educativo se integra directamente con PLANEDU — el plan de refundación educativa del proyecto BASTA — cuyas Secciones 19, 20 y 21 desarrollan la articulación completa entre el sistema educativo y la infraestructura de PLANREP, incluyendo la preparación para fideicomisos, DNP y Paneles Ciudadanos desde la escuela primaria.
+**3. Visitas a escuelas secundarias:** Equipos de PLANREP visitan escuelas secundarias de todo el país para mostrar a los estudiantes que las ocho ramas de la Economía de la Vida y las carreras de inteligencia aumentada son opciones de vida viables, dignas y económicamente sólidas. No solo para los que ya están en el Estado: para la próxima generación, que tiene que crecer sabiendo que hay más opciones que el escritorio público o la informalidad. Cada visita incluye una demostración en vivo de un oficio y el testimonio de un embajador. Esta conexión con el sistema educativo se integra directamente con PLANEDU — el plan de refundación educativa del proyecto ¡BASTA! — cuyas Secciones 19, 20 y 21 desarrollan la articulación completa entre el sistema educativo y la infraestructura de PLANREP, incluyendo la preparación para fideicomisos, DNP y Paneles Ciudadanos desde la escuela primaria.
 
 **4. "Día del Oficio" — feriado nacional:** PLANREP propone la creación de un feriado nacional anual — el **Día del Oficio** — dedicado a celebrar a los trabajadores de las ocho ramas de la Economía de la Vida y de la Economía de la Inteligencia. Ferias en cada ciudad con Centro de la Vida: muestras de artesanía, demostraciones de cuidado profesional, exhibiciones de bioconstrucción, mercados gastronómicos, experiencias culturales, showcases de industria creativa, talleres de reparación abiertos, competencias de habilidades, premios nacionales por rama. Un día donde el país entero mira a sus creadores y dice: esto vale. Esto importa. Esto es trabajo de verdad.
 
@@ -2133,9 +2133,9 @@ La principal debilidad del plan radica en su vulnerabilidad frente a la volatili
 
 ---
 
-## SECCIÓN 14: INTEGRACIÓN CON OTRAS INICIATIVAS ESTRATÉGICAS — EL PROYECTO BASTA
+## SECCIÓN 14: INTEGRACIÓN CON OTRAS INICIATIVAS ESTRATÉGICAS — EL PROYECTO ¡BASTA!
 
-Con la incorporación de la Economía de la Inteligencia como segundo pilar de PLANREP, la integración con las demás iniciativas estratégicas se amplifica. Cinco pilares fundacionales. Cinco dimensiones de una misma transformación.
+Con la incorporación de la Economía de la Inteligencia como segundo pilar de PLANREP, la integración con las demás iniciativas estratégicas se amplifica. Cinco pilares fundacionales dentro de un ecosistema que hoy suma 22 PLANes (al 23 de abril de 2026). Cinco dimensiones de una misma transformación.
 
 ### 14.1 PLANREP + PLAN24CN (24 Ciudades Nuevas)
 
@@ -2193,7 +2193,7 @@ PLANREP no es solo un programa social. Es un motor económico dual:
 - Posiciona a la Argentina en la economía del conocimiento. No como consumidora de tecnología importada, sino como exportadora de talento potenciado por IA. La zona horaria, el nivel educativo base y el costo de vida hacen de Argentina una plataforma de exportación de servicios de inteligencia artificial con ventajas comparativas reales.
 - Crea un efecto multiplicador: cada dólar que entra por exportación de servicios IA genera actividad económica local (alquiler, comida, transporte, servicios) que beneficia a toda la comunidad, incluidos los egresados de la Vida.
 
-### 14.4 El Proyecto BASTA
+### 14.4 El Proyecto ¡BASTA!
 
 Cinco pilares fundacionales. Cinco dimensiones. Un solo proyecto.
 
@@ -2202,7 +2202,7 @@ Cinco pilares fundacionales. Cinco dimensiones. Un solo proyecto.
 - **PLANREP-Vida** — las ocho ramas del trabajo vivo: manos para construir, personas para cuidar, bocas para alimentar, ojos para reparar.
 - **PLANREP-Inteligencia** — las mentes para competir.
 
-**TABLA 20: BASTA — Sinergias**
+**TABLA 20: ¡BASTA! — Sinergias**
 
 | Intersección | Sinergia | Impacto |
 |---|---|---|
@@ -2214,17 +2214,17 @@ Cinco pilares fundacionales. Cinco dimensiones. Un solo proyecto.
 | Suelo + Inteligencia | Agricultura de precisión con IA; monitoreo ecológico con drones y sensores | Productividad 5x con huella ambiental 1/3 |
 | Vida + Inteligencia | Artesano Aumentado: cada egresado de la Vida usa IA para potenciar su oficio | El "doble blindaje" de hoy: las más difíciles de reemplazar por máquinas Y potenciadas por ellas — un blindaje que se refuerza con los mecanismos de adaptación de Horizonte 2 y 3 |
 | Reconversión + Justicia | PLANJUS resuelve conflictos laborales de la reconversión en 15-45 días | Garantía de que ningún trabajador reconvertido queda en limbo legal |
-| Las 5 juntas | BASTA: sistema completo de transformación nacional | USD 30-50B/año de nuevo valor económico; 2M+ empleos genuinos |
+| Las 5 juntas | ¡BASTA!: sistema completo de transformación nacional | USD 30-50B/año de nuevo valor económico; 2M+ empleos genuinos |
 
 Ciudades donde vivir. Suelo para crecer alimentos. Ocho ramas de trabajo vivo para construir, cuidar, alimentar, reparar, crear. Mentes para competir en el mundo. Justicia para proteger todo lo construido. Los cinco pilares se necesitan mutuamente. Sin ciudades, ¿dónde trabajan los egresados? Sin suelo sano, ¿de qué se alimentan las ciudades? Sin las ocho ramas, ¿quién construye, quién cuida, quién alimenta, quién repara? Sin mentes, ¿cómo compite el país? Sin justicia, ¿quién protege al que transiciona?
 
 No son cinco programas separados: son cinco dimensiones del mismo proyecto de transformación nacional. Cada uno funciona solo — pero juntos, son un sistema. Un sistema donde el egresado de El Refugio construye la ciudad de PLAN24CN, el egresado de La Reparación restaura los suelos de PLANISV, el egresado de La Mesa alimenta a la ciudad con productos de esos suelos, el egresado de El Amparo cuida a los ancianos de la ciudad, y el egresado de la Inteligencia gestiona todo eso con IA desde su Centro de Inteligencia.
 
-Eso es BASTA: **B**ienestar, **A**limentación, **S**istemas inteligentes, **T**erritorio, **A**utonomía. No es un acrónimo pensado para marketing — es la síntesis operativa de lo que la Argentina necesita para dejar de ser un país que administra su decadencia y empezar a ser un país que construye su futuro.
+Eso es ¡BASTA!: **B**ienestar, **A**limentación, **S**istemas inteligentes, **T**erritorio, **A**utonomía. No es un acrónimo pensado para marketing — es la síntesis operativa de lo que la Argentina necesita para dejar de ser un país que administra su decadencia y empezar a ser un país que construye su futuro.
 
 Y PLANJUS — Justicia Popular — es el sistema inmunológico que protege a las cinco letras. Sin justicia rápida y accesible, los trabajadores reconvertidos no tienen protección legal durante su transición.
 
-PLANREP se integra directamente con **PLANEDU** — el plan de refundación educativa del proyecto BASTA — que diseña la conexión bidireccional entre el sistema educativo formal y la infraestructura de formación de PLANREP. Los Centros de la Vida, en su etapa de consolidación, se transformarán en instituciones permanentes del sistema de educación técnica argentino — una alternativa vocacional para jóvenes de 18+ que eligen no ir a la universidad, y una fuente de Maestros de Oficio para las escuelas técnicas. PLANEDU integra la preparación para la transición post-laboral en su currículo: los alumnos aprenden sobre fideicomisos y DNP (Capacidad CONOCER), participan en Paneles Ciudadanos simulados (Capacidad COLABORAR), y construyen su Portfolio Ciudadano Único desde los 6 años. Las Secciones 19, 20 y 21 de PLANEDU desarrollan esta integración en detalle.
+PLANREP se integra directamente con **PLANEDU** — el plan de refundación educativa del proyecto ¡BASTA! — que diseña la conexión bidireccional entre el sistema educativo formal y la infraestructura de formación de PLANREP. Los Centros de la Vida, en su etapa de consolidación, se transformarán en instituciones permanentes del sistema de educación técnica argentino — una alternativa vocacional para jóvenes de 18+ que eligen no ir a la universidad, y una fuente de Maestros de Oficio para las escuelas técnicas. PLANEDU integra la preparación para la transición post-laboral en su currículo: los alumnos aprenden sobre fideicomisos y DNP (Capacidad CONOCER), participan en Paneles Ciudadanos simulados (Capacidad COLABORAR), y construyen su Portfolio Ciudadano Único desde los 6 años. Las Secciones 19, 20 y 21 de PLANEDU desarrollan esta integración en detalle.
 
 > *"No hacen falta milagros. Hacen falta manos, mentes, tierra y ciudades. Todo lo demás es excusa."*
 
@@ -2290,7 +2290,7 @@ Si la automatización va a generar riqueza exponencial — y todo indica que sí
 
 **TABLA 21: Los Cinco Fideicomisos Iniciales**
 
-| Fideicomiso | Activo Principal | Retorno Esperado | Conexión BASTA |
+| Fideicomiso | Activo Principal | Retorno Esperado | Conexión ¡BASTA! |
 |---|---|---|---|
 | **Energía Renovable** | Parques solares y eólicos en tierras públicas, almacenamiento en baterías | Venta de energía al mercado mayorista + créditos de carbono internacionales | PLAN24CN (energía para ciudades nuevas) |
 | **Suelo Vivo** | Tierras remediadas bajo PLANISV, infraestructura de compostaje y bioinsumos | Producción agrícola regenerativa + bonos de carbono + alquileres de tierras productivas | PLANISV (integración directa) |
@@ -2379,7 +2379,7 @@ La lógica es elegante: a medida que el DNP crece, los programas fragmentados pi
 - **Investigación y conocimiento:** Investigación aplicada, documentación de saberes locales, ciencia ciudadana, monitoreo ambiental participativo. El biólogo aficionado que registra especies en el humedal. La historiadora local que documenta la memoria del pueblo.
 - **Construcción y reparación:** Trabajo voluntario en infraestructura comunitaria, reparación de equipamiento público, mantenimiento de espacios compartidos. El vecino que repara los juegos de la plaza. La cuadrilla que arregla el techo del club de barrio.
 
-**Sobre la no participación.** El DNP es un DERECHO, no un contrato. La dignidad humana no se condiciona a la productividad. Si una persona decide no contribuir — por la razón que sea — sigue recibiendo el DNP completo, sin penalización, sin estigma, sin burocracia punitiva. Pero toda la infraestructura BASTA está diseñada para que la inmensa mayoría QUIERA contribuir — no por obligación sino porque tiene herramientas, comunidad, espacios, reconocimiento y sentido. La evidencia de los pilotos de UBI citados en 15.3 es contundente: cuando le das a la gente un piso de seguridad, la mayoría no se queda quieta — se activa. Porque la inercia no es un estado natural del ser humano — es un síntoma de un sistema que no le ofrece nada mejor que la inercia. PLANREP ofrece algo mejor. Ocho ramas. Cuatro niveles. Siete categorías de contribución. Y un país entero que necesita manos.
+**Sobre la no participación.** El DNP es un DERECHO, no un contrato. La dignidad humana no se condiciona a la productividad. Si una persona decide no contribuir — por la razón que sea — sigue recibiendo el DNP completo, sin penalización, sin estigma, sin burocracia punitiva. Pero toda la infraestructura ¡BASTA! está diseñada para que la inmensa mayoría QUIERA contribuir — no por obligación sino porque tiene herramientas, comunidad, espacios, reconocimiento y sentido. La evidencia de los pilotos de UBI citados en 15.3 es contundente: cuando le das a la gente un piso de seguridad, la mayoría no se queda quieta — se activa. Porque la inercia no es un estado natural del ser humano — es un síntoma de un sistema que no le ofrece nada mejor que la inercia. PLANREP ofrece algo mejor. Ocho ramas. Cuatro niveles. Siete categorías de contribución. Y un país entero que necesita manos.
 
 ### 15.5 Los Paneles Ciudadanos de Futuro Económico
 

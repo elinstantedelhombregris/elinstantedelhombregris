@@ -9,7 +9,9 @@ PLANGEO
 Doctrina de Plataforma · Soberanía como Servicio · Estrategia de Doble Capa
 Diplomacia Convencional · Infraestructura Paralela · Red Soberana
 Stack de Gobernanza · Stack Digital · Stack de Recursos · Stack Urbano
-Stack de Transición Humana · Stack Sanitario · Stack Educativo
+Stack de Transición Humana · Stack Sanitario · Stack Jurídico
+Stack Energético · Stack Monetario · Stack de Seguridad
+Stack de Vivienda · Stack Cultural · Stack de Movilidad
 Mapa de Fricción · Navegación US-China · Alineamiento UE
 Reforma Mercosur · BRICS+ · Atlántico Sur · Antártida
 Malvinas: Estrategia Bifurcada · Arquitectura Comercial
@@ -21,7 +23,7 @@ Ministerio de Relaciones Exteriores · Ministerio de Defensa
 Ministerio de Economía · Secretaría de Asuntos Estratégicos
 Consejo Nacional de Estrategia Geopolítica (CNEG)
 
-Marzo 2026 | Versión 1.1
+Marzo 2026 | Versión 1.2
 DOCUMENTO ESTRATÉGICO — PARA REVISIÓN AUTORIZADA
 ```
 
@@ -35,7 +37,7 @@ Aminata lo sabe. Lo sabe con la precisión fría de quien maneja las planillas. 
 
 Un martes de enero, un colega le reenvía un documento. Es un plan estratégico de un país sudamericano que ella conoce vagamente por el fútbol y por los problemas económicos que salen en las noticias internacionales. El documento describe algo que Aminata no había visto antes: una entidad de seguros sin dueño, sin accionistas, gobernada por los propios asegurados, con cada peso auditado en tiempo real por cualquier ciudadano. Costo real. Transparencia radical. Cero extracción. Y al final del documento, algo que la hace detenerse: el código es abierto. La arquitectura es exportable. Cualquier país puede adaptarla.
 
-Aminata pasa las siguientes 72 horas leyendo todo lo que encuentra. Descubre que no es un plan aislado. Son diez. Interconectados. Uno para el sistema de salud. Uno para la infraestructura digital soberana. Uno para la gestión del agua. Uno para ciudades nuevas. Uno para reformar la justicia. Uno para transformar la relación entre las personas y el trabajo. Cada uno produce herramientas — no teorías, no white papers, no recomendaciones del FMI que dicen lo mismo desde 1985 — sino infraestructura funcional, código desplegable, protocolos adoptables.
+Aminata pasa las siguientes 72 horas leyendo todo lo que encuentra. Descubre que no es un plan aislado. Son veintidós. Interconectados. Uno para el sistema de salud. Uno para la infraestructura digital soberana. Uno para la gestión del agua. Uno para ciudades nuevas. Uno para reformar la justicia. Uno para transformar la relación entre las personas y el trabajo. Uno para la energía, uno para la moneda, uno para la vivienda, uno para la cultura. Cada uno produce herramientas — no teorías, no white papers, no recomendaciones del FMI que dicen lo mismo desde 1985 — sino infraestructura funcional, código desplegable, protocolos adoptables.
 
 Aminata levanta el teléfono. Llama a la embajada argentina en Dakar. Le atiende un funcionario que no tiene idea de qué le están hablando.
 
@@ -43,11 +45,13 @@ Eso es lo que este plan viene a corregir.
 
 ---
 
-PLANGEO es el plan que hace que todos los demás planes lleguen al mundo. Sin PLANGEO, BASTA es una revolución doméstica brillante que el sistema inmunológico del orden global puede aislar, sancionar, difamar y asfixiar. Con PLANGEO, BASTA es una plataforma que el mundo necesita, adoptada por tantos países que atacarla equivale a atacar la infraestructura de gobernanza de medio planeta.
+PLANGEO es el plan que hace que todos los demás planes lleguen al mundo. Sin PLANGEO, ¡BASTA! es una revolución doméstica brillante que el sistema inmunológico del orden global puede aislar, sancionar, difamar y asfixiar. Con PLANGEO, ¡BASTA! es una plataforma que el mundo necesita, adoptada por tantos países que atacarla equivale a atacar la infraestructura de gobernanza de medio planeta.
 
-**Tesis Central:** La Argentina de 2026 enfrenta una paradoja geopolítica: es un país con los recursos naturales, el capital humano y la tradición institucional para liderar una transformación global de la gobernanza — pero cada transformación que emprende amenaza intereses que tienen la capacidad de destruirla. PLANEB amenaza los márgenes de las multinacionales de seguros, banca y telecomunicaciones. PLANSUS desafía un régimen internacional de prohibición de drogas sostenido por Estados Unidos durante 65 años. PLANDIG cuestiona la hegemonía digital de Silicon Valley y la arquitectura de vigilancia de Beijing. PLANAGUA y la estrategia del litio disputan el control de recursos que las potencias consideran estratégicos. PLAN24CN propone un modelo urbano que hace obsoletos los esquemas de desarrollo financiados por el Banco Mundial y las deudas-trampa de China. Y PLANREP plantea una reorganización del trabajo que amenaza la lógica misma del capitalismo accionarial global. Ninguna de estas iniciativas puede sobrevivir el contacto con el sistema internacional sin una estrategia que anticipe, neutralice y transforme la resistencia en adopción. PLANGEO propone esa estrategia. No es un plan de defensa — es un plan de oferta. Argentina no se protege escondiéndose sino haciéndose indispensable. La doctrina es simple: cada herramienta que BASTA construye para los argentinos se empaqueta como infraestructura soberana exportable — un **Stack de Soberanía** modular, open-source, adoptable por cualquier país que enfrente los mismos problemas estructurales. El stack no se impone — se ofrece. No requiere alineamiento político — requiere necesidad técnica. Y cuando 30, 50, 80 países corren su gobernanza sobre infraestructura diseñada en Argentina, sancionar a la Argentina deja de ser un acto de disciplina geopolítica y se convierte en un acto de sabotaje contra la propia red. PLANGEO opera en **doble capa**: una capa diplomática que habla el idioma que el mundo espera — tratados, acuerdos bilaterales, organismos multilaterales, cumplimiento normativo — y una capa de infraestructura que construye la nueva arquitectura sin pedir permiso, sin esperar consenso, sin depender de que ningún gobierno extranjero apruebe lo que Argentina ya decidió construir. La capa diplomática compra tiempo y legitimidad. La capa de infraestructura crea hechos irreversibles. Juntas, hacen que Argentina sea demasiado útil para atacar, demasiado interconectada para aislar, y demasiado transparente para difamar. La **Red Soberana** — la red de países, ciudades y organizaciones que adoptan módulos del Stack de Soberanía — no es una alianza militar ni un bloque comercial. Es una comunidad de usuarios. Y las comunidades de usuarios no se sancionan — se necesitan. PLANGEO es, en última instancia, la respuesta a una pregunta que ningún documento de política exterior argentino se ha atrevido a formular: *¿Qué pasa cuando un país del Sur Global deja de pedir permiso y empieza a ofrecer soluciones?*
+**Tesis Central:** La Argentina de 2026 enfrenta una paradoja geopolítica: es un país con los recursos naturales, el capital humano y la tradición institucional para liderar una transformación global de la gobernanza — pero cada transformación que emprende amenaza intereses que tienen la capacidad de destruirla. PLANEB amenaza los márgenes de las multinacionales de seguros, banca y telecomunicaciones. PLANSUS desafía un régimen internacional de prohibición de drogas sostenido por Estados Unidos durante 65 años. PLANDIG cuestiona la hegemonía digital de Silicon Valley y la arquitectura de vigilancia de Beijing. PLANAGUA y la estrategia del litio disputan el control de recursos que las potencias consideran estratégicos. PLAN24CN propone un modelo urbano que hace obsoletos los esquemas de desarrollo financiados por el Banco Mundial y las deudas-trampa de China. Y PLANREP plantea una reorganización del trabajo que amenaza la lógica misma del capitalismo accionarial global. Ninguna de estas iniciativas puede sobrevivir el contacto con el sistema internacional sin una estrategia que anticipe, neutralice y transforme la resistencia en adopción. PLANGEO propone esa estrategia. No es un plan de defensa — es un plan de oferta. Argentina no se protege escondiéndose sino haciéndose indispensable. La doctrina es simple: cada herramienta que ¡BASTA! construye para los argentinos se empaqueta como infraestructura soberana exportable — un **Stack de Soberanía** modular, open-source, adoptable por cualquier país que enfrente los mismos problemas estructurales. El stack no se impone — se ofrece. No requiere alineamiento político — requiere necesidad técnica. Y cuando 30, 50, 80 países corren su gobernanza sobre infraestructura diseñada en Argentina, sancionar a la Argentina deja de ser un acto de disciplina geopolítica y se convierte en un acto de sabotaje contra la propia red. PLANGEO opera en **doble capa**: una capa diplomática que habla el idioma que el mundo espera — tratados, acuerdos bilaterales, organismos multilaterales, cumplimiento normativo — y una capa de infraestructura que construye la nueva arquitectura sin pedir permiso, sin esperar consenso, sin depender de que ningún gobierno extranjero apruebe lo que Argentina ya decidió construir. La capa diplomática compra tiempo y legitimidad. La capa de infraestructura crea hechos irreversibles. Juntas, hacen que Argentina sea demasiado útil para atacar, demasiado interconectada para aislar, y demasiado transparente para difamar. La **Red Soberana** — la red de países, ciudades y organizaciones que adoptan módulos del Stack de Soberanía — no es una alianza militar ni un bloque comercial. Es una comunidad de usuarios. Y las comunidades de usuarios no se sancionan — se necesitan. PLANGEO es, en última instancia, la respuesta a una pregunta que ningún documento de política exterior argentino se ha atrevido a formular: *¿Qué pasa cuando un país del Sur Global deja de pedir permiso y empieza a ofrecer soluciones?*
 
 Todo lo que PLANGEO propone es la *primera mejor estrategia* basada en la mejor evidencia geopolítica disponible en 2026. No es un plan perfecto — es un plan honesto. Está diseñado para adaptarse según cambie el tablero. El CNEG evalúa, los embajadores reportan, la Caja Negra Abierta publica, y la estrategia se ajusta. Un plan geopolítico que no cambia no es estratégico — es un fetiche documental.
+
+El Hombre Gris es el que despierta. Gris como la plata que se pule hasta brillar — porque Argentina es argentum, y argentum es plata. PLANGEO es el momento en que esa plata deja de ser mineral enterrado y se convierte en espejo: la superficie pulida donde otros países del Sur se miran y se reconocen. No exportamos un destino — exportamos el pulido.
 
 ---
 
@@ -111,7 +115,7 @@ Cuando un país intenta cambiar esta estructura, el sistema responde. No necesit
 
 Este sistema no necesita que alguien dé la orden. Funciona como un sistema inmunológico: detecta la anomalía, moviliza anticuerpos, ataca. Un país que nacionaliza un recurso es una anomalía. Un país que crea entidades sin dueño que compiten contra multinacionales es una anomalía. Un país que denuncia tratados internacionales de drogas es una anomalía. Un país que saca los datos de sus ciudadanos de servidores estadounidenses es una anomalía.
 
-Argentina con BASTA no es *una* anomalía. Es *diez*.
+Argentina con ¡BASTA! no es *una* anomalía. Es *veintidós*.
 
 La pregunta no es si el sistema va a reaccionar. Va a reaccionar. La pregunta es: **¿cómo hacemos que la reacción le cueste más de lo que gana?**
 
@@ -129,7 +133,7 @@ La pregunta no es si el sistema va a reaccionar. Va a reaccionar. La pregunta es
 
 5. **Urgencia climática.** La transición energética hace que los recursos de Argentina (litio, gas de transición, tierra para renovables, agua) sean más valiosos que nunca. Y los países que tienen lo que el mundo necesita tienen leverage que los países que solo tienen deuda no tienen.
 
-Argentina no es Venezuela. No es Cuba. No es un país petrolero que puede ser aislado porque su única carta es un commodity que otros también producen. Argentina tiene litio Y gas Y alimentos Y agua Y cerebros Y territorio antártico Y costa atlántica Y la tradición institucional más robusta de América Latina. Y ahora, si BASTA funciona, tiene algo más: **tecnología de gobernanza exportable**.
+Argentina no es Venezuela. No es Cuba. No es un país petrolero que puede ser aislado porque su única carta es un commodity que otros también producen. Argentina tiene litio Y gas Y alimentos Y agua Y cerebros Y territorio antártico Y costa atlántica Y la tradición institucional más robusta de América Latina. Y ahora, si ¡BASTA! funciona, tiene algo más: **tecnología de gobernanza exportable**.
 
 Eso cambia el juego.
 
@@ -147,7 +151,7 @@ Las plataformas tienen una propiedad geopolítica extraordinaria: **no se pueden
 
 Nadie sancionó a Finlandia por Linux. Nadie sancionó a Suiza por TCP/IP (parcialmente desarrollado en CERN). No porque no quisieran — sino porque sancionar al creador de una plataforma que todos usan es sabotear tu propia infraestructura.
 
-PLANGEO propone que Argentina aplique esta lógica a la gobernanza. Cada PLAN de BASTA produce herramientas — software, protocolos, marcos legales, modelos institucionales — que resuelven problemas que *todos los países tienen*. La extracción corporativa que describe PLANEB no es un problema argentino. Es un problema global. La opacidad farmacéutica que PLANSAL ataca existe en Senegal, en India, en Indonesia. La dependencia digital que PLANDIG denuncia afecta a 150 países que almacenan datos soberanos en servidores de tres empresas estadounidenses.
+PLANGEO propone que Argentina aplique esta lógica a la gobernanza. Cada PLAN de ¡BASTA! produce herramientas — software, protocolos, marcos legales, modelos institucionales — que resuelven problemas que *todos los países tienen*. La extracción corporativa que describe PLANEB no es un problema argentino. Es un problema global. La opacidad farmacéutica que PLANSAL ataca existe en Senegal, en India, en Indonesia. La dependencia digital que PLANDIG denuncia afecta a 150+ países que almacenan datos soberanos en servidores de tres empresas estadounidenses (estimación propia — sujeta a verificación).
 
 Si Argentina resuelve estos problemas solo para sí misma, es una anomalía que se puede atacar. Si Argentina empaqueta las soluciones como plataforma y 50 países las adoptan, es un estándar que no se puede deshacer.
 
@@ -167,7 +171,7 @@ El modelo es deliberadamente análogo al Software-as-a-Service:
 | Vendor lock-in | CERO — diseño explícitamente anti-dependencia | Cada país puede forkear y modificar sin permiso argentino |
 | Comunidad | Red Soberana — red de países/ciudades adoptantes | Gobernanza comunitaria, mejoras compartidas, defensa mutua |
 
-La clave del modelo es **cero lock-in**. Argentina NO busca crear dependencia. Eso sería reproducir exactamente la lógica que BASTA denuncia. Cada módulo del Stack de Soberanía es open-source, forkeable, modificable. Si Senegal quiere tomar el Protocolo Bastardo y modificarlo completamente para su contexto, puede hacerlo sin pedirle permiso a nadie en Buenos Aires.
+La clave del modelo es **cero lock-in**. Argentina NO busca crear dependencia. Eso sería reproducir exactamente la lógica que ¡BASTA! denuncia. Cada módulo del Stack de Soberanía es open-source, forkeable, modificable. Si Senegal quiere tomar el Protocolo Bastardo y modificarlo completamente para su contexto, puede hacerlo sin pedirle permiso a nadie en Buenos Aires.
 
 ¿Y entonces cuál es la ventaja para Argentina? Tres:
 
@@ -177,45 +181,81 @@ La clave del modelo es **cero lock-in**. Argentina NO busca crear dependencia. E
 
 3. **Soft power sin precedentes.** El país que diseña la infraestructura de gobernanza del siglo XXI tiene la influencia cultural, institucional y técnica que EEUU tuvo por diseñar la arquitectura financiera del siglo XX en Bretton Woods. Pero sin la coerción — porque la plataforma es opcional.
 
-### 2.3 Los Siete Stacks
+### 2.3 Los Trece Stacks
 
-BASTA produce diez mandatos populares (PLANEB, PLANDIG, PLANSUS, PLANSAL, PLANREP, PLANEDU, PLAN24CN, PLANAGUA, PLANISV, PLANJUS). PLANGEO — el undécimo — los agrupa en siete Stacks de Soberanía exportables:
+El ecosistema ¡BASTA! produce veintidós PLANes (al 23 de abril de 2026) — sin contar PLANRUTA, que es el plan meta de arranque y no se cuenta entre los 22. PLANGEO es uno de esos 22 — con orden estratégico de lanzamiento 12 — y su función es agruparlos en trece Stacks de Soberanía exportables:
 
-**TABLA 5: Los Siete Stacks de Soberanía**
+**TABLA 5: Los Trece Stacks de Soberanía**
 
-| Stack | PLAN(es) origen | Qué exporta | Problema global que resuelve | Mercado potencial (países) |
+| Stack | PLAN(es) origen | Qué exporta | Problema global que resuelve | Mercado potencial (países)* |
 |---|---|---|---|---|
 | **Gobernanza Económica** | PLANEB, PLANJUS | Protocolo Bastardo, Empresas sin dueño, resolución de disputas | Extracción corporativa, opacidad de precios | 120+ |
 | **Soberanía Digital** | PLANDIG | Cloud soberana, gobernanza de datos, IA nacional | Colonialismo digital, dependencia de Big Tech | 150+ |
-| **Soberanía de Recursos** | PLANAGUA, PLANISV | Gestión hídrica, agricultura regenerativa, gobernanza de cuencas | Estrés hídrico, degradación de suelos, food insecurity | 100+ |
+| **Soberanía de Recursos** | PLANAGUA, PLANISV, PLANTER | Gestión hídrica, agricultura regenerativa, gobernanza de cuencas, ordenamiento territorial | Estrés hídrico, degradación de suelos, food insecurity | 100+ |
 | **Transición Humana** | PLANREP, PLANEDU | Post-trabajo, educación adaptativa, índice de contribución | Automatización, desempleo estructural, crisis educativa | 80+ |
 | **Soberanía Sanitaria** | PLANSAL, PLANSUS | Sistema de salud integrado, política de drogas basada en evidencia | Extracción farmacéutica, fracaso prohibicionista | 130+ |
 | **Soberanía Urbana** | PLAN24CN | Diseño de ciudades, infraestructura distribuida, gobernanza local | Urbanización caótica, megaciudades colapsadas | 90+ |
 | **Soberanía Jurídica** | PLANJUS | Tribunales ciudadanos, resolución algorítmica, acceso a justicia | Sistemas judiciales colapsados, impunidad corporativa | 140+ |
+| **Soberanía Energética** | PLANEN | Cadena de valor del litio, GNL de transición, despliegue de renovables, gestión de redes | Transición energética sin colonialismo extractivo | 90+ |
+| **Soberanía Monetaria** | PLANMON | Pulso, peso-canasta, unidad de cuenta y arquitectura de pagos soberana | Dependencia del dólar, inestabilidad monetaria crónica | 80+ |
+| **Soberanía de Seguridad** | PLANSEG | Seguridad ciudadana basada en evidencia, prevención comunitaria, policía auditable | Punitivismo fallido, militarización policial, impunidad | 100+ |
+| **Soberanía de Vivienda** | PLANVIV | Producción de hábitat al costo, gestión de suelo urbano, alquiler justo | Financiarización global del hábitat, déficit habitacional | 110+ |
+| **Soberanía Cultural** | PLANCUL | Infraestructura cultural distribuida, economía creativa sin plataformas extractivas | Concentración de plataformas, homogeneización cultural | 120+ |
+| **Soberanía de Movilidad** | PLANMOV | Hidrovía, corredores bioceánicos, transporte público integrado | Logística cara, integración física pendiente del Sur | 70+ |
 
-Cada Stack se detalla en las Secciones 3-9.
+*Las estimaciones de mercado potencial son estimación propia del CNEG — sujetas a verificación con cada ciclo de revisión.
+
+Los siete Stacks fundacionales se detallan en las Secciones 3-9. Los seis Stacks incorporados con la expansión del ecosistema a 22 PLANes se sintetizan a continuación — el detalle operativo vive en sus PLANes de origen; acá se documenta su capa internacional:
+
+**Stack Energético (PLANEN) — el núcleo del leverage.** Si los Stacks son la oferta, la energía es la moneda con la que el mundo paga por escucharla. Litio, GNL de Vaca Muerta y renovables no son tres negocios separados — son tres fases de una misma posición negociadora. PLANEN produce la cadena de valor doméstica; PLANGEO la convierte en condicionalidad diplomática: acceso preferencial a energía argentina a cambio de transferencia tecnológica, inversión en procesamiento local y acuerdos de no-sanción ante reformas ¡BASTA! (ver Secciones 5.2 y 5.3, que PLANEN absorbe y profundiza). Lo exportable no es el gas — es el *modelo de gestión*: cómo un país convierte recursos en soberanía en vez de convertirlos en dependencia.
+
+**Stack Monetario (PLANMON) — el artefacto más exportable.** El Pulso y el peso-canasta son, posiblemente, la pieza de ingeniería institucional con mayor demanda silenciosa del ecosistema. Ochenta países viven la misma trampa: moneda débil, facturación en dólar, política monetaria condicionada desde afuera. Una unidad de cuenta anclada a canasta — auditable, open-source, interoperable con los sistemas de pago soberanos de la Sección 17 — es lo que la "moneda BRICS" promete hace una década sin entregar. PLANGEO lo proyecta como infraestructura del comercio intra-Red Soberana: que el comercio del Mercosur se facture en peso-canasta antes de pedirle al mundo que lo haga.
+
+**Stack de Seguridad (PLANSEG).** Ningún país adopta gobernanza de un país que percibe inseguro. PLANSEG produce el modelo de seguridad ciudadana basada en evidencia — prevención comunitaria, policía auditable con transparencia radical, métricas públicas — que complementa al Stack Jurídico: justicia que funciona + seguridad que no reprime. Para países saliendo de militarización policial fallida (América Central, Sahel), es la puerta de entrada menos ideológica a la plataforma.
+
+**Stack de Vivienda (PLANVIV).** La financiarización del hábitat es la extracción más universal después de la financiera: en 110+ países, el techo es el principal gasto y el principal vehículo especulativo. PLANVIV empaqueta producción de vivienda al costo, gestión pública de suelo urbano y marcos de alquiler justo — y se integra naturalmente al Stack Urbano: PLAN24CN diseña la ciudad nueva, PLANVIV repara la existente.
+
+**Stack Cultural (PLANCUL).** La cultura argentina ya es plataforma global (Sección 24.5) — PLANCUL le da infraestructura: economía creativa sin intermediarios extractivos, distribución digital soberana sobre ArgenCloud, financiamiento cultural transparente. Es el Stack que viaja primero, porque no amenaza a ningún ministerio de finanzas: amenaza a las plataformas de streaming, y ningún país va a defender a Spotify con tropas.
+
+**Stack de Movilidad (PLANMOV) — la integración física sudamericana.** La Red Soberana necesita capa física, no solo digital. Hidrovía Paraná-Paraguay gobernada con transparencia radical, corredores bioceánicos que conectan el Atlántico argentino con el Pacífico chileno, transporte integrado regional. Donde el Belt & Road de China construye dependencia con deuda, PLANMOV propone construir integración con gobernanza compartida: la infraestructura es de los países que la usan, no de los que la financian.
 
 ### 2.4 El Consejo Nacional de Estrategia Geopolítica (CNEG)
 
-A diferencia de las agencias autónomas de otros PLANs (ANEB, ANSUS, ANVIP, ANCE, ANJUS, ANAGUA, entre otras), PLANGEO no crea una entidad autárquica. La geopolítica requiere flexibilidad ejecutiva, velocidad de respuesta y discreción táctica incompatibles con la gobernanza por sorteo democrático y paneles ciudadanos que caracterizan al resto de BASTA.
+A diferencia de las agencias autónomas de otros PLANs, PLANGEO no crea una entidad autárquica. La geopolítica requiere flexibilidad ejecutiva, velocidad de respuesta y discreción táctica incompatibles con la gobernanza por sorteo democrático y paneles ciudadanos que caracterizan al resto de ¡BASTA!.
 
-**Agencias autónomas del ecosistema BASTA:**
+**Agencias autónomas del ecosistema ¡BASTA! (al 23 de abril de 2026):**
 
-| Agencia | PLAN origen | Función |
-|---|---|---|
-| ANEB | PLANEB | Gobernanza de la Red Bastarda y Protocolo Bastardo |
-| ANSUS | PLANSUS | Regulación de sustancias y mercado legal de drogas |
-| ANVIP | PLANSAL | Agencia Nacional de Vitalidad Popular — sistema de salud integrado |
-| ANCE | PLANEDU | Calidad educativa y credencialización |
-| ANJUS | PLANJUS | Supervisión del sistema de justicia ciudadana |
-| ANAGUA | PLANAGUA | Gobernanza hídrica y gestión de cuencas |
+| Agencia | Dominio de gobernanza |
+|---|---|
+| ANJUS | Supervisión del sistema de justicia ciudadana |
+| ANREP | Transición post-laboral, Dividendo Nacional de Productividad, Centros de la Vida |
+| ANEB | Gobernanza de la Red Bastarda y Protocolo Bastardo |
+| ANMON | Sistema monetario soberano — Pulso y peso-canasta |
+| ANDIG | Soberanía digital, ArgenCloud, gobernanza de datos |
+| ANSUS | Regulación de sustancias y mercado legal de drogas |
+| ANCE | Calidad educativa y credencialización |
+| ANVIP | Agencia Nacional de Vitalidad Popular — sistema de salud integrado |
+| ENSV | Suelo vivo — agricultura regenerativa y trazabilidad |
+| ANAGUA | Gobernanza hídrica y gestión de cuencas |
+| CNDU | Desarrollo urbano y ciudades nuevas |
+| ANEN | Energía — litio, GNL de transición, renovables |
+| ANSEG | Seguridad ciudadana basada en evidencia |
+| ANVIV | Vivienda y hábitat al costo |
+| AMCC | Mitigación y adaptación al cambio climático |
+| ANT | Tierras y ordenamiento territorial — Licencia Territorial |
+| ANCV | Cultura viva y economía creativa |
+| ANM | Medios y comunicación pública |
+| ANTSPO | Tiempo libre y deporte |
+| ANMov | Movilidad — hidrovía, corredores, transporte integrado |
+
+Cada agencia emerge de su PLAN de origen y se gobierna según el estándar común del ecosistema: sorteo democrático, paneles ciudadanos, transparencia radical. Veinte agencias, un solo patrón institucional.
 
 El CNEG es un **órgano asesor del Poder Ejecutivo**, compuesto por:
 
 | Rol | Cantidad | Selección | Mandato |
 |---|---|---|---|
 | Estrategas geopolíticos | 5 | Concurso público + evaluación por pares | 4 años, renovable una vez |
-| Representantes de agencias BASTA | 6 | Un delegado de cada agencia autónoma (ANEB, ANSUS, ANVIP, ANCE, ANJUS, ANAGUA), rotativo | Rotativo, 2 años |
+| Representantes de agencias ¡BASTA! | 6 | Seis bancas rotativas entre las 20 agencias autónomas del ecosistema, agrupadas por Stack para que ningún dominio quede sin voz más de un período | Rotativo, 2 años |
 | Embajadores estratégicos | 3 | Designación presidencial con acuerdo del Senado | Según función |
 | Académicos/expertos | 4 | Universidades nacionales (rotativo entre regiones) | 3 años |
 | Representante de inteligencia | 1 | Director AFI o delegado | Permanente |
@@ -228,7 +268,7 @@ El CNEG es un **órgano asesor del Poder Ejecutivo**, compuesto por:
 2. **Amarillo** — publicación diferida 6 meses. Recomendaciones con componente táctico cuya divulgación podría afectar negociaciones en curso.
 3. **Rojo** — publicación diferida 18 meses. Recomendaciones relacionadas con defensa, inteligencia o situaciones de crisis activa.
 
-Ninguna recomendación es secreta permanentemente. El pueblo que mandó a construir BASTA tiene derecho a saber qué se hizo en su nombre — con el retraso mínimo necesario para no sabotear la ejecución.
+Ninguna recomendación es secreta permanentemente. El pueblo que mandó a construir ¡BASTA! tiene derecho a saber qué se hizo en su nombre — con el retraso mínimo necesario para no sabotear la ejecución.
 
 ---
 
@@ -311,7 +351,7 @@ PLANDIG produce una infraestructura de soberanía digital completa. El Stack exp
 
 ### 4.2 El Mercado Global de la Soberanía Digital
 
-Este es, posiblemente, el Stack con mayor demanda inmediata. El 93% de los países del mundo almacenan datos gubernamentales críticos en servidores de tres empresas (AWS, Azure, Google Cloud), todas estadounidenses y sujetas a la CLOUD Act — que permite al gobierno de EEUU acceder a datos almacenados en servidores de empresas estadounidenses en cualquier parte del mundo.
+Este es, posiblemente, el Stack con mayor demanda inmediata. El 93% de los países del mundo (estimación propia — sujeta a verificación) almacenan datos gubernamentales críticos en servidores de tres empresas (AWS, Azure, Google Cloud), todas estadounidenses y sujetas a la CLOUD Act — que permite al gobierno de EEUU acceder a datos almacenados en servidores de empresas estadounidenses en cualquier parte del mundo.
 
 La UE lo intentó con Gaia-X. Fracasó parcialmente porque las empresas europeas que lideraron el proyecto (SAP, Deutsche Telekom) tenían incentivos cruzados con los proveedores estadounidenses. India lo intentó con India Stack — y funcionó brillantemente para pagos (UPI procesa 10.000 millones de transacciones por mes) pero no abordó la capa de almacenamiento soberano.
 
@@ -380,7 +420,7 @@ El Triángulo del Litio (Argentina, Bolivia, Chile) contiene el 56% de las reser
 
 2. **Condicionamiento de acceso.** Toda empresa que extraiga litio en Argentina debe comprometerse a instalar capacidad de procesamiento en el país dentro de 5 años. No cumplir = no renovar concesión. Esto no es expropiación — es condicionamiento legítimo del acceso a un recurso soberano.
 
-3. **El litio como moneda diplomática.** En negociaciones con la UE, China, Corea del Sur, Japón — países que necesitan litio para su transición energética — Argentina condiciona el acceso preferencial a compromisos recíprocos: transferencia tecnológica en baterías, inversión en capacidad de procesamiento local, acuerdos de no-sanción ante reformas BASTA.
+3. **El litio como moneda diplomática.** En negociaciones con la UE, China, Corea del Sur, Japón — países que necesitan litio para su transición energética — Argentina condiciona el acceso preferencial a compromisos recíprocos: transferencia tecnológica en baterías, inversión en capacidad de procesamiento local, acuerdos de no-sanción ante reformas ¡BASTA!.
 
 ### 5.3 Gas Natural (Vaca Muerta): El Puente Que Se Cobra Peaje
 
@@ -571,7 +611,7 @@ PLANJUS produce herramientas de acceso a justicia que resuelven un problema que 
 | Protocolo de Resolución en Tres Niveles | Mediación → Tribunal Ciudadano → Arbitraje Técnico | Replicable en cualquier sistema legal |
 | Sistema de Transparencia Judicial | Dashboard de desempeño de jueces y tribunales | Países con corrupción judicial sistémica |
 
-Un componente clave del Stack Jurídico es la **Regla de Tres Rechazos** (originaria de PLANREP, implementada transversalmente por PLANJUS): un mecanismo anti-captura por el cual cualquier actor institucional — regulador, juez, funcionario — que bloquee tres veces consecutivas una iniciativa ciudadana legitimada por Panel Ciudadano queda sujeto a revisión automática por tribunal de segundo nivel. Esto previene que intereses enquistados saboteen reformas aprobadas por el pueblo. Es una de las innovaciones de gobernanza más exportables de BASTA: todo país con sistemas judiciales capturados por élites necesita una herramienta como esta.
+Un componente clave del Stack Jurídico es la **Regla de Tres Rechazos** (originaria de PLANREP, implementada transversalmente por PLANJUS): un mecanismo anti-captura por el cual cualquier actor institucional — regulador, juez, funcionario — que bloquee tres veces consecutivas una iniciativa ciudadana legitimada por Panel Ciudadano queda sujeto a revisión automática por tribunal de segundo nivel. Esto previene que intereses enquistados saboteen reformas aprobadas por el pueblo. Es una de las innovaciones de gobernanza más exportables de ¡BASTA!: todo país con sistemas judiciales capturados por élites necesita una herramienta como esta.
 
 Este Stack tiene una ventaja política: es difícil oponerse públicamente a "mejorar el acceso a la justicia." La resistencia será sorda, no vocal.
 
@@ -610,7 +650,7 @@ La Red Soberana no es un bloque geopolítico. No es el No-Alineamiento 2.0. No e
 
 La Red no crece por proselitismo. Crece por necesidad.
 
-**Fase 1 (2026-2028): La Prueba Doméstica.** Argentina implementa BASTA internamente. La primera Bastarda (seguros) lanza. PLANDIG despliega ArgenCloud. PLANSUS avanza la cascada. El mundo observa. No se invita a nadie. Se publica todo.
+**Fase 1 (2026-2028): La Prueba Doméstica.** Argentina implementa ¡BASTA! internamente. La primera Bastarda (seguros) lanza. PLANDIG despliega ArgenCloud. PLANSUS avanza la cascada. El mundo observa. No se invita a nadie. Se publica todo.
 
 **Fase 2 (2028-2030): Los Primeros Adoptantes.** Uruguay, Costa Rica y 2-3 países africanos adoptan los primeros módulos. Argentina ofrece asistencia técnica. Se forma la comunidad. Los primeros "Embajadores Bastardos" (ingenieros, no diplomáticos) se despliegan.
 
@@ -665,7 +705,7 @@ Esta sección consolida todas las amenazas identificadas en los Stacks individua
 | Banco Mundial | PLAN24CN (ciudades sin préstamos BM), Stack Urbano exportable | Restricción de financiamiento, descalificación técnica | Media | Financiamiento alternativo (bonos ciudadanos, Red Soberana) |
 | OMC | PLANEB (competencia desleal alegada), litio (restricciones de exportación) | Paneles de disputa, sanciones comerciales autorizadas | Media-Alta | Diseño legal preventivo: Bastardas como entidades sin ánimo de lucro, no subsidios |
 | JIFE (Junta Internacional de Fiscalización de Estupefacientes) | PLANSUS (denuncia de convenciones) | Recomendaciones negativas, presión sobre otros países | Media | Coalición reformista + publicación de evidencia |
-| Calificadoras (Moody's, S&P, Fitch) | Todo BASTA (percepción de "riesgo institucional") | Downgrade soberano → encarecimiento de deuda | Alta | Metodología de calificación soberana alternativa (Sección 21) |
+| Calificadoras (Moody's, S&P, Fitch) | Todo ¡BASTA! (percepción de "riesgo institucional") | Downgrade soberano → encarecimiento de deuda | Alta | Metodología de calificación soberana alternativa (Sección 21) |
 
 ### 11.2 El Escenario Cascada: Cuando Todo Se Activa a la Vez
 
@@ -703,7 +743,7 @@ La capa diplomática opera en el idioma que el mundo espera: tratados, acuerdos 
 | Tratados bilaterales de cooperación técnica | Marco legal para transferencia de Stacks | Argentina-Senegal: cooperación en soberanía sanitaria |
 | Posiciones en organismos multilaterales | Legitimación + agenda-setting | Propuesta en UNCTAD de marco para "entidades de propósito perpetuo" |
 | Diplomacia de cumbre | Visibilidad + relaciones personales entre líderes | Cumbre de la Red Soberana (anual, rotativa) |
-| Diplomacia académica | Legitimación intelectual | Cátedras BASTA en universidades del Norte y Sur Global |
+| Diplomacia académica | Legitimación intelectual | Cátedras ¡BASTA! en universidades del Norte y Sur Global |
 | Diplomacia cultural | Soft power + construcción de marca-país | Argentina como "la forja" — narrativa de país que construye herramientas para el mundo |
 
 ### 12.2 Capa de Infraestructura: La Remera
@@ -755,7 +795,7 @@ Argentina no elige bando. Argentina es el péndulo que oscila según el leverage
 
 **Con EEUU:**
 - **Ofrecer:** GNL de Vaca Muerta como diversificación del suministro europeo (interés estratégico de EEUU para debilitar a Rusia). Colaboración antinarcóticos operativa (no legislativa) — cooperar en interdicción de tráfico *hacia* EEUU mientras Argentina legaliza internamente. Acceso a bases antárticas para investigación científica conjunta.
-- **Pedir:** No interferencia en reformas internas BASTA. Acceso al sistema financiero sin condicionamiento político. Transferencia tecnológica en defensa (satélites, ciberseguridad).
+- **Pedir:** No interferencia en reformas internas ¡BASTA!. Acceso al sistema financiero sin condicionamiento político. Transferencia tecnológica en defensa (satélites, ciberseguridad).
 - **Línea roja:** Ningún acuerdo que limite la soberanía sobre política de drogas, regulación digital o gobernanza económica.
 
 **Con China:**
@@ -771,7 +811,7 @@ Cuando China presiona sobre acceso al litio: "Les ofrecemos un acuerdo mejor que
 
 Cuando la UE cuestiona las Empresas Bastardas: "Son mutuales. Europa inventó las mutuales. Nosotros las mejoramos. ¿Van a sancionar su propia innovación?"
 
-**Principio: usar los valores declarados de cada potencia como argumento a favor de BASTA.** EEUU dice que quiere mercados libres — PLANEB es el mercado más libre posible (transparencia total). La UE dice que quiere derechos humanos — PLANSUS es el derecho a decidir sobre tu propio cuerpo. China dice que quiere desarrollo — PLAN24CN es desarrollo sin deuda-trampa. Cada potencia queda atrapada en su propia retórica.
+**Principio: usar los valores declarados de cada potencia como argumento a favor de ¡BASTA!.** EEUU dice que quiere mercados libres — PLANEB es el mercado más libre posible (transparencia total). La UE dice que quiere derechos humanos — PLANSUS es el derecho a decidir sobre tu propio cuerpo. China dice que quiere desarrollo — PLAN24CN es desarrollo sin deuda-trampa. Cada potencia queda atrapada en su propia retórica.
 
 ---
 
@@ -781,7 +821,7 @@ Cuando la UE cuestiona las Empresas Bastardas: "Son mutuales. Europa inventó la
 
 ### 14.1 Por Qué la UE Es el Aliado Natural
 
-La UE es, estructuralmente, el socio geopolítico más compatible con BASTA:
+La UE es, estructuralmente, el socio geopolítico más compatible con ¡BASTA!:
 
 1. **Regulación de Big Tech.** GDPR, DMA, DSA, AI Act — la UE ya está peleando las batallas que PLANDIG pelea. La diferencia es que la UE regula *sobre* la infraestructura de Silicon Valley. Argentina propone construir infraestructura propia. Son complementarios.
 
@@ -857,7 +897,7 @@ BRICS+ (Brasil, Rusia, India, China, Sudáfrica, Etiopía, Irán, Egipto, Emirat
 - Acceso a mercados de 3.600 millones de personas
 
 **Lo que BRICS+ cuesta:**
-- Asociación con regímenes autoritarios (Rusia, Irán, Arabia Saudita) que contradicen los valores de BASTA
+- Asociación con regímenes autoritarios (Rusia, Irán, Arabia Saudita) que contradicen los valores de ¡BASTA!
 - Riesgo de quedar atrapado en el bloque anti-EEUU cuando la estrategia de Argentina es no elegir bando
 - China domina la agenda económica; Rusia domina la agenda de seguridad. Argentina sería un actor menor.
 
@@ -888,7 +928,7 @@ India es, junto con China y EEUU, uno de los tres actores cuya relación con Arg
 | Litio (3° reservas mundiales) | Litio para 500M de vehículos eléctricos proyectados | Capacidad de manufactura de baterías (BYD/Ola competencia) | Transferencia tecnológica en baterías y electrónica |
 | Alimentos (alimenta 400M personas) | Seguridad alimentaria para 1.400M personas, 40% de suelos degradados | Mayor productor mundial de genéricos (USD 50.000M/año) | Genéricos para PLANSAL, rompiendo dependencia de Big Pharma |
 | GNL (Vaca Muerta) | Diversificación energética (70% dependencia de carbón/petróleo) | India Stack (UPI: 10.000M transacciones/mes) | Modelo de pagos digitales probado a escala (para Stack Digital) |
-| Diseño institucional BASTA | Gobernanza para 1.400M personas con desigualdad extrema | 1.400 millones de usuarios potenciales de Stacks | Escala de adopción que ningún otro país puede ofrecer |
+| Diseño institucional ¡BASTA! | Gobernanza para 1.400M personas con desigualdad extrema | 1.400 millones de usuarios potenciales de Stacks | Escala de adopción que ningún otro país puede ofrecer |
 | Agua (tecnología PLANAGUA) | Crisis hídrica severa (600M personas con estrés hídrico alto) | Talento tech (4,5M desarrolladores) | Capital humano para acelerar desarrollo de Stacks |
 
 **Estrategia bilateral:**
@@ -899,7 +939,7 @@ India es, junto con China y EEUU, uno de los tres actores cuya relación con Arg
 
 3. **Alianza farmacéutica para la Red Soberana.** India es el "farmacéutico del mundo" — produce el 60% de las vacunas globales y el 20% de los genéricos. PLANSAL necesita genéricos baratos. PLANSUS necesita producción regulada de sustancias. Una alianza Argentina-India en producción farmacéutica para la Red Soberana posiciona a ambos países como proveedores de salud del Sur Global — sin pasar por Pfizer, Roche ni Novartis.
 
-4. **Adopción subnacional vía Kerala y estados progresistas.** El gobierno central de India bajo Modi puede no estar interesado en BASTA. Pero Kerala (35M personas, tradición cooperativista, alfabetización 96%), Tamil Nadu (80M, industria tech), y Karnataka (65M, Bangalore tech hub) pueden adoptar módulos del Stack a nivel estatal. La Estrategia de Franquicias de Gobernanza (Sección 21.1) es especialmente relevante para India, donde los estados tienen considerable autonomía en salud, educación y gobernanza local.
+4. **Adopción subnacional vía Kerala y estados progresistas.** El gobierno central de India bajo Modi puede no estar interesado en ¡BASTA!. Pero Kerala (35M personas, tradición cooperativista, alfabetización 96%), Tamil Nadu (80M, industria tech), y Karnataka (65M, Bangalore tech hub) pueden adoptar módulos del Stack a nivel estatal. La Estrategia de Franquicias de Gobernanza (Sección 21.1) es especialmente relevante para India, donde los estados tienen considerable autonomía en salud, educación y gobernanza local.
 
 5. **Coordinación BRICS sin alineamiento.** Argentina e India comparten la posición de no querer elegir bando entre EEUU y China. Dentro de BRICS+, una alianza informal Argentina-India-Brasil-Sudáfrica (los democráticos) balancea la influencia de China-Rusia (los autoritarios) y permite usar BRICS+ como canal sin quedar capturado.
 
@@ -915,7 +955,7 @@ India es, junto con China y EEUU, uno de los tres actores cuya relación con Arg
 
 El comercio internacional opera sobre infraestructura diseñada por y para el sistema financiero occidental: dólar como moneda de reserva, SWIFT como sistema de mensajería, corresponsalía bancaria estadounidense como requisito, calificadoras anglosajonas como gatekeepers. Cualquier país que desafíe al sistema puede ser desconectado — como lo fue Irán en 2012 y Rusia en 2022.
 
-Argentina con BASTA no puede depender de un sistema que tiene un botón de apagado controlado por los actores que BASTA amenaza.
+Argentina con ¡BASTA! no puede depender de un sistema que tiene un botón de apagado controlado por los actores que ¡BASTA! amenaza.
 
 ### 17.2 Arquitectura Alternativa
 
@@ -940,7 +980,7 @@ PLANGEO no propone reemplazar el sistema global. Propone construir un **sistema 
 
 ### 17.4 Transición FMI: Salir Sin Portazo
 
-Argentina tiene una relación crónica con el FMI — ciclos de endeudamiento, condicionalidad, ajuste, crisis, re-endeudamiento. En 2026, Argentina está bajo programa activo del FMI. BASTA no puede ignorar esta realidad: lanzar reformas confrontativas mientras se depende del FMI para estabilidad financiera es como incendiar la casa del vecino mientras él te presta la manguera.
+Argentina tiene una relación crónica con el FMI — ciclos de endeudamiento, condicionalidad, ajuste, crisis, re-endeudamiento. En 2026, Argentina está bajo programa activo del FMI. ¡BASTA! no puede ignorar esta realidad: lanzar reformas confrontativas mientras se depende del FMI para estabilidad financiera es como incendiar la casa del vecino mientras él te presta la manguera.
 
 **Estrategia de desacople gradual:**
 
@@ -950,7 +990,7 @@ Argentina tiene una relación crónica con el FMI — ciclos de endeudamiento, c
 
 3. **Fase de autonomía (2030-2033).** Argentina tiene superávit comercial estructural (GNL + litio industrializado + servicios de asistencia técnica de la Red Soberana). El programa FMI expira y no se renueva. La calificadora soberana alternativa (ISN, Sección 21.5) ofrece una narrativa de solvencia que no depende de Moody's. Argentina propone en la Red Soberana un "Fondo de Estabilización Soberano" — una alternativa al FMI para países miembros que necesiten liquidez de emergencia, financiado con contribuciones de la red y sin condicionalidad de austeridad.
 
-**Coexistencia legal BASTA-FMI:** Las Empresas Bastardas (PLANEB) no usan fondos públicos — se capitalizan con aportes ciudadanos. Los Fideicomisos Productivos (PLANREP) se financian con bonos, no con deuda soberana. ArgenCloud (PLANDIG) se financia con reasignación presupuestaria de defensa y coinversión de adoptantes. Ninguno de estos instrumentos viola las cláusulas estándar de un programa FMI — porque no son gasto público deficitario. Son inversión productiva con retorno. Si el FMI objeta, la respuesta es técnica, no política: "Mostranos qué cláusula viola." Si no puede, la objeción se deslegitima sola.
+**Coexistencia legal ¡BASTA!-FMI:** Las Empresas Bastardas (PLANEB) no usan fondos públicos — se capitalizan con aportes ciudadanos. Los Fideicomisos Productivos (PLANREP) se financian con bonos, no con deuda soberana. ArgenCloud (PLANDIG) se financia con reasignación presupuestaria de defensa y coinversión de adoptantes. Ninguno de estos instrumentos viola las cláusulas estándar de un programa FMI — porque no son gasto público deficitario. Son inversión productiva con retorno. Si el FMI objeta, la respuesta es técnica, no política: "Mostranos qué cláusula viola." Si no puede, la objeción se deslegitima sola.
 
 ---
 
@@ -963,7 +1003,7 @@ Argentina tiene una relación crónica con el FMI — ciclos de endeudamiento, c
 Argentina gasta el 0,7% de su PBI en defensa — uno de los más bajos del mundo. PLANGEO no propone aumentarlo dramáticamente. La amenaza principal no es militar convencional (nadie va a invadir Argentina por PLANEB). La amenaza es:
 
 1. **Ciberataques** contra infraestructura digital soberana
-2. **Operaciones de información** para erosionar apoyo doméstico a BASTA
+2. **Operaciones de información** para erosionar apoyo doméstico a ¡BASTA!
 3. **Operaciones encubiertas** para desestabilizar políticamente
 4. **Presión económica** (cubierta en Secciones 11 y 17)
 
@@ -993,17 +1033,17 @@ La cibersoberanía no es solo defensa contra ataques. Es la capacidad de operar 
 
 ### 18.3 Alineamiento Institucional Militar
 
-Las Fuerzas Armadas argentinas tienen una historia de intervención política que terminó en 1983. Cuarenta y tres años de democracia consolidaron el control civil, pero la memoria institucional persiste. BASTA depende de estabilidad institucional a largo plazo. Las FFAA deben ser parte del proyecto, no un riesgo latente.
+Las Fuerzas Armadas argentinas tienen una historia de intervención política que terminó en 1983. Cuarenta y tres años de democracia consolidaron el control civil, pero la memoria institucional persiste. ¡BASTA! depende de estabilidad institucional a largo plazo. Las FFAA deben ser parte del proyecto, no un riesgo latente.
 
 **Estrategia de integración militar:**
 
 1. **Misión renovada.** La misión principal de las FFAA en el marco PLANGEO es la **defensa de infraestructura soberana crítica**: plantas de procesamiento de litio, puertos GNL, nodos de ArgenCloud, estaciones antárticas, cables submarinos. Esto no es una degradación del rol militar — es una elevación. Defender la infraestructura que sostiene la soberanía del siglo XXI es tan relevante como defender fronteras del siglo XX.
 
-2. **Integración en la cadena de valor.** Fabricaciones Militares y el CITEDEF (Centro de Investigaciones Científicas y Técnicas para la Defensa) participan en el desarrollo de: drones de monitoreo marítimo (Sección 19.3), hardware de ciberdefensa auditado, sistemas de comunicación para la Red Soberana, y logística antártica. Las FFAA no solo protegen BASTA — contribuyen a construirlo.
+2. **Integración en la cadena de valor.** Fabricaciones Militares y el CITEDEF (Centro de Investigaciones Científicas y Técnicas para la Defensa) participan en el desarrollo de: drones de monitoreo marítimo (Sección 19.3), hardware de ciberdefensa auditado, sistemas de comunicación para la Red Soberana, y logística antártica. Las FFAA no solo protegen ¡BASTA! — contribuyen a construirlo.
 
 3. **Doctrina actualizada.** Reformar la doctrina militar para incorporar las amenazas híbridas del siglo XXI: ciberataques, operaciones de información, desestabilización económica, guerra asimétrica. Capacitación conjunta con países aliados de la Red Soberana (Uruguay, Chile, Sudáfrica) en ciberdefensa y protección de infraestructura crítica.
 
-4. **Transparencia militar BASTA.** El presupuesto militar se integra al mismo sistema de transparencia radical que PLANEB aplica a las Empresas Bastardas. Los argentinos pueden ver exactamente en qué se gasta cada peso de defensa. Esto genera legitimidad social para el aumento de inversión militar que PLANGEO requiere (de 0,7% a ~1,0% del PBI en 10 años).
+4. **Transparencia militar ¡BASTA!.** El presupuesto militar se integra al mismo sistema de transparencia radical que PLANEB aplica a las Empresas Bastardas. Los argentinos pueden ver exactamente en qué se gasta cada peso de defensa. Esto genera legitimidad social para el aumento de inversión militar que PLANGEO requiere (de 0,7% a ~1,0% del PBI en 10 años).
 
 ### 18.4 Fricción Institucional: La Iglesia y Otros Actores Sociales
 
@@ -1018,7 +1058,7 @@ Argentina es ~60% católica. El Papa es argentino. La Iglesia tiene influencia s
 - PLANREP (transformación del trabajo) puede ser compatible con la Doctrina Social de la Iglesia (dignidad del trabajo, bien común) si se enmarca correctamente.
 
 **Estrategia de engagement:**
-- **No confrontar.** La Iglesia no es un adversario — es un actor con valores parcialmente compatibles. BASTA promueve dignidad, justicia, transparencia, comunidad. Esos son valores que la Iglesia comparte. Enfatizar la convergencia, no la divergencia.
+- **No confrontar.** La Iglesia no es un adversario — es un actor con valores parcialmente compatibles. ¡BASTA! promueve dignidad, justicia, transparencia, comunidad. Esos son valores que la Iglesia comparte. Enfatizar la convergencia, no la divergencia.
 - **Diálogo temprano y privado.** Antes de lanzar PLANSUS, buscar interlocución con la Pontificia Academia de las Ciencias y con obispos argentinos progresistas. Presentar la evidencia de daño del prohibicionismo como cuestión de protección de la vida — lenguaje que la Iglesia entiende.
 - **No buscar aprobación — buscar no-oposición.** Si la Iglesia se mantiene neutral sobre PLANSUS, es suficiente. Si se opone activamente, el costo político es alto pero manejable si la implementación demuestra resultados (menos muertos, menos presos, menos familias destruidas).
 - **Usar la dimensión social como puente.** PLANREP con sus Centros de la Vida, el Índice de Contribución, la dignidad post-laboral — todo esto resuena con la Doctrina Social. Invitar a la Iglesia a participar en los Paneles Ciudadanos de PLANREP. Integrar, no aislar.
@@ -1041,7 +1081,7 @@ PLANGEO propone abandonar la estrategia de reclamo frontal y adoptar una **estra
 
 1. **Mantener el reclamo formal.** Argentina sigue reclamando soberanía en todos los foros internacionales. Esto es no-negociable y constitucional.
 
-2. **Ofrecer diálogo constructivo.** Proponer al Reino Unido un marco de "soberanía compartida" o "administración conjunta" con beneficios concretos para los isleños: ciudadanía dual, acceso al sistema BASTA (salud al costo, educación argentina, conectividad mejorada), vuelos directos, integración económica con el continente. Que rechazarlo sea más costoso que aceptarlo.
+2. **Ofrecer diálogo constructivo.** Proponer al Reino Unido un marco de "soberanía compartida" o "administración conjunta" con beneficios concretos para los isleños: ciudadanía dual, acceso al sistema ¡BASTA! (salud al costo, educación argentina, conectividad mejorada), vuelos directos, integración económica con el continente. Que rechazarlo sea más costoso que aceptarlo.
 
 3. **No provocar.** Ninguna acción militar, ninguna restricción de pesca que pueda escalarse, ningún cierre de espacio aéreo. La paciencia es una virtud táctica.
 
@@ -1131,9 +1171,9 @@ Un alcalde en Medellín puede adoptar el Protocolo Bastardo para seguros municip
 | Ataque | Espejo |
 |---|---|
 | Moody's/S&P/Fitch hacen downgrade de Argentina | Argentina publica el **Índice de Soberanía Nacional** — una metodología alternativa, open-source, que califica a los países según métricas de soberanía real: soberanía alimentaria, energética, digital, financiera, institucional. Cualquier país puede usarla. Los downgrades de las calificadoras se leen distinto cuando al lado hay un índice que dice que el país más "solvente" según Wall Street es también el más dependiente. |
-| FMI impone condiciones | Argentina publica el **Manual de Alternativas al FMI** — documentación técnica de todos los mecanismos de financiamiento soberano que BASTA usa (bonos ciudadanos, fideicomisos productivos, swaps bilaterales). Cualquier país puede replicarlos. El FMI pierde leverage no porque alguien lo combata sino porque deja de ser la única opción. |
+| FMI impone condiciones | Argentina publica el **Manual de Alternativas al FMI** — documentación técnica de todos los mecanismos de financiamiento soberano que ¡BASTA! usa (bonos ciudadanos, fideicomisos productivos, swaps bilaterales). Cualquier país puede replicarlos. El FMI pierde leverage no porque alguien lo combata sino porque deja de ser la única opción. |
 | USTR presiona por propiedad intelectual | Argentina publica el **Protocolo de Innovación Abierta** — un marco de propiedad intelectual alternativo que protege a los innovadores sin bloquear el acceso a genéricos y tecnologías esenciales. Basado en la experiencia de PLANSUS (farmacéutica) y PLANDIG (software). |
-| Medios internacionales lanzan narrativa de "estado fallido" | Argentina publica en tiempo real todos los datos de BASTA — el Tablero Nacional de la Red Bastarda, los datos de ArgenCloud, los resultados de PLANSUS. **Transparencia total como arma anti-desinformación.** Es difícil decir que un país fracasa cuando cualquiera puede ver los números en vivo. |
+| Medios internacionales lanzan narrativa de "estado fallido" | Argentina publica en tiempo real todos los datos de ¡BASTA! — el Tablero Nacional de la Red Bastarda, los datos de ArgenCloud, los resultados de PLANSUS. **Transparencia total como arma anti-desinformación.** Es difícil decir que un país fracasa cuando cualquiera puede ver los números en vivo. |
 
 **Principio:** Cada ataque se convierte en una oportunidad para publicar una herramienta que el mundo necesita. El atacante no solo falla en dañar a Argentina — involuntariamente financia la expansión de la plataforma.
 
@@ -1153,15 +1193,15 @@ Un alcalde en Medellín puede adoptar el Protocolo Bastardo para seguros municip
 
 ### 21.4 El Anticuerpo: Ecosistemas de Aliados Internos
 
-**La idea:** Para cada país que podría oponerse a BASTA, crear un ecosistema de aliados *dentro* de ese país que tenga incentivos propios para defender el modelo argentino.
+**La idea:** Para cada país que podría oponerse a ¡BASTA!, crear un ecosistema de aliados *dentro* de ese país que tenga incentivos propios para defender el modelo argentino.
 
 **Implementación:**
 
-1. **Think tanks y universidades.** Financiar (transparentemente, no clandestinamente) programas de investigación en universidades de EEUU, Europa, China e India que estudien los modelos BASTA. Harvard, MIT, LSE, Sciences Po, Tsinghua. Los académicos que publican sobre el modelo se convierten en defensores intelectuales. No porque Argentina les paga — porque el modelo es publicable, citable, y académicamente interesante.
+1. **Think tanks y universidades.** Financiar (transparentemente, no clandestinamente) programas de investigación en universidades de EEUU, Europa, China e India que estudien los modelos ¡BASTA!. Harvard, MIT, LSE, Sciences Po, Tsinghua. Los académicos que publican sobre el modelo se convierten en defensores intelectuales. No porque Argentina les paga — porque el modelo es publicable, citable, y académicamente interesante.
 
 2. **Sociedad civil.** Conectar con organizaciones de la sociedad civil que ya luchan por los mismos objetivos: reformistas de política de drogas (Drug Policy Alliance en EEUU, Transform en UK), activistas de soberanía digital (EFF, La Quadrature du Net), cooperativistas (ICA, CICOPA), movimientos de justicia global. Argentina no necesita crear estos movimientos — necesita darles herramientas.
 
-3. **Diáspora argentina.** 1 millón de argentinos viven en el exterior. Muchos en posiciones de influencia en tecnología, academia, finanzas y organismos internacionales. Un programa de "Embajadores de la Red Soberana" los conecta con el proyecto BASTA y les da herramientas para promoverlo en sus comunidades.
+3. **Diáspora argentina.** 1 millón de argentinos viven en el exterior. Muchos en posiciones de influencia en tecnología, academia, finanzas y organismos internacionales. Un programa de "Embajadores de la Red Soberana" los conecta con el proyecto ¡BASTA! y les da herramientas para promoverlo en sus comunidades.
 
 4. **Empresas alineadas.** No todas las empresas son enemigas del modelo. Las B Corps, las cooperativas europeas, las empresas de software libre, las mutuales — tienen incentivos para apoyar un marco que les da reconocimiento legal y escala global. Argentina las invita a la Red Soberana como socias tecnológicas.
 
@@ -1221,7 +1261,7 @@ Cada cláusula, leída individualmente, parece razonable, estándar, inofensiva.
 
 ### 21.7 La Diplomacia de Código: Standards Track
 
-**La idea:** Convertir los protocolos técnicos de BASTA en estándares internacionales reconocidos por organismos como IEEE, IETF, W3C, ISO.
+**La idea:** Convertir los protocolos técnicos de ¡BASTA! en estándares internacionales reconocidos por organismos como IEEE, IETF, W3C, ISO.
 
 **Por qué importa:** Una vez que algo es un estándar técnico internacional, tiene una fuerza normativa que trasciende la geopolítica. TCP/IP no es un protocolo "estadounidense" — es un estándar técnico que todos usan porque funciona. Si el Protocolo Bastardo se convierte en un estándar IEEE para "gobernanza transparente de entidades de propósito perpetuo," deja de ser un proyecto argentino que se puede sancionar y se convierte en un estándar técnico que se usa porque es el mejor disponible.
 
@@ -1243,7 +1283,7 @@ Tiempo estimado: 5-10 años. Pero el resultado es permanente. Los estándares t�
 
 **Hipótesis:** Argentina construye los Stacks, los publica, los ofrece — y nadie los adopta. El mundo no está interesado.
 
-**Probabilidad:** Baja (el 93% de los países tienen los problemas que los Stacks resuelven), pero posible si la implementación doméstica falla o si Argentina sufre una crisis interna que desacredita el modelo.
+**Probabilidad:** Baja (el 93% de los países — estimación propia, sujeta a verificación — tienen los problemas que los Stacks resuelven), pero posible si la implementación doméstica falla o si Argentina sufre una crisis interna que desacredita el modelo.
 
 **Protocolo:**
 - Si en 3 años ningún país ha adoptado ningún módulo, el CNEG revisa la estrategia de oferta. ¿Es un problema de comunicación, de calidad del producto, o de contexto geopolítico?
@@ -1262,14 +1302,14 @@ Tiempo estimado: 5-10 años. Pero el resultado es permanente. Los estándares t�
 
 ### 22.3 Escenario 3: Desestabilización Política Interna
 
-**Hipótesis:** Actores externos apoyan a la oposición interna para derrotar electoralmente o desestabilizar al gobierno que impulsa BASTA.
+**Hipótesis:** Actores externos apoyan a la oposición interna para derrotar electoralmente o desestabilizar al gobierno que impulsa ¡BASTA!.
 
 **Probabilidad:** Media-alta. Es el vector más probable de ataque.
 
 **Protocolo:**
-- **Prevención:** BASTA no debe ser un proyecto de un gobierno. Debe ser un proyecto del pueblo — implementado por ley, con agencias autónomas protegidas constitucionalmente, con presupuestos garantizados. Si un cambio de gobierno puede deshacer BASTA, BASTA es frágil. Si deshacer BASTA requiere reformar la Constitución, BASTA es resiliente.
+- **Prevención:** ¡BASTA! no debe ser un proyecto de un gobierno. Debe ser un proyecto del pueblo — implementado por ley, con agencias autónomas protegidas constitucionalmente, con presupuestos garantizados. Si un cambio de gobierno puede deshacer ¡BASTA!, ¡BASTA! es frágil. Si deshacer ¡BASTA! requiere reformar la Constitución, ¡BASTA! es resiliente.
 - **Blindaje institucional:** Las agencias (ANEB, ANSUS, etc.) tienen mandatos de 6 años no coincidentes con el ciclo presidencial. Los presupuestos son constitucionales, no legislativos. Los protocolos son open-source y no dependen de servidores gubernamentales.
-- **Blindaje social:** Si BASTA funciona — si los argentinos pagan menos por seguros, tienen mejor salud, acceden a mejor educación — deshacerlo tiene un costo electoral que ningún opositor racional pagaría. La mejor defensa contra la desestabilización es que BASTA mejore la vida de la gente de forma medible y visible.
+- **Blindaje social:** Si ¡BASTA! funciona — si los argentinos pagan menos por seguros, tienen mejor salud, acceden a mejor educación — deshacerlo tiene un costo electoral que ningún opositor racional pagaría. La mejor defensa contra la desestabilización es que ¡BASTA! mejore la vida de la gente de forma medible y visible.
 
 ### 22.4 Escenario 4: Aliados Clave Defeccionan
 
@@ -1304,19 +1344,23 @@ Tiempo estimado: 5-10 años. Pero el resultado es permanente. Los estándares t�
 
 **TABLA 14: Inversión PLANGEO — Primeros 10 Años**
 
-| Área | Inversión Año 1-5 | Inversión Año 6-10 | Total 10 años | Fuente de financiamiento |
-|---|---|---|---|---|
-| CNEG (personal, infraestructura) | USD 50M | USD 50M | USD 100M | Presupuesto nacional |
-| Red diplomática ampliada (embajadas, técnicos) | USD 200M | USD 200M | USD 400M | Presupuesto nacional |
-| Embajadores Bastardos (programa de asistencia técnica) | USD 100M | USD 200M | USD 300M | Presupuesto + contribuciones de adoptantes |
-| Ciberdefensa + cibersoberanía | USD 400M | USD 300M | USD 700M | Presupuesto defensa (reasignación) |
-| Infraestructura naval + antártica | USD 500M | USD 500M | USD 1.000M | Presupuesto defensa + bonos soberanos |
-| Nodos internacionales de ArgenCloud | USD 300M | USD 200M | USD 500M | Inversión pública + coinversión de adoptantes |
-| Infraestructura GNL (participación estatal) | USD 3.000M | USD 2.000M | USD 5.000M | YPF + socios + bonos |
-| Cadena de valor del litio | USD 2.000M | USD 3.000M | USD 5.000M | Inversión mixta (pública/privada/extranjera condicionada) |
-| Hub logístico austral (Ushuaia) | USD 500M | USD 500M | USD 1.000M | Presupuesto + bonos + ingresos turísticos |
-| Diplomacia académica + Anticuerpos | USD 100M | USD 100M | USD 200M | Presupuesto + fundaciones |
-| **TOTAL** | **USD 7.150M** | **USD 7.050M** | **USD 14.200M** | |
+| Área | Inversión Año 1-5 | Inversión Año 6-10 | Total 10 años | Faseo anual | Fuente de financiamiento |
+|---|---|---|---|---|---|
+| CNEG (personal, infraestructura) | USD 50M | USD 50M | USD 100M | ~USD 10M/año constante | Presupuesto nacional |
+| Red diplomática ampliada (embajadas, técnicos) | USD 200M | USD 200M | USD 400M | ~USD 40M/año constante | Presupuesto nacional |
+| Embajadores Bastardos (programa de asistencia técnica) | USD 100M | USD 200M | USD 300M | Rampa: USD 10M (Año 1) → USD 45M/año (Años 7-10) | Presupuesto + contribuciones de adoptantes |
+| Ciberdefensa + cibersoberanía | USD 400M | USD 300M | USD 700M | Frontal: USD 120M/año (Años 1-3), luego ~USD 55M/año | Presupuesto defensa (reasignación) |
+| Infraestructura naval + antártica | USD 500M | USD 500M | USD 1.000M | ~USD 100M/año constante | Presupuesto defensa + bonos soberanos |
+| Nodos internacionales de ArgenCloud | USD 300M | USD 200M | USD 500M | Frontal: USD 90M/año (Años 1-3), luego ~USD 33M/año | Inversión pública + coinversión de adoptantes |
+| Infraestructura GNL (participación estatal) | USD 3.000M | USD 2.000M | USD 5.000M | Pico de obra: USD 800M/año (Años 2-5), cola de USD 400M/año | YPF + socios + bonos |
+| Cadena de valor del litio | USD 2.000M | USD 3.000M | USD 5.000M | Rampa: USD 200M (Año 1) → USD 700M/año (Años 8-10) | Inversión mixta (pública/privada/extranjera condicionada) |
+| Hub logístico austral (Ushuaia) | USD 500M | USD 500M | USD 1.000M | ~USD 100M/año constante | Presupuesto + bonos + ingresos turísticos |
+| Diplomacia académica + Anticuerpos | USD 100M | USD 100M | USD 200M | ~USD 20M/año constante | Presupuesto + fundaciones |
+| Subtotal | USD 7.150M | USD 7.050M | USD 14.200M | | |
+| **Contingencia (15%)** | **USD 1.073M** | **USD 1.058M** | **USD 2.130M** | Proporcional al gasto ejecutado de cada año | Misma matriz de fuentes, prorrateada |
+| **TOTAL** | **USD 8.223M** | **USD 8.108M** | **USD 16.330M** | | |
+
+La línea de contingencia no es pesimismo — es honestidad presupuestaria. Ningún programa de infraestructura de 10 años ejecuta al costo estimado en el papel. Presupuestar la desviación es más barato que financiarla de apuro.
 
 ### 23.2 Retorno Estimado
 
@@ -1324,19 +1368,21 @@ Tiempo estimado: 5-10 años. Pero el resultado es permanente. Los estándares t�
 |---|---|---|
 | Exportación de GNL | USD 15.000-25.000M | Con infraestructura de licuefacción operativa |
 | Valor agregado del litio (cátodos + celdas vs. carbonato) | USD 5.000-15.000M adicionales | Diferencial de precio por industrialización |
-| Reducción de extracción doméstica (efecto Red Bastarda) | USD 20.000-40.000M | Dinero que queda en bolsillos argentinos en vez de ir a márgenes corporativos |
+| Reducción de extracción doméstica (efecto Red Bastarda)* | USD 20.000-40.000M | Dinero que queda en bolsillos argentinos en vez de ir a márgenes corporativos |
 | Servicios de asistencia técnica (Stack premium) | USD 1.000-3.000M | Consultoría de implementación para países adoptantes |
 | Turismo antártico y austral | USD 2.000-4.000M | Hub logístico Ushuaia |
 | Soft power / posicionamiento global | Incalculable | Influencia institucional, cultural, técnica |
 | **TOTAL ESTIMADO** | **USD 43.000-87.000M** | **ROI: 3:1 a 6:1** |
 
+*Nota de reconciliación con PLANEB: la reducción de extracción doméstica (USD 20.000-40.000M) es un retorno cuya generación corresponde a PLANEB y a la Red Bastarda — y así se contabiliza en el ROI de aquel plan. PLANGEO no reclama ese número como propio: reclama únicamente la porción de capa internacional que habilita — la exportación de los Stacks, los servicios de asistencia técnica, los estándares que abren mercados premium, y la protección geopolítica que permite que el efecto doméstico de PLANEB exista sin ser asfixiado desde afuera. Se incluye en esta tabla porque sin PLANGEO ese retorno es vulnerable; pero a la hora de auditar, cada peso se cuenta una sola vez, en el plan que lo genera.
+
 La inversión es grande. El retorno es mayor. Y lo que no se puede cuantificar — un país que pasa de deudor crónico y exportador de commodities a forja de la infraestructura de gobernanza del siglo XXI — vale más que cualquier número.
 
 ---
 
-## SECCIÓN 24: INTEGRACIÓN BASTA
+## SECCIÓN 24: INTEGRACIÓN ¡BASTA!
 
-> *"PLANGEO no es el décimo plan de BASTA. Es el plan que hace que los otros nueve lleguen al mundo sin que el mundo los destruya."*
+> *"PLANGEO no es un PLAN más del ecosistema ¡BASTA!. Es el que hace que los otros veintiuno lleguen al mundo sin que el mundo los destruya."*
 
 ### 24.1 Cómo PLANGEO Sirve a Cada PLAN
 
@@ -1352,10 +1398,17 @@ La inversión es grande. El retorno es mayor. Y lo que no se puede cuantificar �
 | **PLANAGUA** | Gobernanza transnacional del Guaraní + criosfera andina | DAO del Guaraní + alianza austral con Chile |
 | **PLANJUS** | Reconocimiento internacional de mecanismos alternativos de justicia | Standards track + alianza con países con sistemas judiciales colapsados |
 | **PLANISV** | Acceso a mercados agrícolas premium + protección contra barreras fitosanitarias | Alineamiento UE + trazabilidad blockchain como estándar |
+| **PLANEN** | Mercados de exportación + transferencia tecnológica en baterías y renovables | Litio/GNL como moneda diplomática + condicionamiento de acceso a recursos |
+| **PLANMON** | Aceptación internacional del peso-canasta como unidad de cuenta | Corredor de pagos Sur-Sur + facturación intra-Mercosur en peso-canasta |
+| **PLANSEG** | Legitimación del modelo no-punitivista ante presión securitaria externa | Showcase en Red Soberana + cooperación operativa selectiva (Sección 13.2) |
+| **PLANVIV** | Financiamiento de hábitat sin deuda multilateral condicionada | Bonos ciudadanos + Stack de Vivienda exportable |
+| **PLANCUL** | Distribución cultural global sin plataformas extractivas | Diplomacia cultural (Sección 24.5) + infraestructura sobre ArgenCloud |
+| **PLANMOV** | Acuerdos de integración física con países vecinos | Hidrovía con gobernanza compartida + corredores bioceánicos con Chile |
+| **PLANTER** | Marco internacional para la capa federal de recursos | Ley-convenio con provincias (Sección 26) + Licencia Territorial como instrumento doméstico |
 
 ### 24.2 Secuenciamiento de Lanzamiento Internacional
 
-La integración BASTA define el orden en que las iniciativas se proyectan internacionalmente:
+La integración ¡BASTA! define el orden en que las iniciativas se proyectan internacionalmente:
 
 **Fase 1 (2026-2028): Los Inobjetables.** PLANEB (empresas al costo — ¿quién se opone a precios transparentes?), PLANEDU (educación — nadie sanciona por mejorar escuelas), PLANISV (agricultura regenerativa — alineado con agenda climática global). Estas iniciativas construyen credibilidad sin provocar el sistema inmunológico.
 
@@ -1371,22 +1424,60 @@ La integración BASTA define el orden en que las iniciativas se proyectan intern
 
 | Año | Doméstico | Diplomático | Infraestructura | Bilateral | Hito clave |
 |---|---|---|---|---|---|
-| **2026** | PLANEB lanza primera Bastarda (seguros). PLANDIG inicia ArgenCloud. | CNEG se constituye. Caja Negra Abierta operativa. | Protocolo Bastardo publicado en GitHub. | Acuerdo con Uruguay para piloto Stack Gobernanza. | Primer código BASTA open-source publicado |
+| **2026** | PLANEB lanza primera Bastarda (seguros). PLANDIG inicia ArgenCloud. | CNEG se constituye. Caja Negra Abierta operativa. | Protocolo Bastardo publicado en GitHub. | Acuerdo con Uruguay para piloto Stack Gobernanza. | Primer código ¡BASTA! open-source publicado |
 | **2027** | PLANEDU reforma operativa. PLANISV escala. | Propuesta en UNCTAD. Acercamiento UE para equivalencia GDPR. | Primer nodo ArgenCloud fuera de Argentina (Montevideo). ISN metodología publicada. | MoU con Senegal (Stack Sanitario). MoU con Costa Rica (Stack Gobernanza). | Primera adopción internacional de un módulo |
 | **2028** | PLANSUS inicia cascada (cannabis Año 1). PLANSAL despliega ANVIP. | Coalición reformista de drogas: 8+ países. Acuerdo GNL con UE. | 3 nodos internacionales. Sistema de pagos soberano v1. ISN piloto 20 países. | Acuerdo litio-genéricos con India. Swap ampliado con China. | Argentina como proveedor de GNL a Europa |
 | **2029** | PLAN24CN primera ciudad (piloto). Red Bastarda 5+ sectores. | Propuesta Mercosur 2.0 formal. Acuerdo UE-Mercosur reformulado. | Red de Ciudades Soberanas: 10+ municipios. ISN publicación oficial. | DAO del Guaraní: propuesta formal a Brasil/Uruguay/Paraguay. Estrategia India: UPI interoperabilidad. | ISN primera publicación global |
 | **2030** | PLANSUS cascada completa (Año 3). PLANREP piloto en 3 regiones. | Denuncia formal de convenciones de drogas (con coalición). | Red Soberana: 15-20 países adoptantes. Standards track: primer draft IEEE. | Alianza Austral formalizada (Chile, Sudáfrica, Australia, NZ). Coordinación BRICS+ como observador. | Denuncia de convenciones + coalición |
 | **2031-2033** | PLANJUS reforma completa. PLANREP escala nacional. | Hub logístico Ushuaia operativo. Posición antártica consolidada. | DAO del Guaraní operativa. Red: 30+ países. | Acuerdos de Soberanía Compartida con 10+ países. | DAO transnacional funcionando |
 | **2033-2035** | Transición FMI completa. Autonomía financiera. | Fondo de Estabilización Soberano operativo. | Protocolo Bastardo: estándar IEEE. ISN citado por 50+ medios/gobiernos. | Red de Ciudades: 100+ municipios. | Independencia financiera de FMI |
-| **2035-2040** | Todas las iniciativas BASTA maduras. Economía diversificada. | Argentina reconocida como "forja de gobernanza." | Red Soberana: 50-67 países. 340+ ciudades. | Franquicias de Gobernanza activas en 30+ ciudades no-BASTA. | Red Soberana como estándar global de facto |
+| **2035-2040** | Todas las iniciativas ¡BASTA! maduras. Economía diversificada. | Argentina reconocida como "forja de gobernanza." | Red Soberana: 50-67 países. 340+ ciudades. | Franquicias de Gobernanza activas en 30+ ciudades no-¡BASTA!. | Red Soberana como estándar global de facto |
 
-### 24.4 Diplomacia Cultural: El Soft Power Argentino
+### 24.4 Gatillos de Falla por Fase
 
-BASTA exporta herramientas de gobernanza. Pero las herramientas llegan más lejos cuando vienen empaquetadas en cultura. Argentina tiene un activo de soft power que ningún análisis geopolítico debería ignorar: una cultura global — cine, música, literatura, diseño, gastronomía, fútbol — que genera afinidad en todo el mundo.
+Una hoja de ruta sin gatillos de falla es una promesa, no un plan. Cada fase del secuenciamiento tiene supuestos críticos que pueden no cumplirse. Para cada uno: la señal que indica que falló, y el plan B que se activa sin necesidad de redebatir la estrategia entera.
+
+**Fase 1 (2026-2028) — Los Inobjetables:**
+
+| Supuesto crítico | Señal de falla | Plan B |
+|---|---|---|
+| La primera Bastarda (seguros) funciona y baja precios de forma visible | A los 18 meses no hay reducción medible de costo para el asegurado | Congelar la proyección internacional del Stack de Gobernanza; auditar y corregir en casa antes de exportar. Nada viaja sin funcionar primero. |
+| Uruguay acepta el piloto regional | Montevideo posterga la firma más de 12 meses | Pivotar a Costa Rica como primer piloto + activar adopción municipal (Sección 21.1) con 2-3 ciudades sin esperar gobiernos nacionales |
+| El Protocolo Bastardo publicado atrae comunidad técnica | Menos de 50 contribuidores externos activos al año de publicado | Programa de becas técnicas + hackathons en universidades del Sur Global; la comunidad se siembra, no se espera |
+
+**Fase 2 (2028-2030) — Los Estratégicos:**
+
+| Supuesto crítico | Señal de falla | Plan B |
+|---|---|---|
+| La UE otorga equivalencia GDPR al marco argentino | La Comisión rechaza o congela la decisión de adecuación | Certificaciones bilaterales país por país (Alemania, Francia, Países Bajos tienen autoridades de datos con margen propio) + certificación privada auditada por firmas europeas + equivalencia con Japón y Corea del Sur como vía alternativa de legitimación |
+| El acuerdo GNL con la UE se firma | Europa cierra el acuerdo con Qatar/EEUU y la ventana se achica | Redirigir GNL a Asia (India, Japón, Corea) + acelerar industrialización del litio como leverage sustituto |
+| Los primeros nodos internacionales de ArgenCloud operan estables | Caídas de servicio o incidentes de seguridad públicos | Auditoría externa inmediata (firmas alemanas/suizas/japonesas) + publicación completa del post-mortem; la transparencia del fallo es la única defensa contra la narrativa de "no es seguro" |
+
+**Fase 3 (2030-2033) — Los Confrontativos:**
+
+| Supuesto crítico | Señal de falla | Plan B |
+|---|---|---|
+| La coalición reformista de drogas alcanza 8+ países antes de la denuncia | A 12 meses del hito solo hay 3-4 compromisos firmes | Postergar la denuncia de convenciones (la fecha es táctica, no sagrada) + modelo Bolivia: denuncia y re-adhesión con reservas como posición intermedia |
+| La Red Soberana llega a 15-20 países adoptantes | Estancamiento en menos de 10 países nacionales | Duplicar la apuesta municipal: 50+ ciudades pesan tanto como 15 países para el efecto escudo, y nadie sanciona municipios |
+| El sistema de pagos soberano resiste el estrés de uso real | Volumen de transacciones insuficiente para validar resiliencia | Pilotos de carga con comercio bilateral Argentina-Brasil-India + interoperabilidad UPI/PIX antes de cualquier lanzamiento confrontativo |
+
+**Fase 4 (2033-2040) — Los Transformativos:**
+
+| Supuesto crítico | Señal de falla | Plan B |
+|---|---|---|
+| El ISN gana citación junto a las calificadoras tradicionales | Tres años de publicación sin tracción en medios ni gobiernos | Asociar el ISN a universidades de prestigio del Norte como co-editoras académicas; si no compite como rating, vive como índice académico hasta que la coyuntura lo demande |
+| Las DAOs transnacionales (Guaraní, Litio) operan con los vecinos | Brasil o Chile se retiran del codiseño | Versión bilateral mínima (Argentina-Uruguay para el Guaraní; Argentina-Bolivia para el litio) + dejar la puerta técnica abierta: el protocolo se diseña para que sumar un país después sea trivial |
+| El Protocolo Bastardo avanza en el standards track | IEEE/IETF rechazan o demoran el draft indefinidamente | Estándar de facto por adopción: 30 implementaciones nacionales pesan más que un sello; documentar interoperabilidad y volver a someter |
+
+**Regla transversal:** ningún gatillo de falla se declara en silencio. Cuando un plan B se activa, la Caja Negra Abierta lo publica (con el diferimiento que corresponda a su nivel). Un plan honesto también es honesto cuando falla.
+
+### 24.5 Diplomacia Cultural: El Soft Power Argentino
+
+¡BASTA! exporta herramientas de gobernanza. Pero las herramientas llegan más lejos cuando vienen empaquetadas en cultura. Argentina tiene un activo de soft power que ningún análisis geopolítico debería ignorar: una cultura global — cine, música, literatura, diseño, gastronomía, fútbol — que genera afinidad en todo el mundo.
 
 **Cómo la cultura amplifica PLANGEO:**
 
-1. **Narrativa BASTA como producto cultural.** Los preámbulos de cada PLAN (la familia Moretti en PLANEB, Aminata en PLANGEO) no son solo documentos de política — son historias. Argentina produce una serie documental, un podcast, una novela gráfica que cuenta la historia de BASTA desde la perspectiva de personas reales en Argentina y en los países adoptantes. El cine argentino — que ya ganó Oscars — cuenta estas historias al mundo.
+1. **Narrativa ¡BASTA! como producto cultural.** Los preámbulos de cada PLAN (la familia Moretti en PLANEB, Aminata en PLANGEO) no son solo documentos de política — son historias. Argentina produce una serie documental, un podcast, una novela gráfica que cuenta la historia de ¡BASTA! desde la perspectiva de personas reales en Argentina y en los países adoptantes. El cine argentino — que ya ganó Oscars — cuenta estas historias al mundo.
 
 2. **Diseño argentino como marca.** Los interfaces de los Stacks (dashboards, apps, documentación) se diseñan con la estética visual del diseño argentino — limpio, humano, cálido. No es accidental que los productos mejor diseñados generan mayor adopción. El diseño es diplomacia.
 
@@ -1396,13 +1487,128 @@ BASTA exporta herramientas de gobernanza. Pero las herramientas llegan más lejo
 
 ---
 
-## SECCIÓN 25: VISIÓN 2040
+## SECCIÓN 25: MARCO LEGAL
+
+> *"Un plan sin instrumentos legales es una opinión. Un plan con instrumentos legales nombrados, redactables y votables es una decisión esperando su turno."*
+
+PLANGEO opera mayormente con herramientas que ya existen: la facultad del Ejecutivo de conducir la política exterior, los tratados bilaterales, la cooperación técnica. Pero hay piezas que requieren ley. Esta sección las nombra — porque un instrumento sin nombre no se puede debatir, y un instrumento que no se puede debatir no es de un plan honesto.
+
+### 25.1 Lo Que Se Crea
+
+**TABLA 16: Instrumentos Legales de Creación**
+
+| Instrumento | Contenido central | Vía | Por qué requiere ley |
+|---|---|---|---|
+| **Ley de Creación del CNEG** (Ley de Estrategia Geopolítica Nacional) | Crea el Consejo Nacional de Estrategia Geopolítica como órgano asesor del Ejecutivo: composición (Sección 2.4), concurso público para estrategas, bancas rotativas de las 20 agencias, mandatos no coincidentes con el ciclo presidencial | Ley simple del Congreso | Un consejo creado por decreto muere con el decreto siguiente. La continuidad estratégica entre gobiernos — el activo central de PLANGEO — exige rango legal |
+| **Régimen de la Caja Negra Abierta** (Ley de Desclasificación Programada de Recomendaciones Estratégicas) | Legaliza los tres niveles de clasificación (Verde: inmediato / Amarillo: 6 meses / Rojo: 18 meses), prohíbe el secreto permanente, crea sanciones por incumplimiento del calendario de publicación y un registro público auditable de recomendaciones pendientes de desclasificar | Ley simple del Congreso | Sin rango legal, la desclasificación es una promesa administrativa que cualquier funcionario incómodo puede cajonear. Con ley, cajonear es delito |
+| **Ley Marco de Exportación de Stacks Soberanos** | Define el régimen jurídico de la transferencia internacional de los Stacks: licenciamiento open-source obligatorio (sin lock-in), facturación de servicios premium de asistencia técnica, estatuto de los Embajadores Bastardos en misión, marco de los MoU con ciudades y regiones extranjeras (Sección 21.1), y la regla de cero condicionamiento político al adoptante | Ley simple del Congreso | La exportación de gobernanza no encaja en el régimen de exportación de bienes ni en el de servicios profesionales. Sin marco propio, cada MoU municipal es un experimento jurídico impugnable |
+
+Tres leyes. Ninguna requiere reforma constitucional. Las tres pueden tratarse en un mismo período legislativo.
+
+### 25.2 Lo Que Se Reforma
+
+**TABLA 17: Instrumentos de Reforma y Denuncia**
+
+| Instrumento | Contenido central | Vía | Coordinación |
+|---|---|---|---|
+| **Proceso de denuncia de las Convenciones de drogas (1961, 1971, 1988)** | Las convenciones de fiscalización de estupefacientes no integran el bloque de jerarquía constitucional del art. 75 inc. 22 CN — su denuncia es formalmente facultad del Ejecutivo. PLANGEO propone, igualmente, el camino más exigente: aprobación previa del Congreso por mayoría simple de ambas cámaras, en espejo del procedimiento del art. 75 inc. 22, con publicación íntegra del fundamento jurídico 12 meses antes del depósito de la denuncia | Resolución del Congreso + acto del Ejecutivo | **PLANSUS** define el qué y el cuándo (la cascada de 5 años); PLANGEO define el cómo internacional (coalición reformista de 8-10 países, secuenciamiento de la Sección 11.2, reencuadre como cumplimiento del derecho a la salud — Art. 12 PIDESC) |
+| **Cláusulas tipo para acuerdos comerciales (Anexo normativo)** | Las cuatro cláusulas tipo de la Sección 21.6 — interoperabilidad de pagos, reconocimiento de entidades de propósito perpetuo, residencia de datos, cooperación técnica en gobernanza — se formalizan como anexo normativo de negociación: instrucción permanente de Cancillería para que toda negociación comercial las proponga como punto de partida | Decreto reglamentario + instrucción de Cancillería | Cada tratado que las incorpore vuelve al Congreso para su aprobación ordinaria — el control democrático no se saltea, se ejercita tratado por tratado |
+
+¿Por qué el camino más exigente para la denuncia, si el Ejecutivo podría hacerlo solo? Porque una denuncia firmada por un presidente la revierte el siguiente. Una denuncia votada por el Congreso, con fundamento publicado y coalición internacional construida, es una decisión del país — no de un gobierno. PLANGEO no busca el atajo. Busca la irreversibilidad.
+
+---
+
+## SECCIÓN 26: DIMENSIÓN FEDERAL — LAS PROVINCIAS COMO SOCIAS, NO COMO OBSTÁCULO
+
+> *"El art. 124 no es un problema a esquivar. Es la arquitectura del país. Un plan geopolítico que ignora a las provincias no es un plan nacional — es un plan porteño con mapa grande."*
+
+### 26.1 La Realidad Constitucional
+
+El art. 124 de la Constitución Nacional es inequívoco: **el dominio originario de los recursos naturales corresponde a las provincias**. El litio es de Jujuy, de Salta y de Catamarca. El shale de Vaca Muerta es de Neuquén. La puerta antártica está en Tierra del Fuego. La Nación no puede disponer de esos recursos por decreto — y PLANGEO no lo pretende.
+
+Lo que PLANGEO aporta es la **capa internacional**: la estrategia de exportación, los estándares, la diplomacia, el escudo geopolítico. Las provincias ponen el recurso y la licencia social; la Nación pone el mundo. El instrumento que une las dos capas ya existe en la tradición constitucional argentina: la **ley-convenio** — el mismo mecanismo de la coparticipación federal, aplicado a la estrategia de recursos. Y el instrumento doméstico de gobernanza territorial ya existe en el ecosistema: la **Licencia Territorial de PLANTER**, que regula cómo se habilita y se audita el uso del territorio a nivel local. PLANGEO no la duplica — se le acopla: la Licencia Territorial gobierna el recurso hacia adentro; PLANGEO lo proyecta hacia afuera.
+
+### 26.2 Los Tres Teatros Federales
+
+**TABLA 18: Dimensión Federal de PLANGEO**
+
+| Teatro | Provincias | Recurso/activo | Qué pone la provincia | Qué pone PLANGEO (capa internacional) | Instrumento |
+|---|---|---|---|---|---|
+| **Triángulo del Litio argentino** | Jujuy, Salta, Catamarca | Salares — 3° reserva mundial | Dominio originario (art. 124 CN), licencia social, gestión hídrica local de salares | Coordinación con Bolivia y Chile (ALCS, Sección 5.2), condicionamiento de inversión extranjera a procesamiento local, estándar ambiental exportable | Ley-convenio del Litio: la Nación negocia el piso internacional (valor agregado mínimo, transferencia tecnológica); las provincias otorgan las concesiones bajo Licencia Territorial (PLANTER) y participan de la renta de toda la cadena, no solo de la regalía de boca de mina |
+| **Vaca Muerta** | Neuquén (+ Río Negro y Mendoza en la cuenca) | 2° reserva mundial de shale gas | Dominio del subsuelo, infraestructura provincial, empleo local | Contratos GNL de 15-20 años con la UE y Asia (Sección 5.3), diplomacia del gas como leverage, cláusulas de transferencia tecnológica en hidrógeno verde | Ley-convenio del GNL: participación provincial en el upside exportador — no solo regalías sobre el gas extraído, sino porcentaje del diferencial de precio internacional que la diplomacia nacional consigue |
+| **Puerta Austral** | Tierra del Fuego | Ushuaia: capital mundial del turismo antártico, hub logístico del paralelo 50° al sur | Territorio, puerto, identidad antártica, gobernanza local del hub | Inversión del hub logístico (USD 1.000M, TABLA 14), nodo austral de ArgenCloud, sede del programa antártico, Alianza Austral (Sección 20.1) | Ley-convenio Austral: cogestión Nación-provincia del hub, con tablero de transparencia público de cada peso invertido y cada peso recaudado |
+
+### 26.3 La Regla Federal de PLANGEO
+
+Tres principios no negociables:
+
+1. **Nada sobre el recurso sin la provincia.** Ningún acuerdo internacional que comprometa litio, gas o territorio austral se firma sin la ley-convenio previa con la provincia titular. No por cortesía — por art. 124. La alternativa (litigar el dominio en la Corte) regalaría una década de parálisis a los competidores.
+
+2. **La renta de la cadena se comparte, no solo la regalía.** El modelo extractivo clásico le deja a la provincia el 3% de regalía y se lleva el valor agregado a otra parte. La ley-convenio invierte la lógica: si el cátodo se fabrica en Güemes o el GNL se licúa en Río Negro, la provincia participa del eslabón industrial. Eso convierte a los gobernadores de veto-players en accionistas de la estrategia.
+
+3. **La Licencia Territorial es la puerta única.** Toda concesión sobre recursos en el marco PLANGEO pasa por el instrumento de PLANTER — con su auditoría ciudadana, sus condiciones ambientales y su trazabilidad. Un solo estándar, las veinticuatro jurisdicciones. Lo que se exporta como "estándar argentino" tiene que ser verdad primero en Antofagasta de la Sierra.
+
+---
+
+## SECCIÓN 27: TABLERO PLANGEO — MÉTRICAS, FRECUENCIAS Y GATILLOS
+
+> *"Lo que no se mide se relata. Y PLANGEO no es un relato — es un plan con tablero."*
+
+PLANGEO se audita con números públicos. El Tablero PLANGEO se publica en línea, con actualización según la frecuencia de cada métrica, sobre la misma infraestructura de transparencia radical que el resto del ecosistema. Cada métrica tiene línea de base, meta y — lo más importante — un **gatillo**: el umbral que obliga al CNEG a revisar la estrategia en sesión documentada (con su recomendación entrando a la Caja Negra Abierta).
+
+**TABLA 19: Tablero PLANGEO — Indicadores Domésticos e Internacionales**
+
+| Métrica | Línea de base 2026 | Meta 2030 | Meta 2035 | Frecuencia | Gatillo de revisión |
+|---|---|---|---|---|---|
+| Países adoptantes de al menos 1 módulo del Stack (acumulado) | 0 | 15 | 35 | Semestral | Menos de 3 países a fines de 2028 → revisión de estrategia de oferta (Sección 22.1) |
+| Ciudades/regiones en la Red de Ciudades Soberanas | 0 | 25 | 120 | Semestral | Menos de 5 ciudades a fines de 2029 → rediseño de Kits de Adopción Municipal |
+| Exportación de Stacks y servicios de asistencia técnica (USD M/año) | 0 | 150 | 500 | Anual | Menos de USD 30M/año en 2030 → revisión del modelo de servicios premium |
+| Misiones de enseñanza enviadas (equipos de Embajadores Bastardos desplegados/año) | 0 | 12 | 30 | Anual | Menos de 4 misiones/año en 2029 → revisión del programa de formación y financiamiento |
+| Posición argentina en índices de soberanía digital (referencia externa + ISN propio) | Fuera del top 30 (estimación propia — sujeta a verificación) | Top 15 | Top 5 | Anual | Retroceso de 5+ posiciones interanual → auditoría de PLANDIG y del despliegue de ArgenCloud |
+| % del comercio intra-Mercosur facturado en peso-canasta | 0% | 8% | 25% | Anual | Menos de 2% en 2031 → revisión conjunta con ANMON del diseño de incentivos del corredor de pagos |
+| Contribuidores externos activos al código de los Stacks | 0 | 500 | 2.000 | Trimestral | Caída sostenida de 2 trimestres → programa de comunidad (becas, hackathons, documentación) |
+| Valor agregado exportado del litio (% del total exportado de litio que sale como cátodo/celda, no carbonato) | <5% | 20% | 45% | Anual | Estancamiento bajo 10% en 2031 → revisión de la ley-convenio y del condicionamiento de concesiones |
+| Recomendaciones del CNEG desclasificadas en plazo | — | 100% | 100% | Trimestral | Una sola recomendación fuera de plazo → informe público inmediato del incumplimiento; dos → remoción del responsable |
+
+Las líneas de base en cero no son vergüenza — son honestidad de punto de partida. El Tablero existe precisamente para que dentro de cinco años nadie pueda dibujar el progreso: o los países adoptaron o no adoptaron, o los dólares entraron o no entraron. El plan se somete a sus propios números.
+
+---
+
+## SECCIÓN 28: RESPUESTA A CRÍTICAS
+
+> *"Un plan que no puede sobrevivir a sus críticos en el papel, no va a sobrevivir a sus enemigos en el tablero."*
+
+PLANGEO va a ser atacado. Algunas críticas serán de mala fe — esas se responden con el Tablero y la Caja Negra Abierta. Pero otras son objeciones serias que cualquier argentino razonable puede hacerse. Acá están, con la respuesta honesta — que a veces incluye conceder el punto.
+
+**"Esto es delirio de grandeza. Argentina no puede pagar la luz y quiere exportar gobernanza al planeta."**
+
+La objeción tiene un núcleo verdadero: Argentina llega a este plan desde la fragilidad, no desde la fuerza. Pero el argumento prueba lo contrario de lo que cree probar. Los países que exportaron arquitectura institucional no lo hicieron desde la comodidad: EEUU diseñó Bretton Woods saliendo de una depresión y una guerra; Estonia construyó el estado digital más avanzado del mundo saliendo del colapso soviético, con 1,3 millones de habitantes. La necesidad es el laboratorio. Argentina sabe de inflación, de corralitos, de extracción — por eso sus herramientas anti-extracción son creíbles para los 100+ países que viven lo mismo. Nadie le compra paraguas al que vive en el desierto. Y el plan no pide creer: pide mirar el Tablero (Sección 27). Si en 2030 no hay adoptantes, el plan se revisa — está escrito en sus propios gatillos. El delirio de grandeza no publica sus condiciones de fracaso.
+
+**"Esto es una violación de tratados internacionales."**
+
+¿Cuáles, exactamente? Vale la pena exigir la precisión, porque la crítica suele ser un gesto, no un argumento. La denuncia de las convenciones de drogas está *prevista por las propias convenciones* — la Convención de 1961 regula su denuncia en el art. 46. Denunciar un tratado por el procedimiento del tratado no es violarlo: es usarlo. Bolivia lo hizo en 2012 y sigue en la ONU. El resto del plan es todavía menos dramático: publicar código open-source no viola ningún tratado; las Empresas Bastardas son entidades sin fines de lucro contempladas por el derecho argentino (CCyC); los acuerdos de la Sección 21.6 son cláusulas negociadas y ratificadas por ambas partes. PLANGEO es, deliberadamente, un plan de legalidad exasperante: cada movimiento confrontativo usa una puerta que el derecho internacional dejó abierta. Lo que incomoda no es la ilegalidad — es la legalidad usada por el actor equivocado.
+
+**"Nos van a sancionar igual. A los poderosos el derecho no les importa."**
+
+Concedido a medias: el sistema inmunológico (Sección 1.3) no necesita que violemos nada para atacar. Pero la conclusión — "entonces no hagas nada" — no se sigue. La pregunta correcta no es *¿nos pueden sancionar?* sino *¿cuánto les cuesta sancionarnos?* — y todo PLANGEO es una máquina de subir ese costo: la Red Soberana (sancionar a Argentina degrada la infraestructura de 30 países), el GNL a Europa (sancionar al proveedor es sancionarse), el litio (la transición energética no espera), la Estrategia del Espejo (cada ataque financia una herramienta nueva). Además el plan asume la sanción como escenario operativo, no como sorpresa: la Sección 22.2 detalla la preparación pre-sanción y la respuesta post-sanción. La diferencia entre un país sancionable y un país sancionado-con-costo es exactamente la diferencia que este documento existe para construir. Y si aún así sancionan: Argentina ya fue desconectada de los mercados varias veces en su historia — sin plan, sin red, sin leverage. Conocemos el fondo de la pileta. Esta vez, al menos, entraríamos sabiendo nadar.
+
+**"Brasil nunca va a aceptar liderazgo argentino."**
+
+Correcto. Por eso PLANGEO no se lo pide. La estrategia con Brasil (Sección 15.3) tiene una regla explícita: *nunca competir por liderazgo, siempre cooperar en diseño*. Brasil recibe los Stacks antes de que se publiquen, codiseña el Mercosur 2.0, y el proyecto inaugural — la DAO del Guaraní — es de beneficio simétrico. La plataforma, además, está diseñada para que el liderazgo no sea el premio: es open-source, sin lock-in, con gobernanza por contribución. Si Brasil termina contribuyendo más código que Argentina y pesando más en la Red Soberana — *eso no es el fracaso del plan, es el plan funcionando*. El objetivo de PLANGEO no es que Argentina mande: es que la infraestructura exista y que Argentina sea indispensable en ella. Hay una sola cosa que Brasil no puede hacer: empezar. Porque el que empieza paga el costo del primer movimiento ante el sistema inmunológico. Argentina, que ya es la anomalía, tiene menos que perder — y eso, por una vez, es una ventaja.
+
+**"Otro relato tercermundista. Ya escuchamos esto con el No-Alineamiento, con la Patria Grande, con el ALBA."**
+
+La genealogía es real y la mayoría de esos proyectos fracasaron. Pero conviene mirar *por qué* fracasaron: eran alianzas retóricas — declaraciones, cumbres, banderas — sin infraestructura debajo. El No-Alineamiento no tenía un repositorio de código. El ALBA no tenía un sistema de pagos que funcionara. La Patria Grande nunca compiló. PLANGEO invierte la proporción: el 90% del plan es infraestructura verificable — código publicado, nodos desplegados, contratos firmados, métricas con gatillo — y el 10% es narrativa. Si la infraestructura no se construye, el plan falla *visiblemente*, en su propio Tablero, y no hay relato que lo tape. Esa es exactamente la diferencia entre un relato y un plan: el relato no puede fracasar porque no afirma nada verificable. Este documento afirma números, fechas y umbrales. Tómenle la palabra — está diseñado para eso.
+
+---
+
+## SECCIÓN 29: VISIÓN 2040
 
 > *"En 2040, cuando alguien quiera entender cómo se gobierna un país para su gente y no para sus acreedores, no va a buscar en Washington, ni en Bruselas, ni en Beijing. Va a buscar en Buenos Aires."*
 
 ### 25.1 El Mundo en 2040 — Si PLANGEO Funciona
 
-Es 2040. Argentina lleva 14 años de implementación BASTA. El mundo cambió — en parte por fuerzas que nadie controla, y en parte por herramientas que un país del sur decidió construir.
+Es 2040. Argentina lleva 14 años de implementación ¡BASTA!. El mundo cambió — en parte por fuerzas que nadie controla, y en parte por herramientas que un país del sur decidió construir.
 
 La **Red Soberana** tiene 67 países miembros y 340 ciudades adoptantes. El Protocolo Bastardo es un estándar IEEE. ArgenCloud tiene 47 nodos en 31 países. El Stack de Gobernanza Económica opera en 23 países — reduciendo la extracción corporativa en un estimado de USD 180.000 millones por año a nivel global. El Stack de Soberanía Digital ha movido los datos soberanos de 41 países fuera de jurisdicción estadounidense. La DAO del Guaraní lleva 8 años funcionando y es el modelo de gobernanza transnacional de recursos más estudiado del mundo.
 
@@ -1422,7 +1628,7 @@ No es utopía. Es ingeniería.
 
 ### 25.2 Lo Que Puede Salir Mal
 
-Todo. Nada está garantizado. Argentina puede perder una elección y el próximo gobierno puede desmantelar BASTA. El sistema inmunológico global puede reaccionar más fuerte de lo previsto. Una crisis económica global puede hacer que los países se replieguen. Una guerra puede cambiar las prioridades. La tecnología puede fallar.
+Todo. Nada está garantizado. Argentina puede perder una elección y el próximo gobierno puede desmantelar ¡BASTA!. El sistema inmunológico global puede reaccionar más fuerte de lo previsto. Una crisis económica global puede hacer que los países se replieguen. Una guerra puede cambiar las prioridades. La tecnología puede fallar.
 
 PLANGEO no garantiza el éxito. Garantiza que si Argentina fracasa, no será por falta de plan, por falta de ambición, o por falta de imaginación. Será porque el mundo decidió que prefiere la extracción a la soberanía, la opacidad a la transparencia, la dependencia a la libertad.
 
@@ -1441,7 +1647,7 @@ Porque la alternativa siempre existió. Solo faltaba quien se atreviera a constr
 **FIN DEL DOCUMENTO ESTRATÉGICO**
 
 **Preparado por:** Consejo Nacional de Estrategia Geopolítica (CNEG)
-**Versión:** 1.0
+**Versión:** 1.2
 **Fecha:** Marzo 2026
 **Clasificación:** DOCUMENTO ESTRATÉGICO — PARA REVISIÓN AUTORIZADA
-**Integración:** Plataforma ¡BASTA! — Décimo Mandato Popular
+**Integración:** Plataforma ¡BASTA! — uno de los 22 PLANes del ecosistema (al 23 de abril de 2026) · orden estratégico de lanzamiento: 12

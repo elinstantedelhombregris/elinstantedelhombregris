@@ -37,7 +37,7 @@ Este es el problema de la vivienda en la Argentina. No es un problema de escasez
 
 PLANVIV propone terminar con eso. No mañana. No con una bala de plata. Pero sí con un plan: cuantificado, financiado, institucionalizado, y diseñado para que funcione independientemente de quién gane la próxima elección.
 
-Con PLANVIV, el ecosistema ¡BASTA! alcanza su forma completa: dieciséis mandatos que cubren cada dimensión de la vida argentina. Trabajo (PLANREP), educación (PLANEDU), salud (PLANSAL), justicia (PLANJUS), seguridad (PLANSEG), energía (PLANEN), conectividad digital (PLANDIG), soberanía alimentaria (PLANISV), agua (PLANAGUA), sustancias (PLANSUS), empresas al costo (PLANEB), ciudades nuevas (PLAN24CN), geopolítica (PLANGEO), moneda soberana (PLANMON), cultura viva (PLANCUL), y ahora — vivienda digna en las ciudades que ya existen. Dieciséis mandatos. El pueblo manda, el gobierno ejecuta.
+Con PLANVIV, el ecosistema ¡BASTA! alcanza su forma completa: 22 PLANes que cubren cada dimensión de la vida argentina. Trabajo (PLANREP), educación (PLANEDU), salud (PLANSAL), justicia (PLANJUS), seguridad (PLANSEG), energía (PLANEN), conectividad digital (PLANDIG), soberanía alimentaria (PLANISV), agua (PLANAGUA), sustancias (PLANSUS), empresas al costo (PLANEB), ciudades nuevas (PLAN24CN), geopolítica (PLANGEO), moneda soberana (PLANMON), cultura viva (PLANCUL), y ahora — vivienda digna en las ciudades que ya existen. 22 PLANes. El pueblo manda, el gobierno ejecuta.
 
 ---
 
@@ -1291,7 +1291,7 @@ Todo lo que pasa en Housing OS se registra como un evento inmutable — desde la
 
 **11. Paquetes de Soporte Componibles**
 
-Cada familia tiene un viaje diferente hacia la vivienda digna. Housing OS no ofrece "un programa" — ofrece módulos componibles: crédito hipotecario + acompañamiento laboral (PLANREP) + salud mental (PLANSAL) + capacitación (PLANEDU) + guardería + transporte. La plataforma arma un paquete personalizado para cada familia basado en su situación, y ajusta el paquete dinámicamente si la situación cambia. Es el modelo de "composable support" que Singapore HDB implementó parcialmente — pero con la profundidad del ecosistema ¡BASTA! de 16 mandatos interconectados.
+Cada familia tiene un viaje diferente hacia la vivienda digna. Housing OS no ofrece "un programa" — ofrece módulos componibles: crédito hipotecario + acompañamiento laboral (PLANREP) + salud mental (PLANSAL) + capacitación (PLANEDU) + guardería + transporte. La plataforma arma un paquete personalizado para cada familia basado en su situación, y ajusta el paquete dinámicamente si la situación cambia. Es el modelo de "composable support" que Singapore HDB implementó parcialmente — pero con la profundidad del ecosistema ¡BASTA! de 22 PLANes interconectados.
 
 **12. Estrategia de Bootstrap de Plataforma**
 
@@ -1742,7 +1742,7 @@ El rango inferior (71B) es ajustado contra el costo (80-120B). En escenario pesi
 
 | Enfoque alternativo | Costo (15 años) | Déficit cerrado | Requerimiento institucional | Limitación principal |
 |---|---|---|---|---|
-| **PLANVIV completo** | USD 80-120B | 3M unidades (de 3,5M a <500K) | 7 leyes + ecosistema 16 planes | Complejidad de ejecución |
+| **PLANVIV completo** | USD 80-120B | 3M unidades (de 3,5M a <500K) | 7 leyes + ecosistema 22 PLANes | Complejidad de ejecución |
 | **Solo retrofit + urbanización** (sin construcción nueva) | USD 25-40B | 800K-1M unidades | 2 leyes | No cubre el 1,3M de viviendas faltantes. Las familias sin techo siguen sin techo. |
 | **Micro-finanzas + cooperativas** (modelo FUCVAM escalado) | USD 30-50B | 1-1,5M unidades | 3 leyes | Timeline de 15-20 años. Sin industrialización. Sin plataforma. Fragmentado. |
 | **Solo incentivos de mercado** (créditos fiscales, desregulación) | USD 10-15B (costo fiscal) | 500K-800K unidades | 1-2 leyes | Beneficia a clase media-alta. Ignora asentamientos. Ignora los que no tienen ingreso formal. |
@@ -1758,7 +1758,7 @@ El costo de no hacer nada se estima en USD 15.000-30.000 millones por década en
 
 > *"PLANVIV es el decimoquinto mandato. El que completa el sistema. El que conecta el techo con todo lo demás."*
 
-Con PLANVIV, el ecosistema ¡BASTA! alcanza su diseño completo: dieciséis mandatos interconectados que cubren cada dimensión de la vida argentina. Ningún plan opera solo. Todos se refuerzan mutuamente. PLANVIV se integra con cada uno de los otros quince:
+Con PLANVIV, el ecosistema ¡BASTA! alcanza su diseño completo: 22 PLANes interconectados que cubren cada dimensión de la vida argentina. Ningún plan opera solo. Todos se refuerzan mutuamente. PLANVIV se integra con cada uno de los otros 21:
 
 **TABLA 8: PLANVIV × Ecosistema ¡BASTA! Completo**
 
@@ -1784,7 +1784,7 @@ Con PLANVIV, el ecosistema ¡BASTA! alcanza su diseño completo: dieciséis mand
 
 PLANVIV es, en un sentido muy concreto, el plan que más depende de los otros — porque la vivienda está en la intersección de todo. No podés construir vivienda sin agua (PLANAGUA), sin energía (PLANEN), sin conectividad (PLANDIG), sin trabajadores (PLANREP), sin financiamiento (PLANMON/PLANEB), sin seguridad (PLANSEG), sin justicia (PLANJUS), sin salud (PLANSAL), sin educación (PLANEDU). La vivienda es el nodo donde todos los hilos se cruzan.
 
-Y por eso es el decimoquinto mandato — el que cierra el sistema. No porque sea el menos importante sino porque para que funcione, los otros catorce tienen que estar avanzando. PLANVIV es la prueba de fuego del ecosistema ¡BASTA!: si podemos darle vivienda digna a 3,5 millones de familias argentinas en 15 años, es porque los quince planes funcionan. Y si los quince planes funcionan, la Argentina que sale del otro lado no se parece en nada a la que entró.
+Y por eso es el decimoquinto mandato — el que cierra el sistema. No porque sea el menos importante sino porque para que funcione, los demás tienen que estar avanzando. PLANVIV es la prueba de fuego del ecosistema ¡BASTA!: si podemos darle vivienda digna a 3,5 millones de familias argentinas en 15 años, es porque los otros 21 PLANes funcionan. Y si los 22 PLANes funcionan, la Argentina que sale del otro lado no se parece en nada a la que entró.
 
 ### 14.2 Matriz de Dependencias Críticas y Capacidades Requeridas
 
@@ -2307,7 +2307,7 @@ Milagros, la hermanita — que ya tiene 19 — estudia arquitectura en la Univer
 
 ---
 
-> *"El Hombre Gris no pidió un palacio. Pidió un lugar donde poder despertar en paz. PLANVIV es ese lugar — para 3,5 millones de familias argentinas que llevan demasiado tiempo durmiendo apretadas, durmiendo con miedo, durmiendo con frío, o directamente no durmiendo. Dieciséis mandatos. Un ecosistema completo. El pueblo manda, el gobierno ejecuta. Y lo primero que el pueblo mandó fue esto: que cada argentino tenga un techo digno. No mañana. Ahora."*
+> *"El Hombre Gris no pidió un palacio. Pidió un lugar donde poder despertar en paz. PLANVIV es ese lugar — para 3,5 millones de familias argentinas que llevan demasiado tiempo durmiendo apretadas, durmiendo con miedo, durmiendo con frío, o directamente no durmiendo. 22 PLANes. Un ecosistema completo. El pueblo manda, el gobierno ejecuta. Y lo primero que el pueblo mandó fue esto: que cada argentino tenga un techo digno. No mañana. Ahora."*
 
 ---
 
