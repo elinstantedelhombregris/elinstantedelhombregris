@@ -30,7 +30,7 @@ const HeroCinema: React.FC<HeroCinemaProps> = ({
   onScrollDown
 }) => {
   return (
-    <section className="relative min-h-[100svh] w-full overflow-hidden flex items-center justify-center bg-[#0a0a0a] py-24">
+    <section className="relative min-h-[100svh] w-full overflow-hidden flex items-center justify-center bg-[#0a0a0a] pt-24 pb-36">
       {/* Background Layer */}
       <div className="absolute inset-0 z-0">
         {backgroundImage && (
