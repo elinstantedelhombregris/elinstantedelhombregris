@@ -1,70 +1,70 @@
 ```
-LA FABRICA DE ENFERMOS
-(POR QUE EL SISTEMA DE SALUD NO PUEDE SANARTE — Y QUE SI PUEDE)
+LA FÁBRICA DE ENFERMOS
+(POR QUÉ EL SISTEMA DE SALUD NO PUEDE SANARTE — Y QUÉ SÍ PUEDE)
 
 Plan Nacional de Salud Integral y Vitalidad Popular
 PLANSAL
 
-• Redefinicion de la salud como resultado de las 12 dimensiones de la vida
+• Redefinición de la salud como resultado de las 12 dimensiones de la vida
 • Red Nacional de Centros de Vitalidad barriales
-• Sistema de Familias Mentoras para transmision horizontal de bienestar
-• Plataforma digital de autodiagnostico y acompanamiento integral
-• Reconversion gradual del sistema medico: de gestionar enfermedad a cultivar vitalidad
+• Sistema de Familias Mentoras para transmisión horizontal de bienestar
+• Plataforma digital de autodiagnóstico y acompañamiento integral
+• Reconversión gradual del sistema médico: de gestionar enfermedad a cultivar vitalidad
 • Pacto de Co-responsabilidad: el Estado deja de envenenar, el ciudadano elige sanarse
 
-Preparado para la Republica Argentina
-Ministerio de Salud | Ministerio de Desarrollo Social | Ministerio de Educacion
-Secretaria de Politicas Alimentarias | ANMAT | Comunidades Organizadas
+Preparado para la República Argentina
+Ministerio de Salud | Ministerio de Desarrollo Social | Ministerio de Educación
+Secretaría de Políticas Alimentarias | ANMAT | Comunidades Organizadas
 
-Marzo 2026 | Version 1.0
-DOCUMENTO ESTRATEGICO — PARA REVISION AUTORIZADA
+Marzo 2026 | Versión 1.0
+DOCUMENTO ESTRATÉGICO — PARA REVISIÓN AUTORIZADA
 ```
 
 ---
 
-## PREAMBULO · LA FABRICA DE ENFERMOS
+## PREÁMBULO: LA FÁBRICA DE ENFERMOS
 
-> *"El medico del futuro no dara medicinas, sino que interesara a sus pacientes en el cuidado de la estructura humana, en la dieta, y en la causa y prevencion de la enfermedad."*
+> *"El médico del futuro no dará medicinas, sino que interesará a sus pacientes en el cuidado de la estructura humana, en la dieta, y en la causa y prevención de la enfermedad."*
 > — Thomas Edison, 1903
 
-Hay una familia en Lomas de Zamora que se esta muriendo. No de golpe — nadie se muere de golpe en la fabrica. Se muere de a poco, en cuotas, como todo en la Argentina. Un organo a la vez. Una pastilla a la vez. Un dia gris a la vez.
+Hay una familia en Lomas de Zamora que se está muriendo. No de golpe — nadie se muere de golpe en la fábrica. Se muere de a poco, en cuotas, como todo en la Argentina. Un órgano a la vez. Una pastilla a la vez. Un día gris a la vez.
 
-Los Ramirez viven en una casa de dos plantas cerca de la estacion de Lomas. No son pobres ni ricos — son eso que la sociologia llama "clase media baja" y que en la Argentina de 2026 significa: llegan a fin de mes si no pasa nada extraordinario, y rezan para que no pase nada extraordinario.
+Los Ramírez viven en una casa de dos plantas cerca de la estación de Lomas. No son pobres ni ricos — son eso que la sociología llama "clase media baja" y que en la Argentina de 2026 significa: llegan a fin de mes si no pasa nada extraordinario, y rezan para que no pase nada extraordinario.
 
-Ricardo tiene 45 anos. Se levanta a las cinco y cuarenta de la manana. No porque quiera — nadie quiere levantarse a las cinco y cuarenta de la manana — sino porque tiene que tomar el 160 hasta Constitucion y despues el subte B hasta Medrano para llegar a las ocho a una distribuidora de materiales de construccion donde trabaja hace once anos. Once anos. Cuatro mil dias. No sabe exactamente que hace: algo entre logistica, algo entre ventas, algo entre deposito. Lo que el dueno necesite. Lo que sobrevivio a los tres achicamientos. Ricardo no odia su trabajo — eso requeriria una intensidad emocional que ya no tiene. Simplemente va. Cumple. Vuelve. Diez horas despues esta en el 160 de vuelta, con el cuerpo hecho pelota y el alma en piloto automatico. Llega a su casa a las ocho de la noche. Se saca los zapatos. Se sienta frente al televisor. Abre la primera cerveza. A la tercera, ya no piensa en nada. A las once, se duerme en el sillon. Silvia lo despierta para que vaya a la cama. Manana es igual.
+Ricardo tiene 45 años. Se levanta a las cinco y cuarenta de la mañana. No porque quiera — nadie quiere levantarse a las cinco y cuarenta de la mañana — sino porque tiene que tomar el 160 hasta Constitución y después el subte B hasta Medrano para llegar a las ocho a una distribuidora de materiales de construcción donde trabaja hace once años. Once años. Cuatro mil días. No sabe exactamente qué hace: algo entre logística, algo entre ventas, algo entre depósito. Lo que el dueño necesite. Lo que sobrevivió a los tres achicamientos. Ricardo no odia su trabajo — eso requeriría una intensidad emocional que ya no tiene. Simplemente va. Cumple. Vuelve. Diez horas después está en el 160 de vuelta, con el cuerpo hecho pelota y el alma en piloto automático. Llega a su casa a las ocho de la noche. Se saca los zapatos. Se sienta frente al televisor. Abre la primera cerveza. A la tercera, ya no piensa en nada. A las once, se duerme en el sillón. Silvia lo despierta para que vaya a la cama. Mañana es igual.
 
-Silvia tiene 42 anos. Fue empleada administrativa en una inmobiliaria hasta que la echaron en la pandemia y nunca pudo volver a insertarse. Ahora hace changas de data entry desde la computadora de Tomas cuando el no la necesita — que es casi nunca, porque Tomas siempre la necesita. Silvia fue al medico hace dos anos porque no podia dormir. El medico le pregunto si estaba estresada. Silvia se rio — la risa de alguien que no encuentra gracioso nada pero que reconoce lo absurdo de la pregunta. El medico le receto clonazepam. Medio miligramo. Despues uno. Despues dos. Silvia ahora no puede dormir sin clonazepam. Tampoco puede dormir bien con el. Se despierta a las tres de la manana con el corazon acelerado, mira el techo, piensa en la tarjeta de credito, en Tomas, en su mama, en todo. A las cuatro se toma otro cuarto de pastilla. A las seis suena la alarma de Ricardo. Otro dia.
+Silvia tiene 42 años. Fue empleada administrativa en una inmobiliaria hasta que la echaron en la pandemia y nunca pudo volver a insertarse. Ahora hace changas de data entry desde la computadora de Tomás cuando él no la necesita — que es casi nunca, porque Tomás siempre la necesita. Silvia fue al médico hace dos años porque no podía dormir. El médico le preguntó si estaba estresada. Silvia se rió — la risa de alguien que no encuentra gracioso nada pero que reconoce lo absurdo de la pregunta. El médico le recetó clonazepam. Medio miligramo. Después uno. Después dos. Silvia ahora no puede dormir sin clonazepam. Tampoco puede dormir bien con él. Se despierta a las tres de la mañana con el corazón acelerado, mira el techo, piensa en la tarjeta de crédito, en Tomás, en su mamá, en todo. A las cuatro se toma otro cuarto de pastilla. A las seis suena la alarma de Ricardo. Otro día.
 
-Tomas tiene 16 anos. Va a una escuela publica en Banfield. Va — no asiste. Su cuerpo esta en el aula; su mente esta en el telefono debajo del pupitre, o en el techo, o en cualquier parte menos ahi. Tomas era un chico alegre hasta los trece. Despues algo cambio. No un evento traumatico, no un quiebre visible — algo peor: un apagamiento gradual. Dejo de salir con amigos. Dejo de jugar al futbol. Empezo a pasar ocho, diez, doce horas frente a pantallas. Juegos, redes, videos, scrolleo infinito. Hace un ano tuvo su primer ataque de panico. Penso que se estaba muriendo. Silvia lo llevo a la guardia del Hospital Gandulfo. Le dijeron que era un ataque de ansiedad. Le dieron un ansiolotico y le dijeron que sacara turno con un psicologo. Saco turno. Se lo dieron para tres meses despues. Para cuando llego la fecha, Tomas ya habia tenido otros cuatro ataques.
+Tomás tiene 16 años. Va a una escuela pública en Banfield. Va — no asiste. Su cuerpo está en el aula; su mente está en el teléfono debajo del pupitre, o en el techo, o en cualquier parte menos ahí. Tomás era un chico alegre hasta los trece. Después algo cambió. No un evento traumático, no un quiebre visible — algo peor: un apagamiento gradual. Dejó de salir con amigos. Dejó de jugar al fútbol. Empezó a pasar ocho, diez, doce horas frente a pantallas. Juegos, redes, videos, scrolleo infinito. Hace un año tuvo su primer ataque de pánico. Pensó que se estaba muriendo. Silvia lo llevó a la guardia del Hospital Gandulfo. Le dijeron que era un ataque de ansiedad. Le dieron un ansiolítico y le dijeron que sacara turno con un psicólogo. Sacó turno. Se lo dieron para tres meses después. Para cuando llegó la fecha, Tomás ya había tenido otros cuatro ataques.
 
-Nelida tiene 72 anos. Es la madre de Silvia. Vive con ellos desde que murio don Hector, hace seis anos. Nelida tiene diabetes tipo 2. Le diagnosticaron hace doce anos. Toma seis pastillas por dia: metformina, enalapril, atorvastatina, omeprazol, una para la tiroides y una que no sabe para que es pero que el medico le dijo que no deje de tomar. Nelida no se siente bien desde que tiene memoria reciente. Tiene dolor en las rodillas, le cuesta caminar mas de dos cuadras, le pica la piel, se le hinchan los tobillos. Cada tres meses va al Hospital Finochietto, espera tres horas, la ve un medico distinto cada vez, le renuevan las recetas, le dicen que "esta controlada." Controlada. No sana, no vital, no bien — controlada. Como una maquina que no funciona pero que tampoco explota. Mantenida en el punto justo de deterioro administrado.
+Nélida tiene 72 años. Es la madre de Silvia. Vive con ellos desde que murió don Héctor, hace seis años. Nélida tiene diabetes tipo 2. Le diagnosticaron hace doce años. Toma seis pastillas por día: metformina, enalapril, atorvastatina, omeprazol, una para la tiroides y una que no sabe para qué es pero que el médico le dijo que no deje de tomar. Nélida no se siente bien desde que tiene memoria reciente. Tiene dolor en las rodillas, le cuesta caminar más de dos cuadras, le pica la piel, se le hinchan los tobillos. Cada tres meses va al Hospital Finochietto, espera tres horas, la ve un médico distinto cada vez, le renuevan las recetas, le dicen que "está controlada." Controlada. No sana, no vital, no bien — controlada. Como una máquina que no funciona pero que tampoco explota. Mantenida en el punto justo de deterioro administrado.
 
-Un dia tipico en la casa Ramirez empieza asi: galletitas Terrabusi con mate cocido y tres cucharadas de azucar. Nadie cocina. Nadie tiene tiempo. Nadie tiene ganas. Cada uno en su pantalla — Ricardo con el WhatsApp del laburo, Silvia con los grupos de madres, Tomas con TikTok, Nelida con el noticiero del telefono que le puso el nieto. No se hablan. No porque se odien — porque no tienen nada que decirse que no sea logistica domestica. El almuerzo de Tomas en la escuela es un paquete de papas fritas y una gaseosa. La cena familiar — si puede llamarse familiar a cuatro personas comiendo en distintos momentos frente a distintas pantallas — son milanesas de freezer con pure instantaneo, o empanadas de rotiseria, o fideos con salsa de sobre. Comida disenada para no requerir esfuerzo, atencion ni presencia. Comida que alimenta el hambre pero no el cuerpo. Comida que es, en si misma, un pequeno acto de rendicion cotidiana.
+Un día típico en la casa Ramírez empieza así: galletitas Terrabusi con mate cocido y tres cucharadas de azúcar. Nadie cocina. Nadie tiene tiempo. Nadie tiene ganas. Cada uno en su pantalla — Ricardo con el WhatsApp del laburo, Silvia con los grupos de madres, Tomás con TikTok, Nélida con el noticiero del teléfono que le puso el nieto. No se hablan. No porque se odien — porque no tienen nada que decirse que no sea logística doméstica. El almuerzo de Tomás en la escuela es un paquete de papas fritas y una gaseosa. La cena familiar — si puede llamarse familiar a cuatro personas comiendo en distintos momentos frente a distintas pantallas — son milanesas de freezer con puré instantáneo, o empanadas de rotisería, o fideos con salsa de sobre. Comida diseñada para no requerir esfuerzo, atención ni presencia. Comida que alimenta el hambre pero no el cuerpo. Comida que es, en sí misma, un pequeño acto de rendición cotidiana.
 
-Avancemos un ano. Marzo de 2027. Ricardo fue al medico porque le zumbaban los oidos y le dolia la nuca. Hipertension arterial. 160/100. Le recetaron losartan y le dijeron que baje la sal y el alcohol. Ricardo bajo la sal. El alcohol no. Silvia ya no tiene ansiedad — tiene depresion clinica. La ansiedad era la alarma; la depresion es lo que queda cuando la alarma suena durante dos anos y nadie responde. Ahora toma clonazepam y sertralina. Se levanta mas lento. Sonrie menos. A veces no se levanta. Tomas fue internado en el Borda durante cuatro dias despues de un ataque de panico que le produjo una crisis disociativa. Le diagnosticaron trastorno de ansiedad generalizada. Tiene 17 anos y un diagnostico psiquiatrico. Nelida necesita insulina. La metformina ya no alcanza. Ahora se pincha dos veces por dia. Le agregaron una septima pastilla.
+Avancemos un año. Marzo de 2027. Ricardo fue al médico porque le zumbaban los oídos y le dolía la nuca. Hipertensión arterial. 160/100. Le recetaron losartan y le dijeron que baje la sal y el alcohol. Ricardo bajó la sal. El alcohol no. Silvia ya no tiene ansiedad — tiene depresión clínica. La ansiedad era la alarma; la depresión es lo que queda cuando la alarma suena durante dos años y nadie responde. Ahora toma clonazepam y sertralina. Se levanta más lento. Sonríe menos. A veces no se levanta. Tomás fue internado en el Borda durante cuatro días después de un ataque de pánico que le produjo una crisis disociativa. Le diagnosticaron trastorno de ansiedad generalizada. Tiene 17 años y un diagnóstico psiquiátrico. Nélida necesita insulina. La metformina ya no alcanza. Ahora se pincha dos veces por día. Le agregaron una séptima pastilla.
 
-La pregunta que nadie les hizo — ni a ellos ni a los veinte millones de argentinos que viven versiones apenas distintas de la misma historia — es la unica pregunta que importa: **¿quien los enfermo?**
+La pregunta que nadie les hizo — ni a ellos ni a los veinte millones de argentinos que viven versiones apenas distintas de la misma historia — es la única pregunta que importa: **¿quién los enfermó?**
 
-No fue un virus. No fue un gen defectuoso. No fue un accidente. No fue mala suerte. Fue el sistema. Fue la vida que el sistema diseno para ellos. El trabajo sin sentido que destruyo a Ricardo. La incertidumbre economica que destruyo a Silvia. Las pantallas que capturaron a Tomas. La comida industrial que enveno a Nelida durante tres decadas. El barrio sin espacios verdes. El transporte que te tritura el cuerpo y el espiritu dos horas por dia. Las relaciones que se vaciaron porque nadie tiene energia para sostenerlas. La ausencia total de proposito, de comunidad, de contacto con algo que se sienta vivo.
+No fue un virus. No fue un gen defectuoso. No fue un accidente. No fue mala suerte. Fue el sistema. Fue la vida que el sistema diseñó para ellos. El trabajo sin sentido que destruyó a Ricardo. La incertidumbre económica que destruyó a Silvia. Las pantallas que capturaron a Tomás. La comida industrial que envenenó a Nélida durante tres décadas. El barrio sin espacios verdes. El transporte que te tritura el cuerpo y el espíritu dos horas por día. Las relaciones que se vaciaron porque nadie tiene energía para sostenerlas. La ausencia total de propósito, de comunidad, de contacto con algo que se sienta vivo.
 
-Los Ramirez no estan enfermos porque el sistema de salud fallo. Estan enfermos porque el sistema de salud es el ultimo eslabon de una cadena de produccion que funciona a la perfeccion. La cadena se llama La Fabrica de Enfermos. Y tiene cinco fases.
+Los Ramírez no están enfermos porque el sistema de salud falló. Están enfermos porque el sistema de salud es el último eslabón de una cadena de producción que funciona a la perfección. La cadena se llama La Fábrica de Enfermos. Y tiene cinco fases.
 
 ---
 
-### El Ciclo de la Fabrica
+### El Ciclo de la Fábrica
 
-> *"Antes de curar a alguien, preguntale si esta dispuesto a renunciar a las cosas que lo enfermaron."*
-> — Hipocrates
+> *"Antes de curar a alguien, preguntale si está dispuesto a renunciar a las cosas que lo enfermaron."*
+> — Hipócrates
 
-**Fase 1: El envenenamiento silencioso.** Empieza antes de que nazcas. Empieza en el suelo — el mismo suelo que PLANISV documenta como devastado por decadas de monocultivo y agroquimicos. Los pueblos fumigados del litoral — Monte Maiz, Cordoba; Avia Terai, Chaco; Basavilbaso, Entre Rios — tienen tasas de cancer tres y cuatro veces superiores al promedio nacional. Pero no hace falta vivir al lado de un campo de soja para ser envenenado. Alcanza con desayunar. Las galletitas que come Nelida tienen diecisiete ingredientes, de los cuales reconocerias tres. El pan lactal que Ricardo lleva al trabajo tiene azucar agregada, conservantes, y harina tan refinada que es nutricionalmente equivalente a carton con sabor. La gaseosa que toma Tomas tiene diez cucharaditas de azucar en 600 mililitros — mas del doble del maximo diario recomendado por la OMS. El agua de red de buena parte del conurbano tiene niveles de arsenico, nitratos y residuos de medicamentos que nadie mide con la frecuencia necesaria. El aire de las zonas industriales del Riachuelo, de Dock Sud, de los polos petroquimicos de Bahia Blanca y Ensenada, carga con particulas que los pulmones no pueden filtrar. La Argentina no es un pais con problemas de contaminacion. Es una fabrica alimentaria, hidrica y atmosferica que introduce toxinas en el cuerpo de sus ciudadanos desde el primer dia de vida, todos los dias, sin pausa, sin aviso, y sin consecuencias para los que envenenan.
+**Fase 1: El envenenamiento silencioso.** Empieza antes de que nazcas. Empieza en el suelo — el mismo suelo que PLANISV documenta como devastado por décadas de monocultivo y agroquímicos. Los pueblos fumigados del litoral — Monte Maíz, Córdoba; Avia Terai, Chaco; Basavilbaso, Entre Ríos — tienen tasas de cáncer tres y cuatro veces superiores al promedio nacional. Pero no hace falta vivir al lado de un campo de soja para ser envenenado. Alcanza con desayunar. Las galletitas que come Nélida tienen diecisiete ingredientes, de los cuales reconocerías tres. El pan lactal que Ricardo lleva al trabajo tiene azúcar agregada, conservantes, y harina tan refinada que es nutricionalmente equivalente a cartón con sabor. La gaseosa que toma Tomás tiene diez cucharaditas de azúcar en 600 mililitros — más del doble del máximo diario recomendado por la OMS. El agua de red de buena parte del conurbano tiene niveles de arsénico, nitratos y residuos de medicamentos que nadie mide con la frecuencia necesaria. El aire de las zonas industriales del Riachuelo, de Dock Sud, de los polos petroquímicos de Bahía Blanca y Ensenada, carga con partículas que los pulmones no pueden filtrar. La Argentina no es un país con problemas de contaminación. Es una fábrica alimentaria, hídrica y atmosférica que introduce toxinas en el cuerpo de sus ciudadanos desde el primer día de vida, todos los días, sin pausa, sin aviso, y sin consecuencias para los que envenenan.
 
-**Fase 2: La desconexion progresiva.** Ricardo no trabaja — sobrevive laboralmente. Su empleo no le da proposito, reconocimiento, crecimiento ni satisfaccion. Le da un sueldo. A cambio le extrae diez horas diarias de vida, mas dos de transporte, mas la energia residual que podria usar para criar a su hijo, hablar con su mujer, o preguntarse que quiere de la vida. Esa extraccion genera cortisol cronico — la hormona del estres — que el cuerpo interpreta como peligro permanente. Despues de anos de cortisol elevado, el sistema cardiovascular se dana, el sistema inmunologico se deprime, el sueno se degrada, la libido desaparece, la capacidad de concentracion se evapora. Paralelamente, la incertidumbre economica — ¿viene otra devaluacion? ¿me echan? ¿llego a fin de mes? ¿puedo pagar la prepaga? — genera ansiedad cronica que se superpone al estres laboral. Silvia no duerme no porque su cerebro este roto sino porque su cerebro esta haciendo exactamente lo que tiene que hacer: mantenerla en alerta ante un peligro que es real y permanente. La familia deja de funcionar como unidad de contencion y se convierte en un conjunto de individuos agotados que comparten techo. Las relaciones se erosionan. El individuo se aisla. Cada noche con el telefono en la mano, scrolleando solo, es un acto microscopico de desconexion que se acumula hasta que un dia te das cuenta de que no hablaste con nadie sobre algo que importe en semanas. Meses. Anos.
+**Fase 2: La desconexión progresiva.** Ricardo no trabaja — sobrevive laboralmente. Su empleo no le da propósito, reconocimiento, crecimiento ni satisfacción. Le da un sueldo. A cambio le extrae diez horas diarias de vida, más dos de transporte, más la energía residual que podría usar para criar a su hijo, hablar con su mujer, o preguntarse qué quiere de la vida. Esa extracción genera cortisol crónico — la hormona del estrés — que el cuerpo interpreta como peligro permanente. Después de años de cortisol elevado, el sistema cardiovascular se daña, el sistema inmunológico se deprime, el sueño se degrada, la libido desaparece, la capacidad de concentración se evapora. Paralelamente, la incertidumbre económica — ¿viene otra devaluación? ¿me echan? ¿llego a fin de mes? ¿puedo pagar la prepaga? — genera ansiedad crónica que se superpone al estrés laboral. Silvia no duerme no porque su cerebro esté roto sino porque su cerebro está haciendo exactamente lo que tiene que hacer: mantenerla en alerta ante un peligro que es real y permanente. La familia deja de funcionar como unidad de contención y se convierte en un conjunto de individuos agotados que comparten techo. Las relaciones se erosionan. El individuo se aísla. Cada noche con el teléfono en la mano, scrolleando solo, es un acto microscópico de desconexión que se acumula hasta que un día te das cuenta de que no hablaste con nadie sobre algo que importe en semanas. Meses. Años.
 
-**Fase 3: El escape.** El cuerpo no soporta el cortisol cronico, el envenenamiento silencioso y la desconexion progresiva sin buscar alivio. Y el mercado tiene exactamente lo que necesitas. Alcohol — la cerveza de Ricardo, el vino de Silvia, el fernet de Tomas con los pocos amigos que le quedan. Azucar — la droga mas accesible, mas barata y mas normalizada del planeta. Pantallas — la anestesia digital que te saca del presente sin llevarte a ningun lugar mejor. Psicofármacos — la Argentina consume mas benzodiazepinas per capita que casi cualquier pais de America Latina. Compras compulsivas — la dopamina de un paquete de Mercado Libre reemplaza la dopamina que tu vida no genera. Relaciones destructivas — la intensidad del drama sustituye la intensidad que falta en una vida gris. Cada mecanismo de escape tiene una caracteristica en comun: genera alivio inmediato y dano acumulado. Cada escape crea un nuevo desequilibrio que requiere mas escape. El ciclo se acelera. La cerveza pasa a ser una botella de vino. El clonazepam pasa a ser clonazepam mas sertralina. Las dos horas de pantalla pasan a ser ocho. La fabrica no necesita que te hagas adicto a algo especifico — le alcanza con que necesites escapar de algo permanente.
+**Fase 3: El escape.** El cuerpo no soporta el cortisol crónico, el envenenamiento silencioso y la desconexión progresiva sin buscar alivio. Y el mercado tiene exactamente lo que necesitás. Alcohol — la cerveza de Ricardo, el vino de Silvia, el fernet de Tomás con los pocos amigos que le quedan. Azúcar — la droga más accesible, más barata y más normalizada del planeta. Pantallas — la anestesia digital que te saca del presente sin llevarte a ningún lugar mejor. Psicofármacos — la Argentina consume más benzodiazepinas per cápita que casi cualquier país de América Latina. Compras compulsivas — la dopamina de un paquete de Mercado Libre reemplaza la dopamina que tu vida no genera. Relaciones destructivas — la intensidad del drama sustituye la intensidad que falta en una vida gris. Cada mecanismo de escape tiene una característica en común: genera alivio inmediato y daño acumulado. Cada escape crea un nuevo desequilibrio que requiere más escape. El ciclo se acelera. La cerveza pasa a ser una botella de vino. El clonazepam pasa a ser clonazepam más sertralina. Las dos horas de pantalla pasan a ser ocho. La fábrica no necesita que te hagas adicto a algo específico — le alcanza con que necesites escapar de algo permanente.
 
-**Fase 4: El sintoma.** El cuerpo humano es la maquina mas inteligente que existe. No se "rompe" — habla. Cada sintoma es un mensaje. La hipertension de Ricardo no es una falla mecanica: es su cuerpo diciendo que el estres cronico, el alcohol, la sal, la inmovilidad y la falta de proposito estan danando los vasos sanguineos. La depresion de Silvia no es un "desequilibrio quimico" que se arregla con una pastilla: es su psiquis diciendo que la vida que esta viviendo no tiene sentido, que la incertidumbre la esta destruyendo, que necesita algo mas que sobrevivir. Los ataques de panico de Tomas no son un trastorno: son el grito de un organismo adolescente que fue desconectado de todo lo que un ser humano necesita — movimiento, vinculo, naturaleza, proposito, riesgo sano — y conectado a todo lo que lo destruye — sedentarismo, aislamiento, estimulacion digital constante. La diabetes de Nelida no es genetica: es el resultado de treinta anos de comida industrial, vida sedentaria, estres familiar y un sistema de salud que en esas tres decadas nunca le dijo "Nelida, si seguis comiendo asi y viviendo asi, tu pancreas va a dejar de funcionar" — porque el sistema no esta disenado para eso. Cada enfermedad cronica — la hipertension, la diabetes, la depresion, la obesidad, el cancer de colon, el infarto, el ACV, la autoinmunidad, la fibromialgia — tiene un mensaje. Pero nadie escucha. Porque el sistema que recibe al enfermo no fue construido para escuchar mensajes. Fue construido para silenciarlos.
+**Fase 4: El síntoma.** El cuerpo humano es la máquina más inteligente que existe. No se "rompe" — habla. Cada síntoma es un mensaje. La hipertensión de Ricardo no es una falla mecánica: es su cuerpo diciendo que el estrés crónico, el alcohol, la sal, la inmovilidad y la falta de propósito están dañando los vasos sanguíneos. La depresión de Silvia no es un "desequilibrio químico" que se arregla con una pastilla: es su psiquis diciendo que la vida que está viviendo no tiene sentido, que la incertidumbre la está destruyendo, que necesita algo más que sobrevivir. Los ataques de pánico de Tomás no son un trastorno: son el grito de un organismo adolescente que fue desconectado de todo lo que un ser humano necesita — movimiento, vínculo, naturaleza, propósito, riesgo sano — y conectado a todo lo que lo destruye — sedentarismo, aislamiento, estimulación digital constante. La diabetes de Nélida no es genética: es el resultado de treinta años de comida industrial, vida sedentaria, estrés familiar y un sistema de salud que en esas tres décadas nunca le dijo "Nélida, si seguís comiendo así y viviendo así, tu páncreas va a dejar de funcionar" — porque el sistema no está diseñado para eso. Cada enfermedad crónica — la hipertensión, la diabetes, la depresión, la obesidad, el cáncer de colon, el infarto, el ACV, la autoinmunidad, la fibromialgia — tiene un mensaje. Pero nadie escucha. Porque el sistema que recibe al enfermo no fue construido para escuchar mensajes. Fue construido para silenciarlos.
 
-**Fase 5: La captura.** Ricardo entra al consultorio del cardiologo. Le toman la presion. Le hacen un electrocardiograma. Le dan un diagnostico: hipertension arterial estadio 2. Le dan una receta: losartan 50mg, una por dia. Le dan un turno de seguimiento: tres meses. Sale del consultorio con un papel en la mano y la sensacion de que "ya se esta ocupando." No se esta ocupando de nada. Se convirtio en un cliente. Un paciente cronico — que en la logica del sistema sanitario es el cliente ideal: no se cura, no se muere (todavia), y consume medicamentos, estudios y consultas de por vida. La industria farmaceutica global factura USD 1.6 billones anuales. El 70% de esos ingresos proviene de enfermedades cronicas. Las prepagas argentinas tienen un modelo de negocios basado en cobrar cuotas a personas que, idealmente, no se enferman lo suficiente como para generar gastos que superen sus cuotas — pero cuando se enferman, derivarlas a tratamientos cronicos que pueden presupuestarse. Las obras sociales tienen un modelo basado en la intermediacion entre el aporte obligatorio del trabajador y el prestador medico — cuanto mas opaca la cadena, mas margen para cada intermediario. Nelida es el producto terminado de la fabrica. Seis pastillas. Siete. Ocho. Cada una silencia un sintoma. Ninguna toca la causa. El sistema la mantiene viva pero enferma, funcional pero disminuida, controlada pero nunca sana. La fabrica completo su trabajo. Otro producto listo.
+**Fase 5: La captura.** Ricardo entra al consultorio del cardiólogo. Le toman la presión. Le hacen un electrocardiograma. Le dan un diagnóstico: hipertensión arterial estadio 2. Le dan una receta: losartan 50mg, una por día. Le dan un turno de seguimiento: tres meses. Sale del consultorio con un papel en la mano y la sensación de que "ya se está ocupando." No se está ocupando de nada. Se convirtió en un cliente. Un paciente crónico — que en la lógica del sistema sanitario es el cliente ideal: no se cura, no se muere (todavía), y consume medicamentos, estudios y consultas de por vida. La industria farmacéutica global factura USD 1.6 billones anuales. El 70% de esos ingresos proviene de enfermedades crónicas. Las prepagas argentinas tienen un modelo de negocios basado en cobrar cuotas a personas que, idealmente, no se enferman lo suficiente como para generar gastos que superen sus cuotas — pero cuando se enferman, derivarlas a tratamientos crónicos que pueden presupuestarse. Las obras sociales tienen un modelo basado en la intermediación entre el aporte obligatorio del trabajador y el prestador médico — cuanto más opaca la cadena, más margen para cada intermediario. Nélida es el producto terminado de la fábrica. Seis pastillas. Siete. Ocho. Cada una silencia un síntoma. Ninguna toca la causa. El sistema la mantiene viva pero enferma, funcional pero disminuida, controlada pero nunca sana. La fábrica completó su trabajo. Otro producto listo.
 
 ---
 
@@ -73,61 +73,61 @@ Los Ramirez no estan enfermos porque el sistema de salud fallo. Estan enfermos p
 > *"No es signo de buena salud estar bien adaptado a una sociedad profundamente enferma."*
 > — Jiddu Krishnamurti
 
-La Argentina no tiene una crisis de salud — tiene un sistema de vida que manufactura enfermedad y un sistema medico que la administra como negocio. El 80% de las enfermedades cronicas que saturan los 1.400 hospitales publicos, las 300 obras sociales y las prepagas son el resultado directo de como vivimos: que comemos, que respiramos, como trabajamos, como nos relacionamos, que sentimos y que hacemos con lo que sentimos. PLANSAL propone la primera arquitectura integral de salud que no gestiona enfermedad sino que cultiva vitalidad, organizada en torno a las 12 Raices de la Salud — alimentacion, movimiento, sueno, proposito, vinculo, entorno, trabajo, economia, espiritualidad, creatividad, aprendizaje y comunidad — con la familia como unidad economica y de crecimiento fundamental. Lo hace a traves de tres mecanismos ineditos: una Red Nacional de Centros de Vitalidad (uno por barrio, operados por la comunidad, no por el Estado), un Sistema de Familias Mentoras para transmision horizontal de bienestar (meta: cobertura del 80% de las familias argentinas en 10 anos), y una Plataforma Digital Nacional de autodiagnostico y acompanamiento por las 12 dimensiones de la vida. El plan ejecuta una reconversion gradual del sistema medico en 3 fases (15 anos): de la coexistencia a la especializacion hospitalaria en emergencias y trauma, mientras las enfermedades cronicas prevenibles migran a los Centros de Vitalidad. Se funda en un Pacto de Co-responsabilidad donde el Estado se compromete a dejar de envenenar (regulacion alimentaria, agroquimicos, agua) y el ciudadano se compromete a sanar — porque sin decision personal, sin compromiso diario, sin accion soberana, ningun sistema de salud del mundo puede hacer nada. La ecuacion economica lo respalda: prevenir cuesta 1x, tratar cuesta 10x, la enfermedad cronica de por vida cuesta 100x. PLANSAL no es un plan de hospitales — es un plan de transformacion humana.
+La Argentina no tiene una crisis de salud — tiene un sistema de vida que manufactura enfermedad y un sistema médico que la administra como negocio. El 80% de las enfermedades crónicas que saturan los 1.400 hospitales públicos, las 300 obras sociales y las prepagas son el resultado directo de cómo vivimos: qué comemos, qué respiramos, cómo trabajamos, cómo nos relacionamos, qué sentimos y qué hacemos con lo que sentimos. PLANSAL propone la primera arquitectura integral de salud que no gestiona enfermedad sino que cultiva vitalidad, organizada en torno a las 12 Raíces de la Salud — alimentación, movimiento, sueño, propósito, vínculo, entorno, trabajo, economía, espiritualidad, creatividad, aprendizaje y comunidad — con la familia como unidad económica y de crecimiento fundamental. Lo hace a través de tres mecanismos inéditos: una Red Nacional de Centros de Vitalidad (uno por barrio, operados por la comunidad, no por el Estado), un Sistema de Familias Mentoras para transmisión horizontal de bienestar (meta: cobertura del 80% de las familias argentinas en 10 años), y una Plataforma Digital Nacional de autodiagnóstico y acompañamiento por las 12 dimensiones de la vida. El plan ejecuta una reconversión gradual del sistema médico en 3 fases (15 años): de la coexistencia a la especialización hospitalaria en emergencias y trauma, mientras las enfermedades crónicas prevenibles migran a los Centros de Vitalidad. Se funda en un Pacto de Co-responsabilidad donde el Estado se compromete a dejar de envenenar (regulación alimentaria, agroquímicos, agua) y el ciudadano se compromete a sanar — porque sin decisión personal, sin compromiso diario, sin acción soberana, ningún sistema de salud del mundo puede hacer nada. La ecuación económica lo respalda: prevenir cuesta 1x, tratar cuesta 10x, la enfermedad crónica de por vida cuesta 100x. PLANSAL no es un plan de hospitales — es un plan de transformación humana.
 
 ---
 
 ### El Hombre Gris Despierta en el Cuerpo
 
-> *"El cuerpo es el campo de batalla de la biografia."*
+> *"El cuerpo es el campo de batalla de la biografía."*
 
-Hay una filosofia que atraviesa todas las iniciativas del proyecto BASTA. La llamamos *El Instante del Hombre Gris*. La premisa: vivimos en una sociedad que apaga a las personas. Que les roba la vitalidad, la capacidad de sentir, de crear, de vibrar con algo. Personas reducidas a funciones: producir, consumir, obedecer, dormir, repetir. El Hombre Gris no es una metafora — es Ricardo volviendo en el 160 sin sentir nada. Es Silvia mirando el techo a las tres de la manana. Es Tomas scrolleando sin razon. Es Nelida tomando pastillas cuyo nombre no conoce. El Hombre Gris es el producto terminado de la fabrica: un ser humano desconectado de su cuerpo, de sus emociones, de su familia, de su comunidad, de su proposito. Vivo, pero apagado. Funcional, pero vacio.
+Hay una filosofía que atraviesa todas las iniciativas del proyecto ¡BASTA!. La llamamos *El Instante del Hombre Gris*. La premisa: vivimos en una sociedad que apaga a las personas. Que les roba la vitalidad, la capacidad de sentir, de crear, de vibrar con algo. Personas reducidas a funciones: producir, consumir, obedecer, dormir, repetir. El Hombre Gris no es una metáfora — es Ricardo volviendo en el 160 sin sentir nada. Es Silvia mirando el techo a las tres de la mañana. Es Tomás scrolleando sin razón. Es Nélida tomando pastillas cuyo nombre no conoce. El Hombre Gris es el producto terminado de la fábrica: un ser humano desconectado de su cuerpo, de sus emociones, de su familia, de su comunidad, de su propósito. Vivo, pero apagado. Funcional, pero vacío.
 
-PLANSAL es el plan para que el Hombre Gris despierte — pero no desde la cabeza. Desde el cuerpo. Porque el cuerpo es el primer territorio. Es donde la fabrica deja sus marcas. El dolor cronico, la fatiga permanente, el insomnio, la ansiedad, la obesidad, la enfermedad — son las huellas de una vida que no funciona. Y son, al mismo tiempo, las senales que pueden despertar al que las lleva. Cuando Ricardo sienta que su cuerpo le duele no porque "esta viejo" sino porque lleva once anos arrastrándose hacia un lugar que le roba la vida, ese dolor deja de ser un sintoma a silenciar y se convierte en una brujula. Cuando Silvia entienda que su depresion no es un "desequilibrio quimico" sino la respuesta sana de un organismo que se niega a seguir fingiendo que esta todo bien, su depresion se transforma de condena en puerta. Cuando Tomas descubra que sus ataques de panico son su cuerpo gritandole que la vida que le dieron no es vida, esos ataques dejan de ser un diagnostico y se convierten en el punto de partida.
+Pero el gris no es una condena — es un material. El Hombre Gris es el que despierta. Gris como la plata que se pule hasta brillar — porque Argentina es argentum, y argentum es plata. PLANSAL es el plan para que el Hombre Gris despierte — pero no desde la cabeza. Desde el cuerpo. Porque el cuerpo es el primer territorio. Es donde la fábrica deja sus marcas. El dolor crónico, la fatiga permanente, el insomnio, la ansiedad, la obesidad, la enfermedad — son las huellas de una vida que no funciona. Y son, al mismo tiempo, las señales que pueden despertar al que las lleva. Cuando Ricardo sienta que su cuerpo le duele no porque "está viejo" sino porque lleva once años arrastrándose hacia un lugar que le roba la vida, ese dolor deja de ser un síntoma a silenciar y se convierte en una brújula. Cuando Silvia entienda que su depresión no es un "desequilibrio químico" sino la respuesta sana de un organismo que se niega a seguir fingiendo que está todo bien, su depresión se transforma de condena en puerta. Cuando Tomás descubra que sus ataques de pánico son su cuerpo gritándole que la vida que le dieron no es vida, esos ataques dejan de ser un diagnóstico y se convierten en el punto de partida.
 
-Pero ese despertar — y esto es lo que ningun sistema de salud puede legislar, financiar ni organizar — es personal e intransferible. Nadie puede sanar por vos. Ningun medico, ningun Centro de Vitalidad, ningun plan nacional, ningun gobierno. Pueden crear las condiciones. Pueden retirar los venenos. Pueden ofrecer herramientas, conocimiento, compania, estructura. Pero el instante en que una persona decide que su vida, su cuerpo, su salud son su responsabilidad — ese instante no se compra, no se vende, no se decreta. Se elige. Es el instante del Hombre Gris. El momento en que alguien que vivia en piloto automatico dice *basta* — no al sistema, no al gobierno, no al patron, sino a su propia inercia. Ese instante no se puede fabricar. Solo se puede invitar. Y todo PLANSAL esta construido como esa invitacion.
+Pero ese despertar — y esto es lo que ningún sistema de salud puede legislar, financiar ni organizar — es personal e intransferible. Nadie puede sanar por vos. Ningún médico, ningún Centro de Vitalidad, ningún plan nacional, ningún gobierno. Pueden crear las condiciones. Pueden retirar los venenos. Pueden ofrecer herramientas, conocimiento, compañía, estructura. Pero el instante en que una persona decide que su vida, su cuerpo, su salud son su responsabilidad — ese instante no se compra, no se vende, no se decreta. Se elige. Es el instante del Hombre Gris. El momento en que alguien que vivía en piloto automático dice *basta* — no al sistema, no al gobierno, no al patrón, sino a su propia inercia. Ese instante no se puede fabricar. Solo se puede invitar. Y todo PLANSAL está construido como esa invitación.
 
 ---
 
-### PLANSAL en el Cuerpo de BASTA
+### PLANSAL en el Cuerpo de ¡BASTA!
 
-> *"El hombre no es sino lo que hace con lo que hicieron de el."*
+> *"El hombre no es sino lo que hace con lo que hicieron de él."*
 > — Jean-Paul Sartre
 
-PLANSAL es el plan bisagra. Es el que demuestra que todo se conecta — no en la teoria, no en un diagrama, sino en el cuerpo y la vida de cada persona. Porque la salud no es un area de la vida: es el resultado de todas las areas de la vida. Y cada uno de los otros planes de BASTA interviene directamente sobre una dimension que produce salud o enfermedad.
+PLANSAL es el plan bisagra. Es el que demuestra que todo se conecta — no en la teoría, no en un diagrama, sino en el cuerpo y la vida de cada persona. Porque la salud no es un área de la vida: es el resultado de todas las áreas de la vida. Y cada uno de los otros planes de ¡BASTA! interviene directamente sobre una dimensión que produce salud o enfermedad.
 
-**PLAN24CN** construye ciudades que no enferman. Hoy, el conurbano bonaerense — donde viven los Ramirez y otros doce millones de argentinos — es una maquina de producir enfermedad: sin espacios verdes suficientes, con transporte que destruye cuerpos y animos, con contaminacion sonora permanente, con barrios disenados para el auto y no para el ser humano. PLAN24CN propone 24 ciudades nuevas, bioclimaticas, caminables, con plazas cada 400 metros, con produccion alimentaria urbana integrada. Una ciudad que te invita a caminar en vez de encerrarte en un auto es una ciudad que previene infartos. Eso es politica de salud — aunque no tenga un estetoscopio.
+**PLAN24CN** construye ciudades que no enferman. Hoy, el conurbano bonaerense — donde viven los Ramírez y otros doce millones de argentinos — es una máquina de producir enfermedad: sin espacios verdes suficientes, con transporte que destruye cuerpos y ánimos, con contaminación sonora permanente, con barrios diseñados para el auto y no para el ser humano. PLAN24CN propone 24 ciudades nuevas, bioclimáticas, caminables, con plazas cada 400 metros, con producción alimentaria urbana integrada. Una ciudad que te invita a caminar en vez de encerrarte en un auto es una ciudad que previene infartos. Eso es política de salud — aunque no tenga un estetoscopio.
 
-**PLANISV** garantiza comida real. No se puede hablar de salud mientras la cadena alimentaria esta envenenada por agroquimicos, degradada por monocultivo, y dominada por una industria cuyo modelo de negocio es fabricar productos hiperadictivos con maxima rentabilidad y minimo valor nutricional. PLANISV reconstruye el suelo, restaura la biodiversidad productiva, y crea las condiciones para que los Centros de Vitalidad de PLANSAL tengan acceso a alimentos de verdad — no a productos comestibles industriales.
+**PLANISV** garantiza comida real. No se puede hablar de salud mientras la cadena alimentaria está envenenada por agroquímicos, degradada por monocultivo, y dominada por una industria cuyo modelo de negocio es fabricar productos hiperadictivos con máxima rentabilidad y mínimo valor nutricional. PLANISV reconstruye el suelo, restaura la biodiversidad productiva, y crea las condiciones para que los Centros de Vitalidad de PLANSAL tengan acceso a alimentos de verdad — no a productos comestibles industriales.
 
-**PLANEDU** forma personas con proposito. La educacion que recibio Tomas no le dio herramientas para entenderse, para gestionar sus emociones, para descubrir que le apasiona. Le dio informacion que no pidio, encierro que no necesitaba, y evaluaciones que destruyeron su curiosidad. PLANEDU propone una educacion que cultive el autoconocimiento, el pensamiento critico, la inteligencia emocional y el proposito. Una persona con proposito no necesita escapar de su vida — y una persona que no necesita escapar no desarrolla las adicciones que alimentan la fabrica.
+**PLANEDU** forma personas con propósito. La educación que recibió Tomás no le dio herramientas para entenderse, para gestionar sus emociones, para descubrir qué le apasiona. Le dio información que no pidió, encierro que no necesitaba, y evaluaciones que destruyeron su curiosidad. PLANEDU propone una educación que cultive el autoconocimiento, el pensamiento crítico, la inteligencia emocional y el propósito. Una persona con propósito no necesita escapar de su vida — y una persona que no necesita escapar no desarrolla las adicciones que alimentan la fábrica.
 
-**PLANREP** dignifica el trabajo. Ricardo no esta enfermo porque tiene un gen defectuoso — esta enfermo porque pasa diez horas diarias en una actividad que lo vacia. PLANREP propone ocho ramas de trabajo vivo — oficios con sentido, con presencia humana irreemplazable, con la posibilidad de crear algo que importe. Un Ricardo que trabaja con las manos construyendo algo bello, o cuidando personas, o regenerando territorio, no necesita tres cervezas para anestesiarse al final del dia.
+**PLANREP** dignifica el trabajo. Ricardo no está enfermo porque tiene un gen defectuoso — está enfermo porque pasa diez horas diarias en una actividad que lo vacía. PLANREP propone ocho ramas de trabajo vivo — oficios con sentido, con presencia humana irreemplazable, con la posibilidad de crear algo que importe. Un Ricardo que trabaja con las manos construyendo algo bello, o cuidando personas, o regenerando territorio, no necesita tres cervezas para anestesiarse al final del día.
 
-**PLANJUS** reduce la incertidumbre. Buena parte de la ansiedad cronica de Silvia tiene raiz economica y legal — la sensacion permanente de que las reglas pueden cambiar, de que no hay a quien reclamar, de que el sistema no la protege. PLANJUS propone una justicia que resuelve en dias, no en anos. Esa sola transformacion tiene un impacto sanitario mayor que cualquier campana de vacunacion: reduce el cortisol cronico de millones de personas que viven con miedo a que algo pase y no haya justicia.
+**PLANJUS** reduce la incertidumbre. Buena parte de la ansiedad crónica de Silvia tiene raíz económica y legal — la sensación permanente de que las reglas pueden cambiar, de que no hay a quién reclamar, de que el sistema no la protege. PLANJUS propone una justicia que resuelve en días, no en años. Esa sola transformación tiene un impacto sanitario mayor que cualquier campaña de vacunación: reduce el cortisol crónico de millones de personas que viven con miedo a que algo pase y no haya justicia.
 
-Sin estos otros planes, PLANSAL pelea cuesta arriba. Puede crear Centros de Vitalidad hermosos — pero si la gente que llega a ellos sigue comiendo veneno, trabajando sin sentido, viviendo en ciudades hostiles y esperando justicia que no llega, los centros se convierten en parches. Aspirinas comunitarias. Sin PLANSAL, los otros planes construyen infraestructura para personas demasiado enfermas para usarla. PLAN24CN puede fundar la ciudad mas bella del hemisferio — pero si sus habitantes tienen diabetes, depresion y ataques de panico, esa ciudad es un escenario vacio. PLANEDU puede disenar la mejor educacion del mundo — pero si los alumnos llegan desnutridos, ansiosos y sin dormir, no aprenden. PLANREP puede liberar un millon de personas hacia oficios dignos — pero si esas personas estan medicadas, agotadas y desconectadas de su cuerpo, no pueden crear nada.
+Sin estos otros planes, PLANSAL pelea cuesta arriba. Puede crear Centros de Vitalidad hermosos — pero si la gente que llega a ellos sigue comiendo veneno, trabajando sin sentido, viviendo en ciudades hostiles y esperando justicia que no llega, los centros se convierten en parches. Aspirinas comunitarias. Sin PLANSAL, los otros planes construyen infraestructura para personas demasiado enfermas para usarla. PLAN24CN puede fundar la ciudad más bella del hemisferio — pero si sus habitantes tienen diabetes, depresión y ataques de pánico, esa ciudad es un escenario vacío. PLANEDU puede diseñar la mejor educación del mundo — pero si los alumnos llegan desnutridos, ansiosos y sin dormir, no aprenden. PLANREP puede liberar un millón de personas hacia oficios dignos — pero si esas personas están medicadas, agotadas y desconectadas de su cuerpo, no pueden crear nada.
 
-PLANSAL es la bisagra porque demuestra la verdad que la politica publica argentina nunca quiso aceptar: **no se puede resolver ningun problema del pais sin resolver la salud de su gente, y no se puede resolver la salud de su gente sin resolver todos los problemas del pais.** Esa circularidad no es un obstaculo: es la arquitectura. Los planes de BASTA no se ejecutan secuencialmente — se ejecutan simultaneamente, porque asi funciona la realidad. El cuerpo no espera a que la ciudad mejore para empezar a sanar. La ciudad no espera a que la educacion mejore para empezar a construirse. Todo pasa al mismo tiempo. PLANSAL lo reconoce y lo abraza.
+PLANSAL es la bisagra porque demuestra la verdad que la política pública argentina nunca quiso aceptar: **no se puede resolver ningún problema del país sin resolver la salud de su gente, y no se puede resolver la salud de su gente sin resolver todos los problemas del país.** Esa circularidad no es un obstáculo: es la arquitectura. Los planes de ¡BASTA! no se ejecutan secuencialmente — se ejecutan simultáneamente, porque así funciona la realidad. El cuerpo no espera a que la ciudad mejore para empezar a sanar. La ciudad no espera a que la educación mejore para empezar a construirse. Todo pasa al mismo tiempo. PLANSAL lo reconoce y lo abraza.
 
 ---
 
 ### Primera Mejor Alternativa
 
-> *"La unica sabiduria verdadera consiste en saber que no sabes nada."*
-> — Socrates
+> *"La única sabiduría verdadera consiste en saber que no sabes nada."*
+> — Sócrates
 
-Todo lo que PLANSAL propone es la *primera mejor alternativa* basada en la mejor evidencia disponible en marzo de 2026. No es la verdad revelada. No es un dogma. No es un plan perfecto — porque no existen los planes perfectos, y cualquiera que te diga que tiene uno te esta mintiendo o se esta mintiendo.
+Todo lo que PLANSAL propone es la *primera mejor alternativa* basada en la mejor evidencia disponible en marzo de 2026. No es la verdad revelada. No es un dogma. No es un plan perfecto — porque no existen los planes perfectos, y cualquiera que te diga que tiene uno te está mintiendo o se está mintiendo.
 
-PLANSAL es un sistema adaptativo. Esta disenado para medir, evaluar y ajustar en ciclos continuos. Los Centros de Vitalidad reportan indicadores de salud barrial cada trimestre. Las Familias Mentoras retroalimentan que funciona y que no en cada comunidad. La Plataforma Digital genera datos en tiempo real sobre las 12 dimensiones de salud de millones de argentinos. Los Paneles Ciudadanos de Salud — inspirados en el modelo de PLANJUS — deliberan sobre las prioridades sanitarias de cada region con informacion real, no con ideologia. Y cuando algo no funciona — porque algo no va a funcionar, siempre hay algo que no funciona — el sistema lo detecta, lo evalua y lo cambia. No por debilidad sino por inteligencia. Un plan de salud que no evoluciona con la evidencia no es un plan de salud — es un monumento a la soberbia de quien lo escribio.
+PLANSAL es un sistema adaptativo. Está diseñado para medir, evaluar y ajustar en ciclos continuos. Los Centros de Vitalidad reportan indicadores de salud barrial cada trimestre. Las Familias Mentoras retroalimentan qué funciona y qué no en cada comunidad. La Plataforma Digital genera datos en tiempo real sobre las 12 dimensiones de salud de millones de argentinos. Los Paneles Ciudadanos de Salud — inspirados en el modelo de PLANJUS — deliberan sobre las prioridades sanitarias de cada región con información real, no con ideología. Y cuando algo no funciona — porque algo no va a funcionar, siempre hay algo que no funciona — el sistema lo detecta, lo evalúa y lo cambia. No por debilidad sino por inteligencia. Un plan de salud que no evoluciona con la evidencia no es un plan de salud — es un monumento a la soberbia de quien lo escribió.
 
-La arquitectura adaptativa tiene tres niveles: medicion continua (que esta pasando), evaluacion periodica (esta funcionando lo que propusimos), e iteracion basada en evidencia (que cambiamos y por que). Esta misma seccion sera revisada, ampliada y corregida a medida que la realidad nos ensene lo que este documento no puede prever. Eso no es una disculpa — es una promesa.
+La arquitectura adaptativa tiene tres niveles: medición continua (qué está pasando), evaluación periódica (está funcionando lo que propusimos), e iteración basada en evidencia (qué cambiamos y por qué). Esta misma sección será revisada, ampliada y corregida a medida que la realidad nos enseñe lo que este documento no puede prever. Eso no es una disculpa — es una promesa.
 
 ---
 
-## SECCIÓN 2 · LA CRISIS
+## SECCIÓN 1: LA CRISIS
 
-### 2.1 · El sistema que administra tu enfermedad
+### 1.1 · El sistema que administra tu enfermedad
 
 > *"El sistema de salud moderno no fue diseñado para hacerte sano. Fue diseñado para mantenerte enfermo de forma rentable."*
 > — Dr. Gabor Maté
@@ -155,7 +155,7 @@ Los números no requieren interpretación sofisticada. Requieren indignación. L
 
 ---
 
-### 2.2 · El sistema de tres cabezas
+### 1.2 · El sistema de tres cabezas
 
 > *"Tres subsistemas, ningún sistema. Tres presupuestos, ninguna coordinación. Tres lógicas, un solo resultado: el argentino enfermo que paga tres veces y no recibe una vez."*
 
@@ -171,7 +171,7 @@ Los tres subsistemas comparten algo que los une más que cualquier regulación: 
 
 ---
 
-### 2.3 · Las doce raíces enfermas
+### 1.3 · Las doce raíces enfermas
 
 > *"No se puede curar lo que no se entiende. Y no se puede entender la enfermedad de un país mirando solo los hospitales — hay que mirar la vida que ese país obliga a vivir."*
 
@@ -285,7 +285,7 @@ Los datos son claros: la participación en organizaciones comunitarias cayó sos
 
 ---
 
-### 2.4 · Lecciones del mundo: la salud que no viene de los hospitales
+### 1.4 · Lecciones del mundo: la salud que no viene de los hospitales
 
 > *"Las poblaciones más sanas del planeta no tienen los mejores hospitales. Tienen las mejores vidas."*
 
@@ -394,7 +394,7 @@ PLANSAL existe para desarmar esa fábrica. Raíz por raíz. Barrio por barrio. F
 
 ---
 
-## SECCIÓN 3 · LOS PRIMEROS PRINCIPIOS
+## SECCIÓN 2: LOS PRIMEROS PRINCIPIOS
 
 > *"El cuerpo humano es la mejor imagen del alma humana."*
 > — Ludwig Wittgenstein
@@ -510,7 +510,7 @@ PLANSAL, en articulación con PLAN24CN (que diseña ciudades con naturaleza inte
 
 ---
 
-## SECCIÓN 4 · LOS PRIMEROS MIL DÍAS
+## SECCIÓN 3: LOS PRIMEROS MIL DÍAS
 
 > *"En los primeros mil días de vida se escribe el borrador de toda la salud que vendrá. Lo que no se cuida ahí, se paga durante los setenta años siguientes."*
 
@@ -524,7 +524,7 @@ La Argentina lo sabe y no lo aplica.
 
 ---
 
-### 4.1 · El parto que programa una vida
+### 3.1 · El parto que programa una vida
 
 Mariela tiene 28 años. Vive en Moreno. Estaba embarazada de su primer hijo. A las 38 semanas, su obstetra — al que veía cada mes y medio en el Hospital Nacional Posadas — le dijo que tenía "circular de cordón" y que lo más seguro era programar una cesárea. Mariela no sabía que la circular de cordón se presenta en el 20-30% de los partos y que en la enorme mayoría de los casos no representa ningún riesgo. No sabía que la cesárea no era por ella ni por su bebé — era por la agenda del obstetra, que prefiere una cirugía programada un martes a las diez de la mañana que un parto fisiológico que puede ocurrir a las tres de la madrugada de un sábado. Mariela firmó el consentimiento. Su hijo Valentín nació por cesárea, fue separado de ella inmediatamente para "control de rutina," recibió mamadera de fórmula en la nursery mientras Mariela se recuperaba de la anestesia, y cuando finalmente lo puso al pecho — seis horas después — el bebé ya no quería prender. El pecho de Mariela se congestionó. Le dieron pastillas para "cortar la leche." A los tres días estaban en casa: Mariela con una cicatriz en el vientre, Valentín con una mamadera, y entre los dos un vínculo que empezó con una separación que ninguno de los dos necesitaba.
 
@@ -534,7 +534,7 @@ A eso se suman las intervenciones de rutina que persisten en muchas maternidades
 
 ---
 
-### 4.2 · La leche que construye o destruye
+### 3.2 · La leche que construye o destruye
 
 La leche materna no es un alimento. Es un sistema operativo biológico. Contiene más de 700 especies de bacterias que colonizan el intestino del bebé y construyen su sistema inmunológico. Contiene anticuerpos específicos contra los patógenos del entorno donde viven madre y bebé — una personalización en tiempo real que ninguna fórmula puede replicar. Contiene factores de crecimiento que guían el desarrollo neurológico. Contiene hormonas que regulan el apetito, el sueño y el estrés. Y el acto de amamantar — el contacto piel con piel, la mirada, el ritmo cardíaco compartido — es el programa de regulación emocional más antiguo y más efectivo que existe.
 
@@ -546,7 +546,7 @@ Los efectos a largo plazo son medibles: los niños amamantados tienen menor ries
 
 ---
 
-### 4.3 · El apego que programa el sistema nervioso
+### 3.3 · El apego que programa el sistema nervioso
 
 El neurocientífico Stephen Porges desarrolló la Teoría Polivagal para explicar algo que la neurología clásica no podía: cómo el sistema nervioso autónomo — ese que no controlamos conscientemente — decide en cada momento si estamos seguros, en peligro o en peligro de muerte. La respuesta del sistema nervioso no depende de la realidad objetiva sino de la *percepción de seguridad* — lo que Porges llama "neurocepción." Y esa neurocepción se calibra en los primeros meses y años de vida, en función de la calidad del vínculo con los cuidadores primarios.
 
@@ -558,7 +558,7 @@ En la Argentina, millones de niños crecen en hogares donde el estrés parental 
 
 ---
 
-### 4.4 · Propuestas para los primeros mil días
+### 3.4 · Propuestas para los primeros mil días
 
 Los primeros mil días son la raíz de la raíz. Si no intervenimos ahí, estamos siempre parcheando — siempre corriendo detrás de enfermedades que se programaron antes de que el paciente pudiera hablar. Las propuestas de PLANSAL para este período son:
 
@@ -574,7 +574,7 @@ Los primeros mil días son la raíz de la raíz. Si no intervenimos ahí, estamo
 
 ---
 
-## SECCIÓN 5 · TRAUMA INTERGENERACIONAL
+## SECCIÓN 4: TRAUMA INTERGENERACIONAL
 
 > *"Lo que no se transforma, se transmite."*
 
@@ -586,7 +586,7 @@ La Argentina tiene capas de trauma colectivo como pocos países del mundo. Y esa
 
 ---
 
-### 5.1 · Las capas del trauma argentino
+### 4.1 · Las capas del trauma argentino
 
 **La dictadura militar (1976-1983).** Treinta mil desaparecidos. Pero los desaparecidos no desaparecieron solos — dejaron atrás familias enteras que aprendieron a vivir con miedo, con silencio, con la certeza de que el Estado puede destruirte y que nadie va a protegerte. Los hijos de desaparecidos — y los hijos de los que no desaparecieron pero vivieron con terror — crecieron en familias donde el silencio era supervivencia, donde preguntar era peligroso, donde el cuerpo aprendió a achicarse, a no llamar la atención, a no confiar. Ese patrón — hipervigilancia, desconfianza, incapacidad de sentirse seguro — no terminó en 1983. Se heredó.
 
@@ -600,7 +600,7 @@ La Argentina tiene capas de trauma colectivo como pocos países del mundo. Y esa
 
 ---
 
-### 5.2 · La ciencia de la herencia invisible
+### 4.2 · La ciencia de la herencia invisible
 
 En los Países Bajos, el "Invierno del Hambre" de 1944-1945 — cuando la ocupación nazi cortó el suministro de alimentos y cientos de miles de holandeses pasaron hambre durante meses — produjo una base de datos epidemiológica sin precedentes. Los investigadores de la Universidad de Leiden rastrearon a los hijos y nietos de las mujeres que estaban embarazadas durante la hambruna. Los hallazgos fueron extraordinarios: los hijos de madres desnutridas durante el embarazo tenían tasas más altas de obesidad, diabetes y enfermedad cardiovascular — décadas después, en un contexto de abundancia alimentaria. Pero lo verdaderamente revolucionario fue el siguiente descubrimiento: los *nietos* — una generación que nunca vivió la hambruna — también mostraban alteraciones metabólicas. El hambre de la abuela se había inscrito en la biología de la nieta.
 
@@ -614,7 +614,7 @@ Lo que la ciencia está diciendo — con rigor creciente, con datos crecientes, 
 
 ---
 
-### 5.3 · Por qué familias enteras están enfermas sin causa visible
+### 4.3 · Por qué familias enteras están enfermas sin causa visible
 
 Elena tiene 34 años. Vive en Avellaneda con su hija Lara, de 7. Elena tiene lupus — una enfermedad autoinmune en la que el sistema inmunológico ataca los propios tejidos del cuerpo. Fue diagnosticada a los 28. Toma inmunosupresores, antiinflamatorios y corticoides. Cada tres meses viaja al Hospital de Clínicas para control. Su reumatóloga es competente, dedicada y genuinamente preocupada. Pero nunca le preguntó por su madre.
 
@@ -630,7 +630,7 @@ No es genética. No es mala suerte. Es trauma intergeneracional que nadie nombr�
 
 ---
 
-### 5.4 · Propuestas para sanar la herencia
+### 4.4 · Propuestas para sanar la herencia
 
 El trauma intergeneracional no se resuelve con medicamentos, porque no es una enfermedad. No se resuelve con psicoterapia individual solamente, porque no es solo individual. Se resuelve nombrándolo — sacándolo del silencio, del cuerpo, de la sombra — y procesándolo en un espacio seguro, con testigos, con acompañamiento, y con el permiso de soltar lo que ya no nos pertenece pero seguimos cargando.
 
@@ -648,7 +648,7 @@ Permitir que las personas finalmente nombren lo que sus cuerpos llevan cargando 
 
 ---
 
-## SECCIÓN 6 · EL PACTO DE CO-RESPONSABILIDAD
+## SECCIÓN 5: EL PACTO DE CO-RESPONSABILIDAD
 
 > "La salud no se recibe. Se decide. Y decidir es el acto más soberano que existe."
 
@@ -668,7 +668,7 @@ PLANSAL no puede crear ese instante. Pero puede hacer dos cosas: primero, dejar 
 
 ---
 
-### 6.1 · El compromiso del Estado: dejar de envenenar
+### 5.1 · El compromiso del Estado: dejar de envenenar
 
 El Estado no cura a nadie. Nunca lo hizo. Lo que el Estado puede hacer — y lo que durante décadas no hizo — es dejar de ser cómplice del sistema que enferma a su población y empezar a crear las condiciones mínimas para que la salud sea posible. No garantizada — posible. La garantía la pone cada persona. El Estado pone el piso.
 
@@ -698,7 +698,7 @@ Estos diez compromisos no son aspiraciones. Son obligaciones mínimas. Y aun as�
 
 ---
 
-### 6.2 · El compromiso del ciudadano: decidir sanarse
+### 5.2 · El compromiso del ciudadano: decidir sanarse
 
 Esto no es un formulario. No es una lista de hábitos saludables que un ministerio le dice a la población que debería cumplir. No es una campaña de concientización con gráficos de colores y hashtags. Esto es una invitación — solemne, directa, sin paternalismo — a que vos, que estás leyendo esto, te hagas cargo. No porque el Estado te lo pida. Porque tu cuerpo es tuyo. Porque tu vida es tuya. Porque nadie — ni el mejor médico, ni el mejor plan de gobierno, ni la mejor tecnología del mundo — puede vivir tu salud por vos.
 
@@ -728,28 +728,28 @@ Este pacto no es un contrato con el Estado. Es un contrato con vos mismo. El Est
 
 ---
 
-## SECCIÓN 7 · LAS DOCE RAÍCES DE LA SALUD
+## SECCIÓN 6: LAS DOCE RAÍCES DE LA SALUD
 
 > *"Un árbol enfermo no se cura podando las ramas. Se cura alimentando las raíces. Y las raíces, bajo tierra, están todas conectadas."*
 
-En la Sección 2.3 recorrimos las doce raíces enfermas de la Argentina. Vimos cómo cada dimensión de la vida — el cuerpo, la alimentación, los vínculos, la familia, los amigos, el trabajo, el dinero, el crecimiento, el sentido, el juego, el entorno, la comunidad — se convirtió en una línea de producción de la Fábrica de Enfermos. Cada raíz enferma produce su propia cosecha de patologías: cardiovasculares, metabólicas, mentales, autoinmunes, adictivas. Y cada raíz enferma alimenta a las otras, creando un sistema donde todo se deteriora al mismo tiempo.
+En la Sección 1.3 recorrimos las doce raíces enfermas de la Argentina. Vimos cómo cada dimensión de la vida — el cuerpo, la alimentación, los vínculos, la familia, los amigos, el trabajo, el dinero, el crecimiento, el sentido, el juego, el entorno, la comunidad — se convirtió en una línea de producción de la Fábrica de Enfermos. Cada raíz enferma produce su propia cosecha de patologías: cardiovasculares, metabólicas, mentales, autoinmunes, adictivas. Y cada raíz enferma alimenta a las otras, creando un sistema donde todo se deteriora al mismo tiempo.
 
 Ahora invertimos la pregunta. Si cada dimensión de la vida enferma cuando está descuidada, cada dimensión de la vida *sana* cuando está cultivada. Esta no es una afirmación ideológica — es la conclusión de medio siglo de investigación en medicina del estilo de vida, en epidemiología social, en psiconeuroinmunología. Las Zonas Azules lo demuestran sin necesidad de papers: donde la gente se mueve, come real, se conecta, tiene propósito y pertenece a una comunidad, la enfermedad retrocede como la oscuridad retrocede ante la luz. No porque alguien la combata. Porque las condiciones para la salud están presentes, y la biología humana hace el resto.
 
 Las doce raíces que siguen no son doce programas separados. Son un sistema radicular — como el de un bosque, donde los árboles comparten nutrientes bajo tierra a través de redes de hongos que los conectan a todos. Mejorás la alimentación de una familia y mejora su salud física, su energía para vincularse, su capacidad de trabajar, su sueño, su humor. Reconstruís el tejido comunitario de un barrio y baja la soledad, bajan las adicciones, sube la actividad física, mejora la seguridad, los chicos salen a jugar. No podés tocar una raíz sin mover las otras once. Eso es lo que hace que este enfoque sea tan poderoso — y tan distinto de la medicina que trata órganos como si fueran piezas independientes de una máquina.
 
-Lo que sigue es el mapa de las soluciones. Raíz por raíz, mostramos tres cosas: cómo enferma esa dimensión cuando está descuidada, cómo sana cuando se la cultiva, y cómo medimos que está mejorando. Los Centros de Vitalidad (Sección 8) son el espacio físico donde estas raíces convergen. Las Familias Mentoras (Sección 9.2) son el mecanismo humano que las transmite. Pero las raíces en sí mismas son la arquitectura fundamental. Sin entenderlas, todo lo que sigue es logística sin alma.
+Lo que sigue es el mapa de las soluciones. Raíz por raíz, mostramos tres cosas: cómo enferma esa dimensión cuando está descuidada, cómo sana cuando se la cultiva, y cómo medimos que está mejorando. Los Centros de Vitalidad (Sección 8.1) son el espacio físico donde estas raíces convergen. Las Familias Mentoras (Sección 8.2) son el mecanismo humano que las transmite. Pero las raíces en sí mismas son la arquitectura fundamental. Sin entenderlas, todo lo que sigue es logística sin alma.
 
 ---
 
-### 7.1 · Raíz 1: Salud Física
+### 6.1 · Raíz 1: Salud Física
 
 **Cómo enferma.** El sedentarismo es la pandemia silenciosa que nadie declara. El cuerpo humano — diseñado por 300.000 años de evolución para caminar 15 kilómetros diarios, trepar, cargar, escapar, explorar — pasa en la Argentina promedio entre 8 y 12 horas sentado. No es pereza individual: es arquitectura social. Jornadas laborales sedentarias, transporte que inmoviliza, barrios sin espacios para moverse, una cultura que trata al cuerpo como transporte para la cabeza. El resultado: el 64,9% de los adultos con actividad física insuficiente (ENFR 2018/2019), primera causa de muerte cardiovascular, y una población que perdió contacto con sus propias sensaciones físicas — no sabe cuándo tiene hambre real, cuándo está cansada de verdad, cuándo su cuerpo le pide moverse y cuándo le pide parar.
 
 **Cómo sana.** El movimiento no puede ser un "agregado" a la vida — algo que hacés si te sobra tiempo después de trabajar, viajar, cocinar y sobrevivir. Tiene que estar *integrado* en la vida misma. PLANSAL propone tres ejes:
 
 1. **Movimiento como transporte.** Articulación con PLAN24CN para ciudades caminables, bicisendas seguras y transporte activo. Cada kilómetro que un argentino camina o pedalea en vez de ir sentado en un colectivo es un kilómetro de salud cardiovascular, metabólica y mental.
-2. **Espacios de movimiento libre.** Cada Centro de Vitalidad (Sección 8) incluye un espacio abierto de movimiento: no un gimnasio con máquinas — un lugar para caminar, bailar, hacer yoga, jugar al fútbol, trabajar la tierra de la huerta, estirarse al sol. Sin horarios rígidos. Sin cuotas. Sin ropa especial. El cuerpo se mueve cuando tiene un lugar digno para hacerlo.
+2. **Espacios de movimiento libre.** Cada Centro de Vitalidad (Sección 8.1) incluye un espacio abierto de movimiento: no un gimnasio con máquinas — un lugar para caminar, bailar, hacer yoga, jugar al fútbol, trabajar la tierra de la huerta, estirarse al sol. Sin horarios rígidos. Sin cuotas. Sin ropa especial. El cuerpo se mueve cuando tiene un lugar digno para hacerlo.
 3. **Movimiento comunitario.** Caminatas barriales, baile para mayores, juego libre para chicos y adultos, trabajo colectivo en las huertas. El movimiento más sostenible no es el que hacés solo con auriculares — es el que hacés con otros, porque el vínculo social convierte la actividad en placer.
 
 **Indicador de vitalidad.**
@@ -762,7 +762,7 @@ Lo que sigue es el mapa de las soluciones. Raíz por raíz, mostramos tres cosas
 
 ---
 
-### 7.2 · Raíz 2: Alimentación
+### 6.2 · Raíz 2: Alimentación
 
 > *En la plataforma de autodiagnóstico esta dimensión aparece como "Apariencia" — PLANSAL la redefine. No nos importa cómo te ves. Nos importa qué combustible le ponés a tu organismo.*
 
@@ -784,7 +784,7 @@ Lo que sigue es el mapa de las soluciones. Raíz por raíz, mostramos tres cosas
 
 ---
 
-### 7.3 · Raíz 3: Amor y Vínculos Íntimos
+### 6.3 · Raíz 3: Amor y Vínculos Íntimos
 
 **Cómo enferma.** Una relación íntima tóxica es una enfermedad crónica que no aparece en ningún análisis de sangre. El estrés relacional crónico — peleas constantes, manipulación, violencia emocional, codependencia, frialdad afectiva, o simplemente la convivencia vacía de dos personas que comparten techo y silencio — produce las mismas alteraciones fisiológicas que cualquier estresor crónico: cortisol elevado, inflamación sistémica, supresión inmunológica, alteración del sueño. Fernando y Laura en Rosario — dieciséis años juntos, ningún gastroenterólogo preguntándole a ella cómo está su relación mientras le receta omeprazol por un colon que grita lo que la boca no dice.
 
@@ -804,13 +804,13 @@ Lo que sigue es el mapa de las soluciones. Raíz por raíz, mostramos tres cosas
 
 ---
 
-### 7.4 · Raíz 4: Familia — Raíz Madre
+### 6.4 · Raíz 4: Familia — Raíz Madre
 
 > *"Rompé la familia y rompiste todo. No hay sistema de salud, no hay centro comunitario, no hay programa estatal que pueda reemplazar lo que una familia funcional produce todos los días sin presupuesto, sin burocracia y sin horario de atención: pertenencia, regulación emocional, sentido y la certeza de que a alguien le importa si estás vivo."*
 
 **Cómo enferma.** La familia es la unidad fundamental de salud — y está rota. Aproximadamente un 40% de los hogares argentinos con menores son monoparentales (INDEC/EPH), con una madre sola cargando todo. El 65% de los argentinos reporta que el conflicto familiar es su principal fuente de estrés. Los rituales que sostenían la salud familiar — la cena compartida, la conversación diaria, el domingo en familia, la transmisión intergeneracional de saberes — desaparecieron, reemplazados por cuatro personas en cuatro pantallas compartiendo metros cuadrados pero no vida.
 
-Pero el daño va más profundo que la logística rota. La familia es donde se aprende — o no se aprende — a regularse emocionalmente. Un niño que crece en una familia donde los conflictos se resuelven con gritos, con silencio o con violencia, internaliza esos patrones como su sistema operativo vincular. Después tiene 35 años, hipertensión y un matrimonio que lo enferma — y nadie conecta los puntos. La Sección 5 sobre Trauma Intergeneracional documenta cómo el dolor no procesado de una generación se transmite a la siguiente a través del cuerpo, de los patrones vinculares, de la epigenética misma. La familia es el vehículo de esa transmisión — para bien y para mal.
+Pero el daño va más profundo que la logística rota. La familia es donde se aprende — o no se aprende — a regularse emocionalmente. Un niño que crece en una familia donde los conflictos se resuelven con gritos, con silencio o con violencia, internaliza esos patrones como su sistema operativo vincular. Después tiene 35 años, hipertensión y un matrimonio que lo enferma — y nadie conecta los puntos. La Sección 4 sobre Trauma Intergeneracional documenta cómo el dolor no procesado de una generación se transmite a la siguiente a través del cuerpo, de los patrones vinculares, de la epigenética misma. La familia es el vehículo de esa transmisión — para bien y para mal.
 
 Los datos internacionales son contundentes: los países con estructuras familiares más sólidas — medidas por convivencia intergeneracional, frecuencia de comidas compartidas, cercanía emocional reportada — tienen mejores indicadores de salud en *todas* las dimensiones. Las Zonas Azules lo confirman: familia primero no es un slogan — es una receta de longevidad con más evidencia que cualquier fármaco.
 
@@ -820,7 +820,7 @@ Los datos internacionales son contundentes: los países con estructuras familiar
 
 La idea es simple y poderosa: familias que transformaron su vida guían a otras familias que están donde ellas estaban. No profesionales que bajan línea desde un escritorio — vecinos que comparten lo que aprendieron desde la experiencia. Transmisión horizontal de lo que ningún manual puede enseñar: cómo cocinar nutritivo con presupuesto real, cómo resolver un conflicto de pareja sin que los chicos paguen el costo, cómo manejar la economía familiar cuando el sueldo no alcanza, cómo criar con presencia en vez de con pantallas, cómo instalar hábitos de bienestar que se sostengan.
 
-Cada Centro de Vitalidad identifica, forma y acompaña a sus Familias Mentoras. Cada familia en crisis del barrio tiene acceso a una Familia Mentora que conoce su realidad — porque vive en la misma cuadra, compra en el mismo almacén, manda a los hijos a la misma escuela. El vínculo es de par a par, no de experto a paciente. La Sección 9.2 detalla la arquitectura completa del sistema — formación, seguimiento, incentivos, escalamiento. Aquí basta con decir que es, probablemente, la intervención de mayor impacto potencial de todo PLANSAL: porque una familia que funciona bien produce salud en las doce raíces simultáneamente, sin necesitar médicos, sin necesitar presupuesto estatal continuo, y con un efecto multiplicador que ningún programa vertical puede igualar.
+Cada Centro de Vitalidad identifica, forma y acompaña a sus Familias Mentoras. Cada familia en crisis del barrio tiene acceso a una Familia Mentora que conoce su realidad — porque vive en la misma cuadra, compra en el mismo almacén, manda a los hijos a la misma escuela. El vínculo es de par a par, no de experto a paciente. La Sección 8.2 detalla la arquitectura completa del sistema — formación, seguimiento, incentivos, escalamiento. Aquí basta con decir que es, probablemente, la intervención de mayor impacto potencial de todo PLANSAL: porque una familia que funciona bien produce salud en las doce raíces simultáneamente, sin necesitar médicos, sin necesitar presupuesto estatal continuo, y con un efecto multiplicador que ningún programa vertical puede igualar.
 
 **2. "La Mesa" — Programa Nacional de Recuperación de la Cena Familiar**
 
@@ -830,7 +830,7 @@ Suena pequeño. No lo es. La mesa familiar es el espacio donde la familia se rec
 
 **3. Mediación Familiar Gratuita y Accesible**
 
-Antes de que un conflicto destruya una familia, tiene que existir un lugar donde resolverlo. Hoy la mediación familiar es un servicio privado que cuesta lo que muchas familias gastan en comida en una semana. PLANSAL integra un servicio de mediación familiar en cada Centro de Vitalidad — profesionales formados en resolución de conflictos familiares, disponibles sin turno previo, sin costo, sin burocracia. Articulación con la Sección 4 (Los Primeros 1.000 Días): muchos de los conflictos familiares más dañinos para la salud infantil ocurren durante el embarazo y los primeros años de vida del niño, exactamente cuando el impacto en el desarrollo es máximo.
+Antes de que un conflicto destruya una familia, tiene que existir un lugar donde resolverlo. Hoy la mediación familiar es un servicio privado que cuesta lo que muchas familias gastan en comida en una semana. PLANSAL integra un servicio de mediación familiar en cada Centro de Vitalidad — profesionales formados en resolución de conflictos familiares, disponibles sin turno previo, sin costo, sin burocracia. Articulación con la Sección 3 (Los Primeros 1.000 Días): muchos de los conflictos familiares más dañinos para la salud infantil ocurren durante el embarazo y los primeros años de vida del niño, exactamente cuando el impacto en el desarrollo es máximo.
 
 **Indicador de vitalidad.**
 
@@ -843,14 +843,14 @@ Antes de que un conflicto destruya una familia, tiene que existir un lugar donde
 
 ---
 
-### 7.5 · Raíz 5: Amigos y Tribu
+### 6.5 · Raíz 5: Amigos y Tribu
 
 **Cómo enferma.** La soledad es la epidemia que nadie declara. El ex Cirujano General de Estados Unidos la equiparó a fumar 15 cigarrillos diarios. En la Argentina los indicadores indirectos son alarmantes: hogares unipersonales en aumento sostenido (más del 17%, censo), participación en clubes, iglesias y organizaciones barriales en caída libre, y una generación entera que confunde seguidores con amigos. Daniel, jubilado del Correo, con el televisor prendido todo el día para escuchar una voz humana. Millones de Danieles. La soledad no solo deprime — inflama. Literalmente: el aislamiento social activa genes proinflamatorios y suprime la respuesta antiviral. Un cuerpo solo es un cuerpo que se defiende peor de todo.
 
 **Cómo sana.** La conexión humana no se fuerza. Se facilita. PLANSAL no propone "programas de socialización" — propone crear las condiciones para que la gente se encuentre orgánicamente:
 
 1. **Centros de Vitalidad como puntos de encuentro natural.** No centros donde "se brindan servicios" a individuos aislados — espacios donde la gente converge porque hay algo que quiere hacer: caminar con el grupo de la mañana, cocinar en la cocina colectiva, trabajar en la huerta, tomar mate en el patio. La conexión surge del hacer compartido, no de la obligación social.
-2. **Actividades puente entre generaciones.** Los Ancianos de Sabiduría (Sección 9.3) no son solo depositarios de experiencia — son conectores intergeneracionales. Abuelos que leen cuentos en la salita. Jubilados que enseñan oficios. Adolescentes que enseñan tecnología a mayores. El tejido social se reconstruye cuando las generaciones dejan de vivir en burbujas paralelas.
+2. **Actividades puente entre generaciones.** Los Ancianos de Sabiduría (Sección 8.3) no son solo depositarios de experiencia — son conectores intergeneracionales. Abuelos que leen cuentos en la salita. Jubilados que enseñan oficios. Adolescentes que enseñan tecnología a mayores. El tejido social se reconstruye cuando las generaciones dejan de vivir en burbujas paralelas.
 3. **Caminatas, comidas, huerta, deporte:** todas las actividades de los Centros se diseñan en formato grupal. No porque lo individual no sirva — sino porque cada actividad compartida es una oportunidad de vínculo que el barrio perdió.
 
 **Indicador de vitalidad.**
@@ -863,7 +863,7 @@ Antes de que un conflicto destruya una familia, tiene que existir un lugar donde
 
 ---
 
-### 7.6 · Raíz 6: Trabajo y Vocación
+### 6.6 · Raíz 6: Trabajo y Vocación
 
 **Cómo enferma.** El trabajo sin propósito es un generador crónico de cortisol. No es metáfora — es fisiología documentada. El estudio Whitehall II (Marmot et al.) demostró que los trabajadores con bajo control sobre sus tareas tienen un riesgo cardiovascular 40% mayor. El cuerpo de alguien que odia su trabajo produce las mismas hormonas de estrés que el de alguien enfrentando una amenaza física real — pero durante ocho, diez, doce horas diarias, cinco o seis días a la semana, durante décadas. El resultado es Ricardo Ramírez multiplicado por millones: burnout, hipertensión, depresión, insatisfacción que se derrama sobre la familia, las relaciones, la alimentación, el sueño. Más del 80% de los trabajadores argentinos reporta síntomas de agotamiento laboral (encuestas Bumeran 2023/2024).
 
@@ -883,15 +883,15 @@ Antes de que un conflicto destruya una familia, tiene que existir un lugar donde
 
 ---
 
-### 7.7 · Raíz 7: Dinero y Seguridad Económica
+### 6.7 · Raíz 7: Dinero y Seguridad Económica
 
 **Cómo enferma.** La inseguridad económica es la droga más destructiva de la Argentina — y es la única que no requiere receta. El hipotálamo no distingue entre un león y una cuota impagable: la respuesta biológica es idéntica. Cortisol, adrenalina, sistema simpático encendido, inflamación sistémica. Y en un país con inflación crónica de tres dígitos, con una historia de corralitos, devaluaciones y confiscaciones, el trauma económico es colectivo y transgeneracional. Cada argentino carga en su cuerpo la memoria de las crisis — la de 2001, la de 2018, la de siempre. El estrés financiero no es un "problema del bolsillo" — es un problema del sistema nervioso. El 60% de los argentinos lo declara como su fuente principal de estrés. Es la raíz más difícil de tratar desde la salud porque depende de variables macroeconómicas que ningún Centro de Vitalidad puede modificar.
 
-**Cómo sana.** PLANSAL actúa donde puede — en la relación de cada persona y cada familia con el dinero — mientras otros PLANs del marco BASTA atacan las causas estructurales:
+**Cómo sana.** PLANSAL actúa donde puede — en la relación de cada persona y cada familia con el dinero — mientras otros PLANes del marco ¡BASTA! atacan las causas estructurales:
 
 1. **Educación financiera práctica en Centros de Vitalidad.** No teoría de inversiones — supervivencia económica real: cómo armar un presupuesto familiar, cómo comprar alimentos nutritivos con presupuesto limitado, cómo evitar las trampas del consumismo y el crédito fácil, cómo generar un colchón mínimo de emergencia. Formatos grupales donde las familias comparten estrategias que ya les funcionan.
 2. **Economía familiar en las Familias Mentoras.** Una de las cinco áreas de transmisión del sistema: la familia mentora que aprendió a administrar un ingreso insuficiente sin destruirse en el proceso comparte esas herramientas con la familia que está ahogándose. Horizontal. Práctica. Sin condescendencia.
-3. **Articulación con el ecosistema BASTA.** PLANREP genera trabajo con sentido. PLANEDU genera capacidades. PLAN24CN genera infraestructura que baja el costo de vida (transporte, energía, vivienda). PLANSAL no opera en el vacío — opera en un marco donde otros planes atacan las causas estructurales de la inseguridad económica.
+3. **Articulación con el ecosistema ¡BASTA!.** PLANREP genera trabajo con sentido. PLANEDU genera capacidades. PLAN24CN genera infraestructura que baja el costo de vida (transporte, energía, vivienda). PLANSAL no opera en el vacío — opera en un marco donde otros planes atacan las causas estructurales de la inseguridad económica.
 
 **Indicador de vitalidad.**
 
@@ -903,7 +903,7 @@ Antes de que un conflicto destruya una familia, tiene que existir un lugar donde
 
 ---
 
-### 7.8 · Raíz 8: Crecimiento Personal
+### 6.8 · Raíz 8: Crecimiento Personal
 
 **Cómo enferma.** Cuando una persona deja de crecer, empieza a morir. No es poesía — es neurología. El cerebro que no se desafía empieza a podar conexiones sinápticas. La neuroplasticidad se reduce. La memoria se degrada. La motivación colapsa. Erikson lo llamó estancamiento: la fase en que el ser humano deja de generar y empieza a contraerse. El resultado es esa monotonía gris que empuja al escapismo — alcohol, pantallas, consumo compulsivo, cualquier cosa que rompa la circularidad asfixiante de días idénticos. La cultura argentina lo normaliza con frases que son sentencias de muerte lenta: "ya estoy grande para eso," "es lo que hay," "para qué vas a cambiar a esta altura." Cada vez que alguien dice eso, su biología toma nota.
 
@@ -923,7 +923,7 @@ Antes de que un conflicto destruya una familia, tiene que existir un lugar donde
 
 ---
 
-### 7.9 · Raíz 9: Espiritualidad y Sentido
+### 6.9 · Raíz 9: Espiritualidad y Sentido
 
 **Cómo enferma.** El vacío existencial es la raíz de todas las adicciones. Esto no es una opinión — es la tesis central de Viktor Frankl, validada por décadas de investigación en psicología de las adicciones. Nadie toma para sentirse bien — toma para dejar de sentir el vacío. Nadie scrollea doce horas por placer — scrollea porque la alternativa es quedarse a solas con una vida que no tiene para qué. El clonazepam de Silvia. La cerveza de Ricardo. Las pantallas de Tomás. Cada sustancia, cada conducta adictiva, es un intento desesperado de llenar un hueco que solo el sentido puede llenar. La Argentina es el segundo país de América Latina en consumo de psicofármacos — no porque tenga más enfermedades mentales, sino porque tiene más acceso a pastillas y menos acceso a propósito.
 
@@ -944,7 +944,7 @@ Antes de que un conflicto destruya una familia, tiene que existir un lugar donde
 
 ---
 
-### 7.10 · Raíz 10: Recreación y Juego
+### 6.10 · Raíz 10: Recreación y Juego
 
 **Cómo enferma.** Hay una diferencia crítica que la sociedad moderna borró: la diferencia entre *escape* y *recreación*. Escape es lo que te saca del presente sin devolverte nada: scrollear tres horas, binge-watching, alcohol, juegos de azar, consumo compulsivo. Cuando terminás, tenés menos energía que cuando empezaste. Recreación es lo que te *re-crea* — lo que te devuelve energía, conexión, alegría: jugar al fútbol con amigos, pintar, cocinar para alguien, caminar por un parque, tocar un instrumento, jugar con tus hijos en el piso. Cuando terminás, tenés más vida que cuando empezaste. La Argentina reemplazó recreación por escape y lo llamó "entretenimiento." El argentino promedio pasa más de 3 horas diarias frente a pantallas recreativas; los adolescentes superan las 6 horas. El juego libre infantil — el mecanismo más poderoso de desarrollo neurológico y social — está en extinción.
 
@@ -964,7 +964,7 @@ Antes de que un conflicto destruya una familia, tiene que existir un lugar donde
 
 ---
 
-### 7.11 · Raíz 11: Entorno y Naturaleza
+### 6.11 · Raíz 11: Entorno y Naturaleza
 
 **Cómo enferma.** La ciudad argentina típica está diseñada para enfermar a sus habitantes. No es negligencia — es el resultado de décadas de urbanismo centrado en el automóvil, en la especulación inmobiliaria y en la indiferencia total por la biología humana. Ruido que supera los 70 decibeles (riesgo cardiovascular según OMS). Contaminación del aire que mata silenciosamente. Cemento que irradia calor y no deja lugar a un árbol. Veredas hostiles. Parques insuficientes y distribuidos con desigualdad brutal: los barrios del norte de Buenos Aires tienen verde; los del sur tienen hormigón. En el conurbano, localidades enteras sin una plaza digna. El Riachuelo envenenando a 4 millones de personas. Graciela en Villa Fiorito, mirando un descampado con basura desde su ventana, con dolor de cabeza crónico que ningún médico conecta con el hecho de que no tocó un árbol en meses.
 
@@ -984,7 +984,7 @@ Antes de que un conflicto destruya una familia, tiene que existir un lugar donde
 
 ---
 
-### 7.12 · Raíz 12: Comunidad y Pertenencia
+### 6.12 · Raíz 12: Comunidad y Pertenencia
 
 **Cómo enferma.** La atomización social es la enfermedad moderna por excelencia. La Argentina tuvo cultura de barrio — la vereda, el club, la sociedad de fomento, la parroquia, el almacén donde te conocían por tu nombre. Esa red no era folklore — era infraestructura de salud invisible. Pertenencia, reciprocidad, detección temprana del vecino que está cayendo, cuidado mutuo sin formularios ni expedientes. Esa red se rompió. La inseguridad la rompió: rejas, countries, desconfianza. Las pantallas la rompieron: ¿para qué salir si todo está en el teléfono? El individualismo la rompió: cada uno en su burbuja, comprando su propia solución privada a problemas que son colectivos. El resultado: nadie conoce al vecino. Los clubes cierran. Las cooperadoras funcionan con tres madres exhaustas. Y cada hilo de tejido comunitario que se corta es un hilo de salud que se pierde.
 
@@ -992,7 +992,7 @@ Antes de que un conflicto destruya una familia, tiene que existir un lugar donde
 
 1. **El Centro como plaza pública del siglo XXI.** Un lugar donde la gente va porque quiere, no porque tiene un turno. Porque hay mate en la cocina, porque la huerta necesita riego, porque hoy es el taller de pan, porque el grupo de caminata sale a las ocho, porque los chicos juegan mientras los padres conversan. Cada actividad del Centro es un pretexto para el verdadero producto: comunidad.
 2. **Programas de salud entre vecinos.** Vecinos capacitados como agentes de salud comunitaria: detectan al adulto mayor que hace días no sale, al adolescente que se aisló, a la familia que está en crisis. No burocracia — red humana. La comunidad como sistema inmunológico social que detecta y responde antes de que el daño sea irreversible.
-3. **Ancianos de Sabiduría.** El programa detallado en la Sección 9.3: adultos mayores que pasan de ser "pasivos" del sistema a ser activos de la comunidad. Enseñan, acompañan, cuentan, escuchan. Recuperan un rol que la sociedad les robó y que la comunidad necesita desesperadamente. El anciano que tiene un rol vive más, se enferma menos y le cuesta menos al sistema de salud. Y el barrio que tiene ancianos activos tiene más cohesión, más memoria y más sentido de pertenencia.
+3. **Ancianos de Sabiduría.** El programa detallado en la Sección 8.3: adultos mayores que pasan de ser "pasivos" del sistema a ser activos de la comunidad. Enseñan, acompañan, cuentan, escuchan. Recuperan un rol que la sociedad les robó y que la comunidad necesita desesperadamente. El anciano que tiene un rol vive más, se enferma menos y le cuesta menos al sistema de salud. Y el barrio que tiene ancianos activos tiene más cohesión, más memoria y más sentido de pertenencia.
 4. **Festividades y rituales barriales.** Ferias de productores locales, festivales de cocina comunitaria, celebraciones de estación, torneos deportivos vecinales. El ritual compartido es el pegamento social que la modernidad disolvió. Los Centros de Vitalidad lo recrean — no con nostalgia, sino con intención.
 
 **Indicador de vitalidad.**
@@ -1015,7 +1015,7 @@ PLANSAL no trata enfermedades. Cultiva las condiciones para que la salud emerja 
 
 ---
 
-## SECCIÓN 8 · EL PODER DE PARAR
+## SECCIÓN 7: EL PODER DE PARAR
 
 > *"Todo el problema de la humanidad proviene de la incapacidad del hombre para sentarse tranquilo en una habitación solo."*
 > — Blaise Pascal, *Pensées*, 1670
@@ -1026,7 +1026,7 @@ Vivimos en una civilización adicta a la acción. Cada problema tiene una soluci
 
 PLANSAL dice: *pará*.
 
-### 8.1 · Ayuno: la medicina más antigua y más gratuita
+### 7.1 · Ayuno: la medicina más antigua y más gratuita
 
 En 2016, el biólogo japonés Yoshinori Ohsumi ganó el Premio Nobel de Medicina por descubrir los mecanismos de la *autofagia* — el proceso por el cual las células del cuerpo se limpian, reciclan componentes dañados y se regeneran. La autofagia es, literalmente, el sistema de mantenimiento interno del cuerpo humano. Y tiene una particularidad extraordinaria: solo se activa de forma plena *cuando dejamos de comer*.
 
@@ -1038,7 +1038,7 @@ La paradoja es exquisita: en un mundo que te vende soluciones para todo, la inte
 
 PLANSAL incorpora el ayuno consciente como práctica de salud pública. No como dogma — como herramienta disponible, explicada con evidencia, acompañada por los Centros de Vitalidad.
 
-### 8.2 · Silencio: medicina para un sistema nervioso agotado
+### 7.2 · Silencio: medicina para un sistema nervioso agotado
 
 El sistema nervioso humano evolucionó en un mundo de silencio relativo. Viento, agua, pájaros, el fuego crepitando. Hoy, el ciudadano promedio de Buenos Aires recibe más estímulos en un día que su bisabuelo en un mes. Notificaciones cada tres minutos. Televisión de fondo permanente. Publicidad auditiva en el transporte, en el supermercado, en la calle. Música en el ascensor. Alarmas. Bocinas. El zumbido constante de la máquina urbana.
 
@@ -1048,7 +1048,7 @@ El silencio no es un lujo espiritual. Es la condición necesaria para que el sis
 
 No se trata de imponer meditación — PLANSAL no es una secta. Se trata de algo mucho más simple: crear espacios donde sea posible no recibir estímulos. Donde el cuerpo pueda, aunque sea veinte minutos por día, dejar de estar en guardia.
 
-### 8.3 · Descanso real: no es entretenimiento pasivo
+### 7.3 · Descanso real: no es entretenimiento pasivo
 
 Hay una confusión moderna que es necesario desmontar: descansar no es mirar Netflix. Descansar no es scrollear Instagram. Descansar no es tirarse en el sillón con el teléfono. Esas actividades *entretienen* — pero no *restauran*. El cerebro sigue procesando estímulos, la luz azul sigue alterando los ritmos circadianos, la dopamina sigue descargándose en pulsos que agotan los receptores. Después de tres horas de serie, estás igual de cansado que antes — pero con la ilusión de haber "descansado".
 
@@ -1056,7 +1056,7 @@ El descanso real es otra cosa. Es dormir. Es estar en la naturaleza sin hacer na
 
 Matthew Walker, neurocientífico de la Universidad de Berkeley y autor de *Why We Sleep*, lo expone sin ambigüedad: el sueño es la infraestructura biológica más importante del ser humano. Cada hora de sueño que se pierde tiene costos medibles en función cognitiva, regulación emocional, salud cardiovascular, función inmunológica y expectativa de vida. La Argentina es un país que duerme mal: horarios laborales demenciales, transporte que roba horas, cultura de la trasnoche como signo de productividad. PLANSAL declara: *dormir es un acto de salud pública*. Y el Estado que diseña condiciones que impiden dormir bien está enfermando a su población.
 
-### 8.4 · Desintoxicación digital
+### 7.4 · Desintoxicación digital
 
 Las pantallas son el tabaco del siglo XXI. La comparación no es retórica — es neurológica. Los mecanismos de *scroll* infinito, las notificaciones intermitentes, los *likes* y los algoritmos de recomendación activan exactamente las mismas vías dopaminérgicas que las máquinas tragamonedas. No es accidente. Fue diseñado así. Ex ingenieros de Google, Facebook e Instagram lo han admitido públicamente: las plataformas están optimizadas para generar adicción.
 
@@ -1064,7 +1064,7 @@ El resultado es mensurable: fragmentación de la atención (el lapso promedio ba
 
 La desintoxicación digital no es ludismo ni nostalgia. Es higiene neurológica. Así como nadie cuestiona que lavarse las manos previene infecciones, necesitamos normalizar que limitar pantallas previene enfermedad mental. PLANSAL propone zonas libres de dispositivos en los Centros de Vitalidad, campañas de concientización basadas en evidencia, y — en articulación con el plan de educación — formación en uso consciente de tecnología desde la escuela primaria.
 
-### 8.5 · Respiración consciente
+### 7.5 · Respiración consciente
 
 De todas las funciones autónomas del cuerpo — ritmo cardíaco, presión arterial, digestión, temperatura — la respiración es la *única* que podemos controlar voluntariamente. Esa singularidad no es casual. La respiración es el puente entre el sistema nervioso voluntario y el involuntario. Es el control remoto del estado interno.
 
@@ -1082,16 +1082,16 @@ Cada enfermedad crónica que tratamos con pastillas es, en algún grado, un cuer
 
 ---
 
-## SECCIÓN 9 · INFRAESTRUCTURA DE VITALIDAD
+## SECCIÓN 8: INFRAESTRUCTURA DE VITALIDAD
 
 > *"Primero formamos nuestros edificios; después, nuestros edificios nos forman a nosotros."*
 > — Winston Churchill, 1943
 
-Todo lo descrito en las Secciones 3 a 8 — las doce raíces, el poder de parar — queda en papel si no existe la infraestructura donde hacerlo real. Las ideas más brillantes del mundo no sirven si no tienen dónde aterrizar.
+Todo lo descrito en las Secciones 2 a 7 — las doce raíces, el poder de parar — queda en papel si no existe la infraestructura donde hacerlo real. Las ideas más brillantes del mundo no sirven si no tienen dónde aterrizar.
 
 PLANSAL propone cuatro pilares de infraestructura: una red de espacios físicos, un sistema de transmisión humana, un programa de recuperación del saber ancestral y una plataforma digital que conecte todo. Estos cuatro pilares son los pies del plan. Sin ellos, todo lo anterior es literatura. Con ellos, es política pública.
 
-### 9.1 · Red Nacional de Centros de Vitalidad
+### 8.1 · Red Nacional de Centros de Vitalidad
 
 Imaginá un lugar en tu barrio. No es un hospital — no hay olor a desinfectante, no hay sala de espera con numeritos, no hay caras de sufrimiento bajo luces fluorescentes. No es un gimnasio — no hay espejos, no hay música a volumen insoportable, no hay culto al cuerpo. No es un centro comunitario de los que conocemos — no hay un cartel de un político sonriente en la entrada, no hay burocracia para usar las instalaciones, no está cerrado la mitad de la semana por falta de presupuesto.
 
@@ -1117,7 +1117,7 @@ Eso es un Centro de Vitalidad.
 
 **Modelo de financiamiento:** la reconversión del gasto en enfermedad prevenible. La Argentina gasta anualmente cifras obscenas en tratar diabetes tipo 2, hipertensión, depresión, ansiedad, obesidad y sus complicaciones — enfermedades que en un 80% son prevenibles con cambios en estilo de vida. Cada peso que deja de ir a metformina para un caso de diabetes prevenido, cada internación por infarto que no ocurre, cada tratamiento psiquiátrico que se evita porque la persona encontró comunidad antes de llegar a la crisis — ese peso se redirige al Centro de Vitalidad. No es gasto nuevo. Es gasto reasignado de reparar daños a prevenir daños. De la Fábrica de Enfermos a la fábrica de salud.
 
-### 9.2 · Sistema de Familias Mentoras
+### 8.2 · Sistema de Familias Mentoras
 
 De todos los mecanismos que propone PLANSAL, este es el más innovador. No tiene precedente a esta escala en ningún sistema de salud del mundo. Y es, posiblemente, el más poderoso.
 
@@ -1137,7 +1137,7 @@ No hay receta. No hay diagnóstico. Hay un hombre contándole a otro hombre: *yo
 
 **Escala.** Primer año: mil Familias Mentoras seleccionadas y formadas a nivel nacional. Segundo año: cinco mil (muchas de ellas surgidas de familias que fueron mentoreadas el primer año). Tercer año en adelante: efecto multiplicador natural. La familia que fue acompañada se convierte en la que acompaña. El círculo se expande. A diez años, el objetivo es que la red de Familias Mentoras sea *la* red de salud comunitaria más grande del país — más grande que cualquier obra social, más penetrante que cualquier hospital.
 
-### 9.3 · Ancianos de Sabiduría
+### 8.3 · Ancianos de Sabiduría
 
 La Argentina tiene un recurso de salud pública extraordinario, masivo y completamente desperdiciado: sus adultos mayores.
 
@@ -1160,7 +1160,7 @@ El programa **Ancianos de Sabiduría** invierte la ecuación. No son pasivos del
 
 La reconexión intergeneracional sana en las dos direcciones. El viejo deja de morirse de soledad. El joven deja de repetir errores por falta de guía. La comunidad recupera un eslabón que le habían amputado. Esto conecta directamente con la Raíz 4 (Familia), la Raíz 5 (Tribu), y la Raíz 12 (Comunidad) — y demuestra, una vez más, que las doce raíces son una sola cosa con doce nombres.
 
-### 9.4 · Plataforma Digital Nacional
+### 8.4 · Plataforma Digital Nacional
 
 La paradoja de PLANSAL es que, habiendo denunciado el daño de las pantallas, necesita una plataforma digital. La resolución es simple: el problema no es la tecnología — es la tecnología *diseñada para extraer*. Una herramienta digital diseñada para *conectar con la vida real* es una herramienta de salud.
 
@@ -1191,7 +1191,7 @@ La plataforma no reemplaza el contacto humano — lo facilita. No reemplaza al C
 
 ---
 
-## SECCIÓN 10 · RECONVERSIÓN DEL SISTEMA MÉDICO
+## SECCIÓN 9: RECONVERSIÓN DEL SISTEMA MÉDICO
 
 > *"No destruyas una cerca hasta que sepas por qué fue construida."*
 > — G.K. Chesterton
@@ -1202,7 +1202,7 @@ El médico que atiende treinta pacientes por día en ocho horas no tiene tiempo 
 
 Son víctimas del mismo diseño perverso que enferma a los Ramírez. Son aliados potenciales, no adversarios. Y la transición que propone PLANSAL no funciona por confrontación — funciona por demostración. No hacemos irrelevante al viejo sistema peleando contra él. Lo hacemos irrelevante construyendo algo tan claramente mejor que la gente migre por elección propia.
 
-### 10.1 · Tres fases hacia un sistema de vitalidad
+### 9.1 · Tres fases hacia un sistema de vitalidad
 
 La reconversión no es un golpe de timón. Es una transición gradual, medible y reversible en cada etapa. Si una fase no produce resultados, se ajusta antes de avanzar a la siguiente. Esto no es ideología — es método.
 
@@ -1210,7 +1210,7 @@ La reconversión no es un golpe de timón. Es una transición gradual, medible y
 
 **FASE 1 — COEXISTENCIA (Años 1-3)**
 
-Los Centros de Vitalidad (Sección 9) operan *en paralelo* al sistema médico existente. No se cierra un hospital. No se reduce un presupuesto sanitario. No se confronta con ningún actor del sistema actual. Se agrega una capa nueva — y se mide qué pasa.
+Los Centros de Vitalidad (Sección 8) operan *en paralelo* al sistema médico existente. No se cierra un hospital. No se reduce un presupuesto sanitario. No se confronta con ningún actor del sistema actual. Se agrega una capa nueva — y se mide qué pasa.
 
 Indicadores clave de esta fase:
 
@@ -1241,7 +1241,7 @@ Ejes de esta fase:
 La Argentina consolida un sistema de salud de dos brazos:
 
 1. **Brazo de emergencia y complejidad** — Hospitales y clínicas especializados en lo que la medicina aguda hace mejor: salvar vidas, reparar cuerpos, tratar patologías complejas. Menos camas ocupadas por crónicos, más capacidad para lo urgente.
-2. **Brazo de vitalidad** — Centros de Vitalidad + Familias Mentoras + Plataforma Digital + Ancianos de Sabiduría (Sección 9). La red que cultiva salud antes de que la enfermedad llegue — y que acompaña la reversión cuando ya llegó.
+2. **Brazo de vitalidad** — Centros de Vitalidad + Familias Mentoras + Plataforma Digital + Ancianos de Sabiduría (Sección 8). La red que cultiva salud antes de que la enfermedad llegue — y que acompaña la reversión cuando ya llegó.
 
 La industria farmacéutica no fue atacada, boicoteada ni expropiada. Se contrajo naturalmente por reducción de demanda. Nadie le prohibió vender metformina — simplemente millones de argentinos dejaron de necesitarla. Es el mercado, entendido correctamente: cuando el producto deja de ser necesario, la demanda cae. No es ideología anticapitalista. Es la misma lógica del capitalismo aplicada en beneficio de la gente.
 
@@ -1249,9 +1249,9 @@ La mayoría de los profesionales de la salud trabaja en prevención, acompañami
 
 La Argentina se convierte en referencia mundial en salud integral. No por tener los mejores hospitales — eso se lo dejamos a los países ricos. Por tener las comunidades más sanas, las familias más conectadas, la comida más real, y un modelo que otros países empiezan a estudiar, visitar y replicar. El país que fue fábrica de enfermos se convierte en laboratorio de vitalidad.
 
-### 10.2 · La ruta de des-medicalización acompañada
+### 9.2 · La ruta de des-medicalización acompañada
 
-Este apartado es el más importante de toda la Sección 10. Porque si PLANSAL no responde con rigor absoluto a una pregunta específica, todo lo demás se derrumba. La pregunta es: *¿qué pasa con los millones de argentinos que hoy toman medicación crónica?*
+Este apartado es el más importante de toda la Sección 9. Porque si PLANSAL no responde con rigor absoluto a una pregunta específica, todo lo demás se derrumba. La pregunta es: *¿qué pasa con los millones de argentinos que hoy toman medicación crónica?*
 
 La respuesta tiene que ser inequívoca: **PLANSAL no dice "dejá de tomar tus pastillas."** Cualquiera que use este plan para promover el abandono de medicación es un irresponsable que contradice todo lo que PLANSAL defiende. La des-medicalización no es un acto de rebeldía. Es un proceso clínico, gradual, acompañado y basado en evidencia biológica medible.
 
@@ -1292,16 +1292,16 @@ Claudia no abandonó la medicina. Hizo que la medicina dejara de ser necesaria. 
 
 ---
 
-## SECCIÓN 11 · EL ARGUMENTO ECONÓMICO
+## SECCIÓN 10: EL ARGUMENTO ECONÓMICO
 
 > *"Si pensás que la prevención es cara, probá con la enfermedad."*
 > — Adaptación de aforismo atribuido a Derek Bok, presidente de Harvard
 
 PLANSAL no es solo un argumento moral — aunque es profundamente moral. Es un argumento fiscal. La Argentina no puede seguir pagando por una fábrica que produce enfermos. No por bondad. Por supervivencia económica.
 
-### 11.1 · Cuánto cuesta la enfermedad
+### 10.1 · Cuánto cuesta la enfermedad
 
-La Argentina gasta aproximadamente el 10% de su PBI en salud — alrededor de USD 60.000 millones por año (Banco Mundial, 2022). De ese total, una proporción enorme se destina a tratar enfermedades crónicas que podrían haberse prevenido. El cálculo exacto es difícil porque los tres subsistemas (Sección 2.2) no comparten datos, pero las estimaciones convergentes de organismos nacionales e internacionales permiten construir el siguiente cuadro:
+La Argentina gasta aproximadamente el 10% de su PBI en salud — alrededor de USD 60.000 millones por año (Banco Mundial, 2022). De ese total, una proporción enorme se destina a tratar enfermedades crónicas que podrían haberse prevenido. El cálculo exacto es difícil porque los tres subsistemas (Sección 1.2) no comparten datos, pero las estimaciones convergentes de organismos nacionales e internacionales permiten construir el siguiente cuadro:
 
 **TABLA 6: Costo anual estimado de la enfermedad prevenible en Argentina**
 
@@ -1325,11 +1325,11 @@ Veintiséis mil millones de dólares por año. Es un número tan grande que pier
 
 Y esto solo cuenta el gasto directo e indirecto cuantificable. No cuenta el sufrimiento. No cuenta los años de vida perdidos. No cuenta a Silvia Ramírez despierta a las tres de la mañana mirando el techo. No cuenta a Tomás en el Borda a los 17 años. No cuenta a Nélida pinchándose insulina dos veces por día mientras la llaman "controlada." El costo humano es inconmensurable. El costo económico ya es insostenible.
 
-### 11.2 · Cuánto cuesta la vitalidad
+### 10.2 · Cuánto cuesta la vitalidad
 
 Ahora la pregunta inversa. ¿Cuánto cuesta construir el sistema que PLANSAL propone?
 
-**TABLA 7: Inversión estimada en el sistema de vitalidad PLANSAL (10 años)**
+**TABLA 7: Inversión estimada en el sistema de vitalidad PLANSAL (años 1–10)**
 
 | Componente | Inversión estimada (USD, 10 años) | Detalle |
 |---|---|---|
@@ -1340,15 +1340,17 @@ Ahora la pregunta inversa. ¿Cuánto cuesta construir el sistema que PLANSAL pro
 | Reconversión profesional — 50.000 profesionales | ~USD 400M [est.] | Programas de formación en medicina del estilo de vida |
 | Programa Ancianos de Sabiduría | ~USD 200M [est.] | Estipendios, transporte, materiales |
 | Campaña de comunicación y educación | ~USD 250M [est.] | Medios, materiales, formadores |
-| **Total inversión 10 años** | **~USD 6.000M [est.]** | — |
+| **Total inversión años 1–10** | **~USD 6.000M [est.]** | — |
 
-Seis mil millones de dólares en diez años. Seiscientos millones por año. Es mucho dinero — no lo minimicemos. Pero comparémoslo:
+*Nota presupuestaria: la inversión se concentra en los primeros 10 años del plan. La consolidación (años 11–15) no requiere partidas incrementales — se financia con los ahorros generados por la reducción de enfermedad prevenible, que para entonces superan con holgura el costo operativo de la red (ver La ecuación, más abajo).*
+
+Seis mil millones de dólares concentrados en los primeros diez años — seiscientos millones por año. A partir del año 11, la consolidación se paga sola: los ahorros que genera el sistema financian su operación. Es mucho dinero — no lo minimicemos. Pero comparémoslo:
 
 - El sistema actual gasta ~USD 26.000M por año en enfermedad prevenible.
 - PLANSAL propone gastar ~USD 600M por año en prevenirla.
 - **La inversión en vitalidad es el 2,3% del gasto actual en enfermedad.**
 
-### 11.3 · La ecuación
+### 10.3 · La ecuación
 
 La aritmética no tiene ideología:
 
@@ -1372,7 +1374,7 @@ Esto no es un argumento moral — aunque es profundamente moral. Esto no es un a
 
 ---
 
-## SECCIÓN 12 · MÉTRICAS E INDICADORES
+## SECCIÓN 12: MÉTRICAS E INDICADORES
 
 > *"Lo que se mide, mejora. Lo que se mide públicamente, mejora más rápido."*
 
@@ -1411,7 +1413,7 @@ El objetivo no es solo medir. Es *comprometer*. Cuando un intendente ve que su m
 
 ---
 
-## SECCIÓN 13 · LO QUE PLANSAL NO REEMPLAZA
+## SECCIÓN 13: LO QUE PLANSAL NO REEMPLAZA
 
 > *"El principio de la sabiduría es saber lo que no sabés — y el principio de la política seria es saber lo que no te corresponde tocar."*
 
@@ -1445,7 +1447,7 @@ PLANSAL se concentra en lo prevenible. Lo hace con intensidad, con escala, con r
 
 ---
 
-## SECCIÓN 14 · ARQUITECTURA INSTITUCIONAL
+## SECCIÓN 14: ARQUITECTURA INSTITUCIONAL
 
 > *"Las instituciones son los ríos por los que fluye la voluntad popular. Si el río se seca, la voluntad se pierde en la arena. Si se desborda, destruye lo que pretendía nutrir."*
 
@@ -1516,7 +1518,7 @@ Las Familias Mentoras no son empleadas del Estado ni de la ANVIP. Son familias q
 
 ---
 
-## SECCIÓN 15 · MARCO LEGAL
+## SECCIÓN 15: MARCO LEGAL
 
 > *"La ley sin pueblo es letra muerta. El pueblo sin ley es fuerza ciega. PLANSAL necesita ambos: la fuerza del pueblo y la precisión de la ley."*
 
@@ -1570,7 +1572,7 @@ La ley existe desde 2004. Garantiza derechos durante embarazo, parto y posparto.
 
 **Propuesta:** 6 meses para persona gestante (hoy son 90 días), 3 meses para co-progenitor (hoy son 2 días — sí, dos días). Extensible a 9 meses en casos de prematurez, nacimiento múltiple o complicaciones.
 
-**Encuadre:** No es un beneficio laboral — es una inversión en salud pública. Los primeros 1.000 días (ver Sección 9) definen la salud de toda una vida. Un bebé que recibe lactancia exclusiva 6 meses, contacto piel a piel permanente, y padres presentes y no destruidos por el estrés laboral tiene mejores marcadores de salud a los 5, 15, 35 y 65 años. El costo de la licencia se recupera en reducción de enfermedad crónica a mediano plazo.
+**Encuadre:** No es un beneficio laboral — es una inversión en salud pública. Los primeros 1.000 días (ver Sección 3) definen la salud de toda una vida. Un bebé que recibe lactancia exclusiva 6 meses, contacto piel a piel permanente, y padres presentes y no destruidos por el estrés laboral tiene mejores marcadores de salud a los 5, 15, 35 y 65 años. El costo de la licencia se recupera en reducción de enfermedad crónica a mediano plazo.
 
 **Financiamiento:** Fondo tripartito — Estado, empleador, seguridad social. PyMEs con apoyo diferenciado.
 
@@ -1614,7 +1616,7 @@ La estrategia legislativa no es "mandar todo junto al Congreso y esperar". Es se
 
 ---
 
-## SECCIÓN 16 · ESTRATEGIA DE STAKEHOLDERS
+## SECCIÓN 16: ESTRATEGIA DE STAKEHOLDERS
 
 > *"No ganás una guerra peleando contra todos al mismo tiempo. Ganás identificando quién está con vos, quién está en contra, y quién todavía no decidió — y trabajando cada grupo distinto."*
 
@@ -1690,7 +1692,7 @@ Los pueblos originarios no necesitan a PLANSAL. PLANSAL los necesita a ellos —
 
 ---
 
-## SECCIÓN 17 · HOJA DE RUTA
+## SECCIÓN 17: HOJA DE RUTA
 
 > *"Un viaje de mil leguas comienza con un solo paso. Pero ese paso tiene que ser en la dirección correcta — y tiene que darse sabiendo que no vas a caminar solo."*
 > — Adaptado de Lao Tse
@@ -1714,7 +1716,7 @@ La Fase 0 no es visible para el ciudadano promedio. Es el trabajo silencioso de 
   - 2 comunidades rurales (una en provincia de Buenos Aires, una en el NOA)
   - 1 comunidad indígena (consulta previa obligatoria — ver Sección 16.4)
 
-- **Reclutar las primeras 100 Familias Mentoras:** Búsqueda activa en los 10 barrios. Criterio: familias que ya lograron transformaciones reales sin recursos extraordinarios. No superhéroes — gente común que hizo cambios concretos. Capacitación intensiva de 3 meses (ver Sección 9).
+- **Reclutar las primeras 100 Familias Mentoras:** Búsqueda activa en los 10 barrios. Criterio: familias que ya lograron transformaciones reales sin recursos extraordinarios. No superhéroes — gente común que hizo cambios concretos. Capacitación intensiva de 3 meses (ver Sección 8).
 
 - **Desarrollar la Plataforma v1:** Versión mínima viable del Sistema Integral de Indicadores de Vitalidad (ver Sección 12). Funcionalidades iniciales: autodiagnóstico en las 12 áreas, conexión con la Familia Mentora asignada, seguimiento de indicadores básicos. Sin inteligencia artificial todavía — primero datos, después algoritmos.
 
@@ -1730,7 +1732,7 @@ La Fase 1 es donde PLANSAL se juega la vida. Si los 10 pilotos no muestran resul
 
 **Acciones clave:**
 
-- **10 Centros de Vitalidad operativos:** Uno por barrio piloto. Infraestructura según Sección 9: cocinas comunitarias, espacios de movimiento, huertas, salas de acompañamiento, tecnología de medición. Gobernanza comunitaria desde el día uno — no centros del Estado sino centros del barrio.
+- **10 Centros de Vitalidad operativos:** Uno por barrio piloto. Infraestructura según Sección 8: cocinas comunitarias, espacios de movimiento, huertas, salas de acompañamiento, tecnología de medición. Gobernanza comunitaria desde el día uno — no centros del Estado sino centros del barrio.
 
 - **1.000 Familias Mentoras activas:** Efecto multiplicador: cada una de las 100 originales forma a 9 nuevas. La transmisión horizontal comienza a funcionar como red, no como programa.
 
@@ -1740,7 +1742,7 @@ La Fase 1 es donde PLANSAL se juega la vida. Si los 10 pilotos no muestran resul
 
 - **Primeros resultados publicados:** Si los pilotos funcionan, los datos se publican en revistas científicas nacionales e internacionales. Si no funcionan, también. PLANSAL no manipula evidencia — la genera y la comparte.
 
-- **Pilotos con obras sociales:** Convenio con 2-3 obras sociales para testear el modelo de financiamiento cruzado (Sección 11). La obra social financia parte del Centro a cambio de reducción verificable en costos de atención de sus afiliados en ese barrio.
+- **Pilotos con obras sociales:** Convenio con 2-3 obras sociales para testear el modelo de financiamiento cruzado (Sección 10). La obra social financia parte del Centro a cambio de reducción verificable en costos de atención de sus afiliados en ese barrio.
 
 - **Reforma curricular universitaria:** Convenio con al menos 3 facultades de Medicina para introducir módulos de vitalidad comunitaria, epigenética del estilo de vida y determinantes sociales de la salud. No se reemplaza ninguna materia — se agrega lo que falta.
 
@@ -1805,7 +1807,7 @@ La estrategia rural tiene cuatro componentes:
 
 ---
 
-## SECCIÓN 18 · ANÁLISIS DE RIESGOS
+## SECCIÓN 18: ANÁLISIS DE RIESGOS
 
 > *"No es valiente el que no tiene miedo, sino el que sabe lo que le espera y se prepara igual."*
 > — Proverbio criollo
@@ -1827,7 +1829,7 @@ PLANSAL va a enfrentar resistencia. No porque esté equivocado — sino porque a
 
 ### 18.2 · Los tres riesgos críticos — análisis narrativo
 
-**El caso mediático adverso.** Es el riesgo más peligroso porque puede destruir la legitimidad de PLANSAL en 24 horas de ciclo noticioso. El escenario: una persona que siguió el proceso de des-medicalización acompañada (Sección 10.2) sufre un evento cardiovascular o una crisis diabética. Los medios titulan: "Dejó los remedios por consejo de un 'guía de vitalidad' y terminó en terapia intensiva." No importa que el protocolo haya sido riguroso, que el médico tratante haya participado, que los indicadores biológicos se hayan monitoreado. El titular ya está escrito.
+**El caso mediático adverso.** Es el riesgo más peligroso porque puede destruir la legitimidad de PLANSAL en 24 horas de ciclo noticioso. El escenario: una persona que siguió el proceso de des-medicalización acompañada (Sección 9.2) sufre un evento cardiovascular o una crisis diabética. Los medios titulan: "Dejó los remedios por consejo de un 'guía de vitalidad' y terminó en terapia intensiva." No importa que el protocolo haya sido riguroso, que el médico tratante haya participado, que los indicadores biológicos se hayan monitoreado. El titular ya está escrito.
 
 **Mitigación proactiva:** Cada caso de des-medicalización tiene documentación completa — firmada por el paciente, el Guía de Vitalidad y el médico tratante. Los indicadores biológicos se registran en la Plataforma con timestamp inmutable. Si ocurre un evento adverso, la ANVIP tiene 6 horas para publicar la documentación completa del caso (anonimizada). Transparencia total, inmediata, sin esperar a que la narrativa se consolide. Además: en la Fase 0 se capacita a un equipo de comunicación de crisis con experiencia en salud pública. No improvisamos frente al primer incendio mediático.
 
@@ -1839,7 +1841,7 @@ PLANSAL va a enfrentar resistencia. No porque esté equivocado — sino porque a
 
 ---
 
-## SECCIÓN 19 · RESPUESTA A CRÍTICAS
+## SECCIÓN 19: RESPUESTA A CRÍTICAS
 
 > *"La verdad no tiene miedo a las preguntas. El que se ofende cuando lo cuestionan es porque sabe que su posición no resiste el escrutinio."*
 
@@ -1871,7 +1873,7 @@ PLANSAL no es anti-ciencia. PLANSAL es lo que pasa cuando tomás la ciencia en s
 
 > *"La gente va a dejar de tomar los medicamentos y se va a morir. Están jugando con vidas."*
 
-La Ruta de Des-medicalización Acompañada (Sección 10.2) es explícita en un principio que no admite excepción: **nunca se retira ninguna medicación sin evidencia biológica de que ya no es necesaria.** Nunca. Bajo ninguna circunstancia. Sin importar cuánto haya mejorado la persona subjetivamente.
+La Ruta de Des-medicalización Acompañada (Sección 9.2) es explícita en un principio que no admite excepción: **nunca se retira ninguna medicación sin evidencia biológica de que ya no es necesaria.** Nunca. Bajo ninguna circunstancia. Sin importar cuánto haya mejorado la persona subjetivamente.
 
 El proceso funciona así: la persona mejora sus hábitos de vida con acompañamiento del Guía de Vitalidad y la Familia Mentora. Sus indicadores biológicos se miden regularmente — hemoglobina glicosilada, presión arterial, perfil lipídico, marcadores inflamatorios, cortisol, los que correspondan. Cuando los indicadores muestran mejora sostenida durante un período definido por protocolo, **el médico tratante** (no el Guía, no la Familia Mentora — el médico) evalúa si corresponde reducir medicación. El proceso es gradual, monitoreado y reversible.
 
@@ -1885,9 +1887,9 @@ Esto es lo opuesto a "dejar los remedios." Esto es: "mejorar tu vida hasta que t
 
 > *"Esto es culpar a la víctima. Le están diciendo a la gente pobre que se enferma porque quiere."*
 
-No. Leé el Preámbulo. Leé la Sección 2. Leé la Sección 3. PLANSAL empieza diciendo que **el sistema enferma a la gente** — que la Fábrica de Enfermos tiene cinco fases y que cada una es diseñada por fuerzas que exceden al individuo. La comida industrial no es elección — es lo que hay cuando no hay tiempo, dinero ni energía para otra cosa. El sedentarismo no es pereza — es lo que produce un trabajo de diez horas más dos de transporte. La soledad no es antisociabilidad — es lo que queda cuando la comunidad fue destruida por el individualismo económico.
+No. Leé el Preámbulo. Leé la Sección 1. Leé la Sección 2. PLANSAL empieza diciendo que **el sistema enferma a la gente** — que la Fábrica de Enfermos tiene cinco fases y que cada una es diseñada por fuerzas que exceden al individuo. La comida industrial no es elección — es lo que hay cuando no hay tiempo, dinero ni energía para otra cosa. El sedentarismo no es pereza — es lo que produce un trabajo de diez horas más dos de transporte. La soledad no es antisociabilidad — es lo que queda cuando la comunidad fue destruida por el individualismo económico.
 
-PLANSAL empieza por ahí. El Pacto de Co-responsabilidad (Sección 6) tiene como primer firmante al Estado: "Me comprometo a dejar de envenenarte." Primero el Estado cambia — regulación alimentaria, espacios públicos, tiempo libre, condiciones laborales. Después el ciudadano elige.
+PLANSAL empieza por ahí. El Pacto de Co-responsabilidad (Sección 5) tiene como primer firmante al Estado: "Me comprometo a dejar de envenenarte." Primero el Estado cambia — regulación alimentaria, espacios públicos, tiempo libre, condiciones laborales. Después el ciudadano elige.
 
 Pero — y esto es fundamental — reconocer que una persona tiene agencia no es culparla. Decir "podés mejorar tu alimentación, tu movimiento, tus vínculos, tu relación con las pantallas" no es decir "es tu culpa que estés enfermo." Es decir: "el sistema te enfermó, pero vos tenés poder para sanarte — y ahora vas a tener las herramientas para hacerlo."
 
@@ -1903,7 +1905,7 @@ No estamos reemplazando a nadie. Estamos creando una profesión que atiende lo q
 
 Un médico estudia seis años de grado más tres a siete de especialización para diagnosticar enfermedades, interpretar estudios, realizar procedimientos y salvar vidas en situaciones agudas. Eso es extraordinario y PLANSAL no lo toca — lo protege. Lo que PLANSAL dice es que ese profesional altamente capacitado no debería estar gastando el 70% de su consulta explicándole a alguien que tiene que comer mejor, moverse más y bajarle al estrés. No es para eso que se formó. No es en eso que es bueno. Y no tiene tiempo para hacerlo bien.
 
-El Guía de Vitalidad atiende lo que el médico no puede ni debe atender: el acompañamiento sostenido en cambio de hábitos, la facilitación comunitaria, la lectura integral de las 12 dimensiones de la vida, la conexión con la Familia Mentora. Su formación de 6 meses (Sección 9) es intensiva en epigenética aplicada, psiconeuroinmunología básica, nutrición comunitaria, facilitación grupal y lectura de indicadores biológicos — no para diagnosticar, sino para acompañar.
+El Guía de Vitalidad atiende lo que el médico no puede ni debe atender: el acompañamiento sostenido en cambio de hábitos, la facilitación comunitaria, la lectura integral de las 12 dimensiones de la vida, la conexión con la Familia Mentora. Su formación de 6 meses (Sección 8) es intensiva en epigenética aplicada, psiconeuroinmunología básica, nutrición comunitaria, facilitación grupal y lectura de indicadores biológicos — no para diagnosticar, sino para acompañar.
 
 No estamos reemplazando al médico. Estamos liberándolo de un rol que lo agota, lo frustra y lo subutiliza. Preguntale a cualquier médico de guardia si preferiría atender emergencias reales o pasarse la mañana renovando recetas de metformina — te va a contestar en un segundo.
 
@@ -1913,7 +1915,7 @@ No estamos reemplazando al médico. Estamos liberándolo de un rol que lo agota,
 
 > *"Esto es utópico. Suena lindo pero no hay plata para financiarlo. Con lo que cuesta el sistema actual, ¿de dónde sale la plata para otro sistema encima?"*
 
-La Sección 11 detalla los números. Pero el resumen es devastadoramente simple:
+La Sección 10 detalla los números. Pero el resumen es devastadoramente simple:
 
 Argentina gasta aproximadamente USD 26.000 millones por año en enfermedad crónica prevenible — medicamentos, hospitalizaciones, estudios diagnósticos, licencias laborales, productividad perdida. Eso es lo que cuesta la Fábrica de Enfermos cada año.
 
@@ -1978,11 +1980,11 @@ PLANSAL no es el Estado diciéndote cómo vivir. Es el Estado dejando de ser có
 
 ---
 
-## SECCIÓN 20 · ESTRATEGIA DE COMUNICACIÓN
+## SECCIÓN 20: ESTRATEGIA DE COMUNICACIÓN
 
 > *"No alcanza con tener razón. Hay que saber contarla. Porque la verdad sin narrativa pierde contra la mentira con presupuesto publicitario."*
 
-PLANSAL enfrenta un desafío comunicacional único entre todos los PLANes del marco BASTA: propone un cambio de paradigma que puede ser fácilmente caricaturizado. "Quieren reemplazar médicos con vecinas que hacen yoga." "Quieren que cures la diabetes con ensalada." "Son anti-ciencia." La brecha entre lo que PLANSAL realmente propone y lo que sus opositores van a decir que propone es enorme — y en esa brecha se juega todo.
+PLANSAL enfrenta un desafío comunicacional único entre todos los PLANes del marco ¡BASTA!: propone un cambio de paradigma que puede ser fácilmente caricaturizado. "Quieren reemplazar médicos con vecinas que hacen yoga." "Quieren que cures la diabetes con ensalada." "Son anti-ciencia." La brecha entre lo que PLANSAL realmente propone y lo que sus opositores van a decir que propone es enorme — y en esa brecha se juega todo.
 
 La estrategia de comunicación tiene que cerrar esa brecha antes de que se abra.
 
@@ -2056,11 +2058,11 @@ La comunicación de PLANSAL no es marketing. No es propaganda. Es la verdad cont
 
 ---
 
-## SECCIÓN 21 · INTEGRACIÓN BASTA
+## SECCIÓN 21: INTEGRACIÓN ¡BASTA!
 
 > *"Ningún órgano sana solo. El cuerpo es un sistema — y una nación también."*
 
-PLANSAL no existe en el vacío. Es el plan que revela en el cuerpo lo que los otros planes construyen en el territorio, en la tierra, en las aulas, en el trabajo y en los tribunales. Si BASTA es una arquitectura de diez mandatos para que el pueblo gobierne y el gobierno ejecute, PLANSAL es el mandato que atraviesa todos los demás — porque donde los otros planes transforman estructuras, PLANSAL mide el resultado en la única infraestructura que importa: el ser humano vivo.
+PLANSAL no existe en el vacío. Es el plan que revela en el cuerpo lo que los otros planes construyen en el territorio, en la tierra, en las aulas, en el trabajo y en los tribunales. Si ¡BASTA! es una arquitectura de 22 PLANes (al 23 de abril de 2026) para que el pueblo gobierne y el gobierno ejecute, PLANSAL (octavo en el orden estratégico de lanzamiento) es el plan que atraviesa todos los demás — porque donde los otros planes transforman estructuras, PLANSAL mide el resultado en la única infraestructura que importa: el ser humano vivo.
 
 La articulación no es teórica. Es operativa, concreta, verificable:
 
@@ -2068,7 +2070,7 @@ La articulación no es teórica. Es operativa, concreta, verificable:
 
 **PLANISV (Suelo Vivo) → Raíz 2: Alimentación.** PLANISV reconstruye el suelo argentino devastado por décadas de monocultivo y glifosato. PLANSAL necesita ese suelo vivo porque los Centros de Vitalidad no pueden enseñar a comer bien si no existe comida real. Las huertas comunitarias de cada Centro se alimentan de semillas, técnicas y protocolos que PLANISV desarrolla. La regulación de agroquímicos que PLANISV impulsa es, en términos sanitarios, la mayor intervención preventiva posible: dejar de envenenar la cadena alimentaria antes de pretender que la gente se sane. PLANISV y PLANSAL son dos caras de la misma moneda — una regenera la tierra, la otra regenera el cuerpo que come de esa tierra.
 
-**PLANEDU (Educación) → Raíces 8 y 12: Aprendizaje y Comunidad.** PLANEDU transforma la escuela de fábrica de obediencia en espacio de autoconocimiento. Dentro de esa transformación, PLANSAL inserta tres ejes: educación alimentaria real desde los 4 años (Sección 4 — Los 1.000 Días), educación emocional y corporal como materia troncal, y formación de Guías de Vitalidad en universidades públicas. La escuela es la infraestructura de prevención más temprana que existe. Si un chico aprende a cocinar, a respirar conscientemente y a resolver conflictos sin violencia antes de los 12 años, la Fábrica de Enfermos pierde a su futuro cliente.
+**PLANEDU (Educación) → Raíces 8 y 12: Aprendizaje y Comunidad.** PLANEDU transforma la escuela de fábrica de obediencia en espacio de autoconocimiento. Dentro de esa transformación, PLANSAL inserta tres ejes: educación alimentaria real desde los 4 años (Sección 3 — Los 1.000 Días), educación emocional y corporal como materia troncal, y formación de Guías de Vitalidad en universidades públicas. La escuela es la infraestructura de prevención más temprana que existe. Si un chico aprende a cocinar, a respirar conscientemente y a resolver conflictos sin violencia antes de los 12 años, la Fábrica de Enfermos pierde a su futuro cliente.
 
 **PLANREP (Trabajo Vivo) → Raíz 6: Propósito.** PLANREP libera a millones de personas de empleos que las vacían. PLANSAL les ofrece destino: los Centros de Vitalidad son fuente de empleo digno para trabajadores reconvertidos — cocineros comunitarios, facilitadores de movimiento, acompañantes emocionales, gestores de huerta, coordinadores de Familias Mentoras. Cada persona que deja un trabajo sin sentido y encuentra propósito en un Centro no solo deja de enfermarse: se convierte en agente de salud para otros. La reconversión laboral que PLANREP organiza y la reconversión sanitaria que PLANSAL propone son el mismo movimiento visto desde dos ángulos.
 
@@ -2076,13 +2078,13 @@ La articulación no es teórica. Es operativa, concreta, verificable:
 
 ---
 
-PLANSAL es el plan que hace visible a BASTA en el cuerpo. Sin salud, las ciudades de PLAN24CN son contenedores hermosos para gente enferma. Sin salud, la educación de PLANEDU forma mentes brillantes atrapadas en cuerpos rotos. Sin salud, el trabajo digno de PLANREP es un derecho que nadie tiene energía para ejercer. Y sin los otros planes, PLANSAL pelea solo contra una fábrica que lo supera en todos los frentes.
+PLANSAL es el plan que hace visible a ¡BASTA! en el cuerpo. Sin salud, las ciudades de PLAN24CN son contenedores hermosos para gente enferma. Sin salud, la educación de PLANEDU forma mentes brillantes atrapadas en cuerpos rotos. Sin salud, el trabajo digno de PLANREP es un derecho que nadie tiene energía para ejercer. Y sin los otros planes, PLANSAL pelea solo contra una fábrica que lo supera en todos los frentes.
 
-BASTA funciona como sistema porque la vida funciona como sistema. Y el cuerpo humano es donde ese sistema triunfa o fracasa. Cada latido, cada respiración, cada noche de sueño profundo o de insomnio angustiado es el veredicto en tiempo real de si la arquitectura está funcionando. PLANSAL no mide indicadores — mide personas. Y las personas no mienten.
+¡BASTA! funciona como sistema porque la vida funciona como sistema. Y el cuerpo humano es donde ese sistema triunfa o fracasa. Cada latido, cada respiración, cada noche de sueño profundo o de insomnio angustiado es el veredicto en tiempo real de si la arquitectura está funcionando. PLANSAL no mide indicadores — mide personas. Y las personas no mienten.
 
 ---
 
-## SECCIÓN 22 · VISIÓN 2040
+## SECCIÓN 22: VISIÓN 2040
 
 > *"Hay quienes miran las cosas como son y preguntan por qué. Yo sueño con cosas que nunca fueron y pregunto por qué no."*
 > — George Bernard Shaw
