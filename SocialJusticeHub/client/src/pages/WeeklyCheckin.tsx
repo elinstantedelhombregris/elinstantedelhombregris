@@ -10,9 +10,15 @@ import { ArrowLeft, ArrowRight, CheckCircle, Loader2 } from 'lucide-react';
 import { apiRequest } from '@/lib/queryClient';
 import { useQueryClient } from '@tanstack/react-query';
 import { Link, useLocation } from 'wouter';
+import { cn } from '@/lib/utils';
+import {
+  ACCENT_BUTTON,
+  DISPLAY_GRADIENT,
+  GLASS_CARD,
+} from '@/lib/design-tokens';
 
 const MOOD_OPTIONS = [
-  { value: 1, emoji: '\u{1F614}', label: 'Dificil' },
+  { value: 1, emoji: '\u{1F614}', label: 'Difícil' },
   { value: 2, emoji: '\u{1F615}', label: 'Complicada' },
   { value: 3, emoji: '\u{1F610}', label: 'Normal' },
   { value: 4, emoji: '\u{1F642}', label: 'Buena' },
@@ -45,7 +51,7 @@ const WeeklyCheckin = () => {
       <div className="min-h-screen bg-[#0a0a0a] text-slate-200">
         <Header />
         <div className="flex items-center justify-center min-h-[60vh]">
-          <Button className="bg-blue-600" onClick={() => window.location.href = '/login'}>Iniciar sesion</Button>
+          <Button className={ACCENT_BUTTON} onClick={() => window.location.href = '/login'}>Iniciar sesión</Button>
         </div>
         <Footer />
       </div>
@@ -86,18 +92,19 @@ const WeeklyCheckin = () => {
   const steps = [
     // Step 0: Mood
     <motion.div key="mood" initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -30 }}>
-      <h2 className="text-2xl font-serif font-bold text-white mb-2">¿Como fue tu semana?</h2>
-      <p className="text-slate-400 text-sm mb-8">Selecciona lo que mejor describa tu estado general.</p>
+      <h2 className="text-2xl font-serif font-bold text-white mb-2">¿Cómo fue tu semana?</h2>
+      <p className="text-slate-400 text-sm mb-8">Seleccioná lo que mejor describa tu estado general.</p>
       <div className="flex justify-center gap-4">
         {MOOD_OPTIONS.map(option => (
           <button
             key={option.value}
             onClick={() => setMood(option.value)}
-            className={`flex flex-col items-center gap-2 p-4 rounded-xl border transition-all ${
+            className={cn(
+              'flex flex-col items-center gap-2 p-4 rounded-xl border transition-all duration-300',
               mood === option.value
-                ? 'bg-blue-500/20 border-blue-500/50 scale-110'
+                ? 'bg-violet-500/20 border-violet-500/50 scale-110'
                 : 'bg-white/5 border-white/10 hover:bg-white/10'
-            }`}
+            )}
           >
             <span className="text-3xl">{option.emoji}</span>
             <span className="text-xs text-slate-400">{option.label}</span>
@@ -108,18 +115,19 @@ const WeeklyCheckin = () => {
 
     // Step 1: Progress
     <motion.div key="progress" initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -30 }}>
-      <h2 className="text-2xl font-serif font-bold text-white mb-2">¿Cuanto avanzaste en tus metas?</h2>
+      <h2 className="text-2xl font-serif font-bold text-white mb-2">¿Cuánto avanzaste en tus metas?</h2>
       <p className="text-slate-400 text-sm mb-8">No importa si fue poco, lo que cuenta es la honestidad.</p>
       <div className="flex justify-center gap-3">
         {PROGRESS_OPTIONS.map(option => (
           <button
             key={option.value}
             onClick={() => setProgressRating(option.value)}
-            className={`px-5 py-3 rounded-xl border text-sm font-medium transition-all ${
+            className={cn(
+              'px-5 py-3 rounded-xl border text-sm font-medium transition-all duration-300',
               progressRating === option.value
-                ? 'bg-blue-500/20 border-blue-500/50 text-blue-300'
+                ? 'bg-violet-500/20 border-violet-500/50 text-violet-200'
                 : 'bg-white/5 border-white/10 text-slate-400 hover:bg-white/10'
-            }`}
+            )}
           >
             {option.label}
           </button>
@@ -129,37 +137,37 @@ const WeeklyCheckin = () => {
 
     // Step 2: Highlight
     <motion.div key="highlight" initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -30 }}>
-      <h2 className="text-2xl font-serif font-bold text-white mb-2">¿Que fue lo mejor de tu semana?</h2>
-      <p className="text-slate-400 text-sm mb-6">Puede ser algo pequeño. Reconocer logros refuerza la motivacion.</p>
+      <h2 className="text-2xl font-serif font-bold text-white mb-2">¿Qué fue lo mejor de tu semana?</h2>
+      <p className="text-slate-400 text-sm mb-6">Puede ser algo pequeño. Reconocer logros refuerza la motivación.</p>
       <Textarea
-        placeholder="Lo que mas rescato de esta semana..."
+        placeholder="Lo que más rescato de esta semana..."
         value={highlight}
         onChange={(e) => setHighlight(e.target.value)}
-        className="bg-white/5 border-white/10 text-white min-h-[120px]"
+        className="bg-white/5 border-white/10 text-white min-h-[120px] focus:border-violet-500/50"
       />
     </motion.div>,
 
     // Step 3: Challenge
     <motion.div key="challenge" initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -30 }}>
-      <h2 className="text-2xl font-serif font-bold text-white mb-2">¿Que te costo mas?</h2>
-      <p className="text-slate-400 text-sm mb-6">Identificar obstaculos es el primer paso para superarlos.</p>
+      <h2 className="text-2xl font-serif font-bold text-white mb-2">¿Qué te costó más?</h2>
+      <p className="text-slate-400 text-sm mb-6">Identificar obstáculos es el primer paso para superarlos.</p>
       <Textarea
-        placeholder="Lo que mas me costo esta semana..."
+        placeholder="Lo que más me costó esta semana..."
         value={challenge}
         onChange={(e) => setChallenge(e.target.value)}
-        className="bg-white/5 border-white/10 text-white min-h-[120px]"
+        className="bg-white/5 border-white/10 text-white min-h-[120px] focus:border-violet-500/50"
       />
     </motion.div>,
 
     // Step 4: Next week
     <motion.div key="next" initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -30 }}>
-      <h2 className="text-2xl font-serif font-bold text-white mb-2">¿Que queres lograr la semana que viene?</h2>
-      <p className="text-slate-400 text-sm mb-6">Una sola intencion clara vale mas que diez vagas.</p>
+      <h2 className="text-2xl font-serif font-bold text-white mb-2">¿Qué querés lograr la semana que viene?</h2>
+      <p className="text-slate-400 text-sm mb-6">Una sola intención clara vale más que diez vagas.</p>
       <Textarea
-        placeholder="Mi intencion para la semana que viene..."
+        placeholder="Mi intención para la semana que viene..."
         value={nextWeekIntention}
         onChange={(e) => setNextWeekIntention(e.target.value)}
-        className="bg-white/5 border-white/10 text-white min-h-[120px]"
+        className="bg-white/5 border-white/10 text-white min-h-[120px] focus:border-violet-500/50"
       />
     </motion.div>,
   ];
@@ -170,11 +178,12 @@ const WeeklyCheckin = () => {
         <Header />
         <div className="max-w-lg mx-auto px-4 py-20 text-center">
           <motion.div initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}>
+            {/* success state = emerald (rule 6) */}
             <CheckCircle className="h-16 w-16 text-emerald-400 mx-auto mb-6" />
             <h1 className="text-3xl font-serif font-bold text-white mb-3">Check-in completado</h1>
-            <p className="text-slate-400 mb-8">Tu reflexion semanal fue registrada. Nos vemos la semana que viene.</p>
+            <p className="text-slate-400 mb-8">Tu reflexión semanal fue registrada. Nos vemos la semana que viene.</p>
             <Link href="/dashboard">
-              <Button className="bg-blue-600 hover:bg-blue-500 text-white font-bold px-8">
+              <Button className={cn('font-bold px-8', ACCENT_BUTTON)}>
                 Volver al panel
               </Button>
             </Link>
@@ -198,7 +207,7 @@ const WeeklyCheckin = () => {
             </Button>
           </Link>
           <div>
-            <h1 className="text-2xl font-serif font-bold text-white">Check-in Semanal</h1>
+            <h1 className={cn('text-2xl font-serif font-bold', DISPLAY_GRADIENT)}>Check-in Semanal</h1>
             <p className="text-slate-500 text-xs mt-1">Semana del {new Date(weekOf).toLocaleDateString('es-AR')}</p>
           </div>
         </div>
@@ -208,9 +217,10 @@ const WeeklyCheckin = () => {
           {steps.map((_, idx) => (
             <div
               key={idx}
-              className={`w-2 h-2 rounded-full transition-all ${
-                idx === step ? 'bg-blue-500 w-6' : idx < step ? 'bg-blue-500/50' : 'bg-white/10'
-              }`}
+              className={cn(
+                'h-2 rounded-full transition-all duration-300',
+                idx === step ? 'w-6 bg-violet-500' : idx < step ? 'w-2 bg-violet-500/40' : 'w-2 bg-white/10'
+              )}
             />
           ))}
         </div>
@@ -232,7 +242,7 @@ const WeeklyCheckin = () => {
           {step < steps.length - 1 ? (
             <Button
               onClick={() => setStep(s => s + 1)}
-              className="bg-blue-600 hover:bg-blue-500 text-white font-bold px-8 h-11 rounded-xl"
+              className={cn('font-bold px-8 h-11 rounded-xl', ACCENT_BUTTON)}
             >
               Siguiente
               <ArrowRight className="ml-2 h-4 w-4" />
@@ -241,7 +251,8 @@ const WeeklyCheckin = () => {
             <Button
               onClick={handleSubmit}
               disabled={isSubmitting}
-              className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-8 h-11 rounded-xl"
+              /* final submit = success action — emerald (rule 6) */
+              className="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-8 h-11 rounded-xl transition-colors duration-300"
             >
               {isSubmitting ? <Loader2 className="h-5 w-5 animate-spin" /> : 'Enviar check-in'}
             </Button>
