@@ -75,9 +75,6 @@ const LaVision = () => {
                 <span className={SECTION_BADGE}>
                   Qué es ¡BASTA! y cómo funciona
                 </span>
-                <span className="text-[11px] text-slate-500 tracking-wide">
-                  Paso 1 de 6 del viaje
-                </span>
                 <JourneyBadge step={1} />
               </motion.div>
 
