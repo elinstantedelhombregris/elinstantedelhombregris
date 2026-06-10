@@ -21,6 +21,12 @@ import {
   type CivicDimension,
   type DimensionKey,
 } from '@shared/civic-assessment-questions';
+import { cn } from '@/lib/utils';
+import {
+  ACCENT_BUTTON,
+  DISPLAY_GRADIENT,
+  GLASS_CARD,
+} from '@/lib/design-tokens';
 
 interface ResponseData {
   questionKey: string;
@@ -203,9 +209,9 @@ const CivicAssessment = () => {
         <Header />
         <div className="flex items-center justify-center min-h-[60vh]">
           <div className="text-center">
-            <h2 className="text-xl font-serif text-slate-100">Inicia sesion para hacer la evaluacion</h2>
-            <Button className="mt-4 bg-blue-600 hover:bg-blue-700" onClick={() => window.location.href = '/login'}>
-              Iniciar sesion
+            <h2 className="text-xl font-serif text-slate-100">Iniciá sesión para hacer la evaluación</h2>
+            <Button className={cn('mt-4', ACCENT_BUTTON)} onClick={() => window.location.href = '/login'}>
+              Iniciar sesión
             </Button>
           </div>
         </div>
@@ -217,7 +223,7 @@ const CivicAssessment = () => {
   if (isLoading) {
     return (
       <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-blue-500" />
+        <Loader2 className="h-8 w-8 animate-spin text-violet-400" />
       </div>
     );
   }
@@ -231,7 +237,7 @@ const CivicAssessment = () => {
       {/* Progress bar - hide on intro and results */}
       {currentStep > 0 && currentStep < totalSteps - 1 && (
         <div className="fixed top-[72px] left-0 right-0 z-40">
-          <Progress value={progressPercent} className="h-1 rounded-none bg-white/5" />
+          <Progress value={progressPercent} className="h-1 rounded-none bg-white/5" indicatorClassName="bg-violet-500" />
         </div>
       )}
 
@@ -247,19 +253,19 @@ const CivicAssessment = () => {
               className="text-center py-16"
             >
               <div className="text-5xl mb-6">&#x1F9ED;</div>
-              <h1 className="text-4xl md:text-5xl font-serif font-bold text-white mb-4">
-                Evaluacion Civica
+              <h1 className="text-4xl md:text-5xl font-serif font-bold mb-4">
+                <span className={DISPLAY_GRADIENT}>Evaluación Cívica</span>
               </h1>
               <p className="text-slate-400 max-w-lg mx-auto mb-3 leading-relaxed">
-                36 preguntas en 6 dimensiones para descubrir tu perfil civico.
+                36 preguntas en 6 dimensiones para descubrir tu perfil cívico.
                 No hay respuestas correctas ni incorrectas.
               </p>
               <p className="text-slate-500 text-sm mb-8">
-                Dura aproximadamente 10-15 minutos. Tus respuestas se guardan automaticamente.
+                Dura aproximadamente 10-15 minutos. Tus respuestas se guardan automáticamente.
               </p>
               <Button
                 onClick={goNext}
-                className="bg-blue-600 hover:bg-blue-500 text-white font-bold px-10 h-14 rounded-xl text-lg shadow-[0_0_30px_rgba(37,99,235,0.3)]"
+                className={cn('font-bold px-10 h-14 rounded-xl text-lg', ACCENT_BUTTON)}
               >
                 Empezar
                 <ArrowRight className="ml-2 h-5 w-5" />
@@ -283,7 +289,7 @@ const CivicAssessment = () => {
               <div className="flex justify-center mt-8">
                 <Button
                   onClick={goNext}
-                  className="bg-white/10 hover:bg-white/20 text-white font-bold px-8 h-12 rounded-xl border border-white/10"
+                  className="bg-white/10 hover:bg-white/20 text-white font-bold px-8 h-12 rounded-xl border border-white/10 transition-colors duration-300"
                 >
                   Continuar
                   <ArrowRight className="ml-2 h-4 w-4" />
@@ -303,6 +309,7 @@ const CivicAssessment = () => {
               className="py-8"
             >
               <div className="flex items-center gap-2 mb-8">
+                {/* dimension color dot = identity/data encoding for dimension (rule 6) */}
                 <div className="w-3 h-3 rounded-full" style={{ backgroundColor: currentStepData.dimension?.color }} />
                 <span className="text-xs font-mono text-slate-500 uppercase tracking-wider">
                   {currentStepData.dimension?.name}
@@ -363,7 +370,7 @@ const CivicAssessment = () => {
                 <Button
                   onClick={goNext}
                   disabled={!isCurrentAnswered() || isSubmitting}
-                  className="bg-blue-600 hover:bg-blue-500 text-white font-bold px-8 h-12 rounded-xl disabled:opacity-50"
+                  className={cn('font-bold px-8 h-12 rounded-xl disabled:opacity-50', ACCENT_BUTTON)}
                 >
                   {isSubmitting ? (
                     <Loader2 className="h-5 w-5 animate-spin" />
