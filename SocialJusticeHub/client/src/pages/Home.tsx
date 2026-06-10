@@ -62,23 +62,14 @@ const differentiators = [
   {
     title: 'Sin caudillo, sin aparato',
     text: 'No hay nadie a quien seguir. Hay infraestructura que la ciudadanía opera. ¿Quién la sostiene? El hombre gris: alguien común que se salió de la grieta y eligió construir en vez de pelear. No es uno — somos muchos. Si mañana desaparecemos, las herramientas quedan.',
-    borderColor: 'border-l-blue-500',
-    dotColor: 'bg-blue-400',
-    numColor: 'text-blue-500/[0.07]',
   },
   {
     title: 'Planes, no consignas',
     text: 'Cada propuesta tiene diseño, presupuesto, métricas y mecanismo de rendición de cuentas. No pedimos que nos crean — pedimos que lo lean.',
-    borderColor: 'border-l-amber-500',
-    dotColor: 'bg-amber-400',
-    numColor: 'text-amber-500/[0.07]',
   },
   {
     title: 'Arranca con vos',
     text: 'No arranca con una marcha ni un voto. Arranca con tu diagnóstico, tu visión, tu territorio. El sistema se construye de abajo hacia arriba.',
-    borderColor: 'border-l-emerald-500',
-    dotColor: 'bg-emerald-400',
-    numColor: 'text-emerald-500/[0.07]',
   },
 ] as const;
 
@@ -314,11 +305,10 @@ const Home = () => {
         </section>
 
         {/* ═══ 3. POR QUÉ ES DISTINTO — Differentiators ═══════════════ */}
-        <section className="py-28 md:py-36 bg-[#0a0a0a] relative overflow-hidden">
+        <section className="py-20 md:py-28 bg-[#0a0a0a] relative overflow-hidden">
           {/* Background */}
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0d0d14] to-transparent" />
-          <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-purple-900/[0.05] rounded-full blur-[180px] pointer-events-none" />
-          <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-blue-900/[0.04] rounded-full blur-[150px] pointer-events-none" />
+          <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-[#7D5BDE]/[0.04] rounded-full blur-[180px] pointer-events-none" />
 
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-4xl mx-auto">
@@ -330,13 +320,13 @@ const Home = () => {
                 transition={{ duration: 0.7 }}
                 className="text-center mb-16 md:mb-20"
               >
-                <span className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/[0.08] text-[11px] uppercase tracking-[0.3em] text-purple-300/70 mb-6">
+                <span className={`${SECTION_BADGE} mb-6`}>
                   Por qué es distinto
                 </span>
                 <h2 className="text-4xl md:text-[3.5rem] lg:text-6xl font-black text-white mb-6 tracking-tight leading-[0.95]">
                   No hay líder. No hay partido.
                   <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">
+                  <span className={DISPLAY_GRADIENT}>
                     Hay método.
                   </span>
                 </h2>
@@ -354,10 +344,10 @@ const Home = () => {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: "-60px" }}
                     transition={{ duration: 0.6, delay: i * 0.12 }}
-                    className={`relative border-l-4 ${d.borderColor} pl-7 md:pl-9 py-2`}
+                    className="relative border-l-4 border-l-white/25 pl-7 md:pl-9 py-2"
                   >
                     {/* Ghost number */}
-                    <span className={`absolute -top-4 right-0 text-[5rem] md:text-[6rem] font-black ${d.numColor} leading-none select-none pointer-events-none`}>
+                    <span className="absolute -top-4 right-0 text-[5rem] md:text-[6rem] font-black text-white/[0.04] leading-none select-none pointer-events-none">
                       {String(i + 1).padStart(2, '0')}
                     </span>
 
@@ -379,7 +369,7 @@ const Home = () => {
                 transition={{ duration: 0.7 }}
                 className="text-center max-w-3xl mx-auto"
               >
-                <p className="text-xl md:text-2xl font-serif italic text-slate-300/90 leading-relaxed">
+                <p className={`text-xl md:text-2xl leading-relaxed ${PULL_QUOTE}`}>
                   La pregunta no es quién promete más.
                   <br />
                   Es si estás dispuesto a mirar lo que ya se está construyendo.
