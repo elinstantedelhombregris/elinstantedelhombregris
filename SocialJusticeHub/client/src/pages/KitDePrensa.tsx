@@ -636,7 +636,7 @@ Todo es abierto. Todo es auditable. Todo el código es público. El movimiento s
               className={`${GLASS_CARD} p-8`}
             >
               <h3 className="text-lg font-semibold mb-6 flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-[#7D5BDE] animate-pulse" />
+                <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                 Datos en vivo de la plataforma
               </h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6">

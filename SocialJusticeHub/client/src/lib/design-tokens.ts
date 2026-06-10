@@ -7,6 +7,8 @@
 /** Violeta iris — único color de acción (CTAs, links, hovers, focus). */
 export const ACCENT = '#7D5BDE';
 export const ACCENT_HOVER = '#8D6FE4';
+/** Tinte legible del acento para texto/links sobre fondo oscuro (hover: #B5A3EF). */
+export const ACCENT_TEXT = '#9D85E8';
 
 /** Único tratamiento de título display (línea destacada de H1/H2). */
 export const DISPLAY_GRADIENT =
