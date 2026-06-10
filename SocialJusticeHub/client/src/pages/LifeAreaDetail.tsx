@@ -21,6 +21,7 @@ import { useToast } from '@/hooks/use-toast';
 import { getLifeAreaIcon } from '@/lib/lucide-icon-registry';
 import { getScoreVerdict, getGapAnalysis, getAreaNarrative } from '@/lib/life-area-insights';
 import { fadeUp, staggerContainer } from '@/lib/motion-variants';
+import { ACCENT_BUTTON, GLASS_CARD } from '@/lib/design-tokens';
 
 import { lifeAreaStudyContent, type AreaStudyContent } from '../../../shared/life-area-study-content';
 
@@ -129,7 +130,7 @@ const LifeAreaDetail = () => {
       <div className="min-h-screen bg-[#0a0a0a]">
         <Header />
         <div className="flex items-center justify-center min-h-[60vh]">
-          <Loader2 className="w-8 h-8 animate-spin text-blue-400" />
+          <Loader2 className="w-8 h-8 animate-spin" style={{ color: '#7D5BDE' }} />
         </div>
         <Footer />
       </div>
@@ -245,7 +246,7 @@ const LifeAreaDetail = () => {
 
           {/* No score CTA */}
           {!hasScore && (
-            <Card className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 border-blue-500/20 mb-8">
+            <Card className={`${GLASS_CARD} mb-8`}>
               <CardContent className="pt-6">
                 <div className="flex items-center justify-between gap-4">
                   <div>
@@ -255,7 +256,7 @@ const LifeAreaDetail = () => {
                   <Button
                     onClick={() => setLocation(`/life-areas/${areaId}/quiz`)}
                     size="lg"
-                    className="bg-blue-600 hover:bg-blue-500 shrink-0"
+                    className={`${ACCENT_BUTTON} shrink-0`}
                   >
                     <PlayCircle className="w-5 h-5 mr-2" />
                     Comenzar
@@ -284,7 +285,7 @@ const LifeAreaDetail = () => {
                       <span>Actual</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <div className="w-2.5 h-2.5 rounded-full border border-purple-400 bg-transparent" />
+                      <div className="w-2.5 h-2.5 rounded-full border bg-transparent" style={{ borderColor: '#9D85E8' }} />
                       <span>Deseado</span>
                     </div>
                   </div>
@@ -356,7 +357,7 @@ const LifeAreaDetail = () => {
           className="mb-12"
         >
           <div className="flex items-center gap-2 mb-4">
-            <Zap className="w-5 h-5 text-blue-400" />
+            <Zap className="w-5 h-5" style={{ color: '#9D85E8' }} />
             <h2 className="text-xl font-bold text-white">Que podes hacer</h2>
             {actions && actions.length > 0 && (
               <Badge variant="outline" className="border-white/10 text-slate-400 text-xs ml-auto">
@@ -428,7 +429,7 @@ const LifeAreaDetail = () => {
                       className="w-full flex items-center justify-between p-4 text-left hover:bg-white/[0.02] transition-colors"
                     >
                       <div className="flex items-center gap-3">
-                        <PIcon className="w-4 h-4 text-blue-400" />
+                        <PIcon className="w-4 h-4" style={{ color: '#9D85E8' }} />
                         <span className="text-sm font-medium text-slate-200">{perspectiveLabels[key]}</span>
                       </div>
                       {isOpen ? <ChevronUp className="w-4 h-4 text-slate-500" /> : <ChevronDown className="w-4 h-4 text-slate-500" />}
@@ -545,9 +546,10 @@ const LifeAreaDetail = () => {
                 {actionHistory.slice(0, 8).map((ap: any) => (
                   <div key={ap.id} className="flex items-center justify-between p-3 rounded-xl border border-white/5 bg-white/[0.02]">
                     <div className="flex items-center gap-3 min-w-0">
-                      <CheckCircle className={`w-4 h-4 shrink-0 ${
-                        ap.status === 'completed' ? 'text-emerald-400' : 'text-blue-400'
-                      }`} />
+                      <CheckCircle
+                        className="w-4 h-4 shrink-0"
+                        style={{ color: ap.status === 'completed' ? '#34d399' : '#9D85E8' }}
+                      />
                       <div className="min-w-0">
                         <p className="text-sm text-slate-200 truncate">{ap.action?.title}</p>
                         <p className="text-xs text-slate-500">
@@ -561,9 +563,10 @@ const LifeAreaDetail = () => {
                     </div>
                     <Badge
                       variant="outline"
-                      className={`shrink-0 text-[10px] ${
-                        ap.status === 'completed' ? 'text-emerald-400 border-emerald-500/20' : 'text-blue-400 border-blue-500/20'
-                      }`}
+                      className="shrink-0 text-[10px]"
+                      style={ap.status === 'completed'
+                        ? { color: '#34d399', borderColor: 'rgba(52,211,153,0.20)' }
+                        : { color: '#9D85E8', borderColor: 'rgba(125,91,222,0.20)' }}
                     >
                       {ap.status === 'completed' ? 'Completada' : 'En progreso'}
                     </Badge>
