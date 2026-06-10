@@ -34,7 +34,7 @@ const NextStepCard = ({
           >
             <div className={`relative bg-gradient-to-br ${gradient} border border-white/[0.08] rounded-2xl overflow-hidden`}>
               {/* Top accent */}
-              <div className="h-[2px] bg-gradient-to-r from-blue-500/40 via-purple-500/30 to-transparent" />
+              <div className="h-[2px] bg-gradient-to-r from-[#7D5BDE]/40 to-transparent" />
 
               <div className="p-8 md:p-12">
                 <div className="flex flex-col md:flex-row items-center gap-6">
