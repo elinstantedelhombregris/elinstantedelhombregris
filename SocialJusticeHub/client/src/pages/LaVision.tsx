@@ -10,6 +10,13 @@ import { JourneyBadge } from '@/components/ui/JourneyBadge';
 import { StatusBadge } from '@/components/ui/StatusBadge';
 import { Link } from 'wouter';
 import { MoonStar, ArrowRight } from 'lucide-react';
+import {
+  ACCENT_BUTTON,
+  DISPLAY_GRADIENT,
+  GLASS_CARD,
+  SECTION_BADGE,
+  SECTION_PAD,
+} from '@/lib/design-tokens';
 
 const LaVision = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -45,24 +52,16 @@ const LaVision = () => {
   }, []);
 
   return (
-    <div className={`min-h-screen bg-[#0a0a0a] text-slate-200 selection:bg-blue-500/30 transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+    <div className={`min-h-screen bg-[#0a0a0a] text-slate-200 selection:bg-[#7D5BDE]/30 transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
       <Header />
       <main className="overflow-hidden">
 
         {/* ═══ 1. THE FRAME BREAK ═══════════════════════════════════════ */}
         <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden pt-20">
-          {/* Layered ambient lighting */}
+          {/* Single violet ambient blob */}
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[600px] bg-blue-900/[0.06] rounded-full blur-[180px]" />
-            <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-purple-900/[0.04] rounded-full blur-[150px]" />
+            <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[600px] bg-[#7D5BDE]/[0.05] rounded-full blur-[180px]" />
           </div>
-          {/* Dot pattern */}
-          <div className="absolute inset-0 opacity-20 pointer-events-none"
-            style={{
-              backgroundImage: `radial-gradient(circle, rgba(148,163,184,0.12) 1px, transparent 1px)`,
-              backgroundSize: '60px 60px'
-            }}
-          />
 
           <div className="container-content relative z-10">
             <div className="max-w-3xl mx-auto text-center">
@@ -70,10 +69,14 @@ const LaVision = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1.2, delay: 0.5 }}
-                className="mb-4 flex flex-col items-center gap-3"
+                className="mb-4 flex flex-col items-center gap-2"
               >
-                <span className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/[0.08] text-[11px] uppercase tracking-[0.3em] text-blue-300/70">
+                {/* Single merged badge — both kicker and step info */}
+                <span className={SECTION_BADGE}>
                   Qué es ¡BASTA! y cómo funciona
+                </span>
+                <span className="text-[11px] text-slate-500 tracking-wide">
+                  Paso 1 de 6 del viaje
                 </span>
                 <JourneyBadge step={1} />
               </motion.div>
@@ -86,7 +89,7 @@ const LaVision = () => {
               >
                 <span className="text-white">La</span>
                 <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400">
+                <span className={DISPLAY_GRADIENT}>
                   Visión
                 </span>
               </motion.h1>
@@ -112,7 +115,7 @@ const LaVision = () => {
                 <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-black text-white leading-[1.1] tracking-tight">
                   ¿Y si tu rol nunca fue elegir
                   <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400">
+                  <span className={DISPLAY_GRADIENT}>
                     — sino diseñar?
                   </span>
                 </h2>
@@ -143,12 +146,10 @@ const LaVision = () => {
         </section>
 
         {/* ═══ 2. THE INVITATION TO DESIGN ══════════════════════════════ */}
-        <section className="py-28 md:py-36 relative overflow-hidden border-t border-white/5">
-          {/* Ambient lighting */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#0d0d14] to-[#0a0a0a] pointer-events-none" />
+        <section className={`${SECTION_PAD} relative overflow-hidden border-t border-white/5`}>
+          {/* Single violet ambient blob */}
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-purple-900/[0.05] rounded-full blur-[180px]" />
-            <div className="absolute bottom-1/3 left-0 w-[400px] h-[400px] bg-blue-900/[0.04] rounded-full blur-[150px]" />
+            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#7D5BDE]/[0.05] rounded-full blur-[180px]" />
           </div>
 
           <div className="container-content relative z-10">
@@ -160,7 +161,7 @@ const LaVision = () => {
                 transition={{ duration: 0.8 }}
                 className="space-y-8"
               >
-                <span className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/[0.08] text-[11px] uppercase tracking-[0.3em] text-purple-300/70 mb-2">
+                <span className={`${SECTION_BADGE} mb-2`}>
                   Diseño idealizado
                 </span>
 
@@ -204,9 +205,9 @@ const LaVision = () => {
                 {/* Three role statements */}
                 <div className="mt-20 grid md:grid-cols-3 gap-10 text-center max-w-3xl mx-auto">
                   {[
-                    { role: "El Ciudadano", action: "DEFINE", desc: "el propósito y el destino", color: "text-blue-400" },
-                    { role: "El Estado", action: "ADMINISTRA", desc: "los recursos para llegar", color: "text-purple-400" },
-                    { role: "La Política", action: "EJECUTA", desc: "las soluciones técnicas", color: "text-emerald-400" }
+                    { role: "El Ciudadano", action: "DEFINE", desc: "el propósito y el destino" },
+                    { role: "El Estado", action: "ADMINISTRA", desc: "los recursos para llegar" },
+                    { role: "La Política", action: "EJECUTA", desc: "las soluciones técnicas" }
                   ].map((item, i) => (
                     <motion.div
                       key={i}
@@ -216,7 +217,7 @@ const LaVision = () => {
                       transition={{ delay: i * 0.15, duration: 0.6 }}
                     >
                       <p className="text-xs text-slate-500 uppercase tracking-[0.25em] mb-3">{item.role}</p>
-                      <p className={`text-2xl font-black ${item.color} mb-2`}>{item.action}</p>
+                      <p className="text-2xl font-black text-[#9D85E8] mb-2">{item.action}</p>
                       <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
                     </motion.div>
                   ))}
@@ -227,11 +228,10 @@ const LaVision = () => {
         </section>
 
         {/* ═══ 3. THE PROCESS — ¿Y cómo se hace? ═══════════════════════ */}
-        <section className="py-28 md:py-36 relative overflow-hidden border-t border-white/5">
-          {/* Ambient lighting */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-indigo-900/[0.06] to-[#0a0a0a] pointer-events-none" />
+        <section className={`${SECTION_PAD} relative overflow-hidden border-t border-white/5`}>
+          {/* Single violet ambient blob */}
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-indigo-900/[0.05] rounded-full blur-[160px]" />
+            <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-[#7D5BDE]/[0.05] rounded-full blur-[160px]" />
           </div>
 
           <div className="container-content relative z-10">
@@ -243,7 +243,7 @@ const LaVision = () => {
                 transition={{ duration: 0.8 }}
                 className="space-y-8"
               >
-                <span className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/[0.08] text-[11px] uppercase tracking-[0.3em] text-indigo-300/70 mb-2">
+                <span className={`${SECTION_BADGE} mb-2`}>
                   El proceso
                 </span>
 
@@ -271,7 +271,7 @@ const LaVision = () => {
                     },
                   ].map((step) => (
                     <div key={step.num} className="flex gap-5 items-start">
-                      <span className="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-500/10 border border-indigo-400/30 flex items-center justify-center text-indigo-300 font-black">
+                      <span className="flex-shrink-0 w-10 h-10 rounded-full bg-[#7D5BDE]/10 border border-[#7D5BDE]/30 flex items-center justify-center text-[#9D85E8] font-black">
                         {step.num}
                       </span>
                       <div>
@@ -283,7 +283,7 @@ const LaVision = () => {
                 </div>
 
                 {/* La demostración: los 22 planes */}
-                <div className="rounded-2xl bg-white/[0.03] backdrop-blur-sm border border-white/[0.08] p-8 space-y-4">
+                <div className={`${GLASS_CARD} backdrop-blur-sm p-8 space-y-4`}>
                   <div className="flex items-center gap-3 flex-wrap">
                     <h3 className="text-xl font-bold text-white">¿Y esto funciona de verdad?</h3>
                     <StatusBadge status="ejercicio" />
@@ -298,7 +298,7 @@ const LaVision = () => {
                     No son promesas ni un programa de gobierno. Son un ejemplo de lo que produce el método.
                     Ahora imaginate ese mismo ejercicio hecho entre millones.
                   </p>
-                  <Link href="/recursos/ruta" className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 font-semibold transition-colors pt-2">
+                  <Link href="/recursos/ruta" className="inline-flex items-center gap-2 text-[#9D85E8] hover:text-[#8D6FE4] font-semibold transition-colors duration-300 pt-2">
                     Ver los 22 planes de ejemplo <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
@@ -308,11 +308,10 @@ const LaVision = () => {
         </section>
 
         {/* ═══ 4. QUIET PROOF — Ya está pasando ════════════════════════ */}
-        <section className="py-28 md:py-36 relative overflow-hidden border-t border-white/5">
-          {/* Ambient lighting */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-emerald-900/[0.04] to-[#0a0a0a] pointer-events-none" />
+        <section className={`${SECTION_PAD} relative overflow-hidden border-t border-white/5`}>
+          {/* Single violet ambient blob */}
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute bottom-1/3 right-1/4 w-[500px] h-[500px] bg-emerald-900/[0.04] rounded-full blur-[160px]" />
+            <div className="absolute bottom-1/3 right-1/4 w-[500px] h-[500px] bg-[#7D5BDE]/[0.05] rounded-full blur-[160px]" />
           </div>
 
           <div className="container-content relative z-10">
@@ -324,7 +323,7 @@ const LaVision = () => {
                 transition={{ duration: 0.8 }}
                 className="space-y-8"
               >
-                <span className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/[0.08] text-[11px] uppercase tracking-[0.3em] text-emerald-300/70 mb-2">
+                <span className={`${SECTION_BADGE} mb-2`}>
                   En marcha
                 </span>
 
@@ -356,7 +355,7 @@ const LaVision = () => {
                   </p>
                 )}
 
-                <div className="rounded-2xl bg-white/[0.03] backdrop-blur-sm border border-white/[0.08] p-8 space-y-5">
+                <div className={`${GLASS_CARD} backdrop-blur-sm p-8 space-y-5`}>
                   <p className="text-lg text-slate-300/90 leading-relaxed font-medium">
                     Vamos a ser honestos con lo que sabemos y lo que no.
                   </p>
@@ -383,8 +382,7 @@ const LaVision = () => {
 
         {/* ═══ 5. THE CONTINUATION — Into El Hombre Gris ═══════════════ */}
         <section className="py-32 md:py-44 relative overflow-hidden border-t border-white/5">
-          {/* Ambient lighting — shifting to silver/slate for Hombre Gris */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-slate-900/[0.15] to-[#0a0a0a] pointer-events-none" />
+          {/* Ambient slate for Hombre Gris silver transition */}
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-slate-500/[0.04] rounded-full blur-[180px]" />
           </div>
@@ -428,9 +426,9 @@ const LaVision = () => {
 
         <section className="max-w-4xl mx-auto px-4 py-16">
           <div className="space-y-2 mb-8">
-            <p className="uppercase tracking-widest text-xs text-amber-300/80">Pensamiento</p>
+            <p className={`${SECTION_BADGE}`}>Pensamiento</p>
             <h2 className="font-serif text-3xl">La arquitectura, en largo</h2>
-            <p className="text-mist-white/60 max-w-2xl">La visión condensa. El ensayo despliega — capa por capa, rol por rol, lo que ¡BASTA! pretende.</p>
+            <p className="text-slate-400/60 max-w-2xl">La visión condensa. El ensayo despliega — capa por capa, rol por rol, lo que ¡BASTA! pretende.</p>
           </div>
           <EnsayoLinkCard slug="arquitectura" />
         </section>
