@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "socialjusticehub-dev",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["-lc", "cd SocialJusticeHub && npm run dev"],
+      "port": 3001
+    }
+  ]
+}
