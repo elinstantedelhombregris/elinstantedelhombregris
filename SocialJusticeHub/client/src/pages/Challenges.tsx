@@ -10,15 +10,15 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Target, 
-  Search, 
-  Filter, 
-  Clock, 
-  Star, 
-  Heart, 
-  Users, 
-  BookOpen, 
+import {
+  Target,
+  Search,
+  Filter,
+  Clock,
+  Star,
+  Heart,
+  Users,
+  BookOpen,
   TrendingUp,
   Zap,
   CheckCircle2,
@@ -36,6 +36,14 @@ import { useQuery } from '@tanstack/react-query';
 import { apiRequest } from '@/lib/queryClient';
 import { Link } from 'wouter';
 import { cn } from '@/lib/utils';
+import {
+  ACCENT,
+  ACCENT_BUTTON,
+  DISPLAY_GRADIENT,
+  GLASS_CARD,
+  GLASS_CARD_HOVER,
+  SECTION_BADGE,
+} from '@/lib/design-tokens';
 
 interface Challenge {
   id: number;
@@ -104,20 +112,20 @@ const Challenges = () => {
 
   const userLevel = (userStats as any)?.level || 1;
 
-  // Get level info
-  const getLevelInfo = (level: number) => {
-    switch (level) {
-      case 1: return { name: 'Consciencia Individual', missionSubtitle: 'Despertar Cívico', color: 'text-blue-400', border: 'border-blue-500/30', bg: 'bg-blue-500/10', icon: UserIcon };
-      case 2: return { name: 'Núcleo Familiar', missionSubtitle: 'Primera Acción', color: 'text-amber-400', border: 'border-amber-500/30', bg: 'bg-amber-500/10', icon: Users };
-      case 3: return { name: 'Impacto Comunitario', missionSubtitle: 'Ciclo de Evidencia', color: 'text-emerald-400', border: 'border-emerald-500/30', bg: 'bg-emerald-500/10', icon: BookOpen };
-      case 4: return { name: 'Liderazgo Provincial', missionSubtitle: 'Acción Colectiva', color: 'text-purple-400', border: 'border-purple-500/30', bg: 'bg-purple-500/10', icon: TrendingUp };
-      case 5: return { name: 'Visión Nacional', missionSubtitle: 'Impacto Institucional', color: 'text-indigo-400', border: 'border-indigo-500/30', bg: 'bg-indigo-500/10', icon: Star };
-      default: return { name: 'Consciencia Individual', missionSubtitle: 'Despertar Cívico', color: 'text-blue-400', border: 'border-blue-500/30', bg: 'bg-blue-500/10', icon: UserIcon };
-    }
-  };
-
   // Helper for icon component (since we can't use the User component directly from Lucide if it conflicts)
   const UserIcon = Heart; // Fallback or specific icon
+
+  // Get level info — colors are identity data encoding level tiers, kept muted as dots
+  const getLevelInfo = (level: number) => {
+    switch (level) {
+      case 1: return { name: 'Consciencia Individual', missionSubtitle: 'Despertar Cívico', icon: UserIcon };
+      case 2: return { name: 'Núcleo Familiar', missionSubtitle: 'Primera Acción', icon: Users };
+      case 3: return { name: 'Impacto Comunitario', missionSubtitle: 'Ciclo de Evidencia', icon: BookOpen };
+      case 4: return { name: 'Liderazgo Provincial', missionSubtitle: 'Acción Colectiva', icon: TrendingUp };
+      case 5: return { name: 'Visión Nacional', missionSubtitle: 'Impacto Institucional', icon: Star };
+      default: return { name: 'Consciencia Individual', missionSubtitle: 'Despertar Cívico', icon: UserIcon };
+    }
+  };
 
   const getUserProgress = (challengeId: number) => {
     return userProgress.find(p => p.challengeId === challengeId);
@@ -135,7 +143,7 @@ const Challenges = () => {
       const matchesLevel = selectedLevel === 'all' || challenge.level.toString() === selectedLevel;
       const matchesFrequency = selectedFrequency === 'all' || challenge.frequency === selectedFrequency;
       const matchesCategory = selectedCategory === 'all' || challenge.category === selectedCategory;
-      
+
       const progress = getUserProgress(challenge.id);
       let matchesView = true;
       if (viewMode === 'active') matchesView = progress?.status === 'in_progress';
@@ -165,7 +173,10 @@ const Challenges = () => {
           <Lock className="h-16 w-16 mx-auto mb-4 text-slate-600 animate-pulse" />
           <h2 className="text-xl font-serif text-slate-100">Acceso restringido</h2>
           <p className="text-slate-500 mt-2 font-mono text-sm uppercase tracking-widest">Iniciá sesión para ver tus desafíos</p>
-          <Button className="mt-6 bg-blue-600 hover:bg-blue-700 text-white shadow-[0_0_20px_rgba(37,99,235,0.3)]" onClick={() => window.location.href = '/login'}>
+          <Button
+            className={cn('mt-6', ACCENT_BUTTON)}
+            onClick={() => window.location.href = '/login'}
+          >
             Iniciar sesión
           </Button>
         </div>
@@ -174,24 +185,21 @@ const Challenges = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-slate-300 font-sans selection:bg-blue-500/30">
+    <div className="min-h-screen bg-[#0a0a0a] text-slate-300 font-sans selection:bg-violet-500/30">
       <Header />
-      
+
       {/* Hero Section */}
       <div className="relative overflow-hidden border-b border-white/5 bg-[#0a0a0a]">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-purple-900/20 via-[#0a0a0a] to-[#0a0a0a] pointer-events-none" />
-        <div className="absolute top-0 left-0 w-full h-full bg-[url('/grid-pattern.svg')] opacity-[0.03] pointer-events-none" />
-        
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-violet-900/20 via-[#0a0a0a] to-[#0a0a0a] pointer-events-none" />
+
         <div className="max-w-7xl mx-auto px-4 py-12 relative z-10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="text-left">
               <div className="flex items-center gap-3 mb-2">
-                <h1 className="text-4xl md:text-5xl font-bold text-white font-serif tracking-tight">
-                  Desafíos de práctica
+                <h1 className="text-4xl md:text-5xl font-bold font-serif tracking-tight">
+                  <span className={DISPLAY_GRADIENT}>Desafíos de práctica</span>
                 </h1>
-                <Badge variant="outline" className="border-purple-500/30 text-purple-400 bg-purple-500/10 text-[10px] uppercase tracking-wider backdrop-blur-sm">
-                  ACTIVO
-                </Badge>
+                <span className={SECTION_BADGE}>ACTIVO</span>
               </div>
               <p className="text-lg text-slate-400 font-light max-w-2xl leading-relaxed">
                 Elegí desafíos acordes a tu nivel y transformá constancia en progreso real.
@@ -199,15 +207,17 @@ const Challenges = () => {
             </div>
 
             <div className="flex gap-4">
-              <Card className="bg-white/5 border-white/10 backdrop-blur-md w-32">
+              <Card className={cn(GLASS_CARD, 'w-32')}>
                 <CardContent className="p-4 text-center">
                   <div className="text-2xl font-bold text-white font-mono">{activeMissionsCount}</div>
-                  <div className="text-[10px] uppercase tracking-widest text-blue-400 font-bold mt-1">En curso</div>
+                  {/* "En curso" is a status label — accent violet for active state */}
+                  <div className="text-[10px] uppercase tracking-widest font-bold mt-1" style={{ color: '#9D85E8' }}>En curso</div>
                 </CardContent>
               </Card>
-              <Card className="bg-white/5 border-white/10 backdrop-blur-md w-32">
+              <Card className={cn(GLASS_CARD, 'w-32')}>
                 <CardContent className="p-4 text-center">
                   <div className="text-2xl font-bold text-white font-mono">{completedMissionsCount}</div>
+                  {/* "Completados" is a success/completed semantic color — rule 6 exception */}
                   <div className="text-[10px] uppercase tracking-widest text-emerald-400 font-bold mt-1">Completados</div>
                 </CardContent>
               </Card>
@@ -218,7 +228,7 @@ const Challenges = () => {
 
       <div className="max-w-7xl mx-auto px-4 py-8">
         {/* Controls & Filters */}
-        <Card className="mb-8 bg-white/5 border-white/10 backdrop-blur-md shadow-lg">
+        <Card className={cn(GLASS_CARD, 'mb-8 shadow-lg')}>
           <CardContent className="p-6">
             <div className="flex flex-col lg:flex-row gap-6 justify-between items-end">
               <div className="w-full lg:w-auto flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -228,10 +238,10 @@ const Challenges = () => {
                     placeholder="Buscar desafío..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="pl-10 bg-[#0a0a0a] border-white/10 text-slate-200 focus:border-purple-500/50 focus:ring-purple-500/20 h-10"
+                    className="pl-10 bg-[#0a0a0a] border-white/10 text-slate-200 focus:border-violet-500/50 focus:ring-violet-500/20 h-10"
                   />
                 </div>
-                
+
                 <Select value={selectedLevel} onValueChange={setSelectedLevel}>
                   <SelectTrigger className="bg-[#0a0a0a] border-white/10 text-slate-200 h-10">
                     <SelectValue placeholder="Nivel de Acceso" />
@@ -259,21 +269,22 @@ const Challenges = () => {
                 </Select>
 
                 <div className="flex items-center gap-2 bg-[#0a0a0a] p-1 rounded-lg border border-white/10">
-                  <button 
+                  <button
                     onClick={() => setViewMode('all')}
-                    className={cn("flex-1 text-[10px] font-bold uppercase tracking-wider py-1.5 rounded transition-colors", viewMode === 'all' ? "bg-white/10 text-white" : "text-slate-500 hover:text-slate-300")}
+                    className={cn("flex-1 text-[10px] font-bold uppercase tracking-wider py-1.5 rounded transition-colors duration-300", viewMode === 'all' ? "bg-white/10 text-white" : "text-slate-500 hover:text-slate-300")}
                   >
                     Todos
                   </button>
-                  <button 
+                  <button
                     onClick={() => setViewMode('active')}
-                    className={cn("flex-1 text-[10px] font-bold uppercase tracking-wider py-1.5 rounded transition-colors", viewMode === 'active' ? "bg-blue-500/20 text-blue-400" : "text-slate-500 hover:text-slate-300")}
+                    className={cn("flex-1 text-[10px] font-bold uppercase tracking-wider py-1.5 rounded transition-colors duration-300", viewMode === 'active' ? "bg-violet-500/20 text-violet-300" : "text-slate-500 hover:text-slate-300")}
                   >
                     Activos
                   </button>
-                  <button 
+                  <button
                     onClick={() => setViewMode('completed')}
-                    className={cn("flex-1 text-[10px] font-bold uppercase tracking-wider py-1.5 rounded transition-colors", viewMode === 'completed' ? "bg-emerald-500/20 text-emerald-400" : "text-slate-500 hover:text-slate-300")}
+                    /* completed = success semantic (rule 6) */
+                    className={cn("flex-1 text-[10px] font-bold uppercase tracking-wider py-1.5 rounded transition-colors duration-300", viewMode === 'completed' ? "bg-emerald-500/20 text-emerald-400" : "text-slate-500 hover:text-slate-300")}
                   >
                     Listos
                   </button>
@@ -286,16 +297,16 @@ const Challenges = () => {
         {/* Missions Grid */}
         {challengesLoading ? (
           <div className="flex flex-col items-center justify-center py-20">
-            <div className="w-12 h-12 border-2 border-purple-500 border-t-transparent rounded-full animate-spin mb-4"></div>
-            <p className="text-purple-400 font-mono text-sm animate-pulse">CARGANDO DESAFÍOS...</p>
+            <div className="w-12 h-12 border-2 border-violet-500 border-t-transparent rounded-full animate-spin mb-4" />
+            <p className="font-mono text-sm animate-pulse" style={{ color: '#9D85E8' }}>CARGANDO DESAFÍOS...</p>
           </div>
         ) : filteredChallenges.length === 0 ? (
           <div className="text-center py-20 bg-white/5 border border-white/10 rounded-xl backdrop-blur-sm">
             <Crosshair className="h-16 w-16 text-slate-700 mx-auto mb-4" />
             <h3 className="text-xl font-serif text-slate-300 mb-2">No se encontraron desafíos</h3>
             <p className="text-slate-500 font-light">Ajustá los filtros para encontrar opciones relevantes.</p>
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               onClick={() => {
                 setSearchTerm('');
                 setSelectedLevel('all');
@@ -319,17 +330,18 @@ const Challenges = () => {
                 return (
                   <div key={level} className="space-y-6">
                     <div className="flex items-center gap-4 border-b border-white/5 pb-4">
-                      <div className={cn("w-10 h-10 rounded-lg flex items-center justify-center border", levelInfo.bg, levelInfo.border, levelInfo.color)}>
+                      <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-white/5 border border-white/10 text-slate-300">
                         <levelInfo.icon className="h-5 w-5" />
                       </div>
                       <div>
                         <h2 className="text-xl font-bold text-white font-serif tracking-wide">
-                          Nivel {level} // <span className={levelInfo.color}>{levelInfo.name.toUpperCase()}</span>
+                          Nivel {level} // <span className="text-slate-300">{levelInfo.name.toUpperCase()}</span>
                         </h2>
-                        <p className={cn("text-xs font-mono mt-0.5", levelInfo.color, "opacity-60")}>
+                        <p className="text-xs font-mono mt-0.5 text-slate-500">
                           ({levelInfo.missionSubtitle})
                         </p>
                         {!isAvailable && (
+                          /* blocked = destructive/lock semantic (rule 6 — red for blocked state) */
                           <span className="text-xs text-red-400 font-mono flex items-center mt-1">
                             <Lock className="w-3 h-3 mr-1" /> Bloqueado: requiere nivel {level}
                           </span>
@@ -350,20 +362,15 @@ const Challenges = () => {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            whileHover={!isLocked ? { y: -5 } : {}}
                             className="h-full"
                           >
                             <Card className={cn(
-                              "h-full bg-[#0f1115] border border-white/10 overflow-hidden relative group transition-all duration-500",
-                              !isLocked && "hover:border-purple-500/30 hover:shadow-[0_0_30px_rgba(168,85,247,0.15)]",
+                              GLASS_CARD,
+                              'h-full overflow-hidden relative group',
+                              !isLocked && GLASS_CARD_HOVER,
                               isLocked && "opacity-50 grayscale"
                             )}>
-                              {/* Holographic Overlay */}
-                              {!isLocked && (
-                                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-transparent to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-                              )}
-                              
-                              {/* Status Indicator */}
+                              {/* Status Indicator — emerald = completed/success (rule 6) */}
                               {isCompleted && (
                                 <div className="absolute top-0 right-0 p-3 z-20">
                                   <div className="bg-emerald-500/20 text-emerald-400 p-1.5 rounded-full border border-emerald-500/30 shadow-[0_0_15px_rgba(16,185,129,0.3)]">
@@ -376,19 +383,20 @@ const Challenges = () => {
                                 <div className="flex items-start gap-4">
                                   <div className={cn(
                                     "w-12 h-12 rounded-lg flex items-center justify-center border bg-[#0a0a0a] shadow-inner transition-colors duration-300",
-                                    isInProgress ? "border-blue-500/50 text-blue-400" : "border-white/10 text-slate-500 group-hover:text-purple-400 group-hover:border-purple-500/30"
+                                    isInProgress ? "border-violet-500/50 text-violet-300" : "border-white/10 text-slate-500 group-hover:text-violet-300 group-hover:border-violet-500/30"
                                   )}>
                                     <Crosshair className="h-6 w-6" />
                                   </div>
                                   <div className="flex-1 min-w-0">
-                                    <CardTitle className="text-lg font-bold text-slate-200 font-sans leading-tight group-hover:text-white transition-colors mb-1 truncate">
+                                    <CardTitle className="text-lg font-bold text-slate-200 font-sans leading-tight group-hover:text-white transition-colors duration-300 mb-1 truncate">
                                       {challenge.title}
                                     </CardTitle>
                                     <div className="flex items-center gap-2">
                                       <Badge variant="secondary" className="bg-white/5 text-slate-400 border-white/5 text-[9px] font-bold uppercase tracking-wider">
                                         {challenge.frequency}
                                       </Badge>
-                                      <span className="text-[10px] font-mono text-purple-400 font-bold">
+                                      {/* XP gain = progress encoding (rule 6) */}
+                                      <span className="text-[10px] font-mono font-bold" style={{ color: '#9D85E8' }}>
                                         +{challenge.experience} XP
                                       </span>
                                     </div>
@@ -416,14 +424,15 @@ const Challenges = () => {
                                   <div className="space-y-1.5">
                                     <div className="flex justify-between text-[10px] uppercase font-bold tracking-wider text-slate-500">
                                       <span>Progreso del desafío</span>
-                                      <span className={isInProgress ? "text-blue-400" : "text-emerald-400"}>
+                                      {/* in_progress = violet (active), completed = emerald (success rule 6) */}
+                                      <span className={isInProgress ? "text-violet-300" : "text-emerald-400"}>
                                         {Math.round((progress.currentStep / challenge.steps.length) * 100)}%
                                       </span>
                                     </div>
-                                    <Progress 
-                                      value={(progress.currentStep / challenge.steps.length) * 100} 
-                                      className="h-1.5 bg-white/5" 
-                                      indicatorClassName={isInProgress ? "bg-blue-500" : "bg-emerald-500"}
+                                    <Progress
+                                      value={(progress.currentStep / challenge.steps.length) * 100}
+                                      className="h-1.5 bg-white/5"
+                                      indicatorClassName={isInProgress ? "bg-violet-500" : "bg-emerald-500"}
                                     />
                                   </div>
                                 )}
@@ -435,6 +444,7 @@ const Challenges = () => {
                                       Bloqueado
                                     </Button>
                                   ) : isCompleted ? (
+                                    /* completed button = success semantic (rule 6) */
                                     <Button variant="outline" className="w-full border-emerald-500/30 text-emerald-400 bg-emerald-500/5 hover:bg-emerald-500/10">
                                       <Trophy className="h-3 w-3 mr-2" />
                                       COMPLETADO
@@ -442,10 +452,8 @@ const Challenges = () => {
                                   ) : (
                                     <Link href={`/challenges/${challenge.id}`}>
                                       <Button className={cn(
-                                        "w-full font-bold tracking-wide shadow-lg transition-all duration-300 group-hover:translate-y-0",
-                                        isInProgress 
-                                          ? "bg-blue-600 hover:bg-blue-500 text-white shadow-blue-900/30" 
-                                          : "bg-white text-slate-900 hover:bg-purple-50 shadow-white/10"
+                                        "w-full font-bold tracking-wide shadow-lg transition-all duration-300",
+                                        ACCENT_BUTTON
                                       )}>
                                         {isInProgress ? "CONTINUAR DESAFÍO" : "COMENZAR DESAFÍO"}
                                         <ArrowRight className="ml-2 h-4 w-4" />
@@ -465,7 +473,7 @@ const Challenges = () => {
           </div>
         )}
       </div>
-      
+
       <Footer />
     </div>
   );
