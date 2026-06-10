@@ -233,7 +233,7 @@ export default function UnaRutaParaArgentina() {
   );
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white">
+    <div className="min-h-screen bg-[#0a0a0a] text-white overflow-x-hidden">
       <Header />
 
       {/* ═══════════════ HERO ═══════════════ */}
@@ -307,7 +307,7 @@ export default function UnaRutaParaArgentina() {
           </motion.div>
         </div>
 
-        <div ref={cinematicRef}>
+        <div ref={cinematicRef} className="min-h-[100dvh]">
           <CinematicScroll palettes={RUTA_PALETTES} chapters={CHAPTER_TITLES}>
             <CinematicChapter index={0}>
               <FirstChapterSwipeHint />
