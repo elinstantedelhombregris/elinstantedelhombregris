@@ -10,40 +10,29 @@ import {
   Sprout,
 } from 'lucide-react';
 import NextStepCard from '@/components/NextStepCard';
+import {
+  DISPLAY_GRADIENT,
+  GLASS_CARD,
+  GLASS_CARD_HOVER,
+  SECTION_BADGE,
+  SECTION_PAD,
+} from '@/lib/design-tokens';
 
 const greyVisionCards = [
   {
     title: "Leer patrones, no titulares",
     description: "Dejá de consumir el relato que te venden. Mirá los flujos, las causas, los sistemas. ¿Qué se mueve de verdad debajo del ruido? Esto no es cinismo — es atención.",
     icon: <Eye className="w-5 h-5" />,
-    color: 'text-indigo-400',
-    bg: 'bg-indigo-500/10',
-    border: 'border-indigo-500/20',
-    gradient: 'from-indigo-400 to-indigo-600',
-    glow: 'group-hover:shadow-[0_0_40px_rgba(99,102,241,0.12)]',
-    hoverBorder: 'group-hover:border-indigo-500/40',
   },
   {
     title: "Integrar, no polarizar",
     description: "La zona gris entre blanco y negro es donde vive cada solución real. No es tibieza — es síntesis. Tomá lo mejor de cada extremo y construí algo que ningún bando imaginó.",
     icon: <Shield className="w-5 h-5" />,
-    color: 'text-purple-400',
-    bg: 'bg-purple-500/10',
-    border: 'border-purple-500/20',
-    gradient: 'from-purple-400 to-purple-600',
-    glow: 'group-hover:shadow-[0_0_40px_rgba(139,92,246,0.12)]',
-    hoverBorder: 'group-hover:border-purple-500/40',
   },
   {
     title: "Refinar, no reaccionar",
     description: "Como la plata en el fuego, la claridad viene del calor sostenido. No reacciones a la crisis del día. Quedate en el proceso. El reflejo aparece cuando dejás de pestañear.",
     icon: <Lightbulb className="w-5 h-5" />,
-    color: 'text-amber-400',
-    bg: 'bg-amber-500/10',
-    border: 'border-amber-500/20',
-    gradient: 'from-amber-400 to-amber-600',
-    glow: 'group-hover:shadow-[0_0_40px_rgba(245,158,11,0.12)]',
-    hoverBorder: 'group-hover:border-amber-500/40',
   },
 ];
 
@@ -51,20 +40,14 @@ const foundations = [
   {
     title: "Humildad radical",
     text: "No es modestia. No es bajarse. Es precisión: bajás el ruido del ego para ver lo que tenés enfrente. Escuchás antes de hablar. Dejás que gane la mejor idea, aunque no sea tuya. En un país adicto a los caudillos, no tener nombre es el acto más revolucionario posible.",
-    borderColor: 'border-l-blue-500',
-    numColor: 'text-blue-500/[0.07]',
   },
   {
     title: "Amor que reconstruye",
     text: "No el amor de las canciones ni el de los discursos. El amor operativo — el que se levanta a las cinco a construir algo que no va a llevar su firma. El que sostiene al otro sin condiciones y sin cámaras. La fuerza que el gris lleva adentro no es verdad ni razón. Es amor convertido en infraestructura.",
-    borderColor: 'border-l-purple-500',
-    numColor: 'text-purple-500/[0.07]',
   },
   {
     title: "Servicio sin nombre",
     text: "Servir no es caridad y no es un escenario. Es rediseñar la cosa para que funcione para todos y después dar un paso atrás. La infraestructura más fuerte es la que nadie nota porque simplemente funciona. Construís eso — y te vas sin dejar tarjeta.",
-    borderColor: 'border-l-amber-500',
-    numColor: 'text-amber-500/[0.07]',
   },
 ];
 
@@ -75,19 +58,16 @@ const ElInstanteDelHombreGris = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-slate-200 selection:bg-purple-500/30">
+    <div className="min-h-screen bg-[#0a0a0a] text-slate-200 selection:bg-[#7D5BDE]/30">
       <Header />
       <main className="overflow-hidden">
 
         {/* ═══ 1. HERO — The Title Lands ══════════════════════════════ */}
         <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden pt-20">
-          {/* Ambient lighting */}
+          {/* Single violet ambient blob */}
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-slate-500/[0.04] rounded-full blur-[180px]" />
-            <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-purple-900/[0.04] rounded-full blur-[150px]" />
+            <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-[#7D5BDE]/[0.05] rounded-full blur-[180px]" />
           </div>
-          {/* Dot pattern */}
-          <div className="absolute inset-0 pattern-dots opacity-20 pointer-events-none" />
 
           <div className="container-content relative z-10">
             <div className="max-w-3xl mx-auto text-center">
@@ -97,7 +77,7 @@ const ElInstanteDelHombreGris = () => {
                 transition={{ duration: 1.2, delay: 0.5 }}
                 className="mb-4"
               >
-                <span className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/[0.08] text-[11px] uppercase tracking-[0.3em] text-slate-300/70">
+                <span className={SECTION_BADGE}>
                   La filosofía fundacional
                 </span>
               </motion.div>
@@ -110,7 +90,7 @@ const ElInstanteDelHombreGris = () => {
               >
                 <span className="text-white">El Instante del</span>
                 <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-300 via-white to-slate-400">
+                <span className={DISPLAY_GRADIENT}>
                   Hombre Gris
                 </span>
               </motion.h1>
@@ -150,10 +130,9 @@ const ElInstanteDelHombreGris = () => {
         </section>
 
         {/* ═══ 2. EL INSTANTE — The Moment You Can't Undo ═════════════ */}
-        <section className="py-28 md:py-36 relative overflow-hidden border-t border-white/5">
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-slate-900/[0.08] to-[#0a0a0a] pointer-events-none" />
+        <section className={`${SECTION_PAD} relative overflow-hidden border-t border-white/5`}>
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-slate-500/[0.03] rounded-full blur-[160px]" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-[#7D5BDE]/[0.04] rounded-full blur-[160px]" />
           </div>
 
           <div className="container-content relative z-10">
@@ -165,7 +144,7 @@ const ElInstanteDelHombreGris = () => {
                 transition={{ duration: 0.8 }}
                 className="space-y-8"
               >
-                <span className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/[0.08] text-[11px] uppercase tracking-[0.3em] text-slate-300/70 mb-2">
+                <span className={`${SECTION_BADGE} mb-2`}>
                   El instante
                 </span>
 
@@ -195,10 +174,10 @@ const ElInstanteDelHombreGris = () => {
         </section>
 
         {/* ═══ 3. EL HOMBRE — From the Earth, Not the Pedestal ════════ */}
-        <section className="py-28 md:py-36 relative overflow-hidden border-t border-white/5">
+        <section className={`${SECTION_PAD} relative overflow-hidden border-t border-white/5`}>
           <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#0d0d14] to-[#0a0a0a] pointer-events-none" />
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute bottom-1/3 right-1/4 w-[500px] h-[500px] bg-purple-900/[0.03] rounded-full blur-[160px]" />
+            <div className="absolute bottom-1/3 right-1/4 w-[500px] h-[500px] bg-[#7D5BDE]/[0.04] rounded-full blur-[160px]" />
           </div>
 
           <div className="container-content relative z-10">
@@ -210,7 +189,7 @@ const ElInstanteDelHombreGris = () => {
                 transition={{ duration: 0.8 }}
                 className="space-y-8"
               >
-                <span className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/[0.08] text-[11px] uppercase tracking-[0.3em] text-purple-300/70 mb-2">
+                <span className={`${SECTION_BADGE} mb-2`}>
                   El hombre
                 </span>
 
@@ -244,7 +223,7 @@ const ElInstanteDelHombreGris = () => {
         </section>
 
         {/* ═══ 4. EL GRIS — The Silver Beneath ════════════════════════ */}
-        <section className="py-28 md:py-36 relative overflow-hidden border-t border-white/5">
+        <section className={`${SECTION_PAD} relative overflow-hidden border-t border-white/5`}>
           <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#0d0d14] to-[#0a0a0a] pointer-events-none" />
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-slate-500/[0.04] rounded-full blur-[180px]" />
@@ -262,7 +241,7 @@ const ElInstanteDelHombreGris = () => {
                     transition={{ duration: 0.8 }}
                     className="space-y-8"
                   >
-                    <span className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/[0.08] text-[11px] uppercase tracking-[0.3em] text-slate-300/70 mb-2">
+                    <span className={`${SECTION_BADGE} mb-2`}>
                       El gris
                     </span>
 
@@ -340,10 +319,10 @@ const ElInstanteDelHombreGris = () => {
         </section>
 
         {/* ═══ 5. LA MIRADA GRIS — Three Ways of Seeing ═══════════════ */}
-        <section className="py-28 md:py-36 relative overflow-hidden border-t border-white/5">
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-indigo-900/[0.04] to-[#0a0a0a] pointer-events-none" />
+        <section className={`${SECTION_PAD} relative overflow-hidden border-t border-white/5`}>
+          {/* Single violet ambient blob */}
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-indigo-900/[0.05] rounded-full blur-[160px]" />
+            <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-[#7D5BDE]/[0.05] rounded-full blur-[160px]" />
           </div>
 
           <div className="container-content relative z-10">
@@ -356,7 +335,7 @@ const ElInstanteDelHombreGris = () => {
                 transition={{ duration: 0.7 }}
                 className="text-center mb-16 md:mb-20"
               >
-                <span className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/[0.08] text-[11px] uppercase tracking-[0.3em] text-indigo-300/70 mb-6">
+                <span className={`${SECTION_BADGE} mb-6 inline-block`}>
                   La mirada gris
                 </span>
                 <h2 className="text-4xl md:text-[3.5rem] lg:text-6xl font-black text-white mb-6 tracking-tight leading-[0.95]">
@@ -368,38 +347,30 @@ const ElInstanteDelHombreGris = () => {
                 </p>
               </motion.div>
 
-              {/* Cards */}
+              {/* Cards — glass card system */}
               <div className="grid md:grid-cols-3 gap-5 lg:gap-6">
                 {greyVisionCards.map((card, i) => (
                   <motion.div
                     key={card.title}
-                    initial={{ opacity: 0, y: 30, scale: 0.97 }}
-                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-60px" }}
                     transition={{ duration: 0.5, delay: i * 0.1 }}
                     className="group relative"
                   >
-                    <div className={`
-                      relative rounded-2xl bg-white/[0.02] border ${card.border}
-                      ${card.hoverBorder} ${card.glow}
-                      transition-all duration-500 hover:-translate-y-1 overflow-hidden
-                    `}>
-                      {/* Top accent line */}
-                      <div className={`h-[3px] bg-gradient-to-r ${card.gradient} opacity-60 group-hover:opacity-100 transition-opacity duration-500`} />
-
-                      <div className="p-7 md:p-8 relative">
-                        <div className={`w-12 h-12 rounded-xl ${card.bg} flex items-center justify-center mb-5 ${card.color} border ${card.border} group-hover:scale-110 transition-transform duration-500`}>
-                          {card.icon}
-                        </div>
-
-                        <h3 className="text-xl font-bold text-white mb-3 group-hover:text-slate-50 transition-colors">
-                          {card.title}
-                        </h3>
-
-                        <p className="text-slate-400 text-[15px] leading-relaxed">
-                          {card.description}
-                        </p>
+                    <div className={`${GLASS_CARD} ${GLASS_CARD_HOVER} overflow-hidden p-7 md:p-8`}>
+                      {/* Icon chip — neutral */}
+                      <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-5 text-slate-300">
+                        {card.icon}
                       </div>
+
+                      <h3 className="text-xl font-bold text-white mb-3">
+                        {card.title}
+                      </h3>
+
+                      <p className="text-slate-400 text-[15px] leading-relaxed">
+                        {card.description}
+                      </p>
                     </div>
                   </motion.div>
                 ))}
@@ -409,10 +380,11 @@ const ElInstanteDelHombreGris = () => {
         </section>
 
         {/* ═══ 6. LOS CIMIENTOS — What Sustains It ════════════════════ */}
-        <section className="py-28 md:py-36 relative overflow-hidden border-t border-white/5">
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-purple-900/[0.04] to-[#0a0a0a] pointer-events-none" />
-          <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-purple-900/[0.05] rounded-full blur-[180px] pointer-events-none" />
-          <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-blue-900/[0.04] rounded-full blur-[150px] pointer-events-none" />
+        <section className={`${SECTION_PAD} relative overflow-hidden border-t border-white/5`}>
+          {/* Single violet ambient blob */}
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-[#7D5BDE]/[0.05] rounded-full blur-[180px]" />
+          </div>
 
           <div className="container-content relative z-10">
             <div className="max-w-4xl mx-auto">
@@ -424,7 +396,7 @@ const ElInstanteDelHombreGris = () => {
                 transition={{ duration: 0.7 }}
                 className="text-center mb-16 md:mb-20"
               >
-                <span className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/[0.08] text-[11px] uppercase tracking-[0.3em] text-purple-300/70 mb-6">
+                <span className={`${SECTION_BADGE} mb-6 inline-block`}>
                   Los cimientos
                 </span>
                 <h2 className="text-4xl md:text-[3.5rem] lg:text-6xl font-black text-white mb-6 tracking-tight leading-[0.95]">
@@ -445,10 +417,10 @@ const ElInstanteDelHombreGris = () => {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: "-60px" }}
                     transition={{ duration: 0.6, delay: i * 0.12 }}
-                    className={`relative border-l-4 ${f.borderColor} pl-7 md:pl-9 py-2`}
+                    className="relative border-l-4 border-[#7D5BDE]/40 pl-7 md:pl-9 py-2"
                   >
                     {/* Ghost number */}
-                    <span aria-hidden="true" className={`absolute -top-4 right-0 text-[5rem] md:text-[6rem] font-black ${f.numColor} leading-none select-none pointer-events-none`}>
+                    <span aria-hidden="true" className="absolute -top-4 right-0 text-[5rem] md:text-[6rem] font-black text-[#7D5BDE]/[0.07] leading-none select-none pointer-events-none">
                       {String(i + 1).padStart(2, '0')}
                     </span>
 
@@ -476,9 +448,9 @@ const ElInstanteDelHombreGris = () => {
 
         <section className="max-w-4xl mx-auto px-4 py-16">
           <div className="space-y-2 mb-8">
-            <p className="uppercase tracking-widest text-xs text-amber-300/80">Pensamiento</p>
+            <p className={SECTION_BADGE}>Pensamiento</p>
             <h2 className="font-serif text-3xl">Qué soberanía recuperás</h2>
-            <p className="text-mist-white/60 max-w-2xl">El instante es el verbo. Este ensayo es el cuerpo del verbo: atención, voz, agencia, mano, hogar, calle, no.</p>
+            <p className="text-slate-400/60 max-w-2xl">El instante es el verbo. Este ensayo es el cuerpo del verbo: atención, voz, agencia, mano, hogar, calle, no.</p>
           </div>
           <EnsayoLinkCard slug="soberania" />
         </section>
