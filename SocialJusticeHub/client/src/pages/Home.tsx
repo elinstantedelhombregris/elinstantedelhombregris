@@ -103,7 +103,11 @@ const Home = () => {
     window.scrollTo(0, 0);
     document.title = '¡BASTA! — Herramientas ciudadanas para reconstruir la Argentina';
 
-    const handleScroll = () => setShowStickyShare(window.scrollY > 600);
+    const handleScroll = () => {
+      const nearBottom =
+        window.innerHeight + window.scrollY > document.body.scrollHeight - 900;
+      setShowStickyShare(window.scrollY > 600 && !nearBottom);
+    };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -458,11 +462,10 @@ const Home = () => {
         </section>
 
         {/* ═══ 5. TU TURNO — The Close ════════════════════════════════ */}
-        <section className="relative py-28 md:py-36 overflow-hidden">
+        <section className="relative py-20 md:py-28 overflow-hidden">
           {/* Full-width gradient atmosphere */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#10132a] to-[#0a0a0a]" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-blue-600/[0.06] rounded-full blur-[130px] pointer-events-none" />
-          <div className="absolute top-1/3 right-1/4 w-[300px] h-[300px] bg-purple-600/[0.04] rounded-full blur-[100px] pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#15102a] to-[#0a0a0a]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[#7D5BDE]/[0.07] rounded-full blur-[130px] pointer-events-none" />
 
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-3xl mx-auto text-center">
@@ -472,7 +475,7 @@ const Home = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
               >
-                <span className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/[0.08] text-[11px] uppercase tracking-[0.3em] text-blue-300/70 mb-8">
+                <span className={`${SECTION_BADGE} mb-8`}>
                   Tu turno
                 </span>
 
@@ -480,7 +483,7 @@ const Home = () => {
                   No hace falta que creas.
                 </h2>
                 <h2 className="text-4xl md:text-[3.5rem] font-black mb-8 tracking-tight leading-[0.95]">
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+                  <span className={DISPLAY_GRADIENT}>
                     Hace falta que leas.
                   </span>
                 </h2>
@@ -499,7 +502,7 @@ const Home = () => {
                 <Link href="/la-vision">
                   <Button
                     size="lg"
-                    className="relative group bg-blue-600 hover:bg-blue-500 text-white px-10 py-7 rounded-full text-lg font-semibold shadow-[0_0_40px_rgba(37,99,235,0.3)] hover:shadow-[0_0_60px_rgba(37,99,235,0.5)] transition-all duration-500 hover:-translate-y-1 overflow-hidden tracking-wide"
+                    className="relative group bg-[#7D5BDE] hover:bg-[#8D6FE4] text-white px-10 py-7 rounded-full text-lg font-semibold shadow-[0_0_40px_rgba(125,91,222,0.35)] hover:shadow-[0_0_60px_rgba(125,91,222,0.5)] transition-all duration-300 hover:-translate-y-1 overflow-hidden tracking-wide"
                   >
                     <span className="relative z-10 flex items-center">
                       Leer La Visión
@@ -512,7 +515,7 @@ const Home = () => {
 
                 <p className="mt-6 text-sm text-slate-500">
                   ¿Tenés 2 minutos nomás?{' '}
-                  <Link href="/recursos/ruta" className="text-blue-400 hover:text-blue-300 transition-colors font-medium">
+                  <Link href="/recursos/ruta" className="text-[#9D85E8] hover:text-[#B5A3EF] transition-colors font-medium">
                     Mirá los 22 planes de ejemplo →
                   </Link>
                 </p>
@@ -534,7 +537,7 @@ const Home = () => {
             >
               <Button
                 onClick={handleShare}
-                className="rounded-full h-12 px-5 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white shadow-2xl shadow-blue-900/40 flex items-center gap-2.5 transition-transform hover:scale-105"
+                className="rounded-full h-12 w-12 md:w-auto md:px-5 bg-[#7D5BDE] hover:bg-[#8D6FE4] text-white shadow-2xl shadow-[#7D5BDE]/30 flex items-center justify-center gap-2.5 transition-transform duration-300 hover:scale-105"
               >
                 <Share2 className="w-4 h-4" />
                 <span className="font-semibold tracking-wide text-sm hidden md:inline">COMPARTIR</span>
