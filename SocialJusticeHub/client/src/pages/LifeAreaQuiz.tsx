@@ -17,6 +17,7 @@ import { ArrowLeft, ArrowRight, Loader2 } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { getLifeAreaIcon } from '@/lib/lucide-icon-registry';
 import { slideLeft } from '@/lib/motion-variants';
+import { ACCENT_BUTTON, ACCENT_TEXT } from '@/lib/design-tokens';
 
 interface QuizQuestion {
   id: number;
@@ -286,7 +287,7 @@ const LifeAreaQuiz = () => {
       <div className="min-h-screen bg-[#0a0a0a] text-slate-200">
         <Header />
         <div className="flex items-center justify-center min-h-[60vh]">
-          <Loader2 className="w-8 h-8 animate-spin text-blue-400" />
+          <Loader2 className="w-8 h-8 animate-spin" style={{ color: '#7D5BDE' }} />
         </div>
         <Footer />
       </div>
@@ -394,7 +395,7 @@ const LifeAreaQuiz = () => {
                     <Button
                       onClick={advanceFromCurrent}
                       disabled={currentResponse?.current == null}
-                      className="bg-blue-600 hover:bg-blue-500 disabled:opacity-30"
+                      className={`${ACCENT_BUTTON} disabled:opacity-30`}
                     >
                       Siguiente
                       <ArrowRight className="w-4 h-4 ml-2" />
@@ -436,9 +437,9 @@ const LifeAreaQuiz = () => {
               </div>
 
               <Card className="bg-white/5 backdrop-blur-md border-white/10">
-                <div className="h-0.5 bg-purple-500/60" />
+                <div className="h-0.5" style={{ backgroundColor: 'rgba(125,91,222,0.6)' }} />
                 <CardHeader>
-                  <p className="text-xs text-purple-400/70 uppercase tracking-wider mb-1">Tu aspiracion a 6 meses</p>
+                  <p className="text-xs uppercase tracking-wider mb-1" style={{ color: 'rgba(157,133,232,0.7)' }}>Tu aspiracion a 6 meses</p>
                   <CardTitle className="text-lg text-white leading-snug">
                     {currentGroup.desiredQuestion.questionText}
                   </CardTitle>
@@ -456,12 +457,15 @@ const LifeAreaQuiz = () => {
                     <div className="p-3 rounded-lg bg-white/[0.03] border border-white/5">
                       <div className="flex items-center justify-between mb-2">
                         <span className="text-xs text-slate-500">Brecha</span>
-                        <span className={`text-sm font-mono font-medium ${
-                          currentGap <= 0 ? 'text-emerald-400'
-                            : currentGap <= 2 ? 'text-blue-400'
-                            : currentGap <= 5 ? 'text-amber-400'
-                            : 'text-red-400'
-                        }`}>
+                        <span
+                          className="text-sm font-mono font-medium"
+                          style={{ color:
+                            currentGap <= 0 ? '#34d399'
+                              : currentGap <= 2 ? '#9D85E8'
+                              : currentGap <= 5 ? '#fbbf24'
+                              : '#f87171'
+                          }}
+                        >
                           {currentGap <= 0 ? 'Equilibrio' : `${currentGap} pts`}
                         </span>
                       </div>
@@ -475,10 +479,11 @@ const LifeAreaQuiz = () => {
                         />
                         {currentGap > 0 && (
                           <div
-                            className="absolute inset-y-0 rounded-full bg-purple-400/25"
+                            className="absolute inset-y-0 rounded-full"
                             style={{
                               left: `${((currentResponse.current ?? 0) / 10) * 100}%`,
                               width: `${(currentGap / 10) * 100}%`,
+                              backgroundColor: 'rgba(125,91,222,0.25)',
                             }}
                           />
                         )}
@@ -490,11 +495,7 @@ const LifeAreaQuiz = () => {
                     <Button
                       onClick={advanceFromDesired}
                       disabled={currentResponse?.desired == null}
-                      className={`disabled:opacity-30 ${
-                        isLastSubcat
-                          ? 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500'
-                          : 'bg-blue-600 hover:bg-blue-500'
-                      }`}
+                      className={`${ACCENT_BUTTON} disabled:opacity-30`}
                     >
                       {isLastSubcat ? 'Finalizar' : 'Siguiente'}
                       <ArrowRight className="w-4 h-4 ml-2" />
