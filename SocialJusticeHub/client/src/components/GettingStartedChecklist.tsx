@@ -79,15 +79,15 @@ const GettingStartedChecklist: React.FC<Props> = ({
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.2 }}
     >
-      <Card className="bg-white/5 backdrop-blur-md border-white/10 shadow-lg border-l-4 border-l-blue-500 overflow-hidden relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 pointer-events-none" />
+      <Card className="bg-white/5 backdrop-blur-md border-white/10 shadow-lg border-l-4 border-l-[#7D5BDE] overflow-hidden relative">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#7D5BDE]/5 via-transparent to-transparent pointer-events-none" />
         <CardHeader className="pb-3 relative z-10">
           <CardTitle className="flex items-center gap-3 text-lg font-bold text-slate-100 uppercase tracking-wider">
-            <Sparkles className="h-5 w-5 text-blue-400" />
+            <Sparkles className="h-5 w-5 text-[#9D85E8]" />
             Primeros Pasos
           </CardTitle>
           <p className="text-slate-400 text-sm mt-1">
-            Bienvenido/a, <span className="text-blue-300 font-medium">{user.name.split(' ')[0]}</span>.
+            Bienvenido/a, <span className="text-[#9D85E8] font-medium">{user.name.split(' ')[0]}</span>.
             Tu panel se irá llenando a medida que avances.
           </p>
           <div className="flex items-center gap-2 mt-3">
@@ -96,7 +96,7 @@ const GettingStartedChecklist: React.FC<Props> = ({
                 initial={{ width: 0 }}
                 animate={{ width: `${(completedCount / items.length) * 100}%` }}
                 transition={{ duration: 0.8, ease: 'easeOut' }}
-                className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"
+                className="h-full bg-[#7D5BDE] rounded-full"
               />
             </div>
             <span className="text-xs font-mono text-slate-500">{completedCount}/{items.length}</span>
@@ -121,9 +121,9 @@ const GettingStartedChecklist: React.FC<Props> = ({
                     {item.done ? (
                       <CheckCircle className="h-5 w-5 text-emerald-400 flex-shrink-0" />
                     ) : (
-                      <Circle className="h-5 w-5 text-slate-600 flex-shrink-0 group-hover:text-blue-400 transition-colors" />
+                      <Circle className="h-5 w-5 text-slate-600 flex-shrink-0 group-hover:text-[#9D85E8] transition-colors" />
                     )}
-                    <Icon className={`h-4 w-4 flex-shrink-0 ${item.done ? 'text-emerald-400/50' : 'text-slate-500 group-hover:text-blue-400'} transition-colors`} />
+                    <Icon className={`h-4 w-4 flex-shrink-0 ${item.done ? 'text-emerald-400/50' : 'text-slate-500 group-hover:text-[#9D85E8]'} transition-colors`} />
                     <span className={`text-sm flex-1 ${
                       item.done
                         ? 'text-slate-500 line-through'
@@ -132,7 +132,7 @@ const GettingStartedChecklist: React.FC<Props> = ({
                       {item.label}
                     </span>
                     {!item.done && (
-                      <ArrowRight className="h-4 w-4 text-slate-600 opacity-0 group-hover:opacity-100 group-hover:text-blue-400 transition-all" />
+                      <ArrowRight className="h-4 w-4 text-slate-600 opacity-0 group-hover:opacity-100 group-hover:text-[#9D85E8] transition-all" />
                     )}
                   </motion.li>
                 </Link>

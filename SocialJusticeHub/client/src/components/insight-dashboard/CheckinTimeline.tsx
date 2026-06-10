@@ -56,7 +56,7 @@ const CustomTooltip = ({ active, payload }: any) => {
       <p className="text-white">
         {MOOD_LABELS[data.mood]?.emoji} Estado: <span className="font-bold">{MOOD_LABELS[data.mood]?.label}</span>
       </p>
-      <p className="text-blue-300">
+      <p className="text-[#9D85E8]">
         Avance: <span className="font-bold">{PROGRESS_LABELS[data.progress]}</span>
       </p>
     </div>
@@ -102,7 +102,7 @@ export default function CheckinTimeline({ checkins, hasCurrentWeek }: Props) {
     return (
       <Card className="bg-white/5 backdrop-blur-md border-white/10">
         <CardContent className="py-8 text-center">
-          <Calendar className="h-10 w-10 text-blue-500/30 mx-auto mb-4" />
+          <Calendar className="h-10 w-10 text-slate-600 mx-auto mb-4" />
           <h3 className="text-lg font-serif font-bold text-white mb-2">Check-in Semanal</h3>
           <p className="text-slate-400 text-sm mb-1 max-w-sm mx-auto">
             Registra como fue tu semana para ver tu evolucion en el tiempo.
@@ -111,7 +111,7 @@ export default function CheckinTimeline({ checkins, hasCurrentWeek }: Props) {
             Cada check-in queda guardado y construye tu historial
           </p>
           <Link href="/checkin-semanal">
-            <Button className="bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold uppercase tracking-wider px-6 h-10 rounded-xl">
+            <Button className="bg-[#7D5BDE] hover:bg-[#8D6FE4] text-white text-xs font-bold uppercase tracking-wider px-6 h-10 rounded-xl">
               Hacer mi primer check-in
               <ArrowRight className="ml-2 h-3.5 w-3.5" />
             </Button>
@@ -126,12 +126,12 @@ export default function CheckinTimeline({ checkins, hasCurrentWeek }: Props) {
       <CardHeader className="pb-3 border-b border-white/5">
         <div className="flex items-center justify-between">
           <CardTitle className="flex items-center gap-2 text-sm font-bold text-slate-200 uppercase tracking-wider">
-            <Calendar className="h-4 w-4 text-blue-400" />
+            <Calendar className="h-4 w-4 text-[#9D85E8]" />
             Evolucion Semanal
           </CardTitle>
           {!hasCurrentWeek && (
             <Link href="/checkin-semanal">
-              <Button size="sm" className="bg-blue-600 hover:bg-blue-500 text-white text-[10px] font-bold uppercase tracking-wider h-7 px-3 rounded-lg">
+              <Button size="sm" className="bg-[#7D5BDE] hover:bg-[#8D6FE4] text-white text-[10px] font-bold uppercase tracking-wider h-7 px-3 rounded-lg">
                 Check-in
               </Button>
             </Link>
@@ -186,8 +186,8 @@ export default function CheckinTimeline({ checkins, hasCurrentWeek }: Props) {
                 <AreaChart data={chartData} margin={{ top: 5, right: 5, bottom: 0, left: -20 }}>
                   <defs>
                     <linearGradient id="moodGrad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#3b82f6" stopOpacity={0.3} />
-                      <stop offset="100%" stopColor="#3b82f6" stopOpacity={0} />
+                      <stop offset="0%" stopColor="#7D5BDE" stopOpacity={0.3} />
+                      <stop offset="100%" stopColor="#7D5BDE" stopOpacity={0} />
                     </linearGradient>
                     <linearGradient id="progressGrad" x1="0" y1="0" x2="0" y2="1">
                       <stop offset="0%" stopColor="#10b981" stopOpacity={0.3} />
@@ -211,11 +211,11 @@ export default function CheckinTimeline({ checkins, hasCurrentWeek }: Props) {
                   <Area
                     type="monotone"
                     dataKey="mood"
-                    stroke="#3b82f6"
+                    stroke="#7D5BDE"
                     strokeWidth={2}
                     fill="url(#moodGrad)"
-                    dot={{ r: 3, fill: '#3b82f6', strokeWidth: 0 }}
-                    activeDot={{ r: 5, fill: '#3b82f6', stroke: '#0a0a0a', strokeWidth: 2 }}
+                    dot={{ r: 3, fill: '#7D5BDE', strokeWidth: 0 }}
+                    activeDot={{ r: 5, fill: '#7D5BDE', stroke: '#0a0a0a', strokeWidth: 2 }}
                   />
                   <Area
                     type="monotone"
@@ -231,7 +231,7 @@ export default function CheckinTimeline({ checkins, hasCurrentWeek }: Props) {
             </div>
             <div className="flex items-center justify-center gap-4 mt-2">
               <div className="flex items-center gap-1.5">
-                <div className="w-2.5 h-2.5 rounded-full bg-blue-500" />
+                <div className="w-2.5 h-2.5 rounded-full bg-[#7D5BDE]" />
                 <span className="text-[10px] text-slate-500">Estado</span>
               </div>
               <div className="flex items-center gap-1.5">
@@ -280,7 +280,7 @@ export default function CheckinTimeline({ checkins, hasCurrentWeek }: Props) {
                   )}
                   {checkin.nextWeekIntention && (
                     <p className="text-xs text-slate-400">
-                      <span className="text-blue-400/70 font-bold text-[10px] uppercase mr-1">Intencion:</span>
+                      <span className="text-[#9D85E8]/70 font-bold text-[10px] uppercase mr-1">Intencion:</span>
                       {checkin.nextWeekIntention}
                     </p>
                   )}

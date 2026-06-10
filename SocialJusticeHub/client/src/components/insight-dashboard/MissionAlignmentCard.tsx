@@ -93,11 +93,11 @@ export default function MissionAlignmentCard({ data }: MissionAlignmentCardProps
   if (data.currentMemberships.length > 0) {
     const membership = data.currentMemberships[0];
     return (
-      <Card className="bg-[#0f1115] border-0 shadow-[0_0_30px_rgba(0,0,0,0.4)] border-l-4 border-l-blue-500">
+      <Card className="bg-[#0f1115] border-0 shadow-[0_0_30px_rgba(0,0,0,0.4)] border-l-4 border-l-[#7D5BDE]">
         <CardContent className="py-5">
           <div className="flex items-center gap-3 mb-3">
-            <div className="w-8 h-8 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center">
-              <ShieldCheck className="h-4 w-4 text-blue-400" />
+            <div className="w-8 h-8 rounded-lg bg-[#7D5BDE]/10 border border-[#7D5BDE]/20 flex items-center justify-center">
+              <ShieldCheck className="h-4 w-4 text-[#9D85E8]" />
             </div>
             <div>
               <h3 className="text-sm font-bold text-slate-200 uppercase tracking-wide">Tu mision activa</h3>
@@ -111,7 +111,7 @@ export default function MissionAlignmentCard({ data }: MissionAlignmentCardProps
             )}
           </p>
           <Link href={`/mision/${membership.missionSlug}`}>
-            <Button variant="outline" size="sm" className="text-xs border-blue-500/30 text-blue-300 hover:bg-blue-500/10">
+            <Button variant="outline" size="sm" className="text-xs border-[#7D5BDE]/30 text-[#9D85E8] hover:bg-[#7D5BDE]/10">
               Ir a la mision
               <ArrowRight className="h-3 w-3 ml-1" />
             </Button>
@@ -123,25 +123,25 @@ export default function MissionAlignmentCard({ data }: MissionAlignmentCardProps
 
   // State A: Has profile + life areas, NOT a member
   return (
-    <Card className="bg-[#0f1115] border-0 shadow-[0_0_30px_rgba(0,0,0,0.4)] border-l-4 border-l-amber-500 overflow-hidden relative">
-      <div className="absolute -right-16 -top-16 w-48 h-48 bg-amber-500/10 rounded-full blur-3xl" />
+    <Card className="bg-[#0f1115] border-0 shadow-[0_0_30px_rgba(0,0,0,0.4)] border-l-4 border-l-[#7D5BDE] overflow-hidden relative">
+      <div className="absolute -right-16 -top-16 w-48 h-48 bg-[#7D5BDE]/10 rounded-full blur-3xl" />
       <CardContent className="py-5 relative z-10">
         <div className="flex items-center gap-3 mb-3">
-          <div className="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center">
-            <MapPin className="h-4 w-4 text-amber-400" />
+          <div className="w-8 h-8 rounded-lg bg-[#7D5BDE]/10 border border-[#7D5BDE]/20 flex items-center justify-center">
+            <MapPin className="h-4 w-4 text-[#9D85E8]" />
           </div>
           <h3 className="text-sm font-bold text-slate-200 uppercase tracking-wide">Mision recomendada</h3>
         </div>
 
         <p className="text-white text-sm font-medium mb-1">
           {data.recommendedMission.number > 0 && (
-            <span className="text-amber-500 mr-1">#{data.recommendedMission.number}</span>
+            <span className="text-[#9D85E8] mr-1">#{data.recommendedMission.number}</span>
           )}
           {data.recommendedMission.label}
         </p>
 
         <p className="text-slate-500 text-xs mb-1">
-          Tu arquetipo sugiere el rol de <span className="text-amber-300">{data.recommendedRoleLabel}</span>
+          Tu arquetipo sugiere el rol de <span className="text-[#9D85E8]">{data.recommendedRoleLabel}</span>
         </p>
 
         {data.weakestLifeArea && (
@@ -156,7 +156,7 @@ export default function MissionAlignmentCard({ data }: MissionAlignmentCardProps
         {data.recommendedMission.postId ? (
           <Button
             size="sm"
-            className="text-xs bg-amber-600 hover:bg-amber-700 text-white"
+            className="text-xs bg-[#7D5BDE] hover:bg-[#8D6FE4] text-white"
             onClick={() => joinMutation.mutate()}
             disabled={joinMutation.isPending}
           >

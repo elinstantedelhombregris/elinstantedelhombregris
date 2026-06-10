@@ -17,7 +17,7 @@ interface Props {
 export default function CivicProfileSummary({ profile }: Props) {
   if (!profile) {
     return (
-      <Card className="bg-white/5 backdrop-blur-md border-white/10 shadow-lg border-l-4 border-l-blue-500 overflow-hidden relative group">
+      <Card className="bg-white/5 backdrop-blur-md border-white/10 shadow-lg border-l-4 border-l-[#7D5BDE] overflow-hidden relative group">
         <CardContent className="py-8 text-center">
           <div className="text-4xl mb-4">&#x1F9ED;</div>
           <h3 className="text-lg font-bold text-white mb-2">Descubri tu Perfil Civico</h3>
@@ -25,7 +25,7 @@ export default function CivicProfileSummary({ profile }: Props) {
             Completa la evaluacion civica para conocer tu arquetipo, fortalezas y areas de crecimiento.
           </p>
           <Link href="/evaluacion">
-            <Button className="bg-blue-600 hover:bg-blue-500 text-white font-bold px-8 h-11 rounded-xl">
+            <Button className="bg-[#7D5BDE] hover:bg-[#8D6FE4] text-white font-bold px-8 h-11 rounded-xl">
               Empezar Evaluacion
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
@@ -41,16 +41,16 @@ export default function CivicProfileSummary({ profile }: Props) {
   return (
     <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
       <Card className="bg-white/5 backdrop-blur-md border-white/10 shadow-lg overflow-hidden relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#7D5BDE]/5 via-transparent to-transparent pointer-events-none" />
         <CardContent className="pt-6 pb-6 relative z-10">
           <div className="flex flex-col md:flex-row gap-6">
             {/* Archetype Badge */}
             <div className="flex flex-col items-center md:items-start gap-2 md:min-w-[180px]">
               <span className="text-4xl">{archetype.emoji}</span>
               <h3 className="text-xl font-serif font-bold text-white">{archetype.name}</h3>
-              <span className="text-xs text-blue-400 font-medium">{archetype.subtitle}</span>
+              <span className="text-xs text-[#9D85E8] font-medium">{archetype.subtitle}</span>
               <Link href="/evaluacion">
-                <Button variant="ghost" size="sm" className="text-slate-500 hover:text-blue-400 text-[10px] mt-1 uppercase tracking-wider">
+                <Button variant="ghost" size="sm" className="text-slate-500 hover:text-[#9D85E8] text-[10px] mt-1 uppercase tracking-wider">
                   Retomar evaluacion
                 </Button>
               </Link>

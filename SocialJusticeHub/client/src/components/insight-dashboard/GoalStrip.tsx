@@ -32,10 +32,10 @@ export default function GoalStrip({ goals }: Props) {
     return (
       <Card className="bg-white/5 backdrop-blur-md border-white/10 border-dashed">
         <CardContent className="py-6 text-center">
-          <Target className="h-8 w-8 text-purple-500/40 mx-auto mb-3" />
+          <Target className="h-8 w-8 text-[#7D5BDE]/40 mx-auto mb-3" />
           <p className="text-slate-400 text-sm mb-3">Todavia no tenes metas definidas</p>
           <Link href="/metas">
-            <Button variant="outline" size="sm" className="border-purple-500/30 text-purple-400 hover:bg-purple-500/10 text-xs uppercase tracking-wider">
+            <Button variant="outline" size="sm" className="border-[#7D5BDE]/30 text-[#9D85E8] hover:bg-[#7D5BDE]/10 text-xs uppercase tracking-wider">
               <Plus className="h-3 w-3 mr-1" />
               Crear mi primera meta
             </Button>
@@ -50,11 +50,11 @@ export default function GoalStrip({ goals }: Props) {
       <CardHeader className="pb-3">
         <div className="flex items-center justify-between">
           <CardTitle className="flex items-center gap-2 text-sm font-bold text-slate-200 uppercase tracking-wider">
-            <Target className="h-4 w-4 text-purple-400" />
+            <Target className="h-4 w-4 text-[#9D85E8]" />
             Mis Metas
           </CardTitle>
           <Link href="/metas">
-            <Button variant="ghost" size="sm" className="text-purple-400 hover:text-purple-300 text-[10px] uppercase tracking-wider">
+            <Button variant="ghost" size="sm" className="text-[#9D85E8] hover:text-[#B5A3EF] text-[10px] uppercase tracking-wider">
               Ver todas <ArrowRight className="ml-1 h-3 w-3" />
             </Button>
           </Link>
@@ -71,7 +71,7 @@ export default function GoalStrip({ goals }: Props) {
             {goal.progress >= 100 ? (
               <CheckCircle className="h-5 w-5 text-emerald-400 flex-shrink-0" />
             ) : (
-              <Target className="h-5 w-5 text-purple-400 flex-shrink-0" />
+              <Target className="h-5 w-5 text-[#9D85E8] flex-shrink-0" />
             )}
             <div className="flex-1 min-w-0">
               <p className="text-sm text-slate-200 truncate">{goal.title}</p>
