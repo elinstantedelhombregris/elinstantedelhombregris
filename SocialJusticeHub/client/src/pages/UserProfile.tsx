@@ -46,6 +46,12 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { apiRequest } from '@/lib/queryClient';
 import { toast } from '@/hooks/use-toast';
 import { useAvatarUpload } from '@/hooks/useAvatarUpload';
+import {
+  ACCENT_BUTTON,
+  GLASS_CARD,
+  DISPLAY_GRADIENT,
+  SECTION_BADGE,
+} from '@/lib/design-tokens';
 
 interface UserStats {
   level: number;
@@ -138,10 +144,10 @@ const UserProfile = () => {
       return (
         <div className="min-h-screen bg-[#0a0a0a] text-slate-200 flex items-center justify-center">
           <div className="text-center">
-            <ShieldCheck className="h-16 w-16 mx-auto mb-4 text-blue-500/50 animate-pulse" />
+            <ShieldCheck className="h-16 w-16 mx-auto mb-4 text-slate-500/50 animate-pulse" />
             <h2 className="text-xl font-serif text-slate-100">Acceso restringido</h2>
             <p className="text-slate-500 mt-2 font-mono text-sm">Iniciá sesión para ver tu perfil.</p>
-            <Button className="mt-6 bg-blue-600 hover:bg-blue-700 text-white" onClick={() => window.location.href = '/login'}>
+            <Button className={`mt-6 ${ACCENT_BUTTON}`} onClick={() => window.location.href = '/login'}>
               Iniciar sesión
             </Button>
           </div>
@@ -151,8 +157,8 @@ const UserProfile = () => {
     return (
       <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto mb-4 shadow-[0_0_15px_rgba(59,130,246,0.5)]"></div>
-          <p className="text-blue-400 font-mono text-sm tracking-widest">Cargando perfil...</p>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#7D5BDE] mx-auto mb-4"></div>
+          <p className="text-[#9D85E8] font-mono text-sm tracking-widest">Cargando perfil...</p>
         </div>
       </div>
     );
@@ -161,14 +167,15 @@ const UserProfile = () => {
   const { user } = userContext;
   const progressPercentage = userStats ? (userStats.experience / userStats.experienceToNext) * 100 : 0;
 
+  // Level names — text color encodes semantic tier progression (rule 6)
   const getLevelInfo = (level: number) => {
     switch (level) {
-      case 1: return { name: 'Consciencia Individual', color: 'text-blue-400', gradient: 'from-blue-500 to-blue-600', icon: Heart };
-      case 2: return { name: 'Núcleo Familiar', color: 'text-amber-400', gradient: 'from-amber-500 to-amber-600', icon: Users };
-      case 3: return { name: 'Impacto Comunitario', color: 'text-emerald-400', gradient: 'from-emerald-500 to-emerald-600', icon: BookOpen };
-      case 4: return { name: 'Liderazgo Provincial', color: 'text-purple-400', gradient: 'from-purple-500 to-purple-600', icon: TrendingUp };
-      case 5: return { name: 'Visión Nacional', color: 'text-indigo-400', gradient: 'from-indigo-500 to-indigo-600', icon: Star };
-      default: return { name: 'Consciencia Individual', color: 'text-blue-400', gradient: 'from-blue-500 to-blue-600', icon: Heart };
+      case 1: return { name: 'Consciencia Individual', color: 'text-slate-300', icon: Heart };
+      case 2: return { name: 'Núcleo Familiar', color: 'text-amber-400', icon: Users };
+      case 3: return { name: 'Impacto Comunitario', color: 'text-[#9D85E8]', icon: BookOpen };
+      case 4: return { name: 'Liderazgo Provincial', color: 'text-[#7D5BDE]', icon: TrendingUp };
+      case 5: return { name: 'Visión Nacional', color: 'text-white', icon: Star };
+      default: return { name: 'Consciencia Individual', color: 'text-slate-300', icon: Heart };
     }
   };
 
@@ -178,12 +185,13 @@ const UserProfile = () => {
   const earnedBadgeIds = userBadges.map(ub => ub.badge.id);
   const availableBadges = allBadges.filter((badge) => !earnedBadgeIds.includes(badge.id));
 
+  // Badge rarity styles — semantic encoding of rarity tier (rule 6)
   const getRarityStyle = (rarity: string) => {
     switch (rarity) {
       case 'legendary': return { bg: 'bg-yellow-500/10 border-yellow-500/30', text: 'text-yellow-400', gradient: 'from-yellow-400 to-orange-500' };
-      case 'epic': return { bg: 'bg-purple-500/10 border-purple-500/30', text: 'text-purple-400', gradient: 'from-purple-500 to-pink-500' };
-      case 'rare': return { bg: 'bg-blue-500/10 border-blue-500/30', text: 'text-blue-400', gradient: 'from-blue-500 to-purple-500' };
-      default: return { bg: 'bg-slate-500/10 border-slate-500/30', text: 'text-slate-400', gradient: 'from-slate-400 to-slate-600' };
+      case 'epic':      return { bg: 'bg-[#7D5BDE]/10 border-[#7D5BDE]/30', text: 'text-[#9D85E8]', gradient: 'from-[#7D5BDE] to-[#9D85E8]' };
+      case 'rare':      return { bg: 'bg-white/5 border-white/15', text: 'text-slate-300', gradient: 'from-slate-300 to-slate-400' };
+      default:          return { bg: 'bg-slate-500/10 border-slate-500/30', text: 'text-slate-400', gradient: 'from-slate-400 to-slate-600' };
     }
   };
 
@@ -254,13 +262,13 @@ const UserProfile = () => {
     : 'Reciente';
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-slate-200 font-sans selection:bg-blue-500/30">
+    <div className="min-h-screen bg-[#0a0a0a] text-slate-200 font-sans selection:bg-[#7D5BDE]/30">
       <Header />
       <EmailVerificationBanner variant="dark" />
 
       {/* Hero Section */}
       <div className="relative overflow-hidden border-b border-white/5">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/20 via-[#0a0a0a] to-[#0a0a0a] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#7D5BDE]/15 via-[#0a0a0a] to-[#0a0a0a] pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-4 py-12">
           <div className="flex flex-col md:flex-row items-center gap-8">
@@ -270,7 +278,7 @@ const UserProfile = () => {
               transition={{ duration: 0.5 }}
               className="relative"
             >
-              <div className="w-28 h-28 rounded-2xl bg-white/5 overflow-hidden border border-white/10 shadow-[0_0_30px_rgba(59,130,246,0.15)] hover:border-blue-500/50 transition-all duration-500">
+              <div className="w-28 h-28 rounded-2xl bg-white/5 overflow-hidden border border-white/10 hover:border-[#7D5BDE]/40 hover:shadow-[0_0_30px_rgba(125,91,222,0.15)] transition-all duration-500">
                 <Avatar className="h-full w-full rounded-none">
                   <AvatarImage
                     src={user.avatarUrl || `https://api.dicebear.com/7.x/avataaars/svg?seed=${user.username}`}
@@ -289,11 +297,11 @@ const UserProfile = () => {
                 onChange={handleAvatarChange}
                 className="hidden"
               />
-              {/* Upload button - always visible */}
+              {/* Upload button */}
               <button
                 onClick={() => fileInputRef.current?.click()}
                 disabled={avatarUploadMutation.isPending}
-                className="absolute -bottom-2 -left-2 z-20 p-1.5 rounded-full bg-blue-600 hover:bg-blue-500 text-white transition-colors shadow-[0_0_12px_rgba(37,99,235,0.5)] border-2 border-[#0a0a0a]"
+                className="absolute -bottom-2 -left-2 z-20 p-1.5 rounded-full bg-[#7D5BDE] hover:bg-[#8D6FE4] text-white transition-colors border-2 border-[#0a0a0a]"
                 title="Cambiar foto de perfil"
                 aria-label="Cambiar foto de perfil"
               >
@@ -303,7 +311,7 @@ const UserProfile = () => {
                   <Camera className="h-3.5 w-3.5" />
                 )}
               </button>
-              {/* Delete button - only when custom avatar exists */}
+              {/* Delete button — red is semantic destructive action (rule 6) */}
               {user.avatarUrl && (
                 <button
                   onClick={() => avatarDeleteMutation.mutate()}
@@ -323,23 +331,24 @@ const UserProfile = () => {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-center md:text-left flex-1"
             >
-              <h1 className="text-3xl md:text-4xl font-bold text-white font-serif tracking-tight mb-1">
+              <h1 className={`text-3xl md:text-4xl font-bold font-serif tracking-tight mb-1 ${DISPLAY_GRADIENT}`}>
                 {user.name}
               </h1>
               <p className="text-slate-500 font-mono text-sm mb-4">@{user.username}</p>
 
               <div className="flex flex-wrap items-center justify-center md:justify-start gap-3">
                 <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10">
+                  {/* Crown — semantic tier indicator (rule 6) */}
                   <Crown className="h-3.5 w-3.5 text-amber-400" />
                   <span className="text-xs font-bold text-slate-300">NV. {userStats?.level || 1} · {currentLevelInfo.name}</span>
                 </div>
                 <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10">
-                  <Zap className="h-3.5 w-3.5 text-blue-400" />
+                  <Zap className="h-3.5 w-3.5 text-slate-300" />
                   <span className="text-xs font-bold text-slate-300">{userStats?.experience || 0} XP</span>
                 </div>
                 {user.location && (
                   <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10">
-                    <MapPin className="h-3.5 w-3.5 text-emerald-400" />
+                    <MapPin className="h-3.5 w-3.5 text-slate-400" />
                     <span className="text-xs font-bold text-slate-300">{user.location}</span>
                   </div>
                 )}
@@ -354,7 +363,7 @@ const UserProfile = () => {
               <Button
                 onClick={handleEditToggle}
                 variant="outline"
-                className={`border-white/20 text-slate-300 hover:bg-white/10 hover:text-white ${isEditing ? 'bg-white/10 border-blue-500/50 text-blue-300' : ''}`}
+                className={`border-white/20 text-slate-300 hover:bg-white/10 hover:text-white ${isEditing ? 'bg-white/10 border-[#7D5BDE]/50 text-[#9D85E8]' : ''}`}
               >
                 {isEditing ? <X className="h-4 w-4 mr-2" /> : <Edit3 className="h-4 w-4 mr-2" />}
                 {isEditing ? 'Cancelar' : 'Editar perfil'}
@@ -373,10 +382,10 @@ const UserProfile = () => {
             exit={{ opacity: 0, height: 0 }}
             className="mb-8"
           >
-            <Card className="bg-white/5 backdrop-blur-md border-white/10 shadow-lg border-l-4 border-l-blue-500">
+            <Card className="bg-white/5 backdrop-blur-md border-white/10 shadow-lg border-l-4 border-l-[#7D5BDE]">
               <CardHeader className="pb-3">
                 <CardTitle className="text-lg font-bold text-slate-100 uppercase tracking-wider flex items-center gap-3">
-                  <Edit3 className="h-5 w-5 text-blue-400" />
+                  <Edit3 className="h-5 w-5 text-[#9D85E8]" />
                   Editar Información
                 </CardTitle>
               </CardHeader>
@@ -388,7 +397,7 @@ const UserProfile = () => {
                       id="name"
                       value={editForm.name}
                       onChange={(e) => setEditForm({ ...editForm, name: e.target.value })}
-                      className="bg-white/5 border-white/10 text-white focus:border-blue-500/50"
+                      className="bg-white/5 border-white/10 text-white focus:border-[#7D5BDE]/50"
                     />
                   </div>
                   <div className="space-y-2">
@@ -398,7 +407,7 @@ const UserProfile = () => {
                       type="email"
                       value={editForm.email}
                       onChange={(e) => setEditForm({ ...editForm, email: e.target.value })}
-                      className="bg-white/5 border-white/10 text-white focus:border-blue-500/50"
+                      className="bg-white/5 border-white/10 text-white focus:border-[#7D5BDE]/50"
                     />
                   </div>
                   <div className="space-y-2">
@@ -408,7 +417,7 @@ const UserProfile = () => {
                       value={editForm.location}
                       onChange={(e) => setEditForm({ ...editForm, location: e.target.value })}
                       placeholder="Ciudad, Provincia"
-                      className="bg-white/5 border-white/10 text-white placeholder:text-slate-600 focus:border-blue-500/50"
+                      className="bg-white/5 border-white/10 text-white placeholder:text-slate-600 focus:border-[#7D5BDE]/50"
                     />
                   </div>
                 </div>
@@ -421,8 +430,9 @@ const UserProfile = () => {
                     placeholder="Contá quién sos en pocas palabras."
                     maxLength={500}
                     rows={4}
-                    className="bg-white/5 border-white/10 text-slate-200 placeholder:text-slate-600 focus-visible:ring-blue-500/40"
+                    className="bg-white/5 border-white/10 text-slate-200 placeholder:text-slate-600 focus-visible:ring-[#7D5BDE]/40"
                   />
+                  {/* Counter — red is semantic error/limit (rule 6) */}
                   <div className={`text-[10px] font-mono text-right ${editForm.bio.length >= 500 ? 'text-red-400' : 'text-slate-500'}`}>
                     {editForm.bio.length}/500
                   </div>
@@ -431,7 +441,7 @@ const UserProfile = () => {
                   <Button
                     onClick={handleSave}
                     disabled={profileMutation.isPending}
-                    className="bg-blue-600 hover:bg-blue-500 text-white shadow-[0_0_15px_rgba(37,99,235,0.3)]"
+                    className={`${ACCENT_BUTTON}`}
                   >
                     <Save className="h-4 w-4 mr-2" />
                     {profileMutation.isPending ? 'Guardando...' : 'Guardar Cambios'}
@@ -447,15 +457,15 @@ const UserProfile = () => {
 
         <Tabs defaultValue="info" className="space-y-8">
           <TabsList className="grid w-full grid-cols-3 bg-white/5 border border-white/10 rounded-xl p-1">
-            <TabsTrigger value="info" className="data-[state=active]:bg-white/10 data-[state=active]:text-white text-slate-400 rounded-lg transition-all">
+            <TabsTrigger value="info" className="data-[state=active]:bg-[#7D5BDE]/20 data-[state=active]:text-white text-slate-400 rounded-lg transition-all">
               <User className="h-4 w-4 mr-2" />
               Información
             </TabsTrigger>
-            <TabsTrigger value="progress" className="data-[state=active]:bg-white/10 data-[state=active]:text-white text-slate-400 rounded-lg transition-all">
+            <TabsTrigger value="progress" className="data-[state=active]:bg-[#7D5BDE]/20 data-[state=active]:text-white text-slate-400 rounded-lg transition-all">
               <BarChart3 className="h-4 w-4 mr-2" />
               Progreso
             </TabsTrigger>
-            <TabsTrigger value="achievements" className="data-[state=active]:bg-white/10 data-[state=active]:text-white text-slate-400 rounded-lg transition-all">
+            <TabsTrigger value="achievements" className="data-[state=active]:bg-[#7D5BDE]/20 data-[state=active]:text-white text-slate-400 rounded-lg transition-all">
               <Trophy className="h-4 w-4 mr-2" />
               Logros
             </TabsTrigger>
@@ -467,7 +477,7 @@ const UserProfile = () => {
               <Card className="bg-white/5 backdrop-blur-md border-white/10 shadow-lg">
                 <CardHeader className="pb-3 border-b border-white/5">
                   <CardTitle className="flex items-center text-sm font-bold text-slate-200 uppercase tracking-wider">
-                    <User className="h-4 w-4 mr-2 text-blue-400" />
+                    <User className="h-4 w-4 mr-2 text-slate-400" />
                     Información Básica
                   </CardTitle>
                 </CardHeader>
@@ -504,23 +514,24 @@ const UserProfile = () => {
               <Card className="bg-white/5 backdrop-blur-md border-white/10 shadow-lg">
                 <CardHeader className="pb-3 border-b border-white/5">
                   <CardTitle className="flex items-center text-sm font-bold text-slate-200 uppercase tracking-wider">
-                    <BarChart3 className="h-4 w-4 mr-2 text-purple-400" />
+                    <BarChart3 className="h-4 w-4 mr-2 text-slate-400" />
                     Estadísticas Rápidas
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="pt-4 space-y-3">
                   <div className="flex justify-between items-center py-2 border-b border-white/5">
                     <span className="text-slate-500 text-sm">Nivel actual</span>
-                    <Badge variant="outline" className="border-blue-500/30 text-blue-400 bg-blue-500/10 text-xs">
+                    <Badge variant="outline" className="border-[#7D5BDE]/30 text-[#9D85E8] bg-[#7D5BDE]/10 text-xs">
                       {userStats?.level || 1} · {currentLevelInfo.name}
                     </Badge>
                   </div>
                   <div className="flex justify-between items-center py-2 border-b border-white/5">
                     <span className="text-slate-500 text-sm">Experiencia</span>
-                    <span className="text-blue-400 font-bold text-sm">{userStats?.experience || 0} XP</span>
+                    <span className="text-[#9D85E8] font-bold text-sm">{userStats?.experience || 0} XP</span>
                   </div>
                   <div className="flex justify-between items-center py-2 border-b border-white/5">
                     <span className="text-slate-500 text-sm">Racha</span>
+                    {/* Flame — semantic streak indicator (rule 6) */}
                     <span className="text-amber-400 font-bold text-sm flex items-center">
                       <Flame className="h-4 w-4 mr-1" />
                       {userStats?.streak || 0} días
@@ -528,6 +539,7 @@ const UserProfile = () => {
                   </div>
                   <div className="flex justify-between items-center py-2">
                     <span className="text-slate-500 text-sm">Desafíos completados</span>
+                    {/* Emerald — semantic success/completion count (rule 6) */}
                     <span className="text-emerald-400 font-bold text-sm">{userStats?.completedChallenges || 0}</span>
                   </div>
                 </CardContent>
@@ -538,14 +550,14 @@ const UserProfile = () => {
             <Card className="bg-white/5 backdrop-blur-md border-white/10 shadow-lg">
               <CardHeader className="pb-3 border-b border-white/5">
                 <CardTitle className="flex items-center text-sm font-bold text-slate-200 uppercase tracking-wider">
-                  <Shield className="h-4 w-4 mr-2 text-amber-400" />
+                  <Shield className="h-4 w-4 mr-2 text-slate-400" />
                   Privacidad de Datos
                 </CardTitle>
               </CardHeader>
               <CardContent className="pt-4">
                 <p className="text-slate-400 text-sm mb-4 leading-relaxed">
                   Tus contribuciones al mapa (sueños, compromisos, recursos) se incluyen de forma anónima
-                  en las <Link href="/datos-abiertos" className="text-blue-400 hover:text-blue-300">descargas abiertas</Link>.
+                  en las <Link href="/datos-abiertos" className="text-[#9D85E8] hover:text-[#B5A3EF]">descargas abiertas</Link>.
                   Sin tu nombre, sin tu email, sin tu ID.
                 </p>
                 <div className="flex items-center justify-between py-3 px-4 bg-white/5 rounded-xl border border-white/10">
@@ -574,6 +586,7 @@ const UserProfile = () => {
             <Card className="bg-white/5 backdrop-blur-md border-white/10 shadow-lg">
               <CardHeader className="pb-3 border-b border-white/5">
                 <CardTitle className="flex items-center text-lg font-bold text-slate-100 uppercase tracking-wider">
+                  {/* Crown — semantic tier indicator (rule 6) */}
                   <Crown className="h-5 w-5 mr-3 text-amber-400" />
                   Progreso en la Guía del Cambio
                 </CardTitle>
@@ -583,7 +596,7 @@ const UserProfile = () => {
               </CardHeader>
               <CardContent className="pt-6">
                 <div className="flex items-center gap-6 mb-6">
-                  <div className={`w-20 h-20 rounded-2xl bg-[#0a0a0a] border border-white/10 flex items-center justify-center`}>
+                  <div className="w-20 h-20 rounded-2xl bg-[#0a0a0a] border border-white/10 flex items-center justify-center">
                     <LevelIcon className={`h-8 w-8 ${currentLevelInfo.color}`} />
                   </div>
                   <div className="flex-1">
@@ -595,26 +608,26 @@ const UserProfile = () => {
                 </div>
                 <div className="flex justify-between text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-2">
                   <span>Nivel {userStats?.level || 1}</span>
-                  <span className="text-blue-400">{Math.round(progressPercentage)}%</span>
+                  <span className="text-[#9D85E8]">{Math.round(progressPercentage)}%</span>
                 </div>
                 <div className="h-2 bg-white/5 rounded-full overflow-hidden border border-white/5">
                   <motion.div
                     initial={{ width: 0 }}
                     animate={{ width: `${progressPercentage}%` }}
                     transition={{ duration: 1.5, ease: "easeOut" }}
-                    className="h-full bg-gradient-to-r from-blue-600 to-purple-500"
+                    className="h-full bg-gradient-to-r from-[#7D5BDE] to-[#9D85E8]"
                   />
                 </div>
               </CardContent>
             </Card>
 
-            {/* Stats grid */}
+            {/* Stats grid — icon colors encode semantic meaning (rule 6) */}
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
               {[
-                { label: 'Desafíos', value: userStats?.completedChallenges || 0, icon: Target, color: 'text-blue-400', bg: 'bg-blue-500/10 border-blue-500/20' },
+                { label: 'Desafíos', value: userStats?.completedChallenges || 0, icon: Target, color: 'text-slate-300', bg: 'bg-white/5 border-white/10' },
                 { label: 'Racha', value: `${userStats?.streak || 0}d`, icon: Flame, color: 'text-amber-400', bg: 'bg-amber-500/10 border-amber-500/20' },
-                { label: 'Logros', value: userStats?.badgesEarned || 0, icon: Trophy, color: 'text-purple-400', bg: 'bg-purple-500/10 border-purple-500/20' },
-                { label: 'XP Total', value: userStats?.experience || 0, icon: Zap, color: 'text-emerald-400', bg: 'bg-emerald-500/10 border-emerald-500/20' },
+                { label: 'Logros', value: userStats?.badgesEarned || 0, icon: Trophy, color: 'text-yellow-400', bg: 'bg-yellow-500/10 border-yellow-500/20' },
+                { label: 'XP Total', value: userStats?.experience || 0, icon: Zap, color: 'text-[#9D85E8]', bg: 'bg-[#7D5BDE]/10 border-[#7D5BDE]/20' },
               ].map((stat) => {
                 const Icon = stat.icon;
                 return (
@@ -635,7 +648,7 @@ const UserProfile = () => {
             <Card className="bg-white/5 backdrop-blur-md border-white/10 shadow-lg">
               <CardHeader className="pb-3 border-b border-white/5">
                 <CardTitle className="flex items-center text-sm font-bold text-slate-200 uppercase tracking-wider">
-                  <Activity className="h-4 w-4 mr-2 text-emerald-400" />
+                  <Activity className="h-4 w-4 mr-2 text-slate-400" />
                   Actividad Reciente
                 </CardTitle>
               </CardHeader>
@@ -658,6 +671,7 @@ const UserProfile = () => {
                           </div>
                         </div>
                         <div className="flex items-center gap-2">
+                          {/* Flame — semantic streak indicator (rule 6) */}
                           {activity.streakActive && <Flame className="h-4 w-4 text-amber-500" />}
                           <Badge variant="outline" className="border-white/10 text-slate-400 text-xs">
                             {activity.actionsCompleted} acciones
@@ -668,11 +682,11 @@ const UserProfile = () => {
                   </div>
                 ) : (
                   <div className="text-center py-10 bg-white/5 rounded-lg border border-dashed border-white/10">
-                    <Activity className="h-8 w-8 text-emerald-500/30 mx-auto mb-3" />
+                    <Activity className="h-8 w-8 text-slate-500/30 mx-auto mb-3" />
                     <p className="text-slate-400 text-sm mb-1">Tu actividad aparecerá acá</p>
                     <p className="text-slate-600 font-mono text-xs mb-4">Completá desafíos para registrar tu progreso</p>
                     <Link href="/challenges">
-                      <Button variant="outline" size="sm" className="border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/10 text-xs uppercase tracking-wider">
+                      <Button variant="outline" size="sm" className="border-[#7D5BDE]/30 text-[#9D85E8] hover:bg-[#7D5BDE]/10 text-xs uppercase tracking-wider">
                         Ver desafíos
                         <ArrowRight className="ml-1 h-3 w-3" />
                       </Button>
@@ -689,6 +703,7 @@ const UserProfile = () => {
               <CardHeader className="pb-3 border-b border-white/5">
                 <div className="flex items-center justify-between">
                   <CardTitle className="flex items-center text-sm font-bold text-slate-200 uppercase tracking-wider">
+                    {/* Award/Trophy — semantic achievement indicator (rule 6) */}
                     <Award className="h-4 w-4 mr-2 text-yellow-400" />
                     Logros Obtenidos
                   </CardTitle>
@@ -721,6 +736,7 @@ const UserProfile = () => {
                           </div>
                           <p className="text-sm text-slate-400 mb-2">{userBadge.badge.description}</p>
                           <div className="flex items-center justify-between text-xs text-slate-600">
+                            {/* XP reward — semantic gamification value (rule 6) */}
                             <span className="text-emerald-400">+{userBadge.badge.experienceReward} XP</span>
                             <span>{new Date(userBadge.earnedAt).toLocaleDateString('es-AR')}</span>
                           </div>
@@ -734,7 +750,7 @@ const UserProfile = () => {
                     <p className="text-slate-400 text-sm mb-1">Completá desafíos para desbloquear tus primeros logros</p>
                     <p className="text-slate-600 font-mono text-xs mb-4">Cada logro otorga XP y reconocimiento</p>
                     <Link href="/challenges">
-                      <Button variant="outline" size="sm" className="border-yellow-500/30 text-yellow-400 hover:bg-yellow-500/10 text-xs uppercase tracking-wider">
+                      <Button variant="outline" size="sm" className="border-[#7D5BDE]/30 text-[#9D85E8] hover:bg-[#7D5BDE]/10 text-xs uppercase tracking-wider">
                         Explorar desafíos
                         <ArrowRight className="ml-1 h-3 w-3" />
                       </Button>
