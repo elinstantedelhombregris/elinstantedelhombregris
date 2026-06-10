@@ -11,6 +11,13 @@ import {
 import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
 import { StatusBadge, type PlatformStatus } from '@/components/ui/StatusBadge';
+import {
+  GLASS_CARD,
+  GLASS_CARD_HOVER,
+  SECTION_BADGE,
+  DISPLAY_GRADIENT,
+  PULL_QUOTE,
+} from '@/lib/design-tokens';
 
 /* ── Feature cards data (Section 2) ───────────────────── */
 const features: ReadonlyArray<{
@@ -19,12 +26,6 @@ const features: ReadonlyArray<{
   href: string;
   status: PlatformStatus;
   icon: React.ReactNode;
-  color: string;
-  bg: string;
-  border: string;
-  gradient: string;
-  glow: string;
-  hoverBorder: string;
 }> = [
   {
     title: 'Diagnóstico Personal',
@@ -32,12 +33,6 @@ const features: ReadonlyArray<{
     href: '/evaluacion',
     status: 'live',
     icon: <Activity className="w-5 h-5" />,
-    color: 'text-blue-400',
-    bg: 'bg-blue-500/10',
-    border: 'border-blue-500/20',
-    gradient: 'from-blue-400 to-blue-600',
-    glow: 'group-hover:shadow-[0_0_40px_rgba(59,130,246,0.12)]',
-    hoverBorder: 'group-hover:border-blue-500/40',
   },
   {
     title: 'El Mapa Ciudadano',
@@ -45,12 +40,6 @@ const features: ReadonlyArray<{
     href: '/el-mapa',
     status: 'live',
     icon: <MapPin className="w-5 h-5" />,
-    color: 'text-emerald-400',
-    bg: 'bg-emerald-500/10',
-    border: 'border-emerald-500/20',
-    gradient: 'from-emerald-400 to-emerald-600',
-    glow: 'group-hover:shadow-[0_0_40px_rgba(16,185,129,0.12)]',
-    hoverBorder: 'group-hover:border-emerald-500/40',
   },
   {
     title: '22 Planes de Ejemplo',
@@ -58,12 +47,6 @@ const features: ReadonlyArray<{
     href: '/recursos/ruta',
     status: 'ejercicio',
     icon: <FileText className="w-5 h-5" />,
-    color: 'text-amber-400',
-    bg: 'bg-amber-500/10',
-    border: 'border-amber-500/20',
-    gradient: 'from-amber-400 to-amber-600',
-    glow: 'group-hover:shadow-[0_0_40px_rgba(245,158,11,0.12)]',
-    hoverBorder: 'group-hover:border-amber-500/40',
   },
   {
     title: 'El Mandato Vivo',
@@ -71,12 +54,6 @@ const features: ReadonlyArray<{
     href: '/el-mandato-vivo',
     status: 'construccion',
     icon: <ScrollText className="w-5 h-5" />,
-    color: 'text-red-400',
-    bg: 'bg-red-500/10',
-    border: 'border-red-500/20',
-    gradient: 'from-red-400 to-red-600',
-    glow: 'group-hover:shadow-[0_0_40px_rgba(239,68,68,0.12)]',
-    hoverBorder: 'group-hover:border-red-500/40',
   },
 ];
 
@@ -217,14 +194,11 @@ const Home = () => {
         />
 
         {/* ═══ 2. LO QUE YA EXISTE — Concrete tools ═══════════════════ */}
-        <section id="lo-que-existe" className="py-28 md:py-36 bg-[#0a0a0a] relative overflow-hidden">
+        <section id="lo-que-existe" className="py-20 md:py-28 bg-[#0a0a0a] relative overflow-hidden">
           {/* Layered ambient lighting */}
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[600px] bg-blue-900/[0.06] rounded-full blur-[160px]" />
-            <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-emerald-900/[0.04] rounded-full blur-[140px]" />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[600px] bg-[#7D5BDE]/[0.05] rounded-full blur-[160px]" />
           </div>
-          {/* Subtle dot grid */}
-          <div className="absolute inset-0 pattern-dots opacity-40 pointer-events-none" />
 
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-6xl mx-auto">
@@ -236,13 +210,13 @@ const Home = () => {
                 transition={{ duration: 0.7 }}
                 className="text-center mb-16 md:mb-20"
               >
-                <span className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/[0.08] text-[11px] uppercase tracking-[0.3em] text-blue-300/70 mb-6">
+                <span className={`${SECTION_BADGE} mb-6`}>
                   Lo que ya existe
                 </span>
                 <h2 className="text-4xl md:text-[3.5rem] lg:text-6xl font-black text-white mb-6 tracking-tight leading-[0.95]">
                   No es una idea.
                   <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-emerald-400">
+                  <span className={DISPLAY_GRADIENT}>
                     Es una plataforma en construcción.
                   </span>
                 </h2>
@@ -261,13 +235,14 @@ const Home = () => {
                 className="grid sm:grid-cols-3 gap-4 mb-6"
               >
                 {[
-                  { who: 'La ciudadanía', verb: 'DISEÑA', color: 'text-blue-400', border: 'border-blue-500/20' },
-                  { who: 'El Estado', verb: 'ADMINISTRA', color: 'text-amber-400', border: 'border-amber-500/20' },
-                  { who: 'La política', verb: 'EJECUTA', color: 'text-emerald-400', border: 'border-emerald-500/20' },
+                  { who: 'La ciudadanía', verb: 'DISEÑA' },
+                  { who: 'El Estado', verb: 'ADMINISTRA' },
+                  { who: 'La política', verb: 'EJECUTA' },
                 ].map((role) => (
-                  <div key={role.verb} className={`rounded-2xl bg-white/[0.02] border ${role.border} px-6 py-5 text-center`}>
+                  <div key={role.verb} className={`${GLASS_CARD} px-6 py-5 text-center`}>
                     <p className="text-sm text-slate-400">{role.who}</p>
-                    <p className={`text-xl md:text-2xl font-black tracking-wide ${role.color}`}>{role.verb}</p>
+                    <p className="text-xl md:text-2xl font-black tracking-wide text-white">{role.verb}</p>
+                    <div className="mx-auto mt-2 h-px w-8 bg-[#7D5BDE]" />
                   </div>
                 ))}
               </motion.div>
@@ -286,32 +261,25 @@ const Home = () => {
                 {features.map((feature, i) => (
                   <motion.div
                     key={i}
-                    initial={{ opacity: 0, y: 30, scale: 0.97 }}
-                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-60px" }}
                     transition={{ duration: 0.5, delay: i * 0.1 }}
                     className="group relative"
                   >
                     <Link href={feature.href} className="block h-full">
-                      <div className={`
-                        relative h-full rounded-2xl bg-white/[0.02] border ${feature.border}
-                        ${feature.hoverBorder} ${feature.glow}
-                        transition-all duration-500 hover:-translate-y-1 overflow-hidden cursor-pointer
-                      `}>
-                        {/* Top accent line */}
-                        <div className={`h-[3px] bg-gradient-to-r ${feature.gradient} opacity-60 group-hover:opacity-100 transition-opacity duration-500`} />
-
+                      <div className={`relative h-full ${GLASS_CARD} ${GLASS_CARD_HOVER} overflow-hidden cursor-pointer`}>
                         <div className="p-7 md:p-8 relative">
                           {/* Icon + status */}
                           <div className="flex items-start justify-between mb-5">
-                            <div className={`w-12 h-12 rounded-xl ${feature.bg} flex items-center justify-center ${feature.color} border ${feature.border} group-hover:scale-110 transition-transform duration-500`}>
+                            <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-300">
                               {feature.icon}
                             </div>
                             <StatusBadge status={feature.status} />
                           </div>
 
                           {/* Title */}
-                          <h3 className="text-xl font-bold text-white mb-3 group-hover:text-slate-50 transition-colors">
+                          <h3 className="text-xl font-bold text-white mb-3">
                             {feature.title}
                           </h3>
 
@@ -321,7 +289,7 @@ const Home = () => {
                           </p>
 
                           {/* Affordance */}
-                          <span className={`inline-flex items-center gap-1.5 text-sm font-semibold ${feature.color}`}>
+                          <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#9D85E8]">
                             Entrar <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                           </span>
                         </div>
@@ -337,7 +305,7 @@ const Home = () => {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.3 }}
-                className="text-center text-lg md:text-xl font-serif italic text-slate-300/80"
+                className={`text-center text-lg md:text-xl ${PULL_QUOTE}`}
               >
                 Todo abierto. Todo auditable. Todo construido por ciudadanos como vos.
               </motion.p>
