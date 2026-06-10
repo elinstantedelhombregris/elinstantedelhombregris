@@ -169,13 +169,13 @@ const Goals = () => {
                   placeholder="Título de la meta"
                   value={formTitle}
                   onChange={(e) => setFormTitle(e.target.value)}
-                  className="bg-white/5 border-white/10 text-white focus:border-violet-500/50"
+                  className="bg-white/5 border-white/10 text-white focus:border-[#7D5BDE]/50"
                 />
                 <Textarea
                   placeholder="Descripción (opcional)"
                   value={formDescription}
                   onChange={(e) => setFormDescription(e.target.value)}
-                  className="bg-white/5 border-white/10 text-white focus:border-violet-500/50"
+                  className="bg-white/5 border-white/10 text-white focus:border-[#7D5BDE]/50"
                   rows={3}
                 />
                 <div>
@@ -188,7 +188,7 @@ const Goals = () => {
                         className={cn(
                           'px-3 py-1.5 rounded-lg text-xs border transition-all duration-300 flex items-center gap-1.5',
                           formCategory === cat.value
-                            ? 'bg-violet-500/20 border-violet-500/40 text-violet-200'
+                            ? 'bg-[#7D5BDE]/20 border-[#7D5BDE]/40 text-[#CBBDF4]'
                             : 'bg-white/5 border-white/10 text-slate-400 hover:bg-white/10'
                         )}
                       >
@@ -205,7 +205,7 @@ const Goals = () => {
                     type="date"
                     value={formTargetDate}
                     onChange={(e) => setFormTargetDate(e.target.value)}
-                    className="bg-white/5 border-white/10 text-white focus:border-violet-500/50"
+                    className="bg-white/5 border-white/10 text-white focus:border-[#7D5BDE]/50"
                   />
                 </div>
                 <Button
@@ -245,7 +245,7 @@ const Goals = () => {
                     <div className="flex items-start gap-4">
                       <button
                         onClick={() => toggleComplete(goal)}
-                        className="mt-1 w-6 h-6 rounded-full border-2 border-slate-600 hover:border-violet-400 flex items-center justify-center flex-shrink-0 transition-colors duration-300"
+                        className="mt-1 w-6 h-6 rounded-full border-2 border-slate-600 hover:border-[#9D85E8] flex items-center justify-center flex-shrink-0 transition-colors duration-300"
                       >
                         {/* completed check = success semantic (rule 6) */}
                         {goal.progress >= 100 && <CheckCircle className="h-5 w-5 text-emerald-400" />}
@@ -263,7 +263,7 @@ const Goals = () => {
                           <p className="text-sm text-slate-400 mb-3">{goal.description}</p>
                         )}
                         <div className="flex items-center gap-3">
-                          <Progress value={goal.progress} className="h-1.5 flex-1 bg-white/5" indicatorClassName="bg-violet-500" />
+                          <Progress value={goal.progress} className="h-1.5 flex-1 bg-white/5" indicatorClassName="bg-[#7D5BDE]" />
                           <span className="text-xs font-mono text-slate-500">{goal.progress}%</span>
                         </div>
                         {goal.targetDate && (

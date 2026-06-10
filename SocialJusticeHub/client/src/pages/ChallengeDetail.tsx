@@ -236,7 +236,7 @@ const ChallengeDetail = () => {
                   value={stepAnswers[step.id] || ''}
                   onChange={(e) => handleStepAnswer(step.id, e.target.value)}
                   rows={4}
-                  className="mt-2 bg-white/5 border-white/10 text-slate-200 focus:border-violet-500/50"
+                  className="mt-2 bg-white/5 border-white/10 text-slate-200 focus:border-[#7D5BDE]/50"
                 />
               </div>
             )}
@@ -250,7 +250,7 @@ const ChallengeDetail = () => {
                       value={stepAnswers[`${step.id}-${index}` as any] || ''}
                       onChange={(e) => handleStepAnswer(`${step.id}-${index}` as any, e.target.value)}
                       rows={2}
-                      className="mt-1 bg-white/5 border-white/10 text-slate-200 focus:border-violet-500/50"
+                      className="mt-1 bg-white/5 border-white/10 text-slate-200 focus:border-[#7D5BDE]/50"
                     />
                   </div>
                 ))}
@@ -300,7 +300,7 @@ const ChallengeDetail = () => {
                 value={stepAnswers[step.id] || ''}
                 onChange={(e) => handleStepAnswer(step.id, e.target.value)}
                 rows={3}
-                className="mt-2 bg-white/5 border-white/10 text-slate-200 focus:border-violet-500/50"
+                className="mt-2 bg-white/5 border-white/10 text-slate-200 focus:border-[#7D5BDE]/50"
               />
             </div>
           </div>
@@ -321,7 +321,7 @@ const ChallengeDetail = () => {
                   value={stepAnswers[step.id] || ''}
                   onChange={(e) => handleStepAnswer(step.id, e.target.value)}
                   rows={5}
-                  className="mt-2 bg-white/5 border-white/10 text-slate-200 focus:border-violet-500/50"
+                  className="mt-2 bg-white/5 border-white/10 text-slate-200 focus:border-[#7D5BDE]/50"
                 />
               </div>
             )}
@@ -357,7 +357,7 @@ const ChallengeDetail = () => {
     return (
       <div className="min-h-screen bg-[#0a0a0a] text-slate-200 flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-violet-500 mx-auto mb-4" />
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#7D5BDE] mx-auto mb-4" />
           <p className="text-slate-400">Cargando desafío...</p>
         </div>
       </div>
@@ -394,7 +394,7 @@ const ChallengeDetail = () => {
     return (
       <div className="min-h-screen bg-[#0a0a0a] text-slate-200 flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-violet-500 mx-auto mb-4" />
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#7D5BDE] mx-auto mb-4" />
           <p className="text-slate-400">Cargando desafío...</p>
         </div>
       </div>
@@ -492,7 +492,7 @@ const ChallengeDetail = () => {
                       <span>Progreso</span>
                       <span>{completedSteps.length}/{challenge.steps.length}</span>
                     </div>
-                    <Progress value={progressPercentage} className="h-3 bg-white/5" indicatorClassName="bg-violet-500" />
+                    <Progress value={progressPercentage} className="h-3 bg-white/5" indicatorClassName="bg-[#7D5BDE]" />
                   </div>
                 )}
               </CardContent>
@@ -514,14 +514,14 @@ const ChallengeDetail = () => {
                         'p-4 border rounded-lg',
                         /* completed step = success semantic (rule 6) */
                         isStepCompleted(step.id) ? 'bg-emerald-500/5 border-emerald-500/20' :
-                        index === currentStepIndex ? 'bg-violet-500/5 border-violet-500/20' : 'bg-white/[0.02] border-white/5'
+                        index === currentStepIndex ? 'bg-[#7D5BDE]/5 border-[#7D5BDE]/20' : 'bg-white/[0.02] border-white/5'
                       )}>
                         <div className="flex items-start space-x-3">
                           <div className={cn(
                             'w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium',
                             /* completed = success (rule 6), active = violet (action), pending = neutral */
                             isStepCompleted(step.id) ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' :
-                            index === currentStepIndex ? 'bg-violet-500/20 text-violet-300 border border-violet-500/30' :
+                            index === currentStepIndex ? 'bg-[#7D5BDE]/20 text-[#B5A3EF] border border-[#7D5BDE]/30' :
                             'bg-white/5 text-slate-500 border border-white/10'
                           )}>
                             {isStepCompleted(step.id) ? (
@@ -683,7 +683,7 @@ const ChallengeDetail = () => {
                     <span className="text-slate-400">Pasos completados</span>
                     <span className="font-medium text-slate-300">{completedSteps.length}/{challenge.steps.length}</span>
                   </div>
-                  <Progress value={progressPercentage} className="h-3 bg-white/5" indicatorClassName="bg-violet-500" />
+                  <Progress value={progressPercentage} className="h-3 bg-white/5" indicatorClassName="bg-[#7D5BDE]" />
                   <div className="text-sm text-slate-500">
                     {Math.round(progressPercentage)}% completado
                   </div>

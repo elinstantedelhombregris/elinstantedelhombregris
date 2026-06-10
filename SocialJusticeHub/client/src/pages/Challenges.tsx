@@ -185,12 +185,12 @@ const Challenges = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-slate-300 font-sans selection:bg-violet-500/30">
+    <div className="min-h-screen bg-[#0a0a0a] text-slate-300 font-sans selection:bg-[#7D5BDE]/30">
       <Header />
 
       {/* Hero Section */}
       <div className="relative overflow-hidden border-b border-white/5 bg-[#0a0a0a]">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-violet-900/20 via-[#0a0a0a] to-[#0a0a0a] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#7D5BDE]/[0.12] via-[#0a0a0a] to-[#0a0a0a] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 py-12 relative z-10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
@@ -238,7 +238,7 @@ const Challenges = () => {
                     placeholder="Buscar desafío..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="pl-10 bg-[#0a0a0a] border-white/10 text-slate-200 focus:border-violet-500/50 focus:ring-violet-500/20 h-10"
+                    className="pl-10 bg-[#0a0a0a] border-white/10 text-slate-200 focus:border-[#7D5BDE]/50 focus:ring-[#7D5BDE]/20 h-10"
                   />
                 </div>
 
@@ -277,7 +277,7 @@ const Challenges = () => {
                   </button>
                   <button
                     onClick={() => setViewMode('active')}
-                    className={cn("flex-1 text-[10px] font-bold uppercase tracking-wider py-1.5 rounded transition-colors duration-300", viewMode === 'active' ? "bg-violet-500/20 text-violet-300" : "text-slate-500 hover:text-slate-300")}
+                    className={cn("flex-1 text-[10px] font-bold uppercase tracking-wider py-1.5 rounded transition-colors duration-300", viewMode === 'active' ? "bg-[#7D5BDE]/20 text-[#B5A3EF]" : "text-slate-500 hover:text-slate-300")}
                   >
                     Activos
                   </button>
@@ -297,7 +297,7 @@ const Challenges = () => {
         {/* Missions Grid */}
         {challengesLoading ? (
           <div className="flex flex-col items-center justify-center py-20">
-            <div className="w-12 h-12 border-2 border-violet-500 border-t-transparent rounded-full animate-spin mb-4" />
+            <div className="w-12 h-12 border-2 border-[#7D5BDE] border-t-transparent rounded-full animate-spin mb-4" />
             <p className="font-mono text-sm animate-pulse" style={{ color: '#9D85E8' }}>CARGANDO DESAFÍOS...</p>
           </div>
         ) : filteredChallenges.length === 0 ? (
@@ -383,7 +383,7 @@ const Challenges = () => {
                                 <div className="flex items-start gap-4">
                                   <div className={cn(
                                     "w-12 h-12 rounded-lg flex items-center justify-center border bg-[#0a0a0a] shadow-inner transition-colors duration-300",
-                                    isInProgress ? "border-violet-500/50 text-violet-300" : "border-white/10 text-slate-500 group-hover:text-violet-300 group-hover:border-violet-500/30"
+                                    isInProgress ? "border-[#7D5BDE]/50 text-[#B5A3EF]" : "border-white/10 text-slate-500 group-hover:text-[#B5A3EF] group-hover:border-[#7D5BDE]/30"
                                   )}>
                                     <Crosshair className="h-6 w-6" />
                                   </div>
@@ -425,14 +425,14 @@ const Challenges = () => {
                                     <div className="flex justify-between text-[10px] uppercase font-bold tracking-wider text-slate-500">
                                       <span>Progreso del desafío</span>
                                       {/* in_progress = violet (active), completed = emerald (success rule 6) */}
-                                      <span className={isInProgress ? "text-violet-300" : "text-emerald-400"}>
+                                      <span className={isInProgress ? "text-[#B5A3EF]" : "text-emerald-400"}>
                                         {Math.round((progress.currentStep / challenge.steps.length) * 100)}%
                                       </span>
                                     </div>
                                     <Progress
                                       value={(progress.currentStep / challenge.steps.length) * 100}
                                       className="h-1.5 bg-white/5"
-                                      indicatorClassName={isInProgress ? "bg-violet-500" : "bg-emerald-500"}
+                                      indicatorClassName={isInProgress ? "bg-[#7D5BDE]" : "bg-emerald-500"}
                                     />
                                   </div>
                                 )}

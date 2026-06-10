@@ -197,7 +197,7 @@ const CoachingChat = () => {
                   <p className="text-sm leading-relaxed whitespace-pre-wrap">{msg.content}</p>
                   <span className={cn(
                     'text-[10px] mt-1 block',
-                    msg.role === 'user' ? 'text-violet-200' : 'text-slate-600'
+                    msg.role === 'user' ? 'text-[#CBBDF4]' : 'text-slate-600'
                   )}>
                     {new Date(msg.timestamp).toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' })}
                   </span>
@@ -229,7 +229,7 @@ const CoachingChat = () => {
             onChange={(e) => setInputValue(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && !e.shiftKey && sendMessage()}
             placeholder="Escribí tu mensaje..."
-            className="bg-white/5 border-white/10 text-white flex-1 focus:border-violet-500/50"
+            className="bg-white/5 border-white/10 text-white flex-1 focus:border-[#7D5BDE]/50"
             disabled={isLoading}
           />
           <Button

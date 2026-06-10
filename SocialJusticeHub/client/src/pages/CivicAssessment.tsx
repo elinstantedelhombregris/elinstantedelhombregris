@@ -223,7 +223,7 @@ const CivicAssessment = () => {
   if (isLoading) {
     return (
       <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-violet-400" />
+        <Loader2 className="h-8 w-8 animate-spin text-[#9D85E8]" />
       </div>
     );
   }
@@ -237,7 +237,7 @@ const CivicAssessment = () => {
       {/* Progress bar - hide on intro and results */}
       {currentStep > 0 && currentStep < totalSteps - 1 && (
         <div className="fixed top-[72px] left-0 right-0 z-40">
-          <Progress value={progressPercent} className="h-1 rounded-none bg-white/5" indicatorClassName="bg-violet-500" />
+          <Progress value={progressPercent} className="h-1 rounded-none bg-white/5" indicatorClassName="bg-[#7D5BDE]" />
         </div>
       )}
 

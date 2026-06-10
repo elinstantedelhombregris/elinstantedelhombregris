@@ -102,7 +102,7 @@ const WeeklyCheckin = () => {
             className={cn(
               'flex flex-col items-center gap-2 p-4 rounded-xl border transition-all duration-300',
               mood === option.value
-                ? 'bg-violet-500/20 border-violet-500/50 scale-110'
+                ? 'bg-[#7D5BDE]/20 border-[#7D5BDE]/50 scale-110'
                 : 'bg-white/5 border-white/10 hover:bg-white/10'
             )}
           >
@@ -125,7 +125,7 @@ const WeeklyCheckin = () => {
             className={cn(
               'px-5 py-3 rounded-xl border text-sm font-medium transition-all duration-300',
               progressRating === option.value
-                ? 'bg-violet-500/20 border-violet-500/50 text-violet-200'
+                ? 'bg-[#7D5BDE]/20 border-[#7D5BDE]/50 text-[#CBBDF4]'
                 : 'bg-white/5 border-white/10 text-slate-400 hover:bg-white/10'
             )}
           >
@@ -143,7 +143,7 @@ const WeeklyCheckin = () => {
         placeholder="Lo que más rescato de esta semana..."
         value={highlight}
         onChange={(e) => setHighlight(e.target.value)}
-        className="bg-white/5 border-white/10 text-white min-h-[120px] focus:border-violet-500/50"
+        className="bg-white/5 border-white/10 text-white min-h-[120px] focus:border-[#7D5BDE]/50"
       />
     </motion.div>,
 
@@ -155,7 +155,7 @@ const WeeklyCheckin = () => {
         placeholder="Lo que más me costó esta semana..."
         value={challenge}
         onChange={(e) => setChallenge(e.target.value)}
-        className="bg-white/5 border-white/10 text-white min-h-[120px] focus:border-violet-500/50"
+        className="bg-white/5 border-white/10 text-white min-h-[120px] focus:border-[#7D5BDE]/50"
       />
     </motion.div>,
 
@@ -167,7 +167,7 @@ const WeeklyCheckin = () => {
         placeholder="Mi intención para la semana que viene..."
         value={nextWeekIntention}
         onChange={(e) => setNextWeekIntention(e.target.value)}
-        className="bg-white/5 border-white/10 text-white min-h-[120px] focus:border-violet-500/50"
+        className="bg-white/5 border-white/10 text-white min-h-[120px] focus:border-[#7D5BDE]/50"
       />
     </motion.div>,
   ];
@@ -219,7 +219,7 @@ const WeeklyCheckin = () => {
               key={idx}
               className={cn(
                 'h-2 rounded-full transition-all duration-300',
-                idx === step ? 'w-6 bg-violet-500' : idx < step ? 'w-2 bg-violet-500/40' : 'w-2 bg-white/10'
+                idx === step ? 'w-6 bg-[#7D5BDE]' : idx < step ? 'w-2 bg-[#7D5BDE]/40' : 'w-2 bg-white/10'
               )}
             />
           ))}
