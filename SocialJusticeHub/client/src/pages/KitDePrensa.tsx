@@ -14,6 +14,15 @@ import {
   FlaskConical, Droplets, Landmark, Cpu, Flame, ShieldCheck,
   Home, Music, Hammer, HeartHandshake, Archive, Mountain, Route
 } from 'lucide-react';
+import {
+  GLASS_CARD,
+  GLASS_CARD_HOVER,
+  SECTION_BADGE,
+  DISPLAY_GRADIENT,
+  PULL_QUOTE,
+  ACCENT_BUTTON,
+  SECTION_PAD,
+} from '@/lib/design-tokens';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -103,6 +112,7 @@ Todo es abierto. Todo es auditable. Todo el código es público. El movimiento s
     },
   ];
 
+  // Brand color swatches — kept as data (rule 10: press-kit documents brand colors)
   const colorPalette = [
     { name: 'Negro Base', hex: '#0a0a0a', text: 'white' },
     { name: 'Azul Principal', hex: '#3b82f6', text: 'white' },
@@ -162,7 +172,10 @@ Todo es abierto. Todo es auditable. Todo el código es público. El movimiento s
       {/* ══════════════════════════════════════════════════════════════
           SECTION 1: HERO
       ══════════════════════════════════════════════════════════════ */}
-      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[70vh] flex flex-col items-center justify-center overflow-hidden">
+        {/* Violet ambient blob */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#7D5BDE]/[0.05] rounded-full blur-[120px] pointer-events-none" />
+
         {/* Metallic emblem */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
@@ -179,19 +192,27 @@ Todo es abierto. Todo es auditable. Todo el código es público. El movimiento s
 
         {/* Title + subtitle */}
         <div className="relative z-10 text-center max-w-4xl mx-auto px-6">
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1, duration: 0.6 }}
+            className={`${SECTION_BADGE} mb-6 inline-block`}
+          >
+            Periodistas · Aliados · Comunidad
+          </motion.span>
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="font-serif text-5xl md:text-7xl text-silver tracking-tight mb-6"
+            className="font-serif text-5xl md:text-7xl tracking-tight mb-6"
           >
-            Kit de Prensa
+            <span className={DISPLAY_GRADIENT}>Kit de Prensa</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="text-lg md:text-xl text-silver/80 leading-relaxed max-w-2xl mx-auto"
+            className="text-lg md:text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto"
           >
             Recursos aprobados, fichas, logos y descripciones para periodistas, aliados y comunidades que cubren El Instante del Hombre Gris y el marco ¡BASTA!
           </motion.p>
@@ -199,7 +220,7 @@ Todo es abierto. Todo es auditable. Todo el código es público. El movimiento s
             initial={{ opacity: 0, scaleX: 0 }}
             animate={{ opacity: 1, scaleX: 1 }}
             transition={{ delay: 0.5, duration: 0.6 }}
-            className="mt-10 h-0.5 w-24 bg-gold mx-auto origin-left"
+            className="mt-10 h-0.5 w-24 bg-[#7D5BDE]/60 mx-auto origin-left"
           />
         </div>
 
@@ -216,7 +237,7 @@ Todo es abierto. Todo es auditable. Todo el código es público. El movimiento s
       {/* ══════════════════════════════════════════════════════════════
           SECTION 2: DESCRIPCIONES COPIABLES
       ══════════════════════════════════════════════════════════════ */}
-      <section className="py-24 relative">
+      <section className={`${SECTION_PAD} relative`}>
         <div className="container mx-auto px-4 max-w-4xl">
           <motion.div
             initial="hidden"
@@ -241,20 +262,19 @@ Todo es abierto. Todo es auditable. Todo el código es público. El movimiento s
                 viewport={{ once: true, margin: "-50px" }}
                 variants={fadeUp}
                 custom={i + 2}
-                className="group relative bg-white/[0.03] backdrop-blur-sm border border-white/[0.06] rounded-2xl p-6 md:p-8 hover:bg-white/[0.05] hover:border-white/[0.12] transition-all duration-500"
+                className={`group relative ${GLASS_CARD} ${GLASS_CARD_HOVER} p-6 md:p-8`}
               >
                 <div className="flex items-start justify-between gap-4 mb-4">
-                  <span className="inline-flex px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 text-xs font-semibold uppercase tracking-wider">
-                    {desc.label}
-                  </span>
+                  <span className={SECTION_BADGE}>{desc.label}</span>
                   <button
                     onClick={() => copyToClipboard(desc.text, i)}
-                    className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 hover:border-blue-500/30 text-sm text-slate-300 hover:text-white transition-all duration-300 shrink-0"
+                    className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 hover:bg-[#7D5BDE]/10 border border-white/10 hover:border-[#7D5BDE]/30 text-sm text-slate-300 hover:text-white transition-all duration-300 shrink-0"
                   >
                     {copiedIndex === i ? (
                       <>
-                        <Check className="w-4 h-4 text-green-400" />
-                        <span className="text-green-400">Copiado</span>
+                        {/* rule 10: copy-success may keep a small emerald check */}
+                        <Check className="w-4 h-4 text-emerald-400" />
+                        <span className="text-emerald-400">Copiado</span>
                       </>
                     ) : (
                       <>
@@ -276,7 +296,7 @@ Todo es abierto. Todo es auditable. Todo el código es público. El movimiento s
       {/* ══════════════════════════════════════════════════════════════
           SECTION 3: IDENTIDAD VISUAL
       ══════════════════════════════════════════════════════════════ */}
-      <section className="py-24 relative border-t border-white/5">
+      <section className={`${SECTION_PAD} relative border-t border-white/5`}>
         <div className="container mx-auto px-4 max-w-6xl">
           <motion.div
             initial="hidden"
@@ -304,7 +324,7 @@ Todo es abierto. Todo es auditable. Todo el código es público. El movimiento s
                   viewport={{ once: true }}
                   variants={fadeUp}
                   custom={i}
-                  className="group bg-white/[0.03] border border-white/[0.06] rounded-2xl overflow-hidden hover:border-white/[0.12] transition-all duration-500"
+                  className={`group ${GLASS_CARD} overflow-hidden transition-all duration-300 hover:border-white/20`}
                 >
                   {/* Preview */}
                   <div className={`relative bg-white/[0.02] flex items-center justify-center overflow-hidden ${
@@ -323,9 +343,10 @@ Todo es abierto. Todo es auditable. Todo el código es público. El movimiento s
                       <h3 className="text-white font-semibold text-sm">{asset.name}</h3>
                       <p className="text-slate-500 text-xs mt-0.5">{asset.description}</p>
                     </div>
+                    {/* rule 10: download button → violet */}
                     <button
                       onClick={() => downloadAsset(asset.file, asset.file.split('/').pop()!)}
-                      className="w-10 h-10 rounded-xl bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/20 hover:border-blue-500/40 flex items-center justify-center text-blue-400 transition-all duration-300 shrink-0"
+                      className="w-10 h-10 rounded-xl bg-[#7D5BDE]/10 hover:bg-[#7D5BDE]/20 border border-[#7D5BDE]/20 hover:border-[#7D5BDE]/40 flex items-center justify-center text-[#9D85E8] transition-all duration-300 shrink-0"
                     >
                       <Download className="w-4 h-4" />
                     </button>
@@ -335,14 +356,14 @@ Todo es abierto. Todo es auditable. Todo el código es público. El movimiento s
             })}
           </div>
 
-          {/* Color Palette */}
+          {/* Color Palette — brand swatches kept as data (rule 10: press kit) */}
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
           >
             <motion.h3 variants={fadeUp} custom={0} className="text-xl font-semibold mb-6 flex items-center gap-2">
-              <Palette className="w-5 h-5 text-purple-400" />
+              <Palette className="w-5 h-5 text-[#9D85E8]" />
               Paleta de colores
             </motion.h3>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
@@ -354,15 +375,16 @@ Todo es abierto. Todo es auditable. Todo el código es público. El movimiento s
                   onClick={() => copyToClipboard(color.hex, 100 + i)}
                   className="group text-left"
                 >
+                  {/* swatch uses the actual brand color as background — rule 10 data */}
                   <div
-                    className="h-20 rounded-xl mb-2 border border-white/10 group-hover:scale-[1.03] transition-transform duration-300"
+                    className="h-20 rounded-xl mb-2 border border-white/10 transition-transform duration-300 group-hover:scale-[1.03]"
                     style={{ backgroundColor: color.hex }}
                   />
                   <p className="text-xs font-medium text-slate-300">{color.name}</p>
                   <p className="text-xs text-slate-500 font-mono flex items-center gap-1">
                     {color.hex}
                     {copiedIndex === 100 + i ? (
-                      <Check className="w-3 h-3 text-green-400" />
+                      <Check className="w-3 h-3 text-emerald-400" />
                     ) : (
                       <Copy className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                     )}
@@ -377,10 +399,10 @@ Todo es abierto. Todo es auditable. Todo el código es público. El movimiento s
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="mt-12 bg-white/[0.03] border border-white/[0.06] rounded-2xl p-8"
+            className={`mt-12 ${GLASS_CARD} p-8`}
           >
             <motion.h3 variants={fadeUp} custom={0} className="text-xl font-semibold mb-6 flex items-center gap-2">
-              <Type className="w-5 h-5 text-blue-400" />
+              <Type className="w-5 h-5 text-[#9D85E8]" />
               Tipografía
             </motion.h3>
             <div className="grid md:grid-cols-3 gap-8">
@@ -407,8 +429,10 @@ Todo es abierto. Todo es auditable. Todo el código es público. El movimiento s
       {/* ══════════════════════════════════════════════════════════════
           SECTION 4: EL MOVIMIENTO
       ══════════════════════════════════════════════════════════════ */}
-      <section className="py-24 relative border-t border-white/5">
-        <div className="container mx-auto px-4 max-w-6xl">
+      <section className={`${SECTION_PAD} relative border-t border-white/5`}>
+        {/* Single violet blob */}
+        <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-[#7D5BDE]/[0.05] rounded-full blur-[130px] pointer-events-none" />
+        <div className="container mx-auto px-4 max-w-6xl relative z-10">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -431,10 +455,10 @@ Todo es abierto. Todo es auditable. Todo el código es público. El movimiento s
               viewport={{ once: true }}
               variants={fadeUp}
               custom={0}
-              className="bg-white/[0.03] backdrop-blur-sm border border-white/[0.06] rounded-2xl p-8 hover:border-blue-500/20 transition-all duration-500"
+              className={`${GLASS_CARD} ${GLASS_CARD_HOVER} p-8`}
             >
-              <div className="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center mb-5">
-                <Users className="w-6 h-6 text-blue-400" />
+              <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-5">
+                <Users className="w-6 h-6 text-slate-300" />
               </div>
               <h3 className="text-xl font-serif font-bold mb-4">¿Quién es el Hombre Gris?</h3>
               <p className="text-slate-400 leading-relaxed text-[15px]">
@@ -452,10 +476,10 @@ Todo es abierto. Todo es auditable. Todo el código es público. El movimiento s
               viewport={{ once: true }}
               variants={fadeUp}
               custom={1}
-              className="bg-white/[0.03] backdrop-blur-sm border border-white/[0.06] rounded-2xl p-8 hover:border-red-500/20 transition-all duration-500"
+              className={`${GLASS_CARD} ${GLASS_CARD_HOVER} p-8`}
             >
-              <div className="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center mb-5">
-                <Zap className="w-6 h-6 text-red-400" />
+              <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-5">
+                <Zap className="w-6 h-6 text-slate-300" />
               </div>
               <h3 className="text-xl font-serif font-bold mb-4">¿Qué es ¡BASTA!?</h3>
               <p className="text-slate-400 leading-relaxed text-[15px]">
@@ -486,10 +510,10 @@ Todo es abierto. Todo es auditable. Todo el código es público. El movimiento s
                     key={i}
                     variants={fadeUp}
                     custom={i + 1}
-                    className="bg-white/[0.03] border border-white/[0.06] rounded-xl p-4 text-center hover:border-blue-500/20 transition-all duration-300 group"
+                    className={`${GLASS_CARD} p-4 text-center transition-all duration-300 hover:border-[#7D5BDE]/25 group`}
                   >
-                    <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center mx-auto mb-3 group-hover:bg-blue-500/20 transition-colors">
-                      <Icon className="w-5 h-5 text-blue-400" />
+                    <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center mx-auto mb-3 group-hover:bg-[#7D5BDE]/10 group-hover:border-[#7D5BDE]/20 transition-colors">
+                      <Icon className="w-5 h-5 text-slate-400 group-hover:text-[#9D85E8] transition-colors" />
                     </div>
                     <p className="text-sm font-semibold text-white mb-1">{step.name}</p>
                     <p className="text-xs text-slate-500 leading-snug">{step.desc}</p>
@@ -503,7 +527,7 @@ Todo es abierto. Todo es auditable. Todo el código es público. El movimiento s
           <aside
             role="note"
             aria-label="Diseño Idealizado"
-            className="mx-auto max-w-3xl my-12 p-8 rounded-xl bg-white/[0.03] border border-silver/20 ring-1 ring-gold/10"
+            className={`mx-auto max-w-3xl my-12 p-8 ${GLASS_CARD} border-[#7D5BDE]/20`}
           >
             <h3 className="font-serif text-2xl md:text-3xl text-white mb-4 tracking-wide">
               Diseño Idealizado
@@ -519,7 +543,7 @@ Todo es abierto. Todo es auditable. Todo el código es público. El movimiento s
             </p>
           </aside>
 
-          {/* 16 Strategic Plans */}
+          {/* 22 Strategic Plans */}
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -536,14 +560,14 @@ Todo es abierto. Todo es auditable. Todo el código es público. El movimiento s
                     key={i}
                     variants={fadeUp}
                     custom={i + 1}
-                    className="flex items-start gap-4 bg-white/[0.03] border border-white/[0.06] rounded-xl p-5 hover:border-purple-500/20 transition-all duration-300"
+                    className={`flex items-start gap-4 ${GLASS_CARD} p-5 transition-all duration-300 hover:border-[#7D5BDE]/25`}
                   >
-                    <div className="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center shrink-0">
-                      <Icon className="w-5 h-5 text-purple-400" />
+                    <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
+                      <Icon className="w-5 h-5 text-slate-400" />
                     </div>
                     <div>
                       <div className="flex items-start justify-between gap-2 mb-1">
-                        <p className="font-mono text-xs text-purple-400">{plan.code}</p>
+                        <p className="font-mono text-xs text-[#9D85E8]">{plan.code}</p>
                         <StatusBadge kind="idealizado" />
                       </div>
                       <p className="text-sm font-semibold text-white">{plan.name}</p>
@@ -560,7 +584,7 @@ Todo es abierto. Todo es auditable. Todo el código es público. El movimiento s
       {/* ══════════════════════════════════════════════════════════════
           SECTION 5: LA PLATAFORMA
       ══════════════════════════════════════════════════════════════ */}
-      <section className="py-24 relative border-t border-white/5">
+      <section className={`${SECTION_PAD} relative border-t border-white/5`}>
         <div className="container mx-auto px-4 max-w-6xl">
           <motion.div
             initial="hidden"
@@ -591,9 +615,9 @@ Todo es abierto. Todo es auditable. Todo el código es público. El movimiento s
                   viewport={{ once: true }}
                   variants={fadeUp}
                   custom={i}
-                  className="bg-white/[0.03] border border-white/[0.06] rounded-xl p-6"
+                  className={`${GLASS_CARD} p-6`}
                 >
-                  <Icon className="w-8 h-8 text-blue-400 mb-4" />
+                  <Icon className="w-8 h-8 text-[#9D85E8] mb-4" />
                   <h3 className="font-semibold text-white mb-2">{feat.title}</h3>
                   <p className="text-sm text-slate-400 leading-relaxed">{feat.desc}</p>
                 </motion.div>
@@ -609,10 +633,10 @@ Todo es abierto. Todo es auditable. Todo el código es público. El movimiento s
               viewport={{ once: true }}
               variants={fadeUp}
               custom={0}
-              className="bg-gradient-to-r from-blue-500/5 to-purple-500/5 border border-white/[0.06] rounded-2xl p-8"
+              className={`${GLASS_CARD} p-8`}
             >
               <h3 className="text-lg font-semibold mb-6 flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+                <div className="w-2 h-2 rounded-full bg-[#7D5BDE] animate-pulse" />
                 Datos en vivo de la plataforma
               </h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -631,7 +655,7 @@ Todo es abierto. Todo es auditable. Todo el código es público. El movimiento s
             </motion.div>
           )}
 
-          {/* Tech Stack */}
+          {/* Tech tags */}
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -660,7 +684,7 @@ Todo es abierto. Todo es auditable. Todo el código es público. El movimiento s
       {/* ══════════════════════════════════════════════════════════════
           SECTION 6: QUIÉN ESTÁ DETRÁS
       ══════════════════════════════════════════════════════════════ */}
-      <section className="py-24 relative border-t border-white/5">
+      <section className={`${SECTION_PAD} relative border-t border-white/5`}>
         <div className="container mx-auto px-4 max-w-4xl">
           <motion.div
             initial="hidden"
@@ -674,15 +698,15 @@ Todo es abierto. Todo es auditable. Todo el código es público. El movimiento s
             <motion.div
               variants={fadeUp}
               custom={1}
-              className="bg-white/[0.03] backdrop-blur-sm border border-white/[0.06] rounded-2xl p-8 md:p-10"
+              className={`${GLASS_CARD} p-8 md:p-10`}
             >
               <div className="flex flex-col md:flex-row items-start gap-6">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center shrink-0">
-                  <Heart className="w-8 h-8 text-white" />
+                <div className="w-16 h-16 rounded-2xl bg-[#7D5BDE]/20 border border-[#7D5BDE]/30 flex items-center justify-center shrink-0">
+                  <Heart className="w-8 h-8 text-[#9D85E8]" />
                 </div>
                 <div>
                   <h3 className="text-xl font-serif font-bold mb-1">El Fundador</h3>
-                  <p className="text-sm text-blue-400 mb-4">Ingeniero Industrial · Padre de familia · Hombre Gris</p>
+                  <p className="text-sm text-[#9D85E8] mb-4">Ingeniero Industrial · Padre de familia · Hombre Gris</p>
                   <div className="space-y-4 text-slate-400 leading-relaxed text-[15px]">
                     <p>
                       Un ingeniero industrial argentino, padre de familia, que durante años fue lo que
@@ -723,7 +747,7 @@ Todo es abierto. Todo es auditable. Todo el código es público. El movimiento s
                 <p className="text-xs uppercase tracking-widest text-slate-500 mb-3">Contacto para prensa</p>
                 <a
                   href="mailto:prensa@elinstantedelhombregris.com"
-                  className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors text-sm"
+                  className="inline-flex items-center gap-2 text-[#9D85E8] hover:text-[#8D6FE4] transition-colors text-sm"
                 >
                   <Mail className="w-4 h-4" />
                   prensa@elinstantedelhombregris.com
@@ -737,7 +761,7 @@ Todo es abierto. Todo es auditable. Todo el código es público. El movimiento s
       {/* ══════════════════════════════════════════════════════════════
           SECTION 7: RECURSOS Y DESCARGAS
       ══════════════════════════════════════════════════════════════ */}
-      <section className="py-24 relative border-t border-white/5">
+      <section className={`${SECTION_PAD} relative border-t border-white/5`}>
         <div className="container mx-auto px-4 max-w-4xl">
           <motion.div
             initial="hidden"
@@ -767,12 +791,12 @@ Todo es abierto. Todo es auditable. Todo el código es público. El movimiento s
               return (
                 <motion.div key={i} variants={fadeUp} custom={i}>
                   <Link href={link.href}>
-                    <div className="flex items-center gap-4 p-5 rounded-xl bg-white/[0.03] border border-white/[0.06] hover:bg-white/[0.06] hover:border-white/[0.12] transition-all duration-300 cursor-pointer group">
-                      <Icon className="w-5 h-5 text-slate-500 group-hover:text-blue-400 transition-colors" />
+                    <div className={`flex items-center gap-4 p-5 ${GLASS_CARD} hover:bg-white/[0.06] hover:border-white/[0.18] transition-all duration-300 cursor-pointer group`}>
+                      <Icon className="w-5 h-5 text-slate-500 group-hover:text-[#9D85E8] transition-colors" />
                       <span className="text-sm font-medium text-slate-300 group-hover:text-white transition-colors flex-1">
                         {link.label}
                       </span>
-                      <ArrowRight className="w-4 h-4 text-slate-600 group-hover:text-blue-400 group-hover:translate-x-1 transition-all" />
+                      <ArrowRight className="w-4 h-4 text-slate-600 group-hover:text-[#9D85E8] group-hover:translate-x-1 transition-all" />
                     </div>
                   </Link>
                 </motion.div>
@@ -794,7 +818,7 @@ Todo es abierto. Todo es auditable. Todo el código es público. El movimiento s
             </p>
             <a
               href="mailto:prensa@elinstantedelhombregris.com"
-              className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-blue-600/20"
+              className={`inline-flex items-center gap-2 px-8 py-3 rounded-full ${ACCENT_BUTTON} font-semibold transition-all duration-300`}
             >
               <Mail className="w-4 h-4" />
               Contactanos
