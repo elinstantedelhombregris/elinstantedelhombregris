@@ -1,6 +1,7 @@
 import { Link } from 'wouter';
 import { Button } from '@/components/ui/button';
 import { Facebook, Instagram, Youtube, ArrowRight } from 'lucide-react';
+import { ACCENT_BUTTON } from '@/lib/design-tokens';
 
 const XIcon = ({ size = 18 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
@@ -10,16 +11,13 @@ const XIcon = ({ size = 18 }: { size?: number }) => (
 
 const Footer = () => {
   return (
-    <footer className="bg-slate-950 text-white pt-24 pb-12 relative overflow-hidden">
-      {/* Background Glow */}
-      <div className="absolute bottom-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute -bottom-[20%] -left-[10%] w-[600px] h-[600px] bg-blue-900/20 rounded-full blur-[100px]"></div>
-        <div className="absolute -top-[20%] -right-[10%] w-[600px] h-[600px] bg-purple-900/20 rounded-full blur-[100px]"></div>
-      </div>
+    <footer className="bg-[#0a0a0a] text-white pt-24 pb-12 relative overflow-hidden border-t border-white/[0.06]">
+      {/* Single violet ambient blob */}
+      <div className="absolute -bottom-[20%] left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-[#7D5BDE]/[0.05] rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
-          
+
           {/* Column 1: Brand */}
           <div className="space-y-6">
             <Link href="/">
@@ -31,9 +29,9 @@ const Footer = () => {
                     className="h-10 w-10 shrink-0"
                     loading="lazy"
                   />
-                  <h3 className="text-2xl font-serif font-bold leading-none tracking-tight text-white group-hover:text-blue-200 transition-colors">
+                  <h3 className="text-2xl font-serif font-bold leading-none tracking-tight text-white group-hover:text-slate-200 transition-colors">
                     El Instante del<br />
-                    <span className="text-blue-500 group-hover:text-blue-400 transition-colors">Hombre Gris</span>
+                    <span className="text-[#7D5BDE] group-hover:text-[#8D6FE4] transition-colors">Hombre Gris</span>
                   </h3>
                 </div>
               </div>
@@ -48,13 +46,13 @@ const Footer = () => {
                 { icon: <Facebook size={18} />, href: 'https://www.facebook.com/profile.php?id=61580779013855', label: 'Seguinos en Facebook' },
                 { icon: <Youtube size={18} />, href: 'https://www.youtube.com/@elinstantedelhombregris777', label: 'Seguinos en YouTube' },
               ].map((social, i) => (
-                <a key={i} href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label} className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-blue-600 hover:text-white transition-all duration-300">
+                <a key={i} href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label} className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:bg-[#7D5BDE] hover:border-[#7D5BDE] hover:text-white transition-all duration-300">
                   {social.icon}
                 </a>
               ))}
             </div>
           </div>
-          
+
           {/* Column 2: Navigation */}
           <div>
             <h4 className="text-sm font-bold uppercase tracking-widest text-slate-500 mb-6">Explorar</h4>
@@ -69,14 +67,14 @@ const Footer = () => {
                 { label: 'Los Círculos', href: '/community' }
               ].map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-slate-300 hover:text-blue-400 hover:translate-x-1 transition-all duration-300 inline-flex items-center gap-2 text-sm font-medium">
+                  <Link href={link.href} className="text-slate-300 hover:text-[#9D85E8] hover:translate-x-1 transition-all duration-300 inline-flex items-center gap-2 text-sm font-medium">
                     {link.label}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
-          
+
           {/* Column 3: Resources */}
           <div>
             <h4 className="text-sm font-bold uppercase tracking-widest text-slate-500 mb-6">Recursos</h4>
@@ -90,14 +88,14 @@ const Footer = () => {
                 { label: 'Apoyá al Movimiento', href: '/apoya-al-movimiento' }
               ].map((link, i) => (
                 <li key={i}>
-                  <Link href={link.href} className="text-slate-300 hover:text-purple-400 hover:translate-x-1 transition-all duration-300 inline-flex items-center gap-2 text-sm font-medium">
+                  <Link href={link.href} className="text-slate-300 hover:text-[#9D85E8] hover:translate-x-1 transition-all duration-300 inline-flex items-center gap-2 text-sm font-medium">
                     {link.label}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
-          
+
           {/* Column 4: Join CTA */}
           <div>
             <h4 className="text-sm font-bold uppercase tracking-widest text-slate-500 mb-6">Sumate al cambio</h4>
@@ -105,16 +103,16 @@ const Footer = () => {
               Creá tu cuenta para dejar tu señal en el mapa, registrar tu compromiso y seguir el avance del movimiento desde adentro.
             </p>
             <Link href="/register">
-              <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold h-12 rounded-lg shadow-lg shadow-blue-900/20 transition-all">
+              <Button className={`w-full ${ACCENT_BUTTON} h-12 rounded-lg transition-all`}>
                 Sumarme al movimiento <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </Link>
             <p className="text-slate-500 text-xs mt-4">
-              ¿Primera vez acá? <Link href="/la-vision" className="text-blue-400 hover:text-blue-300 transition-colors">Empezá por La Visión</Link> — 5 minutos.
+              ¿Primera vez acá? <Link href="/la-vision" className="text-[#9D85E8] hover:text-[#8D6FE4] transition-colors">Empezá por La Visión</Link> — 5 minutos.
             </p>
           </div>
         </div>
-        
+
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
           <p>© {new Date().getFullYear()} El Instante del Hombre Gris. Todos los derechos reservados.</p>
           <div className="flex gap-6">
