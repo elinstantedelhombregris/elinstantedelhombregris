@@ -315,7 +315,7 @@ const BlogVlog = () => {
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-[#0a0a0a] text-slate-200 font-sans selection:bg-violet-500/30">
-      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
+      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
         <div className="absolute -top-32 left-1/2 h-[640px] w-[640px] -translate-x-1/2 rounded-full bg-violet-500/[0.05] blur-3xl" />
         <div className="absolute bottom-0 right-0 h-[480px] w-[480px] translate-x-1/3 translate-y-1/3 rounded-full bg-blue-500/[0.04] blur-3xl" />
       </div>
@@ -345,13 +345,13 @@ const BlogVlog = () => {
 
             {/* Floating Filters Bar */}
             <div className="sticky top-24 z-40 mb-12 py-4">
-              <div className="mx-auto flex max-w-5xl flex-col items-center gap-2 rounded-full border border-white/10 bg-[#0a0a0a]/80 p-2 shadow-[0_8px_40px_rgba(0,0,0,0.5)] backdrop-blur-xl md:flex-row md:gap-4">
+              <div className="mx-auto flex max-w-5xl flex-col items-center gap-2 rounded-3xl md:rounded-full border border-white/10 bg-[#0a0a0a]/80 p-2 shadow-[0_8px_40px_rgba(0,0,0,0.5)] backdrop-blur-xl md:flex-row md:gap-4">
                 <div className="flex shrink-0 rounded-full bg-white/5 p-1">
                   {(['all', 'blog', 'vlog'] as const).map((tab) => (
                     <button
                       key={tab}
                       onClick={() => setActiveTab(tab)}
-                      className={`rounded-full px-6 py-1.5 text-sm font-medium transition-colors ${
+                      className={`rounded-full px-6 py-1.5 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a] ${
                         activeTab === tab
                           ? 'bg-[#7D5BDE] text-white'
                           : 'text-slate-400 hover:text-slate-200'
@@ -374,7 +374,7 @@ const BlogVlog = () => {
                     className="h-10 w-full border-none bg-transparent pl-10 pr-4 text-sm text-slate-200 placeholder-slate-500 focus:ring-0"
                   />
                   {searchQuery && (
-                    <button onClick={() => setSearchQuery('')} className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300" aria-label="Limpiar búsqueda">
+                    <button onClick={() => setSearchQuery('')} className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]" aria-label="Limpiar búsqueda">
                       <X className="h-4 w-4" aria-hidden="true" />
                     </button>
                   )}
@@ -387,7 +387,7 @@ const BlogVlog = () => {
                     <button
                       key={cat}
                       onClick={() => setSelectedCategory(cat)}
-                      className={`whitespace-nowrap rounded-full px-3 py-1.5 text-xs font-medium transition-colors ${
+                      className={`whitespace-nowrap rounded-full px-3 py-1.5 text-xs font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a] ${
                         selectedCategory === cat
                           ? 'bg-slate-200 text-slate-900'
                           : 'bg-white/5 text-slate-400 hover:bg-white/10 hover:text-slate-200'
