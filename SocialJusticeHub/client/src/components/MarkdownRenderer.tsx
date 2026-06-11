@@ -3,6 +3,7 @@ import { useMemo } from 'react';
 interface MarkdownRendererProps {
   content: string;
   className?: string;
+  variant?: 'light' | 'dark';
 }
 
 const INLINE_EMPHASIS = [
@@ -142,19 +143,7 @@ const convertMarkdownToHtml = (markdown: string) => {
 
 const isLikelyHtml = (content: string) => /<\/?[a-z][\s\S]*>/i.test(content.trim());
 
-const MarkdownRenderer = ({ content, className = '' }: MarkdownRendererProps) => {
-  const parsedContent = useMemo(() => {
-    if (!content) return '';
-    const trimmed = content.trim();
-    if (isLikelyHtml(trimmed)) {
-      return trimmed;
-    }
-    return convertMarkdownToHtml(trimmed);
-  }, [content]);
-
-  return (
-    <div 
-      className={`prose prose-lg prose-slate max-w-none ${className}
+const LIGHT_PROSE = `prose prose-lg prose-slate max-w-none
         prose-headings:font-serif prose-headings:font-bold prose-headings:text-slate-900 prose-headings:!text-slate-900
         prose-h1:text-4xl prose-h1:mb-6 prose-h1:mt-8 prose-h1:leading-tight prose-h1:!text-slate-900
         prose-h2:text-3xl prose-h2:mb-5 prose-h2:mt-8 prose-h2:leading-tight prose-h2:!text-slate-900
@@ -172,8 +161,46 @@ const MarkdownRenderer = ({ content, className = '' }: MarkdownRendererProps) =>
         prose-pre:bg-slate-900 prose-pre:text-slate-100 prose-pre:rounded-lg prose-pre:p-6 prose-pre:overflow-x-auto
         prose-img:rounded-lg prose-img:shadow-lg prose-img:my-8 prose-img:w-full
         prose-hr:border-slate-300 prose-hr:my-8
-      `}
-      style={{ color: '#1e293b' }}
+      `;
+
+const DARK_PROSE = `prose prose-lg prose-invert max-w-none
+  prose-headings:font-serif prose-headings:font-bold prose-headings:text-[#F5F7FA]
+  prose-h1:text-4xl prose-h1:mb-6 prose-h1:mt-8 prose-h1:leading-tight
+  prose-h2:text-3xl prose-h2:mb-5 prose-h2:mt-10 prose-h2:leading-tight
+  prose-h3:text-2xl prose-h3:mb-4 prose-h3:mt-8 prose-h3:leading-snug
+  prose-h4:text-xl prose-h4:mb-3 prose-h4:mt-6
+  prose-p:text-[1.0625rem] prose-p:leading-[1.85] prose-p:mb-6 prose-p:text-slate-300
+  prose-a:text-violet-400 prose-a:no-underline prose-a:font-semibold hover:prose-a:text-violet-300 hover:prose-a:underline
+  prose-strong:text-slate-100 prose-strong:font-bold
+  prose-em:text-slate-200 prose-em:italic
+  prose-ul:my-6 prose-ul:space-y-2
+  prose-ol:my-6 prose-ol:space-y-2
+  prose-li:text-slate-300 prose-li:leading-relaxed
+  prose-blockquote:border-l-2 prose-blockquote:border-l-slate-400/60 prose-blockquote:bg-white/[0.04]
+  prose-blockquote:rounded-r-2xl prose-blockquote:px-6 prose-blockquote:py-4 prose-blockquote:my-8
+  prose-blockquote:font-serif prose-blockquote:text-slate-200 prose-blockquote:not-italic
+  prose-code:text-sm prose-code:bg-white/10 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:font-mono prose-code:text-slate-200
+  prose-pre:bg-[#0d1117] prose-pre:border prose-pre:border-white/10 prose-pre:text-slate-100 prose-pre:rounded-2xl prose-pre:p-6 prose-pre:overflow-x-auto
+  prose-img:rounded-2xl prose-img:border prose-img:border-white/10 prose-img:my-8 prose-img:w-full
+  prose-hr:border-0 prose-hr:h-px prose-hr:bg-gradient-to-r prose-hr:from-transparent prose-hr:via-slate-400/40 prose-hr:to-transparent prose-hr:my-10
+`;
+
+const MarkdownRenderer = ({ content, className = '', variant = 'light' }: MarkdownRendererProps) => {
+  const parsedContent = useMemo(() => {
+    if (!content) return '';
+    const trimmed = content.trim();
+    if (isLikelyHtml(trimmed)) {
+      return trimmed;
+    }
+    return convertMarkdownToHtml(trimmed);
+  }, [content]);
+
+  const proseClasses = variant === 'dark' ? DARK_PROSE : LIGHT_PROSE;
+
+  return (
+    <div
+      className={`${proseClasses} ${className}`}
+      style={variant === 'light' ? { color: '#1e293b' } : undefined}
       dangerouslySetInnerHTML={{ __html: parsedContent }}
     />
   );
