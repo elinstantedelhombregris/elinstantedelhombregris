@@ -52,7 +52,7 @@ export default function TerritoryCard({ data }: TerritoryCardProps) {
     <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4">
       {/* Header */}
       <div className="flex items-center gap-2 mb-2">
-        <MapPin className="h-3.5 w-3.5 text-emerald-400" />
+        <MapPin className="h-3.5 w-3.5 text-[#9D85E8]" />
         <span className="font-mono text-[10px] tracking-[0.3em] uppercase text-slate-500">
           EN TU ZONA
         </span>
@@ -64,12 +64,12 @@ export default function TerritoryCard({ data }: TerritoryCardProps) {
       {/* Stats */}
       <div className="flex items-center gap-4 mb-3">
         <div className="flex items-center gap-1.5">
-          <Sparkles className="h-3.5 w-3.5 text-amber-400" />
+          <Sparkles className="h-3.5 w-3.5 text-slate-400" />
           <span className="text-sm text-white font-bold">{dreamCount}</span>
           <span className="text-xs text-slate-500">senales</span>
         </div>
         <div className="flex items-center gap-1.5">
-          <Users className="h-3.5 w-3.5 text-blue-400" />
+          <Users className="h-3.5 w-3.5 text-slate-400" />
           <span className="text-sm text-white font-bold">{memberCount}</span>
           <span className="text-xs text-slate-500">miembros</span>
         </div>
@@ -94,7 +94,7 @@ export default function TerritoryCard({ data }: TerritoryCardProps) {
         <Button
           size="sm"
           variant="outline"
-          className="border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/10 hover:text-emerald-300 text-xs h-7 px-3 w-full justify-between"
+          className="border-[#7D5BDE]/30 text-[#9D85E8] hover:bg-[#7D5BDE]/10 hover:text-[#B5A3EF] text-xs h-7 px-3 w-full justify-between"
         >
           Ver mapa
           <ArrowRight className="h-3 w-3" />

@@ -195,6 +195,7 @@ export function useProvinceClassifier(): ProvinceClassifier {
 
       return entries.map((entry) => {
         if (entry.province != null) return entry; // already assigned upstream
+        if (entry.lat == null || entry.lng == null) return entry; // sin coordenadas — nada que clasificar
         const cached = cache.get(entry);
         if (cached) return cached;
 
@@ -225,7 +226,7 @@ export function useProvinceClassifier(): ProvinceClassifier {
           let best: City | null = null;
           let bestKm = Infinity;
           for (const c of cities) {
-            const km = haversineKm([entry.lng, entry.lat], [c.longitude!, c.latitude!]);
+            const km = haversineKm([entry.lng!, entry.lat!], [c.longitude!, c.latitude!]);
             if (km < bestKm) {
               bestKm = km;
               best = c;

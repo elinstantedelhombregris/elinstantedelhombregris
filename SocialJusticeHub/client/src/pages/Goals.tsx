@@ -14,13 +14,22 @@ import { Plus, Target, CheckCircle, Trash2, Edit2, ArrowLeft } from 'lucide-reac
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { apiRequest } from '@/lib/queryClient';
 import { Link } from 'wouter';
+import { cn } from '@/lib/utils';
+import {
+  ACCENT_BUTTON,
+  DISPLAY_GRADIENT,
+  GLASS_CARD,
+  GLASS_CARD_HOVER,
+} from '@/lib/design-tokens';
 
+// Category colors are identity data: they encode meaningful category distinctions
+// consistently rendered across the UI (rule 6 exception — kept muted)
 const CATEGORIES = [
-  { value: 'civic_participation', label: 'Participacion Civica', color: 'bg-blue-500/20 text-blue-400 border-blue-500/30' },
-  { value: 'personal_growth', label: 'Crecimiento Personal', color: 'bg-purple-500/20 text-purple-400 border-purple-500/30' },
-  { value: 'community_building', label: 'Comunidad', color: 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30' },
-  { value: 'accountability', label: 'Rendicion de Cuentas', color: 'bg-amber-500/20 text-amber-400 border-amber-500/30' },
-  { value: 'learning', label: 'Aprendizaje', color: 'bg-indigo-500/20 text-indigo-400 border-indigo-500/30' },
+  { value: 'civic_participation', label: 'Participación Cívica', dotColor: '#9D85E8' },
+  { value: 'personal_growth', label: 'Crecimiento Personal', dotColor: '#a78bfa' },
+  { value: 'community_building', label: 'Comunidad', dotColor: '#6ee7b7' },
+  { value: 'accountability', label: 'Rendición de Cuentas', dotColor: '#fcd34d' },
+  { value: 'learning', label: 'Aprendizaje', dotColor: '#c4b5fd' },
 ];
 
 interface Goal {
@@ -93,8 +102,8 @@ const Goals = () => {
         <Header />
         <div className="flex items-center justify-center min-h-[60vh]">
           <div className="text-center">
-            <h2 className="text-xl font-serif text-slate-100">Inicia sesion para ver tus metas</h2>
-            <Button className="mt-4 bg-blue-600" onClick={() => window.location.href = '/login'}>Iniciar sesion</Button>
+            <h2 className="text-xl font-serif text-slate-100">Iniciá sesión para ver tus metas</h2>
+            <Button className={cn('mt-4', ACCENT_BUTTON)} onClick={() => window.location.href = '/login'}>Iniciar sesión</Button>
           </div>
         </div>
         <Footer />
@@ -140,13 +149,13 @@ const Goals = () => {
               </Button>
             </Link>
             <div>
-              <h1 className="text-3xl font-serif font-bold text-white">Mis Metas</h1>
-              <p className="text-slate-500 text-sm mt-1">Define y segui tus objetivos civicos y personales</p>
+              <h1 className={cn('text-3xl font-serif font-bold', DISPLAY_GRADIENT)}>Mis Metas</h1>
+              <p className="text-slate-500 text-sm mt-1">Definí y seguí tus objetivos cívicos y personales</p>
             </div>
           </div>
           <Dialog open={showForm} onOpenChange={setShowForm}>
             <DialogTrigger asChild>
-              <Button className="bg-blue-600 hover:bg-blue-500 text-white font-bold">
+              <Button className={cn('font-bold', ACCENT_BUTTON)}>
                 <Plus className="h-4 w-4 mr-2" />
                 Nueva Meta
               </Button>
@@ -157,29 +166,34 @@ const Goals = () => {
               </DialogHeader>
               <div className="space-y-4 pt-4">
                 <Input
-                  placeholder="Titulo de la meta"
+                  placeholder="Título de la meta"
                   value={formTitle}
                   onChange={(e) => setFormTitle(e.target.value)}
-                  className="bg-white/5 border-white/10 text-white"
+                  className="bg-white/5 border-white/10 text-white focus:border-[#7D5BDE]/50"
                 />
                 <Textarea
-                  placeholder="Descripcion (opcional)"
+                  placeholder="Descripción (opcional)"
                   value={formDescription}
                   onChange={(e) => setFormDescription(e.target.value)}
-                  className="bg-white/5 border-white/10 text-white"
+                  className="bg-white/5 border-white/10 text-white focus:border-[#7D5BDE]/50"
                   rows={3}
                 />
                 <div>
-                  <label className="text-xs text-slate-400 uppercase tracking-wider mb-2 block">Categoria</label>
+                  <label className="text-xs text-slate-400 uppercase tracking-wider mb-2 block">Categoría</label>
                   <div className="flex flex-wrap gap-2">
                     {CATEGORIES.map(cat => (
                       <button
                         key={cat.value}
                         onClick={() => setFormCategory(cat.value)}
-                        className={`px-3 py-1.5 rounded-lg text-xs border transition-all ${
-                          formCategory === cat.value ? cat.color : 'bg-white/5 border-white/10 text-slate-400'
-                        }`}
+                        className={cn(
+                          'px-3 py-1.5 rounded-lg text-xs border transition-all duration-300 flex items-center gap-1.5',
+                          formCategory === cat.value
+                            ? 'bg-[#7D5BDE]/20 border-[#7D5BDE]/40 text-[#CBBDF4]'
+                            : 'bg-white/5 border-white/10 text-slate-400 hover:bg-white/10'
+                        )}
                       >
+                        {/* category dot = identity encoding (rule 6) */}
+                        <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: cat.dotColor }} />
                         {cat.label}
                       </button>
                     ))}
@@ -191,13 +205,13 @@ const Goals = () => {
                     type="date"
                     value={formTargetDate}
                     onChange={(e) => setFormTargetDate(e.target.value)}
-                    className="bg-white/5 border-white/10 text-white"
+                    className="bg-white/5 border-white/10 text-white focus:border-[#7D5BDE]/50"
                   />
                 </div>
                 <Button
                   onClick={handleSubmit}
                   disabled={!formTitle.trim() || createGoal.isPending}
-                  className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold"
+                  className={cn('w-full font-bold', ACCENT_BUTTON)}
                 >
                   Crear Meta
                 </Button>
@@ -209,11 +223,11 @@ const Goals = () => {
         {/* Active Goals */}
         <div className="space-y-4">
           {activeGoals.length === 0 && !isLoading && (
-            <Card className="bg-white/5 border-white/10 border-dashed">
+            <Card className={cn(GLASS_CARD, 'border-dashed')}>
               <CardContent className="py-12 text-center">
-                <Target className="h-10 w-10 text-purple-500/30 mx-auto mb-4" />
-                <h3 className="text-lg text-slate-300 mb-2">Todavia no tenes metas</h3>
-                <p className="text-slate-500 text-sm mb-4">Defini tu primera meta para empezar a construir tu camino civico.</p>
+                <Target className="h-10 w-10 text-slate-600 mx-auto mb-4" />
+                <h3 className="text-lg text-slate-300 mb-2">Todavía no tenés metas</h3>
+                <p className="text-slate-500 text-sm mb-4">Definí tu primera meta para empezar a construir tu camino cívico.</p>
               </CardContent>
             </Card>
           )}
@@ -226,19 +240,22 @@ const Goals = () => {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
               >
-                <Card className="bg-white/5 border-white/10 hover:border-white/20 transition-colors">
+                <Card className={cn(GLASS_CARD, GLASS_CARD_HOVER)}>
                   <CardContent className="py-5">
                     <div className="flex items-start gap-4">
                       <button
                         onClick={() => toggleComplete(goal)}
-                        className="mt-1 w-6 h-6 rounded-full border-2 border-slate-600 hover:border-blue-400 flex items-center justify-center flex-shrink-0 transition-colors"
+                        className="mt-1 w-6 h-6 rounded-full border-2 border-slate-600 hover:border-[#9D85E8] flex items-center justify-center flex-shrink-0 transition-colors duration-300"
                       >
+                        {/* completed check = success semantic (rule 6) */}
                         {goal.progress >= 100 && <CheckCircle className="h-5 w-5 text-emerald-400" />}
                       </button>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 mb-1">
                           <h3 className="text-base font-bold text-slate-200">{goal.title}</h3>
-                          <Badge variant="outline" className={`text-[9px] ${catInfo.color}`}>
+                          {/* category badge = identity data encoding (rule 6) — muted dot */}
+                          <Badge variant="outline" className="text-[9px] bg-white/5 border-white/10 text-slate-400 flex items-center gap-1">
+                            <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: catInfo.dotColor }} />
                             {catInfo.label}
                           </Badge>
                         </div>
@@ -246,7 +263,7 @@ const Goals = () => {
                           <p className="text-sm text-slate-400 mb-3">{goal.description}</p>
                         )}
                         <div className="flex items-center gap-3">
-                          <Progress value={goal.progress} className="h-1.5 flex-1 bg-white/5" />
+                          <Progress value={goal.progress} className="h-1.5 flex-1 bg-white/5" indicatorClassName="bg-[#7D5BDE]" />
                           <span className="text-xs font-mono text-slate-500">{goal.progress}%</span>
                         </div>
                         {goal.targetDate && (
@@ -257,7 +274,8 @@ const Goals = () => {
                       </div>
                       <button
                         onClick={() => deleteGoal.mutate(goal.id)}
-                        className="p-1.5 text-slate-600 hover:text-red-400 transition-colors"
+                        /* destructive action = red (rule 6) */
+                        className="p-1.5 text-slate-600 hover:text-red-400 transition-colors duration-300"
                       >
                         <Trash2 className="h-4 w-4" />
                       </button>
@@ -277,10 +295,11 @@ const Goals = () => {
             </h2>
             <div className="space-y-3">
               {completedGoals.map(goal => (
-                <Card key={goal.id} className="bg-white/3 border-white/5 opacity-60">
+                <Card key={goal.id} className={cn(GLASS_CARD, 'opacity-60')}>
                   <CardContent className="py-3">
                     <div className="flex items-center gap-3">
-                      <CheckCircle className="h-5 w-5 text-emerald-500 flex-shrink-0" />
+                      {/* completed = success semantic (rule 6) */}
+                      <CheckCircle className="h-5 w-5 text-emerald-400 flex-shrink-0" />
                       <span className="text-sm text-slate-400 line-through">{goal.title}</span>
                     </div>
                   </CardContent>

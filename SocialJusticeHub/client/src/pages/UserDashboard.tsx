@@ -35,6 +35,13 @@ import { Link } from 'wouter';
 import EmailVerificationBanner from '@/components/EmailVerificationBanner';
 import GettingStartedChecklist from '@/components/GettingStartedChecklist';
 import { useAvatarUpload } from '@/hooks/useAvatarUpload';
+import {
+  ACCENT_BUTTON,
+  GLASS_CARD,
+  GLASS_CARD_HOVER,
+  DISPLAY_GRADIENT,
+  SECTION_BADGE,
+} from '@/lib/design-tokens';
 
 interface UserStats {
   level: number;
@@ -144,10 +151,10 @@ const UserDashboard = () => {
       return (
         <div className="min-h-screen bg-[#0a0a0a] text-slate-200 flex items-center justify-center">
           <div className="text-center">
-            <ShieldCheck className="h-16 w-16 mx-auto mb-4 text-blue-500/50 animate-pulse" />
+            <ShieldCheck className="h-16 w-16 mx-auto mb-4 text-slate-500/50 animate-pulse" />
             <h2 className="text-xl font-serif text-slate-100">Acceso restringido</h2>
             <p className="text-slate-500 mt-2 font-mono text-sm">Iniciá sesión para entrar a tu panel de progreso.</p>
-            <Button className="mt-6 bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-900/50" onClick={() => window.location.href = '/login'}>
+            <Button className={`mt-6 ${ACCENT_BUTTON}`} onClick={() => window.location.href = '/login'}>
               Iniciar sesión
             </Button>
           </div>
@@ -157,8 +164,8 @@ const UserDashboard = () => {
     return (
       <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto mb-4 shadow-[0_0_15px_rgba(59,130,246,0.5)]"></div>
-          <p className="text-blue-400 font-mono text-sm tracking-widest">Verificando acceso...</p>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#7D5BDE] mx-auto mb-4"></div>
+          <p className="text-[#9D85E8] font-mono text-sm tracking-widest">Verificando acceso...</p>
         </div>
       </div>
     );
@@ -169,6 +176,7 @@ const UserDashboard = () => {
     return (
       <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center">
         <div className="text-center">
+          {/* Error state — red is semantic per rule 6 */}
           <h2 className="text-xl font-bold text-red-400">Sesión expirada</h2>
           <Button className="mt-4 bg-slate-800 hover:bg-slate-700 text-white" onClick={() => {
             localStorage.removeItem('authToken');
@@ -184,8 +192,8 @@ const UserDashboard = () => {
     return (
       <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto mb-4 shadow-[0_0_15px_rgba(59,130,246,0.5)]"></div>
-          <p className="text-blue-400 font-mono text-sm tracking-widest">Cargando panel...</p>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#7D5BDE] mx-auto mb-4"></div>
+          <p className="text-[#9D85E8] font-mono text-sm tracking-widest">Cargando panel...</p>
         </div>
       </div>
     );
@@ -195,14 +203,15 @@ const UserDashboard = () => {
   const progressPercentage = userStats ? (userStats.experience / userStats.experienceToNext) * 100 : 0;
   const availableChallenges = challenges.filter(c => c.level <= (userStats?.level || 1));
 
+  // Level names — text color encodes semantic tier progression (rule 6)
   const getLevelInfo = (level: number) => {
     switch (level) {
-      case 1: return { name: 'Consciencia Individual', color: 'text-blue-400', glow: 'shadow-blue-500/50', icon: User };
-      case 2: return { name: 'Núcleo Familiar', color: 'text-amber-400', glow: 'shadow-amber-500/50', icon: Users };
-      case 3: return { name: 'Impacto Comunitario', color: 'text-emerald-400', glow: 'shadow-emerald-500/50', icon: BookOpen };
-      case 4: return { name: 'Liderazgo Provincial', color: 'text-purple-400', glow: 'shadow-purple-500/50', icon: TrendingUp };
-      case 5: return { name: 'Visión Nacional', color: 'text-indigo-400', glow: 'shadow-indigo-500/50', icon: Star };
-      default: return { name: 'Consciencia Individual', color: 'text-blue-400', glow: 'shadow-blue-500/50', icon: User };
+      case 1: return { name: 'Consciencia Individual', color: 'text-slate-300', icon: User };
+      case 2: return { name: 'Núcleo Familiar', color: 'text-amber-400', icon: Users };
+      case 3: return { name: 'Impacto Comunitario', color: 'text-[#9D85E8]', icon: BookOpen };
+      case 4: return { name: 'Liderazgo Provincial', color: 'text-[#7D5BDE]', icon: TrendingUp };
+      case 5: return { name: 'Visión Nacional', color: 'text-white', icon: Star };
+      default: return { name: 'Consciencia Individual', color: 'text-slate-300', icon: User };
     }
   };
 
@@ -229,26 +238,26 @@ const UserDashboard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-slate-200 font-sans selection:bg-blue-500/30">
+    <div className="min-h-screen bg-[#0a0a0a] text-slate-200 font-sans selection:bg-[#7D5BDE]/30">
       <Header />
       <EmailVerificationBanner variant="dark" />
 
       {/* Hero Section: Control Tower Header - Cinematic */}
       <div className="relative overflow-hidden border-b border-white/5 bg-[#0a0a0a]">
         {/* Background Effects */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/20 via-[#0a0a0a] to-[#0a0a0a] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#7D5BDE]/15 via-[#0a0a0a] to-[#0a0a0a] pointer-events-none" />
         <div className="absolute top-0 left-0 w-full h-full bg-[url('/grid-pattern.svg')] opacity-[0.03] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 py-12 relative z-10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
               className="flex items-center gap-8"
             >
               <div className="relative">
-                <div className="w-24 h-24 rounded-2xl bg-white/5 overflow-hidden border border-white/10 shadow-[0_0_30px_rgba(59,130,246,0.15)] hover:border-blue-500/50 hover:shadow-[0_0_40px_rgba(59,130,246,0.3)] transition-all duration-500">
+                <div className="w-24 h-24 rounded-2xl bg-white/5 overflow-hidden border border-white/10 hover:border-[#7D5BDE]/40 hover:shadow-[0_0_40px_rgba(125,91,222,0.15)] transition-all duration-500">
                    <Avatar className="h-full w-full rounded-none">
                     <AvatarImage src={user.avatarUrl || `https://api.dicebear.com/7.x/avataaars/svg?seed=${user.username}`} className={`${user.avatarUrl ? 'object-cover' : 'grayscale opacity-80'} hover:scale-110 transition-all duration-500`} />
                     <AvatarFallback className="bg-slate-900 text-slate-400 font-bold text-3xl">
@@ -264,11 +273,11 @@ const UserDashboard = () => {
                   onChange={handleAvatarChange}
                   className="hidden"
                 />
-                {/* Upload button - always visible */}
+                {/* Upload button */}
                 <button
                   onClick={() => fileInputRef.current?.click()}
                   disabled={avatarUploadMutation.isPending}
-                  className="absolute -bottom-2 -left-2 z-20 p-1.5 rounded-full bg-blue-600 hover:bg-blue-500 text-white transition-colors shadow-[0_0_12px_rgba(37,99,235,0.5)] border-2 border-[#0a0a0a]"
+                  className="absolute -bottom-2 -left-2 z-20 p-1.5 rounded-full bg-[#7D5BDE] hover:bg-[#8D6FE4] text-white transition-colors border-2 border-[#0a0a0a]"
                   title="Cambiar foto de perfil"
                   aria-label="Cambiar foto de perfil"
                 >
@@ -278,7 +287,7 @@ const UserDashboard = () => {
                     <Camera className="h-3.5 w-3.5" />
                   )}
                 </button>
-                {/* Delete button - only when custom avatar exists */}
+                {/* Delete button — red is semantic destructive action (rule 6) */}
                 {user.avatarUrl && (
                   <button
                     onClick={() => avatarDeleteMutation.mutate()}
@@ -290,32 +299,35 @@ const UserDashboard = () => {
                     <Trash2 className="h-3 w-3" />
                   </button>
                 )}
-                {/* Active status dot */}
-                <div className="absolute -bottom-2 -right-2 z-10 bg-emerald-500 w-5 h-5 rounded-full border-4 border-[#0a0a0a] shadow-[0_0_10px_rgba(16,185,129,0.6)] animate-pulse" title="Sistema Activo"></div>
+                {/* Presence dot — semantic live indicator (rule 6) */}
+                <div className="absolute -bottom-2 -right-2 z-10 bg-emerald-500 w-5 h-5 rounded-full border-4 border-[#0a0a0a] animate-pulse" title="Sistema Activo"></div>
               </div>
-              
+
               <div>
                 <div className="flex items-center gap-3 mb-2">
-                  <h1 className="text-3xl md:text-4xl font-bold text-white font-serif tracking-tight">
+                  <h1 className={`text-3xl md:text-4xl font-bold font-serif tracking-tight ${DISPLAY_GRADIENT}`}>
                     PANEL DE {user.name.toUpperCase()}
                   </h1>
+                  {/* ACTIVO badge — semantic presence state (rule 6) */}
                   <Badge variant="outline" className="border-emerald-500/30 text-emerald-400 bg-emerald-500/10 text-[10px] uppercase tracking-wider backdrop-blur-sm">
                     ACTIVO
                   </Badge>
                 </div>
-                <p className="text-blue-400/80 font-mono text-xs uppercase tracking-[0.2em] mb-4">
+                <p className="text-[#9D85E8]/70 font-mono text-xs uppercase tracking-[0.2em] mb-4">
                   Última actualización // {new Date().toLocaleTimeString()}
                 </p>
                 <div className="flex flex-wrap gap-3">
                   <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-colors">
+                    {/* Crown — semantic tier indicator (rule 6) */}
                     <Crown className="h-3.5 w-3.5 text-amber-400" />
                     <span className="text-xs font-bold text-slate-300">NV. {userStats?.level || 1}</span>
                   </div>
                   <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-colors">
-                    <Zap className="h-3.5 w-3.5 text-blue-400" />
+                    <Zap className="h-3.5 w-3.5 text-slate-300" />
                     <span className="text-xs font-bold text-slate-300">{userStats?.experience || 0} XP</span>
                   </div>
                   <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-colors">
+                    {/* Trophy — semantic badge count (rule 6) */}
                     <Trophy className="h-3.5 w-3.5 text-yellow-400" />
                     <span className="text-xs font-bold text-slate-300">{userStats?.badgesEarned || 0} LOGROS</span>
                   </div>
@@ -330,7 +342,7 @@ const UserDashboard = () => {
               className="w-full md:w-auto flex gap-3"
             >
                <Link href="/life-areas">
-                <Button className="h-12 bg-emerald-600 hover:bg-emerald-500 text-white border-0 shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:shadow-[0_0_30px_rgba(16,185,129,0.5)] transition-all duration-300 font-bold tracking-wide">
+                <Button className={`h-12 ${ACCENT_BUTTON} border-0 transition-all duration-300 font-bold tracking-wide`}>
                   <Compass className="mr-2 h-4 w-4" />
                   ÁREAS DE VIDA
                 </Button>
@@ -346,50 +358,46 @@ const UserDashboard = () => {
         </div>
       </div>
 
-      <motion.div 
+      <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
         className="max-w-7xl mx-auto px-4 py-10"
       >
-        {/* Áreas de Vida - Hero Card (full width) */}
-        <motion.div variants={itemVariants} whileHover={{ y: -3 }} className="mb-8 transition-all">
+        {/* Áreas de Vida — Hero Card (full width) */}
+        <motion.div variants={itemVariants} className="mb-8 transition-all duration-300 hover:-translate-y-1">
           <Link href="/life-areas">
-            <Card className="border-0 shadow-[0_0_60px_rgba(0,0,0,0.6)] bg-gradient-to-br from-[#0c1116] via-[#0f1419] to-[#0d1210] text-white rounded-2xl relative overflow-hidden group cursor-pointer">
-              {/* Animated grid background */}
-              <div className="absolute inset-0 opacity-10 pointer-events-none"
-                   style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0)', backgroundSize: '32px 32px' }} />
-              {/* Gradient orbs */}
-              <div className="absolute -left-32 -top-32 w-96 h-96 bg-emerald-500/8 rounded-full blur-[100px] group-hover:bg-emerald-500/15 transition-all duration-1000" />
-              <div className="absolute -right-20 -bottom-20 w-80 h-80 bg-teal-500/8 rounded-full blur-[80px] group-hover:bg-teal-500/15 transition-all duration-1000" />
-              <div className="absolute right-1/4 top-0 w-60 h-60 bg-cyan-500/5 rounded-full blur-[60px] group-hover:bg-cyan-500/10 transition-all duration-1000" />
+            <Card className={`${GLASS_CARD} text-white relative overflow-hidden group cursor-pointer`}>
+              {/* Single violet blob per rule 5 */}
+              <div className="absolute -left-32 -top-32 w-96 h-96 bg-[#7D5BDE]/8 rounded-full blur-[100px] group-hover:bg-[#7D5BDE]/15 transition-all duration-700" />
               {/* Accent border glow */}
-              <div className="absolute inset-0 rounded-2xl border border-emerald-500/20 group-hover:border-emerald-400/40 transition-colors duration-500" />
+              <div className="absolute inset-0 rounded-2xl border border-[#7D5BDE]/15 group-hover:border-[#7D5BDE]/35 transition-colors duration-500" />
 
               <CardContent className="relative z-10 p-8 md:p-10">
                 <div className="flex flex-col md:flex-row gap-8 items-center">
                   {/* Left: Constellation preview */}
                   <div className="flex-shrink-0">
                     <div className="relative w-32 h-32 md:w-40 md:h-40">
-                      {/* Orbiting dots representing life areas — CSS animations for perf */}
+                      {/* Orbiting dots — life area identity colors are data-viz semantics (rule 6) */}
                       {[...Array(12)].map((_, i) => {
                         const angle = (i * 30 - 90) * (Math.PI / 180);
                         const radius = 55;
                         const x = 50 + radius * Math.cos(angle);
                         const y = 50 + radius * Math.sin(angle);
-                        const colors = ['bg-emerald-400', 'bg-teal-400', 'bg-cyan-400', 'bg-green-400', 'bg-emerald-300', 'bg-teal-300', 'bg-cyan-300', 'bg-green-300', 'bg-emerald-500', 'bg-teal-500', 'bg-cyan-500', 'bg-green-500'];
+                        // Anillo decorativo en familia violeta (opacidad variable, sin loops)
+                        const colors = ['bg-[#7D5BDE]', 'bg-[#7D5BDE]/80', 'bg-[#7D5BDE]/60', 'bg-[#7D5BDE]/40', 'bg-[#9D85E8]', 'bg-[#9D85E8]/80', 'bg-[#9D85E8]/60', 'bg-[#9D85E8]/40', 'bg-[#B5A3EF]', 'bg-[#B5A3EF]/80', 'bg-[#B5A3EF]/60', 'bg-[#B5A3EF]/40'];
                         return (
                           <div
                             key={i}
-                            className={`absolute w-2.5 h-2.5 rounded-full ${colors[i]} shadow-[0_0_8px_rgba(52,211,153,0.5)] animate-[constellationPulse_2.5s_ease-in-out_infinite]`}
-                            style={{ left: `${x}%`, top: `${y}%`, transform: 'translate(-50%, -50%)', animationDelay: `${i * 0.2}s` }}
+                            className={`absolute w-2.5 h-2.5 rounded-full ${colors[i]} shadow-[0_0_8px_rgba(125,91,222,0.5)]`}
+                            style={{ left: `${x}%`, top: `${y}%`, transform: 'translate(-50%, -50%)' }}
                           />
                         );
                       })}
                       {/* Center icon */}
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center group-hover:bg-emerald-500/20 group-hover:border-emerald-400/50 transition-all duration-500 shadow-[0_0_30px_rgba(52,211,153,0.15)]">
-                          <Compass className="h-7 w-7 text-emerald-400 group-hover:rotate-45 transition-transform duration-700" />
+                        <div className="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-white/10 group-hover:border-white/20 transition-all duration-500">
+                          <Compass className="h-7 w-7 text-slate-300 group-hover:rotate-45 transition-transform duration-700" />
                         </div>
                       </div>
                     </div>
@@ -399,39 +407,39 @@ const UserDashboard = () => {
                   <div className="flex-1 text-center md:text-left space-y-4">
                     <div>
                       <div className="flex items-center justify-center md:justify-start gap-3 mb-2">
-                        <Badge variant="outline" className="border-emerald-500/30 text-emerald-400 bg-emerald-500/10 text-[10px] uppercase tracking-widest font-bold backdrop-blur-sm">
-                          <Sparkles className="h-3 w-3 mr-1" />
+                        <span className={SECTION_BADGE}>
+                          <Sparkles className="inline h-3 w-3 mr-1" />
                           Herramienta Principal
-                        </Badge>
+                        </span>
                       </div>
                       <h2 className="text-2xl md:text-3xl font-bold text-white font-serif tracking-tight mb-2">
                         Mapa Personal de Áreas de Vida
                       </h2>
                       <p className="text-slate-400 text-sm md:text-base font-light leading-relaxed max-w-xl">
-                        Explorá y calibrá las <strong className="text-emerald-300 font-medium">12 áreas fundamentales</strong> de tu vida.
+                        Explorá y calibrá las <strong className="text-slate-200 font-medium">12 áreas fundamentales</strong> de tu vida.
                         Identificá brechas, definí objetivos y ejecutá mejoras concretas.
                       </p>
                     </div>
 
                     <div className="flex flex-wrap justify-center md:justify-start gap-3">
-                      <div className="bg-emerald-500/10 rounded-lg px-4 py-2 border border-emerald-500/20 backdrop-blur-sm">
-                        <span className="block text-[9px] text-emerald-300/70 uppercase tracking-wider">Áreas</span>
-                        <span className="text-lg font-mono text-emerald-300 font-bold">12</span>
+                      <div className="bg-white/5 rounded-lg px-4 py-2 border border-white/10">
+                        <span className="block text-[9px] text-slate-500 uppercase tracking-wider">Áreas</span>
+                        <span className="text-lg font-mono text-slate-200 font-bold">12</span>
                       </div>
-                      <div className="bg-teal-500/10 rounded-lg px-4 py-2 border border-teal-500/20 backdrop-blur-sm">
-                        <span className="block text-[9px] text-teal-300/70 uppercase tracking-wider">Subcategorías</span>
-                        <span className="text-lg font-mono text-teal-300 font-bold">60</span>
+                      <div className="bg-white/5 rounded-lg px-4 py-2 border border-white/10">
+                        <span className="block text-[9px] text-slate-500 uppercase tracking-wider">Subcategorías</span>
+                        <span className="text-lg font-mono text-slate-200 font-bold">60</span>
                       </div>
-                      <div className="bg-amber-500/10 rounded-lg px-4 py-2 border border-amber-500/20 backdrop-blur-sm">
-                        <span className="block text-[9px] text-amber-300/70 uppercase tracking-wider">Diagnóstico</span>
-                        <span className="text-lg font-mono text-amber-300 font-bold">DISPONIBLE</span>
+                      <div className="bg-white/5 rounded-lg px-4 py-2 border border-white/10">
+                        <span className="block text-[9px] text-slate-500 uppercase tracking-wider">Diagnóstico</span>
+                        <span className="text-lg font-mono text-slate-200 font-bold">DISPONIBLE</span>
                       </div>
                     </div>
                   </div>
 
                   {/* Right: CTA */}
                   <div className="flex-shrink-0">
-                    <div className="bg-white text-slate-950 hover:bg-emerald-50 font-bold tracking-wide shadow-[0_0_30px_rgba(255,255,255,0.15)] group-hover:shadow-[0_0_40px_rgba(255,255,255,0.25)] transition-all duration-500 h-14 px-8 rounded-xl flex items-center gap-2 text-base">
+                    <div className={`${ACCENT_BUTTON} font-bold tracking-wide transition-all duration-500 h-14 px-8 rounded-xl flex items-center gap-2 text-base`}>
                       EXPLORAR ÁREAS
                       <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                     </div>
@@ -448,20 +456,19 @@ const UserDashboard = () => {
           <div className="lg:col-span-2 space-y-8">
 
             {/* Estado de progreso */}
-            <motion.div variants={itemVariants} whileHover={{ y: -2 }} className="transition-all">
+            <motion.div variants={itemVariants} className="transition-all duration-300 hover:-translate-y-0.5">
               <Card className="bg-white/5 backdrop-blur-md border-white/10 shadow-2xl overflow-hidden relative group">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-br from-[#7D5BDE]/5 via-transparent to-[#7D5BDE]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                 <CardHeader className="pb-4 border-b border-white/5 relative z-10">
                   <CardTitle className="flex items-center text-lg font-bold text-slate-100 uppercase tracking-wider">
-                    <Cpu className="h-5 w-5 mr-3 text-blue-400" />
+                    <Cpu className="h-5 w-5 mr-3 text-slate-400" />
                     Estado de Progreso
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="pt-6 relative z-10">
                   <div className="space-y-6">
                     <div className="flex items-center space-x-6">
-                      <div className={`w-20 h-20 rounded-2xl bg-[#0a0a0a] border border-white/10 flex items-center justify-center shadow-inner group-hover:border-blue-500/30 transition-colors duration-500 relative overflow-hidden`}>
-                        <div className={`absolute inset-0 bg-gradient-to-br ${currentLevelInfo.color.replace('text-', 'from-')}/20 to-transparent opacity-20`}></div>
+                      <div className="w-20 h-20 rounded-2xl bg-[#0a0a0a] border border-white/10 flex items-center justify-center shadow-inner group-hover:border-[#7D5BDE]/30 transition-colors duration-500 relative overflow-hidden">
                         <LevelIcon className={`h-8 w-8 ${currentLevelInfo.color} drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]`} />
                       </div>
                       <div className="flex-1">
@@ -475,14 +482,14 @@ const UserDashboard = () => {
                     <div className="relative pt-2">
                       <div className="flex justify-between text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-2">
                         <span>Progreso Actual</span>
-                        <span className="text-blue-400">{Math.round(progressPercentage)}% Completado</span>
+                        <span className="text-[#9D85E8]">{Math.round(progressPercentage)}% Completado</span>
                       </div>
                       <div className="h-2 bg-white/5 rounded-full overflow-hidden border border-white/5">
                         <motion.div
                           initial={{ width: 0 }}
                           animate={{ width: `${progressPercentage}%` }}
                           transition={{ duration: 1.5, ease: "easeOut" }}
-                          className="h-full bg-gradient-to-r from-blue-600 to-purple-500 relative"
+                          className="h-full bg-gradient-to-r from-[#7D5BDE] to-[#9D85E8] relative"
                         >
                           <div className="absolute inset-0 bg-white/20 animate-[shimmer_2s_infinite]" style={{ backgroundImage: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)' }}></div>
                         </motion.div>
@@ -500,7 +507,7 @@ const UserDashboard = () => {
                   <div className="flex items-center justify-between">
                     <div>
                       <CardTitle className="flex items-center text-lg font-bold text-slate-100 uppercase tracking-wider">
-                        <Target className="h-5 w-5 mr-3 text-purple-400" />
+                        <Target className="h-5 w-5 mr-3 text-slate-400" />
                         Desafíos Disponibles
                       </CardTitle>
                       <CardDescription className="font-mono text-xs text-slate-500 mt-1">
@@ -508,10 +515,10 @@ const UserDashboard = () => {
                       </CardDescription>
                     </div>
                     <Link href="/challenges">
-                      <Button 
-                        variant="ghost" 
+                      <Button
+                        variant="ghost"
                         size="sm"
-                        className="text-purple-400 hover:text-purple-300 hover:bg-purple-500/10 border border-purple-500/20 text-[10px] uppercase tracking-wider font-bold"
+                        className="text-[#9D85E8] hover:text-[#B5A3EF] hover:bg-[#7D5BDE]/10 border border-[#7D5BDE]/20 text-[10px] uppercase tracking-wider font-bold"
                       >
                         VER TODAS
                         <ArrowRight className="ml-1 h-3 w-3" />
@@ -528,28 +535,29 @@ const UserDashboard = () => {
                     ) : availableChallenges.length > 0 ? (
                       <>
                         {availableChallenges.slice(0, 3).map((challenge, idx) => (
-                          <motion.div 
-                            key={challenge.id} 
+                          <motion.div
+                            key={challenge.id}
                             initial={{ opacity: 0, x: -10 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: idx * 0.1 }}
-                            className="group bg-white/5 border border-white/5 rounded-lg p-4 hover:bg-white/10 hover:border-purple-500/30 transition-all duration-300 cursor-pointer"
+                            className="group bg-white/5 border border-white/5 rounded-lg p-4 hover:bg-white/10 hover:border-[#7D5BDE]/30 transition-all duration-300 cursor-pointer"
                           >
                             <div className="flex items-center justify-between">
                               <div className="flex items-center gap-4">
-                                <div className="h-10 w-10 bg-[#0a0a0a] rounded-lg flex items-center justify-center text-purple-400 border border-white/10 group-hover:border-purple-500/50 group-hover:shadow-[0_0_15px_rgba(168,85,247,0.2)] transition-all">
+                                <div className="h-10 w-10 bg-[#0a0a0a] rounded-lg flex items-center justify-center text-slate-400 border border-white/10 group-hover:border-[#7D5BDE]/50 group-hover:shadow-[0_0_15px_rgba(125,91,222,0.2)] transition-all">
                                   <Target className="h-5 w-5" />
                                 </div>
                                 <div>
-                                  <h3 className="text-sm font-bold text-slate-200 uppercase tracking-wide mb-1 group-hover:text-purple-300 transition-colors">{challenge.title}</h3>
+                                  <h3 className="text-sm font-bold text-slate-200 uppercase tracking-wide mb-1 group-hover:text-[#9D85E8] transition-colors">{challenge.title}</h3>
                                   <div className="flex items-center gap-3 text-[10px] font-mono text-slate-500">
                                     <span className="bg-white/5 px-1.5 py-0.5 rounded border border-white/5">{challenge.frequency}</span>
+                                    {/* XP reward — semantic gamification value (rule 6) */}
                                     <span className="text-emerald-400 font-bold">+{challenge.experience} XP</span>
                                   </div>
                                 </div>
                               </div>
                               <Link href={`/challenges/${challenge.id}`}>
-                                <Button size="sm" variant="outline" className="bg-transparent border-white/20 text-slate-300 hover:bg-purple-500/20 hover:text-purple-200 hover:border-purple-500/50 text-xs uppercase font-bold tracking-wider">
+                                <Button size="sm" variant="outline" className="bg-transparent border-white/20 text-slate-300 hover:bg-[#7D5BDE]/20 hover:text-[#9D85E8] hover:border-[#7D5BDE]/50 text-xs uppercase font-bold tracking-wider">
                                   Empezar
                                 </Button>
                               </Link>
@@ -559,16 +567,15 @@ const UserDashboard = () => {
                         {availableChallenges.length > 3 && (
                           <Link href="/challenges">
                             <motion.div
-                              whileHover={{ scale: 1.02 }}
-                              className="mt-4 p-4 bg-gradient-to-r from-purple-500/10 to-blue-500/10 border border-purple-500/20 rounded-lg cursor-pointer group"
+                              className="mt-4 p-4 bg-[#7D5BDE]/5 border border-[#7D5BDE]/15 rounded-lg cursor-pointer group transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#7D5BDE]/10 hover:border-[#7D5BDE]/25"
                             >
                               <div className="flex items-center justify-between">
                                 <div className="flex items-center gap-3">
-                                  <div className="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center border border-purple-500/30 group-hover:shadow-[0_0_15px_rgba(168,85,247,0.3)] transition-all">
-                                    <Target className="h-5 w-5 text-purple-400" />
+                                  <div className="w-10 h-10 bg-[#7D5BDE]/10 rounded-lg flex items-center justify-center border border-[#7D5BDE]/20 group-hover:shadow-[0_0_15px_rgba(125,91,222,0.2)] transition-all">
+                                    <Target className="h-5 w-5 text-[#9D85E8]" />
                                   </div>
                                   <div>
-                                    <p className="text-sm font-bold text-slate-200 uppercase tracking-wide group-hover:text-purple-300 transition-colors">
+                                    <p className="text-sm font-bold text-slate-200 uppercase tracking-wide group-hover:text-[#9D85E8] transition-colors">
                                       {availableChallenges.length - 3} DESAFÍOS ADICIONALES DISPONIBLES
                                     </p>
                                     <p className="text-[10px] text-slate-500 font-mono mt-0.5">
@@ -576,7 +583,7 @@ const UserDashboard = () => {
                                     </p>
                                   </div>
                                 </div>
-                                <ArrowRight className="h-5 w-5 text-purple-400 group-hover:translate-x-1 transition-transform" />
+                                <ArrowRight className="h-5 w-5 text-[#9D85E8] group-hover:translate-x-1 transition-transform" />
                               </div>
                             </motion.div>
                           </Link>
@@ -584,11 +591,11 @@ const UserDashboard = () => {
                       </>
                     ) : (
                       <div className="text-center py-10 border border-dashed border-white/10 rounded-lg bg-white/5">
-                        <Target className="h-8 w-8 text-purple-500/50 mx-auto mb-3" />
+                        <Target className="h-8 w-8 text-slate-500/50 mx-auto mb-3" />
                         <p className="text-slate-400 text-sm mb-1">Explorá tu primer desafío y ganá XP</p>
                         <p className="text-slate-600 font-mono text-xs mb-4">Cada desafío te acerca a tu próximo nivel</p>
                         <Link href="/challenges">
-                          <Button variant="outline" className="border-purple-500/30 text-purple-400 hover:bg-purple-500/10 text-xs uppercase tracking-wider">
+                          <Button variant="outline" className="border-[#7D5BDE]/30 text-[#9D85E8] hover:bg-[#7D5BDE]/10 text-xs uppercase tracking-wider">
                             EXPLORAR DESAFÍOS
                           </Button>
                         </Link>
@@ -609,33 +616,36 @@ const UserDashboard = () => {
             )}
 
             {/* Indicadores personales */}
-            <motion.div variants={itemVariants} whileHover={{ y: -2 }} className="transition-all">
+            <motion.div variants={itemVariants} className="transition-all duration-300 hover:-translate-y-0.5">
               <Card className="bg-white/5 backdrop-blur-md border-white/10 shadow-lg">
                 <CardHeader className="pb-4 border-b border-white/5 bg-white/5">
                   <CardTitle className="flex items-center text-sm font-bold text-slate-200 uppercase tracking-wider">
-                    <BarChart3 className="h-4 w-4 mr-2 text-blue-400" />
+                    <BarChart3 className="h-4 w-4 mr-2 text-slate-400" />
                     Indicadores Personales
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="pt-6 space-y-4">
-                  <div className="bg-[#0a0a0a] border border-white/10 p-4 rounded-xl flex items-center justify-between shadow-inner group hover:border-amber-500/30 transition-colors">
+                  <div className="bg-[#0a0a0a] border border-white/10 p-4 rounded-xl flex items-center justify-between shadow-inner group hover:border-[#7D5BDE]/30 transition-colors">
                     <div>
                       <p className="text-[10px] uppercase tracking-widest text-slate-500 font-bold mb-1">Racha activa</p>
+                      {/* Streak number — semantic gamification metric (rule 6) */}
                       <p className="text-3xl font-mono font-bold text-white group-hover:text-amber-400 transition-colors">{userStats?.streak || 0}</p>
                     </div>
+                    {/* Flame — semantic streak indicator (rule 6) */}
                     <div className="w-10 h-10 rounded-full bg-amber-500/10 flex items-center justify-center border border-amber-500/20">
                       <Flame className="h-5 w-5 text-amber-500" />
                     </div>
                   </div>
-                  
+
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-[#0a0a0a] border border-white/10 p-3 rounded-xl text-center hover:border-blue-500/30 transition-colors group">
-                      <Target className="h-4 w-4 text-blue-500 mx-auto mb-2 group-hover:scale-110 transition-transform" />
+                    <div className="bg-[#0a0a0a] border border-white/10 p-3 rounded-xl text-center hover:border-[#7D5BDE]/30 transition-colors group">
+                      <Target className="h-4 w-4 text-slate-400 mx-auto mb-2" />
                       <p className="text-[9px] uppercase text-slate-500 mb-1">Desafíos</p>
                       <p className="text-xl font-mono font-bold text-slate-200">{userStats?.completedChallenges || 0}</p>
                     </div>
-                    <div className="bg-[#0a0a0a] border border-white/10 p-3 rounded-xl text-center hover:border-yellow-500/30 transition-colors group">
-                      <Trophy className="h-4 w-4 text-yellow-500 mx-auto mb-2 group-hover:scale-110 transition-transform" />
+                    <div className="bg-[#0a0a0a] border border-white/10 p-3 rounded-xl text-center hover:border-[#7D5BDE]/30 transition-colors group">
+                      {/* Trophy — semantic badge count (rule 6) */}
+                      <Trophy className="h-4 w-4 text-yellow-500 mx-auto mb-2" />
                       <p className="text-[9px] uppercase text-slate-500 mb-1">Logros</p>
                       <p className="text-xl font-mono font-bold text-slate-200">{userStats?.badgesEarned || 0}</p>
                     </div>
@@ -649,6 +659,7 @@ const UserDashboard = () => {
               <Card className="bg-white/5 backdrop-blur-md border-white/10 shadow-lg">
                 <CardHeader className="pb-4 border-b border-white/5">
                   <CardTitle className="flex items-center text-sm font-bold text-slate-200 uppercase tracking-wider">
+                    {/* Award/Trophy — semantic badge achievement (rule 6) */}
                     <Award className="h-4 w-4 mr-2 text-yellow-400" />
                     Logros recientes
                   </CardTitle>
@@ -661,17 +672,18 @@ const UserDashboard = () => {
                   ) : userBadges.length > 0 ? (
                     <div className="space-y-4">
                       {userBadges.slice(0, 5).map((userBadge, idx) => (
-                        <motion.div 
-                          key={userBadge.id} 
+                        <motion.div
+                          key={userBadge.id}
                           initial={{ opacity: 0, x: 20 }}
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ delay: idx * 0.1 }}
                           className="flex items-start gap-3 pb-3 border-b border-white/5 last:border-0"
                         >
                           <div className="mt-1">
+                            {/* Legendary badge gets semantic gold styling (rule 6) */}
                             <div className={`w-8 h-8 rounded-lg flex items-center justify-center border ${
                               userBadge.badge.rarity === 'legendary' ? 'bg-yellow-500/10 border-yellow-500/30 text-yellow-400 shadow-[0_0_10px_rgba(234,179,8,0.2)]' :
-                              'bg-slate-800 border-slate-700 text-slate-400'
+                              'bg-white/5 border-white/10 text-slate-400'
                             }`}>
                               <Star className="h-4 w-4" />
                             </div>
@@ -704,7 +716,7 @@ const UserDashboard = () => {
           </div>
         </div>
       </motion.div>
-      
+
       <Footer />
     </div>
   );

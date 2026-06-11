@@ -5,14 +5,22 @@ import { Lasso, X } from 'lucide-react';
 import { TYPE_COLORS, TYPE_LABELS } from '@/hooks/useConvergenceAnalysis';
 import { apiRequest } from '@/lib/queryClient';
 import { cn } from '@/lib/utils';
-import type { DreamType, MapFilters } from './types';
+import type { DreamType, MapFilters, TimeRange } from './types';
 import { ALL_TYPES } from './types';
+
+const TIME_RANGES: Array<{ id: TimeRange; label: string }> = [
+  { id: '7d', label: 'Últimos 7 días' },
+  { id: '30d', label: 'Últimos 30 días' },
+  { id: 'all', label: 'Todo' },
+];
 
 interface Province { id: number; name: string; latitude?: number; longitude?: number }
 interface City { id: number; name: string; latitude?: number; longitude?: number }
 
 interface MapFiltersBarProps {
   filters: MapFilters;
+  timeRange: TimeRange;
+  onSetTimeRange: (t: TimeRange) => void;
   lassoActive: boolean; // drawing mode
   lassoDisabled?: boolean; // true while the DeckGL viewport is still loading
   lassoEntriesCount: number; // count of entries inside current lasso, for chip label
@@ -27,6 +35,8 @@ interface MapFiltersBarProps {
 
 export default function MapFiltersBar({
   filters,
+  timeRange,
+  onSetTimeRange,
   lassoActive,
   lassoDisabled = false,
   lassoEntriesCount,
@@ -95,8 +105,29 @@ export default function MapFiltersBar({
         })}
       </div>
 
+      {/* Time range */}
+      <div className="flex flex-wrap items-center gap-2">
+        <span className="text-[11px] uppercase tracking-wider text-slate-500 font-mono">Período</span>
+        {TIME_RANGES.map(({ id, label }) => (
+          <button
+            key={id}
+            type="button"
+            onClick={() => onSetTimeRange(id)}
+            aria-pressed={timeRange === id}
+            className={cn(
+              'px-3 py-1.5 rounded-full text-xs font-medium border transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400/60',
+              timeRange === id
+                ? 'bg-[#7D5BDE]/20 border-[#7D5BDE]/60 text-white'
+                : 'text-slate-400 border-white/10 bg-white/[0.02] hover:bg-white/5',
+            )}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
+
       {/* Dropdowns + Lasso + Clear */}
-      <div className="flex flex-wrap gap-3 items-center">
+      <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:items-center">
         <select
           aria-label="Provincia"
           value={filters.province ?? ''}
@@ -105,7 +136,7 @@ export default function MapFiltersBar({
             const p = name ? provinces.find((x) => x.name === name) : null;
             onSetProvince(name, p?.latitude, p?.longitude);
           }}
-          className="h-9 px-3 rounded-md bg-white/5 border border-white/10 text-sm text-slate-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400/60"
+          className="w-full sm:w-auto h-9 px-3 rounded-md bg-white/5 border border-white/10 text-sm text-slate-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400/60"
         >
           <option value="">Todas las provincias</option>
           {provinces.map((p) => (
@@ -122,7 +153,7 @@ export default function MapFiltersBar({
             const c = name ? cities.find((x) => x.name === name) : null;
             onSetCity(name, c?.latitude, c?.longitude);
           }}
-          className="h-9 px-3 rounded-md bg-white/5 border border-white/10 text-sm text-slate-200 disabled:opacity-40 focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400/60"
+          className="w-full sm:w-auto h-9 px-3 rounded-md bg-white/5 border border-white/10 text-sm text-slate-200 disabled:opacity-40 focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400/60"
         >
           <option value="">Todas las ciudades</option>
           {cities.map((c) => (
@@ -153,7 +184,7 @@ export default function MapFiltersBar({
           <button
             type="button"
             onClick={onClearAll}
-            className="h-9 px-3 rounded-md border border-white/10 text-sm text-slate-400 hover:text-white hover:bg-white/5 inline-flex items-center gap-1.5 ml-auto focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400/60"
+            className="h-9 px-3 rounded-md border border-white/10 text-sm text-slate-400 hover:text-white hover:bg-white/5 inline-flex items-center gap-1.5 sm:ml-auto focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400/60"
           >
             <X className="w-3.5 h-3.5" />
             Limpiar

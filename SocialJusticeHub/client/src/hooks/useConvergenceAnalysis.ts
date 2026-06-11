@@ -1,6 +1,5 @@
 import { useMemo } from 'react';
-import { useQuery } from '@tanstack/react-query';
-import { Dream } from '@shared/schema';
+import { useMapSignals } from '@/hooks/useMapSignals';
 
 // --- Reuse patterns from useMapPulseAnalysis / useWordCloudAnalysis ---
 
@@ -30,7 +29,7 @@ export const normalizeWord = (word: string): string =>
   word
     .toLowerCase()
     .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[̀-ͯ]/g, '')
     .replace(/[.,;:¡!¿?()[\]{}«»""'/\\-]/g, '')
     .trim();
 
@@ -184,56 +183,31 @@ export interface ConvergenceData {
   isLoading: boolean;
 }
 
+/** Entrada mínima que necesita el análisis. MapEntry y MapSignal la cumplen. */
+export interface AnalysisEntry {
+  type: DreamType;
+  text: string;
+}
+
 // --- Hook ---
 
-export const useConvergenceAnalysis = (): ConvergenceData => {
-  const { data: dreams = [], isLoading } = useQuery<Dream[]>({
-    queryKey: ['/api/dreams'],
-    staleTime: 30000,
-  });
+/**
+ * Analiza convergencia temática sobre señales.
+ *
+ * Sin argumento: usa todas las señales de GET /api/map/signals (comportamiento
+ * histórico, ahora sin el tope de 20 sueños). Con `entries`: analiza esa lista
+ * — así los filtros del mapa de La Radiografía mandan sobre Sankey/Chord/stats.
+ */
+export const useConvergenceAnalysis = (entries?: AnalysisEntry[]): ConvergenceData => {
+  const { signals, isLoading } = useMapSignals();
 
-  const { data: commitmentsResponse } = useQuery({
-    queryKey: ['/api/commitments'],
-    queryFn: async () => {
-      const res = await fetch('/api/commitments?limit=100');
-      if (!res.ok) return { data: { commitments: [] } };
-      return res.json();
-    },
-    staleTime: 30000,
-  });
-
-  const { data: resourcesData = [] } = useQuery<any[]>({
-    queryKey: ['/api/resources-map'],
-    staleTime: 30000,
-  });
-
-  const allEntries = useMemo(() => {
-    const commitments = commitmentsResponse?.data?.commitments || [];
-    const mappedCompromisos = commitments.map((c: any) => ({
-      id: c.id + 1_000_000,
-      type: 'compromiso' as const,
-      compromiso: c.commitmentText,
-      dream: null, value: null, need: null, basta: null, recurso: null,
-      location: [c.city, c.province].filter(Boolean).join(', ') || null,
-      latitude: c.latitude?.toString() || null,
-      longitude: c.longitude?.toString() || null,
-      createdAt: c.createdAt,
-    }));
-    const mappedResources = (resourcesData || []).map((r: any) => ({
-      id: r.id + 2_000_000,
-      type: 'recurso' as const,
-      recurso: r.description,
-      dream: null, value: null, need: null, basta: null, compromiso: null,
-      location: [r.city, r.province].filter(Boolean).join(', ') || r.location || null,
-      latitude: r.latitude?.toString() || null,
-      longitude: r.longitude?.toString() || null,
-      createdAt: r.createdAt,
-    }));
-    return [...dreams, ...mappedCompromisos, ...mappedResources];
-  }, [dreams, commitmentsResponse, resourcesData]);
+  const analysisEntries: AnalysisEntry[] = useMemo(
+    () => entries ?? signals.map((s) => ({ type: s.type as DreamType, text: s.text })),
+    [entries, signals],
+  );
 
   return useMemo(() => {
-    if (!allEntries.length) {
+    if (!analysisEntries.length) {
       return {
         convergencePercentage: 0,
         sharedThemeCount: 0,
@@ -247,7 +221,7 @@ export const useConvergenceAnalysis = (): ConvergenceData => {
       };
     }
 
-    // 1. For each dream entry, extract words and classify into themes per type
+    // 1. For each entry, extract words and classify into themes per type
     // themePresence[theme][type] = Set of entry indices that contributed
     const themePresence: Record<ThemeKey, Record<DreamType, Set<number>>> = {} as any;
     // themeQuotes[theme][type] = string excerpts
@@ -265,31 +239,30 @@ export const useConvergenceAnalysis = (): ConvergenceData => {
     // word-level cross-type tracking
     const wordByType: Record<string, Record<DreamType, number>> = {};
 
-    allEntries.forEach((entry: any, idx: number) => {
-      for (const type of DREAM_TYPES) {
-        const text = entry[type] as string | null;
-        if (!text) continue;
+    analysisEntries.forEach((entry, idx) => {
+      const type = entry.type;
+      const text = entry.text;
+      if (!text || !DREAM_TYPES.includes(type)) return;
 
-        const words = extractWords(text);
-        const matchedThemes = new Set<ThemeKey>();
+      const words = extractWords(text);
+      const matchedThemes = new Set<ThemeKey>();
 
-        for (const w of words) {
-          // track word-level stats
-          if (!wordByType[w]) wordByType[w] = { dream: 0, value: 0, need: 0, basta: 0, compromiso: 0, recurso: 0 };
-          wordByType[w][type]++;
+      for (const w of words) {
+        // track word-level stats
+        if (!wordByType[w]) wordByType[w] = { dream: 0, value: 0, need: 0, basta: 0, compromiso: 0, recurso: 0 };
+        wordByType[w][type]++;
 
-          // classify into themes
-          for (const tk of themeKeys) {
-            if (THEME_KEYWORDS[tk].some((kw) => w.includes(kw) || kw.includes(w))) {
-              themeHits[tk][type]++;
-              if (!matchedThemes.has(tk)) {
-                matchedThemes.add(tk);
-                themePresence[tk][type].add(idx);
-                // store quote (max 2 per type per theme)
-                if (themeQuotes[tk][type].length < 2) {
-                  const snippet = text.length > 120 ? text.slice(0, 120) + '…' : text;
-                  themeQuotes[tk][type].push(snippet);
-                }
+        // classify into themes
+        for (const tk of themeKeys) {
+          if (THEME_KEYWORDS[tk].some((kw) => w.includes(kw) || kw.includes(w))) {
+            themeHits[tk][type]++;
+            if (!matchedThemes.has(tk)) {
+              matchedThemes.add(tk);
+              themePresence[tk][type].add(idx);
+              // store quote (max 2 per type per theme)
+              if (themeQuotes[tk][type].length < 2) {
+                const snippet = text.length > 120 ? text.slice(0, 120) + '…' : text;
+                themeQuotes[tk][type].push(snippet);
               }
             }
           }
@@ -362,9 +335,8 @@ export const useConvergenceAnalysis = (): ConvergenceData => {
 
     // 7. Type distribution for radar chart
     const typeCounts: Record<DreamType, number> = { dream: 0, value: 0, need: 0, basta: 0, compromiso: 0, recurso: 0 };
-    for (const entry of allEntries) {
-      const t = (entry as any).type as DreamType;
-      if (t && typeCounts[t] !== undefined) typeCounts[t]++;
+    for (const entry of analysisEntries) {
+      if (typeCounts[entry.type] !== undefined) typeCounts[entry.type]++;
     }
     const typeDistribution: TypeDistributionEntry[] = DREAM_TYPES.map((t) => ({
       type: t,
@@ -380,8 +352,8 @@ export const useConvergenceAnalysis = (): ConvergenceData => {
       sharedConcepts,
       streamLinks,
       typeDistribution,
-      totalContributions: allEntries.length,
+      totalContributions: analysisEntries.length,
       isLoading,
     };
-  }, [allEntries, isLoading]);
+  }, [analysisEntries, isLoading]);
 };

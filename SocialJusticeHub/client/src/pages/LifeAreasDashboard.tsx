@@ -13,6 +13,7 @@ import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 import { Compass } from 'lucide-react';
 import { fadeUp, staggerContainer } from '@/lib/motion-variants';
+import { ACCENT_BUTTON, ACCENT_TEXT } from '@/lib/design-tokens';
 
 interface WheelData {
   id: number;
@@ -195,7 +196,7 @@ const LifeAreasDashboard = () => {
                 <p className="text-slate-500 text-sm mb-6">Elegi tu primera area y comenza tu evaluacion</p>
                 {sortedAreas.length > 0 && (
                   <Link href={`/life-areas/${sortedAreas[0].id}`}>
-                    <Button className="bg-blue-600 hover:bg-blue-500">
+                    <Button className={ACCENT_BUTTON}>
                       Comenzar
                     </Button>
                   </Link>
@@ -234,7 +235,7 @@ const LifeAreasDashboard = () => {
               <>
                 <div className="w-px h-8 bg-white/10" />
                 <div>
-                  <p className="text-2xl font-light text-orange-400">{streak}</p>
+                  <p className={`text-2xl font-light ${ACCENT_TEXT}`}>{streak}</p>
                   <p className="text-[10px] text-slate-500 uppercase tracking-wider">Dias racha</p>
                 </div>
               </>

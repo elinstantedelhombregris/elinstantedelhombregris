@@ -1,0 +1,19 @@
+{
+  "name": "Radar ¡BASTA!",
+  "short_name": "Radar",
+  "description": "Capturá señales del territorio. Sueños, necesidades, bastas — el gemelo digital de la Argentina que queremos hacer visible.",
+  "id": "/radar",
+  "start_url": "/radar",
+  "scope": "/radar",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "lang": "es-AR",
+  "categories": ["social", "government", "utilities"],
+  "icons": [
+    { "src": "/radar-icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/radar-icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/radar-icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

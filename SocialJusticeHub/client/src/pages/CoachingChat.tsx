@@ -7,6 +7,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Send, ArrowLeft, Loader2, MessageCircle, Target, Calendar, Sparkles, Compass, Flag } from 'lucide-react';
 import { apiRequest } from '@/lib/queryClient';
 import { Link } from 'wouter';
+import { cn } from '@/lib/utils';
+import {
+  ACCENT_BUTTON,
+  DISPLAY_GRADIENT,
+  GLASS_CARD,
+  GLASS_CARD_HOVER,
+} from '@/lib/design-tokens';
 
 interface ChatMessage {
   role: 'user' | 'assistant';
@@ -16,10 +23,10 @@ interface ChatMessage {
 
 const SESSION_TYPES = [
   { value: 'ad_hoc', label: 'Charla libre', icon: MessageCircle, description: 'Hablemos sobre lo que quieras' },
-  { value: 'weekly_reflection', label: 'Reflexion semanal', icon: Calendar, description: 'Repasemos tu semana' },
-  { value: 'goal_review', label: 'Revision de metas', icon: Target, description: 'Como van tus objetivos' },
+  { value: 'weekly_reflection', label: 'Reflexión semanal', icon: Calendar, description: 'Repasemos tu semana' },
+  { value: 'goal_review', label: 'Revisión de metas', icon: Target, description: 'Cómo van tus objetivos' },
   { value: 'growth_prompt', label: 'Impulso de crecimiento', icon: Sparkles, description: 'Desafiate a crecer' },
-  { value: 'assessment_debrief', label: 'Analisis de evaluacion', icon: Compass, description: 'Profundicemos en tu perfil' },
+  { value: 'assessment_debrief', label: 'Análisis de evaluación', icon: Compass, description: 'Profundicemos en tu perfil' },
   { value: 'mission_active', label: 'Misión Activa', icon: Flag, description: 'Guía para tu acción cívica del día' },
 ];
 
@@ -41,7 +48,7 @@ const CoachingChat = () => {
       <div className="min-h-screen bg-[#0a0a0a] text-slate-200">
         <Header />
         <div className="flex items-center justify-center min-h-[60vh]">
-          <Button className="bg-blue-600" onClick={() => window.location.href = '/login'}>Iniciar sesion</Button>
+          <Button className={ACCENT_BUTTON} onClick={() => window.location.href = '/login'}>Iniciar sesión</Button>
         </div>
       </div>
     );
@@ -105,8 +112,8 @@ const CoachingChat = () => {
               </Button>
             </Link>
             <div>
-              <h1 className="text-3xl font-serif font-bold text-white">Coaching Civico</h1>
-              <p className="text-slate-500 text-sm mt-1">Elegi el tipo de sesion que necesitas</p>
+              <h1 className={cn('text-3xl font-serif font-bold', DISPLAY_GRADIENT)}>Coaching Cívico</h1>
+              <p className="text-slate-500 text-sm mt-1">Elegí el tipo de sesión que necesitás</p>
             </div>
           </div>
 
@@ -120,13 +127,18 @@ const CoachingChat = () => {
                   disabled={isStarting}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="w-full flex items-center gap-4 p-5 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all text-left group disabled:opacity-50"
+                  className={cn(
+                    'w-full flex items-center gap-4 p-5 rounded-xl border transition-all duration-300 text-left group disabled:opacity-50',
+                    GLASS_CARD,
+                    'hover:border-white/25 hover:bg-white/[0.06]'
+                  )}
                 >
-                  <div className="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center flex-shrink-0 group-hover:bg-indigo-500/20 transition-colors">
-                    <Icon className="h-6 w-6 text-indigo-400" />
+                  {/* icon chip = neutral (rule 8) */}
+                  <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 group-hover:bg-white/10 transition-colors duration-300">
+                    <Icon className="h-6 w-6 text-slate-300" />
                   </div>
                   <div>
-                    <h3 className="text-base font-bold text-slate-200 group-hover:text-white transition-colors">{type.label}</h3>
+                    <h3 className="text-base font-bold text-slate-200 group-hover:text-white transition-colors duration-300">{type.label}</h3>
                     <p className="text-sm text-slate-500">{type.description}</p>
                   </div>
                 </motion.button>
@@ -135,9 +147,9 @@ const CoachingChat = () => {
           </div>
 
           {isStarting && (
-            <div className="flex items-center justify-center gap-2 mt-8 text-blue-400">
+            <div className="flex items-center justify-center gap-2 mt-8" style={{ color: '#9D85E8' }}>
               <Loader2 className="h-5 w-5 animate-spin" />
-              <span className="text-sm">Preparando tu sesion...</span>
+              <span className="text-sm">Preparando tu sesión...</span>
             </div>
           )}
         </div>
@@ -153,13 +165,14 @@ const CoachingChat = () => {
       {/* Chat header */}
       <div className="border-b border-white/5 px-4 py-3">
         <div className="max-w-2xl mx-auto flex items-center gap-3">
-          <button onClick={() => { setSessionId(null); setMessages([]); }} className="text-slate-400 hover:text-white">
+          <button onClick={() => { setSessionId(null); setMessages([]); }} className="text-slate-400 hover:text-white transition-colors duration-300">
             <ArrowLeft className="h-5 w-5" />
           </button>
-          <div className="w-8 h-8 rounded-lg bg-indigo-500/20 flex items-center justify-center">
-            <MessageCircle className="h-4 w-4 text-indigo-400" />
+          {/* icon chip = neutral (rule 8) */}
+          <div className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center">
+            <MessageCircle className="h-4 w-4 text-slate-300" />
           </div>
-          <span className="text-sm font-bold text-slate-200">Coach Civico</span>
+          <span className="text-sm font-bold text-slate-200">Coach Cívico</span>
         </div>
       </div>
 
@@ -174,15 +187,18 @@ const CoachingChat = () => {
                 animate={{ opacity: 1, y: 0 }}
                 className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
               >
-                <div className={`max-w-[85%] rounded-2xl px-5 py-3.5 ${
+                <div className={cn(
+                  'max-w-[85%] rounded-2xl px-5 py-3.5',
                   msg.role === 'user'
-                    ? 'bg-blue-600 text-white rounded-br-md'
+                    /* user bubble = violet accent (CTA/action) */
+                    ? 'bg-[#7D5BDE] text-white rounded-br-md'
                     : 'bg-white/5 border border-white/10 text-slate-200 rounded-bl-md'
-                }`}>
+                )}>
                   <p className="text-sm leading-relaxed whitespace-pre-wrap">{msg.content}</p>
-                  <span className={`text-[10px] mt-1 block ${
-                    msg.role === 'user' ? 'text-blue-200' : 'text-slate-600'
-                  }`}>
+                  <span className={cn(
+                    'text-[10px] mt-1 block',
+                    msg.role === 'user' ? 'text-[#CBBDF4]' : 'text-slate-600'
+                  )}>
                     {new Date(msg.timestamp).toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' })}
                   </span>
                 </div>
@@ -212,14 +228,14 @@ const CoachingChat = () => {
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && !e.shiftKey && sendMessage()}
-            placeholder="Escribi tu mensaje..."
-            className="bg-white/5 border-white/10 text-white flex-1"
+            placeholder="Escribí tu mensaje..."
+            className="bg-white/5 border-white/10 text-white flex-1 focus:border-[#7D5BDE]/50"
             disabled={isLoading}
           />
           <Button
             onClick={sendMessage}
             disabled={!inputValue.trim() || isLoading}
-            className="bg-blue-600 hover:bg-blue-500 text-white px-4"
+            className={cn('px-4', ACCENT_BUTTON)}
           >
             <Send className="h-4 w-4" />
           </Button>

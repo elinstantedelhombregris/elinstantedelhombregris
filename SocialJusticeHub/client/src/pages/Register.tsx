@@ -1,6 +1,5 @@
 import { useState, useContext, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'wouter';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
@@ -11,6 +10,12 @@ import { useQuery } from '@tanstack/react-query';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Eye, EyeOff } from 'lucide-react';
+import {
+  GLASS_CARD,
+  DISPLAY_GRADIENT,
+  ACCENT_BUTTON,
+  ACCENT_TEXT,
+} from '@/lib/design-tokens';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -65,7 +70,7 @@ const Register = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Simple validation
     if (!formData.name || !formData.email || !formData.username || !formData.password) {
       toast({
@@ -75,7 +80,7 @@ const Register = () => {
       });
       return;
     }
-    
+
     if (formData.password !== formData.confirmPassword) {
       toast({
         title: 'Error',
@@ -84,7 +89,7 @@ const Register = () => {
       });
       return;
     }
-    
+
     setIsLoading(true);
 
     try {
@@ -102,25 +107,25 @@ const Register = () => {
 
       const response = await apiRequest('POST', '/api/register', userData);
       const data = await response.json();
-      
+
       // Store tokens
       localStorage.setItem('authToken', data.tokens.accessToken);
       localStorage.setItem('refreshToken', data.tokens.refreshToken);
-      
+
       if (userContext) {
         userContext.setUser(data.user);
       }
-      
+
       toast({
         title: '¡Registro exitoso!',
         description: `Bienvenido a ¡BASTA!, ${data.user.name}`,
       });
-      
+
       // Redirect to onboarding
       setLocation('/bienvenida');
     } catch (error: any) {
       console.error('Registration error:', error);
-      
+
       let errorMessage = 'No se pudo completar el registro';
       if (error.message?.includes('409')) {
         errorMessage = 'El nombre de usuario o email ya está en uso. Probá con otro.';
@@ -129,7 +134,7 @@ const Register = () => {
       } else if (error.message?.includes('429')) {
         errorMessage = 'Demasiados intentos. Esperá un momento e intentá de nuevo.';
       }
-      
+
       toast({
         title: 'Error',
         description: errorMessage,
@@ -140,202 +145,214 @@ const Register = () => {
     }
   };
 
-  return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
-      
-      <div className="flex-1 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-[hsl(var(--argentina-white))]">
-        <Card className="w-full max-w-md">
-          <CardHeader>
-            <CardTitle className="text-2xl font-bold text-center">Crear tu espacio</CardTitle>
-            <CardDescription className="text-center">
-              Sumate a ¡BASTA! para transformar intención en acción sostenida junto a la comunidad.
-            </CardDescription>
-          </CardHeader>
-          
-          <CardContent>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              {/* Honeypot - invisible to humans, bots auto-fill it */}
-              <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', top: '-9999px', opacity: 0, height: 0, overflow: 'hidden' }}>
-                <label htmlFor="website">Website</label>
-                <input
-                  type="text"
-                  id="website"
-                  name="website"
-                  tabIndex={-1}
-                  autoComplete="off"
-                  value={honeypot}
-                  onChange={(e) => setHoneypot(e.target.value)}
-                />
-              </div>
+  const selectClass =
+    'w-full h-10 rounded-lg bg-white/5 border border-white/10 text-white px-3 py-2 text-sm ' +
+    'focus:outline-none focus:border-[#7D5BDE]/50 focus:ring-1 focus:ring-[#7D5BDE]/30 transition-colors duration-300';
 
-              <div className="space-y-2">
-                <Label htmlFor="name">Nombre completo *</Label>
-                <Input 
-                  id="name"
-                  name="name"
-                  type="text"
-                  value={formData.name}
+  return (
+    <div className="min-h-screen flex flex-col bg-[#0a0a0a]">
+      <Header />
+
+      <div className="flex-1 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <div className={`w-full max-w-md ${GLASS_CARD} p-8`}>
+          <div className="mb-8 text-center">
+            <h1 className="text-2xl font-bold font-serif mb-2">
+              <span className={DISPLAY_GRADIENT}>Crear tu espacio</span>
+            </h1>
+            <p className="text-slate-400 text-sm">
+              Sumate a ¡BASTA! para transformar intención en acción sostenida junto a la comunidad.
+            </p>
+          </div>
+
+          <form onSubmit={handleSubmit} className="space-y-4">
+            {/* Honeypot - invisible to humans, bots auto-fill it */}
+            <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', top: '-9999px', opacity: 0, height: 0, overflow: 'hidden' }}>
+              <label htmlFor="website">Website</label>
+              <input
+                type="text"
+                id="website"
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+                value={honeypot}
+                onChange={(e) => setHoneypot(e.target.value)}
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="name" className="text-slate-300">Nombre completo *</Label>
+              <Input
+                id="name"
+                name="name"
+                type="text"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="Tu nombre completo"
+                required
+                className="bg-white/5 border-white/10 text-white placeholder:text-slate-500 focus-visible:ring-[#7D5BDE] focus-visible:border-[#7D5BDE]/50"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="email" className="text-slate-300">Correo electrónico *</Label>
+              <Input
+                id="email"
+                name="email"
+                type="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="tucorreo@ejemplo.com"
+                required
+                className="bg-white/5 border-white/10 text-white placeholder:text-slate-500 focus-visible:ring-[#7D5BDE] focus-visible:border-[#7D5BDE]/50"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="username" className="text-slate-300">Nombre de usuario *</Label>
+              <Input
+                id="username"
+                name="username"
+                type="text"
+                value={formData.username}
+                onChange={handleChange}
+                placeholder="Elige un nombre de usuario único"
+                required
+                className="bg-white/5 border-white/10 text-white placeholder:text-slate-500 focus-visible:ring-[#7D5BDE] focus-visible:border-[#7D5BDE]/50"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="password" className="text-slate-300">Contraseña *</Label>
+              <div className="relative">
+                <Input
+                  id="password"
+                  name="password"
+                  type={showPassword ? 'text' : 'password'}
+                  value={formData.password}
                   onChange={handleChange}
-                  placeholder="Tu nombre completo"
+                  placeholder="Elige una contraseña segura"
                   required
+                  className="bg-white/5 border-white/10 text-white placeholder:text-slate-500 focus-visible:ring-[#7D5BDE] focus-visible:border-[#7D5BDE]/50"
                 />
-              </div>
-              
-              <div className="space-y-2">
-                <Label htmlFor="email">Correo electrónico *</Label>
-                <Input 
-                  id="email"
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="tucorreo@ejemplo.com"
-                  required
-                />
-              </div>
-              
-              <div className="space-y-2">
-                <Label htmlFor="username">Nombre de usuario *</Label>
-                <Input 
-                  id="username"
-                  name="username"
-                  type="text"
-                  value={formData.username}
-                  onChange={handleChange}
-                  placeholder="Elige un nombre de usuario único"
-                  required
-                />
-              </div>
-              
-              <div className="space-y-2">
-                <Label htmlFor="password">Contraseña *</Label>
-                <div className="relative">
-                  <Input
-                    id="password"
-                    name="password"
-                    type={showPassword ? 'text' : 'password'}
-                    value={formData.password}
-                    onChange={handleChange}
-                    placeholder="Elige una contraseña segura"
-                    required
-                  />
-                  <button
-                    type="button"
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
-                    onClick={() => setShowPassword(!showPassword)}
-                  >
-                    {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
-                  </button>
-                </div>
-                <div className="text-xs text-gray-600 space-y-1">
-                  <p>La contraseña debe contener:</p>
-                  <ul className="list-disc list-inside space-y-0.5">
-                    <li className={formData.password.match(/[a-z]/) ? 'text-green-600' : 'text-gray-500'}>
-                      Al menos una letra minúscula
-                    </li>
-                    <li className={formData.password.match(/[A-Z]/) ? 'text-green-600' : 'text-gray-500'}>
-                      Al menos una letra mayúscula
-                    </li>
-                    <li className={formData.password.match(/[0-9]/) ? 'text-green-600' : 'text-gray-500'}>
-                      Al menos un número
-                    </li>
-                    <li className={formData.password.match(/[^a-zA-Z0-9]/) ? 'text-green-600' : 'text-gray-500'}>
-                      Al menos un carácter especial
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              
-              <div className="space-y-2">
-                <Label htmlFor="confirmPassword">Confirmar contraseña *</Label>
-                <div className="relative">
-                  <Input
-                    id="confirmPassword"
-                    name="confirmPassword"
-                    type={showConfirmPassword ? 'text' : 'password'}
-                    value={formData.confirmPassword}
-                    onChange={handleChange}
-                    placeholder="Repite tu contraseña"
-                    required
-                  />
-                  <button
-                    type="button"
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
-                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                  >
-                    {showConfirmPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
-                  </button>
-                </div>
-              </div>
-              
-              <div className="space-y-2">
-                <Label>Provincia (opcional)</Label>
-                <select
-                  value={selectedProvince}
-                  onChange={(e) => {
-                    const province = e.target.value;
-                    setSelectedProvince(province);
-                    setSelectedCity('');
-                    setFormData(prev => ({ ...prev, location: province }));
-                  }}
-                  className="w-full h-10 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                <button
+                  type="button"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-300 transition-colors duration-300"
+                  onClick={() => setShowPassword(!showPassword)}
                 >
-                  <option value="">Seleccionar provincia...</option>
-                  {provinces.map((p) => (
-                    <option key={p.id} value={p.name}>{p.name}</option>
+                  {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                </button>
+              </div>
+              <div className="text-xs text-slate-500 space-y-1">
+                <p>La contraseña debe contener:</p>
+                <ul className="list-disc list-inside space-y-0.5">
+                  <li className={formData.password.match(/[a-z]/) ? 'text-emerald-400' : 'text-slate-500'}>
+                    Al menos una letra minúscula
+                  </li>
+                  <li className={formData.password.match(/[A-Z]/) ? 'text-emerald-400' : 'text-slate-500'}>
+                    Al menos una letra mayúscula
+                  </li>
+                  <li className={formData.password.match(/[0-9]/) ? 'text-emerald-400' : 'text-slate-500'}>
+                    Al menos un número
+                  </li>
+                  <li className={formData.password.match(/[^a-zA-Z0-9]/) ? 'text-emerald-400' : 'text-slate-500'}>
+                    Al menos un carácter especial
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="confirmPassword" className="text-slate-300">Confirmar contraseña *</Label>
+              <div className="relative">
+                <Input
+                  id="confirmPassword"
+                  name="confirmPassword"
+                  type={showConfirmPassword ? 'text' : 'password'}
+                  value={formData.confirmPassword}
+                  onChange={handleChange}
+                  placeholder="Repite tu contraseña"
+                  required
+                  className="bg-white/5 border-white/10 text-white placeholder:text-slate-500 focus-visible:ring-[#7D5BDE] focus-visible:border-[#7D5BDE]/50"
+                />
+                <button
+                  type="button"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-300 transition-colors duration-300"
+                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                >
+                  {showConfirmPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                </button>
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              <Label className="text-slate-300">Provincia (opcional)</Label>
+              <select
+                value={selectedProvince}
+                onChange={(e) => {
+                  const province = e.target.value;
+                  setSelectedProvince(province);
+                  setSelectedCity('');
+                  setFormData(prev => ({ ...prev, location: province }));
+                }}
+                className={selectClass}
+              >
+                <option value="" className="bg-[#1a1a1a]">Seleccionar provincia...</option>
+                {provinces.map((p) => (
+                  <option key={p.id} value={p.name} className="bg-[#1a1a1a]">{p.name}</option>
+                ))}
+              </select>
+            </div>
+
+            {selectedProvince && cities.length > 0 && (
+              <div className="space-y-2">
+                <Label className="text-slate-300">Ciudad (opcional)</Label>
+                <select
+                  value={selectedCity}
+                  onChange={(e) => {
+                    const city = e.target.value;
+                    setSelectedCity(city);
+                    setFormData(prev => ({
+                      ...prev,
+                      location: city ? `${city}, ${selectedProvince}` : selectedProvince
+                    }));
+                  }}
+                  className={selectClass}
+                >
+                  <option value="" className="bg-[#1a1a1a]">Seleccionar ciudad...</option>
+                  {cities.map((c) => (
+                    <option key={c.id} value={c.name} className="bg-[#1a1a1a]">{c.name}</option>
                   ))}
                 </select>
               </div>
+            )}
 
-              {selectedProvince && cities.length > 0 && (
-                <div className="space-y-2">
-                  <Label>Ciudad (opcional)</Label>
-                  <select
-                    value={selectedCity}
-                    onChange={(e) => {
-                      const city = e.target.value;
-                      setSelectedCity(city);
-                      setFormData(prev => ({
-                        ...prev,
-                        location: city ? `${city}, ${selectedProvince}` : selectedProvince
-                      }));
-                    }}
-                    className="w-full h-10 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-                  >
-                    <option value="">Seleccionar ciudad...</option>
-                    {cities.map((c) => (
-                      <option key={c.id} value={c.name}>{c.name}</option>
-                    ))}
-                  </select>
-                </div>
-              )}
-              
-              <Button 
-                type="submit" 
-                className="w-full bg-[hsl(var(--accent))]" 
-                disabled={isLoading}
-              >
-                {isLoading ? 'Creando cuenta...' : 'Crear y continuar'}
-              </Button>
-            </form>
-          </CardContent>
-          
-          <CardFooter className="flex flex-col space-y-4">
-            <div className="text-sm text-center">
-              ¿Ya tenés una cuenta? {' '}
-              <Link href="/login" className="text-[hsl(var(--primary))] hover:underline font-medium">
+            <Button
+              type="submit"
+              className={`w-full ${ACCENT_BUTTON} font-bold transition-all duration-300`}
+              disabled={isLoading}
+            >
+              {isLoading ? 'Creando cuenta...' : 'Crear y continuar'}
+            </Button>
+          </form>
+
+          <div className="mt-6 pt-6 border-t border-white/10 space-y-4">
+            <div className="text-sm text-center text-slate-400">
+              ¿Ya tenés una cuenta?{' '}
+              <Link href="/login" className={`${ACCENT_TEXT} hover:text-[#B5A3EF] font-medium transition-colors duration-300`}>
                 Iniciá sesión
               </Link>
             </div>
-            
-            <div className="text-xs text-center text-gray-500">
-              Al registrarte, aceptas nuestros <Link href="/manifiesto" className="underline hover:text-blue-600">Terminos y Condiciones</Link> y nuestra <Link href="/manifiesto" className="underline hover:text-blue-600">Politica de Privacidad</Link>.
+
+            <div className="text-xs text-center text-slate-500">
+              Al registrarte, aceptas nuestros{' '}
+              <Link href="/manifiesto" className={`underline ${ACCENT_TEXT} hover:text-[#B5A3EF] transition-colors duration-300`}>Terminos y Condiciones</Link>
+              {' '}y nuestra{' '}
+              <Link href="/manifiesto" className={`underline ${ACCENT_TEXT} hover:text-[#B5A3EF] transition-colors duration-300`}>Politica de Privacidad</Link>.
             </div>
-          </CardFooter>
-        </Card>
+          </div>
+        </div>
       </div>
-      
+
       <Footer />
     </div>
   );

@@ -9,6 +9,13 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { useImmersion } from '@/components/ImmersionContext';
 import {
+  DISPLAY_GRADIENT,
+  GLASS_CARD,
+  GLASS_CARD_HOVER,
+  SECTION_BADGE,
+  ACCENT_BUTTON,
+} from '@/lib/design-tokens';
+import {
   CinematicScroll,
   CinematicChapter,
   ChapterTitle,
@@ -109,7 +116,7 @@ function SwipeInPrompt() {
         aria-hidden="true"
         animate={reduce ? undefined : { x: [0, 5, 0] }}
         transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
-        className="text-purple-300"
+        className="text-[#9D85E8]"
       >
         →
       </motion.span>
@@ -130,7 +137,7 @@ function EndOfChapterSwipeHint() {
           aria-hidden="true"
           animate={reduce ? undefined : { x: [0, 5, 0] }}
           transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
-          className="text-purple-300"
+          className="text-[#9D85E8]"
         >
           →
         </motion.span>
@@ -226,14 +233,13 @@ export default function UnaRutaParaArgentina() {
   );
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white">
+    <div className="min-h-screen bg-[#0a0a0a] text-white overflow-x-hidden">
       <Header />
 
       {/* ═══════════════ HERO ═══════════════ */}
       <section className="relative pt-32 pb-24 overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] rounded-full blur-[120px] bg-purple-600/[0.08]" />
-          <div className="absolute bottom-0 left-0 w-[400px] h-[300px] rounded-full blur-[120px] bg-blue-500/[0.05]" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] rounded-full blur-[120px] bg-[#7D5BDE]/[0.07]" />
         </div>
 
         <div className="relative container mx-auto px-4 max-w-4xl text-center">
@@ -243,7 +249,7 @@ export default function UnaRutaParaArgentina() {
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-5xl md:text-7xl font-serif font-bold tracking-tight mb-8">
-              <span className="bg-gradient-to-b from-white via-white/90 to-white/60 bg-clip-text text-transparent">
+              <span className={DISPLAY_GRADIENT}>
                 Una Ruta Para Argentina
               </span>
             </h1>
@@ -288,7 +294,7 @@ export default function UnaRutaParaArgentina() {
             transition={{ duration: 0.5 }}
           >
             <h2 className="text-4xl md:text-5xl font-serif font-bold tracking-tight mb-6">
-              <span className="bg-gradient-to-r from-purple-300 to-violet-400 bg-clip-text text-transparent">
+              <span className={DISPLAY_GRADIENT}>
                 Imaginá Qué Pasaría
               </span>
             </h2>
@@ -301,7 +307,7 @@ export default function UnaRutaParaArgentina() {
           </motion.div>
         </div>
 
-        <div ref={cinematicRef}>
+        <div ref={cinematicRef} className="min-h-[100dvh]">
           <CinematicScroll palettes={RUTA_PALETTES} chapters={CHAPTER_TITLES}>
             <CinematicChapter index={0}>
               <FirstChapterSwipeHint />
@@ -815,14 +821,12 @@ export default function UnaRutaParaArgentina() {
             className="max-w-4xl mx-auto mb-16 bg-white/5 rounded-3xl border border-white/10 backdrop-blur-md p-8 md:p-12"
           >
             <div className="flex flex-col md:flex-row items-start gap-6">
-              <div className="p-4 rounded-2xl bg-amber-500/10 text-amber-400 shrink-0">
+              <div className="p-4 rounded-2xl bg-white/5 border border-white/10 text-slate-300 shrink-0">
                 <Lightbulb className="w-8 h-8" />
               </div>
               <div>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 mb-4">
-                  <span className="text-[10px] font-bold tracking-[0.2em] text-amber-400 uppercase">
-                    Metodología
-                  </span>
+                <div className={`${SECTION_BADGE} mb-4`}>
+                  Metodología
                 </div>
                 <h2 className="text-3xl md:text-4xl font-serif font-bold text-white/95 mb-4 leading-tight">
                   ¿Qué es el Diseño Idealizado?
@@ -912,7 +916,7 @@ export default function UnaRutaParaArgentina() {
       <aside
         role="note"
         aria-label="Diseño Idealizado"
-        className="mx-auto max-w-3xl my-12 p-8 rounded-xl bg-white/[0.03] border border-silver/20 ring-1 ring-gold/10"
+        className={`mx-auto max-w-3xl my-12 p-8 ${GLASS_CARD}`}
       >
         <h3 className="font-serif text-2xl md:text-3xl text-white mb-4 tracking-wide">
           Diseño Idealizado
@@ -944,11 +948,11 @@ export default function UnaRutaParaArgentina() {
                 {/* Left side: icon + text */}
                 <div className="flex-1">
                   <div className="flex items-start gap-5 mb-6">
-                    <div className="p-4 rounded-2xl bg-amber-500/10 text-amber-400 shrink-0">
+                    <div className="p-4 rounded-2xl bg-white/5 border border-white/10 text-slate-300 shrink-0">
                       <Rocket className="w-8 h-8" />
                     </div>
                     <div>
-                      <span className="text-xs font-bold tracking-[0.2em] text-amber-400 uppercase block mb-2">
+                      <span className={`${SECTION_BADGE} block mb-2`}>
                         Política Pública
                       </span>
                       <h2 className="text-3xl md:text-4xl font-bold text-white">
@@ -1003,7 +1007,7 @@ export default function UnaRutaParaArgentina() {
                 placeholder="Buscar iniciativas..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-12 pr-4 py-3 rounded-2xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-amber-500/30 focus:border-amber-400/30 transition-all"
+                className="w-full pl-12 pr-4 py-3 rounded-2xl bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:ring-2 focus:ring-[#7D5BDE]/30 focus:border-[#7D5BDE]/30 transition-all"
               />
             </div>
 
@@ -1076,14 +1080,12 @@ export default function UnaRutaParaArgentina() {
             transition={{ duration: 0.5 }}
             className="text-center mb-12"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-6">
-              <Network className="w-4 h-4 text-blue-400" />
-              <span className="text-xs font-medium text-white/60 uppercase tracking-wider">
-                Sistema de Planificación Estratégica
-              </span>
+            <div className={`${SECTION_BADGE} mb-6 inline-flex items-center gap-2`}>
+              <Network className="w-4 h-4" />
+              Sistema de Planificación Estratégica
             </div>
             <h2 className="text-4xl md:text-5xl font-serif font-bold tracking-tight mb-6">
-              <span className="bg-gradient-to-r from-white via-white/90 to-white/70 bg-clip-text text-transparent">
+              <span className={DISPLAY_GRADIENT}>
                 El Arquitecto
               </span>
             </h2>

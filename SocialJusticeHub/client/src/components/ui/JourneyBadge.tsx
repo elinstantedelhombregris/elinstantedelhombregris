@@ -32,7 +32,7 @@ export function JourneyBadge({ step, className }: JourneyBadgeProps) {
       {prev && (
         <>
           <span aria-hidden="true" className="text-slate-600">·</span>
-          <Link href={prev.href} className="text-blue-300 hover:text-blue-200 transition-colors normal-case tracking-normal">
+          <Link href={prev.href} className="text-[#9D85E8] hover:text-[#B5A3EF] transition-colors normal-case tracking-normal">
             ¿Te perdiste el paso {prev.step}?
           </Link>
         </>

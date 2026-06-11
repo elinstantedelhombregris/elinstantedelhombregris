@@ -11,6 +11,13 @@ import {
 import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
 import { StatusBadge, type PlatformStatus } from '@/components/ui/StatusBadge';
+import {
+  GLASS_CARD,
+  GLASS_CARD_HOVER,
+  SECTION_BADGE,
+  DISPLAY_GRADIENT,
+  PULL_QUOTE,
+} from '@/lib/design-tokens';
 
 /* ── Feature cards data (Section 2) ───────────────────── */
 const features: ReadonlyArray<{
@@ -19,12 +26,6 @@ const features: ReadonlyArray<{
   href: string;
   status: PlatformStatus;
   icon: React.ReactNode;
-  color: string;
-  bg: string;
-  border: string;
-  gradient: string;
-  glow: string;
-  hoverBorder: string;
 }> = [
   {
     title: 'Diagnóstico Personal',
@@ -32,12 +33,6 @@ const features: ReadonlyArray<{
     href: '/evaluacion',
     status: 'live',
     icon: <Activity className="w-5 h-5" />,
-    color: 'text-blue-400',
-    bg: 'bg-blue-500/10',
-    border: 'border-blue-500/20',
-    gradient: 'from-blue-400 to-blue-600',
-    glow: 'group-hover:shadow-[0_0_40px_rgba(59,130,246,0.12)]',
-    hoverBorder: 'group-hover:border-blue-500/40',
   },
   {
     title: 'El Mapa Ciudadano',
@@ -45,12 +40,6 @@ const features: ReadonlyArray<{
     href: '/el-mapa',
     status: 'live',
     icon: <MapPin className="w-5 h-5" />,
-    color: 'text-emerald-400',
-    bg: 'bg-emerald-500/10',
-    border: 'border-emerald-500/20',
-    gradient: 'from-emerald-400 to-emerald-600',
-    glow: 'group-hover:shadow-[0_0_40px_rgba(16,185,129,0.12)]',
-    hoverBorder: 'group-hover:border-emerald-500/40',
   },
   {
     title: '22 Planes de Ejemplo',
@@ -58,12 +47,6 @@ const features: ReadonlyArray<{
     href: '/recursos/ruta',
     status: 'ejercicio',
     icon: <FileText className="w-5 h-5" />,
-    color: 'text-amber-400',
-    bg: 'bg-amber-500/10',
-    border: 'border-amber-500/20',
-    gradient: 'from-amber-400 to-amber-600',
-    glow: 'group-hover:shadow-[0_0_40px_rgba(245,158,11,0.12)]',
-    hoverBorder: 'group-hover:border-amber-500/40',
   },
   {
     title: 'El Mandato Vivo',
@@ -71,12 +54,6 @@ const features: ReadonlyArray<{
     href: '/el-mandato-vivo',
     status: 'construccion',
     icon: <ScrollText className="w-5 h-5" />,
-    color: 'text-red-400',
-    bg: 'bg-red-500/10',
-    border: 'border-red-500/20',
-    gradient: 'from-red-400 to-red-600',
-    glow: 'group-hover:shadow-[0_0_40px_rgba(239,68,68,0.12)]',
-    hoverBorder: 'group-hover:border-red-500/40',
   },
 ];
 
@@ -85,23 +62,14 @@ const differentiators = [
   {
     title: 'Sin caudillo, sin aparato',
     text: 'No hay nadie a quien seguir. Hay infraestructura que la ciudadanía opera. ¿Quién la sostiene? El hombre gris: alguien común que se salió de la grieta y eligió construir en vez de pelear. No es uno — somos muchos. Si mañana desaparecemos, las herramientas quedan.',
-    borderColor: 'border-l-blue-500',
-    dotColor: 'bg-blue-400',
-    numColor: 'text-blue-500/[0.07]',
   },
   {
     title: 'Planes, no consignas',
     text: 'Cada propuesta tiene diseño, presupuesto, métricas y mecanismo de rendición de cuentas. No pedimos que nos crean — pedimos que lo lean.',
-    borderColor: 'border-l-amber-500',
-    dotColor: 'bg-amber-400',
-    numColor: 'text-amber-500/[0.07]',
   },
   {
     title: 'Arranca con vos',
     text: 'No arranca con una marcha ni un voto. Arranca con tu diagnóstico, tu visión, tu territorio. El sistema se construye de abajo hacia arriba.',
-    borderColor: 'border-l-emerald-500',
-    dotColor: 'bg-emerald-400',
-    numColor: 'text-emerald-500/[0.07]',
   },
 ] as const;
 
@@ -112,45 +80,18 @@ const phases = [
     title: 'El quiebre',
     description: 'Dejás de normalizar. Nombrás lo que no va más — en tu vida, en tu barrio, en el país. No es bronca: es claridad.',
     icon: <Target className="w-5 h-5" />,
-    accent: 'from-blue-400 to-blue-600',
-    text: 'text-blue-400',
-    bg: 'bg-blue-500/10',
-    border: 'border-blue-500/15',
-    glow: 'group-hover:shadow-[0_0_40px_rgba(59,130,246,0.08)]',
-    hoverBorder: 'group-hover:border-blue-500/30',
-    hoverBg: 'group-hover:bg-blue-500/[0.03]',
-    dotBg: 'bg-blue-400',
-    numColor: 'text-blue-500/[0.07]',
   },
   {
     num: '02',
     title: 'La construcción',
     description: 'La energía del quiebre se vuelve método: diagnóstico, datos, prioridades compartidas, decisiones coordinadas.',
     icon: <Cog className="w-5 h-5" />,
-    accent: 'from-purple-400 to-purple-600',
-    text: 'text-purple-400',
-    bg: 'bg-purple-500/10',
-    border: 'border-purple-500/15',
-    glow: 'group-hover:shadow-[0_0_40px_rgba(139,92,246,0.08)]',
-    hoverBorder: 'group-hover:border-purple-500/30',
-    hoverBg: 'group-hover:bg-purple-500/[0.03]',
-    dotBg: 'bg-purple-400',
-    numColor: 'text-purple-500/[0.07]',
   },
   {
     num: '03',
     title: 'La prueba',
     description: 'Lo construido se mide, se exige, se corrige. La ciudadanía no pide — demuestra que hay otro camino y lo sostiene.',
     icon: <Building2 className="w-5 h-5" />,
-    accent: 'from-emerald-400 to-emerald-600',
-    text: 'text-emerald-400',
-    bg: 'bg-emerald-500/10',
-    border: 'border-emerald-500/15',
-    glow: 'group-hover:shadow-[0_0_40px_rgba(16,185,129,0.08)]',
-    hoverBorder: 'group-hover:border-emerald-500/30',
-    hoverBg: 'group-hover:bg-emerald-500/[0.03]',
-    dotBg: 'bg-emerald-400',
-    numColor: 'text-emerald-500/[0.07]',
   },
 ] as const;
 
@@ -162,7 +103,11 @@ const Home = () => {
     window.scrollTo(0, 0);
     document.title = '¡BASTA! — Herramientas ciudadanas para reconstruir la Argentina';
 
-    const handleScroll = () => setShowStickyShare(window.scrollY > 600);
+    const handleScroll = () => {
+      const nearBottom =
+        window.innerHeight + window.scrollY > document.body.scrollHeight - 900;
+      setShowStickyShare(window.scrollY > 600 && !nearBottom);
+    };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -179,7 +124,7 @@ const Home = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-slate-200 selection:bg-blue-500/30 font-sans">
+    <div className="min-h-screen bg-[#0a0a0a] text-slate-200 selection:bg-[#7D5BDE]/30 font-sans">
       <Header />
 
       <main>
@@ -198,12 +143,12 @@ const Home = () => {
           subtitle={
             <div className="max-w-2xl mx-auto space-y-4">
               <p className="text-[clamp(1rem,1.8vw,1.25rem)] leading-relaxed text-slate-300/90">
-                Un grupo de ciudadanos dejó de esperar y empezó a construir herramientas
-                para hacer evidente lo que queremos, lo que soñamos, lo que necesitamos
-                y lo que ya no aguantamos — cada uno desde su barrio, su provincia, su lugar.
+                Un grupo de ciudadanos dejó de esperar y empezó a construir
+                herramientas para hacer evidente lo que queremos y lo que ya no
+                aguantamos — cada uno desde su barrio, su provincia, su lugar.
               </p>
               <p className="text-[clamp(1.1rem,2vw,1.4rem)] font-semibold text-white/90">
-                Se llama <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 font-bold">¡BASTA!</span>:
+                Se llama <span className="text-[#9D85E8] font-bold">¡BASTA!</span>:
                 la ciudadanía diseña, el Estado administra, la política ejecuta.
                 Sin líder, sin partido, sin promesas.
               </p>
@@ -217,14 +162,11 @@ const Home = () => {
         />
 
         {/* ═══ 2. LO QUE YA EXISTE — Concrete tools ═══════════════════ */}
-        <section id="lo-que-existe" className="py-28 md:py-36 bg-[#0a0a0a] relative overflow-hidden">
+        <section id="lo-que-existe" className="py-20 md:py-28 bg-[#0a0a0a] relative overflow-hidden">
           {/* Layered ambient lighting */}
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[600px] bg-blue-900/[0.06] rounded-full blur-[160px]" />
-            <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-emerald-900/[0.04] rounded-full blur-[140px]" />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[600px] bg-[#7D5BDE]/[0.05] rounded-full blur-[160px]" />
           </div>
-          {/* Subtle dot grid */}
-          <div className="absolute inset-0 pattern-dots opacity-40 pointer-events-none" />
 
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-6xl mx-auto">
@@ -236,13 +178,13 @@ const Home = () => {
                 transition={{ duration: 0.7 }}
                 className="text-center mb-16 md:mb-20"
               >
-                <span className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/[0.08] text-[11px] uppercase tracking-[0.3em] text-blue-300/70 mb-6">
+                <span className={`${SECTION_BADGE} mb-6`}>
                   Lo que ya existe
                 </span>
                 <h2 className="text-4xl md:text-[3.5rem] lg:text-6xl font-black text-white mb-6 tracking-tight leading-[0.95]">
                   No es una idea.
                   <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-emerald-400">
+                  <span className={DISPLAY_GRADIENT}>
                     Es una plataforma en construcción.
                   </span>
                 </h2>
@@ -261,13 +203,14 @@ const Home = () => {
                 className="grid sm:grid-cols-3 gap-4 mb-6"
               >
                 {[
-                  { who: 'La ciudadanía', verb: 'DISEÑA', color: 'text-blue-400', border: 'border-blue-500/20' },
-                  { who: 'El Estado', verb: 'ADMINISTRA', color: 'text-amber-400', border: 'border-amber-500/20' },
-                  { who: 'La política', verb: 'EJECUTA', color: 'text-emerald-400', border: 'border-emerald-500/20' },
+                  { who: 'La ciudadanía', verb: 'DISEÑA' },
+                  { who: 'El Estado', verb: 'ADMINISTRA' },
+                  { who: 'La política', verb: 'EJECUTA' },
                 ].map((role) => (
-                  <div key={role.verb} className={`rounded-2xl bg-white/[0.02] border ${role.border} px-6 py-5 text-center`}>
+                  <div key={role.verb} className={`${GLASS_CARD} px-6 py-5 text-center`}>
                     <p className="text-sm text-slate-400">{role.who}</p>
-                    <p className={`text-xl md:text-2xl font-black tracking-wide ${role.color}`}>{role.verb}</p>
+                    <p className="text-xl md:text-2xl font-black tracking-wide text-white">{role.verb}</p>
+                    <div className="mx-auto mt-2 h-px w-8 bg-[#7D5BDE]" />
                   </div>
                 ))}
               </motion.div>
@@ -286,32 +229,25 @@ const Home = () => {
                 {features.map((feature, i) => (
                   <motion.div
                     key={i}
-                    initial={{ opacity: 0, y: 30, scale: 0.97 }}
-                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-60px" }}
                     transition={{ duration: 0.5, delay: i * 0.1 }}
                     className="group relative"
                   >
                     <Link href={feature.href} className="block h-full">
-                      <div className={`
-                        relative h-full rounded-2xl bg-white/[0.02] border ${feature.border}
-                        ${feature.hoverBorder} ${feature.glow}
-                        transition-all duration-500 hover:-translate-y-1 overflow-hidden cursor-pointer
-                      `}>
-                        {/* Top accent line */}
-                        <div className={`h-[3px] bg-gradient-to-r ${feature.gradient} opacity-60 group-hover:opacity-100 transition-opacity duration-500`} />
-
+                      <div className={`relative h-full ${GLASS_CARD} ${GLASS_CARD_HOVER} overflow-hidden cursor-pointer`}>
                         <div className="p-7 md:p-8 relative">
                           {/* Icon + status */}
                           <div className="flex items-start justify-between mb-5">
-                            <div className={`w-12 h-12 rounded-xl ${feature.bg} flex items-center justify-center ${feature.color} border ${feature.border} group-hover:scale-110 transition-transform duration-500`}>
+                            <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-300">
                               {feature.icon}
                             </div>
                             <StatusBadge status={feature.status} />
                           </div>
 
                           {/* Title */}
-                          <h3 className="text-xl font-bold text-white mb-3 group-hover:text-slate-50 transition-colors">
+                          <h3 className="text-xl font-bold text-white mb-3">
                             {feature.title}
                           </h3>
 
@@ -321,7 +257,7 @@ const Home = () => {
                           </p>
 
                           {/* Affordance */}
-                          <span className={`inline-flex items-center gap-1.5 text-sm font-semibold ${feature.color}`}>
+                          <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#9D85E8]">
                             Entrar <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                           </span>
                         </div>
@@ -337,7 +273,7 @@ const Home = () => {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.3 }}
-                className="text-center text-lg md:text-xl font-serif italic text-slate-300/80"
+                className={`text-center text-lg md:text-xl ${PULL_QUOTE}`}
               >
                 Todo abierto. Todo auditable. Todo construido por ciudadanos como vos.
               </motion.p>
@@ -346,11 +282,10 @@ const Home = () => {
         </section>
 
         {/* ═══ 3. POR QUÉ ES DISTINTO — Differentiators ═══════════════ */}
-        <section className="py-28 md:py-36 bg-[#0a0a0a] relative overflow-hidden">
+        <section className="py-20 md:py-28 bg-[#0a0a0a] relative overflow-hidden">
           {/* Background */}
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0d0d14] to-transparent" />
-          <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-purple-900/[0.05] rounded-full blur-[180px] pointer-events-none" />
-          <div className="absolute bottom-1/4 left-0 w-[400px] h-[400px] bg-blue-900/[0.04] rounded-full blur-[150px] pointer-events-none" />
+          <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-[#7D5BDE]/[0.04] rounded-full blur-[180px] pointer-events-none" />
 
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-4xl mx-auto">
@@ -362,13 +297,13 @@ const Home = () => {
                 transition={{ duration: 0.7 }}
                 className="text-center mb-16 md:mb-20"
               >
-                <span className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/[0.08] text-[11px] uppercase tracking-[0.3em] text-purple-300/70 mb-6">
+                <span className={`${SECTION_BADGE} mb-6`}>
                   Por qué es distinto
                 </span>
                 <h2 className="text-4xl md:text-[3.5rem] lg:text-6xl font-black text-white mb-6 tracking-tight leading-[0.95]">
                   No hay líder. No hay partido.
                   <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400">
+                  <span className={DISPLAY_GRADIENT}>
                     Hay método.
                   </span>
                 </h2>
@@ -386,10 +321,10 @@ const Home = () => {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: "-60px" }}
                     transition={{ duration: 0.6, delay: i * 0.12 }}
-                    className={`relative border-l-4 ${d.borderColor} pl-7 md:pl-9 py-2`}
+                    className="relative border-l-4 border-l-white/25 pl-7 md:pl-9 py-2"
                   >
                     {/* Ghost number */}
-                    <span className={`absolute -top-4 right-0 text-[5rem] md:text-[6rem] font-black ${d.numColor} leading-none select-none pointer-events-none`}>
+                    <span className="absolute -top-4 right-0 text-[5rem] md:text-[6rem] font-black text-white/[0.04] leading-none select-none pointer-events-none">
                       {String(i + 1).padStart(2, '0')}
                     </span>
 
@@ -411,7 +346,7 @@ const Home = () => {
                 transition={{ duration: 0.7 }}
                 className="text-center max-w-3xl mx-auto"
               >
-                <p className="text-xl md:text-2xl font-serif italic text-slate-300/90 leading-relaxed">
+                <p className={`text-xl md:text-2xl leading-relaxed ${PULL_QUOTE}`}>
                   La pregunta no es quién promete más.
                   <br />
                   Es si estás dispuesto a mirar lo que ya se está construyendo.
@@ -422,11 +357,10 @@ const Home = () => {
         </section>
 
         {/* ═══ 4. EL MÉTODO — The Emotional Bridge ════════════════════ */}
-        <section className="py-28 md:py-36 bg-[#0a0a0a] relative overflow-hidden">
+        <section className="py-20 md:py-28 bg-[#0a0a0a] relative overflow-hidden">
           {/* Ambient background */}
           <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#0d1117] to-[#0a0a0a]" />
-          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-blue-900/[0.06] rounded-full blur-[150px] pointer-events-none" />
-          <div className="absolute bottom-1/4 right-0 w-[400px] h-[400px] bg-purple-900/[0.04] rounded-full blur-[120px] pointer-events-none" />
+          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-[#7D5BDE]/[0.05] rounded-full blur-[150px] pointer-events-none" />
 
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-6xl mx-auto">
@@ -436,15 +370,15 @@ const Home = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.7 }}
-                className="text-center mb-20 md:mb-24"
+                className="text-center mb-16 md:mb-20"
               >
-                <span className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/[0.08] text-[11px] uppercase tracking-[0.3em] text-emerald-300/70 mb-6">
+                <span className={`${SECTION_BADGE} mb-6`}>
                   El método
                 </span>
                 <h2 className="text-4xl md:text-[3.5rem] lg:text-6xl font-black text-white mb-6 tracking-tight leading-[0.95]">
                   ¡BASTA! no es solo un grito.
                   <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400">
+                  <span className={DISPLAY_GRADIENT}>
                     Es lo que pasa después.
                   </span>
                 </h2>
@@ -458,7 +392,7 @@ const Home = () => {
               <div className="relative mb-20 md:mb-24">
                 {/* Connecting gradient line (desktop only) */}
                 <div className="hidden md:block absolute top-[3.25rem] left-[16%] right-[16%] h-px z-0">
-                  <div className="w-full h-full bg-gradient-to-r from-blue-500/30 via-purple-500/30 to-emerald-500/30" />
+                  <div className="w-full h-full bg-white/10" />
                 </div>
 
                 <div className="grid md:grid-cols-3 gap-6 md:gap-5 relative z-10">
@@ -473,29 +407,26 @@ const Home = () => {
                     >
                       {/* Timeline node (desktop) */}
                       <div className="hidden md:flex justify-center mb-6">
-                        <div className={`relative z-20 w-7 h-7 rounded-full border-2 ${phase.border} flex items-center justify-center bg-[#0d1117]`}>
-                          <div className={`w-2.5 h-2.5 rounded-full ${phase.dotBg}`} />
+                        <div className="relative z-20 w-7 h-7 rounded-full border-2 border-[#7D5BDE]/40 flex items-center justify-center bg-[#0a0a0a]">
+                          <div className="w-2.5 h-2.5 rounded-full bg-[#7D5BDE]" />
                         </div>
                       </div>
 
                       {/* Card */}
-                      <div className={`group relative rounded-2xl bg-white/[0.02] border ${phase.border} ${phase.hoverBorder} ${phase.hoverBg} ${phase.glow} overflow-hidden transition-all duration-500 hover:-translate-y-1`}>
-                        {/* Top accent line */}
-                        <div className={`h-[3px] bg-gradient-to-r ${phase.accent}`} />
-
+                      <div className={`group relative ${GLASS_CARD} ${GLASS_CARD_HOVER} overflow-hidden`}>
                         <div className="p-7 relative">
                           {/* Ghost number */}
-                          <span className={`absolute -top-1 right-4 text-[5rem] font-black ${phase.numColor} leading-none select-none pointer-events-none`}>
+                          <span className="absolute -top-1 right-4 text-[5rem] font-black text-white/[0.04] leading-none select-none pointer-events-none">
                             {phase.num}
                           </span>
 
                           {/* Icon */}
-                          <div className={`w-9 h-9 rounded-xl ${phase.bg} flex items-center justify-center mb-5 ${phase.text} border ${phase.border}`}>
+                          <div className="w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-5 text-slate-300">
                             {phase.icon}
                           </div>
 
                           {/* Title */}
-                          <h3 className="text-[1.4rem] font-bold text-white mb-3">
+                          <h3 className="text-[1.4rem] font-bold text-white mb-3 text-balance">
                             {phase.title}
                           </h3>
 
@@ -519,8 +450,8 @@ const Home = () => {
                 className="text-center max-w-3xl mx-auto"
               >
                 <p className="text-xl md:text-2xl text-slate-300/90 leading-relaxed">
-                  <span className="block font-serif italic">Indignación sin método es ruido.</span>
-                  <span className="block font-serif italic mt-1">Método sin gente es burocracia.</span>
+                  <span className={`block ${PULL_QUOTE}`}>Indignación sin método es ruido.</span>
+                  <span className={`block mt-1 ${PULL_QUOTE}`}>Método sin gente es burocracia.</span>
                   <span className="block mt-4 font-bold text-white text-2xl md:text-3xl tracking-tight">
                     Esto es las dos cosas juntas.
                   </span>
@@ -531,11 +462,10 @@ const Home = () => {
         </section>
 
         {/* ═══ 5. TU TURNO — The Close ════════════════════════════════ */}
-        <section className="relative py-28 md:py-36 overflow-hidden">
+        <section className="relative py-20 md:py-28 overflow-hidden">
           {/* Full-width gradient atmosphere */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#10132a] to-[#0a0a0a]" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-blue-600/[0.06] rounded-full blur-[130px] pointer-events-none" />
-          <div className="absolute top-1/3 right-1/4 w-[300px] h-[300px] bg-purple-600/[0.04] rounded-full blur-[100px] pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#15102a] to-[#0a0a0a]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[#7D5BDE]/[0.07] rounded-full blur-[130px] pointer-events-none" />
 
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-3xl mx-auto text-center">
@@ -545,7 +475,7 @@ const Home = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
               >
-                <span className="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/[0.08] text-[11px] uppercase tracking-[0.3em] text-blue-300/70 mb-8">
+                <span className={`${SECTION_BADGE} mb-8`}>
                   Tu turno
                 </span>
 
@@ -553,7 +483,7 @@ const Home = () => {
                   No hace falta que creas.
                 </h2>
                 <h2 className="text-4xl md:text-[3.5rem] font-black mb-8 tracking-tight leading-[0.95]">
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+                  <span className={DISPLAY_GRADIENT}>
                     Hace falta que leas.
                   </span>
                 </h2>
@@ -572,7 +502,7 @@ const Home = () => {
                 <Link href="/la-vision">
                   <Button
                     size="lg"
-                    className="relative group bg-blue-600 hover:bg-blue-500 text-white px-10 py-7 rounded-full text-lg font-semibold shadow-[0_0_40px_rgba(37,99,235,0.3)] hover:shadow-[0_0_60px_rgba(37,99,235,0.5)] transition-all duration-500 hover:-translate-y-1 overflow-hidden tracking-wide"
+                    className="relative group bg-[#7D5BDE] hover:bg-[#8D6FE4] text-white px-10 py-7 rounded-full text-lg font-semibold shadow-[0_0_40px_rgba(125,91,222,0.35)] hover:shadow-[0_0_60px_rgba(125,91,222,0.5)] transition-all duration-300 hover:-translate-y-1 overflow-hidden tracking-wide"
                   >
                     <span className="relative z-10 flex items-center">
                       Leer La Visión
@@ -585,7 +515,7 @@ const Home = () => {
 
                 <p className="mt-6 text-sm text-slate-500">
                   ¿Tenés 2 minutos nomás?{' '}
-                  <Link href="/recursos/ruta" className="text-blue-400 hover:text-blue-300 transition-colors font-medium">
+                  <Link href="/recursos/ruta" className="text-[#9D85E8] hover:text-[#B5A3EF] transition-colors font-medium">
                     Mirá los 22 planes de ejemplo →
                   </Link>
                 </p>
@@ -607,7 +537,7 @@ const Home = () => {
             >
               <Button
                 onClick={handleShare}
-                className="rounded-full h-12 px-5 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white shadow-2xl shadow-blue-900/40 flex items-center gap-2.5 transition-transform hover:scale-105"
+                className="rounded-full h-12 w-12 md:w-auto md:px-5 bg-[#7D5BDE] hover:bg-[#8D6FE4] text-white shadow-2xl shadow-[#7D5BDE]/30 flex items-center justify-center gap-2.5 transition-transform duration-300 hover:scale-105"
               >
                 <Share2 className="w-4 h-4" />
                 <span className="font-semibold tracking-wide text-sm hidden md:inline">COMPARTIR</span>

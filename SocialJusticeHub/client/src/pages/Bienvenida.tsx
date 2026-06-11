@@ -35,6 +35,11 @@ import {
   ScrollText,
   ShieldCheck,
 } from 'lucide-react';
+import {
+  GLASS_CARD,
+  DISPLAY_GRADIENT,
+  ACCENT_BUTTON,
+} from '@/lib/design-tokens';
 
 const PILLARS = [
   { icon: Eye, label: 'Visión', desc: 'Tu brújula interna para navegar el cambio' },
@@ -214,12 +219,20 @@ const Bienvenida = () => {
     animate: { opacity: 1, y: 0 },
   };
 
+  const selectClass =
+    'w-full h-11 rounded-lg bg-white/5 border border-white/10 text-white px-3 ' +
+    'focus:outline-none focus:border-[#7D5BDE]/50 focus:ring-1 focus:ring-[#7D5BDE]/30 transition-colors duration-300';
+
+  /* Icon container shared style */
+  const iconBox =
+    'w-14 h-14 mx-auto rounded-2xl bg-[#7D5BDE]/10 border border-[#7D5BDE]/20 flex items-center justify-center mb-4';
+
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white flex flex-col">
       {/* Progress bar */}
       <div className="fixed top-0 left-0 right-0 z-50 h-1 bg-white/5">
         <motion.div
-          className="h-full bg-gradient-to-r from-blue-500 to-purple-500"
+          className="h-full bg-[#7D5BDE]"
           initial={{ width: 0 }}
           animate={{ width: `${((step + 1) / TOTAL_STEPS) * 100}%` }}
           transition={{ duration: 0.5, ease: 'easeOut' }}
@@ -245,7 +258,7 @@ const Bienvenida = () => {
                   >
                     <h1 className="text-4xl md:text-5xl font-bold font-serif">
                       Bienvenido/a,{' '}
-                      <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                      <span className={DISPLAY_GRADIENT}>
                         {user.name.split(' ')[0]}
                       </span>
                     </h1>
@@ -267,10 +280,10 @@ const Bienvenida = () => {
                       <motion.div
                         key={pillar.label}
                         variants={staggerItem}
-                        className="bg-white/5 border border-white/10 rounded-xl p-4 text-center hover:border-blue-500/30 hover:bg-white/[0.07] transition-all duration-300"
+                        className="bg-white/5 border border-white/10 rounded-xl p-4 text-center hover:border-[#7D5BDE]/30 hover:bg-white/[0.07] transition-all duration-300"
                       >
-                        <div className="w-10 h-10 mx-auto mb-3 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center">
-                          <Icon className="h-5 w-5 text-blue-400" />
+                        <div className="w-10 h-10 mx-auto mb-3 rounded-lg bg-[#7D5BDE]/10 border border-[#7D5BDE]/20 flex items-center justify-center">
+                          <Icon className="h-5 w-5 text-[#9D85E8]" />
                         </div>
                         <h3 className="text-sm font-bold text-slate-200 mb-1">{pillar.label}</h3>
                         <p className="text-[11px] text-slate-500 leading-tight">{pillar.desc}</p>
@@ -281,7 +294,7 @@ const Bienvenida = () => {
 
                 <Button
                   onClick={handleNext}
-                  className="bg-blue-600 hover:bg-blue-500 text-white px-8 h-12 text-base font-bold shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_30px_rgba(37,99,235,0.5)] transition-all"
+                  className={`${ACCENT_BUTTON} px-8 h-12 text-base font-bold transition-all duration-300`}
                 >
                   Empezar
                   <ChevronRight className="ml-2 h-5 w-5" />
@@ -293,8 +306,8 @@ const Bienvenida = () => {
             {step === 1 && (
               <motion.div key="location" {...fadeVariants} className="space-y-8">
                 <div className="text-center space-y-3">
-                  <div className="w-14 h-14 mx-auto rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-4">
-                    <MapPin className="h-7 w-7 text-emerald-400" />
+                  <div className={iconBox}>
+                    <MapPin className="h-7 w-7 text-[#9D85E8]" />
                   </div>
                   <h2 className="text-3xl font-bold font-serif">¿De dónde sos?</h2>
                   <p className="text-slate-400 max-w-sm mx-auto">
@@ -311,7 +324,7 @@ const Bienvenida = () => {
                         setSelectedProvince(e.target.value);
                         setSelectedCity('');
                       }}
-                      className="w-full h-11 rounded-lg bg-white/5 border border-white/10 text-white px-3 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/30 transition-colors"
+                      className={selectClass}
                     >
                       <option value="" className="bg-[#1a1a1a]">Seleccionar provincia...</option>
                       {provinces.map((p) => (
@@ -326,7 +339,7 @@ const Bienvenida = () => {
                       <select
                         value={selectedCity}
                         onChange={(e) => setSelectedCity(e.target.value)}
-                        className="w-full h-11 rounded-lg bg-white/5 border border-white/10 text-white px-3 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/30 transition-colors"
+                        className={selectClass}
                       >
                         <option value="" className="bg-[#1a1a1a]">Seleccionar ciudad...</option>
                         {cities.map((c) => (
@@ -349,7 +362,7 @@ const Bienvenida = () => {
                   <Button
                     onClick={handleNext}
                     disabled={!selectedProvince}
-                    className="bg-blue-600 hover:bg-blue-500 text-white px-8 h-11 font-bold disabled:opacity-30 shadow-[0_0_20px_rgba(37,99,235,0.3)]"
+                    className={`${ACCENT_BUTTON} px-8 h-11 font-bold disabled:opacity-30 transition-all duration-300`}
                   >
                     Continuar
                     <ChevronRight className="ml-2 h-4 w-4" />
@@ -362,8 +375,8 @@ const Bienvenida = () => {
             {step === 2 && (
               <motion.div key="interests" {...fadeVariants} className="space-y-8">
                 <div className="text-center space-y-3">
-                  <div className="w-14 h-14 mx-auto rounded-2xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center mb-4">
-                    <Sparkles className="h-7 w-7 text-purple-400" />
+                  <div className={iconBox}>
+                    <Sparkles className="h-7 w-7 text-[#9D85E8]" />
                   </div>
                   <h2 className="text-3xl font-bold font-serif">¿Qué áreas te importan más?</h2>
                   <p className="text-slate-400 max-w-sm mx-auto">
@@ -387,17 +400,17 @@ const Bienvenida = () => {
                         onClick={() => toggleInterest(area.name)}
                         className={`relative p-4 rounded-xl border text-left transition-all duration-300 ${
                           isSelected
-                            ? 'bg-blue-500/10 border-blue-500/40 shadow-[0_0_15px_rgba(59,130,246,0.15)]'
+                            ? 'bg-[#7D5BDE]/10 border-[#7D5BDE]/40 shadow-[0_0_15px_rgba(125,91,222,0.15)]'
                             : 'bg-white/5 border-white/10 hover:border-white/20 hover:bg-white/[0.07]'
                         }`}
                       >
                         {isSelected && (
                           <div className="absolute top-2 right-2">
-                            <Check className="h-4 w-4 text-blue-400" />
+                            <Check className="h-4 w-4 text-[#9D85E8]" />
                           </div>
                         )}
-                        <Icon className={`h-5 w-5 mb-2 ${isSelected ? 'text-blue-400' : 'text-slate-500'}`} />
-                        <span className={`text-sm font-medium ${isSelected ? 'text-blue-200' : 'text-slate-300'}`}>
+                        <Icon className={`h-5 w-5 mb-2 ${isSelected ? 'text-[#9D85E8]' : 'text-slate-500'}`} />
+                        <span className={`text-sm font-medium ${isSelected ? 'text-slate-200' : 'text-slate-300'}`}>
                           {area.name}
                         </span>
                       </motion.button>
@@ -424,7 +437,7 @@ const Bienvenida = () => {
                   <Button
                     onClick={handleNext}
                     disabled={selectedInterests.length < 3}
-                    className="bg-blue-600 hover:bg-blue-500 text-white px-8 h-11 font-bold disabled:opacity-30 shadow-[0_0_20px_rgba(37,99,235,0.3)]"
+                    className={`${ACCENT_BUTTON} px-8 h-11 font-bold disabled:opacity-30 transition-all duration-300`}
                   >
                     Continuar
                     <ChevronRight className="ml-2 h-4 w-4" />
@@ -441,8 +454,8 @@ const Bienvenida = () => {
               return (
                 <motion.div key="mission" {...fadeVariants} className="space-y-8 text-center">
                   <div className="space-y-3">
-                    <div className="w-14 h-14 mx-auto rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-4">
-                      <ShieldCheck className="h-7 w-7 text-blue-400" />
+                    <div className={iconBox}>
+                      <ShieldCheck className="h-7 w-7 text-[#9D85E8]" />
                     </div>
                     <h2 className="text-3xl font-bold font-serif">Tu Misión</h2>
                     <p className="text-slate-400 max-w-sm mx-auto">
@@ -451,15 +464,15 @@ const Bienvenida = () => {
                   </div>
 
                   <div className="max-w-sm mx-auto">
-                    <div className="bg-white/5 border border-blue-500/20 rounded-2xl p-6 shadow-[0_0_30px_rgba(59,130,246,0.08)] text-left space-y-3">
+                    <div className={`${GLASS_CARD} border-[#7D5BDE]/20 p-6 shadow-[0_0_30px_rgba(125,91,222,0.08)] text-left space-y-3`}>
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-lg bg-blue-500/15 border border-blue-500/30 flex items-center justify-center flex-shrink-0">
-                          <span className="text-blue-300 font-bold font-mono text-sm">
+                        <div className="w-10 h-10 rounded-lg bg-[#7D5BDE]/15 border border-[#7D5BDE]/30 flex items-center justify-center flex-shrink-0">
+                          <span className="text-[#9D85E8] font-bold font-mono text-sm">
                             {String(suggestedMission.number).padStart(2, '0')}
                           </span>
                         </div>
                         <div>
-                          <p className="text-[10px] font-mono text-blue-400/70 uppercase tracking-widest mb-0.5">Misión Nacional</p>
+                          <p className="text-[10px] font-mono text-[#9D85E8]/70 uppercase tracking-widest mb-0.5">Misión Nacional</p>
                           <h3 className="text-lg font-bold text-white leading-tight">{suggestedMission.label}</h3>
                         </div>
                       </div>
@@ -474,7 +487,7 @@ const Bienvenida = () => {
                   <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
                     <Button
                       onClick={handleNext}
-                      className="w-full sm:w-auto bg-blue-600 hover:bg-blue-500 text-white px-8 h-11 font-bold shadow-[0_0_20px_rgba(37,99,235,0.3)]"
+                      className={`w-full sm:w-auto ${ACCENT_BUTTON} px-8 h-11 font-bold transition-all duration-300`}
                     >
                       <ShieldCheck className="mr-2 h-4 w-4" />
                       Explorar esta misión
@@ -505,8 +518,8 @@ const Bienvenida = () => {
             {step === 4 && (
               <motion.div key="email" {...fadeVariants} className="space-y-8 text-center">
                 <div className="space-y-3">
-                  <div className="w-14 h-14 mx-auto rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mb-4">
-                    <Mail className="h-7 w-7 text-amber-400" />
+                  <div className={iconBox}>
+                    <Mail className="h-7 w-7 text-[#9D85E8]" />
                   </div>
                   <h2 className="text-3xl font-bold font-serif">Verificá tu email</h2>
                   <p className="text-slate-400 max-w-sm mx-auto">
@@ -532,7 +545,7 @@ const Bienvenida = () => {
                     <Button
                       onClick={() => sendVerificationMutation.mutate()}
                       disabled={sendVerificationMutation.isPending}
-                      className="bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/30 font-medium"
+                      className={`${ACCENT_BUTTON} font-medium transition-all duration-300`}
                     >
                       <Send className="mr-2 h-4 w-4" />
                       {sendVerificationMutation.isPending ? 'Enviando...' : 'Enviar email de verificación'}
@@ -551,7 +564,7 @@ const Bienvenida = () => {
                   </Button>
                   <Button
                     onClick={handleNext}
-                    className="bg-blue-600 hover:bg-blue-500 text-white px-8 h-11 font-bold shadow-[0_0_20px_rgba(37,99,235,0.3)]"
+                    className={`${ACCENT_BUTTON} px-8 h-11 font-bold transition-all duration-300`}
                   >
                     Continuar
                     <ChevronRight className="ml-2 h-4 w-4" />
@@ -574,7 +587,7 @@ const Bienvenida = () => {
                   </motion.div>
                   <h2 className="text-3xl md:text-4xl font-bold font-serif">
                     ¡Todo listo,{' '}
-                    <span className="bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text text-transparent">
+                    <span className={DISPLAY_GRADIENT}>
                       {user.name.split(' ')[0]}
                     </span>
                     !
@@ -588,7 +601,7 @@ const Bienvenida = () => {
                   <Button
                     onClick={() => handleFinish('/life-areas')}
                     disabled={completeOnboardingMutation.isPending}
-                    className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-500 text-white px-8 h-12 text-base font-bold shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:shadow-[0_0_30px_rgba(16,185,129,0.5)] transition-all"
+                    className={`w-full sm:w-auto ${ACCENT_BUTTON} px-8 h-12 text-base font-bold transition-all duration-300`}
                   >
                     <Map className="mr-2 h-5 w-5" />
                     Hacer el Diagnóstico

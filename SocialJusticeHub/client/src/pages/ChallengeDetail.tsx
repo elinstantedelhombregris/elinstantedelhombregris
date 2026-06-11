@@ -10,16 +10,16 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { 
-  ArrowLeft, 
-  Target, 
-  Clock, 
-  Star, 
-  CheckCircle, 
-  Play, 
-  Heart, 
-  Users, 
-  BookOpen, 
+import {
+  ArrowLeft,
+  Target,
+  Clock,
+  Star,
+  CheckCircle,
+  Play,
+  Heart,
+  Users,
+  BookOpen,
   TrendingUp,
   Zap,
   Award,
@@ -31,6 +31,14 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { apiRequest } from '@/lib/queryClient';
 import { toast } from '@/hooks/use-toast';
 import { Link } from 'wouter';
+import { cn } from '@/lib/utils';
+import {
+  ACCENT_BUTTON,
+  DISPLAY_GRADIENT,
+  GLASS_CARD,
+  GLASS_CARD_HOVER,
+  SECTION_BADGE,
+} from '@/lib/design-tokens';
 
 interface Challenge {
   id: number;
@@ -110,7 +118,7 @@ const ChallengeDetail = () => {
 
   // Complete step mutation
   const completeStepMutation = useMutation({
-    mutationFn: (stepId: number) => 
+    mutationFn: (stepId: number) =>
       apiRequest(`/api/user/challenges/${challengeId}/step/${stepId}/complete`, 'POST'),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['/api/user/challenges'] });
@@ -124,7 +132,7 @@ const ChallengeDetail = () => {
       queryClient.invalidateQueries({ queryKey: ['/api/user/challenges'] });
       queryClient.invalidateQueries({ queryKey: ['/api/user/stats'] });
       queryClient.invalidateQueries({ queryKey: ['/api/user/badges'] });
-      
+
       toast({
         title: '¡Desafío completado!',
         description: `¡Felicitaciones! Has ganado ${challenge?.experience} XP.`,
@@ -139,25 +147,25 @@ const ChallengeDetail = () => {
     },
   });
 
-  // Get level info
+  // Get level info — level identity labels, no decorative color blobs
   const getLevelInfo = (level: number) => {
     switch (level) {
-      case 1: return { name: 'Vos', color: 'from-blue-500 to-blue-600', icon: Heart };
-      case 2: return { name: 'Tu Familia', color: 'from-pink-500 to-pink-600', icon: Users };
-      case 3: return { name: 'Tu Barrio', color: 'from-green-500 to-green-600', icon: BookOpen };
-      case 4: return { name: 'Tu Provincia', color: 'from-purple-500 to-purple-600', icon: TrendingUp };
-      case 5: return { name: 'La Nación', color: 'from-indigo-500 to-indigo-600', icon: Star };
-      default: return { name: 'Vos', color: 'from-blue-500 to-blue-600', icon: Heart };
+      case 1: return { name: 'Vos', icon: Heart };
+      case 2: return { name: 'Tu Familia', icon: Users };
+      case 3: return { name: 'Tu Barrio', icon: BookOpen };
+      case 4: return { name: 'Tu Provincia', icon: TrendingUp };
+      case 5: return { name: 'La Nación', icon: Star };
+      default: return { name: 'Vos', icon: Heart };
     }
   };
 
-  // Get difficulty color
-  const getDifficultyColor = (difficulty: string) => {
+  // Get difficulty label — difficulty tier is semantic encoding (rule 6), kept muted
+  const getDifficultyLabel = (difficulty: string) => {
     switch (difficulty) {
-      case 'beginner': return 'bg-green-100 text-green-800';
-      case 'intermediate': return 'bg-yellow-100 text-yellow-800';
-      case 'advanced': return 'bg-red-100 text-red-800';
-      default: return 'bg-gray-100 text-gray-800';
+      case 'beginner': return { label: 'Principiante', cls: 'bg-white/5 border-white/10 text-slate-400' };
+      case 'intermediate': return { label: 'Intermedio', cls: 'bg-amber-500/10 border-amber-500/20 text-amber-400' };
+      case 'advanced': return { label: 'Avanzado', cls: 'bg-red-500/10 border-red-500/20 text-red-400' };
+      default: return { label: difficulty, cls: 'bg-white/5 border-white/10 text-slate-400' };
     }
   };
 
@@ -211,23 +219,24 @@ const ChallengeDetail = () => {
 
   const renderStepContent = (step: ChallengeStep) => {
     const stepData = step.data ? JSON.parse(step.data) : {};
-    
+
     switch (step.type) {
       case 'question':
         return (
           <div className="space-y-4">
-            <p className="text-gray-700">{step.description}</p>
+            <p className="text-slate-300">{step.description}</p>
             {stepData.prompt && (
               <div>
-                <Label htmlFor={`step-${step.id}`} className="text-sm font-medium">
+                <Label htmlFor={`step-${step.id}`} className="text-sm font-medium text-slate-300">
                   {stepData.prompt}
                 </Label>
                 <Textarea
                   id={`step-${step.id}`}
-                  placeholder="Escribe tu respuesta aquí..."
+                  placeholder="Escribí tu respuesta acá..."
                   value={stepAnswers[step.id] || ''}
                   onChange={(e) => handleStepAnswer(step.id, e.target.value)}
                   rows={4}
+                  className="mt-2 bg-white/5 border-white/10 text-slate-200 focus:border-[#7D5BDE]/50"
                 />
               </div>
             )}
@@ -235,13 +244,13 @@ const ChallengeDetail = () => {
               <div className="space-y-3">
                 {stepData.questions.map((question: string, index: number) => (
                   <div key={index}>
-                    <Label className="text-sm font-medium">{question}</Label>
+                    <Label className="text-sm font-medium text-slate-300">{question}</Label>
                     <Textarea
                       placeholder="Tu respuesta..."
                       value={stepAnswers[`${step.id}-${index}` as any] || ''}
                       onChange={(e) => handleStepAnswer(`${step.id}-${index}` as any, e.target.value)}
                       rows={2}
-                      className="mt-1"
+                      className="mt-1 bg-white/5 border-white/10 text-slate-200 focus:border-[#7D5BDE]/50"
                     />
                   </div>
                 ))}
@@ -253,17 +262,18 @@ const ChallengeDetail = () => {
       case 'action':
         return (
           <div className="space-y-4">
-            <p className="text-gray-700">{step.description}</p>
+            <p className="text-slate-300">{step.description}</p>
             {stepData.prompt && (
-              <div className="bg-blue-50 p-4 rounded-lg">
-                <h4 className="font-medium text-blue-900 mb-2">Acción a realizar:</h4>
-                <p className="text-blue-800">{stepData.prompt}</p>
+              <div className="bg-white/5 border border-white/10 p-4 rounded-lg">
+                <h4 className="font-medium text-slate-200 mb-2">Acción a realizar:</h4>
+                <p className="text-slate-400">{stepData.prompt}</p>
               </div>
             )}
             {stepData.rules && (
-              <div className="bg-green-50 p-4 rounded-lg">
-                <h4 className="font-medium text-green-900 mb-2">Reglas:</h4>
-                <ul className="list-disc list-inside text-green-800 space-y-1">
+              /* success/rules block — neutral glass card */
+              <div className="bg-white/5 border border-white/10 p-4 rounded-lg">
+                <h4 className="font-medium text-slate-200 mb-2">Reglas:</h4>
+                <ul className="list-disc list-inside text-slate-400 space-y-1">
                   {stepData.rules.map((rule: string, index: number) => (
                     <li key={index}>{rule}</li>
                   ))}
@@ -271,9 +281,9 @@ const ChallengeDetail = () => {
               </div>
             )}
             {stepData.topics && (
-              <div className="bg-purple-50 p-4 rounded-lg">
-                <h4 className="font-medium text-purple-900 mb-2">Temas sugeridos:</h4>
-                <ul className="list-disc list-inside text-purple-800 space-y-1">
+              <div className="bg-white/5 border border-white/10 p-4 rounded-lg">
+                <h4 className="font-medium text-slate-200 mb-2">Temas sugeridos:</h4>
+                <ul className="list-disc list-inside text-slate-400 space-y-1">
                   {stepData.topics.map((topic: string, index: number) => (
                     <li key={index}>{topic}</li>
                   ))}
@@ -281,15 +291,16 @@ const ChallengeDetail = () => {
               </div>
             )}
             <div>
-              <Label htmlFor={`step-${step.id}`} className="text-sm font-medium">
+              <Label htmlFor={`step-${step.id}`} className="text-sm font-medium text-slate-300">
                 ¿Qué aprendiste de esta acción?
               </Label>
               <Textarea
                 id={`step-${step.id}`}
-                placeholder="Comparte tu experiencia y reflexiones..."
+                placeholder="Compartí tu experiencia y reflexiones..."
                 value={stepAnswers[step.id] || ''}
                 onChange={(e) => handleStepAnswer(step.id, e.target.value)}
                 rows={3}
+                className="mt-2 bg-white/5 border-white/10 text-slate-200 focus:border-[#7D5BDE]/50"
               />
             </div>
           </div>
@@ -298,18 +309,19 @@ const ChallengeDetail = () => {
       case 'reflection':
         return (
           <div className="space-y-4">
-            <p className="text-gray-700">{step.description}</p>
+            <p className="text-slate-300">{step.description}</p>
             {stepData.prompt && (
               <div>
-                <Label htmlFor={`step-${step.id}`} className="text-sm font-medium">
+                <Label htmlFor={`step-${step.id}`} className="text-sm font-medium text-slate-300">
                   {stepData.prompt}
                 </Label>
                 <Textarea
                   id={`step-${step.id}`}
-                  placeholder="Reflexiona sobre este tema..."
+                  placeholder="Reflexioná sobre este tema..."
                   value={stepAnswers[step.id] || ''}
                   onChange={(e) => handleStepAnswer(step.id, e.target.value)}
                   rows={5}
+                  className="mt-2 bg-white/5 border-white/10 text-slate-200 focus:border-[#7D5BDE]/50"
                 />
               </div>
             )}
@@ -319,7 +331,7 @@ const ChallengeDetail = () => {
       case 'quiz':
         return (
           <div className="space-y-4">
-            <p className="text-gray-700">{step.description}</p>
+            <p className="text-slate-300">{step.description}</p>
             {stepData.options && (
               <RadioGroup
                 value={stepAnswers[step.id] || ''}
@@ -328,7 +340,7 @@ const ChallengeDetail = () => {
                 {stepData.options.map((option: string, index: number) => (
                   <div key={index} className="flex items-center space-x-2">
                     <RadioGroupItem value={option} id={`option-${step.id}-${index}`} />
-                    <Label htmlFor={`option-${step.id}-${index}`}>{option}</Label>
+                    <Label htmlFor={`option-${step.id}-${index}`} className="text-slate-300">{option}</Label>
                   </div>
                 ))}
               </RadioGroup>
@@ -337,16 +349,16 @@ const ChallengeDetail = () => {
         );
 
       default:
-        return <p className="text-gray-700">{step.description}</p>;
+        return <p className="text-slate-300">{step.description}</p>;
     }
   };
 
   if (!userContext?.user) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center">
+      <div className="min-h-screen bg-[#0a0a0a] text-slate-200 flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
-          <p className="text-gray-600">Cargando desafío...</p>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#7D5BDE] mx-auto mb-4" />
+          <p className="text-slate-400">Cargando desafío...</p>
         </div>
       </div>
     );
@@ -355,20 +367,21 @@ const ChallengeDetail = () => {
   // Handle errors
   if (challengeError || progressError) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center">
+      <div className="min-h-screen bg-[#0a0a0a] text-slate-200 flex items-center justify-center">
         <div className="text-center">
-          <div className="text-red-500 mb-4">
+          {/* error state = red/destructive (rule 6) */}
+          <div className="text-red-400 mb-4">
             <Target className="h-12 w-12 mx-auto mb-2" />
-            <h2 className="text-xl font-semibold">Error al cargar desafío</h2>
-            <p className="text-gray-600 mt-2">
+            <h2 className="text-xl font-semibold text-slate-200">Error al cargar desafío</h2>
+            <p className="text-slate-400 mt-2">
               No se pudo cargar el desafío. Por favor, intenta de nuevo.
             </p>
           </div>
           <div className="flex space-x-2 justify-center">
-            <Button onClick={() => window.location.reload()}>
+            <Button className={ACCENT_BUTTON} onClick={() => window.location.reload()}>
               Recargar página
             </Button>
-            <Button variant="outline" onClick={() => window.history.back()}>
+            <Button variant="outline" className="border-white/10 text-slate-300 hover:bg-white/5" onClick={() => window.history.back()}>
               Volver
             </Button>
           </div>
@@ -379,10 +392,10 @@ const ChallengeDetail = () => {
 
   if (challengeLoading || !challenge) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 flex items-center justify-center">
+      <div className="min-h-screen bg-[#0a0a0a] text-slate-200 flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
-          <p className="text-gray-600">Cargando desafío...</p>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#7D5BDE] mx-auto mb-4" />
+          <p className="text-slate-400">Cargando desafío...</p>
         </div>
       </div>
     );
@@ -390,41 +403,44 @@ const ChallengeDetail = () => {
 
   const levelInfo = getLevelInfo(challenge.level);
   const LevelIcon = levelInfo.icon;
+  const diffInfo = getDifficultyLabel(challenge.difficulty);
   const currentStep = getCurrentStep();
   const isCompleted = currentProgress?.status === 'completed';
   const isInProgress = currentProgress?.status === 'in_progress';
   const progressPercentage = challenge.steps.length > 0 ? (completedSteps.length / challenge.steps.length) * 100 : 0;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <div className="min-h-screen bg-[#0a0a0a] text-slate-200">
       <Header />
-      
-      {/* Header */}
-      <div className="bg-white shadow-sm border-b">
+
+      {/* Header bar */}
+      <div className="border-b border-white/5 bg-[#0a0a0a]">
         <div className="max-w-4xl mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
               <Link href="/challenges">
-                <Button variant="ghost" size="sm">
+                <Button variant="ghost" size="sm" className="text-slate-400 hover:text-white">
                   <ArrowLeft className="h-4 w-4 mr-2" />
                   Volver
                 </Button>
               </Link>
               <div className="flex items-center space-x-3">
-                <div className={`w-10 h-10 bg-gradient-to-br ${levelInfo.color} text-white rounded-lg flex items-center justify-center`}>
+                <div className="w-10 h-10 bg-white/5 border border-white/10 text-slate-300 rounded-lg flex items-center justify-center">
                   <LevelIcon className="h-5 w-5" />
                 </div>
                 <div>
-                  <h1 className="text-2xl font-bold text-gray-900">{challenge.title}</h1>
-                  <p className="text-gray-600">Nivel {challenge.level}: {levelInfo.name}</p>
+                  <h1 className={cn('text-2xl font-bold font-serif', DISPLAY_GRADIENT)}>{challenge.title}</h1>
+                  <p className="text-slate-500 text-sm">Nivel {challenge.level}: {levelInfo.name}</p>
                 </div>
               </div>
             </div>
             <div className="flex items-center space-x-2">
-              <Badge className={getDifficultyColor(challenge.difficulty)}>
-                {challenge.difficulty}
+              {/* difficulty tier = semantic encoding (rule 6) — amber/red muted */}
+              <Badge variant="outline" className={cn('text-[10px]', diffInfo.cls)}>
+                {diffInfo.label}
               </Badge>
-              <Badge variant="outline">
+              {/* XP = progress encoding (rule 6) */}
+              <Badge variant="outline" className="text-[10px] bg-white/5 border-white/10 text-slate-400">
                 {challenge.experience} XP
               </Badge>
             </div>
@@ -434,48 +450,49 @@ const ChallengeDetail = () => {
 
       <div className="max-w-4xl mx-auto px-4 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          
+
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-6">
-            
+
             {/* Challenge Info */}
-            <Card>
+            <Card className={GLASS_CARD}>
               <CardHeader>
-                <CardTitle className="flex items-center justify-between">
+                <CardTitle className="flex items-center justify-between text-slate-200">
                   <span>Información del Desafío</span>
-                  {isCompleted && <CheckCircle className="h-6 w-6 text-green-500" />}
+                  {/* completed check = success semantic (rule 6) */}
+                  {isCompleted && <CheckCircle className="h-6 w-6 text-emerald-400" />}
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <p className="text-gray-700">{challenge.description}</p>
-                
+                <p className="text-slate-400">{challenge.description}</p>
+
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   <div className="flex items-center space-x-2">
-                    <Clock className="h-4 w-4 text-gray-400" />
-                    <span className="text-sm text-gray-600">{challenge.duration}</span>
+                    <Clock className="h-4 w-4 text-slate-500" />
+                    <span className="text-sm text-slate-400">{challenge.duration}</span>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <Calendar className="h-4 w-4 text-gray-400" />
-                    <span className="text-sm text-gray-600">{challenge.frequency}</span>
+                    <Calendar className="h-4 w-4 text-slate-500" />
+                    <span className="text-sm text-slate-400">{challenge.frequency}</span>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <Target className="h-4 w-4 text-gray-400" />
-                    <span className="text-sm text-gray-600">{challenge.steps.length} pasos</span>
+                    <Target className="h-4 w-4 text-slate-500" />
+                    <span className="text-sm text-slate-400">{challenge.steps.length} pasos</span>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <Zap className="h-4 w-4 text-gray-400" />
-                    <span className="text-sm text-gray-600">{challenge.experience} XP</span>
+                    <Zap className="h-4 w-4 text-slate-500" />
+                    <span className="text-sm text-slate-400">{challenge.experience} XP</span>
                   </div>
                 </div>
 
                 {/* Progress */}
                 {isInProgress && (
                   <div className="space-y-2">
-                    <div className="flex justify-between text-sm">
+                    <div className="flex justify-between text-sm text-slate-400">
                       <span>Progreso</span>
                       <span>{completedSteps.length}/{challenge.steps.length}</span>
                     </div>
-                    <Progress value={progressPercentage} className="h-3" />
+                    <Progress value={progressPercentage} className="h-3 bg-white/5" indicatorClassName="bg-[#7D5BDE]" />
                   </div>
                 )}
               </CardContent>
@@ -483,9 +500,9 @@ const ChallengeDetail = () => {
 
             {/* Steps */}
             {!isCompleted && (
-              <Card>
+              <Card className={GLASS_CARD}>
                 <CardHeader>
-                  <CardTitle className="flex items-center">
+                  <CardTitle className="flex items-center text-slate-200">
                     <Target className="h-5 w-5 mr-2" />
                     Pasos del Desafío
                   </CardTitle>
@@ -493,15 +510,20 @@ const ChallengeDetail = () => {
                 <CardContent>
                   <div className="space-y-6">
                     {challenge.steps.map((step, index) => (
-                      <div key={step.id} className={`p-4 border rounded-lg ${
-                        isStepCompleted(step.id) ? 'bg-green-50 border-green-200' : 
-                        index === currentStepIndex ? 'bg-blue-50 border-blue-200' : 'bg-gray-50'
-                      }`}>
+                      <div key={step.id} className={cn(
+                        'p-4 border rounded-lg',
+                        /* completed step = success semantic (rule 6) */
+                        isStepCompleted(step.id) ? 'bg-emerald-500/5 border-emerald-500/20' :
+                        index === currentStepIndex ? 'bg-[#7D5BDE]/5 border-[#7D5BDE]/20' : 'bg-white/[0.02] border-white/5'
+                      )}>
                         <div className="flex items-start space-x-3">
-                          <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
-                            isStepCompleted(step.id) ? 'bg-green-500 text-white' :
-                            index === currentStepIndex ? 'bg-blue-500 text-white' : 'bg-gray-300 text-gray-600'
-                          }`}>
+                          <div className={cn(
+                            'w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium',
+                            /* completed = success (rule 6), active = violet (action), pending = neutral */
+                            isStepCompleted(step.id) ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' :
+                            index === currentStepIndex ? 'bg-[#7D5BDE]/20 text-[#B5A3EF] border border-[#7D5BDE]/30' :
+                            'bg-white/5 text-slate-500 border border-white/10'
+                          )}>
                             {isStepCompleted(step.id) ? (
                               <CheckCircle className="h-4 w-4" />
                             ) : (
@@ -509,17 +531,17 @@ const ChallengeDetail = () => {
                             )}
                           </div>
                           <div className="flex-1">
-                            <h3 className="font-semibold text-gray-900">{step.title}</h3>
-                            <p className="text-sm text-gray-600 mt-1">{step.description}</p>
-                            
+                            <h3 className="font-semibold text-slate-200">{step.title}</h3>
+                            <p className="text-sm text-slate-400 mt-1">{step.description}</p>
+
                             {index === currentStepIndex && (
                               <div className="mt-4">
                                 {renderStepContent(step)}
                                 <div className="mt-4 flex justify-end">
-                                  <Button 
+                                  <Button
                                     onClick={() => handleCompleteStep(step.id)}
                                     disabled={isSubmitting}
-                                    className="flex items-center"
+                                    className={cn('flex items-center', ACCENT_BUTTON)}
                                   >
                                     {isSubmitting ? (
                                       <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2" />
@@ -541,20 +563,20 @@ const ChallengeDetail = () => {
             )}
 
             {/* Completion Actions */}
-            <Card>
+            <Card className={GLASS_CARD}>
               <CardContent className="p-6">
                 {!currentProgress ? (
                   <div className="text-center space-y-4">
-                    <Target className="h-12 w-12 text-gray-400 mx-auto" />
-                    <h3 className="text-lg font-semibold text-gray-900">¿Listo para comenzar?</h3>
-                    <p className="text-gray-600">
-                      Este desafío te ayudará a avanzar en tu Guía del Cambio. 
-                      Tómate tu tiempo y reflexiona sobre cada paso.
+                    <Target className="h-12 w-12 text-slate-500 mx-auto" />
+                    <h3 className="text-lg font-semibold text-slate-200">¿Listo para comenzar?</h3>
+                    <p className="text-slate-400">
+                      Este desafío te ayudará a avanzar en tu Guía del Cambio.
+                      Tómate tu tiempo y reflexioná sobre cada paso.
                     </p>
-                    <Button 
+                    <Button
                       onClick={handleStartChallenge}
                       disabled={startChallengeMutation.isPending}
-                      className="flex items-center"
+                      className={cn('flex items-center', ACCENT_BUTTON)}
                     >
                       <Play className="h-4 w-4 mr-2" />
                       Comenzar Desafío
@@ -562,19 +584,20 @@ const ChallengeDetail = () => {
                   </div>
                 ) : isCompleted ? (
                   <div className="text-center space-y-4">
-                    <Trophy className="h-12 w-12 text-yellow-500 mx-auto" />
-                    <h3 className="text-lg font-semibold text-gray-900">¡Desafío Completado!</h3>
-                    <p className="text-gray-600">
+                    {/* Trophy = success reward (rule 6) */}
+                    <Trophy className="h-12 w-12 text-amber-400 mx-auto" />
+                    <h3 className="text-lg font-semibold text-slate-200">¡Desafío Completado!</h3>
+                    <p className="text-slate-400">
                       Felicitaciones por completar este desafío. Has ganado {challenge.experience} XP.
                     </p>
                     <div className="flex space-x-2 justify-center">
                       <Link href="/challenges">
-                        <Button variant="outline">
+                        <Button variant="outline" className="border-white/10 text-slate-300 hover:bg-white/5">
                           Ver Más Desafíos
                         </Button>
                       </Link>
                       <Link href="/dashboard">
-                        <Button>
+                        <Button className={ACCENT_BUTTON}>
                           Ir al panel
                         </Button>
                       </Link>
@@ -582,16 +605,16 @@ const ChallengeDetail = () => {
                   </div>
                 ) : completedSteps.length === challenge.steps.length ? (
                   <div className="text-center space-y-4">
-                    <Award className="h-12 w-12 text-blue-500 mx-auto" />
-                    <h3 className="text-lg font-semibold text-gray-900">¡Todos los pasos completados!</h3>
-                    <p className="text-gray-600">
-                      Has completado todos los pasos de este desafío. 
+                    <Award className="h-12 w-12 text-slate-300 mx-auto" />
+                    <h3 className="text-lg font-semibold text-slate-200">¡Todos los pasos completados!</h3>
+                    <p className="text-slate-400">
+                      Has completado todos los pasos de este desafío.
                       ¡Es hora de reclamar tu recompensa!
                     </p>
-                    <Button 
+                    <Button
                       onClick={handleCompleteChallenge}
                       disabled={isSubmitting}
-                      className="flex items-center"
+                      className={cn('flex items-center', ACCENT_BUTTON)}
                     >
                       {isSubmitting ? (
                         <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2" />
@@ -603,10 +626,10 @@ const ChallengeDetail = () => {
                   </div>
                 ) : (
                   <div className="text-center space-y-4">
-                    <Target className="h-12 w-12 text-blue-500 mx-auto" />
-                    <h3 className="text-lg font-semibold text-gray-900">Desafío en Progreso</h3>
-                    <p className="text-gray-600">
-                      Continúa completando los pasos para avanzar en tu Guía del Cambio.
+                    <Target className="h-12 w-12 text-slate-500 mx-auto" />
+                    <h3 className="text-lg font-semibold text-slate-200">Desafío en Progreso</h3>
+                    <p className="text-slate-400">
+                      Continuá completando los pasos para avanzar en tu Guía del Cambio.
                     </p>
                   </div>
                 )}
@@ -616,51 +639,52 @@ const ChallengeDetail = () => {
 
           {/* Sidebar */}
           <div className="space-y-6">
-            
+
             {/* Challenge Stats */}
-            <Card>
+            <Card className={GLASS_CARD}>
               <CardHeader>
-                <CardTitle>Estadísticas</CardTitle>
+                <CardTitle className="text-slate-200">Estadísticas</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Dificultad</span>
-                  <Badge className={getDifficultyColor(challenge.difficulty)}>
-                    {challenge.difficulty}
+                  <span className="text-slate-400">Dificultad</span>
+                  {/* difficulty = semantic tier encoding (rule 6) */}
+                  <Badge variant="outline" className={cn('text-[10px]', diffInfo.cls)}>
+                    {diffInfo.label}
                   </Badge>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Frecuencia</span>
-                  <span className="font-medium">{challenge.frequency}</span>
+                  <span className="text-slate-400">Frecuencia</span>
+                  <span className="font-medium text-slate-300">{challenge.frequency}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Duración</span>
-                  <span className="font-medium">{challenge.duration}</span>
+                  <span className="text-slate-400">Duración</span>
+                  <span className="font-medium text-slate-300">{challenge.duration}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Experiencia</span>
-                  <span className="font-medium">{challenge.experience} XP</span>
+                  <span className="text-slate-400">Experiencia</span>
+                  <span className="font-medium text-slate-300">{challenge.experience} XP</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Pasos</span>
-                  <span className="font-medium">{challenge.steps.length}</span>
+                  <span className="text-slate-400">Pasos</span>
+                  <span className="font-medium text-slate-300">{challenge.steps.length}</span>
                 </div>
               </CardContent>
             </Card>
 
             {/* Progress Summary */}
             {isInProgress && (
-              <Card>
+              <Card className={GLASS_CARD}>
                 <CardHeader>
-                  <CardTitle>Tu Progreso</CardTitle>
+                  <CardTitle className="text-slate-200">Tu Progreso</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Pasos completados</span>
-                    <span className="font-medium">{completedSteps.length}/{challenge.steps.length}</span>
+                    <span className="text-slate-400">Pasos completados</span>
+                    <span className="font-medium text-slate-300">{completedSteps.length}/{challenge.steps.length}</span>
                   </div>
-                  <Progress value={progressPercentage} className="h-3" />
-                  <div className="text-sm text-gray-600">
+                  <Progress value={progressPercentage} className="h-3 bg-white/5" indicatorClassName="bg-[#7D5BDE]" />
+                  <div className="text-sm text-slate-500">
                     {Math.round(progressPercentage)}% completado
                   </div>
                 </CardContent>
@@ -668,27 +692,27 @@ const ChallengeDetail = () => {
             )}
 
             {/* Tips */}
-            <Card>
+            <Card className={GLASS_CARD}>
               <CardHeader>
-                <CardTitle>Consejos</CardTitle>
+                <CardTitle className="text-slate-200">Consejos</CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
                 <div className="flex items-start space-x-2">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full mt-2"></div>
-                  <p className="text-sm text-gray-600">
+                  <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 bg-white/20" />
+                  <p className="text-sm text-slate-400">
                     Tómate tu tiempo para reflexionar sobre cada paso
                   </p>
                 </div>
                 <div className="flex items-start space-x-2">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full mt-2"></div>
-                  <p className="text-sm text-gray-600">
+                  <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 bg-white/20" />
+                  <p className="text-sm text-slate-400">
                     No hay respuestas correctas o incorrectas
                   </p>
                 </div>
                 <div className="flex items-start space-x-2">
-                  <div className="w-2 h-2 bg-blue-500 rounded-full mt-2"></div>
-                  <p className="text-sm text-gray-600">
-                    Comparte tus reflexiones con otros si te sientes cómodo
+                  <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 bg-white/20" />
+                  <p className="text-sm text-slate-400">
+                    Compartí tus reflexiones con otros si te sentís cómodo
                   </p>
                 </div>
               </CardContent>
@@ -696,7 +720,7 @@ const ChallengeDetail = () => {
           </div>
         </div>
       </div>
-      
+
       <Footer />
     </div>
   );

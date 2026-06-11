@@ -13,6 +13,10 @@ import GlassCard from '@/components/ui/GlassCard';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
+import {
+  ACCENT_BUTTON,
+  DISPLAY_GRADIENT,
+} from '@/lib/design-tokens';
 
 type PublicProfileData = {
   user: {
@@ -57,11 +61,12 @@ type PublicProfileData = {
 
 type TabKey = 'iniciativas' | 'insignias' | 'actividad';
 
+// Badge rarity styles — semantic encoding of rarity tier (rule 6)
 const rarityStyles: Record<string, string> = {
   legendary: 'border-yellow-400/40 bg-yellow-400/5 text-yellow-200',
-  epic: 'border-purple-400/40 bg-purple-400/5 text-purple-200',
-  rare: 'border-sky-400/40 bg-sky-400/5 text-sky-200',
-  common: 'border-white/10 bg-white/5 text-slate-200',
+  epic:      'border-[#7D5BDE]/40 bg-[#7D5BDE]/5 text-[#B5A3EF]',
+  rare:      'border-white/20 bg-white/5 text-slate-300',
+  common:    'border-white/10 bg-white/5 text-slate-200',
 };
 
 function formatMemberSince(iso: string | null | undefined) {
@@ -157,7 +162,7 @@ const PublicProfile = () => {
   const xpProgress = Math.min(100, Math.round(((stats.experience || 0) / xpDenom) * 100));
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-slate-200 selection:bg-blue-500/30 font-sans relative overflow-hidden">
+    <div className="min-h-screen bg-[#0a0a0a] text-slate-200 selection:bg-[#7D5BDE]/30 font-sans relative overflow-hidden">
       <FluidBackground className="opacity-30" />
       <Header />
 
@@ -174,7 +179,7 @@ const PublicProfile = () => {
           <GlassCard className="p-6 md:p-10 mb-8">
             <div className="flex flex-col md:flex-row gap-6 md:items-center">
               <div className="flex-shrink-0">
-                <div className="w-28 h-28 md:w-32 md:h-32 rounded-full bg-gradient-to-br from-blue-500/20 to-purple-500/10 border-2 border-white/15 overflow-hidden flex items-center justify-center">
+                <div className="w-28 h-28 md:w-32 md:h-32 rounded-full bg-white/5 border-2 border-white/15 overflow-hidden flex items-center justify-center">
                   {user.avatarUrl ? (
                     <img src={user.avatarUrl} alt={user.name} className="w-full h-full object-cover" />
                   ) : (
@@ -185,7 +190,8 @@ const PublicProfile = () => {
 
               <div className="flex-1 min-w-0">
                 <div className="flex flex-wrap items-center gap-3 mb-2">
-                  <h1 className="text-3xl md:text-4xl font-serif font-bold text-white truncate">{user.name}</h1>
+                  <h1 className={`text-3xl md:text-4xl font-serif font-bold truncate ${DISPLAY_GRADIENT}`}>{user.name}</h1>
+                  {/* Rank badge — semantic position indicator (rule 6) */}
                   {stats.rank ? (
                     <Badge className="bg-yellow-400/10 border border-yellow-400/30 text-yellow-200 font-mono">
                       <Trophy className="w-3 h-3 mr-1" /> {stats.rank}
@@ -218,7 +224,7 @@ const PublicProfile = () => {
                   </div>
                   <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
                     <div
-                      className="h-full bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-500"
+                      className="h-full bg-gradient-to-r from-[#7D5BDE] to-[#9D85E8] transition-all duration-500"
                       style={{ width: `${xpProgress}%` }}
                     />
                   </div>
@@ -229,7 +235,7 @@ const PublicProfile = () => {
                 <div className="flex-shrink-0">
                   <Button
                     onClick={() => setLocation('/profile')}
-                    className="bg-white/5 hover:bg-white/10 border border-white/10 text-white"
+                    className={`${ACCENT_BUTTON}`}
                   >
                     Editar mi perfil
                   </Button>
@@ -240,9 +246,12 @@ const PublicProfile = () => {
 
           {/* STATS GRID */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
-            <StatCard icon={<Sparkles className="w-5 h-5 text-blue-400" />} value={stats.points.toLocaleString('es-AR')} label="XP totales" />
-            <StatCard icon={<Target className="w-5 h-5 text-emerald-400" />} value={stats.initiativesCount} label="Iniciativas" />
+            {/* Sparkles/XP — semantic gamification (rule 6) */}
+            <StatCard icon={<Sparkles className="w-5 h-5 text-[#9D85E8]" />} value={stats.points.toLocaleString('es-AR')} label="XP totales" />
+            <StatCard icon={<Target className="w-5 h-5 text-slate-300" />} value={stats.initiativesCount} label="Iniciativas" />
+            {/* Award/Trophy — semantic badge achievement (rule 6) */}
             <StatCard icon={<Award className="w-5 h-5 text-yellow-400" />} value={stats.badgesCount} label="Insignias" />
+            {/* Flame — semantic streak indicator (rule 6) */}
             <StatCard icon={<Flame className="w-5 h-5 text-orange-400" />} value={stats.streak} label="Días de racha" />
           </div>
 
@@ -259,7 +268,7 @@ const PublicProfile = () => {
                 className={cn(
                   'px-4 py-3 text-sm font-mono tracking-[0.15em] uppercase transition-all border-b-2 -mb-px',
                   tab === t.key
-                    ? 'border-white text-white'
+                    ? 'border-[#7D5BDE] text-white'
                     : 'border-transparent text-slate-500 hover:text-slate-300'
                 )}
               >
@@ -291,6 +300,7 @@ const PublicProfile = () => {
                         <span className="text-[10px] font-mono tracking-wider uppercase text-slate-500 px-2 py-0.5 rounded-full bg-white/5 border border-white/10">
                           {p.type}
                         </span>
+                        {/* Status badge — orange is semantic "inactive/pending" state (rule 6) */}
                         {p.status && p.status !== 'active' && (
                           <span className="text-[10px] font-mono tracking-wider uppercase text-orange-300 px-2 py-0.5 rounded-full bg-orange-400/10 border border-orange-400/20">
                             {p.status}

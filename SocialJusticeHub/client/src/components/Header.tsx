@@ -50,8 +50,8 @@ const Header = () => {
       !location.includes('/project/') &&
       !location.includes('/resource/'));
 
-  // On light pages, always show the "scrolled" (white bg + dark text) style
-  const showSolid = scrolled || !isDarkPage;
+  // Light pages keep the white chrome; dark pages get dark glass when scrolled.
+  const lightChrome = !isDarkPage;
 
   // Effect to handle scroll transparency
   useEffect(() => {
@@ -107,9 +107,11 @@ const Header = () => {
           transition: 'opacity 0.2s ease-out',
         }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${
-          showSolid
+          lightChrome
             ? 'bg-white/90 backdrop-blur-md border-slate-200 shadow-sm py-3'
-            : 'bg-transparent border-transparent py-5'
+            : scrolled
+              ? 'bg-[#0a0a0a]/80 backdrop-blur-xl border-white/[0.08] py-3'
+              : 'bg-transparent border-transparent py-5'
         }`}
       >
         <div className="container mx-auto px-4 flex items-center justify-between">
@@ -122,10 +124,10 @@ const Header = () => {
                 alt="El Instante del Hombre Gris"
                 className="w-11 h-11 md:w-14 md:h-14 object-contain group-hover:scale-105 transition-transform drop-shadow"
               />
-              <div className={`flex flex-col leading-none transition-colors ${showSolid ? 'text-slate-900' : 'text-white'}`}>
+              <div className={`flex flex-col leading-none transition-colors ${lightChrome ? 'text-slate-900' : 'text-white'}`}>
                 <span className="font-serif font-bold text-lg md:text-xl">El Instante</span>
-                <span className="text-blue-500 font-sans text-xs md:text-sm tracking-widest uppercase mt-0.5">del Hombre Gris</span>
-                <span className={`hidden md:block font-sans text-[11px] tracking-wide mt-1 ${showSolid ? 'text-amber-600' : 'text-amber-300/90'}`}>El movimiento ¡BASTA!</span>
+                <span className="text-[#7D5BDE] font-sans text-xs md:text-sm tracking-widest uppercase mt-0.5">del Hombre Gris</span>
+                <span className={`hidden md:block font-sans text-[11px] tracking-wide mt-1 ${lightChrome ? 'text-amber-600' : 'text-amber-300/90'}`}>El movimiento ¡BASTA!</span>
               </div>
             </div>
           </Link>
@@ -140,8 +142,8 @@ const Header = () => {
                 aria-current={location === item.href ? 'page' : undefined}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                   location === item.href
-                    ? 'bg-blue-500/10 text-blue-500'
-                    : showSolid ? 'text-slate-600 hover:text-blue-600 hover:bg-slate-50' : 'text-slate-200 hover:text-white hover:bg-white/10'
+                    ? 'bg-[#7D5BDE]/10 text-[#9D85E8]'
+                    : lightChrome ? 'text-slate-600 hover:text-[#7D5BDE] hover:bg-slate-50' : 'text-slate-200 hover:text-white hover:bg-white/10'
                 }`}
               >
                 {item.label}
@@ -157,7 +159,7 @@ const Header = () => {
                 
                 <Link href="/dashboard">
                   <div className={`hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full border transition-all cursor-pointer ${
-                    showSolid
+                    lightChrome
                       ? 'border-slate-200 bg-slate-50 hover:bg-white text-slate-700'
                       : 'border-white/20 bg-white/10 text-white hover:bg-white/20'
                   }`}>
@@ -173,7 +175,7 @@ const Header = () => {
 
                 <Link href="/profile">
                   <div className={`hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-full border transition-all cursor-pointer ${
-                    showSolid
+                    lightChrome
                       ? 'border-slate-200 bg-slate-50 hover:bg-white text-slate-700'
                       : 'border-white/20 bg-white/10 text-white hover:bg-white/20'
                   }`}
@@ -198,7 +200,7 @@ const Header = () => {
                   variant="ghost"
                   size="icon"
                   aria-label="Cerrar sesión"
-                  className={showSolid ? 'text-slate-500 hover:text-red-500' : 'text-white/70 hover:text-white'}
+                  className={lightChrome ? 'text-slate-500 hover:text-red-500' : 'text-white/70 hover:text-white'}
                 >
                   <LogOut className="w-5 h-5" />
                 </Button>
@@ -207,18 +209,18 @@ const Header = () => {
               <>
                 <div className="hidden md:flex items-center gap-3">
                   <Link href="/login">
-                    <Button variant="ghost" className={showSolid ? 'text-slate-700' : 'text-white hover:bg-white/10'}>
+                    <Button variant="ghost" className={lightChrome ? 'text-slate-700' : 'text-white hover:bg-white/10'}>
                       Ingresar
                     </Button>
                   </Link>
                   <Link href="/register">
-                    <Button className="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-6">
+                    <Button className="bg-[#7D5BDE] hover:bg-[#8D6FE4] text-white rounded-full px-6">
                       Unirse
                     </Button>
                   </Link>
                 </div>
                 <Link href="/register" className="md:hidden">
-                  <Button size="sm" className="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-4">
+                  <Button size="sm" className="bg-[#7D5BDE] hover:bg-[#8D6FE4] text-white rounded-full px-4">
                     Unirse
                   </Button>
                 </Link>
@@ -228,7 +230,7 @@ const Header = () => {
             {/* Mobile Menu Toggle */}
             <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" aria-label="Abrir menú" className={`lg:hidden ${showSolid ? 'text-slate-900' : 'text-white'}`}>
+                <Button variant="ghost" size="icon" aria-label="Abrir menú" className={`lg:hidden ${lightChrome ? 'text-slate-900' : 'text-white'}`}>
                   <Menu className="w-6 h-6" />
                 </Button>
               </SheetTrigger>
@@ -249,11 +251,11 @@ const Header = () => {
                       onClick={() => setIsMenuOpen(false)}
                       aria-current={location === item.href ? 'page' : undefined}
                       className={`block px-4 py-3 rounded-xl transition-colors ${
-                        location === item.href ? 'bg-blue-600 text-white' : 'text-slate-400 hover:bg-slate-900 hover:text-white'
+                        location === item.href ? 'bg-[#7D5BDE] text-white' : 'text-slate-400 hover:bg-slate-900 hover:text-white'
                       }`}
                     >
                       <span className="block text-lg font-medium leading-tight">{item.label}</span>
-                      <span className={`block text-xs mt-0.5 ${location === item.href ? 'text-blue-100' : 'text-slate-500'}`}>{item.desc}</span>
+                      <span className={`block text-xs mt-0.5 ${location === item.href ? 'text-violet-100' : 'text-slate-500'}`}>{item.desc}</span>
                     </Link>
                   ))}
                   
@@ -329,7 +331,7 @@ const Header = () => {
                         <Button variant="outline" className="w-full border-slate-700 text-slate-300 hover:bg-slate-800">Ingresar</Button>
                       </Link>
                       <Link href="/register" onClick={() => setIsMenuOpen(false)}>
-                        <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white">Unirse</Button>
+                        <Button className="w-full bg-[#7D5BDE] hover:bg-[#8D6FE4] text-white">Unirse</Button>
                       </Link>
                     </div>
                   )}
@@ -347,7 +349,7 @@ const Header = () => {
       {location !== '/feedback' && (
         <Link href="/feedback">
           <button
-            className="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-600/30 flex items-center justify-center transition-all hover:scale-110"
+            className="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-[#7D5BDE] hover:bg-[#8D6FE4] text-white shadow-lg shadow-[#7D5BDE]/30 flex items-center justify-center transition-all hover:scale-110"
             title="Enviar feedback"
           >
             <MessageSquareHeart className="w-5 h-5" />

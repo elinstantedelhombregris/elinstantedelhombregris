@@ -30,7 +30,7 @@ const HeroCinema: React.FC<HeroCinemaProps> = ({
   onScrollDown
 }) => {
   return (
-    <section className="relative min-h-[100svh] w-full overflow-hidden flex items-center justify-center bg-[#0a0a0a] py-24">
+    <section className="relative min-h-[100svh] w-full overflow-hidden flex items-center justify-center bg-[#0a0a0a] pt-24 pb-36">
       {/* Background Layer */}
       <div className="absolute inset-0 z-0">
         {backgroundImage && (
@@ -65,7 +65,7 @@ const HeroCinema: React.FC<HeroCinemaProps> = ({
             transition={{ delay: 0.2, duration: 1.5 }}
             className="mb-8"
           >
-            <span className="inline-block py-1.5 px-4 rounded-full bg-white/5 border border-white/10 text-blue-300 text-xs md:text-sm uppercase backdrop-blur-md shadow-lg tracking-[0.3em]">
+            <span className="inline-block py-1.5 px-4 rounded-full bg-white/5 border border-white/10 text-slate-300 text-xs md:text-sm uppercase backdrop-blur-md shadow-lg tracking-[0.3em]">
               {badgeText}
             </span>
           </motion.div>
@@ -93,7 +93,7 @@ const HeroCinema: React.FC<HeroCinemaProps> = ({
               <Link href={ctaLink}>
                 <Button
                   size="lg"
-                  className="relative group bg-blue-600 hover:bg-blue-500 text-white px-10 py-7 rounded-full text-lg tracking-widest shadow-[0_0_40px_rgba(37,99,235,0.4)] transition-all duration-500 hover:shadow-[0_0_60px_rgba(37,99,235,0.6)] hover:-translate-y-1 overflow-hidden"
+                  className="relative group bg-[#7D5BDE] hover:bg-[#8D6FE4] text-white px-10 py-7 rounded-full text-lg tracking-widest shadow-[0_0_40px_rgba(125,91,222,0.35)] transition-all duration-300 hover:shadow-[0_0_60px_rgba(125,91,222,0.5)] hover:-translate-y-1 overflow-hidden"
                 >
                   <span className="relative z-10 flex items-center font-semibold">
                     {ctaText}
@@ -126,7 +126,7 @@ const HeroCinema: React.FC<HeroCinemaProps> = ({
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 1 }}
-        className="absolute bottom-6 left-1/2 transform -translate-x-1/2 cursor-pointer z-20 p-3"
+        className="hidden md:block absolute bottom-6 left-1/2 transform -translate-x-1/2 cursor-pointer z-20 p-3"
         onClick={onScrollDown}
       >
         <div className="flex flex-col items-center gap-3 opacity-60 hover:opacity-100 transition-opacity group">
