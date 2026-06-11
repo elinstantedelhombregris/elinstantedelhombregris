@@ -78,7 +78,8 @@ interface CourseData {
 const QuizView = () => {
   const { courseSlug } = useParams();
   const { toast } = useToast();
-  const userContext = useContext(UserContext)!;
+  const userContext = useContext(UserContext);
+  const isLoggedIn = userContext?.isLoggedIn ?? false;
   const [state, setState] = useState<QuizState>('instructions');
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<Record<number, any>>({});
@@ -195,7 +196,7 @@ const QuizView = () => {
   });
 
   const handleStartQuiz = () => {
-    if (!userContext.isLoggedIn) {
+    if (!isLoggedIn) {
       toast({
         title: 'Inicia sesión',
         description: 'Debes iniciar sesión para tomar el quiz',
@@ -243,7 +244,7 @@ const QuizView = () => {
     window.scrollTo(0, 0);
   }, [course]);
 
-  if (!userContext.isLoggedIn) {
+  if (!isLoggedIn) {
     return (
       <div className="min-h-screen bg-[#0a0a0a] text-slate-200 font-sans">
         <Header />

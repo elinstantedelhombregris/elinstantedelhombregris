@@ -36,8 +36,13 @@ const Header = () => {
     '/life-areas', '/evaluacion', '/metas', '/checkin-semanal',
     '/coaching', '/datos-abiertos', '/kit-de-prensa',
     '/explorar-datos', '/recursos/ruta',
+    '/blog-vlog', '/recursos/blog', '/recursos/vlog', '/recursos/guias-estudio',
   ];
   const isDarkPage = darkHeroRoutes.includes(location) ||
+    location.startsWith('/blog-vlog/') ||
+    location.startsWith('/recursos/blog/') ||
+    location.startsWith('/recursos/vlog/') ||
+    location.startsWith('/recursos/guias-estudio/') ||
     location.startsWith('/mandato/pulso/') ||
     location.startsWith('/mandato/propuesta/') ||
     (location.startsWith('/community') &&
