@@ -1,9 +1,8 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { useParams, Link } from 'wouter';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Checkbox } from '@/components/ui/checkbox';
@@ -23,7 +22,6 @@ import MarkdownRenderer from '@/components/MarkdownRenderer';
 import VideoPlayer from '@/components/VideoPlayer';
 import ArticleTOC from '@/components/editorial/ArticleTOC';
 import { cn } from '@/lib/utils';
-import { useContext } from 'react';
 import { UserContext } from '@/App';
 import { useToast } from '@/hooks/use-toast';
 import { buildLessonMetadata } from '@shared/course-seo';
@@ -345,7 +343,7 @@ const LessonView = () => {
           <div className="lg:col-span-3">
             {/* Breadcrumb & Navigation */}
             <div ref={navigationRef} className="mb-6 flex items-center justify-between">
-              <Link href={`/recursos/guias-estudio/${course.slug}`}>
+              <Link href={`/recursos/guias-estudio/${course.slug}`} className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a] rounded-sm">
                 <span className="group inline-flex cursor-pointer items-center gap-2 text-sm text-slate-400 transition-colors hover:text-slate-200">
                   <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" aria-hidden="true" />
                   Volver al Curso

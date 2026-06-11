@@ -227,7 +227,7 @@ const CourseDetail = () => {
 
         {/* Breadcrumb */}
         <div className="relative z-10 mx-auto mb-8 max-w-6xl">
-          <Link href="/recursos/guias-estudio">
+          <Link href="/recursos/guias-estudio" className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a] rounded-sm">
             <span className="group inline-flex cursor-pointer items-center gap-2 text-sm text-slate-400 transition-colors hover:text-slate-200">
               <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" aria-hidden="true" />
               Volver a Rutas de Transformación
