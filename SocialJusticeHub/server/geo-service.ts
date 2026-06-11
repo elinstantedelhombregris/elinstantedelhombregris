@@ -52,9 +52,13 @@ export interface ResolvedGeo {
  * coordenadas snapeadas — el envío de la señal jamás se bloquea por esto.
  */
 export async function resolveSignalGeo(rawLat: number, rawLng: number): Promise<ResolvedGeo> {
+  // IMPORTANTE: clasificamos con las coordenadas CRUDAS (precisas) y solo
+  // persistimos las snapeadas. Si se snapea antes de clasificar, un punto en
+  // CABA puede caer en el hueco entre los polígonos simplificados y perder
+  // su provincia.
   const { lat, lng } = snapCoords(rawLat, rawLng);
   try {
-    const province = resolveProvince(lat, lng);
+    const province = resolveProvince(rawLat, rawLng);
     if (!province) return { lat, lng, province: null, city: null };
 
     let city: string | null = null;
@@ -67,7 +71,7 @@ export async function resolveSignalGeo(rawLat: number, rawLng: number): Promise<
         const cities: CityCandidate[] = rows.filter(
           (r) => r.type === 'city' && r.parentId === provinceRow.id && r.latitude != null && r.longitude != null,
         );
-        city = nearestCity(lat, lng, cities);
+        city = nearestCity(rawLat, rawLng, cities);
       }
     } catch (e) {
       console.warn('[geo-service] city lookup failed:', e);

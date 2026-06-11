@@ -156,6 +156,22 @@ const ScrollytellingSection: React.FC<{ convergence: ConvergenceData; filterNote
   const { convergencePercentage, totalContributions, themeCards, typeDistribution } = convergence;
   const [currentStep, setCurrentStep] = useState(0);
 
+  // react-scrollama crashea (IntersectionObserver threshold = NaN) si monta
+  // con window.innerHeight === 0 — pasa en webviews/iframes durante el primer
+  // layout. Montamos el Scrollama recién cuando hay viewport real.
+  const [viewportReady, setViewportReady] = useState(false);
+  useEffect(() => {
+    if (window.innerHeight > 0) {
+      setViewportReady(true);
+      return;
+    }
+    const check = () => {
+      if (window.innerHeight > 0) setViewportReady(true);
+    };
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
+
   const onStepEnter = useCallback(({ data }: { data: number }) => {
     setCurrentStep(data);
   }, []);
@@ -274,7 +290,7 @@ const ScrollytellingSection: React.FC<{ convergence: ConvergenceData; filterNote
               {renderVisualization()}
             </div>
 
-            <Scrollama onStepEnter={onStepEnter} offset={0.5}>
+            {viewportReady && <Scrollama onStepEnter={onStepEnter} offset={0.5}>
               {stepContent.map((step, i) => (
                 <Step key={i} data={i}>
                   <div className="min-h-[50vh] flex items-center py-8">
@@ -302,7 +318,7 @@ const ScrollytellingSection: React.FC<{ convergence: ConvergenceData; filterNote
                   </div>
                 </Step>
               ))}
-            </Scrollama>
+            </Scrollama>}
           </div>
         </div>
       </div>
