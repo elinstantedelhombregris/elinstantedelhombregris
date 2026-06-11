@@ -560,6 +560,52 @@
   }
 
   /* Editorial dropcap — first letter of the first paragraph (blog posts only) */
+  /* Blog article tables — dark plata override of inline light-theme styles
+     embedded in post HTML (text/border/zebra colors written for white bg). */
+  .blog-content table {
+    width: 100% !important;
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+    margin: 1.75rem 0 !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 1rem !important;
+    overflow: hidden !important;
+  }
+
+  .blog-content th {
+    background: rgba(125, 91, 222, 0.22) !important;
+    color: #f5f7fa !important;
+    border: none !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+    padding: 0.7rem 0.9rem !important;
+    text-align: left !important;
+    font-weight: 700 !important;
+  }
+
+  .blog-content td {
+    color: #cbd5e1 !important;
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    padding: 0.6rem 0.9rem !important;
+  }
+
+  .blog-content td:first-child {
+    color: #f5f7fa !important;
+  }
+
+  .blog-content tr {
+    background: transparent !important;
+  }
+
+  .blog-content tbody tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.04) !important;
+  }
+
+  .blog-content tbody tr:last-child td {
+    border-bottom: none !important;
+  }
+
   .editorial-dropcap > div > p:first-of-type::first-letter {
     font-family: 'Playfair Display', Georgia, serif;
     float: left;

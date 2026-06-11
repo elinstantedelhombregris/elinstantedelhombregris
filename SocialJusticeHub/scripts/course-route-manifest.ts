@@ -3,13 +3,19 @@ import path from "path";
 import dotenv from "dotenv";
 import { fileURLToPath } from "url";
 import { asc, eq } from "drizzle-orm";
-import { db, schema } from "./db-neon";
 import {
   courseManifestSchema,
   ensureCourseManifestDefaults,
 } from "../shared/course-content";
 
 dotenv.config();
+
+if (!process.env.DATABASE_URL) {
+  console.warn("[course-route-manifest] DATABASE_URL not set — skipping (CI build without DB access)");
+  process.exit(0);
+}
+
+const { db, schema } = await import("./db-neon");
 
 const ROOT_DIR = path.resolve(import.meta.dirname, "..");
 const CONTENT_ROOT = path.join(ROOT_DIR, "content", "courses");

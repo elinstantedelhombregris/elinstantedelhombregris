@@ -2,7 +2,6 @@ import dotenv from "dotenv";
 import fs from "fs/promises";
 import path from "path";
 import { desc, eq, inArray } from "drizzle-orm";
-import { db, schema } from "./db-neon";
 import {
   BLOG_ALL_PATH,
   BLOG_HUB_PATH,
@@ -23,6 +22,13 @@ import { DEFAULT_SITE_URL } from "../shared/course-seo";
 import { blogContentUpdates } from "../shared/blogContent";
 
 dotenv.config();
+
+if (!process.env.DATABASE_URL) {
+  console.warn("[prerender-blog-seo] DATABASE_URL not set — skipping (CI build without DB access)");
+  process.exit(0);
+}
+
+const { db, schema } = await import("./db-neon");
 
 const { blogPosts, postTags, users } = schema;
 

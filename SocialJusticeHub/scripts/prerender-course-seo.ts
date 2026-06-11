@@ -2,7 +2,6 @@ import dotenv from "dotenv";
 import fs from "fs/promises";
 import path from "path";
 import { asc, eq, sql } from "drizzle-orm";
-import { db, schema } from "./db-neon";
 import {
   buildCourseHubMetadata,
   buildCourseMetadata,
@@ -15,6 +14,13 @@ import {
 import { deriveSearchSummary } from "../shared/course-content";
 
 dotenv.config();
+
+if (!process.env.DATABASE_URL) {
+  console.warn("[prerender-course-seo] DATABASE_URL not set — skipping (CI build without DB access)");
+  process.exit(0);
+}
+
+const { db, schema } = await import("./db-neon");
 
 const {
   courseDefinitions,
