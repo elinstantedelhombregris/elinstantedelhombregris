@@ -48,6 +48,8 @@ export const dreams = sqliteTable("dreams", {
   location: text("location"),
   latitude: text("latitude"),
   longitude: text("longitude"),
+  province: text("province"),
+  city: text("city"),
   createdAt: text("created_at").default("CURRENT_TIMESTAMP"),
   type: text("type").notNull().default('dream').$type<'dream' | 'value' | 'need' | 'basta'>(),
 });

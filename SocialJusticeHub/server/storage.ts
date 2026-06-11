@@ -675,7 +675,9 @@ export class MemStorage implements Partial<IStorage> {
       location: insertDream.location || null,
       userId: insertDream.userId || null,
       latitude: insertDream.latitude || null,
-      longitude: insertDream.longitude || null
+      longitude: insertDream.longitude || null,
+      province: insertDream.province ?? null,
+      city: insertDream.city ?? null
     };
     this.dreams.set(id, dream);
     return dream;
