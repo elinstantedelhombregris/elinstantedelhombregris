@@ -1,6 +1,6 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { useEffect, useMemo, useState } from 'react';
+import { useContext, useEffect, useMemo } from 'react';
 import { useParams, Link } from 'wouter';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { motion } from 'framer-motion';
@@ -19,7 +19,6 @@ import {
   Check,
   ChevronRight
 } from 'lucide-react';
-import { useContext } from 'react';
 import { UserContext } from '@/App';
 import { useToast } from '@/hooks/use-toast';
 import { apiRequest } from '@/lib/queryClient';
@@ -378,9 +377,9 @@ const CourseDetail = () => {
             </motion.div>
 
             {/* Timeline */}
-            <section>
+            <section aria-labelledby="timeline-heading">
               <div className="mb-8 flex items-center gap-4">
-                <h2 className="font-serif text-2xl font-bold text-slate-100">Recorrido del curso</h2>
+                <h2 id="timeline-heading" className="font-serif text-2xl font-bold text-slate-100">Recorrido del curso</h2>
                 <div className="h-px flex-1 bg-gradient-to-r from-slate-400/40 to-transparent" />
               </div>
 
