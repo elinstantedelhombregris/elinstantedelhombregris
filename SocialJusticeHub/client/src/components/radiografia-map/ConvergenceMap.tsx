@@ -8,6 +8,7 @@ import { Map } from 'react-map-gl/maplibre';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { BarChart3, Network } from 'lucide-react';
 import { TYPE_COLORS } from '@/hooks/useConvergenceAnalysis';
+import { ACCENT, ACCENT_RGB, accentAlpha, MAP_HEX_COLOR_RANGE } from '@/lib/design-tokens';
 import { useToast } from '@/hooks/use-toast';
 import MapFiltersBar from './MapFiltersBar';
 import LassoOverlay from './LassoOverlay';
@@ -192,19 +193,12 @@ export default function ConvergenceMap({ entries, filtersApi, isLoading }: Conve
           coverage: 0.85,
           upperPercentile: 100,
           pickable: true,
-          colorRange: [
-            [30, 30, 80],
-            [60, 40, 140],
-            [100, 60, 180],
-            [140, 80, 200],
-            [180, 100, 220],
-            [220, 130, 240],
-          ],
+          colorRange: MAP_HEX_COLOR_RANGE,
           material: {
             ambient: 0.6,
             diffuse: 0.6,
             shininess: 40,
-            specularColor: [125, 91, 222],
+            specularColor: ACCENT_RGB,
           },
         }),
       );
@@ -256,8 +250,8 @@ export default function ConvergenceMap({ entries, filtersApi, isLoading }: Conve
           data: arcs,
           getSourcePosition: (d: any) => d.source,
           getTargetPosition: (d: any) => d.target,
-          getSourceColor: [125, 91, 222, 180],
-          getTargetColor: [59, 130, 246, 180],
+          getSourceColor: [...ACCENT_RGB, 180],
+          getTargetColor: [...hexToRgb(TYPE_COLORS.dream), 180],
           getWidth: 2,
           greatCircle: true,
         }),
@@ -418,8 +412,8 @@ const CommittedLassoOverlay = memo(function CommittedLassoOverlay({
     <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: 10 }}>
       <polygon
         points={projected.join(' ')}
-        fill="rgba(125, 91, 222, 0.12)"
-        stroke="#7D5BDE"
+        fill={accentAlpha(0.12)}
+        stroke={ACCENT}
         strokeWidth={2}
         strokeDasharray="6 4"
       />

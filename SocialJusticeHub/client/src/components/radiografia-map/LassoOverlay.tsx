@@ -16,8 +16,10 @@ interface LassoOverlayProps {
   onCancel: () => void;
 }
 
-const STROKE = '#7D5BDE';
-const FILL = 'rgba(125, 91, 222, 0.18)';
+import { ACCENT, accentAlpha } from '@/lib/design-tokens';
+
+const STROKE = ACCENT;
+const FILL = accentAlpha(0.18);
 
 export default function LassoOverlay({ getViewport, onComplete, onCancel }: LassoOverlayProps) {
   const svgRef = useRef<SVGSVGElement>(null);

@@ -38,3 +38,32 @@ export const ACCENT_BUTTON =
 
 /** Ritmo vertical de sección. */
 export const SECTION_PAD = 'py-20 md:py-28';
+
+/** ACCENT como tripleta RGB para APIs que piden arrays (deck.gl, canvas). */
+export const ACCENT_RGB: [number, number, number] = [
+  parseInt(ACCENT.slice(1, 3), 16),
+  parseInt(ACCENT.slice(3, 5), 16),
+  parseInt(ACCENT.slice(5, 7), 16),
+];
+
+/** rgba() del acento con alpha — para fills/borders que no pueden usar clases. */
+export const accentAlpha = (alpha: number): string =>
+  `rgba(${ACCENT_RGB[0]}, ${ACCENT_RGB[1]}, ${ACCENT_RGB[2]}, ${alpha})`;
+
+const mix = (from: [number, number, number], to: [number, number, number], t: number): [number, number, number] =>
+  [0, 1, 2].map((i) => Math.round(from[i] + (to[i] - from[i]) * t)) as [number, number, number];
+
+const MAP_DARK: [number, number, number] = [10, 10, 20]; // bg-[#0a0a0a] aprox
+
+/**
+ * Rampa de densidad del mapa (hexágonos 3D): oscuro → ACCENT → claro.
+ * Derivada del acento para que cambiar ACCENT recolorée el mapa entero.
+ */
+export const MAP_HEX_COLOR_RANGE: [number, number, number][] = [
+  mix(MAP_DARK, ACCENT_RGB, 0.25),
+  mix(MAP_DARK, ACCENT_RGB, 0.5),
+  mix(MAP_DARK, ACCENT_RGB, 0.75),
+  ACCENT_RGB,
+  mix(ACCENT_RGB, [255, 255, 255], 0.3),
+  mix(ACCENT_RGB, [255, 255, 255], 0.55),
+];
