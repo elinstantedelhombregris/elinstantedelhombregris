@@ -559,6 +559,17 @@
     @apply text-cyan-400 bg-cyan-500/10 border border-cyan-500/20;
   }
 
+  /* Editorial dropcap — first letter of the first paragraph (blog posts only) */
+  .editorial-dropcap > div > p:first-of-type::first-letter {
+    font-family: 'Playfair Display', Georgia, serif;
+    float: left;
+    font-size: 3.4em;
+    line-height: 0.8;
+    padding-right: 0.12em;
+    padding-top: 0.08em;
+    color: #f5f7fa;
+  }
+
   .journey-tribu {
     @apply text-orange-400 bg-orange-500/10 border border-orange-500/20;
   }
