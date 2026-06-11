@@ -47,6 +47,7 @@ export default function ArticleTOC({ containerRef, contentKey, className }: Arti
       h.style.scrollMarginTop = '96px';
       return { id, text: h.textContent || '', level: h.tagName === 'H2' ? 2 : 3 };
     });
+    setActiveId(null);
     setItems(collected);
 
     if (collected.length < 3) return;
@@ -92,15 +93,17 @@ export default function ArticleTOC({ containerRef, contentKey, className }: Arti
       <div className="lg:hidden rounded-2xl border border-white/10 bg-white/[0.03]">
         <button
           onClick={() => setMobileOpen((o) => !o)}
+          aria-expanded={mobileOpen}
+          aria-controls="toc-list-mobile"
           className="flex w-full items-center justify-between px-4 py-3 text-sm font-medium text-slate-300"
         >
           <span className="inline-flex items-center gap-2">
-            <List className="h-4 w-4 text-[#7D5BDE]" />
+            <List aria-hidden="true" className="h-4 w-4 text-[#7D5BDE]" />
             En esta página
           </span>
-          <ChevronDown className={cn('h-4 w-4 transition-transform', mobileOpen && 'rotate-180')} />
+          <ChevronDown aria-hidden="true" className={cn('h-4 w-4 transition-transform', mobileOpen && 'rotate-180')} />
         </button>
-        {mobileOpen && <div className="px-4 pb-4">{list}</div>}
+        {mobileOpen && <div id="toc-list-mobile" className="px-4 pb-4">{list}</div>}
       </div>
 
       {/* Desktop: sticky sidebar */}

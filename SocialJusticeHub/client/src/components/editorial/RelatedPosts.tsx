@@ -57,7 +57,7 @@ export default function RelatedPosts({ category, currentPostId }: RelatedPostsPr
                 </div>
               )}
               <div className="flex flex-1 flex-col p-5">
-                <span className={`mb-3 inline-flex w-fit items-center rounded-full border px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wider ${getCategoryColorDark(post.category)}`}>
+                <span className={`mb-3 inline-flex w-fit items-center rounded-full px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wider ${getCategoryColorDark(post.category)}`}>
                   {post.category}
                 </span>
                 <h3 className="mb-2 font-serif text-lg font-bold leading-snug text-slate-100 transition-colors group-hover:text-white">
@@ -68,10 +68,10 @@ export default function RelatedPosts({ category, currentPostId }: RelatedPostsPr
                 </p>
                 <div className="flex items-center justify-between border-t border-white/10 pt-3 text-xs text-slate-500">
                   <span className="inline-flex items-center gap-1.5">
-                    <Clock className="h-3.5 w-3.5" />
+                    <Clock aria-hidden="true" className="h-3.5 w-3.5" />
                     {normalizeBlogReadTime(post.content)} min lectura
                   </span>
-                  <ArrowUpRight className="h-4 w-4 text-slate-500 transition-all group-hover:translate-x-0.5 group-hover:text-violet-400" />
+                  <ArrowUpRight aria-hidden="true" className="h-4 w-4 text-slate-500 transition-all group-hover:translate-x-0.5 group-hover:text-violet-400" />
                 </div>
               </div>
             </article>
