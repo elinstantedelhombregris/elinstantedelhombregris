@@ -372,6 +372,7 @@ const StudyGuides = () => {
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500" aria-hidden="true" />
                 <input
                   type="text"
+                  aria-label="Buscar cursos"
                   placeholder="Buscar cursos..."
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
@@ -408,7 +409,7 @@ const StudyGuides = () => {
                 <SmoothReveal direction="up">
                   <div className="max-w-md mx-auto">
                     <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-white/5 flex items-center justify-center">
-                      <Sparkles className="w-8 h-8 text-slate-500" />
+                      <Sparkles className="w-8 h-8 text-slate-500" aria-hidden="true" />
                     </div>
                     <h3 className="text-xl font-semibold text-slate-100 mb-3">
                       {search
