@@ -5,6 +5,7 @@ import { Lasso, X } from 'lucide-react';
 import { TYPE_COLORS, TYPE_LABELS } from '@/hooks/useConvergenceAnalysis';
 import { apiRequest } from '@/lib/queryClient';
 import { cn } from '@/lib/utils';
+import { accentAlpha } from '@/lib/design-tokens';
 import type { DreamType, MapFilters, TimeRange } from './types';
 import { ALL_TYPES } from './types';
 
@@ -117,9 +118,14 @@ export default function MapFiltersBar({
             className={cn(
               'px-3 py-1.5 rounded-full text-xs font-medium border transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400/60',
               timeRange === id
-                ? 'bg-[#7D5BDE]/20 border-[#7D5BDE]/60 text-white'
+                ? 'text-white'
                 : 'text-slate-400 border-white/10 bg-white/[0.02] hover:bg-white/5',
             )}
+            style={
+              timeRange === id
+                ? { backgroundColor: accentAlpha(0.2), borderColor: accentAlpha(0.6) }
+                : undefined
+            }
           >
             {label}
           </button>
