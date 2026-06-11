@@ -154,7 +154,7 @@ const QuizQuestion = ({ question, answer, onChange, showResult = false, variant 
   };
 
   const inner = (
-    <div className="p-6">
+    <>
       <div className="mb-4">
         <div className="flex items-start justify-between mb-2">
           <h3 className={cn("text-xl font-semibold flex-1", isDark ? "text-slate-100" : "text-gray-900")}>
@@ -192,12 +192,12 @@ const QuizQuestion = ({ question, answer, onChange, showResult = false, variant 
           </div>
         )
       )}
-    </div>
+    </>
   );
 
   if (isDark) {
     return (
-      <div className="rounded-2xl border border-white/10 bg-white/[0.03]">
+      <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
         {inner}
       </div>
     );
@@ -205,7 +205,7 @@ const QuizQuestion = ({ question, answer, onChange, showResult = false, variant 
 
   return (
     <Card>
-      <CardContent className="p-0">
+      <CardContent className="p-6">
         {inner}
       </CardContent>
     </Card>
