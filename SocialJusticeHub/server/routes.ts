@@ -194,9 +194,27 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Create a dream
   app.post("/api/dreams", authenticateToken, async (req: AuthRequest, res) => {
     try {
+      const body = { ...req.body };
+      const rawLat = body.latitude != null && body.latitude !== '' ? Number(body.latitude) : null;
+      const rawLng = body.longitude != null && body.longitude !== '' ? Number(body.longitude) : null;
+      if (rawLat != null && rawLng != null && Number.isFinite(rawLat) && Number.isFinite(rawLng)) {
+        const { resolveSignalGeo } = await import('./geo-service');
+        const geo = await resolveSignalGeo(rawLat, rawLng);
+        body.latitude = String(geo.lat);
+        body.longitude = String(geo.lng);
+        // El cliente puede mandar province (modo "elegir provincia"); el resolver tiene prioridad si acierta.
+        body.province = geo.province ?? (typeof body.province === 'string' ? body.province : null);
+        body.city = geo.city ?? null;
+      } else {
+        // Sin coordenadas: jamas inventamos una ubicacion.
+        body.latitude = null;
+        body.longitude = null;
+        body.province = typeof body.province === 'string' ? body.province : null;
+        body.city = null;
+      }
       const validatedData = insertDreamSchema.parse({
-        ...req.body,
-        userId: req.user?.userId ?? req.body.userId,
+        ...body,
+        userId: req.user?.userId ?? body.userId,
       });
       const dream = await storage.createDream(validatedData);
       res.status(201).json(dream);
@@ -224,8 +242,24 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Create a resource declaration
   app.post("/api/resources-map", authenticateToken, sanitizeInput, async (req: AuthRequest, res) => {
     try {
+      const body = { ...req.body };
+      const rawLat = body.latitude != null && body.latitude !== '' ? Number(body.latitude) : null;
+      const rawLng = body.longitude != null && body.longitude !== '' ? Number(body.longitude) : null;
+      if (rawLat != null && rawLng != null && Number.isFinite(rawLat) && Number.isFinite(rawLng)) {
+        const { resolveSignalGeo } = await import('./geo-service');
+        const geo = await resolveSignalGeo(rawLat, rawLng);
+        body.latitude = geo.lat;
+        body.longitude = geo.lng;
+        body.province = geo.province ?? (typeof body.province === 'string' ? body.province : null);
+        body.city = geo.city ?? null;
+      } else {
+        body.latitude = null;
+        body.longitude = null;
+        body.province = typeof body.province === 'string' ? body.province : null;
+        body.city = null;
+      }
       const validatedData = insertUserResourceSchema.parse({
-        ...req.body,
+        ...body,
         userId: req.user?.userId,
       });
       const resource = await storage.createUserResource(validatedData);

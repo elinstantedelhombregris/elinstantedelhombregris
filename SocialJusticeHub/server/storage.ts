@@ -63,6 +63,7 @@ import {
   missionChronicles, type MissionChronicle, type InsertMissionChronicle,
 } from "@shared/schema";
 import { db } from "./db";
+import { snapCoords } from "./geo-resolver";
 import { eq, desc, and, sql, asc, gte, or, like, inArray, ilike, isNotNull } from "drizzle-orm";
 import { PasswordManager, type AuthUser } from './auth';
 import path from 'path';
@@ -3280,8 +3281,11 @@ export class DatabaseStorage implements IStorage {
     const rawLatitude = location?.latitude;
     const rawLongitude = location?.longitude;
 
-    const latitude = Number.isFinite(rawLatitude as number) ? Number(rawLatitude) : null;
-    const longitude = Number.isFinite(rawLongitude as number) ? Number(rawLongitude) : null;
+    const hasCoords = Number.isFinite(rawLatitude as number) && Number.isFinite(rawLongitude as number);
+    // Privacidad: persistimos coordenadas snapeadas (~1.1 km), nunca la posicion exacta.
+    const snapped = hasCoords ? snapCoords(Number(rawLatitude), Number(rawLongitude)) : null;
+    const latitude = snapped ? snapped.lat : null;
+    const longitude = snapped ? snapped.lng : null;
 
     let province = location?.province?.trim() || null;
     let city = location?.city?.trim() || null;
@@ -3380,53 +3384,10 @@ export class DatabaseStorage implements IStorage {
     province: string | null;
     city: string | null;
   }> {
-    const locations = await db
-      .select({
-        id: geographicLocations.id,
-        name: geographicLocations.name,
-        type: geographicLocations.type,
-        parentId: geographicLocations.parentId,
-        latitude: geographicLocations.latitude,
-        longitude: geographicLocations.longitude
-      })
-      .from(geographicLocations)
-      .where(and(
-        inArray(geographicLocations.type, ['province', 'city']),
-        isNotNull(geographicLocations.latitude),
-        isNotNull(geographicLocations.longitude)
-      ));
-
-    if (!locations.length) {
-      return { province: null, city: null };
-    }
-
-    const provinces = locations.filter((location) => location.type === 'province');
-    const cities = locations.filter((location) => location.type === 'city');
-    const provinceById = new Map(provinces.map((province) => [province.id, province.name]));
-
-    const nearestProvince = provinces.reduce<{ distance: number; name: string | null }>((closest, province) => {
-      const distance = this.calculateDistance(latitude, longitude, province.latitude, province.longitude);
-      if (distance < closest.distance) return { distance, name: province.name };
-      return closest;
-    }, { distance: Number.POSITIVE_INFINITY, name: null });
-
-    const nearestCity = cities.reduce<{ distance: number; name: string | null; parentId: number | null }>((closest, city) => {
-      const distance = this.calculateDistance(latitude, longitude, city.latitude, city.longitude);
-      if (distance < closest.distance) {
-        return { distance, name: city.name, parentId: city.parentId ?? null };
-      }
-      return closest;
-    }, { distance: Number.POSITIVE_INFINITY, name: null, parentId: null });
-
-    const cityThresholdKm = 180;
-    const provinceThresholdKm = 300;
-
-    const city = nearestCity.distance <= cityThresholdKm ? nearestCity.name : null;
-    const provinceFromCity = city && nearestCity.parentId ? provinceById.get(nearestCity.parentId) ?? null : null;
-    const provinceDirect = nearestProvince.distance <= provinceThresholdKm ? nearestProvince.name : null;
-    const province = provinceFromCity || provinceDirect;
-
-    return { province, city };
+    // Provincia por poligono (exacta) + ciudad mas cercana (<=50 km) via geo-service.
+    const { resolveSignalGeo } = await import('./geo-service');
+    const geo = await resolveSignalGeo(latitude, longitude);
+    return { province: geo.province, city: geo.city };
   }
 
   async getLeaderboard(type: string, limit: number): Promise<any[]> {
