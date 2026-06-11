@@ -29,7 +29,6 @@ interface Comment {
 }
 
 interface CommentsSectionProps {
-  postId: number;
   comments: Comment[];
   onAddComment: (content: string, parentId?: number) => Promise<void>;
   onEditComment: (commentId: number, content: string) => Promise<void>;
@@ -39,7 +38,6 @@ interface CommentsSectionProps {
 }
 
 export default function CommentsSection({
-  postId,
   comments,
   onAddComment,
   onEditComment,
@@ -406,7 +404,7 @@ export default function CommentsSection({
           </div>
         ) : sortedComments.length === 0 ? (
           <div className="rounded-2xl border border-white/10 bg-white/[0.03] py-12 text-center">
-            <MessageCircle className="mx-auto mb-4 h-12 w-12 text-slate-600" aria-hidden="true" />
+            <MessageCircle className="mx-auto mb-4 h-12 w-12 text-slate-500" aria-hidden="true" />
             <h4 className="mb-2 text-lg font-medium text-slate-100">
               Aún no hay comentarios
             </h4>

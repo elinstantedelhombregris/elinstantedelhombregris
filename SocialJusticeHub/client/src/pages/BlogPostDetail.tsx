@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { useParams } from 'wouter';
 import { motion } from 'framer-motion';
 import {
@@ -27,6 +27,7 @@ import ReadingProgress from '@/components/editorial/ReadingProgress';
 import ArticleTOC from '@/components/editorial/ArticleTOC';
 import RelatedPosts from '@/components/editorial/RelatedPosts';
 import { getCategoryColorDark } from '@/lib/editorial';
+import { UserContext } from '@/App';
 import { apiRequest } from '@/lib/queryClient';
 import { getAnonSessionId } from '@/lib/anonSession';
 import { useSeoMetadata } from '@/lib/seo';
@@ -80,6 +81,7 @@ export default function BlogPostDetail() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+  const userContext = useContext(UserContext);
   const renderedContent = useMemo(
     () => normalizeBlogContentForRendering(post?.content),
     [post?.content],
@@ -434,7 +436,7 @@ export default function BlogPostDetail() {
 
             {/* Mobile TOC */}
             <div className="mt-8 lg:hidden">
-              <ArticleTOC containerRef={contentRef} contentKey={renderedContent} />
+              <ArticleTOC containerRef={contentRef} contentKey={renderedContent} variant="mobile" />
             </div>
 
             {/* Article body */}
@@ -496,7 +498,7 @@ export default function BlogPostDetail() {
           {/* Desktop TOC */}
           <aside className="hidden lg:block">
             <div className="sticky top-28">
-              <ArticleTOC containerRef={contentRef} contentKey={renderedContent} />
+              <ArticleTOC containerRef={contentRef} contentKey={renderedContent} variant="desktop" />
             </div>
           </aside>
         </div>
@@ -511,12 +513,11 @@ export default function BlogPostDetail() {
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <CommentsSection
-              postId={post.id}
               comments={post.comments}
               onAddComment={handleAddComment}
               onEditComment={handleEditComment}
               onDeleteComment={handleDeleteComment}
-              currentUserId={1}
+              currentUserId={userContext?.user?.id ?? 0}
             />
           </motion.div>
         </div>

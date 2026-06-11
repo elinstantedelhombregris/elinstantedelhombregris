@@ -15,6 +15,8 @@ interface ArticleTOCProps {
   /** Changes when content changes, to re-scan headings (pass the content string). */
   contentKey?: string;
   className?: string;
+  /** Controls which layout variant(s) to render. Default: 'both'. */
+  variant?: 'mobile' | 'desktop' | 'both';
 }
 
 const slugify = (text: string) =>
@@ -27,7 +29,7 @@ const slugify = (text: string) =>
     .replace(/\s+/g, '-')
     .slice(0, 64);
 
-export default function ArticleTOC({ containerRef, contentKey, className }: ArticleTOCProps) {
+export default function ArticleTOC({ containerRef, contentKey, className, variant = 'both' }: ArticleTOCProps) {
   const [items, setItems] = useState<TocItem[]>([]);
   const [activeId, setActiveId] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -90,29 +92,33 @@ export default function ArticleTOC({ containerRef, contentKey, className }: Arti
   return (
     <nav aria-label="Tabla de contenidos" className={className}>
       {/* Mobile: collapsible chip */}
-      <div className="lg:hidden rounded-2xl border border-white/10 bg-white/[0.03]">
-        <button
-          onClick={() => setMobileOpen((o) => !o)}
-          aria-expanded={mobileOpen}
-          aria-controls="toc-list-mobile"
-          className="flex w-full items-center justify-between px-4 py-3 text-sm font-medium text-slate-300"
-        >
-          <span className="inline-flex items-center gap-2">
-            <List aria-hidden="true" className="h-4 w-4 text-[#7D5BDE]" />
-            En esta página
-          </span>
-          <ChevronDown aria-hidden="true" className={cn('h-4 w-4 transition-transform', mobileOpen && 'rotate-180')} />
-        </button>
-        {mobileOpen && <div id="toc-list-mobile" className="px-4 pb-4">{list}</div>}
-      </div>
+      {variant !== 'desktop' && (
+        <div className="lg:hidden rounded-2xl border border-white/10 bg-white/[0.03]">
+          <button
+            onClick={() => setMobileOpen((o) => !o)}
+            aria-expanded={mobileOpen}
+            aria-controls="toc-list-mobile"
+            className="flex w-full items-center justify-between px-4 py-3 text-sm font-medium text-slate-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]"
+          >
+            <span className="inline-flex items-center gap-2">
+              <List aria-hidden="true" className="h-4 w-4 text-[#7D5BDE]" />
+              En esta página
+            </span>
+            <ChevronDown aria-hidden="true" className={cn('h-4 w-4 transition-transform', mobileOpen && 'rotate-180')} />
+          </button>
+          {mobileOpen && <div id="toc-list-mobile" className="px-4 pb-4">{list}</div>}
+        </div>
+      )}
 
       {/* Desktop: sticky sidebar */}
-      <div className="hidden lg:block">
-        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
-          En esta página
-        </p>
-        {list}
-      </div>
+      {variant !== 'mobile' && (
+        <div className="hidden lg:block">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+            En esta página
+          </p>
+          {list}
+        </div>
+      )}
     </nav>
   );
 }
