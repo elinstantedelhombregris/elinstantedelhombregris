@@ -11,6 +11,7 @@ import { registerGoalRoutes } from './routes-goals';
 import { registerCoachingRoutes } from './routes-coaching';
 import { registerOpenDataRoutes } from './routes-open-data';
 import { registerPulseRoutes } from './routes-pulse';
+import { registerMapSignalsRoutes } from './routes-map-signals';
 import { registerAnalyticsRoutes } from './routes-analytics';
 import { startMandatoCron } from './services/mandato-engine';
 import { 
@@ -175,6 +176,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   registerCoachingRoutes(app);
   registerOpenDataRoutes(app);
   registerPulseRoutes(app);
+  registerMapSignalsRoutes(app);
   registerAnalyticsRoutes(app);
 
   // Start weekly pulse cron (Fridays at 17:05 ART)
