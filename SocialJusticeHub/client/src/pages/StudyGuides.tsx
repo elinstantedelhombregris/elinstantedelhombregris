@@ -12,15 +12,14 @@ import {
   type LucideIcon,
 } from 'lucide-react';
 import { apiRequest } from '@/lib/queryClient';
-import { getCategoryLabel, getLevelLabel, formatDuration, levelColors } from '@/lib/course-utils';
+import { getCategoryLabel, getLevelLabel, formatDuration } from '@/lib/course-utils';
 import { fadeUp, staggerContainer } from '@/lib/motion-variants';
-import FluidBackground from '@/components/ui/FluidBackground';
-import GlassCard from '@/components/ui/GlassCard';
 import SmoothReveal from '@/components/ui/SmoothReveal';
 import { Link } from 'wouter';
 import { UserContext } from '@/App';
 import { buildCourseHubMetadata } from '@shared/course-seo';
 import { useSeoMetadata } from '@/lib/seo';
+import { levelColorsDark } from '@/lib/editorial';
 
 interface Course {
   id: number;
@@ -42,15 +41,15 @@ interface Course {
   } | null;
 }
 
-const categoryMeta: Record<string, { icon: LucideIcon; color: string; accent: string; gradient: string }> = {
-  vision:        { icon: Eye,            color: 'text-emerald-600', accent: '#059669', gradient: 'from-emerald-500/20 to-cyan-500/20' },
-  action:        { icon: Zap,            color: 'text-amber-600',   accent: '#d97706', gradient: 'from-amber-500/20 to-orange-500/20' },
-  community:     { icon: Users,          color: 'text-blue-600',    accent: '#2563eb', gradient: 'from-blue-500/20 to-indigo-500/20' },
-  reflection:    { icon: Brain,          color: 'text-purple-600',  accent: '#9333ea', gradient: 'from-purple-500/20 to-fuchsia-500/20' },
-  'hombre-gris': { icon: User,           color: 'text-slate-600',   accent: '#475569', gradient: 'from-slate-500/20 to-gray-500/20' },
-  economia:      { icon: TrendingUp,     color: 'text-green-600',   accent: '#16a34a', gradient: 'from-green-500/20 to-emerald-500/20' },
-  comunicacion:  { icon: MessageSquare,  color: 'text-cyan-600',    accent: '#0891b2', gradient: 'from-cyan-500/20 to-teal-500/20' },
-  civica:        { icon: Landmark,       color: 'text-red-600',     accent: '#dc2626', gradient: 'from-red-500/20 to-rose-500/20' },
+const categoryMeta: Record<string, { icon: LucideIcon; color: string; accent: string }> = {
+  vision:        { icon: Eye,           color: 'text-emerald-400', accent: '#34d399' },
+  action:        { icon: Zap,           color: 'text-amber-400',   accent: '#fbbf24' },
+  community:     { icon: Users,         color: 'text-blue-400',    accent: '#60a5fa' },
+  reflection:    { icon: Brain,         color: 'text-purple-400',  accent: '#c084fc' },
+  'hombre-gris': { icon: User,          color: 'text-slate-300',   accent: '#cbd5e1' },
+  economia:      { icon: TrendingUp,    color: 'text-green-400',   accent: '#4ade80' },
+  comunicacion:  { icon: MessageSquare, color: 'text-cyan-400',    accent: '#22d3ee' },
+  civica:        { icon: Landmark,      color: 'text-red-400',     accent: '#f87171' },
 };
 
 const categoryOrder = [
@@ -66,7 +65,7 @@ function CourseCard({ course, accentColor }: { course: Course; accentColor: stri
   return (
     <motion.div variants={fadeUp} className="h-full">
       <Link href={`/recursos/guias-estudio/${course.slug}`}>
-        <div className="group relative bg-white rounded-2xl border border-slate-200/80 shadow-[0_4px_24px_rgba(15,23,42,0.06)] hover:shadow-[0_20px_50px_rgba(15,23,42,0.12)] hover:-translate-y-1 transition-all duration-500 overflow-hidden h-full flex flex-col cursor-pointer">
+        <div className="group relative flex h-full cursor-pointer flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] transition-all duration-500 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.05] hover:shadow-[0_0_40px_rgba(125,91,222,0.10)]">
 
           {/* Thumbnail */}
           <div className="relative h-44 overflow-hidden">
@@ -74,34 +73,32 @@ function CourseCard({ course, accentColor }: { course: Course; accentColor: stri
               <img
                 src={course.thumbnailUrl}
                 alt={course.title}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                loading="lazy"
+                className="h-full w-full object-cover opacity-80 transition-all duration-700 group-hover:scale-105 group-hover:opacity-100"
               />
             ) : (
               <div
-                className="w-full h-full flex items-center justify-center"
-                style={{
-                  background: `linear-gradient(135deg, ${accentColor}18, ${accentColor}08)`,
-                }}
+                className="flex h-full w-full items-center justify-center"
+                style={{ background: `linear-gradient(135deg, ${accentColor}14, ${accentColor}05)` }}
               >
-                <GraduationCap className="w-14 h-14 opacity-20" style={{ color: accentColor }} />
+                <GraduationCap className="h-14 w-14 opacity-25" style={{ color: accentColor }} aria-hidden="true" />
               </div>
             )}
 
-            {/* Gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/70 via-transparent to-transparent" />
 
             {/* Level badge */}
-            <div className="absolute top-3 left-3">
-              <span className={`px-2.5 py-1 rounded-full text-[11px] font-semibold uppercase tracking-wide backdrop-blur-md shadow-sm ${levelColors[course.level] || 'bg-white/90 text-slate-700'}`}>
+            <div className="absolute left-3 top-3">
+              <span className={`rounded-full px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide backdrop-blur-md ${levelColorsDark[course.level] || 'border border-white/15 bg-white/10 text-slate-200'}`}>
                 {getLevelLabel(course.level)}
               </span>
             </div>
 
             {/* Completed badge */}
             {isCompleted && (
-              <div className="absolute top-3 right-3">
-                <span className="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-500 text-white shadow-sm flex items-center gap-1">
-                  <CheckCircle2 className="w-3 h-3" /> Completado
+              <div className="absolute right-3 top-3">
+                <span className="flex items-center gap-1 rounded-full border border-emerald-500/30 bg-emerald-500/15 px-2.5 py-1 text-[11px] font-semibold text-emerald-300 backdrop-blur-md">
+                  <CheckCircle2 className="h-3 w-3" aria-hidden="true" /> Completado
                 </span>
               </div>
             )}
@@ -109,20 +106,20 @@ function CourseCard({ course, accentColor }: { course: Course; accentColor: stri
             {/* Bottom metadata on image */}
             <div className="absolute bottom-3 left-3 right-3 flex items-center gap-2">
               {course.duration && (
-                <span className="flex items-center gap-1 text-[11px] text-white/90 font-medium backdrop-blur-sm bg-black/20 px-2 py-0.5 rounded-full">
-                  <Clock className="w-3 h-3" />
+                <span className="flex items-center gap-1 rounded-full bg-black/40 px-2 py-0.5 text-[11px] font-medium text-slate-200 backdrop-blur-sm">
+                  <Clock className="h-3 w-3" aria-hidden="true" />
                   {formatDuration(course.duration)}
                 </span>
               )}
               {course.lessonCount != null && course.lessonCount > 0 && (
-                <span className="flex items-center gap-1 text-[11px] text-white/90 font-medium backdrop-blur-sm bg-black/20 px-2 py-0.5 rounded-full">
-                  <BookOpen className="w-3 h-3" />
+                <span className="flex items-center gap-1 rounded-full bg-black/40 px-2 py-0.5 text-[11px] font-medium text-slate-200 backdrop-blur-sm">
+                  <BookOpen className="h-3 w-3" aria-hidden="true" />
                   {course.lessonCount} lecciones
                 </span>
               )}
               {course.hasQuiz && (
-                <span className="flex items-center gap-1 text-[11px] text-white/90 font-medium backdrop-blur-sm bg-black/20 px-2 py-0.5 rounded-full">
-                  <Award className="w-3 h-3" />
+                <span className="flex items-center gap-1 rounded-full bg-black/40 px-2 py-0.5 text-[11px] font-medium text-slate-200 backdrop-blur-sm">
+                  <Award className="h-3 w-3" aria-hidden="true" />
                   Quiz
                 </span>
               )}
@@ -130,40 +127,34 @@ function CourseCard({ course, accentColor }: { course: Course; accentColor: stri
           </div>
 
           {/* Content */}
-          <div className="p-5 flex flex-col flex-1">
-            {/* Category pill */}
+          <div className="flex flex-1 flex-col p-5">
             <div className="mb-3">
               <span
-                className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-semibold uppercase tracking-wider"
-                style={{
-                  backgroundColor: `${accentColor}10`,
-                  color: accentColor,
-                }}
+                className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider"
+                style={{ backgroundColor: `${accentColor}14`, color: accentColor }}
               >
                 {getCategoryLabel(course.category)}
               </span>
             </div>
 
-            {/* Title */}
-            <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-emerald-700 transition-colors leading-snug">
+            <h3 className="mb-2 font-serif text-lg font-bold leading-snug text-slate-100 transition-colors group-hover:text-white">
               {course.title}
             </h3>
 
-            {/* Full description */}
-            <p className="text-sm text-slate-500 leading-relaxed mb-4 flex-1">
+            <p className="mb-4 flex-1 text-sm leading-relaxed text-slate-400">
               {course.description}
             </p>
 
-            {/* Progress bar (in-progress only) */}
+            {/* Progress (violet = action) */}
             {isInProgress && (
               <div className="mb-4">
-                <div className="flex justify-between text-xs font-medium mb-1.5">
-                  <span className="text-emerald-600">En progreso</span>
-                  <span className="text-emerald-600">{progress}%</span>
+                <div className="mb-1.5 flex justify-between text-xs font-medium text-violet-300">
+                  <span>En progreso</span>
+                  <span>{progress}%</span>
                 </div>
-                <div className="h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                <div className="h-1.5 overflow-hidden rounded-full bg-white/10">
                   <div
-                    className="h-full bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full transition-all duration-500"
+                    className="h-full rounded-full bg-gradient-to-r from-[#7D5BDE] to-violet-400 transition-all duration-500"
                     style={{ width: `${progress}%` }}
                   />
                 </div>
@@ -171,27 +162,27 @@ function CourseCard({ course, accentColor }: { course: Course; accentColor: stri
             )}
 
             {/* Footer */}
-            <div className="flex items-center justify-between pt-3 border-t border-slate-100 mt-auto">
-              <span className="text-sm text-slate-400 flex items-center gap-1.5">
+            <div className="mt-auto flex items-center justify-between border-t border-white/10 pt-3">
+              <span className="flex items-center gap-1.5 text-sm text-slate-500">
                 {isInProgress ? (
                   <>
-                    <PlayCircle className="w-3.5 h-3.5 text-emerald-500" />
-                    <span className="text-emerald-600 font-medium">Continuar</span>
+                    <PlayCircle className="h-3.5 w-3.5 text-violet-400" aria-hidden="true" />
+                    <span className="font-medium text-violet-300">Continuar</span>
                   </>
                 ) : isCompleted ? (
                   <>
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
-                    <span className="text-emerald-600 font-medium">Repasar</span>
+                    <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400" aria-hidden="true" />
+                    <span className="font-medium text-emerald-300">Repasar</span>
                   </>
                 ) : (
                   <>
-                    <PlayCircle className="w-3.5 h-3.5" />
+                    <PlayCircle className="h-3.5 w-3.5" aria-hidden="true" />
                     Comenzar
                   </>
                 )}
               </span>
-              <div className="w-7 h-7 rounded-full bg-slate-50 flex items-center justify-center text-slate-300 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300">
-                <ChevronRight className="w-4 h-4" />
+              <div className="flex h-7 w-7 items-center justify-center rounded-full bg-white/5 text-slate-500 transition-all duration-300 group-hover:bg-[#7D5BDE] group-hover:text-white">
+                <ChevronRight className="h-4 w-4" aria-hidden="true" />
               </div>
             </div>
           </div>
@@ -290,8 +281,12 @@ const StudyGuides = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50 font-sans text-slate-900 overflow-hidden theme-light">
-      <FluidBackground className="opacity-30" />
+    <div className="relative min-h-screen overflow-hidden bg-[#0a0a0a] font-sans text-slate-200 selection:bg-violet-500/30">
+      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+        <div className="absolute -top-32 left-1/2 h-[640px] w-[640px] -translate-x-1/2 rounded-full bg-violet-500/[0.05] blur-3xl" />
+        <div className="absolute bottom-0 right-0 h-[480px] w-[480px] translate-x-1/3 translate-y-1/3 rounded-full bg-emerald-500/[0.03] blur-3xl" />
+      </div>
+
       <Header />
 
       <main className="relative z-10 pt-32 pb-32">
@@ -300,18 +295,18 @@ const StudyGuides = () => {
           {/* Hero Section */}
           <section className="py-12 md:py-20 flex flex-col justify-center items-center text-center mb-8">
             <SmoothReveal direction="up" className="mb-6">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200 shadow-sm mb-8">
-                <GraduationCap className="w-4 h-4 text-emerald-600" />
-                <span className="text-sm font-semibold text-slate-600 uppercase tracking-wider">Rutas de Transformación</span>
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 mb-8">
+                <GraduationCap className="w-4 h-4 text-[#7D5BDE]" aria-hidden="true" />
+                <span className="text-sm font-semibold uppercase tracking-wider text-slate-400">Rutas de Transformación</span>
               </div>
             </SmoothReveal>
             <SmoothReveal direction="up" delay={0.1}>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-slate-900 mb-6 tracking-tight">
-                Rutas de <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-cyan-600">Transformación</span>
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold tracking-tight mb-6 text-transparent bg-clip-text bg-gradient-to-b from-white via-slate-200 to-slate-400 pb-[0.1em]">
+                Rutas de Transformación
               </h1>
             </SmoothReveal>
             <SmoothReveal direction="up" delay={0.2} className="max-w-2xl">
-              <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-light">
+              <p className="text-lg md:text-xl text-slate-400 leading-relaxed font-light">
                 Cada ruta es un camino práctico para entender tu realidad y pasar a la acción. Elegí la que más resuene con vos y empezá hoy.
               </p>
             </SmoothReveal>
@@ -320,15 +315,15 @@ const StudyGuides = () => {
               <SmoothReveal direction="up" delay={0.3} className="mt-10">
                 <div className="flex justify-center gap-8 md:gap-12">
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-emerald-600">{stats.total}</div>
+                    <div className="font-serif text-3xl font-bold text-slate-100">{stats.total}</div>
                     <div className="text-sm text-slate-500">Cursos</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-cyan-600">{stats.totalHours}h</div>
+                    <div className="font-serif text-3xl font-bold text-slate-100">{stats.totalHours}h</div>
                     <div className="text-sm text-slate-500">de contenido</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-blue-600">{stats.levelCount}</div>
+                    <div className="font-serif text-3xl font-bold text-slate-100">{stats.levelCount}</div>
                     <div className="text-sm text-slate-500">Niveles</div>
                   </div>
                 </div>
@@ -340,87 +335,87 @@ const StudyGuides = () => {
           {isLoggedIn && inProgressCourse && (
             <SmoothReveal direction="up" className="mb-12 max-w-4xl mx-auto">
               <Link href={`/recursos/guias-estudio/${inProgressCourse.slug}`}>
-                <GlassCard className="p-6 bg-gradient-to-r from-emerald-50/80 to-cyan-50/80 border border-emerald-200/50 hover:shadow-xl transition-all duration-300 cursor-pointer group" intensity="medium">
-                  <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
-                    <div className="flex items-center gap-3 flex-1 min-w-0">
-                      <div className="w-12 h-12 rounded-xl bg-emerald-100 flex items-center justify-center shrink-0">
-                        <PlayCircle className="w-6 h-6 text-emerald-600" />
+                <div className="group cursor-pointer rounded-2xl border border-[#7D5BDE]/25 bg-[#7D5BDE]/[0.07] p-6 transition-all duration-300 hover:border-[#7D5BDE]/40 hover:shadow-[0_0_40px_rgba(125,91,222,0.12)]">
+                  <div className="flex flex-col items-start gap-4 md:flex-row md:items-center">
+                    <div className="flex min-w-0 flex-1 items-center gap-3">
+                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#7D5BDE]/15">
+                        <PlayCircle className="h-6 w-6 text-violet-300" aria-hidden="true" />
                       </div>
                       <div className="min-w-0 flex-1">
-                        <p className="text-xs font-semibold text-emerald-600 uppercase tracking-wider mb-1">Continúa donde dejaste</p>
-                        <h3 className="text-lg font-bold text-slate-900 truncate">{inProgressCourse.title}</h3>
+                        <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-violet-300">Continuá donde dejaste</p>
+                        <h3 className="truncate font-serif text-lg font-bold text-slate-100">{inProgressCourse.title}</h3>
                       </div>
                     </div>
-                    <div className="flex items-center gap-4 w-full md:w-auto">
+                    <div className="flex w-full items-center gap-4 md:w-auto">
                       <div className="flex-1 md:w-32">
-                        <div className="flex justify-between text-xs font-medium text-emerald-600 mb-1">
+                        <div className="mb-1 flex justify-between text-xs font-medium text-violet-300">
                           <span>{inProgressCourse.userProgress?.progress || 0}%</span>
                         </div>
-                        <div className="h-2 bg-emerald-100 rounded-full overflow-hidden">
-                          <div className="h-full bg-emerald-500 rounded-full transition-all" style={{ width: `${inProgressCourse.userProgress?.progress || 0}%` }} />
+                        <div className="h-2 overflow-hidden rounded-full bg-white/10">
+                          <div className="h-full rounded-full bg-gradient-to-r from-[#7D5BDE] to-violet-400 transition-all" style={{ width: `${inProgressCourse.userProgress?.progress || 0}%` }} />
                         </div>
                       </div>
-                      <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 group-hover:bg-emerald-500 group-hover:text-white transition-all shrink-0">
-                        <ArrowRight className="w-4 h-4" />
+                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/5 text-violet-300 transition-all group-hover:bg-[#7D5BDE] group-hover:text-white">
+                        <ArrowRight className="h-4 w-4" aria-hidden="true" />
                       </div>
                     </div>
                   </div>
-                </GlassCard>
+                </div>
               </Link>
             </SmoothReveal>
           )}
 
           {/* Filters Bar */}
           <div className="sticky top-24 z-40 mb-14">
-            <GlassCard className="max-w-5xl mx-auto p-3 flex flex-col items-center gap-3 bg-white/80 backdrop-blur-xl shadow-xl rounded-2xl" intensity="high">
+            <div className="mx-auto flex max-w-5xl flex-col items-center gap-3 rounded-2xl border border-white/10 bg-[#0a0a0a]/80 p-3 shadow-[0_8px_40px_rgba(0,0,0,0.5)] backdrop-blur-xl">
               <div className="w-full relative max-w-md">
-                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400 w-5 h-5" />
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500" aria-hidden="true" />
                 <input
                   type="text"
                   placeholder="Buscar cursos..."
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
-                  className="w-full bg-slate-100/70 border border-slate-200/80 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-400/20 rounded-full pl-11 pr-4 text-base text-slate-800 placeholder-slate-400 h-11 transition-colors outline-none"
+                  className="w-full bg-white/5 border border-white/10 focus:border-[#7D5BDE]/60 focus:ring-2 focus:ring-[#7D5BDE]/20 rounded-full pl-11 pr-4 text-base text-slate-200 placeholder-slate-500 h-11 transition-colors outline-none"
                 />
               </div>
 
-              <div className="flex bg-slate-100/50 p-1 rounded-full overflow-x-auto max-w-full hide-scrollbar">
+              <div className="flex bg-white/5 p-1 rounded-full overflow-x-auto max-w-full hide-scrollbar">
                 {categories.map(cat => (
                   <button
                     key={cat.id}
                     onClick={() => setCategory(cat.id)}
-                    className={`px-5 py-2 rounded-full text-sm font-medium transition-all whitespace-nowrap ${
+                    className={`px-5 py-2 rounded-full text-sm font-medium transition-all whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a] ${
                       category === cat.id
-                        ? 'bg-white text-emerald-600 shadow-sm'
-                        : 'text-slate-500 hover:text-slate-700'
+                        ? 'bg-[#7D5BDE] text-white'
+                        : 'text-slate-400 hover:text-slate-200'
                     }`}
                   >
                     {cat.label}
                   </button>
                 ))}
               </div>
-            </GlassCard>
+            </div>
           </div>
 
           {/* Course Grid */}
           <div className="max-w-7xl mx-auto min-h-[300px]">
             {isLoading ? (
               <div className="flex justify-center pt-20">
-                <Loader2 className="w-10 h-10 animate-spin text-emerald-500" />
+                <Loader2 className="w-10 h-10 animate-spin text-violet-400" />
               </div>
             ) : courses.length === 0 ? (
               <div className="text-center py-20">
                 <SmoothReveal direction="up">
                   <div className="max-w-md mx-auto">
-                    <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-slate-100 flex items-center justify-center">
-                      <Sparkles className="w-8 h-8 text-slate-400" />
+                    <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-white/5 flex items-center justify-center">
+                      <Sparkles className="w-8 h-8 text-slate-500" />
                     </div>
-                    <h3 className="text-xl font-semibold text-slate-800 mb-3">
+                    <h3 className="text-xl font-semibold text-slate-100 mb-3">
                       {search
                         ? `Sin resultados para "${search}"`
                         : `Cursos de ${categories.find(c => c.id === category)?.label || 'esta categoría'} próximamente`}
                     </h3>
-                    <p className="text-slate-500 mb-6">
+                    <p className="text-slate-400 mb-6">
                       {search
                         ? 'Intenta con otras palabras clave o elimina los filtros para ver todos los cursos.'
                         : 'Mientras tanto, explora las guías disponibles en otras categorías.'}
@@ -449,19 +444,19 @@ const StudyGuides = () => {
                           <div className="flex items-center gap-4 mb-8">
                             <div
                               className="w-10 h-10 rounded-xl flex items-center justify-center"
-                              style={{ backgroundColor: `${meta?.accent || '#64748b'}15` }}
+                              style={{ backgroundColor: `${meta?.accent || '#94a3b8'}14` }}
                             >
-                              <CatIcon className="w-5 h-5" style={{ color: meta?.accent || '#64748b' }} />
+                              <CatIcon className="w-5 h-5" style={{ color: meta?.accent || '#94a3b8' }} aria-hidden="true" />
                             </div>
                             <div>
-                              <h2 className="text-xl font-bold text-slate-800">
+                              <h2 className="font-serif text-xl font-bold text-slate-100">
                                 {getCategoryLabel(catId)}
                               </h2>
-                              <p className="text-sm text-slate-400">
+                              <p className="text-sm text-slate-500">
                                 {catCourses.length} {catCourses.length === 1 ? 'curso disponible' : 'cursos disponibles'}
                               </p>
                             </div>
-                            <div className="flex-1 h-px bg-gradient-to-r from-slate-200 to-transparent ml-4" />
+                            <div className="ml-4 h-px flex-1 bg-gradient-to-r from-slate-400/30 to-transparent" />
                           </div>
                         </SmoothReveal>
                       )}
@@ -477,7 +472,7 @@ const StudyGuides = () => {
                           <CourseCard
                             key={course.id}
                             course={course}
-                            accentColor={meta?.accent || '#64748b'}
+                            accentColor={meta?.accent || '#94a3b8'}
                           />
                         ))}
                       </motion.div>
