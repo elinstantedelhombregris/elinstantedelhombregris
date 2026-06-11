@@ -1,17 +1,15 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  MessageCircle, 
-  Reply, 
-  Edit2, 
-  Trash2, 
-  Send, 
-  MoreHorizontal,
+import {
+  MessageCircle,
+  Reply,
+  Edit2,
+  Trash2,
+  Send,
   User,
   Clock
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
 import { useToast } from '@/hooks/use-toast';
@@ -59,7 +57,7 @@ export default function CommentsSection({
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   // Sort comments by date (newest first)
-  const sortedComments = [...comments].sort((a, b) => 
+  const sortedComments = [...comments].sort((a, b) =>
     new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
   );
 
@@ -79,7 +77,7 @@ export default function CommentsSection({
     } catch (error) {
       toast({
         title: "Error",
-        description: "No se pudo publicar el comentario. Inténtalo de nuevo.",
+        description: "No se pudo publicar el comentario. Intentalo de nuevo.",
         variant: "destructive",
         duration: 3000,
       });
@@ -104,7 +102,7 @@ export default function CommentsSection({
     } catch (error) {
       toast({
         title: "Error",
-        description: "No se pudo editar el comentario. Inténtalo de nuevo.",
+        description: "No se pudo editar el comentario. Intentalo de nuevo.",
         variant: "destructive",
         duration: 3000,
       });
@@ -124,7 +122,7 @@ export default function CommentsSection({
     } catch (error) {
       toast({
         title: "Error",
-        description: "No se pudo eliminar el comentario. Inténtalo de nuevo.",
+        description: "No se pudo eliminar el comentario. Intentalo de nuevo.",
         variant: "destructive",
         duration: 3000,
       });
@@ -145,13 +143,13 @@ export default function CommentsSection({
     const date = new Date(dateString);
     const now = new Date();
     const diffInHours = Math.floor((now.getTime() - date.getTime()) / (1000 * 60 * 60));
-    
+
     if (diffInHours < 1) return 'Hace menos de una hora';
     if (diffInHours < 24) return `Hace ${diffInHours} hora${diffInHours > 1 ? 's' : ''}`;
-    
+
     const diffInDays = Math.floor(diffInHours / 24);
     if (diffInDays < 7) return `Hace ${diffInDays} día${diffInDays > 1 ? 's' : ''}`;
-    
+
     return date.toLocaleDateString('es-AR', {
       year: 'numeric',
       month: 'short',
@@ -170,117 +168,122 @@ export default function CommentsSection({
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -20 }}
-        className={`${isReply ? 'ml-8 border-l-2 border-gray-200 pl-4' : ''}`}
+        className={`${isReply ? 'ml-8 border-l-2 border-white/10 pl-4' : ''}`}
       >
-        <Card className="mb-4">
-          <CardHeader className="pb-3">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
-                  <User className="w-4 h-4 text-white" />
-                </div>
-                <div>
-                  <h4 className="font-medium text-gray-900">{comment.user.name}</h4>
-                  <div className="flex items-center gap-2 text-sm text-gray-500">
-                    <Clock className="w-3 h-3" />
-                    {formatDate(comment.createdAt)}
-                    {comment.updatedAt !== comment.createdAt && (
-                      <Badge variant="secondary" className="text-xs">
-                        Editado
-                      </Badge>
-                    )}
-                  </div>
+        <div className="mb-4 rounded-2xl border border-white/10 bg-white/[0.03] p-5">
+          {/* Comment header */}
+          <div className="mb-3 flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-violet-500/40 to-purple-600/40 ring-1 ring-white/10">
+                <User className="h-4 w-4 text-slate-300" aria-hidden="true" />
+              </div>
+              <div>
+                <h4 className="text-sm font-medium text-slate-100">{comment.user.name}</h4>
+                <div className="flex items-center gap-2 text-xs text-slate-500">
+                  <Clock className="h-3 w-3" aria-hidden="true" />
+                  {formatDate(comment.createdAt)}
+                  {comment.updatedAt !== comment.createdAt && (
+                    <Badge variant="secondary" className="bg-white/5 text-xs text-slate-400 border-white/10">
+                      Editado
+                    </Badge>
+                  )}
                 </div>
               </div>
-              
-              {isOwner && (
-                <div className="flex items-center gap-1">
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => {
-                      setEditingComment(comment.id);
-                      setEditContent(comment.content);
-                    }}
-                    disabled={isEditing}
-                  >
-                    <Edit2 className="w-4 h-4" />
-                  </Button>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => handleDeleteComment(comment.id)}
-                  >
-                    <Trash2 className="w-4 h-4" />
-                  </Button>
-                </div>
-              )}
             </div>
-          </CardHeader>
-          
-          <CardContent>
-            {isEditing ? (
-              <div className="space-y-3">
-                <Textarea
-                  value={editContent}
-                  onChange={(e) => setEditContent(e.target.value)}
-                  placeholder="Edita tu comentario..."
-                  rows={3}
-                  className="min-h-[80px]"
-                />
-                <div className="flex gap-2">
-                  <Button
-                    size="sm"
-                    onClick={() => handleEditSubmit(comment.id)}
-                    disabled={isSubmitting || !editContent.trim()}
-                  >
-                    {isSubmitting ? 'Guardando...' : 'Guardar'}
-                  </Button>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => {
-                      setEditingComment(null);
-                      setEditContent('');
-                    }}
-                  >
-                    Cancelar
-                  </Button>
-                </div>
-              </div>
-            ) : (
-              <div className="prose prose-sm max-w-none">
-                <p className="text-gray-700 leading-relaxed">
-                  {comment.content}
-                </p>
-              </div>
-            )}
-            
-            {!isReply && (
-              <div className="flex items-center gap-4 mt-4 pt-3 border-t border-gray-100">
+
+            {isOwner && (
+              <div className="flex items-center gap-1">
                 <Button
                   variant="ghost"
                   size="sm"
-                  onClick={() => setReplyingTo(comment.id)}
-                  disabled={!currentUserId}
+                  aria-label="Editar comentario"
+                  onClick={() => {
+                    setEditingComment(comment.id);
+                    setEditContent(comment.content);
+                  }}
+                  disabled={isEditing}
+                  className="h-8 w-8 p-0 text-slate-500 hover:bg-white/5 hover:text-slate-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]"
                 >
-                  <Reply className="w-4 h-4 mr-2" />
-                  Responder
+                  <Edit2 className="h-4 w-4" aria-hidden="true" />
                 </Button>
-                
-                {hasReplies && (
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => toggleReplies(comment.id)}
-                  >
-                    {showRepliesForThis ? 'Ocultar' : 'Ver'} {comment.replies?.length} respuesta{comment.replies && comment.replies.length > 1 ? 's' : ''}
-                  </Button>
-                )}
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  aria-label="Eliminar comentario"
+                  onClick={() => handleDeleteComment(comment.id)}
+                  className="h-8 w-8 p-0 text-slate-500 hover:bg-red-500/10 hover:text-red-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]"
+                >
+                  <Trash2 className="h-4 w-4" aria-hidden="true" />
+                </Button>
               </div>
             )}
-          </CardContent>
-        </Card>
+          </div>
+
+          {/* Comment body */}
+          {isEditing ? (
+            <div className="space-y-3">
+              <Textarea
+                value={editContent}
+                onChange={(e) => setEditContent(e.target.value)}
+                placeholder="Editá tu comentario..."
+                rows={3}
+                className="min-h-[80px] border-white/10 bg-white/5 text-slate-200 placeholder-slate-500 focus-visible:ring-violet-500/70"
+              />
+              <div className="flex gap-2">
+                <Button
+                  size="sm"
+                  onClick={() => handleEditSubmit(comment.id)}
+                  disabled={isSubmitting || !editContent.trim()}
+                  className="bg-[#7D5BDE] text-white hover:bg-[#8d6ee6] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]"
+                >
+                  {isSubmitting ? 'Guardando...' : 'Guardar'}
+                </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => {
+                    setEditingComment(null);
+                    setEditContent('');
+                  }}
+                  className="border-white/10 bg-white/5 text-slate-300 hover:bg-white/10 hover:text-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]"
+                >
+                  Cancelar
+                </Button>
+              </div>
+            </div>
+          ) : (
+            <p className="text-sm leading-relaxed text-slate-300">
+              {comment.content}
+            </p>
+          )}
+
+          {/* Reply / show replies controls */}
+          {!isReply && (
+            <div className="mt-4 flex items-center gap-4 border-t border-white/10 pt-3">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setReplyingTo(comment.id)}
+                disabled={!currentUserId}
+                className="h-8 gap-1.5 px-2 text-xs text-slate-500 hover:bg-white/5 hover:text-slate-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]"
+              >
+                <Reply className="h-4 w-4" aria-hidden="true" />
+                Responder
+              </Button>
+
+              {hasReplies && (
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => toggleReplies(comment.id)}
+                  className="h-8 px-2 text-xs text-slate-500 hover:bg-white/5 hover:text-slate-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]"
+                >
+                  {showRepliesForThis ? 'Ocultar' : 'Ver'} {comment.replies?.length} respuesta{comment.replies && comment.replies.length > 1 ? 's' : ''}
+                </Button>
+              )}
+            </div>
+          )}
+        </div>
 
         {/* Replies */}
         <AnimatePresence>
@@ -304,41 +307,41 @@ export default function CommentsSection({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="mt-4 ml-8"
+            className="mt-2 ml-8"
           >
-            <Card>
-              <CardContent className="pt-4">
-                <div className="space-y-3">
-                  <Textarea
-                    ref={textareaRef}
-                    placeholder={`Responder a ${comment.user.name}...`}
-                    rows={3}
-                    className="min-h-[80px]"
-                    onChange={(e) => setNewComment(e.target.value)}
-                    value={newComment}
-                  />
-                  <div className="flex gap-2">
-                    <Button
-                      size="sm"
-                      onClick={() => handleSubmitComment(comment.id)}
-                      disabled={isSubmitting || !newComment.trim()}
-                    >
-                      {isSubmitting ? 'Enviando...' : 'Responder'}
-                    </Button>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => {
-                        setReplyingTo(null);
-                        setNewComment('');
-                      }}
-                    >
-                      Cancelar
-                    </Button>
-                  </div>
+            <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
+              <div className="space-y-3">
+                <Textarea
+                  ref={textareaRef}
+                  placeholder={`Responder a ${comment.user.name}...`}
+                  rows={3}
+                  className="min-h-[80px] border-white/10 bg-white/5 text-slate-200 placeholder-slate-500 focus-visible:ring-violet-500/70"
+                  onChange={(e) => setNewComment(e.target.value)}
+                  value={newComment}
+                />
+                <div className="flex gap-2">
+                  <Button
+                    size="sm"
+                    onClick={() => handleSubmitComment(comment.id)}
+                    disabled={isSubmitting || !newComment.trim()}
+                    className="bg-[#7D5BDE] text-white hover:bg-[#8d6ee6] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]"
+                  >
+                    {isSubmitting ? 'Enviando...' : 'Responder'}
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => {
+                      setReplyingTo(null);
+                      setNewComment('');
+                    }}
+                    className="border-white/10 bg-white/5 text-slate-300 hover:bg-white/10 hover:text-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]"
+                  >
+                    Cancelar
+                  </Button>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </motion.div>
         )}
       </motion.div>
@@ -349,77 +352,68 @@ export default function CommentsSection({
     <div className="space-y-6">
       {/* Comment form */}
       {currentUserId && (
-        <Card>
-          <CardHeader>
-            <h3 className="text-lg font-semibold flex items-center gap-2">
-              <MessageCircle className="w-5 h-5" />
-              Deja un comentario
-            </h3>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-3">
-              <Textarea
-                placeholder="Comparte tus pensamientos sobre este artículo..."
-                rows={4}
-                value={newComment}
-                onChange={(e) => setNewComment(e.target.value)}
-                className="min-h-[100px]"
-              />
-              <div className="flex justify-end">
-                <Button
-                  onClick={() => handleSubmitComment()}
-                  disabled={isSubmitting || !newComment.trim()}
-                >
-                  {isSubmitting ? 'Publicando...' : 'Publicar comentario'}
-                  <Send className="w-4 h-4 ml-2" />
-                </Button>
-              </div>
+        <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+          <h3 className="mb-4 flex items-center gap-2 text-lg font-semibold text-slate-100">
+            <MessageCircle className="h-5 w-5 text-violet-400" aria-hidden="true" />
+            Dejá un comentario
+          </h3>
+          <div className="space-y-3">
+            <Textarea
+              placeholder="Compartí tus pensamientos sobre este artículo..."
+              rows={4}
+              value={newComment}
+              onChange={(e) => setNewComment(e.target.value)}
+              className="min-h-[100px] border-white/10 bg-white/5 text-slate-200 placeholder-slate-500 focus-visible:ring-violet-500/70"
+            />
+            <div className="flex justify-end">
+              <Button
+                onClick={() => handleSubmitComment()}
+                disabled={isSubmitting || !newComment.trim()}
+                className="bg-[#7D5BDE] text-white hover:bg-[#8d6ee6] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]"
+              >
+                {isSubmitting ? 'Publicando...' : 'Publicar comentario'}
+                <Send className="ml-2 h-4 w-4" aria-hidden="true" />
+              </Button>
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
       )}
 
       {/* Comments list */}
       <div>
-        <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-          <MessageCircle className="w-5 h-5" />
+        <h3 className="mb-4 flex items-center gap-2 text-lg font-semibold text-slate-100">
+          <MessageCircle className="h-5 w-5 text-violet-400" aria-hidden="true" />
           Comentarios ({comments.length})
         </h3>
 
         {loading ? (
           <div className="space-y-4">
             {[...Array(3)].map((_, i) => (
-              <Card key={i} className="animate-pulse">
-                <CardHeader>
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-gray-200 rounded-full"></div>
-                    <div>
-                      <div className="h-4 bg-gray-200 rounded w-24 mb-2"></div>
-                      <div className="h-3 bg-gray-200 rounded w-16"></div>
-                    </div>
+              <div key={i} className="animate-pulse rounded-2xl border border-white/10 bg-white/[0.03] p-5">
+                <div className="flex items-center gap-3">
+                  <div className="h-8 w-8 rounded-full bg-white/5" />
+                  <div>
+                    <div className="mb-2 h-4 w-24 rounded bg-white/5" />
+                    <div className="h-3 w-16 rounded bg-white/5" />
                   </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-2">
-                    <div className="h-3 bg-gray-200 rounded w-full"></div>
-                    <div className="h-3 bg-gray-200 rounded w-3/4"></div>
-                  </div>
-                </CardContent>
-              </Card>
+                </div>
+                <div className="mt-4 space-y-2">
+                  <div className="h-3 w-full rounded bg-white/5" />
+                  <div className="h-3 w-3/4 rounded bg-white/5" />
+                </div>
+              </div>
             ))}
           </div>
         ) : sortedComments.length === 0 ? (
-          <Card>
-            <CardContent className="py-8 text-center">
-              <MessageCircle className="w-12 h-12 text-gray-300 mx-auto mb-4" />
-              <h4 className="text-lg font-medium text-gray-900 mb-2">
-                Aún no hay comentarios
-              </h4>
-              <p className="text-gray-500">
-                Sé el primero en compartir tus pensamientos sobre este artículo.
-              </p>
-            </CardContent>
-          </Card>
+          <div className="rounded-2xl border border-white/10 bg-white/[0.03] py-12 text-center">
+            <MessageCircle className="mx-auto mb-4 h-12 w-12 text-slate-600" aria-hidden="true" />
+            <h4 className="mb-2 text-lg font-medium text-slate-100">
+              Aún no hay comentarios
+            </h4>
+            <p className="text-slate-500">
+              Sé el primero en compartir tus pensamientos sobre este artículo.
+            </p>
+          </div>
         ) : (
           <AnimatePresence>
             {sortedComments.map((comment) => (
