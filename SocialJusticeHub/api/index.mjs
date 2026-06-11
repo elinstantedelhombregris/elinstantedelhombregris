@@ -3062,6 +3062,95 @@ var init_schema = __esm({
   }
 });
 
+// server/config.ts
+import dotenv from "dotenv";
+import path from "path";
+import { fileURLToPath } from "url";
+function isProductionLikeEnv() {
+  const nodeEnv = process.env.NODE_ENV || "development";
+  return nodeEnv === "production" || Boolean(process.env.VERCEL);
+}
+function assertStrongSecret(envKey) {
+  const current = process.env[envKey];
+  if (!current || current.length < 32) {
+    throw new Error(
+      `[config] ${envKey} is required and must be at least 32 characters. Set it in the deployment environment before booting.`
+    );
+  }
+}
+function validateConfig() {
+  const requiredEnvVars = [
+    "JWT_SECRET",
+    "SESSION_SECRET"
+  ];
+  for (const varName of requiredEnvVars) {
+    assertStrongSecret(varName);
+  }
+  const defaultCorsOrigin = isProductionLikeEnv() ? process.env.CORS_ORIGIN || "https://elinstantedelhombregris.com" : "http://localhost:5173";
+  return {
+    database: {
+      url: process.env.DATABASE_URL || "./local.db"
+    },
+    jwt: {
+      secret: process.env.JWT_SECRET,
+      expiresIn: process.env.JWT_EXPIRES_IN || "7d",
+      refreshExpiresIn: process.env.JWT_REFRESH_EXPIRES_IN || "30d"
+    },
+    security: {
+      bcryptRounds: parseInt(process.env.BCRYPT_ROUNDS || "12"),
+      rateLimitWindowMs: parseInt(process.env.RATE_LIMIT_WINDOW_MS || "900000"),
+      // 15 minutes
+      rateLimitMaxRequests: parseInt(process.env.RATE_LIMIT_MAX_REQUESTS || "100"),
+      loginRateLimitMax: parseInt(process.env.LOGIN_RATE_LIMIT_MAX || "5"),
+      loginRateLimitWindowMs: parseInt(process.env.LOGIN_RATE_LIMIT_WINDOW_MS || "900000")
+      // 15 minutes
+    },
+    cors: {
+      origin: process.env.CORS_ORIGIN || defaultCorsOrigin,
+      credentials: process.env.CORS_CREDENTIALS !== "false"
+      // Default to true unless explicitly set to false
+    },
+    server: {
+      port: parseInt(process.env.PORT || "5000"),
+      nodeEnv: process.env.NODE_ENV || "development"
+    },
+    session: {
+      secret: process.env.SESSION_SECRET,
+      cookieSecure: process.env.SESSION_COOKIE_SECURE === "true",
+      cookieHttpOnly: process.env.SESSION_COOKIE_HTTP_ONLY !== "false",
+      cookieMaxAge: parseInt(process.env.SESSION_COOKIE_MAX_AGE || "86400000")
+      // 24 hours
+    },
+    ai: {
+      anthropicApiKey: process.env.ANTHROPIC_API_KEY || null,
+      model: process.env.AI_MODEL || "claude-sonnet-4-20250514",
+      maxTokens: parseInt(process.env.AI_MAX_TOKENS || "512"),
+      enabled: !!process.env.ANTHROPIC_API_KEY,
+      groqApiKey: process.env.GROQ_API_KEY || null,
+      groqModel: process.env.GROQ_MODEL || "llama-3.3-70b-versatile",
+      groqEnabled: !!process.env.GROQ_API_KEY
+    }
+  };
+}
+var config;
+var init_config = __esm({
+  "server/config.ts"() {
+    "use strict";
+    try {
+      dotenv.config();
+    } catch {
+    }
+    if (!process.env.DATABASE_URL) {
+      try {
+        const here = path.dirname(fileURLToPath(import.meta.url));
+        dotenv.config({ path: path.resolve(here, "..", ".env") });
+      } catch {
+      }
+    }
+    config = validateConfig();
+  }
+});
+
 // server/db.ts
 import { neon } from "@neondatabase/serverless";
 import { drizzle } from "drizzle-orm/neon-http";
@@ -3069,6 +3158,7 @@ var databaseUrl, sql2, db;
 var init_db = __esm({
   "server/db.ts"() {
     "use strict";
+    init_config();
     init_schema();
     databaseUrl = process.env.DATABASE_URL;
     if (!databaseUrl) {
@@ -3187,83 +3277,6 @@ var init_geo_resolver = __esm({
       "Ciudad de Buenos Aires": "Ciudad Aut\xF3noma de Buenos Aires"
     };
     MAX_CITY_KM = 50;
-  }
-});
-
-// server/config.ts
-import dotenv from "dotenv";
-function isProductionLikeEnv() {
-  const nodeEnv = process.env.NODE_ENV || "development";
-  return nodeEnv === "production" || Boolean(process.env.VERCEL);
-}
-function assertStrongSecret(envKey) {
-  const current = process.env[envKey];
-  if (!current || current.length < 32) {
-    throw new Error(
-      `[config] ${envKey} is required and must be at least 32 characters. Set it in the deployment environment before booting.`
-    );
-  }
-}
-function validateConfig() {
-  const requiredEnvVars = [
-    "JWT_SECRET",
-    "SESSION_SECRET"
-  ];
-  for (const varName of requiredEnvVars) {
-    assertStrongSecret(varName);
-  }
-  const defaultCorsOrigin = isProductionLikeEnv() ? process.env.CORS_ORIGIN || "https://elinstantedelhombregris.com" : "http://localhost:5173";
-  return {
-    database: {
-      url: process.env.DATABASE_URL || "./local.db"
-    },
-    jwt: {
-      secret: process.env.JWT_SECRET,
-      expiresIn: process.env.JWT_EXPIRES_IN || "7d",
-      refreshExpiresIn: process.env.JWT_REFRESH_EXPIRES_IN || "30d"
-    },
-    security: {
-      bcryptRounds: parseInt(process.env.BCRYPT_ROUNDS || "12"),
-      rateLimitWindowMs: parseInt(process.env.RATE_LIMIT_WINDOW_MS || "900000"),
-      // 15 minutes
-      rateLimitMaxRequests: parseInt(process.env.RATE_LIMIT_MAX_REQUESTS || "100"),
-      loginRateLimitMax: parseInt(process.env.LOGIN_RATE_LIMIT_MAX || "5"),
-      loginRateLimitWindowMs: parseInt(process.env.LOGIN_RATE_LIMIT_WINDOW_MS || "900000")
-      // 15 minutes
-    },
-    cors: {
-      origin: process.env.CORS_ORIGIN || defaultCorsOrigin,
-      credentials: process.env.CORS_CREDENTIALS !== "false"
-      // Default to true unless explicitly set to false
-    },
-    server: {
-      port: parseInt(process.env.PORT || "5000"),
-      nodeEnv: process.env.NODE_ENV || "development"
-    },
-    session: {
-      secret: process.env.SESSION_SECRET,
-      cookieSecure: process.env.SESSION_COOKIE_SECURE === "true",
-      cookieHttpOnly: process.env.SESSION_COOKIE_HTTP_ONLY !== "false",
-      cookieMaxAge: parseInt(process.env.SESSION_COOKIE_MAX_AGE || "86400000")
-      // 24 hours
-    },
-    ai: {
-      anthropicApiKey: process.env.ANTHROPIC_API_KEY || null,
-      model: process.env.AI_MODEL || "claude-sonnet-4-20250514",
-      maxTokens: parseInt(process.env.AI_MAX_TOKENS || "512"),
-      enabled: !!process.env.ANTHROPIC_API_KEY,
-      groqApiKey: process.env.GROQ_API_KEY || null,
-      groqModel: process.env.GROQ_MODEL || "llama-3.3-70b-versatile",
-      groqEnabled: !!process.env.GROQ_API_KEY
-    }
-  };
-}
-var config;
-var init_config = __esm({
-  "server/config.ts"() {
-    "use strict";
-    dotenv.config();
-    config = validateConfig();
   }
 });
 
@@ -8251,8 +8264,8 @@ var init_geo_service = __esm({
 
 // server/storage.ts
 import { eq as eq2, desc as desc2, and as and2, sql as sql4, asc as asc2, gte, or as or2, like, inArray as inArray2, ilike as ilike2 } from "drizzle-orm";
-import path from "path";
-import { fileURLToPath } from "url";
+import path2 from "path";
+import { fileURLToPath as fileURLToPath2 } from "url";
 var ACTION_POINTS, parseNumericJsonArray, stringifyNumericArray, resolveCourseProgressCourseId, resolveCurrentLessonIdentityId, resolveCompletedLessonIdentityIds, resolveCompletedLessonExternalIds, adaptUserCourseProgress, adaptUserLessonProgress, compareCourseOrder, __filename, __dirname, DatabaseStorage, storage;
 var init_storage = __esm({
   "server/storage.ts"() {
@@ -8371,8 +8384,8 @@ var init_storage = __esm({
       }
       return (right.orderIndex ?? 0) - (left.orderIndex ?? 0) || toTimestamp(right.updatedAt) - toTimestamp(left.updatedAt) || toTimestamp(right.createdAt) - toTimestamp(left.createdAt);
     };
-    __filename = fileURLToPath(import.meta.url);
-    __dirname = path.dirname(__filename);
+    __filename = fileURLToPath2(import.meta.url);
+    __dirname = path2.dirname(__filename);
     DatabaseStorage = class {
       constructor() {
         this.userCommitmentsLocationColumnsEnsured = false;
@@ -18117,100 +18130,265 @@ function registerAnalyticsRoutes(app2) {
   });
 }
 
+// server/routes-radar.ts
+init_db();
+init_schema();
+init_storage();
+init_auth();
+import { z as z6 } from "zod";
+import rateLimit3 from "express-rate-limit";
+import { desc as desc12, eq as eq14, sql as sql10 } from "drizzle-orm";
+
+// server/lib/radar.ts
+import { z as z5 } from "zod";
+var RADAR_VOICE_TYPES = ["dream", "value", "need", "basta"];
+var RADAR_AUTH_TYPES = ["compromiso", "recurso"];
+var RADAR_TYPES = [...RADAR_VOICE_TYPES, ...RADAR_AUTH_TYPES];
+var RESOURCE_CATEGORIES = [
+  "legal",
+  "medical",
+  "education",
+  "tech",
+  "construction",
+  "agriculture",
+  "communication",
+  "admin",
+  "transport",
+  "space",
+  "equipment",
+  "other"
+];
+var radarSenalSchema = z5.object({
+  type: z5.enum(RADAR_TYPES, {
+    errorMap: () => ({ message: "Tipo de se\xF1al inv\xE1lido" })
+  }),
+  text: z5.string({ required_error: "Contanos tu se\xF1al" }).trim().min(10, "Contanos un poco m\xE1s \u2014 al menos 10 caracteres").max(1e3, "M\xE1ximo 1000 caracteres"),
+  location: z5.string().trim().max(255, "El lugar no puede superar 255 caracteres").optional(),
+  latitude: z5.coerce.number().min(-90, "Latitud inv\xE1lida").max(90, "Latitud inv\xE1lida").optional(),
+  longitude: z5.coerce.number().min(-180, "Longitud inv\xE1lida").max(180, "Longitud inv\xE1lida").optional(),
+  // Solo para type === 'recurso'
+  category: z5.enum(RESOURCE_CATEGORIES).optional()
+});
+function isVoiceType(type) {
+  return RADAR_VOICE_TYPES.includes(type);
+}
+function buildDreamInsert(input, userId) {
+  if (!isVoiceType(input.type)) {
+    throw new Error(`buildDreamInsert solo acepta tipos de voz, recibi\xF3: ${input.type}`);
+  }
+  return {
+    userId,
+    dream: input.type === "dream" ? input.text : null,
+    value: input.type === "value" ? input.text : null,
+    need: input.type === "need" ? input.text : null,
+    basta: input.type === "basta" ? input.text : null,
+    location: input.location ?? null,
+    latitude: input.latitude !== void 0 ? String(input.latitude) : null,
+    longitude: input.longitude !== void 0 ? String(input.longitude) : null,
+    type: input.type
+  };
+}
+function excerptSignalText(text2, max = 140) {
+  if (!text2) return "";
+  const clean = text2.replace(/\s+/g, " ").trim();
+  return clean.length <= max ? clean : `${clean.slice(0, max - 1).trimEnd()}\u2026`;
+}
+
+// server/routes-radar.ts
+var radarSubmitRateLimit = rateLimit3({
+  windowMs: 15 * 60 * 1e3,
+  max: 12,
+  message: { message: "Mandaste muchas se\xF1ales seguidas. Esper\xE1 unos minutos y segu\xED." },
+  standardHeaders: true,
+  legacyHeaders: false
+});
+var resumenCache = null;
+var RESUMEN_TTL_MS = 60 * 1e3;
+function registerRadarRoutes(app2) {
+  app2.post("/api/radar/senal", radarSubmitRateLimit, optionalAuth, sanitizeInput, async (req, res) => {
+    try {
+      const input = radarSenalSchema.parse(req.body);
+      const userId = req.user?.userId ?? null;
+      if (isVoiceType(input.type)) {
+        const dream = await storage.createDream(buildDreamInsert(input, userId));
+        resumenCache = null;
+        return res.status(201).json({ ok: true, type: input.type, id: dream.id });
+      }
+      if (!userId) {
+        return res.status(401).json({
+          message: input.type === "compromiso" ? "Necesit\xE1s una cuenta para registrar compromisos" : "Necesit\xE1s una cuenta para ofrecer recursos",
+          code: "AUTH_REQUIRED"
+        });
+      }
+      if (input.type === "compromiso") {
+        const commitment = await storage.saveCommitment(userId, input.text, "initial", {
+          latitude: input.latitude ?? null,
+          longitude: input.longitude ?? null
+        });
+        resumenCache = null;
+        return res.status(201).json({ ok: true, type: input.type, id: commitment.id });
+      }
+      const resource = await storage.createUserResource({
+        userId,
+        description: input.text,
+        category: input.category ?? "other",
+        latitude: input.latitude ?? null,
+        longitude: input.longitude ?? null,
+        location: input.location ?? null
+      });
+      resumenCache = null;
+      return res.status(201).json({ ok: true, type: input.type, id: resource.id });
+    } catch (error) {
+      if (error instanceof z6.ZodError) {
+        return res.status(400).json({ message: error.errors[0]?.message ?? "Datos inv\xE1lidos" });
+      }
+      console.error("Radar senal error:", error);
+      return res.status(500).json({ message: "No pudimos guardar tu se\xF1al. Prob\xE1 de nuevo." });
+    }
+  });
+  app2.get("/api/radar/resumen", async (_req, res) => {
+    try {
+      if (resumenCache && Date.now() - resumenCache.generatedAt < RESUMEN_TTL_MS) {
+        return res.json(resumenCache.data);
+      }
+      const [dreamTypeCounts, [commitmentCount], [resourceCount], recentRows] = await Promise.all([
+        db.select({ type: dreams.type, count: sql10`count(*)::int` }).from(dreams).groupBy(dreams.type),
+        db.select({ count: sql10`count(*)::int` }).from(userCommitments).where(eq14(userCommitments.status, "active")),
+        db.select({ count: sql10`count(*)::int` }).from(userResources).where(eq14(userResources.isActive, true)),
+        db.select({
+          id: dreams.id,
+          type: dreams.type,
+          dream: dreams.dream,
+          value: dreams.value,
+          need: dreams.need,
+          basta: dreams.basta,
+          location: dreams.location,
+          createdAt: dreams.createdAt
+        }).from(dreams).orderBy(desc12(dreams.id)).limit(20)
+      ]);
+      const totals = {
+        dream: 0,
+        value: 0,
+        need: 0,
+        basta: 0,
+        compromiso: commitmentCount?.count ?? 0,
+        recurso: resourceCount?.count ?? 0
+      };
+      for (const row of dreamTypeCounts) {
+        if (row.type in totals) totals[row.type] = row.count;
+      }
+      const total = Object.values(totals).reduce((a, b) => a + b, 0);
+      const recientes = recentRows.map((row) => ({
+        id: row.id,
+        type: row.type,
+        excerpt: excerptSignalText(row.dream ?? row.value ?? row.need ?? row.basta),
+        location: row.location,
+        createdAt: row.createdAt
+      }));
+      const data = { totals: { ...totals, total }, recientes };
+      resumenCache = { data, generatedAt: Date.now() };
+      return res.json(data);
+    } catch (error) {
+      console.error("Radar resumen error:", error);
+      return res.status(500).json({ message: "No pudimos cargar el pulso del Radar." });
+    }
+  });
+}
+
 // server/routes.ts
 init_mandato_engine();
 init_schema();
 init_auth();
-import { z as z6 } from "zod";
+import { z as z8 } from "zod";
 
 // server/validation.ts
-import { z as z5 } from "zod";
-var registerUserSchema = z5.object({
-  name: z5.string().min(2, "El nombre debe tener al menos 2 caracteres").max(100, "El nombre no puede exceder 100 caracteres").regex(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/, "El nombre solo puede contener letras y espacios"),
-  email: z5.string().email("Formato de email inv\xE1lido").max(255, "El email no puede exceder 255 caracteres").toLowerCase(),
-  username: z5.string().min(3, "El nombre de usuario debe tener al menos 3 caracteres").max(50, "El nombre de usuario no puede exceder 50 caracteres").regex(/^[a-zA-Z0-9_]+$/, "El nombre de usuario solo puede contener letras, n\xFAmeros y guiones bajos"),
-  password: z5.string().min(8, "La contrase\xF1a debe tener al menos 8 caracteres").max(128, "La contrase\xF1a no puede exceder 128 caracteres").regex(
+import { z as z7 } from "zod";
+var registerUserSchema = z7.object({
+  name: z7.string().min(2, "El nombre debe tener al menos 2 caracteres").max(100, "El nombre no puede exceder 100 caracteres").regex(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/, "El nombre solo puede contener letras y espacios"),
+  email: z7.string().email("Formato de email inv\xE1lido").max(255, "El email no puede exceder 255 caracteres").toLowerCase(),
+  username: z7.string().min(3, "El nombre de usuario debe tener al menos 3 caracteres").max(50, "El nombre de usuario no puede exceder 50 caracteres").regex(/^[a-zA-Z0-9_]+$/, "El nombre de usuario solo puede contener letras, n\xFAmeros y guiones bajos"),
+  password: z7.string().min(8, "La contrase\xF1a debe tener al menos 8 caracteres").max(128, "La contrase\xF1a no puede exceder 128 caracteres").regex(
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z0-9])/,
     "La contrase\xF1a debe contener al menos una letra min\xFAscula, una may\xFAscula, un n\xFAmero y un car\xE1cter especial"
   ),
-  confirmPassword: z5.string(),
-  location: z5.string().max(255, "La ubicaci\xF3n no puede exceder 255 caracteres").optional()
+  confirmPassword: z7.string(),
+  location: z7.string().max(255, "La ubicaci\xF3n no puede exceder 255 caracteres").optional()
 }).refine((data) => data.password === data.confirmPassword, {
   message: "Las contrase\xF1as no coinciden",
   path: ["confirmPassword"]
 });
-var loginSchema = z5.object({
-  username: z5.string().min(1, "El nombre de usuario es requerido").max(50, "El nombre de usuario no puede exceder 50 caracteres"),
-  password: z5.string().min(1, "La contrase\xF1a es requerida").max(128, "La contrase\xF1a no puede exceder 128 caracteres")
+var loginSchema = z7.object({
+  username: z7.string().min(1, "El nombre de usuario es requerido").max(50, "El nombre de usuario no puede exceder 50 caracteres"),
+  password: z7.string().min(1, "La contrase\xF1a es requerida").max(128, "La contrase\xF1a no puede exceder 128 caracteres")
 });
-var changePasswordSchema = z5.object({
-  currentPassword: z5.string().min(1, "La contrase\xF1a actual es requerida"),
-  newPassword: z5.string().min(8, "La nueva contrase\xF1a debe tener al menos 8 caracteres").max(128, "La nueva contrase\xF1a no puede exceder 128 caracteres").regex(
+var changePasswordSchema = z7.object({
+  currentPassword: z7.string().min(1, "La contrase\xF1a actual es requerida"),
+  newPassword: z7.string().min(8, "La nueva contrase\xF1a debe tener al menos 8 caracteres").max(128, "La nueva contrase\xF1a no puede exceder 128 caracteres").regex(
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z0-9])/,
     "La nueva contrase\xF1a debe contener al menos una letra min\xFAscula, una may\xFAscula, un n\xFAmero y un car\xE1cter especial"
   ),
-  confirmNewPassword: z5.string()
+  confirmNewPassword: z7.string()
 }).refine((data) => data.newPassword === data.confirmNewPassword, {
   message: "Las contrase\xF1as no coinciden",
   path: ["confirmNewPassword"]
 });
-var updateProfileSchema = z5.object({
-  name: z5.string().min(2, "El nombre debe tener al menos 2 caracteres").max(100, "El nombre no puede exceder 100 caracteres").regex(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/, "El nombre solo puede contener letras y espacios").optional(),
-  email: z5.string().email("Formato de email inv\xE1lido").max(255, "El email no puede exceder 255 caracteres").toLowerCase().optional(),
-  location: z5.string().max(255, "La ubicaci\xF3n no puede exceder 255 caracteres").optional(),
-  bio: z5.string().trim().max(500, "La bio no puede superar los 500 caracteres").nullable().optional(),
-  dataShareOptOut: z5.boolean().optional()
+var updateProfileSchema = z7.object({
+  name: z7.string().min(2, "El nombre debe tener al menos 2 caracteres").max(100, "El nombre no puede exceder 100 caracteres").regex(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/, "El nombre solo puede contener letras y espacios").optional(),
+  email: z7.string().email("Formato de email inv\xE1lido").max(255, "El email no puede exceder 255 caracteres").toLowerCase().optional(),
+  location: z7.string().max(255, "La ubicaci\xF3n no puede exceder 255 caracteres").optional(),
+  bio: z7.string().trim().max(500, "La bio no puede superar los 500 caracteres").nullable().optional(),
+  dataShareOptOut: z7.boolean().optional()
 });
-var createDreamSchema = z5.object({
-  dream: z5.string().min(10, "El sue\xF1o debe tener al menos 10 caracteres").max(1e3, "El sue\xF1o no puede exceder 1000 caracteres").optional(),
-  value: z5.string().min(5, "El valor debe tener al menos 5 caracteres").max(500, "El valor no puede exceder 500 caracteres").optional(),
-  need: z5.string().min(5, "La necesidad debe tener al menos 5 caracteres").max(500, "La necesidad no puede exceder 500 caracteres").optional(),
-  basta: z5.string().min(5, "El basta debe tener al menos 5 caracteres").max(500, "El basta no puede exceder 500 caracteres").optional(),
-  location: z5.string().max(255, "La ubicaci\xF3n no puede exceder 255 caracteres").optional(),
-  latitude: z5.string().regex(/^-?([1-8]?[0-9](\.[0-9]+)?|90(\.0+)?)$/, "Latitud inv\xE1lida").optional(),
-  longitude: z5.string().regex(/^-?((1[0-7][0-9])|([1-9]?[0-9]))(\.[0-9]+)?$/, "Longitud inv\xE1lida").optional(),
-  type: z5.enum(["dream", "value", "need", "basta"]).default("dream")
+var createDreamSchema = z7.object({
+  dream: z7.string().min(10, "El sue\xF1o debe tener al menos 10 caracteres").max(1e3, "El sue\xF1o no puede exceder 1000 caracteres").optional(),
+  value: z7.string().min(5, "El valor debe tener al menos 5 caracteres").max(500, "El valor no puede exceder 500 caracteres").optional(),
+  need: z7.string().min(5, "La necesidad debe tener al menos 5 caracteres").max(500, "La necesidad no puede exceder 500 caracteres").optional(),
+  basta: z7.string().min(5, "El basta debe tener al menos 5 caracteres").max(500, "El basta no puede exceder 500 caracteres").optional(),
+  location: z7.string().max(255, "La ubicaci\xF3n no puede exceder 255 caracteres").optional(),
+  latitude: z7.string().regex(/^-?([1-8]?[0-9](\.[0-9]+)?|90(\.0+)?)$/, "Latitud inv\xE1lida").optional(),
+  longitude: z7.string().regex(/^-?((1[0-7][0-9])|([1-9]?[0-9]))(\.[0-9]+)?$/, "Longitud inv\xE1lida").optional(),
+  type: z7.enum(["dream", "value", "need", "basta"]).default("dream")
 }).refine((data) => {
   return data.dream || data.value || data.need || data.basta;
 }, {
   message: "Debe proporcionar al menos un contenido (sue\xF1o, valor, necesidad o basta)",
   path: ["dream"]
 });
-var createCommunityPostSchema = z5.object({
-  title: z5.string().min(5, "El t\xEDtulo debe tener al menos 5 caracteres").max(200, "El t\xEDtulo no puede exceder 200 caracteres"),
-  description: z5.string().min(20, "La descripci\xF3n debe tener al menos 20 caracteres").max(2e3, "La descripci\xF3n no puede exceder 2000 caracteres"),
-  type: z5.enum(["job", "project", "resource", "volunteer", "donation"]).default("project"),
-  location: z5.string().min(2, "La ubicaci\xF3n debe tener al menos 2 caracteres").max(255, "La ubicaci\xF3n no puede exceder 255 caracteres"),
-  participants: z5.number().int("El n\xFAmero de participantes debe ser un entero").min(1, "Debe haber al menos 1 participante").max(1e3, "No puede haber m\xE1s de 1000 participantes").optional()
+var createCommunityPostSchema = z7.object({
+  title: z7.string().min(5, "El t\xEDtulo debe tener al menos 5 caracteres").max(200, "El t\xEDtulo no puede exceder 200 caracteres"),
+  description: z7.string().min(20, "La descripci\xF3n debe tener al menos 20 caracteres").max(2e3, "La descripci\xF3n no puede exceder 2000 caracteres"),
+  type: z7.enum(["job", "project", "resource", "volunteer", "donation"]).default("project"),
+  location: z7.string().min(2, "La ubicaci\xF3n debe tener al menos 2 caracteres").max(255, "La ubicaci\xF3n no puede exceder 255 caracteres"),
+  participants: z7.number().int("El n\xFAmero de participantes debe ser un entero").min(1, "Debe haber al menos 1 participante").max(1e3, "No puede haber m\xE1s de 1000 participantes").optional()
 });
-var createStorySchema = z5.object({
-  name: z5.string().min(2, "El nombre debe tener al menos 2 caracteres").max(100, "El nombre no puede exceder 100 caracteres"),
-  location: z5.string().min(2, "La ubicaci\xF3n debe tener al menos 2 caracteres").max(255, "La ubicaci\xF3n no puede exceder 255 caracteres"),
-  story: z5.string().min(50, "La historia debe tener al menos 50 caracteres").max(5e3, "La historia no puede exceder 5000 caracteres"),
-  imageUrl: z5.string().url("URL de imagen inv\xE1lida").optional()
+var createStorySchema = z7.object({
+  name: z7.string().min(2, "El nombre debe tener al menos 2 caracteres").max(100, "El nombre no puede exceder 100 caracteres"),
+  location: z7.string().min(2, "La ubicaci\xF3n debe tener al menos 2 caracteres").max(255, "La ubicaci\xF3n no puede exceder 255 caracteres"),
+  story: z7.string().min(50, "La historia debe tener al menos 50 caracteres").max(5e3, "La historia no puede exceder 5000 caracteres"),
+  imageUrl: z7.string().url("URL de imagen inv\xE1lida").optional()
 });
-var createInspiringStorySchema = z5.object({
-  title: z5.string().min(5, "El t\xEDtulo debe tener al menos 5 caracteres").max(200, "El t\xEDtulo no puede exceder 200 caracteres"),
-  excerpt: z5.string().min(20, "El extracto debe tener al menos 20 caracteres").max(500, "El extracto no puede exceder 500 caracteres"),
-  content: z5.string().min(100, "El contenido debe tener al menos 100 caracteres").max(5e3, "El contenido no puede exceder 5000 caracteres"),
-  category: z5.enum(["employment", "volunteering", "community_project", "personal_growth", "resource_sharing", "connection"]).default("connection"),
-  location: z5.string().min(2, "La ubicaci\xF3n debe tener al menos 2 caracteres").max(255, "La ubicaci\xF3n no puede exceder 255 caracteres"),
-  province: z5.string().max(100, "La provincia no puede exceder 100 caracteres").optional(),
-  city: z5.string().max(100, "La ciudad no puede exceder 100 caracteres").optional(),
-  impactType: z5.enum(["job_created", "lives_changed", "hours_volunteered", "people_helped", "project_completed", "resource_shared"]).default("lives_changed"),
-  impactCount: z5.number().int("El n\xFAmero de impacto debe ser un entero").min(1, "El impacto debe ser al menos 1").max(1e5, "El impacto no puede exceder 100,000"),
-  impactDescription: z5.string().min(5, "La descripci\xF3n del impacto debe tener al menos 5 caracteres").max(200, "La descripci\xF3n del impacto no puede exceder 200 caracteres"),
-  imageUrl: z5.string().url("URL de imagen inv\xE1lida").optional(),
-  videoUrl: z5.string().url("URL de video inv\xE1lida").optional(),
-  tags: z5.string().max(500, "Las etiquetas no pueden exceder 500 caracteres").optional(),
-  authorName: z5.string().min(2, "El nombre del autor debe tener al menos 2 caracteres").max(100, "El nombre del autor no puede exceder 100 caracteres").optional(),
-  authorEmail: z5.string().email("Formato de email del autor inv\xE1lido").max(255, "El email del autor no puede exceder 255 caracteres").optional()
+var createInspiringStorySchema = z7.object({
+  title: z7.string().min(5, "El t\xEDtulo debe tener al menos 5 caracteres").max(200, "El t\xEDtulo no puede exceder 200 caracteres"),
+  excerpt: z7.string().min(20, "El extracto debe tener al menos 20 caracteres").max(500, "El extracto no puede exceder 500 caracteres"),
+  content: z7.string().min(100, "El contenido debe tener al menos 100 caracteres").max(5e3, "El contenido no puede exceder 5000 caracteres"),
+  category: z7.enum(["employment", "volunteering", "community_project", "personal_growth", "resource_sharing", "connection"]).default("connection"),
+  location: z7.string().min(2, "La ubicaci\xF3n debe tener al menos 2 caracteres").max(255, "La ubicaci\xF3n no puede exceder 255 caracteres"),
+  province: z7.string().max(100, "La provincia no puede exceder 100 caracteres").optional(),
+  city: z7.string().max(100, "La ciudad no puede exceder 100 caracteres").optional(),
+  impactType: z7.enum(["job_created", "lives_changed", "hours_volunteered", "people_helped", "project_completed", "resource_shared"]).default("lives_changed"),
+  impactCount: z7.number().int("El n\xFAmero de impacto debe ser un entero").min(1, "El impacto debe ser al menos 1").max(1e5, "El impacto no puede exceder 100,000"),
+  impactDescription: z7.string().min(5, "La descripci\xF3n del impacto debe tener al menos 5 caracteres").max(200, "La descripci\xF3n del impacto no puede exceder 200 caracteres"),
+  imageUrl: z7.string().url("URL de imagen inv\xE1lida").optional(),
+  videoUrl: z7.string().url("URL de video inv\xE1lida").optional(),
+  tags: z7.string().max(500, "Las etiquetas no pueden exceder 500 caracteres").optional(),
+  authorName: z7.string().min(2, "El nombre del autor debe tener al menos 2 caracteres").max(100, "El nombre del autor no puede exceder 100 caracteres").optional(),
+  authorEmail: z7.string().email("Formato de email del autor inv\xE1lido").max(255, "El email del autor no puede exceder 255 caracteres").optional()
 });
-var createResourceSchema = z5.object({
-  title: z5.string().min(5, "El t\xEDtulo debe tener al menos 5 caracteres").max(200, "El t\xEDtulo no puede exceder 200 caracteres"),
-  description: z5.string().min(20, "La descripci\xF3n debe tener al menos 20 caracteres").max(1e3, "La descripci\xF3n no puede exceder 1000 caracteres"),
-  category: z5.string().min(2, "La categor\xEDa debe tener al menos 2 caracteres").max(50, "La categor\xEDa no puede exceder 50 caracteres"),
-  url: z5.string().url("URL inv\xE1lida").optional()
+var createResourceSchema = z7.object({
+  title: z7.string().min(5, "El t\xEDtulo debe tener al menos 5 caracteres").max(200, "El t\xEDtulo no puede exceder 200 caracteres"),
+  description: z7.string().min(20, "La descripci\xF3n debe tener al menos 20 caracteres").max(1e3, "La descripci\xF3n no puede exceder 1000 caracteres"),
+  category: z7.string().min(2, "La categor\xEDa debe tener al menos 2 caracteres").max(50, "La categor\xEDa no puede exceder 50 caracteres"),
+  url: z7.string().url("URL inv\xE1lida").optional()
 });
 
 // server/nlp-service.ts
@@ -19774,7 +19952,7 @@ function computeMissionAlignment(archetype, lifeAreaGaps) {
 // server/services/embedding-service.ts
 init_db();
 init_schema();
-import { eq as eq14, and as and12 } from "drizzle-orm";
+import { eq as eq15, and as and12 } from "drizzle-orm";
 var embeddingPipeline = null;
 async function getEmbeddingPipeline() {
   if (!embeddingPipeline) {
@@ -19815,8 +19993,8 @@ async function getOrCreateEmbedding(contentId, text2, contentType) {
   try {
     const existing = await db.select().from(textEmbeddings).where(
       and12(
-        eq14(textEmbeddings.contentId, contentId),
-        eq14(textEmbeddings.contentType, contentType)
+        eq15(textEmbeddings.contentId, contentId),
+        eq15(textEmbeddings.contentType, contentType)
       )
     ).limit(1);
     if (existing.length > 0 && existing[0].embedding) {
@@ -19837,8 +20015,8 @@ async function getOrCreateEmbedding(contentId, text2, contentType) {
         model: "Xenova/all-MiniLM-L6-v2"
       }).where(
         and12(
-          eq14(textEmbeddings.contentId, contentId),
-          eq14(textEmbeddings.contentType, contentType)
+          eq15(textEmbeddings.contentId, contentId),
+          eq15(textEmbeddings.contentType, contentType)
         )
       );
     } else {
@@ -19966,6 +20144,7 @@ async function registerRoutes(app2) {
   registerPulseRoutes(app2);
   registerMapSignalsRoutes(app2);
   registerAnalyticsRoutes(app2);
+  registerRadarRoutes(app2);
   startMandatoCron();
   app2.get("/api/dreams", publicReadRateLimit, optionalAuth, async (req, res) => {
     try {
@@ -20001,7 +20180,7 @@ async function registerRoutes(app2) {
       const dream = await storage.createDream(validatedData);
       res.status(201).json(dream);
     } catch (error) {
-      if (error instanceof z6.ZodError) {
+      if (error instanceof z8.ZodError) {
         res.status(400).json({ message: "Invalid dream data", errors: error.errors });
       } else {
         res.status(500).json({ message: "Failed to create dream" });
@@ -20041,7 +20220,7 @@ async function registerRoutes(app2) {
       const resource = await storage.createUserResource(validatedData);
       res.status(201).json(resource);
     } catch (error) {
-      if (error instanceof z6.ZodError) {
+      if (error instanceof z8.ZodError) {
         res.status(400).json({ message: "Invalid resource data", errors: error.errors });
       } else {
         res.status(500).json({ message: "Failed to create resource" });
@@ -20519,7 +20698,7 @@ async function registerRoutes(app2) {
       }
       res.status(201).json(post);
     } catch (error) {
-      if (error instanceof z6.ZodError) {
+      if (error instanceof z8.ZodError) {
         res.status(400).json({ message: "Invalid post data", errors: error.errors });
       } else {
         res.status(500).json({ message: "Failed to create community post" });
@@ -20628,7 +20807,7 @@ async function registerRoutes(app2) {
       }
       res.json(updatedPost);
     } catch (error) {
-      if (error instanceof z6.ZodError) {
+      if (error instanceof z8.ZodError) {
         res.status(400).json({ message: "Invalid post data", errors: error.errors });
       } else {
         res.status(500).json({ message: "Failed to update post" });
@@ -20692,7 +20871,7 @@ async function registerRoutes(app2) {
       const interaction = await storage.createPostInteraction(validatedData);
       res.status(201).json(interaction);
     } catch (error) {
-      if (error instanceof z6.ZodError) {
+      if (error instanceof z8.ZodError) {
         res.status(400).json({ message: "Invalid interaction data", errors: error.errors });
       } else {
         res.status(500).json({ message: "Failed to create interaction" });
@@ -20753,7 +20932,7 @@ async function registerRoutes(app2) {
       const message = await storage.createCommunityMessage(validatedData);
       res.status(201).json(message);
     } catch (error) {
-      if (error instanceof z6.ZodError) {
+      if (error instanceof z8.ZodError) {
         res.status(400).json({ message: "Invalid message data", errors: error.errors });
       } else {
         res.status(500).json({ message: "Failed to send message" });
@@ -21115,7 +21294,7 @@ async function registerRoutes(app2) {
       const milestone = await storage.createMilestone(id, validatedData);
       res.status(201).json(milestone);
     } catch (error) {
-      if (error instanceof z6.ZodError) {
+      if (error instanceof z8.ZodError) {
         res.status(400).json({
           error: "Validation error",
           details: error.errors
@@ -21140,7 +21319,7 @@ async function registerRoutes(app2) {
       await storage.updateMilestone(id, updates);
       res.json({ message: "Milestone updated" });
     } catch (error) {
-      if (error instanceof z6.ZodError) {
+      if (error instanceof z8.ZodError) {
         res.status(400).json({
           error: "Validation error",
           details: error.errors
@@ -21226,7 +21405,7 @@ async function registerRoutes(app2) {
       const task = await storage.createTask(id, validatedData);
       res.status(201).json(task);
     } catch (error) {
-      if (error instanceof z6.ZodError) {
+      if (error instanceof z8.ZodError) {
         res.status(400).json({
           error: "Validation error",
           details: error.errors
@@ -21251,7 +21430,7 @@ async function registerRoutes(app2) {
       await storage.updateTask(id, updates);
       res.json({ message: "Task updated" });
     } catch (error) {
-      if (error instanceof z6.ZodError) {
+      if (error instanceof z8.ZodError) {
         res.status(400).json({
           error: "Validation error",
           details: error.errors
@@ -21564,7 +21743,7 @@ async function registerRoutes(app2) {
         ...authResponse
       });
     } catch (error) {
-      if (error instanceof z6.ZodError) {
+      if (error instanceof z8.ZodError) {
         res.status(400).json({
           error: "Validation error",
           message: "Datos de entrada inv\xE1lidos",
@@ -21629,7 +21808,7 @@ async function registerRoutes(app2) {
         ...authResponse
       });
     } catch (error) {
-      if (error instanceof z6.ZodError) {
+      if (error instanceof z8.ZodError) {
         res.status(400).json({
           error: "Validation error",
           message: "Datos de entrada inv\xE1lidos",
@@ -21710,7 +21889,7 @@ async function registerRoutes(app2) {
         }
       });
     } catch (error) {
-      if (error instanceof z6.ZodError) {
+      if (error instanceof z8.ZodError) {
         res.status(400).json({
           error: "Validation error",
           message: "Datos de entrada inv\xE1lidos",
@@ -21881,7 +22060,7 @@ async function registerRoutes(app2) {
         message: "Contrase\xF1a actualizada exitosamente"
       });
     } catch (error) {
-      if (error instanceof z6.ZodError) {
+      if (error instanceof z8.ZodError) {
         res.status(400).json({
           error: "Validation error",
           message: "Datos de entrada inv\xE1lidos",
@@ -23282,7 +23461,7 @@ async function registerRoutes(app2) {
       });
       res.status(201).json(post);
     } catch (error) {
-      if (error instanceof z6.ZodError) {
+      if (error instanceof z8.ZodError) {
         res.status(400).json({ message: "Datos de post inv\xE1lidos", errors: error.errors });
       } else {
         console.error("Create blog post error:", error);
@@ -23300,7 +23479,7 @@ async function registerRoutes(app2) {
       }
       res.json(post);
     } catch (error) {
-      if (error instanceof z6.ZodError) {
+      if (error instanceof z8.ZodError) {
         res.status(400).json({ message: "Datos de post inv\xE1lidos", errors: error.errors });
       } else {
         console.error("Update blog post error:", error);
@@ -23588,7 +23767,7 @@ async function registerRoutes(app2) {
         message: "Story created successfully and submitted for moderation"
       });
     } catch (error) {
-      if (error instanceof z6.ZodError) {
+      if (error instanceof z8.ZodError) {
         return res.status(400).json({
           error: "Validation Error",
           message: "Invalid story data",
@@ -23634,7 +23813,7 @@ async function registerRoutes(app2) {
         message: "Story updated successfully"
       });
     } catch (error) {
-      if (error instanceof z6.ZodError) {
+      if (error instanceof z8.ZodError) {
         return res.status(400).json({
           error: "Validation Error",
           message: "Invalid story data",
