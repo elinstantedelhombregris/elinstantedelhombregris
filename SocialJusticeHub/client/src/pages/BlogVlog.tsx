@@ -389,7 +389,7 @@ const BlogVlog = () => {
                       onClick={() => setSelectedCategory(cat)}
                       className={`whitespace-nowrap rounded-full px-3 py-1.5 text-xs font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a] ${
                         selectedCategory === cat
-                          ? 'bg-slate-200 text-slate-900'
+                          ? 'border border-violet-500/30 bg-[#7D5BDE]/20 text-violet-300'
                           : 'bg-white/5 text-slate-400 hover:bg-white/10 hover:text-slate-200'
                       }`}
                     >
