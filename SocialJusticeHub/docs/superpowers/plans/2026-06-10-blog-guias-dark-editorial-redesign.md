@@ -29,6 +29,8 @@
 | Muted text | headings on cards `text-slate-100`, body `text-slate-300`/`text-slate-400`, metadata `text-slate-500` |
 | Skeleton | `bg-white/5 animate-pulse rounded-2xl` |
 
+**Border convention (updated after Task 1 review):** `getCategoryColorDark()` and `levelColorsDark` values ALREADY include the `border` width token — never add a standalone `border` class next to them.
+
 **Light→dark class mapping** (apply when restyling any leftover light element, e.g. inside CommentsSection):
 `bg-white`/`bg-slate-50` → `bg-white/[0.03]` + `border border-white/10` · `text-slate-900` → `text-slate-100` · `text-slate-600/700/800` → `text-slate-300` · `text-slate-400/500` → `text-slate-500` · `border-slate-100/200` → `border-white/10` · `bg-slate-100` → `bg-white/5` · `bg-{color}-50 text-{color}-700 border-{color}-200` → `bg-{color}-500/10 text-{color}-400 border-{color}-500/20` · `shadow-xl` → drop it (or use card-hover-glow).
 
@@ -453,7 +455,7 @@ export default function RelatedPosts({ category, currentPostId }: RelatedPostsPr
                 </div>
               )}
               <div className="flex flex-1 flex-col p-5">
-                <span className={`mb-3 inline-flex w-fit items-center rounded-full border px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wider ${getCategoryColorDark(post.category)}`}>
+                <span className={`mb-3 inline-flex w-fit items-center rounded-full px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wider ${getCategoryColorDark(post.category)}`}>
                   {post.category}
                 </span>
                 <h3 className="mb-2 font-serif text-lg font-bold leading-snug text-slate-100 transition-colors group-hover:text-white">
@@ -530,7 +532,7 @@ Full-bleed editorial piece — image melts into the page background:
             <span className="rounded-full bg-[#7D5BDE] px-3 py-1 text-xs font-bold uppercase tracking-wide text-white">
               Destacado
             </span>
-            <span className={`rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-wider backdrop-blur-sm ${getCategoryColorDark(post.category)}`}>
+            <span className={`rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider backdrop-blur-sm ${getCategoryColorDark(post.category)}`}>
               {post.category}
             </span>
           </div>
@@ -592,7 +594,7 @@ Keep the asymmetric `md:col-span-2` rule. Dark glass + glow:
 
         <div className="flex flex-grow flex-col p-6">
           <div className="mb-3 flex items-center gap-2 text-xs text-slate-500">
-            <span className={`rounded-full border px-2.5 py-0.5 font-semibold uppercase tracking-wider ${getCategoryColorDark(post.category)}`}>
+            <span className={`rounded-full px-2.5 py-0.5 font-semibold uppercase tracking-wider ${getCategoryColorDark(post.category)}`}>
               {post.category}
             </span>
             <span>•</span>
@@ -890,7 +892,7 @@ Single actions row (duplication removed), two-column body with TOC, dropcap, rel
               {post.type === 'vlog' ? <Play className="h-3 w-3" /> : <BookOpen className="h-3 w-3" />}
               {post.type === 'vlog' ? 'Vlog' : 'Blog'}
             </span>
-            <span className={`inline-flex items-center rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-wider ${getCategoryColorDark(post.category)}`}>
+            <span className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider ${getCategoryColorDark(post.category)}`}>
               {post.category}
             </span>
           </motion.div>
