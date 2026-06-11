@@ -27,6 +27,8 @@ local.db
 data/
 # Allow static GeoJSON assets served from the public folder
 !client/public/data/
+# Allow the embedded provinces module used by the server geo resolver
+!server/data/
 
 # IDE
 .vscode/

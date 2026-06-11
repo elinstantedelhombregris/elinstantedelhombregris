@@ -1,4 +1,6 @@
 // client/src/components/radiografia-map/utils.ts
+import type { MapSignal } from '@shared/map-signals';
+import type { MapEntry } from './types';
 
 /**
  * Accent-, case-, and whitespace-insensitive comparison key for place names.
@@ -22,4 +24,30 @@ export function normalizePlaceName(input: string | null | undefined): string | n
     .replace(/\p{Mn}/gu, '')
     .toLowerCase()
     .replace(/\s+/g, ' ');
+}
+
+
+/** Señal del server → entrada del mapa. Mantiene señales sin coordenadas (lat/lng null). */
+export function toMapEntries(signals: MapSignal[]): MapEntry[] {
+  return signals.map((s) => ({
+    id: s.id,
+    lat: s.lat,
+    lng: s.lng,
+    location: s.location || 'Sin ubicación',
+    province: s.province,
+    city: s.city,
+    provinceKey: normalizePlaceName(s.province),
+    cityKey: normalizePlaceName(s.city),
+    type: s.type,
+    text: s.text,
+    category: s.category,
+    createdAt: s.createdAt,
+  }));
+}
+
+/** Tolerante a "2026-06-11 12:00:00+00" (Postgres) y a ISO 8601. */
+export function parseSignalDate(raw: string | null): number | null {
+  if (!raw) return null;
+  const t = Date.parse(raw.includes('T') ? raw : raw.replace(' ', 'T'));
+  return Number.isFinite(t) ? t : null;
 }

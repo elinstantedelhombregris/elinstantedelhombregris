@@ -4,8 +4,9 @@ export type { DreamType };
 
 export interface MapEntry {
   id: string;
-  lat: number;
-  lng: number;
+  /** null cuando la señal se envió "sin ubicación" — cuenta en stats, no en el mapa. */
+  lat: number | null;
+  lng: number | null;
   location: string;
   /** Display name, may carry accents and original casing. */
   province: string | null;
@@ -17,6 +18,9 @@ export interface MapEntry {
   cityKey: string | null;
   type: DreamType;
   text: string;
+  /** Solo recursos (legal, medical, …). */
+  category: string | null;
+  createdAt: string | null;
 }
 
 export interface LassoPolygon {
@@ -25,11 +29,14 @@ export interface LassoPolygon {
   coordinates: [number, number][];
 }
 
+export type TimeRange = '7d' | '30d' | 'all';
+
 export interface MapFilters {
   types: Set<DreamType>;
   province: string | null;
   city: string | null;
   lasso: LassoPolygon | null;
+  timeRange: TimeRange;
 }
 
 export const ALL_TYPES: DreamType[] = [
@@ -46,4 +53,5 @@ export const initialFilters = (): MapFilters => ({
   province: null,
   city: null,
   lasso: null,
+  timeRange: 'all',
 });

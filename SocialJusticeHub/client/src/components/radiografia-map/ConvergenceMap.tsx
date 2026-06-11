@@ -8,14 +8,12 @@ import { Map } from 'react-map-gl/maplibre';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { BarChart3, Network } from 'lucide-react';
 import { TYPE_COLORS } from '@/hooks/useConvergenceAnalysis';
-import { useDeckGLLayers } from '@/hooks/useDeckGLLayers';
 import { useToast } from '@/hooks/use-toast';
 import MapFiltersBar from './MapFiltersBar';
 import LassoOverlay from './LassoOverlay';
 import SelectionPanel from './SelectionPanel';
 import { hexagonTooltipHtml, pointTooltipHtml, TOOLTIP_STYLE } from './MapTooltip';
-import { useProvinceClassifier } from './useProvinceClassifier';
-import { useRadiografiaFilters } from './useRadiografiaFilters';
+import type { RadiografiaFiltersApi } from './useRadiografiaFilters';
 import type { LassoPolygon, MapEntry } from './types';
 
 interface MapViewState {
@@ -61,7 +59,15 @@ function hexToRgb(hex: string): [number, number, number] {
   return [parseInt(h.slice(0, 2), 16), parseInt(h.slice(2, 4), 16), parseInt(h.slice(4, 6), 16)];
 }
 
-export default function ConvergenceMap() {
+interface ConvergenceMapProps {
+  /** Señales ya clasificadas (fallback de provincia aplicado río arriba). */
+  entries: MapEntry[];
+  /** Estado de filtros compartido con el resto de La Radiografía. */
+  filtersApi: RadiografiaFiltersApi;
+  isLoading: boolean;
+}
+
+export default function ConvergenceMap({ entries, filtersApi, isLoading }: ConvergenceMapProps) {
   // WebGL2 gate
   const [hasWebGL2] = useState(() => {
     try {
@@ -70,11 +76,6 @@ export default function ConvergenceMap() {
     } catch { return false; }
   });
 
-  const { allEntries, isLoading } = useDeckGLLayers();
-  const { classify } = useProvinceClassifier();
-
-  const enrichedEntries = useMemo(() => classify(allEntries), [classify, allEntries]);
-  const api = useRadiografiaFilters(enrichedEntries);
   const {
     filters,
     filteredEntries,
@@ -82,9 +83,16 @@ export default function ConvergenceMap() {
     setProvince,
     setCity,
     setLasso,
+    setTimeRange,
     clear,
     hasActiveFilters,
-  } = api;
+  } = filtersApi;
+
+  // Solo las señales con coordenadas pueden renderizarse en las capas Deck.GL.
+  const geoEntries = useMemo(
+    () => filteredEntries.filter((e) => e.lat != null && e.lng != null),
+    [filteredEntries],
+  );
 
   const [activeLayer, setActiveLayer] = useState<'hexagon' | 'arc'>('hexagon');
   const [viewState, setViewState] = useState<MapViewState>(INITIAL_VIEW_STATE);
@@ -161,8 +169,8 @@ export default function ConvergenceMap() {
 
   // Filtered hex data
   const filteredHex = useMemo(
-    () => filteredEntries.map((e) => ({ position: [e.lng, e.lat] as [number, number], weight: 1, source: e })),
-    [filteredEntries],
+    () => geoEntries.map((e) => ({ position: [e.lng, e.lat] as [number, number], weight: 1, source: e })),
+    [geoEntries],
   );
 
   const hexRadius = useMemo(() => computeHexRadius(viewState.zoom ?? HEX_BASE_ZOOM), [viewState.zoom]);
@@ -205,8 +213,8 @@ export default function ConvergenceMap() {
         built.push(
           new ScatterplotLayer({
             id: 'points-layer',
-            data: filteredEntries,
-            getPosition: (e: MapEntry) => [e.lng, e.lat],
+            data: geoEntries,
+            getPosition: (e: MapEntry) => [e.lng!, e.lat!],
             getFillColor: (e: MapEntry) => [...hexToRgb(TYPE_COLORS[e.type]), 220] as [number, number, number, number],
             getRadius: 400,
             radiusMinPixels: 3,
@@ -225,9 +233,9 @@ export default function ConvergenceMap() {
       // Arc layer — rebuild from filtered entries (location-bucketed)
       type ArcBucket = { lng: number; lat: number; count: number; location: string };
       const buckets: Record<string, ArcBucket> = {};
-      for (const e of filteredEntries) {
-        const key = e.location || `${e.lat.toFixed(2)},${e.lng.toFixed(2)}`;
-        if (!buckets[key]) buckets[key] = { lng: e.lng, lat: e.lat, count: 0, location: key };
+      for (const e of geoEntries) {
+        const key = e.location || `${e.lat!.toFixed(2)},${e.lng!.toFixed(2)}`;
+        if (!buckets[key]) buckets[key] = { lng: e.lng!, lat: e.lat!, count: 0, location: key };
         buckets[key].count++;
       }
       const locs = Object.values(buckets).filter((b) => b.count >= 3).slice(0, 12);
@@ -257,7 +265,7 @@ export default function ConvergenceMap() {
     }
 
     return built;
-  }, [activeLayer, filteredHex, filteredEntries, viewState.zoom, filters.types, hexRadius]);
+  }, [activeLayer, filteredHex, geoEntries, viewState.zoom, filters.types, hexRadius]);
 
   const getTooltip = useCallback((info: any) => {
     if (!info?.object) return null;
@@ -271,7 +279,7 @@ export default function ConvergenceMap() {
     return null;
   }, []);
 
-  const flyToEntry = useCallback((e: MapEntry) => flyTo(e.lat, e.lng, 11), [flyTo]);
+  const flyToEntry = useCallback((e: MapEntry) => flyTo(e.lat ?? undefined, e.lng ?? undefined, 11), [flyTo]);
 
   if (!hasWebGL2) {
     return (
@@ -301,6 +309,8 @@ export default function ConvergenceMap() {
 
         <MapFiltersBar
           filters={filters}
+          timeRange={filters.timeRange}
+          onSetTimeRange={setTimeRange}
           lassoActive={lassoMode}
           lassoDisabled={!mapReady}
           lassoEntriesCount={lassoCount}

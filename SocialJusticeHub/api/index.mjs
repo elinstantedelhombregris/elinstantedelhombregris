@@ -353,6 +353,8 @@ var init_schema = __esm({
       location: text("location"),
       latitude: text("latitude"),
       longitude: text("longitude"),
+      province: text("province"),
+      city: text("city"),
       createdAt: text("created_at").default(sql`now()`),
       type: text("type").notNull().default("dream").$type()
     });
@@ -3060,10 +3062,136 @@ var init_schema = __esm({
   }
 });
 
+// server/db.ts
+import { neon } from "@neondatabase/serverless";
+import { drizzle } from "drizzle-orm/neon-http";
+var databaseUrl, sql2, db;
+var init_db = __esm({
+  "server/db.ts"() {
+    "use strict";
+    init_schema();
+    databaseUrl = process.env.DATABASE_URL;
+    if (!databaseUrl) {
+      throw new Error("DATABASE_URL is required. Set it to your Neon connection string.");
+    }
+    sql2 = neon(databaseUrl);
+    db = drizzle(sql2, { schema: schema_exports });
+  }
+});
+
+// server/data/argentina-provinces.ts
+var provincesGeoJSON, argentina_provinces_default;
+var init_argentina_provinces = __esm({
+  "server/data/argentina-provinces.ts"() {
+    "use strict";
+    provincesGeoJSON = { "type": "FeatureCollection", "features": [
+      { "type": "Feature", "geometry": { "type": "Polygon", "coordinates": [[[-58.446971, -34.00694], [-58.549387, -33.683038], [-58.383168, -33.075453], [-58.146799, -33.049981], [-58.220082, -32.489516], [-58.101591, -32.31136], [-58.168615, -31.846014], [-57.986818, -31.554145], [-57.808659, -30.747331], [-58.260754, -30.230713], [-58.629749, -30.152268], [-59.004998, -30.204099], [-59.241314, -30.343471], [-59.661521, -30.336908], [-59.660642, -30.736056], [-60.094027, -31.353693], [-60.41411, -31.673519], [-60.647765, -31.716048], [-60.765665, -32.541063], [-60.495423, -33.122061], [-60.294092, -33.256574], [-59.640618, -33.671019], [-59.26232, -33.724246], [-58.679798, -34.031204], [-58.446971, -34.00694]]] }, "properties": { "name": "Entre R\xEDos" } },
+      { "type": "Feature", "geometry": { "type": "Polygon", "coordinates": [[[-67.251329, -23.733091], [-67.362369, -24.030367], [-68.244486, -24.385384], [-68.572373, -24.769856], [-68.496468, -25.159997], [-67.806863, -25.283211], [-66.60102, -25.269103], [-66.512498, -25.63089], [-66.806821, -25.725044], [-66.781732, -25.894905], [-66.41979, -26.376684], [-66.224815, -26.17096], [-66.053818, -26.253488], [-65.711823, -26.295397], [-65.66534, -26.074791], [-64.966442, -26.268836], [-64.486343, -26.220208], [-64.211605, -25.603657], [-63.398579, -25.659364], [-62.334381, -24.402903], [-62.339213, -24.120646], [-62.341357, -22.472261], [-62.632684, -22.295951], [-62.804353, -22.004082], [-63.947591, -22.007596], [-64.293978, -22.690862], [-64.58688, -22.212752], [-65.190478, -22.098474], [-65.334327, -22.502347], [-65.268414, -22.843722], [-65.039306, -23.002265], [-65.042898, -23.251449], [-64.815935, -23.504612], [-64.438283, -23.619592], [-64.181064, -23.54156], [-64.158766, -24.18364], [-64.31488, -24.414013], [-64.625481, -24.613226], [-65.174647, -24.454683], [-65.587102, -24.402593], [-66.025964, -23.84764], [-65.986819, -23.543317], [-66.352198, -23.367824], [-66.351991, -24.041375], [-66.67533, -24.199143], [-67.251329, -23.733091]]] }, "properties": { "name": "Salta" } },
+      { "type": "Feature", "geometry": { "type": "Polygon", "coordinates": [[[-67.251329, -23.733091], [-66.67533, -24.199143], [-66.351991, -24.041375], [-66.352198, -23.367824], [-65.986819, -23.543317], [-66.025964, -23.84764], [-65.587102, -24.402593], [-65.174647, -24.454683], [-64.625481, -24.613226], [-64.31488, -24.414013], [-64.158766, -24.18364], [-64.181064, -23.54156], [-64.438283, -23.619592], [-64.815935, -23.504612], [-65.042898, -23.251449], [-65.039306, -23.002265], [-65.268414, -22.843722], [-65.334327, -22.502347], [-65.190478, -22.098474], [-65.744613, -22.11405], [-66.240009, -21.792415], [-66.377468, -22.127072], [-66.735896, -22.225051], [-66.796461, -22.434857], [-67.032725, -22.524567], [-67.193904, -22.822223], [-67.013967, -23.000714], [-67.251329, -23.733091]]] }, "properties": { "name": "Jujuy" } },
+      { "type": "Feature", "geometry": { "type": "Polygon", "coordinates": [[[-62.341357, -22.472261], [-62.339213, -24.120646], [-61.775707, -24.341718], [-61.451101, -24.619376], [-61.19874, -24.674928], [-61.034254, -24.897963], [-60.499661, -25.209572], [-60.178053, -25.6651], [-60.03341, -25.701222], [-59.413138, -26.190081], [-59.146798, -26.29948], [-58.351275, -26.885812], [-58.086501, -26.12719], [-57.556921, -25.45984], [-57.754067, -25.180891], [-58.224064, -24.941216], [-58.809196, -24.776781], [-59.340973, -24.4876], [-59.459725, -24.358512], [-60.033669, -24.007009], [-60.328018, -24.017964], [-61.006349, -23.805471], [-61.109857, -23.606982], [-61.491849, -23.413195], [-61.956446, -23.034407], [-62.341357, -22.472261]]] }, "properties": { "name": "Formosa" } },
+      { "type": "Feature", "geometry": { "type": "Polygon", "coordinates": [[[-55.623042, -28.14435], [-55.329874, -27.928113], [-55.02581, -27.84016], [-54.827527, -27.545088], [-53.819217, -27.139738], [-53.66672, -26.219174], [-53.826193, -25.972677], [-53.90996, -25.629236], [-54.2148, -25.531464], [-54.643146, -25.68794], [-54.638288, -26.196953], [-54.706475, -26.441796], [-54.97527, -26.787821], [-55.414003, -26.979851], [-55.754732, -27.443698], [-55.966094, -27.331723], [-56.017325, -27.451554], [-55.838627, -27.906617], [-55.623042, -28.14435]]] }, "properties": { "name": "Misiones" } },
+      { "type": "Feature", "geometry": { "type": "Polygon", "coordinates": [[[-58.351275, -26.885812], [-59.146798, -26.29948], [-59.413138, -26.190081], [-60.03341, -25.701222], [-60.178053, -25.6651], [-60.499661, -25.209572], [-61.034254, -24.897963], [-61.19874, -24.674928], [-61.451101, -24.619376], [-61.775707, -24.341718], [-62.339213, -24.120646], [-62.334381, -24.402903], [-63.398579, -25.659364], [-61.753874, -25.661431], [-61.70938, -26.793816], [-61.709949, -28.000409], [-60.041317, -28.000099], [-58.864748, -27.999324], [-58.886529, -27.478943], [-58.604196, -27.316264], [-58.653289, -27.156274], [-58.351275, -26.885812]]] }, "properties": { "name": "Chaco" } },
+      { "type": "Feature", "geometry": { "type": "Polygon", "coordinates": [[[-55.966094, -27.331723], [-56.771155, -27.506744], [-57.180097, -27.487313], [-58.021958, -27.259834], [-58.604196, -27.316264], [-58.886529, -27.478943], [-58.864748, -27.999324], [-59.081375, -28.157557], [-59.0991, -28.664193], [-59.197441, -29.022053], [-59.511272, -29.207571], [-59.664802, -29.878331], [-59.661521, -30.336908], [-59.241314, -30.343471], [-59.004998, -30.204099], [-58.629749, -30.152268], [-58.260754, -30.230713], [-57.808659, -30.747331], [-57.849617, -30.48527], [-57.642466, -30.193092], [-57.325153, -29.981011], [-56.415751, -29.051352], [-56.184705, -28.744188], [-55.623042, -28.14435], [-55.838627, -27.906617], [-56.017325, -27.451554], [-55.966094, -27.331723]]] }, "properties": { "name": "Corrientes" } },
+      { "type": "Feature", "geometry": { "type": "Polygon", "coordinates": [[[-68.496468, -25.159997], [-68.605963, -25.436999], [-68.419876, -26.179279], [-68.575164, -26.30351], [-68.570151, -26.550626], [-68.32014, -26.87009], [-68.330476, -27.044963], [-68.585861, -27.162785], [-68.801093, -27.112763], [-69.13406, -27.772344], [-68.435016, -27.746626], [-68.447264, -27.979377], [-67.704156, -28.339252], [-67.260127, -28.35832], [-66.976165, -28.267422], [-66.584354, -28.404157], [-66.121824, -28.970634], [-65.792439, -29.250101], [-65.729497, -29.502178], [-65.401894, -30.140175], [-64.943395, -29.878331], [-64.882468, -29.55711], [-65.03543, -29.292682], [-65.102248, -28.694889], [-65.079097, -28.274605], [-65.169092, -27.909666], [-65.333423, -27.86357], [-65.570695, -28.050226], [-65.929329, -27.654332], [-65.986845, -27.429953], [-66.191148, -27.30903], [-65.87233, -26.916445], [-65.85352, -26.723175], [-66.155517, -26.497194], [-66.053818, -26.253488], [-66.224815, -26.17096], [-66.41979, -26.376684], [-66.781732, -25.894905], [-66.806821, -25.725044], [-66.512498, -25.63089], [-66.60102, -25.269103], [-67.806863, -25.283211], [-68.496468, -25.159997]]] }, "properties": { "name": "Catamarca" } },
+      { "type": "Feature", "geometry": { "type": "Polygon", "coordinates": [[[-69.13406, -27.772344], [-69.420306, -28.212644], [-69.654045, -28.400994], [-69.19019, -28.594017], [-68.921136, -28.989548], [-69.022035, -29.611681], [-68.327994, -29.692503], [-67.634522, -30.247869], [-67.080706, -30.905503], [-67.103935, -31.354262], [-66.730521, -31.876555], [-66.217167, -31.925441], [-65.75965, -31.885495], [-65.767272, -31.096241], [-65.401894, -30.140175], [-65.729497, -29.502178], [-65.792439, -29.250101], [-66.121824, -28.970634], [-66.584354, -28.404157], [-66.976165, -28.267422], [-67.260127, -28.35832], [-67.704156, -28.339252], [-68.447264, -27.979377], [-68.435016, -27.746626], [-69.13406, -27.772344]]] }, "properties": { "name": "La Rioja" } },
+      { "type": "Feature", "geometry": { "type": "Polygon", "coordinates": [[[-69.654045, -28.400994], [-69.803926, -29.098688], [-70.042619, -29.363064], [-69.929086, -29.718288], [-69.975621, -30.058629], [-69.902809, -30.312671], [-70.217105, -30.515139], [-70.339785, -31.041722], [-70.479802, -31.096705], [-70.591371, -31.549598], [-70.256119, -32.314278], [-69.631687, -32.233536], [-69.612567, -32.123362], [-69.145102, -31.961873], [-68.6896, -32.33508], [-68.393701, -32.15013], [-68.020726, -32.06905], [-67.831849, -32.239169], [-67.393013, -32.262165], [-67.344385, -31.846841], [-66.730521, -31.876555], [-67.103935, -31.354262], [-67.080706, -30.905503], [-67.634522, -30.247869], [-68.327994, -29.692503], [-69.022035, -29.611681], [-68.921136, -28.989548], [-69.19019, -28.594017], [-69.654045, -28.400994]]] }, "properties": { "name": "San Juan" } },
+      { "type": "Feature", "geometry": { "type": "Polygon", "coordinates": [[[-70.256119, -32.314278], [-70.140029, -32.768283], [-70.000219, -32.876597], [-70.100833, -33.186862], [-69.787674, -33.379408], [-69.895367, -33.662285], [-69.832761, -34.243232], [-70.040345, -34.277028], [-70.227828, -34.58533], [-70.386629, -35.16669], [-70.430748, -36.129402], [-70.175427, -36.568104], [-69.790127, -36.863228], [-69.623471, -37.152564], [-69.260366, -37.152564], [-68.98506, -37.363817], [-68.756676, -37.371672], [-68.249394, -37.557035], [-68.24632, -35.999301], [-66.617169, -35.999921], [-66.506607, -35.141472], [-66.737962, -34.615406], [-66.821368, -34.22928], [-66.747057, -34.064174], [-67.142589, -33.452015], [-67.192121, -32.761101], [-67.393013, -32.262165], [-67.831849, -32.239169], [-68.020726, -32.06905], [-68.393701, -32.15013], [-68.6896, -32.33508], [-69.145102, -31.961873], [-69.612567, -32.123362], [-69.631687, -32.233536], [-70.256119, -32.314278]]] }, "properties": { "name": "Mendoza" } },
+      { "type": "Feature", "geometry": { "type": "Polygon", "coordinates": [[[-70.430748, -36.129402], [-70.71865, -36.414572], [-71.043282, -36.484335], [-71.145343, -36.68825], [-71.12307, -37.443243], [-71.18503, -37.706069], [-71.009976, -38.065531], [-70.873835, -38.691436], [-71.415765, -38.935348], [-71.401968, -39.236002], [-71.624848, -39.93105], [-71.823751, -40.210103], [-71.955577, -40.720356], [-71.867402, -41.010235], [-71.359282, -41.089688], [-71.031085, -40.928768], [-70.971502, -40.640361], [-70.084631, -40.420582], [-69.966473, -39.973064], [-69.54022, -39.825889], [-69.265172, -39.59841], [-68.962219, -39.4887], [-68.574465, -39.107638], [-68.320915, -38.961808], [-68.252133, -38.659294], [-68.249394, -37.557035], [-68.756676, -37.371672], [-68.98506, -37.363817], [-69.260366, -37.152564], [-69.623471, -37.152564], [-69.790127, -36.863228], [-70.175427, -36.568104], [-70.430748, -36.129402]]] }, "properties": { "name": "Neuqu\xE9n" } },
+      { "type": "Feature", "geometry": { "type": "Polygon", "coordinates": [[[-71.76926, -41.999607], [-72.124714, -42.263311], [-72.148537, -42.998718], [-71.742981, -43.190127], [-71.937336, -43.456881], [-71.723757, -43.594754], [-71.659885, -43.92631], [-71.858736, -44.107798], [-71.822045, -44.40318], [-71.209783, -44.427571], [-71.122657, -44.530304], [-71.588726, -44.978132], [-71.311534, -45.299456], [-71.798533, -45.739946], [-71.649163, -45.999414], [-69.633289, -45.999621], [-67.581662, -46.00003], [-67.331925, -45.613491], [-66.868921, -45.235597], [-66.523997, -45.216097], [-66.200367, -44.992919], [-65.602643, -45.027687], [-65.685539, -44.71253], [-65.216885, -44.36641], [-65.334055, -43.672621], [-64.513051, -42.936293], [-64.997141, -42.784845], [-64.614858, -42.515313], [-64.322621, -42.542413], [-64.1079, -42.883722], [-63.620269, -42.751235], [-63.590484, -42.341241], [-63.80996, -42.070174], [-64.16218, -42.209405], [-64.127553, -42.432712], [-64.566274, -42.435968], [-64.531484, -42.244236], [-64.857289, -42.193617], [-65.054596, -42.010675], [-66.883845, -41.999193], [-69.399686, -41.999607], [-71.76926, -41.999607]]] }, "properties": { "name": "Chubut" } },
+      { "type": "Feature", "geometry": { "type": "Polygon", "coordinates": [[[-71.76926, -41.999607], [-69.399686, -41.999607], [-66.883845, -41.999193], [-65.054596, -42.010675], [-64.993276, -41.552992], [-65.17512, -41.010186], [-64.946523, -40.711358], [-63.779408, -41.158787], [-63.099517, -41.15488], [-62.801625, -41.041681], [-63.117796, -40.746143], [-63.387417, -40.709091], [-63.38858, -39.325765], [-63.99446, -39.009815], [-64.471486, -38.8537], [-65.3674, -38.838353], [-66.561952, -38.701565], [-66.647942, -38.557388], [-67.069828, -38.408973], [-67.176592, -38.222628], [-67.554088, -38.261747], [-67.844897, -38.056902], [-67.710513, -37.780019], [-67.850323, -37.600237], [-68.249394, -37.557035], [-68.252133, -38.659294], [-68.320915, -38.961808], [-68.574465, -39.107638], [-68.962219, -39.4887], [-69.265172, -39.59841], [-69.54022, -39.825889], [-69.966473, -39.973064], [-70.084631, -40.420582], [-70.971502, -40.640361], [-71.031085, -40.928768], [-71.359282, -41.089688], [-71.867402, -41.010235], [-71.925967, -41.622936], [-71.76926, -41.999607]]] }, "properties": { "name": "R\xEDo Negro" } },
+      { "type": "Feature", "geometry": { "type": "Polygon", "coordinates": [[[-71.649163, -45.999414], [-71.770162, -46.112636], [-71.68717, -46.690069], [-71.934132, -46.79952], [-72.009838, -47.198152], [-72.543914, -47.9148], [-72.325632, -48.285527], [-72.57678, -48.452132], [-72.592334, -48.791129], [-73.009725, -48.990394], [-73.183151, -49.239061], [-73.059745, -49.554971], [-73.465098, -49.759959], [-73.530572, -50.140814], [-73.322936, -50.268352], [-73.096076, -50.770647], [-72.778421, -50.619648], [-72.302843, -50.648897], [-72.382218, -51.160597], [-72.281139, -51.701494], [-71.917699, -51.990055], [-69.952754, -52.007419], [-68.365611, -52.306204], [-68.935928, -51.645516], [-69.167778, -50.978225], [-69.076519, -50.560172], [-68.876429, -50.330572], [-68.07635, -50.087268], [-67.732012, -49.781302], [-67.556549, -49.015817], [-67.114348, -48.67375], [-66.46849, -48.400275], [-65.847068, -47.944417], [-65.744902, -47.204164], [-66.786448, -47.006606], [-67.42322, -46.567419], [-67.622467, -46.163751], [-67.581662, -46.00003], [-69.633289, -45.999621], [-71.649163, -45.999414]]] }, "properties": { "name": "Santa Cruz" } },
+      { "type": "Feature", "geometry": { "type": "Polygon", "coordinates": [[[-68.641882, -54.782971], [-67.030995, -54.905206], [-66.540508, -55.051046], [-65.966225, -54.902073], [-65.332265, -54.913832], [-65.155588, -54.640558], [-65.844228, -54.647393], [-66.482213, -54.4658], [-66.766582, -54.249842], [-67.29776, -54.053806], [-67.983632, -53.601332], [-68.111402, -53.343802], [-68.451351, -53.297717], [-68.265981, -52.980645], [-68.627617, -52.639572], [-68.641882, -54.782971]]] }, "properties": { "name": "Tierra del Fuego" } },
+      { "type": "Feature", "geometry": { "type": "Polygon", "coordinates": [[[-62.801625, -41.041681], [-62.337799, -40.872735], [-62.25064, -40.622247], [-62.484202, -40.28753], [-62.314565, -39.869399], [-62.164174, -39.858819], [-62.055776, -39.451918], [-62.357818, -39.102227], [-62.026723, -38.937595], [-61.518056, -39.011489], [-60.865712, -38.975681], [-59.063222, -38.69378], [-58.15567, -38.430108], [-57.593577, -38.152765], [-57.511871, -37.872328], [-57.055898, -37.412693], [-56.664866, -36.851007], [-56.697621, -36.396173], [-57.248036, -36.170343], [-57.352625, -35.727524], [-57.144909, -35.4842], [-57.248769, -35.248793], [-57.522032, -35.013154], [-58.315031, -34.657195], [-58.541631, -34.710347], [-58.474192, -34.52158], [-58.37857, -34.188246], [-58.446971, -34.00694], [-58.679798, -34.031204], [-59.26232, -33.724246], [-59.640618, -33.671019], [-60.294092, -33.256574], [-60.46682, -33.612005], [-60.910463, -33.563739], [-60.963069, -33.677221], [-61.710517, -34.376816], [-62.853807, -34.382139], [-63.373594, -34.41361], [-63.384058, -35.002101], [-63.388813, -35.984573], [-63.387831, -37.779399], [-63.38858, -39.325765], [-63.387417, -40.709091], [-63.117796, -40.746143], [-62.801625, -41.041681]]] }, "properties": { "name": "Buenos Aires" } },
+      { "type": "Feature", "geometry": { "type": "Polygon", "coordinates": [[[-58.474192, -34.52158], [-58.541631, -34.710347], [-58.315031, -34.657195], [-58.474192, -34.52158]]] }, "properties": { "name": "Ciudad de Buenos Aires" } },
+      { "type": "Feature", "geometry": { "type": "Polygon", "coordinates": [[[-58.864748, -27.999324], [-60.041317, -28.000099], [-61.709949, -28.000409], [-62.087135, -30.156609], [-62.125324, -30.457675], [-61.865805, -30.788766], [-62.121551, -31.608561], [-62.22276, -31.706798], [-62.218574, -32.138503], [-61.914122, -32.462928], [-61.732971, -32.827453], [-62.853807, -34.382139], [-61.710517, -34.376816], [-60.963069, -33.677221], [-60.910463, -33.563739], [-60.46682, -33.612005], [-60.294092, -33.256574], [-60.495423, -33.122061], [-60.765665, -32.541063], [-60.647765, -31.716048], [-60.41411, -31.673519], [-60.094027, -31.353693], [-59.660642, -30.736056], [-59.661521, -30.336908], [-59.664802, -29.878331], [-59.511272, -29.207571], [-59.197441, -29.022053], [-59.0991, -28.664193], [-59.081375, -28.157557], [-58.864748, -27.999324]]] }, "properties": { "name": "Santa Fe" } },
+      { "type": "Feature", "geometry": { "type": "Polygon", "coordinates": [[[-64.486343, -26.220208], [-64.966442, -26.268836], [-65.66534, -26.074791], [-65.711823, -26.295397], [-66.053818, -26.253488], [-66.155517, -26.497194], [-65.85352, -26.723175], [-65.87233, -26.916445], [-66.191148, -27.30903], [-65.986845, -27.429953], [-65.929329, -27.654332], [-65.570695, -28.050226], [-65.333423, -27.86357], [-65.169092, -27.909666], [-65.00104, -27.764093], [-65.063594, -27.47238], [-64.879833, -27.309185], [-64.674367, -26.804823], [-64.50554, -26.683487], [-64.486343, -26.220208]]] }, "properties": { "name": "Tucum\xE1n" } },
+      { "type": "Feature", "geometry": { "type": "Polygon", "coordinates": [[[-63.398579, -25.659364], [-64.211605, -25.603657], [-64.486343, -26.220208], [-64.50554, -26.683487], [-64.674367, -26.804823], [-64.879833, -27.309185], [-65.063594, -27.47238], [-65.00104, -27.764093], [-65.169092, -27.909666], [-65.079097, -28.274605], [-65.102248, -28.694889], [-65.03543, -29.292682], [-64.882468, -29.55711], [-64.29408, -29.425129], [-63.80765, -29.649766], [-63.46271, -29.655244], [-63.362819, -29.77348], [-62.288156, -29.776735], [-62.087135, -30.156609], [-61.709949, -28.000409], [-61.70938, -26.793816], [-61.753874, -25.661431], [-63.398579, -25.659364]]] }, "properties": { "name": "Santiago del Estero" } },
+      { "type": "Feature", "geometry": { "type": "Polygon", "coordinates": [[[-65.086616, -35.001791], [-65.0869, -33.962371], [-65.131704, -33.205466], [-64.875311, -32.544111], [-64.945023, -32.290483], [-65.75965, -31.885495], [-66.217167, -31.925441], [-66.730521, -31.876555], [-67.344385, -31.846841], [-67.393013, -32.262165], [-67.192121, -32.761101], [-67.142589, -33.452015], [-66.747057, -34.064174], [-66.821368, -34.22928], [-66.737962, -34.615406], [-66.506607, -35.141472], [-66.617169, -35.999921], [-65.087779, -35.998784], [-65.086616, -35.001791]]] }, "properties": { "name": "San Luis" } },
+      { "type": "Feature", "geometry": { "type": "Polygon", "coordinates": [[[-65.086616, -35.001791], [-65.087779, -35.998784], [-66.617169, -35.999921], [-68.24632, -35.999301], [-68.249394, -37.557035], [-67.850323, -37.600237], [-67.710513, -37.780019], [-67.844897, -38.056902], [-67.554088, -38.261747], [-67.176592, -38.222628], [-67.069828, -38.408973], [-66.647942, -38.557388], [-66.561952, -38.701565], [-65.3674, -38.838353], [-64.471486, -38.8537], [-63.99446, -39.009815], [-63.38858, -39.325765], [-63.387831, -37.779399], [-63.388813, -35.984573], [-63.384058, -35.002101], [-65.086616, -35.001791]]] }, "properties": { "name": "La Pampa" } },
+      { "type": "Feature", "geometry": { "type": "Polygon", "coordinates": [[[-62.087135, -30.156609], [-62.288156, -29.776735], [-63.362819, -29.77348], [-63.46271, -29.655244], [-63.80765, -29.649766], [-64.29408, -29.425129], [-64.882468, -29.55711], [-64.943395, -29.878331], [-65.401894, -30.140175], [-65.767272, -31.096241], [-65.75965, -31.885495], [-64.945023, -32.290483], [-64.875311, -32.544111], [-65.131704, -33.205466], [-65.0869, -33.962371], [-65.086616, -35.001791], [-63.384058, -35.002101], [-63.373594, -34.41361], [-62.853807, -34.382139], [-61.732971, -32.827453], [-61.914122, -32.462928], [-62.218574, -32.138503], [-62.22276, -31.706798], [-62.121551, -31.608561], [-61.865805, -30.788766], [-62.125324, -30.457675], [-62.087135, -30.156609]]] }, "properties": { "name": "C\xF3rdoba" } }
+    ] };
+    argentina_provinces_default = provincesGeoJSON;
+  }
+});
+
+// server/geo-resolver.ts
+function snapCoords(lat, lng) {
+  return { lat: Math.round(lat * 100) / 100, lng: Math.round(lng * 100) / 100 };
+}
+function pointInRing(lng, lat, ring) {
+  let inside = false;
+  for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+    const [xi, yi] = ring[i];
+    const [xj, yj] = ring[j];
+    const intersects = yi > lat !== yj > lat && lng < (xj - xi) * (lat - yi) / (yj - yi) + xi;
+    if (intersects) inside = !inside;
+  }
+  return inside;
+}
+function pointInPolygonRings(lng, lat, rings) {
+  if (rings.length === 0 || !pointInRing(lng, lat, rings[0])) return false;
+  for (let k = 1; k < rings.length; k++) {
+    if (pointInRing(lng, lat, rings[k])) return false;
+  }
+  return true;
+}
+function pointInPolygonFeature(lng, lat, feature) {
+  const { type, coordinates } = feature.geometry;
+  if (type === "Polygon") return pointInPolygonRings(lng, lat, coordinates);
+  if (type === "MultiPolygon") {
+    return coordinates.some((poly) => pointInPolygonRings(lng, lat, poly));
+  }
+  return false;
+}
+function resolveProvince(lat, lng) {
+  const features = argentina_provinces_default.features;
+  for (const f of features) {
+    try {
+      if (pointInPolygonFeature(lng, lat, f)) {
+        const raw = f.properties?.name;
+        if (typeof raw === "string" && raw) return GEOJSON_TO_OFFICIAL[raw] ?? raw;
+        return null;
+      }
+    } catch {
+    }
+  }
+  return null;
+}
+function haversineKm(lat1, lng1, lat2, lng2) {
+  const toRad = (d) => d * Math.PI / 180;
+  const R = 6371;
+  const dLat = toRad(lat2 - lat1);
+  const dLng = toRad(lng2 - lng1);
+  const h = Math.sin(dLat / 2) ** 2 + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLng / 2) ** 2;
+  return 2 * R * Math.asin(Math.min(1, Math.sqrt(h)));
+}
+function nearestCity(lat, lng, cities) {
+  let best = null;
+  let bestKm = Infinity;
+  for (const c of cities) {
+    if (c.latitude == null || c.longitude == null) continue;
+    const km = haversineKm(lat, lng, c.latitude, c.longitude);
+    if (km < bestKm) {
+      bestKm = km;
+      best = c.name;
+    }
+  }
+  return bestKm <= MAX_CITY_KM ? best : null;
+}
+var GEOJSON_TO_OFFICIAL, MAX_CITY_KM;
+var init_geo_resolver = __esm({
+  "server/geo-resolver.ts"() {
+    "use strict";
+    init_argentina_provinces();
+    GEOJSON_TO_OFFICIAL = {
+      "Ciudad de Buenos Aires": "Ciudad Aut\xF3noma de Buenos Aires"
+    };
+    MAX_CITY_KM = 50;
+  }
+});
+
 // server/config.ts
 import dotenv from "dotenv";
-import path from "path";
-import { fileURLToPath } from "url";
 function isProductionLikeEnv() {
   const nodeEnv = process.env.NODE_ENV || "development";
   return nodeEnv === "production" || Boolean(process.env.VERCEL);
@@ -3134,36 +3262,8 @@ var config;
 var init_config = __esm({
   "server/config.ts"() {
     "use strict";
-    try {
-      dotenv.config();
-    } catch {
-    }
-    if (!process.env.DATABASE_URL) {
-      try {
-        const here = path.dirname(fileURLToPath(import.meta.url));
-        dotenv.config({ path: path.resolve(here, "..", ".env") });
-      } catch {
-      }
-    }
+    dotenv.config();
     config = validateConfig();
-  }
-});
-
-// server/db.ts
-import { neon } from "@neondatabase/serverless";
-import { drizzle } from "drizzle-orm/neon-http";
-var databaseUrl, sql2, db;
-var init_db = __esm({
-  "server/db.ts"() {
-    "use strict";
-    init_config();
-    init_schema();
-    databaseUrl = process.env.DATABASE_URL;
-    if (!databaseUrl) {
-      throw new Error("DATABASE_URL is required. Set it to your Neon connection string.");
-    }
-    sql2 = neon(databaseUrl);
-    db = drizzle(sql2, { schema: schema_exports });
   }
 });
 
@@ -8091,16 +8191,75 @@ var init_course_content_store = __esm({
   }
 });
 
+// server/geo-service.ts
+var geo_service_exports = {};
+__export(geo_service_exports, {
+  resolveSignalGeo: () => resolveSignalGeo
+});
+import { inArray } from "drizzle-orm";
+async function loadGeoRows() {
+  if (cache && Date.now() - cache.at < CACHE_TTL_MS) return cache.rows;
+  const rows = await db.select({
+    id: geographicLocations.id,
+    name: geographicLocations.name,
+    type: geographicLocations.type,
+    parentId: geographicLocations.parentId,
+    latitude: geographicLocations.latitude,
+    longitude: geographicLocations.longitude
+  }).from(geographicLocations).where(inArray(geographicLocations.type, ["province", "city"]));
+  cache = { rows, at: Date.now() };
+  return rows;
+}
+async function resolveSignalGeo(rawLat, rawLng) {
+  const { lat, lng } = snapCoords(rawLat, rawLng);
+  try {
+    const province = resolveProvince(rawLat, rawLng);
+    if (!province) return { lat, lng, province: null, city: null };
+    let city = null;
+    try {
+      const rows = await loadGeoRows();
+      const provinceRow = rows.find(
+        (r) => r.type === "province" && normalize(r.name) === normalize(province)
+      );
+      if (provinceRow) {
+        const cities = rows.filter(
+          (r) => r.type === "city" && r.parentId === provinceRow.id && r.latitude != null && r.longitude != null
+        );
+        city = nearestCity(rawLat, rawLng, cities);
+      }
+    } catch (e) {
+      console.warn("[geo-service] city lookup failed:", e);
+    }
+    return { lat, lng, province, city };
+  } catch (e) {
+    console.warn("[geo-service] resolve failed:", e);
+    return { lat, lng, province: null, city: null };
+  }
+}
+var CACHE_TTL_MS, cache, normalize;
+var init_geo_service = __esm({
+  "server/geo-service.ts"() {
+    "use strict";
+    init_db();
+    init_schema();
+    init_geo_resolver();
+    CACHE_TTL_MS = 10 * 60 * 1e3;
+    cache = null;
+    normalize = (s) => s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
+  }
+});
+
 // server/storage.ts
-import { eq as eq2, desc as desc2, and as and2, sql as sql4, asc as asc2, gte, or as or2, like, inArray, ilike as ilike2, isNotNull } from "drizzle-orm";
-import path2 from "path";
-import { fileURLToPath as fileURLToPath2 } from "url";
+import { eq as eq2, desc as desc2, and as and2, sql as sql4, asc as asc2, gte, or as or2, like, inArray as inArray2, ilike as ilike2 } from "drizzle-orm";
+import path from "path";
+import { fileURLToPath } from "url";
 var ACTION_POINTS, parseNumericJsonArray, stringifyNumericArray, resolveCourseProgressCourseId, resolveCurrentLessonIdentityId, resolveCompletedLessonIdentityIds, resolveCompletedLessonExternalIds, adaptUserCourseProgress, adaptUserLessonProgress, compareCourseOrder, __filename, __dirname, DatabaseStorage, storage;
 var init_storage = __esm({
   "server/storage.ts"() {
     "use strict";
     init_schema();
     init_db();
+    init_geo_resolver();
     init_auth();
     init_blogContentEnhancements();
     init_course_content_store();
@@ -8212,8 +8371,8 @@ var init_storage = __esm({
       }
       return (right.orderIndex ?? 0) - (left.orderIndex ?? 0) || toTimestamp(right.updatedAt) - toTimestamp(left.updatedAt) || toTimestamp(right.createdAt) - toTimestamp(left.createdAt);
     };
-    __filename = fileURLToPath2(import.meta.url);
-    __dirname = path2.dirname(__filename);
+    __filename = fileURLToPath(import.meta.url);
+    __dirname = path.dirname(__filename);
     DatabaseStorage = class {
       constructor() {
         this.userCommitmentsLocationColumnsEnsured = false;
@@ -8503,7 +8662,7 @@ var init_storage = __esm({
             const postIds = userPosts.map((p) => p.id);
             let totalMembers = 0;
             if (postIds.length > 0) {
-              const membersResult = await db.select({ count: sql4`count(*)` }).from(initiativeMembers).where(inArray(initiativeMembers.postId, postIds));
+              const membersResult = await db.select({ count: sql4`count(*)` }).from(initiativeMembers).where(inArray2(initiativeMembers.postId, postIds));
               totalMembers = Number(membersResult[0]?.count || 0);
             }
             userInfo = {
@@ -9019,9 +9178,9 @@ var init_storage = __esm({
           let allComments = [];
           try {
             if (postIds.length > 0 && postIds.every((id) => typeof id === "number" && !isNaN(id))) {
-              allTags = await db.select().from(postTags).where(inArray(postTags.postId, postIds));
-              allLikes = await db.select().from(postLikes).where(inArray(postLikes.postId, postIds));
-              allComments = await db.select().from(postComments).where(inArray(postComments.postId, postIds));
+              allTags = await db.select().from(postTags).where(inArray2(postTags.postId, postIds));
+              allLikes = await db.select().from(postLikes).where(inArray2(postLikes.postId, postIds));
+              allComments = await db.select().from(postComments).where(inArray2(postComments.postId, postIds));
             }
           } catch (error) {
             console.error("[getBlogPosts] Error fetching related data:", error);
@@ -9047,7 +9206,7 @@ var init_storage = __esm({
                   name: users.name,
                   username: users.username,
                   email: users.email
-                }).from(users).where(inArray(users.id, userIdArray));
+                }).from(users).where(inArray2(users.id, userIdArray));
               }
             }
           } catch (error) {
@@ -9632,8 +9791,10 @@ var init_storage = __esm({
         await this.ensureUserCommitmentsLocationColumns();
         const rawLatitude = location?.latitude;
         const rawLongitude = location?.longitude;
-        const latitude = Number.isFinite(rawLatitude) ? Number(rawLatitude) : null;
-        const longitude = Number.isFinite(rawLongitude) ? Number(rawLongitude) : null;
+        const hasCoords = Number.isFinite(rawLatitude) && Number.isFinite(rawLongitude);
+        const snapped = hasCoords ? snapCoords(Number(rawLatitude), Number(rawLongitude)) : null;
+        const latitude = snapped ? snapped.lat : null;
+        const longitude = snapped ? snapped.lng : null;
         let province = location?.province?.trim() || null;
         let city = location?.city?.trim() || null;
         if ((!province || !city) && latitude !== null && longitude !== null) {
@@ -9698,43 +9859,9 @@ var init_storage = __esm({
         };
       }
       async resolveLocationFromCoordinates(latitude, longitude) {
-        const locations = await db.select({
-          id: geographicLocations.id,
-          name: geographicLocations.name,
-          type: geographicLocations.type,
-          parentId: geographicLocations.parentId,
-          latitude: geographicLocations.latitude,
-          longitude: geographicLocations.longitude
-        }).from(geographicLocations).where(and2(
-          inArray(geographicLocations.type, ["province", "city"]),
-          isNotNull(geographicLocations.latitude),
-          isNotNull(geographicLocations.longitude)
-        ));
-        if (!locations.length) {
-          return { province: null, city: null };
-        }
-        const provinces = locations.filter((location) => location.type === "province");
-        const cities = locations.filter((location) => location.type === "city");
-        const provinceById = new Map(provinces.map((province2) => [province2.id, province2.name]));
-        const nearestProvince = provinces.reduce((closest, province2) => {
-          const distance = this.calculateDistance(latitude, longitude, province2.latitude, province2.longitude);
-          if (distance < closest.distance) return { distance, name: province2.name };
-          return closest;
-        }, { distance: Number.POSITIVE_INFINITY, name: null });
-        const nearestCity = cities.reduce((closest, city2) => {
-          const distance = this.calculateDistance(latitude, longitude, city2.latitude, city2.longitude);
-          if (distance < closest.distance) {
-            return { distance, name: city2.name, parentId: city2.parentId ?? null };
-          }
-          return closest;
-        }, { distance: Number.POSITIVE_INFINITY, name: null, parentId: null });
-        const cityThresholdKm = 180;
-        const provinceThresholdKm = 300;
-        const city = nearestCity.distance <= cityThresholdKm ? nearestCity.name : null;
-        const provinceFromCity = city && nearestCity.parentId ? provinceById.get(nearestCity.parentId) ?? null : null;
-        const provinceDirect = nearestProvince.distance <= provinceThresholdKm ? nearestProvince.name : null;
-        const province = provinceFromCity || provinceDirect;
-        return { province, city };
+        const { resolveSignalGeo: resolveSignalGeo2 } = await Promise.resolve().then(() => (init_geo_service(), geo_service_exports));
+        const geo = await resolveSignalGeo2(latitude, longitude);
+        return { province: geo.province, city: geo.city };
       }
       async getLeaderboard(type, limit) {
         let rows;
@@ -9799,7 +9926,7 @@ var init_storage = __esm({
         const badgeCounts = await db.select({
           userId: userBadges.userId,
           count: sql4`cast(count(*) as int)`
-        }).from(userBadges).where(inArray(userBadges.userId, userIds)).groupBy(userBadges.userId);
+        }).from(userBadges).where(inArray2(userBadges.userId, userIds)).groupBy(userBadges.userId);
         const badgeCountMap = new Map(badgeCounts.map((bc) => [bc.userId, bc.count]));
         const topBadgeRows = await db.select({
           userId: userBadges.userId,
@@ -9808,7 +9935,7 @@ var init_storage = __esm({
           name: badges.name,
           iconName: badges.iconName,
           rarity: badges.rarity
-        }).from(userBadges).innerJoin(badges, eq2(userBadges.badgeId, badges.id)).where(inArray(userBadges.userId, userIds)).orderBy(desc2(userBadges.earnedAt));
+        }).from(userBadges).innerJoin(badges, eq2(userBadges.badgeId, badges.id)).where(inArray2(userBadges.userId, userIds)).orderBy(desc2(userBadges.earnedAt));
         const topBadgesByUser = /* @__PURE__ */ new Map();
         for (const row of topBadgeRows) {
           const list = topBadgesByUser.get(row.userId) ?? [];
@@ -9819,7 +9946,7 @@ var init_storage = __esm({
         }
         let levelMap = /* @__PURE__ */ new Map();
         if (type !== "global") {
-          const progressRows = await db.select({ userId: userProgress.userId, level: userProgress.level }).from(userProgress).where(inArray(userProgress.userId, userIds));
+          const progressRows = await db.select({ userId: userProgress.userId, level: userProgress.level }).from(userProgress).where(inArray2(userProgress.userId, userIds));
           levelMap = new Map(progressRows.map((p) => [p.userId, p.level ?? 1]));
         }
         return rows.map((row) => ({
@@ -11636,7 +11763,7 @@ async function generateAndSaveMandate(territoryLevel, territoryName, province, c
     space: ["community", "action"],
     equipment: ["economy", "action"]
   };
-  const normalize2 = (w) => w.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z]/g, "");
+  const normalize3 = (w) => w.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z]/g, "");
   const themeHits = {};
   for (const tk of Object.keys(THEME_KEYWORDS2)) themeHits[tk] = { count: 0, quotes: [] };
   let voiceCount = 0;
@@ -11645,7 +11772,7 @@ async function generateAndSaveMandate(territoryLevel, territoryName, province, c
       const text2 = entry[type];
       if (!text2) continue;
       voiceCount++;
-      const words = text2.split(/\s+/).map(normalize2).filter((w) => w.length > 3);
+      const words = text2.split(/\s+/).map(normalize3).filter((w) => w.length > 3);
       for (const tk of Object.keys(THEME_KEYWORDS2)) {
         if (words.some((w) => THEME_KEYWORDS2[tk].some((kw) => w.includes(kw) || kw.includes(w)))) {
           themeHits[tk].count++;
@@ -11842,7 +11969,7 @@ async function scanForMatches(minNeeds = 2, minResources = 1) {
     community: ["comunidad", "pueblo", "sociedad", "colectivo", "barrio", "territorio"],
     future: ["futuro", "vision", "horizonte", "esperanza", "sueno", "meta"]
   };
-  const normalize2 = (w) => w.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z]/g, "");
+  const normalize3 = (w) => w.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z]/g, "");
   const needsByLocTheme = {};
   dreams3.forEach((entry) => {
     const loc = entry.location || "Sin ubicaci\xF3n";
@@ -11850,7 +11977,7 @@ async function scanForMatches(minNeeds = 2, minResources = 1) {
     for (const type of ["need", "basta"]) {
       const text2 = entry[type];
       if (!text2) continue;
-      const words = text2.split(/\s+/).map(normalize2).filter((w) => w.length > 3);
+      const words = text2.split(/\s+/).map(normalize3).filter((w) => w.length > 3);
       for (const [theme, keywords] of Object.entries(THEME_KEYWORDS2)) {
         if (words.some((w) => keywords.some((kw) => w.includes(kw) || kw.includes(w)))) {
           if (!needsByLocTheme[loc]) needsByLocTheme[loc] = {};
@@ -16087,7 +16214,7 @@ import { eq as eq8, desc as desc8, and as and7 } from "drizzle-orm";
 init_db();
 init_schema();
 init_config();
-import { eq as eq7, desc as desc7, and as and6, isNull, ne, count, inArray as inArray2 } from "drizzle-orm";
+import { eq as eq7, desc as desc7, and as and6, isNull, ne, count, inArray as inArray3 } from "drizzle-orm";
 
 // shared/coaching-templates.ts
 var COACHING_TEMPLATES = [
@@ -16476,7 +16603,7 @@ async function getUserCoachingContext(userId) {
           priority: initiativeTasks.priority
         }).from(initiativeTasks).where(
           and6(
-            inArray2(initiativeTasks.postId, postIds),
+            inArray3(initiativeTasks.postId, postIds),
             ne(initiativeTasks.status, "done")
           )
         ).limit(5);
@@ -16907,10 +17034,10 @@ function sanitizeInput(req, res, next) {
 }
 
 // server/routes-open-data.ts
-var cache = /* @__PURE__ */ new Map();
+var cache2 = /* @__PURE__ */ new Map();
 var CACHE_TTL = 60 * 60 * 1e3;
 function isCacheFresh(key) {
-  const entry = cache.get(key);
+  const entry = cache2.get(key);
   if (!entry) return false;
   return Date.now() - entry.generatedAt.getTime() < CACHE_TTL;
 }
@@ -17132,7 +17259,7 @@ function registerOpenDataRoutes(app2) {
           or3(isNull2(userResources.userId), isNull2(users.dataShareOptOut), eq9(users.dataShareOptOut, false))
         )
       );
-      const lastGenerated = cache.get("json")?.generatedAt?.toISOString() || cache.get("csv")?.generatedAt?.toISOString() || cache.get("sqlite")?.generatedAt?.toISOString() || null;
+      const lastGenerated = cache2.get("json")?.generatedAt?.toISOString() || cache2.get("csv")?.generatedAt?.toISOString() || cache2.get("sqlite")?.generatedAt?.toISOString() || null;
       res.json({
         dreams: Number(dreamsCount.count),
         commitments: Number(commitmentsCount.count),
@@ -17151,7 +17278,7 @@ function registerOpenDataRoutes(app2) {
         return res.status(400).json({ error: "Formato inv\xE1lido. Us\xE1: json, csv, o sqlite" });
       }
       if (isCacheFresh(format)) {
-        const cached = cache.get(format);
+        const cached = cache2.get(format);
         return sendFile(res, format, cached.buffer);
       }
       const data = await fetchAllData();
@@ -17174,7 +17301,7 @@ function registerOpenDataRoutes(app2) {
         default:
           return res.status(400).json({ error: "Formato inv\xE1lido" });
       }
-      cache.set(format, { buffer, generatedAt: /* @__PURE__ */ new Date(), counts });
+      cache2.set(format, { buffer, generatedAt: /* @__PURE__ */ new Date(), counts });
       return sendFile(res, format, buffer);
     } catch (error) {
       console.error("Error generating open data export:", error);
@@ -17441,11 +17568,108 @@ function safeJsonParse(str) {
   }
 }
 
+// server/routes-map-signals.ts
+init_db();
+init_schema();
+import { desc as desc11, eq as eq12 } from "drizzle-orm";
+var MAX_SIGNALS = 5e3;
+var parseCoord = (v) => {
+  if (v == null || v === "") return null;
+  const n = typeof v === "string" ? parseFloat(v) : v;
+  return Number.isFinite(n) ? n : null;
+};
+var dreamText = (d) => d.dream || d.value || d.need || d.basta || "";
+var dreamType = (raw) => raw === "value" || raw === "need" || raw === "basta" ? raw : "dream";
+function registerMapSignalsRoutes(app2) {
+  app2.get("/api/map/signals", publicReadRateLimit, async (_req, res) => {
+    try {
+      const [dreamRows, commitmentRows, resourceRows] = await Promise.all([
+        db.select({
+          id: dreams.id,
+          type: dreams.type,
+          dream: dreams.dream,
+          value: dreams.value,
+          need: dreams.need,
+          basta: dreams.basta,
+          location: dreams.location,
+          latitude: dreams.latitude,
+          longitude: dreams.longitude,
+          province: dreams.province,
+          city: dreams.city,
+          createdAt: dreams.createdAt
+        }).from(dreams).orderBy(desc11(dreams.createdAt)).limit(MAX_SIGNALS),
+        db.select({
+          id: userCommitments.id,
+          text: userCommitments.commitmentText,
+          latitude: userCommitments.latitude,
+          longitude: userCommitments.longitude,
+          province: userCommitments.province,
+          city: userCommitments.city,
+          createdAt: userCommitments.createdAt
+        }).from(userCommitments).orderBy(desc11(userCommitments.createdAt)).limit(MAX_SIGNALS),
+        db.select({
+          id: userResources.id,
+          text: userResources.description,
+          category: userResources.category,
+          latitude: userResources.latitude,
+          longitude: userResources.longitude,
+          province: userResources.province,
+          city: userResources.city,
+          location: userResources.location,
+          createdAt: userResources.createdAt
+        }).from(userResources).where(eq12(userResources.isActive, true)).orderBy(desc11(userResources.createdAt)).limit(MAX_SIGNALS)
+      ]);
+      const signals = [
+        ...dreamRows.map((d) => ({
+          id: `dream-${d.id}`,
+          type: dreamType(d.type),
+          text: dreamText(d),
+          lat: parseCoord(d.latitude),
+          lng: parseCoord(d.longitude),
+          location: d.location,
+          province: d.province,
+          city: d.city,
+          category: null,
+          createdAt: d.createdAt
+        })),
+        ...commitmentRows.map((c) => ({
+          id: `commitment-${c.id}`,
+          type: "compromiso",
+          text: c.text || "",
+          lat: parseCoord(c.latitude),
+          lng: parseCoord(c.longitude),
+          location: [c.city, c.province].filter(Boolean).join(", ") || null,
+          province: c.province,
+          city: c.city,
+          category: null,
+          createdAt: c.createdAt
+        })),
+        ...resourceRows.map((r) => ({
+          id: `resource-${r.id}`,
+          type: "recurso",
+          text: r.text || "",
+          lat: parseCoord(r.latitude),
+          lng: parseCoord(r.longitude),
+          location: [r.city, r.province].filter(Boolean).join(", ") || r.location || null,
+          province: r.province,
+          city: r.city,
+          category: r.category,
+          createdAt: r.createdAt
+        }))
+      ].sort((a, b) => String(b.createdAt ?? "").localeCompare(String(a.createdAt ?? ""))).slice(0, MAX_SIGNALS);
+      res.json({ signals, total: signals.length });
+    } catch (error) {
+      console.error("[map-signals] fetch failed:", error);
+      res.status(500).json({ message: "Failed to fetch map signals" });
+    }
+  });
+}
+
 // server/services/analytics-service.ts
 init_db();
 init_schema();
 init_config();
-import { eq as eq12, and as and11, isNull as isNull3, or as or4 } from "drizzle-orm";
+import { eq as eq13, and as and11, isNull as isNull3, or as or4 } from "drizzle-orm";
 var THEME_KEYWORDS = {
   systemic: [
     "transformacion",
@@ -17667,11 +17891,11 @@ async function queryAllDreams() {
     type: dreams.type,
     location: dreams.location,
     createdAt: dreams.createdAt
-  }).from(dreams).leftJoin(users, eq12(dreams.userId, users.id)).where(
+  }).from(dreams).leftJoin(users, eq13(dreams.userId, users.id)).where(
     or4(
       isNull3(dreams.userId),
       isNull3(users.dataShareOptOut),
-      eq12(users.dataShareOptOut, false)
+      eq13(users.dataShareOptOut, false)
     )
   );
 }
@@ -17682,11 +17906,11 @@ async function queryAllCommitments() {
     province: userCommitments.province,
     city: userCommitments.city,
     createdAt: userCommitments.createdAt
-  }).from(userCommitments).leftJoin(users, eq12(userCommitments.userId, users.id)).where(
+  }).from(userCommitments).leftJoin(users, eq13(userCommitments.userId, users.id)).where(
     or4(
       isNull3(userCommitments.userId),
       isNull3(users.dataShareOptOut),
-      eq12(users.dataShareOptOut, false)
+      eq13(users.dataShareOptOut, false)
     )
   );
 }
@@ -17698,13 +17922,13 @@ async function queryAllResources() {
     province: userResources.province,
     city: userResources.city,
     createdAt: userResources.createdAt
-  }).from(userResources).leftJoin(users, eq12(userResources.userId, users.id)).where(
+  }).from(userResources).leftJoin(users, eq13(userResources.userId, users.id)).where(
     and11(
-      eq12(userResources.isActive, true),
+      eq13(userResources.isActive, true),
       or4(
         isNull3(userResources.userId),
         isNull3(users.dataShareOptOut),
-        eq12(users.dataShareOptOut, false)
+        eq13(users.dataShareOptOut, false)
       )
     )
   );
@@ -17893,265 +18117,100 @@ function registerAnalyticsRoutes(app2) {
   });
 }
 
-// server/routes-radar.ts
-init_db();
-init_schema();
-init_storage();
-init_auth();
-import { z as z6 } from "zod";
-import rateLimit3 from "express-rate-limit";
-import { desc as desc11, eq as eq13, sql as sql10 } from "drizzle-orm";
-
-// server/lib/radar.ts
-import { z as z5 } from "zod";
-var RADAR_VOICE_TYPES = ["dream", "value", "need", "basta"];
-var RADAR_AUTH_TYPES = ["compromiso", "recurso"];
-var RADAR_TYPES = [...RADAR_VOICE_TYPES, ...RADAR_AUTH_TYPES];
-var RESOURCE_CATEGORIES = [
-  "legal",
-  "medical",
-  "education",
-  "tech",
-  "construction",
-  "agriculture",
-  "communication",
-  "admin",
-  "transport",
-  "space",
-  "equipment",
-  "other"
-];
-var radarSenalSchema = z5.object({
-  type: z5.enum(RADAR_TYPES, {
-    errorMap: () => ({ message: "Tipo de se\xF1al inv\xE1lido" })
-  }),
-  text: z5.string({ required_error: "Contanos tu se\xF1al" }).trim().min(10, "Contanos un poco m\xE1s \u2014 al menos 10 caracteres").max(1e3, "M\xE1ximo 1000 caracteres"),
-  location: z5.string().trim().max(255, "El lugar no puede superar 255 caracteres").optional(),
-  latitude: z5.coerce.number().min(-90, "Latitud inv\xE1lida").max(90, "Latitud inv\xE1lida").optional(),
-  longitude: z5.coerce.number().min(-180, "Longitud inv\xE1lida").max(180, "Longitud inv\xE1lida").optional(),
-  // Solo para type === 'recurso'
-  category: z5.enum(RESOURCE_CATEGORIES).optional()
-});
-function isVoiceType(type) {
-  return RADAR_VOICE_TYPES.includes(type);
-}
-function buildDreamInsert(input, userId) {
-  if (!isVoiceType(input.type)) {
-    throw new Error(`buildDreamInsert solo acepta tipos de voz, recibi\xF3: ${input.type}`);
-  }
-  return {
-    userId,
-    dream: input.type === "dream" ? input.text : null,
-    value: input.type === "value" ? input.text : null,
-    need: input.type === "need" ? input.text : null,
-    basta: input.type === "basta" ? input.text : null,
-    location: input.location ?? null,
-    latitude: input.latitude !== void 0 ? String(input.latitude) : null,
-    longitude: input.longitude !== void 0 ? String(input.longitude) : null,
-    type: input.type
-  };
-}
-function excerptSignalText(text2, max = 140) {
-  if (!text2) return "";
-  const clean = text2.replace(/\s+/g, " ").trim();
-  return clean.length <= max ? clean : `${clean.slice(0, max - 1).trimEnd()}\u2026`;
-}
-
-// server/routes-radar.ts
-var radarSubmitRateLimit = rateLimit3({
-  windowMs: 15 * 60 * 1e3,
-  max: 12,
-  message: { message: "Mandaste muchas se\xF1ales seguidas. Esper\xE1 unos minutos y segu\xED." },
-  standardHeaders: true,
-  legacyHeaders: false
-});
-var resumenCache = null;
-var RESUMEN_TTL_MS = 60 * 1e3;
-function registerRadarRoutes(app2) {
-  app2.post("/api/radar/senal", radarSubmitRateLimit, optionalAuth, sanitizeInput, async (req, res) => {
-    try {
-      const input = radarSenalSchema.parse(req.body);
-      const userId = req.user?.userId ?? null;
-      if (isVoiceType(input.type)) {
-        const dream = await storage.createDream(buildDreamInsert(input, userId));
-        resumenCache = null;
-        return res.status(201).json({ ok: true, type: input.type, id: dream.id });
-      }
-      if (!userId) {
-        return res.status(401).json({
-          message: input.type === "compromiso" ? "Necesit\xE1s una cuenta para registrar compromisos" : "Necesit\xE1s una cuenta para ofrecer recursos",
-          code: "AUTH_REQUIRED"
-        });
-      }
-      if (input.type === "compromiso") {
-        const commitment = await storage.saveCommitment(userId, input.text, "initial", {
-          latitude: input.latitude ?? null,
-          longitude: input.longitude ?? null
-        });
-        resumenCache = null;
-        return res.status(201).json({ ok: true, type: input.type, id: commitment.id });
-      }
-      const resource = await storage.createUserResource({
-        userId,
-        description: input.text,
-        category: input.category ?? "other",
-        latitude: input.latitude ?? null,
-        longitude: input.longitude ?? null,
-        location: input.location ?? null
-      });
-      resumenCache = null;
-      return res.status(201).json({ ok: true, type: input.type, id: resource.id });
-    } catch (error) {
-      if (error instanceof z6.ZodError) {
-        return res.status(400).json({ message: error.errors[0]?.message ?? "Datos inv\xE1lidos" });
-      }
-      console.error("Radar senal error:", error);
-      return res.status(500).json({ message: "No pudimos guardar tu se\xF1al. Prob\xE1 de nuevo." });
-    }
-  });
-  app2.get("/api/radar/resumen", async (_req, res) => {
-    try {
-      if (resumenCache && Date.now() - resumenCache.generatedAt < RESUMEN_TTL_MS) {
-        return res.json(resumenCache.data);
-      }
-      const [dreamTypeCounts, [commitmentCount], [resourceCount], recentRows] = await Promise.all([
-        db.select({ type: dreams.type, count: sql10`count(*)::int` }).from(dreams).groupBy(dreams.type),
-        db.select({ count: sql10`count(*)::int` }).from(userCommitments).where(eq13(userCommitments.status, "active")),
-        db.select({ count: sql10`count(*)::int` }).from(userResources).where(eq13(userResources.isActive, true)),
-        db.select({
-          id: dreams.id,
-          type: dreams.type,
-          dream: dreams.dream,
-          value: dreams.value,
-          need: dreams.need,
-          basta: dreams.basta,
-          location: dreams.location,
-          createdAt: dreams.createdAt
-        }).from(dreams).orderBy(desc11(dreams.id)).limit(20)
-      ]);
-      const totals = {
-        dream: 0,
-        value: 0,
-        need: 0,
-        basta: 0,
-        compromiso: commitmentCount?.count ?? 0,
-        recurso: resourceCount?.count ?? 0
-      };
-      for (const row of dreamTypeCounts) {
-        if (row.type in totals) totals[row.type] = row.count;
-      }
-      const total = Object.values(totals).reduce((a, b) => a + b, 0);
-      const recientes = recentRows.map((row) => ({
-        id: row.id,
-        type: row.type,
-        excerpt: excerptSignalText(row.dream ?? row.value ?? row.need ?? row.basta),
-        location: row.location,
-        createdAt: row.createdAt
-      }));
-      const data = { totals: { ...totals, total }, recientes };
-      resumenCache = { data, generatedAt: Date.now() };
-      return res.json(data);
-    } catch (error) {
-      console.error("Radar resumen error:", error);
-      return res.status(500).json({ message: "No pudimos cargar el pulso del Radar." });
-    }
-  });
-}
-
 // server/routes.ts
 init_mandato_engine();
 init_schema();
 init_auth();
-import { z as z8 } from "zod";
+import { z as z6 } from "zod";
 
 // server/validation.ts
-import { z as z7 } from "zod";
-var registerUserSchema = z7.object({
-  name: z7.string().min(2, "El nombre debe tener al menos 2 caracteres").max(100, "El nombre no puede exceder 100 caracteres").regex(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/, "El nombre solo puede contener letras y espacios"),
-  email: z7.string().email("Formato de email inv\xE1lido").max(255, "El email no puede exceder 255 caracteres").toLowerCase(),
-  username: z7.string().min(3, "El nombre de usuario debe tener al menos 3 caracteres").max(50, "El nombre de usuario no puede exceder 50 caracteres").regex(/^[a-zA-Z0-9_]+$/, "El nombre de usuario solo puede contener letras, n\xFAmeros y guiones bajos"),
-  password: z7.string().min(8, "La contrase\xF1a debe tener al menos 8 caracteres").max(128, "La contrase\xF1a no puede exceder 128 caracteres").regex(
+import { z as z5 } from "zod";
+var registerUserSchema = z5.object({
+  name: z5.string().min(2, "El nombre debe tener al menos 2 caracteres").max(100, "El nombre no puede exceder 100 caracteres").regex(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/, "El nombre solo puede contener letras y espacios"),
+  email: z5.string().email("Formato de email inv\xE1lido").max(255, "El email no puede exceder 255 caracteres").toLowerCase(),
+  username: z5.string().min(3, "El nombre de usuario debe tener al menos 3 caracteres").max(50, "El nombre de usuario no puede exceder 50 caracteres").regex(/^[a-zA-Z0-9_]+$/, "El nombre de usuario solo puede contener letras, n\xFAmeros y guiones bajos"),
+  password: z5.string().min(8, "La contrase\xF1a debe tener al menos 8 caracteres").max(128, "La contrase\xF1a no puede exceder 128 caracteres").regex(
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z0-9])/,
     "La contrase\xF1a debe contener al menos una letra min\xFAscula, una may\xFAscula, un n\xFAmero y un car\xE1cter especial"
   ),
-  confirmPassword: z7.string(),
-  location: z7.string().max(255, "La ubicaci\xF3n no puede exceder 255 caracteres").optional()
+  confirmPassword: z5.string(),
+  location: z5.string().max(255, "La ubicaci\xF3n no puede exceder 255 caracteres").optional()
 }).refine((data) => data.password === data.confirmPassword, {
   message: "Las contrase\xF1as no coinciden",
   path: ["confirmPassword"]
 });
-var loginSchema = z7.object({
-  username: z7.string().min(1, "El nombre de usuario es requerido").max(50, "El nombre de usuario no puede exceder 50 caracteres"),
-  password: z7.string().min(1, "La contrase\xF1a es requerida").max(128, "La contrase\xF1a no puede exceder 128 caracteres")
+var loginSchema = z5.object({
+  username: z5.string().min(1, "El nombre de usuario es requerido").max(50, "El nombre de usuario no puede exceder 50 caracteres"),
+  password: z5.string().min(1, "La contrase\xF1a es requerida").max(128, "La contrase\xF1a no puede exceder 128 caracteres")
 });
-var changePasswordSchema = z7.object({
-  currentPassword: z7.string().min(1, "La contrase\xF1a actual es requerida"),
-  newPassword: z7.string().min(8, "La nueva contrase\xF1a debe tener al menos 8 caracteres").max(128, "La nueva contrase\xF1a no puede exceder 128 caracteres").regex(
+var changePasswordSchema = z5.object({
+  currentPassword: z5.string().min(1, "La contrase\xF1a actual es requerida"),
+  newPassword: z5.string().min(8, "La nueva contrase\xF1a debe tener al menos 8 caracteres").max(128, "La nueva contrase\xF1a no puede exceder 128 caracteres").regex(
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z0-9])/,
     "La nueva contrase\xF1a debe contener al menos una letra min\xFAscula, una may\xFAscula, un n\xFAmero y un car\xE1cter especial"
   ),
-  confirmNewPassword: z7.string()
+  confirmNewPassword: z5.string()
 }).refine((data) => data.newPassword === data.confirmNewPassword, {
   message: "Las contrase\xF1as no coinciden",
   path: ["confirmNewPassword"]
 });
-var updateProfileSchema = z7.object({
-  name: z7.string().min(2, "El nombre debe tener al menos 2 caracteres").max(100, "El nombre no puede exceder 100 caracteres").regex(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/, "El nombre solo puede contener letras y espacios").optional(),
-  email: z7.string().email("Formato de email inv\xE1lido").max(255, "El email no puede exceder 255 caracteres").toLowerCase().optional(),
-  location: z7.string().max(255, "La ubicaci\xF3n no puede exceder 255 caracteres").optional(),
-  bio: z7.string().trim().max(500, "La bio no puede superar los 500 caracteres").nullable().optional(),
-  dataShareOptOut: z7.boolean().optional()
+var updateProfileSchema = z5.object({
+  name: z5.string().min(2, "El nombre debe tener al menos 2 caracteres").max(100, "El nombre no puede exceder 100 caracteres").regex(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/, "El nombre solo puede contener letras y espacios").optional(),
+  email: z5.string().email("Formato de email inv\xE1lido").max(255, "El email no puede exceder 255 caracteres").toLowerCase().optional(),
+  location: z5.string().max(255, "La ubicaci\xF3n no puede exceder 255 caracteres").optional(),
+  bio: z5.string().trim().max(500, "La bio no puede superar los 500 caracteres").nullable().optional(),
+  dataShareOptOut: z5.boolean().optional()
 });
-var createDreamSchema = z7.object({
-  dream: z7.string().min(10, "El sue\xF1o debe tener al menos 10 caracteres").max(1e3, "El sue\xF1o no puede exceder 1000 caracteres").optional(),
-  value: z7.string().min(5, "El valor debe tener al menos 5 caracteres").max(500, "El valor no puede exceder 500 caracteres").optional(),
-  need: z7.string().min(5, "La necesidad debe tener al menos 5 caracteres").max(500, "La necesidad no puede exceder 500 caracteres").optional(),
-  basta: z7.string().min(5, "El basta debe tener al menos 5 caracteres").max(500, "El basta no puede exceder 500 caracteres").optional(),
-  location: z7.string().max(255, "La ubicaci\xF3n no puede exceder 255 caracteres").optional(),
-  latitude: z7.string().regex(/^-?([1-8]?[0-9](\.[0-9]+)?|90(\.0+)?)$/, "Latitud inv\xE1lida").optional(),
-  longitude: z7.string().regex(/^-?((1[0-7][0-9])|([1-9]?[0-9]))(\.[0-9]+)?$/, "Longitud inv\xE1lida").optional(),
-  type: z7.enum(["dream", "value", "need", "basta"]).default("dream")
+var createDreamSchema = z5.object({
+  dream: z5.string().min(10, "El sue\xF1o debe tener al menos 10 caracteres").max(1e3, "El sue\xF1o no puede exceder 1000 caracteres").optional(),
+  value: z5.string().min(5, "El valor debe tener al menos 5 caracteres").max(500, "El valor no puede exceder 500 caracteres").optional(),
+  need: z5.string().min(5, "La necesidad debe tener al menos 5 caracteres").max(500, "La necesidad no puede exceder 500 caracteres").optional(),
+  basta: z5.string().min(5, "El basta debe tener al menos 5 caracteres").max(500, "El basta no puede exceder 500 caracteres").optional(),
+  location: z5.string().max(255, "La ubicaci\xF3n no puede exceder 255 caracteres").optional(),
+  latitude: z5.string().regex(/^-?([1-8]?[0-9](\.[0-9]+)?|90(\.0+)?)$/, "Latitud inv\xE1lida").optional(),
+  longitude: z5.string().regex(/^-?((1[0-7][0-9])|([1-9]?[0-9]))(\.[0-9]+)?$/, "Longitud inv\xE1lida").optional(),
+  type: z5.enum(["dream", "value", "need", "basta"]).default("dream")
 }).refine((data) => {
   return data.dream || data.value || data.need || data.basta;
 }, {
   message: "Debe proporcionar al menos un contenido (sue\xF1o, valor, necesidad o basta)",
   path: ["dream"]
 });
-var createCommunityPostSchema = z7.object({
-  title: z7.string().min(5, "El t\xEDtulo debe tener al menos 5 caracteres").max(200, "El t\xEDtulo no puede exceder 200 caracteres"),
-  description: z7.string().min(20, "La descripci\xF3n debe tener al menos 20 caracteres").max(2e3, "La descripci\xF3n no puede exceder 2000 caracteres"),
-  type: z7.enum(["job", "project", "resource", "volunteer", "donation"]).default("project"),
-  location: z7.string().min(2, "La ubicaci\xF3n debe tener al menos 2 caracteres").max(255, "La ubicaci\xF3n no puede exceder 255 caracteres"),
-  participants: z7.number().int("El n\xFAmero de participantes debe ser un entero").min(1, "Debe haber al menos 1 participante").max(1e3, "No puede haber m\xE1s de 1000 participantes").optional()
+var createCommunityPostSchema = z5.object({
+  title: z5.string().min(5, "El t\xEDtulo debe tener al menos 5 caracteres").max(200, "El t\xEDtulo no puede exceder 200 caracteres"),
+  description: z5.string().min(20, "La descripci\xF3n debe tener al menos 20 caracteres").max(2e3, "La descripci\xF3n no puede exceder 2000 caracteres"),
+  type: z5.enum(["job", "project", "resource", "volunteer", "donation"]).default("project"),
+  location: z5.string().min(2, "La ubicaci\xF3n debe tener al menos 2 caracteres").max(255, "La ubicaci\xF3n no puede exceder 255 caracteres"),
+  participants: z5.number().int("El n\xFAmero de participantes debe ser un entero").min(1, "Debe haber al menos 1 participante").max(1e3, "No puede haber m\xE1s de 1000 participantes").optional()
 });
-var createStorySchema = z7.object({
-  name: z7.string().min(2, "El nombre debe tener al menos 2 caracteres").max(100, "El nombre no puede exceder 100 caracteres"),
-  location: z7.string().min(2, "La ubicaci\xF3n debe tener al menos 2 caracteres").max(255, "La ubicaci\xF3n no puede exceder 255 caracteres"),
-  story: z7.string().min(50, "La historia debe tener al menos 50 caracteres").max(5e3, "La historia no puede exceder 5000 caracteres"),
-  imageUrl: z7.string().url("URL de imagen inv\xE1lida").optional()
+var createStorySchema = z5.object({
+  name: z5.string().min(2, "El nombre debe tener al menos 2 caracteres").max(100, "El nombre no puede exceder 100 caracteres"),
+  location: z5.string().min(2, "La ubicaci\xF3n debe tener al menos 2 caracteres").max(255, "La ubicaci\xF3n no puede exceder 255 caracteres"),
+  story: z5.string().min(50, "La historia debe tener al menos 50 caracteres").max(5e3, "La historia no puede exceder 5000 caracteres"),
+  imageUrl: z5.string().url("URL de imagen inv\xE1lida").optional()
 });
-var createInspiringStorySchema = z7.object({
-  title: z7.string().min(5, "El t\xEDtulo debe tener al menos 5 caracteres").max(200, "El t\xEDtulo no puede exceder 200 caracteres"),
-  excerpt: z7.string().min(20, "El extracto debe tener al menos 20 caracteres").max(500, "El extracto no puede exceder 500 caracteres"),
-  content: z7.string().min(100, "El contenido debe tener al menos 100 caracteres").max(5e3, "El contenido no puede exceder 5000 caracteres"),
-  category: z7.enum(["employment", "volunteering", "community_project", "personal_growth", "resource_sharing", "connection"]).default("connection"),
-  location: z7.string().min(2, "La ubicaci\xF3n debe tener al menos 2 caracteres").max(255, "La ubicaci\xF3n no puede exceder 255 caracteres"),
-  province: z7.string().max(100, "La provincia no puede exceder 100 caracteres").optional(),
-  city: z7.string().max(100, "La ciudad no puede exceder 100 caracteres").optional(),
-  impactType: z7.enum(["job_created", "lives_changed", "hours_volunteered", "people_helped", "project_completed", "resource_shared"]).default("lives_changed"),
-  impactCount: z7.number().int("El n\xFAmero de impacto debe ser un entero").min(1, "El impacto debe ser al menos 1").max(1e5, "El impacto no puede exceder 100,000"),
-  impactDescription: z7.string().min(5, "La descripci\xF3n del impacto debe tener al menos 5 caracteres").max(200, "La descripci\xF3n del impacto no puede exceder 200 caracteres"),
-  imageUrl: z7.string().url("URL de imagen inv\xE1lida").optional(),
-  videoUrl: z7.string().url("URL de video inv\xE1lida").optional(),
-  tags: z7.string().max(500, "Las etiquetas no pueden exceder 500 caracteres").optional(),
-  authorName: z7.string().min(2, "El nombre del autor debe tener al menos 2 caracteres").max(100, "El nombre del autor no puede exceder 100 caracteres").optional(),
-  authorEmail: z7.string().email("Formato de email del autor inv\xE1lido").max(255, "El email del autor no puede exceder 255 caracteres").optional()
+var createInspiringStorySchema = z5.object({
+  title: z5.string().min(5, "El t\xEDtulo debe tener al menos 5 caracteres").max(200, "El t\xEDtulo no puede exceder 200 caracteres"),
+  excerpt: z5.string().min(20, "El extracto debe tener al menos 20 caracteres").max(500, "El extracto no puede exceder 500 caracteres"),
+  content: z5.string().min(100, "El contenido debe tener al menos 100 caracteres").max(5e3, "El contenido no puede exceder 5000 caracteres"),
+  category: z5.enum(["employment", "volunteering", "community_project", "personal_growth", "resource_sharing", "connection"]).default("connection"),
+  location: z5.string().min(2, "La ubicaci\xF3n debe tener al menos 2 caracteres").max(255, "La ubicaci\xF3n no puede exceder 255 caracteres"),
+  province: z5.string().max(100, "La provincia no puede exceder 100 caracteres").optional(),
+  city: z5.string().max(100, "La ciudad no puede exceder 100 caracteres").optional(),
+  impactType: z5.enum(["job_created", "lives_changed", "hours_volunteered", "people_helped", "project_completed", "resource_shared"]).default("lives_changed"),
+  impactCount: z5.number().int("El n\xFAmero de impacto debe ser un entero").min(1, "El impacto debe ser al menos 1").max(1e5, "El impacto no puede exceder 100,000"),
+  impactDescription: z5.string().min(5, "La descripci\xF3n del impacto debe tener al menos 5 caracteres").max(200, "La descripci\xF3n del impacto no puede exceder 200 caracteres"),
+  imageUrl: z5.string().url("URL de imagen inv\xE1lida").optional(),
+  videoUrl: z5.string().url("URL de video inv\xE1lida").optional(),
+  tags: z5.string().max(500, "Las etiquetas no pueden exceder 500 caracteres").optional(),
+  authorName: z5.string().min(2, "El nombre del autor debe tener al menos 2 caracteres").max(100, "El nombre del autor no puede exceder 100 caracteres").optional(),
+  authorEmail: z5.string().email("Formato de email del autor inv\xE1lido").max(255, "El email del autor no puede exceder 255 caracteres").optional()
 });
-var createResourceSchema = z7.object({
-  title: z7.string().min(5, "El t\xEDtulo debe tener al menos 5 caracteres").max(200, "El t\xEDtulo no puede exceder 200 caracteres"),
-  description: z7.string().min(20, "La descripci\xF3n debe tener al menos 20 caracteres").max(1e3, "La descripci\xF3n no puede exceder 1000 caracteres"),
-  category: z7.string().min(2, "La categor\xEDa debe tener al menos 2 caracteres").max(50, "La categor\xEDa no puede exceder 50 caracteres"),
-  url: z7.string().url("URL inv\xE1lida").optional()
+var createResourceSchema = z5.object({
+  title: z5.string().min(5, "El t\xEDtulo debe tener al menos 5 caracteres").max(200, "El t\xEDtulo no puede exceder 200 caracteres"),
+  description: z5.string().min(20, "La descripci\xF3n debe tener al menos 20 caracteres").max(1e3, "La descripci\xF3n no puede exceder 1000 caracteres"),
+  category: z5.string().min(2, "La categor\xEDa debe tener al menos 2 caracteres").max(50, "La categor\xEDa no puede exceder 50 caracteres"),
+  url: z5.string().url("URL inv\xE1lida").optional()
 });
 
 // server/nlp-service.ts
@@ -19572,11 +19631,11 @@ var MISSION_KEYWORDS = {
   ]
 };
 var MIN_WORD_LENGTH = 4;
-function normalize(text2) {
+function normalize2(text2) {
   return text2.toLowerCase().replace(/[áà]/g, "a").replace(/[éè]/g, "e").replace(/[íì]/g, "i").replace(/[óò]/g, "o").replace(/[úù]/g, "u").replace(/ñ/g, "n");
 }
 function extractWords2(text2, minLength = MIN_WORD_LENGTH) {
-  return normalize(text2).split(/\W+/).filter((w) => w.length >= minLength);
+  return normalize2(text2).split(/\W+/).filter((w) => w.length >= minLength);
 }
 function planToKeyword(plan) {
   const match = plan.match(/^PLAN(.+)$/i);
@@ -19589,12 +19648,12 @@ function buildMissionKeywords(mission) {
   const keywordSet = /* @__PURE__ */ new Set();
   const domainKeywords = MISSION_KEYWORDS[mission.slug] ?? [];
   for (const kw of domainKeywords) {
-    keywordSet.add(normalize(kw));
+    keywordSet.add(normalize2(kw));
   }
   for (const plan of mission.plans) {
     const kw = planToKeyword(plan);
     if (kw) keywordSet.add(kw);
-    keywordSet.add(normalize(plan));
+    keywordSet.add(normalize2(plan));
   }
   for (const word of extractWords2(mission.description)) {
     keywordSet.add(word);
@@ -19609,7 +19668,7 @@ function buildMissionKeywords(mission) {
   return Array.from(keywordSet);
 }
 function buildDreamText(dream) {
-  return normalize([
+  return normalize2([
     dream.dream ?? "",
     dream.value ?? "",
     dream.need ?? "",
@@ -19617,12 +19676,12 @@ function buildDreamText(dream) {
   ].join(" "));
 }
 function scoreDreamForMission(dream, mission) {
-  const dreamText = buildDreamText(dream);
+  const dreamText2 = buildDreamText(dream);
   const keywords = buildMissionKeywords(mission);
   const matchedKeywords = [];
   for (const keyword of keywords) {
     if (keyword.length === 0) continue;
-    if (dreamText.includes(keyword)) {
+    if (dreamText2.includes(keyword)) {
       matchedKeywords.push(keyword);
     }
   }
@@ -19905,8 +19964,8 @@ async function registerRoutes(app2) {
   registerCoachingRoutes(app2);
   registerOpenDataRoutes(app2);
   registerPulseRoutes(app2);
+  registerMapSignalsRoutes(app2);
   registerAnalyticsRoutes(app2);
-  registerRadarRoutes(app2);
   startMandatoCron();
   app2.get("/api/dreams", publicReadRateLimit, optionalAuth, async (req, res) => {
     try {
@@ -19919,14 +19978,30 @@ async function registerRoutes(app2) {
   });
   app2.post("/api/dreams", authenticateToken, async (req, res) => {
     try {
+      const body = { ...req.body };
+      const rawLat = body.latitude != null && body.latitude !== "" ? Number(body.latitude) : null;
+      const rawLng = body.longitude != null && body.longitude !== "" ? Number(body.longitude) : null;
+      if (rawLat != null && rawLng != null && Number.isFinite(rawLat) && Number.isFinite(rawLng)) {
+        const { resolveSignalGeo: resolveSignalGeo2 } = await Promise.resolve().then(() => (init_geo_service(), geo_service_exports));
+        const geo = await resolveSignalGeo2(rawLat, rawLng);
+        body.latitude = String(geo.lat);
+        body.longitude = String(geo.lng);
+        body.province = geo.province ?? (typeof body.province === "string" ? body.province : null);
+        body.city = geo.city ?? null;
+      } else {
+        body.latitude = null;
+        body.longitude = null;
+        body.province = typeof body.province === "string" ? body.province : null;
+        body.city = null;
+      }
       const validatedData = insertDreamSchema.parse({
-        ...req.body,
-        userId: req.user?.userId ?? req.body.userId
+        ...body,
+        userId: req.user?.userId ?? body.userId
       });
       const dream = await storage.createDream(validatedData);
       res.status(201).json(dream);
     } catch (error) {
-      if (error instanceof z8.ZodError) {
+      if (error instanceof z6.ZodError) {
         res.status(400).json({ message: "Invalid dream data", errors: error.errors });
       } else {
         res.status(500).json({ message: "Failed to create dream" });
@@ -19943,14 +20018,30 @@ async function registerRoutes(app2) {
   });
   app2.post("/api/resources-map", authenticateToken, sanitizeInput, async (req, res) => {
     try {
+      const body = { ...req.body };
+      const rawLat = body.latitude != null && body.latitude !== "" ? Number(body.latitude) : null;
+      const rawLng = body.longitude != null && body.longitude !== "" ? Number(body.longitude) : null;
+      if (rawLat != null && rawLng != null && Number.isFinite(rawLat) && Number.isFinite(rawLng)) {
+        const { resolveSignalGeo: resolveSignalGeo2 } = await Promise.resolve().then(() => (init_geo_service(), geo_service_exports));
+        const geo = await resolveSignalGeo2(rawLat, rawLng);
+        body.latitude = geo.lat;
+        body.longitude = geo.lng;
+        body.province = geo.province ?? (typeof body.province === "string" ? body.province : null);
+        body.city = geo.city ?? null;
+      } else {
+        body.latitude = null;
+        body.longitude = null;
+        body.province = typeof body.province === "string" ? body.province : null;
+        body.city = null;
+      }
       const validatedData = insertUserResourceSchema.parse({
-        ...req.body,
+        ...body,
         userId: req.user?.userId
       });
       const resource = await storage.createUserResource(validatedData);
       res.status(201).json(resource);
     } catch (error) {
-      if (error instanceof z8.ZodError) {
+      if (error instanceof z6.ZodError) {
         res.status(400).json({ message: "Invalid resource data", errors: error.errors });
       } else {
         res.status(500).json({ message: "Failed to create resource" });
@@ -20428,7 +20519,7 @@ async function registerRoutes(app2) {
       }
       res.status(201).json(post);
     } catch (error) {
-      if (error instanceof z8.ZodError) {
+      if (error instanceof z6.ZodError) {
         res.status(400).json({ message: "Invalid post data", errors: error.errors });
       } else {
         res.status(500).json({ message: "Failed to create community post" });
@@ -20537,7 +20628,7 @@ async function registerRoutes(app2) {
       }
       res.json(updatedPost);
     } catch (error) {
-      if (error instanceof z8.ZodError) {
+      if (error instanceof z6.ZodError) {
         res.status(400).json({ message: "Invalid post data", errors: error.errors });
       } else {
         res.status(500).json({ message: "Failed to update post" });
@@ -20601,7 +20692,7 @@ async function registerRoutes(app2) {
       const interaction = await storage.createPostInteraction(validatedData);
       res.status(201).json(interaction);
     } catch (error) {
-      if (error instanceof z8.ZodError) {
+      if (error instanceof z6.ZodError) {
         res.status(400).json({ message: "Invalid interaction data", errors: error.errors });
       } else {
         res.status(500).json({ message: "Failed to create interaction" });
@@ -20662,7 +20753,7 @@ async function registerRoutes(app2) {
       const message = await storage.createCommunityMessage(validatedData);
       res.status(201).json(message);
     } catch (error) {
-      if (error instanceof z8.ZodError) {
+      if (error instanceof z6.ZodError) {
         res.status(400).json({ message: "Invalid message data", errors: error.errors });
       } else {
         res.status(500).json({ message: "Failed to send message" });
@@ -21024,7 +21115,7 @@ async function registerRoutes(app2) {
       const milestone = await storage.createMilestone(id, validatedData);
       res.status(201).json(milestone);
     } catch (error) {
-      if (error instanceof z8.ZodError) {
+      if (error instanceof z6.ZodError) {
         res.status(400).json({
           error: "Validation error",
           details: error.errors
@@ -21049,7 +21140,7 @@ async function registerRoutes(app2) {
       await storage.updateMilestone(id, updates);
       res.json({ message: "Milestone updated" });
     } catch (error) {
-      if (error instanceof z8.ZodError) {
+      if (error instanceof z6.ZodError) {
         res.status(400).json({
           error: "Validation error",
           details: error.errors
@@ -21135,7 +21226,7 @@ async function registerRoutes(app2) {
       const task = await storage.createTask(id, validatedData);
       res.status(201).json(task);
     } catch (error) {
-      if (error instanceof z8.ZodError) {
+      if (error instanceof z6.ZodError) {
         res.status(400).json({
           error: "Validation error",
           details: error.errors
@@ -21160,7 +21251,7 @@ async function registerRoutes(app2) {
       await storage.updateTask(id, updates);
       res.json({ message: "Task updated" });
     } catch (error) {
-      if (error instanceof z8.ZodError) {
+      if (error instanceof z6.ZodError) {
         res.status(400).json({
           error: "Validation error",
           details: error.errors
@@ -21473,7 +21564,7 @@ async function registerRoutes(app2) {
         ...authResponse
       });
     } catch (error) {
-      if (error instanceof z8.ZodError) {
+      if (error instanceof z6.ZodError) {
         res.status(400).json({
           error: "Validation error",
           message: "Datos de entrada inv\xE1lidos",
@@ -21538,7 +21629,7 @@ async function registerRoutes(app2) {
         ...authResponse
       });
     } catch (error) {
-      if (error instanceof z8.ZodError) {
+      if (error instanceof z6.ZodError) {
         res.status(400).json({
           error: "Validation error",
           message: "Datos de entrada inv\xE1lidos",
@@ -21619,7 +21710,7 @@ async function registerRoutes(app2) {
         }
       });
     } catch (error) {
-      if (error instanceof z8.ZodError) {
+      if (error instanceof z6.ZodError) {
         res.status(400).json({
           error: "Validation error",
           message: "Datos de entrada inv\xE1lidos",
@@ -21790,7 +21881,7 @@ async function registerRoutes(app2) {
         message: "Contrase\xF1a actualizada exitosamente"
       });
     } catch (error) {
-      if (error instanceof z8.ZodError) {
+      if (error instanceof z6.ZodError) {
         res.status(400).json({
           error: "Validation error",
           message: "Datos de entrada inv\xE1lidos",
@@ -23191,7 +23282,7 @@ async function registerRoutes(app2) {
       });
       res.status(201).json(post);
     } catch (error) {
-      if (error instanceof z8.ZodError) {
+      if (error instanceof z6.ZodError) {
         res.status(400).json({ message: "Datos de post inv\xE1lidos", errors: error.errors });
       } else {
         console.error("Create blog post error:", error);
@@ -23209,7 +23300,7 @@ async function registerRoutes(app2) {
       }
       res.json(post);
     } catch (error) {
-      if (error instanceof z8.ZodError) {
+      if (error instanceof z6.ZodError) {
         res.status(400).json({ message: "Datos de post inv\xE1lidos", errors: error.errors });
       } else {
         console.error("Update blog post error:", error);
@@ -23497,7 +23588,7 @@ async function registerRoutes(app2) {
         message: "Story created successfully and submitted for moderation"
       });
     } catch (error) {
-      if (error instanceof z8.ZodError) {
+      if (error instanceof z6.ZodError) {
         return res.status(400).json({
           error: "Validation Error",
           message: "Invalid story data",
@@ -23543,7 +23634,7 @@ async function registerRoutes(app2) {
         message: "Story updated successfully"
       });
     } catch (error) {
-      if (error instanceof z8.ZodError) {
+      if (error instanceof z6.ZodError) {
         return res.status(400).json({
           error: "Validation Error",
           message: "Invalid story data",

@@ -17,7 +17,11 @@ import {
   type ConvergenceData,
 } from '@/hooks/useConvergenceAnalysis';
 import { useAIInsights } from '@/hooks/useAIInsights';
+import { useMapSignals } from '@/hooks/useMapSignals';
 import ConvergenceMap from '@/components/radiografia-map/ConvergenceMap';
+import { toMapEntries } from '@/components/radiografia-map/utils';
+import { useProvinceClassifier } from '@/components/radiografia-map/useProvinceClassifier';
+import { useRadiografiaFilters } from '@/components/radiografia-map/useRadiografiaFilters';
 import {
   Microscope,
   Target,
@@ -73,6 +77,11 @@ const AnimatedNumber: React.FC<{ value: number; className?: string }> = ({ value
     </span>
   );
 };
+
+// ─── Filter note (filtros del mapa activos) ───
+
+const FilterNote: React.FC<{ note: string | null }> = ({ note }) =>
+  note ? <p className="text-xs text-purple-300/80 font-mono mt-2">{note}</p> : null;
 
 // ─── Section: Hero ───
 
@@ -143,9 +152,25 @@ const SCROLL_STEPS = [
   { id: 3, icon: Compass, color: 'text-amber-400' },
 ];
 
-const ScrollytellingSection: React.FC<{ convergence: ConvergenceData }> = ({ convergence }) => {
+const ScrollytellingSection: React.FC<{ convergence: ConvergenceData; filterNote: string | null }> = ({ convergence, filterNote }) => {
   const { convergencePercentage, totalContributions, themeCards, typeDistribution } = convergence;
   const [currentStep, setCurrentStep] = useState(0);
+
+  // react-scrollama crashea (IntersectionObserver threshold = NaN) si monta
+  // con window.innerHeight === 0 — pasa en webviews/iframes durante el primer
+  // layout. Montamos el Scrollama recién cuando hay viewport real.
+  const [viewportReady, setViewportReady] = useState(false);
+  useEffect(() => {
+    if (window.innerHeight > 0) {
+      setViewportReady(true);
+      return;
+    }
+    const check = () => {
+      if (window.innerHeight > 0) setViewportReady(true);
+    };
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
 
   const onStepEnter = useCallback(({ data }: { data: number }) => {
     setCurrentStep(data);
@@ -246,6 +271,7 @@ const ScrollytellingSection: React.FC<{ convergence: ConvergenceData }> = ({ con
           <h2 className="text-4xl font-bold text-white mt-4 mb-6">
             Lo Que Revelan los Datos
           </h2>
+          <FilterNote note={filterNote} />
         </div>
 
         {/* Desktop: side-by-side. Mobile: stacked */}
@@ -264,7 +290,7 @@ const ScrollytellingSection: React.FC<{ convergence: ConvergenceData }> = ({ con
               {renderVisualization()}
             </div>
 
-            <Scrollama onStepEnter={onStepEnter} offset={0.5}>
+            {viewportReady && <Scrollama onStepEnter={onStepEnter} offset={0.5}>
               {stepContent.map((step, i) => (
                 <Step key={i} data={i}>
                   <div className="min-h-[50vh] flex items-center py-8">
@@ -292,7 +318,7 @@ const ScrollytellingSection: React.FC<{ convergence: ConvergenceData }> = ({ con
                   </div>
                 </Step>
               ))}
-            </Scrollama>
+            </Scrollama>}
           </div>
         </div>
       </div>
@@ -302,7 +328,7 @@ const ScrollytellingSection: React.FC<{ convergence: ConvergenceData }> = ({ con
 
 // ─── Section: Sankey Diagram ───
 
-const SankeySection: React.FC<{ convergence: ConvergenceData }> = ({ convergence }) => {
+const SankeySection: React.FC<{ convergence: ConvergenceData; filterNote: string | null }> = ({ convergence, filterNote }) => {
   const { streamLinks, themeCards, typeDistribution } = convergence;
 
   const sankeyData = useMemo(() => {
@@ -364,6 +390,7 @@ const SankeySection: React.FC<{ convergence: ConvergenceData }> = ({ convergence
             Cada flujo muestra cómo las voces de cada tipo alimentan los temas comunes.
             El ancho del flujo representa la intensidad de la señal.
           </p>
+          <FilterNote note={filterNote} />
         </div>
 
         <motion.div
@@ -405,7 +432,7 @@ const SankeySection: React.FC<{ convergence: ConvergenceData }> = ({ convergence
 
 // ─── Section: Chord Diagram ───
 
-const ChordSection: React.FC<{ convergence: ConvergenceData }> = ({ convergence }) => {
+const ChordSection: React.FC<{ convergence: ConvergenceData; filterNote: string | null }> = ({ convergence, filterNote }) => {
   const { themeCards } = convergence;
 
   const { chordMatrix, chordLabels, chordColors } = useMemo(() => {
@@ -444,6 +471,7 @@ const ChordSection: React.FC<{ convergence: ConvergenceData }> = ({ convergence 
             Cada arco muestra la fuerza de conexión entre temas.
             Los temas que comparten más tipos de señal están más conectados.
           </p>
+          <FilterNote note={filterNote} />
         </div>
 
         <motion.div
@@ -578,7 +606,19 @@ const AIInsightsSection: React.FC = () => {
 // ─── Main Page ───
 
 const ExplorarDatos = () => {
-  const convergence = useConvergenceAnalysis();
+  // Una sola fuente de señales para mapa + análisis: los filtros del mapa
+  // mandan sobre el scrollytelling, el Sankey y el Chord.
+  const { signals, isLoading } = useMapSignals();
+  const { classify } = useProvinceClassifier();
+  const baseEntries = useMemo(() => toMapEntries(signals), [signals]);
+  const enrichedEntries = useMemo(() => classify(baseEntries), [classify, baseEntries]);
+  const filtersApi = useRadiografiaFilters(enrichedEntries);
+  const convergence = useConvergenceAnalysis(
+    filtersApi.hasActiveFilters ? filtersApi.filteredEntries : enrichedEntries,
+  );
+  const filterNote = filtersApi.hasActiveFilters
+    ? `Mostrando ${filtersApi.filteredEntries.length} de ${enrichedEntries.length} señales (filtros del mapa activos)`
+    : null;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -592,17 +632,17 @@ const ExplorarDatos = () => {
       <main className="overflow-hidden">
         <HeroSection />
 
-        <ScrollytellingSection convergence={convergence} />
+        <ScrollytellingSection convergence={convergence} filterNote={filterNote} />
 
         <NarrativeBridge text="Ahora que viste los números, mirá cómo se distribuyen en el territorio." />
 
-        <ConvergenceMap />
+        <ConvergenceMap entries={enrichedEntries} filtersApi={filtersApi} isLoading={isLoading} />
 
         <NarrativeBridge text="Los datos fluyen. De la voz al tema, del tema al territorio." />
 
-        <SankeySection convergence={convergence} />
+        <SankeySection convergence={convergence} filterNote={filterNote} />
 
-        <ChordSection convergence={convergence} />
+        <ChordSection convergence={convergence} filterNote={filterNote} />
 
         <ConstellationSection />
 
