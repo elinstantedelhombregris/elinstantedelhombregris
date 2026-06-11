@@ -1,10 +1,11 @@
 import { useEffect, useState, useRef, useMemo } from 'react';
-import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import { useQueryClient } from '@tanstack/react-query';
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from '@/lib/queryClient';
 import { useLoader } from '@/hooks/use-loader';
 import { useMapClustering } from '@/hooks/useMapClustering';
-import { Dream } from "@shared/schema";
+import { useMapSignals, MAP_SIGNALS_QUERY_KEY } from '@/hooks/useMapSignals';
+import type { MapSignal } from '@shared/map-signals';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import SovereignInput from './SovereignInput';
@@ -67,79 +68,20 @@ const SovereignMap = () => {
     };
   }, []);
 
-  // Fetch data
-  const { data: dreams = [] } = useQuery<Dream[]>({
-    queryKey: ['/api/dreams'],
-    staleTime: 60000,
-  });
+  // Fetch data — única query unificada (sueños + compromisos + recursos)
+  const { signals } = useMapSignals();
 
-  const { data: commitmentsResponse } = useQuery({
-    queryKey: ['/api/commitments'],
-    queryFn: async () => {
-      const res = await fetch('/api/commitments?limit=100');
-      if (!res.ok) return { data: { commitments: [] } };
-      return res.json();
-    },
-    staleTime: 60000,
-  });
+  // Filter items by active layer (solo señales con coordenadas van al mapa)
+  const filteredDreams = useMemo(
+    () =>
+      signals.filter(
+        (s) => s.lat != null && s.lng != null && (activeLayer === 'all' || s.type === activeLayer),
+      ),
+    [signals, activeLayer],
+  );
 
-  const { data: resourcesData = [] } = useQuery<any[]>({
-    queryKey: ['/api/resources-map'],
-    staleTime: 60000,
-  });
-
-  // Merge dreams + compromisos + recursos into a unified array
-  const allMapItems = useMemo(() => {
-    const dreamItems = Array.isArray(dreams) ? dreams : [];
-    const commitments = commitmentsResponse?.data?.commitments || [];
-    const mappedCompromisos = commitments
-      .filter((c: any) => c.latitude && c.longitude)
-      .map((c: any) => ({
-        id: c.id + 1_000_000,
-        type: 'compromiso' as const,
-        compromiso: c.commitmentText,
-        dream: null, value: null, need: null, basta: null,
-        location: [c.city, c.province].filter(Boolean).join(', ') || 'Argentina',
-        latitude: String(c.latitude),
-        longitude: String(c.longitude),
-        createdAt: c.createdAt,
-      }));
-    const mappedResources = (resourcesData || [])
-      .filter((r: any) => r.latitude && r.longitude)
-      .map((r: any) => ({
-        id: r.id + 2_000_000,
-        type: 'recurso' as const,
-        recurso: r.description,
-        resourceCategory: r.category,
-        dream: null, value: null, need: null, basta: null,
-        location: [r.city, r.province].filter(Boolean).join(', ') || r.location || 'Argentina',
-        latitude: String(r.latitude),
-        longitude: String(r.longitude),
-        createdAt: r.createdAt,
-      }));
-    return [...dreamItems, ...mappedCompromisos, ...mappedResources];
-  }, [dreams, commitmentsResponse, resourcesData]);
-
-  // Filter items by active layer
-  const filteredDreams = useMemo(() => {
-    return allMapItems.filter((item: any) => {
-      const hasCoords = item.latitude && item.longitude &&
-                       !isNaN(parseFloat(item.latitude)) &&
-                       !isNaN(parseFloat(item.longitude));
-      if (!hasCoords) return false;
-      if (activeLayer === 'all') return true;
-      return item.type === activeLayer;
-    });
-  }, [allMapItems, activeLayer]);
-
-  const pulseFeed = useMemo(() => {
-    const sorted = [...allMapItems].sort((a: any, b: any) => {
-      const dateA = new Date(a.createdAt || 0).getTime();
-      const dateB = new Date(b.createdAt || 0).getTime();
-      return dateB - dateA;
-    });
-    return sorted.slice(0, 5);
-  }, [allMapItems]);
+  // El endpoint ya viene ordenado por fecha desc
+  const pulseFeed = useMemo(() => signals.slice(0, 5), [signals]);
 
   // Initialize Map
   useEffect(() => {
@@ -252,24 +194,36 @@ const SovereignMap = () => {
     };
 
     const newMarkers: any[] = [];
-    filteredDreams.forEach((dream: Dream) => {
-      const lat = parseFloat(dream.latitude!);
-      const lng = parseFloat(dream.longitude!);
+    filteredDreams.forEach((signal: MapSignal) => {
+      const lat = signal.lat!;
+      const lng = signal.lng!;
 
-      const typeKey = (dream.type && dream.type in icons)
-        ? (dream.type as keyof typeof icons)
-        : 'dream';
+      const typeKey = (signal.type in icons ? signal.type : 'dream') as keyof typeof icons;
       const icon = icons[typeKey];
 
       const marker = L.marker([lat, lng], { icon });
 
+      // EnhancedPopup espera el shape legacy de Dream — lo armamos inline.
       marker.bindPopup(EnhancedPopup({
-        dream,
+        dream: {
+          id: signal.id,
+          type: signal.type,
+          dream: signal.type === 'dream' ? signal.text : null,
+          value: signal.type === 'value' ? signal.text : null,
+          need: signal.type === 'need' ? signal.text : null,
+          basta: signal.type === 'basta' ? signal.text : null,
+          compromiso: signal.type === 'compromiso' ? signal.text : null,
+          recurso: signal.type === 'recurso' ? signal.text : null,
+          location: [signal.city, signal.province].filter(Boolean).join(', ') || signal.location,
+          latitude: String(lat),
+          longitude: String(lng),
+          createdAt: signal.createdAt,
+        } as any,
         onViewDetails: () => {},
         onShare: () => {}
       }));
 
-      newMarkers.push({ marker, dream });
+      newMarkers.push({ marker, signal });
     });
 
     markersRef.current = newMarkers;
@@ -301,11 +255,13 @@ const SovereignMap = () => {
   const handleCreate = async (data: any) => {
     setIsSubmitting(true);
     try {
-      let lat = '-34.6037';
-      let lng = '-58.3816';
-      let loc = 'Argentina';
+      // Nunca inventamos coordenadas: sin ubicación real, la señal va sin coords.
+      let lat: string | null = null;
+      let lng: string | null = null;
+      let loc: string | null = null;
+      let provinceName: string | null = null;
 
-      if (data.shareLocation) {
+      if (data.locationMode === 'geo') {
         try {
           const position = await new Promise<GeolocationPosition>((resolve, reject) => {
             navigator.geolocation.getCurrentPosition(resolve, reject, { timeout: 10000 });
@@ -316,10 +272,19 @@ const SovereignMap = () => {
         } catch (e) {
           console.warn('Geolocation failed', e);
           toast({
-            title: "Ubicación aproximada",
-            description: "Usando ubicación general por defecto.",
+            title: "No pudimos obtener tu ubicación",
+            description: "Elegí tu provincia para ubicar tu señal — o mandala sin ubicación.",
+            variant: "destructive"
           });
+          throw new Error('GEOLOCATION_FAILED');
         }
+      } else if (data.locationMode === 'province' && data.province) {
+        if (data.province.latitude != null && data.province.longitude != null) {
+          lat = String(data.province.latitude);
+          lng = String(data.province.longitude);
+        }
+        loc = data.province.name;
+        provinceName = data.province.name;
       }
 
       let res: Response;
@@ -328,17 +293,19 @@ const SovereignMap = () => {
         const payload = {
           commitmentText: data.content,
           commitmentType: 'public',
-          latitude: parseFloat(lat),
-          longitude: parseFloat(lng),
+          latitude: lat ? parseFloat(lat) : null,
+          longitude: lng ? parseFloat(lng) : null,
+          province: provinceName,
         };
         res = await apiRequest('POST', '/api/commitment', payload);
       } else if (data.type === 'recurso') {
         const payload = {
           description: data.content,
           category: data.resourceCategory || 'other',
-          latitude: parseFloat(lat),
-          longitude: parseFloat(lng),
+          latitude: lat ? parseFloat(lat) : null,
+          longitude: lng ? parseFloat(lng) : null,
           location: loc,
+          province: provinceName,
         };
         res = await apiRequest('POST', '/api/resources-map', payload);
       } else {
@@ -347,7 +314,8 @@ const SovereignMap = () => {
           [data.type]: data.content,
           latitude: lat,
           longitude: lng,
-          location: loc
+          location: loc,
+          province: provinceName,
         };
         res = await apiRequest('POST', '/api/dreams', payload);
       }
@@ -369,6 +337,7 @@ const SovereignMap = () => {
         return;
       }
 
+      queryClient.invalidateQueries({ queryKey: MAP_SIGNALS_QUERY_KEY });
       if (data.type === 'compromiso') {
         queryClient.invalidateQueries({ queryKey: ['/api/commitments'] });
       } else if (data.type === 'recurso') {
@@ -382,12 +351,16 @@ const SovereignMap = () => {
         description: "Gracias por ponerle palabras. Ya suma a la voz colectiva de tu territorio.",
       });
       
-      // Center map on new point
-      if (mapInstanceRef.current && window.L) {
+      // Center map on new point (solo si la señal tiene coordenadas)
+      if (lat && lng && mapInstanceRef.current && window.L) {
         mapInstanceRef.current.setView([parseFloat(lat), parseFloat(lng)], 10, { animate: true });
       }
 
     } catch (error) {
+      if (error instanceof Error && error.message === 'GEOLOCATION_FAILED') {
+        // El toast ya se mostró; el input reacciona cambiando a "elegir provincia".
+        throw error;
+      }
       toast({
         title: "Error",
         description: "No se pudo registrar la declaración.",
@@ -450,7 +423,7 @@ const SovereignMap = () => {
             <Activity className="w-4 h-4 text-green-400 animate-pulse" />
             <span className="text-xs font-mono uppercase tracking-widest text-slate-300">Señales en Vivo</span>
           </div>
-          <div className="text-3xl font-bold text-white font-mono">{allMapItems.length}</div>
+          <div className="text-3xl font-bold text-white font-mono">{signals.length}</div>
           <div className="text-xs text-slate-500">Nodos activos</div>
         </div>
 
@@ -492,7 +465,7 @@ const SovereignMap = () => {
         {/* Activity badge */}
         <div className="pointer-events-auto inline-flex items-center gap-2 bg-slate-900/80 backdrop-blur-md rounded-full px-3 py-1.5 border border-slate-700 self-start">
           <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-          <span className="text-xs font-mono text-slate-300">{allMapItems.length} señales activas</span>
+          <span className="text-xs font-mono text-slate-300">{signals.length} señales activas</span>
         </div>
         {/* Horizontal scrollable layer controls */}
         <div className="pointer-events-auto overflow-x-auto flex gap-1.5 pb-1 -mx-1 px-1 scrollbar-hide">
@@ -593,7 +566,7 @@ const SovereignMap = () => {
                      item.type === 'recurso' ? 'Recurso' : item.type}
                   </span>
                   <p className="text-slate-300 line-clamp-2 font-mono opacity-80">
-                    {item.dream || item.value || item.need || item.basta || item.compromiso || item.recurso}
+                    {item.text}
                   </p>
                 </motion.div>
               ))}

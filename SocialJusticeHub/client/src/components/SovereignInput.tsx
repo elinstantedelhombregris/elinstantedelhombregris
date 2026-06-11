@@ -1,24 +1,39 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useQuery } from '@tanstack/react-query';
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Label } from "@/components/ui/label";
 import {
   Eye,
   Heart,
   AlertCircle,
   Zap,
   MapPin,
+  Map,
+  EyeOff,
   Send,
   Loader2,
-  Check,
   Handshake,
   Wrench
 } from 'lucide-react';
 import { cn } from "@/lib/utils";
 
 type InputType = 'dream' | 'value' | 'need' | 'basta' | 'compromiso' | 'recurso';
+
+export type LocationMode = 'geo' | 'province' | 'none';
+
+export interface ProvinceOption {
+  id: number;
+  name: string;
+  latitude?: number;
+  longitude?: number;
+}
+
+const LOCATION_MODES: Array<{ id: LocationMode; label: string; icon: any }> = [
+  { id: 'geo', label: 'Mi ubicación', icon: MapPin },
+  { id: 'province', label: 'Elegir provincia', icon: Map },
+  { id: 'none', label: 'Sin ubicación', icon: EyeOff },
+];
 
 const RESOURCE_CATEGORIES = [
   { id: 'legal', label: 'Legal' },
@@ -88,10 +103,16 @@ const types: { id: InputType; label: string; icon: any; color: string; desc: str
 const SovereignInput = ({ onSubmit, isSubmitting }: SovereignInputProps) => {
   const [activeType, setActiveType] = useState<InputType>('dream');
   const [content, setContent] = useState('');
-  const [shareLocation, setShareLocation] = useState(true); // Default to true for map value
+  const [locationMode, setLocationMode] = useState<LocationMode>('geo');
+  const [selectedProvince, setSelectedProvince] = useState<ProvinceOption | null>(null);
   const [charCount, setCharCount] = useState(0);
   const [resourceCategory, setResourceCategory] = useState<string>('other');
   const maxChars = 280;
+
+  const { data: provinces = [] } = useQuery<ProvinceOption[]>({
+    queryKey: ['/api/geographic/provinces'],
+    enabled: locationMode === 'province',
+  });
 
   const handleTypeChange = (type: InputType) => {
     setActiveType(type);
@@ -108,16 +129,24 @@ const SovereignInput = ({ onSubmit, isSubmitting }: SovereignInputProps) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!content.trim()) return;
+    if (locationMode === 'province' && !selectedProvince) return;
 
-    await onSubmit({
-      type: activeType,
-      content,
-      shareLocation,
-      ...(activeType === 'recurso' ? { resourceCategory } : {}),
-    });
-    
-    setContent('');
-    setCharCount(0);
+    try {
+      await onSubmit({
+        type: activeType,
+        content,
+        locationMode,
+        province: selectedProvince,
+        ...(activeType === 'recurso' ? { resourceCategory } : {}),
+      });
+      setContent('');
+      setCharCount(0);
+    } catch (err) {
+      // La geolocalización falló: cambiamos a "elegir provincia" sin perder el texto.
+      if (err instanceof Error && err.message === 'GEOLOCATION_FAILED') {
+        setLocationMode('province');
+      }
+    }
   };
 
   const activeConfig = types.find(t => t.id === activeType)!;
@@ -221,22 +250,49 @@ const SovereignInput = ({ onSubmit, isSubmitting }: SovereignInputProps) => {
             </div>
           </div>
 
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <Checkbox 
-                id="share-loc" 
-                checked={shareLocation}
-                onCheckedChange={(c) => setShareLocation(c === true)}
-                className="border-slate-600 data-[state=checked]:bg-blue-600 data-[state=checked]:border-blue-600"
-              />
-              <Label htmlFor="share-loc" className="text-xs text-slate-400 cursor-pointer flex items-center gap-1">
-                <MapPin className="w-3 h-3" /> Usar mi ubicación
-              </Label>
+          <div className="space-y-2">
+            <div className="flex flex-wrap gap-1.5">
+              {LOCATION_MODES.map((mode) => (
+                <button
+                  key={mode.id}
+                  type="button"
+                  onClick={() => setLocationMode(mode.id)}
+                  aria-pressed={locationMode === mode.id}
+                  className={cn(
+                    "flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border transition-all",
+                    locationMode === mode.id
+                      ? "bg-blue-500/20 border-blue-500/40 text-blue-300"
+                      : "bg-white/5 border-white/10 text-slate-500 hover:text-slate-300"
+                  )}
+                >
+                  <mode.icon className="w-3 h-3" /> {mode.label}
+                </button>
+              ))}
             </div>
+            {locationMode === 'province' && (
+              <select
+                value={selectedProvince?.name ?? ''}
+                onChange={(e) => setSelectedProvince(provinces.find((p) => p.name === e.target.value) ?? null)}
+                className="w-full h-9 px-3 rounded-md bg-black/30 border border-slate-700 text-sm text-slate-200 focus:outline-none focus:border-blue-500"
+                aria-label="Provincia"
+              >
+                <option value="">Elegí tu provincia…</option>
+                {provinces.map((p) => (
+                  <option key={p.id} value={p.name}>{p.name}</option>
+                ))}
+              </select>
+            )}
+            {locationMode === 'none' && (
+              <p className="text-[11px] text-slate-500">
+                Tu señal cuenta en las estadísticas pero no aparece en el mapa.
+              </p>
+            )}
+          </div>
 
+          <div className="flex items-center justify-end">
             <Button 
               type="submit" 
-              disabled={isSubmitting || !content.trim()}
+              disabled={isSubmitting || !content.trim() || (locationMode === 'province' && !selectedProvince)}
               className={cn(
                 "rounded-full px-6 font-bold transition-all duration-300",
                 !content.trim() 
