@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'wouter';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { ArrowLeft, LocateFixed, MapPin, Send, WifiOff } from 'lucide-react';
 import { ACCENT_BUTTON, GLASS_CARD } from '@/lib/design-tokens';
 import { fadeUp, staggerContainer } from '@/lib/motion-variants';
@@ -113,14 +113,14 @@ export default function RadarCapture({ onSignalSent, onViewPulse }: RadarCapture
 
   return (
     <div className="flex-1 flex flex-col px-5 pb-28 pt-2">
-      <AnimatePresence mode="wait">
+      {/* Transiciones solo de entrada: sin depender de animaciones de salida
+          (rAF puede congelarse en webviews en segundo plano) */}
         {phase === 'pick' && (
           <motion.div
             key="pick"
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
-            exit={{ opacity: 0, x: -40 }}
             className="flex-1 flex flex-col"
           >
             <motion.h1
@@ -169,7 +169,6 @@ export default function RadarCapture({ onSignalSent, onViewPulse }: RadarCapture
             key="write"
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -40 }}
             transition={{ duration: 0.25, ease: 'easeOut' }}
             className="flex-1 flex flex-col"
           >
@@ -344,7 +343,6 @@ export default function RadarCapture({ onSignalSent, onViewPulse }: RadarCapture
             </div>
           </motion.div>
         )}
-      </AnimatePresence>
     </div>
   );
 }

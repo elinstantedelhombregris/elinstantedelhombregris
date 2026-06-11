@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Download, Share, SquarePlus, X } from 'lucide-react';
 import { GLASS_CARD } from '@/lib/design-tokens';
 
@@ -60,13 +60,12 @@ export default function RadarInstallPrompt() {
     }
   };
 
+  if (!visible) return null;
+
   return (
-    <AnimatePresence>
-      {visible && (
         <motion.div
           initial={{ opacity: 0, y: -12 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -12 }}
           className={`${GLASS_CARD} mx-5 mt-2 p-3.5`}
           data-testid="radar-install-banner"
         >
@@ -109,7 +108,5 @@ export default function RadarInstallPrompt() {
             </motion.ol>
           )}
         </motion.div>
-      )}
-    </AnimatePresence>
   );
 }

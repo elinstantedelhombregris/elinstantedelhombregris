@@ -1,7 +1,22 @@
 import dotenv from 'dotenv';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-// Load environment variables
-dotenv.config();
+// Load environment variables. dotenv resolves against process.cwd(), which can be
+// unavailable in sandboxed launchers — fall back to a path relative to this file.
+try {
+  dotenv.config();
+} catch {
+  // ignore: fallback below
+}
+if (!process.env.DATABASE_URL) {
+  try {
+    const here = path.dirname(fileURLToPath(import.meta.url));
+    dotenv.config({ path: path.resolve(here, '..', '.env') });
+  } catch {
+    // sin .env accesible: las vars deben venir del entorno (p. ej. Vercel)
+  }
+}
 
 interface Config {
   // Database
