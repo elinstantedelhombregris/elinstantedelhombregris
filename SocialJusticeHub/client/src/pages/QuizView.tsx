@@ -4,12 +4,9 @@ import { useEffect, useMemo, useState } from 'react';
 import { useParams, Link } from 'wouter';
 import { useQuery, useMutation } from '@tanstack/react-query';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Progress } from '@/components/ui/progress';
-import { 
-  ArrowLeft, 
+import {
+  ArrowLeft,
   Clock,
   CheckCircle2,
   XCircle,
@@ -248,26 +245,26 @@ const QuizView = () => {
 
   if (!userContext.isLoggedIn) {
     return (
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-[#0a0a0a] text-slate-200 font-sans">
         <Header />
         <div className="container mx-auto px-4 py-12">
-          <Card>
-            <CardContent className="p-8 text-center">
-              <AlertCircle className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-              <h2 className="text-2xl font-bold mb-4">Inicia sesión requerido</h2>
-              <p className="text-gray-600 mb-6">
-                Debes iniciar sesión para tomar este quiz
-              </p>
-              <div className="flex gap-4 justify-center">
-                <Link href="/login">
-                  <Button>Iniciar Sesión</Button>
-                </Link>
-                <Link href="/register">
-                  <Button variant="outline">Registrarse</Button>
-                </Link>
-              </div>
-            </CardContent>
-          </Card>
+          <div className="mx-auto max-w-2xl rounded-3xl border border-white/10 bg-white/[0.03] p-8 text-center">
+            <AlertCircle aria-hidden="true" className="w-16 h-16 text-slate-500 mx-auto mb-4" />
+            <h2 className="text-2xl font-bold mb-4 text-slate-100">Inicia sesión requerido</h2>
+            <p className="text-slate-400 mb-6">
+              Debes iniciar sesión para tomar este quiz
+            </p>
+            <div className="flex gap-4 justify-center">
+              <Link href="/login">
+                <Button className="bg-[#7D5BDE] text-white hover:bg-[#8d6ee6] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]">
+                  Iniciar Sesión
+                </Button>
+              </Link>
+              <Link href="/register">
+                <Button variant="outline">Registrarse</Button>
+              </Link>
+            </div>
+          </div>
         </div>
         <Footer />
       </div>
@@ -276,10 +273,10 @@ const QuizView = () => {
 
   if (!quiz) {
     return (
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-[#0a0a0a] text-slate-200 font-sans">
         <Header />
         <div className="container mx-auto px-4 py-12">
-          <p className="text-center text-gray-600">Quiz no encontrado</p>
+          <p className="text-center text-slate-400">Quiz no encontrado</p>
         </div>
         <Footer />
       </div>
@@ -288,21 +285,21 @@ const QuizView = () => {
 
   if (!quizUnlocked) {
     return (
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-[#0a0a0a] text-slate-200 font-sans">
         <Header />
         <div className="container mx-auto px-4 py-12">
-          <Card className="max-w-2xl mx-auto">
-            <CardContent className="p-8 text-center">
-              <AlertCircle className="w-16 h-16 text-amber-500 mx-auto mb-4" />
-              <h2 className="text-2xl font-bold mb-4">Quiz todavía bloqueado</h2>
-              <p className="text-gray-600 mb-6">
-                Completa las lecciones requeridas del curso antes de rendir el quiz final.
-              </p>
-              <Link href={`/recursos/guias-estudio/${courseSlug}`}>
-                <Button>Volver al curso</Button>
-              </Link>
-            </CardContent>
-          </Card>
+          <div className="mx-auto max-w-2xl rounded-3xl border border-white/10 bg-white/[0.03] p-8 text-center">
+            <AlertCircle aria-hidden="true" className="w-16 h-16 text-amber-500/70 mx-auto mb-4" />
+            <h2 className="text-2xl font-bold mb-4 text-slate-100">Quiz todavía bloqueado</h2>
+            <p className="text-slate-400 mb-6">
+              Completa las lecciones requeridas del curso antes de rendir el quiz final.
+            </p>
+            <Link href={`/recursos/guias-estudio/${courseSlug}`}>
+              <Button className="bg-[#7D5BDE] text-white hover:bg-[#8d6ee6] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]">
+                Volver al curso
+              </Button>
+            </Link>
+          </div>
         </div>
         <Footer />
       </div>
@@ -314,15 +311,15 @@ const QuizView = () => {
   const answeredCount = Object.keys(answers).length;
 
   return (
-    <div className="min-h-screen bg-gray-50 theme-light">
+    <div className="min-h-screen bg-[#0a0a0a] text-slate-200 font-sans">
       <Header />
 
       <main className="container mx-auto px-4 py-8">
-        <Link href={`/recursos/guias-estudio/${courseSlug}`}>
-          <Button variant="ghost" size="sm" className="mb-6 gap-2">
-            <ArrowLeft className="w-4 h-4" />
+        <Link href={`/recursos/guias-estudio/${courseSlug}`} className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a] rounded-sm">
+          <span className="group mb-6 inline-flex cursor-pointer items-center gap-2 text-sm text-slate-400 transition-colors hover:text-slate-200">
+            <ArrowLeft aria-hidden="true" className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
             Volver al Curso
-          </Button>
+          </span>
         </Link>
 
         <AnimatePresence mode="wait">
@@ -333,43 +330,41 @@ const QuizView = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
             >
-              <Card className="max-w-2xl mx-auto">
-                <CardHeader>
-                  <CardTitle className="text-3xl mb-2">{quiz.title}</CardTitle>
-                  {quiz.description && (
-                    <CardDescription className="text-base">
-                      {quiz.description}
-                    </CardDescription>
-                  )}
-                </CardHeader>
-                <CardContent className="space-y-6">
-                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                    <h3 className="font-semibold text-blue-900 mb-3">Instrucciones</h3>
-                    <ul className="space-y-2 text-sm text-blue-800">
-                      <li>• Número de preguntas: {questions.length}</li>
-                      <li>• Puntuación mínima para aprobar: {quiz.passingScore}%</li>
-                      {quiz.timeLimit && (
-                        <li>• Tiempo límite: {quiz.timeLimit} minutos</li>
-                      )}
-                      <li>• Reintentos permitidos: {quiz.allowRetakes ? 'Sí' : 'No'}</li>
-                      {quiz.maxAttempts && (
-                        <li>• Máximo de intentos: {quiz.maxAttempts}</li>
-                      )}
-                    </ul>
+              <div className="mx-auto max-w-2xl rounded-3xl border border-white/10 bg-white/[0.03] p-8">
+                <h1 className="font-serif text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-white via-slate-200 to-slate-400 pb-[0.1em] mb-2">
+                  {quiz.title}
+                </h1>
+                {quiz.description && (
+                  <p className="text-slate-400 text-base mb-6">
+                    {quiz.description}
+                  </p>
+                )}
+
+                <div className="space-y-6">
+                  <div className="flex flex-wrap gap-2">
+                    <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-sm text-slate-300">{questions.length} preguntas</span>
+                    <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-sm text-slate-300">Mínimo {quiz.passingScore}%</span>
+                    {quiz.timeLimit && (
+                      <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-sm text-slate-300">{quiz.timeLimit} minutos</span>
+                    )}
+                    <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-sm text-slate-300">Reintentos: {quiz.allowRetakes ? 'Sí' : 'No'}</span>
+                    {quiz.maxAttempts && (
+                      <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-sm text-slate-300">Máx. {quiz.maxAttempts} intentos</span>
+                    )}
                   </div>
 
                   <div className="flex gap-4">
-                    <Button 
-                      size="lg" 
+                    <Button
+                      size="lg"
                       onClick={handleStartQuiz}
                       disabled={startQuizMutation.isPending}
-                      className="flex-1"
+                      className="flex-1 bg-[#7D5BDE] text-white hover:bg-[#8d6ee6] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]"
                     >
                       {startQuizMutation.isPending ? 'Iniciando...' : 'Comenzar Quiz'}
                     </Button>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             </motion.div>
           )}
 
@@ -380,29 +375,37 @@ const QuizView = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
             >
-              <Card className="max-w-4xl mx-auto">
-                <CardHeader>
+              <div className="mx-auto max-w-4xl rounded-3xl border border-white/10 bg-white/[0.03]">
+                {/* Header */}
+                <div className="p-6 pb-4 border-b border-white/10">
                   <div className="flex items-center justify-between mb-4">
                     <div>
-                      <CardTitle className="text-2xl mb-2">{quiz.title}</CardTitle>
-                      <CardDescription>
+                      <h2 className="font-serif text-2xl font-bold text-slate-100 mb-1">{quiz.title}</h2>
+                      <p className="text-slate-500 text-sm">
                         Pregunta {currentQuestion + 1} de {questions.length}
-                      </CardDescription>
+                      </p>
                     </div>
                     {timeRemaining !== null && (
-                      <div className="flex items-center gap-2 text-lg font-semibold">
-                        <Clock className="w-5 h-5" />
+                      <div className={`flex items-center gap-2 text-lg font-semibold ${timeRemaining < 60 ? 'text-red-400' : 'text-slate-200'}`}>
+                        <Clock aria-hidden="true" className="w-5 h-5" />
                         {formatTime(timeRemaining)}
                       </div>
                     )}
                   </div>
-                  <Progress value={progress} className="h-2" />
-                </CardHeader>
+                  <div className="h-2 overflow-hidden rounded-full bg-white/10">
+                    <div
+                      className="h-full rounded-full bg-gradient-to-r from-slate-400 via-slate-200 to-[#7D5BDE] transition-all duration-300"
+                      style={{ width: `${progress}%` }}
+                    />
+                  </div>
+                </div>
 
-                <CardContent>
+                {/* Content */}
+                <div className="p-6">
                   {currentQ && (
                     <div className="mb-6">
                       <QuizQuestion
+                        variant="dark"
                         question={currentQ}
                         answer={answers[currentQ.id]}
                         onChange={(answer) => handleAnswer(currentQ.id, answer)}
@@ -413,7 +416,7 @@ const QuizView = () => {
 
                   {/* Question Navigation Grid */}
                   <div className="mb-6">
-                    <h3 className="text-sm font-medium text-gray-700 mb-2">
+                    <h3 className="text-sm font-medium text-slate-400 mb-2">
                       Navegación de Preguntas ({answeredCount}/{questions.length} respondidas)
                     </h3>
                     <div className="grid grid-cols-10 gap-2">
@@ -424,15 +427,13 @@ const QuizView = () => {
                           <button
                             key={q.id}
                             onClick={() => setCurrentQuestion(index)}
-                            className={`
-                              h-10 rounded-lg text-sm font-medium transition-colors
-                              ${isCurrent 
-                                ? 'bg-blue-600 text-white' 
-                                : isAnswered 
-                                  ? 'bg-green-500 text-white' 
-                                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-                              }
-                            `}
+                            className={`h-10 rounded-lg text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a] ${
+                              isCurrent
+                                ? 'bg-transparent text-violet-300 ring-2 ring-[#7D5BDE]'
+                                : isAnswered
+                                  ? 'bg-[#7D5BDE] text-white'
+                                  : 'bg-white/10 text-slate-400 hover:bg-white/20'
+                            }`}
                           >
                             {index + 1}
                           </button>
@@ -453,7 +454,7 @@ const QuizView = () => {
                     <Button
                       onClick={handleFinishQuiz}
                       disabled={submitQuizMutation.isPending}
-                      className="gap-2"
+                      className="gap-2 bg-[#7D5BDE] text-white hover:bg-[#8d6ee6] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]"
                     >
                       {submitQuizMutation.isPending ? 'Enviando...' : 'Finalizar Quiz'}
                     </Button>
@@ -465,8 +466,8 @@ const QuizView = () => {
                       Siguiente
                     </Button>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             </motion.div>
           )}
 
@@ -476,30 +477,39 @@ const QuizView = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
             >
-              <Card className="max-w-4xl mx-auto">
-                <CardHeader>
-                  <CardTitle className="text-3xl mb-2">Resultados del Quiz</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="text-center mb-8">
-                    <div className={`inline-flex items-center justify-center w-24 h-24 rounded-full mb-4 ${
-                      submitQuizMutation.data.passed ? 'bg-green-100' : 'bg-red-100'
-                    }`}>
+              <div className="mx-auto max-w-4xl rounded-3xl border border-white/10 bg-white/[0.03]">
+                {/* Header */}
+                <div className="p-6 pb-0">
+                  <h2 className="font-serif text-3xl font-bold text-slate-100 mb-2">Resultados del Quiz</h2>
+                </div>
+
+                {/* Content */}
+                <div className="p-6">
+                  {/* Score block */}
+                  <div className="mb-8 text-center">
+                    <motion.div
+                      initial={{ scale: 0, opacity: 0 }}
+                      animate={{ scale: [0, 1.12, 1], opacity: 1 }}
+                      transition={{ duration: 0.6, ease: 'easeOut' }}
+                      className={`mb-4 inline-flex h-24 w-24 items-center justify-center rounded-full border ${
+                        submitQuizMutation.data.passed
+                          ? 'border-emerald-500/30 bg-emerald-500/10'
+                          : 'border-red-500/30 bg-red-500/10'
+                      }`}
+                    >
                       {submitQuizMutation.data.passed ? (
-                        <CheckCircle2 className="w-12 h-12 text-green-600" />
+                        <CheckCircle2 aria-hidden="true" className="h-12 w-12 text-emerald-400" />
                       ) : (
-                        <XCircle className="w-12 h-12 text-red-600" />
+                        <XCircle aria-hidden="true" className="h-12 w-12 text-red-400" />
                       )}
-                    </div>
-                    <h2 className={`text-2xl font-bold mb-2 ${
-                      submitQuizMutation.data.passed ? 'text-green-600' : 'text-red-600'
-                    }`}>
+                    </motion.div>
+                    <h3 className={`mb-2 text-2xl font-bold ${submitQuizMutation.data.passed ? 'text-emerald-300' : 'text-red-300'}`}>
                       {submitQuizMutation.data.passed ? '¡Aprobado!' : 'No Aprobado'}
-                    </h2>
-                    <p className="text-3xl font-bold text-gray-900 mb-2">
+                    </h3>
+                    <p className="mb-2 font-serif text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-white via-slate-200 to-slate-400 pb-[0.1em]">
                       {submitQuizMutation.data.score}%
                     </p>
-                    <p className="text-gray-600">
+                    <p className="text-slate-500">
                       Puntuación mínima requerida: {quiz.passingScore}%
                     </p>
                   </div>
@@ -510,12 +520,12 @@ const QuizView = () => {
                     const hasXp = quizXp > 0 || certificateXp > 0;
                     if (!hasXp) return null;
                     return (
-                      <div className="mb-8 rounded-2xl border border-emerald-200 bg-emerald-50 p-5 text-emerald-900">
-                        <h3 className="text-lg font-semibold mb-1 flex items-center gap-2">
-                          <Award className="w-5 h-5" />
+                      <div className="mb-8 rounded-2xl border border-emerald-500/25 bg-emerald-500/[0.07] p-5">
+                        <h3 className="text-lg font-semibold mb-1 flex items-center gap-2 text-emerald-300">
+                          <Award aria-hidden="true" className="w-5 h-5" />
                           Recompensas de XP
                         </h3>
-                        <p className="text-emerald-800">
+                        <p className="text-emerald-200/90">
                           {quizXp > 0 && <span className="font-medium">+{quizXp} XP por completar el quiz.</span>}
                           {' '}
                           {certificateXp > 0 && (
@@ -530,7 +540,7 @@ const QuizView = () => {
 
                   {/* Answer Breakdown */}
                   <div className="space-y-4 mb-8">
-                    <h3 className="text-xl font-bold mb-4">Desglose de Respuestas</h3>
+                    <h3 className="font-serif text-xl font-bold text-slate-100 mb-4">Desglose de Respuestas</h3>
                     {questions.map((question) => {
                       const userAnswer = answers[question.id];
                       const correctAnswer = JSON.parse(question.correctAnswer);
@@ -540,52 +550,54 @@ const QuizView = () => {
                       );
 
                       return (
-                        <Card key={question.id} className={
-                          isCorrect ? 'border-green-200 bg-green-50' : 'border-red-200 bg-red-50'
-                        }>
-                          <CardContent className="p-4">
-                            <div className="flex items-start justify-between mb-2">
-                              <div className="flex-1">
-                                <div className="flex items-center gap-2 mb-2">
-                                  {isCorrect ? (
-                                    <CheckCircle className="w-5 h-5 text-green-600" />
-                                  ) : (
-                                    <X className="w-5 h-5 text-red-600" />
-                                  )}
-                                  <span className="font-semibold">{question.question}</span>
+                        <div
+                          key={question.id}
+                          className={isCorrect
+                            ? 'rounded-2xl border border-emerald-500/25 bg-emerald-500/[0.05] p-4'
+                            : 'rounded-2xl border border-red-500/25 bg-red-500/[0.05] p-4'
+                          }
+                        >
+                          <div className="flex items-start justify-between mb-2">
+                            <div className="flex-1">
+                              <div className="flex items-center gap-2 mb-2">
+                                {isCorrect ? (
+                                  <CheckCircle aria-hidden="true" className="w-5 h-5 text-emerald-400 shrink-0" />
+                                ) : (
+                                  <X aria-hidden="true" className="w-5 h-5 text-red-400 shrink-0" />
+                                )}
+                                <span className="font-semibold text-slate-200">{question.question}</span>
+                              </div>
+                              <div className="ml-7 space-y-1 text-sm">
+                                <div>
+                                  <span className="text-slate-500">Tu respuesta: </span>
+                                  <span className={isCorrect ? 'text-emerald-300 font-medium' : 'text-red-300 font-medium'}>
+                                    {typeof userAnswer === 'object'
+                                      ? JSON.stringify(userAnswer)
+                                      : String(userAnswer || 'Sin responder')}
+                                  </span>
                                 </div>
-                                <div className="ml-7 space-y-1 text-sm">
+                                {!isCorrect && (
                                   <div>
-                                    <span className="text-gray-600">Tu respuesta: </span>
-                                    <span className={isCorrect ? 'text-green-700 font-medium' : 'text-red-700 font-medium'}>
-                                      {typeof userAnswer === 'object' 
-                                        ? JSON.stringify(userAnswer) 
-                                        : String(userAnswer || 'Sin responder')}
+                                    <span className="text-slate-500">Respuesta correcta: </span>
+                                    <span className="text-emerald-300 font-medium">
+                                      {typeof correctAnswer === 'object'
+                                        ? JSON.stringify(correctAnswer)
+                                        : String(correctAnswer)}
                                     </span>
                                   </div>
-                                  {!isCorrect && (
-                                    <div>
-                                      <span className="text-gray-600">Respuesta correcta: </span>
-                                      <span className="text-green-700 font-medium">
-                                        {typeof correctAnswer === 'object' 
-                                          ? JSON.stringify(correctAnswer) 
-                                          : String(correctAnswer)}
-                                      </span>
-                                    </div>
-                                  )}
-                                  {question.explanation && (
-                                    <div className="mt-2 p-2 bg-blue-50 rounded text-blue-800">
-                                      <strong>Explicación:</strong> {question.explanation}
-                                    </div>
-                                  )}
-                                  <div className="text-xs text-gray-500">
-                                    Puntos: {answerData?.pointsEarned || 0} / {question.points}
+                                )}
+                                {question.explanation && (
+                                  <div className="mt-2 rounded-lg bg-blue-500/10 p-2 text-blue-200/90">
+                                    <strong className="text-blue-300">Explicación:</strong> {question.explanation}
                                   </div>
+                                )}
+                                <div className="text-xs text-slate-600">
+                                  Puntos: {answerData?.pointsEarned || 0} / {question.points}
                                 </div>
                               </div>
                             </div>
-                          </CardContent>
-                        </Card>
+                          </div>
+                        </div>
                       );
                     })}
                   </div>
@@ -594,15 +606,18 @@ const QuizView = () => {
                   <div className="flex flex-wrap gap-4 justify-center">
                     {submitQuizMutation.data.passed && submitQuizMutation.data.certificateCode && (
                       <Link href={`/recursos/guias-estudio/${courseSlug}`}>
-                        <Button size="lg" className="gap-2">
-                          <Award className="w-5 h-5" />
+                        <Button
+                          size="lg"
+                          className="gap-2 bg-[#7D5BDE] text-white hover:bg-[#8d6ee6] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]"
+                        >
+                          <Award aria-hidden="true" className="w-5 h-5" />
                           Ver Certificado
                         </Button>
                       </Link>
                     )}
                     {!submitQuizMutation.data.passed && quiz.allowRetakes && (
-                      <Button 
-                        size="lg" 
+                      <Button
+                        size="lg"
                         variant="outline"
                         onClick={() => {
                           setState('instructions');
@@ -613,7 +628,7 @@ const QuizView = () => {
                         }}
                         className="gap-2"
                       >
-                        <RotateCcw className="w-5 h-5" />
+                        <RotateCcw aria-hidden="true" className="w-5 h-5" />
                         Reintentar
                       </Button>
                     )}
@@ -623,8 +638,8 @@ const QuizView = () => {
                       </Button>
                     </Link>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
