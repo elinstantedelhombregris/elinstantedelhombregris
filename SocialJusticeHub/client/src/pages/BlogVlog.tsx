@@ -3,20 +3,16 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { useEffect, useState, useMemo, useRef, useCallback } from 'react';
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Input } from "@/components/ui/input";
-import { Calendar, Clock, Play, FileText, User, Search, X, Loader2, ArrowUpRight, Sparkles, Video } from 'lucide-react';
+import { Calendar, Clock, Play, FileText, User, Search, X, Loader2, ArrowUpRight, Video } from 'lucide-react';
 // Animation handled by SmoothReveal component
 import { Link, useLocation } from 'wouter';
 import LikeButton from '@/components/LikeButton';
-import BookmarkButton from '@/components/BookmarkButton';
+import SmoothReveal from '@/components/ui/SmoothReveal';
 import { apiRequest } from '@/lib/queryClient';
 import { getAnonSessionId } from '@/lib/anonSession';
-import FluidBackground from '@/components/ui/FluidBackground';
-import GlassCard from '@/components/ui/GlassCard';
-import SmoothReveal from '@/components/ui/SmoothReveal';
 import { useSeoMetadata } from '@/lib/seo';
-import { buildBlogHubMetadata, buildBlogPostPath, BLOG_HUB_PATH, VLOG_HUB_PATH } from '@shared/blog-seo';
+import { buildBlogHubMetadata, buildBlogPostPath, BLOG_HUB_PATH, VLOG_HUB_PATH, normalizeBlogReadTime } from '@shared/blog-seo';
+import { getCategoryColorDark } from '@/lib/editorial';
 
 interface BlogPost {
   id: number;
@@ -92,7 +88,7 @@ const BlogVlog = () => {
       } else {
         setIsLoadingMore(true);
       }
-      
+
       setError(null);
 
       const currentPageToFetch = reset ? 1 : page + 1;
@@ -104,11 +100,11 @@ const BlogVlog = () => {
       if (activeTab !== 'all') {
         params.append('type', activeTab);
       }
-      
+
       if (selectedCategory !== 'all') {
         params.append('category', selectedCategory);
       }
-      
+
       if (searchQuery.trim()) {
         params.append('search', searchQuery.trim());
       }
@@ -117,20 +113,20 @@ const BlogVlog = () => {
       // for this anonymous viewer in the list response.
       params.append('sessionId', getAnonSessionId());
       const response = await apiRequest('GET', `/api/blog/posts?${params}`);
-      
+
       if (!response.ok) {
         throw new Error(`Error al cargar los posts: ${response.status}`);
       }
-      
+
       const newPosts = await response.json();
-      
+
       if (reset) {
         setPosts(newPosts);
       } else {
         setPosts(prev => [...prev, ...newPosts]);
         setPage(currentPageToFetch);
       }
-      
+
       setHasMore(newPosts.length === 12);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Error al cargar los posts');
@@ -208,51 +204,40 @@ const BlogVlog = () => {
 
   const FeaturedCard = ({ post }: { post: BlogPost }) => (
     <Link href={buildBlogPostPath(post)}>
-      <div className="group relative overflow-hidden min-h-[500px] flex items-end p-8 md:p-12 cursor-pointer bg-white rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
-        {post.imageUrl && (
-            <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-105">
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-10" />
-                <img
-                src={post.imageUrl}
-                alt={post.title}
-                className="w-full h-full object-cover rounded-3xl"
-                />
-            </div>
-        )}
+      <div className="group relative flex min-h-[520px] cursor-pointer items-end overflow-hidden rounded-3xl border border-white/10 p-8 transition-all duration-500 hover:border-white/20 hover:shadow-[0_0_60px_rgba(125,91,222,0.12)] md:p-12">
+        <div className="absolute inset-0 bg-[#0d1117]">
+          {post.imageUrl && (
+            <img
+              src={post.imageUrl}
+              alt={post.title}
+              className="h-full w-full object-cover opacity-60 transition-transform duration-700 group-hover:scale-105"
+            />
+          )}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/60 to-transparent" />
+        </div>
 
-        <div className="relative z-20 w-full max-w-4xl">
-          <div className="flex items-center gap-3 mb-4">
-            <Badge className={`px-3 py-1 text-sm font-medium tracking-wide ${
-                post.type === 'vlog' ? 'bg-red-600 hover:bg-red-700' : 'bg-blue-600 hover:bg-blue-700'
-            }`}>
-                {post.type === 'vlog' ? 'VLOG' : 'BLOG'}
-            </Badge>
-            <span className="text-white/80 text-sm font-medium uppercase tracking-wider border border-white/20 px-3 py-1 rounded-full bg-black/30 backdrop-blur-sm">
-                {post.category}
+        <div className="relative z-10 w-full max-w-4xl">
+          <div className="mb-4 flex items-center gap-3">
+            <span className="rounded-full bg-[#7D5BDE] px-3 py-1 text-xs font-bold uppercase tracking-wide text-white">
+              Destacado
+            </span>
+            <span className={`rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider backdrop-blur-sm ${getCategoryColorDark(post.category)}`}>
+              {post.category}
             </span>
           </div>
 
-          <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight group-hover:text-blue-200 transition-colors">
+          <h2 className="mb-5 font-serif text-4xl font-bold leading-tight text-transparent bg-clip-text bg-gradient-to-b from-white via-slate-200 to-slate-400 pb-[0.1em] md:text-6xl">
             {post.title}
           </h2>
 
-          <p className="text-lg md:text-xl text-white/80 mb-8 line-clamp-2 max-w-2xl">
+          <p className="mb-8 max-w-2xl text-lg text-slate-300 line-clamp-2 md:text-xl">
             {post.excerpt}
           </p>
 
-          <div className="flex items-center gap-6 text-white/70 text-sm">
-            <div className="flex items-center gap-2">
-                <User className="w-4 h-4" />
-                <span>{post.author.name}</span>
-            </div>
-            <div className="flex items-center gap-2">
-                <Calendar className="w-4 h-4" />
-                <span>{formatDate(post.publishedAt)}</span>
-            </div>
-            <div className="flex items-center gap-2">
-                <Clock className="w-4 h-4" />
-                <span>5 min lectura</span>
-            </div>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-slate-400">
+            <span className="inline-flex items-center gap-2"><User className="h-4 w-4" aria-hidden="true" />{post.author.name}</span>
+            <span className="inline-flex items-center gap-2"><Calendar className="h-4 w-4" aria-hidden="true" />{formatDate(post.publishedAt)}</span>
+            <span className="inline-flex items-center gap-2"><Clock className="h-4 w-4" aria-hidden="true" />{normalizeBlogReadTime(post.content)} min lectura</span>
           </div>
         </div>
       </div>
@@ -262,62 +247,66 @@ const BlogVlog = () => {
   const GridCard = ({ post, index }: { post: BlogPost, index: number }) => (
     <Link href={buildBlogPostPath(post)}>
       <div
-        className={`group h-full flex flex-col cursor-pointer bg-white rounded-3xl border border-slate-200 shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 overflow-hidden ${
-             index % 3 === 0 && post.type !== 'vlog' ? 'md:col-span-2' : ''
+        className={`group flex h-full cursor-pointer flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] transition-all duration-500 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.05] hover:shadow-[0_0_40px_rgba(125,91,222,0.10)] ${
+          index % 3 === 0 && post.type !== 'vlog' ? 'md:col-span-2' : ''
         }`}
       >
-        <div className="relative h-64 overflow-hidden bg-slate-200">
+        <div className="relative h-60 overflow-hidden">
           {post.imageUrl ? (
             <img
               src={post.imageUrl}
               alt={post.title}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              loading="lazy"
+              className="h-full w-full object-cover opacity-80 transition-all duration-700 group-hover:scale-105 group-hover:opacity-100"
             />
           ) : (
-             <div className="w-full h-full bg-gradient-to-br from-slate-100 to-slate-300 flex items-center justify-center">
-                {post.type === 'vlog' ? <Play className="w-12 h-12 text-slate-400" /> : <FileText className="w-12 h-12 text-slate-400" />}
-             </div>
+            <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-white/[0.06] to-white/[0.02]">
+              {post.type === 'vlog'
+                ? <Play className="h-12 w-12 text-slate-600" aria-hidden="true" />
+                : <FileText className="h-12 w-12 text-slate-600" aria-hidden="true" />}
+            </div>
           )}
-
-          <div className="absolute top-4 left-4">
-             <Badge className={post.type === 'vlog' ? 'bg-red-500' : 'bg-blue-500'}>
-                {post.type === 'vlog' ? <Play className="w-3 h-3 mr-1" /> : <FileText className="w-3 h-3 mr-1" />}
-                {post.type === 'vlog' ? 'Vlog' : 'Blog'}
-             </Badge>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/60 to-transparent" />
+          <div className="absolute left-4 top-4">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-black/40 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-slate-200 backdrop-blur-md">
+              {post.type === 'vlog' ? <Play className="h-3 w-3" aria-hidden="true" /> : <FileText className="h-3 w-3" aria-hidden="true" />}
+              {post.type === 'vlog' ? 'Vlog' : 'Blog'}
+            </span>
           </div>
         </div>
 
-        <div className="p-6 flex flex-col flex-grow">
-          <div className="flex items-center gap-2 mb-3">
-             <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">{post.category}</span>
-             <span className="text-xs text-slate-400">•</span>
-             <span className="text-xs text-slate-400">{formatDate(post.publishedAt)}</span>
+        <div className="flex flex-grow flex-col p-6">
+          <div className="mb-3 flex items-center gap-2 text-xs text-slate-500">
+            <span className={`rounded-full px-2.5 py-0.5 font-semibold uppercase tracking-wider ${getCategoryColorDark(post.category)}`}>
+              {post.category}
+            </span>
+            <span>•</span>
+            <span>{formatDate(post.publishedAt)}</span>
+            <span>•</span>
+            <span>{normalizeBlogReadTime(post.content)} min</span>
           </div>
 
-          <h3 className="text-2xl font-bold text-slate-900 mb-3 leading-tight group-hover:text-blue-600 transition-colors">
+          <h3 className="mb-3 font-serif text-2xl font-bold leading-tight text-slate-100 transition-colors group-hover:text-white">
             {post.title}
           </h3>
 
-          <p className="text-slate-600 mb-6 line-clamp-3 flex-grow">
+          <p className="mb-6 flex-grow text-slate-400 line-clamp-3">
             {post.excerpt}
           </p>
 
-          <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
-             <div className="flex items-center gap-4">
-                <LikeButton
-                    postId={post.id}
-                    initialLiked={post.userLiked || false}
-                    initialCount={post.likeCount ?? (post.likes || []).length}
-                    onLike={handleLike}
-                    onUnlike={handleLike}
-                    size="sm"
-                    showCount
-                />
-             </div>
-
-             <span className="inline-flex items-center text-sm font-medium text-blue-600 group-hover:translate-x-1 transition-transform">
-                Leer más <ArrowUpRight className="w-4 h-4 ml-1" />
-             </span>
+          <div className="flex items-center justify-between border-t border-white/10 pt-4">
+            <LikeButton
+              postId={post.id}
+              initialLiked={post.userLiked || false}
+              initialCount={post.likeCount ?? (post.likes || []).length}
+              onLike={handleLike}
+              onUnlike={handleLike}
+              size="sm"
+              showCount
+            />
+            <span className="inline-flex items-center text-sm font-medium text-violet-400 transition-transform group-hover:translate-x-1">
+              Leer más <ArrowUpRight className="ml-1 h-4 w-4" aria-hidden="true" />
+            </span>
           </div>
         </div>
       </div>
@@ -325,111 +314,103 @@ const BlogVlog = () => {
   );
 
   return (
-    <div className="min-h-screen bg-slate-50 font-sans text-slate-900 theme-light">
-      <FluidBackground className="opacity-30" />
+    <div className="relative min-h-screen overflow-hidden bg-[#0a0a0a] text-slate-200 font-sans selection:bg-violet-500/30">
+      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
+        <div className="absolute -top-32 left-1/2 h-[640px] w-[640px] -translate-x-1/2 rounded-full bg-violet-500/[0.05] blur-3xl" />
+        <div className="absolute bottom-0 right-0 h-[480px] w-[480px] translate-x-1/3 translate-y-1/3 rounded-full bg-blue-500/[0.04] blur-3xl" />
+      </div>
       <Header />
 
       <main className="relative z-10 container mx-auto px-4 pt-24 pb-20">
 
             {/* Hero Header */}
-            <section className="min-h-[40vh] flex flex-col justify-center items-center text-center mb-20">
-                <SmoothReveal direction="up" className="mb-6">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200 shadow-sm mb-8">
-                        <FileText className="w-4 h-4 text-blue-600" />
-                        <span className="text-sm font-semibold text-slate-600 uppercase tracking-wider">Blog & Vlog</span>
-                    </div>
-                </SmoothReveal>
-                <SmoothReveal direction="up" delay={0.1}>
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold tracking-tight mb-6 text-slate-900">
-                        Crónicas del <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Despertar</span>
-                    </h1>
-                </SmoothReveal>
-                <SmoothReveal direction="up" delay={0.2} className="max-w-2xl">
-                    <p className="text-xl md:text-2xl text-slate-600 leading-relaxed font-light">
-                        Ideas para entender el presente, diseñar mejores decisiones y sostener acción colectiva con sentido.
-                    </p>
-                </SmoothReveal>
+            <section className="mb-20 flex min-h-[40vh] flex-col items-center justify-center text-center">
+              <SmoothReveal direction="up" className="mb-6">
+                <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2">
+                  <FileText className="h-4 w-4 text-[#7D5BDE]" aria-hidden="true" />
+                  <span className="text-sm font-semibold uppercase tracking-wider text-slate-400">Blog & Vlog</span>
+                </div>
+              </SmoothReveal>
+              <SmoothReveal direction="up" delay={0.1}>
+                <h1 className="mb-6 font-serif text-5xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white via-slate-200 to-slate-400 pb-[0.1em] md:text-7xl lg:text-8xl">
+                  Crónicas del Despertar
+                </h1>
+              </SmoothReveal>
+              <SmoothReveal direction="up" delay={0.2} className="max-w-2xl">
+                <p className="text-xl font-light leading-relaxed text-slate-400 md:text-2xl">
+                  Ideas para entender el presente, diseñar mejores decisiones y sostener acción colectiva con sentido.
+                </p>
+              </SmoothReveal>
             </section>
 
             {/* Floating Filters Bar */}
             <div className="sticky top-24 z-40 mb-12 py-4">
-                <GlassCard className="max-w-5xl mx-auto p-2 flex flex-col md:flex-row items-center gap-2 md:gap-4 bg-white/70 backdrop-blur-xl shadow-xl rounded-full" intensity="high">
-                    <div className="flex bg-slate-100 rounded-full p-1 shrink-0">
-                        <Button
-                            variant={activeTab === 'all' ? 'default' : 'ghost'}
-                            onClick={() => setActiveTab('all')}
-                            className={`rounded-full px-6 ${activeTab === 'all' ? 'bg-white text-slate-900 shadow-sm' : 'hover:bg-slate-200'}`}
-                            size="sm"
-                        >
-                            Todo
-                        </Button>
-                        <Button
-                            variant={activeTab === 'blog' ? 'default' : 'ghost'}
-                            onClick={() => setActiveTab('blog')}
-                            className={`rounded-full px-6 ${activeTab === 'blog' ? 'bg-white text-slate-900 shadow-sm' : 'hover:bg-slate-200'}`}
-                            size="sm"
-                        >
-                            Blog
-                        </Button>
-                        <Button
-                            variant={activeTab === 'vlog' ? 'default' : 'ghost'}
-                            onClick={() => setActiveTab('vlog')}
-                            className={`rounded-full px-6 ${activeTab === 'vlog' ? 'bg-white text-slate-900 shadow-sm' : 'hover:bg-slate-200'}`}
-                            size="sm"
-                        >
-                            Vlog
-                        </Button>
-                    </div>
-                    
-                    <div className="h-8 w-px bg-slate-200 hidden md:block" />
+              <div className="mx-auto flex max-w-5xl flex-col items-center gap-2 rounded-full border border-white/10 bg-[#0a0a0a]/80 p-2 shadow-[0_8px_40px_rgba(0,0,0,0.5)] backdrop-blur-xl md:flex-row md:gap-4">
+                <div className="flex shrink-0 rounded-full bg-white/5 p-1">
+                  {(['all', 'blog', 'vlog'] as const).map((tab) => (
+                    <button
+                      key={tab}
+                      onClick={() => setActiveTab(tab)}
+                      className={`rounded-full px-6 py-1.5 text-sm font-medium transition-colors ${
+                        activeTab === tab
+                          ? 'bg-[#7D5BDE] text-white'
+                          : 'text-slate-400 hover:text-slate-200'
+                      }`}
+                    >
+                      {tab === 'all' ? 'Todo' : tab === 'blog' ? 'Blog' : 'Vlog'}
+                    </button>
+                  ))}
+                </div>
 
-                    <div className="flex-1 w-full relative">
-                        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 w-4 h-4" />
-                        <input 
-                            type="text"
-                            placeholder="Buscar tema, autor o categoría..."
-                            value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
-                            className="w-full bg-transparent border-none focus:ring-0 pl-10 pr-4 text-sm text-slate-800 placeholder-slate-400 h-10"
-                        />
-                        {searchQuery && (
-                            <button onClick={() => setSearchQuery('')} className="absolute right-3 top-1/2 transform -translate-y-1/2 text-slate-400 hover:text-slate-600">
-                                <X className="w-4 h-4" />
-                            </button>
-                        )}
-                    </div>
+                <div className="hidden h-8 w-px bg-white/10 md:block" />
 
-                    <div className="h-8 w-px bg-slate-200 hidden md:block" />
+                <div className="relative w-full flex-1">
+                  <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-500" aria-hidden="true" />
+                  <input
+                    type="text"
+                    placeholder="Buscar tema, autor o categoría..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="h-10 w-full border-none bg-transparent pl-10 pr-4 text-sm text-slate-200 placeholder-slate-500 focus:ring-0"
+                  />
+                  {searchQuery && (
+                    <button onClick={() => setSearchQuery('')} className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300" aria-label="Limpiar búsqueda">
+                      <X className="h-4 w-4" aria-hidden="true" />
+                    </button>
+                  )}
+                </div>
 
-                    <div className="shrink-0 overflow-x-auto max-w-[200px] md:max-w-none flex gap-2 px-2 hide-scrollbar">
-                         {categories.slice(0, 4).map(cat => (
-                             <button 
-                                key={cat}
-                                onClick={() => setSelectedCategory(cat)}
-                                className={`text-xs font-medium px-3 py-1.5 rounded-full transition-colors whitespace-nowrap ${
-                                    selectedCategory === cat 
-                                    ? 'bg-slate-900 text-white' 
-                                    : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-                                }`}
-                             >
-                                {cat === 'all' ? 'Todos' : cat}
-                             </button>
-                         ))}
-                    </div>
-                </GlassCard>
+                <div className="hidden h-8 w-px bg-white/10 md:block" />
+
+                <div className="hide-scrollbar flex max-w-[200px] shrink-0 gap-2 overflow-x-auto px-2 md:max-w-none">
+                  {categories.slice(0, 4).map(cat => (
+                    <button
+                      key={cat}
+                      onClick={() => setSelectedCategory(cat)}
+                      className={`whitespace-nowrap rounded-full px-3 py-1.5 text-xs font-medium transition-colors ${
+                        selectedCategory === cat
+                          ? 'bg-slate-200 text-slate-900'
+                          : 'bg-white/5 text-slate-400 hover:bg-white/10 hover:text-slate-200'
+                      }`}
+                    >
+                      {cat === 'all' ? 'Todos' : cat}
+                    </button>
+                  ))}
+                </div>
+              </div>
             </div>
 
             {activeTab === 'vlog' ? (
                 /* Vlog Coming Soon */
                 <SmoothReveal direction="up" className="mb-12">
                     <div className="max-w-2xl mx-auto text-center py-24">
-                        <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-purple-100 to-blue-100 mb-8">
-                            <Video className="w-12 h-12 text-purple-600" />
+                        <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-[#7D5BDE]/10 mb-8">
+                            <Video className="w-12 h-12 text-violet-400" />
                         </div>
-                        <h2 className="text-3xl md:text-4xl font-serif font-bold text-slate-900 mb-6">
+                        <h2 className="mb-6 font-serif text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-b from-white via-slate-200 to-slate-400 pb-[0.1em] md:text-4xl">
                             Próximamente
                         </h2>
-                        <p className="text-xl text-slate-600 leading-relaxed mb-4">
+                        <p className="text-xl text-slate-400 leading-relaxed mb-4">
                             Estamos preparando los primeros videos del movimiento.
                         </p>
                         <p className="text-lg text-slate-500">
@@ -450,7 +431,7 @@ const BlogVlog = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
                         {loading && posts.length === 0 ? (
                             [...Array(6)].map((_, i) => (
-                                <div key={i} className="h-96 bg-slate-200 rounded-3xl animate-pulse" />
+                                <div key={i} className="h-96 bg-white/5 rounded-3xl animate-pulse" />
                             ))
                         ) : (
                             gridPosts.map((post, index) => (
@@ -463,13 +444,13 @@ const BlogVlog = () => {
 
                     {/* Infinite Scroll Loader */}
                     <div ref={loadMoreRef} className="h-20 flex items-center justify-center">
-                        {isLoadingMore && <Loader2 className="w-8 h-8 animate-spin text-slate-400" />}
+                        {isLoadingMore && <Loader2 className="w-8 h-8 animate-spin text-slate-500" />}
                     </div>
 
                     {!loading && posts.length === 0 && (
                         <div className="text-center py-20">
-                            <p className="text-slate-500 text-lg">No se encontraron publicaciones.</p>
-                            <Button variant="link" onClick={() => { setSearchQuery(''); setSelectedCategory('all'); }}>
+                            <p className="text-slate-400 text-lg">No se encontraron publicaciones.</p>
+                            <Button variant="link" className="text-violet-400" onClick={() => { setSearchQuery(''); setSelectedCategory('all'); }}>
                                 Limpiar filtros
                             </Button>
                         </div>
