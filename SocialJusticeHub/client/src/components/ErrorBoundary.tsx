@@ -12,6 +12,18 @@ interface State {
   error?: Error;
 }
 
+// Tras un deploy, los chunks viejos (assets/*.js hasheados) ya no existen y el
+// import() dinámico falla. Recargar trae el index.html nuevo con los hashes
+// vigentes — pero solo una vez por sesión, para no entrar en loop si el error
+// tiene otra causa.
+const CHUNK_RELOAD_KEY = 'chunk-reload-attempted';
+
+function isStaleChunkError(error: Error): boolean {
+  return /failed to fetch dynamically imported module|importing a module script failed|expected a javascript.*module/i.test(
+    error.message
+  );
+}
+
 class ErrorBoundary extends Component<Props, State> {
   public state: State = {
     hasError: false
@@ -23,6 +35,14 @@ class ErrorBoundary extends Component<Props, State> {
 
   public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     console.error('ErrorBoundary caught an error:', error, errorInfo);
+
+    // Clave por mensaje (incluye la URL del chunk): si el mismo chunk vuelve a
+    // fallar después de recargar, no es un deploy viejo — mostramos el fallback.
+    const reloadKey = `${CHUNK_RELOAD_KEY}:${error.message}`;
+    if (isStaleChunkError(error) && !sessionStorage.getItem(reloadKey)) {
+      sessionStorage.setItem(reloadKey, '1');
+      window.location.reload();
+    }
   }
 
   private handleReset = () => {

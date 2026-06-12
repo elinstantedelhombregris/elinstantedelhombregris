@@ -2905,15 +2905,16 @@ export class DatabaseStorage implements IStorage {
   }
 
   async recordPostView(postId: number, userId?: number, sessionId?: string): Promise<void> {
-    // INSERT and counter bump must agree — wrap them so the cache (view_count)
+    // INSERT and counter bump must agree — batch them so the cache (view_count)
     // never drifts from the source of truth (post_views row count) on a
-    // partial failure.
-    await db.transaction(async (tx) => {
-      await tx.insert(postViews).values({ postId, userId, sessionId });
-      await tx.update(blogPosts)
+    // partial failure. db.batch() runs as a single transaction; the neon-http
+    // driver rejects interactive db.transaction() callbacks outright.
+    await db.batch([
+      db.insert(postViews).values({ postId, userId, sessionId }),
+      db.update(blogPosts)
         .set({ viewCount: sql`${blogPosts.viewCount} + 1` })
-        .where(eq(blogPosts.id, postId));
-    });
+        .where(eq(blogPosts.id, postId)),
+    ]);
   }
 
   // Search & Recommendations

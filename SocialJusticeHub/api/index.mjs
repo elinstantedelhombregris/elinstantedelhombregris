@@ -9571,10 +9571,10 @@ var init_storage = __esm({
         return applyEnhancementsToList(bookmarks.map((bookmark) => bookmark.post));
       }
       async recordPostView(postId, userId, sessionId) {
-        await db.transaction(async (tx) => {
-          await tx.insert(postViews).values({ postId, userId, sessionId });
-          await tx.update(blogPosts).set({ viewCount: sql4`${blogPosts.viewCount} + 1` }).where(eq2(blogPosts.id, postId));
-        });
+        await db.batch([
+          db.insert(postViews).values({ postId, userId, sessionId }),
+          db.update(blogPosts).set({ viewCount: sql4`${blogPosts.viewCount} + 1` }).where(eq2(blogPosts.id, postId))
+        ]);
       }
       // Search & Recommendations
       async searchPosts(query, filters) {
