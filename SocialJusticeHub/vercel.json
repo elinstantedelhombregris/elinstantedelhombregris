@@ -12,6 +12,7 @@
   "routes": [
     { "handle": "filesystem" },
     { "src": "/api/(.*)", "dest": "/api/index.mjs?path=$1" },
+    { "src": "/assets/(.*)", "status": 404 },
     { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
