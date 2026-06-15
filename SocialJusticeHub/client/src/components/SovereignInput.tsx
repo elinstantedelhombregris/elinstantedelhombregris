@@ -1,24 +1,16 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useQuery } from '@tanstack/react-query';
-import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
+import { Button } from '@/components/ui/button';
+import { Textarea } from '@/components/ui/textarea';
+import { MapPin, Map, EyeOff, Send, Loader2 } from 'lucide-react';
+import { cn } from '@/lib/utils';
 import {
-  Eye,
-  Heart,
-  AlertCircle,
-  Zap,
-  MapPin,
-  Map,
-  EyeOff,
-  Send,
-  Loader2,
-  Handshake,
-  Wrench
-} from 'lucide-react';
-import { cn } from "@/lib/utils";
-
-type InputType = 'dream' | 'value' | 'need' | 'basta' | 'compromiso' | 'recurso';
+  SIGNAL_TYPES,
+  SIGNAL_TYPE_MAP,
+  hexToRgb,
+  type SignalTypeKey,
+} from '@/lib/signal-types';
 
 export type LocationMode = 'geo' | 'province' | 'none';
 
@@ -31,7 +23,7 @@ export interface ProvinceOption {
 
 const LOCATION_MODES: Array<{ id: LocationMode; label: string; icon: any }> = [
   { id: 'geo', label: 'Mi ubicación', icon: MapPin },
-  { id: 'province', label: 'Elegir provincia', icon: Map },
+  { id: 'province', label: 'Provincia', icon: Map },
   { id: 'none', label: 'Sin ubicación', icon: EyeOff },
 ];
 
@@ -55,75 +47,25 @@ interface SovereignInputProps {
   isSubmitting: boolean;
 }
 
-const types: { id: InputType; label: string; icon: any; color: string; desc: string }[] = [
-  { 
-    id: 'dream', 
-    label: 'Sueño', 
-    icon: Eye, 
-    color: 'text-blue-400 border-blue-500/30 bg-blue-500/10',
-    desc: '¿Qué ves para el futuro?' 
-  },
-  { 
-    id: 'value', 
-    label: 'Valor', 
-    icon: Heart, 
-    color: 'text-pink-400 border-pink-500/30 bg-pink-500/10',
-    desc: '¿Qué principios sostenés?' 
-  },
-  { 
-    id: 'need', 
-    label: 'Necesidad', 
-    icon: AlertCircle, 
-    color: 'text-amber-400 border-amber-500/30 bg-amber-500/10',
-    desc: '¿Qué falta para prosperar?' 
-  },
-  {
-    id: 'basta',
-    label: '¡BASTA!',
-    icon: Zap,
-    color: 'text-red-400 border-red-500/30 bg-red-500/10',
-    desc: '¿Qué límite ponés hoy?'
-  },
-  {
-    id: 'compromiso',
-    label: 'Compromiso',
-    icon: Handshake,
-    color: 'text-emerald-400 border-emerald-500/30 bg-emerald-500/10',
-    desc: '¿Qué te comprometés a hacer?'
-  },
-  {
-    id: 'recurso',
-    label: 'Recurso',
-    icon: Wrench,
-    color: 'text-teal-400 border-teal-500/30 bg-teal-500/10',
-    desc: '¿Qué podés aportar al movimiento?'
-  }
-];
+const ACCENT = '#7D5BDE';
 
 const SovereignInput = ({ onSubmit, isSubmitting }: SovereignInputProps) => {
-  const [activeType, setActiveType] = useState<InputType>('dream');
+  const [activeType, setActiveType] = useState<SignalTypeKey>('dream');
   const [content, setContent] = useState('');
   const [locationMode, setLocationMode] = useState<LocationMode>('geo');
   const [selectedProvince, setSelectedProvince] = useState<ProvinceOption | null>(null);
-  const [charCount, setCharCount] = useState(0);
   const [resourceCategory, setResourceCategory] = useState<string>('other');
   const maxChars = 280;
+  const charCount = content.length;
 
   const { data: provinces = [] } = useQuery<ProvinceOption[]>({
     queryKey: ['/api/geographic/provinces'],
     enabled: locationMode === 'province',
   });
 
-  const handleTypeChange = (type: InputType) => {
-    setActiveType(type);
-  };
-
   const handleContentChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const text = e.target.value;
-    if (text.length <= maxChars) {
-      setContent(text);
-      setCharCount(text.length);
-    }
+    if (text.length <= maxChars) setContent(text);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -140,175 +82,218 @@ const SovereignInput = ({ onSubmit, isSubmitting }: SovereignInputProps) => {
         ...(activeType === 'recurso' ? { resourceCategory } : {}),
       });
       setContent('');
-      setCharCount(0);
     } catch (err) {
-      // La geolocalización falló: cambiamos a "elegir provincia" sin perder el texto.
+      // La geolocalización falló: pasamos a "provincia" sin perder el texto.
       if (err instanceof Error && err.message === 'GEOLOCATION_FAILED') {
         setLocationMode('province');
       }
     }
   };
 
-  const activeConfig = types.find(t => t.id === activeType)!;
+  const active = SIGNAL_TYPE_MAP[activeType];
+  const rgb = hexToRgb(active.color);
   const progress = (charCount / maxChars) * 100;
-  const progressColor = progress > 90 ? 'text-red-500' : progress > 75 ? 'text-amber-500' : 'text-blue-500';
+  const ringColor = progress > 92 ? '#FF6B5E' : active.color;
+  const canSubmit =
+    !!content.trim() && !(locationMode === 'province' && !selectedProvince) && !isSubmitting;
 
   return (
-    <div className="w-full max-w-md bg-slate-900/90 backdrop-blur-xl border border-slate-800 rounded-3xl overflow-hidden shadow-2xl shadow-black/50">
-      {/* Header / Type Selector */}
-      <div className="p-2 grid grid-cols-6 gap-1 bg-black/20 border-b border-white/5">
-        {types.map((type) => (
-          <button
-            key={type.id}
-            onClick={() => handleTypeChange(type.id)}
-            className={cn(
-              "flex flex-col items-center justify-center py-3 px-1 rounded-xl transition-all duration-300",
-              activeType === type.id 
-                ? `bg-white/10 ${type.color} shadow-lg` 
-                : "text-slate-500 hover:text-slate-300 hover:bg-white/5"
-            )}
-          >
-            <type.icon className="w-5 h-5 mb-1" />
-            <span className="text-[10px] font-bold uppercase tracking-wider">{type.label}</span>
-          </button>
-        ))}
-      </div>
+    <div
+      className="w-full max-w-md rounded-[26px] border border-white/10 bg-[#0c0d12]/85 backdrop-blur-2xl shadow-[0_24px_70px_-20px_rgba(0,0,0,0.85)] overflow-hidden"
+      style={{ boxShadow: `0 24px 70px -20px rgba(0,0,0,0.85), inset 0 1px 0 rgba(255,255,255,0.05)` }}
+    >
+      {/* Top hue line — identidad del tipo activo */}
+      <div className="h-[3px] w-full transition-colors duration-500" style={{ background: `linear-gradient(90deg, transparent, ${active.color}, transparent)` }} />
 
-      <div className="p-6">
+      <div className="p-5 sm:p-6">
+        {/* Kicker */}
+        <div className="flex items-center justify-between mb-4">
+          <span className="text-[10px] font-mono uppercase tracking-[0.35em] text-slate-500">
+            Tu señal
+          </span>
+          <span className="flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-[0.2em] text-slate-500">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            En vivo
+          </span>
+        </div>
+
+        {/* Type selector — 6 chips */}
+        <div className="grid grid-cols-6 gap-1.5 mb-5">
+          {SIGNAL_TYPES.map((t) => {
+            const on = activeType === t.key;
+            return (
+              <button
+                key={t.key}
+                type="button"
+                onClick={() => setActiveType(t.key)}
+                aria-pressed={on}
+                aria-label={t.label}
+                className={cn(
+                  'group/chip relative flex flex-col items-center justify-center gap-1 py-2.5 rounded-2xl border transition-all duration-300',
+                  on ? 'border-transparent' : 'border-white/[0.06] hover:border-white/15',
+                )}
+                style={
+                  on
+                    ? {
+                        background: `rgba(${hexToRgb(t.color)}, 0.14)`,
+                        boxShadow: `inset 0 0 0 1px rgba(${hexToRgb(t.color)}, 0.45), 0 6px 20px -8px rgba(${hexToRgb(t.color)}, 0.7)`,
+                      }
+                    : undefined
+                }
+              >
+                <t.Icon
+                  className="w-[18px] h-[18px] transition-colors duration-300"
+                  style={{ color: on ? t.color : '#64748b' }}
+                />
+                <span
+                  className="text-[8.5px] font-semibold uppercase tracking-wide leading-none transition-colors duration-300"
+                  style={{ color: on ? t.color : '#64748b' }}
+                >
+                  {t.label}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Editorial prompt */}
         <AnimatePresence mode="wait">
-          <motion.div
+          <motion.h3
             key={activeType}
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            className="mb-4"
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.25 }}
+            className="font-serif text-[22px] sm:text-2xl leading-tight text-white mb-4"
           >
-            <h3 className={cn("text-sm font-mono uppercase tracking-widest mb-1", activeConfig.color.split(' ')[0])}>
-              {activeConfig.label}
-            </h3>
-            <p className="text-slate-400 text-xs font-light">
-              {activeConfig.desc}
-            </p>
-          </motion.div>
+            {active.question}
+          </motion.h3>
         </AnimatePresence>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           {activeType === 'recurso' && (
             <div className="flex flex-wrap gap-1.5">
-              {RESOURCE_CATEGORIES.map((cat) => (
-                <button
-                  key={cat.id}
-                  type="button"
-                  onClick={() => setResourceCategory(cat.id)}
-                  className={cn(
-                    "px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider transition-all border",
-                    resourceCategory === cat.id
-                      ? "bg-teal-500/20 border-teal-500/40 text-teal-300"
-                      : "bg-white/5 border-white/10 text-slate-500 hover:text-slate-300"
-                  )}
-                >
-                  {cat.label}
-                </button>
-              ))}
+              {RESOURCE_CATEGORIES.map((cat) => {
+                const on = resourceCategory === cat.id;
+                return (
+                  <button
+                    key={cat.id}
+                    type="button"
+                    onClick={() => setResourceCategory(cat.id)}
+                    className={cn(
+                      'px-2.5 py-1 rounded-full text-[10px] font-semibold tracking-wide transition-all border',
+                      on
+                        ? 'border-transparent text-white'
+                        : 'bg-white/[0.04] border-white/10 text-slate-500 hover:text-slate-300',
+                    )}
+                    style={on ? { background: `rgba(${rgb}, 0.18)`, boxShadow: `inset 0 0 0 1px rgba(${rgb},0.5)`, color: active.color } : undefined}
+                  >
+                    {cat.label}
+                  </button>
+                );
+              })}
             </div>
           )}
+
+          {/* Textarea */}
           <div className="relative">
             <Textarea
               value={content}
               onChange={handleContentChange}
-              placeholder="Escribí lo tuyo acá. Con tus palabras, sin vueltas..."
-              className="bg-black/30 border-slate-700 focus:border-blue-500 text-slate-200 min-h-[120px] resize-none rounded-xl p-4 text-base"
+              placeholder={active.placeholder}
+              className="bg-black/40 border-white/10 text-slate-100 placeholder:text-slate-600 min-h-[112px] resize-none rounded-2xl p-4 pr-14 text-[15px] leading-relaxed focus-visible:ring-0 focus-visible:border-transparent transition-shadow"
+              style={{ boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.06)' }}
+              onFocus={(e) => (e.currentTarget.style.boxShadow = `inset 0 0 0 1.5px ${ACCENT}`)}
+              onBlur={(e) => (e.currentTarget.style.boxShadow = 'inset 0 0 0 1px rgba(255,255,255,0.06)')}
             />
-            
-            {/* Circular Progress */}
-            <div className="absolute bottom-3 right-3 flex items-center gap-2">
-              <span className={cn("text-xs font-mono", progressColor)}>
+            {/* Char ring */}
+            <div className="absolute bottom-3 right-3 flex items-center gap-1.5 pointer-events-none">
+              <span className="text-[11px] font-mono tabular-nums" style={{ color: ringColor }}>
                 {maxChars - charCount}
               </span>
-              <svg className="w-5 h-5 transform -rotate-90">
+              <svg className="w-5 h-5 -rotate-90" viewBox="0 0 20 20">
+                <circle cx="10" cy="10" r="8" stroke="rgba(255,255,255,0.10)" strokeWidth="2" fill="none" />
                 <circle
                   cx="10"
                   cy="10"
                   r="8"
-                  stroke="currentColor"
+                  stroke={ringColor}
                   strokeWidth="2"
-                  fill="transparent"
-                  className="text-slate-800"
-                />
-                <circle
-                  cx="10"
-                  cy="10"
-                  r="8"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  fill="transparent"
+                  fill="none"
+                  strokeLinecap="round"
                   strokeDasharray={50.27}
-                  strokeDashoffset={50.27 - (progress / 100) * 50.27}
-                  className={cn("transition-all duration-300", progressColor)}
+                  strokeDashoffset={50.27 - (Math.min(progress, 100) / 100) * 50.27}
+                  className="transition-all duration-300"
                 />
               </svg>
             </div>
           </div>
 
+          {/* Location segmented control */}
           <div className="space-y-2">
-            <div className="flex flex-wrap gap-1.5">
-              {LOCATION_MODES.map((mode) => (
-                <button
-                  key={mode.id}
-                  type="button"
-                  onClick={() => setLocationMode(mode.id)}
-                  aria-pressed={locationMode === mode.id}
-                  className={cn(
-                    "flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border transition-all",
-                    locationMode === mode.id
-                      ? "bg-blue-500/20 border-blue-500/40 text-blue-300"
-                      : "bg-white/5 border-white/10 text-slate-500 hover:text-slate-300"
-                  )}
-                >
-                  <mode.icon className="w-3 h-3" /> {mode.label}
-                </button>
-              ))}
+            <div className="grid grid-cols-3 gap-1.5 p-1 rounded-2xl bg-black/30 border border-white/[0.06]">
+              {LOCATION_MODES.map((mode) => {
+                const on = locationMode === mode.id;
+                return (
+                  <button
+                    key={mode.id}
+                    type="button"
+                    onClick={() => setLocationMode(mode.id)}
+                    aria-pressed={on}
+                    className={cn(
+                      'flex items-center justify-center gap-1.5 px-2 py-1.5 rounded-xl text-[10px] font-semibold tracking-wide transition-all',
+                      on ? 'text-white' : 'text-slate-500 hover:text-slate-300',
+                    )}
+                    style={on ? { background: `rgba(${hexToRgb(ACCENT)}, 0.22)`, boxShadow: `inset 0 0 0 1px rgba(${hexToRgb(ACCENT)},0.5)` } : undefined}
+                  >
+                    <mode.icon className="w-3 h-3" /> {mode.label}
+                  </button>
+                );
+              })}
             </div>
             {locationMode === 'province' && (
               <select
                 value={selectedProvince?.name ?? ''}
-                onChange={(e) => setSelectedProvince(provinces.find((p) => p.name === e.target.value) ?? null)}
-                className="w-full h-9 px-3 rounded-md bg-black/30 border border-slate-700 text-sm text-slate-200 focus:outline-none focus:border-blue-500"
+                onChange={(e) =>
+                  setSelectedProvince(provinces.find((p) => p.name === e.target.value) ?? null)
+                }
+                className="w-full h-10 px-3 rounded-xl bg-black/40 border border-white/10 text-sm text-slate-200 focus:outline-none focus:border-[#7D5BDE]"
                 aria-label="Provincia"
               >
                 <option value="">Elegí tu provincia…</option>
                 {provinces.map((p) => (
-                  <option key={p.id} value={p.name}>{p.name}</option>
+                  <option key={p.id} value={p.name}>
+                    {p.name}
+                  </option>
                 ))}
               </select>
             )}
             {locationMode === 'none' && (
-              <p className="text-[11px] text-slate-500">
-                Tu señal cuenta en las estadísticas pero no aparece en el mapa.
+              <p className="text-[11px] text-slate-500 leading-snug">
+                Cuenta en las estadísticas, pero no aparece como punto en el mapa.
               </p>
             )}
           </div>
 
-          <div className="flex items-center justify-end">
-            <Button 
-              type="submit" 
-              disabled={isSubmitting || !content.trim() || (locationMode === 'province' && !selectedProvince)}
-              className={cn(
-                "rounded-full px-6 font-bold transition-all duration-300",
-                !content.trim() 
-                  ? "bg-slate-800 text-slate-500" 
-                  : "bg-gradient-to-r from-blue-600 to-indigo-600 hover:shadow-lg hover:shadow-blue-500/25 text-white"
-              )}
-            >
-              {isSubmitting ? (
-                <Loader2 className="w-4 h-4 animate-spin" />
-              ) : (
-                <>
-                  DECLARAR <Send className="w-3 h-3 ml-2" />
-                </>
-              )}
-            </Button>
-          </div>
+          {/* Submit */}
+          <Button
+            type="submit"
+            disabled={!canSubmit}
+            className={cn(
+              'w-full h-12 rounded-2xl font-bold tracking-wide text-[13px] uppercase transition-all duration-300 disabled:opacity-100',
+              canSubmit
+                ? 'bg-[#7D5BDE] hover:bg-[#8D6FE4] text-white shadow-[0_0_40px_-6px_rgba(125,91,222,0.55)]'
+                : 'bg-white/[0.05] text-slate-600',
+            )}
+          >
+            {isSubmitting ? (
+              <Loader2 className="w-4 h-4 animate-spin" />
+            ) : (
+              <span className="inline-flex items-center gap-2">
+                Declarar en el mapa <Send className="w-3.5 h-3.5" />
+              </span>
+            )}
+          </Button>
         </form>
       </div>
     </div>
@@ -316,4 +301,3 @@ const SovereignInput = ({ onSubmit, isSubmitting }: SovereignInputProps) => {
 };
 
 export default SovereignInput;
-

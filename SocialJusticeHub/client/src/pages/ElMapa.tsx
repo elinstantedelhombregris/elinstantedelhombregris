@@ -65,7 +65,7 @@ const ElMapa = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-slate-200 selection:bg-blue-900/30 font-sans">
+    <div className="min-h-screen bg-[#0a0a0a] text-slate-200 selection:bg-[#7D5BDE]/30 font-sans">
       <Header />
 
       <main className="overflow-hidden">
@@ -85,7 +85,7 @@ const ElMapa = () => {
               transition={{ duration: 0.6 }}
               className="flex flex-col items-center gap-3 mb-8"
             >
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/[0.08] text-[11px] uppercase tracking-[0.3em] text-blue-300 font-mono">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/[0.08] text-[11px] uppercase tracking-[0.3em] text-[#9D85E8] font-mono">
                 <Compass className="w-4 h-4 animate-pulse" />
                 El país, en sus propias palabras
               </div>
@@ -100,7 +100,7 @@ const ElMapa = () => {
               className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold leading-tight mb-4"
             >
               El{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400">
+              <span className="text-transparent bg-clip-text bg-gradient-to-b from-white via-slate-200 to-slate-400">
                 Mapa
               </span>
             </motion.h1>
@@ -135,7 +135,7 @@ const ElMapa = () => {
               <button
                 type="button"
                 onClick={() => document.getElementById('mapa-interactivo')?.scrollIntoView({ behavior: 'smooth' })}
-                className="inline-flex items-center gap-2.5 px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-semibold text-base transition-all duration-300 hover:-translate-y-0.5 shadow-[0_0_30px_rgba(37,99,235,0.25)]"
+                className="inline-flex items-center gap-2.5 px-8 py-4 bg-[#7D5BDE] hover:bg-[#8D6FE4] text-white rounded-full font-semibold text-base transition-all duration-300 hover:-translate-y-0.5 shadow-[0_0_40px_rgba(125,91,222,0.3)] hover:shadow-[0_0_60px_rgba(125,91,222,0.45)]"
               >
                 Dejar mi señal en el mapa
                 <ArrowDown className="w-4 h-4" />
@@ -261,7 +261,7 @@ const ElMapa = () => {
         <section id="mapa-interactivo" className="py-16 relative">
           <div className="container mx-auto px-4">
             <div className="text-center mb-8">
-              <span className="text-blue-500 font-mono text-xs tracking-[0.3em] uppercase">
+              <span className="text-[#9D85E8] font-mono text-xs tracking-[0.3em] uppercase">
                 La herramienta · En vivo
               </span>
               <h2 className="text-3xl md:text-4xl font-bold text-white mt-4 mb-4">
@@ -269,12 +269,12 @@ const ElMapa = () => {
               </h2>
               <p className="text-slate-400 max-w-2xl mx-auto text-sm leading-relaxed">
                 Elegí qué querés decir: un{' '}
-                <span className="text-blue-400 font-medium">sueño</span> que tenés, un{' '}
-                <span className="text-pink-400 font-medium">valor</span> que defendés, una{' '}
-                <span className="text-amber-400 font-medium">necesidad</span> que no espera, un{' '}
-                <span className="text-red-400 font-medium">¡basta!</span> que ponés como límite, un{' '}
-                <span className="text-emerald-400 font-medium">compromiso</span> que asumís o un{' '}
-                <span className="text-teal-400 font-medium">recurso</span> que podés aportar.
+                <span className="font-medium" style={{ color: '#6E8BFF' }}>sueño</span> que tenés, un{' '}
+                <span className="font-medium" style={{ color: '#F06595' }}>valor</span> que defendés, una{' '}
+                <span className="font-medium" style={{ color: '#FFB454' }}>necesidad</span> que no espera, un{' '}
+                <span className="font-medium" style={{ color: '#FF6B5E' }}>¡basta!</span> que ponés como límite, un{' '}
+                <span className="font-medium" style={{ color: '#4ED9A4' }}>compromiso</span> que asumís o un{' '}
+                <span className="font-medium" style={{ color: '#3FC8C8' }}>recurso</span> que podés aportar.
                 Una frase alcanza.
               </p>
             </div>
@@ -306,7 +306,7 @@ const ElMapa = () => {
         <section className="py-24 bg-[#0f1116] border-y border-white/5">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <span className="text-blue-500 font-mono text-xs tracking-[0.3em] uppercase">
+              <span className="text-[#9D85E8] font-mono text-xs tracking-[0.3em] uppercase">
                 Síntesis territorial
               </span>
               <h2 className="text-4xl font-bold text-white mt-4 mb-6">

@@ -1,36 +1,63 @@
 import { useEffect, useState, useRef, useMemo } from 'react';
 import { useQueryClient } from '@tanstack/react-query';
-import { useToast } from "@/hooks/use-toast";
+import { useToast } from '@/hooks/use-toast';
 import { apiRequest } from '@/lib/queryClient';
 import { useLoader } from '@/hooks/use-loader';
 import { useMapClustering } from '@/hooks/useMapClustering';
 import { useMapSignals, MAP_SIGNALS_QUERY_KEY } from '@/hooks/useMapSignals';
 import type { MapSignal } from '@shared/map-signals';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button';
 import SovereignInput from './SovereignInput';
 import EnhancedPopup from './EnhancedPopup';
 import {
   Maximize2,
   Minimize2,
   Locate,
-  Layers,
-  Activity,
+  Plus,
+  Minus,
   Radio,
-  Eye,
-  Heart,
-  AlertCircle,
-  Zap,
-  Handshake,
-  Wrench
 } from 'lucide-react';
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils';
+import {
+  SIGNAL_TYPES,
+  SIGNAL_TYPE_MAP,
+  signalLabel,
+  signalColor,
+  hexToRgb,
+  type SignalTypeKey,
+} from '@/lib/signal-types';
 
 declare global {
   interface Window {
     L: any;
   }
 }
+
+const RECENT_MS = 60 * 60 * 1000; // 1h = "señal viva"
+
+const timeAgo = (date: string | null): string => {
+  if (!date) return '';
+  const d = new Date(date);
+  const s = Math.floor((Date.now() - d.getTime()) / 1000);
+  if (Number.isNaN(s)) return '';
+  if (s < 60) return 'recién';
+  const m = Math.floor(s / 60);
+  if (m < 60) return `hace ${m} min`;
+  const h = Math.floor(m / 60);
+  if (h < 24) return `hace ${h} h`;
+  const days = Math.floor(h / 24);
+  if (days < 7) return `hace ${days} d`;
+  return `hace ${Math.floor(days / 7)} sem`;
+};
+
+const isRecentSignal = (date: string | null): boolean => {
+  if (!date) return false;
+  const t = new Date(date).getTime();
+  return !Number.isNaN(t) && Date.now() - t < RECENT_MS;
+};
+
+type LayerKey = 'all' | SignalTypeKey;
 
 const SovereignMap = () => {
   const mapRef = useRef<HTMLDivElement>(null);
@@ -40,39 +67,34 @@ const SovereignMap = () => {
   const { toast } = useToast();
   const queryClient = useQueryClient();
 
-  const [activeLayer, setActiveLayer] = useState<'all' | 'dream' | 'value' | 'need' | 'basta' | 'compromiso' | 'recurso'>('all');
+  const [activeLayer, setActiveLayer] = useState<LayerKey>('all');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [mapReady, setMapReady] = useState(false);
   const [showMobileInput, setShowMobileInput] = useState(false);
 
-  // Load Leaflet
   const leafletLoaded = useLoader('https://unpkg.com/leaflet@1.7.1/dist/leaflet.js', 'L');
 
-  // Add Leaflet CSS
+  // Leaflet CSS (persiste entre montajes)
   useEffect(() => {
-    // Check if CSS is already loaded
-    const existingLink = document.querySelector('link[href*="leaflet.css"]');
-    if (existingLink) {
-      return;
-    }
-
+    if (document.querySelector('link[href*="leaflet.css"]')) return;
     const link = document.createElement('link');
     link.rel = 'stylesheet';
     link.href = 'https://unpkg.com/leaflet@1.7.1/dist/leaflet.css';
     document.head.appendChild(link);
-    
-    // Don't remove on cleanup - CSS should persist
-    return () => {
-      // Keep CSS loaded
-    };
   }, []);
 
-  // Fetch data — única query unificada (sueños + compromisos + recursos)
-  const { signals } = useMapSignals();
+  const { signals, isLoading } = useMapSignals();
 
-  // Filter items by active layer (solo señales con coordenadas van al mapa)
-  const filteredDreams = useMemo(
+  // Conteos por tipo (sobre todas las señales declaradas)
+  const counts = useMemo(() => {
+    const c: Record<string, number> = {};
+    for (const s of signals) c[s.type] = (c[s.type] ?? 0) + 1;
+    return c;
+  }, [signals]);
+
+  // Sólo las que tienen coordenadas van como puntos al mapa
+  const mappedSignals = useMemo(
     () =>
       signals.filter(
         (s) => s.lat != null && s.lng != null && (activeLayer === 'all' || s.type === activeLayer),
@@ -80,58 +102,50 @@ const SovereignMap = () => {
     [signals, activeLayer],
   );
 
-  // El endpoint ya viene ordenado por fecha desc
-  const pulseFeed = useMemo(() => signals.slice(0, 5), [signals]);
+  const pulseFeed = useMemo(() => signals.slice(0, 6), [signals]);
 
-  // Initialize Map
+  // Inicialización del mapa — encuadrado sobre Argentina
   useEffect(() => {
     if (!leafletLoaded || !mapRef.current || mapInstanceRef.current) return;
-
     let resizeHandler: (() => void) | null = null;
 
     const timer = setTimeout(() => {
       const L = window.L;
-      if (!L) {
-        console.warn('Leaflet not loaded yet');
-        return;
-      }
+      if (!L) return;
 
       try {
-        // Dark matter map style
         const map = L.map(mapRef.current, {
-          zoomControl: true,
-          attributionControl: true
-        }).setView([-38.416097, -63.616672], 4);
+          zoomControl: false,
+          attributionControl: true,
+          minZoom: 3,
+          maxZoom: 18,
+          zoomSnap: 0.25,
+          worldCopyJump: false,
+        });
+
+        const argBounds = L.latLngBounds([
+          [-55.2, -73.6],
+          [-21.7, -53.5],
+        ]);
+        map.fitBounds(argBounds, { padding: [24, 24] });
+        map.setMaxBounds(argBounds.pad(0.5));
+        map.options.maxBoundsViscosity = 0.75;
 
         L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+          attribution:
+            '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
           subdomains: 'abcd',
-          maxZoom: 19
+          maxZoom: 19,
+          className: 'sov-tiles',
         }).addTo(map);
 
         mapInstanceRef.current = map;
         setMapReady(true);
 
-        // Force map to recalculate size after initialization
-        // Use multiple timeouts to ensure the container has rendered
-        setTimeout(() => {
-          if (mapInstanceRef.current) {
-            mapInstanceRef.current.invalidateSize();
-          }
-        }, 200);
-        
-        setTimeout(() => {
-          if (mapInstanceRef.current) {
-            mapInstanceRef.current.invalidateSize();
-          }
-        }, 500);
-
-        // Also invalidate size when window resizes
-        resizeHandler = () => {
-          if (mapInstanceRef.current) {
-            mapInstanceRef.current.invalidateSize();
-          }
-        };
+        [200, 500].forEach((d) =>
+          setTimeout(() => mapInstanceRef.current?.invalidateSize(), d),
+        );
+        resizeHandler = () => mapInstanceRef.current?.invalidateSize();
         window.addEventListener('resize', resizeHandler);
       } catch (error) {
         console.error('Map init error:', error);
@@ -140,97 +154,80 @@ const SovereignMap = () => {
 
     return () => {
       clearTimeout(timer);
-      if (resizeHandler) {
-        window.removeEventListener('resize', resizeHandler);
-      }
+      if (resizeHandler) window.removeEventListener('resize', resizeHandler);
     };
   }, [leafletLoaded]);
 
-  // Clustering Logic — only manages the cluster group lifecycle
-  const { clusterGroup } = useMapClustering(
-    mapInstanceRef.current,
-    leafletLoaded,
-  );
+  const { clusterGroup } = useMapClustering(mapInstanceRef.current, leafletLoaded);
 
-  // Update Markers — single effect that creates markers and adds them to cluster or plain layer
+  // Crea/actualiza los marcadores "estrella"
   useEffect(() => {
     if (!leafletLoaded || !mapInstanceRef.current) return;
     const L = window.L;
     const map = mapInstanceRef.current;
     const cluster = clusterGroup.current;
 
-    // Clear previous markers from both layers
-    if (cluster) {
-      cluster.clearLayers();
-    }
-    if (plainMarkersLayerRef.current) {
-      plainMarkersLayerRef.current.clearLayers();
-    }
+    cluster?.clearLayers();
+    plainMarkersLayerRef.current?.clearLayers();
     markersRef.current = [];
 
-    if (filteredDreams.length === 0) return;
+    if (mappedSignals.length === 0) return;
 
-    // Custom Icons with "Glowing" effect
-    const createIcon = (colorClass: string, iconHtml: string) => L.divIcon({
-      className: 'custom-marker-icon',
-      html: `<div class="relative group">
-              <div class="absolute inset-0 ${colorClass} rounded-full blur-md opacity-50 group-hover:opacity-100 transition-opacity"></div>
-              <div class="relative flex items-center justify-center w-10 h-10 bg-slate-900 border border-slate-600 rounded-full shadow-xl text-white transform transition-transform group-hover:scale-110">
-                ${iconHtml}
-              </div>
-             </div>`,
-      iconSize: [40, 40],
-      iconAnchor: [20, 20],
-      popupAnchor: [0, -24]
-    });
-
-    const icons = {
-      dream: createIcon('bg-blue-500', '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>'),
-      value: createIcon('bg-pink-500', '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>'),
-      need: createIcon('bg-amber-500', '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>'),
-      basta: createIcon('bg-red-500', '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>'),
-      compromiso: createIcon('bg-emerald-500', '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></svg>'),
-      recurso: createIcon('bg-teal-500', '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>')
+    const createOrb = (key: string, recent: boolean) => {
+      const def = SIGNAL_TYPE_MAP[key as SignalTypeKey] ?? SIGNAL_TYPE_MAP.dream;
+      const rgb = hexToRgb(def.color);
+      return L.divIcon({
+        className: 'sov-marker-icon',
+        html: `<div class="sov-marker${recent ? ' sov-marker--live' : ''}" style="--c:${def.color};--rgb:${rgb}">
+                 <span class="sov-marker__halo"></span>
+                 <span class="sov-marker__ring"></span>
+                 <span class="sov-marker__core">
+                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">${def.glyph}</svg>
+                 </span>
+               </div>`,
+        iconSize: [30, 30],
+        iconAnchor: [15, 15],
+        popupAnchor: [0, -16],
+      });
     };
 
     const newMarkers: any[] = [];
-    filteredDreams.forEach((signal: MapSignal) => {
+    mappedSignals.forEach((signal: MapSignal) => {
       const lat = signal.lat!;
       const lng = signal.lng!;
+      const marker = L.marker([lat, lng], {
+        icon: createOrb(signal.type, isRecentSignal(signal.createdAt)),
+      });
 
-      const typeKey = (signal.type in icons ? signal.type : 'dream') as keyof typeof icons;
-      const icon = icons[typeKey];
-
-      const marker = L.marker([lat, lng], { icon });
-
-      // EnhancedPopup espera el shape legacy de Dream — lo armamos inline.
-      marker.bindPopup(EnhancedPopup({
-        dream: {
-          id: signal.id,
-          type: signal.type,
-          dream: signal.type === 'dream' ? signal.text : null,
-          value: signal.type === 'value' ? signal.text : null,
-          need: signal.type === 'need' ? signal.text : null,
-          basta: signal.type === 'basta' ? signal.text : null,
-          compromiso: signal.type === 'compromiso' ? signal.text : null,
-          recurso: signal.type === 'recurso' ? signal.text : null,
-          location: [signal.city, signal.province].filter(Boolean).join(', ') || signal.location,
-          latitude: String(lat),
-          longitude: String(lng),
-          createdAt: signal.createdAt,
-        } as any,
-        onViewDetails: () => {},
-        onShare: () => {}
-      }));
+      marker.bindPopup(
+        EnhancedPopup({
+          dream: {
+            id: signal.id,
+            type: signal.type,
+            dream: signal.type === 'dream' ? signal.text : null,
+            value: signal.type === 'value' ? signal.text : null,
+            need: signal.type === 'need' ? signal.text : null,
+            basta: signal.type === 'basta' ? signal.text : null,
+            compromiso: signal.type === 'compromiso' ? signal.text : null,
+            recurso: signal.type === 'recurso' ? signal.text : null,
+            location:
+              [signal.city, signal.province].filter(Boolean).join(', ') || signal.location,
+            latitude: String(lat),
+            longitude: String(lng),
+            createdAt: signal.createdAt,
+          } as any,
+          onViewDetails: () => {},
+          onShare: () => {},
+        }),
+        { className: 'sov-popup', closeButton: true, maxWidth: 300 },
+      );
 
       newMarkers.push({ marker, signal });
     });
 
     markersRef.current = newMarkers;
 
-    // Add markers to cluster group if available, otherwise use plain layer
     if (cluster) {
-      // Remove plain layer if it exists — cluster takes over
       if (plainMarkersLayerRef.current) {
         map.removeLayer(plainMarkersLayerRef.current);
         plainMarkersLayerRef.current = null;
@@ -246,16 +243,29 @@ const SovereignMap = () => {
     return () => {
       if (plainMarkersLayerRef.current) {
         plainMarkersLayerRef.current.clearLayers();
-        if (mapInstanceRef.current) mapInstanceRef.current.removeLayer(plainMarkersLayerRef.current);
+        mapInstanceRef.current?.removeLayer(plainMarkersLayerRef.current);
         plainMarkersLayerRef.current = null;
       }
     };
-  }, [leafletLoaded, filteredDreams, clusterGroup, mapReady]);
+  }, [leafletLoaded, mappedSignals, clusterGroup, mapReady]);
+
+  // Ceremonia: la nueva señal "florece" en su punto
+  const bloomAt = (lat: number, lng: number, color: string) => {
+    const L = window.L;
+    const map = mapInstanceRef.current;
+    if (!L || !map) return;
+    const icon = L.divIcon({
+      className: 'sov-bloom-icon',
+      html: `<div class="sov-bloom" style="--c:${color}"><span></span><span></span><span></span></div>`,
+      iconSize: [0, 0],
+    });
+    const m = L.marker([lat, lng], { icon, interactive: false, zIndexOffset: 1000 }).addTo(map);
+    setTimeout(() => map.removeLayer(m), 1900);
+  };
 
   const handleCreate = async (data: any) => {
     setIsSubmitting(true);
     try {
-      // Nunca inventamos coordenadas: sin ubicación real, la señal va sin coords.
       let lat: string | null = null;
       let lng: string | null = null;
       let loc: string | null = null;
@@ -272,9 +282,9 @@ const SovereignMap = () => {
         } catch (e) {
           console.warn('Geolocation failed', e);
           toast({
-            title: "No pudimos obtener tu ubicación",
-            description: "Elegí tu provincia para ubicar tu señal — o mandala sin ubicación.",
-            variant: "destructive"
+            title: 'No pudimos obtener tu ubicación',
+            description: 'Elegí tu provincia para ubicar tu señal — o mandala sin ubicación.',
+            variant: 'destructive',
           });
           throw new Error('GEOLOCATION_FAILED');
         }
@@ -288,83 +298,75 @@ const SovereignMap = () => {
       }
 
       let res: Response;
-
       if (data.type === 'compromiso') {
-        const payload = {
+        res = await apiRequest('POST', '/api/commitment', {
           commitmentText: data.content,
           commitmentType: 'public',
           latitude: lat ? parseFloat(lat) : null,
           longitude: lng ? parseFloat(lng) : null,
           province: provinceName,
-        };
-        res = await apiRequest('POST', '/api/commitment', payload);
+        });
       } else if (data.type === 'recurso') {
-        const payload = {
+        res = await apiRequest('POST', '/api/resources-map', {
           description: data.content,
           category: data.resourceCategory || 'other',
           latitude: lat ? parseFloat(lat) : null,
           longitude: lng ? parseFloat(lng) : null,
           location: loc,
           province: provinceName,
-        };
-        res = await apiRequest('POST', '/api/resources-map', payload);
+        });
       } else {
-        const payload = {
+        res = await apiRequest('POST', '/api/dreams', {
           type: data.type,
           [data.type]: data.content,
           latitude: lat,
           longitude: lng,
           location: loc,
           province: provinceName,
-        };
-        res = await apiRequest('POST', '/api/dreams', payload);
+        });
       }
 
       if (!res.ok) {
         if (res.status === 401 || res.status === 403) {
           toast({
-            title: "Sesión requerida",
-            description: "Tenés que iniciar sesión para declarar tu visión.",
-            variant: "destructive"
+            title: 'Sesión requerida',
+            description: 'Tenés que iniciar sesión para declarar este tipo de señal.',
+            variant: 'destructive',
           });
         } else {
           toast({
-            title: "Error",
-            description: "No se pudo registrar la declaración.",
-            variant: "destructive"
+            title: 'Error',
+            description: 'No se pudo registrar la declaración.',
+            variant: 'destructive',
           });
         }
         return;
       }
 
       queryClient.invalidateQueries({ queryKey: MAP_SIGNALS_QUERY_KEY });
-      if (data.type === 'compromiso') {
+      if (data.type === 'compromiso')
         queryClient.invalidateQueries({ queryKey: ['/api/commitments'] });
-      } else if (data.type === 'recurso') {
+      else if (data.type === 'recurso')
         queryClient.invalidateQueries({ queryKey: ['/api/resources-map'] });
-      } else {
-        queryClient.invalidateQueries({ queryKey: ['/api/dreams'] });
-      }
+      else queryClient.invalidateQueries({ queryKey: ['/api/dreams'] });
 
       toast({
-        title: "¡Tu señal ya está en el mapa!",
-        description: "Gracias por ponerle palabras. Ya suma a la voz colectiva de tu territorio.",
+        title: '¡Tu señal ya está en el mapa!',
+        description: 'Gracias por ponerle palabras. Ya suma a la voz colectiva de tu territorio.',
       });
-      
-      // Center map on new point (solo si la señal tiene coordenadas)
-      if (lat && lng && mapInstanceRef.current && window.L) {
-        mapInstanceRef.current.setView([parseFloat(lat), parseFloat(lng)], 10, { animate: true });
-      }
 
-    } catch (error) {
-      if (error instanceof Error && error.message === 'GEOLOCATION_FAILED') {
-        // El toast ya se mostró; el input reacciona cambiando a "elegir provincia".
-        throw error;
+      if (lat && lng && mapInstanceRef.current && window.L) {
+        const la = parseFloat(lat);
+        const ln = parseFloat(lng);
+        mapInstanceRef.current.flyTo([la, ln], 9, { duration: 1.4 });
+        setTimeout(() => bloomAt(la, ln, signalColor(data.type)), 700);
       }
+    } catch (error) {
+      if (error instanceof Error && error.message === 'GEOLOCATION_FAILED') throw error;
       toast({
-        title: "Error",
-        description: "No se pudo registrar la declaración.",
-        variant: "destructive"
+        title: 'Error',
+        description: 'No se pudo registrar la declaración.',
+        variant: 'destructive',
       });
     } finally {
       setIsSubmitting(false);
@@ -372,205 +374,256 @@ const SovereignMap = () => {
   };
 
   const toggleFullscreen = () => {
-    if (!mapRef.current) return;
+    const el = mapRef.current?.parentElement;
+    if (!el) return;
     if (!document.fullscreenElement) {
-      mapRef.current.requestFullscreen().catch(err => console.error(err));
-      setIsFullscreen(true);
+      el.requestFullscreen().then(() => setIsFullscreen(true)).catch(console.error);
     } else {
-      document.exitFullscreen();
-      setIsFullscreen(false);
+      document.exitFullscreen().then(() => setIsFullscreen(false)).catch(console.error);
     }
   };
 
   const handleMyLocation = () => {
-    if (navigator.geolocation && mapInstanceRef.current) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          mapInstanceRef.current?.setView(
-            [position.coords.latitude, position.coords.longitude],
-            12, { animate: true }
-          );
-        },
-        () => toast({ title: "Error", description: "No se pudo obtener ubicación." })
-      );
-    }
+    if (!navigator.geolocation || !mapInstanceRef.current) return;
+    navigator.geolocation.getCurrentPosition(
+      (position) =>
+        mapInstanceRef.current?.flyTo(
+          [position.coords.latitude, position.coords.longitude],
+          11,
+          { duration: 1.4 },
+        ),
+      () => toast({ title: 'No se pudo obtener tu ubicación.', variant: 'destructive' }),
+    );
   };
 
+  const legend: Array<{ id: LayerKey; label: string; color: string; count: number }> = [
+    { id: 'all', label: 'Todas', color: '#9D85E8', count: signals.length },
+    ...SIGNAL_TYPES.map((t) => ({
+      id: t.key as LayerKey,
+      label: t.label,
+      color: t.color,
+      count: counts[t.key] ?? 0,
+    })),
+  ];
+
+  const showEmpty = !isLoading && mapReady && signals.length === 0;
+
   return (
-    <div className="relative w-full h-[80vh] md:h-[90vh] bg-slate-950 rounded-3xl overflow-hidden border border-slate-800 shadow-2xl group">
-      
-      {/* Map Container */}
-      <div 
-        ref={mapRef} 
-        className="absolute inset-0 z-0 bg-slate-950"
-        style={{ minHeight: '400px' }}
-      />
-      
-      {/* Loading State */}
+    <div className="sov-shell relative w-full h-[82vh] md:h-[88vh] rounded-[28px] overflow-hidden border border-white/10 bg-[#07070b] shadow-[0_40px_120px_-40px_rgba(0,0,0,0.9)]">
+      {/* Mapa */}
+      <div ref={mapRef} className="absolute inset-0 z-0 bg-[#07070b]" style={{ minHeight: '400px' }} />
+
+      {/* Atmósfera: aura violeta + viñeta hacia el vacío */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 z-[5]">
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[55%] h-[70%] rounded-full blur-[120px] opacity-[0.18]" style={{ background: 'radial-gradient(circle, #7D5BDE 0%, transparent 70%)' }} />
+        <div className="absolute inset-0" style={{ boxShadow: 'inset 0 0 220px 60px rgba(7,7,11,0.9)' }} />
+      </div>
+
+      {/* Cargando */}
       {!leafletLoaded && (
-        <div className="absolute inset-0 z-[500] flex items-center justify-center bg-slate-950/90">
+        <div className="absolute inset-0 z-[600] flex items-center justify-center bg-[#07070b]/95">
           <div className="text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto mb-4"></div>
-            <p className="text-slate-400 text-sm">Cargando mapa...</p>
+            <div className="mx-auto mb-4 h-10 w-10 rounded-full border-2 border-white/10 border-t-[#7D5BDE] animate-spin" />
+            <p className="text-slate-500 text-sm font-mono uppercase tracking-[0.25em]">Trazando el mapa…</p>
           </div>
         </div>
       )}
 
-      {/* Overlay: Header / Stats (desktop) */}
-      <div className="absolute top-6 left-6 z-[400] hidden md:flex flex-col gap-4 pointer-events-none">
-        <div className="pointer-events-auto bg-slate-900/80 backdrop-blur-md border border-slate-700 rounded-2xl p-4 shadow-xl">
-          <div className="flex items-center gap-2 mb-2">
-            <Activity className="w-4 h-4 text-green-400 animate-pulse" />
-            <span className="text-xs font-mono uppercase tracking-widest text-slate-300">Señales en Vivo</span>
+      {/* Empty state */}
+      <AnimatePresence>
+        {showEmpty && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="absolute inset-0 z-[120] flex items-center justify-center pointer-events-none px-6"
+          >
+            <div className="text-center max-w-sm">
+              <div className="mx-auto mb-5 w-12 h-12 rounded-full bg-[#7D5BDE]/15 border border-[#7D5BDE]/40 flex items-center justify-center">
+                <Radio className="w-5 h-5 text-[#9D85E8] animate-pulse" />
+              </div>
+              <h3 className="font-serif text-2xl text-white mb-2">El mapa espera tu voz</h3>
+              <p className="text-sm text-slate-400 leading-relaxed">
+                Todavía no hay señales acá. Sé la primera persona en dejar lo que soñás, lo que falta o lo que ya no bancás.
+              </p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* ── HUD superior izquierdo: pulso + leyenda (desktop) ── */}
+      <div className="absolute top-5 left-5 z-[400] hidden md:block w-[230px]">
+        <div className="rounded-[22px] border border-white/10 bg-[#0c0d12]/85 backdrop-blur-2xl p-5 shadow-[0_24px_70px_-24px_rgba(0,0,0,0.85)]">
+          <div className="flex items-center gap-2 mb-1">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60 animate-ping" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+            </span>
+            <span className="text-[10px] font-mono uppercase tracking-[0.3em] text-slate-400">Señales en vivo</span>
           </div>
-          <div className="text-3xl font-bold text-white font-mono">{signals.length}</div>
-          <div className="text-xs text-slate-500">Nodos activos</div>
-        </div>
+          <div className="flex items-baseline gap-2">
+            <span className="font-serif text-[44px] leading-none text-white tabular-nums">
+              {signals.length.toLocaleString('es-AR')}
+            </span>
+            <span className="text-[11px] text-slate-500">voces</span>
+          </div>
 
-        {/* Layer Controls (desktop: vertical) */}
-        <div className="pointer-events-auto bg-slate-900/80 backdrop-blur-md border border-slate-700 rounded-2xl p-2 shadow-xl flex flex-col gap-1">
-          {[
-            { id: 'all', label: 'Todos', icon: Layers, color: 'text-slate-300' },
-            { id: 'dream', label: 'Sueños', icon: Eye, color: 'text-blue-400' },
-            { id: 'value', label: 'Valores', icon: Heart, color: 'text-pink-400' },
-            { id: 'need', label: 'Necesidades', icon: AlertCircle, color: 'text-amber-400' },
-            { id: 'basta', label: '¡Basta!', icon: Zap, color: 'text-red-400' },
-            { id: 'compromiso', label: 'Compromisos', icon: Handshake, color: 'text-emerald-400' },
-            { id: 'recurso', label: 'Recursos', icon: Wrench, color: 'text-teal-400' }
-          ].map((layer) => (
-            <button
-              key={layer.id}
-              onClick={() => setActiveLayer(layer.id as any)}
-              className={cn(
-                "p-2 rounded-lg transition-colors flex items-center gap-2 relative group/btn",
-                activeLayer === layer.id ? "bg-white/10" : "hover:bg-white/5"
-              )}
-              title={layer.label}
-              aria-label={`Filtrar por ${layer.label}`}
-            >
-              <layer.icon className={cn("w-4 h-4", layer.color)} />
-              <span className={cn(
-                "text-[10px] font-bold uppercase tracking-wider",
-                activeLayer === layer.id ? layer.color : "text-slate-500"
-              )}>
-                {layer.label}
-              </span>
-            </button>
-          ))}
+          <div className="mt-4 pt-4 border-t border-white/[0.07] flex flex-col gap-0.5">
+            {legend.map((l) => {
+              const on = activeLayer === l.id;
+              return (
+                <button
+                  key={l.id}
+                  onClick={() => setActiveLayer(l.id)}
+                  className={cn(
+                    'group flex items-center gap-2.5 rounded-xl px-2.5 py-1.5 transition-colors',
+                    on ? 'bg-white/[0.07]' : 'hover:bg-white/[0.04]',
+                  )}
+                  aria-pressed={on}
+                >
+                  <span
+                    className="h-2.5 w-2.5 rounded-full shrink-0 transition-transform group-hover:scale-110"
+                    style={{ background: l.color, boxShadow: on ? `0 0 10px ${l.color}` : 'none' }}
+                  />
+                  <span className={cn('text-[12px] flex-1 text-left transition-colors', on ? 'text-white font-medium' : 'text-slate-400')}>
+                    {l.label}
+                  </span>
+                  <span className={cn('text-[11px] font-mono tabular-nums', on ? 'text-slate-300' : 'text-slate-600')}>
+                    {l.count.toLocaleString('es-AR')}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
         </div>
       </div>
 
-      {/* Mobile: horizontal layer strip + activity indicator */}
-      <div className="absolute top-3 left-3 right-14 z-[400] md:hidden flex flex-col gap-2 pointer-events-none">
-        {/* Activity badge */}
-        <div className="pointer-events-auto inline-flex items-center gap-2 bg-slate-900/80 backdrop-blur-md rounded-full px-3 py-1.5 border border-slate-700 self-start">
-          <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-          <span className="text-xs font-mono text-slate-300">{signals.length} señales activas</span>
+      {/* ── Mobile: pulso + filtro horizontal ── */}
+      <div className="absolute top-3 left-3 right-14 z-[400] md:hidden flex flex-col gap-2">
+        <div className="inline-flex items-center gap-2 self-start rounded-full bg-[#0c0d12]/85 backdrop-blur-xl px-3 py-1.5 border border-white/10">
+          <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+          <span className="text-xs font-mono text-slate-300 tabular-nums">{signals.length} señales</span>
         </div>
-        {/* Horizontal scrollable layer controls */}
-        <div className="pointer-events-auto overflow-x-auto flex gap-1.5 pb-1 -mx-1 px-1 scrollbar-hide">
-          {[
-            { id: 'all', label: 'Todos', icon: Layers, color: 'text-slate-300' },
-            { id: 'dream', label: 'Sueños', icon: Eye, color: 'text-blue-400' },
-            { id: 'value', label: 'Valores', icon: Heart, color: 'text-pink-400' },
-            { id: 'need', label: 'Necesidades', icon: AlertCircle, color: 'text-amber-400' },
-            { id: 'basta', label: '¡Basta!', icon: Zap, color: 'text-red-400' },
-            { id: 'compromiso', label: 'Compromisos', icon: Handshake, color: 'text-emerald-400' },
-            { id: 'recurso', label: 'Recursos', icon: Wrench, color: 'text-teal-400' }
-          ].map((layer) => (
-            <button
-              key={layer.id}
-              onClick={() => setActiveLayer(layer.id as any)}
-              className={cn(
-                "flex items-center gap-1.5 px-3 py-1.5 rounded-full whitespace-nowrap text-[10px] font-bold uppercase tracking-wider transition-colors border",
-                activeLayer === layer.id
-                  ? "bg-white/10 border-white/20 " + layer.color
-                  : "bg-slate-900/80 border-slate-700 text-slate-500"
-              )}
-            >
-              <layer.icon className="w-3.5 h-3.5" />
-              {layer.label}
-            </button>
-          ))}
+        <div className="overflow-x-auto flex gap-1.5 pb-1 -mx-1 px-1 scrollbar-hide">
+          {legend.map((l) => {
+            const on = activeLayer === l.id;
+            return (
+              <button
+                key={l.id}
+                onClick={() => setActiveLayer(l.id)}
+                className={cn(
+                  'flex items-center gap-1.5 px-3 py-1.5 rounded-full whitespace-nowrap text-[11px] font-semibold transition-colors border',
+                  on ? 'bg-white/10 border-white/20 text-white' : 'bg-[#0c0d12]/85 border-white/10 text-slate-400',
+                )}
+              >
+                <span className="h-2 w-2 rounded-full" style={{ background: l.color }} />
+                {l.label}
+              </button>
+            );
+          })}
         </div>
       </div>
 
-      {/* Overlay: Controls */}
-      <div className="absolute top-6 right-6 z-[400] flex flex-col gap-2">
-        <Button variant="secondary" size="icon" onClick={handleMyLocation} className="bg-slate-900/80 border border-slate-700 text-slate-300 hover:bg-slate-800">
+      {/* ── Controles (derecha) ── */}
+      <div className="absolute top-5 right-5 z-[400] flex flex-col gap-2">
+        <div className="flex flex-col rounded-2xl overflow-hidden border border-white/10 bg-[#0c0d12]/85 backdrop-blur-xl">
+          <button onClick={() => mapInstanceRef.current?.zoomIn()} className="p-2.5 text-slate-300 hover:bg-white/10 hover:text-white transition-colors" aria-label="Acercar">
+            <Plus className="w-4 h-4" />
+          </button>
+          <div className="h-px bg-white/10" />
+          <button onClick={() => mapInstanceRef.current?.zoomOut()} className="p-2.5 text-slate-300 hover:bg-white/10 hover:text-white transition-colors" aria-label="Alejar">
+            <Minus className="w-4 h-4" />
+          </button>
+        </div>
+        <button onClick={handleMyLocation} className="p-2.5 rounded-2xl border border-white/10 bg-[#0c0d12]/85 backdrop-blur-xl text-slate-300 hover:text-[#9D85E8] hover:border-[#7D5BDE]/40 transition-colors" aria-label="Mi ubicación">
           <Locate className="w-4 h-4" />
-        </Button>
-        <Button variant="secondary" size="icon" onClick={toggleFullscreen} className="bg-slate-900/80 border border-slate-700 text-slate-300 hover:bg-slate-800">
+        </button>
+        <button onClick={toggleFullscreen} className="p-2.5 rounded-2xl border border-white/10 bg-[#0c0d12]/85 backdrop-blur-xl text-slate-300 hover:text-white transition-colors" aria-label="Pantalla completa">
           {isFullscreen ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
-        </Button>
+        </button>
       </div>
 
-      {/* Overlay: Input Panel */}
-      <div className="absolute bottom-6 left-6 z-[400] max-w-md w-full hidden md:block">
+      {/* ── Composer (desktop, abajo izquierda) ── */}
+      <div className="absolute bottom-5 left-5 z-[400] max-w-md w-full hidden md:block">
         <SovereignInput onSubmit={handleCreate} isSubmitting={isSubmitting} />
       </div>
-      
-      {/* Mobile Input */}
+
+      {/* ── Composer (mobile, bottom-sheet) ── */}
       <div className="md:hidden">
         <AnimatePresence>
           {showMobileInput && (
-            <motion.div
-              initial={{ opacity: 0, y: 100 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 100 }}
-              className="absolute bottom-0 left-0 right-0 z-[400] p-4"
-            >
-              <SovereignInput onSubmit={async (data) => { await handleCreate(data); setShowMobileInput(false); }} isSubmitting={isSubmitting} />
-            </motion.div>
+            <>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setShowMobileInput(false)}
+                className="absolute inset-0 z-[390] bg-black/50"
+              />
+              <motion.div
+                initial={{ opacity: 0, y: 120 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 120 }}
+                transition={{ type: 'spring', damping: 28, stiffness: 280 }}
+                className="absolute bottom-0 left-0 right-0 z-[400] p-3"
+              >
+                <SovereignInput
+                  onSubmit={async (data) => {
+                    await handleCreate(data);
+                    setShowMobileInput(false);
+                  }}
+                  isSubmitting={isSubmitting}
+                />
+              </motion.div>
+            </>
           )}
         </AnimatePresence>
         {!showMobileInput && (
           <button
             onClick={() => setShowMobileInput(true)}
-            className="absolute bottom-6 right-6 z-[400] w-14 h-14 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-xl shadow-blue-500/25 flex items-center justify-center"
+            className="absolute bottom-6 right-6 z-[400] h-14 w-14 rounded-full bg-[#7D5BDE] text-white shadow-[0_0_40px_-4px_rgba(125,91,222,0.7)] flex items-center justify-center active:scale-95 transition-transform"
             aria-label="Declarar"
           >
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            <Plus className="w-6 h-6" />
           </button>
         )}
       </div>
 
-      {/* Overlay: Pulse Feed */}
-      <div className="absolute bottom-6 right-6 z-[400] w-64 hidden lg:block">
-        <div className="bg-slate-900/80 backdrop-blur-md border border-slate-700 rounded-2xl p-4 shadow-xl overflow-hidden">
-          <h4 className="text-xs font-mono uppercase tracking-widest text-slate-400 mb-3 flex items-center gap-2">
+      {/* ── Feed en vivo (abajo derecha, lg+) ── */}
+      <div className="absolute bottom-5 right-5 z-[400] w-72 hidden lg:block">
+        <div className="rounded-[22px] border border-white/10 bg-[#0c0d12]/85 backdrop-blur-2xl p-4 shadow-[0_24px_70px_-24px_rgba(0,0,0,0.85)]">
+          <h4 className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.3em] text-slate-400 mb-3">
             <Radio className="w-3 h-3" /> Últimas señales
           </h4>
-          <div className="space-y-3 max-h-48 overflow-y-auto custom-scrollbar">
-            <AnimatePresence>
-              {pulseFeed.map((item: any) => (
-                <motion.div
-                  key={item.id}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  className="text-xs border-l-2 border-slate-700 pl-3 py-1"
-                >
-                  <span className={cn(
-                    "font-bold uppercase block mb-1",
-                    item.type === 'dream' ? "text-blue-400" :
-                    item.type === 'basta' ? "text-red-400" :
-                    item.type === 'value' ? "text-pink-400" :
-                    item.type === 'compromiso' ? "text-emerald-400" :
-                    item.type === 'recurso' ? "text-teal-400" : "text-amber-400"
-                  )}>
-                    {item.type === 'dream' ? 'Sueño' :
-                     item.type === 'value' ? 'Valor' :
-                     item.type === 'need' ? 'Necesidad' :
-                     item.type === 'basta' ? '¡Basta!' :
-                     item.type === 'compromiso' ? 'Compromiso' :
-                     item.type === 'recurso' ? 'Recurso' : item.type}
-                  </span>
-                  <p className="text-slate-300 line-clamp-2 font-mono opacity-80">
-                    {item.text}
-                  </p>
-                </motion.div>
-              ))}
+          <div className="space-y-2.5 max-h-52 overflow-y-auto custom-scrollbar pr-1">
+            <AnimatePresence initial={false}>
+              {pulseFeed.map((item) => {
+                const color = signalColor(item.type);
+                return (
+                  <motion.div
+                    key={item.id}
+                    layout
+                    initial={{ opacity: 0, y: -10, scale: 0.97 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.35 }}
+                    className="rounded-xl border border-white/[0.06] bg-white/[0.02] px-3 py-2"
+                    style={{ borderLeft: `2px solid ${color}` }}
+                  >
+                    <div className="flex items-center justify-between mb-0.5">
+                      <span className="text-[10px] font-bold uppercase tracking-wide" style={{ color }}>
+                        {signalLabel(item.type)}
+                      </span>
+                      <span className="text-[9px] font-mono text-slate-600">{timeAgo(item.createdAt)}</span>
+                    </div>
+                    <p className="text-[12px] text-slate-300 leading-snug line-clamp-2">{item.text}</p>
+                  </motion.div>
+                );
+              })}
             </AnimatePresence>
+            {pulseFeed.length === 0 && (
+              <p className="text-[12px] text-slate-600 py-4 text-center">Las señales aparecerán acá en tiempo real.</p>
+            )}
           </div>
         </div>
       </div>

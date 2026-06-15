@@ -73,12 +73,12 @@ export const useMapClustering = (
           size = 'medium';
         }
 
-        const className = `marker-cluster-${size}`;
-
+        // Clase scopeada al Mapa Soberano (este hook sólo lo usa SovereignMap),
+        // para no pisar el estilo `.marker-cluster` que comparten otros mapas.
         return L.divIcon({
-          html: `<div><span>${count}</span></div>`,
-          className: `marker-cluster ${className}`,
-          iconSize: L.point(40, 40)
+          html: `<div class="sov-cluster__inner"><span>${count}</span></div>`,
+          className: `sov-cluster sov-cluster--${size}`,
+          iconSize: L.point(46, 46),
         });
       }
     });
