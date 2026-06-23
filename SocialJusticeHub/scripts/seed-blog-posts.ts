@@ -16,6 +16,17 @@ function createSlug(title: string): string {
 // Posts de blog con contenido completo
 const baseBlogPostsData = [
   {
+    title: "¿Cuáles deberían ser nuestros parámetros?",
+    slug: createSlug("¿Cuáles deberían ser nuestros parámetros?"),
+    category: "Filosofía",
+    type: "blog" as const,
+    featured: true,
+    imageUrl: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800&h=400&fit=crop",
+    authorId: 1,
+    publishedAt: new Date("2026-06-23").toISOString(),
+    tags: ["parámetros", "gobernarse", "autoconocimiento", "soberanía interior", "sistemas", "atención"],
+  },
+  {
     title: "¿Contra quién estás peleando, en serio?",
     slug: createSlug("¿Contra quién estás peleando, en serio?"),
     category: "Filosofía",

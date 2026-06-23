@@ -12,6 +12,272 @@ export interface BlogContentEntry {
 }
 
 export const blogContentUpdates: Record<string, BlogContentEntry> = {
+  [slugify("¿Cuáles deberían ser nuestros parámetros?")]: {
+    excerpt:
+      "Todos nos gobernamos por parámetros: varas invisibles con las que medimos el día, el trabajo, la vida entera. Pero casi nadie eligió los suyos —los heredamos de la casa, la escuela, el mercado, la pantalla— y un día empezaron a correr solos. Este es el trabajo sano de gobernarse: traer esos diales a la vista, preguntar si son nuestros y si son sanos, y recién entonces ponerlos a mano. Porque un país, al final, mide exactamente lo que sus ciudadanos se animan a medir en su propia casa.",
+    content: `
+      <article>
+        <h1>¿Cuáles deberían ser nuestros parámetros?</h1>
+        <p>
+          Hay una pregunta que casi nunca nos hacemos y que, sin embargo, gobierna el día entero:
+          ¿con qué vara me estoy midiendo? Porque vivís midiéndote. Todo el tiempo. Te levantás y,
+          antes del primer café, ya hay un tablero encendido adentro tuyo que te dice si vas bien o
+          si vas mal. Que rendiste poco. Que llegás tarde. Que el otro tiene más. Que a esta altura
+          ya tendrías que haber logrado tal cosa. Que no estás donde deberías estar. Ese tablero corre
+          solo, en segundo plano, sin que vos lo programes, y te corrige el rumbo cien veces por día.
+        </p>
+
+        <h2>I. El tablero que nadie eligió</h2>
+        <p>
+          Un termostato funciona así: tiene un número fijo —veintidós grados— y todo lo que hace,
+          prender o apagar, es corregir la distancia entre lo que hay y ese número. El número se llama
+          parámetro. No es la temperatura: es la vara contra la cual la temperatura se juzga. Cambiá
+          el número y el mismo cuarto, a la misma temperatura, pasa de «hace frío, prendé» a «está bien,
+          apagá». El parámetro no mide la realidad. Decide qué va a contar como bueno o como malo.
+        </p>
+        <p>
+          Vos tenés parámetros así para todo. Para cuánto deberías ganar. Para cómo debería ser tu
+          cuerpo. Para qué es una semana bien usada. Para cuándo sos un buen padre, una buena hija,
+          alguien que vale. Y la pregunta incómoda, la que abre este ensayo, es simple: esos números,
+          ¿los pusiste vos?
+        </p>
+        <p>
+          Casi seguro que no. Casi seguro que están ahí desde antes de que tuvieras edad de elegir.
+          Los heredaste, los absorbiste, los copiaste, y un día empezaron a correr solos. Hoy te
+          gobiernan. Te dicen, mañana tras mañana, si tu vida va bien o va mal —y vos les creés, como
+          si fueran la realidad y no una vara que alguien, en algún momento, dejó puesta.
+        </p>
+        <blockquote>
+          Un parámetro no mide tu vida. Decide qué de tu vida va a contar. Por eso elegir mal el
+          parámetro es perder antes de empezar: podés cumplir el número entero y haberte equivocado de número.
+        </blockquote>
+
+        <h2>II. Gobernarse no es exigirse</h2>
+        <p>
+          Cuando alguien escucha «gobernarse a uno mismo», piensa casi siempre en lo mismo: disciplina,
+          fuerza de voluntad, exigencia. Gobernarse sería apretarse. Levantarse más temprano, cumplir
+          la dieta, no aflojar, tirarte las pilas, no ser un vago. Hay toda una cultura del autodominio
+          que confunde gobierno con látigo: el que más se exige sería el que mejor se gobierna.
+        </p>
+        <p>
+          Y está el reverso, igual de argentino: el que dice que gobernarse es una cárcel, que la vida
+          es una sola, que hay que soltar, fluir, dejarse estar. El que confunde libertad con ausencia
+          de gobierno.
+        </p>
+        <p>
+          Mirá las dos posturas con atención, porque tienen algo en común que no salta a la vista. Las
+          dos discuten cuánta fuerza aplicar —el primero más, el segundo menos— sin preguntarse nunca
+          sobre qué. Las dos dan por sentado el parámetro. El que se exige se mata corriendo hacia un
+          número que no eligió. El que se suelta se rebela contra ese mismo número, pero el número sigue
+          ahí, intacto, dándole mala conciencia mientras descansa. Ninguno de los dos tocó el dial. Solo
+          discuten si obedecerlo a los gritos o desobedecerlo con culpa.
+        </p>
+        <p>
+          ¿Y si exigirte más sobre una vara que no es tuya no fuera gobernarte, sino lo contrario? ¿Y
+          si fuera la forma más fina de dejarte gobernar —tan fina que la confundís con libertad porque
+          el carcelero ya está adentro?
+        </p>
+        <p>
+          Adentro de cada uno hay un tirano y un anárquico. El tirano grita el parámetro heredado: más,
+          mejor, ya, no aflojes. El anárquico patalea contra el tirano. Y mientras los dos se pelean,
+          nadie hace la pregunta del adulto: che, ¿quién puso este número, y por qué le seguimos
+          obedeciendo? Gobernarse de verdad no es ganar la pelea entre el tirano y el anárquico. Es
+          apagar la radio un momento y revisar el tablero.
+        </p>
+        <blockquote>
+          Exigirte sobre una vara que no elegiste no es gobernarte: es obedecer mejor. El que se mata
+          cumpliendo un parámetro ajeno cree que manda, y es el más mandado de todos.
+        </blockquote>
+
+        <h2>III. De dónde vienen los parámetros</h2>
+        <p>
+          Entonces, ¿de dónde salieron? Porque alguien los puso. Los parámetros no caen del cielo ni
+          nacen con vos. Se instalan.
+        </p>
+        <p>
+          El primero te lo dio la casa. Antes de hablar ya sabías qué hacía que mamá se pusiera contenta
+          y qué hacía que papá frunciera la cara. Aprendiste, sin palabras, qué cuenta como bueno en tu
+          familia: las notas, la obediencia, no molestar, ser el fuerte, ser el gracioso, no hacer quedar
+          mal. Ese fue tu primer tablero, y mucha gente lo sigue usando a los cincuenta años sin haberlo
+          mirado nunca.
+        </p>
+        <p>
+          Después vino la escuela, que perfeccionó el método: te enseñó que tu valor es un número que
+          otro te pone —una nota, un puesto en la fila, un promedio—. Te enseñó a esperar que la vara
+          venga de afuera y de arriba. Te enseñó a preguntar «¿está bien así, profe?» en lugar de «¿esto
+          está bien?».
+        </p>
+        <p>
+          Y después, de grande, te llovieron varas por todos lados. El mercado, que mide tu vida en lo
+          que producís y en lo que comprás. La pantalla, que cada mañana te muestra la vida editada de
+          otros mil para que te midas contra el montaje. La tribu política, que te da una vara comodísima
+          —el que piensa como yo es bueno, el otro es el mal— y te ahorra el trabajo de pensar. Cada una
+          de esas voces te instala un parámetro y, lo más importante, esconde que lo hizo. Te lo entrega
+          como si fuera la realidad. Como si «tenés que ganar más», «tenés que verte así», «tenés que
+          odiar a aquellos» fueran hechos del mundo y no diales que alguien dejó puestos porque le servía
+          que vos los obedecieras.
+        </p>
+        <p>
+          Hagamos algo concreto, ahora, antes de seguir. Nombrá tres cosas con las que te mediste hoy.
+          Tres varas reales: cuánto rendiste, cómo te viste en el espejo, qué tan adelante o atrás estás
+          respecto de alguien. Tenelas presentes. Y ahora preguntale a cada una una sola cosa: este número,
+          ¿lo elegí yo, con los ojos abiertos, sabiendo por qué? ¿O lo encontré ya puesto y nunca lo apagué?
+        </p>
+        <p>
+          Si sos honesto, casi ninguna la vas a haber elegido. Y eso —no la falta de plata, no la falta
+          de tiempo, no la mala suerte— es el corazón del asunto. Vivimos cumpliendo, o desobedeciendo
+          con culpa, varas que jamás revisamos. A eso le decimos «ser responsable». Habría que llamarlo
+          por su nombre: gobierno tercerizado.
+        </p>
+        <blockquote>
+          La pregunta no es si cumplís tus parámetros. Es si son tuyos. Un esclavo aplicado y una persona
+          libre pueden hacer exactamente lo mismo durante el día. La diferencia entera está en quién puso el número.
+        </blockquote>
+
+        <h2>IV. ¿Qué hace sano a un parámetro?</h2>
+        <p>
+          Acá conviene frenar una trampa, porque es la trampa en la que cae todo el que llega hasta este
+          punto. Uno tiende a pensar que hay parámetros buenos y malos por su contenido: que medirse por
+          la plata está mal y medirse por la espiritualidad está bien, que perseguir el éxito es enfermo
+          y perseguir el servicio es sano. No es ahí donde está la cosa. Podés perseguir lo «espiritual»
+          de un modo perfectamente enfermo, midiéndote contra un ideal que te destroza. Lo que hace sano
+          o enfermo a un parámetro no es qué mide. Es cómo está hecho.
+        </p>
+        <p>
+          Un parámetro sano, primero, <strong>es tuyo</strong>. Lo miraste, lo pensaste, lo elegiste
+          sabiendo de dónde viene. No es el que te dejaron puesto: es el que, después de mirarlo, decidís
+          quedarte. Aunque coincida con el heredado, ahora es otra cosa, porque ahora es tuyo.
+        </p>
+        <p>
+          Segundo, <strong>es vivible</strong>. Es un número que un ser humano real puede alcanzar sin
+          destruirse. Hay parámetros imposibles por diseño —«más», «siempre más», «nunca suficiente»—
+          que no se pueden cumplir jamás, porque no tienen tope. Medirse contra el infinito es garantizar
+          el fracaso permanente. Un parámetro sano tiene un punto donde podés decir: está bien, llegué,
+          alcanza. La palabra «suficiente» no es una derrota. Es la prueba de que el dial está sano.
+        </p>
+        <p>
+          Tercero, <strong>apunta a la vida, no a la imagen de la vida</strong>. Hay una diferencia
+          enorme entre el parámetro «quiero estar sano» y el parámetro «quiero parecer sano». Entre
+          «quiero a esta persona» y «quiero que se vea que tengo a esta persona». El parámetro enfermo
+          mide siempre el reflejo: cómo queda, qué dirán, cómo se ve desde afuera. El sano mide la cosa
+          misma, esté mirando alguien o no.
+        </p>
+        <p>
+          Cuarto —y este es el más político de todos— <strong>deja lugar al otro</strong>. Hay parámetros
+          que solo podés cumplir si alguien pierde. Tener razón implica que el otro esté equivocado. Ganar
+          la discusión implica humillarlo. Estar arriba implica que haya alguien abajo. Esas son varas de
+          suma cero, y son enfermas no por moralina, sino por estructura: te encadenan a la derrota ajena,
+          te obligan a desear el mal del otro para sentir tu propio bien. Un parámetro sano se puede
+          cumplir en un mundo donde a todos les vaya bien.
+        </p>
+        <p>
+          Y quinto, <strong>es revisable</strong>. No es una ley grabada en piedra. Es una hipótesis.
+          Cuando la vida te muestra que el número estaba mal —que eso que perseguías no te hacía bien,
+          que esa vara te estaba secando— podés cambiarlo sin sentir que traicionás nada. El que no puede
+          revisar sus parámetros no se gobierna: lo gobierna su yo de hace veinte años, un pibe que decidió,
+          con la información de un pibe, qué iba a contar como una buena vida.
+        </p>
+        <p>
+          ¿Cuántos de tus parámetros pasan estas cinco pruebas? ¿Cuántos son tuyos, vivibles, apuntan a la
+          vida, dejan lugar al otro y todavía podés cambiarlos? Si la lista te quedó corta, no es un fracaso
+          tuyo. Es el trabajo que tenés por delante. Es, exactamente, el trabajo sano de gobernarse.
+        </p>
+
+        <h2>V. El país mide lo que sus ciudadanos miden</h2>
+        <p>
+          Hasta acá esto parece un asunto privado, casi de autoayuda. No lo es. Es la cosa más política
+          que hay, y conviene ver por qué.
+        </p>
+        <p>
+          Un país no tiene parámetros propios, caídos de algún cielo institucional. Un país mide lo que
+          sus ciudadanos, sumados, se miden a sí mismos. El tablero nacional es el promedio de millones de
+          tableros privados. Por eso, cuando nos quejamos de que la Argentina mide mal —y mide mal— estamos
+          diciendo algo sobre nosotros que preferiríamos no escuchar.
+        </p>
+        <p>
+          Mirá qué mide el país, todos los días, en la tapa de los diarios y en la conversación de la mesa:
+          el dólar, la inflación, el riesgo país, el resultado de la última elección, el rating, quién ganó
+          la pelea de esta semana. Y mirá lo que no mide, lo que no aparece en ningún tablero: cuánto tiempo
+          libre tiene una familia, cuánta confianza hay entre vecinos, cuánto se cuida a los que no producen,
+          cuánta belleza queda en pie, en qué estado están el suelo y el agua que les vamos a dejar a los que
+          vienen. Medimos obsesivamente el reflejo —los números que se ven, que se postean, que se gritan—
+          y no medimos casi nada de lo que de verdad hace que una vida valga la pena vivirse.
+        </p>
+        <p>
+          ¿Y por qué? La respuesta es dura: porque un país no puede medir lo que sus ciudadanos no se miden.
+          Una población que se gobierna a sí misma con «más, ya, ganarle al otro» no puede construir otra
+          cosa que un Estado que mida exactamente eso. No hay reforma institucional que arregle un tablero
+          nacional cuando los millones de tableros privados están calibrados para lo contrario. Le ponés
+          métricas nuevas a un país de gente que sigue midiéndose por la plata, la imagen y la grieta, y en
+          seis meses las métricas nuevas se tuercen para servir a los parámetros viejos.
+        </p>
+        <p>
+          Acá está el corazón de todo lo que proponemos. Una república que se diseña en serio no empieza por
+          las instituciones: empieza por la pregunta de este ensayo, hecha en voz alta y en común. ¿Cuáles
+          deberían ser nuestros parámetros? ¿Qué queremos, de verdad, que cuente como un país que va bien?
+          Los ciudadanos diseñan esos parámetros —es la parte que no se puede tercerizar, ni a un presidente,
+          ni a un mercado, ni a un algoritmo—; el Estado, después, los administra. Pero el dial lo ponemos
+          nosotros. Y solo puede ponerlo bien, a nivel de país, una población que aprendió a ponerlo bien a
+          nivel de su propia vida.
+        </p>
+        <blockquote>
+          Le pedimos al país que mida lo que ninguno de nosotros se anima a medir en su propia casa. Un país
+          no se cura los parámetros en el Congreso: se los cura, de a uno, en millones de tableros privados
+          que un día deciden apuntar a otra cosa.
+        </blockquote>
+
+        <h2>VI. El trabajo sano de gobernarse</h2>
+        <p>
+          Gobernarse, entonces, no es lo que nos enseñaron. No es apretarse más fuerte sobre la vara de
+          siempre. No es la disciplina del que obedece mejor, ni la rebeldía del que desobedece con culpa.
+          No es tampoco una constitución que firmás una vez y archivás.
+        </p>
+        <p>
+          Es algo más modesto y más difícil. Es el trabajo, casi diario, de traer los diales a la vista.
+          De agarrar las varas con las que te estás midiendo —que vienen corriendo en segundo plano,
+          invisibles— y ponerlas adelante, a la luz, donde podés mirarlas. Preguntarte de cada una: ¿es mía?
+          ¿es vivible? ¿apunta a mi vida o a su imagen? ¿deja lugar al otro? ¿la puedo cambiar? Y donde la
+          respuesta sea no, ponerla a mano. Cambiar el número. Despacio, sin violencia, sin látigo, sin culpa.
+        </p>
+        <p>
+          Se llama sano por eso: porque se hace sin maltratarte, sin autoridad prestada, sin necesitar que
+          otro pierda para que vos cuentes como que ganaste. Es el gobierno de alguien que dejó de obedecer
+          un tablero que no eligió y empezó, de a poco, a calibrar el suyo.
+        </p>
+        <p>
+          ¿Es mucho trabajo? Es el único que no podés delegar. Podés delegar casi todo en la vida —el laburo,
+          las cuentas, hasta el voto, si te dejás—. Esto no. Nadie puede mirar tus diales por vos. Nadie puede
+          decidir, en tu lugar, qué va a contar como una buena vida tuya. Y un país lleno de gente que nunca
+          hizo ese trabajo es, precisamente, el país que tenemos.
+        </p>
+        <p>
+          ¿Cuáles deberían ser tus parámetros?
+        </p>
+        <p>
+          Es tu pregunta. No la contesta un líder, ni un mercado, ni la pantalla.
+        </p>
+        <p>
+          Frená un momento el tablero que corre solo.
+        </p>
+        <p>
+          Miralo.
+        </p>
+        <p>
+          Preguntate cuál de esos números pusiste vos.
+        </p>
+        <p>
+          Y empezá, hoy, por cambiar uno.
+        </p>
+        <p>
+          <strong><a href="https://elinstantedelhombregris.com/life-areas">Mapeá tus propios parámetros en Áreas de Vida — doce áreas para ver, una por una, con qué te estás midiendo →</a></strong>
+        </p>
+        <blockquote>
+          El país no se gobierna primero en la Casa Rosada. Se gobierna primero acá, en el tablero invisible
+          que llevás adentro. Calibralo vos, antes de que lo siga calibrando cualquiera.
+        </blockquote>
+      </article>
+    `,
+  },
   [slugify("¿Contra quién estás peleando, en serio?")]: {
     excerpt:
       "Kuka, libertardo, cucaracha de izquierda, cerdo de derecha. Nos pasamos el día tirándonos etiquetas como piedras. Pero pará un segundo: ¿y si la pelea misma fuera la trampa? El principio más viejo del universo explica por qué la grieta no se gana —se trasciende. Y mientras vos oscilás, alguien se está llevando el timón de verdad.",
