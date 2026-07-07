@@ -19,6 +19,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import { View } from 'react-native';
 
+import { useOfflineSync } from '@/offline/sync';
 import { useAuthStore } from '@/stores/auth';
 import { BG } from '@/theme/tokens';
 
@@ -48,6 +49,8 @@ export default function RootLayout() {
   useEffect(() => {
     useAuthStore.getState().bootstrap();
   }, []);
+
+  useOfflineSync();
 
   useEffect(() => {
     if (fontsLoaded) SplashScreen.hideAsync();
