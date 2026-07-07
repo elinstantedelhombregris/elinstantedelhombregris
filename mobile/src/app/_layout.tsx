@@ -19,6 +19,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import { View } from 'react-native';
 
+import { useAuthStore } from '@/stores/auth';
 import { BG } from '@/theme/tokens';
 
 SplashScreen.preventAutoHideAsync();
@@ -45,6 +46,10 @@ export default function RootLayout() {
   });
 
   useEffect(() => {
+    useAuthStore.getState().bootstrap();
+  }, []);
+
+  useEffect(() => {
     if (fontsLoaded) SplashScreen.hideAsync();
   }, [fontsLoaded]);
 
@@ -61,9 +66,14 @@ export default function RootLayout() {
           }}
         >
           <Stack.Screen name="index" />
+          <Stack.Screen name="bienvenida" options={{ animation: 'fade' }} />
           <Stack.Screen
             name="senal"
             options={{ presentation: 'transparentModal', animation: 'fade' }}
+          />
+          <Stack.Screen
+            name="identidad"
+            options={{ presentation: 'modal', animation: 'slide_from_bottom' }}
           />
         </Stack>
       </View>

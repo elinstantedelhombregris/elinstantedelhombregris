@@ -1,11 +1,13 @@
 import { Ionicons } from '@expo/vector-icons';
-import { router } from 'expo-router';
+import { Redirect, router } from 'expo-router';
 import { Text, View, useWindowDimensions } from 'react-native';
 import Animated from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Pressable97 } from '@/components/ui/Pressable97';
 import { fadeIn, staggerDelay } from '@/motion/variants';
+import { useAuthStore } from '@/stores/auth';
+import { useSettingsStore } from '@/stores/settings';
 import { haptic } from '@/theme/haptics';
 import { ACCENT, PLATA } from '@/theme/tokens';
 
@@ -38,6 +40,9 @@ const PANELS = [
 export default function Constelacion() {
   const { width, height } = useWindowDimensions();
   const insets = useSafeAreaInsets();
+  const { onboarded, hydrated } = useSettingsStore();
+
+  if (hydrated && !onboarded) return <Redirect href="/bienvenida" />;
 
   return (
     <View className="flex-1 bg-fondo">
@@ -115,7 +120,10 @@ function PanelButton({
         accessibilityLabel={panel.label}
         className="items-center justify-center px-3 py-2"
         onPress={() => {
-          // Paneles llegan en M3/M4 — por ahora el gesto responde igual.
+          // Paneles llegan en M3/M4. Perfil ya abre la puerta de entrada.
+          if (panel.key === 'perfil' && !useAuthStore.getState().user) {
+            router.push('/identidad');
+          }
         }}
       >
         <Ionicons name={panel.icon} size={22} color="#94a3b8" />
