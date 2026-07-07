@@ -3,6 +3,7 @@ import { sql } from "drizzle-orm";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 import { relations } from "drizzle-orm";
+import type { CampaignType, CampaignStatus, CampaignEntryStatus } from "./campaign-forms";
 
 export const users = pgTable("users", {
   id: serial("id").primaryKey(),
@@ -3338,3 +3339,159 @@ export const insertPlatformFeedbackSchema = createInsertSchema(platformFeedback)
 });
 export type InsertPlatformFeedback = z.infer<typeof insertPlatformFeedbackSchema>;
 export type PlatformFeedback = typeof platformFeedback.$inferSelect;
+
+// ==================== CÍRCULOS & CAMPAÑAS (¡BASTA! app móvil) ====================
+
+// Círculos: grupos territoriales, temáticos o células de confianza (solo invitación)
+export const circles = pgTable("circles", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+  description: text("description"),
+  kind: text("kind").notNull().$type<'territorial' | 'tematica' | 'celula'>(),
+  province: text("province"),
+  city: text("city"),
+  theme: text("theme"),
+  governance: text("governance").notNull().default('coordinado').$type<'coordinado' | 'abierto'>(),
+  isPrivate: boolean("is_private").default(false), // forzado true para célula
+  isOfficial: boolean("is_official").default(false),
+  createdBy: integer("created_by").references(() => users.id),
+  createdAt: text("created_at").default(sql`now()`),
+  updatedAt: text("updated_at").default(sql`now()`),
+}, (table) => ({
+  provinceCityIdx: index("circles_province_city_idx").on(table.province, table.city),
+  kindIdx: index("circles_kind_idx").on(table.kind),
+  themeIdx: index("circles_theme_idx").on(table.theme),
+}));
+
+export const circleMembers = pgTable("circle_members", {
+  id: serial("id").primaryKey(),
+  circleId: integer("circle_id").notNull().references(() => circles.id),
+  userId: integer("user_id").notNull().references(() => users.id),
+  role: text("role").notNull().default('miembro').$type<'coordinador' | 'miembro'>(),
+  displayRealName: boolean("display_real_name").default(false), // forzado true al unirse a una célula
+  joinedAt: text("joined_at").default(sql`now()`),
+}, (table) => ({
+  uniqueMember: unique("cm_circle_user_unique").on(table.circleId, table.userId),
+  circleIdIdx: index("cm_circle_id_idx").on(table.circleId),
+  userIdIdx: index("cm_user_id_idx").on(table.userId),
+}));
+
+export const circleInvites = pgTable("circle_invites", {
+  id: serial("id").primaryKey(),
+  circleId: integer("circle_id").notNull().references(() => circles.id),
+  code: text("code").notNull().unique(), // crypto random, QR-encodable
+  createdBy: integer("created_by").references(() => users.id),
+  maxUses: integer("max_uses").default(20),
+  uses: integer("uses").default(0),
+  expiresAt: text("expires_at"),
+  revoked: boolean("revoked").default(false),
+  createdAt: text("created_at").default(sql`now()`),
+}, (table) => ({
+  circleIdIdx: index("ci_circle_id_idx").on(table.circleId),
+}));
+
+// Reportes de moderación de círculos (clona el shape de missionEvidence)
+export const circleReports = pgTable("circle_reports", {
+  id: serial("id").primaryKey(),
+  circleId: integer("circle_id").notNull().references(() => circles.id),
+  reportedBy: integer("reported_by").references(() => users.id),
+  reason: text("reason").notNull(),
+  status: text("status").notNull().default('pendiente').$type<'pendiente' | 'resuelto' | 'descartado'>(),
+  resolvedBy: integer("resolved_by").references(() => users.id),
+  resolvedAt: text("resolved_at"),
+  createdAt: text("created_at").default(sql`now()`),
+}, (table) => ({
+  statusIdx: index("cr_status_idx").on(table.status),
+}));
+
+// Catálogo de plantillas de campaña (seed oficial + futuras)
+export const campaignTemplates = pgTable("campaign_templates", {
+  id: serial("id").primaryKey(),
+  slug: text("slug").notNull().unique(),
+  type: text("type").notNull().$type<CampaignType>(),
+  title: text("title").notNull(),
+  description: text("description"),
+  category: text("category"),
+  formSchema: text("form_schema").notNull(), // JSON: CampaignFormSchema
+  mapColor: text("map_color"),
+  mapIcon: text("map_icon"),
+  isActive: boolean("is_active").default(true),
+  createdAt: text("created_at").default(sql`now()`),
+});
+
+// Campañas de relevamiento / consulta lanzadas por círculos
+export const campaigns = pgTable("campaigns", {
+  id: serial("id").primaryKey(),
+  circleId: integer("circle_id").notNull().references(() => circles.id),
+  templateId: integer("template_id").references(() => campaignTemplates.id),
+  type: text("type").notNull().$type<CampaignType>(),
+  title: text("title").notNull(),
+  description: text("description"),
+  category: text("category"),
+  formSchema: text("form_schema").notNull(), // JSON: CampaignFormSchema
+  mapColor: text("map_color"),
+  mapIcon: text("map_icon"),
+  status: text("status").notNull().default('borrador').$type<CampaignStatus>(),
+  targetEntries: integer("target_entries"),
+  deadline: text("deadline"),
+  // Geo-targeting (consultas)
+  targetProvince: text("target_province"),
+  targetCity: text("target_city"),
+  targetLat: real("target_lat"),
+  targetLng: real("target_lng"),
+  targetRadiusKm: real("target_radius_km"),
+  createdBy: integer("created_by").references(() => users.id),
+  createdAt: text("created_at").default(sql`now()`),
+  updatedAt: text("updated_at").default(sql`now()`),
+}, (table) => ({
+  statusIdx: index("camp_status_idx").on(table.status),
+  circleIdIdx: index("camp_circle_id_idx").on(table.circleId),
+  targetGeoIdx: index("camp_target_geo_idx").on(table.targetProvince, table.targetCity),
+}));
+
+// Entradas de campaña (datos geotageados; coords YA snapeadas al escribir)
+export const campaignEntries = pgTable("campaign_entries", {
+  id: serial("id").primaryKey(),
+  campaignId: integer("campaign_id").notNull().references(() => campaigns.id),
+  submittedBy: integer("submitted_by").references(() => users.id), // nullable; NUNCA expuesto si anonymous
+  anonymous: boolean("anonymous").default(false),
+  latitude: real("latitude"),
+  longitude: real("longitude"),
+  province: text("province"),
+  city: text("city"),
+  data: text("data").notNull(), // JSON: CampaignEntryData
+  photoUrl: text("photo_url"),
+  status: text("status").notNull().default('pendiente').$type<CampaignEntryStatus>(),
+  verifiedBy: integer("verified_by").references(() => users.id),
+  verifiedAt: text("verified_at"),
+  createdAt: text("created_at").default(sql`now()`),
+}, (table) => ({
+  campaignIdIdx: index("ce_campaign_id_idx").on(table.campaignId),
+  provinceCityIdx: index("ce_province_city_idx").on(table.province, table.city),
+  statusIdx: index("ce_status_idx").on(table.status),
+  submittedByIdx: index("ce_submitted_by_idx").on(table.submittedBy),
+}));
+
+// Insert schemas + types — Círculos & Campañas
+export const insertCircleSchema = createInsertSchema(circles).omit({ id: true, createdAt: true, updatedAt: true });
+export const insertCircleMemberSchema = createInsertSchema(circleMembers).omit({ id: true, joinedAt: true });
+export const insertCircleInviteSchema = createInsertSchema(circleInvites).omit({ id: true, createdAt: true });
+export const insertCircleReportSchema = createInsertSchema(circleReports).omit({ id: true, createdAt: true, status: true, resolvedBy: true, resolvedAt: true });
+export const insertCampaignTemplateSchema = createInsertSchema(campaignTemplates).omit({ id: true, createdAt: true });
+export const insertCampaignSchema = createInsertSchema(campaigns).omit({ id: true, createdAt: true, updatedAt: true });
+export const insertCampaignEntrySchema = createInsertSchema(campaignEntries).omit({ id: true, createdAt: true, verifiedBy: true, verifiedAt: true });
+
+export type Circle = typeof circles.$inferSelect;
+export type InsertCircle = z.infer<typeof insertCircleSchema>;
+export type CircleMember = typeof circleMembers.$inferSelect;
+export type InsertCircleMember = z.infer<typeof insertCircleMemberSchema>;
+export type CircleInvite = typeof circleInvites.$inferSelect;
+export type InsertCircleInvite = z.infer<typeof insertCircleInviteSchema>;
+export type CircleReport = typeof circleReports.$inferSelect;
+export type InsertCircleReport = z.infer<typeof insertCircleReportSchema>;
+export type CampaignTemplate = typeof campaignTemplates.$inferSelect;
+export type InsertCampaignTemplate = z.infer<typeof insertCampaignTemplateSchema>;
+export type Campaign = typeof campaigns.$inferSelect;
+export type InsertCampaign = z.infer<typeof insertCampaignSchema>;
+export type CampaignEntry = typeof campaignEntries.$inferSelect;
+export type InsertCampaignEntry = z.infer<typeof insertCampaignEntrySchema>;

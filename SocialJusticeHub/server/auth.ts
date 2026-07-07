@@ -237,6 +237,28 @@ export function authenticateToken(req: AuthRequest, res: Response, next: NextFun
   next();
 }
 
+/**
+ * Solo administradores — allowlist de ids en la env var ADMIN_USER_IDS
+ * (separados por coma, ej: "1,42"). Usar SIEMPRE después de authenticateToken.
+ */
+export function requireAdmin(req: AuthRequest, res: Response, next: NextFunction): void {
+  const raw = process.env.ADMIN_USER_IDS ?? '';
+  const adminIds = raw
+    .split(',')
+    .map((part) => parseInt(part.trim(), 10))
+    .filter((id) => Number.isInteger(id) && id > 0);
+
+  if (!req.user || !adminIds.includes(req.user.userId)) {
+    res.status(403).json({
+      message: 'No tenés permisos para entrar acá.',
+      code: 'ADMIN_ONLY',
+    });
+    return;
+  }
+
+  next();
+}
+
 export function optionalAuth(req: AuthRequest, res: Response, next: NextFunction): void {
   const token = TokenManager.extractTokenFromHeader(req.headers.authorization);
   

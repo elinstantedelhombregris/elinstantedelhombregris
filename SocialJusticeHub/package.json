@@ -17,6 +17,7 @@
     "test:watch": "vitest",
     "verify:full": "npm run courses:sync && npm run verify && npm run courses:audit && npm run courses:lint-content && npm run courses:qa && npm run test:smoke",
     "db:push": "drizzle-kit push",
+    "seed:circulos": "tsx scripts/seed-circulos-oficiales.ts",
     "db:migrate-auth": "tsx scripts/migrate-auth.ts",
     "db:migrate-advanced": "tsx scripts/migrate-advanced-auth.ts",
     "db:migrate-avatar": "tsx scripts/migrate-avatar.ts",

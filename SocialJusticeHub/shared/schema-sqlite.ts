@@ -2714,3 +2714,108 @@ export type CoachingSession = typeof coachingSessions.$inferSelect;
 export type InsertCoachingPrompt = z.infer<typeof insertCoachingPromptSchema>;
 export type CoachingPrompt = typeof coachingPrompts.$inferSelect;
 export type LifeAreaSocialInteraction = typeof lifeAreaSocialInteractions.$inferSelect;
+
+// ==================== CÍRCULOS & CAMPAÑAS (¡BASTA! app móvil) ====================
+
+export const circles = sqliteTable("circles", {
+  id: integer("id").primaryKey({ autoIncrement: true }),
+  name: text("name").notNull(),
+  description: text("description"),
+  kind: text("kind").notNull().$type<'territorial' | 'tematica' | 'celula'>(),
+  province: text("province"),
+  city: text("city"),
+  theme: text("theme"),
+  governance: text("governance").notNull().default('coordinado').$type<'coordinado' | 'abierto'>(),
+  isPrivate: integer("is_private", { mode: 'boolean' }).default(false),
+  isOfficial: integer("is_official", { mode: 'boolean' }).default(false),
+  createdBy: integer("created_by").references(() => users.id),
+  createdAt: text("created_at").default("CURRENT_TIMESTAMP"),
+  updatedAt: text("updated_at").default("CURRENT_TIMESTAMP"),
+});
+
+export const circleMembers = sqliteTable("circle_members", {
+  id: integer("id").primaryKey({ autoIncrement: true }),
+  circleId: integer("circle_id").notNull().references(() => circles.id),
+  userId: integer("user_id").notNull().references(() => users.id),
+  role: text("role").notNull().default('miembro').$type<'coordinador' | 'miembro'>(),
+  displayRealName: integer("display_real_name", { mode: 'boolean' }).default(false),
+  joinedAt: text("joined_at").default("CURRENT_TIMESTAMP"),
+});
+
+export const circleInvites = sqliteTable("circle_invites", {
+  id: integer("id").primaryKey({ autoIncrement: true }),
+  circleId: integer("circle_id").notNull().references(() => circles.id),
+  code: text("code").notNull().unique(),
+  createdBy: integer("created_by").references(() => users.id),
+  maxUses: integer("max_uses").default(20),
+  uses: integer("uses").default(0),
+  expiresAt: text("expires_at"),
+  revoked: integer("revoked", { mode: 'boolean' }).default(false),
+  createdAt: text("created_at").default("CURRENT_TIMESTAMP"),
+});
+
+export const circleReports = sqliteTable("circle_reports", {
+  id: integer("id").primaryKey({ autoIncrement: true }),
+  circleId: integer("circle_id").notNull().references(() => circles.id),
+  reportedBy: integer("reported_by").references(() => users.id),
+  reason: text("reason").notNull(),
+  status: text("status").notNull().default('pendiente').$type<'pendiente' | 'resuelto' | 'descartado'>(),
+  resolvedBy: integer("resolved_by").references(() => users.id),
+  resolvedAt: text("resolved_at"),
+  createdAt: text("created_at").default("CURRENT_TIMESTAMP"),
+});
+
+export const campaignTemplates = sqliteTable("campaign_templates", {
+  id: integer("id").primaryKey({ autoIncrement: true }),
+  slug: text("slug").notNull().unique(),
+  type: text("type").notNull().$type<'relevamiento' | 'consulta'>(),
+  title: text("title").notNull(),
+  description: text("description"),
+  category: text("category"),
+  formSchema: text("form_schema").notNull(),
+  mapColor: text("map_color"),
+  mapIcon: text("map_icon"),
+  isActive: integer("is_active", { mode: 'boolean' }).default(true),
+  createdAt: text("created_at").default("CURRENT_TIMESTAMP"),
+});
+
+export const campaigns = sqliteTable("campaigns", {
+  id: integer("id").primaryKey({ autoIncrement: true }),
+  circleId: integer("circle_id").notNull().references(() => circles.id),
+  templateId: integer("template_id").references(() => campaignTemplates.id),
+  type: text("type").notNull().$type<'relevamiento' | 'consulta'>(),
+  title: text("title").notNull(),
+  description: text("description"),
+  category: text("category"),
+  formSchema: text("form_schema").notNull(),
+  mapColor: text("map_color"),
+  mapIcon: text("map_icon"),
+  status: text("status").notNull().default('borrador').$type<'borrador' | 'activa' | 'verificacion' | 'cerrada'>(),
+  targetEntries: integer("target_entries"),
+  deadline: text("deadline"),
+  targetProvince: text("target_province"),
+  targetCity: text("target_city"),
+  targetLat: real("target_lat"),
+  targetLng: real("target_lng"),
+  targetRadiusKm: real("target_radius_km"),
+  createdBy: integer("created_by").references(() => users.id),
+  createdAt: text("created_at").default("CURRENT_TIMESTAMP"),
+  updatedAt: text("updated_at").default("CURRENT_TIMESTAMP"),
+});
+
+export const campaignEntries = sqliteTable("campaign_entries", {
+  id: integer("id").primaryKey({ autoIncrement: true }),
+  campaignId: integer("campaign_id").notNull().references(() => campaigns.id),
+  submittedBy: integer("submitted_by").references(() => users.id),
+  anonymous: integer("anonymous", { mode: 'boolean' }).default(false),
+  latitude: real("latitude"),
+  longitude: real("longitude"),
+  province: text("province"),
+  city: text("city"),
+  data: text("data").notNull(),
+  photoUrl: text("photo_url"),
+  status: text("status").notNull().default('pendiente').$type<'pendiente' | 'verificada' | 'rechazada'>(),
+  verifiedBy: integer("verified_by").references(() => users.id),
+  verifiedAt: text("verified_at"),
+  createdAt: text("created_at").default("CURRENT_TIMESTAMP"),
+});

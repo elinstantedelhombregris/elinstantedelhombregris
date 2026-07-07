@@ -19,10 +19,17 @@ __export(schema_exports, {
   blockchainTransactions: () => blockchainTransactions,
   blogPosts: () => blogPosts,
   blogPostsRelations: () => blogPostsRelations,
+  campaignEntries: () => campaignEntries,
+  campaignTemplates: () => campaignTemplates,
+  campaigns: () => campaigns,
   challengeSteps: () => challengeSteps,
   challengeStepsRelations: () => challengeStepsRelations,
   challenges: () => challenges,
   challengesRelations: () => challengesRelations,
+  circleInvites: () => circleInvites,
+  circleMembers: () => circleMembers,
+  circleReports: () => circleReports,
+  circles: () => circles,
   civicAssessmentResponses: () => civicAssessmentResponses,
   civicAssessmentResponsesRelations: () => civicAssessmentResponsesRelations,
   civicAssessments: () => civicAssessments,
@@ -82,8 +89,15 @@ __export(schema_exports, {
   insertBadgeSchema: () => insertBadgeSchema,
   insertBlockchainTransactionSchema: () => insertBlockchainTransactionSchema,
   insertBlogPostSchema: () => insertBlogPostSchema,
+  insertCampaignEntrySchema: () => insertCampaignEntrySchema,
+  insertCampaignSchema: () => insertCampaignSchema,
+  insertCampaignTemplateSchema: () => insertCampaignTemplateSchema,
   insertChallengeSchema: () => insertChallengeSchema,
   insertChallengeStepSchema: () => insertChallengeStepSchema,
+  insertCircleInviteSchema: () => insertCircleInviteSchema,
+  insertCircleMemberSchema: () => insertCircleMemberSchema,
+  insertCircleReportSchema: () => insertCircleReportSchema,
+  insertCircleSchema: () => insertCircleSchema,
   insertCivicAssessmentResponseSchema: () => insertCivicAssessmentResponseSchema,
   insertCivicAssessmentSchema: () => insertCivicAssessmentSchema,
   insertCivicGoalSchema: () => insertCivicGoalSchema,
@@ -304,7 +318,7 @@ import { pgTable, serial, integer, text, real, boolean, unique, index } from "dr
 import { sql } from "drizzle-orm";
 import { createInsertSchema } from "drizzle-zod";
 import { relations } from "drizzle-orm";
-var users, dreams, userResources, communityPosts, resources, inspiringStories, communityPostInteractions, communityMessages, communityPostActivity, geographicLocations, communityPostLikes, communityPostViews, sentimentAnalysis, textEmbeddings, userProfiles, recommendations, aiInsights, blockchainTransactions, iotSensors, sensorData, vrMeetings, meetingParticipants, blogPosts, postTags, postLikes, postComments, postBookmarks, postViews, courses, courseLessons, courseQuizzes, quizQuestions, courseDefinitions, courseRevisions, courseLessonIdentities, courseRevisionLessons, courseRevisionQuizzes, courseRevisionQuizQuestions, userCourseProgress, userLessonProgress, quizAttempts, quizAttemptAnswers, courseCertificates, userLevels, challenges, challengeSteps, userChallengeProgress, badges, userBadges, userDailyActivity, userCommitments, userActions, userProgress, weeklyRankings, monthlyRankings, provinceRankings, territoryMandates, mandateSuggestions, initiativeMembers, initiativeMilestones, initiativeMessages, initiativeTasks, activityFeed, missionEvidence, missionChronicles, membershipRequests, notifications, lifeAreas, lifeAreaSubcategories, lifeAreaQuizzes, lifeAreaQuizQuestions, lifeAreaQuizResponses, lifeAreaScores, lifeAreaActions, userLifeAreaProgress, lifeAreaMilestones, lifeAreaIndicators, lifeAreaCommunityStats, lifeAreaXpLog, lifeAreaLevels, lifeAreaStreaks, lifeAreaBadges, userLifeAreaBadges, lifeAreaCurrency, lifeAreaRewardChests, lifeAreaChallenges, userLifeAreaChallenges, lifeAreaMastery, lifeAreaNotifications, lifeAreaSocialInteractions, usersRelations, userResourcesRelations, territoryMandatesRelations, mandateSuggestionsRelations, dreamsRelations, communityPostsRelations, communityPostInteractionsRelations, communityMessagesRelations, communityPostActivityRelations, userProfilesRelations, recommendationsRelations, vrMeetingsRelations, meetingParticipantsRelations, userLevelsRelations, challengesRelations, challengeStepsRelations, userChallengeProgressRelations, badgesRelations, userBadgesRelations, userDailyActivityRelations, userCommitmentsRelations, userActionsRelations, userProgressRelations, weeklyRankingsRelations, monthlyRankingsRelations, provinceRankingsRelations, blogPostsRelations, postTagsRelations, postLikesRelations, postCommentsRelations, postBookmarksRelations, postViewsRelations, coursesRelations, courseLessonsRelations, courseQuizzesRelations, quizQuestionsRelations, courseDefinitionsRelations, courseRevisionsRelations, courseLessonIdentitiesRelations, courseRevisionLessonsRelations, courseRevisionQuizzesRelations, courseRevisionQuizQuestionsRelations, userCourseProgressRelations, userLessonProgressRelations, quizAttemptsRelations, quizAttemptAnswersRelations, courseCertificatesRelations, iotSensorsRelations, sensorDataRelations, inspiringStoriesRelations, initiativeMembersRelations, initiativeMilestonesRelations, initiativeMessagesRelations, initiativeTasksRelations, activityFeedRelations, missionEvidenceRelations, missionChroniclesRelations, membershipRequestsRelations, notificationsRelations, lifeAreasRelations, lifeAreaSubcategoriesRelations, lifeAreaQuizzesRelations, lifeAreaQuizQuestionsRelations, lifeAreaQuizResponsesRelations, lifeAreaScoresRelations, lifeAreaActionsRelations, userLifeAreaProgressRelations, lifeAreaMilestonesRelations, lifeAreaIndicatorsRelations, lifeAreaCommunityStatsRelations, lifeAreaXpLogRelations, lifeAreaLevelsRelations, lifeAreaStreaksRelations, lifeAreaBadgesRelations, userLifeAreaBadgesRelations, lifeAreaCurrencyRelations, lifeAreaRewardChestsRelations, lifeAreaChallengesRelations, userLifeAreaChallengesRelations, lifeAreaMasteryRelations, lifeAreaNotificationsRelations, lifeAreaSocialInteractionsRelations, civicAssessments, civicAssessmentResponses, civicProfiles, civicGoals, weeklyCheckins, coachingSessions, coachingPrompts, platformFeedback, insertUserSchema, insertDreamSchema, insertCommunityPostSchema, insertResourceSchema, insertInspiringStorySchema, insertSentimentAnalysisSchema, insertTextEmbeddingSchema, insertUserProfileSchema, insertRecommendationSchema, insertAiInsightSchema, insertBlockchainTransactionSchema, insertIotSensorSchema, insertSensorDataSchema, insertVrMeetingSchema, insertMeetingParticipantSchema, insertUserResourceSchema, insertTerritoryMandateSchema, insertMandateSuggestionSchema, insertUserLevelSchema, insertChallengeSchema, insertChallengeStepSchema, insertUserChallengeProgressSchema, insertBadgeSchema, insertUserBadgeSchema, insertUserDailyActivitySchema, insertUserCommitmentSchema, insertUserActionSchema, insertUserProgressSchema, insertWeeklyRankingSchema, insertMonthlyRankingSchema, insertProvinceRankingSchema, insertBlogPostSchema, insertPostTagSchema, insertPostLikeSchema, insertPostCommentSchema, insertPostBookmarkSchema, insertPostViewSchema, insertCourseSchema, insertCourseLessonSchema, insertCourseQuizSchema, insertQuizQuestionSchema, insertCourseDefinitionSchema, insertCourseRevisionSchema, insertCourseLessonIdentitySchema, insertCourseRevisionLessonSchema, insertCourseRevisionQuizSchema, insertCourseRevisionQuizQuestionSchema, insertUserCourseProgressSchema, insertUserLessonProgressSchema, insertQuizAttemptSchema, insertQuizAttemptAnswerSchema, insertCourseCertificateSchema, insertCommunityPostInteractionSchema, insertCommunityMessageSchema, insertCommunityPostActivitySchema, insertInitiativeMemberSchema, insertInitiativeMilestoneSchema, insertInitiativeMessageSchema, insertInitiativeTaskSchema, insertActivityFeedSchema, insertMissionEvidenceSchema, insertMissionChronicleSchema, insertMembershipRequestSchema, insertNotificationSchema, insertLifeAreaSchema, insertLifeAreaSubcategorySchema, insertLifeAreaQuizSchema, insertLifeAreaQuizQuestionSchema, insertLifeAreaQuizResponseSchema, insertLifeAreaScoreSchema, insertLifeAreaActionSchema, insertUserLifeAreaProgressSchema, insertLifeAreaMilestoneSchema, insertLifeAreaIndicatorSchema, insertLifeAreaCommunityStatsSchema, insertLifeAreaXpLogSchema, insertLifeAreaLevelSchema, insertLifeAreaStreakSchema, insertLifeAreaBadgeSchema, insertUserLifeAreaBadgeSchema, insertLifeAreaCurrencySchema, insertLifeAreaRewardChestSchema, insertLifeAreaChallengeSchema, insertUserLifeAreaChallengeSchema, insertLifeAreaMasterySchema, insertLifeAreaNotificationSchema, insertLifeAreaSocialInteractionSchema, civicAssessmentsRelations, civicAssessmentResponsesRelations, civicProfilesRelations, civicGoalsRelations, weeklyCheckinsRelations, coachingSessionsRelations, coachingPromptsRelations, insertCivicAssessmentSchema, insertCivicAssessmentResponseSchema, insertCivicProfileSchema, insertCivicGoalSchema, insertWeeklyCheckinSchema, insertCoachingSessionSchema, insertCoachingPromptSchema, weeklyDigests, digestProposals, proposalStatusHistory, insertWeeklyDigestSchema, insertDigestProposalSchema, insertProposalStatusHistorySchema, insertPlatformFeedbackSchema;
+var users, dreams, userResources, communityPosts, resources, inspiringStories, communityPostInteractions, communityMessages, communityPostActivity, geographicLocations, communityPostLikes, communityPostViews, sentimentAnalysis, textEmbeddings, userProfiles, recommendations, aiInsights, blockchainTransactions, iotSensors, sensorData, vrMeetings, meetingParticipants, blogPosts, postTags, postLikes, postComments, postBookmarks, postViews, courses, courseLessons, courseQuizzes, quizQuestions, courseDefinitions, courseRevisions, courseLessonIdentities, courseRevisionLessons, courseRevisionQuizzes, courseRevisionQuizQuestions, userCourseProgress, userLessonProgress, quizAttempts, quizAttemptAnswers, courseCertificates, userLevels, challenges, challengeSteps, userChallengeProgress, badges, userBadges, userDailyActivity, userCommitments, userActions, userProgress, weeklyRankings, monthlyRankings, provinceRankings, territoryMandates, mandateSuggestions, initiativeMembers, initiativeMilestones, initiativeMessages, initiativeTasks, activityFeed, missionEvidence, missionChronicles, membershipRequests, notifications, lifeAreas, lifeAreaSubcategories, lifeAreaQuizzes, lifeAreaQuizQuestions, lifeAreaQuizResponses, lifeAreaScores, lifeAreaActions, userLifeAreaProgress, lifeAreaMilestones, lifeAreaIndicators, lifeAreaCommunityStats, lifeAreaXpLog, lifeAreaLevels, lifeAreaStreaks, lifeAreaBadges, userLifeAreaBadges, lifeAreaCurrency, lifeAreaRewardChests, lifeAreaChallenges, userLifeAreaChallenges, lifeAreaMastery, lifeAreaNotifications, lifeAreaSocialInteractions, usersRelations, userResourcesRelations, territoryMandatesRelations, mandateSuggestionsRelations, dreamsRelations, communityPostsRelations, communityPostInteractionsRelations, communityMessagesRelations, communityPostActivityRelations, userProfilesRelations, recommendationsRelations, vrMeetingsRelations, meetingParticipantsRelations, userLevelsRelations, challengesRelations, challengeStepsRelations, userChallengeProgressRelations, badgesRelations, userBadgesRelations, userDailyActivityRelations, userCommitmentsRelations, userActionsRelations, userProgressRelations, weeklyRankingsRelations, monthlyRankingsRelations, provinceRankingsRelations, blogPostsRelations, postTagsRelations, postLikesRelations, postCommentsRelations, postBookmarksRelations, postViewsRelations, coursesRelations, courseLessonsRelations, courseQuizzesRelations, quizQuestionsRelations, courseDefinitionsRelations, courseRevisionsRelations, courseLessonIdentitiesRelations, courseRevisionLessonsRelations, courseRevisionQuizzesRelations, courseRevisionQuizQuestionsRelations, userCourseProgressRelations, userLessonProgressRelations, quizAttemptsRelations, quizAttemptAnswersRelations, courseCertificatesRelations, iotSensorsRelations, sensorDataRelations, inspiringStoriesRelations, initiativeMembersRelations, initiativeMilestonesRelations, initiativeMessagesRelations, initiativeTasksRelations, activityFeedRelations, missionEvidenceRelations, missionChroniclesRelations, membershipRequestsRelations, notificationsRelations, lifeAreasRelations, lifeAreaSubcategoriesRelations, lifeAreaQuizzesRelations, lifeAreaQuizQuestionsRelations, lifeAreaQuizResponsesRelations, lifeAreaScoresRelations, lifeAreaActionsRelations, userLifeAreaProgressRelations, lifeAreaMilestonesRelations, lifeAreaIndicatorsRelations, lifeAreaCommunityStatsRelations, lifeAreaXpLogRelations, lifeAreaLevelsRelations, lifeAreaStreaksRelations, lifeAreaBadgesRelations, userLifeAreaBadgesRelations, lifeAreaCurrencyRelations, lifeAreaRewardChestsRelations, lifeAreaChallengesRelations, userLifeAreaChallengesRelations, lifeAreaMasteryRelations, lifeAreaNotificationsRelations, lifeAreaSocialInteractionsRelations, civicAssessments, civicAssessmentResponses, civicProfiles, civicGoals, weeklyCheckins, coachingSessions, coachingPrompts, platformFeedback, insertUserSchema, insertDreamSchema, insertCommunityPostSchema, insertResourceSchema, insertInspiringStorySchema, insertSentimentAnalysisSchema, insertTextEmbeddingSchema, insertUserProfileSchema, insertRecommendationSchema, insertAiInsightSchema, insertBlockchainTransactionSchema, insertIotSensorSchema, insertSensorDataSchema, insertVrMeetingSchema, insertMeetingParticipantSchema, insertUserResourceSchema, insertTerritoryMandateSchema, insertMandateSuggestionSchema, insertUserLevelSchema, insertChallengeSchema, insertChallengeStepSchema, insertUserChallengeProgressSchema, insertBadgeSchema, insertUserBadgeSchema, insertUserDailyActivitySchema, insertUserCommitmentSchema, insertUserActionSchema, insertUserProgressSchema, insertWeeklyRankingSchema, insertMonthlyRankingSchema, insertProvinceRankingSchema, insertBlogPostSchema, insertPostTagSchema, insertPostLikeSchema, insertPostCommentSchema, insertPostBookmarkSchema, insertPostViewSchema, insertCourseSchema, insertCourseLessonSchema, insertCourseQuizSchema, insertQuizQuestionSchema, insertCourseDefinitionSchema, insertCourseRevisionSchema, insertCourseLessonIdentitySchema, insertCourseRevisionLessonSchema, insertCourseRevisionQuizSchema, insertCourseRevisionQuizQuestionSchema, insertUserCourseProgressSchema, insertUserLessonProgressSchema, insertQuizAttemptSchema, insertQuizAttemptAnswerSchema, insertCourseCertificateSchema, insertCommunityPostInteractionSchema, insertCommunityMessageSchema, insertCommunityPostActivitySchema, insertInitiativeMemberSchema, insertInitiativeMilestoneSchema, insertInitiativeMessageSchema, insertInitiativeTaskSchema, insertActivityFeedSchema, insertMissionEvidenceSchema, insertMissionChronicleSchema, insertMembershipRequestSchema, insertNotificationSchema, insertLifeAreaSchema, insertLifeAreaSubcategorySchema, insertLifeAreaQuizSchema, insertLifeAreaQuizQuestionSchema, insertLifeAreaQuizResponseSchema, insertLifeAreaScoreSchema, insertLifeAreaActionSchema, insertUserLifeAreaProgressSchema, insertLifeAreaMilestoneSchema, insertLifeAreaIndicatorSchema, insertLifeAreaCommunityStatsSchema, insertLifeAreaXpLogSchema, insertLifeAreaLevelSchema, insertLifeAreaStreakSchema, insertLifeAreaBadgeSchema, insertUserLifeAreaBadgeSchema, insertLifeAreaCurrencySchema, insertLifeAreaRewardChestSchema, insertLifeAreaChallengeSchema, insertUserLifeAreaChallengeSchema, insertLifeAreaMasterySchema, insertLifeAreaNotificationSchema, insertLifeAreaSocialInteractionSchema, civicAssessmentsRelations, civicAssessmentResponsesRelations, civicProfilesRelations, civicGoalsRelations, weeklyCheckinsRelations, coachingSessionsRelations, coachingPromptsRelations, insertCivicAssessmentSchema, insertCivicAssessmentResponseSchema, insertCivicProfileSchema, insertCivicGoalSchema, insertWeeklyCheckinSchema, insertCoachingSessionSchema, insertCoachingPromptSchema, weeklyDigests, digestProposals, proposalStatusHistory, insertWeeklyDigestSchema, insertDigestProposalSchema, insertProposalStatusHistorySchema, insertPlatformFeedbackSchema, circles, circleMembers, circleInvites, circleReports, campaignTemplates, campaigns, campaignEntries, insertCircleSchema, insertCircleMemberSchema, insertCircleInviteSchema, insertCircleReportSchema, insertCampaignTemplateSchema, insertCampaignSchema, insertCampaignEntrySchema;
 var init_schema = __esm({
   "shared/schema.ts"() {
     "use strict";
@@ -3059,6 +3073,138 @@ var init_schema = __esm({
       status: true,
       adminNotes: true
     });
+    circles = pgTable("circles", {
+      id: serial("id").primaryKey(),
+      name: text("name").notNull(),
+      description: text("description"),
+      kind: text("kind").notNull().$type(),
+      province: text("province"),
+      city: text("city"),
+      theme: text("theme"),
+      governance: text("governance").notNull().default("coordinado").$type(),
+      isPrivate: boolean("is_private").default(false),
+      // forzado true para célula
+      isOfficial: boolean("is_official").default(false),
+      createdBy: integer("created_by").references(() => users.id),
+      createdAt: text("created_at").default(sql`now()`),
+      updatedAt: text("updated_at").default(sql`now()`)
+    }, (table) => ({
+      provinceCityIdx: index("circles_province_city_idx").on(table.province, table.city),
+      kindIdx: index("circles_kind_idx").on(table.kind),
+      themeIdx: index("circles_theme_idx").on(table.theme)
+    }));
+    circleMembers = pgTable("circle_members", {
+      id: serial("id").primaryKey(),
+      circleId: integer("circle_id").notNull().references(() => circles.id),
+      userId: integer("user_id").notNull().references(() => users.id),
+      role: text("role").notNull().default("miembro").$type(),
+      displayRealName: boolean("display_real_name").default(false),
+      // forzado true al unirse a una célula
+      joinedAt: text("joined_at").default(sql`now()`)
+    }, (table) => ({
+      uniqueMember: unique("cm_circle_user_unique").on(table.circleId, table.userId),
+      circleIdIdx: index("cm_circle_id_idx").on(table.circleId),
+      userIdIdx: index("cm_user_id_idx").on(table.userId)
+    }));
+    circleInvites = pgTable("circle_invites", {
+      id: serial("id").primaryKey(),
+      circleId: integer("circle_id").notNull().references(() => circles.id),
+      code: text("code").notNull().unique(),
+      // crypto random, QR-encodable
+      createdBy: integer("created_by").references(() => users.id),
+      maxUses: integer("max_uses").default(20),
+      uses: integer("uses").default(0),
+      expiresAt: text("expires_at"),
+      revoked: boolean("revoked").default(false),
+      createdAt: text("created_at").default(sql`now()`)
+    }, (table) => ({
+      circleIdIdx: index("ci_circle_id_idx").on(table.circleId)
+    }));
+    circleReports = pgTable("circle_reports", {
+      id: serial("id").primaryKey(),
+      circleId: integer("circle_id").notNull().references(() => circles.id),
+      reportedBy: integer("reported_by").references(() => users.id),
+      reason: text("reason").notNull(),
+      status: text("status").notNull().default("pendiente").$type(),
+      resolvedBy: integer("resolved_by").references(() => users.id),
+      resolvedAt: text("resolved_at"),
+      createdAt: text("created_at").default(sql`now()`)
+    }, (table) => ({
+      statusIdx: index("cr_status_idx").on(table.status)
+    }));
+    campaignTemplates = pgTable("campaign_templates", {
+      id: serial("id").primaryKey(),
+      slug: text("slug").notNull().unique(),
+      type: text("type").notNull().$type(),
+      title: text("title").notNull(),
+      description: text("description"),
+      category: text("category"),
+      formSchema: text("form_schema").notNull(),
+      // JSON: CampaignFormSchema
+      mapColor: text("map_color"),
+      mapIcon: text("map_icon"),
+      isActive: boolean("is_active").default(true),
+      createdAt: text("created_at").default(sql`now()`)
+    });
+    campaigns = pgTable("campaigns", {
+      id: serial("id").primaryKey(),
+      circleId: integer("circle_id").notNull().references(() => circles.id),
+      templateId: integer("template_id").references(() => campaignTemplates.id),
+      type: text("type").notNull().$type(),
+      title: text("title").notNull(),
+      description: text("description"),
+      category: text("category"),
+      formSchema: text("form_schema").notNull(),
+      // JSON: CampaignFormSchema
+      mapColor: text("map_color"),
+      mapIcon: text("map_icon"),
+      status: text("status").notNull().default("borrador").$type(),
+      targetEntries: integer("target_entries"),
+      deadline: text("deadline"),
+      // Geo-targeting (consultas)
+      targetProvince: text("target_province"),
+      targetCity: text("target_city"),
+      targetLat: real("target_lat"),
+      targetLng: real("target_lng"),
+      targetRadiusKm: real("target_radius_km"),
+      createdBy: integer("created_by").references(() => users.id),
+      createdAt: text("created_at").default(sql`now()`),
+      updatedAt: text("updated_at").default(sql`now()`)
+    }, (table) => ({
+      statusIdx: index("camp_status_idx").on(table.status),
+      circleIdIdx: index("camp_circle_id_idx").on(table.circleId),
+      targetGeoIdx: index("camp_target_geo_idx").on(table.targetProvince, table.targetCity)
+    }));
+    campaignEntries = pgTable("campaign_entries", {
+      id: serial("id").primaryKey(),
+      campaignId: integer("campaign_id").notNull().references(() => campaigns.id),
+      submittedBy: integer("submitted_by").references(() => users.id),
+      // nullable; NUNCA expuesto si anonymous
+      anonymous: boolean("anonymous").default(false),
+      latitude: real("latitude"),
+      longitude: real("longitude"),
+      province: text("province"),
+      city: text("city"),
+      data: text("data").notNull(),
+      // JSON: CampaignEntryData
+      photoUrl: text("photo_url"),
+      status: text("status").notNull().default("pendiente").$type(),
+      verifiedBy: integer("verified_by").references(() => users.id),
+      verifiedAt: text("verified_at"),
+      createdAt: text("created_at").default(sql`now()`)
+    }, (table) => ({
+      campaignIdIdx: index("ce_campaign_id_idx").on(table.campaignId),
+      provinceCityIdx: index("ce_province_city_idx").on(table.province, table.city),
+      statusIdx: index("ce_status_idx").on(table.status),
+      submittedByIdx: index("ce_submitted_by_idx").on(table.submittedBy)
+    }));
+    insertCircleSchema = createInsertSchema(circles).omit({ id: true, createdAt: true, updatedAt: true });
+    insertCircleMemberSchema = createInsertSchema(circleMembers).omit({ id: true, joinedAt: true });
+    insertCircleInviteSchema = createInsertSchema(circleInvites).omit({ id: true, createdAt: true });
+    insertCircleReportSchema = createInsertSchema(circleReports).omit({ id: true, createdAt: true, status: true, resolvedBy: true, resolvedAt: true });
+    insertCampaignTemplateSchema = createInsertSchema(campaignTemplates).omit({ id: true, createdAt: true });
+    insertCampaignSchema = createInsertSchema(campaigns).omit({ id: true, createdAt: true, updatedAt: true });
+    insertCampaignEntrySchema = createInsertSchema(campaignEntries).omit({ id: true, createdAt: true, verifiedBy: true, verifiedAt: true });
   }
 });
 
@@ -3289,7 +3435,8 @@ __export(auth_exports, {
   TokenManager: () => TokenManager,
   authenticateToken: () => authenticateToken,
   createAuthResponse: () => createAuthResponse,
-  optionalAuth: () => optionalAuth
+  optionalAuth: () => optionalAuth,
+  requireAdmin: () => requireAdmin
 });
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
@@ -3319,6 +3466,18 @@ function authenticateToken(req, res, next) {
   }
   console.log("[Auth] Token verified successfully for:", url, "userId:", payload.userId);
   req.user = payload;
+  next();
+}
+function requireAdmin(req, res, next) {
+  const raw = process.env.ADMIN_USER_IDS ?? "";
+  const adminIds = raw.split(",").map((part) => parseInt(part.trim(), 10)).filter((id) => Number.isInteger(id) && id > 0);
+  if (!req.user || !adminIds.includes(req.user.userId)) {
+    res.status(403).json({
+      message: "No ten\xE9s permisos para entrar ac\xE1.",
+      code: "ADMIN_ONLY"
+    });
+    return;
+  }
   next();
 }
 function optionalAuth(req, res, next) {
@@ -3513,6 +3672,271 @@ var init_blogContent = __esm({
     "use strict";
     slugify = (title) => title.toLowerCase().replace(/[^\w\s-]/g, "").replace(/\s+/g, "-").replace(/-+/g, "-").trim();
     blogContentUpdates = {
+      [slugify("\xBFCu\xE1les deber\xEDan ser nuestros par\xE1metros?")]: {
+        excerpt: "Todos nos gobernamos por par\xE1metros: varas invisibles con las que medimos el d\xEDa, el trabajo, la vida entera. Pero casi nadie eligi\xF3 los suyos \u2014los heredamos de la casa, la escuela, el mercado, la pantalla\u2014 y un d\xEDa empezaron a correr solos. Este es el trabajo sano de gobernarse: traer esos diales a la vista, preguntar si son nuestros y si son sanos, y reci\xE9n entonces ponerlos a mano. Porque un pa\xEDs, al final, mide exactamente lo que sus ciudadanos se animan a medir en su propia casa.",
+        content: `
+      <article>
+        <h1>\xBFCu\xE1les deber\xEDan ser nuestros par\xE1metros?</h1>
+        <p>
+          Hay una pregunta que casi nunca nos hacemos y que, sin embargo, gobierna el d\xEDa entero:
+          \xBFcon qu\xE9 vara me estoy midiendo? Porque viv\xEDs midi\xE9ndote. Todo el tiempo. Te levant\xE1s y,
+          antes del primer caf\xE9, ya hay un tablero encendido adentro tuyo que te dice si vas bien o
+          si vas mal. Que rendiste poco. Que lleg\xE1s tarde. Que el otro tiene m\xE1s. Que a esta altura
+          ya tendr\xEDas que haber logrado tal cosa. Que no est\xE1s donde deber\xEDas estar. Ese tablero corre
+          solo, en segundo plano, sin que vos lo programes, y te corrige el rumbo cien veces por d\xEDa.
+        </p>
+
+        <h2>I. El tablero que nadie eligi\xF3</h2>
+        <p>
+          Un termostato funciona as\xED: tiene un n\xFAmero fijo \u2014veintid\xF3s grados\u2014 y todo lo que hace,
+          prender o apagar, es corregir la distancia entre lo que hay y ese n\xFAmero. El n\xFAmero se llama
+          par\xE1metro. No es la temperatura: es la vara contra la cual la temperatura se juzga. Cambi\xE1
+          el n\xFAmero y el mismo cuarto, a la misma temperatura, pasa de \xABhace fr\xEDo, prend\xE9\xBB a \xABest\xE1 bien,
+          apag\xE1\xBB. El par\xE1metro no mide la realidad. Decide qu\xE9 va a contar como bueno o como malo.
+        </p>
+        <p>
+          Vos ten\xE9s par\xE1metros as\xED para todo. Para cu\xE1nto deber\xEDas ganar. Para c\xF3mo deber\xEDa ser tu
+          cuerpo. Para qu\xE9 es una semana bien usada. Para cu\xE1ndo sos un buen padre, una buena hija,
+          alguien que vale. Y la pregunta inc\xF3moda, la que abre este ensayo, es simple: esos n\xFAmeros,
+          \xBFlos pusiste vos?
+        </p>
+        <p>
+          Casi seguro que no. Casi seguro que est\xE1n ah\xED desde antes de que tuvieras edad de elegir.
+          Los heredaste, los absorbiste, los copiaste, y un d\xEDa empezaron a correr solos. Hoy te
+          gobiernan. Te dicen, ma\xF1ana tras ma\xF1ana, si tu vida va bien o va mal \u2014y vos les cre\xE9s, como
+          si fueran la realidad y no una vara que alguien, en alg\xFAn momento, dej\xF3 puesta.
+        </p>
+        <blockquote>
+          Un par\xE1metro no mide tu vida. Decide qu\xE9 de tu vida va a contar. Por eso elegir mal el
+          par\xE1metro es perder antes de empezar: pod\xE9s cumplir el n\xFAmero entero y haberte equivocado de n\xFAmero.
+        </blockquote>
+
+        <h2>II. Gobernarse no es exigirse</h2>
+        <p>
+          Cuando alguien escucha \xABgobernarse a uno mismo\xBB, piensa casi siempre en lo mismo: disciplina,
+          fuerza de voluntad, exigencia. Gobernarse ser\xEDa apretarse. Levantarse m\xE1s temprano, cumplir
+          la dieta, no aflojar, tirarte las pilas, no ser un vago. Hay toda una cultura del autodominio
+          que confunde gobierno con l\xE1tigo: el que m\xE1s se exige ser\xEDa el que mejor se gobierna.
+        </p>
+        <p>
+          Y est\xE1 el reverso, igual de argentino: el que dice que gobernarse es una c\xE1rcel, que la vida
+          es una sola, que hay que soltar, fluir, dejarse estar. El que confunde libertad con ausencia
+          de gobierno.
+        </p>
+        <p>
+          Mir\xE1 las dos posturas con atenci\xF3n, porque tienen algo en com\xFAn que no salta a la vista. Las
+          dos discuten cu\xE1nta fuerza aplicar \u2014el primero m\xE1s, el segundo menos\u2014 sin preguntarse nunca
+          sobre qu\xE9. Las dos dan por sentado el par\xE1metro. El que se exige se mata corriendo hacia un
+          n\xFAmero que no eligi\xF3. El que se suelta se rebela contra ese mismo n\xFAmero, pero el n\xFAmero sigue
+          ah\xED, intacto, d\xE1ndole mala conciencia mientras descansa. Ninguno de los dos toc\xF3 el dial. Solo
+          discuten si obedecerlo a los gritos o desobedecerlo con culpa.
+        </p>
+        <p>
+          \xBFY si exigirte m\xE1s sobre una vara que no es tuya no fuera gobernarte, sino lo contrario? \xBFY
+          si fuera la forma m\xE1s fina de dejarte gobernar \u2014tan fina que la confund\xEDs con libertad porque
+          el carcelero ya est\xE1 adentro?
+        </p>
+        <p>
+          Adentro de cada uno hay un tirano y un an\xE1rquico. El tirano grita el par\xE1metro heredado: m\xE1s,
+          mejor, ya, no aflojes. El an\xE1rquico patalea contra el tirano. Y mientras los dos se pelean,
+          nadie hace la pregunta del adulto: che, \xBFqui\xE9n puso este n\xFAmero, y por qu\xE9 le seguimos
+          obedeciendo? Gobernarse de verdad no es ganar la pelea entre el tirano y el an\xE1rquico. Es
+          apagar la radio un momento y revisar el tablero.
+        </p>
+        <blockquote>
+          Exigirte sobre una vara que no elegiste no es gobernarte: es obedecer mejor. El que se mata
+          cumpliendo un par\xE1metro ajeno cree que manda, y es el m\xE1s mandado de todos.
+        </blockquote>
+
+        <h2>III. De d\xF3nde vienen los par\xE1metros</h2>
+        <p>
+          Entonces, \xBFde d\xF3nde salieron? Porque alguien los puso. Los par\xE1metros no caen del cielo ni
+          nacen con vos. Se instalan.
+        </p>
+        <p>
+          El primero te lo dio la casa. Antes de hablar ya sab\xEDas qu\xE9 hac\xEDa que mam\xE1 se pusiera contenta
+          y qu\xE9 hac\xEDa que pap\xE1 frunciera la cara. Aprendiste, sin palabras, qu\xE9 cuenta como bueno en tu
+          familia: las notas, la obediencia, no molestar, ser el fuerte, ser el gracioso, no hacer quedar
+          mal. Ese fue tu primer tablero, y mucha gente lo sigue usando a los cincuenta a\xF1os sin haberlo
+          mirado nunca.
+        </p>
+        <p>
+          Despu\xE9s vino la escuela, que perfeccion\xF3 el m\xE9todo: te ense\xF1\xF3 que tu valor es un n\xFAmero que
+          otro te pone \u2014una nota, un puesto en la fila, un promedio\u2014. Te ense\xF1\xF3 a esperar que la vara
+          venga de afuera y de arriba. Te ense\xF1\xF3 a preguntar \xAB\xBFest\xE1 bien as\xED, profe?\xBB en lugar de \xAB\xBFesto
+          est\xE1 bien?\xBB.
+        </p>
+        <p>
+          Y despu\xE9s, de grande, te llovieron varas por todos lados. El mercado, que mide tu vida en lo
+          que produc\xEDs y en lo que compr\xE1s. La pantalla, que cada ma\xF1ana te muestra la vida editada de
+          otros mil para que te midas contra el montaje. La tribu pol\xEDtica, que te da una vara comod\xEDsima
+          \u2014el que piensa como yo es bueno, el otro es el mal\u2014 y te ahorra el trabajo de pensar. Cada una
+          de esas voces te instala un par\xE1metro y, lo m\xE1s importante, esconde que lo hizo. Te lo entrega
+          como si fuera la realidad. Como si \xABten\xE9s que ganar m\xE1s\xBB, \xABten\xE9s que verte as\xED\xBB, \xABten\xE9s que
+          odiar a aquellos\xBB fueran hechos del mundo y no diales que alguien dej\xF3 puestos porque le serv\xEDa
+          que vos los obedecieras.
+        </p>
+        <p>
+          Hagamos algo concreto, ahora, antes de seguir. Nombr\xE1 tres cosas con las que te mediste hoy.
+          Tres varas reales: cu\xE1nto rendiste, c\xF3mo te viste en el espejo, qu\xE9 tan adelante o atr\xE1s est\xE1s
+          respecto de alguien. Tenelas presentes. Y ahora preguntale a cada una una sola cosa: este n\xFAmero,
+          \xBFlo eleg\xED yo, con los ojos abiertos, sabiendo por qu\xE9? \xBFO lo encontr\xE9 ya puesto y nunca lo apagu\xE9?
+        </p>
+        <p>
+          Si sos honesto, casi ninguna la vas a haber elegido. Y eso \u2014no la falta de plata, no la falta
+          de tiempo, no la mala suerte\u2014 es el coraz\xF3n del asunto. Vivimos cumpliendo, o desobedeciendo
+          con culpa, varas que jam\xE1s revisamos. A eso le decimos \xABser responsable\xBB. Habr\xEDa que llamarlo
+          por su nombre: gobierno tercerizado.
+        </p>
+        <blockquote>
+          La pregunta no es si cumpl\xEDs tus par\xE1metros. Es si son tuyos. Un esclavo aplicado y una persona
+          libre pueden hacer exactamente lo mismo durante el d\xEDa. La diferencia entera est\xE1 en qui\xE9n puso el n\xFAmero.
+        </blockquote>
+
+        <h2>IV. \xBFQu\xE9 hace sano a un par\xE1metro?</h2>
+        <p>
+          Ac\xE1 conviene frenar una trampa, porque es la trampa en la que cae todo el que llega hasta este
+          punto. Uno tiende a pensar que hay par\xE1metros buenos y malos por su contenido: que medirse por
+          la plata est\xE1 mal y medirse por la espiritualidad est\xE1 bien, que perseguir el \xE9xito es enfermo
+          y perseguir el servicio es sano. No es ah\xED donde est\xE1 la cosa. Pod\xE9s perseguir lo \xABespiritual\xBB
+          de un modo perfectamente enfermo, midi\xE9ndote contra un ideal que te destroza. Lo que hace sano
+          o enfermo a un par\xE1metro no es qu\xE9 mide. Es c\xF3mo est\xE1 hecho.
+        </p>
+        <p>
+          Un par\xE1metro sano, primero, <strong>es tuyo</strong>. Lo miraste, lo pensaste, lo elegiste
+          sabiendo de d\xF3nde viene. No es el que te dejaron puesto: es el que, despu\xE9s de mirarlo, decid\xEDs
+          quedarte. Aunque coincida con el heredado, ahora es otra cosa, porque ahora es tuyo.
+        </p>
+        <p>
+          Segundo, <strong>es vivible</strong>. Es un n\xFAmero que un ser humano real puede alcanzar sin
+          destruirse. Hay par\xE1metros imposibles por dise\xF1o \u2014\xABm\xE1s\xBB, \xABsiempre m\xE1s\xBB, \xABnunca suficiente\xBB\u2014
+          que no se pueden cumplir jam\xE1s, porque no tienen tope. Medirse contra el infinito es garantizar
+          el fracaso permanente. Un par\xE1metro sano tiene un punto donde pod\xE9s decir: est\xE1 bien, llegu\xE9,
+          alcanza. La palabra \xABsuficiente\xBB no es una derrota. Es la prueba de que el dial est\xE1 sano.
+        </p>
+        <p>
+          Tercero, <strong>apunta a la vida, no a la imagen de la vida</strong>. Hay una diferencia
+          enorme entre el par\xE1metro \xABquiero estar sano\xBB y el par\xE1metro \xABquiero parecer sano\xBB. Entre
+          \xABquiero a esta persona\xBB y \xABquiero que se vea que tengo a esta persona\xBB. El par\xE1metro enfermo
+          mide siempre el reflejo: c\xF3mo queda, qu\xE9 dir\xE1n, c\xF3mo se ve desde afuera. El sano mide la cosa
+          misma, est\xE9 mirando alguien o no.
+        </p>
+        <p>
+          Cuarto \u2014y este es el m\xE1s pol\xEDtico de todos\u2014 <strong>deja lugar al otro</strong>. Hay par\xE1metros
+          que solo pod\xE9s cumplir si alguien pierde. Tener raz\xF3n implica que el otro est\xE9 equivocado. Ganar
+          la discusi\xF3n implica humillarlo. Estar arriba implica que haya alguien abajo. Esas son varas de
+          suma cero, y son enfermas no por moralina, sino por estructura: te encadenan a la derrota ajena,
+          te obligan a desear el mal del otro para sentir tu propio bien. Un par\xE1metro sano se puede
+          cumplir en un mundo donde a todos les vaya bien.
+        </p>
+        <p>
+          Y quinto, <strong>es revisable</strong>. No es una ley grabada en piedra. Es una hip\xF3tesis.
+          Cuando la vida te muestra que el n\xFAmero estaba mal \u2014que eso que persegu\xEDas no te hac\xEDa bien,
+          que esa vara te estaba secando\u2014 pod\xE9s cambiarlo sin sentir que traicion\xE1s nada. El que no puede
+          revisar sus par\xE1metros no se gobierna: lo gobierna su yo de hace veinte a\xF1os, un pibe que decidi\xF3,
+          con la informaci\xF3n de un pibe, qu\xE9 iba a contar como una buena vida.
+        </p>
+        <p>
+          \xBFCu\xE1ntos de tus par\xE1metros pasan estas cinco pruebas? \xBFCu\xE1ntos son tuyos, vivibles, apuntan a la
+          vida, dejan lugar al otro y todav\xEDa pod\xE9s cambiarlos? Si la lista te qued\xF3 corta, no es un fracaso
+          tuyo. Es el trabajo que ten\xE9s por delante. Es, exactamente, el trabajo sano de gobernarse.
+        </p>
+
+        <h2>V. El pa\xEDs mide lo que sus ciudadanos miden</h2>
+        <p>
+          Hasta ac\xE1 esto parece un asunto privado, casi de autoayuda. No lo es. Es la cosa m\xE1s pol\xEDtica
+          que hay, y conviene ver por qu\xE9.
+        </p>
+        <p>
+          Un pa\xEDs no tiene par\xE1metros propios, ca\xEDdos de alg\xFAn cielo institucional. Un pa\xEDs mide lo que
+          sus ciudadanos, sumados, se miden a s\xED mismos. El tablero nacional es el promedio de millones de
+          tableros privados. Por eso, cuando nos quejamos de que la Argentina mide mal \u2014y mide mal\u2014 estamos
+          diciendo algo sobre nosotros que preferir\xEDamos no escuchar.
+        </p>
+        <p>
+          Mir\xE1 qu\xE9 mide el pa\xEDs, todos los d\xEDas, en la tapa de los diarios y en la conversaci\xF3n de la mesa:
+          el d\xF3lar, la inflaci\xF3n, el riesgo pa\xEDs, el resultado de la \xFAltima elecci\xF3n, el rating, qui\xE9n gan\xF3
+          la pelea de esta semana. Y mir\xE1 lo que no mide, lo que no aparece en ning\xFAn tablero: cu\xE1nto tiempo
+          libre tiene una familia, cu\xE1nta confianza hay entre vecinos, cu\xE1nto se cuida a los que no producen,
+          cu\xE1nta belleza queda en pie, en qu\xE9 estado est\xE1n el suelo y el agua que les vamos a dejar a los que
+          vienen. Medimos obsesivamente el reflejo \u2014los n\xFAmeros que se ven, que se postean, que se gritan\u2014
+          y no medimos casi nada de lo que de verdad hace que una vida valga la pena vivirse.
+        </p>
+        <p>
+          \xBFY por qu\xE9? La respuesta es dura: porque un pa\xEDs no puede medir lo que sus ciudadanos no se miden.
+          Una poblaci\xF3n que se gobierna a s\xED misma con \xABm\xE1s, ya, ganarle al otro\xBB no puede construir otra
+          cosa que un Estado que mida exactamente eso. No hay reforma institucional que arregle un tablero
+          nacional cuando los millones de tableros privados est\xE1n calibrados para lo contrario. Le pon\xE9s
+          m\xE9tricas nuevas a un pa\xEDs de gente que sigue midi\xE9ndose por la plata, la imagen y la grieta, y en
+          seis meses las m\xE9tricas nuevas se tuercen para servir a los par\xE1metros viejos.
+        </p>
+        <p>
+          Ac\xE1 est\xE1 el coraz\xF3n de todo lo que proponemos. Una rep\xFAblica que se dise\xF1a en serio no empieza por
+          las instituciones: empieza por la pregunta de este ensayo, hecha en voz alta y en com\xFAn. \xBFCu\xE1les
+          deber\xEDan ser nuestros par\xE1metros? \xBFQu\xE9 queremos, de verdad, que cuente como un pa\xEDs que va bien?
+          Los ciudadanos dise\xF1an esos par\xE1metros \u2014es la parte que no se puede tercerizar, ni a un presidente,
+          ni a un mercado, ni a un algoritmo\u2014; el Estado, despu\xE9s, los administra. Pero el dial lo ponemos
+          nosotros. Y solo puede ponerlo bien, a nivel de pa\xEDs, una poblaci\xF3n que aprendi\xF3 a ponerlo bien a
+          nivel de su propia vida.
+        </p>
+        <blockquote>
+          Le pedimos al pa\xEDs que mida lo que ninguno de nosotros se anima a medir en su propia casa. Un pa\xEDs
+          no se cura los par\xE1metros en el Congreso: se los cura, de a uno, en millones de tableros privados
+          que un d\xEDa deciden apuntar a otra cosa.
+        </blockquote>
+
+        <h2>VI. El trabajo sano de gobernarse</h2>
+        <p>
+          Gobernarse, entonces, no es lo que nos ense\xF1aron. No es apretarse m\xE1s fuerte sobre la vara de
+          siempre. No es la disciplina del que obedece mejor, ni la rebeld\xEDa del que desobedece con culpa.
+          No es tampoco una constituci\xF3n que firm\xE1s una vez y archiv\xE1s.
+        </p>
+        <p>
+          Es algo m\xE1s modesto y m\xE1s dif\xEDcil. Es el trabajo, casi diario, de traer los diales a la vista.
+          De agarrar las varas con las que te est\xE1s midiendo \u2014que vienen corriendo en segundo plano,
+          invisibles\u2014 y ponerlas adelante, a la luz, donde pod\xE9s mirarlas. Preguntarte de cada una: \xBFes m\xEDa?
+          \xBFes vivible? \xBFapunta a mi vida o a su imagen? \xBFdeja lugar al otro? \xBFla puedo cambiar? Y donde la
+          respuesta sea no, ponerla a mano. Cambiar el n\xFAmero. Despacio, sin violencia, sin l\xE1tigo, sin culpa.
+        </p>
+        <p>
+          Se llama sano por eso: porque se hace sin maltratarte, sin autoridad prestada, sin necesitar que
+          otro pierda para que vos cuentes como que ganaste. Es el gobierno de alguien que dej\xF3 de obedecer
+          un tablero que no eligi\xF3 y empez\xF3, de a poco, a calibrar el suyo.
+        </p>
+        <p>
+          \xBFEs mucho trabajo? Es el \xFAnico que no pod\xE9s delegar. Pod\xE9s delegar casi todo en la vida \u2014el laburo,
+          las cuentas, hasta el voto, si te dej\xE1s\u2014. Esto no. Nadie puede mirar tus diales por vos. Nadie puede
+          decidir, en tu lugar, qu\xE9 va a contar como una buena vida tuya. Y un pa\xEDs lleno de gente que nunca
+          hizo ese trabajo es, precisamente, el pa\xEDs que tenemos.
+        </p>
+        <p>
+          \xBFCu\xE1les deber\xEDan ser tus par\xE1metros?
+        </p>
+        <p>
+          Es tu pregunta. No la contesta un l\xEDder, ni un mercado, ni la pantalla.
+        </p>
+        <p>
+          Fren\xE1 un momento el tablero que corre solo.
+        </p>
+        <p>
+          Miralo.
+        </p>
+        <p>
+          Preguntate cu\xE1l de esos n\xFAmeros pusiste vos.
+        </p>
+        <p>
+          Y empez\xE1, hoy, por cambiar uno.
+        </p>
+        <p>
+          <strong><a href="https://elinstantedelhombregris.com/life-areas">Mape\xE1 tus propios par\xE1metros en \xC1reas de Vida \u2014 doce \xE1reas para ver, una por una, con qu\xE9 te est\xE1s midiendo \u2192</a></strong>
+        </p>
+        <blockquote>
+          El pa\xEDs no se gobierna primero en la Casa Rosada. Se gobierna primero ac\xE1, en el tablero invisible
+          que llev\xE1s adentro. Calibralo vos, antes de que lo siga calibrando cualquiera.
+        </blockquote>
+      </article>
+    `
+      },
       [slugify("\xBFContra qui\xE9n est\xE1s peleando, en serio?")]: {
         excerpt: "Kuka, libertardo, cucaracha de izquierda, cerdo de derecha. Nos pasamos el d\xEDa tir\xE1ndonos etiquetas como piedras. Pero par\xE1 un segundo: \xBFy si la pelea misma fuera la trampa? El principio m\xE1s viejo del universo explica por qu\xE9 la grieta no se gana \u2014se trasciende. Y mientras vos oscil\xE1s, alguien se est\xE1 llevando el tim\xF3n de verdad.",
         content: `
@@ -11776,7 +12200,7 @@ async function generateAndSaveMandate(territoryLevel, territoryName, province, c
     space: ["community", "action"],
     equipment: ["economy", "action"]
   };
-  const normalize3 = (w) => w.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z]/g, "");
+  const normalize4 = (w) => w.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z]/g, "");
   const themeHits = {};
   for (const tk of Object.keys(THEME_KEYWORDS2)) themeHits[tk] = { count: 0, quotes: [] };
   let voiceCount = 0;
@@ -11785,7 +12209,7 @@ async function generateAndSaveMandate(territoryLevel, territoryName, province, c
       const text2 = entry[type];
       if (!text2) continue;
       voiceCount++;
-      const words = text2.split(/\s+/).map(normalize3).filter((w) => w.length > 3);
+      const words = text2.split(/\s+/).map(normalize4).filter((w) => w.length > 3);
       for (const tk of Object.keys(THEME_KEYWORDS2)) {
         if (words.some((w) => THEME_KEYWORDS2[tk].some((kw) => w.includes(kw) || kw.includes(w)))) {
           themeHits[tk].count++;
@@ -11982,7 +12406,7 @@ async function scanForMatches(minNeeds = 2, minResources = 1) {
     community: ["comunidad", "pueblo", "sociedad", "colectivo", "barrio", "territorio"],
     future: ["futuro", "vision", "horizonte", "esperanza", "sueno", "meta"]
   };
-  const normalize3 = (w) => w.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z]/g, "");
+  const normalize4 = (w) => w.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z]/g, "");
   const needsByLocTheme = {};
   dreams3.forEach((entry) => {
     const loc = entry.location || "Sin ubicaci\xF3n";
@@ -11990,7 +12414,7 @@ async function scanForMatches(minNeeds = 2, minResources = 1) {
     for (const type of ["need", "basta"]) {
       const text2 = entry[type];
       if (!text2) continue;
-      const words = text2.split(/\s+/).map(normalize3).filter((w) => w.length > 3);
+      const words = text2.split(/\s+/).map(normalize4).filter((w) => w.length > 3);
       for (const [theme, keywords] of Object.entries(THEME_KEYWORDS2)) {
         if (words.some((w) => keywords.some((kw) => w.includes(kw) || kw.includes(w)))) {
           if (!needsByLocTheme[loc]) needsByLocTheme[loc] = {};
@@ -18295,100 +18719,1655 @@ function registerRadarRoutes(app2) {
   });
 }
 
+// server/routes-circulos.ts
+init_auth();
+import { z as z8 } from "zod";
+import rateLimit4 from "express-rate-limit";
+init_storage();
+
+// server/lib/circulos.ts
+import { z as z7 } from "zod";
+var CIRCLE_KINDS = ["territorial", "tematica", "celula"];
+var CIRCLE_GOVERNANCES = ["coordinado", "abierto"];
+var crearCirculoSchema = z7.object({
+  name: z7.string({ required_error: "Pon\xE9 un nombre para el c\xEDrculo" }).trim().min(3, "El nombre necesita al menos 3 caracteres").max(80, "El nombre no puede superar 80 caracteres"),
+  description: z7.string().trim().max(500, "La descripci\xF3n no puede superar 500 caracteres").optional(),
+  kind: z7.enum(CIRCLE_KINDS, {
+    errorMap: () => ({ message: "Tipo de c\xEDrculo inv\xE1lido: territorial, tem\xE1tica o c\xE9lula" })
+  }),
+  province: z7.string().trim().max(100, "Provincia inv\xE1lida").optional(),
+  city: z7.string().trim().max(100, "Ciudad inv\xE1lida").optional(),
+  theme: z7.string().trim().max(100, "El tema no puede superar 100 caracteres").optional(),
+  governance: z7.enum(CIRCLE_GOVERNANCES, {
+    errorMap: () => ({ message: "Gobernanza inv\xE1lida: coordinado o abierto" })
+  }).default("coordinado"),
+  isPrivate: z7.boolean().optional()
+});
+var actualizarCirculoSchema = z7.object({
+  name: z7.string().trim().min(3, "El nombre necesita al menos 3 caracteres").max(80, "El nombre no puede superar 80 caracteres").optional(),
+  description: z7.string().trim().max(500, "La descripci\xF3n no puede superar 500 caracteres").nullable().optional(),
+  province: z7.string().trim().max(100, "Provincia inv\xE1lida").nullable().optional(),
+  city: z7.string().trim().max(100, "Ciudad inv\xE1lida").nullable().optional(),
+  theme: z7.string().trim().max(100, "El tema no puede superar 100 caracteres").nullable().optional(),
+  governance: z7.enum(CIRCLE_GOVERNANCES, {
+    errorMap: () => ({ message: "Gobernanza inv\xE1lida: coordinado o abierto" })
+  }).optional(),
+  isPrivate: z7.boolean().optional()
+}).refine((data) => Object.values(data).some((v) => v !== void 0), {
+  message: "No mandaste ning\xFAn cambio"
+});
+var canjearInviteSchema = z7.object({
+  code: z7.string({ required_error: "Falta el c\xF3digo de invitaci\xF3n" }).trim().min(6, "Ese c\xF3digo no parece v\xE1lido").max(64, "Ese c\xF3digo no parece v\xE1lido")
+});
+var crearInviteSchema = z7.object({
+  maxUses: z7.coerce.number().int().min(1, "La invitaci\xF3n tiene que servir al menos una vez").max(100, "M\xE1ximo 100 usos por invitaci\xF3n").optional(),
+  expiresInDays: z7.coerce.number().int().min(1, "La invitaci\xF3n tiene que durar al menos un d\xEDa").max(90, "M\xE1ximo 90 d\xEDas de vigencia").optional()
+});
+var reportarSchema = z7.object({
+  reason: z7.string({ required_error: "Contanos por qu\xE9 report\xE1s este c\xEDrculo" }).trim().min(10, "Contanos un poco m\xE1s \u2014 al menos 10 caracteres").max(500, "M\xE1ximo 500 caracteres")
+});
+var resolverReporteSchema = z7.object({
+  estado: z7.enum(["resuelto", "descartado"], {
+    errorMap: () => ({ message: "Estado inv\xE1lido: resuelto o descartado" })
+  })
+});
+
+// server/services/circulos-service.ts
+init_db();
+init_schema();
+init_geo_resolver();
+import crypto3 from "crypto";
+import { and as and12, desc as desc13, eq as eq15, ilike as ilike3, ne as ne2, or as or5, sql as sql11 } from "drizzle-orm";
+var DEFAULT_RADIUS_KM = 50;
+var MAX_DISCOVERY_RESULTS = 200;
+var normalize2 = (s) => s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
+async function memberCircleIds(userId) {
+  if (!userId) return /* @__PURE__ */ new Set();
+  const rows = await db.select({ circleId: circleMembers.circleId }).from(circleMembers).where(eq15(circleMembers.userId, userId));
+  return new Set(rows.map((r) => r.circleId));
+}
+async function listCircles(filters, userId) {
+  const conds = [];
+  if (filters.kind) conds.push(eq15(circles.kind, filters.kind));
+  if (filters.province) conds.push(eq15(circles.province, filters.province));
+  if (filters.city) conds.push(eq15(circles.city, filters.city));
+  if (filters.theme) conds.push(eq15(circles.theme, filters.theme));
+  if (filters.q) {
+    const pattern = `%${filters.q}%`;
+    const qCond = or5(ilike3(circles.name, pattern), ilike3(circles.description, pattern));
+    if (qCond) conds.push(qCond);
+  }
+  const [rows, myCircles] = await Promise.all([
+    db.select({
+      circle: circles,
+      memberCount: sql11`(select count(*)::int from circle_members cm where cm.circle_id = ${circles.id})`
+    }).from(circles).where(conds.length ? and12(...conds) : void 0).orderBy(desc13(circles.isOfficial), desc13(circles.id)).limit(MAX_DISCOVERY_RESULTS),
+    memberCircleIds(userId)
+  ]);
+  let results = rows.filter((r) => {
+    const hidden = r.circle.kind === "celula" || r.circle.isPrivate === true;
+    return !hidden || myCircles.has(r.circle.id);
+  }).map((r) => ({ ...r.circle, memberCount: r.memberCount, isMember: myCircles.has(r.circle.id) }));
+  if (filters.lat !== void 0 && filters.lng !== void 0) {
+    results = await filterByProximity(results, filters.lat, filters.lng, filters.radiusKm ?? DEFAULT_RADIUS_KM);
+  }
+  return results;
+}
+async function filterByProximity(circleList, lat, lng, radiusKm) {
+  const province = resolveProvince(lat, lng);
+  const cityNames = Array.from(
+    new Set(circleList.map((c) => c.city).filter((c) => Boolean(c)))
+  );
+  const cityCoords = /* @__PURE__ */ new Map();
+  if (cityNames.length > 0) {
+    const cityRows = await db.select({
+      name: geographicLocations.name,
+      latitude: geographicLocations.latitude,
+      longitude: geographicLocations.longitude
+    }).from(geographicLocations).where(eq15(geographicLocations.type, "city"));
+    const wanted = new Set(cityNames.map(normalize2));
+    for (const row of cityRows) {
+      const key = normalize2(row.name);
+      if (wanted.has(key) && row.latitude != null && row.longitude != null && !cityCoords.has(key)) {
+        cityCoords.set(key, { lat: row.latitude, lng: row.longitude });
+      }
+    }
+  }
+  return circleList.filter((circle) => {
+    if (circle.city) {
+      const coords = cityCoords.get(normalize2(circle.city));
+      if (coords) return haversineKm(lat, lng, coords.lat, coords.lng) <= radiusKm;
+    }
+    if (circle.province && province) return circle.province === province;
+    return false;
+  });
+}
+async function getCircleById(id) {
+  const [circle] = await db.select().from(circles).where(eq15(circles.id, id)).limit(1);
+  return circle;
+}
+async function getMembership(circleId, userId) {
+  const [member] = await db.select().from(circleMembers).where(and12(eq15(circleMembers.circleId, circleId), eq15(circleMembers.userId, userId))).limit(1);
+  return member;
+}
+async function countMembers(circleId) {
+  const [row] = await db.select({ count: sql11`count(*)::int` }).from(circleMembers).where(eq15(circleMembers.circleId, circleId));
+  return row?.count ?? 0;
+}
+async function createCircle(input, userId) {
+  const isCelula = input.kind === "celula";
+  const [circle] = await db.insert(circles).values({
+    name: input.name,
+    description: input.description ?? null,
+    kind: input.kind,
+    province: input.province ?? null,
+    city: input.city ?? null,
+    theme: input.theme ?? null,
+    governance: input.governance,
+    isPrivate: isCelula ? true : input.isPrivate ?? false,
+    isOfficial: false,
+    createdBy: userId
+  }).returning();
+  await db.insert(circleMembers).values({
+    circleId: circle.id,
+    userId,
+    role: "coordinador",
+    displayRealName: isCelula
+  });
+  return circle;
+}
+async function updateCircle(id, input) {
+  const existing = await getCircleById(id);
+  if (!existing) return void 0;
+  const [updated] = await db.update(circles).set({
+    ...input.name !== void 0 ? { name: input.name } : {},
+    ...input.description !== void 0 ? { description: input.description } : {},
+    ...input.province !== void 0 ? { province: input.province } : {},
+    ...input.city !== void 0 ? { city: input.city } : {},
+    ...input.theme !== void 0 ? { theme: input.theme } : {},
+    ...input.governance !== void 0 ? { governance: input.governance } : {},
+    // Una célula nunca deja de ser privada
+    ...input.isPrivate !== void 0 ? { isPrivate: existing.kind === "celula" ? true : input.isPrivate } : {},
+    updatedAt: (/* @__PURE__ */ new Date()).toISOString()
+  }).where(eq15(circles.id, id)).returning();
+  return updated;
+}
+async function joinCircle(circleId, userId, displayRealName) {
+  const [member] = await db.insert(circleMembers).values({ circleId, userId, role: "miembro", displayRealName }).returning();
+  return member;
+}
+async function leaveCircle(circleId, userId) {
+  const membership = await getMembership(circleId, userId);
+  if (!membership) {
+    return { ok: false, message: "No sos parte de este c\xEDrculo." };
+  }
+  if (membership.role === "coordinador") {
+    const [[otherCoordinators], [otherMembers]] = await Promise.all([
+      db.select({ count: sql11`count(*)::int` }).from(circleMembers).where(and12(
+        eq15(circleMembers.circleId, circleId),
+        eq15(circleMembers.role, "coordinador"),
+        ne2(circleMembers.userId, userId)
+      )),
+      db.select({ count: sql11`count(*)::int` }).from(circleMembers).where(and12(eq15(circleMembers.circleId, circleId), ne2(circleMembers.userId, userId)))
+    ]);
+    if ((otherMembers?.count ?? 0) > 0 && (otherCoordinators?.count ?? 0) === 0) {
+      return {
+        ok: false,
+        message: "Sos el \xFAltimo coordinador del c\xEDrculo. Pasale la coordinaci\xF3n a otra persona antes de irte."
+      };
+    }
+  }
+  await db.delete(circleMembers).where(eq15(circleMembers.id, membership.id));
+  return { ok: true };
+}
+async function listMembers(circleId) {
+  const rows = await db.select({
+    userId: circleMembers.userId,
+    role: circleMembers.role,
+    displayRealName: circleMembers.displayRealName,
+    joinedAt: circleMembers.joinedAt,
+    name: users.name,
+    username: users.username
+  }).from(circleMembers).innerJoin(users, eq15(circleMembers.userId, users.id)).where(eq15(circleMembers.circleId, circleId)).orderBy(circleMembers.joinedAt);
+  return rows.map((row) => ({
+    userId: row.userId,
+    displayName: row.displayRealName ? row.name : row.username,
+    role: row.role,
+    joinedAt: row.joinedAt
+  }));
+}
+var INVITE_DEFAULT_MAX_USES = 20;
+var INVITE_DEFAULT_DAYS = 7;
+async function createInvite(circleId, userId, opts = {}) {
+  const code = crypto3.randomBytes(9).toString("base64url");
+  const expiresAt = new Date(
+    Date.now() + (opts.expiresInDays ?? INVITE_DEFAULT_DAYS) * 24 * 60 * 60 * 1e3
+  ).toISOString();
+  const [invite] = await db.insert(circleInvites).values({
+    circleId,
+    code,
+    createdBy: userId,
+    maxUses: opts.maxUses ?? INVITE_DEFAULT_MAX_USES,
+    uses: 0,
+    expiresAt,
+    revoked: false
+  }).returning();
+  return invite;
+}
+async function getInviteByCode(code) {
+  const [invite] = await db.select().from(circleInvites).where(eq15(circleInvites.code, code)).limit(1);
+  return invite;
+}
+function isInviteUsable(invite) {
+  if (invite.revoked) return { usable: false, message: "Esa invitaci\xF3n fue revocada." };
+  if (invite.expiresAt && new Date(invite.expiresAt).getTime() < Date.now()) {
+    return { usable: false, message: "Esa invitaci\xF3n ya venci\xF3. Ped\xED una nueva." };
+  }
+  if ((invite.uses ?? 0) >= (invite.maxUses ?? INVITE_DEFAULT_MAX_USES)) {
+    return { usable: false, message: "Esa invitaci\xF3n ya se us\xF3 todas las veces posibles. Ped\xED una nueva." };
+  }
+  return { usable: true };
+}
+async function incrementInviteUses(inviteId) {
+  await db.update(circleInvites).set({ uses: sql11`${circleInvites.uses} + 1` }).where(eq15(circleInvites.id, inviteId));
+}
+async function createReport(circleId, userId, reason) {
+  const [report] = await db.insert(circleReports).values({ circleId, reportedBy: userId, reason }).returning();
+  return report;
+}
+async function listReports(status) {
+  const rows = await db.select({
+    id: circleReports.id,
+    circleId: circleReports.circleId,
+    circleName: circles.name,
+    reportedBy: circleReports.reportedBy,
+    reason: circleReports.reason,
+    status: circleReports.status,
+    resolvedBy: circleReports.resolvedBy,
+    resolvedAt: circleReports.resolvedAt,
+    createdAt: circleReports.createdAt
+  }).from(circleReports).innerJoin(circles, eq15(circleReports.circleId, circles.id)).where(status ? eq15(circleReports.status, status) : void 0).orderBy(desc13(circleReports.id)).limit(200);
+  return rows;
+}
+async function resolveReport(reportId, estado, adminId) {
+  const [updated] = await db.update(circleReports).set({ status: estado, resolvedBy: adminId, resolvedAt: (/* @__PURE__ */ new Date()).toISOString() }).where(eq15(circleReports.id, reportId)).returning();
+  return updated;
+}
+
+// server/routes-circulos.ts
+var CELULA_JOIN_MESSAGE = "A una c\xE9lula se entra con invitaci\xF3n de alguien de adentro. Pedile el c\xF3digo o el QR a quien te invit\xF3.";
+var REAL_NAME_MESSAGE = "Las c\xE9lulas piden nombre real. Complet\xE1 tu perfil primero.";
+var reportRateLimit = rateLimit4({
+  windowMs: 15 * 60 * 1e3,
+  max: 5,
+  message: { message: "Mandaste muchos reportes seguidos. Esper\xE1 unos minutos y segu\xED." },
+  standardHeaders: true,
+  legacyHeaders: false
+});
+function parseId2(raw) {
+  const id = parseInt(raw, 10);
+  return Number.isInteger(id) && id > 0 ? id : null;
+}
+function zodMessage(error) {
+  return error.errors[0]?.message ?? "Datos inv\xE1lidos";
+}
+async function lacksRealName(userId) {
+  const user = await storage.getUser(userId);
+  if (!user) return true;
+  const name = (user.name ?? "").trim();
+  return !name || name.toLowerCase() === user.username.toLowerCase();
+}
+function registerCirculosRoutes(app2) {
+  app2.get("/api/circulos", publicReadRateLimit, optionalAuth, async (req, res) => {
+    try {
+      const q = req.query;
+      const num = (v) => {
+        if (typeof v !== "string" || v.trim() === "") return void 0;
+        const n = Number(v);
+        return Number.isFinite(n) ? n : void 0;
+      };
+      const str = (v) => typeof v === "string" && v.trim() !== "" ? v.trim() : void 0;
+      const results = await listCircles(
+        {
+          kind: str(q.kind),
+          province: str(q.province),
+          city: str(q.city),
+          theme: str(q.theme),
+          q: str(q.q),
+          lat: num(q.lat),
+          lng: num(q.lng),
+          radiusKm: num(q.radiusKm)
+        },
+        req.user?.userId ?? null
+      );
+      return res.json({ circulos: results, total: results.length });
+    } catch (error) {
+      console.error("[circulos] list error:", error);
+      return res.status(500).json({ message: "No pudimos cargar los c\xEDrculos. Prob\xE1 de nuevo." });
+    }
+  });
+  app2.post("/api/circulos", authenticateToken, sanitizeInput, async (req, res) => {
+    try {
+      const input = crearCirculoSchema.parse(req.body);
+      const userId = req.user.userId;
+      if (input.kind === "celula" && await lacksRealName(userId)) {
+        return res.status(400).json({ message: REAL_NAME_MESSAGE, code: "REAL_NAME_REQUIRED" });
+      }
+      const circle = await createCircle(input, userId);
+      return res.status(201).json(circle);
+    } catch (error) {
+      if (error instanceof z8.ZodError) {
+        return res.status(400).json({ message: zodMessage(error) });
+      }
+      console.error("[circulos] create error:", error);
+      return res.status(500).json({ message: "No pudimos crear el c\xEDrculo. Prob\xE1 de nuevo." });
+    }
+  });
+  app2.post("/api/circulos/invitaciones/canjear", authenticateToken, sanitizeInput, async (req, res) => {
+    try {
+      const { code } = canjearInviteSchema.parse(req.body);
+      const userId = req.user.userId;
+      const invite = await getInviteByCode(code);
+      if (!invite) {
+        return res.status(404).json({ message: "Ese c\xF3digo no corresponde a ninguna invitaci\xF3n." });
+      }
+      const usable = isInviteUsable(invite);
+      if (!usable.usable) {
+        return res.status(410).json({ message: usable.message });
+      }
+      const circle = await getCircleById(invite.circleId);
+      if (!circle) {
+        return res.status(404).json({ message: "El c\xEDrculo de esa invitaci\xF3n ya no existe." });
+      }
+      const existing = await getMembership(circle.id, userId);
+      if (existing) {
+        return res.status(409).json({ message: "Ya sos parte de este c\xEDrculo." });
+      }
+      const isCelula = circle.kind === "celula";
+      if (isCelula && await lacksRealName(userId)) {
+        return res.status(400).json({ message: REAL_NAME_MESSAGE, code: "REAL_NAME_REQUIRED" });
+      }
+      const member = await joinCircle(circle.id, userId, isCelula);
+      await incrementInviteUses(invite.id);
+      return res.status(201).json({
+        ok: true,
+        circulo: { id: circle.id, name: circle.name, kind: circle.kind },
+        role: member.role
+      });
+    } catch (error) {
+      if (error instanceof z8.ZodError) {
+        return res.status(400).json({ message: zodMessage(error) });
+      }
+      console.error("[circulos] canjear error:", error);
+      return res.status(500).json({ message: "No pudimos canjear la invitaci\xF3n. Prob\xE1 de nuevo." });
+    }
+  });
+  app2.get("/api/circulos/:id", publicReadRateLimit, optionalAuth, async (req, res) => {
+    try {
+      const id = parseId2(req.params.id);
+      if (!id) return res.status(400).json({ message: "C\xEDrculo inv\xE1lido" });
+      const circle = await getCircleById(id);
+      if (!circle) return res.status(404).json({ message: "Ese c\xEDrculo no existe." });
+      const userId = req.user?.userId ?? null;
+      const membership = userId ? await getMembership(id, userId) : void 0;
+      if ((circle.kind === "celula" || circle.isPrivate) && !membership) {
+        return res.status(404).json({ message: "Ese c\xEDrculo no existe." });
+      }
+      const memberCount = await countMembers(id);
+      return res.json({
+        ...circle,
+        memberCount,
+        isMember: Boolean(membership),
+        role: membership?.role ?? null
+      });
+    } catch (error) {
+      console.error("[circulos] detail error:", error);
+      return res.status(500).json({ message: "No pudimos cargar el c\xEDrculo. Prob\xE1 de nuevo." });
+    }
+  });
+  app2.patch("/api/circulos/:id", authenticateToken, sanitizeInput, async (req, res) => {
+    try {
+      const id = parseId2(req.params.id);
+      if (!id) return res.status(400).json({ message: "C\xEDrculo inv\xE1lido" });
+      const circle = await getCircleById(id);
+      if (!circle) return res.status(404).json({ message: "Ese c\xEDrculo no existe." });
+      const membership = await getMembership(id, req.user.userId);
+      if (!membership && (circle.kind === "celula" || circle.isPrivate)) {
+        return res.status(404).json({ message: "Ese c\xEDrculo no existe." });
+      }
+      if (membership?.role !== "coordinador") {
+        return res.status(403).json({ message: "Solo quien coordina puede editar el c\xEDrculo." });
+      }
+      const input = actualizarCirculoSchema.parse(req.body);
+      const updated = await updateCircle(id, input);
+      return res.json(updated);
+    } catch (error) {
+      if (error instanceof z8.ZodError) {
+        return res.status(400).json({ message: zodMessage(error) });
+      }
+      console.error("[circulos] update error:", error);
+      return res.status(500).json({ message: "No pudimos actualizar el c\xEDrculo. Prob\xE1 de nuevo." });
+    }
+  });
+  app2.post("/api/circulos/:id/unirse", authenticateToken, async (req, res) => {
+    try {
+      const id = parseId2(req.params.id);
+      if (!id) return res.status(400).json({ message: "C\xEDrculo inv\xE1lido" });
+      const circle = await getCircleById(id);
+      if (!circle) return res.status(404).json({ message: "Ese c\xEDrculo no existe." });
+      if (circle.kind === "celula") {
+        return res.status(403).json({ message: CELULA_JOIN_MESSAGE, code: "INVITE_REQUIRED" });
+      }
+      const userId = req.user.userId;
+      const existing = await getMembership(id, userId);
+      if (existing) {
+        return res.status(409).json({ message: "Ya sos parte de este c\xEDrculo." });
+      }
+      const member = await joinCircle(id, userId, false);
+      return res.status(201).json({ ok: true, role: member.role });
+    } catch (error) {
+      console.error("[circulos] unirse error:", error);
+      return res.status(500).json({ message: "No pudimos sumarte al c\xEDrculo. Prob\xE1 de nuevo." });
+    }
+  });
+  app2.post("/api/circulos/:id/salir", authenticateToken, async (req, res) => {
+    try {
+      const id = parseId2(req.params.id);
+      if (!id) return res.status(400).json({ message: "C\xEDrculo inv\xE1lido" });
+      const result = await leaveCircle(id, req.user.userId);
+      if (!result.ok) {
+        return res.status(400).json({ message: result.message });
+      }
+      return res.json({ ok: true });
+    } catch (error) {
+      console.error("[circulos] salir error:", error);
+      return res.status(500).json({ message: "No pudimos procesar tu salida. Prob\xE1 de nuevo." });
+    }
+  });
+  app2.get("/api/circulos/:id/miembros", publicReadRateLimit, optionalAuth, async (req, res) => {
+    try {
+      const id = parseId2(req.params.id);
+      if (!id) return res.status(400).json({ message: "C\xEDrculo inv\xE1lido" });
+      const circle = await getCircleById(id);
+      if (!circle) return res.status(404).json({ message: "Ese c\xEDrculo no existe." });
+      const userId = req.user?.userId ?? null;
+      const membership = userId ? await getMembership(id, userId) : void 0;
+      if ((circle.kind === "celula" || circle.isPrivate) && !membership) {
+        return res.status(404).json({ message: "Ese c\xEDrculo no existe." });
+      }
+      const miembros = await listMembers(id);
+      return res.json({ miembros, total: miembros.length });
+    } catch (error) {
+      console.error("[circulos] miembros error:", error);
+      return res.status(500).json({ message: "No pudimos cargar los miembros. Prob\xE1 de nuevo." });
+    }
+  });
+  app2.post("/api/circulos/:id/invitaciones", authenticateToken, sanitizeInput, async (req, res) => {
+    try {
+      const id = parseId2(req.params.id);
+      if (!id) return res.status(400).json({ message: "C\xEDrculo inv\xE1lido" });
+      const circle = await getCircleById(id);
+      if (!circle) return res.status(404).json({ message: "Ese c\xEDrculo no existe." });
+      const membership = await getMembership(id, req.user.userId);
+      if (!membership && (circle.kind === "celula" || circle.isPrivate)) {
+        return res.status(404).json({ message: "Ese c\xEDrculo no existe." });
+      }
+      if (membership?.role !== "coordinador") {
+        return res.status(403).json({ message: "Solo quien coordina puede generar invitaciones." });
+      }
+      const opts = crearInviteSchema.parse(req.body ?? {});
+      const invite = await createInvite(id, req.user.userId, opts);
+      return res.status(201).json({
+        code: invite.code,
+        maxUses: invite.maxUses,
+        uses: invite.uses,
+        expiresAt: invite.expiresAt
+      });
+    } catch (error) {
+      if (error instanceof z8.ZodError) {
+        return res.status(400).json({ message: zodMessage(error) });
+      }
+      console.error("[circulos] invitaciones error:", error);
+      return res.status(500).json({ message: "No pudimos generar la invitaci\xF3n. Prob\xE1 de nuevo." });
+    }
+  });
+  app2.post("/api/circulos/:id/reportar", reportRateLimit, authenticateToken, sanitizeInput, async (req, res) => {
+    try {
+      const id = parseId2(req.params.id);
+      if (!id) return res.status(400).json({ message: "C\xEDrculo inv\xE1lido" });
+      const circle = await getCircleById(id);
+      if (!circle) return res.status(404).json({ message: "Ese c\xEDrculo no existe." });
+      const { reason } = reportarSchema.parse(req.body);
+      const report = await createReport(id, req.user.userId, reason);
+      return res.status(201).json({ ok: true, id: report.id });
+    } catch (error) {
+      if (error instanceof z8.ZodError) {
+        return res.status(400).json({ message: zodMessage(error) });
+      }
+      console.error("[circulos] reportar error:", error);
+      return res.status(500).json({ message: "No pudimos registrar el reporte. Prob\xE1 de nuevo." });
+    }
+  });
+  app2.get("/api/admin/circulos/reportes", authenticateToken, requireAdmin, async (req, res) => {
+    try {
+      const status = typeof req.query.status === "string" && ["pendiente", "resuelto", "descartado"].includes(req.query.status) ? req.query.status : void 0;
+      const reportes = await listReports(status);
+      return res.json({ reportes, total: reportes.length });
+    } catch (error) {
+      console.error("[circulos] admin reportes error:", error);
+      return res.status(500).json({ message: "No pudimos cargar los reportes. Prob\xE1 de nuevo." });
+    }
+  });
+  app2.post("/api/admin/circulos/reportes/:id/resolver", authenticateToken, requireAdmin, sanitizeInput, async (req, res) => {
+    try {
+      const id = parseId2(req.params.id);
+      if (!id) return res.status(400).json({ message: "Reporte inv\xE1lido" });
+      const { estado } = resolverReporteSchema.parse(req.body);
+      const updated = await resolveReport(id, estado, req.user.userId);
+      if (!updated) return res.status(404).json({ message: "Ese reporte no existe." });
+      return res.json({ ok: true, reporte: updated });
+    } catch (error) {
+      if (error instanceof z8.ZodError) {
+        return res.status(400).json({ message: zodMessage(error) });
+      }
+      console.error("[circulos] admin resolver error:", error);
+      return res.status(500).json({ message: "No pudimos resolver el reporte. Prob\xE1 de nuevo." });
+    }
+  });
+}
+
+// server/routes-campanas.ts
+init_auth();
+import { z as z10 } from "zod";
+import rateLimit5 from "express-rate-limit";
+init_geo_service();
+init_geo_resolver();
+
+// server/lib/campanas.ts
+import { z as z9 } from "zod";
+
+// shared/campaign-forms.ts
+var CAMPAIGN_FIELD_TYPES = ["text", "number", "select", "photo", "rating"];
+var MAX_CAMPAIGN_FIELDS = 12;
+var CAMPAIGN_STATUS_FLOW = {
+  borrador: ["activa"],
+  activa: ["verificacion", "cerrada"],
+  verificacion: ["cerrada"],
+  cerrada: []
+};
+
+// server/lib/campanas.ts
+var CAMPAIGN_TYPES = ["relevamiento", "consulta"];
+var ALLOWED_PHOTO_HOST = "res.cloudinary.com";
+function isAllowedPhotoUrl(url) {
+  try {
+    const parsed = new URL(url);
+    return parsed.protocol === "https:" && parsed.hostname === ALLOWED_PHOTO_HOST;
+  } catch {
+    return false;
+  }
+}
+var photoUrlZod = z9.string().trim().max(500, "La URL de la foto es demasiado larga").refine(isAllowedPhotoUrl, "La foto tiene que estar subida a nuestro servicio de im\xE1genes (res.cloudinary.com)");
+var campaignFieldZod = z9.object({
+  key: z9.string().trim().min(1, "Cada campo necesita una clave").max(40, "La clave del campo no puede superar 40 caracteres").regex(/^[a-z][a-z0-9_]*$/, "Las claves van en snake_case: min\xFAsculas, n\xFAmeros y guiones bajos"),
+  label: z9.string().trim().min(1, "Cada campo necesita una pregunta o etiqueta").max(200, "La etiqueta no puede superar 200 caracteres"),
+  type: z9.enum(CAMPAIGN_FIELD_TYPES, {
+    errorMap: () => ({ message: "Tipo de campo inv\xE1lido: text, number, select, photo o rating" })
+  }),
+  required: z9.boolean(),
+  options: z9.array(z9.string().trim().min(1).max(120)).max(24, "M\xE1ximo 24 opciones por campo").optional(),
+  max: z9.coerce.number().int().min(2, "La escala arranca en 2 como m\xEDnimo").max(10, "La escala llega hasta 10").optional(),
+  hint: z9.string().trim().max(200, "La ayuda no puede superar 200 caracteres").optional()
+});
+var campaignFormSchemaZod = z9.object({
+  fields: z9.array(campaignFieldZod).min(1, "El formulario necesita al menos un campo").max(MAX_CAMPAIGN_FIELDS, `M\xE1ximo ${MAX_CAMPAIGN_FIELDS} campos \u2014 las campa\xF1as se cargan en la calle`)
+}).superRefine((form, ctx) => {
+  const seen = /* @__PURE__ */ new Set();
+  form.fields.forEach((field, i) => {
+    if (seen.has(field.key)) {
+      ctx.addIssue({
+        code: z9.ZodIssueCode.custom,
+        path: ["fields", i, "key"],
+        message: `La clave "${field.key}" est\xE1 repetida \u2014 cada campo necesita una clave \xFAnica`
+      });
+    }
+    seen.add(field.key);
+    if (field.type === "select" && (!field.options || field.options.length < 2)) {
+      ctx.addIssue({
+        code: z9.ZodIssueCode.custom,
+        path: ["fields", i, "options"],
+        message: `El campo "${field.label}" es de opciones: necesita al menos 2 opciones`
+      });
+    }
+  });
+});
+var crearCampanaSchema = z9.object({
+  templateId: z9.coerce.number().int().positive().optional(),
+  type: z9.enum(CAMPAIGN_TYPES, {
+    errorMap: () => ({ message: "Tipo de campa\xF1a inv\xE1lido: relevamiento o consulta" })
+  }),
+  title: z9.string({ required_error: "Pon\xE9 un t\xEDtulo para la campa\xF1a" }).trim().min(3, "El t\xEDtulo necesita al menos 3 caracteres").max(120, "El t\xEDtulo no puede superar 120 caracteres"),
+  description: z9.string().trim().max(1e3, "La descripci\xF3n no puede superar 1000 caracteres").optional(),
+  category: z9.string().trim().max(60, "La categor\xEDa no puede superar 60 caracteres").optional(),
+  formSchema: campaignFormSchemaZod.optional(),
+  mapColor: z9.string().trim().regex(/^#[0-9a-fA-F]{6}$/, "El color va en hex, tipo #7D5BDE").optional(),
+  mapIcon: z9.string().trim().max(40, "\xCDcono inv\xE1lido").optional(),
+  targetEntries: z9.coerce.number().int().min(1, "La meta tiene que ser al menos 1").max(1e5, "Meta demasiado grande").optional(),
+  deadline: z9.string().trim().max(30, "Fecha l\xEDmite inv\xE1lida").optional(),
+  targetProvince: z9.string().trim().max(100, "Provincia inv\xE1lida").optional(),
+  targetCity: z9.string().trim().max(100, "Ciudad inv\xE1lida").optional(),
+  targetLat: z9.coerce.number().min(-90, "Latitud inv\xE1lida").max(90, "Latitud inv\xE1lida").optional(),
+  targetLng: z9.coerce.number().min(-180, "Longitud inv\xE1lida").max(180, "Longitud inv\xE1lida").optional(),
+  targetRadiusKm: z9.coerce.number().min(1, "El radio m\xEDnimo es 1 km").max(1e3, "El radio m\xE1ximo es 1000 km").optional()
+}).superRefine((data, ctx) => {
+  if (!data.templateId && !data.formSchema) {
+    ctx.addIssue({
+      code: z9.ZodIssueCode.custom,
+      path: ["formSchema"],
+      message: "Eleg\xED una plantilla o arm\xE1 el formulario de la campa\xF1a"
+    });
+  }
+  const radiusParts = [data.targetLat, data.targetLng, data.targetRadiusKm];
+  const someRadius = radiusParts.some((v) => v !== void 0);
+  const allRadius = radiusParts.every((v) => v !== void 0);
+  if (someRadius && !allRadius) {
+    ctx.addIssue({
+      code: z9.ZodIssueCode.custom,
+      path: ["targetRadiusKm"],
+      message: "Para apuntar por radio necesit\xE1s latitud, longitud y radio juntos"
+    });
+  }
+});
+var cambiarEstadoSchema = z9.object({
+  estado: z9.enum(["borrador", "activa", "verificacion", "cerrada"], {
+    errorMap: () => ({ message: "Estado inv\xE1lido: borrador, activa, verificacion o cerrada" })
+  })
+});
+function canTransition(from, to) {
+  return (CAMPAIGN_STATUS_FLOW[from] ?? []).includes(to);
+}
+var entradaSchema = z9.object({
+  latitude: z9.coerce.number({ required_error: "Falta la ubicaci\xF3n de la entrada" }).min(-90, "Latitud inv\xE1lida").max(90, "Latitud inv\xE1lida"),
+  longitude: z9.coerce.number({ required_error: "Falta la ubicaci\xF3n de la entrada" }).min(-180, "Longitud inv\xE1lida").max(180, "Longitud inv\xE1lida"),
+  data: z9.record(z9.union([z9.string(), z9.number(), z9.null()]), {
+    required_error: "Faltan las respuestas del formulario",
+    invalid_type_error: "Las respuestas tienen un formato inv\xE1lido"
+  }),
+  anonymous: z9.boolean().optional(),
+  photoUrl: photoUrlZod.optional()
+});
+function validateEntryData(formSchema, data) {
+  const clean = {};
+  for (const field of formSchema.fields) {
+    const raw = data[field.key];
+    const empty = raw === void 0 || raw === null || typeof raw === "string" && raw.trim() === "";
+    if (empty) {
+      if (field.required) {
+        return { ok: false, message: `Te falt\xF3 responder "${field.label}"` };
+      }
+      clean[field.key] = null;
+      continue;
+    }
+    const err = validateFieldValue(field, raw);
+    if (err) return { ok: false, message: err };
+    clean[field.key] = typeof raw === "string" ? raw.trim() : raw;
+  }
+  return { ok: true, data: clean };
+}
+function validateFieldValue(field, value) {
+  switch (field.type) {
+    case "text": {
+      if (typeof value !== "string") return `"${field.label}" espera texto`;
+      if (value.trim().length > 1e3) return `"${field.label}" no puede superar 1000 caracteres`;
+      return null;
+    }
+    case "number": {
+      const n = typeof value === "number" ? value : Number(value);
+      if (!Number.isFinite(n)) return `"${field.label}" espera un n\xFAmero`;
+      return null;
+    }
+    case "select": {
+      if (typeof value !== "string") return `"${field.label}" espera una de las opciones`;
+      if (!field.options?.includes(value)) {
+        return `"${value}" no es una opci\xF3n v\xE1lida para "${field.label}"`;
+      }
+      return null;
+    }
+    case "photo": {
+      if (typeof value !== "string" || !isAllowedPhotoUrl(value)) {
+        return `La foto de "${field.label}" tiene que estar subida a nuestro servicio de im\xE1genes`;
+      }
+      return null;
+    }
+    case "rating": {
+      const max = field.max ?? 5;
+      const n = typeof value === "number" ? value : Number(value);
+      if (!Number.isInteger(n) || n < 1 || n > max) {
+        return `"${field.label}" espera un puntaje entero entre 1 y ${max}`;
+      }
+      return null;
+    }
+    default:
+      return `Tipo de campo desconocido en "${field.label}"`;
+  }
+}
+function parseFormSchema(raw) {
+  if (!raw) return null;
+  try {
+    const parsed = JSON.parse(raw);
+    if (parsed && Array.isArray(parsed.fields)) return parsed;
+    return null;
+  } catch {
+    return null;
+  }
+}
+function firstTextAnswer(formSchema, data) {
+  if (!formSchema || !data) return null;
+  for (const field of formSchema.fields) {
+    if (field.type !== "text") continue;
+    const value = data[field.key];
+    if (typeof value === "string" && value.trim()) return value;
+  }
+  return null;
+}
+
+// server/services/campanas-service.ts
+init_db();
+init_schema();
+import { and as and13, desc as desc14, eq as eq16, inArray as inArray5, sql as sql12 } from "drizzle-orm";
+var MAX_CAMPAIGN_RESULTS = 200;
+var MAX_LAYER_POINTS = 5e3;
+async function listTemplates() {
+  return db.select().from(campaignTemplates).where(eq16(campaignTemplates.isActive, true)).orderBy(campaignTemplates.id);
+}
+async function getTemplateById(id) {
+  const [template] = await db.select().from(campaignTemplates).where(eq16(campaignTemplates.id, id)).limit(1);
+  return template;
+}
+async function createCampaign(circleId, input, formSchema, defaults, userId) {
+  const [campaign] = await db.insert(campaigns).values({
+    circleId,
+    templateId: input.templateId ?? null,
+    type: input.type,
+    title: input.title,
+    description: input.description ?? null,
+    category: input.category ?? defaults.category ?? null,
+    formSchema: JSON.stringify(formSchema),
+    mapColor: input.mapColor ?? defaults.mapColor ?? null,
+    mapIcon: input.mapIcon ?? defaults.mapIcon ?? null,
+    status: "borrador",
+    targetEntries: input.targetEntries ?? null,
+    deadline: input.deadline ?? null,
+    targetProvince: input.targetProvince ?? null,
+    targetCity: input.targetCity ?? null,
+    targetLat: input.targetLat ?? null,
+    targetLng: input.targetLng ?? null,
+    targetRadiusKm: input.targetRadiusKm ?? null,
+    createdBy: userId
+  }).returning();
+  return campaign;
+}
+async function listCampaigns(filters) {
+  const conds = [];
+  const status = filters.status ?? "activa";
+  if (status !== "todas") conds.push(eq16(campaigns.status, status));
+  if (filters.type) conds.push(eq16(campaigns.type, filters.type));
+  if (filters.province) {
+    conds.push(sql12`coalesce(${campaigns.targetProvince}, ${circles.province}) = ${filters.province}`);
+  }
+  if (filters.city) {
+    conds.push(sql12`coalesce(${campaigns.targetCity}, ${circles.city}) = ${filters.city}`);
+  }
+  const rows = await db.select({
+    campaign: campaigns,
+    circleName: circles.name,
+    entryCount: sql12`(select count(*)::int from campaign_entries ce where ce.campaign_id = ${campaigns.id})`
+  }).from(campaigns).innerJoin(circles, eq16(campaigns.circleId, circles.id)).where(conds.length ? and13(...conds) : void 0).orderBy(desc14(campaigns.id)).limit(MAX_CAMPAIGN_RESULTS);
+  return rows.map((r) => ({ ...r.campaign, circleName: r.circleName, entryCount: r.entryCount }));
+}
+async function getCampaignById(id) {
+  const [campaign] = await db.select().from(campaigns).where(eq16(campaigns.id, id)).limit(1);
+  return campaign;
+}
+async function getCampaignWithCircle(id) {
+  const [row] = await db.select({
+    campaign: campaigns,
+    circleName: circles.name,
+    circleKind: circles.kind,
+    entryCount: sql12`(select count(*)::int from campaign_entries ce where ce.campaign_id = ${campaigns.id})`
+  }).from(campaigns).innerJoin(circles, eq16(campaigns.circleId, circles.id)).where(eq16(campaigns.id, id)).limit(1);
+  if (!row) return void 0;
+  return { ...row.campaign, circleName: row.circleName, circleKind: row.circleKind, entryCount: row.entryCount };
+}
+async function updateCampaignStatus(id, estado) {
+  const [updated] = await db.update(campaigns).set({ status: estado, updatedAt: (/* @__PURE__ */ new Date()).toISOString() }).where(eq16(campaigns.id, id)).returning();
+  return updated;
+}
+async function createEntry(entry) {
+  const [created] = await db.insert(campaignEntries).values({
+    campaignId: entry.campaignId,
+    submittedBy: entry.submittedBy,
+    anonymous: entry.anonymous,
+    latitude: entry.latitude,
+    longitude: entry.longitude,
+    province: entry.province,
+    city: entry.city,
+    data: JSON.stringify(entry.data),
+    photoUrl: entry.photoUrl,
+    status: "pendiente"
+  }).returning();
+  return created;
+}
+async function getEntryById(id) {
+  const [entry] = await db.select().from(campaignEntries).where(eq16(campaignEntries.id, id)).limit(1);
+  return entry;
+}
+async function listEntries(campaignId, circleId, viewerIsMember, pagination) {
+  const [rows, [countRow]] = await Promise.all([
+    db.select({
+      entry: campaignEntries,
+      submitterName: users.name,
+      submitterUsername: users.username,
+      submitterDisplayRealName: circleMembers.displayRealName
+    }).from(campaignEntries).leftJoin(users, eq16(campaignEntries.submittedBy, users.id)).leftJoin(
+      circleMembers,
+      and13(eq16(circleMembers.userId, campaignEntries.submittedBy), eq16(circleMembers.circleId, circleId))
+    ).where(eq16(campaignEntries.campaignId, campaignId)).orderBy(desc14(campaignEntries.id)).limit(pagination.limit).offset(pagination.offset),
+    db.select({ count: sql12`count(*)::int` }).from(campaignEntries).where(eq16(campaignEntries.campaignId, campaignId))
+  ]);
+  const entradas = rows.map((row) => {
+    let submittedByName = null;
+    if (viewerIsMember && !row.entry.anonymous && row.entry.submittedBy != null) {
+      submittedByName = row.submitterDisplayRealName ? row.submitterName ?? row.submitterUsername : row.submitterUsername;
+    }
+    let data = null;
+    try {
+      data = JSON.parse(row.entry.data);
+    } catch {
+      data = null;
+    }
+    return {
+      id: row.entry.id,
+      latitude: row.entry.latitude,
+      longitude: row.entry.longitude,
+      province: row.entry.province,
+      city: row.entry.city,
+      data,
+      photoUrl: row.entry.photoUrl,
+      status: row.entry.status,
+      createdAt: row.entry.createdAt,
+      submittedByName
+    };
+  });
+  return { entradas, total: countRow?.count ?? 0 };
+}
+async function verifyEntry(entryId, verifierId) {
+  const [updated] = await db.update(campaignEntries).set({ status: "verificada", verifiedBy: verifierId, verifiedAt: (/* @__PURE__ */ new Date()).toISOString() }).where(eq16(campaignEntries.id, entryId)).returning();
+  return updated;
+}
+async function computeProgress(campaign) {
+  const [[totals], byProvince, byCity] = await Promise.all([
+    db.select({
+      entries: sql12`count(*)::int`,
+      verified: sql12`count(*) filter (where ${campaignEntries.status} = 'verificada')::int`
+    }).from(campaignEntries).where(eq16(campaignEntries.campaignId, campaign.id)),
+    db.select({ province: campaignEntries.province, count: sql12`count(*)::int` }).from(campaignEntries).where(and13(eq16(campaignEntries.campaignId, campaign.id), sql12`${campaignEntries.province} is not null`)).groupBy(campaignEntries.province).orderBy(desc14(sql12`count(*)`)).limit(30),
+    db.select({ city: campaignEntries.city, count: sql12`count(*)::int` }).from(campaignEntries).where(and13(eq16(campaignEntries.campaignId, campaign.id), sql12`${campaignEntries.city} is not null`)).groupBy(campaignEntries.city).orderBy(desc14(sql12`count(*)`)).limit(30)
+  ]);
+  const entries = totals?.entries ?? 0;
+  const verified = totals?.verified ?? 0;
+  return {
+    campaignId: campaign.id,
+    status: campaign.status,
+    entries,
+    targetEntries: campaign.targetEntries,
+    progressPct: campaign.targetEntries ? Math.min(100, Math.round(entries / campaign.targetEntries * 100)) : null,
+    verified,
+    verifiedPct: entries > 0 ? Math.round(verified / entries * 100) : 0,
+    byProvince: byProvince.filter((r) => Boolean(r.province)).map((r) => ({ province: r.province, count: r.count })),
+    byCity: byCity.filter((r) => Boolean(r.city)).map((r) => ({ city: r.city, count: r.count }))
+  };
+}
+var LAYER_STATUSES = ["activa", "verificacion", "cerrada"];
+var DEFAULT_LAYER_COLOR = "#7D5BDE";
+async function computeCampaignLayers() {
+  const visibleCampaigns = await db.select().from(campaigns).where(inArray5(campaigns.status, LAYER_STATUSES)).orderBy(desc14(campaigns.id)).limit(MAX_CAMPAIGN_RESULTS);
+  if (visibleCampaigns.length === 0) return { layers: [], total: 0 };
+  const entryRows = await db.select({
+    id: campaignEntries.id,
+    campaignId: campaignEntries.campaignId,
+    latitude: campaignEntries.latitude,
+    longitude: campaignEntries.longitude,
+    province: campaignEntries.province,
+    city: campaignEntries.city,
+    status: campaignEntries.status,
+    data: campaignEntries.data,
+    createdAt: campaignEntries.createdAt
+  }).from(campaignEntries).where(
+    and13(
+      inArray5(campaignEntries.campaignId, visibleCampaigns.map((c) => c.id)),
+      sql12`${campaignEntries.status} != 'rechazada'`,
+      sql12`${campaignEntries.latitude} is not null`,
+      sql12`${campaignEntries.longitude} is not null`
+    )
+  ).orderBy(desc14(campaignEntries.id)).limit(MAX_LAYER_POINTS);
+  const formSchemas = /* @__PURE__ */ new Map();
+  for (const campaign of visibleCampaigns) {
+    formSchemas.set(campaign.id, parseFormSchema(campaign.formSchema));
+  }
+  const pointsByCampaign = /* @__PURE__ */ new Map();
+  for (const row of entryRows) {
+    if (row.latitude == null || row.longitude == null) continue;
+    let data = null;
+    try {
+      data = JSON.parse(row.data);
+    } catch {
+      data = null;
+    }
+    const rawText = firstTextAnswer(formSchemas.get(row.campaignId) ?? null, data);
+    const point = {
+      id: row.id,
+      lat: row.latitude,
+      lng: row.longitude,
+      province: row.province,
+      city: row.city,
+      status: row.status,
+      excerpt: rawText ? excerptSignalText(rawText) : null,
+      createdAt: row.createdAt
+    };
+    const bucket = pointsByCampaign.get(row.campaignId);
+    if (bucket) bucket.push(point);
+    else pointsByCampaign.set(row.campaignId, [point]);
+  }
+  const layers = visibleCampaigns.map((campaign) => ({
+    campaignId: campaign.id,
+    title: campaign.title,
+    type: campaign.type,
+    status: campaign.status,
+    category: campaign.category,
+    color: campaign.mapColor ?? DEFAULT_LAYER_COLOR,
+    icon: campaign.mapIcon,
+    points: pointsByCampaign.get(campaign.id) ?? []
+  })).filter((layer) => layer.points.length > 0);
+  const total = layers.reduce((acc, layer) => acc + layer.points.length, 0);
+  return { layers, total };
+}
+
+// server/routes-campanas.ts
+var entrySubmitRateLimit = rateLimit5({
+  windowMs: 15 * 60 * 1e3,
+  max: 12,
+  message: { message: "Mandaste muchas entradas seguidas. Esper\xE1 unos minutos y segu\xED relevando." },
+  standardHeaders: true,
+  legacyHeaders: false
+});
+var plantillasCache = null;
+var PLANTILLAS_TTL = 15 * 60 * 1e3;
+var progresoCache = /* @__PURE__ */ new Map();
+var PROGRESO_TTL = 60 * 1e3;
+var PROGRESO_CACHE_MAX = 500;
+function isCacheFresh3(entry, ttl) {
+  if (!entry) return false;
+  return Date.now() - entry.generatedAt.getTime() < ttl;
+}
+function parseId3(raw) {
+  const id = parseInt(raw, 10);
+  return Number.isInteger(id) && id > 0 ? id : null;
+}
+function zodMessage2(error) {
+  return error.errors[0]?.message ?? "Datos inv\xE1lidos";
+}
+function registerCampanasRoutes(app2) {
+  app2.get("/api/campanas/plantillas", publicReadRateLimit, async (_req, res) => {
+    try {
+      if (isCacheFresh3(plantillasCache, PLANTILLAS_TTL)) {
+        return res.json(plantillasCache.data);
+      }
+      const templates = await listTemplates();
+      const plantillas = templates.map((t) => ({
+        id: t.id,
+        slug: t.slug,
+        type: t.type,
+        title: t.title,
+        description: t.description,
+        category: t.category,
+        formSchema: parseFormSchema(t.formSchema),
+        mapColor: t.mapColor,
+        mapIcon: t.mapIcon
+      }));
+      const data = { plantillas, total: plantillas.length };
+      plantillasCache = { data, generatedAt: /* @__PURE__ */ new Date() };
+      return res.json(data);
+    } catch (error) {
+      console.error("[campanas] plantillas error:", error);
+      return res.status(500).json({ message: "No pudimos cargar las plantillas. Prob\xE1 de nuevo." });
+    }
+  });
+  app2.post("/api/circulos/:id/campanas", authenticateToken, sanitizeInput, async (req, res) => {
+    try {
+      const circleId = parseId3(req.params.id);
+      if (!circleId) return res.status(400).json({ message: "C\xEDrculo inv\xE1lido" });
+      const circle = await getCircleById(circleId);
+      if (!circle) return res.status(404).json({ message: "Ese c\xEDrculo no existe." });
+      const userId = req.user.userId;
+      const membership = await getMembership(circleId, userId);
+      if (!membership) {
+        if (circle.kind === "celula" || circle.isPrivate) {
+          return res.status(404).json({ message: "Ese c\xEDrculo no existe." });
+        }
+        return res.status(403).json({ message: "Ten\xE9s que ser parte del c\xEDrculo para lanzar campa\xF1as." });
+      }
+      if (circle.governance === "coordinado" && membership.role !== "coordinador") {
+        return res.status(403).json({
+          message: "En este c\xEDrculo las campa\xF1as las lanzan los coordinadores. Propon\xE9sela a quien coordina."
+        });
+      }
+      const input = crearCampanaSchema.parse(req.body);
+      let formSchema = input.formSchema ?? null;
+      let defaults = {};
+      if (input.templateId) {
+        const template = await getTemplateById(input.templateId);
+        if (!template || template.isActive === false) {
+          return res.status(404).json({ message: "Esa plantilla no existe o ya no est\xE1 disponible." });
+        }
+        if (template.type !== input.type) {
+          return res.status(400).json({
+            message: `Esa plantilla es de ${template.type} y la campa\xF1a es de ${input.type}. Tienen que coincidir.`
+          });
+        }
+        if (!formSchema) formSchema = parseFormSchema(template.formSchema);
+        defaults = { category: template.category, mapColor: template.mapColor, mapIcon: template.mapIcon };
+      }
+      if (!formSchema) {
+        return res.status(400).json({ message: "Eleg\xED una plantilla o arm\xE1 el formulario de la campa\xF1a" });
+      }
+      const campaign = await createCampaign(circleId, input, formSchema, defaults, userId);
+      return res.status(201).json(campaign);
+    } catch (error) {
+      if (error instanceof z10.ZodError) {
+        return res.status(400).json({ message: zodMessage2(error) });
+      }
+      console.error("[campanas] create error:", error);
+      return res.status(500).json({ message: "No pudimos crear la campa\xF1a. Prob\xE1 de nuevo." });
+    }
+  });
+  app2.get("/api/campanas", publicReadRateLimit, async (req, res) => {
+    try {
+      const str = (v) => typeof v === "string" && v.trim() !== "" ? v.trim() : void 0;
+      const results = await listCampaigns({
+        status: str(req.query.status),
+        type: str(req.query.type),
+        province: str(req.query.province),
+        city: str(req.query.city)
+      });
+      const campanasOut = results.map((c) => ({ ...c, formSchema: void 0 }));
+      return res.json({ campanas: campanasOut, total: campanasOut.length });
+    } catch (error) {
+      console.error("[campanas] list error:", error);
+      return res.status(500).json({ message: "No pudimos cargar las campa\xF1as. Prob\xE1 de nuevo." });
+    }
+  });
+  app2.get("/api/campanas/:id", publicReadRateLimit, async (req, res) => {
+    try {
+      const id = parseId3(req.params.id);
+      if (!id) return res.status(400).json({ message: "Campa\xF1a inv\xE1lida" });
+      const campaign = await getCampaignWithCircle(id);
+      if (!campaign) return res.status(404).json({ message: "Esa campa\xF1a no existe." });
+      return res.json({ ...campaign, formSchema: parseFormSchema(campaign.formSchema) });
+    } catch (error) {
+      console.error("[campanas] detail error:", error);
+      return res.status(500).json({ message: "No pudimos cargar la campa\xF1a. Prob\xE1 de nuevo." });
+    }
+  });
+  app2.post("/api/campanas/:id/estado", authenticateToken, sanitizeInput, async (req, res) => {
+    try {
+      const id = parseId3(req.params.id);
+      if (!id) return res.status(400).json({ message: "Campa\xF1a inv\xE1lida" });
+      const campaign = await getCampaignById(id);
+      if (!campaign) return res.status(404).json({ message: "Esa campa\xF1a no existe." });
+      const userId = req.user.userId;
+      const membership = await getMembership(campaign.circleId, userId);
+      const isCreator = campaign.createdBy === userId;
+      const isCoordinator = membership?.role === "coordinador";
+      if (!isCreator && !isCoordinator) {
+        return res.status(403).json({ message: "Solo quien cre\xF3 la campa\xF1a o coordina el c\xEDrculo puede cambiar su estado." });
+      }
+      const { estado } = cambiarEstadoSchema.parse(req.body);
+      if (!canTransition(campaign.status, estado)) {
+        return res.status(400).json({
+          message: `Una campa\xF1a ${campaign.status} no puede pasar a ${estado}. Los estados solo avanzan.`
+        });
+      }
+      const updated = await updateCampaignStatus(id, estado);
+      progresoCache.delete(id);
+      return res.json(updated);
+    } catch (error) {
+      if (error instanceof z10.ZodError) {
+        return res.status(400).json({ message: zodMessage2(error) });
+      }
+      console.error("[campanas] estado error:", error);
+      return res.status(500).json({ message: "No pudimos cambiar el estado. Prob\xE1 de nuevo." });
+    }
+  });
+  app2.post("/api/campanas/:id/entradas", entrySubmitRateLimit, authenticateToken, sanitizeInput, async (req, res) => {
+    try {
+      const id = parseId3(req.params.id);
+      if (!id) return res.status(400).json({ message: "Campa\xF1a inv\xE1lida" });
+      const campaign = await getCampaignById(id);
+      if (!campaign) return res.status(404).json({ message: "Esa campa\xF1a no existe." });
+      if (campaign.status !== "activa") {
+        return res.status(409).json({ message: "Esta campa\xF1a no est\xE1 recibiendo entradas en este momento." });
+      }
+      const userId = req.user.userId;
+      const input = entradaSchema.parse(req.body);
+      const resolved = await resolveSignalGeo(input.latitude, input.longitude);
+      if (campaign.type === "relevamiento") {
+        const membership = await getMembership(campaign.circleId, userId);
+        if (!membership) {
+          return res.status(403).json({
+            message: "Este relevamiento lo carga la gente del c\xEDrculo. Sumate al c\xEDrculo primero."
+          });
+        }
+      } else {
+        const checks = [];
+        if (campaign.targetLat != null && campaign.targetLng != null && campaign.targetRadiusKm != null) {
+          checks.push(
+            haversineKm(input.latitude, input.longitude, campaign.targetLat, campaign.targetLng) <= campaign.targetRadiusKm
+          );
+        }
+        if (campaign.targetProvince) {
+          const provinceOk = resolved.province === campaign.targetProvince;
+          const cityOk = !campaign.targetCity || resolved.city === campaign.targetCity;
+          checks.push(provinceOk && cityOk);
+        }
+        if (checks.length > 0 && !checks.some(Boolean)) {
+          return res.status(403).json({
+            message: "Esta consulta es para gente de otra zona. Fijate las campa\xF1as activas en la tuya."
+          });
+        }
+      }
+      const formSchema = parseFormSchema(campaign.formSchema);
+      if (!formSchema) {
+        console.error("[campanas] formSchema corrupto en campa\xF1a", campaign.id);
+        return res.status(500).json({ message: "El formulario de esta campa\xF1a est\xE1 roto. Avisale a quien la coordina." });
+      }
+      const validation = validateEntryData(formSchema, input.data);
+      if (!validation.ok || !validation.data) {
+        return res.status(400).json({ message: validation.message ?? "Las respuestas no pasaron la validaci\xF3n." });
+      }
+      const entry = await createEntry({
+        campaignId: campaign.id,
+        submittedBy: userId,
+        // se guarda siempre para el track record; jamás se expone si anonymous
+        anonymous: input.anonymous ?? false,
+        latitude: resolved.lat,
+        longitude: resolved.lng,
+        province: resolved.province,
+        city: resolved.city,
+        data: validation.data,
+        photoUrl: input.photoUrl ?? null
+      });
+      progresoCache.delete(campaign.id);
+      return res.status(201).json({ ok: true, id: entry.id, province: resolved.province, city: resolved.city });
+    } catch (error) {
+      if (error instanceof z10.ZodError) {
+        return res.status(400).json({ message: zodMessage2(error) });
+      }
+      console.error("[campanas] entrada error:", error);
+      return res.status(500).json({ message: "No pudimos guardar tu entrada. Prob\xE1 de nuevo." });
+    }
+  });
+  app2.get("/api/campanas/:id/entradas", publicReadRateLimit, optionalAuth, async (req, res) => {
+    try {
+      const id = parseId3(req.params.id);
+      if (!id) return res.status(400).json({ message: "Campa\xF1a inv\xE1lida" });
+      const campaign = await getCampaignById(id);
+      if (!campaign) return res.status(404).json({ message: "Esa campa\xF1a no existe." });
+      const userId = req.user?.userId ?? null;
+      const membership = userId ? await getMembership(campaign.circleId, userId) : void 0;
+      const pagination = parsePagination(req, { defaultLimit: 20, maxLimit: 100 });
+      const { entradas, total } = await listEntries(
+        campaign.id,
+        campaign.circleId,
+        Boolean(membership),
+        pagination
+      );
+      return res.json({ entradas, total, limit: pagination.limit, offset: pagination.offset });
+    } catch (error) {
+      console.error("[campanas] entradas error:", error);
+      return res.status(500).json({ message: "No pudimos cargar las entradas. Prob\xE1 de nuevo." });
+    }
+  });
+  app2.post("/api/campanas/entradas/:entryId/verificar", authenticateToken, async (req, res) => {
+    try {
+      const entryId = parseId3(req.params.entryId);
+      if (!entryId) return res.status(400).json({ message: "Entrada inv\xE1lida" });
+      const entry = await getEntryById(entryId);
+      if (!entry) return res.status(404).json({ message: "Esa entrada no existe." });
+      const campaign = await getCampaignById(entry.campaignId);
+      if (!campaign) return res.status(404).json({ message: "La campa\xF1a de esa entrada ya no existe." });
+      const userId = req.user.userId;
+      const membership = await getMembership(campaign.circleId, userId);
+      if (!membership) {
+        return res.status(403).json({ message: "Las entradas las verifica la gente del c\xEDrculo. Sumate primero." });
+      }
+      if (entry.submittedBy === userId) {
+        return res.status(403).json({ message: "No pod\xE9s verificar tu propia entrada \u2014 la confianza la construyen los dem\xE1s." });
+      }
+      if (entry.status === "verificada") {
+        return res.status(409).json({ message: "Esa entrada ya est\xE1 verificada." });
+      }
+      const updated = await verifyEntry(entryId, userId);
+      progresoCache.delete(campaign.id);
+      return res.json({ ok: true, id: updated?.id, status: updated?.status });
+    } catch (error) {
+      console.error("[campanas] verificar error:", error);
+      return res.status(500).json({ message: "No pudimos verificar la entrada. Prob\xE1 de nuevo." });
+    }
+  });
+  app2.get("/api/campanas/:id/progreso", publicReadRateLimit, async (req, res) => {
+    try {
+      const id = parseId3(req.params.id);
+      if (!id) return res.status(400).json({ message: "Campa\xF1a inv\xE1lida" });
+      const cached = progresoCache.get(id);
+      if (isCacheFresh3(cached, PROGRESO_TTL)) {
+        return res.json(cached.data);
+      }
+      const campaign = await getCampaignById(id);
+      if (!campaign) return res.status(404).json({ message: "Esa campa\xF1a no existe." });
+      const progress = await computeProgress(campaign);
+      if (progresoCache.size >= PROGRESO_CACHE_MAX) progresoCache.clear();
+      progresoCache.set(id, { data: progress, generatedAt: /* @__PURE__ */ new Date() });
+      return res.json(progress);
+    } catch (error) {
+      console.error("[campanas] progreso error:", error);
+      return res.status(500).json({ message: "No pudimos calcular el progreso. Prob\xE1 de nuevo." });
+    }
+  });
+}
+
+// server/routes-map-campaigns.ts
+var layersCache = null;
+var LAYERS_TTL_MS = 60 * 1e3;
+function registerMapCampaignsRoutes(app2) {
+  app2.get("/api/map/campaign-layers", publicReadRateLimit, async (_req, res) => {
+    try {
+      if (layersCache && Date.now() - layersCache.generatedAt < LAYERS_TTL_MS) {
+        return res.json(layersCache.data);
+      }
+      const data = await computeCampaignLayers();
+      layersCache = { data, generatedAt: Date.now() };
+      return res.json(data);
+    } catch (error) {
+      console.error("[map-campaigns] layers error:", error);
+      return res.status(500).json({ message: "No pudimos cargar las capas de campa\xF1as." });
+    }
+  });
+}
+
+// server/routes-dashboards.ts
+init_auth();
+
+// server/services/dashboards-service.ts
+init_db();
+init_schema();
+import { and as and14, desc as desc15, eq as eq17, sql as sql13 } from "drizzle-orm";
+var WEEKS_BACK = 12;
+async function computeNacional() {
+  const since = new Date(Date.now() - WEEKS_BACK * 7 * 24 * 60 * 60 * 1e3).toISOString();
+  const weekExpr = (col) => sql13`to_char(date_trunc('week', ${col}::timestamptz), 'YYYY-MM-DD')`;
+  const [dreamWeeks, commitmentWeeks, resourceWeeks, dreamProvinces, commitmentProvinces, resourceProvinces, [activeCount]] = await Promise.all([
+    db.select({ week: weekExpr(dreams.createdAt), type: dreams.type, count: sql13`count(*)::int` }).from(dreams).where(sql13`${dreams.createdAt}::timestamptz >= ${since}::timestamptz`).groupBy(weekExpr(dreams.createdAt), dreams.type),
+    db.select({ week: weekExpr(userCommitments.createdAt), count: sql13`count(*)::int` }).from(userCommitments).where(sql13`${userCommitments.createdAt}::timestamptz >= ${since}::timestamptz`).groupBy(weekExpr(userCommitments.createdAt)),
+    db.select({ week: weekExpr(userResources.createdAt), count: sql13`count(*)::int` }).from(userResources).where(sql13`${userResources.createdAt}::timestamptz >= ${since}::timestamptz`).groupBy(weekExpr(userResources.createdAt)),
+    db.select({ province: dreams.province, count: sql13`count(*)::int` }).from(dreams).where(sql13`${dreams.province} is not null`).groupBy(dreams.province),
+    db.select({ province: userCommitments.province, count: sql13`count(*)::int` }).from(userCommitments).where(sql13`${userCommitments.province} is not null`).groupBy(userCommitments.province),
+    db.select({ province: userResources.province, count: sql13`count(*)::int` }).from(userResources).where(sql13`${userResources.province} is not null`).groupBy(userResources.province),
+    db.select({ count: sql13`count(*)::int` }).from(campaigns).where(eq17(campaigns.status, "activa"))
+  ]);
+  const totalsByTypeWeek = [
+    ...dreamWeeks.map((r) => ({ week: r.week, type: r.type, count: r.count })),
+    ...commitmentWeeks.map((r) => ({ week: r.week, type: "compromiso", count: r.count })),
+    ...resourceWeeks.map((r) => ({ week: r.week, type: "recurso", count: r.count }))
+  ].sort((a, b) => a.week.localeCompare(b.week) || a.type.localeCompare(b.type));
+  const provinceTotals = /* @__PURE__ */ new Map();
+  for (const rows of [dreamProvinces, commitmentProvinces, resourceProvinces]) {
+    for (const row of rows) {
+      if (!row.province) continue;
+      provinceTotals.set(row.province, (provinceTotals.get(row.province) ?? 0) + row.count);
+    }
+  }
+  const provinceRanking = Array.from(provinceTotals.entries()).map(([province, count3]) => ({ province, count: count3 })).sort((a, b) => b.count - a.count);
+  return {
+    totalsByTypeWeek,
+    provinceRanking,
+    activeCampaigns: activeCount?.count ?? 0,
+    generatedAt: (/* @__PURE__ */ new Date()).toISOString()
+  };
+}
+async function computeCampaignDashboard(campaign) {
+  const dayExpr = sql13`to_char(${campaignEntries.createdAt}::timestamptz, 'YYYY-MM-DD')`;
+  const [progress, perDayRows] = await Promise.all([
+    computeProgress(campaign),
+    db.select({ day: dayExpr, count: sql13`count(*)::int` }).from(campaignEntries).where(eq17(campaignEntries.campaignId, campaign.id)).groupBy(dayExpr).orderBy(dayExpr)
+  ]);
+  return {
+    ...progress,
+    title: campaign.title,
+    type: campaign.type,
+    deadline: campaign.deadline,
+    perDay: perDayRows.map((r) => ({ day: r.day, count: r.count })),
+    generatedAt: (/* @__PURE__ */ new Date()).toISOString()
+  };
+}
+async function computeCircleDashboard(circleId) {
+  const since = new Date(Date.now() - 7 * 24 * 60 * 60 * 1e3).toISOString();
+  const [[memberCount], campaignsByStatus, [entryTotals]] = await Promise.all([
+    db.select({ count: sql13`count(*)::int` }).from(circleMembers).where(eq17(circleMembers.circleId, circleId)),
+    db.select({ status: campaigns.status, count: sql13`count(*)::int` }).from(campaigns).where(eq17(campaigns.circleId, circleId)).groupBy(campaigns.status),
+    db.select({
+      total: sql13`count(*)::int`,
+      lastWeek: sql13`count(*) filter (where ${campaignEntries.createdAt}::timestamptz >= ${since}::timestamptz)::int`
+    }).from(campaignEntries).innerJoin(campaigns, eq17(campaignEntries.campaignId, campaigns.id)).where(eq17(campaigns.circleId, circleId))
+  ]);
+  return {
+    circleId,
+    members: memberCount?.count ?? 0,
+    campaignsByStatus: campaignsByStatus.map((r) => ({ status: r.status, count: r.count })),
+    totalEntries: entryTotals?.total ?? 0,
+    entriesLast7Days: entryTotals?.lastWeek ?? 0,
+    generatedAt: (/* @__PURE__ */ new Date()).toISOString()
+  };
+}
+async function computeNecesidades(province, city) {
+  const consultaCampaigns = await db.select({ id: campaigns.id, title: campaigns.title, formSchema: campaigns.formSchema }).from(campaigns).where(eq17(campaigns.type, "consulta")).orderBy(desc15(campaigns.id)).limit(200);
+  const selectFields = /* @__PURE__ */ new Map();
+  for (const campaign of consultaCampaigns) {
+    const schema = parseFormSchema(campaign.formSchema);
+    if (!schema) continue;
+    const fields = /* @__PURE__ */ new Map();
+    for (const field of schema.fields) {
+      if (field.type === "select") fields.set(field.key, field.label);
+    }
+    if (fields.size > 0) selectFields.set(campaign.id, fields);
+  }
+  const titles = new Map(consultaCampaigns.map((c) => [c.id, c.title]));
+  const campaignIds = Array.from(selectFields.keys());
+  let topRespuestas = [];
+  if (campaignIds.length > 0) {
+    const geoFilter = sql13.join(
+      [
+        sql13`ce.campaign_id in (${sql13.join(campaignIds.map((id) => sql13`${id}`), sql13`, `)})`,
+        ...province ? [sql13`ce.province = ${province}`] : [],
+        ...city ? [sql13`ce.city = ${city}`] : []
+      ],
+      sql13` and `
+    );
+    const result = await db.execute(sql13`
+      select ce.campaign_id as campaign_id, kv.key as key, kv.value as value, count(*)::int as count
+      from campaign_entries ce
+      cross join lateral jsonb_each_text(ce.data::jsonb) kv
+      where ${geoFilter}
+      group by ce.campaign_id, kv.key, kv.value
+      order by count desc
+      limit 200
+    `);
+    const rows = result.rows ?? result;
+    topRespuestas = (Array.isArray(rows) ? rows : []).map((row) => ({
+      campaignId: Number(row.campaign_id),
+      key: String(row.key),
+      value: String(row.value ?? ""),
+      count: Number(row.count)
+    })).filter((row) => selectFields.get(row.campaignId)?.has(row.key) && row.value !== "").slice(0, 20).map((row) => ({
+      campaignId: row.campaignId,
+      campaignTitle: titles.get(row.campaignId) ?? "",
+      label: selectFields.get(row.campaignId)?.get(row.key) ?? row.key,
+      value: row.value,
+      count: row.count
+    }));
+  }
+  const needConds = [
+    eq17(dreams.type, "need"),
+    ...province ? [eq17(dreams.province, province)] : [],
+    ...city ? [eq17(dreams.city, city)] : []
+  ];
+  const [needCount] = await db.select({ count: sql13`count(*)::int` }).from(dreams).where(and14(...needConds));
+  return {
+    province: province ?? null,
+    city: city ?? null,
+    senalesNecesidad: needCount?.count ?? 0,
+    topRespuestas,
+    generatedAt: (/* @__PURE__ */ new Date()).toISOString()
+  };
+}
+async function computeMiAporte(userId) {
+  const [[senales], [compromisos], [recursos], [entradas], [campanasCreadas], [circulosCount]] = await Promise.all([
+    db.select({ count: sql13`count(*)::int` }).from(dreams).where(eq17(dreams.userId, userId)),
+    db.select({ count: sql13`count(*)::int` }).from(userCommitments).where(eq17(userCommitments.userId, userId)),
+    db.select({ count: sql13`count(*)::int` }).from(userResources).where(eq17(userResources.userId, userId)),
+    db.select({
+      count: sql13`count(*)::int`,
+      verified: sql13`count(*) filter (where ${campaignEntries.status} = 'verificada')::int`
+    }).from(campaignEntries).where(eq17(campaignEntries.submittedBy, userId)),
+    db.select({ count: sql13`count(*)::int` }).from(campaigns).where(eq17(campaigns.createdBy, userId)),
+    db.select({ count: sql13`count(*)::int` }).from(circleMembers).where(eq17(circleMembers.userId, userId))
+  ]);
+  return {
+    senales: senales?.count ?? 0,
+    compromisos: compromisos?.count ?? 0,
+    recursos: recursos?.count ?? 0,
+    entradas: entradas?.count ?? 0,
+    entradasVerificadas: entradas?.verified ?? 0,
+    campanasCreadas: campanasCreadas?.count ?? 0,
+    circulos: circulosCount?.count ?? 0,
+    generatedAt: (/* @__PURE__ */ new Date()).toISOString()
+  };
+}
+
+// server/routes-dashboards.ts
+var nacionalCache = null;
+var NACIONAL_TTL = 15 * 60 * 1e3;
+var campanaCache = /* @__PURE__ */ new Map();
+var CAMPANA_TTL = 60 * 1e3;
+var CAMPANA_CACHE_MAX = 500;
+var necesidadesCache = /* @__PURE__ */ new Map();
+var NECESIDADES_TTL = 15 * 60 * 1e3;
+var NECESIDADES_CACHE_MAX = 200;
+var miAporteCache = /* @__PURE__ */ new Map();
+var MI_APORTE_TTL = 60 * 1e3;
+var MI_APORTE_CACHE_MAX = 1e3;
+function isCacheFresh4(entry, ttl) {
+  if (!entry) return false;
+  return Date.now() - entry.generatedAt.getTime() < ttl;
+}
+function parseId4(raw) {
+  const id = parseInt(raw, 10);
+  return Number.isInteger(id) && id > 0 ? id : null;
+}
+function registerDashboardsRoutes(app2) {
+  app2.get("/api/dashboards/nacional", publicReadRateLimit, async (_req, res) => {
+    try {
+      if (isCacheFresh4(nacionalCache, NACIONAL_TTL)) {
+        return res.json(nacionalCache.data);
+      }
+      const data = await computeNacional();
+      nacionalCache = { data, generatedAt: /* @__PURE__ */ new Date() };
+      return res.json(data);
+    } catch (error) {
+      console.error("[dashboards] nacional error:", error);
+      return res.status(500).json({ message: "No pudimos cargar el panorama nacional. Prob\xE1 de nuevo." });
+    }
+  });
+  app2.get("/api/dashboards/campanas/:id", publicReadRateLimit, async (req, res) => {
+    try {
+      const id = parseId4(req.params.id);
+      if (!id) return res.status(400).json({ message: "Campa\xF1a inv\xE1lida" });
+      const cached = campanaCache.get(id);
+      if (isCacheFresh4(cached, CAMPANA_TTL)) {
+        return res.json(cached.data);
+      }
+      const campaign = await getCampaignById(id);
+      if (!campaign) return res.status(404).json({ message: "Esa campa\xF1a no existe." });
+      const data = await computeCampaignDashboard(campaign);
+      if (campanaCache.size >= CAMPANA_CACHE_MAX) campanaCache.clear();
+      campanaCache.set(id, { data, generatedAt: /* @__PURE__ */ new Date() });
+      return res.json(data);
+    } catch (error) {
+      console.error("[dashboards] campana error:", error);
+      return res.status(500).json({ message: "No pudimos cargar el dashboard de la campa\xF1a. Prob\xE1 de nuevo." });
+    }
+  });
+  app2.get("/api/dashboards/circulos/:id", publicReadRateLimit, optionalAuth, async (req, res) => {
+    try {
+      const id = parseId4(req.params.id);
+      if (!id) return res.status(400).json({ message: "C\xEDrculo inv\xE1lido" });
+      const circle = await getCircleById(id);
+      if (!circle) return res.status(404).json({ message: "Ese c\xEDrculo no existe." });
+      if (circle.kind === "celula" || circle.isPrivate) {
+        const userId = req.user?.userId ?? null;
+        const membership = userId ? await getMembership(id, userId) : void 0;
+        if (!membership) {
+          return res.status(404).json({ message: "Ese c\xEDrculo no existe." });
+        }
+      }
+      const data = await computeCircleDashboard(id);
+      return res.json(data);
+    } catch (error) {
+      console.error("[dashboards] circulo error:", error);
+      return res.status(500).json({ message: "No pudimos cargar el dashboard del c\xEDrculo. Prob\xE1 de nuevo." });
+    }
+  });
+  app2.get("/api/dashboards/necesidades", publicReadRateLimit, async (req, res) => {
+    try {
+      const str = (v) => typeof v === "string" && v.trim() !== "" ? v.trim() : void 0;
+      const province = str(req.query.province);
+      const city = str(req.query.city);
+      const cacheKey = `${province ?? ""}|${city ?? ""}`;
+      const cached = necesidadesCache.get(cacheKey);
+      if (isCacheFresh4(cached, NECESIDADES_TTL)) {
+        return res.json(cached.data);
+      }
+      const data = await computeNecesidades(province, city);
+      if (necesidadesCache.size >= NECESIDADES_CACHE_MAX) necesidadesCache.clear();
+      necesidadesCache.set(cacheKey, { data, generatedAt: /* @__PURE__ */ new Date() });
+      return res.json(data);
+    } catch (error) {
+      console.error("[dashboards] necesidades error:", error);
+      return res.status(500).json({ message: "No pudimos cargar las necesidades de la zona. Prob\xE1 de nuevo." });
+    }
+  });
+  app2.get("/api/dashboards/mi-aporte", authenticateToken, async (req, res) => {
+    try {
+      const userId = req.user.userId;
+      const cached = miAporteCache.get(userId);
+      if (isCacheFresh4(cached, MI_APORTE_TTL)) {
+        return res.json(cached.data);
+      }
+      const data = await computeMiAporte(userId);
+      if (miAporteCache.size >= MI_APORTE_CACHE_MAX) miAporteCache.clear();
+      miAporteCache.set(userId, { data, generatedAt: /* @__PURE__ */ new Date() });
+      return res.json(data);
+    } catch (error) {
+      console.error("[dashboards] mi-aporte error:", error);
+      return res.status(500).json({ message: "No pudimos cargar tu aporte. Prob\xE1 de nuevo." });
+    }
+  });
+}
+
 // server/routes.ts
 init_mandato_engine();
 init_schema();
 init_auth();
-import { z as z8 } from "zod";
+import { z as z12 } from "zod";
 
 // server/validation.ts
-import { z as z7 } from "zod";
-var registerUserSchema = z7.object({
-  name: z7.string().min(2, "El nombre debe tener al menos 2 caracteres").max(100, "El nombre no puede exceder 100 caracteres").regex(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/, "El nombre solo puede contener letras y espacios"),
-  email: z7.string().email("Formato de email inv\xE1lido").max(255, "El email no puede exceder 255 caracteres").toLowerCase(),
-  username: z7.string().min(3, "El nombre de usuario debe tener al menos 3 caracteres").max(50, "El nombre de usuario no puede exceder 50 caracteres").regex(/^[a-zA-Z0-9_]+$/, "El nombre de usuario solo puede contener letras, n\xFAmeros y guiones bajos"),
-  password: z7.string().min(8, "La contrase\xF1a debe tener al menos 8 caracteres").max(128, "La contrase\xF1a no puede exceder 128 caracteres").regex(
+import { z as z11 } from "zod";
+var registerUserSchema = z11.object({
+  name: z11.string().min(2, "El nombre debe tener al menos 2 caracteres").max(100, "El nombre no puede exceder 100 caracteres").regex(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/, "El nombre solo puede contener letras y espacios"),
+  email: z11.string().email("Formato de email inv\xE1lido").max(255, "El email no puede exceder 255 caracteres").toLowerCase(),
+  username: z11.string().min(3, "El nombre de usuario debe tener al menos 3 caracteres").max(50, "El nombre de usuario no puede exceder 50 caracteres").regex(/^[a-zA-Z0-9_]+$/, "El nombre de usuario solo puede contener letras, n\xFAmeros y guiones bajos"),
+  password: z11.string().min(8, "La contrase\xF1a debe tener al menos 8 caracteres").max(128, "La contrase\xF1a no puede exceder 128 caracteres").regex(
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z0-9])/,
     "La contrase\xF1a debe contener al menos una letra min\xFAscula, una may\xFAscula, un n\xFAmero y un car\xE1cter especial"
   ),
-  confirmPassword: z7.string(),
-  location: z7.string().max(255, "La ubicaci\xF3n no puede exceder 255 caracteres").optional()
+  confirmPassword: z11.string(),
+  location: z11.string().max(255, "La ubicaci\xF3n no puede exceder 255 caracteres").optional()
 }).refine((data) => data.password === data.confirmPassword, {
   message: "Las contrase\xF1as no coinciden",
   path: ["confirmPassword"]
 });
-var loginSchema = z7.object({
-  username: z7.string().min(1, "El nombre de usuario es requerido").max(50, "El nombre de usuario no puede exceder 50 caracteres"),
-  password: z7.string().min(1, "La contrase\xF1a es requerida").max(128, "La contrase\xF1a no puede exceder 128 caracteres")
+var loginSchema = z11.object({
+  username: z11.string().min(1, "El nombre de usuario es requerido").max(50, "El nombre de usuario no puede exceder 50 caracteres"),
+  password: z11.string().min(1, "La contrase\xF1a es requerida").max(128, "La contrase\xF1a no puede exceder 128 caracteres")
 });
-var changePasswordSchema = z7.object({
-  currentPassword: z7.string().min(1, "La contrase\xF1a actual es requerida"),
-  newPassword: z7.string().min(8, "La nueva contrase\xF1a debe tener al menos 8 caracteres").max(128, "La nueva contrase\xF1a no puede exceder 128 caracteres").regex(
+var changePasswordSchema = z11.object({
+  currentPassword: z11.string().min(1, "La contrase\xF1a actual es requerida"),
+  newPassword: z11.string().min(8, "La nueva contrase\xF1a debe tener al menos 8 caracteres").max(128, "La nueva contrase\xF1a no puede exceder 128 caracteres").regex(
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z0-9])/,
     "La nueva contrase\xF1a debe contener al menos una letra min\xFAscula, una may\xFAscula, un n\xFAmero y un car\xE1cter especial"
   ),
-  confirmNewPassword: z7.string()
+  confirmNewPassword: z11.string()
 }).refine((data) => data.newPassword === data.confirmNewPassword, {
   message: "Las contrase\xF1as no coinciden",
   path: ["confirmNewPassword"]
 });
-var updateProfileSchema = z7.object({
-  name: z7.string().min(2, "El nombre debe tener al menos 2 caracteres").max(100, "El nombre no puede exceder 100 caracteres").regex(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/, "El nombre solo puede contener letras y espacios").optional(),
-  email: z7.string().email("Formato de email inv\xE1lido").max(255, "El email no puede exceder 255 caracteres").toLowerCase().optional(),
-  location: z7.string().max(255, "La ubicaci\xF3n no puede exceder 255 caracteres").optional(),
-  bio: z7.string().trim().max(500, "La bio no puede superar los 500 caracteres").nullable().optional(),
-  dataShareOptOut: z7.boolean().optional()
+var updateProfileSchema = z11.object({
+  name: z11.string().min(2, "El nombre debe tener al menos 2 caracteres").max(100, "El nombre no puede exceder 100 caracteres").regex(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/, "El nombre solo puede contener letras y espacios").optional(),
+  email: z11.string().email("Formato de email inv\xE1lido").max(255, "El email no puede exceder 255 caracteres").toLowerCase().optional(),
+  location: z11.string().max(255, "La ubicaci\xF3n no puede exceder 255 caracteres").optional(),
+  bio: z11.string().trim().max(500, "La bio no puede superar los 500 caracteres").nullable().optional(),
+  dataShareOptOut: z11.boolean().optional()
 });
-var createDreamSchema = z7.object({
-  dream: z7.string().min(10, "El sue\xF1o debe tener al menos 10 caracteres").max(1e3, "El sue\xF1o no puede exceder 1000 caracteres").optional(),
-  value: z7.string().min(5, "El valor debe tener al menos 5 caracteres").max(500, "El valor no puede exceder 500 caracteres").optional(),
-  need: z7.string().min(5, "La necesidad debe tener al menos 5 caracteres").max(500, "La necesidad no puede exceder 500 caracteres").optional(),
-  basta: z7.string().min(5, "El basta debe tener al menos 5 caracteres").max(500, "El basta no puede exceder 500 caracteres").optional(),
-  location: z7.string().max(255, "La ubicaci\xF3n no puede exceder 255 caracteres").optional(),
-  latitude: z7.string().regex(/^-?([1-8]?[0-9](\.[0-9]+)?|90(\.0+)?)$/, "Latitud inv\xE1lida").optional(),
-  longitude: z7.string().regex(/^-?((1[0-7][0-9])|([1-9]?[0-9]))(\.[0-9]+)?$/, "Longitud inv\xE1lida").optional(),
-  type: z7.enum(["dream", "value", "need", "basta"]).default("dream")
+var createDreamSchema = z11.object({
+  dream: z11.string().min(10, "El sue\xF1o debe tener al menos 10 caracteres").max(1e3, "El sue\xF1o no puede exceder 1000 caracteres").optional(),
+  value: z11.string().min(5, "El valor debe tener al menos 5 caracteres").max(500, "El valor no puede exceder 500 caracteres").optional(),
+  need: z11.string().min(5, "La necesidad debe tener al menos 5 caracteres").max(500, "La necesidad no puede exceder 500 caracteres").optional(),
+  basta: z11.string().min(5, "El basta debe tener al menos 5 caracteres").max(500, "El basta no puede exceder 500 caracteres").optional(),
+  location: z11.string().max(255, "La ubicaci\xF3n no puede exceder 255 caracteres").optional(),
+  latitude: z11.string().regex(/^-?([1-8]?[0-9](\.[0-9]+)?|90(\.0+)?)$/, "Latitud inv\xE1lida").optional(),
+  longitude: z11.string().regex(/^-?((1[0-7][0-9])|([1-9]?[0-9]))(\.[0-9]+)?$/, "Longitud inv\xE1lida").optional(),
+  type: z11.enum(["dream", "value", "need", "basta"]).default("dream")
 }).refine((data) => {
   return data.dream || data.value || data.need || data.basta;
 }, {
   message: "Debe proporcionar al menos un contenido (sue\xF1o, valor, necesidad o basta)",
   path: ["dream"]
 });
-var createCommunityPostSchema = z7.object({
-  title: z7.string().min(5, "El t\xEDtulo debe tener al menos 5 caracteres").max(200, "El t\xEDtulo no puede exceder 200 caracteres"),
-  description: z7.string().min(20, "La descripci\xF3n debe tener al menos 20 caracteres").max(2e3, "La descripci\xF3n no puede exceder 2000 caracteres"),
-  type: z7.enum(["job", "project", "resource", "volunteer", "donation"]).default("project"),
-  location: z7.string().min(2, "La ubicaci\xF3n debe tener al menos 2 caracteres").max(255, "La ubicaci\xF3n no puede exceder 255 caracteres"),
-  participants: z7.number().int("El n\xFAmero de participantes debe ser un entero").min(1, "Debe haber al menos 1 participante").max(1e3, "No puede haber m\xE1s de 1000 participantes").optional()
+var createCommunityPostSchema = z11.object({
+  title: z11.string().min(5, "El t\xEDtulo debe tener al menos 5 caracteres").max(200, "El t\xEDtulo no puede exceder 200 caracteres"),
+  description: z11.string().min(20, "La descripci\xF3n debe tener al menos 20 caracteres").max(2e3, "La descripci\xF3n no puede exceder 2000 caracteres"),
+  type: z11.enum(["job", "project", "resource", "volunteer", "donation"]).default("project"),
+  location: z11.string().min(2, "La ubicaci\xF3n debe tener al menos 2 caracteres").max(255, "La ubicaci\xF3n no puede exceder 255 caracteres"),
+  participants: z11.number().int("El n\xFAmero de participantes debe ser un entero").min(1, "Debe haber al menos 1 participante").max(1e3, "No puede haber m\xE1s de 1000 participantes").optional()
 });
-var createStorySchema = z7.object({
-  name: z7.string().min(2, "El nombre debe tener al menos 2 caracteres").max(100, "El nombre no puede exceder 100 caracteres"),
-  location: z7.string().min(2, "La ubicaci\xF3n debe tener al menos 2 caracteres").max(255, "La ubicaci\xF3n no puede exceder 255 caracteres"),
-  story: z7.string().min(50, "La historia debe tener al menos 50 caracteres").max(5e3, "La historia no puede exceder 5000 caracteres"),
-  imageUrl: z7.string().url("URL de imagen inv\xE1lida").optional()
+var createStorySchema = z11.object({
+  name: z11.string().min(2, "El nombre debe tener al menos 2 caracteres").max(100, "El nombre no puede exceder 100 caracteres"),
+  location: z11.string().min(2, "La ubicaci\xF3n debe tener al menos 2 caracteres").max(255, "La ubicaci\xF3n no puede exceder 255 caracteres"),
+  story: z11.string().min(50, "La historia debe tener al menos 50 caracteres").max(5e3, "La historia no puede exceder 5000 caracteres"),
+  imageUrl: z11.string().url("URL de imagen inv\xE1lida").optional()
 });
-var createInspiringStorySchema = z7.object({
-  title: z7.string().min(5, "El t\xEDtulo debe tener al menos 5 caracteres").max(200, "El t\xEDtulo no puede exceder 200 caracteres"),
-  excerpt: z7.string().min(20, "El extracto debe tener al menos 20 caracteres").max(500, "El extracto no puede exceder 500 caracteres"),
-  content: z7.string().min(100, "El contenido debe tener al menos 100 caracteres").max(5e3, "El contenido no puede exceder 5000 caracteres"),
-  category: z7.enum(["employment", "volunteering", "community_project", "personal_growth", "resource_sharing", "connection"]).default("connection"),
-  location: z7.string().min(2, "La ubicaci\xF3n debe tener al menos 2 caracteres").max(255, "La ubicaci\xF3n no puede exceder 255 caracteres"),
-  province: z7.string().max(100, "La provincia no puede exceder 100 caracteres").optional(),
-  city: z7.string().max(100, "La ciudad no puede exceder 100 caracteres").optional(),
-  impactType: z7.enum(["job_created", "lives_changed", "hours_volunteered", "people_helped", "project_completed", "resource_shared"]).default("lives_changed"),
-  impactCount: z7.number().int("El n\xFAmero de impacto debe ser un entero").min(1, "El impacto debe ser al menos 1").max(1e5, "El impacto no puede exceder 100,000"),
-  impactDescription: z7.string().min(5, "La descripci\xF3n del impacto debe tener al menos 5 caracteres").max(200, "La descripci\xF3n del impacto no puede exceder 200 caracteres"),
-  imageUrl: z7.string().url("URL de imagen inv\xE1lida").optional(),
-  videoUrl: z7.string().url("URL de video inv\xE1lida").optional(),
-  tags: z7.string().max(500, "Las etiquetas no pueden exceder 500 caracteres").optional(),
-  authorName: z7.string().min(2, "El nombre del autor debe tener al menos 2 caracteres").max(100, "El nombre del autor no puede exceder 100 caracteres").optional(),
-  authorEmail: z7.string().email("Formato de email del autor inv\xE1lido").max(255, "El email del autor no puede exceder 255 caracteres").optional()
+var createInspiringStorySchema = z11.object({
+  title: z11.string().min(5, "El t\xEDtulo debe tener al menos 5 caracteres").max(200, "El t\xEDtulo no puede exceder 200 caracteres"),
+  excerpt: z11.string().min(20, "El extracto debe tener al menos 20 caracteres").max(500, "El extracto no puede exceder 500 caracteres"),
+  content: z11.string().min(100, "El contenido debe tener al menos 100 caracteres").max(5e3, "El contenido no puede exceder 5000 caracteres"),
+  category: z11.enum(["employment", "volunteering", "community_project", "personal_growth", "resource_sharing", "connection"]).default("connection"),
+  location: z11.string().min(2, "La ubicaci\xF3n debe tener al menos 2 caracteres").max(255, "La ubicaci\xF3n no puede exceder 255 caracteres"),
+  province: z11.string().max(100, "La provincia no puede exceder 100 caracteres").optional(),
+  city: z11.string().max(100, "La ciudad no puede exceder 100 caracteres").optional(),
+  impactType: z11.enum(["job_created", "lives_changed", "hours_volunteered", "people_helped", "project_completed", "resource_shared"]).default("lives_changed"),
+  impactCount: z11.number().int("El n\xFAmero de impacto debe ser un entero").min(1, "El impacto debe ser al menos 1").max(1e5, "El impacto no puede exceder 100,000"),
+  impactDescription: z11.string().min(5, "La descripci\xF3n del impacto debe tener al menos 5 caracteres").max(200, "La descripci\xF3n del impacto no puede exceder 200 caracteres"),
+  imageUrl: z11.string().url("URL de imagen inv\xE1lida").optional(),
+  videoUrl: z11.string().url("URL de video inv\xE1lida").optional(),
+  tags: z11.string().max(500, "Las etiquetas no pueden exceder 500 caracteres").optional(),
+  authorName: z11.string().min(2, "El nombre del autor debe tener al menos 2 caracteres").max(100, "El nombre del autor no puede exceder 100 caracteres").optional(),
+  authorEmail: z11.string().email("Formato de email del autor inv\xE1lido").max(255, "El email del autor no puede exceder 255 caracteres").optional()
 });
-var createResourceSchema = z7.object({
-  title: z7.string().min(5, "El t\xEDtulo debe tener al menos 5 caracteres").max(200, "El t\xEDtulo no puede exceder 200 caracteres"),
-  description: z7.string().min(20, "La descripci\xF3n debe tener al menos 20 caracteres").max(1e3, "La descripci\xF3n no puede exceder 1000 caracteres"),
-  category: z7.string().min(2, "La categor\xEDa debe tener al menos 2 caracteres").max(50, "La categor\xEDa no puede exceder 50 caracteres"),
-  url: z7.string().url("URL inv\xE1lida").optional()
+var createResourceSchema = z11.object({
+  title: z11.string().min(5, "El t\xEDtulo debe tener al menos 5 caracteres").max(200, "El t\xEDtulo no puede exceder 200 caracteres"),
+  description: z11.string().min(20, "La descripci\xF3n debe tener al menos 20 caracteres").max(1e3, "La descripci\xF3n no puede exceder 1000 caracteres"),
+  category: z11.string().min(2, "La categor\xEDa debe tener al menos 2 caracteres").max(50, "La categor\xEDa no puede exceder 50 caracteres"),
+  url: z11.string().url("URL inv\xE1lida").optional()
 });
 
 // server/nlp-service.ts
@@ -19387,7 +21366,7 @@ var arService = new ARService();
 // server/routes.ts
 init_db();
 init_schema();
-import { ilike as ilike3, sql as drizzleSql } from "drizzle-orm";
+import { ilike as ilike4, sql as drizzleSql } from "drizzle-orm";
 
 // shared/mission-registry.ts
 var MISSIONS = [
@@ -19809,11 +21788,11 @@ var MISSION_KEYWORDS = {
   ]
 };
 var MIN_WORD_LENGTH = 4;
-function normalize2(text2) {
+function normalize3(text2) {
   return text2.toLowerCase().replace(/[áà]/g, "a").replace(/[éè]/g, "e").replace(/[íì]/g, "i").replace(/[óò]/g, "o").replace(/[úù]/g, "u").replace(/ñ/g, "n");
 }
 function extractWords2(text2, minLength = MIN_WORD_LENGTH) {
-  return normalize2(text2).split(/\W+/).filter((w) => w.length >= minLength);
+  return normalize3(text2).split(/\W+/).filter((w) => w.length >= minLength);
 }
 function planToKeyword(plan) {
   const match = plan.match(/^PLAN(.+)$/i);
@@ -19826,12 +21805,12 @@ function buildMissionKeywords(mission) {
   const keywordSet = /* @__PURE__ */ new Set();
   const domainKeywords = MISSION_KEYWORDS[mission.slug] ?? [];
   for (const kw of domainKeywords) {
-    keywordSet.add(normalize2(kw));
+    keywordSet.add(normalize3(kw));
   }
   for (const plan of mission.plans) {
     const kw = planToKeyword(plan);
     if (kw) keywordSet.add(kw);
-    keywordSet.add(normalize2(plan));
+    keywordSet.add(normalize3(plan));
   }
   for (const word of extractWords2(mission.description)) {
     keywordSet.add(word);
@@ -19846,7 +21825,7 @@ function buildMissionKeywords(mission) {
   return Array.from(keywordSet);
 }
 function buildDreamText(dream) {
-  return normalize2([
+  return normalize3([
     dream.dream ?? "",
     dream.value ?? "",
     dream.need ?? "",
@@ -19952,7 +21931,7 @@ function computeMissionAlignment(archetype, lifeAreaGaps) {
 // server/services/embedding-service.ts
 init_db();
 init_schema();
-import { eq as eq15, and as and12 } from "drizzle-orm";
+import { eq as eq18, and as and15 } from "drizzle-orm";
 var embeddingPipeline = null;
 async function getEmbeddingPipeline() {
   if (!embeddingPipeline) {
@@ -19992,9 +21971,9 @@ async function getOrCreateEmbedding(contentId, text2, contentType) {
   }
   try {
     const existing = await db.select().from(textEmbeddings).where(
-      and12(
-        eq15(textEmbeddings.contentId, contentId),
-        eq15(textEmbeddings.contentType, contentType)
+      and15(
+        eq18(textEmbeddings.contentId, contentId),
+        eq18(textEmbeddings.contentType, contentType)
       )
     ).limit(1);
     if (existing.length > 0 && existing[0].embedding) {
@@ -20014,9 +21993,9 @@ async function getOrCreateEmbedding(contentId, text2, contentType) {
         embedding: embeddingJson,
         model: "Xenova/all-MiniLM-L6-v2"
       }).where(
-        and12(
-          eq15(textEmbeddings.contentId, contentId),
-          eq15(textEmbeddings.contentType, contentType)
+        and15(
+          eq18(textEmbeddings.contentId, contentId),
+          eq18(textEmbeddings.contentType, contentType)
         )
       );
     } else {
@@ -20145,6 +22124,10 @@ async function registerRoutes(app2) {
   registerMapSignalsRoutes(app2);
   registerAnalyticsRoutes(app2);
   registerRadarRoutes(app2);
+  registerCirculosRoutes(app2);
+  registerCampanasRoutes(app2);
+  registerMapCampaignsRoutes(app2);
+  registerDashboardsRoutes(app2);
   startMandatoCron();
   app2.get("/api/dreams", publicReadRateLimit, optionalAuth, async (req, res) => {
     try {
@@ -20180,7 +22163,7 @@ async function registerRoutes(app2) {
       const dream = await storage.createDream(validatedData);
       res.status(201).json(dream);
     } catch (error) {
-      if (error instanceof z8.ZodError) {
+      if (error instanceof z12.ZodError) {
         res.status(400).json({ message: "Invalid dream data", errors: error.errors });
       } else {
         res.status(500).json({ message: "Failed to create dream" });
@@ -20220,7 +22203,7 @@ async function registerRoutes(app2) {
       const resource = await storage.createUserResource(validatedData);
       res.status(201).json(resource);
     } catch (error) {
-      if (error instanceof z8.ZodError) {
+      if (error instanceof z12.ZodError) {
         res.status(400).json({ message: "Invalid resource data", errors: error.errors });
       } else {
         res.status(500).json({ message: "Failed to create resource" });
@@ -20698,7 +22681,7 @@ async function registerRoutes(app2) {
       }
       res.status(201).json(post);
     } catch (error) {
-      if (error instanceof z8.ZodError) {
+      if (error instanceof z12.ZodError) {
         res.status(400).json({ message: "Invalid post data", errors: error.errors });
       } else {
         res.status(500).json({ message: "Failed to create community post" });
@@ -20807,7 +22790,7 @@ async function registerRoutes(app2) {
       }
       res.json(updatedPost);
     } catch (error) {
-      if (error instanceof z8.ZodError) {
+      if (error instanceof z12.ZodError) {
         res.status(400).json({ message: "Invalid post data", errors: error.errors });
       } else {
         res.status(500).json({ message: "Failed to update post" });
@@ -20871,7 +22854,7 @@ async function registerRoutes(app2) {
       const interaction = await storage.createPostInteraction(validatedData);
       res.status(201).json(interaction);
     } catch (error) {
-      if (error instanceof z8.ZodError) {
+      if (error instanceof z12.ZodError) {
         res.status(400).json({ message: "Invalid interaction data", errors: error.errors });
       } else {
         res.status(500).json({ message: "Failed to create interaction" });
@@ -20932,7 +22915,7 @@ async function registerRoutes(app2) {
       const message = await storage.createCommunityMessage(validatedData);
       res.status(201).json(message);
     } catch (error) {
-      if (error instanceof z8.ZodError) {
+      if (error instanceof z12.ZodError) {
         res.status(400).json({ message: "Invalid message data", errors: error.errors });
       } else {
         res.status(500).json({ message: "Failed to send message" });
@@ -21294,7 +23277,7 @@ async function registerRoutes(app2) {
       const milestone = await storage.createMilestone(id, validatedData);
       res.status(201).json(milestone);
     } catch (error) {
-      if (error instanceof z8.ZodError) {
+      if (error instanceof z12.ZodError) {
         res.status(400).json({
           error: "Validation error",
           details: error.errors
@@ -21319,7 +23302,7 @@ async function registerRoutes(app2) {
       await storage.updateMilestone(id, updates);
       res.json({ message: "Milestone updated" });
     } catch (error) {
-      if (error instanceof z8.ZodError) {
+      if (error instanceof z12.ZodError) {
         res.status(400).json({
           error: "Validation error",
           details: error.errors
@@ -21405,7 +23388,7 @@ async function registerRoutes(app2) {
       const task = await storage.createTask(id, validatedData);
       res.status(201).json(task);
     } catch (error) {
-      if (error instanceof z8.ZodError) {
+      if (error instanceof z12.ZodError) {
         res.status(400).json({
           error: "Validation error",
           details: error.errors
@@ -21430,7 +23413,7 @@ async function registerRoutes(app2) {
       await storage.updateTask(id, updates);
       res.json({ message: "Task updated" });
     } catch (error) {
-      if (error instanceof z8.ZodError) {
+      if (error instanceof z12.ZodError) {
         res.status(400).json({
           error: "Validation error",
           details: error.errors
@@ -21725,8 +23708,8 @@ async function registerRoutes(app2) {
         password: validatedData.password,
         location: validatedData.location || null
       });
-      const crypto3 = await import("crypto");
-      const verifyToken = crypto3.randomBytes(32).toString("hex");
+      const crypto4 = await import("crypto");
+      const verifyToken = crypto4.randomBytes(32).toString("hex");
       const verifyExpires = new Date(Date.now() + 24 * 60 * 60 * 1e3);
       storage.setEmailVerificationToken(user.id, verifyToken, verifyExpires).then(() => emailService.sendVerificationEmail(user.email, verifyToken, user.name)).catch((err) => console.error("Auto-send verification email failed:", err));
       const authResponse = createAuthResponse({
@@ -21743,7 +23726,7 @@ async function registerRoutes(app2) {
         ...authResponse
       });
     } catch (error) {
-      if (error instanceof z8.ZodError) {
+      if (error instanceof z12.ZodError) {
         res.status(400).json({
           error: "Validation error",
           message: "Datos de entrada inv\xE1lidos",
@@ -21808,7 +23791,7 @@ async function registerRoutes(app2) {
         ...authResponse
       });
     } catch (error) {
-      if (error instanceof z8.ZodError) {
+      if (error instanceof z12.ZodError) {
         res.status(400).json({
           error: "Validation error",
           message: "Datos de entrada inv\xE1lidos",
@@ -21889,7 +23872,7 @@ async function registerRoutes(app2) {
         }
       });
     } catch (error) {
-      if (error instanceof z8.ZodError) {
+      if (error instanceof z12.ZodError) {
         res.status(400).json({
           error: "Validation error",
           message: "Datos de entrada inv\xE1lidos",
@@ -22060,7 +24043,7 @@ async function registerRoutes(app2) {
         message: "Contrase\xF1a actualizada exitosamente"
       });
     } catch (error) {
-      if (error instanceof z8.ZodError) {
+      if (error instanceof z12.ZodError) {
         res.status(400).json({
           error: "Validation error",
           message: "Datos de entrada inv\xE1lidos",
@@ -23149,7 +25132,7 @@ async function registerRoutes(app2) {
         need: dreams.need,
         basta: dreams.basta,
         createdAt: dreams.createdAt
-      }).from(dreams).where(ilike3(dreams.location, `%${location}%`)).orderBy(drizzleSql`${dreams.createdAt} desc`);
+      }).from(dreams).where(ilike4(dreams.location, `%${location}%`)).orderBy(drizzleSql`${dreams.createdAt} desc`);
       const dreamCount = dreamRows.length;
       const recentDreams = dreamRows.slice(0, 3).map((d) => ({
         id: d.id,
@@ -23157,7 +25140,7 @@ async function registerRoutes(app2) {
         text: d.dream ?? d.value ?? d.need ?? d.basta ?? "",
         createdAt: d.createdAt ?? ""
       }));
-      const memberRows = await db.select({ id: users.id }).from(users).where(ilike3(users.location, `%${location}%`));
+      const memberRows = await db.select({ id: users.id }).from(users).where(ilike4(users.location, `%${location}%`));
       const memberCount = memberRows.length;
       return res.json({
         hasLocation: true,
@@ -23461,7 +25444,7 @@ async function registerRoutes(app2) {
       });
       res.status(201).json(post);
     } catch (error) {
-      if (error instanceof z8.ZodError) {
+      if (error instanceof z12.ZodError) {
         res.status(400).json({ message: "Datos de post inv\xE1lidos", errors: error.errors });
       } else {
         console.error("Create blog post error:", error);
@@ -23479,7 +25462,7 @@ async function registerRoutes(app2) {
       }
       res.json(post);
     } catch (error) {
-      if (error instanceof z8.ZodError) {
+      if (error instanceof z12.ZodError) {
         res.status(400).json({ message: "Datos de post inv\xE1lidos", errors: error.errors });
       } else {
         console.error("Update blog post error:", error);
@@ -23767,7 +25750,7 @@ async function registerRoutes(app2) {
         message: "Story created successfully and submitted for moderation"
       });
     } catch (error) {
-      if (error instanceof z8.ZodError) {
+      if (error instanceof z12.ZodError) {
         return res.status(400).json({
           error: "Validation Error",
           message: "Invalid story data",
@@ -23813,7 +25796,7 @@ async function registerRoutes(app2) {
         message: "Story updated successfully"
       });
     } catch (error) {
-      if (error instanceof z8.ZodError) {
+      if (error instanceof z12.ZodError) {
         return res.status(400).json({
           error: "Validation Error",
           message: "Invalid story data",

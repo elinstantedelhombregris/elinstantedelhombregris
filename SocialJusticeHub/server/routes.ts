@@ -14,6 +14,10 @@ import { registerPulseRoutes } from './routes-pulse';
 import { registerMapSignalsRoutes } from './routes-map-signals';
 import { registerAnalyticsRoutes } from './routes-analytics';
 import { registerRadarRoutes } from './routes-radar';
+import { registerCirculosRoutes } from './routes-circulos';
+import { registerCampanasRoutes } from './routes-campanas';
+import { registerMapCampaignsRoutes } from './routes-map-campaigns';
+import { registerDashboardsRoutes } from './routes-dashboards';
 import { startMandatoCron } from './services/mandato-engine';
 import { 
   insertUserSchema, 
@@ -180,6 +184,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
   registerMapSignalsRoutes(app);
   registerAnalyticsRoutes(app);
   registerRadarRoutes(app);
+  registerCirculosRoutes(app);
+  registerCampanasRoutes(app);
+  registerMapCampaignsRoutes(app);
+  registerDashboardsRoutes(app);
 
   // Start weekly pulse cron (Fridays at 17:05 ART)
   startMandatoCron();
