@@ -47,7 +47,8 @@
         {
           "locationWhenInUsePermission": "Usamos tu ubicación para poner tu señal en el mapa de tu barrio. Nunca se muestra tu identidad."
         }
-      ]
+      ],
+      "@maplibre/maplibre-react-native"
     ],
     "experiments": {
       "typedRoutes": true,

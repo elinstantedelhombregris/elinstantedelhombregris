@@ -1,34 +1,22 @@
 import { Ionicons } from '@expo/vector-icons';
 import { Redirect, router } from 'expo-router';
-import { Text, View, useWindowDimensions } from 'react-native';
+import { Text, View } from 'react-native';
 import Animated from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Pressable97 } from '@/components/ui/Pressable97';
+import { MapaVivo } from '@/features/mapa/MapaVivo';
 import { fadeIn, staggerDelay } from '@/motion/variants';
 import { useAuthStore } from '@/stores/auth';
 import { useSettingsStore } from '@/stores/settings';
 import { haptic } from '@/theme/haptics';
-import { ACCENT, PLATA } from '@/theme/tokens';
+import { ACCENT } from '@/theme/tokens';
 
 /**
  * LA CONSTELACIÓN — el mapa vivo es la pantalla de inicio.
- * Por ahora: campo de estrellas placeholder (M3 lo reemplaza por MapLibre).
  * Los paneles (círculos, campañas, datos, perfil) se deslizan por encima;
  * todo vuelve al mapa.
  */
-
-// Campo de estrellas determinístico (mismas posiciones en cada arranque).
-const seeded = (i: number, salt: number) => {
-  const x = Math.sin(i * 127.1 + salt * 311.7) * 43758.5453;
-  return x - Math.floor(x);
-};
-const STARS = Array.from({ length: 90 }, (_, i) => ({
-  x: seeded(i, 1),
-  y: seeded(i, 2),
-  size: 1 + seeded(i, 3) * 2,
-  opacity: 0.15 + seeded(i, 4) * 0.55,
-}));
 
 const PANELS = [
   { key: 'circulos', label: 'Círculos', icon: 'people-outline' as const },
@@ -38,7 +26,6 @@ const PANELS = [
 ];
 
 export default function Constelacion() {
-  const { width, height } = useWindowDimensions();
   const insets = useSafeAreaInsets();
   const { onboarded, hydrated } = useSettingsStore();
 
@@ -46,23 +33,9 @@ export default function Constelacion() {
 
   return (
     <View className="flex-1 bg-fondo">
-      {/* Cielo — placeholder del mapa vivo */}
+      {/* El mapa vivo, siempre debajo de todo */}
       <Animated.View entering={fadeIn} className="absolute inset-0">
-        {STARS.map((s, i) => (
-          <View
-            key={i}
-            style={{
-              position: 'absolute',
-              left: s.x * width,
-              top: s.y * height,
-              width: s.size,
-              height: s.size,
-              borderRadius: s.size / 2,
-              backgroundColor: PLATA,
-              opacity: s.opacity,
-            }}
-          />
-        ))}
+        <MapaVivo />
       </Animated.View>
 
       {/* Barra inferior de vidrio: 4 paneles + FAB Señalar al centro */}

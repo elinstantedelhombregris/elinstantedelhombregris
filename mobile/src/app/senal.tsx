@@ -14,6 +14,7 @@ import { RADAR_TYPES, type RadarTypeDef } from '@/lib/radar-types';
 import { bloom, fadeIn, slideLeftIn, staggerDelay } from '@/motion/variants';
 import { enqueue } from '@/offline/queue';
 import { useAuthStore } from '@/stores/auth';
+import { useMapStore } from '@/stores/map';
 import { haptic } from '@/theme/haptics';
 
 type Fase = 'elegir' | 'escribir' | 'listo' | 'encolada';
@@ -65,10 +66,16 @@ export default function Senal() {
 
     if (result.ok) {
       haptic.celebrate();
+      if (coords) {
+        useMapStore.getState().celebrate({ ...coords, color: tipo.color, pending: false });
+      }
       setFase('listo');
     } else if (result.reason === 'offline') {
       await enqueue({ kind: 'senal', payload });
       haptic.celebrate();
+      if (coords) {
+        useMapStore.getState().celebrate({ ...coords, color: tipo.color, pending: true });
+      }
       setFase('encolada');
     } else if (result.reason === 'auth') {
       router.replace('/identidad');
