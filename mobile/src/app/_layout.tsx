@@ -78,6 +78,18 @@ export default function RootLayout() {
             name="identidad"
             options={{ presentation: 'modal', animation: 'slide_from_bottom' }}
           />
+          {/* Paneles sobre el mapa — hojas que siempre vuelven a la constelación */}
+          <Stack.Screen name="circulos/index" />
+          <Stack.Screen name="circulos/crear" />
+          <Stack.Screen name="circulos/[id]" />
+          <Stack.Screen name="circulos/invitacion" />
+          <Stack.Screen name="circulo-invite/[code]" />
+          <Stack.Screen name="campanas/index" />
+          <Stack.Screen name="campanas/crear" />
+          <Stack.Screen name="campanas/[id]" />
+          <Stack.Screen name="campanas/capturar" />
+          <Stack.Screen name="datos" />
+          <Stack.Screen name="perfil" />
         </Stack>
       </View>
     </QueryClientProvider>

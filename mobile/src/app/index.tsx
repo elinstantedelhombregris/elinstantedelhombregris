@@ -93,9 +93,20 @@ function PanelButton({
         accessibilityLabel={panel.label}
         className="items-center justify-center px-3 py-2"
         onPress={() => {
-          // Paneles llegan en M3/M4. Perfil ya abre la puerta de entrada.
-          if (panel.key === 'perfil' && !useAuthStore.getState().user) {
-            router.push('/identidad');
+          switch (panel.key) {
+            case 'circulos':
+              router.push('/circulos');
+              break;
+            case 'campanas':
+              router.push('/campanas');
+              break;
+            case 'datos':
+              router.push('/datos');
+              break;
+            case 'perfil':
+              // Sin sesión, la puerta de entrada; con sesión, el perfil.
+              router.push(useAuthStore.getState().user ? '/perfil' : '/identidad');
+              break;
           }
         }}
       >
