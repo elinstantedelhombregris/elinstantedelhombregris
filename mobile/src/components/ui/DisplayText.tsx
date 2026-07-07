@@ -1,6 +1,6 @@
 import MaskedView from '@react-native-masked-view/masked-view';
 import { LinearGradient } from 'expo-linear-gradient';
-import { Text, type TextProps } from 'react-native';
+import { Platform, Text, type TextProps } from 'react-native';
 
 import { DISPLAY_GRADIENT_COLORS } from '@/theme/tokens';
 
@@ -14,6 +14,15 @@ export function DisplayText({
   className,
   ...props
 }: TextProps & { className?: string }) {
+  if (Platform.OS === 'web') {
+    // MaskedView no existe en web: el gradiente va por CSS (ver global.css).
+    return (
+      <Text className={`font-serif display-gradient ${className ?? ''}`} {...props}>
+        {children}
+      </Text>
+    );
+  }
+
   const text = (
     <Text className={`font-serif ${className ?? ''}`} {...props}>
       {children}
@@ -21,7 +30,11 @@ export function DisplayText({
   );
   return (
     <MaskedView maskElement={text}>
-      <LinearGradient colors={DISPLAY_GRADIENT_COLORS} start={{ x: 0.5, y: 0 }} end={{ x: 0.5, y: 1 }}>
+      <LinearGradient
+        colors={DISPLAY_GRADIENT_COLORS}
+        start={{ x: 0.5, y: 0 }}
+        end={{ x: 0.5, y: 1 }}
+      >
         {/* El texto invisible reserva el layout exacto bajo la máscara */}
         <Text className={`font-serif opacity-0 ${className ?? ''}`} {...props}>
           {children}

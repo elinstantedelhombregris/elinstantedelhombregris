@@ -1,3 +1,4 @@
+import { cssInterop } from 'nativewind';
 import { useState } from 'react';
 import { Pressable, type PressableProps, type StyleProp, type ViewStyle } from 'react-native';
 import Animated, { useAnimatedStyle } from 'react-native-reanimated';
@@ -6,6 +7,9 @@ import { pressScale } from '@/motion/variants';
 import { haptic } from '@/theme/haptics';
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
+// Los componentes creados con createAnimatedComponent no vienen registrados
+// en NativeWind: sin esto, className se ignora silenciosamente.
+cssInterop(AnimatedPressable, { className: 'style' });
 
 type Props = Omit<PressableProps, 'style'> & {
   className?: string;

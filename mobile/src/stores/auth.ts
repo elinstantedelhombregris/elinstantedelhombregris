@@ -4,10 +4,10 @@
  * con el refresh token; si no puede, la app queda en modo invitado.
  */
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import * as SecureStore from 'expo-secure-store';
 import { create } from 'zustand';
 
 import type { ApiUser, AuthTokens } from '@/api/types';
+import { tokenStore } from '@/lib/token-store';
 
 const REFRESH_KEY = 'basta.refreshToken';
 const USER_KEY = 'basta.user';
@@ -32,7 +32,7 @@ export const useAuthStore = create<AuthState>((set) => ({
   setSession: async (user, tokens) => {
     set({ user, accessToken: tokens.accessToken, refreshToken: tokens.refreshToken });
     await Promise.all([
-      SecureStore.setItemAsync(REFRESH_KEY, tokens.refreshToken),
+      tokenStore.set(REFRESH_KEY, tokens.refreshToken),
       AsyncStorage.setItem(USER_KEY, JSON.stringify(user)),
     ]);
   },
@@ -40,7 +40,7 @@ export const useAuthStore = create<AuthState>((set) => ({
   clearSession: async () => {
     set({ user: null, accessToken: null, refreshToken: null });
     await Promise.all([
-      SecureStore.deleteItemAsync(REFRESH_KEY),
+      tokenStore.delete(REFRESH_KEY),
       AsyncStorage.removeItem(USER_KEY),
     ]);
   },
@@ -48,7 +48,7 @@ export const useAuthStore = create<AuthState>((set) => ({
   bootstrap: async () => {
     try {
       const [refreshToken, rawUser] = await Promise.all([
-        SecureStore.getItemAsync(REFRESH_KEY),
+        tokenStore.get(REFRESH_KEY),
         AsyncStorage.getItem(USER_KEY),
       ]);
       if (refreshToken) {

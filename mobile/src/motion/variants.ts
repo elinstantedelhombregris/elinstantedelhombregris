@@ -3,6 +3,7 @@
  * (Framer Motion) a Reanimated 4. Mismos nombres, mismos valores.
  * Nada anima fuera de este vocabulario.
  */
+import { Platform } from 'react-native';
 import {
   Easing,
   FadeIn,
@@ -13,18 +14,23 @@ import {
   type WithSpringConfig,
 } from 'react-native-reanimated';
 
+// En web (solo preview de desarrollo) las animaciones de entrada de
+// Reanimated quedan congeladas a mitad de camino — se desactivan ahí.
+const isWeb = Platform.OS === 'web';
+const native = <T,>(v: T): T | undefined => (isWeb ? undefined : v);
+
 // Entradas
-export const fadeUp = FadeInUp.duration(400).easing(Easing.out(Easing.ease));
-export const fadeIn = FadeIn.duration(300);
-export const scaleIn = FadeInDown.duration(300).easing(Easing.out(Easing.ease));
+export const fadeUp = native(FadeInUp.duration(400).easing(Easing.out(Easing.ease)));
+export const fadeIn = native(FadeIn.duration(300));
+export const scaleIn = native(FadeInDown.duration(300).easing(Easing.out(Easing.ease)));
 
 /** Stagger: entrada escalonada, 60ms entre hijos (usar con index). */
 export const staggerDelay = (index: number, ms = 60) =>
-  fadeUp.delay(index * ms);
+  isWeb ? undefined : FadeInUp.duration(400).easing(Easing.out(Easing.ease)).delay(index * ms);
 export const staggerDelaySlow = (index: number) => staggerDelay(index, 100);
 
 // Transiciones de captura (fases del rito de señalar)
-export const slideLeftIn = new Keyframe({
+const slideLeftKeyframe = new Keyframe({
   0: { opacity: 0, transform: [{ translateX: 60 }] },
   100: {
     opacity: 1,
@@ -32,8 +38,9 @@ export const slideLeftIn = new Keyframe({
     easing: Easing.out(Easing.ease),
   },
 }).duration(300);
+export const slideLeftIn = native(slideLeftKeyframe);
 
-export const slideRightIn = new Keyframe({
+const slideRightKeyframe = new Keyframe({
   0: { opacity: 0, transform: [{ translateX: -60 }] },
   100: {
     opacity: 1,
@@ -41,13 +48,15 @@ export const slideRightIn = new Keyframe({
     easing: Easing.out(Easing.ease),
   },
 }).duration(300);
+export const slideRightIn = native(slideRightKeyframe);
 
 // Celebración
-export const bloom = new Keyframe({
+const bloomKeyframe = new Keyframe({
   0: { opacity: 0, transform: [{ scale: 0 }] },
   60: { opacity: 1, transform: [{ scale: 1.12 }] },
   100: { opacity: 1, transform: [{ scale: 1 }], easing: Easing.out(Easing.ease) },
 }).duration(600);
+export const bloom = native(bloomKeyframe);
 
 // Springs compartidos
 export const snappySpring: WithSpringConfig = { stiffness: 400, damping: 25 };
