@@ -377,6 +377,18 @@ export const postLikes = pgTable("post_likes", {
   createdAt: text("created_at").default(sql`now()`),
 });
 
+// Tabla de likes en ensayos (contenido estático, keyed por slug)
+export const ensayoLikes = pgTable("ensayo_likes", {
+  id: serial("id").primaryKey(),
+  slug: text("slug").notNull(),
+  userId: integer("user_id").references(() => users.id),
+  sessionId: text("session_id"), // For anonymous likes (null when userId is set)
+  createdAt: text("created_at").default(sql`now()`),
+}, (table) => ({
+  uniqueUserLike: unique("ensayo_likes_slug_user_uq").on(table.slug, table.userId),
+  uniqueSessionLike: unique("ensayo_likes_slug_session_uq").on(table.slug, table.sessionId),
+}));
+
 // Tabla de comentarios en posts
 export const postComments = pgTable("post_comments", {
   id: serial("id").primaryKey(),

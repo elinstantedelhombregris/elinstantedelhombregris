@@ -345,6 +345,15 @@ export const postLikes = sqliteTable("post_likes", {
   createdAt: text("created_at").default("CURRENT_TIMESTAMP"),
 });
 
+// Tabla de likes en ensayos (contenido estático, keyed por slug)
+export const ensayoLikes = sqliteTable("ensayo_likes", {
+  id: integer("id").primaryKey({ autoIncrement: true }),
+  slug: text("slug").notNull(),
+  userId: integer("user_id").references(() => users.id),
+  sessionId: text("session_id"), // For anonymous likes (null when userId is set)
+  createdAt: text("created_at").default("CURRENT_TIMESTAMP"),
+});
+
 // Tabla de comentarios en posts
 export const postComments = sqliteTable("post_comments", {
   id: integer("id").primaryKey({ autoIncrement: true }),

@@ -1,17 +1,107 @@
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'wouter';
 import { motion } from 'framer-motion';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FluidBackground from '@/components/ui/FluidBackground';
-import { ArrowRight, BookOpen, Feather, Mail } from 'lucide-react';
+import { ArrowRight, BookOpen, Check, Feather, Link as LinkIcon, Mail, Share2 } from 'lucide-react';
 import { ensayos } from '@/content/ensayos.generated';
 import type { Ensayo } from '@shared/ensayo-types';
 import { fadeUp, staggerContainer } from '@/lib/motion-variants';
 
+const CYCLE_ANCHORS: Record<string, string> = {
+  'Sobre presidentes, democracia y la belleza': 'presidentes-democracia-y-belleza',
+  'Indagaciones — sobre las condiciones interiores de la república': 'indagaciones',
+  'La Declaración de la Interdependencia — sobre lo que se firma sin papel': 'interdependencia',
+};
+
+function anchorFor(category: string): string {
+  return (
+    CYCLE_ANCHORS[category] ??
+    category
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[̀-ͯ]/g, '')
+      .replace(/[^a-z0-9\s-]/g, '')
+      .trim()
+      .replace(/\s+/g, '-')
+      .slice(0, 60)
+  );
+}
+
+const CycleTitleShare = ({ anchor, category }: { anchor: string; category: string }) => {
+  const [copied, setCopied] = useState(false);
+
+  const cycleUrl = () => `${window.location.origin}${window.location.pathname}#${anchor}`;
+
+  const handleCopy = async () => {
+    window.history.replaceState(null, '', `#${anchor}`);
+    try {
+      await navigator.clipboard.writeText(cycleUrl());
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1800);
+    } catch {
+      /* el hash ya quedó en la barra */
+    }
+  };
+
+  const handleShare = async () => {
+    const url = cycleUrl();
+    window.history.replaceState(null, '', `#${anchor}`);
+    if (typeof navigator !== 'undefined' && 'share' in navigator) {
+      try {
+        await navigator.share({ url, title: `${category} — Ensayos del Hombre Gris` });
+        return;
+      } catch (error: any) {
+        if (error?.name === 'AbortError') return;
+      }
+    }
+    handleCopy();
+  };
+
+  return (
+    <span className="inline-flex items-center gap-1 align-middle">
+      <button
+        type="button"
+        onClick={handleCopy}
+        aria-label="Copiar enlace a este ciclo"
+        title="Copiar enlace a este ciclo"
+        className="p-1.5 rounded-md text-mist-white/30 hover:text-amber-300/90 hover:bg-white/5 transition-colors"
+      >
+        {copied ? <Check className="w-4 h-4 text-amber-300/90" /> : <LinkIcon className="w-4 h-4" />}
+      </button>
+      <button
+        type="button"
+        onClick={handleShare}
+        aria-label="Compartir este ciclo"
+        title="Compartir este ciclo"
+        className="p-1.5 rounded-md text-mist-white/30 hover:text-amber-300/90 hover:bg-white/5 transition-colors"
+      >
+        <Share2 className="w-4 h-4" />
+      </button>
+      {copied && <span className="text-xs text-amber-300/90 font-sans">Enlace copiado</span>}
+    </span>
+  );
+};
+
 const Ensayos = () => {
   useEffect(() => {
     document.title = 'Ensayos — El Instante del Hombre Gris';
+    const hash = decodeURIComponent(window.location.hash.slice(1));
+    if (hash) {
+      const jump = () => {
+        const el = document.getElementById(hash);
+        if (el) el.scrollIntoView({ block: 'start' });
+      };
+      // Doble salto: las animaciones de entrada escalonadas corren el layout
+      // después del primer scroll; el segundo corrige la posición final.
+      const t1 = window.setTimeout(jump, 150);
+      const t2 = window.setTimeout(jump, 900);
+      return () => {
+        window.clearTimeout(t1);
+        window.clearTimeout(t2);
+      };
+    }
     window.scrollTo(0, 0);
   }, []);
 
@@ -40,10 +130,13 @@ const Ensayos = () => {
           </motion.header>
 
           {groupedEnsayos.map(([category, items]) => (
-            <motion.section key={category} variants={fadeUp} className="space-y-6">
+            <motion.section key={category} id={anchorFor(category)} variants={fadeUp} className="space-y-6 scroll-mt-28">
               <div className="space-y-2 border-l-2 border-amber-300/30 pl-4">
                 <p className="uppercase tracking-widest text-xs text-amber-300/70">Sección</p>
-                <h2 className="font-serif text-2xl md:text-3xl leading-tight text-mist-white">{category}</h2>
+                <h2 className="font-serif text-2xl md:text-3xl leading-tight text-mist-white">
+                  {category}{' '}
+                  <CycleTitleShare anchor={anchorFor(category)} category={category} />
+                </h2>
               </div>
               <motion.ol variants={staggerContainer} className="space-y-6 list-none p-0">
                 {items.map((ensayo) => (

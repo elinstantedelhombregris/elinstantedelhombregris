@@ -12,6 +12,7 @@ import { registerCoachingRoutes } from './routes-coaching';
 import { registerOpenDataRoutes } from './routes-open-data';
 import { registerPulseRoutes } from './routes-pulse';
 import { registerMapSignalsRoutes } from './routes-map-signals';
+import { registerEnsayoRoutes } from './routes-ensayos';
 import { registerAnalyticsRoutes } from './routes-analytics';
 import { registerRadarRoutes } from './routes-radar';
 import { registerCirculosRoutes } from './routes-circulos';
@@ -182,6 +183,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   registerOpenDataRoutes(app);
   registerPulseRoutes(app);
   registerMapSignalsRoutes(app);
+  registerEnsayoRoutes(app);
   registerAnalyticsRoutes(app);
   registerRadarRoutes(app);
   registerCirculosRoutes(app);

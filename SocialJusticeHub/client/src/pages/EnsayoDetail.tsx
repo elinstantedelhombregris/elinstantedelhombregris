@@ -1,13 +1,17 @@
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useRoute } from 'wouter';
 import { motion } from 'framer-motion';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FluidBackground from '@/components/ui/FluidBackground';
+import LikeButton from '@/components/LikeButton';
+import ShareButtons from '@/components/ShareButtons';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { ensayos } from '@/content/ensayos.generated';
 import type { EnsayoCartografiaGroup } from '@shared/ensayo-types';
 import { fadeUp } from '@/lib/motion-variants';
+import { getAnonSessionId } from '@/lib/anonSession';
+import { apiRequest } from '@/lib/queryClient';
 
 const LINK_ICON_SVG =
   '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>';
@@ -84,6 +88,37 @@ const EnsayoDetail = () => {
   const slug = params?.slug;
   const ensayo = useMemo(() => ensayos.find((e) => e.slug === slug), [slug]);
   const proseRef = useRef<HTMLDivElement>(null);
+  const [likes, setLikes] = useState<{ count: number; liked: boolean }>({ count: 0, liked: false });
+
+  const shareUrl = useMemo(() => {
+    if (!ensayo) return '';
+    const origin = typeof window !== 'undefined' ? window.location.origin : 'https://elinstantedelhombregris.com';
+    return `${origin}/recursos/ensayos/${ensayo.slug}`;
+  }, [ensayo]);
+
+  useEffect(() => {
+    if (!slug) return;
+    let alive = true;
+    setLikes({ count: 0, liked: false });
+    fetch(`/api/ensayos/${slug}/likes?sessionId=${encodeURIComponent(getAnonSessionId())}`)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((data) => {
+        if (alive && data) setLikes({ count: data.count ?? 0, liked: !!data.liked });
+      })
+      .catch(() => {});
+    return () => {
+      alive = false;
+    };
+  }, [slug]);
+
+  const handleToggleLike = async () => {
+    const response = await apiRequest('POST', `/api/ensayos/${slug}/like`, {
+      sessionId: getAnonSessionId(),
+    });
+    if (!response.ok) throw new Error('No se pudo registrar el like');
+    const result: { liked: boolean; count: number } = await response.json();
+    setLikes({ liked: result.liked, count: result.count });
+  };
 
   useEffect(() => {
     if (ensayo) document.title = `${ensayo.title} — Ensayos — El Instante del Hombre Gris`;
@@ -193,6 +228,27 @@ const EnsayoDetail = () => {
               className="prose prose-invert max-w-none font-sans prose-headings:font-serif prose-headings:scroll-mt-28 prose-h2:text-2xl prose-h2:mt-12 prose-h2:mb-4 prose-h3:text-xl prose-p:text-[1.0625rem] prose-p:leading-[1.8] prose-p:text-mist-white/85 prose-em:text-amber-200/90 prose-em:font-serif prose-strong:text-mist-white prose-blockquote:font-serif prose-blockquote:border-amber-300/40"
               dangerouslySetInnerHTML={{ __html: ensayo.bodyHtml }}
             />
+
+            <div className="mt-12 pt-6 border-t border-white/10 flex items-center justify-between gap-4 flex-wrap">
+              <LikeButton
+                postId={0}
+                initialLiked={likes.liked}
+                initialCount={likes.count}
+                onLike={handleToggleLike}
+                onUnlike={handleToggleLike}
+                size="sm"
+                showCount
+              />
+              <ShareButtons
+                url={shareUrl}
+                title={ensayo.title}
+                description={ensayo.subtitle}
+                hashtags={['ElHombreGris', 'Ensayos', 'Argentina']}
+                size="sm"
+                variant="ghost"
+                showLabel={false}
+              />
+            </div>
 
             <aside className="lg:hidden mt-16">
               <CartografiaBlock groups={ensayo.cartografia} />

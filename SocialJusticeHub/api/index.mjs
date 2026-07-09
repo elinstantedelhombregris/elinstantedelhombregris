@@ -75,6 +75,7 @@ __export(schema_exports, {
   digestProposals: () => digestProposals,
   dreams: () => dreams,
   dreamsRelations: () => dreamsRelations,
+  ensayoLikes: () => ensayoLikes,
   geographicLocations: () => geographicLocations,
   initiativeMembers: () => initiativeMembers,
   initiativeMembersRelations: () => initiativeMembersRelations,
@@ -318,7 +319,7 @@ import { pgTable, serial, integer, text, real, boolean, unique, index } from "dr
 import { sql } from "drizzle-orm";
 import { createInsertSchema } from "drizzle-zod";
 import { relations } from "drizzle-orm";
-var users, dreams, userResources, communityPosts, resources, inspiringStories, communityPostInteractions, communityMessages, communityPostActivity, geographicLocations, communityPostLikes, communityPostViews, sentimentAnalysis, textEmbeddings, userProfiles, recommendations, aiInsights, blockchainTransactions, iotSensors, sensorData, vrMeetings, meetingParticipants, blogPosts, postTags, postLikes, postComments, postBookmarks, postViews, courses, courseLessons, courseQuizzes, quizQuestions, courseDefinitions, courseRevisions, courseLessonIdentities, courseRevisionLessons, courseRevisionQuizzes, courseRevisionQuizQuestions, userCourseProgress, userLessonProgress, quizAttempts, quizAttemptAnswers, courseCertificates, userLevels, challenges, challengeSteps, userChallengeProgress, badges, userBadges, userDailyActivity, userCommitments, userActions, userProgress, weeklyRankings, monthlyRankings, provinceRankings, territoryMandates, mandateSuggestions, initiativeMembers, initiativeMilestones, initiativeMessages, initiativeTasks, activityFeed, missionEvidence, missionChronicles, membershipRequests, notifications, lifeAreas, lifeAreaSubcategories, lifeAreaQuizzes, lifeAreaQuizQuestions, lifeAreaQuizResponses, lifeAreaScores, lifeAreaActions, userLifeAreaProgress, lifeAreaMilestones, lifeAreaIndicators, lifeAreaCommunityStats, lifeAreaXpLog, lifeAreaLevels, lifeAreaStreaks, lifeAreaBadges, userLifeAreaBadges, lifeAreaCurrency, lifeAreaRewardChests, lifeAreaChallenges, userLifeAreaChallenges, lifeAreaMastery, lifeAreaNotifications, lifeAreaSocialInteractions, usersRelations, userResourcesRelations, territoryMandatesRelations, mandateSuggestionsRelations, dreamsRelations, communityPostsRelations, communityPostInteractionsRelations, communityMessagesRelations, communityPostActivityRelations, userProfilesRelations, recommendationsRelations, vrMeetingsRelations, meetingParticipantsRelations, userLevelsRelations, challengesRelations, challengeStepsRelations, userChallengeProgressRelations, badgesRelations, userBadgesRelations, userDailyActivityRelations, userCommitmentsRelations, userActionsRelations, userProgressRelations, weeklyRankingsRelations, monthlyRankingsRelations, provinceRankingsRelations, blogPostsRelations, postTagsRelations, postLikesRelations, postCommentsRelations, postBookmarksRelations, postViewsRelations, coursesRelations, courseLessonsRelations, courseQuizzesRelations, quizQuestionsRelations, courseDefinitionsRelations, courseRevisionsRelations, courseLessonIdentitiesRelations, courseRevisionLessonsRelations, courseRevisionQuizzesRelations, courseRevisionQuizQuestionsRelations, userCourseProgressRelations, userLessonProgressRelations, quizAttemptsRelations, quizAttemptAnswersRelations, courseCertificatesRelations, iotSensorsRelations, sensorDataRelations, inspiringStoriesRelations, initiativeMembersRelations, initiativeMilestonesRelations, initiativeMessagesRelations, initiativeTasksRelations, activityFeedRelations, missionEvidenceRelations, missionChroniclesRelations, membershipRequestsRelations, notificationsRelations, lifeAreasRelations, lifeAreaSubcategoriesRelations, lifeAreaQuizzesRelations, lifeAreaQuizQuestionsRelations, lifeAreaQuizResponsesRelations, lifeAreaScoresRelations, lifeAreaActionsRelations, userLifeAreaProgressRelations, lifeAreaMilestonesRelations, lifeAreaIndicatorsRelations, lifeAreaCommunityStatsRelations, lifeAreaXpLogRelations, lifeAreaLevelsRelations, lifeAreaStreaksRelations, lifeAreaBadgesRelations, userLifeAreaBadgesRelations, lifeAreaCurrencyRelations, lifeAreaRewardChestsRelations, lifeAreaChallengesRelations, userLifeAreaChallengesRelations, lifeAreaMasteryRelations, lifeAreaNotificationsRelations, lifeAreaSocialInteractionsRelations, civicAssessments, civicAssessmentResponses, civicProfiles, civicGoals, weeklyCheckins, coachingSessions, coachingPrompts, platformFeedback, insertUserSchema, insertDreamSchema, insertCommunityPostSchema, insertResourceSchema, insertInspiringStorySchema, insertSentimentAnalysisSchema, insertTextEmbeddingSchema, insertUserProfileSchema, insertRecommendationSchema, insertAiInsightSchema, insertBlockchainTransactionSchema, insertIotSensorSchema, insertSensorDataSchema, insertVrMeetingSchema, insertMeetingParticipantSchema, insertUserResourceSchema, insertTerritoryMandateSchema, insertMandateSuggestionSchema, insertUserLevelSchema, insertChallengeSchema, insertChallengeStepSchema, insertUserChallengeProgressSchema, insertBadgeSchema, insertUserBadgeSchema, insertUserDailyActivitySchema, insertUserCommitmentSchema, insertUserActionSchema, insertUserProgressSchema, insertWeeklyRankingSchema, insertMonthlyRankingSchema, insertProvinceRankingSchema, insertBlogPostSchema, insertPostTagSchema, insertPostLikeSchema, insertPostCommentSchema, insertPostBookmarkSchema, insertPostViewSchema, insertCourseSchema, insertCourseLessonSchema, insertCourseQuizSchema, insertQuizQuestionSchema, insertCourseDefinitionSchema, insertCourseRevisionSchema, insertCourseLessonIdentitySchema, insertCourseRevisionLessonSchema, insertCourseRevisionQuizSchema, insertCourseRevisionQuizQuestionSchema, insertUserCourseProgressSchema, insertUserLessonProgressSchema, insertQuizAttemptSchema, insertQuizAttemptAnswerSchema, insertCourseCertificateSchema, insertCommunityPostInteractionSchema, insertCommunityMessageSchema, insertCommunityPostActivitySchema, insertInitiativeMemberSchema, insertInitiativeMilestoneSchema, insertInitiativeMessageSchema, insertInitiativeTaskSchema, insertActivityFeedSchema, insertMissionEvidenceSchema, insertMissionChronicleSchema, insertMembershipRequestSchema, insertNotificationSchema, insertLifeAreaSchema, insertLifeAreaSubcategorySchema, insertLifeAreaQuizSchema, insertLifeAreaQuizQuestionSchema, insertLifeAreaQuizResponseSchema, insertLifeAreaScoreSchema, insertLifeAreaActionSchema, insertUserLifeAreaProgressSchema, insertLifeAreaMilestoneSchema, insertLifeAreaIndicatorSchema, insertLifeAreaCommunityStatsSchema, insertLifeAreaXpLogSchema, insertLifeAreaLevelSchema, insertLifeAreaStreakSchema, insertLifeAreaBadgeSchema, insertUserLifeAreaBadgeSchema, insertLifeAreaCurrencySchema, insertLifeAreaRewardChestSchema, insertLifeAreaChallengeSchema, insertUserLifeAreaChallengeSchema, insertLifeAreaMasterySchema, insertLifeAreaNotificationSchema, insertLifeAreaSocialInteractionSchema, civicAssessmentsRelations, civicAssessmentResponsesRelations, civicProfilesRelations, civicGoalsRelations, weeklyCheckinsRelations, coachingSessionsRelations, coachingPromptsRelations, insertCivicAssessmentSchema, insertCivicAssessmentResponseSchema, insertCivicProfileSchema, insertCivicGoalSchema, insertWeeklyCheckinSchema, insertCoachingSessionSchema, insertCoachingPromptSchema, weeklyDigests, digestProposals, proposalStatusHistory, insertWeeklyDigestSchema, insertDigestProposalSchema, insertProposalStatusHistorySchema, insertPlatformFeedbackSchema, circles, circleMembers, circleInvites, circleReports, campaignTemplates, campaigns, campaignEntries, insertCircleSchema, insertCircleMemberSchema, insertCircleInviteSchema, insertCircleReportSchema, insertCampaignTemplateSchema, insertCampaignSchema, insertCampaignEntrySchema;
+var users, dreams, userResources, communityPosts, resources, inspiringStories, communityPostInteractions, communityMessages, communityPostActivity, geographicLocations, communityPostLikes, communityPostViews, sentimentAnalysis, textEmbeddings, userProfiles, recommendations, aiInsights, blockchainTransactions, iotSensors, sensorData, vrMeetings, meetingParticipants, blogPosts, postTags, postLikes, ensayoLikes, postComments, postBookmarks, postViews, courses, courseLessons, courseQuizzes, quizQuestions, courseDefinitions, courseRevisions, courseLessonIdentities, courseRevisionLessons, courseRevisionQuizzes, courseRevisionQuizQuestions, userCourseProgress, userLessonProgress, quizAttempts, quizAttemptAnswers, courseCertificates, userLevels, challenges, challengeSteps, userChallengeProgress, badges, userBadges, userDailyActivity, userCommitments, userActions, userProgress, weeklyRankings, monthlyRankings, provinceRankings, territoryMandates, mandateSuggestions, initiativeMembers, initiativeMilestones, initiativeMessages, initiativeTasks, activityFeed, missionEvidence, missionChronicles, membershipRequests, notifications, lifeAreas, lifeAreaSubcategories, lifeAreaQuizzes, lifeAreaQuizQuestions, lifeAreaQuizResponses, lifeAreaScores, lifeAreaActions, userLifeAreaProgress, lifeAreaMilestones, lifeAreaIndicators, lifeAreaCommunityStats, lifeAreaXpLog, lifeAreaLevels, lifeAreaStreaks, lifeAreaBadges, userLifeAreaBadges, lifeAreaCurrency, lifeAreaRewardChests, lifeAreaChallenges, userLifeAreaChallenges, lifeAreaMastery, lifeAreaNotifications, lifeAreaSocialInteractions, usersRelations, userResourcesRelations, territoryMandatesRelations, mandateSuggestionsRelations, dreamsRelations, communityPostsRelations, communityPostInteractionsRelations, communityMessagesRelations, communityPostActivityRelations, userProfilesRelations, recommendationsRelations, vrMeetingsRelations, meetingParticipantsRelations, userLevelsRelations, challengesRelations, challengeStepsRelations, userChallengeProgressRelations, badgesRelations, userBadgesRelations, userDailyActivityRelations, userCommitmentsRelations, userActionsRelations, userProgressRelations, weeklyRankingsRelations, monthlyRankingsRelations, provinceRankingsRelations, blogPostsRelations, postTagsRelations, postLikesRelations, postCommentsRelations, postBookmarksRelations, postViewsRelations, coursesRelations, courseLessonsRelations, courseQuizzesRelations, quizQuestionsRelations, courseDefinitionsRelations, courseRevisionsRelations, courseLessonIdentitiesRelations, courseRevisionLessonsRelations, courseRevisionQuizzesRelations, courseRevisionQuizQuestionsRelations, userCourseProgressRelations, userLessonProgressRelations, quizAttemptsRelations, quizAttemptAnswersRelations, courseCertificatesRelations, iotSensorsRelations, sensorDataRelations, inspiringStoriesRelations, initiativeMembersRelations, initiativeMilestonesRelations, initiativeMessagesRelations, initiativeTasksRelations, activityFeedRelations, missionEvidenceRelations, missionChroniclesRelations, membershipRequestsRelations, notificationsRelations, lifeAreasRelations, lifeAreaSubcategoriesRelations, lifeAreaQuizzesRelations, lifeAreaQuizQuestionsRelations, lifeAreaQuizResponsesRelations, lifeAreaScoresRelations, lifeAreaActionsRelations, userLifeAreaProgressRelations, lifeAreaMilestonesRelations, lifeAreaIndicatorsRelations, lifeAreaCommunityStatsRelations, lifeAreaXpLogRelations, lifeAreaLevelsRelations, lifeAreaStreaksRelations, lifeAreaBadgesRelations, userLifeAreaBadgesRelations, lifeAreaCurrencyRelations, lifeAreaRewardChestsRelations, lifeAreaChallengesRelations, userLifeAreaChallengesRelations, lifeAreaMasteryRelations, lifeAreaNotificationsRelations, lifeAreaSocialInteractionsRelations, civicAssessments, civicAssessmentResponses, civicProfiles, civicGoals, weeklyCheckins, coachingSessions, coachingPrompts, platformFeedback, insertUserSchema, insertDreamSchema, insertCommunityPostSchema, insertResourceSchema, insertInspiringStorySchema, insertSentimentAnalysisSchema, insertTextEmbeddingSchema, insertUserProfileSchema, insertRecommendationSchema, insertAiInsightSchema, insertBlockchainTransactionSchema, insertIotSensorSchema, insertSensorDataSchema, insertVrMeetingSchema, insertMeetingParticipantSchema, insertUserResourceSchema, insertTerritoryMandateSchema, insertMandateSuggestionSchema, insertUserLevelSchema, insertChallengeSchema, insertChallengeStepSchema, insertUserChallengeProgressSchema, insertBadgeSchema, insertUserBadgeSchema, insertUserDailyActivitySchema, insertUserCommitmentSchema, insertUserActionSchema, insertUserProgressSchema, insertWeeklyRankingSchema, insertMonthlyRankingSchema, insertProvinceRankingSchema, insertBlogPostSchema, insertPostTagSchema, insertPostLikeSchema, insertPostCommentSchema, insertPostBookmarkSchema, insertPostViewSchema, insertCourseSchema, insertCourseLessonSchema, insertCourseQuizSchema, insertQuizQuestionSchema, insertCourseDefinitionSchema, insertCourseRevisionSchema, insertCourseLessonIdentitySchema, insertCourseRevisionLessonSchema, insertCourseRevisionQuizSchema, insertCourseRevisionQuizQuestionSchema, insertUserCourseProgressSchema, insertUserLessonProgressSchema, insertQuizAttemptSchema, insertQuizAttemptAnswerSchema, insertCourseCertificateSchema, insertCommunityPostInteractionSchema, insertCommunityMessageSchema, insertCommunityPostActivitySchema, insertInitiativeMemberSchema, insertInitiativeMilestoneSchema, insertInitiativeMessageSchema, insertInitiativeTaskSchema, insertActivityFeedSchema, insertMissionEvidenceSchema, insertMissionChronicleSchema, insertMembershipRequestSchema, insertNotificationSchema, insertLifeAreaSchema, insertLifeAreaSubcategorySchema, insertLifeAreaQuizSchema, insertLifeAreaQuizQuestionSchema, insertLifeAreaQuizResponseSchema, insertLifeAreaScoreSchema, insertLifeAreaActionSchema, insertUserLifeAreaProgressSchema, insertLifeAreaMilestoneSchema, insertLifeAreaIndicatorSchema, insertLifeAreaCommunityStatsSchema, insertLifeAreaXpLogSchema, insertLifeAreaLevelSchema, insertLifeAreaStreakSchema, insertLifeAreaBadgeSchema, insertUserLifeAreaBadgeSchema, insertLifeAreaCurrencySchema, insertLifeAreaRewardChestSchema, insertLifeAreaChallengeSchema, insertUserLifeAreaChallengeSchema, insertLifeAreaMasterySchema, insertLifeAreaNotificationSchema, insertLifeAreaSocialInteractionSchema, civicAssessmentsRelations, civicAssessmentResponsesRelations, civicProfilesRelations, civicGoalsRelations, weeklyCheckinsRelations, coachingSessionsRelations, coachingPromptsRelations, insertCivicAssessmentSchema, insertCivicAssessmentResponseSchema, insertCivicProfileSchema, insertCivicGoalSchema, insertWeeklyCheckinSchema, insertCoachingSessionSchema, insertCoachingPromptSchema, weeklyDigests, digestProposals, proposalStatusHistory, insertWeeklyDigestSchema, insertDigestProposalSchema, insertProposalStatusHistorySchema, insertPlatformFeedbackSchema, circles, circleMembers, circleInvites, circleReports, campaignTemplates, campaigns, campaignEntries, insertCircleSchema, insertCircleMemberSchema, insertCircleInviteSchema, insertCircleReportSchema, insertCampaignTemplateSchema, insertCampaignSchema, insertCampaignEntrySchema;
 var init_schema = __esm({
   "shared/schema.ts"() {
     "use strict";
@@ -686,6 +687,17 @@ var init_schema = __esm({
       // For anonymous likes (null when userId is set)
       createdAt: text("created_at").default(sql`now()`)
     });
+    ensayoLikes = pgTable("ensayo_likes", {
+      id: serial("id").primaryKey(),
+      slug: text("slug").notNull(),
+      userId: integer("user_id").references(() => users.id),
+      sessionId: text("session_id"),
+      // For anonymous likes (null when userId is set)
+      createdAt: text("created_at").default(sql`now()`)
+    }, (table) => ({
+      uniqueUserLike: unique("ensayo_likes_slug_user_uq").on(table.slug, table.userId),
+      uniqueSessionLike: unique("ensayo_likes_slug_session_uq").on(table.slug, table.sessionId)
+    }));
     postComments = pgTable("post_comments", {
       id: serial("id").primaryKey(),
       postId: integer("post_id").references(() => blogPosts.id),
@@ -18102,11 +18114,73 @@ function registerMapSignalsRoutes(app2) {
   });
 }
 
+// server/routes-ensayos.ts
+init_db();
+init_schema();
+init_auth();
+import { and as and11, eq as eq13, sql as sql10 } from "drizzle-orm";
+var SLUG_RE = /^[a-z0-9-]{1,80}$/;
+async function countLikes(slug) {
+  const [{ count: count3 }] = await db.select({ count: sql10`count(*)::int` }).from(ensayoLikes).where(eq13(ensayoLikes.slug, slug));
+  return count3;
+}
+function registerEnsayoRoutes(app2) {
+  app2.get("/api/ensayos/:slug/likes", optionalAuth, async (req, res) => {
+    try {
+      const { slug } = req.params;
+      if (!SLUG_RE.test(slug)) {
+        return res.status(400).json({ message: "Slug inv\xE1lido" });
+      }
+      const sessionId = typeof req.query.sessionId === "string" ? req.query.sessionId : void 0;
+      const identityFilter = req.user?.userId != null ? eq13(ensayoLikes.userId, req.user.userId) : sessionId ? eq13(ensayoLikes.sessionId, sessionId) : null;
+      let liked = false;
+      if (identityFilter) {
+        const [existing] = await db.select({ id: ensayoLikes.id }).from(ensayoLikes).where(and11(eq13(ensayoLikes.slug, slug), identityFilter)).limit(1);
+        liked = !!existing;
+      }
+      res.json({ count: await countLikes(slug), liked });
+    } catch (error) {
+      console.error("Get ensayo likes error:", error);
+      res.status(500).json({ message: "Error al obtener likes" });
+    }
+  });
+  app2.post("/api/ensayos/:slug/like", optionalAuth, async (req, res) => {
+    try {
+      const { slug } = req.params;
+      if (!SLUG_RE.test(slug)) {
+        return res.status(400).json({ message: "Slug inv\xE1lido" });
+      }
+      const sessionId = typeof req.body?.sessionId === "string" ? req.body.sessionId : void 0;
+      if (req.user?.userId == null && !sessionId) {
+        return res.status(400).json({ message: "Falta el identificador de sesi\xF3n" });
+      }
+      const identityFilter = req.user?.userId != null ? eq13(ensayoLikes.userId, req.user.userId) : eq13(ensayoLikes.sessionId, sessionId);
+      const [existing] = await db.select({ id: ensayoLikes.id }).from(ensayoLikes).where(and11(eq13(ensayoLikes.slug, slug), identityFilter)).limit(1);
+      let liked;
+      if (existing) {
+        await db.delete(ensayoLikes).where(eq13(ensayoLikes.id, existing.id));
+        liked = false;
+      } else {
+        await db.insert(ensayoLikes).values({
+          slug,
+          userId: req.user?.userId,
+          sessionId: req.user?.userId != null ? void 0 : sessionId
+        }).onConflictDoNothing();
+        liked = true;
+      }
+      res.json({ liked, count: await countLikes(slug) });
+    } catch (error) {
+      console.error("Toggle ensayo like error:", error);
+      res.status(500).json({ message: "Error al dar/quitar like" });
+    }
+  });
+}
+
 // server/services/analytics-service.ts
 init_db();
 init_schema();
 init_config();
-import { eq as eq13, and as and11, isNull as isNull3, or as or4 } from "drizzle-orm";
+import { eq as eq14, and as and12, isNull as isNull3, or as or4 } from "drizzle-orm";
 var THEME_KEYWORDS = {
   systemic: [
     "transformacion",
@@ -18328,11 +18402,11 @@ async function queryAllDreams() {
     type: dreams.type,
     location: dreams.location,
     createdAt: dreams.createdAt
-  }).from(dreams).leftJoin(users, eq13(dreams.userId, users.id)).where(
+  }).from(dreams).leftJoin(users, eq14(dreams.userId, users.id)).where(
     or4(
       isNull3(dreams.userId),
       isNull3(users.dataShareOptOut),
-      eq13(users.dataShareOptOut, false)
+      eq14(users.dataShareOptOut, false)
     )
   );
 }
@@ -18343,11 +18417,11 @@ async function queryAllCommitments() {
     province: userCommitments.province,
     city: userCommitments.city,
     createdAt: userCommitments.createdAt
-  }).from(userCommitments).leftJoin(users, eq13(userCommitments.userId, users.id)).where(
+  }).from(userCommitments).leftJoin(users, eq14(userCommitments.userId, users.id)).where(
     or4(
       isNull3(userCommitments.userId),
       isNull3(users.dataShareOptOut),
-      eq13(users.dataShareOptOut, false)
+      eq14(users.dataShareOptOut, false)
     )
   );
 }
@@ -18359,13 +18433,13 @@ async function queryAllResources() {
     province: userResources.province,
     city: userResources.city,
     createdAt: userResources.createdAt
-  }).from(userResources).leftJoin(users, eq13(userResources.userId, users.id)).where(
-    and11(
-      eq13(userResources.isActive, true),
+  }).from(userResources).leftJoin(users, eq14(userResources.userId, users.id)).where(
+    and12(
+      eq14(userResources.isActive, true),
       or4(
         isNull3(userResources.userId),
         isNull3(users.dataShareOptOut),
-        eq13(users.dataShareOptOut, false)
+        eq14(users.dataShareOptOut, false)
       )
     )
   );
@@ -18561,7 +18635,7 @@ init_storage();
 init_auth();
 import { z as z6 } from "zod";
 import rateLimit3 from "express-rate-limit";
-import { desc as desc12, eq as eq14, sql as sql10 } from "drizzle-orm";
+import { desc as desc12, eq as eq15, sql as sql11 } from "drizzle-orm";
 
 // server/lib/radar.ts
 import { z as z5 } from "zod";
@@ -18676,9 +18750,9 @@ function registerRadarRoutes(app2) {
         return res.json(resumenCache.data);
       }
       const [dreamTypeCounts, [commitmentCount], [resourceCount], recentRows] = await Promise.all([
-        db.select({ type: dreams.type, count: sql10`count(*)::int` }).from(dreams).groupBy(dreams.type),
-        db.select({ count: sql10`count(*)::int` }).from(userCommitments).where(eq14(userCommitments.status, "active")),
-        db.select({ count: sql10`count(*)::int` }).from(userResources).where(eq14(userResources.isActive, true)),
+        db.select({ type: dreams.type, count: sql11`count(*)::int` }).from(dreams).groupBy(dreams.type),
+        db.select({ count: sql11`count(*)::int` }).from(userCommitments).where(eq15(userCommitments.status, "active")),
+        db.select({ count: sql11`count(*)::int` }).from(userResources).where(eq15(userResources.isActive, true)),
         db.select({
           id: dreams.id,
           type: dreams.type,
@@ -18777,21 +18851,21 @@ init_db();
 init_schema();
 init_geo_resolver();
 import crypto3 from "crypto";
-import { and as and12, desc as desc13, eq as eq15, ilike as ilike3, ne as ne2, or as or5, sql as sql11 } from "drizzle-orm";
+import { and as and13, desc as desc13, eq as eq16, ilike as ilike3, ne as ne2, or as or5, sql as sql12 } from "drizzle-orm";
 var DEFAULT_RADIUS_KM = 50;
 var MAX_DISCOVERY_RESULTS = 200;
 var normalize2 = (s) => s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
 async function memberCircleIds(userId) {
   if (!userId) return /* @__PURE__ */ new Set();
-  const rows = await db.select({ circleId: circleMembers.circleId }).from(circleMembers).where(eq15(circleMembers.userId, userId));
+  const rows = await db.select({ circleId: circleMembers.circleId }).from(circleMembers).where(eq16(circleMembers.userId, userId));
   return new Set(rows.map((r) => r.circleId));
 }
 async function listCircles(filters, userId) {
   const conds = [];
-  if (filters.kind) conds.push(eq15(circles.kind, filters.kind));
-  if (filters.province) conds.push(eq15(circles.province, filters.province));
-  if (filters.city) conds.push(eq15(circles.city, filters.city));
-  if (filters.theme) conds.push(eq15(circles.theme, filters.theme));
+  if (filters.kind) conds.push(eq16(circles.kind, filters.kind));
+  if (filters.province) conds.push(eq16(circles.province, filters.province));
+  if (filters.city) conds.push(eq16(circles.city, filters.city));
+  if (filters.theme) conds.push(eq16(circles.theme, filters.theme));
   if (filters.q) {
     const pattern = `%${filters.q}%`;
     const qCond = or5(ilike3(circles.name, pattern), ilike3(circles.description, pattern));
@@ -18800,8 +18874,8 @@ async function listCircles(filters, userId) {
   const [rows, myCircles] = await Promise.all([
     db.select({
       circle: circles,
-      memberCount: sql11`(select count(*)::int from circle_members cm where cm.circle_id = ${circles.id})`
-    }).from(circles).where(conds.length ? and12(...conds) : void 0).orderBy(desc13(circles.isOfficial), desc13(circles.id)).limit(MAX_DISCOVERY_RESULTS),
+      memberCount: sql12`(select count(*)::int from circle_members cm where cm.circle_id = ${circles.id})`
+    }).from(circles).where(conds.length ? and13(...conds) : void 0).orderBy(desc13(circles.isOfficial), desc13(circles.id)).limit(MAX_DISCOVERY_RESULTS),
     memberCircleIds(userId)
   ]);
   let results = rows.filter((r) => {
@@ -18824,7 +18898,7 @@ async function filterByProximity(circleList, lat, lng, radiusKm) {
       name: geographicLocations.name,
       latitude: geographicLocations.latitude,
       longitude: geographicLocations.longitude
-    }).from(geographicLocations).where(eq15(geographicLocations.type, "city"));
+    }).from(geographicLocations).where(eq16(geographicLocations.type, "city"));
     const wanted = new Set(cityNames.map(normalize2));
     for (const row of cityRows) {
       const key = normalize2(row.name);
@@ -18843,15 +18917,15 @@ async function filterByProximity(circleList, lat, lng, radiusKm) {
   });
 }
 async function getCircleById(id) {
-  const [circle] = await db.select().from(circles).where(eq15(circles.id, id)).limit(1);
+  const [circle] = await db.select().from(circles).where(eq16(circles.id, id)).limit(1);
   return circle;
 }
 async function getMembership(circleId, userId) {
-  const [member] = await db.select().from(circleMembers).where(and12(eq15(circleMembers.circleId, circleId), eq15(circleMembers.userId, userId))).limit(1);
+  const [member] = await db.select().from(circleMembers).where(and13(eq16(circleMembers.circleId, circleId), eq16(circleMembers.userId, userId))).limit(1);
   return member;
 }
 async function countMembers(circleId) {
-  const [row] = await db.select({ count: sql11`count(*)::int` }).from(circleMembers).where(eq15(circleMembers.circleId, circleId));
+  const [row] = await db.select({ count: sql12`count(*)::int` }).from(circleMembers).where(eq16(circleMembers.circleId, circleId));
   return row?.count ?? 0;
 }
 async function createCircle(input, userId) {
@@ -18889,7 +18963,7 @@ async function updateCircle(id, input) {
     // Una célula nunca deja de ser privada
     ...input.isPrivate !== void 0 ? { isPrivate: existing.kind === "celula" ? true : input.isPrivate } : {},
     updatedAt: (/* @__PURE__ */ new Date()).toISOString()
-  }).where(eq15(circles.id, id)).returning();
+  }).where(eq16(circles.id, id)).returning();
   return updated;
 }
 async function joinCircle(circleId, userId, displayRealName) {
@@ -18903,12 +18977,12 @@ async function leaveCircle(circleId, userId) {
   }
   if (membership.role === "coordinador") {
     const [[otherCoordinators], [otherMembers]] = await Promise.all([
-      db.select({ count: sql11`count(*)::int` }).from(circleMembers).where(and12(
-        eq15(circleMembers.circleId, circleId),
-        eq15(circleMembers.role, "coordinador"),
+      db.select({ count: sql12`count(*)::int` }).from(circleMembers).where(and13(
+        eq16(circleMembers.circleId, circleId),
+        eq16(circleMembers.role, "coordinador"),
         ne2(circleMembers.userId, userId)
       )),
-      db.select({ count: sql11`count(*)::int` }).from(circleMembers).where(and12(eq15(circleMembers.circleId, circleId), ne2(circleMembers.userId, userId)))
+      db.select({ count: sql12`count(*)::int` }).from(circleMembers).where(and13(eq16(circleMembers.circleId, circleId), ne2(circleMembers.userId, userId)))
     ]);
     if ((otherMembers?.count ?? 0) > 0 && (otherCoordinators?.count ?? 0) === 0) {
       return {
@@ -18917,7 +18991,7 @@ async function leaveCircle(circleId, userId) {
       };
     }
   }
-  await db.delete(circleMembers).where(eq15(circleMembers.id, membership.id));
+  await db.delete(circleMembers).where(eq16(circleMembers.id, membership.id));
   return { ok: true };
 }
 async function listMembers(circleId) {
@@ -18928,7 +19002,7 @@ async function listMembers(circleId) {
     joinedAt: circleMembers.joinedAt,
     name: users.name,
     username: users.username
-  }).from(circleMembers).innerJoin(users, eq15(circleMembers.userId, users.id)).where(eq15(circleMembers.circleId, circleId)).orderBy(circleMembers.joinedAt);
+  }).from(circleMembers).innerJoin(users, eq16(circleMembers.userId, users.id)).where(eq16(circleMembers.circleId, circleId)).orderBy(circleMembers.joinedAt);
   return rows.map((row) => ({
     userId: row.userId,
     displayName: row.displayRealName ? row.name : row.username,
@@ -18955,7 +19029,7 @@ async function createInvite(circleId, userId, opts = {}) {
   return invite;
 }
 async function getInviteByCode(code) {
-  const [invite] = await db.select().from(circleInvites).where(eq15(circleInvites.code, code)).limit(1);
+  const [invite] = await db.select().from(circleInvites).where(eq16(circleInvites.code, code)).limit(1);
   return invite;
 }
 function isInviteUsable(invite) {
@@ -18969,7 +19043,7 @@ function isInviteUsable(invite) {
   return { usable: true };
 }
 async function incrementInviteUses(inviteId) {
-  await db.update(circleInvites).set({ uses: sql11`${circleInvites.uses} + 1` }).where(eq15(circleInvites.id, inviteId));
+  await db.update(circleInvites).set({ uses: sql12`${circleInvites.uses} + 1` }).where(eq16(circleInvites.id, inviteId));
 }
 async function createReport(circleId, userId, reason) {
   const [report] = await db.insert(circleReports).values({ circleId, reportedBy: userId, reason }).returning();
@@ -18986,11 +19060,11 @@ async function listReports(status) {
     resolvedBy: circleReports.resolvedBy,
     resolvedAt: circleReports.resolvedAt,
     createdAt: circleReports.createdAt
-  }).from(circleReports).innerJoin(circles, eq15(circleReports.circleId, circles.id)).where(status ? eq15(circleReports.status, status) : void 0).orderBy(desc13(circleReports.id)).limit(200);
+  }).from(circleReports).innerJoin(circles, eq16(circleReports.circleId, circles.id)).where(status ? eq16(circleReports.status, status) : void 0).orderBy(desc13(circleReports.id)).limit(200);
   return rows;
 }
 async function resolveReport(reportId, estado, adminId) {
-  const [updated] = await db.update(circleReports).set({ status: estado, resolvedBy: adminId, resolvedAt: (/* @__PURE__ */ new Date()).toISOString() }).where(eq15(circleReports.id, reportId)).returning();
+  const [updated] = await db.update(circleReports).set({ status: estado, resolvedBy: adminId, resolvedAt: (/* @__PURE__ */ new Date()).toISOString() }).where(eq16(circleReports.id, reportId)).returning();
   return updated;
 }
 
@@ -19474,14 +19548,14 @@ function firstTextAnswer(formSchema, data) {
 // server/services/campanas-service.ts
 init_db();
 init_schema();
-import { and as and13, desc as desc14, eq as eq16, inArray as inArray5, sql as sql12 } from "drizzle-orm";
+import { and as and14, desc as desc14, eq as eq17, inArray as inArray5, sql as sql13 } from "drizzle-orm";
 var MAX_CAMPAIGN_RESULTS = 200;
 var MAX_LAYER_POINTS = 5e3;
 async function listTemplates() {
-  return db.select().from(campaignTemplates).where(eq16(campaignTemplates.isActive, true)).orderBy(campaignTemplates.id);
+  return db.select().from(campaignTemplates).where(eq17(campaignTemplates.isActive, true)).orderBy(campaignTemplates.id);
 }
 async function getTemplateById(id) {
-  const [template] = await db.select().from(campaignTemplates).where(eq16(campaignTemplates.id, id)).limit(1);
+  const [template] = await db.select().from(campaignTemplates).where(eq17(campaignTemplates.id, id)).limit(1);
   return template;
 }
 async function createCampaign(circleId, input, formSchema, defaults, userId) {
@@ -19510,23 +19584,23 @@ async function createCampaign(circleId, input, formSchema, defaults, userId) {
 async function listCampaigns(filters) {
   const conds = [];
   const status = filters.status ?? "activa";
-  if (status !== "todas") conds.push(eq16(campaigns.status, status));
-  if (filters.type) conds.push(eq16(campaigns.type, filters.type));
+  if (status !== "todas") conds.push(eq17(campaigns.status, status));
+  if (filters.type) conds.push(eq17(campaigns.type, filters.type));
   if (filters.province) {
-    conds.push(sql12`coalesce(${campaigns.targetProvince}, ${circles.province}) = ${filters.province}`);
+    conds.push(sql13`coalesce(${campaigns.targetProvince}, ${circles.province}) = ${filters.province}`);
   }
   if (filters.city) {
-    conds.push(sql12`coalesce(${campaigns.targetCity}, ${circles.city}) = ${filters.city}`);
+    conds.push(sql13`coalesce(${campaigns.targetCity}, ${circles.city}) = ${filters.city}`);
   }
   const rows = await db.select({
     campaign: campaigns,
     circleName: circles.name,
-    entryCount: sql12`(select count(*)::int from campaign_entries ce where ce.campaign_id = ${campaigns.id})`
-  }).from(campaigns).innerJoin(circles, eq16(campaigns.circleId, circles.id)).where(conds.length ? and13(...conds) : void 0).orderBy(desc14(campaigns.id)).limit(MAX_CAMPAIGN_RESULTS);
+    entryCount: sql13`(select count(*)::int from campaign_entries ce where ce.campaign_id = ${campaigns.id})`
+  }).from(campaigns).innerJoin(circles, eq17(campaigns.circleId, circles.id)).where(conds.length ? and14(...conds) : void 0).orderBy(desc14(campaigns.id)).limit(MAX_CAMPAIGN_RESULTS);
   return rows.map((r) => ({ ...r.campaign, circleName: r.circleName, entryCount: r.entryCount }));
 }
 async function getCampaignById(id) {
-  const [campaign] = await db.select().from(campaigns).where(eq16(campaigns.id, id)).limit(1);
+  const [campaign] = await db.select().from(campaigns).where(eq17(campaigns.id, id)).limit(1);
   return campaign;
 }
 async function getCampaignWithCircle(id) {
@@ -19534,13 +19608,13 @@ async function getCampaignWithCircle(id) {
     campaign: campaigns,
     circleName: circles.name,
     circleKind: circles.kind,
-    entryCount: sql12`(select count(*)::int from campaign_entries ce where ce.campaign_id = ${campaigns.id})`
-  }).from(campaigns).innerJoin(circles, eq16(campaigns.circleId, circles.id)).where(eq16(campaigns.id, id)).limit(1);
+    entryCount: sql13`(select count(*)::int from campaign_entries ce where ce.campaign_id = ${campaigns.id})`
+  }).from(campaigns).innerJoin(circles, eq17(campaigns.circleId, circles.id)).where(eq17(campaigns.id, id)).limit(1);
   if (!row) return void 0;
   return { ...row.campaign, circleName: row.circleName, circleKind: row.circleKind, entryCount: row.entryCount };
 }
 async function updateCampaignStatus(id, estado) {
-  const [updated] = await db.update(campaigns).set({ status: estado, updatedAt: (/* @__PURE__ */ new Date()).toISOString() }).where(eq16(campaigns.id, id)).returning();
+  const [updated] = await db.update(campaigns).set({ status: estado, updatedAt: (/* @__PURE__ */ new Date()).toISOString() }).where(eq17(campaigns.id, id)).returning();
   return updated;
 }
 async function createEntry(entry) {
@@ -19559,7 +19633,7 @@ async function createEntry(entry) {
   return created;
 }
 async function getEntryById(id) {
-  const [entry] = await db.select().from(campaignEntries).where(eq16(campaignEntries.id, id)).limit(1);
+  const [entry] = await db.select().from(campaignEntries).where(eq17(campaignEntries.id, id)).limit(1);
   return entry;
 }
 async function listEntries(campaignId, circleId, viewerIsMember, pagination) {
@@ -19569,11 +19643,11 @@ async function listEntries(campaignId, circleId, viewerIsMember, pagination) {
       submitterName: users.name,
       submitterUsername: users.username,
       submitterDisplayRealName: circleMembers.displayRealName
-    }).from(campaignEntries).leftJoin(users, eq16(campaignEntries.submittedBy, users.id)).leftJoin(
+    }).from(campaignEntries).leftJoin(users, eq17(campaignEntries.submittedBy, users.id)).leftJoin(
       circleMembers,
-      and13(eq16(circleMembers.userId, campaignEntries.submittedBy), eq16(circleMembers.circleId, circleId))
-    ).where(eq16(campaignEntries.campaignId, campaignId)).orderBy(desc14(campaignEntries.id)).limit(pagination.limit).offset(pagination.offset),
-    db.select({ count: sql12`count(*)::int` }).from(campaignEntries).where(eq16(campaignEntries.campaignId, campaignId))
+      and14(eq17(circleMembers.userId, campaignEntries.submittedBy), eq17(circleMembers.circleId, circleId))
+    ).where(eq17(campaignEntries.campaignId, campaignId)).orderBy(desc14(campaignEntries.id)).limit(pagination.limit).offset(pagination.offset),
+    db.select({ count: sql13`count(*)::int` }).from(campaignEntries).where(eq17(campaignEntries.campaignId, campaignId))
   ]);
   const entradas = rows.map((row) => {
     let submittedByName = null;
@@ -19602,17 +19676,17 @@ async function listEntries(campaignId, circleId, viewerIsMember, pagination) {
   return { entradas, total: countRow?.count ?? 0 };
 }
 async function verifyEntry(entryId, verifierId) {
-  const [updated] = await db.update(campaignEntries).set({ status: "verificada", verifiedBy: verifierId, verifiedAt: (/* @__PURE__ */ new Date()).toISOString() }).where(eq16(campaignEntries.id, entryId)).returning();
+  const [updated] = await db.update(campaignEntries).set({ status: "verificada", verifiedBy: verifierId, verifiedAt: (/* @__PURE__ */ new Date()).toISOString() }).where(eq17(campaignEntries.id, entryId)).returning();
   return updated;
 }
 async function computeProgress(campaign) {
   const [[totals], byProvince, byCity] = await Promise.all([
     db.select({
-      entries: sql12`count(*)::int`,
-      verified: sql12`count(*) filter (where ${campaignEntries.status} = 'verificada')::int`
-    }).from(campaignEntries).where(eq16(campaignEntries.campaignId, campaign.id)),
-    db.select({ province: campaignEntries.province, count: sql12`count(*)::int` }).from(campaignEntries).where(and13(eq16(campaignEntries.campaignId, campaign.id), sql12`${campaignEntries.province} is not null`)).groupBy(campaignEntries.province).orderBy(desc14(sql12`count(*)`)).limit(30),
-    db.select({ city: campaignEntries.city, count: sql12`count(*)::int` }).from(campaignEntries).where(and13(eq16(campaignEntries.campaignId, campaign.id), sql12`${campaignEntries.city} is not null`)).groupBy(campaignEntries.city).orderBy(desc14(sql12`count(*)`)).limit(30)
+      entries: sql13`count(*)::int`,
+      verified: sql13`count(*) filter (where ${campaignEntries.status} = 'verificada')::int`
+    }).from(campaignEntries).where(eq17(campaignEntries.campaignId, campaign.id)),
+    db.select({ province: campaignEntries.province, count: sql13`count(*)::int` }).from(campaignEntries).where(and14(eq17(campaignEntries.campaignId, campaign.id), sql13`${campaignEntries.province} is not null`)).groupBy(campaignEntries.province).orderBy(desc14(sql13`count(*)`)).limit(30),
+    db.select({ city: campaignEntries.city, count: sql13`count(*)::int` }).from(campaignEntries).where(and14(eq17(campaignEntries.campaignId, campaign.id), sql13`${campaignEntries.city} is not null`)).groupBy(campaignEntries.city).orderBy(desc14(sql13`count(*)`)).limit(30)
   ]);
   const entries = totals?.entries ?? 0;
   const verified = totals?.verified ?? 0;
@@ -19644,11 +19718,11 @@ async function computeCampaignLayers() {
     data: campaignEntries.data,
     createdAt: campaignEntries.createdAt
   }).from(campaignEntries).where(
-    and13(
+    and14(
       inArray5(campaignEntries.campaignId, visibleCampaigns.map((c) => c.id)),
-      sql12`${campaignEntries.status} != 'rechazada'`,
-      sql12`${campaignEntries.latitude} is not null`,
-      sql12`${campaignEntries.longitude} is not null`
+      sql13`${campaignEntries.status} != 'rechazada'`,
+      sql13`${campaignEntries.latitude} is not null`,
+      sql13`${campaignEntries.longitude} is not null`
     )
   ).orderBy(desc14(campaignEntries.id)).limit(MAX_LAYER_POINTS);
   const formSchemas = /* @__PURE__ */ new Map();
@@ -20011,19 +20085,19 @@ init_auth();
 // server/services/dashboards-service.ts
 init_db();
 init_schema();
-import { and as and14, desc as desc15, eq as eq17, sql as sql13 } from "drizzle-orm";
+import { and as and15, desc as desc15, eq as eq18, sql as sql14 } from "drizzle-orm";
 var WEEKS_BACK = 12;
 async function computeNacional() {
   const since = new Date(Date.now() - WEEKS_BACK * 7 * 24 * 60 * 60 * 1e3).toISOString();
-  const weekExpr = (col) => sql13`to_char(date_trunc('week', ${col}::timestamptz), 'YYYY-MM-DD')`;
+  const weekExpr = (col) => sql14`to_char(date_trunc('week', ${col}::timestamptz), 'YYYY-MM-DD')`;
   const [dreamWeeks, commitmentWeeks, resourceWeeks, dreamProvinces, commitmentProvinces, resourceProvinces, [activeCount]] = await Promise.all([
-    db.select({ week: weekExpr(dreams.createdAt), type: dreams.type, count: sql13`count(*)::int` }).from(dreams).where(sql13`${dreams.createdAt}::timestamptz >= ${since}::timestamptz`).groupBy(weekExpr(dreams.createdAt), dreams.type),
-    db.select({ week: weekExpr(userCommitments.createdAt), count: sql13`count(*)::int` }).from(userCommitments).where(sql13`${userCommitments.createdAt}::timestamptz >= ${since}::timestamptz`).groupBy(weekExpr(userCommitments.createdAt)),
-    db.select({ week: weekExpr(userResources.createdAt), count: sql13`count(*)::int` }).from(userResources).where(sql13`${userResources.createdAt}::timestamptz >= ${since}::timestamptz`).groupBy(weekExpr(userResources.createdAt)),
-    db.select({ province: dreams.province, count: sql13`count(*)::int` }).from(dreams).where(sql13`${dreams.province} is not null`).groupBy(dreams.province),
-    db.select({ province: userCommitments.province, count: sql13`count(*)::int` }).from(userCommitments).where(sql13`${userCommitments.province} is not null`).groupBy(userCommitments.province),
-    db.select({ province: userResources.province, count: sql13`count(*)::int` }).from(userResources).where(sql13`${userResources.province} is not null`).groupBy(userResources.province),
-    db.select({ count: sql13`count(*)::int` }).from(campaigns).where(eq17(campaigns.status, "activa"))
+    db.select({ week: weekExpr(dreams.createdAt), type: dreams.type, count: sql14`count(*)::int` }).from(dreams).where(sql14`${dreams.createdAt}::timestamptz >= ${since}::timestamptz`).groupBy(weekExpr(dreams.createdAt), dreams.type),
+    db.select({ week: weekExpr(userCommitments.createdAt), count: sql14`count(*)::int` }).from(userCommitments).where(sql14`${userCommitments.createdAt}::timestamptz >= ${since}::timestamptz`).groupBy(weekExpr(userCommitments.createdAt)),
+    db.select({ week: weekExpr(userResources.createdAt), count: sql14`count(*)::int` }).from(userResources).where(sql14`${userResources.createdAt}::timestamptz >= ${since}::timestamptz`).groupBy(weekExpr(userResources.createdAt)),
+    db.select({ province: dreams.province, count: sql14`count(*)::int` }).from(dreams).where(sql14`${dreams.province} is not null`).groupBy(dreams.province),
+    db.select({ province: userCommitments.province, count: sql14`count(*)::int` }).from(userCommitments).where(sql14`${userCommitments.province} is not null`).groupBy(userCommitments.province),
+    db.select({ province: userResources.province, count: sql14`count(*)::int` }).from(userResources).where(sql14`${userResources.province} is not null`).groupBy(userResources.province),
+    db.select({ count: sql14`count(*)::int` }).from(campaigns).where(eq18(campaigns.status, "activa"))
   ]);
   const totalsByTypeWeek = [
     ...dreamWeeks.map((r) => ({ week: r.week, type: r.type, count: r.count })),
@@ -20046,10 +20120,10 @@ async function computeNacional() {
   };
 }
 async function computeCampaignDashboard(campaign) {
-  const dayExpr = sql13`to_char(${campaignEntries.createdAt}::timestamptz, 'YYYY-MM-DD')`;
+  const dayExpr = sql14`to_char(${campaignEntries.createdAt}::timestamptz, 'YYYY-MM-DD')`;
   const [progress, perDayRows] = await Promise.all([
     computeProgress(campaign),
-    db.select({ day: dayExpr, count: sql13`count(*)::int` }).from(campaignEntries).where(eq17(campaignEntries.campaignId, campaign.id)).groupBy(dayExpr).orderBy(dayExpr)
+    db.select({ day: dayExpr, count: sql14`count(*)::int` }).from(campaignEntries).where(eq18(campaignEntries.campaignId, campaign.id)).groupBy(dayExpr).orderBy(dayExpr)
   ]);
   return {
     ...progress,
@@ -20063,12 +20137,12 @@ async function computeCampaignDashboard(campaign) {
 async function computeCircleDashboard(circleId) {
   const since = new Date(Date.now() - 7 * 24 * 60 * 60 * 1e3).toISOString();
   const [[memberCount], campaignsByStatus, [entryTotals]] = await Promise.all([
-    db.select({ count: sql13`count(*)::int` }).from(circleMembers).where(eq17(circleMembers.circleId, circleId)),
-    db.select({ status: campaigns.status, count: sql13`count(*)::int` }).from(campaigns).where(eq17(campaigns.circleId, circleId)).groupBy(campaigns.status),
+    db.select({ count: sql14`count(*)::int` }).from(circleMembers).where(eq18(circleMembers.circleId, circleId)),
+    db.select({ status: campaigns.status, count: sql14`count(*)::int` }).from(campaigns).where(eq18(campaigns.circleId, circleId)).groupBy(campaigns.status),
     db.select({
-      total: sql13`count(*)::int`,
-      lastWeek: sql13`count(*) filter (where ${campaignEntries.createdAt}::timestamptz >= ${since}::timestamptz)::int`
-    }).from(campaignEntries).innerJoin(campaigns, eq17(campaignEntries.campaignId, campaigns.id)).where(eq17(campaigns.circleId, circleId))
+      total: sql14`count(*)::int`,
+      lastWeek: sql14`count(*) filter (where ${campaignEntries.createdAt}::timestamptz >= ${since}::timestamptz)::int`
+    }).from(campaignEntries).innerJoin(campaigns, eq18(campaignEntries.campaignId, campaigns.id)).where(eq18(campaigns.circleId, circleId))
   ]);
   return {
     circleId,
@@ -20080,7 +20154,7 @@ async function computeCircleDashboard(circleId) {
   };
 }
 async function computeNecesidades(province, city) {
-  const consultaCampaigns = await db.select({ id: campaigns.id, title: campaigns.title, formSchema: campaigns.formSchema }).from(campaigns).where(eq17(campaigns.type, "consulta")).orderBy(desc15(campaigns.id)).limit(200);
+  const consultaCampaigns = await db.select({ id: campaigns.id, title: campaigns.title, formSchema: campaigns.formSchema }).from(campaigns).where(eq18(campaigns.type, "consulta")).orderBy(desc15(campaigns.id)).limit(200);
   const selectFields = /* @__PURE__ */ new Map();
   for (const campaign of consultaCampaigns) {
     const schema = parseFormSchema(campaign.formSchema);
@@ -20095,15 +20169,15 @@ async function computeNecesidades(province, city) {
   const campaignIds = Array.from(selectFields.keys());
   let topRespuestas = [];
   if (campaignIds.length > 0) {
-    const geoFilter = sql13.join(
+    const geoFilter = sql14.join(
       [
-        sql13`ce.campaign_id in (${sql13.join(campaignIds.map((id) => sql13`${id}`), sql13`, `)})`,
-        ...province ? [sql13`ce.province = ${province}`] : [],
-        ...city ? [sql13`ce.city = ${city}`] : []
+        sql14`ce.campaign_id in (${sql14.join(campaignIds.map((id) => sql14`${id}`), sql14`, `)})`,
+        ...province ? [sql14`ce.province = ${province}`] : [],
+        ...city ? [sql14`ce.city = ${city}`] : []
       ],
-      sql13` and `
+      sql14` and `
     );
-    const result = await db.execute(sql13`
+    const result = await db.execute(sql14`
       select ce.campaign_id as campaign_id, kv.key as key, kv.value as value, count(*)::int as count
       from campaign_entries ce
       cross join lateral jsonb_each_text(ce.data::jsonb) kv
@@ -20127,11 +20201,11 @@ async function computeNecesidades(province, city) {
     }));
   }
   const needConds = [
-    eq17(dreams.type, "need"),
-    ...province ? [eq17(dreams.province, province)] : [],
-    ...city ? [eq17(dreams.city, city)] : []
+    eq18(dreams.type, "need"),
+    ...province ? [eq18(dreams.province, province)] : [],
+    ...city ? [eq18(dreams.city, city)] : []
   ];
-  const [needCount] = await db.select({ count: sql13`count(*)::int` }).from(dreams).where(and14(...needConds));
+  const [needCount] = await db.select({ count: sql14`count(*)::int` }).from(dreams).where(and15(...needConds));
   return {
     province: province ?? null,
     city: city ?? null,
@@ -20142,15 +20216,15 @@ async function computeNecesidades(province, city) {
 }
 async function computeMiAporte(userId) {
   const [[senales], [compromisos], [recursos], [entradas], [campanasCreadas], [circulosCount]] = await Promise.all([
-    db.select({ count: sql13`count(*)::int` }).from(dreams).where(eq17(dreams.userId, userId)),
-    db.select({ count: sql13`count(*)::int` }).from(userCommitments).where(eq17(userCommitments.userId, userId)),
-    db.select({ count: sql13`count(*)::int` }).from(userResources).where(eq17(userResources.userId, userId)),
+    db.select({ count: sql14`count(*)::int` }).from(dreams).where(eq18(dreams.userId, userId)),
+    db.select({ count: sql14`count(*)::int` }).from(userCommitments).where(eq18(userCommitments.userId, userId)),
+    db.select({ count: sql14`count(*)::int` }).from(userResources).where(eq18(userResources.userId, userId)),
     db.select({
-      count: sql13`count(*)::int`,
-      verified: sql13`count(*) filter (where ${campaignEntries.status} = 'verificada')::int`
-    }).from(campaignEntries).where(eq17(campaignEntries.submittedBy, userId)),
-    db.select({ count: sql13`count(*)::int` }).from(campaigns).where(eq17(campaigns.createdBy, userId)),
-    db.select({ count: sql13`count(*)::int` }).from(circleMembers).where(eq17(circleMembers.userId, userId))
+      count: sql14`count(*)::int`,
+      verified: sql14`count(*) filter (where ${campaignEntries.status} = 'verificada')::int`
+    }).from(campaignEntries).where(eq18(campaignEntries.submittedBy, userId)),
+    db.select({ count: sql14`count(*)::int` }).from(campaigns).where(eq18(campaigns.createdBy, userId)),
+    db.select({ count: sql14`count(*)::int` }).from(circleMembers).where(eq18(circleMembers.userId, userId))
   ]);
   return {
     senales: senales?.count ?? 0,
@@ -21931,7 +22005,7 @@ function computeMissionAlignment(archetype, lifeAreaGaps) {
 // server/services/embedding-service.ts
 init_db();
 init_schema();
-import { eq as eq18, and as and15 } from "drizzle-orm";
+import { eq as eq19, and as and16 } from "drizzle-orm";
 var embeddingPipeline = null;
 async function getEmbeddingPipeline() {
   if (!embeddingPipeline) {
@@ -21971,9 +22045,9 @@ async function getOrCreateEmbedding(contentId, text2, contentType) {
   }
   try {
     const existing = await db.select().from(textEmbeddings).where(
-      and15(
-        eq18(textEmbeddings.contentId, contentId),
-        eq18(textEmbeddings.contentType, contentType)
+      and16(
+        eq19(textEmbeddings.contentId, contentId),
+        eq19(textEmbeddings.contentType, contentType)
       )
     ).limit(1);
     if (existing.length > 0 && existing[0].embedding) {
@@ -21993,9 +22067,9 @@ async function getOrCreateEmbedding(contentId, text2, contentType) {
         embedding: embeddingJson,
         model: "Xenova/all-MiniLM-L6-v2"
       }).where(
-        and15(
-          eq18(textEmbeddings.contentId, contentId),
-          eq18(textEmbeddings.contentType, contentType)
+        and16(
+          eq19(textEmbeddings.contentId, contentId),
+          eq19(textEmbeddings.contentType, contentType)
         )
       );
     } else {
@@ -22122,6 +22196,7 @@ async function registerRoutes(app2) {
   registerOpenDataRoutes(app2);
   registerPulseRoutes(app2);
   registerMapSignalsRoutes(app2);
+  registerEnsayoRoutes(app2);
   registerAnalyticsRoutes(app2);
   registerRadarRoutes(app2);
   registerCirculosRoutes(app2);
