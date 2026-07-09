@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FluidBackground from '@/components/ui/FluidBackground';
-import { ArrowRight, BookOpen, Mail } from 'lucide-react';
+import { ArrowRight, BookOpen, Feather, Mail } from 'lucide-react';
 import { ensayos } from '@/content/ensayos.generated';
 import type { Ensayo } from '@shared/ensayo-types';
 import { fadeUp, staggerContainer } from '@/lib/motion-variants';
@@ -35,7 +35,7 @@ const Ensayos = () => {
             <p className="uppercase tracking-widest text-xs text-amber-300/80">Pensamiento</p>
             <h1 className="font-serif text-5xl md:text-6xl leading-tight">Ensayos</h1>
             <p className="text-lg text-mist-white/70 max-w-2xl">
-              Un cuaderno abierto del Hombre Gris. Acá se ensayan ideas, se discuten arquitecturas, y se busca la palabra justa antes de bajar al gesto. Dos ciclos hasta ahora: el primero diseña la arquitectura de la república; el segundo indaga las condiciones interiores que la hacen posible. Va a haber más.
+              Un cuaderno abierto del Hombre Gris. Acá se ensayan ideas, se discuten arquitecturas, y se busca la palabra justa antes de bajar al gesto. Tres ciclos hasta ahora: el primero diseña la arquitectura de la república; el segundo indaga las condiciones interiores que la hacen posible; el tercero declara la interdependencia que la sostiene — y termina en un acta que se firma sin papel. Va a haber más.
             </p>
           </motion.header>
 
@@ -53,7 +53,7 @@ const Ensayos = () => {
                         <div className="flex items-start gap-4 md:gap-6">
                           <div className="flex-shrink-0 hidden md:flex flex-col items-center pt-1">
                             <span className="text-amber-300/60 font-mono text-sm">{String(ensayo.order).padStart(2, '0')}</span>
-                            {ensayo.type === 'carta' ? <Mail className="mt-3 w-5 h-5 text-amber-300/60" /> : <BookOpen className="mt-3 w-5 h-5 text-amber-300/60" />}
+                            {ensayo.type === 'carta' ? <Mail className="mt-3 w-5 h-5 text-amber-300/60" /> : ensayo.type === 'acta' ? <Feather className="mt-3 w-5 h-5 text-amber-300/60" /> : <BookOpen className="mt-3 w-5 h-5 text-amber-300/60" />}
                           </div>
                           <div className="flex-1 space-y-2">
                             <div className="flex items-baseline gap-3">

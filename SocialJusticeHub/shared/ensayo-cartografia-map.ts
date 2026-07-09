@@ -32,4 +32,12 @@ export const CARTOGRAFIA_HREF_MAP: Record<string, string> = {
   'Conocerse sin espejo': '/recursos/ensayos/conocerse-sin-espejo',
   'El amor sin apego': '/recursos/ensayos/amor-sin-apego',
   'La sensibilidad como infraestructura': '/recursos/ensayos/sensibilidad-como-infraestructura',
+  'Por qué los presidentes son una idea estúpida': '/recursos/ensayos/presidencia',
+  '¿De qué está hecha una nación?': '/recursos/ensayos/que-es-una-nacion',
+  'El bisturí de 1816': '/recursos/ensayos/el-bisturi-de-1816',
+  'La independencia ficticia': '/recursos/ensayos/la-independencia-ficticia',
+  'Interdependencia: la palabra que faltaba': '/recursos/ensayos/interdependencia-la-palabra',
+  'Lo que perdemos si no lo vemos': '/recursos/ensayos/lo-que-perdemos',
+  'La práctica del tejido': '/recursos/ensayos/la-practica-del-tejido',
+  'Acta de la Interdependencia': '/recursos/ensayos/acta-de-la-interdependencia',
 };

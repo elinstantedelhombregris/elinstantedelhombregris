@@ -11,8 +11,9 @@ const OUT_FILE = resolve(SCRIPT_DIR, '../client/src/content/ensayos.generated.ts
 
 const CATEGORY_PRIMER = 'Sobre presidentes, democracia y la belleza';
 const CATEGORY_INDAGACIONES = 'Indagaciones — sobre las condiciones interiores de la república';
+const CATEGORY_INTERDEPENDENCIA = 'La Declaración de la Interdependencia — sobre lo que se firma sin papel';
 
-const FILES: Array<{ order: number; file: string; slug: string; type: 'ensayo' | 'carta'; category: string }> = [
+const FILES: Array<{ order: number; file: string; slug: string; type: 'ensayo' | 'carta' | 'acta'; category: string }> = [
   { order: 1, file: 'presidencia, democracia y belleza/01-presidencia.md',  slug: 'presidencia',     type: 'ensayo', category: CATEGORY_PRIMER },
   { order: 2, file: 'presidencia, democracia y belleza/02-democracia.md',   slug: 'democracia',      type: 'ensayo', category: CATEGORY_PRIMER },
   { order: 3, file: 'presidencia, democracia y belleza/03-poder.md',        slug: 'poder',           type: 'ensayo', category: CATEGORY_PRIMER },
@@ -27,6 +28,13 @@ const FILES: Array<{ order: number; file: string; slug: string; type: 'ensayo' |
   { order: 5, file: 'indagaciones/05-conocerse-sin-espejo.md',              slug: 'conocerse-sin-espejo',            type: 'ensayo', category: CATEGORY_INDAGACIONES },
   { order: 6, file: 'indagaciones/06-amor-sin-apego.md',                    slug: 'amor-sin-apego',                  type: 'ensayo', category: CATEGORY_INDAGACIONES },
   { order: 7, file: 'indagaciones/07-sensibilidad-como-infraestructura.md', slug: 'sensibilidad-como-infraestructura', type: 'ensayo', category: CATEGORY_INDAGACIONES },
+  { order: 1, file: 'interdependencia/01-que-es-una-nacion.md',             slug: 'que-es-una-nacion',            type: 'ensayo', category: CATEGORY_INTERDEPENDENCIA },
+  { order: 2, file: 'interdependencia/02-el-bisturi-de-1816.md',            slug: 'el-bisturi-de-1816',           type: 'ensayo', category: CATEGORY_INTERDEPENDENCIA },
+  { order: 3, file: 'interdependencia/03-la-independencia-ficticia.md',     slug: 'la-independencia-ficticia',    type: 'ensayo', category: CATEGORY_INTERDEPENDENCIA },
+  { order: 4, file: 'interdependencia/04-interdependencia-la-palabra.md',   slug: 'interdependencia-la-palabra',  type: 'ensayo', category: CATEGORY_INTERDEPENDENCIA },
+  { order: 5, file: 'interdependencia/05-lo-que-perdemos.md',               slug: 'lo-que-perdemos',              type: 'ensayo', category: CATEGORY_INTERDEPENDENCIA },
+  { order: 6, file: 'interdependencia/06-la-practica-del-tejido.md',        slug: 'la-practica-del-tejido',       type: 'ensayo', category: CATEGORY_INTERDEPENDENCIA },
+  { order: 7, file: 'interdependencia/07-acta-de-la-interdependencia.md',   slug: 'acta-de-la-interdependencia',  type: 'acta',   category: CATEGORY_INTERDEPENDENCIA },
 ];
 
 function decodeHtmlEntities(s: string): string {

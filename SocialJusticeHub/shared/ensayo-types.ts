@@ -18,7 +18,7 @@ export interface EnsayoTocItem {
 export interface Ensayo {
   slug: string;
   order: number;
-  type: 'ensayo' | 'carta';
+  type: 'ensayo' | 'carta' | 'acta';
   category: string;
   title: string;
   subtitle: string;
