@@ -7,6 +7,10 @@ export default defineConfig({
   },
   test: {
     environment: 'node',
-    include: ['src/game/**/*.test.ts', 'src/content/**/*.test.ts'],
+    include: [
+      'src/game/**/*.test.ts',
+      'src/content/**/*.test.ts',
+      'src/cielo/**/*.test.ts',
+    ],
   },
 });

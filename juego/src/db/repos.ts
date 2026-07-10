@@ -331,6 +331,10 @@ export const compromisoDeAyer = (hoy: string = hoyLocal()): CommitmentRow | null
     .where(and(eq(commitments.fecha, addDias(hoy, -1)), eq(commitments.estado, 'pendiente')))
     .get() ?? null;
 
+/** El compromiso elegido en una fecha dada (para releer el de hoy). */
+export const compromisoDeFecha = (fecha: string = hoyLocal()): CommitmentRow | null =>
+  db.select().from(commitments).where(eq(commitments.fecha, fecha)).get() ?? null;
+
 export interface ResultadoCompromiso {
   compromiso: CommitmentRow;
   brasasGanadas: number;

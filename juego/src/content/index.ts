@@ -18,6 +18,7 @@ export type {
 } from './types';
 
 export { PREGUNTAS } from './preguntas';
+export { SENALES, SENAL_POR_KEY, type SenalDef } from './senales';
 export { COMPROMISOS } from './compromisos';
 export { PLANTILLAS_EXPEDICION } from './expediciones';
 export { CONSTELACIONES } from './constelaciones';
