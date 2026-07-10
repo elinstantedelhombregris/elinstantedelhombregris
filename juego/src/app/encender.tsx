@@ -7,7 +7,6 @@
 
 import { Ionicons } from '@expo/vector-icons';
 import { CameraView, useCameraPermissions } from 'expo-camera';
-import * as Location from 'expo-location';
 import { useRouter } from 'expo-router';
 import { useRef, useState } from 'react';
 import { Image, Text, TextInput, View } from 'react-native';
@@ -18,37 +17,11 @@ import { AccentButton } from '@/components/ui/AccentButton';
 import { GlassCard } from '@/components/ui/GlassCard';
 import { Pressable97 } from '@/components/ui/Pressable97';
 import { SENALES, type SenalDef } from '@/content';
-import {
-  crearEstrella,
-  expedicionesTodas,
-  getSetting,
-  hoyLocal,
-  marcarLuz,
-  setSetting,
-} from '@/db/repos';
-import { fadeUp, slideLeftIn, staggerDelay } from '@/motion/variants';
-import { CLAVES_DIA, multiplicadorHoy, useJuego } from '@/stores/juego';
+import { crearEstrella, expedicionesTodas, hoyLocal, marcarLuz } from '@/db/repos';
+import { obtenerCoords } from '@/lib/capturar-gps';
+import { slideLeftIn, staggerDelay } from '@/motion/variants';
+import { multiplicadorHoy, useJuego } from '@/stores/juego';
 import { haptic } from '@/theme/haptics';
-
-/** GPS de mejor esfuerzo: pide permiso UNA sola vez en la vida, 3 s de tope. */
-const obtenerCoords = async (): Promise<{ lat: number; lng: number } | null> => {
-  try {
-    let perm = await Location.getForegroundPermissionsAsync();
-    if (!perm.granted) {
-      if (getSetting(CLAVES_DIA.gpsPedido) !== null) return null; // no insistir
-      setSetting(CLAVES_DIA.gpsPedido, '1');
-      perm = await Location.requestForegroundPermissionsAsync();
-      if (!perm.granted) return null;
-    }
-    const pos = await Promise.race([
-      Location.getCurrentPositionAsync({ accuracy: Location.Accuracy.Balanced }),
-      new Promise<null>((resolve) => setTimeout(() => resolve(null), 3000)),
-    ]);
-    return pos ? { lat: pos.coords.latitude, lng: pos.coords.longitude } : null;
-  } catch {
-    return null;
-  }
-};
 
 export default function Encender() {
   const router = useRouter();

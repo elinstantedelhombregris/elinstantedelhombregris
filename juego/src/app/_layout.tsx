@@ -162,10 +162,13 @@ function DbGate({ onReintentar }: { onReintentar: () => void }) {
         }}
       />
       <Stack.Screen name="album" />
-      <Stack.Screen name="expediciones" />
+      <Stack.Screen name="expediciones/index" />
+      <Stack.Screen name="expediciones/fundar" />
+      <Stack.Screen name="expediciones/[id]" />
       <Stack.Screen name="bitacora" />
       <Stack.Screen name="ajustes" />
       <Stack.Screen name="qr" />
+      <Stack.Screen name="compartir" />
     </Stack>
   );
 }

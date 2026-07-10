@@ -1,15 +1,20 @@
 import { describe, expect, it } from 'vitest';
 import {
+  LIMITES_CIRCULO,
   PREFIJO_CHISPA,
+  PREFIJO_CIRCULO,
   PREFIJO_EXPED,
   codificarChispa,
+  codificarCirculo,
   codificarExpedicion,
   decodificarChispa,
+  decodificarCirculo,
   decodificarExpedicion,
   tipoDeQR,
   validarChispa,
+  validarCirculo,
 } from './qr-codec';
-import type { ChispaPayload, ExpedicionPayload } from './qr-codec';
+import type { ChispaPayload, CirculoPayload, ExpedicionPayload } from './qr-codec';
 
 const chispa: ChispaPayload = {
   nonce: 'a1b2c3d4e5f6',
@@ -22,6 +27,11 @@ const exped: ExpedicionPayload = {
   zona: 'Parque Patricios',
   meta: 40,
   titulo: 'Luces del barrio',
+};
+
+const circulo: CirculoPayload = {
+  nombre: 'La Ronda del Sur',
+  glifoSeed: '3141592653',
 };
 
 describe('roundtrip', () => {
@@ -55,6 +65,22 @@ describe('roundtrip', () => {
     const qr = codificarChispa(chispa);
     expect(qr).toMatch(/^basta\.chispa\.v1:[A-Za-z0-9\-_]+$/);
   });
+
+  it('círculo: codificar → decodificar devuelve el payload idéntico', () => {
+    const qr = codificarCirculo(circulo);
+    expect(qr.startsWith(PREFIJO_CIRCULO)).toBe(true);
+    expect(qr).toMatch(/^basta\.circulo\.v1:[A-Za-z0-9\-_]+$/);
+    expect(decodificarCirculo(qr)).toEqual({ ok: true, payload: circulo });
+  });
+
+  it('círculo con nombre rioplatense acentuado y emoji', () => {
+    const conUnicode: CirculoPayload = {
+      nombre: 'Círculo Ñandú 🔥 ¡BASTA!',
+      glifoSeed: 'ñoño-42',
+    };
+    const r = decodificarCirculo(codificarCirculo(conUnicode));
+    expect(r).toEqual({ ok: true, payload: conUnicode });
+  });
 });
 
 describe('rechazos — prefijo y transporte', () => {
@@ -71,6 +97,23 @@ describe('rechazos — prefijo y transporte', () => {
   it('un QR de expedición no pasa por el decoder de chispa (y viceversa)', () => {
     expect(decodificarChispa(codificarExpedicion(exped)).ok).toBe(false);
     expect(decodificarExpedicion(codificarChispa(chispa)).ok).toBe(false);
+  });
+
+  it('un QR de círculo no pasa por los otros decoders (ni ellos por el suyo)', () => {
+    const qr = codificarCirculo(circulo);
+    expect(decodificarChispa(qr).ok).toBe(false);
+    expect(decodificarExpedicion(qr).ok).toBe(false);
+    expect(decodificarCirculo(codificarChispa(chispa)).ok).toBe(false);
+    expect(decodificarCirculo(codificarExpedicion(exped)).ok).toBe(false);
+  });
+
+  it('círculo con versión desconocida o base64 corrupto', () => {
+    const qr = codificarCirculo(circulo).replace('.v1:', '.v9:');
+    expect(decodificarCirculo(qr).ok).toBe(false);
+    expect(decodificarCirculo(`${PREFIJO_CIRCULO}???nope???`)).toEqual({
+      ok: false,
+      error: 'El código está dañado',
+    });
   });
 
   it('base64 corrupto (caracteres fuera del alfabeto)', () => {
@@ -133,14 +176,34 @@ describe('rechazos — forma y cotas', () => {
     for (const cuerpo of ['WzEsMl0', 'NDI', 'bnVsbA']) {
       expect(decodificarChispa(PREFIJO_CHISPA + cuerpo).ok).toBe(false);
       expect(decodificarExpedicion(PREFIJO_EXPED + cuerpo).ok).toBe(false);
+      expect(decodificarCirculo(PREFIJO_CIRCULO + cuerpo).ok).toBe(false);
     }
+  });
+
+  it('círculo: nombre y glifoSeed acotados, nada puede faltar', () => {
+    expect(validarCirculo(circulo)).toBe(true);
+    expect(validarCirculo({ ...circulo, nombre: '' })).toBe(false);
+    expect(
+      validarCirculo({ ...circulo, nombre: 'x'.repeat(LIMITES_CIRCULO.nombreMax + 1) }),
+    ).toBe(false);
+    expect(validarCirculo({ ...circulo, glifoSeed: '' })).toBe(false);
+    expect(
+      validarCirculo({
+        ...circulo,
+        glifoSeed: 'x'.repeat(LIMITES_CIRCULO.glifoSeedMax + 1),
+      }),
+    ).toBe(false);
+    expect(validarCirculo({ nombre: circulo.nombre })).toBe(false);
+    expect(validarCirculo({ glifoSeed: circulo.glifoSeed })).toBe(false);
+    expect(() => codificarCirculo({ nombre: '', glifoSeed: 'x' })).toThrow();
   });
 });
 
 describe('tipoDeQR', () => {
-  it('clasifica chispa, expedición y desconocido', () => {
+  it('clasifica chispa, expedición, círculo y desconocido', () => {
     expect(tipoDeQR(codificarChispa(chispa))).toBe('chispa');
     expect(tipoDeQR(codificarExpedicion(exped))).toBe('expedicion');
+    expect(tipoDeQR(codificarCirculo(circulo))).toBe('circulo');
     expect(tipoDeQR('https://basta.ar')).toBeNull();
   });
 });

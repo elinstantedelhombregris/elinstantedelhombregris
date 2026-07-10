@@ -6,7 +6,7 @@
 
 import { Ionicons } from '@expo/vector-icons';
 import { Redirect, useFocusEffect, useRouter } from 'expo-router';
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Text, View } from 'react-native';
 import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -14,13 +14,16 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { FugazBanner } from '@/components/juego/FugazBanner';
 import { LuzOrb } from '@/components/juego/LuzOrb';
 import { NocheCompletaOverlay } from '@/components/juego/NocheCompletaOverlay';
+import { RangoUpOverlay } from '@/components/juego/RangoUpOverlay';
 import { GlassCard } from '@/components/ui/GlassCard';
 import { Pressable97 } from '@/components/ui/Pressable97';
-import { ESTADOS_VACIOS, ESTRELLA_FUGAZ } from '@/content';
+import { ESTADOS_VACIOS, ESTRELLA_FUGAZ, paletaPorId } from '@/content';
 import { SkyView } from '@/cielo/SkyView';
 import { CLAVES, getSetting } from '@/db/repos';
+import type { Rango } from '@/game/types';
 import { softSpring } from '@/motion/variants';
 import { multiplicadorDe, useJuego } from '@/stores/juego';
+import { chequearAscensoRango } from '@/stores/rangos-check';
 import { PLATA } from '@/theme/tokens';
 
 const DIAS = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
@@ -47,9 +50,14 @@ export default function Cielo() {
     zoom.value = withSpring(st.nocheParaCelebrar ? 1.05 : 1, softSpring);
   }, [st.nocheParaCelebrar, zoom]);
 
+  // Ascenso de rango: toda ganancia de brasas pasa por el Cielo al volver.
+  const [ascenso, setAscenso] = useState<Rango | null>(null);
+
   useFocusEffect(
     useCallback(() => {
       st.refresh();
+      const nuevoRango = chequearAscensoRango();
+      if (nuevoRango) setAscenso(nuevoRango);
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []),
   );
@@ -91,6 +99,7 @@ export default function Cielo() {
           estrellas={st.estrellas}
           rachaViva={st.rachaInfo.viva}
           nuevaEstrellaId={st.newStarId}
+          paleta={paletaPorId(getSetting(CLAVES.paletaActiva)).gradiente}
         />
       </Animated.View>
 
@@ -209,6 +218,11 @@ export default function Cielo() {
           multiplicador={multiplicadorDe(st.eventoHoy)}
           onCerrar={st.celebrarNoche}
         />
+      )}
+
+      {/* Ascenso de rango — después del cierre de la noche, si coinciden */}
+      {ascenso && !st.nocheParaCelebrar && (
+        <RangoUpOverlay rango={ascenso} onCerrar={() => setAscenso(null)} />
       )}
     </View>
   );

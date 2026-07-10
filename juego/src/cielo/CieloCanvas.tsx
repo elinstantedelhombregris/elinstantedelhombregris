@@ -62,6 +62,9 @@ export interface EstrellaCielo {
   fugaz: boolean;
 }
 
+/** Fondo original del Cielo — idéntico a la paleta "Noche Pura". */
+const FONDO_DEFAULT: readonly [string, string] = ['#0d0d16', '#0a0a0a'];
+
 export interface CieloProps {
   /** En orden cronológico ascendente (como devuelve estrellasTodas). */
   estrellas: EstrellaCielo[];
@@ -69,6 +72,11 @@ export interface CieloProps {
   rachaViva: boolean;
   /** Si está, esa estrella nace con bloom en lugar de aparecer de golpe. */
   nuevaEstrellaId?: string | null;
+  /**
+   * [centro, borde] del gradiente radial de fondo — la paleta activa
+   * (spec §3.3). Sin prop, el negro de siempre.
+   */
+  paleta?: readonly [string, string];
 }
 
 // Sprite de estrella: núcleo r=16 dentro de un tile de 64 (halo hasta el borde).
@@ -142,7 +150,12 @@ const SpriteFundadora = () => {
   );
 };
 
-export function CieloCanvas({ estrellas, rachaViva, nuevaEstrellaId }: CieloProps) {
+export function CieloCanvas({
+  estrellas,
+  rachaViva,
+  nuevaEstrellaId,
+  paleta = FONDO_DEFAULT,
+}: CieloProps) {
   const { width: w, height: h } = useWindowDimensions();
   const cx = w / 2;
   const cy = h * CENTRO_Y;
@@ -328,12 +341,12 @@ export function CieloCanvas({ estrellas, rachaViva, nuevaEstrellaId }: CieloProp
 
   return (
     <Canvas style={{ position: 'absolute', top: 0, left: 0, width: w, height: h }}>
-      {/* (a) Fondo hondo */}
+      {/* (a) Fondo hondo — la paleta activa tiñe la noche */}
       <Rect x={0} y={0} width={w} height={h}>
         <RadialGradient
           c={vec(cx, cy)}
           r={Math.max(w, h) * 0.75}
-          colors={['#0d0d16', '#0a0a0a']}
+          colors={[paleta[0], paleta[1]]}
         />
       </Rect>
 

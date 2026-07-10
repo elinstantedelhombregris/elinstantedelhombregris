@@ -48,3 +48,24 @@ export const progresoHaciaProximo = (totalGanado: number): number => {
   if (proximo === null) return 1;
   return (total - actual.umbral) / (proximo.umbral - actual.umbral);
 };
+
+/** Busca un rango por su nombre persistido; null si no existe (dato viejo). */
+export const rangoPorNombre = (nombre: string): Rango | null =>
+  RANGOS.find((r) => r.nombre === nombre) ?? null;
+
+/**
+ * ¿Hubo ascenso desde el rango persistido? Devuelve el rango VIGENTE por
+ * total ganado si su umbral supera al persistido; null si no hay novedad.
+ * Un nombre desconocido (o null) se trata como base 0 — jamás rompe. Si se
+ * cruzaron varios umbrales de una, devuelve solo el más alto: una única
+ * celebración, la que vale.
+ */
+export const ascensoPendiente = (
+  nombrePersistido: string | null,
+  totalGanado: number,
+): Rango | null => {
+  const actual = rangoActual(totalGanado);
+  const previo = nombrePersistido === null ? null : rangoPorNombre(nombrePersistido);
+  const umbralPrevio = previo?.umbral ?? 0;
+  return actual.umbral > umbralPrevio ? actual : null;
+};

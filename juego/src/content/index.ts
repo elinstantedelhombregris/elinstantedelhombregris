@@ -22,6 +22,7 @@ export { SENALES, SENAL_POR_KEY, type SenalDef } from './senales';
 export { COMPROMISOS } from './compromisos';
 export { PLANTILLAS_EXPEDICION } from './expediciones';
 export { CONSTELACIONES } from './constelaciones';
+export { PALETAS, PALETA_DEFAULT, paletaPorId, type PaletaCielo } from './paletas';
 export {
   FTUE,
   NOCHE_COMPLETA,

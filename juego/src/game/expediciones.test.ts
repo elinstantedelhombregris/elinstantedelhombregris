@@ -6,6 +6,7 @@ import {
   brasasDeHitos,
   hitosCruzados,
   progresoExpedicion,
+  resumenDeCaptura,
 } from './expediciones';
 
 describe('progresoExpedicion', () => {
@@ -78,5 +79,52 @@ describe('economía de hitos (spec §3.2)', () => {
     for (const h of HITOS) {
       expect(MOTIVO_POR_HITO[h].length).toBeGreaterThan(0);
     }
+  });
+});
+
+describe('resumenDeCaptura — la línea que lleva la estrella', () => {
+  it('chips + contador, en el orden de los pasos', () => {
+    const pasos = [
+      { key: 'producto', microUI: 'chips' },
+      { key: 'precio', microUI: 'contador' },
+    ];
+    expect(resumenDeCaptura(pasos, { producto: 'Pan', precio: 1500 })).toBe(
+      'Pan · 1500',
+    );
+  });
+
+  it('el texto corto habla con su propia voz; la foto no se transcribe', () => {
+    const pasos = [
+      { key: 'nombre', microUI: 'texto-corto' },
+      { key: 'personas', microUI: 'contador' },
+      { key: 'foto', microUI: 'foto-guiada' },
+    ];
+    expect(
+      resumenDeCaptura(pasos, {
+        nombre: '  Olla del Sur ',
+        personas: 80,
+        foto: 'file:///tmp/x.jpg',
+      }),
+    ).toBe('Olla del Sur · 80');
+  });
+
+  it('foto y soles solos → null (el texto siempre fue opcional)', () => {
+    const pasos = [
+      { key: 'foto', microUI: 'foto-guiada' },
+      { key: 'urgencia', microUI: 'rating-soles' },
+    ];
+    expect(resumenDeCaptura(pasos, { foto: 'file:///a.jpg', urgencia: 4 })).toBeNull();
+  });
+
+  it('valores vacíos o de tipo equivocado se ignoran', () => {
+    const pasos = [
+      { key: 'voz', microUI: 'texto-corto' },
+      { key: 'cuenta', microUI: 'contador' },
+      { key: 'cat', microUI: 'chips' },
+    ];
+    expect(
+      resumenDeCaptura(pasos, { voz: '   ', cuenta: Number.NaN, cat: 7 }),
+    ).toBeNull();
+    expect(resumenDeCaptura(pasos, {})).toBeNull();
   });
 });

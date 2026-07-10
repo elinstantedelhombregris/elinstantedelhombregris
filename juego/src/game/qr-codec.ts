@@ -11,6 +11,18 @@
 
 export const PREFIJO_CHISPA = 'basta.chispa.v1:';
 export const PREFIJO_EXPED = 'basta.exped.v1:';
+export const PREFIJO_CIRCULO = 'basta.circulo.v1:';
+
+/** Ficha viajera de un círculo local (spec §3.5 — v1 mínimo). */
+export interface CirculoPayload {
+  /** Nombre del círculo, elegido al fundarlo. */
+  nombre: string;
+  /**
+   * Semilla del glifo determinístico: viaja en el QR para que el glifo
+   * se dibuje idéntico en el teléfono de quien escanea.
+   */
+  glifoSeed: string;
+}
 
 /** Payload de una chispa regalada. `brasas` es SIEMPRE 5 (spec §3.5). */
 export interface ChispaPayload {
@@ -243,10 +255,46 @@ export const decodificarExpedicion = (
   return { ok: true, payload: r.payload };
 };
 
+// ---------------------------------------------------------------------------
+// Círculos (v1 mínimo — la ficha viaja, los miembros se cuentan localmente)
+// ---------------------------------------------------------------------------
+
+/** Cotas del payload de círculo. */
+export const LIMITES_CIRCULO = {
+  nombreMin: 1,
+  nombreMax: 60,
+  glifoSeedMin: 1,
+  glifoSeedMax: 64,
+} as const;
+
+/** Valida forma y cotas de un payload de círculo ya parseado. */
+export const validarCirculo = (v: unknown): v is CirculoPayload =>
+  esObjeto(v) &&
+  esTexto(v.nombre, LIMITES_CIRCULO.nombreMin, LIMITES_CIRCULO.nombreMax) &&
+  esTexto(v.glifoSeed, LIMITES_CIRCULO.glifoSeedMin, LIMITES_CIRCULO.glifoSeedMax);
+
+/** Genera el string QR de un círculo. Tira Error si el payload es inválido. */
+export const codificarCirculo = (payload: CirculoPayload): string => {
+  if (!validarCirculo(payload)) throw new Error('Payload de círculo inválido');
+  return codificar(PREFIJO_CIRCULO, payload);
+};
+
+/** Lee un QR de círculo: valida prefijo, JSON, forma y cotas. */
+export const decodificarCirculo = (raw: string): ResultadoQR<CirculoPayload> => {
+  const r = decodificarJSON(raw, PREFIJO_CIRCULO, 'No es un código de círculo');
+  if (!r.ok) return r;
+  if (!validarCirculo(r.payload)) {
+    return { ok: false, error: 'No es un círculo válido' };
+  }
+  return { ok: true, payload: r.payload };
+};
+
 /** ¿Qué clase de QR ¡BASTA! es este string? (para el escáner). */
-export const tipoDeQR = (raw: string): 'chispa' | 'expedicion' | null =>
+export const tipoDeQR = (raw: string): 'chispa' | 'expedicion' | 'circulo' | null =>
   raw.startsWith(PREFIJO_CHISPA)
     ? 'chispa'
     : raw.startsWith(PREFIJO_EXPED)
       ? 'expedicion'
-      : null;
+      : raw.startsWith(PREFIJO_CIRCULO)
+        ? 'circulo'
+        : null;

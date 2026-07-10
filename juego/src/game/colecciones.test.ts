@@ -1,5 +1,11 @@
 import { describe, expect, it } from 'vitest';
-import { completadasAlAgregar, computeColecciones } from './colecciones';
+import { CONSTELACIONES } from '../content/constelaciones';
+import {
+  completadasAlAgregar,
+  computeColecciones,
+  expandirReceta,
+  puntosDeConstelacion,
+} from './colecciones';
 import type { ConstelacionReceta, Star, TipoEstrella } from './types';
 
 let seq = 0;
@@ -184,5 +190,46 @@ describe('completadasAlAgregar', () => {
     expect(
       completadasAlAgregar([], star('need'), [receta('a', { need: 2 })]),
     ).toEqual([]);
+  });
+});
+
+describe('expandirReceta + puntosDeConstelacion — la silueta del álbum', () => {
+  it('expande en orden canónico de señal', () => {
+    expect(expandirReceta({ recurso: 1, need: 2, dream: 1 })).toEqual([
+      'dream',
+      'need',
+      'need',
+      'recurso',
+    ]);
+  });
+
+  it('los primeros `tiene` puntos de cada tipo se encienden', () => {
+    const puntos = puntosDeConstelacion(
+      { need: 3, value: 1 },
+      { need: { tiene: 2, necesita: 3 }, value: { tiene: 0, necesita: 1 } },
+    );
+    expect(puntos).toEqual([
+      { tipo: 'need', encendido: true },
+      { tipo: 'need', encendido: true },
+      { tipo: 'need', encendido: false },
+      { tipo: 'value', encendido: false },
+    ]);
+  });
+
+  it('progreso vacío → todo apagado; completo → todo encendido', () => {
+    const receta = { basta: 2 } as const;
+    expect(puntosDeConstelacion(receta, {}).every((p) => !p.encendido)).toBe(true);
+    expect(
+      puntosDeConstelacion(receta, { basta: { tiene: 2, necesita: 2 } }).every(
+        (p) => p.encendido,
+      ),
+    ).toBe(true);
+  });
+
+  it('las 8 constelaciones del contenido llenan su silueta exacta', () => {
+    expect(CONSTELACIONES).toHaveLength(8);
+    for (const c of CONSTELACIONES) {
+      expect(expandirReceta(c.receta)).toHaveLength(c.silueta.length);
+    }
   });
 });

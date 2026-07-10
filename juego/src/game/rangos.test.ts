@@ -1,5 +1,12 @@
 import { describe, expect, it } from 'vitest';
-import { RANGOS, progresoHaciaProximo, proximoRango, rangoActual } from './rangos';
+import {
+  RANGOS,
+  ascensoPendiente,
+  progresoHaciaProximo,
+  proximoRango,
+  rangoActual,
+  rangoPorNombre,
+} from './rangos';
 
 describe('rangos — umbrales exactos del spec §3.3', () => {
   it('la escalera completa', () => {
@@ -48,5 +55,52 @@ describe('rangos — umbrales exactos del spec §3.3', () => {
   it('entradas raras se clampean a Chispa', () => {
     expect(rangoActual(-50).nombre).toBe('Chispa');
     expect(rangoActual(Number.NaN).nombre).toBe('Chispa');
+  });
+});
+
+describe('rangoPorNombre', () => {
+  it('encuentra los seis rangos por nombre exacto', () => {
+    for (const r of RANGOS) {
+      expect(rangoPorNombre(r.nombre)).toEqual(r);
+    }
+  });
+
+  it('nombres desconocidos devuelven null (dato viejo o corrupto)', () => {
+    expect(rangoPorNombre('Reliquia')).toBeNull();
+    expect(rangoPorNombre('vela')).toBeNull(); // sensible a mayúsculas
+    expect(rangoPorNombre('')).toBeNull();
+  });
+});
+
+describe('ascensoPendiente — el cruce de umbral que dispara la celebración', () => {
+  it('sin cruce no hay ascenso', () => {
+    expect(ascensoPendiente('Chispa', 0)).toBeNull();
+    expect(ascensoPendiente('Chispa', 99)).toBeNull();
+    expect(ascensoPendiente('Vela', 299)).toBeNull();
+  });
+
+  it('cruzar el umbral asciende (100 exacto ya es Vela)', () => {
+    expect(ascensoPendiente('Chispa', 100)?.nombre).toBe('Vela');
+    expect(ascensoPendiente('Vela', 300)?.nombre).toBe('Farol');
+    expect(ascensoPendiente('Faro', 3000)?.nombre).toBe('Aurora');
+  });
+
+  it('cruce múltiple de una: devuelve solo el más alto', () => {
+    expect(ascensoPendiente('Chispa', 750)?.nombre).toBe('Fogata');
+  });
+
+  it('persistido null se trata como base 0: nadie asciende a Chispa', () => {
+    expect(ascensoPendiente(null, 0)).toBeNull();
+    expect(ascensoPendiente(null, 5)).toBeNull();
+    expect(ascensoPendiente(null, 150)?.nombre).toBe('Vela');
+  });
+
+  it('nombre corrupto no rompe: base 0', () => {
+    expect(ascensoPendiente('Reliquia', 50)).toBeNull();
+    expect(ascensoPendiente('Reliquia', 100)?.nombre).toBe('Vela');
+  });
+
+  it('un persistido mayor que el vigente jamás desciende ni celebra', () => {
+    expect(ascensoPendiente('Faro', 100)).toBeNull();
   });
 });

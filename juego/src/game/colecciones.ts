@@ -20,7 +20,8 @@
 
 import type { ConstelacionReceta, Star, TipoSenal } from './types';
 
-const SENALES: readonly TipoSenal[] = [
+/** Orden canónico de las señales (el de la rueda de captura). */
+export const ORDEN_SENALES: readonly TipoSenal[] = [
   'dream',
   'need',
   'basta',
@@ -28,6 +29,8 @@ const SENALES: readonly TipoSenal[] = [
   'compromiso',
   'recurso',
 ];
+
+const SENALES = ORDEN_SENALES;
 
 const esSenal = (tipo: Star['tipo']): tipo is TipoSenal =>
   (SENALES as readonly string[]).includes(tipo);
@@ -151,4 +154,47 @@ export const completadasAlAgregar = (
   });
   const despues = computeColecciones([...persistidas, nueva], constelaciones);
   return [...idsCompletadas(despues)].filter((id) => !previas.has(id));
+};
+
+// ---------------------------------------------------------------------------
+// Silueta del álbum: qué punto del dibujo habita cada estrella pedida
+// ---------------------------------------------------------------------------
+
+/**
+ * Expande una receta a la lista plana de tipos, en ORDEN_SENALES.
+ * Si la receta suma exactamente los puntos de su silueta (invariante del
+ * contenido), cada índice de esta lista es un punto del dibujo.
+ */
+export const expandirReceta = (
+  receta: Partial<Record<TipoSenal, number>>,
+): TipoSenal[] => {
+  const tipos: TipoSenal[] = [];
+  for (const t of ORDEN_SENALES) {
+    const n = receta[t] ?? 0;
+    for (let i = 0; i < n; i++) tipos.push(t);
+  }
+  return tipos;
+};
+
+/** Un punto de silueta resuelto: qué tipo lo habita y si ya brilla. */
+export interface PuntoConstelacion {
+  tipo: TipoSenal;
+  encendido: boolean;
+}
+
+/**
+ * Mapea el progreso por tipo a los puntos del dibujo: por cada tipo, los
+ * primeros `tiene` puntos se encienden en su color de señal; el resto
+ * espera apagado. Determinístico — mismo progreso, mismo dibujo.
+ */
+export const puntosDeConstelacion = (
+  receta: Partial<Record<TipoSenal, number>>,
+  porTipo: ProgresoConstelacion['porTipo'],
+): PuntoConstelacion[] => {
+  const vistos = new Map<TipoSenal, number>();
+  return expandirReceta(receta).map((tipo) => {
+    const k = vistos.get(tipo) ?? 0;
+    vistos.set(tipo, k + 1);
+    return { tipo, encendido: k < (porTipo[tipo]?.tiene ?? 0) };
+  });
 };

@@ -63,3 +63,32 @@ export const hitosCruzados = (
 /** Total de brasas que pagan estos hitos. */
 export const brasasDeHitos = (hitos: readonly Hito[]): number =>
   hitos.reduce((acc, h) => acc + BRASAS_POR_HITO[h], 0);
+
+/** Lo mínimo que el resumen necesita saber de un paso de plantilla. */
+export interface PasoResumen {
+  key: string;
+  microUI: string;
+}
+
+/**
+ * Una línea de resumen para la estrella que nace de una captura de
+ * expedición: concatena, en el orden de los pasos, los valores con voz
+ * propia — el texto corto, el chip elegido, el número contado. Las fotos
+ * y los soles no se transcriben. Devuelve null si no hay nada que decir
+ * (el texto de una estrella siempre fue opcional, spec §3.1).
+ */
+export const resumenDeCaptura = (
+  pasos: readonly PasoResumen[],
+  data: Record<string, unknown>,
+): string | null => {
+  const partes: string[] = [];
+  for (const p of pasos) {
+    const v = data[p.key];
+    if (p.microUI === 'texto-corto' || p.microUI === 'chips') {
+      if (typeof v === 'string' && v.trim().length > 0) partes.push(v.trim());
+    } else if (p.microUI === 'contador') {
+      if (typeof v === 'number' && Number.isFinite(v)) partes.push(String(v));
+    }
+  }
+  return partes.length > 0 ? partes.join(' · ') : null;
+};
