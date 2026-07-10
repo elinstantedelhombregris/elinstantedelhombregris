@@ -51,6 +51,7 @@
     "@expo-google-fonts/jetbrains-mono": "^0.4.1",
     "@expo-google-fonts/playfair-display": "^0.4.2",
     "@types/react": "~19.2.2",
+    "babel-plugin-inline-import": "^3.0.0",
     "drizzle-kit": "^0.31.10",
     "typescript": "~6.0.3",
     "vitest": "^4.1.10"
