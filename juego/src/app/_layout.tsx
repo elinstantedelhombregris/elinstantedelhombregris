@@ -190,7 +190,19 @@ export default function RootLayout() {
   return (
     <View className="flex-1" style={{ backgroundColor: BG }}>
       <StatusBar style="light" />
-      <DbGate key={intento} onReintentar={() => setIntento((i) => i + 1)} />
+      <DbGate
+        key={intento}
+        onReintentar={() => {
+          // En web el worker de sqlite queda envenenado tras "Invalid VFS
+          // state": remontar el gate no alcanza — el reintento real es
+          // recargar la página (la DB web es :memory:, no se pierde nada).
+          if (Platform.OS === 'web') {
+            window.location.reload();
+            return;
+          }
+          setIntento((i) => i + 1);
+        }}
+      />
     </View>
   );
 }
