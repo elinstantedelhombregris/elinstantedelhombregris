@@ -10,7 +10,7 @@ import type { Oficio, OficioId } from '@/content/oficios';
 import { OFICIOS } from '@/content/oficios';
 import { brilloDeObras, nivelDeBrillo, type NivelBrillo } from '@/protocolo/brillo';
 import { puedeResolver, transicionValida } from '@/protocolo/mision';
-import { puedeDarPulso, type VeredictoPulso } from '@/protocolo/pulsos';
+import { latidoVencido, puedeDarPulso, type VeredictoPulso } from '@/protocolo/pulsos';
 import type { EstadoMision, Gobernanza, TipoMision } from '@/protocolo/tipos';
 
 import { db } from './client';
@@ -77,8 +77,9 @@ export const transicionar = (misionId: string, hacia: EstadoMision): PvMisionRow
   if (hacia === 'resuelta') {
     const actor = getActorKey();
     const yo = miembros.find((m) => m.actorKey === actor);
-    // P0 local: las "aceptaciones" de consentimiento son los latidos vivos.
-    const aceptaciones = miembros.filter((m) => m.ultimoLatidoAt !== null).length;
+    // P0 local: las "aceptaciones" de consentimiento son latidos vivos (≤7 días).
+    const ahora = ahoraISO();
+    const aceptaciones = miembros.filter((m) => !latidoVencido(m.ultimoLatidoAt, ahora)).length;
     if (!yo || !puedeResolver(
       mision.gobernanza as Gobernanza,
       yo.rol as 'coordinador' | 'miembro',

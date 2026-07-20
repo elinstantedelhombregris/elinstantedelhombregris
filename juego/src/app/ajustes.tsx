@@ -16,6 +16,7 @@ import { Platform, ScrollView, Switch, Text, TextInput, View } from 'react-nativ
 import Animated from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
+import { calentarActorKey, invalidarActorKey } from '@/civic/actor-cache';
 import { resetCommunitySessionAndFeed } from '@/civic/community-auth';
 import {
   cachedEvidenceUrisFromExport,
@@ -319,6 +320,11 @@ export default function Ajustes() {
               ? Promise.resolve()
               : Notifications.cancelAllScheduledNotificationsAsync(),
           ]);
+          // resetCivicActorKey() ya resolvió: la caché sync quedaría apuntando
+          // a la identidad fantasma si no se invalida y recalienta acá mismo,
+          // antes de cualquier navegación.
+          invalidarActorKey();
+          await calentarActorKey();
           borrarTodo();
           // El lock exclusivo no se libera hasta confirmar la fotografía vacía.
           await flushWebDatabaseSnapshot();

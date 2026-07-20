@@ -18,3 +18,11 @@ export const actorKeyCacheado = (): string => {
   if (clave === null) throw new Error('actor_key_frio');
   return clave;
 };
+
+/**
+ * Invalida la caché (ej. después de un reset de identidad). Quien invalida
+ * debe re-calentar: llamar `calentarActorKey()` antes de la próxima lectura.
+ */
+export const invalidarActorKey = (): void => {
+  clave = null;
+};
