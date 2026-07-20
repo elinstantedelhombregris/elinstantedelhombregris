@@ -12,6 +12,7 @@ export default defineConfig({
       'src/content/**/*.test.ts',
       'src/cielo/**/*.test.ts',
       'src/civic/**/*.test.ts',
+      'src/protocolo/**/*.test.ts',
     ],
   },
 });
