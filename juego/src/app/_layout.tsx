@@ -269,6 +269,7 @@ function CivicApp() {
       <Stack.Screen name="misiones/index" />
       <Stack.Screen name="misiones/fundar" />
       <Stack.Screen name="misiones/[id]" />
+      <Stack.Screen name="obras/publicar" />
       <Stack.Screen name="bitacora" />
       <Stack.Screen name="escuchar" />
       <Stack.Screen name="escuchar/necesidad/[id]" />
