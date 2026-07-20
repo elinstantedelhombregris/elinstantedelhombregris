@@ -45,4 +45,14 @@ describe('deudas de retiro antes del borrado local', () => {
       }],
     }, 'file:///cache')).toEqual(['file:///cache/a.jpg', 'file:///cache/b.jpg']);
   });
+
+  it('también recoge la evidencia de obras del Protocolo Vivo (pv_obras)', () => {
+    expect(cachedEvidenceUrisFromExport({
+      pvObras: [
+        { id: 'obra-1', evidenciaUri: 'file:///cache/obra-1.jpg' },
+        { id: 'obra-2', evidenciaUri: 'file:///documents/no-borrar.jpg' },
+        { id: 'obra-3', evidenciaUri: null },
+      ],
+    }, 'file:///cache')).toEqual(['file:///cache/obra-1.jpg']);
+  });
 });

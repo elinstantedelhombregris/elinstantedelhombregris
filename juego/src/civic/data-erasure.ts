@@ -60,6 +60,13 @@ export const cachedEvidenceUrisFromExport = (
       }
     }
   }
+  if (Array.isArray(exported.pvObras)) {
+    for (const row of exported.pvObras) {
+      if (row && typeof row === 'object' && typeof (row as { evidenciaUri?: unknown }).evidenciaUri === 'string') {
+        candidates.push((row as { evidenciaUri: string }).evidenciaUri);
+      }
+    }
+  }
   const prefix = cacheUri.endsWith('/') ? cacheUri : `${cacheUri}/`;
   return [...new Set(candidates.filter((uri) => uri.startsWith(prefix)))];
 };

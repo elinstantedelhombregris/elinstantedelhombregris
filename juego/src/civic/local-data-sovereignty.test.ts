@@ -7,6 +7,10 @@ import {
   civicCustodyResponseIntents,
   civicNeedAccessGrants,
   civicNeedCustodies,
+  pvMisionMiembros,
+  pvMisiones,
+  pvObras,
+  pvPulsos,
 } from '@/db/schema';
 
 const mocks = vi.hoisted(() => ({
@@ -46,6 +50,10 @@ const fakeExecutor = (withExecutionIntent = true) => {
       eventType: 'confirm_receipt',
       expectedVersion: 'a'.repeat(64),
     }] : []],
+    [pvMisiones as unknown, [{ id: 'mision-privada', titulo: 'Relevar la plaza' }]],
+    [pvMisionMiembros as unknown, [{ misionId: 'mision-privada', actorKey: 'actor-local' }]],
+    [pvObras as unknown, [{ id: 'obra-privada', evidenciaUri: 'file:///cache/obra.jpg' }]],
+    [pvPulsos as unknown, [{ id: 'pulso-privado', targetId: 'obra-privada' }]],
   ]);
   const executor = {
     select: () => ({
@@ -64,13 +72,13 @@ const fakeExecutor = (withExecutionIntent = true) => {
 describe('inventario soberano de datos locales', () => {
   beforeEach(() => { mocks.executor = null; });
 
-  it('incluye custodia, grants e intenciones privadas en la exportación completa v10', () => {
+  it('incluye custodia, grants e intenciones privadas en la exportación completa v11', () => {
     const { executor } = fakeExecutor();
     mocks.executor = executor;
     const exported = exportarTodo();
 
     expect(exported).toMatchObject({
-      version: 10,
+      version: 11,
       needCustodies: [{ needId: 'need-private' }],
       needAccessGrants: [{
         id: 'grant-local',
@@ -92,6 +100,10 @@ describe('inventario soberano de datos locales', () => {
         eventType: 'confirm_receipt',
         expectedVersion: 'a'.repeat(64),
       }],
+      pvMisiones: [{ id: 'mision-privada', titulo: 'Relevar la plaza' }],
+      pvMisionMiembros: [{ misionId: 'mision-privada', actorKey: 'actor-local' }],
+      pvObras: [{ id: 'obra-privada', evidenciaUri: 'file:///cache/obra.jpg' }],
+      pvPulsos: [{ id: 'pulso-privado', targetId: 'obra-privada' }],
     });
   });
 
@@ -115,5 +127,19 @@ describe('inventario soberano de datos locales', () => {
     expect(deleted.indexOf(civicCustodyExecutionIntents)).toBeLessThan(deleted.indexOf(civicNeedAccessGrants));
     expect(deleted.indexOf(civicCustodyResponseIntents)).toBeLessThan(deleted.indexOf(civicNeedAccessGrants));
     expect(deleted.indexOf(civicNeedAccessGrants)).toBeLessThan(deleted.indexOf(civicNeedCustodies));
+  });
+
+  it('borra las tablas pv_* del Protocolo Vivo, miembros y obras antes que la misión', () => {
+    const { executor, deleted } = fakeExecutor(false);
+    mocks.executor = executor;
+    borrarTodo();
+
+    expect(deleted).toContain(pvMisiones);
+    expect(deleted).toContain(pvMisionMiembros);
+    expect(deleted).toContain(pvObras);
+    expect(deleted).toContain(pvPulsos);
+    expect(deleted.indexOf(pvMisionMiembros)).toBeLessThan(deleted.indexOf(pvMisiones));
+    expect(deleted.indexOf(pvObras)).toBeLessThan(deleted.indexOf(pvMisiones));
+    expect(deleted.indexOf(pvPulsos)).toBeLessThan(deleted.indexOf(pvMisiones));
   });
 });

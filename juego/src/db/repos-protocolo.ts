@@ -39,12 +39,16 @@ export const fundarMision = (input: {
     createdAt: ahoraISO(),
     resueltaAt: null,
   };
-  db.insert(pvMisiones).values(row).run();
-  db.insert(pvMisionMiembros).values({
-    misionId: row.id, actorKey: actor, rol: 'coordinador',
-    comprometidoAt: ahoraISO(), ultimoLatidoAt: ahoraISO(),
-  }).onConflictDoNothing().run();
-  return row;
+  // Atómico: si el alta del coordinador falla, no queda una misión
+  // 'coordinada' fundada sin nadie adentro.
+  return db.transaction((tx) => {
+    tx.insert(pvMisiones).values(row).run();
+    tx.insert(pvMisionMiembros).values({
+      misionId: row.id, actorKey: actor, rol: 'coordinador',
+      comprometidoAt: ahoraISO(), ultimoLatidoAt: ahoraISO(),
+    }).onConflictDoNothing().run();
+    return row;
+  });
 };
 
 export const misionesTodas = (): PvMisionRow[] =>

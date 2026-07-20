@@ -58,6 +58,10 @@ import {
   emberLedger,
   expeditionEntries,
   expeditions,
+  pvMisionMiembros,
+  pvMisiones,
+  pvObras,
+  pvPulsos,
   redeemedNonces,
   reflections,
   settings,
@@ -681,13 +685,15 @@ export const canjearNonce = (nonce: string, fecha: string = hoyLocal()): boolean
  * Copia completa de la base local, en una sola instantánea consistente.
  * La versión 10 inventaría también los comandos privados de respuesta y
  * ejecución pendientes, necesarios para reintentos exactos después de reiniciar.
+ * La versión 11 suma las tablas pv_* del Protocolo Vivo (Mission Layer):
+ * misiones, membresías, obras y pulsos.
  * Las credenciales de acceso de SecureStore/AsyncStorage no se exportan.
  */
 export const exportarTodo = (): Record<string, unknown> => {
   const exportadoEn = ahoraISO();
   return db.transaction((tx) => ({
     exportadoEn,
-    version: 10,
+    version: 11,
     stars: tx.select().from(stars).orderBy(asc(stars.createdAt)).all(),
     reflections: tx.select().from(reflections).orderBy(asc(reflections.fecha)).all(),
     commitments: tx.select().from(commitments).all(),
@@ -716,6 +722,10 @@ export const exportarTodo = (): Record<string, unknown> => {
     actions: tx.select().from(civicActions).all(),
     consents: tx.select().from(civicConsents).all(),
     outbox: tx.select().from(syncOutbox).all(),
+    pvMisiones: tx.select().from(pvMisiones).all(),
+    pvMisionMiembros: tx.select().from(pvMisionMiembros).all(),
+    pvObras: tx.select().from(pvObras).all(),
+    pvPulsos: tx.select().from(pvPulsos).all(),
   }));
 };
 
@@ -743,6 +753,11 @@ export const borrarTodo = (): void => {
     tx.delete(civicObservations).run();
     tx.delete(civicTerritories).run();
     tx.delete(civicConsents).run();
+
+    tx.delete(pvPulsos).run();
+    tx.delete(pvMisionMiembros).run();
+    tx.delete(pvObras).run();
+    tx.delete(pvMisiones).run();
 
     tx.delete(expeditionEntries).run();
     tx.delete(stars).run();

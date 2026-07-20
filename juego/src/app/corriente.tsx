@@ -23,7 +23,7 @@ import { CLAVES, ahoraISO, getSetting, setSetting } from '@/db/repos';
 import { corrienteLocal, darPulso, pulsosDeHoy, type ItemCorriente } from '@/db/repos-protocolo';
 import type { PvMisionRow, PvObraRow } from '@/db/schema';
 import { staggerDelay } from '@/motion/variants';
-import { PULSOS_APRECIO_POR_DIA } from '@/protocolo/pulsos';
+import { PULSOS_APRECIO_POR_DIA, pulsosDisponibles } from '@/protocolo/pulsos';
 import { haptic } from '@/theme/haptics';
 import { PLATA } from '@/theme/tokens';
 
@@ -73,7 +73,7 @@ export default function Corriente() {
     setSetting(CLAVES.corrienteUltimaVisita, ahoraISO());
   }, []);
 
-  const restantes = Math.max(0, PULSOS_APRECIO_POR_DIA - pulsosHoy);
+  const restantes = pulsosDisponibles(pulsosHoy);
 
   const darPulsoAObra = (id: string) => {
     const veredicto = darPulso('obra', id);

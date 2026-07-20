@@ -102,7 +102,10 @@ export default function MisionDetalle() {
   }
 
   const oficio = oficioPorId(mision.oficioId);
-  const estadoMeta = ESTADO_META[mision.estado as EstadoMision];
+  // Un estado fuera del enum (dato viejo, migración a medio camino) degrada
+  // a una nota neutra en vez de tirar la pantalla abajo.
+  const estadoMeta = ESTADO_META[mision.estado as EstadoMision]
+    ?? { label: mision.estado, color: '#64748B' };
 
   const irA = (hacia: EstadoMision, alExito?: () => void) => {
     if (ocupado) return;
