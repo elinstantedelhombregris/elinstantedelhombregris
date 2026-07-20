@@ -12,6 +12,7 @@ import { useFocusEffect } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
 import { ScrollView, Text, View } from 'react-native';
 import Animated from 'react-native-reanimated';
+import Svg, { Circle } from 'react-native-svg';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { CartaLoreView } from '@/components/juego/CartaLoreView';
@@ -39,6 +40,7 @@ import {
   setSetting,
   tieneUnlock,
 } from '@/db/repos';
+import { constelacionesDeOficio } from '@/db/repos-protocolo';
 import { MOTIVOS } from '@/game/brasas';
 import {
   computeColecciones,
@@ -46,16 +48,62 @@ import {
   type ProgresoConstelacion,
 } from '@/game/colecciones';
 import { fadeUp, staggerDelay } from '@/motion/variants';
+import { type NivelBrillo } from '@/protocolo/brillo';
 import { useJuego } from '@/stores/juego';
 import { haptic } from '@/theme/haptics';
 
-type Tab = 'constelaciones' | 'cartas' | 'paletas';
+type Tab = 'constelaciones' | 'cartas' | 'paletas' | 'oficios';
 
 const TABS: { key: Tab; label: string }[] = [
   { key: 'constelaciones', label: 'Constelaciones' },
   { key: 'cartas', label: 'Cartas' },
   { key: 'paletas', label: 'Paletas' },
+  { key: 'oficios', label: 'Oficios' },
 ];
+
+const OPACIDAD_POR_NIVEL: Record<NivelBrillo, number> = {
+  apagada: 0.15,
+  tenue: 0.35,
+  viva: 0.7,
+  radiante: 1,
+};
+
+const NOMBRE_NIVEL: Record<NivelBrillo, string> = {
+  apagada: 'constelación apagada',
+  tenue: 'constelación tenue',
+  viva: 'constelación viva',
+  radiante: 'constelación radiante',
+};
+
+/** Las estrellitas del oficio: mismo patrón de halo+núcleo que SiluetaConstelacion. */
+function EstrellitasOficio({
+  obras,
+  nivel,
+  color,
+}: {
+  obras: number;
+  nivel: NivelBrillo;
+  color: string;
+}) {
+  const cantidad = Math.min(obras, 12);
+  const opacidad = OPACIDAD_POR_NIVEL[nivel];
+  const conGlow = nivel === 'radiante';
+  const espaciado = 14;
+  const cy = 8;
+  const estrellas = Array.from({ length: cantidad }, (_, i) => i * espaciado + espaciado / 2);
+
+  return (
+    <Svg width={cantidad * espaciado} height={16}>
+      {conGlow &&
+        estrellas.map((cx, i) => (
+          <Circle key={`halo-${i}`} cx={cx} cy={cy} r={5.5} fill={color} opacity={0.22} />
+        ))}
+      {estrellas.map((cx, i) => (
+        <Circle key={i} cx={cx} cy={cy} r={3} fill={color} opacity={opacidad} />
+      ))}
+    </Svg>
+  );
+}
 
 export default function Album() {
   const insets = useSafeAreaInsets();
@@ -68,6 +116,7 @@ export default function Album() {
   const [carta, setCarta] = useState<{ c: Constelacion; nueva: boolean } | null>(null);
   const [detalle, setDetalle] = useState<Constelacion | null>(null);
   const [tick, setTick] = useState(0);
+  const [oficios, setOficios] = useState<ReturnType<typeof constelacionesDeOficio>>([]);
 
   const recomputar = useCallback(() => {
     const res = computeColecciones(estrellasTodas(), CONSTELACIONES);
@@ -81,6 +130,7 @@ export default function Album() {
     useCallback(() => {
       st.refresh();
       recomputar();
+      setOficios(constelacionesDeOficio());
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [recomputar]),
   );
@@ -379,6 +429,64 @@ export default function Album() {
                 );
               })}
             </View>
+          </Animated.View>
+        )}
+
+        {/* -------------------------------------------------- Oficios */}
+        {tab === 'oficios' && (
+          <Animated.View entering={fadeUp}>
+            {(() => {
+              const conObras = oficios.filter((o) => o.obras > 0);
+              const vacios = oficios.length - conObras.length;
+              if (conObras.length === 0) {
+                return (
+                  <Text className="font-sans text-xs leading-5 text-slate-500">
+                    Cuando tu primera obra exista, acá va a nacer su constelación de
+                    oficio.
+                  </Text>
+                );
+              }
+              return (
+                <>
+                  <View className="gap-3">
+                    {conObras.map((o, i) => (
+                      <Animated.View key={o.oficio.id} entering={staggerDelay(i)}>
+                        <GlassCard className="p-4">
+                          <View className="flex-row items-center gap-2.5">
+                            <Ionicons
+                              name={o.oficio.icono as never}
+                              size={16}
+                              color={o.oficio.color}
+                            />
+                            <Text className="flex-1 font-sans-semibold text-sm text-plata">
+                              {o.oficio.nombre}
+                            </Text>
+                            <Text className="font-mono text-[11px] text-slate-500">
+                              {o.obras} {o.obras === 1 ? 'obra' : 'obras'}
+                            </Text>
+                          </View>
+                          <View className="mt-3 flex-row items-center justify-between">
+                            <EstrellitasOficio
+                              obras={o.obras}
+                              nivel={o.nivel}
+                              color={o.oficio.color}
+                            />
+                            <Text className="font-mono text-[10px] lowercase text-slate-500">
+                              {NOMBRE_NIVEL[o.nivel]}
+                            </Text>
+                          </View>
+                        </GlassCard>
+                      </Animated.View>
+                    ))}
+                  </View>
+                  {vacios > 0 && (
+                    <Text className="mt-4 font-sans text-xs leading-5 text-slate-500">
+                      Los demás oficios esperan su primera obra.
+                    </Text>
+                  )}
+                </>
+              );
+            })()}
           </Animated.View>
         )}
       </ScrollView>
