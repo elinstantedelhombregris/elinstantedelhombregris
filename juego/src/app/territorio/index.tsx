@@ -338,6 +338,7 @@ export default function Territorio() {
         <View className="mt-3 flex-row flex-wrap justify-between gap-y-3">
           {[
             ['/territorio/misiones', 'grid-outline', 'Misiones', pulse.missions > 0 ? `${pulse.missions} en marcha` : 'Lazo → operación'],
+            ['/misiones', 'flag-outline', 'Misiones del protocolo', 'Fundá o sumate'],
             ['/territorio/mapa', 'map-outline', 'Trazar zona', pulse.territories > 0 ? `${pulse.territories} guardadas` : 'Lazo vivo'],
             ['/verificar', 'shield-checkmark-outline', 'Corroborar', `${pulse.review} por mirar`],
             ['/conectar', 'git-merge-outline', 'Conectar', `${pulse.needs} ↔ ${pulse.resources}`],
