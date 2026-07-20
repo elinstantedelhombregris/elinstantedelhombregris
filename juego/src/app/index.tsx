@@ -211,6 +211,7 @@ export default function Cielo() {
             <View className="h-5 w-px bg-white/10" />
             {(
               [
+                ['corriente', 'pulse-outline', 'La Corriente'],
                 ['expediciones', 'map-outline', 'Expediciones'],
                 ['album', 'star-outline', 'Álbum'],
                 ['bitacora', 'book-outline', 'Bitácora'],
@@ -222,7 +223,7 @@ export default function Cielo() {
                 key={ruta}
                 accessibilityRole="button"
                 accessibilityLabel={label}
-                onPress={() => router.push(`/${ruta}`)}
+                onPress={() => router.push(`/${ruta}` as never)}
                 className="p-1"
               >
                 <Ionicons name={icono} size={20} color="#94a3b8" />

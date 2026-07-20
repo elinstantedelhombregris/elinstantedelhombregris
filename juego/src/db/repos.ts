@@ -113,6 +113,7 @@ export const CLAVES = {
   paletaActiva: 'paleta_activa',
   ftueCompleto: 'ftue_completo',
   eventoVistoFecha: 'evento_visto_fecha',
+  corrienteUltimaVisita: 'corriente_ultima_visita',
 } as const;
 
 export const getSetting = (key: string): string | null =>
