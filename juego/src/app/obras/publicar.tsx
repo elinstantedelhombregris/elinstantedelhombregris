@@ -40,7 +40,7 @@ export default function PublicarObra() {
   const misionId = Array.isArray(misionIdParam) ? misionIdParam[0] : misionIdParam;
 
   // Carga sincrónica: si la misión ya no está, cae a obra libre sin drama.
-  const mision = misionId ? misionPorId(misionId)?.mision ?? null : null;
+  const [mision] = useState(() => (misionId ? misionPorId(misionId)?.mision ?? null : null));
   const oficioHeredado = mision ? oficioPorId(mision.oficioId) : null;
 
   const [titulo, setTitulo] = useState('');
