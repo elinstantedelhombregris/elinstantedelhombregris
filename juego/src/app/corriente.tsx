@@ -65,8 +65,10 @@ export default function Corriente() {
     const anterior = getSetting(CLAVES.corrienteUltimaVisita);
     if (anterior !== null) {
       const actuales = corrienteLocal();
-      const idx = actuales.findIndex((i) => fechaDe(i) <= anterior);
-      setDividerIndex(idx === -1 ? actuales.length : idx);
+      if (actuales.length > 0) {
+        const idx = actuales.findIndex((i) => fechaDe(i) <= anterior);
+        setDividerIndex(idx === -1 ? actuales.length : idx);
+      }
     }
     setSetting(CLAVES.corrienteUltimaVisita, ahoraISO());
   }, []);
