@@ -47,7 +47,12 @@ export default function Ver() {
     [fecha, pregunta.id, st.luces.ver, st.brasas],
   );
 
+  const [guardando, setGuardando] = useState(false);
+
   const llevarla = () => {
+    // doble toque no guarda dos veces: una vez alcanza
+    if (guardando || yaEncendida) return;
+    setGuardando(true);
     const texto = reflexion.trim();
     if (texto) guardarReflexion(pregunta.id, texto, fecha);
     marcarLuz(fecha, 'ver', { multiplicador: multiplicadorHoy() });
@@ -61,10 +66,14 @@ export default function Ver() {
   const preguntaExtra = PREGUNTAS[indicePreguntaExtra(fecha, PREGUNTAS.length)]!;
   const extraRespondida = getSetting(CLAVES_DIA.preguntaExtra) === fecha;
   const [textoExtra, setTextoExtra] = useState('');
+  const [respondiendoExtra, setRespondiendoExtra] = useState(false);
 
   const responderExtra = () => {
+    // doble toque no cobra las dos brasas dos veces
+    if (respondiendoExtra || extraRespondida) return;
     const texto = textoExtra.trim();
     if (!texto) return;
+    setRespondiendoExtra(true);
     guardarReflexion(preguntaExtra.id, texto, fecha);
     ganarBrasas(GANANCIAS.preguntaExtra, MOTIVOS.preguntaExtra, {
       multiplicador: multiplicadorHoy(),
@@ -109,13 +118,14 @@ export default function Ver() {
               placeholderTextColor="#64748b"
               multiline
               textAlignVertical="top"
+              maxLength={2000}
               className="min-h-[120px] rounded-2xl border border-white/10 bg-white/5 px-5 py-4 font-sans text-base leading-6 text-plata"
             />
             <Text className="mt-2 font-sans text-[11px] text-slate-500">
               Nadie más la lee: es tuya.
             </Text>
             <View className="mt-8 items-center">
-              <AccentButton label="La llevo conmigo" onPress={llevarla} />
+              <AccentButton label="La llevo conmigo" onPress={llevarla} disabled={guardando} />
             </View>
           </View>
         )}
@@ -148,13 +158,14 @@ export default function Ver() {
                   placeholderTextColor="#64748b"
                   multiline
                   textAlignVertical="top"
+                  maxLength={2000}
                   className="mt-4 min-h-[80px] rounded-2xl border border-white/10 bg-white/5 px-5 py-4 font-sans text-base leading-6 text-plata"
                 />
                 <View className="mt-4 items-center">
                   <AccentButton
                     label="Responderla (+2)"
                     onPress={responderExtra}
-                    disabled={!textoExtra.trim()}
+                    disabled={!textoExtra.trim() || respondiendoExtra}
                   />
                 </View>
               </View>

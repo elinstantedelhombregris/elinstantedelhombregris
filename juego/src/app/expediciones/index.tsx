@@ -44,10 +44,12 @@ export default function Expediciones() {
 
   const [exps, setExps] = useState<ExpeditionRow[]>([]);
   const [conteos, setConteos] = useState<Map<string, number>>(new Map());
+  const [fundando, setFundando] = useState(false);
 
   useFocusEffect(
     useCallback(() => {
       st.refresh();
+      setFundando(false); // al volver al panel, se puede fundar de nuevo
       const todas = expedicionesTodas();
       setExps(todas);
       setConteos(new Map(todas.map((e) => [e.id, entradasDeExpedicion(e.id).length])));
@@ -65,11 +67,14 @@ export default function Expediciones() {
     exps.find((e) => e.plantillaId === plantillaId && e.estado === 'activa');
 
   const jugarPrecargada = (p: PlantillaExpedicion) => {
+    // doble toque no funda dos veces la misma plantilla
+    if (fundando) return;
     const yaActiva = activaDePlantilla(p.id);
     if (yaActiva) {
       router.push(`/expediciones/${yaActiva.id}`);
       return;
     }
+    setFundando(true);
     try {
       const row = fundarExpedicion({
         plantillaId: p.id,
@@ -83,6 +88,7 @@ export default function Expediciones() {
       router.push(`/expediciones/${row.id}`);
     } catch {
       // precargada es gratis: si algo falla acá, no hay nada que cobrar
+      setFundando(false);
     }
   };
 

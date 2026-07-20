@@ -1,0 +1,1 @@
+ALTER TABLE `civic_observations` ADD `creator_key` text;

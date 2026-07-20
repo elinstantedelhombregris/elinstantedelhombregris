@@ -5,11 +5,11 @@ import { PALETAS, PALETA_DEFAULT, paletaPorId } from './paletas';
 const HEX = /^#[0-9a-f]{6}$/i;
 
 describe('paletas del cielo (spec §3.3)', () => {
-  it('la Noche Pura es la default: gratis y con el fondo original del Cielo', () => {
+  it('la Noche Pura es la default: gratis y con el fondo base del Cielo', () => {
     expect(PALETA_DEFAULT.id).toBe('noche-pura');
     expect(PALETA_DEFAULT.precio).toBe(0);
     // Invariante sagrado: el cielo no cambia sin permiso del jugador.
-    expect(PALETA_DEFAULT.gradiente).toEqual(['#0d0d16', '#0a0a0a']);
+    expect(PALETA_DEFAULT.gradiente).toEqual(['#131736', '#07070c']);
   });
 
   it('hay cuatro paletas con ids únicos', () => {

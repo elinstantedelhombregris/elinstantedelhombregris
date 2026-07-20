@@ -17,6 +17,8 @@ import { AccentButton } from '@/components/ui/AccentButton';
 import { GlassCard } from '@/components/ui/GlassCard';
 import { Pressable97 } from '@/components/ui/Pressable97';
 import { SENALES, type SenalDef } from '@/content';
+import { getActorKey } from '@/civic/identity';
+import { createObservation } from '@/civic/repo';
 import { crearEstrella, expedicionesTodas, hoyLocal, marcarLuz } from '@/db/repos';
 import { obtenerCoords } from '@/lib/capturar-gps';
 import { slideLeftIn, staggerDelay } from '@/motion/variants';
@@ -33,6 +35,7 @@ export default function Encender() {
   const [photoUri, setPhotoUri] = useState<string | null>(null);
   const [camaraAbierta, setCamaraAbierta] = useState(false);
   const [naciendo, setNaciendo] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [permisoCamara, pedirPermisoCamara] = useCameraPermissions();
   const camaraRef = useRef<CameraView>(null);
 
@@ -67,20 +70,42 @@ export default function Encender() {
   const queNazca = async () => {
     if (!senal || naciendo) return;
     setNaciendo(true);
-    const coords = await obtenerCoords(); // jamás bloquea más de 3 s
-    const star = crearEstrella({
-      tipo: senal.key,
-      texto: texto.trim() || null,
-      photoUri,
-      lat: coords?.lat ?? null,
-      lng: coords?.lng ?? null,
-      eventoActivo: st.eventoHoy !== null,
-    });
-    marcarLuz(fecha, 'encender', { multiplicador: multiplicadorHoy() });
-    useJuego.getState().setNewStar(star.id);
-    haptic.celebrate();
-    st.refresh();
-    router.back(); // la estrella florece en el Cielo
+    setError(null);
+    try {
+      const coords = await obtenerCoords(); // jamás bloquea más de 3 s
+      const star = crearEstrella({
+        tipo: senal.key,
+        texto: texto.trim() || null,
+        photoUri,
+        lat: coords?.lat ?? null,
+        lng: coords?.lng ?? null,
+        eventoActivo: st.eventoHoy !== null,
+      });
+      const creatorKey = await getActorKey();
+      createObservation({
+        campaignKey: 'senal-libre-v1',
+        starId: star.id,
+        creatorKey,
+        category: senal.key,
+        title: senal.label,
+        summary: texto.trim() || null,
+        data: { signalType: senal.key },
+        evidence: photoUri ? [{ kind: 'photo', uri: photoUri, capturedAt: new Date().toISOString() }] : [],
+        exactLocation: coords,
+        publicPrecision: '500m',
+        locationLabel: 'Mi zona',
+      });
+      marcarLuz(fecha, 'encender', { multiplicador: multiplicadorHoy() });
+      useJuego.getState().setNewStar(star.id);
+      haptic.celebrate();
+      st.refresh();
+      router.back(); // la estrella florece en el Cielo
+    } catch {
+      // si algo se traba, el rito no queda colgado: se avisa y se reintenta
+      setError('Uy, algo se trabó al guardar. Probá de nuevo.');
+    } finally {
+      setNaciendo(false);
+    }
   };
 
   return (
@@ -148,6 +173,7 @@ export default function Encender() {
             onChangeText={setTexto}
             placeholder={senal.placeholder}
             placeholderTextColor="#64748b"
+            maxLength={280}
             className="mt-8 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 font-sans text-base text-plata"
           />
 
@@ -217,6 +243,11 @@ export default function Encender() {
               onPress={queNazca}
               disabled={naciendo}
             />
+            {error && (
+              <Text className="mt-4 text-center font-sans text-sm text-senal-basta">
+                {error}
+              </Text>
+            )}
             <Pressable97
               accessibilityRole="button"
               accessibilityLabel="Elegir otra señal"

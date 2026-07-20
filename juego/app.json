@@ -13,7 +13,7 @@
       "supportsTablet": false,
       "icon": "./assets/expo.icon",
       "infoPlist": {
-        "NSLocationWhenInUseUsageDescription": "Tu ubicación le da lugar a cada estrella que encendés. Nunca sale de tu teléfono.",
+        "NSLocationWhenInUseUsageDescription": "Usamos tu ubicación para situar una captura. Sólo se comparte la zona y precisión que confirmes; el punto exacto no se envía al mapa común.",
         "NSCameraUsageDescription": "La cámara es para capturar lo que ves y escanear chispas de otras personas."
       }
     },
@@ -46,7 +46,7 @@
       [
         "expo-location",
         {
-          "locationWhenInUsePermission": "Tu ubicación le da lugar a cada estrella que encendés. Nunca sale de tu teléfono."
+          "locationWhenInUsePermission": "Usamos tu ubicación para situar una captura. Sólo se comparte la zona y precisión que confirmes; el punto exacto no se envía al mapa común."
         }
       ],
       [
@@ -60,7 +60,8 @@
         {
           "defaultChannel": "cielo"
         }
-      ]
+      ],
+      "expo-secure-store"
     ],
     "experiments": {
       "typedRoutes": true,

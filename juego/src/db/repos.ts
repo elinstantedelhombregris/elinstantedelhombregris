@@ -23,6 +23,7 @@ import {
   hitosCruzados,
   progresoExpedicion,
 } from '../game/expediciones';
+import { civicCaptureKeys } from '../game/capture-attempt';
 import { addDias, computeRacha } from '../game/racha';
 import { calcularRarezas } from '../game/rarezas';
 import type {
@@ -33,8 +34,25 @@ import type {
   TipoEstrella,
   TipoUnlock,
 } from '../game/types';
-import { db } from './client';
+import { db, type DBExecutor } from './client';
 import {
+  civicActions,
+  civicConsents,
+  civicCustodyResponseIntents,
+  civicCustodyExecutionIntents,
+  civicDisclosureReceipts,
+  civicListenings,
+  civicMissionCells,
+  civicMissions,
+  civicMatches,
+  civicNeedAccessGrants,
+  civicNeedCustodies,
+  civicNeeds,
+  civicObservations,
+  civicResources,
+  civicRecordContexts,
+  civicTerritories,
+  civicVerifications,
   commitments,
   days,
   emberLedger,
@@ -44,6 +62,7 @@ import {
   reflections,
   settings,
   stars,
+  syncOutbox,
   unlocks,
 } from './schema';
 import type {
@@ -110,8 +129,8 @@ export const setSetting = (key: string, value: string): void => {
 // Brasas (ledger append-only)
 // ---------------------------------------------------------------------------
 
-export const ledgerTodo = (): EmberEntry[] =>
-  db.select().from(emberLedger).orderBy(asc(emberLedger.fecha)).all();
+export const ledgerTodo = (database: DBExecutor = db): EmberEntry[] =>
+  database.select().from(emberLedger).orderBy(asc(emberLedger.fecha)).all();
 
 export const brasasBalance = (): number => balance(ledgerTodo());
 
@@ -122,6 +141,8 @@ export interface OpcionesBrasas {
   /** 2 en día de brasas x2 (evento fugaz). */
   multiplicador?: 1 | 2;
   fecha?: string;
+  /** Executor interno para componer recompensas con su acción causal. */
+  database?: DBExecutor;
 }
 
 /** Registra una ganancia y devuelve la entrada insertada. */
@@ -137,22 +158,40 @@ export const ganarBrasas = (
     fecha: opts.fecha ?? ahoraISO(),
     multiplicador: opts.multiplicador ?? 1,
   });
-  db.insert(emberLedger).values(entry).run();
+  (opts.database ?? db).insert(emberLedger).values(entry).run();
   return entry;
+};
+
+/** Ganancia idempotente ligada a un resultado cívico estable. */
+export const ganarBrasasUnaVez = (
+  id: string,
+  delta: number,
+  motivo: string,
+  opts: OpcionesBrasas = {},
+): EmberEntry | null => {
+  const entry = crearGanancia({
+    id,
+    delta,
+    motivo,
+    fecha: opts.fecha ?? ahoraISO(),
+    multiplicador: opts.multiplicador ?? 1,
+  });
+  const result = (opts.database ?? db).insert(emberLedger).values(entry).onConflictDoNothing().run();
+  return result.changes > 0 ? entry : null;
 };
 
 /**
  * Registra un gasto validando el balance (jamás por debajo de 0).
  * Tira Error('No te alcanzan las brasas') si no alcanza.
  */
-export const gastarBrasas = (costo: number, motivo: string): EmberEntry => {
-  const entry = crearGasto(ledgerTodo(), {
+export const gastarBrasas = (costo: number, motivo: string, database: DBExecutor = db): EmberEntry => {
+  const entry = crearGasto(ledgerTodo(database), {
     id: nuevoId(),
     costo,
     motivo,
     fecha: ahoraISO(),
   });
-  db.insert(emberLedger).values(entry).run();
+  database.insert(emberLedger).values(entry).run();
   return entry;
 };
 
@@ -177,8 +216,7 @@ export interface NuevaEstrella {
   eventoActivo?: boolean;
 }
 
-/** Crea una estrella calculando sus rarezas contra el cielo existente. */
-export const crearEstrella = (input: NuevaEstrella): StarRow => {
+const prepararEstrella = (id: string, input: NuevaEstrella): StarRow => {
   const rarezas = calcularRarezas(
     {
       tipo: input.tipo,
@@ -187,8 +225,8 @@ export const crearEstrella = (input: NuevaEstrella): StarRow => {
     },
     estrellasTodas(),
   );
-  const row: StarRow = {
-    id: nuevoId(),
+  return {
+    id,
     tipo: input.tipo,
     texto: input.texto ?? null,
     photoUri: input.photoUri ?? null,
@@ -200,8 +238,37 @@ export const crearEstrella = (input: NuevaEstrella): StarRow => {
     constelacionId: null,
     createdAt: ahoraISO(),
   };
+};
+
+/** Crea una estrella calculando sus rarezas contra el cielo existente. */
+export const crearEstrella = (input: NuevaEstrella): StarRow => {
+  const row = prepararEstrella(nuevoId(), input);
   db.insert(stars).values(row).run();
   return row;
+};
+
+/**
+ * Variante exclusiva de una captura cívica reintentable. El intento usa su
+ * UUID como PK de estrella: si una escritura posterior falla, volver a llamar
+ * devuelve la misma estrella y nunca recalcula una segunda rareza.
+ */
+export const crearEstrellaCivicaUnaVez = (
+  captureAttemptId: string,
+  input: NuevaEstrella,
+): StarRow => {
+  const validate = (star: StarRow): StarRow => {
+    if (
+      star.tipo !== input.tipo
+      || star.expeditionId !== (input.expeditionId ?? null)
+      || star.expeditionStepKey !== (input.expeditionStepKey ?? null)
+    ) throw new Error('capture_attempt_star_mismatch');
+    return star;
+  };
+  const existing = db.select().from(stars).where(eq(stars.id, captureAttemptId)).get();
+  if (existing) return validate(existing);
+  const row = prepararEstrella(captureAttemptId, input);
+  db.insert(stars).values(row).onConflictDoNothing().run();
+  return validate(db.select().from(stars).where(eq(stars.id, captureAttemptId)).get() ?? row);
 };
 
 /**
@@ -230,8 +297,8 @@ const DIA_VACIO = (fecha: string): DayRow => ({
 });
 
 /** El registro de hoy (o un vacío sin persistir si todavía no hay nada). */
-export const diaDeHoy = (fecha: string = hoyLocal()): DayRow =>
-  db.select().from(days).where(eq(days.fecha, fecha)).get() ?? DIA_VACIO(fecha);
+export const diaDeHoy = (fecha: string = hoyLocal(), database: DBExecutor = db): DayRow =>
+  database.select().from(days).where(eq(days.fecha, fecha)).get() ?? DIA_VACIO(fecha);
 
 export const diasTodos = (): DayRow[] =>
   db.select().from(days).orderBy(asc(days.fecha)).all();
@@ -255,26 +322,29 @@ export const marcarLuz = (
   luz: Luz,
   opts: Pick<OpcionesBrasas, 'multiplicador'> = {},
 ): ResultadoLuz => {
-  const previo = diaDeHoy(fecha);
-  if (previo[luz]) {
-    return { dia: previo, luzNueva: false, nocheCompletaNueva: false, brasasGanadas: 0 };
-  }
-  const dia: DayRow = { ...previo, [luz]: true };
-  dia.nocheCompleta = dia.ver && dia.encender && dia.dar;
-  db.insert(days)
-    .values(dia)
-    .onConflictDoUpdate({ target: days.fecha, set: dia })
-    .run();
+  return db.transaction((tx) => {
+    const previo = diaDeHoy(fecha, tx);
+    if (previo[luz]) {
+      return { dia: previo, luzNueva: false, nocheCompletaNueva: false, brasasGanadas: 0 };
+    }
+    const dia: DayRow = { ...previo, [luz]: true };
+    dia.nocheCompleta = dia.ver && dia.encender && dia.dar;
+    tx.insert(days)
+      .values(dia)
+      .onConflictDoUpdate({ target: days.fecha, set: dia })
+      .run();
 
-  const mult = opts.multiplicador ?? 1;
-  let brasas = ganarBrasas(GANANCIAS.luz, motivoDeLuz(luz), { multiplicador: mult }).delta;
-  const nocheCompletaNueva = dia.nocheCompleta && !previo.nocheCompleta;
-  if (nocheCompletaNueva) {
-    brasas += ganarBrasas(GANANCIAS.nocheCompleta, MOTIVOS.nocheCompleta, {
-      multiplicador: mult,
-    }).delta;
-  }
-  return { dia, luzNueva: true, nocheCompletaNueva, brasasGanadas: brasas };
+    const mult = opts.multiplicador ?? 1;
+    let brasas = ganarBrasas(GANANCIAS.luz, motivoDeLuz(luz), { multiplicador: mult, database: tx }).delta;
+    const nocheCompletaNueva = dia.nocheCompleta && !previo.nocheCompleta;
+    if (nocheCompletaNueva) {
+      brasas += ganarBrasas(GANANCIAS.nocheCompleta, MOTIVOS.nocheCompleta, {
+        multiplicador: mult,
+        database: tx,
+      }).delta;
+    }
+    return { dia, luzNueva: true, nocheCompletaNueva, brasasGanadas: brasas };
+  });
 };
 
 /** Estado de la Estrella Guía hoy (racha + nubladas + viva). */
@@ -349,19 +419,22 @@ export const resolverCompromiso = (
   cumplido: boolean,
   opts: Pick<OpcionesBrasas, 'multiplicador'> = {},
 ): ResultadoCompromiso | null => {
-  const previo = db.select().from(commitments).where(eq(commitments.id, id)).get();
-  if (!previo) return null;
-  if (previo.estado !== 'pendiente') {
-    return { compromiso: previo, brasasGanadas: 0 };
-  }
-  const estado = cumplido ? 'cumplido' : 'no';
-  db.update(commitments).set({ estado }).where(eq(commitments.id, id)).run();
-  const brasasGanadas = cumplido
-    ? ganarBrasas(GANANCIAS.compromisoCumplido, MOTIVOS.compromisoCumplido, {
-        multiplicador: opts.multiplicador ?? 1,
-      }).delta
-    : 0;
-  return { compromiso: { ...previo, estado }, brasasGanadas };
+  return db.transaction((tx) => {
+    const previo = tx.select().from(commitments).where(eq(commitments.id, id)).get();
+    if (!previo) return null;
+    if (previo.estado !== 'pendiente') {
+      return { compromiso: previo, brasasGanadas: 0 };
+    }
+    const estado = cumplido ? 'cumplido' : 'no';
+    tx.update(commitments).set({ estado }).where(eq(commitments.id, id)).run();
+    const brasasGanadas = cumplido
+      ? ganarBrasas(GANANCIAS.compromisoCumplido, MOTIVOS.compromisoCumplido, {
+          multiplicador: opts.multiplicador ?? 1,
+          database: tx,
+        }).delta
+      : 0;
+    return { compromiso: { ...previo, estado }, brasasGanadas };
+  });
 };
 
 // ---------------------------------------------------------------------------
@@ -383,23 +456,25 @@ export interface NuevaExpedicion {
  */
 export const fundarExpedicion = (input: NuevaExpedicion): ExpeditionRow => {
   progresoExpedicion(0, input.meta); // valida la meta (entero ≥ 1)
-  const origen = input.origen ?? 'propia';
-  if (origen === 'propia') {
-    gastarBrasas(COSTOS.fundarExpedicion, MOTIVOS.fundarExpedicion);
-  }
-  const row: ExpeditionRow = {
-    id: nuevoId(),
-    plantillaId: input.plantillaId,
-    titulo: input.titulo,
-    zona: input.zona,
-    meta: input.meta,
-    estado: 'activa',
-    origen,
-    hitosOtorgados: '[]',
-    createdAt: ahoraISO(),
-  };
-  db.insert(expeditions).values(row).run();
-  return row;
+  return db.transaction((tx) => {
+    const origen = input.origen ?? 'propia';
+    if (origen === 'propia') {
+      gastarBrasas(COSTOS.fundarExpedicion, MOTIVOS.fundarExpedicion, tx);
+    }
+    const row: ExpeditionRow = {
+      id: nuevoId(),
+      plantillaId: input.plantillaId,
+      titulo: input.titulo,
+      zona: input.zona,
+      meta: input.meta,
+      estado: 'activa',
+      origen,
+      hitosOtorgados: '[]',
+      createdAt: ahoraISO(),
+    };
+    tx.insert(expeditions).values(row).run();
+    return row;
+  });
 };
 
 export const expedicionesTodas = (): ExpeditionRow[] =>
@@ -425,7 +500,9 @@ export interface ResultadoEntrada {
 }
 
 /**
- * Registra un paso de expedición: paga +3 por el paso, cruza hitos
+ * Registra un paso de expedición. Las expediciones clásicas pagan +3; una
+ * misión cívica puede bajar la base y completar la recompensa sólo al cerrar
+ * cobertura válida. Cruza hitos
  * (+10/+15/+25, cada uno una sola vez) y cierra la expedición al 100%.
  */
 export const agregarEntradaExpedicion = (
@@ -433,7 +510,7 @@ export const agregarEntradaExpedicion = (
   stepKey: string,
   data: unknown = {},
   starId: string | null = null,
-  opts: Pick<OpcionesBrasas, 'multiplicador'> = {},
+  opts: Pick<OpcionesBrasas, 'multiplicador'> & { baseReward?: number } = {},
 ): ResultadoEntrada => {
   const exp = expedicionPorId(expeditionId);
   if (!exp) throw new Error('Esa expedición no existe');
@@ -449,9 +526,12 @@ export const agregarEntradaExpedicion = (
   db.insert(expeditionEntries).values(entrada).run();
 
   const mult = opts.multiplicador ?? 1;
-  let brasasGanadas = ganarBrasas(GANANCIAS.pasoExpedicion, MOTIVOS.pasoExpedicion, {
-    multiplicador: mult,
-  }).delta;
+  const baseReward = opts.baseReward ?? GANANCIAS.pasoExpedicion;
+  let brasasGanadas = baseReward > 0
+    ? ganarBrasas(baseReward, baseReward === GANANCIAS.pasoExpedicion ? MOTIVOS.pasoExpedicion : MOTIVOS.capturaHonesta, {
+        multiplicador: mult,
+      }).delta
+    : 0;
 
   const entradas = entradasDeExpedicion(expeditionId).length;
   const otorgados = JSON.parse(exp.hitosOtorgados) as number[];
@@ -463,6 +543,86 @@ export const agregarEntradaExpedicion = (
   }
 
   const { estado } = progresoExpedicion(entradas, exp.meta);
+  db.update(expeditions)
+    .set({
+      estado,
+      hitosOtorgados: JSON.stringify([...otorgados, ...hitosNuevos]),
+    })
+    .where(eq(expeditions.id, expeditionId))
+    .run();
+
+  return { entrada, hitosNuevos: [...hitosNuevos], estado, brasasGanadas };
+};
+
+/**
+ * Completa la parte lúdica de una captura cívica con claves recuperables.
+ * Cada llamada vuelve a asegurar entrada, recompensa base, hitos y estado; lo
+ * ya escrito se detecta por PK y sólo se repara lo que haya quedado pendiente.
+ * `agregarEntradaExpedicion` permanece intacta para expediciones personales.
+ */
+export const agregarEntradaCivicaUnaVez = (
+  captureAttemptId: string,
+  expeditionId: string,
+  stepKey: string,
+  data: unknown,
+  starId: string,
+  opts: Pick<OpcionesBrasas, 'multiplicador'> & { baseReward: number },
+): ResultadoEntrada => {
+  const keys = civicCaptureKeys(captureAttemptId, expeditionId);
+  const exp = expedicionPorId(expeditionId);
+  if (!exp) throw new Error('Esa expedición no existe');
+  if (starId !== keys.starId) throw new Error('capture_attempt_star_mismatch');
+
+  let entrada = db.select().from(expeditionEntries).where(eq(expeditionEntries.id, keys.entryId)).get();
+  if (entrada && (
+    entrada.expeditionId !== expeditionId
+    || entrada.stepKey !== stepKey
+    || entrada.starId !== starId
+  )) {
+    throw new Error('capture_attempt_entry_mismatch');
+  }
+  if (!entrada) {
+    const candidate: ExpeditionEntryRow = {
+      id: keys.entryId,
+      expeditionId,
+      stepKey,
+      data: JSON.stringify(data ?? {}),
+      starId,
+      createdAt: ahoraISO(),
+    };
+    db.insert(expeditionEntries).values(candidate).onConflictDoNothing().run();
+    entrada = db.select().from(expeditionEntries).where(eq(expeditionEntries.id, keys.entryId)).get() ?? candidate;
+  }
+
+  const mult = opts.multiplicador ?? 1;
+  const base = opts.baseReward > 0
+    ? ganarBrasasUnaVez(
+        keys.baseRewardId,
+        opts.baseReward,
+        MOTIVOS.capturaHonesta,
+        { multiplicador: mult },
+      )
+    : null;
+  let brasasGanadas = base?.delta ?? 0;
+
+  // Se vuelve a leer la expedición: un intento anterior pudo alcanzar a
+  // insertar la entrada o pagar una recompensa antes de interrumpirse.
+  const current = expedicionPorId(expeditionId);
+  if (!current) throw new Error('Esa expedición no existe');
+  const entradas = entradasDeExpedicion(expeditionId).length;
+  const otorgados = JSON.parse(current.hitosOtorgados) as number[];
+  const hitosNuevos = hitosCruzados(entradas, current.meta, otorgados);
+  for (const hito of hitosNuevos) {
+    const reward = ganarBrasasUnaVez(
+      keys.milestoneRewardId(hito),
+      BRASAS_POR_HITO[hito],
+      MOTIVO_POR_HITO[hito],
+      { multiplicador: mult },
+    );
+    brasasGanadas += reward?.delta ?? 0;
+  }
+
+  const { estado } = progresoExpedicion(entradas, current.meta);
   db.update(expeditions)
     .set({
       estado,
@@ -513,35 +673,85 @@ export const canjearNonce = (nonce: string, fecha: string = hoyLocal()): boolean
     .changes > 0;
 
 // ---------------------------------------------------------------------------
-// Export y borrado total (spec §3.7 — ética innegociable)
+// Export y borrado local (spec §3.7 — ética innegociable)
 // ---------------------------------------------------------------------------
 
-/** Todo lo tuyo, en un solo objeto JSON listo para compartir/guardar. */
-export const exportarTodo = (): Record<string, unknown> => ({
-  exportadoEn: ahoraISO(),
-  version: 1,
-  stars: estrellasTodas(),
-  reflections: reflexionesTodas(),
-  commitments: db.select().from(commitments).all(),
-  days: diasTodos(),
-  expeditions: expedicionesTodas(),
-  expeditionEntries: db.select().from(expeditionEntries).all(),
-  emberLedger: ledgerTodo(),
-  unlocks: unlocksTodos(),
-  redeemedNonces: db.select().from(redeemedNonces).all(),
-  settings: db.select().from(settings).all(),
-});
+/**
+ * Copia completa de la base local, en una sola instantánea consistente.
+ * La versión 10 inventaría también los comandos privados de respuesta y
+ * ejecución pendientes, necesarios para reintentos exactos después de reiniciar.
+ * Las credenciales de acceso de SecureStore/AsyncStorage no se exportan.
+ */
+export const exportarTodo = (): Record<string, unknown> => {
+  const exportadoEn = ahoraISO();
+  return db.transaction((tx) => ({
+    exportadoEn,
+    version: 10,
+    stars: tx.select().from(stars).orderBy(asc(stars.createdAt)).all(),
+    reflections: tx.select().from(reflections).orderBy(asc(reflections.fecha)).all(),
+    commitments: tx.select().from(commitments).all(),
+    days: tx.select().from(days).orderBy(asc(days.fecha)).all(),
+    expeditions: tx.select().from(expeditions).orderBy(asc(expeditions.createdAt)).all(),
+    expeditionEntries: tx.select().from(expeditionEntries).all(),
+    emberLedger: tx.select().from(emberLedger).orderBy(asc(emberLedger.fecha)).all(),
+    unlocks: tx.select().from(unlocks).orderBy(asc(unlocks.fecha)).all(),
+    redeemedNonces: tx.select().from(redeemedNonces).all(),
+    settings: tx.select().from(settings).all(),
+    territories: tx.select().from(civicTerritories).all(),
+    missions: tx.select().from(civicMissions).all(),
+    missionCells: tx.select().from(civicMissionCells).all(),
+    civicListenings: tx.select().from(civicListenings).all(),
+    civicRecordContexts: tx.select().from(civicRecordContexts).all(),
+    civicDisclosureReceipts: tx.select().from(civicDisclosureReceipts).all(),
+    observations: tx.select().from(civicObservations).all(),
+    needs: tx.select().from(civicNeeds).all(),
+    needCustodies: tx.select().from(civicNeedCustodies).all(),
+    needAccessGrants: tx.select().from(civicNeedAccessGrants).all(),
+    custodyResponseIntents: tx.select().from(civicCustodyResponseIntents).all(),
+    custodyExecutionIntents: tx.select().from(civicCustodyExecutionIntents).all(),
+    resources: tx.select().from(civicResources).all(),
+    verifications: tx.select().from(civicVerifications).all(),
+    matches: tx.select().from(civicMatches).all(),
+    actions: tx.select().from(civicActions).all(),
+    consents: tx.select().from(civicConsents).all(),
+    outbox: tx.select().from(syncOutbox).all(),
+  }));
+};
 
-/** Borra TODO. No hay vuelta atrás — la UI confirma dos veces antes. */
+/** Borra atómicamente todas las tablas locales. No afecta copias remotas. */
 export const borrarTodo = (): void => {
-  db.delete(expeditionEntries).run();
-  db.delete(expeditions).run();
-  db.delete(stars).run();
-  db.delete(reflections).run();
-  db.delete(commitments).run();
-  db.delete(days).run();
-  db.delete(emberLedger).run();
-  db.delete(unlocks).run();
-  db.delete(redeemedNonces).run();
-  db.delete(settings).run();
+  db.transaction((tx) => {
+    if (tx.select().from(civicCustodyExecutionIntents).all().length > 0) {
+      throw new Error('custody_execution_intent_pending');
+    }
+    tx.delete(syncOutbox).run();
+    tx.delete(civicCustodyExecutionIntents).run();
+    tx.delete(civicCustodyResponseIntents).run();
+    tx.delete(civicActions).run();
+    tx.delete(civicMatches).run();
+    tx.delete(civicNeedAccessGrants).run();
+    tx.delete(civicNeedCustodies).run();
+    tx.delete(civicVerifications).run();
+    tx.delete(civicListenings).run();
+    tx.delete(civicDisclosureReceipts).run();
+    tx.delete(civicRecordContexts).run();
+    tx.delete(civicMissionCells).run();
+    tx.delete(civicMissions).run();
+    tx.delete(civicNeeds).run();
+    tx.delete(civicResources).run();
+    tx.delete(civicObservations).run();
+    tx.delete(civicTerritories).run();
+    tx.delete(civicConsents).run();
+
+    tx.delete(expeditionEntries).run();
+    tx.delete(stars).run();
+    tx.delete(expeditions).run();
+    tx.delete(reflections).run();
+    tx.delete(commitments).run();
+    tx.delete(days).run();
+    tx.delete(emberLedger).run();
+    tx.delete(unlocks).run();
+    tx.delete(redeemedNonces).run();
+    tx.delete(settings).run();
+  });
 };

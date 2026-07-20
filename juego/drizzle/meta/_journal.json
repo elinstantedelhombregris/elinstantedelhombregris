@@ -8,6 +8,118 @@
       "when": 1783648033567,
       "tag": "0000_chunky_stardust",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1783959817240,
+      "tag": "0001_wandering_riptide",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1783960445259,
+      "tag": "0002_military_mockingbird",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1783961978619,
+      "tag": "0003_last_rictor",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1783964359581,
+      "tag": "0004_shocking_red_hulk",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "6",
+      "when": 1783981772799,
+      "tag": "0005_civic_listenings",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "6",
+      "when": 1783983397563,
+      "tag": "0006_territorial_missions",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "6",
+      "when": 1783993105566,
+      "tag": "0007_superb_doomsday",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "6",
+      "when": 1784025021000,
+      "tag": "0008_civic_disclosure_receipts",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "6",
+      "when": 1784056000000,
+      "tag": "0009_civic_need_custodies",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "6",
+      "when": 1784059600000,
+      "tag": "0010_civic_need_access_grants",
+      "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "6",
+      "when": 1784061200000,
+      "tag": "0011_civic_need_access_grant_delivery",
+      "breakpoints": true
+    },
+    {
+      "idx": 12,
+      "version": "6",
+      "when": 1784064800000,
+      "tag": "0012_civic_custody_responses",
+      "breakpoints": true
+    },
+    {
+      "idx": 13,
+      "version": "6",
+      "when": 1784068400000,
+      "tag": "0013_civic_custody_coordination",
+      "breakpoints": true
+    },
+    {
+      "idx": 14,
+      "version": "6",
+      "when": 1784072000000,
+      "tag": "0014_civic_custody_terminal_decision",
+      "breakpoints": true
+    },
+    {
+      "idx": 15,
+      "version": "6",
+      "when": 1784075600000,
+      "tag": "0015_civic_custody_response_intents",
+      "breakpoints": true
+    },
+    {
+      "idx": 16,
+      "version": "6",
+      "when": 1784079200000,
+      "tag": "0016_civic_custody_execution_intents",
+      "breakpoints": true
     }
   ]
 }

@@ -1,0 +1,52 @@
+diff --git a/node_modules/expo-sqlite/web/worker.ts b/node_modules/expo-sqlite/web/worker.ts
+index 7fc2bde..08eb8d6 100644
+--- a/node_modules/expo-sqlite/web/worker.ts
++++ b/node_modules/expo-sqlite/web/worker.ts
+@@ -8,6 +8,5 @@
+ import { type Changeset } from '../src/NativeSession';
+ import { type SQLiteColumnNames, type SQLiteColumnValues } from '../src/NativeStatement';
+-import { AccessHandlePoolVFS } from './wa-sqlite/AccessHandlePoolVFS';
+ import { MemoryVFS } from './wa-sqlite/MemoryVFS';
+ import * as SQLite from './wa-sqlite/sqlite-api';
+ import {
+@@ -47,14 +46,17 @@ interface SessionEntity {
+   pointer: SessionPointer;
+ }
+ 
+-const VFS_NAME_PERSISTENT = 'expo-sqlite';
++// Expo 57's OPFS AccessHandlePool can leave invalid cross-worker locks on web.
++// Persistence is provided by the app with serialized SQLite snapshots in
++// IndexedDB, so this VFS intentionally remains process-local and synchronous.
++const VFS_NAME_PERSISTENT = 'basta-sqlite-v2';
+ const VFS_NAME_MEMORY = 'expo-sqlite-memfs';
+ 
+ const MAX_INT32 = 0x7fffffff;
+ const MIN_INT32 = -0x80000000;
+ 
+ let _sqlite3: SQLiteAPI | null = null;
+-let _vfs: AccessHandlePoolVFS | null = null;
++let _vfs: MemoryVFS | null = null;
+ let _vfsMemory: MemoryVFS | null = null;
+ 
+ const databaseIdMap = new Map<number, DatabaseEntity>();
+@@ -775,7 +777,7 @@ async function maybeFinalizeAllStatements(nativeDatabaseId: number) {
+ 
+ async function maybeInitAsync(): Promise<{
+   sqlite3: SQLiteAPI;
+-  vfs: AccessHandlePoolVFS;
++  vfs: MemoryVFS;
+   vfsMemory: MemoryVFS;
+ }> {
+   if (!_sqlite3) {
+@@ -788,9 +790,9 @@ async function maybeInitAsync(): Promise<{
+     }
+ 
+     if (_vfs == null) {
+-      _vfs = await AccessHandlePoolVFS.create(VFS_NAME_PERSISTENT, module);
++      _vfs = await MemoryVFS.create(VFS_NAME_PERSISTENT, module);
+       if (_vfs == null) {
+-        throw new Error('Failed to initialize AccessHandlePoolVFS');
++        throw new Error('Failed to initialize persistent MemoryVFS');
+       }
+     }
+     _sqlite3.vfs_register(_vfs, true);

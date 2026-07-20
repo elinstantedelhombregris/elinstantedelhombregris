@@ -18,11 +18,13 @@
  *    "Error: [object Object]". Fix: mandar SIEMPRE el mensaje como string,
  *    que es lo que el lector ya espera (`error?: string`).
  *
+ * 3. RESULTADOS BINARIOS: `Uint8Array` se convierte a un array JSON y crece
+ *    varias veces. Fix: protocolo con un byte de formato; los Uint8Array
+ *    viajan crudos y un exceso de capacidad devuelve un error explícito.
+ *
  * Borrar este archivo (y el redirect de metro) cuando upstream lo arregle.
  * El resto del código es copia literal del original.
  */
-
-/* eslint-disable no-restricted-globals */
 
 // ---------------------------------------------------------------------------
 // Inlineado de expo-sqlite/web/Deferred.ts (copia literal)
@@ -105,6 +107,10 @@ let messageId = 0;
 const deferredMap = new Map<number, Deferred>();
 const PENDING = 1;
 const RESOLVED = 2;
+const RESULT_JSON = 0;
+const RESULT_UINT8ARRAY = 1;
+const RESULT_HEADER_BYTES = 5;
+const DEFAULT_RESULT_BUFFER_BYTES = 1024 * 1024;
 
 let hasWarnedSync = false;
 
@@ -135,13 +141,31 @@ export function sendWorkerResult({
     const { lockBuffer, resultBuffer } = syncTrait;
     const lock = new Int32Array(lockBuffer);
     const resultArray = new Uint8Array(resultBuffer);
-    const resultJson =
-      error != null ? serialize({ error: errorAMensaje(error) }) : serialize({ result });
-    const resultBytes = new TextEncoder().encode(resultJson);
-    const length = resultBytes.length;
-    // FIX 1: los 4 bytes little-endian de la longitud (el original escribía 1).
-    resultArray.set(new Uint8Array(new Uint32Array([length]).buffer), 0);
-    resultArray.set(resultBytes, 4);
+    const capacity = resultArray.byteLength - RESULT_HEADER_BYTES;
+    let format = RESULT_JSON;
+    let resultBytes: Uint8Array;
+
+    if (error == null && result instanceof Uint8Array) {
+      format = RESULT_UINT8ARRAY;
+      resultBytes = result;
+    } else {
+      const resultJson = error != null
+        ? serialize({ error: errorAMensaje(error) })
+        : serialize({ result });
+      resultBytes = new TextEncoder().encode(resultJson);
+    }
+
+    if (resultBytes.byteLength > capacity) {
+      format = RESULT_JSON;
+      resultBytes = new TextEncoder().encode(serialize({
+        error: `Sync response exceeds buffer capacity (${resultBytes.byteLength} > ${capacity})`,
+      }));
+    }
+
+    // FIX 1: longitud uint32 real + byte de formato.
+    new DataView(resultBuffer).setUint32(0, resultBytes.byteLength, true);
+    resultArray[4] = format;
+    resultArray.set(resultBytes, RESULT_HEADER_BYTES);
     Atomics.store(lock, 0, RESOLVED);
   } else {
     if (result) {
@@ -202,7 +226,7 @@ export function invokeWorkerSync<T>(worker: Worker, type: string, data: unknown)
   const id = messageId++;
   const lockBuffer = new SharedArrayBuffer(4);
   const lock = new Int32Array(lockBuffer);
-  const resultBuffer = new SharedArrayBuffer(1024 * 1024);
+  const resultBuffer = new SharedArrayBuffer(DEFAULT_RESULT_BUFFER_BYTES);
   const resultArray = new Uint8Array(resultBuffer);
 
   Atomics.store(lock, 0, PENDING);
@@ -234,9 +258,13 @@ export function invokeWorkerSync<T>(worker: Worker, type: string, data: unknown)
     }
   }
 
-  const length = new Uint32Array(resultArray.buffer, 0, 1)[0]!;
+  const length = new DataView(resultArray.buffer).getUint32(0, true);
+  if (length > resultArray.byteLength - RESULT_HEADER_BYTES) {
+    throw new Error(`Invalid sync response length: ${length}`);
+  }
   const resultCopy = new Uint8Array(length);
-  resultCopy.set(new Uint8Array(resultArray.buffer, 4, length));
+  resultCopy.set(new Uint8Array(resultArray.buffer, RESULT_HEADER_BYTES, length));
+  if (resultArray[4] === RESULT_UINT8ARRAY) return resultCopy as T;
   const resultJson = new TextDecoder().decode(resultCopy);
   const { result, error } = deserialize<{ result: T; error?: string }>(resultJson);
   if (error) throw new Error(error);

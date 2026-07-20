@@ -20,6 +20,14 @@ export const GANANCIAS = {
   compromisoCumplido: 3,
   /** Cada paso de expedición registrado. */
   pasoExpedicion: 3,
+  /** Un registro de campo honesto, aunque todavía no cierre cobertura. */
+  capturaHonesta: 1,
+  /** El punto pertenece a la celda asignada y reduce una incertidumbre real. */
+  celdaRecorrida: 2,
+  /** Una segunda mirada produjo una transición útil de calidad. */
+  corroboracionUtil: 3,
+  /** Las dos partes confirmaron un resultado, no sólo una promesa. */
+  resultadoConfirmado: 8,
   /** Hitos de expedición 25 / 50 / 100 %. */
   hito25: 10,
   hito50: 15,
@@ -50,6 +58,10 @@ export const MOTIVOS = {
   nocheCompleta: 'Noche completa',
   compromisoCumplido: 'Compromiso cumplido',
   pasoExpedicion: 'Paso de expedición',
+  capturaHonesta: 'Captura de campo honesta',
+  celdaRecorrida: 'Celda territorial recorrida',
+  corroboracionUtil: 'Corroboración útil',
+  resultadoConfirmado: 'Resultado confirmado',
   hito25: 'Expedición al 25%',
   hito50: 'Expedición al 50%',
   hito100: 'Expedición completa',

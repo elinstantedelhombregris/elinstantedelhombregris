@@ -11,6 +11,7 @@ export default defineConfig({
       'src/game/**/*.test.ts',
       'src/content/**/*.test.ts',
       'src/cielo/**/*.test.ts',
+      'src/civic/**/*.test.ts',
     ],
   },
 });

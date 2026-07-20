@@ -1,0 +1,71 @@
+diff --git a/node_modules/@shopify/react-native-skia/lib/module/views/SkiaPictureView.web.js b/node_modules/@shopify/react-native-skia/lib/module/views/SkiaPictureView.web.js
+index 7318000..b387a32 100644
+--- a/node_modules/@shopify/react-native-skia/lib/module/views/SkiaPictureView.web.js
++++ b/node_modules/@shopify/react-native-skia/lib/module/views/SkiaPictureView.web.js
+@@ -233,7 +233,43 @@ export const SkiaPictureView = props => {
+       callback(x, y, rect.width, rect.height);
+     }
+   }, []);
++  // PATCH(basta): renderer creation must be guarded and retryable. Upstream
++  // creates the WebGL renderer exactly once per layout event; when the layout
++  // event fires while the screen container is still 0x0 (e.g. mid navigation
++  // transition on router.replace), MakeWebGLCanvasSurface throws and the
++  // canvas stays black forever. We guard against zero sizes and failures,
++  // and let the tick loop self-heal by retrying periodically.
++  const tryCreateRenderer = useCallback(() => {
++    const canvas = canvasRef.current;
++    if (!canvas || canvas.clientWidth === 0 || canvas.clientHeight === 0) {
++      return false;
++    }
++    try {
++      if (renderer.current) {
++        renderer.current.dispose();
++        renderer.current = null;
++      }
++      renderer.current = props.__destroyWebGLContextAfterRender === true ? new StaticWebGLRenderer(canvas, pd) : new WebGLRenderer(canvas, pd);
++      if (pictureRef.current) {
++        renderer.current.draw(pictureRef.current);
++      }
++      return true;
++    } catch (e) {
++      renderer.current = null;
++      return false;
++    }
++  }, [props.__destroyWebGLContextAfterRender]);
++  const framesSinRendererRef = useRef(0);
+   const tick = useCallback(() => {
++    if (!renderer.current) {
++      framesSinRendererRef.current++;
++      if (framesSinRendererRef.current >= 15) {
++        framesSinRendererRef.current = 0;
++        if (tryCreateRenderer()) {
++          redrawRequestsRef.current++;
++        }
++      }
++    }
+     if (redrawRequestsRef.current > 0) {
+       redrawRequestsRef.current = 0;
+       if (renderer.current && pictureRef.current) {
+@@ -241,19 +277,13 @@ export const SkiaPictureView = props => {
+       }
+     }
+     requestIdRef.current = requestAnimationFrame(tick);
+-  }, []);
++  }, [tryCreateRenderer]);
+   const onLayoutEvent = useCallback(evt => {
+-    const canvas = canvasRef.current;
+-    if (canvas) {
+-      renderer.current = props.__destroyWebGLContextAfterRender === true ? new StaticWebGLRenderer(canvas, pd) : new WebGLRenderer(canvas, pd);
+-      if (pictureRef.current) {
+-        renderer.current.draw(pictureRef.current);
+-      }
+-    }
++    tryCreateRenderer();
+     if (onLayout) {
+       onLayout(evt);
+     }
+-  }, [onLayout, props.__destroyWebGLContextAfterRender]);
++  }, [onLayout, tryCreateRenderer]);
+   useImperativeHandle(ref, () => ({
+     setPicture,
+     getSize,

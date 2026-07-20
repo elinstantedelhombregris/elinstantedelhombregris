@@ -10,10 +10,11 @@ config.resolver.sourceExts.push('sql');
 // y el dev server manda COOP/COEP para habilitar SharedArrayBuffer (API sync).
 config.resolver.assetExts.push('wasm');
 
-// Upstream bug de expo-sqlite web (57.0.0, sigue en canary): el canal sync
-// trunca la longitud de toda respuesta >255 bytes y serializa errores como
-// "{}". Redirigimos ese único módulo a una copia corregida y autocontenida
-// (src/db/web/WorkerChannel.ts). Sacar cuando upstream lo arregle.
+// Bugs upstream de expo-sqlite web (57.0.0, siguen en canary): el canal sync
+// trunca la longitud de toda respuesta >255 bytes, serializa errores como
+// "{}" y expande resultados binarios dentro de JSON. Redirigimos ese único
+// módulo a una copia corregida y autocontenida (src/db/web/WorkerChannel.ts).
+// Sacar cuando upstream lo arregle.
 const path = require('path');
 const workerChannelCorregido = path.resolve(__dirname, 'src/db/web/WorkerChannel.ts');
 const resolveRequestAnterior = config.resolver.resolveRequest;

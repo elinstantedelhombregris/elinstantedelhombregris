@@ -4,19 +4,18 @@
  * Nada de tono corporativo, nada de entusiasmo de plástico.
  */
 
-/** Primera experiencia: del cielo vacío a la primera estrella en menos de un minuto. */
+/** Primera experiencia: propósito, pacto de datos y elección del primer acto. */
 export const FTUE = {
-  pregunta: '¿Qué falta acá donde estás parado?',
-  placeholderRespuesta: 'Una línea alcanza. Lo que ves, lo que falta, lo que duele.',
-  nacimiento: 'Así se enciende un país.',
-  bienvenidaBrasas: 'Cinco brasas de bienvenida. Con eso ya se prende algo.',
-  tooltips: {
-    ver: 'VER — La pregunta del día. Un minuto de pensarla en serio. Nadie corrige, nadie pone nota.',
-    encender:
-      'ENCENDER — Capturá algo real de donde estás: una falta, un recurso, un sueño. Cada captura es una estrella nueva en tu cielo.',
-    dar: 'DAR — Elegí un compromiso chico para hoy. Mañana te preguntamos si lo hiciste. Nadie lo verifica: la confianza es la mecánica.',
-  },
-  saltearTour: 'Ya entendí, dale',
+  propositoTitulo: 'Lo real, primero.',
+  propositoDetalle: 'Una infraestructura cívica para convertir escucha situada en cuidado, conexiones y decisiones que puedan rendir cuentas.',
+  pactoTitulo: 'Tus datos no son el precio de entrada.',
+  pactoDetalle: 'La confianza no se declara: se construye dando control comprensible antes, durante y después de cada aporte.',
+  pacto: [
+    { title: 'Tu relato es tuyo', detail: 'La bitácora empieza privada. Si contribuís, se crea una derivación mínima; el texto original no se publica.' },
+    { title: 'El lugar está bajo tu control', detail: 'Podés explorar sin ubicación. Cuando un registro necesita lugar, elegís el punto y la precisión que se comparte.' },
+    { title: 'Toda entrega deja una huella', detail: 'Quién recibe, para qué, hasta cuándo y cómo retirar o corregir deben quedar visibles en un recibo.' },
+  ],
+  eleccionTitulo: '¿Por dónde querés entrar?',
 } as const;
 
 /** Cierre del día con las tres luces encendidas. Se elige una variante al azar. */

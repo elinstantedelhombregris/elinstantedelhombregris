@@ -24,6 +24,13 @@ export const PLANTILLAS_EXPEDICION: PlantillaExpedicion[] = [
         microUI: 'foto-guiada',
       },
       {
+        key: 'estado',
+        titulo: 'La falla',
+        instruccion: '¿Qué hace esa luminaria? Elegí lo que viste, sin adivinar la causa.',
+        microUI: 'chips',
+        opciones: ['Apagada', 'Intermitente', 'Rota', 'Cables expuestos'],
+      },
+      {
         key: 'urgencia',
         titulo: 'La urgencia',
         instruccion:
@@ -63,6 +70,13 @@ export const PLANTILLAS_EXPEDICION: PlantillaExpedicion[] = [
         instruccion:
           'Retratalo con respeto: la fachada, la olla o el cartel. Nada de caras sin permiso.',
         microUI: 'foto-guiada',
+      },
+      {
+        key: 'necesidad',
+        titulo: 'Lo que falta ahora',
+        instruccion: '¿Qué aporte destrabaría más la próxima jornada? Elegí una prioridad concreta.',
+        microUI: 'chips',
+        opciones: ['Alimentos secos', 'Verduras', 'Gas para cocinar', 'Higiene', 'Utensilios'],
       },
     ],
   },

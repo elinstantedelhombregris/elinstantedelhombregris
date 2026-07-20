@@ -127,6 +127,27 @@ export default function Cielo() {
           </View>
         </View>
 
+        <View className="mt-4 flex-row items-center justify-center gap-2 px-4">
+          <Pressable97
+            accessibilityRole="button"
+            accessibilityLabel="Abrir La Escucha"
+            onPress={() => router.push('/escuchar')}
+            className="flex-row items-center gap-2 rounded-full border border-violet-300/30 bg-violet-300/15 px-4 py-2.5"
+          >
+            <Ionicons name="ear-outline" size={15} color="#DDD6FE" />
+            <Text className="font-sans-semibold text-xs text-violet-100">La Escucha</Text>
+          </Pressable97>
+          <Pressable97
+            accessibilityRole="button"
+            accessibilityLabel="Abrir el territorio"
+            onPress={() => router.push('/territorio')}
+            className="flex-row items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2.5"
+          >
+            <Ionicons name="earth-outline" size={15} color="#CBD5E1" />
+            <Text className="font-sans-medium text-xs text-slate-300">Territorio</Text>
+          </Pressable97>
+        </View>
+
         {/* Rito de re-encendido, sin culpa */}
         {!st.rachaInfo.viva && (
           <View className="mt-3 items-center">

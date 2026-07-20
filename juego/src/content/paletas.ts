@@ -21,30 +21,30 @@ export const PALETAS: PaletaCielo[] = [
   {
     id: 'noche-pura',
     nombre: 'Noche Pura',
-    descripcion: 'El negro de siempre: la noche antes de todo.',
+    descripcion: 'La noche honda de siempre: índigo de medianoche antes de todo.',
     precio: 0,
-    gradiente: ['#0d0d16', '#0a0a0a'],
+    gradiente: ['#131736', '#07070c'],
   },
   {
     id: 'madrugada',
     nombre: 'Madrugada',
     descripcion: 'Un azul hondo: la hora de los que no aflojan.',
     precio: 30,
-    gradiente: ['#101430', '#0a0b12'],
+    gradiente: ['#0f2048', '#070b14'],
   },
   {
     id: 'cenizas',
     nombre: 'Cenizas',
     descripcion: 'El gris tibio del fogón: acá hubo fuego, y va a haber más.',
     precio: 50,
-    gradiente: ['#1a1512', '#0d0b0a'],
+    gradiente: ['#241b14', '#0c0a09'],
   },
   {
     id: 'aurora',
     nombre: 'Aurora',
     descripcion: 'El primer tinte del amanecer: la noche empieza a ceder.',
     precio: 80,
-    gradiente: ['#251532', '#0e0a14'],
+    gradiente: ['#311a44', '#0e0a16'],
   },
 ];
 

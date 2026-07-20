@@ -2,8 +2,11 @@
  * El Cielo — UN solo Canvas Skia, presupuesto 60fps / ≤300 estrellas (spec §5).
  *
  * Capas, de atrás hacia adelante:
- *  (a) fondo: gradiente radial hondo #0d0d16 → #0a0a0a;
- *  (b) polvo ambiental: ~80 puntos fijos, opacidad 0.08–0.2, determinísticos;
+ *  (a) fondo: gradiente radial índigo de medianoche (paleta activa);
+ *  (a2) vía plateada: banda diagonal de glow + polvo denso (atmosfera.ts);
+ *  (a3) nebulosas: dos acentos de color enormes y tenues;
+ *  (b) campo estelar con jerarquía (grilla con jitter, baldes Points) y
+ *      unas pocas destacadas con glow propio;
  *  (c) polvo estelar (LOD): las estrellas más viejas que las 300 nítidas se
  *      agregan en grumos de glow difuso;
  *  (d) LAS ESTRELLAS: dos Atlas (comunes + fundadoras con destello en cruz),
@@ -11,8 +14,9 @@
  *      titilado por-estrella desde UN reloj (buffer de colores en worklet —
  *      cero estado React por estrella);
  *  (e) nacimiento: la estrella nueva florece (curva bloom) guiada por el reloj;
- *  (f) Estrella Guía al centro: plata ardiente con pulso cuando la racha vive,
- *      gris apagada cuando espera el rito.
+ *  (f) Estrella Guía al centro: plata ardiente con pulso y destello en cruz
+ *      cuando la racha vive, gris apagada cuando espera el rito;
+ *  (g) resplandor del horizonte + (h) viñeta: profundidad, foco al centro.
  *
  * Todo deriva de arrays + el reloj: nada re-renderiza React por frame.
  * Este módulo es el ÚNICO que importa Skia — en web se carga diferido
@@ -25,6 +29,7 @@ import {
   Canvas,
   Circle,
   Group,
+  LinearGradient,
   Points,
   RadialGradient,
   Rect,
@@ -41,12 +46,19 @@ import { useDerivedValue, useSharedValue } from 'react-native-reanimated';
 import type { TipoEstrella } from '@/game/types';
 import { PLATA } from '@/theme/tokens';
 import {
+  ANGULO_VIA,
+  NEBULOSAS,
+  campoEstelar,
+  cuantizarCampo,
+  estrellasDestacadas,
+  puntosVia,
+} from './atmosfera';
+import {
   COLOR_ESTRELLA,
   MAX_ESTRELLAS_NITIDAS,
   faseTitilado,
   grumosDePolvo,
   hexARgb,
-  polvoAmbiental,
   posicionEstrella,
   radioDelCielo,
   tamanoEstrella,
@@ -62,8 +74,16 @@ export interface EstrellaCielo {
   fugaz: boolean;
 }
 
-/** Fondo original del Cielo — idéntico a la paleta "Noche Pura". */
-const FONDO_DEFAULT: readonly [string, string] = ['#0d0d16', '#0a0a0a'];
+/** Fondo default del Cielo — idéntico a la paleta "Noche Pura". */
+const FONDO_DEFAULT: readonly [string, string] = ['#131736', '#07070c'];
+
+/** rgba() desde hex + alpha — para gradientes de glow sin BlurMask. */
+const conAlpha = (hex: string, a: number): string => {
+  const r = parseInt(hex.slice(1, 3), 16);
+  const g = parseInt(hex.slice(3, 5), 16);
+  const b = parseInt(hex.slice(5, 7), 16);
+  return `rgba(${r}, ${g}, ${b}, ${a})`;
+};
 
 export interface CieloProps {
   /** En orden cronológico ascendente (como devuelve estrellasTodas). */
@@ -217,19 +237,19 @@ export function CieloCanvas({
     };
   }, [estrellas, nuevaEstrellaId, w, h, cx, cy]);
 
-  const polvo = useMemo(() => {
-    const puntos = polvoAmbiental('el-cielo-basta', w, h);
-    // Tres baldes de opacidad → tres nodos Points estáticos.
-    const baldes: [number, ReturnType<typeof vec>[]][] = [
-      [0.09, []],
-      [0.13, []],
-      [0.18, []],
-    ];
-    for (const p of puntos) {
-      const i = p.opacidad < 0.12 ? 0 : p.opacidad < 0.16 ? 1 : 2;
-      baldes[i]![1].push(vec(p.x, p.y));
-    }
-    return baldes;
+  // Atmósfera estática (ver atmosfera.ts): campo estelar cuantizado en
+  // baldes Points, destacadas, y la vía plateada en dos densidades.
+  const atmosfera = useMemo(() => {
+    const campo = cuantizarCampo(campoEstelar('el-cielo-basta', w, h)).map((b) => ({
+      ...b,
+      vecs: b.puntos.map((p) => vec(p.x, p.y)),
+    }));
+    const brillantes = estrellasDestacadas('el-cielo-basta', w, h);
+    const diag = Math.sqrt(w * w + h * h);
+    const via = puntosVia('el-cielo-basta', diag * 1.3, Math.max(70, diag * 0.09));
+    const viaTenue = via.filter((p) => p.opacidad < 0.14).map((p) => vec(p.x, p.y));
+    const viaViva = via.filter((p) => p.opacidad >= 0.14).map((p) => vec(p.x, p.y));
+    return { campo, brillantes, viaTenue, viaViva, diag };
   }, [w, h]);
 
   // ---------------------------------------------------------------------------
@@ -345,25 +365,94 @@ export function CieloCanvas({
       <Rect x={0} y={0} width={w} height={h}>
         <RadialGradient
           c={vec(cx, cy)}
-          r={Math.max(w, h) * 0.75}
+          r={Math.max(w, h) * 0.85}
           colors={[paleta[0], paleta[1]]}
         />
       </Rect>
 
-      {/* (b) Polvo ambiental */}
-      {polvo.map(([op, puntos], i) =>
-        puntos.length > 0 ? (
+      {/* (a2) La vía plateada: banda diagonal de glow + polvo denso */}
+      <Group
+        transform={[{ rotate: ANGULO_VIA }]}
+        origin={vec(cx, cy)}
+      >
+        <Rect
+          x={cx - atmosfera.diag * 0.7}
+          y={cy - atmosfera.diag * 0.11}
+          width={atmosfera.diag * 1.4}
+          height={atmosfera.diag * 0.22}
+        >
+          <LinearGradient
+            start={vec(cx, cy - atmosfera.diag * 0.11)}
+            end={vec(cx, cy + atmosfera.diag * 0.11)}
+            colors={[
+              'rgba(245, 247, 250, 0)',
+              'rgba(215, 224, 245, 0.05)',
+              'rgba(245, 247, 250, 0.09)',
+              'rgba(215, 224, 245, 0.05)',
+              'rgba(245, 247, 250, 0)',
+            ]}
+          />
+        </Rect>
+        <Group transform={[{ translateX: cx }, { translateY: cy }]}>
           <Points
-            key={`polvo-${i}`}
-            points={puntos}
+            points={atmosfera.viaTenue}
             mode="points"
-            color={`rgba(245, 247, 250, ${op})`}
+            color="rgba(245, 247, 250, 0.08)"
             style="stroke"
-            strokeWidth={1.4}
+            strokeWidth={1}
             strokeCap="round"
           />
-        ) : null,
-      )}
+          <Points
+            points={atmosfera.viaViva}
+            mode="points"
+            color="rgba(245, 247, 250, 0.2)"
+            style="stroke"
+            strokeWidth={1.3}
+            strokeCap="round"
+          />
+        </Group>
+      </Group>
+
+      {/* (a3) Nebulosas: dos acentos enormes y tenues, glow por gradiente */}
+      {NEBULOSAS.map((n, i) => {
+        const r = n.fr * Math.max(w, h);
+        return (
+          <Circle key={`nebulosa-${i}`} cx={n.fx * w} cy={n.fy * h} r={r}>
+            <RadialGradient
+              c={vec(n.fx * w, n.fy * h)}
+              r={r}
+              colors={[conAlpha(n.color, n.opacidad), conAlpha(n.color, 0)]}
+            />
+          </Circle>
+        );
+      })}
+
+      {/* (b) Campo estelar con jerarquía: baldes por tinte × brillo */}
+      {atmosfera.campo.map((b, i) => (
+        <Points
+          key={`campo-${i}`}
+          points={b.vecs}
+          mode="points"
+          color={conAlpha(b.color, b.opacidad)}
+          style="stroke"
+          strokeWidth={b.radio * 2}
+          strokeCap="round"
+        />
+      ))}
+
+      {/* (b2) Destacadas: pocas estrellas de campo con glow propio */}
+      {atmosfera.brillantes.map((e, i) => (
+        <Group key={`destacada-${i}`}>
+          <Circle cx={e.x} cy={e.y} r={e.radio * 4}>
+            <RadialGradient
+              c={vec(e.x, e.y)}
+              r={e.radio * 4}
+              colors={[conAlpha(e.tinte, e.opacidad * 0.35), conAlpha(e.tinte, 0)]}
+            />
+          </Circle>
+          <Circle cx={e.x} cy={e.y} r={e.radio} color={conAlpha(e.tinte, e.opacidad)} />
+        </Group>
+      ))}
 
       {/* (c) Polvo estelar: las viejas, agregadas en glow (LOD >300) */}
       {grumos.map((g, i) => (
@@ -411,11 +500,35 @@ export function CieloCanvas({
         </Group>
       )}
 
-      {/* (f) Estrella Guía */}
+      {/* (f) Estrella Guía: halo + destello en cruz + núcleo (estrella, no globo) */}
       <Group>
         <Circle cx={cx} cy={cy} r={guiaHalo} color={colorGuia} opacity={guiaHaloOp}>
           <BlurMask blur={18} style="normal" />
         </Circle>
+        <Group opacity={rachaViva ? 0.5 : 0.14}>
+          <Rect x={cx - 46} y={cy - 0.8} width={92} height={1.6}>
+            <LinearGradient
+              start={vec(cx - 46, cy)}
+              end={vec(cx + 46, cy)}
+              colors={[
+                conAlpha(colorGuia, 0),
+                conAlpha(colorGuia, 0.9),
+                conAlpha(colorGuia, 0),
+              ]}
+            />
+          </Rect>
+          <Rect x={cx - 0.8} y={cy - 46} width={1.6} height={92}>
+            <LinearGradient
+              start={vec(cx, cy - 46)}
+              end={vec(cx, cy + 46)}
+              colors={[
+                conAlpha(colorGuia, 0),
+                conAlpha(colorGuia, 0.9),
+                conAlpha(colorGuia, 0),
+              ]}
+            />
+          </Rect>
+        </Group>
         <Circle
           cx={cx}
           cy={cy}
@@ -429,6 +542,30 @@ export function CieloCanvas({
           <BlurMask blur={1} style="normal" />
         </Circle>
       </Group>
+
+      {/* (g) Resplandor del horizonte: la ciudad respira abajo, apenas */}
+      <Rect x={0} y={h * 0.62} width={w} height={h * 0.38}>
+        <LinearGradient
+          start={vec(0, h * 0.62)}
+          end={vec(0, h)}
+          colors={[
+            'rgba(151, 135, 255, 0)',
+            'rgba(151, 135, 255, 0.028)',
+            'rgba(196, 200, 235, 0.06)',
+          ]}
+          positions={[0, 0.55, 1]}
+        />
+      </Rect>
+
+      {/* (h) Viñeta: oscurece las esquinas, el centro manda */}
+      <Rect x={0} y={0} width={w} height={h}>
+        <RadialGradient
+          c={vec(cx, cy * 1.08)}
+          r={Math.max(w, h) * 0.92}
+          colors={['rgba(0,0,0,0)', 'rgba(0,0,0,0)', 'rgba(0,0,0,0.42)']}
+          positions={[0, 0.55, 1]}
+        />
+      </Rect>
     </Canvas>
   );
 }

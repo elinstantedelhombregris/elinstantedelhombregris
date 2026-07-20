@@ -114,6 +114,8 @@ export default function Album() {
   };
 
   const comprarPaleta = (p: PaletaCielo) => {
+    // one-shot: si ya es tuya, un doble toque no la cobra de nuevo
+    if (tieneUnlock('paleta', p.id)) return;
     try {
       gastarBrasas(p.precio, MOTIVOS.paleta);
       otorgarUnlock('paleta', p.id);

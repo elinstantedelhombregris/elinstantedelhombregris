@@ -6,7 +6,7 @@
 
 import { Ionicons } from '@expo/vector-icons';
 import type { ReactNode } from 'react';
-import { KeyboardAvoidingView, Platform, ScrollView, View } from 'react-native';
+import { KeyboardAvoidingView, Platform, Pressable, ScrollView, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { Pressable97 } from '@/components/ui/Pressable97';
@@ -23,7 +23,14 @@ export function ModalCielo({
 }) {
   const insets = useSafeAreaInsets();
   return (
-    <View className="flex-1" style={{ backgroundColor: 'rgba(10, 10, 10, 0.94)' }}>
+    // Tocar el scrim cierra; el lector de pantalla usa la cruz de arriba.
+    <Pressable
+      accessible={false}
+      accessibilityLabel="Cerrar"
+      onPress={onCerrar}
+      className="flex-1"
+      style={{ backgroundColor: 'rgba(10, 10, 10, 0.94)' }}
+    >
       <KeyboardAvoidingView
         className="flex-1"
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
@@ -37,20 +44,23 @@ export function ModalCielo({
             paddingBottom: insets.bottom + 32,
           }}
         >
-          <View className="mb-8 flex-row items-center justify-between">
-            <SectionBadge>{badge}</SectionBadge>
-            <Pressable97
-              accessibilityRole="button"
-              accessibilityLabel="Cerrar"
-              onPress={onCerrar}
-              className="rounded-full border border-white/10 bg-white/5 p-2"
-            >
-              <Ionicons name="close" size={18} color="#94a3b8" />
-            </Pressable97>
-          </View>
-          {children}
+          {/* El contenido atrapa sus propios toques: tocar adentro no cierra. */}
+          <Pressable accessible={false} onPress={() => {}}>
+            <View className="mb-8 flex-row items-center justify-between">
+              <SectionBadge>{badge}</SectionBadge>
+              <Pressable97
+                accessibilityRole="button"
+                accessibilityLabel="Cerrar"
+                onPress={onCerrar}
+                className="rounded-full border border-white/10 bg-white/5 p-2"
+              >
+                <Ionicons name="close" size={18} color="#94a3b8" />
+              </Pressable97>
+            </View>
+            {children}
+          </Pressable>
         </ScrollView>
       </KeyboardAvoidingView>
-    </View>
+    </Pressable>
   );
 }

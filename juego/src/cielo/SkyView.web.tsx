@@ -9,6 +9,10 @@ import { WithSkiaWeb } from '@shopify/react-native-skia/lib/module/web';
 import { View } from 'react-native';
 
 import type { CieloProps } from './CieloCanvas';
+import { asegurarPrecisionWebGLParaCanvasKit } from './webgl-compat';
+
+// Debe ejecutarse antes de que WithSkiaWeb inicialice CanvasKit.
+asegurarPrecisionWebGLParaCanvasKit();
 
 export type { CieloProps, EstrellaCielo } from './CieloCanvas';
 

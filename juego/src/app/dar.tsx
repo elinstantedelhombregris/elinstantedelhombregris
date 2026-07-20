@@ -49,6 +49,7 @@ export default function Dar() {
   );
   const [elegida, setElegida] = useState<number | null>(null);
   const [propio, setPropio] = useState('');
+  const [comprometiendo, setComprometiendo] = useState(false);
 
   const responderAyer = (cumplido: boolean) => {
     if (!ayer) return;
@@ -59,9 +60,12 @@ export default function Dar() {
   };
 
   const comprometerse = () => {
+    // doble toque no compromete dos veces el mismo día
+    if (comprometiendo) return;
     const textoPropio = propio.trim();
     const sugerida = elegida !== null ? sugerencias[elegida]! : null;
     if (!sugerida && !textoPropio) return;
+    setComprometiendo(true);
     if (textoPropio) {
       crearCompromiso(textoPropio, 'propio', fecha);
     } else if (sugerida) {
@@ -178,6 +182,7 @@ export default function Dar() {
               }}
               placeholder="…o escribí el tuyo: concreto, chico, de hoy."
               placeholderTextColor="#64748b"
+              maxLength={140}
               className="mt-4 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 font-sans text-sm text-plata"
             />
 
@@ -185,7 +190,7 @@ export default function Dar() {
               <AccentButton
                 label="Me comprometo"
                 onPress={comprometerse}
-                disabled={elegida === null && !propio.trim()}
+                disabled={comprometiendo || (elegida === null && !propio.trim())}
               />
             </View>
           </Animated.View>

@@ -7,7 +7,7 @@
 
 import { Ionicons } from '@expo/vector-icons';
 import { CameraView, useCameraPermissions } from 'expo-camera';
-import { useRouter } from 'expo-router';
+import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useRef, useState } from 'react';
 import { Platform, ScrollView, Text, TextInput, View } from 'react-native';
 import QRCode from 'react-native-qrcode-svg';
@@ -23,6 +23,7 @@ import { COMPARTIR, ESTADOS_VACIOS, PLANTILLAS_EXPEDICION } from '@/content';
 import {
   canjearNonce,
   crearEstrella,
+  expedicionPorId,
   fundarExpedicion,
   ganarBrasas,
   gastarBrasas,
@@ -34,18 +35,20 @@ import {
   LIMITES_CIRCULO,
   codificarChispa,
   codificarCirculo,
+  codificarExpedicion,
   decodificarChispa,
   decodificarCirculo,
   decodificarExpedicion,
   tipoDeQR,
 } from '@/game/qr-codec';
+import type { ExpeditionRow } from '@/db/schema';
 import { guardarCirculo, leerCirculo, leerNombre, nonceAleatorio } from '@/lib/social';
 import { bloom, fadeUp } from '@/motion/variants';
 import { multiplicadorHoy, useJuego } from '@/stores/juego';
 import { haptic } from '@/theme/haptics';
 import { PLATA } from '@/theme/tokens';
 
-type TabQR = 'dar' | 'recibir' | 'circulo';
+type TabQR = 'expedicion' | 'dar' | 'recibir' | 'circulo';
 
 const TABS: { key: TabQR; label: string }[] = [
   { key: 'dar', label: 'Dar' },
@@ -62,6 +65,44 @@ function TileQR({ value }: { value: string }) {
   );
 }
 
+function TabExpedicion({ expedition }: { expedition: ExpeditionRow }) {
+  let value: string | null = null;
+  try {
+    value = codificarExpedicion({
+      plantillaId: expedition.plantillaId,
+      titulo: expedition.titulo,
+      zona: expedition.zona,
+      meta: expedition.meta,
+    });
+  } catch {
+    // Una expedición antigua puede superar los límites del formato viajero.
+  }
+  return (
+    <Animated.View entering={fadeUp}>
+      <Text className="font-sans text-[10px] uppercase tracking-[2.5px] text-violet-300">Expedición viajera</Text>
+      <Text className="mt-3 font-serif text-2xl leading-9 text-plata">{expedition.titulo}</Text>
+      <Text className="mt-3 font-sans text-sm leading-6 text-slate-400">
+        Mostrá este código cara a cara. La otra persona recibirá la consigna, la zona y la meta para empezar su propio progreso.
+      </Text>
+      {value ? (
+        <GlassCard className="mt-7 items-center p-6">
+          <TileQR value={value} />
+          <Text className="mt-5 text-center font-sans-medium text-sm text-plata">{expedition.zona} · meta {expedition.meta}</Text>
+          <Text className="mt-2 text-center font-sans text-xs leading-5 text-slate-500">
+            No viajan tus capturas, fotos, lugares exactos, recompensas ni avance personal.
+          </Text>
+        </GlassCard>
+      ) : (
+        <GlassCard className="mt-7 items-center p-6">
+          <Ionicons name="alert-circle-outline" size={30} color="#FCD34D" />
+          <Text className="mt-4 text-center font-serif text-xl text-plata">Esta expedición no entra en un QR seguro.</Text>
+          <Text className="mt-2 text-center font-sans text-xs leading-5 text-slate-400">Conservá tu avance acá y compartí una expedición nueva con un título, zona y meta más breves.</Text>
+        </GlassCard>
+      )}
+    </Animated.View>
+  );
+}
+
 // ---------------------------------------------------------------------------
 // DAR — regalar una chispa (QR one-shot)
 // ---------------------------------------------------------------------------
@@ -70,14 +111,19 @@ function TabDar() {
   const st = useJuego();
   const [qr, setQr] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [regalando, setRegalando] = useState(false);
   const alcanza = st.brasas >= COSTOS.chispaRegalada;
 
   const regalar = () => {
+    // doble toque no paga dos chispas
+    if (regalando) return;
+    setRegalando(true);
     setError(null);
     try {
       gastarBrasas(COSTOS.chispaRegalada, MOTIVOS.chispaRegalada);
     } catch {
       setError('No te alcanzan las brasas.');
+      setRegalando(false);
       return;
     }
     const nonce = nonceAleatorio();
@@ -92,6 +138,8 @@ function TabDar() {
     );
     haptic.send();
     st.refresh();
+    // lockout breve: regalar otra a propósito sigue siendo posible
+    setTimeout(() => setRegalando(false), 600);
   };
 
   return (
@@ -121,7 +169,7 @@ function TabDar() {
             accessibilityRole="button"
             accessibilityLabel="Regalar otra chispa"
             onPress={regalar}
-            disabled={!alcanza}
+            disabled={!alcanza || regalando}
             className={`mt-5 rounded-full border border-white/10 bg-white/5 px-5 py-2.5 ${alcanza ? '' : 'opacity-40'}`}
           >
             <Text className="font-sans-medium text-xs text-slate-300">
@@ -134,7 +182,7 @@ function TabDar() {
           <AccentButton
             label="Regalar una chispa (5 brasas)"
             onPress={regalar}
-            disabled={!alcanza}
+            disabled={!alcanza || regalando}
           />
           {!alcanza && (
             <Text className="mt-4 text-center font-sans text-xs text-slate-500">
@@ -492,9 +540,17 @@ function TabCirculo() {
 
 export default function Qr() {
   const router = useRouter();
+  const { expedicionId: expeditionIdParam } = useLocalSearchParams<{
+    expedicionId?: string | string[];
+  }>();
   const insets = useSafeAreaInsets();
   const st = useJuego();
-  const [tab, setTab] = useState<TabQR>('dar');
+  const expeditionId = Array.isArray(expeditionIdParam) ? expeditionIdParam[0] : expeditionIdParam;
+  const expedition = expeditionId ? expedicionPorId(expeditionId) : null;
+  const [tab, setTab] = useState<TabQR>(() => expedition ? 'expedicion' : 'dar');
+  const tabs = expedition
+    ? [{ key: 'expedicion' as const, label: 'Expedición' }, ...TABS]
+    : TABS;
 
   return (
     <View className="flex-1 bg-fondo">
@@ -522,7 +578,7 @@ export default function Qr() {
       >
         {/* Segmentos */}
         <View className="mb-7 flex-row rounded-full border border-white/10 bg-white/5 p-1">
-          {TABS.map(({ key, label }) => (
+          {tabs.map(({ key, label }) => (
             <Pressable97
               key={key}
               accessibilityRole="button"
@@ -539,6 +595,7 @@ export default function Qr() {
           ))}
         </View>
 
+        {tab === 'expedicion' && expedition && <TabExpedicion expedition={expedition} />}
         {tab === 'dar' && <TabDar />}
         {tab === 'recibir' && <TabRecibir />}
         {tab === 'circulo' && <TabCirculo />}
