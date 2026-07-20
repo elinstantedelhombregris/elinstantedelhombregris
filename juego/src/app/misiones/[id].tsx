@@ -152,12 +152,13 @@ export default function MisionDetalle() {
   const resolver = () =>
     irA('resuelta', () => {
       haptic.celebrate();
-      router.push(`/obras/publicar?misionId=${mision.id}` as never);
+      router.push({ pathname: '/obras/publicar', params: { misionId: mision.id } } as never);
     });
 
   const abandonar = () => irA('abandonada', () => setConfirmarAbandono(false));
 
   const enCurso = ['propuesta', 'equipo', 'activa'].includes(mision.estado);
+  const yaEsMiembro = miembros.some((m) => m.actorKey === actorKeyCacheado());
 
   return (
     <View className="flex-1 bg-fondo">
@@ -261,15 +262,21 @@ export default function MisionDetalle() {
               onPress={() => irA('equipo')}
               disabled={ocupado}
             />
-            <Pressable97
-              accessibilityRole="button"
-              accessibilityLabel="Sumarme a esta misión"
-              onPress={sumarme}
-              disabled={ocupado}
-              className="min-h-12 items-center justify-center rounded-full border border-white/10 bg-white/5 px-5"
-            >
-              <Text className="font-sans-medium text-sm text-slate-300">Sumarme</Text>
-            </Pressable97>
+            {yaEsMiembro ? (
+              <Text className="text-center font-sans text-xs text-slate-500">
+                Ya sos parte de esta misión.
+              </Text>
+            ) : (
+              <Pressable97
+                accessibilityRole="button"
+                accessibilityLabel="Sumarme a esta misión"
+                onPress={sumarme}
+                disabled={ocupado}
+                className="min-h-12 items-center justify-center rounded-full border border-white/10 bg-white/5 px-5"
+              >
+                <Text className="font-sans-medium text-sm text-slate-300">Sumarme</Text>
+              </Pressable97>
+            )}
           </View>
         )}
 

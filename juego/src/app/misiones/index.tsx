@@ -1,7 +1,8 @@
 /**
  * Misiones del Protocolo Vivo (Mission Layer, §0x01) — el panel. Secciones
- * por estado: las vivas primero, las resueltas colapsadas al final (nada es
- * permanente; lo resuelto queda como memoria, no como pila creciente).
+ * por estado: las vivas primero, el archivo (resueltas y abandonadas)
+ * colapsado al final (nada es permanente; lo resuelto o abandonado queda
+ * como memoria, no como pila creciente).
  */
 
 import { Ionicons } from '@expo/vector-icons';
@@ -40,7 +41,7 @@ export default function Misiones() {
 
   useFocusEffect(useCallback(() => setMisiones(misionesTodas()), []));
 
-  const resueltas = misiones.filter((m) => m.estado === 'resuelta');
+  const archivo = misiones.filter((m) => m.estado === 'resuelta' || m.estado === 'abandonada');
 
   const irAlDetalle = (id: string) =>
     router.push({ pathname: '/misiones/[id]', params: { id } } as never);
@@ -78,25 +79,25 @@ export default function Misiones() {
           })
         )}
 
-        {resueltas.length > 0 && (
+        {archivo.length > 0 && (
           <View className="mt-7">
             <Pressable97
               accessibilityRole="button"
               accessibilityLabel={
-                verResueltas ? 'Ocultar misiones resueltas' : `Ver ${resueltas.length} misiones resueltas`
+                verResueltas ? 'Ocultar archivo de misiones' : `Ver ${archivo.length} misiones en el archivo`
               }
               accessibilityState={{ expanded: verResueltas }}
               onPress={() => setVerResueltas((v) => !v)}
               className="flex-row items-center justify-between rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-3.5"
             >
               <Text className="font-sans text-[11px] uppercase tracking-[3px] text-slate-500">
-                Resueltas · {resueltas.length}
+                Archivo — resueltas y abandonadas · {archivo.length}
               </Text>
               <Ionicons name={verResueltas ? 'chevron-up' : 'chevron-down'} size={16} color="#64748b" />
             </Pressable97>
             {verResueltas && (
               <View className="mt-3 gap-3">
-                {resueltas.map((m, i) => (
+                {archivo.map((m, i) => (
                   <MisionCard key={m.id} mision={m} index={i} onPress={() => irAlDetalle(m.id)} />
                 ))}
               </View>
