@@ -120,6 +120,13 @@
       "when": 1784079200000,
       "tag": "0016_civic_custody_execution_intents",
       "breakpoints": true
+    },
+    {
+      "idx": 17,
+      "version": "6",
+      "when": 1784563844135,
+      "tag": "0017_protocolo_vivo",
+      "breakpoints": true
     }
   ]
 }

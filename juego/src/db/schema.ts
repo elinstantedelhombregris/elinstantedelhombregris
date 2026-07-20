@@ -7,7 +7,15 @@
  * el schema sin resolver paths de Metro.
  */
 
-import { index, integer, real, sqliteTable, text, uniqueIndex } from 'drizzle-orm/sqlite-core';
+import {
+  index,
+  integer,
+  primaryKey,
+  real,
+  sqliteTable,
+  text,
+  uniqueIndex,
+} from 'drizzle-orm/sqlite-core';
 import type {
   CivicActionStatus,
   AttributionMode,
@@ -658,6 +666,65 @@ export const syncOutbox = sqliteTable(
   ],
 );
 
+// ---------------------------------------------------------------------------
+// Protocolo Vivo — Mission Layer (misiones, obras, pulsos)
+// ---------------------------------------------------------------------------
+
+/** Misiones del Protocolo Vivo (Mission Layer): máquina de estados local. */
+export const pvMisiones = sqliteTable('pv_misiones', {
+  id: text('id').primaryKey(),
+  titulo: text('titulo').notNull(),
+  proposito: text('proposito').notNull(),
+  tipo: text('tipo').notNull(), // 'relevamiento' | 'obra' | 'diseno'
+  oficioId: text('oficio_id').notNull(),
+  estado: text('estado').notNull().default('propuesta'),
+  gobernanza: text('gobernanza').notNull(), // 'coordinada' | 'consentimiento'
+  territorio: text('territorio'),
+  parentId: text('parent_id'),
+  creadaPor: text('creada_por').notNull(), // actorKey del dispositivo
+  createdAt: text('created_at').notNull(),
+  resueltaAt: text('resuelta_at'),
+});
+
+export const pvMisionMiembros = sqliteTable(
+  'pv_mision_miembros',
+  {
+    misionId: text('mision_id').notNull(),
+    actorKey: text('actor_key').notNull(),
+    rol: text('rol').notNull(), // 'coordinador' | 'miembro'
+    comprometidoAt: text('comprometido_at').notNull(),
+    ultimoLatidoAt: text('ultimo_latido_at'),
+  },
+  (t) => [primaryKey({ columns: [t.misionId, t.actorKey] })],
+);
+
+/** Obras: proof-of-output. La unidad de La Corriente. */
+export const pvObras = sqliteTable('pv_obras', {
+  id: text('id').primaryKey(),
+  misionId: text('mision_id'),
+  titulo: text('titulo').notNull(),
+  resumen: text('resumen'),
+  oficioId: text('oficio_id').notNull(),
+  evidenciaUri: text('evidencia_uri'),
+  territorio: text('territorio'),
+  publicadaAt: text('publicada_at').notNull(),
+  estado: text('estado').notNull().default('sin_corroborar'), // 'sin_corroborar' | 'corroborada'
+});
+
+/** Pulsos de aprecio: 1 por actor por target, para siempre. */
+export const pvPulsos = sqliteTable(
+  'pv_pulsos',
+  {
+    id: text('id').primaryKey(),
+    targetTipo: text('target_tipo').notNull(), // 'obra' | 'mision'
+    targetId: text('target_id').notNull(),
+    actorKey: text('actor_key').notNull(),
+    fecha: text('fecha').notNull(), // YYYY-MM-DD local (presupuesto diario)
+    createdAt: text('created_at').notNull(),
+  },
+  (t) => [uniqueIndex('pv_pulsos_unico').on(t.actorKey, t.targetTipo, t.targetId)],
+);
+
 // Tipos de fila inferidos — los usan repos y pantallas.
 export type StarRow = typeof stars.$inferSelect;
 export type NewStarRow = typeof stars.$inferInsert;
@@ -688,3 +755,7 @@ export type CivicMatchRow = typeof civicMatches.$inferSelect;
 export type CivicActionRow = typeof civicActions.$inferSelect;
 export type CivicConsentRow = typeof civicConsents.$inferSelect;
 export type SyncOutboxRow = typeof syncOutbox.$inferSelect;
+export type PvMisionRow = typeof pvMisiones.$inferSelect;
+export type PvMiembroRow = typeof pvMisionMiembros.$inferSelect;
+export type PvObraRow = typeof pvObras.$inferSelect;
+export type PvPulsoRow = typeof pvPulsos.$inferSelect;

@@ -86,7 +86,7 @@ describe('migración local 0016 de ejecución custodial', () => {
         new URL('../../drizzle/meta/_journal.json', import.meta.url),
         'utf8',
       )) as { entries: { idx: number; tag: string }[] };
-      expect(journal.entries.at(-1)).toMatchObject({
+      expect(journal.entries.find((entry) => entry.idx === 16)).toMatchObject({
         idx: 16,
         tag: '0016_civic_custody_execution_intents',
       });

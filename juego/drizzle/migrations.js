@@ -18,6 +18,7 @@ import m0013 from './0013_civic_custody_coordination.sql';
 import m0014 from './0014_civic_custody_terminal_decision.sql';
 import m0015 from './0015_civic_custody_response_intents.sql';
 import m0016 from './0016_civic_custody_execution_intents.sql';
+import m0017 from './0017_protocolo_vivo.sql';
 
 export default {
   journal,
@@ -39,5 +40,6 @@ export default {
     m0014,
     m0015,
     m0016,
+    m0017,
   },
 };
