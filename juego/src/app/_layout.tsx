@@ -23,6 +23,7 @@ import { Platform, Text, View } from 'react-native';
 
 import { AccentButton } from '@/components/ui/AccentButton';
 import { GlassCard } from '@/components/ui/GlassCard';
+import { calentarActorKey } from '@/civic/actor-cache';
 import { useCivicSync } from '@/civic/sync';
 import {
   db,
@@ -129,6 +130,10 @@ const correrMigracionesUnaVez = (): Promise<void> => {
         await initializeWebDatabasePersistence();
       }
       await migrate(db, migrations);
+      // `repos-protocolo.ts` necesita la actor key en forma sincrónica; se
+      // resuelve una sola vez acá para que toda pantalla monte con la
+      // caché ya tibia (ver src/civic/actor-cache.ts).
+      await calentarActorKey();
       await restoreWebDatabasePersistence();
       await flushWebDatabaseSnapshot();
     })().catch((e: unknown) => {
