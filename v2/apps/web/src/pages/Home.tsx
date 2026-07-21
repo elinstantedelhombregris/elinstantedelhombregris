@@ -1,30 +1,26 @@
-import { Link } from 'wouter';
+import { CifrasStrip } from './Home/sections/CifrasStrip';
+import { CtaBand } from './Home/sections/CtaBand';
+import { HeroBasta } from './Home/sections/HeroBasta';
+import { HombreGrisBand } from './Home/sections/HombreGrisBand';
+import { IdeaEnTresLineas } from './Home/sections/IdeaEnTresLineas';
+import { PlanesTeaser } from './Home/sections/PlanesTeaser';
+import { VocesTicker } from './Home/sections/VocesTicker';
 
-import { Button } from '~/components/ui/button';
-
+/**
+ * Landing «Papel y Tinta» — port del diseño BASTA v2
+ * (docs/specs/2026-07-21-landing-papel-y-tinta.md). El chrome papel
+ * (header/footer/grano/velo) lo pone RootLayout.
+ */
 export function Home() {
   return (
-    <main className="min-h-screen bg-background text-foreground">
-      <section className="container relative mx-auto flex min-h-[80vh] max-w-3xl flex-col items-center justify-center gap-8 px-4 py-24 text-center">
-        <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">v2 · bootstrap</p>
-        <h1 className="font-serif text-5xl font-semibold tracking-tight md:text-7xl">
-          <span className="gradient-text">El Instante</span>
-          <br />
-          <span className="gradient-text">del Hombre Gris</span>
-        </h1>
-        <p className="max-w-xl text-lg text-muted-foreground md:text-xl">
-          Plataforma de gobernanza popular argentina. <span className="font-semibold text-foreground">¡BASTA!</span> —
-          los ciudadanos diseñan, el Estado administra, la política ejecuta.
-        </p>
-        <div className="flex flex-wrap items-center justify-center gap-3">
-          <Button asChild size="lg">
-            <Link href="/manifiesto">Leer el manifiesto</Link>
-          </Button>
-          <Button asChild size="lg" variant="secondary">
-            <Link href="/registrarse">Crear cuenta</Link>
-          </Button>
-        </div>
-      </section>
+    <main>
+      <HeroBasta />
+      <VocesTicker />
+      <IdeaEnTresLineas />
+      <HombreGrisBand />
+      <CifrasStrip />
+      <PlanesTeaser />
+      <CtaBand />
     </main>
   );
 }

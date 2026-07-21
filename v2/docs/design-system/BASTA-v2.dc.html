@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>¡BASTA! — El país lo diseña la gente</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; background: #F2EFE7; }
+  body { font-family: 'Archivo', sans-serif; color: #16130E; -webkit-font-smoothing: antialiased; }
+  * { box-sizing: border-box; }
+  a { color: #5227CC; text-decoration: none; }
+  a:hover { color: #3D1BA3; }
+  ::selection { background: #5227CC; color: #F2EFE7; }
+  input, textarea, button { font-family: inherit; }
+  input:focus, textarea:focus { outline: 2px solid #5227CC; outline-offset: 0; }
+  @keyframes inkfill { from { color: #B5B1A8; } to { color: #16130E; } }
+  @keyframes vpop { 0% { transform: translateY(14px); opacity: 0; } 60% { transform: translateY(-4px); opacity: 1; } 100% { transform: translateY(0); opacity: 1; } }
+  @keyframes fadeup { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @keyframes pulse { 0% { transform: scale(1); opacity: .9; } 70% { transform: scale(2.6); opacity: 0; } 100% { transform: scale(2.6); opacity: 0; } }
+  @keyframes dropin { 0% { transform: translateY(-26px) scale(.4); opacity: 0; } 60% { transform: translateY(2px) scale(1.15); opacity: 1; } 100% { transform: translateY(0) scale(1); opacity: 1; } }
+  @keyframes growbar { from { width: 0; } }
+  @keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+  @keyframes stampin { 0% { transform: rotate(-8deg) scale(1.6); opacity: 0; } 100% { transform: rotate(-8deg) scale(1); opacity: 1; } }
+  @keyframes semgrow { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+  @keyframes leafpop { 0% { transform: scale(0) rotate(-20deg); } 70% { transform: scale(1.2) rotate(4deg); } 100% { transform: scale(1) rotate(0); } }
+  @media (max-width: 1140px) {
+    .v2-nav-links { display: none !important; }
+    .v2-menu-btn { display: inline-flex !important; }
+  }
+  @media (max-width: 960px) {
+    .v2-hero-word { font-size: 21vw !important; }
+    .v2-grid2, .v2-grid3, .v2-grid4, .v2-mapgrid, .v2-fgrid { grid-template-columns: 1fr !important; }
+    .v2-idea-row { grid-template-columns: 56px 1fr !important; }
+    .v2-idea-row-def { display: none !important; }
+    .v2-cifra { border-right: none !important; border-bottom: 1px solid #D8D4C8; }
+    .v2-stamp-hero { display: none !important; }
+    .v2-plan-row { grid-template-columns: 44px 1fr 32px !important; }
+    .v2-plan-cat, .v2-plan-name { display: none !important; }
+    .v2-pad { padding-left: 20px !important; padding-right: 20px !important; }
+    .v2-big { font-size: 44px !important; }
+    .v2-clausula { grid-template-columns: 1fr !important; }
+  }
+  @media (max-width: 560px) { .v2-fgrid2 { grid-template-columns: 1fr !important; } }
+</style>
+</helmet>
+<div style="min-height:100vh;background:#F2EFE7;color:#16130E;overflow-x:clip;">
+<div style="position:fixed;inset:0;z-index:100;pointer-events:none;opacity:0.05;mix-blend-mode:multiply;background:url(&quot;data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>&quot;) repeat;"></div>
+<div style="position:fixed;inset:0;z-index:99;pointer-events:none;background:#8E8A82;mix-blend-mode:saturation;transition:opacity 1.4s ease;opacity:{{ veilOpacity }};"></div>
+
+<!-- ══════════ NAV ══════════ -->
+<header style="position:sticky;top:0;z-index:50;background:rgba(242,239,231,0.92);backdrop-filter:blur(10px);border-bottom:1px solid #16130E;">
+  <div class="v2-pad" style="max-width:1440px;margin:0 auto;padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:24px;">
+    <a onClick="{{ goHome }}" style="display:flex;align-items:baseline;gap:10px;cursor:pointer;color:#16130E;">
+      <span style="font-family:'Anton';font-size:26px;letter-spacing:0.01em;">¡BASTA<span style="color:{{ accent }};">!</span></span>
+      <span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#7A756A;text-transform:uppercase;">{{ vocesCount }} voces · falta la tuya</span>
+    </a>
+    <nav class="v2-nav-links" style="display:flex;align-items:center;gap:6px;">
+      <sc-for list="{{ nav }}" as="item" hint-placeholder-count="4">
+        <a onClick="{{ item.onClick }}" style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;padding:8px 14px;cursor:pointer;color:{{ item.color }};border-bottom:2px solid {{ item.line }};transition:color .2s;" style-hover="color:#16130E;">{{ item.label }}</a>
+      </sc-for>
+      <button onClick="{{ goSembrar }}" style="margin-left:14px;font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:11px 20px;background:#16130E;color:#F2EFE7;border:none;cursor:pointer;transition:background .2s;" style-hover="background:{{ accent }};">Sembrar tu voz</button>
+    </nav>
+    <button class="v2-menu-btn" onClick="{{ toggleMenu }}" style="display:none;align-items:center;gap:8px;background:none;border:1px solid #16130E;padding:9px 14px;cursor:pointer;font-family:'Space Mono',monospace;font-size:12px;text-transform:uppercase;color:#16130E;">{{ menuLabel }}</button>
+  </div>
+</header>
+
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;inset:64px 0 0 0;z-index:49;background:#F2EFE7;padding:32px 24px;display:flex;flex-direction:column;gap:4px;">
+    <sc-for list="{{ navAll }}" as="item" hint-placeholder-count="5">
+      <a onClick="{{ item.onClick }}" style="font-family:'Anton';font-size:42px;color:#16130E;cursor:pointer;padding:10px 0;border-bottom:1px solid #D8D4C8;display:flex;justify-content:space-between;align-items:center;">
+        {{ item.label }} <span style="font-family:'Space Mono',monospace;font-size:12px;color:{{ accent }};">{{ item.num }}</span>
+      </a>
+    </sc-for>
+  </div>
+</sc-if>
+
+<!-- ══════════ INICIO ══════════ -->
+<sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+<div data-screen-label="Inicio">
+  <!-- hero -->
+  <section style="position:relative;padding:56px 40px 0;max-width:1440px;margin:0 auto;" class="v2-pad">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:24px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#7A756A;border-bottom:1px solid #16130E;padding-bottom:14px;">
+      <span>Argentina · 2026</span>
+      <span style="display:none;" class="v2-nav-links">Sin líder · Sin partido · Sin excusas</span>
+      <span>Exp. ciudadano N° 001</span>
+    </div>
+    <h1 class="v2-hero-word" style="font-family:'Anton';font-size:clamp(120px,17.5vw,300px);line-height:0.94;margin:24px 0 0;letter-spacing:0.005em;display:flex;justify-content:center;align-items:baseline;transition:text-shadow .15s;" style-hover="text-shadow:4px 0 0 rgba(82,39,204,0.30), -4px 0 0 rgba(194,59,34,0.25);">
+      <span style="color:{{ accent }};animation:vpop .5s ease 1.5s both;">¡</span><span style="animation:inkfill .6s ease .15s both;">B</span><span style="animation:inkfill .6s ease .35s both;">A</span><span style="animation:inkfill .6s ease .55s both;">S</span><span style="animation:inkfill .6s ease .75s both;">T</span><span style="animation:inkfill .6s ease .95s both;">A</span><span style="color:{{ accent }};animation:vpop .5s ease 1.65s both;">!</span>
+    </h1>
+    <sc-if value="{{ dormido }}" hint-placeholder-val="{{ false }}">
+      <div style="border:1px dashed #8E8A82;padding:10px 16px;margin:18px 0 0;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#7A756A;text-align:center;">El sitio está en gris — se enciende con tu primera acción</div>
+    </sc-if>
+    <div class="v2-grid2" style="display:grid;grid-template-columns:1.1fr 0.9fr;gap:40px;align-items:end;padding:28px 0 48px;border-top:1px solid #16130E;margin-top:20px;">
+      <p style="font-size:clamp(20px,2vw,27px);line-height:1.35;font-weight:500;margin:0;max-width:560px;text-wrap:pretty;animation:fadeup .7s ease 1.1s both;">La palabra que millones de argentinos piensan en silencio. Dicha en voz alta, junta, alcanza para diseñar un país nuevo. <span style="color:#7A756A;">Acá no seguís a nadie: la ciudadanía diseña, el Estado administra, la política ejecuta.</span></p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:flex-end;animation:fadeup .7s ease 1.3s both;">
+        <button onClick="{{ goMapa }}" style="padding:18px 28px;background:{{ accent }};color:#F2EFE7;border:none;font-family:'Space Mono',monospace;font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:transform .15s, background .2s;" style-hover="background:#16130E;transform:translateY(-2px);">Dejar mi voz en el mapa</button>
+        <button onClick="{{ goIdea }}" style="padding:18px 28px;background:transparent;color:#16130E;border:1px solid #16130E;font-family:'Space Mono',monospace;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:all .2s;" style-hover="background:#16130E;color:#F2EFE7;">Entender la idea</button>
+      </div>
+    </div>
+    <div class="v2-stamp-hero" style="position:absolute;right:64px;top:96px;transform:rotate(-8deg);border:3px solid #C23B22;color:#C23B22;font-family:'Space Mono',monospace;font-size:13px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;padding:10px 16px;animation:stampin .4s ease 2s both;">El instante es ahora</div>
+  </section>
+
+  <!-- ticker -->
+  <section style="border-top:1px solid #16130E;border-bottom:1px solid #16130E;overflow:hidden;background:#FBFAF4;">
+    <div style="display:flex;width:max-content;animation:marquee 46s linear infinite;padding:13px 0;">
+      <sc-for list="{{ tickerVoices }}" as="v" hint-placeholder-count="12">
+        <span style="font-family:'Space Mono',monospace;font-size:13px;color:{{ v.color }};padding:0 34px;white-space:nowrap;">«{{ v.text }}» <span style="color:#B5B1A8;">— {{ v.place }}</span></span>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- la idea en tres líneas -->
+  <section style="max-width:1440px;margin:0 auto;padding:88px 40px 72px;" class="v2-pad">
+    <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:{{ accent }};margin-bottom:28px;">§ 01 — La idea en tres líneas</div>
+    <sc-for list="{{ tresLineas }}" as="row" hint-placeholder-count="3">
+      <a onClick="{{ row.onClick }}" class="v2-idea-row" style="display:grid;grid-template-columns:90px 1fr 300px;gap:28px;align-items:center;border-top:1px solid #16130E;padding:26px 0;cursor:pointer;color:#16130E;transition:background .2s;" style-hover="background:#ECE8DC;">
+        <span style="font-family:'Space Mono',monospace;font-size:14px;color:#7A756A;">{{ row.num }}</span>
+        <span style="font-family:'Anton';font-size:clamp(34px,4.6vw,64px);line-height:1;letter-spacing:0.01em;">{{ row.a }} <span style="color:{{ accent }};">{{ row.b }}</span></span>
+        <span class="v2-idea-row-def" style="font-size:14px;line-height:1.5;color:#7A756A;text-wrap:pretty;">{{ row.def }}</span>
+      </a>
+    </sc-for>
+    <div style="border-top:1px solid #16130E;padding-top:18px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;">
+      <span style="font-size:15px;color:#7A756A;">Sin líder que idolatrar. Sin partido al que afiliarse. Un método.</span>
+      <a onClick="{{ goIdea }}" style="font-family:'Space Mono',monospace;font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;">Leer la idea completa ↗</a>
+    </div>
+  </section>
+
+  <!-- hombre gris band -->
+  <section style="background:#8E8A82;color:#16130E;">
+    <div class="v2-grid2 v2-pad" style="max-width:1440px;margin:0 auto;padding:72px 40px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;">
+      <div>
+        <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#F2EFE7;margin-bottom:20px;">§ 02 — El origen</div>
+        <h2 style="font-family:'Anton';font-size:clamp(40px,4.4vw,64px);line-height:1.02;margin:0 0 20px;">¿Quién es el<br>hombre gris?</h2>
+        <p style="font-size:17px;line-height:1.6;margin:0 0 12px;max-width:460px;text-wrap:pretty;">Sos vos, un martes cualquiera. El que trabaja, paga, aguanta y calla. El que cree que su voz no cambia nada — hasta el instante en que deja de creerlo.</p>
+        <p style="font-size:17px;line-height:1.6;margin:0 0 28px;max-width:460px;font-weight:600;">Ese instante tiene nombre.</p>
+        <button onClick="{{ goIdea }}" style="padding:16px 26px;background:#16130E;color:#F2EFE7;border:none;font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:background .2s;" style-hover="background:{{ accent }};">Leer el capítulo I</button>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="display:flex;flex-wrap:wrap;gap:6px;align-content:flex-start;">
+          <sc-for list="{{ tallies }}" as="t" hint-placeholder-count="60">
+            <span style="width:4px;height:{{ t.h }}px;background:{{ t.c }};display:inline-block;transform:rotate({{ t.r }}deg);"></span>
+          </sc-for>
+        </div>
+        <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#F2EFE7;text-transform:uppercase;">45 millones de grises. Alcanza uno que despierte por día.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- cifras -->
+  <section style="border-bottom:1px solid #16130E;background:#FBFAF4;">
+    <div class="v2-grid4 v2-pad" style="max-width:1440px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);padding:0 40px;">
+      <sc-for list="{{ cifras }}" as="c" hint-placeholder-count="4">
+        <a onClick="{{ c.onClick }}" class="v2-cifra" style="padding:34px 24px;border-right:1px solid #D8D4C8;cursor:pointer;color:#16130E;transition:background .2s;display:block;" style-hover="background:#ECE8DC;">
+          <div style="font-family:'Anton';font-size:46px;line-height:1;color:{{ c.color }};">{{ c.n }}</div>
+          <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#7A756A;margin-top:10px;">{{ c.label }} ↗</div>
+        </a>
+      </sc-for>
+    </div>
+    <div style="max-width:1440px;margin:0 auto;padding:0 40px 14px;" class="v2-pad">
+      <span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#B5B1A8;">* Datos de demostración — la plataforma real arranca en cero, y eso también está bien.</span>
+    </div>
+  </section>
+
+  <!-- planes teaser -->
+  <section style="max-width:1440px;margin:0 auto;padding:88px 40px;" class="v2-pad">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:36px;">
+      <div>
+        <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:{{ accent }};margin-bottom:16px;">§ 03 — La prueba de que se puede</div>
+        <h2 class="v2-big" style="font-family:'Anton';font-size:clamp(40px,5vw,72px);line-height:1;margin:0;">Un tipo común ya escribió<br><span style="color:{{ accent }};">22 planes de país.</span></h2>
+        <p style="font-size:16px;color:#7A756A;margin:16px 0 0;max-width:520px;line-height:1.6;text-wrap:pretty;">Sin cargo, sin equipo, sin permiso. No para que los sigas: para que la excusa de «no se puede» se quede sin trabajo.</p>
+      </div>
+      <a onClick="{{ goPlanes }}" style="font-family:'Space Mono',monospace;font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;white-space:nowrap;">Ver la prueba completa ↗</a>
+    </div>
+    <div class="v2-grid3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#16130E;border:1px solid #16130E;">
+      <sc-for list="{{ planesTeaser }}" as="p" hint-placeholder-count="3">
+        <a onClick="{{ p.onClick }}" style="background:#F2EFE7;padding:30px 26px;display:flex;flex-direction:column;gap:14px;min-height:230px;cursor:pointer;color:#16130E;transition:background .2s;" style-hover="background:#FBFAF4;">
+          <div style="display:flex;justify-content:space-between;align-items:center;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#7A756A;"><span>{{ p.cat }}</span><span>{{ p.num }}/22</span></div>
+          <div style="font-family:'Anton';font-size:34px;line-height:1;">{{ p.code }}</div>
+          <p style="font-size:15px;line-height:1.55;color:#4A463D;margin:0;text-wrap:pretty;">{{ p.line }}</p>
+          <span style="margin-top:auto;font-family:'Space Mono',monospace;font-size:12px;color:{{ accent }};">Leer resumen →</span>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- CTA band -->
+  <section style="background:{{ accent }};color:#F2EFE7;">
+    <div class="v2-pad" style="max-width:1440px;margin:0 auto;padding:80px 40px;text-align:center;">
+      <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;opacity:.75;margin-bottom:18px;">El mandato se escribe con voces, no con votos en blanco</div>
+      <h2 style="font-family:'Anton';font-size:clamp(44px,6vw,88px);line-height:0.98;margin:0 0 32px;">Tu voz pesa.<br>Soltala en el mapa.</h2>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+        <button onClick="{{ goMapa }}" style="padding:18px 30px;background:#F2EFE7;color:#16130E;border:none;font-family:'Space Mono',monospace;font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:transform .15s;" style-hover="transform:translateY(-2px);">Ir al mapa</button>
+        <button onClick="{{ goSembrar }}" style="padding:18px 30px;background:transparent;color:#F2EFE7;border:1px solid #F2EFE7;font-family:'Space Mono',monospace;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:all .2s;" style-hover="background:#F2EFE7;color:#16130E;">Sembrar mi compromiso</button>
+      </div>
+    </div>
+  </section>
+</div>
+</sc-if>
+
+<!-- ══════════ LA IDEA ══════════ -->
+<sc-if value="{{ isIdea }}" hint-placeholder-val="{{ false }}">
+<div data-screen-label="La idea">
+  <section class="v2-pad" style="max-width:1100px;margin:0 auto;padding:72px 40px 56px;">
+    <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:{{ accent }};margin-bottom:20px;animation:fadeup .5s ease both;">La idea · lectura de 6 minutos</div>
+    <h1 style="font-family:'Anton';font-size:clamp(48px,7vw,104px);line-height:0.98;margin:0 0 24px;animation:fadeup .5s ease .1s both;">Un país no se hereda.<br><span style="color:{{ accent }};">Se diseña.</span></h1>
+    <p style="font-size:19px;line-height:1.6;max-width:640px;color:#4A463D;margin:0;animation:fadeup .5s ease .2s both;text-wrap:pretty;">Tres capítulos: quién sos en esta historia, cómo funciona el método, y por qué nadie va a venir a salvarte — por diseño.</p>
+  </section>
+
+  <!-- CAP I: hombre gris (grayscale until awake) -->
+  <section style="background:{{ instBg }};transition:background 1s ease;color:#16130E;">
+    <div class="v2-pad" style="max-width:1100px;margin:0 auto;padding:72px 40px;filter:{{ instFilter }};transition:filter 1.2s ease;">
+      <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#5C594F;margin-bottom:20px;">Capítulo I</div>
+      <h2 style="font-family:'Anton';font-size:clamp(36px,4.6vw,64px);line-height:1;margin:0 0 28px;">El instante del hombre gris</h2>
+      <div class="v2-grid2" style="display:grid;grid-template-columns:1fr 1fr;gap:40px;font-size:17px;line-height:1.65;color:#33302A;">
+        <div>
+          <p style="margin:0 0 16px;text-wrap:pretty;">El hombre gris no es un personaje. Sos vos a las 7:40, apretado en un tren que llega tarde a un trabajo que apenas alcanza. Es la vecina que enseña con fotocopias, el médico que atiende sin insumos, el pibe que planea irse.</p>
+          <p style="margin:0;text-wrap:pretty;">Gris no por mediocre: gris por invisible. Hace todo lo que hay que hacer — trabaja, paga, cumple — y aun así el país le queda siempre debiendo. Aprendió a esperar poco y a callar mucho.</p>
+        </div>
+        <div>
+          <p style="margin:0 0 16px;text-wrap:pretty;">Pero hay un instante — uno solo — en el que el gris se corta. Una factura, una injusticia, una sala de espera. El instante en que un ciudadano común dice la palabra que venía tragando hace años.</p>
+          <p style="margin:0;font-weight:600;text-wrap:pretty;">Ese instante, multiplicado por millones y organizado con método, es este movimiento. No hace falta ser héroe. Hace falta decidirse.</p>
+        </div>
+      </div>
+      <div style="margin-top:44px;border:1px solid #16130E;padding:36px;text-align:center;background:rgba(255,255,255,0.25);">
+        <sc-if value="{{ notAwake }}" hint-placeholder-val="{{ true }}">
+          <div style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#5C594F;margin-bottom:16px;">Esta página está en gris. Como el país. Como vos, hasta hoy.</div>
+          <button onClick="{{ despertar }}" style="padding:18px 32px;background:#16130E;color:#F2EFE7;border:none;font-family:'Space Mono',monospace;font-size:14px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:transform .15s;" style-hover="transform:scale(1.04);">Este es mi instante</button>
+        </sc-if>
+        <sc-if value="{{ awake }}" hint-placeholder-val="{{ false }}">
+          <div style="font-family:'Anton';font-size:clamp(30px,3.6vw,48px);line-height:1.05;color:{{ accent }};animation:vpop .5s ease both;">¡BASTA!</div>
+          <p style="font-size:16px;color:#33302A;margin:14px 0 0;">Eso fue todo. Así de simple empieza. Ahora el resto es método.</p>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAP II: el método -->
+  <section class="v2-pad" style="max-width:1100px;margin:0 auto;padding:80px 40px;">
+    <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:{{ accent }};margin-bottom:20px;">Capítulo II</div>
+    <h2 style="font-family:'Anton';font-size:clamp(36px,4.6vw,64px);line-height:1;margin:0 0 16px;">El método: tres roles que no se mezclan</h2>
+    <p style="font-size:17px;line-height:1.6;color:#4A463D;max-width:620px;margin:0 0 40px;text-wrap:pretty;">La política argentina fracasa porque una sola casta hace los tres trabajos: decide qué país quiere, lo administra y se controla a sí misma. Acá se separan.</p>
+    <sc-for list="{{ roles }}" as="r" hint-placeholder-count="3">
+      <div style="border-top:1px solid #16130E;padding:30px 0;display:grid;grid-template-columns:90px 1fr;gap:28px;" class="v2-idea-row">
+        <span style="font-family:'Space Mono',monospace;font-size:14px;color:#7A756A;">{{ r.num }}</span>
+        <div>
+          <h3 style="font-family:'Anton';font-size:clamp(28px,3.4vw,44px);line-height:1;margin:0 0 12px;">{{ r.a }} <span style="color:{{ accent }};">{{ r.b }}</span></h3>
+          <p style="font-size:16px;line-height:1.6;color:#4A463D;max-width:640px;margin:0;text-wrap:pretty;">{{ r.body }}</p>
+        </div>
+      </div>
+    </sc-for>
+    <div style="border:1px solid #16130E;background:#FBFAF4;padding:36px;margin-top:32px;">
+      <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#7A756A;margin-bottom:22px;">El ciclo completo</div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;">
+        <sc-for list="{{ ciclo }}" as="s" hint-placeholder-count="6">
+          <span style="font-family:'Space Mono',monospace;font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;padding:10px 16px;border:1px solid #16130E;background:{{ s.bg }};color:{{ s.fg }};">{{ s.label }}</span>
+          <span style="font-family:'Space Mono',monospace;color:#B5B1A8;font-size:14px;">{{ s.arrow }}</span>
+        </sc-for>
+      </div>
+      <p style="font-size:14px;color:#7A756A;margin:20px 0 0;line-height:1.6;">Cada trimestre el ciclo vuelve a girar: las voces nuevas ajustan el mandato, el mandato ajusta los planes, la ejecución se audita en público.</p>
+    </div>
+  </section>
+
+  <!-- CAP III: sin líder -->
+  <section style="background:#16130E;color:#F2EFE7;">
+    <div class="v2-pad" style="max-width:1100px;margin:0 auto;padding:80px 40px;">
+      <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:{{ accentOnDark }};margin-bottom:20px;">Capítulo III</div>
+      <h2 style="font-family:'Anton';font-size:clamp(36px,4.6vw,64px);line-height:1;margin:0 0 40px;">Nadie viene a salvarte.<br>Por diseño.</h2>
+      <div class="v2-grid3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#3A362D;border:1px solid #3A362D;">
+        <sc-for list="{{ sinLider }}" as="s" hint-placeholder-count="3">
+          <div style="background:#16130E;padding:30px 26px;">
+            <div style="display:inline-block;border:2px solid #C23B22;color:#C23B22;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;padding:6px 10px;transform:rotate(-3deg);margin-bottom:18px;">{{ s.stamp }}</div>
+            <p style="font-size:15px;line-height:1.6;color:#C9C5BA;margin:0;text-wrap:pretty;">{{ s.body }}</p>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-top:48px;border-top:1px solid #3A362D;padding-top:32px;">
+        <p style="font-size:17px;color:#C9C5BA;margin:0;max-width:520px;line-height:1.6;">Si después de leer esto seguís esperando un candidato, no entendiste. Si te dieron ganas de decir algo — hay un mapa esperándote.</p>
+        <button onClick="{{ goMapa }}" style="padding:18px 28px;background:{{ accent }};color:#F2EFE7;border:none;font-family:'Space Mono',monospace;font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:background .2s;" style-hover="background:#F2EFE7;color:#16130E;">Dejar mi voz →</button>
+      </div>
+    </div>
+  </section>
+</div>
+</sc-if>
+
+<!-- ══════════ EL MAPA ══════════ -->
+<sc-if value="{{ isMapa }}" hint-placeholder-val="{{ false }}">
+<div data-screen-label="El mapa">
+  <section class="v2-pad" style="max-width:1440px;margin:0 auto;padding:64px 40px 40px;">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;">
+      <div>
+        <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:{{ accent }};margin-bottom:16px;">El mapa de las voces</div>
+        <h1 style="font-family:'Anton';font-size:clamp(44px,6vw,88px);line-height:0.98;margin:0;">El país, dicho<br>por su gente.</h1>
+      </div>
+      <div style="text-align:right;">
+        <div style="font-family:'Anton';font-size:52px;line-height:1;color:{{ accent }};">{{ vocesCount }}</div>
+        <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#7A756A;">voces en el mapa *</div>
+      </div>
+    </div>
+  </section>
+  <section class="v2-mapgrid v2-pad" style="max-width:1440px;margin:0 auto;padding:0 40px 88px;display:grid;grid-template-columns:1fr 480px;gap:48px;align-items:start;">
+    <div style="border:1px solid #16130E;background:#FBFAF4;padding:28px;position:relative;">
+      <svg viewBox="0 0 467.9 1000" style="width:100%;max-height:76vh;display:block;">
+        <path d="{{ mapPath }}" fill="#E4E0D3" stroke="#16130E" stroke-width="1.4"></path>
+        <sc-for list="{{ mapDots }}" as="d" hint-placeholder-count="10">
+          <circle cx="{{ d.x }}" cy="{{ d.y }}" r="10" fill="{{ d.c }}" opacity="0.18" style="animation:pulse 2.6s ease-out infinite;animation-delay:{{ d.delay }};transform-origin:{{ d.origin }};"></circle>
+          <circle cx="{{ d.x }}" cy="{{ d.y }}" r="{{ d.r }}" fill="{{ d.c }}" stroke="#F2EFE7" stroke-width="1" style="cursor:pointer;animation:dropin .5s ease both;" onClick="{{ d.onClick }}"></circle>
+        </sc-for>
+      </svg>
+      <div style="position:absolute;left:28px;bottom:22px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#B5B1A8;">* datos de demostración</div>
+      <sc-if value="{{ hasSelVoice }}" hint-placeholder-val="{{ false }}">
+        <div style="position:absolute;right:24px;top:24px;max-width:300px;background:#16130E;color:#F2EFE7;padding:20px;animation:fadeup .3s ease both;">
+          <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:{{ selVoiceColor }};margin-bottom:10px;">{{ selVoiceType }}</div>
+          <p style="font-size:15px;line-height:1.5;margin:0 0 10px;">«{{ selVoiceText }}»</p>
+          <div style="font-family:'Space Mono',monospace;font-size:11px;color:#8E8A82;">{{ selVoicePlace }}</div>
+        </div>
+      </sc-if>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:24px;">
+      <div style="border:1px solid #16130E;background:#F2EFE7;">
+        <div style="border-bottom:1px solid #16130E;padding:16px 22px;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;display:flex;justify-content:space-between;"><span>Soltá tu voz</span><span style="color:{{ accent }};">30 segundos</span></div>
+        <div style="padding:22px;">
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;">
+            <sc-for list="{{ voiceTypes }}" as="t" hint-placeholder-count="6">
+              <button onClick="{{ t.onClick }}" style="padding:9px 14px;border:1px solid #16130E;background:{{ t.bg }};color:{{ t.fg }};font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:all .15s;">{{ t.label }}</button>
+            </sc-for>
+          </div>
+          <textarea rows="3" placeholder="{{ voicePlaceholder }}" value="{{ mapText }}" onChange="{{ onMapText }}" style="width:100%;border:1px solid #16130E;background:#FBFAF4;padding:14px;font-size:15px;line-height:1.5;resize:vertical;color:#16130E;"></textarea>
+          <button onClick="{{ soltarVoz }}" style="margin-top:14px;width:100%;padding:16px;background:{{ soltarBg }};color:#F2EFE7;border:none;font-family:'Space Mono',monospace;font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:{{ soltarCursor }};transition:background .2s;">{{ soltarLabel }}</button>
+          <sc-if value="{{ mapPlaced }}" hint-placeholder-val="{{ false }}">
+            <div style="margin-top:16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+              <span style="transform:rotate(-6deg);border:2px solid #1A7A4A;color:#1A7A4A;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;padding:7px 11px;animation:stampin .4s ease both;">Recibida</span>
+              <span style="font-family:'Space Mono',monospace;font-size:12px;color:#4A463D;">Tu voz cayó en {{ lastPlace }}. Ya es parte del mandato.</span>
+            </div>
+          </sc-if>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#7A756A;margin-bottom:12px;">Últimas voces</div>
+        <div style="display:flex;flex-direction:column;gap:1px;background:#D8D4C8;border:1px solid #D8D4C8;max-height:380px;overflow-y:auto;">
+          <sc-for list="{{ feed }}" as="v" hint-placeholder-count="6">
+            <div style="background:#F2EFE7;padding:16px 18px;">
+              <div style="display:flex;justify-content:space-between;gap:12px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:8px;"><span style="color:{{ v.color }};font-weight:700;">{{ v.type }}</span><span style="color:#B5B1A8;">{{ v.place }}</span></div>
+              <p style="font-size:14px;line-height:1.5;margin:0;color:#33302A;">«{{ v.text }}»</p>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="border-top:1px solid #16130E;padding-top:16px;font-size:14px;color:#7A756A;line-height:1.6;">Cada voz se clasifica y suma a <a onClick="{{ goMandato }}" style="cursor:pointer;font-weight:600;">El mandato</a> — el documento que la política va a tener que ejecutar.</div>
+    </div>
+  </section>
+</div>
+</sc-if>
+
+<!-- ══════════ EL MANDATO ══════════ -->
+<sc-if value="{{ isMandato }}" hint-placeholder-val="{{ false }}">
+<div data-screen-label="El mandato" style="background:#16130E;color:#F2EFE7;">
+  <section class="v2-pad" style="max-width:1100px;margin:0 auto;padding:72px 40px 56px;">
+    <div style="display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#8E8A82;border-bottom:1px solid #3A362D;padding-bottom:14px;margin-bottom:40px;">
+      <span>Documento vivo · rev. trimestral</span>
+      <span style="color:{{ accentOnDark }};">Actualizado con cada voz nueva *</span>
+    </div>
+    <h1 style="font-family:'Anton';font-size:clamp(48px,7vw,104px);line-height:0.96;margin:0 0 24px;transition:text-shadow .15s;" style-hover="text-shadow:3px 0 0 rgba(157,133,232,0.35), -3px 0 0 rgba(194,59,34,0.3);">El mandato<span style="color:{{ accent }};">.</span></h1>
+    <p style="font-size:19px;line-height:1.6;max-width:640px;color:#C9C5BA;margin:0;text-wrap:pretty;">No es un programa de gobierno escrito por asesores. Es el país ordenado por urgencia, redactado a partir de {{ vocesCount }} voces. El que quiera un cargo, firma esto — o no cuenta con nosotros.</p>
+  </section>
+
+  <section class="v2-pad" style="max-width:1100px;margin:0 auto;padding:0 40px 64px;">
+    <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#8E8A82;margin-bottom:24px;">Lo que más pesa hoy</div>
+    <div style="display:flex;flex-direction:column;gap:18px;">
+      <sc-for list="{{ temas }}" as="t" hint-placeholder-count="8">
+        <div style="display:grid;grid-template-columns:170px 1fr 70px;gap:18px;align-items:center;" class="v2-clausula">
+          <span style="font-family:'Space Mono',monospace;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;color:#F2EFE7;">{{ t.label }}</span>
+          <div style="height:22px;background:#241F17;position:relative;">
+            <div style="position:absolute;inset:0 auto 0 0;width:{{ t.w }};background:{{ t.c }};animation:growbar 1.2s cubic-bezier(.2,.8,.2,1) {{ t.delay }} both;"></div>
+          </div>
+          <span style="font-family:'Space Mono',monospace;font-size:13px;color:#8E8A82;text-align:right;">{{ t.pct }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section class="v2-pad" style="max-width:1100px;margin:0 auto;padding:0 40px 72px;">
+    <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#8E8A82;margin-bottom:24px;">Cláusulas en redacción — trimestre III · 2026</div>
+    <div style="border:1px solid #3A362D;">
+      <sc-for list="{{ clausulas }}" as="c" hint-placeholder-count="5">
+        <div style="border-bottom:1px solid #3A362D;padding:26px 28px;display:grid;grid-template-columns:110px 1fr;gap:24px;animation:fadeup .6s ease {{ c.delay }} both;" class="v2-idea-row">
+          <div style="font-family:'Space Mono',monospace;font-size:12px;color:{{ accentOnDark }};">CL-{{ c.num }}</div>
+          <div>
+            <p style="font-size:17px;line-height:1.55;margin:0 0 10px;color:#F2EFE7;text-wrap:pretty;">{{ c.text }}</p>
+            <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#8E8A82;">{{ c.meta }}</div>
+          </div>
+        </div>
+      </sc-for>
+      <div style="padding:22px 28px;font-family:'Space Mono',monospace;font-size:13px;color:#8E8A82;">La siguiente cláusula la escribís vos<span style="animation:blink 1.1s step-start infinite;color:{{ accentOnDark }};">▌</span></div>
+    </div>
+    <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#5C594F;margin-top:14px;">* datos de demostración — las cláusulas reales saldrán de las voces reales</div>
+  </section>
+
+  <!-- el documento (ejemplo) -->
+  <section class="v2-pad" style="max-width:1100px;margin:0 auto;padding:0 40px 72px;">
+    <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#8E8A82;margin-bottom:24px;">El documento completo · así se lee una revisión *</div>
+    <div class="v2-pad" style="background:#F2EFE7;color:#16130E;padding:52px 56px;position:relative;box-shadow:0 24px 60px rgba(0,0,0,0.45);">
+      <div style="position:absolute;right:36px;top:30px;transform:rotate(6deg);border:2px solid #C23B22;color:#C23B22;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;padding:7px 12px;">Ejemplo</div>
+      <div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#7A756A;margin-bottom:18px;">
+        <span>Revisión III · julio 2026</span>
+        <span>Exp. {{ vocesCount }} voces</span>
+      </div>
+      <h2 style="font-family:'Anton';font-size:clamp(30px,4.4vw,52px);line-height:1;margin:0 0 28px;">Mandato ciudadano — Argentina</h2>
+      <div style="border-top:2px solid #16130E;padding-top:22px;margin-bottom:36px;">
+        <div style="font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:{{ accent }};margin-bottom:12px;">Preámbulo</div>
+        <p style="font-size:16px;line-height:1.7;color:#33302A;max-width:720px;margin:0;text-wrap:pretty;">Las voces reunidas en este mapa constituyen el presente mandato. No es un programa de gobierno ni una plataforma electoral: es el país ordenado por urgencia, redactado por su gente y de cumplimiento verificable. Quien aspire a administrar o ejecutar lo público en nombre de estas voces adhiere a este documento completo — o explica, en público, por qué no.</p>
+      </div>
+      <div style="border-top:1px solid #D8D4C8;padding-top:22px;margin-bottom:36px;">
+        <div style="font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:{{ accent }};margin-bottom:18px;">I. Diagnóstico — lo que más pesa</div>
+        <sc-for list="{{ docPrioridades }}" as="p" hint-placeholder-count="4">
+          <div style="display:grid;grid-template-columns:44px 1fr 120px;gap:20px;align-items:start;padding:16px 0;border-bottom:1px solid #ECE8DC;" class="v2-idea-row">
+            <span style="font-family:'Anton';font-size:26px;color:#B5B1A8;">{{ p.rank }}</span>
+            <div>
+              <div style="font-size:16px;font-weight:700;">{{ p.theme }} <span style="font-weight:400;color:#7A756A;">— {{ p.desc }}</span></div>
+              <p style="font-size:14px;font-style:italic;color:#7A756A;margin:8px 0 0;line-height:1.55;">«{{ p.quote }}» <span style="font-style:normal;">— {{ p.place }}</span></p>
+            </div>
+            <div style="text-align:right;">
+              <div style="font-family:'Anton';font-size:24px;color:{{ accent }};">{{ p.pct }}</div>
+              <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B1A8;">{{ p.voces }} voces</div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="border-top:1px solid #D8D4C8;padding-top:22px;margin-bottom:36px;">
+        <div style="font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:{{ accent }};margin-bottom:16px;">II. Recursos declarados</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;">
+          <sc-for list="{{ docRecursos }}" as="r" hint-placeholder-count="4">
+            <span style="border:1px solid #16130E;padding:9px 14px;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.04em;">{{ r.cat }} · <strong>{{ r.n }}</strong></span>
+          </sc-for>
+          <span style="font-family:'Space Mono',monospace;font-size:12px;color:#7A756A;padding-left:8px;">= 3.205 personas que ofrecieron algo concreto</span>
+        </div>
+      </div>
+      <div style="border-top:1px solid #D8D4C8;padding-top:22px;margin-bottom:36px;">
+        <div style="font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:{{ accent }};margin-bottom:18px;">III. Brechas críticas — donde la necesidad supera lo ofrecido</div>
+        <sc-for list="{{ docBrechas }}" as="b" hint-placeholder-count="3">
+          <div style="display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:center;padding:13px 0;border-bottom:1px solid #ECE8DC;">
+            <span style="font-size:15px;font-weight:700;">{{ b.tema }}</span>
+            <span style="font-family:'Space Mono',monospace;font-size:12px;color:#7A756A;">piden {{ b.need }} · ofrecen {{ b.have }}</span>
+            <span style="font-family:'Space Mono',monospace;font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:{{ b.uc }};border:1px solid {{ b.uc }};padding:4px 9px;">{{ b.urg }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="border-top:1px solid #D8D4C8;padding-top:22px;margin-bottom:36px;">
+        <div style="font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:{{ accent }};margin-bottom:18px;">IV. Acciones que las voces sugieren</div>
+        <sc-for list="{{ docAcciones }}" as="a" hint-placeholder-count="3">
+          <div style="display:grid;grid-template-columns:44px 1fr;gap:20px;padding:14px 0;border-bottom:1px solid #ECE8DC;" class="v2-idea-row">
+            <span style="font-family:'Space Mono',monospace;font-size:13px;color:#B5B1A8;">A{{ a.num }}</span>
+            <div>
+              <div style="font-size:16px;font-weight:700;">{{ a.t }}</div>
+              <p style="font-size:14px;color:#4A463D;margin:6px 0 8px;line-height:1.55;text-wrap:pretty;">{{ a.desc }}</p>
+              <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:{{ accent }};">Impacto: {{ a.imp }}</span>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="border-top:2px solid #16130E;padding-top:24px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-end;">
+        <div>
+          <div style="font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:{{ accent }};margin-bottom:10px;">V. Vigencia y firma</div>
+          <p style="font-size:14px;color:#4A463D;margin:0;max-width:460px;line-height:1.6;">Este mandato se reescribe con cada voz nueva. Próxima revisión: octubre 2026.</p>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-family:'Anton';font-size:26px;line-height:1;">Las {{ vocesCount }} voces</div>
+          <div style="font-family:'Space Mono',monospace;font-size:11px;color:#7A756A;margin-top:6px;">— y las que faltan.</div>
+        </div>
+      </div>
+    </div>
+    <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#5C594F;margin-top:14px;">* documento de demostración — la revisión real se genera con las voces reales del mapa</div>
+  </section>
+
+  <section class="v2-pad" style="max-width:1100px;margin:0 auto;padding:0 40px 88px;">
+    <div class="v2-grid3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#3A362D;border:1px solid #3A362D;">
+      <sc-for list="{{ mandatoComo }}" as="m" hint-placeholder-count="3">
+        <div style="background:#16130E;padding:28px 24px;">
+          <div style="font-family:'Anton';font-size:22px;color:{{ accentOnDark }};margin-bottom:12px;">{{ m.t }}</div>
+          <p style="font-size:14px;line-height:1.6;color:#C9C5BA;margin:0;text-wrap:pretty;">{{ m.body }}</p>
+        </div>
+      </sc-for>
+    </div>
+    <div style="display:flex;justify-content:center;margin-top:44px;">
+      <button onClick="{{ goMapa }}" style="padding:18px 32px;background:{{ accent }};color:#F2EFE7;border:none;font-family:'Space Mono',monospace;font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:background .2s;" style-hover="background:#F2EFE7;color:#16130E;">Sumar mi voz al mandato →</button>
+    </div>
+  </section>
+</div>
+</sc-if>
+
+<!-- ══════════ LOS 22 PLANES ══════════ -->
+<sc-if value="{{ isPlanes }}" hint-placeholder-val="{{ false }}">
+<div data-screen-label="Los 22 planes">
+  <section class="v2-pad" style="max-width:1440px;margin:0 auto;padding:64px 40px 48px;">
+    <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:{{ accent }};margin-bottom:16px;">La prueba · 22 planes · un solo autor</div>
+    <h1 style="font-family:'Anton';font-size:clamp(44px,6vw,88px);line-height:0.98;margin:0 0 20px;">Esto lo escribió<br>uno solo.</h1>
+    <p style="font-size:17px;line-height:1.6;color:#4A463D;max-width:640px;margin:0;text-wrap:pretty;">22 planes de país — suelo, agua, escuelas, moneda, justicia — escritos por un hombre gris cualquiera. Cada uno parte de la misma pregunta: si pudiéramos diseñar esto de cero, ¿cómo sería? Con números, plazos y costo de no hacerlo.</p>
+    <div style="margin-top:36px;border:2px solid #C23B22;padding:28px 32px;display:flex;gap:28px;align-items:center;flex-wrap:wrap;">
+      <span style="transform:rotate(-4deg);border:2px solid #C23B22;color:#C23B22;font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;padding:9px 14px;white-space:nowrap;">No es doctrina</span>
+      <p style="flex:1;min-width:280px;font-size:15px;line-height:1.6;color:#33302A;margin:0;text-wrap:pretty;">Nada de esto se firma ni se obedece. Se publica como <strong>evidencia</strong>: si uno pudo diseñar esto solo, millones diseñan mejor. Leelos para criticarlos, mejorarlos o reemplazarlos — el programa real lo escriben las <a onClick="{{ goMapa }}" style="cursor:pointer;font-weight:600;">voces del mapa</a>.</p>
+    </div>
+  </section>
+  <section class="v2-pad" style="max-width:1440px;margin:0 auto;padding:0 40px 12px;display:flex;flex-wrap:wrap;gap:8px;">
+    <sc-for list="{{ filtros }}" as="f" hint-placeholder-count="8">
+      <button onClick="{{ f.onClick }}" style="padding:9px 16px;border:1px solid #16130E;background:{{ f.bg }};color:{{ f.fg }};font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:all .15s;">{{ f.label }}</button>
+    </sc-for>
+  </section>
+  <section class="v2-pad" style="max-width:1440px;margin:0 auto;padding:24px 40px 72px;">
+    <div style="border-top:1px solid #16130E;">
+      <sc-for list="{{ planRows }}" as="p" hint-placeholder-count="8">
+        <div style="border-bottom:1px solid #16130E;">
+          <a onClick="{{ p.onToggle }}" class="v2-plan-row" style="display:grid;grid-template-columns:64px 260px 1fr 170px 32px;gap:20px;align-items:center;padding:20px 8px;cursor:pointer;color:#16130E;transition:background .15s;" style-hover="background:#ECE8DC;">
+          <span style="font-family:'Space Mono',monospace;font-size:12px;color:#B5B1A8;">{{ p.num }}</span>
+          <span style="font-family:'Anton';font-size:24px;letter-spacing:0.01em;color:{{ p.codeColor }};">{{ p.code }}</span>
+          <span style="font-size:15px;color:#4A463D;line-height:1.4;" class="v2-plan-name">{{ p.name }}</span>
+          <span class="v2-plan-cat" style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#7A756A;border:1px solid #D8D4C8;padding:5px 10px;text-align:center;">{{ p.cat }}</span>
+          <span style="font-family:'Space Mono',monospace;font-size:18px;color:{{ accent }};text-align:center;">{{ p.icon }}</span>
+          </a>
+          <sc-if value="{{ p.open }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:6px 8px 28px 84px;animation:fadeup .3s ease both;" class="v2-pad">
+              <p style="font-size:16px;line-height:1.6;color:#33302A;max-width:720px;margin:0 0 14px;text-wrap:pretty;">{{ p.line }}</p>
+              <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#7A756A;">Documento completo: {{ p.doc }} · disponible en la biblioteca del movimiento</div>
+            </div>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+  <section style="background:#FBFAF4;border-top:1px solid #16130E;">
+    <div class="v2-grid3 v2-pad" style="max-width:1440px;margin:0 auto;padding:56px 40px;display:grid;grid-template-columns:repeat(3,1fr);gap:40px;">
+      <div>
+        <div style="font-family:'Anton';font-size:22px;margin-bottom:10px;">¿Falta un plan?</div>
+        <p style="font-size:14px;line-height:1.6;color:#7A756A;margin:0;">Seguro: son 22 y el país es infinito. Marcá el hueco — <a onClick="{{ goMapa }}" style="cursor:pointer;font-weight:600;">soltá tu urgencia en el mapa</a> y el próximo lo escribís vos.</p>
+      </div>
+      <div>
+        <div style="font-family:'Anton';font-size:22px;margin-bottom:10px;">Método Ackoff</div>
+        <p style="font-size:14px;line-height:1.6;color:#7A756A;margin:0;">Diseño idealizado: no preguntamos qué se puede arreglar, sino qué construiríamos hoy desde cero. Después, el camino de vuelta.</p>
+      </div>
+      <div>
+        <div style="font-family:'Anton';font-size:22px;margin-bottom:10px;">Hechos para ser superados</div>
+        <p style="font-size:14px;line-height:1.6;color:#7A756A;margin:0;">El mejor destino de estos documentos es quedar viejos. Cada voz nueva los corrige; si el mandato los contradice, ganan las voces.</p>
+      </div>
+    </div>
+  </section>
+</div>
+</sc-if>
+
+<!-- ══════════ LA BIBLIOTECA ══════════ -->
+<sc-if value="{{ isBiblioteca }}" hint-placeholder-val="{{ false }}">
+<div data-screen-label="La biblioteca">
+  <section class="v2-pad" style="max-width:1100px;margin:0 auto;padding:64px 40px 56px;">
+    <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:{{ accent }};margin-bottom:16px;">La biblioteca · leer también es hacer</div>
+    <h1 style="font-family:'Anton';font-size:clamp(44px,6vw,88px);line-height:0.98;margin:0 0 20px;">Papel, tinta<br>y método.</h1>
+    <p style="font-size:17px;line-height:1.6;color:#4A463D;max-width:620px;margin:0;text-wrap:pretty;">Todo lo que el movimiento piensa está publicado entero: 21 ensayos en tres ciclos, seis entrenamientos y la bitácora de lo que va pasando. Sin paywall, sin registro. Robate todo.</p>
+  </section>
+
+  <!-- manifiesto destacado -->
+  <section class="v2-pad" style="max-width:1100px;margin:0 auto;padding:0 40px 56px;">
+    <a onClick="{{ goManifiesto }}" style="display:flex;gap:32px;align-items:center;flex-wrap:wrap;background:#16130E;color:#F2EFE7;padding:36px 40px;cursor:pointer;transition:transform .15s;" style-hover="transform:translateY(-2px);">
+      <span style="transform:rotate(-4deg);border:2px solid {{ accentOnDark }};color:{{ accentOnDark }};font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;padding:8px 12px;white-space:nowrap;">Documento fundacional</span>
+      <div style="flex:1;min-width:260px;">
+        <div style="font-family:'Anton';font-size:clamp(24px,3vw,36px);line-height:1.05;margin-bottom:6px;">El manifiesto del hombre gris</div>
+        <p style="font-size:14px;color:#C9C5BA;margin:0;line-height:1.6;">No es un programa: es un espejo. Seis partes, cinco minutos, cero promesas.</p>
+      </div>
+      <span style="font-family:'Space Mono',monospace;font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:{{ accentOnDark }};white-space:nowrap;">Leerlo entero →</span>
+    </a>
+  </section>
+
+  <!-- ensayos -->
+  <section class="v2-pad" style="max-width:1100px;margin:0 auto;padding:0 40px 72px;">
+    <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#7A756A;margin-bottom:20px;">Ensayos · tres ciclos · tocá para abrir</div>
+    <div style="border-top:2px solid #16130E;padding:22px 0 10px;">
+      <h2 style="font-family:'Anton';font-size:clamp(24px,3vw,34px);line-height:1.1;margin:0 0 4px;">Ciclo I — Sobre presidentes, democracia y la belleza</h2>
+      <p style="font-size:14px;color:#7A756A;margin:0 0 8px;">La arquitectura de la república: por qué el poder concentrado falla y qué se construye en su lugar.</p>
+    </div>
+    <sc-for list="{{ cicloI }}" as="e" hint-placeholder-count="7">
+      <div style="border-bottom:1px solid #D8D4C8;">
+        <a onClick="{{ e.onToggle }}" style="display:grid;grid-template-columns:56px 1fr 40px;gap:20px;align-items:baseline;padding:16px 8px;cursor:pointer;color:#16130E;transition:background .15s;" style-hover="background:#ECE8DC;">
+          <span style="font-family:'Space Mono',monospace;font-size:12px;color:#B5B1A8;">{{ e.num }}</span>
+          <span style="font-size:17px;font-weight:600;color:{{ e.tColor }};">{{ e.t }}</span>
+          <span style="font-family:'Space Mono',monospace;font-size:16px;color:{{ accent }};text-align:right;">{{ e.icon }}</span>
+        </a>
+        <sc-if value="{{ e.open }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:2px 8px 22px 76px;animation:fadeup .3s ease both;" class="v2-pad">
+            <p style="font-size:16px;line-height:1.6;color:#33302A;max-width:640px;margin:0 0 10px;text-wrap:pretty;">«{{ e.exc }}»</p>
+            <a onClick="{{ e.onOpen }}" style="font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:{{ accent }};cursor:pointer;">Leer el ensayo completo · {{ e.min }} min →</a>
+          </div>
+        </sc-if>
+      </div>
+    </sc-for>
+    <div style="border-top:2px solid #16130E;margin-top:44px;padding:22px 0 10px;">
+      <h2 style="font-family:'Anton';font-size:clamp(24px,3vw,34px);line-height:1.1;margin:0 0 4px;">Ciclo II — Indagaciones</h2>
+      <p style="font-size:14px;color:#7A756A;margin:0 0 8px;">Las condiciones interiores de la república: obediencia, miedo, libertad — lo que hay que desarmar adentro.</p>
+    </div>
+    <sc-for list="{{ cicloII }}" as="e" hint-placeholder-count="7">
+      <div style="border-bottom:1px solid #D8D4C8;">
+        <a onClick="{{ e.onToggle }}" style="display:grid;grid-template-columns:56px 1fr 40px;gap:20px;align-items:baseline;padding:16px 8px;cursor:pointer;color:#16130E;transition:background .15s;" style-hover="background:#ECE8DC;">
+          <span style="font-family:'Space Mono',monospace;font-size:12px;color:#B5B1A8;">{{ e.num }}</span>
+          <span style="font-size:17px;font-weight:600;color:{{ e.tColor }};">{{ e.t }}</span>
+          <span style="font-family:'Space Mono',monospace;font-size:16px;color:{{ accent }};text-align:right;">{{ e.icon }}</span>
+        </a>
+        <sc-if value="{{ e.open }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:2px 8px 22px 76px;animation:fadeup .3s ease both;" class="v2-pad">
+            <p style="font-size:16px;line-height:1.6;color:#33302A;max-width:640px;margin:0 0 10px;text-wrap:pretty;">«{{ e.exc }}»</p>
+            <a onClick="{{ e.onOpen }}" style="font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:{{ accent }};cursor:pointer;">Leer el ensayo completo · {{ e.min }} min →</a>
+          </div>
+        </sc-if>
+      </div>
+    </sc-for>
+    <div style="border-top:2px solid #16130E;margin-top:44px;padding:22px 0 10px;">
+      <h2 style="font-family:'Anton';font-size:clamp(24px,3vw,34px);line-height:1.1;margin:0 0 4px;">Ciclo III — La Declaración de la Interdependencia</h2>
+      <p style="font-size:14px;color:#7A756A;margin:0 0 8px;">Lo que se firma sin papel: de qué está hecha una nación y qué perdemos si no lo vemos.</p>
+    </div>
+    <sc-for list="{{ cicloIII }}" as="e" hint-placeholder-count="7">
+      <div style="border-bottom:1px solid #D8D4C8;">
+        <a onClick="{{ e.onToggle }}" style="display:grid;grid-template-columns:56px 1fr 40px;gap:20px;align-items:baseline;padding:16px 8px;cursor:pointer;color:#16130E;transition:background .15s;" style-hover="background:#ECE8DC;">
+          <span style="font-family:'Space Mono',monospace;font-size:12px;color:#B5B1A8;">{{ e.num }}</span>
+          <span style="font-size:17px;font-weight:600;color:{{ e.tColor }};">{{ e.t }}</span>
+          <span style="font-family:'Space Mono',monospace;font-size:16px;color:{{ accent }};text-align:right;">{{ e.icon }}</span>
+        </a>
+        <sc-if value="{{ e.open }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:2px 8px 22px 76px;animation:fadeup .3s ease both;" class="v2-pad">
+            <p style="font-size:16px;line-height:1.6;color:#33302A;max-width:640px;margin:0 0 10px;text-wrap:pretty;">«{{ e.exc }}»</p>
+            <a onClick="{{ e.onOpen }}" style="font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:{{ accent }};cursor:pointer;">Leer el ensayo completo · {{ e.min }} min →</a>
+          </div>
+        </sc-if>
+      </div>
+    </sc-for>
+  </section>
+
+  <!-- entrenamientos -->
+  <section style="background:#FBFAF4;border-top:1px solid #16130E;border-bottom:1px solid #16130E;">
+    <div class="v2-pad" style="max-width:1100px;margin:0 auto;padding:64px 40px 72px;">
+      <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:{{ accent }};margin-bottom:14px;">Entrenamiento · el ojo se educa</div>
+      <h2 style="font-family:'Anton';font-size:clamp(30px,3.6vw,48px);line-height:1;margin:0 0 14px;">Para diseñar un país,<br>primero entrená la mirada.</h2>
+      <p style="font-size:15px;color:#7A756A;max-width:560px;margin:0 0 36px;line-height:1.6;text-wrap:pretty;">Seis guías cortas, en criollo, sin jerga. Cada una termina en algo que podés hacer esta semana.</p>
+      <div class="v2-grid3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#16130E;border:1px solid #16130E;">
+        <sc-for list="{{ guias }}" as="g" hint-placeholder-count="6">
+          <a onClick="{{ g.onOpen }}" style="background:#FBFAF4;padding:26px 24px;display:flex;flex-direction:column;gap:11px;min-height:200px;cursor:pointer;color:#16130E;transition:background .2s;" style-hover="background:#F2EFE7;">
+            <div style="display:flex;justify-content:space-between;gap:10px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#7A756A;"><span style="color:{{ g.lc }};font-weight:700;">{{ g.level }}</span><span>{{ g.dur }}</span></div>
+            <div style="font-family:'Anton';font-size:25px;line-height:1.05;">{{ g.t }}</div>
+            <p style="font-size:14px;line-height:1.55;color:#4A463D;margin:0;text-wrap:pretty;">{{ g.desc }}</p>
+            <span style="margin-top:auto;font-family:'Space Mono',monospace;font-size:12px;color:{{ accent }};">{{ g.lessons }} lecciones · Empezar →</span>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- bitácora -->
+  <section class="v2-pad" style="max-width:1100px;margin:0 auto;padding:64px 40px 72px;">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap;margin-bottom:26px;">
+      <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#7A756A;">Bitácora · lo que va pasando *</div>
+      <span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#B5B1A8;">* datos de demostración</span>
+    </div>
+    <sc-for list="{{ bitacora }}" as="b" hint-placeholder-count="4">
+      <a onClick="{{ b.onOpen }}" style="border-top:1px solid #16130E;padding:24px 8px;display:flex;flex-direction:column;gap:8px;cursor:pointer;color:#16130E;transition:background .15s;" style-hover="background:#ECE8DC;">
+        <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;">
+          <span style="color:#7A756A;">{{ b.date }}</span>
+          <span style="color:{{ b.color }};border:1px solid {{ b.color }};padding:3px 8px;font-weight:700;">{{ b.tag }}</span>
+        </div>
+        <div style="font-size:20px;font-weight:700;">{{ b.t }}</div>
+        <p style="font-size:15px;line-height:1.6;color:#4A463D;margin:0;max-width:680px;text-wrap:pretty;">{{ b.line }}</p>
+        <span style="font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:{{ accent }};">Leer la crónica →</span>
+      </a>
+    </sc-for>
+  </section>
+
+  <!-- cta -->
+  <section style="background:#16130E;color:#F2EFE7;">
+    <div class="v2-pad" style="max-width:1100px;margin:0 auto;padding:64px 40px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;">
+      <h2 style="font-family:'Anton';font-size:clamp(30px,4vw,52px);line-height:1;margin:0;">Leíste. Ahora decí.</h2>
+      <button onClick="{{ goMapa }}" style="padding:18px 30px;background:{{ accent }};color:#F2EFE7;border:none;font-family:'Space Mono',monospace;font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:background .2s;" style-hover="background:#F2EFE7;color:#16130E;">Soltar mi voz en el mapa →</button>
+    </div>
+  </section>
+</div>
+</sc-if>
+
+<!-- ══════════ LECTOR: ENSAYO ══════════ -->
+<sc-if value="{{ isEnsayo }}" hint-placeholder-val="{{ false }}">
+<div data-screen-label="Ensayo">
+  <section class="v2-pad" style="max-width:800px;margin:0 auto;padding:48px 40px 80px;">
+    <a onClick="{{ goBiblioteca }}" style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:#7A756A;cursor:pointer;" style-hover="color:#16130E;">← La biblioteca</a>
+    <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:{{ accent }};margin:40px 0 16px;">{{ rdEnsayoMeta }}</div>
+    <h1 style="font-family:'Anton';font-size:clamp(36px,5.4vw,68px);line-height:1;margin:0 0 28px;text-wrap:pretty;">{{ rdEnsayoTitle }}</h1>
+    <div style="border-top:2px solid #16130E;padding-top:28px;">
+      <sc-for list="{{ rdEnsayoParas }}" as="b" hint-placeholder-count="4">
+        <div style="font-family:{{ b.ff }};font-size:{{ b.fs }};line-height:{{ b.lh }};color:{{ b.color }};margin:{{ b.m }};padding:{{ b.pad }};border-left:{{ b.bl }};max-width:660px;text-wrap:pretty;">{{ b.text }}</div>
+      </sc-for>
+    </div>
+    <div style="font-family:'Space Mono',monospace;font-size:12px;color:#7A756A;margin-top:36px;">— El hombre gris</div>
+    <div style="display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid #16130E;margin-top:44px;padding-top:22px;">
+      <sc-if value="{{ rdHasPrev }}" hint-placeholder-val="{{ false }}">
+        <a onClick="{{ rdPrevGo }}" style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:#7A756A;cursor:pointer;max-width:300px;" style-hover="color:#16130E;">← {{ rdPrevTitle }}</a>
+      </sc-if>
+      <sc-if value="{{ rdHasNext }}" hint-placeholder-val="{{ true }}">
+        <a onClick="{{ rdNextGo }}" style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:#16130E;font-weight:700;cursor:pointer;max-width:300px;margin-left:auto;text-align:right;" style-hover="color:{{ accent }};">{{ rdNextTitle }} →</a>
+      </sc-if>
+    </div>
+    <div style="margin-top:44px;background:#16130E;color:#F2EFE7;padding:28px 32px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;">
+      <span style="font-family:'Anton';font-size:22px;">¿Te resonó? No lo dejes en lectura.</span>
+      <button onClick="{{ goMapa }}" style="padding:14px 22px;background:{{ accent }};color:#F2EFE7;border:none;font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:background .2s;" style-hover="background:#F2EFE7;color:#16130E;">Decir la mía →</button>
+    </div>
+  </section>
+</div>
+</sc-if>
+
+<!-- ══════════ LECTOR: ENTRENAMIENTO ══════════ -->
+<sc-if value="{{ isCurso }}" hint-placeholder-val="{{ false }}">
+<div data-screen-label="Entrenamiento">
+  <section class="v2-pad" style="max-width:860px;margin:0 auto;padding:48px 40px 80px;">
+    <a onClick="{{ goBiblioteca }}" style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:#7A756A;cursor:pointer;" style-hover="color:#16130E;">← La biblioteca</a>
+    <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:{{ accent }};margin:40px 0 16px;">Entrenamiento · {{ rdCursoLevel }} · {{ rdCursoDur }}</div>
+    <h1 style="font-family:'Anton';font-size:clamp(36px,5.4vw,68px);line-height:1;margin:0 0 20px;">{{ rdCursoTitle }}</h1>
+    <p style="font-size:17px;line-height:1.65;color:#4A463D;max-width:620px;margin:0 0 40px;text-wrap:pretty;">{{ rdCursoIntro }}</p>
+    <div style="border:1px solid #16130E;">
+      <div style="border-bottom:1px solid #16130E;padding:14px 22px;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;display:flex;justify-content:space-between;background:#FBFAF4;"><span>Lecciones</span><span style="color:#7A756A;">gratis · a tu ritmo</span></div>
+      <sc-for list="{{ rdCursoLessons }}" as="l" hint-placeholder-count="6">
+        <a style="display:grid;grid-template-columns:52px 1fr 70px;gap:18px;align-items:center;padding:17px 22px;border-bottom:1px solid #ECE8DC;cursor:pointer;color:#16130E;transition:background .15s;" style-hover="background:#ECE8DC;">
+          <span style="font-family:'Space Mono',monospace;font-size:12px;color:#B5B1A8;">{{ l.num }}</span>
+          <span style="font-size:16px;font-weight:600;">{{ l.t }}</span>
+          <span style="font-family:'Space Mono',monospace;font-size:11px;color:#7A756A;text-align:right;">{{ l.min }} min</span>
+        </a>
+      </sc-for>
+    </div>
+    <div style="margin-top:32px;border:2px solid {{ accent }};padding:30px 32px;">
+      <div style="font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:{{ accent }};margin-bottom:12px;">La práctica de la semana</div>
+      <p style="font-size:17px;line-height:1.6;color:#33302A;margin:0 0 20px;max-width:620px;text-wrap:pretty;">{{ rdCursoPractica }}</p>
+      <button onClick="{{ goMapa }}" style="padding:14px 22px;background:{{ accent }};color:#F2EFE7;border:none;font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:background .2s;" style-hover="background:#16130E;">La hice — contarlo en el mapa →</button>
+    </div>
+    <div style="display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:36px;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;">
+      <sc-if value="{{ rdCursoHasPrev }}" hint-placeholder-val="{{ false }}"><a onClick="{{ rdCursoPrevGo }}" style="color:#7A756A;cursor:pointer;" style-hover="color:#16130E;">← {{ rdCursoPrevT }}</a></sc-if>
+      <sc-if value="{{ rdCursoHasNext }}" hint-placeholder-val="{{ true }}"><a onClick="{{ rdCursoNextGo }}" style="color:#16130E;font-weight:700;cursor:pointer;margin-left:auto;" style-hover="color:{{ accent }};">{{ rdCursoNextT }} →</a></sc-if>
+    </div>
+  </section>
+</div>
+</sc-if>
+
+<!-- ══════════ LECTOR: CRÓNICA ══════════ -->
+<sc-if value="{{ isPost }}" hint-placeholder-val="{{ false }}">
+<div data-screen-label="Crónica">
+  <section class="v2-pad" style="max-width:760px;margin:0 auto;padding:48px 40px 80px;">
+    <a onClick="{{ goBiblioteca }}" style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:#7A756A;cursor:pointer;" style-hover="color:#16130E;">← La biblioteca</a>
+    <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;margin:40px 0 16px;">
+      <span style="color:#7A756A;">{{ rdPostDate }}</span>
+      <span style="color:{{ rdPostColor }};border:1px solid {{ rdPostColor }};padding:3px 8px;font-weight:700;">{{ rdPostTag }}</span>
+    </div>
+    <h1 style="font-family:'Anton';font-size:clamp(34px,5vw,60px);line-height:1;margin:0 0 28px;text-wrap:pretty;">{{ rdPostTitle }}</h1>
+    <div style="border-top:2px solid #16130E;padding-top:28px;">
+      <sc-for list="{{ rdPostParas }}" as="p" hint-placeholder-count="3">
+        <p style="font-size:17px;line-height:1.75;color:#33302A;margin:0 0 20px;max-width:640px;text-wrap:pretty;">{{ p.text }}</p>
+      </sc-for>
+    </div>
+    <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B1A8;margin-top:8px;">Bitácora del movimiento · datos de demostración</div>
+    <div style="margin-top:40px;background:#16130E;color:#F2EFE7;padding:28px 32px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;">
+      <span style="font-family:'Anton';font-size:22px;">La próxima crónica puede ser tu barrio.</span>
+      <button onClick="{{ goMapa }}" style="padding:14px 22px;background:{{ accent }};color:#F2EFE7;border:none;font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:background .2s;" style-hover="background:#F2EFE7;color:#16130E;">Empezar por una voz →</button>
+    </div>
+  </section>
+</div>
+</sc-if>
+
+<!-- ══════════ EL MANIFIESTO ══════════ -->
+<sc-if value="{{ isManifiesto }}" hint-placeholder-val="{{ false }}">
+<div data-screen-label="El manifiesto">
+  <section class="v2-pad" style="max-width:800px;margin:0 auto;padding:56px 40px 80px;">
+    <a onClick="{{ goBiblioteca }}" style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:#7A756A;cursor:pointer;" style-hover="color:#16130E;">← La biblioteca</a>
+    <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:{{ accent }};margin:40px 0 16px;">Documento fundacional · se lee en 5 minutos</div>
+    <h1 style="font-family:'Anton';font-size:clamp(44px,6.4vw,84px);line-height:0.98;margin:0 0 22px;">El manifiesto<br>del hombre gris.</h1>
+    <p style="font-size:18px;line-height:1.6;color:#4A463D;max-width:600px;margin:0 0 20px;text-wrap:pretty;">No es un programa. Es un espejo. Leelo despacio: si algo te resuena, ahí empieza.</p>
+    <sc-for list="{{ manifBlocks }}" as="b" hint-placeholder-count="16">
+      <div style="font-family:{{ b.ff }};font-size:{{ b.fs }};line-height:{{ b.lh }};color:{{ b.color }};margin:{{ b.m }};padding:{{ b.pad }};border-top:{{ b.bt }};max-width:660px;text-wrap:pretty;">{{ b.text }}</div>
+    </sc-for>
+    <div id="manif-end" style="margin-top:56px;border:2px solid #16130E;padding:36px;background:#FBFAF4;position:relative;">
+      <sc-if value="{{ manifRead }}" hint-placeholder-val="{{ false }}">
+        <div style="position:absolute;right:26px;top:-18px;transform:rotate(6deg);border:2px solid #1A7A4A;color:#1A7A4A;background:#FBFAF4;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;padding:8px 12px;animation:stampin .4s ease both;">Leído entero</div>
+      </sc-if>
+      <div style="font-family:'Anton';font-size:clamp(24px,3vw,34px);line-height:1.05;margin-bottom:10px;">Firmalo a tu manera.</div>
+      <p style="font-size:15px;color:#7A756A;margin:0 0 22px;line-height:1.6;max-width:520px;">Este documento no junta firmas: junta semillas. Tu basta, tu sueño y tu compromiso son la única adhesión que cuenta.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <button onClick="{{ goSembrar }}" style="padding:16px 26px;background:#16130E;color:#F2EFE7;border:none;font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:background .2s;" style-hover="background:{{ accent }};">Plantar mi semilla</button>
+        <button onClick="{{ goMapa }}" style="padding:16px 26px;background:transparent;color:#16130E;border:1px solid #16130E;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:all .2s;" style-hover="background:#16130E;color:#F2EFE7;">Soltar mi voz</button>
+      </div>
+    </div>
+  </section>
+</div>
+</sc-if>
+
+<!-- ══════════ SEMBRAR ══════════ -->
+<sc-if value="{{ isSembrar }}" hint-placeholder-val="{{ false }}">
+<div data-screen-label="Sembrar">
+  <section class="v2-pad" style="max-width:900px;margin:0 auto;padding:72px 40px 88px;">
+    <sc-if value="{{ semNotDone }}" hint-placeholder-val="{{ true }}">
+      <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:{{ accent }};margin-bottom:20px;">Sembrar · 3 pasos · 2 minutos</div>
+      <h1 style="font-family:'Anton';font-size:clamp(44px,6vw,84px);line-height:0.98;margin:0 0 20px;">Tu semilla<span style="color:{{ accent }};">.</span></h1>
+      <p style="font-size:18px;line-height:1.6;color:#4A463D;max-width:600px;margin:0 0 44px;text-wrap:pretty;">Una semilla son tres frases tuyas: tu basta, tu sueño y tu compromiso. Se planta en el mandato y no se borra con el próximo tuit del ministro.</p>
+      <div style="display:flex;gap:8px;margin-bottom:32px;">
+        <sc-for list="{{ semSteps }}" as="s" hint-placeholder-count="3">
+          <div style="flex:1;height:4px;background:{{ s.bg }};transition:background .3s;"></div>
+        </sc-for>
+      </div>
+      <div style="border:1px solid #16130E;background:#FBFAF4;padding:40px;" class="v2-pad">
+        <div style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#7A756A;margin-bottom:12px;">Paso {{ semStepNum }} de 3</div>
+        <h2 style="font-family:'Anton';font-size:clamp(26px,3.4vw,40px);line-height:1.05;margin:0 0 8px;">{{ semTitle }}</h2>
+        <p style="font-size:15px;color:#7A756A;margin:0 0 24px;line-height:1.6;">{{ semHint }}</p>
+        <textarea rows="3" placeholder="{{ semPlaceholder }}" value="{{ semText }}" onChange="{{ onSemText }}" style="width:100%;border:1px solid #16130E;background:#F2EFE7;padding:16px;font-size:17px;line-height:1.5;resize:vertical;color:#16130E;"></textarea>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:24px;">
+          <a onClick="{{ semBack }}" style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:{{ semBackColor }};cursor:{{ semBackCursor }};">← Volver</a>
+          <button onClick="{{ semNext }}" style="padding:16px 30px;background:{{ semNextBg }};color:#F2EFE7;border:none;font-family:'Space Mono',monospace;font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:{{ semNextCursor }};transition:background .2s;">{{ semNextLabel }}</button>
+        </div>
+      </div>
+      <div style="margin-top:24px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#B5B1A8;">Anónimo si querés · Sin registro · Sin spam</div>
+    </sc-if>
+    <sc-if value="{{ semDone }}" hint-placeholder-val="{{ false }}">
+      <div style="text-align:center;margin-bottom:36px;">
+        <svg width="120" height="150" viewBox="0 0 120 150" style="display:block;margin:0 auto;">
+          <line x1="60" y1="150" x2="60" y2="62" stroke="#16130E" stroke-width="3" style="transform-origin:60px 150px;animation:semgrow .9s cubic-bezier(.2,.8,.2,1) .2s both;"></line>
+          <path d="M60 78 C 38 74 30 52 34 38 C 52 42 62 58 60 78 Z" fill="{{ accent }}" style="transform-origin:60px 78px;animation:leafpop .6s ease 1s both;"></path>
+          <path d="M60 96 C 82 92 90 70 86 56 C 68 60 58 76 60 96 Z" fill="#16130E" style="transform-origin:60px 96px;animation:leafpop .6s ease 1.25s both;"></path>
+        </svg>
+      </div>
+      <div style="border:1px solid #16130E;background:#FBFAF4;padding:44px;position:relative;" class="v2-pad">
+        <div style="position:absolute;right:28px;top:26px;transform:rotate(6deg);border:2px solid {{ accent }};color:{{ accent }};font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;padding:7px 12px;">Plantada</div>
+        <div style="font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#7A756A;margin-bottom:20px;">Semilla N° {{ semId }} — {{ semFecha }}</div>
+        <div style="display:flex;flex-direction:column;gap:22px;">
+          <div><div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:#C23B22;margin-bottom:6px;">Mi basta</div><p style="font-family:'Anton';font-size:24px;line-height:1.2;margin:0;">«{{ semBastaOut }}»</p></div>
+          <div><div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:{{ accent }};margin-bottom:6px;">Mi sueño</div><p style="font-family:'Anton';font-size:24px;line-height:1.2;margin:0;">«{{ semSuenoOut }}»</p></div>
+          <div><div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:#1A7A4A;margin-bottom:6px;">Mi compromiso</div><p style="font-family:'Anton';font-size:24px;line-height:1.2;margin:0;">«{{ semCompromisoOut }}»</p></div>
+        </div>
+        <div style="border-top:1px solid #D8D4C8;margin-top:28px;padding-top:22px;display:flex;gap:12px;flex-wrap:wrap;">
+          <button onClick="{{ semCopy }}" style="padding:14px 22px;background:#16130E;color:#F2EFE7;border:none;font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:background .2s;" style-hover="background:{{ accent }};">{{ semCopyLabel }}</button>
+          <button onClick="{{ goMapa }}" style="padding:14px 22px;background:transparent;color:#16130E;border:1px solid #16130E;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:all .2s;" style-hover="background:#16130E;color:#F2EFE7;">Ver el mapa</button>
+          <a onClick="{{ semReset }}" style="margin-left:auto;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:#7A756A;cursor:pointer;align-self:center;">Plantar otra</a>
+        </div>
+      </div>
+      <p style="margin-top:24px;font-size:15px;color:#7A756A;line-height:1.6;text-align:center;">Guardala. Es tu contrato con vos. Cuando el movimiento te pese, volvé a leerla.</p>
+    </sc-if>
+  </section>
+</div>
+</sc-if>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer style="background:#16130E;color:#F2EFE7;">
+  <div class="v2-pad" style="max-width:1440px;margin:0 auto;padding:64px 40px 40px;">
+    <div style="font-family:'Anton';font-size:clamp(70px,12vw,200px);line-height:0.9;color:transparent;-webkit-text-stroke:1px #3A362D;user-select:none;">¡BASTA!</div>
+    <div class="v2-fgrid" style="display:grid;grid-template-columns:1.3fr 1fr 1fr 1.2fr;gap:40px;padding:44px 0;border-bottom:1px solid #3A362D;">
+      <div>
+        <div style="font-family:'Anton';font-size:20px;margin-bottom:14px;">El instante del hombre gris</div>
+        <p style="font-size:14px;line-height:1.6;color:#8E8A82;max-width:300px;margin:0;text-wrap:pretty;">La ciudadanía diseña. El Estado administra. La política ejecuta. Sin líder, sin partido, sin excusas.</p>
+      </div>
+      <div>
+        <div style="font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#5C594F;margin-bottom:16px;">Recorrido</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <sc-for list="{{ navAll }}" as="item" hint-placeholder-count="5">
+            <a onClick="{{ item.onClick }}" style="font-size:14px;color:#C9C5BA;cursor:pointer;" style-hover="color:#F2EFE7;">{{ item.label }}</a>
+          </sc-for>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#5C594F;margin-bottom:16px;">Principios</div>
+        <div style="display:flex;flex-direction:column;gap:10px;font-size:14px;color:#8E8A82;">
+          <span>Abierto y auditable</span><span>Anónimo si querés</span><span>Sin fines de lucro</span><span>Federal por diseño</span>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#5C594F;margin-bottom:16px;">El siguiente paso</div>
+        <p style="font-size:14px;color:#8E8A82;line-height:1.6;margin:0 0 16px;">No te pedimos fe. Te pedimos tres frases.</p>
+        <button onClick="{{ goSembrar }}" style="width:100%;padding:15px;background:{{ accent }};color:#F2EFE7;border:none;font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:background .2s;" style-hover="background:#F2EFE7;color:#16130E;">Sembrar mi voz</button>
+      </div>
+    </div>
+    <div class="v2-fgrid2" style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:24px;font-family:'Space Mono',monospace;font-size:11px;color:#5C594F;">
+      <span>© 2026 ¡BASTA! — El instante del hombre gris</span>
+      <span>Prototipo con datos de demostración</span>
+    </div>
+  </div>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;: {&quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#5227CC&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;options&quot;: [&quot;#5227CC&quot;, &quot;#7D5BDE&quot;, &quot;#C23B22&quot;, &quot;#16130E&quot;], &quot;section&quot;: &quot;Marca&quot;}}">
+class Component extends DCLogic {
+  state = {
+    page: 'home', menuOpen: false,
+    awake: false, manifRead: false,
+    despierto: (() => { try { return localStorage.getItem('basta_despierto') === '1'; } catch (e) { return false; } })(),
+    mapPath: '', cities: [],
+    mapType: 'basta', mapText: '', mapPlaced: false, lastPlace: '', selVoice: null,
+    voices: [
+      { type: 'basta', text: 'Basta de rutas sin luz donde ya murió gente.', place: 'Trelew, Chubut', city: 'Comodoro Rivadavia' },
+      { type: 'sueño', text: 'Que mi hija pueda estudiar sin tener que irse del pueblo.', place: 'Tafí del Valle, Tucumán', city: 'Tucumán' },
+      { type: 'necesidad', text: 'Un centro de salud que abra los sábados en el barrio.', place: 'Quilmes, Buenos Aires', city: 'Buenos Aires' },
+      { type: 'compromiso', text: 'Doy apoyo escolar gratis los martes. Empiezo este mes.', place: 'Rosario, Santa Fe', city: 'Rosario' },
+      { type: 'recurso', text: 'Tengo camioneta y tiempo los fines de semana.', place: 'Salta capital', city: 'Salta' },
+      { type: 'valor', text: 'La salud y la educación no se negocian. Nunca.', place: 'La Plata, Buenos Aires', city: 'La Plata' },
+      { type: 'sueño', text: 'Un tren que vuelva a parar en mi estación.', place: 'Laboulaye, Córdoba', city: 'Córdoba' },
+      { type: 'basta', text: 'Basta de decidir entre remedios y comida.', place: 'Paraná, Entre Ríos', city: 'Paraná' },
+      { type: 'necesidad', text: 'Agua potable de verdad, no de bidón.', place: 'Añatuya, Santiago del Estero', city: 'Santiago del Estero' },
+      { type: 'compromiso', text: 'Abro mi taller para enseñar oficio a 5 pibes.', place: 'Neuquén capital', city: 'Neuquén' },
+      { type: 'sueño', text: 'Quedarme. Simplemente poder quedarme.', place: 'Ushuaia, Tierra del Fuego', city: 'Ushuaia' },
+      { type: 'valor', text: 'El que ejecuta plata pública rinde cuentas en público.', place: 'Mendoza capital', city: 'Mendoza' },
+      { type: 'basta', text: 'Basta de escuelas donde llueve adentro.', place: 'Resistencia, Chaco', city: 'Resistencia' },
+      { type: 'recurso', text: 'Soy contadora, audito gratis el club del barrio.', place: 'Mar del Plata', city: 'Mar del Plata' },
+    ],
+    planFilter: 'todos', planOpen: null, ensayoOpen: null,
+    readerEnsayo: null, readerCurso: null, readerPost: null,
+    semStep: 0, semFields: ['', '', ''], semDone: false, semId: null, copied: false,
+  };
+
+  typeColors = { 'basta': '#C23B22', 'sueño': '#5227CC', 'necesidad': '#A16C00', 'compromiso': '#1A7A4A', 'recurso': '#0F6B8A', 'valor': '#16130E' };
+
+  plans = [
+    ['PLANISV', 'Infraestructura de suelo vivo', 'Ambiente', 'El suelo que paga las cuentas del país se está muriendo. Tratarlo como infraestructura estratégica — medible y reconstruible — con retorno de 8:1 a 15:1 en diez años.', 'PLANISV_Argentina_ES.md'],
+    ['PLAN24CN', 'Fundación de 24 ciudades nuevas', 'Infraestructura', 'Descomprimir el AMBA y repoblar el interior: 24 ciudades nuevas con trabajo real, no loteos con nombre de promesa.', 'PLAN24CN_ES.md'],
+    ['PLANREP', 'Reconversión del empleo público', 'Economía', 'Pasar empleo público a economía productiva sin tirar a nadie por la ventana: reconversión con plazos, formación y destino.', 'PLANREP_ES.md'],
+    ['PLANEDU', 'Refundación educativa', 'Educación', 'Refundar la escuela para formar gente que piensa y crea, no repetidores de manual.', 'PLANEDU_ES.md'],
+    ['PLANJUS', 'Justicia popular', 'Justicia', 'Conflictos resueltos en meses, no en décadas. Justicia que el vecino entiende y puede auditar.', 'PLANJUS_ES.md'],
+    ['PLANSAL', 'Salud integral', 'Salud', 'Un sistema que llega antes de la enfermedad: prevención, cercanía y vitalidad popular.', 'PLANSAL_ES.md'],
+    ['PLANEB', 'Empresas bastardas', 'Economía', 'Empresas de propiedad popular que compiten en serio en el mercado — soberanía económica desde abajo.', 'PLANEB_ES.md'],
+    ['PLANSUS', 'Soberanía sobre sustancias', 'Instituciones', 'Regular sustancias con ciencia y producción propia, no con miedo importado.', 'PLANSUS_ES.md'],
+    ['PLANAGUA', 'Soberanía hídrica', 'Ambiente', 'El agua gestionada como el recurso estratégico que es: resiliencia climática, no lotería de sequías.', 'PLANAGUA_ES.md'],
+    ['PLANGEO', 'Posicionamiento geopolítico', 'Geopolítica', 'Dejar de pedir permiso: una plataforma de soberanía exportable al resto del mundo.', 'PLANGEO_ES.md'],
+    ['PLANMON', 'Soberanía monetaria', 'Economía', 'Una arquitectura financiera donde el sueldo no se derrita en el bolsillo.', 'PLANMON_ES.md'],
+    ['PLANCUL', 'Cultura viva', 'Cultura', 'Cultura en red de dendritas: creación viva en cada pueblo, no subsidio a la nostalgia.', 'PLANCUL_ES.md'],
+    ['PLANDIG', 'Soberanía digital e IA', 'Tecnología', 'Infraestructura digital e inteligencia artificial propias, antes de que otros decidan por nosotros.', 'PLANDIG_ES.md'],
+    ['PLANEN', 'Soberanía energética', 'Infraestructura', 'La energía como palanca de la matriz productiva, no como caja política.', 'PLANEN_ES.md'],
+    ['PLANSEG', 'Seguridad ciudadana', 'Instituciones', 'Orden público en transición: seguridad real medida en barrios, no en conferencias de prensa.', 'PLANSEG_ES.md'],
+    ['PLANVIV', 'Vivienda digna', 'Infraestructura', 'Hábitat digno en las ciudades que ya existen: suelo, alquiler y construcción con reglas sanas.', 'PLANVIV_ES.md'],
+    ['PLANMESA', 'Mesa civil y mérito demostrado', 'Instituciones', 'Decisión por mérito demostrado: una república que aprende de lo que funciona.', 'PLANMESA_ES.md'],
+    ['PLANTALLER', 'Talleres federales', 'Economía', 'Experimentación productiva y pertenencia económica universal, provincia por provincia.', 'PLANTALLER_ES.md'],
+    ['PLANCUIDADO', 'Cuidado y vínculo', 'Salud', 'El cuidado como obligación de sostén, con parentesco jurídicamente plural.', 'PLANCUIDADO_ES.md'],
+    ['PLANMEMORIA', 'Memoria operativa', 'Cultura', 'Que lo aprendido no se pueda desandar: memoria operativa y no-reversibilidad republicana.', 'PLANMEMORIA_ES.md'],
+    ['PLANTER', 'Tierra, subsuelo y soberanía', 'Ambiente', 'Tierra, subsuelo y pueblos originarios: soberanía territorial con reglas claras.', 'PLANTER_ES.md'],
+    ['PLANMOV', 'Movilidad y logística', 'Infraestructura', 'Un país conectado de verdad: movilidad y logística federal, no embudo hacia el puerto.', 'PLANMOV_ES.md'],
+  ];
+
+  ensayos = {
+    I: [
+      ['Por qué los presidentes son una idea estúpida', 'Ningún país serio pondría 45 millones de destinos en un solo par de manos. Lo hacemos cada cuatro años y lo llamamos madurez cívica.', 12],
+      ['La falacia de la democracia', 'Votar cada dos años no es decidir: es delegar la decisión de quién decide. La democracia que conocemos es un formulario, no una conversación.', 10],
+      ['La falacia del poder mismo', 'El poder no existe: existe la obediencia. El día que el gris deja de obedecer expectativas ajenas, el poder se queda sin materia prima.', 9],
+      ['Una arquitectura para el hombre gris', 'No alcanza con despertar: hace falta un edificio donde esa energía no se evapore. Planos para una república que no dependa de héroes.', 14],
+      ['La soberanía del hombre gris', 'Soberano no es el que manda: es el que no necesita permiso para diseñar su vida. La soberanía nacional empieza en esa escala.', 11],
+      ['La belleza como acto político', 'Un país que tolera lo feo — en sus calles, sus trámites, sus tratos — se entrena para tolerar lo injusto. La belleza es una política pública.', 8],
+      ['Carta al Nieto', 'Todo esto se escribió para alguien que todavía no nació. Si te llega, quiere decir que no alcanzó con pensarlo: alguien lo hizo.', 6],
+    ],
+    II: [
+      ['La fábrica de obediencia', 'La escuela, la oficina y el noticiero fabrican el mismo producto: gente que espera instrucciones. Desarmar esa fábrica es la primera obra pública.', 11],
+      ['El caudillo y el camino sin camino', 'Cada vez que aparece un salvador, el ciudadano se jubila. La verdad no tiene atajo — y el país tampoco.', 9],
+      ['El miedo y el devenir', 'El miedo no se combate con coraje sino con compañía. Nadie sostiene un basta en soledad.', 8],
+      ['La libertad de lo conocido', 'Preferimos la jaula conocida al campo abierto. La libertad no se declama: se practica en decisiones chiquitas.', 10],
+      ['Conocerse sin espejo', 'El gris se mira en espejos que otros fabricaron: el sueldo, el título, el feed. Conocerse sin espejo es el primer acto de independencia.', 9],
+      ['El amor sin apego', 'Amar al país sin apego a su versión rota. Cuidar sin poseer, criticar sin destruir.', 7],
+      ['La sensibilidad como infraestructura', 'Un pueblo que siente a tiempo evita lo que después cuesta décadas. La sensibilidad es infraestructura crítica, como los puentes.', 10],
+    ],
+    III: [
+      ['¿De qué está hecha una nación?', 'No de territorio ni de himno: de acuerdos invisibles que renovamos cada mañana sin darnos cuenta.', 9],
+      ['El bisturí de 1816', 'La independencia cortó un vínculo con precisión de cirujano. Doscientos años después seguimos confundiendo cortar con fundar.', 11],
+      ['La independencia ficticia', 'Nos declaramos independientes de España y quedamos dependientes de todo lo demás: del dólar, del clima, del humor de un ministro.', 10],
+      ['Interdependencia: la palabra que faltaba', '«Nadie se salva solo» era la lección. La olvidamos en dos años; este ensayo la escribe en piedra.', 12],
+      ['Lo que perdemos si no lo vemos', 'Los vínculos que no se ven no se cuidan, y lo que no se cuida se cobra: en soledad, en desconfianza, en país.', 8],
+      ['La práctica del tejido', 'Tejer no es juntar hilos: es cruzarlos con método. Círculos, mapas, mandatos: telares para un país deshilachado.', 9],
+      ['Acta de la Interdependencia', 'El ciclo termina en un acta que no se firma con lapicera: se firma quedándose. Vos ya la estás firmando.', 7],
+    ],
+  };
+
+  guias = [
+    ['Inicial', '45 min', 'El hombre gris', 'Quién sos en esta historia. El diagnóstico antes que la receta.', 5],
+    ['Media', '1 h 20', 'El método de diseño', 'Ackoff sin jerga: imaginar desde cero y volver caminando.', 7],
+    ['Media', '1 h', 'Leer el Estado', 'Presupuesto, cargos y dónde mirar cuando dicen «no hay plata».', 6],
+    ['Inicial', '50 min', 'Economía para grises', 'Inflación, moneda y por qué tu sueldo se evapora.', 5],
+    ['Inicial', '40 min', 'La voz', 'Decir tu basta sin gritar: escribir, hablar, convencer.', 4],
+    ['Avanzada', '55 min', 'Armar un círculo', 'Ocho vecinos, cero jefes: el manual completo del círculo.', 6],
+  ];
+
+  bitacora = [
+    ['Semana 31 · 2026', 'crónica', 'Lo que dijeron las últimas 1.204 voces', 'Salud desplazó a trabajo como urgencia número uno. El mandato se reordenó solo — así se ve un país hablando.'],
+    ['Semana 30 · 2026', 'territorio', 'Añatuya consiguió el agua', 'Un círculo de 11 vecinos, tres meses de insistencia documentada y una perforadora municipal que apareció. La cláusula 005 ya no es teoría.'],
+    ['Semana 29 · 2026', 'método', 'Publicamos todo, incluso lo que duele', 'Este mes hubo 214 voces que criticaron al movimiento. Están en el mapa, como todas. La transparencia no es marketing: es método.'],
+    ['Semana 28 · 2026', 'crónica', 'La cláusula 002 ya tiene censo', '1.132 escuelas relevadas por docentes y familias. Faltan 41.000. Sobran manos si sobran voces.'],
+    ['Semana 27 · 2026', 'método', 'Cómo se escribe una cláusula (y quién no la escribe)', 'De 2.294 voces de salud a una frase con métrica y plazo: el paso a paso completo, publicado para que lo audites.'],
+    ['Semana 26 · 2026', 'territorio', 'El círculo 214: ocho jubilados de Trelew', 'El círculo más nuevo del país promedia 71 años y ya relevó las 14 salitas de su ciudad.'],
+    ['Semana 25 · 2026', 'crónica', 'Semillas: 3.000 contratos con uno mismo', 'La semilla 3.000 la plantó una docente de Posadas. Leímos, con permiso, qué promete la gente cuando nadie la obliga.'],
+    ['Semana 24 · 2026', 'método', 'Lo que el movimiento no va a hacer', 'Lista corta de tentaciones rechazadas este trimestre: dos candidaturas, un sponsor con logo y un caudillo amable.'],
+    ['Semana 23 · 2026', 'territorio', 'Frías y Quimilí replican el expediente del agua', 'El método de Añatuya viaja: dos pueblos más armaron su mesa del agua con el mismo expediente.'],
+    ['Semana 22 · 2026', 'crónica', 'Un mes de prensa: nos llamaron ingenuos (y vinieron igual)', 'Tres medios nacionales cubrieron el mapa. Resumen honesto de lo que dijeron y lo que respondimos.'],
+  ];
+
+  // [quote, [p1, p2, p3]] por ensayo, mismo orden que this.ensayos
+  ensayoFull = {
+    I: [
+      ['El cargo más peligroso del país es el que te promete que no hace falta que hagas nada.', ['Cada cuatro años el país entero se detiene para elegir a la persona que va a decepcionarlo. Lo sabemos de antemano — la decepción es parte del rito — y sin embargo volvemos, con fe renovada, a buscar el rostro que esta vez sí.', 'El problema no es que elijamos mal. Es el diseño: ningún sistema serio concentra el destino de 45 millones en un cargo que se gana con carisma y se ejerce con apuro. Un avión no se pilotea a aplausos; un país tampoco.', 'Este ensayo no propone abolir la presidencia mañana. Propone algo más incómodo: dejar de necesitarla. Un país que se diseña a sí mismo puede darse el lujo de tener administradores aburridos — y ciudadanos interesantes.']],
+      ['Democracia no es elegir quién habla por vos. Es que no haga falta.', ['Nos enseñaron que democracia es votar. Cada dos años, un cuarto oscuro, una boleta, y de vuelta a casa con la conciencia al día. El resto del tiempo, la cosa pública queda en manos de los que viven de ella.', 'Pero votar no es decidir: es delegar la decisión de quién decide. Es un formulario, no una conversación. La democracia que nos venden es un trámite bienal con feriado incluido.', 'La alternativa no es menos democracia: es más. Voces permanentes en vez de votos esporádicos; un mandato que se escribe todos los días; instituciones que escuchan porque no les queda otra. Eso no se pide — se construye.']],
+      ['Nadie te quitó el poder. Lo estás alquilando gratis.', ['Buscamos el poder como si fuera una cosa: un sillón, un bastón, una lapicera. Pero el poder no está en ningún lado. Es una relación: existe mientras alguien obedece.', 'El día que el hombre gris deja de obedecer expectativas que nunca firmó — el consumo como identidad, el silencio como prudencia, la resignación como madurez — el poder se queda sin materia prima.', 'No hace falta tomar ningún palacio. Hace falta dejar de sostenerlo con la obediencia de todos los días. La desobediencia que propongo no rompe vidrieras: rompe hábitos.']],
+      ['La bronca es energía. La arquitectura es lo que la convierte en obra.', ['Despertar no alcanza. La historia está llena de pueblos que despertaron un martes y volvieron a dormirse el jueves, porque no había dónde poner esa energía. La bronca sin arquitectura se evapora — o peor, se la roba el primer caudillo que pasa.', 'Por eso este movimiento es, antes que nada, un edificio: mapa para juntar voces, mandato para ordenarlas, planes para probarlas, círculos para sostenerlas. Cada pieza existe para que tu instante no se pierda.', 'Una república que depende de héroes es una república en terapia intensiva. La que quiero para mi nieto funciona con gente común y corriente — porque fue diseñada para ellos, por ellos.']],
+      ['La patria no se libera en el desfile. Se libera en la mesa de tu cocina.', ['Soberano, nos dijeron, es el que manda. Por eso confundimos soberanía con banderas, ejércitos y discursos de balcón. Pero hay una soberanía más chica y más difícil: la del que no necesita permiso para diseñar su propia vida.', 'Un país de gente que espera permiso es colonizable por cualquiera — un imperio, un mercado, un ministro. La soberanía nacional no se declara en actas: se acumula en millones de decisiones propias.', 'Empezá por lo que ya es tuyo: tu tiempo, tu palabra, tu barrio. La soberanía se entrena como un músculo. Después, agrandala.']],
+      ['Mostrame tus espacios públicos y te digo cuánto te respetás.', ['Un país que tolera lo feo se entrena para tolerar lo injusto. La oficina pública con luz de tubo tiritando, el trámite humillante, la plaza abandonada: cada fealdad cotidiana es una lección de resignación.', 'La belleza no es lujo ni decoración: es el estándar visible de cuánto nos respetamos. Un pueblo que arregla su plaza está diciendo algo sobre sí mismo que ningún discurso puede decir.', 'Por eso este movimiento se ocupa de la tipografía, del papel, de la palabra justa. No por esnobismo: porque la primera política pública es demostrar que lo público puede ser hermoso.']],
+      ['Que cuando preguntes qué hicimos, la respuesta no sea «esperamos».', ['No sé tu nombre todavía. Sé que vas a heredar un país que hoy estamos decidiendo — por acción o por siesta. Esta carta es mi manera de no poder mirarte a los ojos y mentirte.', 'Te cuento lo que hicimos: juntamos voces, escribimos planes, dejamos constancia. No sé si alcanzó. Sé que el silencio garantizaba que no.', 'Si el país que recibiste funciona, no fue magia: fue método y gente gris que un día dijo basta. Si no funciona, acá está el manual de lo que intentamos. Terminalo vos.']],
+    ],
+    II: [
+      ['Te entrenaron tan bien que llamás realismo a la obediencia.', ['La escuela te sienta en fila, la oficina te numera, el noticiero te asusta. Tres turnos de la misma fábrica, un solo producto: gente que espera instrucciones.', 'No hay conspiración; hay inercia. Cada institución premia al que no molesta y llama madurez a la mansedumbre. Así, obedecer se vuelve indistinguible de ser bueno.', 'Desarmar esa fábrica es la primera obra pública del movimiento. No con rebeldía de pose — con preguntas sostenidas: ¿quién decidió esto? ¿me sirve? ¿qué pasa si no?']],
+      ['El precio del salvador es tu jubilación como ciudadano.', ['Cada tanto aparece uno que promete cargarte al hombro. Y algo en nosotros — cansado, comprensible — quiere creerle. El caudillo no se impone: se ofrece justo cuando duele.', 'Pero cada salvador nos jubila de ciudadanos. La verdad no tiene camino, y el país tampoco: nadie puede caminarte el país. El que te promete el atajo te está comprando las piernas.', 'Este movimiento se niega a darte un rostro que seguir. Te da método, mapa y compañía. Es menos épico y más lento. También es el único camino que no termina en estatua.']],
+      ['El miedo se divide entre los que se conocen. Por eso el círculo.', ['El miedo es el impuesto invisible del país fallido: miedo a perder el trabajo, a la esquina oscura, al mes que viene. Gobierna más que cualquier gobierno.', 'El coraje individual es propaganda: nadie sostiene un basta en soledad. El miedo no se vence — se acompaña. Ocho vecinos que se conocen le tienen menos miedo al futuro que ocho extraños.', 'Por eso la unidad mínima del movimiento no es el individuo heroico sino el círculo: gente que se pone nombre y cara. El devenir asusta menos cuando no devenís solo.']],
+      ['Lo conocido te abriga hasta que te entierra.', ['Hay una libertad que da vértigo y una jaula que da paz. La mayoría elegimos la jaula — el empleo que odiamos, el país que padecemos — porque al menos la conocemos.', 'La libertad no se declama en fechas patrias: se practica en decisiones chiquitas e incómodas. Decir lo que pensás en la mesa familiar ya es un acto de política exterior.', 'El movimiento no te pide saltos al vacío. Te pide un paso por semana fuera de la jaula: una voz, una pregunta, un círculo. La libertad también se entrena.']],
+      ['Rompé el espejo y aparece el vecino.', ['El gris se mira en espejos que otros fabricaron: el sueldo, el título, el feed. Cada espejo devuelve una deuda: nunca ganás suficiente, nunca sos suficiente.', 'Conocerse sin espejo es preguntarse qué queda cuando nadie mide. Ahí aparecen cosas raras: lo que sabés hacer, lo que darías gratis, lo que no negociás. Justo el material del que se hacen las voces del mapa.', 'No es autoayuda: es prerequisito cívico. Un país de gente que no se conoce es diseñable por cualquiera menos por sí misma.']],
+      ['El que ama sin apego puede cambiar lo que ama sin traicionarlo.', ['Hay dos maneras fallidas de querer al país: el fanático, que lo ama tanto que no le deja cambiar nada, y el cínico, que lo dio por perdido para que no le duela.', 'Propongo la tercera: amor sin apego. Cuidar sin poseer, criticar sin destruir, quedarse sin resignarse. Amar la Argentina posible sin apego a la Argentina rota.', 'Ese amor no grita en las canchas ni llora en los actos. Releva escuelas, junta voces, escribe planes. Es menos fotogénico. Construye más.']],
+      ['Un pueblo que siente a tiempo ahorra décadas de arreglar tarde.', ['Llamamos infraestructura a lo que sostiene lo demás: rutas, redes, puentes. Falta una en la lista: la capacidad de un pueblo de sentir a tiempo.', 'Un país insensible se entera tarde: cuando la escuela ya se cayó, cuando el pibe ya se fue. La sensibilidad colectiva es el sistema de alerta temprana más barato que existe — y lo dejamos oxidar.', 'El mapa de voces es exactamente eso: sensibilidad vuelta infraestructura. Cada voz es un sensor. Doce mil sensores ya están encendidos.']],
+    ],
+    III: [
+      ['El país no está debajo de tus pies. Está entre vos y el de al lado.', ['No de territorio: eso es geografía. No de himno ni de escarapela: eso es liturgia. Una nación está hecha de acuerdos invisibles que renovamos cada mañana sin darnos cuenta.', 'Aceptar el mismo billete, frenar en el mismo semáforo, confiar en que el otro más o menos cumple: ese tejido de expectativas mutuas es el país real. Cuando se rompe, no hay ejército que lo reemplace.', 'La crisis argentina es, antes que económica, una crisis de ese tejido. Y el tejido no lo repara un decreto: lo reparan millones de hilos volviendo a cruzarse. Este ciclo de ensayos es sobre cómo.']],
+      ['Sabemos cortar. Nos falta aprender a coser.', ['En 1816 un congreso cortó un vínculo con precisión de cirujano: quedamos independientes de España. La operación fue un éxito. El paciente todavía se pregunta quién es.', 'Doscientos años después seguimos confundiendo cortar con fundar. Cortamos con gobiernos, con monedas, con nosotros mismos — cada década su tijera — y llamamos a eso empezar de nuevo.', 'La independencia fue el bisturí. La interdependencia es la sutura pendiente: declarar, con la misma solemnidad, todo lo que nos une y no queremos volver a cortar.']],
+      ['«No le debo nada a nadie» es la mentira fundacional del sálvese quien pueda.', ['Nos declaramos independientes de España y quedamos dependientes de todo lo demás: del dólar, del clima, del precio de la soja, del humor de un ministro.', 'La independencia individual también es ficción cómoda: el que dice no deber nada a nadie usó la ruta, la escuela y el hospital que otros pagaron. Nadie se hace solo; algunos solo tienen mejor contador.', 'Reconocer la dependencia no es debilidad: es contabilidad honesta. Recién cuando sabés de qué dependés podés elegir de qué querés depender. Eso — elegir los vínculos — es la única independencia adulta.']],
+      ['Nadie se salva solo — y nadie que se salvó solo llegó muy lejos.', ['En 2020 el planeta entero repitió la lección: nadie se salva solo. La pagamos carísima y la olvidamos en dos años, como todo lo aprendido en emergencia.', 'Interdependencia es la palabra que faltaba entre el individualismo que nos aísla y el colectivismo que nos disuelve. Ni héroe solitario ni masa obediente: nodos de una red que se sostienen mutuamente.', 'Este ensayo propone escribirla en piedra: un acta de interdependencia que declare lo obvio para que no se pueda desdeclarar. Los países también necesitan recordatorios.']],
+      ['La grieta no es de ideas. Es de vínculos que dejamos morir.', ['Los vínculos invisibles no se cuidan, y lo que no se cuida se cobra: en soledad, en desconfianza, en país. La factura llega con otros nombres — inseguridad, grieta, fuga — y nunca sospechamos del tejido roto.', 'Medimos PBI, riesgo país e inflación con tres decimales, y no tenemos un solo número para la confianza entre vecinos. Lo que no se mide no se ve; lo que no se ve, se pierde.', 'El mapa de voces mide eso, indirectamente: cada voz es alguien que todavía cree que decir sirve. Cuando ese número crece, crece el país invisible que sostiene al visible.']],
+      ['La buena voluntad sin telar es pelusa.', ['Tejer no es juntar hilos: es cruzarlos con método. Un país deshilachado no se arregla con buena onda ni con cadenas de WhatsApp — se arregla con telares.', 'Los telares del movimiento: el círculo, que cruza vecinos; el mapa, que cruza voces; el mandato, que cruza urgencias; los planes, que cruzan saberes. Ninguno requiere permiso. Todos requieren constancia.', 'La práctica es semanal y modesta: un mate con el del círculo, una voz nueva, una crónica leída. El tejido no se nota crecer. Un día, simplemente, sostiene.']],
+      ['El acta no se firma con lapicera. Se firma quedándose.', ['El ciclo termina en un documento que no existe en ningún registro: el acta de lo que nos debemos mutuamente. No la firma un congreso; la firma cada uno, quedándose.', 'Declara lo evidente: que dependo del que siembra, del que enseña, del que cura, del que junta la basura — y que ellos dependen de mí. Que esa deuda circular no es carga: es patria en estado puro.', 'Si llegaste hasta acá, ya la estás firmando. Falta el gesto público: tu semilla, tu voz, tu basta. Papel hay de sobra en este sitio.']],
+    ],
+  };
+
+  // [intro, [[lección, min]...], práctica] por guía, mismo orden que this.guias
+  guiaFull = [
+    ['El diagnóstico antes que la receta: quién sos en esta historia y por qué tu normalidad es el recurso más desaprovechado del país.', [['El gris no es un color, es un contrato', 8], ['Inventario de tu martes: dónde se te va la vida', 10], ['Las tres anestesias: consumo, pantalla, queja', 9], ['El instante: anatomía de un basta', 10], ['De gris a nodo: tu primer gesto público', 8]], 'Escribí tu basta en una frase y decísela en voz alta a una persona de carne y hueso. Después soltala en el mapa.'],
+    ['Ackoff sin jerga: cómo se diseña desde el futuro ideal hacia atrás — el método detrás de los 22 planes, explicado para usarlo en tu cuadra.', [['Arreglar vs. diseñar: por qué parchar sale caro', 12], ['El futuro ideal: imaginar sin pedir permiso', 10], ['Caminar hacia atrás: del ideal al lunes', 12], ['Números que no mienten: la línea de base', 10], ['El costo de no hacer nada', 8], ['Prototipo barato, error barato', 10], ['Tu primer diseño: elegí algo chico', 15]], 'Elegí algo roto de tu barrio y escribí su diseño ideal en media página. Sin presupuesto, sin permiso: solo el ideal. Es el paso uno de todo.'],
+    ['El Estado no es una niebla: es un organigrama y un presupuesto. Quien aprende a leerlos deja de discutir opiniones y empieza a discutir renglones.', [['Qué es el presupuesto y dónde vive', 10], ['Cómo leer una partida sin dormirse', 12], ['«No hay plata»: cómo verificarlo', 10], ['Cargos: quién decide qué, de verdad', 9], ['Acceso a la información: tu bisturí legal', 12], ['Leer una licitación en 15 minutos', 15]], 'Buscá cuánto presupuestó tu municipio este año para la plaza o la salita de tu barrio. Compartí el renglón en tu círculo.'],
+    ['Inflación, moneda, deuda: las palabras que usan para que te calles. Después de esta guía, que las usen con cuidado.', [['Por qué tu sueldo se evapora: inflación sin humo', 12], ['La maquinita: quién emite y quién paga', 10], ['Deuda: hipotecar el país en cómodas cuotas', 10], ['El dólar como termómetro y como fetiche', 9], ['Tu economía gris: defensa personal financiera', 9]], 'Calculá cuánto perdió tu sueldo contra la inflación en 12 meses. Es un número tuyo: nadie te lo puede discutir. Llevalo a la mesa.'],
+    ['Tu basta vale poco mal dicho. Cuatro lecciones para decir lo que pensás sin gritar, sin pedir perdón y sin que te lo den vuelta.', [['Una idea por frase: higiene del decir', 8], ['Datos + historia: la fórmula que convence', 10], ['Discutir sin barro: qué contestar y qué soltar', 12], ['Escribir tu voz para el mapa: taller express', 10]], 'Reescribí tu basta en 20 palabras o menos. Si tu vieja lo entiende a la primera, está listo para el mapa.'],
+    ['Ocho vecinos, cero jefes. El manual completo para fundar la unidad mínima del movimiento sin que se muera en la tercera reunión.', [['Por qué 8 y por qué sin jefe', 8], ['La primera convocatoria: a quién y cómo', 10], ['La reunión que no aburre: 40 minutos exactos', 12], ['Roles que rotan: nadie se apoltrona', 9], ['El círculo habla al mapa: la voz colectiva', 8], ['Qué hacer cuando se pincha', 8]], 'Escribí la lista de tus 8. No los invites todavía: solo escribila y mirala. El círculo empieza ahí.'],
+  ];
+
+  // párrafos por crónica, mismo orden que this.bitacora
+  postFull = [
+    ['Entraron 1.204 voces en siete días — el mejor registro desde que abrió el mapa. Pero el dato no es la cantidad: es el corrimiento. Salud desplazó a trabajo como urgencia número uno por primera vez, empujada por 340 voces sobre turnos, guardias y remedios.', 'El mandato se reordenó solo: la cláusula 001 — treinta días máximo para un turno esencial — subió al tope del documento sin que ninguna mesa chica lo decidiera. Así se ve un país hablando: los porcentajes se mueven como mareas, despacio y sin dueño.', 'Detalle que importa: 214 de esas voces fueron críticas al movimiento. Están publicadas como todas. En este mapa la incomodidad también es un dato.'],
+    ['Once vecinos, un grupo de WhatsApp que se convirtió en círculo, y tres meses de constancia aburrida: notas selladas, fotos con fecha, un expediente que no se dejó morir.', 'El martes llegó la perforadora municipal. Añatuya va a tener su pozo, y la cláusula 005 — agua potable como piso de dignidad — tiene su primer caso testigo.', 'Nadie cortó una cinta. El círculo lo documentó todo y lo subió al mapa: el método queda replicable para el próximo pueblo. Eso vale más que el pozo.'],
+    ['Este mes el movimiento recibió 214 críticas con nombre y lugar: que somos ingenuos, que el mapa es una moda, que sin plata no hay método que aguante. Todas están publicadas. Ninguna se moderó.', 'La razón es de diseño, no de virtud: un movimiento que filtra lo incómodo se vuelve propaganda en seis meses. La transparencia duele como el agua fría — y desinfecta igual.', 'A los que escribieron para criticar: gracias. Ya están adentro. Eso hace el mapa con la bronca: la vuelve dato, y el dato vuelve mandato.'],
+    ['La cláusula 002 dice: ninguna escuela llueve adentro. Para cumplirla primero hay que contarlas — y el Estado no tiene el número completo. Así que empezamos nosotros.', 'En cuatro semanas, docentes y familias relevaron 1.132 escuelas con un formulario de tres minutos: goteras sí/no, calefacción sí/no, baños funcionando. Faltan 41.000. Sobran manos si sobran voces.', 'El censo es público, descargable y sin membrete. Cuando alguien pida «datos serios», acá están: los hizo la gente que se moja.'],
+    ['La cláusula 001 no la redactó un comité de notables. Salió de un embudo público: 2.294 voces de salud, agrupadas por tema, reducidas a la urgencia más repetida — la espera — y convertidas en una frase con número y plazo: treinta días máximo para un turno esencial.', 'El embudo entero está publicado: qué voces entraron, cómo se agruparon, qué quedó afuera y por qué. Si una voz tuya se clasificó mal, se corrige y la cláusula se recalcula. Burocracia cero, trazabilidad total.', 'Lo que ningún paso del proceso admite: un despacho, un asesor, una lapicera con nombre. Las cláusulas no tienen autor. Tienen autores: miles.'],
+    ['Se conocieron en la cola del PAMI, que es donde el país gris se encuentra. Uno había leído el manual del círculo; los otros siete tenían tiempo, bronca y libreta.', 'En tres semanas relevaron las 14 salitas de Trelew: horarios reales de atención, insumos faltantes, demora promedio de turnos. Todo con el formulario del censo y fotos con fecha. La municipalidad pidió reunión — ellos pidieron que fuera pública.', 'El círculo 214 no marchó, no cortó, no gritó. Documentó. Y por primera vez en años, los números de sus salitas los tiene el barrio antes que el ministerio.'],
+    ['La semilla 3.000 la plantó Marta, docente de Posadas. Su basta: «basta de enseñar con goteras». Su compromiso: abrir la biblioteca de la escuela los sábados. Nos dio permiso para contarlo.', 'Leyendo las 3.000 semillas públicas: el 68% de los compromisos son de menos de dos horas semanales. Apoyo escolar, oficios gratis, trámites para vecinos mayores, una huerta. Nadie prometió refundar la patria. Todos prometieron un sábado.', 'Esa es la escala del método: nada épico, todo verificable. Un país no se arregla con juramentos — se arregla con sábados.'],
+    ['Este trimestre nos ofrecieron: dos candidaturas testimoniales, un financiamiento generoso a cambio de logo, y un dirigente conocido dispuesto a «ponerle la cara al movimiento». Las tres ofertas se rechazaron en público, que es donde se rechaza.', 'No por pureza: por diseño. Un candidato nos vuelve partido; un sponsor con logo nos vuelve marca; una cara nos vuelve seguidores. Las tres cosas matan lo único que tenemos: que esto no es de nadie.', 'El movimiento se financia con trabajo donado y transparencia radical: cada peso que entra y sale está publicado. Pobres y limpios escala mejor que ricos y de alguien.'],
+    ['El expediente del pozo de Añatuya — notas, plazos, formularios, a quién insistirle y cada cuánto — quedó publicado en la biblioteca. Frías lo descargó un lunes; Quimilí, un miércoles.', 'Las dos mesas del agua ya tienen fecha de reunión pública con sus municipios, y dos hidrogeólogos voluntarios del mapa las acompañan. Nadie de «la organización» viajó: no hace falta. Esa es la gracia.', 'Un método que necesita héroes no es método. Uno que se replica con un PDF y once vecinos, sí.'],
+    ['Tres medios nacionales cubrieron el mapa este mes. Los títulos: «la utopía de los sin líder», «un mapa de quejas», «¿puede un PDF cambiar un país?». Ingenuos fue la palabra más repetida.', 'Respondimos con lo único que tenemos: los números públicos. 12.496 voces, 3.107 semillas, 214 círculos, un pozo de agua y un censo escolar en marcha. La ingenuidad, hasta ahora, factura.', 'A los tres medios les dejamos la misma invitación abierta: auditen el embudo, publiquen lo que encuentren, critíquennos con datos. La puerta es el mapa, y ya saben dónde está.'],
+  ];
+
+  // [num romano, título, [párrafos]] — el manifiesto
+  manifSecs = [
+    ['I', 'Lo que esto no es', ['No es un partido. No es una lista para las próximas elecciones. No hay carnet, cuota ni jefe. No hay un rostro que aplaudir ni un enemigo que odiar — de eso ya hay oferta de sobra.', 'No te promete nada. Los que prometen necesitan que esperes; esto necesita exactamente lo contrario.']],
+    ['II', 'Lo que sí es', ['Una conversación entre hartos que decidieron no desperdiciar el hartazgo. Un método para convertir bronca en diseño, queja en dato, dato en mandato.', 'Y una apuesta: que 45 millones de personas comunes, organizadas con método y sin dueño, diseñan mejor que cualquier iluminado.']],
+    ['III', 'Vos', ['Trabajás, pagás, cumplís, esperás. Hacés todo lo que hay que hacer y el país igual te queda debiendo. Aprendiste a esperar poco y a callar mucho, y a eso le pusiste «madurez».', 'No sos el problema. Sos el recurso más desaprovechado de la Argentina: cuarenta y cinco millones de diseñadores sin obra.']],
+    ['IV', 'El instante', ['Una factura, una sala de espera, una despedida en Ezeiza. Un día el gris se corta y aparece la palabra que venías tragando hace años. No es enojo — el enojo pasa. Es claridad.', 'Ese instante no te pide heroísmo. Te pide que no lo dejes pasar: que lo anotes, que lo digas, que lo sueltes donde se junte con otros doce mil.']],
+    ['V', 'El acuerdo', ['La ciudadanía diseña. El Estado administra. La política ejecuta. Tres frases, tres trabajos, cero mezclas. Todo lo demás — mapa, mandato, planes, círculos — son herramientas para sostener esas tres frases.', 'El que quiera un cargo, firma el mandato. El que administre, publica sus números. El que diseña sos vos. No se negocia el orden.']],
+    ['VI', 'La firma', ['Este manifiesto no se firma con lapicera. Se firma con tres frases tuyas — tu basta, tu sueño, tu compromiso — y se ratifica quedándote.', 'Leelo de nuevo dentro de un año. Si el movimiento se traicionó, este papel es la vara para echárnoslo en cara. Si no, vas a tener una semilla con tu número.']],
+  ];
+
+  docData = {
+    prioridades: [
+      ['1', 'Salud', 'turnos, guardias y remedios: el sistema llega tarde', '18,4%', '2.294', 'Mi vieja esperó seis meses un turno de cardiología. En seis meses pasan cosas.', 'Quilmes'],
+      ['2', 'Educación', 'escuelas que llueven, docentes que ponen de su bolsillo', '16,2%', '2.019', 'Enseño con fotocopias que pago yo. El Estado me manda un aplauso.', 'Resistencia'],
+      ['3', 'Trabajo', 'sueldos que se evaporan, pibes que se van', '13,8%', '1.720', 'Mi hijo ingeniero maneja apps. El país formó un ingeniero para eso.', 'Rosario'],
+      ['4', 'Seguridad', 'barrios que se organizan solos porque nadie llega', '11,5%', '1.433', 'A la tercera moto robada dejamos de denunciar. Eso también es un dato.', 'Moreno'],
+    ],
+    recursos: [['Oficios y técnica', '1.240'], ['Docencia y apoyo escolar', '890'], ['Salud y cuidado', '610'], ['Logística y transporte', '465']],
+    brechas: [['Salud mental', '380', '45', 'crítica', '#C23B22'], ['Agua e infraestructura', '510', '120', 'alta', '#A16C00'], ['Apoyo escolar', '720', '890', 'cubierta si se organiza', '#1A7A4A']],
+    acciones: [
+      ['1', 'Red federal de turnos comunitarios', 'Voluntarios de salud y círculos locales arman una lista de espera paralela y auditable en 40 municipios: el número que el sistema no publica.', '2.294 voces respondidas'],
+      ['2', 'Censo escolar ciudadano — en marcha', 'Formulario de tres minutos por escuela, relevado por docentes y familias. 1.132 hechas, 41.000 por hacer.', 'cláusula 002 con línea de base'],
+      ['3', 'Mesa del agua NOA', 'Los círculos de Añatuya, Frías y Quimilí más dos hidrogeólogos voluntarios replican el expediente del pozo en tres pueblos.', 'cláusula 005 en tres pueblos más'],
+    ],
+  };
+
+  componentDidMount() {
+    fetch('data/ar-map.json').then(r => r.json()).then(j => this.setState({ mapPath: j.path, cities: j.cities })).catch(() => {});
+    this._onScroll = () => {
+      if (this.state.page !== 'manifiesto' || this.state.manifRead) return;
+      const el = document.getElementById('manif-end');
+      if (el && el.getBoundingClientRect().top < window.innerHeight * 0.9) this.setState({ manifRead: true });
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+  }
+
+  despertarSitio() {
+    if (this.state.despierto) return;
+    this.setState({ despierto: true });
+    try { localStorage.setItem('basta_despierto', '1'); } catch (e) {}
+  }
+
+  go(p) {
+    this.setState({ page: p, menuOpen: false, selVoice: null, mapPlaced: false });
+    try { window.scrollTo({ top: 0 }); } catch (e) {}
+  }
+
+  cityXY(name) {
+    const c = this.state.cities.find(c => c.n === name);
+    return c ? { x: c.x, y: c.y } : { x: 250, y: 400 };
+  }
+
+  soltar() {
+    const t = this.state.mapText.trim();
+    if (!t) return;
+    const cities = this.state.cities.length ? this.state.cities : [{ n: 'Córdoba', x: 220, y: 290 }];
+    const c = cities[Math.floor(Math.random() * cities.length)];
+    const v = { type: this.state.mapType, text: t, place: c.n, city: c.n, mine: true };
+    this.setState(s => ({ voices: [v, ...s.voices], mapText: '', mapPlaced: true, lastPlace: c.n }));
+    this.despertarSitio();
+  }
+
+  readerVals(accent) {
+    const s = this.state;
+    const out = {};
+    const mkP = (t) => ({ text: t, ff: "'Archivo',sans-serif", fs: '17px', lh: '1.75', color: '#33302A', m: '0 0 20px', pad: '0', bl: 'none', bt: 'none' });
+    const mkQ = (t) => ({ text: t, ff: "'Anton',sans-serif", fs: 'clamp(24px,3vw,34px)', lh: '1.18', color: accent, m: '34px 0', pad: '2px 0 2px 24px', bl: '4px solid ' + accent, bt: 'none' });
+    // ensayo
+    const flatE = [];
+    ['I', 'II', 'III'].forEach(c => this.ensayos[c].forEach((e, i) => flatE.push({ c, i })));
+    const rIdx = s.readerEnsayo ? flatE.findIndex(f => f.c === s.readerEnsayo.c && f.i === s.readerEnsayo.i) : -1;
+    if (rIdx >= 0) {
+      const { c, i } = flatE[rIdx];
+      const e = this.ensayos[c][i], full = this.ensayoFull[c][i];
+      out.rdEnsayoTitle = e[0];
+      out.rdEnsayoMeta = 'Ensayo E' + String(rIdx + 1).padStart(2, '0') + ' · Ciclo ' + c + ' · ' + e[2] + ' min';
+      out.rdEnsayoParas = [mkP(full[1][0]), mkP(full[1][1]), mkQ(full[0]), mkP(full[1][2])];
+      const openAt = (idx) => () => this.openReader({ page: 'ensayo', readerEnsayo: { c: flatE[idx].c, i: flatE[idx].i } });
+      out.rdHasPrev = rIdx > 0; out.rdHasNext = rIdx < flatE.length - 1;
+      out.rdPrevTitle = rIdx > 0 ? this.ensayos[flatE[rIdx - 1].c][flatE[rIdx - 1].i][0] : '';
+      out.rdNextTitle = rIdx < flatE.length - 1 ? this.ensayos[flatE[rIdx + 1].c][flatE[rIdx + 1].i][0] : '';
+      out.rdPrevGo = rIdx > 0 ? openAt(rIdx - 1) : null;
+      out.rdNextGo = rIdx < flatE.length - 1 ? openAt(rIdx + 1) : null;
+    } else {
+      Object.assign(out, { rdEnsayoTitle: '', rdEnsayoMeta: '', rdEnsayoParas: [], rdHasPrev: false, rdHasNext: false, rdPrevTitle: '', rdNextTitle: '', rdPrevGo: null, rdNextGo: null });
+    }
+    // curso
+    const ci = s.readerCurso;
+    if (ci != null && this.guias[ci]) {
+      const g = this.guias[ci], f = this.guiaFull[ci];
+      out.rdCursoTitle = g[2]; out.rdCursoLevel = g[0]; out.rdCursoDur = g[1]; out.rdCursoIntro = f[0];
+      out.rdCursoLessons = f[1].map((l, i) => ({ num: 'L' + (i + 1), t: l[0], min: l[1] }));
+      out.rdCursoPractica = f[2];
+      out.rdCursoHasPrev = ci > 0; out.rdCursoHasNext = ci < this.guias.length - 1;
+      out.rdCursoPrevT = ci > 0 ? this.guias[ci - 1][2] : ''; out.rdCursoNextT = ci < this.guias.length - 1 ? this.guias[ci + 1][2] : '';
+      out.rdCursoPrevGo = () => this.openReader({ readerCurso: ci - 1 });
+      out.rdCursoNextGo = () => this.openReader({ readerCurso: ci + 1 });
+    } else {
+      Object.assign(out, { rdCursoTitle: '', rdCursoLevel: '', rdCursoDur: '', rdCursoIntro: '', rdCursoLessons: [], rdCursoPractica: '', rdCursoHasPrev: false, rdCursoHasNext: false, rdCursoPrevT: '', rdCursoNextT: '', rdCursoPrevGo: null, rdCursoNextGo: null });
+    }
+    // post
+    const pi = s.readerPost;
+    if (pi != null && this.bitacora[pi]) {
+      const b = this.bitacora[pi];
+      out.rdPostDate = b[0]; out.rdPostTag = b[1]; out.rdPostTitle = b[2];
+      out.rdPostColor = b[1] === 'crónica' ? accent : (b[1] === 'territorio' ? '#1A7A4A' : '#A16C00');
+      out.rdPostParas = this.postFull[pi].map(t => ({ text: t }));
+    } else {
+      Object.assign(out, { rdPostDate: '', rdPostTag: '', rdPostTitle: '', rdPostColor: accent, rdPostParas: [] });
+    }
+    // manifiesto
+    out.manifBlocks = [];
+    this.manifSecs.forEach(sec => {
+      out.manifBlocks.push({ text: sec[0] + ' — ' + sec[1], ff: "'Anton',sans-serif", fs: 'clamp(26px,3.4vw,40px)', lh: '1.05', color: '#16130E', m: '52px 0 18px', pad: '26px 0 0', bl: 'none', bt: '2px solid #16130E' });
+      sec[2].forEach(p => out.manifBlocks.push({ text: p, ff: "'Archivo',sans-serif", fs: '17px', lh: '1.75', color: '#33302A', m: '0 0 18px', pad: '0', bl: 'none', bt: 'none' }));
+    });
+    // documento del mandato
+    out.docPrioridades = this.docData.prioridades.map(p => ({ rank: p[0], theme: p[1], desc: p[2], pct: p[3], voces: p[4], quote: p[5], place: p[6] }));
+    out.docRecursos = this.docData.recursos.map(r => ({ cat: r[0], n: r[1] }));
+    out.docBrechas = this.docData.brechas.map(b => ({ tema: b[0], need: b[1], have: b[2], urg: b[3], uc: b[4] }));
+    out.docAcciones = this.docData.acciones.map(a => ({ num: a[0], t: a[1], desc: a[2], imp: a[3] }));
+    return out;
+  }
+
+  openReader(patch) {
+    this.setState({ menuOpen: false, ...patch });
+    try { window.scrollTo({ top: 0 }); } catch (e) {}
+  }
+
+  mkEnsayos(ciclo, offset) {
+    const accent = this.props.accent ?? '#5227CC';
+    return this.ensayos[ciclo].map((e, i) => {
+      const id = ciclo + i;
+      const open = this.state.ensayoOpen === id;
+      return {
+        num: 'E' + String(offset + i + 1).padStart(2, '0'),
+        t: e[0], exc: e[1], min: e[2],
+        open, icon: open ? '−' : '+', tColor: open ? accent : '#16130E',
+        onToggle: () => this.setState({ ensayoOpen: this.state.ensayoOpen === id ? null : id }),
+        onOpen: () => this.openReader({ page: 'ensayo', readerEnsayo: { c: ciclo, i } }),
+      };
+    });
+  }
+
+  semilla() {
+    const id = (12482 + Math.floor(Math.random() * 400)).toLocaleString('es-AR');
+    this.setState({ semDone: true, semId: id });
+    this.despertarSitio();
+  }
+
+  renderVals() {
+    const s = this.state;
+    const accent = this.props.accent ?? '#5227CC';
+    const accentOnDark = '#9D85E8';
+    const go = (p) => () => this.go(p);
+    const pages = [['idea', 'La idea', 'I'], ['mapa', 'El mapa', 'II'], ['mandato', 'El mandato', 'III'], ['planes', 'La prueba', 'IV'], ['biblioteca', 'La biblioteca', 'V']];
+    const nav = pages.map(([key, label]) => ({
+      key, label, onClick: go(key),
+      color: s.page === key ? '#16130E' : '#7A756A',
+      line: s.page === key ? accent : 'transparent',
+    }));
+    const navAll = [['home', 'Inicio', '00'], ...pages.map((p, i) => [p[0], p[1], '0' + (i + 1)]), ['sembrar', 'Sembrar', '05']].map(([key, label, num]) => ({ key, label, num, onClick: go(key) }));
+
+    const tc = this.typeColors;
+    const jit = (n, i) => { let h = 0; for (let k = 0; k < n.length; k++) h = (h * 31 + n.charCodeAt(k)) % 997; return ((h + i * 137) % 21) - 10; };
+    const mapDots = s.voices.map((v, i) => {
+      const base = this.cityXY(v.city);
+      const x = +(base.x + jit(v.text, i)).toFixed(1), y = +(base.y + jit(v.place, i + 3)).toFixed(1);
+      return {
+        x, y, c: tc[v.type] || '#16130E', r: v.mine ? 7 : 4.5,
+        delay: (i % 7) * 0.4 + 's', origin: x + 'px ' + y + 'px',
+        onClick: () => this.setState({ selVoice: v }),
+      };
+    });
+
+    const voiceTypes = ['basta', 'sueño', 'necesidad', 'compromiso', 'recurso', 'valor'].map(t => ({
+      label: t, onClick: () => this.setState({ mapType: t }),
+      bg: s.mapType === t ? tc[t] : 'transparent',
+      fg: s.mapType === t ? '#F2EFE7' : '#16130E',
+    }));
+    const placeholders = {
+      'basta': '¿De qué estás harto? Ej: basta de esperar 6 meses un turno médico…',
+      'sueño': '¿Qué querés que exista? Ej: que el pueblo tenga secundaria completa…',
+      'necesidad': '¿Qué falta hoy, concreto? Ej: una salita que atienda de noche…',
+      'compromiso': '¿Qué vas a hacer vos? Ej: donar dos horas por semana a…',
+      'recurso': '¿Qué tenés para ofrecer? Ej: sé soldar, tengo herramientas…',
+      'valor': '¿Qué no se negocia? Ej: la educación pública no se toca…',
+    };
+
+    const canSoltar = s.mapText.trim().length > 0;
+    const filtros = ['todos', 'Ambiente', 'Infraestructura', 'Economía', 'Instituciones', 'Salud', 'Cultura', 'Educación', 'Justicia', 'Geopolítica', 'Tecnología'].map(f => ({
+      label: f === 'todos' ? 'Todos · 22' : f,
+      onClick: () => this.setState({ planFilter: f, planOpen: null }),
+      bg: s.planFilter === f ? '#16130E' : 'transparent',
+      fg: s.planFilter === f ? '#F2EFE7' : '#16130E',
+    }));
+    const planRows = this.plans
+      .map((p, i) => ({ code: p[0], name: p[1], cat: p[2], line: p[3], doc: p[4], num: String(i + 1).padStart(2, '0') }))
+      .filter(p => s.planFilter === 'todos' || p.cat === s.planFilter)
+      .map(p => ({
+        ...p, open: s.planOpen === p.code,
+        icon: s.planOpen === p.code ? '−' : '+',
+        codeColor: s.planOpen === p.code ? accent : '#16130E',
+        onToggle: () => this.setState({ planOpen: s.planOpen === p.code ? null : p.code }),
+      }));
+
+    const semTitles = [
+      ['Tu basta', 'Lo que no estás dispuesto a aguantar ni un día más. Sin diplomacia.', 'Basta de…'],
+      ['Tu sueño', 'El país que querrías si nadie te dijera que es imposible.', 'Sueño con…'],
+      ['Tu compromiso', 'Lo que vas a poner vos. Chiquito y real vale más que épico y falso.', 'Me comprometo a…'],
+    ];
+    const canNext = s.semFields[s.semStep].trim().length > 0;
+    const semSteps = [0, 1, 2].map(i => ({ bg: i <= s.semStep ? accent : '#D8D4C8' }));
+
+    const temasData = [['Salud', 18.4], ['Educación', 16.2], ['Trabajo', 13.8], ['Seguridad', 11.5], ['Vivienda', 9.7], ['Justicia', 8.9], ['Ambiente', 7.6], ['Transporte', 5.4]];
+    const temas = temasData.map(([label, pct], i) => ({
+      label, pct: pct.toFixed(1) + '%', w: (pct * 4.6).toFixed(1) + '%',
+      c: i === 0 ? accent : (i < 3 ? '#8E8A82' : '#5C594F'), delay: (i * 0.08) + 's',
+    }));
+    const clausulas = [
+      ['001', 'Ningún argentino espera más de 30 días un turno médico esencial. El sistema se mide por ese número, en público.', '2.294 voces · salud · 21 provincias'],
+      ['002', 'Ninguna escuela del país llueve adentro. Censo de infraestructura escolar abierto y auditable, plazo 24 meses.', '1.877 voces · educación · 23 provincias'],
+      ['003', 'Todo funcionario que ejecuta presupuesto publica sus números en formato abierto, cada trimestre, sin excepción.', '1.512 voces · instituciones · nacional'],
+      ['004', 'El que quiera quedarse en su pueblo tiene que poder: conectividad, empleo local y transporte como piso, no como promesa.', '1.208 voces · arraigo · interior'],
+      ['005', 'El agua potable es piso de dignidad. Ningún pueblo del norte espera un bidón para tomar agua segura.', '946 voces · infraestructura · NOA-NEA'],
+    ].map(([num, text, meta], i) => ({ num, text, meta, delay: (0.15 + i * 0.15) + 's' }));
+
+    const featured = ['PLANISV', 'PLAN24CN', 'PLANEDU'];
+    const planesTeaser = this.plans.filter(p => featured.includes(p[0])).map((p, i) => ({
+      code: p[0], cat: p[2], line: p[3], num: String(this.plans.findIndex(q => q[0] === p[0]) + 1).padStart(2, '0'),
+      onClick: () => this.go('planes'),
+    }));
+
+    const tallies = Array.from({ length: 72 }, (_, i) => ({
+      h: 22 + ((i * 7) % 16), r: ((i * 13) % 11) - 5,
+      c: i === 47 ? accent : (i % 9 === 0 ? '#F2EFE7' : '#6B675E'),
+    }));
+
+    const sel = s.selVoice;
+    return {
+      accent, accentOnDark,
+      isHome: s.page === 'home', isIdea: s.page === 'idea', isMapa: s.page === 'mapa',
+      isMandato: s.page === 'mandato', isPlanes: s.page === 'planes', isSembrar: s.page === 'sembrar', isBiblioteca: s.page === 'biblioteca',
+      goHome: go('home'), goIdea: go('idea'), goMapa: go('mapa'), goMandato: go('mandato'), goPlanes: go('planes'), goSembrar: go('sembrar'), goBiblioteca: go('biblioteca'),
+      nav, navAll, menuOpen: s.menuOpen, menuLabel: s.menuOpen ? 'Cerrar ✕' : 'Menú ☰',
+      toggleMenu: () => this.setState(st => ({ menuOpen: !st.menuOpen })),
+
+      tickerVoices: [...s.voices, ...s.voices].map(v => ({ text: v.text, place: v.place, color: v.type === 'basta' ? '#C23B22' : '#4A463D' })),
+      tresLineas: [
+        { num: '01', a: 'La ciudadanía', b: 'diseña.', def: 'Vos decís qué país querés — en el mapa, con tu voz. Nadie interpreta por vos.', onClick: go('idea') },
+        { num: '02', a: 'El Estado', b: 'administra.', def: 'Técnicos que gestionan lo diseñado. Gerentes, no dueños.', onClick: go('idea') },
+        { num: '03', a: 'La política', b: 'ejecuta.', def: 'El que quiera un cargo firma el mandato ciudadano. Y rinde cuentas en público.', onClick: go('idea') },
+      ],
+      tallies,
+      cifras: [
+        { n: '12.496', label: 'voces en el mapa', color: '#16130E', onClick: go('mapa') },
+        { n: '3.107', label: 'semillas plantadas', color: '#16130E', onClick: go('sembrar') },
+        { n: '214', label: 'círculos activos', color: '#16130E', onClick: go('idea') },
+        { n: '22', label: 'planes en la prueba', color: accent, onClick: go('planes') },
+      ],
+      planesTeaser,
+
+      awake: s.awake, notAwake: !s.awake,
+      instFilter: s.awake ? 'none' : 'grayscale(1)',
+      instBg: s.awake ? '#EAE4F7' : '#B5B1A8',
+      despertar: () => { this.setState({ awake: true }); this.despertarSitio(); },
+      roles: [
+        { num: '01', a: 'La ciudadanía', b: 'diseña', body: 'El diseño del país no es tarea de expertos iluminados: es la suma organizada de lo que la gente declara que necesita, sueña y no tolera. El mapa junta esas voces; el método las convierte en mandato. Tu voz no es una opinión perdida en redes — es un dato de diseño.' },
+        { num: '02', a: 'El Estado', b: 'administra', body: 'El Estado deja de ser botín y pasa a ser gerencia: técnicos concursados que administran lo que la ciudadanía diseñó, con métricas públicas y mandato revocable. Administrar bien no da poder; da trabajo.' },
+        { num: '03', a: 'La política', b: 'ejecuta', body: 'Los políticos no deciden el rumbo: lo ejecutan. El que quiera un cargo firma el mandato vigente, publica su avance cada trimestre y se somete a auditoría ciudadana. El que no firma, compite contra 12.496 voces. Suerte.' },
+      ],
+      ciclo: [
+        { label: 'Tu voz', bg: accent, fg: '#F2EFE7', arrow: '→' },
+        { label: 'El mapa', bg: 'transparent', fg: '#16130E', arrow: '→' },
+        { label: 'El mandato', bg: 'transparent', fg: '#16130E', arrow: '→' },
+        { label: 'La prueba', bg: 'transparent', fg: '#16130E', arrow: '→' },
+        { label: 'Ejecución', bg: 'transparent', fg: '#16130E', arrow: '→' },
+        { label: 'Auditoría', bg: '#16130E', fg: '#F2EFE7', arrow: '↺' },
+      ],
+      sinLider: [
+        { stamp: 'Sin líder', body: 'Los movimientos con líder mueren con el líder — o peor: viven con él. Acá el método es el líder. Nadie que idolatrar, nadie que te traicione.' },
+        { stamp: 'Sin partido', body: 'No competimos por cargos: los condicionamos. El mandato se le impone a cualquier partido que quiera gobernar. Que se peleen ellos por ejecutarlo.' },
+        { stamp: 'Sin excusas', body: 'No hace falta plata, carnet ni tiempo libre. Tres frases y un compromiso chiquito. Si 45 millones hacen algo chiquito, no queda nada grande sin mover.' },
+      ],
+
+      mapPath: s.mapPath, mapDots, voiceTypes,
+      vocesCount: (12482 + s.voices.length).toLocaleString('es-AR'),
+      voicePlaceholder: placeholders[s.mapType],
+      mapText: s.mapText, onMapText: (e) => this.setState({ mapText: e.target.value }),
+      soltarVoz: () => this.soltar(),
+      soltarBg: canSoltar ? accent : '#B5B1A8', soltarCursor: canSoltar ? 'pointer' : 'default',
+      soltarLabel: 'Soltar en el mapa ↓',
+      mapPlaced: s.mapPlaced, lastPlace: s.lastPlace,
+      feed: s.voices.slice(0, 8).map(v => ({ ...v, color: tc[v.type] })),
+      hasSelVoice: !!sel,
+      selVoiceType: sel ? sel.type : '', selVoiceText: sel ? sel.text : '',
+      selVoicePlace: sel ? sel.place : '', selVoiceColor: sel ? (sel.type === 'basta' ? '#E86A54' : accentOnDark) : accentOnDark,
+
+      temas, clausulas,
+      mandatoComo: [
+        { t: 'Se firma', body: 'Todo candidato a cargo ejecutivo o legislativo puede firmar el mandato vigente ante escribano. La firma es pública y permanente.' },
+        { t: 'Se mide', body: 'Cada cláusula tiene métrica, plazo y responsable. El avance se publica cada trimestre en formato abierto, auditable por cualquiera.' },
+        { t: 'Se recuerda', body: 'El incumplimiento no se olvida ni se negocia: queda registrado y visible para siempre. La memoria es la sanción.' },
+      ],
+
+      filtros, planRows,
+
+      semNotDone: !s.semDone, semDone: s.semDone,
+      semStepNum: s.semStep + 1,
+      semTitle: semTitles[s.semStep][0], semHint: semTitles[s.semStep][1], semPlaceholder: semTitles[s.semStep][2],
+      semText: s.semFields[s.semStep],
+      onSemText: (e) => { const f = [...this.state.semFields]; f[this.state.semStep] = e.target.value; this.setState({ semFields: f }); },
+      semSteps,
+      semBack: () => { if (this.state.semStep > 0) this.setState({ semStep: this.state.semStep - 1 }); },
+      semBackColor: s.semStep > 0 ? '#16130E' : '#D8D4C8', semBackCursor: s.semStep > 0 ? 'pointer' : 'default',
+      semNext: () => { if (!canNext) return; if (this.state.semStep < 2) this.setState({ semStep: this.state.semStep + 1 }); else this.semilla(); },
+      semNextBg: canNext ? '#16130E' : '#B5B1A8', semNextCursor: canNext ? 'pointer' : 'default',
+      semNextLabel: s.semStep < 2 ? 'Siguiente →' : 'Plantar mi semilla',
+      semId: s.semId, semFecha: new Date().toLocaleDateString('es-AR', { day: 'numeric', month: 'long', year: 'numeric' }),
+      semBastaOut: s.semFields[0], semSuenoOut: s.semFields[1], semCompromisoOut: s.semFields[2],
+      semCopy: () => {
+        const t = 'MI SEMILLA ¡BASTA! N° ' + s.semId + '\nMi basta: ' + s.semFields[0] + '\nMi sueño: ' + s.semFields[1] + '\nMi compromiso: ' + s.semFields[2];
+        try { navigator.clipboard.writeText(t); } catch (e) {}
+        this.setState({ copied: true });
+        setTimeout(() => this.setState({ copied: false }), 2000);
+      },
+      semCopyLabel: s.copied ? '✓ Copiada' : 'Copiar para compartir',
+      semReset: () => this.setState({ semStep: 0, semFields: ['', '', ''], semDone: false }),
+
+      cicloI: this.mkEnsayos('I', 0),
+      cicloII: this.mkEnsayos('II', 7),
+      cicloIII: this.mkEnsayos('III', 14),
+      guias: this.guias.map((g, i) => ({
+        level: g[0], dur: g[1], t: g[2], desc: g[3], lessons: g[4],
+        lc: g[0] === 'Inicial' ? '#1A7A4A' : (g[0] === 'Media' ? '#A16C00' : '#C23B22'),
+        onOpen: () => this.openReader({ page: 'curso', readerCurso: i }),
+      })),
+      bitacora: this.bitacora.map((b, i) => ({
+        date: b[0], tag: b[1], t: b[2], line: b[3],
+        color: b[1] === 'crónica' ? accent : (b[1] === 'territorio' ? '#1A7A4A' : '#A16C00'),
+        onOpen: () => this.openReader({ page: 'post', readerPost: i }),
+      })),
+
+      isEnsayo: s.page === 'ensayo', isCurso: s.page === 'curso', isPost: s.page === 'post', isManifiesto: s.page === 'manifiesto',
+      dormido: !s.despierto, veilOpacity: s.despierto ? 0 : 0.6, manifRead: s.manifRead,
+      goManifiesto: () => this.openReader({ page: 'manifiesto' }),
+      ...this.readerVals(accent),
+    };
+  }
+}
+</script>
+</body>
+</html>

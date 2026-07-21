@@ -202,7 +202,7 @@ function GamificationCacheBridge(): null {
 function PageFallback() {
   return (
     <div className="flex min-h-[60vh] items-center justify-center">
-      <span className="font-mono text-sm text-muted-foreground">cargando…</span>
+      <span className="font-mono text-sm text-muted-foreground">Cargando — menos que un trámite.</span>
     </div>
   );
 }

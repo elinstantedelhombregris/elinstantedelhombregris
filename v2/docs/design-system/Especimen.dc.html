@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Papel y Tinta — Espécimen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; padding: 0; background: #F2EFE7; }
+  body { font-family: 'Archivo', sans-serif; color: #16130E; -webkit-font-smoothing: antialiased; }
+  * { box-sizing: border-box; }
+  a { color: #5227CC; text-decoration: none; }
+  a:hover { color: #3D1BA3; }
+  ::selection { background: #5227CC; color: #F2EFE7; }
+  @keyframes stampin { 0% { transform: rotate(-8deg) scale(1.6); opacity: 0; } 100% { transform: rotate(-8deg) scale(1); opacity: 1; } }
+  @keyframes fadeup { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+  @media (max-width: 900px) { .sp-g2, .sp-g3, .sp-g6 { grid-template-columns: 1fr 1fr !important; } .sp-pad { padding-left: 20px !important; padding-right: 20px !important; } }
+</style>
+</helmet>
+<div style="min-height:100vh;background:#F2EFE7;color:#16130E;">
+  <section class="sp-pad" style="max-width:1200px;margin:0 auto;padding:56px 40px 32px;border-bottom:2px solid #16130E;">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;">
+      <div>
+        <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#5227CC;margin-bottom:14px;">Sistema de diseño · v1.0 · julio 2026</div>
+        <h1 style="font-family:'Anton';font-size:clamp(52px,7vw,110px);line-height:0.94;margin:0;">Papel <span style="color:#5227CC;">y</span> Tinta</h1>
+      </div>
+      <span style="transform:rotate(6deg);border:2px solid #C23B22;color:#C23B22;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;padding:8px 12px;animation:stampin .4s ease .3s both;">¡BASTA!</span>
+    </div>
+    <p style="font-size:17px;line-height:1.6;color:#4A463D;max-width:620px;margin:20px 0 0;">Un manifiesto impreso que cobró vida. Cero decoración: todo lo que se ve significa algo. La guía completa vive en <strong>README.md</strong>; esto es el espécimen visual.</p>
+  </section>
+
+  <section class="sp-pad" style="max-width:1200px;margin:0 auto;padding:48px 40px;">
+    <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#7A756A;margin-bottom:20px;">01 · Color — papel, tinta y acentos con significado</div>
+    <div class="sp-g6" style="display:grid;grid-template-columns:repeat(6,1fr);gap:1px;background:#16130E;border:1px solid #16130E;">
+      <div style="background:#F2EFE7;padding:22px 16px;min-height:120px;"><div style="font-family:'Space Mono',monospace;font-size:11px;font-weight:700;">#F2EFE7</div><div style="font-size:12px;color:#7A756A;margin-top:6px;">papel · fondo base</div></div>
+      <div style="background:#FBFAF4;padding:22px 16px;"><div style="font-family:'Space Mono',monospace;font-size:11px;font-weight:700;">#FBFAF4</div><div style="font-size:12px;color:#7A756A;margin-top:6px;">papel crudo · paneles</div></div>
+      <div style="background:#ECE8DC;padding:22px 16px;"><div style="font-family:'Space Mono',monospace;font-size:11px;font-weight:700;">#ECE8DC</div><div style="font-size:12px;color:#7A756A;margin-top:6px;">presionado · hover</div></div>
+      <div style="background:#D8D4C8;padding:22px 16px;"><div style="font-family:'Space Mono',monospace;font-size:11px;font-weight:700;">#D8D4C8</div><div style="font-size:12px;color:#4A463D;margin-top:6px;">borde suave</div></div>
+      <div style="background:#16130E;padding:22px 16px;"><div style="font-family:'Space Mono',monospace;font-size:11px;font-weight:700;color:#F2EFE7;">#16130E</div><div style="font-size:12px;color:#8E8A82;margin-top:6px;">tinta · texto y bordes</div></div>
+      <div style="background:#33302A;padding:22px 16px;"><div style="font-family:'Space Mono',monospace;font-size:11px;font-weight:700;color:#F2EFE7;">#33302A</div><div style="font-size:12px;color:#8E8A82;margin-top:6px;">tinta 90 · lectura</div></div>
+      <div style="background:#5227CC;padding:22px 16px;min-height:120px;"><div style="font-family:'Space Mono',monospace;font-size:11px;font-weight:700;color:#F2EFE7;">#5227CC</div><div style="font-size:12px;color:#F2EFE7;opacity:.8;margin-top:6px;">violeta · marca, acción, sueño</div></div>
+      <div style="background:#C23B22;padding:22px 16px;"><div style="font-family:'Space Mono',monospace;font-size:11px;font-weight:700;color:#F2EFE7;">#C23B22</div><div style="font-size:12px;color:#F2EFE7;opacity:.85;margin-top:6px;">rojo sello · basta, urgencia</div></div>
+      <div style="background:#1A7A4A;padding:22px 16px;"><div style="font-family:'Space Mono',monospace;font-size:11px;font-weight:700;color:#F2EFE7;">#1A7A4A</div><div style="font-size:12px;color:#F2EFE7;opacity:.85;margin-top:6px;">verde · compromiso</div></div>
+      <div style="background:#A16C00;padding:22px 16px;"><div style="font-family:'Space Mono',monospace;font-size:11px;font-weight:700;color:#F2EFE7;">#A16C00</div><div style="font-size:12px;color:#F2EFE7;opacity:.85;margin-top:6px;">ámbar · necesidad</div></div>
+      <div style="background:#0F6B8A;padding:22px 16px;"><div style="font-family:'Space Mono',monospace;font-size:11px;font-weight:700;color:#F2EFE7;">#0F6B8A</div><div style="font-size:12px;color:#F2EFE7;opacity:.85;margin-top:6px;">cian · recurso</div></div>
+      <div style="background:#9D85E8;padding:22px 16px;"><div style="font-family:'Space Mono',monospace;font-size:11px;font-weight:700;color:#16130E;">#9D85E8</div><div style="font-size:12px;color:#16130E;opacity:.75;margin-top:6px;">violeta sobre oscuro</div></div>
+    </div>
+  </section>
+
+  <section class="sp-pad" style="max-width:1200px;margin:0 auto;padding:16px 40px 48px;">
+    <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#7A756A;margin-bottom:20px;">02 · Tipografía — tres voces, cero excepciones</div>
+    <div style="border:1px solid #16130E;">
+      <div style="border-bottom:1px solid #D8D4C8;padding:28px 32px;display:grid;grid-template-columns:170px 1fr;gap:24px;align-items:center;" class="sp-g2">
+        <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#7A756A;">Anton · display</span>
+        <div style="font-family:'Anton';font-size:clamp(34px,4.5vw,62px);line-height:1;">Un país no se hereda. <span style="color:#5227CC;">Se diseña.</span></div>
+      </div>
+      <div style="border-bottom:1px solid #D8D4C8;padding:28px 32px;display:grid;grid-template-columns:170px 1fr;gap:24px;align-items:center;" class="sp-g2">
+        <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#7A756A;">Archivo · texto</span>
+        <p style="font-size:17px;line-height:1.75;color:#33302A;margin:0;max-width:640px;">El hombre gris no es un personaje. Sos vos a las 7:40, apretado en un tren que llega tarde. Lectura 17px/1.75 · UI 14–16px · citas «angulares».</p>
+      </div>
+      <div style="padding:28px 32px;display:grid;grid-template-columns:170px 1fr;gap:24px;align-items:center;" class="sp-g2">
+        <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#7A756A;">Space Mono · meta</span>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <span style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#5227CC;">§ 01 — Kicker canónico · 11px · 0.16em</span>
+          <span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#B5B1A8;">* datos de demostración — nota obligatoria</span>
+          <span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:#7A756A;">12.496 voces · falta la tuya</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sp-pad" style="max-width:1200px;margin:0 auto;padding:0 40px 48px;">
+    <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#7A756A;margin-bottom:20px;">03 · Acciones, sellos y tags</div>
+    <div style="border:1px solid #16130E;padding:32px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;">
+      <button style="padding:18px 28px;background:#5227CC;color:#F2EFE7;border:none;font-family:'Space Mono',monospace;font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:background .2s;" style-hover="background:#16130E;">Primario →</button>
+      <button style="padding:18px 28px;background:#16130E;color:#F2EFE7;border:none;font-family:'Space Mono',monospace;font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:background .2s;" style-hover="background:#5227CC;">Tinta</button>
+      <button style="padding:18px 28px;background:transparent;color:#16130E;border:1px solid #16130E;font-family:'Space Mono',monospace;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:all .2s;" style-hover="background:#16130E;color:#F2EFE7;">Fantasma</button>
+      <span style="transform:rotate(-4deg);border:2px solid #C23B22;color:#C23B22;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;padding:8px 12px;">No es doctrina</span>
+      <span style="padding:9px 14px;border:1px solid #16130E;background:#C23B22;color:#F2EFE7;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;">basta</span>
+      <span style="padding:9px 14px;border:1px solid #16130E;background:#5227CC;color:#F2EFE7;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;">sueño</span>
+      <span style="padding:9px 14px;border:1px solid #16130E;background:transparent;color:#16130E;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;">valor</span>
+    </div>
+  </section>
+
+  <section class="sp-pad" style="max-width:1200px;margin:0 auto;padding:0 40px 48px;">
+    <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#7A756A;margin-bottom:20px;">04 · Patrones — fila de índice · grilla 1px · papel sobre oscuro</div>
+    <div class="sp-g2" style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start;">
+      <div>
+        <a style="display:grid;grid-template-columns:56px 1fr 40px;gap:20px;align-items:baseline;padding:16px 8px;cursor:pointer;color:#16130E;border-top:2px solid #16130E;border-bottom:1px solid #D8D4C8;transition:background .15s;" style-hover="background:#ECE8DC;">
+          <span style="font-family:'Space Mono',monospace;font-size:12px;color:#B5B1A8;">E01</span>
+          <span style="font-size:17px;font-weight:600;">Fila de índice con hover presionado</span>
+          <span style="font-family:'Space Mono',monospace;font-size:16px;color:#5227CC;text-align:right;">+</span>
+        </a>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#16130E;border:1px solid #16130E;margin-top:24px;">
+          <div style="background:#F2EFE7;padding:22px;">
+            <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#7A756A;margin-bottom:10px;">Grilla 1px</div>
+            <div style="font-family:'Anton';font-size:22px;">La tinta se ve por las juntas</div>
+          </div>
+          <div style="background:#FBFAF4;padding:22px;">
+            <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:#7A756A;margin-bottom:10px;">Celda alterna</div>
+            <p style="font-size:14px;line-height:1.55;color:#4A463D;margin:0;">gap:1px · fondo tinta · sin radius, sin sombra.</p>
+          </div>
+        </div>
+      </div>
+      <div style="background:#16130E;padding:36px;">
+        <div style="background:#F2EFE7;color:#16130E;padding:32px;position:relative;box-shadow:0 24px 60px rgba(0,0,0,0.45);">
+          <div style="position:absolute;right:20px;top:16px;transform:rotate(6deg);border:2px solid #C23B22;color:#C23B22;font-family:'Space Mono',monospace;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;padding:6px 10px;">Ejemplo</div>
+          <div style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:#7A756A;margin-bottom:12px;">Rev. III · 2026</div>
+          <div style="font-family:'Anton';font-size:26px;line-height:1.05;margin-bottom:10px;">Papel sobre oscuro</div>
+          <p style="font-size:14px;line-height:1.6;color:#33302A;margin:0;">Única sombra permitida del sistema. Para documentos: mandato, certificados, actas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#16130E;color:#F2EFE7;">
+    <div class="sp-pad" style="max-width:1200px;margin:0 auto;padding:48px 40px;">
+      <div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#9D85E8;margin-bottom:20px;">05 · Página oscura + reglas rápidas</div>
+      <div class="sp-g3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#3A362D;border:1px solid #3A362D;">
+        <div style="background:#16130E;padding:24px;"><div style="font-family:'Anton';font-size:20px;color:#9D85E8;margin-bottom:8px;">Gris → color</div><p style="font-size:14px;line-height:1.6;color:#C9C5BA;margin:0;">El recurso narrativo maestro: la página despierta con el lector.</p></div>
+        <div style="background:#16130E;padding:24px;"><div style="font-family:'Anton';font-size:20px;color:#9D85E8;margin-bottom:8px;">1 interacción firma</div><p style="font-size:14px;line-height:1.6;color:#C9C5BA;margin:0;">Por página. El resto: fadeup escalonado y nada más.</p></div>
+        <div style="background:#16130E;padding:24px;"><div style="font-family:'Anton';font-size:20px;color:#9D85E8;margin-bottom:8px;">Voseo siempre</div><p style="font-size:14px;line-height:1.6;color:#C9C5BA;margin:0;">«Soltá tu voz», nunca "únete". Sin emojis. Sin promesas.</p></div>
+      </div>
+      <div style="font-family:'Space Mono',monospace;font-size:11px;color:#5C594F;margin-top:20px;">Guía completa: README.md · tokens de referencia: tokens.css · sitio: BASTA v2.dc.html</div>
+    </div>
+  </section>
+</div>
+</x-dc>
+</body>
+</html>

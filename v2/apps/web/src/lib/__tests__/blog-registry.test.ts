@@ -3,8 +3,8 @@ import { describe, expect, it } from 'vitest';
 import { BLOG_POSTS, findBlogPost } from '../blog-registry';
 
 describe('BLOG_POSTS registry', () => {
-  it('loads 19 posts', () => {
-    expect(BLOG_POSTS).toHaveLength(19);
+  it('loads 20 posts', () => {
+    expect(BLOG_POSTS).toHaveLength(20);
   });
 
   it('every entry has non-empty slug/title/summary/body and type blog', () => {
