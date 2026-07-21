@@ -133,13 +133,13 @@ export default function PlacePinMap({ value, onChange, height = DEFAULT_HEIGHT }
       style={{ height }}
     >
       <div ref={container} style={{ position: 'absolute', inset: 0 }} />
-      <View pointerEvents="none" className="absolute left-3 top-3 rounded-full border border-white/10 bg-black/75 px-3 py-2">
+      <View style={{ pointerEvents: 'none' }} className="absolute left-3 top-3 rounded-full border border-white/10 bg-black/75 px-3 py-2">
         <Text className="font-sans-medium text-[11px] text-slate-200">
           {value ? 'Punto elegido · tocá para moverlo' : 'Tocá el mapa para ubicarlo'}
         </Text>
       </View>
       {!ready && (
-        <View pointerEvents="none" className="absolute inset-0 items-center justify-center bg-[#0B0B0E]">
+        <View style={{ pointerEvents: 'none' }} className="absolute inset-0 items-center justify-center bg-[#0B0B0E]">
           <Text className="font-sans text-xs text-slate-500">Abriendo el territorio…</Text>
         </View>
       )}

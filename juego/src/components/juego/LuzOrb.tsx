@@ -9,6 +9,7 @@ import { Text, View } from 'react-native';
 
 import { Pressable97 } from '@/components/ui/Pressable97';
 import type { Luz } from '@/game/types';
+import { glow } from '@/theme/glow';
 import { PLATA } from '@/theme/tokens';
 
 export const LUZ_DEF: Record<
@@ -47,11 +48,7 @@ export function LuzOrb({
           height: lado,
           backgroundColor: encendida ? `${def.color}26` : 'rgba(255,255,255,0.05)',
           borderColor: encendida ? `${def.color}66` : 'rgba(255,255,255,0.10)',
-          shadowColor: encendida ? def.color : 'transparent',
-          shadowOpacity: encendida ? 0.55 : 0,
-          shadowRadius: 16,
-          shadowOffset: { width: 0, height: 0 },
-          elevation: encendida ? 8 : 0,
+          ...glow(encendida ? def.color : 'transparent', 16, encendida ? 0.55 : 0, encendida ? 8 : 0),
         }}
       >
         <Ionicons

@@ -8,7 +8,6 @@
 import { Ionicons } from '@expo/vector-icons';
 import Constants from 'expo-constants';
 import { File, Paths } from 'expo-file-system';
-import * as Notifications from 'expo-notifications';
 import { useFocusEffect, useRouter } from 'expo-router';
 import * as Sharing from 'expo-sharing';
 import { useCallback, useState } from 'react';
@@ -50,6 +49,15 @@ import { fadeUp, staggerDelay } from '@/motion/variants';
 import { useJuego } from '@/stores/juego';
 import { haptic } from '@/theme/haptics';
 import { ACCENT, PLATA } from '@/theme/tokens';
+
+/**
+ * Cargar expo-notifications SOLO en nativo. Importarlo estáticamente evalúa su
+ * efecto de auto-registro del push token (addPushTokenListener), que en web no
+ * hace nada salvo imprimir un warning. Las notificaciones locales son una
+ * función del teléfono, así que en web devolvemos null y el toggle no persiste.
+ */
+const cargarNotificaciones = (): Promise<typeof import('expo-notifications') | null> =>
+  Platform.OS === 'web' ? Promise.resolve(null) : import('expo-notifications');
 
 const VERSION = Constants.expoConfig?.version ?? '1.0.0';
 
@@ -135,6 +143,14 @@ export default function Ajustes() {
     setNotifOcupado(true);
     setNotifNota(null);
     try {
+      const Notifications = await cargarNotificaciones();
+      if (!Notifications) {
+        // En web no hay notificaciones locales: el toggle queda apagado.
+        setNotif(false);
+        setSetting(CLAVES_SOCIAL.notifDiaria, '0');
+        setNotifNota('El aviso diario funciona en la app del teléfono.');
+        return;
+      }
       if (valor) {
         const perm = await Notifications.requestPermissionsAsync();
         if (!perm.granted) {
@@ -316,9 +332,7 @@ export default function Ajustes() {
             resetCommunitySessionAndFeed(),
             resetCivicActorKey(),
             resetCivicDeviceCredentials(),
-            Platform.OS === 'web'
-              ? Promise.resolve()
-              : Notifications.cancelAllScheduledNotificationsAsync(),
+            cargarNotificaciones().then((n) => n?.cancelAllScheduledNotificationsAsync()),
           ]);
           // resetCivicActorKey() ya resolvió: la caché sync quedaría apuntando
           // a la identidad fantasma si no se invalida y recalienta acá mismo,

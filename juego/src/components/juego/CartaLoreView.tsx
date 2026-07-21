@@ -14,6 +14,7 @@ import { DisplayText } from '@/components/ui/DisplayText';
 import type { Constelacion, TipoSenal } from '@/content';
 import type { ProgresoConstelacion } from '@/game/colecciones';
 import { bloom, fadeIn } from '@/motion/variants';
+import { glow } from '@/theme/glow';
 import { PLATA } from '@/theme/tokens';
 import { haptic } from '@/theme/haptics';
 
@@ -59,11 +60,7 @@ export function CartaLoreView({
           className="mt-5 w-full items-center rounded-3xl border bg-white/5 px-7 py-9"
           style={{
             borderColor: 'rgba(245, 247, 250, 0.25)',
-            shadowColor: PLATA,
-            shadowOpacity: 0.25,
-            shadowRadius: 24,
-            shadowOffset: { width: 0, height: 0 },
-            elevation: 10,
+            ...glow(PLATA, 24, 0.25, 10),
           }}
         >
           <SiluetaConstelacion

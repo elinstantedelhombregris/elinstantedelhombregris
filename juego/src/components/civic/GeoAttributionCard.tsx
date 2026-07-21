@@ -159,7 +159,7 @@ export function GeoAttributionCard({
       {mapOpen && (
         <View className="border-y border-white/10">
           <PlacePinMap value={value.point} onChange={setPin} height={230} />
-          <View pointerEvents="none" className="absolute bottom-3 left-3 right-3 items-center">
+          <View style={{ pointerEvents: 'none' }} className="absolute bottom-3 left-3 right-3 items-center">
             <View className="rounded-full border border-white/10 bg-black/75 px-4 py-2">
               <Text className="font-sans-medium text-[11px] text-plata">
                 {hasPlace ? 'Tocá otro lugar para corregir el pin' : 'Tocá el lugar del hecho o recurso'}

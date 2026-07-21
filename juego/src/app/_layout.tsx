@@ -222,6 +222,22 @@ function CivicApp() {
     }
   }, [needsOnboardingRedirect, pathname, router]);
 
+  // react-native-screens oculta las pantallas inactivas con `display:none` y
+  // `aria-hidden`. Si un botón conservaba el foco al empujar otra ruta, el
+  // navegador avisa que ese foco quedó escondido de la tecnología asistiva.
+  // Soltamos el foco en cada cambio de ruta (sólo web), sin tocar campos de
+  // texto para no interrumpir a quien está escribiendo.
+  useEffect(() => {
+    if (Platform.OS !== 'web') return;
+    const activo = document.activeElement as HTMLElement | null;
+    if (!activo) return;
+    const editable =
+      activo.tagName === 'INPUT'
+      || activo.tagName === 'TEXTAREA'
+      || activo.isContentEditable;
+    if (!editable) activo.blur();
+  }, [pathname]);
+
   if (needsOnboardingRedirect) return null;
 
   return (

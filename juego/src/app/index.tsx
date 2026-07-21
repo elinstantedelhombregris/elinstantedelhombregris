@@ -94,7 +94,7 @@ export default function Cielo() {
   return (
     <View className="flex-1 bg-fondo">
       {/* EL CIELO (no captura toques) */}
-      <Animated.View style={zoomStyle} className="absolute inset-0" pointerEvents="none">
+      <Animated.View style={[zoomStyle, { pointerEvents: 'none' }]} className="absolute inset-0">
         <SkyView
           estrellas={st.estrellas}
           rachaViva={st.rachaInfo.viva}
@@ -103,7 +103,7 @@ export default function Cielo() {
         />
       </Animated.View>
 
-      <View className="absolute inset-0" pointerEvents="box-none">
+      <View className="absolute inset-0" style={{ pointerEvents: 'box-none' }}>
         {/* Encabezado: fecha + racha */}
         <View
           className="flex-row items-center justify-between px-5"

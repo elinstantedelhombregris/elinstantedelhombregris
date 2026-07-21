@@ -1,5 +1,6 @@
 import { Text, type StyleProp, type ViewStyle } from 'react-native';
 
+import { glow } from '@/theme/glow';
 import { ACCENT } from '@/theme/tokens';
 import { Pressable97 } from './Pressable97';
 
@@ -28,13 +29,7 @@ export function AccentButton({
         disabled ? 'opacity-40' : ''
       }`}
       style={[
-        {
-          shadowColor: ACCENT,
-          shadowOpacity: 0.45,
-          shadowRadius: 20,
-          shadowOffset: { width: 0, height: 0 },
-          elevation: 8,
-        },
+        glow(ACCENT, 20, 0.45, 8),
         style,
       ]}
     >

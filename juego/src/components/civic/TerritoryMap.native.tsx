@@ -159,7 +159,7 @@ export default function TerritoryMap({
         {polygon.length > 2 && <MapPolygon coordinates={polygon} fillColor="rgba(125,91,222,0.18)" strokeColor="#C4B5FD" strokeWidth={2} />}
       </MapView>
       <View
-        pointerEvents={lasso ? 'auto' : 'none'}
+        style={{ pointerEvents: lasso ? 'auto' : 'none' }}
         className="absolute inset-0"
         onStartShouldSetResponder={() => lasso}
         onMoveShouldSetResponder={() => lasso}
@@ -173,7 +173,7 @@ export default function TerritoryMap({
           {path.length > 1 && <Polyline points={pathString} fill="none" stroke="#F5F7FA" strokeWidth={2} strokeDasharray="3 5" />}
         </Svg>
       </View>
-      <View pointerEvents="box-none" className="absolute left-3 right-3 top-3 flex-row items-center justify-between">
+      <View style={{ pointerEvents: 'box-none' }} className="absolute left-3 right-3 top-3 flex-row items-center justify-between">
         <View className="rounded-full border border-white/10 bg-black/70 px-3 py-2">
           <Text className="font-mono text-[10px] text-slate-300">{selectedIds.length} registros en zona</Text>
         </View>

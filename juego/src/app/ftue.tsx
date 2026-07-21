@@ -85,7 +85,7 @@ export default function Ftue() {
 
   return (
     <View className="flex-1 bg-fondo">
-      <View className="absolute inset-0 opacity-50" pointerEvents="none">
+      <View className="absolute inset-0 opacity-50" style={{ pointerEvents: 'none' }}>
         <SkyView estrellas={[]} rachaViva />
       </View>
 

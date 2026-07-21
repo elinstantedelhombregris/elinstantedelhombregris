@@ -731,7 +731,7 @@ export default function ExpedicionDetalle() {
                     {paso.instruccion}
                   </Text>
 
-                  <View pointerEvents={retryPending ? 'none' : 'auto'} style={{ opacity: retryPending ? 0.64 : 1 }}>
+                  <View style={{ opacity: retryPending ? 0.64 : 1, pointerEvents: retryPending ? 'none' : 'auto' }}>
                     <MicroUIPaso
                       paso={paso}
                       color={color}
@@ -744,9 +744,8 @@ export default function ExpedicionDetalle() {
 
                   {ultimoPaso && (
                     <View
-                      pointerEvents={retryPending ? 'none' : 'auto'}
                       className="mt-7 gap-4"
-                      style={{ opacity: retryPending ? 0.64 : 1 }}
+                      style={{ opacity: retryPending ? 0.64 : 1, pointerEvents: retryPending ? 'none' : 'auto' }}
                     >
                       <GeoAttributionCard
                         value={context}

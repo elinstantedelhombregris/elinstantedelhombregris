@@ -8,6 +8,7 @@
 import { View } from 'react-native';
 
 import { HITOS } from '@/game/expediciones';
+import { glow } from '@/theme/glow';
 
 export function BarraLuminosa({
   porcentaje,
@@ -37,10 +38,7 @@ export function BarraLuminosa({
           style={{
             width: `${Math.min(100, Math.max(0, porcentaje))}%`,
             backgroundColor: color,
-            shadowColor: color,
-            shadowOpacity: 0.9,
-            shadowRadius: 8,
-            shadowOffset: { width: 0, height: 0 },
+            ...glow(color, 8, 0.9),
           }}
         />
       </View>
@@ -57,11 +55,7 @@ export function BarraLuminosa({
               height: dot,
               backgroundColor: encendido ? color : '#0a0a0a',
               borderColor: encendido ? color : 'rgba(255,255,255,0.22)',
-              shadowColor: encendido ? color : 'transparent',
-              shadowOpacity: encendido ? 0.8 : 0,
-              shadowRadius: 6,
-              shadowOffset: { width: 0, height: 0 },
-              elevation: encendido ? 4 : 0,
+              ...glow(encendido ? color : 'transparent', 6, encendido ? 0.8 : 0, encendido ? 4 : 0),
             }}
           />
         );

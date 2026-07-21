@@ -26,7 +26,7 @@ export function LivingHalo({ color = ACCENT }: { color?: string }) {
     transform: [{ scale: 0.92 + drift.value * 0.18 }, { translateY: drift.value * -8 }],
   }));
   return (
-    <View pointerEvents="none" className="absolute inset-0 overflow-hidden rounded-[28px]">
+    <View style={{ pointerEvents: 'none' }} className="absolute inset-0 overflow-hidden rounded-[28px]">
       <Animated.View
         style={style}
         className="absolute -right-16 -top-24 h-64 w-64 overflow-hidden rounded-full"

@@ -25,6 +25,7 @@ import { reflexionesTodas, registrarRito } from '@/db/repos';
 import type { ReflectionRow } from '@/db/schema';
 import { bloom, fadeUp } from '@/motion/variants';
 import { useJuego } from '@/stores/juego';
+import { glow } from '@/theme/glow';
 import { haptic } from '@/theme/haptics';
 import { PLATA } from '@/theme/tokens';
 
@@ -70,10 +71,7 @@ function Respiracion({ onTerminar }: { onTerminar: () => void }) {
             backgroundColor: 'rgba(245, 247, 250, 0.08)',
             borderWidth: 1,
             borderColor: 'rgba(245, 247, 250, 0.35)',
-            shadowColor: PLATA,
-            shadowOpacity: 0.35,
-            shadowRadius: 30,
-            shadowOffset: { width: 0, height: 0 },
+            ...glow(PLATA, 30, 0.35),
           },
         ]}
       />
