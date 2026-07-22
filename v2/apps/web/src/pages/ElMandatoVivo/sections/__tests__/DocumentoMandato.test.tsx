@@ -227,6 +227,7 @@ describe('DocumentoMandato', () => {
 
     const [observer] = FakeIntersectionObserver.instances;
     expect(observer).toBeDefined();
+    expect(observer?.disconnect).not.toHaveBeenCalled();
 
     act(() => {
       observer?.trigger(true);
@@ -235,11 +236,28 @@ describe('DocumentoMandato', () => {
     const estado = screen.getByRole('status');
     expect(estado).toHaveTextContent('Documento auditado. Ahora sos testigo.');
     expect(screen.getAllByText('Visto')).toHaveLength(1);
+    // El cambio `visto: false → true` re-ejecuta el efecto; React corre el
+    // cleanup de la instancia vieja antes — pin contra refactors que rompan
+    // esa desconexión (p. ej. sacar `visto` de las deps o perder el `return`).
+    expect(observer?.disconnect).toHaveBeenCalledTimes(1);
 
     act(() => {
       observer?.trigger(true);
     });
     expect(screen.getAllByText('Visto')).toHaveLength(1);
+  });
+
+  it('el observer del bloque de firma se desconecta al desmontar el componente', () => {
+    armarMock(docChico());
+    const { unmount } = render(<DocumentoMandato />);
+
+    const [observer] = FakeIntersectionObserver.instances;
+    expect(observer).toBeDefined();
+    expect(observer?.disconnect).not.toHaveBeenCalled();
+
+    unmount();
+
+    expect(observer?.disconnect).toHaveBeenCalledTimes(1);
   });
 
   it('VISTO respeta reduced-motion vía la guarda global: el sello mantiene su clase anim-stampin (CSS apaga la animación)', () => {

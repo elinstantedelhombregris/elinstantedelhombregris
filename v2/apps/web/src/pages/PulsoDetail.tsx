@@ -1,58 +1,72 @@
-import { Link, useRoute } from 'wouter';
+import { useRoute } from 'wouter';
+
+import { ORIGEN_SENAL } from './ElMandatoVivo/el-mandato-data';
+import { humanizarTema } from './ElMandatoVivo/mandato-regimen';
+import { CargandoFicha, FichaExtraviada, MarcoAnexo } from './ElMandatoVivo/sections/MarcoAnexo';
 
 import { usePulsoById } from '~/lib/queries/mandato';
+import { useProvincias } from '~/lib/queries/open-data';
 
+/**
+ * Anexo señal (spec 2.3, «Los anexos») — ficha del expediente de una señal
+ * del mandato. Vive dentro de `MarcoAnexo`; el chrome glass del v1-port
+ * muere acá.
+ */
 export function PulsoDetail() {
   const [, params] = useRoute<{ id: string }>('/mandato-vivo/pulso/:id');
   const id = Number(params?.id ?? 0);
   const { data, isLoading, isError } = usePulsoById(id);
+  const provincias = useProvincias();
 
   if (isLoading) {
-    return <main className="container mx-auto max-w-3xl px-4 py-20">Cargando…</main>;
+    return (
+      <MarcoAnexo>
+        <CargandoFicha />
+      </MarcoAnexo>
+    );
   }
+
   if (isError || !data) {
     return (
-      <main className="container mx-auto max-w-3xl px-4 py-20">
-        <p>No encontramos este pulso.</p>
-        <Link href="/mandato-vivo" className="text-iris-violet underline">
-          Volver al Mandato Vivo
-        </Link>
-      </main>
+      <MarcoAnexo>
+        <FichaExtraviada titulo="Esa señal no está." />
+      </MarcoAnexo>
     );
   }
 
   const signal = data.signal;
+  const fecha = new Date(signal.createdAt).toLocaleDateString('es-AR', {
+    day: '2-digit',
+    month: 'long',
+    year: 'numeric',
+  });
+  const provincia =
+    signal.provinceId === null
+      ? 'Argentina'
+      : (provincias.data?.find((p) => p.id === signal.provinceId)?.name ?? 'Argentina');
+  const origen = ORIGEN_SENAL[signal.source] ?? signal.source;
 
   return (
-    <main className="container mx-auto max-w-3xl px-4 py-16">
-      <header className="mb-8">
-        <Link href="/mandato-vivo" className="text-sm text-iris-violet underline">
-          ← Volver al Mandato Vivo
-        </Link>
-        <p className="mt-6 font-mono text-xs uppercase tracking-widest text-muted-foreground">
-          Pulso #{signal.id}
-        </p>
-        <h1 className="mt-2 font-serif text-2xl font-semibold md:text-3xl">{signal.body}</h1>
-      </header>
-      <dl className="grid grid-cols-2 gap-4 rounded-2xl border border-white/10 bg-white/5 p-5 text-sm">
-        <div>
-          <dt className="text-muted-foreground">Provincia</dt>
-          <dd className="font-medium">{signal.provinceId ?? '—'}</dd>
+    <MarcoAnexo>
+      <p className="font-space text-tinta-50 text-[11px] uppercase tracking-[0.12em]">
+        Señal N° {signal.id} · {fecha}
+      </p>
+      <h1 className="font-archivo mt-3 text-[19px] leading-relaxed">«{signal.body}»</h1>
+      <dl className="border-tinta mt-8 flex flex-col gap-3 border-t pt-6">
+        <div className="font-space flex gap-2 text-[13px]">
+          <dt className="text-tinta-50">tema:</dt>
+          <dd>{signal.theme ? humanizarTema(signal.theme) : 'sin clasificar todavía'}</dd>
         </div>
-        <div>
-          <dt className="text-muted-foreground">Tema</dt>
-          <dd className="font-medium">{signal.theme ?? '—'}</dd>
+        <div className="font-space flex gap-2 text-[13px]">
+          <dt className="text-tinta-50">provincia:</dt>
+          <dd>{provincia}</dd>
         </div>
-        <div>
-          <dt className="text-muted-foreground">Sentimiento</dt>
-          <dd className="font-medium">{signal.sentiment ?? '—'}</dd>
-        </div>
-        <div>
-          <dt className="text-muted-foreground">Origen</dt>
-          <dd className="font-medium">{signal.source}</dd>
+        <div className="font-space flex gap-2 text-[13px]">
+          <dt className="text-tinta-50">origen:</dt>
+          <dd>{origen}</dd>
         </div>
       </dl>
-    </main>
+    </MarcoAnexo>
   );
 }
 
