@@ -277,14 +277,6 @@ function ObraFila({
             <View className="flex-1" />
           )}
           <BotonTinta
-            // `key` fuerza un remount limpio al flipear: Pressable97 pasa un
-            // className distinto por variante a través de cssInterop (para
-            // que Reanimated lo reconozca en el Animated.Pressable), y ese
-            // puente no reemplaza la clase vieja al re-renderizar el MISMO
-            // nodo — la deja pegada junto a la nueva (se ve fondo transparente
-            // con texto invisible en vez del flip a fondo tinta). Remontar
-            // evita el bug sin tocar el kit compartido.
-            key={dado ? 'dado' : 'no-dado'}
             etiqueta={`Pulso (${pulsos})`}
             accessibilityLabel={`Dar pulso a ${obra.titulo}, ${pulsos} ${pulsos === 1 ? 'pulso' : 'pulsos'}`}
             variante={dado ? 'tinta' : 'fantasma'}

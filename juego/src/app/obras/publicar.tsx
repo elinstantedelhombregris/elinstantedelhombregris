@@ -340,10 +340,6 @@ export default function PublicarObra() {
 
             <View className="mt-8 items-center">
               <BotonTinta
-                // `key`: ver la nota en corriente.tsx (ObraFila) — Pressable97
-                // no reemplaza limpio la clase vieja al cambiar `disabled`/
-                // `cargando` en el mismo nodo; remontar lo evita.
-                key={publicando ? 'publicando' : 'listo'}
                 etiqueta="Publicar la obra"
                 onPress={publicar}
                 disabled={!lista || publicando}

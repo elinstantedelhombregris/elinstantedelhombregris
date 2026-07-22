@@ -1,7 +1,7 @@
 import { Text, View, type StyleProp, type ViewStyle } from 'react-native';
 
 import { Pressable97 } from '@/components/ui/Pressable97';
-import { TINTA } from '@/theme/tokens';
+import { PAPEL, TINTA } from '@/theme/tokens';
 
 type Props = {
   etiqueta: string;
@@ -38,9 +38,8 @@ export function ChipTipo({
       style={[activo ? { backgroundColor: color ?? TINTA } : undefined, style]}
     >
       <Text
-        className={`font-space-bold text-[11px] uppercase tracking-[0.88px] ${
-          activo ? 'text-papel' : 'text-tinta'
-        }`}
+        className="font-space-bold text-[11px] uppercase tracking-[0.88px]"
+        style={{ color: activo ? PAPEL : TINTA }}
       >
         {etiqueta}
       </Text>

@@ -253,10 +253,6 @@ export default function FundarMision() {
 
             <View className="mt-8 items-center">
               <BotonTinta
-                // `key`: ver la nota en corriente.tsx (ObraFila) — Pressable97
-                // no reemplaza limpio la clase vieja al cambiar `disabled`/
-                // `cargando` en el mismo nodo; remontar lo evita.
-                key={fundando ? 'fundando' : 'listo'}
                 etiqueta="Fundar →"
                 onPress={fundar}
                 disabled={!lista || fundando}

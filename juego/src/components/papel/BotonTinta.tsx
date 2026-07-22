@@ -10,6 +10,7 @@ import Animated, {
 
 import { Pressable97 } from '@/components/ui/Pressable97';
 import { useSkipMotion } from '@/motion/variants';
+import { OSCURO_TENUE, OSCURO_TEXTO, PAPEL, TINTA, TINTA_30, VIOLETA } from '@/theme/tokens';
 
 type Variante = 'primaria' | 'tinta' | 'fantasma';
 type Registro = 'papel' | 'noche';
@@ -29,7 +30,14 @@ type Props = {
   style?: StyleProp<ViewStyle>;
 };
 
-/** Fondo/borde y color de texto para cada combinación (spec §3.4). */
+/**
+ * Fondo/borde y color de texto para cada combinación (spec §3.4). Valores
+ * hex de `theme/tokens.ts`, no clases Tailwind: `Pressable97` cruza por el
+ * `cssInterop` de Reanimated, que en web no reemplaza limpio el `className`
+ * viejo cuando el MISMO nodo se re-renderiza con uno nuevo (deja la clase
+ * vieja pegada junto a la nueva — ver task-pt5-report.md). El `style` inline
+ * no tiene ese problema: React lo recalcula entero en cada render.
+ */
 function coloresBoton({
   variante,
   registro,
@@ -40,40 +48,40 @@ function coloresBoton({
   registro: Registro;
   pressed: boolean;
   disabled: boolean;
-}): { caja: string; texto: string } {
+}): { fondo: string; borde: string; texto: string } {
   if (disabled) {
     // Deshabilitado = tinta-30 (texto y borde), NUNCA opacity (spec §3.4).
     return registro === 'noche'
-      ? { caja: 'bg-transparent border-oscuro-tenue', texto: 'text-oscuro-tenue' }
-      : { caja: 'bg-transparent border-tinta-30', texto: 'text-tinta-30' };
+      ? { fondo: 'transparent', borde: OSCURO_TENUE, texto: OSCURO_TENUE }
+      : { fondo: 'transparent', borde: TINTA_30, texto: TINTA_30 };
   }
 
   if (variante === 'primaria') {
     // En noche: primaria igual (spec §3.4).
     return pressed
-      ? { caja: 'bg-tinta border-tinta', texto: 'text-papel' }
-      : { caja: 'bg-violeta border-violeta', texto: 'text-papel' };
+      ? { fondo: TINTA, borde: TINTA, texto: PAPEL }
+      : { fondo: VIOLETA, borde: VIOLETA, texto: PAPEL };
   }
 
   if (variante === 'tinta') {
     return pressed
-      ? { caja: 'bg-violeta border-violeta', texto: 'text-papel' }
-      : { caja: 'bg-tinta border-tinta', texto: 'text-papel' };
+      ? { fondo: VIOLETA, borde: VIOLETA, texto: PAPEL }
+      : { fondo: TINTA, borde: TINTA, texto: PAPEL };
   }
 
   // fantasma: pressed invierte (el fondo pasa a ser el color del borde).
   if (registro === 'noche') {
     return pressed
-      ? { caja: 'bg-oscuro-texto border-oscuro-texto', texto: 'text-tinta' }
-      : { caja: 'bg-transparent border-oscuro-texto', texto: 'text-oscuro-texto' };
+      ? { fondo: OSCURO_TEXTO, borde: OSCURO_TEXTO, texto: TINTA }
+      : { fondo: 'transparent', borde: OSCURO_TEXTO, texto: OSCURO_TEXTO };
   }
   return pressed
-    ? { caja: 'bg-tinta border-tinta', texto: 'text-papel' }
-    : { caja: 'bg-transparent border-tinta', texto: 'text-tinta' };
+    ? { fondo: TINTA, borde: TINTA, texto: PAPEL }
+    : { fondo: 'transparent', borde: TINTA, texto: TINTA };
 }
 
 /** «— ▌» con el cursor titilando — el estado de carga (spec §3.4). */
-function CursorCargando({ claseTexto, animar }: { claseTexto: string; animar: boolean }) {
+function CursorCargando({ color, animar }: { color: string; animar: boolean }) {
   const opacidad = useSharedValue(1);
 
   useEffect(() => {
@@ -86,7 +94,7 @@ function CursorCargando({ claseTexto, animar }: { claseTexto: string; animar: bo
   const animatedStyle = useAnimatedStyle(() => ({ opacity: opacidad.value }));
 
   return (
-    <Text className={`font-space-bold text-[13px] ${claseTexto}`}>
+    <Text className="font-space-bold text-[13px]" style={{ color }}>
       {'— '}
       <Animated.Text style={animatedStyle}>▌</Animated.Text>
     </Text>
@@ -113,7 +121,7 @@ export function BotonTinta({
 }: Props) {
   const [pressed, setPressed] = useState(false);
   const skip = useSkipMotion();
-  const { caja, texto } = coloresBoton({ variante, registro, pressed, disabled });
+  const { fondo, borde, texto } = coloresBoton({ variante, registro, pressed, disabled });
   const padding = tamano === 'compacto' ? 'px-4 py-2' : 'px-6 py-4';
   const bloqueado = disabled || cargando;
 
@@ -126,20 +134,19 @@ export function BotonTinta({
       onPressIn={() => setPressed(true)}
       onPressOut={() => setPressed(false)}
       onPress={onPress}
-      className={`items-center justify-center border ${padding} ${caja} ${className ?? ''}`}
-      style={style}
+      className={`items-center justify-center border ${padding} ${className ?? ''}`}
+      style={[{ backgroundColor: fondo, borderColor: borde }, style]}
     >
       <View>
         <Text
-          className={`font-space-bold text-[13px] uppercase tracking-[1.04px] ${texto} ${
-            cargando ? 'text-transparent' : ''
-          }`}
+          className="font-space-bold text-[13px] uppercase tracking-[1.04px]"
+          style={{ color: cargando ? 'transparent' : texto }}
         >
           {etiqueta}
         </Text>
         {cargando && (
           <View className="absolute inset-0 flex-row items-center justify-center">
-            <CursorCargando claseTexto={texto} animar={!skip} />
+            <CursorCargando color={texto} animar={!skip} />
           </View>
         )}
       </View>

@@ -334,11 +334,6 @@ export default function MisionDetalle() {
         {mision.estado === 'propuesta' && (
           <View className="mt-8 gap-3">
             <BotonTinta
-              // `key`: ver la nota en corriente.tsx (ObraFila) — Pressable97
-              // no reemplaza limpio la clase vieja al cambiar `disabled`/
-              // `cargando` en el mismo nodo; remontar lo evita. Se repite en
-              // cada botón de esta pantalla que reacciona a `ocupado`.
-              key={ocupado ? 'ocupado' : 'libre'}
               etiqueta="Cerrar convocatoria"
               onPress={() => irA('equipo')}
               disabled={ocupado}
@@ -350,7 +345,6 @@ export default function MisionDetalle() {
               </Text>
             ) : (
               <BotonTinta
-                key={ocupado ? 'ocupado' : 'libre'}
                 etiqueta="Sumarme"
                 variante="fantasma"
                 onPress={sumarme}
@@ -363,7 +357,6 @@ export default function MisionDetalle() {
         {mision.estado === 'equipo' && (
           <View className="mt-8 items-center">
             <BotonTinta
-              key={ocupado ? 'ocupado' : 'libre'}
               etiqueta="Arrancar"
               onPress={() => irA('activa')}
               disabled={ocupado}
@@ -382,14 +375,12 @@ export default function MisionDetalle() {
               </View>
             )}
             <BotonTinta
-              key={ocupado ? 'ocupado' : 'libre'}
               etiqueta="Presentar resultado"
               onPress={() => irA('verificacion')}
               disabled={ocupado}
               cargando={ocupado}
             />
             <BotonTinta
-              key={`latido-${ocupado ? 'ocupado' : 'libre'}`}
               etiqueta="Dar latido"
               variante="fantasma"
               onPress={darLatido}
@@ -401,14 +392,12 @@ export default function MisionDetalle() {
         {mision.estado === 'verificacion' && (
           <View className="mt-8 gap-3">
             <BotonTinta
-              key={ocupado ? 'ocupado' : 'libre'}
               etiqueta="Aceptar y resolver"
               onPress={resolver}
               disabled={ocupado}
               cargando={ocupado}
             />
             <BotonTinta
-              key={`volver-${ocupado ? 'ocupado' : 'libre'}`}
               etiqueta="Volver a activa"
               variante="fantasma"
               onPress={() => irA('activa')}
@@ -446,7 +435,6 @@ export default function MisionDetalle() {
                 </Text>
                 <View className="mt-3 flex-row gap-2">
                   <BotonTinta
-                    key={`cancelar-${ocupado ? 'ocupado' : 'libre'}`}
                     etiqueta="Cancelar"
                     variante="fantasma"
                     onPress={() => setConfirmarAbandono(false)}
@@ -454,7 +442,6 @@ export default function MisionDetalle() {
                     className="flex-1"
                   />
                   <BotonTinta
-                    key={`abandonar-${ocupado ? 'ocupado' : 'libre'}`}
                     etiqueta={ocupado ? 'Abandonando…' : 'Sí, abandonar'}
                     variante="fantasma"
                     onPress={abandonar}
