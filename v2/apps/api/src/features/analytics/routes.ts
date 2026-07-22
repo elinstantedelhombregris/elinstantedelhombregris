@@ -4,20 +4,25 @@
  *   GET /api/analytics/convergence-summary  — high-level numbers
  *   GET /api/analytics/dreams-by-category   — top dream categories
  *   GET /api/analytics/voces-count          — total "voces" (dreams) count
+ *   GET /api/analytics/cifras               — landing strip counts
+ *   GET /api/analytics/voces-recientes      — latest approved dreams
  */
 import {
   blogPosts,
+  CommunityRepository,
   communityPosts,
   DreamsRepository,
   dreams,
   eq,
   getDb,
   iniciativas,
+  PulsoRepository,
   pulseSignals,
   sql,
   users,
 } from '@v2/db';
 import { Router, type Router as RouterType } from 'express';
+import { z } from 'zod';
 
 const router: RouterType = Router();
 
@@ -27,6 +32,48 @@ router.get('/voces-count', async (_req, res, next) => {
     const repo = new DreamsRepository(db);
     const total = await repo.countApproved();
     res.json({ data: { total } });
+  } catch (err) {
+    next(err);
+  }
+});
+
+/**
+ * Real counts behind the landing "cifras" strip — one round trip for
+ * the four numbers the UI needs. Per the no-hardcoded-data directive,
+ * a metric without a backing table simply isn't in this payload (no
+ * invented numbers, with or without an asterisk).
+ */
+router.get('/cifras', async (_req, res, next) => {
+  try {
+    const db = getDb();
+    const dreamsRepo = new DreamsRepository(db);
+    const pulsoRepo = new PulsoRepository(db);
+    const communityRepo = new CommunityRepository(db);
+    const [voces, propuestas, senales, posts] = await Promise.all([
+      dreamsRepo.countApproved(),
+      pulsoRepo.countProposals(),
+      pulsoRepo.countSignals(),
+      communityRepo.countPosts(),
+    ]);
+    res.json({ data: { voces, propuestas, senales, posts } });
+  } catch (err) {
+    next(err);
+  }
+});
+
+const vocesRecientesQuery = z.object({
+  limit: z.coerce.number().int().min(1).max(30).default(12),
+});
+
+/** Latest approved dreams for the landing voces ticker, newest first. */
+router.get('/voces-recientes', async (req, res, next) => {
+  try {
+    const { limit } = vocesRecientesQuery.parse(req.query);
+    const repo = new DreamsRepository(getDb());
+    const items = await repo.listApproved({ limit });
+    res.json({
+      data: items.map((d) => ({ id: d.id, texto: d.body, categoria: d.category })),
+    });
   } catch (err) {
     next(err);
   }

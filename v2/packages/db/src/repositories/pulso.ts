@@ -49,6 +49,12 @@ export class PulsoRepository {
       : q.orderBy(desc(pulseSignals.createdAt)).limit(limit);
   }
 
+  /** All pulse signals ever created — feeds the public "cifras" strip. */
+  async countSignals(): Promise<number> {
+    const [row] = await this.db.select({ count: sql<number>`count(*)::int` }).from(pulseSignals);
+    return row?.count ?? 0;
+  }
+
   /** Signals awaiting AI classification (theme IS NULL). */
   async listUnclassified(limit = 50): Promise<PulseSignal[]> {
     return this.db
@@ -92,6 +98,16 @@ export class PulsoRepository {
     return where
       ? q.where(where).orderBy(desc(proposals.voteScore)).limit(limit)
       : q.orderBy(desc(proposals.voteScore)).limit(limit);
+  }
+
+  /**
+   * All proposals ever created (any status) — feeds the public "cifras"
+   * strip. Unlike the dreams "voces" count, proposals aren't gated by an
+   * approval workflow, so this is a plain total.
+   */
+  async countProposals(): Promise<number> {
+    const [row] = await this.db.select({ count: sql<number>`count(*)::int` }).from(proposals);
+    return row?.count ?? 0;
   }
 
   async setProposalStatus(id: number, fromStatus: string, toStatus: string, changedBy?: number, note?: string): Promise<void> {
