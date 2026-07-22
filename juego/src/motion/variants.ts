@@ -10,6 +10,7 @@ import {
   FadeInDown,
   FadeInUp,
   Keyframe,
+  useReducedMotion,
   withSpring,
   type WithSpringConfig,
 } from 'react-native-reanimated';
@@ -18,6 +19,16 @@ import {
 // Reanimated quedan congeladas a mitad de camino — se desactivan ahí.
 const isWeb = Platform.OS === 'web';
 const native = <T,>(v: T): T | undefined => (isWeb ? undefined : v);
+
+/**
+ * Gate compartido para el kit Papel y Tinta (spec §10): en web y con
+ * reduce-motion nativo, las animaciones de firma (inkfill, stampin,
+ * semgrow) se saltean y muestran el estado final directo.
+ */
+export function useSkipMotion(): boolean {
+  const reducedMotion = useReducedMotion();
+  return isWeb || reducedMotion;
+}
 
 // Entradas
 export const fadeUp = native(FadeInUp.duration(400).easing(Easing.out(Easing.ease)));
@@ -57,6 +68,23 @@ const bloomKeyframe = new Keyframe({
   100: { opacity: 1, transform: [{ scale: 1 }], easing: Easing.out(Easing.ease) },
 }).duration(600);
 export const bloom = native(bloomKeyframe);
+
+// Papel y Tinta (spec §6) — el sello que cae: scale 1.6→0.96→1 + fade, 400ms.
+const stampinKeyframe = new Keyframe({
+  0: { opacity: 0, transform: [{ scale: 1.6 }] },
+  60: { opacity: 1, transform: [{ scale: 0.96 }] },
+  100: { opacity: 1, transform: [{ scale: 1 }], easing: Easing.out(Easing.ease) },
+}).duration(400);
+export const stampin = native(stampinKeyframe);
+
+/**
+ * Papel y Tinta (spec §6) — semgrow: cada trazo de `Palitos` crece desde su
+ * ancla, escalonado. Son SVG (react-native-svg), no Views: no hay `entering`
+ * de Reanimated ahí, así que estos son solo los números del ritmo; la
+ * animación misma vive en `useAnimatedProps` dentro de Palitos.tsx.
+ */
+export const SEMGROW_STAGGER_MS = 90;
+export const SEMGROW_DURATION_MS = 200;
 
 // Springs compartidos
 export const snappySpring: WithSpringConfig = { stiffness: 400, damping: 25 };

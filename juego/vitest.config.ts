@@ -13,6 +13,7 @@ export default defineConfig({
       'src/cielo/**/*.test.ts',
       'src/civic/**/*.test.ts',
       'src/protocolo/**/*.test.ts',
+      'src/components/**/*.test.ts',
     ],
   },
 });

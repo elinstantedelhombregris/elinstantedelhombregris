@@ -48,6 +48,8 @@ export const PAPEL_CRUDO = '#FBFAF4';
 export const TINTA = '#16130E';
 /** Tinta al 50% — meta, deshabilitado. */
 export const TINTA_50 = '#7A756A';
+/** Tinta al 30% — numeración, notas al pie, palitos huecos, arranque del inkfill. */
+export const TINTA_30 = '#B5B1A8';
 
 /** Chrome del registro nocturno (el Cielo, modales de las luces). */
 export const OSCURO_TEXTO = '#F2EFE7';

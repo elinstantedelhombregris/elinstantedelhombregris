@@ -1,11 +1,17 @@
 // https://docs.expo.dev/guides/using-eslint/
 const { defineConfig } = require('eslint/config');
 const expoConfig = require('eslint-config-expo/flat');
+const globals = require('globals');
 
 module.exports = defineConfig([
   expoConfig,
   {
     ignores: ['dist/*'],
+  },
+  {
+    // Scripts de build/generación de assets: corren en Node, no en la app.
+    files: ['scripts/**/*.mjs'],
+    languageOptions: { globals: globals.node },
   },
   {
     // Reanimated SharedValue mutations happen on the UI-thread worklet and
