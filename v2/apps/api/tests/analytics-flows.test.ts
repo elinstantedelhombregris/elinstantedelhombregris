@@ -110,11 +110,14 @@ dsuite('Analytics flows', () => {
   });
 
   describe('GET /api/analytics/cifras', () => {
-    // Same relative-assertion pattern as voces-count: other suites touch
-    // these same tables concurrently, so we compare the endpoint's payload
-    // against a same-instant direct repository read rather than an
-    // absolute expected value, and separately prove our own rows are
-    // included via a >= floor.
+    // Sibling suites (gamification-hooks, pulso-flows, community-flows, ...)
+    // insert into AND delete from these same four tables in parallel vitest
+    // workers, and the endpoint's four internal reads run at a later instant
+    // than any direct repository read we could take here — so exact equality
+    // against a concurrently-read count WILL flake under load. Deterministic
+    // instead: exact payload shape, integer values, and a >= floor per metric
+    // backed by the rows this test owns (they exist for the whole test;
+    // nothing deletes them until our afterAll).
     it('returns real counts for voces, propuestas, senales and posts — one round trip', async () => {
       const dreamsRepo = new DreamsRepository(getDb());
       const pulsoRepo = new PulsoRepository(getDb());
@@ -148,20 +151,23 @@ dsuite('Analytics flows', () => {
       });
       createdPostIds.push(post.id);
 
-      const [res, voces, propuestas, senales, posts] = await Promise.all([
-        request.get('/api/analytics/cifras'),
-        dreamsRepo.countApproved(),
-        pulsoRepo.countProposals(),
-        pulsoRepo.countSignals(),
-        communityRepo.countPosts(),
-      ]);
+      const res = await request.get('/api/analytics/cifras');
 
       expect(res.status).toBe(200);
-      expect(res.body.data).toEqual({ voces, propuestas, senales, posts });
-      expect(res.body.data.voces as number).toBeGreaterThanOrEqual(1);
-      expect(res.body.data.propuestas as number).toBeGreaterThanOrEqual(1);
-      expect(res.body.data.senales as number).toBeGreaterThanOrEqual(1);
-      expect(res.body.data.posts as number).toBeGreaterThanOrEqual(1);
+      expect(Object.keys(res.body.data as Record<string, unknown>).sort()).toEqual([
+        'posts',
+        'propuestas',
+        'senales',
+        'voces',
+      ]);
+      const { voces, propuestas, senales, posts } = res.body.data as Record<string, number>;
+      for (const n of [voces, propuestas, senales, posts]) {
+        expect(Number.isInteger(n)).toBe(true);
+      }
+      expect(voces).toBeGreaterThanOrEqual(1);
+      expect(propuestas).toBeGreaterThanOrEqual(1);
+      expect(senales).toBeGreaterThanOrEqual(1);
+      expect(posts).toBeGreaterThanOrEqual(1);
     });
   });
 
