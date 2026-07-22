@@ -3,6 +3,9 @@
  * menos de un minuto. Tres fases: pregunta → nacimiento → tooltips. Nada de
  * pantallas de contrato: el asombro va primero, la explicación viene después
  * y ya con una estrella propia ardiendo en el cielo.
+ *
+ * Registro nocturno del sistema Papel y Tinta (spec §7): el cielo se
+ * renderiza desaturado hasta que nace la estrella (el despertar, spec §7).
  */
 
 import { Redirect, useRouter } from 'expo-router';
@@ -11,9 +14,8 @@ import { KeyboardAvoidingView, Platform, Text, TextInput, View } from 'react-nat
 import Animated from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { LuzOrb } from '@/components/juego/LuzOrb';
-import { AccentButton } from '@/components/ui/AccentButton';
-import { GlassCard } from '@/components/ui/GlassCard';
+import { BotonTinta, PapelCard, Sello, TituloAnton } from '@/components/papel';
+import { LuzPlaca } from '@/components/juego/LuzPlaca';
 import { Pressable97 } from '@/components/ui/Pressable97';
 import { FTUE_ASOMBRO } from '@/content';
 import { SkyView } from '@/cielo/SkyView';
@@ -21,9 +23,10 @@ import { CLAVES, crearEstrellaCivicaUnaVez, ganarBrasasUnaVez, getSetting, setSe
 import type { StarRow } from '@/db/schema';
 import { GANANCIAS, MOTIVOS } from '@/game/brasas';
 import type { Luz } from '@/game/types';
-import { bloom, fadeIn, fadeUp } from '@/motion/variants';
+import { fadeIn, fadeUp } from '@/motion/variants';
 import { useJuego } from '@/stores/juego';
 import { haptic } from '@/theme/haptics';
+import { OSCURO_BORDE, OSCURO_TENUE, OSCURO_TEXTO, VIOLETA } from '@/theme/tokens';
 
 type Fase = 'pregunta' | 'nacimiento' | 'tooltips';
 
@@ -37,6 +40,7 @@ export default function Ftue() {
   const [texto, setTexto] = useState('');
   const [estrella, setEstrella] = useState<StarRow | null>(null);
   const [encendiendo, setEncendiendo] = useState(false);
+  const [enfocado, setEnfocado] = useState(false);
   const [luzActiva, setLuzActiva] = useState<Luz>('ver');
 
   if (getSetting(CLAVES.ftueCompleto) === '1') {
@@ -79,6 +83,7 @@ export default function Ftue() {
           estrellas={estrella ? [estrella] : []}
           rachaViva
           nuevaEstrellaId={fase === 'nacimiento' ? estrella?.id : null}
+          dormido={fase === 'pregunta'}
         />
       </View>
 
@@ -89,22 +94,43 @@ export default function Ftue() {
             style={{ paddingTop: insets.top, paddingBottom: insets.bottom + 24 }}
           >
             <Animated.View entering={fadeUp}>
-              <Text className="font-serif text-4xl leading-[46px] text-plata">
+              <TituloAnton entintar registro="noche" tamano="xl">
                 {FTUE_ASOMBRO.pregunta}
-              </Text>
+              </TituloAnton>
               <TextInput
                 value={texto}
                 onChangeText={setTexto}
+                onFocus={() => setEnfocado(true)}
+                onBlur={() => setEnfocado(false)}
                 placeholder={FTUE_ASOMBRO.placeholderRespuesta}
-                placeholderTextColor="#64748b"
+                placeholderTextColor={OSCURO_TENUE}
                 maxLength={280}
                 returnKeyType="done"
                 onSubmitEditing={encender}
                 accessibilityLabel={FTUE_ASOMBRO.pregunta}
-                className="mt-8 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 font-sans text-base text-plata"
+                className="mt-8 bg-transparent px-5 py-4 font-archivo text-base text-oscuro-texto"
+                style={{
+                  borderWidth: enfocado ? 2 : 1,
+                  borderColor: enfocado ? VIOLETA : OSCURO_BORDE,
+                  // Spec §10: el foco visible en web es el `outline`, no un
+                  // segundo halo — pisa el anillo nativo del navegador
+                  // (que sale en el color del sistema, no en violeta).
+                  outlineColor: VIOLETA,
+                  outlineStyle: 'solid',
+                  outlineWidth: enfocado ? 2 : 0,
+                  outlineOffset: 2,
+                }}
               />
               <View className="mt-8 items-center">
-                <AccentButton label="Que se encienda" onPress={encender} disabled={!texto.trim() || encendiendo} />
+                <BotonTinta
+                  etiqueta="Que se encienda →"
+                  accessibilityLabel="Que se encienda"
+                  variante="primaria"
+                  registro="noche"
+                  onPress={encender}
+                  disabled={!texto.trim()}
+                  cargando={encendiendo}
+                />
               </View>
             </Animated.View>
           </View>
@@ -116,16 +142,22 @@ export default function Ftue() {
           className="flex-1 items-center justify-center px-8"
           style={{ paddingTop: insets.top, paddingBottom: insets.bottom + 24 }}
         >
-          <Animated.View entering={bloom} className="items-center">
-            <Text className="text-center font-serif-italic text-3xl leading-10 text-plata">
+          <Sello texto="ENCENDIDA" color="violeta" rotacion={-6} />
+          <Animated.View entering={fadeUp} className="mt-8 items-center">
+            <TituloAnton registro="noche" tamano="lg" className="text-center">
               {FTUE_ASOMBRO.nacimiento}
-            </Text>
-            <Text className="mt-4 text-center font-sans text-sm leading-6 text-slate-400">
+            </TituloAnton>
+            <Text className="mt-4 text-center font-archivo text-sm leading-6 text-oscuro-secundario">
               {FTUE_ASOMBRO.bienvenidaBrasas}
             </Text>
           </Animated.View>
           <View className="mt-10">
-            <AccentButton label="Seguir" onPress={() => setFase('tooltips')} />
+            <BotonTinta
+              etiqueta="Seguir"
+              variante="primaria"
+              registro="noche"
+              onPress={() => setFase('tooltips')}
+            />
           </View>
         </View>
       )}
@@ -138,44 +170,49 @@ export default function Ftue() {
         >
           <View className="mb-8 flex-row items-end justify-center gap-9">
             <View style={{ opacity: luzActiva === 'ver' ? 1 : 0.35 }}>
-              <LuzOrb luz="ver" encendida={false} onPress={() => setLuzActiva('ver')} />
+              <LuzPlaca luz="ver" encendida={false} onPress={() => setLuzActiva('ver')} />
             </View>
             <View className="mb-4" style={{ opacity: luzActiva === 'encender' ? 1 : 0.35 }}>
-              <LuzOrb luz="encender" encendida={false} destacada onPress={() => setLuzActiva('encender')} />
+              <LuzPlaca luz="encender" encendida={false} destacada onPress={() => setLuzActiva('encender')} />
             </View>
             <View style={{ opacity: luzActiva === 'dar' ? 1 : 0.35 }}>
-              <LuzOrb luz="dar" encendida={false} onPress={() => setLuzActiva('dar')} />
+              <LuzPlaca luz="dar" encendida={false} onPress={() => setLuzActiva('dar')} />
             </View>
           </View>
 
-          <GlassCard className="p-5">
-            <Text className="font-sans text-sm leading-6 text-slate-200">
+          <PapelCard registro="noche" className="p-5">
+            <Text className="font-archivo text-sm leading-6 text-oscuro-texto">
               {FTUE_ASOMBRO.tooltips[luzActiva]}
             </Text>
-          </GlassCard>
+          </PapelCard>
 
           <View className="mt-5 flex-row items-center justify-center gap-2">
             {ORDEN_LUCES.map((luz) => (
               <View
                 key={luz}
-                className="h-1.5 w-1.5 rounded-full"
-                style={{ backgroundColor: luz === luzActiva ? '#F5F7FA' : 'rgba(245,247,250,0.25)' }}
+                className="h-1.5 w-1.5"
+                style={{ backgroundColor: luz === luzActiva ? OSCURO_TEXTO : OSCURO_TENUE }}
               />
             ))}
           </View>
 
           <View className="mt-6 items-center">
-            <AccentButton
-              label={luzActiva === 'dar' ? 'A mi cielo' : 'Siguiente'}
+            <BotonTinta
+              etiqueta={luzActiva === 'dar' ? 'A mi cielo →' : 'Siguiente'}
+              accessibilityLabel={luzActiva === 'dar' ? 'A mi cielo' : 'Siguiente'}
+              variante="primaria"
+              registro="noche"
               onPress={avanzarTooltip}
             />
             <Pressable97
               accessibilityRole="button"
               accessibilityLabel={FTUE_ASOMBRO.saltearTour}
               onPress={terminar}
-              className="mt-4 min-h-11 items-center justify-center rounded-xl px-4"
+              className="mt-4 min-h-11 items-center justify-center px-4"
             >
-              <Text className="font-sans-medium text-xs text-slate-500">{FTUE_ASOMBRO.saltearTour}</Text>
+              <Text className="font-archivo-medium text-xs text-oscuro-tenue">
+                {FTUE_ASOMBRO.saltearTour}
+              </Text>
             </Pressable97>
           </View>
         </Animated.View>

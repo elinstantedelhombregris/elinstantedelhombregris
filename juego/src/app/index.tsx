@@ -2,6 +2,9 @@
  * El Cielo — la pantalla-hogar (spec §2). El canvas Skia de fondo, la
  * Estrella Guía con la racha, las Tres Luces del día sobre el dock, los
  * avisos de estrella fugaz y la celebración de Noche Completa.
+ *
+ * Registro nocturno del sistema Papel y Tinta (spec §7): chrome mono,
+ * placas selladas, dock plano.
  */
 
 import { Ionicons } from '@expo/vector-icons';
@@ -11,26 +14,40 @@ import { Text, View } from 'react-native';
 import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
+import { BotonTinta, Palitos } from '@/components/papel';
 import { FugazBanner } from '@/components/juego/FugazBanner';
-import { LuzOrb } from '@/components/juego/LuzOrb';
+import { LuzPlaca } from '@/components/juego/LuzPlaca';
 import { NocheCompletaOverlay } from '@/components/juego/NocheCompletaOverlay';
 import { RangoUpOverlay } from '@/components/juego/RangoUpOverlay';
-import { GlassCard } from '@/components/ui/GlassCard';
 import { Pressable97 } from '@/components/ui/Pressable97';
 import { ESTADOS_VACIOS, ESTRELLA_FUGAZ, paletaPorId } from '@/content';
 import { SkyView } from '@/cielo/SkyView';
 import { CLAVES, getSetting } from '@/db/repos';
 import type { Rango } from '@/game/types';
 import { softSpring } from '@/motion/variants';
-import { multiplicadorDe, useJuego } from '@/stores/juego';
+import { useJuego } from '@/stores/juego';
 import { chequearAscensoRango } from '@/stores/rangos-check';
-import { PLATA } from '@/theme/tokens';
+import { OSCURO_META, OSCURO_TENUE, VERDE } from '@/theme/tokens';
 
 const DIAS = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
 const MESES = [
   'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio',
   'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre',
 ];
+
+/** Ámbar de las brasas en la noche (spec §7) — el mismo tono que la
+ * variante nocturna de la señal `need` (posiciones.ts), sin acoplar el
+ * significado: acá es sólo el color del fuego. */
+const BRASA_NOCHE = '#D89B2E';
+
+/** El dock: ruta, ícono funcional, texto de accesibilidad y label visible. */
+const DOCK = [
+  ['corriente', 'pulse-outline', 'La Corriente', 'CORRIENTE'],
+  ['territorio', 'earth-outline', 'Territorio', 'TERRITORIO'],
+  ['album', 'star-outline', 'Álbum', 'ÁLBUM'],
+  ['bitacora', 'book-outline', 'Bitácora', 'BITÁCORA'],
+  ['ajustes', 'settings-outline', 'Ajustes', 'AJUSTES'],
+] as const;
 
 const fechaLinda = (fecha: string): string => {
   const [y, m, d] = fecha.split('-').map(Number) as [number, number, number];
@@ -100,59 +117,64 @@ export default function Cielo() {
           rachaViva={st.rachaInfo.viva}
           nuevaEstrellaId={st.newStarId}
           paleta={paletaPorId(getSetting(CLAVES.paletaActiva)).gradiente}
+          dormido={st.estrellas.length === 0}
         />
       </Animated.View>
 
       <View className="absolute inset-0" style={{ pointerEvents: 'box-none' }}>
         {/* Encabezado: fecha + racha */}
         <View
-          className="flex-row items-center justify-between px-5"
+          className="flex-row items-start justify-between px-5"
           style={{ paddingTop: insets.top + 10 }}
         >
-          <Text className="font-sans text-xs text-slate-400">
+          <Text className="font-space text-xs text-oscuro-meta">
             {st.fecha ? fechaLinda(st.fecha) : ' '}
           </Text>
           <View className="items-end">
-            <Text
-              className="font-mono text-sm"
-              style={{ color: st.rachaInfo.viva ? PLATA : '#64748b' }}
-            >
-              ◈ {st.rachaInfo.racha} {st.rachaInfo.racha === 1 ? 'noche' : 'noches'}
-            </Text>
+            <View className="flex-row items-center gap-2">
+              <Palitos
+                total={st.rachaInfo.racha}
+                color={st.rachaInfo.viva ? VERDE : OSCURO_TENUE}
+                registro="noche"
+              />
+              <Text
+                className={`font-space text-sm ${
+                  st.rachaInfo.viva ? 'text-oscuro-texto' : 'text-oscuro-tenue'
+                }`}
+              >
+                {st.rachaInfo.racha} {st.rachaInfo.racha === 1 ? 'noche' : 'noches'}
+              </Text>
+            </View>
             {!st.rachaInfo.viva && (
-              <Text className="mt-0.5 font-sans text-[10px] text-slate-500">
+              <Text className="mt-1 font-space text-[10px] text-oscuro-tenue">
                 la Guía espera el rito
               </Text>
             )}
           </View>
         </View>
 
-        <View className="mt-4 flex-row items-center justify-center px-4">
-          <Pressable97
-            accessibilityRole="button"
-            accessibilityLabel="Abrir La Escucha"
+        <View className="mt-4 items-center px-4">
+          <BotonTinta
+            etiqueta="La Escucha →"
+            accessibilityLabel="La Escucha"
+            variante="fantasma"
+            registro="noche"
+            tamano="compacto"
             onPress={() => router.push('/escuchar')}
-            className="flex-row items-center gap-2 rounded-full border border-violet-300/30 bg-violet-300/15 px-4 py-2.5"
-          >
-            <Ionicons name="ear-outline" size={15} color="#DDD6FE" />
-            <Text className="font-sans-semibold text-xs text-violet-100">La Escucha</Text>
-          </Pressable97>
+          />
         </View>
 
         {/* Rito de re-encendido, sin culpa */}
         {!st.rachaInfo.viva && (
           <View className="mt-3 items-center">
-            <Pressable97
-              accessibilityRole="button"
+            <BotonTinta
+              etiqueta="Rito de re-encendido →"
               accessibilityLabel="Rito de re-encendido"
+              variante="fantasma"
+              registro="noche"
+              tamano="compacto"
               onPress={() => router.push('/rito')}
-              className="flex-row items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2"
-            >
-              <Ionicons name="flame-outline" size={14} color={PLATA} />
-              <Text className="font-sans-medium text-xs text-plata">
-                Rito de re-encendido
-              </Text>
-            </Pressable97>
+            />
           </View>
         )}
 
@@ -170,66 +192,65 @@ export default function Cielo() {
         {/* Cielo vacío: una línea que invita */}
         {st.estrellas.length === 0 && (
           <View className="absolute left-10 right-10" style={{ top: '54%' }}>
-            <Text className="text-center font-sans text-sm leading-6 text-slate-500">
+            <Text className="text-center font-archivo text-sm leading-6 text-oscuro-tenue">
               {ESTADOS_VACIOS.cielo}
             </Text>
           </View>
         )}
 
         {/* Las Tres Luces + dock */}
-        <View
-          className="absolute bottom-0 left-0 right-0 items-center"
-          style={{ paddingBottom: insets.bottom + 12 }}
-        >
-          <View className="mb-5 flex-row items-end gap-9">
-            <LuzOrb luz="ver" encendida={st.luces.ver} onPress={() => router.push('/ver')} />
+        <View className="absolute bottom-0 left-0 right-0">
+          <View className="mb-5 flex-row items-end justify-center gap-9">
+            <LuzPlaca luz="ver" encendida={st.luces.ver} onPress={() => router.push('/ver')} />
             <View className="mb-4">
-              <LuzOrb
+              <LuzPlaca
                 luz="encender"
                 encendida={st.luces.encender}
                 destacada
                 onPress={() => router.push('/encender')}
               />
             </View>
-            <LuzOrb luz="dar" encendida={st.luces.dar} onPress={() => router.push('/dar')} />
+            <LuzPlaca luz="dar" encendida={st.luces.dar} onPress={() => router.push('/dar')} />
           </View>
 
-          <GlassCard className="flex-row items-center gap-5 px-5 py-3">
-            <View className="flex-row items-center gap-1.5">
-              <Ionicons name="flame" size={15} color="#F59E0B" />
-              <Text className="font-mono text-sm text-brasa">{st.brasas}</Text>
+          <View
+            className="border-t border-oscuro-borde bg-oscuro-barra px-3 pt-2"
+            style={{ paddingBottom: insets.bottom + 8 }}
+          >
+            {/* Brasas en su propia fila: ancho variable (palitos hasta <100),
+                nunca compite por espacio con el dock de navegación. */}
+            <View className="flex-row items-center gap-1.5 pb-2">
+              <Ionicons name="flame" size={16} color={BRASA_NOCHE} />
+              <Text className="font-space text-sm" style={{ color: BRASA_NOCHE }}>
+                {st.brasas}
+              </Text>
+              {st.brasas < 100 && (
+                <Palitos total={st.brasas} color={BRASA_NOCHE} registro="noche" />
+              )}
             </View>
-            <View className="h-5 w-px bg-white/10" />
-            {(
-              [
-                ['corriente', 'pulse-outline', 'La Corriente'],
-                ['territorio', 'earth-outline', 'Territorio'],
-                ['album', 'star-outline', 'Álbum'],
-                ['bitacora', 'book-outline', 'Bitácora'],
-                ['ajustes', 'settings-outline', 'Ajustes'],
-              ] as const
-            ).map(([ruta, icono, label]) => (
-              <Pressable97
-                key={ruta}
-                accessibilityRole="button"
-                accessibilityLabel={label}
-                onPress={() => router.push(`/${ruta}` as never)}
-                className="p-1"
-              >
-                <Ionicons name={icono} size={20} color="#94a3b8" />
-              </Pressable97>
-            ))}
-          </GlassCard>
+            <View className="flex-row items-center justify-between">
+              {DOCK.map(([ruta, icono, aria, label]) => (
+                <Pressable97
+                  key={ruta}
+                  accessibilityRole="button"
+                  accessibilityLabel={aria}
+                  onPress={() => router.push(`/${ruta}` as never)}
+                  className="items-center"
+                >
+                  <Ionicons name={icono} size={19} color={OSCURO_META} />
+                  <Text className="mt-1 font-space text-[9px] uppercase text-oscuro-meta">
+                    {label}
+                  </Text>
+                </Pressable97>
+              ))}
+            </View>
+          </View>
         </View>
       </View>
 
       {/* Noche Completa: el cierre del día */}
       {st.nocheParaCelebrar && (
-        <NocheCompletaOverlay
-          fecha={st.fecha}
-          multiplicador={multiplicadorDe(st.eventoHoy)}
-          onCerrar={st.celebrarNoche}
-        />
+        <NocheCompletaOverlay fecha={st.fecha} onCerrar={st.celebrarNoche} />
       )}
 
       {/* Ascenso de rango — después del cierre de la noche, si coinciden */}

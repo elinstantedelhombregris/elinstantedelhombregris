@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import {
   COLOR_ESTRELLA,
   MAX_ESTRELLAS_NITIDAS,
+  desaturar,
   grumosDePolvo,
   hexARgb,
   polvoAmbiental,
@@ -111,6 +112,32 @@ describe('colores', () => {
     expect(r).toBeCloseTo(0x7d / 255);
     expect(g).toBeCloseTo(0x5b / 255);
     expect(b).toBeCloseTo(0xde / 255);
+  });
+});
+
+describe('desaturar (el despertar, spec §7)', () => {
+  it('deja blanco y negro intactos', () => {
+    expect(desaturar('#ffffff')).toBe('#ffffff');
+    expect(desaturar('#000000')).toBe('#000000');
+  });
+
+  it('siempre devuelve un gris puro (r=g=b), para cualquier color de señal', () => {
+    for (const hex of Object.values(COLOR_ESTRELLA)) {
+      const gris = desaturar(hex);
+      expect(gris).toMatch(/^#[0-9a-f]{6}$/);
+      const r = gris.slice(1, 3);
+      const g = gris.slice(3, 5);
+      const b = gris.slice(5, 7);
+      expect(r).toBe(g);
+      expect(g).toBe(b);
+    }
+  });
+
+  it('preserva el orden de luminosidad relativa entre dos colores', () => {
+    // need (ámbar #D89B2E, claro) vs. el centro de Noche Pura (#1A1626, hondo).
+    const claro = parseInt(desaturar(COLOR_ESTRELLA.need).slice(1, 3), 16);
+    const hondo = parseInt(desaturar('#1A1626').slice(1, 3), 16);
+    expect(claro).toBeGreaterThan(hondo);
   });
 });
 

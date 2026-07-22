@@ -108,6 +108,23 @@ export const hexARgb = (hex: string): [number, number, number] => [
   parseInt(hex.slice(5, 7), 16) / 255,
 ];
 
+/**
+ * El despertar (Papel y Tinta spec §7): antes de la primera estrella, todo
+ * color de señal pasa por acá. Gris de luminancia perceptual (Rec. 601:
+ * 0.299R + 0.587G + 0.114B) — preserva el brillo relativo entre colores,
+ * pero el resultado es SIEMPRE un gris puro (r=g=b), nunca un tinte
+ * "casi gris". Pura: sin React ni Skia, así el canvas y los tests la
+ * comparten sin fricción.
+ */
+export const desaturar = (hex: string): string => {
+  const r = parseInt(hex.slice(1, 3), 16);
+  const g = parseInt(hex.slice(3, 5), 16);
+  const b = parseInt(hex.slice(5, 7), 16);
+  const l = Math.round(0.299 * r + 0.587 * g + 0.114 * b);
+  const canal = l.toString(16).padStart(2, '0');
+  return `#${canal}${canal}${canal}`;
+};
+
 /** Un grumo de polvo estelar: estrellas viejas agregadas en un glow (LOD). */
 export interface GrumoPolvo {
   x: number;

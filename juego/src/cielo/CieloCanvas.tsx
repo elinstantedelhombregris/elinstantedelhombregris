@@ -56,6 +56,7 @@ import {
 import {
   COLOR_ESTRELLA,
   MAX_ESTRELLAS_NITIDAS,
+  desaturar,
   faseTitilado,
   grumosDePolvo,
   hexARgb,
@@ -97,6 +98,13 @@ export interface CieloProps {
    * (spec §3.3). Sin prop, el negro de siempre.
    */
   paleta?: readonly [string, string];
+  /**
+   * El despertar (Papel y Tinta spec §7): antes de la primera estrella, el
+   * cielo se renderiza desaturado — colores de señal, nebulosas y la
+   * paleta de fondo pasan por `desaturar()`. Al nacer la primera estrella,
+   * el color entra con el bloom.
+   */
+  dormido?: boolean;
 }
 
 // Sprite de estrella: núcleo r=16 dentro de un tile de 64 (halo hasta el borde).
@@ -175,11 +183,17 @@ export function CieloCanvas({
   rachaViva,
   nuevaEstrellaId,
   paleta = FONDO_DEFAULT,
+  dormido = false,
 }: CieloProps) {
   const { width: w, height: h } = useWindowDimensions();
   const cx = w / 2;
   const cy = h * CENTRO_Y;
   const clock = useClock();
+
+  // El despertar: la paleta de fondo se desatura hasta la primera estrella.
+  const paletaEfectiva: readonly [string, string] = dormido
+    ? [desaturar(paleta[0]), desaturar(paleta[1])]
+    : paleta;
 
   // ---------------------------------------------------------------------------
   // Datos derivados (solo cambian cuando cambian las estrellas o la pantalla)
@@ -209,7 +223,7 @@ export function CieloCanvas({
         return;
       }
       const tam = tamanoEstrella(e);
-      const color = COLOR_ESTRELLA[e.tipo];
+      const color = dormido ? desaturar(COLOR_ESTRELLA[e.tipo]) : COLOR_ESTRELLA[e.tipo];
       if (nuevaEstrellaId && e.id === nuevaEstrellaId) {
         holder.nueva = { x, y, tam, color, fundadora: e.fundadora };
         return; // nace aparte, con bloom; el Atlas la toma al próximo render
@@ -235,7 +249,7 @@ export function CieloCanvas({
       grumos: grumosDePolvo(posViejas).map((g) => ({ ...g, x: cx + g.x, y: cy + g.y })),
       nueva: holder.nueva,
     };
-  }, [estrellas, nuevaEstrellaId, w, h, cx, cy]);
+  }, [estrellas, nuevaEstrellaId, w, h, cx, cy, dormido]);
 
   // Atmósfera estática (ver atmosfera.ts): campo estelar cuantizado en
   // baldes Points, destacadas, y la vía plateada en dos densidades.
@@ -361,12 +375,12 @@ export function CieloCanvas({
 
   return (
     <Canvas style={{ position: 'absolute', top: 0, left: 0, width: w, height: h }}>
-      {/* (a) Fondo hondo — la paleta activa tiñe la noche */}
+      {/* (a) Fondo hondo — la paleta activa tiñe la noche (gris si dormido) */}
       <Rect x={0} y={0} width={w} height={h}>
         <RadialGradient
           c={vec(cx, cy)}
           r={Math.max(w, h) * 0.85}
-          colors={[paleta[0], paleta[1]]}
+          colors={[paletaEfectiva[0], paletaEfectiva[1]]}
         />
       </Rect>
 
@@ -416,12 +430,13 @@ export function CieloCanvas({
       {/* (a3) Nebulosas: dos acentos enormes y tenues, glow por gradiente */}
       {NEBULOSAS.map((n, i) => {
         const r = n.fr * Math.max(w, h);
+        const color = dormido ? desaturar(n.color) : n.color;
         return (
           <Circle key={`nebulosa-${i}`} cx={n.fx * w} cy={n.fy * h} r={r}>
             <RadialGradient
               c={vec(n.fx * w, n.fy * h)}
               r={r}
-              colors={[conAlpha(n.color, n.opacidad), conAlpha(n.color, 0)]}
+              colors={[conAlpha(color, n.opacidad), conAlpha(color, 0)]}
             />
           </Circle>
         );
