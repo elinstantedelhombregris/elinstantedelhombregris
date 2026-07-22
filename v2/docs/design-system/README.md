@@ -1,5 +1,5 @@
 # ¡BASTA! — Sistema de diseño «Papel y Tinta»
-Versión 1.0 · julio 2026 · fuente de verdad para todas las páginas del sitio.
+Versión 1.1 · julio 2026 · fuente de verdad para todas las páginas del sitio.
 
 Identidad en una frase: **un manifiesto impreso que cobró vida** — papel crudo, tinta negra, un violeta eléctrico que marca lo que importa y un sello rojo que interrumpe. Cero decoración: todo lo que se ve significa algo.
 
@@ -140,7 +140,7 @@ Presupuesto: **una interacción firma por página**; el resto entra con `fadeup`
 
 ## 8. Anatomía del sitio (mapa de páginas)
 
-`Inicio → La idea (3 capítulos, despertar gris→color) → El mapa (soltar voz) → El mandato (oscura + documento papel) → La prueba (22 planes, filtros) → La biblioteca (manifiesto + 21 ensayos en 3 ciclos + 6 entrenamientos + bitácora) → lectores (ensayo/curso/crónica/manifiesto) → Sembrar (3 pasos → certificado semilla)`
+`Inicio → La idea (3 capítulos, despertar gris→color) → El mapa (soltar voz) → El mandato (oscura + documento papel) → La prueba (22 planes, filtros) → La biblioteca (manifiesto + 21 ensayos en 3 ciclos + 6 entrenamientos curados (catálogo completo de 30 detrás de «ver todos») + bitácora) → lectores (ensayo/curso/crónica/manifiesto) → Sembrar (3 pasos → certificado semilla)`
 Header fijo: wordmark + contador FOMO + nav mono + CTA «Sembrar tu voz». Footer: wordmark outline + recorrido + principios + CTA. Conversión primaria: **dejar la voz en el mapa**; secundaria: plantar la semilla.
 
 ## 9. Reglas de implementación
@@ -198,3 +198,16 @@ Tres niveles, sin excepciones:
    de páginas-documento; monocromo tinta + UN acento semántico; sin gradientes, sin
    3D, sin ejes decorativos; toda cifra en Space Mono; siempre con fuente y fecha al
    pie. Si una viz no se entiende en 10 segundos, se reemplaza por una tabla.
+
+## 14. La plataforma y la difusión
+
+Auth: formularios papel mínimos, kicker «entrada», tono «anónimo si querés» — la
+cuenta es opcional y se dice. Nada de beneficios inventados por registrarse.
+Emails: una columna papel (#F2EFE7), fuentes del sistema, wordmark texto con ¡! en
+violeta, un solo CTA, footer con «te escribimos solo cuando pasa algo».
+SEO/OG: título «{Página} — ¡BASTA!»; descripciones en voseo, sin marketing. Imagen
+OG: card papel 1200×630 con ¡BASTA! gigante entintado + kicker de la página (una
+plantilla, texto variable). Favicon: «¡» violeta sobre papel.
+Gamificación: XP y rachas se cuentan con palitos; logros son sellos del catálogo;
+niveles con numeración de expediente («Exp. N° 004»). Cero barras de progreso salvo
+dentro de documentos; cero íconos de trofeo.
