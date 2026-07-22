@@ -1,5 +1,7 @@
 import { useLocation } from 'wouter';
 
+import { esRutaPapel } from './papel-routes';
+
 import type { ReactNode } from 'react';
 
 import { Footer } from '~/components/Footer';
@@ -8,13 +10,6 @@ import { DespertarVeil } from '~/components/papel/DespertarVeil';
 import { PapelFooter } from '~/components/papel/PapelFooter';
 import { PapelHeader } from '~/components/papel/PapelHeader';
 import { PaperGrain } from '~/components/papel/PaperGrain';
-
-
-/**
- * Rutas ya migradas al sistema «Papel y Tinta». A medida que se rediseña
- * cada página se agrega acá; cuando estén todas, el chrome viejo se borra.
- */
-const PAPEL_ROUTES = new Set(['/', '/la-idea', '/el-mapa']);
 
 interface RootLayoutProps {
   children: ReactNode;
@@ -28,7 +23,7 @@ interface RootLayoutProps {
 export function RootLayout({ children }: RootLayoutProps) {
   const [location] = useLocation();
 
-  if (PAPEL_ROUTES.has(location)) {
+  if (esRutaPapel(location)) {
     return (
       <div className="papel-root bg-papel font-archivo text-tinta flex min-h-screen flex-col antialiased">
         <PaperGrain />

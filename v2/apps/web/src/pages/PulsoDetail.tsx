@@ -10,7 +10,7 @@ import { useProvincias } from '~/lib/queries/open-data';
 
 /**
  * Anexo señal (spec 2.3, «Los anexos») — ficha del expediente de una señal
- * del mandato. Vive dentro de `MarcoAnexo`; el chrome glass del v1-port
+ * del mandato. Vive dentro de `MarcoAnexo`; el chrome viejo del v1-port
  * muere acá.
  */
 export function PulsoDetail() {

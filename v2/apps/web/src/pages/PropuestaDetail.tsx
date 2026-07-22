@@ -11,7 +11,7 @@ import { usePropuestaById, useVotePropuesta } from '~/lib/queries/mandato';
 /**
  * Anexo propuesta (spec 2.3, «Los anexos») — ficha del expediente de una
  * propuesta en votación. Vive dentro de `MarcoAnexo`; la votación (auth) se
- * conserva, el chrome glass del v1-port muere acá.
+ * conserva, el chrome viejo del v1-port muere acá.
  */
 export function PropuestaDetail() {
   const [, params] = useRoute<{ id: string }>('/mandato-vivo/propuesta/:id');
