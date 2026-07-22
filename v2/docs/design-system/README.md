@@ -134,7 +134,7 @@ layout; los componentes compartidos viven en `components/papel/primitives/`.
 5. **Sellos reactivos.** Toda acción completada del usuario se confirma con un sello que cae (`stampin`): voz soltada → `RECIBIDA` · semilla → `PLANTADA` · manifiesto leído hasta el final → `LEÍDO ENTERO` · documento auditado → `VISTO`. Catálogo cerrado; no inventar sellos por decoración.
 6. **Palitos, no barras.** Números chicos (<100) se cuentan con tally marks (4 palitos + 1 cruzado), dibujados con `semgrow` escalonado. Las barras quedan solo para documentos (mandato). Contar a mano es el data-viz de la marca.
 7. **El despertar.** Velo gris de viewport completo (`mix-blend-mode:saturation`, opacidad .6) que se disuelve en 1.4 s al primer gesto (`despertar()` en `lib/despertar.ts`). Disparadores canónicos: CTA «Dejar mi voz en el mapa», CTA header «Sembrar tu voz», primera voz soltada. Se guarda `localStorage['basta_despierto']='1'`. El sitio entero repite la tesis: gris hasta que actuás.
-8. **La edición impresa.** Cada lector (ensayo, crónica, manifiesto, certificado de semilla) imprime perfecto: tipografía serif del sistema en papel real, sin nav, con folio `¡BASTA! · edición del lector · {fecha}`. El sitio es un diario que se puede volver papel.
+8. **La edición impresa.** Cada lector (ensayo, crónica, manifiesto, certificado de semilla) imprime perfecto. La edición impresa usa la serifa del sistema (`Georgia, 'Times New Roman', serif`) SOLO en `@media print`. En pantalla nunca hay serifa. Cada lector define `@media print`: sin nav/footer/grano, folio `¡BASTA! · edición del lector · {fecha}`. El sitio es un diario que se puede volver papel.
 9. **Microcopy con voz en los estados mudos.** Vacíos, cargas y errores hablan: «Todavía no hay voces acá. Qué oportunidad.» · «Cargando — menos que un trámite.» · «Esto se rompió. Lo decimos porque publicamos todo.»
 10. **Premio también es rigor:** contraste AA mínimo en todo texto, focus visible violeta de 2px, `prefers-reduced-motion` desactiva inkfill/marquee/pulse (deja estados finales), LCP < 2s (fonts con `display=swap`, cero imágenes pesadas).
 
@@ -144,3 +144,22 @@ layout; los componentes compartidos viven en `components/papel/primitives/`.
 2. Congelados entre convos: paleta, fuentes, header/footer, nombres de páginas, las 3 frases del método, contador FOMO.
 3. Definición de terminado: kicker+título+CTA presentes · una sola interacción firma · asteriscos en datos demo · responsive a 1 columna · voseo consistente.
 4. Al terminar una página, actualizar la fecha de este documento si algo del sistema cambió (y solo si cambió).
+
+## 12. Iconos
+
+- Páginas editoriales/públicas: CERO íconos. Solo glifos tipográficos → ↗ ↺ ▌ ¡ !
+- La plataforma (páginas con sesión): lucide permitido SOLO funcional (cerrar, menú,
+  link externo, campana), 16px, stroke tinta o tinta-50, nunca decorativo ni de color.
+- Logros y gamificación NO usan íconos: usan sellos y palitos (§10.5, §10.6).
+
+## 13. La prensa de datos
+
+Tres niveles, sin excepciones:
+1. **Palitos** (§10.6) para conteos < 100.
+2. **Barras horizontales** solo dentro de documentos (mandato, informes): fondo
+   `#241F17` en oscuro / `#ECE8DC` en claro, relleno del color semántico, valor en
+   Space Mono al final de la barra. Animación `growbar`.
+3. **Prensa** para viz complejas (flujos, convergencia, mapas de calor): SOLO dentro
+   de páginas-documento; monocromo tinta + UN acento semántico; sin gradientes, sin
+   3D, sin ejes decorativos; toda cifra en Space Mono; siempre con fuente y fecha al
+   pie. Si una viz no se entiende en 10 segundos, se reemplaza por una tabla.
