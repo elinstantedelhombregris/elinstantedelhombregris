@@ -58,3 +58,28 @@ export function useVotePropuesta(id: number) {
     },
   });
 }
+
+export interface DocumentoMandato {
+  generadoEl: string;
+  voces: { total: number; porTipo: { tipo: string | null; total: number }[] };
+  recursos: { total: number; porProvincia: { provincia: string | null; total: number }[] };
+  brechas: { provincia: string; piden: number; ofrecen: number }[];
+  senales: {
+    total: number;
+    clasificadas: number;
+    temas: {
+      tema: string;
+      total: number;
+      ultima: { id: number; texto: string; provincia: string | null; fecha: string } | null;
+    }[];
+  };
+  propuestas: { id: number; titulo: string; resumen: string; estado: string; votos: number; apoyo: number }[];
+}
+
+/** El agregado completo detrás del documento del mandato (spec 2.3). */
+export function useMandatoDocumento() {
+  return useQuery({
+    queryKey: ['mandato', 'documento'],
+    queryFn: () => api.get<DocumentoMandato>('/api/mandato/documento'),
+  });
+}
