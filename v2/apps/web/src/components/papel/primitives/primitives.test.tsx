@@ -1,6 +1,8 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 
+import { RitoTinta } from './RitoTinta';
+
 import { BandaCta, BotonPapel, ChipTipo, FilaIndice, Kicker, NotaDemo, Sello } from './index';
 
 describe('Kicker', () => {
@@ -131,5 +133,42 @@ describe('BandaCta', () => {
       </BandaCta>,
     );
     expect(screen.getByText('Otro cierre.').closest('section')?.className).toMatch(/bg-tinta/);
+  });
+});
+
+describe('RitoTinta', () => {
+  it('entinta cada letra con delays escalonados y hace caer los signos al final en violeta', () => {
+    const { container } = render(
+      <h1 aria-label="¡BASTA!">
+        <RitoTinta lineas={['¡BASTA!']} />
+      </h1>,
+    );
+
+    const letras = Array.from(container.querySelectorAll<HTMLElement>('.anim-inkfill'));
+    expect(letras.map((el) => el.textContent)).toEqual(['B', 'A', 'S', 'T', 'A']);
+    expect(letras.map((el) => el.style.animationDelay)).toEqual([
+      '0.1s',
+      '0.145s',
+      '0.19s',
+      '0.235s',
+      '0.28s',
+    ]);
+
+    const signos = Array.from(container.querySelectorAll<HTMLElement>('.anim-vpop'));
+    expect(signos.map((el) => el.textContent)).toEqual(['¡', '!']);
+    for (const signo of signos) {
+      expect(signo).toHaveClass('text-violeta');
+      expect(signo.style.animationDelay).toBe('0.525s');
+    }
+  });
+
+  it('queda oculto para tecnología asistiva — el aria-label lo pone el llamador', () => {
+    render(
+      <h1 aria-label="Se diseña.">
+        <RitoTinta lineas={['Se diseña.']} />
+      </h1>,
+    );
+
+    expect(screen.getByRole('heading', { level: 1, name: 'Se diseña.' })).toBeInTheDocument();
   });
 });

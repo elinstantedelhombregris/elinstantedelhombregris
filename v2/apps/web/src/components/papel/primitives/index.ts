@@ -9,4 +9,5 @@ export { ChipTipo, type ChipTipoProps, type TipoVoz } from './ChipTipo';
 export { FilaIndice, type FilaIndiceProps } from './FilaIndice';
 export { Kicker, type KickerColor, type KickerProps } from './Kicker';
 export { NotaDemo } from './NotaDemo';
+export { RitoTinta, type RitoTintaProps } from './RitoTinta';
 export { Sello, type SelloColor, type SelloProps } from './Sello';

@@ -88,6 +88,13 @@ Papel sobre oscuro (documentos)
 Banda CTA
 Sección de fondo `#5227CC` o `#16130E`, título Anton `clamp(44px,6vw,88px)`, 1–2 botones. Copys imperativos: «Tu voz pesa. Soltala en el mapa.»
 
+Título entintado (rito §10.1)
+En la app: primitiva `RitoTinta` (`components/papel/primitives/RitoTinta.tsx`) — divide
+el título en letras con `anim-inkfill` escalonado (~45ms por letra) y hace caer los
+signos `¡ !` al final con `anim-vpop` en violeta. El llamador pone el heading y su
+`aria-label` (las letras van `aria-hidden`). En `.dc.html`: spans inline con
+`animation:inkfill` y delays literales.
+
 Nota de datos demo (obligatoria junto a toda métrica inventada)
 `<span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#B5B1A8;">* datos de demostración</span>`
 
@@ -168,7 +175,7 @@ layout; los componentes compartidos viven en `components/papel/primitives/`.
 4. **Desregistro riso.** En hover de títulos Anton grandes (solo display, nunca cuerpo): `text-shadow: 2px 0 0 rgba(82,39,204,.30), -2px 0 0 rgba(194,59,34,.25)` — como una impresión offset corrida. 150ms, sutil.
 5. **Sellos reactivos.** Toda acción completada del usuario se confirma con un sello que cae (`stampin`): voz soltada → `RECIBIDA` · semilla → `PLANTADA` · manifiesto leído hasta el final → `LEÍDO ENTERO` · documento auditado → `VISTO`. Catálogo cerrado; no inventar sellos por decoración.
 6. **Palitos, no barras.** Números chicos (<100) se cuentan con tally marks (4 palitos + 1 cruzado), dibujados con `semgrow` escalonado. Las barras quedan solo para documentos (mandato). Contar a mano es el data-viz de la marca.
-7. **El despertar.** Velo gris de viewport completo (`mix-blend-mode:saturation`, opacidad .6) que se disuelve en 1.4 s al primer gesto (`despertar()` en `lib/despertar.ts`). Disparadores canónicos: CTA «Dejar mi voz en el mapa», CTA header «Sembrar tu voz», primera voz soltada. Se guarda `localStorage['basta_despierto']='1'`. El sitio entero repite la tesis: gris hasta que actuás.
+7. **El despertar.** Velo gris de viewport completo (`mix-blend-mode:saturation`, opacidad .6) que se disuelve en 1.4 s al primer gesto (`despertar()` en `lib/despertar.ts`). Disparadores canónicos: CTA «Dejar mi voz en el mapa», CTA header «Sembrar tu voz», botón «Este es mi instante» (La idea, Cap I), primera voz soltada. Se guarda `localStorage['basta_despierto']='1'`. El sitio entero repite la tesis: gris hasta que actuás.
 8. **La edición impresa.** Cada lector (ensayo, crónica, manifiesto, certificado de semilla) imprime perfecto. La edición impresa usa la serifa del sistema (`Georgia, 'Times New Roman', serif`) SOLO en `@media print`. En pantalla nunca hay serifa. Cada lector define `@media print`: sin nav/footer/grano, folio `¡BASTA! · edición del lector · {fecha}`. El sitio es un diario que se puede volver papel.
 9. **Microcopy con voz en los estados mudos.** Vacíos, cargas y errores hablan: «Todavía no hay voces acá. Qué oportunidad.» · «Cargando — menos que un trámite.» · «Esto se rompió. Lo decimos porque publicamos todo.»
 10. **Premio también es rigor:** contraste AA mínimo en todo texto, focus visible violeta de 2px, `prefers-reduced-motion` desactiva inkfill/marquee/pulse (deja estados finales), LCP < 2s (fonts con `display=swap`, cero imágenes pesadas).
