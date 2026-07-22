@@ -7,6 +7,9 @@ node_modules/
 # Build outputs
 dist/
 build/
+# build/ arriba es para OUTPUTS; scripts/build/ es código fuente de tooling
+!/scripts/build/
+!/scripts/build/**
 .next/
 .nuxt/
 out/
