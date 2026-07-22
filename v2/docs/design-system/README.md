@@ -196,7 +196,7 @@ layout; los componentes compartidos viven en `components/papel/primitives/`.
 
 ## 12. Iconos
 
-- Páginas editoriales/públicas: CERO íconos. Solo glifos tipográficos → ↗ ↺ ▌ ¡ !
+- Páginas editoriales/públicas: CERO íconos. Solo glifos tipográficos → ↗ ↺ ▌ ▾ ¡ !
 - La plataforma (páginas con sesión): lucide permitido SOLO funcional (cerrar, menú,
   link externo, campana), 16px, stroke tinta o tinta-50, nunca decorativo ni de color.
 - Logros y gamificación NO usan íconos: usan sellos y palitos (§10.5, §10.6).
