@@ -1,6 +1,13 @@
 import '@/global.css';
 import '@/lib/nativewind-setup';
 
+import { Anton_400Regular } from '@expo-google-fonts/anton';
+import {
+  Archivo_400Regular,
+  Archivo_400Regular_Italic,
+  Archivo_500Medium,
+  Archivo_700Bold,
+} from '@expo-google-fonts/archivo';
 import {
   Inter_400Regular,
   Inter_500Medium,
@@ -12,6 +19,7 @@ import {
   PlayfairDisplay_500Medium_Italic,
   PlayfairDisplay_600SemiBold,
 } from '@expo-google-fonts/playfair-display';
+import { SpaceMono_400Regular, SpaceMono_700Bold } from '@expo-google-fonts/space-mono';
 import { migrate } from 'drizzle-orm/expo-sqlite/migrator';
 import { useFonts } from 'expo-font';
 import { Stack, usePathname, useRouter } from 'expo-router';
@@ -319,6 +327,14 @@ export default function RootLayout() {
     PlayfairDisplay_600SemiBold,
     PlayfairDisplay_500Medium_Italic,
     JetBrainsMono_500Medium,
+    // Papel y Tinta (spec §2) — conviven con las viejas hasta PT8.
+    Anton_400Regular,
+    Archivo_400Regular,
+    Archivo_400Regular_Italic,
+    Archivo_500Medium,
+    Archivo_700Bold,
+    SpaceMono_400Regular,
+    SpaceMono_700Bold,
   });
 
   if (!fontsLoaded) return null;

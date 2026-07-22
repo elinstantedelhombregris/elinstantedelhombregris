@@ -9,7 +9,7 @@ describe('paletas del cielo (spec §3.3)', () => {
     expect(PALETA_DEFAULT.id).toBe('noche-pura');
     expect(PALETA_DEFAULT.precio).toBe(0);
     // Invariante sagrado: el cielo no cambia sin permiso del jugador.
-    expect(PALETA_DEFAULT.gradiente).toEqual(['#131736', '#07070c']);
+    expect(PALETA_DEFAULT.gradiente).toEqual(['#1A1626', '#0B0908']);
   });
 
   it('hay cuatro paletas con ids únicos', () => {

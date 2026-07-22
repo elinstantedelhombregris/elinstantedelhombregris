@@ -85,17 +85,20 @@ export const tamanoEstrella = (r: RarezaVisual): number => {
 };
 
 /**
- * Colores canónicos de señal (espejo de `tailwind.config.js → colors.senal`
- * y de la Radiografía del movimiento). `amistad` brilla plata.
+ * Colores de señal del registro NOCTURNO (spec Papel y Tinta §2 — tabla de
+ * variantes legibles sobre el fondo oscuro del Cielo). El registro PAPEL usa
+ * otra paleta (`tailwind.config.js → colors.senal`, `src/content/senales.ts`);
+ * los dos divergen a propósito: el cielo necesita brillo sobre oscuro, el
+ * papel necesita contraste sobre claro. `amistad` brilla papel.
  */
 export const COLOR_ESTRELLA: Record<TipoEstrella, string> = {
-  dream: '#3b82f6',
-  need: '#f59e0b',
-  basta: '#ef4444',
-  value: '#ec4899',
-  compromiso: '#10b981',
-  recurso: '#14b8a6',
-  amistad: '#F5F7FA',
+  dream: '#9D85E8',
+  need: '#D89B2E',
+  basta: '#E05A41',
+  value: '#C9C5BA',
+  compromiso: '#2FA36B',
+  recurso: '#2E9BC0',
+  amistad: '#F2EFE7',
 };
 
 /** Hex #rrggbb → [r,g,b] en 0..1 (formato de color de Skia). */

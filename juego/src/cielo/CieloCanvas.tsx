@@ -74,8 +74,8 @@ export interface EstrellaCielo {
   fugaz: boolean;
 }
 
-/** Fondo default del Cielo — idéntico a la paleta "Noche Pura". */
-const FONDO_DEFAULT: readonly [string, string] = ['#131736', '#07070c'];
+/** Fondo default del Cielo — idéntico a la paleta "Noche Pura" (Papel y Tinta spec §7). */
+const FONDO_DEFAULT: readonly [string, string] = ['#1A1626', '#0B0908'];
 
 /** rgba() desde hex + alpha — para gradientes de glow sin BlurMask. */
 const conAlpha = (hex: string, a: number): string => {
