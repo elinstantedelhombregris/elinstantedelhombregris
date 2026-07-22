@@ -93,9 +93,9 @@ export function DocumentoMandato() {
           Revisión continua · {fecha} ·{' '}
           {data.voces.total >= 1 ? `Exp. ${data.voces.total.toLocaleString('es-AR')} voces` : 'Exp. sin voces todavía'}
         </p>
-        <h3 id="documento-titulo" className="font-anton mt-2 text-[clamp(30px,4.4vw,52px)] leading-none">
+        <h2 id="documento-titulo" className="font-anton mt-2 text-[clamp(30px,4.4vw,52px)] leading-none">
           Mandato ciudadano — Argentina
-        </h3>
+        </h2>
         {esEjemplo ? (
           <p className="font-space text-tinta-50 mt-3 text-[11px] uppercase tracking-[0.12em]">
             Con {data.voces.total.toLocaleString('es-AR')} voces esto es el formato del mandato, no el mandato. El de
