@@ -91,4 +91,47 @@ dsuite('Open data flows', () => {
       expect(Array.isArray(res.body.data.byProvince)).toBe(true);
     });
   });
+
+  describe('Contrato de El mapa (página 2.2) — la voz soltada aparece con tipo y provincia', () => {
+    it('POST con category + provinceName llega a la lista con provinceId resuelto y cuenta en los agregados', async () => {
+      const provRes = await request.get('/api/open-data/provinces');
+      expect(provRes.status).toBe(200);
+      const cordoba = (
+        provRes.body.data.provinces as { id: number; name: string }[]
+      ).find((p) => p.name === 'Córdoba');
+      expect(cordoba).toBeDefined();
+      if (!cordoba) return;
+
+      const marca = `voz-mapa-test-${String(Date.now())}`;
+      const creado = await request
+        .post('/api/open-data/dreams')
+        .send({ body: `Quiero ver este punto en el mapa (${marca}).`, category: 'sueño', provinceName: 'Córdoba' });
+      expect(creado.status).toBe(201);
+      const id = creado.body.data.id as number;
+      insertedDreamIds.push(id);
+
+      // Round-trip: la lista pública la devuelve con el tipo y la provincia resueltos.
+      const lista = await request.get('/api/open-data/dreams?limit=30');
+      expect(lista.status).toBe(200);
+      const voz = (
+        lista.body.data as { id: number; category: string | null; provinceId: number | null }[]
+      ).find((d) => d.id === id);
+      expect(voz).toMatchObject({ category: 'sueño', provinceId: cordoba.id });
+
+      // Agregado por provincia (los clusters numerados del mapa).
+      const porProvincia = await request.get('/api/open-data/dreams/by-province');
+      const fila = (
+        porProvincia.body.data.byProvince as { provinceId: number | null; count: number }[]
+      ).find((r) => r.provinceId === cordoba.id);
+      expect(fila).toBeDefined();
+      expect(fila?.count).toBeGreaterThanOrEqual(1);
+
+      // La cifra pública la cuenta (aprobada al instante — status 'approved' fijo).
+      // Nota: sin asertar delta exacto — otras suites insertan/borran dreams en paralelo
+      // contra el mismo branch de test.
+      const conteo = await request.get('/api/analytics/voces-count');
+      expect(conteo.status).toBe(200);
+      expect(conteo.body.data.total).toBeGreaterThanOrEqual(1);
+    });
+  });
 });
