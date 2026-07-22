@@ -339,6 +339,7 @@ export default function Territorio() {
           {[
             ['/territorio/misiones', 'grid-outline', 'Misiones', pulse.missions > 0 ? `${pulse.missions} en marcha` : 'Lazo → operación'],
             ['/misiones', 'flag-outline', 'Misiones del protocolo', 'Fundá o sumate'],
+            ['/expediciones', 'map-outline', 'Expediciones', 'Quests de datos con pasos guiados.'],
             ['/territorio/mapa', 'map-outline', 'Trazar zona', pulse.territories > 0 ? `${pulse.territories} guardadas` : 'Lazo vivo'],
             ['/verificar', 'shield-checkmark-outline', 'Corroborar', `${pulse.review} por mirar`],
             ['/conectar', 'git-merge-outline', 'Conectar', `${pulse.needs} ↔ ${pulse.resources}`],

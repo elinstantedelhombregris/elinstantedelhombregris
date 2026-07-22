@@ -127,7 +127,7 @@ export default function Cielo() {
           </View>
         </View>
 
-        <View className="mt-4 flex-row items-center justify-center gap-2 px-4">
+        <View className="mt-4 flex-row items-center justify-center px-4">
           <Pressable97
             accessibilityRole="button"
             accessibilityLabel="Abrir La Escucha"
@@ -136,15 +136,6 @@ export default function Cielo() {
           >
             <Ionicons name="ear-outline" size={15} color="#DDD6FE" />
             <Text className="font-sans-semibold text-xs text-violet-100">La Escucha</Text>
-          </Pressable97>
-          <Pressable97
-            accessibilityRole="button"
-            accessibilityLabel="Abrir el territorio"
-            onPress={() => router.push('/territorio')}
-            className="flex-row items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2.5"
-          >
-            <Ionicons name="earth-outline" size={15} color="#CBD5E1" />
-            <Text className="font-sans-medium text-xs text-slate-300">Territorio</Text>
           </Pressable97>
         </View>
 
@@ -212,10 +203,9 @@ export default function Cielo() {
             {(
               [
                 ['corriente', 'pulse-outline', 'La Corriente'],
-                ['expediciones', 'map-outline', 'Expediciones'],
+                ['territorio', 'earth-outline', 'Territorio'],
                 ['album', 'star-outline', 'Álbum'],
                 ['bitacora', 'book-outline', 'Bitácora'],
-                ['qr', 'qr-code-outline', 'Chispas y círculos'],
                 ['ajustes', 'settings-outline', 'Ajustes'],
               ] as const
             ).map(([ruta, icono, label]) => (

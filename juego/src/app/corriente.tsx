@@ -108,7 +108,22 @@ export default function Corriente() {
 
   return (
     <View className="flex-1 bg-fondo">
-      <PanelHeader title="La Corriente" right={<PresupuestoDots restantes={restantes} />} />
+      <PanelHeader
+        title="La Corriente"
+        right={
+          <View className="flex-row items-center gap-3">
+            <PresupuestoDots restantes={restantes} />
+            <Pressable97
+              accessibilityRole="button"
+              accessibilityLabel="Chispas y círculos"
+              onPress={() => router.push('/qr' as never)}
+              className="p-1"
+            >
+              <Ionicons name="qr-code-outline" size={20} color="#94a3b8" />
+            </Pressable97>
+          </View>
+        }
+      />
       <Text className="px-5 pb-3 font-sans text-xs text-slate-500">
         Lo que el país está haciendo, hecho por hecho.
       </Text>
