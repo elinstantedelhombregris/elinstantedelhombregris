@@ -8,6 +8,12 @@
       "port": 5273
     },
     {
+      "name": "v2-api",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["-lc", "cd v2/apps/api && pnpm dev"],
+      "port": 4000
+    },
+    {
       "name": "socialjusticehub-dev",
       "runtimeExecutable": "bash",
       "runtimeArgs": ["-lc", "cd SocialJusticeHub && npm run dev"],
