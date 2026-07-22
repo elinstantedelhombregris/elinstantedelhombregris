@@ -126,6 +126,13 @@ Modales, toasts, tooltips
 - Toast = sello que cae (stampin) en la esquina inferior derecha + línea mono; se va solo a los 4s. Catálogo de sellos cerrado (§10.5) — el toast usa esos textos.
 - Tooltip: mono 10px, fondo papel-presionado, borde 1px tinta, sin flecha, sin delay artificial.
 
+Popover de mapa
+Card absoluta dentro del marco del mapa (max-width 300): fondo #16130E, texto
+#F2EFE7, sin radius, borde izquierdo 2px del color semántico de la voz, padding 20,
+entra con fadeup. Cierre «✕» tipográfico + Escape; uno por vez; el foco entra al «✕»
+y vuelve al disparador al cerrar. En la app: `PopoverVoz`
+(`pages/ElMapa/sections/PopoverVoz.tsx`).
+
 Skeletons
 - Bloques papel-presionado del tamaño real del contenido con pulso de opacidad .5→.8 (1.2s). Junto al primer skeleton, microcopy de carga (§10.9).
 
