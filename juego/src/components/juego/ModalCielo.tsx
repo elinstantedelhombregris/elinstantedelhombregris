@@ -1,7 +1,10 @@
 /**
  * Cáscara común de los modales del día (VER / ENCENDER / DAR / rito):
- * scrim oscuro sobre el Cielo, badge de sección, cierre arriba a la
+ * scrim oscuro sobre el Cielo, kicker de sección, cierre arriba a la
  * derecha, scroll amable con teclado.
+ *
+ * Registro nocturno del sistema Papel y Tinta (spec §7): cero vidrio,
+ * cero radius — el kicker reemplaza al badge en píldora.
  */
 
 import { Ionicons } from '@expo/vector-icons';
@@ -9,8 +12,9 @@ import type { ReactNode } from 'react';
 import { KeyboardAvoidingView, Platform, Pressable, ScrollView, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
+import { Kicker } from '@/components/papel';
 import { Pressable97 } from '@/components/ui/Pressable97';
-import { SectionBadge } from '@/components/ui/SectionBadge';
+import { OSCURO_META } from '@/theme/tokens';
 
 export function ModalCielo({
   badge,
@@ -29,7 +33,7 @@ export function ModalCielo({
       accessibilityLabel="Cerrar"
       onPress={onCerrar}
       className="flex-1"
-      style={{ backgroundColor: 'rgba(10, 10, 10, 0.94)' }}
+      style={{ backgroundColor: 'rgba(22, 19, 14, 0.94)' }}
     >
       <KeyboardAvoidingView
         className="flex-1"
@@ -47,14 +51,14 @@ export function ModalCielo({
           {/* El contenido atrapa sus propios toques: tocar adentro no cierra. */}
           <Pressable accessible={false} onPress={() => {}}>
             <View className="mb-8 flex-row items-center justify-between">
-              <SectionBadge>{badge}</SectionBadge>
+              <Kicker registro="noche">{badge}</Kicker>
               <Pressable97
                 accessibilityRole="button"
                 accessibilityLabel="Cerrar"
                 onPress={onCerrar}
-                className="rounded-full border border-white/10 bg-white/5 p-2"
+                className="border border-oscuro-borde p-2"
               >
-                <Ionicons name="close" size={18} color="#94a3b8" />
+                <Ionicons name="close" size={18} color={OSCURO_META} />
               </Pressable97>
             </View>
             {children}

@@ -1,18 +1,18 @@
 /**
- * VER — la pregunta honda del día (spec §2). Pantalla completa en Playfair,
+ * VER — la pregunta honda del día (spec §2). Pantalla completa en Anton,
  * reflexión escrita opcional que va a la Bitácora privada. Si la estrella
  * fugaz trajo pregunta extra, acá se responde (+2 brasas).
+ *
+ * Registro nocturno del sistema Papel y Tinta (spec §7).
  */
 
-import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import { useMemo, useState } from 'react';
 import { Text, TextInput, View } from 'react-native';
 import Animated from 'react-native-reanimated';
 
+import { BotonTinta, Kicker, PapelCard, TituloAnton } from '@/components/papel';
 import { ModalCielo } from '@/components/juego/ModalCielo';
-import { AccentButton } from '@/components/ui/AccentButton';
-import { GlassCard } from '@/components/ui/GlassCard';
 import { PREGUNTAS } from '@/content';
 import {
   ganarBrasas,
@@ -28,6 +28,7 @@ import { indicePregunta, indicePreguntaExtra } from '@/game/dia';
 import { fadeUp } from '@/motion/variants';
 import { CLAVES_DIA, multiplicadorHoy, useJuego } from '@/stores/juego';
 import { haptic } from '@/theme/haptics';
+import { OSCURO_BORDE, OSCURO_TENUE, VERDE, VIOLETA } from '@/theme/tokens';
 
 export default function Ver() {
   const router = useRouter();
@@ -37,6 +38,7 @@ export default function Ver() {
   const yaEncendida = st.luces.ver;
 
   const [reflexion, setReflexion] = useState('');
+  const [enfocado, setEnfocado] = useState(false);
   const guardada = useMemo(
     () =>
       reflexionesTodas()
@@ -66,6 +68,7 @@ export default function Ver() {
   const preguntaExtra = PREGUNTAS[indicePreguntaExtra(fecha, PREGUNTAS.length)]!;
   const extraRespondida = getSetting(CLAVES_DIA.preguntaExtra) === fecha;
   const [textoExtra, setTextoExtra] = useState('');
+  const [enfocadoExtra, setEnfocadoExtra] = useState(false);
   const [respondiendoExtra, setRespondiendoExtra] = useState(false);
 
   const responderExtra = () => {
@@ -86,27 +89,33 @@ export default function Ver() {
   return (
     <ModalCielo badge="Ver — la pregunta del día" onCerrar={() => router.back()}>
       <Animated.View entering={fadeUp} className="flex-1">
-        <Text className="font-serif text-3xl leading-[42px] text-plata">
+        <TituloAnton registro="noche" tamano="xl">
           {pregunta.texto}
-        </Text>
-        <Text className="mt-3 font-sans text-xs text-slate-500">
+        </TituloAnton>
+        <Text className="mt-3 font-space text-xs text-oscuro-meta">
           de «{pregunta.fuente}»
         </Text>
 
         {yaEncendida ? (
           <View className="mt-10">
             {guardada && (
-              <GlassCard className="p-5">
-                <Text className="font-serif-italic text-base leading-6 text-slate-300">
+              <PapelCard registro="noche" className="p-5">
+                <Text className="font-archivo-italic text-base leading-6 text-oscuro-secundario">
                   {guardada.texto}
                 </Text>
-              </GlassCard>
+              </PapelCard>
             )}
-            <Text className="mt-6 font-sans text-sm text-slate-400">
+            <Text className="mt-6 font-archivo text-sm text-oscuro-secundario">
               La pregunta ya viaja con vos. Volvé cuando quieras releerla.
             </Text>
             <View className="mt-8 items-center">
-              <AccentButton label="Volver al cielo" onPress={() => router.back()} />
+              <BotonTinta
+                etiqueta="Volver al cielo →"
+                accessibilityLabel="Volver al cielo"
+                variante="fantasma"
+                registro="noche"
+                onPress={() => router.back()}
+              />
             </View>
           </View>
         ) : (
@@ -114,56 +123,79 @@ export default function Ver() {
             <TextInput
               value={reflexion}
               onChangeText={setReflexion}
+              onFocus={() => setEnfocado(true)}
+              onBlur={() => setEnfocado(false)}
               placeholder="Si querés, dejala escrita. Va a tu Bitácora."
-              placeholderTextColor="#64748b"
+              placeholderTextColor={OSCURO_TENUE}
               multiline
               textAlignVertical="top"
               maxLength={2000}
-              className="min-h-[120px] rounded-2xl border border-white/10 bg-white/5 px-5 py-4 font-sans text-base leading-6 text-plata"
+              className="min-h-[120px] bg-transparent px-5 py-4 font-archivo text-base leading-6 text-oscuro-texto"
+              style={{
+                borderWidth: enfocado ? 2 : 1,
+                borderColor: enfocado ? VIOLETA : OSCURO_BORDE,
+                // Spec §10: el foco visible en web es el `outline`, no un
+                // segundo halo — pisa el anillo nativo del navegador.
+                outlineColor: VIOLETA,
+                outlineStyle: 'solid',
+                outlineWidth: enfocado ? 2 : 0,
+                outlineOffset: 2,
+              }}
             />
-            <Text className="mt-2 font-sans text-[11px] text-slate-500">
+            <Text className="mt-2 font-space text-[11px] text-oscuro-meta">
               Nadie más la lee: es tuya.
             </Text>
             <View className="mt-8 items-center">
-              <AccentButton label="La llevo conmigo" onPress={llevarla} disabled={guardando} />
+              <BotonTinta
+                etiqueta="La llevo conmigo →"
+                accessibilityLabel="La llevo conmigo"
+                variante="primaria"
+                registro="noche"
+                onPress={llevarla}
+                disabled={guardando}
+              />
             </View>
           </View>
         )}
 
         {extraActiva && (
           <View className="mt-12">
-            <View className="mb-4 h-px bg-white/10" />
-            <View className="flex-row items-center gap-2">
-              <Ionicons name="sparkles" size={14} color="#F5F7FA" />
-              <Text className="font-sans text-[11px] uppercase tracking-[3px] text-slate-400">
-                La pregunta extra de la fugaz
-              </Text>
-            </View>
+            <View className="mb-4 h-px bg-oscuro-borde" />
+            <Kicker registro="noche">La pregunta extra de la fugaz</Kicker>
             {extraRespondida ? (
-              <View className="mt-4 flex-row items-center gap-2">
-                <Ionicons name="checkmark-circle" size={16} color="#10b981" />
-                <Text className="font-sans text-sm text-slate-400">
-                  Respondida: dos brasas más al fuego.
-                </Text>
-              </View>
+              <Text className="mt-4 font-space text-sm" style={{ color: VERDE }}>
+                Respondida: dos brasas más al fuego.
+              </Text>
             ) : (
               <View className="mt-4">
-                <Text className="font-serif text-xl leading-8 text-plata">
+                <TituloAnton registro="noche" tamano="md">
                   {preguntaExtra.texto}
-                </Text>
+                </TituloAnton>
                 <TextInput
                   value={textoExtra}
                   onChangeText={setTextoExtra}
+                  onFocus={() => setEnfocadoExtra(true)}
+                  onBlur={() => setEnfocadoExtra(false)}
                   placeholder="Una línea alcanza."
-                  placeholderTextColor="#64748b"
+                  placeholderTextColor={OSCURO_TENUE}
                   multiline
                   textAlignVertical="top"
                   maxLength={2000}
-                  className="mt-4 min-h-[80px] rounded-2xl border border-white/10 bg-white/5 px-5 py-4 font-sans text-base leading-6 text-plata"
+                  className="mt-4 min-h-[80px] bg-transparent px-5 py-4 font-archivo text-base leading-6 text-oscuro-texto"
+                  style={{
+                    borderWidth: enfocadoExtra ? 2 : 1,
+                    borderColor: enfocadoExtra ? VIOLETA : OSCURO_BORDE,
+                    outlineColor: VIOLETA,
+                    outlineStyle: 'solid',
+                    outlineWidth: enfocadoExtra ? 2 : 0,
+                    outlineOffset: 2,
+                  }}
                 />
                 <View className="mt-4 items-center">
-                  <AccentButton
-                    label="Responderla (+2)"
+                  <BotonTinta
+                    etiqueta="Responderla (+2)"
+                    variante="fantasma"
+                    registro="noche"
                     onPress={responderExtra}
                     disabled={!textoExtra.trim() || respondiendoExtra}
                   />

@@ -3,17 +3,17 @@
  * ayer ("¿Lo hiciste?" — sin verificación externa: la confianza es la
  * mecánica, y el "no pude" no castiga). Después, tres sugerencias del mazo
  * rotadas por fecha o el compromiso propio.
+ *
+ * Registro nocturno del sistema Papel y Tinta (spec §7).
  */
 
-import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import { useMemo, useState } from 'react';
 import { Text, TextInput, View } from 'react-native';
 import Animated from 'react-native-reanimated';
 
+import { BotonTinta, PapelCard, TituloAnton } from '@/components/papel';
 import { ModalCielo } from '@/components/juego/ModalCielo';
-import { AccentButton } from '@/components/ui/AccentButton';
-import { GlassCard } from '@/components/ui/GlassCard';
 import { Pressable97 } from '@/components/ui/Pressable97';
 import { COMPROMISO_AYER, COMPROMISOS } from '@/content';
 import {
@@ -28,6 +28,7 @@ import { indicesCompromisosDelDia } from '@/game/dia';
 import { fadeUp, staggerDelay } from '@/motion/variants';
 import { multiplicadorHoy, useJuego } from '@/stores/juego';
 import { haptic } from '@/theme/haptics';
+import { OSCURO_BORDE, OSCURO_TENUE, VIOLETA } from '@/theme/tokens';
 
 export default function Dar() {
   const router = useRouter();
@@ -49,6 +50,7 @@ export default function Dar() {
   );
   const [elegida, setElegida] = useState<number | null>(null);
   const [propio, setPropio] = useState('');
+  const [enfocadoPropio, setEnfocadoPropio] = useState(false);
   const [comprometiendo, setComprometiendo] = useState(false);
 
   const responderAyer = (cumplido: boolean) => {
@@ -82,33 +84,44 @@ export default function Dar() {
       {/* Paso 1: rendirle cuentas al de ayer */}
       {!faseAyerLista && ayer && (
         <Animated.View entering={fadeUp}>
-          <Text className="font-serif text-3xl text-plata">{COMPROMISO_AYER.pregunta}</Text>
-          <GlassCard className="mt-6 p-5">
-            <Text className="font-serif-italic text-lg leading-7 text-slate-200">
+          <TituloAnton registro="noche" tamano="xl">
+            {COMPROMISO_AYER.pregunta}
+          </TituloAnton>
+          <PapelCard registro="noche" className="mt-6 p-5">
+            <Text className="font-archivo-italic text-lg leading-7 text-oscuro-texto">
               {ayer.texto}
             </Text>
-            <Text className="mt-2 font-sans text-[11px] text-slate-500">ayer</Text>
-          </GlassCard>
+            <Text className="mt-2 font-space text-[11px] text-oscuro-meta">ayer</Text>
+          </PapelCard>
 
           {resultadoAyer === null ? (
             <View className="mt-8 items-center gap-4">
-              <AccentButton label="Sí, lo hice" onPress={() => responderAyer(true)} />
-              <Pressable97
-                accessibilityRole="button"
+              <BotonTinta
+                etiqueta="Sí, lo hice"
+                variante="primaria"
+                registro="noche"
+                onPress={() => responderAyer(true)}
+              />
+              <BotonTinta
+                etiqueta="No pude"
                 accessibilityLabel="No pude"
+                variante="fantasma"
+                registro="noche"
                 onPress={() => responderAyer(false)}
-                className="rounded-full border border-white/10 bg-white/5 px-8 py-3.5"
-              >
-                <Text className="font-sans-medium text-sm text-slate-300">No pude</Text>
-              </Pressable97>
+              />
             </View>
           ) : (
             <Animated.View entering={fadeUp} className="mt-8 items-center">
-              <Text className="text-center font-sans text-sm leading-6 text-slate-300">
+              <Text className="text-center font-archivo text-sm leading-6 text-oscuro-secundario">
                 {resultadoAyer === 'hecho' ? COMPROMISO_AYER.hecho : COMPROMISO_AYER.noHecho}
               </Text>
               <View className="mt-6">
-                <AccentButton label="Al de hoy" onPress={() => setFaseAyerLista(true)} />
+                <BotonTinta
+                  etiqueta="Al de hoy"
+                  variante="primaria"
+                  registro="noche"
+                  onPress={() => setFaseAyerLista(true)}
+                />
               </View>
             </Animated.View>
           )}
@@ -119,24 +132,32 @@ export default function Dar() {
       {faseAyerLista &&
         (deHoy ? (
           <Animated.View entering={fadeUp}>
-            <Text className="font-serif text-2xl text-plata">Tu compromiso de hoy</Text>
-            <GlassCard className="mt-6 p-5">
-              <Text className="font-serif-italic text-lg leading-7 text-slate-200">
+            <TituloAnton registro="noche" tamano="lg">
+              Tu compromiso de hoy
+            </TituloAnton>
+            <PapelCard registro="noche" className="mt-6 p-5">
+              <Text className="font-archivo-italic text-lg leading-7 text-oscuro-texto">
                 {deHoy.texto}
               </Text>
-            </GlassCard>
-            <Text className="mt-4 font-sans text-xs text-slate-500">
+            </PapelCard>
+            <Text className="mt-4 font-space text-xs text-oscuro-meta">
               Mañana el cielo te pregunta si lo hiciste. Nadie más.
             </Text>
             <View className="mt-8 items-center">
-              <AccentButton label="Volver al cielo" onPress={() => router.back()} />
+              <BotonTinta
+                etiqueta="Volver al cielo →"
+                accessibilityLabel="Volver al cielo"
+                variante="fantasma"
+                registro="noche"
+                onPress={() => router.back()}
+              />
             </View>
           </Animated.View>
         ) : (
           <Animated.View entering={fadeUp}>
-            <Text className="font-serif text-2xl leading-9 text-plata">
+            <TituloAnton registro="noche" tamano="lg">
               Un gesto chico para hoy. Elegilo, o escribí el tuyo.
-            </Text>
+            </TituloAnton>
 
             <View className="mt-6 gap-3">
               {sugerencias.map((c, i) => {
@@ -150,24 +171,15 @@ export default function Dar() {
                         setElegida(activa ? null : i);
                         setPropio('');
                       }}
-                      className="flex-row items-center gap-3 rounded-2xl border bg-white/5 p-4"
-                      style={{
-                        borderColor: activa ? 'rgba(125, 91, 222, 0.6)' : 'rgba(255,255,255,0.1)',
-                      }}
+                      className="border p-4"
+                      style={{ borderWidth: activa ? 2 : 1, borderColor: activa ? VIOLETA : OSCURO_BORDE }}
                     >
-                      <Ionicons
-                        name={activa ? 'radio-button-on' : 'radio-button-off'}
-                        size={18}
-                        color={activa ? '#7D5BDE' : '#475569'}
-                      />
-                      <View className="flex-1">
-                        <Text className="font-sans text-sm leading-5 text-slate-200">
-                          {c.texto}
-                        </Text>
-                        <Text className="mt-1 font-sans text-[10px] uppercase tracking-[2px] text-slate-500">
-                          {c.categoria}
-                        </Text>
-                      </View>
+                      <Text className="font-archivo text-sm leading-5 text-oscuro-texto">
+                        {c.texto}
+                      </Text>
+                      <Text className="mt-1 font-space text-[10px] uppercase tracking-[2px] text-oscuro-meta">
+                        {c.categoria}
+                      </Text>
                     </Pressable97>
                   </Animated.View>
                 );
@@ -180,15 +192,28 @@ export default function Dar() {
                 setPropio(t);
                 if (t.trim()) setElegida(null);
               }}
+              onFocus={() => setEnfocadoPropio(true)}
+              onBlur={() => setEnfocadoPropio(false)}
               placeholder="…o escribí el tuyo: concreto, chico, de hoy."
-              placeholderTextColor="#64748b"
+              placeholderTextColor={OSCURO_TENUE}
               maxLength={140}
-              className="mt-4 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 font-sans text-sm text-plata"
+              className="mt-4 bg-transparent px-5 py-4 font-archivo text-sm text-oscuro-texto"
+              style={{
+                borderWidth: enfocadoPropio ? 2 : 1,
+                borderColor: enfocadoPropio ? VIOLETA : OSCURO_BORDE,
+                outlineColor: VIOLETA,
+                outlineStyle: 'solid',
+                outlineWidth: enfocadoPropio ? 2 : 0,
+                outlineOffset: 2,
+              }}
             />
 
             <View className="mt-8 items-center">
-              <AccentButton
-                label="Me comprometo"
+              <BotonTinta
+                etiqueta="Me comprometo →"
+                accessibilityLabel="Me comprometo"
+                variante="primaria"
+                registro="noche"
                 onPress={comprometerse}
                 disabled={comprometiendo || (elegida === null && !propio.trim())}
               />
