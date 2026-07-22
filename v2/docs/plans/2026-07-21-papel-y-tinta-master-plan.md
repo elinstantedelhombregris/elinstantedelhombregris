@@ -261,7 +261,7 @@ dentro de documentos; cero íconos de trofeo.
 - Test: `apps/api/src/features/analytics/analytics.test.ts` (integration, real Postgres branch)
 
 **Interfaces:**
-- Produces: `GET /api/analytics/voces-count → { total: number }`; header shows `{total} voces · falta la tuya` formatted `es-AR`. Home `CifrasStrip` reuses the same query in Phase 2.
+- Produces: `GET /api/analytics/voces-count` → wire body `{ data: { total: number } }` per the app-wide envelope that `lib/api.ts` unwraps (ratified post-review; client-visible contract via `api.get` is `{ total }`). Counts APPROVED dreams only (`countApproved()` on the dreams repository — public number matches public data). Header shows `{total} voces · falta la tuya` formatted `es-AR`, demo-constant fallback while loading/error. Home `CifrasStrip` reuses the same `useVocesCount()` query in Phase 2.
 
 - [ ] **Step 1:** Integration test: seed 3 dreams → endpoint returns `{ total: 3 }`. **Step 2:** FAIL. **Step 3:** implement repository `countAll()` + route. **Step 4:** PASS. **Step 5:** wire header query (keep `* datos de demostración` only for metrics still fake). **Step 6: Commit** — `feat(api,web): live voces counter behind the FOMO tagline`
 
