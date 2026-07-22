@@ -59,6 +59,9 @@ Anton (display) · Archivo (texto, 300–800 + itálica) · Space Mono (400/700)
 - Grillas de cards: `display:grid; gap:1px; background:#16130E; border:1px solid #16130E` con celdas de papel (la tinta se ve por las juntas).
 - Ritmo de sección: kicker mono → título Anton → cuerpo acotado (max-width 560–720px) → CTA. Secciones numeradas `§ 01 —` cuando son capítulos de una misma página.
 - Siempre flex/grid con `gap`; nunca espaciar con márgenes sueltos entre hermanos.
+- Escala de espaciado (px): 4 · 8 · 12 · 16 · 20 · 24 · 32 · 40 · 56 · 80 · 120. Ritmo entre secciones 80–120; padding de card 24 (móvil) / 32; juntas de grilla 1px.
+- Breakpoints canónicos: móvil <560 · tablet 560–960 · desktop 960–1140 · ancho >1140. En Tailwind: max-[560px], min-[561px], min-[961px], min-[1141px]. No inventar otros.
+- Z-index: contenido 0 · header 40 · menú móvil 45 · popover/modal 50 · velo despertar 60 · grano 70 (siempre arriba, pointer-events:none).
 
 ## 5. Componentes (recetas inline — copiar literal)
 
@@ -89,6 +92,38 @@ Nota de datos demo (obligatoria junto a toda métrica inventada)
 `<span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#B5B1A8;">* datos de demostración</span>`
 
 Formularios: inputs/textarea `border:1px solid #16130E;background:#FBFAF4;padding:14–16px;` sin radius; focus `outline:2px solid #5227CC`.
+
+Estados
+- Deshabilitado: color tinta-30, borde tinta-30, cursor not-allowed. Nunca opacity.
+- Cargando (botón): texto reemplazado por «— ▌» con blink-cursor; ancho fijo.
+- Error de campo: borde 2px rojo-sello + mensaje mono 11px rojo-sello debajo.
+- Éxito: sello verde o mensaje mono verde. Nada de toasts flotantes verdes.
+
+Formularios (kit completo)
+- Select: nativo estilizado — borde 1px tinta, fondo papel-crudo, flecha ▾ tipográfica.
+- Checkbox/radio: cuadrado/círculo 18px borde tinta; marcado = fondo violeta, tilde papel.
+- Toggle: pastilla rectangular sin radius; OFF papel-presionado / ON violeta; etiqueta mono.
+- Requerido: asterisco violeta en la etiqueta mono. Ayuda: mono 10px tinta-50.
+
+Búsqueda, filtros y paginación
+- Búsqueda: input mono con prefijo «buscar:» y cursor ▌; resultados en filas de índice.
+- Filtros: chips §5; activo = fondo semántico. Línea de conteo mono: «{n} resultados».
+- Paginación: botón «cargar más ↓» (nunca scroll infinito ni numeritos).
+- Filtro sin resultados: «Nada con ese filtro. Probá con menos.»
+
+Tablas
+- Extensión de la fila de índice: encabezados mono 11px uppercase tinta-50, orden con ▲▼ tipográficos, borde inferior 1px tinta en el header, hover papel-presionado. Header sticky permitido. Sin zebra.
+
+Modales, toasts, tooltips
+- Modal = documento papel-sobre-oscuro (§5) centrado sobre velo rgba(22,19,14,.7); cierre «✕» tipográfico arriba a la derecha. Un modal por vez.
+- Toast = sello que cae (stampin) en la esquina inferior derecha + línea mono; se va solo a los 4s. Catálogo de sellos cerrado (§10.5) — el toast usa esos textos.
+- Tooltip: mono 10px, fondo papel-presionado, borde 1px tinta, sin flecha, sin delay artificial.
+
+Skeletons
+- Bloques papel-presionado del tamaño real del contenido con pulso de opacidad .5→.8 (1.2s). Junto al primer skeleton, microcopy de carga (§10.9).
+
+Páginas de error
+- 404: expediente — kicker «expediente extraviado», título Anton «No está acá.», sello rojo EXTRAVIADO rotado, CTA «Volver al inicio →». 500: «Esto se rompió. Lo decimos porque publicamos todo.» + link al estado.
 
 ## 6. Motion
 
