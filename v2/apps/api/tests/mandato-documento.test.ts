@@ -134,6 +134,15 @@ dsuite('GET /api/mandato/documento', () => {
   });
 
   it('excluye sin_clasificar del diagnóstico y respeta los topes (temas ≤ 8, propuestas ≤ 5)', async () => {
+    // Sembramos una señal 'sin_clasificar' explícita: sin esto, la
+    // aserción de exclusión pasaría igual aunque el filtro se rompiera
+    // (nadie en el branch tenía necesariamente ese tema puesto).
+    const [sinClasificar] = await db
+      .insert(pulseSignals)
+      .values({ body: `Señal sin tema todavía (${marca})`, theme: 'sin_clasificar', source: 'mandato_form' })
+      .returning();
+    if (sinClasificar) insertedSignalIds.push(sinClasificar.id);
+
     const res = await request.get('/api/mandato/documento');
     const { data } = res.body as DocumentoBody;
     expect(data.senales.temas.some((t) => t.tema === 'sin_clasificar')).toBe(false);
