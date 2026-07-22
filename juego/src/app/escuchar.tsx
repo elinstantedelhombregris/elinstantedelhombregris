@@ -40,7 +40,8 @@ import type {
   ListeningSource,
   ListeningTheme,
 } from '@/civic/types';
-import { crearEstrellaCivicaUnaVez } from '@/db/repos';
+import { FTUE } from '@/content';
+import { CLAVES, crearEstrellaCivicaUnaVez, getSetting, setSetting } from '@/db/repos';
 import type { TipoEstrella } from '@/game/types';
 import { fadeUp, staggerDelay } from '@/motion/variants';
 import { useJuego } from '@/stores/juego';
@@ -114,6 +115,7 @@ export default function Escuchar() {
   const [importance, setImportance] = useState(3);
   const [supportWanted, setSupportWanted] = useState(false);
   const [destination, setDestination] = useState<Destination>('private');
+  const [pactoAceptado, setPactoAceptado] = useState(() => getSetting(CLAVES.pactoAceptado) === '1');
   const [context, setContext] = useState(() => defaultRecordContextDraft({
     sensitivity: 'high',
     precision: 'neighborhood',
@@ -137,6 +139,15 @@ export default function Escuchar() {
     listeningScopeLabel(scope),
     `prioridad ${importance}/5`,
   ].join(' · ') : '', [horizon, importance, kind, scope, theme]);
+  const saveLabel = step !== 4
+    ? 'Continuar'
+    : destination === 'collective' && !pactoAceptado
+      ? 'Aceptá el pacto para contribuir'
+      : saving
+        ? 'Guardando…'
+        : destination === 'collective'
+          ? 'Guardar y contribuir'
+          : 'Guardar en privado';
 
   const chooseKind = (value: ListeningKind) => {
     setKind(value);
@@ -159,6 +170,14 @@ export default function Escuchar() {
   const back = () => {
     if (step === 0) return;
     setStep((value) => value - 1);
+  };
+
+  // Se muestra una única vez en la vida de la app: aceptar el pacto queda
+  // grabado en settings y ninguna sesión futura vuelve a pedirlo.
+  const aceptarPacto = () => {
+    setSetting(CLAVES.pactoAceptado, '1');
+    setPactoAceptado(true);
+    haptic.tick();
   };
 
   const save = async () => {
@@ -518,6 +537,31 @@ export default function Escuchar() {
                   />
                 </View>
               )}
+
+              {destination === 'collective' && !pactoAceptado && (
+                <Animated.View entering={fadeUp} className="mt-5">
+                  <GlassCard className="p-5">
+                    <Text className="font-serif text-2xl leading-8 text-plata">{FTUE.pactoTitulo}</Text>
+                    <Text className="mt-3 font-sans text-sm leading-6 text-slate-300">{FTUE.pactoDetalle}</Text>
+                    <View className="mt-5">
+                      {FTUE.pacto.map((item, index) => (
+                        <View key={item.title} className={index === 0 ? '' : 'mt-4 border-t border-white/10 pt-4'}>
+                          <Text className="font-sans-semibold text-sm text-emerald-200">{item.title}</Text>
+                          <Text className="mt-1 font-sans text-xs leading-5 text-slate-400">{item.detail}</Text>
+                        </View>
+                      ))}
+                    </View>
+                    <Pressable97
+                      accessibilityRole="button"
+                      accessibilityLabel="Acepto el pacto"
+                      onPress={aceptarPacto}
+                      className="mt-5 min-h-12 items-center justify-center rounded-full border border-emerald-300/40 bg-emerald-300/10 px-6"
+                    >
+                      <Text className="font-sans-semibold text-sm text-emerald-200">Acepto el pacto</Text>
+                    </Pressable97>
+                  </GlassCard>
+                </Animated.View>
+              )}
             </Animated.View>
           )}
 
@@ -528,9 +572,9 @@ export default function Escuchar() {
               </Pressable97>
             ) : <View />}
             <AccentButton
-              label={step === 4 ? (saving ? 'Guardando…' : destination === 'collective' ? 'Guardar y contribuir' : 'Guardar en privado') : 'Continuar'}
+              label={saveLabel}
               onPress={step === 4 ? save : next}
-              disabled={!canAdvance || saving || (step === 4 && destination === 'collective' && !contextReady)}
+              disabled={!canAdvance || saving || (step === 4 && destination === 'collective' && (!contextReady || !pactoAceptado))}
               style={{ minHeight: 52 }}
             />
           </View>

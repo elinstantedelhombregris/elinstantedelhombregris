@@ -118,6 +118,7 @@ export const CLAVES = {
   ftueCompleto: 'ftue_completo',
   eventoVistoFecha: 'evento_visto_fecha',
   corrienteUltimaVisita: 'corriente_ultima_visita',
+  pactoAceptado: 'pacto_aceptado',
 } as const;
 
 export const getSetting = (key: string): string | null =>
