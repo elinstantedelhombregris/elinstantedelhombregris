@@ -3,31 +3,32 @@
    este archivo existe como referencia canónica de nombres y valores. */
 :root {
   /* papel */
-  --papel: #F2EFE7;
-  --papel-crudo: #FBFAF4;
-  --papel-presionado: #ECE8DC;
-  --papel-mapa: #E4E0D3;
-  --borde-suave: #D8D4C8;
+  --papel: #f2efe7;
+  --papel-crudo: #fbfaf4;
+  --papel-presionado: #ece8dc;
+  --papel-mapa: #e4e0d3;
+  --borde-suave: #d8d4c8;
   /* tinta */
-  --tinta: #16130E;
-  --tinta-90: #33302A;
-  --tinta-75: #4A463D;
-  --tinta-50: #7A756A;
-  --tinta-30: #B5B1A8;
+  --tinta: #16130e;
+  --tinta-90: #33302a;
+  --tinta-75: #4a463d;
+  --tinta-50: #7a756a;
+  --tinta-30: #b5b1a8;
   /* oscuro */
-  --oscuro-texto: #F2EFE7;
-  --oscuro-secundario: #C9C5BA;
-  --oscuro-meta: #8E8A82;
-  --oscuro-tenue: #5C594F;
-  --oscuro-borde: #3A362D;
-  --oscuro-barra: #241F17;
+  --oscuro-texto: #f2efe7;
+  --oscuro-secundario: #c9c5ba;
+  --oscuro-meta: #8e8a82;
+  --oscuro-tenue: #5c594f;
+  --oscuro-borde: #3a362d;
+  --oscuro-barra: #241f17;
   /* acentos semánticos */
-  --violeta: #5227CC;          /* marca · accionable · sueño */
-  --violeta-oscuro-bg: #9D85E8;/* violeta sobre fondo tinta */
-  --rojo-sello: #C23B22;       /* basta · urgencia · sellos */
-  --verde: #1A7A4A;            /* compromiso · territorio */
-  --ambar: #A16C00;            /* necesidad · método */
-  --cian: #0F6B8A;             /* recurso */
+  --violeta: #5227cc; /* marca · accionable · sueño */
+  --violeta-hover: #3d1ba3; /* hover de botones y links violeta */
+  --violeta-claro: #9d85e8; /* violeta sobre fondo tinta */
+  --rojo-sello: #c23b22; /* basta · urgencia · sellos */
+  --verde: #1a7a4a; /* compromiso · territorio */
+  --ambar: #a16c00; /* necesidad · método */
+  --cian: #0f6b8a; /* recurso */
   /* tipografía */
   --font-display: 'Anton', sans-serif;
   --font-texto: 'Archivo', sans-serif;
