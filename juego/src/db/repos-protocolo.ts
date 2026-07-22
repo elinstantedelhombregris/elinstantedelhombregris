@@ -67,17 +67,31 @@ export const fundarMision = (input: {
   // vueltas en el panel de Expediciones sin motivo; si ni el borrado anda,
   // tampoco pasa nada grave, sólo queda huérfana.
   if (input.plantilla && input.tipo === 'relevamiento') {
-    let expedicion: ExpeditionRow | null = null;
-    try {
-      expedicion = fundarExpedicion({ ...input.plantilla, origen: 'precargada' });
-      vincularExpedicion(row.id, expedicion.id);
-      row.expeditionId = expedicion.id;
-    } catch {
-      if (expedicion) {
-        try {
-          db.delete(expeditions).where(eq(expeditions.id, expedicion.id)).run();
-        } catch {
-          // best-effort: si el borrado también falla, queda huérfana.
+    // Antes de fundar: ¿ya hay una expedición ACTIVA de esta misma
+    // plantilla? (mismo criterio que activaDePlantilla en el panel de
+    // Expediciones). Si la hay, la misión adopta la expedición activa de
+    // esa plantilla; una sola expedición viva por plantilla — nunca dos
+    // misiones fundando en paralelo la misma precargada.
+    const existente = db.select().from(expeditions).where(and(
+      eq(expeditions.plantillaId, input.plantilla.plantillaId),
+      eq(expeditions.estado, 'activa'),
+    )).get();
+    if (existente) {
+      vincularExpedicion(row.id, existente.id);
+      row.expeditionId = existente.id;
+    } else {
+      let expedicion: ExpeditionRow | null = null;
+      try {
+        expedicion = fundarExpedicion({ ...input.plantilla, origen: 'precargada' });
+        vincularExpedicion(row.id, expedicion.id);
+        row.expeditionId = expedicion.id;
+      } catch {
+        if (expedicion) {
+          try {
+            db.delete(expeditions).where(eq(expeditions.id, expedicion.id)).run();
+          } catch {
+            // best-effort: si el borrado también falla, queda huérfana.
+          }
         }
       }
     }
