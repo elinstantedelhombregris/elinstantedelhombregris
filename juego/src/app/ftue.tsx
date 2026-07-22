@@ -17,7 +17,7 @@ import { GlassCard } from '@/components/ui/GlassCard';
 import { Pressable97 } from '@/components/ui/Pressable97';
 import { FTUE_ASOMBRO } from '@/content';
 import { SkyView } from '@/cielo/SkyView';
-import { CLAVES, crearEstrella, ganarBrasasUnaVez, getSetting, setSetting } from '@/db/repos';
+import { CLAVES, crearEstrellaCivicaUnaVez, ganarBrasasUnaVez, getSetting, setSetting } from '@/db/repos';
 import type { StarRow } from '@/db/schema';
 import { GANANCIAS, MOTIVOS } from '@/game/brasas';
 import type { Luz } from '@/game/types';
@@ -49,11 +49,11 @@ export default function Ftue() {
   const encender = () => {
     if (encendiendo || !texto.trim()) return;
     setEncendiendo(true);
-    const nueva = crearEstrella({ tipo: 'need', texto: texto.trim() });
+    const star = crearEstrellaCivicaUnaVez('ftue-primera-estrella', { tipo: 'need', texto: texto.trim() });
     ganarBrasasUnaVez('ftue-bienvenida', GANANCIAS.bienvenida, MOTIVOS.bienvenida);
-    useJuego.getState().setNewStar(nueva.id);
+    useJuego.getState().setNewStar(star.id);
     haptic.celebrate();
-    setEstrella(nueva);
+    setEstrella(star);
     setFase('nacimiento');
   };
 
@@ -104,7 +104,7 @@ export default function Ftue() {
                 className="mt-8 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 font-sans text-base text-plata"
               />
               <View className="mt-8 items-center">
-                <AccentButton label="Que se encienda" onPress={encender} disabled={!texto.trim()} />
+                <AccentButton label="Que se encienda" onPress={encender} disabled={!texto.trim() || encendiendo} />
               </View>
             </Animated.View>
           </View>
