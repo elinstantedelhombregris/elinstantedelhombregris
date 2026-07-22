@@ -45,6 +45,31 @@ describe('FeedVoces', () => {
     expect(screen.getByRole('link', { name: 'El mandato' })).toHaveAttribute('href', '/mandato-vivo');
   });
 
+  it('cargando habla (§10.9): skeleton §5 + microcopy', () => {
+    mockVoces.mockReturnValue({
+      data: undefined,
+      isLoading: true,
+      isError: false,
+    } as ReturnType<typeof useVocesAbiertas>);
+    const { container } = render(<FeedVoces />);
+
+    expect(container.querySelector('.anim-pulso-papel')).not.toBeNull();
+    expect(screen.getByText('Cargando — menos que un trámite.')).toBeInTheDocument();
+  });
+
+  it('error habla (§10.9)', () => {
+    mockVoces.mockReturnValue({
+      data: undefined,
+      isLoading: false,
+      isError: true,
+    } as ReturnType<typeof useVocesAbiertas>);
+    render(<FeedVoces />);
+
+    expect(
+      screen.getByText('Esto se rompió. Lo decimos porque publicamos todo.'),
+    ).toBeInTheDocument();
+  });
+
   it('vacío habla (§10.9)', () => {
     // `data: []` infiere `never[]`, que no alcanza a ninguna variante de
     // UseQueryResult<VozAbierta[], Error> — puente por `unknown`.
