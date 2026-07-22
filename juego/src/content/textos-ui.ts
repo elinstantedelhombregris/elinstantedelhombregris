@@ -18,6 +18,20 @@ export const FTUE = {
   eleccionTitulo: '¿Por dónde querés entrar?',
 } as const;
 
+/** FTUE del asombro: del cielo vacío a la primera estrella en <60s (spec §3.6). */
+export const FTUE_ASOMBRO = {
+  pregunta: '¿Qué falta acá donde estás parado?',
+  placeholderRespuesta: 'Una línea alcanza. Lo que ves, lo que falta, lo que duele.',
+  nacimiento: 'Así se enciende un país.',
+  bienvenidaBrasas: 'Cinco brasas de bienvenida: el fuego arranca prendido.',
+  tooltips: {
+    ver: 'VER es una pregunta por día. La respondés para vos: nadie la lee, nadie la corrige.',
+    encender: 'ENCENDER captura lo que ves — un sueño, una falta, un recurso. Cada captura es una estrella tuya.',
+    dar: 'DAR es un compromiso chiquito. Mañana el juego te pregunta si lo hiciste. Nadie verifica: la confianza es la mecánica.',
+  },
+  saltearTour: 'Saltear — ya voy a descubrirlo',
+} as const;
+
 /** Cierre del día con las tres luces encendidas. Se elige una variante al azar. */
 export const NOCHE_COMPLETA: readonly string[] = [
   'Tres luces. Noche completa. Hoy también se fabricó país, y una de las manos fue la tuya.',

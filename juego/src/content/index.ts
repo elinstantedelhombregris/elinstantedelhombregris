@@ -25,6 +25,7 @@ export { CONSTELACIONES } from './constelaciones';
 export { PALETAS, PALETA_DEFAULT, paletaPorId, type PaletaCielo } from './paletas';
 export {
   FTUE,
+  FTUE_ASOMBRO,
   NOCHE_COMPLETA,
   RITO_REENCENDIDO,
   NOCHE_NUBLADA,
