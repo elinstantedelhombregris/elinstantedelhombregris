@@ -1,6 +1,6 @@
 import { QueryClientProvider, useQueryClient } from '@tanstack/react-query';
 import { lazy, StrictMode, Suspense, useEffect } from 'react';
-import { Route, Switch } from 'wouter';
+import { Redirect, Route, Switch } from 'wouter';
 
 import { XpToast } from '~/components/XpToast';
 import { RootLayout } from '~/layouts/RootLayout';
@@ -44,9 +44,9 @@ const Manifiesto = lazy(async () => {
   const m = await import('~/pages/Manifiesto');
   return { default: m.Manifiesto };
 });
-const LaVision = lazy(async () => {
-  const m = await import('~/pages/LaVision');
-  return { default: m.LaVision };
+const LaIdea = lazy(async () => {
+  const m = await import('~/pages/LaIdea');
+  return { default: m.LaIdea };
 });
 const LaSemillaDeBasta = lazy(async () => {
   const m = await import('~/pages/LaSemillaDeBasta');
@@ -59,10 +59,6 @@ const UnaRutaParaArgentina = lazy(async () => {
 const ElMapa = lazy(async () => {
   const m = await import('~/pages/ElMapa');
   return { default: m.ElMapa };
-});
-const ElInstanteDelHombreGris = lazy(async () => {
-  const m = await import('~/pages/ElInstanteDelHombreGris');
-  return { default: m.ElInstanteDelHombreGris };
 });
 const DetallesCalculoCostoHumano = lazy(async () => {
   const m = await import('~/pages/DetallesCalculoCostoHumano');
@@ -229,11 +225,17 @@ export function App() {
 
               {/* ¡BASTA! framework */}
               <Route path="/manifiesto" component={Manifiesto} />
-              <Route path="/la-vision" component={LaVision} />
+              {/* La idea — fusión papel de las v1 /la-vision + /el-instante-del-hombre-gris */}
+              <Route path="/la-idea" component={LaIdea} />
+              <Route path="/la-vision">
+                <Redirect to="/la-idea" replace />
+              </Route>
+              <Route path="/el-instante-del-hombre-gris">
+                <Redirect to="/la-idea" replace />
+              </Route>
               <Route path="/la-semilla-de-basta" component={LaSemillaDeBasta} />
               <Route path="/una-ruta-para-argentina" component={UnaRutaParaArgentina} />
               <Route path="/el-mapa" component={ElMapa} />
-              <Route path="/el-instante-del-hombre-gris" component={ElInstanteDelHombreGris} />
               <Route path="/detalles-calculo-costo-humano" component={DetallesCalculoCostoHumano} />
               <Route path="/kit-de-prensa" component={KitDePrensa} />
 

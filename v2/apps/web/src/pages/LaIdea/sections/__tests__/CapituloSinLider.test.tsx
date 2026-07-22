@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { SIN_LIDER } from '../../la-idea-data';
@@ -14,6 +14,7 @@ const mockedUseVocesCount = vi.mocked(useVocesCount);
 
 describe('CapituloSinLider', () => {
   beforeEach(() => {
+    window.localStorage.clear();
     mockedUseVocesCount.mockReturnValue({
       data: { total: 12496 },
       isLoading: false,
@@ -38,6 +39,14 @@ describe('CapituloSinLider', () => {
       'href',
       '/el-mapa',
     );
+  });
+
+  it('al hacer click en el CTA «Dejar mi voz» despierta el sitio', () => {
+    render(<CapituloSinLider />);
+
+    fireEvent.click(screen.getByRole('link', { name: 'Dejar mi voz →' }));
+
+    expect(window.localStorage.getItem('basta_despierto')).toBe('1');
   });
 
   it('si el conteo carga o falló, la línea no aparece — jamás un número inventado', () => {

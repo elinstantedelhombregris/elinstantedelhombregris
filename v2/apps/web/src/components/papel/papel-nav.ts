@@ -13,7 +13,7 @@ export interface PapelNavItem {
 }
 
 export const PAPEL_NAV: readonly PapelNavItem[] = [
-  { href: '/la-vision', label: 'La idea', num: '01' },
+  { href: '/la-idea', label: 'La idea', num: '01' },
   { href: '/el-mapa', label: 'El mapa', num: '02' },
   { href: '/mandato-vivo', label: 'El mandato', num: '03' },
   { href: '/planes', label: 'La prueba', num: '04' },
