@@ -198,6 +198,9 @@
   .anim-marquee {
     animation: marquee 46s linear infinite;
   }
+  .anim-blink-cursor {
+    animation: blink-cursor 1s step-end infinite;
+  }
 
   /* Desregistro riso — firma award §10.4, solo títulos display. */
   .riso-hover {
@@ -216,7 +219,8 @@
   .anim-vpop,
   .anim-fadeup,
   .anim-stampin,
-  .anim-marquee {
+  .anim-marquee,
+  .anim-blink-cursor {
     animation: none !important;
   }
 }

@@ -2,6 +2,8 @@ import { Link } from 'wouter';
 
 import { PLAN_COUNT, PLANES_TEASER } from '../landing-data';
 
+import { Kicker } from '~/components/papel/primitives';
+
 /**
  * § 03 — La prueba de que se puede. Tres planes REALES del registro MDX
  * (grilla con juntas de tinta: gap de 1px sobre fondo tinta).
@@ -11,9 +13,7 @@ export function PlanesTeaser() {
     <section className="mx-auto max-w-[1440px] px-5 py-[88px] min-[961px]:px-10">
       <div className="mb-9 flex flex-wrap items-end justify-between gap-6">
         <div>
-          <div className="font-space text-violeta mb-4 text-[11px] uppercase tracking-[0.16em]">
-            § 03 — La prueba de que se puede
-          </div>
+          <Kicker className="mb-4">§ 03 — La prueba de que se puede</Kicker>
           <h2 className="font-anton text-[clamp(40px,5vw,72px)] leading-none max-[960px]:text-[44px]">
             Un tipo común ya escribió
             <br />

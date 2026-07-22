@@ -2,6 +2,8 @@ import { Link } from 'wouter';
 
 import { TALLIES } from '../landing-data';
 
+import { BotonPapel, Kicker } from '~/components/papel/primitives';
+
 /**
  * § 02 — El origen. Banda gris con los tally marks: 45 millones de grises,
  * contados a mano (palitos, no barras — firma award §10.6).
@@ -11,9 +13,9 @@ export function HombreGrisBand() {
     <section className="bg-oscuro-meta text-tinta">
       <div className="mx-auto grid max-w-[1440px] grid-cols-2 items-center gap-14 px-5 py-[72px] max-[960px]:grid-cols-1 min-[961px]:px-10">
         <div>
-          <div className="font-space text-papel mb-5 text-[11px] uppercase tracking-[0.16em]">
+          <Kicker color="papel" className="mb-5">
             § 02 — El origen
-          </div>
+          </Kicker>
           <h2 className="font-anton mb-5 text-[clamp(40px,4.4vw,64px)] leading-[1.02]">
             ¿Quién es el
             <br />
@@ -26,12 +28,9 @@ export function HombreGrisBand() {
           <p className="mb-7 max-w-[460px] text-[17px] font-semibold leading-relaxed">
             Ese instante tiene nombre.
           </p>
-          <Link
-            href="/el-instante-del-hombre-gris"
-            className="bg-tinta font-space text-papel hover:bg-violeta inline-block px-[26px] py-4 text-xs font-bold uppercase tracking-[0.08em] transition-colors duration-200"
-          >
-            Leer el capítulo I
-          </Link>
+          <BotonPapel asChild variant="tinta" className="inline-block px-[26px] py-4 text-xs">
+            <Link href="/el-instante-del-hombre-gris">Leer el capítulo I</Link>
+          </BotonPapel>
         </div>
 
         <div className="flex flex-col gap-2.5">

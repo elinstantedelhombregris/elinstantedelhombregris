@@ -2,12 +2,12 @@ import { Link } from 'wouter';
 
 import { TRES_LINEAS } from '../landing-data';
 
+import { Kicker } from '~/components/papel/primitives';
+
 export function IdeaEnTresLineas() {
   return (
     <section className="mx-auto max-w-[1440px] px-5 pb-[72px] pt-[88px] min-[961px]:px-10">
-      <div className="font-space text-violeta mb-7 text-[11px] uppercase tracking-[0.16em]">
-        § 01 — La idea en tres líneas
-      </div>
+      <Kicker className="mb-7">§ 01 — La idea en tres líneas</Kicker>
 
       {TRES_LINEAS.map((row) => (
         <Link

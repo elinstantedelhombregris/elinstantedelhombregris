@@ -1,5 +1,6 @@
 import { Link } from 'wouter';
 
+import { BotonPapel, Sello } from '~/components/papel/primitives';
 import { useDespierto } from '~/lib/despertar';
 
 /** Letras del rito de la tinta: se entintan una por una (firma award §10.1). */
@@ -62,27 +63,23 @@ export function HeroBasta() {
           className="anim-fadeup flex flex-wrap justify-end gap-3 max-[960px]:justify-start"
           style={{ animationDelay: '1.3s' }}
         >
-          <Link
-            href="/el-mapa"
-            className="bg-violeta font-space text-papel hover:bg-tinta px-7 py-[18px] text-[13px] font-bold uppercase tracking-[0.08em] transition-all duration-200 hover:-translate-y-0.5"
-          >
-            Dejar mi voz en el mapa
-          </Link>
-          <Link
-            href="/la-vision"
-            className="border-tinta font-space text-tinta hover:bg-tinta hover:text-papel border px-7 py-[18px] text-[13px] uppercase tracking-[0.08em] transition-colors duration-200"
-          >
-            Entender la idea
-          </Link>
+          <BotonPapel asChild variant="violeta">
+            <Link href="/el-mapa">Dejar mi voz en el mapa</Link>
+          </BotonPapel>
+          <BotonPapel asChild variant="fantasma">
+            <Link href="/la-vision">Entender la idea</Link>
+          </BotonPapel>
         </div>
       </div>
 
-      <div
-        className="anim-stampin border-sello font-space text-sello absolute right-16 top-24 rotate-[-8deg] border-[3px] px-4 py-2.5 text-[13px] font-bold uppercase tracking-[0.18em] max-[960px]:hidden"
+      <Sello
+        color="rojo"
+        rotate={-8}
+        className="absolute right-16 top-24 max-[960px]:hidden"
         style={{ animationDelay: '2s' }}
       >
         El instante es ahora
-      </div>
+      </Sello>
     </section>
   );
 }
