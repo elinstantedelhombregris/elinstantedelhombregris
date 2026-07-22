@@ -6,6 +6,7 @@ import { PropuestaDetail } from '../PropuestaDetail';
 import type { ReactNode } from 'react';
 import type * as Wouter from 'wouter';
 
+import { ApiError } from '~/lib/api';
 import { useAuth } from '~/lib/auth/use-auth';
 import { usePropuestaById, useVotePropuesta, type Propuesta } from '~/lib/queries/mandato';
 
@@ -78,12 +79,13 @@ describe('PropuestaDetail', () => {
     expect(screen.getByText('Cargando — menos que un trámite.')).toBeInTheDocument();
   });
 
-  it('404: kicker expediente extraviado + título propio', () => {
+  it('404 (ApiError 404): kicker expediente extraviado + título propio, sin sello inventado', () => {
     mockPropuesta.mockReturnValue({
       data: undefined,
       isLoading: false,
       isError: true,
-    } as ReturnType<typeof usePropuestaById>);
+      error: new ApiError(404, 'NOT_FOUND', 'Propuesta no encontrada'),
+    } as unknown as ReturnType<typeof usePropuestaById>);
     mockVote.mockReturnValue({ mutate: vi.fn(), isPending: false } as unknown as ReturnType<typeof useVotePropuesta>);
     mockAuth.mockReturnValue({ isAuthenticated: false } as ReturnType<typeof useAuth>);
 
@@ -91,6 +93,29 @@ describe('PropuestaDetail', () => {
 
     expect(screen.getByText('expediente extraviado')).toBeInTheDocument();
     expect(screen.getByText('Esa propuesta no está.')).toBeInTheDocument();
+    // Catálogo de sellos cerrado (§10.5): el 404 no lleva ninguno.
+    expect(screen.queryByText('Extraviado')).not.toBeInTheDocument();
+    expect(document.querySelector('.anim-stampin')).toBeNull();
+  });
+
+  it('roto (error ≠ 404): frase de honestidad + reintento que llama a refetch — no es el estado extraviado', () => {
+    const refetch = vi.fn();
+    mockPropuesta.mockReturnValue({
+      data: undefined,
+      isLoading: false,
+      isError: true,
+      error: new ApiError(500, 'INTERNAL', 'Se rompió'),
+      refetch,
+    } as unknown as ReturnType<typeof usePropuestaById>);
+    mockVote.mockReturnValue({ mutate: vi.fn(), isPending: false } as unknown as ReturnType<typeof useVotePropuesta>);
+    mockAuth.mockReturnValue({ isAuthenticated: false } as ReturnType<typeof useAuth>);
+
+    render(<PropuestaDetail />);
+
+    expect(screen.getByText('Esto se rompió. Lo decimos porque publicamos todo.')).toBeInTheDocument();
+    expect(screen.queryByText('expediente extraviado')).not.toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'Probar de nuevo ↺' }));
+    expect(refetch).toHaveBeenCalledTimes(1);
   });
 
   it('éxito sin sesión: estado en votación, votos + apoyo, botones deshabilitados y link a /ingresar', () => {
@@ -137,6 +162,46 @@ describe('PropuestaDetail', () => {
     fireEvent.click(enContra);
     expect(mutate).toHaveBeenCalledWith(-1);
     expect(screen.queryByText(/Para votar hace falta/)).not.toBeInTheDocument();
+  });
+
+  it('voto en vuelo: el botón votado muestra cargando (— ▌, aria-busy) y el otro queda deshabilitado', () => {
+    mockPropuesta.mockReturnValue({
+      data: { proposal: propuestaBase() },
+      isLoading: false,
+      isError: false,
+    } as ReturnType<typeof usePropuestaById>);
+    mockVote.mockReturnValue({
+      mutate: vi.fn(),
+      isPending: true,
+      variables: 1,
+      isError: false,
+    } as unknown as ReturnType<typeof useVotePropuesta>);
+    mockAuth.mockReturnValue({ isAuthenticated: true } as ReturnType<typeof useAuth>);
+
+    render(<PropuestaDetail />);
+
+    const enVuelo = screen.getByRole('button', { busy: true });
+    expect(enVuelo).toHaveTextContent('A favor +1'); // el label queda invisible pero presente (ancho fijo)
+    expect(enVuelo).toHaveTextContent('Cargando');
+    expect(screen.getByRole('button', { name: 'En contra −1' })).toBeDisabled();
+  });
+
+  it('voto fallido: línea de error honesta con role=alert', () => {
+    mockPropuesta.mockReturnValue({
+      data: { proposal: propuestaBase() },
+      isLoading: false,
+      isError: false,
+    } as ReturnType<typeof usePropuestaById>);
+    mockVote.mockReturnValue({
+      mutate: vi.fn(),
+      isPending: false,
+      isError: true,
+    } as unknown as ReturnType<typeof useVotePropuesta>);
+    mockAuth.mockReturnValue({ isAuthenticated: true } as ReturnType<typeof useAuth>);
+
+    render(<PropuestaDetail />);
+
+    expect(screen.getByRole('alert')).toHaveTextContent('No pudimos registrar tu voto. Probá de nuevo.');
   });
 
   it('con bodyMarkdown: lo parte en párrafos separados por línea en blanco', () => {

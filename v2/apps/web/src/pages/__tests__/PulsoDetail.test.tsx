@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { PulsoDetail } from '../PulsoDetail';
@@ -6,6 +6,7 @@ import { PulsoDetail } from '../PulsoDetail';
 import type { ReactNode } from 'react';
 import type * as Wouter from 'wouter';
 
+import { ApiError } from '~/lib/api';
 import { usePulsoById } from '~/lib/queries/mandato';
 import { useProvincias } from '~/lib/queries/open-data';
 
@@ -51,18 +52,40 @@ describe('PulsoDetail', () => {
     expect(screen.getByText('Cargando — menos que un trámite.')).toBeInTheDocument();
   });
 
-  it('404: kicker expediente extraviado + título propio + CTA de vuelta', () => {
+  it('404 (ApiError 404): kicker expediente extraviado + título propio + CTA, sin sello inventado', () => {
     mockPulso.mockReturnValue({
       data: undefined,
       isLoading: false,
       isError: true,
-    } as ReturnType<typeof usePulsoById>);
+      error: new ApiError(404, 'NOT_FOUND', 'Señal no encontrada'),
+    } as unknown as ReturnType<typeof usePulsoById>);
 
     render(<PulsoDetail />);
 
     expect(screen.getByText('expediente extraviado')).toBeInTheDocument();
     expect(screen.getByText('Esa señal no está.')).toBeInTheDocument();
     expect(screen.getByRole('link', { name: 'Volver al mandato →' })).toHaveAttribute('href', '/mandato-vivo');
+    // Catálogo de sellos cerrado (§10.5): el 404 no lleva ninguno.
+    expect(screen.queryByText('Extraviado')).not.toBeInTheDocument();
+    expect(document.querySelector('.anim-stampin')).toBeNull();
+  });
+
+  it('roto (error ≠ 404): frase de honestidad + reintento que llama a refetch — no es el estado extraviado', () => {
+    const refetch = vi.fn();
+    mockPulso.mockReturnValue({
+      data: undefined,
+      isLoading: false,
+      isError: true,
+      error: new ApiError(500, 'INTERNAL', 'Se rompió'),
+      refetch,
+    } as unknown as ReturnType<typeof usePulsoById>);
+
+    render(<PulsoDetail />);
+
+    expect(screen.getByText('Esto se rompió. Lo decimos porque publicamos todo.')).toBeInTheDocument();
+    expect(screen.queryByText('expediente extraviado')).not.toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'Probar de nuevo ↺' }));
+    expect(refetch).toHaveBeenCalledTimes(1);
   });
 
   it('éxito: cuerpo entre comillas, tema sin clasificar, provincia resuelta y origen humanizado', () => {

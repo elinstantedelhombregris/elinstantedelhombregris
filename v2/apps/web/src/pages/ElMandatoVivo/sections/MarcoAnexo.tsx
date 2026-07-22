@@ -2,7 +2,7 @@ import { Link } from 'wouter';
 
 import type { ReactNode } from 'react';
 
-import { BotonPapel, Kicker, Sello } from '~/components/papel/primitives';
+import { BotonPapel, Kicker } from '~/components/papel/primitives';
 
 export interface MarcoAnexoProps {
   children: ReactNode;
@@ -51,21 +51,42 @@ export interface FichaExtraviadaProps {
   titulo: string;
 }
 
-/** El 404 de un anexo — patrón expediente §5, con el copy propio de cada ficha. */
+/**
+ * El 404 de un anexo — patrón expediente §5 con el copy propio de cada ficha:
+ * kicker + título Anton + CTA. Sin sello: el catálogo §10.5 es cerrado
+ * (RECIBIDA/PLANTADA/LEÍDO ENTERO/VISTO) y no se inventan sellos por decoración.
+ */
 export function FichaExtraviada({ titulo }: FichaExtraviadaProps) {
   return (
-    <div className="relative">
-      <div className="absolute right-0 top-0">
-        <Sello color="rojo" rotate={6}>
-          Extraviado
-        </Sello>
-      </div>
+    <div>
       <Kicker color="tinta" className="mb-4">
         expediente extraviado
       </Kicker>
       <h1 className="font-anton text-[clamp(28px,4vw,40px)] leading-none">{titulo}</h1>
       <BotonPapel asChild variant="fantasma" className="mt-8 inline-flex">
         <Link href="/mandato-vivo">Volver al mandato →</Link>
+      </BotonPapel>
+    </div>
+  );
+}
+
+export interface FichaRotaProps {
+  onReintentar: () => void;
+}
+
+/**
+ * Cualquier rotura que NO sea 404 (§10.9): la misma frase de honestidad del
+ * documento (Task 4) + reintento real. Extraviado y roto son estados distintos
+ * y el expediente no los mezcla.
+ */
+export function FichaRota({ onReintentar }: FichaRotaProps) {
+  return (
+    <div>
+      <p className="font-archivo text-tinta-75 text-[15px] leading-relaxed">
+        Esto se rompió. Lo decimos porque publicamos todo.
+      </p>
+      <BotonPapel variant="fantasma" className="mt-6" onClick={onReintentar}>
+        Probar de nuevo ↺
       </BotonPapel>
     </div>
   );

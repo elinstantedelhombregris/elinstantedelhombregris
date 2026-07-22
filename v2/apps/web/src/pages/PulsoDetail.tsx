@@ -2,8 +2,9 @@ import { useRoute } from 'wouter';
 
 import { ORIGEN_SENAL } from './ElMandatoVivo/el-mandato-data';
 import { humanizarTema } from './ElMandatoVivo/mandato-regimen';
-import { CargandoFicha, FichaExtraviada, MarcoAnexo } from './ElMandatoVivo/sections/MarcoAnexo';
+import { CargandoFicha, FichaExtraviada, FichaRota, MarcoAnexo } from './ElMandatoVivo/sections/MarcoAnexo';
 
+import { ApiError } from '~/lib/api';
 import { usePulsoById } from '~/lib/queries/mandato';
 import { useProvincias } from '~/lib/queries/open-data';
 
@@ -15,7 +16,7 @@ import { useProvincias } from '~/lib/queries/open-data';
 export function PulsoDetail() {
   const [, params] = useRoute<{ id: string }>('/mandato-vivo/pulso/:id');
   const id = Number(params?.id ?? 0);
-  const { data, isLoading, isError } = usePulsoById(id);
+  const { data, isLoading, isError, error, refetch } = usePulsoById(id);
   const provincias = useProvincias();
 
   if (isLoading) {
@@ -26,7 +27,20 @@ export function PulsoDetail() {
     );
   }
 
-  if (isError || !data) {
+  // Tres estados distintos (§10.9): extraviado (404) no es lo mismo que roto.
+  if (isError && !(error instanceof ApiError && error.status === 404)) {
+    return (
+      <MarcoAnexo>
+        <FichaRota
+          onReintentar={() => {
+            void refetch();
+          }}
+        />
+      </MarcoAnexo>
+    );
+  }
+
+  if (!data) {
     return (
       <MarcoAnexo>
         <FichaExtraviada titulo="Esa señal no está." />
