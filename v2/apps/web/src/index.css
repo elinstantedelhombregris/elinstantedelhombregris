@@ -54,6 +54,14 @@
     color: #16130e;
   }
 }
+@keyframes inkfill-claro {
+  from {
+    color: #5c594f;
+  }
+  to {
+    color: #f2efe7;
+  }
+}
 @keyframes vpop {
   0% {
     transform: translateY(14px);
@@ -195,6 +203,9 @@
   .anim-inkfill {
     animation: inkfill 0.6s ease both;
   }
+  .anim-inkfill-claro {
+    animation: inkfill-claro 0.6s ease both;
+  }
   .anim-vpop {
     animation: vpop 0.5s ease both;
   }
@@ -243,6 +254,7 @@
 /* §10.10 — reduced motion apaga las animaciones dejando estados finales. */
 @media (prefers-reduced-motion: reduce) {
   .anim-inkfill,
+  .anim-inkfill-claro,
   .anim-vpop,
   .anim-fadeup,
   .anim-stampin,

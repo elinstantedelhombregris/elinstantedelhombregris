@@ -171,4 +171,38 @@ describe('RitoTinta', () => {
 
     expect(screen.getByRole('heading', { level: 1, name: 'Se diseña.' })).toBeInTheDocument();
   });
+
+  it('tono="claro" entinta hacia inkfill-claro y cae en violeta-claro (El mandato, página oscura)', () => {
+    const { container } = render(
+      <h1 aria-label="¡BASTA!">
+        <RitoTinta lineas={['¡BASTA!']} tono="claro" />
+      </h1>,
+    );
+
+    const letras = Array.from(container.querySelectorAll<HTMLElement>('.anim-inkfill-claro'));
+    expect(letras.map((el) => el.textContent)).toEqual(['B', 'A', 'S', 'T', 'A']);
+    expect(container.querySelectorAll('.anim-inkfill')).toHaveLength(0);
+
+    const signos = Array.from(container.querySelectorAll<HTMLElement>('.anim-vpop'));
+    expect(signos.map((el) => el.textContent)).toEqual(['¡', '!']);
+    for (const signo of signos) {
+      expect(signo).toHaveClass('text-violeta-claro');
+      expect(signo.className.split(' ')).not.toContain('text-violeta');
+    }
+  });
+
+  it('sin tono conserva anim-inkfill/text-violeta (regresión — default sigue siendo "tinta")', () => {
+    const { container } = render(
+      <h1 aria-label="¡BASTA!">
+        <RitoTinta lineas={['¡BASTA!']} />
+      </h1>,
+    );
+
+    expect(container.querySelectorAll('.anim-inkfill-claro')).toHaveLength(0);
+    const signos = Array.from(container.querySelectorAll<HTMLElement>('.anim-vpop'));
+    for (const signo of signos) {
+      expect(signo).toHaveClass('text-violeta');
+      expect(signo.className).not.toMatch(/text-violeta-claro/);
+    }
+  });
 });

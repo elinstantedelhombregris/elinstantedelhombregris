@@ -5,6 +5,12 @@ export interface RitoTintaProps {
   delayBase?: number;
   /** Segundos entre letras. */
   paso?: number;
+  /**
+   * Variante para páginas oscuras (El mandato): letras a `inkfill-claro`
+   * (gris tenue → papel) y signos en violeta-claro. Default `'tinta'`
+   * (comportamiento original, sin cambios para los llamadores existentes).
+   */
+  tono?: 'tinta' | 'claro';
 }
 
 /** Evita colas binarias (0.23500000000000004) en el estilo inline. */
@@ -21,9 +27,11 @@ function redondear(segundos: number): number {
  *     <RitoTinta lineas={['Un país no se hereda.', 'Se diseña.']} />
  *   </h1>
  */
-export function RitoTinta({ lineas, delayBase = 0.1, paso = 0.045 }: RitoTintaProps) {
+export function RitoTinta({ lineas, delayBase = 0.1, paso = 0.045, tono = 'tinta' }: RitoTintaProps) {
   const totalLetras = lineas.join('').replace(/[¡!\s]/g, '').length;
   const delaySignos = redondear(delayBase + totalLetras * paso + 0.2);
+  const claseLetra = tono === 'claro' ? 'anim-inkfill-claro' : 'anim-inkfill';
+  const claseSigno = tono === 'claro' ? 'text-violeta-claro' : 'text-violeta';
   let letra = 0;
 
   return (
@@ -35,7 +43,7 @@ export function RitoTinta({ lineas, delayBase = 0.1, paso = 0.045 }: RitoTintaPr
               return (
                 <span
                   key={i}
-                  className="anim-vpop text-violeta inline-block"
+                  className={`anim-vpop ${claseSigno} inline-block`}
                   style={{ animationDelay: `${delaySignos}s` }}
                 >
                   {char}
@@ -48,7 +56,7 @@ export function RitoTinta({ lineas, delayBase = 0.1, paso = 0.045 }: RitoTintaPr
             const delay = redondear(delayBase + letra * paso);
             letra += 1;
             return (
-              <span key={i} className="anim-inkfill" style={{ animationDelay: `${delay}s` }}>
+              <span key={i} className={claseLetra} style={{ animationDelay: `${delay}s` }}>
                 {char}
               </span>
             );

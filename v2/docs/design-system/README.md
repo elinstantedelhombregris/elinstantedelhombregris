@@ -93,7 +93,8 @@ En la app: primitiva `RitoTinta` (`components/papel/primitives/RitoTinta.tsx`) �
 el título en letras con `anim-inkfill` escalonado (~45ms por letra) y hace caer los
 signos `¡ !` al final con `anim-vpop` en violeta. El llamador pone el heading y su
 `aria-label` (las letras van `aria-hidden`). En `.dc.html`: spans inline con
-`animation:inkfill` y delays literales.
+`animation:inkfill` y delays literales. `tono='claro'` para páginas oscuras (El
+mandato): letras a `inkfill-claro`, signos en violeta-claro.
 
 Nota de datos demo (obligatoria junto a toda métrica inventada)
 `<span style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#B5B1A8;">* datos de demostración</span>`
@@ -141,7 +142,7 @@ Páginas de error
 
 ## 6. Motion
 
-Keyframes canónicos (en `<helmet><style>`): `inkfill` (letras que se entintan), `vpop`, `fadeup`, `marquee`, `pulse-dot` (puntos del mapa), `dropin`, `growbar`, `blink-cursor` (cursor ▌), `stampin`, `semgrow`+`leafpop` (semilla). En la app los nombres canónicos son los de `index.css`; los especímenes `.dc.html` conservan los nombres viejos.
+Keyframes canónicos (en `<helmet><style>`): `inkfill` (letras que se entintan), `inkfill-claro` (variante de `inkfill` para páginas oscuras, gris tenue `#5C594F` → papel `#F2EFE7`), `vpop`, `fadeup`, `marquee`, `pulse-dot` (puntos del mapa), `dropin`, `growbar`, `blink-cursor` (cursor ▌), `stampin`, `semgrow`+`leafpop` (semilla). En la app los nombres canónicos son los de `index.css`; los especímenes `.dc.html` conservan los nombres viejos. En página oscura el rito entinta hacia papel (`inkfill-claro`); los signos ¡ ! caen en violeta-claro.
 Presupuesto: **una interacción firma por página**; el resto entra con `fadeup` escalonado (delays .1–.3s). Nada de parallax, 3D ni gradientes animados. El recurso narrativo maestro: **gris → color** (grayscale que se llena de color al despertar).
 
 ## 7. Voz y contenido
