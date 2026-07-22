@@ -1,7 +1,9 @@
 import type { TipoVoz } from '~/components/papel/primitives';
 
-/** Los 6 tipos en el orden del panel (§7). */
-export const TIPOS_VOZ: readonly TipoVoz[] = ['basta', 'sueño', 'necesidad', 'compromiso', 'recurso', 'valor'];
+import { TIPOS_VOZ } from '~/lib/tipos-voz';
+
+/** Los 6 tipos en el orden del panel (§7) — fuente única en `lib/tipos-voz.ts`. */
+export { TIPOS_VOZ };
 
 /** Categorías fuera del catálogo caen en 'valor' (tinta) — mismo criterio que VocesTicker. */
 export function tipoDeCategoria(categoria: string | null): TipoVoz {

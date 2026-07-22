@@ -5,6 +5,8 @@
  */
 import type { TipoVoz } from '~/components/papel/primitives';
 
+import { TIPOS_VOZ } from '~/lib/tipos-voz';
+
 export const UMBRAL_PORCENTAJE = 100;
 
 export type Regimen = 'cero' | 'palitos' | 'porcentaje';
@@ -32,8 +34,6 @@ export function humanizarTema(tema: string): string {
   return tema.replaceAll('_', ' ');
 }
 
-const TIPOS: readonly TipoVoz[] = ['basta', 'sueño', 'necesidad', 'compromiso', 'recurso', 'valor'];
-
 export interface ConteoTipo {
   tipo: TipoVoz;
   total: number;
@@ -43,7 +43,7 @@ export interface ConteoTipo {
 export function plegarTipos(porTipo: readonly { tipo: string | null; total: number }[]): ConteoTipo[] {
   const acumulado = new Map<TipoVoz, number>();
   for (const fila of porTipo) {
-    const tipo = TIPOS.find((t) => t === fila.tipo) ?? 'valor';
+    const tipo = TIPOS_VOZ.find((t) => t === fila.tipo) ?? 'valor';
     acumulado.set(tipo, (acumulado.get(tipo) ?? 0) + fila.total);
   }
   return [...acumulado.entries()]
