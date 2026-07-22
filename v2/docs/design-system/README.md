@@ -1,5 +1,4 @@
 # ¡BASTA! — Sistema de diseño «Papel y Tinta»
-
 Versión 1.0 · julio 2026 · fuente de verdad para todas las páginas del sitio.
 
 Identidad en una frase: **un manifiesto impreso que cobró vida** — papel crudo, tinta negra, un violeta eléctrico que marca lo que importa y un sello rojo que interrumpe. Cero decoración: todo lo que se ve significa algo.
@@ -17,7 +16,6 @@ Identidad en una frase: **un manifiesto impreso que cobró vida** — papel crud
 ## 2. Color (hex literales, siempre inline)
 
 Papel (fondos claros)
-
 - `#F2EFE7` papel — fondo base de todo el sitio
 - `#FBFAF4` papel crudo — paneles, cards alternas, bandas suaves
 - `#ECE8DC` papel presionado — hover de filas/celdas
@@ -25,7 +23,6 @@ Papel (fondos claros)
 - `#D8D4C8` borde suave / divisores secundarios
 
 Tinta (texto sobre claro)
-
 - `#16130E` tinta — títulos, texto principal, bordes duros, botones oscuros
 - `#33302A` tinta 90 — cuerpo de lectura
 - `#4A463D` tinta 75 — cuerpo secundario
@@ -33,11 +30,9 @@ Tinta (texto sobre claro)
 - `#B5B1A8` tinta 30 — numeración, notas al pie, deshabilitado
 
 Página oscura (El mandato, bandas CTA, footer)
-
 - fondo `#16130E` · texto `#F2EFE7` · secundario `#C9C5BA` · meta `#8E8A82` · tenue `#5C594F` · bordes `#3A362D` · barras vacías `#241F17`
 
 Acentos (con significado fijo — no mezclar)
-
 - `#5227CC` violeta = la marca, lo accionable, "sueño". Hover: `#3D1BA3`. En oscuro usar `#9D85E8`.
 - `#C23B22` rojo sello = urgencia, "basta", sellos NO ES DOCTRINA / EJEMPLO, crítica
 - `#1A7A4A` verde = "compromiso", territorio, logrado
@@ -50,7 +45,6 @@ Acentos (con significado fijo — no mezclar)
 ```
 Anton (display) · Archivo (texto, 300–800 + itálica) · Space Mono (400/700)
 ```
-
 - **Anton**: títulos y cifras. H1 `clamp(44px,6vw,88px)`, hero `clamp(120px,17.5vw,300px)`, H2 `clamp(36px,4.6vw,64px)`, títulos de card 22–34px. `line-height` 0.94–1.1. Nunca en cuerpo de texto.
 - **Archivo**: todo el cuerpo. Lectura 17px/1.75; UI 14–16px/1.5–1.6; leads 18–19px.
 - **Space Mono**: kickers, metadatos, botones, tags, números de expediente. Kicker canónico: `font-size:11px; letter-spacing:0.16em; text-transform:uppercase` + color de acento o tinta 50.
@@ -105,7 +99,7 @@ Presupuesto: **una interacción firma por página**; el resto entra con `fadeup`
 
 - Español rioplatense, voseo («soltá», «leelo»), frases cortas, segunda persona.
 - Tono: manifiesto en portadas (directo, sin pedir permiso), sobrio y verificable en herramientas. Humor seco permitido («Suerte.»).
-- Ideas fijas que no se negocian: _la ciudadanía diseña, el Estado administra, la política ejecuta_ · _sin líder, sin partido, sin excusas_ · los 22 planes son **prueba, no doctrina** («esto lo escribió uno solo») · el mandato lo escriben las voces · todo dato inventado lleva asterisco.
+- Ideas fijas que no se negocian: *la ciudadanía diseña, el Estado administra, la política ejecuta* · *sin líder, sin partido, sin excusas* · los 22 planes son **prueba, no doctrina** («esto lo escribió uno solo») · el mandato lo escriben las voces · todo dato inventado lleva asterisco.
 - 6 tipos de voz y su color: basta=rojo, sueño=violeta, necesidad=ámbar, compromiso=verde, recurso=cian, valor=tinta.
 - Prohibido: tecnicismos de marketing, "únete/regístrate" (se dice «sembrá», «soltá tu voz»), promesas, emojis, mayúsculas de grito fuera de sellos.
 
