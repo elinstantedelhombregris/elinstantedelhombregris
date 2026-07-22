@@ -9,7 +9,7 @@ import { useMemo } from 'react';
 import Svg, { Circle, Path } from 'react-native-svg';
 
 import { hashSemilla, mulberry32 } from '@/game/eventos';
-import { PLATA } from '@/theme/tokens';
+import { TINTA } from '@/theme/tokens';
 
 export interface PuntoGlifo {
   x: number;
@@ -37,7 +37,7 @@ export const puntosGlifo = (seed: string, size: number): PuntoGlifo[] => {
 export function GlifoCirculo({
   seed,
   size = 96,
-  color = PLATA,
+  color = TINTA,
 }: {
   seed: string;
   size?: number;

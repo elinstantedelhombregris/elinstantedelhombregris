@@ -1,9 +1,6 @@
 /**
- * Sistema visual del juego.
- *
- * En migración: «plata editorial» (acento violeta, plata, vidrio) convive
- * con «Papel y Tinta» (docs/superpowers/specs/2026-07-21-juego-papel-y-tinta.md)
- * hasta la limpieza final (Task PT8). Los tokens viejos NO se borran acá.
+ * Sistema visual del juego: «Papel y Tinta»
+ * (docs/superpowers/specs/2026-07-21-juego-papel-y-tinta.md).
  */
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -12,10 +9,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        fondo: '#0a0a0a',
-        accent: { DEFAULT: '#7D5BDE', hover: '#8D6FE4', text: '#9D85E8' },
-        plata: '#F5F7FA',
-        brasa: '#F59E0B',
+        // Base de navegación bajo el Cielo — borde del gradiente nocturno.
+        fondo: '#0B0908',
         // Señales — registro PAPEL (spec §2). El cielo nocturno usa
         // COLOR_ESTRELLA (src/cielo/posiciones.ts), no este bloque.
         senal: {
@@ -38,14 +33,7 @@ module.exports = {
         bordeSuave: '#D8D4C8',
       },
       fontFamily: {
-        sans: ['Inter_400Regular'],
-        'sans-medium': ['Inter_500Medium'],
-        'sans-semibold': ['Inter_600SemiBold'],
-        'sans-bold': ['Inter_700Bold'],
-        serif: ['PlayfairDisplay_600SemiBold'],
-        'serif-italic': ['PlayfairDisplay_500Medium_Italic'],
-        mono: ['JetBrainsMono_500Medium'],
-        // Papel y Tinta (spec §2).
+        // Papel y Tinta (spec §2): Anton (display), Archivo (cuerpo), Space Mono (dato).
         anton: ['Anton_400Regular'],
         archivo: ['Archivo_400Regular'],
         'archivo-medium': ['Archivo_500Medium'],

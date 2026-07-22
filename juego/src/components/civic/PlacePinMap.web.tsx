@@ -1,6 +1,7 @@
 import type { GeoJSONSource, Map as MapLibreMap, StyleSpecification } from 'maplibre-gl';
 import { useEffect, useRef, useState } from 'react';
 import { Text, View } from 'react-native';
+import { VIOLETA } from '@/theme/tokens';
 
 import type { GeoPoint } from '@/civic/types';
 
@@ -77,24 +78,13 @@ export default function PlacePinMap({ value, onChange, height = DEFAULT_HEIGHT }
         if (!alive) return;
         instance.addSource('place-pin', { type: 'geojson', data: pointData(value) });
         instance.addLayer({
-          id: 'place-pin-halo',
-          type: 'circle',
-          source: 'place-pin',
-          paint: {
-            'circle-radius': 20,
-            'circle-color': '#A78BFA',
-            'circle-opacity': 0.16,
-            'circle-blur': 0.45,
-          },
-        });
-        instance.addLayer({
           id: 'place-pin-core',
           type: 'circle',
           source: 'place-pin',
           paint: {
             'circle-radius': 8,
             'circle-color': '#F5F7FA',
-            'circle-stroke-color': '#7D5BDE',
+            'circle-stroke-color': VIOLETA,
             'circle-stroke-width': 4,
           },
         });
@@ -129,18 +119,18 @@ export default function PlacePinMap({ value, onChange, height = DEFAULT_HEIGHT }
     <View
       accessible
       accessibilityLabel="Selector de punto en el mapa. Hacé clic para ubicarlo."
-      className="overflow-hidden rounded-[24px] border border-white/10 bg-[#0B0B0E]"
+      className="overflow-hidden border border-tinta bg-fondo"
       style={{ height }}
     >
       <div ref={container} style={{ position: 'absolute', inset: 0 }} />
-      <View style={{ pointerEvents: 'none' }} className="absolute left-3 top-3 rounded-full border border-white/10 bg-black/75 px-3 py-2">
-        <Text className="font-sans-medium text-[11px] text-slate-200">
+      <View style={{ pointerEvents: 'none' }} className="absolute left-3 top-3 border border-tinta bg-black/75 px-3 py-2">
+        <Text className="font-archivo-bold text-[11px] text-oscuro-texto">
           {value ? 'Punto elegido · tocá para moverlo' : 'Tocá el mapa para ubicarlo'}
         </Text>
       </View>
       {!ready && (
-        <View style={{ pointerEvents: 'none' }} className="absolute inset-0 items-center justify-center bg-[#0B0B0E]">
-          <Text className="font-sans text-xs text-slate-500">Abriendo el territorio…</Text>
+        <View style={{ pointerEvents: 'none' }} className="absolute inset-0 items-center justify-center bg-fondo">
+          <Text className="font-archivo text-xs text-oscuro-meta">Abriendo el territorio…</Text>
         </View>
       )}
     </View>

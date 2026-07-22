@@ -1,4 +1,3 @@
-import { Ionicons } from '@expo/vector-icons';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Text, TextInput, View } from 'react-native';
 
@@ -7,6 +6,15 @@ import type {
   CustodyExecutionView,
 } from '@/civic/custody-execution';
 import { Pressable97 } from '@/components/ui/Pressable97';
+import {
+  AMBAR_PT,
+  CIAN,
+  ROJO_SELLO,
+  TINTA_30,
+  TINTA_50,
+  VERDE,
+  VIOLETA,
+} from '@/theme/tokens';
 
 export type CustodyExecutionRole = 'coordinator' | 'grantor';
 
@@ -63,79 +71,66 @@ const STATE_PRESENTATION: Record<CustodyExecutionView['state'], {
   title: string;
   detail: string;
   color: string;
-  icon: keyof typeof Ionicons.glyphMap;
 }> = {
   awaiting_reservation: {
     title: 'Esperando reserva operativa',
     detail: 'Existe acuerdo para intentar coordinar, pero todavía nadie declaró haber apartado la capacidad.',
-    color: '#C4B5FD',
-    icon: 'hourglass-outline',
+    color: VIOLETA,
   },
   reserved: {
     title: 'Capacidad declarada como reservada',
     detail: 'La coordinación apartó la capacidad acordada. Es una declaración operativa, no prueba stock físico ni entrega.',
-    color: '#93C5FD',
-    icon: 'bookmark-outline',
+    color: VIOLETA,
   },
   ready: {
     title: 'Ambas partes están listas',
     detail: 'Las dos partes declararon disposición para coordinar. La app no compartió teléfono, domicilio ni identidad.',
-    color: '#67E8F9',
-    icon: 'people-outline',
+    color: CIAN,
   },
   in_transit: {
     title: 'Movimiento iniciado',
     detail: 'La coordinación declaró que inició el movimiento. Todavía no hay recepción confirmada por la persona.',
-    color: '#FCD34D',
-    icon: 'navigate-outline',
+    color: AMBAR_PT,
   },
   delivery_reported: {
     title: 'Entrega declarada por coordinación',
     detail: 'La contraparte declaró la entrega. Falta la constancia independiente de quien debía recibirla.',
-    color: '#FDBA74',
-    icon: 'cube-outline',
+    color: AMBAR_PT,
   },
   received: {
     title: 'Recepción registrada',
     detail: 'La persona confirmó recepción. Esto todavía no permite afirmar que su necesidad quedó cubierta.',
-    color: '#86EFAC',
-    icon: 'download-outline',
+    color: VERDE,
   },
   needs_follow_up: {
     title: 'La necesidad sigue abierta',
     detail: 'Hubo una conexión, pero el seguimiento indicó que todavía hace falta respuesta. No se presenta como fracaso ni resolución.',
-    color: '#FDE68A',
-    icon: 'git-branch-outline',
+    color: AMBAR_PT,
   },
   completed: {
     title: 'Resultado declarado por la persona',
     detail: 'La persona indicó en el seguimiento que esta necesidad quedó cubierta. Es su declaración, conservada por separado de las afirmaciones de coordinación.',
-    color: '#6EE7B7',
-    icon: 'checkmark-done-outline',
+    color: VERDE,
   },
   disputed: {
     title: 'La recepción no fue confirmada',
     detail: 'La persona indicó que no recibió el apoyo. La app no atribuye culpa ni cierra la necesidad.',
-    color: '#FDA4AF',
-    icon: 'alert-circle-outline',
+    color: ROJO_SELLO,
   },
   cancelled: {
     title: 'Coordinación interrumpida',
     detail: 'Una parte retiró esta coordinación. Si el movimiento ya había comenzado, la persona aún puede registrar qué ocurrió.',
-    color: '#CBD5E1',
-    icon: 'close-circle-outline',
+    color: TINTA_50,
   },
   expired: {
     title: 'Ventana operativa vencida',
     detail: 'No se permiten nuevos compromisos de coordinación. Una recepción ya iniciada todavía puede reconciliarse sin reabrir el acceso.',
-    color: '#FDE68A',
-    icon: 'time-outline',
+    color: AMBAR_PT,
   },
   closed: {
     title: 'Acceso operativo cerrado',
     detail: 'El permiso dejó de habilitar acciones del círculo. Los hechos ya registrados no se borran ni se convierten en resolución.',
-    color: '#94A3B8',
-    icon: 'lock-closed-outline',
+    color: TINTA_50,
   },
 };
 
@@ -210,13 +205,11 @@ const actionDetail = (
 
 function SmallAction({
   label,
-  icon,
   color,
   disabled,
   onPress,
 }: {
   label: string;
-  icon: keyof typeof Ionicons.glyphMap;
   color: string;
   disabled: boolean;
   onPress: () => void;
@@ -228,11 +221,10 @@ function SmallAction({
       accessibilityState={{ disabled }}
       disabled={disabled}
       onPress={onPress}
-      className={`min-h-11 flex-row items-center justify-center gap-2 rounded-full border px-4 ${disabled ? 'opacity-40' : ''}`}
-      style={{ borderColor: `${color}55`, backgroundColor: `${color}16` }}
+      className={`min-h-11 flex-row items-center justify-center gap-2 border bg-papel-crudo px-4 ${disabled ? 'opacity-40' : ''}`}
+      style={{ borderColor: color }}
     >
-      <Ionicons name={icon} size={15} color={color} />
-      <Text className="font-sans-semibold text-[11px]" style={{ color }}>{label}</Text>
+      <Text className="font-archivo-bold text-[11px] text-tinta">{label}</Text>
     </Pressable97>
   );
 }
@@ -318,14 +310,14 @@ export function CustodyExecutionCard({
     {
       label: 'Reserva',
       done: execution.milestones.reservedAt != null,
-      color: '#93C5FD',
+      color: VIOLETA,
       icon: 'bookmark-outline' as const,
       detail: execution.milestones.reservedAt ? formatDate(execution.milestones.reservedAt) : 'Sin declaración',
     },
     {
       label: 'Enlace',
       done: execution.readiness.grantor && execution.readiness.coordinator,
-      color: '#67E8F9',
+      color: CIAN,
       icon: 'people-outline' as const,
       detail: execution.readiness.grantor && execution.readiness.coordinator
         ? 'Ambas partes listas'
@@ -334,7 +326,7 @@ export function CustodyExecutionCard({
     {
       label: 'Movimiento',
       done: execution.milestones.deliveryStartedAt != null,
-      color: execution.milestones.deliveryReportedAt ? '#FDBA74' : '#FCD34D',
+      color: execution.milestones.deliveryReportedAt ? AMBAR_PT : AMBAR_PT,
       icon: 'navigate-outline' as const,
       detail: execution.milestones.deliveryReportedAt
         ? `Declarado ${formatDate(execution.milestones.deliveryReportedAt)}`
@@ -346,8 +338,8 @@ export function CustodyExecutionCard({
       label: 'Recepción',
       done: execution.receipt != null,
       color: execution.receipt?.outcome === 'full'
-        ? '#6EE7B7'
-        : execution.receipt?.outcome === 'partial' ? '#FDE68A' : '#FDA4AF',
+        ? VERDE
+        : execution.receipt?.outcome === 'partial' ? AMBAR_PT : ROJO_SELLO,
       icon: execution.receipt?.outcome === 'full'
         ? 'checkmark-outline' as const
         : execution.receipt?.outcome === 'partial' ? 'remove-outline' as const : 'close-outline' as const,
@@ -360,7 +352,7 @@ export function CustodyExecutionCard({
     {
       label: 'Seguimiento',
       done: execution.followUp != null,
-      color: execution.followUp === 'need_met' ? '#6EE7B7' : '#FDE68A',
+      color: execution.followUp === 'need_met' ? VERDE : AMBAR_PT,
       icon: execution.followUp === 'need_met' ? 'checkmark-done-outline' as const : 'git-branch-outline' as const,
       detail: execution.followUp === 'need_met'
         ? 'Necesidad cubierta'
@@ -417,39 +409,29 @@ export function CustodyExecutionCard({
   };
 
   return (
-    <View className="mt-4 overflow-hidden rounded-3xl border border-violet-300/20 bg-[#0B1020]">
-      <View className="border-b border-white/[0.07] bg-violet-300/[0.06] p-5">
-        <View className="flex-row items-start gap-3">
-          <View
-            className="h-11 w-11 items-center justify-center rounded-2xl border"
-            style={{ borderColor: `${presentation.color}44`, backgroundColor: `${presentation.color}14` }}
-          >
-            <Ionicons name={presentation.icon} size={20} color={presentation.color} />
-          </View>
-          <View className="flex-1">
-            <Text className="font-sans text-[9px] uppercase tracking-[2.2px] text-violet-300">Ruta de apoyo · privada</Text>
-            <Text className="mt-1 font-serif text-xl leading-7 text-plata">{presentation.title}</Text>
-            <Text className="mt-2 font-sans text-[11px] leading-5 text-slate-400">{presentation.detail}</Text>
-          </View>
-        </View>
+    <View className="mt-4 overflow-hidden border border-violeta bg-papel-crudo">
+      <View className="border-b border-bordeSuave bg-papel-crudo p-5">
+        <Text className="font-space text-[9px] uppercase tracking-[2.2px] text-violeta">Ruta de apoyo · privada</Text>
+        <Text className="mt-1 font-archivo-bold text-xl leading-7" style={{ color: presentation.color }}>{presentation.title}</Text>
+        <Text className="mt-2 font-archivo text-[11px] leading-5 text-tinta-75">{presentation.detail}</Text>
         <View className="mt-4 flex-row flex-wrap items-center gap-2">
-          <View className="rounded-full border border-white/10 bg-black/20 px-3 py-1.5">
-            <Text className="font-mono text-[9px] text-slate-400">Capacidad · {formatQuantity(execution.capacity.quantity, execution.capacity.unit)}</Text>
+          <View className="border border-bordeSuave bg-papel-presionado px-3 py-1.5">
+            <Text className="font-space text-[9px] text-tinta-75">Capacidad · {formatQuantity(execution.capacity.quantity, execution.capacity.unit)}</Text>
           </View>
-          <View className="rounded-full border border-white/10 bg-black/20 px-3 py-1.5">
-            <Text className="font-mono text-[9px] text-slate-400">Vence · {formatDate(execution.expiresAt)}</Text>
+          <View className="border border-bordeSuave bg-papel-presionado px-3 py-1.5">
+            <Text className="font-space text-[9px] text-tinta-75">Vence · {formatDate(execution.expiresAt)}</Text>
           </View>
         </View>
         {(execution.delivery || execution.receipt) && (
           <View className="mt-2 flex-row flex-wrap items-center gap-2">
             {execution.delivery && (
-              <View className="rounded-full border border-amber-300/15 bg-amber-300/[0.05] px-3 py-1.5">
-                <Text className="font-mono text-[9px] text-amber-100/75">Entrega declarada · {formatQuantity(execution.delivery.quantity, execution.delivery.unit)}</Text>
+              <View className="border border-ambar bg-papel-crudo px-3 py-1.5">
+                <Text className="font-space text-[9px] text-ambar/75">Entrega declarada · {formatQuantity(execution.delivery.quantity, execution.delivery.unit)}</Text>
               </View>
             )}
             {execution.receipt && execution.receipt.outcome !== 'not_received' && (
-              <View className="rounded-full border border-emerald-300/15 bg-emerald-300/[0.05] px-3 py-1.5">
-                <Text className="font-mono text-[9px] text-emerald-100/75">Recepción declarada · {formatQuantity(execution.receipt.quantity, execution.receipt.unit)}</Text>
+              <View className="border border-verde bg-papel-crudo px-3 py-1.5">
+                <Text className="font-space text-[9px] text-verde/75">Recepción declarada · {formatQuantity(execution.receipt.quantity, execution.receipt.unit)}</Text>
               </View>
             )}
           </View>
@@ -462,41 +444,40 @@ export function CustodyExecutionCard({
             <View key={stage.label} className="flex-row">
               <View className="w-7 items-center">
                 <View
-                  className="h-5 w-5 items-center justify-center rounded-full border"
+                  className="h-5 w-5 items-center justify-center border"
                   style={{
-                    borderColor: stage.done ? `${stage.color}66` : '#FFFFFF1A',
-                    backgroundColor: stage.done ? `${stage.color}1A` : '#FFFFFF08',
+                    borderColor: stage.done ? stage.color : TINTA_30,
+                    backgroundColor: stage.done ? stage.color : 'transparent',
                   }}
                 >
-                  {stage.done
-                    ? <Ionicons name={stage.icon} size={12} color={stage.color} />
-                    : <Text className="font-mono text-[8px] text-slate-600">{index + 1}</Text>}
+                  {!stage.done && (
+                    <Text className="font-space text-[8px] text-tinta-50">{index + 1}</Text>
+                  )}
                 </View>
                 {index < stages.length - 1 && (
-                  <View className="min-h-7 w-px flex-1 bg-white/[0.08]" />
+                  <View className="min-h-7 w-px flex-1 bg-bordeSuave" />
                 )}
               </View>
               <View className="flex-1 pb-4 pl-2">
-                <Text className={`font-sans-semibold text-[11px] ${stage.done ? 'text-slate-200' : 'text-slate-500'}`}>{stage.label}</Text>
-                <Text className="mt-1 font-sans text-[10px] leading-4 text-slate-600">{stage.detail}</Text>
+                <Text className={`font-archivo-bold text-[11px] ${stage.done ? 'text-tinta-90' : 'text-tinta-50'}`}>{stage.label}</Text>
+                <Text className="mt-1 font-archivo text-[10px] leading-4 text-tinta-50">{stage.detail}</Text>
               </View>
             </View>
           ))}
         </View>
 
-        <View className="rounded-2xl border border-sky-300/15 bg-sky-300/[0.05] p-3">
+        <View className="border border-cian bg-papel-crudo p-3">
           <View className="flex-row items-start gap-2">
-            <Ionicons name="shield-outline" size={15} color="#7DD3FC" />
-            <Text className="flex-1 font-sans text-[10px] leading-5 text-sky-100/75">
+            <Text className="flex-1 font-archivo text-[10px] leading-5 text-cian/75">
               No contiene teléfono, domicilio, relato ni coordenada. “Listo” no comparte contacto; “entrega declarada” no equivale a recepción; sólo la persona puede registrar el resultado.
             </Text>
           </View>
         </View>
 
         {execution.milestones.withdrawnAt && (
-          <View className="mt-4 rounded-2xl border border-slate-300/15 bg-slate-300/[0.05] p-3">
-            <Text className="font-sans-semibold text-[11px] text-slate-200">Retiro conservado en la historia</Text>
-            <Text className="mt-1 font-sans text-[10px] leading-5 text-slate-400">
+          <View className="mt-4 border border-bordeSuave bg-papel-presionado p-3">
+            <Text className="font-archivo-bold text-[11px] text-tinta-90">Retiro conservado en la historia</Text>
+            <Text className="mt-1 font-archivo text-[10px] leading-5 text-tinta-75">
               {execution.reconciliation.withdrawnBy === 'coordinator'
                 ? 'La coordinación retiró su participación.'
                 : 'La persona retiró esta coordinación.'}{' '}
@@ -510,9 +491,9 @@ export function CustodyExecutionCard({
           && !execution.receipt
           && !execution.reconciliation.receiptWindowOpen
           && (
-            <View className="mt-4 rounded-2xl border border-amber-300/15 bg-amber-300/[0.05] p-3">
-              <Text className="font-sans-semibold text-[11px] text-amber-100">Recepción todavía no habilitada</Text>
-              <Text className="mt-1 font-sans text-[10px] leading-5 text-slate-400">
+            <View className="mt-4 border border-ambar bg-papel-crudo p-3">
+              <Text className="font-archivo-bold text-[11px] text-ambar">Recepción todavía no habilitada</Text>
+              <Text className="mt-1 font-archivo text-[10px] leading-5 text-tinta-75">
                 Podrás registrar qué ocurrió cuando coordinación declare la entrega o desde {formatDate(execution.reconciliation.receiptAvailableAt)}. {refreshAtDeadline
                   ? 'Al llegar ese momento, la app volverá a consultar el reloj de la red antes de habilitarte.'
                   : 'Cuando llegue ese momento, tocá “Comprobar ruta” para consultar el reloj de la red antes de habilitarte.'}
@@ -521,17 +502,17 @@ export function CustodyExecutionCard({
           )}
 
         {pendingEventType && (
-          <View accessibilityLiveRegion="polite" className="mt-4 rounded-2xl border border-amber-300/25 bg-amber-300/[0.07] p-4">
-            <Text className="font-sans-semibold text-xs text-amber-100">Constancia pendiente</Text>
-            <Text className="mt-2 font-sans text-[10px] leading-5 text-slate-400">
+          <View accessibilityLiveRegion="polite" className="mt-4 border border-ambar bg-papel-crudo p-4">
+            <Text className="font-archivo-bold text-xs text-ambar">Constancia pendiente</Text>
+            <Text className="mt-2 font-archivo text-[10px] leading-5 text-tinta-75">
               El comando de {EVENT_LABEL[pendingEventType]} está guardado en este dispositivo. No crearemos otro hasta recuperar su recibo exacto o su rechazo verificable.
             </Text>
             {onRetryPending && (
               <View className="mt-3 self-start">
                 <SmallAction
                   label="Recuperar constancia"
-                  icon="refresh-outline"
-                  color="#FDE68A"
+                 
+                  color={AMBAR_PT}
                   disabled={busy || disabled}
                   onPress={onRetryPending}
                 />
@@ -541,22 +522,22 @@ export function CustodyExecutionCard({
         )}
 
         {error && (
-          <View accessibilityLiveRegion="polite" className="mt-4 rounded-2xl border border-rose-300/20 bg-rose-300/[0.07] p-4">
-            <Text className="font-sans-semibold text-xs text-rose-100">Tu comando no fue reinterpretado</Text>
-            <Text className="mt-2 font-sans text-[10px] leading-5 text-slate-400">{error}</Text>
+          <View accessibilityLiveRegion="polite" className="mt-4 border border-sello bg-papel-crudo p-4">
+            <Text className="font-archivo-bold text-xs text-sello">Tu comando no fue reinterpretado</Text>
+            <Text className="mt-2 font-archivo text-[10px] leading-5 text-tinta-75">{error}</Text>
           </View>
         )}
 
         {!pendingEventType && draft && (
-          <View className="mt-4 rounded-2xl border border-violet-300/25 bg-violet-300/[0.07] p-4">
-            <Text className="font-sans-semibold text-xs text-violet-100">{actionTitle(draft)}</Text>
-            <Text className="mt-2 font-sans text-[10px] leading-5 text-slate-400">{actionDetail(draft, execution)}</Text>
+          <View className="mt-4 border border-violeta bg-papel-crudo p-4">
+            <Text className="font-archivo-bold text-xs text-violeta">{actionTitle(draft)}</Text>
+            <Text className="mt-2 font-archivo text-[10px] leading-5 text-tinta-75">{actionDetail(draft, execution)}</Text>
             <View className="mt-4 flex-row flex-wrap gap-2">
-              <SmallAction label="Volver" icon="arrow-back-outline" color="#CBD5E1" disabled={busy || disabled} onPress={() => setDraft(null)} />
+              <SmallAction label="Volver" color={TINTA_50} disabled={busy || disabled} onPress={() => setDraft(null)} />
               <SmallAction
                 label={busy ? 'Registrando…' : 'Confirmar con constancia'}
-                icon="shield-checkmark-outline"
-                color="#C4B5FD"
+               
+                color={VIOLETA}
                 disabled={busy || disabled || locallySubmitting}
                 onPress={() => {
                   void submitDraft();
@@ -569,43 +550,43 @@ export function CustodyExecutionCard({
         {!pendingEventType && !draft && (
           <View className="mt-4 gap-3">
             {coordinatorCanAct && !execution.milestones.reservedAt && (
-              <SmallAction label="Reservar capacidad acordada" icon="bookmark-outline" color="#93C5FD" disabled={controlsDisabled} onPress={() => setDraft({ type: 'reserve' })} />
+              <SmallAction label="Reservar capacidad acordada" color={VIOLETA} disabled={controlsDisabled} onPress={() => setDraft({ type: 'reserve' })} />
             )}
             {coordinatorCanAct && !execution.readiness.coordinator && (
-              <SmallAction label="Coordinación lista" icon="radio-button-on-outline" color="#67E8F9" disabled={controlsDisabled} onPress={() => setDraft({ type: 'coordinator_ready' })} />
+              <SmallAction label="Coordinación lista" color={CIAN} disabled={controlsDisabled} onPress={() => setDraft({ type: 'coordinator_ready' })} />
             )}
             {grantorCanPrepare && !execution.readiness.grantor && (
-              <SmallAction label="Estoy listo/a para coordinar" icon="radio-button-on-outline" color="#67E8F9" disabled={controlsDisabled} onPress={() => setDraft({ type: 'grantor_ready' })} />
+              <SmallAction label="Estoy listo/a para coordinar" color={CIAN} disabled={controlsDisabled} onPress={() => setDraft({ type: 'grantor_ready' })} />
             )}
             {coordinatorCanAct && execution.state === 'ready' && (
-              <SmallAction label="Iniciar movimiento" icon="navigate-outline" color="#FCD34D" disabled={controlsDisabled} onPress={() => setDraft({ type: 'start_delivery' })} />
+              <SmallAction label="Iniciar movimiento" color={AMBAR_PT} disabled={controlsDisabled} onPress={() => setDraft({ type: 'start_delivery' })} />
             )}
             {coordinatorCanAct && execution.state === 'in_transit' && (
-              <View className="rounded-2xl border border-amber-300/15 bg-amber-300/[0.05] p-4">
-                <Text className="font-sans-semibold text-[11px] text-amber-100">Declarar entrega</Text>
+              <View className="border border-ambar bg-papel-crudo p-4">
+                <Text className="font-archivo-bold text-[11px] text-ambar">Declarar entrega</Text>
                 {capacityQuantity != null && (
                   <>
-                    <Text className="mt-2 font-sans text-[10px] leading-5 text-slate-500">
+                    <Text className="mt-2 font-archivo text-[10px] leading-5 text-tinta-50">
                       Cantidad trasladada, máximo {formatQuantity(capacityQuantity, execution.capacity.unit)}.
                     </Text>
                     <TextInput
                       value={quantityInput}
                       onChangeText={(value) => setQuantityInput(value.replace(/[^\d.,]/g, ''))}
                       placeholder={String(capacityQuantity)}
-                      placeholderTextColor="#64748b"
+                      placeholderTextColor={TINTA_50}
                       keyboardType="decimal-pad"
                       accessibilityLabel={`Cantidad entregada en ${execution.capacity.unit ? UNIT_LABEL[execution.capacity.unit] ?? execution.capacity.unit : 'unidades'}`}
                       accessibilityHint={`Debe ser mayor que cero y no superar ${capacityQuantity}`}
                       maxLength={20}
-                      className="mt-3 rounded-2xl border border-white/10 bg-black/25 px-4 py-3 font-sans text-sm text-plata"
+                      className="mt-3 border border-bordeSuave bg-papel-presionado px-4 py-3 font-archivo text-sm text-tinta"
                     />
                   </>
                 )}
                 <View className="mt-3 self-start">
                   <SmallAction
                     label="Revisar declaración"
-                    icon="cube-outline"
-                    color="#FDBA74"
+                   
+                    color={AMBAR_PT}
                     disabled={controlsDisabled || (capacityQuantity != null && parseQuantity(quantityInput, capacityQuantity) == null)}
                     onPress={() => prepareQuantityAction('report_delivery')}
                   />
@@ -613,21 +594,21 @@ export function CustodyExecutionCard({
               </View>
             )}
             {grantorCanRecordReceipt && (
-              <View className="rounded-2xl border border-emerald-300/15 bg-emerald-300/[0.05] p-4">
-                <Text className="font-sans-semibold text-[11px] text-emerald-100">¿Qué llegó realmente?</Text>
-                <Text className="mt-2 font-sans text-[10px] leading-5 text-slate-500">Tu constancia es independiente de lo declarado por coordinación.</Text>
+              <View className="border border-verde bg-papel-crudo p-4">
+                <Text className="font-archivo-bold text-[11px] text-verde">¿Qué llegó realmente?</Text>
+                <Text className="mt-2 font-archivo text-[10px] leading-5 text-tinta-50">Tu constancia es independiente de lo declarado por coordinación.</Text>
                 <View className="mt-3 flex-row flex-wrap gap-2">
-                  <SmallAction label="Recibí todo" icon="checkmark-outline" color="#6EE7B7" disabled={controlsDisabled} onPress={() => setDraft({ type: 'confirm_receipt', receipt: 'full' })} />
-                  <SmallAction label="No llegó" icon="close-outline" color="#FDA4AF" disabled={controlsDisabled} onPress={() => setDraft({ type: 'confirm_receipt', receipt: 'not_received' })} />
+                  <SmallAction label="Recibí todo" color={VERDE} disabled={controlsDisabled} onPress={() => setDraft({ type: 'confirm_receipt', receipt: 'full' })} />
+                  <SmallAction label="No llegó" color={ROJO_SELLO} disabled={controlsDisabled} onPress={() => setDraft({ type: 'confirm_receipt', receipt: 'not_received' })} />
                 </View>
-                <View className="mt-3 border-t border-white/[0.07] pt-3">
-                  <Text className="font-sans text-[10px] text-slate-400">Recibí una parte</Text>
+                <View className="mt-3 border-t border-bordeSuave pt-3">
+                  <Text className="font-archivo text-[10px] text-tinta-75">Recibí una parte</Text>
                   {receiptMaximum != null && (
                     <TextInput
                       value={quantityInput}
                       onChangeText={(value) => setQuantityInput(value.replace(/[^\d.,]/g, ''))}
                       placeholder={`Menos de ${receiptMaximum}`}
-                      placeholderTextColor="#64748b"
+                      placeholderTextColor={TINTA_50}
                       keyboardType="decimal-pad"
                       accessibilityLabel={`Cantidad recibida parcialmente en ${
                         (execution.delivery?.unit ?? execution.capacity.unit)
@@ -638,14 +619,14 @@ export function CustodyExecutionCard({
                       }`}
                       accessibilityHint={`Debe ser mayor que cero y menor que ${receiptMaximum}`}
                       maxLength={20}
-                      className="mt-2 rounded-2xl border border-white/10 bg-black/25 px-4 py-3 font-sans text-sm text-plata"
+                      className="mt-2 border border-bordeSuave bg-papel-presionado px-4 py-3 font-archivo text-sm text-tinta"
                     />
                   )}
                   <View className="mt-3 self-start">
                     <SmallAction
                       label="Revisar recepción parcial"
-                      icon="remove-outline"
-                      color="#FDE68A"
+                     
+                      color={AMBAR_PT}
                       disabled={controlsDisabled || (receiptMaximum != null && parseQuantity(quantityInput, receiptMaximum, true) == null)}
                       onPress={() => prepareQuantityAction('receipt_partial')}
                     />
@@ -654,18 +635,18 @@ export function CustodyExecutionCard({
               </View>
             )}
             {grantorCanFollowUp && (
-              <View className="rounded-2xl border border-violet-300/15 bg-violet-300/[0.05] p-4">
-                <Text className="font-sans-semibold text-[11px] text-violet-100">Seguimiento separado</Text>
-                <Text className="mt-2 font-sans text-[10px] leading-5 text-slate-500">Recibir algo no significa automáticamente que la necesidad terminó.</Text>
+              <View className="border border-violeta bg-papel-crudo p-4">
+                <Text className="font-archivo-bold text-[11px] text-violeta">Seguimiento separado</Text>
+                <Text className="mt-2 font-archivo text-[10px] leading-5 text-tinta-50">Recibir algo no significa automáticamente que la necesidad terminó.</Text>
                 <View className="mt-3 flex-row flex-wrap gap-2">
-                  <SmallAction label="Quedó cubierta" icon="checkmark-done-outline" color="#6EE7B7" disabled={controlsDisabled} onPress={() => setDraft({ type: 'record_follow_up', followUp: 'need_met' })} />
-                  <SmallAction label="Sigue abierta" icon="git-branch-outline" color="#FDE68A" disabled={controlsDisabled} onPress={() => setDraft({ type: 'record_follow_up', followUp: 'still_open' })} />
+                  <SmallAction label="Quedó cubierta" color={VERDE} disabled={controlsDisabled} onPress={() => setDraft({ type: 'record_follow_up', followUp: 'need_met' })} />
+                  <SmallAction label="Sigue abierta" color={AMBAR_PT} disabled={controlsDisabled} onPress={() => setDraft({ type: 'record_follow_up', followUp: 'still_open' })} />
                 </View>
               </View>
             )}
             {canWithdraw && (
               <View className="self-start">
-                <SmallAction label="No puedo continuar" icon="exit-outline" color="#FDA4AF" disabled={controlsDisabled} onPress={() => setDraft({ type: 'withdraw' })} />
+                <SmallAction label="No puedo continuar" color={ROJO_SELLO} disabled={controlsDisabled} onPress={() => setDraft({ type: 'withdraw' })} />
               </View>
             )}
           </View>
@@ -674,8 +655,8 @@ export function CustodyExecutionCard({
         <View className="mt-4 self-start">
           <SmallAction
             label={busy ? 'Comprobando…' : 'Comprobar ruta'}
-            icon="refresh-outline"
-            color="#94A3B8"
+           
+            color={TINTA_50}
             disabled={busy || disabled}
             onPress={onRefresh}
           />

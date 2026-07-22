@@ -44,7 +44,7 @@ import { useWindowDimensions } from 'react-native';
 import { useDerivedValue, useSharedValue } from 'react-native-reanimated';
 
 import type { TipoEstrella } from '@/game/types';
-import { PLATA } from '@/theme/tokens';
+import { OSCURO_TEXTO } from '@/theme/tokens';
 import {
   ANGULO_VIA,
   NEBULOSAS,
@@ -341,7 +341,7 @@ export function CieloCanvas({
     if (!rachaViva) return 0.08;
     return 0.3 + 0.08 * Math.sin((clock.value / 1000) * 1.6);
   });
-  const colorGuia = rachaViva ? PLATA : '#64748b';
+  const colorGuia = rachaViva ? OSCURO_TEXTO : '#64748b';
   const colorNucleoGuia = rachaViva ? '#ffffff' : '#94a3b8';
 
   // ---------------------------------------------------------------------------
@@ -476,7 +476,7 @@ export function CieloCanvas({
           cx={g.x}
           cy={g.y}
           r={g.radio}
-          color={PLATA}
+          color={OSCURO_TEXTO}
           opacity={Math.min(0.14, 0.05 + g.cantidad * 0.0008)}
         >
           <BlurMask blur={16} style="normal" />

@@ -1,4 +1,3 @@
-import { Ionicons } from '@expo/vector-icons';
 import { useFocusEffect, useRouter } from 'expo-router';
 import { useCallback, useState } from 'react';
 import { Text, TextInput, View } from 'react-native';
@@ -48,13 +47,22 @@ import type {
 } from '@/civic/types';
 import type { CivicNeedAccessGrantRow, CivicNeedRow } from '@/db/schema';
 import { haptic } from '@/theme/haptics';
+import {
+  AMBAR_PT,
+  CIAN,
+  PAPEL_CRUDO,
+  ROJO_SELLO,
+  TINTA,
+  TINTA_50,
+  VERDE,
+  VIOLETA,
+} from '@/theme/tokens';
 
 import {
   CustodyExecutionCard,
   type CustodyExecutionActionDraft,
 } from './CustodyExecutionCard';
-import { AccentButton } from '../ui/AccentButton';
-import { GlassCard } from '../ui/GlassCard';
+import { BotonTinta, Kicker, PapelCard } from '../papel';
 import { Pressable97 } from '../ui/Pressable97';
 
 const STATUS_LABEL = {
@@ -66,32 +74,32 @@ const STATUS_LABEL = {
 const DELIVERY_STATUS = {
   local: {
     label: 'sólo local',
-    color: '#BAE6FD',
+    color: CIAN,
     detail: 'El acta existe sólo en este dispositivo. Todavía no fue entregada al destinatario.',
   },
   delivering: {
     label: 'entregando',
-    color: '#FDE68A',
+    color: AMBAR_PT,
     detail: 'La entrega está en curso. No cierres la app hasta recibir confirmación.',
   },
   delivered: {
     label: 'entregado',
-    color: '#6EE7B7',
+    color: VERDE,
     detail: 'La red confirmó la recepción de la proyección mínima por el círculo autorizado.',
   },
   failed: {
     label: 'no confirmado',
-    color: '#FDA4AF',
+    color: ROJO_SELLO,
     detail: 'La red no confirmó la entrega. Podés reintentar sin crear un permiso nuevo.',
   },
   revocation_pending: {
     label: 'revocación pendiente',
-    color: '#FDE68A',
+    color: AMBAR_PT,
     detail: 'Todavía no hay confirmación remota de la revocación. El permiso no se presenta como revocado.',
   },
   revoked_remote: {
     label: 'revocado en red',
-    color: '#FDA4AF',
+    color: ROJO_SELLO,
     detail: 'La red confirmó la revocación y el acta local conserva la trazabilidad.',
   },
 } as const;
@@ -114,37 +122,31 @@ const COORDINATION_PRESENTATION: Record<NeedCoordinationState, {
   title: string;
   detail: string;
   color: string;
-  icon: keyof typeof Ionicons.glyphMap;
 }> = {
   proposed: {
     title: 'Te propusieron coordinar',
     detail: 'Otra cuenta coordinadora del círculo expresó su disposición. Tu decisión se registra por separado. Aceptar abre un acuerdo para intentar coordinar; no reserva recursos ni prueba contacto, entrega o resolución.',
-    color: '#C4B5FD',
-    icon: 'paper-plane-outline',
+    color: VIOLETA,
   },
   accepted: {
     title: 'Acuerdo para coordinar',
     detail: 'Ambas partes aceptaron intentar una coordinación privada. Esto no reserva recursos ni prueba contacto, entrega o resolución.',
-    color: '#6EE7B7',
-    icon: 'checkmark-circle-outline',
+    color: VERDE,
   },
   declined: {
     title: 'No hubo acuerdo de coordinación',
     detail: 'La propuesta no fue aceptada. Esta constancia no juzga a ninguna persona ni la legitimidad o urgencia de la necesidad.',
-    color: '#FDA4AF',
-    icon: 'remove-circle-outline',
+    color: ROJO_SELLO,
   },
   expired: {
     title: 'La propuesta venció',
     detail: 'Terminó su plazo. No inferimos rechazo, falta de necesidad, contacto, entrega ni resolución.',
-    color: '#FDE68A',
-    icon: 'time-outline',
+    color: AMBAR_PT,
   },
   closed: {
     title: 'La coordinación quedó cerrada',
     detail: 'El permiso dejó de estar operativo. El cierre no demuestra contacto, entrega ni resolución de la necesidad.',
-    color: '#94A3B8',
-    icon: 'lock-closed-outline',
+    color: TINTA_50,
   },
 };
 
@@ -246,17 +248,14 @@ function Choice({
       accessibilityState={{ selected, disabled }}
       disabled={disabled}
       onPress={onPress}
-      className={`min-h-12 rounded-2xl border px-4 py-3 ${disabled ? 'opacity-35' : ''}`}
+      className={`min-h-12 bg-papel-crudo px-4 py-3 ${disabled ? 'opacity-35' : ''}`}
       style={{
-        borderColor: selected ? '#7DD3FC55' : '#FFFFFF18',
-        backgroundColor: selected ? '#7DD3FC12' : '#FFFFFF07',
+        borderWidth: selected ? 2 : 1,
+        borderColor: selected ? CIAN : TINTA,
       }}
     >
-      <View className="flex-row items-center">
-        <Text className="flex-1 font-sans-semibold text-xs" style={{ color: selected ? '#E0F2FE' : '#CBD5E1' }}>{label}</Text>
-        {selected && <Ionicons name="checkmark-circle" size={17} color="#7DD3FC" />}
-      </View>
-      {detail && <Text className="mt-1 font-sans text-[10px] leading-4 text-slate-500">{detail}</Text>}
+      <Text className="font-archivo-bold text-xs text-tinta">{label}</Text>
+      {detail && <Text className="mt-1 font-archivo text-[10px] leading-4 text-tinta-50">{detail}</Text>}
     </Pressable97>
   );
 }
@@ -867,18 +866,11 @@ export function NeedAccessGrantPanel({ need }: { need: CivicNeedRow }) {
   };
 
   return (
-    <GlassCard className="mt-5 overflow-hidden p-0">
-      <View className="border-b border-white/[0.07] bg-sky-300/[0.04] p-5">
-        <View className="flex-row items-start gap-3">
-          <View className="h-11 w-11 items-center justify-center rounded-2xl border border-sky-300/20 bg-sky-300/10">
-            <Ionicons name="key-outline" size={20} color="#7DD3FC" />
-          </View>
-          <View className="flex-1">
-            <Text className="font-sans text-[10px] uppercase tracking-[2px] text-sky-300">Permiso destinatario</Text>
-            <Text className="mt-1 font-serif text-xl leading-7 text-plata">Autorizar sin publicar</Text>
-          </View>
-        </View>
-        <Text className="mt-4 font-sans text-xs leading-5 text-slate-400">
+    <PapelCard className="mt-5 overflow-hidden p-0">
+      <View className="border-b border-tinta bg-papel-crudo p-5">
+        <Kicker style={{ color: CIAN }}>Permiso destinatario</Kicker>
+        <Text className="mt-1 font-archivo-bold text-xl leading-7 text-tinta">Autorizar sin publicar</Text>
+        <Text className="mt-4 font-archivo text-xs leading-5 text-tinta-75">
           Este permiso prepara una proyección mínima para un solo círculo u organización. Al registrarlo, la app lo guarda localmente y no lo sincroniza de forma automática: no entra al feed, no envía el relato y todavía no entrega datos. Una entrega posterior exige una acción explícita. El almacenamiento local aún no tiene cifrado propio de la app.
         </Text>
       </View>
@@ -886,21 +878,17 @@ export function NeedAccessGrantPanel({ need }: { need: CivicNeedRow }) {
       {notice && (
         <View
           accessibilityLiveRegion="polite"
-          className="mx-5 mt-5 flex-row items-start gap-3 rounded-2xl border p-4"
-          style={{
-            borderColor: notice.error ? '#FB718533' : '#6EE7B733',
-            backgroundColor: notice.error ? '#FB71850C' : '#6EE7B70C',
-          }}
+          className="mx-5 mt-5 flex-row items-start gap-3 border bg-papel-crudo p-4"
+          style={{ borderColor: notice.error ? ROJO_SELLO : VERDE }}
         >
-          <Ionicons name={notice.error ? 'alert-circle-outline' : 'checkmark-circle-outline'} size={17} color={notice.error ? '#FDA4AF' : '#6EE7B7'} />
-          <Text className="flex-1 font-sans text-[11px] leading-5 text-slate-300">{notice.message}</Text>
+          <Text className="flex-1 font-archivo text-[11px] leading-5 text-tinta-90">{notice.message}</Text>
         </View>
       )}
 
       {executionIntentIncidents.length > 0 && (
-        <View accessibilityLiveRegion="assertive" className="mx-5 mt-5 rounded-2xl border border-rose-300/20 bg-rose-300/[0.07] p-4">
-          <Text className="font-sans-semibold text-xs text-rose-100">Constancia local en cuarentena</Text>
-          <Text className="mt-2 font-sans text-[10px] leading-5 text-slate-400">
+        <View accessibilityLiveRegion="assertive" className="mx-5 mt-5 border border-sello bg-papel-crudo p-4">
+          <Text className="font-archivo-bold text-xs text-sello">Constancia local en cuarentena</Text>
+          <Text className="mt-2 font-archivo text-[10px] leading-5 text-tinta-75">
             Una operación pendiente no puede asociarse de forma segura con una ruta. La app la conserva sin enviarla y no intenta reconstruirla. Conservá este dispositivo y evitá borrar sus datos hasta una recuperación asistida.
           </Text>
         </View>
@@ -908,69 +896,62 @@ export function NeedAccessGrantPanel({ need }: { need: CivicNeedRow }) {
 
       {active ? (
         <View className="p-5">
-          <View className="rounded-2xl border border-emerald-300/20 bg-emerald-300/[0.06] p-4">
+          <View className="border border-verde bg-papel-crudo p-4">
             <View className="flex-row items-center justify-between gap-3">
               <View className="flex-row items-center gap-2">
-                <Ionicons name="shield-checkmark-outline" size={18} color="#6EE7B7" />
-                <Text className="font-sans-semibold text-xs text-emerald-100">Permiso vigente</Text>
+                <Text className="font-archivo-bold text-xs text-verde">Permiso vigente</Text>
               </View>
               <Text
-                className="font-mono text-[9px] uppercase tracking-[1.3px]"
-                style={{ color: activeDelivery?.color ?? '#BAE6FD' }}
+                className="font-space text-[9px] uppercase tracking-[1.3px]"
+                style={{ color: activeDelivery?.color ?? CIAN }}
               >
                 {activeDelivery?.label ?? 'estado local'}
               </Text>
             </View>
-            <Text className="mt-4 font-serif text-xl text-plata">{active.recipientLabel}</Text>
-            <Text className="mt-1 font-mono text-[10px] text-slate-500">{recipientKindLabel(active.recipientKind)} · {active.recipientKey}</Text>
+            <Text className="mt-4 font-archivo-bold text-xl text-tinta">{active.recipientLabel}</Text>
+            <Text className="mt-1 font-space text-[10px] text-tinta-50">{recipientKindLabel(active.recipientKind)} · {active.recipientKey}</Text>
             <View className="mt-4 gap-2">
-              <Text className="font-sans text-[11px] leading-5 text-slate-300">Propósito: {purposeLabel(active.purpose)}</Text>
-              <Text className="font-sans text-[11px] leading-5 text-slate-300">Alcance: {scopeLabel(active.scope)}</Text>
-              <Text className="font-sans text-[11px] leading-5 text-slate-300">Vence: {displayDate(active.expiresAt)}</Text>
+              <Text className="font-archivo text-[11px] leading-5 text-tinta-90">Propósito: {purposeLabel(active.purpose)}</Text>
+              <Text className="font-archivo text-[11px] leading-5 text-tinta-90">Alcance: {scopeLabel(active.scope)}</Text>
+              <Text className="font-archivo text-[11px] leading-5 text-tinta-90">Vence: {displayDate(active.expiresAt)}</Text>
             </View>
-            <View className="mt-4 border-t border-white/[0.08] pt-3">
-              <Text className="font-sans text-[10px] leading-5 text-slate-400">{activeDelivery?.detail}</Text>
+            <View className="mt-4 border-t border-bordeSuave pt-3">
+              <Text className="font-archivo text-[10px] leading-5 text-tinta-75">{activeDelivery?.detail}</Text>
               {active.deliveryStatus === 'delivered' && active.deliveredAt && (
-                <Text className="mt-1 font-sans text-[10px] leading-5 text-emerald-200">
+                <Text className="mt-1 font-archivo text-[10px] leading-5 text-verde">
                   Confirmado {displayDate(active.deliveredAt)} · círculo #{active.remoteRecipientCircleId ?? activeCircleId}
                 </Text>
               )}
               {active.deliveryStatus === 'revocation_pending' && active.deliveryLastAttemptAt && (
-                <Text className="mt-1 font-sans text-[10px] leading-5 text-amber-200">
+                <Text className="mt-1 font-archivo text-[10px] leading-5 text-ambar">
                   Último intento {displayDate(active.deliveryLastAttemptAt)}
                 </Text>
               )}
             </View>
           </View>
 
-          <View className="mt-4 rounded-2xl border border-white/[0.07] bg-black/15 p-4">
-            <Text className="font-sans-semibold text-xs text-slate-200">Lista permitida</Text>
-            <Text className="mt-2 font-sans text-[11px] leading-5 text-slate-500">
+          <View className="mt-4 border border-bordeSuave bg-papel-presionado p-4">
+            <Text className="font-archivo-bold text-xs text-tinta-90">Lista permitida</Text>
+            <Text className="mt-2 font-archivo text-[11px] leading-5 text-tinta-50">
               Categoría, urgencia, vigencia{need.quantity != null ? ' y cantidad' : ''}{active.scope === 'essentials_and_safe_area' ? '; además, zona aproximada sin nombre' : ''}. Una unidad no reconocida se omite. Nunca: relato, custodio, contacto, firma, etiqueta del lugar o punto exacto.
             </Text>
           </View>
 
           {activeBoundToCommunityAccount && active.remoteResponseDisposition && (
             <View
-              className="mt-4 rounded-2xl border p-4"
+              className="mt-4 border bg-papel-crudo p-4"
               style={{
-                borderColor: active.remoteResponseDisposition === 'support_available' ? '#6EE7B733' : '#FDE68A33',
-                backgroundColor: active.remoteResponseDisposition === 'support_available' ? '#6EE7B70C' : '#FDE68A0C',
+                borderColor: active.remoteResponseDisposition === 'support_available' ? VERDE : AMBAR_PT,
               }}
             >
               <View className="flex-row items-start gap-3">
-                <Ionicons
-                  name={active.remoteResponseDisposition === 'support_available' ? 'hand-left-outline' : 'hourglass-outline'}
-                  size={18}
-                  color={active.remoteResponseDisposition === 'support_available' ? '#6EE7B7' : '#FDE68A'}
-                />
                 <View className="flex-1">
-                  <Text className="font-sans-semibold text-xs text-slate-100">
+                  <Text className="font-archivo-bold text-xs text-tinta-90">
                     {active.remoteResponseDisposition === 'support_available'
                       ? 'El círculo declaró capacidad'
                       : 'El círculo está evaluando'}
                   </Text>
-                  <Text className="mt-2 font-sans text-[11px] leading-5 text-slate-400">
+                  <Text className="mt-2 font-archivo text-[11px] leading-5 text-tinta-75">
                     {active.remoteResponseDisposition === 'support_available'
                       ? active.remoteResponseQuantity != null
                         ? `${new Intl.NumberFormat('es-AR', { maximumFractionDigits: 2 }).format(active.remoteResponseQuantity)} ${RESPONSE_UNIT_LABEL[active.remoteResponseUnit ?? ''] ?? 'unidades controladas'} disponibles para coordinar. Esto aún no prueba entrega ni resolución.`
@@ -978,7 +959,7 @@ export function NeedAccessGrantPanel({ need }: { need: CivicNeedRow }) {
                       : 'Aceptar la evaluación no promete capacidad, contacto ni respuesta positiva.'}
                   </Text>
                   {active.remoteResponseAt && (
-                    <Text className="mt-1 font-mono text-[9px] text-slate-600">Respuesta {displayDate(active.remoteResponseAt)}</Text>
+                    <Text className="mt-1 font-space text-[9px] text-tinta-50">Respuesta {displayDate(active.remoteResponseAt)}</Text>
                   )}
                 </View>
               </View>
@@ -988,37 +969,29 @@ export function NeedAccessGrantPanel({ need }: { need: CivicNeedRow }) {
           {hasCoordinationSnapshot && active.remoteCoordinationState && coordinationPresentation && (
             <View
               accessibilityLiveRegion="polite"
-              className="mt-4 rounded-2xl border p-4"
-              style={{
-                borderColor: `${coordinationPresentation.color}33`,
-                backgroundColor: `${coordinationPresentation.color}0C`,
-              }}
+              className="mt-4 border bg-papel-crudo p-4"
+              style={{ borderColor: coordinationPresentation.color }}
             >
               <View className="flex-row items-start gap-3">
-                <Ionicons
-                  name={coordinationPresentation.icon}
-                  size={18}
-                  color={coordinationPresentation.color}
-                />
                 <View className="flex-1">
-                  <Text className="font-sans-semibold text-xs text-slate-100">{coordinationPresentation.title}</Text>
-                  <Text className="mt-2 font-sans text-[11px] leading-5 text-slate-400">{coordinationPresentation.detail}</Text>
-                  <Text className="mt-3 font-sans text-[10px] leading-5 text-slate-500">
+                  <Text className="font-archivo-bold text-xs text-tinta-90">{coordinationPresentation.title}</Text>
+                  <Text className="mt-2 font-archivo text-[11px] leading-5 text-tinta-75">{coordinationPresentation.detail}</Text>
+                  <Text className="mt-3 font-archivo text-[10px] leading-5 text-tinta-50">
                     Capacidad incluida: {coordinationCapacity}.
                   </Text>
-                  <Text className="mt-1 font-mono text-[9px] text-slate-600">
+                  <Text className="mt-1 font-space text-[9px] text-tinta-50">
                     Vence {displayDate(active.remoteCoordinationExpiresAt!)}
                   </Text>
                   {active.remoteCoordinationTerminalDecision && active.remoteCoordinationDecidedAt && (
-                    <View className="mt-3 rounded-xl border border-white/[0.08] bg-black/15 p-3">
-                      <Text className="font-sans-semibold text-[10px] text-slate-200">Decisión terminal conservada</Text>
-                      <Text className="mt-1 font-sans text-[10px] leading-5 text-slate-400">
+                    <View className="mt-3 border border-bordeSuave bg-papel-presionado p-3">
+                      <Text className="font-archivo-bold text-[10px] text-tinta-90">Decisión terminal conservada</Text>
+                      <Text className="mt-1 font-archivo text-[10px] leading-5 text-tinta-75">
                         {COORDINATION_DECISION_LABEL[active.remoteCoordinationTerminalDecision]}.
                         {active.remoteCoordinationState === 'closed' || active.remoteCoordinationState === 'expired'
                           ? ' El cierre o vencimiento posterior prevalece sólo sobre el estado operativo; no borra la decisión histórica.'
                           : ''}
                       </Text>
-                      <Text className="mt-1 font-mono text-[9px] text-slate-600">
+                      <Text className="mt-1 font-space text-[9px] text-tinta-50">
                         Registrada {displayDate(active.remoteCoordinationDecidedAt)}
                       </Text>
                     </View>
@@ -1027,8 +1000,8 @@ export function NeedAccessGrantPanel({ need }: { need: CivicNeedRow }) {
               </View>
 
               {active.remoteCoordinationState === 'proposed' && !coordinationStillInTime && (
-                <View className="mt-4 rounded-2xl border border-amber-300/20 bg-amber-300/[0.07] p-3">
-                  <Text className="font-sans text-[10px] leading-5 text-amber-100">
+                <View className="mt-4 border border-ambar bg-papel-crudo p-3">
+                  <Text className="font-archivo text-[10px] leading-5 text-ambar">
                     El reloj local alcanzó el vencimiento. Comprobá la red antes de decidir; no cambiamos el estado sin constancia.
                   </Text>
                 </View>
@@ -1039,8 +1012,8 @@ export function NeedAccessGrantPanel({ need }: { need: CivicNeedRow }) {
                 && !coordinationActionable
                 && hasCommunitySession !== null
                 && (
-                  <View className="mt-4 rounded-2xl border border-sky-300/20 bg-sky-300/[0.06] p-3">
-                    <Text className="font-sans text-[10px] leading-5 text-sky-100">
+                  <View className="mt-4 border border-cian bg-papel-crudo p-3">
+                    <Text className="font-archivo text-[10px] leading-5 text-cian">
                       {hasCommunitySession === false || !CIVIC_API_URL
                         ? 'Para decidir, volvé a vincular la misma cuenta y este dispositivo. La propuesta sigue visible, pero no intentamos una acción sin esa autoridad.'
                         : 'Primero comprobá que el permiso remoto sigue entregado y operativo. La propuesta permanece visible sin habilitar una decisión insegura.'}
@@ -1050,13 +1023,13 @@ export function NeedAccessGrantPanel({ need }: { need: CivicNeedRow }) {
 
               {coordinationActionable && (
                 coordinationDecision ? (
-                  <View className="mt-4 rounded-2xl border border-white/10 bg-black/20 p-4">
-                    <Text className="font-sans-semibold text-xs text-slate-100">
+                  <View className="mt-4 border border-bordeSuave bg-papel-presionado p-4">
+                    <Text className="font-archivo-bold text-xs text-tinta-90">
                       {coordinationDecision === 'accept'
                         ? '¿Aceptar intentar esta coordinación?'
                         : '¿Confirmar que no querés abrir esta coordinación?'}
                     </Text>
-                    <Text className="mt-2 font-sans text-[10px] leading-5 text-slate-400">
+                    <Text className="mt-2 font-archivo text-[10px] leading-5 text-tinta-75">
                       {coordinationDecision === 'accept'
                         ? 'Tu acuerdo no reserva recursos, comparte contacto ni confirma entrega o resolución.'
                         : 'No se enviará un motivo. Esta decisión no cuestiona tu necesidad y no se presentará como rechazo a tu persona.'}
@@ -1067,9 +1040,9 @@ export function NeedAccessGrantPanel({ need }: { need: CivicNeedRow }) {
                         accessibilityLabel="Volver sin decidir la propuesta"
                         disabled={busy}
                         onPress={() => setCoordinationDecision(null)}
-                        className="min-h-11 items-center justify-center rounded-full border border-white/10 bg-white/5 px-4"
+                        className="min-h-11 items-center justify-center border border-bordeSuave bg-papel-crudo px-4"
                       >
-                        <Text className="font-sans-semibold text-xs text-slate-300">Volver</Text>
+                        <Text className="font-archivo-bold text-xs text-tinta-90">Volver</Text>
                       </Pressable97>
                       <Pressable97
                         accessibilityRole="button"
@@ -1079,16 +1052,12 @@ export function NeedAccessGrantPanel({ need }: { need: CivicNeedRow }) {
                         accessibilityState={{ busy: busyAction === 'coordination_decide', disabled: busy }}
                         disabled={busy}
                         onPress={() => { void decideCoordination(coordinationDecision); }}
-                        className="min-h-11 items-center justify-center rounded-full border px-4"
+                        className="min-h-11 items-center justify-center px-4"
                         style={{
-                          borderColor: coordinationDecision === 'accept' ? '#6EE7B755' : '#FDA4AF55',
-                          backgroundColor: coordinationDecision === 'accept' ? '#6EE7B719' : '#FDA4AF19',
+                          backgroundColor: coordinationDecision === 'accept' ? VERDE : ROJO_SELLO,
                         }}
                       >
-                        <Text
-                          className="font-sans-semibold text-xs"
-                          style={{ color: coordinationDecision === 'accept' ? '#D1FAE5' : '#FFE4E6' }}
-                        >
+                        <Text className="font-archivo-bold text-xs text-papel">
                           {busyAction === 'coordination_decide'
                             ? 'Confirmando…'
                             : coordinationDecision === 'accept' ? 'Confirmar acuerdo' : 'Confirmar sin acuerdo'}
@@ -1104,9 +1073,9 @@ export function NeedAccessGrantPanel({ need }: { need: CivicNeedRow }) {
                       accessibilityHint="Abre una segunda confirmación; no registra entrega ni resolución"
                       disabled={busy}
                       onPress={() => setCoordinationDecision('accept')}
-                      className="min-h-11 items-center justify-center rounded-full border border-emerald-300/25 bg-emerald-300/10 px-4"
+                      className="min-h-11 items-center justify-center border border-verde bg-papel-crudo px-4"
                     >
-                      <Text className="font-sans-semibold text-xs text-emerald-100">Aceptar coordinar</Text>
+                      <Text className="font-archivo-bold text-xs text-verde">Aceptar coordinar</Text>
                     </Pressable97>
                     <Pressable97
                       accessibilityRole="button"
@@ -1114,9 +1083,9 @@ export function NeedAccessGrantPanel({ need }: { need: CivicNeedRow }) {
                       accessibilityHint="Abre una segunda confirmación y no solicita un motivo"
                       disabled={busy}
                       onPress={() => setCoordinationDecision('decline')}
-                      className="min-h-11 items-center justify-center rounded-full border border-rose-300/20 bg-rose-300/[0.07] px-4"
+                      className="min-h-11 items-center justify-center border border-sello bg-papel-crudo px-4"
                     >
-                      <Text className="font-sans-semibold text-xs text-rose-100">No abrir coordinación</Text>
+                      <Text className="font-archivo-bold text-xs text-sello">No abrir coordinación</Text>
                     </Pressable97>
                   </View>
                 )
@@ -1166,9 +1135,9 @@ export function NeedAccessGrantPanel({ need }: { need: CivicNeedRow }) {
             && active.remoteCoordinationProposalId
             && activeBoundToCommunityAccount
             && (
-              <View className="mt-4 rounded-2xl border border-violet-300/20 bg-violet-300/[0.06] p-4">
-                <Text className="font-sans-semibold text-xs text-violet-100">Abrir la Ruta de apoyo</Text>
-                <Text className="mt-2 font-sans text-[10px] leading-5 text-slate-400">
+              <View className="mt-4 border border-violeta bg-papel-crudo p-4">
+                <Text className="font-archivo-bold text-xs text-violeta">Abrir la Ruta de apoyo</Text>
+                <Text className="mt-2 font-archivo text-[10px] leading-5 text-tinta-75">
                   El acuerdo ya existe. Comprobá el tramo protegido que separa reserva, movimiento, recepción y resultado.
                 </Text>
                 <Pressable97
@@ -1182,14 +1151,14 @@ export function NeedAccessGrantPanel({ need }: { need: CivicNeedRow }) {
                       active.remoteGrantorUserId,
                     );
                   }}
-                  className="mt-3 min-h-11 self-start items-center justify-center rounded-full border border-violet-300/25 bg-violet-300/10 px-4"
+                  className="mt-3 min-h-11 self-start items-center justify-center border border-violeta bg-papel-crudo px-4"
                 >
-                  <Text className="font-sans-semibold text-xs text-violet-100">
+                  <Text className="font-archivo-bold text-xs text-violeta">
                     {busyAction === 'execution_refresh' ? 'Comprobando…' : 'Comprobar ruta'}
                   </Text>
                 </Pressable97>
                 {executionError && (
-                  <Text accessibilityLiveRegion="assertive" className="mt-3 font-sans text-[10px] leading-5 text-amber-100">
+                  <Text accessibilityLiveRegion="assertive" className="mt-3 font-archivo text-[10px] leading-5 text-ambar">
                     {executionError}
                   </Text>
                 )}
@@ -1203,10 +1172,9 @@ export function NeedAccessGrantPanel({ need }: { need: CivicNeedRow }) {
               accessibilityHint="Consulta el estado mediante el canal custodial y conserva el snapshot sólo si la constancia es válida"
               disabled={!canRefreshCoordination}
               onPress={() => { void refreshCoordination(); }}
-              className={`mt-4 min-h-12 flex-row items-center justify-center gap-2 rounded-full border border-violet-300/30 bg-violet-300/[0.10] px-5 ${canRefreshCoordination ? '' : 'opacity-40'}`}
+              className={`mt-4 min-h-12 flex-row items-center justify-center gap-2 border border-violeta bg-papel-crudo px-5 ${canRefreshCoordination ? '' : 'opacity-40'}`}
             >
-              <Ionicons name="refresh-outline" size={17} color="#C4B5FD" />
-              <Text className="font-sans-semibold text-xs text-violet-100">
+              <Text className="font-archivo-bold text-xs text-violeta">
                 {busyAction === 'coordination_refresh' ? 'Comprobando propuesta…' : 'Comprobar propuesta privada'}
               </Text>
             </Pressable97>
@@ -1223,10 +1191,9 @@ export function NeedAccessGrantPanel({ need }: { need: CivicNeedRow }) {
                 : 'Envía sólo la proyección mínima autorizada y espera confirmación de la red'}
               disabled={!canDeliver}
               onPress={() => { void deliver(); }}
-              className={`mt-4 min-h-12 flex-row items-center justify-center gap-2 rounded-full border border-sky-300/30 bg-sky-300/[0.10] px-5 ${busy ? 'opacity-40' : ''}`}
+              className={`mt-4 min-h-12 flex-row items-center justify-center gap-2 border border-cian bg-papel-crudo px-5 ${busy ? 'opacity-40' : ''}`}
             >
-              <Ionicons name={active.deliveryStatus === 'delivered' ? 'refresh-outline' : 'send-outline'} size={17} color="#7DD3FC" />
-              <Text className="font-sans-semibold text-xs text-sky-100">
+              <Text className="font-archivo-bold text-xs text-cian">
                 {busyAction === 'deliver'
                   ? active.deliveryStatus === 'delivered' ? 'Comprobando…' : 'Entregando…'
                   : active.deliveryStatus === 'delivered' ? 'Comprobar estado en red' : 'Entregar permiso al círculo'}
@@ -1235,18 +1202,18 @@ export function NeedAccessGrantPanel({ need }: { need: CivicNeedRow }) {
           )}
 
           {active.recipientKind === 'circle' && hasCommunitySession === false && (
-            <View className="mt-4 rounded-2xl border border-sky-300/20 bg-sky-300/[0.05] p-4">
-              <Text className="font-sans-semibold text-xs text-sky-100">Falta vincular una cuenta</Text>
-              <Text className="mt-2 font-sans text-[10px] leading-5 text-slate-500">
+            <View className="mt-4 border border-cian bg-papel-crudo p-4">
+              <Text className="font-archivo-bold text-xs text-cian">Falta vincular una cuenta</Text>
+              <Text className="mt-2 font-archivo text-[10px] leading-5 text-tinta-50">
                 Para entregar, vinculá tu cuenta y verificá que pertenecés al círculo destinatario. El permiso permanece sólo local mientras tanto.
               </Text>
               <Pressable97
                 accessibilityRole="button"
                 accessibilityLabel="Ir a Círculos para vincular una cuenta"
                 onPress={() => router.push('/circulos')}
-                className="mt-3 min-h-11 items-center justify-center rounded-full border border-sky-300/25 bg-sky-300/[0.08] px-4"
+                className="mt-3 min-h-11 items-center justify-center border border-cian bg-papel-crudo px-4"
               >
-                <Text className="font-sans-semibold text-xs text-sky-100">Ir a Círculos</Text>
+                <Text className="font-archivo-bold text-xs text-cian">Ir a Círculos</Text>
               </Pressable97>
             </View>
           )}
@@ -1258,16 +1225,16 @@ export function NeedAccessGrantPanel({ need }: { need: CivicNeedRow }) {
             && activeCircleId != null
             && !activeCircleIsEligible
             && (
-              <View className="mt-4 rounded-2xl border border-amber-300/20 bg-amber-300/[0.05] p-4">
-                <Text className="font-sans text-[10px] leading-5 text-amber-100">
+              <View className="mt-4 border border-ambar bg-papel-crudo p-4">
+                <Text className="font-archivo text-[10px] leading-5 text-ambar">
                   Este identificador no corresponde a un círculo custodio del que seas miembro. El permiso queda como constancia local y no habilita entrega.
                 </Text>
               </View>
             )}
 
           {active.recipientKind === 'organization' && (
-            <View className="mt-4 rounded-2xl border border-white/[0.07] bg-black/15 p-4">
-              <Text className="font-sans text-[10px] leading-5 text-slate-500">
+            <View className="mt-4 border border-bordeSuave bg-papel-presionado p-4">
+              <Text className="font-archivo text-[10px] leading-5 text-tinta-50">
                 Las organizaciones todavía no tienen un canal de identidad verificable. Este permiso es sólo una constancia local y no puede entregarse desde la app.
               </Text>
             </View>
@@ -1280,15 +1247,14 @@ export function NeedAccessGrantPanel({ need }: { need: CivicNeedRow }) {
               accessibilityState={{ disabled: busy }}
               disabled={busy}
               onPress={() => setRevoking(true)}
-              className={`mt-4 min-h-12 flex-row items-center justify-center gap-2 rounded-full border border-rose-300/20 bg-rose-300/[0.06] px-5 ${busy ? 'opacity-40' : ''}`}
+              className={`mt-4 min-h-12 flex-row items-center justify-center gap-2 border border-sello bg-papel-crudo px-5 ${busy ? 'opacity-40' : ''}`}
             >
-              <Ionicons name="close-circle-outline" size={17} color="#FDA4AF" />
-              <Text className="font-sans-semibold text-xs text-rose-100">Revocar permiso</Text>
+              <Text className="font-archivo-bold text-xs text-sello">Revocar permiso</Text>
             </Pressable97>
           ) : (
-            <View className="mt-4 rounded-2xl border border-rose-300/20 bg-rose-300/[0.05] p-4">
-              <Text className="font-sans-semibold text-sm text-rose-100">Revocación auditable</Text>
-              <Text className="mt-2 font-sans text-[11px] leading-5 text-slate-400">
+            <View className="mt-4 border border-sello bg-papel-crudo p-4">
+              <Text className="font-archivo-bold text-sm text-sello">Revocación auditable</Text>
+              <Text className="mt-2 font-archivo text-[11px] leading-5 text-tinta-75">
                 La app intentará retirar el permiso. Si ya fue entregado, seguirá figurando vigente hasta recibir una constancia remota válida; su acta no se borrará.
               </Text>
               <View className="mt-3 flex-row flex-wrap gap-2">
@@ -1301,23 +1267,23 @@ export function NeedAccessGrantPanel({ need }: { need: CivicNeedRow }) {
                       accessibilityLabel={item.label}
                       accessibilityState={{ selected }}
                       onPress={() => setRevocationReason(item.key)}
-                      className="min-h-11 justify-center rounded-full border px-3"
+                      className="min-h-11 justify-center bg-papel-crudo px-3"
                       style={{
-                        borderColor: selected ? '#FDA4AF55' : '#FFFFFF18',
-                        backgroundColor: selected ? '#FB718512' : '#FFFFFF07',
+                        borderWidth: selected ? 2 : 1,
+                        borderColor: selected ? ROJO_SELLO : TINTA,
                       }}
                     >
-                      <Text className="font-sans-medium text-[10px]" style={{ color: selected ? '#FFE4E6' : '#94A3B8' }}>{item.label}</Text>
+                      <Text className="font-archivo-bold text-[10px] text-tinta">{item.label}</Text>
                     </Pressable97>
                   );
                 })}
               </View>
               <View className="mt-4 flex-row gap-3">
-                <Pressable97 accessibilityRole="button" accessibilityLabel="Conservar permiso" disabled={busy} onPress={() => setRevoking(false)} className="min-h-11 flex-1 items-center justify-center rounded-full border border-white/10 bg-white/5 px-4">
-                  <Text className="font-sans-semibold text-xs text-slate-300">Conservar</Text>
+                <Pressable97 accessibilityRole="button" accessibilityLabel="Conservar permiso" disabled={busy} onPress={() => setRevoking(false)} className="min-h-11 flex-1 items-center justify-center border border-bordeSuave bg-papel-crudo px-4">
+                  <Text className="font-archivo-bold text-xs text-tinta-90">Conservar</Text>
                 </Pressable97>
-                <Pressable97 accessibilityRole="button" accessibilityLabel="Confirmar revocación" disabled={busy} onPress={() => { void revoke(); }} className={`min-h-11 flex-1 items-center justify-center rounded-full bg-rose-400 px-4 ${busy ? 'opacity-40' : ''}`}>
-                  <Text className="font-sans-semibold text-xs text-slate-950">{busyAction === 'revoke' ? 'Revocando…' : 'Confirmar'}</Text>
+                <Pressable97 accessibilityRole="button" accessibilityLabel="Confirmar revocación" disabled={busy} onPress={() => { void revoke(); }} className={`min-h-11 flex-1 items-center justify-center bg-sello px-4 ${busy ? 'opacity-40' : ''}`}>
+                  <Text className="font-archivo-bold text-xs text-papel">{busyAction === 'revoke' ? 'Revocando…' : 'Confirmar'}</Text>
                 </Pressable97>
               </View>
             </View>
@@ -1325,7 +1291,7 @@ export function NeedAccessGrantPanel({ need }: { need: CivicNeedRow }) {
         </View>
       ) : (
         <View className="p-5">
-          <Text className="font-sans-medium text-sm text-slate-200">1. Destinatario concreto</Text>
+          <Text className="font-archivo-bold text-sm text-tinta-90">1. Destinatario concreto</Text>
           <View className="mt-3 flex-row gap-2">
             {NEED_GRANT_RECIPIENTS.map((item) => (
               <View key={item.key} className="flex-1">
@@ -1336,14 +1302,14 @@ export function NeedAccessGrantPanel({ need }: { need: CivicNeedRow }) {
 
           {recipientKind === 'circle' && (
             <View className="mt-4">
-              <Text className="font-sans text-[10px] uppercase tracking-[1.5px] text-sky-300">Círculos custodios verificados</Text>
-              <Text className="mt-2 font-sans text-[10px] leading-5 text-slate-500">
+              <Text className="font-archivo text-[10px] uppercase tracking-[1.5px] text-cian">Círculos custodios verificados</Text>
+              <Text className="mt-2 font-archivo text-[10px] leading-5 text-tinta-50">
                 Sólo un círculo del que seas miembro, y que sea célula o privado, puede recibir luego la proyección mínima.
               </Text>
 
               {circlesLoading ? (
-                <View className="mt-3 rounded-2xl border border-white/[0.07] bg-black/15 p-4">
-                  <Text accessibilityLiveRegion="polite" className="font-sans text-[10px] text-slate-500">Comprobando membresías…</Text>
+                <View className="mt-3 border border-bordeSuave bg-papel-presionado p-4">
+                  <Text accessibilityLiveRegion="polite" className="font-archivo text-[10px] text-tinta-50">Comprobando membresías…</Text>
                 </View>
               ) : eligibleCircles.length > 0 ? (
                 <View className="mt-3 gap-2">
@@ -1358,22 +1324,22 @@ export function NeedAccessGrantPanel({ need }: { need: CivicNeedRow }) {
                   ))}
                 </View>
               ) : hasCommunitySession === false ? (
-                <View className="mt-3 rounded-2xl border border-sky-300/20 bg-sky-300/[0.05] p-4">
-                  <Text className="font-sans text-[10px] leading-5 text-slate-400">
+                <View className="mt-3 border border-cian bg-papel-crudo p-4">
+                  <Text className="font-archivo text-[10px] leading-5 text-tinta-75">
                     Vinculá una cuenta para comprobar tus círculos. Hasta entonces, cualquier referencia será sólo una constancia local.
                   </Text>
                   <Pressable97
                     accessibilityRole="button"
                     accessibilityLabel="Ir a Círculos para vincular una cuenta"
                     onPress={() => router.push('/circulos')}
-                    className="mt-3 min-h-11 items-center justify-center rounded-full border border-sky-300/25 bg-sky-300/[0.08] px-4"
+                    className="mt-3 min-h-11 items-center justify-center border border-cian bg-papel-crudo px-4"
                   >
-                    <Text className="font-sans-semibold text-xs text-sky-100">Ir a Círculos</Text>
+                    <Text className="font-archivo-bold text-xs text-cian">Ir a Círculos</Text>
                   </Pressable97>
                 </View>
               ) : (
-                <View className="mt-3 rounded-2xl border border-white/[0.07] bg-black/15 p-4">
-                  <Text className="font-sans text-[10px] leading-5 text-slate-500">
+                <View className="mt-3 border border-bordeSuave bg-papel-presionado p-4">
+                  <Text className="font-archivo text-[10px] leading-5 text-tinta-50">
                     {!CIVIC_API_URL
                       ? 'La red no está configurada en esta instalación. Sólo podés registrar una constancia local.'
                       : circlesUnavailable
@@ -1397,7 +1363,7 @@ export function NeedAccessGrantPanel({ need }: { need: CivicNeedRow }) {
           {(recipientKind === 'organization' || recipientEntryMode === 'manual') && (
             <View className="mt-3">
               {recipientKind === 'organization' && (
-                <Text className="mb-3 font-sans text-[10px] leading-5 text-slate-500">
+                <Text className="mb-3 font-archivo text-[10px] leading-5 text-tinta-50">
                   Las organizaciones aún no tienen un canal de identidad verificable. Este permiso quedará sólo local.
                 </Text>
               )}
@@ -1410,9 +1376,9 @@ export function NeedAccessGrantPanel({ need }: { need: CivicNeedRow }) {
                 }}
                 maxLength={80}
                 placeholder="Nombre público, sin persona ni contacto"
-                placeholderTextColor="#64748B"
+                placeholderTextColor={TINTA_50}
                 accessibilityLabel="Nombre público del destinatario local"
-                className="min-h-12 rounded-2xl border border-white/10 bg-black/20 px-4 font-sans text-sm text-plata"
+                className="min-h-12 border border-bordeSuave bg-papel-presionado px-4 font-archivo text-sm text-tinta"
               />
               <TextInput
                 value={recipientReference}
@@ -1425,24 +1391,24 @@ export function NeedAccessGrantPanel({ need }: { need: CivicNeedRow }) {
                 autoCapitalize="none"
                 autoCorrect={false}
                 placeholder={recipientKind === 'circle' ? 'ID local, ej. circulo-sur' : 'ID local, ej. org-alimentos'}
-                placeholderTextColor="#64748B"
+                placeholderTextColor={TINTA_50}
                 accessibilityLabel="Identificador local estable del destinatario"
-                className="mt-3 min-h-12 rounded-2xl border border-white/10 bg-black/20 px-4 font-mono text-sm text-plata"
+                className="mt-3 min-h-12 border border-bordeSuave bg-papel-presionado px-4 font-space text-sm text-tinta"
               />
-              <Text className="mt-2 font-sans text-[10px] leading-4 text-slate-600">
+              <Text className="mt-2 font-archivo text-[10px] leading-4 text-tinta-50">
                 El identificador separa nombres parecidos, pero no prueba identidad ni membresía. Sólo podrá entregarse si luego coincide con un círculo custodio verificado de tu cuenta.
               </Text>
             </View>
           )}
 
-          <Text className="mt-7 font-sans-medium text-sm text-slate-200">2. Propósito</Text>
+          <Text className="mt-7 font-archivo-bold text-sm text-tinta-90">2. Propósito</Text>
           <View className="mt-3 gap-2">
             {NEED_GRANT_PURPOSES.map((item) => (
               <Choice key={item.key} selected={purpose === item.key} label={item.label} detail={item.detail} onPress={() => setPurpose(item.key)} />
             ))}
           </View>
 
-          <Text className="mt-7 font-sans-medium text-sm text-slate-200">3. Alcance</Text>
+          <Text className="mt-7 font-archivo-bold text-sm text-tinta-90">3. Alcance</Text>
           <View className="mt-3 gap-2">
             {NEED_GRANT_SCOPES.map((item) => (
               <Choice
@@ -1456,7 +1422,7 @@ export function NeedAccessGrantPanel({ need }: { need: CivicNeedRow }) {
             ))}
           </View>
 
-          <Text className="mt-7 font-sans-medium text-sm text-slate-200">4. Vencimiento</Text>
+          <Text className="mt-7 font-archivo-bold text-sm text-tinta-90">4. Vencimiento</Text>
           <View className="mt-3 flex-row gap-2">
             {[3, 7, 14, 30].map((days) => {
               const selected = expiresInDays === days;
@@ -1467,41 +1433,44 @@ export function NeedAccessGrantPanel({ need }: { need: CivicNeedRow }) {
                   accessibilityLabel={`${days} días`}
                   accessibilityState={{ selected }}
                   onPress={() => setExpiresInDays(days)}
-                  className="min-h-11 flex-1 items-center justify-center rounded-xl border"
-                  style={{ borderColor: selected ? '#7DD3FC55' : '#FFFFFF18', backgroundColor: selected ? '#7DD3FC12' : '#FFFFFF07' }}
+                  className="min-h-11 flex-1 items-center justify-center bg-papel-crudo"
+                  style={{ borderWidth: selected ? 2 : 1, borderColor: selected ? CIAN : TINTA }}
                 >
-                  <Text className="font-mono text-[11px]" style={{ color: selected ? '#E0F2FE' : '#64748B' }}>{days}d</Text>
+                  <Text className="font-space text-[11px] text-tinta">{days}d</Text>
                 </Pressable97>
               );
             })}
           </View>
-          <Text className="mt-2 font-sans text-[10px] leading-4 text-slate-600">Si el pedido vence antes, el permiso se acorta automáticamente.</Text>
+          <Text className="mt-2 font-archivo text-[10px] leading-4 text-tinta-50">Si el pedido vence antes, el permiso se acorta automáticamente.</Text>
 
           <Pressable97
             accessibilityRole="checkbox"
             accessibilityLabel="Autorizar la proyección mínima para este destinatario"
             accessibilityState={{ checked: authorized }}
             onPress={() => setAuthorized((value) => !value)}
-            className="mt-5 flex-row items-start gap-3 rounded-2xl border border-sky-300/20 bg-sky-300/[0.05] p-4"
+            className="mt-5 flex-row items-start gap-3 border border-tinta bg-papel-crudo p-4"
           >
-            <View className="mt-0.5 h-5 w-5 items-center justify-center rounded-md border" style={{ borderColor: authorized ? '#7DD3FC' : '#64748B', backgroundColor: authorized ? '#7DD3FC' : 'transparent' }}>
-              {authorized && <Ionicons name="checkmark" size={14} color="#082F49" />}
-            </View>
+            <View className={`mt-0.5 h-5 w-5 border border-tinta ${authorized ? 'bg-violeta' : 'bg-papel-presionado'}`} />
             <View className="flex-1">
-              <Text className="font-sans-semibold text-xs text-sky-100">Autorizo sólo esta proyección y este propósito</Text>
-              <Text className="mt-1 font-sans text-[10px] leading-5 text-slate-500">No autorizo el relato, custodia, contacto, firma, nombre del lugar ni punto exacto. Entiendo que esto registra permiso local, no una entrega.</Text>
+              <Text className="font-archivo-bold text-xs text-tinta">Autorizo sólo esta proyección y este propósito</Text>
+              <Text className="mt-1 font-archivo text-[10px] leading-5 text-tinta-50">No autorizo el relato, custodia, contacto, firma, nombre del lugar ni punto exacto. Entiendo que esto registra permiso local, no una entrega.</Text>
             </View>
           </Pressable97>
 
           <View className="mt-6 items-center">
-            <AccentButton label={busyAction === 'create' ? 'Registrando…' : 'Registrar permiso local'} onPress={createGrant} disabled={!canGrant} />
+            <BotonTinta
+              etiqueta="Registrar permiso local"
+              onPress={createGrant}
+              disabled={!canGrant}
+              cargando={busyAction === 'create'}
+            />
           </View>
         </View>
       )}
 
       {history.length > 0 && (
-        <View className="border-t border-white/[0.07] p-5">
-          <Text className="font-sans text-[10px] uppercase tracking-[2px] text-slate-500">Historia de permisos</Text>
+        <View className="border-t border-bordeSuave p-5">
+          <Text className="font-archivo text-[10px] uppercase tracking-[2px] text-tinta-50">Historia de permisos</Text>
           <View className="mt-3 gap-2">
             {history.map((grant) => {
               const status = needGrantStatusAt(grant);
@@ -1530,42 +1499,42 @@ export function NeedAccessGrantPanel({ need }: { need: CivicNeedRow }) {
                     : null)
                 : null;
               return (
-                <View key={grant.id} className="rounded-2xl border border-white/[0.07] bg-black/15 p-4">
+                <View key={grant.id} className="border border-bordeSuave bg-papel-presionado p-4">
                   <View className="flex-row items-start justify-between gap-3">
                     <View className="flex-1">
-                      <Text className="font-sans-semibold text-xs text-slate-300">{grant.recipientLabel}</Text>
-                      <Text className="mt-1 font-mono text-[9px] text-slate-600">{grant.recipientKey}</Text>
+                      <Text className="font-archivo-bold text-xs text-tinta-90">{grant.recipientLabel}</Text>
+                      <Text className="mt-1 font-space text-[9px] text-tinta-50">{grant.recipientKey}</Text>
                     </View>
                     <View className="items-end gap-1">
-                      <Text className="font-sans-medium text-[9px] uppercase tracking-[1.2px]" style={{ color: status === 'revoked' ? '#FDA4AF' : '#FCD34D' }}>{STATUS_LABEL[status]}</Text>
+                      <Text className="font-archivo-bold text-[9px] uppercase tracking-[1.2px]" style={{ color: status === 'revoked' ? ROJO_SELLO : AMBAR_PT }}>{STATUS_LABEL[status]}</Text>
                       <Text
-                        className="font-mono text-[8px] uppercase tracking-[1px]"
+                        className="font-space text-[8px] uppercase tracking-[1px]"
                         style={{ color: DELIVERY_STATUS[grant.deliveryStatus].color }}
                       >
                         {DELIVERY_STATUS[grant.deliveryStatus].label}
                       </Text>
                     </View>
                   </View>
-                  <Text className="mt-3 font-sans text-[10px] leading-4 text-slate-500">Otorgado {displayDate(grant.grantedAt)} · {scopeLabel(grant.scope)}</Text>
-                  {grant.deliveredAt && <Text className="mt-1 font-sans text-[10px] leading-4 text-slate-500">Entregado {displayDate(grant.deliveredAt)}</Text>}
-                  {grant.revokedAt && <Text className="mt-1 font-sans text-[10px] leading-4 text-slate-500">Revocado {displayDate(grant.revokedAt)}</Text>}
-                  {grant.remoteRevokedAt && <Text className="mt-1 font-sans text-[10px] leading-4 text-slate-500">Confirmado en red {displayDate(grant.remoteRevokedAt)}</Text>}
+                  <Text className="mt-3 font-archivo text-[10px] leading-4 text-tinta-50">Otorgado {displayDate(grant.grantedAt)} · {scopeLabel(grant.scope)}</Text>
+                  {grant.deliveredAt && <Text className="mt-1 font-archivo text-[10px] leading-4 text-tinta-50">Entregado {displayDate(grant.deliveredAt)}</Text>}
+                  {grant.revokedAt && <Text className="mt-1 font-archivo text-[10px] leading-4 text-tinta-50">Revocado {displayDate(grant.revokedAt)}</Text>}
+                  {grant.remoteRevokedAt && <Text className="mt-1 font-archivo text-[10px] leading-4 text-tinta-50">Confirmado en red {displayDate(grant.remoteRevokedAt)}</Text>}
                   {historicalBoundToCommunityAccount
                     && grant.remoteCoordinationProposalId
                     && grant.remoteCoordinationState && (
-                    <View className="mt-3 rounded-xl border border-violet-300/15 bg-violet-300/[0.04] p-3">
-                      <Text className="font-sans-semibold text-[10px] text-violet-100">Coordinación privada · historia</Text>
-                      <Text className="mt-1 font-sans text-[10px] leading-5 text-slate-400">
+                    <View className="mt-3 border border-violeta bg-papel-crudo p-3">
+                      <Text className="font-archivo-bold text-[10px] text-violeta">Coordinación privada · historia</Text>
+                      <Text className="mt-1 font-archivo text-[10px] leading-5 text-tinta-75">
                         Estado operativo observado: {COORDINATION_PRESENTATION[grant.remoteCoordinationState].title.toLocaleLowerCase('es-AR')}.
                       </Text>
                       {grant.remoteCoordinationTerminalDecision ? (
-                        <Text className="mt-1 font-sans text-[10px] leading-5 text-slate-300">
+                        <Text className="mt-1 font-archivo text-[10px] leading-5 text-tinta-90">
                           Decisión terminal: {COORDINATION_DECISION_LABEL[grant.remoteCoordinationTerminalDecision].toLocaleLowerCase('es-AR')}
                           {grant.remoteCoordinationDecidedAt ? ` · ${displayDate(grant.remoteCoordinationDecidedAt)}` : ''}.
                           {' '}El cierre o vencimiento no la convierte en entrega ni resolución.
                         </Text>
                       ) : (
-                        <Text className="mt-1 font-sans text-[10px] leading-5 text-slate-500">
+                        <Text className="mt-1 font-archivo text-[10px] leading-5 text-tinta-50">
                           No hay una decisión terminal verificada en esta copia local. No inferimos aceptación ni rechazo.
                         </Text>
                       )}
@@ -1584,9 +1553,9 @@ export function NeedAccessGrantPanel({ need }: { need: CivicNeedRow }) {
                           }}
                           disabled={busy}
                           onPress={() => { void reconcileHistoricalCoordination(grant); }}
-                          className={`mt-3 min-h-11 items-center justify-center rounded-full border border-violet-300/20 bg-violet-300/[0.07] px-4 ${busy ? 'opacity-40' : ''}`}
+                          className={`mt-3 min-h-11 items-center justify-center border border-violeta bg-papel-crudo px-4 ${busy ? 'opacity-40' : ''}`}
                         >
-                          <Text className="font-sans-semibold text-[10px] text-violet-100">
+                          <Text className="font-archivo-bold text-[10px] text-violeta">
                             {historyCoordinationBusyId === grant.id
                               ? 'Comprobando…'
                               : grant.remoteCoordinationTerminalDecision
@@ -1647,9 +1616,9 @@ export function NeedAccessGrantPanel({ need }: { need: CivicNeedRow }) {
                         onPress={() => {
                           void refreshExecutionFor(historicalProposalId, grant.remoteGrantorUserId);
                         }}
-                        className="mt-3 min-h-11 items-center justify-center rounded-full border border-amber-300/20 bg-amber-300/[0.07] px-4"
+                        className="mt-3 min-h-11 items-center justify-center border border-ambar bg-papel-crudo px-4"
                       >
-                        <Text className="font-sans-semibold text-[10px] text-amber-100">
+                        <Text className="font-archivo-bold text-[10px] text-ambar">
                           {busyAction === 'execution_refresh' ? 'Comprobando ruta…' : 'Comprobar ruta y reconciliar'}
                         </Text>
                       </Pressable97>
@@ -1660,6 +1629,6 @@ export function NeedAccessGrantPanel({ need }: { need: CivicNeedRow }) {
           </View>
         </View>
       )}
-    </GlassCard>
+    </PapelCard>
   );
 }

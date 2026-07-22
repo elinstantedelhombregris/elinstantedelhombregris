@@ -47,7 +47,7 @@ export default function PlacePinMap({ value, onChange, height = DEFAULT_HEIGHT }
     <View
       accessible
       accessibilityLabel="Selector de punto en el mapa. Tocá para ubicarlo."
-      className="overflow-hidden rounded-[24px] border border-white/10 bg-[#0B0B0E]"
+      className="overflow-hidden border border-tinta bg-fondo"
       style={{ height }}
     >
       <MapView
@@ -71,15 +71,15 @@ export default function PlacePinMap({ value, onChange, height = DEFAULT_HEIGHT }
             anchor={{ x: 0.5, y: 1 }}
           >
             <View className="h-12 w-12 items-center justify-center">
-              <View className="absolute h-11 w-11 rounded-full bg-violet-400/15" />
+
               <Ionicons name="location" size={35} color="#F5F7FA" />
-              <View className="absolute top-[13px] h-2.5 w-2.5 rounded-full bg-accent" />
+              <View className="absolute top-[13px] h-2.5 w-2.5 bg-violeta" />
             </View>
           </Marker>
         )}
       </MapView>
-      <View style={{ pointerEvents: 'none' }} className="absolute left-3 top-3 rounded-full border border-white/10 bg-black/75 px-3 py-2">
-        <Text className="font-sans-medium text-[11px] text-slate-200">
+      <View style={{ pointerEvents: 'none' }} className="absolute left-3 top-3 border border-tinta bg-black/75 px-3 py-2">
+        <Text className="font-archivo-bold text-[11px] text-oscuro-texto">
           {value ? 'Punto elegido · tocá para moverlo' : 'Tocá el mapa para ubicarlo'}
         </Text>
       </View>

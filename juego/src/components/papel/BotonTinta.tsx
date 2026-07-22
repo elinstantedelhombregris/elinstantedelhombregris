@@ -26,6 +26,7 @@ type Props = {
   /** Reemplaza la etiqueta por «— ▌» con blink-cursor; bloquea el toque. */
   cargando?: boolean;
   accessibilityLabel?: string;
+  accessibilityHint?: string;
   className?: string;
   style?: StyleProp<ViewStyle>;
 };
@@ -116,6 +117,7 @@ export function BotonTinta({
   disabled = false,
   cargando = false,
   accessibilityLabel,
+  accessibilityHint,
   className,
   style,
 }: Props) {
@@ -129,6 +131,7 @@ export function BotonTinta({
     <Pressable97
       accessibilityRole="button"
       accessibilityLabel={accessibilityLabel ?? etiqueta}
+      accessibilityHint={accessibilityHint}
       accessibilityState={{ disabled: bloqueado, busy: cargando }}
       disabled={bloqueado}
       onPressIn={() => setPressed(true)}

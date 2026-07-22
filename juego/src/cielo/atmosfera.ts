@@ -141,7 +141,7 @@ export interface Nebulosa {
  * vía, verde-agua abajo a la derecha. Asimetría a propósito.
  */
 export const NEBULOSAS: readonly Nebulosa[] = [
-  { fx: 0.24, fy: 0.3, fr: 0.52, color: '#7D5BDE', opacidad: 0.075 },
+  { fx: 0.24, fy: 0.3, fr: 0.52, color: '#9D85E8', opacidad: 0.075 },
   { fx: 0.82, fy: 0.62, fr: 0.46, color: '#14b8a6', opacidad: 0.045 },
 ];
 

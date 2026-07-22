@@ -47,21 +47,6 @@ export function SiluetaConstelacion({
           strokeWidth={completada ? 1.1 : 0.8}
           strokeLinejoin="round"
         />
-        {/* halos primero, núcleos encima: el glow no tapa el punto */}
-        {constelacion.silueta.map((p, i) => {
-          const info = puntos[i];
-          if (!info?.encendido) return null;
-          return (
-            <Circle
-              key={`halo-${i}`}
-              cx={escala(p.x)}
-              cy={escala(p.y)}
-              r={5.2}
-              fill={SENAL_POR_KEY[info.tipo].color}
-              opacity={0.22}
-            />
-          );
-        })}
         {constelacion.silueta.map((p, i) => {
           const info = puntos[i];
           const cx = escala(p.x);

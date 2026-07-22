@@ -5,6 +5,7 @@ import MapView, { Marker, Polygon as MapPolygon, type MapStyleElement } from 're
 import Svg, { Polygon, Polyline } from 'react-native-svg';
 
 import { Pressable97 } from '@/components/ui/Pressable97';
+import { VIOLETA, VIOLETA_CLARO } from '@/theme/tokens';
 import { selectTerritoryPoints } from '@/civic/lasso';
 
 import type { TerritoryMapProps } from './TerritoryMap.types';
@@ -91,7 +92,7 @@ export default function TerritoryMap({
   const pathString = path.map((point) => `${point.x},${point.y}`).join(' ');
 
   return (
-    <View className="flex-1 overflow-hidden rounded-[26px] border border-white/10 bg-[#0B0B0E]">
+    <View className="flex-1 overflow-hidden border border-tinta bg-fondo">
       <MapView
         ref={map}
         style={{ flex: 1 }}
@@ -128,7 +129,7 @@ export default function TerritoryMap({
               onPress={() => onPointPress?.(point.id)}
             >
               <View className="h-11 w-11 items-center justify-center">
-                <View className="items-center justify-center rounded-full" style={{
+                <View className="items-center justify-center" style={{
                   width: haloSize,
                   height: haloSize,
                   backgroundColor: highlighted
@@ -139,7 +140,7 @@ export default function TerritoryMap({
                         ? 'rgba(245,247,250,0.16)'
                         : 'rgba(167,139,250,0.12)',
                 }}>
-                  <View className="rounded-full border-2" style={{
+                  <View className="border-2" style={{
                     width: highlighted || opened ? 20 : 16,
                     height: highlighted || opened ? 20 : 16,
                     borderColor: highlighted || opened ? '#F5F7FA' : '#0A0A0A',
@@ -149,7 +150,7 @@ export default function TerritoryMap({
                         ? '#FB7185'
                         : point.status.startsWith('resource:')
                           ? '#34D399'
-                          : '#A78BFA',
+                          : VIOLETA_CLARO,
                   }} />
                 </View>
               </View>
@@ -174,22 +175,22 @@ export default function TerritoryMap({
         </Svg>
       </View>
       <View style={{ pointerEvents: 'box-none' }} className="absolute left-3 right-3 top-3 flex-row items-center justify-between">
-        <View className="rounded-full border border-white/10 bg-black/70 px-3 py-2">
-          <Text className="font-mono text-[10px] text-slate-300">{selectedIds.length} registros en zona</Text>
+        <View className="border border-tinta bg-black/70 px-3 py-2">
+          <Text className="font-space text-[10px] text-oscuro-secundario">{selectedIds.length} registros en zona</Text>
         </View>
         <View className="flex-row gap-2">
           {(path.length > 0 || selectedIds.length > 0) && (
-            <Pressable97 accessibilityRole="button" accessibilityLabel="Limpiar lazo" onPress={clear} className="rounded-full border border-white/10 bg-black/70 p-3">
+            <Pressable97 accessibilityRole="button" accessibilityLabel="Limpiar lazo" onPress={clear} className="border border-tinta bg-black/70 p-3">
               <Ionicons name="refresh" size={16} color="#CBD5E1" />
             </Pressable97>
           )}
-          <Pressable97 accessibilityRole="button" accessibilityLabel="Convertir el área visible en territorio" accessibilityHint="Alternativa accesible al dibujo con lazo" onPress={selectVisibleArea} className="flex-row items-center gap-2 rounded-full border border-white/10 bg-black/70 px-3 py-3">
+          <Pressable97 accessibilityRole="button" accessibilityLabel="Convertir el área visible en territorio" accessibilityHint="Alternativa accesible al dibujo con lazo" onPress={selectVisibleArea} className="flex-row items-center gap-2 border border-tinta bg-black/70 px-3 py-3">
             <Ionicons name="scan-outline" size={16} color="white" />
-            <Text className="font-sans-semibold text-xs text-white">Área</Text>
+            <Text className="font-archivo-bold text-xs text-white">Área</Text>
           </Pressable97>
-          <Pressable97 accessibilityRole="button" accessibilityLabel="Dibujar territorio con lazo" onPress={() => { setLasso((value) => !value); setPath([]); }} className="flex-row items-center gap-2 rounded-full border px-4 py-3" style={{ backgroundColor: lasso ? '#7D5BDE' : 'rgba(0,0,0,0.72)', borderColor: lasso ? '#A78BFA' : '#FFFFFF22' }}>
+          <Pressable97 accessibilityRole="button" accessibilityLabel="Dibujar territorio con lazo" onPress={() => { setLasso((value) => !value); setPath([]); }} className="flex-row items-center gap-2 border px-4 py-3" style={{ backgroundColor: lasso ? VIOLETA : 'rgba(0,0,0,0.72)', borderColor: lasso ? VIOLETA_CLARO : '#FFFFFF22' }}>
             <Ionicons name="brush-outline" size={16} color="white" />
-            <Text className="font-sans-semibold text-xs text-white">{lasso ? 'Trazá ahora' : 'Lazo'}</Text>
+            <Text className="font-archivo-bold text-xs text-white">{lasso ? 'Trazá ahora' : 'Lazo'}</Text>
           </Pressable97>
         </View>
       </View>

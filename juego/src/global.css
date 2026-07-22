@@ -10,12 +10,3 @@
 /* La app es una superficie táctil: el scroll sigue activo sin riel de escritorio. */
 * { scrollbar-width: none; }
 *::-webkit-scrollbar { width: 0; height: 0; }
-
-/* Gradiente display en web (nativo usa MaskedView) */
-.display-gradient {
-  background-image: linear-gradient(to bottom, #ffffff, #e2e8f0, #94a3b8);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-}

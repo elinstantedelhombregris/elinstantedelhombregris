@@ -8,17 +8,6 @@ import {
   Archivo_500Medium,
   Archivo_700Bold,
 } from '@expo-google-fonts/archivo';
-import {
-  Inter_400Regular,
-  Inter_500Medium,
-  Inter_600SemiBold,
-  Inter_700Bold,
-} from '@expo-google-fonts/inter';
-import { JetBrainsMono_500Medium } from '@expo-google-fonts/jetbrains-mono';
-import {
-  PlayfairDisplay_500Medium_Italic,
-  PlayfairDisplay_600SemiBold,
-} from '@expo-google-fonts/playfair-display';
 import { SpaceMono_400Regular, SpaceMono_700Bold } from '@expo-google-fonts/space-mono';
 import { migrate } from 'drizzle-orm/expo-sqlite/migrator';
 import { useFonts } from 'expo-font';
@@ -29,8 +18,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useEffect, useState } from 'react';
 import { Platform, Text, View } from 'react-native';
 
-import { AccentButton } from '@/components/ui/AccentButton';
-import { GlassCard } from '@/components/ui/GlassCard';
+import { BotonTinta, PapelCard, TituloAnton } from '@/components/papel';
 import { calentarActorKey } from '@/civic/actor-cache';
 import { useCivicSync } from '@/civic/sync';
 import {
@@ -186,20 +174,20 @@ function DbGate({ onReintentar }: { onReintentar: () => void }) {
   if (estado.error) {
     const alreadyOpen = estado.error.message.includes('basta_db_already_open');
     return (
-      <View className="flex-1 items-center justify-center px-8">
-        <GlassCard className="w-full items-center p-8">
-          <Text className="font-serif text-2xl text-plata text-center">
+      <View className="flex-1 items-center justify-center bg-papel px-8">
+        <PapelCard className="w-full items-center p-8">
+          <TituloAnton tamano="md" className="text-center">
             {alreadyOpen ? 'La app ya está abierta' : 'El cielo no pudo abrirse'}
-          </Text>
-          <Text className="mt-3 font-sans text-sm text-slate-400 text-center">
+          </TituloAnton>
+          <Text className="mt-3 text-center font-archivo text-sm leading-6 text-tinta-75">
             {alreadyOpen
               ? 'Para proteger la base local, usá una sola pestaña a la vez. Cerrá la otra pestaña y probá de nuevo.'
               : 'Algo se trabó preparando tus datos. No se perdió nada: probá de nuevo.'}
           </Text>
           <View className="mt-6">
-            <AccentButton label="Probar de nuevo" onPress={onReintentar} />
+            <BotonTinta etiqueta="Probar de nuevo" onPress={onReintentar} />
           </View>
-        </GlassCard>
+        </PapelCard>
       </View>
     );
   }
@@ -320,14 +308,7 @@ function CivicApp() {
 export default function RootLayout() {
   const [intento, setIntento] = useState(0);
   const [fontsLoaded] = useFonts({
-    Inter_400Regular,
-    Inter_500Medium,
-    Inter_600SemiBold,
-    Inter_700Bold,
-    PlayfairDisplay_600SemiBold,
-    PlayfairDisplay_500Medium_Italic,
-    JetBrainsMono_500Medium,
-    // Papel y Tinta (spec §2) — conviven con las viejas hasta PT8.
+    // Papel y Tinta (spec §2): Anton, Archivo y Space Mono — las tres voces.
     Anton_400Regular,
     Archivo_400Regular,
     Archivo_400Regular_Italic,

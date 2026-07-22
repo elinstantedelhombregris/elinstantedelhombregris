@@ -1,4 +1,13 @@
-import { Ionicons } from '@expo/vector-icons';
+/**
+ * GeoAttributionCard — el pin, la referencia pública, la precisión y la
+ * firma de un registro cívico. El punto exacto queda en el dispositivo;
+ * la red recibe una proyección reducida.
+ *
+ * Registro papel del sistema Papel y Tinta (spec §8): formulario canónico
+ * sobre PapelCard — chips cuadrados, foco violeta, recibo con borde verde.
+ * El color de señal (`accent`) marca la selección; la acción es tinta.
+ */
+
 import { useEffect, useRef, useState } from 'react';
 import { Text, TextInput, View } from 'react-native';
 
@@ -9,8 +18,9 @@ import type {
 } from '@/civic/types';
 import { sharedPrecisionLabel, validGeoPoint } from '@/civic/record-context';
 import { obtenerUbicacion } from '@/lib/capturar-gps';
+import { TINTA, TINTA_50, VIOLETA } from '@/theme/tokens';
 
-import { GlassCard } from '../ui/GlassCard';
+import { BotonTinta, PapelCard } from '../papel';
 import { Pressable97 } from '../ui/Pressable97';
 import PlacePinMap from './PlacePinMap';
 
@@ -29,11 +39,10 @@ const ATTRIBUTIONS: readonly {
   key: AttributionMode;
   label: string;
   detail: string;
-  icon: string;
 }[] = [
-  { key: 'anonymous', label: 'Sin firma visible', detail: 'La red conserva sólo un responsable interno.', icon: 'eye-off-outline' },
-  { key: 'alias', label: 'Con alias', detail: 'Una identidad comunitaria elegida por vos.', icon: 'person-circle-outline' },
-  { key: 'named', label: 'Con mi nombre', detail: 'Firma declarada; no equivale a identidad verificada.', icon: 'ribbon-outline' },
+  { key: 'anonymous', label: 'Sin firma visible', detail: 'La red conserva sólo un responsable interno.' },
+  { key: 'alias', label: 'Con alias', detail: 'Una identidad comunitaria elegida por vos.' },
+  { key: 'named', label: 'Con mi nombre', detail: 'Firma declarada; no equivale a identidad verificada.' },
 ];
 
 const sourceLabel = (value: CivicRecordContextDraft['locationSource']): string => {
@@ -42,6 +51,16 @@ const sourceLabel = (value: CivicRecordContextDraft['locationSource']): string =
   if (value === 'manual') return 'Referencia manual';
   return 'Sin fuente';
 };
+
+/** Foco visible: borde violeta 2px (spec §3.5/§10) — nada de halo aparte. */
+const estiloInput = (enfocado: boolean): object => ({
+  borderWidth: enfocado ? 2 : 1,
+  borderColor: enfocado ? VIOLETA : TINTA,
+  outlineColor: VIOLETA,
+  outlineStyle: 'solid' as const,
+  outlineWidth: enfocado ? 2 : 0,
+  outlineOffset: 2,
+});
 
 interface Props {
   value: CivicRecordContextDraft;
@@ -60,7 +79,7 @@ export function GeoAttributionCard({
   onChange,
   title = 'Ubicá lo que estás registrando',
   description = 'El pin representa al problema o recurso, no necesariamente dónde estás vos. Podés usar GPS y después corregirlo.',
-  accent = '#A78BFA',
+  accent = VIOLETA,
   requireLocation = true,
   showAttribution = true,
   privateOnly = false,
@@ -68,6 +87,8 @@ export function GeoAttributionCard({
   const [mapOpen, setMapOpen] = useState(value.point != null);
   const [locating, setLocating] = useState(false);
   const [note, setNote] = useState<string | null>(null);
+  const [enfocadoLugar, setEnfocadoLugar] = useState(false);
+  const [enfocadoFirma, setEnfocadoFirma] = useState(false);
   const latestValue = useRef(value);
   useEffect(() => {
     latestValue.current = value;
@@ -118,50 +139,40 @@ export function GeoAttributionCard({
   const coarseLabel = value.sharedPrecision === 'neighborhood' || value.sharedPrecision === 'city';
 
   return (
-    <GlassCard className="overflow-hidden p-0">
+    <PapelCard className="p-0">
       <View className="p-5">
-        <View className="flex-row items-start gap-3">
-          <View className="h-11 w-11 items-center justify-center rounded-2xl" style={{ backgroundColor: `${accent}18` }}>
-            <Ionicons name="location" size={21} color={accent} />
-          </View>
-          <View className="flex-1">
-            <Text className="font-serif text-[22px] leading-7 text-plata">{title}</Text>
-            <Text className="mt-2 font-sans text-xs leading-5 text-slate-400">{description}</Text>
-          </View>
-        </View>
+        <Text className="font-archivo-bold text-base text-tinta">{title}</Text>
+        <Text className="mt-2 font-archivo text-xs leading-5 text-tinta-75">{description}</Text>
 
         <View className="mt-5 flex-row gap-2">
-          <Pressable97
-            accessibilityRole="button"
+          <BotonTinta
+            etiqueta={locating ? 'Ubicando…' : 'Usar GPS'}
+            tamano="compacto"
             accessibilityLabel="Usar mi ubicación actual y luego confirmarla"
             onPress={useGps}
             disabled={locating}
-            className="min-h-12 flex-1 flex-row items-center justify-center gap-2 rounded-full border px-4"
-            style={{ borderColor: `${accent}55`, backgroundColor: `${accent}14` }}
-          >
-            <Ionicons name={locating ? 'hourglass-outline' : 'navigate-outline'} size={16} color={accent} />
-            <Text className="font-sans-semibold text-xs" style={{ color: accent }}>{locating ? 'Ubicando…' : 'Usar GPS'}</Text>
-          </Pressable97>
-          <Pressable97
-            accessibilityRole="button"
+            cargando={locating}
+            className="flex-1"
+          />
+          <BotonTinta
+            etiqueta={mapOpen ? 'Cerrar mapa' : 'Marcar pin'}
+            variante="fantasma"
+            tamano="compacto"
             accessibilityLabel="Marcar o corregir el lugar en el mapa"
             onPress={() => setMapOpen((current) => !current)}
-            className="min-h-12 flex-1 flex-row items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-4"
-          >
-            <Ionicons name="map-outline" size={16} color="#CBD5E1" />
-            <Text className="font-sans-semibold text-xs text-slate-200">{mapOpen ? 'Cerrar mapa' : 'Marcar pin'}</Text>
-          </Pressable97>
+            className="flex-1"
+          />
         </View>
 
-        {note && <Text accessibilityLiveRegion="polite" className="mt-3 font-sans text-xs leading-5 text-amber-200">{note}</Text>}
+        {note && <Text accessibilityLiveRegion="polite" className="mt-3 font-archivo text-xs leading-5 text-ambar">{note}</Text>}
       </View>
 
       {mapOpen && (
-        <View className="border-y border-white/10">
+        <View className="border-y border-tinta">
           <PlacePinMap value={value.point} onChange={setPin} height={230} />
           <View style={{ pointerEvents: 'none' }} className="absolute bottom-3 left-3 right-3 items-center">
-            <View className="rounded-full border border-white/10 bg-black/75 px-4 py-2">
-              <Text className="font-sans-medium text-[11px] text-plata">
+            <View className="bg-tinta px-4 py-2">
+              <Text className="font-space text-[11px] text-papel">
                 {hasPlace ? 'Tocá otro lugar para corregir el pin' : 'Tocá el lugar del hecho o recurso'}
               </Text>
             </View>
@@ -170,19 +181,22 @@ export function GeoAttributionCard({
       )}
 
       <View className="p-5">
-        <Text className="font-sans-medium text-xs text-slate-300">
+        <Text className="font-archivo-bold text-xs text-tinta">
           {privateOnly ? 'Referencia local del lugar' : 'Referencia pública del lugar'}
         </Text>
         <TextInput
           value={value.locationLabel}
           onChangeText={(locationLabel) => onChange({ ...value, locationLabel })}
+          onFocus={() => setEnfocadoLugar(true)}
+          onBlur={() => setEnfocadoLugar(false)}
           maxLength={120}
           placeholder={coarseLabel ? 'Ej. Barrio La Favorita · Godoy Cruz' : 'Ej. Plaza San Martín · parada frente al hospital'}
-          placeholderTextColor="#64748B"
+          placeholderTextColor={TINTA_50}
           accessibilityLabel="Nombre o referencia del lugar"
-          className="mt-2 min-h-12 rounded-2xl border border-white/10 bg-black/20 px-4 font-sans text-sm text-plata"
+          className="mt-2 min-h-12 bg-papel-crudo px-4 font-archivo text-sm text-tinta"
+          style={estiloInput(enfocadoLugar)}
         />
-        <Text className="mt-2 font-sans text-[10px] leading-4 text-slate-500">
+        <Text className="mt-2 font-archivo text-[10px] leading-4 text-tinta-50">
           {privateOnly
             ? 'Esta referencia queda en el dispositivo. Usá un punto seguro de encuentro o un hito, nunca un domicilio ni el nombre de una persona.'
             : coarseLabel
@@ -190,15 +204,12 @@ export function GeoAttributionCard({
             : 'La red verá esta referencia: usá un hito público y nunca un domicilio particular ni el nombre de una persona.'}
         </Text>
         {requireLocation && (!hasPlace || !labelOk) && (
-          <View className="mt-3 flex-row items-center gap-2">
-            <Ionicons name="alert-circle-outline" size={15} color="#FCD34D" />
-            <Text className="flex-1 font-sans text-[11px] leading-5 text-amber-200">
-              Para que el dato pueda usarse, confirmá un pin y una referencia de al menos 3 caracteres.
-            </Text>
-          </View>
+          <Text className="mt-3 font-archivo text-[11px] leading-5 text-ambar">
+            Para que el dato pueda usarse, confirmá un pin y una referencia de al menos 3 caracteres.
+          </Text>
         )}
 
-        <Text className="mt-6 font-sans-medium text-xs text-slate-300">
+        <Text className="mt-6 font-archivo-bold text-xs text-tinta">
           {privateOnly ? 'Precisión preparada para una futura derivación' : 'Precisión que verá la red'}
         </Text>
         <View className="mt-3 flex-row flex-wrap gap-2">
@@ -211,16 +222,19 @@ export function GeoAttributionCard({
                 accessibilityLabel={`${item.label}, ${item.detail}`}
                 accessibilityState={{ selected }}
                 onPress={() => onChange({ ...value, sharedPrecision: item.key })}
-                className="min-h-12 rounded-2xl border px-4 py-2.5"
-                style={{ borderColor: selected ? `${accent}66` : '#FFFFFF18', backgroundColor: selected ? `${accent}18` : '#FFFFFF08' }}
+                className="min-h-12 bg-papel-crudo px-4 py-2.5"
+                style={{
+                  borderWidth: selected ? 2 : 1,
+                  borderColor: selected ? accent : TINTA,
+                }}
               >
-                <Text className="font-sans-semibold text-xs" style={{ color: selected ? accent : '#CBD5E1' }}>{item.label}</Text>
-                <Text className="mt-0.5 font-sans text-[9px] text-slate-500">{item.detail}</Text>
+                <Text className="font-archivo-bold text-xs text-tinta">{item.label}</Text>
+                <Text className="mt-0.5 font-space text-[9px] text-tinta-50">{item.detail}</Text>
               </Pressable97>
             );
           })}
         </View>
-        <Text className="mt-3 font-sans text-[11px] leading-5 text-slate-500">
+        <Text className="mt-3 font-archivo text-[11px] leading-5 text-tinta-50">
           {privateOnly
             ? 'Nada se publica ahora. El punto queda local y esta precisión limita lo que podría autorizarse más adelante.'
             : 'El punto exacto queda en este dispositivo. El mapa común recibe una proyección reducida según esta elección.'}
@@ -228,7 +242,7 @@ export function GeoAttributionCard({
 
         {showAttribution && (
           <>
-            <Text className="mt-7 font-sans-medium text-xs text-slate-300">¿Cómo querés firmarlo?</Text>
+            <Text className="mt-7 font-archivo-bold text-xs text-tinta">¿Cómo querés firmarlo?</Text>
             <View className="mt-3 gap-2">
               {ATTRIBUTIONS.map((item) => {
                 const selected = value.attributionMode === item.key;
@@ -243,15 +257,14 @@ export function GeoAttributionCard({
                       attributionMode: item.key,
                       attributionName: item.key === value.attributionMode ? value.attributionName : '',
                     })}
-                    className="min-h-16 flex-row items-center rounded-2xl border p-4"
-                    style={{ borderColor: selected ? `${accent}55` : '#FFFFFF14', backgroundColor: selected ? `${accent}12` : '#FFFFFF05' }}
+                    className="min-h-16 justify-center bg-papel-crudo p-4"
+                    style={{
+                      borderWidth: selected ? 2 : 1,
+                      borderColor: selected ? accent : TINTA,
+                    }}
                   >
-                    <Ionicons name={item.icon as never} size={19} color={selected ? accent : '#64748B'} />
-                    <View className="ml-3 flex-1">
-                      <Text className="font-sans-semibold text-xs" style={{ color: selected ? '#F5F7FA' : '#CBD5E1' }}>{item.label}</Text>
-                      <Text className="mt-1 font-sans text-[10px] leading-4 text-slate-500">{item.detail}</Text>
-                    </View>
-                    {selected && <Ionicons name="checkmark-circle" size={18} color={accent} />}
+                    <Text className="font-archivo-bold text-xs text-tinta">{item.label}</Text>
+                    <Text className="mt-1 font-archivo text-[10px] leading-4 text-tinta-50">{item.detail}</Text>
                   </Pressable97>
                 );
               })}
@@ -260,32 +273,35 @@ export function GeoAttributionCard({
               <TextInput
                 value={value.attributionName}
                 onChangeText={(attributionName) => onChange({ ...value, attributionName })}
+                onFocus={() => setEnfocadoFirma(true)}
+                onBlur={() => setEnfocadoFirma(false)}
                 maxLength={80}
                 placeholder={value.attributionMode === 'alias' ? 'Tu alias comunitario' : 'Nombre que querés mostrar'}
-                placeholderTextColor="#64748B"
+                placeholderTextColor={TINTA_50}
                 accessibilityLabel={value.attributionMode === 'alias' ? 'Alias visible' : 'Nombre visible'}
-                className="mt-3 min-h-12 rounded-2xl border border-white/10 bg-black/20 px-4 font-sans text-sm text-plata"
+                className="mt-3 min-h-12 bg-papel-crudo px-4 font-archivo text-sm text-tinta"
+                style={estiloInput(enfocadoFirma)}
               />
             )}
           </>
         )}
 
-        <View className="mt-7 rounded-2xl border border-emerald-300/15 bg-emerald-300/[0.06] p-4">
-          <Text className="font-sans text-[10px] uppercase tracking-[2px] text-emerald-300">
+        <View className="mt-7 border border-verde bg-papel-crudo p-4">
+          <Text className="font-space text-[10px] uppercase tracking-[2px] text-verde">
             {privateOnly ? 'Comprobante antes de guardar' : 'Recibo antes de publicar'}
           </Text>
           <View className="mt-3 gap-2">
-            <Text className="font-sans text-xs leading-5 text-slate-300">
+            <Text className="font-archivo text-xs leading-5 text-tinta-90">
               {privateOnly ? 'Referencia local' : 'Referencia pública'}: {hasPlace ? `${value.locationLabel.trim() || 'sin nombre'} · ${sourceLabel(value.locationSource)}` : 'sin confirmar'}
             </Text>
-            <Text className="font-sans text-xs leading-5 text-slate-300">Mapa: {sharedPrecisionLabel(value.sharedPrecision)}</Text>
-            <Text className="font-sans text-xs leading-5 text-slate-300">
+            <Text className="font-archivo text-xs leading-5 text-tinta-90">Mapa: {sharedPrecisionLabel(value.sharedPrecision)}</Text>
+            <Text className="font-archivo text-xs leading-5 text-tinta-90">
               Firma: {value.attributionMode === 'anonymous' ? 'sin firma visible' : value.attributionName.trim() || 'falta completar'}
             </Text>
           </View>
         </View>
       </View>
-    </GlassCard>
+    </PapelCard>
   );
 }
 
