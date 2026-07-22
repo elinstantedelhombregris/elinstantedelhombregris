@@ -13,7 +13,9 @@
 - All rules in `v2/CLAUDE.md` apply: pages ≤ 300 LOC (slice into `pages/Foo/sections/`), no `any`, no `console.*`, JWT in httpOnly cookies, `pnpm verify` green before every commit, Conventional Commits with scope.
 - `docs/design-system/README.md` is law for everything visual and verbal. After Phase 0 it is law *without exceptions* — if a page needs something the doc doesn't cover, the doc gets amended in the same PR.
 - Spanish rioplatense voseo in every user-facing string. `¡BASTA!` always with both signs. «Comillas angulares». Never "únete/registrate" — «sembrá», «soltá tu voz».
-- The 22 PLANes are **prueba, no doctrina**. Every invented metric carries `* datos de demostración`.
+- The 22 PLANes are **prueba, no doctrina**.
+- **No hardcoded data (user directive 2026-07-22):** every number shown anywhere on the platform comes from the API/DB. A metric whose backing table doesn't exist yet is NOT shown — no invented numbers, with or without asterisk; it appears when its feature ships (semillas → 2.5, círculos → Phase 5). The `* datos de demostración` mechanism is retired surface-by-surface as pages migrate. Purely rhetorical illustrations that claim no platform data (e.g. the 45-millones tally art) are exempt.
+- **All content ships (user directive 2026-07-22):** every blog post (22), every ensayo (~21), every course (30) gets a fully navigable papel surface — curation affects hub display only, never availability.
 - One conversation = one page (§11). Never touch header/footer/other pages while building a page.
 - v1 production DB (`sparkling-field-92271073`) is off-limits. Never import from `SocialJusticeHub/`.
 - Every new endpoint ships ≥ 1 integration test; every non-trivial component ≥ 1 component test.
@@ -285,6 +287,7 @@ dentro de documentos; cero íconos de trofeo.
 
 | # | Page | Route (canonical) | Specimen screen | Sections / notes |
 |---|---|---|---|---|
+| 2.0 | **Cifras reales (landing)** | `/` (already papel) | — | Real-data retrofit per the no-hardcoded-data directive: `GET /api/analytics/cifras` → `{ data: { voces, propuestas, senales, posts } }` (counts over approved dreams / proposals / pulseSignals / communityPosts, integration-tested) + `GET /api/analytics/voces-recientes?limit=N` → latest approved dreams `{ id, texto, categoria }`. CifrasStrip: voces (reuse `useVocesCount`), propuestas, señales, `PLAN_COUNT` — semillas/círculos demo numbers REMOVED (return in 2.5/Phase 5 as real). VocesTicker: real voces; loop what exists; empty state «Todavía no hay voces acá. Qué oportunidad.» (§10.9). Demo-data asterisk dies on the landing. |
 | 2.1 | **La idea** | `/la-idea` (redirects: `/la-vision`, `/el-instante-del-hombre-gris`) | LA IDEA caps I–III | Cap I el hombre gris (grayscale→color, absorbs ElInstante content) · Cap II el método (diseña/administra/ejecuta) · Cap III sin líder. Merges two v1 pages into one journey — fixes the v1 fragmentation. |
 | 2.2 | **El mapa** | `/el-mapa` | EL MAPA | **New build** (D3: SVG provinces, no map lib): mapa + pulse-dot voces · panel «Soltá tu voz» (6 type-chips + textarea + submit → sello RECIBIDA + `despertar()`) · popover voz seleccionada · feed «últimas voces». Wire to dreams/pulso API. Primary conversion of the whole site. |
 | 2.3 | **El mandato** | `/mandato-vivo` (+ `/pulso/:id`, `/propuesta/:id` as document sub-views) | EL MANDATO | Página oscura + documento papel: preámbulo · diagnóstico rankeado (% grande) · recursos · brechas críticas con tags de urgencia · sello EJEMPLO. Uses §13 barras. Absorbs the "convergencia" story so it's told once, here — not three times as in v1. |
@@ -296,10 +299,10 @@ dentro de documentos; cero íconos de trofeo.
 | # | Page | Route | Specimen | Sections / notes |
 |---|---|---|---|---|
 | 3.1 | **La biblioteca** | `/biblioteca` | LA BIBLIOTECA | Manifiesto destacado · 3 ciclos de ensayos · 6 entrenamientos curados (D4) + «ver los 30 →» · bitácora · CTA. Replaces v1's "Recursos" concept. |
-| 3.2 | **Lector ensayo** | `/ensayos/:slug` (index folds into biblioteca; `/ensayos` redirects) | LECTOR: ENSAYO | Reader shell 760–860px · prev/next · end-CTA · print edition (D1). Text verbatim. |
+| 3.2 | **Lector ensayo** | `/ensayos/:slug` (index folds into biblioteca; `/ensayos` redirects) | LECTOR: ENSAYO | Reader shell 760–860px · prev/next · end-CTA · print edition (D1). Text verbatim. **ALL ~21 ensayos navigable** (parity closed by 3.7). |
 | 3.3 | **Lector manifiesto** | `/manifiesto` | EL MANIFIESTO | The v1 wall-of-text becomes the flagship lector: 8 sections with document rhythm, sello LEÍDO ENTERO at true end, print edition. Text verbatim. |
-| 3.4 | **Bitácora** | `/bitacora` + `/bitacora/:slug` (redirects from `/blog/*`; `BlogAuthor` tool stays app-side) | LECTOR: CRÓNICA | Index as filas de índice + crónica reader. |
-| 3.5 | **Entrenamientos** | `/entrenamientos`, `/:slug`, `/:slug/leccion/:n`, `/:slug/practica` | LECTOR: ENTRENAMIENTO | **NEW CONSTRUCTION**: API feature slice `courses` (schema + repos already exist in `packages/db` — build routes/service/validation + integration tests), catálogo, course landing, lección reader with «Lecciones» list, quiz. 391 MDX files ship dark today with zero surface. |
+| 3.4 | **Bitácora** | `/bitacora` + `/bitacora/:slug` (redirects from `/blog/*`; `BlogAuthor` tool stays app-side) | LECTOR: CRÓNICA | Index as filas de índice + crónica reader. **ALL 22 posts navigable**; live counts (likes/views) from the blog API, never hardcoded. |
+| 3.5 | **Entrenamientos** | `/entrenamientos`, `/:slug`, `/:slug/leccion/:n`, `/:slug/practica` | LECTOR: ENTRENAMIENTO | **NEW CONSTRUCTION**: API feature slice `courses` (schema + repos already exist in `packages/db` — build routes/service/validation + integration tests), catálogo, course landing, lección reader with «Lecciones» list, quiz. 391 MDX files ship dark today with zero surface. **ALL 30 courses fully navigable** (D4 curates the biblioteca hub display only); progress/certificates from `userCourseProgress`/`courseCertificates`, real data. |
 | 3.6 | **La crónica del país que viene** | `/cronica` | LECTOR: CRÓNICA | v1's Una Ruta novela (5 chapters) becomes a proper lector — fixes the four-paradigms-on-one-URL failure. `UnaRutaParaArgentina` route redirects to `/la-idea` (or `/planes`, decided in the 2.1 spec); el Arquitecto becomes `/arquitecto` app tool (Phase 5). |
 | 3.7 | **Content parity close** | — | — | Blog 20→22, ensayos 14→21 migrated to MDX (D6); dropped items listed for approval. Registries + counts verified by test. |
 
