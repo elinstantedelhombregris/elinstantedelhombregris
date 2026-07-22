@@ -3,6 +3,7 @@ import { Link, useLocation } from 'wouter';
 
 import { DEMO_VOCES_COUNT, PAPEL_NAV, PAPEL_NAV_ALL, SEMBRAR_HREF } from './papel-nav';
 
+import { despertar } from '~/lib/despertar';
 import { cn } from '~/lib/utils';
 
 function esActiva(location: string, href: string): boolean {
@@ -58,6 +59,7 @@ export function PapelHeader() {
             <Link
               href={SEMBRAR_HREF}
               className="bg-tinta font-space text-papel hover:bg-violeta ml-3.5 px-5 py-[11px] text-xs font-bold uppercase tracking-[0.08em] transition-colors"
+              onClick={despertar}
             >
               Sembrar tu voz
             </Link>

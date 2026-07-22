@@ -1,7 +1,7 @@
 import { Link } from 'wouter';
 
 import { BotonPapel, Sello } from '~/components/papel/primitives';
-import { useDespierto } from '~/lib/despertar';
+import { despertar, useDespierto } from '~/lib/despertar';
 
 /** Letras del rito de la tinta: se entintan una por una (firma award §10.1). */
 const LETRAS: readonly { char: string; delay: string }[] = [
@@ -64,7 +64,10 @@ export function HeroBasta() {
           style={{ animationDelay: '1.3s' }}
         >
           <BotonPapel asChild variant="violeta">
-            <Link href="/el-mapa">Dejar mi voz en el mapa</Link>
+            {/* Trigger canónico del despertar §10.7: primera acción real del usuario. */}
+            <Link href="/el-mapa" onClick={despertar}>
+              Dejar mi voz en el mapa
+            </Link>
           </BotonPapel>
           <BotonPapel asChild variant="fantasma">
             <Link href="/la-vision">Entender la idea</Link>
