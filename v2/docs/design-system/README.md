@@ -60,8 +60,8 @@ Anton (display) · Archivo (texto, 300–800 + itálica) · Space Mono (400/700)
 - Ritmo de sección: kicker mono → título Anton → cuerpo acotado (max-width 560–720px) → CTA. Secciones numeradas `§ 01 —` cuando son capítulos de una misma página.
 - Siempre flex/grid con `gap`; nunca espaciar con márgenes sueltos entre hermanos.
 - Escala de espaciado (px): 4 · 8 · 12 · 16 · 20 · 24 · 32 · 40 · 56 · 80 · 120. Ritmo entre secciones 80–120; padding de card 24 (móvil) / 32; juntas de grilla 1px.
-- Breakpoints canónicos: móvil <560 · tablet 560–960 · desktop 960–1140 · ancho >1140. En Tailwind: max-[560px], min-[561px], min-[961px], min-[1141px]. No inventar otros.
-- Z-index: contenido 0 · header 40 · menú móvil 45 · popover/modal 50 · velo despertar 60 · grano 70 (siempre arriba, pointer-events:none).
+- Breakpoints canónicos: móvil <560 · tablet 560–960 · desktop 960–1140 · ancho >1140. En Tailwind: max-[560px], min-[561px], min-[961px], min-[1141px]. No inventar otros. Las formas complementarias max-[960px]/max-[1140px] son válidas.
+- Z-index: contenido 0 · menú móvil 40 · header 50 · popover/modal 60 · velo despertar 99 · grano 100 (siempre arriba, pointer-events:none).
 
 ## 5. Componentes (recetas inline — copiar literal)
 
@@ -73,14 +73,14 @@ Botón primario (violeta)
 Variantes: tinta (`background:#16130E`, hover violeta) · fantasma (`background:transparent;border:1px solid #16130E`, hover invierte). En oscuro, hover a `#F2EFE7`/tinta.
 
 Sello (stamp)
-`<span style="display:inline-block;transform:rotate(-4deg);border:2px solid #C23B22;color:#C23B22;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;padding:8px 12px;">No es doctrina</span>`
+`<span style="display:inline-block;transform:rotate(-4deg);border:3px solid #C23B22;color:#C23B22;font-family:'Space Mono',monospace;font-size:13px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;padding:10px 16px;">No es doctrina</span>`
 Rotación −8° a +6°. Entra con `animation:stampin .4s ease both`.
 
 Tag/chip de tipo
 `<span style="padding:9px 14px;border:1px solid #16130E;background:transparent;color:#16130E;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;">etiqueta</span>` — activo: fondo del color semántico + texto papel.
 
 Fila de índice (listas de planes/ensayos)
-`<a style="display:grid;grid-template-columns:56px 1fr 40px;gap:20px;align-items:baseline;padding:16px 8px;cursor:pointer;color:#16130E;border-bottom:1px solid #D8D4C8;transition:background .15s;" style-hover="background:#ECE8DC;">…numeración mono #B5B1A8 · título · +/−…</a>`
+`<a style="display:grid;grid-template-columns:56px 1fr 40px;gap:20px;align-items:baseline;padding:16px 8px;cursor:pointer;color:#16130E;border-bottom:1px solid #D8D4C8;transition:background .15s;" style-hover="background:#ECE8DC;">…numeración mono #B5B1A8 · título · +/−…</a>` (flecha → por defecto; +/− es la variante expandible, spec en fase 2.4)
 
 Papel sobre oscuro (documentos)
 `<div style="background:#F2EFE7;color:#16130E;padding:52px 56px;position:relative;box-shadow:0 24px 60px rgba(0,0,0,0.45);">…</div>` + sello EJEMPLO rotado arriba a la derecha.
