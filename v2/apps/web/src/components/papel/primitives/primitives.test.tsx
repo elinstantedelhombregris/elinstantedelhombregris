@@ -3,7 +3,16 @@ import { describe, expect, it, vi } from 'vitest';
 
 import { RitoTinta } from './RitoTinta';
 
-import { BandaCta, BotonPapel, ChipTipo, FilaIndice, Kicker, NotaDemo, Sello } from './index';
+import {
+  BandaCta,
+  BotonPapel,
+  ChipTipo,
+  FilaIndice,
+  FilaIndiceExpandible,
+  Kicker,
+  NotaDemo,
+  Sello,
+} from './index';
 
 describe('Kicker', () => {
   it('renders the mono uppercase kicker with the violeta accent by default', () => {
@@ -112,6 +121,80 @@ describe('FilaIndice', () => {
     expect(link).toHaveAttribute('href', '/planes/plandem');
     expect(screen.getByText('01')).toBeInTheDocument();
     expect(link.className).toMatch(/grid-cols-\[56px_1fr_40px\]/);
+  });
+});
+
+describe('FilaIndiceExpandible', () => {
+  it('cerrada: renderiza un button con aria-expanded=false, aria-controls, glifo + y sin panel en el DOM', () => {
+    render(
+      <FilaIndiceExpandible
+        num="01"
+        encabezado="PLANSAL"
+        abierta={false}
+        onToggle={vi.fn()}
+        idPanel="panel-plansal"
+      >
+        Contenido del pliegue
+      </FilaIndiceExpandible>,
+    );
+    const btn = screen.getByRole('button');
+    expect(btn).toHaveAttribute('aria-expanded', 'false');
+    expect(btn).toHaveAttribute('aria-controls', 'panel-plansal');
+    expect(screen.getByText('+')).toBeInTheDocument();
+    expect(screen.queryByText('Contenido del pliegue')).not.toBeInTheDocument();
+  });
+
+  it('abierta: aria-expanded=true, glifo − violeta, panel con id + anim-fadeup y children visibles', () => {
+    render(
+      <FilaIndiceExpandible
+        num="01"
+        encabezado="PLANSAL"
+        abierta
+        onToggle={vi.fn()}
+        idPanel="panel-plansal"
+      >
+        Contenido del pliegue
+      </FilaIndiceExpandible>,
+    );
+    const btn = screen.getByRole('button');
+    expect(btn).toHaveAttribute('aria-expanded', 'true');
+    const glifo = screen.getByText('−');
+    expect(glifo.className).toMatch(/text-violeta/);
+    const panel = screen.getByText('Contenido del pliegue').closest('#panel-plansal');
+    expect(panel).not.toBeNull();
+    expect(panel?.className).toMatch(/anim-fadeup/);
+  });
+
+  it('interacción: click en el botón llama onToggle una vez', () => {
+    const handleToggle = vi.fn();
+    render(
+      <FilaIndiceExpandible
+        num="01"
+        encabezado="PLANSAL"
+        abierta={false}
+        onToggle={handleToggle}
+        idPanel="panel-plansal"
+      >
+        Contenido del pliegue
+      </FilaIndiceExpandible>,
+    );
+    fireEvent.click(screen.getByRole('button'));
+    expect(handleToggle).toHaveBeenCalledOnce();
+  });
+
+  it('el glifo es aria-hidden — el estado lo anuncia aria-expanded', () => {
+    render(
+      <FilaIndiceExpandible
+        num="01"
+        encabezado="PLANSAL"
+        abierta={false}
+        onToggle={vi.fn()}
+        idPanel="panel-plansal"
+      >
+        Contenido del pliegue
+      </FilaIndiceExpandible>,
+    );
+    expect(screen.getByText('+')).toHaveAttribute('aria-hidden');
   });
 });
 

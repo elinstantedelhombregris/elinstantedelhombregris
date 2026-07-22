@@ -80,7 +80,15 @@ Tag/chip de tipo
 `<span style="padding:9px 14px;border:1px solid #16130E;background:transparent;color:#16130E;font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;">etiqueta</span>` — activo: fondo del color semántico + texto papel.
 
 Fila de índice (listas de planes/ensayos)
-`<a style="display:grid;grid-template-columns:56px 1fr 40px;gap:20px;align-items:baseline;padding:16px 8px;cursor:pointer;color:#16130E;border-bottom:1px solid #D8D4C8;transition:background .15s;" style-hover="background:#ECE8DC;">…numeración mono #B5B1A8 · título · +/−…</a>` (flecha → por defecto; +/− es la variante expandible, spec en fase 2.4)
+`<a style="display:grid;grid-template-columns:56px 1fr 40px;gap:20px;align-items:baseline;padding:16px 8px;cursor:pointer;color:#16130E;border-bottom:1px solid #D8D4C8;transition:background .15s;" style-hover="background:#ECE8DC;">…numeración mono #B5B1A8 · título · +/−…</a>` (flecha → por defecto)
+
+Variante expandible (`FilaIndiceExpandible`): la fila es un `<button>` de ancho
+completo con `aria-expanded`/`aria-controls`; el glifo final alterna `+`
+(cerrada, tinta-50) / `−` (abierta, violeta), `aria-hidden`; el panel se abre
+debajo con `fadeup` .3s, sangrado a la columna del título, y muestra la tesis de
+una línea + «Leer el documento →». Una sola fila abierta por lista; abrir otra
+cierra la anterior. El borde inferior vive en el contenedor (fila + panel
+comparten la junta).
 
 Papel sobre oscuro (documentos)
 `<div style="background:#F2EFE7;color:#16130E;padding:52px 56px;position:relative;box-shadow:0 24px 60px rgba(0,0,0,0.45);">…</div>` + sello EJEMPLO rotado arriba a la derecha.
