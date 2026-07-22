@@ -14,13 +14,17 @@ import Animated from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { actorKeyCacheado } from '@/civic/actor-cache';
+import { BarraLuminosa } from '@/components/juego/BarraLuminosa';
 import { AccentButton } from '@/components/ui/AccentButton';
 import { GlassCard } from '@/components/ui/GlassCard';
 import { PanelHeader } from '@/components/ui/PanelHeader';
 import { Pressable97 } from '@/components/ui/Pressable97';
+import { PLANTILLAS_EXPEDICION, SENAL_POR_KEY } from '@/content';
 import { oficioPorId } from '@/content/oficios';
-import { ahoraISO } from '@/db/repos';
+import { ahoraISO, entradasDeExpedicion, expedicionPorId } from '@/db/repos';
 import { misionPorId, registrarLatido, sumarseAMision, transicionar } from '@/db/repos-protocolo';
+import type { ExpeditionRow } from '@/db/schema';
+import { progresoExpedicion } from '@/game/expediciones';
 import { fadeUp } from '@/motion/variants';
 import { latidoVencido } from '@/protocolo/pulsos';
 import type { EstadoMision, Gobernanza, TipoMision } from '@/protocolo/tipos';
@@ -67,12 +71,23 @@ export default function MisionDetalle() {
   const id = Array.isArray(idParam) ? idParam[0] : idParam;
 
   const [datos, setDatos] = useState(() => (id ? misionPorId(id) : null));
+  const expeditionIdInicial = datos?.mision.expeditionId ?? null;
+  const [exp, setExp] = useState<ExpeditionRow | null>(() =>
+    expeditionIdInicial ? expedicionPorId(expeditionIdInicial) : null,
+  );
+  const [capturas, setCapturas] = useState(() =>
+    expeditionIdInicial ? entradasDeExpedicion(expeditionIdInicial).length : 0,
+  );
   const [ocupado, setOcupado] = useState(false);
   const [nota, setNota] = useState<string | null>(null);
   const [confirmarAbandono, setConfirmarAbandono] = useState(false);
 
   const recargar = useCallback(() => {
-    setDatos(id ? misionPorId(id) : null);
+    const d = id ? misionPorId(id) : null;
+    setDatos(d);
+    const expeditionId = d?.mision.expeditionId ?? null;
+    setExp(expeditionId ? expedicionPorId(expeditionId) : null);
+    setCapturas(expeditionId ? entradasDeExpedicion(expeditionId).length : 0);
   }, [id]);
 
   useFocusEffect(
@@ -106,6 +121,19 @@ export default function MisionDetalle() {
   // a una nota neutra en vez de tirar la pantalla abajo.
   const estadoMeta = ESTADO_META[mision.estado as EstadoMision]
     ?? { label: mision.estado, color: '#64748B' };
+
+  // Expedición vinculada (si esta misión de relevamiento fue fundada con
+  // plantilla, o se re-vinculó después). `exp` puede ser null aunque
+  // `mision.expeditionId` exista (p. ej. la expedición se borró): se
+  // degrada a no mostrar la card, nunca a un crash.
+  const plantillaExp = exp
+    ? PLANTILLAS_EXPEDICION.find((p) => p.id === exp.plantillaId)
+    : undefined;
+  const colorExp = plantillaExp ? SENAL_POR_KEY[plantillaExp.senal].color : '#94a3b8';
+  const progreso = exp ? progresoExpedicion(capturas, exp.meta) : null;
+  const expedicionVinculadaVisible =
+    Boolean(mision.expeditionId) && exp !== null
+    && (mision.estado === 'activa' || mision.estado === 'verificacion');
 
   const irA = (hacia: EstadoMision, alExito?: () => void) => {
     if (ocupado) return;
@@ -258,6 +286,50 @@ export default function MisionDetalle() {
           })}
         </View>
 
+        {expedicionVinculadaVisible && exp && (
+          <GlassCard className="mt-8 p-5">
+            <View className="flex-row items-center justify-between">
+              <View className="flex-1 flex-row items-center gap-2 pr-3">
+                {plantillaExp && (
+                  <Ionicons
+                    name={SENAL_POR_KEY[plantillaExp.senal].icon as never}
+                    size={15}
+                    color={colorExp}
+                  />
+                )}
+                <Text className="flex-1 font-sans-semibold text-sm text-plata">
+                  Expedición vinculada
+                </Text>
+              </View>
+              <Text className="font-mono text-xs text-slate-400">
+                {capturas} de {exp.meta}
+              </Text>
+            </View>
+            <Text className="mt-1 font-sans text-[11px] text-slate-500">{exp.titulo}</Text>
+            <View className="mt-3">
+              <BarraLuminosa
+                porcentaje={progreso?.porcentaje ?? 0}
+                color={colorExp}
+                hitosOtorgados={JSON.parse(exp.hitosOtorgados) as number[]}
+              />
+            </View>
+            <Pressable97
+              accessibilityRole="button"
+              accessibilityLabel="Capturar para la expedición vinculada"
+              onPress={() =>
+                router.push({ pathname: '/expediciones/[id]', params: { id: exp.id } } as never)
+              }
+              className="mt-4 min-h-11 flex-row items-center justify-center gap-2 self-start rounded-full border px-4 py-2.5"
+              style={{ borderColor: `${colorExp}55`, backgroundColor: `${colorExp}14` }}
+            >
+              <Ionicons name="camera-outline" size={14} color={colorExp} />
+              <Text className="font-sans-medium text-xs" style={{ color: colorExp }}>
+                Capturar
+              </Text>
+            </Pressable97>
+          </GlassCard>
+        )}
+
         {mision.estado === 'propuesta' && (
           <View className="mt-8 gap-3">
             <AccentButton
@@ -295,6 +367,14 @@ export default function MisionDetalle() {
 
         {mision.estado === 'activa' && (
           <View className="mt-8 gap-3">
+            {exp && progreso && progreso.estado !== 'completa' && (
+              <View className="flex-row items-start gap-2 rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
+                <Ionicons name="information-circle-outline" size={15} color="#94a3b8" />
+                <Text className="flex-1 font-sans text-xs leading-5 text-slate-400">
+                  La expedición va {capturas} de {exp.meta} — podés presentar igual.
+                </Text>
+              </View>
+            )}
             <AccentButton
               label={ocupado ? 'Presentando…' : 'Presentar resultado'}
               onPress={() => irA('verificacion')}

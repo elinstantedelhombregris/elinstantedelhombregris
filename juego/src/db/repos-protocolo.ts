@@ -16,8 +16,8 @@ import type { EstadoMision, Gobernanza, TipoMision } from '@/protocolo/tipos';
 import { db } from './client';
 import { ahoraISO, fundarExpedicion, hoyLocal, nuevoId, type NuevaExpedicion } from './repos';
 import {
-  pvMisionMiembros, pvMisiones, pvObras, pvPulsos,
-  type PvMiembroRow, type PvMisionRow, type PvObraRow,
+  expeditions, pvMisionMiembros, pvMisiones, pvObras, pvPulsos,
+  type ExpeditionRow, type PvMiembroRow, type PvMisionRow, type PvObraRow,
 } from './schema';
 
 export const fundarMision = (input: {
@@ -60,13 +60,26 @@ export const fundarMision = (input: {
   // captura y la misión sobrevive sin expedición: estamos local y
   // single-user, así que una misión de relevamiento sin expedición sigue
   // siendo una misión válida, sólo pierde el mini-juego de progreso.
+  // Sub-caso expedición huérfana: si fundarExpedicion SÍ crea la fila pero
+  // vincularExpedicion explota después, esa expedición queda sin misión
+  // dueña. No es un dato corrupto — sigue siendo una expedición jugable
+  // sola —, pero intentamos un borrado best-effort para no dejarla dando
+  // vueltas en el panel de Expediciones sin motivo; si ni el borrado anda,
+  // tampoco pasa nada grave, sólo queda huérfana.
   if (input.plantilla && input.tipo === 'relevamiento') {
+    let expedicion: ExpeditionRow | null = null;
     try {
-      const expedicion = fundarExpedicion({ ...input.plantilla, origen: 'precargada' });
+      expedicion = fundarExpedicion({ ...input.plantilla, origen: 'precargada' });
       vincularExpedicion(row.id, expedicion.id);
       row.expeditionId = expedicion.id;
     } catch {
-      // Silencioso a propósito — ver comentario de arriba.
+      if (expedicion) {
+        try {
+          db.delete(expeditions).where(eq(expeditions.id, expedicion.id)).run();
+        } catch {
+          // best-effort: si el borrado también falla, queda huérfana.
+        }
+      }
     }
   }
   return row;

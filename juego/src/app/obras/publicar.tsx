@@ -29,6 +29,7 @@ import { PanelHeader } from '@/components/ui/PanelHeader';
 import { Pressable97 } from '@/components/ui/Pressable97';
 import { SectionBadge } from '@/components/ui/SectionBadge';
 import { OFICIOS, oficioPorId, type OficioId } from '@/content/oficios';
+import { entradasDeExpedicion, expedicionPorId } from '@/db/repos';
 import { misionPorId, publicarObra } from '@/db/repos-protocolo';
 import { fadeUp } from '@/motion/variants';
 import { haptic } from '@/theme/haptics';
@@ -44,7 +45,15 @@ export default function PublicarObra() {
   const oficioHeredado = mision ? oficioPorId(mision.oficioId) : null;
 
   const [titulo, setTitulo] = useState('');
-  const [resumen, setResumen] = useState('');
+  // Prefill del resumen desde la expedición vinculada — solo una vez, al
+  // montar: se calcula en el inicializador perezoso, así que jamás vuelve
+  // a pisar lo que la persona ya haya tipeado.
+  const [resumen, setResumen] = useState(() => {
+    const expedicion = mision?.expeditionId ? expedicionPorId(mision.expeditionId) : null;
+    if (!expedicion) return '';
+    const capturas = entradasDeExpedicion(expedicion.id).length;
+    return `Expedición «${expedicion.titulo}»: ${capturas} de ${expedicion.meta} capturas en ${expedicion.zona}.`;
+  });
   const [oficioId, setOficioId] = useState<OficioId | null>(
     oficioHeredado ? oficioHeredado.id : null,
   );

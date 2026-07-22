@@ -14,6 +14,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { AccentButton } from '@/components/ui/AccentButton';
 import { PanelHeader } from '@/components/ui/PanelHeader';
 import { Pressable97 } from '@/components/ui/Pressable97';
+import { PLANTILLAS_EXPEDICION, SENAL_POR_KEY } from '@/content';
 import { OFICIOS, type OficioId } from '@/content/oficios';
 import { fundarMision } from '@/db/repos-protocolo';
 import { fadeUp } from '@/motion/variants';
@@ -67,10 +68,12 @@ export default function FundarMision() {
   const [tipo, setTipo] = useState<TipoMision>('relevamiento');
   const [oficioId, setOficioId] = useState<OficioId | null>(null);
   const [gobernanza, setGobernanza] = useState<Gobernanza>('coordinada');
+  const [plantillaId, setPlantillaId] = useState<string | null>(null);
   const [fundando, setFundando] = useState(false);
   const [nota, setNota] = useState<string | null>(null);
 
   const lista = titulo.trim().length > 0 && proposito.trim().length > 0 && oficioId !== null;
+  const plantillaSeleccionada = PLANTILLAS_EXPEDICION.find((p) => p.id === plantillaId) ?? null;
 
   const fundar = () => {
     if (!lista || !oficioId || fundando) return;
@@ -83,6 +86,17 @@ export default function FundarMision() {
         tipo,
         oficioId,
         gobernanza,
+        plantilla:
+          tipo === 'relevamiento' && plantillaSeleccionada
+            ? {
+                plantillaId: plantillaSeleccionada.id,
+                titulo: plantillaSeleccionada.titulo,
+                // Este form no pide territorio todavía: cae al mismo default
+                // ('Mi barrio') que usa Expediciones al fundar una precargada.
+                zona: 'Mi barrio',
+                meta: plantillaSeleccionada.metaSugerida,
+              }
+            : undefined,
       });
       haptic.celebrate();
       router.replace({ pathname: '/misiones/[id]', params: { id: row.id } } as never);
@@ -163,6 +177,58 @@ export default function FundarMision() {
                 );
               })}
             </View>
+
+            {/* 3b — plantilla de expedición (solo relevamiento, opcional) */}
+            {tipo === 'relevamiento' && (
+              <>
+                <Text className="mt-7 font-sans text-[11px] uppercase tracking-[3px] text-slate-400">
+                  Arrancar desde una plantilla (opcional)
+                </Text>
+                <View className="mt-3 flex-row flex-wrap gap-2">
+                  {PLANTILLAS_EXPEDICION.map((p) => {
+                    const senal = SENAL_POR_KEY[p.senal];
+                    const activo = plantillaId === p.id;
+                    return (
+                      <Pressable97
+                        key={p.id}
+                        accessibilityRole="button"
+                        accessibilityLabel={`${p.titulo}, meta ${p.metaSugerida} capturas`}
+                        accessibilityState={{ selected: activo }}
+                        onPress={() => setPlantillaId(activo ? null : p.id)}
+                        className="min-h-11 flex-row items-center gap-2 rounded-full border px-3.5 py-2.5"
+                        style={{
+                          borderColor: activo ? `${senal.color}66` : 'rgba(255,255,255,0.1)',
+                          backgroundColor: activo ? `${senal.color}1c` : 'rgba(255,255,255,0.05)',
+                        }}
+                      >
+                        <Ionicons
+                          name={senal.icon as never}
+                          size={14}
+                          color={activo ? senal.color : '#64748b'}
+                        />
+                        <Text
+                          className="font-sans-medium text-xs"
+                          style={{ color: activo ? senal.color : '#94a3b8' }}
+                        >
+                          {p.titulo}
+                        </Text>
+                        <Text
+                          className="font-mono text-[10px]"
+                          style={{ color: activo ? senal.color : '#475569' }}
+                        >
+                          meta {p.metaSugerida}
+                        </Text>
+                      </Pressable97>
+                    );
+                  })}
+                </View>
+                {plantillaSeleccionada && (
+                  <Text className="mt-2 font-sans text-[11px] leading-5 text-slate-500">
+                    {plantillaSeleccionada.descripcion}
+                  </Text>
+                )}
+              </>
+            )}
 
             {/* 4 — oficio */}
             <Text className="mt-7 font-sans text-[11px] uppercase tracking-[3px] text-slate-400">
