@@ -328,7 +328,7 @@ One spec first (5.0) applying §14 to the whole app surface: gamificación con s
 - [ ] **7.1:** `PAPEL_ROUTES` covers every route → replace the set with "always papel", delete the branch in `RootLayout.tsx`.
 - [ ] **7.2:** Delete v1 chrome: `components/Header.tsx`, `Footer.tsx`; delete `.glass`, `.gradient-text`, dark `:root` block in `index.css:6-43`; make `body` `bg-papel`.
 - [ ] **7.3:** Delete legacy tokens/fonts: `iris-violet #7D5BDE`, `mist-white`, `slate-ink` from `tailwind.config.ts:50-53`; Inter/Playfair/JetBrains from `tailwind.config.ts:73-76` + `index.html:17`.
-- [ ] **7.4:** Grep gate (must all return zero): `grep -rn "bg-\[#0a0a0a\]\|glass\|iris-violet\|Playfair" apps/web/src` · `grep -rn "#[0-9A-Fa-f]\{6\}" apps/web/src/pages --include="*.tsx"` (no literal hex in TSX). `pnpm verify` + full Playwright pass. **Commit** — `feat(web)!: papel y tinta everywhere — v1 chrome deleted`
+- [ ] **7.4:** Grep gate (must all return zero): `grep -rn "bg-\[#0a0a0a\]\|glass\|iris-violet\|Playfair" apps/web/src` · `grep -rn "#[0-9A-Fa-f]\{6\}" apps/web/src --include="*.tsx"` (no literal hex in TSX). `pnpm verify` + full Playwright pass. **Commit** — `feat(web)!: papel y tinta everywhere — v1 chrome deleted`
 
 ## Phase 8 — Ship hardening
 
