@@ -5,12 +5,15 @@
  * produjo. Si es libre, se elige de la grilla de oficios. La evidencia
  * (una foto) es opcional y jamás retrata a nadie: registra el hecho, no a
  * las personas.
+ *
+ * Registro papel del sistema Papel y Tinta (spec §8): al publicar, un
+ * sello PUBLICADA cae antes de volver a La Corriente (spec §5).
  */
 
 import { Ionicons } from '@expo/vector-icons';
 import { CameraView, useCameraPermissions } from 'expo-camera';
 import { useLocalSearchParams, useRouter } from 'expo-router';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
   Image,
   KeyboardAvoidingView,
@@ -23,16 +26,28 @@ import {
 import Animated from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { AccentButton } from '@/components/ui/AccentButton';
-import { GlassCard } from '@/components/ui/GlassCard';
-import { PanelHeader } from '@/components/ui/PanelHeader';
+import { BotonTinta, ChipTipo, GranoPapel, Kicker, PapelCard, Sello, TituloAnton } from '@/components/papel';
 import { Pressable97 } from '@/components/ui/Pressable97';
-import { SectionBadge } from '@/components/ui/SectionBadge';
 import { OFICIOS, oficioPorId, type OficioId } from '@/content/oficios';
 import { entradasDeExpedicion, expedicionPorId } from '@/db/repos';
 import { misionPorId, publicarObra } from '@/db/repos-protocolo';
 import { fadeUp } from '@/motion/variants';
 import { haptic } from '@/theme/haptics';
+import { PAPEL, TINTA, TINTA_50, VIOLETA } from '@/theme/tokens';
+
+/** El sello «PUBLICADA» queda a la vista antes de volver a La Corriente
+ * (spec §5): ni instantáneo, ni una espera larga. */
+const DEMORA_SELLO_MS = 900;
+
+/** Foco visible: borde violeta 2px (spec §3.5/§10) — nada de halo aparte. */
+const estiloInput = (enfocado: boolean): object => ({
+  borderWidth: enfocado ? 2 : 1,
+  borderColor: enfocado ? VIOLETA : TINTA,
+  outlineColor: VIOLETA,
+  outlineStyle: 'solid' as const,
+  outlineWidth: enfocado ? 2 : 0,
+  outlineOffset: 2,
+});
 
 export default function PublicarObra() {
   const router = useRouter();
@@ -64,6 +79,18 @@ export default function PublicarObra() {
   const camaraRef = useRef<CameraView>(null);
   const [publicando, setPublicando] = useState(false);
   const [nota, setNota] = useState<string | null>(null);
+  const [enfocadoTitulo, setEnfocadoTitulo] = useState(false);
+  const [enfocadoResumen, setEnfocadoResumen] = useState(false);
+  const [enfocadoTerritorio, setEnfocadoTerritorio] = useState(false);
+  const [selloPublicada, setSelloPublicada] = useState(false);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(
+    () => () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    },
+    [],
+  );
 
   const lista = titulo.trim().length > 0 && oficioId !== null;
 
@@ -93,6 +120,8 @@ export default function PublicarObra() {
     }
   };
 
+  // El sello PUBLICADA de Sello.tsx dispara su propio haptic.celebrate() al
+  // montar — no hace falta llamarlo acá también.
   const publicar = () => {
     if (!lista || !oficioId || publicando) return;
     setPublicando(true);
@@ -106,171 +135,167 @@ export default function PublicarObra() {
         evidenciaUri: evidenciaUri ?? undefined,
         territorio: territorio.trim() || undefined,
       });
-      haptic.celebrate();
-      router.replace('/corriente' as never);
+      setSelloPublicada(true);
+      timeoutRef.current = setTimeout(() => {
+        router.replace('/corriente' as never);
+      }, DEMORA_SELLO_MS);
     } catch {
       setNota('No pudimos publicarla ahora mismo. Probá de nuevo en un toque.');
       setPublicando(false);
     }
   };
 
+  const volver = () => (router.canGoBack() ? router.back() : router.replace('/'));
+
   return (
-    <View className="flex-1 bg-fondo">
-      <PanelHeader title="Publicar la obra" />
+    <View className="flex-1 bg-papel">
+      <GranoPapel />
+      <View className="px-5" style={{ paddingTop: insets.top + 12, paddingBottom: 12 }}>
+        <Pressable97
+          accessibilityRole="button"
+          accessibilityLabel="Volver"
+          onPress={volver}
+          className="-ml-2 min-h-11 min-w-11 items-center justify-center self-start"
+        >
+          <Text className="font-space text-2xl text-tinta">←</Text>
+        </Pressable97>
+        <View className="mt-2">
+          <Kicker>la obra es la prueba</Kicker>
+          <TituloAnton entintar tamano="lg" className="mt-1">
+            Publicar la obra
+          </TituloAnton>
+        </View>
+      </View>
       <KeyboardAvoidingView className="flex-1" behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
         <ScrollView
           keyboardShouldPersistTaps="handled"
           contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: insets.bottom + 32 }}
         >
           <Animated.View entering={fadeUp}>
-            <SectionBadge>{mision ? 'Misión resuelta' : 'Obra libre'}</SectionBadge>
+            <ChipTipo etiqueta={mision ? 'Misión resuelta' : 'Obra libre'} activo={Boolean(mision)} />
 
             {mision && (
-              <GlassCard className="mt-4 p-5">
-                <Text className="font-sans text-[11px] uppercase tracking-[3px] text-slate-400">
-                  Nace de la misión
-                </Text>
-                <Text className="mt-2 font-sans-medium text-sm text-plata">{mision.titulo}</Text>
-                <Text className="mt-1 font-sans text-xs leading-5 text-slate-500">
+              <PapelCard variante="suave" className="mt-4 p-5">
+                <Kicker tono="neutro">Nace de la misión</Kicker>
+                <Text className="mt-2 font-archivo-bold text-sm text-tinta">{mision.titulo}</Text>
+                <Text className="mt-1 font-archivo text-xs leading-5 text-tinta-75">
                   {mision.proposito}
                 </Text>
-              </GlassCard>
+              </PapelCard>
             )}
 
-            <Text className="mt-6 font-serif text-2xl leading-9 text-plata">
-              Lo que se hizo, se muestra. La obra es la prueba.
+            <Text className="mt-6 font-archivo text-base leading-7 text-tinta-90">
+              Lo que se hizo, se muestra.
             </Text>
 
             {/* título */}
-            <Text className="mt-7 font-sans text-[11px] uppercase tracking-[3px] text-slate-400">
+            <Kicker tono="neutro" className="mt-6">
               Título
-            </Text>
+            </Kicker>
             <TextInput
               value={titulo}
               onChangeText={setTitulo}
+              onFocus={() => setEnfocadoTitulo(true)}
+              onBlur={() => setEnfocadoTitulo(false)}
               placeholder="Ej. Arreglamos la vereda de la esquina"
-              placeholderTextColor="#64748b"
+              placeholderTextColor={TINTA_50}
               maxLength={80}
               accessibilityLabel="Título de la obra"
-              className="mt-3 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 font-sans text-base text-plata"
+              className="mt-2 bg-papel-crudo px-5 py-4 font-archivo text-base text-tinta"
+              style={estiloInput(enfocadoTitulo)}
             />
 
             {/* resumen */}
-            <Text className="mt-7 font-sans text-[11px] uppercase tracking-[3px] text-slate-400">
+            <Kicker tono="neutro" className="mt-6">
               Resumen
-            </Text>
+            </Kicker>
             <TextInput
               value={resumen}
               onChangeText={setResumen}
+              onFocus={() => setEnfocadoResumen(true)}
+              onBlur={() => setEnfocadoResumen(false)}
               placeholder="¿Qué se hizo? ¿Con quién?"
-              placeholderTextColor="#64748b"
+              placeholderTextColor={TINTA_50}
               maxLength={280}
               multiline
               accessibilityLabel="Resumen de la obra"
-              className="mt-3 min-h-24 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 font-sans text-sm leading-6 text-plata"
+              className="mt-2 min-h-24 bg-papel-crudo px-5 py-4 font-archivo text-sm leading-6 text-tinta"
+              style={estiloInput(enfocadoResumen)}
             />
 
             {/* oficio */}
-            <Text className="mt-7 font-sans text-[11px] uppercase tracking-[3px] text-slate-400">
+            <Kicker tono="neutro" className="mt-6">
               Oficio
-            </Text>
+            </Kicker>
             {oficioHeredado ? (
-              <View className="mt-3 flex-row items-center gap-2">
-                <View
-                  className="flex-row items-center gap-2 rounded-full border px-3.5 py-2.5"
-                  style={{
-                    borderColor: `${oficioHeredado.color}66`,
-                    backgroundColor: `${oficioHeredado.color}1c`,
-                  }}
-                >
-                  <Ionicons name={oficioHeredado.icono as never} size={14} color={oficioHeredado.color} />
-                  <Text className="font-sans-medium text-xs" style={{ color: oficioHeredado.color }}>
-                    {oficioHeredado.nombre}
-                  </Text>
-                </View>
-                <View className="flex-row items-center gap-1">
-                  <Ionicons name="lock-closed-outline" size={12} color="#64748b" />
-                  <Text className="font-sans text-[10px] text-slate-500">heredado de la misión</Text>
-                </View>
+              <View className="mt-2 flex-row items-center gap-2">
+                <ChipTipo etiqueta={oficioHeredado.nombre} activo />
+                <Text className="font-space text-[10px] uppercase tracking-[1px] text-tinta-50">
+                  heredado de la misión
+                </Text>
               </View>
             ) : (
-              <View className="mt-3 flex-row flex-wrap gap-2">
-                {OFICIOS.map((oficio) => {
-                  const activo = oficioId === oficio.id;
-                  return (
-                    <Pressable97
-                      key={oficio.id}
-                      accessibilityRole="button"
-                      accessibilityLabel={oficio.nombre}
-                      accessibilityState={{ selected: activo }}
-                      onPress={() => setOficioId(oficio.id)}
-                      className="min-h-11 flex-row items-center gap-2 rounded-full border px-3.5 py-2.5"
-                      style={{
-                        borderColor: activo ? `${oficio.color}66` : 'rgba(255,255,255,0.1)',
-                        backgroundColor: activo ? `${oficio.color}1c` : 'rgba(255,255,255,0.05)',
-                      }}
-                    >
-                      <Ionicons name={oficio.icono as never} size={14} color={activo ? oficio.color : '#64748b'} />
-                      <Text
-                        className="font-sans-medium text-xs"
-                        style={{ color: activo ? oficio.color : '#94a3b8' }}
-                      >
-                        {oficio.nombre}
-                      </Text>
-                    </Pressable97>
-                  );
-                })}
+              <View className="mt-2 flex-row flex-wrap gap-2">
+                {OFICIOS.map((oficio) => (
+                  <ChipTipo
+                    key={oficio.id}
+                    etiqueta={oficio.nombre}
+                    activo={oficioId === oficio.id}
+                    onPress={() => setOficioId(oficio.id)}
+                  />
+                ))}
               </View>
             )}
 
             {/* evidencia */}
-            <Text className="mt-7 font-sans text-[11px] uppercase tracking-[3px] text-slate-400">
+            <Kicker tono="neutro" className="mt-6">
               Evidencia (opcional)
-            </Text>
+            </Kicker>
             {camaraAbierta ? (
-              <View className="mt-3 overflow-hidden rounded-2xl border border-white/10">
+              <View className="mt-2 overflow-hidden border border-tinta">
                 <CameraView ref={camaraRef} style={{ height: 300 }} facing="back" />
-                <View className="absolute bottom-3 left-0 right-0 flex-row items-center justify-center gap-6">
+                <View className="absolute bottom-3 left-0 right-0 flex-row items-center justify-center gap-8">
                   <Pressable97
                     accessibilityRole="button"
                     accessibilityLabel="Cancelar la foto"
                     onPress={() => setCamaraAbierta(false)}
-                    className="rounded-full bg-black/50 p-3"
+                    className="h-11 w-11 items-center justify-center border border-papel bg-tinta/70"
                   >
-                    <Ionicons name="close" size={20} color="#F5F7FA" />
+                    <Ionicons name="close" size={20} color={PAPEL} />
                   </Pressable97>
                   <Pressable97
                     accessibilityRole="button"
                     accessibilityLabel="Sacar la foto"
                     onPress={sacarFoto}
-                    className="rounded-full border-2 border-white bg-white/20 p-5"
+                    className="h-16 w-16 items-center justify-center border-2 border-papel"
                   >
-                    <View className="h-4 w-4 rounded-full bg-white" />
+                    <View className="h-8 w-8 bg-papel" />
                   </Pressable97>
                 </View>
               </View>
             ) : evidenciaUri ? (
-              <View className="mt-3">
-                <Image
-                  source={{ uri: evidenciaUri }}
-                  style={{ width: '100%', height: 220, borderRadius: 16 }}
-                />
-                <View className="mt-3 flex-row items-center gap-3">
+              <View className="mt-2">
+                <Image source={{ uri: evidenciaUri }} style={{ width: '100%', height: 220 }} />
+                <View className="mt-3 flex-row items-center gap-5">
                   <Pressable97
                     accessibilityRole="button"
                     accessibilityLabel="Sacar otra foto"
                     onPress={abrirCamara}
-                    className="rounded-full border border-white/10 bg-white/5 px-4 py-2"
+                    className="min-h-11 justify-center py-2"
                   >
-                    <Text className="font-sans text-xs text-slate-300">Sacar otra</Text>
+                    <Text className="font-space text-xs uppercase tracking-[1px] text-tinta">
+                      Sacar otra
+                    </Text>
                   </Pressable97>
                   <Pressable97
                     accessibilityRole="button"
                     accessibilityLabel="Quitar la foto"
                     onPress={() => setEvidenciaUri(null)}
-                    className="p-2"
+                    className="min-h-11 justify-center py-2"
                   >
-                    <Ionicons name="trash-outline" size={16} color="#64748b" />
+                    <Text className="font-space text-xs uppercase tracking-[1px] text-tinta-50">
+                      Quitar
+                    </Text>
                   </Pressable97>
                 </View>
               </View>
@@ -279,49 +304,65 @@ export default function PublicarObra() {
                 accessibilityRole="button"
                 accessibilityLabel="Abrir la cámara para sacar la evidencia"
                 onPress={abrirCamara}
-                className="mt-3 items-center justify-center rounded-2xl border border-dashed border-white/20 bg-white/[0.03] py-12"
+                className="mt-2 items-center justify-center border border-dashed border-tinta py-12"
               >
-                <Ionicons name="camera-outline" size={34} color="#7D5BDE" />
-                <Text className="mt-3 font-sans-medium text-sm text-slate-300">
-                  Abrir la cámara
+                <Text className="font-space-bold text-xs uppercase tracking-[1.5px] text-tinta">
+                  Agregar foto
                 </Text>
               </Pressable97>
             )}
-            <Text className="mt-3 font-sans text-[11px] text-slate-500">
+            <Text className="mt-3 font-archivo text-[11px] text-tinta-50">
               La evidencia es de la obra, no de las personas.
             </Text>
 
             {/* territorio */}
-            <Text className="mt-7 font-sans text-[11px] uppercase tracking-[3px] text-slate-400">
+            <Kicker tono="neutro" className="mt-6">
               Territorio (opcional)
-            </Text>
+            </Kicker>
             <TextInput
               value={territorio}
               onChangeText={setTerritorio}
+              onFocus={() => setEnfocadoTerritorio(true)}
+              onBlur={() => setEnfocadoTerritorio(false)}
               placeholder="Barrio, ciudad — lo que quieras contar"
-              placeholderTextColor="#64748b"
+              placeholderTextColor={TINTA_50}
               maxLength={60}
               accessibilityLabel="Territorio de la obra"
-              className="mt-3 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 font-sans text-base text-plata"
+              className="mt-2 bg-papel-crudo px-5 py-4 font-archivo text-base text-tinta"
+              style={estiloInput(enfocadoTerritorio)}
             />
 
             {nota && (
-              <View className="mt-6 flex-row items-start gap-2 rounded-2xl border border-amber-300/20 bg-amber-300/10 p-4">
-                <Ionicons name="alert-circle-outline" size={16} color="#FCD34D" />
-                <Text className="flex-1 font-sans text-xs leading-5 text-amber-100">{nota}</Text>
+              <View className="mt-6 border border-ambar px-4 py-3">
+                <Text className="font-archivo text-xs leading-5 text-tinta-90">{nota}</Text>
               </View>
             )}
 
             <View className="mt-8 items-center">
-              <AccentButton
-                label={publicando ? 'Publicando…' : 'Publicar la obra'}
+              <BotonTinta
+                // `key`: ver la nota en corriente.tsx (ObraFila) — Pressable97
+                // no reemplaza limpio la clase vieja al cambiar `disabled`/
+                // `cargando` en el mismo nodo; remontar lo evita.
+                key={publicando ? 'publicando' : 'listo'}
+                etiqueta="Publicar la obra"
                 onPress={publicar}
                 disabled={!lista || publicando}
+                cargando={publicando}
               />
             </View>
           </Animated.View>
         </ScrollView>
       </KeyboardAvoidingView>
+
+      {selloPublicada && (
+        <View
+          pointerEvents="auto"
+          className="absolute inset-0 items-center justify-center bg-papel/85"
+          style={{ zIndex: 60 }}
+        >
+          <Sello texto="PUBLICADA" color="verde" rotacion={-5} />
+        </View>
+      )}
     </View>
   );
 }

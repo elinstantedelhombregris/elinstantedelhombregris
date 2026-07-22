@@ -2,17 +2,19 @@
  * Fundar una misión (Mission Layer, §0x01): título, propósito, tipo,
  * oficio y gobernanza — el mínimo para que la máquina de estados arranque
  * en PROPUESTA. Fundar te vuelve coordinador/a de entrada (repos-protocolo).
+ *
+ * Registro papel del sistema Papel y Tinta (spec §8): formulario canónico
+ * — bordes tinta, foco violeta, chips cuadrados. Los oficios y el tipo no
+ * llevan color (spec §2); la plantilla sí, porque ahí la señal es real.
  */
 
-import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import { useState } from 'react';
 import { KeyboardAvoidingView, Platform, ScrollView, Text, TextInput, View } from 'react-native';
 import Animated from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { AccentButton } from '@/components/ui/AccentButton';
-import { PanelHeader } from '@/components/ui/PanelHeader';
+import { BotonTinta, ChipTipo, GranoPapel, Kicker, TituloAnton } from '@/components/papel';
 import { Pressable97 } from '@/components/ui/Pressable97';
 import { PLANTILLAS_EXPEDICION, SENAL_POR_KEY } from '@/content';
 import { OFICIOS, type OficioId } from '@/content/oficios';
@@ -20,44 +22,39 @@ import { fundarMision } from '@/db/repos-protocolo';
 import { fadeUp } from '@/motion/variants';
 import type { Gobernanza, TipoMision } from '@/protocolo/tipos';
 import { haptic } from '@/theme/haptics';
+import { TINTA, TINTA_50, VIOLETA } from '@/theme/tokens';
 
 interface TipoMeta {
   id: TipoMision;
   label: string;
-  icon: string;
-  color: string;
 }
 
 const TIPOS: readonly TipoMeta[] = [
-  { id: 'relevamiento', label: 'Relevamiento', icon: 'search-outline', color: '#7DD3FC' },
-  { id: 'obra', label: 'Obra', icon: 'construct-outline', color: '#F59E0B' },
-  { id: 'diseno', label: 'Diseño', icon: 'color-palette-outline', color: '#EC4899' },
+  { id: 'relevamiento', label: 'Relevamiento' },
+  { id: 'obra', label: 'Obra' },
+  { id: 'diseno', label: 'Diseño' },
 ];
 
 interface GobernanzaMeta {
   id: Gobernanza;
   label: string;
   detalle: string;
-  icon: string;
-  color: string;
 }
 
 const GOBERNANZAS: readonly GobernanzaMeta[] = [
-  {
-    id: 'coordinada',
-    label: 'Coordinada',
-    detalle: 'Una responsable decide, rápido.',
-    icon: 'flash-outline',
-    color: '#7DD3FC',
-  },
-  {
-    id: 'consentimiento',
-    label: 'Por consentimiento',
-    detalle: 'Decide la mayoría del equipo.',
-    icon: 'people-outline',
-    color: '#6EE7B7',
-  },
+  { id: 'coordinada', label: 'Coordinada', detalle: 'Una responsable decide, rápido.' },
+  { id: 'consentimiento', label: 'Por consentimiento', detalle: 'Decide la mayoría del equipo.' },
 ];
+
+/** Foco visible: borde violeta 2px (spec §3.5/§10) — nada de halo aparte. */
+const estiloInput = (enfocado: boolean): object => ({
+  borderWidth: enfocado ? 2 : 1,
+  borderColor: enfocado ? VIOLETA : TINTA,
+  outlineColor: VIOLETA,
+  outlineStyle: 'solid' as const,
+  outlineWidth: enfocado ? 2 : 0,
+  outlineOffset: 2,
+});
 
 export default function FundarMision() {
   const router = useRouter();
@@ -71,9 +68,12 @@ export default function FundarMision() {
   const [plantillaId, setPlantillaId] = useState<string | null>(null);
   const [fundando, setFundando] = useState(false);
   const [nota, setNota] = useState<string | null>(null);
+  const [enfocadoTitulo, setEnfocadoTitulo] = useState(false);
+  const [enfocadoProposito, setEnfocadoProposito] = useState(false);
 
   const lista = titulo.trim().length > 0 && proposito.trim().length > 0 && oficioId !== null;
   const plantillaSeleccionada = PLANTILLAS_EXPEDICION.find((p) => p.id === plantillaId) ?? null;
+  const gobernanzaSeleccionada = GOBERNANZAS.find((g) => g.id === gobernanza) ?? GOBERNANZAS[0]!;
 
   const fundar = () => {
     if (!lista || !oficioId || fundando) return;
@@ -106,214 +106,161 @@ export default function FundarMision() {
     }
   };
 
+  const volver = () => (router.canGoBack() ? router.back() : router.replace('/'));
+
   return (
-    <View className="flex-1 bg-fondo">
-      <PanelHeader title="Fundar una misión" />
+    <View className="flex-1 bg-papel">
+      <GranoPapel />
+      <View className="px-5" style={{ paddingTop: insets.top + 12, paddingBottom: 12 }}>
+        <Pressable97
+          accessibilityRole="button"
+          accessibilityLabel="Volver"
+          onPress={volver}
+          className="-ml-2 min-h-11 min-w-11 items-center justify-center self-start"
+        >
+          <Text className="font-space text-2xl text-tinta">←</Text>
+        </Pressable97>
+        <View className="mt-2">
+          <Kicker>un propósito claro · un equipo que se anota</Kicker>
+          <TituloAnton entintar tamano="lg" className="mt-1">
+            Fundar una misión
+          </TituloAnton>
+        </View>
+      </View>
       <KeyboardAvoidingView className="flex-1" behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
         <ScrollView
           keyboardShouldPersistTaps="handled"
           contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: insets.bottom + 32 }}
         >
           <Animated.View entering={fadeUp}>
-            <Text className="mt-1 font-serif text-2xl leading-9 text-plata">
-              Una misión nace de un propósito claro y un equipo que se anota.
-            </Text>
-
             {/* 1 — título */}
-            <Text className="mt-7 font-sans text-[11px] uppercase tracking-[3px] text-slate-400">
-              Título
-            </Text>
+            <Kicker tono="neutro">Título</Kicker>
             <TextInput
               value={titulo}
               onChangeText={setTitulo}
+              onFocus={() => setEnfocadoTitulo(true)}
+              onBlur={() => setEnfocadoTitulo(false)}
               placeholder="Ej. Relevar veredas rotas"
-              placeholderTextColor="#64748b"
+              placeholderTextColor={TINTA_50}
               maxLength={80}
-              className="mt-3 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 font-sans text-base text-plata"
+              accessibilityLabel="Título de la misión"
+              className="mt-2 bg-papel-crudo px-5 py-4 font-archivo text-base text-tinta"
+              style={estiloInput(enfocadoTitulo)}
             />
 
             {/* 2 — propósito */}
-            <Text className="mt-7 font-sans text-[11px] uppercase tracking-[3px] text-slate-400">
+            <Kicker tono="neutro" className="mt-6">
               Propósito
-            </Text>
+            </Kicker>
             <TextInput
               value={proposito}
               onChangeText={setProposito}
+              onFocus={() => setEnfocadoProposito(true)}
+              onBlur={() => setEnfocadoProposito(false)}
               placeholder="¿Qué problema resuelve? ¿Para quién?"
-              placeholderTextColor="#64748b"
+              placeholderTextColor={TINTA_50}
               maxLength={280}
               multiline
-              className="mt-3 min-h-24 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 font-sans text-sm leading-6 text-plata"
+              accessibilityLabel="Propósito de la misión"
+              className="mt-2 min-h-24 bg-papel-crudo px-5 py-4 font-archivo text-sm leading-6 text-tinta"
+              style={estiloInput(enfocadoProposito)}
             />
 
             {/* 3 — tipo */}
-            <Text className="mt-7 font-sans text-[11px] uppercase tracking-[3px] text-slate-400">
+            <Kicker tono="neutro" className="mt-6">
               Tipo
-            </Text>
-            <View className="mt-3 flex-row gap-2">
-              {TIPOS.map((item) => {
-                const activo = tipo === item.id;
-                return (
-                  <Pressable97
-                    key={item.id}
-                    accessibilityRole="button"
-                    accessibilityLabel={item.label}
-                    accessibilityState={{ selected: activo }}
-                    onPress={() => setTipo(item.id)}
-                    className="min-h-12 flex-1 flex-row items-center justify-center gap-1.5 rounded-full border px-2 py-3"
-                    style={{
-                      borderColor: activo ? `${item.color}66` : 'rgba(255,255,255,0.1)',
-                      backgroundColor: activo ? `${item.color}1c` : 'rgba(255,255,255,0.05)',
-                    }}
-                  >
-                    <Ionicons name={item.icon as never} size={15} color={activo ? item.color : '#64748b'} />
-                    <Text
-                      className="font-sans-medium text-xs"
-                      style={{ color: activo ? item.color : '#94a3b8' }}
-                    >
-                      {item.label}
-                    </Text>
-                  </Pressable97>
-                );
-              })}
+            </Kicker>
+            <View className="mt-2 flex-row flex-wrap gap-2">
+              {TIPOS.map((item) => (
+                <ChipTipo
+                  key={item.id}
+                  etiqueta={item.label}
+                  activo={tipo === item.id}
+                  onPress={() => setTipo(item.id)}
+                />
+              ))}
             </View>
 
             {/* 3b — plantilla de expedición (solo relevamiento, opcional) */}
             {tipo === 'relevamiento' && (
               <>
-                <Text className="mt-7 font-sans text-[11px] uppercase tracking-[3px] text-slate-400">
+                <Kicker tono="neutro" className="mt-6">
                   Arrancar desde una plantilla (opcional)
-                </Text>
-                <View className="mt-3 flex-row flex-wrap gap-2">
+                </Kicker>
+                <View className="mt-2 flex-row flex-wrap gap-2">
                   {PLANTILLAS_EXPEDICION.map((p) => {
                     const senal = SENAL_POR_KEY[p.senal];
                     const activo = plantillaId === p.id;
                     return (
-                      <Pressable97
+                      <ChipTipo
                         key={p.id}
-                        accessibilityRole="button"
+                        etiqueta={p.titulo}
+                        activo={activo}
+                        color={senal.color}
                         accessibilityLabel={`${p.titulo}, meta ${p.metaSugerida} capturas`}
-                        accessibilityState={{ selected: activo }}
                         onPress={() => setPlantillaId(activo ? null : p.id)}
-                        className="min-h-11 flex-row items-center gap-2 rounded-full border px-3.5 py-2.5"
-                        style={{
-                          borderColor: activo ? `${senal.color}66` : 'rgba(255,255,255,0.1)',
-                          backgroundColor: activo ? `${senal.color}1c` : 'rgba(255,255,255,0.05)',
-                        }}
-                      >
-                        <Ionicons
-                          name={senal.icon as never}
-                          size={14}
-                          color={activo ? senal.color : '#64748b'}
-                        />
-                        <Text
-                          className="font-sans-medium text-xs"
-                          style={{ color: activo ? senal.color : '#94a3b8' }}
-                        >
-                          {p.titulo}
-                        </Text>
-                        <Text
-                          className="font-mono text-[10px]"
-                          style={{ color: activo ? senal.color : '#475569' }}
-                        >
-                          meta {p.metaSugerida}
-                        </Text>
-                      </Pressable97>
+                      />
                     );
                   })}
                 </View>
                 {plantillaSeleccionada && (
-                  <Text className="mt-2 font-sans text-[11px] leading-5 text-slate-500">
-                    {plantillaSeleccionada.descripcion}
+                  <Text className="mt-2 font-archivo text-xs leading-5 text-tinta-50">
+                    {`${plantillaSeleccionada.descripcion} Meta: ${plantillaSeleccionada.metaSugerida} capturas.`}
                   </Text>
                 )}
               </>
             )}
 
             {/* 4 — oficio */}
-            <Text className="mt-7 font-sans text-[11px] uppercase tracking-[3px] text-slate-400">
+            <Kicker tono="neutro" className="mt-6">
               Oficio
-            </Text>
-            <View className="mt-3 flex-row flex-wrap gap-2">
-              {OFICIOS.map((oficio) => {
-                const activo = oficioId === oficio.id;
-                return (
-                  <Pressable97
-                    key={oficio.id}
-                    accessibilityRole="button"
-                    accessibilityLabel={oficio.nombre}
-                    accessibilityState={{ selected: activo }}
-                    onPress={() => setOficioId(oficio.id)}
-                    className="min-h-11 flex-row items-center gap-2 rounded-full border px-3.5 py-2.5"
-                    style={{
-                      borderColor: activo ? `${oficio.color}66` : 'rgba(255,255,255,0.1)',
-                      backgroundColor: activo ? `${oficio.color}1c` : 'rgba(255,255,255,0.05)',
-                    }}
-                  >
-                    <Ionicons name={oficio.icono as never} size={14} color={activo ? oficio.color : '#64748b'} />
-                    <Text
-                      className="font-sans-medium text-xs"
-                      style={{ color: activo ? oficio.color : '#94a3b8' }}
-                    >
-                      {oficio.nombre}
-                    </Text>
-                  </Pressable97>
-                );
-              })}
+            </Kicker>
+            <View className="mt-2 flex-row flex-wrap gap-2">
+              {OFICIOS.map((oficio) => (
+                <ChipTipo
+                  key={oficio.id}
+                  etiqueta={oficio.nombre}
+                  activo={oficioId === oficio.id}
+                  onPress={() => setOficioId(oficio.id)}
+                />
+              ))}
             </View>
 
             {/* 5 — gobernanza */}
-            <Text className="mt-7 font-sans text-[11px] uppercase tracking-[3px] text-slate-400">
+            <Kicker tono="neutro" className="mt-6">
               Gobernanza
-            </Text>
-            <View className="mt-3 gap-2.5">
-              {GOBERNANZAS.map((item) => {
-                const activo = gobernanza === item.id;
-                return (
-                  <Pressable97
-                    key={item.id}
-                    accessibilityRole="radio"
-                    accessibilityLabel={`${item.label}: ${item.detalle}`}
-                    accessibilityState={{ selected: activo }}
-                    onPress={() => setGobernanza(item.id)}
-                    className="flex-row items-center gap-3 rounded-2xl border p-4"
-                    style={{
-                      borderColor: activo ? `${item.color}66` : 'rgba(255,255,255,0.1)',
-                      backgroundColor: activo ? `${item.color}14` : 'rgba(255,255,255,0.05)',
-                    }}
-                  >
-                    <Ionicons name={item.icon as never} size={18} color={activo ? item.color : '#64748b'} />
-                    <View className="flex-1">
-                      <Text
-                        className="font-sans-medium text-sm"
-                        style={{ color: activo ? item.color : '#e2e8f0' }}
-                      >
-                        {item.label}
-                      </Text>
-                      <Text className="mt-0.5 font-sans text-[11px] text-slate-500">{item.detalle}</Text>
-                    </View>
-                    <Ionicons
-                      name={activo ? 'radio-button-on' : 'radio-button-off'}
-                      size={17}
-                      color={activo ? item.color : '#475569'}
-                    />
-                  </Pressable97>
-                );
-              })}
+            </Kicker>
+            <View className="mt-2 flex-row gap-2">
+              {GOBERNANZAS.map((item) => (
+                <ChipTipo
+                  key={item.id}
+                  etiqueta={item.label}
+                  activo={gobernanza === item.id}
+                  accessibilityLabel={`${item.label}: ${item.detalle}`}
+                  onPress={() => setGobernanza(item.id)}
+                />
+              ))}
             </View>
+            <Text className="mt-2 font-archivo text-xs leading-5 text-tinta-50">
+              {gobernanzaSeleccionada.detalle}
+            </Text>
 
             {nota && (
-              <View className="mt-6 flex-row items-start gap-2 rounded-2xl border border-amber-300/20 bg-amber-300/10 p-4">
-                <Ionicons name="alert-circle-outline" size={16} color="#FCD34D" />
-                <Text className="flex-1 font-sans text-xs leading-5 text-amber-100">{nota}</Text>
+              <View className="mt-6 border border-ambar px-4 py-3">
+                <Text className="font-archivo text-xs leading-5 text-tinta-90">{nota}</Text>
               </View>
             )}
 
             <View className="mt-8 items-center">
-              <AccentButton
-                label={fundando ? 'Fundando…' : 'Fundar'}
+              <BotonTinta
+                // `key`: ver la nota en corriente.tsx (ObraFila) — Pressable97
+                // no reemplaza limpio la clase vieja al cambiar `disabled`/
+                // `cargando` en el mismo nodo; remontar lo evita.
+                key={fundando ? 'fundando' : 'listo'}
+                etiqueta="Fundar →"
                 onPress={fundar}
                 disabled={!lista || fundando}
+                cargando={fundando}
               />
             </View>
           </Animated.View>

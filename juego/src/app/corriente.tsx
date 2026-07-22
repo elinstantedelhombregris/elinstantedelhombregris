@@ -4,6 +4,9 @@
  * aprecio: presupuesto diario parejo para todos, un pulso por obra para
  * siempre (spec Trust Layer, `protocolo/pulsos.ts`). "Estás al corriente"
  * separa lo nuevo desde la última visita de lo que ya viste.
+ *
+ * Registro papel del sistema Papel y Tinta (spec §8): el cuaderno de
+ * campo — cada obra es una entrada numerada, cada misión una línea mono.
  */
 
 import { Ionicons } from '@expo/vector-icons';
@@ -14,9 +17,16 @@ import { FlatList, Text, View } from 'react-native';
 import Animated from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { AccentButton } from '@/components/ui/AccentButton';
-import { GlassCard } from '@/components/ui/GlassCard';
-import { PanelHeader } from '@/components/ui/PanelHeader';
+import {
+  BotonTinta,
+  ChipTipo,
+  FilaIndice,
+  GranoPapel,
+  Kicker,
+  Palitos,
+  PapelCard,
+  TituloAnton,
+} from '@/components/papel';
 import { Pressable97 } from '@/components/ui/Pressable97';
 import { oficioPorId } from '@/content/oficios';
 import { CLAVES, ahoraISO, getSetting, setSetting } from '@/db/repos';
@@ -25,11 +35,11 @@ import type { PvMisionRow, PvObraRow } from '@/db/schema';
 import { staggerDelay } from '@/motion/variants';
 import { PULSOS_APRECIO_POR_DIA, pulsosDisponibles } from '@/protocolo/pulsos';
 import { haptic } from '@/theme/haptics';
-import { PLATA } from '@/theme/tokens';
+import { TINTA_50 } from '@/theme/tokens';
 
 type Renderable =
   | { kind: 'divider' }
-  | { kind: 'item'; data: ItemCorriente };
+  | { kind: 'item'; data: ItemCorriente; numero: number };
 
 const fechaDe = (i: ItemCorriente): string =>
   i.clase === 'obra' ? i.obra.publicadaAt : (i.mision.resueltaAt ?? i.mision.createdAt);
@@ -39,6 +49,8 @@ const fechaFeed = (valor: string): string => {
   if (Number.isNaN(fecha.getTime())) return '';
   return fecha.toLocaleDateString('es-AR', { day: '2-digit', month: 'short' });
 };
+
+const pad = (n: number): string => String(n).padStart(3, '0');
 
 const NOTA_SIN_PRESUPUESTO = 'Tus pulsos de hoy ya laten en otras obras. Mañana hay más.';
 const NOTA_REPETIDO = 'Esta obra ya tiene tu pulso.';
@@ -51,6 +63,11 @@ export default function Corriente() {
   const [pulsosHoy, setPulsosHoy] = useState(0);
   const [dividerIndex, setDividerIndex] = useState<number | null>(null);
   const [notas, setNotas] = useState<Record<string, string>>({});
+  // Pulsos dados en esta sesión: el chip flipea a fondo tinta apenas lo das
+  // (spec §8). No hay forma de saber si un pulso de una sesión anterior es
+  // "mío" sin un nuevo query de solo-lectura — fuera del alcance de esta
+  // task — así que un pulso viejo queda fantasma hasta que lo volvés a tocar.
+  const [dadosPorMi, setDadosPorMi] = useState<Set<string>>(new Set());
 
   const cargar = useCallback(() => {
     setItems(corrienteLocal());
@@ -80,9 +97,13 @@ export default function Corriente() {
     if (!veredicto.ok) {
       const texto = veredicto.motivo === 'sin-presupuesto' ? NOTA_SIN_PRESUPUESTO : NOTA_REPETIDO;
       setNotas((n) => ({ ...n, [id]: texto }));
+      if (veredicto.motivo === 'repetido') {
+        setDadosPorMi((d) => new Set(d).add(id));
+      }
       return;
     }
     haptic.send();
+    setDadosPorMi((d) => new Set(d).add(id));
     setNotas((n) => {
       if (!(id in n)) return n;
       const resto = { ...n };
@@ -95,7 +116,18 @@ export default function Corriente() {
   const irAMision = (id: string) =>
     router.push({ pathname: '/misiones/[id]', params: { id } } as never);
 
-  const renderables: Renderable[] = items.map((data) => ({ kind: 'item' as const, data }));
+  const volver = () => (router.canGoBack() ? router.back() : router.replace('/'));
+
+  // La numeración del cuaderno cuenta solo las obras — las misiones son
+  // líneas mono sin índice, así que no dejan huecos en la serie (001, 002…).
+  let contadorObra = 0;
+  const renderables: Renderable[] = items.map((data) => {
+    if (data.clase === 'obra') {
+      contadorObra += 1;
+      return { kind: 'item' as const, data, numero: contadorObra };
+    }
+    return { kind: 'item' as const, data, numero: 0 };
+  });
   if (dividerIndex !== null) {
     renderables.splice(dividerIndex, 0, { kind: 'divider' });
   }
@@ -107,171 +139,166 @@ export default function Corriente() {
   };
 
   return (
-    <View className="flex-1 bg-fondo">
-      <PanelHeader
-        title="La Corriente"
-        right={
-          <View className="flex-row items-center gap-3">
-            <PresupuestoDots restantes={restantes} />
-            <Pressable97
-              accessibilityRole="button"
-              accessibilityLabel="Chispas y círculos"
-              onPress={() => router.push('/qr' as never)}
-              className="p-1"
-            >
-              <Ionicons name="qr-code-outline" size={20} color="#94a3b8" />
-            </Pressable97>
-          </View>
-        }
-      />
-      <Text className="px-5 pb-3 font-sans text-xs text-slate-500">
-        Lo que el país está haciendo, hecho por hecho.
-      </Text>
+    <View className="flex-1 bg-papel">
+      <GranoPapel />
+      <View className="px-5" style={{ paddingTop: insets.top + 12 }}>
+        <View className="flex-row items-center justify-between">
+          <Pressable97
+            accessibilityRole="button"
+            accessibilityLabel="Volver"
+            onPress={volver}
+            className="-ml-2 min-h-11 min-w-11 items-center justify-center"
+          >
+            <Text className="font-space text-2xl text-tinta">←</Text>
+          </Pressable97>
+          <Pressable97
+            accessibilityRole="button"
+            accessibilityLabel="Chispas y círculos"
+            onPress={() => router.push('/qr' as never)}
+            className="min-h-11 min-w-11 items-center justify-center"
+          >
+            <Ionicons name="qr-code-outline" size={20} color={TINTA_50} />
+          </Pressable97>
+        </View>
+
+        <View className="mt-2">
+          <Kicker>lo que el país está haciendo · hecho por hecho</Kicker>
+          <TituloAnton entintar tamano="lg" className="mt-1">
+            La Corriente
+          </TituloAnton>
+        </View>
+
+        <View className="mt-4 flex-row items-center gap-2.5">
+          <Palitos total={restantes} de={PULSOS_APRECIO_POR_DIA} />
+          <Text className="font-space text-[11px] uppercase tracking-[1px] text-tinta-50">
+            {restantes} {restantes === 1 ? 'pulso' : 'pulsos'} hoy
+          </Text>
+        </View>
+      </View>
+
       <FlatList
         data={renderables}
         keyExtractor={keyExtractor}
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: insets.bottom + 40 }}
-        ItemSeparatorComponent={() => <View className="h-3" />}
+        contentContainerStyle={{ paddingHorizontal: 20, paddingTop: 20, paddingBottom: insets.bottom + 40 }}
         ListEmptyComponent={
-          <GlassCard className="mt-3 items-center p-6">
-            <Text className="text-center font-sans text-sm leading-6 text-slate-400">
+          <PapelCard className="mt-3 items-center p-6">
+            <Text className="text-center font-archivo text-sm leading-6 text-tinta-75">
               La Corriente arranca cuando alguien publica la primera obra. Puede ser la tuya.
             </Text>
             <View className="mt-5">
-              <AccentButton label="Ir a Misiones" onPress={() => router.push('/misiones' as never)} />
+              <BotonTinta etiqueta="Ir a Misiones →" onPress={() => router.push('/misiones' as never)} />
             </View>
-          </GlassCard>
+          </PapelCard>
         }
         renderItem={({ item, index }) => {
           if (item.kind === 'divider') return <DividerEstasAlCorriente />;
           if (item.data.clase === 'obra') {
             const { obra, pulsos } = item.data;
             return (
-              <ObraCard
+              <ObraFila
                 obra={obra}
                 pulsos={pulsos}
+                numero={item.numero}
                 index={index}
                 nota={notas[obra.id] ?? null}
+                dado={dadosPorMi.has(obra.id)}
                 onPulso={() => darPulsoAObra(obra.id)}
               />
             );
           }
           const { mision } = item.data;
-          return (
-            <MisionLinea mision={mision} index={index} onPress={() => irAMision(mision.id)} />
-          );
+          return <MisionLinea mision={mision} index={index} onPress={() => irAMision(mision.id)} />;
         }}
       />
     </View>
   );
 }
 
-function PresupuestoDots({ restantes }: { restantes: number }) {
-  return (
-    <View
-      className="flex-row items-center gap-1.5"
-      accessibilityLabel={`Te quedan ${restantes} pulsos hoy`}
-    >
-      {Array.from({ length: PULSOS_APRECIO_POR_DIA }).map((_, i) => (
-        <View
-          key={i}
-          className="h-2 w-2 rounded-full"
-          style={{ backgroundColor: i < restantes ? PLATA : 'rgba(100,116,139,0.4)' }}
-        />
-      ))}
-    </View>
-  );
-}
-
 function DividerEstasAlCorriente() {
   return (
-    <View className="flex-row items-center gap-3 py-2">
-      <View className="h-px flex-1 bg-white/10" />
-      <Text className="font-sans-medium text-[11px] uppercase tracking-[2px] text-plata">
+    <View className="flex-row items-center gap-3 py-3">
+      <View className="h-px flex-1 bg-bordeSuave" />
+      <Text className="font-space text-[11px] uppercase tracking-[2px] text-tinta-50">
         Estás al corriente
       </Text>
-      <View className="h-px flex-1 bg-white/10" />
+      <View className="h-px flex-1 bg-bordeSuave" />
     </View>
   );
 }
 
-function ObraCard({
+function ObraFila({
   obra,
   pulsos,
+  numero,
   index,
   nota,
+  dado,
   onPulso,
 }: {
   obra: PvObraRow;
   pulsos: number;
+  numero: number;
   index: number;
   nota: string | null;
+  dado: boolean;
   onPulso: () => void;
 }) {
   const oficio = oficioPorId(obra.oficioId);
   return (
     <Animated.View entering={staggerDelay(index)}>
-      <GlassCard className="p-4">
+      <FilaIndice numero={pad(numero)} glifo="">
         <View className="flex-row items-center gap-2">
-          {oficio && (
-            <View
-              className="flex-row items-center gap-1.5 rounded-full border px-3 py-1.5"
-              style={{ borderColor: `${oficio.color}45`, backgroundColor: `${oficio.color}18` }}
-            >
-              <Ionicons name={oficio.icono as never} size={12} color={oficio.color} />
-              <Text className="font-sans text-[11px]" style={{ color: oficio.color }}>
-                {oficio.nombre}
-              </Text>
-            </View>
-          )}
-          <Text className="ml-auto font-mono text-[10px] text-slate-500">
+          {oficio && <ChipTipo etiqueta={oficio.nombre} />}
+          <Text className="ml-auto font-space text-[10px] text-tinta-30">
             {fechaFeed(obra.publicadaAt)}
           </Text>
         </View>
 
-        <Text className="mt-3 font-sans-semibold text-base text-plata">{obra.titulo}</Text>
+        <Text className="mt-2 font-archivo-bold text-base text-tinta">{obra.titulo}</Text>
         {obra.resumen && (
-          <Text className="mt-1.5 font-sans text-sm leading-5 text-slate-400">{obra.resumen}</Text>
+          <Text className="mt-1 font-archivo text-sm leading-5 text-tinta-75">{obra.resumen}</Text>
         )}
 
         {obra.evidenciaUri && (
           <Image
             source={{ uri: obra.evidenciaUri }}
-            style={{ width: '100%', height: 180, borderRadius: 16, marginTop: 12 }}
+            style={{ width: '100%', height: 180, marginTop: 12 }}
             contentFit="cover"
           />
         )}
 
-        <View className="mt-3 flex-row items-center justify-between">
+        <View className="mt-3 flex-row items-center justify-between gap-3">
           {obra.territorio ? (
-            <View className="flex-1 flex-row items-center gap-1">
-              <Ionicons name="location-outline" size={12} color="#64748b" />
-              <Text numberOfLines={1} className="flex-1 font-sans text-[11px] text-slate-500">
-                {obra.territorio}
-              </Text>
-            </View>
+            <Text numberOfLines={1} className="flex-1 font-space text-[11px] text-tinta-50">
+              {obra.territorio}
+            </Text>
           ) : (
             <View className="flex-1" />
           )}
-          <Pressable97
-            accessibilityRole="button"
+          <BotonTinta
+            // `key` fuerza un remount limpio al flipear: Pressable97 pasa un
+            // className distinto por variante a través de cssInterop (para
+            // que Reanimated lo reconozca en el Animated.Pressable), y ese
+            // puente no reemplaza la clase vieja al re-renderizar el MISMO
+            // nodo — la deja pegada junto a la nueva (se ve fondo transparente
+            // con texto invisible en vez del flip a fondo tinta). Remontar
+            // evita el bug sin tocar el kit compartido.
+            key={dado ? 'dado' : 'no-dado'}
+            etiqueta={`Pulso (${pulsos})`}
             accessibilityLabel={`Dar pulso a ${obra.titulo}, ${pulsos} ${pulsos === 1 ? 'pulso' : 'pulsos'}`}
+            variante={dado ? 'tinta' : 'fantasma'}
+            tamano="compacto"
             onPress={onPulso}
-            className="flex-row items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3.5 py-2"
-          >
-            <Ionicons name="pulse" size={15} color={PLATA} />
-            <Text className="font-mono text-xs text-plata">{pulsos}</Text>
-          </Pressable97>
+          />
         </View>
 
         {nota && (
-          <View className="mt-3 flex-row items-start gap-2 rounded-xl border border-amber-300/20 bg-amber-300/10 p-3">
-            <Ionicons name="alert-circle-outline" size={14} color="#FCD34D" />
-            <Text className="flex-1 font-sans text-[11px] leading-4 text-amber-100">{nota}</Text>
+          <View className="mt-3 border border-ambar px-3 py-2.5">
+            <Text className="font-archivo text-[11px] leading-4 text-tinta-90">{nota}</Text>
           </View>
         )}
-      </GlassCard>
+      </FilaIndice>
     </Animated.View>
   );
 }
@@ -293,17 +320,12 @@ function MisionLinea({
         accessibilityRole="button"
         accessibilityLabel={texto}
         onPress={onPress}
-        className="flex-row items-center gap-2.5 rounded-xl border border-white/5 bg-white/[0.03] px-4 py-3"
+        className="flex-row items-center gap-3 border-b border-bordeSuave px-2 py-3"
       >
-        <Ionicons
-          name={resuelta ? 'checkmark-circle-outline' : 'flag-outline'}
-          size={14}
-          color="#64748b"
-        />
-        <Text numberOfLines={1} className="flex-1 font-sans text-xs text-slate-400">
+        <Text numberOfLines={1} className="flex-1 font-space text-xs text-tinta-75">
           {texto}
         </Text>
-        <Text className="font-mono text-[10px] text-slate-600">
+        <Text className="font-space text-[10px] text-tinta-30">
           {fechaFeed(mision.resueltaAt ?? mision.createdAt)}
         </Text>
       </Pressable97>

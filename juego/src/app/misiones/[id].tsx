@@ -4,20 +4,30 @@
  * (protocolo/mision.ts) — acá sólo se compone, nunca se decide de nuevo.
  * Errores de gobernanza o de transición inválida se muestran como nota
  * inline; jamás un crash, jamás un Alert.
+ *
+ * Registro papel del sistema Papel y Tinta (spec §8): el expediente de la
+ * misión. Al resolver, un sello RESUELTA cae antes de pasar a publicar
+ * la obra (spec §5).
  */
 
-import { Ionicons } from '@expo/vector-icons';
 import { useFocusEffect, useLocalSearchParams, useRouter } from 'expo-router';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { ScrollView, Text, View } from 'react-native';
 import Animated from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { actorKeyCacheado } from '@/civic/actor-cache';
-import { BarraLuminosa } from '@/components/juego/BarraLuminosa';
-import { AccentButton } from '@/components/ui/AccentButton';
-import { GlassCard } from '@/components/ui/GlassCard';
-import { PanelHeader } from '@/components/ui/PanelHeader';
+import {
+  BotonTinta,
+  ChipTipo,
+  FilaIndice,
+  GranoPapel,
+  Kicker,
+  Palitos,
+  PapelCard,
+  Sello,
+  TituloAnton,
+} from '@/components/papel';
 import { Pressable97 } from '@/components/ui/Pressable97';
 import { PLANTILLAS_EXPEDICION, SENAL_POR_KEY } from '@/content';
 import { oficioPorId } from '@/content/oficios';
@@ -29,14 +39,28 @@ import { fadeUp } from '@/motion/variants';
 import { latidoVencido } from '@/protocolo/pulsos';
 import type { EstadoMision, Gobernanza, TipoMision } from '@/protocolo/tipos';
 import { haptic } from '@/theme/haptics';
+import { AMBAR_PT, ROJO_SELLO, TINTA_30, TINTA_50, VERDE, VIOLETA } from '@/theme/tokens';
 
-const ESTADO_META: Record<EstadoMision, { label: string; color: string }> = {
-  propuesta: { label: 'Convocando', color: '#94A3B8' },
-  equipo: { label: 'Equipo listo', color: '#7DD3FC' },
-  activa: { label: 'En marcha', color: '#6EE7B7' },
-  verificacion: { label: 'En verificación', color: '#FCD34D' },
-  resuelta: { label: 'Resuelta', color: '#5EEAD4' },
-  abandonada: { label: 'Abandonada', color: '#64748B' },
+/** El sello «RESUELTA» queda a la vista antes de saltar a publicar la obra
+ * (spec §5): ni instantáneo, ni una espera larga. */
+const DEMORA_SELLO_MS = 900;
+
+const ESTADO_LABEL: Record<EstadoMision, string> = {
+  propuesta: 'Convocando',
+  equipo: 'Equipo listo',
+  activa: 'En marcha',
+  verificacion: 'En verificación',
+  resuelta: 'Resuelta',
+  abandonada: 'Abandonada',
+};
+
+const ESTADO_COLOR: Record<EstadoMision, string> = {
+  propuesta: VIOLETA,
+  equipo: VIOLETA,
+  activa: VERDE,
+  verificacion: AMBAR_PT,
+  resuelta: TINTA_50,
+  abandonada: TINTA_30,
 };
 
 const TIPO_LABEL: Record<TipoMision, string> = {
@@ -81,6 +105,15 @@ export default function MisionDetalle() {
   const [ocupado, setOcupado] = useState(false);
   const [nota, setNota] = useState<string | null>(null);
   const [confirmarAbandono, setConfirmarAbandono] = useState(false);
+  const [selloResuelta, setSelloResuelta] = useState(false);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(
+    () => () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    },
+    [],
+  );
 
   const recargar = useCallback(() => {
     const d = id ? misionPorId(id) : null;
@@ -99,18 +132,30 @@ export default function MisionDetalle() {
   const mision = datos?.mision ?? null;
   const miembros = datos?.miembros ?? [];
 
+  const volver = () => (router.canGoBack() ? router.back() : router.replace('/'));
+
   if (!mision) {
     return (
-      <View className="flex-1 bg-fondo">
-        <PanelHeader title="Misión" />
+      <View className="flex-1 bg-papel">
+        <GranoPapel />
+        <View className="px-5" style={{ paddingTop: insets.top + 12 }}>
+          <Pressable97
+            accessibilityRole="button"
+            accessibilityLabel="Volver"
+            onPress={volver}
+            className="-ml-2 min-h-11 min-w-11 items-center justify-center self-start"
+          >
+            <Text className="font-space text-2xl text-tinta">←</Text>
+          </Pressable97>
+        </View>
         <View className="flex-1 items-center justify-center px-8">
-          <GlassCard className="w-full p-6">
-            <Text className="font-serif text-2xl text-plata">No está más.</Text>
-            <Text className="mt-3 font-sans text-sm leading-6 text-slate-400">
+          <PapelCard className="w-full p-6">
+            <TituloAnton tamano="md">No está más.</TituloAnton>
+            <Text className="mt-3 font-archivo text-sm leading-6 text-tinta-75">
               Esa misión no existe en este dispositivo. Volvé al panel y
               fundá otra — nada es permanente, todo es misión.
             </Text>
-          </GlassCard>
+          </PapelCard>
         </View>
       </View>
     );
@@ -119,8 +164,10 @@ export default function MisionDetalle() {
   const oficio = oficioPorId(mision.oficioId);
   // Un estado fuera del enum (dato viejo, migración a medio camino) degrada
   // a una nota neutra en vez de tirar la pantalla abajo.
-  const estadoMeta = ESTADO_META[mision.estado as EstadoMision]
-    ?? { label: mision.estado, color: '#64748B' };
+  const estadoConocido = mision.estado as EstadoMision;
+  const estadoMeta = ESTADO_LABEL[estadoConocido]
+    ? { label: ESTADO_LABEL[estadoConocido], color: ESTADO_COLOR[estadoConocido] }
+    : { label: mision.estado, color: TINTA_50 };
 
   // Expedición vinculada (si esta misión de relevamiento fue fundada con
   // plantilla, o se re-vinculó después). `exp` puede ser null aunque
@@ -129,7 +176,7 @@ export default function MisionDetalle() {
   const plantillaExp = exp
     ? PLANTILLAS_EXPEDICION.find((p) => p.id === exp.plantillaId)
     : undefined;
-  const colorExp = plantillaExp ? SENAL_POR_KEY[plantillaExp.senal].color : '#94a3b8';
+  const colorExp = plantillaExp ? SENAL_POR_KEY[plantillaExp.senal].color : undefined;
   const progreso = exp ? progresoExpedicion(capturas, exp.meta) : null;
   const expedicionVinculadaVisible =
     Boolean(mision.expeditionId) && exp !== null
@@ -180,10 +227,14 @@ export default function MisionDetalle() {
     }
   };
 
+  // El sello ENCENDIDA de Sello.tsx dispara su propio haptic.celebrate() al
+  // montar — no hace falta llamarlo acá también.
   const resolver = () =>
     irA('resuelta', () => {
-      haptic.celebrate();
-      router.push({ pathname: '/obras/publicar', params: { misionId: mision.id } } as never);
+      setSelloResuelta(true);
+      timeoutRef.current = setTimeout(() => {
+        router.push({ pathname: '/obras/publicar', params: { misionId: mision.id } } as never);
+      }, DEMORA_SELLO_MS);
     });
 
   const abandonar = () => irA('abandonada', () => setConfirmarAbandono(false));
@@ -192,175 +243,131 @@ export default function MisionDetalle() {
   const yaEsMiembro = miembros.some((m) => m.actorKey === actorKeyCacheado());
 
   return (
-    <View className="flex-1 bg-fondo">
-      <PanelHeader title={mision.titulo} />
+    <View className="flex-1 bg-papel">
+      <GranoPapel />
+      <View className="px-5" style={{ paddingTop: insets.top + 12, paddingBottom: 12 }}>
+        <Pressable97
+          accessibilityRole="button"
+          accessibilityLabel="Volver"
+          onPress={volver}
+          className="-ml-2 min-h-11 min-w-11 items-center justify-center self-start"
+        >
+          <Text className="font-space text-2xl text-tinta">←</Text>
+        </Pressable97>
+        <View className="mt-2">
+          <Kicker>{TIPO_LABEL[mision.tipo as TipoMision] ?? mision.tipo}</Kicker>
+          <TituloAnton entintar tamano="lg" className="mt-1">
+            {mision.titulo}
+          </TituloAnton>
+        </View>
+      </View>
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: insets.bottom + 40 }}
       >
-        <Animated.View
-          entering={fadeUp}
-          className="mt-1 overflow-hidden rounded-[28px] border border-white/10 bg-[#121018] p-6"
-        >
-          <View
-            className="flex-row items-center gap-2 self-start rounded-full border px-3 py-1.5"
-            style={{ borderColor: `${estadoMeta.color}45`, backgroundColor: `${estadoMeta.color}18` }}
-          >
-            <View className="h-2 w-2 rounded-full" style={{ backgroundColor: estadoMeta.color }} />
-            <Text
-              className="font-sans-medium text-xs uppercase tracking-[2px]"
-              style={{ color: estadoMeta.color }}
-            >
-              {estadoMeta.label}
-            </Text>
-          </View>
-          <Text className="mt-5 font-serif text-2xl leading-8 text-plata">{mision.titulo}</Text>
-          <Text className="mt-3 font-sans text-sm leading-6 text-slate-400">{mision.proposito}</Text>
-          <View className="mt-5 flex-row flex-wrap gap-2">
-            {oficio && (
-              <View
-                className="flex-row items-center gap-1.5 rounded-full border px-3 py-1.5"
-                style={{ borderColor: `${oficio.color}45`, backgroundColor: `${oficio.color}18` }}
-              >
-                <Ionicons name={oficio.icono as never} size={13} color={oficio.color} />
-                <Text className="font-sans text-[11px]" style={{ color: oficio.color }}>
-                  {oficio.nombre}
-                </Text>
-              </View>
-            )}
-            <View className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5">
-              <Text className="font-sans text-[11px] text-slate-300">
-                {TIPO_LABEL[mision.tipo as TipoMision]}
-              </Text>
+        <Animated.View entering={fadeUp}>
+          <PapelCard className="p-6">
+            <ChipTipo etiqueta={estadoMeta.label} activo color={estadoMeta.color} />
+            <Text className="mt-4 font-archivo text-sm leading-6 text-tinta-75">{mision.proposito}</Text>
+            <View className="mt-5 flex-row flex-wrap gap-2">
+              {oficio && <ChipTipo etiqueta={oficio.nombre} />}
+              <ChipTipo etiqueta={GOBERNANZA_LABEL[mision.gobernanza as Gobernanza]} />
+              {mision.territorio && <ChipTipo etiqueta={mision.territorio} />}
             </View>
-            <View className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5">
-              <Text className="font-sans text-[11px] text-slate-300">
-                {GOBERNANZA_LABEL[mision.gobernanza as Gobernanza]}
-              </Text>
-            </View>
-            {mision.territorio && (
-              <View className="flex-row items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1.5">
-                <Ionicons name="location-outline" size={12} color="#94a3b8" />
-                <Text className="font-sans text-[11px] text-slate-300">{mision.territorio}</Text>
-              </View>
-            )}
-          </View>
+          </PapelCard>
         </Animated.View>
 
         {nota && (
-          <View className="mt-4 flex-row items-start gap-2 rounded-2xl border border-amber-300/20 bg-amber-300/10 p-4">
-            <Ionicons name="alert-circle-outline" size={16} color="#FCD34D" />
-            <Text className="flex-1 font-sans text-xs leading-5 text-amber-100">{nota}</Text>
+          <View className="mt-4 border border-ambar px-4 py-3">
+            <Text className="font-archivo text-xs leading-5 text-tinta-90">{nota}</Text>
           </View>
         )}
 
-        <Text className="mt-8 font-sans text-[11px] uppercase tracking-[3px] text-slate-400">
-          Equipo · {miembros.length}
-        </Text>
-        <View className="mt-3 gap-2">
-          {miembros.map((m) => {
+        <Kicker tono="neutro" className="mt-8">
+          {`Equipo · ${miembros.length}`}
+        </Kicker>
+        <View className="mt-2">
+          {miembros.map((m, i) => {
             const vencido = latidoVencido(m.ultimoLatidoAt, ahoraISO());
             const esVos = m.actorKey === actorKeyCacheado();
             return (
-              <View
-                key={m.actorKey}
-                className="flex-row items-center gap-3 rounded-xl border border-white/5 bg-white/[0.03] px-4 py-3"
-              >
-                <Ionicons
-                  name={m.rol === 'coordinador' ? 'star' : 'person-outline'}
-                  size={14}
-                  color={m.rol === 'coordinador' ? '#FCD34D' : '#64748b'}
-                />
-                <Text className="flex-1 font-sans text-xs text-slate-300">
-                  {m.rol === 'coordinador' ? 'Coordinador/a' : 'Miembro'}
-                  {esVos ? ' · vos' : ''}
-                </Text>
-                {vencido && (
-                  <View className="flex-row items-center gap-1.5">
-                    <View className="h-2 w-2 rounded-full bg-amber-400" />
-                    <Text className="font-mono text-[10px] text-amber-300">sin latido</Text>
-                  </View>
-                )}
-              </View>
+              <FilaIndice key={m.actorKey} numero={pad3(i + 1)} glifo="">
+                <View className="flex-row items-center justify-between">
+                  <Text className="font-archivo text-sm text-tinta">
+                    {m.rol === 'coordinador' ? 'Coordinador/a' : 'Miembro'}
+                    {esVos ? ' · vos' : ''}
+                  </Text>
+                  {vencido && (
+                    <Text className="font-space text-[10px] uppercase tracking-[1px]" style={{ color: AMBAR_PT }}>
+                      sin latido
+                    </Text>
+                  )}
+                </View>
+              </FilaIndice>
             );
           })}
         </View>
 
         {expedicionVinculadaVisible && exp && (
-          <GlassCard className="mt-8 p-5">
+          <PapelCard className="mt-8 p-5">
             <View className="flex-row items-center justify-between">
-              <View className="flex-1 flex-row items-center gap-2 pr-3">
-                {plantillaExp && (
-                  <Ionicons
-                    name={SENAL_POR_KEY[plantillaExp.senal].icon as never}
-                    size={15}
-                    color={colorExp}
-                  />
-                )}
-                <Text className="flex-1 font-sans-semibold text-sm text-plata">
-                  Expedición vinculada
-                </Text>
-              </View>
-              <Text className="font-mono text-xs text-slate-400">
-                {capturas} de {exp.meta}
-              </Text>
+              <Text className="flex-1 pr-3 font-archivo-bold text-sm text-tinta">Expedición vinculada</Text>
+              <Text className="font-space text-xs text-tinta-50">{`${capturas} de ${exp.meta}`}</Text>
             </View>
-            <Text className="mt-1 font-sans text-[11px] text-slate-500">{exp.titulo}</Text>
+            <Text className="mt-1 font-archivo text-xs text-tinta-50">{exp.titulo}</Text>
             <View className="mt-3">
-              <BarraLuminosa
-                porcentaje={progreso?.porcentaje ?? 0}
-                color={colorExp}
-                hitosOtorgados={JSON.parse(exp.hitosOtorgados) as number[]}
+              <Palitos total={capturas} de={exp.meta} color={colorExp} />
+            </View>
+            <View className="mt-4 items-start">
+              <BotonTinta
+                etiqueta="Capturar →"
+                variante="fantasma"
+                tamano="compacto"
+                onPress={() =>
+                  router.push({ pathname: '/expediciones/[id]', params: { id: exp.id } } as never)
+                }
               />
             </View>
-            <Pressable97
-              accessibilityRole="button"
-              accessibilityLabel="Capturar para la expedición vinculada"
-              onPress={() =>
-                router.push({ pathname: '/expediciones/[id]', params: { id: exp.id } } as never)
-              }
-              className="mt-4 min-h-11 flex-row items-center justify-center gap-2 self-start rounded-full border px-4 py-2.5"
-              style={{ borderColor: `${colorExp}55`, backgroundColor: `${colorExp}14` }}
-            >
-              <Ionicons name="camera-outline" size={14} color={colorExp} />
-              <Text className="font-sans-medium text-xs" style={{ color: colorExp }}>
-                Capturar
-              </Text>
-            </Pressable97>
-          </GlassCard>
+          </PapelCard>
         )}
 
         {mision.estado === 'propuesta' && (
           <View className="mt-8 gap-3">
-            <AccentButton
-              label={ocupado ? 'Cerrando…' : 'Cerrar convocatoria'}
+            <BotonTinta
+              // `key`: ver la nota en corriente.tsx (ObraFila) — Pressable97
+              // no reemplaza limpio la clase vieja al cambiar `disabled`/
+              // `cargando` en el mismo nodo; remontar lo evita. Se repite en
+              // cada botón de esta pantalla que reacciona a `ocupado`.
+              key={ocupado ? 'ocupado' : 'libre'}
+              etiqueta="Cerrar convocatoria"
               onPress={() => irA('equipo')}
               disabled={ocupado}
+              cargando={ocupado}
             />
             {yaEsMiembro ? (
-              <Text className="text-center font-sans text-xs text-slate-500">
+              <Text className="text-center font-archivo text-xs text-tinta-50">
                 Ya sos parte de esta misión.
               </Text>
             ) : (
-              <Pressable97
-                accessibilityRole="button"
-                accessibilityLabel="Sumarme a esta misión"
+              <BotonTinta
+                key={ocupado ? 'ocupado' : 'libre'}
+                etiqueta="Sumarme"
+                variante="fantasma"
                 onPress={sumarme}
                 disabled={ocupado}
-                className="min-h-12 items-center justify-center rounded-full border border-white/10 bg-white/5 px-5"
-              >
-                <Text className="font-sans-medium text-sm text-slate-300">Sumarme</Text>
-              </Pressable97>
+              />
             )}
           </View>
         )}
 
         {mision.estado === 'equipo' && (
           <View className="mt-8 items-center">
-            <AccentButton
-              label={ocupado ? 'Arrancando…' : 'Arrancar'}
+            <BotonTinta
+              key={ocupado ? 'ocupado' : 'libre'}
+              etiqueta="Arrancar"
               onPress={() => irA('activa')}
               disabled={ocupado}
+              cargando={ocupado}
             />
           </View>
         )}
@@ -368,58 +375,56 @@ export default function MisionDetalle() {
         {mision.estado === 'activa' && (
           <View className="mt-8 gap-3">
             {exp && progreso && progreso.estado !== 'completa' && (
-              <View className="flex-row items-start gap-2 rounded-2xl border border-white/10 bg-white/5 px-4 py-3">
-                <Ionicons name="information-circle-outline" size={15} color="#94a3b8" />
-                <Text className="flex-1 font-sans text-xs leading-5 text-slate-400">
+              <View className="border border-bordeSuave px-4 py-3">
+                <Text className="font-archivo text-xs leading-5 text-tinta-75">
                   La expedición va {capturas} de {exp.meta} — podés presentar igual.
                 </Text>
               </View>
             )}
-            <AccentButton
-              label={ocupado ? 'Presentando…' : 'Presentar resultado'}
+            <BotonTinta
+              key={ocupado ? 'ocupado' : 'libre'}
+              etiqueta="Presentar resultado"
               onPress={() => irA('verificacion')}
               disabled={ocupado}
+              cargando={ocupado}
             />
-            <Pressable97
-              accessibilityRole="button"
-              accessibilityLabel="Dar latido — avisar que seguís en esta misión"
+            <BotonTinta
+              key={`latido-${ocupado ? 'ocupado' : 'libre'}`}
+              etiqueta="Dar latido"
+              variante="fantasma"
               onPress={darLatido}
               disabled={ocupado}
-              className="min-h-12 flex-row items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-5"
-            >
-              <Ionicons name="pulse-outline" size={15} color="#94a3b8" />
-              <Text className="font-sans-medium text-sm text-slate-300">Dar latido</Text>
-            </Pressable97>
+            />
           </View>
         )}
 
         {mision.estado === 'verificacion' && (
           <View className="mt-8 gap-3">
-            <AccentButton
-              label={ocupado ? 'Resolviendo…' : 'Aceptar y resolver'}
+            <BotonTinta
+              key={ocupado ? 'ocupado' : 'libre'}
+              etiqueta="Aceptar y resolver"
               onPress={resolver}
               disabled={ocupado}
+              cargando={ocupado}
             />
-            <Pressable97
-              accessibilityRole="button"
-              accessibilityLabel="Volver a activa"
+            <BotonTinta
+              key={`volver-${ocupado ? 'ocupado' : 'libre'}`}
+              etiqueta="Volver a activa"
+              variante="fantasma"
               onPress={() => irA('activa')}
               disabled={ocupado}
-              className="min-h-12 items-center justify-center rounded-full border border-white/10 bg-white/5 px-5"
-            >
-              <Text className="font-sans-medium text-sm text-slate-300">Volver a activa</Text>
-            </Pressable97>
+            />
           </View>
         )}
 
         {(mision.estado === 'resuelta' || mision.estado === 'abandonada') && (
-          <GlassCard className="mt-8 p-5">
-            <Text className="font-sans text-sm leading-6 text-slate-400">
+          <PapelCard className="mt-8 p-5">
+            <Text className="font-archivo text-sm leading-6 text-tinta-75">
               {mision.estado === 'resuelta'
                 ? 'Esta misión ya se resolvió y quedó disuelta. La obra vive en La Corriente.'
                 : 'Esta misión fue abandonada. Nada es permanente — se puede fundar otra.'}
             </Text>
-          </GlassCard>
+          </PapelCard>
         )}
 
         {enCurso && (
@@ -430,42 +435,50 @@ export default function MisionDetalle() {
                 accessibilityLabel="Abandonar esta misión"
                 onPress={() => setConfirmarAbandono(true)}
                 disabled={ocupado}
-                className="px-4 py-2"
+                className="min-h-11 justify-center px-4 py-2"
               >
-                <Text className="font-sans text-xs text-slate-500">Abandonar</Text>
+                <Text className="font-space text-xs text-tinta-50">Abandonar</Text>
               </Pressable97>
             ) : (
-              <View className="w-full rounded-2xl border border-rose-300/20 bg-rose-300/[0.06] p-4">
-                <Text className="font-sans text-xs leading-5 text-rose-100">
+              <View className="w-full border p-4" style={{ borderColor: ROJO_SELLO }}>
+                <Text className="font-archivo text-xs leading-5 text-tinta-90">
                   ¿Seguro que la querés abandonar? La misión se cierra y no vuelve atrás.
                 </Text>
                 <View className="mt-3 flex-row gap-2">
-                  <Pressable97
-                    accessibilityRole="button"
-                    accessibilityLabel="Cancelar, no abandonar"
+                  <BotonTinta
+                    key={`cancelar-${ocupado ? 'ocupado' : 'libre'}`}
+                    etiqueta="Cancelar"
+                    variante="fantasma"
                     onPress={() => setConfirmarAbandono(false)}
                     disabled={ocupado}
-                    className="min-h-11 flex-1 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04]"
-                  >
-                    <Text className="font-sans-semibold text-xs text-slate-300">Cancelar</Text>
-                  </Pressable97>
-                  <Pressable97
-                    accessibilityRole="button"
-                    accessibilityLabel="Confirmar abandono de la misión"
+                    className="flex-1"
+                  />
+                  <BotonTinta
+                    key={`abandonar-${ocupado ? 'ocupado' : 'libre'}`}
+                    etiqueta={ocupado ? 'Abandonando…' : 'Sí, abandonar'}
+                    variante="fantasma"
                     onPress={abandonar}
                     disabled={ocupado}
-                    className="min-h-11 flex-1 items-center justify-center rounded-xl border border-rose-300/25 bg-rose-300/10"
-                  >
-                    <Text className="font-sans-semibold text-xs text-rose-100">
-                      {ocupado ? 'Abandonando…' : 'Sí, abandonar'}
-                    </Text>
-                  </Pressable97>
+                    className="flex-1"
+                  />
                 </View>
               </View>
             )}
           </View>
         )}
       </ScrollView>
+
+      {selloResuelta && (
+        <View
+          pointerEvents="auto"
+          className="absolute inset-0 items-center justify-center bg-papel/85"
+          style={{ zIndex: 60 }}
+        >
+          <Sello texto="RESUELTA" color="verde" rotacion={4} />
+        </View>
+      )}
     </View>
   );
 }
+
+const pad3 = (n: number): string => String(n).padStart(3, '0');
