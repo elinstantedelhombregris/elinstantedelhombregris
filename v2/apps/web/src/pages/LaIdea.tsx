@@ -1,4 +1,6 @@
 import { CapituloHombreGris } from './LaIdea/sections/CapituloHombreGris';
+import { CapituloMetodo } from './LaIdea/sections/CapituloMetodo';
+import { CapituloSinLider } from './LaIdea/sections/CapituloSinLider';
 import { PortadaIdea } from './LaIdea/sections/PortadaIdea';
 
 /**
@@ -12,6 +14,8 @@ export function LaIdea() {
     <main>
       <PortadaIdea />
       <CapituloHombreGris />
+      <CapituloMetodo />
+      <CapituloSinLider />
     </main>
   );
 }
