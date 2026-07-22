@@ -3,83 +3,10 @@ import { PLAN_REGISTRY } from '~/lib/plans-registry';
 /**
  * Datos de la landing «Papel y Tinta».
  *
- * Las voces, semillas y círculos son DATOS DE DEMOSTRACIÓN (la plataforma
- * real arranca en cero) y llevan asterisco en la UI, como exige el sistema
- * de diseño. Los planes son reales: salen de PLAN_REGISTRY (MDX).
+ * Las voces, propuestas y señales de la home vienen de la API real
+ * (ver `~/lib/queries/analytics`) — no hay datos de demostración acá.
+ * Los planes son reales: salen de PLAN_REGISTRY (MDX).
  */
-
-export type TipoVoz = 'basta' | 'sueño' | 'necesidad' | 'compromiso' | 'recurso' | 'valor';
-
-export interface VozDemo {
-  tipo: TipoVoz;
-  texto: string;
-  lugar: string;
-}
-
-export const DEMO_VOCES: readonly VozDemo[] = [
-  { tipo: 'basta', texto: 'Basta de rutas sin luz donde ya murió gente.', lugar: 'Trelew, Chubut' },
-  {
-    tipo: 'sueño',
-    texto: 'Que mi hija pueda estudiar sin tener que irse del pueblo.',
-    lugar: 'Tafí del Valle, Tucumán',
-  },
-  {
-    tipo: 'necesidad',
-    texto: 'Un centro de salud que abra los sábados en el barrio.',
-    lugar: 'Quilmes, Buenos Aires',
-  },
-  {
-    tipo: 'compromiso',
-    texto: 'Doy apoyo escolar gratis los martes. Empiezo este mes.',
-    lugar: 'Rosario, Santa Fe',
-  },
-  {
-    tipo: 'recurso',
-    texto: 'Tengo camioneta y tiempo los fines de semana.',
-    lugar: 'Salta capital',
-  },
-  {
-    tipo: 'valor',
-    texto: 'La salud y la educación no se negocian. Nunca.',
-    lugar: 'La Plata, Buenos Aires',
-  },
-  {
-    tipo: 'sueño',
-    texto: 'Un tren que vuelva a parar en mi estación.',
-    lugar: 'Laboulaye, Córdoba',
-  },
-  {
-    tipo: 'basta',
-    texto: 'Basta de decidir entre remedios y comida.',
-    lugar: 'Paraná, Entre Ríos',
-  },
-  {
-    tipo: 'necesidad',
-    texto: 'Agua potable de verdad, no de bidón.',
-    lugar: 'Añatuya, Santiago del Estero',
-  },
-  {
-    tipo: 'compromiso',
-    texto: 'Abro mi taller para enseñar oficio a 5 pibes.',
-    lugar: 'Neuquén capital',
-  },
-  {
-    tipo: 'sueño',
-    texto: 'Quedarme. Simplemente poder quedarme.',
-    lugar: 'Ushuaia, Tierra del Fuego',
-  },
-  {
-    tipo: 'valor',
-    texto: 'El que ejecuta plata pública rinde cuentas en público.',
-    lugar: 'Mendoza capital',
-  },
-  { tipo: 'basta', texto: 'Basta de escuelas donde llueve adentro.', lugar: 'Resistencia, Chaco' },
-  {
-    tipo: 'recurso',
-    texto: 'Soy contadora, audito gratis el club del barrio.',
-    lugar: 'Mar del Plata',
-  },
-];
 
 export interface TresLineasRow {
   num: string;
@@ -116,27 +43,6 @@ export const PLAN_COUNT = PLANES_REALES.length;
 
 /** Los tres planes destacados del teaser. */
 export const PLANES_TEASER = PLANES_REALES.slice(0, 3);
-
-export interface Cifra {
-  n: string;
-  label: string;
-  href: string;
-  esVioleta?: boolean;
-  esDemo: boolean;
-}
-
-export const CIFRAS: readonly Cifra[] = [
-  { n: '12.496', label: 'voces en el mapa', href: '/el-mapa', esDemo: true },
-  { n: '3.107', label: 'semillas plantadas', href: '/la-semilla-de-basta', esDemo: true },
-  { n: '214', label: 'círculos activos', href: '/comunidad', esDemo: true },
-  {
-    n: String(PLAN_COUNT),
-    label: 'planes en la prueba',
-    href: '/planes',
-    esVioleta: true,
-    esDemo: false,
-  },
-];
 
 export interface Tally {
   alto: number;

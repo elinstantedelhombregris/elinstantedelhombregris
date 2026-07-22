@@ -1,12 +1,52 @@
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render, screen } from '@testing-library/react';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 import { Home } from '../Home';
 import { PLAN_COUNT, PLANES_TEASER } from '../Home/landing-data';
 
+import { useCifras, useVocesCount, useVocesRecientes } from '~/lib/queries/analytics';
+
+// La home ahora consume la API real (voces/cifras/voces-recientes) vía
+// react-query — se mockean los hooks para que el render sea determinista
+// y no dispare fetches de verdad en jsdom.
+vi.mock('~/lib/queries/analytics', () => ({
+  useVocesCount: vi.fn(),
+  useCifras: vi.fn(),
+  useVocesRecientes: vi.fn(),
+}));
+
+const mockedUseVocesCount = vi.mocked(useVocesCount);
+const mockedUseCifras = vi.mocked(useCifras);
+const mockedUseVocesRecientes = vi.mocked(useVocesRecientes);
+
+function renderHome() {
+  mockedUseVocesCount.mockReturnValue({
+    data: { total: 12496 },
+    isLoading: false,
+    isError: false,
+  } as ReturnType<typeof useVocesCount>);
+  mockedUseCifras.mockReturnValue({
+    data: { voces: 12496, propuestas: 7, senales: 42, posts: 3 },
+    isLoading: false,
+    isError: false,
+  } as ReturnType<typeof useCifras>);
+  mockedUseVocesRecientes.mockReturnValue({
+    data: [{ id: 1, texto: 'Basta de rutas sin luz donde ya murió gente.', categoria: 'basta' }],
+    isLoading: false,
+  } as ReturnType<typeof useVocesRecientes>);
+
+  const qc = new QueryClient({ defaultOptions: { queries: { retry: false } } });
+  return render(
+    <QueryClientProvider client={qc}>
+      <Home />
+    </QueryClientProvider>,
+  );
+}
+
 describe('Home (landing Papel y Tinta)', () => {
   it('renders the hero with the ¡BASTA! ink rite and the demo notice', () => {
-    render(<Home />);
+    renderHome();
 
     expect(screen.getByRole('heading', { level: 1, name: '¡BASTA!' })).toBeInTheDocument();
     expect(
@@ -16,7 +56,7 @@ describe('Home (landing Papel y Tinta)', () => {
   });
 
   it('points the hero CTAs at the map and the idea', () => {
-    render(<Home />);
+    renderHome();
 
     expect(screen.getByRole('link', { name: 'Dejar mi voz en el mapa' })).toHaveAttribute(
       'href',
@@ -28,18 +68,19 @@ describe('Home (landing Papel y Tinta)', () => {
     );
   });
 
-  it('marks demo data with the mandatory asterisk note', () => {
-    render(<Home />);
+  it('never shows the retired demo-data asterisk note — the cifras strip is all real now', () => {
+    renderHome();
 
     expect(
-      screen.getByText(
+      screen.queryByText(
         '* Datos de demostración — la plataforma real arranca en cero, y eso también está bien.',
       ),
-    ).toBeInTheDocument();
+    ).not.toBeInTheDocument();
+    expect(screen.getByText('12.496')).toBeInTheDocument();
   });
 
   it('teases three real plans from the registry', () => {
-    render(<Home />);
+    renderHome();
 
     expect(PLANES_TEASER).toHaveLength(3);
     for (const plan of PLANES_TEASER) {
@@ -54,7 +95,7 @@ describe('Home (landing Papel y Tinta)', () => {
   });
 
   it('closes with the CTA band toward the map and the seed', () => {
-    render(<Home />);
+    renderHome();
 
     expect(
       screen.getByRole('heading', { name: 'Tu voz pesa. Soltala en el mapa.' }),
