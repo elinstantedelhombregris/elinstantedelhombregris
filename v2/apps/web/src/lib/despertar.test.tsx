@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, within } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 
 import { PapelHeader } from '../components/papel/PapelHeader';
@@ -61,6 +61,39 @@ describe('despertar — se dispara desde los CTAs canónicos (§10.7)', () => {
     expect(estaDespierto()).toBe(true);
     expect(window.localStorage.getItem(STORAGE_KEY)).toBe('1');
     expect(screen.getByTestId('sonda')).toHaveTextContent('despierto');
+  });
+
+  it('la entrada «Sembrar» del menú móvil despierta el sitio y el menú se sigue cerrando', () => {
+    render(
+      <>
+        <PapelHeader />
+        <Sonda />
+      </>,
+    );
+
+    fireEvent.click(screen.getByRole('button', { name: 'Abrir menú' }));
+    const menu = screen.getByRole('navigation', { name: 'Recorrido completo' });
+    expect(estaDespierto()).toBe(false);
+
+    fireEvent.click(within(menu).getByRole('link', { name: /Sembrar/ }));
+
+    expect(estaDespierto()).toBe(true);
+    expect(window.localStorage.getItem(STORAGE_KEY)).toBe('1');
+    expect(screen.getByTestId('sonda')).toHaveTextContent('despierto');
+    // Comportamiento previo intacto: el menú se cierra tras elegir una entrada.
+    expect(
+      screen.queryByRole('navigation', { name: 'Recorrido completo' }),
+    ).not.toBeInTheDocument();
+  });
+
+  it('otras entradas del menú móvil no despiertan el sitio', () => {
+    render(<PapelHeader />);
+
+    fireEvent.click(screen.getByRole('button', { name: 'Abrir menú' }));
+    const menu = screen.getByRole('navigation', { name: 'Recorrido completo' });
+    fireEvent.click(within(menu).getByRole('link', { name: /Inicio/ }));
+
+    expect(estaDespierto()).toBe(false);
   });
 
   it('un CTA no canónico del hero («Entender la idea») no despierta el sitio', () => {

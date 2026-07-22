@@ -90,6 +90,8 @@ export function PapelHeader() {
               href={item.href}
               className="border-papel-borde font-anton text-tinta flex items-center justify-between border-b py-2.5 text-[42px] leading-none"
               onClick={() => {
+                // En móvil, «Sembrar» es el mismo trigger canónico del despertar §10.7.
+                if (item.href === SEMBRAR_HREF) despertar();
                 setMenuOpen(false);
               }}
             >
