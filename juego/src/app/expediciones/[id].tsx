@@ -1,10 +1,15 @@
 /**
- * Detalle de expedición (spec §3.2): el progreso como luminosidad, los
- * hitos 25/50/100, el rito de cada captura — y el botón CAPTURAR, que
- * recorre los pasos de la plantilla con su micro-UI propia. Cada captura
- * hace nacer una estrella en el Cielo y enciende la luz de ENCENDER si
- * faltaba. En misiones cívicas, la recompensa se completa al cerrar una
- * celda válida; las expediciones personales conservan su economía clásica.
+ * Detalle de expedición (spec §3.2): el progreso, los hitos 25/50/100,
+ * el rito de cada captura — y el botón CAPTURAR, que recorre los pasos
+ * de la plantilla con su micro-UI propia. Cada captura hace nacer una
+ * estrella en el Cielo y enciende la luz de ENCENDER si faltaba. En
+ * misiones cívicas, la recompensa se completa al cerrar una celda
+ * válida; las expediciones personales conservan su economía clásica.
+ *
+ * Registro papel del sistema Papel y Tinta (spec §8): el cuaderno de
+ * campo abierto en una entrada. La barra luminosa muere: el progreso son
+ * palitos (spec §4) y números mono. El aviso flotante es una tira de
+ * tinta invertida; el hito celebra sobre papel, sin glow.
  */
 
 import { Ionicons } from '@expo/vector-icons';
@@ -21,19 +26,22 @@ import Animated from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { GeoAttributionCard, isGeoAttributionReady } from '@/components/civic/GeoAttributionCard';
-import { BarraLuminosa } from '@/components/juego/BarraLuminosa';
 import { MicroUIPaso, pasoValido, type ValorPaso } from '@/components/juego/MicroUIPaso';
 import { RangoUpOverlay } from '@/components/juego/RangoUpOverlay';
-import { AccentButton } from '@/components/ui/AccentButton';
-import { GlassCard } from '@/components/ui/GlassCard';
-import { PanelHeader } from '@/components/ui/PanelHeader';
+import {
+  BotonTinta,
+  ChipTipo,
+  GranoPapel,
+  Kicker,
+  Palitos,
+  PapelCard,
+  TituloAnton,
+} from '@/components/papel';
 import { Pressable97 } from '@/components/ui/Pressable97';
-import { SectionBadge } from '@/components/ui/SectionBadge';
 import {
   CAPTURA,
   PLANTILLAS_EXPEDICION,
   SENAL_POR_KEY,
-  type MicroUI,
 } from '@/content';
 import { campaignForExpedition, recordCampaignCapture } from '@/civic/campaigns';
 import {
@@ -76,17 +84,13 @@ import { bloom, fadeIn, fadeUp, slideLeftIn } from '@/motion/variants';
 import { multiplicadorHoy, useJuego } from '@/stores/juego';
 import { chequearAscensoRango } from '@/stores/rangos-check';
 import { haptic } from '@/theme/haptics';
+import { TINTA, TINTA_30 } from '@/theme/tokens';
 
 /** stepKey canónico: una entrada = una captura completa (todos los pasos). */
 const STEP_KEY_CAPTURA = 'captura';
 
-const ICONO_MICROUI: Record<MicroUI, string> = {
-  'foto-guiada': 'camera-outline',
-  contador: 'keypad-outline',
-  'rating-soles': 'sunny-outline',
-  chips: 'apps-outline',
-  'texto-corto': 'create-outline',
-};
+/** Palitos solo para metas chicas (spec §4: tally <100). */
+const META_PALITOS = 40;
 
 const LINEA_HITO: Record<number, string> = {
   25: 'Un cuarto del camino. El barrio ya se empieza a ver.',
@@ -219,18 +223,31 @@ export default function ExpedicionDetalle() {
     ? PLANTILLAS_EXPEDICION.find((p) => p.id === exp.plantillaId)
     : undefined;
 
+  const volver = () =>
+    router.canGoBack() ? router.back() : router.replace('/expediciones');
+
   if (!exp || !plantilla) {
     return (
-      <View className="flex-1 bg-fondo">
-        <PanelHeader title="Expedición" />
+      <View className="flex-1 bg-papel">
+        <GranoPapel />
+        <View className="px-5" style={{ paddingTop: insets.top + 12 }}>
+          <Pressable97
+            accessibilityRole="button"
+            accessibilityLabel="Volver"
+            onPress={volver}
+            className="-ml-2 min-h-11 min-w-11 items-center justify-center self-start"
+          >
+            <Text className="font-space text-2xl text-tinta">←</Text>
+          </Pressable97>
+        </View>
         <View className="flex-1 items-center justify-center px-7">
-          <GlassCard className="w-full p-6">
-            <Text className="font-serif text-2xl text-plata">No está más.</Text>
-            <Text className="mt-3 font-sans text-sm leading-6 text-slate-400">
+          <PapelCard className="w-full p-6">
+            <TituloAnton tamano="md">No está más.</TituloAnton>
+            <Text className="mt-3 font-archivo text-sm leading-6 text-tinta-75">
               Esa expedición no existe en este dispositivo. Volvé al panel y
               fundá otra: el barrio no se termina.
             </Text>
-          </GlassCard>
+          </PapelCard>
         </View>
       </View>
     );
@@ -484,22 +501,38 @@ export default function ExpedicionDetalle() {
   };
 
   return (
-    <View className="flex-1 bg-fondo">
-      <PanelHeader
-        title={exp.titulo}
-        right={missionId ? undefined : (
+    <View className="flex-1 bg-papel">
+      <GranoPapel />
+      <View className="px-5" style={{ paddingTop: insets.top + 12, paddingBottom: 4 }}>
+        <View className="flex-row items-center justify-between">
           <Pressable97
             accessibilityRole="button"
-            accessibilityLabel="Pasarla por QR"
-            onPress={() =>
-              router.push({ pathname: '/qr', params: { expedicionId: exp.id } })
-            }
-            className="mr-3 rounded-full border border-white/10 bg-white/5 p-2"
+            accessibilityLabel="Volver"
+            onPress={volver}
+            className="-ml-2 min-h-11 min-w-11 items-center justify-center self-start"
           >
-            <Ionicons name="qr-code-outline" size={16} color="#94a3b8" />
+            <Text className="font-space text-2xl text-tinta">←</Text>
           </Pressable97>
-        )}
-      />
+          {!missionId && (
+            <Pressable97
+              accessibilityRole="button"
+              accessibilityLabel="Pasarla por QR"
+              onPress={() =>
+                router.push({ pathname: '/qr', params: { expedicionId: exp.id } })
+              }
+              className="min-h-11 min-w-11 items-center justify-center border border-tinta p-2"
+            >
+              <Ionicons name="qr-code-outline" size={16} color={TINTA} />
+            </Pressable97>
+          )}
+        </View>
+        <View className="mt-2">
+          <Kicker style={{ color }}>{`${senal.label} · ${exp.zona}`}</Kicker>
+          <TituloAnton tamano="lg" className="mt-1">
+            {exp.titulo}
+          </TituloAnton>
+        </View>
+      </View>
 
       <KeyboardAvoidingView
         className="flex-1"
@@ -509,157 +542,131 @@ export default function ExpedicionDetalle() {
           keyboardShouldPersistTaps="handled"
           contentContainerStyle={{
             paddingHorizontal: 20,
+            paddingTop: 16,
             paddingBottom: insets.bottom + 32,
           }}
         >
           {!capturando ? (
             <Animated.View entering={fadeUp}>
               {missionId && (
-                <View className="mb-5 flex-row items-start gap-3 rounded-2xl border border-amber-300/20 bg-amber-300/[0.08] p-4">
-                  <Ionicons name="walk-outline" size={18} color="#FCD34D" />
-                  <View className="flex-1">
-                    <Text className="font-sans-semibold text-xs text-amber-100">
-                      Tramo de misión{missionCell ? ` · celda ${missionCell}` : ''}
-                    </Text>
-                    <Text className="mt-1 font-sans text-[11px] leading-5 text-amber-100/65">
-                      Este cuaderno pertenece a una operación territorial concreta. Después de registrar, volvés a la ruta para elegir el siguiente tramo.
-                    </Text>
-                  </View>
+                <View className="mb-5 border border-ambar bg-papel-crudo p-4">
+                  <Text className="font-archivo-bold text-xs text-tinta">
+                    Tramo de misión{missionCell ? ` · celda ${missionCell}` : ''}
+                  </Text>
+                  <Text className="mt-1 font-archivo text-[11px] leading-5 text-tinta-75">
+                    Este cuaderno pertenece a una operación territorial concreta. Después de registrar, volvés a la ruta para elegir el siguiente tramo.
+                  </Text>
                 </View>
               )}
-              <View className="mt-1 flex-row items-center gap-2">
-                <Ionicons name={senal.icon as never} size={14} color={color} />
-                <Text
-                  className="font-sans text-[11px] uppercase tracking-[3px]"
-                  style={{ color }}
-                >
-                  {senal.label}
-                </Text>
-                <Text className="font-sans text-[11px] text-slate-500">
-                  · {exp.zona}
-                </Text>
-              </View>
 
-              {/* El progreso luminoso */}
-              <GlassCard className="mt-4 p-5">
+              {/* El progreso, en palitos y mono */}
+              <PapelCard className="p-5">
                 <View className="flex-row items-end justify-between">
                   <View className="flex-row items-baseline gap-1.5">
-                    <Text className="font-mono text-4xl" style={{ color }}>
+                    <Text className="font-space text-4xl" style={{ color }}>
                       {entradas.length}
                     </Text>
-                    <Text className="font-sans text-sm text-slate-400">
+                    <Text className="font-archivo text-sm text-tinta-75">
                       de {exp.meta}
                     </Text>
                   </View>
-                  <Text className="font-mono text-sm text-slate-400">
+                  <Text className="font-space text-sm text-tinta-50">
                     {porcentaje}%
                   </Text>
                 </View>
-                <View className="mt-4">
-                  <BarraLuminosa
-                    alta
-                    porcentaje={porcentaje}
-                    color={color}
-                    hitosOtorgados={hitosOtorgados}
-                  />
-                </View>
+                {exp.meta <= META_PALITOS && (
+                  <View className="mt-4">
+                    <Palitos total={entradas.length} de={exp.meta} color={color} />
+                  </View>
+                )}
                 <View className="mt-3 flex-row justify-between">
                   {HITOS.map((h) => {
                     const encendido = hitosOtorgados.includes(h) || porcentaje >= h;
                     return (
                       <Text
                         key={h}
-                        className="font-mono text-[10px]"
-                        style={{ color: encendido ? color : '#475569' }}
+                        className="font-space text-[10px]"
+                        style={{ color: encendido ? color : TINTA_30 }}
                       >
                         {h}% · +{BRASAS_POR_HITO[h]}
                       </Text>
                     );
                   })}
                 </View>
-              </GlassCard>
+              </PapelCard>
 
               {/* El acto central */}
               {missionId && missionResult ? (
-                <GlassCard className="mt-6 border border-emerald-300/20 p-5">
-                  <View className="flex-row items-start gap-3">
-                    <Ionicons name="checkmark-circle-outline" size={20} color="#6EE7B7" />
-                    <View className="flex-1">
-                      <Text className="font-sans-semibold text-sm text-plata">Tramo registrado</Text>
-                      <Text className="mt-2 font-sans text-xs leading-5 text-slate-400">{missionResult}</Text>
-                    </View>
+                <PapelCard className="mt-6 border-verde p-5">
+                  <Text className="font-archivo-bold text-sm text-tinta">Tramo registrado</Text>
+                  <Text className="mt-2 font-archivo text-xs leading-5 text-tinta-75">{missionResult}</Text>
+                  <View className="mt-5 items-center">
+                    <BotonTinta
+                      etiqueta="Volver a la ruta →"
+                      accessibilityLabel="Volver a la ruta territorial"
+                      onPress={() => {
+                        if (missionById(missionId)) {
+                          router.replace({ pathname: '/territorio/misiones/[id]', params: { id: missionId } });
+                        } else {
+                          router.replace('/territorio/misiones');
+                        }
+                      }}
+                    />
                   </View>
-                  <Pressable97
-                    accessibilityRole="button"
-                    accessibilityLabel="Volver a la ruta territorial"
-                    onPress={() => {
-                      if (missionById(missionId)) {
-                        router.replace({ pathname: '/territorio/misiones/[id]', params: { id: missionId } });
-                      } else {
-                        router.replace('/territorio/misiones');
-                      }
-                    }}
-                    className="mt-5 min-h-12 flex-row items-center justify-center gap-2 rounded-full bg-emerald-500 px-5"
-                  >
-                    <Ionicons name="map-outline" size={17} color="#FFFFFF" />
-                    <Text className="font-sans-semibold text-sm text-white">Volver a la ruta</Text>
-                  </Pressable97>
-                </GlassCard>
+                </PapelCard>
               ) : activa ? (
                 <View className="mt-6 items-center">
-                  <AccentButton label="Capturar" onPress={empezarCaptura} />
-                  <Text className="mt-3 font-sans text-[11px] text-slate-500">
+                  <BotonTinta etiqueta="Capturar" onPress={empezarCaptura} />
+                  <Text className="mt-3 text-center font-archivo text-[11px] leading-4 text-tinta-50">
                     La estrella recuerda la captura. En una misión: +1 por registrar con honestidad y +2 cuando el lugar completa una celda válida.
                   </Text>
                 </View>
               ) : (
-                <GlassCard className="mt-6 p-5">
-                  <View className="flex-row items-center gap-2">
-                    <Ionicons name="checkmark-circle" size={18} color={color} />
-                    <Text className="font-sans-semibold text-sm text-plata">
+                <PapelCard className="mt-6 p-5">
+                  <View className="flex-row items-center justify-between gap-3">
+                    <Text className="font-archivo-bold text-sm text-tinta">
                       Expedición completa
                     </Text>
+                    <ChipTipo etiqueta="Completa" activo color={color} />
                   </View>
-                  <Text className="mt-2 font-sans text-xs leading-5 text-slate-400">
+                  <Text className="mt-2 font-archivo text-xs leading-5 text-tinta-75">
                     La meta está cumplida y el mapa quedó hecho. Fundá otra, o
                     llevá esta misma a otra zona.
                   </Text>
-                </GlassCard>
+                </PapelCard>
               )}
 
               {/* El rito de cada captura */}
-              <Text className="mt-8 font-sans text-[11px] uppercase tracking-[3px] text-slate-400">
+              <Kicker tono="neutro" className="mt-8">
                 El rito de cada captura
-              </Text>
-              <View className="mt-3 gap-2.5">
+              </Kicker>
+              <View className="mt-2">
                 {plantilla.pasos.map((p, i) => (
-                  <GlassCard key={p.key} className="flex-row items-center gap-3 p-4">
-                    <Text className="font-mono text-xs text-slate-500">
+                  <View
+                    key={p.key}
+                    className="flex-row items-baseline gap-5 border-b border-bordeSuave px-2 py-4"
+                  >
+                    <Text className="w-8 font-space text-[11px] text-tinta-30">
                       {String(i + 1).padStart(2, '0')}
                     </Text>
                     <View className="flex-1">
-                      <Text className="font-sans-medium text-sm text-slate-200">
+                      <Text className="font-archivo-bold text-sm text-tinta">
                         {p.titulo}
                       </Text>
-                      <Text className="mt-1 font-sans text-xs leading-5 text-slate-500">
+                      <Text className="mt-1 font-archivo text-xs leading-5 text-tinta-50">
                         {p.instruccion}
                       </Text>
                     </View>
-                    <Ionicons
-                      name={ICONO_MICROUI[p.microUI] as never}
-                      size={16}
-                      color="#64748b"
-                    />
-                  </GlassCard>
+                  </View>
                 ))}
               </View>
 
               {/* Lo último capturado */}
               {entradas.length > 0 && (
                 <>
-                  <Text className="mt-8 font-sans text-[11px] uppercase tracking-[3px] text-slate-400">
+                  <Kicker tono="neutro" className="mt-8">
                     Lo último capturado
-                  </Text>
+                  </Kicker>
                   <View className="mt-3 gap-2">
                     {[...entradas]
                       .slice(-3)
@@ -670,19 +677,15 @@ export default function ExpedicionDetalle() {
                         return (
                           <View
                             key={e.id}
-                            className="flex-row items-center gap-2.5 rounded-xl border border-white/5 bg-white/[0.03] px-4 py-3"
+                            className="flex-row items-center gap-2.5 border border-bordeSuave bg-papel-crudo px-4 py-3"
                           >
-                            <View
-                              className="h-1.5 w-1.5 rounded-full"
-                              style={{ backgroundColor: color }}
-                            />
                             <Text
                               numberOfLines={1}
-                              className="flex-1 font-sans text-xs text-slate-300"
+                              className="flex-1 font-archivo text-xs text-tinta-90"
                             >
                               {resumen ?? 'Una captura sin palabras'}
                             </Text>
-                            <Text className="font-mono text-[10px] text-slate-600">
+                            <Text className="font-space text-[10px] text-tinta-50">
                               {e.createdAt.slice(0, 10)}
                             </Text>
                           </View>
@@ -696,21 +699,20 @@ export default function ExpedicionDetalle() {
             /* ------------------------------------------ el rito, en vivo */
             <View>
               <View className="mt-1 flex-row items-center justify-between">
-                <SectionBadge>{`Captura — paso ${pasoIdx + 1} de ${plantilla.pasos.length}`}</SectionBadge>
+                <Kicker tono="neutro">{`Captura — paso ${pasoIdx + 1} de ${plantilla.pasos.length}`}</Kicker>
                 <Pressable97
                   accessibilityRole="button"
                   accessibilityLabel={retryPending ? 'La captura está pendiente de reintento' : 'Cancelar la captura'}
                   onPress={cancelarCaptura}
-                  className="rounded-full border border-white/10 bg-white/5 p-2"
+                  className="min-h-11 min-w-11 items-center justify-center border border-tinta"
                 >
-                  <Ionicons name="close" size={16} color="#94a3b8" />
+                  <Text className="font-space text-base text-tinta">✕</Text>
                 </Pressable97>
               </View>
 
               {retryPending && (
-                <View className="mt-4 flex-row items-start gap-3 rounded-2xl border border-amber-300/20 bg-amber-300/10 p-4">
-                  <Ionicons name="shield-checkmark-outline" size={18} color="#FCD34D" />
-                  <Text className="flex-1 font-sans text-xs leading-5 text-amber-100">
+                <View className="mt-4 border border-ambar bg-papel-crudo p-4">
+                  <Text className="font-archivo text-xs leading-5 text-tinta-90">
                     El primer intento quedó identificado. Los campos están pausados para que Reintentar complete exactamente esa captura, sin sumar otra estrella ni otra recompensa.
                   </Text>
                 </View>
@@ -718,18 +720,10 @@ export default function ExpedicionDetalle() {
 
               {paso && (
                 <Animated.View key={paso.key} entering={slideLeftIn} className="mt-7">
-                  <View className="flex-row items-center gap-2">
-                    <Ionicons name={senal.icon as never} size={14} color={color} />
-                    <Text
-                      className="font-sans text-[11px] uppercase tracking-[3px]"
-                      style={{ color }}
-                    >
-                      {paso.titulo}
-                    </Text>
-                  </View>
-                  <Text className="mt-4 font-serif text-2xl leading-9 text-plata">
+                  <Kicker style={{ color }}>{paso.titulo}</Kicker>
+                  <TituloAnton tamano="md" className="mt-3">
                     {paso.instruccion}
-                  </Text>
+                  </TituloAnton>
 
                   <View style={{ opacity: retryPending ? 0.64 : 1, pointerEvents: retryPending ? 'none' : 'auto' }}>
                     <MicroUIPaso
@@ -760,22 +754,18 @@ export default function ExpedicionDetalle() {
                         accessibilityLabel="Compartir el recibo visible con el territorio"
                         disabled={retryPending}
                         onPress={() => setPublicar((value) => !value)}
-                        className="flex-row items-start gap-3 rounded-2xl border border-white/10 bg-white/[0.04] p-4"
+                        className="flex-row items-start gap-3 border border-tinta bg-papel-crudo p-4"
                       >
                         <View
-                          className="mt-0.5 h-5 w-5 items-center justify-center rounded-md border"
-                          style={{
-                            borderColor: publicar ? color : '#475569',
-                            backgroundColor: publicar ? color : 'transparent',
-                          }}
-                        >
-                          {publicar && <Ionicons name="checkmark" size={14} color="#0A0A0A" />}
-                        </View>
+                          className={`mt-0.5 h-5 w-5 items-center justify-center border border-tinta ${
+                            publicar ? 'bg-violeta' : 'bg-papel-presionado'
+                          }`}
+                        />
                         <View className="flex-1">
-                          <Text className="font-sans-medium text-xs text-slate-200">
+                          <Text className="font-archivo-bold text-xs text-tinta">
                             Compartir con el territorio
                           </Text>
-                          <Text className="mt-1 font-sans text-[11px] leading-5 text-slate-500">
+                          <Text className="mt-1 font-archivo text-[11px] leading-5 text-tinta-75">
                             Se publica el lugar reducido y la firma elegida. La foto, el punto exacto y el contacto quedan fuera del registro común.
                           </Text>
                         </View>
@@ -784,23 +774,22 @@ export default function ExpedicionDetalle() {
                   )}
 
                   <View className="mt-10 items-center">
-                    <AccentButton
-                      label={
+                    <BotonTinta
+                      etiqueta={
                         ultimoPaso
-                          ? naciendo
-                            ? 'Naciendo…'
-                            : retryPending
-                              ? 'Reintentar sin duplicar'
-                              : 'Que nazca'
+                          ? retryPending
+                            ? 'Reintentar sin duplicar'
+                            : 'Que nazca'
                           : paso.microUI === 'foto-guiada' &&
                               typeof valores[paso.key] !== 'string'
                             ? 'Seguir sin foto'
-                            : 'Siguiente'
+                            : 'Siguiente →'
                       }
                       onPress={() =>
                         ultimoPaso ? capturar() : setPasoIdx((i) => i + 1)
                       }
                       disabled={naciendo || !pasoValido(paso, valores[paso.key]) || (ultimoPaso && campaign != null && !isGeoAttributionReady(context))}
+                      cargando={naciendo}
                     />
                     {pasoIdx > 0 && !retryPending && (
                       <Pressable97
@@ -809,7 +798,7 @@ export default function ExpedicionDetalle() {
                         onPress={() => setPasoIdx((i) => i - 1)}
                         className="mt-4 px-4 py-2"
                       >
-                        <Text className="font-sans text-xs text-slate-500">
+                        <Text className="font-space text-xs text-tinta-50">
                           ← Paso anterior
                         </Text>
                       </Pressable97>
@@ -822,40 +811,36 @@ export default function ExpedicionDetalle() {
         </ScrollView>
       </KeyboardAvoidingView>
 
-      {/* Aviso suave: nació la estrella */}
+      {/* Aviso suave: la tira de tinta invertida */}
       {aviso && !momento && !ascenso && (
         <Animated.View
           entering={fadeUp}
-          className="absolute left-6 right-6"
+          className="absolute left-6 right-6 bg-tinta px-4 py-3"
           style={{ bottom: insets.bottom + 20 }}
         >
-          <GlassCard className="flex-row items-center gap-2.5 px-4 py-3">
-            <View className="h-2 w-2 rounded-full" style={{ backgroundColor: color }} />
-            <Text className="flex-1 font-sans text-xs text-slate-200">{aviso}</Text>
-          </GlassCard>
+          <Text className="font-archivo text-xs leading-5 text-papel">{aviso}</Text>
         </Animated.View>
       )}
 
-      {/* El hito cruzado — momento celebratorio inline */}
+      {/* El hito cruzado — momento celebratorio sobre papel */}
       {momento && (
         <Animated.View
           entering={fadeIn}
-          className="absolute inset-0 items-center justify-center px-8"
-          style={{ backgroundColor: 'rgba(10, 10, 10, 0.82)' }}
+          className="absolute inset-0 items-center justify-center bg-papel/95 px-8"
         >
           <Animated.View entering={bloom} className="items-center">
-            <Text className="font-sans text-[11px] uppercase tracking-[3px] text-slate-400">
+            <Kicker tono="neutro">
               {momento.completa ? 'Expedición completa' : `Hito del ${momento.hito}%`}
-            </Text>
-            <Text className="mt-6 font-mono text-5xl" style={{ color }}>
+            </Kicker>
+            <Text className="mt-6 font-space text-5xl" style={{ color }}>
               +{momento.brasas}
             </Text>
-            <Text className="mt-1 font-sans text-xs text-slate-500">brasas</Text>
-            <Text className="mt-8 text-center font-serif-italic text-2xl leading-9 text-plata">
-              {LINEA_HITO[momento.completa ? 100 : momento.hito]}
-            </Text>
+            <Text className="mt-1 font-space text-xs text-tinta-50">brasas</Text>
+            <TituloAnton tamano="md" className="mt-8 text-center">
+              {LINEA_HITO[momento.completa ? 100 : momento.hito] ?? ''}
+            </TituloAnton>
             <View className="mt-10">
-              <AccentButton label="Seguir" onPress={() => setMomento(null)} />
+              <BotonTinta etiqueta="Seguir" onPress={() => setMomento(null)} />
             </View>
           </Animated.View>
         </Animated.View>

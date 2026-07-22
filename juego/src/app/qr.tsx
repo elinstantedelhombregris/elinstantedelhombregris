@@ -3,6 +3,10 @@
  * QR one-shot), RECIBIR con el escáner (chispas, expediciones, círculos)
  * y el CÍRCULO local v1 (nombre + glifo + ficha que viaja por QR).
  * Sin servidores: todo pasa entre dos teléfonos que se miran.
+ *
+ * Registro papel del sistema Papel y Tinta (spec §8): el bloque QR va
+ * sobre PapelCard con borde tinta («pasala en persona») — tinta sobre
+ * papel crudo, el contraste que un lector de QR agradece.
  */
 
 import { Ionicons } from '@expo/vector-icons';
@@ -15,9 +19,14 @@ import Animated from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { GlifoCirculo } from '@/components/juego/GlifoCirculo';
-import { AccentButton } from '@/components/ui/AccentButton';
-import { GlassCard } from '@/components/ui/GlassCard';
-import { PanelHeader } from '@/components/ui/PanelHeader';
+import {
+  BotonTinta,
+  ChipTipo,
+  GranoPapel,
+  Kicker,
+  PapelCard,
+  TituloAnton,
+} from '@/components/papel';
 import { Pressable97 } from '@/components/ui/Pressable97';
 import { COMPARTIR, ESTADOS_VACIOS, PLANTILLAS_EXPEDICION } from '@/content';
 import {
@@ -46,7 +55,7 @@ import { guardarCirculo, leerCirculo, leerNombre, nonceAleatorio } from '@/lib/s
 import { bloom, fadeUp } from '@/motion/variants';
 import { multiplicadorHoy, useJuego } from '@/stores/juego';
 import { haptic } from '@/theme/haptics';
-import { PLATA } from '@/theme/tokens';
+import { PAPEL_CRUDO, TINTA, TINTA_50, VIOLETA } from '@/theme/tokens';
 
 type TabQR = 'expedicion' | 'dar' | 'recibir' | 'circulo';
 
@@ -56,11 +65,21 @@ const TABS: { key: TabQR; label: string }[] = [
   { key: 'circulo', label: 'Círculo' },
 ];
 
-/** Tile plata con el QR adentro — máximo contraste sobre la card oscura. */
+/** Foco visible: borde violeta 2px (spec §3.5/§10) — nada de halo aparte. */
+const estiloInput = (enfocado: boolean): object => ({
+  borderWidth: enfocado ? 2 : 1,
+  borderColor: enfocado ? VIOLETA : TINTA,
+  outlineColor: VIOLETA,
+  outlineStyle: 'solid' as const,
+  outlineWidth: enfocado ? 2 : 0,
+  outlineOffset: 2,
+});
+
+/** El bloque QR canónico: tinta sobre papel crudo, borde tinta. */
 function TileQR({ value }: { value: string }) {
   return (
-    <View className="rounded-2xl bg-plata p-4">
-      <QRCode value={value} size={240} color="#0a0a0a" backgroundColor={PLATA} />
+    <View className="border border-tinta bg-papel-crudo p-4">
+      <QRCode value={value} size={240} color={TINTA} backgroundColor={PAPEL_CRUDO} />
     </View>
   );
 }
@@ -79,25 +98,26 @@ function TabExpedicion({ expedition }: { expedition: ExpeditionRow }) {
   }
   return (
     <Animated.View entering={fadeUp}>
-      <Text className="font-sans text-[10px] uppercase tracking-[2.5px] text-violet-300">Expedición viajera</Text>
-      <Text className="mt-3 font-serif text-2xl leading-9 text-plata">{expedition.titulo}</Text>
-      <Text className="mt-3 font-sans text-sm leading-6 text-slate-400">
+      <Kicker>expedición viajera</Kicker>
+      <TituloAnton tamano="md" className="mt-2">
+        {expedition.titulo}
+      </TituloAnton>
+      <Text className="mt-3 font-archivo text-sm leading-6 text-tinta-75">
         Mostrá este código cara a cara. La otra persona recibirá la consigna, la zona y la meta para empezar su propio progreso.
       </Text>
       {value ? (
-        <GlassCard className="mt-7 items-center p-6">
+        <PapelCard className="mt-7 items-center border-tinta p-6">
           <TileQR value={value} />
-          <Text className="mt-5 text-center font-sans-medium text-sm text-plata">{expedition.zona} · meta {expedition.meta}</Text>
-          <Text className="mt-2 text-center font-sans text-xs leading-5 text-slate-500">
+          <Text className="mt-5 text-center font-archivo-bold text-sm text-tinta">{expedition.zona} · meta {expedition.meta}</Text>
+          <Text className="mt-2 text-center font-archivo text-xs leading-5 text-tinta-50">
             No viajan tus capturas, fotos, lugares exactos, recompensas ni avance personal.
           </Text>
-        </GlassCard>
+        </PapelCard>
       ) : (
-        <GlassCard className="mt-7 items-center p-6">
-          <Ionicons name="alert-circle-outline" size={30} color="#FCD34D" />
-          <Text className="mt-4 text-center font-serif text-xl text-plata">Esta expedición no entra en un QR seguro.</Text>
-          <Text className="mt-2 text-center font-sans text-xs leading-5 text-slate-400">Conservá tu avance acá y compartí una expedición nueva con un título, zona y meta más breves.</Text>
-        </GlassCard>
+        <PapelCard className="mt-7 border-ambar p-6">
+          <TituloAnton tamano="md">Esta expedición no entra en un QR seguro.</TituloAnton>
+          <Text className="mt-2 font-archivo text-xs leading-5 text-tinta-75">Conservá tu avance acá y compartí una expedición nueva con un título, zona y meta más breves.</Text>
+        </PapelCard>
       )}
     </Animated.View>
   );
@@ -144,48 +164,44 @@ function TabDar() {
 
   return (
     <Animated.View entering={fadeUp}>
-      <Text className="font-serif text-2xl leading-9 text-plata">
-        Una chispa es un regalo chico: cinco brasas tuyas que encienden el
-        cielo de otra persona.
-      </Text>
-      <Text className="mt-3 font-sans text-sm leading-6 text-slate-400">
-        Se entrega como se debe: cara a cara. Quien la escanea recibe cinco
-        brasas y una estrella de amistad — de las que brillan plata.
+      <TituloAnton tamano="md">Una chispa es un regalo chico.</TituloAnton>
+      <Text className="mt-3 font-archivo text-sm leading-6 text-tinta-75">
+        Cinco brasas tuyas que encienden el cielo de otra persona. Se entrega
+        como se debe: cara a cara. Quien la escanea recibe cinco brasas y una
+        estrella de amistad, de las blancas.
       </Text>
 
       {qr ? (
         <Animated.View entering={bloom} className="mt-8 items-center">
-          <GlassCard className="w-full items-center p-6">
+          <PapelCard className="w-full items-center border-tinta p-6">
             <TileQR value={qr} />
-            <Text className="mt-5 text-center font-sans-medium text-sm text-plata">
+            <Text className="mt-5 text-center font-archivo-bold text-sm text-tinta">
               Mostráselo a alguien en persona.
             </Text>
-            <Text className="mt-2 text-center font-sans text-xs leading-5 text-slate-500">
+            <Text className="mt-2 text-center font-archivo text-xs leading-5 text-tinta-50">
               «{COMPARTIR.chispaRegalada}»{'\n'}Vale un solo escaneo. Si salís
               de esta pantalla, la próxima chispa se paga de nuevo.
             </Text>
-          </GlassCard>
-          <Pressable97
-            accessibilityRole="button"
-            accessibilityLabel="Regalar otra chispa"
-            onPress={regalar}
-            disabled={!alcanza || regalando}
-            className={`mt-5 rounded-full border border-white/10 bg-white/5 px-5 py-2.5 ${alcanza ? '' : 'opacity-40'}`}
-          >
-            <Text className="font-sans-medium text-xs text-slate-300">
-              Regalar otra (5 brasas)
-            </Text>
-          </Pressable97>
+          </PapelCard>
+          <View className="mt-5">
+            <BotonTinta
+              etiqueta="Regalar otra (5 brasas)"
+              variante="fantasma"
+              tamano="compacto"
+              onPress={regalar}
+              disabled={!alcanza || regalando}
+            />
+          </View>
         </Animated.View>
       ) : (
         <View className="mt-10 items-center">
-          <AccentButton
-            label="Regalar una chispa (5 brasas)"
+          <BotonTinta
+            etiqueta="Regalar una chispa (5 brasas)"
             onPress={regalar}
             disabled={!alcanza || regalando}
           />
           {!alcanza && (
-            <Text className="mt-4 text-center font-sans text-xs text-slate-500">
+            <Text className="mt-4 text-center font-archivo text-xs text-tinta-50">
               Te faltan brasas: se ganan encendiendo las luces de cada día.
             </Text>
           )}
@@ -193,7 +209,7 @@ function TabDar() {
       )}
 
       {error && (
-        <Text className="mt-4 text-center font-sans text-sm text-senal-basta">
+        <Text className="mt-4 text-center font-archivo text-sm text-sello">
           {error}
         </Text>
       )}
@@ -206,7 +222,6 @@ function TabDar() {
 // ---------------------------------------------------------------------------
 
 interface ResultadoEscaneo {
-  icono: 'sparkles' | 'map-outline' | 'people-outline';
   titulo: string;
   detalle: string;
   esExpedicion?: boolean;
@@ -225,16 +240,13 @@ function TabRecibir() {
   if (Platform.OS === 'web') {
     return (
       <Animated.View entering={fadeUp}>
-        <GlassCard className="mt-4 items-center p-8">
-          <Ionicons name="phone-portrait-outline" size={32} color="#94a3b8" />
-          <Text className="mt-4 text-center font-serif text-xl text-plata">
-            El escáner vive en el teléfono.
-          </Text>
-          <Text className="mt-3 text-center font-sans text-sm leading-6 text-slate-400">
+        <PapelCard className="mt-4 p-8">
+          <TituloAnton tamano="md">El escáner vive en el teléfono.</TituloAnton>
+          <Text className="mt-3 font-archivo text-sm leading-6 text-tinta-75">
             Desde esta preview no se escanea: abrí ¡BASTA! en tu celular para
             recibir chispas, expediciones y círculos.
           </Text>
-        </GlassCard>
+        </PapelCard>
       </Animated.View>
     );
   }
@@ -289,9 +301,8 @@ function TabRecibir() {
       haptic.celebrate();
       st.refresh();
       setResultado({
-        icono: 'sparkles',
         titulo: 'La chispa prendió',
-        detalle: `${r.payload.de ? `${r.payload.de} te regaló` : 'Te regalaron'} cinco brasas — y nació una estrella de amistad, de las que brillan plata.`,
+        detalle: `${r.payload.de ? `${r.payload.de} te regaló` : 'Te regalaron'} cinco brasas — y nació una estrella de amistad.`,
       });
       return;
     }
@@ -321,7 +332,6 @@ function TabRecibir() {
       haptic.celebrate();
       st.refresh();
       setResultado({
-        icono: 'map-outline',
         titulo: `Expedición recibida: ${r.payload.titulo}`,
         detalle:
           'Ya está en tu panel de expediciones, gratis y con tu propio progreso. Jugala en tu barrio.',
@@ -362,7 +372,7 @@ function TabRecibir() {
     useJuego.getState().setNewStar(star.id);
     haptic.celebrate();
     st.refresh();
-    setResultado({ icono: 'people-outline', titulo, detalle });
+    setResultado({ titulo, detalle });
   };
 
   const irAExpediciones = () => {
@@ -377,7 +387,7 @@ function TabRecibir() {
   return (
     <Animated.View entering={fadeUp}>
       {escaneando ? (
-        <View className="mt-4 overflow-hidden rounded-2xl border border-white/10">
+        <View className="mt-4 overflow-hidden border border-tinta">
           <CameraView
             style={{ height: 340 }}
             facing="back"
@@ -393,66 +403,47 @@ function TabRecibir() {
           <Pressable97
             accessibilityRole="button"
             accessibilityLabel="Cerrar el escáner"
-            className="items-center bg-white/5 py-3"
+            className="items-center border-t border-tinta bg-papel-crudo py-3"
             onPress={() => setEscaneando(false)}
           >
-            <Text className="font-sans text-sm text-slate-300">Cerrar el escáner</Text>
+            <Text className="font-space text-xs uppercase tracking-[2px] text-tinta">Cerrar el escáner</Text>
           </Pressable97>
         </View>
       ) : resultado ? (
         <Animated.View entering={bloom} className="mt-4">
-          <GlassCard className="items-center p-6">
-            <View className="h-16 w-16 items-center justify-center rounded-full border border-white/20 bg-white/5">
-              <Ionicons name={resultado.icono} size={28} color={PLATA} />
-            </View>
-            <Text className="mt-5 text-center font-serif text-2xl text-plata">
-              {resultado.titulo}
-            </Text>
-            <Text className="mt-3 text-center font-sans text-sm leading-6 text-slate-400">
+          <PapelCard className="border-tinta p-6">
+            <TituloAnton tamano="md">{resultado.titulo}</TituloAnton>
+            <Text className="mt-3 font-archivo text-sm leading-6 text-tinta-75">
               {resultado.detalle}
             </Text>
-            {resultado.esExpedicion && (
-              <View className="mt-6">
-                <AccentButton label="Ir a expediciones" onPress={irAExpediciones} />
-              </View>
-            )}
-            <Pressable97
-              accessibilityRole="button"
-              accessibilityLabel="Escanear otro código"
-              onPress={abrirEscaner}
-              className="mt-5 px-4 py-2"
-            >
-              <Text className="font-sans text-xs text-slate-500">Escanear otro</Text>
-            </Pressable97>
-          </GlassCard>
+            <View className="mt-6 items-start gap-3">
+              {resultado.esExpedicion && (
+                <BotonTinta etiqueta="Ir a expediciones →" onPress={irAExpediciones} />
+              )}
+              <BotonTinta
+                etiqueta="Escanear otro"
+                variante="fantasma"
+                tamano="compacto"
+                onPress={abrirEscaner}
+              />
+            </View>
+          </PapelCard>
         </Animated.View>
       ) : (
         <View>
-          <Text className="font-serif text-2xl leading-9 text-plata">
-            Escaneá lo que te muestran.
-          </Text>
-          <Text className="mt-3 font-sans text-sm leading-6 text-slate-400">
+          <TituloAnton tamano="md">Escaneá lo que te muestran.</TituloAnton>
+          <Text className="mt-3 font-archivo text-sm leading-6 text-tinta-75">
             Una chispa, una expedición o la ficha de un círculo: todo entra
             por acá, cara a cara.
           </Text>
-          <Pressable97
-            accessibilityRole="button"
-            accessibilityLabel="Abrir el escáner"
-            className="mt-8"
-            onPress={abrirEscaner}
-          >
-            <GlassCard className="items-center p-8">
-              <Ionicons name="qr-code-outline" size={40} color="#94a3b8" />
-              <Text className="mt-3 font-sans-medium text-sm text-slate-200">
-                Abrir el escáner
-              </Text>
-            </GlassCard>
-          </Pressable97>
+          <View className="mt-8 items-center">
+            <BotonTinta etiqueta="Abrir el escáner" onPress={abrirEscaner} />
+          </View>
         </View>
       )}
 
       {error && (
-        <Text className="mt-4 text-center font-sans text-sm text-senal-basta">
+        <Text className="mt-4 text-center font-archivo text-sm text-sello">
           {error}
         </Text>
       )}
@@ -467,6 +458,7 @@ function TabRecibir() {
 function TabCirculo() {
   const [circulo, setCirculo] = useState(() => leerCirculo());
   const [nombre, setNombre] = useState('');
+  const [enfocado, setEnfocado] = useState(false);
 
   const fundar = () => {
     const limpio = nombre.trim().slice(0, LIMITES_CIRCULO.nombreMax);
@@ -484,24 +476,26 @@ function TabCirculo() {
   if (circulo === null) {
     return (
       <Animated.View entering={fadeUp}>
-        <Text className="font-serif text-2xl leading-9 text-plata">
-          Fundá tu círculo.
-        </Text>
-        <Text className="mt-3 font-sans text-sm leading-6 text-slate-400">
+        <TituloAnton tamano="md">Fundá tu círculo.</TituloAnton>
+        <Text className="mt-3 font-archivo text-sm leading-6 text-tinta-75">
           {ESTADOS_VACIOS.circulo}
         </Text>
         <TextInput
           value={nombre}
           onChangeText={setNombre}
+          onFocus={() => setEnfocado(true)}
+          onBlur={() => setEnfocado(false)}
           placeholder="El nombre del círculo — el de tu cuadra, tu banda, tu gente."
-          placeholderTextColor="#64748b"
+          placeholderTextColor={TINTA_50}
           maxLength={LIMITES_CIRCULO.nombreMax}
           returnKeyType="done"
           onSubmitEditing={fundar}
-          className="mt-8 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 font-sans text-base text-plata"
+          accessibilityLabel="Nombre del círculo"
+          className="mt-8 bg-papel-crudo px-5 py-4 font-archivo text-base text-tinta"
+          style={estiloInput(enfocado)}
         />
         <View className="mt-6 items-center">
-          <AccentButton label="Fundar el círculo" onPress={fundar} disabled={!nombre.trim()} />
+          <BotonTinta etiqueta="Fundar el círculo →" onPress={fundar} disabled={!nombre.trim()} />
         </View>
       </Animated.View>
     );
@@ -509,24 +503,24 @@ function TabCirculo() {
 
   return (
     <Animated.View entering={fadeUp} className="items-center">
-      <GlassCard className="w-full items-center p-6">
-        <GlifoCirculo seed={circulo.glifoSeed} size={92} />
-        <Text className="mt-3 text-center font-serif text-2xl text-plata">
+      <PapelCard className="w-full items-center border-tinta p-6">
+        <GlifoCirculo seed={circulo.glifoSeed} size={92} color={TINTA} />
+        <TituloAnton tamano="md" className="mt-3 text-center">
           {circulo.nombre}
-        </Text>
-        <Text className="mt-1 font-mono text-sm text-slate-400">
+        </TituloAnton>
+        <Text className="mt-1 font-space text-sm text-tinta-50">
           {circulo.miembros} {circulo.miembros === 1 ? 'mano' : 'manos'} en la ronda
         </Text>
         <View className="mt-6">
           <TileQR value={codificarCirculo({ nombre: circulo.nombre, glifoSeed: circulo.glifoSeed })} />
         </View>
-        <Text className="mt-5 text-center font-sans text-xs leading-5 text-slate-500">
+        <Text className="mt-5 text-center font-archivo text-xs leading-5 text-tinta-50">
           La ficha viaja por QR, cara a cara. Para sumar una mano a tu cuenta,
           escaneá vos el círculo de la otra persona desde Recibir — y que ella
           escanee el tuyo.
         </Text>
-      </GlassCard>
-      <Text className="mt-4 text-center font-sans text-[11px] leading-4 text-slate-600">
+      </PapelCard>
+      <Text className="mt-4 text-center font-archivo text-[11px] leading-4 text-tinta-50">
         v1 mínimo y honesto: los miembros se cuentan en tu teléfono, sin
         servidores. Los conectores harán el resto después.
       </Text>
@@ -552,46 +546,55 @@ export default function Qr() {
     ? [{ key: 'expedicion' as const, label: 'Expedición' }, ...TABS]
     : TABS;
 
+  const volver = () => (router.canGoBack() ? router.back() : router.replace('/'));
+
   return (
-    <View className="flex-1 bg-fondo">
-      <PanelHeader
-        title="Chispas y círculos"
-        right={
+    <View className="flex-1 bg-papel">
+      <GranoPapel />
+      <View className="px-5" style={{ paddingTop: insets.top + 12 }}>
+        <View className="flex-row items-center justify-between">
+          <Pressable97
+            accessibilityRole="button"
+            accessibilityLabel="Volver"
+            onPress={volver}
+            className="-ml-2 min-h-11 min-w-11 items-center justify-center self-start"
+          >
+            <Text className="font-space text-2xl text-tinta">←</Text>
+          </Pressable97>
           <Pressable97
             accessibilityRole="button"
             accessibilityLabel="Compartir tu cielo"
             onPress={() => router.push('/compartir')}
-            className="rounded-full border border-white/10 bg-white/5 p-2"
+            className="min-h-11 min-w-11 items-center justify-center border border-tinta p-2"
           >
-            <Ionicons name="share-social-outline" size={18} color="#94a3b8" />
+            <Ionicons name="share-social-outline" size={16} color={TINTA} />
           </Pressable97>
-        }
-      />
+        </View>
+        <View className="mt-2">
+          <Kicker>cara a cara · sin servidores</Kicker>
+          <TituloAnton entintar tamano="lg" className="mt-1">
+            Chispas y círculos
+          </TituloAnton>
+        </View>
+      </View>
 
       <ScrollView
         keyboardShouldPersistTaps="handled"
         contentContainerStyle={{
-          paddingHorizontal: 24,
-          paddingTop: 4,
+          paddingHorizontal: 20,
+          paddingTop: 16,
           paddingBottom: insets.bottom + 32,
         }}
       >
-        {/* Segmentos */}
-        <View className="mb-7 flex-row rounded-full border border-white/10 bg-white/5 p-1">
+        {/* Solapas */}
+        <View className="mb-7 flex-row flex-wrap gap-2">
           {tabs.map(({ key, label }) => (
-            <Pressable97
+            <ChipTipo
               key={key}
-              accessibilityRole="button"
-              accessibilityLabel={label}
+              etiqueta={label}
+              activo={tab === key}
               onPress={() => setTab(key)}
-              className={`flex-1 items-center rounded-full py-2 ${tab === key ? 'bg-white/10' : ''}`}
-            >
-              <Text
-                className={`font-sans-medium text-xs ${tab === key ? 'text-plata' : 'text-slate-500'}`}
-              >
-                {label}
-              </Text>
-            </Pressable97>
+            />
           ))}
         </View>
 
@@ -601,11 +604,9 @@ export default function Qr() {
         {tab === 'circulo' && <TabCirculo />}
 
         {/* Las brasas a mano, para saber si alcanza */}
-        <View className="mt-8 flex-row items-center justify-center gap-1.5">
-          <Ionicons name="flame" size={13} color="#F59E0B" />
-          <Text className="font-mono text-xs text-brasa">{st.brasas}</Text>
-          <Text className="font-sans text-xs text-slate-600">brasas tuyas</Text>
-        </View>
+        <Text className="mt-8 text-center font-space text-xs text-tinta-50">
+          {st.brasas} brasas tuyas
+        </Text>
       </ScrollView>
     </View>
   );

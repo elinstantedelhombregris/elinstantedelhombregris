@@ -3,15 +3,18 @@
  * la notificación diaria opt-in de las 20:00 (spec §3.6), el export JSON de
  * TODO con un tap y el borrado local con doble confirmación. La bitácora y
  * los borradores son locales; lo que la persona publica puede sincronizarse.
+ *
+ * Registro papel del sistema Papel y Tinta (spec §8): filas del cuaderno,
+ * toggle rectangular (OFF papel-presionado / ON violeta) y la zona de
+ * borrado con borde sello — el único rojo que se permite gritar.
  */
 
-import { Ionicons } from '@expo/vector-icons';
 import Constants from 'expo-constants';
 import { File, Paths } from 'expo-file-system';
 import { useFocusEffect, useRouter } from 'expo-router';
 import * as Sharing from 'expo-sharing';
 import { useCallback, useState } from 'react';
-import { Platform, ScrollView, Switch, Text, TextInput, View } from 'react-native';
+import { Platform, ScrollView, Text, TextInput, View } from 'react-native';
 import Animated from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -37,8 +40,13 @@ import { readableAuthorizedFields } from '@/civic/disclosure-receipt';
 import { resetCivicActorKey } from '@/civic/identity';
 import { unacknowledgedOutbox } from '@/civic/repo';
 import { flushCivicOutbox } from '@/civic/sync';
-import { GlassCard } from '@/components/ui/GlassCard';
-import { PanelHeader } from '@/components/ui/PanelHeader';
+import {
+  BotonTinta,
+  GranoPapel,
+  Kicker,
+  PapelCard,
+  TituloAnton,
+} from '@/components/papel';
 import { Pressable97 } from '@/components/ui/Pressable97';
 import { NOTIFICACIONES } from '@/content';
 import { flushWebDatabaseSnapshot } from '@/db/client';
@@ -48,7 +56,7 @@ import { CLAVES_SOCIAL, guardarNombre, leerNombre } from '@/lib/social';
 import { fadeUp, staggerDelay } from '@/motion/variants';
 import { useJuego } from '@/stores/juego';
 import { haptic } from '@/theme/haptics';
-import { ACCENT, PLATA } from '@/theme/tokens';
+import { ROJO_SELLO, TINTA, TINTA_50, VIOLETA } from '@/theme/tokens';
 
 /**
  * Cargar expo-notifications SOLO en nativo. Importarlo estáticamente evalúa su
@@ -104,12 +112,54 @@ const ETICA = [
   'Al vencer, los datos dejan de participar en operaciones; hoy siguen en tu historial hasta que los retires o borres localmente.',
 ] as const;
 
+/** Foco visible: borde violeta 2px (spec §3.5/§10) — nada de halo aparte. */
+const estiloInput = (enfocado: boolean, acento: string = VIOLETA): object => ({
+  borderWidth: enfocado ? 2 : 1,
+  borderColor: enfocado ? acento : TINTA,
+  outlineColor: acento,
+  outlineStyle: 'solid' as const,
+  outlineWidth: enfocado ? 2 : 0,
+  outlineOffset: 2,
+});
+
+/** Toggle rectangular del cuaderno (spec §8): OFF papel-presionado, ON violeta. */
+function TogglePapel({
+  valor,
+  onCambiar,
+  disabled,
+  accessibilityLabel,
+}: {
+  valor: boolean;
+  onCambiar: (v: boolean) => void;
+  disabled?: boolean;
+  accessibilityLabel: string;
+}) {
+  return (
+    <Pressable97
+      accessibilityRole="switch"
+      accessibilityState={{ checked: valor, disabled: disabled ?? false }}
+      accessibilityLabel={accessibilityLabel}
+      onPress={() => onCambiar(!valor)}
+      disabled={disabled}
+      className="min-h-11 justify-center"
+    >
+      <View
+        className={`h-7 w-12 flex-row items-center border border-tinta px-1 ${
+          valor ? 'justify-end bg-violeta' : 'justify-start bg-papel-presionado'
+        }`}
+      >
+        <View className={`h-4 w-4 ${valor ? 'bg-papel' : 'bg-tinta'}`} />
+      </View>
+    </Pressable97>
+  );
+}
+
 function Seccion({ titulo, children }: { titulo: string; children: React.ReactNode }) {
   return (
-    <View className="mb-6">
-      <Text className="mb-3 font-sans text-[11px] uppercase tracking-[3px] text-slate-500">
+    <View className="mb-7">
+      <Kicker tono="neutro" className="mb-3">
         {titulo}
-      </Text>
+      </Kicker>
       {children}
     </View>
   );
@@ -121,6 +171,7 @@ export default function Ajustes() {
 
   // --- Nombre (viaja como `de` en las chispas) ---
   const [nombre, setNombre] = useState(() => leerNombre());
+  const [enfocadoNombre, setEnfocadoNombre] = useState(false);
   const [disclosureReceipts, setDisclosureReceipts] = useState(() => disclosureReceiptsAll());
   const [showAllReceipts, setShowAllReceipts] = useState(false);
   useFocusEffect(useCallback(() => {
@@ -252,6 +303,7 @@ export default function Ajustes() {
   // --- Borrado local (doble confirmación: escribir BORRAR) ---
   const [confirmando, setConfirmando] = useState(false);
   const [confirmacion, setConfirmacion] = useState('');
+  const [enfocadoConfirmacion, setEnfocadoConfirmacion] = useState(false);
   const [borrando, setBorrando] = useState(false);
   const [borrarNota, setBorrarNota] = useState<string | null>(null);
   const [retirosPendientes, setRetirosPendientes] = useState(0);
@@ -393,31 +445,51 @@ export default function Ajustes() {
     }
   };
 
+  const volver = () => (router.canGoBack() ? router.back() : router.replace('/'));
+
   return (
-    <View className="flex-1 bg-fondo">
-      <PanelHeader title="Ajustes" />
+    <View className="flex-1 bg-papel">
+      <GranoPapel />
+      <View className="px-5" style={{ paddingTop: insets.top + 12 }}>
+        <Pressable97
+          accessibilityRole="button"
+          accessibilityLabel="Volver"
+          onPress={volver}
+          className="-ml-2 min-h-11 min-w-11 items-center justify-center self-start"
+        >
+          <Text className="font-space text-2xl text-tinta">←</Text>
+        </Pressable97>
+        <View className="mt-2">
+          <Kicker>la ética hecha pantalla</Kicker>
+          <TituloAnton entintar tamano="lg" className="mt-1">
+            Ajustes
+          </TituloAnton>
+        </View>
+      </View>
       <ScrollView
         keyboardShouldPersistTaps="handled"
         contentContainerStyle={{
-          paddingHorizontal: 24,
-          paddingTop: 4,
+          paddingHorizontal: 20,
+          paddingTop: 20,
           paddingBottom: insets.bottom + 32,
         }}
       >
         <Animated.View entering={fadeUp}>
           {/* Nombre */}
           <Seccion titulo="Tu nombre">
-            <GlassCard className="p-4">
-              <TextInput
-                value={nombre}
-                onChangeText={cambiarNombre}
-                placeholder="Opcional — viaja en las chispas que regalás"
-                placeholderTextColor="#64748b"
-                maxLength={LIMITES_CHISPA.deMax}
-                className="font-sans text-base text-plata"
-              />
-            </GlassCard>
-            <Text className="mt-2 font-sans text-[11px] leading-4 text-slate-500">
+            <TextInput
+              value={nombre}
+              onChangeText={cambiarNombre}
+              onFocus={() => setEnfocadoNombre(true)}
+              onBlur={() => setEnfocadoNombre(false)}
+              placeholder="Opcional — viaja en las chispas que regalás"
+              placeholderTextColor={TINTA_50}
+              maxLength={LIMITES_CHISPA.deMax}
+              accessibilityLabel="Tu nombre para las chispas"
+              className="bg-papel-crudo px-5 py-4 font-archivo text-base text-tinta"
+              style={estiloInput(enfocadoNombre)}
+            />
+            <Text className="mt-2 font-archivo text-[11px] leading-4 text-tinta-50">
               Solo aparece cuando regalás una chispa, para que sepan de quién
               vino. No sale de los teléfonos que se miran.
             </Text>
@@ -426,34 +498,32 @@ export default function Ajustes() {
           {/* Notificación diaria — vive en el teléfono, no en la web */}
           {Platform.OS === 'web' ? (
             <Seccion titulo="Aviso diario">
-              <GlassCard className="p-4">
-                <Text className="font-sans text-sm leading-6 text-slate-400">
+              <PapelCard className="p-4">
+                <Text className="font-archivo text-sm leading-6 text-tinta-75">
                   Los avisos viven en el teléfono: esta preview no notifica.
                 </Text>
-              </GlassCard>
+              </PapelCard>
             </Seccion>
           ) : (
             <Seccion titulo="Aviso diario">
-              <GlassCard className="flex-row items-center justify-between p-4">
+              <PapelCard className="flex-row items-center justify-between p-4">
                 <View className="mr-4 flex-1">
-                  <Text className="font-sans-medium text-sm text-plata">
+                  <Text className="font-archivo-bold text-sm text-tinta">
                     «{NOTIFICACIONES.tuCieloEspera}»
                   </Text>
-                  <Text className="mt-1 font-sans text-xs leading-5 text-slate-500">
+                  <Text className="mt-1 font-archivo text-xs leading-5 text-tinta-50">
                     {NOTIFICACIONES.optIn}
                   </Text>
                 </View>
-                <Switch
-                  value={notif}
-                  onValueChange={alternarNotif}
+                <TogglePapel
+                  valor={notif}
+                  onCambiar={alternarNotif}
                   disabled={notifOcupado}
-                  trackColor={{ false: 'rgba(255,255,255,0.12)', true: ACCENT }}
-                  thumbColor={PLATA}
                   accessibilityLabel="Aviso diario a las ocho de la noche"
                 />
-              </GlassCard>
+              </PapelCard>
               {notifNota && (
-                <Text className="mt-2 font-sans text-xs text-slate-400">
+                <Text className="mt-2 font-archivo text-xs text-tinta-75">
                   {notifNota}
                 </Text>
               )}
@@ -462,22 +532,15 @@ export default function Ajustes() {
 
           {/* Ledger local append-only de lo que salió del dispositivo. */}
           <Seccion titulo="Historial de divulgación">
-            <GlassCard className="p-5">
-              <View className="flex-row items-start gap-3">
-                <View className="h-9 w-9 items-center justify-center rounded-full bg-violet-300/10">
-                  <Ionicons name="receipt-outline" size={18} color="#C4B5FD" />
-                </View>
-                <View className="flex-1">
-                  <Text className="font-sans-medium text-sm text-plata">Recibos por registro</Text>
-                  <Text className="mt-1 font-sans text-[11px] leading-5 text-slate-500">
-                    Cada asiento se crea antes de preparar el envío. No se edita: una revocación aparece como otro asiento y no borra por sí sola copias remotas.
-                  </Text>
-                </View>
-              </View>
+            <PapelCard className="p-5">
+              <Text className="font-archivo-bold text-sm text-tinta">Recibos por registro</Text>
+              <Text className="mt-1 font-archivo text-[11px] leading-5 text-tinta-50">
+                Cada asiento se crea antes de preparar el envío. No se edita: una revocación aparece como otro asiento y no borra por sí sola copias remotas.
+              </Text>
 
               {disclosureReceipts.length === 0 ? (
-                <View className="mt-4 rounded-2xl border border-white/[0.06] bg-white/[0.03] p-4">
-                  <Text className="font-sans text-xs leading-5 text-slate-500">
+                <View className="mt-4 bg-papel-presionado p-4">
+                  <Text className="font-archivo text-xs leading-5 text-tinta-50">
                     Todavía no preparaste ninguna observación, necesidad o recurso para compartir.
                   </Text>
                 </View>
@@ -489,41 +552,40 @@ export default function Ajustes() {
                       ? 'sin firma visible'
                       : `${receipt.attributionName ?? 'firma sin nombre'} · ${receipt.attributionMode === 'alias' ? 'alias' : 'nombre declarado'}`;
                     return (
-                      <View key={receipt.id} className="rounded-2xl border border-white/[0.07] bg-black/15 p-4">
+                      <View key={receipt.id} className="border border-bordeSuave bg-papel-crudo p-4">
                         <View className="flex-row items-center justify-between gap-3">
-                          <Text className={`font-sans-medium text-[10px] uppercase tracking-[1.4px] ${receipt.kind === 'revocation' ? 'text-rose-300' : 'text-emerald-300'}`}>
+                          <Text className={`font-space text-[10px] uppercase tracking-[1.4px] ${receipt.kind === 'revocation' ? 'text-sello' : 'text-verde'}`}>
                             {receipt.kind === 'revocation' ? 'Revocación asentada' : 'Divulgación autorizada'}
                           </Text>
-                          <Text className="font-mono text-[9px] text-slate-600">{receiptDate(receipt.recordedAt)}</Text>
+                          <Text className="font-space text-[9px] text-tinta-50">{receiptDate(receipt.recordedAt)}</Text>
                         </View>
-                        <Text className="mt-2 font-serif text-lg text-plata">
+                        <Text className="mt-2 font-archivo-bold text-base text-tinta">
                           {ENTITY_LABEL[receipt.entityType]} · {AUDIENCE_LABEL[receipt.audience]}
                         </Text>
-                        <Text className="mt-2 font-sans text-[11px] leading-5 text-slate-400">{receipt.purpose}</Text>
-                        <Text className="mt-2 font-sans text-[10px] leading-4 text-slate-500">
+                        <Text className="mt-2 font-archivo text-[11px] leading-5 text-tinta-75">{receipt.purpose}</Text>
+                        <Text className="mt-2 font-space text-[10px] leading-4 text-tinta-50">
                           Lugar: {PRECISION_LABEL[receipt.sharedPrecision]} · Firma: {signature} · Política v{receipt.policyVersion}
                         </Text>
-                        <Text className="mt-2 font-sans text-[10px] leading-4 text-slate-600">
+                        <Text className="mt-2 font-space text-[10px] leading-4 text-tinta-50">
                           Campos: {fields.length > 0 ? fields.join(' · ') : 'ningún valor compartido'}
                         </Text>
                       </View>
                     );
                   })}
                   {disclosureReceipts.length > 5 && (
-                    <Pressable97
-                      accessibilityRole="button"
-                      accessibilityLabel={showAllReceipts ? 'Mostrar menos recibos' : 'Mostrar todo el historial de divulgación'}
-                      onPress={() => setShowAllReceipts((value) => !value)}
-                      className="min-h-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] px-4"
-                    >
-                      <Text className="font-sans-medium text-xs text-violet-200">
-                        {showAllReceipts ? 'Mostrar menos' : `Ver los ${disclosureReceipts.length} asientos`}
-                      </Text>
-                    </Pressable97>
+                    <View className="items-start">
+                      <BotonTinta
+                        etiqueta={showAllReceipts ? 'Mostrar menos' : `Ver los ${disclosureReceipts.length} asientos`}
+                        variante="fantasma"
+                        tamano="compacto"
+                        accessibilityLabel={showAllReceipts ? 'Mostrar menos recibos' : 'Mostrar todo el historial de divulgación'}
+                        onPress={() => setShowAllReceipts((value) => !value)}
+                      />
+                    </View>
                   )}
                 </View>
               )}
-            </GlassCard>
+            </PapelCard>
           </Seccion>
 
           {/* Export */}
@@ -534,13 +596,12 @@ export default function Ajustes() {
               onPress={exportar}
               disabled={exportando}
             >
-              <GlassCard className="flex-row items-center gap-3 p-4">
-                <Ionicons name="download-outline" size={18} color={PLATA} />
+              <PapelCard className="flex-row items-center gap-4 p-4">
                 <View className="flex-1">
-                  <Text className="font-sans-medium text-sm text-plata">
+                  <Text className="font-archivo-bold text-sm text-tinta">
                     {exportando ? 'Preparando…' : 'Exportar mis datos'}
                   </Text>
-                  <Text className="mt-0.5 font-sans text-xs leading-4 text-slate-500">
+                  <Text className="mt-0.5 font-archivo text-xs leading-4 text-tinta-50">
                     Un JSON con juego, bitácora, datos cívicos, territorios,
                     consentimientos y cola de envíos. No incluye contraseñas
                     ni credenciales de acceso, pero sí puede incluir
@@ -548,16 +609,17 @@ export default function Ajustes() {
                     con alguien de confianza.
                   </Text>
                 </View>
-              </GlassCard>
+                <Text className="font-space text-tinta">→</Text>
+              </PapelCard>
             </Pressable97>
             {exportNota && (
-              <Text className="mt-2 font-sans text-xs text-slate-400">
+              <Text className="mt-2 font-archivo text-xs text-tinta-75">
                 {exportNota}
               </Text>
             )}
           </Seccion>
 
-          {/* Borrado local */}
+          {/* Borrado local — la zona con borde sello */}
           <Seccion titulo="Borrado local">
             {!confirmando ? (
               <Pressable97
@@ -569,93 +631,97 @@ export default function Ajustes() {
                   setConfirmando(true);
                 }}
               >
-                <GlassCard className="flex-row items-center gap-3 p-4">
-                  <Ionicons name="trash-outline" size={18} color="#ef4444" />
-                  <View className="flex-1">
-                    <Text className="font-sans-medium text-sm text-senal-basta">
-                      Borrar datos de este dispositivo
-                    </Text>
-                    <Text className="mt-0.5 font-sans text-xs leading-4 text-slate-500">
-                      Solicita borrar las filas y credenciales cubiertas en este
-                      dispositivo. No borra copias remotas, archivos externos,
-                      backups ni garantiza todavía borrado físico de SQLite.
-                    </Text>
-                  </View>
-                </GlassCard>
+                <View className="border border-sello bg-papel-crudo p-4">
+                  <Text className="font-archivo-bold text-sm text-sello">
+                    Borrar datos de este dispositivo
+                  </Text>
+                  <Text className="mt-0.5 font-archivo text-xs leading-4 text-tinta-50">
+                    Solicita borrar las filas y credenciales cubiertas en este
+                    dispositivo. No borra copias remotas, archivos externos,
+                    backups ni garantiza todavía borrado físico de SQLite.
+                  </Text>
+                </View>
               </Pressable97>
             ) : (
-              <GlassCard className="border-senal-basta/30 p-4">
-                <Text className="font-sans text-sm leading-6 text-slate-300">
+              <View className="border border-sello bg-papel-crudo p-4">
+                <Text className="font-archivo text-sm leading-6 text-tinta-90">
                   Se solicitan borrar las filas locales inventariadas, ajustes,
                   identidad y sesión. No elimina copias remotas, archivos que ya
                   compartiste, backups ni páginas libres de SQLite. Si querés
                   conservar una copia local, exportala antes.
                 </Text>
                 {retirosPendientes > 0 && (
-                  <View className="mt-4 rounded-2xl border border-amber-300/20 bg-amber-300/[0.07] p-4">
-                    <Text className="font-sans-semibold text-xs text-amber-100">{retirosPendientes} {retirosPendientes === 1 ? 'retiro espera' : 'retiros esperan'} acuse de la red</Text>
-                    <Text className="mt-2 font-sans text-[11px] leading-5 text-slate-400">
+                  <View className="mt-4 border border-ambar bg-papel p-4">
+                    <Text className="font-archivo-bold text-xs text-tinta">{retirosPendientes} {retirosPendientes === 1 ? 'retiro espera' : 'retiros esperan'} acuse de la red</Text>
+                    <Text className="mt-2 font-archivo text-[11px] leading-5 text-tinta-75">
                       {permisosRemotosPendientes > 0
                         ? `${permisosRemotosPendientes} corresponden a permisos de custodia que pudieron llegar a la red. El borrado no admite una salida de emergencia mientras falte confirmar su cierre, aunque este dispositivo los muestre vencidos.`
                         : 'Estos retiros corresponden a publicaciones. Borrar ahora destruirá la deuda local y el dato remoto podría seguir vigente.'}
                     </Text>
-                    <Pressable97 accessibilityRole="button" accessibilityLabel="Enviar retiros pendientes antes de borrar" onPress={enviarRetirosAntesDeBorrar} disabled={borrando} className="mt-3 min-h-11 items-center justify-center rounded-xl border border-amber-300/25 bg-amber-300/10 px-4">
-                      <Text className="font-sans-semibold text-xs text-amber-100">Enviar retiros primero</Text>
-                    </Pressable97>
+                    <View className="mt-3 items-start">
+                      <BotonTinta
+                        etiqueta="Enviar retiros primero"
+                        variante="fantasma"
+                        tamano="compacto"
+                        accessibilityLabel="Enviar retiros pendientes antes de borrar"
+                        onPress={enviarRetirosAntesDeBorrar}
+                        disabled={borrando}
+                      />
+                    </View>
                   </View>
                 )}
                 {permisosRemotosPendientes > 0 ? (
-                  <Text className="mt-4 font-sans-semibold text-xs leading-5 text-amber-100">
+                  <Text className="mt-4 font-archivo-bold text-xs leading-5 text-tinta">
                     Borrado bloqueado hasta recibir un acuse remoto de cierre. Conectá esta instalación con la misma cuenta y enviá los retiros primero.
                   </Text>
                 ) : (
                   <>
-                    <Text className="mt-4 font-sans text-xs leading-5 text-slate-400">
-                      Para confirmar, escribí <Text className="font-mono text-senal-basta">{fraseBorrado}</Text>.
+                    <Text className="mt-4 font-archivo text-xs leading-5 text-tinta-75">
+                      Para confirmar, escribí <Text className="font-space text-sello">{fraseBorrado}</Text>.
                     </Text>
                     <TextInput
                       value={confirmacion}
                       onChangeText={setConfirmacion}
+                      onFocus={() => setEnfocadoConfirmacion(true)}
+                      onBlur={() => setEnfocadoConfirmacion(false)}
                       placeholder={fraseBorrado}
-                      placeholderTextColor="#64748b"
+                      placeholderTextColor={TINTA_50}
                       autoCapitalize="characters"
                       autoCorrect={false}
                       editable={!borrando}
-                      className="mt-4 rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-center font-mono text-base tracking-widest text-plata"
+                      accessibilityLabel="Escribí la frase de confirmación"
+                      className="mt-4 bg-papel px-5 py-3 text-center font-space text-base tracking-widest text-tinta"
+                      style={estiloInput(enfocadoConfirmacion, ROJO_SELLO)}
                     />
                   </>
                 )}
                 <View className="mt-4 flex-row items-center justify-center gap-3">
-                  <Pressable97
-                    accessibilityRole="button"
+                  <BotonTinta
+                    etiqueta="Mejor no"
+                    variante="fantasma"
+                    tamano="compacto"
                     accessibilityLabel="Cancelar el borrado"
                     onPress={() => {
                       setConfirmando(false);
                       setConfirmacion('');
                     }}
                     disabled={borrando}
-                    className="rounded-full border border-white/10 bg-white/5 px-5 py-2.5"
-                  >
-                    <Text className="font-sans-medium text-xs text-slate-300">
-                      Mejor no
-                    </Text>
-                  </Pressable97>
-                  <Pressable97
-                    accessibilityRole="button"
+                  />
+                  <BotonTinta
+                    etiqueta={borrando ? 'Borrando…' : 'Borrar datos locales'}
+                    variante="tinta"
+                    tamano="compacto"
                     accessibilityLabel="Confirmar borrado de datos locales"
                     onPress={borrar}
                     disabled={!puedeBorrar || borrando}
-                    className={`rounded-full border border-senal-basta/40 bg-senal-basta/10 px-5 py-2.5 ${puedeBorrar && !borrando ? '' : 'opacity-40'}`}
-                  >
-                    <Text className="font-sans-medium text-xs text-senal-basta">
-                      {borrando ? 'Borrando…' : 'Borrar datos locales'}
-                    </Text>
-                  </Pressable97>
+                    cargando={borrando}
+                    style={{ borderWidth: 1, borderColor: ROJO_SELLO }}
+                  />
                 </View>
-              </GlassCard>
+              </View>
             )}
             {borrarNota && (
-              <Text className="mt-2 font-sans text-xs text-senal-basta">
+              <Text className="mt-2 font-archivo text-xs text-sello">
                 {borrarNota}
               </Text>
             )}
@@ -663,23 +729,23 @@ export default function Ajustes() {
 
           {/* Ética */}
           <Seccion titulo="La ética del juego">
-            <GlassCard className="p-5">
+            <PapelCard className="p-5">
               {ETICA.map((linea, i) => (
                 <Animated.View
                   key={linea}
                   entering={staggerDelay(i)}
                   className={`flex-row items-start gap-2.5 ${i > 0 ? 'mt-3' : ''}`}
                 >
-                  <Text className="font-sans text-sm text-slate-600">·</Text>
-                  <Text className="flex-1 font-sans text-sm leading-6 text-slate-300">
+                  <Text className="font-space text-sm text-tinta-30">—</Text>
+                  <Text className="flex-1 font-archivo text-sm leading-6 text-tinta-90">
                     {linea}
                   </Text>
                 </Animated.View>
               ))}
-            </GlassCard>
+            </PapelCard>
           </Seccion>
 
-          <Text className="mt-2 text-center font-mono text-[11px] text-slate-600">
+          <Text className="mt-2 text-center font-space text-[11px] text-tinta-50">
             v{VERSION} — privado por defecto; compartir es una decisión.
           </Text>
         </Animated.View>

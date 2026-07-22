@@ -2,18 +2,26 @@
  * Fundar una expedición (spec §3.2): plantilla → nombre y zona → meta.
  * Cuesta 15 brasas; si no alcanzan, el botón espera sin culpa. La
  * definición después viaja por QR para que otro la juegue en su barrio.
+ *
+ * Registro papel del sistema Papel y Tinta (spec §8): formulario canónico
+ * — inputs borde tinta sobre papel crudo, foco violeta, plantillas como
+ * fichas cuadradas, el stepper de la meta en mono. Cero radius, cero glow.
  */
 
-import { Ionicons } from '@expo/vector-icons';
 import { useFocusEffect, useRouter } from 'expo-router';
 import { useCallback, useState } from 'react';
 import { KeyboardAvoidingView, Platform, ScrollView, Text, TextInput, View } from 'react-native';
 import Animated from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { AccentButton } from '@/components/ui/AccentButton';
-import { GlassCard } from '@/components/ui/GlassCard';
-import { PanelHeader } from '@/components/ui/PanelHeader';
+import {
+  BotonTinta,
+  ChipTipo,
+  GranoPapel,
+  Kicker,
+  PapelCard,
+  TituloAnton,
+} from '@/components/papel';
 import { Pressable97 } from '@/components/ui/Pressable97';
 import { PLANTILLAS_EXPEDICION, SENAL_POR_KEY, type PlantillaExpedicion } from '@/content';
 import { fundarExpedicion } from '@/db/repos';
@@ -21,6 +29,7 @@ import { COSTOS } from '@/game/brasas';
 import { fadeUp, staggerDelay } from '@/motion/variants';
 import { useJuego } from '@/stores/juego';
 import { haptic } from '@/theme/haptics';
+import { TINTA, TINTA_50, VIOLETA } from '@/theme/tokens';
 
 const META_MIN = 10;
 const META_MAX = 200;
@@ -28,6 +37,16 @@ const META_PASO = 5;
 
 const clampMeta = (v: number): number =>
   Math.max(META_MIN, Math.min(META_MAX, Math.round(v)));
+
+/** Foco visible: borde violeta 2px (spec §3.5/§10) — nada de halo aparte. */
+const estiloInput = (enfocado: boolean): object => ({
+  borderWidth: enfocado ? 2 : 1,
+  borderColor: enfocado ? VIOLETA : TINTA,
+  outlineColor: VIOLETA,
+  outlineStyle: 'solid' as const,
+  outlineWidth: enfocado ? 2 : 0,
+  outlineOffset: 2,
+});
 
 export default function Fundar() {
   const router = useRouter();
@@ -46,6 +65,8 @@ export default function Fundar() {
   const [zona, setZona] = useState('');
   const [meta, setMeta] = useState(META_MIN);
   const [fundando, setFundando] = useState(false);
+  const [enfocadoNombre, setEnfocadoNombre] = useState(false);
+  const [enfocadoZona, setEnfocadoZona] = useState(false);
 
   const elegirPlantilla = (p: PlantillaExpedicion) => {
     setPlantilla(p);
@@ -82,9 +103,28 @@ export default function Fundar() {
     }
   };
 
+  const volver = () => (router.canGoBack() ? router.back() : router.replace('/expediciones'));
+
   return (
-    <View className="flex-1 bg-fondo">
-      <PanelHeader title="Fundá la tuya" />
+    <View className="flex-1 bg-papel">
+      <GranoPapel />
+      <View className="px-5" style={{ paddingTop: insets.top + 12, paddingBottom: 12 }}>
+        <Pressable97
+          accessibilityRole="button"
+          accessibilityLabel="Volver"
+          onPress={volver}
+          className="-ml-2 min-h-11 min-w-11 items-center justify-center self-start"
+        >
+          <Text className="font-space text-2xl text-tinta">←</Text>
+        </Pressable97>
+        <View className="mt-2">
+          <Kicker>tu consigna · tu zona · tu meta</Kicker>
+          <TituloAnton entintar tamano="lg" className="mt-1">
+            Fundá la tuya
+          </TituloAnton>
+        </View>
+      </View>
+
       <KeyboardAvoidingView
         className="flex-1"
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
@@ -97,14 +137,10 @@ export default function Fundar() {
           }}
         >
           <Animated.View entering={fadeUp}>
-            <Text className="mt-1 font-serif text-2xl leading-9 text-plata">
-              Una expedición tuya, con tu nombre y tu zona.
-            </Text>
-
             {/* 1 — la plantilla */}
-            <Text className="mt-7 font-sans text-[11px] uppercase tracking-[3px] text-slate-400">
+            <Kicker tono="neutro" className="mt-2">
               La plantilla
-            </Text>
+            </Kicker>
             <View className="mt-3 gap-2.5">
               {PLANTILLAS_EXPEDICION.map((p, i) => {
                 const senal = SENAL_POR_KEY[p.senal];
@@ -112,41 +148,28 @@ export default function Fundar() {
                 return (
                   <Animated.View key={p.id} entering={staggerDelay(i)}>
                     <Pressable97
-                      accessibilityRole="button"
+                      accessibilityRole="radio"
+                      accessibilityState={{ selected: activa }}
                       accessibilityLabel={p.titulo}
                       onPress={() => elegirPlantilla(p)}
-                      className="flex-row items-center gap-3 rounded-2xl border bg-white/5 p-3.5"
+                      className="flex-row items-center gap-3 bg-papel-crudo p-3.5"
                       style={{
-                        borderColor: activa ? `${senal.color}88` : 'rgba(255,255,255,0.1)',
-                        backgroundColor: activa
-                          ? `${senal.color}14`
-                          : 'rgba(255,255,255,0.05)',
+                        borderWidth: activa ? 2 : 1,
+                        borderColor: activa ? senal.color : TINTA,
                       }}
                     >
-                      <Ionicons
-                        name={senal.icon as never}
-                        size={18}
-                        color={activa ? senal.color : '#64748b'}
-                      />
                       <View className="flex-1">
-                        <Text
-                          className="font-sans-medium text-sm"
-                          style={{ color: activa ? senal.color : '#e2e8f0' }}
-                        >
+                        <Text className="font-archivo-bold text-sm text-tinta">
                           {p.titulo}
                         </Text>
                         <Text
                           numberOfLines={1}
-                          className="mt-0.5 font-sans text-[11px] text-slate-500"
+                          className="mt-0.5 font-archivo text-[11px] text-tinta-50"
                         >
                           {p.descripcion}
                         </Text>
                       </View>
-                      <Ionicons
-                        name={activa ? 'radio-button-on' : 'radio-button-off'}
-                        size={17}
-                        color={activa ? senal.color : '#475569'}
-                      />
+                      <ChipTipo etiqueta={senal.label} activo={activa} color={senal.color} />
                     </Pressable97>
                   </Animated.View>
                 );
@@ -154,90 +177,93 @@ export default function Fundar() {
             </View>
 
             {/* 2 — nombre y zona */}
-            <Text className="mt-7 font-sans text-[11px] uppercase tracking-[3px] text-slate-400">
+            <Kicker tono="neutro" className="mt-7">
               Nombre y zona
-            </Text>
+            </Kicker>
             <TextInput
               value={nombre}
               onChangeText={setNombre}
+              onFocus={() => setEnfocadoNombre(true)}
+              onBlur={() => setEnfocadoNombre(false)}
               placeholder="Nombre de tu expedición"
-              placeholderTextColor="#64748b"
+              placeholderTextColor={TINTA_50}
               maxLength={80}
-              className="mt-3 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 font-sans text-base text-plata"
+              accessibilityLabel="Nombre de tu expedición"
+              className="mt-3 bg-papel-crudo px-5 py-4 font-archivo text-base text-tinta"
+              style={estiloInput(enfocadoNombre)}
             />
             <TextInput
               value={zona}
               onChangeText={setZona}
+              onFocus={() => setEnfocadoZona(true)}
+              onBlur={() => setEnfocadoZona(false)}
               placeholder="¿Por dónde? El barrio, esas seis cuadras, la feria…"
-              placeholderTextColor="#64748b"
+              placeholderTextColor={TINTA_50}
               maxLength={100}
-              className="mt-3 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 font-sans text-base text-plata"
+              accessibilityLabel="Zona de tu expedición"
+              className="mt-3 bg-papel-crudo px-5 py-4 font-archivo text-base text-tinta"
+              style={estiloInput(enfocadoZona)}
             />
 
             {/* 3 — la meta */}
-            <Text className="mt-7 font-sans text-[11px] uppercase tracking-[3px] text-slate-400">
+            <Kicker tono="neutro" className="mt-7">
               La meta
-            </Text>
-            <Text className="mt-1.5 font-sans text-xs text-slate-500">
+            </Kicker>
+            <Text className="mt-1.5 font-archivo text-xs text-tinta-50">
               Cuántas capturas cierran la expedición ({META_MIN}–{META_MAX}).
             </Text>
             <View className="mt-4 flex-row items-center justify-center gap-5">
-              <Pressable97
-                accessibilityRole="button"
+              <BotonTinta
+                etiqueta="−"
+                variante="fantasma"
+                tamano="compacto"
                 accessibilityLabel={`Restar ${META_PASO}`}
                 onPress={() => setMeta((m) => clampMeta(m - META_PASO))}
-                className="h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5"
-              >
-                <Ionicons name="remove" size={22} color="#94a3b8" />
-              </Pressable97>
-              <Text className="min-w-[110px] text-center font-mono text-5xl text-plata">
+              />
+              <Text className="min-w-[110px] text-center font-space text-5xl text-tinta">
                 {meta}
               </Text>
-              <Pressable97
-                accessibilityRole="button"
+              <BotonTinta
+                etiqueta="+"
+                variante="fantasma"
+                tamano="compacto"
                 accessibilityLabel={`Sumar ${META_PASO}`}
                 onPress={() => setMeta((m) => clampMeta(m + META_PASO))}
-                className="h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5"
-              >
-                <Ionicons name="add" size={22} color="#94a3b8" />
-              </Pressable97>
+              />
             </View>
 
             {/* 4 — el costo y el acto */}
-            <GlassCard className="mt-8 p-5">
+            <PapelCard className="mt-8 p-5">
               <View className="flex-row items-center justify-between">
-                <View className="flex-row items-center gap-2">
-                  <Ionicons name="flame" size={16} color="#F59E0B" />
-                  <Text className="font-mono text-base text-brasa">{costo}</Text>
-                  <Text className="font-sans text-xs text-slate-400">
-                    cuesta fundarla
+                <View className="flex-row items-baseline gap-2">
+                  <Text className="font-space text-base text-tinta">{costo}</Text>
+                  <Text className="font-archivo text-xs text-tinta-75">
+                    brasas cuesta fundarla
                   </Text>
                 </View>
-                <Text className="font-sans text-xs text-slate-500">
-                  tenés <Text className="font-mono text-brasa">{st.brasas}</Text>
+                <Text className="font-archivo text-xs text-tinta-50">
+                  tenés <Text className="font-space text-tinta">{st.brasas}</Text>
                 </Text>
               </View>
               {faltan > 0 && (
-                <Text className="mt-3 font-sans text-xs leading-5 text-slate-400">
+                <Text className="mt-3 font-archivo text-xs leading-5 text-tinta-75">
                   Te faltan {faltan} brasas. Las luces de cada día las suman —
                   mañana ya podés estar más cerca.
                 </Text>
               )}
-            </GlassCard>
+            </PapelCard>
 
             <View className="mt-7 items-center">
-              <AccentButton
-                label={fundando ? 'Fundando…' : 'Fundarla'}
+              <BotonTinta
+                etiqueta="Fundarla →"
                 onPress={fundarla}
                 disabled={!lista || faltan > 0 || fundando}
+                cargando={fundando}
               />
-              <View className="mt-4 flex-row items-center gap-2 px-6">
-                <Ionicons name="qr-code-outline" size={13} color="#64748b" />
-                <Text className="flex-1 font-sans text-[11px] leading-4 text-slate-500">
-                  Cuando esté fundada vas a poder pasarla por QR, para que otra
-                  persona la juegue en su barrio con su propio progreso.
-                </Text>
-              </View>
+              <Text className="mt-4 px-6 text-center font-archivo text-[11px] leading-4 text-tinta-50">
+                Cuando esté fundada vas a poder pasarla por QR, para que otra
+                persona la juegue en su barrio con su propio progreso.
+              </Text>
             </View>
           </Animated.View>
         </ScrollView>

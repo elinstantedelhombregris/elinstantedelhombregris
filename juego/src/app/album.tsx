@@ -4,21 +4,33 @@
  * Cielo, que migran el fondo del negro puro hacia tintes de amanecer.
  * Al abrirlo se persisten las asignaciones nuevas y, si una constelación
  * se acaba de completar, la carta se revela a pantalla completa.
+ *
+ * Registro papel del sistema Papel y Tinta (spec §8): solapas como
+ * ChipTipo, constelaciones y cartas sobre PapelCard suave, oficios con
+ * palitos por obra (sin color: spec §2), paletas con swatch cuadrado.
+ * El gradiente del swatch se queda: no es chrome, es el producto — el
+ * cielo nocturno que se compra.
  */
 
-import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useFocusEffect } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
 import { ScrollView, Text, View } from 'react-native';
 import Animated from 'react-native-reanimated';
-import Svg, { Circle } from 'react-native-svg';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { CartaLoreView } from '@/components/juego/CartaLoreView';
 import { SiluetaConstelacion } from '@/components/juego/SiluetaConstelacion';
-import { GlassCard } from '@/components/ui/GlassCard';
-import { PanelHeader } from '@/components/ui/PanelHeader';
+import {
+  BotonTinta,
+  ChipTipo,
+  FilaIndice,
+  GranoPapel,
+  Kicker,
+  Palitos,
+  PapelCard,
+  TituloAnton,
+} from '@/components/papel';
 import { Pressable97 } from '@/components/ui/Pressable97';
 import {
   CONSTELACIONES,
@@ -51,6 +63,7 @@ import { fadeUp, staggerDelay } from '@/motion/variants';
 import { type NivelBrillo } from '@/protocolo/brillo';
 import { useJuego } from '@/stores/juego';
 import { haptic } from '@/theme/haptics';
+import { TINTA, TINTA_50 } from '@/theme/tokens';
 
 type Tab = 'constelaciones' | 'cartas' | 'paletas' | 'oficios';
 
@@ -61,13 +74,6 @@ const TABS: { key: Tab; label: string }[] = [
   { key: 'oficios', label: 'Oficios' },
 ];
 
-const OPACIDAD_POR_NIVEL: Record<NivelBrillo, number> = {
-  apagada: 0.15,
-  tenue: 0.35,
-  viva: 0.7,
-  radiante: 1,
-};
-
 const NOMBRE_NIVEL: Record<NivelBrillo, string> = {
   apagada: 'constelación apagada',
   tenue: 'constelación tenue',
@@ -75,35 +81,10 @@ const NOMBRE_NIVEL: Record<NivelBrillo, string> = {
   radiante: 'constelación radiante',
 };
 
-/** Las estrellitas del oficio: mismo patrón de halo+núcleo que SiluetaConstelacion. */
-function EstrellitasOficio({
-  obras,
-  nivel,
-  color,
-}: {
-  obras: number;
-  nivel: NivelBrillo;
-  color: string;
-}) {
-  const cantidad = Math.min(obras, 12);
-  const opacidad = OPACIDAD_POR_NIVEL[nivel];
-  const conGlow = nivel === 'radiante';
-  const espaciado = 14;
-  const cy = 8;
-  const estrellas = Array.from({ length: cantidad }, (_, i) => i * espaciado + espaciado / 2);
+/** Palitos legibles: más allá se dibuja el tope y el número mono manda. */
+const TOPE_PALITOS_OFICIO = 30;
 
-  return (
-    <Svg width={cantidad * espaciado} height={16}>
-      {conGlow &&
-        estrellas.map((cx, i) => (
-          <Circle key={`halo-${i}`} cx={cx} cy={cy} r={5.5} fill={color} opacity={0.22} />
-        ))}
-      {estrellas.map((cx, i) => (
-        <Circle key={i} cx={cx} cy={cy} r={3} fill={color} opacity={opacidad} />
-      ))}
-    </Svg>
-  );
-}
+const pad = (n: number): string => String(n).padStart(3, '0');
 
 export default function Album() {
   const insets = useSafeAreaInsets();
@@ -179,30 +160,25 @@ export default function Album() {
   };
 
   return (
-    <View className="flex-1 bg-fondo">
-      <PanelHeader title="Álbum" />
+    <View className="flex-1 bg-papel">
+      <GranoPapel />
+      <View className="px-5" style={{ paddingTop: insets.top + 12 }}>
+        <Kicker>lo que la calle te fue dejando</Kicker>
+        <TituloAnton entintar tamano="lg" className="mt-1">
+          Álbum
+        </TituloAnton>
+      </View>
 
-      {/* Las tres pestañas */}
-      <View className="mx-5 mt-1 flex-row rounded-full border border-white/10 bg-white/5 p-1">
-        {TABS.map((t) => {
-          const activa = tab === t.key;
-          return (
-            <Pressable97
-              key={t.key}
-              accessibilityRole="button"
-              accessibilityLabel={t.label}
-              onPress={() => setTab(t.key)}
-              className={`flex-1 items-center rounded-full py-2 ${activa ? 'bg-white/10' : ''}`}
-            >
-              <Text
-                className="font-sans-medium text-xs"
-                style={{ color: activa ? '#F5F7FA' : '#64748b' }}
-              >
-                {t.label}
-              </Text>
-            </Pressable97>
-          );
-        })}
+      {/* Las solapas */}
+      <View className="mt-4 flex-row flex-wrap gap-2 px-5">
+        {TABS.map((t) => (
+          <ChipTipo
+            key={t.key}
+            etiqueta={t.label}
+            activo={tab === t.key}
+            onPress={() => setTab(t.key)}
+          />
+        ))}
       </View>
 
       <ScrollView
@@ -216,7 +192,7 @@ export default function Album() {
         {tab === 'constelaciones' && (
           <Animated.View entering={fadeUp}>
             {st.estrellas.length === 0 && (
-              <Text className="mb-4 font-sans text-xs leading-5 text-slate-500">
+              <Text className="mb-4 font-archivo text-xs leading-5 text-tinta-75">
                 {ESTADOS_VACIOS.album}
               </Text>
             )}
@@ -238,13 +214,9 @@ export default function Album() {
                         completada ? setCarta({ c, nueva: false }) : setDetalle(c)
                       }
                     >
-                      <GlassCard
-                        className="items-center px-3 py-4"
-                        style={
-                          completada
-                            ? { borderColor: 'rgba(245, 247, 250, 0.3)' }
-                            : undefined
-                        }
+                      <PapelCard
+                        variante="suave"
+                        className={`items-center px-3 py-4 ${completada ? 'border-tinta' : ''}`}
                       >
                         <SiluetaConstelacion
                           constelacion={c}
@@ -254,23 +226,20 @@ export default function Album() {
                         />
                         <Text
                           numberOfLines={2}
-                          className="mt-2 text-center font-sans-medium text-xs leading-4 text-slate-200"
+                          className="mt-2 text-center font-archivo-bold text-xs leading-4 text-tinta"
                         >
                           {c.nombre}
                         </Text>
                         {completada ? (
-                          <View className="mt-1.5 flex-row items-center gap-1">
-                            <Ionicons name="sparkles" size={10} color="#F5F7FA" />
-                            <Text className="font-sans text-[10px] text-plata">
-                              completa — ver la carta
-                            </Text>
-                          </View>
+                          <Text className="mt-1.5 font-space text-[10px] text-violeta">
+                            completa — ver la carta
+                          </Text>
                         ) : (
-                          <Text className="mt-1.5 font-mono text-[10px] text-slate-500">
+                          <Text className="mt-1.5 font-space text-[10px] text-tinta-50">
                             {tiene} de {necesita}
                           </Text>
                         )}
-                      </GlassCard>
+                      </PapelCard>
                     </Pressable97>
                   </Animated.View>
                 );
@@ -281,21 +250,23 @@ export default function Album() {
 
         {/* --------------------------------------------------- Cartas */}
         {tab === 'cartas' && (
-          <Animated.View entering={fadeUp} className="gap-3">
+          <Animated.View entering={fadeUp}>
             {CONSTELACIONES.map((c, i) => {
               const ganada = tieneUnlock('carta', c.id);
               if (!ganada) {
                 return (
                   <View
                     key={c.id}
-                    className="flex-row items-center gap-3 rounded-2xl border border-white/5 bg-white/[0.03] p-4"
+                    className="flex-row items-baseline gap-5 border-b border-bordeSuave px-2 py-4"
                   >
-                    <Ionicons name="lock-closed-outline" size={16} color="#475569" />
+                    <Text className="w-14 font-space text-[11px] text-tinta-30">
+                      {pad(i + 1)}
+                    </Text>
                     <View className="flex-1">
-                      <Text className="font-sans text-sm text-slate-500">
+                      <Text className="font-archivo text-sm text-tinta-50">
                         {c.nombre}
                       </Text>
-                      <Text className="mt-0.5 font-sans text-[11px] text-slate-600">
+                      <Text className="mt-0.5 font-archivo text-[11px] text-tinta-30">
                         Se gana completando la constelación.
                       </Text>
                     </View>
@@ -304,32 +275,18 @@ export default function Album() {
               }
               return (
                 <Animated.View key={c.id} entering={staggerDelay(i)}>
-                  <Pressable97
-                    accessibilityRole="button"
+                  <FilaIndice
+                    numero={pad(i + 1)}
                     accessibilityLabel={`Carta: ${c.carta.titulo}`}
                     onPress={() => setCarta({ c, nueva: false })}
                   >
-                    <GlassCard
-                      className="flex-row items-center gap-4 p-4"
-                      style={{ borderColor: 'rgba(245, 247, 250, 0.22)' }}
-                    >
-                      <SiluetaConstelacion
-                        constelacion={c}
-                        porTipo={progresos.get(c.id)?.porTipo ?? {}}
-                        size={56}
-                        completada
-                      />
-                      <View className="flex-1">
-                        <Text className="font-serif text-base text-plata">
-                          {c.carta.titulo}
-                        </Text>
-                        <Text className="mt-1 font-sans text-[11px] text-slate-500">
-                          {c.nombre} · de «{c.carta.ensayo}»
-                        </Text>
-                      </View>
-                      <Ionicons name="chevron-forward" size={15} color="#64748b" />
-                    </GlassCard>
-                  </Pressable97>
+                    <Text className="font-archivo-bold text-base text-tinta">
+                      {c.carta.titulo}
+                    </Text>
+                    <Text className="mt-1 font-space text-[11px] text-tinta-50">
+                      {c.nombre} · de «{c.carta.ensayo}»
+                    </Text>
+                  </FilaIndice>
                 </Animated.View>
               );
             })}
@@ -339,14 +296,13 @@ export default function Album() {
         {/* -------------------------------------------------- Paletas */}
         {tab === 'paletas' && (
           <Animated.View entering={fadeUp}>
-            <View className="flex-row items-center justify-between">
-              <Text className="flex-1 font-sans text-xs leading-5 text-slate-500">
+            <View className="flex-row items-baseline justify-between">
+              <Text className="flex-1 font-archivo text-xs leading-5 text-tinta-75">
                 El cielo migra del negro puro hacia tintes de amanecer.
               </Text>
-              <View className="flex-row items-center gap-1.5 pl-4">
-                <Ionicons name="flame" size={13} color="#F59E0B" />
-                <Text className="font-mono text-sm text-brasa">{st.brasas}</Text>
-              </View>
+              <Text className="pl-4 font-space text-sm text-tinta">
+                {st.brasas} brasas
+              </Text>
             </View>
 
             <View className="mt-4 gap-3">
@@ -356,75 +312,52 @@ export default function Album() {
                 const alcanza = st.brasas >= p.precio;
                 return (
                   <Animated.View key={p.id} entering={staggerDelay(i)}>
-                    <GlassCard
-                      className="flex-row items-center gap-4 p-4"
-                      style={
-                        activa
-                          ? { borderColor: 'rgba(245, 247, 250, 0.3)' }
-                          : undefined
-                      }
-                    >
+                    <PapelCard className={`flex-row items-center gap-4 p-4 ${activa ? 'border-tinta' : ''}`}>
                       <LinearGradient
                         colors={[p.gradiente[0], p.gradiente[1]]}
                         style={{
                           width: 52,
                           height: 52,
-                          borderRadius: 14,
                           borderWidth: 1,
-                          borderColor: 'rgba(255,255,255,0.14)',
+                          borderColor: TINTA,
                         }}
                       />
                       <View className="flex-1">
-                        <Text className="font-sans-semibold text-sm text-plata">
+                        <Text className="font-archivo-bold text-sm text-tinta">
                           {p.nombre}
                         </Text>
-                        <Text className="mt-0.5 font-sans text-[11px] leading-4 text-slate-500">
+                        <Text className="mt-0.5 font-archivo text-[11px] leading-4 text-tinta-50">
                           {p.descripcion}
                         </Text>
                       </View>
 
                       {activa ? (
-                        <View className="flex-row items-center gap-1">
-                          <Ionicons name="checkmark-circle" size={14} color="#F5F7FA" />
-                          <Text className="font-sans text-[11px] text-plata">
-                            en tu cielo
-                          </Text>
-                        </View>
+                        <ChipTipo etiqueta="En tu cielo" activo />
                       ) : desbloqueada ? (
-                        <Pressable97
-                          accessibilityRole="button"
+                        <BotonTinta
+                          etiqueta="Usarla"
+                          variante="fantasma"
+                          tamano="compacto"
                           accessibilityLabel={`Usar ${p.nombre}`}
                           onPress={() => usarPaleta(p)}
-                          className="rounded-full border border-white/10 bg-white/5 px-4 py-2"
-                        >
-                          <Text className="font-sans-medium text-xs text-slate-200">
-                            Usarla
-                          </Text>
-                        </Pressable97>
+                        />
                       ) : (
                         <View className="items-end">
-                          <Pressable97
-                            accessibilityRole="button"
+                          <BotonTinta
+                            etiqueta={`${p.precio} brasas`}
+                            tamano="compacto"
                             accessibilityLabel={`Comprar ${p.nombre} por ${p.precio} brasas`}
                             onPress={() => comprarPaleta(p)}
                             disabled={!alcanza}
-                            className={`flex-row items-center gap-1.5 rounded-full bg-accent px-4 py-2 ${
-                              alcanza ? '' : 'opacity-40'
-                            }`}
-                          >
-                            <Ionicons name="flame" size={12} color="#ffffff" />
-                            <Text className="font-sans-semibold text-xs text-white">
-                              {p.precio}
-                            </Text>
-                          </Pressable97>
+                          />
                           {!alcanza && (
-                            <Text className="mt-1 font-sans text-[10px] text-slate-600">
+                            <Text className="mt-1 font-space text-[10px] text-tinta-50">
                               te faltan {p.precio - st.brasas}
                             </Text>
                           )}
                         </View>
                       )}
-                    </GlassCard>
+                    </PapelCard>
                   </Animated.View>
                 );
               })}
@@ -440,7 +373,7 @@ export default function Album() {
               const vacios = oficios.length - conObras.length;
               if (conObras.length === 0) {
                 return (
-                  <Text className="font-sans text-xs leading-5 text-slate-500">
+                  <Text className="font-archivo text-xs leading-5 text-tinta-75">
                     Cuando tu primera obra exista, acá va a nacer su constelación de
                     oficio.
                   </Text>
@@ -451,36 +384,27 @@ export default function Album() {
                   <View className="gap-3">
                     {conObras.map((o, i) => (
                       <Animated.View key={o.oficio.id} entering={staggerDelay(i)}>
-                        <GlassCard className="p-4">
-                          <View className="flex-row items-center gap-2.5">
-                            <Ionicons
-                              name={o.oficio.icono as never}
-                              size={16}
-                              color={o.oficio.color}
-                            />
-                            <Text className="flex-1 font-sans-semibold text-sm text-plata">
+                        <PapelCard variante="suave" className="p-4">
+                          <View className="flex-row items-baseline justify-between gap-3">
+                            <Text className="flex-1 font-archivo-bold text-sm text-tinta">
                               {o.oficio.nombre}
                             </Text>
-                            <Text className="font-mono text-[11px] text-slate-500">
+                            <Text className="font-space text-[11px] text-tinta-50">
                               {o.obras} {o.obras === 1 ? 'obra' : 'obras'}
                             </Text>
                           </View>
-                          <View className="mt-3 flex-row items-center justify-between">
-                            <EstrellitasOficio
-                              obras={o.obras}
-                              nivel={o.nivel}
-                              color={o.oficio.color}
-                            />
-                            <Text className="font-mono text-[10px] lowercase text-slate-500">
+                          <View className="mt-3 flex-row items-center justify-between gap-3">
+                            <Palitos total={Math.min(o.obras, TOPE_PALITOS_OFICIO)} />
+                            <Text className="font-space text-[10px] lowercase text-tinta-50">
                               {NOMBRE_NIVEL[o.nivel]}
                             </Text>
                           </View>
-                        </GlassCard>
+                        </PapelCard>
                       </Animated.View>
                     ))}
                   </View>
                   {vacios > 0 && (
-                    <Text className="mt-4 font-sans text-xs leading-5 text-slate-500">
+                    <Text className="mt-4 font-archivo text-xs leading-5 text-tinta-75">
                       Los demás oficios esperan su primera obra.
                     </Text>
                   )}
@@ -495,17 +419,18 @@ export default function Album() {
       {detalle && (
         <Animated.View
           entering={fadeUp}
-          className="absolute inset-0 items-center justify-center px-6"
-          style={{ backgroundColor: 'rgba(10, 10, 10, 0.92)' }}
+          className="absolute inset-0 items-center justify-center bg-papel/95 px-6"
         >
-          <GlassCard className="w-full items-center p-6">
+          <PapelCard className="w-full items-center border-tinta p-6">
             <SiluetaConstelacion
               constelacion={detalle}
               porTipo={progresos.get(detalle.id)?.porTipo ?? {}}
               size={150}
             />
-            <Text className="mt-3 font-serif text-xl text-plata">{detalle.nombre}</Text>
-            <Text className="mt-2 text-center font-sans text-xs leading-5 text-slate-400">
+            <TituloAnton tamano="md" className="mt-3 text-center">
+              {detalle.nombre}
+            </TituloAnton>
+            <Text className="mt-2 text-center font-archivo text-xs leading-5 text-tinta-75">
               {detalle.descripcion}
             </Text>
             <View className="mt-5 w-full gap-2">
@@ -519,15 +444,15 @@ export default function Album() {
                   return (
                     <View key={tipo} className="flex-row items-center gap-2.5">
                       <View
-                        className="h-2 w-2 rounded-full"
+                        className="h-2 w-2"
                         style={{ backgroundColor: s.color }}
                       />
-                      <Text className="flex-1 font-sans text-xs text-slate-300">
+                      <Text className="flex-1 font-archivo text-xs text-tinta-90">
                         {s.label}
                       </Text>
                       <Text
-                        className="font-mono text-xs"
-                        style={{ color: tiene >= necesita ? s.color : '#64748b' }}
+                        className="font-space text-xs"
+                        style={{ color: tiene >= necesita ? s.color : TINTA_50 }}
                       >
                         {tiene} de {necesita}
                       </Text>
@@ -536,15 +461,15 @@ export default function Album() {
                 },
               )}
             </View>
-            <Pressable97
-              accessibilityRole="button"
-              accessibilityLabel="Cerrar"
-              onPress={() => setDetalle(null)}
-              className="mt-6 rounded-full border border-white/10 bg-white/5 px-6 py-2.5"
-            >
-              <Text className="font-sans-medium text-xs text-slate-200">Cerrar</Text>
-            </Pressable97>
-          </GlassCard>
+            <View className="mt-6">
+              <BotonTinta
+                etiqueta="Cerrar"
+                variante="fantasma"
+                tamano="compacto"
+                onPress={() => setDetalle(null)}
+              />
+            </View>
+          </PapelCard>
         </Animated.View>
       )}
 

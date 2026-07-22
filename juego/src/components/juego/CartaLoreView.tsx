@@ -1,21 +1,23 @@
 /**
  * Carta de Lore (spec §3.1) — el premio por completar una constelación:
- * un fragmento verbatim de los ensayos, en Playfair, con su ensayo como
- * atribución y la silueta completa brillando arriba. G5 la hace
- * compartible; acá se muestra en toda su gloria.
+ * un fragmento verbatim de los ensayos, con su ensayo como atribución y
+ * la silueta completa brillando arriba. G5 la hace compartible; acá se
+ * muestra en toda su gloria.
+ *
+ * Registro papel-sobre-oscuro del sistema Papel y Tinta (spec §1.4/§8):
+ * la revelación cae sobre el fondo oscuro (misma familia que RangoUpOverlay,
+ * un momento fuera del cuaderno), pero la carta en sí es una hoja de papel
+ * real — la única sombra permitida en todo el sistema.
  */
 
 import { useEffect } from 'react';
-import { Text, View } from 'react-native';
+import { Platform, Text, View } from 'react-native';
 import Animated from 'react-native-reanimated';
 
-import { AccentButton } from '@/components/ui/AccentButton';
-import { DisplayText } from '@/components/ui/DisplayText';
+import { BotonTinta, Kicker, TituloAnton } from '@/components/papel';
 import type { Constelacion, TipoSenal } from '@/content';
 import type { ProgresoConstelacion } from '@/game/colecciones';
 import { bloom, fadeIn } from '@/motion/variants';
-import { glow } from '@/theme/glow';
-import { PLATA } from '@/theme/tokens';
 import { haptic } from '@/theme/haptics';
 
 import { SiluetaConstelacion } from './SiluetaConstelacion';
@@ -30,6 +32,19 @@ const progresoCompleto = (
       { tiene: n, necesita: n },
     ]),
   );
+
+/** El único exceso de sombra que permite el sistema (spec §1.4/§8):
+ * papel-sobre-oscuro, 0 24px 60px rgba(0,0,0,0.45). */
+const sombraCarta =
+  Platform.OS === 'web'
+    ? { boxShadow: '0px 24px 60px rgba(0, 0, 0, 0.45)' }
+    : {
+        shadowColor: '#000000',
+        shadowOpacity: 0.45,
+        shadowRadius: 60,
+        shadowOffset: { width: 0, height: 24 },
+        elevation: 24,
+      };
 
 export function CartaLoreView({
   constelacion,
@@ -52,44 +67,43 @@ export function CartaLoreView({
       style={{ backgroundColor: 'rgba(10, 10, 10, 0.94)' }}
     >
       <Animated.View entering={bloom} className="w-full items-center">
-        <Text className="font-sans text-[11px] uppercase tracking-[3px] text-slate-400">
+        <Kicker registro="noche">
           {nueva ? 'La constelación se completó' : 'Carta de lore'}
-        </Text>
+        </Kicker>
 
-        <View
-          className="mt-5 w-full items-center rounded-3xl border bg-white/5 px-7 py-9"
-          style={{
-            borderColor: 'rgba(245, 247, 250, 0.25)',
-            ...glow(PLATA, 24, 0.25, 10),
-          }}
-        >
+        <View className="mt-5 w-full items-center bg-papel px-7 py-9" style={sombraCarta}>
           <SiluetaConstelacion
             constelacion={constelacion}
             porTipo={progresoCompleto(constelacion.receta)}
             size={110}
             completada
           />
-          <Text className="mt-4 font-sans text-[10px] uppercase tracking-[3px] text-slate-500">
+          <Text className="mt-4 font-space text-[10px] uppercase tracking-[3px] text-tinta-50">
             {constelacion.nombre}
           </Text>
-          <DisplayText className="mt-3 text-center text-2xl leading-9">
+          <TituloAnton tamano="lg" className="mt-3 text-center">
             {constelacion.carta.titulo}
-          </DisplayText>
-          <Text className="mt-6 text-center font-serif-italic text-xl leading-8 text-plata">
+          </TituloAnton>
+          <Text className="mt-6 text-center font-archivo-italic text-xl leading-8 text-tinta-90">
             «{constelacion.carta.cita}»
           </Text>
-          <Text className="mt-5 font-sans text-xs text-slate-400">
+          <Text className="mt-5 font-archivo text-xs text-tinta-50">
             de «{constelacion.carta.ensayo}»
           </Text>
         </View>
 
         {nueva && (
-          <Text className="mt-4 font-sans text-[11px] text-slate-500">
+          <Text className="mt-4 font-space text-[11px] text-oscuro-meta">
             Queda tuya para siempre, en el álbum, en Cartas.
           </Text>
         )}
         <View className="mt-6">
-          <AccentButton label={nueva ? 'Guardarla' : 'Volver'} onPress={onCerrar} />
+          <BotonTinta
+            etiqueta={nueva ? 'Guardarla' : 'Volver'}
+            variante="fantasma"
+            registro="noche"
+            onPress={onCerrar}
+          />
         </View>
       </Animated.View>
     </Animated.View>
