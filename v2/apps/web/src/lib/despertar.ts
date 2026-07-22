@@ -4,7 +4,8 @@ import { useEffect, useState } from 'react';
  * «El despertar» — firma award §10.7 del sistema Papel y Tinta.
  *
  * El sitio llega desaturado (velo gris) hasta la primera acción real del
- * usuario: soltar una voz, plantar la semilla o «Este es mi instante».
+ * usuario. Disparadores canónicos (v1.1): CTA «Dejar mi voz en el mapa»,
+ * CTA header «Sembrar tu voz» (desktop y menú móvil), primera voz soltada.
  * El estado persiste en localStorage y se propaga entre componentes con
  * un evento de window, así el velo y los avisos reaccionan sin contexto.
  */

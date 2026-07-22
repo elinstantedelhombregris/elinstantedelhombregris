@@ -225,6 +225,9 @@
   .anim-pulso-papel {
     animation: pulso-papel 1.2s ease-in-out infinite;
   }
+  .anim-pulse-dot {
+    animation: pulse-dot 1.8s ease-out infinite;
+  }
 
   /* Desregistro riso — firma award §10.4, solo títulos display. */
   .riso-hover {
@@ -249,7 +252,8 @@
   .anim-growbar,
   .anim-semgrow,
   .anim-leafpop,
-  .anim-pulso-papel {
+  .anim-pulso-papel,
+  .anim-pulse-dot {
     animation: none !important;
   }
 }

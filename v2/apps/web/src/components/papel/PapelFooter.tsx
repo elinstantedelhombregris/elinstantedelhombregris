@@ -19,7 +19,7 @@ export function PapelFooter() {
       <div className="mx-auto max-w-[1440px] px-5 pb-10 pt-16 min-[961px]:px-10">
         <div
           aria-hidden
-          className="font-anton select-none text-[clamp(70px,12vw,200px)] leading-[0.9] text-transparent [-webkit-text-stroke:1px_#3A362D]"
+          className="font-anton select-none text-[clamp(70px,12vw,200px)] leading-[0.9] text-transparent [-webkit-text-stroke:1px_theme(colors.oscuro.borde)]"
         >
           ¡BASTA!
         </div>
