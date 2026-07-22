@@ -34,7 +34,10 @@ export function ElMandatoVivo() {
       <DocumentoMandato />
       <ComoSeUsa />
 
-      <section className="mx-auto max-w-[1100px] px-10 pb-24 text-center max-[560px]:px-5">
+      <section aria-labelledby="cta-mandato-titulo" className="mx-auto max-w-[1100px] px-10 pb-24 text-center max-[560px]:px-5">
+        <h2 id="cta-mandato-titulo" className="sr-only">
+          Sumate al mandato
+        </h2>
         <BotonPapel asChild variant="violeta" surface="oscuro">
           <Link href="/el-mapa">Sumar mi voz al mandato →</Link>
         </BotonPapel>

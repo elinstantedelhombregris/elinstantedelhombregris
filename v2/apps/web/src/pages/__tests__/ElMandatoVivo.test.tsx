@@ -61,10 +61,13 @@ describe('ElMandatoVivo (composer, página papel 2.3)', () => {
     expect(screen.getByText('Se firma')).toBeInTheDocument();
   });
 
-  it('el CTA final «Sumar mi voz al mandato →» navega a /el-mapa', () => {
+  it('el CTA final «Sumar mi voz al mandato →» navega a /el-mapa, bajo su h2 sr-only (§6)', () => {
     render(<ElMandatoVivo />);
     const cta = screen.getByRole('link', { name: 'Sumar mi voz al mandato →' });
     expect(cta).toHaveAttribute('href', '/el-mapa');
+    // Jerarquía de la spec: h2 por sección §2–§6 — la del CTA es sr-only,
+    // mismo patrón que ComoSeEscribe/ComoSeUsa.
+    expect(screen.getByRole('heading', { level: 2, name: 'Sumate al mandato' })).toBeInTheDocument();
   });
 
   it('el v1-port está muerto: sin form de señales ni feed de recientes', () => {

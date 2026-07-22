@@ -179,6 +179,10 @@ describe('DocumentoMandato', () => {
     armarMock(docChico());
     render(<DocumentoMandato />);
 
+    // La cabecera es h2 (spec a11y: «h2 por sección … y cabecera del
+    // documento») — padre de las secciones romanas h3. Pin contra regresión.
+    expect(screen.getByRole('heading', { level: 2, name: 'Mandato ciudadano — Argentina' })).toBeInTheDocument();
+
     expect(screen.getByText('Ejemplo')).toBeInTheDocument();
     expect(
       screen.getByText(
