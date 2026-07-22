@@ -92,7 +92,7 @@ Formularios: inputs/textarea `border:1px solid #16130E;background:#FBFAF4;paddin
 
 ## 6. Motion
 
-Keyframes canónicos (en `<helmet><style>`): `inkfill` (letras que se entintan), `vpop`, `fadeup`, `marquee`, `pulse` (puntos del mapa), `dropin`, `growbar`, `blink` (cursor ▌), `stampin`, `semgrow`+`leafpop` (semilla).
+Keyframes canónicos (en `<helmet><style>`): `inkfill` (letras que se entintan), `vpop`, `fadeup`, `marquee`, `pulse-dot` (puntos del mapa), `dropin`, `growbar`, `blink-cursor` (cursor ▌), `stampin`, `semgrow`+`leafpop` (semilla). En la app los nombres canónicos son los de `index.css`; los especímenes `.dc.html` conservan los nombres viejos.
 Presupuesto: **una interacción firma por página**; el resto entra con `fadeup` escalonado (delays .1–.3s). Nada de parallax, 3D ni gradientes animados. El recurso narrativo maestro: **gris → color** (grayscale que se llena de color al despertar).
 
 ## 7. Voz y contenido
@@ -133,7 +133,7 @@ layout; los componentes compartidos viven en `components/papel/primitives/`.
 4. **Desregistro riso.** En hover de títulos Anton grandes (solo display, nunca cuerpo): `text-shadow: 2px 0 0 rgba(82,39,204,.30), -2px 0 0 rgba(194,59,34,.25)` — como una impresión offset corrida. 150ms, sutil.
 5. **Sellos reactivos.** Toda acción completada del usuario se confirma con un sello que cae (`stampin`): voz soltada → `RECIBIDA` · semilla → `PLANTADA` · manifiesto leído hasta el final → `LEÍDO ENTERO` · documento auditado → `VISTO`. Catálogo cerrado; no inventar sellos por decoración.
 6. **Palitos, no barras.** Números chicos (<100) se cuentan con tally marks (4 palitos + 1 cruzado), dibujados con `semgrow` escalonado. Las barras quedan solo para documentos (mandato). Contar a mano es el data-viz de la marca.
-7. **El despertar.** Primera visita: los acentos llegan levemente desaturados (`filter:saturate(.4)` solo en elementos violeta/rojo); al primer gesto del usuario (clic en «Este es mi instante» o primera voz) el sitio satura con transición de 1s y se guarda `localStorage['basta_despierto']='1'`. El sitio entero repite la tesis: gris hasta que actuás.
+7. **El despertar.** Velo gris de viewport completo (`mix-blend-mode:saturation`, opacidad .6) que se disuelve en 1.4 s al primer gesto (`despertar()` en `lib/despertar.ts`). Disparadores canónicos: CTA «Dejar mi voz en el mapa», CTA header «Sembrar tu voz», primera voz soltada. Se guarda `localStorage['basta_despierto']='1'`. El sitio entero repite la tesis: gris hasta que actuás.
 8. **La edición impresa.** Cada lector (ensayo, crónica, manifiesto, certificado de semilla) imprime perfecto: tipografía serif del sistema en papel real, sin nav, con folio `¡BASTA! · edición del lector · {fecha}`. El sitio es un diario que se puede volver papel.
 9. **Microcopy con voz en los estados mudos.** Vacíos, cargas y errores hablan: «Todavía no hay voces acá. Qué oportunidad.» · «Cargando — menos que un trámite.» · «Esto se rompió. Lo decimos porque publicamos todo.»
 10. **Premio también es rigor:** contraste AA mínimo en todo texto, focus visible violeta de 2px, `prefers-reduced-motion` desactiva inkfill/marquee/pulse (deja estados finales), LCP < 2s (fonts con `display=swap`, cero imágenes pesadas).
