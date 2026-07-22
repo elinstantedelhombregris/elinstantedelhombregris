@@ -181,7 +181,7 @@ export default function Escuchar() {
   };
 
   const save = async () => {
-    if (!kind || saving || statement.trim().length < 12) return;
+    if (!kind || saving || statement.trim().length < 12 || (destination === 'collective' && !pactoAceptado)) return;
     setSaving(true);
     setSaveNote(null);
     const voice = createListening({
