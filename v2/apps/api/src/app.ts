@@ -16,6 +16,7 @@ import { gamificationRouter } from './features/gamification/routes.js';
 import { goalsRouter } from './features/goals/routes.js';
 import { iniciativasRouter } from './features/iniciativas/routes.js';
 import { lifeAreasRouter } from './features/life-areas/routes.js';
+import { mandatoRouter } from './features/mandato/routes.js';
 import { notificationsRouter } from './features/notifications/routes.js';
 import { openDataRouter } from './features/open-data/routes.js';
 import { pulsoRouter } from './features/pulso/routes.js';
@@ -80,6 +81,7 @@ export function createApp(): Express {
   app.use('/api/open-data', openDataRouter);
   app.use('/api/analytics', analyticsRouter);
   app.use('/api/gamification', gamificationRouter);
+  app.use('/api/mandato', mandatoRouter);
 
   // Tail middleware
   app.use(notFoundHandler());
