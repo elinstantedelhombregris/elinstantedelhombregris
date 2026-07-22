@@ -86,7 +86,11 @@ describe('PapelHeader', () => {
       screen.queryByRole('navigation', { name: 'Recorrido completo' }),
     ).not.toBeInTheDocument();
 
-    fireEvent.click(screen.getByRole('button', { name: 'Abrir menú' }));
+    const toggle = screen.getByRole('button', { name: 'Abrir menú' });
+    // §9b: targets móviles ≥44px — min-h-11/min-w-11 son 2.75rem (44px) en la escala Tailwind.
+    expect(toggle).toHaveClass('min-h-11', 'min-w-11');
+
+    fireEvent.click(toggle);
     expect(screen.getByRole('navigation', { name: 'Recorrido completo' })).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /Inicio/ })).toHaveAttribute('href', '/');
 

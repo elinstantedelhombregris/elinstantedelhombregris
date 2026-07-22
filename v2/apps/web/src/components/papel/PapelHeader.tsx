@@ -76,7 +76,7 @@ export function PapelHeader() {
             type="button"
             aria-expanded={menuOpen}
             aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
-            className="border-tinta font-space text-tinta hidden items-center gap-2 border px-3.5 py-[9px] text-xs uppercase max-[1140px]:inline-flex"
+            className="border-tinta font-space text-tinta hidden min-h-11 min-w-11 items-center justify-center gap-2 border px-3.5 py-[9px] text-xs uppercase max-[1140px]:inline-flex"
             onClick={() => {
               setMenuOpen(!menuOpen);
             }}
