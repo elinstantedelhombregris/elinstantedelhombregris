@@ -4,7 +4,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { PanelSoltarVoz } from '../PanelSoltarVoz';
 
 import { ApiError } from '~/lib/api';
-import { useProvincias, useSoltarVoz } from '~/lib/queries/open-data';
+import { useProvincias, useSoltarVoz, type SoltarVozInput } from '~/lib/queries/open-data';
 
 vi.mock('~/lib/queries/open-data', () => ({
   useProvincias: vi.fn(),
@@ -14,8 +14,18 @@ vi.mock('~/lib/queries/open-data', () => ({
 const mockProvincias = vi.mocked(useProvincias);
 const mockSoltar = vi.mocked(useSoltarVoz);
 
-type MutateFn = ReturnType<typeof useSoltarVoz>['mutate'];
-const mutate = vi.fn<MutateFn>();
+/**
+ * El componente solo invoca `mutate(input, { onSuccess })` — nunca lee
+ * `data`/`variables`/`context` que TanStack Query le pasaría a `onSuccess`.
+ * Retipamos el mock a la forma real en que se lo llama acá, así los tests
+ * no necesitan castear argumentos que el componente ignora (`undefined as
+ * never`).
+ */
+type MutateComoLoLlamaElComponente = (
+  input: SoltarVozInput,
+  opciones?: { onSuccess?: () => void },
+) => void;
+const mutate = vi.fn<MutateComoLoLlamaElComponente>();
 
 function armarMutacion(extra: Partial<ReturnType<typeof useSoltarVoz>> = {}) {
   mockSoltar.mockReturnValue({
@@ -61,9 +71,31 @@ describe('PanelSoltarVoz', () => {
     );
   });
 
+  it('doble submit mientras está pendiente no duplica la mutación', () => {
+    const { container, rerender } = render(<PanelSoltarVoz />);
+    const form = container.querySelector('form');
+    if (!form) throw new Error('form no encontrado');
+
+    fireEvent.click(screen.getByRole('button', { name: 'basta' }));
+    fireEvent.change(screen.getByLabelText('Tu voz'), { target: { value: 'Basta.' } });
+
+    fireEvent.submit(form);
+    expect(mutate).toHaveBeenCalledTimes(1);
+
+    // El botón real ya nace disabled con isPending — pero este submit se
+    // dispara directo sobre el <form>, sin pasar por el click del botón:
+    // prueba el guard `soltar.isPending` de adentro de onSubmit, no el
+    // `disabled` del DOM.
+    armarMutacion({ isPending: true });
+    rerender(<PanelSoltarVoz />);
+    fireEvent.submit(form);
+
+    expect(mutate).toHaveBeenCalledTimes(1);
+  });
+
   it('al 201: sello RECIBIDA + despertar + textarea limpio', () => {
     mutate.mockImplementation((_input, opts) => {
-      opts?.onSuccess?.({ id: 99 }, _input, undefined, undefined as never);
+      opts?.onSuccess?.();
     });
     render(<PanelSoltarVoz />);
 
@@ -82,7 +114,7 @@ describe('PanelSoltarVoz', () => {
 
   it('sin provincia, la confirmación es honesta: cuenta pero no cae en el mapa', () => {
     mutate.mockImplementation((_input, opts) => {
-      opts?.onSuccess?.({ id: 99 }, _input, undefined, undefined as never);
+      opts?.onSuccess?.();
     });
     render(<PanelSoltarVoz />);
 

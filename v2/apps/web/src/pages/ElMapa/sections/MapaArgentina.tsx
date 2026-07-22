@@ -135,8 +135,10 @@ export function MapaArgentina() {
                 );
               })}
               {total > MAX_PUNTOS_PROVINCIA ? (
+                /* +22: a +18 el dígito rozaba el halo pulsante del racimo en
+                   provincias chicas (CABA, path ≈ 5×6 unidades del viewBox). */
                 <text
-                  x={prov.cx + 18}
+                  x={prov.cx + 22}
                   y={prov.cy - 12}
                   aria-hidden
                   className="fill-tinta font-space text-[13px] font-bold"

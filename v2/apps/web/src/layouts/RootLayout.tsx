@@ -14,7 +14,7 @@ import { PaperGrain } from '~/components/papel/PaperGrain';
  * Rutas ya migradas al sistema «Papel y Tinta». A medida que se rediseña
  * cada página se agrega acá; cuando estén todas, el chrome viejo se borra.
  */
-const PAPEL_ROUTES = new Set(['/', '/la-idea']);
+const PAPEL_ROUTES = new Set(['/', '/la-idea', '/el-mapa']);
 
 interface RootLayoutProps {
   children: ReactNode;

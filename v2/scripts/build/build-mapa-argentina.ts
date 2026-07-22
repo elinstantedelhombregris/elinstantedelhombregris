@@ -14,7 +14,8 @@
  * fijo 1000, margen 8 → viewBox ≈ 476×1000, el mismo aspecto que el
  * especimen (467.9×1000).
  *
- * Correr: pnpm exec tsx scripts/build/build-mapa-argentina.ts
+ * Correr (desde v2/): ./apps/api/node_modules/.bin/tsx scripts/build/build-mapa-argentina.ts
+ * (pnpm exec tsx no resuelve tsx desde la raíz del workspace).
  */
 import { readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
@@ -129,7 +130,8 @@ writeFileSync(
   `/**
  * GENERADO por scripts/build/build-mapa-argentina.ts — NO EDITAR A MANO.
  * Fuente: scripts/build/data/argentina-provincias.geojson (Natural Earth,
- * dominio público). Regenerar: pnpm exec tsx scripts/build/build-mapa-argentina.ts
+ * dominio público). Regenerar (desde v2/):
+ * ./apps/api/node_modules/.bin/tsx scripts/build/build-mapa-argentina.ts
  */
 export const MAPA_VIEWBOX = '0 0 ${String(ANCHO)} ${String(ALTO)}';
 

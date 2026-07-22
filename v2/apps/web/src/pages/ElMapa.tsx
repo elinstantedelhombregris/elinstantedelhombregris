@@ -1,47 +1,38 @@
-import { Link } from 'wouter';
+import { FeedVoces } from './ElMapa/sections/FeedVoces';
+import { MapaArgentina } from './ElMapa/sections/MapaArgentina';
+import { PanelSoltarVoz } from './ElMapa/sections/PanelSoltarVoz';
+import { PortadaMapa } from './ElMapa/sections/PortadaMapa';
 
-import { Button } from '~/components/ui/button';
-
+/**
+ * El mapa — página 2.2 «Papel y Tinta»
+ * (docs/specs/2026-07-22-el-mapa-papel-y-tinta.md). Conversión primaria del
+ * sitio: soltar la primera voz en 30 segundos y verla caer en el mapa.
+ * Móvil: el panel va antes que el mapa (la conversión no espera el scroll).
+ * El chrome papel (header/footer/grano/velo) lo pone RootLayout.
+ *
+ * El panel va PRIMERO en el DOM (no solo visualmente en móvil): el orden de
+ * tabulación sigue el orden del documento, no el `order` visual de CSS —
+ * si el mapa fuera primero en el markup, el teclado pisaría las 24
+ * provincias antes de llegar al formulario, al revés de lo que pide la
+ * spec (§ Accesibilidad: chips → textarea → select → «Soltar la voz» →
+ * provincias). En desktop, la posición visual (mapa a la izquierda
+ * ocupando dos filas) se logra con grid placement explícito, no con el
+ * orden del documento.
+ */
 export function ElMapa() {
   return (
-    <main className="container mx-auto max-w-4xl px-4 py-20">
-      <header className="mb-12 text-center">
-        <p className="mb-3 font-mono text-xs uppercase tracking-widest text-muted-foreground">El mapa</p>
-        <h1 className="font-serif text-4xl font-semibold leading-tight md:text-6xl">
-          <span className="gradient-text">Quiénes son los grises,</span><br />
-          <span className="gradient-text">dónde están construyendo.</span>
-        </h1>
-        <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
-          El mapa muestra los nodos despiertos del país. Cada punto es una persona, una iniciativa, un barrio
-          que decidió no esperar a que llegue alguien a arreglar lo que les toca.
-        </p>
-      </header>
-
-      <section className="glass mb-10 rounded-2xl p-12 text-center">
-        <p className="mb-4 font-mono text-xs uppercase tracking-widest text-iris-violet">Mapa interactivo — en construcción</p>
-        <p className="mx-auto max-w-2xl text-foreground/85">
-          La radiografía interactiva del movimiento se construye en la próxima fase. Mientras tanto, podés
-          contribuir tu primer punto: registrarte, declarar tu provincia, y empezar a aparecer en el mapa
-          cuando se prenda.
-        </p>
-        <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-          <Button asChild size="sm">
-            <Link href="/registrarse">Ser un punto del mapa</Link>
-          </Button>
+    <main>
+      <PortadaMapa />
+      <section className="mx-auto grid max-w-[1440px] grid-cols-[1fr_480px] items-start gap-12 px-5 pb-[88px] max-[960px]:grid-cols-1 max-[960px]:gap-8 min-[961px]:px-10">
+        <div className="min-[961px]:col-start-2 min-[961px]:row-start-1">
+          <PanelSoltarVoz />
         </div>
-      </section>
-
-      <section className="grid gap-4 md:grid-cols-3">
-        {['Diseñadores', 'Ejecutores', 'Conectores'].map((rol) => (
-          <article key={rol} className="glass rounded-xl p-6">
-            <p className="font-serif text-xl font-semibold">{rol}</p>
-            <p className="mt-3 text-sm text-foreground/80">
-              {rol === 'Diseñadores' && 'Diseñan PLANs, escriben principios, modelan procesos.'}
-              {rol === 'Ejecutores' && 'Llevan el diseño al barrio, al aula, al consultorio, a la oficina.'}
-              {rol === 'Conectores' && 'Hacen que las redes se encuentren. Donde no había puente, lo construyen.'}
-            </p>
-          </article>
-        ))}
+        <div className="min-[961px]:col-start-1 min-[961px]:row-start-1 min-[961px]:row-span-2">
+          <MapaArgentina />
+        </div>
+        <div className="min-[961px]:col-start-2 min-[961px]:row-start-2">
+          <FeedVoces />
+        </div>
       </section>
     </main>
   );

@@ -1,7 +1,8 @@
 /**
  * GENERADO por scripts/build/build-mapa-argentina.ts — NO EDITAR A MANO.
  * Fuente: scripts/build/data/argentina-provincias.geojson (Natural Earth,
- * dominio público). Regenerar: pnpm exec tsx scripts/build/build-mapa-argentina.ts
+ * dominio público). Regenerar (desde v2/):
+ * ./apps/api/node_modules/.bin/tsx scripts/build/build-mapa-argentina.ts
  */
 export const MAPA_VIEWBOX = '0 0 476.4 1000';
 
