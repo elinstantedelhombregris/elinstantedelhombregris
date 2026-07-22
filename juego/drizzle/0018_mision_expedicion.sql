@@ -1,0 +1,1 @@
+ALTER TABLE `pv_misiones` ADD `expedition_id` text;

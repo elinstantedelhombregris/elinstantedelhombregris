@@ -14,7 +14,7 @@ import { latidoVencido, puedeDarPulso, type VeredictoPulso } from '@/protocolo/p
 import type { EstadoMision, Gobernanza, TipoMision } from '@/protocolo/tipos';
 
 import { db } from './client';
-import { ahoraISO, hoyLocal, nuevoId } from './repos';
+import { ahoraISO, fundarExpedicion, hoyLocal, nuevoId, type NuevaExpedicion } from './repos';
 import {
   pvMisionMiembros, pvMisiones, pvObras, pvPulsos,
   type PvMiembroRow, type PvMisionRow, type PvObraRow,
@@ -23,6 +23,9 @@ import {
 export const fundarMision = (input: {
   titulo: string; proposito: string; tipo: TipoMision; oficioId: OficioId;
   gobernanza: Gobernanza; territorio?: string;
+  /** Si viene y tipo === 'relevamiento', funda además una expedición gratis
+   * (origen 'precargada') que sirve de contenedor de progreso a la misión. */
+  plantilla?: Pick<NuevaExpedicion, 'plantillaId' | 'titulo' | 'zona' | 'meta'>;
 }): PvMisionRow => {
   const actor = getActorKey();
   const row: PvMisionRow = {
@@ -38,17 +41,40 @@ export const fundarMision = (input: {
     creadaPor: actor,
     createdAt: ahoraISO(),
     resueltaAt: null,
+    expeditionId: null,
   };
   // Atómico: si el alta del coordinador falla, no queda una misión
   // 'coordinada' fundada sin nadie adentro.
-  return db.transaction((tx) => {
+  db.transaction((tx) => {
     tx.insert(pvMisiones).values(row).run();
     tx.insert(pvMisionMiembros).values({
       misionId: row.id, actorKey: actor, rol: 'coordinador',
       comprometidoAt: ahoraISO(), ultimoLatidoAt: ahoraISO(),
     }).onConflictDoNothing().run();
-    return row;
   });
+
+  // La expedición se funda FUERA de la transacción de arriba a propósito:
+  // fundarExpedicion abre su PROPIA db.transaction, y drizzle sobre
+  // expo-sqlite no soporta transacciones anidadas (la interna pisaría/
+  // rompería la externa). Si falla — meta inválida, lo que sea — se
+  // captura y la misión sobrevive sin expedición: estamos local y
+  // single-user, así que una misión de relevamiento sin expedición sigue
+  // siendo una misión válida, sólo pierde el mini-juego de progreso.
+  if (input.plantilla && input.tipo === 'relevamiento') {
+    try {
+      const expedicion = fundarExpedicion({ ...input.plantilla, origen: 'precargada' });
+      vincularExpedicion(row.id, expedicion.id);
+      row.expeditionId = expedicion.id;
+    } catch {
+      // Silencioso a propósito — ver comentario de arriba.
+    }
+  }
+  return row;
+};
+
+/** Reata (o re-reata) una misión a una expedición ya fundada. */
+export const vincularExpedicion = (misionId: string, expeditionId: string): void => {
+  db.update(pvMisiones).set({ expeditionId }).where(eq(pvMisiones.id, misionId)).run();
 };
 
 export const misionesTodas = (): PvMisionRow[] =>

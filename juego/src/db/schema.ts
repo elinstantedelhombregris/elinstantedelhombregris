@@ -684,6 +684,8 @@ export const pvMisiones = sqliteTable('pv_misiones', {
   creadaPor: text('creada_por').notNull(), // actorKey del dispositivo
   createdAt: text('created_at').notNull(),
   resueltaAt: text('resuelta_at'),
+  /** Expedición nacida de esta misión (relevamiento con plantilla). Nullable. */
+  expeditionId: text('expedition_id'),
 });
 
 export const pvMisionMiembros = sqliteTable(
