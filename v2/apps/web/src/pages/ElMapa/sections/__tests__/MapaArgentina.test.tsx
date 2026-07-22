@@ -67,8 +67,47 @@ describe('MapaArgentina', () => {
     render(<MapaArgentina />);
     fireEvent.click(screen.getByRole('button', { name: 'Córdoba: 2 voces. Leer la última.' }));
 
+    fireEvent.keyDown(screen.getByRole('dialog', { name: 'Voz de Córdoba' }), { key: 'Escape' });
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole('button', { name: 'Córdoba: 2 voces. Leer la última.' }));
     fireEvent.click(screen.getByRole('button', { name: 'Cerrar' }));
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+  });
+
+  it('activar otra provincia reemplaza el popover y mueve el foco a su «✕»', () => {
+    armarMocks(
+      [
+        ...VOCES,
+        { id: 3, body: 'Más ferias de productores.', category: 'necesidad', provinceId: 21, submittedAs: null, createdAt: '2026-07-20T12:00:00Z' },
+      ],
+      [
+        { provinceId: 6, count: 2 },
+        { provinceId: 21, count: 1 },
+      ],
+    );
+    render(<MapaArgentina />);
+
+    fireEvent.click(screen.getByRole('button', { name: 'Córdoba: 2 voces. Leer la última.' }));
+    expect(screen.getByRole('dialog', { name: 'Voz de Córdoba' })).toBeInTheDocument();
+
+    // Camino de teclado real: el foco está en la otra provincia al activarla.
+    const santaFe = screen.getByRole('button', { name: 'Santa Fe: 1 voz. Leer la última.' });
+    santaFe.focus();
+    fireEvent.keyDown(santaFe, { key: 'Enter' });
+
+    const popover = screen.getByRole('dialog', { name: 'Voz de Santa Fe' });
+    expect(popover).toHaveTextContent('«Más ferias de productores.»');
+    expect(screen.getByRole('button', { name: 'Cerrar' })).toHaveFocus();
+  });
+
+  it('mientras carga, la leyenda del marco dice el estado (§10.9)', () => {
+    mockProvincias.mockReturnValue({ data: undefined, isLoading: true } as ReturnType<typeof useProvincias>);
+    mockVoces.mockReturnValue({ data: undefined, isLoading: true, isError: false } as ReturnType<typeof useVocesAbiertas>);
+    mockConteos.mockReturnValue({ data: undefined, isLoading: true } as ReturnType<typeof useVocesPorProvincia>);
+    render(<MapaArgentina />);
+
+    expect(screen.getByText('Cargando — menos que un trámite.')).toBeInTheDocument();
   });
 
   it('sin voces, la leyenda dice la oportunidad (§10.9)', () => {

@@ -151,6 +151,7 @@ export function MapaArgentina() {
 
       {sel && vocesSel.length > 0 ? (
         <PopoverVoz
+          key={sel.provinceId}
           provincia={nombrePorId.get(sel.provinceId) ?? 'Argentina'}
           voces={vocesSel}
           idx={sel.idx}

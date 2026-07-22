@@ -233,7 +233,11 @@ ritual universal y no cuenta; los halos `pulse-dot` son ambiente, no interacció
 
 ## Estados mudos (§10.9 — hablan)
 
-- **Mapa/feed cargando:** skeleton §5 (`anim-pulso-papel`, bloques papel-presionado del
+- **Mapa cargando:** el contorno estático del mapa queda visible tal cual — es un asset
+  precomputado, no contenido: **nada de bloques skeleton encima de un dibujo fijo**. Lo
+  único que habla es la leyenda mono del marco: `Cargando — menos que un trámite.` Los
+  skeletons §5 son para superficies con forma de contenido, no para el mapa.
+- **Feed cargando:** skeleton §5 (`anim-pulso-papel`, bloques papel-presionado del
   tamaño real) + microcopy mono: `Cargando — menos que un trámite.`
 - **Cero voces en la base:** el mapa se dibuja limpio y la leyenda del marco dice:
   `Todavía no hay voces acá. Qué oportunidad.` El feed dice:
