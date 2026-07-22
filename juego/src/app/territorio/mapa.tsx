@@ -5,6 +5,7 @@ import { Text, TextInput, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import TerritoryMap from '@/components/civic/TerritoryMap';
+import { BotonTinta, ChipTipo, GranoPapel, Kicker, PapelCard, TituloAnton } from '@/components/papel';
 import { Pressable97 } from '@/components/ui/Pressable97';
 import { planTerritorialCoverage } from '@/civic/coverage';
 import { getActorKey } from '@/civic/identity';
@@ -34,6 +35,7 @@ import type { CivicCampaignKey } from '@/civic/types';
 import { db } from '@/db/client';
 import type { CivicMissionRow, CivicNeedRow, CivicObservationRow, CivicResourceRow } from '@/db/schema';
 import { haptic } from '@/theme/haptics';
+import { AMBAR_PT, CIAN, TINTA, TINTA_50, VERDE, VIOLETA } from '@/theme/tokens';
 
 const defaultMissionTitle = (campaignKey: CivicCampaignKey): string => {
   const date = new Intl.DateTimeFormat('es-AR', { day: '2-digit', month: 'short' }).format(new Date());
@@ -41,22 +43,27 @@ const defaultMissionTitle = (campaignKey: CivicCampaignKey): string => {
 };
 
 const passportMeta = (campaignKey: CivicCampaignKey) => campaignKey === 'ollas-v1'
-  ? { label: 'Ollas y comedores', detail: 'Capacidades y faltantes alimentarios', icon: 'restaurant-outline', color: '#F59E0B' }
-  : { label: 'Luminarias', detail: 'Infraestructura de alumbrado', icon: 'flashlight-outline', color: '#A78BFA' };
+  ? { label: 'Ollas y comedores', detail: 'Capacidades y faltantes alimentarios' }
+  : { label: 'Luminarias', detail: 'Infraestructura de alumbrado' };
 
+/** Reclasificación de los 3 tipos de punto del mapa sobre las señales más
+ * cercanas del registro papel (observación queda neutra: ninguna señal le
+ * calza bien). */
 const pointKindMeta = {
-  observation: { color: '#A78BFA', icon: 'eye-outline' },
-  need: { color: '#FB7185', icon: 'hand-left-outline' },
-  resource: { color: '#34D399', icon: 'gift-outline' },
+  observation: { color: TINTA },
+  need: { color: AMBAR_PT },
+  resource: { color: CIAN },
 } as const;
 
-const pointActionIcon: Record<MapPointAction['kind'], string> = {
-  verify: 'shield-checkmark-outline',
-  connect: 'git-merge-outline',
-  offer: 'gift-outline',
-  mission: 'flag-outline',
-  missions: 'map-outline',
-};
+/** Foco visible: borde violeta 2px (spec §3.5/§10) — nada de halo aparte. */
+const estiloInput = (enfocado: boolean): object => ({
+  borderWidth: enfocado ? 2 : 1,
+  borderColor: enfocado ? VIOLETA : TINTA,
+  outlineColor: VIOLETA,
+  outlineStyle: 'solid' as const,
+  outlineWidth: enfocado ? 2 : 0,
+  outlineOffset: 2,
+});
 
 export default function MapaTerritorial() {
   const router = useRouter();
@@ -73,6 +80,7 @@ export default function MapaTerritorial() {
   const [missions, setMissions] = useState<CivicMissionRow[]>([]);
   const [actorKey, setActorKey] = useState<string | null>(null);
   const [selectedPointId, setSelectedPointId] = useState<string | null>(null);
+  const [enfocadoTitulo, setEnfocadoTitulo] = useState(false);
   const refreshRecords = useCallback(() => {
     setObservations(observationsAll());
     setNeeds(needsAll());
@@ -209,16 +217,21 @@ export default function MapaTerritorial() {
   };
 
   return (
-    <View className="flex-1 bg-fondo" style={{ paddingTop: insets.top + 10, paddingBottom: insets.bottom + 12 }}>
-      <View className="flex-row items-center justify-between px-5 pb-4">
-        <Pressable97 accessibilityRole="button" accessibilityLabel="Volver" onPress={goBack} className="rounded-full border border-white/10 bg-white/5 p-2.5">
-          <Ionicons name="arrow-back" size={18} color="#CBD5E1" />
+    <View className="flex-1 bg-papel">
+      <GranoPapel />
+      <View className="px-5 pb-3" style={{ paddingTop: insets.top + 10 }}>
+        <Pressable97
+          accessibilityRole="button"
+          accessibilityLabel="Volver"
+          onPress={goBack}
+          className="-ml-2 min-h-11 min-w-11 items-center justify-center self-start"
+        >
+          <Text className="font-space text-2xl text-tinta">←</Text>
         </Pressable97>
-        <View className="items-center">
-          <Text className="font-serif text-lg text-plata">Lazo territorial</Text>
-          <Text className="font-mono text-[9px] uppercase tracking-[2px] text-slate-500">dibujar · leer · actuar</Text>
+        <View className="mt-2">
+          <Kicker>dibujar · leer · actuar</Kicker>
+          <TituloAnton tamano="lg" className="mt-1">Lazo territorial</TituloAnton>
         </View>
-        <View className="h-10 w-10" />
       </View>
       <View className="relative flex-1 px-4">
         <TerritoryMap
@@ -235,23 +248,20 @@ export default function MapaTerritorial() {
         {selectedPointCard && (() => {
           const meta = pointKindMeta[selectedPointCard.kind];
           return (
-            <View
+            <PapelCard
               accessibilityLiveRegion="polite"
-              className="absolute bottom-3 left-7 right-7 rounded-[22px] border bg-[#111015]/95 p-4"
-              style={{ borderColor: `${meta.color}55` }}
+              className="absolute bottom-3 left-7 right-7 p-4"
             >
-              <View className="flex-row items-start gap-3">
-                <View className="h-10 w-10 items-center justify-center rounded-2xl" style={{ backgroundColor: `${meta.color}1F` }}>
-                  <Ionicons name={meta.icon} size={19} color={meta.color} />
-                </View>
-                <View className="flex-1">
-                  <Text className="font-sans text-[9px] uppercase tracking-[2px]" style={{ color: meta.color }}>
-                    {selectedPointCard.kindLabel} · ficha territorial
-                  </Text>
-                  <Text className="mt-1 font-serif text-lg leading-6 text-plata">
+              <View className="flex-row items-start justify-between gap-3">
+                <View className="flex-1 pr-3">
+                  <Kicker tono="neutro">ficha territorial</Kicker>
+                  <View className="mt-2">
+                    <ChipTipo etiqueta={selectedPointCard.kindLabel} activo color={meta.color} />
+                  </View>
+                  <TituloAnton tamano="md" className="mt-2">
                     {civicCategoryLabel(selectedPointCard.category)}
-                  </Text>
-                  <Text className="mt-1 font-sans text-[10px] leading-4 text-slate-400">
+                  </TituloAnton>
+                  <Text className="mt-1 font-archivo text-[11px] leading-4 text-tinta-75">
                     {selectedPointCard.statusLabel} · {sharedPrecisionLabel(selectedPointCard.precision)}
                   </Text>
                 </View>
@@ -259,105 +269,98 @@ export default function MapaTerritorial() {
                   accessibilityRole="button"
                   accessibilityLabel="Cerrar ficha del punto"
                   onPress={() => setSelectedPointId(null)}
-                  className="h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5"
+                  className="h-9 w-9 items-center justify-center border border-tinta bg-papel-crudo"
                 >
-                  <Ionicons name="close" size={16} color="#94A3B8" />
+                  <Ionicons name="close" size={16} color={TINTA} />
                 </Pressable97>
               </View>
-              <Text className="mt-3 font-sans text-[9px] leading-4 text-slate-500">
+              <Text className="mt-3 font-archivo text-[10px] leading-4 text-tinta-50">
                 Vista mínima: no expone relato, contacto ni una ubicación más precisa que la autorizada.
               </Text>
-              <View className="mt-3 flex-row gap-2">
-                {selectedPointCard.actions.map((action, index) => (
-                  <Pressable97
+              <View className="mt-3 flex-row flex-wrap gap-2">
+                {selectedPointCard.actions.map((action) => (
+                  <BotonTinta
                     key={`${action.kind}:${action.label}`}
-                    accessibilityRole="button"
-                    accessibilityLabel={action.label}
+                    etiqueta={`${action.label} →`}
+                    variante="fantasma"
+                    tamano="compacto"
+                    className="flex-1"
                     onPress={() => openPointAction(action)}
-                    className="min-h-11 flex-1 flex-row items-center justify-center gap-2 rounded-full border px-3"
-                    style={{
-                      borderColor: index === 0 ? `${meta.color}70` : '#FFFFFF18',
-                      backgroundColor: index === 0 ? `${meta.color}22` : '#FFFFFF08',
-                    }}
-                  >
-                    <Ionicons name={pointActionIcon[action.kind] as never} size={14} color={index === 0 ? meta.color : '#CBD5E1'} />
-                    <Text className="font-sans-semibold text-[10px] text-slate-100" numberOfLines={1}>{action.label}</Text>
-                  </Pressable97>
+                  />
                 ))}
               </View>
-            </View>
+            </PapelCard>
           );
         })()}
       </View>
-      <View className="px-5 pt-4">
+      <View className="px-5 pt-4" style={{ paddingBottom: insets.bottom + 12 }}>
         {focusedResource && (
-          <View accessibilityLiveRegion="polite" className="mb-4 rounded-[22px] border border-emerald-300/25 bg-emerald-300/[0.08] p-4">
-            <View className="flex-row items-start gap-3">
-              <View className="h-10 w-10 items-center justify-center rounded-full bg-emerald-300/15">
-                <Ionicons name="checkmark" size={21} color="#6EE7B7" />
-              </View>
-              <View className="flex-1">
-                <Text className="font-sans text-[9px] uppercase tracking-[2px] text-emerald-300">Recurso registrado</Text>
-                <Text className="mt-1 font-serif text-lg leading-6 text-plata" numberOfLines={2}>{focusedResource.title}</Text>
-                <Text className="mt-1 font-sans text-[10px] leading-4 text-emerald-100/70">
-                  {focusedResource.locationLabel ?? 'Ubicación confirmada'} · {sharedPrecisionLabel(focusedResource.publicPrecision)}. El punto verde muestra la proyección compartida, no la coordenada exacta.
-                </Text>
-              </View>
-            </View>
+          <PapelCard
+            accessibilityLiveRegion="polite"
+            className="mb-4 p-4"
+            style={{ borderColor: VERDE }}
+          >
+            <Text className="font-space text-[11px] uppercase tracking-[1.76px] text-verde">
+              Recurso registrado
+            </Text>
+            <TituloAnton tamano="md" className="mt-2">{focusedResource.title}</TituloAnton>
+            <Text className="mt-1 font-archivo text-[11px] leading-4 text-tinta-75">
+              {focusedResource.locationLabel ?? 'Ubicación confirmada'} · {sharedPrecisionLabel(focusedResource.publicPrecision)}. El punto verde muestra la proyección compartida, no la coordenada exacta.
+            </Text>
             <View className="mt-4 flex-row gap-2">
-              <Pressable97
-                accessibilityRole="button"
+              <BotonTinta
+                etiqueta="Ir al territorio →"
                 accessibilityLabel="Volver al territorio"
+                variante="fantasma"
+                tamano="compacto"
+                className="flex-1"
                 onPress={() => router.replace('/territorio')}
-                className="min-h-11 flex-1 items-center justify-center rounded-full border border-white/10 bg-white/5 px-4"
-              >
-                <Text className="font-sans-semibold text-xs text-slate-200">Ir al territorio</Text>
-              </Pressable97>
-              <Pressable97
-                accessibilityRole="button"
+              />
+              <BotonTinta
+                etiqueta="Buscar conexiones →"
                 accessibilityLabel="Buscar conexiones para este recurso"
+                variante="fantasma"
+                tamano="compacto"
+                className="flex-1"
                 onPress={() => router.push('/conectar')}
-                className="min-h-11 flex-1 items-center justify-center rounded-full bg-emerald-500 px-4"
-              >
-                <Text className="font-sans-semibold text-xs text-white">Buscar conexiones</Text>
-              </Pressable97>
+              />
             </View>
-          </View>
+          </PapelCard>
         )}
         <View className="mb-3 flex-row items-center justify-center gap-4">
           {[
-            ['#A78BFA', 'señal'],
-            ['#FB7185', 'necesidad'],
-            ['#34D399', 'recurso'],
-          ].map(([color, label]) => (
+            ['bg-tinta', 'señal'],
+            ['bg-ambar', 'necesidad'],
+            ['bg-cian', 'recurso'],
+          ].map(([swatch, label]) => (
             <View key={label} className="flex-row items-center gap-1.5">
-              <View className="h-2 w-2 rounded-full" style={{ backgroundColor: color }} />
-              <Text className="font-sans text-[9px] uppercase tracking-[1px] text-slate-500">{label}</Text>
+              <View className={`h-2 w-2 ${swatch}`} />
+              <Text className="font-space text-[9px] uppercase tracking-[1px] text-tinta-50">{label}</Text>
             </View>
           ))}
         </View>
-        <Text className="mb-3 text-center font-sans text-[9px] leading-4 text-slate-600">
+        <Text className="mb-3 text-center font-archivo text-[9px] leading-4 text-tinta-30">
           El halo expresa la incertidumbre pública; el lazo cuenta el centro de cada zona, no una coordenada exacta.
         </Text>
         {selection ? (
           <View>
             <View className="flex-row items-center gap-3">
               <View className="flex-1">
-                <Text className="font-sans-semibold text-sm text-plata">El lazo ya tiene una operación</Text>
-                <Text className="mt-1 font-sans text-xs leading-5 text-slate-500">
+                <Text className="font-archivo-bold text-sm text-tinta">El lazo ya tiene una operación</Text>
+                <Text className="mt-1 font-archivo text-xs leading-5 text-tinta-50">
                   {coverage?.valid
                     ? `${coverage.plannedDenominator.value} celdas planificadas · ${selection.selectedIds.length} registros situados · ${trusted} señales corroboradas · ${pending} por revisar.`
                     : 'El trazo se cruzó o no encierra superficie suficiente. Limpiá el lazo y probá otra vez.'}
                 </Text>
               </View>
-              <View className="h-11 min-w-11 items-center justify-center rounded-2xl border border-violet-300/20 bg-violet-300/10 px-3">
-                <Text className="font-mono text-sm text-violet-200">{coverage?.plannedDenominator.value ?? 0}</Text>
-                <Text className="font-sans text-[8px] uppercase tracking-[1px] text-violet-300/60">celdas</Text>
+              <View className="h-11 min-w-11 items-center justify-center border border-violeta px-3">
+                <Text className="font-space text-sm text-violeta">{coverage?.plannedDenominator.value ?? 0}</Text>
+                <Text className="font-space text-[8px] uppercase tracking-[1px] text-violeta">celdas</Text>
               </View>
             </View>
             {coverage?.valid && coverage.cells.length > 0 && (
               <>
-                <Text className="mt-4 font-sans-medium text-xs text-slate-300">¿Qué misión vas a realizar?</Text>
+                <Kicker tono="neutro" className="mt-4">¿Qué misión vas a realizar?</Kicker>
                 <View className="mt-2 flex-row gap-2">
                   {MISSION_PASSPORTS.map((passport) => {
                     const meta = passportMeta(passport.campaignKey);
@@ -373,12 +376,11 @@ export default function MapaTerritorial() {
                           setTitle((current) => current.trim() || defaultMissionTitle(passport.campaignKey));
                           setError(null);
                         }}
-                        className="min-h-[76px] flex-1 rounded-2xl border p-3"
-                        style={{ borderColor: selected ? `${meta.color}70` : '#FFFFFF18', backgroundColor: selected ? `${meta.color}16` : '#FFFFFF08' }}
+                        className="min-h-[76px] flex-1 bg-papel-crudo p-3"
+                        style={{ borderWidth: selected ? 2 : 1, borderColor: selected ? VIOLETA : TINTA }}
                       >
-                        <Ionicons name={meta.icon as never} size={17} color={selected ? meta.color : '#64748B'} />
-                        <Text className="mt-2 font-sans-semibold text-xs" style={{ color: selected ? '#F5F7FA' : '#CBD5E1' }}>{meta.label}</Text>
-                        <Text className="mt-1 font-sans text-[9px] leading-3 text-slate-500">{meta.detail}</Text>
+                        <Text className="font-archivo-bold text-xs text-tinta">{meta.label}</Text>
+                        <Text className="mt-1 font-archivo text-[10px] leading-4 text-tinta-50">{meta.detail}</Text>
                       </Pressable97>
                     );
                   })}
@@ -387,41 +389,45 @@ export default function MapaTerritorial() {
                   accessibilityLabel="Nombre de la misión"
                   value={title}
                   onChangeText={setTitle}
+                  onFocus={() => setEnfocadoTitulo(true)}
+                  onBlur={() => setEnfocadoTitulo(false)}
                   maxLength={120}
                   selectTextOnFocus
                   placeholder="Nombre de la misión"
-                  placeholderTextColor="#64748B"
-                  className="mt-3 min-h-12 rounded-2xl border border-white/10 bg-white/[0.04] px-4 font-sans text-sm text-plata"
+                  placeholderTextColor={TINTA_50}
+                  className="mt-3 bg-papel-crudo px-5 py-4 font-archivo text-sm text-tinta"
+                  style={estiloInput(enfocadoTitulo)}
                 />
                 <View className="mt-3 flex-row items-center justify-between gap-3">
                   <View className="flex-1 flex-row flex-wrap gap-x-3 gap-y-1">
                     {missionPassport ? (
                       <>
-                        <Text className="font-sans text-[10px] text-slate-500">{missionPassport.minIndependentVerifications} miradas independientes</Text>
-                        <Text className="font-sans text-[10px] text-slate-500">{sharedPrecisionLabel(missionPassport.publicPrecision)} pública</Text>
-                        <Text className="font-sans text-[10px] text-slate-500">{missionPassport.retentionDays} días</Text>
+                        <Text className="font-space text-[10px] text-tinta-50">{missionPassport.minIndependentVerifications} miradas independientes</Text>
+                        <Text className="font-space text-[10px] text-tinta-50">{sharedPrecisionLabel(missionPassport.publicPrecision)} pública</Text>
+                        <Text className="font-space text-[10px] text-tinta-50">{missionPassport.retentionDays} días</Text>
                       </>
                     ) : (
-                      <Text className="font-sans text-[10px] text-amber-200">Elegí el tipo para definir su pasaporte.</Text>
+                      <Text className="font-space text-[10px] text-ambar">Elegí el tipo para definir su pasaporte.</Text>
                     )}
                   </View>
-                  <Pressable97
-                    accessibilityRole="button"
+                  <BotonTinta
+                    etiqueta="Fundar misión →"
                     accessibilityLabel="Fundar misión territorial"
-                    accessibilityHint={`Creará una misión de ${coverage.cells.length} celdas`}
                     disabled={!title.trim() || !missionPassport || creating}
+                    cargando={creating}
                     onPress={createMission}
-                    className={`min-h-12 justify-center rounded-full bg-accent px-5 ${title.trim() && missionPassport && !creating ? '' : 'opacity-40'}`}
-                  >
-                    <Text className="font-sans-semibold text-xs text-white">{creating ? 'Fundando…' : 'Fundar misión'}</Text>
-                  </Pressable97>
+                  />
                 </View>
               </>
             )}
-            {error && <Text accessibilityLiveRegion="polite" className="mt-2 font-sans text-xs leading-5 text-rose-300">{error}</Text>}
+            {error && (
+              <View accessibilityLiveRegion="polite" className="mt-3 border border-ambar px-4 py-3">
+                <Text className="font-archivo text-xs leading-5 text-tinta-90">{error}</Text>
+              </View>
+            )}
           </View>
         ) : (
-          <Text className="text-center font-sans text-xs leading-5 text-slate-500">
+          <Text className="text-center font-archivo text-xs leading-5 text-tinta-50">
             Tocá Lazo y rodeá una zona. El trazo se convertirá en celdas, rutas y una condición de cierre explícita.
           </Text>
         )}

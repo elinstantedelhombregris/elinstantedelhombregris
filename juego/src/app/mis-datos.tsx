@@ -1,5 +1,19 @@
-import { Ionicons } from '@expo/vector-icons';
-import { LinearGradient } from 'expo-linear-gradient';
+/**
+ * Mis datos: panel de soberanía sobre lo que guardaste y compartiste —
+ * corregir el pasaporte de un aporte, retirarlo de la red o borrar un
+ * pedido privado que nunca salió de este dispositivo. Toda la lógica de
+ * disclosure-ledger/record-context queda intacta; esta pantalla sólo la
+ * expone.
+ *
+ * Registro papel del sistema Papel y Tinta (spec §8): pantalla profunda,
+ * título sin entintar. Guardar una corrección, asentar un retiro o borrar
+ * un pedido local no son entradas del catálogo cerrado de sellos (spec
+ * §5) — quedan como nota de borde plana (ambar/verde), nunca un Sello
+ * inventado. Las zonas de borrado/retiro siguen el patrón «abandonar
+ * misión»: caja de borde sello, segundo toque explícito, BotonTinta para
+ * el par confirmar/cancelar.
+ */
+
 import { useFocusEffect, useRouter } from 'expo-router';
 import { useCallback, useState } from 'react';
 import { ScrollView, Text, View } from 'react-native';
@@ -10,9 +24,15 @@ import {
   GeoAttributionCard,
   isGeoAttributionReady,
 } from '@/components/civic/GeoAttributionCard';
-import { LivingHalo } from '@/components/civic/LivingHalo';
-import { GlassCard } from '@/components/ui/GlassCard';
-import { PanelHeader } from '@/components/ui/PanelHeader';
+import {
+  BotonTinta,
+  ChipTipo,
+  FilaIndice,
+  GranoPapel,
+  Kicker,
+  PapelCard,
+  TituloAnton,
+} from '@/components/papel';
 import { Pressable97 } from '@/components/ui/Pressable97';
 import {
   authorizedFieldsForReceipt,
@@ -58,6 +78,7 @@ import type {
   LocationPrecision,
 } from '@/civic/types';
 import { fadeUp, staggerDelay } from '@/motion/variants';
+import { AMBAR_PT, CIAN, ROJO_SELLO, TINTA_50, VERDE, VIOLETA } from '@/theme/tokens';
 
 type Filter = 'all' | CivicDisclosureEntity;
 
@@ -83,30 +104,13 @@ interface ManagedRecord {
   hasPrivateDelivery: boolean;
 }
 
-const ENTITY_META: Record<CivicDisclosureEntity, {
-  singular: string;
-  plural: string;
-  icon: string;
-  color: string;
-}> = {
-  observation: {
-    singular: 'Observación',
-    plural: 'Observaciones',
-    icon: 'eye-outline',
-    color: '#7DD3FC',
-  },
-  need: {
-    singular: 'Necesidad',
-    plural: 'Necesidades',
-    icon: 'alert-circle-outline',
-    color: '#FCD34D',
-  },
-  resource: {
-    singular: 'Recurso',
-    plural: 'Recursos',
-    icon: 'hand-left-outline',
-    color: '#6EE7B7',
-  },
+/** Sólo alimenta el `accent` de GeoAttributionCard (todavía sin migrar);
+ * no es un color de estado ni se pinta en ningún chip (spec: los tipos de
+ * entidad son categóricos, spec §2). */
+const ENTITY_META: Record<CivicDisclosureEntity, { singular: string; plural: string; color: string }> = {
+  observation: { singular: 'Observación', plural: 'Observaciones', color: CIAN },
+  need: { singular: 'Necesidad', plural: 'Necesidades', color: AMBAR_PT },
+  resource: { singular: 'Recurso', plural: 'Recursos', color: VERDE },
 };
 
 const STATUS_LABELS: Record<string, string> = {
@@ -128,6 +132,31 @@ const STATUS_LABELS: Record<string, string> = {
   expired: 'Vencido',
   withdrawn: 'Retirado',
 };
+
+/** Estado del registro → color (spec: pendiente/en curso → violeta,
+ * confirmado/activo → verde, en resguardo → sello, vencido → ámbar,
+ * retirado/agotado → tinta-50). */
+const STATUS_COLOR: Record<string, string> = {
+  draft: VIOLETA,
+  queued: VIOLETA,
+  synced: VERDE,
+  needs_review: AMBAR_PT,
+  corroborated: VERDE,
+  stale: AMBAR_PT,
+  unsafe: ROJO_SELLO,
+  submitted: VERDE,
+  matched: VIOLETA,
+  in_progress: VIOLETA,
+  resolved: VERDE,
+  reopened: VIOLETA,
+  available: VERDE,
+  reserved: VIOLETA,
+  depleted: TINTA_50,
+  expired: AMBAR_PT,
+  withdrawn: TINTA_50,
+};
+
+const statusColorFor = (status: string): string => STATUS_COLOR[status] ?? TINTA_50;
 
 const withdrawn = (record: ManagedRecord): boolean => record.status === 'withdrawn';
 
@@ -306,8 +335,8 @@ const buildContextInput = (draft: CivicRecordContextDraft): CivicRecordContextIn
 function ReceiptHistory({ record }: { record: ManagedRecord }) {
   if (record.receipts.length === 0) {
     return (
-      <View className="mt-4 rounded-2xl border border-amber-300/15 bg-amber-300/[0.05] p-4">
-        <Text className="font-sans text-xs leading-5 text-amber-100">
+      <View className="mt-4 border border-ambar px-4 py-3">
+        <Text className="font-archivo text-xs leading-5 text-tinta-90">
           Este aporte es anterior al libro de recibos de esta instalación. Podés corregirlo o retirarlo; la próxima acción dejará un asiento verificable.
         </Text>
       </View>
@@ -315,61 +344,41 @@ function ReceiptHistory({ record }: { record: ManagedRecord }) {
   }
 
   return (
-    <View className="mt-4 gap-3">
-      {record.receipts.map((receipt) => {
+    <View className="mt-4">
+      {record.receipts.map((receipt, index) => {
         const fields = readableAuthorizedFields(authorizedFieldsForReceipt(receipt));
         const isRevocation = receipt.kind === 'revocation';
         return (
-          <View
-            key={receipt.id}
-            className="rounded-2xl border p-4"
-            style={{
-              borderColor: isRevocation ? '#FB718533' : '#6EE7B733',
-              backgroundColor: isRevocation ? '#FB71850C' : '#6EE7B70C',
-            }}
-          >
-            <View className="flex-row items-start">
-              <View
-                className="h-9 w-9 items-center justify-center rounded-xl"
-                style={{ backgroundColor: isRevocation ? '#FB71851A' : '#6EE7B71A' }}
-              >
-                <Ionicons
-                  name={isRevocation ? 'remove-circle-outline' : 'receipt-outline'}
-                  size={17}
-                  color={isRevocation ? '#FDA4AF' : '#6EE7B7'}
-                />
-              </View>
-              <View className="ml-3 flex-1">
-                <Text
-                  className="font-sans-semibold text-xs uppercase tracking-[1.6px]"
-                  style={{ color: isRevocation ? '#FDA4AF' : '#6EE7B7' }}
-                >
-                  {isRevocation ? 'Revocación asentada' : 'Divulgación asentada'}
-                </Text>
-                <Text className="mt-1 font-mono text-[10px] text-slate-500">{displayDate(receipt.recordedAt)}</Text>
-              </View>
+          <FilaIndice key={receipt.id} numero={String(index + 1).padStart(2, '0')} glifo="">
+            <View className="flex-row items-center justify-between gap-2">
+              <ChipTipo
+                etiqueta={isRevocation ? 'Revocación asentada' : 'Divulgación asentada'}
+                activo
+                color={isRevocation ? TINTA_50 : VERDE}
+              />
+              <Text className="font-space text-[10px] text-tinta-30">{displayDate(receipt.recordedAt)}</Text>
             </View>
 
-            <View className="mt-4 gap-1.5">
-              <Text className="font-sans text-xs leading-5 text-slate-300">Audiencia: {audienceLabel(receipt.audience)}</Text>
-              <Text className="font-sans text-xs leading-5 text-slate-300">Mapa: {sharedPrecisionLabel(receipt.sharedPrecision)}</Text>
-              <Text className="font-sans text-xs leading-5 text-slate-300">
+            <View className="mt-3 gap-1">
+              <Text className="font-archivo text-xs leading-5 text-tinta-75">Audiencia: {audienceLabel(receipt.audience)}</Text>
+              <Text className="font-archivo text-xs leading-5 text-tinta-75">Mapa: {sharedPrecisionLabel(receipt.sharedPrecision)}</Text>
+              <Text className="font-archivo text-xs leading-5 text-tinta-75">
                 Firma: {receipt.attributionMode === 'anonymous' ? 'sin firma visible' : receipt.attributionName ?? 'declarada'}
               </Text>
-              <Text className="font-sans text-xs leading-5 text-slate-300">
+              <Text className="font-archivo text-xs leading-5 text-tinta-75">
                 Campos autorizados: {fields.length > 0 ? fields.join(', ') : 'ninguno'}
               </Text>
             </View>
 
-            <Text className="mt-3 font-sans text-[11px] leading-5 text-slate-500">{receipt.purpose}</Text>
-            <View className="mt-3 flex-row flex-wrap gap-x-4 gap-y-1 border-t border-white/[0.06] pt-3">
-              <Text className="font-mono text-[9px] text-slate-600">recibo …{receipt.id.slice(-8)}</Text>
-              <Text className="font-mono text-[9px] text-slate-600">política v{receipt.policyVersion}</Text>
+            <Text className="mt-3 font-archivo text-[11px] leading-5 text-tinta-50">{receipt.purpose}</Text>
+            <View className="mt-3 flex-row flex-wrap gap-x-4 gap-y-1 border-t border-bordeSuave pt-3">
+              <Text className="font-space text-[9px] text-tinta-30">recibo …{receipt.id.slice(-8)}</Text>
+              <Text className="font-space text-[9px] text-tinta-30">política v{receipt.policyVersion}</Text>
               {receipt.revokesReceiptId && (
-                <Text className="font-mono text-[9px] text-slate-600">revoca …{receipt.revokesReceiptId.slice(-8)}</Text>
+                <Text className="font-space text-[9px] text-tinta-30">revoca …{receipt.revokesReceiptId.slice(-8)}</Text>
               )}
             </View>
-          </View>
+          </FilaIndice>
         );
       })}
     </View>
@@ -455,6 +464,8 @@ export default function MisDatos() {
     }
   };
 
+  const volver = () => (router.canGoBack() ? router.back() : router.replace('/'));
+
   const visible = filter === 'all'
     ? records
     : records.filter((record) => record.entityType === filter);
@@ -470,25 +481,30 @@ export default function MisDatos() {
   ];
 
   return (
-    <View className="flex-1 bg-fondo">
-      <PanelHeader title="Mis datos" />
+    <View className="flex-1 bg-papel">
+      <GranoPapel />
+      <View className="px-5" style={{ paddingTop: insets.top + 12, paddingBottom: 12 }}>
+        <Pressable97
+          accessibilityRole="button"
+          accessibilityLabel="Volver"
+          onPress={volver}
+          className="-ml-2 min-h-11 min-w-11 items-center justify-center self-start"
+        >
+          <Text className="font-space text-2xl text-tinta">←</Text>
+        </Pressable97>
+        <View className="mt-2">
+          <Kicker>lo que guardaste, lo que compartís</Kicker>
+          <TituloAnton tamano="lg" className="mt-1">Mis datos</TituloAnton>
+        </View>
+      </View>
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: insets.bottom + 40 }}
       >
-        <Animated.View entering={fadeUp} className="mt-1 overflow-hidden rounded-[28px] border border-violet-300/20">
-          <LinearGradient
-            colors={['#1A132B', '#0E0D16', '#090909']}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 1 }}
-            style={{ padding: 22 }}
-          >
-            <LivingHalo color="#A78BFA" />
-            <View className="h-12 w-12 items-center justify-center rounded-2xl border border-violet-300/20 bg-violet-300/10">
-              <Ionicons name="finger-print-outline" size={23} color="#C4B5FD" />
-            </View>
-            <Text className="mt-5 font-serif text-[30px] leading-[37px] text-plata">Goberná lo que guardás y compartís.</Text>
-            <Text className="mt-3 max-w-[340px] font-sans text-sm leading-6 text-slate-400">
+        <Animated.View entering={fadeUp} className="mt-1">
+          <PapelCard className="p-6">
+            <TituloAnton tamano="md">Goberná lo que guardás y compartís.</TituloAnton>
+            <Text className="mt-3 max-w-[340px] font-archivo text-sm leading-6 text-tinta-75">
               Revisá lo que guardaste, corregí lo que autorizaste y retiralo cuando deje de representar la realidad.
             </Text>
             <View className="mt-6 flex-row gap-6">
@@ -498,17 +514,16 @@ export default function MisDatos() {
                 [receiptCount, 'recibos'],
               ].map(([value, label]) => (
                 <View key={label as string}>
-                  <Text className="font-mono text-xl text-plata">{value}</Text>
-                  <Text className="mt-0.5 font-sans text-[10px] uppercase tracking-[1.5px] text-slate-500">{label}</Text>
+                  <Text className="font-space text-xl text-tinta">{value}</Text>
+                  <Text className="mt-0.5 font-space text-[10px] uppercase tracking-[1.5px] text-tinta-50">{label}</Text>
                 </View>
               ))}
             </View>
-          </LinearGradient>
+          </PapelCard>
         </Animated.View>
 
-        <View className="mt-4 flex-row items-start gap-3 rounded-2xl border border-sky-300/15 bg-sky-300/[0.05] p-4">
-          <Ionicons name="shield-checkmark-outline" size={17} color="#7DD3FC" />
-          <Text className="flex-1 font-sans text-[11px] leading-5 text-slate-400">
+        <View className="mt-4 border border-cian px-4 py-3">
+          <Text className="font-archivo text-[11px] leading-5 text-tinta-75">
             Un retiro no borra el pasado ni tus datos locales: agrega una revocación auditable y saca el aporte de circulación. Tu punto exacto nunca aparece en estos recibos.
           </Text>
         </View>
@@ -516,18 +531,9 @@ export default function MisDatos() {
         {notice && (
           <View
             accessibilityLiveRegion="polite"
-            className="mt-4 flex-row items-start gap-3 rounded-2xl border p-4"
-            style={{
-              borderColor: notice.error ? '#FB718533' : '#6EE7B733',
-              backgroundColor: notice.error ? '#FB71850C' : '#6EE7B70C',
-            }}
+            className={`mt-4 border px-4 py-3 ${notice.error ? 'border-ambar' : 'border-verde'}`}
           >
-            <Ionicons
-              name={notice.error ? 'alert-circle-outline' : 'checkmark-circle-outline'}
-              size={18}
-              color={notice.error ? '#FDA4AF' : '#6EE7B7'}
-            />
-            <Text className="flex-1 font-sans text-xs leading-5 text-slate-300">{notice.message}</Text>
+            <Text className="font-archivo text-xs leading-5 text-tinta-90">{notice.message}</Text>
           </View>
         )}
 
@@ -536,62 +542,34 @@ export default function MisDatos() {
           showsHorizontalScrollIndicator={false}
           contentContainerStyle={{ gap: 8, paddingTop: 24, paddingBottom: 4 }}
         >
-          {filters.map(([key, label, count]) => {
-            const selected = filter === key;
-            return (
-              <Pressable97
-                key={key}
-                accessibilityRole="tab"
-                accessibilityLabel={`${label}, ${count}`}
-                accessibilityState={{ selected }}
-                onPress={() => {
-                  setFilter(key);
-                  setEditingKey(null);
-                  setWithdrawKey(null);
-                  setHistoryKey(null);
-                }}
-                className="min-h-11 flex-row items-center justify-center gap-2 rounded-full border px-4"
-                style={{
-                  borderColor: selected ? '#A78BFA55' : '#FFFFFF18',
-                  backgroundColor: selected ? '#A78BFA18' : '#FFFFFF08',
-                }}
-              >
-                <Text className="font-sans-semibold text-xs" style={{ color: selected ? '#DDD6FE' : '#94A3B8' }}>{label}</Text>
-                <Text className="font-mono text-[10px] text-slate-500">{count}</Text>
-              </Pressable97>
-            );
-          })}
+          {filters.map(([key, label, count]) => (
+            <ChipTipo
+              key={key}
+              etiqueta={`${label} · ${count}`}
+              activo={filter === key}
+              accessibilityLabel={`${label}, ${count}`}
+              onPress={() => {
+                setFilter(key);
+                setEditingKey(null);
+                setWithdrawKey(null);
+                setHistoryKey(null);
+              }}
+            />
+          ))}
         </ScrollView>
 
         {visible.length === 0 ? (
           <Animated.View entering={fadeUp} className="mt-6">
-            <GlassCard className="items-center p-7">
-              <View className="h-14 w-14 items-center justify-center rounded-2xl bg-white/[0.05]">
-                <Ionicons name="leaf-outline" size={24} color="#94A3B8" />
-              </View>
-              <Text className="mt-5 text-center font-serif text-2xl text-plata">Nada bajo este filtro.</Text>
-              <Text className="mt-3 max-w-[310px] text-center font-sans text-sm leading-6 text-slate-400">
+            <PapelCard className="items-center p-7">
+              <TituloAnton tamano="md" className="text-center">Nada bajo este filtro.</TituloAnton>
+              <Text className="mt-3 max-w-[310px] text-center font-archivo text-sm leading-6 text-tinta-75">
                 Acá aparecen pedidos privados bajo custodia, aportes que autorizaste para la red y los que retiraste.
               </Text>
               <View className="mt-6 flex-row gap-3">
-                <Pressable97
-                  accessibilityRole="button"
-                  accessibilityLabel="Volver al territorio"
-                  onPress={() => router.push('/territorio')}
-                  className="min-h-12 items-center justify-center rounded-full border border-white/10 bg-white/5 px-5"
-                >
-                  <Text className="font-sans-semibold text-xs text-slate-200">Ir al territorio</Text>
-                </Pressable97>
-                <Pressable97
-                  accessibilityRole="button"
-                  accessibilityLabel="Aportar un recurso"
-                  onPress={() => router.push('/aportar')}
-                  className="min-h-12 items-center justify-center rounded-full bg-accent px-5"
-                >
-                  <Text className="font-sans-semibold text-xs text-white">Aportar</Text>
-                </Pressable97>
+                <BotonTinta etiqueta="Ir al territorio" variante="fantasma" tamano="compacto" onPress={() => router.push('/territorio')} />
+                <BotonTinta etiqueta="Aportar" tamano="compacto" onPress={() => router.push('/aportar')} />
               </View>
-            </GlassCard>
+            </PapelCard>
           </Animated.View>
         ) : (
           <View className="mt-6 gap-4">
@@ -605,98 +583,64 @@ export default function MisDatos() {
               const privateOnly = record.privateOnly;
               return (
                 <Animated.View key={record.key} entering={staggerDelay(Math.min(index, 8))}>
-                  <GlassCard className="overflow-hidden p-0">
+                  <PapelCard className="p-0">
                     <View className="p-5">
-                      <View className="flex-row items-start">
-                        <View
-                          className="h-11 w-11 items-center justify-center rounded-2xl"
-                          style={{ backgroundColor: `${meta.color}18` }}
-                        >
-                          <Ionicons name={meta.icon as never} size={20} color={meta.color} />
-                        </View>
-                        <View className="ml-3 flex-1">
-                          <View className="flex-row flex-wrap items-center gap-2">
-                            <Text className="font-sans text-[10px] uppercase tracking-[1.8px]" style={{ color: meta.color }}>{meta.singular}</Text>
-                            <View
-                              className="rounded-full border px-2 py-1"
-                              style={{
-                                borderColor: isWithdrawn ? '#FB718533' : '#FFFFFF16',
-                                backgroundColor: isWithdrawn ? '#FB718510' : '#FFFFFF08',
-                              }}
-                            >
-                              <Text className="font-sans-medium text-[9px]" style={{ color: isWithdrawn ? '#FDA4AF' : '#94A3B8' }}>
-                                {STATUS_LABELS[record.status] ?? record.status}
-                              </Text>
-                            </View>
-                            {privateOnly && (
-                              <View className="rounded-full border border-emerald-300/20 bg-emerald-300/[0.07] px-2 py-1">
-                                <Text className="font-sans-medium text-[9px] text-emerald-200">
-                                  {record.hasPrivateDelivery ? 'Fuera del feed público' : 'Sólo local'}
-                                </Text>
-                              </View>
-                            )}
-                            {record.grantCount > 0 && (
-                              <View className="rounded-full border border-sky-300/20 bg-sky-300/[0.07] px-2 py-1">
-                                <Text className="font-sans-medium text-[9px] text-sky-200">{record.hasActiveGrant ? 'Permiso vigente' : 'Historial de permiso'}</Text>
-                              </View>
-                            )}
-                          </View>
-                          <Text className="mt-2 font-serif text-xl leading-7 text-plata">{record.title}</Text>
-                          <Text className="mt-1 font-sans text-[11px] text-slate-500">{civicCategoryLabel(record.category)}</Text>
-                        </View>
+                      <View className="flex-row flex-wrap items-center gap-2">
+                        <ChipTipo etiqueta={meta.singular} />
+                        <ChipTipo etiqueta={STATUS_LABELS[record.status] ?? record.status} activo color={statusColorFor(record.status)} />
+                        {privateOnly && (
+                          <ChipTipo etiqueta={record.hasPrivateDelivery ? 'Fuera del feed público' : 'Sólo local'} />
+                        )}
+                        {record.grantCount > 0 && (
+                          <ChipTipo
+                            etiqueta={record.hasActiveGrant ? 'Permiso vigente' : 'Historial de permiso'}
+                            activo
+                            color={record.hasActiveGrant ? VERDE : TINTA_50}
+                          />
+                        )}
                       </View>
+                      <Text className="mt-3 font-archivo-bold text-lg leading-6 text-tinta">{record.title}</Text>
+                      <Text className="mt-1 font-archivo text-[11px] text-tinta-50">{civicCategoryLabel(record.category)}</Text>
 
-                      <View className="mt-5 gap-3 rounded-2xl border border-white/[0.06] bg-black/15 p-4">
-                        <View className="flex-row items-start gap-2.5">
-                          <Ionicons name="location-outline" size={16} color="#94A3B8" />
-                          <Text className="flex-1 font-sans text-xs leading-5 text-slate-300">{locationSummary(record)}</Text>
-                        </View>
-                        <View className="flex-row items-start gap-2.5">
-                          <Ionicons name="person-circle-outline" size={16} color="#94A3B8" />
-                          <Text className="flex-1 font-sans text-xs leading-5 text-slate-300">{attributionSummary(record)}</Text>
-                        </View>
-                        <View className="flex-row items-start gap-2.5">
-                          <Ionicons name="time-outline" size={16} color="#64748B" />
-                          <Text className="flex-1 font-mono text-[10px] leading-5 text-slate-500">Último cambio · {displayDate(record.updatedAt)}</Text>
-                        </View>
+                      <View className="mt-4 gap-1.5 border-t border-bordeSuave pt-4">
+                        <Text className="font-archivo text-xs leading-5 text-tinta-75">{locationSummary(record)}</Text>
+                        <Text className="font-archivo text-xs leading-5 text-tinta-75">{attributionSummary(record)}</Text>
+                        <Text className="font-space text-[10px] leading-5 text-tinta-30">Último cambio · {displayDate(record.updatedAt)}</Text>
                       </View>
 
                       <View className="mt-4 flex-row gap-2">
-                        {!privateOnly && <Pressable97
-                          accessibilityRole="button"
-                          accessibilityLabel={`${historyOpen ? 'Ocultar' : 'Ver'} historial de ${record.receipts.length} recibos`}
-                          accessibilityState={{ expanded: historyOpen }}
-                          onPress={() => {
-                            setHistoryKey(historyOpen ? null : record.key);
-                            setEditingKey(null);
-                            setWithdrawKey(null);
-                          }}
-                          className="min-h-12 flex-1 flex-row items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-3"
-                        >
-                          <Ionicons name="receipt-outline" size={16} color="#CBD5E1" />
-                          <Text className="font-sans-semibold text-xs text-slate-200">Recibos · {record.receipts.length}</Text>
-                        </Pressable97>}
+                        {!privateOnly && (
+                          <BotonTinta
+                            etiqueta={`Recibos · ${record.receipts.length}`}
+                            accessibilityLabel={`${historyOpen ? 'Ocultar' : 'Ver'} historial de ${record.receipts.length} recibos`}
+                            variante="fantasma"
+                            tamano="compacto"
+                            className="flex-1"
+                            onPress={() => {
+                              setHistoryKey(historyOpen ? null : record.key);
+                              setEditingKey(null);
+                              setWithdrawKey(null);
+                            }}
+                          />
+                        )}
                         {!isWithdrawn && !privateOnly && (
-                          <Pressable97
-                            accessibilityRole="button"
+                          <BotonTinta
+                            etiqueta={editing ? 'Cerrar' : 'Corregir'}
                             accessibilityLabel={`Corregir lugar o firma de ${record.title}`}
+                            variante="fantasma"
+                            tamano="compacto"
+                            className="flex-1"
                             onPress={() => editing ? (setEditingKey(null), setDraft(null)) : beginEdit(record)}
-                            className="min-h-12 flex-1 flex-row items-center justify-center gap-2 rounded-2xl border border-violet-300/20 bg-violet-300/[0.08] px-3"
-                          >
-                            <Ionicons name={editing ? 'close-outline' : 'create-outline'} size={16} color="#C4B5FD" />
-                            <Text className="font-sans-semibold text-xs text-violet-200">{editing ? 'Cerrar' : 'Corregir'}</Text>
-                          </Pressable97>
+                          />
                         )}
                         {privateOnly && record.listeningId && (
-                          <Pressable97
-                            accessibilityRole="button"
+                          <BotonTinta
+                            etiqueta="Abrir custodia"
                             accessibilityLabel={`Abrir custodia de ${record.title}`}
+                            variante="fantasma"
+                            tamano="compacto"
                             onPress={() => router.push({ pathname: '/escuchar/necesidad/[id]', params: { id: record.listeningId! } })}
-                            className="min-h-12 flex-1 flex-row items-center justify-center gap-2 rounded-2xl border border-rose-300/20 bg-rose-300/[0.08] px-3"
-                          >
-                            <Ionicons name="shield-checkmark-outline" size={16} color="#FDA4AF" />
-                            <Text className="font-sans-semibold text-xs text-rose-100">Abrir custodia</Text>
-                          </Pressable97>
+                          />
                         )}
                       </View>
 
@@ -704,7 +648,7 @@ export default function MisDatos() {
                     </View>
 
                     {editing && draft && (
-                      <View className="border-t border-white/10 bg-black/10 p-4">
+                      <View className="border-t border-bordeSuave p-4">
                         <GeoAttributionCard
                           value={draft}
                           onChange={setDraft}
@@ -713,59 +657,55 @@ export default function MisDatos() {
                           accent={meta.color}
                         />
                         <View className="mt-3 flex-row gap-3">
-                          <Pressable97
-                            accessibilityRole="button"
-                            accessibilityLabel="Cancelar corrección"
+                          <BotonTinta
+                            etiqueta="Cancelar"
+                            variante="fantasma"
                             onPress={() => { setEditingKey(null); setDraft(null); }}
-                            className="min-h-12 flex-1 items-center justify-center rounded-full border border-white/10 bg-white/5 px-5"
-                          >
-                            <Text className="font-sans-semibold text-xs text-slate-300">Cancelar</Text>
-                          </Pressable97>
-                          <Pressable97
-                            accessibilityRole="button"
-                            accessibilityLabel="Guardar corrección y nuevo recibo"
-                            accessibilityHint={!isGeoAttributionReady(draft) ? 'Primero confirmá el pin, la referencia y la firma' : undefined}
+                            className="flex-1"
+                          />
+                          <BotonTinta
+                            etiqueta="Guardar versión"
                             disabled={!isGeoAttributionReady(draft) || busy}
+                            cargando={busy}
                             onPress={() => saveCorrection(record)}
-                            className={`min-h-12 flex-[1.35] items-center justify-center rounded-full bg-accent px-5 ${isGeoAttributionReady(draft) && !busy ? '' : 'opacity-40'}`}
-                          >
-                            <Text className="font-sans-semibold text-xs text-white">{busy ? 'Guardando…' : 'Guardar versión'}</Text>
-                          </Pressable97>
+                            className="flex-[1.35]"
+                          />
                         </View>
                       </View>
                     )}
 
-                    <View className="border-t border-white/[0.06] px-5 py-4">
+                    <View className="border-t border-bordeSuave px-5 py-4">
                       {privateOnly && record.grantCount > 0 ? (
-                        <View className="flex-row items-start gap-3 rounded-2xl border border-sky-300/15 bg-sky-300/[0.05] p-4">
-                          <Ionicons name="key-outline" size={18} color="#7DD3FC" />
-                          <Text className="flex-1 font-sans text-xs leading-5 text-slate-400">
+                        <View className="border border-cian px-4 py-3">
+                          <Text className="font-archivo text-xs leading-5 text-tinta-75">
                             {record.hasActiveGrant ? 'Este pedido tiene un permiso destinatario vigente.' : 'Este pedido conserva historia de permisos.'} Abrí la custodia para revisarlo o revocarlo. El borrado individual queda bloqueado para no eliminar el acta; “Borrar todo” en Ajustes elimina la copia local completa.
                           </Text>
                         </View>
                       ) : privateOnly && confirming ? (
-                        <View className="rounded-2xl border border-rose-300/20 bg-rose-300/[0.06] p-4">
-                          <Text className="font-sans-semibold text-sm text-rose-100">¿Eliminar este pedido local?</Text>
-                          <Text className="mt-2 font-sans text-xs leading-5 text-slate-400">
+                        <View className="border border-sello p-4">
+                          <Text className="font-archivo-bold text-sm text-tinta">¿Eliminar este pedido local?</Text>
+                          <Text className="mt-2 font-archivo text-xs leading-5 text-tinta-75">
                             Borra el pedido y su custodia de este dispositivo. La escucha privada original permanece en la bitácora; no hay revocación remota porque nunca se envió.
                           </Text>
                           <View className="mt-4 flex-row gap-3">
-                            <Pressable97 accessibilityRole="button" accessibilityLabel="Conservar pedido local" onPress={() => setWithdrawKey(null)} className="min-h-11 flex-1 items-center justify-center rounded-full border border-white/10 bg-white/5 px-4">
-                              <Text className="font-sans-semibold text-xs text-slate-300">Conservar</Text>
-                            </Pressable97>
-                            <Pressable97 accessibilityRole="button" accessibilityLabel={`Confirmar eliminación local de ${record.title}`} disabled={busy} onPress={() => confirmWithdrawal(record)} className={`min-h-11 flex-1 items-center justify-center rounded-full bg-rose-400 px-4 ${busy ? 'opacity-40' : ''}`}>
-                              <Text className="font-sans-semibold text-xs text-slate-950">{busy ? 'Eliminando…' : 'Sí, eliminar'}</Text>
-                            </Pressable97>
+                            <BotonTinta etiqueta="Conservar" variante="fantasma" onPress={() => setWithdrawKey(null)} className="flex-1" />
+                            <BotonTinta
+                              etiqueta="Sí, eliminar"
+                              variante="fantasma"
+                              disabled={busy}
+                              cargando={busy}
+                              onPress={() => confirmWithdrawal(record)}
+                              className="flex-1"
+                            />
                           </View>
                         </View>
                       ) : privateOnly ? (
                         <View className="gap-3">
-                        <View className="flex-row items-start gap-3 rounded-2xl border border-emerald-300/15 bg-emerald-300/[0.05] p-4">
-                          <Ionicons name="lock-closed-outline" size={18} color="#6EE7B7" />
-                          <Text className="flex-1 font-sans text-xs leading-5 text-slate-400">
-                            Pedido no sincronizado: permanece en el almacenamiento de esta app en este dispositivo. No existe recibo de divulgación ni retiro remoto porque todavía no salió a la red. Este almacenamiento aún no tiene cifrado propio de la app.
-                          </Text>
-                        </View>
+                          <View className="border border-cian px-4 py-3">
+                            <Text className="font-archivo text-xs leading-5 text-tinta-75">
+                              Pedido no sincronizado: permanece en el almacenamiento de esta app en este dispositivo. No existe recibo de divulgación ni retiro remoto porque todavía no salió a la red. Este almacenamiento aún no tiene cifrado propio de la app.
+                            </Text>
+                          </View>
                           <Pressable97
                             accessibilityRole="button"
                             accessibilityLabel={`Eliminar ${record.title} de este dispositivo`}
@@ -777,43 +717,33 @@ export default function MisDatos() {
                               setHistoryKey(null);
                               setNotice(null);
                             }}
-                            className="min-h-11 flex-row items-center justify-center gap-2 rounded-full px-4"
+                            className="min-h-11 flex-row items-center justify-center px-4"
                           >
-                            <Ionicons name="trash-outline" size={16} color="#FDA4AF" />
-                            <Text className="font-sans-semibold text-xs text-rose-200">Eliminar del dispositivo</Text>
+                            <Text className="font-space text-xs text-tinta-50">Eliminar del dispositivo</Text>
                           </Pressable97>
                         </View>
                       ) : isWithdrawn ? (
-                        <View className="flex-row items-start gap-3 rounded-2xl border border-rose-300/15 bg-rose-300/[0.05] p-4">
-                          <Ionicons name="remove-circle-outline" size={18} color="#FDA4AF" />
-                          <Text className="flex-1 font-sans text-xs leading-5 text-slate-400">
+                        <View className="border border-tinta-50 px-4 py-3">
+                          <Text className="font-archivo text-xs leading-5 text-tinta-75">
                             Retirado de circulación. Su historia y sus recibos quedan disponibles para auditar qué ocurrió.
                           </Text>
                         </View>
                       ) : confirming ? (
-                        <View className="rounded-2xl border border-rose-300/20 bg-rose-300/[0.06] p-4">
-                          <Text className="font-sans-semibold text-sm text-rose-100">¿Retirar este aporte de la red?</Text>
-                          <Text className="mt-2 font-sans text-xs leading-5 text-slate-400">
+                        <View className="border border-sello p-4">
+                          <Text className="font-archivo-bold text-sm text-tinta">¿Retirar este aporte de la red?</Text>
+                          <Text className="mt-2 font-archivo text-xs leading-5 text-tinta-75">
                             Dejará de estar vigente y se enviará una revocación. No se borrarán sus vínculos, su historia ni la copia privada de este dispositivo.
                           </Text>
                           <View className="mt-4 flex-row gap-3">
-                            <Pressable97
-                              accessibilityRole="button"
-                              accessibilityLabel="Cancelar retiro"
-                              onPress={() => setWithdrawKey(null)}
-                              className="min-h-11 flex-1 items-center justify-center rounded-full border border-white/10 bg-white/5 px-4"
-                            >
-                              <Text className="font-sans-semibold text-xs text-slate-300">Conservar</Text>
-                            </Pressable97>
-                            <Pressable97
-                              accessibilityRole="button"
-                              accessibilityLabel={`Confirmar retiro de ${record.title}`}
+                            <BotonTinta etiqueta="Conservar" variante="fantasma" onPress={() => setWithdrawKey(null)} className="flex-1" />
+                            <BotonTinta
+                              etiqueta="Sí, retirar"
+                              variante="fantasma"
                               disabled={busy}
+                              cargando={busy}
                               onPress={() => confirmWithdrawal(record)}
-                              className={`min-h-11 flex-1 items-center justify-center rounded-full bg-rose-400 px-4 ${busy ? 'opacity-40' : ''}`}
-                            >
-                              <Text className="font-sans-semibold text-xs text-slate-950">{busy ? 'Asentando…' : 'Sí, retirar'}</Text>
-                            </Pressable97>
+                              className="flex-1"
+                            />
                           </View>
                         </View>
                       ) : (
@@ -828,23 +758,22 @@ export default function MisDatos() {
                             setHistoryKey(null);
                             setNotice(null);
                           }}
-                          className="min-h-11 flex-row items-center justify-center gap-2 rounded-full px-4"
+                          className="min-h-11 flex-row items-center justify-center px-4"
                         >
-                          <Ionicons name="remove-circle-outline" size={16} color="#FDA4AF" />
-                          <Text className="font-sans-semibold text-xs text-rose-200">Retirar de la red</Text>
+                          <Text className="font-space text-xs text-tinta-50">Retirar de la red</Text>
                         </Pressable97>
                       )}
                     </View>
-                  </GlassCard>
+                  </PapelCard>
                 </Animated.View>
               );
             })}
           </View>
         )}
 
-        <View className="mt-7 rounded-2xl border border-white/[0.06] bg-white/[0.025] p-4">
-          <Text className="font-sans text-[10px] uppercase tracking-[2px] text-slate-500">Principio de soberanía</Text>
-          <Text className="mt-2 font-sans text-xs leading-5 text-slate-400">
+        <View className="mt-7 border border-bordeSuave px-4 py-4">
+          <Kicker tono="neutro">Principio de soberanía</Kicker>
+          <Text className="mt-2 font-archivo text-xs leading-5 text-tinta-75">
             La comunidad puede recordar que un dato existió sin obligarte a mantenerlo vigente. Corregir agrega contexto; retirar corta su circulación; nada altera silenciosamente el libro anterior.
           </Text>
         </View>

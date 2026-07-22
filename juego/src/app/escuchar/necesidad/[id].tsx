@@ -1,4 +1,3 @@
-import { Ionicons } from '@expo/vector-icons';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useState } from 'react';
 import { KeyboardAvoidingView, Platform, ScrollView, Text, TextInput, View } from 'react-native';
@@ -6,9 +5,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { GeoAttributionCard, isGeoAttributionReady } from '@/components/civic/GeoAttributionCard';
 import { NeedAccessGrantPanel } from '@/components/civic/NeedAccessGrantPanel';
-import { AccentButton } from '@/components/ui/AccentButton';
-import { GlassCard } from '@/components/ui/GlassCard';
-import { PanelHeader } from '@/components/ui/PanelHeader';
+import { BotonTinta, ChipTipo, FilaIndice, GranoPapel, Kicker, PapelCard, TituloAnton } from '@/components/papel';
 import { Pressable97 } from '@/components/ui/Pressable97';
 import {
   createCustodiedNeedDraft,
@@ -29,12 +26,23 @@ import type {
   NeedDecisionRecipient,
 } from '@/civic/types';
 import { haptic } from '@/theme/haptics';
+import { TINTA, TINTA_50, VIOLETA } from '@/theme/tokens';
 
-const CUSTODIANS: readonly { key: NeedCustodianKind; label: string; detail: string; icon: string }[] = [
-  { key: 'self', label: 'Yo, por ahora', detail: 'Conservo el pedido en este dispositivo.', icon: 'person-outline' },
-  { key: 'trusted_circle', label: 'Círculo de confianza', detail: 'Una red cercana cuidará la derivación.', icon: 'people-outline' },
-  { key: 'organization', label: 'Organización', detail: 'Una entidad comunitaria acompaña el caso.', icon: 'home-outline' },
-  { key: 'public_service', label: 'Servicio público', detail: 'Un área institucional debería custodiar la respuesta.', icon: 'business-outline' },
+/**
+ * Preparar un pedido bajo custodia — separa lo operativo (cantidad, unidad,
+ * urgencia, vigencia) del relato original, que nunca se copia. Sigue local
+ * hasta que exista un permiso territorial verificable.
+ *
+ * Registro papel del sistema Papel y Tinta (spec §8): pantalla profunda —
+ * título sin entintar, formulario canónico. No hay sello acá: "pedido
+ * estructurado" no está en el catálogo cerrado (spec §5).
+ */
+
+const CUSTODIANS: readonly { key: NeedCustodianKind; label: string; detail: string }[] = [
+  { key: 'self', label: 'Yo, por ahora', detail: 'Conservo el pedido en este dispositivo.' },
+  { key: 'trusted_circle', label: 'Círculo de confianza', detail: 'Una red cercana cuidará la derivación.' },
+  { key: 'organization', label: 'Organización', detail: 'Una entidad comunitaria acompaña el caso.' },
+  { key: 'public_service', label: 'Servicio público', detail: 'Un área institucional debería custodiar la respuesta.' },
 ];
 
 const RECIPIENTS: readonly { key: NeedDecisionRecipient; label: string }[] = [
@@ -53,17 +61,45 @@ const CONTACT_ROUTES: readonly { key: NeedContactRoute; label: string; detail: s
   { key: 'to_define', label: 'A definir', detail: 'No se abre contacto hasta elegir una vía.' },
 ];
 
+/** Foco visible: borde violeta 2px (spec §3.5/§10) — nada de halo aparte. */
+const estiloInput = (enfocado: boolean): object => ({
+  borderWidth: enfocado ? 2 : 1,
+  borderColor: enfocado ? VIOLETA : TINTA,
+  outlineColor: VIOLETA,
+  outlineStyle: 'solid' as const,
+  outlineWidth: enfocado ? 2 : 0,
+  outlineOffset: 2,
+});
+
+function Encabezado({ titulo, onVolver }: { titulo: string; onVolver: () => void }) {
+  const insets = useSafeAreaInsets();
+  return (
+    <View className="px-5" style={{ paddingTop: insets.top + 12, paddingBottom: 12 }}>
+      <Pressable97
+        accessibilityRole="button"
+        accessibilityLabel="Volver"
+        onPress={onVolver}
+        className="-ml-2 min-h-11 min-w-11 items-center justify-center self-start"
+      >
+        <Text className="font-space text-2xl text-tinta">←</Text>
+      </Pressable97>
+      <View className="mt-2">
+        <Kicker tono="neutro">pedido bajo custodia</Kicker>
+        <TituloAnton tamano="lg" className="mt-1">{titulo}</TituloAnton>
+      </View>
+    </View>
+  );
+}
+
 function OptionCard({
   selected,
   label,
   detail,
-  icon,
   onPress,
 }: {
   selected: boolean;
   label: string;
   detail: string;
-  icon?: string;
   onPress: () => void;
 }) {
   return (
@@ -72,19 +108,13 @@ function OptionCard({
       accessibilityLabel={`${label}. ${detail}`}
       accessibilityState={{ selected }}
       onPress={onPress}
-      className="min-h-[82px] flex-row items-center rounded-2xl border p-4"
-      style={{ borderColor: selected ? '#FB718566' : '#FFFFFF18', backgroundColor: selected ? '#FB718512' : '#FFFFFF07' }}
+      className="min-h-[82px] flex-row items-center bg-papel-crudo p-4"
+      style={{ borderWidth: selected ? 2 : 1, borderColor: selected ? VIOLETA : TINTA }}
     >
-      {icon && (
-        <View className="h-10 w-10 items-center justify-center rounded-2xl bg-rose-300/10">
-          <Ionicons name={icon as never} size={18} color={selected ? '#FDA4AF' : '#64748B'} />
-        </View>
-      )}
-      <View className={icon ? 'ml-3 flex-1' : 'flex-1'}>
-        <Text className="font-sans-semibold text-sm" style={{ color: selected ? '#FFE4E6' : '#CBD5E1' }}>{label}</Text>
-        <Text className="mt-1 font-sans text-[11px] leading-5 text-slate-500">{detail}</Text>
+      <View className="flex-1">
+        <Text className="font-archivo-bold text-sm text-tinta">{label}</Text>
+        <Text className="mt-1 font-archivo text-[11px] leading-5 text-tinta-50">{detail}</Text>
       </View>
-      {selected && <Ionicons name="checkmark-circle" size={19} color="#FB7185" />}
     </Pressable97>
   );
 }
@@ -108,6 +138,10 @@ export default function PrepararNecesidad() {
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(Boolean(listening?.needId));
   const [error, setError] = useState<string | null>(null);
+  const [enfocadoCustodio, setEnfocadoCustodio] = useState(false);
+  const [enfocadoDestinatario, setEnfocadoDestinatario] = useState(false);
+  const [enfocadoCantidad, setEnfocadoCantidad] = useState(false);
+  const [enfocadoUnidad, setEnfocadoUnidad] = useState(false);
   const [context, setContext] = useState<CivicRecordContextDraft>(() => ({
     ...recordContextDraftFor('listening', id ?? '', {
       audience: 'private',
@@ -135,6 +169,8 @@ export default function PrepararNecesidad() {
     if (!understood) return 'Confirmá que entendés el alcance: se guarda local y todavía no se envía.';
     return 'Todo listo para crear el pedido bajo custodia.';
   })();
+
+  const volver = () => (router.canGoBack() ? router.back() : router.replace('/'));
 
   const save = () => {
     if (!canSave || !listening) return;
@@ -172,84 +208,69 @@ export default function PrepararNecesidad() {
 
   if (saved && listening) {
     return (
-      <View className="flex-1 bg-fondo">
-        <PanelHeader title="Pedido bajo custodia" />
+      <View className="flex-1 bg-papel">
+        <GranoPapel />
+        <Encabezado titulo="Pedido bajo custodia" onVolver={volver} />
         <ScrollView contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: insets.bottom + 36 }}>
-          <GlassCard className="mt-4 overflow-hidden p-7">
-            <View className="h-16 w-16 items-center justify-center rounded-3xl border border-emerald-300/20 bg-emerald-300/10">
-              <Ionicons name="shield-checkmark-outline" size={29} color="#6EE7B7" />
-            </View>
-            <Text className="mt-6 font-sans text-[10px] uppercase tracking-[2.5px] text-emerald-300">Estructurado · todavía local</Text>
-            <Text className="mt-3 font-serif text-[34px] leading-[42px] text-plata">Ya tiene dirección sin perder refugio.</Text>
-            <Text className="mt-4 font-sans text-sm leading-6 text-slate-400">
+          <PapelCard className="p-6">
+            <Kicker tono="neutro">Estructurado · todavía local</Kicker>
+            <TituloAnton tamano="md" className="mt-2">Ya tiene dirección sin perder refugio.</TituloAnton>
+            <Text className="mt-4 font-archivo text-sm leading-6 text-tinta-75">
               Creamos un pedido de {listeningThemeLabel(listening.theme).toLowerCase()} separado del relato. Custodia, destinatario y punto seguro quedan en este dispositivo.
             </Text>
-          </GlassCard>
+          </PapelCard>
 
-          <View className="mt-5 rounded-2xl border border-amber-300/20 bg-amber-300/[0.07] p-4">
-            <View className="flex-row items-start gap-3">
-              <Ionicons name="lock-closed-outline" size={18} color="#FCD34D" />
-              <Text className="flex-1 font-sans text-xs leading-5 text-amber-100/80">
-                No lo enviamos al feed colectivo. Ahora podés dejar un permiso local para un destinatario concreto; la entrega seguirá cerrada hasta que exista un canal autenticado y aceptación del receptor.
-              </Text>
-            </View>
+          <View className="mt-5 border border-ambar px-4 py-3">
+            <Text className="font-archivo text-xs leading-5 text-tinta-90">
+              No lo enviamos al feed colectivo. Ahora podés dejar un permiso local para un destinatario concreto; la entrega seguirá cerrada hasta que exista un canal autenticado y aceptación del receptor.
+            </Text>
           </View>
 
           {storedNeed && storedCustody && (
-            <GlassCard className="mt-5 p-5">
-              <Text className="font-sans text-[10px] uppercase tracking-[2px] text-slate-500">Pasaporte privado del pedido</Text>
-              <View className="mt-4 gap-3">
-                <View className="flex-row items-start gap-3">
-                  <Ionicons name="person-outline" size={16} color="#FDA4AF" />
-                  <Text className="flex-1 font-sans text-xs leading-5 text-slate-300">
+            <PapelCard className="mt-5 p-5">
+              <Kicker tono="neutro">Pasaporte privado del pedido</Kicker>
+              <View className="mt-3">
+                <FilaIndice numero="01" glifo="">
+                  <Text className="font-archivo text-xs leading-5 text-tinta-75">
                     Custodia: {CUSTODIANS.find((item) => item.key === storedCustody.custodianKind)?.label ?? storedCustody.custodianKind}
                     {storedCustody.custodianLabel ? ` · ${storedCustody.custodianLabel}` : ''}
                   </Text>
-                </View>
-                <View className="flex-row items-start gap-3">
-                  <Ionicons name="navigate-outline" size={16} color="#FCD34D" />
-                  <Text className="flex-1 font-sans text-xs leading-5 text-slate-300">
+                </FilaIndice>
+                <FilaIndice numero="02" glifo="">
+                  <Text className="font-archivo text-xs leading-5 text-tinta-75">
                     Respuesta esperada: {RECIPIENTS.find((item) => item.key === storedCustody.decisionRecipient)?.label ?? storedCustody.decisionRecipient}
                     {storedCustody.decisionRecipientLabel ? ` · ${storedCustody.decisionRecipientLabel}` : ''}
                   </Text>
-                </View>
-                <View className="flex-row items-start gap-3">
-                  <Ionicons name="chatbubbles-outline" size={16} color="#C4B5FD" />
-                  <Text className="flex-1 font-sans text-xs leading-5 text-slate-300">
+                </FilaIndice>
+                <FilaIndice numero="03" glifo="">
+                  <Text className="font-archivo text-xs leading-5 text-tinta-75">
                     Contacto: {CONTACT_ROUTES.find((item) => item.key === storedCustody.contactRoute)?.label ?? storedCustody.contactRoute}
                   </Text>
-                </View>
-                <View className="flex-row items-start gap-3">
-                  <Ionicons name="cube-outline" size={16} color="#7DD3FC" />
-                  <Text className="flex-1 font-sans text-xs leading-5 text-slate-300">
+                </FilaIndice>
+                <FilaIndice numero="04" glifo="">
+                  <Text className="font-archivo text-xs leading-5 text-tinta-75">
                     {storedNeed.quantity != null ? `${storedNeed.quantity} ${storedNeed.unit ?? 'unidades'} · ` : ''}urgencia {storedNeed.urgency}/5 · revisar {new Intl.DateTimeFormat('es-AR', { day: '2-digit', month: 'short' }).format(new Date(storedNeed.expiresAt ?? storedNeed.updatedAt))}
                   </Text>
-                </View>
-                <View className="flex-row items-start gap-3">
-                  <Ionicons name="location-outline" size={16} color="#6EE7B7" />
-                  <Text className="flex-1 font-sans text-xs leading-5 text-slate-300">{contextLocationSummary(storedContext)}</Text>
-                </View>
+                </FilaIndice>
+                <FilaIndice numero="05" glifo="">
+                  <Text className="font-archivo text-xs leading-5 text-tinta-75">{contextLocationSummary(storedContext)}</Text>
+                </FilaIndice>
               </View>
-            </GlassCard>
+            </PapelCard>
           )}
 
           {storedNeed && storedCustody && <NeedAccessGrantPanel need={storedNeed} />}
 
-          <View className="mt-6 gap-3">
-            <Pressable97 accessibilityRole="button" accessibilityLabel="Abrir mis datos" onPress={() => router.replace('/mis-datos')} className="min-h-14 flex-row items-center rounded-2xl bg-rose-400 px-5">
-              <Ionicons name="documents-outline" size={19} color="white" />
-              <Text className="ml-3 flex-1 font-sans-semibold text-sm text-white">Ver y controlar el pedido</Text>
-              <Ionicons name="arrow-forward" size={17} color="white" />
-            </Pressable97>
-            <Pressable97 accessibilityRole="button" accessibilityLabel="Preparar mi red de confianza" onPress={() => router.replace('/circulos')} className="min-h-14 flex-row items-center rounded-2xl border border-violet-300/20 bg-violet-300/10 px-5">
-              <Ionicons name="people-outline" size={19} color="#C4B5FD" />
-              <Text className="ml-3 flex-1 font-sans-semibold text-sm text-violet-100">Preparar mi red de confianza</Text>
-              <Ionicons name="arrow-forward" size={17} color="#C4B5FD" />
-            </Pressable97>
-            <Pressable97 accessibilityRole="button" accessibilityLabel="Volver al territorio" onPress={() => router.replace('/territorio')} className="min-h-14 flex-row items-center rounded-2xl border border-white/10 bg-white/5 px-5">
-              <Ionicons name="earth-outline" size={19} color="#94A3B8" />
-              <Text className="ml-3 flex-1 font-sans-medium text-sm text-slate-300">Volver al territorio</Text>
-            </Pressable97>
+          <View className="mt-6">
+            <FilaIndice numero="01" onPress={() => router.replace('/mis-datos')} accessibilityLabel="Ver y controlar el pedido">
+              <Text className="font-archivo-bold text-base text-tinta">Ver y controlar el pedido</Text>
+            </FilaIndice>
+            <FilaIndice numero="02" onPress={() => router.replace('/circulos')} accessibilityLabel="Preparar mi red de confianza">
+              <Text className="font-archivo-bold text-base text-tinta">Preparar mi red de confianza</Text>
+            </FilaIndice>
+            <FilaIndice numero="03" onPress={() => router.replace('/territorio')} accessibilityLabel="Volver al territorio">
+              <Text className="font-archivo-bold text-base text-tinta">Volver al territorio</Text>
+            </FilaIndice>
           </View>
         </ScrollView>
       </View>
@@ -257,53 +278,72 @@ export default function PrepararNecesidad() {
   }
 
   return (
-    <View className="flex-1 bg-fondo">
-      <PanelHeader title="Preparar pedido" />
+    <View className="flex-1 bg-papel">
+      <GranoPapel />
+      <Encabezado titulo="Preparar pedido" onVolver={volver} />
       <KeyboardAvoidingView className="flex-1" behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
         <ScrollView keyboardShouldPersistTaps="handled" contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: insets.bottom + 40 }}>
-          <Text className="mt-2 font-sans text-[10px] uppercase tracking-[2.8px] text-rose-300">Del relato a una respuesta segura</Text>
-          <Text className="mt-4 font-serif text-[34px] leading-[42px] text-plata">¿Quién cuidará este pedido?</Text>
-          <Text className="mt-3 font-sans text-sm leading-6 text-slate-400">
+          <TituloAnton tamano="md" className="mt-2">¿Quién cuidará este pedido?</TituloAnton>
+          <Text className="mt-3 font-archivo text-sm leading-6 text-tinta-75">
             El relato nunca se copia. Sólo estructuramos categoría, cantidad, urgencia, vigencia y un punto seguro para que después pueda existir una derivación responsable.
           </Text>
 
           {listening && (
-            <GlassCard className="mt-6 p-5">
-              <Text className="font-sans text-[10px] uppercase tracking-[2px] text-slate-500">Origen privado</Text>
-              <Text className="mt-2 font-serif text-xl text-plata">Necesidad de {listeningThemeLabel(listening.theme).toLowerCase()}</Text>
-              <Text className="mt-2 font-sans text-xs leading-5 text-slate-500">El texto completo sigue sólo en la bitácora.</Text>
-            </GlassCard>
+            <PapelCard variante="suave" className="mt-6 p-5">
+              <Kicker tono="neutro">Origen privado</Kicker>
+              <Text className="mt-2 font-archivo-bold text-lg text-tinta">Necesidad de {listeningThemeLabel(listening.theme).toLowerCase()}</Text>
+              <Text className="mt-2 font-archivo text-xs leading-5 text-tinta-50">El texto completo sigue sólo en la bitácora.</Text>
+            </PapelCard>
           )}
 
-          <Text className="mt-8 font-sans-medium text-sm text-slate-200">Custodia</Text>
+          <Kicker tono="neutro" className="mt-8">Custodia</Kicker>
           <View className="mt-3 gap-2">
             {CUSTODIANS.map((option) => (
               <OptionCard
                 key={option.key}
                 label={option.label}
                 detail={option.detail}
-                icon={option.icon}
                 selected={custodianKind === option.key}
                 onPress={() => setCustodianKind(option.key)}
               />
             ))}
           </View>
           {custodianKind !== 'self' && (
-            <TextInput value={custodianLabel} onChangeText={setCustodianLabel} maxLength={120} placeholder="Nombre local del círculo, organización o servicio" placeholderTextColor="#64748B" accessibilityLabel="Nombre local del custodio" className="mt-3 min-h-12 rounded-2xl border border-white/10 bg-black/20 px-4 font-sans text-sm text-plata" />
+            <TextInput
+              value={custodianLabel}
+              onChangeText={setCustodianLabel}
+              onFocus={() => setEnfocadoCustodio(true)}
+              onBlur={() => setEnfocadoCustodio(false)}
+              maxLength={120}
+              placeholder="Nombre local del círculo, organización o servicio"
+              placeholderTextColor={TINTA_50}
+              accessibilityLabel="Nombre local del custodio"
+              className="mt-3 bg-papel-crudo px-4 py-3.5 font-archivo text-sm text-tinta"
+              style={estiloInput(enfocadoCustodio)}
+            />
           )}
-          <Text className="mt-2 font-sans text-[10px] leading-4 text-slate-600">Este nombre queda local y no demuestra pertenencia ni autoridad.</Text>
+          <Text className="mt-2 font-archivo text-[10px] leading-4 text-tinta-30">Este nombre queda local y no demuestra pertenencia ni autoridad.</Text>
 
-          <Text className="mt-8 font-sans-medium text-sm text-slate-200">¿Quién debería responder?</Text>
+          <Kicker tono="neutro" className="mt-8">¿Quién debería responder?</Kicker>
           <View className="mt-3 flex-row flex-wrap gap-2">
             {RECIPIENTS.map((option) => (
-              <Pressable97 key={option.key} accessibilityRole="radio" accessibilityLabel={option.label} accessibilityState={{ selected: decisionRecipient === option.key }} onPress={() => setDecisionRecipient(option.key)} className="min-h-11 justify-center rounded-full border px-4" style={{ borderColor: decisionRecipient === option.key ? '#FB718566' : '#FFFFFF18', backgroundColor: decisionRecipient === option.key ? '#FB718512' : '#FFFFFF07' }}>
-                <Text className="font-sans-medium text-xs" style={{ color: decisionRecipient === option.key ? '#FFE4E6' : '#94A3B8' }}>{option.label}</Text>
-              </Pressable97>
+              <ChipTipo key={option.key} etiqueta={option.label} activo={decisionRecipient === option.key} onPress={() => setDecisionRecipient(option.key)} />
             ))}
           </View>
-          <TextInput value={decisionRecipientLabel} onChangeText={setDecisionRecipientLabel} maxLength={120} placeholder="Área o institución concreta, si la conocés" placeholderTextColor="#64748B" accessibilityLabel="Destinatario concreto" className="mt-3 min-h-12 rounded-2xl border border-white/10 bg-black/20 px-4 font-sans text-sm text-plata" />
+          <TextInput
+            value={decisionRecipientLabel}
+            onChangeText={setDecisionRecipientLabel}
+            onFocus={() => setEnfocadoDestinatario(true)}
+            onBlur={() => setEnfocadoDestinatario(false)}
+            maxLength={120}
+            placeholder="Área o institución concreta, si la conocés"
+            placeholderTextColor={TINTA_50}
+            accessibilityLabel="Destinatario concreto"
+            className="mt-3 bg-papel-crudo px-4 py-3.5 font-archivo text-sm text-tinta"
+            style={estiloInput(enfocadoDestinatario)}
+          />
 
-          <Text className="mt-8 font-sans-medium text-sm text-slate-200">Vía de contacto preferida</Text>
+          <Kicker tono="neutro" className="mt-8">Vía de contacto preferida</Kicker>
           <View className="mt-3 gap-2">
             {CONTACT_ROUTES.map((option) => (
               <OptionCard
@@ -316,35 +356,52 @@ export default function PrepararNecesidad() {
             ))}
           </View>
 
-          <GlassCard className="mt-6 p-5">
-            <Text className="font-sans-medium text-sm text-slate-200">Dimensión operativa</Text>
+          <PapelCard className="mt-6 p-5">
+            <Kicker tono="neutro">Dimensión operativa</Kicker>
             <View className="mt-4 flex-row gap-3">
               <View className="flex-1">
-                <Text className="font-sans text-xs text-slate-400">Cantidad, si aplica</Text>
-                <TextInput value={quantity} onChangeText={setQuantity} keyboardType="numeric" maxLength={10} placeholder="Ej. 12" placeholderTextColor="#64748B" className="mt-2 min-h-12 rounded-2xl border border-white/10 bg-black/20 px-4 font-mono text-sm text-plata" />
+                <Kicker tono="neutro">Cantidad, si aplica</Kicker>
+                <TextInput
+                  value={quantity}
+                  onChangeText={setQuantity}
+                  onFocus={() => setEnfocadoCantidad(true)}
+                  onBlur={() => setEnfocadoCantidad(false)}
+                  keyboardType="numeric"
+                  maxLength={10}
+                  placeholder="Ej. 12"
+                  placeholderTextColor={TINTA_50}
+                  className="mt-2 bg-papel px-4 py-3 font-space text-sm text-tinta"
+                  style={estiloInput(enfocadoCantidad)}
+                />
               </View>
               <View className="flex-1">
-                <Text className="font-sans text-xs text-slate-400">Unidad</Text>
-                <TextInput value={unit} onChangeText={setUnit} maxLength={120} placeholder="raciones, horas…" placeholderTextColor="#64748B" className="mt-2 min-h-12 rounded-2xl border border-white/10 bg-black/20 px-4 font-sans text-sm text-plata" />
+                <Kicker tono="neutro">Unidad</Kicker>
+                <TextInput
+                  value={unit}
+                  onChangeText={setUnit}
+                  onFocus={() => setEnfocadoUnidad(true)}
+                  onBlur={() => setEnfocadoUnidad(false)}
+                  maxLength={120}
+                  placeholder="raciones, horas…"
+                  placeholderTextColor={TINTA_50}
+                  className="mt-2 bg-papel px-4 py-3 font-archivo text-sm text-tinta"
+                  style={estiloInput(enfocadoUnidad)}
+                />
               </View>
             </View>
-            <Text className="mt-5 font-sans text-xs text-slate-400">Urgencia operativa</Text>
-            <View className="mt-3 flex-row gap-2">
+            <Kicker tono="neutro" className="mt-5">Urgencia operativa</Kicker>
+            <View className="mt-3 flex-row flex-wrap gap-2">
               {[1, 2, 3, 4, 5].map((value) => (
-                <Pressable97 key={value} accessibilityRole="radio" accessibilityLabel={`Urgencia ${value} de 5`} accessibilityState={{ selected: urgency === value }} onPress={() => setUrgency(value)} className="min-h-11 flex-1 items-center justify-center rounded-xl border" style={{ borderColor: urgency === value ? '#FB718566' : '#FFFFFF18', backgroundColor: urgency === value ? '#FB718512' : '#FFFFFF07' }}>
-                  <Text className="font-mono text-sm" style={{ color: urgency === value ? '#FFE4E6' : '#64748B' }}>{value}</Text>
-                </Pressable97>
+                <ChipTipo key={value} etiqueta={String(value)} activo={urgency === value} accessibilityLabel={`Urgencia ${value} de 5`} onPress={() => setUrgency(value)} />
               ))}
             </View>
-            <Text className="mt-5 font-sans text-xs text-slate-400">Revisar vigencia en</Text>
-            <View className="mt-3 flex-row gap-2">
+            <Kicker tono="neutro" className="mt-5">Revisar vigencia en</Kicker>
+            <View className="mt-3 flex-row flex-wrap gap-2">
               {[7, 30, 60].map((value) => (
-                <Pressable97 key={value} accessibilityRole="radio" accessibilityLabel={`${value} días`} accessibilityState={{ selected: expiresInDays === value }} onPress={() => setExpiresInDays(value)} className="min-h-11 flex-1 items-center justify-center rounded-xl border" style={{ borderColor: expiresInDays === value ? '#FB718566' : '#FFFFFF18', backgroundColor: expiresInDays === value ? '#FB718512' : '#FFFFFF07' }}>
-                  <Text className="font-sans-medium text-xs" style={{ color: expiresInDays === value ? '#FFE4E6' : '#64748B' }}>{value} días</Text>
-                </Pressable97>
+                <ChipTipo key={value} etiqueta={`${value} días`} activo={expiresInDays === value} onPress={() => setExpiresInDays(value)} />
               ))}
             </View>
-          </GlassCard>
+          </PapelCard>
 
           <View className="mt-5">
             <GeoAttributionCard
@@ -358,23 +415,29 @@ export default function PrepararNecesidad() {
             />
           </View>
 
-          <Pressable97 accessibilityRole="checkbox" accessibilityLabel="Confirmar que el pedido no se sincroniza" accessibilityState={{ checked: understood }} onPress={() => setUnderstood((value) => !value)} className="mt-5 flex-row items-start gap-3 rounded-2xl border border-amber-300/20 bg-amber-300/[0.06] p-4">
-            <View className="mt-0.5 h-5 w-5 items-center justify-center rounded-md border" style={{ borderColor: understood ? '#FCD34D' : '#64748B', backgroundColor: understood ? '#FCD34D' : 'transparent' }}>
-              {understood && <Ionicons name="checkmark" size={14} color="#422006" />}
-            </View>
+          <Pressable97
+            accessibilityRole="checkbox"
+            accessibilityLabel="Confirmar que el pedido no se sincroniza"
+            accessibilityState={{ checked: understood }}
+            onPress={() => setUnderstood((value) => !value)}
+            className="mt-5 flex-row items-start gap-3 border border-ambar p-4"
+          >
+            <View className={`mt-0.5 h-5 w-5 border border-tinta ${understood ? 'bg-violeta' : 'bg-papel-presionado'}`} />
             <View className="flex-1">
-              <Text className="font-sans-semibold text-xs text-amber-100">Entiendo: la app no sincroniza este pedido</Text>
-              <Text className="mt-1 font-sans text-[11px] leading-5 text-slate-500">Permanece en el almacenamiento local, todavía sin cifrado propio de la app. No se envía a la red ni a la persona nombrada: eso requiere un permiso verificable y una confirmación posterior.</Text>
+              <Text className="font-archivo-bold text-xs text-tinta">Entiendo: la app no sincroniza este pedido</Text>
+              <Text className="mt-1 font-archivo text-[11px] leading-5 text-tinta-50">Permanece en el almacenamiento local, todavía sin cifrado propio de la app. No se envía a la red ni a la persona nombrada: eso requiere un permiso verificable y una confirmación posterior.</Text>
             </View>
           </Pressable97>
 
-          <View accessibilityLiveRegion="polite" className="mt-5 flex-row items-center gap-2 rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3">
-            <Ionicons name={canSave ? 'checkmark-circle-outline' : 'information-circle-outline'} size={17} color={canSave ? '#6EE7B7' : '#FCD34D'} />
-            <Text className="flex-1 font-sans text-[11px] leading-5" style={{ color: canSave ? '#A7F3D0' : '#FDE68A' }}>{error ?? statusNote}</Text>
+          <View
+            accessibilityLiveRegion="polite"
+            className={`mt-5 border px-4 py-3 ${canSave ? 'border-verde' : 'border-ambar'}`}
+          >
+            <Text className="font-archivo text-[11px] leading-5 text-tinta-90">{error ?? statusNote}</Text>
           </View>
 
           <View className="mt-8 items-center">
-            <AccentButton label={saving ? 'Estructurando…' : 'Crear pedido bajo custodia'} onPress={save} disabled={!canSave} />
+            <BotonTinta etiqueta="Crear pedido bajo custodia" onPress={save} disabled={!canSave} cargando={saving} />
           </View>
         </ScrollView>
       </KeyboardAvoidingView>

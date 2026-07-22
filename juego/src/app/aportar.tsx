@@ -1,20 +1,30 @@
-import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import { useState } from 'react';
 import { KeyboardAvoidingView, Platform, ScrollView, Text, TextInput, View } from 'react-native';
+import Animated from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { GeoAttributionCard, isGeoAttributionReady } from '@/components/civic/GeoAttributionCard';
-import { AccentButton } from '@/components/ui/AccentButton';
-import { GlassCard } from '@/components/ui/GlassCard';
-import { PanelHeader } from '@/components/ui/PanelHeader';
+import { BotonTinta, ChipTipo, GranoPapel, Kicker, TituloAnton } from '@/components/papel';
 import { Pressable97 } from '@/components/ui/Pressable97';
 import { CIVIC_CATEGORY_LABELS } from '@/civic/labels';
 import { defaultRecordContextDraft } from '@/civic/record-context';
 import { createResource, recordConsent } from '@/civic/repo';
+import { fadeUp } from '@/motion/variants';
 import { haptic } from '@/theme/haptics';
+import { CIAN, TINTA, TINTA_50, VIOLETA } from '@/theme/tokens';
 
 const CATEGORIES = Object.entries(CIVIC_CATEGORY_LABELS).filter(([key]) => key !== 'red-comunitaria-alimentaria');
+
+/** Foco visible: borde violeta 2px (spec §3.5/§10) — nada de halo aparte. */
+const estiloInput = (enfocado: boolean): object => ({
+  borderWidth: enfocado ? 2 : 1,
+  borderColor: enfocado ? VIOLETA : TINTA,
+  outlineColor: VIOLETA,
+  outlineStyle: 'solid' as const,
+  outlineWidth: enfocado ? 2 : 0,
+  outlineOffset: 2,
+});
 
 export default function Aportar() {
   const router = useRouter();
@@ -31,6 +41,10 @@ export default function Aportar() {
     sensitivity: 'low',
     precision: '500m',
   }));
+  const [enfocadoTitulo, setEnfocadoTitulo] = useState(false);
+  const [enfocadoCantidad, setEnfocadoCantidad] = useState(false);
+  const [enfocadoUnidad, setEnfocadoUnidad] = useState(false);
+  const [enfocadoRadio, setEnfocadoRadio] = useState(false);
   const contextReady = isGeoAttributionReady(context);
   const publicationIssue = !context.point
     ? 'Falta marcar el lugar en el mapa.'
@@ -86,141 +100,151 @@ export default function Aportar() {
     }
   };
 
+  const volver = () => (router.canGoBack() ? router.back() : router.replace('/'));
+
   return (
-    <View className="flex-1 bg-fondo">
-      <PanelHeader title="Aportar" />
+    <View className="flex-1 bg-papel">
+      <GranoPapel />
+      <View className="px-5" style={{ paddingTop: insets.top + 12, paddingBottom: 12 }}>
+        <Pressable97
+          accessibilityRole="button"
+          accessibilityLabel="Volver"
+          onPress={volver}
+          className="-ml-2 min-h-11 min-w-11 items-center justify-center self-start"
+        >
+          <Text className="font-space text-2xl text-tinta">←</Text>
+        </Pressable97>
+        <View className="mt-2">
+          <Kicker>recurso concreto</Kicker>
+          <TituloAnton tamano="lg" className="mt-1">¿Qué podés poner en movimiento?</TituloAnton>
+        </View>
+      </View>
       <KeyboardAvoidingView className="flex-1" behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
         <ScrollView
           keyboardShouldPersistTaps="handled"
           contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: insets.bottom + 36 }}
         >
-          <Text className="mt-1 font-sans text-[11px] uppercase tracking-[3px] text-amber-300">Recurso concreto</Text>
-          <Text className="mt-4 font-serif text-[32px] leading-[41px] text-plata">¿Qué podés poner en movimiento?</Text>
-          <Text className="mt-3 font-sans text-sm leading-6 text-slate-400">
-            Publicá disponibilidad real, con cantidad y radio. Cuando ambas partes aceptan, se abre una sala protegida para acordar la coordinación; los datos de contacto no se exponen.
-          </Text>
+          <Animated.View entering={fadeUp}>
+            <Text className="font-archivo text-sm leading-6 text-tinta-75">
+              Publicá disponibilidad real, con cantidad y radio. Cuando ambas partes aceptan, se abre una sala protegida para acordar la coordinación; los datos de contacto no se exponen.
+            </Text>
 
-          <Text className="mt-8 font-sans-medium text-xs text-slate-300">Tipo de aporte</Text>
-          <View className="mt-3 flex-row flex-wrap gap-2">
-            {CATEGORIES.map(([key, label]) => {
-              const active = key === category;
-              return (
-                <Pressable97
+            <Kicker tono="neutro" className="mt-8">Tipo de aporte</Kicker>
+            <View className="mt-3 flex-row flex-wrap gap-2">
+              {CATEGORIES.map(([key, label]) => (
+                <ChipTipo
                   key={key}
-                  accessibilityRole="button"
-                  accessibilityLabel={label}
-                  accessibilityState={{ selected: active }}
+                  etiqueta={label}
+                  activo={key === category}
+                  color={CIAN}
                   onPress={() => setCategory(key)}
-                  className="rounded-full border px-4 py-2.5"
-                  style={{ borderColor: active ? '#FBBF2455' : '#FFFFFF18', backgroundColor: active ? '#FBBF2414' : '#FFFFFF08' }}
-                >
-                  <Text className="font-sans-medium text-xs" style={{ color: active ? '#FCD34D' : '#94A3B8' }}>{label}</Text>
-                </Pressable97>
-              );
-            })}
-          </View>
+                />
+              ))}
+            </View>
 
-          <GlassCard className="mt-6 p-5">
-            <Text className="font-sans-medium text-xs text-slate-300">Descripción breve</Text>
+            <Kicker tono="neutro" className="mt-6">Descripción breve</Kicker>
             <TextInput
               value={title}
               onChangeText={setTitle}
+              onFocus={() => setEnfocadoTitulo(true)}
+              onBlur={() => setEnfocadoTitulo(false)}
               maxLength={80}
               placeholder="Ej. 20 kg de arroz disponibles esta semana"
-              placeholderTextColor="#64748b"
-              className="mt-2 rounded-2xl border border-white/10 bg-black/20 px-4 py-4 font-sans text-sm text-plata"
+              placeholderTextColor={TINTA_50}
+              accessibilityLabel="Descripción breve del recurso"
+              className="mt-2 bg-papel-crudo px-5 py-4 font-archivo text-sm text-tinta"
+              style={estiloInput(enfocadoTitulo)}
             />
-            <View className="mt-4 flex-row gap-3">
+
+            <View className="mt-6 flex-row gap-3">
               <View className="flex-1">
-                <Text className="font-sans-medium text-xs text-slate-300">Cantidad</Text>
+                <Kicker tono="neutro">Cantidad</Kicker>
                 <TextInput
                   value={quantity}
                   onChangeText={setQuantity}
+                  onFocus={() => setEnfocadoCantidad(true)}
+                  onBlur={() => setEnfocadoCantidad(false)}
                   keyboardType="numeric"
                   placeholder="20"
-                  placeholderTextColor="#64748b"
-                  className="mt-2 rounded-2xl border border-white/10 bg-black/20 px-4 py-4 font-mono text-sm text-plata"
+                  placeholderTextColor={TINTA_50}
+                  accessibilityLabel="Cantidad disponible"
+                  className="mt-2 bg-papel-crudo px-5 py-4 font-space text-sm text-tinta"
+                  style={estiloInput(enfocadoCantidad)}
                 />
               </View>
               <View className="flex-1">
-                <Text className="font-sans-medium text-xs text-slate-300">Unidad</Text>
+                <Kicker tono="neutro">Unidad</Kicker>
                 <TextInput
                   value={unit}
                   onChangeText={setUnit}
+                  onFocus={() => setEnfocadoUnidad(true)}
+                  onBlur={() => setEnfocadoUnidad(false)}
                   maxLength={24}
                   placeholder="kg, cajas…"
-                  placeholderTextColor="#64748b"
-                  className="mt-2 rounded-2xl border border-white/10 bg-black/20 px-4 py-4 font-sans text-sm text-plata"
+                  placeholderTextColor={TINTA_50}
+                  accessibilityLabel="Unidad de medida"
+                  className="mt-2 bg-papel-crudo px-5 py-4 font-archivo text-sm text-tinta"
+                  style={estiloInput(enfocadoUnidad)}
                 />
               </View>
             </View>
-            <Text className="mt-4 font-sans-medium text-xs text-slate-300">¿Hasta cuántos km puede moverse?</Text>
+
+            <Kicker tono="neutro" className="mt-6">¿Hasta cuántos km puede moverse?</Kicker>
             <TextInput
               value={radius}
               onChangeText={setRadius}
+              onFocus={() => setEnfocadoRadio(true)}
+              onBlur={() => setEnfocadoRadio(false)}
               keyboardType="numeric"
               placeholder="5"
-              placeholderTextColor="#64748b"
-              className="mt-2 rounded-2xl border border-white/10 bg-black/20 px-4 py-4 font-mono text-sm text-plata"
+              placeholderTextColor={TINTA_50}
+              accessibilityLabel="Radio en kilómetros"
+              className="mt-2 bg-papel-crudo px-5 py-4 font-space text-sm text-tinta"
+              style={estiloInput(enfocadoRadio)}
             />
-          </GlassCard>
 
-          <View className="mt-5">
-            <GeoAttributionCard
-              value={context}
-              onChange={setContext}
-              accent="#FBBF24"
-              title="¿Dónde existe este recurso?"
-              description="Marcá su origen o un punto útil del área de servicio. El pin exacto queda local; la red recibe la precisión que elijas."
-            />
-          </View>
-
-          <Pressable97
-            accessibilityRole="checkbox"
-            accessibilityState={{ checked: publish }}
-            accessibilityLabel="Autorizar publicación del recibo visible"
-            onPress={() => {
-              setSaveError(null);
-              setPublish((value) => !value);
-            }}
-            className="mt-5 flex-row items-start gap-3 rounded-2xl border bg-white/[0.04] p-4"
-            style={{ borderColor: publish ? '#A78BFA55' : '#FBBF2455' }}
-          >
-            <View className="mt-0.5 h-5 w-5 items-center justify-center rounded-md border" style={{ borderColor: publish ? '#A78BFA' : '#475569', backgroundColor: publish ? '#7D5BDE' : 'transparent' }}>
-              {publish && <Ionicons name="checkmark" size={14} color="white" />}
+            <View className="mt-6">
+              <GeoAttributionCard
+                value={context}
+                onChange={setContext}
+                accent={CIAN}
+                title="¿Dónde existe este recurso?"
+                description="Marcá su origen o un punto útil del área de servicio. El pin exacto queda local; la red recibe la precisión que elijas."
+              />
             </View>
-            <View className="flex-1">
-              <Text className="font-sans-medium text-xs text-slate-200">Autorizo publicar este aporte</Text>
-              <Text className="mt-1 font-sans text-[11px] leading-5 text-slate-500">
-                Se comparte la proyección elegida, el nombre del lugar y la firma que viste en el recibo. Nunca el punto exacto local ni datos de contacto.
+
+            <Pressable97
+              accessibilityRole="checkbox"
+              accessibilityState={{ checked: publish }}
+              accessibilityLabel="Autorizar publicación del recibo visible"
+              onPress={() => {
+                setSaveError(null);
+                setPublish((value) => !value);
+              }}
+              className="mt-6 flex-row items-start gap-3 border border-tinta bg-papel-crudo p-4"
+            >
+              <View className={`mt-0.5 h-6 w-6 items-center justify-center border border-tinta ${publish ? 'bg-violeta' : 'bg-papel-presionado'}`} />
+              <View className="flex-1">
+                <Text className="font-archivo-bold text-sm text-tinta">Autorizo publicar este aporte</Text>
+                <Text className="mt-1 font-archivo text-xs leading-5 text-tinta-75">
+                  Se comparte la proyección elegida, el nombre del lugar y la firma que viste en el recibo. Nunca el punto exacto local ni datos de contacto.
+                </Text>
+              </View>
+            </Pressable97>
+
+            <View
+              accessibilityLiveRegion="polite"
+              className={`mt-5 border px-4 py-3 ${publicationIssue || saveError ? 'border-ambar' : 'border-verde'}`}
+            >
+              <Text className="font-archivo text-xs leading-5 text-tinta-90">
+                {saveError ?? publicationIssue ?? 'Todo listo. Ya podés ofrecer este recurso.'}
               </Text>
             </View>
-          </Pressable97>
 
-          <View
-            accessibilityLiveRegion="polite"
-            className="mt-5 flex-row items-center gap-2 rounded-2xl border px-4 py-3"
-            style={{
-              borderColor: publicationIssue || saveError ? '#FBBF2438' : '#34D39938',
-              backgroundColor: publicationIssue || saveError ? '#FBBF240D' : '#34D3990D',
-            }}
-          >
-            <Ionicons
-              name={publicationIssue || saveError ? 'information-circle-outline' : 'checkmark-circle-outline'}
-              size={17}
-              color={publicationIssue || saveError ? '#FCD34D' : '#6EE7B7'}
-            />
-            <Text
-              className="flex-1 font-sans text-[11px] leading-5"
-              style={{ color: publicationIssue || saveError ? '#FDE68A' : '#A7F3D0' }}
-            >
-              {saveError ?? publicationIssue ?? 'Todo listo. Ya podés ofrecer este recurso.'}
-            </Text>
-          </View>
-
-          <View className="mt-8 items-center">
-            <AccentButton label={saving ? 'Poniéndolo en movimiento…' : 'Ofrecer este recurso'} onPress={save} disabled={saving} />
-          </View>
+            <View className="mt-8 items-center">
+              <BotonTinta etiqueta="Ofrecer este recurso" onPress={save} disabled={saving} cargando={saving} />
+            </View>
+          </Animated.View>
         </ScrollView>
       </KeyboardAvoidingView>
     </View>

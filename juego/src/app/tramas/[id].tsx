@@ -1,13 +1,29 @@
-import { Ionicons } from '@expo/vector-icons';
+/**
+ * Sala del puente (Conectar): consentimiento bilateral entre quien necesita
+ * y quien aporta. Cada lado acepta por separado — nadie firma en nombre del
+ * otro (civic/repo `acceptMatchSide`, `transitionMatch`, `transitionAction`).
+ *
+ * Registro papel del sistema Papel y Tinta (spec §8): pantalla profunda,
+ * título sin entintar. Que ambos lados acepten, o que se confirme el
+ * impacto, no son entradas del catálogo cerrado de sellos (spec §5): esos
+ * momentos quedan como nota de borde plana, nunca como un Sello inventado.
+ */
+
 import { useFocusEffect, useLocalSearchParams, useRouter } from 'expo-router';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Alert, ScrollView, Text, View } from 'react-native';
 import Animated from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { LivingHalo } from '@/components/civic/LivingHalo';
-import { GlassCard } from '@/components/ui/GlassCard';
-import { PanelHeader } from '@/components/ui/PanelHeader';
+import {
+  BotonTinta,
+  ChipTipo,
+  FilaIndice,
+  GranoPapel,
+  Kicker,
+  PapelCard,
+  TituloAnton,
+} from '@/components/papel';
 import { Pressable97 } from '@/components/ui/Pressable97';
 import { getActorKey } from '@/civic/identity';
 import { civicCategoryLabel } from '@/civic/labels';
@@ -24,6 +40,7 @@ import {
 import type { CivicActionRow, CivicMatchRow, CivicNeedRow, CivicResourceRow } from '@/db/schema';
 import { fadeUp, staggerDelay } from '@/motion/variants';
 import { haptic } from '@/theme/haptics';
+import { ROJO_SELLO, TINTA, TINTA_30, TINTA_50, VERDE, VIOLETA } from '@/theme/tokens';
 
 type RoomSnapshot = {
   match: CivicMatchRow;
@@ -94,47 +111,20 @@ const statusLabel = (match: CivicMatchRow, action: CivicActionRow | null): strin
   return 'Propuesta abierta';
 };
 
-function Stage({
-  icon,
-  title,
-  description,
-  state,
-  last = false,
-}: {
-  icon: keyof typeof Ionicons.glyphMap;
-  title: string;
-  description: string;
-  state: StageState;
-  last?: boolean;
-}) {
-  const color = state === 'done' ? '#6EE7B7' : state === 'active' ? '#C4B5FD' : '#475569';
-  return (
-    <View className="flex-row">
-      <View className="items-center">
-        <View
-          className="h-9 w-9 items-center justify-center rounded-full border"
-          style={{ borderColor: `${color}66`, backgroundColor: `${color}14` }}
-        >
-          <Ionicons name={state === 'done' ? 'checkmark' : icon} size={16} color={color} />
-        </View>
-        {!last && <View className="my-1 h-10 w-px" style={{ backgroundColor: state === 'done' ? '#6EE7B755' : '#FFFFFF14' }} />}
-      </View>
-      <View className="ml-3 flex-1 pb-5">
-        <Text className="font-sans-semibold text-xs" style={{ color: state === 'pending' ? '#64748B' : '#E2E8F0' }}>{title}</Text>
-        <Text className="mt-1 font-sans text-[11px] leading-[18px] text-slate-500">{description}</Text>
-      </View>
-    </View>
-  );
-}
+/** Estado del puente → color (spec: pendiente/propuesto → violeta, confirmado
+ * → verde, declinado → sello, retirado/cerrado → tinta-50). */
+const MATCH_STATUS_COLOR: Record<string, string> = {
+  Retirado: TINTA_50,
+  'No acordado': ROJO_SELLO,
+  'Impacto confirmado': VERDE,
+  'Entrega declarada': VIOLETA,
+  'En coordinación': VIOLETA,
+  'Acuerdo bilateral': VIOLETA,
+  'Propuesta abierta': VIOLETA,
+};
 
-function DataPill({ icon, label }: { icon: keyof typeof Ionicons.glyphMap; label: string }) {
-  return (
-    <View className="flex-row items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-3 py-2">
-      <Ionicons name={icon} size={13} color="#94A3B8" />
-      <Text className="font-sans text-[10px] text-slate-300">{label}</Text>
-    </View>
-  );
-}
+const matchStatusColor = (match: CivicMatchRow, action: CivicActionRow | null): string =>
+  MATCH_STATUS_COLOR[statusLabel(match, action)] ?? TINTA_50;
 
 export default function TramaRoom() {
   const params = useLocalSearchParams<{ id?: string | string[] }>();
@@ -176,19 +166,34 @@ export default function TramaRoom() {
 
   const reasons = useMemo(() => snapshot ? parseReasons(snapshot.match.reasonsJson) : [], [snapshot]);
 
-  if (!loaded) return <View className="flex-1 bg-fondo" />;
+  const volver = () => (router.canGoBack() ? router.back() : router.replace('/'));
+
+  if (!loaded) return <View className="flex-1 bg-papel" />;
 
   if (!snapshot) {
     return (
-      <View className="flex-1 bg-fondo">
-        <PanelHeader title="Sala del puente" />
-        <View className="flex-1 items-center justify-center px-7 pb-20">
-          <Ionicons name="link-outline" size={32} color="#64748B" />
-          <Text className="mt-4 text-center font-serif text-2xl text-plata">Este puente ya no está disponible.</Text>
-          <Text className="mt-2 text-center font-sans text-xs leading-5 text-slate-500">Puede haberse retirado o todavía no haber llegado a este dispositivo.</Text>
-          <Pressable97 accessibilityRole="button" accessibilityLabel="Volver a conectar" onPress={() => router.replace('/conectar')} className="mt-6 rounded-full border border-white/10 bg-white/5 px-5 py-3">
-            <Text className="font-sans-medium text-xs text-plata">Ver otros puentes</Text>
+      <View className="flex-1 bg-papel">
+        <GranoPapel />
+        <View className="px-5" style={{ paddingTop: insets.top + 12 }}>
+          <Pressable97
+            accessibilityRole="button"
+            accessibilityLabel="Volver"
+            onPress={volver}
+            className="-ml-2 min-h-11 min-w-11 items-center justify-center self-start"
+          >
+            <Text className="font-space text-2xl text-tinta">←</Text>
           </Pressable97>
+        </View>
+        <View className="flex-1 items-center justify-center px-8">
+          <PapelCard className="w-full p-6">
+            <TituloAnton tamano="md">Este puente ya no está disponible.</TituloAnton>
+            <Text className="mt-3 font-archivo text-sm leading-6 text-tinta-75">
+              Puede haberse retirado o todavía no haber llegado a este dispositivo.
+            </Text>
+            <View className="mt-5 items-start">
+              <BotonTinta etiqueta="Ver otros puentes" variante="fantasma" onPress={() => router.replace('/conectar')} />
+            </View>
+          </PapelCard>
         </View>
       </View>
     );
@@ -292,167 +297,139 @@ export default function TramaRoom() {
   const confirmationState: StageState = confirmed ? 'done' : action?.status === 'completed' ? 'active' : 'pending';
 
   return (
-    <View className="flex-1 bg-fondo">
-      <PanelHeader title="Sala del puente" />
+    <View className="flex-1 bg-papel">
+      <GranoPapel />
+      <View className="px-5" style={{ paddingTop: insets.top + 12, paddingBottom: 12 }}>
+        <Pressable97
+          accessibilityRole="button"
+          accessibilityLabel="Volver"
+          onPress={volver}
+          className="-ml-2 min-h-11 min-w-11 items-center justify-center self-start"
+        >
+          <Text className="font-space text-2xl text-tinta">←</Text>
+        </Pressable97>
+        <View className="mt-2">
+          <Kicker>un puente, dos consentimientos</Kicker>
+          <TituloAnton tamano="lg" className="mt-1">Sala del puente</TituloAnton>
+        </View>
+      </View>
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: insets.bottom + 48 }}>
-        <Animated.View entering={fadeUp} className="relative mt-1 overflow-hidden rounded-[28px] border border-white/10 bg-[#111015] p-6">
-          <LivingHalo color={confirmed ? '#34D399' : '#8B5CF6'} />
-          <View className="flex-row items-center justify-between gap-3">
-            <View className="rounded-full border border-violet-300/20 bg-violet-300/10 px-3 py-1.5">
-              <Text className="font-mono text-[9px] uppercase tracking-[1.5px] text-violet-200">{statusLabel(match, action)}</Text>
+        <Animated.View entering={fadeUp} className="mt-1">
+          <PapelCard className="p-6">
+            <View className="flex-row items-center justify-between gap-3">
+              <ChipTipo etiqueta={statusLabel(match, action)} activo color={matchStatusColor(match, action)} />
+              <Text className="font-space text-[11px] text-tinta-50">AFINIDAD {match.score}%</Text>
             </View>
-            <Text className="font-mono text-[11px] text-emerald-300">AFINIDAD {match.score}%</Text>
-          </View>
-          <Text className="mt-5 font-serif text-[31px] leading-[39px] text-plata">Un acuerdo, no una asignación.</Text>
-          <Text className="mt-3 max-w-[390px] font-sans text-sm leading-6 text-slate-400">La afinidad explica por qué apareció el puente. Cada paso exige la decisión de la persona que representa ese lado.</Text>
+            <TituloAnton tamano="lg" className="mt-5">Un acuerdo, no una asignación.</TituloAnton>
+            <Text className="mt-3 max-w-[390px] font-archivo text-sm leading-6 text-tinta-75">La afinidad explica por qué apareció el puente. Cada paso exige la decisión de la persona que representa ese lado.</Text>
+          </PapelCard>
         </Animated.View>
 
         {notice && (
-          <Animated.View entering={fadeUp} className="mt-4 flex-row items-start gap-2 rounded-2xl border border-amber-300/20 bg-amber-300/10 p-4">
-            <Ionicons name="information-circle-outline" size={17} color="#FCD34D" />
-            <Text className="flex-1 font-sans text-[11px] leading-5 text-amber-100">{notice}</Text>
+          <Animated.View entering={fadeUp} className="mt-4 border border-ambar px-4 py-3">
+            <Text className="font-archivo text-[11px] leading-5 text-tinta-90">{notice}</Text>
           </Animated.View>
         )}
 
         <Animated.View entering={staggerDelay(1)} className="mt-6">
-          <GlassCard className="overflow-hidden p-0">
+          <PapelCard className="p-0">
             <View className="p-5">
-              <View className="flex-row items-center gap-2">
-                <View className="h-8 w-8 items-center justify-center rounded-full bg-amber-300/10"><Ionicons name="hand-left-outline" size={15} color="#FCD34D" /></View>
-                <Text className="font-sans text-[10px] uppercase tracking-[2px] text-amber-200">Se necesita</Text>
-              </View>
-              <Text className="mt-4 font-serif text-2xl leading-8 text-plata">{safeText(need.title, 'Necesidad comunitaria')}</Text>
-              <Text className="mt-1 font-sans text-xs text-slate-500">{civicCategoryLabel(need.category)}</Text>
+              <Kicker tono="neutro">Se necesita</Kicker>
+              <Text className="mt-4 font-archivo-bold text-2xl leading-8 text-tinta">{safeText(need.title, 'Necesidad comunitaria')}</Text>
+              <Text className="mt-1 font-archivo text-xs text-tinta-50">{civicCategoryLabel(need.category)}</Text>
               <View className="mt-4 flex-row flex-wrap gap-2">
-                <DataPill icon="cube-outline" label={formatAmount(need.quantity, need.unit)} />
-                <DataPill icon="pulse-outline" label={`Urgencia ${need.urgency}/5`} />
-                <DataPill icon="calendar-outline" label={shortDate(need.expiresAt)} />
+                <ChipTipo etiqueta={formatAmount(need.quantity, need.unit)} />
+                <ChipTipo etiqueta={`Urgencia ${need.urgency}/5`} />
+                <ChipTipo etiqueta={shortDate(need.expiresAt)} />
               </View>
             </View>
-            <View className="mx-5 flex-row items-center gap-3">
-              <View className="h-px flex-1 bg-white/10" />
-              <View className="h-9 w-9 items-center justify-center rounded-full border border-emerald-300/20 bg-emerald-300/10"><Ionicons name="link" size={15} color="#6EE7B7" /></View>
-              <View className="h-px flex-1 bg-white/10" />
-            </View>
+            <View className="mx-5 h-px bg-bordeSuave" />
             <View className="p-5">
-              <View className="flex-row items-center gap-2">
-                <View className="h-8 w-8 items-center justify-center rounded-full bg-emerald-300/10"><Ionicons name="gift-outline" size={15} color="#6EE7B7" /></View>
-                <Text className="font-sans text-[10px] uppercase tracking-[2px] text-emerald-200">Se puede aportar</Text>
-              </View>
-              <Text className="mt-4 font-serif text-2xl leading-8 text-plata">{safeText(resource.title, 'Recurso disponible')}</Text>
-              <Text className="mt-1 font-sans text-xs text-slate-500">{civicCategoryLabel(resource.category)}</Text>
+              <Kicker tono="neutro">Se puede aportar</Kicker>
+              <Text className="mt-4 font-archivo-bold text-2xl leading-8 text-tinta">{safeText(resource.title, 'Recurso disponible')}</Text>
+              <Text className="mt-1 font-archivo text-xs text-tinta-50">{civicCategoryLabel(resource.category)}</Text>
               <View className="mt-4 flex-row flex-wrap gap-2">
-                <DataPill icon="cube-outline" label={formatAmount(resource.quantity, resource.unit)} />
-                <DataPill icon="time-outline" label={parseAvailability(resource.availabilityJson)} />
-                <DataPill icon="navigate-outline" label={`Radio ${resource.radiusKm} km`} />
+                <ChipTipo etiqueta={formatAmount(resource.quantity, resource.unit)} />
+                <ChipTipo etiqueta={parseAvailability(resource.availabilityJson)} />
+                <ChipTipo etiqueta={`Radio ${resource.radiusKm} km`} />
               </View>
             </View>
-          </GlassCard>
+          </PapelCard>
         </Animated.View>
 
         <Animated.View entering={staggerDelay(2)} className="mt-4">
-          <GlassCard className="p-5">
+          <PapelCard className="p-5">
             <View className="flex-row items-center justify-between gap-3">
               <View className="flex-1">
-                <Text className="font-sans text-[10px] uppercase tracking-[2px] text-slate-500">Por qué se propuso</Text>
-                <Text className="mt-2 font-serif text-xl text-plata">El puntaje se puede discutir.</Text>
+                <Kicker tono="neutro">Por qué se propuso</Kicker>
+                <TituloAnton tamano="md" className="mt-2">El puntaje se puede discutir.</TituloAnton>
               </View>
-              <Text className="font-mono text-3xl text-plata">{match.score}</Text>
+              <Text className="font-space text-3xl text-tinta">{match.score}</Text>
             </View>
             <View className="mt-4 gap-2">
               {(reasons.length ? reasons : ['La categoría y la disponibilidad pueden ser compatibles']).map((reason) => (
-                <View key={reason} className="flex-row items-start gap-2">
-                  <Ionicons name="checkmark-circle-outline" size={15} color="#6EE7B7" />
-                  <Text className="flex-1 font-sans text-[11px] leading-[18px] text-slate-400">{safeText(reason, 'Criterio compatible')}</Text>
-                </View>
+                <Text key={reason} className="font-archivo text-[11px] leading-[18px] text-tinta-75">— {safeText(reason, 'Criterio compatible')}</Text>
               ))}
             </View>
-            <Text className="mt-4 border-t border-white/10 pt-4 font-sans text-[10px] leading-[17px] text-slate-600">No mide el valor de ninguna persona ni toma decisiones. Usa categoría, cantidad, cercanía aproximada, urgencia y confianza declarada.</Text>
-          </GlassCard>
+            <Text className="mt-4 border-t border-bordeSuave pt-4 font-archivo text-[10px] leading-[17px] text-tinta-30">No mide el valor de ninguna persona ni toma decisiones. Usa categoría, cantidad, cercanía aproximada, urgencia y confianza declarada.</Text>
+          </PapelCard>
         </Animated.View>
 
-        <Text className="mt-8 font-sans text-[10px] uppercase tracking-[3px] text-slate-500">Consentimiento bilateral</Text>
+        <Kicker tono="neutro" className="mt-8">Consentimiento bilateral</Kicker>
         <View className="mt-3 gap-3">
-          <Pressable97
-            accessibilityRole="button"
+          <ConsentCard
+            accepted={Boolean(match.acceptedNeedAt)}
+            interactive={!match.acceptedNeedAt && canRepresentNeed && !closed}
+            title={match.acceptedNeedAt ? 'Quien necesita aceptó' : canRepresentNeed ? 'Aceptar desde mi necesidad' : 'Esperando a quien necesita'}
+            detail="Consentimiento independiente · puede retirarse"
             accessibilityLabel={match.acceptedNeedAt ? 'Necesidad aceptada' : 'Aceptar desde mi necesidad'}
-            accessibilityState={{ disabled: Boolean(match.acceptedNeedAt) || !canRepresentNeed || closed }}
-            disabled={Boolean(match.acceptedNeedAt) || !canRepresentNeed || closed}
             onPress={() => accept('need')}
-            className="flex-row items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.04] p-4"
-          >
-            <View className="h-9 w-9 items-center justify-center rounded-full" style={{ backgroundColor: match.acceptedNeedAt ? '#34D39918' : '#FFFFFF0A' }}>
-              <Ionicons name={match.acceptedNeedAt ? 'checkmark-circle' : 'ellipse-outline'} size={19} color={match.acceptedNeedAt ? '#6EE7B7' : '#64748B'} />
-            </View>
-            <View className="flex-1">
-              <Text className="font-sans-semibold text-xs text-slate-200">{match.acceptedNeedAt ? 'Quien necesita aceptó' : canRepresentNeed ? 'Aceptar desde mi necesidad' : 'Esperando a quien necesita'}</Text>
-              <Text className="mt-1 font-sans text-[10px] leading-4 text-slate-500">Consentimiento independiente · puede retirarse</Text>
-            </View>
-          </Pressable97>
-          <Pressable97
-            accessibilityRole="button"
+          />
+          <ConsentCard
+            accepted={Boolean(match.acceptedResourceAt)}
+            interactive={!match.acceptedResourceAt && canRepresentResource && !closed}
+            title={match.acceptedResourceAt ? 'Quien aporta aceptó' : canRepresentResource ? 'Aceptar desde mi aporte' : 'Esperando a quien aporta'}
+            detail="Nadie acepta en nombre de la otra parte"
             accessibilityLabel={match.acceptedResourceAt ? 'Aporte aceptado' : 'Aceptar desde mi aporte'}
-            accessibilityState={{ disabled: Boolean(match.acceptedResourceAt) || !canRepresentResource || closed }}
-            disabled={Boolean(match.acceptedResourceAt) || !canRepresentResource || closed}
             onPress={() => accept('resource')}
-            className="flex-row items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.04] p-4"
-          >
-            <View className="h-9 w-9 items-center justify-center rounded-full" style={{ backgroundColor: match.acceptedResourceAt ? '#34D39918' : '#FFFFFF0A' }}>
-              <Ionicons name={match.acceptedResourceAt ? 'checkmark-circle' : 'ellipse-outline'} size={19} color={match.acceptedResourceAt ? '#6EE7B7' : '#64748B'} />
-            </View>
-            <View className="flex-1">
-              <Text className="font-sans-semibold text-xs text-slate-200">{match.acceptedResourceAt ? 'Quien aporta aceptó' : canRepresentResource ? 'Aceptar desde mi aporte' : 'Esperando a quien aporta'}</Text>
-              <Text className="mt-1 font-sans text-[10px] leading-4 text-slate-500">Nadie acepta en nombre de la otra parte</Text>
-            </View>
-          </Pressable97>
+          />
         </View>
 
         {bothAccepted && !closed && (
           <Animated.View entering={fadeUp} className="mt-5">
-            <Pressable97
-              accessibilityRole="button"
+            <BotonTinta
+              etiqueta={primary}
               accessibilityLabel={primary}
-              accessibilityState={{ disabled: primaryDisabled }}
               disabled={primaryDisabled}
               onPress={advance}
-              className="flex-row items-center justify-center gap-2 rounded-full px-5 py-4"
-              style={{ backgroundColor: primaryDisabled ? '#334155' : '#7D5BDE' }}
-            >
-              <Ionicons name={confirmed ? 'checkmark-circle' : 'arrow-forward'} size={17} color="#FFFFFF" />
-              <Text className="font-sans-semibold text-xs text-white">{primary}</Text>
-            </Pressable97>
+            />
           </Animated.View>
         )}
 
-        <Text className="mt-9 font-sans text-[10px] uppercase tracking-[3px] text-slate-500">Camino del puente</Text>
-        <GlassCard className="mt-3 p-5">
-          <Stage icon="sparkles-outline" title="Propuesta explicable" description="El motor muestra razones; ninguna afinidad obliga." state="done" />
-          <Stage icon="people-outline" title="Acuerdo de ambos lados" description="Dos consentimientos distintos abren la coordinación." state={acceptedState} />
-          <Stage icon="construct-outline" title="Coordinación segura" description="Se acuerdan alcance, momento y responsabilidades mínimas." state={coordinationState} />
-          <Stage icon="arrow-redo-outline" title="Entrega declarada" description="Sólo quien aporta puede marcar este momento." state={deliveryState} />
-          <Stage icon="shield-checkmark-outline" title="Recepción confirmada" description="Sólo quien recibe confirma que el resultado ocurrió." state={confirmationState} last />
-        </GlassCard>
+        <Kicker tono="neutro" className="mt-9">Camino del puente</Kicker>
+        <PapelCard className="mt-3 p-5">
+          <StageRow numero="01" title="Propuesta explicable" description="El motor muestra razones; ninguna afinidad obliga." state="done" />
+          <StageRow numero="02" title="Acuerdo de ambos lados" description="Dos consentimientos distintos abren la coordinación." state={acceptedState} />
+          <StageRow numero="03" title="Coordinación segura" description="Se acuerdan alcance, momento y responsabilidades mínimas." state={coordinationState} />
+          <StageRow numero="04" title="Entrega declarada" description="Sólo quien aporta puede marcar este momento." state={deliveryState} />
+          <StageRow numero="05" title="Recepción confirmada" description="Sólo quien recibe confirma que el resultado ocurrió." state={confirmationState} />
+        </PapelCard>
 
         {confirmed && (
-          <Animated.View entering={fadeUp} className="mt-4 overflow-hidden rounded-[24px] border border-emerald-300/20 bg-emerald-300/[0.07] p-5">
-            <Text className="font-sans text-[10px] uppercase tracking-[2px] text-emerald-200">Cuidar lo que sigue</Text>
-            <Text className="mt-3 font-serif text-2xl text-plata">El impacto también tiene memoria.</Text>
+          <Animated.View entering={fadeUp} className="mt-4 border border-verde p-5">
+            <Kicker tono="neutro">Cuidar lo que sigue</Kicker>
+            <TituloAnton tamano="md" className="mt-3">El impacto también tiene memoria.</TituloAnton>
             <View className="mt-4 gap-3">
-              <View className="flex-row gap-3"><Text className="font-mono text-xs text-emerald-300">DÍA 7</Text><Text className="flex-1 font-sans text-[11px] leading-[18px] text-slate-400">¿La solución se sostuvo? ¿Quedó algo urgente por resolver?</Text></View>
-              <View className="flex-row gap-3"><Text className="font-mono text-xs text-emerald-300">DÍA 30</Text><Text className="flex-1 font-sans text-[11px] leading-[18px] text-slate-400">¿Aumentó la autonomía o hace falta reabrir la necesidad con otro enfoque?</Text></View>
+              <View className="flex-row gap-3"><Text className="font-space text-xs text-tinta-50">DÍA 7</Text><Text className="flex-1 font-archivo text-[11px] leading-[18px] text-tinta-75">¿La solución se sostuvo? ¿Quedó algo urgente por resolver?</Text></View>
+              <View className="flex-row gap-3"><Text className="font-space text-xs text-tinta-50">DÍA 30</Text><Text className="flex-1 font-archivo text-[11px] leading-[18px] text-tinta-75">¿Aumentó la autonomía o hace falta reabrir la necesidad con otro enfoque?</Text></View>
             </View>
           </Animated.View>
         )}
 
-        <Animated.View entering={staggerDelay(4)} className="mt-5 overflow-hidden rounded-[24px] border border-sky-300/15 bg-sky-300/[0.05] p-5">
-          <View className="flex-row items-center gap-3">
-            <View className="h-9 w-9 items-center justify-center rounded-full bg-sky-300/10"><Ionicons name="shield-half-outline" size={18} color="#7DD3FC" /></View>
-            <View className="flex-1">
-              <Text className="font-sans-semibold text-xs text-sky-100">Frontera de contacto segura</Text>
-              <Text className="mt-1 font-sans text-[10px] leading-[17px] text-slate-500">Esta sala nunca muestra teléfonos, correos, coordenadas exactas ni identidades técnicas.</Text>
-            </View>
-          </View>
-          <Text className="mt-4 font-sans text-[11px] leading-5 text-slate-400">El permiso de contacto indica voluntad, no revela datos. Para coordinar, usá un círculo moderado o un canal de confianza ya acordado; compartí sólo lo mínimo necesario.</Text>
+        <Animated.View entering={staggerDelay(4)} className="mt-5 border border-cian p-5">
+          <Text className="font-archivo-bold text-xs text-tinta">Frontera de contacto segura</Text>
+          <Text className="mt-1 font-archivo text-[10px] leading-[17px] text-tinta-50">Esta sala nunca muestra teléfonos, correos, coordenadas exactas ni identidades técnicas.</Text>
+          <Text className="mt-4 font-archivo text-[11px] leading-5 text-tinta-75">El permiso de contacto indica voluntad, no revela datos. Para coordinar, usá un círculo moderado o un canal de confianza ya acordado; compartí sólo lo mínimo necesario.</Text>
         </Animated.View>
 
         <Pressable97
@@ -460,30 +437,76 @@ export default function TramaRoom() {
           accessibilityLabel="Ver guía ante un problema de seguridad"
           accessibilityState={{ expanded: showSafety }}
           onPress={() => setShowSafety((value) => !value)}
-          className="mt-4 flex-row items-center justify-between rounded-2xl border border-white/10 bg-white/[0.03] p-4"
+          className="mt-4 flex-row items-center justify-between border border-tinta bg-papel-crudo p-4"
         >
-          <View className="flex-1 flex-row items-center gap-3">
-            <Ionicons name="warning-outline" size={18} color="#FDA4AF" />
-            <Text className="font-sans-medium text-xs text-slate-300">Retirarse o pedir acompañamiento</Text>
-          </View>
-          <Ionicons name={showSafety ? 'chevron-up' : 'chevron-down'} size={17} color="#64748B" />
+          <Text className="flex-1 font-archivo-bold text-xs text-tinta">Retirarse o pedir acompañamiento</Text>
+          <Text className="font-space text-lg text-tinta">{showSafety ? '−' : '+'}</Text>
         </Pressable97>
         {showSafety && (
-          <Animated.View entering={fadeUp} className="mt-2 rounded-2xl border border-rose-300/15 bg-rose-300/[0.05] p-5">
-            <Text className="font-sans text-[11px] leading-5 text-slate-400">Si aparece presión, discriminación, intercambio de dinero no acordado o un riesgo físico, no avances. Podés retirarte sin justificarte. Conservá evidencia fuera de esta sala y pedí acompañamiento a un círculo de confianza o a servicios locales si hay peligro inmediato.</Text>
+          <Animated.View entering={fadeUp} className="mt-2 border border-sello p-5">
+            <Text className="font-archivo text-[11px] leading-5 text-tinta-75">Si aparece presión, discriminación, intercambio de dinero no acordado o un riesgo físico, no avances. Podés retirarte sin justificarte. Conservá evidencia fuera de esta sala y pedí acompañamiento a un círculo de confianza o a servicios locales si hay peligro inmediato.</Text>
             <View className="mt-4 flex-row flex-wrap gap-2">
               {(canRepresentNeed || canRepresentResource) && !closed && !confirmed && (
-                <Pressable97 accessibilityRole="button" accessibilityLabel="Retirar mi participación" onPress={withdraw} className="rounded-full border border-rose-300/20 bg-rose-300/10 px-4 py-2.5">
-                  <Text className="font-sans-medium text-xs text-rose-200">Retirar mi participación</Text>
-                </Pressable97>
+                <BotonTinta etiqueta="Retirar mi participación" variante="fantasma" tamano="compacto" onPress={withdraw} />
               )}
-              <Pressable97 accessibilityRole="button" accessibilityLabel="Buscar un círculo de confianza" onPress={() => router.push('/circulos')} className="rounded-full border border-white/10 bg-white/5 px-4 py-2.5">
-                <Text className="font-sans-medium text-xs text-slate-300">Buscar un círculo seguro</Text>
-              </Pressable97>
+              <BotonTinta etiqueta="Buscar un círculo seguro" variante="fantasma" tamano="compacto" onPress={() => router.push('/circulos')} />
             </View>
           </Animated.View>
         )}
       </ScrollView>
     </View>
+  );
+}
+
+function ConsentCard({
+  accepted,
+  interactive,
+  title,
+  detail,
+  onPress,
+  accessibilityLabel,
+}: {
+  accepted: boolean;
+  interactive: boolean;
+  title: string;
+  detail: string;
+  onPress: () => void;
+  accessibilityLabel: string;
+}) {
+  const borderColor = accepted ? VERDE : interactive ? TINTA : TINTA_30;
+  const textColor = interactive || accepted ? TINTA : TINTA_30;
+  return (
+    <Pressable97
+      accessibilityRole="button"
+      accessibilityLabel={accessibilityLabel}
+      accessibilityState={{ disabled: !interactive, selected: accepted }}
+      disabled={!interactive}
+      onPress={onPress}
+      className="min-h-[72px] justify-center bg-papel-crudo p-4"
+      style={{ borderWidth: accepted ? 2 : 1, borderColor }}
+    >
+      <Text className="font-archivo-bold text-xs" style={{ color: textColor }}>{title}</Text>
+      <Text className="mt-1 font-archivo text-[11px] leading-4 text-tinta-50">{detail}</Text>
+    </Pressable97>
+  );
+}
+
+function StageRow({
+  numero,
+  title,
+  description,
+  state,
+}: {
+  numero: string;
+  title: string;
+  description: string;
+  state: StageState;
+}) {
+  const color = state === 'done' ? VERDE : state === 'active' ? VIOLETA : TINTA_30;
+  return (
+    <FilaIndice numero={numero} glifo="">
+      <Text className="font-archivo-bold text-xs" style={{ color }}>{title}</Text>
+      <Text className="mt-1 font-archivo text-[11px] leading-[18px] text-tinta-50">{description}</Text>
+    </FilaIndice>
   );
 }

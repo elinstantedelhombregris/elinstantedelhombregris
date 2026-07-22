@@ -1,14 +1,17 @@
-import { Ionicons } from '@expo/vector-icons';
-import { LinearGradient } from 'expo-linear-gradient';
 import { useFocusEffect, useRouter } from 'expo-router';
 import { useCallback, useState } from 'react';
 import { ScrollView, Text, View } from 'react-native';
 import Animated from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { LivingHalo } from '@/components/civic/LivingHalo';
-import { GlassCard } from '@/components/ui/GlassCard';
-import { PanelHeader } from '@/components/ui/PanelHeader';
+import {
+  BotonTinta,
+  ChipTipo,
+  GranoPapel,
+  Kicker,
+  PapelCard,
+  TituloAnton,
+} from '@/components/papel';
 import { Pressable97 } from '@/components/ui/Pressable97';
 import { CIVIC_CAMPAIGNS, type CivicCampaignDefinition } from '@/civic/campaigns';
 import { listeningsAll } from '@/civic/listening';
@@ -28,7 +31,6 @@ import {
 import { PLANTILLAS_EXPEDICION } from '@/content';
 import { expedicionesTodas, fundarExpedicion } from '@/db/repos';
 import { fadeUp, staggerDelay } from '@/motion/variants';
-import { PLATA } from '@/theme/tokens';
 
 interface Pulse {
   observations: number;
@@ -136,110 +138,106 @@ export default function Territorio() {
         ? '/aportar'
         : '/territorio/mapa';
 
+  const volver = () => (router.canGoBack() ? router.back() : router.replace('/'));
+
   return (
-    <View className="flex-1 bg-fondo">
-      <PanelHeader title="Territorio" />
+    <View className="flex-1 bg-papel">
+      <GranoPapel />
+      <View className="px-5" style={{ paddingTop: insets.top + 12, paddingBottom: 12 }}>
+        <Pressable97
+          accessibilityRole="button"
+          accessibilityLabel="Volver"
+          onPress={volver}
+          className="-ml-2 min-h-11 min-w-11 items-center justify-center self-start"
+        >
+          <Text className="font-space text-2xl text-tinta">←</Text>
+        </Pressable97>
+        <View className="mt-2">
+          <Kicker>escuchar · cuidar · conectar · construir</Kicker>
+          <TituloAnton entintar tamano="lg" className="mt-1">
+            Territorio
+          </TituloAnton>
+        </View>
+      </View>
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: insets.bottom + 40 }}
       >
-        <Animated.View entering={fadeUp} className="mt-1 overflow-hidden rounded-[28px] border border-white/10">
-          <LinearGradient
-            colors={['#171226', '#0D0C14', '#090909']}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 1 }}
-            style={{ padding: 22, minHeight: 236 }}
-          >
-            <LivingHalo />
-            <View className="self-start rounded-full border border-violet-300/20 bg-violet-300/10 px-3 py-1.5">
-              <Text className="font-sans-medium text-[10px] uppercase tracking-[2.5px] text-violet-200">
-                Inteligencia colectiva
-              </Text>
-            </View>
-            <Text className="mt-5 max-w-[300px] font-serif text-[32px] leading-[39px] text-plata">
+        <Animated.View entering={fadeUp}>
+          <PapelCard className="p-6">
+            <Kicker>inteligencia colectiva</Kicker>
+            <TituloAnton tamano="md" className="mt-4">
               Del cielo íntimo al poder del territorio.
-            </Text>
-            <Text className="mt-3 max-w-[320px] font-sans text-sm leading-6 text-slate-400">
+            </TituloAnton>
+            <Text className="mt-3 font-archivo text-sm leading-6 text-tinta-75">
               Capturá, corroborá y conectá. Cada dato visible debe acercar una acción real.
             </Text>
-            <View className="mt-6 flex-row items-center gap-5">
+            <View className="mt-6 flex-row items-center gap-6">
               {[
                 [pulse.voices, 'voces'],
                 [pulse.observations, 'señales'],
                 [pulse.needs, 'necesidades'],
               ].map(([value, label]) => (
                 <View key={label as string}>
-                  <Text className="font-mono text-xl text-plata">{value}</Text>
-                  <Text className="mt-0.5 font-sans text-[10px] uppercase tracking-[1.5px] text-slate-500">
+                  <Text className="font-space text-xl text-tinta">{value}</Text>
+                  <Text className="mt-0.5 font-space text-[10px] uppercase tracking-[1.5px] text-tinta-50">
                     {label}
                   </Text>
                 </View>
               ))}
             </View>
-          </LinearGradient>
+          </PapelCard>
         </Animated.View>
 
-        <Text className="mt-8 font-sans text-xs uppercase tracking-[2.5px] text-slate-400">
-          ¿Qué pide tu atención hoy?
-        </Text>
+        <Kicker tono="neutro" className="mt-8">¿Qué pide tu atención hoy?</Kicker>
         <Pressable97
           accessibilityRole="button"
           accessibilityLabel="Escuchar una voz"
           onPress={() => router.push('/escuchar')}
-          className="mt-3 overflow-hidden rounded-[24px] border border-violet-300/25 bg-violet-300/[0.08] p-5"
+          className="mt-3 bg-papel-crudo border border-tinta p-5"
         >
-          <LivingHalo color="#A78BFA" />
           <View className="flex-row items-center">
-            <View className="h-12 w-12 items-center justify-center rounded-2xl border border-violet-300/20 bg-violet-300/10">
-              <Ionicons name="ear-outline" size={22} color="#C4B5FD" />
-            </View>
-            <View className="ml-4 flex-1">
-              <Text className="font-serif text-xl text-plata">Escuchar una voz</Text>
-              <Text className="mt-1 font-sans text-xs leading-5 text-slate-400">
+            <View className="flex-1 pr-3">
+              <TituloAnton tamano="md">Escuchar una voz</TituloAnton>
+              <Text className="mt-1 font-archivo text-xs leading-5 text-tinta-75">
                 Necesidad, sueño, propuesta o capacidad. Privada primero.
               </Text>
             </View>
-            <Ionicons name="arrow-forward" size={18} color="#A78BFA" />
+            <Text className="font-space text-xl text-tinta">→</Text>
           </View>
         </Pressable97>
         <View className="mt-3 flex-row gap-3">
           {[
-            ['/verificar', 'shield-checkmark-outline', 'Cuidar una señal', `${pulse.review} por mirar`, '#7DD3FC'],
-            ['/conectar', 'git-merge-outline', 'Tejer un puente', `${pulse.needs} ↔ ${pulse.resources}`, '#6EE7B7'],
-          ].map(([route, icon, title, detail, color]) => (
+            ['/verificar', 'Cuidar una señal', `${pulse.review} por mirar`],
+            ['/conectar', 'Tejer un puente', `${pulse.needs} ↔ ${pulse.resources}`],
+          ].map(([route, title, detail]) => (
             <Pressable97
               key={route}
               accessibilityRole="button"
               accessibilityLabel={title}
               onPress={() => router.push(route as never)}
-              className="min-h-[110px] flex-1 rounded-[20px] border border-white/10 bg-white/[0.04] p-4"
+              className="min-h-[110px] flex-1 bg-papel-crudo border border-tinta p-4"
             >
-              <Ionicons name={icon as never} size={20} color={color} />
-              <Text className="mt-4 font-sans-semibold text-sm leading-5 text-plata">{title}</Text>
-              <Text className="mt-1 font-mono text-xs text-slate-500">{detail}</Text>
+              <Text className="font-archivo-bold text-sm leading-5 text-tinta">{title}</Text>
+              <Text className="mt-3 font-space text-xs text-tinta-50">{detail}</Text>
             </Pressable97>
           ))}
         </View>
-        <Text className="mt-3 text-center font-sans text-xs leading-5 text-slate-600">
+        <Text className="mt-3 text-center font-archivo text-xs leading-5 text-tinta-50">
           Hoy no hay tarea obligatoria. También podés mirar el cielo.
         </Text>
 
-        <Text className="mt-8 font-sans text-xs uppercase tracking-[2.5px] text-slate-400">
-          Gesto sugerido
-        </Text>
+        <Kicker tono="neutro" className="mt-8">Gesto sugerido</Kicker>
         <Pressable97
           accessibilityRole="button"
           accessibilityLabel={nextTitle}
           onPress={() => nextRoute ? router.push(nextRoute as never) : play(CIVIC_CAMPAIGNS[0]!)}
-          className="mt-3 overflow-hidden rounded-2xl border border-violet-300/25 bg-violet-300/10 px-5 py-4"
+          className="mt-3 border-2 border-violeta bg-papel-crudo px-5 py-4"
         >
           <View className="flex-row items-center">
-            <View className="h-10 w-10 items-center justify-center rounded-full bg-violet-300/15">
-              <Ionicons name="arrow-forward" size={18} color="#C4B5FD" />
-            </View>
-            <View className="ml-3 flex-1">
-              <Text className="font-sans-semibold text-sm text-plata">{nextTitle}</Text>
-              <Text className="mt-1 font-sans text-xs text-slate-400">
+            <View className="flex-1 pr-3">
+              <Text className="font-archivo-bold text-sm text-tinta">{nextTitle}</Text>
+              <Text className="mt-1 font-archivo text-xs leading-5 text-tinta-75">
                 {pulse.deadLetters > 0
                   ? `${pulse.deadLetters} envíos necesitan reintento.`
                   : pulse.sending > 0
@@ -249,34 +247,31 @@ export default function Territorio() {
                       : 'Una acción pequeña, una consecuencia verificable.'}
               </Text>
             </View>
-            <Ionicons name="chevron-forward" size={16} color="#8B7BB8" />
+            <Text className="font-space text-xl text-violeta">→</Text>
           </View>
         </Pressable97>
 
         {pulse.deadLetters > 0 && (
-          <View className="mt-3 flex-row items-center gap-3 rounded-2xl border border-rose-300/20 bg-rose-300/[0.07] p-4">
-            <Ionicons name="warning-outline" size={18} color="#FDA4AF" />
-            <View className="flex-1">
-              <Text className="font-sans-semibold text-xs text-rose-100">Hay movimientos que no llegaron</Text>
-              <Text className="mt-1 font-sans text-[10px] leading-4 text-slate-400">Podés reabrir la cola; el servidor evita duplicados.</Text>
+          <View className="mt-3 border border-sello px-4 py-4">
+            <Text className="font-archivo-bold text-xs text-tinta">Hay movimientos que no llegaron</Text>
+            <Text className="mt-1 font-archivo text-[11px] leading-4 text-tinta-75">
+              Podés reabrir la cola; el servidor evita duplicados.
+            </Text>
+            <View className="mt-3 items-start">
+              <BotonTinta
+                etiqueta="Reintentar"
+                accessibilityLabel="Reintentar envíos detenidos"
+                variante="fantasma"
+                tamano="compacto"
+                disabled={repairing}
+                cargando={repairing}
+                onPress={() => { void repairOutbox(); }}
+              />
             </View>
-            <Pressable97
-              accessibilityRole="button"
-              accessibilityLabel="Reintentar envíos detenidos"
-              accessibilityState={{ disabled: repairing, busy: repairing }}
-              disabled={repairing}
-              onPress={() => { void repairOutbox(); }}
-              className="min-h-11 justify-center rounded-full border border-rose-300/25 bg-rose-300/10 px-4"
-              style={{ opacity: repairing ? 0.6 : 1 }}
-            >
-              <Text className="font-sans-semibold text-[11px] text-rose-100">{repairing ? 'Reintentando…' : 'Reintentar'}</Text>
-            </Pressable97>
           </View>
         )}
 
-        <Text className="mt-8 font-sans text-[11px] uppercase tracking-[3px] text-slate-400">
-          Campañas fundadoras
-        </Text>
+        <Kicker tono="neutro" className="mt-8">Campañas fundadoras</Kicker>
         <View className="mt-3 gap-3">
           {CIVIC_CAMPAIGNS.map((campaign, index) => (
             <Animated.View key={campaign.key} entering={staggerDelay(index)}>
@@ -284,29 +279,12 @@ export default function Territorio() {
                 accessibilityRole="button"
                 accessibilityLabel={`Jugar ${campaign.title}`}
                 onPress={() => play(campaign)}
+                className="bg-papel-crudo border border-tinta p-5"
               >
-                <GlassCard className="overflow-hidden p-5">
-                  <LivingHalo color={campaign.color} />
-                  <View className="flex-row items-start">
-                    <View
-                      className="h-11 w-11 items-center justify-center rounded-2xl"
-                      style={{ backgroundColor: `${campaign.color}18`, borderColor: `${campaign.color}38`, borderWidth: 1 }}
-                    >
-                      <Ionicons name={campaign.icon as never} size={20} color={campaign.color} />
-                    </View>
-                    <View className="ml-3 flex-1">
-                      <Text className="font-sans text-[10px] uppercase tracking-[2px]" style={{ color: campaign.color }}>
-                        {campaign.eyebrow}
-                      </Text>
-                      <Text className="mt-1 font-serif text-xl leading-7 text-plata">{campaign.title}</Text>
-                    </View>
-                  </View>
-                  <Text className="mt-4 font-sans text-xs leading-5 text-slate-400">{campaign.promise}</Text>
-                  <View className="mt-4 flex-row items-center gap-2">
-                    <View className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: campaign.color }} />
-                    <Text className="flex-1 font-sans-medium text-[11px] leading-4 text-slate-300">{campaign.proof}</Text>
-                  </View>
-                </GlassCard>
+                <ChipTipo etiqueta={campaign.eyebrow} />
+                <TituloAnton tamano="md" className="mt-3">{campaign.title}</TituloAnton>
+                <Text className="mt-3 font-archivo text-xs leading-5 text-tinta-75">{campaign.promise}</Text>
+                <Text className="mt-3 font-archivo text-[11px] leading-4 text-tinta-50">{campaign.proof}</Text>
               </Pressable97>
             </Animated.View>
           ))}
@@ -316,46 +294,41 @@ export default function Territorio() {
           accessibilityRole="button"
           accessibilityLabel="Abrir inteligencia territorial para evaluar calidad, cobertura y respuesta"
           onPress={() => router.push('/territorio/inteligencia')}
-          className="mt-8 overflow-hidden rounded-[24px] border border-sky-300/20 bg-sky-300/[0.06] p-5"
+          className="mt-8 bg-papel-crudo border border-tinta p-5"
         >
-          <LivingHalo color="#38BDF8" />
           <View className="flex-row items-center">
-            <View className="h-12 w-12 items-center justify-center rounded-2xl border border-sky-300/20 bg-sky-300/10">
-              <Ionicons name="analytics-outline" size={22} color="#7DD3FC" />
+            <View className="flex-1 pr-3">
+              <Kicker tono="neutro">Sala de análisis</Kicker>
+              <TituloAnton tamano="md" className="mt-1">Inteligencia territorial</TituloAnton>
+              <Text className="mt-1 font-archivo text-xs leading-5 text-tinta-75">
+                Calidad, vigencia, brechas, cobertura y prioridades explicadas.
+              </Text>
             </View>
-            <View className="ml-4 flex-1">
-              <Text className="font-sans text-[9px] uppercase tracking-[2px] text-sky-300">Sala de análisis</Text>
-              <Text className="mt-1 font-serif text-xl text-plata">Inteligencia territorial</Text>
-              <Text className="mt-1 font-sans text-xs leading-5 text-slate-400">Calidad, vigencia, brechas, cobertura y prioridades explicadas.</Text>
-            </View>
-            <Ionicons name="arrow-forward" size={18} color="#7DD3FC" />
+            <Text className="font-space text-xl text-tinta">→</Text>
           </View>
         </Pressable97>
 
-        <Text className="mt-8 font-sans text-[11px] uppercase tracking-[3px] text-slate-400">
-          Mesa territorial
-        </Text>
+        <Kicker tono="neutro" className="mt-8">Mesa territorial</Kicker>
         <View className="mt-3 flex-row flex-wrap justify-between gap-y-3">
           {[
-            ['/territorio/misiones', 'grid-outline', 'Misiones', pulse.missions > 0 ? `${pulse.missions} en marcha` : 'Lazo → operación'],
-            ['/misiones', 'flag-outline', 'Misiones del protocolo', 'Fundá o sumate'],
-            ['/expediciones', 'map-outline', 'Expediciones', 'Quests de datos con pasos guiados.'],
-            ['/territorio/mapa', 'map-outline', 'Trazar zona', pulse.territories > 0 ? `${pulse.territories} guardadas` : 'Lazo vivo'],
-            ['/verificar', 'shield-checkmark-outline', 'Corroborar', `${pulse.review} por mirar`],
-            ['/conectar', 'git-merge-outline', 'Conectar', `${pulse.needs} ↔ ${pulse.resources}`],
-            ['/aportar', 'hand-left-outline', 'Aportar', 'Recurso concreto'],
-            ['/mis-datos', 'receipt-outline', 'Mis datos', 'Corregir o retirar'],
-          ].map(([route, icon, title, detail]) => (
+            ['/territorio/misiones', 'Misiones', pulse.missions > 0 ? `${pulse.missions} en marcha` : 'Lazo → operación'],
+            ['/misiones', 'Misiones del protocolo', 'Fundá o sumate'],
+            ['/expediciones', 'Expediciones', 'Quests de datos con pasos guiados.'],
+            ['/territorio/mapa', 'Trazar zona', pulse.territories > 0 ? `${pulse.territories} guardadas` : 'Lazo vivo'],
+            ['/verificar', 'Corroborar', `${pulse.review} por mirar`],
+            ['/conectar', 'Conectar', `${pulse.needs} ↔ ${pulse.resources}`],
+            ['/aportar', 'Aportar', 'Recurso concreto'],
+            ['/mis-datos', 'Mis datos', 'Corregir o retirar'],
+          ].map(([route, title, detail]) => (
             <Pressable97
               key={route}
               accessibilityRole="button"
               accessibilityLabel={title}
               onPress={() => router.push(route as never)}
-              className="w-[48.5%] rounded-2xl border border-white/10 bg-white/[0.04] p-4"
+              className="w-[48.5%] bg-papel-crudo border border-tinta p-4"
             >
-              <Ionicons name={icon as never} size={19} color={PLATA} />
-              <Text className="mt-4 font-sans-semibold text-sm text-plata">{title}</Text>
-              <Text className="mt-1 font-mono text-[10px] text-slate-500">{detail}</Text>
+              <Text className="font-archivo-bold text-sm text-tinta">{title}</Text>
+              <Text className="mt-3 font-space text-[10px] text-tinta-50">{detail}</Text>
             </Pressable97>
           ))}
         </View>
@@ -364,24 +337,19 @@ export default function Territorio() {
           accessibilityRole="button"
           accessibilityLabel="Abrir círculos y campañas de la red"
           onPress={() => router.push('/circulos')}
-          className="mt-4 overflow-hidden rounded-2xl border border-sky-300/20 bg-sky-300/[0.07] p-5"
+          className="mt-4 bg-papel-crudo border border-tinta p-5"
         >
-          <LivingHalo color="#38BDF8" />
           <View className="flex-row items-center">
-            <View className="h-11 w-11 items-center justify-center rounded-2xl border border-sky-300/20 bg-sky-300/10">
-              <Ionicons name="people-outline" size={20} color="#7DD3FC" />
+            <View className="flex-1 pr-3">
+              <Text className="font-archivo-bold text-sm text-tinta">Círculos y campañas</Text>
+              <Text className="mt-1 font-archivo text-xs text-tinta-75">Del dato individual a la cobertura coordinada.</Text>
             </View>
-            <View className="ml-3 flex-1">
-              <Text className="font-sans-semibold text-sm text-plata">Círculos y campañas</Text>
-              <Text className="mt-1 font-sans text-xs text-slate-400">Del dato individual a la cobertura coordinada.</Text>
-            </View>
-            <Ionicons name="arrow-forward" size={18} color="#7DD3FC" />
+            <Text className="font-space text-xl text-tinta">→</Text>
           </View>
         </Pressable97>
 
-        <View className="mt-8 flex-row items-start gap-3 rounded-2xl border border-white/5 bg-white/[0.025] p-4">
-          <Ionicons name="lock-closed-outline" size={16} color="#64748b" />
-          <Text className="flex-1 font-sans text-[11px] leading-5 text-slate-500">
+        <View className="mt-8 border border-bordeSuave px-4 py-4">
+          <Text className="font-archivo text-[11px] leading-5 text-tinta-50">
             Cada registro confirma el lugar del asunto, la precisión pública y su firma. El punto exacto y las fotos permanecen en tu dispositivo; el contacto exige un puente aceptado.
           </Text>
         </View>

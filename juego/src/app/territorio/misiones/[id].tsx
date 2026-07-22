@@ -1,13 +1,10 @@
-import { Ionicons } from '@expo/vector-icons';
 import { useFocusEffect, useLocalSearchParams, useRouter } from 'expo-router';
 import { useCallback, useMemo, useState } from 'react';
 import { ScrollView, Text, View } from 'react-native';
 import Animated from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { LivingHalo } from '@/components/civic/LivingHalo';
-import { GlassCard } from '@/components/ui/GlassCard';
-import { PanelHeader } from '@/components/ui/PanelHeader';
+import { BotonTinta, ChipTipo, GranoPapel, Kicker, Palitos, PapelCard, TituloAnton } from '@/components/papel';
 import { Pressable97 } from '@/components/ui/Pressable97';
 import { CIVIC_CAMPAIGNS } from '@/civic/campaigns';
 import { sharedPrecisionLabel } from '@/civic/record-context';
@@ -38,28 +35,32 @@ import { missionExpeditionLinkKey } from '@/civic/workflow-navigation';
 import { obtenerUbicacion } from '@/lib/capturar-gps';
 import { fadeUp, staggerDelay } from '@/motion/variants';
 import { haptic } from '@/theme/haptics';
+import { AMBAR_PT, TINTA_30, TINTA_50, VERDE, VIOLETA } from '@/theme/tokens';
 
-const CELL_META: Record<CoverageCellStatus, { label: string; short: string; color: string; icon: string }> = {
-  unknown: { label: 'Todavía no recorrida', short: 'desconocida', color: '#64748B', icon: 'help-outline' },
-  assigned: { label: 'Ruta tomada', short: 'asignada', color: '#FCD34D', icon: 'walk-outline' },
-  visited_empty: { label: 'Recorrida, sin hallazgo registrado', short: 'sin hallazgo', color: '#A7F3D0', icon: 'checkmark-done-outline' },
-  observed: { label: 'Recorrida, falta corroborar', short: 'observada', color: '#7DD3FC', icon: 'eye-outline' },
-  contested: { label: 'Hay que revisar', short: 'en disputa', color: '#FB7185', icon: 'alert-circle-outline' },
-  corroborated: { label: 'Corroborada', short: 'corroborada', color: '#6EE7B7', icon: 'shield-checkmark-outline' },
-  stale: { label: 'Perdió vigencia', short: 'vencida', color: '#94A3B8', icon: 'time-outline' },
+/** Estado de cada celda de la malla, reclasificado sobre el mismo idioma de
+ * ESTADO_COLOR (spec §8): verde = en marcha, ámbar = pide revisión humana,
+ * tinta-50 = resuelta/asentada, tinta-30 = todavía sin tocar o vencida. */
+const CELL_META: Record<CoverageCellStatus, { label: string; short: string; color: string }> = {
+  unknown: { label: 'Todavía no recorrida', short: 'desconocida', color: TINTA_30 },
+  assigned: { label: 'Ruta tomada', short: 'asignada', color: VERDE },
+  visited_empty: { label: 'Recorrida, sin hallazgo registrado', short: 'sin hallazgo', color: TINTA_50 },
+  observed: { label: 'Recorrida, falta corroborar', short: 'observada', color: AMBAR_PT },
+  contested: { label: 'Hay que revisar', short: 'en disputa', color: AMBAR_PT },
+  corroborated: { label: 'Corroborada', short: 'corroborada', color: TINTA_50 },
+  stale: { label: 'Perdió vigencia', short: 'vencida', color: TINTA_30 },
 };
 
 const MISSION_META: Record<CivicMissionRow['status'], { label: string; color: string }> = {
-  planning: { label: 'En preparación', color: '#94A3B8' },
-  active: { label: 'Misión activa', color: '#6EE7B7' },
-  paused: { label: 'Misión pausada', color: '#FCD34D' },
-  completed: { label: 'Misión cerrada', color: '#A78BFA' },
-  archived: { label: 'Misión archivada', color: '#64748B' },
+  planning: { label: 'En preparación', color: VIOLETA },
+  active: { label: 'Misión activa', color: VERDE },
+  paused: { label: 'Misión pausada', color: AMBAR_PT },
+  completed: { label: 'Misión cerrada', color: TINTA_50 },
+  archived: { label: 'Misión archivada', color: TINTA_30 },
 };
 
 const passportMeta = (campaignKey: CivicCampaignKey) => campaignKey === 'ollas-v1'
-  ? { label: 'Ollas y comedores', detail: 'Capacidades y faltantes alimentarios', icon: 'restaurant-outline', color: '#F59E0B' }
-  : { label: 'Luminarias', detail: 'Infraestructura de alumbrado', icon: 'flashlight-outline', color: '#A78BFA' };
+  ? { label: 'Ollas y comedores', detail: 'Capacidades y faltantes alimentarios' }
+  : { label: 'Luminarias', detail: 'Infraestructura de alumbrado' };
 
 export default function MisionTerritorial() {
   const { id } = useLocalSearchParams<{ id: string }>();
@@ -223,73 +224,93 @@ export default function MisionTerritorial() {
     refresh();
   };
 
+  const volver = () => (router.canGoBack() ? router.back() : router.replace('/'));
+
   if (!mission) {
     return (
-      <View className="flex-1 bg-fondo">
-        <PanelHeader title="Misión" />
+      <View className="flex-1 bg-papel">
+        <GranoPapel />
+        <View className="px-5" style={{ paddingTop: insets.top + 12, paddingBottom: 12 }}>
+          <Pressable97
+            accessibilityRole="button"
+            accessibilityLabel="Volver"
+            onPress={volver}
+            className="-ml-2 min-h-11 min-w-11 items-center justify-center self-start"
+          >
+            <Text className="font-space text-2xl text-tinta">←</Text>
+          </Pressable97>
+        </View>
         <View className="flex-1 items-center justify-center px-8">
-          <Text className="text-center font-sans text-sm text-slate-500">Esta misión no está en este dispositivo.</Text>
+          <Text className="text-center font-archivo text-sm text-tinta-50">Esta misión no está en este dispositivo.</Text>
         </View>
       </View>
     );
   }
+
   const missionMeta = MISSION_META[mission.status];
 
   return (
-    <View className="flex-1 bg-fondo">
-      <PanelHeader title="Operación territorial" />
+    <View className="flex-1 bg-papel">
+      <GranoPapel />
+      <View className="px-5" style={{ paddingTop: insets.top + 12, paddingBottom: 12 }}>
+        <Pressable97
+          accessibilityRole="button"
+          accessibilityLabel="Volver"
+          onPress={volver}
+          className="-ml-2 min-h-11 min-w-11 items-center justify-center self-start"
+        >
+          <Text className="font-space text-2xl text-tinta">←</Text>
+        </Pressable97>
+        <View className="mt-2">
+          <Kicker>operación territorial</Kicker>
+          <TituloAnton tamano="lg" className="mt-1">{mission.title}</TituloAnton>
+        </View>
+      </View>
       <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: insets.bottom + 40 }}>
-        <Animated.View entering={fadeUp} className="mt-1 overflow-hidden rounded-[28px] border border-violet-300/20 bg-[#121018] p-6">
-          <LivingHalo />
-          <View className="flex-row items-center justify-between">
-            <View className="rounded-full border border-violet-300/20 bg-violet-300/10 px-3 py-1.5">
-              <Text className="font-sans-medium text-xs uppercase tracking-[2px] text-violet-200">{missionMeta.label} · v{mission.campaignVersion}</Text>
+        <Animated.View entering={fadeUp}>
+          <PapelCard className="p-6">
+            <ChipTipo etiqueta={`${missionMeta.label} · v${mission.campaignVersion}`} activo color={missionMeta.color} />
+            <Text className="mt-4 font-archivo text-sm leading-6 text-tinta-75">{mission.purpose}</Text>
+            <View className="mt-6 flex-row items-end justify-between">
+              <View>
+                <Text className="font-space text-4xl text-tinta">{summary.coveragePct}%</Text>
+                <Text className="mt-1 font-space text-xs uppercase tracking-[1.5px] text-tinta-50">cobertura recorrida</Text>
+              </View>
+              <Text className="font-space text-sm text-tinta-50">{summary.visited}/{summary.planned} celdas</Text>
             </View>
-            <View className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: missionMeta.color }} />
-          </View>
-          <Text className="mt-5 font-serif text-[32px] leading-[40px] text-plata">{mission.title}</Text>
-          <Text className="mt-3 font-sans text-sm leading-6 text-slate-400">{mission.purpose}</Text>
-          <View className="mt-6 flex-row items-end justify-between">
-            <View>
-              <Text className="font-mono text-4xl text-plata">{summary.coveragePct}%</Text>
-              <Text className="mt-1 font-sans text-xs uppercase tracking-[1.5px] text-slate-500">cobertura recorrida</Text>
+            <View className="mt-4">
+              <Palitos total={summary.visited} de={summary.planned} color={VIOLETA} />
             </View>
-            <Text className="font-mono text-sm text-slate-400">{summary.visited}/{summary.planned} celdas</Text>
-          </View>
-          <View className="mt-4 h-2 overflow-hidden rounded-full bg-white/10">
-            <View className="h-full rounded-full bg-violet-400" style={{ width: `${summary.coveragePct}%` }} />
-          </View>
-          <Text className="mt-3 font-sans text-xs leading-5 text-slate-500">
-            Denominador planificado: {summary.planned} celdas. Esto mide recorrido de la zona, no representatividad social.
-          </Text>
+            <Text className="mt-4 font-archivo text-xs leading-5 text-tinta-50">
+              Denominador planificado: {summary.planned} celdas. Esto mide recorrido de la zona, no representatividad social.
+            </Text>
+          </PapelCard>
         </Animated.View>
 
         {notice && (
-          <View className="mt-4 flex-row items-start gap-2 rounded-2xl border border-amber-300/20 bg-amber-300/10 p-4">
-            <Ionicons name="information-circle-outline" size={17} color="#FCD34D" />
-            <Text className="flex-1 font-sans text-xs leading-5 text-amber-100">{notice}</Text>
+          <View className="mt-4 border border-ambar px-4 py-3">
+            <Text className="font-archivo text-xs leading-5 text-tinta-90">{notice}</Text>
           </View>
         )}
 
-        <View className="mt-5 rounded-2xl border border-white/10 bg-white/[0.04]">
+        <PapelCard className="mt-5">
           <View className="flex-row items-center p-5">
-            <Ionicons name="document-lock-outline" size={20} color="#C4B5FD" />
-            <View className="ml-3 flex-1">
-              <Text className="font-sans-semibold text-sm text-plata">Pasaporte de datos</Text>
-              <Text className="mt-1 font-sans text-xs text-slate-500">Quién, para qué, cómo y hasta cuándo.</Text>
+            <View className="flex-1 pr-3">
+              <Text className="font-archivo-bold text-sm text-tinta">Pasaporte de datos</Text>
+              <Text className="mt-1 font-archivo text-xs text-tinta-50">Quién, para qué, cómo y hasta cuándo.</Text>
             </View>
             <Pressable97
               accessibilityRole="button"
               accessibilityLabel={passportOpen ? 'Cerrar pasaporte de datos' : 'Ver pasaporte de datos'}
               accessibilityState={{ expanded: passportOpen }}
               onPress={() => setPassportOpen((value) => !value)}
-              className="min-h-11 min-w-11 items-center justify-center rounded-full border border-white/10 bg-white/5"
+              className="min-h-11 min-w-11 items-center justify-center border border-tinta bg-papel-crudo"
             >
-              <Ionicons name={passportOpen ? 'chevron-up' : 'chevron-down'} size={17} color="#94A3B8" />
+              <Text className="font-space text-base text-tinta">{passportOpen ? '−' : '+'}</Text>
             </Pressable97>
           </View>
           {passportOpen && (
-            <View className="mx-5 mb-5 gap-4 border-t border-white/10 pt-5">
+            <View className="mx-5 mb-5 gap-4 border-t border-bordeSuave pt-5">
               {[
                 ['Tipo de misión', passportMeta(mission.campaignKey).label],
                 ['Decisión destinataria', mission.decisionRecipient],
@@ -301,24 +322,24 @@ export default function MisionTerritorial() {
                 ['Condición de cierre', mission.closureCondition],
               ].map(([label, value]) => (
                 <View key={label}>
-                  <Text className="font-sans text-xs uppercase tracking-[1.5px] text-slate-600">{label}</Text>
-                  <Text className="mt-1.5 font-sans text-sm leading-6 text-slate-300">{value}</Text>
+                  <Kicker tono="neutro">{label}</Kicker>
+                  <Text className="mt-1.5 font-archivo text-sm leading-6 text-tinta-75">{value}</Text>
                 </View>
               ))}
               {canReplacePassport ? (
-                <View className="border-t border-white/10 pt-4">
+                <View className="border-t border-bordeSuave pt-4">
                   <Pressable97
                     accessibilityRole="button"
                     accessibilityLabel={passportEditing ? 'Cancelar corrección del pasaporte' : 'Corregir tipo y pasaporte de la misión'}
                     accessibilityState={{ expanded: passportEditing }}
                     onPress={() => setPassportEditing((value) => !value)}
-                    className="flex-row items-center justify-between rounded-2xl border border-amber-300/20 bg-amber-300/[0.07] p-4"
+                    className="flex-row items-center justify-between border border-ambar bg-papel-crudo p-4"
                   >
-                    <View className="flex-1">
-                      <Text className="font-sans-semibold text-xs text-amber-100">Corregir tipo de misión</Text>
-                      <Text className="mt-1 font-sans text-[10px] leading-4 text-amber-100/60">Disponible sólo antes de tomar una ruta o recoger evidencia.</Text>
+                    <View className="flex-1 pr-3">
+                      <Text className="font-archivo-bold text-xs text-ambar">Corregir tipo de misión</Text>
+                      <Text className="mt-1 font-archivo text-[10px] leading-4 text-tinta-50">Disponible sólo antes de tomar una ruta o recoger evidencia.</Text>
                     </View>
-                    <Ionicons name={passportEditing ? 'close' : 'create-outline'} size={17} color="#FCD34D" />
+                    <Text className="font-space text-base text-ambar">{passportEditing ? '×' : '+'}</Text>
                   </Pressable97>
                   {passportEditing && (
                     <View className="mt-3 gap-2">
@@ -332,15 +353,11 @@ export default function MisionTerritorial() {
                             accessibilityLabel={`Usar pasaporte de ${meta.label}`}
                             accessibilityState={{ selected }}
                             onPress={() => choosePassport(passport)}
-                            className="flex-row items-center rounded-2xl border p-4"
-                            style={{ borderColor: selected ? `${meta.color}70` : '#FFFFFF18', backgroundColor: selected ? `${meta.color}16` : '#FFFFFF08' }}
+                            className="bg-papel-crudo p-4"
+                            style={{ borderWidth: selected ? 2 : 1, borderColor: selected ? VIOLETA : TINTA_50 }}
                           >
-                            <Ionicons name={meta.icon as never} size={19} color={selected ? meta.color : '#64748B'} />
-                            <View className="ml-3 flex-1">
-                              <Text className="font-sans-semibold text-xs text-plata">{meta.label}</Text>
-                              <Text className="mt-1 font-sans text-[10px] text-slate-500">{meta.detail} · {passport.retentionDays} días</Text>
-                            </View>
-                            {selected && <Ionicons name="checkmark-circle" size={18} color={meta.color} />}
+                            <Text className="font-archivo-bold text-xs text-tinta">{meta.label}</Text>
+                            <Text className="mt-1 font-archivo text-[10px] text-tinta-50">{meta.detail} · {passport.retentionDays} días</Text>
                           </Pressable97>
                         );
                       })}
@@ -348,103 +365,137 @@ export default function MisionTerritorial() {
                   )}
                 </View>
               ) : (
-                <View className="flex-row items-start gap-2 border-t border-white/10 pt-4">
-                  <Ionicons name="lock-closed-outline" size={15} color="#64748B" />
-                  <Text className="flex-1 font-sans text-[10px] leading-4 text-slate-500">El pasaporte queda bloqueado cuando alguien toma una ruta, para que el propósito de la evidencia no cambie a mitad de la misión.</Text>
-                </View>
+                <Text className="border-t border-bordeSuave pt-4 font-archivo text-[10px] leading-4 text-tinta-50">
+                  El pasaporte queda bloqueado cuando alguien toma una ruta, para que el propósito de la evidencia no cambie a mitad de la misión.
+                </Text>
               )}
             </View>
           )}
-        </View>
+        </PapelCard>
 
-        <Text className="mt-8 font-sans text-xs uppercase tracking-[2.5px] text-slate-400">Estado del territorio</Text>
+        <Kicker tono="neutro" className="mt-8">Estado del territorio</Kicker>
         <View className="mt-3 flex-row flex-wrap gap-2">
           {(Object.keys(CELL_META) as CoverageCellStatus[]).map((status) => {
             const count = summary[status];
             if (count === 0) return null;
             const meta = CELL_META[status];
-            return (
-              <View key={status} className="flex-row items-center gap-2 rounded-full border px-3 py-2" style={{ borderColor: `${meta.color}35`, backgroundColor: `${meta.color}10` }}>
-                <View className="h-2 w-2 rounded-full" style={{ backgroundColor: meta.color }} />
-                <Text className="font-sans text-xs" style={{ color: meta.color }}>{count} {meta.short}</Text>
-              </View>
-            );
+            return <ChipTipo key={status} etiqueta={`${count} ${meta.short}`} activo color={meta.color} />;
           })}
         </View>
 
         {mine.length > 0 ? (
           <>
-            <Text className="mt-8 font-sans text-xs uppercase tracking-[2.5px] text-amber-200">Tu ruta ahora</Text>
+            <Kicker tono="neutro" className="mt-8">Tu ruta ahora</Kicker>
             <View className="mt-3 gap-3">
               {mine.map((cell, index) => (
                 <Animated.View key={cell.id} entering={staggerDelay(index)}>
-                  <GlassCard className="p-4">
+                  <PapelCard className="p-4">
                     <View className="flex-row items-center">
-                      <View className="h-11 w-11 items-center justify-center rounded-2xl bg-amber-300/10">
-                        <Text className="font-mono text-xs text-amber-200">{missionCellLabel(cell.cellKey)}</Text>
+                      <View className="h-11 w-11 items-center justify-center border border-ambar">
+                        <Text className="font-space text-xs text-ambar">{missionCellLabel(cell.cellKey)}</Text>
                       </View>
-                      <View className="ml-3 flex-1">
-                        <Text className="font-sans-semibold text-sm text-plata">Recorrer esta celda</Text>
-                        <Text className="mt-1 font-sans text-xs text-slate-500">Un hallazgo válido o un recorrido acreditado completan el tramo.</Text>
+                      <View className="ml-3 flex-1 pr-3">
+                        <Text className="font-archivo-bold text-sm text-tinta">Recorrer esta celda</Text>
+                        <Text className="mt-1 font-archivo text-xs text-tinta-50">Un hallazgo válido o un recorrido acreditado completan el tramo.</Text>
                       </View>
-                      <Pressable97 accessibilityRole="button" accessibilityLabel={`Registrar un hallazgo en la celda ${missionCellLabel(cell.cellKey)}`} disabled={mission.status !== 'active' || busy} onPress={() => capture(cell)} className={`min-h-11 justify-center rounded-full bg-amber-300 px-4 ${mission.status === 'active' && !busy ? '' : 'opacity-40'}`}>
-                        <Text className="font-sans-semibold text-xs text-[#352600]">{busy ? 'Procesando…' : 'Hallazgo'}</Text>
-                      </Pressable97>
+                      <BotonTinta
+                        etiqueta="Hallazgo"
+                        accessibilityLabel={`Registrar un hallazgo en la celda ${missionCellLabel(cell.cellKey)}`}
+                        variante="fantasma"
+                        tamano="compacto"
+                        disabled={mission.status !== 'active' || busy}
+                        cargando={busy}
+                        onPress={() => capture(cell)}
+                      />
                     </View>
                     {confirmEmptyCell === cell.id ? (
-                      <View className="mt-4 rounded-2xl border border-emerald-300/20 bg-emerald-300/[0.06] p-4">
-                        <Text className="font-sans-semibold text-sm text-emerald-100">¿Recorriste esta celda sin registrar un hallazgo?</Text>
-                        <Text className="mt-2 font-sans text-[11px] leading-5 text-slate-400">Esto no afirma que el fenómeno no exista. Sólo acredita que esta identidad recorrió la celda, usando GPS actual; el punto se descarta después de validar.</Text>
+                      <View className="mt-4 border border-verde p-4">
+                        <Text className="font-archivo-bold text-sm text-tinta">¿Recorriste esta celda sin registrar un hallazgo?</Text>
+                        <Text className="mt-2 font-archivo text-[11px] leading-5 text-tinta-75">Esto no afirma que el fenómeno no exista. Sólo acredita que esta identidad recorrió la celda, usando GPS actual; el punto se descarta después de validar.</Text>
                         <View className="mt-4 flex-row gap-2">
-                          <Pressable97 accessibilityRole="button" accessibilityLabel="Cancelar recorrido sin hallazgo" onPress={() => setConfirmEmptyCell(null)} disabled={busy} className="min-h-11 flex-1 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] px-3">
-                            <Text className="font-sans-semibold text-xs text-slate-300">Cancelar</Text>
-                          </Pressable97>
-                          <Pressable97 accessibilityRole="button" accessibilityLabel={`Acreditar con GPS la celda ${missionCellLabel(cell.cellKey)}`} onPress={() => void recordVisitWithoutFinding(cell)} disabled={busy} className="min-h-11 flex-1 items-center justify-center rounded-xl border border-emerald-300/25 bg-emerald-300/10 px-3">
-                            <Text className="font-sans-semibold text-xs text-emerald-100">{busy ? 'Comprobando…' : 'Acreditar con GPS'}</Text>
-                          </Pressable97>
+                          <BotonTinta
+                            etiqueta="Cancelar"
+                            accessibilityLabel="Cancelar recorrido sin hallazgo"
+                            variante="fantasma"
+                            tamano="compacto"
+                            className="flex-1"
+                            disabled={busy}
+                            onPress={() => setConfirmEmptyCell(null)}
+                          />
+                          <BotonTinta
+                            etiqueta="Acreditar con GPS"
+                            accessibilityLabel={`Acreditar con GPS la celda ${missionCellLabel(cell.cellKey)}`}
+                            variante="fantasma"
+                            tamano="compacto"
+                            className="flex-1"
+                            disabled={busy}
+                            cargando={busy}
+                            onPress={() => void recordVisitWithoutFinding(cell)}
+                          />
                         </View>
                       </View>
                     ) : (
-                      <Pressable97 accessibilityRole="button" accessibilityLabel={`Recorrí la celda ${missionCellLabel(cell.cellKey)} sin registrar un hallazgo`} disabled={mission.status !== 'active' || busy} onPress={() => setConfirmEmptyCell(cell.id)} className="mt-3 min-h-11 flex-row items-center self-start rounded-xl px-2">
-                        <Ionicons name="checkmark-done-outline" size={16} color="#A7F3D0" />
-                        <Text className="ml-2 font-sans-semibold text-xs text-emerald-100">Recorrí y no registré un hallazgo</Text>
+                      <Pressable97
+                        accessibilityRole="button"
+                        accessibilityLabel={`Recorrí la celda ${missionCellLabel(cell.cellKey)} sin registrar un hallazgo`}
+                        disabled={mission.status !== 'active' || busy}
+                        onPress={() => setConfirmEmptyCell(cell.id)}
+                        className="mt-3 min-h-11 items-start justify-center self-start"
+                      >
+                        <Text className="font-space text-xs uppercase tracking-[1px] text-tinta-50">Recorrí y no registré un hallazgo</Text>
                       </Pressable97>
                     )}
-                  </GlassCard>
+                  </PapelCard>
                 </Animated.View>
               ))}
             </View>
           </>
         ) : summary.unknown > 0 ? (
-          <Pressable97 accessibilityRole="button" accessibilityLabel="Tomar una ruta de tres celdas" onPress={claim} disabled={busy || mission.status !== 'active'} className="mt-7 min-h-14 flex-row items-center justify-center gap-2 rounded-full bg-accent px-6">
-            <Ionicons name="walk-outline" size={18} color="white" />
-            <Text className="font-sans-semibold text-sm text-white">{busy ? 'Preparando ruta…' : 'Tomar una ruta de 3 celdas'}</Text>
-          </Pressable97>
+          <View className="mt-8 items-center">
+            <BotonTinta
+              etiqueta="Tomar una ruta de 3 celdas"
+              accessibilityLabel="Tomar una ruta de tres celdas"
+              onPress={claim}
+              disabled={busy || mission.status !== 'active'}
+              cargando={busy}
+            />
+          </View>
         ) : null}
 
-        <Text className="mt-8 font-sans text-xs uppercase tracking-[2.5px] text-slate-400">Malla de cobertura</Text>
+        <Kicker tono="neutro" className="mt-8">Malla de cobertura</Kicker>
         <View className="mt-3 flex-row flex-wrap gap-2">
           {cells.map((cell) => {
             const meta = CELL_META[cell.status];
             return (
-              <View key={cell.id} accessible accessibilityLabel={`${missionCellLabel(cell.cellKey)}: ${meta.label}`} className="h-[74px] w-[31%] justify-between rounded-2xl border p-3" style={{ borderColor: `${meta.color}42`, backgroundColor: `${meta.color}0D` }}>
-                <Ionicons name={meta.icon as never} size={16} color={meta.color} />
-                <View>
-                  <Text className="font-mono text-xs text-plata">{missionCellLabel(cell.cellKey)}</Text>
-                  <Text className="mt-0.5 font-sans text-[10px]" style={{ color: meta.color }}>{meta.short}</Text>
-                </View>
+              <View
+                key={cell.id}
+                accessible
+                accessibilityLabel={`${missionCellLabel(cell.cellKey)}: ${meta.label}`}
+                className="h-[70px] w-[31%] justify-between bg-papel-crudo p-3"
+                style={{ borderWidth: 1, borderColor: meta.color }}
+              >
+                <Text className="font-space text-xs text-tinta">{missionCellLabel(cell.cellKey)}</Text>
+                <Text className="font-space text-[10px]" style={{ color: meta.color }}>{meta.short}</Text>
               </View>
             );
           })}
         </View>
 
         <View className="mt-8 gap-3">
-          <Pressable97 accessibilityRole="button" accessibilityLabel={mission.status === 'paused' ? 'Reanudar misión' : 'Pausar misión'} onPress={togglePause} disabled={mission.status === 'completed'} className="min-h-12 items-center justify-center rounded-full border border-white/10 bg-white/5 px-5">
-            <Text className="font-sans-medium text-sm text-slate-300">{mission.status === 'paused' ? 'Reanudar misión' : 'Pausar sin perder la ruta'}</Text>
-          </Pressable97>
-          <Pressable97 accessibilityRole="button" accessibilityLabel="Cerrar misión" accessibilityHint={canClose ? 'Marca la misión como completada' : 'Cada celda debe estar recorrida; todo hallazgo debe alcanzar las miradas independientes definidas en el pasaporte'} onPress={close} disabled={!canClose || mission.status === 'completed'} className={`min-h-12 items-center justify-center rounded-full border border-emerald-300/25 bg-emerald-300/10 px-5 ${canClose ? '' : 'opacity-40'}`}>
-            <Text className="font-sans-semibold text-sm text-emerald-200">{mission.status === 'completed' ? 'Misión cerrada' : 'Cerrar con evidencia'}</Text>
-          </Pressable97>
+          <BotonTinta
+            etiqueta={mission.status === 'paused' ? 'Reanudar misión' : 'Pausar sin perder la ruta'}
+            accessibilityLabel={mission.status === 'paused' ? 'Reanudar misión' : 'Pausar misión'}
+            variante="fantasma"
+            onPress={togglePause}
+            disabled={mission.status === 'completed'}
+          />
+          <BotonTinta
+            etiqueta={mission.status === 'completed' ? 'Misión cerrada' : 'Cerrar con evidencia'}
+            accessibilityLabel="Cerrar misión"
+            variante="fantasma"
+            onPress={close}
+            disabled={!canClose || mission.status === 'completed'}
+          />
         </View>
       </ScrollView>
     </View>

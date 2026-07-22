@@ -1,5 +1,3 @@
-import { Ionicons } from '@expo/vector-icons';
-import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
 import { useMemo, useState } from 'react';
 import {
@@ -14,10 +12,17 @@ import Animated from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { GeoAttributionCard, isGeoAttributionReady } from '@/components/civic/GeoAttributionCard';
-import { LivingHalo } from '@/components/civic/LivingHalo';
-import { AccentButton } from '@/components/ui/AccentButton';
-import { GlassCard } from '@/components/ui/GlassCard';
-import { PanelHeader } from '@/components/ui/PanelHeader';
+import {
+  BotonTinta,
+  ChipTipo,
+  FilaIndice,
+  GranoPapel,
+  Kicker,
+  Palitos,
+  PapelCard,
+  Sello,
+  TituloAnton,
+} from '@/components/papel';
 import { Pressable97 } from '@/components/ui/Pressable97';
 import {
   createListening,
@@ -40,12 +45,23 @@ import type {
   ListeningSource,
   ListeningTheme,
 } from '@/civic/types';
-import { FTUE } from '@/content';
+import { FTUE, SENAL_POR_KEY } from '@/content';
 import { CLAVES, crearEstrellaCivicaUnaVez, getSetting, setSetting } from '@/db/repos';
 import type { TipoEstrella } from '@/game/types';
 import { fadeUp, staggerDelay } from '@/motion/variants';
 import { useJuego } from '@/stores/juego';
 import { haptic } from '@/theme/haptics';
+import { TINTA, TINTA_50, VIOLETA } from '@/theme/tokens';
+
+/**
+ * La Escucha — cinco pasos que convierten un relato en una voz con forma:
+ * qué falta, qué se sueña, qué se propone o qué se puede aportar. Privado
+ * por defecto; compartir crea sólo una derivación taxonómica mínima.
+ *
+ * Registro papel del sistema Papel y Tinta (spec §8): el cuaderno de campo.
+ * El pacto de la escucha colectiva deja el sello PACTADO al aceptarlo;
+ * guardar la escucha deja el sello RECIBIDA en la pantalla de éxito.
+ */
 
 type Destination = 'private' | 'collective';
 
@@ -57,46 +73,91 @@ const ESTRELLA_POR_ESCUCHA: Record<ListeningKind, TipoEstrella> = {
   capacity: 'recurso',
 };
 
-function StageTitle({ eyebrow, title, body }: { eyebrow: string; title: string; body: string }) {
+/** Color de señal (spec §2) por tipo de escucha — el mismo mapeo que enciende
+ * la estrella correspondiente, leído contra la tabla de colores del papel. */
+const COLOR_POR_KIND: Record<ListeningKind, string> = {
+  need: SENAL_POR_KEY.need.color,
+  dream: SENAL_POR_KEY.dream.color,
+  proposal: SENAL_POR_KEY.value.color,
+  capacity: SENAL_POR_KEY.recurso.color,
+};
+
+/** Foco visible: borde violeta 2px (spec §3.5/§10) — nada de halo aparte. */
+const estiloInput = (enfocado: boolean): object => ({
+  borderWidth: enfocado ? 2 : 1,
+  borderColor: enfocado ? VIOLETA : TINTA,
+  outlineColor: VIOLETA,
+  outlineStyle: 'solid' as const,
+  outlineWidth: enfocado ? 2 : 0,
+  outlineOffset: 2,
+});
+
+function Encabezado({ onVolver }: { onVolver: () => void }) {
+  const insets = useSafeAreaInsets();
   return (
-    <View>
-      <Text className="font-sans text-xs uppercase tracking-[2.8px] text-violet-300">{eyebrow}</Text>
-      <Text className="mt-3 font-serif text-[32px] leading-[40px] text-plata">{title}</Text>
-      <Text className="mt-3 font-sans text-sm leading-6 text-slate-400">{body}</Text>
+    <View className="px-5" style={{ paddingTop: insets.top + 12, paddingBottom: 12 }}>
+      <Pressable97
+        accessibilityRole="button"
+        accessibilityLabel="Volver"
+        onPress={onVolver}
+        className="-ml-2 min-h-11 min-w-11 items-center justify-center self-start"
+      >
+        <Text className="font-space text-2xl text-tinta">←</Text>
+      </Pressable97>
+      <View className="mt-2">
+        <Kicker>la escucha</Kicker>
+        <TituloAnton entintar tamano="lg" className="mt-1">
+          La Escucha
+        </TituloAnton>
+      </View>
     </View>
   );
 }
 
-function ChoiceChip({
-  label,
-  selected,
-  onPress,
-}: {
-  label: string;
-  selected: boolean;
-  onPress: () => void;
-}) {
+function StageTitle({ eyebrow, title, body }: { eyebrow: string; title: string; body: string }) {
   return (
-    <Pressable97
-      accessibilityRole="button"
-      accessibilityLabel={label}
-      accessibilityState={{ selected }}
-      onPress={onPress}
-      className="min-h-12 justify-center rounded-full border px-4 py-3"
-      style={{
-        borderColor: selected ? '#A78BFA66' : '#FFFFFF18',
-        backgroundColor: selected ? '#7D5BDE24' : '#FFFFFF08',
-      }}
-    >
-      <Text className="text-center font-sans-medium text-sm" style={{ color: selected ? '#DDD6FE' : '#94A3B8' }}>
-        {label}
-      </Text>
-    </Pressable97>
+    <View>
+      <Kicker tono="neutro">{eyebrow}</Kicker>
+      <TituloAnton tamano="md" className="mt-2">
+        {title}
+      </TituloAnton>
+      <Text className="mt-3 font-archivo text-sm leading-6 text-tinta-75">{body}</Text>
+    </View>
   );
 }
 
-function FieldLabel({ children }: { children: React.ReactNode }) {
-  return <Text className="mb-2 font-sans-medium text-sm text-slate-200">{children}</Text>;
+function SelectableCard({
+  title,
+  description,
+  selected,
+  color,
+  onPress,
+  accessibilityLabel,
+  accessibilityRole = 'button',
+}: {
+  title: string;
+  description: string;
+  selected: boolean;
+  color?: string;
+  onPress: () => void;
+  accessibilityLabel: string;
+  accessibilityRole?: 'button' | 'radio';
+}) {
+  return (
+    <Pressable97
+      accessibilityRole={accessibilityRole}
+      accessibilityLabel={accessibilityLabel}
+      accessibilityState={{ selected }}
+      onPress={onPress}
+      className="min-h-[92px] flex-row items-center bg-papel-crudo p-4"
+      style={{ borderWidth: selected ? 2 : 1, borderColor: selected ? (color ?? VIOLETA) : TINTA }}
+    >
+      <View className="flex-1">
+        <Text className="font-archivo-bold text-lg text-tinta">{title}</Text>
+        <Text className="mt-1 font-archivo text-xs leading-5 text-tinta-75">{description}</Text>
+      </View>
+    </Pressable97>
+  );
 }
 
 export default function Escuchar() {
@@ -116,6 +177,9 @@ export default function Escuchar() {
   const [supportWanted, setSupportWanted] = useState(false);
   const [destination, setDestination] = useState<Destination>('private');
   const [pactoAceptado, setPactoAceptado] = useState(() => getSetting(CLAVES.pactoAceptado) === '1');
+  // Distingue "ya venía pactado de otra sesión" (no festeja de nuevo) de
+  // "lo acabás de aceptar" (el sello cae una vez, spec §3.6).
+  const [pactoRecienAceptado, setPactoRecienAceptado] = useState(false);
   const [context, setContext] = useState(() => defaultRecordContextDraft({
     sensitivity: 'high',
     precision: 'neighborhood',
@@ -124,6 +188,10 @@ export default function Escuchar() {
   const [savedShared, setSavedShared] = useState(false);
   const [savedListeningId, setSavedListeningId] = useState<string | null>(null);
   const [saveNote, setSaveNote] = useState<string | null>(null);
+  const [enfocadoRelato, setEnfocadoRelato] = useState(false);
+  const [enfocadoResultado, setEnfocadoResultado] = useState(false);
+  const [enfocadoFortaleza, setEnfocadoFortaleza] = useState(false);
+  const [enfocadoPrimerPaso, setEnfocadoPrimerPaso] = useState(false);
 
   const kindDefinition = LISTENING_KINDS.find((item) => item.key === kind) ?? null;
   const contextReady = isGeoAttributionReady(context);
@@ -140,14 +208,12 @@ export default function Escuchar() {
     `prioridad ${importance}/5`,
   ].join(' · ') : '', [horizon, importance, kind, scope, theme]);
   const saveLabel = step !== 4
-    ? 'Continuar'
+    ? 'Continuar →'
     : destination === 'collective' && !pactoAceptado
       ? 'Aceptá el pacto para contribuir'
-      : saving
-        ? 'Guardando…'
-        : destination === 'collective'
-          ? 'Guardar y contribuir'
-          : 'Guardar en privado';
+      : destination === 'collective'
+        ? 'Guardar y contribuir →'
+        : 'Guardar en privado →';
 
   const chooseKind = (value: ListeningKind) => {
     setKind(value);
@@ -172,11 +238,14 @@ export default function Escuchar() {
     setStep((value) => value - 1);
   };
 
+  const volver = () => (router.canGoBack() ? router.back() : router.replace('/'));
+
   // Se muestra una única vez en la vida de la app: aceptar el pacto queda
   // grabado en settings y ninguna sesión futura vuelve a pedirlo.
   const aceptarPacto = () => {
     setSetting(CLAVES.pactoAceptado, '1');
     setPactoAceptado(true);
+    setPactoRecienAceptado(true);
     haptic.tick();
   };
 
@@ -226,105 +295,97 @@ export default function Escuchar() {
   };
 
   if (step === 5 && kind) {
+    type Accion = { key: string; label: string; detail: string; onPress: () => void };
+    const acciones: Accion[] = [
+      {
+        key: 'cielo',
+        label: 'Ver mi cielo',
+        detail: 'Tu escucha acaba de encender una estrella.',
+        onPress: () => router.replace('/'),
+      },
+      ...(supportWanted && kind === 'need' && savedListeningId
+        ? [{
+            key: 'custodia',
+            label: 'Preparar pedido bajo custodia',
+            detail: 'Custodio, destinatario, vigencia y punto seguro.',
+            onPress: () => router.replace({ pathname: '/escuchar/necesidad/[id]', params: { id: savedListeningId } }),
+          }]
+        : []),
+      {
+        key: 'bitacora',
+        label: 'Abrir mi bitácora',
+        detail: 'Cada escucha guardada queda anotada ahí.',
+        onPress: () => router.replace('/bitacora'),
+      },
+      ...(savedShared && kind === 'capacity' && supportWanted
+        ? [{
+            key: 'aportar',
+            label: 'Convertir en aporte concreto',
+            detail: 'Ponela en movimiento con fecha y lugar.',
+            onPress: () => router.replace('/aportar'),
+          }]
+        : []),
+      {
+        key: 'territorio',
+        label: 'Volver al territorio',
+        detail: '',
+        onPress: () => router.replace('/territorio'),
+      },
+    ];
+
     return (
-      <View className="flex-1 bg-fondo">
-        <PanelHeader title="La Escucha" />
+      <View className="flex-1 bg-papel">
+        <GranoPapel />
+        <Encabezado onVolver={volver} />
         <ScrollView contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: insets.bottom + 36 }}>
-          <Animated.View entering={fadeUp} className="mt-4 overflow-hidden rounded-[30px] border border-violet-300/20">
-            <LinearGradient colors={['#201637', '#100E18', '#0A0A0A']} style={{ padding: 26, minHeight: 330 }}>
-              <LivingHalo color={kindDefinition?.color} />
-              <View className="h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-white/10">
-                <Ionicons name={(kindDefinition?.icon ?? 'sparkles-outline') as never} size={25} color={kindDefinition?.color ?? '#C4B5FD'} />
+          <Animated.View entering={fadeUp}>
+            <PapelCard className="p-6">
+              <View className="flex-row items-start justify-between">
+                <ChipTipo etiqueta={kindDefinition?.label ?? ''} activo color={COLOR_POR_KIND[kind]} />
+                <Sello texto="RECIBIDA" color="verde" rotacion={-4} />
               </View>
-              <Text className="mt-8 font-sans text-xs uppercase tracking-[2.8px] text-violet-200">
+              <Kicker className="mt-6">
                 {savedShared ? 'Voz protegida + pulso colectivo' : 'Guardada en privado'}
-              </Text>
-              <Text className="mt-3 font-serif text-[38px] leading-[46px] text-plata">Tu voz tiene refugio. Y también dirección.</Text>
-              <Text className="mt-4 font-sans text-sm leading-6 text-slate-400">
+              </Kicker>
+              <TituloAnton tamano="lg" className="mt-2">
+                Tu voz tiene refugio. Y también dirección.
+              </TituloAnton>
+              <Text className="mt-4 font-archivo text-sm leading-6 text-tinta-75">
                 {savedShared
                   ? 'El relato completo quedó en tu teléfono. La red recibió sólo las facetas que viste en la vista previa.'
                   : 'La app no la sincronizó: quedó en este dispositivo o perfil. No suma puntos ni alimenta perfiles; protegé el dispositivo si lo comparten otras personas.'}
               </Text>
-            </LinearGradient>
+            </PapelCard>
           </Animated.View>
 
           {saveNote && (
-            <View className="mt-4 rounded-2xl border border-amber-300/20 bg-amber-300/10 p-4">
-              <Text className="font-sans text-sm leading-6 text-amber-100">{saveNote}</Text>
+            <View className="mt-4 border border-ambar px-4 py-3">
+              <Text className="font-archivo text-sm leading-6 text-tinta-90">{saveNote}</Text>
             </View>
           )}
 
           {supportWanted && kind === 'need' && (
-            <View className="mt-4 flex-row items-start gap-3 rounded-2xl border border-rose-300/15 bg-rose-300/[0.06] p-4">
-              <Ionicons name="shield-checkmark-outline" size={18} color="#FDA4AF" />
-              <Text className="flex-1 font-sans text-xs leading-5 text-slate-400">
+            <View className="mt-4 border border-sello px-4 py-3">
+              <Text className="font-archivo text-xs leading-5 text-tinta-75">
                 Marcaste que querés apoyo. El relato quedó protegido; el próximo paso separa un pedido mínimo, nombra quién lo custodiará y lo mantiene local hasta que exista un permiso territorial verificable.
               </Text>
             </View>
           )}
 
-          <View className="mt-6 gap-3">
-            <Pressable97
-              accessibilityRole="button"
-              accessibilityLabel="Ver mi cielo"
-              onPress={() => router.replace('/')}
-              className="min-h-14 flex-row items-center rounded-2xl border border-white/20 bg-white/10 px-5"
-            >
-              <Ionicons name="star" size={20} color="#F5F7FA" />
-              <View className="ml-3 flex-1">
-                <Text className="font-sans-semibold text-sm text-plata">Ver mi cielo</Text>
-                <Text className="mt-1 font-sans text-[10px] leading-4 text-slate-500">
-                  Tu escucha acaba de encender una estrella.
-                </Text>
-              </View>
-              <Ionicons name="arrow-forward" size={17} color="#F5F7FA" />
-            </Pressable97>
-            {supportWanted && kind === 'need' && savedListeningId && (
-              <Pressable97
-                accessibilityRole="button"
-                accessibilityLabel="Preparar un pedido bajo custodia"
-                onPress={() => router.replace({ pathname: '/escuchar/necesidad/[id]', params: { id: savedListeningId } })}
-                className="min-h-14 flex-row items-center rounded-2xl border border-rose-300/20 bg-rose-300/10 px-5"
+          <View className="mt-6">
+            {acciones.map((accion, i) => (
+              <FilaIndice
+                key={accion.key}
+                numero={String(i + 1).padStart(2, '0')}
+                onPress={accion.onPress}
+                accessibilityLabel={accion.label}
               >
-                <Ionicons name="shield-checkmark-outline" size={20} color="#FDA4AF" />
-                <View className="ml-3 flex-1">
-                  <Text className="font-sans-semibold text-sm text-plata">Preparar pedido bajo custodia</Text>
-                  <Text className="mt-1 font-sans text-[10px] leading-4 text-slate-500">Custodio, destinatario, vigencia y punto seguro.</Text>
-                </View>
-                <Ionicons name="arrow-forward" size={17} color="#FDA4AF" />
-              </Pressable97>
-            )}
-            <Pressable97
-              accessibilityRole="button"
-              accessibilityLabel="Abrir mi bitácora"
-              onPress={() => router.replace('/bitacora')}
-              className="min-h-14 flex-row items-center rounded-2xl border border-violet-300/25 bg-violet-300/10 px-5"
-            >
-              <Ionicons name="book-outline" size={20} color="#C4B5FD" />
-              <Text className="ml-3 flex-1 font-sans-semibold text-sm text-plata">Abrir mi bitácora</Text>
-              <Ionicons name="arrow-forward" size={17} color="#A78BFA" />
-            </Pressable97>
-            {savedShared && kind === 'capacity' && supportWanted && (
-              <Pressable97
-                accessibilityRole="button"
-                accessibilityLabel="Convertir esta capacidad en un aporte concreto"
-                onPress={() => router.replace('/aportar')}
-                className="min-h-14 flex-row items-center rounded-2xl border border-emerald-300/20 bg-emerald-300/10 px-5"
-              >
-                <Ionicons name="git-merge-outline" size={20} color="#6EE7B7" />
-                <Text className="ml-3 flex-1 font-sans-semibold text-sm text-plata">Convertir en aporte concreto</Text>
-                <Ionicons name="arrow-forward" size={17} color="#6EE7B7" />
-              </Pressable97>
-            )}
-            <Pressable97
-              accessibilityRole="button"
-              accessibilityLabel="Volver al territorio"
-              onPress={() => router.replace('/territorio')}
-              className="min-h-14 flex-row items-center rounded-2xl border border-white/10 bg-white/5 px-5"
-            >
-              <Ionicons name="earth-outline" size={20} color="#94A3B8" />
-              <Text className="ml-3 flex-1 font-sans-medium text-sm text-slate-300">Volver al territorio</Text>
-            </Pressable97>
+                <Text className="font-archivo-bold text-base text-tinta">{accion.label}</Text>
+                {accion.detail ? (
+                  <Text className="mt-1 font-archivo text-xs leading-5 text-tinta-50">{accion.detail}</Text>
+                ) : null}
+              </FilaIndice>
+            ))}
           </View>
         </ScrollView>
       </View>
@@ -332,18 +393,24 @@ export default function Escuchar() {
   }
 
   return (
-    <View className="flex-1 bg-fondo">
-      <PanelHeader title="La Escucha" />
+    <View className="flex-1 bg-papel">
+      <GranoPapel />
+      <Encabezado onVolver={volver} />
       <KeyboardAvoidingView className="flex-1" behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
         <ScrollView
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: insets.bottom + 36 }}
         >
-          <View className="mb-7 mt-2 flex-row gap-2" accessibilityLabel={`Paso ${step + 1} de 5`}>
-            {[0, 1, 2, 3, 4].map((item) => (
-              <View key={item} className="h-1 flex-1 rounded-full" style={{ backgroundColor: item <= step ? '#A78BFA' : '#FFFFFF14' }} />
-            ))}
+          <View
+            accessible
+            accessibilityLabel={`Paso ${step + 1} de 5`}
+            className="mb-7 mt-2 flex-row items-center gap-3"
+          >
+            <Palitos total={step + 1} de={5} />
+            <Text className="font-space text-[11px] uppercase tracking-[1px] text-tinta-50">
+              Paso {step + 1} de 5
+            </Text>
           </View>
 
           {step === 0 && (
@@ -358,23 +425,14 @@ export default function Escuchar() {
                   const selected = kind === item.key;
                   return (
                     <Animated.View key={item.key} entering={staggerDelay(index)}>
-                      <Pressable97
-                        accessibilityRole="button"
+                      <SelectableCard
+                        title={item.label}
+                        description={item.prompt}
+                        selected={selected}
+                        color={COLOR_POR_KIND[item.key]}
                         accessibilityLabel={`${item.label}. ${item.prompt}`}
-                        accessibilityState={{ selected }}
                         onPress={() => chooseKind(item.key)}
-                        className="min-h-[92px] flex-row items-center rounded-[22px] border p-4"
-                        style={{ borderColor: selected ? `${item.color}66` : '#FFFFFF18', backgroundColor: selected ? `${item.color}14` : '#FFFFFF08' }}
-                      >
-                        <View className="h-12 w-12 items-center justify-center rounded-2xl" style={{ backgroundColor: `${item.color}18` }}>
-                          <Ionicons name={item.icon as never} size={22} color={item.color} />
-                        </View>
-                        <View className="ml-4 flex-1">
-                          <Text className="font-serif text-xl text-plata">{item.label}</Text>
-                          <Text className="mt-1 font-sans text-xs leading-5 text-slate-400">{item.prompt}</Text>
-                        </View>
-                        {selected && <Ionicons name="checkmark-circle" size={21} color={item.color} />}
-                      </Pressable97>
+                      />
                     </Animated.View>
                   );
                 })}
@@ -385,29 +443,29 @@ export default function Escuchar() {
           {step === 1 && kindDefinition && (
             <Animated.View entering={fadeUp}>
               <StageTitle eyebrow={kindDefinition.action} title={kindDefinition.prompt} body="Escribilo como lo dirías en una ronda de confianza. Este texto nace privado y queda en tu dispositivo." />
-              <Text className="mt-7 font-sans-medium text-sm text-slate-200">¿Desde dónde hablás?</Text>
+              <Kicker tono="neutro" className="mt-7">¿Desde dónde hablás?</Kicker>
               <View className="mt-3 flex-row flex-wrap gap-2">
                 {LISTENING_SOURCES.map((item) => (
-                  <ChoiceChip key={item.key} label={item.label} selected={source === item.key} onPress={() => setSource(item.key)} />
+                  <ChipTipo key={item.key} etiqueta={item.label} activo={source === item.key} onPress={() => setSource(item.key)} />
                 ))}
               </View>
-              <GlassCard className="mt-6 p-4">
-                <TextInput
-                  value={statement}
-                  onChangeText={setStatement}
-                  placeholder="Contalo con tus palabras…"
-                  placeholderTextColor="#64748B"
-                  multiline
-                  maxLength={800}
-                  textAlignVertical="top"
-                  className="min-h-[170px] font-sans text-base leading-7 text-plata"
-                  accessibilityLabel="Relato privado"
-                />
-                <Text className="text-right font-mono text-xs text-slate-600">{statement.length}/800</Text>
-              </GlassCard>
-              <View className="mt-4 flex-row items-start gap-3 rounded-2xl border border-emerald-300/15 bg-emerald-300/[0.06] p-4">
-                <Ionicons name="lock-closed" size={17} color="#6EE7B7" />
-                <Text className="flex-1 font-sans text-xs leading-5 text-emerald-100/80">Privado por diseño. Tu frase no se envía al mapa ni a la red.</Text>
+              <TextInput
+                value={statement}
+                onChangeText={setStatement}
+                onFocus={() => setEnfocadoRelato(true)}
+                onBlur={() => setEnfocadoRelato(false)}
+                placeholder="Contalo con tus palabras…"
+                placeholderTextColor={TINTA_50}
+                multiline
+                maxLength={800}
+                textAlignVertical="top"
+                accessibilityLabel="Relato privado"
+                className="mt-6 min-h-[170px] bg-papel-crudo px-5 py-4 font-archivo text-base leading-7 text-tinta"
+                style={estiloInput(enfocadoRelato)}
+              />
+              <Text className="text-right font-space text-xs text-tinta-30">{statement.length}/800</Text>
+              <View className="mt-4 border border-verde px-4 py-3">
+                <Text className="font-archivo text-xs leading-5 text-tinta-90">Privado por diseño. Tu frase no se envía al mapa ni a la red.</Text>
               </View>
             </Animated.View>
           )}
@@ -417,54 +475,79 @@ export default function Escuchar() {
               <StageTitle eyebrow="Dar sentido" title="¿De qué parte de la vida habla?" body="Una buena escucha no registra sólo la falta: también reconoce el resultado deseado y lo que ya sostiene a la comunidad." />
               <View className="mt-7 flex-row flex-wrap gap-2">
                 {LISTENING_THEMES.map((item) => (
-                  <Pressable97
-                    key={item.key}
-                    accessibilityRole="button"
-                    accessibilityLabel={item.label}
-                    accessibilityState={{ selected: theme === item.key }}
-                    onPress={() => setTheme(item.key)}
-                    className="min-h-12 flex-row items-center gap-2 rounded-full border px-4 py-3"
-                    style={{ borderColor: theme === item.key ? '#A78BFA66' : '#FFFFFF18', backgroundColor: theme === item.key ? '#7D5BDE24' : '#FFFFFF08' }}
-                  >
-                    <Ionicons name={item.icon as never} size={16} color={theme === item.key ? '#C4B5FD' : '#64748B'} />
-                    <Text className="font-sans-medium text-sm" style={{ color: theme === item.key ? '#DDD6FE' : '#94A3B8' }}>{item.label}</Text>
-                  </Pressable97>
+                  <ChipTipo key={item.key} etiqueta={item.label} activo={theme === item.key} onPress={() => setTheme(item.key)} />
                 ))}
               </View>
-              <GlassCard className="mt-6 gap-5 p-5">
-                <View>
-                  <FieldLabel>¿Qué resultado serviría de verdad?</FieldLabel>
-                  <TextInput value={desiredOutcome} onChangeText={setDesiredOutcome} maxLength={600} multiline placeholder="Ej. que ninguna familia tenga que elegir entre comida y alquiler" placeholderTextColor="#64748B" className="min-h-20 rounded-2xl border border-white/10 bg-black/20 px-4 py-3 font-sans text-sm leading-6 text-plata" />
-                </View>
-                <View>
-                  <FieldLabel>¿Qué ya ayuda o sostiene esto?</FieldLabel>
-                  <TextInput value={existingStrength} onChangeText={setExistingStrength} maxLength={600} multiline placeholder="Personas, saberes, lugares, redes que ya existen…" placeholderTextColor="#64748B" className="min-h-20 rounded-2xl border border-white/10 bg-black/20 px-4 py-3 font-sans text-sm leading-6 text-plata" />
-                </View>
-                <View>
-                  <FieldLabel>¿Cuál podría ser un primer paso?</FieldLabel>
-                  <TextInput value={firstStep} onChangeText={setFirstStep} maxLength={400} multiline placeholder="Algo pequeño, concreto y posible…" placeholderTextColor="#64748B" className="min-h-20 rounded-2xl border border-white/10 bg-black/20 px-4 py-3 font-sans text-sm leading-6 text-plata" />
-                </View>
-              </GlassCard>
+
+              <Kicker tono="neutro" className="mt-7">¿Qué resultado serviría de verdad?</Kicker>
+              <TextInput
+                value={desiredOutcome}
+                onChangeText={setDesiredOutcome}
+                onFocus={() => setEnfocadoResultado(true)}
+                onBlur={() => setEnfocadoResultado(false)}
+                maxLength={600}
+                multiline
+                placeholder="Ej. que ninguna familia tenga que elegir entre comida y alquiler"
+                placeholderTextColor={TINTA_50}
+                className="mt-2 min-h-20 bg-papel-crudo px-5 py-4 font-archivo text-sm leading-6 text-tinta"
+                style={estiloInput(enfocadoResultado)}
+              />
+
+              <Kicker tono="neutro" className="mt-6">¿Qué ya ayuda o sostiene esto?</Kicker>
+              <TextInput
+                value={existingStrength}
+                onChangeText={setExistingStrength}
+                onFocus={() => setEnfocadoFortaleza(true)}
+                onBlur={() => setEnfocadoFortaleza(false)}
+                maxLength={600}
+                multiline
+                placeholder="Personas, saberes, lugares, redes que ya existen…"
+                placeholderTextColor={TINTA_50}
+                className="mt-2 min-h-20 bg-papel-crudo px-5 py-4 font-archivo text-sm leading-6 text-tinta"
+                style={estiloInput(enfocadoFortaleza)}
+              />
+
+              <Kicker tono="neutro" className="mt-6">¿Cuál podría ser un primer paso?</Kicker>
+              <TextInput
+                value={firstStep}
+                onChangeText={setFirstStep}
+                onFocus={() => setEnfocadoPrimerPaso(true)}
+                onBlur={() => setEnfocadoPrimerPaso(false)}
+                maxLength={400}
+                multiline
+                placeholder="Algo pequeño, concreto y posible…"
+                placeholderTextColor={TINTA_50}
+                className="mt-2 min-h-20 bg-papel-crudo px-5 py-4 font-archivo text-sm leading-6 text-tinta"
+                style={estiloInput(enfocadoPrimerPaso)}
+              />
             </Animated.View>
           )}
 
           {step === 3 && (
             <Animated.View entering={fadeUp}>
               <StageTitle eyebrow="Contexto sin invadir" title="¿Qué alcance y urgencia tiene?" body="Estas facetas permiten reconocer patrones sin exponer la historia íntima que les da origen." />
-              <Text className="mt-7 font-sans-medium text-sm text-slate-200">Horizonte</Text>
+              <Kicker tono="neutro" className="mt-7">Horizonte</Kicker>
               <View className="mt-3 flex-row flex-wrap gap-2">
-                {LISTENING_HORIZONS.map((item) => <ChoiceChip key={item.key} label={item.label} selected={horizon === item.key} onPress={() => setHorizon(item.key)} />)}
+                {LISTENING_HORIZONS.map((item) => (
+                  <ChipTipo key={item.key} etiqueta={item.label} activo={horizon === item.key} onPress={() => setHorizon(item.key)} />
+                ))}
               </View>
-              <Text className="mt-6 font-sans-medium text-sm text-slate-200">Escala</Text>
+              <Kicker tono="neutro" className="mt-6">Escala</Kicker>
               <View className="mt-3 flex-row flex-wrap gap-2">
-                {LISTENING_SCOPES.map((item) => <ChoiceChip key={item.key} label={item.label} selected={scope === item.key} onPress={() => setScope(item.key)} />)}
+                {LISTENING_SCOPES.map((item) => (
+                  <ChipTipo key={item.key} etiqueta={item.label} activo={scope === item.key} onPress={() => setScope(item.key)} />
+                ))}
               </View>
-              <Text className="mt-6 font-sans-medium text-sm text-slate-200">Importancia para vos</Text>
-              <View className="mt-3 flex-row gap-2">
+              <Kicker tono="neutro" className="mt-6">Importancia para vos</Kicker>
+              <View className="mt-3 flex-row flex-wrap gap-2">
                 {[1, 2, 3, 4, 5].map((value) => (
-                  <Pressable97 key={value} accessibilityRole="button" accessibilityLabel={`Importancia ${value} de 5`} accessibilityState={{ selected: importance === value }} onPress={() => setImportance(value)} className="min-h-12 flex-1 items-center justify-center rounded-2xl border" style={{ borderColor: importance === value ? '#A78BFA66' : '#FFFFFF18', backgroundColor: importance === value ? '#7D5BDE24' : '#FFFFFF08' }}>
-                    <Text className="font-mono text-base" style={{ color: importance === value ? '#DDD6FE' : '#64748B' }}>{value}</Text>
-                  </Pressable97>
+                  <ChipTipo
+                    key={value}
+                    etiqueta={String(value)}
+                    activo={importance === value}
+                    accessibilityLabel={`Importancia ${value} de 5`}
+                    onPress={() => setImportance(value)}
+                  />
                 ))}
               </View>
               {(kind === 'need' || kind === 'capacity') && (
@@ -474,14 +557,12 @@ export default function Escuchar() {
                   accessibilityState={{ checked: supportWanted }}
                   accessibilityValue={{ text: supportWanted ? 'Sí' : 'No' }}
                   onPress={() => setSupportWanted((value) => !value)}
-                  className="mt-7 min-h-16 flex-row items-center rounded-2xl border border-emerald-300/20 bg-emerald-300/[0.07] p-4"
+                  className="mt-7 min-h-16 flex-row items-center border border-tinta bg-papel-crudo p-4"
                 >
-                  <View className="h-6 w-6 items-center justify-center rounded-lg border" style={{ borderColor: supportWanted ? '#6EE7B7' : '#64748B', backgroundColor: supportWanted ? '#10B981' : 'transparent' }}>
-                    {supportWanted && <Ionicons name="checkmark" size={16} color="#052E23" />}
-                  </View>
+                  <View className={`h-6 w-6 items-center justify-center border border-tinta ${supportWanted ? 'bg-violeta' : 'bg-papel-presionado'}`} />
                   <View className="ml-3 flex-1">
-                    <Text className="font-sans-semibold text-sm text-plata">{kind === 'need' ? 'Quiero buscar apoyo' : 'Quiero ponerlo en movimiento'}</Text>
-                    <Text className="mt-1 font-sans text-xs leading-5 text-slate-400">
+                    <Text className="font-archivo-bold text-sm text-tinta">{kind === 'need' ? 'Quiero buscar apoyo' : 'Quiero ponerlo en movimiento'}</Text>
+                    <Text className="mt-1 font-archivo text-xs leading-5 text-tinta-75">
                       {supportWanted
                         ? 'Sí. Al guardar podrás preparar el próximo paso bajo custodia.'
                         : 'No por ahora. La escucha queda registrada sin iniciar un pedido operativo.'}
@@ -496,39 +577,40 @@ export default function Escuchar() {
             <Animated.View entering={fadeUp}>
               <StageTitle eyebrow="Vos decidís el destino" title="Primero tu bitácora. Después, si querés, lo común." body="La opción privada está elegida por defecto. Compartir crea una derivación mínima; nunca publica tu relato completo." />
               <View className="mt-7 gap-3">
-                <Pressable97 accessibilityRole="radio" accessibilityLabel="Sólo mi bitácora" accessibilityState={{ selected: destination === 'private' }} onPress={() => setDestination('private')} className="min-h-[110px] flex-row items-start rounded-[22px] border p-5" style={{ borderColor: destination === 'private' ? '#A78BFA66' : '#FFFFFF18', backgroundColor: destination === 'private' ? '#7D5BDE20' : '#FFFFFF08' }}>
-                  <Ionicons name="lock-closed-outline" size={22} color="#C4B5FD" />
-                  <View className="ml-4 flex-1">
-                    <Text className="font-serif text-xl text-plata">Sólo mi bitácora</Text>
-                    <Text className="mt-2 font-sans text-xs leading-5 text-slate-400">Todo queda en este dispositivo. No suma puntos ni crea un perfil.</Text>
-                  </View>
-                  {destination === 'private' && <Ionicons name="checkmark-circle" size={21} color="#A78BFA" />}
-                </Pressable97>
-                <Pressable97 accessibilityRole="radio" accessibilityLabel="Sumar facetas al pulso colectivo" accessibilityState={{ selected: destination === 'collective' }} onPress={() => setDestination('collective')} className="min-h-[110px] flex-row items-start rounded-[22px] border p-5" style={{ borderColor: destination === 'collective' ? '#6EE7B766' : '#FFFFFF18', backgroundColor: destination === 'collective' ? '#10B98118' : '#FFFFFF08' }}>
-                  <Ionicons name="pulse-outline" size={22} color="#6EE7B7" />
-                  <View className="ml-4 flex-1">
-                    <Text className="font-serif text-xl text-plata">Sumar al pulso colectivo</Text>
-                    <Text className="mt-2 font-sans text-xs leading-5 text-slate-400">Sólo taxonomías controladas para una radiografía con umbral de privacidad.</Text>
-                  </View>
-                  {destination === 'collective' && <Ionicons name="checkmark-circle" size={21} color="#34D399" />}
-                </Pressable97>
+                <SelectableCard
+                  title="Sólo mi bitácora"
+                  description="Todo queda en este dispositivo. No suma puntos ni crea un perfil."
+                  selected={destination === 'private'}
+                  color={VIOLETA}
+                  accessibilityLabel="Sólo mi bitácora"
+                  accessibilityRole="radio"
+                  onPress={() => setDestination('private')}
+                />
+                <SelectableCard
+                  title="Sumar al pulso colectivo"
+                  description="Sólo taxonomías controladas para una radiografía con umbral de privacidad."
+                  selected={destination === 'collective'}
+                  color={SENAL_POR_KEY.compromiso.color}
+                  accessibilityLabel="Sumar facetas al pulso colectivo"
+                  accessibilityRole="radio"
+                  onPress={() => setDestination('collective')}
+                />
               </View>
 
               {destination === 'collective' && (
                 <View className="mt-5 gap-4">
-                  <GlassCard className="p-5">
-                    <Text className="font-sans text-xs uppercase tracking-[2px] text-slate-500">Esto sí verá la red</Text>
-                    <Text className="mt-3 font-sans-semibold text-sm leading-6 text-plata">{preview}</Text>
-                    <View className="mt-4 h-px bg-white/10" />
-                    <View className="mt-4 gap-2">
+                  <PapelCard className="p-5">
+                    <Kicker tono="neutro">Esto sí verá la red</Kicker>
+                    <Text className="mt-3 font-archivo-bold text-sm leading-6 text-tinta">{preview}</Text>
+                    <View className="mt-4 h-px bg-bordeSuave" />
+                    <View className="mt-4 gap-1.5">
                       {['Tu relato y tus notas', 'Tus datos de contacto', 'Tu coordenada exacta'].map((item) => (
-                        <View key={item} className="flex-row items-center gap-2">
-                          <Ionicons name="close-circle-outline" size={16} color="#FB7185" />
-                          <Text className="font-sans text-xs text-slate-400">No se comparte: {item.toLowerCase()}</Text>
-                        </View>
+                        <Text key={item} className="font-archivo text-xs text-tinta-50">
+                          No se comparte: {item.toLowerCase()}
+                        </Text>
                       ))}
                     </View>
-                  </GlassCard>
+                  </PapelCard>
                   <GeoAttributionCard
                     value={context}
                     onChange={setContext}
@@ -538,28 +620,32 @@ export default function Escuchar() {
                 </View>
               )}
 
-              {destination === 'collective' && !pactoAceptado && (
+              {destination === 'collective' && (
                 <Animated.View entering={fadeUp} className="mt-5">
-                  <GlassCard className="p-5">
-                    <Text className="font-serif text-2xl leading-8 text-plata">{FTUE.pactoTitulo}</Text>
-                    <Text className="mt-3 font-sans text-sm leading-6 text-slate-300">{FTUE.pactoDetalle}</Text>
-                    <View className="mt-5">
-                      {FTUE.pacto.map((item, index) => (
-                        <View key={item.title} className={index === 0 ? '' : 'mt-4 border-t border-white/10 pt-4'}>
-                          <Text className="font-sans-semibold text-sm text-emerald-200">{item.title}</Text>
-                          <Text className="mt-1 font-sans text-xs leading-5 text-slate-400">{item.detail}</Text>
-                        </View>
-                      ))}
+                  {!pactoAceptado ? (
+                    <PapelCard className="p-5">
+                      <TituloAnton tamano="md">{FTUE.pactoTitulo}</TituloAnton>
+                      <Text className="mt-3 font-archivo text-sm leading-6 text-tinta-75">{FTUE.pactoDetalle}</Text>
+                      <View className="mt-5">
+                        {FTUE.pacto.map((item, index) => (
+                          <View key={item.title} className={index === 0 ? '' : 'mt-4 border-t border-bordeSuave pt-4'}>
+                            <Text className="font-archivo-bold text-sm text-tinta">{item.title}</Text>
+                            <Text className="mt-1 font-archivo text-xs leading-5 text-tinta-75">{item.detail}</Text>
+                          </View>
+                        ))}
+                      </View>
+                      <View className="mt-5 items-start">
+                        <BotonTinta etiqueta="Acepto el pacto" variante="fantasma" onPress={aceptarPacto} />
+                      </View>
+                    </PapelCard>
+                  ) : pactoRecienAceptado ? (
+                    <View className="flex-row items-center gap-3">
+                      <Sello texto="PACTADO" color="violeta" rotacion={3} />
+                      <Text className="flex-1 font-archivo text-xs leading-5 text-tinta-50">
+                        Ya podés sumar tus facetas al pulso colectivo.
+                      </Text>
                     </View>
-                    <Pressable97
-                      accessibilityRole="button"
-                      accessibilityLabel="Acepto el pacto"
-                      onPress={aceptarPacto}
-                      className="mt-5 min-h-12 items-center justify-center rounded-full border border-emerald-300/40 bg-emerald-300/10 px-6"
-                    >
-                      <Text className="font-sans-semibold text-sm text-emerald-200">Acepto el pacto</Text>
-                    </Pressable97>
-                  </GlassCard>
+                  ) : null}
                 </Animated.View>
               )}
             </Animated.View>
@@ -567,15 +653,13 @@ export default function Escuchar() {
 
           <View className="mt-9 flex-row items-center justify-between gap-4">
             {step > 0 ? (
-              <Pressable97 accessibilityRole="button" accessibilityLabel="Volver al paso anterior" onPress={back} className="min-h-12 justify-center rounded-full border border-white/10 px-5">
-                <Text className="font-sans-medium text-sm text-slate-400">Atrás</Text>
-              </Pressable97>
+              <BotonTinta etiqueta="Atrás" variante="fantasma" tamano="compacto" onPress={back} />
             ) : <View />}
-            <AccentButton
-              label={saveLabel}
+            <BotonTinta
+              etiqueta={saveLabel}
               onPress={step === 4 ? save : next}
               disabled={!canAdvance || saving || (step === 4 && destination === 'collective' && (!contextReady || !pactoAceptado))}
-              style={{ minHeight: 52 }}
+              cargando={step === 4 && saving}
             />
           </View>
         </ScrollView>

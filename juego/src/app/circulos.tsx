@@ -1,19 +1,22 @@
-import { Ionicons } from '@expo/vector-icons';
-import { LinearGradient } from 'expo-linear-gradient';
-import { useFocusEffect } from 'expo-router';
+import { useFocusEffect, useRouter } from 'expo-router';
 import { useCallback, useRef, useState } from 'react';
 import { ActivityIndicator, KeyboardAvoidingView, Platform, ScrollView, Text, TextInput, View } from 'react-native';
 import Animated from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { LivingHalo } from '@/components/civic/LivingHalo';
 import {
   CustodyExecutionCard,
   type CustodyExecutionActionDraft,
 } from '@/components/civic/CustodyExecutionCard';
-import { AccentButton } from '@/components/ui/AccentButton';
-import { GlassCard } from '@/components/ui/GlassCard';
-import { PanelHeader } from '@/components/ui/PanelHeader';
+import {
+  BotonTinta,
+  ChipTipo,
+  FilaIndice,
+  GranoPapel,
+  Kicker,
+  PapelCard,
+  TituloAnton,
+} from '@/components/papel';
 import { Pressable97 } from '@/components/ui/Pressable97';
 import {
   createCircleInvite,
@@ -70,6 +73,7 @@ import {
 import { civicCategoryLabel } from '@/civic/labels';
 import { fadeUp, staggerDelay } from '@/motion/variants';
 import { haptic } from '@/theme/haptics';
+import { AMBAR_PT, ROJO_SELLO, TINTA, TINTA_50, VERDE, VIOLETA } from '@/theme/tokens';
 
 const KIND_LABEL: Record<CircleSummary['kind'], string> = {
   territorial: 'Territorio',
@@ -77,7 +81,15 @@ const KIND_LABEL: Record<CircleSummary['kind'], string> = {
   celula: 'Célula de confianza',
 };
 
-const inputClass = 'mt-2 rounded-2xl border border-white/10 bg-black/25 px-4 py-3.5 font-sans text-sm text-plata';
+/** Foco visible: borde violeta 2px (spec §3.5/§10) — nada de halo aparte. */
+const estiloInput = (enfocado: boolean): object => ({
+  borderWidth: enfocado ? 2 : 1,
+  borderColor: enfocado ? VIOLETA : TINTA,
+  outlineColor: VIOLETA,
+  outlineStyle: 'solid' as const,
+  outlineWidth: enfocado ? 2 : 0,
+  outlineOffset: 2,
+});
 
 const CUSTODY_UNIT_LABEL: Record<CustodyNeedUnit, string> = {
   people: 'personas',
@@ -126,41 +138,40 @@ const coordinationCapacityLabel = (proposal: CustodyCoordinationProposal): strin
   return `${new Intl.NumberFormat('es-AR', { maximumFractionDigits: 2 }).format(proposal.capacity.quantity)} ${CUSTODY_UNIT_LABEL[proposal.capacity.unit]}`;
 };
 
+/**
+ * Color semántico por estado (spec: propuesto/pendiente → violeta,
+ * aceptado → verde, declinado → sello, vencido → ámbar, cerrado → tinta-50).
+ * Sin ícono: la tipografía y el borde ya cargan el significado.
+ */
 const coordinationCopy = (proposal: CustodyCoordinationProposal): {
   title: string;
   detail: string;
   color: string;
-  icon: keyof typeof Ionicons.glyphMap;
 } => {
   if (proposal.state === 'proposed') return {
     title: 'Propuesta privada enviada',
     detail: 'Otra cuenta coordinadora expresó que quiere coordinar. Falta la decisión separada de la cuenta grantora. No reserva recursos ni prueba contacto, entrega o resolución.',
-    color: '#C4B5FD',
-    icon: 'paper-plane-outline',
+    color: VIOLETA,
   };
   if (proposal.state === 'accepted') return {
     title: 'Acuerdo para coordinar',
     detail: 'Ambas partes aceptaron abrir una coordinación privada. El acuerdo no reserva recursos ni prueba contacto, entrega o resolución.',
-    color: '#6EE7B7',
-    icon: 'checkmark-circle-outline',
+    color: VERDE,
   };
   if (proposal.state === 'declined') return {
     title: 'No hubo acuerdo de coordinación',
     detail: 'La propuesta no fue aceptada. Esto no describe un rechazo a la persona ni dice nada sobre la validez o urgencia de su necesidad.',
-    color: '#FDA4AF',
-    icon: 'remove-circle-outline',
+    color: ROJO_SELLO,
   };
   if (proposal.state === 'expired') return {
     title: 'Propuesta vencida',
     detail: 'Terminó el plazo sin una coordinación activa. No inferimos falta de necesidad, rechazo, contacto, entrega ni resolución.',
-    color: '#FDE68A',
-    icon: 'time-outline',
+    color: AMBAR_PT,
   };
   return {
     title: 'Coordinación cerrada',
     detail: 'El permiso dejó de estar operativo. Este cierre no demuestra contacto, entrega ni resolución de la necesidad.',
-    color: '#94A3B8',
-    icon: 'lock-closed-outline',
+    color: TINTA_50,
   };
 };
 
@@ -217,25 +228,30 @@ function Field({
   secureTextEntry?: boolean;
   keyboardType?: 'default' | 'email-address';
 }) {
+  const [enfocado, setEnfocado] = useState(false);
   return (
     <View className="mt-4">
-      <Text className="font-sans-medium text-xs text-slate-300">{label}</Text>
+      <Kicker tono="neutro">{label}</Kicker>
       <TextInput
         value={value}
         onChangeText={onChangeText}
+        onFocus={() => setEnfocado(true)}
+        onBlur={() => setEnfocado(false)}
         placeholder={placeholder}
-        placeholderTextColor="#64748b"
+        placeholderTextColor={TINTA_50}
         autoCapitalize="none"
         autoCorrect={false}
         secureTextEntry={secureTextEntry}
         keyboardType={keyboardType}
-        className={inputClass}
+        className="mt-2 bg-papel-crudo px-5 py-4 font-archivo text-base text-tinta"
+        style={estiloInput(enfocado)}
       />
     </View>
   );
 }
 
 export default function Circulos() {
+  const router = useRouter();
   const insets = useSafeAreaInsets();
   const privateRefreshEpoch = useRef(0);
   const executionActionEpoch = useRef(0);
@@ -285,6 +301,12 @@ export default function Circulos() {
   const [detail, setDetail] = useState<CircleDetail | null>(null);
   const [reportReason, setReportReason] = useState('');
   const [generatedInvite, setGeneratedInvite] = useState<string | null>(null);
+  // Foco visible de los inputs canónicos (spec §3.5/§10) — uno por campo;
+  // la cantidad de custodia es un input por permiso, así que su foco se
+  // trackea por grantId en vez de un booleano único.
+  const [custodySupportFocusId, setCustodySupportFocusId] = useState<string | null>(null);
+  const [enfocadoReporte, setEnfocadoReporte] = useState(false);
+  const [enfocadoInvite, setEnfocadoInvite] = useState(false);
 
   const clearAccountBoundUi = useCallback(() => {
     executionActionEpoch.current += 1;
@@ -1048,96 +1070,101 @@ export default function Circulos() {
   const historicalCustodyExecutions = Object.values(custodyExecutions)
     .filter((execution) => !activeExecutionProposalIds.has(execution.proposalId));
 
+  const volver = () => (router.canGoBack() ? router.back() : router.replace('/'));
+
   return (
-    <View className="flex-1 bg-fondo">
-      <PanelHeader title="Círculos" />
+    <View className="flex-1 bg-papel">
+      <GranoPapel />
+      <View className="px-5" style={{ paddingTop: insets.top + 12, paddingBottom: 12 }}>
+        <Pressable97
+          accessibilityRole="button"
+          accessibilityLabel="Volver"
+          onPress={volver}
+          className="-ml-2 min-h-11 min-w-11 items-center justify-center self-start"
+        >
+          <Text className="font-space text-2xl text-tinta">←</Text>
+        </Pressable97>
+        <View className="mt-2">
+          <Kicker>red de confianza</Kicker>
+          <TituloAnton tamano="lg" className="mt-1">
+            Círculos
+          </TituloAnton>
+        </View>
+      </View>
       <KeyboardAvoidingView className="flex-1" behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
         <ScrollView
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: insets.bottom + 44 }}
         >
-          <Animated.View entering={fadeUp} className="mt-1 overflow-hidden rounded-[28px] border border-sky-200/10">
-            <LinearGradient colors={['#101D2B', '#10101A', '#090909']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={{ padding: 22, minHeight: 218 }}>
-              <LivingHalo color="#38BDF8" />
-              <View className="self-start rounded-full border border-sky-300/20 bg-sky-300/10 px-3 py-1.5">
-                <Text className="font-sans-medium text-[10px] uppercase tracking-[2.4px] text-sky-200">Red de confianza</Text>
-              </View>
-              <Text className="mt-5 max-w-[310px] font-serif text-[31px] leading-[39px] text-plata">
-                Ningún dato cambia el barrio por sí solo.
-              </Text>
-              <Text className="mt-3 max-w-[330px] font-sans text-sm leading-6 text-slate-400">
+          <Animated.View entering={fadeUp}>
+            <PapelCard className="mt-1 p-6">
+              <TituloAnton tamano="md">Ningún dato cambia el barrio por sí solo.</TituloAnton>
+              <Text className="mt-3 font-archivo text-sm leading-6 text-tinta-75">
                 Los círculos convierten señales dispersas en cobertura, cuidado y acción coordinada.
               </Text>
-              <View className="mt-5 flex-row items-center gap-2">
-                <View className="h-2.5 w-2.5 rounded-full bg-sky-300" />
-                <View className="h-px w-10 bg-sky-300/30" />
-                <View className="h-2 w-2 rounded-full bg-violet-300" />
-                <View className="h-px w-16 bg-violet-300/25" />
-                <View className="h-3 w-3 rounded-full bg-emerald-300" />
-                <Text className="ml-2 font-mono text-[9px] uppercase tracking-[1.5px] text-slate-500">persona · círculo · territorio</Text>
-              </View>
-            </LinearGradient>
+              <Text className="mt-4 font-space text-[10px] uppercase tracking-[1.5px] text-tinta-50">
+                persona · círculo · territorio
+              </Text>
+            </PapelCard>
           </Animated.View>
 
           {!CIVIC_API_URL && (
-            <View className="mt-5 flex-row items-start gap-3 rounded-2xl border border-amber-300/20 bg-amber-300/10 p-4">
-              <Ionicons name="cloud-offline-outline" size={18} color="#FCD34D" />
-              <Text className="flex-1 font-sans text-xs leading-5 text-amber-100/80">
+            <View className="mt-5 border border-ambar px-4 py-3">
+              <Text className="font-archivo text-xs leading-5 text-tinta-90">
                 Esta instalación está en modo local. Tus capturas funcionan; la red aparecerá cuando se configure la API cívica.
               </Text>
             </View>
           )}
 
           {message && (
-            <View className="mt-5 rounded-2xl border border-violet-300/20 bg-violet-300/10 px-4 py-3">
-              <Text className="font-sans text-xs leading-5 text-violet-100">{message}</Text>
+            <View className="mt-5 border border-ambar px-4 py-3">
+              <Text className="font-archivo text-xs leading-5 text-tinta-90">{message}</Text>
             </View>
           )}
 
           <View className="mt-8 flex-row items-end justify-between">
             <View>
-              <Text className="font-sans text-[11px] uppercase tracking-[3px] text-slate-400">Pulso compartido</Text>
-              <Text className="mt-2 font-serif text-2xl text-plata">Campañas activas</Text>
+              <Kicker tono="neutro">Pulso compartido</Kicker>
+              <TituloAnton tamano="md" className="mt-2">
+                Campañas activas
+              </TituloAnton>
             </View>
-            <Text className="font-mono text-xs text-slate-500">{campaigns.length}</Text>
+            <Text className="font-space text-xs text-tinta-50">{campaigns.length}</Text>
           </View>
 
           {loading ? (
-            <View className="h-32 items-center justify-center"><ActivityIndicator color="#A78BFA" /></View>
+            <View className="h-32 items-center justify-center"><ActivityIndicator color={VIOLETA} /></View>
           ) : campaigns.length === 0 ? (
-            <GlassCard className="mt-3 p-5">
-              <Text className="font-sans text-sm text-slate-300">Todavía no hay campañas activas en la red.</Text>
-              <Text className="mt-2 font-sans text-xs leading-5 text-slate-500">Las expediciones fundadoras siguen disponibles y guardan todo offline.</Text>
-            </GlassCard>
+            <PapelCard className="mt-3 p-5">
+              <Text className="font-archivo text-sm text-tinta-90">Todavía no hay campañas activas en la red.</Text>
+              <Text className="mt-2 font-archivo text-xs leading-5 text-tinta-50">Las expediciones fundadoras siguen disponibles y guardan todo offline.</Text>
+            </PapelCard>
           ) : (
             <View className="mt-3 gap-3">
               {campaigns.slice(0, 8).map((campaign, index) => {
                 const pulse = progress[campaign.id];
                 const pct = pulse?.progressPct ?? (campaign.targetEntries ? Math.min(100, Math.round(campaign.entryCount / campaign.targetEntries * 100)) : 0);
-                const color = campaign.mapColor ?? '#A78BFA';
+                const color = campaign.mapColor ?? VIOLETA;
                 return (
                   <Animated.View key={campaign.id} entering={staggerDelay(index)}>
-                    <GlassCard className="overflow-hidden p-5">
-                      <LivingHalo color={color} />
+                    <PapelCard className="p-5">
                       <View className="flex-row items-start justify-between">
                         <View className="flex-1 pr-3">
-                          <Text className="font-sans text-[10px] uppercase tracking-[2px]" style={{ color }}>{campaign.circleName}</Text>
-                          <Text className="mt-1 font-serif text-xl leading-7 text-plata">{campaign.title}</Text>
+                          <Text className="font-space text-[10px] uppercase tracking-[1.76px]" style={{ color }}>{campaign.circleName}</Text>
+                          <Text className="mt-1 font-archivo-bold text-lg leading-7 text-tinta">{campaign.title}</Text>
                         </View>
-                        <View className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5">
-                          <Text className="font-mono text-[9px] text-slate-400">{campaign.type}</Text>
-                        </View>
+                        <ChipTipo etiqueta={campaign.type} />
                       </View>
-                      {campaign.description && <Text className="mt-3 font-sans text-xs leading-5 text-slate-400">{campaign.description}</Text>}
-                      <View className="mt-5 h-1.5 overflow-hidden rounded-full bg-white/10">
-                        <View className="h-full rounded-full" style={{ width: `${pct}%`, backgroundColor: color }} />
+                      {campaign.description && <Text className="mt-3 font-archivo text-xs leading-5 text-tinta-75">{campaign.description}</Text>}
+                      <View className="mt-5 h-1.5 overflow-hidden bg-bordeSuave">
+                        <View className="h-full" style={{ width: `${pct}%`, backgroundColor: color }} />
                       </View>
                       <View className="mt-2 flex-row justify-between">
-                        <Text className="font-mono text-[10px] text-slate-500">{pulse?.entries ?? campaign.entryCount} señales</Text>
-                        <Text className="font-mono text-[10px] text-slate-500">{pulse ? `${pulse.verifiedPct}% corroborado` : campaign.targetEntries ? `${pct}% cobertura` : 'meta abierta'}</Text>
+                        <Text className="font-space text-[10px] text-tinta-50">{pulse?.entries ?? campaign.entryCount} señales</Text>
+                        <Text className="font-space text-[10px] text-tinta-50">{pulse ? `${pulse.verifiedPct}% corroborado` : campaign.targetEntries ? `${pct}% cobertura` : 'meta abierta'}</Text>
                       </View>
-                    </GlassCard>
+                    </PapelCard>
                   </Animated.View>
                 );
               })}
@@ -1148,15 +1175,16 @@ export default function Circulos() {
             <View className="mt-9">
               <View className="flex-row items-end justify-between">
                 <View className="flex-1 pr-4">
-                  <Text className="font-sans text-[11px] uppercase tracking-[3px] text-emerald-300/80">Canal privado</Text>
-                  <Text className="mt-2 font-serif text-2xl text-plata">Pedidos bajo custodia</Text>
+                  <Kicker tono="neutro">Canal privado</Kicker>
+                  <TituloAnton tamano="md" className="mt-2">
+                    Pedidos bajo custodia
+                  </TituloAnton>
                 </View>
-                <Text className="font-mono text-xs text-slate-500">{custodyInboxError ? '—' : custodyGrants.length}</Text>
+                <Text className="font-space text-xs text-tinta-50">{custodyInboxError ? '—' : custodyGrants.length}</Text>
               </View>
 
-              <View className="mt-3 flex-row items-start gap-3 rounded-2xl border border-emerald-300/15 bg-emerald-300/[0.06] p-4">
-                <Ionicons name="shield-checkmark-outline" size={18} color="#6EE7B7" />
-                <Text className="flex-1 font-sans text-[11px] leading-5 text-emerald-100/75">
+              <View className="mt-3 border border-verde px-4 py-3">
+                <Text className="font-archivo text-[11px] leading-5 text-tinta-90">
                   Cada permiso muestra sólo categoría, urgencia, cantidad y unidad opcionales, y una zona segura si fue autorizada. No incluye relato, identidad, contacto ni ubicación exacta.
                 </Text>
               </View>
@@ -1168,148 +1196,134 @@ export default function Circulos() {
                   ? `${new Intl.NumberFormat('es-AR', { maximumFractionDigits: 2 }).format(intent.quantity)} ${CUSTODY_UNIT_LABEL[grant.payload.unit]}`
                   : 'sin cantidad fijada';
                 return (
-                  <GlassCard key={grant.grantId} className="mt-3 border border-amber-300/20 p-5">
-                    <View className="flex-row items-start gap-3">
-                      <Ionicons name="refresh-circle-outline" size={20} color="#FCD34D" />
-                      <View className="flex-1">
-                        <Text className="font-sans-medium text-sm text-amber-100">Constancia pendiente de recuperar</Text>
-                        <Text className="mt-2 font-sans text-[11px] leading-5 text-slate-400">
-                          El permiso ya no aparece en el corte activo, pero este teléfono conserva el comando exacto de {intent.disposition === 'assessing' ? 'evaluación' : `capacidad · ${pendingQuantity}`}. No se creará una respuesta nueva.
-                        </Text>
-                        <Text className="mt-2 font-mono text-[9px] text-slate-500">
-                          {civicCategoryLabel(grant.payload.category)} · círculo {grant.recipient.id}
-                        </Text>
-                        <Pressable97
-                          accessibilityRole="button"
-                          accessibilityLabel="Recuperar constancia pendiente sin crear otra respuesta"
-                          accessibilityState={{ busy: custodyBusyId === grant.grantId, disabled: privateBusy }}
-                          disabled={privateBusy}
-                          onPress={() => { void submitCustodyResponse(grant, intent.disposition); }}
-                          className="mt-4 min-h-11 self-start items-center justify-center rounded-full border border-amber-300/25 bg-amber-300/10 px-4"
-                        >
-                          <Text className="font-sans-medium text-xs text-amber-100">
-                            {custodyBusyId === grant.grantId ? 'Recuperando…' : 'Recuperar constancia'}
-                          </Text>
-                        </Pressable97>
-                        {responseError && (
-                          <Text accessibilityLiveRegion="assertive" className="mt-3 font-sans text-[11px] leading-5 text-amber-100/75">
-                            {responseError}
-                          </Text>
-                        )}
-                      </View>
+                  <View key={grant.grantId} className="mt-3 border bg-papel-crudo p-5" style={{ borderColor: AMBAR_PT }}>
+                    <Text className="font-archivo-bold text-sm text-tinta">Constancia pendiente de recuperar</Text>
+                    <Text className="mt-2 font-archivo text-[11px] leading-5 text-tinta-75">
+                      El permiso ya no aparece en el corte activo, pero este teléfono conserva el comando exacto de {intent.disposition === 'assessing' ? 'evaluación' : `capacidad · ${pendingQuantity}`}. No se creará una respuesta nueva.
+                    </Text>
+                    <Text className="mt-2 font-space text-[9px] text-tinta-50">
+                      {civicCategoryLabel(grant.payload.category)} · círculo {grant.recipient.id}
+                    </Text>
+                    <View className="mt-4 items-start">
+                      <BotonTinta
+                        etiqueta="Recuperar constancia"
+                        accessibilityLabel="Recuperar constancia pendiente sin crear otra respuesta"
+                        variante="fantasma"
+                        tamano="compacto"
+                        disabled={privateBusy}
+                        cargando={custodyBusyId === grant.grantId}
+                        onPress={() => { void submitCustodyResponse(grant, intent.disposition); }}
+                      />
                     </View>
-                  </GlassCard>
+                    {responseError && (
+                      <Text accessibilityLiveRegion="assertive" className="mt-3 font-archivo text-[11px] leading-5 text-tinta-90">
+                        {responseError}
+                      </Text>
+                    )}
+                  </View>
                 );
               })}
 
               {executionIntentIncidents.map((incident, index) => (
-                <GlassCard
+                <View
                   key={incident.eventId ?? incident.proposalId ?? `execution-incident-${index}`}
-                  className="mt-3 border border-rose-300/20 p-5"
+                  className="mt-3 border bg-papel-crudo p-5"
+                  style={{ borderColor: ROJO_SELLO }}
                 >
-                  <View className="flex-row items-start gap-3">
-                    <Ionicons name="shield-outline" size={20} color="#FDA4AF" />
-                    <View className="flex-1">
-                      <Text className="font-sans-medium text-sm text-rose-100">Constancia local en cuarentena</Text>
-                      <Text className="mt-2 font-sans text-[11px] leading-5 text-slate-400">
-                        Una operación pendiente no supera la verificación de integridad. La app conserva la fila, bloquea otro comando para esa ruta cuando puede identificarla y no intenta reconstruirla ni enviarla.
-                      </Text>
-                      <Text className="mt-2 font-mono text-[9px] text-slate-500">
-                        {incident.type ? executionEventLabel(incident.type) : 'tipo no verificable'}
-                        {incident.createdAt ? ` · guardado ${custodyExpiryLabel(incident.createdAt)}` : ''}
-                      </Text>
-                      <Text className="mt-2 font-sans text-[10px] leading-5 text-rose-100/70">
-                        Conservá este dispositivo y esta cuenta. Actualizar la bandeja es seguro; borrar datos puede destruir la evidencia necesaria para una recuperación asistida.
-                      </Text>
-                    </View>
-                  </View>
-                </GlassCard>
+                  <Text className="font-archivo-bold text-sm text-tinta">Constancia local en cuarentena</Text>
+                  <Text className="mt-2 font-archivo text-[11px] leading-5 text-tinta-75">
+                    Una operación pendiente no supera la verificación de integridad. La app conserva la fila, bloquea otro comando para esa ruta cuando puede identificarla y no intenta reconstruirla ni enviarla.
+                  </Text>
+                  <Text className="mt-2 font-space text-[9px] text-tinta-50">
+                    {incident.type ? executionEventLabel(incident.type) : 'tipo no verificable'}
+                    {incident.createdAt ? ` · guardado ${custodyExpiryLabel(incident.createdAt)}` : ''}
+                  </Text>
+                  <Text className="mt-2 font-archivo text-[10px] leading-5 text-tinta-75">
+                    Conservá este dispositivo y esta cuenta. Actualizar la bandeja es seguro; borrar datos puede destruir la evidencia necesaria para una recuperación asistida.
+                  </Text>
+                </View>
               ))}
 
               {orphanPendingExecutions.map((intent) => (
-                <GlassCard key={intent.eventId} className="mt-3 border border-amber-300/20 p-5">
-                  <View className="flex-row items-start gap-3">
-                    <Ionicons name="git-network-outline" size={20} color="#FCD34D" />
-                    <View className="flex-1">
-                      <Text className="font-sans-medium text-sm text-amber-100">Ruta pendiente de reconciliar</Text>
-                      <Text className="mt-2 font-sans text-[11px] leading-5 text-slate-400">
-                        La ruta ya no aparece en el corte verificable, pero este dispositivo conserva el evento exacto de {executionEventLabel(intent.type)}. Recuperar usa la misma identidad; nunca crea otro hito.
-                      </Text>
-                      <Text className="mt-2 font-mono text-[9px] text-slate-500">
-                        Guardado {custodyExpiryLabel(intent.createdAt)}
-                      </Text>
-                      <Pressable97
-                        accessibilityRole="button"
-                        accessibilityLabel="Recuperar constancia exacta de la ruta privada"
-                        accessibilityState={{ busy: executionBusyId === intent.proposalId, disabled: privateBusy }}
-                        disabled={privateBusy}
-                        onPress={() => { void retryExecutionAction(intent.proposalId); }}
-                        className="mt-4 min-h-11 self-start items-center justify-center rounded-full border border-amber-300/25 bg-amber-300/10 px-4"
-                      >
-                        <Text className="font-sans-medium text-xs text-amber-100">
-                          {executionBusyId === intent.proposalId ? 'Recuperando…' : 'Recuperar constancia'}
-                        </Text>
-                      </Pressable97>
-                      {executionErrors[intent.proposalId] && (
-                        <Text accessibilityLiveRegion="assertive" className="mt-3 font-sans text-[11px] leading-5 text-amber-100/75">
-                          {executionErrors[intent.proposalId]}
-                        </Text>
-                      )}
-                    </View>
+                <View key={intent.eventId} className="mt-3 border bg-papel-crudo p-5" style={{ borderColor: AMBAR_PT }}>
+                  <Text className="font-archivo-bold text-sm text-tinta">Ruta pendiente de reconciliar</Text>
+                  <Text className="mt-2 font-archivo text-[11px] leading-5 text-tinta-75">
+                    La ruta ya no aparece en el corte verificable, pero este dispositivo conserva el evento exacto de {executionEventLabel(intent.type)}. Recuperar usa la misma identidad; nunca crea otro hito.
+                  </Text>
+                  <Text className="mt-2 font-space text-[9px] text-tinta-50">
+                    Guardado {custodyExpiryLabel(intent.createdAt)}
+                  </Text>
+                  <View className="mt-4 items-start">
+                    <BotonTinta
+                      etiqueta="Recuperar constancia"
+                      accessibilityLabel="Recuperar constancia exacta de la ruta privada"
+                      variante="fantasma"
+                      tamano="compacto"
+                      disabled={privateBusy}
+                      cargando={executionBusyId === intent.proposalId}
+                      onPress={() => { void retryExecutionAction(intent.proposalId); }}
+                    />
                   </View>
-                </GlassCard>
+                  {executionErrors[intent.proposalId] && (
+                    <Text accessibilityLiveRegion="assertive" className="mt-3 font-archivo text-[11px] leading-5 text-tinta-90">
+                      {executionErrors[intent.proposalId]}
+                    </Text>
+                  )}
+                </View>
               ))}
 
               {coordinationInboxError && !custodyInboxError && (
-                <View accessibilityLiveRegion="assertive" className="mt-3 rounded-2xl border border-amber-300/20 bg-amber-300/[0.07] p-4">
-                  <Text className="font-sans-medium text-xs text-amber-100">No pudimos verificar las coordinaciones.</Text>
-                  <Text className="mt-2 font-sans text-[11px] leading-5 text-slate-400">{coordinationInboxError}</Text>
-                  <Text className="mt-2 font-sans text-[11px] leading-5 text-amber-100/70">
+                <View accessibilityLiveRegion="assertive" className="mt-3 border border-ambar px-4 py-3">
+                  <Text className="font-archivo-bold text-xs text-tinta">No pudimos verificar las coordinaciones.</Text>
+                  <Text className="mt-2 font-archivo text-[11px] leading-5 text-tinta-75">{coordinationInboxError}</Text>
+                  <Text className="mt-2 font-archivo text-[11px] leading-5 text-tinta-90">
                     No presentamos una bandeja vacía como evidencia de ausencia. Una propuesta explícita puede reintentarse de forma idempotente.
                   </Text>
-                  <Pressable97
-                    accessibilityRole="button"
-                    accessibilityLabel="Reintentar verificación de coordinaciones privadas"
-                    disabled={loading || busy || custodyBusyId != null || coordinationBusyId != null}
-                    onPress={() => { void refresh(); }}
-                    className="mt-3 min-h-11 self-start items-center justify-center rounded-full border border-amber-300/25 bg-amber-300/10 px-4"
-                  >
-                    <Text className="font-sans-medium text-xs text-amber-100">Actualizar estado</Text>
-                  </Pressable97>
+                  <View className="mt-3 items-start">
+                    <BotonTinta
+                      etiqueta="Actualizar estado"
+                      accessibilityLabel="Reintentar verificación de coordinaciones privadas"
+                      variante="fantasma"
+                      tamano="compacto"
+                      disabled={loading || busy || custodyBusyId != null || coordinationBusyId != null}
+                      onPress={() => { void refresh(); }}
+                    />
+                  </View>
                 </View>
               )}
 
               {executionInboxError && !custodyInboxError && (
-                <View accessibilityLiveRegion="assertive" className="mt-3 rounded-2xl border border-amber-300/20 bg-amber-300/[0.07] p-4">
-                  <Text className="font-sans-medium text-xs text-amber-100">No pudimos verificar las rutas de apoyo.</Text>
-                  <Text className="mt-2 font-sans text-[11px] leading-5 text-slate-400">{executionInboxError}</Text>
-                  <Text className="mt-2 font-sans text-[11px] leading-5 text-amber-100/70">
+                <View accessibilityLiveRegion="assertive" className="mt-3 border border-ambar px-4 py-3">
+                  <Text className="font-archivo-bold text-xs text-tinta">No pudimos verificar las rutas de apoyo.</Text>
+                  <Text className="mt-2 font-archivo text-[11px] leading-5 text-tinta-75">{executionInboxError}</Text>
+                  <Text className="mt-2 font-archivo text-[11px] leading-5 text-tinta-90">
                     Conservamos cualquier comando pendiente y no interpretamos la falla como ausencia de reserva, entrega o recepción.
                   </Text>
-                  <Pressable97
-                    accessibilityRole="button"
-                    accessibilityLabel="Reintentar verificación de rutas privadas"
-                    disabled={loading || privateBusy}
-                    onPress={() => { void refresh(); }}
-                    className="mt-3 min-h-11 self-start items-center justify-center rounded-full border border-amber-300/25 bg-amber-300/10 px-4"
-                  >
-                    <Text className="font-sans-medium text-xs text-amber-100">Actualizar rutas</Text>
-                  </Pressable97>
+                  <View className="mt-3 items-start">
+                    <BotonTinta
+                      etiqueta="Actualizar rutas"
+                      accessibilityLabel="Reintentar verificación de rutas privadas"
+                      variante="fantasma"
+                      tamano="compacto"
+                      disabled={loading || privateBusy}
+                      onPress={() => { void refresh(); }}
+                    />
+                  </View>
                 </View>
               )}
 
               {custodyInboxError ? (
-                <GlassCard className="mt-3 border border-amber-300/15 p-5">
-                  <Text className="font-sans-medium text-sm text-amber-100">No pudimos verificar esta bandeja.</Text>
-                  <Text className="mt-2 font-sans text-xs leading-5 text-slate-400">{custodyInboxError}</Text>
-                </GlassCard>
+                <View className="mt-3 border border-ambar bg-papel-crudo p-5">
+                  <Text className="font-archivo-bold text-sm text-tinta">No pudimos verificar esta bandeja.</Text>
+                  <Text className="mt-2 font-archivo text-xs leading-5 text-tinta-75">{custodyInboxError}</Text>
+                </View>
               ) : custodyGrants.length === 0 ? (
-                <GlassCard className="mt-3 p-5">
-                  <Text className="font-sans text-sm text-slate-300">No hay pedidos activos disponibles para tus roles actuales de coordinación.</Text>
-                  <Text className="mt-2 font-sans text-xs leading-5 text-slate-500">
+                <PapelCard className="mt-3 p-5">
+                  <Text className="font-archivo text-sm text-tinta-90">No hay pedidos activos disponibles para tus roles actuales de coordinación.</Text>
+                  <Text className="mt-2 font-archivo text-xs leading-5 text-tinta-50">
                     Esta bandeja no muestra permisos vencidos o retirados. Vacía no significa que una necesidad haya sido resuelta.
                   </Text>
-                </GlassCard>
+                </PapelCard>
               ) : (
                 <View className="mt-3 gap-3">
                   {custodyGrants.map((grant, index) => {
@@ -1358,152 +1372,122 @@ export default function Circulos() {
                       : 'sin cantidad declarada';
                     return (
                       <Animated.View key={grant.grantId} entering={staggerDelay(index)}>
-                        <GlassCard className="overflow-hidden border border-emerald-300/10 p-5">
-                          <LivingHalo color="#34D399" />
+                        <PapelCard className="p-5">
                           <View className="flex-row items-start justify-between gap-3">
                             <View className="flex-1">
-                              <Text className="font-sans text-[10px] uppercase tracking-[2px] text-emerald-300">{civicCategoryLabel(grant.payload.category)}</Text>
-                              <Text className="mt-1 font-sans-semibold text-base text-plata">
+                              <Kicker tono="neutro">{civicCategoryLabel(grant.payload.category)}</Kicker>
+                              <Text className="mt-1 font-archivo-bold text-base text-tinta">
                                 {circleName ?? `Círculo ${grant.recipient.id}`}
                               </Text>
                             </View>
-                            <View className="rounded-full border border-emerald-300/20 bg-emerald-300/10 px-3 py-1.5">
-                              <Text className="font-mono text-[9px] uppercase text-emerald-200">permiso activo</Text>
-                            </View>
+                            <ChipTipo etiqueta="Permiso activo" activo color={VERDE} />
                           </View>
 
-                          <View className="mt-4 gap-2.5">
-                            <View className="flex-row items-start gap-2">
-                              <Ionicons name="pulse-outline" size={15} color="#FB7185" />
-                              <Text className="flex-1 font-sans text-xs leading-5 text-slate-300">Urgencia {grant.payload.urgency}/5</Text>
-                            </View>
-                            <View className="flex-row items-start gap-2">
-                              <Ionicons name="cube-outline" size={15} color="#A78BFA" />
-                              <Text className="flex-1 font-sans text-xs leading-5 text-slate-300">{custodyQuantityLabel(grant)}</Text>
-                            </View>
-                            <View className="flex-row items-start gap-2">
-                              <Ionicons name="location-outline" size={15} color="#7DD3FC" />
-                              <Text className="flex-1 font-sans text-xs leading-5 text-slate-300">{custodyZoneLabel(grant.payload.location)}</Text>
-                            </View>
-                            <View className="flex-row items-start gap-2">
-                              <Ionicons name="time-outline" size={15} color="#FCD34D" />
-                              <Text className="flex-1 font-sans text-xs leading-5 text-slate-300">Vence {custodyExpiryLabel(grant.expiresAt)}</Text>
-                            </View>
+                          <View className="mt-4 gap-1.5">
+                            <Text className="font-archivo text-xs leading-5 text-tinta-75">Urgencia {grant.payload.urgency}/5</Text>
+                            <Text className="font-archivo text-xs leading-5 text-tinta-75">{custodyQuantityLabel(grant)}</Text>
+                            <Text className="font-archivo text-xs leading-5 text-tinta-75">{custodyZoneLabel(grant.payload.location)}</Text>
+                            <Text className="font-archivo text-xs leading-5 text-tinta-75">Vence {custodyExpiryLabel(grant.expiresAt)}</Text>
                           </View>
 
-                          <View className="mt-4 rounded-2xl bg-white/[0.035] p-3">
-                            <Text className="font-sans text-[11px] leading-5 text-slate-500">
+                          <PapelCard variante="suave" className="mt-4 p-3">
+                            <Text className="font-archivo text-[11px] leading-5 text-tinta-50">
                               Recibir este permiso no asigna el caso ni afirma que el círculo pueda responder. Sólo habilita evaluar una coordinación dentro del plazo.
                             </Text>
-                          </View>
+                          </PapelCard>
 
                           {pendingResponse ? (
-                            <View accessibilityLiveRegion="polite" className="mt-4 rounded-2xl border border-amber-300/20 bg-amber-300/[0.07] p-4">
-                              <View className="flex-row items-start gap-3">
-                                <Ionicons name="refresh-circle-outline" size={18} color="#FCD34D" />
-                                <View className="flex-1">
-                                  <Text className="font-sans-medium text-xs text-amber-100">Operación protegida pendiente</Text>
-                                  <Text className="mt-2 font-sans text-[11px] leading-5 text-slate-400">
-                                    Este teléfono conservará el mismo comando de {pendingResponse.disposition === 'assessing' ? 'evaluación' : `capacidad · ${pendingResponseQuantity}`} hasta verificar su constancia. No podés cambiar el contenido ni crear otra identidad mientras tanto.
-                                  </Text>
-                                  <Pressable97
-                                    accessibilityRole="button"
-                                    accessibilityLabel="Reintentar exactamente la respuesta pendiente"
-                                    accessibilityState={{ busy: withdrawing, disabled: privateBusy }}
-                                    disabled={privateBusy}
-                                    onPress={() => { void submitCustodyResponse(grant, pendingResponse.disposition); }}
-                                    className="mt-4 min-h-11 self-start items-center justify-center rounded-full border border-amber-300/25 bg-amber-300/10 px-4"
-                                  >
-                                    <Text className="font-sans-medium text-xs text-amber-100">{withdrawing ? 'Recuperando…' : 'Recuperar constancia'}</Text>
-                                  </Pressable97>
-                                </View>
+                            <View accessibilityLiveRegion="polite" className="mt-4 border border-ambar px-4 py-3">
+                              <Text className="font-archivo-bold text-xs text-tinta">Operación protegida pendiente</Text>
+                              <Text className="mt-2 font-archivo text-[11px] leading-5 text-tinta-75">
+                                Este teléfono conservará el mismo comando de {pendingResponse.disposition === 'assessing' ? 'evaluación' : `capacidad · ${pendingResponseQuantity}`} hasta verificar su constancia. No podés cambiar el contenido ni crear otra identidad mientras tanto.
+                              </Text>
+                              <View className="mt-4 items-start">
+                                <BotonTinta
+                                  etiqueta="Recuperar constancia"
+                                  accessibilityLabel="Reintentar exactamente la respuesta pendiente"
+                                  variante="fantasma"
+                                  tamano="compacto"
+                                  disabled={privateBusy}
+                                  cargando={withdrawing}
+                                  onPress={() => { void submitCustodyResponse(grant, pendingResponse.disposition); }}
+                                />
                               </View>
                             </View>
                           ) : grant.response ? (
                             <View
                               accessibilityLiveRegion="polite"
-                              className={`mt-4 rounded-2xl border p-4 ${grant.response.disposition === 'assessing' ? 'border-sky-300/20 bg-sky-300/[0.07]' : 'border-violet-300/20 bg-violet-300/[0.07]'}`}
+                              className={`mt-4 border px-4 py-3 ${grant.response.disposition === 'assessing' ? 'border-violeta' : 'border-verde'}`}
                             >
-                              <View className="flex-row items-start gap-3">
-                                <Ionicons
-                                  name={grant.response.disposition === 'assessing' ? 'search-outline' : 'hand-left-outline'}
-                                  size={18}
-                                  color={grant.response.disposition === 'assessing' ? '#7DD3FC' : '#C4B5FD'}
-                                />
-                                <View className="flex-1">
-                                  <Text className={`font-sans-semibold text-xs ${grant.response.disposition === 'assessing' ? 'text-sky-100' : 'text-violet-100'}`}>
-                                    {grant.response.disposition === 'assessing'
-                                      ? 'El círculo está evaluando'
-                                      : `Capacidad declarada · ${recordedSupportQuantity}`}
-                                  </Text>
-                                  <Text className="mt-2 font-sans text-[11px] leading-5 text-slate-400">
-                                    {grant.response.disposition === 'assessing'
-                                      ? 'Esta constancia sólo registra que comenzó una evaluación. No confirma capacidad, contacto, entrega ni resolución.'
-                                      : 'Esta constancia expresa capacidad disponible. No confirma que haya habido contacto, entrega ni resolución.'}
-                                  </Text>
-                                  <Text className="mt-2 font-mono text-[9px] text-slate-500">
-                                    Registrado {custodyExpiryLabel(grant.response.recordedAt)}
-                                  </Text>
-                                </View>
-                              </View>
+                              <Text className="font-archivo-bold text-xs text-tinta">
+                                {grant.response.disposition === 'assessing'
+                                  ? 'El círculo está evaluando'
+                                  : `Capacidad declarada · ${recordedSupportQuantity}`}
+                              </Text>
+                              <Text className="mt-2 font-archivo text-[11px] leading-5 text-tinta-75">
+                                {grant.response.disposition === 'assessing'
+                                  ? 'Esta constancia sólo registra que comenzó una evaluación. No confirma capacidad, contacto, entrega ni resolución.'
+                                  : 'Esta constancia expresa capacidad disponible. No confirma que haya habido contacto, entrega ni resolución.'}
+                              </Text>
+                              <Text className="mt-2 font-space text-[9px] text-tinta-50">
+                                Registrado {custodyExpiryLabel(grant.response.recordedAt)}
+                              </Text>
                             </View>
                           ) : responseConfirming === 'assessing' ? (
-                            <View accessibilityLiveRegion="polite" className="mt-4 rounded-2xl border border-sky-300/20 bg-sky-300/[0.07] p-4">
-                              <Text className="font-sans-medium text-xs text-sky-100">¿Tomar este pedido para evaluar?</Text>
-                              <Text className="mt-2 font-sans text-[11px] leading-5 text-slate-400">
+                            <View accessibilityLiveRegion="polite" className="mt-4 border border-violeta px-4 py-3">
+                              <Text className="font-archivo-bold text-xs text-tinta">¿Tomar este pedido para evaluar?</Text>
+                              <Text className="mt-2 font-archivo text-[11px] leading-5 text-tinta-75">
                                 Se registrará una constancia del círculo. Evaluar no promete capacidad, contacto, entrega ni resolución.
                               </Text>
                               <View className="mt-4 flex-row flex-wrap gap-2">
-                                <Pressable97
-                                  accessibilityRole="button"
+                                <BotonTinta
+                                  etiqueta="Volver"
                                   accessibilityLabel="Volver sin tomar el pedido para evaluar"
+                                  variante="fantasma"
+                                  tamano="compacto"
                                   disabled={privateBusy}
                                   onPress={() => setCustodyResponseConfirm(null)}
-                                  className="min-h-11 items-center justify-center rounded-full border border-white/10 bg-white/5 px-4"
-                                >
-                                  <Text className="font-sans-medium text-xs text-slate-300">Volver</Text>
-                                </Pressable97>
-                                <Pressable97
-                                  accessibilityRole="button"
+                                />
+                                <BotonTinta
+                                  etiqueta="Confirmar evaluación"
                                   accessibilityLabel="Confirmar tomar para evaluar"
-                                  accessibilityState={{ busy: withdrawing, disabled: privateBusy }}
+                                  variante="tinta"
+                                  tamano="compacto"
                                   disabled={privateBusy}
+                                  cargando={withdrawing}
                                   onPress={() => { void submitCustodyResponse(grant, 'assessing'); }}
-                                  className="min-h-11 items-center justify-center rounded-full border border-sky-300/25 bg-sky-300/10 px-4"
-                                >
-                                  <Text className="font-sans-medium text-xs text-sky-100">{withdrawing ? 'Registrando…' : 'Confirmar evaluación'}</Text>
-                                </Pressable97>
+                                />
                               </View>
                             </View>
                           ) : (
-                            <View className="mt-4 rounded-2xl border border-white/[0.07] bg-white/[0.025] p-4">
-                              <Text className="font-sans-medium text-xs text-slate-200">Sin respuesta del círculo</Text>
-                              <Text className="mt-2 font-sans text-[11px] leading-5 text-slate-500">
+                            <PapelCard variante="suave" className="mt-4 p-4">
+                              <Text className="font-archivo-bold text-xs text-tinta">Sin respuesta del círculo</Text>
+                              <Text className="mt-2 font-archivo text-[11px] leading-5 text-tinta-50">
                                 El primer paso permitido es dejar constancia de que el pedido será evaluado.
                               </Text>
-                              <Pressable97
-                                accessibilityRole="button"
-                                accessibilityLabel="Tomar pedido para evaluar"
-                                accessibilityHint="Abre una confirmación; no declara capacidad ni entrega"
-                                disabled={privateBusy}
-                                onPress={() => {
-                                  clearCustodyResponseError(grant.grantId);
-                                  setCustodyConfirmId(null);
-                                  setCustodyResponseConfirm({ grantId: grant.grantId, disposition: 'assessing' });
-                                }}
-                                className="mt-4 min-h-11 self-start items-center justify-center rounded-full border border-sky-300/25 bg-sky-300/10 px-4"
-                              >
-                                <Text className="font-sans-medium text-xs text-sky-100">Tomar para evaluar</Text>
-                              </Pressable97>
-                            </View>
+                              <View className="mt-4 items-start">
+                                <BotonTinta
+                                  etiqueta="Tomar para evaluar"
+                                  accessibilityLabel="Tomar pedido para evaluar"
+                                  variante="fantasma"
+                                  tamano="compacto"
+                                  disabled={privateBusy}
+                                  onPress={() => {
+                                    clearCustodyResponseError(grant.grantId);
+                                    setCustodyConfirmId(null);
+                                    setCustodyResponseConfirm({ grantId: grant.grantId, disposition: 'assessing' });
+                                  }}
+                                />
+                              </View>
+                            </PapelCard>
                           )}
 
                           {grant.response && !pendingResponse && !coordinationProposal && !coordinationInboxError && !coordinationTruncated && !coordinationConfirming && (
-                            <View className="mt-4 rounded-2xl border border-violet-300/15 bg-violet-300/[0.045] p-4">
-                              <Text className="font-sans-medium text-xs text-violet-100">
+                            <View className="mt-4 border border-violeta px-4 py-3">
+                              <Text className="font-archivo-bold text-xs text-tinta">
                                 {grant.response.disposition === 'assessing' ? '¿Hay capacidad disponible?' : 'Revisar capacidad declarada'}
                               </Text>
-                              <Text className="mt-2 font-sans text-[11px] leading-5 text-slate-400">
+                              <Text className="mt-2 font-archivo text-[11px] leading-5 text-tinta-75">
                                 {grant.response.disposition === 'assessing'
                                   ? 'Declarala sólo si el círculo puede poner un recurso a disposición. No equivale a entregarlo.'
                                   : 'Una revisión crea una nueva constancia auditada. No borra el historial ni demuestra una entrega.'}
@@ -1511,72 +1495,69 @@ export default function Circulos() {
 
                               {hasComparableQuantity && responseConfirming !== 'support_available' && (
                                 <View className="mt-4">
-                                  <Text className="font-sans-medium text-[11px] text-slate-300">
-                                    Cantidad disponible (opcional)
-                                  </Text>
+                                  <Kicker tono="neutro">Cantidad disponible (opcional)</Kicker>
                                   <TextInput
                                     accessibilityLabel={`Cantidad disponible, máximo ${custodyQuantityLabel(grant)}`}
                                     accessibilityHint="Campo numérico opcional; la unidad coincide con la solicitada"
                                     value={supportInput}
                                     onChangeText={(value) => updateCustodySupportInput(grant.grantId, value)}
+                                    onFocus={() => setCustodySupportFocusId(grant.grantId)}
+                                    onBlur={() => setCustodySupportFocusId((current) => (current === grant.grantId ? null : current))}
                                     editable={!privateBusy}
                                     keyboardType="decimal-pad"
                                     inputMode="decimal"
                                     placeholder={`Hasta ${custodyQuantityLabel(grant)}`}
-                                    placeholderTextColor="#64748b"
-                                    className={inputClass}
+                                    placeholderTextColor={TINTA_50}
+                                    className="mt-2 bg-papel-crudo px-5 py-4 font-archivo text-base text-tinta"
+                                    style={estiloInput(custodySupportFocusId === grant.grantId)}
                                   />
-                                  <Text className="mt-2 font-sans text-[10px] leading-4 text-slate-500">
+                                  <Text className="mt-2 font-archivo text-[10px] leading-4 text-tinta-50">
                                     La unidad se fija en {CUSTODY_UNIT_LABEL[grant.payload.unit!]}; no se puede cambiar ni superar lo solicitado.
                                   </Text>
                                 </View>
                               )}
 
                               {responseConfirming === 'support_available' ? (
-                                <View accessibilityLiveRegion="polite" className="mt-4 rounded-2xl border border-violet-300/20 bg-black/15 p-4">
-                                  <Text className="font-sans-medium text-xs text-violet-100">¿Confirmar capacidad disponible?</Text>
-                                  <Text className="mt-2 font-sans text-[11px] leading-5 text-slate-400">
+                                <View accessibilityLiveRegion="polite" className="mt-4 border border-violeta bg-papel-presionado px-4 py-3">
+                                  <Text className="font-archivo-bold text-xs text-tinta">¿Confirmar capacidad disponible?</Text>
+                                  <Text className="mt-2 font-archivo text-[11px] leading-5 text-tinta-75">
                                     Se declarará {typeof proposedSupportQuantity === 'number'
                                       ? `${new Intl.NumberFormat('es-AR', { maximumFractionDigits: 2 }).format(proposedSupportQuantity)} ${CUSTODY_UNIT_LABEL[grant.payload.unit!]}`
                                       : 'capacidad sin fijar una cantidad'}. Esto no registra contacto, entrega ni resolución.
                                   </Text>
                                   <View className="mt-4 flex-row flex-wrap gap-2">
-                                    <Pressable97
-                                      accessibilityRole="button"
+                                    <BotonTinta
+                                      etiqueta="Volver"
                                       accessibilityLabel="Volver sin declarar capacidad"
+                                      variante="fantasma"
+                                      tamano="compacto"
                                       disabled={privateBusy}
                                       onPress={() => setCustodyResponseConfirm(null)}
-                                      className="min-h-11 items-center justify-center rounded-full border border-white/10 bg-white/5 px-4"
-                                    >
-                                      <Text className="font-sans-medium text-xs text-slate-300">Volver</Text>
-                                    </Pressable97>
-                                    <Pressable97
-                                      accessibilityRole="button"
+                                    />
+                                    <BotonTinta
+                                      etiqueta="Confirmar declaración"
                                       accessibilityLabel="Confirmar capacidad disponible"
-                                      accessibilityState={{ busy: withdrawing, disabled: privateBusy }}
+                                      variante="tinta"
+                                      tamano="compacto"
                                       disabled={privateBusy}
+                                      cargando={withdrawing}
                                       onPress={() => { void submitCustodyResponse(grant, 'support_available'); }}
-                                      className="min-h-11 items-center justify-center rounded-full border border-violet-300/25 bg-violet-300/10 px-4"
-                                    >
-                                      <Text className="font-sans-medium text-xs text-violet-100">{withdrawing ? 'Registrando…' : 'Confirmar declaración'}</Text>
-                                    </Pressable97>
+                                    />
                                   </View>
                                 </View>
                               ) : (
-                                <Pressable97
-                                  accessibilityRole="button"
-                                  accessibilityLabel={grant.response.disposition === 'assessing'
-                                    ? 'Declarar capacidad disponible'
-                                    : 'Revisar capacidad declarada'}
-                                  accessibilityHint="Abre una confirmación; no registra una entrega"
-                                  disabled={privateBusy}
-                                  onPress={() => prepareCustodySupportResponse(grant)}
-                                  className="mt-4 min-h-11 self-start items-center justify-center rounded-full border border-violet-300/25 bg-violet-300/10 px-4"
-                                >
-                                  <Text className="font-sans-medium text-xs text-violet-100">
-                                    {grant.response.disposition === 'assessing' ? 'Declarar capacidad disponible' : 'Registrar una revisión'}
-                                  </Text>
-                                </Pressable97>
+                                <View className="mt-4 items-start">
+                                  <BotonTinta
+                                    etiqueta={grant.response.disposition === 'assessing' ? 'Declarar capacidad disponible' : 'Registrar una revisión'}
+                                    accessibilityLabel={grant.response.disposition === 'assessing'
+                                      ? 'Declarar capacidad disponible'
+                                      : 'Revisar capacidad declarada'}
+                                    variante="fantasma"
+                                    tamano="compacto"
+                                    disabled={privateBusy}
+                                    onPress={() => prepareCustodySupportResponse(grant)}
+                                  />
+                                </View>
                               )}
                             </View>
                           )}
@@ -1584,29 +1565,17 @@ export default function Circulos() {
                           {coordinationProposal && coordinationPresentation && (
                             <View
                               accessibilityLiveRegion="polite"
-                              className="mt-4 rounded-2xl border p-4"
-                              style={{
-                                borderColor: `${coordinationPresentation.color}33`,
-                                backgroundColor: `${coordinationPresentation.color}0C`,
-                              }}
+                              className="mt-4 border bg-papel-crudo px-4 py-3"
+                              style={{ borderColor: coordinationPresentation.color }}
                             >
-                              <View className="flex-row items-start gap-3">
-                                <Ionicons
-                                  name={coordinationPresentation.icon}
-                                  size={18}
-                                  color={coordinationPresentation.color}
-                                />
-                                <View className="flex-1">
-                                  <Text className="font-sans-semibold text-xs text-slate-100">{coordinationPresentation.title}</Text>
-                                  <Text className="mt-2 font-sans text-[11px] leading-5 text-slate-400">{coordinationPresentation.detail}</Text>
-                                  <Text className="mt-3 font-sans text-[10px] leading-5 text-slate-500">
-                                    {coordinationProposal.state === 'accepted' ? 'Capacidad acordada' : 'Capacidad incluida en la propuesta'}: {coordinationCapacityLabel(coordinationProposal)}.
-                                  </Text>
-                                  <Text className="mt-1 font-mono text-[9px] text-slate-600">
-                                    Vence {custodyExpiryLabel(coordinationProposal.expiresAt)}
-                                  </Text>
-                                </View>
-                              </View>
+                              <Text className="font-archivo-bold text-xs text-tinta">{coordinationPresentation.title}</Text>
+                              <Text className="mt-2 font-archivo text-[11px] leading-5 text-tinta-75">{coordinationPresentation.detail}</Text>
+                              <Text className="mt-3 font-archivo text-[10px] leading-5 text-tinta-50">
+                                {coordinationProposal.state === 'accepted' ? 'Capacidad acordada' : 'Capacidad incluida en la propuesta'}: {coordinationCapacityLabel(coordinationProposal)}.
+                              </Text>
+                              <Text className="mt-1 font-space text-[9px] text-tinta-30">
+                                Vence {custodyExpiryLabel(coordinationProposal.expiresAt)}
+                              </Text>
                             </View>
                           )}
 
@@ -1634,128 +1603,125 @@ export default function Circulos() {
                             && !custodyExecution
                             && (executionInboxError || executionTruncated)
                             && (
-                              <View accessibilityLiveRegion="assertive" className="mt-4 rounded-2xl border border-amber-300/20 bg-amber-300/[0.07] p-4">
-                                <Text className="font-sans-semibold text-xs text-amber-100">La ruta de apoyo no pudo verificarse</Text>
-                                <Text className="mt-2 font-sans text-[11px] leading-5 text-slate-400">
+                              <View accessibilityLiveRegion="assertive" className="mt-4 border border-ambar px-4 py-3">
+                                <Text className="font-archivo-bold text-xs text-tinta">La ruta de apoyo no pudo verificarse</Text>
+                                <Text className="mt-2 font-archivo text-[11px] leading-5 text-tinta-75">
                                   {executionInboxError ?? 'La lectura alcanzó el corte seguro antes de encontrar esta ruta.'} La ausencia de la tarjeta no demuestra que no haya avances.
                                 </Text>
-                                <Pressable97
-                                  accessibilityRole="button"
-                                  accessibilityLabel="Actualizar rutas privadas de apoyo"
-                                  disabled={privateBusy}
-                                  onPress={() => { void refresh(); }}
-                                  className="mt-3 min-h-11 self-start items-center justify-center rounded-full border border-amber-300/25 bg-amber-300/10 px-4"
-                                >
-                                  <Text className="font-sans-semibold text-xs text-amber-100">Actualizar ruta</Text>
-                                </Pressable97>
+                                <View className="mt-3 items-start">
+                                  <BotonTinta
+                                    etiqueta="Actualizar ruta"
+                                    accessibilityLabel="Actualizar rutas privadas de apoyo"
+                                    variante="fantasma"
+                                    tamano="compacto"
+                                    disabled={privateBusy}
+                                    onPress={() => { void refresh(); }}
+                                  />
+                                </View>
                               </View>
                             )}
 
                           {grant.response?.disposition === 'support_available' && !pendingResponse && !coordinationProposal && (
                             coordinationConfirming ? (
-                              <View accessibilityLiveRegion="polite" className="mt-4 rounded-2xl border border-emerald-300/20 bg-emerald-300/[0.07] p-4">
-                                <Text className="font-sans-medium text-xs text-emerald-100">¿Proponer una coordinación privada?</Text>
-                                <Text className="mt-2 font-sans text-[11px] leading-5 text-slate-400">
+                              <View accessibilityLiveRegion="polite" className="mt-4 border border-violeta px-4 py-3">
+                                <Text className="font-archivo-bold text-xs text-tinta">¿Proponer una coordinación privada?</Text>
+                                <Text className="mt-2 font-archivo text-[11px] leading-5 text-tinta-75">
                                   Esta confirmación expresa el acuerdo del círculo para intentar coordinar {recordedSupportQuantity}. La otra parte decidirá por separado. No reserva recursos ni registra contacto, entrega o resolución.
                                 </Text>
                                 <View className="mt-4 flex-row flex-wrap gap-2">
-                                  <Pressable97
-                                    accessibilityRole="button"
+                                  <BotonTinta
+                                    etiqueta="Volver"
                                     accessibilityLabel="Volver sin proponer coordinación"
+                                    variante="fantasma"
+                                    tamano="compacto"
                                     disabled={privateBusy}
                                     onPress={() => setCoordinationConfirmId(null)}
-                                    className="min-h-11 items-center justify-center rounded-full border border-white/10 bg-white/5 px-4"
-                                  >
-                                    <Text className="font-sans-medium text-xs text-slate-300">Volver</Text>
-                                  </Pressable97>
-                                  <Pressable97
-                                    accessibilityRole="button"
+                                  />
+                                  <BotonTinta
+                                    etiqueta="Confirmar propuesta"
                                     accessibilityLabel="Confirmar propuesta privada de coordinación"
-                                    accessibilityState={{ busy: coordinationBusy, disabled: privateBusy }}
+                                    variante="tinta"
+                                    tamano="compacto"
                                     disabled={privateBusy}
+                                    cargando={coordinationBusy}
                                     onPress={() => { void submitCoordinationProposal(grant); }}
-                                    className="min-h-11 items-center justify-center rounded-full border border-emerald-300/25 bg-emerald-300/10 px-4"
-                                  >
-                                    <Text className="font-sans-medium text-xs text-emerald-100">{coordinationBusy ? 'Proponiendo…' : 'Confirmar propuesta'}</Text>
-                                  </Pressable97>
+                                  />
                                 </View>
                               </View>
                             ) : (
-                              <View className="mt-4 rounded-2xl border border-emerald-300/15 bg-emerald-300/[0.045] p-4">
-                                <Text className="font-sans-medium text-xs text-emerald-100">
+                              <View className="mt-4 border border-violeta px-4 py-3">
+                                <Text className="font-archivo-bold text-xs text-tinta">
                                   {coordinationInboxError || coordinationTruncated
                                     ? 'Proponer o recuperar una coordinación'
                                     : 'Siguiente decisión: proponer coordinación'}
                                 </Text>
-                                <Text className="mt-2 font-sans text-[11px] leading-5 text-slate-400">
+                                <Text className="mt-2 font-archivo text-[11px] leading-5 text-tinta-75">
                                   {coordinationInboxError || coordinationTruncated
                                     ? 'La página actual no prueba que no exista una propuesta y no habilitamos revisar la capacidad. Confirmar usa la misma identidad determinista: crea la propuesta o recupera su constancia sin duplicarla.'
                                     : 'La capacidad declarada queda congelada en la propuesta. Quien pidió apoyo podrá aceptarla o declinarla sin exponer relato, identidad, contacto ni ubicación exacta.'}
                                 </Text>
-                                <Pressable97
-                                  accessibilityRole="button"
-                                  accessibilityLabel="Proponer coordinación privada"
-                                  accessibilityHint="Abre una segunda confirmación; todavía no crea un acuerdo"
-                                  disabled={privateBusy}
-                                  onPress={() => {
-                                    setCustodyConfirmId(null);
-                                    setCustodyResponseConfirm(null);
-                                    setCoordinationConfirmId(grant.grantId);
-                                  }}
-                                  className="mt-4 min-h-11 self-start items-center justify-center rounded-full border border-emerald-300/25 bg-emerald-300/10 px-4"
-                                >
-                                  <Text className="font-sans-medium text-xs text-emerald-100">Proponer coordinación</Text>
-                                </Pressable97>
+                                <View className="mt-4 items-start">
+                                  <BotonTinta
+                                    etiqueta="Proponer coordinación"
+                                    accessibilityLabel="Proponer coordinación privada"
+                                    variante="fantasma"
+                                    tamano="compacto"
+                                    disabled={privateBusy}
+                                    onPress={() => {
+                                      setCustodyConfirmId(null);
+                                      setCustodyResponseConfirm(null);
+                                      setCoordinationConfirmId(grant.grantId);
+                                    }}
+                                  />
+                                </View>
                               </View>
                             )
                           )}
 
                           {coordinationError && (
-                            <View accessibilityLiveRegion="assertive" className="mt-4 rounded-2xl border border-amber-300/20 bg-amber-300/[0.07] p-4">
-                              <Text className="font-sans-medium text-xs text-amber-100">No pudimos verificar la propuesta</Text>
-                              <Text className="mt-2 font-sans text-[11px] leading-5 text-slate-400">{coordinationError}</Text>
-                              <Text className="mt-2 font-sans text-[11px] leading-5 text-amber-100/70">
+                            <View accessibilityLiveRegion="assertive" className="mt-4 border border-ambar px-4 py-3">
+                              <Text className="font-archivo-bold text-xs text-tinta">No pudimos verificar la propuesta</Text>
+                              <Text className="mt-2 font-archivo text-[11px] leading-5 text-tinta-75">{coordinationError}</Text>
+                              <Text className="mt-2 font-archivo text-[11px] leading-5 text-tinta-90">
                                 El estado visible no cambió. Podés reintentar la misma operación sin crear otra identidad.
                               </Text>
                             </View>
                           )}
 
                           {responseError && (
-                            <View accessibilityLiveRegion="assertive" className="mt-4 rounded-2xl border border-amber-300/20 bg-amber-300/[0.07] p-4">
-                              <Text className="font-sans-medium text-xs text-amber-100">No pudimos verificar la constancia</Text>
-                              <Text className="mt-2 font-sans text-[11px] leading-5 text-slate-400">{responseError}</Text>
-                              <Text className="mt-2 font-sans text-[11px] leading-5 text-amber-100/70">
+                            <View accessibilityLiveRegion="assertive" className="mt-4 border border-ambar px-4 py-3">
+                              <Text className="font-archivo-bold text-xs text-tinta">No pudimos verificar la constancia</Text>
+                              <Text className="mt-2 font-archivo text-[11px] leading-5 text-tinta-75">{responseError}</Text>
+                              <Text className="mt-2 font-archivo text-[11px] leading-5 text-tinta-90">
                                 La respuesta visible no cambió. Podés reintentar la misma operación.
                               </Text>
                             </View>
                           )}
 
                           {confirming ? (
-                            <View accessibilityLiveRegion="polite" className="mt-4 rounded-2xl border border-rose-300/20 bg-rose-300/[0.07] p-4">
-                              <Text className="font-sans-medium text-xs text-rose-100">¿Retirar este permiso de la bandeja?</Text>
-                              <Text className="mt-2 font-sans text-[11px] leading-5 text-slate-400">
+                            <View accessibilityLiveRegion="polite" className="mt-4 border border-sello px-4 py-3">
+                              <Text className="font-archivo-bold text-xs text-tinta">¿Retirar este permiso de la bandeja?</Text>
+                              <Text className="mt-2 font-archivo text-[11px] leading-5 text-tinta-75">
                                 Solicitaremos retirar estos datos de la bandeja. El permiso seguirá figurando operativo hasta recibir una constancia válida; la necesidad no se marcará como resuelta y no hace falta justificar el retiro.
                               </Text>
                               <View className="mt-4 flex-row flex-wrap gap-2">
-                                <Pressable97
-                                  accessibilityRole="button"
+                                <BotonTinta
+                                  etiqueta="Volver"
                                   accessibilityLabel="Volver sin retirar el permiso"
+                                  variante="fantasma"
+                                  tamano="compacto"
                                   disabled={privateBusy}
                                   onPress={() => setCustodyConfirmId(null)}
-                                  className="min-h-11 items-center justify-center rounded-full border border-white/10 bg-white/5 px-4"
-                                >
-                                  <Text className="font-sans-medium text-xs text-slate-300">Volver</Text>
-                                </Pressable97>
-                                <Pressable97
-                                  accessibilityRole="button"
+                                />
+                                <BotonTinta
+                                  etiqueta="Confirmar retiro"
                                   accessibilityLabel="Confirmar retiro del permiso de custodia"
-                                  accessibilityState={{ busy: withdrawing, disabled: privateBusy }}
+                                  variante="tinta"
+                                  tamano="compacto"
                                   disabled={privateBusy}
+                                  cargando={withdrawing}
                                   onPress={() => withdrawCustodyGrant(grant.grantId)}
-                                  className="min-h-11 items-center justify-center rounded-full border border-rose-300/25 bg-rose-300/10 px-4"
-                                >
-                                  <Text className="font-sans-medium text-xs text-rose-100">{withdrawing ? 'Confirmando…' : 'Confirmar retiro'}</Text>
-                                </Pressable97>
+                                />
                               </View>
                             </View>
                           ) : (
@@ -1767,27 +1733,27 @@ export default function Circulos() {
                                 setCustodyResponseConfirm(null);
                                 setCustodyConfirmId(grant.grantId);
                               }}
-                              className="mt-4 min-h-11 self-start items-center justify-center rounded-full border border-rose-300/20 bg-rose-300/[0.07] px-4"
+                              className="mt-4 min-h-11 items-start justify-center"
                             >
-                              <Text className="font-sans-medium text-xs text-rose-100">No podemos custodiar / retirar de la bandeja</Text>
+                              <Text className="font-space text-xs text-tinta-50">No podemos custodiar / retirar de la bandeja</Text>
                             </Pressable97>
                           )}
-                        </GlassCard>
+                        </PapelCard>
                       </Animated.View>
                     );
                   })}
                   {custodyTruncated && (
-                    <Text className="px-1 font-sans text-[11px] leading-5 text-amber-200/70">
+                    <Text className="px-1 font-archivo text-[11px] leading-5 text-ambar">
                       Se alcanzó el tope seguro de 1.000 permisos por actualización. Puede haber más; esta vista no interpreta el corte como una bandeja completa.
                     </Text>
                   )}
                   {coordinationTruncated && (
-                    <Text className="px-1 font-sans text-[11px] leading-5 text-amber-200/70">
+                    <Text className="px-1 font-archivo text-[11px] leading-5 text-ambar">
                       La lectura de propuestas quedó parcial por el tope seguro de 1.000 o por un cambio concurrente. La ausencia de una tarjeta no demuestra que no exista otra propuesta.
                     </Text>
                   )}
                   {executionTruncated && (
-                    <Text className="px-1 font-sans text-[11px] leading-5 text-amber-200/70">
+                    <Text className="px-1 font-archivo text-[11px] leading-5 text-ambar">
                       La lectura de rutas de apoyo alcanzó el tope seguro de 1.000. Puede haber más; ninguna ausencia se interpreta como falta de avance.
                     </Text>
                   )}
@@ -1796,10 +1762,8 @@ export default function Circulos() {
 
               {historicalCustodyExecutions.length > 0 && (
                 <View className="mt-7">
-                  <Text className="font-sans text-[10px] uppercase tracking-[2.4px] text-violet-300/80">
-                    Historia y rutas fuera del corte activo
-                  </Text>
-                  <Text className="mt-2 font-sans text-[11px] leading-5 text-slate-500">
+                  <Kicker tono="neutro">Historia y rutas fuera del corte activo</Kicker>
+                  <Text className="mt-2 font-archivo text-[11px] leading-5 text-tinta-50">
                     No aparecen enlazadas a un permiso del corte activo: puede tratarse de historia o de una lectura parcial. Se conservan para auditoría; un cierre no demuestra entrega ni resolución y cualquier retiro operativo queda como hito separado.
                   </Text>
                   {historicalCustodyExecutions.map((execution) => {
@@ -1837,10 +1801,12 @@ export default function Circulos() {
 
           <View className="mt-9 flex-row items-end justify-between">
             <View>
-              <Text className="font-sans text-[11px] uppercase tracking-[3px] text-slate-400">Organización viva</Text>
-              <Text className="mt-2 font-serif text-2xl text-plata">Círculos cercanos</Text>
+              <Kicker tono="neutro">Organización viva</Kicker>
+              <TituloAnton tamano="md" className="mt-2">
+                Círculos cercanos
+              </TituloAnton>
             </View>
-            <Text className="font-mono text-xs text-slate-500">{circles.length}</Text>
+            <Text className="font-space text-xs text-tinta-50">{circles.length}</Text>
           </View>
 
           <View className="mt-3 gap-3">
@@ -1849,94 +1815,107 @@ export default function Circulos() {
               const currentDetail = expanded && detail?.id === circle.id ? detail : null;
               return (
                 <Animated.View key={circle.id} entering={staggerDelay(index)}>
-                  <GlassCard className="p-5">
+                  <PapelCard className="p-5">
                     <Pressable97 accessibilityRole="button" accessibilityLabel={`Abrir ${circle.name}`} onPress={() => openCircle(circle)}>
                       <View className="flex-row items-start">
-                        <View className="h-11 w-11 items-center justify-center rounded-2xl border border-sky-300/20 bg-sky-300/10">
-                          <Ionicons name={circle.kind === 'territorial' ? 'map-outline' : circle.kind === 'celula' ? 'shield-outline' : 'sparkles-outline'} size={20} color="#7DD3FC" />
-                        </View>
-                        <View className="ml-3 flex-1">
-                          <Text className="font-sans text-[9px] uppercase tracking-[2px] text-sky-300">{KIND_LABEL[circle.kind]}</Text>
-                          <Text className="mt-1 font-sans-semibold text-base text-plata">{circle.name}</Text>
-                          <Text className="mt-1 font-mono text-[10px] text-slate-500">
+                        <View className="flex-1">
+                          <ChipTipo etiqueta={KIND_LABEL[circle.kind]} />
+                          <Text className="mt-2 font-archivo-bold text-base text-tinta">{circle.name}</Text>
+                          <Text className="mt-1 font-space text-[10px] text-tinta-50">
                             {circle.memberCount} personas{circle.city ? ` · ${circle.city}` : circle.province ? ` · ${circle.province}` : ''}
                           </Text>
                         </View>
-                        {circle.isMember ? (
-                          <Ionicons name="checkmark-circle" size={18} color="#34D399" />
-                        ) : <Ionicons name={expanded ? 'chevron-up' : 'chevron-down'} size={17} color="#64748b" />}
+                        <Text className="font-space text-lg text-tinta">{expanded ? '−' : '+'}</Text>
                       </View>
-                      {circle.description && <Text className="mt-4 font-sans text-xs leading-5 text-slate-400">{circle.description}</Text>}
+                      {circle.description && <Text className="mt-4 font-archivo text-xs leading-5 text-tinta-75">{circle.description}</Text>}
                     </Pressable97>
 
                       {expanded && (
-                        <View className="mt-5 border-t border-white/10 pt-4">
+                        <View className="mt-5 border-t border-bordeSuave pt-4">
                           {!session ? (
-                            <Text className="font-sans text-xs leading-5 text-slate-500">Vinculá tu cuenta para sumarte, recibir invitaciones o reportar un problema.</Text>
+                            <Text className="font-archivo text-xs leading-5 text-tinta-50">Vinculá tu cuenta para sumarte, recibir invitaciones o reportar un problema.</Text>
                           ) : !circle.isMember && circle.kind !== 'celula' ? (
-                            <Pressable97 accessibilityRole="button" accessibilityLabel="Sumarme al círculo" disabled={busy} onPress={() => act(() => joinCircle(circle.id, session.user.id), `Ya sos parte de ${circle.name}.`)} className="self-start rounded-full border border-sky-300/25 bg-sky-300/10 px-4 py-2.5">
-                              <Text className="font-sans-medium text-xs text-sky-200">Sumarme al círculo</Text>
-                            </Pressable97>
+                            <BotonTinta
+                              etiqueta="Sumarme al círculo"
+                              variante="fantasma"
+                              tamano="compacto"
+                              disabled={busy}
+                              onPress={() => act(() => joinCircle(circle.id, session.user.id), `Ya sos parte de ${circle.name}.`)}
+                            />
                           ) : circle.kind === 'celula' && !circle.isMember ? (
-                            <Text className="font-sans text-xs leading-5 text-slate-500">Las células se abren con un código de alguien de adentro.</Text>
+                            <Text className="font-archivo text-xs leading-5 text-tinta-50">Las células se abren con un código de alguien de adentro.</Text>
                           ) : (
-                            <View className="flex-row items-center gap-2">
-                              <Ionicons name="people" size={15} color="#6EE7B7" />
-                              <Text className="font-sans-medium text-xs text-emerald-200">Sos parte · {currentDetail?.role ?? 'miembro'}</Text>
-                            </View>
+                            <Text className="font-archivo-bold text-xs text-verde">Sos parte · {currentDetail?.role ?? 'miembro'}</Text>
                           )}
 
                           {session && currentDetail?.role === 'coordinador' && (
                             <View className="mt-4">
-                              <Pressable97 accessibilityRole="button" accessibilityLabel="Crear invitación" disabled={busy} onPress={() => act(async () => {
-                                const expectedUserId = session.user.id;
-                                const actionEpoch = privateRefreshEpoch.current;
-                                const created = await createCircleInvite(circle.id, expectedUserId);
-                                const completionSession = await getCommunitySession();
-                                if (
-                                  completionSession?.user.id !== expectedUserId
-                                  || privateRefreshEpoch.current !== actionEpoch
-                                ) {
-                                  clearAccountBoundUi();
-                                  setSession(completionSession);
-                                  throw new Error('La cuenta activa cambió. La invitación no se mostrará en esta sesión.');
-                                }
-                                setGeneratedInvite(created.code);
-                              }, 'Invitación lista para compartir durante siete días.', false)} className="self-start rounded-full border border-violet-300/25 bg-violet-300/10 px-4 py-2.5">
-                                <Text className="font-sans-medium text-xs text-violet-200">Crear invitación</Text>
-                              </Pressable97>
-                              {generatedInvite && <Text selectable className="mt-3 font-mono text-sm tracking-[2px] text-plata">{generatedInvite}</Text>}
+                              <BotonTinta
+                                etiqueta="Crear invitación"
+                                variante="tinta"
+                                tamano="compacto"
+                                disabled={busy}
+                                onPress={() => act(async () => {
+                                  const expectedUserId = session.user.id;
+                                  const actionEpoch = privateRefreshEpoch.current;
+                                  const created = await createCircleInvite(circle.id, expectedUserId);
+                                  const completionSession = await getCommunitySession();
+                                  if (
+                                    completionSession?.user.id !== expectedUserId
+                                    || privateRefreshEpoch.current !== actionEpoch
+                                  ) {
+                                    clearAccountBoundUi();
+                                    setSession(completionSession);
+                                    throw new Error('La cuenta activa cambió. La invitación no se mostrará en esta sesión.');
+                                  }
+                                  setGeneratedInvite(created.code);
+                                }, 'Invitación lista para compartir durante siete días.', false)}
+                              />
+                              {generatedInvite && <Text selectable className="mt-3 font-space text-sm tracking-[2px] text-tinta">{generatedInvite}</Text>}
                             </View>
                           )}
 
                           {session && (
                             <View className="mt-4">
-                              <TextInput value={reportReason} onChangeText={setReportReason} placeholder="Reportar un riesgo o abuso…" placeholderTextColor="#64748b" multiline className={`${inputClass} min-h-[72px]`} />
+                              <TextInput
+                                value={reportReason}
+                                onChangeText={setReportReason}
+                                onFocus={() => setEnfocadoReporte(true)}
+                                onBlur={() => setEnfocadoReporte(false)}
+                                placeholder="Reportar un riesgo o abuso…"
+                                placeholderTextColor={TINTA_50}
+                                multiline
+                                className="min-h-[72px] bg-papel-crudo px-5 py-4 font-archivo text-sm text-tinta"
+                                style={estiloInput(enfocadoReporte)}
+                              />
                               {reportReason.trim().length >= 10 && (
-                                <Pressable97 accessibilityRole="button" accessibilityLabel="Enviar reporte" disabled={busy} onPress={() => act(() => reportCircle(circle.id, reportReason, session.user.id), 'Reporte recibido por moderación.')} className="mt-3 self-start rounded-full border border-rose-300/20 bg-rose-300/10 px-4 py-2.5">
-                                  <Text className="font-sans-medium text-xs text-rose-200">Enviar a moderación</Text>
-                                </Pressable97>
+                                <View className="mt-3 items-start">
+                                  <BotonTinta
+                                    etiqueta="Enviar a moderación"
+                                    variante="fantasma"
+                                    tamano="compacto"
+                                    disabled={busy}
+                                    onPress={() => act(() => reportCircle(circle.id, reportReason, session.user.id), 'Reporte recibido por moderación.')}
+                                  />
+                                </View>
                               )}
                             </View>
                           )}
                         </View>
                       )}
-                  </GlassCard>
+                  </PapelCard>
                 </Animated.View>
               );
             })}
           </View>
 
-          <Text className="mt-9 font-sans text-[11px] uppercase tracking-[3px] text-slate-400">Identidad opcional</Text>
+          <Kicker tono="neutro" className="mt-9">entrada</Kicker>
           {session ? (
-            <GlassCard className="mt-3 p-5">
+            <PapelCard className="mt-3 p-5">
               <View className="flex-row items-center">
-                <View className="h-12 w-12 items-center justify-center rounded-full border border-emerald-300/20 bg-emerald-300/10">
-                  <Ionicons name="person" size={20} color="#6EE7B7" />
-                </View>
-                <View className="ml-3 flex-1">
-                  <Text className="font-sans-semibold text-sm text-plata">{session.user.name}</Text>
-                  <Text className="mt-1 font-mono text-[10px] text-slate-500">@{session.user.username} · dispositivo vinculado</Text>
+                <View className="flex-1">
+                  <Text className="font-archivo-bold text-sm text-tinta">{session.user.name}</Text>
+                  <Text className="mt-1 font-space text-[10px] text-tinta-50">@{session.user.username} · dispositivo vinculado</Text>
                 </View>
                 <Pressable97
                   accessibilityRole="button"
@@ -1953,15 +1932,15 @@ export default function Circulos() {
                       void disconnectAccount();
                     }
                   }}
-                  className="p-2"
+                  className="min-h-11 min-w-11 items-center justify-center"
                 >
-                  <Ionicons name="log-out-outline" size={19} color="#94a3b8" />
+                  <Text className="font-space text-xs uppercase tracking-[1px] text-tinta-50">Salir</Text>
                 </Pressable97>
               </View>
 
               {logoutConfirming && (
-                <View accessibilityLiveRegion="polite" className="mt-4 rounded-2xl border border-amber-300/20 bg-amber-300/[0.07] p-4">
-                  <Text className="font-sans-semibold text-xs text-amber-100">
+                <View accessibilityLiveRegion="polite" className="mt-4 border border-ambar px-4 py-3">
+                  <Text className="font-archivo-bold text-xs text-tinta">
                     {pendingExecutionIntentCount > 0
                       ? 'Hay una ruta privada pendiente de constancia'
                       : pendingRemoteRevocationCount > 0 && pendingResponseIntentCount > 0
@@ -1970,7 +1949,7 @@ export default function Circulos() {
                         ? 'Hay permisos remotos todavía vigentes'
                         : 'Hay una respuesta pendiente de constancia'}
                   </Text>
-                  <Text className="mt-2 font-sans text-[11px] leading-5 text-slate-400">
+                  <Text className="mt-2 font-archivo text-[11px] leading-5 text-tinta-75">
                     {pendingRemoteRevocationCount > 0
                       ? 'Cerrar sesión no revoca los permisos entregados; necesitarás esta misma cuenta para retirarlos. '
                       : ''}
@@ -1983,60 +1962,75 @@ export default function Circulos() {
                     {' '}Borrar todos los datos del dispositivo podría destruir esa capacidad de recuperación.
                   </Text>
                   <View className="mt-4 flex-row flex-wrap gap-2">
-                    <Pressable97 accessibilityRole="button" accessibilityLabel="Conservar la sesión" disabled={busy} onPress={() => setLogoutConfirming(false)} className="min-h-11 items-center justify-center rounded-full border border-white/10 bg-white/5 px-4">
-                      <Text className="font-sans-medium text-xs text-slate-300">Conservar sesión</Text>
-                    </Pressable97>
-                    <Pressable97 accessibilityRole="button" accessibilityLabel="Cerrar sesión de todos modos" disabled={busy} onPress={() => { void disconnectAccount(); }} className="min-h-11 items-center justify-center rounded-full border border-amber-300/25 bg-amber-300/10 px-4">
-                      <Text className="font-sans-medium text-xs text-amber-100">Cerrar de todos modos</Text>
-                    </Pressable97>
+                    <BotonTinta
+                      etiqueta="Conservar sesión"
+                      accessibilityLabel="Conservar la sesión"
+                      variante="fantasma"
+                      tamano="compacto"
+                      disabled={busy}
+                      onPress={() => setLogoutConfirming(false)}
+                    />
+                    <BotonTinta
+                      etiqueta="Cerrar de todos modos"
+                      accessibilityLabel="Cerrar sesión de todos modos"
+                      variante="tinta"
+                      tamano="compacto"
+                      disabled={busy}
+                      onPress={() => { void disconnectAccount(); }}
+                    />
                   </View>
                 </View>
               )}
 
-              <View className="mt-4 flex-row items-start gap-2 rounded-2xl border border-sky-300/15 bg-sky-300/[0.06] p-3">
-                <Ionicons name="sync-outline" size={15} color="#7DD3FC" />
-                <Text className="flex-1 font-sans text-[11px] leading-5 text-sky-100/75">
-                  Tu ronda ya puede recibir señales para corroborar y puentes donde representás a una de las dos partes.
-                </Text>
-              </View>
+              <Text className="mt-4 font-archivo text-[11px] leading-5 text-tinta-50">
+                Tu ronda ya puede recibir señales para corroborar y puentes donde representás a una de las dos partes.
+              </Text>
 
-              <View className="mt-5 flex-row gap-2">
-                <TextInput value={inviteCode} onChangeText={setInviteCode} autoCapitalize="characters" placeholder="Código de invitación" placeholderTextColor="#64748b" className={`${inputClass} mt-0 flex-1 font-mono`} />
-                <Pressable97 accessibilityRole="button" accessibilityLabel="Canjear invitación" disabled={inviteCode.trim().length < 6 || busy} onPress={() => act(() => redeemCircleInvite(inviteCode, session.user.id), 'Invitación aceptada. El círculo ya está en tu red.')} className="items-center justify-center rounded-2xl bg-accent px-4">
-                  <Ionicons name="arrow-forward" size={18} color="white" />
-                </Pressable97>
+              <View className="mt-5 flex-row items-start gap-2">
+                <TextInput
+                  value={inviteCode}
+                  onChangeText={setInviteCode}
+                  onFocus={() => setEnfocadoInvite(true)}
+                  onBlur={() => setEnfocadoInvite(false)}
+                  autoCapitalize="characters"
+                  placeholder="Código de invitación"
+                  placeholderTextColor={TINTA_50}
+                  className="flex-1 bg-papel-crudo px-5 py-4 font-space text-sm text-tinta"
+                  style={estiloInput(enfocadoInvite)}
+                />
+                <BotonTinta
+                  etiqueta="Canjear →"
+                  accessibilityLabel="Canjear invitación"
+                  variante="tinta"
+                  disabled={inviteCode.trim().length < 6 || busy}
+                  onPress={() => act(() => redeemCircleInvite(inviteCode, session.user.id), 'Invitación aceptada. El círculo ya está en tu red.')}
+                />
               </View>
 
               {notifications.length > 0 && (
-                <View className="mt-6 border-t border-white/10 pt-5">
+                <View className="mt-6 border-t border-bordeSuave pt-5">
                   <View className="flex-row items-center justify-between">
-                    <Text className="font-sans-medium text-xs text-slate-300">Movimientos de tu red</Text>
+                    <Kicker tono="neutro">Movimientos de tu red</Kicker>
                     <Pressable97 accessibilityRole="button" accessibilityLabel="Marcar notificaciones leídas" onPress={() => act(() => markAllCommunityNotificationsRead(session.user.id), 'Bandeja al día.')}>
-                      <Text className="font-sans text-[10px] text-violet-300">Marcar leídas</Text>
+                      <Text className="font-space text-[10px] uppercase tracking-[1px] text-tinta-50">Marcar leídas</Text>
                     </Pressable97>
                   </View>
-                  {notifications.slice(0, 4).map((item) => (
-                    <View key={item.id} className="mt-3 flex-row items-start gap-3 rounded-2xl bg-white/[0.035] p-3">
-                      <View className="mt-1 h-2 w-2 rounded-full bg-violet-300" />
-                      <View className="flex-1">
-                        <Text className="font-sans-medium text-xs text-slate-200">{item.title}</Text>
-                        <Text className="mt-1 font-sans text-[11px] leading-5 text-slate-500">{item.content}</Text>
-                      </View>
-                    </View>
+                  {notifications.slice(0, 4).map((item, index) => (
+                    <FilaIndice key={item.id} numero={String(index + 1).padStart(2, '0')} glifo="">
+                      <Text className="font-archivo-bold text-xs text-tinta">{item.title}</Text>
+                      <Text className="mt-1 font-archivo text-[11px] leading-5 text-tinta-50">{item.content}</Text>
+                    </FilaIndice>
                   ))}
                 </View>
               )}
-            </GlassCard>
+            </PapelCard>
           ) : (
-            <GlassCard className="mt-3 p-5">
-              <View className="flex-row rounded-full border border-white/10 bg-black/20 p-1">
-                {(['login', 'register'] as const).map((mode) => (
-                  <Pressable97 key={mode} accessibilityRole="button" accessibilityLabel={mode === 'login' ? 'Entrar' : 'Crear cuenta'} onPress={() => setAuthMode(mode)} className="flex-1 items-center rounded-full px-3 py-2.5" style={{ backgroundColor: authMode === mode ? '#7D5BDE' : 'transparent' }}>
-                    <Text className="font-sans-medium text-xs" style={{ color: authMode === mode ? 'white' : '#94A3B8' }}>{mode === 'login' ? 'Ya tengo cuenta' : 'Crear cuenta'}</Text>
-                  </Pressable97>
-                ))}
+            <PapelCard className="mt-3 p-5">
+              <View className="flex-row gap-2">
+                <ChipTipo etiqueta="Ya tengo cuenta" activo={authMode === 'login'} onPress={() => setAuthMode('login')} />
+                <ChipTipo etiqueta="Crear cuenta" activo={authMode === 'register'} onPress={() => setAuthMode('register')} />
               </View>
-              <Text className="mt-4 font-sans text-xs leading-5 text-slate-500">
+              <Text className="mt-4 font-archivo text-xs leading-5 text-tinta-50">
                 Vincularte abre la ronda entre teléfonos: señales para corroborar y puentes donde sos una de las partes. No sube tu bitácora, borradores ni ubicación exacta.
               </Text>
               {authMode === 'register' && (
@@ -2049,17 +2043,19 @@ export default function Circulos() {
               <Field label="Contraseña" value={auth.password} onChangeText={(password) => setAuth((v) => ({ ...v, password }))} placeholder={authMode === 'register' ? '8+ caracteres, mayúscula, número y símbolo' : 'Tu contraseña'} secureTextEntry />
               {authMode === 'register' && <Field label="Repetir contraseña" value={auth.confirmPassword} onChangeText={(confirmPassword) => setAuth((v) => ({ ...v, confirmPassword }))} placeholder="Repetila" secureTextEntry />}
               <View className="mt-6 items-center">
-                <AccentButton label={busy ? 'Vinculando…' : authMode === 'login' ? 'Vincular mi cuenta' : 'Crear y vincular'} onPress={connect} disabled={busy || !auth.username.trim() || !auth.password} />
+                <BotonTinta
+                  etiqueta={authMode === 'login' ? 'Vincular mi cuenta' : 'Crear y vincular'}
+                  onPress={connect}
+                  disabled={busy || !auth.username.trim() || !auth.password}
+                  cargando={busy}
+                />
               </View>
-            </GlassCard>
+            </PapelCard>
           )}
 
-          <View className="mt-8 flex-row items-start gap-3 rounded-2xl border border-white/5 bg-white/[0.025] p-4">
-            <Ionicons name="shield-checkmark-outline" size={17} color="#64748b" />
-            <Text className="flex-1 font-sans text-[11px] leading-5 text-slate-500">
-              Una cuenta habilita pertenencia y coordinación entre dispositivos. La identidad de captura sigue seudónima; el feed omite claves de actor, contacto, notas privadas y coordenadas exactas.
-            </Text>
-          </View>
+          <Text className="mt-8 font-archivo text-[11px] leading-5 text-tinta-50">
+            Una cuenta habilita pertenencia y coordinación entre dispositivos. La identidad de captura sigue seudónima; el feed omite claves de actor, contacto, notas privadas y coordenadas exactas.
+          </Text>
         </ScrollView>
       </KeyboardAvoidingView>
     </View>
