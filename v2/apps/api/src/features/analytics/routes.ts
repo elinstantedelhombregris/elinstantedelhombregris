@@ -25,7 +25,7 @@ router.get('/voces-count', async (_req, res, next) => {
   try {
     const db = getDb();
     const repo = new DreamsRepository(db);
-    const total = await repo.countAll();
+    const total = await repo.countApproved();
     res.json({ data: { total } });
   } catch (err) {
     next(err);

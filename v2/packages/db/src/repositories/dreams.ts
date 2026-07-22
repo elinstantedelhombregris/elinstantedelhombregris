@@ -44,9 +44,16 @@ export class DreamsRepository {
       .limit(limit);
   }
 
-  /** Total dream count, unfiltered — powers the "voces" FOMO counter. */
-  async countAll(): Promise<number> {
-    const [row] = await this.db.select({ count: sql<number>`count(*)::int` }).from(dreams);
+  /**
+   * Approved dream count — powers the public "voces" FOMO counter.
+   * Mirrors the `status = 'approved'` filter used by convergence-summary
+   * so every public number counts the same rows.
+   */
+  async countApproved(): Promise<number> {
+    const [row] = await this.db
+      .select({ count: sql<number>`count(*)::int` })
+      .from(dreams)
+      .where(eq(dreams.status, 'approved'));
     return row?.count ?? 0;
   }
 }
