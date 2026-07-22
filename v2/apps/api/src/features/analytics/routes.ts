@@ -3,10 +3,12 @@
  *
  *   GET /api/analytics/convergence-summary  — high-level numbers
  *   GET /api/analytics/dreams-by-category   — top dream categories
+ *   GET /api/analytics/voces-count          — total "voces" (dreams) count
  */
 import {
   blogPosts,
   communityPosts,
+  DreamsRepository,
   dreams,
   eq,
   getDb,
@@ -18,6 +20,17 @@ import {
 import { Router, type Router as RouterType } from 'express';
 
 const router: RouterType = Router();
+
+router.get('/voces-count', async (_req, res, next) => {
+  try {
+    const db = getDb();
+    const repo = new DreamsRepository(db);
+    const total = await repo.countAll();
+    res.json({ data: { total } });
+  } catch (err) {
+    next(err);
+  }
+});
 
 router.get('/convergence-summary', async (_req, res, next) => {
   try {

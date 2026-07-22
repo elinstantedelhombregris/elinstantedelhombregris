@@ -1,7 +1,7 @@
 /**
  * DreamsRepository — map-friendly user aspirations.
  */
-import { and, desc, eq } from 'drizzle-orm';
+import { and, desc, eq, sql } from 'drizzle-orm';
 
 import { dreams } from '../schema/dreams.js';
 
@@ -42,5 +42,11 @@ export class DreamsRepository {
       .where(eq(dreams.userId, userId))
       .orderBy(desc(dreams.createdAt))
       .limit(limit);
+  }
+
+  /** Total dream count, unfiltered — powers the "voces" FOMO counter. */
+  async countAll(): Promise<number> {
+    const [row] = await this.db.select({ count: sql<number>`count(*)::int` }).from(dreams);
+    return row?.count ?? 0;
   }
 }

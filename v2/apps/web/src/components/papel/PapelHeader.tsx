@@ -4,6 +4,7 @@ import { Link, useLocation } from 'wouter';
 import { DEMO_VOCES_COUNT, PAPEL_NAV, PAPEL_NAV_ALL, SEMBRAR_HREF } from './papel-nav';
 
 import { despertar } from '~/lib/despertar';
+import { useVocesCount } from '~/lib/queries/analytics';
 import { cn } from '~/lib/utils';
 
 function esActiva(location: string, href: string): boolean {
@@ -18,6 +19,12 @@ function esActiva(location: string, href: string): boolean {
 export function PapelHeader() {
   const [location] = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
+  const vocesQuery = useVocesCount();
+  // Mientras carga o si falla, caemos al valor de demostración: nunca
+  // mostramos un contador en blanco ni un error en el header.
+  const vocesLabel = vocesQuery.data
+    ? vocesQuery.data.total.toLocaleString('es-AR')
+    : DEMO_VOCES_COUNT;
 
   return (
     // El menú móvil vive FUERA del <header>: el backdrop-filter del header lo
@@ -37,7 +44,7 @@ export function PapelHeader() {
               <span className="text-violeta">¡</span>BASTA<span className="text-violeta">!</span>
             </span>
             <span className="font-space text-tinta-50 hidden text-[10px] uppercase tracking-[0.14em] min-[561px]:inline">
-              {DEMO_VOCES_COUNT} voces · falta la tuya
+              {vocesLabel} voces · falta la tuya
             </span>
           </Link>
 

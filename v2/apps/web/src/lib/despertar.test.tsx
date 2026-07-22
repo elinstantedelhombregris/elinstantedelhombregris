@@ -1,3 +1,4 @@
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { fireEvent, render, screen, within } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 
@@ -6,12 +7,20 @@ import { HeroBasta } from '../pages/Home/sections/HeroBasta';
 
 import { estaDespierto, useDespierto } from './despertar';
 
+import type { ReactNode } from 'react';
+
 const STORAGE_KEY = 'basta_despierto';
 
 /** Sonda mínima: expone si el suscriptor de `useDespierto` ya vio el aviso. */
 function Sonda() {
   const despierto = useDespierto();
   return <span data-testid="sonda">{despierto ? 'despierto' : 'dormido'}</span>;
+}
+
+/** PapelHeader dispara `useVocesCount` (react-query) — necesita su provider. */
+function ConQueryClient({ children }: { children: ReactNode }) {
+  const qc = new QueryClient({ defaultOptions: { queries: { retry: false } } });
+  return <QueryClientProvider client={qc}>{children}</QueryClientProvider>;
 }
 
 beforeEach(() => {
@@ -47,10 +56,10 @@ describe('despertar — se dispara desde los CTAs canónicos (§10.7)', () => {
 
   it('el CTA del header «Sembrar tu voz» despierta el sitio', () => {
     render(
-      <>
+      <ConQueryClient>
         <PapelHeader />
         <Sonda />
-      </>,
+      </ConQueryClient>,
     );
 
     expect(estaDespierto()).toBe(false);
@@ -65,10 +74,10 @@ describe('despertar — se dispara desde los CTAs canónicos (§10.7)', () => {
 
   it('la entrada «Sembrar» del menú móvil despierta el sitio y el menú se sigue cerrando', () => {
     render(
-      <>
+      <ConQueryClient>
         <PapelHeader />
         <Sonda />
-      </>,
+      </ConQueryClient>,
     );
 
     fireEvent.click(screen.getByRole('button', { name: 'Abrir menú' }));
@@ -87,7 +96,11 @@ describe('despertar — se dispara desde los CTAs canónicos (§10.7)', () => {
   });
 
   it('otras entradas del menú móvil no despiertan el sitio', () => {
-    render(<PapelHeader />);
+    render(
+      <ConQueryClient>
+        <PapelHeader />
+      </ConQueryClient>,
+    );
 
     fireEvent.click(screen.getByRole('button', { name: 'Abrir menú' }));
     const menu = screen.getByRole('navigation', { name: 'Recorrido completo' });
