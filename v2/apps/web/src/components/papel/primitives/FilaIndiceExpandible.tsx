@@ -51,7 +51,7 @@ export function FilaIndiceExpandible({
         </span>
       </button>
       {abierta ? (
-        <div id={idPanel} className="anim-fadeup px-2 pb-6 pl-[76px] max-[560px]:pl-2">
+        <div id={idPanel} className="anim-fadeup-rapido px-2 pb-6 pl-[76px] max-[560px]:pl-2">
           {children}
         </div>
       ) : null}

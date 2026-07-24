@@ -30,11 +30,11 @@
 - Modify: `docs/design-system/README.md` (§5 — enmienda de ley, mismo commit)
 
 **Interfaces:**
-- Produces: `<FilaIndiceExpandible num encabezado abierta onToggle idPanel>{panel}</FilaIndiceExpandible>` — botón de ancho completo con `aria-expanded`/`aria-controls`, glifo `+/−` `aria-hidden`, panel `anim-fadeup` sangrado a la columna del título, borde inferior en el contenedor. La consumen las secciones del catálogo (Task 2). `FilaIndice` (link, `→`) queda intacta.
+- Produces: `<FilaIndiceExpandible num encabezado abierta onToggle idPanel>{panel}</FilaIndiceExpandible>` — botón de ancho completo con `aria-expanded`/`aria-controls`, glifo `+/−` `aria-hidden`, panel `anim-fadeup-rapido` sangrado a la columna del título, borde inferior en el contenedor. La consumen las secciones del catálogo (Task 2). `FilaIndice` (link, `→`) queda intacta.
 
 - [ ] **Step 1: Tests (fallan primero).** En `primitives.test.tsx`, describe `FilaIndiceExpandible`:
   - cerrada: renderiza `<button>` con `aria-expanded="false"` y `aria-controls="panel-plansal"`; glifo `+` presente; el contenido del panel NO está en el DOM.
-  - abierta (`abierta` true): `aria-expanded="true"`, glifo `−` con clase `text-violeta`, panel con `id="panel-plansal"` y clase `anim-fadeup`, children visibles.
+  - abierta (`abierta` true): `aria-expanded="true"`, glifo `−` con clase `text-violeta`, panel con `id="panel-plansal"` y clase `anim-fadeup-rapido`, children visibles.
   - interacción: click en el botón llama `onToggle` una vez.
   - el glifo está `aria-hidden` (el estado lo anuncia `aria-expanded`).
 
@@ -97,7 +97,7 @@ export function FilaIndiceExpandible({
         </span>
       </button>
       {abierta ? (
-        <div id={idPanel} className="anim-fadeup px-2 pb-6 pl-[76px] max-[560px]:pl-2">
+        <div id={idPanel} className="anim-fadeup-rapido px-2 pb-6 pl-[76px] max-[560px]:pl-2">
           {children}
         </div>
       ) : null}

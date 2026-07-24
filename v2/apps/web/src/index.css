@@ -212,6 +212,9 @@
   .anim-fadeup {
     animation: fadeup 0.7s ease both;
   }
+  .anim-fadeup-rapido {
+    animation: fadeup 0.3s ease both;
+  }
   .anim-stampin {
     animation: stampin 0.4s ease both;
   }
@@ -257,6 +260,7 @@
   .anim-inkfill-claro,
   .anim-vpop,
   .anim-fadeup,
+  .anim-fadeup-rapido,
   .anim-stampin,
   .anim-marquee,
   .anim-blink-cursor,

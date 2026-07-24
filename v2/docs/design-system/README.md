@@ -85,10 +85,10 @@ Fila de índice (listas de planes/ensayos)
 Variante expandible (`FilaIndiceExpandible`): la fila es un `<button>` de ancho
 completo con `aria-expanded`/`aria-controls`; el glifo final alterna `+`
 (cerrada, tinta-50) / `−` (abierta, violeta), `aria-hidden`; el panel se abre
-debajo con `fadeup` .3s, sangrado a la columna del título, y muestra la tesis de
-una línea + «Leer el documento →». Una sola fila abierta por lista; abrir otra
-cierra la anterior. El borde inferior vive en el contenedor (fila + panel
-comparten la junta).
+debajo con `fadeup` rápido (.3s, `.anim-fadeup-rapido`), sangrado a la columna
+del título, y muestra la tesis de una línea + «Leer el documento →». Una sola
+fila abierta por lista; abrir otra cierra la anterior. El borde inferior vive
+en el contenedor (fila + panel comparten la junta).
 
 Papel sobre oscuro (documentos)
 `<div style="background:#F2EFE7;color:#16130E;padding:52px 56px;position:relative;box-shadow:0 24px 60px rgba(0,0,0,0.45);">…</div>` + sello EJEMPLO rotado arriba a la derecha.

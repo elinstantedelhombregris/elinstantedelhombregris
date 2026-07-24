@@ -245,10 +245,11 @@ primera vez que el sitio se vuelve papel de verdad.
 ## Las interacciones firma (presupuesto §6: una por página)
 
 - **`/planes` — el pliegue del expediente.** Tocar una fila la abre: el glifo `+`
-  pasa a `−`, el código se entinta de violeta y el panel cae con `fadeup` (.3s)
-  mostrando la tesis del plan. Una sola fila abierta por vez — el índice se hojea
-  como un expediente, no se despliega como un acordeón de FAQ. Todo lo demás en la
-  página entra con `fadeup` escalonado estándar.
+  pasa a `−`, el código se entinta de violeta y el panel cae con `fadeup` rápido
+  (.3s, `.anim-fadeup-rapido`) mostrando la tesis del plan. Una sola fila abierta
+  por vez — el índice se hojea como un expediente, no se despliega como un
+  acordeón de FAQ. Todo lo demás en la página entra con `fadeup` escalonado
+  estándar.
 - **`/planes/:slug` — el sello que cae.** Al abrir el expediente, el sello EJEMPLO
   cae sobre el papel (`anim-stampin`, el enter de la primitiva). Es el único momento
   de motion propio del lector; el resto es documento quieto.
@@ -300,10 +301,10 @@ está roto y lo ataja el test de canon, no la UI. Sin filtros no hay estado
    > Variante expandible (`FilaIndiceExpandible`): la fila es un `<button>` de ancho
    > completo con `aria-expanded`/`aria-controls`; el glifo final alterna `+`
    > (cerrada, tinta-50) / `−` (abierta, violeta), `aria-hidden`; el panel se abre
-   > debajo con `fadeup` .3s, sangrado a la columna del título, y muestra la tesis de
-   > una línea + «Leer el documento →». Una sola fila abierta por lista; abrir otra
-   > cierra la anterior. El borde inferior vive en el contenedor (fila + panel
-   > comparten la junta).
+   > debajo con `fadeup` rápido (.3s, `.anim-fadeup-rapido`), sangrado a la columna
+   > del título, y muestra la tesis de una línea + «Leer el documento →». Una sola
+   > fila abierta por lista; abrir otra cierra la anterior. El borde inferior vive
+   > en el contenedor (fila + panel comparten la junta).
 
 (Ninguna otra: la edición impresa ya está legislada en §10.8 — esta página solo la
 implementa por primera vez; el sello EXTRAVIADO ya está en el patrón 404 de §5;

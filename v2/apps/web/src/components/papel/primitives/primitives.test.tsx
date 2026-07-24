@@ -162,7 +162,7 @@ describe('FilaIndiceExpandible', () => {
     expect(glifo.className).toMatch(/text-violeta/);
     const panel = screen.getByText('Contenido del pliegue').closest('#panel-plansal');
     expect(panel).not.toBeNull();
-    expect(panel?.className).toMatch(/anim-fadeup/);
+    expect(panel?.className).toMatch(/anim-fadeup-rapido/);
   });
 
   it('interacción: click en el botón llama onToggle una vez', () => {
