@@ -15,7 +15,7 @@ const PRINCIPIOS = [
  */
 export function PapelFooter() {
   return (
-    <footer className="bg-tinta text-papel">
+    <footer className="bg-tinta text-papel print:hidden">
       <div className="mx-auto max-w-[1440px] px-5 pb-10 pt-16 min-[961px]:px-10">
         <div
           aria-hidden

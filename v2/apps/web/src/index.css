@@ -273,3 +273,16 @@
     animation: none !important;
   }
 }
+
+/* Edición impresa §10.8 — la serifa del sistema existe SOLO acá (D1).
+   Primera implementación: el lector de planes (spec 2.4). Cada lector
+   aplica .edicion-impresa a su documento y define su folio. */
+@media print {
+  .edicion-impresa,
+  .edicion-impresa * {
+    font-family: Georgia, 'Times New Roman', serif !important;
+  }
+  .edicion-impresa {
+    box-shadow: none !important;
+  }
+}

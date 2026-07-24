@@ -4,5 +4,5 @@
  * cálido de lejos. Definido en index.css (.paper-grain).
  */
 export function PaperGrain() {
-  return <div aria-hidden className="paper-grain" />;
+  return <div aria-hidden className="paper-grain print:hidden" />;
 }

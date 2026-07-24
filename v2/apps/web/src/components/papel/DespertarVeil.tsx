@@ -11,7 +11,7 @@ export function DespertarVeil() {
     <div
       aria-hidden
       data-testid="despertar-veil"
-      className="bg-oscuro-meta pointer-events-none fixed inset-0 z-[99] mix-blend-saturation transition-opacity duration-[1400ms] ease-out"
+      className="bg-oscuro-meta pointer-events-none fixed inset-0 z-[99] mix-blend-saturation transition-opacity duration-[1400ms] ease-out print:hidden"
       style={{ opacity: despierto ? 0 : 0.6 }}
     />
   );

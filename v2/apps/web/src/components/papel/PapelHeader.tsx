@@ -30,7 +30,7 @@ export function PapelHeader() {
     // El menú móvil vive FUERA del <header>: el backdrop-filter del header lo
     // convertiría en containing block y el overlay fixed quedaría atrapado ahí.
     <>
-      <header className="border-tinta bg-papel/90 sticky top-0 z-50 border-b backdrop-blur-[10px]">
+      <header className="border-tinta bg-papel/90 sticky top-0 z-50 border-b backdrop-blur-[10px] print:hidden">
         <div className="mx-auto flex h-16 max-w-[1440px] items-center justify-between gap-6 px-5 min-[961px]:px-10">
           <Link
             href="/"
