@@ -2,7 +2,7 @@
  * Rutas ya migradas al sistema «Papel y Tinta». A medida que se rediseña
  * cada página se agrega acá; cuando estén todas, el chrome viejo se borra.
  */
-const PAPEL_ROUTES = new Set(['/', '/la-idea', '/el-mapa', '/mandato-vivo', '/planes']);
+const PAPEL_ROUTES = new Set(['/', '/la-idea', '/el-mapa', '/mandato-vivo', '/planes', '/sembrar']);
 
 /**
  * Prefijos papel para rutas dinámicas (los anexos del mandato:

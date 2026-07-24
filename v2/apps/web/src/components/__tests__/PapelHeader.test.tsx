@@ -68,10 +68,7 @@ describe('PapelHeader', () => {
     for (const item of PAPEL_NAV) {
       expect(screen.getByRole('link', { name: item.label })).toHaveAttribute('href', item.href);
     }
-    expect(screen.getByRole('link', { name: 'Sembrar tu voz' })).toHaveAttribute(
-      'href',
-      '/la-semilla-de-basta',
-    );
+    expect(screen.getByRole('link', { name: 'Sembrar tu voz' })).toHaveAttribute('href', '/sembrar');
   });
 
   it('toggles the full-screen mobile menu', () => {

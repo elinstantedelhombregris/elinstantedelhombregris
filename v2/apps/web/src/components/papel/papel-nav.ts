@@ -20,13 +20,13 @@ export const PAPEL_NAV: readonly PapelNavItem[] = [
   { href: '/ensayos', label: 'La biblioteca', num: '05' },
 ];
 
+export const SEMBRAR_HREF = '/sembrar';
+
 export const PAPEL_NAV_ALL: readonly PapelNavItem[] = [
   { href: '/', label: 'Inicio', num: '00' },
   ...PAPEL_NAV,
-  { href: '/la-semilla-de-basta', label: 'Sembrar', num: '06' },
+  { href: SEMBRAR_HREF, label: 'Sembrar', num: '06' },
 ];
-
-export const SEMBRAR_HREF = '/la-semilla-de-basta';
 
 /**
  * Contador FOMO del header: «{N} voces · falta la tuya».

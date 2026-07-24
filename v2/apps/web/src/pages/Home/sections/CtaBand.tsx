@@ -18,7 +18,7 @@ export function CtaBand() {
           <Link href="/el-mapa">Ir al mapa</Link>
         </BotonPapel>
         <BotonPapel asChild variant="fantasma" surface="oscuro" className="px-[30px]">
-          <Link href="/la-semilla-de-basta">Sembrar mi compromiso</Link>
+          <Link href="/sembrar">Sembrar mi compromiso</Link>
         </BotonPapel>
       </div>
     </BandaCta>

@@ -3,6 +3,7 @@ import { Link } from 'wouter';
 import { PLAN_COUNT } from '../landing-data';
 
 import { useCifras, useVocesCount } from '~/lib/queries/analytics';
+import { useSemillasCount } from '~/lib/queries/semillas';
 
 interface CifraTile {
   key: string;
@@ -32,13 +33,15 @@ function CifraValor({ value, isLoading }: { value: number | undefined; isLoading
 
 /**
  * Franja de cifras reales de la plataforma: voces (reusa `useVocesCount`,
- * misma query key que el header), propuestas y señales (`useCifras`,
- * un solo round-trip), y los planes (MDX, siempre reales). Semillas y
- * círculos se retiran acá — vuelven con Sembrar/Fase 5, ya reales.
+ * misma query key que el header), semillas (`useSemillasCount`, vuelta
+ * sancionada por la card 2.0 — Sembrar/2.5), propuestas y señales
+ * (`useCifras`, un solo round-trip), y los planes (MDX, siempre reales).
+ * Círculos se retira acá — no tiene página propia todavía.
  */
 export function CifrasStrip() {
   const vocesQuery = useVocesCount();
   const cifrasQuery = useCifras();
+  const semillasQuery = useSemillasCount();
 
   const tiles: CifraTile[] = [
     {
@@ -47,6 +50,13 @@ export function CifrasStrip() {
       isLoading: vocesQuery.isLoading,
       label: 'voces en el mapa',
       href: '/el-mapa',
+    },
+    {
+      key: 'semillas',
+      value: semillasQuery.data?.total,
+      isLoading: semillasQuery.isLoading,
+      label: 'semillas plantadas',
+      href: '/sembrar',
     },
     {
       key: 'propuestas',
@@ -66,7 +76,7 @@ export function CifrasStrip() {
 
   return (
     <section className="border-tinta bg-papel-crudo border-b">
-      <div className="mx-auto grid max-w-[1440px] grid-cols-4 px-5 max-[960px]:grid-cols-1 min-[961px]:px-10">
+      <div className="mx-auto grid max-w-[1440px] grid-cols-5 px-5 max-[960px]:grid-cols-1 min-[961px]:px-10">
         {tiles.map((t) => (
           <Link
             key={t.key}

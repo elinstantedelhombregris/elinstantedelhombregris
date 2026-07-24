@@ -103,7 +103,7 @@ describe('Home (landing Papel y Tinta)', () => {
     expect(screen.getByRole('link', { name: 'Ir al mapa' })).toHaveAttribute('href', '/el-mapa');
     expect(screen.getByRole('link', { name: 'Sembrar mi compromiso' })).toHaveAttribute(
       'href',
-      '/la-semilla-de-basta',
+      '/sembrar',
     );
   });
 });

@@ -9,6 +9,11 @@ describe('esRutaPapel (spec 2.3, Decisión 10 — PAPEL_ROUTES aprende prefijos)
     expect(esRutaPapel('/el-mapa')).toBe(true);
     expect(esRutaPapel('/mandato-vivo')).toBe(true);
     expect(esRutaPapel('/planes')).toBe(true);
+    expect(esRutaPapel('/sembrar')).toBe(true);
+  });
+
+  it('NO matchea una ruta que solo comparte el prefijo de texto de /sembrar sin la barra (no hay sub-rutas)', () => {
+    expect(esRutaPapel('/sembrarque')).toBe(false);
   });
 
   it('matchea los anexos dinámicos del mandato por prefijo', () => {

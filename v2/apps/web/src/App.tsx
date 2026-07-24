@@ -48,10 +48,6 @@ const LaIdea = lazy(async () => {
   const m = await import('~/pages/LaIdea');
   return { default: m.LaIdea };
 });
-const LaSemillaDeBasta = lazy(async () => {
-  const m = await import('~/pages/LaSemillaDeBasta');
-  return { default: m.LaSemillaDeBasta };
-});
 const Sembrar = lazy(async () => {
   const m = await import('~/pages/Sembrar');
   return { default: m.Sembrar };
@@ -237,7 +233,9 @@ export function App() {
               <Route path="/el-instante-del-hombre-gris">
                 <Redirect to="/la-idea" replace />
               </Route>
-              <Route path="/la-semilla-de-basta" component={LaSemillaDeBasta} />
+              <Route path="/la-semilla-de-basta">
+                <Redirect to="/sembrar" replace />
+              </Route>
               <Route path="/sembrar" component={Sembrar} />
               <Route path="/una-ruta-para-argentina" component={UnaRutaParaArgentina} />
               <Route path="/el-mapa" component={ElMapa} />
