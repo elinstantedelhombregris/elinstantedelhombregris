@@ -20,6 +20,7 @@ import { mandatoRouter } from './features/mandato/routes.js';
 import { notificationsRouter } from './features/notifications/routes.js';
 import { openDataRouter } from './features/open-data/routes.js';
 import { pulsoRouter } from './features/pulso/routes.js';
+import { semillasRouter } from './features/semillas/routes.js';
 import { logger } from './lib/logger.js';
 import { csrfProtect } from './middleware/csrf.js';
 import { errorHandler, notFoundHandler } from './middleware/error-handler.js';
@@ -82,6 +83,7 @@ export function createApp(): Express {
   app.use('/api/analytics', analyticsRouter);
   app.use('/api/gamification', gamificationRouter);
   app.use('/api/mandato', mandatoRouter);
+  app.use('/api/semillas', semillasRouter);
 
   // Tail middleware
   app.use(notFoundHandler());

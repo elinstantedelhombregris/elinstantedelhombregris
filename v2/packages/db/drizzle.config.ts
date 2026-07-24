@@ -37,6 +37,7 @@ export default defineConfig({
     './src/schema/pulso.ts',
     './src/schema/gamification.ts',
     './src/schema/life-areas.ts',
+    './src/schema/semillas.ts',
   ],
   dialect: 'postgresql',
   dbCredentials: { url },

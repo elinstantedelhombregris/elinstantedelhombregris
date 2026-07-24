@@ -40,6 +40,7 @@ const ANON_ALLOWED: { method: string; path: string }[] = [
   { method: 'POST', path: '/api/auth/2fa/verify' },
   { method: 'POST', path: '/api/pulso' },
   { method: 'POST', path: '/api/open-data/dreams' },
+  { method: 'POST', path: '/api/semillas' },
 ];
 
 function isAnonAllowed(method: string, path: string): boolean {

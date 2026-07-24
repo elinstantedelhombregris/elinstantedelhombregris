@@ -24,3 +24,4 @@ export { MandatoRepository } from './mandato.js';
 export { PulsoRepository } from './pulso.js';
 export { GamificationRepository } from './gamification.js';
 export { LifeAreasRepository } from './life-areas.js';
+export { SemillasRepository } from './semillas.js';
