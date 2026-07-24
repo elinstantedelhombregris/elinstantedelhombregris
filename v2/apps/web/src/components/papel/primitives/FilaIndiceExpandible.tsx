@@ -20,7 +20,8 @@ export interface FilaIndiceExpandibleProps {
  * Fila de índice §5, variante expandible +/− (spec 2.4 — la que la ley
  * dejó apuntada). La fila es un botón real de ancho completo; el glifo
  * final alterna + (cerrada, tinta-50) / − (abierta, violeta); el panel
- * entra con fadeup sangrado a la columna del título. El borde inferior
+ * entra con fadeup rápido (.3s, `.anim-fadeup-rapido`) sangrado a la
+ * columna del título. El borde inferior
  * vive en el contenedor: fila y panel comparten la junta.
  */
 export function FilaIndiceExpandible({
@@ -39,13 +40,16 @@ export function FilaIndiceExpandible({
         aria-expanded={abierta}
         aria-controls={idPanel}
         onClick={onToggle}
-        className="hover:bg-papel-presionado grid w-full grid-cols-[56px_1fr_40px] items-baseline gap-5 px-2 py-4 text-left text-tinta transition-colors duration-150 max-[560px]:grid-cols-[44px_1fr_32px]"
+        className="hover:bg-papel-presionado text-tinta grid w-full grid-cols-[56px_1fr_40px] items-baseline gap-5 px-2 py-4 text-left transition-colors duration-150 max-[560px]:grid-cols-[44px_1fr_32px]"
       >
         <span className="font-space text-tinta-30 text-sm">{num}</span>
         <span className="min-w-0">{encabezado}</span>
         <span
           aria-hidden
-          className={cn('font-space justify-self-end text-lg', abierta ? 'text-violeta' : 'text-tinta-50')}
+          className={cn(
+            'font-space justify-self-end text-lg',
+            abierta ? 'text-violeta' : 'text-tinta-50',
+          )}
         >
           {abierta ? '−' : '+'}
         </span>

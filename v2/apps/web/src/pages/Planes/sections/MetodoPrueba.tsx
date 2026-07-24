@@ -1,4 +1,3 @@
-
 import { Link } from 'wouter';
 
 import { PLAN_COUNT } from '../la-prueba-data';

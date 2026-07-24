@@ -144,7 +144,7 @@ describe('FilaIndiceExpandible', () => {
     expect(screen.queryByText('Contenido del pliegue')).not.toBeInTheDocument();
   });
 
-  it('abierta: aria-expanded=true, glifo − violeta, panel con id + anim-fadeup y children visibles', () => {
+  it('abierta: aria-expanded=true, glifo − violeta, panel con id + anim-fadeup-rapido y children visibles', () => {
     render(
       <FilaIndiceExpandible
         num="01"

@@ -12,14 +12,19 @@ describe('Planes (página papel 2.4 — La prueba, composer)', () => {
     expect(
       screen.getByRole('heading', { level: 1, name: 'Esto lo escribió uno solo.' }),
     ).toBeInTheDocument();
-    expect(screen.getByText(`La prueba · ${PLAN_COUNT} planes · un solo autor`)).toBeInTheDocument();
+    expect(
+      screen.getByText(`La prueba · ${PLAN_COUNT} planes · un solo autor`),
+    ).toBeInTheDocument();
   });
 
   it('presenta el callout «No es doctrina» con el link a las voces del mapa', () => {
     render(<Planes />);
 
     expect(screen.getByText(/Nada de esto se firma ni se obedece/)).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: 'voces del mapa' })).toHaveAttribute('href', '/el-mapa');
+    expect(screen.getByRole('link', { name: 'voces del mapa' })).toHaveAttribute(
+      'href',
+      '/el-mapa',
+    );
   });
 
   it('presenta las tres cards de método y el CTA final al mapa', () => {

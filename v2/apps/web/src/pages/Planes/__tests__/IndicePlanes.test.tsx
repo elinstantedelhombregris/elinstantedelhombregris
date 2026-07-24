@@ -72,9 +72,7 @@ describe('IndicePlanes (§2–§3 — el índice de los N + el plan meta)', () =
   it('el encabezado del índice interpola PLAN_COUNT — ningún literal 22 suelto', () => {
     render(<IndicePlanes />);
 
-    expect(
-      screen.getByText(`Los ${PLAN_COUNT} planes · tocá para abrir`),
-    ).toBeInTheDocument();
+    expect(screen.getByText(`Los ${PLAN_COUNT} planes · tocá para abrir`)).toBeInTheDocument();
   });
 
   it('el pie del bloque meta también interpola PLAN_COUNT', () => {

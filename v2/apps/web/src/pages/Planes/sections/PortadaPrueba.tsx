@@ -27,9 +27,9 @@ export function PortadaPrueba() {
       <div className="border-sello anim-fadeup mt-9 flex flex-wrap items-center gap-7 border-2 px-8 py-7">
         <Sello color="rojo">No es doctrina</Sello>
         <p className="text-tinta-90 min-w-[280px] flex-1 text-pretty text-[15px] leading-[1.6]">
-          Nada de esto se firma ni se obedece. Se publica como evidencia: si uno solo pudo
-          diseñar esto, millones diseñan mejor. Leelos para criticarlos, mejorarlos o
-          reemplazarlos — el programa real lo escriben las{' '}
+          Nada de esto se firma ni se obedece. Se publica como evidencia: si uno solo pudo diseñar
+          esto, millones diseñan mejor. Leelos para criticarlos, mejorarlos o reemplazarlos — el
+          programa real lo escriben las{' '}
           <Link href="/el-mapa" className="text-violeta font-semibold">
             voces del mapa
           </Link>

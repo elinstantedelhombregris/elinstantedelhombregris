@@ -7,10 +7,7 @@ export {
 } from './BotonPapel';
 export { ChipTipo, type ChipTipoProps, type TipoVoz } from './ChipTipo';
 export { FilaIndice, type FilaIndiceProps } from './FilaIndice';
-export {
-  FilaIndiceExpandible,
-  type FilaIndiceExpandibleProps,
-} from './FilaIndiceExpandible';
+export { FilaIndiceExpandible, type FilaIndiceExpandibleProps } from './FilaIndiceExpandible';
 export { Kicker, type KickerColor, type KickerProps } from './Kicker';
 export { NotaDemo } from './NotaDemo';
 export { RitoTinta, type RitoTintaProps } from './RitoTinta';

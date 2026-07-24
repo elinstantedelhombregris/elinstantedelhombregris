@@ -17,7 +17,9 @@ export function IndicePlanes() {
       num={num}
       idPanel={`panel-${plan.slug}`}
       abierta={abierto === plan.slug}
-      onToggle={() => { setAbierto(abierto === plan.slug ? null : plan.slug); }}
+      onToggle={() => {
+        setAbierto(abierto === plan.slug ? null : plan.slug);
+      }}
       encabezado={
         <span className="flex flex-wrap items-baseline gap-x-5 gap-y-1">
           <span
