@@ -8,11 +8,20 @@ describe('esRutaPapel (spec 2.3, Decisión 10 — PAPEL_ROUTES aprende prefijos)
     expect(esRutaPapel('/la-idea')).toBe(true);
     expect(esRutaPapel('/el-mapa')).toBe(true);
     expect(esRutaPapel('/mandato-vivo')).toBe(true);
+    expect(esRutaPapel('/planes')).toBe(true);
   });
 
   it('matchea los anexos dinámicos del mandato por prefijo', () => {
     expect(esRutaPapel('/mandato-vivo/pulso/42')).toBe(true);
     expect(esRutaPapel('/mandato-vivo/propuesta/7')).toBe(true);
+  });
+
+  it('matchea los expedientes de planes por prefijo', () => {
+    expect(esRutaPapel('/planes/plansal')).toBe(true);
+  });
+
+  it('NO matchea una ruta que solo comparte el prefijo de texto de /planes sin la barra', () => {
+    expect(esRutaPapel('/planesque')).toBe(false);
   });
 
   it('NO matchea una ruta que solo comparte el prefijo de texto sin la barra', () => {

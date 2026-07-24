@@ -1,8 +1,7 @@
 import { type TipoVoz } from '~/components/papel/primitives';
 import { useVocesRecientes } from '~/lib/queries/analytics';
+import { TIPOS_VOZ } from '~/lib/tipos-voz';
 import { cn } from '~/lib/utils';
-
-const TIPOS_VOZ: readonly TipoVoz[] = ['basta', 'sueño', 'necesidad', 'compromiso', 'recurso', 'valor'];
 
 /** Categorías que no matchean uno de los 6 tipos de voz caen en 'valor' (tinta). */
 function tipoDeCategoria(categoria: string | null): TipoVoz {
