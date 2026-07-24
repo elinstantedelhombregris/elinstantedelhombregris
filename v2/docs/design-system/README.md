@@ -121,6 +121,20 @@ Formularios (kit completo)
 - Toggle: pastilla rectangular sin radius; OFF papel-presionado / ON violeta; etiqueta mono.
 - Requerido: asterisco violeta en la etiqueta mono. Ayuda: mono 10px tinta-50.
 
+Stepper (asistente de pasos)
+- Indicador: fila `display:flex;gap:8px`, un tramo `flex:1;height:4px` por paso —
+  completados y actual en violeta, pendientes `#D8D4C8`, transición
+  `background .3s`; `aria-hidden` (el estado accesible es la línea mono
+  «Paso {n} de {total}»).
+- Card del paso: borde 1px tinta, fondo papel-crudo, padding 40 (24 móvil); línea
+  mono «Paso {n} de {total}» tinta-50 · título del paso en Anton 26–40 · guía
+  15px tinta-50 · UN campo del kit por paso.
+- Navegación: «← Volver» mono (deshabilitado en el paso 1, per Estados) + botón
+  primario a la derecha («Siguiente →»; el último paso lleva el verbo real del
+  acto).
+- Avanzar exige el campo válido; volver nunca pierde lo escrito. No es una barra
+  de progreso (§14): los tramos no miden, ubican.
+
 Búsqueda, filtros y paginación
 - Búsqueda: input mono con prefijo «buscar:» y cursor ▌; resultados en filas de índice.
 - Filtros: chips §5; activo = fondo semántico. Línea de conteo mono: «{n} resultados».
@@ -191,7 +205,7 @@ layout; los componentes compartidos viven en `components/papel/primitives/`.
 4. **Desregistro riso.** En hover de títulos Anton grandes (solo display, nunca cuerpo): `text-shadow: 2px 0 0 rgba(82,39,204,.30), -2px 0 0 rgba(194,59,34,.25)` — como una impresión offset corrida. 150ms, sutil.
 5. **Sellos reactivos.** Toda acción completada del usuario se confirma con un sello que cae (`stampin`): voz soltada → `RECIBIDA` · semilla → `PLANTADA` · manifiesto leído hasta el final → `LEÍDO ENTERO` · documento auditado → `VISTO`. Catálogo cerrado; no inventar sellos por decoración.
 6. **Palitos, no barras.** Números chicos (<100) se cuentan con tally marks (4 palitos + 1 cruzado), dibujados con `semgrow` escalonado. Las barras quedan solo para documentos (mandato). Contar a mano es el data-viz de la marca.
-7. **El despertar.** Velo gris de viewport completo (`mix-blend-mode:saturation`, opacidad .6) que se disuelve en 1.4 s al primer gesto (`despertar()` en `lib/despertar.ts`). Disparadores canónicos: CTA «Dejar mi voz en el mapa», CTA header «Sembrar tu voz», botón «Este es mi instante» (La idea, Cap I), CTA «Dejar mi voz» (La idea, Cap III), primera voz soltada (botón «Soltar la voz», El mapa). Se guarda `localStorage['basta_despierto']='1'`. El sitio entero repite la tesis: gris hasta que actuás.
+7. **El despertar.** Velo gris de viewport completo (`mix-blend-mode:saturation`, opacidad .6) que se disuelve en 1.4 s al primer gesto (`despertar()` en `lib/despertar.ts`). Disparadores canónicos: CTA «Dejar mi voz en el mapa», CTA header «Sembrar tu voz», botón «Este es mi instante» (La idea, Cap I), CTA «Dejar mi voz» (La idea, Cap III), primera voz soltada (botón «Soltar la voz», El mapa), primer paso del asistente de Sembrar («Siguiente →» del paso 1). Se guarda `localStorage['basta_despierto']='1'`. El sitio entero repite la tesis: gris hasta que actuás.
 8. **La edición impresa.** Cada lector (ensayo, crónica, manifiesto, certificado de semilla) imprime perfecto. La edición impresa usa la serifa del sistema (`Georgia, 'Times New Roman', serif`) SOLO en `@media print`. En pantalla nunca hay serifa. Cada lector define `@media print`: sin nav/footer/grano, folio `¡BASTA! · edición del lector · {fecha}`. El sitio es un diario que se puede volver papel.
 9. **Microcopy con voz en los estados mudos.** Vacíos, cargas y errores hablan: «Todavía no hay voces acá. Qué oportunidad.» · «Cargando — menos que un trámite.» · «Esto se rompió. Lo decimos porque publicamos todo.»
 10. **Premio también es rigor:** contraste AA mínimo en todo texto, focus visible violeta de 2px, `prefers-reduced-motion` desactiva inkfill/marquee/pulse (deja estados finales), LCP < 2s (fonts con `display=swap`, cero imágenes pesadas).
