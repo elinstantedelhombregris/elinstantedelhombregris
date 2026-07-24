@@ -52,6 +52,10 @@ const LaSemillaDeBasta = lazy(async () => {
   const m = await import('~/pages/LaSemillaDeBasta');
   return { default: m.LaSemillaDeBasta };
 });
+const Sembrar = lazy(async () => {
+  const m = await import('~/pages/Sembrar');
+  return { default: m.Sembrar };
+});
 const UnaRutaParaArgentina = lazy(async () => {
   const m = await import('~/pages/UnaRutaParaArgentina');
   return { default: m.UnaRutaParaArgentina };
@@ -234,6 +238,7 @@ export function App() {
                 <Redirect to="/la-idea" replace />
               </Route>
               <Route path="/la-semilla-de-basta" component={LaSemillaDeBasta} />
+              <Route path="/sembrar" component={Sembrar} />
               <Route path="/una-ruta-para-argentina" component={UnaRutaParaArgentina} />
               <Route path="/el-mapa" component={ElMapa} />
               <Route path="/detalles-calculo-costo-humano" component={DetallesCalculoCostoHumano} />
